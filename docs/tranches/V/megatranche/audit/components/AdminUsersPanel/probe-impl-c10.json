@@ -1,0 +1,162 @@
+{
+  "chromium": {
+    "nullSlug": {
+      "mainText": "This panel hit an unexpected error. Cannot read properties of null (reading 'length') Try again",
+      "mainMissing": false,
+      "rows": 0,
+      "interactiveRows": 0,
+      "hasAlertBoundary": true,
+      "alertText": "This panel hit an unexpected error.Cannot read properties of null (reading 'length') Try a",
+      "bodyLen": 125,
+      "deleteLabels": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    },
+    "emptySlug": {
+      "mainText": "Users 1 Manage accounts and permissions. 1 user Prune empty Refresh 1 Palettes My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PL",
+      "mainMissing": false,
+      "rows": 1,
+      "interactiveRows": 1,
+      "hasAlertBoundary": false,
+      "alertText": "",
+      "bodyLen": 259,
+      "deleteLabels": [
+        "Sort users",
+        "Delete user "
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    },
+    "negativeCount": {
+      "mainText": "Users 1 Manage accounts and permissions. 1 user Prune empty Refresh neg-coun t-0001 -1 Palettes My Palettes Save, organize, and share your colors. Start a new p",
+      "mainMissing": false,
+      "rows": 1,
+      "interactiveRows": 1,
+      "hasAlertBoundary": false,
+      "alertText": "",
+      "bodyLen": 276,
+      "deleteLabels": [
+        "Sort users",
+        "Delete user neg-count-0001"
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    },
+    "duplicateSlugs": {
+      "mainText": "Users 2 Manage accounts and permissions. 2 users Prune empty Refresh dup e-0001 1 Palettes dup e-0001 2 Palettes My Palettes Save, organize, and share your colo",
+      "mainMissing": false,
+      "rows": 2,
+      "interactiveRows": 2,
+      "hasAlertBoundary": false,
+      "alertText": "",
+      "bodyLen": 293,
+      "deleteLabels": [
+        "Sort users",
+        "Delete user dupe-0001",
+        "Delete user dupe-0001"
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    },
+    "hugeCount": {
+      "mainText": "Users 1 Manage accounts and permissions. 1 user Prune empty Refresh hug e-0001 9007199254740991 Palettes My Palettes Save, organize, and share your colors. Star",
+      "mainMissing": false,
+      "rows": 1,
+      "interactiveRows": 1,
+      "hasAlertBoundary": false,
+      "alertText": "",
+      "bodyLen": 285,
+      "deleteLabels": [
+        "Sort users",
+        "Delete user huge-0001"
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    }
+  },
+  "webkit": {
+    "nullSlug": {
+      "mainText": "This panel hit an unexpected error. null is not an object (evaluating 'slug.length') Try again",
+      "mainMissing": false,
+      "rows": 0,
+      "interactiveRows": 0,
+      "hasAlertBoundary": true,
+      "alertText": "This panel hit an unexpected error.null is not an object (evaluating 'slug.length') Try ag",
+      "bodyLen": 118,
+      "deleteLabels": [],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    },
+    "emptySlug": {
+      "mainText": "Users 1 Manage accounts and permissions. 1 user Prune empty Refresh 1 Palettes My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PL",
+      "mainMissing": false,
+      "rows": 1,
+      "interactiveRows": 1,
+      "hasAlertBoundary": false,
+      "alertText": "",
+      "bodyLen": 253,
+      "deleteLabels": [
+        "Sort users",
+        "Delete user "
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    },
+    "negativeCount": {
+      "mainText": "Users 1 Manage accounts and permissions. 1 user Prune empty Refresh neg-coun t-0001 -1 Palettes My Palettes Save, organize, and share your colors. Start a new p",
+      "mainMissing": false,
+      "rows": 1,
+      "interactiveRows": 1,
+      "hasAlertBoundary": false,
+      "alertText": "",
+      "bodyLen": 270,
+      "deleteLabels": [
+        "Sort users",
+        "Delete user neg-count-0001"
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    },
+    "duplicateSlugs": {
+      "mainText": "Users 2 Manage accounts and permissions. 2 users Prune empty Refresh dup e-0001 1 Palettes dup e-0001 2 Palettes My Palettes Save, organize, and share your colo",
+      "mainMissing": false,
+      "rows": 2,
+      "interactiveRows": 2,
+      "hasAlertBoundary": false,
+      "alertText": "",
+      "bodyLen": 287,
+      "deleteLabels": [
+        "Sort users",
+        "Delete user dupe-0001",
+        "Delete user dupe-0001"
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    },
+    "hugeCount": {
+      "mainText": "Users 1 Manage accounts and permissions. 1 user Prune empty Refresh hug e-0001 9007199254740991 Palettes My Palettes Save, organize, and share your colors. Star",
+      "mainMissing": false,
+      "rows": 1,
+      "interactiveRows": 1,
+      "hasAlertBoundary": false,
+      "alertText": "",
+      "bodyLen": 279,
+      "deleteLabels": [
+        "Sort users",
+        "Delete user huge-0001"
+      ],
+      "pageErrors": [],
+      "consoleErrors": [],
+      "consoleWarnings": []
+    }
+  }
+}

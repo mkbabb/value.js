@@ -1,7 +1,7 @@
 {
  "runId": "wf_e28d617f-9eb",
  "workflow": "area-shell",
- "resultCount": 4,
+ "resultCount": 11,
  "results": [
   {
    "agentId": "aa0bb5ce54e8ce61c",
@@ -345,6 +345,923 @@
     ],
     "strongestDefect": "L-1 — parseCssColor is declared total and failure-explicit but throws TypeError on eight degenerate functional bodies (src/css/grammar.ts:181), and the ONLY thing between that and a user-visible crash is a bare `catch {}` in demo/color-session/useColorParsing.ts:84 which also discards the library's own ParseIssue[] diagnostics. ColorInput.vue SWALLOWS it: typing 'oklch(' then ')' at http://localhost:9000/#/ shows the badge 'not a valid color' and a red border with ZERO page errors and ZERO console errors — indistinguishable from typing 'notacolor'. Of the four new findings this pass contributes, the strongest is L-14: the library privately owns SPACE_SCHEMA / SPACE_IDS / makeColor / isAnyColor (src/color/model.ts:57,76,127,136 — proven absent from dist/subpaths/color.js), which forces buildColor's 22-line 17-arm switch, PICKER_CHANNELS's hand-kept twin of the space registry, and a THIRD home for the CSS-serializable-space set.",
     "negativeProof": "Verdict is DEFECTIVE, but four things on this axis are genuinely SOUND and are recorded so a later seat does not re-derive them. (1) THE DEMO-DOGFOOD KEYSTONE HOLDS AT THIS COMPONENT: every value.js import in ColorInput's cone is a real subpath a real npm consumer could write verbatim — `grep -rn \\\"@mkbabb/value\\\" demo/` yields 50 hits, all of the form @mkbabb/value.js/{color,css,easing,math,quantize}, and `grep -rn \\\"from \\\\\\\".*\\\\.\\\\./src/\\\" demo/` yields 0 matches. No deep dist/ import, no @src edge, no demo/@ alias. (2) THE VITE HALF OF THE SELF-ALIAS CANNOT DRIFT: vite.config.ts:36-49 reads package.json and DERIVES the alias array from #exports at config time; only the hand-written tsconfig.demo.json#paths mirror beside it drifted, so the correct fix is 'delete the mirror', not 'fix both'. (3) THE 'THREE PARALLEL useDark STORES' SUSPECT NAMED IN THE BRIEF IS DEAD: `grep -rn \\\"useDark\\\" demo/` returns exactly 2 hits, BOTH comments (scenes/about/markdown/composables/useMarkdownColors.ts:16 and useMarkdownHighlighting.ts:76 — the very line the brief cites); zero live useDark( call sites remain anywhere in demo/. (4) THE TWO LIBRARY COPIES (prior pass L-5) ARE SEMANTICALLY IDENTICAL AT THIS COMMIT, so that finding is a latent hazard not a live miscompile: `diff <(fold -w120 dist/subpaths/css.js) <(fold -w120 node_modules/@mkbabb/value.js/dist/subpaths/css.js)` shows only minifier symbol-name differences (r as f vs r as ee; var g vs var _), both copies contain the MT-F001 crasher (grep -c 'replace(/,/g' → 3 each) and both throw on oklch(). Also confirmed sound in this component: verbatimModuleSyntax (ColorInput.vue:134 is the only type-only import and is `import type`), Vue 3.5 idioms (useTemplateRef :159, reactive props destructure :138, watch-on-getter :252), and the route's render health (REPORT.json /#/: pageErrors [], overflowX 0, main 1, bodyTextLength 859 on all four Safari matrices; the single console error 'WebGL: context lost.' on safari-desktop-light is unrelated to this component). Separately confirmed LIVE but OUTSIDE this component's cone, for whichever seat owns demo/palettes: the export.ts / export/serializers.ts dual path named in the brief is real — demo/palettes/export.ts (file) and demo/palettes/export/ (directory, 11 modules) coexist."
+   }
+  },
+  {
+   "agentId": "aee790dd0283208f6",
+   "key": "v2:ea6d864e364c522c9b2cef78c0d2bd863c47ab8b3168ee1b3e0d3a05788ded9d",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) under demo/shell/dock/ColorInput.vue",
+    "modelObserved": "Opus 5 (1M context), exact model id claude-opus-5[1m] — the tier explicitly declared at spawn. Declared, not inherited; not a defect.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-colorinput/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1 — MT-F001 is swallowed whole. The library's declared sole failure protocol (ParseResult, ARCHITECTURE.md:245) is converted back into a thrown exception at demo/color-session/picker-color.ts:104-113 (valueOrThrow/parsePickerColor), then caught by a bare un-narrowed `catch {}` at demo/color-session/useColorParsing.ts:88-95, and rendered as one flat \"not a valid color\" badge at ColorInput.vue:87-89. Live in the running app, typing `oklch()` + Enter produces a byte-identical UI and byte-identical (empty) console to the legitimate ok:false control `zzzzz`, while parseCssColor re-imported from the app's own module instance THROWS TypeError. A shipping library crash is structurally unobservable.",
+    "negativeProof": "The premise's \"wrong direction of dependency / a demo import a real consumer could not write\" is FALSE for this component's cone, and that is proven positively. (1) Every value.js specifier in demo/ is a published package.json#exports subpath — `grep -rn \"@mkbabb/value\" demo | grep -oP '@mkbabb/value\\.js[a-z/]*' | sort | uniq -c` → 25 /color, 10 /css, 6 /math, 5 /easing, 4 /quantize, and the single bare hit is prose in demo/shared/utils.ts:12, not an import. Zero `@src/*`, zero deep `src/` reach. (2) All 30 symbols demo/color-session/picker-color.ts imports exist in the published declarations: 25/25 in dist/subpaths/color.d.ts, 5/5 in dist/subpaths/css.d.ts, zero absent. (3) `npx tsc -p tsconfig.demo.json --noEmit --traceResolution` shows every specifier landing on the published dist trust boundary and never on src/ nor on the node_modules twin: /color, /css, /easing, /math, /quantize → /Users/mkbabb/Programming/value.js/dist/subpaths/*.d.ts. /css resolves with no `paths` entry at all, through the repo's own package.json#exports self-reference under moduleResolution:bundler — the correct mechanism. The T.W1 demo-dogfood keystone holds. Also verified sound: verbatimModuleSyntax compliance (ColorInput.vue:134 is the file's only type-only import and is `import type`), idiomatic Vue 3.5 (useTemplateRef line 159, reactive props destructure line 138), and the named brief suspect \"three parallel useDark stores\" is DEAD (grep -rn \"useDark\" demo/ → 2 hits, both comments, zero live call sites).",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "The library's sole failure protocol is destroyed at the demo boundary, and the live MT-F001 TypeError is swallowed indistinguishably from a user typo. picker-color.ts re-throws the Result as an exception; useColorParsing catches it bare; ColorInput renders one flat badge.",
+      "severity": "BLOCKER",
+      "evidence": "src/css/grammar.ts:181 (`splitTopLevel(slash[0]!.replace(/,/g,\" \"), \"space\")` — the `!` is false for an empty body); demo/color-session/picker-color.ts:104-113 (valueOrThrow / parsePickerColor throw); demo/color-session/useColorParsing.ts:88-95 (`} catch { previousInvalid = input; if (!initialParse) flashParseError(); }`); demo/shell/dock/ColorInput.vue:87-89. `grep -n \"instanceof PickerColorError\" demo` → no matches. Authority: docs/tranches/V/ARCHITECTURE.md:245 — \"ParseResult<T> = … is the only parse-failure protocol … never a partial Color or substitute.\" Live probe output: AFTER ENTER {\"text\":\"oklch()\",\"errorBadgeText\":\"not a valid color\",\"errorClass\":true,\"newConsoleErrors\":[],\"newPageErrors\":[]} vs CONTROL zzzzz {\"errorBadgeText\":\"not a valid color\",\"errorClass\":true,\"newConsoleErrors\":[]} — bit-identical. In-graph library probe: \"oklch()\" -> THROWS TypeError: Cannot read properties of undefined (reading 'replace'); \"zzzzz\" -> ok:false + diagnostics.",
+      "mechanism": "A — the failure-explicit contract is inverted at the demo boundary: Result → throw → bare un-narrowed catch → one flat English string. Once re-thrown, the catch cannot discriminate a declared parse failure from a library bug.",
+      "reproduction": "Dev server at http://localhost:9000. Fresh Chromium context, 1440x900. Navigate to /#/, wait 2.5s. Click button[aria-label=\"Toggle action bar\"], then button[aria-label=\"Open color input\"]. Click span.color-input, Meta+A, type `oklch(` then `)`, press Enter. Observe: red badge \"not a valid color\", zero console errors, zero page errors. Repeat with `zzzzz` — identical. Script: /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/CHL-colorinput-probe.mjs. Screenshot: .../scratchpad/CHL-oklch.png. Node-only: `node --input-type=module -e \"import {parseCssColor} from './dist/subpaths/css.js'; parseCssColor('oklch()')\"` → TypeError.",
+      "proposedCure": "Delete the exception channel entirely. `parsePickerColor` returns ParseResult<CssColor> unconverted; useColorParsing consumes it structurally with NO try/catch, so a genuine exception propagates to demo/color-picker/ErrorBoundary.vue where it is visible; `parseError` becomes ShallowRef<readonly ParseIssue[] | null> and ColorInput renders diagnostics[0].code/.expected — the library already carries UTF-16 spans, expected, actual and stable codes (src/css/types.ts:10-23) and the demo throws all of them away. valueOrThrow survives only for total operations. Separately, at the library: src/css/grammar.ts:181 `slash[0] ?? \"\"` so the empty-body path falls out as components.length !== 3 → failure(source). Net deletion, no new abstraction."
+     },
+     {
+      "id": "L-18",
+      "defect": "picker-color.ts re-derives PickerColorIn<S> = Extract<AnyColor,{space:S}> for a type the library already publishes as the generic Color<S>, and pays with an `as unknown as` erasure on the single conversion funnel this component reads. A second cast at line 208 exists because /css ships no isCssColor narrowing predicate.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-session/picker-color.ts:38 (the re-derivation) and :116 (`return valueOrThrow(convertColor(color, space)) as unknown as PickerColorIn<S>;`). The library exports the generic: `grep -oE \"^export declare type [A-Za-z_0-9]+\" dist/subpaths/color.d.ts` includes `export declare type Color`. Standalone tsc probe with the demo's exact options: arm A (Extract<> shape, no cast) → `error TS2322: Type 'Readonly<{ space: S; channels: ChannelsBySpace[S]; alpha: Alpha; }>' is not assignable to type 'PickerColorIn<S>'`; arm B (Color<S>) → no diagnostic. `grep -rn \"PickerColorIn\" demo | wc -l` → 23. `grep -rn \"as unknown as\" demo/color-session/` → exactly one hit, line 116. demo/color-session/ink.ts:6 already imports `type Color` from the library — two spellings of one concept in one directory. `grep -c \"isCssColor\" dist/subpaths/css.d.ts` → 0.",
+      "mechanism": "E — the demo re-derives a surface that is already public, and pays in erased types. Extract<AnyColor,{space:S}> is not provably equal to Color<S> for a generic S (TS cannot distribute the conditional through the unresolved parameter), so the re-derivation forces a cast through `unknown` at the top of the funnel that types convertPickerColor / withChannel / withNormalizedChannel / withAlpha / mapPickerOklabToSrgb — erasing the space↔channel-tuple discriminant for everything ColorInput reads downstream.",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; write a probe .ts containing two functions with the identical body `return valueOrThrow(convertColor(color, space));` — one returning PickerColorIn<S> = Extract<AnyColor,{readonly space:S}>, one returning Color<S> imported from @mkbabb/value.js/color. Run: `npx tsc --ignoreConfig --noEmit --strict --target ES2022 --module ESNext --moduleResolution bundler --verbatimModuleSyntax --lib ES2023,DOM --skipLibCheck <probe>.ts`. Arm A errors TS2322; arm B is clean.",
+      "proposedCure": "Delete PickerColorIn; use the library's exported Color<S> at all 23 sites. The `as unknown as` dies with it — a net deletion, no new abstraction. File `isCssColor(c): c is CssColor` as a /css addendum (E-3, addenda-not-patch), which retires CSS_PICKER_SPACES and the line-208 cast together. Cure jointly with the prior pass's L-14 (export SPACE_SCHEMA/SPACE_IDS/makeColor/isAnyColor): picker-color.ts then loses buildColor's 17-arm switch, both hand-rolled aliases and both casts in one cut."
+     },
+     {
+      "id": "L-19",
+      "defect": "The Vite composition root is a FEATURE directory (demo/color-picker/) while the entire app tree lives one level up at demo/, so 137 of the app's own modules are served through Vite's /@fs/ filesystem-escape route. One source tree, two live URL namespaces — which produced a blocking ENOENT overlay during this audit.",
+      "severity": "MAJOR",
+      "evidence": "vite.config.ts sets `root: \"./demo/color-picker/\"` for both dev and gh-pages. `ls demo/color-picker/` → App.vue, ErrorBoundary.vue, composables/, index.html, public/, router/ only; shell/, color-session/, picker/, palettes/, workbenches/, scenes/, platform/, shared/, styles/, ui/ are all at demo/. Live resource-timing measurement on /#/: {total: 250, viaAtFs: 227, demoModulesViaAtFs: 137, rootRelativeSample: [\"/router/index.ts\",\"/App.vue\",\"/ErrorBoundary.vue\",\"/composables/usePaletteWiring.ts\",...]}. Observed vite-error-overlay text: \"ENOENT: no such file or directory, open '/shell/dock/ColorInput.vue' at getDescriptor (…/@vitejs/plugin-vue/dist/index.mjs:80:72)\" plus 22 sibling `[vite] Failed to reload /@fs/…` console errors including ColorInput's. Authority: docs/tranches/V/ARCHITECTURE.md:9 names the composition root `demo/app/`; :10-11 puts the pre-paint seed at demo/public/; :41 lists `color-picker` as one of eleven ROUTES, not the shell.",
+      "mechanism": "F — the composition root is a feature directory. Because it is also the server root, every non-root module is addressable by two different URL forms (/X.vue resolved against demo/color-picker/, and /@fs/<abs>/demo/X.vue), and any tool that picks the wrong one resolves to a path that has never existed.",
+      "reproduction": "Navigate a browser to http://localhost:9000/#/ and evaluate: `performance.getEntriesByType('resource').map(r=>r.name).filter(n=>n.startsWith('http://localhost:9000/'))` — count entries containing '/@fs/Users/mkbabb/Programming/value.js/demo/' (137 of 250). The ENOENT overlay occurrence was on a long-running dev server (started 10:25AM, probed 13:10) and cleared on hard reload; `git status --porcelain` shows demo/ and src/ clean, so that specific occurrence is a stale-server artefact and is labelled as such — but it is only possible because the two namespaces exist.",
+      "proposedCure": "Rename demo/color-picker/ → demo/app/ and set Vite `root: \"./demo\"`. /@fs/ then disappears from the demo graph entirely, the HMR path ambiguity becomes structurally impossible, and ARCHITECTURE.md:9-33's declared physical tree becomes true as written. This is the only finding in the document whose cure moves no logic at all — a directory rename plus a one-line config change."
+     },
+     {
+      "id": "L-2",
+      "defect": "demo/ui/ is a 19-directory, 18-single-line glass-ui forwarding layer that the tranche's own architecture names and forbids verbatim; ColorInput imports through three of them, and all three forward via the glass-ui ROOT barrel rather than the granular subpaths glass-ui publishes.",
+      "severity": "MAJOR",
+      "evidence": "ColorInput.vue:118-129 imports ../../ui/popover, ../../ui/tooltip, ../../ui/separator; ColorInput.vue:117 imports writeClipboard from the bare \"@mkbabb/glass-ui\" root. `cat demo/ui/popover/index.ts` → `export { Popover, PopoverTrigger, PopoverContent } from \"@mkbabb/glass-ui\";` (one line). Census: 18 of 19 barrels are exactly 1 line, 0 local implementations; alert is 11 lines of which 9 are comment. 87 relative ../ui/* import sites across demo/. 18 of the 36 demo modules importing the bare glass root barrel ARE these shims. Authority: docs/tranches/V/ARCHITECTURE.md:39 — \"There is no `panes/` dumping ground, `demo/@`, TS/Vite project alias, `@src`, or one-line glass-ui forwarding directory.\" glass-ui publishes ./popover ./tooltip ./separator ./dom in its exports map. Measured ESM graph closure: root barrel = 66 modules / 224,193 bytes; {popover,tooltip,separator,dom} = 21 modules / 33,150 bytes; excess 45 modules / 191,043 bytes (6.76x).",
+      "mechanism": "C — a forbidden forwarding layer sits between the component and the design system, and it is coarser than the design system's own published granularity. Edict 2 (no aliases/dual paths) and edict 3 (no wrapper directories) in one object.",
+      "reproduction": "`for d in demo/ui/*/; do wc -l $d/index.ts; grep -c '@mkbabb/glass-ui' $d/index.ts; done` — every barrel is a pure re-export. Graph measurement: walk relative imports from node_modules/@mkbabb/glass-ui/dist/glass-ui.js vs {popover,tooltip,separator,dom}.js summing file sizes (script at .../scratchpad/CHL-graph.mjs).",
+      "proposedCure": "Delete demo/ui/ whole. ColorInput imports `@mkbabb/glass-ui/popover`, `/tooltip`, `/separator`, and `writeClipboard` from `@mkbabb/glass-ui/dom`. demo/shell/dock/index.ts is the same pattern in miniature (a glass-ui re-export line glued to one app component export) and folds into the same cut. Honest caveat: glass-ui declares sideEffects:[\"*.css\"] so the rolldown gh-pages build can shake much of the JS — the 66 modules are real fetches in the dev graph and real bundler work."
+     },
+     {
+      "id": "L-5",
+      "defect": "Split ownership of the colour-name registry: the READ half is owned by a composable, the WRITE half (an HTTP POST plus session acquisition) is inlined into this dock leaf SFC, which is the only SFC anywhere under demo/shell/ that imports an API call. The write never invalidates the read cache, and it breaks the error-voice policy the read half established.",
+      "severity": "MAJOR",
+      "evidence": "ColorInput.vue:132 imports proposeColorName (POST /colors/propose, demo/color-session/color-names.ts:36-44 over platform/transport/client); ColorInput.vue:230-247 runs session.ensureSession(), the mutation, the optimistic clear and `catch (e: any) { console.warn(...) }` inline. Enumeration: `for f in $(find demo/shell -name '*.vue'); do grep -l \"color-names\\|/api/\\|transport/client\" $f; done` → demo/shell/dock/ColorInput.vue ONLY. The reciprocal read is composable-owned: demo/color-session/useCustomColorNames.ts:19 calls getApprovedColorNames() from the same module and owns customNameRegistry/normalizedCustomNames plus findCustomName/getMetadata/reset. That composable's lines 39-52 establish the house rule for this exact API (dev-only console.debug, never warn/error, so the e2e zero-console-error gate holds); ColorInput.vue:243 uses console.warn.",
+      "mechanism": "Ownership split of one semantic concept across two homes with opposite architectural altitudes — a composable for read, a leaf SFC for write. Unique semantic ownership violated; the write path has no access to the read path's cache, so the crown indicator reads stale data after a proposal.",
+      "reproduction": "NONE — static enumeration. The stale-cache consequence is a hypothesis (proposals require moderator approval before entering the approved list, so it may be unobservable in practice); the ownership split and the console.warn policy break are facts at the cited lines.",
+      "proposedCure": "proposeColorName moves behind useCustomColorNames as `propose(name, css)` — the composable already owns registry state and the error-voice policy and can invalidate its own cache. ColorInput calls propose() and renders `proposing`/`error`. The SFC then imports zero transport modules, which is what `shell → color-session / platform / shared` (ARCHITECTURE.md:47) actually means. Drop the `any`."
+     },
+     {
+      "id": "L-6",
+      "defect": "The crown entrance animation is dead by construction: a @keyframes declared inside <style scoped> (hence name-hashed by the SFC compiler) is referenced from an inline style attribute in the template, which the compiler does not rewrite. The animation has never run.",
+      "severity": "MAJOR",
+      "evidence": "ColorInput.vue:37-39 template: `style=\"animation: crown-appear var(--duration-panel) var(--ease-decelerate) forwards;\"`. ColorInput.vue:369-376: `@keyframes crown-appear { ... }` inside <style scoped>. @vue/compiler-sfc compileStyle output: crown-appear emitted as `@keyframes crown-appear-55dadc03`, referenced in scoped CSS as: null. Control in the same file: input-mode-flash emitted as `@keyframes input-mode-flash-55dadc03` AND referenced as `animation: input-mode-flash-55dadc03 ...` — correctly rewritten because it is consumed inside the block. Live in the running app with the input layer mounted: {\"totalKeyframeNames\":54,\"crownNames\":[\"crown-appear-55dadc03\"],\"flashNames\":[\"input-mode-flash-55dadc03\"],\"crownAnimationsRunning\":0} — an element carrying the component's exact declaration returns getAnimations().length === 0. `grep -rn \"crown-appear\" demo/` → only ColorInput.vue:38, ColorInput.vue:369, and demo/DESIGN.md:213 which documents it as a live --duration-panel consumer.",
+      "mechanism": "Wrong home for the keyframe. A keyframe consumed from outside the scoped block is by definition a global keyframe; placing it inside <style scoped> hashes its name out from under its only consumer. Owner edict 6 (animations are never deleted, only moved or tokenized) is violated in effect — the four-stop gold shimmer was deleted by a scoping accident, and demo/DESIGN.md now records a false fact.",
+      "reproduction": "Compile-time: `node -e \"import {parse,compileStyle} from '@vue/compiler-sfc'\" ...` on demo/shell/dock/ColorInput.vue with id 'data-v-55dadc03', scoped true — grep the output for @keyframes and animation: references. Runtime: open http://localhost:9000/#/, click Toggle action bar then Open color input, then evaluate — enumerate CSSRule.KEYFRAMES_RULE names across document.styleSheets (crown-appear absent, crown-appear-55dadc03 present) and create a div with style.animation='crown-appear 550ms ease forwards' → getAnimations().length === 0. Script: .../scratchpad/CHL-probe2.mjs.",
+      "proposedCure": "Move @keyframes crown-appear to demo/styles/ (the global keyframe home per edict 6 and ARCHITECTURE.md:34) and replace the inline style attribute with a class. The keyframe's real scope is global because its consumer is outside the scoped block; making the home match the scope is the whole fix."
+     },
+     {
+      "id": "L-7",
+      "defect": "Dead public surface: a prop threaded through three shell levels that nothing reads, two dead injected bindings, and a five-member defineExpose with zero consumers — one of which is the sole reason the glass-ui root barrel is imported at all.",
+      "severity": "MINOR",
+      "evidence": "`grep -n \"editTarget\" demo/shell/dock/ColorInput.vue` → line 139 only (declared in defineProps, never referenced). It is threaded App.vue → Dock.vue:23 → ActionBarLayer.vue:13 → ColorInput.vue:139 and forces ColorInput.vue:134's `import type { EditTarget }` and ActionBarLayer.vue:118's binding. `grep -n \"cssColorOpaque\"` → line 146 only; `grep -n \"canProposeName\"` → line 150 only — both destructured from inject and never read. defineExpose at ColorInput.vue:282-288 exposes focus, inputIsFocused, copyAndSetInputColor, onSubmitColor, submitProposedName; `for m in copyAndSetInputColor onSubmitColor submitProposedName inputIsFocused; do grep -rn \"$m\" demo | grep -v \"dock/ColorInput.vue\"; done` → no output. ActionBarLayer.vue:28 declares colorInputRef and line 116 binds it; it is never called. copyAndSetInputColor (lines 219-223) is therefore fully dead, and it is the only consumer of writeClipboard (line 117), the root-barrel import in L-2.",
+      "mechanism": "Accreted public surface never garbage-collected. A dead prop propagates upward through every intermediate component's contract; a dead expose keeps a dead import alive.",
+      "reproduction": "NONE — static enumeration, greps pasted above.",
+      "proposedCure": "Delete the editTarget prop (and with it ColorInput.vue:134 and ActionBarLayer.vue:118), the two dead injected bindings, the whole defineExpose block, and ActionBarLayer's colorInputRef. That also removes ColorInput.vue:117's root-barrel import, retiring part of L-2 for free."
+     },
+     {
+      "id": "L-8",
+      "defect": "God-object injection: COLOR_MODEL_KEY provides the entire 35-member useColorPipeline return; ColorInput destructures 10 and uses 8. Every consumer of the key is type-coupled to the whole spine.",
+      "severity": "MINOR",
+      "evidence": "demo/color-session/keys.ts:6 — `export const COLOR_MODEL_KEY: InjectionKey<UseColorPipelineReturn>`. demo/color-session/useColorPipeline.ts:281-332 returns 35 members across 9 comment-delimited groups. ColorInput.vue:143-155 destructures 10 (currentPhysicalColor, cssColor, cssColorOpaque, formattedCurrentColor, currentColorMeta, crownKey, canProposeName, parseAndSetColor, parseAndSetColorDebounced, parseError, updateModel) and reads 8. ParseEchoReadout.vue:28 injects the same key for 2 members. useColorPipeline.ts is 335 lines with 6 delegated sub-composables and its own comment (line 136) cites a self-imposed 400-LoC bound.",
+      "mechanism": "Delegation without narrowing: the sub-composables are real, but the RETURN TYPE re-merges everything into one object, so encapsulation is undone at the published shape. Edict 1 (no god modules; focused modules with real encapsulation).",
+      "reproduction": "NONE — static; member count read directly from useColorPipeline.ts:281-332.",
+      "proposedCure": "Split the injection key by concern: COLOR_STATE_KEY (model + derived), COLOR_PARSE_KEY (parseAndSetColor, parseAndSetColorDebounced, parseError, astEcho, gamutVerdict), COLOR_NAME_KEY (formattedCurrentColor, currentColorMeta, crownKey, canProposeName). ColorInput then injects two. The pipeline composable stays intact; only its published shape narrows — a type-level transposition with zero runtime change."
+     },
+     {
+      "id": "L-9",
+      "defect": "The named historical suspect is alive in this component's direct parent: ActionBarLayer.vue carries a local re-implementation of the retired glass-ui useLayerTransition composable, including a parameter accepted only to match the dead signature.",
+      "severity": "MINOR",
+      "evidence": "demo/shell/dock/layers/ActionBarLayer.vue:62-81 declares `function useLayerTransition(opts: {containerEl; activeLayer})` inside <script setup>, with line 67 `void opts.containerEl; // signature parity with the retired producer composable`. Its own header comment (lines 54-61) states glass-ui folded the behaviour into the DockCrossfade component and that \"a public content-swap composable would retire this local shim\". This is the component that mounts, provides COLOR_MODEL_KEY to (line 22), and props ColorInput (lines 115-121).",
+      "mechanism": "C — a local successor kept alive against a producer capability that moved rather than disappeared. A dead-signature parameter is the tell.",
+      "reproduction": "NONE — static, at the cited lines.",
+      "proposedCure": "Glass-ui-side filing under the standing BH/BI relay invariant: request a public content-swap composable (or the documented DockCrossfade migration path), then delete the local shim. Not a demo-side patch."
+     },
+     {
+      "id": "L-10",
+      "defect": "tsconfig.demo.json paths has drifted off package.json#exports: three dead entries pointing at files that do not exist, two live subpaths with no entry at all, and a comment asserting a key count that is wrong.",
+      "severity": "MINOR",
+      "evidence": "package.json exports (7 keys, no `.` root): ./color ./value ./css ./easing ./math ./transform ./quantize. tsconfig.demo.json value.js paths keys: @mkbabb/value.js, /color, /parsing, /math, /easing, /units, /transform, /quantize. File-existence check: MISSING dist/index.d.ts (target of the bare root), MISSING dist/subpaths/parsing.d.ts, MISSING dist/subpaths/units.d.ts; EXISTS color.d.ts; EXISTS css.d.ts (which has no paths entry). The tsconfig comment block asserts \"the exports map is a CLOSED 8-key set\" — it is a closed 7-key set with different names. demo/shared/utils.ts:12 likewise still cites \"the library's root-barrel export\" for external consumers; there is no root export.",
+      "mechanism": "B — the public surface is described by divergent maps. Harmless today only because moduleResolution:bundler self-references the repo's own package.json#exports (proven by traceResolution), so the phantom entries are never reached.",
+      "reproduction": "`for f in dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts; do [ -f $f ] && echo EXISTS $f || echo MISSING $f; done` → all MISSING. Compare `node -e \"console.log(Object.keys(require('./package.json').exports))\"` against the tsconfig paths keys.",
+      "proposedCure": "Delete the value.js paths block entirely — moduleResolution:bundler already resolves every subpath through the repo's own exports map correctly, as traceResolution proves. That leaves package.json#exports as the single description of the public surface, which is also the cure the prior pass proposed for the vite/vitest alias duplication."
+     },
+     {
+      "id": "L-11",
+      "defect": "The package installs itself: a registry copy of @mkbabb/value.js@4.0.0 is materialised in this repo's own node_modules by keyframes.js's exact hard dependency, directly falsifying the load-bearing 'a package does not install itself' premise both resolution configs are built on. The installed copy carries the identical MT-F001 crash.",
+      "severity": "INFO",
+      "evidence": "`readlink node_modules/@mkbabb/value.js` → nothing; it is a real directory. package-lock.json:1336-1339 → version 4.0.0, resolved https://registry.npmjs.org/@mkbabb/value.js/-/value.js-4.0.0.tgz. Installer: keyframes.js deps {\"@mkbabb/value.js\":\"4.0.0\"} (hard, exact pin); glass-ui declares it peer-only. Falsified comments: vite.config.ts:26-28 \"A package does not install itself…\" and tsconfig.demo.json header \"a package never installs itself…\". Byte comparison: dist/subpaths/css.js checkout=6dfbff9f vs node_modules=0cd5611e DIFFERENT; color.js SAME; css.d.ts checkout=72eb3fbe (12,490 B) vs node_modules=66cb49c5 (10,910 B) DIFFERENT — the checkout's dts-rollup emits a duplicated suffixed type set (Alpha_2, Channel_2, ChannelsBySpace_2, Color_2, SpaceId_2) so CssColor is keyed on Color_2<S>. The installed copy throws identically: `node --input-type=module -e \"import {parseCssColor} from './node_modules/@mkbabb/value.js/dist/subpaths/css.js'; parseCssColor('oklch()')\"` → THROWS Cannot read properties of undefined (reading 'replace').",
+      "mechanism": "B — a stale published twin. Currently dodged: traceResolution proves all five demo specifiers land on the checkout dist, so there is no live type drift on this component's path. Latent, not live.",
+      "reproduction": "`readlink node_modules/@mkbabb/value.js || echo 'real directory'`; `grep -n '\\\"node_modules/@mkbabb/value.js\\\"' -A4 package-lock.json`; `shasum -a1 dist/subpaths/css.d.ts node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts`.",
+      "proposedCure": "Add a package.json#overrides entry pinning @mkbabb/value.js to file:. so the invariant the comments assert becomes actually true; then the four tools (vite, vue-tsc, vitest, node) no longer need to be individually taught to dodge a twin that no longer exists. Separately, fix the dts-rollup de-duplication so the published css.d.ts stops shipping 1,580 bytes of duplicated suffixed declarations. And note that the MT-F001 crash is already distributed to every consumer of keyframes.js@6 — which is the strongest argument for repairing src/css/grammar.ts:181 at the library rather than guarding at the demo."
+     },
+     {
+      "id": "L-12",
+      "defect": "A hand-rolled <button> with no accessible name where the design system owns the primitive, plus per-instance geometry overrides; and a hand-built validation badge where glass-ui ships a feedback mark, whose positioning occludes the input text at dock width.",
+      "severity": "INFO",
+      "evidence": "ColorInput.vue:67-82 — both send-button branches are a bare <button class=\"send-btn btn-interactive\"> wrapping only a Lucide SVG. Live, input layer mounted: \"sendButtons\": [{\"tag\":\"BUTTON\",\"text\":\"\",\"ariaLabel\":null,\"title\":null}] — no accessible name of any kind. Every sibling dock control has one (enumerated live: Toggle action bar, Open color input, Switch to slug, Generate new slug, Cancel, Select view, Save palette, Copy colors, Menu). ColorInput.vue:335-346 declares per-instance position/right/top/padding/border-radius/cursor. glass-ui publishes ./button and ./dock (DockControl); the file's own T.W5-R5 comment (lines 327-334) records that the interaction legs were already retired onto the producer atom, leaving only the element and its geometry behind. The .error-badge (lines 348-366) is hand-built where glass-ui ships FeedbackMark (node_modules/@mkbabb/glass-ui/dist/FeedbackMark-DZq5001h.js); its right:0.5rem placement shares the 2.5rem --input-action-width mask reservation (line 299) with .send-btn at right:0.25rem, so at dock width it occludes the field — visible in .../scratchpad/CHL-oklch.png.",
+      "mechanism": "C — primitives re-declared in the demo instead of composed from the design system (edict 4), with per-instance rather than root-level styling (edict 5).",
+      "reproduction": "Open http://localhost:9000/#/, click Toggle action bar then Open color input, then evaluate `[...document.querySelectorAll('.send-btn')].map(b=>({text:b.innerText.trim(),ariaLabel:b.getAttribute('aria-label'),title:b.getAttribute('title')}))`. Script: .../scratchpad/CHL-probe2.mjs. Note: the mega-tranche visual sweep's namelessButtons:1 on /#/ is a DIFFERENT element — ColorInput is not mounted at rest (document.querySelector('.color-input') → null on a fresh load).",
+      "proposedCure": "Compose DockControl (or glass-ui Button) instead of a raw <button>, which brings the house press/focus/label contract; give it an aria-label ('Apply color' / 'Submit name'). Replace .error-badge with glass-ui's FeedbackMark, and reserve its width in --input-action-width so it cannot occlude the field."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a965313d0d50ba185",
+   "key": "v2:3250551bbaf1d8470687cde027861af2072232e525c6ae1acde5dc9a9c7ba977",
+   "result": {
+    "axis": "CHALLENGE-C — implementation (third independent pass on demo/shell/dock/Dock.vue)",
+    "modelObserved": "Opus 5 — exact id `claude-opus-5[1m]`, the tier declared explicitly at spawn (not inherited, not undeclared).",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-dock/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "C-23 — the dock's slug-login error path is dead in three independent places, so a failed login shows the user nothing at all: (a) `SlugEditLayer.vue` writes `slugError` eight times and renders it zero times; (b) `pm.onSlugSwitch(...)` at SlugEditLayer.vue:54 is not awaited, so the `catch` at :57-62 is unreachable and `slugSwitching` flips true→false in one tick, making the `<Loader2 v-if=\"slugSwitching\">` spinner at :97 unreachable UI; (c) the real handler reports through `slugBarRef.value?.setError(...)` (useSlugMigration.ts:84-87) where `slugBarRef` is never bound to any template ref and `PaletteSlugBar` — the only component with a `setError` and the only one that renders an error — is rendered by nothing in the entire app. A 404/409/429/network failure produces no message, no spinner, no console output. (The component's overall worst defect remains pass-1 C-3, which this pass independently re-confirmed and widened from 1 route to 7 of 15.)",
+    "negativeProof": "Not SOUND — verdict is DEFECTIVE. Recorded so a fourth seat does not re-spend the probes: (1) The boot-time route hijack away from `#/blob` (observed 3/3, looked like C-3 forcing a switchView) is NOT a defect — a history.pushState/replaceState wrapper installed at waitUntil:\"commit\" pinned it to vue-router's `popStateHandler`, i.e. a back-navigation into my own accumulated MCP session history; in fresh browser contexts `#/blob` is stable 6/6 over 4-9s. Method warning: any dock/router probe reusing one MCP page across navigations manufactures this false positive. (2) Inactive dock layers are NOT focus traps — measured ancestor walk shows glass-ui seals them with inert + aria-hidden=\"true\" + visibility:hidden + pointer-events:none; the visual audit counts them only because capture.mjs:83-85 defines visibility as width>0 && height>0. (3) PRM is honoured for the settle beat — animations.css:184-192 forces animation-duration 0.01ms, which neutralises vj-settle and still fires animationend, so Dock.vue:130 still clears the class. (4) `release()` cannot drive the producer hold count negative — glass-ui@7.0.0 dist/dock.js clamps with `g.value = Math.max(0, g.value - 1)`. (5) The usePopupMutex swap did NOT drop both popups at my sampling granularity (~700ms): view-select open, then @mbabb click yields {listboxes:0, menus:1} immediately and still {menus:1} after 600ms — recorded as \"not observed at coarse granularity\", explicitly NOT as a negative proof, since a ~150ms double-open would sit inside my sampling interval.",
+    "defects": [
+     {
+      "id": "C-23",
+      "defect": "The dock's slug-login error path is dead in three independent places: an unrendered `slugError` ref, an un-awaited async dispatch that makes the local catch AND the loading spinner unreachable, and a `setError` sink routed at a template ref that is never bound to a component that is never rendered. A failed login from the dock produces zero user feedback of any kind.",
+      "severity": "MAJOR",
+      "evidence": "demo/shell/dock/layers/SlugEditLayer.vue:13,18,43,49,59,60,61,62 (eight writes to `slugError`) vs zero reads — `grep -rn \"slugError\" demo/` shows the template at :75-119 contains no binding, while the sibling it was cloned from renders it at demo/palettes/browser/slug/PaletteSlugBar.vue:124. SlugEditLayer.vue:54 `pm.onSlugSwitch(...)` has no `await` while useSlugMigration.ts:51 declares it `async`, so the catch at :57-62 cannot fire and `slugSwitching.value = true` (:41) plus `finally { slugSwitching.value = false }` (:63-65) execute in one tick, making `<Loader2 v-if=\"slugSwitching\">` (:97) unreachable. useSlugMigration.ts:84-87 reports via `slugBarRef.value?.setError(...)`; `grep -rn \"slugBarRef\" demo/` returns only the declaration (:30), the four uses, and the return (:121) — no `ref=\"slugBarRef\"` binding exists; `grep -rn \"PaletteSlugBar\" demo/ --include=\"*.vue\"` returns NO matches, so the only component with a `setError` is rendered by nothing. The comment at useSlugMigration.ts:78-82 records this path was repaired once at S.W2 W2-6 — the repair fixed the predicate and left the sink unattached.",
+      "mechanism": "authored error copy that no surface reads — the error sink is dispatched into a ref the producing component does not own, and the async result is discarded at the call site",
+      "reproduction": "Desktop http://localhost:9000/#/ -> @mbabb -> Switch account -> type `zzzz-zzzz-zzzz-zzzz` (well-formed, non-existent slug) -> Enter. The layer closes; no spinner, no error text, no console output, no state change. Identical for a bad admin token, a 429, and a dropped network.",
+      "proposedCure": "The dock owns the input, so the dock must own the outcome: make `onSlugSwitch` RETURN its result (a Promise<void> that rejects, or a Result<…, ApiProblem>) instead of dispatching into a foreign ref; `await` it at SlugEditLayer.vue:54; render the message inside the layer with role=\"status\"/aria-live=\"polite\" so it is announced as well as seen. `slugBarRef`, `setError`, and PaletteSlugBar's unreachable 40-line twin then delete themselves."
+     },
+     {
+      "id": "C-3-WIDENED",
+      "defect": "Independent re-confirmation and widening of pass-1 C-3: the dock's primary navigation control renders with NO label on 7 of the 15 audited routes for any unauthenticated visitor (pass 1 measured one route). The deeper invariant broken is that `viewEntries` is not a superset of the reachable view set, so the reka `<Select>`'s controlled model-value can leave its own option set.",
+      "severity": "MAJOR",
+      "evidence": "Cold load into a FRESH browser context per row, 1440x900, unauthenticated, 1.8s settle, reading `document.querySelector('nav.dock-band [aria-label=\"Select view\"]').textContent`: `#/` -> \"Home\" (gold 0); `#/gradient` -> \"Gradient\" (gold 0); `#/browse` -> \"Browse\" (gold 0); `#/blob` -> \"\" (gold 1); `#/atmosphere` -> \"\" (gold 1); `#/admin/users` -> \"\" (gold 1); `#/admin/tags` -> \"\" (gold 1). Isolated-context control (#/browse, #/blob, #/browse, one fresh context each): [\"Browse\",0] / [\"\",1] / [\"Browse\",0] — deterministic, not state leak. Element screenshots read with vision: on #/blob the control is an orphan droplet glyph + chevron with no name; on #/gradient the same control reads \"Gradient\". Opening the select on #/blob offers [\"Home\",\"Palettes\",\"Browse\",\"Extract\",\"Mix\",\"Generate\",\"Gradient\"] — the current view is absent, so nothing carries aria-selected. Mechanism: useDockAdminMode.ts:34-39 returns adminViews only when `isAdminMode && isAdminAuthenticated`; userViews (:26) omits atmosphere, blob and all five admin-*; DockViewSelect.vue:52 feeds that set `:model-value=\"currentView\"`, so `<SelectValue/>` (:87) resolves nothing.",
+      "mechanism": "a controlled select whose model-value can leave its own option set — the option list is a hand-maintained partition (useDockAdminMode.ts:26-27) rather than a derivation of the route table",
+      "reproduction": "Open a private window at http://localhost:9000/#/blob (or #/atmosphere, or any #/admin/* route). The dock's view control shows an icon and a chevron and no name; clicking it lists seven views, none of which is the current one.",
+      "proposedCure": "Put the user/admin partition on `PaneConfig` in demo/shell/viewSchema.ts (the table that already carries `right`, `label`, `accentHueShift`), derive `viewEntries` as `entries(VIEW_MAP).filter(visibleTo(session))` UNIONED unconditionally with the current view, and make `isAdminMode` a computed over (currentView, auth) rather than a ref with two mutating watchers. The latch, the initialiser/watch disagreement and the blank label all disappear together."
+     },
+     {
+      "id": "C-24",
+      "defect": "`SlugEditLayer.vue` is a verbatim clone of `PaletteSlugBar.vue`'s credential-parsing and submit logic — and `PaletteSlugBar` is rendered by nothing. Two independent parsers of the same user credential, one of them dead.",
+      "severity": "MINOR",
+      "evidence": "demo/shell/dock/layers/SlugEditLayer.vue:25-66 vs demo/palettes/browser/slug/PaletteSlugBar.vue:184-225: `looksLikeSlug`, `normalizeTokenInput` (including the ADMIN_TOKEN= assignment strip and the quote strip) and the whole submit body are duplicated character-for-character apart from two error strings and the dispatch (`pm.onSlugSwitch(...)` vs `emit(\"switchSlug\", ...)`). Both copies carry the same unreachable catch. `grep -rn \"PaletteSlugBar\" demo/ --include=\"*.vue\"` -> no matches; it is re-exported only by demo/palettes/browser/slug/index.ts:3 and demo/palettes/browser/index.ts:44.",
+      "mechanism": "copy-paste fork of a component that was then orphaned, leaving a dual path where one branch is unreachable (edict 2)",
+      "reproduction": "NONE — static, proven by grep and by the absence of any `<PaletteSlugBar` render site.",
+      "proposedCure": "Delete PaletteSlugBar.vue and its two barrel re-exports; hoist `looksLikeSlug`/`normalizeTokenInput` beside the port that consumes them (demo/palettes/useSlugMigration.ts) where they can be unit-tested once."
+     },
+     {
+      "id": "C-25",
+      "defect": "The dock's keep-open watch is not `{ immediate: true }`, so a `Dock` that mounts with `editTarget` already non-null never takes the hold (the dock can auto-collapse mid-edit) and later fires an unpaired `release()`.",
+      "severity": "MINOR",
+      "evidence": "Dock.vue:86-89 — `watch(shouldKeepOpen, (open) => { if (open) dockRef.value?.keepOpen(); else dockRef.value?.release(); })` and `watch(anyEditActive, (active) => { if (active) dockRef.value?.expand?.(); })`, neither immediate. `anyEditActive` is `!!editTarget`, a prop (Dock.vue:31, :73); `:collapse-delay=\"5000\"` at :132. The unpaired release is survivable only because the producer clamps: node_modules/@mkbabb/glass-ui/dist/dock.js release body reads `g.value = Math.max(0, g.value - 1)`. The comment at Dock.vue:78-85 asserts the one-predicate collapse is 'behaviour-equivalent (held <=> any flag true)' — true only over edges observed AFTER mount, which the code does not say.",
+      "mechanism": "a ref-counted external hold driven by a non-immediate watch, so the mount-time value of the predicate is never applied to the counter",
+      "reproduction": "NONE (hypothesis on the mount-time branch — it requires `editTarget` non-null at Dock mount, which the current App shell does not produce). The code-level asymmetry and the clamp dependency are proven by file:line and the pasted producer source.",
+      "proposedCure": "`{ immediate: true }` on both watches. Structurally, combine with pass-1 C-4's derivation (`activeLayer !== \"main\" || isAnyOpen`) so the predicate's domain and its edges are both correct by construction, and drop the masking `?.` from `expand?.()` (the producer unconditionally exposes `expand`)."
+     },
+     {
+      "id": "C-26",
+      "defect": "Two glass-ui composables are forked into `demo/` (one without the required relay note), and one of the forks threads a parameter it explicitly discards purely to match the signature of a function that no longer exists.",
+      "severity": "MINOR",
+      "evidence": "demo/shell/dock/composables/usePopupMutex.ts:1-2 — '`usePopupMutex` was retired upstream from glass-ui at the D-II tranche. Local fork'; no BH/BI relay filed. demo/shell/dock/layers/ActionBarLayer.vue:53-61 re-implements the retired `useLayerTransition` (relay note IS filed at :60-61). ActionBarLayer.vue:67 — `void opts.containerEl; // signature parity with the retired producer composable` — the parameter is typed, threaded from a `useTemplateRef` at :83, passed at :86, bound in the template at :101, and then voided.",
+      "mechanism": "back-compat shim retained against a deleted API (edict 2), plus design-system primitives living in demo/ rather than glass-ui (edict 4)",
+      "reproduction": "NONE — static, file:line.",
+      "proposedCure": "Relay both composables to glass-ui as the design system's own content-swap and single-open-popup primitives; meanwhile narrow the local shim's signature to `{ activeLayer }` and delete `subLayerGridEl`, its `useTemplateRef` and its template binding."
+     },
+     {
+      "id": "C-27",
+      "defect": "Seven uncancelled rAF/timer handles across the dock subtree, sitting one directory away from the same programme's correct idiom.",
+      "severity": "MINOR",
+      "evidence": "grep over demo/shell/dock/ and demo/shell/: Dock.vue:105 (rAF, fires on EVERY view change), ActionBarToggle.vue:60-61 (double rAF), ColorInput.vue:262 (rAF), ColorInput.vue:256 (setTimeout 300ms), ActionButton.vue:95 (setTimeout 400ms), layers/ActionBarLayer.vue:76 (setTimeout cleared on re-entry at :75 but NOT on unmount) — none store a cancellable handle at unmount. Against: demo/shell/PaneSlot.vue:95 stores `raf` and cancels at :89 and :108 (`onBeforeUnmount(() => cancelAnimationFrame(raf))`), and demo/shell/dock/composables/usePopupMutex.ts:82 does the timer equivalent (`onUnmounted(clearSwapTimer)`). The idiom is known in this area and simply not applied in the SFCs.",
+      "mechanism": "the constellation's PRM-RAF pattern — one-shot async work scheduled without an owned handle or a scope-dispose",
+      "reproduction": "NONE for user-visible harm (a post-unmount ref write is inert in Vue); the sites and the asymmetry are proven by the pasted grep output.",
+      "proposedCure": "One focused `useOneShotClass(trigger, className)` composable in demo/shell/dock/composables/ owning requestAnimationFrame / cancelAnimationFrame / onScopeDispose once — Dock.vue, ActionBarToggle.vue and ColorInput.vue are the same beat three times. Five leak sites collapse to one audited one, without adding to a god module."
+     },
+     {
+      "id": "C-28",
+      "defect": "`ActionBarToggle`'s `slotLive` early return makes the watch's re-arm dead code: on a later false->true edge `settled` is never restored by the watch, and the invariant the O-15b oracle asserts is held only by an unacknowledged `transitionend` side channel.",
+      "severity": "INFO",
+      "evidence": "demo/shell/dock/ActionBarToggle.vue:52-68 — `if (slotLive.value) return;` short-circuits after the first `visible === true`, while `settled.value = false` is set on every false edge at :56; the only restorer is `@transitionend.self=\"onSlotSettled\"` (:69-72, bound at :78) setting `settled.value = visible`. That class is exactly what e2e/smoke/oracles/o15-dock-register.spec.ts:74-79 asserts (`is-settled`, then `.action-bar-toggle-inner` computes `overflow: visible`). MEASURED, fresh context 1440x900, in-app hash nav: boot `is-visible is-live is-settled`/overflow visible; #/browse `is-live`/overflow hidden; #/ `is-visible is-live is-settled`/overflow visible; #/admin/users `is-live`/overflow hidden; #/ `is-visible is-live is-settled`/overflow visible — it recovers today.",
+      "mechanism": "a state machine whose stated owner (the watch) is not its actual owner (a DOM transition event), so the invariant holds by luck",
+      "reproduction": "Measured and NEGATIVE at HEAD (the transitionend path restores `is-settled` on every re-entry). Filed as a latent structural defect: any change making the `grid-template-columns` transition a no-op (equal endpoints, `transition: none`, a content-visibility skip) silently pins the clip on and O-15b begins failing far from ActionBarToggle.vue:57.",
+      "proposedCure": "Drop the `slotLive` early return so the watch owns `settled` on both edges, and keep `onSlotSettled` as confirmation rather than as the sole restorer."
+     },
+     {
+      "id": "C-29",
+      "defect": "Test truth: a second vacuous-gate mutation distinct from pass-1 C-9's, plus the structural reason the blank-navigation defect was unreachable from e2e.",
+      "severity": "INFO",
+      "evidence": "Deleting `<SelectValue v-if=\"isDesktop\" />` (demo/shell/dock/DockViewSelect.vue:87) so the navigation never shows a view name on any route keeps the ENTIRE e2e suite green: every locator resolves the control by the explicit `aria-label` on DockTrigger (:68) — page-load.spec.ts:33, a11y-modality-support.spec.ts:128, a11y-web-modality.spec.ts:76, o14-preview-truth.spec.ts:200/240/286, mobile/page-load-mobile.spec.ts:52, fixtures/dock.ts:66 — and nothing asserts what the navigation SAYS. Every view switch goes through `openView(page, name)` (e2e/smoke/fixtures/dock.ts:56-80), which clicks an option IN the list and therefore can never reach a view that is missing from it. The admin routes ARE cold-loaded (admin/admin-walk.spec.ts:27-47, admin/a11y-authed-admin.spec.ts:28-30) but AUTHENTICATED — precisely the branch where the label renders. The one unauthenticated cold load of an affected route (o18-contrast-census.spec.ts:929, /#/atmosphere) only measures contrast, so a blank label removes text from its census and makes it pass more easily. Zero coverage of the C-23/C-24 surface: `grep -rn \"Switch to slug|Generate new slug|enter slug or token\" e2e/ test/` -> no matches; `grep -rln \"useDockAdminMode|usePopupMutex|shell/dock\" test/ demo/test/` -> only status-lamp.test.ts and picker-blob-config.test.ts, neither of which constructs Dock.vue.",
+      "mechanism": "gates that assert on an element's explicitly-supplied accessible name never observe its rendered content, and a navigation fixture that can only reach states already reachable through the control under test",
+      "reproduction": "NONE needed — the mutation is named exactly and the locator inventory is pasted. To confirm: delete DockViewSelect.vue:87 and run the smoke suite.",
+      "proposedCure": "One route-parametrised assertion: for each ViewId, cold-load it UNAUTHENTICATED and assert (i) the view-select trigger's accessible text equals VIEW_MAP[id].label, (ii) the open listbox reports that view aria-selected, (iii) document.querySelectorAll('h1').length === 1. Fifteen rows, one loop — it kills the C-3 and C-8 families rather than their instances."
+     },
+     {
+      "id": "C-30",
+      "defect": "Report integrity: this audit file's own banner advertises a Pass 2 (§6, findings C-15…C-22, including a BLOCKER and a measurement that overturns §3.4) that is not present in the committed file.",
+      "severity": "INFO",
+      "evidence": "`grep -n \"C-15|C-16|C-17|C-18|C-19|C-20|C-21|C-22\" challenge-C-implementation.md` returns only line 5 (the banner's claim) and line 535 (§3.4's forward reference 'OVERTURNED BY PASS 2 — see §6 · C-19'); `grep -n \"^## 6|^# §6\"` returns no matches. Before this pass appended §7 the file was 587 lines and terminated at the Appendix after §5. The document as committed contains 14 findings, not the 22 its banner tallies.",
+      "mechanism": "a summary written ahead of (or surviving the loss of) the body it summarises — a downstream fold trusting the banner counts eight findings nobody can read",
+      "reproduction": "Run the two greps above against the file at HEAD.",
+      "proposedCure": "The fold owner should either recover the Pass-2 body or correct the banner. Not repaired here: inventing or renumbering another seat's findings would be worse than the gap, and pass-3's write scope is this file only."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a1d2b8ed85b1c0c8e",
+   "key": "v2:b1b7b3e470f8b0c3eed7bc41e619dae699f97f206b7e7a5b58ca89cf45464f54",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) under `demo/shell/dock/Dock.vue`",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M-context variant), the tier explicitly declared at spawn. Declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-dock/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "defects": [
+     {
+      "id": "L-30",
+      "defect": "A failed login is completely silent: the slug-edit layer closes as if it succeeded, and there are three independent, redundant reasons no error can reach the user. (1) `SlugEditLayer.vue:54` calls `pm.onSlugSwitch(...)` with no `await` inside a `try`, while `useSlugMigration.ts:51` declares it `async` — the `catch` at :57 is unreachable, and :55-56 close the layer synchronously before the network call resolves. (2) It would not matter: the callee catches everything itself (`useSlugMigration.ts:74-88`) and dispatches onto `slugBarRef.value?.setError(...)`, a permanently-null ref. (3) `slugError` is written at six sites in SlugEditLayer and rendered at zero — the template contains no reference to it. And the substring branches at :59-62 are a verbatim resurrection of the exact bug `useSlugMigration.ts:77-82` records as killed at S.W2 W2-6 (`ApiProblem` does `super(title)`, so `e.message` is the server title and can never contain '409'/'404'/'429').",
+      "severity": "BLOCKER",
+      "evidence": "demo/shell/dock/layers/SlugEditLayer.vue:54 (un-awaited) · :57 (catch) · :59-62 (substring sniff) · :13,18,43,49,59-62 (slugError writes) · `sed -n '74,119p' SlugEditLayer.vue | grep slugError` → no output (never rendered). demo/palettes/useSlugMigration.ts:51 (`async function onSlugSwitch`) · :77-82 (the S.W2 W2-6 ruling comment) · :84-87 (correct typed path, dispatched into null). demo/platform/transport/api-problem.ts:22-33 (`super(title)`). LIVE REPRODUCTION (LDOCK-probe6.mjs, WebKit 1440x900, http://localhost:9000): after filling 'aaaa-bbbb-cccc-dddd' and clicking button[aria-label=\"Switch to slug\"] — `[after submit] inputValue:\"\" layerInert:true layerAriaHidden:\"true\" errorish:[]`, dock still shows 'Login', console tail contains only the two boot lines, no error from the login attempt.",
+      "mechanism": "error channel swallowed three ways: un-awaited async across a component boundary; callee catches into a null instance ref; error state with no template binding — plus a condemned string-sniff re-authored after its cure was recorded",
+      "reproduction": "node LDOCK-probe6.mjs (scratchpad) against the live dev server at http://localhost:9000 — open the dock Login button, fill the slug input, submit; observe layer closes inert+aria-hidden, input cleared, zero error text anywhere in the DOM (`errorish: []`), clean console. The dev server's API is deliberately misconfigured (its own status lamp reads 'dev misconfigured'), so the attempt is guaranteed to fail.",
+      "proposedCure": "`onSlugSwitch` returns its outcome (`Promise<Result<void, ApiProblem>>`) instead of dispatching it onto a component instance; the layer awaits and renders the failure. One contract change removes all three swallows at once — awaiting makes it observable, returning kills the instance-ref channel, rendering kills the dead state. Rides L-6/L-24's move of the session port to `demo/platform/auth/`, so the login surface becomes a function with a typed result rather than a feature-owned side effect."
+     },
+     {
+      "id": "L-31",
+      "defect": "The slug bar exists twice and the DEAD copy owns the error channel. `demo/palettes/browser/slug/PaletteSlugBar.vue` (243 lines) exposes exactly the API `useSlugMigration` calls (`setError`) but is mounted by nothing — only two barrel re-exports reference it. Therefore `slugBarRef` (useSlugMigration.ts:30) is permanently null and the four `setError` calls at :84-87 are guaranteed no-ops. The live implementation (`SlugEditLayer.vue`, 119 lines) sits in the SHELL, exposes `{onStartSlugEdit, onCopySlug, slugSwitching}` with no `setError`, so the two do not even share an interface.",
+      "severity": "MAJOR",
+      "evidence": "`grep -rn \"PaletteSlugBar\" demo/ | grep -v \"useSlugMigration|PaletteSlugBar.vue:\"` → exactly two hits, both barrel re-exports: demo/palettes/browser/index.ts:44 and demo/palettes/browser/slug/index.ts:3. Zero template usages in demo/. demo/palettes/useSlugMigration.ts:30 (`ref<InstanceType<typeof PaletteSlugBar> | null>(null)`), :84-87, :121. demo/palettes/browser/slug/PaletteSlugBar.vue:227 (`function setError`), :236 (`defineExpose({slugEditMode, setError, resetEditMode})`), 243 lines total. demo/shell/dock/layers/SlugEditLayer.vue:72 (`defineExpose({onStartSlugEdit, onCopySlug, slugSwitching})` — no setError).",
+      "mechanism": "ownership duplication with the wrong survivor: a surface was re-authored at the dock and the predecessor was left exported rather than deleted, while the composable kept dispatching to the corpse",
+      "reproduction": "Static, exhaustive by enumeration: `grep -rn \"PaletteSlugBar\" demo/` returns only the component file itself, `useSlugMigration.ts`, and two barrel re-export lines. No `<PaletteSlugBar` appears in any template in the repository.",
+      "proposedCure": "Delete `PaletteSlugBar.vue` and both barrel lines (−243 lines, −2 exports). `SlugEditLayer` becomes the single sign-in surface; its identity-domain helpers (`looksLikeSlug`, `normalizeTokenInput` — the ADMIN_TOKEN= paste normaliser) move to `demo/platform/auth/`. With L-30's typed return, `slugBarRef` and `setError` cease to exist as concepts."
+     },
+     {
+      "id": "L-32",
+      "defect": "The demo's tests have two homes, and the library's vitest root reaches into `demo/`. 10 of the 19 files in `test/` import `../demo/` — including `test/status-lamp.test.ts`, which tests the demo shell module `demo/shell/dock/status-lamp.ts` — while `demo/test/` also exists with 3 files. The library program is deliberately structurally glass-ui-free (inv-K-1, eslint-enforced), but its test root imports the demo, which imports glass-ui.",
+      "severity": "MINOR",
+      "evidence": "`ls test/*.ts | wc -l` → 19; `grep -rln \"\\.\\./demo/\" test/ | wc -l` → 10 (status-lamp, ink, view-accents, preview-chips, slider-announcement, mix-v4, gradient-parse, gradient-v4-consume, image-sampler-v4, value-domain-clamp). `ls demo/test/*/` → demo/test/export/byte-exact.test.ts, demo/test/glass/{aurora-bracket,aurora-motion}.test.ts. demo/shell/dock/status-lamp.ts:28 documents the arrangement. eslint.config.js:204-218 is the inv-K-1 guard that protects the same boundary in src/ but not in test/.",
+      "mechanism": "a location preserved for source-compat with a layout that changed — same shape as L-28",
+      "reproduction": "Static, counted: the two greps above.",
+      "proposedCure": "`test/` holds library tests only; the 10 demo tests move to `demo/test/` beside the two already there, with a second vitest project entry. The inv-K-1 boundary then holds across both programs."
+     },
+     {
+      "id": "L-34",
+      "defect": "The admin partition has a THIRD home and the dock is the dissenter. `demo/color-picker/router/index.ts:30-34` marks `meta: { admin: true }` on exactly the five `/admin/*` routes and NOT on `/atmosphere` or `/blob`; `viewSchema.ts` classifies the same five as admin (accentHueShift 0) and atmosphere/blob as primary (280 deg / 320 deg, per its own stated law at :82-84); `useDockAdminMode.ts:27` alone says seven. Tally across the three owners: 5 / 5 / 7. The route table is also a sixth hand-maintained copy of the ViewId enumeration.",
+      "severity": "INFO",
+      "evidence": "demo/color-picker/router/index.ts:28-34 (atmosphere and blob carry no `meta.admin`; the five admin routes do). demo/shell/viewSchema.ts:82-84 ('The nine primary views are proportioned around the wheel in 40 deg steps in dock order; admin views stay at 0 deg') and the measured hue table: picker 0 / palettes 40 / browse 80 / extract 120 / mix 160 / generate 200 / gradient 240 / atmosphere 280 / blob 320, admin-* all 0. demo/shell/dock/composables/useDockAdminMode.ts:27 (`adminViews` includes atmosphere and blob).",
+      "mechanism": "ownership duplication across three modules with a live semantic disagreement, invisible to the route layer",
+      "reproduction": "Static: `grep -n 'accentHueShift' demo/shell/viewSchema.ts` against `sed -n '21,36p' demo/color-picker/router/index.ts` against `useDockAdminMode.ts:26-27`.",
+      "proposedCure": "Add `group: \"user\" | \"admin\"` to `PaneConfig`; the schema owns it, the router derives `meta.admin` from it, the dock derives `viewEntries` from it, and the 14 route records are generated from `VIEW_MAP` in four lines. Makes L-19's isAdminMode latch unrepresentable rather than fixed."
+     },
+     {
+      "id": "L-33",
+      "defect": "Corroborating dual-home at a suspect the brief named and no prior pass checked: `demo/palettes/export.ts` (132 lines — exportAsJSON / ExportResult / slugify) coexists with `demo/palettes/export/` (12 modules including serializers.ts, json.ts, css.ts, png.ts) and `demo/palettes/usePaletteExport.ts` (27 lines). Two homes for 'palette export'. Out of this component's subject; filed as evidence that the dual-home mechanism is systemic in demo/ rather than particular to the dock.",
+      "severity": "INFO",
+      "evidence": "`wc -l demo/palettes/export.ts demo/palettes/usePaletteExport.ts demo/palettes/export/serializers.ts` → 132 / 27 / 47; `ls demo/palettes/export/` → bytes.ts canonical.ts css.ts digest.ts json.ts png.ts reload.ts rfc8785.ts serializers.ts svg.ts tailwind.ts types.ts; `head -25 demo/palettes/export.ts` shows exportAsJSON authored in the flat module.",
+      "mechanism": "same dual-home pattern as the menu (L-9), the action bar (L-3), the view registry (L-10) and the slug bar (L-31)",
+      "reproduction": "Static: the two listings above.",
+      "proposedCure": "Palettes seat owns the cure: fold `export.ts` + `usePaletteExport.ts` into `export/serializers.ts` and delete the flat module. Cited here only to support L-23's argument that the demo needs physical-tree layer guards, not per-case fixes."
+     },
+     {
+      "id": "L-30b",
+      "defect": "Re-derived independently and CONFIRMED (already filed by prior passes as L-1/L-11/L-6/L-9/L-23/L-8/L-7): the dock's generic action bar silently no-ops on mobile; the dock barrel is the tree's only runtime import cycle; the shell injects identity from the palettes feature; the two dock menus are an 81%-identical fork; the demo's eslint boundary guards match zero files; h1 is 0 tree-wide with an inverted outline; MT-F005 is ColorInput's send-btn. Two of my measurements agreed with the prior pass to the digit.",
+      "severity": "MAJOR",
+      "evidence": "Independent reproductions this pass: LDOCK-probe5.mjs — DESKTOP bodyTextLen 649->711 vs MOBILE 449->449 for the same `button[aria-label=\"Seed from palette\"]` on /#/gradient (App.vue:105,:131 bind `:on-mount` to desktop PaneSlots only; App.vue:83-91 mobile slot has none; usePaneRouter.ts:208 optional-chains the null). LDOCK-graph.mjs — `total runtime cycles: 1` over 250 demo files, it is `demo/shell/dock/index.ts -> Dock.vue -> index.ts`; 31 cross-area edges out of shell/dock (color-session 13, ui 10, palettes 5, platform 3). LDOCK-graph2.mjs — Dock.vue value-closure 65 modules / 251 KB, 39 / 157 KB without the SESSION_PORT_KEY edge (26 modules, 94 KB, incl. the whole admin API surface). Menu fork: GitHub SVG `d` byte-identical (619 chars, ProfileSection.vue:161 == MobileMenuDropdown.vue:95), 73 of 90 distinct non-blank lines shared. `ls -d demo/@` -> No such file or directory; 3 of 4 eslint guard globs match 0 files. `grep -rn '<h1' demo/` -> zero hits.",
+      "mechanism": "convergent confirmation across two independent seats — same defects, independently measured",
+      "reproduction": "LDOCK-probe1..5.mjs, LDOCK-graph.mjs, LDOCK-graph2.mjs in the session scratchpad; all read-only against http://localhost:9000.",
+      "proposedCure": "As already sequenced in the report: L-23 (physical-tree layer guards + import/no-cycle + a meta-test asserting each guard matches a non-zero file count) first, then L-30+L-31, then L-1's command registry, then L-24/L-6's session-port move, then deletion of demo/ui and the dock barrel."
+     }
+    ],
+    "strongestDefect": "L-30 — the silent login failure. It is the only finding in the whole report where a user performs an action, is told nothing, and is wrong about the outcome: the slug-edit layer closes inert+aria-hidden with the input cleared and zero error text anywhere in the DOM (`errorish: []`, reproduced live). Three independent swallows stack — an un-awaited async call across a component boundary makes the dock's catch unreachable; the callee catches into `slugBarRef.value?.setError()` on a permanently-null ref (its component, PaletteSlugBar.vue, is mounted by nothing); and `slugError` has no template binding at all. And the substring branches are a verbatim resurrection of the exact bug `useSlugMigration.ts:77-82` records as killed at S.W2 W2-6. It is cheap to fix (four files, no producer change) and it is the purest instance of the challenge's premise: the concept 'sign in' has two homes, the wrong one survived, and the error contract was left wired to the corpse.",
+    "negativeProof": "Verdict is DEFECTIVE, so this is the sub-axis ledger of what I checked and found SOUND, with positive evidence. (1) THE PUBLISHED-SURFACE AXIS IS CLEAN: every demo import of the library uses a `package.json#exports` subpath a real consumer could write — `grep -rhoE '\\\"@mkbabb/value\\\\.js[^\\\"]*\\\"' demo/` gives color x25, css x10, math x6, easing x5, quantize x4, with zero deep paths, zero `src/` reaches, zero `dist/` paths. The T.W1 dogfood keystone holds. (Caveat filed as prior-pass L-22 and corroborated by me via `tsc --traceResolution`: `@mkbabb/value.js/css` resolves by package SELF-REFERENCE through the exports map, not through the stale `tsconfig.demo.json` `paths` block — latent config drift, not a live break.) (2) THE DOCK ITSELF IMPORTS THE LIBRARY ZERO TIMES — correct for chrome, though it means the component on screen 100% of sessions proves 0% of the public API. (3) THE THREE-PARALLEL-useDark SUSPECT NAMED IN THE BRIEF IS CURED: all 9 live call sites use glass-ui `useGlobalDark`; the only vueuse `useDark` mention left is the historical comment at useMarkdownHighlighting.ts:76-79. (4) `verbatimModuleSyntax` HOLDS across the entire dock subtree — every type-only import carries `import type` or an inline `type` modifier (Dock.vue:22-24, ActionBarLayer.vue:2,5,9, ActionButton.vue:49, GenericActionBar.vue:4, status-lamp.ts:31, useDockAdminMode.ts:4-5, usePopupMutex.ts:4, DockViewSelect.vue:9). (5) THE PRODUCER'S INERT PACKAGING IS CORRECT: inactive dock faces carry `inert` + `aria-hidden=\\\"true\\\"` (measured on the slug input's ancestor `div.dock-face.justify-center`), so the visual audit's 4-per-capture tap-target rows are latent rather than live — real the moment the layer opens, and the harness at capture.mjs:97-105 should exclude `closest('[inert],[aria-hidden=\\\"true\\\"]')`. (6) `main` AND `nav` LANDMARKS ARE CORRECT — main=1, nav=1 on 60/60 captures and live; only the H1 half of W47's `main/H1/active-subtree = 1` gate is red. (7) THE ONE BOUNDARY GUARD THAT STILL MATCHES FILES — inv-K-1 at eslint.config.js:204-218, banning src/ -> glass-ui — protects the one boundary that has never been violated; that correlation is itself the argument for L-23."
+   }
+  },
+  {
+   "agentId": "add7381b01af2aebd",
+   "key": "v2:ddcc978264dc84a269a9d1ae6df8cef7b582ead799b8a4101d159a2f0ac75518",
+   "result": {
+    "axis": "CHALLENGE-C — implementation defects in `demo/shell/dock/ColorInput.vue` (area demo/shell)",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M-context variant), matching the explicit Opus 5 declaration this seat was spawned with. Seat declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-colorinput/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "R2-1 — The send button is structurally incapable of submitting what the user typed. `onInputBlur` (ColorInput.vue:191) overwrites the field's `innerText` with the canonical colour; the UA fires `blur` on mousedown and `click` on mouseup; `onSubmitColor` (:215) then reads the already-overwritten DOM. Measured live: model `rgb(255 0 0)` → user types `rebeccapurple` → after blur the field reads `rgb(255 0 0)` → after the send click the model is still `rgb(255 0 0)`, in 292 ms (far inside the 2000 ms debounce). Every press re-submits the colour that was already active, and the still-armed debounce then applies the typed colour ~2 s later, so the control reads as broken and flaky at once. Round 1 reached this mechanism (its C-9) but labelled it \"reproduction: NONE\" and drew only a display-latency consequence; round 2 supplies the reproduction and escalates it from MAJOR to BLOCKER.",
+    "negativeProof": "Verdict is DEFECTIVE, so no negative is claimed for the component as a whole. The following sub-claims WERE proven negative and are recorded so no future seat re-spends the budget: (1) PRM-RAF epidemic — one single-shot optional-chained rAF at :262, no loop; (2) WebGL — none in this component (the `WebGL: context lost.` console error on /#/ in REPORT.json is the HeroBlob); (3) ValueUnit nesting — the component constructs no colour values, only strings; (4) defineModel stale reads — none present; (5) oklch→HSV hue drift — correctly guarded in useColorParsing.ts:39-46,76-83 with an `s*v > 0.01` powerless gate and last-deliberate-hue retention; (6) reka-ui slider pointer-capture — no slider; (7) verbatimModuleSyntax — the sole type-only import `import type { EditTarget }` (:134) is correctly marked; (8) horizontal overflow — `overflowX: 0` on /#/ in all four capture matrices, the mask-image fade + text-ellipsis contain long values and the mask clears on :focus; that part is careful and right. Also WITHDRAWN: my own hypothesis that the visual census cannot see this component. `capture.mjs:83-86` defines visibility purely as `width>0 && height>0`, and I measured the at-rest field at 233.2×45.9 with its 24×24 button laid out despite the layer being `inert` — so round 1's attribution of REPORT.json's nameless button on /#/ to this component is correct, and the button's exact 24×24 correctly escapes the `w<24||h<24` tap-target filter.",
+    "defects": [
+     {
+      "id": "R2-1",
+      "defect": "The send button can never submit typed text: `onInputBlur` wipes the contenteditable back to the canonical colour, and because the UA moves focus on mousedown but fires click on mouseup, `onSubmitColor` always reads the already-wiped DOM and re-submits the stale colour.",
+      "severity": "BLOCKER",
+      "evidence": "demo/shell/dock/ColorInput.vue:191 (`inputColorRef.value.innerText = formattedCurrentColor.value`) and :215 (`parseAndSetColor(inputColorRef.value.innerText)`). Live measurement: {\"committed\":\"rgb(255 0 0)\",\"typed\":\"rebeccapurple\",\"afterBlur\":\"rgb(255 0 0)\",\"afterSend\":\"rgb(255 0 0)\"} in 292 ms total. Short-circuit that hides it: demo/color-session/useColorParsing.ts:69.",
+      "mechanism": "DOM-as-source-of-truth: a mutable DOM node is both the draft store and the read-back channel, with two handlers writing and reading it in UA-imposed order.",
+      "reproduction": "http://localhost:9000/#/ → dock → 'Toggle action bar' → 'Open color input'. Focus the field, type a new valid colour, click the arrow (send) button within 2 s. Nothing happens; ~2 s later the colour changes anyway.",
+      "proposedCure": "Retire the contenteditable as the source of truth. Hold the draft in a local `shallowRef<string>` written by @input, render from it, and let blur only decide whether to DISCARD the draft — never rewrite a node a pending click is about to read. `onSubmitColor` then reads the ref and the blur/click ordering is irrelevant. This is edict 7's synchronous-local-cache idiom, and it dissolves round 1's C-16 (six imperative innerText writers over three sources of truth) in the same stroke."
+     },
+     {
+      "id": "R2-2",
+      "defect": "The 2000 ms debounced parse is never cancelled by this component — not on blur, Enter, send, mode switch, or unmount (there is no onUnmounted at all) — so an abandoned edit silently overwrites a later, deliberate colour commit, and can mutate the global model after the component is destroyed.",
+      "severity": "BLOCKER",
+      "evidence": "demo/color-session/useColorParsing.ts:92 (`debounce(parseAndSetColor, 2000)`); demo/shared/utils.ts:36-41 (`.cancel()` exists); `grep -rn onUnmounted demo/shell/dock/ColorInput.vue` → no matches; the sibling consumer DOES cancel at demo/picker/ColorPicker.vue:383. Measured with real timers: `C1 committed #abcdef` → `C2 after committing #00ff00 color=rgb(0 255 0)` → `C3 2.3s later, nothing touched color=rgb(255 0 0)`. Unmount path: demo/shell/dock/Dock.vue:153 `v-if=\"hasAnyActionBar\"` and :156 `v-if=\"actionBar\"`.",
+      "mechanism": "A hidden timer owns pending state with no lifetime binding; combined with round 1's C-8 (the debounce is an app-wide singleton), the only `.cancel()` in the application belongs to ColorPicker's lifetime — so this component's pending parse is cancelled by the wrong unmount and by nothing else.",
+      "reproduction": "npx vite-node --config vite.config.ts <scratchpad>/parseprobe2.ts — scenario C. In the app: type a colour into the dock input, blur without committing, immediately pick a different colour by slider/swatch; ~2 s later the colour reverts to the abandoned text.",
+      "proposedCure": "Give the pending commit the component's lifetime and make it visible reactive state rather than a hidden timer: fold the debounce into the draft `shallowRef` of R2-1, cancel on every path that resolves the edit, and add `onBeforeUnmount`. Do not merely add a cancel call — the singleton ownership (C-8) is the same defect seen from the other side."
+     },
+     {
+      "id": "R2-3",
+      "defect": "The field is `contenteditable=\"true\"`, not `plaintext-only`, so a rich paste injects foreign markup and inline styles and physically blows the dock row open; in propose mode it never self-heals because the blur repaint is gated on `!proposeMode`.",
+      "severity": "MAJOR",
+      "evidence": "Live: {\"contenteditableAttr\":\"\\\"\\\"\",\"insertHTMLAccepted\":true,\"innerHTML\":\"<b style=\\\"color:red;font-size:32px\\\">re</b><span style=\\\"background:yellow\\\">d</span>\",\"childElementCount\":2,\"firstChildFontSize\":\"32px\",\"inputHeightPx\":66}. Resting height measured 45.9 px → 66 px, a 44% blow-out. Gate: demo/shell/dock/ColorInput.vue:190.",
+      "mechanism": "An unconstrained rich-text editing host used as a single-line plain-text field; no sanitisation and no paste handler.",
+      "reproduction": "http://localhost:9000/#/ → open the dock colour input → paste a colour value copied from any styled web page (docs table, CSS snippet on a blog). Equivalently, the UA-level operation: select all in the field and run `document.execCommand('insertHTML', false, '<b style=\"font-size:32px\">re</b>d')`.",
+      "proposedCure": "`contenteditable=\"plaintext-only\"` — the exact semantic the component wants, supported by Chrome/Safari/Firefox 125+, removing the sanitisation question entirely rather than adding a paste handler."
+     },
+     {
+      "id": "R2-4",
+      "defect": "A successful name proposal desyncs the field from its own model and never signals the parent: `proposedName` is cleared to \"\" while the visible field is filled with a colour string (programmatic innerText fires no input event), leaving a filled field above a permanently disabled send button; the comment claiming it signals the parent is false — the component declares no emits and the parent's ref is never dereferenced.",
+      "severity": "MAJOR",
+      "evidence": "demo/shell/dock/ColorInput.vue:237-240 (`proposedName.value = \"\"` then `inputColorRef.value.innerText = formattedCurrentColor.value`), the false comment at :238, the disabled binding at :70; no `defineEmits` anywhere in the file; demo/shell/dock/layers/ActionBarLayer.vue:28 declares `colorInputRef` and :116 assigns it, and `grep -rn \"copyAndSetInputColor|onSubmitColor|inputIsFocused\" demo/ | grep -v ColorInput.vue` returns empty — the whole `defineExpose` (:282-288) has no caller.",
+      "mechanism": "Two writers for one piece of state (a ref and a DOM node) reconciled by hand, plus a cross-component intent expressed as a comment instead of an emit.",
+      "reproduction": "NONE end-to-end in this environment — the dev server targets the cross-origin production API and every proposal request is CORS-blocked (console: `[value.js] value.js dev is MISCONFIGURED … every palette request will be blocked`), so the success branch cannot be driven here. The desync itself is deterministic by inspection of :237-240 + :70: setting innerText programmatically cannot fire `input`, therefore `proposedName` cannot be non-empty while the field shows text. The FAILURE branch IS live-reproducible and is silent (only `console.warn` at :243).",
+      "proposedCure": "`const emit = defineEmits<{ proposed: [] }>()` and let the parent own the mode — it already owns `toolbarMode`. Feed the field's text from the same single reactive source as R2-1 so clearing the model clears the field by construction, and route the failure into the same error surface the parse path uses so this component has ONE error channel instead of one visual and one console-only."
+     },
+     {
+      "id": "R2-5",
+      "defect": "The propose-mode flash timer is a hardcoded 300 ms that contradicts the design token driving the animation it gates (`--duration-slow` = 450 ms), truncating the animation at 66.7%; the handle is discarded so rapid toggles let an earlier timer clear a later flash.",
+      "severity": "MINOR",
+      "evidence": "demo/shell/dock/ColorInput.vue:256 `setTimeout(() => { modeTransition.value = false; }, 300)` gating `.color-input-mode-flash { animation: input-mode-flash var(--duration-slow) … }` (:313). Token value pasted from node_modules/@mkbabb/glass-ui/dist/styles/tokens/scheme-motion.css: `--duration-slow: 0.45s`. demo/DESIGN.md:212 names --duration-slow as this animation's token.",
+      "mechanism": "A JS literal duplicating a CSS design token — a second source of truth that drifted.",
+      "reproduction": "Static: 300 < 450 by the two pasted values. Behavioural: toggle propose mode twice inside 300 ms; the first timer clears the flag mid-flight of the second flash.",
+      "proposedCure": "Drive the flash off `animationend`, or read the token via getComputedStyle. Better: express the flash as a CSS transition keyed off a class so no JS timer exists at all."
+     },
+     {
+      "id": "R2-6",
+      "defect": "Three of the file's four component imports route through one-line re-export barrels of the very package the fourth import names directly — migration aliases in violation of the no-legacy edict, with a glass DockSeparator rendered beside a shim-routed Separator in the same dock row.",
+      "severity": "MINOR",
+      "evidence": "demo/shell/dock/ColorInput.vue:117 imports `writeClipboard` from `@mkbabb/glass-ui` directly, while :118-129 import Popover/Tooltip/Separator from `../../ui/*`. `cat demo/ui/popover/index.ts` → `export { Popover, PopoverTrigger, PopoverContent } from \"@mkbabb/glass-ui\";` (tooltip and separator identical, one line each). Sibling: demo/shell/dock/layers/ActionBarLayer.vue:8 imports `@mkbabb/glass-ui/dock` directly.",
+      "mechanism": "Post-migration alias residue: the barrels survived the move of the primitives into glass-ui.",
+      "reproduction": "NONE (structural). Measured scope: 18 such `demo/ui/*/index.ts` shims exist repo-wide and 7 files import `ui/popover`.",
+      "proposedCure": "Systemic, not local: delete the 18 barrels and rewrite consumers to import `@mkbabb/glass-ui` directly. Do NOT patch this one file — that would leave 17 aliases and a split idiom. Route as a sweep."
+     },
+     {
+      "id": "R2-7",
+      "defect": "`oklch(0.5 0.1 250 / )` — an empty alpha after the slash — is ACCEPTED as a valid colour by the parser this component feeds, the false-accept mirror of MT-F001's false non-null assertion on the other side of the same split.",
+      "severity": "MINOR",
+      "evidence": "npx vite-node against @mkbabb/value.js/css: `\"oklch(0.5 0.1 250 / )\" -> OK`. Source: src/css/grammar.ts:180 `const alpha = alphaToken(slash[1]?.trim())` treats \"\" as absent rather than as a syntax error; :181 is the MT-F001 throw site on `slash[0]`.",
+      "mechanism": "`splitTopLevel(body, \"/\")` results are consumed without validating arity: index 0 is asserted non-null (throws) and index 1 is optional-chained into a permissive path (false-accepts).",
+      "reproduction": "npx vite-node --config vite.config.ts <scratchpad>/probe.ts — last row of the output.",
+      "proposedCure": "Not this component's defect — route to the library seat. One repair should cover both halves: validate the arity of the `/` split once and return a typed failure for any shape other than exactly one or two non-empty parts, instead of asserting one index and optional-chaining the other."
+     },
+     {
+      "id": "C-1(carried)",
+      "defect": "A bare, unbound `catch {}` over the parse path renders a live library TypeError byte-identical to a user typo — the mechanism by which MT-F001 has survived in the shipping path with zero console output and zero page errors.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-session/useColorParsing.ts:84-86. Live interceptor result: {\"afterDebounce\":{\"badge\":true,\"badgeText\":\"not a valid color\",\"pageErrors\":[]},\"afterEnter\":{\"badge\":true,\"pageErrors\":[]}}. Library side: `\"oklch()\" -> THROW TypeError Cannot read properties of undefined (reading 'replace')` at src/css/grammar.ts:181. The discarded typed failure is `PickerColorError` with `diagnostics` at demo/color-session/picker-color.ts:112.",
+      "mechanism": "Masking fallback: an over-broad catch swallows an exception class it was never meant to handle and relabels it as domain-valid user error.",
+      "reproduction": "http://localhost:9000/#/ → dock colour input → type `oklch()`. A red 'not a valid color' pill appears for 2 s; window.onerror and unhandledrejection stay empty.",
+      "proposedCure": "Narrow the catch: `catch (e) { if (!(e instanceof PickerColorError)) throw e; … }`. Genuine syntax rejection stays a quiet inline error; anything else reaches window.onerror where MT-F001 would have been caught on day one. Surface the discarded `diagnostics` in the ParseEchoReadout already mounted at ColorInput.vue:109."
+     },
+     {
+      "id": "C-2(carried)",
+      "defect": "`.btn-interactive` is a phantom class: both send buttons declare it and the component's own comment asserts it supplies hover/press/focus/disabled registers, but it is defined nowhere in the repo and in no dependency — so the only submit control has no hover response, no press feedback, no focus ring, and no disabled dimming.",
+      "severity": "MAJOR",
+      "evidence": "demo/shell/dock/ColorInput.vue:69 and :78 carry `class=\"send-btn btn-interactive\"`; the comment at :327-334 documents the retirement. Independently re-verified in round 2: `grep -rn \"\\.btn-interactive\" demo/ src/` → empty; `grep -rl \"btn-interactive\" node_modules/@mkbabb/glass-ui/dist/` → empty (glass-ui 7.0.0). The scoped `.send-btn` block (:335-346) contains only position/right/top/transform/padding/border-radius/cursor plus `:disabled { cursor: not-allowed }`.",
+      "mechanism": "A working bespoke recipe was deleted in favour of a producer atom the producer had already retired — edict 6 (animations never deleted) violated by the very refactor comment that records it.",
+      "reproduction": "The greps above. Behaviourally: in propose mode the disabled send button is visually identical to an enabled one, `cursor: not-allowed` being the sole cue.",
+      "proposedCure": "The interaction legs belong in glass-ui as a real exported atom (edict 4). Until the producer ships it, the seat must not reference a class it cannot resolve, and the deleted working recipe must be restored rather than left dangling. Blast radius beyond this file: demo/palettes/browser/card/CurrentPaletteEditor.vue:75,:78,:100."
+     },
+     {
+      "id": "C-3(carried)",
+      "defect": "The Crown's `crown-appear` animation has never run: it is declared in an inline template `style` attribute, which Vue's scoped-style compiler does not rewrite, while the `@keyframes` it names is renamed by that compiler.",
+      "severity": "MAJOR",
+      "evidence": "demo/shell/dock/ColorInput.vue:38 `animation: crown-appear var(--duration-panel) …` (inline) vs :369 `@keyframes crown-appear` (scoped). Round 2 confirmed by a different instrument than round 1 — a live scan of every same-origin stylesheet returned exactly {\"keyframeNames\":[{\"name\":\"input-mode-flash-55dadc03\"},{\"name\":\"crown-appear-55dadc03\"}]}, i.e. no bare `crown-appear` exists. `grep -rn crown-appear demo/ node_modules/@mkbabb/glass-ui/dist/styles/` finds only the inline reference, the scoped definition, and demo/DESIGN.md:213 documenting it as live. Contrast: `input-mode-flash` is referenced from INSIDE the scoped block (:313) and therefore works.",
+      "mechanism": "Scoped-keyframe renaming applies only to references within the style block; an inline style attribute escapes the rewrite, leaving an animation-name that matches no @keyframes rule — which per CSS Animations applies no animation (and loses `forwards`).",
+      "reproduction": "The stylesheet scan above, run in the live page. Static: the two greps.",
+      "proposedCure": "Move the declaration into the scoped block as a class (`.crown-indicator { animation: … }`) so the compiler rewrites both sides. Adopt the general rule this file violates: never put `animation` in an inline style attribute inside an SFC."
+     },
+     {
+      "id": "C-6+C-7(carried)",
+      "defect": "The error channel is provably silent in two ordinary states: the first invalid input after a cold load raises nothing (the `initialParse` grace is spent by the user's own first attempt), and re-entering the SAME invalid string after the 2 s flash times out raises nothing forever (the `previousInvalid` latch).",
+      "severity": "MAJOR",
+      "evidence": "demo/color-session/useColorParsing.ts:62 (`if (!input || input === previousInvalid) return`), :85-86 (`previousInvalid = input; if (!initialParse) flashParseError()`), :88 (`finally { initialParse = false }`). Measured: `after parseAndSetColor(\"oklch()\") parseError=false` / `after 2nd \"oklch()\" parseError=false`; and `B1 'nope-1' parseError=true` → `B2 after 2.1s parseError=false` → `B3 retry 'nope-1' parseError=false`.",
+      "mechanism": "Error presentation modelled as a fire-and-forget 2 s timer plus a memo of the last bad string, instead of being derived from the last parse attempt.",
+      "reproduction": "npx vite-node --config vite.config.ts <scratchpad>/parseprobe.ts (scenario 1) and <scratchpad>/parseprobe2.ts (scenario B). In the app: type a bad colour, watch the badge time out after 2 s, press Enter again to see what was wrong — absolutely nothing happens.",
+      "proposedCure": "Delete both suppressors. Derive error state as a computed over the last attempt `{ input, ok }`: idempotent, re-announces correctly on retry, and needs no `initialParse` special case because a boot-time parse simply should not travel the user-attempt path at all."
+     },
+     {
+      "id": "C-4+C-5(carried)",
+      "defect": "Accessibility: the only submit control is a nameless 24×24 icon button, and a rejected colour is never announced — no aria-invalid on the field, no role/aria-live on the badge, no aria-describedby linking them; the only help text lives in a hover-triggered popover unreachable by keyboard.",
+      "severity": "MAJOR",
+      "evidence": "Live: {\"btnAria\":{\"label\":null,\"text\":\"\",\"title\":null},\"sendBtn\":{\"w\":24,\"h\":24},\"inputAria\":{\"invalid\":null,\"describedby\":null},\"badgeAria\":{\"role\":null,\"live\":null}}. Source: demo/shell/dock/ColorInput.vue:67-82 (both buttons icon-only), :87 (badge), :4-6 (`trigger=\"hover\"` `:open-delay=\"300\"`). WCAG 4.1.2 Name/Role/Value (A) and 3.3.1 Error Identification (A). The house idiom exists and was skipped — ActionBarLayer.vue:131 computes an aria-label for its sibling control.",
+      "mechanism": "Visual-only state signalling: error is expressed as border colour, box-shadow and a positioned pill, none of which is in the accessibility tree; and the affordance's name is carried only by icon shape.",
+      "reproduction": "http://localhost:9000/#/ → dock → 'Toggle action bar' → 'Open color input', then read the measured attribute snapshot above. A screen reader announces 'button' and says nothing when `oklch()` is rejected.",
+      "proposedCure": "aria-label on both buttons reusing ActionBarLayer.vue:131's label vocabulary; bind `:aria-invalid=\"parseError\"` and `:aria-describedby` to a stable badge id; give the badge `role=\"status\"`; and move the help copy out of a hover-only popover into a persistent describedby target. If the pattern is worth sharing it belongs in glass-ui (edict 4), not in demo/ui."
+     },
+     {
+      "id": "C-12(carried)",
+      "defect": "Vacuous test gate: zero behavioural coverage of this component, plus a docblock asserting unit coverage in a file that does not exist.",
+      "severity": "MAJOR",
+      "evidence": "`grep -rn \"Enter a CSS color\" e2e/` → one hit, e2e/smoke/oracles/o10d-display-voice-census.spec.ts:370, a font-face census that only hovers the field (:367-380). e2e/smoke/flows/color-propose.spec.ts asserts only ActionBarLayer's toggle aria-label. Its docblock at :22-24 claims coverage in `test/parsing/extract.test.ts`; `ls test/parsing/` → `timeline` only, and `grep -rn \"submitProposedName|proposeColorName\" test/ e2e/` returns only that docblock. Lint cannot compensate: eslint.config.js:70 disables no-explicit-any and :153 disables vue/no-unused-vars.",
+      "mechanism": "Tests assert presentation attributes of an element rather than the behaviour of the component that owns it, so the behaviour is unconstrained.",
+      "reproduction": "THE EXACT GREEN-KEEPING MUTATION: delete the entire handler wiring — @keydown, @input, @focus, @blur — and both <button> elements, leaving only the `<span aria-label=\"Enter a CSS color\">` and the Popover. o10d still finds a hoverable span and still reads the popover title; color-propose never touched any of it. A colour input that accepts no input and commits nothing passes the full suite.",
+      "proposedCure": "A component test that drives the real contract: type → assert the model colour changed; type invalid → assert an announced error; type, blur, click send → assert the TYPED value is what commits (this test alone fails today on R2-1). And delete the false coverage claim in color-propose.spec.ts:22-24 — a citation to a non-existent file is worse than no comment, because it tells the next reader to stop looking."
+     },
+     {
+      "id": "C-13(carried)",
+      "defect": "Dead API surface: an unused prop, two unused injections, and a five-member defineExpose no caller dereferences — one member of which also discards a producer contract's failure reason.",
+      "severity": "MINOR",
+      "evidence": "demo/shell/dock/ColorInput.vue:139 (`editTarget` prop, passed at ActionBarLayer.vue:118, never referenced), :146 (`cssColorOpaque`), :150 (`canProposeName`), :282-288 (defineExpose). `grep -rn \"copyAndSetInputColor|onSubmitColor|inputIsFocused\" demo/ | grep -v ColorInput.vue` → empty; ActionBarLayer.vue:28 declares `colorInputRef` and :116 assigns it, but never reads it. Rider: :222 `void writeClipboard(color)` discards a `Promise<CopyResult>` whose own docblock at node_modules/@mkbabb/glass-ui/dist/composables/dom/useClipboard.d.ts:33-37 says the discriminated result exists precisely so callers own their feedback.",
+      "mechanism": "Accreted API kept alive by a template ref that was never wired, invisible to lint because vue/no-unused-vars is disabled.",
+      "reproduction": "The greps above (structural).",
+      "proposedCure": "Delete the prop, both injections, the defineExpose and `copyAndSetInputColor`; drop the now-orphaned `import type { EditTarget }`. If clipboard copy is genuinely wanted, `const { ok } = await writeClipboard(...)` and route the failure into the component's single error channel (see R2-4's cure)."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "ae695a684200a69a9",
+   "key": "v2:5bc8d02b0509a2828e5f02a06d487e86334ff70573001def5b2a5fce76969b11",
+   "result": {
+    "axis": "CHALLENGE-D — design (visual truth, state coverage, motion, design-system boundary, proportion/seat law) of demo/shell/dock/Dock.vue, the persistent shell chrome on every route",
+    "modelObserved": "Opus 5 (1M context) — exact model id `claude-opus-5[1m]`. Served at spawn, declared in the report's Model receipt, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-dock/challenge-D-design.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D2-01 — On mobile the dock's action buttons render, name themselves, take focus, take a click, and do nothing. Clipboard sentinel test on /#/gradient: DESKTOP 1440x900 \"Copy CSS\" → clipboard = `linear-gradient(90deg, oklch(75% 0.15 145deg) 0.00%, oklch(7…`; MOBILE 390x844 same click → clipboard still `SENTINEL-NOT-TOUCHED`, pageErrors=[]. Cause: usePaneRouter.ts:206-208 optional-chains every handler against paneRefs that App.vue:320-327 writes ONLY from the desktop PaneSlot mount callbacks, while the mobile PaneSlot (App.vue:81-89) passes no :on-mount. Optional chaining turns a missing capability into silence.",
+    "negativeProof": "Not SOUND, but these attack lines were run and cleared, and are recorded so the root does not chase them: (1) NO phantom tab stops — inactive .dock-face subtrees are `inert`; measured Chromium tab order at 1440 is `Select view → Toggle action bar → Login → @mbabb → (page)` and every inactive-layer control reports inert:true/tabbable:false (D-dock-probe1/3.mjs); the harness's at-rest sub-24px rows are geometry-only false positives (the real failure is D2-04, in the ACTIVE state). (2) NO horizontal overflow anywhere — REPORT.md horizontalOverflow:0 across 60 captures, STATES.json overflowX:0 across 30 state captures incl. zoom-200 and both RTL matrices; live dock scroller clientW 242 / scrollW 242 at 390. (3) NO page errors — REPORT.md pageErrors:0 (60/60), pageErrors=[] in all 7 probes. (4) Reduced motion is genuinely honoured, not merely CSS-silenced — animations.css:184-192 plus STATES.json rafPer1500ms=0 on all five reduced-motion rows (the render loops actually stop). (5) Owner edict 6 holds — vj-settle is global at demo/styles/animations.css:170, Dock.vue:301-303 holds only the class, and it animates transform only. (6) verbatimModuleSyntax holds — Dock.vue:22-24 are the only type-only imports and all use `import type`. (7) Landmarks correct — main:1, nav:1 on all 60 captures and live, band carries aria-label=\"Application navigation\". (8) Recorded as a GAP not a pass: forced-colors has never actually been verified on this component — the WebKit forcedColors:\"active\" capture is visually indistinguishable from the light capture and states.mjs's own header warns its state rows need ENGINE=chromium.",
+    "defects": [
+     {
+      "id": "D2-01",
+      "defect": "The mobile dock action bar is a row of dead buttons: on /#/gradient, /#/generate and /#/mix the Tools trigger opens an action layer whose buttons are named, sized, focusable and clickable, and every handler is a silent no-op on mobile.",
+      "severity": "BLOCKER",
+      "evidence": "D-dock-probe6.mjs, clipboard pre-seeded with SENTINEL-NOT-TOUCHED then \"Copy CSS\" clicked in the dock action bar on /#/gradient:\nMOBILE 390x844:   clipboard=\"SENTINEL-NOT-TOUCHED\"                                          pageErrors=[]\nDESKTOP 1440x900: clipboard=\"linear-gradient(90deg, oklch(75% 0.15 145deg) 0.00%, oklch(7…\" pageErrors=[]\nBar renders in full at 390 (D-dock-probe5.mjs): slot opacity:1, trigger tabIndex:0 32x32; Back 44x44, Reset 32x32, Copy CSS 32x32, Seed from palette 32x32.",
+      "mechanism": "Desktop-only capability wiring masked by optional chaining. demo/shell/usePaneRouter.ts:206-208 (gradient), :193-196 (generate), :217-220 (mix) call `paneRefs.<view>.value?.<cmd>?.()`. demo/color-picker/App.vue:320-327 writes gradientPaneRef/generatePaneRef/mixPaneRef ONLY inside onDesktopLeftMount/onDesktopRightMount — the file's own comment at :314-316 says \"Populated by the onMount callbacks on the desktop PaneSlots\". The mobile PaneSlot (App.vue:81-89) passes no :on-mount. Violates owner edict 2 (no masking fallbacks) at the highest-cost site.",
+      "reproduction": "node D-dock-probe6.mjs against the live dev server: newContext 390x844 → goto /#/gradient → seed clipboard → click \"Toggle action bar\" → click the button named exactly \"Copy CSS\" → read clipboard. Repeat at 1440x900.",
+      "proposedCure": "Invert the direction of the dependency: the dock must not hold references to pane instances. The pane provide()s a command object keyed by view; the dock injects it. A view that provides no commands renders no Tools trigger; a provided command is live in whichever slot mounted it, by construction. Delete paneRefs, onDesktopLeftMount, onDesktopRightMount and every `?.` on a handler — an action that can be absent must be ABSENT, never present-and-inert."
+     },
+     {
+      "id": "D2-02",
+      "defect": "The Picker's entire action region does not exist on a phone: Copy color, Reset color, Random color, Palettes, Extract palette and Open color input are in the dock on desktop and absent from the whole document on mobile.",
+      "severity": "BLOCKER",
+      "evidence": "D-dock-probe4.mjs, complete button inventory of /#/ at 390x844: hasCopyColor:false hasRandom:false hasReset:false hasOpenColorInput:false actionBarLayerPresent:false; docBtnNames = [\"Save edit\",\"Cancel edit\",\"Switch to slug\",\"Generate new slug\",\"Cancel\",\"Select view\",\"Toggle action bar\",\"Picker\",\"About\",\"Menu\",\"Login\",\"@mbabb\",\"Select color space\",\"l channel\",\"a channel\",\"b channel\",\"alpha channel\"]. Same probe at 1440x900: all four true. D-dock-probe3.mjs·C at 390: slot gridTemplateColumns \"0px\", opacity \"0\", tabIndex -1.",
+      "mechanism": "demo/color-picker/App.vue:38 — `:action-bar=\"colorPickerRef?.actionBarContext ?? null\"`; colorPickerRef is written only at App.vue:322 inside onDesktopLeftMount. The `?? null` masks \"the mobile slot never registered\" as \"this view has no actions\". Breaks VISUAL-CONSTITUTION §7·Picker (\"Copy lives once in the action region\") and §3 law 6 (mobile is a stage→inspector→ACTION sequence beneath the same top dock).",
+      "reproduction": "node D-dock-probe4.mjs — enumerate every button/[role=button]/a accessible name in the document at 390x844 on /#/ and grep for /copy color|random color|reset color|open color input/i; then repeat at 1440x900.",
+      "proposedCure": "Same inversion as D2-01. The Picker publishes its command set through provide(); the dock injects. Deletes the `?? null` mask, the desktop-only ref, and the whole desktop/mobile capability fork in App.vue at once."
+     },
+     {
+      "id": "D2-03",
+      "defect": "Two contradictory isDesktop predicates (plus two more Tailwind/media forks) — at 1024x1366 portrait the dock renders the MOBILE pane switcher and the DESKTOP profile block simultaneously, with no ⋮ menu and no Tools.",
+      "severity": "BLOCKER",
+      "evidence": "D-dock-probe3.mjs·A at 1024x1366: dataLayout:\"mobile\" (App.vue, aspect-aware) / panesDisplay:\"block\" / profileDisplay:\"flex\" / mobileMenuDisplay:\"none\" / toolsLabelPresent:true / selectValuePresent:true. Rendered proof scratchpad/D-tablet-portrait.png shows one pill: [🏠 Home ⌄] [ Picker | About ] | [→] Login | [@mbabb]. Predicates: App.vue:310-312 `(min-width:1024px) and (min-aspect-ratio:1.1)`; Dock.vue:71 `(min-width:1024px)` width-only; ProfileSection.vue:48 / MobileMenuDropdown.vue:38 Tailwind `lg:` width-only; PaneSegmentedControl.vue:46 `@media (max-width:639px)`.",
+      "mechanism": "demo/styles/shell.css:98-112 documents that the data-layout stamp exists so the two witnesses \"can never disagree\" and warns that a media wrapper \"would re-introduce the width-only disagreement the stamp exists to retire\" — Dock.vue:71 re-introduces exactly that predicate. Four authorings of one responsive boundary at three thresholds, so they disagree by construction on portrait tablets. Violates VISUAL-CONSTITUTION §3 law 7 (no breakpoint pile).",
+      "reproduction": "node D-dock-probe3.mjs (matrix A) — newContext 1024x1366 → goto /#/ → read app-layout[data-layout], computed display of .dock-mobile-panes, of the ProfileSection `hidden lg:flex` wrapper and of the MobileMenuDropdown `lg:hidden` wrapper, plus presence of the Tools label and SelectValue.",
+      "proposedCure": "One predicate, one owner. App.vue already owns the truth; the dock consumes it via a single useLayoutMode() composable (or reads data-layout), and every lg:/sm: utility in the dock subtree is replaced by that one attribute selector at the root. Delete Dock.vue:71 and the 639px media block in PaneSegmentedControl.vue."
+     },
+     {
+      "id": "D2-04",
+      "defect": "CORRECTION TO r1: three operable 22x22 controls and an unlabelled 160x23 input in the slug-edit layer are real WCAG 2.2 failures (SC 2.5.8 target size, SC 3.3.2 labels), not measurement artifacts — r1 ruled MT-F004 'not real' by measuring only the at-rest inert state.",
+      "severity": "MAJOR",
+      "evidence": "D-dock-probe3.mjs·B2, slug layer ACTIVATED by clicking Login at 1440x900: slug input 160x23 inert:false tabbable:true accessibleName \"(NONE — placeholder only)\"; \"Switch to slug\" 22x22 inert:false tabbable:true; \"Generate new slug\" 22x22 inert:false tabbable:true; \"Cancel\" 22x22 inert:false tabbable:true. Rendered: scratchpad/D-desk-slugedit.png — the placeholder is clipped mid-word to \"enter slug or to\".",
+      "mechanism": "SlugEditLayer.vue:91-118 applies glass-ui's `compact` register (a ~22px sticker seat for secondary glyphs) to primary form controls, and SlugEditLayer.vue:81-87 gives the input a magic w-40 (160px) with a placeholder and no label. Root cause is housing: a login form lives inside the navigation pill, so it must shrink to fit — VISUAL-CONSTITUTION §7·Account already rules Account is a modal side Dialog opened FROM the dock, not a layer inside it.",
+      "reproduction": "node D-dock-probe3.mjs (matrix B2) — 1440x900, goto /#/, click the button named \"Login\", then enumerate nav interactives with rect + `!!el.closest('[inert]')` + tabIndex, and read input.labels/aria-label.",
+      "proposedCure": "Move the slug/auth flow out of the band into the Account Dialog §7 already specifies. That single move deletes the slug layer, the three 22x22 controls, the unlabelled 160px input and the 162px dock width jump (D2-10) together. If it must stay meanwhile: drop `compact`, add a real label, size from content measure."
+     },
+     {
+      "id": "D2-05",
+      "defect": "MT-F005 root-caused and enumerated: the one nameless desktop button is ColorInput.vue's send-btn, unnamed on BOTH template branches, and its route pattern fits exactly the views whose left pane is color-picker.",
+      "severity": "MAJOR",
+      "evidence": "D-dock-probe1.mjs nameless[] = [{path: \"…div.dock-face > … > button.send-btn.btn-interactive\", rect:[24,24], visibility:\"hidden\", inNav:true, html:\"<button class=\\\"send-btn btn-interactive\\\"><svg …\"}]. Source: demo/shell/dock/ColorInput.vue:67-75 (propose branch) and :76-82 (submit branch) — neither carries aria-label. REPORT.md nameless=1 on /, /palettes, /mix, /blob, /does-not-exist and 0 on /browse, /extract, /generate, /atmosphere, /admin/* — exactly the VIEW_MAP entries with left:\"color-picker\" (viewSchema.ts), /does-not-exist redirecting to picker.",
+      "mechanism": "Icon-only button with no accessible name, in a face the dock mounts only for color-picker-left routes. The 'zero on mobile' half is not a hidden-layer artifact — on mobile the color-input face is never provided at all (D2-02), so the button is never rendered.",
+      "reproduction": "node D-dock-probe1.mjs at 1440x900 on /#/ — collect button/[role=button] with rect>0 and no aria-label/aria-labelledby/textContent, print DOM path and outerHTML head. Cross-check REPORT.json namelessButtons per route against VIEW_MAP `left`.",
+      "proposedCure": "aria-label on both branches ('Apply color' / 'Submit name'), and fold the propose/submit duplication into one button whose label and handler derive from proposeMode — two nearly identical buttons differing by one v-if is the reason one of them got a label review and the other did not. The mobile half closes with D2-02's inversion."
+     },
+     {
+      "id": "D2-06",
+      "defect": "Dark mode annihilates the dock accent — chroma 0.188 → 0.021 (−89%) — destroying both the nine-view hue identity and the only visual distinction between the primary auth action and the vanity wordmark; and on the default route --accent-view IS --accent-live bit-for-bit, so the 'two dock voices' design is degenerate exactly where a first-time user meets it.",
+      "severity": "MAJOR",
+      "evidence": "D-dock-probe4.mjs computed root values: light --accent-view = oklch(0.471189 0.188448 9.83402) (C 0.188); dark --accent-view = oklch(0.958322 0.0210531 9.83402) (C 0.021, L 0.958). Same probe: --accent-live light = oklch(47.118925176164% 0.188447570516 9.83402284231deg) — identical to --accent-view (viewSchema.ts picker accentHueShift:0). Rendered: scratchpad/D-dock-light.png (Login = crimson bold text in a crimson-bordered pill) vs scratchpad/D-dock-dark.png (Login and @mbabb are two identical dark slabs with white text).",
+      "mechanism": "useViewAccents resolves each view token through a gamut-map + WCAG-3:1 contrast re-guard; in the dark scheme the guard drives L to 0.958 and collapses C to 0.021, so hue becomes imperceptible. DockViewSelect.vue:40-42 already excised the per-row hue legend for carrying 'near-zero discriminative information' and then kept the identical mechanism on the trigger, ring and seal ('R1 SURVIVES', line 47) — the survivor now carries strictly less information than the deleted one.",
+      "reproduction": "node D-dock-probe4.mjs — two contexts colorScheme light/dark at 1440x900 on /#/, read getComputedStyle(documentElement) --accent-view/--accent-live and the computed color of .view-select-trigger svg, .dock-tools-btn svg/span and the Login button's color/borderColor.",
+      "proposedCure": "Stop encoding view identity as hue. Dock.vue:255-262 already argues the glyph is the stronger continuity carrier ('the same view icon exists at both morph endpoints… a stronger continuity read than a 1px rim') — finish that argument, delete accentHueShift and the --accent-view-<id> token family, and give the auth action its primacy through the design system's own primary-button variant, which is scheme-stable."
+     },
+     {
+      "id": "D2-07",
+      "defect": "RTL: the @mbabb wordmark bidi-reorders to `mbabb@`, and the dock's two directional affordances (Tools ArrowRight / Back ArrowLeft) do not mirror, so the enter/exit motif is inverted wholesale.",
+      "severity": "MAJOR",
+      "evidence": "docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop/picker.png — the dock renders `mbabb@ | ← Login | → Tools 🖌 | 🏠 Home ⌄`; shots/rtl-mobile/picker.png shows the same wordmark break. Sources: ProfileSection.vue:140 (@mbabb text, no bidi isolation), ActionBarToggle.vue:103 (ArrowRight), Dock.vue:154 (ArrowLeft, 'Back'). VISUAL-CONSTITUTION §6.1: 'CSS strings, hex, slugs, IDs and provenance render in LTR-isolated spans inside RTL prose'; 'chrome, navigation and layout follow logical inline/block direction'.",
+      "mechanism": "A handle beginning with '@' is a neutral-then-Latin run; in an RTL paragraph direction the neutral leading '@' resolves to the right of the Latin run. No dir=\"ltr\"/unicode-bidi:isolate wrapper. Separately, the layer-swap affordance is drawn with physical arrow glyphs while its meaning ('forward into the layer' / 'back out') is logical.",
+      "reproduction": "Open docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop/picker.png and read the dock band; or re-run states.mjs matrix rtl-desktop (documentElement.setAttribute('dir','rtl') post-load, per its MT-F022 fix #1).",
+      "proposedCure": "dir=\"ltr\" / unicode-bidi:isolate on @mbabb and on the slug pill (same family — ProfileSection.vue:75, MobileMenuDropdown.vue:50). Replace the two physical arrows with one logical chevron primitive that flips with `direction`: there are exactly two instances and they must always agree, so they should be one component, not two icon imports."
+     },
+     {
+      "id": "D2-08",
+      "defect": "Three visible dividers for four visible seats — a line between every adjacent pair — in a row where every one of those four items already draws its own capsule seat.",
+      "severity": "MAJOR",
+      "evidence": "D-dock-probe5.mjs·A at 1440x900: separators:7 in the nav subtree, visibleSeparators:3. Rendered scratchpad/D-dock-light.png: [Home ⌄] | [🖌 Tools →] | [Login] | [@mbabb]. Sources: ProfileSection.vue:49 AND :123 (a separator on both sides of the auth block), ActionBarToggle.vue:82. PROPORTION-AUDIT PR-05 terminal verb REMOVE/KEEP and §5 law 4: 'A divider is retained only when grouping would be ambiguous without it. Spacing plus material already expressing the same boundary makes the line duplicative.'",
+      "mechanism": "Each dock sub-component ships its own DockSeparator as local furniture, so the count is the sum of independent decisions rather than one composition decision. The maximum possible duplication (n−1 lines for n seats) is reached exactly because no one owns the row.",
+      "reproduction": "node D-dock-probe5.mjs — count nav .dock-separator total vs those with rect>0 and not inside [inert], at 1440x900 on /#/.",
+      "proposedCure": "Zero dividers in the main layer; the capsule seats already group and the dock's own gap token supplies the rhythm. Separator ownership moves to the layer composition (Dock.vue), never to the leaf components — a leaf cannot know whether its boundary is ambiguous."
+     },
+     {
+      "id": "D2-09",
+      "defect": "Five operable height rungs (22/28/32/40/44) inside one dock, and ActionBarToggle's source comment asserts its box 'lands at the sibling controls' 2.5rem height' when the measured height is 32px and the named siblings are 40px.",
+      "severity": "MAJOR",
+      "evidence": "D-dock-probe5.mjs·A main layer at 1440: Select view 32 | Toggle action bar 32 | Login 28 | @mbabb 28. D-dock-probe3.mjs other layers: Save edit / Cancel edit / Back / Open color input = 40; action buttons = 32; slug controls = 22; mobile Back = 44. Claim under test: ActionBarToggle.vue:147-153 '…the box lands at the sibling controls' 2.5rem height' (2.5rem = 40px). Measured 32px — 8px wrong.",
+      "mechanism": "ActionBarToggle.vue:155 sets `--dock-compact-control-padding: 0.5rem 0.75rem` — a consumer re-deriving the producer's box model from padding instead of consuming a height/density token. Padding-derived sizing cannot land on a target height because it does not know the content box. Violates PROPORTION-AUDIT §5 law 7 (glyph size, target size and reservation are separate quantities) and PR-12.",
+      "reproduction": "node D-dock-probe5.mjs — map every non-inert nav button with rect>0 to its accessible name and rounded height, at 1440x900 on /#/; then node D-dock-probe3.mjs for the other layers' heights.",
+      "proposedCure": "One dock control rung declared once as a producer token (a `density` prop / --dock-control-size) and consumed by every seat; the compact register is for genuinely secondary glyphs and must still clear 24px. Delete the --dock-compact-control-padding override. And delete the assertion in the comment: a comment that states a measurement must either be true or not exist."
+     },
+     {
+      "id": "D2-10",
+      "defect": "A dock layer swap jolts the pill 81px sideways and shrinks it 162px, unanimated — the persistent chrome jumps on a single click of Login.",
+      "severity": "MAJOR",
+      "evidence": "D-dock-probe3.mjs at 1440x900: main layer dock {x:484.3, w:471.5, h:62}; slug-edit layer dock {x:565.5, w:309.0, h:62}. Δx = +81.2px, Δw = −162.5px. glass-ui/dist/components/dock/styles/crossfade.css cross-fades opacity only ('.dock-crossfade > .dock-face {opacity:0} … .is-active {opacity:1}'), so the box change is instantaneous. VISUAL-CONSTITUTION §3 law 4: the dock owns a reserved band and its expanded/collapsed/mounted states do not move the scene.",
+      "mechanism": "GlassDock is instantiated with :fit-content=\"true\" (Dock.vue:132) while hosting four DockLayers of very different intrinsic widths as grid-area:1/1 siblings. fit-content therefore tracks whichever layer is active, making the dock's inline size a property of the layer rather than of the dock.",
+      "reproduction": "node D-dock-probe3.mjs (matrix B) — 1440x900, goto /#/, read .glass-dock rect, click Login, wait, read .glass-dock rect again.",
+      "proposedCure": "The dock's inline size is a property of the dock. Either size the container to the max of its layers (they are already coincident grid siblings, so `grid-template-columns: max-content` over all faces gives it for free), or drive width on the producer's morph spring so the change is a motion rather than a jump. Drop :fit-content on a multi-layer dock."
+     },
+     {
+      "id": "D2-11",
+      "defect": "The single layout-forcing animation in the dock is the one that fires on boot: the Tools presence slot transitions grid-template-columns, and it uses a duration/ease register while the seal beside it uses a spring register.",
+      "severity": "MINOR",
+      "evidence": "ActionBarToggle.vue:120-128 — `transition: grid-template-columns var(--duration-normal) var(--ease-standard), opacity …`. The component's own header at :12-16 records that it fires on the app's boot composition ('the pane mounts a beat after the dock, so its action-bar context arrives ~170ms in — the slot visibly GREW the pill on EVERY load'). Everything else in the dock is transform/opacity only: vj-settle = scale(1)→1.03→1 at demo/styles/animations.css:170. VISUAL-CONSTITUTION §6: 'Spatial continuity uses one producer-owned glass-ui spring register.'",
+      "mechanism": "grid-template-columns is a layout-animated property; the .is-live double-rAF gate suppresses the visible boot growth but not the layout work on every genuine toggle. Two motion registers in one component (duration/ease on the slot, --spring-snappy on the seal and settle).",
+      "reproduction": "Read ActionBarToggle.vue:115-128 and demo/styles/animations.css:170; observe the slot transition in DevTools Performance while toggling the Tools presence (navigate picker → browse → picker).",
+      "proposedCure": "Animate the slot with transform: scaleX() + opacity on a fixed-basis box, or do not animate it at all — a dock control appearing is not a spatial-continuity event. If it stays, it moves onto the producer's spring register so the dock speaks one motion language."
+     },
+     {
+      "id": "D2-12",
+      "defect": "CORRECTION TO r1: r1's strongest BLOCKER ('the dock is keyboard-unreachable on Safari; 1 of 4 controls in the tab order') is a known false-signal class the repository's own harness rules out.",
+      "severity": "INFO",
+      "evidence": "docs/tranches/V/megatranche/audit/visual/states.mjs:7-9 — 'keyboard rows are meaningless in WebKit alone — macOS ships Full Keyboard Access OFF, so run ENGINE=chromium before believing any focus gap, and key focus identity by DOM path, never by label (see probes/kbd-reach.mjs)'. Independent Chromium reproduction, D-dock-probe1.mjs at 1440x900: tab order = Select view → Toggle action bar → Login → @mbabb → [page] Select color space → …, all four dock controls present and in visual order.",
+      "mechanism": "Safari's 'Press Tab to highlight each item on a webpage' is a macOS user setting that excludes bare <button> from sequential focus on EVERY site; Playwright's WebKit inherits the OFF default. It is a property of the harness environment, not of this dock.",
+      "reproduction": "node D-dock-probe1.mjs — Chromium 1440x900, 12 sequential Tab presses from load, logging document.activeElement DOM path + accessible name after each.",
+      "proposedCure": "Retire the BLOCKER framing so the root does not ship a row no reviewer with FKA enabled can reproduce. KEEP the underlying observation as a MAJOR: VISUAL-CONSTITUTION §5.2 row 6 specifies a horizontal Dock roving-focus rail (Right/Left movement, Home/End, activation separate from movement) and Dock.vue implements zero keyboard handling — the dock is a loose row of independent buttons where the constitution specifies a rail."
+     },
+     {
+      "id": "D2-13",
+      "defect": "Rendered text from three inactive dock layers is present in the nav's innerText/textContent, including a bare '→' and the full specimen colour string.",
+      "severity": "MINOR",
+      "evidence": "D-dock-probe1.mjs at 1440x900: navInnerText = \"→ | Home | Tools | Login | @mbabb | dev misconfigured — run `npm run dev`\"; navTextContent = \"→lab(92% 88.8 20 / 82.7%)HomeToolsPickerAbout Login @mbabb dev misconfigured…\". Source of the leading arrow: Dock.vue:137, a bare <span>&rarr;</span> in the non-active mobile-edit layer. glass-ui/dist/components/dock/styles/crossfade.css applies only `opacity:0; pointer-events:none` to inactive .dock-face — not visibility:hidden.",
+      "mechanism": "innerText excludes display:none but includes opacity:0 content, so inactive-layer text is rendered text. AT is protected because the faces are inert, but every text-based probe, crawler, snapshot test and bodyTextLength metric reads content from three layers the user cannot see — which is how a shell text metric can move with nothing visible changing.",
+      "reproduction": "node D-dock-probe1.mjs — read document.querySelector('nav').innerText and .textContent at rest on /#/ at 1440x900.",
+      "proposedCure": "aria-hidden=\"true\" on the connector arrow at minimum; better, it is a ::before/border between the two WatercolorDots, not a text node. Long-term, the layer set should be v-if'd on activation rather than kept mounted — four always-mounted layers is why three of them are always leaking."
+     },
+     {
+      "id": "D2-14",
+      "defect": "A role=\"alert\" node is mounted permanently in the nav band from first paint, and carries an infinite pulse animation in persistent chrome.",
+      "severity": "INFO",
+      "evidence": "demo/shell/dock/status-lamp.ts:47-52 returns {variant:\"misconfigured\", role:\"alert\", label:\"dev misconfigured — run `npm run dev`\"}; DockStatusLamp.vue:12-20 renders it with the band. Measured live (D-dock-probe2.mjs at 390): lamp {x:348, y:43, w:26, h:18, role:\"alert\", text:\"dev misconfigured — run `npm run dev`\", labelDisplay:\"none\"}. Rendered at 1440: scratchpad/D-desk-slugedit.png (right edge) and scratchpad/D-tablet-portrait.png. DockStatusLamp.vue:109-122: `lamp-dot-pulse 2.4s … infinite`.",
+      "mechanism": "role=\"alert\" is an assertive live region intended for dynamic, time-sensitive changes; a node present at first paint fires an interruption on every load. The pulse is correctly wrapped in @media (prefers-reduced-motion: no-preference), so PRM users are unaffected, but it is unbounded motion in persistent chrome with no pause control (cf. VISUAL-CONSTITUTION §6's five-second/pause rule for ambient motion).",
+      "reproduction": "node D-dock-probe2.mjs — read .dock-status-lamp rect, role and text at 390x844 on /#/ against the dev server; or read status-lamp.ts:47-52.",
+      "proposedCure": "role=\"status\" for a lamp that exists from first paint (assertive interruption is for a state that CHANGES). Bound the pulse to a finite count, or drop it — a dev-config error does not become more legible by blinking forever."
+     },
+     {
+      "id": "D2-15",
+      "defect": "Two template-ref idioms fourteen lines apart in one file, and two computed properties that only re-spell `?? null`.",
+      "severity": "MINOR",
+      "evidence": "Dock.vue:74 `const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>('dockRef')` (Vue 3.5, per owner edict 7) alongside Dock.vue:60 `const slugEditRef = ref<InstanceType<typeof SlugEditLayer> | null>(null)` for the same job. Dock.vue:39-40 `const actionBar = computed(() => actionBarProp ?? null)` and `const genericBar = computed(() => genericActionBar ?? null)` where both props are already typed `… | null | undefined` (Dock.vue:31).",
+      "mechanism": "Incremental modernisation without a sweep: useTemplateRef was adopted for the new ref and the old one was left. The computed wrappers are pure indirection (owner edict 3, KISS) — they exist only so template call sites can write `actionBar` instead of `actionBarProp`.",
+      "reproduction": "Read demo/shell/dock/Dock.vue:39-40, :60, :74.",
+      "proposedCure": "useTemplateRef for both; delete the two computeds and rename the destructured props. Note the deeper issue the slugEditRef exposes: Dock proxies two child methods (onStartSlugEdit, onCopySlug) from two different menus through a template ref — prop/event/ref triangulation for one action. The Account-Dialog move (D2-04) deletes the ref entirely."
+     },
+     {
+      "id": "D2-16",
+      "defect": "CARRIED AND SHARPENED from r1 D-5: the open view menu has zero visual selected-state marking in either scheme, and the one lawfully coloured row (Palettes) therefore impersonates the selection.",
+      "severity": "MAJOR",
+      "evidence": "D-dock-probe7.mjs, both schemes: all 7 options report fontWeight \"400\", backgroundColor \"rgba(0, 0, 0, 0)\" and one <svg> child each (the view icon, not an indicator); only Home carries aria-selected \"true\". Rendered scratchpad/D-viewmenu-light.png: Home is typographically identical to Browse/Extract/Mix/Generate/Gradient, and the only visually marked row is Palettes (the Q5-sanctioned pastel ramp). Sources: DockViewSelect.vue:97 and :127 set hide-indicator on every SelectItem; :99-109 records that the font-semibold marker was retired.",
+      "mechanism": "hide-indicator strips the producer's SelectItem indicator gutter and the weight marker was deleted at P4-R4, leaving selection expressed only through aria-selected. VISUAL-CONSTITUTION §4.1: 'Selected, failed, pending, withdrawn and disabled states are never color-only' — here selection is not even colour, it is nothing; §4.2's ColorSpaceSelector rule ('deletes hide-indicator and consumes the sole producer SelectItem indicator/gutter') is the same mechanism, unapplied here. Menu rows are also Fraunces (DockViewSelect.vue:91), against §4's 'control or label, INCLUDING dropdown options → Plus Jakarta Sans, non-bold'.",
+      "reproduction": "node D-dock-probe7.mjs — light and dark contexts at 1440x900, click .view-select-trigger, then read every [role=option]'s aria-selected, computed fontWeight, computed backgroundColor and indicator-child count.",
+      "proposedCure": "Delete hide-indicator from both SelectItem blocks and consume the producer's indicator gutter — it is scheme-, monochrome- and forced-colors-safe by construction, which no consumer-side marker can be. The Palettes ramp then means 'this destination is about colour', not 'this is where you are'."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a5e81e674d77bf2b8",
+   "key": "v2:c429ec6238dbb53b19c7c45d3a37c3a409f94a918035e206b54adbbf20a91e0b",
+   "result": {
+    "axis": "CHALLENGE-D — design (visual truth, state coverage, motion, design-system boundary, proportion/seat law) of `demo/shell/dock/ColorInput.vue`",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M context). Declared at spawn, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-colorinput/challenge-D-design.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D-01 — the component does not exist below `(min-width: 1024px) and (min-aspect-ratio: 1.1)`. Measured absent at 390x844 (mobile) and at 720x450 (= a 1440x900 desktop at 200% browser zoom), present at 1440x900. Cause chain: `demo/color-picker/App.vue:310-312` (breakpoint) -> `:77` mobile pane slot has no `:on-mount` -> `:105` only the desktop-left slot passes `:on-mount=\"onDesktopLeftMount\"` -> `:323-328` sole writer of `colorPickerRef` -> `:38` `:action-bar=\"colorPickerRef?.actionBarContext ?? null\"` -> `Dock.vue:41,153` `hasAnyActionBar` gates the layer that hosts `ColorInput`. The app's only \"type any CSS colour\" affordance — whose own help popover reads \"Any valid CSS color string is accepted\" — is therefore desktop-landscape-only, breaking VISUAL-CONSTITUTION.md:32 (§3 law 6, \"the same top dock\" on mobile), :99 (§5, \"every spatial action has a keyboard/numeric equivalent\") and WCAG 1.4.4/1.4.10.",
+    "negativeProof": "n/a — verdict is DEFECTIVE. (What was checked and found sound is recorded in report §8: `useTemplateRef` + reactive props destructure are correct Vue 3.5; `verbatimModuleSyntax` compliance is clean — the one type-only import is `import type`; MT-F001 does not crash the app (measured `pageErrors: []`); `prefers-reduced-motion` is honoured via the global guard at `demo/styles/animations.css:184-193`; the error badge's contrast is 4.70:1 at 12px, passing WCAG AA; `input-mode-flash` is correctly scoped/renamed by the SFC compiler; the U9 blur snap-back does what its comment claims, measured.)",
+    "defects": [
+     {
+      "id": "D-01",
+      "defect": "The component is structurally absent below `(min-width: 1024px) and (min-aspect-ratio: 1.1)` — no CSS-colour text entry exists on any phone, portrait tablet, or desktop at 200% browser zoom.",
+      "severity": "BLOCKER",
+      "evidence": "Measured (frames/probe-2.json): 390x844 touch -> {\"missing\": true}, aria-label inventory contains no \"Open color input\"; 720x450 -> {\"opened\":{\"present\":false}}; 1440x900 -> present, 324.72 x 45.91 px. Frame: frames/G-mobile-dock.png shows Home / Picker-About / ⋮ and no Tools control. Source chain: demo/color-picker/App.vue:310-312, :77, :101-105, :323-328, :38; demo/shell/dock/Dock.vue:41,153; demo/shell/dock/layers/ActionBarLayer.vue:115.",
+      "mechanism": "viewport-gated mount: the dock action-bar context is a side effect of which pane slot the media query happened to mount",
+      "reproduction": "http://localhost:9000/#/ at 390x844 or 720x450 -> exercise every dock control -> no colour input exists. Same URL at 1440x900 -> Tools -> second toggle -> it appears.",
+      "proposedCure": "Lift the action-bar context to the route table (usePaneRouter) so it is breakpoint-independent, and host the same field in the dock's mobile layer; if the dock cannot carry it below 1024px, the field belongs in the Picker inspector at all widths. It may not simply vanish."
+     },
+     {
+      "id": "D-02",
+      "defect": "`btn-interactive` — the class both of the component's long comment blocks credit with hover/press legs, focus register and disabled opacity — matches ZERO CSS rules. The send button has identical computed style at rest, hover, active and focus, and no focus indicator.",
+      "severity": "BLOCKER",
+      "evidence": "Live CSSOM walk of every stylesheet at http://localhost:9000/#/: selectors containing \"btn-interactive\" -> {\"count\": 0, \"hits\": []}. Static: grep -rn \"btn-interactive\" finds no CSS in node_modules/@mkbabb/glass-ui/dist/glass-ui.css (v7.0.0) or demo/styles/*.css. Measured deltas (frames/probe-3.json): rest/hover/active/focus all { opacity:1, scale:none, transform:matrix(1,0,0,1,0,-12), bg:rgba(0,0,0,0), outlineStyle:none, boxShadow:none, filter:none }; hoverDelta:false, focusRing:false; transition computes to `all` (Tailwind preflight default). Claims at ColorInput.vue:61-66 and :327-334.",
+      "mechanism": "design-system bypass — a local recipe was 'retired onto' a producer atom that does not exist, deleting the states instead of moving them",
+      "reproduction": "Open the field (desktop >=1024px, Tools -> input toggle), hover the arrow, press it, Tab to it. Nothing changes at any step. Verify with getComputedStyle or the CSSOM walk above.",
+      "proposedCure": "Stop hand-rolling the control: replace the bare `<button class=\"send-btn btn-interactive\">` with the glass-ui `DockControl`/`Button` its dock siblings already use (ActionBarLayer.vue:129, Dock.vue:143), which carry the house hover/press/focus/disabled registers. Delete the two comment blocks describing motion that never existed."
+     },
+     {
+      "id": "D-03",
+      "defect": "The parse-error badge paints over both the user's typed value and the send button — 63.8% of the commit control's area — so the user can see neither their mistake nor the affordance that would retry it.",
+      "severity": "BLOCKER",
+      "evidence": "Measured (frames/probe-1.json, B-f001-light.afterEnter): badgeRect {x:682.1,y:31.4,w:101,h:18.4}, sendRect {x:763.1,y:28.5,w:24,h:24}, overlapPx2 367.5 of sendAreaPx2 576 = 63.8%. Frame frames/B-f001-error.png shows the typed `oklch()` surviving only as a sliver. Source: ColorInput.vue:335-343 (.send-btn right:0.25rem top:50%) vs :348-366 (.error-badge right:0.5rem top:50%); both render simultaneously (:76-82 v-else, :87 v-if).",
+      "mechanism": "two absolutely-positioned siblings competing for one 24px gutter seat",
+      "reproduction": "Desktop >=1024px -> Tools -> colour input -> select all -> type `oklch()` -> Enter.",
+      "proposedCure": "Move the commit action out of the text box entirely (a named DockControl sibling of the field), and express the parse verdict as a persistent control state (`aria-invalid` + one inline message below the dock) rather than an overlay slab inside the field."
+     },
+     {
+      "id": "D-04",
+      "defect": "The failed state carries no programmatic semantics at all and evaporates after 2 s while the invalid text remains.",
+      "severity": "BLOCKER",
+      "evidence": "Measured (frames/probe-1.json): inputAria {invalid:null, describedby:null}; badgeStyles {role:null, ariaLive:null, id:\"\", pointerEvents:\"none\"}; after2s {badge:false, text:\"oklch()\", border:\"lab(92 88.8 20 / 0.827)\"}. Timer at demo/color-session/useColorParsing.ts:57 (setTimeout 2000). Canon: VISUAL-CONSTITUTION.md:83 (§4.1 'failed states are never color-only... error/status are explicit'), PROPORTION-AUDIT.md:52 (PR-08). glass-ui 7.0.0 ships the fix it cannot use: `useUserInvalidAria` (dist/forms.d.ts, dist/composables/dom/useUserInvalidAria.d.ts) binds FORM CONTROLS, which a contenteditable span is not.",
+      "mechanism": "error rendered as decorative pop-in rather than a control state",
+      "reproduction": "Type an invalid colour, press Enter, inspect the field: no aria-invalid, no aria-describedby; the badge has no role/aria-live; wait 2 s and all visual trace reverts while the invalid text stays.",
+      "proposedCure": "Adopt glass-ui `Input` + `useUserInvalidAria` so `aria-invalid` is wired on blur and cleared on correction; the message gets an id and `aria-describedby`, and persists until the input changes rather than until a timer fires."
+     },
+     {
+      "id": "D-05",
+      "defect": "Every keystroke resizes the dock (137.3 px of travel while typing one 13-character colour name), and because the field grows instead of clipping, the mask/ellipsis/text-center apparatus — the most bespoke CSS in the file — is unreachable dead code.",
+      "severity": "MAJOR",
+      "evidence": "Measured (frames/probe-3.json, typing `rebeccapurple` char by char): input width 61.5 -> 198.8 px (span 137.3); dock width 179.5 -> 316.8 px (span 137.3, 1:1). Measured (frames/probe-1.json, C-focus-dark.longValue) for a 46-char value: {scrollW:586, clientW:586, overflowing:false}. Dead declarations: ColorInput.vue:16 (overflow-hidden, text-ellipsis, whitespace-nowrap, text-center), :300-301 (mask-image, --input-action-width:2.5rem), :303-306 (:focus mask cancel). Canon: VISUAL-CONSTITUTION.md:30 (§3 law 4 'the dock owns a reserved band... do not move the scene'), :78 (§4 'reserve their widest legal representation so value changes never reflow the settled chassis').",
+      "mechanism": "unreserved content-sized field inside a reserved band",
+      "reproduction": "Open the field, select all, type `rebeccapurple` one character at a time and watch the dock pill collapse to ~61 px then inflate 137 px; measure `.dock-face` width per keystroke.",
+      "proposedCure": "Give the field a reserved `inline-size` sized to the widest legal serialization (`color(display-p3 ...)`) plus `font-variant-numeric: tabular-nums`; the band stops moving and the mask/ellipsis/text-center machinery can then be deleted outright rather than kept as dead ornament."
+     },
+     {
+      "id": "D-06",
+      "defect": "Re-submitting the same invalid string produces no feedback whatsoever — no error, no success, no change — because a memo short-circuits ahead of the try/catch.",
+      "severity": "MAJOR",
+      "evidence": "Source: demo/color-session/useColorParsing.ts:62 `if (!input || input === previousInvalid) return;` returns before flashParseError() (`previousInvalid` set at :85). Measured (scratchpad/DD-probe4.mjs, guarded on aria-label===\"Enter a CSS color\"): submit1_badge true; badgeGoneAfter2s true; textAfter2s \"oklch()\"; submit2_badge false; submit2_badge_late false; pageErrors []. Debounce is 2000 ms (useColorParsing.ts:92).",
+      "mechanism": "transient-only truth plus a memo that suppresses the retry signal",
+      "reproduction": "Open the field -> select all -> type `oklch()` -> Enter (badge appears) -> wait 2.4 s (badge gone, text still `oklch()`) -> press Enter again -> nothing happens, ever.",
+      "proposedCure": "The parse verdict must be derived state on the current input, not a one-shot timer with an invalid-input memo. Recompute validity on every commit; clear it on correction, not on a clock."
+     },
+     {
+      "id": "D-07",
+      "defect": "A hand-rolled `contenteditable` span with `role=\"textbox\"` stands in for a text field, in direct breach of the canon's explicit 'no duplicate contenteditable path', while glass-ui ships `Input` with exactly the props this component lacks.",
+      "severity": "MAJOR",
+      "evidence": "ColorInput.vue:11-27. Measured attributes (frames/probe-1.json): contenteditable \"\" (i.e. \"true\", not \"plaintext-only\"), aria-multiline null, aria-invalid null, aria-describedby null, spellcheck null, inputmode null, enterkeyhint null, autocapitalize null, autocorrect null. glass-ui 7.0.0 `dist/components/input/types.d.ts` InputProps includes placeholder, invalid, disabled, enterkeyhint, inputmode, pattern, readonly, size. Canon verbatim, PROPORTION-AUDIT.md:75 (§5 law 10): '...commit/cancel/error semantics and no duplicate `contenteditable` path.'",
+      "mechanism": "design-system bypass — hand-rolled primitive",
+      "reproduction": "Read ColorInput.vue:11-27 against node_modules/@mkbabb/glass-ui/dist/components/input/types.d.ts and PROPORTION-AUDIT.md:75.",
+      "proposedCure": "Substitute the glass-ui `Input` (v-model + :invalid + :placeholder + enterkeyhint + inputmode). That one move retires D-04, D-08, half of D-11, the value arm of D-13, and D-15, and makes `useUserInvalidAria` usable."
+     },
+     {
+      "id": "D-08",
+      "defect": "The bare `contenteditable` (not `plaintext-only`) with no paste handler admits arbitrary markup: a formatted paste injects foreign styling into the dock and inflates the band by 43.8%.",
+      "severity": "MAJOR",
+      "evidence": "Measured (frames/probe-1.json, D-paste): innerHTML '<b style=\"color:lime;font-size:32px\">red</b>', innerText 'red', height 66 px vs 45.91 px at rest (+20.09 px, +43.8%). Frame frames/D-paste.png shows 32 px lime bold text in the dock. No `paste` listener exists in the SFC; the two innerText writers (:191, :265, :278) only repair on blur or model change.",
+      "mechanism": "uncontrolled rich-text editing surface",
+      "reproduction": "Focus the field, select all, and insert formatted HTML the way a real paste does (document.execCommand('insertHTML', false, '<b style=\"color:lime;font-size:32px\">red</b>')) — or copy a colour token out of any syntax-highlighted code block and paste. Measure the field's height before and after.",
+      "proposedCure": "Use a real `<input type=\"text\">` (glass-ui `Input`), which structurally cannot hold markup. If contenteditable were kept, `contenteditable=\"plaintext-only\"` plus a paste handler would be the minimum — but the primitive already exists."
+     },
+     {
+      "id": "D-09",
+      "defect": "The Crown reveal animation cannot run: the inline `animation: crown-appear ...` in the template names a keyframe that Vue's scoped-style compiler renamed away, so the entire four-stop gold choreography is dead.",
+      "severity": "MAJOR",
+      "evidence": "Source: ColorInput.vue:33-40 sets `style=\"animation: crown-appear var(--duration-panel) ...\"` inline in the TEMPLATE; :369-376 defines `@keyframes crown-appear` inside `<style scoped>`. Compiler: node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js:8053-8080 renames keyframes and rewrites animation declarations only within the same PostCSS root. Served CSS (curl of the Vite style URL, scoped=55dadc03) contains only `@keyframes crown-appear-55dadc03`. Live CSSOM (frames/probe-1.json): crownKeyframeNames: [\"crown-appear-55dadc03\"] — no un-suffixed name exists. The `:key=\"crownKey\"` remount (demo/color-session/useColorNameResolution.ts:64) exists solely to restart an animation that cannot start.",
+      "mechanism": "register drift — inline style attribute escapes the scoped-CSS keyframe rename",
+      "reproduction": "curl 'http://localhost:9000/@fs/<repo>/demo/shell/dock/ColorInput.vue?vue&type=style&index=0&scoped=55dadc03&lang.css' | grep crown  -> only `crown-appear-55dadc03`. Then in the live page, walk document.styleSheets for KEYFRAMES rules matching /crown/ -> same single suffixed name.",
+      "proposedCure": "Move the animation declaration into the scoped `<style>` block (a `.crown-appear` class on the element) so the compiler rewrites the name, and delete the inline style attribute — which is also an owner-edict-5 per-instance override."
+     },
+     {
+      "id": "D-10",
+      "defect": "In forced-colors mode the field has a measured ZERO focus delta, and the mask survives to fade out the field's system-coloured border and ink over the last 40 px.",
+      "severity": "MAJOR",
+      "evidence": "Measured with forcedColors:'active' (frames/probe-2.json): rest {borderColor:\"rgb(0, 0, 0)\", outlineStyle:\"none\", bg:\"rgb(255,255,255)\"}; focused {borderColor:\"rgb(0, 0, 0)\", outlineStyle:\"none\", boxShadow:\"none\"}; deltaBorder:false; maskImage still \"linear-gradient(to right, rgb(0,0,0) calc(100% - 40px), rgba(0,0,0,0) 100%)\". Frame frames/I-forced-colors.png. Source: ColorInput.vue:16 `focus-visible:outline-none`, :162-166 the only focus register is `{borderColor: cssColor.value}`. Canon: VISUAL-CONSTITUTION.md:84 (§4.1 'Focus remains visibly distinct... forced colors and reduced transparency').",
+      "mechanism": "focus expressed only as an author-coloured border, with the outline suppressed",
+      "reproduction": "Launch Chromium with forcedColors:'active', open the field, read getComputedStyle at rest and at focus — border rgb(0,0,0) in both, outline-style none in both.",
+      "proposedCure": "Never suppress the outline; adopt the house `focus-ring` register (which every dock sibling carries) so focus survives forced colors, and drop the mask so the boundary is not erased in high-contrast mode."
+     },
+     {
+      "id": "D-11",
+      "defect": "The disabled send button is pixel-identical to the enabled one — the only signal is a cursor shape, i.e. hover-only, mouse-only, invisible to touch and to assistive technology.",
+      "severity": "MAJOR",
+      "evidence": "Measured in propose mode with an empty field (frames/probe-2.json, K-propose): disabled true, btnOpacity \"1\", btnRect {w:24,h:24}, btnCursor \"not-allowed\", svgStroke 'stroke: oklch(0.471189 0.188448 9.83402);' — the same inline accent as the enabled state. Compare frames/K-propose.png with frames/A-rest-light.png: identical arrow. Source: ColorInput.vue:70 (:disabled), :344-346 (the only disabled rule is cursor). No aria-disabled. Canon: VISUAL-CONSTITUTION.md:83, PROPORTION-AUDIT.md:51 (PR-07).",
+      "mechanism": "missing state register (consequence of D-02) plus an inline per-instance stroke override that would defeat any producer disabled treatment",
+      "reproduction": "Open the field -> cycle the toolbar to propose mode -> leave the field empty -> read getComputedStyle on `.send-btn`: opacity 1, same rect, same stroke, while `.disabled === true`.",
+      "proposedCure": "Use the glass-ui Button/DockControl disabled register and delete the inline `:style=\"{ stroke: safeAccent }\"` so the producer treatment can win."
+     },
+     {
+      "id": "D-12",
+      "defect": "The send button is nameless — it is, in full, the single `namelessButtons` defect the mega-tranche visual audit recorded for route `/#/` — and its 24 px target shrinks to 22 px when it enters the loading state.",
+      "severity": "MAJOR",
+      "evidence": "Measured live on /#/: 26 buttons total, 1 nameless -> `<button data-v-55dadc03 class=\"send-btn btn-interactive\">` with ariaLabel null, title null, textContent \"\", svg not aria-hidden, rect {w:24,h:24}. Cross-reference docs/tranches/V/megatranche/audit/visual/REPORT.md:96,103 — namelessButtons on safari-desktop-light /#/ = 1 and safari-desktop-dark /#/ = 1. Target shrink: ColorInput.vue:73 Loader2 `w-3.5 h-3.5` (14px) vs :74 ArrowRight `w-4 h-4` (16px). The hosts' own comments enforce the opposite law: Dock.vue:140-142, ActionBarLayer.vue:126-128.",
+      "mechanism": "icon-only control with no accessible name; glyph box doubling as target box",
+      "reproduction": "On http://localhost:9000/#/ evaluate [...document.querySelectorAll('button')].filter(b => !b.getAttribute('aria-label') && !b.textContent.trim() && !b.getAttribute('title')) -> exactly one hit, `.send-btn`.",
+      "proposedCure": "Give the action a name and a real seat: a named glass-ui DockControl ('Apply color' / 'Propose name') at the dock's 40 px control scale, sized independently of its glyph (PROPORTION-AUDIT.md:72, §5 law 7)."
+     },
+     {
+      "id": "D-13",
+      "defect": "The type register is off the closed matrix in four places, measured: the value renders 13.5% larger than every other mono register in the same dock; the popover title uses the palette-identity role; the help prose renders in Fraunces; the error badge uses a raw Tailwind rung.",
+      "severity": "MAJOR",
+      "evidence": "Measured (frames/probe-2.json, typeRegister): .color-input value 18.608px Fira Code; dock Login button (text-mono-small) 16.4px Fira Code; dock Tools label (text-small) 16.4px Fraunces. Delta +2.208px (+13.5%), not an adjacent golden rung. ColorInput.vue:16 applies only the family class `fira-code` with no size role. ColorInput.vue:97 uses `text-subheading` (reserved for palette identity per VISUAL-CONSTITUTION.md:71) for a popover section heading. ColorInput.vue:94 `font-display` forces Fraunces onto the prose at :98-100 — visible in frames/H-hover-popover.png. ColorInput.vue:353 `@apply text-xs`, compiled to `font-size: var(--text-xs, 0.75rem)` in the served CSS. Canon: VISUAL-CONSTITUTION.md:68-78 (§4, closed matrix), PROPORTION-AUDIT.md:78 (§5 law 13).",
+      "mechanism": "register drift — no role token, ambient inheritance",
+      "reproduction": "Open the field and compare getComputedStyle('.color-input').fontSize (18.608px) with the dock's `.text-mono-small` sibling (16.4px); hover the field and read the popover heading/prose families.",
+      "proposedCure": "Apply the role tokens the matrix names — `text-mono-small` on the value, `text-heading` on the popover title, `text-prose`/Plus Jakarta Sans on the help copy, `text-small` on the badge — and remove `font-display` from the PopoverContent root so it stops forcing the display family onto prose."
+     },
+     {
+      "id": "D-14",
+      "defect": "`text-center` sits over a 12 px / 36 px padding pair, so the value is permanently 12.00 px left of the pill's optical centre — and three different numbers (36, 40, 28) describe the same action gutter.",
+      "severity": "MAJOR",
+      "evidence": "Measured (frames/probe-1.json): paddingLeft \"12px\", paddingRight \"36px\", contentBoxCentreX 714.00, borderBoxCentreX 726.00, delta exactly 12.00 px. Source: ColorInput.vue:16 (px-3 + text-center), :18 ('pr-9': true = 36px), :300 (--input-action-width: 2.5rem = 40px), :336-337 (.send-btn right:0.25rem, 24px box = 28px). Because the field is content-sized (D-05), text-align:center never resolves anything — the real layout is a 1:3 asymmetry. Canon: PROPORTION-AUDIT.md:73 (§5 law 8, 'real rendered relation wins over token intent').",
+      "mechanism": "unreserved geometry — a centring declaration over asymmetric padding, with three uncoordinated gutter constants",
+      "reproduction": "Open the field and compute (x + paddingLeft + (width - paddingLeft - paddingRight)/2) vs (x + width/2): 714.00 vs 726.00.",
+      "proposedCure": "Move the action out of the box (see D-03's cure); the field then has symmetric padding, `text-center` becomes either honest or unnecessary, and the three gutter constants collapse to zero."
+     },
+     {
+      "id": "D-15",
+      "defect": "The empty state is undesigned in colour mode, and the placeholder mechanism is defeated by the browser's own `<br>` filler after any type-then-clear cycle.",
+      "severity": "MAJOR",
+      "evidence": "Measured (frames/probe-1.json, C-focus-dark.empty) after select-all + Backspace: text \"\\n\", html \"<br>\", dataPlaceholder null, rectH 45.91, badge false. `:empty` therefore stops matching (ColorInput.vue:321-325). Measured on mount (frames/probe-2.json, K-propose): placeholderShows '\"propose a name...\"' — the mechanism works exactly once, before any interaction. `data-placeholder` is set only in propose mode (:261) and removed on exit (:264), so colour mode has no placeholder at all. Frame frames/C-empty-dark.png: a ~60 px black square with one arrow. parseAndSetColor returns early on empty input (useColorParsing.ts:62), so no error either.",
+      "mechanism": "`:empty` used as an emptiness test against a contenteditable",
+      "reproduction": "Focus the field, Ctrl/Cmd+A, Backspace -> read innerHTML -> `<br>`; the `:empty` placeholder rule can no longer match. In colour mode the same gesture leaves an unlabelled empty box.",
+      "proposedCure": "Use a real `<input>` with a native `placeholder` (glass-ui Input exposes it) so emptiness is a value state, not a DOM-shape test — and give colour mode a placeholder (`e.g. oklch(70% 0.15 200)`) it currently lacks entirely."
+     },
+     {
+      "id": "D-16",
+      "defect": "The only help text, the only canonical serialization, and the only mount of the Parse-Lab echo are gated behind a 300 ms hover popover — with no click, focus or keyboard path — which is simultaneously redundant (the value appears 4x on screen), carries two dividers in a four-line panel, and occludes the route H1 and the Picker headline.",
+      "severity": "MAJOR",
+      "evidence": "ColorInput.vue:3-8 `<Popover trigger=\"hover\" :open-delay=\"300\">` wrapping the field; :94-110 is the only mount of `<ParseEchoReadout />`. Measured (frames/probe-2.json, hoverPopover): count 2, texts[1] \"Enter a colorAny valid CSS color string is accepted. lab(92% 88.8 20 / 82.7%) lab l 92% a 88.8 b 20 α 0.827 outside srgb gamut\". Frame frames/H-hover-popover.png shows the panel covering the route H1 and the Picker's numeric headline, with two Separator rules (:101, :108). Canon: PROPORTION-AUDIT.md:51 (PR-07), :49 (PR-05 REMOVE), :69 (§5 law 4), :71 (§5 law 6 'subtraction precedes explanation').",
+      "mechanism": "hover-only disclosure carrying non-decorative information; tooltip proliferation (a second Tooltip on the same control at :30-59)",
+      "reproduction": "Hover the field for >300 ms on desktop and read the panel; then attempt to reach it by click, focus or keyboard — there is no path. On touch (and below 1024px, per D-01) it is unreachable entirely.",
+      "proposedCure": "Move the Parse-Lab echo into the Picker inspector where it is reachable without a mouse; reduce the popover to a click/focus-triggered hint or delete it, and drop both Separators and the value restatement (the value is already in the field)."
+     },
+     {
+      "id": "D-17",
+      "defect": "Propose-mode success and failure are both silent: failure is a `console.warn`, success emits nothing, and the comment 'Signal parent to exit propose mode' describes an emit that does not exist — the SFC has no defineEmits at all.",
+      "severity": "MAJOR",
+      "evidence": "ColorInput.vue:230-247: `await session.ensureSession()` (silently mints an account), `catch (e: any) { console.warn(\"[ColorInput] Failed to propose name:\", e?.message); }`, and the comment at :238 above a line that only rewrites innerText. Repo grep: no `defineEmits` in the file. glass-ui 7.0.0 exports `./toast`. After success the user remains in propose mode with aria-label 'Propose a color name' while the field displays a colour string. Canon: VISUAL-CONSTITUTION.md:101 (§5 'Persistent operation state stays with the entity/workspace'); PALETTE-CONTRACT.md:172 states the identical principle absolutely for the sibling export path — 'a visible terminal/retryable operation state — never a partial download or `console.warn`-only result'.",
+      "mechanism": "transient-only truth — a network operation with no operation state",
+      "reproduction": "Enter propose mode, type a name, submit with the API unreachable: the only artefact is a console warning. Submit successfully: the field text changes and nothing else; the mode never exits.",
+      "proposedCure": "Route both outcomes through `@mkbabb/glass-ui/toast` (or a durable inline status), emit a real `proposed` event so the parent can leave propose mode, and drop the `any` in the catch."
+     },
+     {
+      "id": "D-18",
+      "defect": "Direction is physical throughout — the action gutter, the fade mask and the button stay pinned to the physical right under `dir=\"rtl\"` — and the field declares no LTR isolation for an LTR-only CSS grammar.",
+      "severity": "MINOR",
+      "evidence": "Measured with dir=\"rtl\" (frames/probe-1.json, E-rtl): computed direction \"rtl\" while paddingLeft \"12px\" / paddingRight \"36px\" are unchanged, maskImage still \"linear-gradient(to right, ...)\", sendRect.x 848.4 inside input 551.6..876.3, sendOnInlineStartSide false. Frame frames/E-rtl.png: the dock chrome mirrors (Back moves right) but the field's internals do not. Canon: VISUAL-CONSTITUTION.md:150 (§6.1 'chrome, navigation and layout — logical inline/block direction follows the document') and :154 ('CSS strings, hex, slugs, IDs and provenance render in LTR-isolated spans inside RTL prose').",
+      "mechanism": "physical CSS properties (right, to right, pr-*) where logical properties are required",
+      "reproduction": "Set document.documentElement.dir = 'rtl', open the field, read computed padding-left/right, mask-image and the send button's x — all unchanged from LTR.",
+      "proposedCure": "Use logical properties (padding-inline-end, inset-inline-end) and a logical mask direction; add `dir=\"ltr\"` / `unicode-bidi: isolate` on the value so its neutrals cannot reorder under an RTL paragraph direction."
+     },
+     {
+      "id": "D-19",
+      "defect": "An opaque `bg-background` plate with a 1 px `--input` border is a second, foreign material tier improvised inside the dock's structural glass — and it is clipped by a mask the canon explicitly forbids in the dock band.",
+      "severity": "MINOR",
+      "evidence": "ColorInput.vue:16 (`border ... bg-background rounded-input`); measured backgroundColor rgb(251,250,248) fully opaque, borderColor rgb(198,180,159) = --input, while every dock sibling is `glass-specular-track glass-capsule-hover`. Frame frames/A-rest-light.png. Canon: VISUAL-CONSTITUTION.md:19 ('One surface has one tier. An inner card is not automatically another pane of glass.') and :178 (§7 Shell/dock: 'The dock is its own top band, fully visible, focusable, and clipped by neither mask nor card') vs the mask-image at ColorInput.vue:300.",
+      "mechanism": "material-hierarchy break — a shadcn form-field recipe transplanted into a glass instrument",
+      "reproduction": "Open the field and compare getComputedStyle backgroundColor/borderColor against any sibling dock control's glass capsule classes; observe the mask fading the plate's own right border in frames/A-rest-light.png.",
+      "proposedCure": "Consume the glass-ui field primitive at the dock's own material tier (instrument veil / glass capsule) instead of an opaque shadcn plate, and delete the mask (which D-05 shows is dead code anyway)."
+     },
+     {
+      "id": "D-20",
+      "defect": "The mode-flash JS timer is a hard-coded 300 ms standing in for the 450 ms token the CSS animation uses, truncating the animation at 66.7% and snapping the element from an eased mid-state to rest.",
+      "severity": "MINOR",
+      "evidence": "ColorInput.vue:313 `animation: input-mode-flash var(--duration-slow) var(--ease-decelerate)` vs :256 `setTimeout(() => { modeTransition.value = false; }, 300)`. Measured live tokens: --duration-slow 0.45s (450ms), --ease-decelerate cubic-bezier(0,0,0.2,1). 300/450 = 66.7% through, leaving approx scaleX 0.998 / opacity 0.972 at the cut. Same ad-hoc pattern one file away: ActionBarLayer.vue:62 SUB_LAYER_CROSSFADE_MS = 260. Owner edict 6 (animations tokenized).",
+      "mechanism": "register drift — a magic number desynchronised from the token it mirrors",
+      "reproduction": "Read --duration-slow off :root (0.45s) against the 300 ms setTimeout at ColorInput.vue:256.",
+      "proposedCure": "Drive the class removal off `animationend` (or read the token), so the JS lifetime cannot diverge from the CSS duration."
+     },
+     {
+      "id": "D-21",
+      "defect": "Dead surface: a declared-and-unused prop (plus the type import that exists only to type it), two unused injections, a five-member defineExpose with zero consumers repo-wide, and a third Copy path the canon explicitly rules must be removed.",
+      "severity": "MINOR",
+      "evidence": "ColorInput.vue:139 prop `editTarget` never referenced; :134 `import type { EditTarget }` exists only for it; :146 `cssColorOpaque` and :150 `canProposeName` destructured and never used; :282-288 defineExpose({focus, inputIsFocused, copyAndSetInputColor, onSubmitColor, submitProposedName}) — ActionBarLayer.vue:28 declares `colorInputRef` and never dereferences it, and grep across demo/ e2e/ test/ finds no consumer of any member; :219-223 `copyAndSetInputColor` is a third Copy implementation (ActionToolbar already owns @copy at ActionBarLayer.vue:110), against PROPORTION-AUDIT.md:57 (PR-13, REMOVE, 'total 2->1'); :117 `import { writeClipboard }` is used only by that dead path.",
+      "mechanism": "dead surface accumulated behind an unconsumed imperative API",
+      "reproduction": "grep -rn 'copyAndSetInputColor|onSubmitColor|inputIsFocused' demo/ e2e/ test/ excluding ColorInput.vue -> no consumers; grep -n 'editTarget|cssColorOpaque|canProposeName' ColorInput.vue -> declaration sites only.",
+      "proposedCure": "Delete the prop, the two injections, the whole defineExpose and the Copy path with its clipboard import; the component's contract is its props and (once D-17 is fixed) its emits, not an imperative handle nobody holds."
+     },
+     {
+      "id": "D-22",
+      "defect": "A `demo/ui/` alias layer creates a dual import path inside a single import block — one line imports glass-ui directly, the next twelve import one-line re-export barrels of the same package.",
+      "severity": "INFO",
+      "evidence": "ColorInput.vue:117 `import { writeClipboard } from \"@mkbabb/glass-ui\"` vs :118-129 importing from \"../../ui/popover|tooltip|separator\". Those barrels are literally `export { Popover, PopoverTrigger, PopoverContent } from \"@mkbabb/glass-ui\";` (demo/ui/popover/index.ts), likewise separator and tooltip. The sibling ActionBarLayer.vue:8 imports \"@mkbabb/glass-ui/dock\" directly. Owner edict 2: no aliases, migration shims, dual paths.",
+      "mechanism": "legacy alias layer surviving a completed migration",
+      "reproduction": "cat demo/ui/popover/index.ts demo/ui/separator/index.ts demo/ui/tooltip/index.ts -> each is a single re-export line.",
+      "proposedCure": "Import the glass-ui subpaths directly and delete the barrel directories; the migration they covered is complete."
+     },
+     {
+      "id": "D-23",
+      "defect": "A bare, undiscriminating `catch` launders every throw — including MT-F001's live TypeError — into the single sentence 'not a valid color', so a shipping parser crash is permanently indistinguishable from a user typo and can never be surfaced or counted.",
+      "severity": "INFO",
+      "evidence": "src/css/grammar.ts:181 `splitTopLevel(slash[0]!.replace(/,/g, \" \"), \"space\")` — the non-null assertion is false for an empty function body. demo/color-session/useColorParsing.ts:84 `catch { previousInvalid = input; if (!initialParse) flashParseError(); }`. Measured live (scratchpad/DD-probe4.mjs) typing `oklch()` + Enter: pageErrors [], no console error, badge text 'not a valid color'. So: SWALLOWED, no crash. Owner edict 2 forbids masking fallbacks.",
+      "mechanism": "masking fallback — one handler for grammar rejection, TypeError, and anything else",
+      "reproduction": "Open the field, type `oklch()`, press Enter: the badge reads 'not a valid color' while page errors remain empty; the TypeError from grammar.ts:181 never reaches any reporter.",
+      "proposedCure": "Fix the false non-null assertion at the source (grammar.ts:181 must return a typed failure for an empty body), and narrow the consumer catch so a thrown non-parse error is re-raised/reported rather than rendered as user-facing invalid input."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a795fa569e35e4ea5",
+   "key": "v2:0efb8ad72b6a979c299deb9c228d043d23b00fcaef376942ed4bae9123f25698",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) for `demo/shell/dock/DockViewSelect.vue`",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M-context Opus 5 seat), spawned with an explicit Opus 5 declaration; not inherited, not undeclared.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-dockviewselect/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1 — the product's primary navigation renders with NO LABEL on 7 of its 14 views, because the Select's model value (router-owned, range 14) and its option set (`useDockAdminMode`-owned, range 7) have different owners and nothing constrains them to agree. Proven by three same-matrix screenshots (`browse.png` reads \"Browse\"; `atmosphere.png` and `admin-users.png` render icon+chevron only) and by reka-ui source (`SelectValue.js:33-42` falls back to `placeholder`, which defaults to `\"\"` and is not passed). Invisible to every e2e gate because all of them assert the `aria-label=\"Select view\"` on `DockTrigger`, not the visible label.",
+    "negativeProof": "N/A — verdict is DEFECTIVE. (One axis did prove sound and is recorded as L-11: the component reaches the library correctly by not reaching it at all. `grep -rn 'from \"(\\.\\./)*\\.\\./src' demo/` → no matches; `grep -rn '@src/' demo/shell demo/palettes demo/picker` → no matches; `vite.config.ts:37-50` GENERATES the self-alias set from `package.json#exports` so the seven public specifiers cannot drift; `package.json#exports` declares only the 7 subpaths with no `\".\"` root and correspondingly `grep -rn 'from \"@mkbabb/value.js\"' demo/` returns nothing. Every demo import is one a real consumer could write. Scoped styling is also clean: `.gold-shimmer-icon`/`.palettes-ramp-text` are global recipes at `demo/styles/utils.css:162,192`, and `--accent-view` is genuinely `@property`-registered at `demo/styles/foundation.css:192`, so the scoped `transition: --accent-view` at `DockViewSelect.vue:158` is legitimate and bounded.)",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "The dock view-select trigger renders an EMPTY label on 7 of the demo's 14 views: the Select's model value and its option set are owned by different modules with different ranges, so the selected value routinely matches no SelectItem.",
+      "severity": "BLOCKER",
+      "evidence": "Screenshots, same matrix (safari-desktop-light, 1440 CSS px, isDesktop true): docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/browse.png shows the trigger reading \"Browse\"; atmosphere.png and admin-users.png show icon+chevron with NO text. Mechanism from source: DockViewSelect.vue:73 renders `<SelectValue v-if=\"isDesktop\" />` with no placeholder; node_modules/reka-ui/dist/Select/SelectValue.js:33-42 computes `selectedLabel` by looking modelValue up in `rootContext.optionsSet` and falling back to \"\", and `slotText` returns `props.placeholder` (default \"\", lines 10-14) when the lookup misses. Ranges: `:model-value=\"currentView\"` (Dock.vue:169) has range 14 (viewSchema.ts:30-44); `viewEntries` (Dock.vue:173) has range 7 at a time (useDockAdminMode.ts:26-27,34-40). All three shots also show the \"Login\" control, i.e. unauthenticated — capture.mjs has no login step (grep for admin|login|auth returns only the five route literals at lines 32-36).",
+      "mechanism": "split enumeration / no single owner of the navigation taxonomy — the option set and the model value are computed from two different modules",
+      "reproduction": "Open http://localhost:9000/#/atmosphere (or /#/blob or any /#/admin/*) unauthenticated at viewport width >= 1024px. The dock view-select trigger shows its icon and chevron with no visible label. Compare /#/browse, which reads \"Browse\". Already captured in the harness shots listed above.",
+      "proposedCure": "Do NOT add a placeholder — that hides it. Make it structurally impossible: derive the option set as `viewsInGroup(activeGroup) ∪ {currentView}` so the model value is an option by construction. Requires the single nav schema of L-2."
+     },
+     {
+      "id": "L-2",
+      "defect": "Three hand-maintained enumerations of the same 14 view identifiers exist in three directories, and two of them directly contradict each other about what \"admin\" means.",
+      "severity": "BLOCKER",
+      "evidence": "(1) demo/shell/viewSchema.ts:30-44 + VIEW_MAP :97-234 — the declared SSOT, 14 ViewIds, and it carries NO grouping field at all. (2) demo/color-picker/router/index.ts:22-37 — 14 routes hand-listed, `meta:{admin:true}` on exactly 5 (:31-35); /atmosphere (:29) and /blob (:30) have no meta. (3) demo/shell/dock/composables/useDockAdminMode.ts:26-27 — `userViews` (7) and `adminViews` (7), where adminViews INCLUDES \"atmosphere\" and \"blob\". Router says 5 admin views; the dock says 7. viewSchema.ts's own header claims it exists 'to retire the 4-copy ViewId enumeration'; its accentHueShift comment (:66-79) speaks of 'the nine primary views ... in dock order', a nine the dock has never had.",
+      "mechanism": "incomplete SSOT — VIEW_MAP lacks the `group` field the dock needs, so the enumeration regrew in a third home",
+      "reproduction": "grep -n \"meta: { admin: true }\" demo/color-picker/router/index.ts → 5 hits; sed -n '27p' demo/shell/dock/composables/useDockAdminMode.ts → 7 ids including atmosphere and blob. Adding a view today requires three synchronised edits and nothing fails if you make two.",
+      "proposedCure": "One home: `demo/shell/nav/nav-schema.ts` — VIEW_MAP gains `group: \"primary\"|\"tuning\"|\"admin\"` and `path`; `routes.ts` DERIVES the route table from it (`Object.entries(VIEW_MAP).map(...)`) so a view cannot exist without a route; the dock reads `viewsInGroup(g)` instead of re-listing ids."
+     },
+     {
+      "id": "L-3",
+      "defect": "Seven of fourteen views have no UI reachability at all (URL-typing only), and five of them render the full admin console to an unauthenticated visitor because `meta: { admin: true }` has zero readers and no route guard exists.",
+      "severity": "MAJOR",
+      "evidence": "`grep -rn \"meta.admin\\|beforeEach\\|beforeResolve\\|addRoute\" demo/ --include='*.ts' --include='*.vue'` → NO OUTPUT. router/index.ts:44-48 registers exactly one guard, installDocumentTitle. Screenshot: shots/safari-desktop-light/admin-users.png renders 'Users · Manage accounts and permissions', a search field, 'Prune empty' and 'Refresh' while the dock control still reads 'Login'. REPORT.md:128-132 records main=1 and 244-273 chars of text for all five admin routes in every matrix, unauthenticated. Reachability: atmosphere/blob/admin-* appear only in adminViews (useDockAdminMode.ts:27), returned only when `isAdminMode && isAdminAuthenticated` (:35); isAdminMode rises only via the `__admin_toggle__` row (rendered under `v-if=\"pm.isAdminAuthenticated.value\"`, DockViewSelect.vue:114) or via the watcher at :55-59 that fires on ALREADY landing there. Admin auth itself has no nav entry — it is a hidden mode of the slug field (useSlugMigration.ts:51-56). MobileMenuDropdown.vue:36-113 carries no view navigation, so mobile has the same hole. No switchView/router.push/href anywhere in demo/ targets atmosphere or blob.",
+      "mechanism": "the authorization concept has three partial homes (dead router meta, a menu filter, a template v-if) and no owner",
+      "reproduction": "grep -rn \"meta.admin|beforeEach|beforeResolve|addRoute\" demo/ --include='*.ts' --include='*.vue' → empty. Then open http://localhost:9000/#/admin/users in a fresh profile: the admin console renders while the dock offers 'Login'.",
+      "proposedCure": "`demo/shell/nav/guard.ts` — the ONE reader of `meta.group === \"admin\"`: `router.beforeEach(to => useAdminAuth().isAuthenticated.value || to.meta.group !== \"admin\" ? true : { name: \"picker\" })`. Gives the dead metadata its only consumer and makes the menu filter a presentation detail rather than the de-facto gate."
+     },
+     {
+      "id": "L-4",
+      "defect": "Wrong direction of dependency: the app shell imports from a feature to read platform auth. `demo/shell/dock/DockViewSelect.vue` injects `SESSION_PORT_KEY` from `demo/palettes/usePalettePorts` — a laundering hop to a platform singleton the parent already holds.",
+      "severity": "MAJOR",
+      "evidence": "DockViewSelect.vue:8 `import { SESSION_PORT_KEY } from \"../../palettes/usePalettePorts\"` and :35 `const pm = inject(SESSION_PORT_KEY)!`. Five shell files do this: DockViewSelect.vue:8, Dock.vue:18, layers/SlugEditLayer.vue:5, menus/MobileMenuDropdown.vue:13, menus/ProfileSection.vue:14. The key is named for the wrong domain — `Symbol(\"palette.session\")` at usePalettePorts.ts:271. The feature does not own the value: usePalettePorts.ts:57 does `const { isAuthenticated: isAdminAuthenticated } = useAdminAuth()`, and demo/platform/auth/useAdminAuth.ts:17-24 is a module-level singleton (one lazily created `_adminToken` ref shared by all callers, by design). Worse, Dock.vue:37 injects the SAME key and Dock.vue:44 already passes `pm.isAdminAuthenticated` into useDockAdminMode — the value is one level up and deliberately not passed as a prop.",
+      "mechanism": "feature-shaped port used as the transport for a platform concern; component is half props-driven, half ambient (dual data path)",
+      "reproduction": "grep -rn \"SESSION_PORT_KEY\" demo/ → five demo/shell/** importers of demo/palettes/usePalettePorts. Read DockViewSelect.vue:16-23 (five props) then :35 (a sixth input reached around the prop surface).",
+      "proposedCure": "Delete the edge. This component takes no auth input at all — Dock.vue passes what the option set needs. Where the shell genuinely needs auth (the future guard), call `useAdminAuth()` from `demo/platform/auth` directly: one hop, correct direction, no inject, no feature dependency. Resulting lattice: platform/auth → shell/nav → shell/dock → glass-ui, with features reading the shell and the shell reading no feature."
+     },
+     {
+      "id": "L-5",
+      "defect": "Two paths to the same design system inside one file, eight lines apart: `@mkbabb/glass-ui/dock` at line 3 and `../../ui/select` at lines 4-6, where demo/ui/select is a one-line pure re-export of @mkbabb/glass-ui. All 19 demo/ui/* barrels are pure forwards.",
+      "severity": "MAJOR",
+      "evidence": "DockViewSelect.vue:3 `import { DockTrigger } from \"@mkbabb/glass-ui/dock\";` vs :4-6 `import { Select, SelectContent, SelectGroup, SelectItem, SelectValue } from \"../../ui/select\";`. demo/ui/select/index.ts in full: `export { Select, SelectTrigger, SelectItem, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectSeparator } from \"@mkbabb/glass-ui\";`. Dumped all 19: alert, avatar, badge, button, card, checkbox, collapsible, dialog, dropdown-menu, input, label, popover, radio-group, select, separator, skeleton, slider, switch, tooltip — every one a single-line re-export (alert/ carries a header noting its local shadcn implementation was already deleted). Not one adds a variant, a default, or a type.",
+      "mechanism": "vestigial alias layer from the pre-glass-ui shadcn era — a banned back-compat shim that also misrepresents the design system's surface",
+      "reproduction": "cat demo/ui/select/index.ts; then `for d in demo/ui/*/; do cat \"$d\"index.ts; done` → 19 pure forwards.",
+      "proposedCure": "Delete demo/ui/** entirely; every consumer imports @mkbabb/glass-ui or its subpath directly. One path to the design system repo-wide. Work list is mechanical: `grep -rl 'from \"(\\.\\./)*ui/' demo/`."
+     },
+     {
+      "id": "L-6",
+      "defect": "`demo/shell/useViewManager.ts` carries a self-declared back-compat type re-export shim preserving compatibility with an import path (`@composables/useViewManager`) that no longer exists, and it is the MAJORITY path for the ViewId family (6 of 9 importers), keeping a dual path alive.",
+      "severity": "MAJOR",
+      "evidence": "useViewManager.ts:15-19: `// Re-export the schema types so existing consumers that import from \\`@composables/useViewManager\\` continue to resolve cleanly ... this re-export preserves source-compat with the pre-D.W3-Lane-D import paths.` + `export type { ViewId, LeftPane, RightPane, PaneConfig };`. But vite.config.ts:68-70 records 'W43 (RF-15) killed the demo `@…` path aliases: every demo import is now relative to its physical home' — the alias it preserves compatibility with is gone. Census: via the shim — picker/ColorPicker.vue:130, shell/usePaneRouter.ts:23, shell/dock/Dock.vue:17, shell/dock/composables/useDockAdminMode.ts:5 (this component's own type source), color-picker/App.vue:185, color-picker/composables/usePaletteWiring.ts:22, color-picker/composables/boot/useAtmosphereBoot.ts:55, palettes/usePalettePorts.ts:19. Via the SSOT — only boot/useViewAccents.ts:45 and router/useDocumentTitle.ts:32. useAtmosphereBoot.ts:55 pulls a vue-router-importing module into a type-only position purely for `PaneConfig`.",
+      "mechanism": "migration shim outliving its migration — dual import path for one type family",
+      "reproduction": "sed -n '15,19p' demo/shell/useViewManager.ts (the shim and its own comment). grep -rn 'useViewManager\"' demo/ --include='*.ts' --include='*.vue' | wc -l → 8, vs 3 for 'viewSchema\"'.",
+      "proposedCure": "Delete the re-export; move all type importers to the schema module. `useViewManager` keeps runtime state only. Banned by the standing no-backwards-compat edict regardless of the count."
+     },
+     {
+      "id": "L-7",
+      "defect": "`ViewEntry` is a type-erased duplicate of `PaneConfig & { id: ViewId }`: it re-declares two fields, downgrades `icon: Component` to `icon: unknown`, and opens an `[k: string]: unknown` index signature that makes the type accept anything — forcing an `as` cast at both construction sites and erasing this component's prop contract.",
+      "severity": "MAJOR",
+      "evidence": "useDockAdminMode.ts:7-12 `export interface ViewEntry { id: ViewId; label: string; icon: unknown; [k: string]: unknown; }` vs viewSchema.ts:86-96 where `PaneConfig.icon: Component` (typed via `import type { Component } from \"vue\"`, :15). Casts required at :36 and :38 — `adminViews.map((id) => ({ id, ...viewManager.viewMap[id] } as ViewEntry))`. Erasure propagates into the public prop surface: DockViewSelect.vue:16 `currentIcon: unknown` and :22 `viewEntries: ViewEntry[]`, both then fed to `<component :is>` at :66 and :97 — a position vue-tsc does not check, so the props assert nothing about the one thing the component renders. `grep -rn \"ViewEntry\" demo/` → 7 hits, confined to these two files. Ownership inversion in the import itself: DockViewSelect.vue:9 takes its PROP TYPE from a composable rather than the schema.",
+      "mechanism": "a second, weaker type for a concept the schema already owns — duplicate ownership plus deliberate type erasure",
+      "reproduction": "sed -n '7,12p' demo/shell/dock/composables/useDockAdminMode.ts vs sed -n '86,96p' demo/shell/viewSchema.ts.",
+      "proposedCure": "Delete `ViewEntry`. Use `PaneConfig & { id: ViewId }` from the nav schema — same shape, fully typed, already exported, no cast at either construction site, and the component's prop type stops depending on a stateful composable."
+     },
+     {
+      "id": "L-8",
+      "defect": "The view-change channel carries two disjoint meanings — a ViewId and the magic sentinel `\"__admin_toggle__\"` — and the far end casts unvalidated into `router.push` while the type predicate written for exactly that check is never called on the write path.",
+      "severity": "MAJOR",
+      "evidence": "DockViewSelect.vue:105 `<SelectItem value=\"__admin_toggle__\" ...>`. useDockAdminMode.ts:65-73: `function onViewChange(id: string | number | boolean | Record<string, string> | null) { if (typeof id === \"string\") { if (id === \"__admin_toggle__\") { toggleAdminMode(); return; } viewManager.switchView(id as ViewId); } }` — the cast lands in `router.push({ name: id })` at useViewManager.ts:79. viewSchema.ts:236 exports `isViewId`, and `grep -rn \"isViewId\" demo/` shows it used only on the READ path (useViewManager.ts:45, useDocumentTitle.ts:50). Doubled defensive typing that validates nothing: DockViewSelect.vue:80 already narrows with `emit('update:modelValue', id as string)` and declares the emit `[id: string]` at :26, yet the receiver re-widens to reka's full AcceptableValue union.",
+      "mechanism": "one channel, two message types (navigate | toggle-mode) plus an unchecked cast at the module boundary",
+      "reproduction": "sed -n '65,73p' demo/shell/dock/composables/useDockAdminMode.ts; grep -rn \"isViewId\" demo/ shows no call site on the write path.",
+      "proposedCure": "Split the channel: `emits: { navigate: [ViewId]; toggleAdmin: [] }`. Type `switchView(id: ViewId)` and let callers narrow with `isViewId` — no cast, no sentinel, no magic string with no home."
+     },
+     {
+      "id": "L-9",
+      "defect": "`demo/shell/dock/index.ts` forms a genuine ESM module cycle with `Dock.vue`, and the barrel is a contrivance: it re-exports three glass-ui symbols for exactly one consumer, which is itself a member of the barrel.",
+      "severity": "MINOR",
+      "evidence": "demo/shell/dock/index.ts in full (5 lines): `export { GlassDock, DockLayerGroup, DockLayer } from \"@mkbabb/glass-ui/dock\";` + `export { default as Dock } from \"./Dock.vue\";`. demo/shell/dock/Dock.vue:4: `import { GlassDock, DockLayerGroup, DockLayer } from \"./\";`. Cycle: index.ts → Dock.vue → index.ts. The barrel's only external value is `Dock`, imported once at demo/color-picker/App.vue:167.",
+      "mechanism": "alias barrel adding no value while creating a dependency cycle (same class as L-5)",
+      "reproduction": "cat demo/shell/dock/index.ts && sed -n '4p' demo/shell/dock/Dock.vue.",
+      "proposedCure": "Delete the file. Dock.vue imports `@mkbabb/glass-ui/dock` directly; App.vue imports `../shell/dock/Dock.vue`. Removes the cycle and the alias in one stroke."
+     },
+     {
+      "id": "L-10",
+      "defect": "One two-way binding is spelled three times: `defineModel(\"open\")`, a redundant explicit `\"update:open\"` entry in `defineEmits`, and hand-wired `:open` / `@update:open` instead of `v-model:open`.",
+      "severity": "MINOR",
+      "evidence": "DockViewSelect.vue:24-33 declares `const emit = defineEmits<{ \"update:modelValue\": [id: string]; \"update:open\": [open: boolean]; }>();` immediately followed by `const open = defineModel<boolean>(\"open\", { default: false });` — defineModel generates the `update:open` emit itself in Vue 3.4+, so the explicit entry is a duplicate declaration and dead. Then :38-39 hand-wires `:open=\"open\"` and `@update:open=\"open = $event\"`, which is what `v-model:open=\"open\"` means.",
+      "mechanism": "three spellings of one binding — redundant declaration plus manual re-implementation of a framework idiom",
+      "reproduction": "sed -n '24,39p' demo/shell/dock/DockViewSelect.vue.",
+      "proposedCure": "Keep `defineModel`, drop the `\"update:open\"` line from defineEmits, and use `v-model:open=\"open\"` on `<Select>` (idiomatic Vue 3.5, standing edict 7)."
+     },
+     {
+      "id": "L-12",
+      "defect": "The SSOT's field documentation describes token machinery its only consumer declares dead — one tranche of drift on the file that is supposed to be authoritative.",
+      "severity": "INFO",
+      "evidence": "viewSchema.ts:66-79 documents `accentHueShift` as feeding a resolver that 'writes `--accent-view-<id>`/`--accent-view` as static root tokens' for 'the nine primary views'. useViewAccents.ts:19-26 states: 'THE T-10 EXCISE ... the NINE per-view static tokens (`--accent-view-<id>`), their `resolveViewAccentTokens` batch resolver, and the `PRIMARY_VIEW_IDS`/`PRIMARY_VIEW_SHIFTS` machinery are DEAD'.",
+      "mechanism": "documentation drift on the single source of truth",
+      "reproduction": "sed -n '66,79p' demo/shell/viewSchema.ts vs sed -n '19,26p' demo/color-picker/composables/boot/useViewAccents.ts.",
+      "proposedCure": "Rewrite the `accentHueShift` comment to name its one live consumer (`resolveViewAccent` → `--accent-view` only). Folds into the nav-schema consolidation of L-2."
+     }
+    ]
    }
   }
  ]

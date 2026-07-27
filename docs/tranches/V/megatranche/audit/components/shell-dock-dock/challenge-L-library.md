@@ -1342,3 +1342,315 @@ specifiers, mechanical, −23 modules from the chrome's closure and code-splitti
 runtime cycle dies), **L-28** (three specifiers, one shim deleted), then the transpositions
 already sequenced above. **L-27** is a one-line relay to glass-ui and should ride the same
 message as L-5's and L-17's unsent asks.
+
+---
+---
+
+# Addendum C — fourth independent pass (same seat, same model)
+
+## Model receipt (addendum C)
+
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant —
+the tier explicitly declared at spawn. Declared, not inherited.
+
+Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e` at spawn
+(the working tree has since advanced to `9bcd5d91` via other seats' doc commits; every file cited
+below is unmodified since `c654824e`).
+
+This pass **revises nothing** in L-1…L-29. I re-derived the overlapping ground independently
+before reading the prior passes, and it agreed on every point I checked: the `index.ts ↔ Dock.vue`
+cycle as the tree's only value↔value cycle (my own detector: `total runtime cycles: 1`), the
+five-file `SESSION_PORT_KEY` fan-in, the 19 `demo/ui` barrels, the dead `demo/@/**` eslint globs,
+`h1 = 0` with an inverted outline, the `send-btn` identification of MT-F005, the four
+`SlugEditLayer` tap-target rows, the two dead refs in `ActionBarLayer`, and the two contracts
+behind the action bar. Two independent measurements agreed to the digit
+(`Dock.vue` value-closure **65 modules**, of which **23** are `palettes/`; menu fork **81%**
+line-identical).
+
+What follows is what none of the three prior passes had: **one BLOCKER**, one MAJOR, and three
+smaller items. Probe budget for this pass: 6 headless WebKit runs (`LDOCK-probe*.mjs`,
+`LDOCK-graph*.mjs` in the session scratchpad) plus one `tsc --traceResolution`. Every probe below
+decides a finding.
+
+---
+
+### L-30 · BLOCKER — a failed login is **completely silent**: the layer closes as if it succeeded, and there are three independent, redundant reasons no error can ever reach the user
+
+L-15 files the credential parsing in `SlugEditLayer.vue` as MINOR and notes the
+`msg.includes("409")` string-sniffing in passing. The sniffing is not the defect — it is the
+third of three layers of swallowing, none of which can fire, over a login that fails silently
+today.
+
+**Reproduction** (`LDOCK-probe6.mjs`, WebKit 1440×900, live dev server — whose API is
+deliberately misconfigured, so every login attempt is guaranteed to fail; the dock's own status
+lamp reads *"dev misconfigured — run `npm run dev`"* in the captured body text):
+
+```
+[slug-edit opened]              inputValue:""   layerInert:false  layerAriaHidden:null   errorish:[]
+  → fill "aaaa-bbbb-cccc-dddd" → click button[aria-label="Switch to slug"] → wait 2.5s
+[after submit of a bogus slug]  inputValue:""   layerInert:true   layerAriaHidden:"true" errorish:[]
+
+console tail: [ vite connecting, vite connected,
+                "[value.js] value.js dev is MISCONFIGURED: …",   ← from boot, not the login
+                "[useCustomColorNames] color-name load failed …" ]   ← from boot, not the login
+```
+
+`errorish` scans every leaf element in the document for `/not found|already|too many|failed|error|invalid/i`
+and returns **empty**. The slug-edit layer is inert + `aria-hidden` (closed), the input is
+cleared, the dock still shows **Login** (not signed in), and the login attempt produced **no DOM
+text, no console line, and no page error**. The user's mental model after this interaction is
+"I signed in."
+
+**Mechanism — three swallows, each sufficient on its own:**
+
+**(1) The dock's `catch` is unreachable.** `SlugEditLayer.vue:54` calls the handler with no
+`await`, inside a `try`:
+
+```js
+// SlugEditLayer.vue:44-66
+try {
+    …
+    pm.onSlugSwitch(isAdmin ? normalizeTokenInput(raw) : normalized, isAdmin);   // :54  ← no await
+    slugInput.value = "";                                                        // :55
+    slugEditMode.value = false;                                                  // :56  ← closes NOW
+} catch (e: any) { … }                                                           // :57
+```
+
+`demo/palettes/useSlugMigration.ts:51` declares `async function onSlugSwitch(value, isAdmin)`. A
+rejection from an un-awaited async call cannot enter the enclosing `catch`; and lines 55-56 run
+synchronously, closing the layer before the network call has resolved — which is exactly what the
+reproduction shows.
+
+**(2) It would not matter, because the callee never rejects.** `useSlugMigration.ts:74-88`
+catches everything itself and dispatches the message onto a component instance ref:
+
+```js
+} catch (e) {
+    const status = e instanceof ApiProblem ? e.status : undefined;
+    if (status === 409) slugBarRef.value?.setError("Already signed in as this slug.");
+    …
+}
+```
+
+`slugBarRef` is permanently `null` — see L-31. So the error is swallowed at the source, into a
+`?.` on a ref that nothing ever assigns.
+
+**(3) And `slugError` has no template binding at all.** It is written at six sites and rendered
+at zero:
+
+```
+$ grep -n "slugError" demo/shell/dock/layers/SlugEditLayer.vue
+13: const slugError = ref("");
+18,43: slugError.value = "";
+49: slugError.value = "Already signed in.";
+59,60,61,62: slugError.value = "…"
+$ sed -n '74,119p' demo/shell/dock/layers/SlugEditLayer.vue | grep slugError
+(no output — the entire <template> contains no reference)
+```
+
+Even the one branch that *can* execute synchronously (`:48-52`, "Already signed in.") displays
+nothing.
+
+**And the sniffing is a verbatim resurrection of a bug this repo already killed.** The correct
+implementation, one call away, carries the ruling in its own comment
+(`demo/palettes/useSlugMigration.ts:77-82`):
+
+> *"S.W2 W2-6: branch on the typed `ApiProblem.status`, not `.message` substrings — the server
+> titles ("Already logged in as this user", "User not found", "Rate limit exceeded") never contain
+> "409"/"404"/"429", so those branches matched nothing and the authored copy below never showed."*
+
+`SlugEditLayer.vue:59-62` re-authors precisely that condemned form. `ApiProblem`
+(`demo/platform/transport/api-problem.ts:22-33`) does `super(title)`, so `e.message` **is** the
+server title — the substrings can never match, by the exact mechanism W2-6 documented. Edict 2
+("no legacy code") is violated in its sharpest form: not a shim left standing, but a defect
+re-typed after its cure was recorded.
+
+**Cure.** `onSlugSwitch` must **return** its outcome rather than dispatch it — `Promise<Result<void, ApiProblem>>`
+— and the layer must `await` it and render the failure. That is one contract change that removes
+all three swallows at once: awaiting makes the failure observable, returning removes the
+instance-ref channel (L-31), and rendering removes the dead ref. Combined with L-6/L-24's move of
+the session port to `demo/platform/auth/`, the login surface stops being a feature-owned
+side-effect and becomes a function with a typed result.
+
+---
+
+### L-31 · MAJOR — the slug bar exists twice; the **dead** copy owns the error channel, and it is mounted by nothing
+
+`demo/palettes/browser/slug/PaletteSlugBar.vue` — 243 lines, exposing exactly the API
+`useSlugMigration` calls (`:227 function setError(msg: string)`, `:236 defineExpose({ slugEditMode, setError, resetEditMode })`)
+— is **referenced by nothing but two barrels**:
+
+```
+$ grep -rn "PaletteSlugBar" demo/ | grep -v "useSlugMigration\|^demo/palettes/browser/slug/PaletteSlugBar.vue:"
+demo/palettes/browser/index.ts:44:export { PaletteSlugBar } from "./slug";
+demo/palettes/browser/slug/index.ts:3:export { default as PaletteSlugBar } from "./PaletteSlugBar.vue";
+```
+
+Two re-exports, **zero template usages** anywhere in `demo/`. Therefore
+`useSlugMigration.ts:30` — `const slugBarRef = ref<InstanceType<typeof PaletteSlugBar> | null>(null)` —
+is permanently `null`, and the four `slugBarRef.value?.setError(...)` calls at `:84-87` are
+guaranteed no-ops. `useSlugMigration.ts:121` returns the ref to `usePalettePorts`, which forwards
+it to nobody.
+
+The shape is the ownership defect the challenge asks for, in its purest form:
+
+| | live | dead |
+|---|---|---|
+| implementation | `demo/shell/dock/layers/SlugEditLayer.vue` (119 L) | `demo/palettes/browser/slug/PaletteSlugBar.vue` (243 L) |
+| area | **shell** — chrome | palettes — the feature that owns the migration logic |
+| error channel | writes `slugError`, never rendered | `setError()`, wired and never called |
+| exposes | `{ onStartSlugEdit, onCopySlug, slugSwitching }` (`:72`) — **no `setError`** | `{ slugEditMode, setError, resetEditMode }` |
+
+The dock re-implemented the slug bar, the original was left standing in `palettes/`, and the
+composable kept talking to the corpse. Note the `defineExpose` row: even if someone bound
+`slugBarRef` to `<SlugEditLayer>` today, `setError` would still be `undefined` — the two
+implementations do not share an interface, so there is not even an accidental repair path.
+
+This is also the **fourth** dual-home in this component's neighbourhood, joining the menu (L-9),
+the action bar (L-3), and the view registry (L-10). Same mechanism every time: a surface was
+re-authored at the dock, and the predecessor was left exported rather than deleted.
+
+**Cure.** Delete `PaletteSlugBar.vue` and both barrel lines (−243 lines, −2 exports). `SlugEditLayer`
+becomes the single sign-in surface and moves, per the greenfield lattice, to
+`shell/dock/layers/` with its validation (`looksLikeSlug`, `normalizeTokenInput` — L-15) relocated
+to `demo/platform/auth/`. With L-30's typed return, `slugBarRef` and `setError` cease to exist as
+concepts.
+
+---
+
+### L-32 · MINOR — the demo's tests have two homes, and the library's test root reaches into `demo/`
+
+`demo/shell/dock/status-lamp.ts` is a demo shell module; its test lives in the **library's**
+vitest root:
+
+```
+$ ls test/*.ts | wc -l                    → 19
+$ grep -rln "\.\./demo/" test/ | wc -l    → 10
+test/status-lamp.test.ts  test/ink.test.ts  test/view-accents.test.ts  test/preview-chips.test.ts
+test/slider-announcement.test.ts  test/mix-v4.test.ts  test/gradient-parse.test.ts
+test/gradient-v4-consume.test.ts  test/image-sampler-v4.test.ts  test/value-domain-clamp.test.ts
+
+$ ls demo/test/*/                          → demo/test/export/byte-exact.test.ts
+                                             demo/test/glass/{aurora-bracket,aurora-motion}.test.ts
+```
+
+**10 of 19 files in the library test root are demo tests**, while `demo/test/` also exists with 3
+files. The library program (`tsconfig.lib.json`) is deliberately structurally glass-ui-free
+(inv-K-1, eslint-enforced at `eslint.config.js:204-218`) — yet its test root imports the demo,
+which imports glass-ui. The boundary the lint rule protects in `src/` is not protected in `test/`,
+and `status-lamp.ts:28` documents the arrangement as intentional (*"the O-22 variant matrix is
+asserted over this function in `test/status-lamp.test.ts`"*).
+
+**Cure.** `test/` holds library tests only; the 10 demo tests move to `demo/test/` beside the two
+already there, with a second vitest project entry. This is the same edict-2 shape as L-28 — a
+location preserved for source-compat with a layout that changed.
+
+---
+
+### L-33 · MINOR — the same dual-home pattern, checked at the two other suspects the brief named
+
+The challenge names three historical suspects. Verified, so the ledger is complete:
+
+| suspect | status |
+|---|---|
+| `ActionBarLayer`'s local `useLayerTransition` | **LIVE** — already filed as L-5 / L-20 |
+| three parallel `useDark` stores | **CURED** — confirmed independently: all 9 live call sites use glass-ui `useGlobalDark`; the only vueuse mention is the historical comment at `useMarkdownHighlighting.ts:76-79`. Agrees with Negative proof #2. |
+| `demo/palettes/export.ts` + `usePaletteExport.ts` vs `export/serializers` | **LIVE — not previously filed in this report** |
+
+The third:
+
+```
+demo/palettes/export.ts            132 L   exportAsJSON / ExportResult / slugify()
+demo/palettes/usePaletteExport.ts   27 L
+demo/palettes/export/               12 modules — serializers.ts (47 L), json.ts, css.ts, png.ts,
+                                    svg.ts, tailwind.ts, canonical.ts, rfc8785.ts, digest.ts,
+                                    bytes.ts, reload.ts, types.ts
+```
+
+A 132-line module and a 12-module directory of the same name, both alive, both owning "palette
+export". Out of this component's subject — filed here only as corroboration that the dual-home
+mechanism is systemic in `demo/` rather than particular to the dock, which is the load-bearing
+claim behind L-23's cure. The palettes seat owns the cure.
+
+---
+
+### L-34 · INFO (sharpens L-10 / L-19) — the admin partition has a **third** home, and it sides with the schema against the dock
+
+L-10 finds the dock's `adminViews` contradicting `viewSchema`'s hue law. There is a third
+enumeration, and it agrees with the schema:
+
+```
+demo/color-picker/router/index.ts:30-34
+  { path:"/admin/users",  name:"admin-users",  component:Stub, meta:{ admin:true } }
+  { path:"/admin/names",  … }  { path:"/admin/audit", … }
+  { path:"/admin/flagged",… }  { path:"/admin/tags",  … }        ← exactly 5, and no others
+```
+
+`/atmosphere` (`:28`) and `/blob` (`:29`) carry **no** `meta.admin`. So the tally across the three
+owners of "is this an admin view" is **5 · 5 · 7** — the router and the schema agree; the dock
+alone dissents, and the dock is the one that gates the navigation UI. That makes L-10's `group`
+field on `PaneConfig` a three-way consolidation (schema owns it, router derives `meta.admin` from
+it, dock derives `viewEntries` from it), not a two-way one — and it means the dock's dissent has
+never been visible to the route layer, which is why the latch in L-19 was reachable through Back,
+deep link and `router.push` alike.
+
+The route table is also a **sixth** copy of the `ViewId` enumeration in the sense
+`viewSchema.ts:7-9` set out to retire (14 route records, hand-listed, `component: Stub` each) —
+generatable from `VIEW_MAP` in four lines.
+
+---
+
+### One measurement that sharpens MT-F004's attribution
+
+`/#/browse` and the five `/#/admin/*` routes isolate the shell's constant a11y floor exactly,
+because they carry no pane-level tap-target defects of their own. From `REPORT.json`:
+
+```
+safari-desktop-light /#/browse : smallTapTargets 4  namelessButtons 0
+safari-mobile-light  /#/browse : smallTapTargets 4  namelessButtons 0
+   → input 160×23 (desktop) / 160×20 (mobile), label ""
+   → 3 × button 22×22 (desktop) / 23×23 (mobile): "Switch to slug", "Generate new slug", "Cancel"
+```
+
+All four are `SlugEditLayer.vue` (`:81-87`, `:91-118`), and `namelessButtons: 0` on the same
+captures confirms the nameless button is **not** part of the shell's constant floor — it tracks
+the presence of an `ActionBarContext`, which is L-1. So the correct decomposition of the visual
+audit's shell rows is: **4 constant tap-target defects on 60/60 captures, dock-owned, latent
+behind `inert` until the layer opens** (L-7's correction stands), plus **1 conditional nameless
+button on the 6 desktop routes that have an action bar**. The root's "behind a responsive branch"
+reading is wrong in both halves — L-7 established that for the nameless button; this establishes
+that the tap-target rows are not responsive at all, they are unconditional.
+
+---
+
+## Addendum C ordering note
+
+**L-30 lands with L-1, not after it.** L-23 remains the right first move (turn the guards back on;
+they are what let all of this accumulate), and L-18 remains the worst latent symptom. But L-30 is
+the only finding in this report where a user performs an action, is told nothing, and is wrong
+about the outcome — and it is cheap: `await` the call, return a typed result, render the error,
+delete the orphan (L-31). It touches four files and no producer.
+
+Sequenced against the existing plan: **L-23** (guards + `import/no-cycle` + the meta-test that
+makes a guard's death loud) → **L-30 + L-31** (typed login result; delete `PaletteSlugBar`) →
+**L-1** (the command registry, which is the substrate for L-3 and half of L-5) → **L-24/L-6**
+(session port to `platform/auth`) → **L-4 + L-11/L-25** (delete the barrel layers) → the
+remaining transpositions as already sequenced. **L-32**, **L-33** and **L-34** are each a
+single mechanical commit and can land in any order.
+
+### Reproduction index (this pass)
+
+| script | establishes |
+|---|---|
+| `LDOCK-probe1.mjs` | desktop `/#/`: `send-btn` identity + rect, slug input `inert`/`aria-hidden` ancestors, layer mount states, `h1: 0`, inverted heading order |
+| `LDOCK-probe2.mjs` | mobile `/#/`: `sendBtnCount 0`, `colorInputPresent false`, `namelessCount 0` |
+| `LDOCK-probe3.mjs` | `/#/extract`'s 3 nameless buttons are pane-owned (`button.dock-icon-button`, `title=` only), **not** dock |
+| `LDOCK-probe4/5.mjs` | L-1 re-reproduced on a second action: desktop `bodyTextLen 649→711` vs mobile `449→449` for `button[aria-label="Seed from palette"]` |
+| **`LDOCK-probe6.mjs`** | **L-30**: bogus-slug submit → layer closes inert+aria-hidden, input cleared, `errorish: []`, clean console |
+| `LDOCK-graph.mjs` | independent cycle detector: `total runtime cycles: 1`, it is the dock barrel; 31 cross-area edges out of `shell/dock` (color-session 13 · ui 10 · palettes 5 · platform 3) |
+| `LDOCK-graph2.mjs` | independent closure measurement: 65 → 39 modules, 251 → 157 KB when the `SESSION_PORT_KEY` edge is cut (26 modules / 94 KB) |
+| `npx tsc -p tsconfig.demo.json --noEmit --traceResolution` | `@mkbabb/value.js/css` resolves by package **self-reference** through `exports`, not through `paths` — corroborates L-22 and identifies why the missing key is latent rather than live |
+
+No file under `src/`, `demo/`, `api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`,
+`scripts/dev/dev.sh`, or any `INBOX.md` was modified by this seat. The only write is this
+addendum, appended without altering a byte of L-1…L-29.
