@@ -1,0 +1,46 @@
+{
+  "badgesAtBoot": [
+    {
+      "slug": "beta-drifter-0002",
+      "badge": "2"
+    },
+    {
+      "slug": "alpha-keeper-0001",
+      "badge": "4"
+    }
+  ],
+  "afterRace": {
+    "openRow": "beta-drifter-00022Pa",
+    "disclosure": "ALPHA-PALETTE-AAA 2 0"
+  },
+  "menuItems": [
+    "Save",
+    "Remix",
+    "Export",
+    "Report",
+    "Feature",
+    "Delete (admin)"
+  ],
+  "badgesAfterDelete": [
+    {
+      "slug": "beta-drifter-0002",
+      "badge": "1"
+    },
+    {
+      "slug": "alpha-keeper-0001",
+      "badge": "4"
+    }
+  ],
+  "deleteRequests": [
+    "http://localhost:9077/admin/palettes/alpha-p-1"
+  ],
+  "VERDICT": {
+    "deletedSlugInUrl": [
+      "alpha-p-1"
+    ],
+    "betaBadgeBefore": "2",
+    "betaBadgeAfter": "1",
+    "alphaBadgeBefore": "4",
+    "alphaBadgeAfter": "4"
+  }
+}

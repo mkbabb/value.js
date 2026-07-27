@@ -1170,3 +1170,351 @@ primitives the library already wrote.** Together they are net deletions: `valueO
 `PickerColorError`, `buildColor`, `CSS_PICKER_SPACES`, twelve `catch` blocks, seventeen factory
 imports, and the "not a valid color" constant string all go away, and `picker-color.ts` — the module
 every path in this component's cone runs through — drops from 217 lines to about 70.
+
+---
+---
+
+## Model receipt (fourth pass)
+
+I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]` — the tier this
+seat was spawned with. Declared, not inherited. **Not a defect.**
+
+Fourth pass, independent re-run of CHALLENGE-L at the same coordinate (branch `tranche-u`,
+HEAD `c654824e`, subject `demo/shell/dock/ColorInput.vue`). This pass is an **addendum, not a
+patch** (E-3): passes 1–3 stand unedited above. It contributes **two new MAJOR findings the prior
+passes did not reach** (L-18, L-19), four independent live confirmations of prior findings, and one
+sharpening of L-5's mechanism.
+
+Live probes this pass, all isolated Chromium contexts against `http://localhost:9000`:
+`CHL-colorinput-probe.mjs` (MT-F001 keystroke repro + control + in-graph library probe),
+`CHL-probe2.mjs` (keyframe-registry + `getAnimations()` + accessible-name), `CHL-graph.mjs`
+(glass-ui ESM graph walk). Scripts in the session scratchpad; every output below is pasted verbatim.
+
+---
+
+## L-18 — MAJOR (NEW) — `picker-color.ts` re-derives a type the library **does** export, and pays for it with an `as unknown as` erasure on the single conversion funnel this component reads
+
+This is adjacent to L-14 but is its **opposite**: L-14 is the library holding primitives private.
+L-18 is the demo re-deriving a primitive the library **publishes**, and paying a type-safety price
+for the re-derivation. Passes 1–3 did not reach it — `grep -c "as unknown as" challenge-L-library.md`
+→ 0 before this pass.
+
+`demo/color-session/picker-color.ts:38`:
+
+```ts
+export type PickerColorIn<S extends SpaceId> = Extract<AnyColor, { readonly space: S }>;
+```
+
+`/color` already publishes the generic. Verified against the shipped declarations, not the source:
+
+```
+$ grep -oE "^export declare type [A-Za-z_0-9]+" dist/subpaths/color.d.ts | sort -u
+export declare type Alpha
+export declare type AnyColor
+export declare type Channel
+export declare type ChannelsBySpace
+export declare type Color          ← the generic the demo re-derives
+export declare type ColorIssue
+export declare type HueInterpolationMethod
+export declare type RGBA8
+export declare type Result
+export declare type RgbGamut
+export declare type SpaceId
+```
+
+The re-derived form does not typecheck, so `picker-color.ts:116` erases through `unknown`:
+
+```ts
+return valueOrThrow(convertColor(color, space)) as unknown as PickerColorIn<S>;
+```
+
+**Proven, not asserted.** A two-function probe compiled standalone with the demo program's exact
+compiler options — arm A is the demo's `Extract<>` shape *without* the cast, arm B is the identical
+body typed against the library's exported `Color<S>`:
+
+```
+$ npx tsc --ignoreConfig --noEmit --strict --target ES2022 --module ESNext \
+    --moduleResolution bundler --verbatimModuleSyntax --lib ES2023,DOM --skipLibCheck \
+    docs/tranches/V/megatranche/audit/components/shell-dock-colorinput/.probe-cast.ts
+
+.probe-cast.ts(12,5): error TS2322: Type 'Readonly<{ space: S; channels: ChannelsBySpace[S];
+  alpha: Alpha; }>' is not assignable to type 'PickerColorIn<S>'.
+  Type 'Readonly<{ space: S; channels: ChannelsBySpace[S]; alpha: Alpha; }>' is not assignable to
+  type 'Extract<Readonly<{ space: "jzazbz"; channels: readonly [jz: Channel, az: Channel,
+  bz: Channel]; alpha: Alpha; }>, { readonly space: S; }>'.
+```
+
+Line 12 is arm A. **Arm B produced no diagnostic.** `Extract<AnyColor, {space: S}>` is not provably
+equal to `Color<S>` for a *generic* `S` (TS cannot distribute the conditional through the unresolved
+parameter), while `Color<S>` is what `convertColor` literally returns. The cast exists solely to
+paper over a locally re-derived alias of an already-public type. The probe was removed after the
+run; the tree is unchanged.
+
+**Blast radius.** `PickerColorIn` has **23 usages** across `demo/`. It types
+`convertPickerColor`, `withChannel`, `withNormalizedChannel`, `withAlpha`, `mapPickerOklabToSrgb`
+— i.e. the single funnel through which ColorInput's readout, `astEcho`, `gamutVerdict`, and every
+slider value flow. One `as unknown as` at the top of that funnel erases the discriminant for
+everything downstream: any mismatch between the space tag and the channel tuple is unprovable past
+line 116, which is precisely the invariant `ARCHITECTURE.md:96` exists to guarantee
+("`ChannelsBySpace` is an **exhaustive** mapping from every ID to its immutable channel tuple").
+
+**And the demo already knows better, one file away.** `demo/color-session/ink.ts:6` imports
+`type Color` from `@mkbabb/value.js/color`. Two spellings of one concept inside a single directory
+— unique semantic ownership, edict 2. `grep -rn "as unknown as" demo/color-session/` returns
+exactly one hit, line 116: the whole cost of the re-derivation is concentrated at the one place
+the re-derivation happens.
+
+**Second cast, same file, different cause.** `picker-color.ts:208` — `color as CssColor` after a
+runtime `CSS_PICKER_SPACES.has(color.space)` test. The library ships the closed `CssColorSpace`
+union and the `CssColor` discriminated union, but **no narrowing predicate**
+(`grep -c "isCssColor" dist/subpaths/css.d.ts` → 0), so the consumer must assert what the runtime
+check just proved. That is a real gap in `/css`: the type guard for a closed discriminated union
+belongs with the union, not re-invented per consumer. It is also the third home for the
+CSS-serializable-space set that pass 3's L-14 already counted — this cast is *why* the third home
+exists.
+
+**Cure.** Delete `PickerColorIn`; use `Color<S>` from `@mkbabb/value.js/color` at all 23 sites.
+The `as unknown as` dies with it — a net deletion, no new abstraction. File `isCssColor(c): c is
+CssColor` as a `/css` addendum (E-3), which retires `CSS_PICKER_SPACES` and the line-208 cast
+together. Combined with pass 3's L-14 cure, `picker-color.ts` loses its last two casts and both
+of its hand-rolled type aliases.
+
+---
+
+## L-19 — MAJOR (NEW) — the composition root is a **feature directory**, so 137 of the app's own modules are served through Vite's `/@fs/` escape hatch, and the tree has two live URL namespaces
+
+Not reached by passes 1–3 (`grep -c "@fs" ` → 1 before this pass, and that hit is a `curl` URL in
+the reproduction appendix, not a finding).
+
+`vite.config.ts` sets `root: "./demo/color-picker/"` for **both** the dev and the `gh-pages` builds.
+But `demo/color-picker/` contains only the composition root:
+
+```
+$ ls demo/color-picker/
+App.vue  ErrorBoundary.vue  composables/  index.html  public/  router/  vite.d.ts  (+ 3 images)
+```
+
+Every feature tree — `shell/`, `color-session/`, `picker/`, `palettes/`, `workbenches/`, `scenes/`,
+`platform/`, `shared/`, `styles/`, `ui/` — lives one level **up**, i.e. *outside the server root*.
+Vite must therefore serve them through `/@fs/`. Measured on `/#/` from the live resource timeline:
+
+```js
+{ total: 250,
+  viaAtFs: 227,
+  demoModulesViaAtFs: 137,
+  rootRelativeSample: ["/router/index.ts", "/App.vue", "/ErrorBoundary.vue",
+                       "/composables/usePaletteWiring.ts", "/composables/boot/hydrate.ts", …] }
+```
+
+**137 of the demo's own modules** — including this component, served as
+`/@fs/Users/mkbabb/Programming/value.js/demo/shell/dock/ColorInput.vue` — reach the browser through
+the filesystem-escape route, while the ~10 modules that happen to sit inside `demo/color-picker/`
+are served root-relative as `/App.vue`. **One source tree, two URL namespaces.**
+
+**This is not theoretical. It blocked the app during this pass.** First navigation produced a Vite
+error overlay that made the dock unclickable:
+
+```
+ENOENT: no such file or directory, open '/shell/dock/ColorInput.vue'
+    at Object.readFileSync (node:fs:436:20)
+    at getDescriptor (…/@vitejs/plugin-vue/dist/index.mjs:80:72)
+    at LoadPluginContext.handler (…/@vitejs/plugin-vue/dist/index.mjs:1692:25)
+```
+
+`/shell/dock/ColorInput.vue` is the *root-relative* spelling resolved against `demo/color-picker/`
+— a path that has never existed on disk. 22 sibling `[vite] Failed to reload /@fs/…` errors sat in
+the same buffer (ColorInput's among them, plus `App.vue`, `ColorPicker.vue`, `HeroBlob.vue`,
+`PaletteCard.vue`, `Markdown.vue`, …). It cleared on hard reload and the working tree is clean
+(`git status --porcelain` → no `demo/` or `src/` modification), so **this occurrence is a stale
+long-running-server artefact, not a durable repo break** — labelled as such. But the artefact is
+only *possible* because the two namespaces exist and a module can be addressed by either. A
+single-root tree cannot produce it.
+
+**It also contradicts the tranche's own declared architecture on two counts.** `ARCHITECTURE.md:9`
+names the composition root `demo/app/` — "entry, composition root, router, app shell" — and
+`ARCHITECTURE.md:10-11` puts the pre-paint seed at `demo/public/prepaint-seed.js`. Both live under
+`demo/color-picker/` today. And `color-picker` is a **route** (`/#/`, one of eleven in the closed
+inventory at `ARCHITECTURE.md:41`), not the shell: the app's entry point is named after one of its
+own leaves, which is the naming form of the same category error `ARCHITECTURE.md:39` forbids for
+`panes/`.
+
+Third consequence, quieter: every demo→demo import is a `../../` count *from inside a sibling of the
+root*. `ActionBarLayer.vue:4` reaches `color-session` as `../../../color-session/keys`; ColorInput
+reaches it as `../../color-session/keys`. The declared lattice
+(`shell → color-session / platform / shared`, `ARCHITECTURE.md:47`) is unreadable from the import
+text because the depth carries no information about the direction.
+
+**Cure.** `demo/color-picker/` → `demo/app/`; Vite `root: "./demo"`. `/@fs/` then disappears from the
+demo graph entirely (227 → the node_modules tail only), the HMR path ambiguity that produced the
+ENOENT becomes structurally impossible, and `ARCHITECTURE.md:9-33`'s physical tree becomes true as
+written. This is the cheapest of the four cures in this document and the only one that is purely a
+move.
+
+---
+
+## Fourth-pass confirmations (independent re-derivation of prior findings)
+
+**L-1 (BLOCKER) — re-reproduced end-to-end, and the swallow is bit-identical.** Fresh Chromium
+context, dock → `Toggle action bar` → `Open color input`, then `oklch(` `)` typed character-by-character
+and `Enter`:
+
+```
+input present: 1   text-at-open: "lab(92% 88.8 20 / 82.7%)"
+
+AFTER ENTER:   { "text": "oklch()", "errorBadge": 1, "errorBadgeText": "not a valid color",
+                 "errorClass": true, "newConsoleErrors": [], "newPageErrors": [],
+                 "title": "lab(92% 88.8 20 / 82.7%) — Color Picker" }
+
+CONTROL zzzzz: { "text": "zzzzz",   "errorBadge": 1, "errorBadgeText": "not a valid color",
+                 "errorClass": true, "newConsoleErrors": [], "newPageErrors": [] }
+
+LIVE-GRAPH parseCssColor (re-imported from the running app's own module instance):
+  "oklch()" -> THROWS TypeError: Cannot read properties of undefined (reading 'replace')
+  "rgb()"   -> THROWS TypeError: Cannot read properties of undefined (reading 'replace')
+  "zzzzz"   -> ok:false + diagnostics
+```
+
+A library `TypeError` and a legitimate `ok:false` produce **byte-identical UI and byte-identical
+console output (empty)**. Confirmed: the component *swallows*. Screenshot of the user-visible state
+at `…/scratchpad/CHL-oklch.png` — the badge, absolutely positioned at `right: 0.5rem`
+(`ColorInput.vue:348-352`), occludes the typed text down to one glyph at dock width, so the user is
+told they are wrong while being prevented from reading what they typed.
+
+**L-12 (dead `crown-appear`) — confirmed live at runtime, not only at compile time.** Pass 3 proved
+it from the compiled style block; this pass proves it from the browser's own keyframe registry with
+the input layer mounted:
+
+```json
+{ "totalKeyframeNames": 54,
+  "crownNames": ["crown-appear-55dadc03"],
+  "flashNames": ["input-mode-flash-55dadc03"],
+  "crownAnimationsRunning": 0 }
+```
+
+Of 54 keyframe names in every loaded stylesheet, the only `crown` entry is the **hashed** one; the
+unhashed `crown-appear` the template's inline `style` attribute (`ColorInput.vue:38`) names exists
+nowhere. An element carrying that exact declaration returns `getAnimations().length === 0`.
+`input-mode-flash-55dadc03` is the working control — declared *and* consumed inside the scoped
+block, so correctly rewritten. L-12 upgraded from compile-time proof to observed runtime fact.
+
+**L-10 (send button has no accessible name) — confirmed in the mounted state.** The mega-tranche
+visual sweep's `namelessButtons: 1` on `/#/` is **not** this button — ColorInput is not mounted at
+rest (`document.querySelector('.color-input')` → `null` on a fresh load; the row belongs to a dock
+capsule button). With the input layer open:
+
+```json
+"sendButtons": [ { "tag": "BUTTON", "text": "", "ariaLabel": null, "title": null } ]
+```
+
+No accessible name of any kind, in either branch (`ColorInput.vue:67-82`). Every sibling dock
+control has one — enumerated live: `Toggle action bar`, `Open color input`, `Switch to slug`,
+`Generate new slug`, `Cancel`, `Select view`, `Save palette`, `Copy colors`, `Menu`. L-10 stands,
+with the correction that the visual audit's row is a different element.
+
+**L-2 — the root-barrel cost, measured as a transitive graph rather than a top-level count.** Pass 1
+gave module counts; this pass walks the full relative-import closure of
+`node_modules/@mkbabb/glass-ui/dist`:
+
+```
+root barrel (glass-ui.js)                    : 66 modules, 224,193 bytes
+{popover,tooltip,separator,dom}.js granular  : 21 modules,  33,150 bytes
+excess                                       : 45 modules, 191,043 bytes   (6.76×)
+```
+
+And the systemic share: of the 36 demo modules importing the bare glass root barrel, **18 are the
+`demo/ui/` shims** — the forbidden forwarding layer is exactly half of the app's entire root-barrel
+pressure. Honest caveat: glass-ui declares `sideEffects: ["*.css"]`, so the rolldown `gh-pages`
+build can shake much of the JS; the 66 modules are real fetches in the dev graph the live app
+serves and real work for the bundler. L-2's severity is unchanged.
+
+**Negative proof — the demo→library direction is sound, re-verified by resolution trace.** The
+premise "wrong direction of dependency / a demo import a real consumer could not write" is **false**
+for this component's cone, and it is worth stating positively:
+
+```
+$ npx tsc -p tsconfig.demo.json --noEmit --traceResolution | grep "Module name '@mkbabb/value.js"
+@mkbabb/value.js/color    -> /Users/mkbabb/Programming/value.js/dist/subpaths/color.d.ts
+@mkbabb/value.js/css      -> /Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts
+@mkbabb/value.js/easing   -> /Users/mkbabb/Programming/value.js/dist/subpaths/easing.d.ts
+@mkbabb/value.js/math     -> /Users/mkbabb/Programming/value.js/dist/subpaths/math.d.ts
+@mkbabb/value.js/quantize -> /Users/mkbabb/Programming/value.js/dist/subpaths/quantize.d.ts
+```
+
+Every specifier lands on the **published `dist/` trust boundary**, never on `src/`, and never on
+the `node_modules` twin. Note `/css` resolves with *no* `paths` entry at all — through the repo's
+own `package.json#exports` self-reference under `moduleResolution: bundler`. That is the correct
+mechanism, and it is why L-4's three phantom `paths` keys are dead config rather than live drift.
+All 30 symbols `picker-color.ts` imports are present in the published declarations (25/25 in
+`color.d.ts`, 5/5 in `css.d.ts`; zero absent). The T.W1 demo-dogfood keystone **holds**.
+
+---
+
+## Fourth-pass sharpening of L-5 — the *cause* of the self-install, named
+
+Pass 1 established the twin exists and is dodged by three accidents. The cause is now pinned to a
+single hard edge, which matters because it determines the cure:
+
+```
+$ node -e "…" # read from the installed manifests
+keyframes.js  deps: {"@mkbabb/value.js":"4.0.0"}          ← HARD dependency, exact pin
+glass-ui      deps: {}   peer: {"@mkbabb/value.js":"^4.0.0"}  ← peer only, does not install
+
+$ grep -n '"node_modules/@mkbabb/value.js"' -A3 package-lock.json
+  "version": "4.0.0",
+  "resolved": "https://registry.npmjs.org/@mkbabb/value.js/-/value.js-4.0.0.tgz",
+```
+
+`@mkbabb/keyframes.js@^6` — a **direct dependency of this repo** — carries an exact
+`"@mkbabb/value.js": "4.0.0"`, so npm materialises the registry tarball unconditionally. glass-ui's
+peer declaration is innocent. This falsifies, in one line, the premise both resolution configs are
+built on:
+
+- `vite.config.ts:26-28` — "**A package does not install itself**, so these exact aliases point the
+  seven public specifiers at this checkout's freshly-built published surface."
+- `tsconfig.demo.json` header — "a package **never** installs itself, so the demo aliases that
+  specifier…"
+
+The comments are false as written and are load-bearing for two configs. Confirming pass 3's ruling
+that the hazard is latent rather than live: the installed copy carries the **identical** MT-F001
+crasher —
+
+```
+$ node --input-type=module -e "import {parseCssColor} from
+    './node_modules/@mkbabb/value.js/dist/subpaths/css.js'; try{parseCssColor('oklch()')}catch(e){…}"
+THROWS Cannot read properties of undefined (reading 'replace')
+```
+
+— which is what every real downstream consumer of `@mkbabb/keyframes.js@6` has in their tree today.
+That is the strongest argument for fixing `src/css/grammar.ts:181` at the library, not the demo:
+the crash is already distributed, and no demo-side guard can reach it.
+
+**Cure, sharpened.** Pass 1's "one generated map for all four tools" stands. Add: a
+`package.json#overrides` entry pinning `@mkbabb/value.js` to `file:.` makes the invariant the
+comments assert *actually true*, at which point the four tools no longer need to be individually
+taught to dodge a twin that no longer exists.
+
+---
+
+## Fourth-pass finding index
+
+| id | severity | mechanism | one line |
+|---|---|---|---|
+| L-18 | MAJOR | **E — surface re-derived where it is already public** | `picker-color.ts:38` re-derives `PickerColorIn<S> = Extract<AnyColor,{space:S}>` for the exported `Color<S>`, and pays with `as unknown as` at line 116 — **proven** unnecessary (arm A `TS2322`, arm B clean); 23 usages ride the erased funnel; `ink.ts:6` already uses `Color`. Plus: `/css` ships no `isCssColor` guard, forcing the line-208 cast. |
+| L-19 | MAJOR | **F — the composition root is a feature directory** | Vite `root: "./demo/color-picker/"` while the whole app tree lives at `demo/`: **137 of 250** module requests on `/#/` go through `/@fs/`; two URL namespaces for one tree; observed live as a blocking `ENOENT '/shell/dock/ColorInput.vue'` overlay. `ARCHITECTURE.md:9` names the root `demo/app/`. |
+
+**Consolidated mechanism count across four passes: six.**
+A — the failure-explicit contract is inverted at the demo boundary (L-1, L-7, L-16, L-17).
+B — the public surface is described by divergent maps and a stale twin (L-3, L-4, L-5, L-15).
+C — a forbidden forwarding layer sits between the component and the design system (L-2, L-6, L-10).
+D — the public surface is narrower than the library's own internal abstraction (L-14).
+E — **the demo re-derives a surface that is already public, and pays in erased types (L-18).**
+F — **the composition root is a feature directory, splitting the tree into two namespaces (L-19).**
+
+D and E are a matched pair and should be cured in one cut: export the four private primitives
+(L-14), delete the two re-derived aliases (L-18), and `picker-color.ts` loses `buildColor`,
+`PickerColorIn`, `CSS_PICKER_SPACES`, and both casts together.
+
+The single highest-leverage transposition is unchanged across all four passes: **make
+`parseCssColor` total and let `Result` cross the boundary unconverted.** Every pass has now
+re-derived it independently. F (L-19) is the cheapest — a directory rename and a one-line config
+change — and is the only finding in this document whose cure moves no logic at all.

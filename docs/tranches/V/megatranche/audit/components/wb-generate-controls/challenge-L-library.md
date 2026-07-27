@@ -5,6 +5,12 @@
 I observe myself to be **Claude Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, matching
 the explicit Opus 5 declaration this seat was spawned with. The seat is declared, not inherited.
 
+> **A SECOND INDEPENDENT L PASS RAN 2026-07-27 (repo HEAD `9bcd5d91`).** It re-verified the pin,
+> confirmed §L-0/§L-1/§L-2/§L-3/§L-4/§L-5 on fresh evidence, obtained the live save-name
+> reproduction pass 1 had to abandon, **upgraded §L-10 from INFO to MAJOR** on measured evidence,
+> and found **one new BLOCKER: the five per-swatch copy verbs on this plate do not exist in the
+> product.** See **§8 — Pass 2** at the end of this file. Read §8 before acting on §6's wave table.
+
 ---
 
 ## 0. Pin verification (coordination boundary)
@@ -892,3 +898,481 @@ contaminated telemetry, and in particular I do **not** claim the "`/#/generate` 
 behaviour I briefly observed — that was almost certainly another seat's navigation, not a defect.
 §L-1 stands on the prior seat's clean `localStorage` reproduction plus the static evidence
 (`GeneratePane.vue:16-21` never binds the second emit parameter), neither of which needs a browser.
+
+---
+---
+
+# §8 — PASS 2 (independent re-audit, 2026-07-27, repo HEAD `9bcd5d91`)
+
+## 8.0 Model receipt
+
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier
+declared for this seat. Declared, not inherited.
+
+This is a second, independently-conducted CHALLENGE-L pass on the same component. I read the
+pass-1 report only **after** completing my own trace, so §8.2's confirmations are genuine
+independent replications, not restatements. Where pass 1 was right I say so and do not re-argue
+it. Where I add, I add.
+
+## 8.1 Pin re-verification at a later HEAD
+
+```
+$ git rev-parse HEAD
+9bcd5d91d22ae660e9c56bb881d1d91358c55abd
+
+$ shasum -a 256 demo/workbenches/generate/GenerateControls.vue
+4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6  demo/workbenches/generate/GenerateControls.vue
+
+$ git log --oneline c654824e..HEAD -- demo/workbenches/generate/
+(empty)
+```
+
+**Pin still EXACT; still zero drift**, now re-verified across the commits that landed since pass 1.
+
+One coordination note (INFO, not actionable by this seat): the hold's own authority line —
+`CARRY-LEDGER.md:61-62`, *"Against Value authority `c654824e0b252cda7f8490b67f182a48c48cc0ed`"* —
+and this seat's brief both name `c654824e`, while HEAD is now `9bcd5d91`. The intervening commits
+touch only `docs/tranches/V/megatranche/**`; no `demo/`, `src/`, `api/`, `test/` or `e2e/`
+movement. The authority SHA should be re-pinned at the next ledger touch so "against authority X"
+keeps meaning something.
+
+---
+
+## 8.2 NEW · **L2-1 · BLOCKER** — the five per-swatch copy verbs do not exist in the product
+
+Pass 1 found that `<Button variant="…">` is inert (§L-0). **The same disease has a third member,
+and this one is not cosmetic — it is a whole interaction that is absent.**
+
+### Consumer belief
+
+`GenerateControls.vue:199-208`:
+
+```vue
+<WatercolorDot
+    v-for="(css, i) in palette" :key="i" :color="css"
+    tag="button"
+    :seed="`gen-${css}-${i}`"
+    class="generate-swatch w-9 h-9 sm:w-10 sm:h-10 … focus-visible:outline-none"
+    :aria-label="`Copy ${css}`"
+    @click="copyColor(css)"
+/>
+```
+
+The comment at `:194-197` states the intent explicitly: *"the button stays the copy-verb seat
+(`tag="button"`), the dot its organic face."* `:110-113` implements `copyColor`.
+
+### Producer truth — glass-ui 7.0.0
+
+`node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts`:
+
+```ts
+type __VLS_Props = {
+    color: string;
+    variant?: "solid" | "ghost";
+    animate?: boolean;
+    cycleDuration?: number;
+    range?: [number, number];
+    seed?: string;
+};
+```
+
+**No `tag`. No emits.** And the shipped chunk is not merely indifferent to the extra attributes —
+it actively suppresses them:
+
+```
+$ grep -o "inheritAttrs" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js
+inheritAttrs
+$ grep -o 'aria-hidden[^,]\{0,20\}' node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js | head -3
+aria-hidden": "true"
+aria-hidden": "true"
+aria-hidden": "true"
+```
+
+`inheritAttrs: false` + a hardcoded `aria-hidden="true"`. The dot is, by the producer's deliberate
+design, a **decorative** element.
+
+### Measured DOM (`/#/generate`, first `.generate-swatch`)
+
+```json
+{ "tag": "SPAN",
+  "attrs": ["data-v-292b9032=", "aria-hidden=true",
+            "class=generate-swatch w-9 h-9 sm:w-10 sm:h-10 ",
+            "data-testid=watercolor-swatch", "data-variant=solid",
+            "style=background-color: oklch(0.763646 0.15888…"] }
+```
+
+No `tag`, no `aria-label`, no `role`, no `tabindex`. The consumer's `aria-label` was swallowed with
+everything else, and the element it would have named is `aria-hidden` regardless.
+
+### Measured behaviour — the verb is dead, with a positive control
+
+```json
+// swatch.focus()
+{ "matchesFV": false, "isActiveEl": false }
+
+// swatch.click()  vs  the plate's "Copy all colors" button, same probe,
+// navigator.clipboard.writeText patched to record calls
+{ "afterSwatchClick": [],
+  "afterCopyAllClick": ["oklch(76.364581747912% 0.158887496259 78.538275305182deg), o…"] }
+```
+
+Clicking a swatch produces **zero** clipboard writes. The control produces one, so the probe
+instrumentation and `writeClipboard` are both live. The plate's complete focusable set:
+
+```json
+["INPUT:Palette name", "BUTTON:Regenerate", "BUTTON:Save palette", "BUTTON:Copy all colors"]
+```
+
+Five swatches, **zero** reachable — by pointer, by keyboard, or by assistive technology.
+
+There is no other per-colour affordance on this pane. **Copying a single generated colour is not a
+feature of this product**, contrary to the code, the comments, and the T-54/WR-6 lane record.
+
+### Why every gate is green over it
+
+| gate | measurement | why it is blind |
+|---|---|---|
+| demo typecheck | `npx vue-tsc -p tsconfig.demo.json --noEmit` → `EXIT=0`, 9.2 s | Vue permits arbitrary fallthrough attrs at the type level. Identical mechanism to §L-0. |
+| O-20 oracle | `e2e/smoke/oracles/o20-generate-plate.spec.ts:97-105` | locates `.generate-swatch` and asserts only `getComputedStyle(el).backgroundColor`. The colour is right; the verb is never exercised. |
+| mega-tranche visual audit | `REPORT.json` generate rows: `namelessButtons: 0`, `smallTapTargets` = shell chrome + slider thumb only | `capture.mjs:88-98` selects `a,button,input,…,[tabindex]:not([tabindex="-1"])`. An `aria-hidden` `<span>` is in none of those sets. |
+
+**This last point amends a pass-1 negative result.** §7 records *"0 nameless buttons"* among the
+route's clean signals. That number is not evidence of a11y health here: the swatches are not
+buttons at all, so the probe cannot see them. A zero from a probe that cannot observe the element
+is not a pass.
+
+### Mechanism (same family as §L-0, one rung worse)
+
+§L-0: a stale **style** prop → the wrong emphasis renders.
+L2-1: a stale **structural** prop → the element is the wrong element, and the behaviour attached
+to it never attaches.
+
+Three sites in one 312-line file now address glass-ui 7 through props it does not declare
+(`variant` ×3 at `:158,166,176`; `tag` ×1 at `:202`), while `Slider variant="spectrum"` and
+`Badge variant="secondary"` in the same file are correct. No author could infer the difference and
+no tool reports it. **This is not a Button problem. It is a producer-surface problem, and L2-1 is
+the proof that its consequences reach past aesthetics into function.**
+
+### Cure — architectural, and it strengthens §6's G-3
+
+The dot is decorative and should stay decorative; the verb seat belongs to the consumer:
+
+```
+<button aria-label="Copy …" @click="copyColor(css)">      ← consumer owns role, name, focus, hit area
+    <WatercolorDot :color="css" :seed="…" />               ← producer owns the organic face
+</button>
+```
+
+This is also the only arrangement that honours T-28's outline law honestly: the *button* carries
+the ring at the silhouette; the dot never does. Under the hold this is a **Glass 8 acceptance
+row**, because the alternative — glass-ui ships a typed polymorphic root (`as`/`tag`) plus a
+declared `click` emit — is a producer decision that must be taken before any consumer edit.
+
+**§6's gate G-3 must be widened**: the acceptance test cannot be *"`<Button variant="ghost">`
+fails"* alone. It must be *"any attribute reaching a glass-ui component root that is not in that
+component's declared prop surface fails — at typecheck or at first render — reproducibly in CI."*
+Narrowed to Button, G-3 would have shipped L2-1 untouched.
+
+---
+
+## 8.3 UPGRADE · **L2-2 · MAJOR** (was §L-10, INFO) — the duplicated ramp track diverged exactly at the WCAG cure
+
+Pass 1 recorded *"'palette stops → CSS rail' is hand-rolled in four places"* as INFO. Measurement
+lifts it: **the two copies are not equivalent, and the difference is the accessibility fix.**
+
+| | copy A — extract | copy B — generate |
+|---|---|---|
+| gradient builder | `useExtractSession.ts:101-112` `kSliderGradient` | `GenerateControls.vue:65-73` `countSliderGradient` |
+| markup | `ExtractControls.vue:20-33` | `GenerateControls.vue:292-307` |
+| contrast ring | `boxShadow: inset 0 0 0 1.5px ${trackInk}` (`:22`) | **absent** |
+| O-18 census hook | `data-o18="extract-k-rail"` + `extract-kc` | **absent** |
+
+The builders are the same algorithm line for line — `pct = n === 1 ? 50 : (i/(n-1))*100`,
+`.toFixed(0)`, `linear-gradient(to right, …)`, `"var(--muted)"` empty fallback. `:284-285` says so:
+*"the extract k-slider pattern verbatim."*
+
+**Measured**, live `/#/generate` rail element:
+
+```json
+{ "railBoxShadow": "none", "railRect": { "w": 434, "h": 24 },
+  "railInlineBg": "background: linear-gradient(to right, oklch(0.63947 0.110159 190.777) 0%, …)" }
+```
+
+`boxShadow: none`. The T-44a cure — `ExtractControls.vue:59-64`, *"the track re-inks with the
+CONTRACT: the live pick certified against its rung at the WCAG 1.4.11 graphics floor (the O-18
+graphics leg is its born-RED gate)"* — exists on one copy only.
+
+**The oracle split with the code:**
+
+```
+$ grep -n 'data-o18' e2e/smoke/oracles/o18-contrast-census.spec.ts
+…:1106  page.locator('[data-o18="extract-kc"] .slider-track')
+…:1126  '[data-o18="extract-kc"] .slider-track'
+…:1133  '[data-o18="extract-k-rail"]'
+```
+
+The generate rail carries no `data-o18` attribute and appears in no census row. The WCAG 1.4.11
+graphics floor is **enforced on one twin and unenforced on the other** — and the unenforced twin
+is the one that ships an arbitrary user-generated palette against `bg-well`.
+
+This is what makes a dual path a defect rather than an inefficiency: copies do not diverge at
+random, they diverge wherever only one copy got the fix. The gradient builder is duplicated code;
+the missing ring is a shipped accessibility regression hiding inside the duplication.
+
+Cure unchanged from §6's **G-2** (glass-ui `Slider` owns a first-class ramp track), with one
+addition to its acceptance: **the producer affordance must carry the contrast ring**, so a
+consumer cannot obtain the ramp without obtaining the ring. Then both `--slider-track-bg:
+transparent` overrides, both underlay divs and both gradient builders delete together.
+
+---
+
+## 8.4 NEW · **L2-3 · MAJOR** — two colour-harmony vocabularies in one application; the design system already owns one
+
+`@mkbabb/glass-ui@7.0.0` ships a harmony union and its generator —
+`dist/composables/color/index.d.ts:81,87`:
+
+```ts
+export type ColorHarmony = "analogous" | "complementary" | "split-complementary" | "triad" | "tetradic" | "monochrome";
+export declare function deriveHue(anchorHue: number, harmony: ColorHarmony, hueSpread: number, t: number): number;
+```
+
+documented at `dist/components/aurora/composables/color.d.ts:29-34` as *"the PUBLIC alias of the
+shared `ColorHarmony` vocabulary … The blob and aurora derive from this ONE union."*
+
+The demo mints a rival — `demo/color-session/generate-color.ts:68-85`:
+
+```ts
+export const HARMONY_NAMES = ["golden","analogous","complementary","triadic","split-complementary","random"] as const;
+```
+
+with its own `generateHues` at `:93-149`.
+
+**User-visible consequence, same product, two panes.** Generate's harmony menu
+(`GenerateControls.vue:264-278`, capitalised at `:83-85`) offers **"Triadic"**. Atmosphere's
+harmony menu (`demo/scenes/atmosphere/AuroraPane.vue:121-127`, typed
+`AuroraHarmony = ColorHarmony` via `@mkbabb/glass-ui/aurora`) offers **`triad`**. One concept, two
+spellings, two menus, two algorithms, three overlapping members (`analogous`, `complementary`,
+`split-complementary`) and four disjoint ones.
+
+Pass 1's §L-4 established that the library owns no palette generation. This is the sharper form of
+the same inversion: the concept is not merely *absent* from `@mkbabb/value.js` — it is *present in
+a UI package*, and the demo maintains a third, private copy beside it. Unique semantic ownership
+is violated twice over.
+
+**Cure.** One vocabulary, one home, and the home is the colour library, not the component library.
+Fold `ColorHarmony` into pass 1's move 1 (`@mkbabb/value.js/palette`) and have **glass-ui consume
+it**, rather than the reverse. That is a cross-repo ask on the RF-17 library-evolution wave, and it
+is the correct direction of dependency: a colour vocabulary flowing from the colour library into
+the design system. Until then, `triadic` vs `triad` is a user-facing inconsistency with no owner.
+
+---
+
+## 8.5 NEW · **L2-4 · MAJOR** — consumers reach past the design system into its own transitive dependency, because `Select` publishes no typed value
+
+`GenerateControls.vue:33,75-81`:
+
+```ts
+import type { AcceptableValue } from "reka-ui";
+function onPresetChange(value: AcceptableValue)  { preset.value  = value as PresetName; }
+function onHarmonyChange(value: AcceptableValue) { harmony.value = value as HarmonyName; }
+```
+
+`AcceptableValue` is **reka-ui's** type — glass-ui's headless substrate. glass-ui does not
+re-export it:
+
+```
+$ grep -c AcceptableValue node_modules/@mkbabb/glass-ui/dist/index.d.ts
+0
+```
+
+so a consumer of glass-ui's `Select` has no way to name the type of the value its own event
+delivers except by naming glass-ui's internal dependency.
+
+**Census — 4 files, 9 unchecked casts:**
+
+```
+demo/workbenches/generate/GenerateControls.vue:33                       → casts at :76, :80
+demo/workbenches/mix/MixConfigBar.vue:15                                → casts at :99, :122, :146
+demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue:28  → casts at :164, :181, :198
+demo/scenes/atmosphere/AuroraPane.vue:25                                → casts at :79, :81, :85, :92
+```
+
+Pass 1's negative result — *"`reka-ui` is a declared dependency, so the type import is not an
+undeclared-dependency defect"* — is correct and I confirm it. But declaredness is not the defect.
+**The direction is.** The demo depends on the design system's private choice of headless library;
+if Glass 8 swaps reka-ui, four demo files break for a reason that has nothing to do with their own
+concern, and every one of them launders the enum boundary through an `as` cast the compiler will
+keep accepting either way.
+
+**Cure — producer ask, filed alongside G-1/G-2/G-3.** `Select` becomes generic over its value:
+`Select<T extends string>` with `@update:model-value: (v: T) => void`. Nine casts and four
+`reka-ui` imports die, and the preset/harmony enum boundary becomes type-checked instead of
+asserted. It is the same lesson as G-3 from the other side: a design-system prop *or event* whose
+type the consumer must guess is not a contract.
+
+---
+
+## 8.6 CONFIRMED LIVE · §L-1 — the save-name loss, reproduced end to end
+
+Pass 1 recorded (honestly) that it abandoned its live re-confirmation because the shared Playwright
+browser was being driven by parallel seats. **The probe is obtainable**; it needs a self-healing
+idiom rather than a navigation. Recorded here so no future seat abandons it again.
+
+The interference is real: three `browser_navigate` calls to `/#/generate` were clobbered mid-flight
+to `/#/palettes`, `/#/admin/users` and `/#/`. The fix is to re-assert the route *inside* the same
+`evaluate` and poll for the component's own marker before acting:
+
+```js
+for (let i = 0; i < 12 && !plate; i++) {
+  location.hash = '#/generate';
+  await new Promise(r => setTimeout(r, 500));
+  plate = document.querySelector('[data-generate-plate]');
+}
+```
+
+I explicitly **corroborate pass 1's refusal to report the redirect as a defect**: I saw the same
+clobbering, and it is other seats, not the router.
+
+With that idiom, one call: set `input[aria-label="Palette name"]` to `ZZ-PROBE-NAME` via the native
+value setter + `input` event, click `button[aria-label="Save palette"]`, read `localStorage`:
+
+```json
+{ "url": "http://localhost:9000/#/generate",
+  "inputAfterSet": "ZZ-PROBE-NAME",
+  "nameMatches": [["color-palettes", ["Generated Palette", "Sunset", "Empty Plate", "Overflowing"]]] }
+```
+
+The v-model round-trip is verified (`inputAfterSet`), the save fired, and the persisted store
+contains **"Generated Palette"** — zero occurrences of `ZZ-PROBE-NAME`. `GeneratePane.vue:14`
+declares `onSave(colors: string[])` (arity 1, the name parameter never bound) and `:19` passes the
+literal `"Generated Palette"` to `pm.createPalette`.
+
+**§L-1 is CONFIRMED at BLOCKER severity with an independent live reproduction.** TypeScript cannot
+catch it: a handler is always assignable to an emit with more parameters. It is data loss on the
+user's own input, in a pane whose entire purpose is producing a palette worth keeping.
+
+---
+
+## 8.7 Independently confirmed from pass 1 (no re-argument)
+
+Each re-derived from primary sources before I read the pass-1 report:
+
+- **§L-0** — glass-ui 7 Button has `emphasis`/`tone`, not `variant`. Confirmed. L2-1 is its third
+  member and generalises the finding beyond Button.
+- **§L-2** — `demo/ui/` shim layer. Independently measured: 19 `demo/ui/*/index.ts`; **18 are
+  one-line pure re-exports** of `@mkbabb/glass-ui`, and the nineteenth (`alert/`) is also a pure
+  re-export carrying only a comment. This file consumes the design system through **three** idioms
+  at once (`../../ui/*` shim at `:3-12`; root barrel at `:14`; subpath at `:15`). glass-ui publishes
+  `./badge ./button ./select ./slider` among 74 exports, and `sideEffects: ["*.css"]` means the root
+  barrel tree-shakes as well as the subpaths — so the shim layer buys nothing at all, not even
+  bundle size.
+- **§L-3** — cross-feature edge. Independently censused: `PaletteColorStrip` has 4 consumers and
+  **3 of 4 are outside `palettes/`** (`MixSourceSelector.vue:8,203`, `GenerateControls.vue:16,135`,
+  `ExtractWorkbench.vue:200`); only `PaletteCard.vue:33,175` is in-feature. RF-15
+  (`docs/tranches/V/audit/REFORMATION-2026-07-16.md:73`) names this species as work owed. The tax is
+  measurable: the palettes domain type is fabricated at four sites
+  (`GenerateControls.vue:56`, `GeneratePane.vue:15`, `CurrentPaletteEditor.vue:244`,
+  `useGradientModel.ts:144`) to satisfy props that should have taken `string[]`.
+- **§L-4** — library owns no palette generation. Confirmed, and sharpened by the sibling asymmetry:
+  extract's core **is** a published subpath (`@mkbabb/value.js/quantize`, consumed at
+  `quantize-worker.ts:6-7`, `useExtractSession.ts:14`, `useImageQuantize.ts:9`), while generate's
+  equally-pure core sits in `demo/`. Same workbench tree, same shape of math, opposite side of the
+  library line.
+- **§L-5** — `paths` shadows `exports`. Confirmed against `tsconfig.demo.json`: 8
+  `@mkbabb/value.js*` entries; `./dist/index.d.ts`, `./dist/subpaths/parsing.d.ts`,
+  `./dist/subpaths/units.d.ts` do not exist; `./css` and `./value` have no entry.
+  **I record that my own first-pass reading was wrong here** — I checked `tsconfig.json` and
+  `demo/tsconfig.json`, found no `paths`, and was preparing to certify the subpath proof clean on
+  both halves. Pass 1's finding stands and is the more careful one: the *runtime* half is
+  drift-proof by generation (`vite.config.ts:37-47`), the *typecheck* half is a hand-written stale
+  mirror. Two seats, same file, opposite conclusions from different config files — which is itself
+  the argument for deleting the mirror.
+
+---
+
+## 8.8 Pass-2 additions to the §6 wave
+
+Numbering continues §6's scheme. Release condition unchanged and quoted verbatim from
+`CARRY-LEDGER.md:61-66`: hold all consumer edits and the `@mkbabb/glass-ui` pin until one unique
+immutable v8 candidate proves exact **source→built→packed→installed→served** equality, is neither a
+workspace/source link nor mutable v7, and survives **two unchanged-byte Sol critics**. Bound
+packets: emitter `3547c78b…`, gate/package `458e5198…`, synthesis `1b8719a0…`. Pinned receiver
+`GenerateControls.vue` @ `4f95c57c…` — re-verified matching at pass-2 time (§8.1).
+
+**Producer gates — additions and one widening:**
+
+| id | gate | why |
+|---|---|---|
+| **G-3′** | **widen G-3**: acceptance is not *"`<Button variant="ghost">` fails"* but *"**any** attribute reaching **any** glass-ui component root that is not in that component's declared prop surface fails — at typecheck or first render — reproducibly in CI."* | Narrowed to Button, G-3 ships L2-1 untouched. `tag` on `WatercolorDot` is the same defect on a different component, with a functional consequence. |
+| **G-2′** | G-2's ramp-track affordance **must carry the WCAG 1.4.11 contrast ring**, so the ramp cannot be obtained without the ring | L2-2: the hand-rolled twins diverged precisely at the ring. |
+| **G-4** | `WatercolorDot`: either (a) documented as decorative-only — `aria-hidden`, no verb, consumers wrap it in their own `<button>` — or (b) ships a typed polymorphic root + declared `click` emit. **A decision, taken before any consumer edit.** | L2-1. Under (a) the consumer change is a wrapper element, under (b) it is a prop rename. The two are not interchangeable and the consumer cannot choose. |
+| **G-5** | `Select<T extends string>` with a typed `update:model-value`, or a re-export of the value type from the glass-ui root | L2-4: 4 files / 9 casts currently reach into reka-ui. |
+
+**Consumer rows — additions to §6's blocked table:**
+
+| id | change | lines |
+|---|---|---|
+| **L2-1c** | under G-4(a): wrap each `WatercolorDot` in a consumer-owned `<button :aria-label>` carrying the click and the focus ring; the dot stays decorative. Under G-4(b): pass the producer's typed prop. | 199-208 |
+| **L2-1t** | **O-20 gains a behavioural assertion**: click a swatch → the clipboard receives that swatch's CSS string. The existing `backgroundColor` assertion is retained but is not sufficient — it was green throughout the entire life of the dead verb. | `e2e/smoke/oracles/o20-generate-plate.spec.ts` |
+| **L2-2c** | add `data-o18="generate-count-rail"` and a matching O-18 census row, so the generate ramp is censused like its extract twin — **required whether or not G-2′ lands**, since it is the only thing that would have caught the divergence | 292-296 + `o18-contrast-census.spec.ts` |
+| **L2-4c** | delete the `reka-ui` import and both `as` casts once G-5 lands | 33, 75-81 |
+
+**Not blocked on Glass 8 (RF-17 library-evolution wave):**
+
+| id | change |
+|---|---|
+| **L2-3l** | fold `ColorHarmony` into the new `@mkbabb/value.js/palette` subpath and have glass-ui consume it; retire the demo's rival `HARMONY_NAMES`. Resolves `triadic` vs `triad`. 4.0.0 is immutable — next cut only. |
+
+**Escalation, restated with force.** §L-1 (the name drop) touches the pinned file, so §6 correctly
+leaves it blocked. It is **data loss on user input**, now reproduced live twice by two independent
+seats. Recommend the owner grant a hold exemption for the one-line pane-side fix
+(`GeneratePane.vue` is **not** in the hold's pinned receiver set — the four pinned files are
+`ComponentSliders.vue`, `ConfigSliderPane.vue`, `ExtractControls.vue`, `GenerateControls.vue`).
+**Binding the second emit argument in `GeneratePane.vue:14-19` requires no edit to any pinned
+file** and cures the data loss today; the fuller session-hoist (pass 1's move 4) still waits for
+the unblock. This is the single highest-value action available before Glass 8.
+
+---
+
+## 8.9 Pass-2 command log
+
+```bash
+git rev-parse HEAD                                              # 9bcd5d91
+shasum -a 256 demo/workbenches/generate/GenerateControls.vue    # 4f95c57c… MATCH
+git log --oneline c654824e..HEAD -- demo/workbenches/generate/  # empty
+
+cat node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts
+grep -o "inheritAttrs" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js          # present
+grep -o 'aria-hidden[^,]\{0,20\}' node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js | head -3
+
+python3 -c "…glass-ui package.json…"    # v7.0.0, 74 exports, sideEffects ["*.css"]
+                                        # ./badge ./button ./select ./slider ./watercolor-dot present
+grep -n "ColorHarmony" node_modules/@mkbabb/glass-ui/dist/composables/color/index.d.ts   # :81 union, :87 deriveHue
+grep -c AcceptableValue node_modules/@mkbabb/glass-ui/dist/index.d.ts                    # 0
+
+for d in demo/ui/*/; do … done                                  # 19 barrels, 18 pure shims, alert/ also pure
+grep -rn "palettes/browser/card" demo | grep -v "^demo/palettes/"   # 3 cross-feature importers
+grep -rn 'css, i) => ({' demo --include='*.vue' --include='*.ts'    # 4 PaletteColor synthesis sites
+grep -rn "AcceptableValue" demo --include='*.vue' --include='*.ts'  # 4 files, 9 cast sites
+grep -rn "value.js/quantize" demo                                   # 3 extract files on the published subpath
+sed -n '95,125p' demo/workbenches/extract/composables/useExtractSession.ts   # kSliderGradient ≡ countSliderGradient
+grep -n "slider-track-bg" -B12 -A14 demo/workbenches/extract/ExtractControls.vue  # the inset ring generate lacks
+grep -rn "data-o18" e2e/smoke/oracles/o18-contrast-census.spec.ts   # extract-kc / extract-k-rail only
+python3 -c "…REPORT.json…"                                          # generate tap targets = shell + slider thumb
+time npx vue-tsc -p tsconfig.demo.json --noEmit                     # EXIT=0, 9.2 s
+```
+
+Live probes (Playwright/WebKit, `http://localhost:9000/#/generate`, self-healing hash idiom of
+§8.6): swatch DOM attributes · `focus()` reachability · `click()` → clipboard with positive
+control · rail computed `boxShadow`/geometry/inline gradient · plate focusable census ·
+save-name `localStorage` reproduction.
+
+Image read: `docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/generate.png`.
+
+**Not claimed** (recorded so the next seat does not chase them): the `/#/generate` → `/#/palettes`
+/ `/#/admin/users` / `/#/` redirects I observed are other seats driving the shared browser, not a
+router defect — same conclusion pass 1 reached. The glass-ui root-barrel import of
+`writeClipboard` (`:14`) is a real structural point (pass 1 §L-6) but I could not substantiate a
+*bundle-size* cost for it: `sideEffects: ["*.css"]` plus 71–260-byte subpath re-export stubs mean
+Rollup tree-shakes the root barrel as well as a subpath. Treat §L-6 as an idiom/consistency
+finding, not a performance one.

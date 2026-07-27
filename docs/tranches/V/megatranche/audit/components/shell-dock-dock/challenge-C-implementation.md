@@ -6,6 +6,16 @@
 > did not reach, and one measurement that **OVERTURNS pass-1 negative proof §3.4**. Pass 1's text is
 > preserved verbatim; nothing was deleted or renumbered. Read both. Combined tally:
 > **22 findings · 2 BLOCKER · 10 MAJOR.**
+>
+> **PASS 3 (§7) — appended 2026-07-27.** A third independent CHALLENGE-C seat, own probes, same
+> subject. **7 further findings, C-23…C-29**, one **MAJOR-with-BLOCKER-consequence (C-23)**: the
+> dock's login error path is dead in three independent places, so a failed login shows the user
+> nothing at all. Also an independent re-confirmation and *widening* of C-3 (it is **7 of 15 routes**,
+> not one), a second vacuous-gate mutation distinct from C-9's, and a documentation-integrity note
+> (**C-30**): **the §6 Pass-2 body promised by this banner is NOT present in the committed file** —
+> §3.4's forward reference to "§6 · C-19" dangles, and the document as committed contains 14
+> findings, not 22. Running tally of what is actually *in this file*: **21 findings**
+> (C-1…C-14 + C-23…C-29), 1 BLOCKER, 10 MAJOR.
 
 ## Model receipt
 
@@ -585,3 +595,459 @@ worth a targeted instrumented run in a follow-up seat.
 · `chC-dock-p5.mjs` · `chC-dock-p6.mjs` · `chC-dock-p7.mjs` · `chC-dock-p8.mjs` · `chC-dock-p9.mjs`
 · `chC-dock-shots.mjs` (outputs `chC-dock-desktop-light.png`, `chC-dock-mobile-dark.png`,
 `chC-dock-slugedit.png`).
+
+---
+---
+
+# §7 · PASS 3 — third independent CHALLENGE-C seat (2026-07-27)
+
+## 7.0 Model receipt
+
+I observe myself to be **Opus 5**, exact id **`claude-opus-5[1m]`** — the tier this seat was
+spawned with, declared explicitly at spawn. Not inherited, not undeclared.
+
+Seat: CHALLENGE-C (implementation), third pass. Subject `demo/shell/dock/Dock.vue` (359 lines) and
+its owned subtree. Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`. **HEAD moved under
+me during the run** — `c654824e` (the brief) → `9bcd5d91` → `6085965e`, all docs-only commits by
+other seats; `git status` confirms no file under audit changed. Probes: read-only Playwright
+(Chromium) against the live dev server at `http://localhost:9000`, driven through
+`browser_run_code_unsafe` with **fresh browser contexts per measurement** (this matters — see §7.9).
+Write scope honoured: this file is the only thing this seat wrote; nothing under `src/`, `demo/`,
+`api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`, `scripts/dev/dev.sh` or any `INBOX.md` was touched.
+
+**Pass-3 verdict: DEFECTIVE**, independently of passes 1–2. Seven new findings; the strongest
+(C-23) is a complete, three-fold failure of an error path that pass 1 walked past while auditing the
+same file for a different defect (C-4).
+
+---
+
+## 7.1 · C-23 — MAJOR (blocker-grade consequence) · the dock's login error path is dead in three independent places
+
+**Files** · `demo/shell/dock/layers/SlugEditLayer.vue:13`, `:39-66`, `:97` ·
+`demo/palettes/useSlugMigration.ts:30`, `:74-88` · `demo/palettes/browser/slug/PaletteSlugBar.vue:124`
+
+Pass 1's C-4 proved the slug layer can be *destroyed* mid-login. This is the adjacent, worse defect:
+when the login itself **fails**, the user is told nothing — by three separate mechanisms, any one of
+which alone would suffice.
+
+### (a) The dock's own error ref is written eight times and rendered zero times
+
+```
+$ grep -rn "slugError" demo/
+demo/shell/dock/layers/SlugEditLayer.vue:13   const slugError = ref("");
+demo/shell/dock/layers/SlugEditLayer.vue:18   slugError.value = "";
+demo/shell/dock/layers/SlugEditLayer.vue:43   slugError.value = "";
+demo/shell/dock/layers/SlugEditLayer.vue:49   slugError.value = "Already signed in.";
+demo/shell/dock/layers/SlugEditLayer.vue:59   if (msg.includes("409")) slugError.value = "Already signed in.";
+demo/shell/dock/layers/SlugEditLayer.vue:60   else if (msg.includes("404")) slugError.value = "Slug not found.";
+demo/shell/dock/layers/SlugEditLayer.vue:61   else if (msg.includes("429")) slugError.value = "Too many attempts.";
+demo/shell/dock/layers/SlugEditLayer.vue:62   else slugError.value = msg || "Login failed";
+demo/palettes/browser/slug/PaletteSlugBar.vue:124,125,165,174,202,208,218,219,220,221,228
+```
+Eight writes in the dock's copy, **no read** — the `<template>` (`:75-119`) contains no `slugError`
+binding. The sibling it was cloned from *does* render it (`PaletteSlugBar.vue:124`:
+`<p v-if="slugError" class="… text-destructive">{{ slugError }}</p>`). The clone kept the writes and
+dropped the display.
+
+### (b) The local `try/catch/finally` is unreachable, and the spinner can never render
+
+`SlugEditLayer.vue:54` — the dispatch is **not awaited**:
+
+```ts
+pm.onSlugSwitch(isAdmin ? normalizeTokenInput(raw) : normalized, isAdmin);
+```
+`onSlugSwitch` is `async` (`useSlugMigration.ts:51`), so any failure inside it is a *rejected
+promise*, never a synchronous throw — the `catch (e: any)` at `:57-62` cannot fire. That makes lines
+57–62 (four authored error strings) unreachable code. Worse, the un-awaited call means the whole
+handler runs to completion synchronously: `slugSwitching.value = true` (`:41`) and
+`finally { slugSwitching.value = false }` (`:63-65`) both execute in one tick, so Vue never commits
+the `true` state and `<Loader2 v-if="slugSwitching" class="animate-spin" />` (`:97`) is **unreachable
+UI**. `slugSwitching` is nonetheless `defineExpose`d at `:72` for a consumer that does not exist.
+
+### (c) The real handler reports into a ref that is never bound, on a component that is never rendered
+
+`useSlugMigration.ts:84-87` is where the *typed* error handling actually lives:
+
+```ts
+if (status === 409) slugBarRef.value?.setError("Already signed in as this slug.");
+else if (status === 404) slugBarRef.value?.setError("Slug not found.");
+else if (status === 429) slugBarRef.value?.setError("Too many attempts.");
+else slugBarRef.value?.setError((e instanceof Error ? e.message : "") || "Login failed");
+```
+
+```
+$ grep -rn "slugBarRef" demo/
+demo/palettes/useSlugMigration.ts:30   const slugBarRef = ref<InstanceType<typeof PaletteSlugBar>|null>(null);
+demo/palettes/useSlugMigration.ts:84,85,86,87   slugBarRef.value?.setError(...)
+demo/palettes/useSlugMigration.ts:121  slugBarRef,
+        ← declaration, four uses, one return. NO `ref="slugBarRef"` binding anywhere.
+
+$ grep -rn "PaletteSlugBar" demo/ --include="*.vue"
+        ← no matches. The component is re-exported by two barrels
+          (browser/slug/index.ts:3, browser/index.ts:44) and RENDERED BY NOTHING.
+```
+`slugBarRef.value` is therefore permanently `null`; the optional chain swallows all four calls; and
+`PaletteSlugBar.setError` (`:227-229`) — the only `setError` in the app, on the only component that
+renders an error — is dead code.
+
+The comment at `useSlugMigration.ts:78-82` records that this exact path was repaired once already
+at S.W2 W2-6: *"the server titles … never contain '409'/'404'/'429', so those branches matched
+nothing and the authored copy below never showed."* The repair fixed the **predicate** and left the
+**sink** unattached. The copy still never shows.
+
+### Reproduction
+
+Desktop, `http://localhost:9000/#/` → `@mbabb` → *Switch account* → type `zzzz-zzzz-zzzz-zzzz`
+(well-formed, non-existent) → Enter. The layer closes; no spinner; no message; no console output;
+no visual state change of any kind. Identical for a bad admin token, a 429, and a dropped network.
+
+### Cure (gestalt)
+
+The dock owns the input, so the dock must own the outcome. Make `onSlugSwitch` **return** its
+result — a `Promise<void>` that rejects, or a `Result<…, ApiProblem>` — instead of dispatching into
+a ref it does not own; `await` it at `SlugEditLayer.vue:54`; render the message inside the layer
+with `role="status"` / `aria-live="polite"` so it is announced as well as seen. `slugBarRef`,
+`setError`, and `PaletteSlugBar`'s unreachable 40-line twin all delete themselves (C-24). One
+owner, one sink, one announcement.
+
+---
+
+## 7.2 · C-24 — MINOR · the slug layer is a verbatim clone of a component nothing renders
+
+`demo/shell/dock/layers/SlugEditLayer.vue:25-66` vs
+`demo/palettes/browser/slug/PaletteSlugBar.vue:184-225`: `looksLikeSlug`, `normalizeTokenInput`
+(including the `ADMIN_TOKEN=` assignment strip and the quote strip) and the whole submit body are
+duplicated character-for-character apart from two error strings ("Already signed in." vs "Already
+signed in as this slug.") and the dispatch (`pm.onSlugSwitch(...)` vs `emit("switchSlug", ...)`).
+Both copies carry the same unreachable `catch`. One of the two components is rendered by nothing.
+
+Two independent parsers of the same user credential — one of them dead — is a dual path under edict
+2. **Cure:** delete `PaletteSlugBar.vue` and its two barrel re-exports; hoist
+`looksLikeSlug`/`normalizeTokenInput` beside the port that consumes them
+(`demo/palettes/useSlugMigration.ts`), where they can be unit-tested once.
+
+---
+
+## 7.3 · C-25 — MINOR · the keep-open watch has no `immediate`, so a mount-time edit takes no hold and later fires an unpaired `release()`
+
+`Dock.vue:86-89`. Pass-1 C-4 found the predicate's **domain** incomplete (`slugEditMode` missing).
+This is the orthogonal axis — its **edges**:
+
+```ts
+const shouldKeepOpen = computed(() => actionBarLayerActive.value || anyEditActive.value || isAnyOpen.value);
+watch(shouldKeepOpen, (open) => { if (open) dockRef.value?.keepOpen(); else dockRef.value?.release(); });
+watch(anyEditActive, (active) => { if (active) dockRef.value?.expand?.(); });
+```
+`anyEditActive` is `!!editTarget`, a **prop** (`:31`, `:73`). If `Dock` mounts with `editTarget`
+already non-null, `shouldKeepOpen` is `true` at mount and **neither watch is `{ immediate: true }`**,
+so `keepOpen()` and `expand()` never run — the dock can auto-collapse mid-edit under
+`:collapse-delay="5000"` (`:132`) — and the eventual falling edge calls `release()` against a hold
+that was never taken. That last half is survivable only because the producer clamps
+(`node_modules/@mkbabb/glass-ui/dist/dock.js`, the `release` body: `g.value = Math.max(0, g.value - 1)`),
+i.e. the demo's correctness here rests on a defensive clamp in someone else's package.
+
+The comment at `:78-85` argues the collapse to one predicate is "behaviour-equivalent (held ⇔ any
+flag true)". It is equivalent only over edges observed **after** mount, and the code does not say so.
+
+**Cure** · `{ immediate: true }` on both watches. Structurally: pass-1 C-4's derivation
+(`activeLayer !== "main" || isAnyOpen`) with an `immediate` watch makes both the domain and the edge
+problems impossible at once.
+
+---
+
+## 7.4 · C-26 — MINOR · two glass-ui composables forked into `demo/`, one of them threading a parameter it explicitly discards
+
+Both dock-local composables are forks of primitives retired upstream:
+
+```ts
+// composables/usePopupMutex.ts:1-2
+// `usePopupMutex` was retired upstream from glass-ui at the D-II tranche.
+// Local fork — single-open mutex for dock popups with a brief swap delay.
+
+// layers/ActionBarLayer.vue:54-61
+// V-W44 (Glass 7): glass-ui removed the standalone `useLayerTransition` … This local successor
+// preserves the exact two-refs contract the template needs … (Relay note for glass: a public
+// content-swap composable would retire this local shim.)
+```
+`ActionBarLayer` at least files the BH/BI relay the standing edict requires; `usePopupMutex` files
+nothing. Under edict 4 both belong in glass-ui.
+
+Sharper, inside the fork — `ActionBarLayer.vue:67`:
+
+```ts
+void opts.containerEl; // signature parity with the retired producer composable
+```
+A parameter kept, typed, threaded from a `useTemplateRef` at `:83`, passed at `:86`, and then
+explicitly voided — **solely to match the shape of a function that no longer exists**. That is
+textbook back-compat (edict 2). The shim should take `{ activeLayer }`; `subLayerGridEl` and its
+`ref="subLayerGridEl"` binding at `:101` then go too.
+
+---
+
+## 7.5 · C-27 — MINOR · seven uncancelled async handles in the dock subtree, next door to the correct idiom
+
+Pass-1 C-14 recorded `Dock.vue:105`'s rAF. It is one of seven, and the file that does it right is
+one directory up in the same area:
+
+```
+$ grep -rn "requestAnimationFrame|setTimeout" demo/shell/dock/ demo/shell/*.vue demo/shell/*.ts
+demo/shell/dock/Dock.vue:105                 requestAnimationFrame(() => { dockSettle.value = true; });
+demo/shell/dock/ActionBarToggle.vue:60-61    requestAnimationFrame(() => requestAnimationFrame(() => {...}));
+demo/shell/dock/ColorInput.vue:262           requestAnimationFrame(() => inputColorRef.value?.focus());
+demo/shell/dock/ColorInput.vue:256           setTimeout(() => { modeTransition.value = false; }, 300);
+demo/shell/dock/ActionButton.vue:95          setTimeout(() => { isClicked.value = false; }, 400);
+demo/shell/dock/layers/ActionBarLayer.vue:76 timer = setTimeout(...)   ← cleared on RE-ENTRY only
+demo/shell/dock/composables/usePopupMutex.ts:49 swapTimer = setTimeout(...)  ← the one done right
+demo/shell/PaneSlot.vue:95                   raf = requestAnimationFrame(() => commit(key));
+
+$ grep -rn "cancelAnimationFrame|clearTimeout|onBeforeUnmount|onUnmounted" (same paths)
+demo/shell/dock/layers/ActionBarLayer.vue:75  if (timer) clearTimeout(timer);   (re-entry, not unmount)
+demo/shell/dock/composables/usePopupMutex.ts:35,82  clearTimeout + onUnmounted(clearSwapTimer)
+demo/shell/PaneSlot.vue:89,108   cancelAnimationFrame(raf) + onBeforeUnmount(() => cancelAnimationFrame(raf))
+```
+`PaneSlot.vue` — same area, same programme — stores the handle and cancels it on unmount.
+`usePopupMutex.ts` does the timer equivalent. Every one of the five SFC sites drops its handle.
+Individually inert in Vue (a post-unmount ref write is a no-op); collectively this is the PRM-RAF
+shape the constellation has already paid for ~40 times, and `Dock.vue:105` fires on **every view
+change** for the life of the app.
+
+**Cure** · one `useOneShotClass(trigger, className)` in `dock/composables/` owning
+`requestAnimationFrame` / `cancelAnimationFrame` / `onScopeDispose` once — `Dock.vue`,
+`ActionBarToggle.vue` and `ColorInput.vue` are the same beat three times. Five leak sites become one
+audited one, and it is a *focused* module, not an addition to a god module.
+
+---
+
+## 7.6 · C-28 — INFO · `ActionBarToggle`'s re-arm is dead code; the invariant the O-15b oracle asserts holds only via an unacknowledged side channel
+
+`ActionBarToggle.vue:52-68`:
+
+```ts
+watch(() => visible, (has) => {
+    if (!has) { settled.value = false; return; }
+    if (slotLive.value) return;                  // ← after the first true, the body never runs again
+    requestAnimationFrame(() => requestAnimationFrame(() => { slotLive.value = true; settled.value = true; }));
+}, { immediate: true });
+```
+On a later `false → true` edge, `slotLive` is already `true`, so the early return fires and
+`settled` — cleared on the false edge at `:56` — is **never restored by this watch**. The only thing
+that restores it is `@transitionend.self="onSlotSettled"` (`:69-72`, `:78`), which sets
+`settled.value = visible` when `grid-template-columns` finishes. That is the exact class
+`e2e/smoke/oracles/o15-dock-register.spec.ts:74-79` asserts (`is-settled`, then
+`.action-bar-toggle-inner` computes `overflow: visible` — the hover capsule and lift shadow render
+whole).
+
+**Measured — it recovers today** (fresh context, 1440×900, in-app hash nav):
+
+```
+boot           action-bar-toggle-slot is-visible is-live is-settled   inner overflow: visible
+#/browse       action-bar-toggle-slot is-live                          inner overflow: hidden
+#/             action-bar-toggle-slot is-visible is-live is-settled    inner overflow: visible
+#/admin/users  action-bar-toggle-slot is-live                          inner overflow: hidden
+#/             action-bar-toggle-slot is-visible is-live is-settled    inner overflow: visible
+```
+Filed INFO, not MAJOR, because it is currently benign. The defect is that the state machine's
+*stated* owner (the watch) is not its *actual* owner (a transition event), so the invariant holds by
+luck: any change that makes the `grid-template-columns` transition a no-op — equal endpoints,
+`transition: none`, a `content-visibility` skip — silently pins the clip on and O-15b starts failing
+a long way from `ActionBarToggle.vue:57`. **Cure:** drop the `slotLive` early return (it guards
+nothing the `is-live` class needs) so the watch owns `settled` on both edges, and keep
+`onSlotSettled` as confirmation rather than as the sole restorer.
+
+---
+
+## 7.7 · C-29 — INFO (test truth) · a SECOND vacuous mutation, and the reason C-3 shipped
+
+Pass-1 C-9 named one green-keeping mutation (strip the `aria-label`s). Here is an independent one on
+a different control, plus the structural reason the biggest finding in this file was never caught.
+
+**The mutation.** Delete `<SelectValue v-if="isDesktop" />` — `DockViewSelect.vue:87` — so the dock's
+primary navigation control never shows a view name on any route, ever. **The whole e2e suite stays
+green.** Every locator that touches this control resolves it by the *explicit* `aria-label` on
+`DockTrigger` (`:68`), never by its rendered text:
+
+```
+$ grep -rn "Select view" e2e/
+e2e/smoke/page-load.spec.ts:33                 getByRole("combobox", { name: "Select view" })
+e2e/smoke/a11y-modality-support.spec.ts:128    getByRole("combobox", { name: "Select view" })
+e2e/smoke/a11y-web-modality.spec.ts:76         getByRole("combobox", { name: "Select view" })
+e2e/smoke/oracles/o14-preview-truth.spec.ts:200,240,286   getByRole("combobox", { name: "Select view" })
+e2e/smoke/mobile/page-load-mobile.spec.ts:52   getByRole("combobox", { name: /Select view/i })
+e2e/smoke/fixtures/dock.ts:66                  getByRole("combobox", { name: "Select view" })
+```
+Nothing anywhere asserts what the app's navigation *says*. That is why C-3's blank trigger shipped.
+
+**Why the red branch is structurally unreachable from e2e.** Every view switch in the suite goes
+through `openView(page, name)` (`e2e/smoke/fixtures/dock.ts:56-80`), which clicks *an option in the
+list* — so it can only ever reach views that are in the list, i.e. never the failing ones. The suite
+*does* cold-load the admin routes (`e2e/smoke/admin/admin-walk.spec.ts:27-47`,
+`e2e/smoke/admin/a11y-authed-admin.spec.ts:28-30`) — but **authenticated**, which is precisely the
+branch where `viewEntries` returns `adminViews`, the model value matches an option, and the label
+renders. The one unauthenticated cold load of an affected route,
+`e2e/smoke/oracles/o18-contrast-census.spec.ts:929` (`/#/atmosphere`), only measures contrast — a
+blank label *removes* text from its census and makes it pass more easily.
+
+**Zero coverage of the C-23/C-24 surface:**
+```
+$ grep -rn "Switch to slug\|Generate new slug\|enter slug or token" e2e/ test/
+(no matches)
+$ grep -rln "useDockAdminMode\|usePopupMutex\|shell/dock" test/ demo/test/
+test/status-lamp.test.ts        ← exercises the pure data table in status-lamp.ts
+test/picker-blob-config.test.ts
+```
+Nothing constructs `Dock.vue`, `useDockAdminMode`, or `usePopupMutex`.
+
+**Cure** · one route-parametrised assertion: for each `ViewId`, cold-load it **unauthenticated** and
+assert (i) the view-select trigger's accessible text equals `VIEW_MAP[id].label`, (ii) the open
+listbox reports that view `aria-selected`, (iii) `document.querySelectorAll('h1').length === 1`.
+Fifteen rows, one loop; it kills the C-3 and C-8 families rather than their instances.
+
+---
+
+## 7.8 · Independent re-confirmation, and widening, of C-3
+
+Pass 1 measured the blank trigger on `/#/blob`. It is **7 of the 15 audited routes**. Cold load into
+a **fresh browser context per row**, 1440×900, unauthenticated, 1.8 s settle:
+
+```js
+const t = document.querySelector('nav.dock-band [aria-label="Select view"]');
+({ triggerText: t.textContent.trim(),
+   gold: document.querySelectorAll('nav.dock-band .gold-shimmer-icon').length })
+```
+
+| route | trigger label | admin gold ink |
+|---|---|---|
+| `#/` | `"Home"` | 0 |
+| `#/gradient` | `"Gradient"` | 0 |
+| `#/browse` | `"Browse"` | 0 |
+| **`#/blob`** | **`""`** | 1 |
+| **`#/atmosphere`** | **`""`** | 1 |
+| **`#/admin/users`** | **`""`** | 1 |
+| **`#/admin/tags`** | **`""`** | 1 |
+
+`#/admin/names`, `#/admin/audit`, `#/admin/flagged` are the same code path as `#/admin/users` and
+`#/admin/tags` — **7 of 15 routes**, 47 % of the application, ship a nameless primary navigation
+control to every unauthenticated visitor. Isolated-context control run
+(`#/browse`, `#/blob`, `#/browse`, one fresh context each) returns
+`["Browse", gold 0] · ["", goldTrigger 1] · ["Browse", gold 0]` — deterministic, and *not* a leak
+from a prior navigation.
+
+Element screenshots of `nav.dock-band` (scratchpad `dock-blob.png` / `dock-gradient.png`, read with
+vision, not committed):
+
+- `#/blob` — `[ 💧 ⌄ ] │ 🖌 Tools → │ Login │ @mbabb` — an orphan droplet glyph and a chevron, no name.
+- `#/gradient` — `[ 🌈 Gradient ⌄ ] │ 🖌 Tools → │ Login │ @mbabb`.
+
+Opening the select on `#/blob` offers
+`["Home","Palettes","Browse","Extract","Mix","Generate","Gradient"]` — the current view is absent, so
+no option carries `aria-selected` and a screen-reader user is told nothing is current.
+
+One addition to pass 1's mechanism: the deeper invariant being broken is that
+**`viewEntries` is not a superset of the reachable view set**. `viewEntries`
+(`useDockAdminMode.ts:34-39`) returns `adminViews` *only* when `isAdminMode && isAdminAuthenticated`;
+`userViews` (`:26`) omits `atmosphere`, `blob`, and all five `admin-*`. Those seven routes are
+reachable by anyone — the megatranche visual audit rendered all seven cleanly (`REPORT.json`:
+`blankOrNearBlank: []`, `pageErrors: []`). A `<Select>` whose `model-value` can leave its own option
+set is the bug; the gold latch and the `startsWith("admin-")`/`adminViews.includes` disagreement are
+its symptoms. Pass-1 C-11's cure (put the partition on `PaneConfig`) is the right one **provided the
+derivation also unions in the current view unconditionally**, so no future route can fall out again.
+
+---
+
+## 7.9 · Cleared hypotheses — recorded so a fourth seat does not re-spend the probes
+
+1. **Boot-time route hijack away from `#/blob`. NOT A DEFECT — do not re-file.** Observed three
+   times in a row (`#/blob` → `#/generate` / `#/palettes` / `#/gradient` within ~1.5 s of load) and
+   it looked exactly like C-3's unmatched model value forcing a `switchView`. A
+   `history.pushState`/`replaceState` wrapper installed at `waitUntil:"commit"` pinned the
+   transition to vue-router's **`popStateHandler`** — a *back-navigation into my own accumulated MCP
+   session history*, not application code. In fresh contexts `#/blob` is stable 6/6 over 4–9 s.
+   **Method note for the next seat: any dock/router probe that reuses one MCP page across
+   navigations manufactures this false positive.** Use `browser.newContext()` per measurement.
+2. **`usePopupMutex` swap dropping both popups.** The 180 ms swap window nulls `current` before
+   opening the new key; a controlled child that echoes `update:open(false)` during that window would
+   cancel the pending open. **Not reproduced at my granularity:** opening the view-select then
+   clicking `@mbabb` yields `{listboxes: 0, menus: 1}` immediately after the click and still
+   `{menus: 1}` after a further 600 ms — the swap completes. This neither confirms nor refutes the
+   finer race the banner attributes to pass-2 C-19 (a ~150 ms double-open would sit inside my
+   sampling interval); I sampled at ~700 ms, pass 2 evidently did not. Recorded as *not observed at
+   coarse granularity*, not as a negative proof.
+3. **Inactive dock layers as focus traps.** Independently re-confirmed sound. Live ancestor walk
+   from the slug input on `/#/`:
+
+   | node | opacity | visibility | pointer-events | inert | aria-hidden |
+   |---|---|---|---|---|---|
+   | `input` | 1 | hidden | none | – | – |
+   | `form` | 1 | hidden | none | – | – |
+   | `div.dock-face-content` | 1 | hidden | none | – | – |
+   | `div.dock-face` | **0** | hidden | none | **yes** | **true** |
+   | `div.dock-layer` | 0 | hidden | none | **yes** | – |
+
+   Matches pass-1 §3.1. It also explains, precisely, why the visual audit counts MT-F004's four
+   targets on all 60 captures: `capture.mjs:83-85` defines visibility as `width>0 && height>0`
+   only, so laid-out-but-hidden boxes are counted. The **sizes are real when the layer is open**, so
+   C-7 stands on its own reproduction — the per-route multiplicity is a harness artifact.
+4. **PRM handling of the settle beat.** Re-confirmed: `demo/styles/animations.css:184-192` forces
+   `animation-duration: 0.01ms !important`, which neutralises `vj-settle` *and* still fires
+   `animationend`, so `Dock.vue:130` still clears `dockSettle`. Pass-1 C-14's reading is correct.
+5. **`release()` driving the producer's hold count negative.** Ruled out at the source:
+   `glass-ui@7.0.0 dist/dock.js` clamps — `g.value = Math.max(0, g.value - 1)`. (This is what makes
+   C-25's unpaired release survivable, not correct.)
+
+**Also re-confirmed at HEAD, live:** `document.querySelectorAll('h1').length === 0` and
+`document.querySelectorAll('main').length === 1` on `/#/` — pass-1 C-8 stands, and the `REPORT.md`
+per-capture table has `h1 = 0` in **60 of 60** rows.
+
+**One incidental observation, labelled:** `nav.dock-band` carries **29,169 characters of innerHTML**
+on `/#/blob` — every layer's content (ActionToolbar, ColorInput, MobileMenuDropdown, ProfileSection,
+SlugEditLayer) is mounted on every route regardless of active layer. This is the DOM-weight face of
+pass-1's Family D; I did not trace it to a measured cost, so it is an observation, not a finding.
+
+---
+
+## 7.10 · C-30 — INFO (report integrity) · this document's banner describes a Pass 2 that is not in it
+
+The banner at the top of this file claims *"Pass 2 (§6, appended below) … 8 further findings,
+C-15…C-22, including a new BLOCKER (C-15)"*, and §3.4 carries a forward reference,
+*"OVERTURNED BY PASS 2 — see §6 · C-19."*
+
+```
+$ grep -n "C-15\|C-16\|C-17\|C-18\|C-19\|C-20\|C-21\|C-22" challenge-C-implementation.md
+5:  > with its own probes: 8 further findings, **C-15…C-22**, …
+535:  > **OVERTURNED BY PASS 2 — see §6 · C-19.** …
+$ grep -n "^## 6\|^# §6" challenge-C-implementation.md
+(no matches)
+```
+There is no §6 in the committed file: §5 ends at the Appendix and the document terminated there
+before this pass appended §7. **The eight pass-2 findings, including its BLOCKER and the evidence
+that overturns §3.4, are not in the record.** Either the pass-2 body was lost before the write
+landed or the banner was written ahead of it. Any downstream fold that trusts the banner's tally
+("22 findings · 2 BLOCKER · 10 MAJOR") will be counting eight findings nobody can read.
+
+Recorded here, not repaired: pass-3's write scope is this file, and inventing or renumbering another
+seat's findings would be worse than the gap. The fold owner should either recover the pass-2 body or
+correct the banner.
+
+---
+
+## 7.11 · Pass-3 summary
+
+| id | severity | one line |
+|---|---|---|
+| C-23 | **MAJOR** (blocker-grade consequence) | The dock's login error path is dead three times over — unrendered `slugError`, an un-awaited dispatch that makes the `catch` and the spinner unreachable, and a `setError` sink on a ref that is never bound to a component that is never rendered |
+| C-24 | MINOR | `SlugEditLayer` is a verbatim clone of `PaletteSlugBar`, which nothing renders — two parsers of one credential, one of them dead |
+| C-25 | MINOR | The keep-open watch is not `immediate`: a mount-time `editTarget` takes no hold and later fires an unpaired `release()`, survivable only via glass-ui's `Math.max(0,…)` clamp |
+| C-26 | MINOR | Two glass-ui composables forked into `demo/`; `ActionBarLayer.vue:67` threads a parameter it explicitly `void`s "for signature parity" with a function that no longer exists |
+| C-27 | MINOR | Seven uncancelled rAF/timer handles across the dock subtree, against `PaneSlot.vue`'s correct idiom one directory up |
+| C-28 | INFO | `ActionBarToggle`'s `slotLive` early return makes the watch's re-arm dead; O-15b's invariant is restored only by an unacknowledged `transitionend` side channel (measured: recovers today) |
+| C-29 | INFO | A second vacuous mutation — delete `<SelectValue/>` and the whole suite stays green; and `openView()` makes C-3's red branch structurally unreachable from e2e |
+| C-30 | INFO | The banner's Pass 2 (§6, C-15…C-22) is absent from the committed file; §3.4's forward reference dangles |
+
+**Family placement.** C-23/C-24 open a family pass 1 did not have: **"the error path is authored but
+not wired"** — four sites write user-facing copy that no surface reads, across two components and one
+composable, with a prior repair that fixed the predicate and left the sink dangling. C-25 joins
+pass-1 Family B (state that should be derived is a ref with mutating watchers). C-26/C-27 join
+Family D. C-29 joins Family C and supplies its sharpest instrument: **the reason the chrome escapes
+the gate is not only battery scope — it is that no locator in the suite ever reads what the
+navigation says.**
+

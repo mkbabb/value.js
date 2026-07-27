@@ -1,0 +1,1333 @@
+{
+ "cell": "safari-app \u00b7 STATE matrix (Phase D states seat)",
+ "law": "I-20 \u2014 webkit-engine (Playwright) and safari-app (safaridriver) are SEPARATE evidence cells. No webkit verdict below was copied into a safari verdict; every safariVerdict was measured in real Safari 26.4. Cells not run here are recorded UNREACHABLE-IN-CELL or UNVERIFIABLE-HERE, never green.",
+ "browser": "Safari 26.4 (stock Cryptex build, AppleWebKit 605.1.15) on macOS 26.4.1 (25E253)",
+ "driver": "safaridriver WebDriver classic @ http://localhost:4599, one session at a time, deleted on every path",
+ "origin": "http://localhost:9000 \u2014 dev server UP, API-LESS (no mongo)",
+ "capturedAt": "2026-07-27T12:44-13:14-0400",
+ "webkitSource": "docs/tranches/V/megatranche/audit/visual/STATES.json",
+ "cells": [
+  {
+   "cell": "rtl-desktop \u00b7 #/",
+   "webkitVerdict": "dir=rtl applied post-load (MT-F022 #1 harness fix); overflowX 0; clipped list CAPPED AT 8 by states.mjs .slice(0,8) \u2014 true total unknown; the 8 named are spectrum-dot, an SVG path, and six katex MathML nodes",
+   "safariVerdict": "MEASURED \u2014 dir=rtl takes post-load in real Safari too; overflowX 0, overflowY 0; only TWO elements sit outside the viewport in the whole document: span.spectrum-dot.absolute and one SVG path",
+   "inverted": true,
+   "note": "PARTIAL INVERSION, and it is the katex half. WebKit-engine names six MathML nodes (math/semantics/mrow/msup/mi/mo) as outside the viewport; real Safari names NONE of them \u2014 Safari lays the visually-hidden .katex-mathml copy out inside its overflow:hidden parent. Neither is a product defect (the parent clips); the delta is an engine layout difference in hidden MathML. The two rows AGREE on the load-bearing facts: dir flips, overflowX is 0, RTL remains an UNCLAIMED capability rather than a broken one (MT-F022 consequence 4 re-derived in the safari-app cell).",
+   "safariMeasured": {
+    "dir": "rtl",
+    "htmlClass": "dark",
+    "bodyBg": "rgb(38, 0, 27)",
+    "textLen": 874,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 2,
+    "clipped": [
+     "span.spectrum-dot.absolute",
+     "path.[object.SVGAnimatedString]"
+    ],
+    "animatedCount": 19,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Hom]",
+    "focusRingVisible": null,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "rtl",
+    "textLen": 859,
+    "overflowX": 0,
+    "clipped": [
+     "span.spectrum-dot.absolute",
+     "path.[object.SVGAnimatedString]",
+     "math.",
+     "semantics.",
+     "mrow.",
+     "msup.",
+     "mi.",
+     "mo."
+    ],
+    "animatedCount": 13,
+    "rafPer1500ms": 357,
+    "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Hom]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "rtl-desktop \u00b7 #/gradient",
+   "webkitVerdict": "8 clipped (CAPPED) \u2014 strip-row, strip-family, family-eyebrow, family-tiles, glass-chip, svg, path",
+   "safariVerdict": "MEASURED \u2014 77 elements outside the viewport; the first 8 are spectrum-dot plus the SAME strip-row / strip-family / family-eyebrow / family-tiles / glass-chip / svg / path set",
+   "inverted": false,
+   "note": "AGREEMENT on the real signal: the gradient family-strip overhangs the viewport edge under RTL in BOTH cells. The count delta (8 vs 77) is NOT an inversion \u2014 the webkit harness truncates its list at 8, so its total was never measured. Any comparison of these numbers is a category error.",
+   "safariMeasured": {
+    "dir": "rtl",
+    "htmlClass": "dark",
+    "bodyBg": "rgb(38, 0, 27)",
+    "textLen": 710,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 77,
+    "clipped": [
+     "span.spectrum-dot.absolute",
+     "div.strip-row",
+     "div.strip-family",
+     "span.family-eyebrow",
+     "div.family-tiles",
+     "button.glass-chip.glass-capsule",
+     "svg.[object.SVGAnimatedString]",
+     "path.[object.SVGAnimatedString]"
+    ],
+    "animatedCount": 29,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192GradientToolsGradientPalett]",
+    "focusRingVisible": null,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "rtl",
+    "textLen": 611,
+    "overflowX": 0,
+    "clipped": [
+     "div.strip-row",
+     "div.strip-family",
+     "span.family-eyebrow",
+     "div.family-tiles",
+     "button.glass-chip.glass-capsule",
+     "svg.[object.SVGAnimatedString]",
+     "path.[object.SVGAnimatedString]",
+     "span.tile-label"
+    ],
+    "animatedCount": 8,
+    "rafPer1500ms": 270,
+    "focused": "body[\u2192GradientToolsGradientPalett]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "rtl-desktop \u00b7 #/browse",
+   "webkitVerdict": "0 clipped, overflowX 0",
+   "safariVerdict": "MEASURED \u2014 1 clipped (span.spectrum-dot.absolute), overflowX 0",
+   "inverted": false,
+   "note": "Effective agreement; the single delta is the spectrum-dot, which real Safari places one pixel past the edge on every RTL route (it is the ONLY offender on 4 of 5 RTL routes).",
+   "safariMeasured": {
+    "dir": "rtl",
+    "htmlClass": "dark",
+    "bodyBg": "rgb(38, 0, 27)",
+    "textLen": 337,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 1,
+    "clipped": [
+     "span.spectrum-dot.absolute"
+    ],
+    "animatedCount": 23,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192BrowseToolsBrowsePalettes L]",
+    "focusRingVisible": null,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "rtl",
+    "textLen": 280,
+    "overflowX": 0,
+    "clipped": [],
+    "animatedCount": 6,
+    "rafPer1500ms": 270,
+    "focused": "body[\u2192BrowseToolsBrowsePalettes L]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "rtl-desktop \u00b7 #/blob",
+   "webkitVerdict": "1 clipped (spectrum-dot)",
+   "safariVerdict": "MEASURED \u2014 1 clipped (spectrum-dot), overflowX 0",
+   "inverted": false,
+   "note": "AGREEMENT, exactly, including the identity of the offender.",
+   "safariMeasured": {
+    "dir": "rtl",
+    "htmlClass": "dark",
+    "bodyBg": "rgb(38, 0, 27)",
+    "textLen": 726,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 1,
+    "clipped": [
+     "span.spectrum-dot.absolute"
+    ],
+    "animatedCount": 21,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Too]",
+    "focusRingVisible": null,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "rtl",
+    "textLen": 713,
+    "overflowX": 0,
+    "clipped": [
+     "span.spectrum-dot.absolute"
+    ],
+    "animatedCount": 13,
+    "rafPer1500ms": 439,
+    "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Too]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "rtl-desktop \u00b7 #/admin/users",
+   "webkitVerdict": "0 clipped, textLen 273",
+   "safariVerdict": "UNVERIFIABLE-HERE for the data surface (API-LESS: no mongo, the roster cannot render); the SHELL measured clean \u2014 dir=rtl, overflowX 0, 1 clipped (spectrum-dot), textLen 328",
+   "inverted": false,
+   "note": "The layout shell is measurable and clean; every authenticated/roster state on this route is UNVERIFIABLE-HERE and owed to the first API-backed capture cell. ENVIRONMENT fact, not a defect.",
+   "safariMeasured": {
+    "dir": "rtl",
+    "htmlClass": "dark",
+    "bodyBg": "rgb(38, 0, 27)",
+    "textLen": 328,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 1,
+    "clipped": [
+     "span.spectrum-dot.absolute"
+    ],
+    "animatedCount": 22,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192ToolsUsersPalettes Login  @]",
+    "focusRingVisible": null,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "rtl",
+    "textLen": 273,
+    "overflowX": 0,
+    "clipped": [],
+    "animatedCount": 8,
+    "rafPer1500ms": 258,
+    "focused": "body[\u2192ToolsUsersPalettes Login  @]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "keyboard-focus-desktop \u00b7 #/gradient",
+   "webkitVerdict": "After 12 Tabs focus NEVER LEAVES body; focusRingVisible null \u2014 MT-F022 #3 attributed this to macOS Full Keyboard Access being off in Playwright WebKit",
+   "safariVerdict": "MEASURED \u2014 after 12 Tabs focus is on main>\u2026>div:nth-child(10)>div:nth-child(1) with focusRingVisible TRUE",
+   "inverted": true,
+   "note": "THE INVERSION, and it is MT-F022 #3 resolved from the other side. The safari-app cell traverses to a real, ring-bearing stop where webkit-engine sat on body. MT-F022's rule ('a WebKit-only gap is presumed Full-Keyboard-Access until Chromium agrees') is confirmed: the real browser agrees with Chromium, not with Playwright WebKit. NO keyboard defect may be booked from the webkit rows of this matrix.",
+   "safariMeasured": {
+    "dir": "ltr",
+    "htmlClass": "dark",
+    "bodyBg": "rgb(38, 0, 27)",
+    "textLen": 763,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 129,
+    "clipped": [
+     "div.relative.w-full",
+     "div.glass-resting.card",
+     "div.pane-header.px-4",
+     "h3.pane-header-title.font-display",
+     "div.pane-header-desc-wrap",
+     "p.pane-header-desc.text-caption",
+     "div.flex.flex-col",
+     "div.flex.flex-col"
+    ],
+    "animatedCount": 31,
+    "focusedPath": "body#app:nth-child(2)>div:nth-child(2)>main:nth-child(3)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>div:nth-child(10)>div:nth-child(1)",
+    "focused": "div[Gradient CSS]",
+    "focusRingVisible": true,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "ltr",
+    "textLen": 611,
+    "overflowX": 0,
+    "clipped": [
+     "div.strip-row",
+     "div.strip-family",
+     "span.family-eyebrow",
+     "div.family-tiles",
+     "button.glass-chip.glass-capsule",
+     "button.glass-chip.glass-capsule",
+     "svg.[object.SVGAnimatedString]",
+     "path.[object.SVGAnimatedString]"
+    ],
+    "animatedCount": 9,
+    "rafPer1500ms": 264,
+    "focused": "body[\u2192GradientToolsGradientPalett]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "keyboard-focus-desktop \u00b7 #/",
+   "webkitVerdict": "focus reached span[l component value], focusRingVisible TRUE",
+   "safariVerdict": "MEASURED \u2014 focus reached a DIFFERENT stop (\u2026h3>span>span, the pane-header title span), focusRingVisible FALSE",
+   "inverted": true,
+   "note": "INVERTED ring, but the comparison is NOT like-for-like and must not be booked as 'the ring was lost'. The two engines walk different tab orders, so the 12th stop is a different element; what is established is that real Safari's 12th stop is a non-interactive header span carrying no ring. A ring claim needs a per-stop, DOM-path-keyed walk in the safari-app cell (the kbd-reach.mjs shape), which this cell did not run.",
+   "safariMeasured": {
+    "dir": "ltr",
+    "htmlClass": "dark",
+    "bodyBg": "rgb(38, 0, 27)",
+    "textLen": 927,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 694,
+    "clipped": [
+     "div.glass-resting.card",
+     "div.pane-header.px-4",
+     "h3.pane-header-title.font-display",
+     "button.bg-transparent.border-none",
+     "span.w-full",
+     "svg.[object.SVGAnimatedString]",
+     "path.[object.SVGAnimatedString]",
+     "div.pane-header-desc-wrap"
+    ],
+    "animatedCount": 21,
+    "focusedPath": "body#app:nth-child(2)>div:nth-child(2)>main:nth-child(3)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>h3:nth-child(2)>span:nth-child(2)>span:nth-child(1)",
+    "focused": "span[a component value]",
+    "focusRingVisible": false,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "ltr",
+    "textLen": 859,
+    "overflowX": 0,
+    "clipped": [
+     "path.[object.SVGAnimatedString]",
+     "math.",
+     "semantics.",
+     "mrow.",
+     "msup.",
+     "mi.",
+     "mo.",
+     "mo."
+    ],
+    "animatedCount": 14,
+    "rafPer1500ms": 364,
+    "focused": "span[l component value]",
+    "focusRingVisible": true,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "keyboard-focus-desktop \u00b7 #/blob",
+   "webkitVerdict": "focus reached span[Sat Radius], ring TRUE",
+   "safariVerdict": "MEASURED \u2014 focus reached a deep slider span, ring TRUE",
+   "inverted": false,
+   "note": "AGREEMENT on the verdict that matters (a ring-bearing stop is reachable), on different elements.",
+   "safariMeasured": {
+    "dir": "ltr",
+    "htmlClass": "dark",
+    "bodyBg": "rgb(38, 0, 27)",
+    "textLen": 779,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 63,
+    "clipped": [
+     "canvas.atmosphere-canvas.absolute",
+     "nav.dock-band.overture-dock-veiled",
+     "main.pane-main",
+     "div.pane-container.pane-container--dual",
+     "div.pane-wrapper.pane-wrapper--left",
+     "div.pane-shell.flex",
+     "div.glass-resting.card",
+     "div.header-sentinel"
+    ],
+    "animatedCount": 23,
+    "focusedPath": "body#app:nth-child(2)>div:nth-child(2)>main:nth-child(3)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>div:nth-child(4)>div:nth-child(2)>span:nth-child(1)>span:nth-child(2)",
+    "focused": "span[Sat Radius]",
+    "focusRingVisible": true,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "ltr",
+    "textLen": 713,
+    "overflowX": 0,
+    "clipped": [],
+    "animatedCount": 13,
+    "rafPer1500ms": 450,
+    "focused": "span[Sat Radius]",
+    "focusRingVisible": true,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "zoom-200-desktop \u00b7 #/",
+   "webkitVerdict": "textLen 859 -> 70, clipped [], overflowX 0 \u2014 MT-F022 #4 ruled this CORRECT BEHAVIOUR (the 720px breakpoint, same path as mobile)",
+   "safariVerdict": "MEASURED at a real 720-CSS-px Safari window (inner 720x398): textLen 78, clipped 0, overflowX 0",
+   "inverted": false,
+   "note": "MT-F022 #4 RE-DERIVED IN REAL SAFARI. 1440-desktop textLen 874 -> 720-window 78 -> 390-mobile 78: the same three-way identity MT-F022 established, now in the safari-app cell. Reflow is correct and content stays reachable via the pane router. CAVEAT: a 720-px WINDOW, not a 200% browser zoom \u2014 safaridriver cannot set deviceScaleFactor, and MT-F022 #4 is itself the authority for treating the two as one path.",
+   "safariMeasured": {
+    "dir": "ltr",
+    "htmlClass": "",
+    "bodyBg": "rgb(200, 70, 215)",
+    "textLen": 78,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 0,
+    "clipped": [],
+    "animatedCount": 20,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192PickerAbout Login  @mbabb d]",
+    "focusRingVisible": null,
+    "innerW": 720,
+    "innerH": 398,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "ltr",
+    "textLen": 70,
+    "overflowX": 0,
+    "clipped": [],
+    "animatedCount": 12,
+    "rafPer1500ms": 360,
+    "focused": "body[\u2192PickerAbout Login  @mbabb L]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "zoom-200-desktop \u00b7 #/gradient",
+   "webkitVerdict": "8 clipped (CAPPED), overflowX 0",
+   "safariVerdict": "MEASURED \u2014 152 outside the viewport, overflowX 0, textLen 553",
+   "inverted": false,
+   "note": "Same capped-list category error as the RTL gradient row; the first-8 sets overlap. The load-bearing agreement is overflowX 0 at the reflow breakpoint.",
+   "safariMeasured": {
+    "dir": "ltr",
+    "htmlClass": "",
+    "bodyBg": "rgb(200, 70, 215)",
+    "textLen": 553,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 152,
+    "clipped": [
+     "div.relative.w-full",
+     "div.glass-resting.card",
+     "div.pane-header.px-4",
+     "h3.pane-header-title.font-display",
+     "div.pane-header-desc-wrap",
+     "p.pane-header-desc.text-caption",
+     "div.flex.flex-col",
+     "div.flex.flex-col"
+    ],
+    "animatedCount": 26,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192GradientPalettes Login  @mb]",
+    "focusRingVisible": null,
+    "innerW": 720,
+    "innerH": 398,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "ltr",
+    "textLen": 449,
+    "overflowX": 0,
+    "clipped": [
+     "div.strip-row",
+     "div.strip-family",
+     "span.family-eyebrow",
+     "div.family-tiles",
+     "button.glass-chip.glass-capsule",
+     "div.strip-family",
+     "span.family-eyebrow",
+     "div.family-tiles"
+    ],
+    "animatedCount": 5,
+    "rafPer1500ms": 270,
+    "focused": "body[\u2192GradientPalettes Login  @mb]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "rtl-mobile \u00b7 #/",
+   "webkitVerdict": "1-2 clipped (spectrum-dot, goo-blob canvas), textLen 70",
+   "safariVerdict": "MEASURED \u2014 1 clipped (spectrum-dot), textLen 78, overflowX 0, inner 390x792",
+   "inverted": false,
+   "note": "AGREEMENT. Real Safari does NOT report the goo-blob canvas as overhanging; webkit-engine does. Sub-pixel canvas sizing difference, no product consequence.",
+   "safariMeasured": {
+    "dir": "rtl",
+    "htmlClass": "",
+    "bodyBg": "rgb(200, 70, 215)",
+    "textLen": 78,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 1,
+    "clipped": [
+     "span.spectrum-dot.absolute"
+    ],
+    "animatedCount": 20,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192PickerAbout Login  @mbabb d]",
+    "focusRingVisible": null,
+    "innerW": 390,
+    "innerH": 792,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "rtl",
+    "textLen": 70,
+    "overflowX": 0,
+    "clipped": [
+     "span.spectrum-dot.absolute",
+     "canvas.goo-blob-canvas"
+    ],
+    "animatedCount": 12,
+    "rafPer1500ms": 360,
+    "focused": "body[\u2192PickerAbout Login  @mbabb L]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "rtl-mobile \u00b7 #/blob",
+   "webkitVerdict": "2 clipped (spectrum-dot, goo-blob canvas)",
+   "safariVerdict": "MEASURED \u2014 1 clipped (spectrum-dot), textLen 77, overflowX 0",
+   "inverted": false,
+   "note": "Same as above.",
+   "safariMeasured": {
+    "dir": "rtl",
+    "htmlClass": "",
+    "bodyBg": "rgb(200, 70, 215)",
+    "textLen": 77,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 1,
+    "clipped": [
+     "span.spectrum-dot.absolute"
+    ],
+    "animatedCount": 21,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192PickerBlob Login  @mbabb de]",
+    "focusRingVisible": null,
+    "innerW": 390,
+    "innerH": 792,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": {
+    "dir": "rtl",
+    "textLen": 69,
+    "overflowX": 0,
+    "clipped": [
+     "span.spectrum-dot.absolute",
+     "canvas.goo-blob-canvas"
+    ],
+    "animatedCount": 12,
+    "rafPer1500ms": 348,
+    "focused": "body[\u2192PickerBlob Login  @mbabb La]",
+    "focusRingVisible": null,
+    "pageErrors": []
+   }
+  },
+  {
+   "cell": "dark-desktop \u00b7 #/  (NEW cell \u2014 not in STATES.json)",
+   "webkitVerdict": "NOT IN THE WEBKIT MATRIX \u2014 states.mjs never ran a dark arm",
+   "safariVerdict": "MEASURED via the app's OWN toggle, not media emulation: localStorage['vueuse-color-scheme'] drives demo/color-picker/index.html:169-172, which puts class='dark' on <html>. dark -> htmlClass 'dark', body rgb(38,0,27); forced 'light' -> htmlClass '', body rgb(179,114,144). Both directions confirmed, same textLen 874 and same clipped set.",
+   "inverted": false,
+   "note": "REACHABLE-IN-CELL because the app persists its own scheme; no prefers-color-scheme emulation was needed or used. IMPORTANT CONFOUND FOR THE WHOLE MATRIX: this machine prefers dark, so the DEFAULT boot is dark \u2014 the rtl-desktop and keyboard-focus-desktop safari rows above were measured in DARK, while the webkit rows they sit beside were measured in Playwright's default LIGHT. None of the compared quantities (dir, overflowX, textLen, focus, clipped identity) is scheme-dependent, but the confound is declared rather than hidden. The zoom-200 and rtl-mobile rows were measured in LIGHT and are scheme-matched.",
+   "safariMeasured": {
+    "dir": "ltr",
+    "htmlClass": "dark",
+    "bodyBg": "rgb(38, 0, 27)",
+    "textLen": 874,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 694,
+    "clipped": [
+     "div.glass-resting.card",
+     "div.pane-header.px-4",
+     "h3.pane-header-title.font-display",
+     "button.bg-transparent.border-none",
+     "span.w-full",
+     "svg.[object.SVGAnimatedString]",
+     "path.[object.SVGAnimatedString]",
+     "div.pane-header-desc-wrap"
+    ],
+    "animatedCount": 19,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Hom]",
+    "focusRingVisible": null,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": null
+  },
+  {
+   "cell": "LTR baseline \u00b7 #/ \u2014 the '694 clipped' signal",
+   "webkitVerdict": "NOT COMPARABLE \u2014 the webkit harness caps its list at 8",
+   "safariVerdict": "MEASURED and RUN TO GROUND rather than booked",
+   "inverted": false,
+   "note": "AN MT-F022-CLASS FALSE SIGNAL CAUGHT IN MY OWN HANDS. 694 of 1560 visible elements report right>clientWidth, which reads as a catastrophe and is not one: only 9 are ROOTS, and one root carries 1454 descendants. That root is div.glass-resting.card inside div.pane-wrapper--right at left=1280 right=1817 (377 CSS px past a 1440 viewport, parent overflow visible, document overflowX 0 so it cannot be scrolled to). The other 8 roots are katex-mathml nodes and one SVG path, all inside overflow:hidden parents \u2014 probe false positives. So the honest statement is ONE overhanging right-pane card, not 694 clipped elements. Under dir=rtl the same page reports 2, because the pane flips to the other edge. Whether the overhang is a defect belongs to the layout seat; this cell records the measurement and its mechanism.",
+   "safariMeasured": {
+    "dir": "ltr",
+    "htmlClass": "",
+    "bodyBg": "rgb(179, 114, 144)",
+    "textLen": 874,
+    "overflowX": 0,
+    "overflowY": 0,
+    "clippedTotal": 694,
+    "clipped": [
+     "div.glass-resting.card",
+     "div.pane-header.px-4",
+     "h3.pane-header-title.font-display",
+     "button.bg-transparent.border-none",
+     "span.w-full",
+     "svg.[object.SVGAnimatedString]",
+     "path.[object.SVGAnimatedString]",
+     "div.pane-header-desc-wrap"
+    ],
+    "animatedCount": 24,
+    "focusedPath": "body#app:nth-child(2)",
+    "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Hom]",
+    "focusRingVisible": null,
+    "innerW": 1440,
+    "innerH": 848,
+    "dpr": 2,
+    "errs": []
+   },
+   "webkitRow": null,
+   "extra": {
+    "total": 694,
+    "clientWidth": 1440,
+    "roots": [
+     {
+      "parent": "div.pane-wrapper pane-wrapper--right w-full min-w-0 mi",
+      "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+      "tag": "div",
+      "left": 1280,
+      "right": 1817,
+      "w": 537,
+      "desc": 1454,
+      "parentOverflow": "visible"
+     },
+     {
+      "parent": "span.katex-mathml",
+      "cls": "",
+      "tag": "math",
+      "left": 1216,
+      "right": 1517,
+      "w": 301,
+      "desc": 11,
+      "parentOverflow": "hidden"
+     },
+     {
+      "parent": "span.katex-mathml",
+      "cls": "",
+      "tag": "math",
+      "left": 1214,
+      "right": 1467,
+      "w": 253,
+      "desc": 15,
+      "parentOverflow": "hidden"
+     },
+     {
+      "parent": "span.katex-mathml",
+      "cls": "",
+      "tag": "math",
+      "left": 1212,
+      "right": 1480,
+      "w": 268,
+      "desc": 15,
+      "parentOverflow": "hidden"
+     },
+     {
+      "parent": "span.katex-mathml",
+      "cls": "",
+      "tag": "math",
+      "left": 1366,
+      "right": 1555,
+      "w": 189,
+      "desc": 36,
+      "parentOverflow": "hidden"
+     },
+     {
+      "parent": "svg.[object SVGAnimatedString]",
+      "cls": "[object SVGAnimatedString]",
+      "tag": "path",
+      "left": 1332,
+      "right": 9086,
+      "w": 7754,
+      "desc": 0,
+      "parentOverflow": "hidden"
+     }
+    ],
+    "rootCount": 9,
+    "bodyOverflow": "visible",
+    "scrollWidth": 1440
+   }
+  }
+ ],
+ "unreachableInCell": {
+  "reduced-motion-desktop (5 webkit rows)": "UNREACHABLE-IN-CELL. prefers-reduced-motion is a macOS System Settings switch; WebDriver classic has no media emulation and safaridriver exposes no override. MT-F022 #2's rAF finding CANNOT be re-derived in the safari-app cell \u2014 and see the rAF blind spot below, which would defeat it even if the media query could be set.",
+  "forced-colors-desktop (5 webkit rows)": "UNREACHABLE-IN-CELL. Increase Contrast / forced-colors is a system setting with no WebDriver hook. (states.mjs:8 already records that WebKit ignores Playwright's forcedColors, so those 5 webkit rows assert nothing either.)",
+  "pointer:coarse / prefers-color-scheme via media": "UNREACHABLE-IN-CELL as media state. Dark was reached through the APP's own persisted toggle instead (see the dark-desktop cell); coarse pointer was not reached at all.",
+  "#/admin/users authenticated + roster states": "UNVERIFIABLE-HERE \u2014 API-LESS environment."
+ },
+ "declaredBlindSpots": {
+  "rAF / motion rate": "UNMEASURABLE-IN-CELL. The safaridriver automation window reports document.visibilityState 'hidden' and document.hasFocus() false even after raising it with AppleScript (index->1 + activate), so WebKit throttles requestAnimationFrame to ~1 Hz: my own rAF chain ticked ONCE in 1500 ms, and the 16 ms setInterval sampler produced 6-7 samples across ~60 s. Every rafPer1500ms in my rows therefore reads 0 and MEANS NOTHING ABOUT THE APP. It is recorded as a blind spot, not as 'the app has no motion'. document.getAnimations() still returns 19-31 running CSS animations per route, which is measurable and is reported.",
+  "console / page errors": "WebDriver classic cannot inject before load; window.onerror + unhandledrejection were installed AFTER load and after a forced reload. All 15 rows show an empty post-install error array. That is NOT a claim of zero boot errors.",
+  "window screenshots": "BROKEN IN THIS CELL, and it now reproduces at DESKTOP size, widening the prior seat's finding. GET /session/<id>/screenshot at 1440x900 returned a pure-black 2880x1696 PNG, byte-identical across two different routes and two different colour schemes (sha256 592299a3b4b3cf2e55eb855f4ad350c8427c3e1367f7dd3a019c170203f658c8). The prior seat saw this only at 3440x1440. MECHANISM, now identified: the automation window is not visible (visibilityState hidden), so there is no window surface to capture \u2014 the same fact that throttles rAF. ELEMENT snapshots are unaffected and paint real content (dock-morph-safari26.4-element.png, 928x122, the dock rendered correctly). The two black frames are preserved as rtl-desktop-picker-1440-windowsnap-black.png and dark-desktop-picker-1440-windowsnap-black.png.",
+  "clipped-count comparability": "states.mjs truncates its clipped list with .slice(0,8), so no webkit row states a total. My clippedTotal has no webkit counterpart; only the first-8 IDENTITIES are comparable."
+ },
+ "morphArm": {
+  "verdict": "NOT-DRIVEN \u2014 and the reason is the cell, not the app",
+  "whatDrivesExpansion": "demo/shell/dock/Dock.vue:133 renders <GlassDock :collapse-delay=\"5000\" :start-collapsed=\"false\" :fit-content=\"true\" :always-expanded=\"!isDesktop\">. Posture is glass-ui useDockState's three-state FSM (collapsed|hover|pinned) driven by mouseenter / mouseleave+timer / click-on-collapsed, plus the consumer's ref-counted keepOpen()/release() hold (Dock.vue:86-88) and expand() on edit (Dock.vue:90). The morph itself is useDockMorphOrchestrator projecting the face onto the shared --dock-morph-t spring; morph.css then sets --dock-expand-t := --dock-morph-t under [data-morphing] and feeds it to the nested color-mix on .dock-plate background.",
+  "howIDroveIt": "Dispatched real DOM events (pointerover/enter/move + mouseover/enter/move, and the leave/out pair, and a full pointerdown/up + click on the collapsed dock) via execute/sync, because they are exactly what useDockState listens to. WebDriver pointer ACTIONS were tried first and HUNG the driver indefinitely (see limitations), so they were abandoned.",
+  "whatHappened": "The FSM ran: the dock left .expanded (--dock-expand-t 1, width 464-469) and entered .collapsed[data-morphing] (--dock-expand-t 'calc(1 - 0)', width 56 observed once), then returned. But --dock-morph-t stayed EXACTLY 0 in every single sample across 4+3 storm passes, the width never took an intermediate value, and the sampler captured 6-7 frames in ~60 s. The spring is rAF-driven and rAF is throttled to 1 Hz in a hidden window, so --dock-expand-t never traversed (0,1) and the nested color-mix was never resolved at a fractional t by the morph. Zero frames of genuine morph were driven; SURVIVED would be a false green.",
+  "supplementarySyntheticSweep": "Labelled synthetic, NOT the morph: with data-morphing forced on, --dock-expand-t was written across 246 fractional values (6 passes x 41 steps, both directions) while reading .dock-plate's resolved backgroundColor and borderColor each step. Every value resolved cleanly (e.g. t=0 -> color(srgb 0.384505 0.327291 0.27789 / 0.4544), t=1 -> color(srgb 0.390253 0.334104 0.290184 / 0.5776)); no throw, no crash, Safari alive. This exercises the STYLE-RESOLUTION path of the nested color-mix \u2014 which is precisely where the known crash signature aborts \u2014 but it cannot exercise paint, because the window does not render.",
+  "safariSurvived": "Safari 26.4 did not crash: sessions stayed alive and were deleted cleanly on every run, and NO Safari .ips was written at any point.",
+  "crashReportsObserved": "TWO crash reports of the EXACT glass-S0 signature exist on this machine today \u2014 and BOTH are webkit-engine, NOT safari-app, so neither is my cell's result and neither may be attributed to this arm: com.apple.WebKit.WebContent.Development-2026-07-27-111524.ips and -131147.ips. Both are the Playwright-bundled WebKit (procPath /Users/USER/Library/Caches/*/com.apple.WebKit.WebContent.Development, coalitionName com.microsoft.VSCode, parentProc launchd), both SIGABRT (Abort trap: 6) about 1.2-1.7 s after process launch.",
+  "crashKeyFrames": [
+   "libc++abi  std::terminate()",
+   "WebCore    WebCore::Style::Color::resolvedColor() const",
+   "WebCore    WebCore::Style::toStyleColor(WebCore::CSS::ColorMix const&, WebCore::Style::ColorResolutionState...)",
+   "WebCore    WebCore::Style::toStyleColor(WebCore::CSS::Color const&, WTF::Ref<WebCore::Document const...>)",
+   "WebCore    WebCore::Style::CSSValueConversion<WebCore::Style::Color>::operator()(WebCore::Style::BuilderState...)",
+   "WebCore    WebCore::Style::BuilderFunctions::applyValueBackgroundColor(WebCore::Style::BuilderState&, ...)",
+   "WebCore    WebCore::Style::Builder::applyProperty(WebCore::CSSPropertyID, WebCore::CSSValue&, ...)",
+   "WebCore    WebCore::Style::Builder::applyNonHighPriorityProperties()",
+   "WebCore    WebCore::Style::Resolver::applyMatchedProperties(...)",
+   "WebCore    WebCore::Style::TreeResolver::resolveElement(...) -> resolveComposedTree() -> resolve()",
+   "WebCore    WebCore::Document::resolveStyle(WebCore::Document::ResolveStyleType)"
+  ],
+  "whatTheStackEstablishes": "The crash class aborts inside toStyleColor(CSS::ColorMix) while the style builder applies BACKGROUND-COLOR during Document::resolveStyle \u2014 i.e. at STYLE RESOLUTION, not at paint, and on the very property morph.css nests color-mix into (.dock-plate background). That is the strongest available corroboration that --dock-expand-t through a nested color-mix background is the mechanism. It also means the arm does NOT require a visible window in principle \u2014 which makes the safari-app non-repro meaningful only as far as it goes: real Safari 26.4 resolved 246 fractional nested-color-mix backgrounds without aborting, while the Playwright WebKit build (625.1.21+) carries a signature that aborts on exactly that path.",
+  "whatWouldFinishThisArm": "A safari-app run in a VISIBLE, focused Safari window (visibilityState 'visible', rAF >= 20 Hz) so the spring actually traverses (0,1) and the page paints; everything else is already wired and reproducible from the scripts named below."
+ },
+ "cellLimitations": {
+  "webdriver-pointer-actions": "POST /session/<id>/actions with a pointerMove HUNG safaridriver indefinitely (no response in 25 min; the session's whole command queue blocked, DELETE included, so create-session returned 'already paired' for both drivers on :4599 and :4622). Recovery was minimal and non-destructive: the automation window alone was closed by URL match (osascript, every document whose URL starts with http://localhost:9000), leaving the user's two Safari windows and every process untouched; the driver freed immediately. KEY actions (Tab) work normally \u2014 the 12-Tab walks above used them. Any later seat should drive pointers by dispatched DOM events, not by the actions endpoint.",
+  "hidden-window": "Every attempt to make the automation window visible failed (osascript 'set index of window to 1' + 'activate'): visibilityState stayed 'hidden', hasFocus false, rAF 1 Hz. This bounds the motion, paint and morph arms of the entire safari-app cell."
+ },
+ "artifacts": {
+  "docs/tranches/V/megatranche/audit/visual/safari-real/STATE-MATRIX.json": "this file",
+  "docs/tranches/V/megatranche/audit/visual/safari-real/dock-morph-safari26.4-element.png": "the dock, element snapshot, real pixels (the only pixel path that works in this cell)",
+  "docs/tranches/V/megatranche/audit/visual/safari-real/rtl-desktop-picker-1440-windowsnap-black.png": "black window-snapshot failure at 1440x900, preserved as evidence",
+  "docs/tranches/V/megatranche/audit/visual/safari-real/dark-desktop-picker-1440-windowsnap-black.png": "byte-identical black frame, different route and scheme",
+  "scripts": "scratchpad states-safari.mjs (the 15 state cells), verify-safari.mjs (the two self-caught false signals), morph-arm2.mjs / morph-arm3.mjs (the morph arm), wd.mjs (the WebDriver client)"
+ },
+ "rawRows": [
+  {
+   "matrix": "rtl-desktop",
+   "route": "#/",
+   "engine": "safari-app",
+   "animatedCount": 19,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "rtl",
+   "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Hom]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": null,
+   "clippedTotal": 2,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "span.spectrum-dot.absolute",
+    "path.[object.SVGAnimatedString]"
+   ],
+   "textLen": 874,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "rtl-desktop",
+   "route": "#/gradient",
+   "engine": "safari-app",
+   "animatedCount": 29,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "rtl",
+   "focused": "body[\u2192GradientToolsGradientPalett]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": null,
+   "clippedTotal": 77,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "span.spectrum-dot.absolute",
+    "div.strip-row",
+    "div.strip-family",
+    "span.family-eyebrow",
+    "div.family-tiles",
+    "button.glass-chip.glass-capsule",
+    "svg.[object.SVGAnimatedString]",
+    "path.[object.SVGAnimatedString]"
+   ],
+   "textLen": 710,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "rtl-desktop",
+   "route": "#/browse",
+   "engine": "safari-app",
+   "animatedCount": 23,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "rtl",
+   "focused": "body[\u2192BrowseToolsBrowsePalettes L]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": null,
+   "clippedTotal": 1,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "span.spectrum-dot.absolute"
+   ],
+   "textLen": 337,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "rtl-desktop",
+   "route": "#/blob",
+   "engine": "safari-app",
+   "animatedCount": 21,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "rtl",
+   "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Too]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": null,
+   "clippedTotal": 1,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "span.spectrum-dot.absolute"
+   ],
+   "textLen": 726,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "rtl-desktop",
+   "route": "#/admin/users",
+   "engine": "safari-app",
+   "animatedCount": 22,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "rtl",
+   "focused": "body[\u2192ToolsUsersPalettes Login  @]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": null,
+   "clippedTotal": 1,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "span.spectrum-dot.absolute"
+   ],
+   "textLen": 328,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "keyboard-focus-desktop",
+   "route": "#/",
+   "engine": "safari-app",
+   "animatedCount": 21,
+   "focusedPath": "body#app:nth-child(2)>div:nth-child(2)>main:nth-child(3)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>h3:nth-child(2)>span:nth-child(2)>span:nth-child(1)",
+   "dir": "ltr",
+   "focused": "span[a component value]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": false,
+   "clippedTotal": 694,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "div.glass-resting.card",
+    "div.pane-header.px-4",
+    "h3.pane-header-title.font-display",
+    "button.bg-transparent.border-none",
+    "span.w-full",
+    "svg.[object.SVGAnimatedString]",
+    "path.[object.SVGAnimatedString]",
+    "div.pane-header-desc-wrap"
+   ],
+   "textLen": 927,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "keyboard-focus-desktop",
+   "route": "#/blob",
+   "engine": "safari-app",
+   "animatedCount": 23,
+   "focusedPath": "body#app:nth-child(2)>div:nth-child(2)>main:nth-child(3)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>div:nth-child(1)>div:nth-child(4)>div:nth-child(2)>span:nth-child(1)>span:nth-child(2)",
+   "dir": "ltr",
+   "focused": "span[Sat Radius]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": true,
+   "clippedTotal": 63,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "canvas.atmosphere-canvas.absolute",
+    "nav.dock-band.overture-dock-veiled",
+    "main.pane-main",
+    "div.pane-container.pane-container--dual",
+    "div.pane-wrapper.pane-wrapper--left",
+    "div.pane-shell.flex",
+    "div.glass-resting.card",
+    "div.header-sentinel"
+   ],
+   "textLen": 779,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "keyboard-focus-desktop",
+   "route": "#/gradient",
+   "engine": "safari-app",
+   "animatedCount": 31,
+   "focusedPath": "body#app:nth-child(2)>div:nth-child(2)>main:nth-child(3)>div:nth-child(1)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>div:nth-child(2)>div:nth-child(1)>div:nth-child(10)>div:nth-child(1)",
+   "dir": "ltr",
+   "focused": "div[Gradient CSS]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": true,
+   "clippedTotal": 129,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "div.relative.w-full",
+    "div.glass-resting.card",
+    "div.pane-header.px-4",
+    "h3.pane-header-title.font-display",
+    "div.pane-header-desc-wrap",
+    "p.pane-header-desc.text-caption",
+    "div.flex.flex-col",
+    "div.flex.flex-col"
+   ],
+   "textLen": 763,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "dark-desktop",
+   "route": "#/",
+   "engine": "safari-app",
+   "animatedCount": 19,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "ltr",
+   "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Hom]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": null,
+   "clippedTotal": 694,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "div.glass-resting.card",
+    "div.pane-header.px-4",
+    "h3.pane-header-title.font-display",
+    "button.bg-transparent.border-none",
+    "span.w-full",
+    "svg.[object.SVGAnimatedString]",
+    "path.[object.SVGAnimatedString]",
+    "div.pane-header-desc-wrap"
+   ],
+   "textLen": 874,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "dark-desktop",
+   "route": "#/gradient",
+   "engine": "safari-app",
+   "animatedCount": 29,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "ltr",
+   "focused": "body[\u2192GradientToolsGradientPalett]",
+   "bodyBg": "rgb(38, 0, 27)",
+   "focusRingVisible": null,
+   "clippedTotal": 129,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "div.relative.w-full",
+    "div.glass-resting.card",
+    "div.pane-header.px-4",
+    "h3.pane-header-title.font-display",
+    "div.pane-header-desc-wrap",
+    "p.pane-header-desc.text-caption",
+    "div.flex.flex-col",
+    "div.flex.flex-col"
+   ],
+   "textLen": 710,
+   "overflowY": 0,
+   "htmlClass": "dark",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "light-control-desktop",
+   "route": "#/",
+   "engine": "safari-app",
+   "animatedCount": 24,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "ltr",
+   "focused": "body[\u2192lab(92% 88.8 20 / 82.7%)Hom]",
+   "bodyBg": "rgb(179, 114, 144)",
+   "focusRingVisible": null,
+   "clippedTotal": 694,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 848,
+   "overflowX": 0,
+   "clipped": [
+    "div.glass-resting.card",
+    "div.pane-header.px-4",
+    "h3.pane-header-title.font-display",
+    "button.bg-transparent.border-none",
+    "span.w-full",
+    "svg.[object.SVGAnimatedString]",
+    "path.[object.SVGAnimatedString]",
+    "div.pane-header-desc-wrap"
+   ],
+   "textLen": 874,
+   "overflowY": 0,
+   "htmlClass": "",
+   "innerW": 1440,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "zoom-200-desktop",
+   "route": "#/",
+   "engine": "safari-app",
+   "animatedCount": 20,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "ltr",
+   "focused": "body[\u2192PickerAbout Login  @mbabb d]",
+   "bodyBg": "rgb(200, 70, 215)",
+   "focusRingVisible": null,
+   "clippedTotal": 0,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 398,
+   "overflowX": 0,
+   "clipped": [],
+   "textLen": 78,
+   "overflowY": 0,
+   "htmlClass": "",
+   "innerW": 720,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "zoom-200-desktop",
+   "route": "#/gradient",
+   "engine": "safari-app",
+   "animatedCount": 26,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "ltr",
+   "focused": "body[\u2192GradientPalettes Login  @mb]",
+   "bodyBg": "rgb(200, 70, 215)",
+   "focusRingVisible": null,
+   "clippedTotal": 152,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 398,
+   "overflowX": 0,
+   "clipped": [
+    "div.relative.w-full",
+    "div.glass-resting.card",
+    "div.pane-header.px-4",
+    "h3.pane-header-title.font-display",
+    "div.pane-header-desc-wrap",
+    "p.pane-header-desc.text-caption",
+    "div.flex.flex-col",
+    "div.flex.flex-col"
+   ],
+   "textLen": 553,
+   "overflowY": 0,
+   "htmlClass": "",
+   "innerW": 720,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "rtl-mobile",
+   "route": "#/",
+   "engine": "safari-app",
+   "animatedCount": 20,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "rtl",
+   "focused": "body[\u2192PickerAbout Login  @mbabb d]",
+   "bodyBg": "rgb(200, 70, 215)",
+   "focusRingVisible": null,
+   "clippedTotal": 1,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 792,
+   "overflowX": 0,
+   "clipped": [
+    "span.spectrum-dot.absolute"
+   ],
+   "textLen": 78,
+   "overflowY": 0,
+   "htmlClass": "",
+   "innerW": 390,
+   "rafPer1500ms": 0
+  },
+  {
+   "matrix": "rtl-mobile",
+   "route": "#/blob",
+   "engine": "safari-app",
+   "animatedCount": 21,
+   "focusedPath": "body#app:nth-child(2)",
+   "dir": "rtl",
+   "focused": "body[\u2192PickerBlob Login  @mbabb de]",
+   "bodyBg": "rgb(200, 70, 215)",
+   "focusRingVisible": null,
+   "clippedTotal": 1,
+   "dpr": 2,
+   "errs": [],
+   "innerH": 792,
+   "overflowX": 0,
+   "clipped": [
+    "span.spectrum-dot.absolute"
+   ],
+   "textLen": 77,
+   "overflowY": 0,
+   "htmlClass": "",
+   "innerW": 390,
+   "rafPer1500ms": 0
+  }
+ ],
+ "morphRuns": {
+  "v2_unraised": {
+   "arm": "dock-morph --dock-expand-t",
+   "at": "2026-07-27T17:10:20.193Z",
+   "env": {
+    "dpr": 2,
+    "w": 1440,
+    "vis": "hidden",
+    "focus": false,
+    "h": 848,
+    "hidden": true
+   },
+   "rafTicksPerSecond": 1,
+   "dockRest": {
+    "cls": "glass-dock horizontal shape-pill layout-linear dock-scroll-x expanded fit-content dock-inline",
+    "hasPlate": true
+   },
+   "syntheticSweep": {
+    "steps": 246,
+    "samples": [
+     [
+      0,
+      "color(srgb 0.384505 0.327291 0.27789 / 0.4544)",
+      "color(srgb 0.914 0.9 0.886 / 0.05)"
+     ],
+     [
+      0.25,
+      "color(srgb 0.386216 0.329318 0.281549 / 0.4852)",
+      "color(srgb 0.914 0.9 0.886 / 0.0575)"
+     ],
+     [
+      0.5,
+      "color(srgb 0.387722 0.331104 0.284771 / 0.516)",
+      "color(srgb 0.914 0.9 0.886 / 0.065)"
+     ],
+     [
+      0.75,
+      "color(srgb 0.389059 0.332688 0.28763 / 0.5468)",
+      "color(srgb 0.914 0.9 0.886 / 0.0725)"
+     ],
+     [
+      1,
+      "color(srgb 0.390253 0.334104 0.290184 / 0.5776)",
+      "color(srgb 0.914 0.9 0.886 / 0.08)"
+     ],
+     [
+      1,
+      "color(srgb 0.390253 0.334104 0.290184 / 0.5776)",
+      "color(srgb 0.914 0.9 0.886 / 0.08)"
+     ],
+     [
+      0.75,
+      "color(srgb 0.389059 0.332688 0.28763 / 0.5468)",
+      "color(srgb 0.914 0.9 0.886 / 0.0725)"
+     ],
+     [
+      0.5,
+      "color(srgb 0.387722 0.331104 0.284771 / 0.516)",
+      "color(srgb 0.914 0.9 0.886 / 0.065)"
+     ],
+     [
+      0.25,
+      "color(srgb 0.386216 0.329318 0.281549 / 0.4852)",
+      "color(srgb 0.914 0.9 0.886 / 0.0575)"
+     ],
+     [
+      0,
+      "color(srgb 0.384505 0.327291 0.27789 / 0.4544)",
+      "color(srgb 0.914 0.9 0.886 / 0.05)"
+     ],
+     [
+      0,
+      "color(srgb 0.384505 0.327291 0.27789 / 0.4544)",
+      "color(srgb 0.914 0.9 0.886 / 0.05)"
+     ],
+     [
+      0.25,
+      "color(srgb 0.386216 0.329318 0.281549 / 0.4852)",
+      "color(srgb 0.914 0.9 0.886 / 0.0575)"
+     ],
+     [
+      0.5,
+      "color(srgb 0.387722 0.331104 0.284771 / 0.516)",
+      "color(srgb 0.914 0.9 0.886 / 0.065)"
+     ],
+     [
+      0.75,
+      "color(srgb 0.389059 0.332688 0.28763 / 0.5468)",
+      "color(srgb 0.914 0.9 0.886 / 0.0725)"
+     ]
+    ],
+    "err": null
+   },
+   "sampleCount": 7,
+   "framesUnderDataMorphing": 1,
+   "distinctExpandT_underMorphing": [
+    "calc(1 - 0)"
+   ],
+   "fractionalTcount": 0,
+   "distinctClasses": [
+    "horizontal shape-pill layout-linear dock-scr"
+   ],
+   "widthRange": [
+    469,
+    469
+   ],
+   "distinctPlateBg": [
+    "color(srgb 0.390253 0.334104 0.290184 / 0.5776)"
+   ],
+   "morphHead": [
+    [
+     12861,
+     "calc(1 - 0)",
+     "0",
+     1,
+     "horizontal shape-pill layout-linear dock-scr",
+     "color(srgb 0.390253 0.334104 0.290184 / 0.5776)",
+     469
+    ]
+   ],
+   "morphTail": [
+    [
+     12861,
+     "calc(1 - 0)",
+     "0",
+     1,
+     "horizontal shape-pill layout-linear dock-scr",
+     "color(srgb 0.390253 0.334104 0.290184 / 0.5776)",
+     469
+    ]
+   ],
+   "elementShot": "dock-morph-safari26.4-element.png",
+   "outcome": "SURVIVED",
+   "sessionAliveAtEnd": true,
+   "crashReports": [
+    "com.apple.WebKit.WebContent.Development-2026-07-27-111524.ips"
+   ],
+   "sessionDead": false
+  },
+  "v3_raised": {
+   "arm": "dock-morph --dock-expand-t (raised window)",
+   "at": "2026-07-27T17:12:34.831Z",
+   "envAfterRaise": {
+    "vis": "hidden",
+    "w": 1280,
+    "focus": false,
+    "h": 808,
+    "hidden": true
+   },
+   "rafTicksPerSecond": 1,
+   "driven": false,
+   "sampleCount": 6,
+   "framesUnderDataMorphing": 0,
+   "distinctExpandT": [],
+   "fractionalTcount": 0,
+   "distinctMorphT": [],
+   "widthRange": [
+    464,
+    464
+   ],
+   "states": [
+    "E"
+   ],
+   "plateBgDistinct": [
+    "color(srgb 0.390253 0.334104 0.290184 / 0.5776)"
+   ],
+   "morphHead": [],
+   "morphTail": [],
+   "outcome": "SURVIVED",
+   "sessionAliveAtEnd": true,
+   "crashReports": [
+    "com.apple.WebKit.WebContent.Development-2026-07-27-131147.ips",
+    "com.apple.WebKit.WebContent.Development-2026-07-27-111524.ips"
+   ]
+  }
+ }
+}

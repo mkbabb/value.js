@@ -773,3 +773,417 @@ justifies, and it survived because the tranche's visual audit photographed an em
 
 No source file was edited. All writes are confined to
 `docs/tranches/V/megatranche/audit/components/PaletteCard/`.
+
+---
+---
+
+# ADDENDUM — second CHALLENGE-D seat: corroboration, three corrections, six new defects
+
+## Model receipt
+
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`. Spawned with
+an explicit Opus 5 declaration; the seat is declared, not inherited.
+
+## Why this addendum exists
+
+I was spawned as CHALLENGE-D for `PaletteCard` and investigated independently, without reading the
+body above until my probes were complete. I found the file already written. I have **not** rewritten
+it — the analysis above is sound and my independent work converges on D-1, D-2, D-3, D-7, D-8, D-9
+and D-11 by separate measurement, which is worth more as corroboration than as a second draft.
+
+What follows is only the **delta**: three claims above that my measurements falsify, and six defects
+my probes found that the body does not contain — including the one the **owner personally marked**.
+
+My probe was a live WebKit session against `http://localhost:9000` with a seeded `color-palettes`
+`localStorage` fixture (5 palettes: normal, 92-glyph name + `tier:"featured"` + 5 tags + fork/version
+counts, zero-colour, 24-colour). Every number below is a `getComputedStyle`/`getBoundingClientRect`
+reading from that session or a static grep, both pasted.
+
+---
+
+## Independent corroboration (measured separately, same verdict)
+
+| Body finding | My independent measurement |
+|---|---|
+| D-2 title 0 px | `titleW: 0` at **462 px card / 1440 px desktop** and again at 324 px card / 390 px mobile. Not a narrow-viewport effect. Sibling `shrink-0` count in the identity row: **9** |
+| D-3 no keyboard path | `card.focus()` → `document.activeElement === card` is **false**; `tabIndex: -1`, no `tabindex` attribute. Interactive children of a collapsed card: **exactly 1** (`"Palette menu"`, 36×36) |
+| D-8 `C` ladder | `getComputedStyle(metaRow).padding` → **`"10px 12px"`** vs the ruled `--spacing(4)` = 16 px |
+| D-7 empty void | `stripSegments: 0`, `cardH: 100` — identical height to a populated card, with a 40 px transparent band |
+| D-9 decomposition | 59 declared props+emits members by AST count across 876 lines; `PaletteCardSwatches` = 8 props / 8 emits / **zero** reactive state |
+| D-11 PRM | confirmed: the global guard's `scroll-behavior: auto !important` cannot reach an explicit `behavior:"smooth"` argument (CSSOM-View: the option overrides the computed property) |
+
+---
+
+## CORRECTION 1 (to §1 and D-1) — the `.cartoon-cast` is not a "fourth lagging caster". It is dead markup that renders nothing.
+
+§1 states the card carries *"a fourth lagging `.cartoon-cast` child (`PaletteCard.vue:30`) driven by
+`useLiquidPress` (`:263-267`)"*, and counts it as an aggravating caster. **Measured, it is inert.**
+
+`getComputedStyle` on the actual `<span class="cartoon-cast">`:
+
+```
+position:      static      (glass-ui's rule specifies absolute)
+display:       inline      (specifies a positioned box)
+inset:         auto        (specifies inset: 0)
+border-radius: 0px         (specifies border-radius: inherit)
+box-shadow:    none        (specifies var(--shadow-cartoon-md))
+getBoundingClientRect(): { width: 0, height: 0 }
+```
+
+A 0×0 unstyled inline span. **Two independent causes, either one sufficient:**
+
+**(a) The stylesheet is never loaded.** glass-ui 7.0.0 defines `.cartoon-cast` in
+`dist/styles/glass/glass-atom.css`. Nothing imports it:
+
+```
+$ grep -rl "glass-atom" node_modules/@mkbabb/glass-ui/dist/styles/
+node_modules/@mkbabb/glass-ui/dist/styles/glass/glass-atom.css      ← only the file itself
+```
+
+`dist/styles/index.css` imports 30 sheets and `glass.css` imports 18 more (`material`, `ladder`,
+`rim`, `surfaces`, `glass-capsule`, `liquid-enter`, `squircle`, …). `glass-atom.css` is in neither
+list. It is an orphan in the producer's own graph.
+
+*(There is a second `.cartoon-cast` rule — `.liquid-enter.is-cel > .cartoon-cast` in
+`liquid-enter.css`, which **is** imported. It requires an ancestor with `.liquid-enter.is-cel`. The
+live root class list is `"group rounded-card cartoon-surface border-card-edge bg-well
+cursor-pointer"` — neither class present. So that rule does not apply either.)*
+
+**(b) The press variable does not match.** glass-ui's cast reads `--cartoon-press-t`:
+
+```css
+.cartoon-cast {
+  --cast-travel: calc(6px * var(--motion-weight) * var(--cartoon-press-t));
+  --cast-spread: calc(1 + 0.18 * var(--motion-weight) * var(--cartoon-press-t));
+}
+```
+
+`PaletteCard.vue:263-267` writes a **different** name:
+
+```ts
+const press = useLiquidPress({ pressVar: "--card-press-t", … });
+```
+
+Live inline style on the root: `--card-press-t: 0.0000; --flex-vel: 0.0000;` — and
+`--cartoon-press-t` computes to `0`, its registered `@property` initial value
+(`dist/styles/tokens/property-regs.css`). So `--cast-travel: 0px`, `--cast-spread: 1`, measured. The
+caster could not travel even if its stylesheet loaded. `pressVar` is free-form (default `"--press-t"`
+per `useLiquidPress.d.ts:19-25`), so nothing type-checks this.
+
+### The larger defect this exposes: the cartoon register's motion died in the Glass 6→7 adoption and the comments still describe it as alive
+
+`PaletteCard.vue:7-15` — a 9-line comment — asserts:
+
+> the `cartoon-surface` atom owns the hover/press choreography (translate/scale on
+> `--ease-cartoon-punch` @ `--duration-normal`, shadow bezier md→lg, `:active` squash, 2px border) +
+> the lagging `.cartoon-cast` child below.
+
+The utility as shipped in glass-ui 7.0.0 is **three declarations**:
+
+```css
+@utility cartoon-surface { position: relative; border-width: 2px; box-shadow: var(--shadow-cartoon-md); }
+```
+
+No `transition`. No `:hover`. No `:active`. No `md→lg` shadow. Grepping every selector that carries
+`--ease-cartoon-punch` returns `glass-capsule.css`, `glass-atom.css`, `glass-chip.css`,
+`liquid-enter.css`, `btn.css` — **`.cartoon-surface` and `.card` are not among them.**
+
+The producer says so itself, in the `Card` prop doc
+(`dist/components/card/Card.vue.d.ts:11-12`):
+
+```ts
+/** Static Memphis edge treatment; it does not add command behavior. */
+cartoon?: boolean;
+```
+
+So: of the five behaviours the comment claims, **one** ships (the 2px border). `demo/DESIGN.md:246`
+records the row as `landed`:
+
+```
+| Card cartoon (R4) | `PaletteCard.vue` root | producer `cartoon-surface` register: translate/scale
+  `--ease-cartoon-punch` @ `--duration-normal`, shadow `--ease-standard`, press squash + lagging
+  caster | landed |
+```
+
+This is a **silent regression from the W44 Glass 7.0.0 whole-adoption** with a canon row still
+asserting it landed — exactly the class of carry the CARRY-LEDGER exists to catch. The body's §1
+"canon provenance" note treats `DESIGN.md:246` as a live T-vs-V *authority conflict*. It is worse
+than a conflict: **the T row no longer describes anything that renders**, so retiring it costs
+nothing and the conflict was never real.
+
+This also sharpens the body's cure step 1. Deleting `cartoon-surface`/`.cartoon-cast`/`useLiquidPress`
+is not a trade of motion for compliance — the motion is already gone. **Nothing is lost, so owner
+edict 6 ("animations are never deleted, only moved or tokenized") is not engaged by the removal.**
+It was engaged, and violated, by the adoption that killed it without a witness.
+
+**Severity: MAJOR.** New ID **D-21**.
+
+---
+
+## CORRECTION 2 (to Negative proof #3) — there IS a live crash attributable to this component
+
+Negative proof #3 claims *"Zero page errors … No console or page error is attributable to this
+component."* Captured in my session
+(`evidence/seat-D2-console-hoverpopover-crash.log`, verbatim):
+
+```
+TypeError: Cannot read properties of null (reading 'getBoundingClientRect')
+    at positionPanel (…/demo/palettes/browser/card/composables/useHoverPopover.ts:18:25)
+    at …/demo/palettes/browser/card/composables/useHoverPopover.ts:26:18
+```
+
+Both frames are PaletteCard's own composable. Line 18 is `swatchEl.getBoundingClientRect()`; line 26
+is the call site:
+
+```ts
+function onHover(index: number, e: PointerEvent) {
+    if (!canHover.value || e.pointerType === "touch") return;
+    cancelLeave();
+    openIndex.value = index;
+    nextTick(() => positionPanel(e.currentTarget as Element));   // line 26
+}
+```
+
+**Mechanism:** `PointerEvent.currentTarget` is reset to `null` when dispatch completes. `nextTick`
+defers the dereference past the listener's return, so whether `currentTarget` survives depends on
+where the microtask checkpoint falls — hence an *intermittent* null deref rather than a permanent
+one. The `as Element` cast is what allows it to compile: it asserts away exactly the `null` that
+arrives. This is `PaletteCardSwatches`' hover-popover positioning, i.e. the hovered state of the
+expanded tray silently fails.
+
+The correct read of the negative proof is narrower and still true: **no error at rest**. The body's
+probes captured a card grid at rest and in expand; they did not hover a swatch. Negative proof #3
+should be scoped to "no page error in the rest and expand states", not to the component.
+
+**Severity: MAJOR.** New ID **D-22**.
+
+---
+
+## CORRECTION 3 (to D-3) — the accessible swatch path exists and is switched off by input modality
+
+D-3 records swatch add/edit/copy as keyboard-unreachable. True, but the mechanism is sharper and
+worse than "unreachable". `SwatchHoverMenu.vue` ships **two implementations of one popover**, chosen
+by a media query:
+
+```vue
+<!-- Touch: native Popover click toggle -->
+<Popover v-if="!canHover" …>            ← reka-ui: focusable, keyboard-operable, auto-positioned
+…
+<!-- Hover: manually positioned floating panel -->
+<template v-else>
+  <Teleport to="body">
+    <div v-if="open" class="floating-panel" :style="floatingStyle" aria-hidden="true" …>
+```
+
+`canHover` is `useBreakpoint("(hover: hover)")` (`useHoverPopover.ts:11-14`). So the branch is
+selected by *pointer capability*:
+
+| user | branch | swatch actions reachable by keyboard? |
+|---|---|---|
+| touch device (no hover) | reka-ui `Popover` | **yes** |
+| desktop with a mouse | `aria-hidden` Teleport | **no** |
+
+**The accessible implementation is delivered only to users who have a pointer, and withheld from the
+one population that needs it — a keyboard-only desktop user.** The component's own comment states the
+consequence and ships anyway:
+
+> W5-a11y: hover-only panel is keyboard-inaccessible — hidden from AT. The reka-ui Popover (touch
+> path) is the accessible route.
+
+Two further consequences the body does not draw:
+
+- **Owner edict 2 (no dual paths) is violated structurally**, not incidentally: one affordance, two
+  implementations, one accessible and one not, with a shared `PANEL_LAYOUT` constant added
+  specifically so "the two paths cannot drift" — a comment that concedes the duplication.
+- The hand-rolled branch is where D-22's crash lives. The reka-ui branch has no such bug. The
+  hand-rolled panel also computes `top`/`left` **once** on hover with a magic `offsetY = -42`
+  (`useHoverPopover.ts:21`), so it does not reposition on scroll or resize and does not flip at
+  viewport edges — all of which reka-ui's floating layer handles.
+
+This strengthens the body's cure step 5: deleting `useHoverPopover` deletes a crash, a magic number,
+and an accessibility fork — not merely a wrapper.
+
+**Severity: MAJOR.** New ID **D-23**.
+
+---
+
+## NEW — D-24 (MAJOR): a consumer nests PaletteCard's interactive content inside a `<button>`
+
+`MixSourceSelector.vue:246-268`:
+
+```vue
+<!-- W5-a11y: native <button> for keyboard reach + aria-pressed for selection state -->
+<button v-for="palette in savedPalettes" type="button"
+        :aria-pressed="isPaletteSelected(palette.slug)" …
+        class="… rounded-card w-full text-left focus-visible:ring-2 focus-visible:ring-ring/40
+               ring-2 ring-primary ring-offset-2 ring-offset-background"
+        @click="togglePalette(palette)">
+    <PaletteCard :palette="palette" :css-color="''" />
+</button>
+```
+
+`<button>`'s content model permits **no interactive descendants**. `PaletteCard` renders, inside it:
+a `<Button>` menu trigger (`PaletteCard.vue:96-104`) plus a `DropdownMenuTrigger`; and in reachable
+states an `<input>` (`PaletteRenameInput.vue:11`), a vote `<button>` (`PaletteCardMeta.vue:43`) and
+copy/add/edit `<button>`s (`PaletteCardSwatches.vue:13,41,49,56`). Nested interactive content inside
+a button is invalid HTML with undefined activation behaviour across engines, and the inner
+`aria-pressed` button's accessible name is computed from contents that themselves contain controls.
+
+The bitter irony: **this is the only consumer that implements the law-mandated seat.**
+`VISUAL-CONSTITUTION §3.1` requires *"one native named `<button type="button"
+aria-pressed="false|true">` child"* — and here it is, correct in shape, but authored **outside** the
+component as a wrapper, which is the one arrangement that makes it invalid. Because `PaletteCard`
+does not own its activation seat, each of the five consumers must invent one; four bind a bare
+`@click` on an unfocusable div and the fifth produces invalid markup.
+
+That is the strongest structural argument for the body's cure step 2, and it is evidence that the
+missing seat is not a latent risk but an already-realised defect at a shipping call site. Note also
+the wrapper's `ring-2 ring-primary ring-offset-2 ring-offset-background` — the selected-state
+treatment is a per-instance override in a consumer (owner edict 5) precisely because the component
+exposes no selection state.
+
+---
+
+## NEW — D-25 (MINOR, but owner-marked): non-concentric corners — the mechanism behind `OM-2-card-shadow-sharp-corners.png`
+
+The body does not reference `docs/tranches/V/megatranche/audit/visual/owner-marked/OM-2-card-shadow-sharp-corners.png`
+— the owner's own mark on this component. Measured on the live card:
+
+```
+card border-radius (outer):  16px
+card border-width:           2px
+strip inset from card left:  2px          ← the strip sits exactly at the border's inner edge
+strip border-radius:         16px         ← rounded-t-card
+concentric requirement:      16 − 2 = 14px
+```
+
+The full-bleed colour strip is the card's only child that meets the boundary, and it carries the
+**outer** radius while sitting at the **inner** edge. Its arc is 2 px fatter than the border's inner
+arc, so the two curves diverge through the corner instead of nesting — the classic non-concentric
+corner pinch. `rounded-t-card` is applied at `PaletteCard.vue:36` precisely because the card
+deliberately refuses `overflow-hidden` (`:16-18`, S.W5-10), which moves the clip responsibility onto
+the child without moving the radius arithmetic with it.
+
+The shadow half of the owner's mark is the second contributor. `--shadow-cartoon-md` resolves to
+**three stacked hard-edged casters, zero blur and zero spread**:
+
+```
+oklab(0.28 … / 0.32) -3px 3px 0px 0px,
+oklab(0.28 … / 0.26) -5px 5px 0px 0px,
+oklab(0.28 … / 0.18) -7px 7px 0px 0px
+```
+
+Three copies of a 16 px arc at three different offsets diverge **maximally at the corners** and
+converge along the straight edges — so the cast reads as clean banding on the sides and as a faceted,
+stepped, apparently-sharp corner at the rounds. That is what the owner circled. Note this is the
+register that was *supposed* to be a single smooth `.cartoon-cast` layer — the dead element in D-21.
+Correcting D-21 by deleting the cast is right; the visible artefact belongs to the three raw casters
+on the root, and only cure step 1 (`shadow: false`) removes it.
+
+---
+
+## NEW — D-26 (MINOR): in dark mode the cel shadow is lighter than the surface casting it
+
+Measured on the same element with `.dark` applied:
+
+| | light | dark |
+|---|---|---|
+| card `background-color` | `oklab(0.913 …)` | `oklab(0.345 …)` |
+| shadow colour | `oklab(0.28 …)` | `oklab(0.34 …)` |
+| shadow alphas | .32 / .26 / .18 | **.46 / .38 / .26** |
+| L(shadow) − L(card) | **−0.633** | **−0.005** |
+
+In light mode the caster is 0.633 L below its surface — a real shadow. In dark mode it is **0.005 L**
+below, at nearly half again the alpha. A hard-edged cel shadow requires luminance headroom *beneath*
+the surface, and on a dark card there is none, so the register degrades to a grey smear whose only
+remaining signal is the offset silhouette.
+
+The producer token is the proximate cause — `--shadow-cartoon-md` uses
+`light-dark(hsl(24 10% 10%), hsl(30 14% 90%))` then clamps L into `[0.28, 0.34]`, so the dark arm
+takes the *light* source colour and clamps it **down** to 0.34, landing on the card's own 0.345. But
+the design decision under audit is the consumer's: putting a hard three-layer cel caster on an
+entity that must render on a dark surface, when the ruled tuple says `shadow: false`. Raising the
+alpha (.32→.46) is the visible evidence that someone already noticed it reading weakly in dark and
+compensated with opacity rather than with contrast.
+
+---
+
+## NEW — D-27 (MINOR): the metadata row does not merely overlap the menu — it leaves the card entirely
+
+D-5 measures a 37 px chip↔menu overlap. My fixture (5 tags) shows the same mechanism has **no bound
+at all**. At a 390 px viewport, card 324 px wide, right edge ≈ 357 px:
+
+```
+menu button:   left 307.0   right 343.0
+chip "blue":   left 314.9   right 348.7    overlapMenuPx: 28.1
+chip "cool":   left 356.7   right 389.9    ← outside the card
+chip "ocean":  left 397.9   right 441.3    ← 84 px outside the card, past the 390 px viewport
+
+metaCluster scrollWidth − clientWidth:  142 px
+row        scrollWidth − clientWidth:   86 px
+```
+
+So the failure is not "chips crowd the menu"; it is that the identity row has **no overflow design in
+any direction** — the title absorbs 100 % of the shrink (D-2), and once it reaches 0 the remaining
+`shrink-0` content simply exits the card's box and then the viewport. It is invisible to the tranche
+harness because `REPORT.md`'s `horizontalOverflow` samples the document scroll width and an ancestor
+clips before the document does; the content is lost, not merely off-screen.
+
+This also bounds D-18: the `.slice(0, 3)` tag cap is not a conservative truncation, it is the *only*
+thing standing between this row and unbounded escape — and three tags already escape.
+
+---
+
+## NEW — D-28 (MINOR): the featured badge's gold outline is declared twice, by two mechanisms
+
+`PaletteCard.vue:64` applies `border-gold` in the template **and** `:343-345` re-declares it in
+scoped CSS:
+
+```css
+.featured-badge { border-color: var(--color-gold); }
+```
+
+Measured: `border-gold` resolves (computed `border-color: oklch(0.751 0.147 84.2)` = `--color-gold`),
+so the utility works and the scoped rule is redundant. Both are per-instance overrides of a glass-ui
+`Badge` (owner edict 5), and glass-ui already ships the metal register the card is imitating —
+`dist/styles/utilities/metal.css` exposes `--metal-border-width`, `--metal-stop-{light,base,dark}`,
+`--metal-glow-{blur,opacity}`, and `Card` carries `metal?: "gold" | "silver" | "bronze"`. `Badge`
+exposes only `tone?: neutral | destructive | success | warning | info` — no metal arm.
+
+So the idiomatic cure for D-6 and D-28 together is a **producer** change (owner edict 4): extend the
+metal register to `Badge` — `<Badge variant="outline" metal="gold">` — which would set the border
+from `--metal-stop-*`, the glow from `--metal-glow-*`, and, critically, would own the
+`color: transparent` that D-6 proves the Badge's own `text-foreground` currently defeats. That
+removes both scoped rules, the redundant utility, the dead `.featured-badge__icon svg` reach, and the
+occlusion — in glass-ui, once, for every consumer.
+
+---
+
+## Addendum register
+
+| ID | Severity | Defect | Primary evidence |
+|---|---|---|---|
+| D-21 | MAJOR | `.cartoon-cast` renders nothing (unimported `glass-atom.css` **and** `--card-press-t` ≠ `--cartoon-press-t`); the whole cartoon motion register died in the Glass 7 adoption while `DESIGN.md:246` still records it `landed` | computed `position:static, display:inline, box-shadow:none, 0×0`; `grep -rl glass-atom` = self only; `PaletteCard.vue:264` vs `glass-atom.css`; `Card.vue.d.ts:11` "does not add command behavior" |
+| D-22 | MAJOR | Live null deref in the component's own hover path; falsifies Negative proof #3 | `evidence/seat-D2-console-hoverpopover-crash.log`; `useHoverPopover.ts:18,26` |
+| D-23 | MAJOR | Accessible swatch popover exists but is gated behind `!canHover` — delivered to touch, withheld from keyboard-only desktop; dual path (edict 2) | `SwatchHoverMenu.vue:8-49`; `useHoverPopover.ts:11-14` |
+| D-24 | MAJOR | `<button>` wraps a subtree containing `<button>`/`<input>` — invalid content model; the law's `aria-pressed` seat authored as a consumer wrapper because the component owns none | `MixSourceSelector.vue:246-268` vs `PaletteCard.vue:96`, `PaletteCardMeta.vue:43`, `PaletteRenameInput.vue:11` |
+| D-25 | MINOR | Non-concentric corner (strip 16 px arc at the 14 px inner edge) + 3 stacked zero-blur casters = the owner's `OM-2` mark | measured radii/inset; `--shadow-cartoon-md` computed; `owner-marked/OM-2-card-shadow-sharp-corners.png` |
+| D-26 | MINOR | Dark-mode caster is 0.005 L below its own surface at 1.4× the light-mode alpha | computed `oklab` card bg vs shadow, both schemes |
+| D-27 | MINOR | Identity row content exits the card box entirely (84 px past the card, past the viewport); 142 px cluster overflow | measured chip rects vs card right edge at 390 px |
+| D-28 | MINOR | Gold outline declared twice (`border-gold` + scoped `.featured-badge`); glass-ui metal register exists but has no `Badge` arm | `PaletteCard.vue:64,343-345`; `metal.css`; `Badge.vue.d.ts` |
+
+**Strongest defect: I concur with the body — D-2.** My independent measurement puts the identity at
+**0 px on a 462 px desktop card**, not merely at mobile, which makes it worse than the body states.
+
+**Strongest *new* defect: D-21** — because it changes what the cure costs. The body frames removing
+the cartoon register as resolving a live T-vs-V canon conflict. It is not live: the register's motion
+has not rendered since the Glass 7 adoption, and the canon row asserting otherwise is stale. Removal
+forfeits nothing, and owner edict 6 is not engaged by the deletion — it was engaged, and violated, by
+the adoption that dropped the behaviour without a rendered witness.
+
+### Addendum artifacts
+
+- `evidence/seat-D2-console-hoverpopover-crash.log` — captured WebKit console, D-22 stack
+
+No source file was edited by this seat. All writes are confined to
+`docs/tranches/V/megatranche/audit/components/PaletteCard/`.

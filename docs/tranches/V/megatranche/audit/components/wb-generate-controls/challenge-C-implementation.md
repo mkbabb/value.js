@@ -1,645 +1,620 @@
-# CHALLENGE-C — `demo/workbenches/generate/GenerateControls.vue` — implementation audit
+# CHALLENGE-C · `demo/workbenches/generate/GenerateControls.vue` — implementation audit
 
 ## Model receipt
 
-I observe myself to be **Opus 5** (`claude-opus-5[1m]`), the model this seat was explicitly
-spawned with. The declaration is honoured; the seat is not inherited or undeclared.
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`. This seat was
+spawned with an explicit Opus 5 declaration and the served tier matches it. No inherited or
+undeclared seat.
+
+**Run of record:** 2026-07-27, repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`,
+HEAD `9bcd5d91` (the seat was briefed against `c654824e`; the two intervening commits are
+`docs/tranches/V/**` only and touch nothing in this component's dependency cone).
+
+**Prior-pass note.** A 2026-07-24 CHALLENGE-C pass existed at this path. I did not read it until
+after my own findings were fixed, and I preserved it verbatim at
+`challenge-C-implementation.2026-07-24-pass.md` in this directory rather than overwrite its
+evidence. The two passes were run independently and **converge on the same BLOCKER**; where they
+overlap I say so, and §5 records the two facts I took from that pass and then re-verified myself
+(O-20's live RED, and CI's e2e gap). Independent convergence on a dead control is worth more than
+either report alone.
 
 ---
 
-## Subject, pin, and boundary
+## 0 · Pin verification (coordination boundary)
 
-| item | value |
-|---|---|
-| subject | `demo/workbenches/generate/GenerateControls.vue` (311 lines) |
-| repo / branch / HEAD | `/Users/mkbabb/Programming/value.js` · `tranche-u` · `c654824e` |
-| pinned SHA-256 (CARRY-LEDGER §D, glass BJ W4 hold) | `4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6` |
-| **measured SHA-256** | `4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6` |
-| drift | **NONE — hash matches the pin exactly.** No coordination-boundary finding. |
+CARRY-LEDGER §D — **glass BJ W4 / v8 Slider post-cut consumer hold (2026-07-22)** — pins this file at
+SHA-256 `4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6`.
 
 ```
 $ shasum -a 256 demo/workbenches/generate/GenerateControls.vue
 4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6  demo/workbenches/generate/GenerateControls.vue
 ```
 
-`docs/tranches/V/reformation/CARRY-LEDGER.md:55–80` holds **all consumer edits** to this file
-until Glass 8 proves source→built→packed→installed→served equality. **No source edit is proposed
-or landed by this seat.** Every cure below is authored as a *wave item*, gated
-`BLOCKED-ON-GLASS-V8` (§ "The wave", at the end).
+**No drift.** No coordination-boundary finding. **No source edit is proposed or landed by this
+seat**; every cure is authored as a wave item gated `BLOCKED-ON-GLASS-V8` (§7).
 
-## Method
-
-- Full read of the component, its composable, its pure core, its two ancestors
-  (`GeneratePane.vue`, `usePaneRouter.ts`), its children (`PreviewStrip`, `PaletteColorStrip`),
-  and the glass-ui 7.0.0 dist for every primitive it instantiates.
-- SFC compiled with `vue/compiler-sfc` to read binding types out of the real render function.
-- Live DOM probes against the running dev server at `http://localhost:9000/#/generate` (Chromium).
-- The pure core bundled with esbuild and executed in node for timing + boundary values.
-- `docs/tranches/V/megatranche/audit/visual/REPORT.json` rows + both Safari screenshots read.
-- **The component's only automated oracle executed end-to-end** (`npx playwright test`).
-
-## Verdict
-
-**DEFECTIVE.** Two BLOCKERs, five MAJORs. The single strongest defect: the five colour swatches —
-the plate's documented "one direct verb" — render as `<span aria-hidden="true">` with
-`pointer-events: none` and **zero attached event listeners**. Per-swatch copy is not slow, not
-flaky: it is *entirely absent from the shipped build*, and the generated palette is invisible to
-assistive technology. This is a `@mkbabb/glass-ui@7.0.0` API break that the W44 adoption commit
-(`f2c8f565 feat(v-w44)!: adopt @mkbabb/glass-ui 7.0.0 across the demo consumer surface`) did not
-catch, because nothing in this repository can catch it: the component's only test is red and CI
-never runs it.
+Environment of record: `@mkbabb/glass-ui@7.0.0`, `reka-ui` per lockfile, dev server LIVE at
+`http://localhost:9000`, visual REPORT `docs/tranches/V/megatranche/audit/visual/REPORT.{md,json}`.
 
 ---
 
-# Findings
+## 1 · Verdict
 
-## D1 · BLOCKER — the five swatches are inert `aria-hidden` spans; `copyColor` is unreachable
+**DEFECTIVE.** The premise holds. The component ships **one entirely dead interactive control** (the
+per-swatch copy verb — three of its four bindings are silently discarded by the glass-ui 7.0.0
+primitive it mounts), a **second dead control** (the editable plate name, whose value the consumer
+drops on save), and **zero accessible representation of its own output**.
 
-`GenerateControls.vue:199–208` renders the specimen swatches as:
+The strongest single fact: the component's *only* automated oracle is **currently RED** and **CI
+never runs it** — and the red is not about any of the defects above. Every gate that does run
+(`lint`, both `vue-tsc` passes, `npm test`, the visual capture) is green over all three defects.
+
+Severity ladder: BLOCKER (a user-facing control does not work) · MAJOR · MINOR · INFO. Hypotheses are
+labelled and carry `REPRODUCTION: NONE`.
+
+---
+
+## 2 · BLOCKER
+
+### C-1 · The per-swatch copy verb does not exist. Three of four bindings are discarded.
+
+`GenerateControls.vue:199–208` mounts the palette swatches as:
 
 ```vue
 <WatercolorDot
-    v-for="(css, i) in palette" :key="i" :color="css"
-    tag="button"                              <!-- ← not a prop in glass-ui 7.0.0 -->
+    v-for="(css, i) in palette" :key="i"
+    :color="css"
+    tag="button"                                  ← discarded
     :seed="`gen-${css}-${i}`"
-    class="generate-swatch w-9 h-9 … cursor-pointer active:scale-95 …"
-    :aria-label="`Copy ${css}`"               <!-- ← dropped -->
-    @click="copyColor(css)"                   <!-- ← dropped -->
+    class="generate-swatch w-9 h-9 … cursor-pointer active:scale-95 … focus-visible:outline-none"
+    :aria-label="`Copy ${css}`"                    ← discarded
+    @click="copyColor(css)"                        ← discarded
 />
 ```
 
-Glass-ui 7.0.0's `WatercolorDot` (`node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts`)
-declares exactly five props — `color`, `variant`, `animate`, `cycleDuration`, `range`, `seed`.
-**There is no `tag` prop.** The implementation
-(`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js`) sets `inheritAttrs: !1`, forwards only
-`class` and `style` off `useAttrs()`, hardcodes the element to `"span"`, and stamps
-`"aria-hidden": "true"` plus inline `pointerEvents: "none"` on the root:
+**Mechanism.** `WatercolorDot` in glass-ui 7.0.0 declares exactly six props and no emits
+(`node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts:23–52`):
+`{ color, variant?, animate?, cycleDuration?, range?, seed? }`. There is **no `tag` prop**:
 
-```js
-inheritAttrs: !1, __name: "WatercolorDot",
-props: { color: {}, variant: { default: "solid" }, animate: {…}, cycleDuration: {…}, range: {…}, seed: { default: "" } },
-setup(e) { let t = e, n = h() /* useAttrs */, c = i(() => n.class), f = i(() => n.style); …
-  return (t, n) => (d(), o("span", { "aria-hidden": "true", class: l([c.value, "watercolor-swatch", …]),
-    style: u([f.value, { backgroundColor: …, pointerEvents: "none", … }]) }, …
+```
+$ grep -o "tag" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js | wc -l
+       0
 ```
 
-`inheritAttrs: false` + a setup that reads only `class`/`style` means `onClick` and `aria-label`
-never reach the DOM.
+The compiled component sets `inheritAttrs: false` and hand-forwards **only `class` and `style`** from
+`useAttrs()` (`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js`, `setup` body:
+`let … n = h(), c = i(() => n.class), f = i(() => n.style)`), then renders a hardcoded
+`<span aria-hidden="true" … style="… pointerEvents:'none' …">`. `tag`, `aria-label` and the `onClick`
+listener never reach the DOM — and the element is not hit-testable even if they had.
 
-**Reproduction — measured live, `http://localhost:9000/#/generate`, Chromium:**
-
-```js
-[...document.querySelectorAll('[data-generate-plate] .generate-swatch')]
-  .map(el => ({tag: el.tagName, ariaHidden: el.getAttribute('aria-hidden'),
-               ariaLabel: el.getAttribute('aria-label'), tagAttr: el.getAttribute('tag'),
-               pointerEvents: getComputedStyle(el).pointerEvents, tabIndex: el.tabIndex,
-               vueListeners: Object.keys(el._vei || {})}))
-```
+**Live DOM confirmation** (Playwright against `http://localhost:9000/#/generate`, swatch 0 inside
+`[data-generate-plate]`):
 
 ```json
-{ "tag": "SPAN", "ariaHidden": "true", "ariaLabel": null, "tagAttr": null,
-  "pointerEvents": "none", "tabIndex": -1, "vueListeners": [] }
+{
+  "swatchCount": 5,
+  "swatch0": {
+    "tag": "SPAN", "ariaHidden": "true", "ariaLabel": null, "tabIndex": -1,
+    "tagAttr": null, "pointerEvents": "none", "cursor": "pointer", "w": 40, "h": 40,
+    "html": "<span data-v-292b9032=\"\" aria-hidden=\"true\" class=\"generate-swatch w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer active:scale-95 transition-transform focus-visible:outline-none watercolor-swatch\" data-testid=\"watercolor-swatch\" data-variant=\"solid\" style=\"background-color: oklch(…"
+  },
+  "tabbablesInPlate": [
+    { "tag": "INPUT",  "label": "Palette name" },
+    { "tag": "BUTTON", "label": "Regenerate" },
+    { "tag": "BUTTON", "label": "Save palette" },
+    { "tag": "BUTTON", "label": "Copy all colors" }
+  ]
+}
 ```
 
-`vueListeners: []` is the proof — Vue attached **no** DOM handler. `sw.focus()` then
-`document.activeElement === sw` returns `false`: the swatch cannot be reached by pointer, by
-keyboard, or by AT.
+Four consequences, each independently a defect:
 
-**Consequences, all live:**
+1. **The click can never land.** `pointer-events: none` is written by the producer into the root
+   inline style, and the producer object is second in `normalizeStyle([attrsStyle, ownStyle])`, so it
+   wins unconditionally. No pointer, touch, or synthetic click reaches the element.
+2. **There is no listener to land on.** `@click` becomes a fallthrough attr; `inheritAttrs:false` plus
+   the class/style-only forward drops it. `copyColor()` (`GenerateControls.vue:111–113`) is
+   **unreachable dead code**.
+3. **Not a button, not focusable.** `tagName === "SPAN"`, `tabIndex === -1`. The plate has exactly
+   **4** tabbables; the five swatches contribute **zero**. Keyboard users have no path to the verb.
+4. **`cursor: pointer` is a lie in the source** — `class` is one of the two attrs that *do* forward,
+   so the component advertises clickability it does not have. (The cursor never actually resolves,
+   because `pointer-events:none` removes the element from hit-testing.)
 
-1. Clicking a swatch does nothing. `copyColor()` (`:111–113`) is dead code.
-2. `cursor-pointer` and `active:scale-95` are still applied (the `class` attr *is* forwarded), so
-   the swatch **advertises an affordance it does not have** — a lie in the interface.
-3. `PaletteColorStrip` is itself `aria-hidden="true" role="presentation"`
-   (`demo/palettes/browser/card/PaletteColorStrip.vue:3–4`). With the dots also `aria-hidden`
-   and no `aria-label` surviving, **there is no textual representation of the generated colours
-   anywhere in the plate.** A screen-reader user hears: name field, "5", Regenerate, Save
-   palette, Copy all colors, "seed: 71f806ff", Preset Vibrant, Harmony Golden, slider 5. They can
-   never learn what the palette *is*. WCAG 1.1.1 (Non-text Content) failure on the component's
-   primary output.
-4. The elaborate `focus-visible:outline-none` / T-28 outline-law comment at `:190–197` reasons
-   about a focus ring for an element that can never receive focus.
+The source comment at `GenerateControls.vue:190–197` asserts the opposite in writing: *"the button
+stays the copy-verb seat (`tag="button"`), the dot its organic face"*. That claim is false against
+glass-ui 7.0.0. Note the shape of the failure: this is an **API break absorbed silently at the W44
+"Glass 7.0.0 adopted whole" landing**, because unknown attributes on a Vue component are legal
+fallthrough and therefore invisible to every type and lint gate (see C-5c).
 
-**Family:** the same dead `tag="button"` seat exists at `demo/workbenches/mix/MixSourceSelector.vue:168,215`
-and `demo/palettes/browser/card/CurrentPaletteEditor.vue:98`. `tag="div"` sites (Dock, EmptyState,
-ColorSpaceSelector, ImageEyedropper, ConsoleRail, MixResultDisplay) are cosmetically harmless
-because the component already renders a span, but they are the same unremoved v6 prop.
+**REPRODUCTION.** `http://localhost:9000/#/generate` → click any swatch in the plate → nothing is
+copied, no focus moves, no state changes. Structurally confirmed by the DOM dump above
+(span / aria-hidden / pointer-events:none / tabIndex −1 / no aria-label).
 
-**Cure (mechanism, not patch):** the glass-7 dot is a *face*, not a *seat*. The verb must be its
-own element: wrap the dot in a real `<button type="button" :aria-label="…">` that owns the click,
-the accessible name and the focus ring, with the `<WatercolorDot>` as its (already
-`aria-hidden`) child. That restores the copy verb, the accessible name, and keyboard operability
-in one move without any per-instance styling. **BLOCKED-ON-GLASS-V8.**
+**Cure (architectural, not a patch).** The organic dot is a *face*, not a *seat*. The idiomatic
+transposition is a real `<button>` seat that **wraps** the dot: the dot stays the decorative
+`aria-hidden` child it was built to be, and the button carries the accessible name, the focus
+affordance, the ≥24 px target, and the listener. Better still for a 9-consumer species: glass-ui grows
+the seat itself — a `WatercolorDotButton`, or an explicit `as`/`tag` + attr-forwarding contract on
+`WatercolorDot` so the documented consumer idiom actually works. Both are glass-side or hold-blocked;
+see §7. **Do not** "fix" this by deleting the three dead bindings — that retires the verb, not the
+defect.
 
 ---
 
-## D2 · BLOCKER — the component's only oracle is RED, and CI never runs it
+## 3 · MAJOR
 
-`e2e/smoke/oracles/o20-generate-plate.spec.ts` is the *sole* automated coverage of this component
-(`grep -rn "GenerateControls\|useColorGeneration" demo test e2e src` → the pane import and this
-spec; `demo/test/` contains only `glass/aurora-*.test.ts` and `export/byte-exact.test.ts`).
+### C-2 · The plate's editable name is discarded on save. Renaming does nothing.
 
-**Leg 1 — the oracle fails.** Executed:
-
-```
-$ npx playwright test e2e/smoke/oracles/o20-generate-plate.spec.ts --project=smoke --reporter=line
-  1) e2e/smoke/oracles/o20-generate-plate.spec.ts:63:5 › T-17 seed-exact strips …
-    Error: expect(received).toEqual(expected) // deep equality
-    - Expected  - 5
-    + Received  + 5
-      Array [
-    -   "oklch(83.354120947421% 0.092693861504 333.865397069603deg)",
-    -   "oklch(90.224193104543% 0.078208583617 111.373161119641deg)",
-    …
-    +   "oklch(0.833541 0.0926939 333.865)",
-    +   "oklch(0.902242 0.0782086 111.373)",
-    …
-      at e2e/smoke/oracles/o20-generate-plate.spec.ts:105:22
-  1 failed
-  1 passed (38.1s)
-```
-
-The mechanism: `data-stops` stamps the **raw** `serializeCssColor` output
-(`demo/color-session/color-chips/sample.ts:88`, `generate-color.ts:240`) — percentage lightness,
-`deg` hue — while the assertion reads `getComputedStyle(el).backgroundColor`, which the engine
-normalises to unitless-L, no-`deg` `oklch()`. The two encodings can never be equal. The spec's own
-comment (`:17`) even asserts they are "the same rgb() strings"; neither side is `rgb()`. The
-"seed-exact truth law" this oracle exists to enforce is *unenforced*.
-
-**Leg 2 — CI never runs it.**
-
-```
-$ grep -rn "playwright test\|e2e" .github/workflows/*.yml
-(no output)
-$ node -e "console.log(require('./package.json').scripts.test)"      → vitest run
-$ node -e "console.log(require('./package.json').scripts['test:e2e'])" → playwright test
-```
-
-`.github/workflows/ci.yml` runs `lint`, two `vue-tsc` passes, `build`, `npm test` (vitest only)
-and the packed-surface verifier. `test:e2e` is never invoked by any workflow. A red oracle has
-been sitting red, unobserved.
-
-**Leg 3 — the surviving test is vacuous.** Test 1 (`:22–61`) asserts only: the plate is visible;
-a "Regenerate" button exists inside it; page-count ≡ plate-count for that name; a `seed: [0-9a-f]{8}`
-label exists; Save/Copy buttons are visible; the seed text changes after a click. **Named mutations
-that keep it green:** make `save()` a no-op; make `copyColors()` a no-op; delete `paletteName` and
-the whole emit; break the count slider entirely; break the harmony `<Select>`; render every swatch
-as an inert `aria-hidden` span *(this is what actually shipped — D1)*; drop the `variant` register
-on all three buttons *(also shipped — D4)*. Its "the orphan row is dead" clause
-(`:38–40`) is additionally vacuous by construction: `usePaneRouter.ts:196` registers a **second**
-"Regenerate" command in the dock action menu, which the count only misses because the menu is
-closed at assert time.
-
-**Cure:** (a) assert on the *stamped* encoding parsed through the app's own parser, or stamp the
-computed encoding — one serialization, both sides; (b) wire `test:e2e` into `ci.yml`; (c) add the
-missing behavioural legs (swatch click copies; Save carries the typed name; the count slider moves
-the palette). **BLOCKED-ON-GLASS-V8 for (a)/(c) if they require touching the component; (b) is a
-CI-only change outside the hold.**
-
----
-
-## D3 · MAJOR — the plate's editable name is discarded at the emit seam; the UI lies
-
-`GenerateControls.vue:44–50` declares, with a comment insisting the wiring is truthful:
+`GenerateControls.vue:48–50` declares a two-payload emit, and `:102–104` sends both:
 
 ```ts
-// T.W6 · W6-5 (T-16/F2): the save carries the plate's own name … this emit is already truthful.
 const emit = defineEmits<{ save: [colors: string[], name: string] }>();
+function save() { emit("save", [...palette.value], paletteName.value); }
 ```
 
-`:102–104` honours it: `emit("save", [...palette.value], paletteName.value)`.
-The consumer does not:
+The only consumer, `demo/workbenches/generate/GeneratePane.vue:14–20`, declares a **one-parameter**
+handler and hardcodes the literal:
 
 ```ts
-// demo/workbenches/generate/GeneratePane.vue:14–20
-function onSave(colors: string[]) {                       // ← `name` never declared
+function onSave(colors: string[]) {                       // ← `name` never bound
     const paletteColors: PaletteColor[] = colors.map((css, i) => ({ css, position: i }));
-    pm.createPalette("Generated Palette", paletteColors); // ← hardcoded literal
+    pm.createPalette("Generated Palette", paletteColors);  // ← literal, not the emitted name
 }
 ```
 
-TypeScript cannot catch this: a handler with fewer parameters is assignable.
+`createPalette(name, colors)` (`demo/palettes/usePaletteStore.ts:66`) accepts a name; it is available
+and ignored. TypeScript raises nothing — a handler with fewer parameters is assignable to a wider
+signature, so the drop is structurally invisible to `vue-tsc`.
 
-**Reproduction — live, measured:** typed `MY CUSTOM NAME` into the plate title via a native
-`input` event, clicked "Save palette", read the Palettes pane:
+**Live reproduction** (Playwright, `/#/generate`; native value setter + `input` event so `v-model`
+commits, click `[aria-label="Save palette"]`, read `localStorage["color-palettes"]`):
 
-```
-inputValueAfterRename: "MY CUSTOM NAME"
-bodyTextAfterSave:  "… My Palettes 2 (2 saved) … Generated Palette 5   Generated Palette 5"
-```
-
-The plate reads `MY CUSTOM NAME`; the saved palette reads `Generated Palette`. The rename control
-is decorative — an editable field wired to nothing, which is worse than no field.
-
-**Cure:** consume the second emit argument (`function onSave(colors: string[], name: string)`);
-guard the empty string at the emit site rather than at the sink. **BLOCKED-ON-GLASS-V8** (the
-component side); the pane is not itself under the §D pin but the pair must land together.
-
----
-
-## D4 · MAJOR — `variant` is not a glass-ui 7.0.0 `Button` prop; all three verbs render identically
-
-`:158`, `:167`, `:176` pass `variant="primary-audacious"` and `variant="ghost"`. Glass-ui 7.0.0's
-`ButtonProps` (`node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts`) is:
-
-```ts
-export type ButtonEmphasis = "primary" | "secondary" | "quiet" | "text";
-export interface ButtonProps extends PrimitiveProps {
-    emphasis?: ButtonEmphasis;  tone?: Tone;  size?: ButtonSize;
-    iconOnly?: boolean;  loading?: boolean;  type?: …;  disabled?: …;  class?: …;
+```json
+{
+  "inputValueAfter": "MY UNIQUE NAME 4711",
+  "namesBefore": ["Generated Palette", "Sunset", "A Deliberately Very Long Palette Name…", "Empty Plate", "Overflowing"],
+  "namesAfter":  ["Generated Palette", "Generated Palette", "Sunset", "A Deliberately Very Long Palette Name…", "Empty Plate", "Overflowing"]
 }
 ```
 
-There is no `variant`. `grep -rl "primary-audacious" node_modules/@mkbabb/glass-ui/dist --include="*.js"`
-returns **nothing** — the token does not exist anywhere in the design system. `variant` therefore
-falls through `$attrs` onto the DOM as a nonsense HTML attribute, and every button renders at the
-prop default `emphasis="secondary" tone="neutral"`.
+The user's name is gone; a second `"Generated Palette"` row appears. The dock-driven save path is the
+same drop (`GeneratePane.vue:22–26` re-exposes `save`, which routes through the same emit).
 
-**Reproduction — live DOM, all three plate buttons:**
+The comment at `GenerateControls.vue:44–47` records that the author knew — *"The pane's
+`createPalette` name-wire is its owner's one-liner; … this emit is already truthful."* The emit is
+truthful; the wire is not. A user-visible control with no effect is a live defect regardless of which
+side owes the one-liner.
+
+**Cure.** Bind the payload at the only site that can: `onSave(colors: string[], name: string)` →
+`pm.createPalette(name, paletteColors)`. The structural cure that kills the *class* is to make the
+drop unrepresentable — emit a single object payload (`save: [{ colors, name }]`), so ignoring a field
+must be explicit rather than a consequence of arity.
+
+### C-3 · The generated palette — the workbench's entire output — has no accessible representation.
+
+Every element carrying colour information in this plate is hidden from assistive technology:
+
+| element | source | AT exposure |
+|---|---|---|
+| full-bleed specimen strip | `PaletteColorStrip.vue:2–10` — `aria-hidden="true" role="presentation"` | none (deliberate, correct in isolation) |
+| the 5–12 swatches | producer hardcodes `aria-hidden="true"`; the `:aria-label="Copy ${css}"` is discarded (C-1) | none |
+| preset/harmony preview strips | `PreviewStrip.vue:43` — `aria-hidden="true"` | none (correct — the row has a text name) |
+| the count ramp behind the slider | `GenerateControls.vue:293–296` — unlabelled decorative div | none |
+
+Net: a screen-reader user perceives the region *"Generated palette"*, a text field, a badge reading
+`5`, three buttons, and `seed: 71f806ff`. **The colours themselves do not exist.**
+
+Compounding it, none of the three verbs announces anything. Live probe of every live region on the
+page while operating the plate:
+
+```json
+"liveRegions": [ { "role": "alert", "live": null, "text": "dev misconfigured — run `npm run dev`" } ]
+```
+
+That is the dev banner. There is **no** `aria-live` for regenerate (the whole palette silently
+replaces itself), save (silent — see C-12), or copy. WCAG 4.1.3 Status Messages; 1.1.1 for the colour
+content.
+
+**REPRODUCTION.** `/#/generate` with any AT: tab through the plate — 4 stops, none naming a colour;
+press Regenerate — nothing announced, and the only changed announceable text is the seed hex.
+
+**Cure.** Strip and dots stay decorative (they are ornament); give the *palette* a text alternative
+once, at region level — the `<section>`'s accessible name carrying count + ordered colours, or a
+visually-hidden `<ul>` of the css strings that doubles as the keyboard seat for C-1's copy verbs (one
+structure, both cures). Add one `role="status"` in the plate that all three verbs write to.
+
+### C-4 · The count slider thumb is 12.7 × 24.3 CSS px — under the 24 px floor, on every matrix.
+
+Live measurement of the count slider's anatomy (`/#/generate`, desktop):
+
+```json
+"countSliderRoot": { "tag": "SPAN", "cls": "glass-slider relative w-full", "w": 434.5, "h": 36.9 },
+"countSliderDescendants": [
+  { "tag": "SPAN", "role": null,     "cls": "slider-track",                   "w": 434.5, "h": 36.9, "ti": -1 },
+  { "tag": "SPAN", "role": null,     "cls": "slider-range glass-liquid-fill", "w": 158.5, "h": 28.7, "ti": -1 },
+  { "tag": "SPAN", "role": "slider", "cls": "slider-thumb glass-specular-track",
+    "w": 12.7, "h": 24.3, "label": "Color count", "ti": 0 }
+]
+```
+
+This is exactly the row the visual audit already recorded, on **all four** matrices (`REPORT.json`,
+`/#/generate`, `probe.a11y.smallTapTargets`):
+
+```json
+{ "w": 12, "h": 24, "tag": "span", "label": "Color count" }
+```
+
+`/#/generate` reports 5 small tap targets per matrix; **this is the one attributable to
+GenerateControls.** The other four — a 160 × 23 unlabelled `input` and three 22 × 22 slug buttons —
+belong to the co-mounted Palettes pane and the dock, not here. So this component contributes **4 of
+the 60** report-wide small-target defects, and no nameless buttons (`namelessButtons: 0` on the
+route).
+
+WCAG 2.5.8 Target Size (Minimum) requires 24 × 24 CSS px; 12.7 fails on the minor axis. The demo's own
+O-27 oracle encodes precisely this rule
+(`e2e/smoke/oracles/o27-focus-affordance.spec.ts`, BR-3: *"every keyboard/pointer-operable gradient
+control's EFFECTIVE target ≥ 24px CSS on fine pointers (WCAG 2.5.8) / ≥ 44px on coarse"*) — but
+`openGradient()` (`o27:33–41`) pins the whole spec to the **Gradient** route. The rule exists; this
+route is outside its reach (see C-5).
+
+Thumb geometry is producer-owned (`.slider-thumb`, glass-ui), and the same probe measured the
+picker's L/A/B/ALPHA channel thumbs at 12 × 24 each — a species-wide producer defect, not a one-off.
+Under the BJ W4 hold this is a **relay to glass**, not a demo fix.
+
+### C-5 · The gates are vacuous — and the one real oracle is RED and unrun. Name the mutation.
+
+**(a) The component's only oracle is currently FAILING.** `e2e/smoke/oracles/o20-generate-plate.spec.ts`
+is the sole automated coverage of this component. Run at HEAD:
 
 ```
-Regenerate   data-emphasis=secondary data-tone=neutral data-size=md
-             class="button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover …"
-             variant=primary-audacious              ← raw junk attribute
-Save palette data-emphasis=secondary data-size=sm data-icon-only=true
-             class="… glass-wash glass-capsule glass-capsule-hover …"  variant=ghost
-Copy colors  data-emphasis=secondary data-size=sm data-icon-only=true
-             class="… glass-wash glass-capsule glass-capsule-hover …"  variant=ghost
+$ npx playwright test e2e/smoke/oracles/o20-generate-plate.spec.ts --reporter=line
+  1) [smoke] › o20-generate-plate.spec.ts:63:5 › T-17 seed-exact strips: a preset row's stamped
+     stops ≡ the palette selecting it yields
+     Error: expect(received).toEqual(expected) // deep equality
+     - "oklch(85.53637546394% 0.087179123785 49.783647190779deg)",   ← stamped (data-stops)
+     + "oklch(0.855364 0.0871791 49.7836)",                          ← live (getComputedStyle)
+       … (all five rows differ the same way)
+     at e2e/smoke/oracles/o20-generate-plate.spec.ts:105:22
+  1 failed
+  1 passed (39.2s)
 ```
 
-The `glass-wash glass-capsule` classes are applied by glass-ui *only* when
-`tone==="neutral" && (emphasis==="primary"||"secondary")` — a genuine `ghost`/`quiet` icon button
-would carry none of them.
+Note the *mechanism*: the five colours are numerically **identical** (85.53637546394 % ≡ 0.855364;
+49.783647190779deg ≡ 49.7836). The oracle compares the library's `serializeCssColor` output against
+the browser's **computed-style** serialization of the same colour — two different string forms of one
+value. It is a serialization-form assertion masquerading as a byte-identity law, and it is
+browser-version-fragile by construction. So the T-17 truth law it claims to hold is, in practice,
+**unguarded**: the property is true (§6) but the oracle proves nothing about it.
 
-**Visual confirmation** — `audit/visual/shots/safari-desktop-light/generate.png` and
-`safari-mobile-dark/generate.png`: "Regenerate" and the two icon buttons render in the *same*
-pale capsule register. The comment at `:153–155` claims Regenerate "rides the deliberate-primary
-register (L6 rider)". It does not. Compare the dock's real primary "Login" pill in the same
-screenshot — that is what primary looks like here.
+**(b) CI never runs it.** `.github/workflows/ci.yml` steps are, in order:
 
-**Scale:** `grep -rln 'variant="ghost"\|variant="primary\|variant="outline"\|variant="destructive"' demo --include="*.vue"`
-→ **27 files**; `grep -rn 'emphasis=' demo --include="*.vue"` → **2 occurrences**. The W44 glass-7
-adoption migrated the package pin but not the Button emphasis axis. This component is one site of
-a demo-wide flattening.
+```
+$ grep -n "run:" .github/workflows/ci.yml
+32: npm ci
+33: npm run lint
+34: npx vue-tsc -p tsconfig.lib.json --noEmit
+35: npx vue-tsc -p tsconfig.demo.json --noEmit
+36: npm run build
+37: npm test                      ← vitest only
+50: node scripts/ci/verify-packed-surface.mjs …
+70: npx tsc --noEmit
+71: npm test
+```
 
-**Cure:** `emphasis="primary"` on Regenerate, `emphasis="quiet"` (or `"text"`) on the two icon
-buttons. `variant` is deleted, not aliased (edict 2). Structurally, an eslint rule or a
-`vue-tsc`-visible wrapper would be needed to make unknown component attributes an error — Vue's
-fallthrough semantics mean the type system cannot. **BLOCKED-ON-GLASS-V8.**
+There is no `playwright` / `test:e2e` step in any of the three workflow files
+(`ci.yml`, `deploy-pages.yml`, `release.yml`). A red oracle has been sitting red, unobserved.
 
-*Note:* `Slider variant="spectrum"` (`:299`) and `Badge variant="secondary"` (`:150`) **are** valid
-— `SliderVariant = "standard" | "spectrum"` (`dist/components/slider/types.d.ts:4`), `BadgeVariants`
-carries `variant`. Only `Button` lost the axis.
+**(c) Name the mutation.** Even green, O-20 would not catch C-1. Its swatch assertion (`o20:98–105`)
+is:
+
+```ts
+const live = await plate.locator(".generate-swatch")
+    .evaluateAll((els) => els.map((el) => getComputedStyle(el).backgroundColor));
+```
+
+`.generate-swatch` is a **class**, and class is one of the two attrs `WatercolorDot` *does* forward —
+so the selector matches the aria-hidden, pointer-events-none span perfectly, and `backgroundColor` is
+painted by the producer regardless. **The exact mutation that changes nothing in O-20's result:
+delete `tag="button"`, `:aria-label` and `@click` from `GenerateControls.vue:199–208`.** The spec never
+asserts a role, an accessible name, focusability, or that clicking copies. Test 1 is a pure
+locator/containment assert and is likewise indifferent. That is a vacuous gate over the BLOCKER.
+
+**(d) Zero unit coverage.**
+
+```
+$ grep -rln "GenerateControls\|useColorGeneration\|generatePalette\|generateSingleColor" test e2e
+e2e/smoke/oracles/o20-generate-plate.spec.ts
+```
+
+No test exercises `generatePalette`, `generateHues`, `clampHueToRanges`, or `useColorGeneration`.
+`test/preview-chips.test.ts` covers only the **RAMP** sampler (`sampleInterpolationRamp`) used by
+gradient/mix — never the **STRIP** path (`presetStops`/`harmonyStops` → `PreviewStrip`) this component
+uses, and never `PreviewStrip`'s 7-segment truncation cap (`PreviewStrip.vue:25`), which goes live
+whenever `count > 7`.
+
+**(e) `npm run typecheck` — the CI-hard gate (D48/D56) — is green over all of it.**
+
+```
+$ npx vue-tsc -p tsconfig.demo.json --noEmit ; echo EXIT=$?
+EXIT=0
+$ npx vue-tsc -p tsconfig.demo.json --noEmit --listFiles | grep -i "GenerateControls\|watercolor-dot"
+…/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts
+…/@mkbabb/glass-ui/dist/watercolor-dot.d.ts
+/Users/mkbabb/Programming/value.js/demo/workbenches/generate/GenerateControls.vue
+```
+
+Both files are in the program and the checker is silent: unknown attributes are legal fallthrough,
+and a narrower emit handler is assignable. **The type system cannot see either defect class.**
+
+**Cure.** One route-parameterised a11y census oracle (O-27's BR-1/BR-3/BR-4 body driven over the route
+matrix instead of `openGradient()`) retires C-4's blind spot and would have caught C-1's nameless,
+unfocusable seats. Repair O-20's comparison to normalise both sides through one serializer — or, far
+better, assert the swatch **role and accessible name** instead of a decorative computed property. And
+put e2e in CI, or delete it: an unrun oracle is a liability that manufactures false confidence.
 
 ---
 
-## D5 · MAJOR — the clipboard `Result` is discarded; the component gives no feedback on any async verb
+## 4 · MINOR
+
+### C-6 · Both clipboard call sites discard a result the producer designed to be read.
+
+`GenerateControls.vue:106–113`:
 
 ```ts
-// :106–113
 async function copyColors() { await writeClipboard(palette.value.join(", ")); }
 async function copyColor(css: string) { await writeClipboard(css); }
 ```
 
-`writeClipboard`'s contract (`node_modules/@mkbabb/glass-ui/dist/composables/dom/useClipboard.d.ts`):
+`writeClipboard` returns a discriminated result, not a throw
+(`node_modules/@mkbabb/glass-ui/dist/composables/dom/useClipboard.d.ts:16–37`):
 
 ```ts
-export type CopyResult = { ok: true } | { ok: false; reason: "clipboard-api" | "no-api" };
+export type CopyResult = { ok: true } | { ok: false; reason: CopyFailureReason };
 /** … Returns the discriminated result (`{ ok }` / `{ ok, reason }`) rather than a lossy
  *  boolean, for identical call ergonomics: `const { ok } = await writeClipboard(text)`. */
 export declare function writeClipboard(text: string): Promise<CopyResult>;
 ```
 
-The design system went out of its way to make failure *impossible to ignore by accident*, and both
-call sites ignore it. A `no-api` failure (insecure origin — the demo is served over LAN HTTP with
-`server.host: true` for device testing, and the deployment lives under
-`mbabb.fi.ncsu.edu/colors/`) is swallowed silently: the user believes the copy succeeded.
+Both sites await and throw it away. On Safari permission denial, an insecure context, or the
+documented "`writeText` pending forever" platforms the producer explicitly warns about, the user gets
+**no signal in either direction** — success and failure are pixel-identical. Combined with C-3 (no live
+region), "Copy all colors" is indistinguishable from a no-op. The producer even ships
+`useClipboard({ status, copy })` with scope-owned confirmation state for exactly this.
 
-Symmetrically, **there is no success feedback either.** `grep -rn "aria-live\|role=\"status\"\|toast" demo/workbenches/generate/` → no matches. Glass-ui exports both `useClipboard` (with a
-`status: "idle"|"pending"|"success"|"failure"` ref designed for exactly this) and `toast`; neither
-is used. The live save probe (D3) confirms: clicking Save produced no announcement, no toast, no
-DOM change inside the plate — the palette silently materialised in a *different pane*.
+**Cure.** `const { ok } = await writeClipboard(…)` feeding the same `role="status"` seat the C-3 cure
+introduces — one status element serving regenerate, save, and both copies.
 
-`writeClipboard` returns a `Result` and never rejects, so there is no unhandled-rejection hazard —
-the defect is purely the dropped failure channel plus the absent live region.
+### C-7 · The dropdown-open cost is 1.3–3.6 ms, not the "sub-millisecond" the comment claims.
 
-**Cure:** route both verbs through `useClipboard()` and bind its `status` to a single
-`aria-live="polite"` region in the plate (one region, both verbs, no per-instance chrome).
-**BLOCKED-ON-GLASS-V8.**
+`GenerateControls.vue:86–96` asserts: *"Computed only while the SelectContent renders (it unmounts
+closed …), so zero rest cost; 10 rows × 5-12 library generations is sub-millisecond."*
+
+Measured in-page against the live dev server (module imported off Vite at
+`/@fs/…/demo/color-session/generate-color.ts`, 20 warm-up iterations, `performance.now()`):
+
+```json
+{ "onePalette5_ms": 0.1, "presetDropdownOpen_count5_ms": 1.3, "presetDropdownOpen_count12_ms": 3.6 }
+```
+
+- **The "zero rest cost" half is TRUE**, and I verified it directly: with both Selects closed,
+  `document.querySelectorAll('[data-stops]').length === 0` — reka's `SelectContent` genuinely
+  unmounts, so `presetStops`/`harmonyStops` are not evaluated at rest. Credit where due.
+- **The "sub-millisecond" half is false by 1.3× to 3.6×.** 3.6 ms of synchronous main-thread work
+  lands in the frame that opens the preset menu at `count = 12`, before the harmony menu's own 6 rows.
+  Not a stall — but the number in the comment is not the number the machine produces, and the comment
+  is load-bearing: it is the stated justification for calling a generator from the template.
+
+These are plain function calls in the template, so the cost re-lands on every re-render while a menu
+is open. Nothing currently re-renders the component with a menu open, so I do not raise that as a
+separate defect.
+
+### C-8 · The plate-chrome row wraps at the **default desktop** width, not at 390 as documented.
+
+`GenerateControls.vue:138–142`: *"The row WRAPS gracefully: name+count lead, the verb cluster rides
+`ml-auto` right — **at 390** the verbs settle onto their own right-aligned line, never a clipped
+title."*
+
+`docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/generate.png` shows the verb
+cluster already on its own second line at desktop, with the title row left holding
+`Generated Palette … 5` beside a wide dead gap. Flex base sizes at the measured desktop pane
+(content ≈ 437 CSS px): input `basis-[10rem]` = 160, badge ≈ 34, cluster = Regenerate 145 + Save 36 +
+Copy 36 + 2 inner gaps = 233, plus 2 row gaps = **443 > 437**. It misses by roughly six pixels, on the
+primary layout. The intended one-line composition (*name — count — regenerate — actions*, the whole
+point of the F8 hierarchy inversion) therefore **never renders at any viewport**.
+
+Nothing is clipped and nothing overflows (`REPORT.json` `overflowX: 0` on all four matrices), which is
+why this is MINOR — but the documented breakpoint is wrong by ~250 px and the composition the comment
+defends does not exist.
+
+### C-9 · The editable name's only affordance is `hover:`, which does not exist on touch.
+
+`GenerateControls.vue:144–149` — the name input is `bg-transparent`, borderless, and its sole rest
+affordance is `hover:underline decoration-dashed underline-offset-4`. Coarse pointers have no hover
+state, so the field is visually indistinguishable from a heading:
+`shots/safari-mobile-dark/generate.png` shows "Generated Palette" reading as plate title with zero
+field affordance. There is also no `placeholder`, so a user who clears the name is left with an
+invisible, empty, unlabelled control — and (per C-2) a save that ignores the value anyway.
+
+**Cure.** A rest-state affordance that is not hover-gated (the card family's dashed underline shown at
+rest, or `@media (hover: none)` restoring it), plus a placeholder.
 
 ---
 
-## D6 · MAJOR — two unchecked `AcceptableValue` casts, with asymmetric failure modes: one crashes the render, one silently empties the palette
+## 5 · INFO / hypotheses (labelled — no reproduction from the shipped UI)
+
+### C-10 · `as PresetName` / `as HarmonyName` launder `null`. **REPRODUCTION: NONE.**
+
+`GenerateControls.vue:75–81`:
 
 ```ts
-// :75–81
 function onPresetChange(value: AcceptableValue) { preset.value = value as PresetName; }
 function onHarmonyChange(value: AcceptableValue) { harmony.value = value as HarmonyName; }
 ```
 
-`AcceptableValue` (reka-ui) admits `string | number | bigint | Record<string, any> | null`. Both
-casts are unvalidated, and the two downstream paths fail in *different* ways. Measured, by
-executing the bundled pure core in node:
+`AcceptableValue` includes `null` (`node_modules/reka-ui/dist/index3.d.cts:231`:
+`type AcceptableValue = string | number | bigint | Record<string, any> | null`). A `null` cast into
+`PresetName` makes `GENERATION_PRESETS[preset]` `undefined`
+(`demo/color-session/generate-color.ts:220`), and `p.l[0]` at line 227 a `TypeError` thrown from
+inside the `palette` computed **during render** — the repo's known render-crash shape (blank pane).
+The cast is exactly the "masking" idiom the owner edicts forbid.
 
-```
-$ node scratchpad/probe.mjs
-invalid preset  -> THREW TypeError: Cannot read properties of undefined (reading 'l')
-invalid harmony -> array len 0
-count 0         -> array len 0
-count -1        -> array len 0
-count 1.5       -> array len 2  first=oklch(55.068393029505% 0.105051596247 225.746618611738deg)
-count NaN       -> array len 0
-```
+I found no path in the shipped UI that makes reka emit `null` here (no clear affordance is wired), so
+this is a **hypothesis**, not a live crash. It remains an unguarded narrowing on an untrusted
+boundary. Cure: a membership check (`if (!isPresetName(value)) return;`) instead of a cast — the shape
+`PRESET_NAMES` already affords.
 
-- **Invalid preset → render crash.** `generate-color.ts:220` does `const p = GENERATION_PRESETS[preset]`
-  with no guard; `:227` dereferences `p.l[0]`. The throw happens *inside the `palette` computed*
-  (`useColorGeneration.ts:26–28`), which is read by the render function — so it escalates to a
-  Vue render error and blanks the pane. This is the same shipped-blank class the tranche record
-  already carries.
-- **Invalid harmony → silent empty palette.** `generateHues` (`:101–146`) has a `switch` with **no
-  `default`** and returns `[]`. The strip vanishes, the swatches vanish, `countSliderGradient`
-  falls back to `var(--muted)`, and `save()` at `:103` emits `[]` — **the plate cheerfully saves an
-  empty palette**, with no guard at either end.
-- `count 1.5` yields 2 colours while the badge and the slider label both display `1.5`. Not
-  reachable through the `:step="1"` slider, but `count` is a public ref on the composable's
-  returned surface.
+### C-11 · `generatePalette` count-domain behaviour. **REPRODUCTION: NONE (slider clamps 1..12).**
 
-Reachability of a non-`PresetName` value through reka-ui is a **HYPOTHESIS** (I did not force
-reka-ui to emit `null`); the crash *mechanism* is CONFIRMED by execution above.
-
-**Cure:** validate at the boundary against the exported `PRESET_NAMES` / `HARMONY_NAMES` arrays and
-ignore anything else — one narrow function per select, no cast. In the core, `generateHues` gets an
-exhaustive `switch` (`never` check) and `generatePalette` a preset lookup that cannot return
-`undefined`. **BLOCKED-ON-GLASS-V8** for the component; the core (`demo/color-session/generate-color.ts`)
-is not under the §D pin but is still a `demo/` edit this formation may not land.
-
----
-
-## D7 · MAJOR — the plate chrome row wraps at 1440 px desktop, by 3 px; the component's own comment says it wraps "at 390"
-
-`:138–142`:
-
-> The row **WRAPS gracefully**: name+count lead, the verb cluster rides `ml-auto` right — **at 390**
-> the verbs settle onto their own right-aligned line, never a clipped title.
-
-**Measured at the audit's own desktop matrix** (`audit/visual/capture.mjs:45` — `viewport: {width: 1440, height: 900}`),
-live:
+Measured on the live module:
 
 ```json
-{ "innerW": 1440, "plateW": 462, "rowContentW": 436,
-  "input":   {"x":237,"y":363,"w":398,"h":31},
-  "badge":   {"x":643,"y":365,"w":30,"h":26},
-  "cluster": {"x":440,"y":399,"w":233,"h":40},
-  "wrapped": true }
+"domain": { "zero": {"len":0}, "one": {"len":1,"first":"oklch(62.67% 0.207 352.70deg)"},
+            "neg": {"len":0}, "nan": {"len":0},
+            "inf": {"threw":"RangeError: Invalid array length"}, "frac": {"len":3} }
 ```
 
-The verb cluster sits 36 px *below* the input — it wrapped. Mechanism, precisely: `flex-wrap: wrap`
-performs line-breaking on **hypothetical main sizes (flex-basis)**, *before* `flex-1` shrinking is
-applied. The input carries `basis-[10rem]` = 160 px (`:148`), so the line's hypothetical sum is
-`160 + 30 (badge) + 233 (cluster) + 2×8 (gap) = 439 px` against `436 px` of content box —
-**over by 3 px**, so the line breaks even though the input could shrink trivially to fit.
+`0 / -1 / NaN` silently yield `[]`; `Infinity` throws `RangeError`; `2.5` yields **3** colours
+(`generateHues` loops `i < count`). Unreachable today — the slider is `:min="1" :max="12" :step="1"`
+(`GenerateControls.vue:301–303`) and `count` is not on `defineExpose`. `countSliderGradient` does
+defend the empty case correctly (`:66–68` → `"var(--muted)"`). Latent only; recorded because the
+function is exported from the shared colour layer and consumed elsewhere
+(`demo/color-session/useColorParsing.ts`).
 
-**Visible consequence** (`shots/safari-desktop-light/generate.png`, `shots/safari-mobile-dark/generate.png`):
-the count badge `5` is flung to the far right edge of line 1, orphaned from any label, and the
-plate grows ~40 px taller than designed at every width down from ~1500 px.
+Related latent: `clampHueToRanges` (`generate-color.ts:156–184`) carries a wrapping-range branch
+(`lo > hi`, lines 165–167) whose companion span arithmetic at line 171 would compute a **negative**
+span. No shipped preset uses a wrapping range (`warm` is `[[0,80],[330,360]]` — two ascending
+segments), so the branch is dead. Dead-but-wrong arithmetic in a shared primitive with no unit test.
 
-**Cure:** `basis-0` (or drop `basis-*` and keep `flex-1 min-w-0`) so the title lane's hypothetical
-size is 0 and the row breaks only when the *cluster itself* cannot fit. One class. **BLOCKED-ON-GLASS-V8.**
+### C-12 · Repeated save silently mints duplicates.
+
+From the C-2 reproduction: two `"Generated Palette"` rows after one click, with no confirmation, no
+duplicate check, and no undo. Given C-3 (no live region) the user has no way to know whether the first
+click registered — which invites exactly this. INFO because the dedupe policy is the store's, not this
+component's; the missing feedback *is* this component's.
 
 ---
 
-## D8 · MINOR — this component's contribution to the audit's tap-target count is the 12×24 slider thumb
+## 6 · What is sound — the negative proof
 
-`REPORT.json`, `safari-desktop-light /#/generate`, `a11y.smallTapTargets` (5 entries):
+The premise says the implementation is defective. It is. But the following hazards were checked and
+are **genuinely absent**; a challenge seat is not free to invent them.
 
-```json
-[ {"w":160,"h":23,"tag":"input","label":""},
-  {"w":22,"h":22,"tag":"button","label":"Switch to slug"},
-  {"w":22,"h":22,"tag":"button","label":"Generate new slug"},
-  {"w":22,"h":22,"tag":"button","label":"Cancel"},
-  {"w":12,"h":24,"tag":"span","label":"Color count"} ]
-```
-
-**Exactly one is this component's**: `{"w":12,"h":24,"tag":"span","label":"Color count"}` — the
-`<Slider aria-label="Color count">` thumb at `:297–307`. Confirmed live:
-
-```json
-{ "thumb": {"tag":"SPAN","w":12,"h":24,"aria":"Color count","role":"slider",
-            "valuemin":"1","valuemax":"12","valuenow":"5","valuetext":null} }
-```
-
-12 px wide < the WCAG 2.2 SC 2.5.8 24×24 minimum. The *spacing* exception plausibly applies (the
-thumb is the only target on its row and clears 24 px in every direction), so this is MINOR rather
-than a hard failure — but it is the row the audit counted. Width comes from glass-ui
-(`.slider-thumb { width: calc(var(--slider-thumb-size,1rem) * .75) }`), i.e. a producer knob
-(`--slider-thumb-size`), not a consumer class — so any cure is a token set, not a local override.
-
-The other four rows belong to the co-mounted Palettes pane / slug bar (the 160×23 `input` reports
-`label: ""`, whereas this component's title input carries `aria-label="Palette name"` and measures
-398×31 live). **The palette-name input is not a tap-target defect.**
-
-Also on this slider: `aria-label` lands on **both** the thumb (`role="slider"`) and the root
-`div.glass-slider` — glass-ui forwards `$attrs["aria-label"]` to the thumb *and* has
-`inheritAttrs` on. Duplicate, but the root carries no role, so it is inert. Not a finding.
-
----
-
-## D9 · MINOR — the "sub-millisecond" preview-cost claim is false by 2.3×, measured
-
-`:90–93`:
-
-> Computed only while the SelectContent renders … so zero rest cost; **10 rows × 5-12 library
-> generations is sub-millisecond**.
-
-Measured (esbuild bundle of `demo/color-session/generate-color.ts`, node 26):
-
-```
-per generatePalette(5):                      0.1752 ms
-per 10-row preset menu render @count 12:     2.2628 ms
-```
-
-**2.26 ms**, not sub-millisecond — 2.3× the claimed budget, and it is spent *synchronously inside
-the render function* on every re-render of the open menu (`presetStops`/`harmonyStops` are plain
-function calls in the template, `compiled.js:267,312`, not memoised). The harmony menu adds ~1.4 ms.
-This is not a user-visible jank at count 5 (0.9 ms), but the comment is load-bearing documentation
-that is measurably wrong, and it invites a future writer to add rows on a false budget.
-
-The *correctness* of the seed-exact claim is sound: `presetStops(candidate)` and the post-selection
-`palette` call `generatePalette` with identical `(count, candidate, harmony, seed)` and the core is
-pure + mulberry32-seeded, so they are byte-identical. Only the cost claim is wrong.
-
-**Cure:** memoise per `(count, harmony, seed)` with a plain `computed` keyed map, or state the real
-number. **BLOCKED-ON-GLASS-V8.**
+- **No ungated rAF (the PRM-RAF epidemic).** The component starts no loop. `WatercolorDot` is mounted
+  without `animate`, which defaults `false`; the compiled `useWatercolorBlob`
+  (`dist/watercolor-dot.js`) returns **before** registering its rAF — `if (l.value = …, !a) return
+  { borderRadius: l, transform: u }` precedes the `t(e => g(e.now), …)` registration. Even when armed,
+  that loop declares `{ pauseWhenHidden: true, respectReducedMotion: true }`. Clean on both counts.
+- **Nothing to clean up.** No listeners, observers, timers, subscriptions, or imperative DOM. The only
+  async is the two clipboard awaits (C-6). No leak surface and no unbounded growth: `palette` is a
+  `computed` over four refs; `stripColors` and `countSliderGradient` derive from it.
+- **No `defineModel` stale-read hazard.** The component uses none; `useColorGeneration` returns plain
+  `ref`s and is called once in `setup`. The one `v-model` is on a native `<input>` bound to a local
+  `ref` — the synchronous-cache shape the repo's record prescribes.
+- **No `ValueUnit` nesting, no oklch→HSV roundtrip / `stableHue` exposure, no WebGL, no reka slider
+  pointer-capture surface owned here.** This component touches none of those subsystems.
+- **No `parseCssColor` crash surface.** The component parses nothing; it only *emits* CSS strings the
+  library serialized. `generatedCss` (`generate-color.ts:235–243`) goes
+  `oklch → mapColorToGamut → serializeCssColor` and checks `.ok` on all three.
+- **The T-17 seed-exactness law genuinely holds** — even though its oracle does not prove it (C-5a).
+  `presetStops(c)` is `generatePalette(count, c, harmony, seed)`; selecting `c` computes
+  `generatePalette(count, preset=c, harmony, seed)`. Same pure function, same arguments, mulberry32
+  deterministic (`demo/color-session/prng.ts`). Identical by construction — the O-20 failure is a
+  string-form artefact, and the five values in its diff are numerically equal. The strips do not lie.
+- **The "zero rest cost" claim holds** (verified: `[data-stops] === 0` with the menus closed). Only the
+  "sub-millisecond" half is wrong (C-7).
+- **`verbatimModuleSyntax` (edict 8): clean.** All four type-only imports are `import type` (`:21`,
+  `:32`, `:33`, plus the composable's `:15–18`).
+- **No god module (edict 1); no legacy shims, aliases, dual paths or back-compat (edict 2); no
+  contrived shared dirs or wrapper components (edict 3); no deleted animations (edict 6).** 312 lines,
+  one responsibility, one composable, one pure core imported up-from-shared.
+- **Edict 5 (root-level styling) is NOT violated by `--slider-track-bg`.** The inline
+  `:style="{ '--slider-track-bg': 'transparent' }"` (`:305`) sets a **producer-sanctioned token**, not
+  a per-instance property override — glass-ui's own CSS reads it with a fallback
+  (`grep -o -- "--slider-track-bg[^;)]*" glass-ui.css` → `--slider-track-bg,var(--muted-medium`,
+  `--slider-track-bg,var(--secondary`). The BJ W4 hold plans to rename this very seam at v8. Correct
+  as written.
+- **Route-clobber during probing is NOT this component's.** Direct `#/generate` navigation
+  intermittently rewrote itself to `#/palettes?space=rgb&color=rgb(255+0+0)` mid-probe — the colour-URL
+  sync writing the hash and taking the route path with it. Recorded here only as a probe hazard and a
+  lead for the routing seat; I pinned the hash to work around it rather than attribute it to this
+  component.
 
 ---
 
-## D10 · MINOR — dual import paths to the same package (edict 2: no aliases/dual paths)
+## 7 · The wave — BLOCKED-ON-GLASS-V8
 
-`:3–15` imports `Select*`, `Slider`, `Button`, `Badge` through `../../ui/*` barrels, and
-`writeClipboard`, `WatercolorDot` **directly** from `@mkbabb/glass-ui`. The barrels are pure
-re-export aliases with no added behaviour:
+Per the seat's standing law and CARRY-LEDGER §D, **no consumer edit to `GenerateControls.vue` is
+proposed or authorized.** The wave is authored blocked, with its release condition stated exactly.
 
-```
-$ cat demo/ui/select/index.ts demo/ui/slider/index.ts demo/ui/button/index.ts
-export { Select, SelectTrigger, SelectItem, SelectValue, SelectContent, … } from "@mkbabb/glass-ui";
-export { Slider } from "@mkbabb/glass-ui";
-export { Button } from "@mkbabb/glass-ui";
-```
+**Wave `V·MT-WB-GEN-1` — the dead copy-verb + swatch a11y cure. Status: BLOCKED-ON-GLASS-V8.**
 
-Two paths to one package inside one 311-line file is exactly the alias/dual-path shape edict 2
-forbids, and it is why D4's break was invisible at review time: the `../../ui/button` spelling reads
-like a *local* component whose props are the demo's business.
+Scope, when unblocked: **C-1** (real button seat + accessible name + focus affordance + ≥24 px target
+for the swatch copy verb), **C-3** (region-level text alternative + one `role="status"` seat),
+**C-6** (read the `writeClipboard` result into that status seat), **C-9** (non-hover-gated name
+affordance).
 
----
+**Release condition, quoted from the hold** (`docs/tranches/V/reformation/CARRY-LEDGER.md:55–80`,
+*glass BJ W4 / v8 Slider post-cut consumer hold, 2026-07-22*):
 
-## D11 · MINOR — masking optional-chains, and a duplicated command surface
+> Against Value authority `c654824e0b252cda7f8490b67f182a48c48cc0ed`, hold all consumer edits and the
+> `@mkbabb/glass-ui` pin until **one unique immutable v8 candidate proves exact
+> source→built→packed→installed→served equality, is neither a workspace/source link nor mutable v7,
+> and survives two unchanged-byte Sol critics.** Then migrate only the property name to the
+> inheriting CSS-`background` seam `--glass-slider-track-background` in the four pinned receivers …
+> `GenerateControls.vue` (`4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6`).
+> … add no `--track-bg`, v7 alias, copied CSS or local mask.
 
-`:115` `defineExpose({ regenerate, save, copyColors })` exists solely to serve a **second copy of
-the same three verbs** in the dock action menu:
+So: **the wave lands only after Glass 8 proves source-to-served identity and clears the two
+unchanged-byte Sol critics.** Until then this file is byte-frozen at `4f95c57c…`.
 
-```ts
-// demo/shell/usePaneRouter.ts:196–198
-{ key: "regenerate", …, handler: () => paneRefs.generate.value?.regenerate?.() },
-{ key: "save",       …, handler: () => paneRefs.generate.value?.save?.() },
-{ key: "copy",       …, handler: () => paneRefs.generate.value?.copyColors?.() },
-```
+**Two items do not wait on that gate — producer relays, not edits:**
 
-and again in `GeneratePane.vue:22–26` (`controlsRef.value?.regenerate?.()`). The `?.` after a method
-that `defineExpose` *guarantees* is a masking fallback (edict 2) that would silently swallow a
-rename; `PaneActionRefs.generate` is typed `Ref<any>` (`usePaneRouter.ts:109`), so nothing checks it.
-Three verbs × three call layers × `any` = the failure mode where a renamed method degrades to a
-no-op with no error anywhere.
+- **R-1 → the glass BH inbox** (the standing BH/BI relay fond). `WatercolorDot` has no operable-seat
+  contract: it hardcodes `aria-hidden="true"` and `pointer-events:none`, sets `inheritAttrs:false`,
+  forwards only `class`/`style`, declares no `tag`/`as` prop and no emits — so **every** consumer that
+  tries to make a dot clickable silently ships a dead control. Nine consumers use this species. Ask for
+  a `WatercolorDotButton` seat, or an explicit documented "decorative-only, wrap it yourself" contract.
+  Cite this file as the live casualty and C-1's DOM dump as the receipt.
+- **R-2 → the glass BH inbox.** `.slider-thumb` measures **12.7 × 24.3** CSS px across the slider family
+  (count slider here; L/A/B/ALPHA channel thumbs on the picker), failing WCAG 2.5.8 on the minor axis.
+  The demo's own O-27 BR-3 already encodes the ≥24 / ≥44 rule. Producer-side hit-inflation, please.
 
-`GeneratePane.vue:12` also uses `ref<InstanceType<typeof GenerateControls> | null>(null)` where
-Vue 3.5's `useTemplateRef` is the idiom (edict 7).
+**Three gate repairs are demo-side and touch no pinned consumer** — they may proceed independently,
+and they are what turn C-1 and C-4 from silent into born-RED:
 
----
-
-## D12 · INFO — the count is displayed twice; the badge has no accessible name
-
-`:150–152` renders `<Badge>{{ count }}</Badge>` inside the plate chrome, and `:287–291` renders the
-same `{{ count }}` as the slider's own numeric label. Two renderings of one number, ~200 px apart.
-The badge carries no label at all — AT announces a bare "5" (confirmed live: `badgeText: ["5"]`).
-If either survives the D7 layout cure, the badge should be the one to go: the slider label is
-adjacent to the control that changes it.
+1. Generalise `o27-focus-affordance.spec.ts` from `openGradient()` to the route matrix.
+2. Repair O-20's comparison (normalise both sides through one serializer) **and** replace its
+   `backgroundColor` swatch assertion with role + accessible-name assertions.
+3. Put `test:e2e` in `.github/workflows/ci.yml`, or delete the suite. An unrun oracle manufactures
+   false confidence — which is precisely how a 7.0.0 API break reached the shipped plate.
 
 ---
 
-## D13 · INFO — the transparent-track + gradient underlay is PINNED; do not "simplify" it
+## 8 · Evidence index
 
-`:292–307` sets `--slider-track-bg: transparent` per-instance and paints a hand-rolled
-`absolute inset-0` gradient div behind the slider. Read cold this looks like an edict-5
-per-instance override plus an edict-3 contrivance, and glass-ui *does* accept a track gradient
-directly (`.glass-slider[data-variant=spectrum] .slider-track { background: var(--slider-track-bg, var(--secondary)) }`).
-
-**It is not a defect to file.** `CARRY-LEDGER.md:73–77` pins this exact file at this exact hash and
-instructs the Glass 8 migration to *"Preserve the perceptual/alpha-checker ramps … **transparent
-K/count underlays** … add no `--track-bg`, v7 alias, copied CSS or local mask."* The underlay is the
-producer-sanctioned arrangement for the count slider. Measured live, it is also correct: the
-gradient div and the slider root are geometrically identical (`434×24` both), the track computes
-`background: rgba(0,0,0,0)`, and the spectrum range computes `backdrop-filter: none` in Chromium
-(the demo-owned restatement at `demo/styles/foundation.css:571–574` is what makes that true).
-**Recorded here so a later seat does not file it and break the hold.**
-
-The paler look of the ramp versus the hard-segment strip in both screenshots is continuous
-interpolation between 5 stops, not a wash — I could not reproduce any blur in Chromium, and I make
-no defect claim about it.
-
----
-
-## D14 · INFO — route drift observed: `#/generate` spontaneously became `#/gradient`
-
-Twice during probing, `page.goto("http://localhost:9000/#/generate")` settled and then the app
-navigated itself to `#/gradient` — once ~3 s after load, once on `page.setViewportSize(1440×900)`:
-
-```
-{ "url": "http://localhost:9000/#/gradient", "plate": false,
-  "bodyText": "Gradient\n\nBuild gradients with per-interval easing and CSS output. …" }
-```
-
-Not this component (it owns no routing), but it is a shell-level hazard that any Playwright oracle
-for this route will flake on, and it belongs in the mega-tranche's shell lane.
-
----
-
-# Sound by measurement (the negatives, proved)
-
-These were interrogated against the named local hazards and found **clean** — recorded so the next
-seat need not re-run them:
-
-- **`defineModel` stale-read hazard** — not applicable. The component uses no `defineModel`. The
-  count binding is one-way `:model-value="[count]"` + an explicit `@update:model-value` handler.
-- **Ref-assignment-in-template** — compiled and read: `count` is `setup-maybe-ref`, and the emitted
-  handler is `_cache[2] || (_cache[2] = (v) => { if (v?.[0] !== undefined) count.value = v[0]; })`
-  (`compiled.js:348`). The assignment compiles to `count.value = …`. **The slider does write.**
-- **`ValueUnit` nesting accumulation** — the component touches no `ValueUnit`; `generatePalette`
-  returns plain serialized strings.
-- **oklch→HSV hue drift / `stableHue`** — no HSV round-trip in this component or its composable.
-- **Ungated rAF loops (PRM-RAF)** — none. `WatercolorDot` is instantiated with `animate` defaulting
-  to `false`, so `useWatercolorBlob` returns before creating its rAF loop; and glass-ui's loop is
-  `{ pauseWhenHidden: true, respectReducedMotion: true }` anyway.
-- **Listener / observer leaks** — the component registers no listeners, timers, or observers; every
-  handler is a template binding torn down with the vnode.
-- **WebGL** — the component boots no drawing context. `WatercolorDot` is explicitly a CSS/SVG
-  primitive (its own doc block: *"NO drawing context — no WebGL/WebGPU/Canvas2D"*).
-- **`verbatimModuleSyntax`** — all three type-only imports are `import type` (`:21`, `:32`, `:33`).
-  Clean.
-- **`parseCssColor` crash class** — the component parses nothing; it only *serializes*.
-- **Seed hex domain** — `seed.value.toString(16).padStart(8, "0")` over
-  `Math.floor(Math.random() * 0xffffffff)` ∈ [0, 4294967294] is always ≤ 8 hex digits, never
-  negative. `:60` is safe.
-- **Console / page errors on the route** — `REPORT.json` records `consoleErrors: []`,
-  `pageErrors: []`, `overflowX: 0`, `namelessButtons: 0` for `/#/generate` across all four
-  matrices; my live session reproduced zero application console errors.
-- **`no god modules`** — 311 lines, one concern, one composable. Compliant.
-- **`animations never deleted`** — no keyframes removed; the scoped transitions stay in-component.
-  Compliant (though D1 makes `active:scale-95` unreachable).
-
----
-
-# The wave — `V·MT/WB-GEN-1` · **BLOCKED-ON-GLASS-V8**
-
-**Status:** authored, not executable. `docs/tranches/V/reformation/CARRY-LEDGER.md:55–80` holds
-**all** consumer edits to `GenerateControls.vue` (pinned
-`4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6`, hash re-verified this session)
-against Value authority `c654824e0b252cda7f8490b67f182a48c48cc0ed`.
-
-**Exact release condition — every clause must hold before a single line of this wave lands:**
-
-1. One **unique, immutable** `@mkbabb/glass-ui` v8 candidate proves exact
-   **source → built → packed → installed → served** equality;
-2. that candidate is **neither a workspace/source link nor mutable v7**;
-3. it **survives two unchanged-byte Sol critics**;
-4. glass BJ W4's three formation packets remain bound at
-   `3547c78bdf85a5b0fdb73641bab8937f0c47732fed0f9c921ae4ce56462371e4` (emitter),
-   `458e51988fb72ff4bd859ebd8f35a29d7cd0349c5a3b7dfe44d79a29ecabe11e` (gate/package),
-   `1b8719a0e96bb0253c2c2bf94a8fef783cbdcfdd5498b1389be669231170ef7e` (synthesis);
-5. at that point the slider seam migrates **property name only**,
-   `--slider-track-bg` → `--glass-slider-track-background`, preserving the transparent count
-   underlay, existing pixels, and orientation/RTL/inversion (D13); **no `--track-bg`, no v7 alias,
-   no copied CSS, no local mask**;
-6. the `foundation.css:571–574` spectrum-range restatement is retired **only** once both installed
-   public CSS entries carry `backdrop-filter: none` *and* `-webkit-backdrop-filter: none` and a real
-   browser computes both as `none`.
-
-**Wave items, in landing order (all gated by the above except W-0):**
-
-| # | item | finding | gate |
-|---|---|---|---|
-| W-0 | wire `npm run test:e2e` into `.github/workflows/ci.yml`; fix the `o20` encoding assertion so the RED oracle is observed | D2 | **not held** — CI/e2e only, touches no `demo/` file |
-| W-1 | swatch verb re-seated: real `<button>` owning click + accessible name + focus ring, `<WatercolorDot>` as its `aria-hidden` face | **D1** | held |
-| W-2 | `variant` → `emphasis` on all three buttons; `variant` deleted, not aliased | D4 | held |
-| W-3 | `onSave(colors, name)` consumes the emitted name; empty-name guard at the emit site | D3 | held |
-| W-4 | `useClipboard()` + one `aria-live="polite"` region for Save and both Copy verbs | D5 | held |
-| W-5 | boundary validation of the two `AcceptableValue` casts; exhaustive `switch` + non-optional preset lookup in the core; empty-palette save guard | D6 | held |
-| W-6 | `basis-[10rem]` → `basis-0` on the title lane; re-measure the wrap threshold and correct the comment | D7 | held |
-| W-7 | memoise the preview stops per `(count, harmony, seed)`; correct the cost comment to the measured number | D9 | held |
-| W-8 | single import path to `@mkbabb/glass-ui`; retire the `demo/ui/*` alias barrels this file touches | D10 | held |
-| W-9 | drop the `?.` masking chains + `Ref<any>` on the exposed verbs; decide whether the dock duplicate survives at all | D11 | held |
-| W-10 | drop the duplicate count badge or give it a name | D12 | held |
-| W-11 | raise `--slider-thumb-size` (producer token) or accept the 2.5.8 spacing exception in writing | D8 | held (producer knob) |
-
-**Relay obligation:** D1 (`tag` removed from `WatercolorDot`), D4 (`variant` removed from `Button`),
-and D8 (12 px thumb vs SC 2.5.8) are **producer-surface facts about glass-ui 7.0.0** and fall under
-the standing BH/BI relay fond — they belong in the active glass-ui inbox regardless of when this
-wave unblocks.
+| # | Kind | Location / command |
+|---|---|---|
+| E1 | pin | `shasum -a 256 demo/workbenches/generate/GenerateControls.vue` → `4f95c57c…` (no drift) |
+| E2 | source | `demo/workbenches/generate/GenerateControls.vue:199–208` (the four swatch bindings) |
+| E3 | producer source | `…/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts:23–52` (6 props, no `tag`, no emits) |
+| E4 | producer source | `…/glass-ui/dist/watercolor-dot.js` (`inheritAttrs:!1`; class/style-only forward; `aria-hidden:"true"`; `pointerEvents:"none"`) |
+| E5 | command | `grep -o "tag" …/watercolor-dot.js \| wc -l` → `0` |
+| E6 | live DOM | swatch 0 = `SPAN`, `aria-hidden=true`, `aria-label=null`, `tabIndex=-1`, `pointer-events:none`; 4 tabbables in plate |
+| E7 | source | `demo/workbenches/generate/GeneratePane.vue:14`, `:19`; `demo/palettes/usePaletteStore.ts:66` |
+| E8 | live repro | name `"MY UNIQUE NAME 4711"` → saved as `"Generated Palette"` (localStorage `color-palettes`) |
+| E9 | live measure | count-slider thumb `12.7 × 24.3`, `role="slider"`, `aria-label="Color count"` |
+| E10 | report | `REPORT.json` `/#/generate` → `{"w":12,"h":24,"tag":"span","label":"Color count"}` × 4 matrices; `smallTapTargets: 5`/matrix; `namelessButtons: 0`; `overflowX: 0`; `pageErrors: 0`; `consoleErrors: 0` |
+| E11 | command | `npx playwright test e2e/smoke/oracles/o20-generate-plate.spec.ts --reporter=line` → **1 failed, 1 passed**, `o20:105` serialization-form mismatch |
+| E12 | command | `grep -n "run:" .github/workflows/ci.yml` → no playwright/e2e step in any of the 3 workflows |
+| E13 | command | `grep -rln "GenerateControls\|useColorGeneration\|generatePalette\|generateSingleColor" test e2e` → only `o20-generate-plate.spec.ts` |
+| E14 | command | `npx vue-tsc -p tsconfig.demo.json --noEmit` → `EXIT=0`; `--listFiles` confirms both files in the program |
+| E15 | live measure | `onePalette5 = 0.1 ms`; preset menu open `1.3 ms` (count 5) / `3.6 ms` (count 12); `[data-stops] = 0` while closed |
+| E16 | producer API | `…/dist/composables/dom/useClipboard.d.ts:16–37` (`CopyResult`, discarded at `GenerateControls.vue:107`, `:112`) |
+| E17 | live probe | only live region on page = `role="alert"` "dev misconfigured" (no status seat) |
+| E18 | screenshot | `shots/safari-desktop-light/generate.png` (verb cluster wrapped at desktop); `shots/safari-mobile-dark/generate.png` (name field has no touch affordance) |
+| E19 | types | `node_modules/reka-ui/dist/index3.d.cts:231` — `AcceptableValue` includes `null` |
+| E20 | live measure | `generatePalette` domain: `0/-1/NaN → []`, `Infinity → RangeError`, `2.5 → 3` |
+| E21 | hold text | `docs/tranches/V/reformation/CARRY-LEDGER.md:55–80` |
+| E22 | oracle scope | `e2e/smoke/oracles/o27-focus-affordance.spec.ts:33–41` (`openGradient()` — Gradient route only) |
+| E23 | prior pass | `challenge-C-implementation.2026-07-24-pass.md` (preserved verbatim; independent convergence on C-1) |

@@ -1,0 +1,21 @@
+{
+  "stay": {
+    "pruneCalled": 1,
+    "receipt": "Pruned 2 users",
+    "countLine": "1 user",
+    "pruneBtnDisabled": true,
+    "head": "Users 1 Manage accounts and permissions. 1 user Pruned 2 users Prune empty Refresh keeper-alph a-0001 4 Palettes My Palettes Save,"
+  },
+  "leave-and-return": {
+    "pruneCalled": 1,
+    "receipt": "Pruned 2 users",
+    "countLine": "1 user",
+    "pruneBtnDisabled": true,
+    "head": "Users 1 Manage accounts and permissions. 1 user Pruned 2 users Prune empty Refresh keeper-alph a-0001 4 Palettes My Palettes Save,"
+  },
+  "VERDICT": {
+    "receiptWhenStaying": "Pruned 2 users",
+    "receiptWhenLeaving": "Pruned 2 users",
+    "RECEIPT_LOST": false
+  }
+}
