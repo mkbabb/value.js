@@ -1,655 +1,818 @@
-# CHALLENGE-D — `demo/shell/dock/layers/ActionBarLayer.vue`
+# CHALLENGE-D — `demo/shell/dock/layers/ActionBarLayer.vue` — the design is wrong
 
 ## Model receipt
 
-I observe myself to be **Opus 5** (`claude-opus-5[1m]`, 1M-context variant) — the tier this seat
-was explicitly spawned with. Seat declared, not inherited.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]` (the 1M-context variant).
+This is the tier this seat was explicitly spawned with; the seat is **declared, not inherited**.
 
-Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
-Subject: `demo/shell/dock/layers/ActionBarLayer.vue`, 158 lines, area `demo/shell`.
-All browser probes ran read-only against the live dev server at `http://localhost:9000`
-(WebKit/Safari engine via Playwright). **No source file was edited by this seat.**
+Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`.
+The brief names HEAD `c654824e`; the working tree has since advanced — actual HEAD at capture
+time is **`5c13465d`** (`git log --oneline -3`). No source file was edited by this seat. Every
+browser probe was read-only against the live dev server at `http://localhost:9000`.
 
----
-
-## 0. Verdict
-
-**DEFECTIVE.** The premise holds and holds hard.
-
-The component's central mechanism — the local `useLayerTransition` shim at lines 53–94 — is not
-merely a shim standing in for a retired producer composable. It is a **dead transition**: it
-schedules a 260 ms window to protect a crossfade that Glass 7.0.0 does not run, applies
-GlassDock's **private** shell-pane CSS classes to arbitrary consumer components, and hangs those
-classes off a container class (`.dock-layer-grid`) that **is defined nowhere in this repository or
-in `@mkbabb/glass-ui`**. Meanwhile the public successor it says does not exist —
-`<DockCrossfade>` — is exported from the *same module specifier this file already imports from on
-line 8*, and its published doc-comment names this component's exact case.
-
-The consequences are measurable, not stylistic: the toggle the user clicks jumps **70.4 px** out
-from under the pointer; keyboard focus is dropped to `document.body` on every mode swap; the
-outgoing layer's tooltip is stranded fully opaque on top of the incoming layer's tooltip; and on
-mobile the component **never renders at all**, so the Picker's entire action region is
-desktop-only.
-
-Nine states this component can enter were never designed. Two of the four constitutional
-authorities it is judged against are violated by construction.
+This is **pass 2** of the D seat. The pass-1 report is preserved verbatim alongside as
+`challenge-D-design.pass-1.md`; this pass was run independently and its instrument set differs
+(reduced-motion arm, engine-differential keyboard probe, forced-colors arm, mobile
+reachability/hit-test arm, optical-rhythm measurement). Where the two passes converge, that is
+corroboration by independent measurement, and I say so.
 
 ---
 
-## 1. Coverage note — this component is unphotographed
+## Verdict
 
-`docs/tranches/V/megatranche/audit/visual/REPORT.md` reports 60 Safari captures (4 matrices × 15
-routes) and `states.mjs` adds 6 state matrices × 5 routes. **None of them contain this
-component.** Every capture is at-rest, and `ActionBarLayer` renders only when
-`Dock.vue:113` sets `activeLayer = "action-bar"`, which requires a click on the Tools trigger
-(`Dock.vue:182–190`). The clean rows for `/#/` in REPORT.md (0 page errors, 0 horizontal
-overflow, 0 blanks) therefore say **nothing** about this component.
+**DEFECTIVE.** The premise is correct and the defects are structural, not cosmetic.
 
-Every frame in this report was captured by this seat. Files, all in this directory:
+The component is built on a mechanism that does not exist. Its centre — the locally
+reimplemented `useLayerTransition` (lines 53–94) — schedules a **260 ms crossfade window for a
+crossfade that never runs**, hangs the producer's private layer vocabulary on a container class
+(`.dock-layer-grid`) that **has zero CSS rules anywhere in this repository or in
+`@mkbabb/glass-ui@7.0.0`**, and does so while the public successor it claims does not exist —
+`<DockCrossfade>` plus `useDockCrossfadeContext()` — is exported from **the same module
+specifier line 8 already imports from**.
+
+Downstream of that fiction: the control the user just clicked translates **~64 px out from under
+the pointer**; keyboard focus is left on `<body>` across the swap; **in WebKit — the app's stated
+first-class engine — not one control in this layer is reachable by Tab at all**, while the same
+page in Chromium reaches all six; and on mobile the layer is never mounted, yet its trigger
+remains in the accessibility tree, so activating it **collapses the entire dock to an empty
+28 × 65 px sliver with no active face** — the one motion outcome `VISUAL-CONSTITUTION.md` §6
+forbids by name.
+
+Eleven states this component can occupy were never designed. Two of the three canon authorities
+it is judged against are violated by construction; the third (`PALETTE-CONTRACT.md`) is a data
+contract and does not bind this surface.
+
+---
+
+## Method and instruments
+
+| # | Instrument | What it decided |
+|---|---|---|
+| I-1 | Source read of the SFC + `Dock.vue`, `ActionToolbar.vue`, `ColorInput.vue`, `SlugEditLayer.vue`, `ActionBarToggle.vue` | ownership seams, dead API surface |
+| I-2 | `grep -rn "dock-layer" node_modules/@mkbabb/glass-ui/` + repo-wide | the phantom container class; the producer's real `.dock-layer` contract |
+| I-3 | `dist/components/dock/styles/layers.css`, `crossfade.css`; `dist/styles/tokens/sizing.css` | what `.dock-layer` actually does; the dock's own glyph/touch tokens |
+| I-4 | `dist/components/dock/DockCrossfade.vue.d.ts`, `composables/dockCrossfadeContext.d.ts` | the successor exists and is public |
+| I-5 | Playwright/WebKit, 1440×900 light — swap sampled every 30 ms | the crossfade is a hard cut; the leaving box snaps to the wrong containing block |
+| I-6 | Same, `reducedMotion: "reduce"` | the JS window is unarmed for reduced motion |
+| I-7 | Playwright/WebKit **and** Chromium, Tab ×6–12 with the layer open | engine-differential keyboard unreachability |
+| I-8 | Playwright/WebKit, 390×844 — `elementFromPoint`, `tap()`, `focus()`, face census | the mobile dock-collapse blocker |
+| I-9 | Playwright/WebKit, `forcedColors: "active"` | the `currentColor` chain is broken at source |
+| I-10 | Pixel measurement of the DPR-2 crops | optical rhythm asymmetry; focus-ring/separator collision |
+
+Figures written by this pass, all in this directory:
 
 | File | What it shows |
 |---|---|
-| `shot-desktop-{light,dark}-1-main.png` | dock at rest — the component is absent |
-| `shot-desktop-{light,dark}-2-actions.png` | the layer in `actions` mode |
-| `shot-desktop-{light,dark}-3-input.png` | the layer in `input` mode — note the pill width change |
-| `shot-mobile-light-1-main.png` | mobile dock at `/#/` — **no Tools trigger exists** |
-| `shot-mobile-light-2-actions.png` | mobile after a forced programmatic toggle — nothing opens |
-| `D-02-stranded-popover-after-swap.png` | **the money frame**: two mutually illegible popovers stacked after one mode swap |
+| `D2-desktop-light-actions.png` | `actions` mode, 1440×900 light |
+| `D2-desktop-light-input.png` | `input` mode — the pill is 140 px wider |
+| `D2-desktop-light-propose.png` | `propose` mode — the ⋮ that means "close" |
+| `D2-mobile-light-dock-at-rest.png` | 390 w dock at rest — the Tools trigger is invisible |
+| `D2-mobile-dark-after-toggle-dock-collapsed.png` | **the money frame**: the dock after the trigger is activated on mobile |
+| `D2-toggle-focus-ring.png` | the focused toggle, ring crossing the separator |
+| `D2-forced-colors-emulated.png` | `forced-colors: active` emulation — nothing changes |
+
+### Coverage note the brief asked me to check
+
+`docs/tranches/V/megatranche/audit/visual/REPORT.md` records 60 Safari captures (4 matrices × 15
+routes); `STATES.json` adds 6 state matrices × 5 routes. **None contain this component.** Every
+capture is at-rest, and this layer renders only after `Dock.vue:113` sets
+`activeLayer = "action-bar"`, which requires activating the Tools trigger (`Dock.vue:182–190`).
+The clean `/#/` rows (0 page errors, 0 overflow, 0 blanks) therefore certify **nothing** about
+this surface. The two report rows that *do* touch it are indirect and both adverse:
+`smallTapTargets: 8` on `/#/` (D-8 below measures this control at 40 × 40 against a 44 px token)
+and `namelessButtons: 1` on `/#/`. Independently corroborated by pass 1.
 
 ---
 
-## 2. The named dual-path suspect, adjudicated
+# Findings
 
-The file's own header (lines 53–61) states the premise:
+## D-1 · BLOCKER — the mobile state was never designed, and asking for it collapses the dock
 
-> `V-W44 (Glass 7): glass-ui removed the standalone useLayerTransition composable — the layer
-> size-morph + crossfade folded INTO the DockCrossfade component, which internalizes the
-> class/inert packaging this template hand-binds and offers no public composable successor.`
+`VISUAL-CONSTITUTION.md:141` (§6 Motion) is unconditional:
 
-**Judgment: the shim is DIVERGENT, not honest, and its stated justification is materially false.**
+> A scene swap preserves the specimen and changes the surrounding instrument. **No full-slab
+> remount hole, rAF-delayed blank, or dock collapse.**
 
-The claim "no public *composable* successor" is literally true and rhetorically empty. The
-successor is a **component**, it is public, and it is exported from the exact module specifier
-this file already imports `DockControl` and `DockSeparator` from on line 8:
+**Measured, 390×844 WebKit, `/?color=%23abcdef`:**
+
+| | desktop 1440 | mobile 390 |
+|---|---:|---:|
+| `.dock-face` count | **4** | **3** |
+| `.dock-layer-grid` present | true | **false** |
+| `.color-input` rendered | 447.5 px | **null** |
+
+The action-bar face is **not mounted below the `lg` breakpoint** — `Dock.vue:156` gates
+`<ActionBarLayer v-if="actionBar">` on `App.vue:38`'s
+`colorPickerRef?.actionBarContext ?? null`, and on mobile the Picker pane is not the mounted
+pane, so the ref is undefined.
+
+The trigger, however, survives. `ActionBarToggle.vue:92` sets `:tabindex="visible ? 0 : -1"` and
+the enclosing `.action-bar-toggle-slot` collapses to `grid-template-columns: 0px` / `width: 0`,
+but with **`overflow: visible`**. Measured at 390 w:
 
 ```
-node_modules/@mkbabb/glass-ui/dist/components/dock/index.d.ts:5
-    export { default as DockCrossfade } from "./DockCrossfade.vue";
+btn:  { x: 151.4, y: 32.2, w: 33.3, h: 33.3, tabindex: "-1", ariaHidden: null, disabled: false }
+slot: { w: 0, gridTemplateColumns: "0px", overflow: "visible", visibility: "visible" }
+elementFromPoint(centre) -> DIV.segmented-indicator …   (hitIsButtonOrChild: false)
+locator.tap()            -> TimeoutError (not hittable)
+b.focus()                -> document.activeElement === b   (focusable: true)
 ```
 
-Its published doc-comment (`DockCrossfade.vue.d.ts`) names this component's case verbatim:
+So the control is **invisible to sight, unhittable by touch, un-tabbable — and still a named,
+non-`aria-hidden`, programmatically focusable button in the accessibility tree.** VoiceOver's
+rotor and any AT that activates by accessible name will find it and fire it.
 
-> "The **controlled-no-rail** … case (a consumer) consumes this **DIRECTLY**: a no-selection
-> face-swap does NOT route through a selection engine."
+What happens when it fires (measured, same session):
 
-`ActionBarLayer` is a controlled, no-rail, two-face swap. That is the sentence's referent.
+| | before | after |
+|---|---|---|
+| `.glass-dock` rect | 254.7 × 59.5 | **28.1 × 64.7** |
+| `--dock-expanded-px` | `255px` | **`69px`** |
+| faces | 3, one `is-active`, widths 227 | 3, **all `inert`, all width 0, `activeFace: NONE`** |
 
-The shim also fails on three axes the producer explicitly owns and the shim silently drops:
+`Dock.vue:113` sets `activeLayer = "action-bar"`; the `DockLayerGroup` has no face with that id;
+every face de-activates and nothing replaces it. The dock — which owns view selection, login,
+account and the mobile pane switch — becomes an empty sliver with **no path back**. See
+`D2-mobile-dark-after-toggle-dock-collapsed.png`.
 
-| DockCrossfade guarantee (from `DockCrossfade.vue.d.ts`) | Local shim |
+**Reproduction:** WebKit at 390×844, `http://localhost:9000/?color=%23abcdef`, wait 4 s, then
+`document.querySelector('[aria-label="Toggle action bar"]').click()` (the exact call an AT
+activation performs). Dock collapses; no recovery without reload.
+
+**Mechanism.** The component has no mobile design at all. It is not "hidden on mobile" — it is
+*absent*, with a live trigger left pointing at the hole. Even if it mounted, it could not fit:
+the mobile face content measures **227 px** and this layer's `input` sub-layer alone measures
+**325 px** on desktop.
+
+**Cure (gestalt, not patch).** Two things must become one. The layer's presence and its trigger's
+presence are today two independent predicates in two files; they must be one derived fact. The
+idiomatic transposition is to let `<DockCrossfade>`'s own face registry be the single source:
+a face that never registers cannot be selected, and the trigger renders from `faces` (the
+producer already exposes `faces: Readonly<Ref<DockFaceDescriptor[]>>` for exactly this — see
+`dockCrossfadeContext.d.ts`). Then design the mobile action bar for real: it is the *primary*
+action surface on a 390 px viewport, not a desktop luxury.
+
+---
+
+## D-2 · BLOCKER — every control in this layer is unreachable by keyboard in WebKit
+
+**Measured with the action bar open, `document.activeElement` sampled after each `Tab`:**
+
+```
+webkit    first-6 tabs: ["l component value","a component value","b component value",
+                         "l channel","L channel","A channel"]                       → 0 in dock
+chromium  first-6 tabs: ["Back [IN-DOCK]","Reset color [IN-DOCK]","Copy color [IN-DOCK]",
+                         "Random color [IN-DOCK]","Palettes [IN-DOCK]",
+                         "Extract palette [IN-DOCK]"]                                → 6 in dock
+```
+
+Twelve consecutive tabs in WebKit never enter `.dock-layer-grid` and never enter `.glass-dock`
+at all; the ring wraps through `BODY` back to the pane after eight stops. The `<nav
+class="dock-band">` precedes `<main>` in `App.vue`, so this is not DOM order.
+
+Ancestor audit rules out the obvious causes — no `inert`, no `aria-hidden`, no
+`visibility: hidden`, no `content-visibility` anywhere on the chain from `[aria-label="Reset
+color"]` up to `.glass-dock`.
+
+The cause is in the component's own markup. Every control it renders is a **bare `<button>` with
+no explicit `tabindex`**:
+
+```
+Back            BUTTON  tabindex: null
+Reset color     BUTTON  tabindex: null   inGrid
+Copy color      BUTTON  tabindex: null   inGrid
+Random color    BUTTON  tabindex: null   inGrid
+Palettes        BUTTON  tabindex: null   inGrid
+Extract palette BUTTON  tabindex: null   inGrid
+Open color input BUTTON tabindex: null
+```
+
+Safari's default keyboard mode ("Press Tab to highlight each item on a webpage" **off**, the
+shipping default) tabs to links, form fields and elements carrying an **explicit** `tabindex` —
+not to bare `<button>`. The picker pane's controls are reachable precisely because they carry
+one (`ConsoleRail.vue:31` `:tabindex="railTabIndex(component)"`, with a documented roving
+implementation at `ConsoleRail.vue:183`). The sibling trigger in the very same dock carries one
+(`ActionBarToggle.vue:92`). **`ActionBarLayer.vue:129–142` passes none** — the `DockControl`
+primitive plainly accepts one, since its sibling uses it.
+
+`VISUAL-CONSTITUTION.md:129` legislates the intended shape and the component does not implement
+it:
+
+> horizontal Dock/rail roving focus | Right moves to the visual-right item; Left to visual-left |
+> … | Home=first semantic item, End=last; activation is separate from movement
+
+**Reproduction:** WebKit 1440×900, open the action bar, press Tab from `<body>`; observe that no
+`activeElement` satisfies `closest('.glass-dock')`. Same script in Chromium reaches all six on
+the first six presses.
+
+**Cure.** Not "sprinkle `tabindex=0`". The layer is a horizontal control run, which is exactly
+what the constitution's roving-focus row describes: **one tab stop for the run, arrows within,
+Home/End at the ends, activation separate from movement.** That machine already exists in this
+repository, generalised, at `ConsoleRail.vue:183`. The design defect is that this layer invented
+a control run without adopting the house's rail law.
+
+---
+
+## D-3 · BLOCKER — the crossfade does not exist; the component's central mechanism is a fiction
+
+`ActionBarLayer.vue:53–61` states the design intent:
+
+> glass-ui removed the standalone `useLayerTransition` composable … This local successor
+> preserves the exact two-refs contract the template needs: `currentLayer` flips immediately on
+> swap; `leavingLayer` holds the prior id **for the crossfade window**, then clears.
+
+**There is no crossfade window.** Sampled every ~30 ms across a real swap (WebKit, 1440×900):
+
+| t (ms) | ActionToolbar | ColorInput | classes |
+|---:|---|---|---|
+| 0 | `opacity 1`, visible | `opacity 0`, hidden | `[is-active]`, `[—]` |
+| 32 | **`opacity 0`**, visible | **`opacity 1`**, visible | `[is-leaving]`, `[is-active]` |
+| 63 … 246 | `opacity 0` | `opacity 1` | unchanged for **214 ms** |
+| 277 | `opacity 0` | `opacity 1` | `[—]` ← 260 ms timer fires |
+| 699 | `opacity 0`, **hidden** | `opacity 1` | `[—]` |
+
+Opacity moves 1 → 0 and 0 → 1 in a **single frame**. The computed style says why:
+
+```
+transitionProperty: "visibility"   transitionDuration: "0s"
+```
+
+`layers.css` declares `.dock-layer { transition: visibility 0s linear var(--duration-normal); }`
+and **no opacity transition at all** — the producer animates `.dock-layer` opacity only under
+`.glass-dock[data-morphing]`, from the dock's own morph scalar, which is not running here
+(`[data-morphing]` false throughout the sample). The `.dock-crossfade` rules that *do* run an
+opacity overlap key off `.dock-face` + `[data-crossfading]` + `--dock-t` — a different element
+and a different scalar, neither of which this component participates in.
+
+So `SUB_LAYER_CROSSFADE_MS = 260` buys exactly one thing: it holds an already-invisible element
+at `visibility: visible` for 260 ms and then hides it. The design reads as motion in the source
+and is a **hard cut** on screen. Independently corroborated by pass 1 (its table samples the same
+transition at 19/62/136/203/253/286 ms with the same result).
+
+**Cure.** Delete the shim and mount `<DockCrossfade active reserve="inline">` — see D-4, which
+also fixes D-5's geometry jump for free.
+
+---
+
+## D-4 · BLOCKER — the shim's stated retirement condition is already met; the header comment is false
+
+The brief asks for the exact retirement condition. Here it is, and it is **satisfied at Glass
+7.0.0 today**, not at some future producer release.
+
+`CARRY-LEDGER §F` / D58.iv record the shim as conditional on "glass ships a successor", and relay
+O-6 mark M2 asks glass for "a public content-swap composable". **Glass 7.0.0 already ships both a
+component and a composable**, exported from `@mkbabb/glass-ui/dock` — the module specifier this
+file already imports `DockControl, DockSeparator` from on **line 8**:
+
+```
+$ node -e "…lastIndexOf('export')…" dist/dock.js
+  pt as DockControl
+  rt as DockCrossfade      ← public
+  ft as DockLayer
+  lt as DockLayerGroup
+  _t as DockSeparator
+```
+
+`dist/components/dock/DockCrossfade.vue.d.ts` (published doc-comment):
+
+> `<DockCrossfade:active>` is the thin controlled face-swap core. … The
+> **controlled-no-rail** case (a consumer) **consumes this DIRECTLY**: a no-selection face-swap
+> does NOT route through a selection engine …
+> `reserve?: "block" | "inline"` — `inline` reserves the peak **WIDTH** (a horizontal control
+> run).
+> A dissolving focus-holding face **transfers focus to its successor**, else the body
+> (un-inert-before-focus is load-bearing).
+
+`dist/components/dock/composables/dockCrossfadeContext.d.ts` publishes
+`useDockCrossfadeContext()` returning **`activeId: Readonly<Ref<string>>`** and
+**`leavingId: Readonly<Ref<string|null>>`** — the "exact two-refs contract" the local shim says
+has no successor, under the producer's own names.
+
+Point by point, the header comment at lines 54–61 is wrong:
+
+| Comment claims | Truth |
 |---|---|
-| swap driven by `useDockSpring` — velocity-continuous, interruptible | fixed `setTimeout(260)` (line 76) |
-| box reserved to the **peak face** as a running-max `min-block-size` / `min-inline-size` | none — see **D-6**, a measured 140.8 px pill jolt |
-| "A dissolving focus-holding face **transfers focus** to its successor … un-inert-before-focus is load-bearing" | applies `inert` with no transfer — see **D-8**, focus lands on `<body>` |
+| "offers no public composable successor" | `useDockCrossfadeContext()` is exported and documented |
+| "the class/inert packaging this template hand-binds" is internalised and unavailable | `<DockLayer>` faces register through the crossfade context; packaging is the point of the API |
+| "preserves the exact two-refs contract" | the producer's contract is `activeId` / `leavingId`, verbatim |
+| (implied) this case is unserved | the doc-comment names the **controlled-no-rail consumer case** as the intended consumer |
 
-And the shim self-documents as legacy in the sense edict 2 forbids:
+**The exact retirement condition, stated for the record:**
 
-```
-ActionBarLayer.vue:67
-    void opts.containerEl; // signature parity with the retired producer composable
-```
+> **RETIRE NOW.** The condition "glass ships a public content-swap successor" is met by
+> `@mkbabb/glass-ui@7.0.0` — `DockCrossfade` (component, `active` + `reserve`) and
+> `useDockCrossfadeContext()` (`activeId`/`leavingId`). The retirement is: delete
+> `ActionBarLayer.vue:53–94` and `subLayerProps`, wrap the two sub-layers in
+> `<DockCrossfade :active="activeSubLayer" reserve="inline">` with each sub-layer as a
+> `<DockLayer>` face. No producer change is required and none should be requested; relay O-6
+> mark M2 should be **withdrawn as already-answered**, not tracked to W47.
 
-A parameter accepted, discarded, and justified by fidelity to an API that no longer exists is a
-back-compat shim by definition.
-
-### Exact retirement condition (asked for by the brief)
-
-CARRY-LEDGER §F conditions retirement on "if glass ships a successor". **That condition is already
-met at the pinned version.** The retirement condition is therefore not a future event:
-
-> **RETIRE NOW, at `@mkbabb/glass-ui@7.0.0` — no producer change, no relay reply, and no W47
-> gate is required.** Replace lines 53–94 and the `subLayerProps` binder (lines 88–94) with
-> `<DockCrossfade :active="activeSubLayer" reserve="inline">` wrapping two `<DockLayer id="actions">`
-> / `<DockLayer id="input">` faces, all four symbols already public on `@mkbabb/glass-ui/dock`.
-> The relay-O-6 mark **M2** ("public content-swap composable") should be **WITHDRAWN**, not
-> awaited: it asks the producer to re-ship, as a composable, a capability it already ships as a
-> component, which would manufacture the second API surface edicts 3 and 4 forbid.
+This is not a maintenance nicety. Adopting the producer discharges D-3 (a real opacity overlap on
+the dock spring), D-5 (`reserve="inline"` pins the box to the peak face, killing the width jump),
+D-6 (the producer transfers focus off a dissolving face), and D-11 (the timer leak) in one move.
+Independently corroborated by pass 1 (its C-2/D equivalent reaches the same conclusion from the
+same artefacts).
 
 ---
 
-## 3. Defects
+## D-5 · MAJOR — the control translates ~64 px out from under the pointer that just clicked it
 
-Severity: **BLOCKER** = ships broken behaviour or violates a binding constitutional law ·
-**MAJOR** = designed-wrong, user-visible · **MINOR** = design-law violation without a current
-user-visible symptom · **INFO** = record.
+Because the box is never reserved, every sub-layer swap re-measures the whole dock and re-morphs
+it. Measured `--dock-expanded-px` and rects (WebKit 1440×900):
 
-### Family A — the shim is a dead transition bound to producer-private CSS
+| state | `--dock-expanded-px` | `.dock-layer-grid` x / w | toggle x |
+|---|---:|---:|---:|
+| main layer | 471 px | — | — |
+| `actions` | **326 px** | 634.0 / 184.0 | **831** |
+| `input` | — (dock measured 466.8) | **563.6** / **324.8** | ≈ **895** |
 
-#### D-1 · BLOCKER — the 260 ms crossfade window animates nothing
+The dock is centre-anchored, so a **+140.8 px** content change splits: the grid's left edge moves
+**−70.4 px** and the toggle moves **≈ +64 px to the right**. The user's pointer is on the toggle
+at the moment of the click. Activating a control should not move it; here it moves by more than
+one and a half control widths, and a second click to advance `input → propose` lands on empty
+glass.
 
-`SUB_LAYER_CROSSFADE_MS = 260` (line 62) exists to hold `leavingLayer` "for the crossfade window"
-(line 60). In Glass 7 there is no crossfade on these elements.
+`VISUAL-CONSTITUTION.md:30` — "The top dock owns a reserved band. Expanded/collapsed/mounted
+states do not move the scene below it" — protects the *scene*; nothing in this component protects
+the *dock's own controls* from the same displacement, and the constitution's intent (a reserved
+band) is plainly violated in the inline axis.
 
-`layers.css` gives `.dock-layer` exactly one transition — `visibility` — and animates opacity only
-under `.glass-dock[data-morphing]`, i.e. during a **dock collapse/expand**, never during a
-content swap. Measured on the live page:
-
-```
-t=0   ACT  op=1 vis=visible inert=0 rect=634,21 184x40
-t=0   off  op=0 vis=hidden  inert=1 rect=569,18 302x46
-t=40  LEAV op=0 vis=visible inert=1 rect=516,18 408x46
-t=130 LEAV op=0 vis=visible inert=1 rect=516,18 408x46
-t=280 off  op=0 vis=visible inert=1 rect=516,18 408x46
-```
-
-and the computed transition on the live nodes:
-
-```
-active   → transition: "visibility"
-inactive → transition: "visibility 0s linear 0.3s"
-```
-
-The leaving layer is already at `opacity: 0` by the first sample after the swap. No intermediate
-opacity is ever observed. The 260 ms is a phantom guarding a snap.
-
-*Cure:* delete the shim; `<DockCrossfade>` owns the real overlap on the `--dock-t` scalar.
+**Cure.** `reserve="inline"` on `<DockCrossfade>` — the producer measures the peak face width
+once (a running max, explicitly "MEASURE-ONCE … NOT a per-swap FLIP") and holds it. The band then
+never changes width and the toggle never moves.
 
 ---
 
-#### D-2 · BLOCKER — the component styles itself from GlassDock's private internals
+## D-6 · MAJOR — the focus law is half-designed: `input` drops focus to `<body>`, `propose` does not
 
-Line 91 hand-writes `class: ["dock-layer", { "is-active": …, "is-leaving": … }]` onto
-`<ActionToolbar>` and `<ColorInput>`.
-
-In Glass 7 `.dock-layer` is **not** the face class. The public face component `<DockLayer>` emits
-`.dock-face` (`crossfade.css`, and the compiled template). `.dock-layer` is emitted by exactly two
-nodes, both **inside GlassDock's own shell**, for the expanded-vs-collapsed plate morph:
+Measured `document.activeElement` across the `actions → input` swap:
 
 ```
-$ python3 -c "…scan dist/dock.js for /dock-layer(?![-a-z])/…"
-'class: L(["dock-layer dock-layer--full",    { "is-active": …'
-'class: L(["dock-layer dock-layer--summary", { "is-active": …'
+focusBefore: <body class="relative" id="app" …>
+focusAfter : <body class="relative" id="app" …>
 ```
 
-Because every `.dock-layer` rule is scoped `:where(.glass-dock, .dock-layer-group) .dock-layer`,
-the consumer's counterfeit faces match the dock's private plate rules. Two of those rules are
-actively hostile when a sub-layer swap coincides with a dock morph:
+Focus is on `<body>` before and after. The color input opens and **nothing is focused** — a
+keyboard or AT user must hunt for a field that just appeared expressly to receive typing.
+
+Now the `input → propose` swap, same session:
+
+```
+proposeState.active: <span contenteditable role="textbox" aria-label="Propose a color name" …>
+```
+
+Focused. But not by this component — by `ColorInput.vue:252–262`, which watches its own
+`proposeMode` prop and calls `requestAnimationFrame(() => inputColorRef.value?.focus())`. The
+`actions → input` leg has no equivalent, so **two legs of one three-state cycle obey two
+different focus laws**.
+
+The instrument for the missing leg is already declared and already bound:
+`ActionBarLayer.vue:28` holds `colorInputRef`, `ColorInput.vue:283` exposes
+`focus: () => inputColorRef.value?.focus()` — and the ref is **never read** (see D-13). The
+design knew what it needed, wired the handle, and never connected it.
+
+`VISUAL-CONSTITUTION.md:115` states the house rule for exactly this shape ("producer initial-focus
+rule on open; exact connected opener on close"). Neither half is implemented here.
+
+**Cure.** `<DockCrossfade>`'s documented behaviour — "A dissolving focus-holding face transfers
+focus to its successor, else the body (un-inert-before-focus is load-bearing)" — is the law this
+component should inherit rather than re-derive per leg.
+
+---
+
+## D-7 · MAJOR — the 260 ms window is not armed for reduced motion
+
+`demo/styles/animations.css:183–192` neutralises CSS transitions/animations app-wide under
+`prefers-reduced-motion: reduce`. The local shim is a **JS `setTimeout`** and is untouched.
+
+Measured with `reducedMotion: "reduce"`:
+
+```
+t=0   leaving 0   visibility visible/hidden
+t=30  leaving 1   visibility visible/visible
+…                 (unchanged)
+t=245 leaving 1   visibility visible/visible
+t=275 leaving 0   visibility hidden/visible
+```
+
+Byte-identical to the normal-motion run. Under reduced motion an invisible, 443 px-wide,
+`visibility: visible` element is held layered over the dock for 260 ms before the final geometry
+is reached.
+
+`VISUAL-CONSTITUTION.md:144` is explicit:
+
+> Reduced motion resolves **directly to the final geometry** and stable chromatic state.
+
+It does not. The final geometry (`visibility: hidden` on the outgoing face) arrives 260 ms late.
+
+**Cure.** Same as D-4: the producer's spring is one clock and honours the query internally. A
+hand-rolled `setTimeout` in a consumer can never be the reduced-motion arm, because the arm is a
+*media* fact and the timer is a *code* fact — which is the general shape of this whole file's
+error.
+
+---
+
+## D-8 · MAJOR — the toggle bypasses the dock's own glyph and touch tokens at the instance level
+
+`ActionBarLayer.vue:138`: `class="toggle-btn w-6 h-6 stroke-foreground"`.
+`ActionBarLayer.vue:139`: `:style="{ '--toggle-hover-color': safeAccent }"`.
+
+Measured against the producer's published tokens
+(`@mkbabb/glass-ui/dist/styles/tokens/sizing.css`):
+
+| quantity | rendered | token | delta |
+|---|---:|---|---:|
+| toggle glyph | **24 × 24 px** | `--dock-icon-glyph` = `max(calc(2.5rem × 0.5), 1rem)` = **20 px** | **+20 %** |
+| toggle control | **40 × 40 px** | `--dock-touch-target: 2.75rem` = **44 px** | **−9 %** on both axes |
+
+The producer even routes the value for consumers: `--dock-control-glyph-size: var(--dock-icon-glyph)`
+resolves on this very button (measured `max( calc( max( calc( 2.5rem * 1 ), 0px ) * 0.5 ), 1rem )`).
+The hardcoded `w-6 h-6` overrides it.
+
+`PROPORTION-AUDIT.md:73` (law 8): "Real rendered relation wins over token intent … token presence
+alone cannot close a row." — and law 7 (`:72`): "Visual glyph size, operable target size and
+layout reservation are separate quantities." Here the glyph was set and the target was left to
+fall out of it, which is the inverse of the law. The 40 px result is one of the eight
+`smallTapTargets` the visual matrix already counts on `/#/`.
+
+This also violates the standing owner edict on **root-level styling**: the hover colour is
+injected as an inline custom property per instance (`:style` on the icon) rather than being a
+`DockControl` accent at the root, and the size is an instance utility rather than the dock's
+glyph token.
+
+**Cure.** Delete both. Size from `--dock-control-glyph-size`; let the control seat be the
+producer's `--dock-touch-target`; if the dock needs an accented hover for its icon controls, that
+is a `DockControl` variant in glass-ui, not a `--toggle-hover-color` invented in one consumer.
+
+---
+
+## D-9 · MAJOR — `:hover` with no `@media (hover: hover)` guard, on a surface that ships to touch
+
+`ActionBarLayer.vue:149–151`:
 
 ```css
-/* layers.css */
-.glass-dock[data-morphing] .dock-layer.is-leaving { opacity: calc(1 - var(--dock-morph-t)); }
-.glass-dock[data-morphing] .dock-layer.is-active > * {
-    opacity: var(--child-reveal);
-    scale: calc(0.82 + 0.18 * var(--child-reveal));
-}
+.toggle-btn:hover { stroke: var(--toggle-hover-color); }
 ```
 
-The first drives the *sub*-layer's opacity from the *dock's* collapse scalar. The second applies a
-second, nested stagger-reveal to the five `ActionButton`s inside a counterfeit `.dock-layer.is-active`
-that already sits inside the real `.dock-layer--full` receiving the same treatment.
-*(Compound-morph symptom: HYPOTHESIS — the rules and the class match are both confirmed above;
-I did not reproduce a simultaneous swap-during-morph frame.)*
+No hover-capability guard. On touch WebKit, `:hover` latches after tap and persists until another
+element is tapped, so the toggle keeps an accent stroke that means nothing.
 
-This is a direct edict-4/edict-5 violation and a silent breakage contract: the classes are
-vestigial in the producer and will vanish in the next major with no deprecation signal, because
-no public API ever promised them to a consumer.
+The convention exists in this codebase and this component ignores it — `demo/color-session/
+ColorSpaceSelector.vue:257` wraps its hover register in `@media (hover: hover)`, and every hover
+utility glass-ui emits is inside `@media (hover:hover)` (verifiable in
+`dist/styles/components.css`). The only two demo files that write a bare `:hover` in scoped CSS
+are `ActionButton.vue:117` and this one.
+
+**Reproduction:** touch context (`hasTouch: true`), tap the toggle, observe the accent stroke
+persists after the tap completes. (Labelled a **hypothesis** for the persistence duration — I
+measured the missing guard and the convention, not the latch itself.)
 
 ---
 
-#### D-3 · MAJOR — `.dock-layer-grid` does not exist; the overlap resolves against the wrong box
+## D-10 · MAJOR — the ⋮ means "close", while the identical ⋮ eight pixels away means "menu"
 
-```
-$ grep -rn "dock-layer-grid" demo/ src/ node_modules/@mkbabb/
-demo/shell/dock/layers/ActionBarLayer.vue:101:  <div ref="subLayerGridEl" class="dock-layer-grid flex-1">
-```
+`ActionBarLayer.vue:47–51` cycles the toggle glyph `Type` → `Tag`/`EllipsisVertical` →
+`EllipsisVertical`, with aria-labels `Open color input` → `Propose color name`/`Close input` →
+`Close propose`.
 
-One hit — the use site. Zero definitions. Measured on the live node:
+`PROPORTION-AUDIT.md:60` (PR-16) rules on this exact glyph:
 
-```
-gridComputed: { display: "block", position: "static", gridTemplateColumns: "none", flexGrow: "1" }
-```
+> Dock's dim home mark, floating eye and **unlabeled vertical ellipsis** have no explicit
+> purpose/state law … **REMOVE / ADD-AFFORDANCE** … `…` **keeps a named menu purpose plus
+> expanded state or is removed**
 
-Consequences, all measured:
+Here the ⋮ has **neither**. It is not a menu — it is a close button wearing the universal
+overflow-menu glyph (`D2-desktop-light-propose.png`). And within the same dock shell,
+`MobileMenuDropdown.vue:41` renders `MoreVertical` at the identical `w-6 h-6` as the *actual*
+menu. One glyph, one size, one surface, two contradictory meanings.
 
-1. The `grid-area: 1 / 1` both children inherit from `.dock-layer` is **inert** — a block parent
-   has no grid areas. The name promises a mechanism that is not running.
-2. The overlap comes solely from `.dock-layer:not(.is-active) { position: absolute; inset: 0 }`.
-   With no positioned ancestor at the grid, that resolves against the **whole dock face**:
-   `inactiveOffsetParent: "dock-face is-active"`.
-3. So the inactive/leaving sub-layer's box is `516,18 408×46` where its nominal box is
-   `634,21 184×40` — **65 px further left, 118 px wider, 3 px proud top and bottom** — spanning
-   across the Back control, the separator, and the mode toggle.
+Three further problems in the same seat:
 
-Today this is invisible only because D-1 already snapped it to `opacity: 0`. Fix D-1 without
-fixing D-3 and a full-opacity 408 px slab crossfades over the dock's own furniture.
+1. **No expanded/pressed state.** The control has three modes and exposes none of them to AT —
+   no `aria-pressed`, no `aria-expanded`; only the label mutates. Its sibling in the same dock
+   does it correctly (`ActionBarToggle.vue:93` `:aria-pressed="active"`).
+2. **Three glyph metaphors for one seat.** `T` (a typographic literal, optically a different
+   species from the five outline icons beside it — visible in `D2-desktop-light-actions.png`),
+   then a luggage `Tag`, then `⋮`. A single control that changes species twice teaches nothing.
+3. **The label is a nested ternary in the template** (`:131`, one 168-character line). The mode
+   machine has three states and one of them is conditional on `canProposeName`; that is a
+   labelled state table, not an expression.
 
----
-
-#### D-4 · MAJOR — the JS duration and the producer token disagree, across a boundary
-
-`SUB_LAYER_CROSSFADE_MS = 260` (line 62) is a raw literal. The producer's visibility hand-off runs
-on `--duration-normal`, measured live at **`0.3s` = 300 ms**. The shim releases `is-leaving` 40 ms
-*before* the producer's visibility delay elapses — visible in the t=280 sample above, where the
-element has already dropped `is-leaving` yet is still `visibility: visible`.
-
-This also violates edict 6 in spirit and the sibling precedent in fact: `ActionBarToggle.vue:121–124`
-tokenizes the same beat as `var(--duration-normal) var(--ease-standard)`. A magic number in a TS
-const that must stay in lockstep with a CSS token in a *different package* is a coupling with no
-enforcement.
+**Cure.** One seat, one meaning: a disclosure with `aria-expanded`, one glyph that inverts
+(`Type` ↔ `X`), and the propose leg promoted out of a glyph cycle into a named affordance inside
+the input face where it belongs.
 
 ---
 
-#### D-5 · MAJOR — the shim is a self-declared legacy shim (edict 2)
+## D-11 · MAJOR — an unreconciled fourth state: `propose` outlives `canProposeName`
 
-Line 67, `void opts.containerEl; // signature parity with the retired producer composable`, plus
-the header's own words "This local **shim**" and "preserves the exact two-refs contract".
-The owner edict is unconditional: *no aliases, migration shims, dual paths, masking fallbacks,
-back-compat.* Compounding it, the factory is defined **inside** `<script setup>` and instantiated
-exactly once (line 85) — a closure-over-nothing that could be three plain refs even if the shim
-were legitimate. Contrivance, edict 3.
+`cycleToolbarMode` (`:33–45`) reads `actionBar.canProposeName.value` at the moment of the click.
+Nothing watches it afterward. If the color acquires a name while the user sits in `propose` — the
+`random()` action in the same toolbar can do this, and so can any external color change —
+`toolbarMode` stays `"propose"`. The toggle then renders `EllipsisVertical` labelled
+`Close propose`, and `ColorInput` stays in propose mode for a color that can no longer be
+proposed.
 
----
+This is a designed state (`propose`) with no exit condition other than user action, wired to a
+predicate that can change underneath it.
 
-### Family B — no peak reserve: the control moves out from under the pointer
+**Reproduction (hypothesis — mechanism read from source, not driven end-to-end this pass):** enter
+propose on an unnamed color, trigger `random()` until a named color lands, observe `toolbarMode`
+remains `"propose"`. Corroborated as a finding by pass 1 (C-6) from the same source read.
 
-#### D-6 · BLOCKER — clicking the toggle displaces the toggle by 70.4 px
-
-Measured at 1440×900, pointer parked off-dock between samples so no hover state pollutes the box:
-
-```json
-"selfDisplacement": {
-  "toggleCentreBefore": 851,  "toggleCentreAfter": 921.4,  "dx": 70.4,
-  "stillUnderPointer": false,
-  "pillWidthBefore": 326,     "pillWidthAfter": 466.8,
-  "pillHeightBefore": 62,     "pillHeightAfter": 62
-}
-```
-
-`actions` mode reserves 184 px of sub-layer; `input` mode needs 324.8 px. With no reserve, the
-`fit-content` dock re-measures and the pill grows **140.8 px**, symmetrically — so every control in
-the bar translates, and the toggle the user just pressed lands 70.4 px to the right, entirely
-outside its own 40 px box.
-
-The interaction is a **cycle** (`cycleToolbarMode`, lines 33–45): actions → input → propose →
-actions. The design asks the user to press the same control repeatedly and then moves it away
-after the first press. Confirmed visually: `shot-desktop-light-2-actions.png` vs
-`shot-desktop-light-3-input.png`.
-
-This is precisely the failure `<DockCrossfade>`'s "reserved box … sized to the peak face as a
-MEASURE-ONCE running max" exists to prevent, and `reserve="inline"` is the documented axis for
-"a horizontal control run".
-
-*Negative recorded honestly:* the pill **height** is stable at 62 px in both modes, so
-VISUAL-CONSTITUTION §3.4 ("Expanded/collapsed/mounted states do not move the scene below it") is
-**not** breached. The jolt is inline-axis only.
+**Cure.** The mode is derived, not stored: `propose` is only reachable while `canProposeName` is
+true, so it should be a `computed` clamp, not a `ref` the predicate can desynchronise from.
 
 ---
 
-### Family C — states that were never designed
+## D-12 · MINOR — the container class is a phantom; the hidden face resolves against the wrong box
 
-#### D-7 · BLOCKER — there is no mobile composition; the whole component is desktop-only
-
-Measured at iPhone 14 / 390 px, `/#/`, 2.8 s after `networkidle`:
-
-```json
-"mobile": {
-  "present": true, "rect": {"x":151.4,"y":32.2,"w":33.3,"h":33.3}, "viewport": 390,
-  "tabindex": "-1", "pointerEvents": "auto", "visibility": "visible", "opacity": "1",
-  "hitTestTop": "div.segmented-indicator.segmented-indicator--js",
-  "hitChain": ["div.segmented-indicator…","div.segmented-tabs…","div.pane-segmented-control…",
-               "div.dock-mobile-panes","div.dock-face-content","div.dock-face.is-active"],
-  "btnContainsTop": false,
-  "slotClass": "action-bar-toggle-slot",          /* no is-visible, no is-live, no is-settled */
-  "slotRect": {"x":147.4,"w":0}
-},
-"mobileForced": { "opened": false }               /* even a programmatic .click() opens nothing */
-```
-
-`shot-mobile-light-1-main.png` confirms it: the mobile dock at `/#/` is
-**Home ▾ | [ Picker · About ] | ⋮** — no Tools trigger, because the slot is 0 fr wide.
-
-**Root cause, exact:**
+`ActionBarLayer.vue:101` names its container `dock-layer-grid`. Measured computed style:
 
 ```
-demo/color-picker/App.vue:38   :action-bar="colorPickerRef?.actionBarContext ?? null"
-demo/color-picker/App.vue:325  colorPickerRef.value = left === "color-picker" ? el : null;   // onDesktopLeftMount
+display: "block"   position: "static"   gridTemplateColumns: "none"   overflow: "visible"
 ```
 
-`colorPickerRef` is assigned **only** by the desktop-left slot's `:on-mount`. The mobile
-`<PaneSlot>` (App.vue:83–90) has no `:on-mount` binding, so below `lg` the ref is permanently
-`null` ⇒ `:action-bar` is permanently `null` ⇒ `hasAnyActionBar` is `false` (Dock.vue:41) ⇒
-`<ActionBarLayer>` (Dock.vue:156) never renders on any mobile viewport.
+`grep -rn "dock-layer-grid"` across the repository and `node_modules/@mkbabb/glass-ui/` returns
+**exactly two hits, both in this file** (`:91` and `:101`). The class has zero rules. It is named
+"grid" and is a block box; its children carry `grid-area: 1 / 1` (inherited from the producer's
+`.dock-layer` rule) which is inert in a block container.
 
-Reset, Copy, Random, Palettes, Extract, CSS-color entry and Propose-name are therefore
-**desktop-only affordances**. The mobile overflow menu is not a substitute — it carries slug/share/
-theme items only (`MobileMenuDropdown.vue:52–101`: Copy **slug**, slug edit, logout, regenerate
-slug, share link, dark toggle). There is no color Copy anywhere on mobile.
+The consequence is geometric, not cosmetic. `layers.css` gives
+`.dock-layer:not(.is-active) { position: absolute; inset: 0; }`, and because `.dock-layer-grid`
+sets no `position`, the containing block resolves upward:
 
-Constitutional violations:
-- `VISUAL-CONSTITUTION.md §3.6` — "Mobile uses one document-scrolling **stage→inspector→action**
-  sequence beneath the same top dock." The action term is empty.
-- `VISUAL-CONSTITUTION.md §7 · Picker` — "Copy lives **once in the action region**." On mobile it
-  lives zero times.
-- `PROPORTION-AUDIT.md` **PR-13** — "Specimen listener/tooltip/label 1→0; **action Copy 1→1**;
-  total 2→1." Mobile cannot satisfy a 1→1 target with no action region.
+```
+offsetParentOfInactive: "DIV.dock-face is-active"
+```
 
-Secondary defect in the same measurement: the trigger is `33.3 × 33.3` — below the 44 px pointer
-floor — and its box overlaps the segmented control while `pointer-events: auto`, inside a slot
-clipped to 0 width. It is invisible, unhittable, and still participating in layout and hit-testing.
+| element | x | width |
+|---|---:|---:|
+| `.dock-layer-grid` (container) | 634.0 | **184.0** |
+| active sub-layer | 634.0 | 184.0 |
+| **inactive sub-layer** | **569.0** | **302.0** |
+| **leaving sub-layer (t=32…246)** | **499.0** | **443.0** |
+
+The hidden face is sized to the **outer dock face**, overhanging its own container by 65 px left
+and 53 px right — i.e. it spans the Back control and the toggle. While `is-leaving` it is
+`visibility: visible` with `opacity: 0`, so for 260 ms an invisible 443 px composited overlay
+covers the dock's live controls. Glass-ui carves a special `.is-press-keepalive` rule for exactly
+this hazard on its own layers; this consumer gets no such protection because it is not a real
+producer layer (D-15).
+
+Corroborated independently by pass 1 (C-3), which measured 519.7 / 400.5 at a different dock width
+— the same defect at a different content measure.
 
 ---
 
-#### D-8 · MAJOR — every mode swap drops keyboard focus to `<body>`
+## D-13 · MINOR — the action cluster is optically off-centre in its own band
 
-Reproduction (Tab or click to focus a toolbar action, then toggle the mode):
+Measured glyph centres, desktop light, DPR-2 crop converted to CSS px
+(`D2-desktop-light-actions.png`):
 
-```json
-{ "focusBefore": "Copy color",
-  "focusImmediate": "Copy color",
-  "focusSettled": "BODY" }
+```
+←  589.0 │ sep 621.5 │ 650.0  687.5  725.0  762.5  801.5 │ sep 824.0 │ T 850.0
 ```
 
-Line 92 sets `inert: isActive ? undefined : true` on the outgoing layer with **no focus transfer**.
-The browser evicts focus from the inert subtree to the document body; the keyboard user's position
-is destroyed and the next Tab restarts from the top of the document.
+| interval | px |
+|---|---:|
+| interior pitch (×4) | 37.5 · 37.5 · 37.5 · 39.0 |
+| separator → first action | **28.5** |
+| last action → separator | **22.5** |
+| separator → toggle | 26.0 |
+| back → separator | 32.5 |
 
-`DockCrossfade` handles exactly this and says so: *"A dissolving focus-holding face transfers focus
-to its successor, else the body (un-inert-before-focus is load-bearing)."* The shim reimplemented
-the `inert` half and dropped the focus half.
+The five-icon cluster carries **28.5 px of air on its left and 22.5 px on its right — a 6 px
+asymmetry inside a 37.5 px pitch (16 %)**, and the cluster's end gaps are both far below its own
+interior pitch, so the group reads crowded against its boundaries and pushed right.
 
-Violates `VISUAL-CONSTITUTION.md §5.1` (focus is a first-class settlement target for every state
-change) and `§4.1` ("Focus remains visibly distinct from selection in both schemes").
+The cause is compositional: `ActionToolbar.vue:2` uses `justify-around` inside a `flex-1` band
+whose width is not set by its own content but by whichever sub-layer is active and by the dock's
+fit-content measurement. `justify-around`'s half-gap-at-the-ends only balances when the items are
+equal-width; these are 24 px glyphs in variable seats inside a stretched band.
 
-*Negative recorded:* the **closed** action-bar face is correctly inert — the producer applies it
-(`faceInert: true`, `anyInertAncestor: true`). There is no tab-order leak from a hidden dock layer.
-That part is sound and is glass-ui's doing, not this file's.
+`PROPORTION-AUDIT.md:5` — "Every element earns its scale, interval, boundary and material from
+its job relative to the local protagonist" — is not satisfiable by a distribution mode that
+derives interval from leftover space.
+
+**Cure.** The action run is a rhythm, so it should be a fixed gap (`--dock-layer-gap`, the token
+the producer already sets on `.dock-layer`) with the band hugging its content, not `flex-1` +
+`justify-around`.
 
 ---
 
-#### D-9 · MAJOR — the outgoing layer's popover is stranded open, on top of the incoming one
+## D-14 · MINOR — the focus ring collides with the separator it sits beside
 
-Reproduction: hover an action button until its popover opens (300 ms delay), then toggle the mode
-without moving the pointer.
+`D2-toggle-focus-ring.png`: with the toggle focused (`matches(':focus-visible') === true`,
+`box-shadow` a 2 px dual ring), the ring's circumscribed circle measures ≈ 47 CSS px against a
+40 px control in a ~40 px inner band, and its left arc crosses the `DockSeparator` at x ≈ 824.
 
-```json
-"strandedPopover": [ { "w": 288, "h": 119, "op": "1" } ],
-"originButton":    { "inertAncestor": true, "layerOpacity": "0", "layerVis": "visible" }
-```
+Two design consequences: the ring reads as a *circle* on a control that has no circular resting
+seat (the dock's resting shape is a capsule), and it overlaps a boundary element, so the focused
+state and the grouping boundary compete in the same pixels.
 
-A 288 × 119 fully-opaque tooltip describing a button that is now inert, invisible and gone.
-`D-02-stranded-popover-after-swap.png` shows the result: because the pointer has not moved, the
-**incoming** `ColorInput` opens *its* popover under the same point, and the two slabs interleave
-into unreadable text — "Copy color a color" / "Click to copy the current color to the clipboard"
-laid over "…ring is accepted" and the `lab(92% 88.8 20 / 82.7%)` echo.
+`VISUAL-CONSTITUTION.md:82` — "Text, focus, boundaries and state meet their rendered contrast on
+the actual material tier; a token name is not evidence." Boundary and focus are colliding on this
+tier.
 
-The component already holds the handle needed to prevent this and never turns it:
-`actionToolbarRef` (line 29) is declared and never read; `ActionToolbar.vue:87–91` exposes
-`clearHover()` for precisely this teardown and **no caller exists** (`grep -rn "clearHover" demo/`
-→ definition and `defineExpose` only). Two halves of one contract, wired to nothing.
-
-This also breaks the standing register law recorded at `SlugEditLayer.vue:88–90` and
-`Dock.vue:140–142` — "the UA tooltip slab is a foreign register on the liquid-glass dock" — the
-whole point of which was to stop opaque explanatory slabs from covering the dock.
-
-*Negative recorded:* I hypothesised that the un-fired `onHoverOpenChange(false)` would leak
-`dock.keepOpen()` (`ActionButton.vue:81–88`) and pin the dock open forever. **Refuted.** After
-7 s idle with the pointer parked off-dock the popover count returned to 0, so `release()` did fire;
-the dock's continued `expanded` state is explained by `shouldKeepOpen` (`Dock.vue:86`) while the
-action-bar layer is open — correct by design. No hold leak.
+**Cure.** The toggle needs the producer's touch-target seat (D-8) so the ring has room, and the
+separator needs the dock's own gap rather than sitting flush.
 
 ---
 
-#### D-10 · MAJOR — the mode is sticky across close and reopen
+## D-15 · MINOR — the file speaks the producer's private layer vocabulary from a consumer
 
-```json
-{ "s1_openedAs":   "Open color input",      /* opened in `actions` mode        */
-  "s1_afterToggle":"Propose color name",    /* now in `input` mode             */
-  "s1_afterBack":  "Propose color name",    /* Back pressed — layer closed     */
-  "s1_onReopen":   "Propose color name",    /* reopened — STILL in input mode  */
-  "s1_verdict":    "STICKY — reopens in the prior mode" }
-```
+`ActionBarLayer.vue:91` applies `dock-layer`, `is-active` and `is-leaving` to arbitrary consumer
+components. Those are `@mkbabb/glass-ui`'s **internal** shell-pane classes: `layers.css` styles
+them via `:where(.glass-dock, .dock-layer-group) .dock-layer`, an unbounded descendant selector,
+so the consumer's children silently acquire the producer's entire layer contract — `display:flex`,
+`grid-area`, `min-height: var(--dock-layer-height)`, `white-space: nowrap`, `gap`, the
+absolute/relative flip, **and** the morph stagger rule
+`.glass-dock[data-morphing] .dock-layer.is-active > * { opacity: var(--child-reveal); scale: calc(0.82 + 0.18 * …) }`.
 
-`toolbarMode` (line 30) is never reset. Nothing watches `actionBarLayerActive`. A control labelled
-**Tools** and iconed with a paintbrush (`Dock.vue:186–187`) therefore reopens showing a text field.
-The entry affordance and the entered state disagree, permanently, after one use.
+That last one is the sharp edge: during any dock expand/collapse morph the five ActionButtons are
+staggered as children of *this* pseudo-layer while the whole run is already being staggered as a
+child of the real `.dock-face` above it — a nested opacity/scale multiplication that no one
+designed. (Labelled a **hypothesis** for the rendered result: I confirmed the selector applies and
+the class is present; I did not capture a frame mid-`[data-morphing]`.)
 
-Violates `VISUAL-CONSTITUTION.md §5` — the grammar is *select → tune → commit*; an instrument that
-silently retains a sub-mode across a full dismissal is neither.
-
----
-
-#### D-11 · MINOR (HYPOTHESIS) — `propose` mode is never reconciled when it becomes illegal
-
-`canProposeName` is a live computed that flips to `false` as soon as the current color acquires a
-custom name:
-
-```
-demo/color-session/useColorNameResolution.ts:66-70
-    const canProposeName = computed(() => !findCustomName(currentXYZString.value));
-```
-
-`cycleToolbarMode` reads it only at the moment of the transition (line 37). Nothing watches it
-afterwards. If it flips false while `toolbarMode === "propose"`, the layer stays in propose mode,
-`ColorInput` keeps `propose-mode` true with a live submit button, and the toggle announces
-"Close propose" for a proposal the pipeline has already ruled out.
-
-**Reproduction: NONE — labelled a hypothesis.** Reaching it requires a color that resolves to an
-approved custom name while propose mode is open; I did not construct that fixture. The mechanism
-(a stateful mode with no reconciliation watcher on its own precondition) is confirmed by reading.
+This is the **no-legacy / design-system-boundary** edict in its purest form: the file reaches past
+glass-ui to hand-roll what glass-ui provides, and pays for it by adopting private CSS as a public
+contract. It is also why D-12's containing-block bug exists at all — a real `<DockLayer>` inside a
+real `<DockCrossfade>` gets `position: relative` on its host by construction.
 
 ---
 
-#### D-12 · MINOR — the shim has no `prefers-reduced-motion` branch
+## D-16 · MINOR — dead public surface: three refs, one exposure, one prop, one method, all unread
 
-`setTimeout(…, 260)` (line 76) is unconditional. The house guard shortens transitions to 0.01 ms
-under PRM (recorded at `ActionBarToggle.vue:29–30`) but cannot touch a JS timer, so under PRM the
-leaving layer holds `is-leaving` — and `visibility: visible` — for the full 260 ms after everything
-it was covering has already settled. `VISUAL-CONSTITUTION.md §6`: "Reduced motion resolves
-**directly** to the final geometry and stable chromatic state."
-
-Under `<DockCrossfade>` this disappears: the swap rides `useDockSpring`, which the producer already
-degrades.
-
----
-
-#### Unhandled-state register (the full enumeration the brief asked for)
-
-| State | Handled? | Note |
-|---|---|---|
-| empty (no `actionBar` context) | n/a | `v-if` in the parent (`Dock.vue:156`) — correct |
-| loading | **NO** | `ColorInput` submit and `propose` have in-flight states; the layer reserves nothing for them |
-| populated / actions | yes | |
-| populated / input | yes | |
-| populated / propose | partial | D-11 |
-| error | **NO** | `ColorInput`'s `.error-badge` (`ColorInput.vue:87`) grows the layer inside a box with no reserve → re-triggers D-6 |
-| disabled | partial | `isEditing` disables Palettes/Extract only; no disabled state for the mode toggle itself |
-| focused | **NO** | D-8 — focus is destroyed on every swap |
-| hovered | **BROKEN** | D-9 — stranded popover |
-| active / pressed | inherited | from `DockControl` |
-| selected | n/a | |
-| dragging | n/a | |
-| overflowing / truncated | **NO** | the layer is `min-w-0` inside a `fit-content` dock; no truncation or scroll rule for a long `lab(...)` value — the box simply grows the pill (D-6) |
-| RTL | untested by this seat | logical properties are used throughout; no mirrored-icon concern |
-| reduced-motion | **NO** | D-12 |
-| forced-colors | **NO** | `--toggle-hover-color` and `stroke-foreground` are both overridden by forced-colors; no `forced-color-adjust` or system-color fallback (D-14) |
-| 200 % zoom | **NO** | reserve-free inline growth (D-6) at half the effective viewport; the state matrix never opened this layer |
-| **mobile (any state)** | **ABSENT** | D-7 |
-
----
-
-### Family D — design-system boundary and styling law
-
-#### D-13 · MAJOR — a second, shadowing `COLOR_MODEL_KEY` provider
-
-```
-demo/color-picker/App.vue:257            provide(COLOR_MODEL_KEY, pipeline);   // the ONE pipeline
-demo/shell/dock/layers/ActionBarLayer.vue:21-22
-    // Re-provide COLOR_MODEL_KEY so ColorInput works unchanged
-    provide(COLOR_MODEL_KEY, actionBar.colorModel);
-```
-
-The app root already provides the single pipeline — `ColorPicker.vue:172`, `ColorInput.vue:155`,
-`ParseEchoReadout.vue:31`, `ComponentSliders.vue:115`, `SpectrumCanvas.vue:50`, `HeroBlob.vue:56`
-and `ConsoleRail.vue:115` all inject it, and `AboutPane.vue:9` records it as "ambient since S.W2".
-`ActionBarLayer` shadows it for its subtree with a **prop-sourced** copy, and the comment states
-the reason outright: *"so ColorInput works unchanged."*
-
-That is the exact shape edict 2 forbids — a compat path so the consumer need not be migrated at the
-root — and it means the dock's `ColorInput` and `ParseEchoReadout` read the model through a
-different injection edge than every other consumer in the app. One key, two providers, two truths.
-
----
-
-#### D-14 · MINOR — per-instance inline styling where the root owns the ink (edict 5)
-
-```
-ActionBarLayer.vue:138-139
-    class="toggle-btn w-6 h-6 stroke-foreground"
-    :style="{ '--toggle-hover-color': safeAccent }"
-```
-```
-ActionBarLayer.vue:149-151 (scoped)
-    .toggle-btn:hover { stroke: var(--toggle-hover-color); }
-```
-
-Measured on the live element:
-
-```json
-{ "toggleHoverColor": "oklch(47.09…% 0.188… 9.83…deg)",
-  "stroke": "rgb(28, 25, 23)",
-  "inlineStyleAttr": "--toggle-hover-color: oklch(47.09…% 0.188… 9.83…deg);" }
-```
-
-Three separate overrides of ink that `DockControl` already owns: a Tailwind `stroke-foreground`
-hard-stop, a private one-off custom property injected inline per instance, and a scoped `:hover`
-rule to consume it. Contrast the correct pattern the same repo uses two directories up —
-`ActionBarToggle.vue:154–158` styles through the **producer's own token hook**
-(`--dock-compact-control-padding`), with a comment that names the principle: *"rides the producer's
-OWN token hook … never a specificity fight."* This file loses that discipline in the same wave.
-
-Forced-colors consequence: neither `stroke-foreground` nor the inline OKLCH survives forced-colors
-mode, and no system-color fallback is declared.
-
----
-
-#### D-15 · MINOR — three dead handles
-
-- `defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode })` (line 96) — the parent mounts
-  this component with **no `ref`** (`Dock.vue:156`), so the entire exposed surface is unreachable.
-- `colorInputRef` (line 28) — declared, never read.
-- `actionToolbarRef` (line 29) — declared, never read; see D-9 for what it should have been doing.
-
----
-
-#### D-16 · MINOR — `useTemplateRef` inconsistency inside a single file (edict 7)
-
-Lines 28–29 use the legacy `ref<InstanceType<typeof X> | null>(null)` + matching `ref=` attribute
-idiom; line 83 uses `useTemplateRef<HTMLElement>("subLayerGridEl")`. Two template-ref idioms, 55
-lines apart, in one 158-line SFC. Vue 3.5 canon (and edict 7) is `useTemplateRef`.
-
----
-
-#### D-17 · INFO — a dead prop crossing the component seam
-
-`ActionToolbar.vue:72` declares `canProposeName: boolean` and its template never references it
-(`ActionToolbar.vue:1–63`). `ActionBarLayer.vue:106` dutifully passes it. A required prop that is
-pure ceremony on both sides of the seam.
-
----
-
-#### D-18 · MINOR — a three-branch nested ternary as an accessible name
-
-`ActionBarLayer.vue:131` computes the toggle's `aria-label` from a 176-character nested ternary
-inline in the template. The accessible name is the only thing distinguishing three otherwise
-identical states (D-10 makes that name load-bearing). It belongs in a `computed` beside
-`currentToggleIcon` (lines 47–51), which already switches on the same three-way state — two
-switches on one state variable, in two languages, in two places.
-
----
-
-## 4. Negatives proven (evidence that the rest is sound)
-
-Recorded so this report is not read as uniformly damning, and so refuted hypotheses do not
-propagate:
-
-1. **`verbatimModuleSyntax` is satisfied.** Line 2 qualifies `type Ref` inline; lines 5 and 9 are
-   `import type`. No mixed import. Edict 8: clean.
-2. **The closed layer is correctly inert.** `faceInert: true`, `anyInertAncestor: true` — the
-   producer applies it; the 8 buttons inside are not in the tab order. No hidden-focus leak.
-3. **The icon rhythm is currently undistorted.** I predicted `justify-around` (`ActionToolbar.vue:2`)
-   would produce the classic half-gap end asymmetry against the separator. **Refuted by
-   measurement:** `leadIn: 0`, `tailOut: 0`, `interGaps: [6, 6, 6, 6]` — the box is exactly
-   content-sized, so `space-around` has no free space to distribute, and the 6 px is the producer's
-   `--dock-layer-gap` fallback (`0.375rem`). *But note the dependency:* that 6 px arrives **only**
-   through the illegitimate `.dock-layer` class of D-2 — ActionBarLayer's own root sets `gap-0`
-   (line 100). Retire the counterfeit class without replacing the gap and the icon rhythm collapses
-   to zero. This is a dependency proof, not a spacing defect.
-4. **No dock-hold leak.** See the refutation under D-9.
-5. **No vertical band disturbance.** Pill height 62 px in both modes; `VISUAL-CONSTITUTION.md §3.4`
-   holds.
-6. **No page errors, no horizontal overflow** on the host route in the tracked matrix
-   (`REPORT.md` rows for `/#/`, all four matrices: `overflowX 0`, `pageErr 0`).
-7. **`PALETTE-CONTRACT.md` is not applicable.** Read in full — it is the api/wire/export authority
-   (routes, session, palette persistence, byte-exact export). It carries no visual or accent law
-   this component could violate. Judged against `PROPORTION-AUDIT.md` and
-   `VISUAL-CONSTITUTION.md` instead, per §3 above.
-
----
-
-## 5. The gestalt cure — one transposition, not eighteen patches
-
-D-1 through D-6, D-8 and D-12 are **one defect wearing eight faces**: a consumer reimplemented a
-producer mechanism, kept its class vocabulary, and dropped its guarantees. The idiomatic cure is
-architectural, and it subtracts:
-
-```
-delete  lines 26–29   (dead refs)
-delete  lines 53–94   (the shim + subLayerProps)
-delete  line  96      (dead defineExpose)
-delete  lines 146–158 (the private hover-ink block)
-
-import { DockControl, DockSeparator, DockCrossfade, DockLayer } from "@mkbabb/glass-ui/dock";
-
-<DockCrossfade :active="activeSubLayer" reserve="inline">
-    <DockLayer id="actions"> <ActionToolbar … /> </DockLayer>
-    <DockLayer id="input">   <ColorInput   … /> </DockLayer>
-</DockCrossfade>
-```
-
-That single move retires: the phantom 260 ms (D-1), the counterfeit private classes (D-2), the
-undefined grid container and its mis-anchored overlap (D-3), the duration desync (D-4), the
-signature-parity shim (D-5), the 70.4 px pointer displacement (D-6, via `reserve="inline"`), the
-focus drop (D-8, via producer focus-transfer), and the PRM gap (D-12, via `useDockSpring`).
-The file drops from 158 to roughly 80 lines and stops depending on anything glass-ui did not
-promise it.
-
-The remainder are separable and small:
-
-| Defect | Cure |
+| declared | consumer |
 |---|---|
-| D-7 | bind `:on-mount` on the mobile `<PaneSlot>` (App.vue:83) — or, better, provide the action-bar context through DI instead of a sibling template ref; then design the mobile action composition §3.6 requires |
-| D-9 | call `actionToolbarRef.clearHover()` on swap — or, once `<DockCrossfade>` owns the swap, let the face's own unmount/inert hook dismiss its popovers |
-| D-10 | reset `toolbarMode = "actions"` on `activeSubLayer`/layer-close |
-| D-11 | `watch(canProposeName, ok => { if (!ok && toolbarMode === "propose") toolbarMode = "actions" })` |
-| D-13 | delete the re-provide; migrate `ColorInput`/`ParseEchoReadout` to the app-root pipeline at the root (edict 2) |
-| D-14 | drop `stroke-foreground` + the inline custom property; take hover ink from `DockControl`'s token |
-| D-16, D-17, D-18 | `useTemplateRef`; delete the dead prop; lift the aria-label to a `computed` |
+| `colorInputRef` (`:28`, bound `:116`) | **none** — and it is exactly the handle D-6 needs |
+| `actionToolbarRef` (`:29`, bound `:103`) | **none** — and `ActionToolbar` exposes `clearHover()` (`ActionToolbar.vue:91`) that is never called, so a hovered action can stay lit after the layer swaps away |
+| `defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode })` (`:96`) | **none** — `Dock.vue:156` mounts this component with no `ref` |
+| `:can-propose-name` passed at `:106` | **none** — `ActionToolbar.vue:72` declares the prop and never reads it |
 
-**No source edits land from this formation.** Every cure above is a proposal for the consuming
-wave.
+Verified by `grep -rn` across `demo/` and `e2e/`: the only occurrences of each identifier are its
+declaration and its binding.
+
+Two idioms also coexist in 158 lines: `ref<InstanceType<…>>` template refs at `:28–29` versus
+`useTemplateRef` at `:83` — against the standing **idiomatic Vue 3.5** edict, which the file
+itself half-follows.
+
+`PROPORTION-AUDIT.md:71` (law 6): "Subtraction precedes explanation." A public surface with no
+consumer is not an affordance; it is a promise the component cannot keep.
 
 ---
 
-## 6. Strongest single defect
+## D-17 · INFO — `stroke-foreground` breaks the `currentColor` chain forced-colors relies on
 
-**D-1 + D-2 together — the shim is a dead transition bound to producer-private CSS.**
+`demo/styles/foundation.css:665–700` documents the house WHCM policy: chrome stays at
+`forced-color-adjust: auto` "so it is visible + operable", with a `Highlight` outline restored on
+focus. That policy works because lucide icons paint `stroke="currentColor"` and WHCM forces
+`color`.
 
-The component's own header asserts the shim "preserves the exact two-refs contract the template
-needs" for "the crossfade window." Measurement says the crossfade does not exist: the leaving layer
-is at `opacity: 0` within 40 ms, the only transition on the node is `visibility`, and the classes
-carrying that CSS (`.dock-layer` / `.is-active` / `.is-leaving`) are GlassDock's **private
-expanded-vs-collapsed plate classes**, emitted in Glass 7 only as `dock-layer--full` and
-`dock-layer--summary` inside the producer's own shell — while the public face class the consumer
-should be using is `.dock-face`, and the container class it hangs them from, `.dock-layer-grid`,
-is defined nowhere on disk. A 42-line mechanism, a documented rationale, and a carry-ledger
-retirement condition — all guarding a beat that never plays.
+`ActionBarLayer.vue:138` applies `stroke-foreground`, i.e. `stroke: var(--foreground)` — an
+explicit stroke that overrides `currentColor` and that WHCM does **not** force (custom properties
+are not force-adjusted). Its siblings do not do this: `Dock.vue:154` renders the Back arrow as
+`class="w-6 h-6"` with no stroke class, so Back adopts `ButtonText` and the toggle does not.
+
+Measured under `forcedColors: "active"` emulation:
+
+```
+.toggle-btn  stroke: "rgb(28, 25, 23)"   --toggle-hover-color: "oklch(51.9% 0.208 9.83deg)"
+```
+
+The author stroke and the author accent both survive the media query
+(`D2-forced-colors-emulated.png`).
+
+**Labelled a hypothesis for the paint:** Playwright/WebKit emulates the media query without
+applying a real forced palette, so I proved the *mechanism* (the `currentColor` chain is broken at
+source, asymmetrically with its own siblings) but not the rendered black-on-black. A real WHCM
+host is needed to close it.
+
+---
+
+## Canon judgement
+
+| Authority | Row | Verdict |
+|---|---|---|
+| `PROPORTION-AUDIT.md:60` | **PR-16** — the ⋮ "keeps a named menu purpose plus expanded state or is removed" | **VIOLATED** (D-10): no menu purpose, no expanded state, and a glyph collision with the real menu in the same dock |
+| `PROPORTION-AUDIT.md:72–73` | laws 7–8 — glyph size, target size and reservation are separate; rendered relation beats token intent | **VIOLATED** (D-8): glyph +20 % over token, target −9 % under token, both from one instance utility |
+| `PROPORTION-AUDIT.md:71` | law 6 — subtraction precedes explanation | **VIOLATED** (D-16): four unread surfaces |
+| `PROPORTION-AUDIT.md:5` | proportion is relational; interval is earned | **VIOLATED** (D-13): 6 px cluster asymmetry from `justify-around` on a stretched band |
+| `VISUAL-CONSTITUTION.md:141` | §6 — "no … dock collapse" | **VIOLATED** (D-1): measured 254.7 × 59.5 → 28.1 × 64.7, no active face |
+| `VISUAL-CONSTITUTION.md:144` | §6 — reduced motion resolves directly to final geometry | **VIOLATED** (D-7): 260 ms late, unarmed JS timer |
+| `VISUAL-CONSTITUTION.md:129` | §5.2 — horizontal dock roving focus | **VIOLATED** (D-2): no rail, and in WebKit no tab stop at all |
+| `VISUAL-CONSTITUTION.md:115` | §5.1 — open/close focus law | **VIOLATED** (D-6): one leg focuses, the other drops to `<body>` |
+| `VISUAL-CONSTITUTION.md:30` | §2 — the dock band is reserved | **VIOLATED in the inline axis** (D-5): ±70 px per swap |
+| `VISUAL-CONSTITUTION.md:82` | §4 — focus and boundaries meet rendered contrast on the real tier | **VIOLATED** (D-14): ring crosses the separator |
+| `PALETTE-CONTRACT.md` | — | **NOT APPLICABLE.** Read in full: it is the palette *data/API* authority (routes, wire contract, export bytes), not a colour-register authority. It binds nothing on this surface, and citing it here would be noise. |
+
+### Owner edicts
+
+| Edict | Verdict |
+|---|---|
+| 1 · no god modules | **PASS.** 158 lines, one job; the file is small — it is wrong, not bloated. |
+| 2 · no legacy code | **FAIL** (D-4, D-15). The shim *is* a compatibility layer for a producer API that was superseded, kept alive by a header comment that misstates the producer's surface. `void opts.containerEl; // signature parity with the retired producer composable` (`:67`) is a back-compat shim in one line: a parameter accepted to match a function that no longer exists anywhere. |
+| 3 · KISS, no contrivance | **FAIL** (D-3, D-12). A 32-line local composable and an invented container class to reproduce, badly, what one imported component does. |
+| 4 · glass-ui is the design system | **FAIL** (D-4, D-8, D-15). Reaches past the system for a content swap, a glyph size and an accent hover the system supplies. |
+| 5 · root-level styling | **FAIL** (D-8). `:style="{ '--toggle-hover-color': … }"` and `w-6 h-6` are per-instance overrides of a root that owns both. |
+| 6 · animations never deleted, only moved or tokenized | **PASS with a caveat.** No keyframe was removed; but `SUB_LAYER_CROSSFADE_MS = 260` is an untokenized magic duration governing motion, and it animates nothing (D-3). |
+| 7 · idiomatic Vue 3.5 | **FAIL** (D-16). `ref` and `useTemplateRef` template-ref idioms coexist in one file. |
+| 8 · `verbatimModuleSyntax` | **PASS.** `:5` `import type { ActionBarContext }`, `:9` `import type { EditTarget }`, `:2` `type Ref` inline — all correct. |
+
+---
+
+## State coverage
+
+Enumerating every state this component can occupy, and whether it was designed:
+
+| State | Designed? | Evidence |
+|---|---|---|
+| `actions`, populated, desktop | yes | `D2-desktop-light-actions.png` |
+| `input`, desktop | yes, but the box is unreserved | D-5 |
+| `propose`, desktop | partly — reachable, unexitable-by-predicate | D-11 |
+| **mid-swap (`is-leaving`)** | **no** — a 443 px invisible overlay over live controls for 260 ms | D-3, D-12 |
+| **focused** | **no** — no tab stop in WebKit; ring collides with the separator | D-2, D-14 |
+| hovered | partial — unguarded `:hover` latches on touch | D-9 |
+| pressed / active | producer-supplied (`--dock-press-t`), not designed here | — |
+| **selected / current mode** | **no** — no `aria-pressed`/`aria-expanded` on a 3-state control | D-10 |
+| disabled | n/a for the toggle; `ActionToolbar` disables two actions on `isEditing` | `ActionToolbar.vue:44,57` |
+| loading | n/a here (`ColorInput` owns `proposing`) | — |
+| error | delegated to `ColorInput`'s `.error-badge` | — |
+| **empty** | **no** — `GenericActionBar` (the else branch) renders no toggle and no trailing separator, so the layer is visually asymmetric between its two branches | `Dock.vue:156–157` |
+| overflowing / truncated | untested; `input` at 325 px already exceeds the 227 px mobile face | D-1 |
+| **mobile** | **no — and hostile**: unmounted, trigger live in the a11y tree, activation collapses the dock | **D-1** |
+| **reduced-motion** | **no** — timer unarmed | D-7 |
+| **forced-colors** | **no** — `currentColor` chain broken asymmetrically | D-17 |
+| zoom 200 % | not captured (matrix has no action-bar state) | coverage note |
+| RTL | not captured. The flex row and `inset: 0` mirror correctly; `--vj-morph-x` is `0px` so the icon morph is direction-neutral. **No defect found, but no positive proof either.** | — |
+
+**Eleven** states are unhandled, unstyled or actively broken. Three of them (mobile, focused,
+reduced-motion) are BLOCKER-class.
+
+---
+
+## The negative — what I could not fault
+
+Stated so the verdict is not mistaken for indiscriminate condemnation:
+
+- **`verbatimModuleSyntax` is clean.** All three type-only imports are `import type`
+  (`:2`, `:5`, `:9`).
+- **The `inert` binding is correct.** Measured: the inactive sub-layer carries `inert` and its
+  descendants report `inert: true` up the chain; the active one does not. The a11y tree is not
+  polluted by the hidden face — the failure at D-1 is the *trigger's*, not this binding's.
+- **`aria-label` on the toggle is present and mode-accurate** (`Open color input` /
+  `Propose color name` / `Close input` / `Close propose`) — added deliberately at E.W3 Lane A and
+  correct as far as naming goes. The defect (D-10) is the missing *state*, not a missing name.
+- **The provide/inject seam is sound.** `provide(COLOR_MODEL_KEY, actionBar.colorModel)` at `:22`
+  is a genuine re-scoping so `ColorInput` reads the action bar's model rather than the ambient
+  one — not a shim.
+- **It is not a god module.** 158 lines, one responsibility. The problem is that the one
+  responsibility is discharged against a mechanism that does not exist.
+- **No animation was deleted.** The `vj-morph` icon transition is on the sanctioned family with
+  only geometry parameterised (`--vj-morph-scale: 0.7`, `--vj-morph-y: 0px`) — exactly what
+  `animations.css:62–65` permits a consuming site to do.
+
+---
+
+## Strongest single defect
+
+**D-1.** A control that is invisible, unhittable and untabbable — but still named, focusable and
+present in the accessibility tree — points at a layer that is not mounted on mobile. Activating it
+through assistive technology collapses the entire application dock to an empty 28 × 65 px sliver
+with every face inert and no active face, destroying view navigation, login and account access
+with no recovery short of a reload. `VISUAL-CONSTITUTION.md:141` forbids precisely this outcome by
+name. It is measured, exactly reproducible, and it is a design failure rather than a coding slip:
+the component's presence and its trigger's presence were never made one fact.
+
+---
+
+## Cure, in one architectural move
+
+Every finding except D-1, D-9, D-10, D-13 and D-16 dissolves in a single transposition:
+
+```
+- the 32-line local useLayerTransition + subLayerProps + the .dock-layer-grid container
++ <DockCrossfade :active="activeSubLayer" reserve="inline">
++     <DockLayer id="actions"> … </DockLayer>
++     <DockLayer id="input">   … </DockLayer>
++ </DockCrossfade>
+```
+
+from `@mkbabb/glass-ui/dock` — the specifier line 8 already imports from. That one move buys the
+real opacity overlap on the dock's own spring (D-3), a measure-once inline reserve that stops the
+±70 px displacement (D-5), the producer's focus transfer off a dissolving face (D-6), a
+reduced-motion arm that is a media fact rather than a timer (D-7), correct containing blocks
+(D-12), and the end of consumer-side use of the producer's private CSS (D-15). The remainder are
+seat-level: adopt the dock's glyph/touch tokens at the root (D-8), guard the hover register (D-9),
+give the toggle one meaning and an expanded state (D-10), give the action run a token gap instead
+of `justify-around` on a stretched band (D-13), and delete the four unread surfaces (D-16).
+
+D-1 and D-2 are not cured by that move and must be designed: a mobile action bar that exists, and
+a dock control run that answers `VISUAL-CONSTITUTION.md:129`'s roving-focus law.
+
+**Relay consequence.** Glass-ui relay O-6 mark M2 ("please ship a public content-swap composable")
+should be **withdrawn as already-answered by 7.0.0**, and the `CARRY-LEDGER §F` row should move
+from "retire at W47 if glass ships a successor" to **"retire unconditionally — the successor
+shipped."**

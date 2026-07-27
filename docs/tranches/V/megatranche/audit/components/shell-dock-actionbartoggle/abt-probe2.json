@@ -1,0 +1,196 @@
+{
+ "prmRoundTrip": [
+  {
+   "at": "gradient (boot)",
+   "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "slotTransProp": "opacity, color, background-color, border-color, box-shadow",
+   "slotTransDur": "0.1s",
+   "slotCols": "125.516px",
+   "innerOverflow": "visible",
+   "toolsW": 104.5,
+   "compactPadVar": "0.5rem 0.75rem",
+   "compactPadUsed": "4px",
+   "gapUsed": "9.304px",
+   "marginUsed": "4px"
+  },
+  {
+   "at": "browse (departed)",
+   "slotCls": "action-bar-toggle-slot is-live",
+   "slotTransProp": "opacity, color, background-color, border-color, box-shadow",
+   "slotTransDur": "0.1s",
+   "slotCols": "0px",
+   "innerOverflow": "hidden",
+   "toolsW": 104.5,
+   "compactPadVar": "0.5rem 0.75rem",
+   "compactPadUsed": "4px",
+   "gapUsed": "9.304px",
+   "marginUsed": "4px"
+  },
+  {
+   "at": "gradient (re-arrival)",
+   "slotCls": "action-bar-toggle-slot is-visible is-live",
+   "slotTransProp": "opacity, color, background-color, border-color, box-shadow",
+   "slotTransDur": "0.1s",
+   "slotCols": "125.516px",
+   "innerOverflow": "hidden",
+   "toolsW": 104.5,
+   "compactPadVar": "0.5rem 0.75rem",
+   "compactPadUsed": "4px",
+   "gapUsed": "9.304px",
+   "marginUsed": "4px"
+  },
+  {
+   "at": "gradient (2nd re-arrival)",
+   "slotCls": "action-bar-toggle-slot is-visible is-live",
+   "slotTransProp": "opacity, color, background-color, border-color, box-shadow",
+   "slotTransDur": "0.1s",
+   "slotCols": "125.516px",
+   "innerOverflow": "hidden",
+   "toolsW": 104.5,
+   "compactPadVar": "0.5rem 0.75rem",
+   "compactPadUsed": "4px",
+   "gapUsed": "9.304px",
+   "marginUsed": "4px"
+  },
+  {
+   "at": "hover after re-arrival",
+   "slotCls": "action-bar-toggle-slot is-visible is-live",
+   "slotTransProp": "opacity, color, background-color, border-color, box-shadow",
+   "slotTransDur": "0.1s",
+   "slotCols": "125.516px",
+   "innerOverflow": "hidden",
+   "toolsW": 115,
+   "compactPadVar": "0.5rem 0.75rem",
+   "compactPadUsed": "4px",
+   "gapUsed": "9.304px",
+   "marginUsed": "4px",
+   "hoverBox": {
+    "tools": [
+     631.5,
+     115,
+     35.2
+    ],
+    "inner": [
+     619.8,
+     125.5,
+     32
+    ],
+    "overflowLeft": -11.77,
+    "overflowRight": 1.23,
+    "overflowTop": 1.6,
+    "overflowBottom": 1.6
+   }
+  }
+ ],
+ "prmRules": [
+  {
+   "sel": ".action-bar-toggle-slot.is-live[data-v-69d6f73e]",
+   "cond": "",
+   "tp": "grid-template-columns var(--duration-normal) var(--ease-standard),\n        opacity var(--duration-normal) var(--ease-standard)",
+   "td": "",
+   "prio": ""
+  },
+  {
+   "sel": ":not([data-allow-motion])",
+   "cond": "(prefers-reduced-motion: reduce)",
+   "tp": "opacity, color, background-color, border-color, box-shadow",
+   "td": "0.1s",
+   "prio": "important"
+  },
+  {
+   "sel": "*, ::before, ::after",
+   "cond": "(prefers-reduced-motion: reduce)",
+   "tp": "",
+   "td": "0.01ms",
+   "prio": "important"
+  }
+ ],
+ "normalRoundTrip": [
+  {
+   "at": "gradient (boot)",
+   "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "slotTransProp": "grid-template-columns, opacity",
+   "slotTransDur": "0.3s, 0.3s",
+   "slotCols": "125.516px",
+   "innerOverflow": "visible",
+   "toolsW": 104.5,
+   "compactPadVar": "0.5rem 0.75rem",
+   "compactPadUsed": "4px",
+   "gapUsed": "9.304px",
+   "marginUsed": "4px"
+  },
+  {
+   "at": "gradient (re-arrival)",
+   "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "slotTransProp": "grid-template-columns, opacity",
+   "slotTransDur": "0.3s, 0.3s",
+   "slotCols": "125.516px",
+   "innerOverflow": "visible",
+   "toolsW": 104.5,
+   "compactPadVar": "0.5rem 0.75rem",
+   "compactPadUsed": "4px",
+   "gapUsed": "9.304px",
+   "marginUsed": "4px"
+  }
+ ],
+ "siblings": [
+  {
+   "sel": "[aria-label=\"Select view\"]",
+   "box": [
+    128.1,
+    32
+   ],
+   "cls": "dock-trigger dock-select-trigger view-select-trigger text-small font-display font-normal [",
+   "pad": "4px 8px",
+   "gap": "4px",
+   "svg": [
+    24,
+    24
+   ],
+   "label": "Gradient",
+   "font": "Fraunces",
+   "size": "16.4px",
+   "weight": "400",
+   "color": "color(srgb 0 0 0 / 0.8)"
+  },
+  {
+   "sel": "[aria-label=\"Toggle action bar\"]",
+   "box": [
+    104.5,
+    32
+   ],
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-t",
+   "pad": "4px",
+   "gap": "9.304px",
+   "svg": [
+    24,
+    24
+   ],
+   "label": "Tools",
+   "font": "Fraunces",
+   "size": "16.4px",
+   "weight": "400",
+   "color": "oklch(0.471189 0.188448 9.83402)"
+  },
+  {
+   "tokens": {
+    "--type-small": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+    "--type-body": "clamp( 1rem, 0.92rem + 0.27vw, 1.375rem )",
+    "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+    "--scale-hover-dock": "1.1",
+    "rootFontSize": "16px"
+   }
+  }
+ ],
+ "focus": {
+  "label": "Toggle action bar",
+  "outlineStyle": "none",
+  "outlineWidth": "3px",
+  "outlineColor": "color(srgb 0 0 0 / 0.8)",
+  "outlineOffset": "0px",
+  "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+  "background": "rgba(0, 0, 0, 0)",
+  "scale": "1",
+  "matchesFV": true
+ }
+}

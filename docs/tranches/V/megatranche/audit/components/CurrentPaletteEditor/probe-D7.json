@@ -1,0 +1,406 @@
+{
+  "a-orange-1440-dpr1": {
+    "dpr": 1,
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "inputColorStored": "rgb(226 87 31)",
+    "groundSeed": "",
+    "borderWidthUsed": "1px",
+    "wellFill": {
+      "r": 233,
+      "g": 225,
+      "b": 217,
+      "a": 1
+    },
+    "plateOnWhite": {
+      "r": 244,
+      "g": 239,
+      "b": 233,
+      "a": 1
+    },
+    "wellVsPlateRatio": 1.13,
+    "wellVsPlateRgbDistance": 24,
+    "edgeOnFillRatio": 1.27,
+    "ghost": {
+      "border": "rgb(226, 87, 31)",
+      "width": "2px",
+      "ratioVsFill": 2.89
+    },
+    "saveBtn": {
+      "rect": {
+        "w": 32,
+        "h": 40
+      },
+      "borderWidth": "0px",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "outline": "3px none rgb(28, 25, 23)",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "accName": "",
+      "classList": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
+    },
+    "wellRect": {
+      "x": 754,
+      "y": 331.7,
+      "w": 462,
+      "h": 196.7
+    },
+    "rowRect": {
+      "w": 436,
+      "h": 55.2
+    },
+    "rowChildX": [
+      767,
+      825,
+      883,
+      941,
+      999,
+      1057
+    ],
+    "rowChildY": [
+      377.6,
+      377.6,
+      377.6,
+      377.6,
+      377.6,
+      377.6
+    ],
+    "overflowsParent": false
+  },
+  "b-beige-1440-dpr1": {
+    "dpr": 1,
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "inputColorStored": "rgb(233 225 217)",
+    "groundSeed": "",
+    "borderWidthUsed": "1px",
+    "wellFill": {
+      "r": 233,
+      "g": 225,
+      "b": 217,
+      "a": 1
+    },
+    "plateOnWhite": {
+      "r": 244,
+      "g": 239,
+      "b": 233,
+      "a": 1
+    },
+    "wellVsPlateRatio": 1.13,
+    "wellVsPlateRgbDistance": 24,
+    "edgeOnFillRatio": 1.27,
+    "ghost": {
+      "border": "rgb(233, 225, 217)",
+      "width": "2px",
+      "ratioVsFill": 1
+    },
+    "saveBtn": {
+      "rect": {
+        "w": 32,
+        "h": 40
+      },
+      "borderWidth": "0px",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "outline": "3px none rgb(28, 25, 23)",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "accName": "",
+      "classList": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
+    },
+    "wellRect": {
+      "x": 754,
+      "y": 331.7,
+      "w": 462,
+      "h": 196.7
+    },
+    "rowRect": {
+      "w": 436,
+      "h": 55.2
+    },
+    "rowChildX": [
+      767,
+      825
+    ],
+    "rowChildY": [
+      377.6,
+      377.6
+    ],
+    "overflowsParent": false
+  },
+  "c-beige-1440-dark": {
+    "dpr": 1,
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "inputColorStored": "rgb(233 225 217)",
+    "groundSeed": "",
+    "borderWidthUsed": "1px",
+    "wellFill": {
+      "r": 66,
+      "g": 55,
+      "b": 47,
+      "a": 1
+    },
+    "plateOnWhite": {
+      "r": 122,
+      "g": 114,
+      "b": 108,
+      "a": 1
+    },
+    "wellVsPlateRatio": 2.45,
+    "wellVsPlateRgbDistance": 102,
+    "edgeOnFillRatio": 1.38,
+    "ghost": {
+      "border": "rgb(233, 225, 217)",
+      "width": "2px",
+      "ratioVsFill": 8.93
+    },
+    "saveBtn": {
+      "rect": {
+        "w": 32,
+        "h": 40
+      },
+      "borderWidth": "0px",
+      "borderColor": "oklab(0.46523 0.011049 0.026074 / 0.5)",
+      "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+      "outline": "3px none rgb(233, 230, 226)",
+      "bg": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+      "accName": "",
+      "classList": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
+    },
+    "wellRect": {
+      "x": 754,
+      "y": 331.7,
+      "w": 462,
+      "h": 196.7
+    },
+    "rowRect": {
+      "w": 436,
+      "h": 55.2
+    },
+    "rowChildX": [
+      767,
+      825
+    ],
+    "rowChildY": [
+      377.6,
+      377.6
+    ],
+    "overflowsParent": false
+  },
+  "d-orange-1440-dpr2": {
+    "dpr": 2,
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "inputColorStored": "rgb(226 87 31)",
+    "groundSeed": "",
+    "borderWidthUsed": "1.5px",
+    "wellFill": {
+      "r": 233,
+      "g": 225,
+      "b": 217,
+      "a": 1
+    },
+    "plateOnWhite": {
+      "r": 244,
+      "g": 239,
+      "b": 233,
+      "a": 1
+    },
+    "wellVsPlateRatio": 1.13,
+    "wellVsPlateRgbDistance": 24,
+    "edgeOnFillRatio": 1.27,
+    "ghost": {
+      "border": "rgb(226, 87, 31)",
+      "width": "2px",
+      "ratioVsFill": 2.89
+    },
+    "saveBtn": {
+      "rect": {
+        "w": 32,
+        "h": 40
+      },
+      "borderWidth": "0px",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "outline": "3px none rgb(28, 25, 23)",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "accName": "",
+      "classList": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
+    },
+    "wellRect": {
+      "x": 754,
+      "y": 331.7,
+      "w": 462,
+      "h": 197.7
+    },
+    "rowRect": {
+      "w": 435,
+      "h": 55.2
+    },
+    "rowChildX": [
+      767.5,
+      825.5,
+      883.5,
+      941.5,
+      999.5,
+      1057.5
+    ],
+    "rowChildY": [
+      378.1,
+      378.1,
+      378.1,
+      378.1,
+      378.1,
+      378.1
+    ],
+    "overflowsParent": false
+  },
+  "e-zoom200-720-dpr2": {
+    "dpr": 2,
+    "viewport": {
+      "w": 720,
+      "h": 450
+    },
+    "inputColorStored": "rgb(226 87 31)",
+    "groundSeed": "",
+    "borderWidthUsed": "1.5px",
+    "wellFill": {
+      "r": 233,
+      "g": 225,
+      "b": 217,
+      "a": 1
+    },
+    "plateOnWhite": {
+      "r": 244,
+      "g": 239,
+      "b": 233,
+      "a": 1
+    },
+    "wellVsPlateRatio": 1.13,
+    "wellVsPlateRgbDistance": 24,
+    "edgeOnFillRatio": 1.27,
+    "ghost": {
+      "border": "rgb(226, 87, 31)",
+      "width": "2px",
+      "ratioVsFill": 2.89
+    },
+    "saveBtn": {
+      "rect": {
+        "w": 32,
+        "h": 40
+      },
+      "borderWidth": "0px",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "outline": "3px none rgb(28, 25, 23)",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "accName": "",
+      "classList": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
+    },
+    "wellRect": {
+      "x": 129,
+      "y": 244,
+      "w": 462,
+      "h": 194.4
+    },
+    "rowRect": {
+      "w": 435,
+      "h": 54.4
+    },
+    "rowChildX": [
+      142.5,
+      200.5,
+      258.5,
+      316.5,
+      374.5,
+      432.5
+    ],
+    "rowChildY": [
+      287.9,
+      287.9,
+      287.9,
+      287.9,
+      287.9,
+      287.9
+    ],
+    "overflowsParent": false
+  },
+  "f-zoom400-360-dpr4": {
+    "dpr": 4,
+    "viewport": {
+      "w": 360,
+      "h": 225
+    },
+    "inputColorStored": "rgb(226 87 31)",
+    "groundSeed": "",
+    "borderWidthUsed": "1.5px",
+    "wellFill": {
+      "r": 233,
+      "g": 225,
+      "b": 217,
+      "a": 1
+    },
+    "plateOnWhite": {
+      "r": 244,
+      "g": 239,
+      "b": 233,
+      "a": 1
+    },
+    "wellVsPlateRatio": 1.13,
+    "wellVsPlateRgbDistance": 24,
+    "edgeOnFillRatio": 1.27,
+    "ghost": {
+      "border": "rgb(226, 87, 31)",
+      "width": "2px",
+      "ratioVsFill": 2.89
+    },
+    "saveBtn": {
+      "rect": {
+        "w": 32,
+        "h": 40
+      },
+      "borderWidth": "0px",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "outline": "3px none rgb(28, 25, 23)",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "accName": "",
+      "classList": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
+    },
+    "wellRect": {
+      "x": 33,
+      "y": 237.9,
+      "w": 294,
+      "h": 249.5
+    },
+    "rowRect": {
+      "w": 267,
+      "h": 110.3
+    },
+    "rowChildX": [
+      46.5,
+      100.5,
+      154.5,
+      208.5,
+      262.5,
+      46.5
+    ],
+    "rowChildY": [
+      281,
+      281,
+      281,
+      281,
+      281,
+      341.2
+    ],
+    "overflowsParent": false
+  }
+}

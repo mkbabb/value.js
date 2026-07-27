@@ -1528,3 +1528,54 @@ inserts height the shared row does not. The cure is the shared row contract (one
 aligned to the same track start), not a per-pane nudge. Joins the layout-gestalt band (the
 18-route table's Picker+About composition) and MT-APP-1's ordering. π: BOTH witnesses re-captured;
 DELTA: the OM-9 crop after the cure, aligned, beside the untouched OM-10 control.
+
+## MT-F036 — OWNER-MARKED: palette containers carry shadow artifacts AND ship no hover state ("this is to be fixed")
+
+**Witnesses (wide + closeup pair)**:
+`audit/visual/owner-marked/OM-11-palette-card-shadow-artifacts.png` — the browse grid's
+PaletteCards ("Sunset Ridge", "Deep Ocean"): each card trails a hard-edged dark shadow slab,
+offset below-left, with faceted/sharp corners against the card's rounded geometry; the top-right
+corner shows the dark band poking out from behind the rounded corner.
+`audit/visual/owner-marked/OM-12-palette-card-shadow-artifact-closeup.png` — the "Deep Ocean"
+close crop: the shadow is a flat dark band with a visible seam, hard-cornered at the left edge
+while the card above it is rounded. Owner-captured 2026-07-27 19:06 ET. Owner's words: *"mark
+these shadow artifacts around these palette containers--this is to be fixed; why don't these have
+proper hover states?"*
+
+**Two arms, both ORDERED**:
+1. **The shadow artifact** — the same mechanism class as MT-F027 (OM-2: the cartoon cast shadow
+   faceting into sharp corners on rounded cards), here on the PaletteCard container. The cure
+   terminates wherever MT-F027's does (the shadow recipe must follow the rounded silhouette —
+   glass token or card-root fix; adjudication pins the exact owner), applied at the ROOT, never
+   per-instance (M-14: no adhoc fixes).
+2. **The missing hover state** — interactive palette containers (draggable, menued, selectable)
+   render no hover treatment. The cure is a designed hover register (elevation/material shift,
+   tokenized motion per MT-F034's mandate) at the glass/card root level per the standing
+   root-styling law — if the glass card/surface primitive lacks a hover variant, that is a
+   glass-forward ask (marked, to the BJ inbox), not a local patch.
+
+**Routing**: the palettes challenge band is RUNNING with cached prompts (cannot carry this mark
+without cache-busting); the mark binds at the palettes ADJUDICATION round (r3) — the PaletteCard
+unit's brief MUST carry OM-11/OM-12, like OM-4 binds the easing units. π: both witnesses
+re-captured (rest + hover cell); DELTA: before/after pairs including a hover frame.
+
+## MT-F037 — OWNER-MARKED: the easing code readout is not a proper glass-ui rounded input component
+
+**Witness**: `audit/visual/owner-marked/OM-13-easing-readout-not-glass-input.png`, owner-captured
+2026-07-27 19:06 ET. Owner's words: *"in the gradient/easing selector, this is not a proper
+glass-ui rounded input area component."*
+
+**What the frame shows**: the `cubic-bezier(0, 0, 1, 1)` readout row in the gradient easing
+panel — a flat beige rounded rectangle with copy + configure icon buttons, carrying none of the
+glass input register (material, focus affordance, the glass input silhouette).
+
+**The law it violates**: glass-first (variants/primitives belong in glass-ui; reuse existing
+component-type names) + M-14 clause 1 (no adhoc; all at root). The cure: the row becomes the
+glass rounded input/field primitive (whichever exists in installed glass — the adjudication seat
+censuses the dist for the input-area component and its variants); if no glass primitive fits an
+icon-trailing code-input row, THAT is a marked glass-forward ask to the BJ inbox — never a local
+restyle. Joins MT-F030 (OM-4, the same panel's radius incoherence) in the gradient/easing wave
+band; the two marks likely share one cure cut.
+
+**Routing**: binds at the workbenches ADJUDICATION round with OM-4 (the running band's prompts
+are cached; the easing units' r3 briefs carry OM-4 + OM-13 together).

@@ -879,3 +879,338 @@ the model value have different owners and no relation between them is expressed 
 the type system, the tests, or the schema.
 
 Nothing was edited by either pass. This seat wrote only this file.
+
+---
+
+# ADDENDUM 2 — third pass: one new BLOCKER, one correction of an earlier dismissal, one correction of an earlier PASS, and a disproved hypothesis recorded as such
+
+## Model receipt (this pass)
+
+I observe myself to be **Opus 5 (1M context)** — exact model ID `claude-opus-5[1m]`, spawned with an
+explicit Opus 5 declaration. Seat declared, not inherited.
+
+Substrate at this pass: **HEAD `5c13465d`** (`docs(V): M-15 — Codex abrogated; vnext/ transfers to
+Claude ownership and is committed whole`). The brief declared `c654824e`; pass 2 recorded `041ca263`.
+All three deltas are docs-only — no `demo/`, `src/` or `test/` file in this component's cone changed
+between them. Dev server live at `http://localhost:9000` (HTTP 200); this pass held an **uncontended**
+Playwright session and drove it read-only.
+
+Passes 1 and 2 stand. This pass adds L-20 (a BLOCKER the first two missed entirely), corrects the
+pass-1 dismissal of the deep-link redirect as sibling-seat contention (L-21), corrects L-12's
+"styling is clean" PASS (L-23), and records one hypothesis I raised and then **disproved** (L-22).
+
+---
+
+## L-20 · BLOCKER (new, measured) — `isAdminMode` is a second writable copy of a derived fact; admin-gold chrome leaks onto unauthenticated visitors and cannot be cleared without a reload
+
+Passes 1 and 2 both read `useDockAdminMode.ts` and both noticed how `isAdminMode` is *raised*
+(L-3 enumerates the two paths). Neither asked how it is **lowered**. It is not.
+
+`useDockAdminMode.ts:31` models a fact that is a pure function of the route as independent state:
+
+```ts
+const isAdminMode = ref(viewManager.currentView.value.startsWith("admin-"));
+```
+
+`:52-56` is a one-way watch — there is no `else`:
+
+```ts
+watch(() => viewManager.currentView.value, (view) => {
+    if (adminViews.includes(view)) { isAdminMode.value = true; }
+});
+```
+
+The only writer that sets it **false** is `toggleAdminMode` (`:41-47`), reachable exclusively through
+the menu row at `DockViewSelect.vue:122`, gated on `pm.isAdminAuthenticated`. The second false-setter,
+`watch(isAdminAuthenticated, …)` at `:59-61`, needs a `true → false` transition that an
+never-authenticated visitor cannot produce (the same non-`immediate` defect L-17 identified twenty
+lines away in `usePaletteWiring.ts` — a *third* instance of the shape).
+
+`adminViews` (`:26`) includes `atmosphere` and `blob`, which carry no `meta.admin` and no guard
+(L-3). So: **any visitor who opens `/#/atmosphere` or `/#/blob` — the two design-tuning panes — is
+placed in admin mode for the rest of the session, with no path out.**
+
+This component is where that state becomes visible. `DockViewSelect.vue:70` and `:80`:
+
+```html
+:style="{ '--dock-ring': isAdminMode ? 'var(--color-gold)' : 'var(--accent-view)' }"
+:class="isAdminMode && 'gold-shimmer-icon'"
+```
+
+`demo/styles/utils.css:156-166` names `.gold-shimmer-icon` in terms this component's own header
+repeats at `:45` — *"Admin keeps gold (mode identity, not a hue turn)"*. It is the product's
+authorisation signal.
+
+### Measured, uncontended session
+
+```
+about:blank → goto http://localhost:9000/#/atmosphere     (unauthenticated — "Login" control present)
+  { hash: "#/atmosphere", triggerText: "",
+    dockRingInline: "var(--color-gold)",
+    iconIsGold:    true,
+    iconName: "lucide lucide-sparkles-icon lucide-sparkles w-6 h-6 shrink-0 gold-shimmer-icon",
+    iconColor: "oklch(0.751 0.147 84.2)",
+    goldToken: "light-dark(oklch(0.751 0.147 84.2), oklch(0.784 0.143 86.0))" }
+```
+
+The icon's computed `color` is **exactly** the resolved `--color-gold`. Then, without a reload,
+navigate to an ordinary user view:
+
+```
+location.hash = "#/"                                       (Home)
+  { hash: "#/", triggerText: "Home",
+    dockRingInline: "var(--color-gold)",   ← STILL GOLD
+    iconIsGold: true,
+    iconName: "lucide lucide-house-icon lucide-house w-6 h-6 shrink-0 gold-shimmer-icon" }
+```
+
+Reproduced from the second entry route as well:
+
+```
+#/blob → #/gradient
+  { before: { hash: "#/blob",     ring: "var(--color-gold)", gold: true },
+    after:  { hash: "#/gradient", text: "\"Gradient\"",
+              ring: "var(--color-gold)", gold: true } }
+```
+
+Screenshot corroboration in the shipped matrix: `shots/safari-desktop-light/atmosphere.png` shows the
+dock's sparkles glyph rendered **gold** beside the unauthenticated "Login" pill; `admin-users.png`
+shows the gold shield the same way. Pass 1 read those two shots for the *missing label* (L-1) and did
+not note that the glyph is also wearing the admin colour.
+
+### Why this is a library-structure defect and not a styling bug
+
+`isAdminMode` is `currentView ∈ adminViews`, in full. Held as a `ref` with a monotonic watch, it is a
+**second copy of a derived fact** — the eleventh entry in pass 1's ownership census, and the one that
+actually diverges at runtime. As a `computed` the defect is unrepresentable: leaving the group lowers
+the flag because the flag *is* the group membership. The 18 lines
+(`useDockAdminMode.ts:31,41-47,52-61`) collapse to one:
+
+```ts
+const isAdminMode = computed(() => NAV[currentView.value].group === "admin");
+```
+
+`toggleAdminMode` keeps working unchanged — it already navigates (`:44,46`), and navigation is what
+the computed reads. The greenfield lattice of pass 1 already places this in `shell/nav/`; L-20 is the
+proof that the transposition is load-bearing, not tidying.
+
+### Severity
+
+BLOCKER on the same grounds as L-1: it is the primary navigation of the whole product, it is wrong
+for real unauthenticated users on 7 of 14 routes, it is sticky across every subsequent view, and it
+misreports the app's authorisation state in the one channel the design system reserves for exactly
+that.
+
+---
+
+## L-21 · MAJOR (new, measured) — CORRECTION to the pass-1 "Probe note": deep-link cold loads lose the route in an **uncontended** session too, 3 of 6 observed
+
+Pass 1 saw `browser_navigate("/#/browse")` land on `/#/extract`, attributed it to sibling seats
+driving the shared browser, and set live probing aside. Pass 2 got a clean session and did not retest
+it. It is **not** contention.
+
+Six deep-link loads this pass, single uncontended session, sampled by polling `location.hash`:
+
+| # | load | final hash | result |
+|---|---|---|---|
+| 1 | `goto #/atmosphere` | `#/extract` | REDIRECTED |
+| 2 | `goto #/atmosphere` | `#/atmosphere` | held |
+| 3 | `goto #/blob` | `#/palettes` | REDIRECTED |
+| 4 | `about:blank → goto #/atmosphere` | `#/atmosphere` (12 samples × 250 ms) | held |
+| 5 | `about:blank → goto #/blob` | `#/` (already gone at the first 200 ms sample) | REDIRECTED |
+| 6 | `about:blank → goto #/blob` | `#/blob` (16 samples × 200 ms) | held |
+
+**3 of 6.** The `about:blank` prologue in 4–6 rules out carried-over page state.
+
+In-app hash changes never redirect. Hooking `history.pushState` across a `location.hash = "#/blob"`
+transition recorded:
+
+```js
+{ finalHash: "#/blob", pushes: [] }
+```
+
+so the writer is **boot-scoped**, not navigation-scoped.
+
+### Reproduction status: INTERMITTENT — labelled as such
+
+This is a race, not a deterministic failure. I report the six observations verbatim rather than a
+mechanism I cannot pin.
+
+### Mechanism — HYPOTHESIS, explicitly not confirmed
+
+`demo/color-session/useColorUrl.ts:64` writes a location object with **no `name` and no `path`**:
+
+```ts
+router.replace({ query: { ...route.query, space, color } });
+```
+
+fired from a 300 ms debounce (`:51,64`) that is not gated on `router.isReady()` —
+`useViewManager.ts:36-37` is the only place in the demo that awaits it. Resolved against
+`START_LOCATION` (`path: "/"`), that replace lands on `/`. This matches observation #5 exactly and
+matches #1 and #3 not at all — those two land on `#/extract` and `#/palettes`, which are the
+signatures of `Dock.vue:55-56` and `usePaletteWiring.ts:78,109`. **At least one further writer is
+involved. Verify before curing.**
+
+### The structural fact, which is not a hypothesis
+
+`switchView`/`router.push`/`router.replace` has **four uncoordinated writer sites** and no arbiter:
+
+```
+demo/shell/dock/composables/useDockAdminMode.ts:44,46,72
+demo/shell/dock/Dock.vue:55,56
+demo/color-picker/composables/usePaletteWiring.ts:78,109,169
+demo/color-session/useColorUrl.ts:64
+```
+
+That matters *here* because of L-22 below: for 7 of the 14 views, typing a URL is the only entrance —
+and it is the entrance these four writers can trample during boot.
+
+---
+
+## L-22 · MAJOR (new, measured) — the demo contains **zero** link elements: 15 routes, no `<a href>`, navigation exclusively imperative
+
+Pass 1's L-3 established that 7 views are reachable "nowhere but the URL bar". The complement is
+stronger and was not measured:
+
+```
+$ grep -rn "RouterLink\|router-link" demo --include="*.vue" | wc -l
+0
+```
+
+A 15-route hash-routed application with **no link elements at all**. `vue-router`'s own navigation
+primitive is unused; every transition in the product is an imperative `switchView` call from one of
+the four writers above, dispatched by a `role="combobox"` whose children are `role="option"`
+(confirmed live this pass: 7 options, `expanded: "true"`).
+
+Consequences that follow structurally, not stylistically:
+
+- Nothing is middle-clickable, ⌘-clickable, "Open in new tab"-able, or "Copy link address"-able.
+- Nothing is crawlable; the product has no link graph.
+- The primary navigation is announced as a **form control with a value**, not as a set of
+  destinations. L-13's `anySelected: false` / `activeDescendant: null` is that mismatch surfacing:
+  the widget was asked to model "the current page" as "the selected value of a select", and on 7
+  routes it has no value to model.
+
+This is the design-system half of pass 1's lattice, and it is the reason the lattice should not stop
+at fixing the option set. A `Select` is the right primitive for *choosing a value*. A set of
+destinations is `DropdownMenu` + `RouterLink`, which glass-ui already ships (`./dropdown-menu`,
+15 demo consumers of `@mkbabb/glass-ui/dock` and 9 of `/dom` prove the subpath idiom is available).
+Making the switch retires the `role=option` semantics problem, the `aria-selected` gap, the
+`aria-activedescendant` gap, and the `"__admin_toggle__"` sentinel (L-8) in one move — a mode command
+in a menu is an ordinary `DropdownMenuItem`, which is *not* a value and never was.
+
+---
+
+## L-23 · MINOR (new) — CORRECTION to L-12: the scoped `<style>` block is clean, but the template carries three per-instance overrides, one of them a self-documented unpaid root fix
+
+L-12 recorded edicts 5 and 6 as satisfied. That verdict examined the `<style scoped>` block and the
+two global recipes, and it is right about those: `.gold-shimmer-icon` (`utils.css:162`) and
+`.palettes-ramp-text` (`utils.css:192`) are correctly global, the `--accent-view` transition
+(`:159-161`) is a genuinely scope-local bounded animation over a registered custom property, and no
+animation was deleted (edict 6 PASS stands).
+
+It did not examine the **template classes**, which is where the per-instance overrides are:
+
+| line | override | note |
+|---|---|---|
+| `:69` | `[&>span]:line-clamp-none` | the file's own comment at `:57-59` states the root fix is a `clampLabel` prop on glass-ui `DockSelectTrigger`, "filed coordination/Q.md §3" — an acknowledged, unpaid root-level debt shipped as an arbitrary-variant escape hatch through the design system's internals |
+| `:90` | `min-w-[12rem]` on `SelectContent` | arbitrary value overriding the design system's `--menu-min-w` (the comment at `:89` says so outright) |
+| `:96`, `:127` | `py-1.5 px-2.5` on every `SelectItem`, written twice | item padding is a `SelectItem` root concern |
+
+Edict 5 is "style at the shadcn/glass root component level, never per-instance overrides". `:69` is
+the sharpest: it reaches *through* `DockSelectTrigger` with an arbitrary child-selector variant to
+undo a decision made inside glass-ui, and the file knows it. Under the standing BH/BI relay law that
+is a letter to glass-ui, not a bracket in a class attribute.
+
+**Revised edict table for this component** (superseding L-12's line):
+
+| edict | pass-1/2 verdict | after this pass |
+|---|---|---|
+| 5 · root-level styling | PASS | **FAIL** — three per-instance overrides (`:69`, `:90`, `:96`+`:127`) |
+| 6 · animations never deleted | PASS | PASS (unchanged, and correct) |
+
+---
+
+## L-24 · MINOR (new) — `usePopupMutex` is a self-declared local fork of a composable glass-ui deleted
+
+`demo/shell/dock/composables/usePopupMutex.ts:1-2`, verbatim:
+
+```ts
+// `usePopupMutex` was retired upstream from glass-ui at the D-II tranche.
+// Local fork — single-open mutex for dock popups with a brief swap delay.
+```
+
+`Dock.vue:69` calls it once and hands `popupModel("view-select")` to this component as
+`v-model:open` (`Dock.vue:168`). A single-open mutex over dock popovers is a dock-primitive concern
+and glass-ui owns `./dock` (41 626 B, 15 demo consumers). A fork whose upstream has been **deleted**
+is a dual implementation with a dead parent: edict 4, and edict 2's no-legacy clause. It joins
+`demo/ui/**` (L-5/L-15) and `demo/shell/dock/index.ts` (L-9) as the third demo-side structure that
+exists only because a glass-ui boundary was crossed rather than negotiated.
+
+Cure, consistent with the standing relay law: propose it to glass-ui `./dock` as a
+`DockPopoverGroup` primitive; the four keys `Dock.vue:70-73` names are its entire API.
+
+---
+
+## L-25 · Hypothesis RAISED AND DISPROVED — the mutex does *not* desync the `defineModel` round trip
+
+Recorded because a hypothesis I could not kill would have been a finding, and this one died.
+
+The mutex is **write-transforming**: `usePopupMutex.ts:47-55`, when another popup is open, sets
+`current.value = null` immediately and defers the requested open by `swapDelay = 180 ms`. This
+component's `open` is a `defineModel` (`:33`) whose writes round-trip through that setter, and this
+project's own memory records the hazard verbatim — *"`defineModel()` returns a `WritableComputedRef`
+with async parent round-trip — reads after writes return stale data"*. I predicted reka-ui would see
+its controlled `open` prop snap back to `false` and close the popover it had just opened.
+
+**Measured. It does not happen.** With the `@mbabb` menu open, dispatching
+`pointerdown`/`pointerup`/`click` on `.view-select-trigger`:
+
+```
+t=0     view aria-expanded=false   mbabb=true    options=0
+t=80    view=false                 mbabb=false   options=0
+t=240   view=true                  mbabb=false   options=7      ← swap completes cleanly
+t=1040  view=true                  mbabb=false   options=7      (held, 14 samples)
+```
+
+Control with nothing else open opens at t≈240 ms identically. The 180 ms swap is absorbed inside
+reka's own open animation and never surfaces.
+
+I also record the probe error that produced a false positive on the way: an earlier run dispatched
+only `element.click()` and reported "the view select never opens". reka-ui's `SelectTrigger` opens on
+`pointerdown`, not `click`. That was my instrument, not the app. Corrected here rather than shipped.
+
+**L-24 stands on the fork's existence; L-25 explicitly does not support it with a behavioural claim.**
+
+---
+
+## Addendum-2 reproduction index
+
+| id | reproduction |
+|---|---|
+| L-20 | `about:blank` → `goto http://localhost:9000/#/atmosphere` unauthenticated → `.view-select-trigger` has inline `--dock-ring: var(--color-gold)` and its `<svg>` carries `gold-shimmer-icon` (computed `color` = `oklch(0.751 0.147 84.2)` = resolved `--color-gold`). Then `location.hash = "#/"` **without reloading** → ring and shimmer persist on the Home glyph. Repeats via `#/blob → #/gradient`. Source: `useDockAdminMode.ts:31,52-56` (raise-only) vs `:41-47` + `DockViewSelect.vue:122` (the only lowering path, gated on admin auth). |
+| L-21 | Six deep-link loads, uncontended session, `location.hash` polled at 200–250 ms: `#/atmosphere→#/extract`, `#/atmosphere` held, `#/blob→#/palettes`, `#/atmosphere` held, `#/blob→#/`, `#/blob` held. **3/6, INTERMITTENT.** In-app control: hook `history.pushState`, then `location.hash="#/blob"` → `{ pushes: [], finalHash: "#/blob" }`. |
+| L-22 | `grep -rn "RouterLink\|router-link" demo --include="*.vue" \| wc -l` → `0`. Live: opened listbox reports `expanded:"true"`, `optionCount:7`, `[role=option]` children. |
+| L-23 | `DockViewSelect.vue:69` (`[&>span]:line-clamp-none`, with its own `:57-59` comment naming the unpaid root fix), `:90` (`min-w-[12rem]`), `:96` and `:127` (`py-1.5 px-2.5`, twice). |
+| L-24 | `sed -n '1,2p' demo/shell/dock/composables/usePopupMutex.ts`. |
+| L-25 | With `@mbabb` open, dispatch `pointerdown`+`pointerup`+`click` on `.view-select-trigger`, sample `aria-expanded` and `[role=option]` count every 80 ms ×14 → opens at t≈240 ms, holds. Control (nothing open) identical. **Hypothesis disproved.** |
+
+## Consolidated verdict after three passes
+
+**DEFECTIVE.** Twenty-five findings across three passes. The two BLOCKERs are the same structural
+disease seen twice:
+
+- **L-1/L-13** — the option set and the model value have different owners, so the primary navigation
+  reports *no selected option* on 7 of 14 routes.
+- **L-20** — `isAdminMode` is a second writable copy of a fact the route already determines, so the
+  product's **authorisation ink** leaks onto unauthenticated visitors permanently.
+
+Both are `ref`/array duplicates of things `VIEW_MAP` + the route already know. Both become
+unrepresentable — not "fixed" — under pass 1's `shell/nav/` lattice, because in that lattice
+`entries` and `isAdminMode` are `computed`s over one table rather than hand-maintained state.
+
+Corrections this pass makes to the record: the deep-link redirect is **real and not sibling
+contention** (L-21, intermittent 3/6); edict 5 is **FAIL, not PASS** (L-23). One hypothesis raised
+and disproved (L-25). Everything else in passes 1 and 2 is upheld.
+
+Nothing was edited by any pass. This seat wrote only this file.

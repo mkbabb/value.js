@@ -1,369 +1,448 @@
-# CHALLENGE-L — library structure under `demo/palettes/BrowsePane.vue` · PASS 2
+# CHALLENGE-L — library structure under `demo/palettes/BrowsePane.vue` · PASS 3
 
 ## Model receipt
 
 I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier this
 seat was spawned with an explicit declaration for. Declared seat, not inherited. No DEFECT.
 
-Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
+Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`. The brief named HEAD `c654824e`; at
+read time HEAD is `5c13465d` (one docs-only commit — `docs(V): M-15 — Codex abrogated`). No source
+difference on this axis.
 Subject: `demo/palettes/BrowsePane.vue` (360 lines), area `demo/palettes`, route `#/browse`.
 
----
-
-## Provenance — a pass-1 seat had already run this axis
-
-On arrival this path already held a 17-finding CHALLENGE-L report written earlier today
-(13:47). **It is preserved verbatim at
-`docs/tranches/V/megatranche/audit/components/BrowsePane/challenge-L-library-pass1.md`** — nothing
-is lost. I re-derived the axis independently before reading it; where we converge I say so and
-defer to whichever evidence is stronger, and I do not re-litigate a finding pass 1 proved better
-than I did (its slugifier divergence table and its `import.meta.resolve` root-export proof are both
-strictly better than anything I produced on those points).
-
-This pass-2 file is the reading surface: §A rolls pass-1 forward in full so this document alone is
-sufficient; §B carries what is **new** — four findings pass 1 does not contain, one of them MAJOR
-and structurally interlocked with pass 1's own proposed cure; §C carries the joint verdict.
-
-**Verdict: DEFECTIVE.** 21 findings across both passes; 12 MAJOR-or-worse. The premise holds, but
-not at the library boundary the brief guessed — I prove that negative in §C along with pass 1. The
-rot is inside `demo/`, and its through-line is: **a concept has two or three homes, the shipping
-home is the wrong one, and the guard that was supposed to prevent exactly this evaluates to
-`undefined`.**
+**Scope discipline:** this seat wrote only under
+`docs/tranches/V/megatranche/audit/components/BrowsePane/`. No source edits. Three build probes ran;
+all three wrote to the session scratchpad with `outDir` redirected — the repo's `dist/` was never
+touched. Probe configs are preserved at `./probe/vite.probe{A,B,C}.mts` + `./probe/probe-entry.ts`.
 
 ---
 
-# §A — Pass 1, rolled forward
+## Provenance — two seats had already run this axis
 
-Full text and evidence: `challenge-L-library-pass1.md`. Verified spot-checks of mine are marked ✔.
+On arrival this path held a 17-finding pass-1 report (13:47) and a 21-finding pass-2 report (17:39)
+that rolled pass 1 forward. **Both are preserved byte-identically** at
+`challenge-L-library-pass1.md` and `challenge-L-library-pass2.md`. Nothing is lost.
+
+I re-derived the axis independently before reading either. Where we converge I say so and defer to
+whichever evidence is stronger. I do not re-litigate what a prior pass proved better than I did —
+pass 1's slugifier divergence table, its `import.meta.resolve` root-export proof, pass 2's
+`--print-config` proof and its live-commons `curl` are each strictly better than anything I produced
+on those points.
+
+**This pass carries what neither prior pass contains.** Novelty is measured, not asserted:
+
+```
+$ for t in gh-pages sideEffects main.ts "composition root" rolldown modulepreload empty-mount; do
+      grep -ci "$t" challenge-L-library-pass1.md challenge-L-library-pass2.md; done
+gh-pages          pass1=0  pass2=0
+sideEffects       pass1=0  pass2=0
+main.ts           pass1=0  pass2=0
+composition root  pass1=0  pass2=0
+rolldown          pass1=0  pass2=0
+modulepreload     pass1=0  pass2=0
+empty-mount       pass1=0  pass2=0
+```
+
+Neither prior pass examined the build. Both audited the structure of a tree, correctly. Neither
+asked whether that tree reaches production. It does not.
+
+§A rolls both passes forward so this document alone is sufficient. §B carries what is new — one
+BLOCKER that outranks every finding in either prior pass, plus three supporting findings. §C is the
+joint verdict across all three passes.
+
+**Verdict: DEFECTIVE.**
+
+---
+
+# §A — Passes 1 and 2, rolled forward
+
+Full text: `challenge-L-library-pass1.md`, `challenge-L-library-pass2.md`. Spot-checks I re-derived
+independently are marked ✔.
 
 | # | sev | finding | my check |
 |---|---|---|---|
-| L-1 | BLOCKER | The V.W51 byte-exact export contract (`demo/palettes/export/`, 12 modules) ships to **nobody**; its only consumer is `demo/test/export/byte-exact.test.ts:23`. `usePaletteExport.ts:9` resolves `./export` → the 132-line pre-contract `demo/palettes/export.ts`, which is what `BrowsePane.vue:115,324` runs. `export/serializers.ts:6-9` names its own rival in prose. | ✔ re-derived independently; same two greps |
-| L-2 | MAJOR | Three slugifiers (`utils.ts:3-12`, `export.ts:9-11`, `canonical.ts:52-58`), 6-of-6 measured divergence on non-ASCII (`"Ångström Blues"` → `angstrom-blues` vs `ngstr-m-blues`), against a contract clause that says *"no slugifier exists"*. | not re-derived; pass-1 evidence is stronger than mine |
-| L-3 | MAJOR | `demo/ui/**` is 19 pure re-export barrels of glass-ui; BrowsePane reaches the design system **both ways** in one import block (`:180-181` barrel, `:195` `@mkbabb/glass-ui/search`). | ✔ `for f in demo/ui/*/index.ts; do …` → **zero** non-re-export lines in any of the 19 |
-| L-4 | MAJOR | G-DEMO-1 / 3a / 3b in `eslint.config.js:220-303` are inert — globs point at the deleted `demo/@/**`, ban a deleted `@components` alias. | ✔ **and strengthened — see N-2** |
-| L-5 | MAJOR | No `"."` in `package.json#exports`; `import.meta.resolve("@mkbabb/value.js")` → `ERR_PACKAGE_PATH_NOT_EXPORTED`, yet `demo/shared/utils.ts:15-17` and `docs/colors/quantization.md:6` both assert a root barrel. | ✔ confirmed the map has 7 subpaths, no root |
-| L-6 | MAJOR | `BROWSE_PORT_KEY` lives in the provider module, so a leaf pane importing the key pulls the whole port assembly. | ✔ `BrowsePane.vue:182` imports from `./usePalettePorts` (275 L, 17 sub-composable imports) |
-| L-7 | MAJOR | The port smuggles whole sub-composables (`versions`, `tagEdit`, `flagged` at `usePalettePorts.ts:189-191`); the god facade was renamed, not dissolved. | ✔ `browsePort` = 36 members; BrowsePane consumes ~30 of them |
-| L-8 | MAJOR | OKLab distance has no home: `BrowsePane.vue:339-349` and `api/.../crud-list.ts:159-180` hand-roll it with the same `0.15`; the typed seam (`api/palettes.ts:27-30,50-53`) has **zero callers** — a comment (`BrowsePane.vue:354`) stands in for the call. Includes the gratuitous `(p: any)` over an already-typed `Palette.oklabColors` (`types.ts:32`). | ✔ re-derived independently; **extended with live data — see N-3** |
-| L-9 | MAJOR | `useDialogBrowseActions` is now the duplicate it was written to kill, and carries a `modalStack` shim for `PaletteDialog.vue`, a host that no longer exists. | ✔ `find demo -name "PaletteDialog*"` → empty; `grep -rn modalStack demo/` → 5 hits, all inside that one file |
-| L-10 | MAJOR | `remotePalettes` has no owner — 9 hand-rolled slug-index mutations across 6 modules. | ✔ `BrowsePane.vue:281-282,314-318` are two of them |
-| L-11 | MAJOR | The typed error vocabulary is discarded at the pane boundary. | not re-derived |
-| L-12 | MAJOR | The card-feedback rail is implemented twice and leaks in both copies. | not re-derived |
-| L-13 | MINOR | "ONE card species" (`DESIGN.md:97`) is a copy-pasted 7-utility string on 8 sites; `sed -n 2p` of BrowsePane/PalettesPane/AdminPane md5-matches byte-identical. | ✔ **and its cure is incomplete without N-1** |
-| L-14 | MINOR | `MiniColorPicker.vue` hand-rolls HSV↔RGB↔hex inside a colour library's own demo. | ✔ its sibling `SearchFilterBar.vue:206` *does* reach the library (`parseColorIn`), so the inconsistency is intra-directory |
-| L-15 | MINOR | `.search-seated .input-bar-field` (`demo/styles/utils.css:152`) styles a glass-ui internal class. Known residual, booked to P3/ASK-D. | ✔ applied at `BrowsePane.vue:12` |
-| L-16 | INFO | Masking fallback at the leaf for an untyped wire payload (`availableTags`, `BrowsePane.vue:215-220`). | ✔ |
-| L-17 | MINOR | The pane owns half its data lifecycle, app-boot owns the other half. | ✔ `onMounted(() => pm.tagEdit.loadAllTags())` at `:222-224` while the wall's own load is elsewhere |
+| L-1 | BLOCKER | The V.W51 byte-exact export contract (`demo/palettes/export/`, 12 modules, 1,046 L) ships to **nobody**. `usePaletteExport.ts:9` resolves `./export` → the 132-line pre-contract `demo/palettes/export.ts`, which is what `BrowsePane.vue:115,324` runs. Sole consumer of the contract set: `demo/test/export/byte-exact.test.ts:23`. | ✔ **and strengthened — see N-2** |
+| L-2 | MAJOR | Three slugifiers (`utils.ts:3-12`, `export.ts:9-11`, `canonical.ts:52-58`), 6-of-6 divergence on non-ASCII, against a contract clause saying *"no slugifier exists"*. | not re-derived; pass-1 evidence stronger |
+| L-3 | MAJOR | `demo/ui/**` is pure re-export barrels of glass-ui; BrowsePane reaches the design system **both ways** in one import block (`:180-181` barrel, `:195` subpath). | ✔ **and quantified — see N-3** |
+| L-4 / N-2ʹ | MAJOR | G-DEMO-1/3a/3b in `eslint.config.js:220-303` are inert; `--print-config` on the subject file → `no-restricted-imports = undefined`. | ✔ `ls -d demo/@` → No such file or directory; `npx eslint demo/palettes/BrowsePane.vue` → clean |
+| L-5 | MAJOR | No `"."` in `package.json#exports`; `import.meta.resolve("@mkbabb/value.js")` → `ERR_PACKAGE_PATH_NOT_EXPORTED`, yet `demo/shared/utils.ts:15-17` asserts a root barrel. | ✔ 7 subpaths, no root |
+| L-6 | MAJOR | `BROWSE_PORT_KEY` lives in the provider module, so a leaf pane importing the key pulls the whole 275-line assembly. | ✔ `BrowsePane.vue:182` |
+| L-7 | MAJOR | The port smuggles whole sub-composables; the god facade was renamed, not dissolved. | ✔ `browsePort` = **32** members (`usePalettePorts.ts:157-192`); `grep -o "pm\.[a-zA-Z]*" BrowsePane.vue \| sort -u \| wc -l` → **30** direct + `ensureUser`/`ensureSession` transitively = **32/32** |
+| L-8 / N-3ʹ | MAJOR | OKLab distance has no home: `BrowsePane.vue:339-349` and `api/.../crud-list.ts:159-180` hand-roll it with the same `0.15`; the typed seam has zero callers; measured, 5 of 10 live palettes are silently excluded. | ✔ re-derived; **extended — see N-4** |
+| L-9 | MAJOR | `useDialogBrowseActions` is the duplicate it was written to kill; carries a `modalStack` shim for a host that no longer exists. | ✔ 3 of its 5 members are browse-filter setters over state owned by `useBrowsePalettes.ts:40-41,63` |
+| L-10 | MAJOR | `remotePalettes` has no owner — 9 hand-rolled slug-index mutations across 6 modules. | ✔ `BrowsePane.vue:281-282,314-318` |
+| L-11 | MAJOR | The typed error vocabulary is discarded at the pane boundary. | ✔ `useBrowsePalettes.ts:79` sets the constant `"Failed to load palettes"` and drops `e` to `console.warn:82`, while `BrowsePane.vue:57-59` promises *"the raw machine string"* on the detail line |
+| L-12 | MAJOR | The card-feedback rail is implemented twice and leaks in both copies. | ✔ `BrowsePane.vue:94,209` ≡ `PalettesPane.vue:84,177`; `(el) => el && (…)` short-circuits Vue's `null`-on-unmount call and no `delete` exists in either file |
+| L-13 | MINOR | "ONE card species" is a copy-pasted 7-utility string on 8 sites. | ✔ `BrowsePane.vue:2` |
+| L-14 | MINOR | `MiniColorPicker.vue` hand-rolls HSV↔RGB↔hex inside a colour library's own demo. | ✔ sibling `SearchFilterBar.vue:206` does reach the library |
+| L-15 | MINOR | `.search-seated .input-bar-field` (`demo/styles/utils.css:152`) styles a glass-ui internal class, deliberately unlayered to beat the producer recipe. | ✔ applied at `BrowsePane.vue:12`; exactly **one** consumer tree-wide |
+| L-16 | INFO | Masking fallback at the leaf for an untyped wire payload (`availableTags`, `:215-220`). | ✔ |
+| L-17 | MINOR | The pane owns half its data lifecycle, app-boot the other half. | ✔ `:222-224` |
+| N-1 | MAJOR | `.pane-scroll-fade` — a nine-consumer, four-feature global recipe — lives in `PaneHeader.vue`'s unscoped `<style>`, a component that renders none of its consumers; inverts `DESIGN.md:388`; blocks L-13's cure. | ✔ `BrowsePane.vue:2` is one of the nine |
+| N-4 | MINOR | Colour-search state split across the pane/child boundary; `onClearAll` double-fires and nulls the same ref twice. | ✔ `BrowsePane.vue:23-25,329-332,357-359` |
+| N-5 | INFO | `./value` and `./transform` are published with zero demo consumers. | ✔ |
 
 ---
 
-# §B — New in pass 2
+# §B — New in pass 3
 
-## N-1 · MAJOR — a nine-consumer global CSS recipe is owned by a component that renders none of its consumers
+## N-6 · BLOCKER — the composition root has no module home; the production build ships zero application code
 
-**Not in pass 1** (`grep -ci "PaneHeader\|pane-scroll-fade" challenge-L-library-pass1.md` → 0, 0).
+**Not in either prior pass** (novelty table above). This outranks pass-1 L-1.
 
-`demo/shared/ui/PaneHeader.vue:40-58` ships an **unscoped** `<style>` block — the only unscoped
-block in the file, sitting above a normal `<style scoped>` — that defines the pane scroll host:
+### The defect
 
-```css
-.pane-scroll-fade {
-    contain: layout style paint;
-    scroll-timeline: --pane-scroll block;
-}
+`demo/color-picker/index.html:205-213` **is** the application entry. There is no `main.ts`:
+
+```html
+<script type="module">
+    import { createApp } from "vue";
+    import App from "./App.vue";
+    import { router } from "./router/index";
+
+    const app = createApp(App);
+    app.use(router);
+    app.mount("#app");
+</script>
 ```
 
-The file's own comment states the inversion rather than resolving it (`:43-49`):
-
-> *"The `.pane-scroll-fade` host class lives on the ROOT element of each pane Card (9 sibling
-> panes…). Because the class is applied across siblings of PaneHeader (not its descendants), the
-> block must be UNSCOPED to reach those consumers."*
-
-The nine consumers — none of which is PaneHeader, all of which are pane **roots**:
+Eight lines of JavaScript with no file. Under this repo's pinned toolchain (`vite@8.0.16` +
+rolldown) the inline module's **body is dropped at build time**. The build still emits an entry
+chunk and still rewrites the tag to point at it — but the chunk contains only Vite's modulepreload
+polyfill:
 
 ```
-$ grep -rn "pane-scroll-fade" demo/ | grep -v DESIGN.md | grep -v PaneHeader.vue
-demo/palettes/BrowsePane.vue:2            demo/palettes/PalettesPane.vue:2
-demo/palettes/admin/AdminPane.vue:2       demo/workbenches/gradient/GradientPane.vue:20
-demo/workbenches/mix/MixPane.vue:62       demo/workbenches/extract/ExtractPane.vue:5
-demo/workbenches/generate/GeneratePane.vue:31  demo/scenes/about/AboutPane.vue:4
-demo/scenes/ConfigSliderPane.vue:106
+$ ls -la dist/gh-pages/assets/ | grep -Ev "woff|ttf"
+  1128    favicon-BpOvZXpk.svg
+132943    glass-fonts-DH5GtBvs.css     # deferGlassFonts plugin — emitted independently of the graph
+   698    index-Dezn_h7o.js            # the "entry": modulepreload polyfill, nothing else
+ 11774    quantize-worker-xMwe415C.js  # a separate worker entry, unaffected
 ```
 
-Three separate laws are broken by one block.
+No `index-*.css`. No Vue. No router. No panes. `dist/gh-pages/index.html` still carries
+`<div id="app">` and `<script type="module" crossorigin src="./assets/index-Dezn_h7o.js">`. That
+script mounts nothing.
 
-**(a) Ownership.** A component owns the CSS of a surface it does not render. `PaneHeader` emits a
-`<div class="pane-header …>`; `.pane-scroll-fade` lands on a `<Card>` two levels up that PaneHeader
-never sees. Unique semantic ownership — exactly one home per concept — fails here in the most
-literal way available: the producer and the consumer are different components in different
-directories.
+### Three probes
 
-**(b) The project's own written rule is inverted.** `demo/DESIGN.md:388`:
+Each differs from the repo config in exactly one respect; all write to the scratchpad.
+Configs preserved at `./probe/`.
 
-> *"**No new global utility class for one consumer** — colocate to the component's `<style
-> scoped>` (post-D.W4 Lane A: `.pane-scroll-fade`, the touch-gate cluster … moved out of
-> `style.css`). The shared survivors (`.slug-pill`, `.app-layout`, `.pane-container`,
-> `.underline-tabs`) are true cross-feature recipes; each carries a comment justifying its global
-> residence."*
+| probe | delta from repo config | JS chunks | total JS bytes | `BrowsePane` chunk |
+|---|---|---:|---:|---|
+| **A** | none (only `outDir` redirected) | 2 | **12,472** | **absent** |
+| **B** | `+ treeshake: { moduleSideEffects: true }` | 2 | 12,472 | absent |
+| **C** | composition root moved into a **file** | 45 | **1,595,550** | `BrowsePane-bS6gps-Y.js` 22,321 B + `BrowsePane-B-2cz1Cw.css` 799 B |
 
-The rule's test is consumer count. `.pane-scroll-fade` has **nine** consumers spanning four feature
-trees (`palettes`, `workbenches`, `scenes`, `palettes/admin`) — by DESIGN.md's own definition it is
-a *shared survivor* and belongs in `demo/styles/`. It was moved the wrong way, and the migration
-note at `demo/styles/foundation.css:578` records the move as done: *"`.pane-scroll-fade` colocated
-into PaneHeader.vue's unscoped `<style>`"*. The colocation rationale offered in `PaneHeader.vue:47-49`
-— *"PaneHeader owns the only consumers of `--pane-scroll`"* — is true of the **timeline** and false
-of the **class**: it justifies colocating the `animation-timeline` *readers* (which are already in
-the scoped block at `:177-194`), not the timeline *definition*, which nine foreign roots must apply.
+**Probe A reproduces the committed artifact byte-for-byte** — same 698-byte entry, same content hash
+`index-Dezn_h7o.js`. The reproduction is honest: the config is the repo's, unmodified except for
+where the bytes land.
 
-**(c) Load-order coupling with nothing holding it** *(mechanism — hypothesis, currently masked)*.
-An SFC `<style>` is a side-effecting import: the global rule exists in the document only while
-`PaneHeader.vue` is in the loaded chunk. A pane that applies `.pane-scroll-fade` without importing
-PaneHeader gets no `scroll-timeline: --pane-scroll`, and every scroll-driven animation in the
-`@supports (animation-timeline: scroll())` block (`PaneHeader.vue:177-194` — the veil swell, the
-title shrink, the desc fade) silently no-ops with no error, no type failure and no lint. All nine
-consumers import PaneHeader today (`grep -rn "PaneHeader" demo/ --include="*.vue" | grep import` →
-9 hits, exactly the nine), so it is masked. I could not exhibit it without editing `demo/`, which
-this seat may not do — labelled a hypothesis.
+```
+$ npx vite build --mode gh-pages --config probe/vite.probeA.mts
+✓ built in 5.99s
+$ ls -lS outA/assets/*.js
+11774  quantize-worker-xMwe415C.js
+  698  index-Dezn_h7o.js
+$ ls outA/assets/ | grep -i browse
+(none)
+```
 
-**Interlock with pass-1 L-13.** Pass 1's cure for the copy-pasted pane-root string is
-`<Card tier="resting" variant="pane">` in glass-ui. That cure **cannot land while N-1 stands**: a
-glass-ui `variant="pane"` can carry `overflow`/`min-w`/`h-full`, but it cannot carry
-`scroll-timeline: --pane-scroll` without glass-ui owning a timeline name that a *demo* component
-(`PaneHeader`) consumes — a producer→consumer inversion across the package boundary. The two
-findings must be cured together or the second will re-open the first.
+**Probe B falsifies the obvious hypothesis.** `package.json:12` declares `"sideEffects": false` for
+the whole package — including `demo/**`, whose SFC `<style>` blocks are side-effecting imports. I
+expected that to be the mechanism. Forcing `treeshake: { moduleSideEffects: true }` changed
+**nothing**: byte-identical output, same hash. `sideEffects` is a latent hazard (N-7) but it is not
+this. Recorded because a wrong cure here would have shipped and looked green.
 
-**Cure.** The animation is never deleted (edict 6) — it *moves*. `.pane-scroll-fade` and the
-`--pane-scroll` timeline declaration go to `demo/styles/` as a named cross-feature recipe carrying
-the DESIGN.md-required residence comment, and `PaneHeader.vue` keeps only the scoped rules for
-markup it renders. Then pass-1 L-13's glass-ui `variant="pane"` becomes safe to add, because the
-timeline is a demo-level ground the variant merely sits on.
+**Probe C is decisive.** It changes one thing: those eight lines are transcribed verbatim into a
+real file (`probe/probe-entry.ts`) and passed as `build.rolldownOptions.input`. Same mode, same
+plugins, same everything else:
 
-Preferred gestalt (subsumes L-13 + N-1, and adds no new component — edict 3): **transpose
-`PaneHeader` into the pane root.** It already owns the timeline, the display-voice title and the
-certified caption ink; let it own the surface those live on. It renders the `Card tier="resting"`,
-the sticky header and a default slot; `.pane-scroll-fade` stops being a public class anyone can
-forget to type; `BrowsePane.vue:2-3` collapses to one element and eight sibling panes lose their
-pasted string. One existing component grows one responsibility it already half-had.
+```
+$ npx vite build --mode gh-pages --config probe/vite.probeC.mts
+✓ built in 6.56s
+$ ls -la outC/assets/ | grep -i browse
+  799  BrowsePane-B-2cz1Cw.css
+22321  BrowsePane-bS6gps-Y.js
+$ cat outC/assets/*.js | wc -c
+1595550                       # vs 12472 → 127.9× of the application was missing
+$ ls outC/assets/*.js | wc -l
+     45                       # vs 2
+```
+
+Also emitted in C and absent in A: `AboutPane`, `AdminPane`, `AuroraPane`, `BlobPane`,
+`ConfigSliderPane`, `EmptyState`, `ExtractPane`, `GeneratePane`, `GradientPane`, and 36 more. The
+entire application.
+
+### Mechanism
+
+A composition root that lives inside HTML has no file, and therefore sits outside every system that
+owns correctness in this repo:
+
+- **typecheck** — `tsconfig` cannot `include` an `.html`. `npm run typecheck` runs `vue-tsc` over
+  `tsconfig.lib.json` + `tsconfig.demo.json`; neither sees `createApp`, `app.use`, or `app.mount`.
+- **lint** — ESLint's file set is TS/Vue. The boot is not linted. (It is also, per L-4/N-2, in a
+  tree with no import governance at all.)
+- **bundle** — under vite 8 / rolldown the inline module body does not survive entry analysis.
+
+Three independent enforcement systems miss the same eight lines for the same reason: those lines
+have no module home. That is a library-structure defect in the most literal sense the brief asks
+for — **wrong module boundary, applied to the one module that boots everything.**
+
+### Why it survived
+
+The live site renders correctly
+(`audit/visual/shots/LIVE-color.babb.dev.png`, read — full picker, About pane, dock all present), so
+the deployed artifact predates this toolchain. And the entire visual audit ran against the **dev
+server** (`audit/visual/REPORT.md:3` — `Origin: http://localhost:9000`), where Vite serves inline
+module scripts as virtual modules and everything works. **Dev is green, prod is empty, and no gate
+compares them.** The next deploy from this tree ships a blank page.
+
+This is the `gh-pages` prod-preview empty-mount carried in `CARRY-LEDGER.md` §F and named there as
+"the first deep-audit probe." The mechanism is now measured and the cure is five lines.
+
+### Cure
+
+Give the composition root a file. `demo/color-picker/main.ts` holds those eight lines verbatim;
+`index.html` carries `<script type="module" src="./main.ts">`. That single move restores bundler
+entry analysis, typecheck coverage and lint coverage of the application boot simultaneously.
+
+Do **not** pursue a bundler workaround. The entry having no module home is the defect; the bundler
+merely stopped tolerating it. And add the gate that would have caught this on the day it broke: a CI
+step that builds `gh-pages` and asserts the entry chunk exceeds a floor (say 50 KB) — a 698-byte
+entry must fail loudly, not deploy quietly.
 
 ---
 
-## N-2 · MAJOR (strengthens pass-1 L-4) — the effective config for this file has no boundary rule at all
+## N-7 · MAJOR — `"sideEffects": false` is declared for a package that contains a non-library tree
 
-Pass 1 proved the G-DEMO globs match nothing by enumerating the missing directories. The stronger
-proof is to ask ESLint what it actually resolves for the subject file:
+`package.json:12` — `"sideEffects": false`, package-wide. `package.json:60-64` then carves the demo
+back out of the publish surface by negation:
 
-```
-$ npx eslint --print-config demo/palettes/BrowsePane.vue      # rules['no-restricted-imports']
-no-restricted-imports = undefined
-```
-
-Not "a rule with dead patterns" — **no rule**. The palette-browser feature, the exact subject of
-G-DEMO-3b's standing declaration, has zero import governance.
-
-And the one glob that *does* match live files resolves to a ban on a specifier that cannot exist:
-
-```
-$ npx eslint --print-config demo/color-picker/App.vue         # rules['no-restricted-imports']
-[2,{"patterns":[{"group":["@components/custom/palette-browser/**/*.vue"],
-   "message":"G-DEMO-3b: reach palette-browser through its barrel seam, never a raw .vue file."}]}]
+```json
+"files": ["dist", "!dist/gh-pages", "!dist/gh-pages/**"]
 ```
 
-`@components` was killed at W43/RF-15 — `vite.config.ts:68-72` (*"W43 (RF-15) killed the demo `@…`
-path aliases"*) and `tsconfig.demo.json:33` both record its removal. So: 6 of 8 `files:` globs match
-zero files, and the 2 that match ban an unresolvable specifier. The law is dead in both halves.
+Two exclusion rules to keep a build target out of a package that should never have contained it.
+The `sideEffects` claim is true of `src/` and false of `demo/` — every SFC `<style>` is a side
+effect, and `demo/palettes/browser/index.ts:5-7` already names this as a live hazard:
 
-Live damage in BrowsePane: it already makes the banned *shape* of reach twice —
-`../shared/ui/EmptyState.vue:189` and `../shared/ui/PaneHeader.vue:196`, raw cross-feature `.vue`
-imports (31 exist demo-wide). Nothing reaches past the browser seam today
-(`grep -rn 'from "[^"]*browser/[^"]*\.vue"' demo/` → empty), so the tree complies **by accident**.
+> the PI-6 eager-chunk hygiene residual (the `./demo/**` sideEffects mark defeats the named-re-export
+> tree-shake) is BOOKED to the bundle-config reconciliation
 
-**Cure** (extends pass-1 L-4): re-home the globs onto the live tree and express the ban relatively
-(`**/palettes/browser/**/*.vue`), **and** add a config-level assertion that fails when any `files:`
-glob matches zero paths. The class of rot here is not "a wrong glob" — it is "a glob that stopped
-matching and said nothing." Fix it once and it recurs at the next restructure; fence it and it
-cannot.
+Probe B shows the claim is not currently *firing*, which makes it more dangerous, not less: it is an
+untrue declaration that happens to be inert under today's tree-shaker and will not stay inert.
+
+This is not a hypothesis about where the boundary should be — the negation glob in `files` **is** the
+boundary being patched instead of drawn. `demo/` is a separate package wearing the library's
+`package.json`.
+
+**Cure** — the root move of §D: `demo/` becomes its own private workspace package. The library keeps
+`sideEffects: false` truthfully and drops both negation globs; the demo declares
+`sideEffects: ["*.css", "*.vue"]` and consumes `@mkbabb/value.js` as a workspace dependency through
+its real `exports` map — which also retires the self-alias apparatus (`vite.config.ts:22-49`) and
+converts "the demo proves the public API" from policy into a fact of resolution.
 
 ---
 
-## N-3 · MAJOR (extends pass-1 L-8) — measured: the colour filter silently drops half the live commons, and the model is why
+## N-8 · MAJOR (extends L-1) — live resolution proof, semantic divergence, and the inversion that makes it worse
 
-Pass 1 established the structure (two hand-rolled copies, a dead typed seam). The missing piece is
-what it does to real data. Against the production commons the demo actually targets
-(`demo/platform/transport/client.ts:36-37` — `DEFAULT_REMOTE_API_URL = "https://api.color.babb.dev"`):
+Pass 1 proved the export dual-path by grep. Two things strengthen it.
 
-```
-$ curl -s "https://api.color.babb.dev/palettes?limit=50" | …
-rows 10   hasMore false
-rows with a non-empty oklabColors array: 5
-```
-
-`BrowsePane.vue:346` — `if (!oklabColors || oklabColors.length === 0) return false;` — therefore
-**excludes 5 of the 10 published palettes from every colour search**, with no UI signal. The server
-matcher drops them identically (`crud-list.ts:172-173`), so this is not a client/server divergence:
-it is a **model** defect. `Palette.oklabColors` is optional (`demo/palettes/types.ts:32`) on a
-projection where the search feature requires it, and both implementations independently chose
-silent exclusion as the fallback for a field the type says may be absent. That is edict-2's
-"masking fallback" appearing twice because the type invited it.
-
-Second, an environment fact this seat is obliged to record, because it bounds every other seat's
-evidence: **the browse wall's populated state is not observable on the live dev server.**
+**(a) Live resolution, from the running dev server** — not inferred from file layout:
 
 ```
-$ curl -s -o /dev/null -w "%{http_code}" http://localhost:9000/            → 200
-$ curl -s http://localhost:9000/colors/api/palettes                        → the SPA index.html
-$ grep -n "proxy" vite.config.ts                                           → (no matches)
+$ curl -s "http://localhost:9000/@fs/…/demo/palettes/usePaletteExport.ts" | head -1
+import { exportAsJSON, exportAsCSSCustomProperties, exportAsTailwindConfig, exportAsSVG,
+  exportAsPNG, downloadExport } from "/@fs/…/demo/palettes/export.ts";
 ```
 
-There is no API proxy; a loopback page with no `VITE_API_URL` targets the remote origin
-(`client.ts:37`, and `demo/platform/transport/availability.ts:23-33` documents this precise
-footgun). The visual-audit matrix captured the consequence — all four matrices show
-`/#/browse` at text 280/124 with **overflowX 0, pageErr 0, consoleErr 0**
-(`audit/visual/REPORT.md:121,136,151,166`), and the screenshot
-`audit/visual/shots/safari-desktop-light/browse.png` shows the pane in its **error** branch
-("The commons is unreachable." / "Failed to load palettes" / Retry). So the wall, the card grid, the
-skeleton→content `vj-morph` transition and the load-more affordance are **unproven by that matrix**;
-what it certifies is `EmptyState variant="error"` (`BrowsePane.vue:62-78`), which renders correctly
-and without overflow in all four matrices. Any downstream seat citing the visual matrix as coverage
-of the browse *wall* is citing coverage of the browse *error state*.
+Vite's own resolver, on the process serving the app, names the legacy file. `BrowsePane.vue:115` →
+`usePaletteExport.ts:9` → `export.ts`. Not ambiguous.
 
-**Cure**: pass-1 L-8's (publish the metric, use the existing seam) — plus make `oklabColors`
-non-optional on the searchable projection so neither implementation can choose silence, and add a
-dev proxy or a documented `VITE_API_URL` so the wall's populated state is capturable at all.
+**(b) The two are not stylistic variants — they emit different bytes.** Beyond pass-1 L-2's
+slugifier divergence, the CSS serializers disagree on identifier grammar *and* on colour spelling:
+
+| | `export.ts:26-30` (live) | `export/css.ts:12-15` (contract, dead) |
+|---|---|---|
+| custom property | `--palette-{nameSlug}-{i}` | `--{identifierPrefix}-{positionalId(i+1)}` |
+| value | `${c.css}` — raw author string | `canonicalColor(color)` — integer-encoded OKLCH |
+
+So the byte-exactness regression lock (`byte-exact.test.ts`, fixtures derived from
+`PALETTE-CONTRACT.md` Appendix W51) is green over bytes no user can obtain, while the bytes every
+user obtains are untested. That is the worst available orientation for a test suite: maximum
+confidence pointed at the unreachable half.
+
+**(c) The inversion.** The **dead** path is the one that dogfoods the library —
+`export/png.ts:11` imports `oklch, toRgba8` from `@mkbabb/value.js/color`. The **live** path
+(`export.ts:1`) imports nothing but `./types`, and renders PNG by round-tripping its own SVG through
+a `<canvas>` (`export.ts:84-117`). The library's own demo ships an export button that never touches
+the library, while the version that does is unreachable. For a seat auditing whether the demo proves
+the public API, this is the sharpest single instance in the tree.
+
+**Cure** (extends pass-1 L-1): delete `demo/palettes/export.ts`; rename `export/serializers.ts` →
+`export/index.ts` so `./export` resolves to the contract set; rewrite `usePaletteExport.ts` onto
+`ExportSnapshot`. One home, one suite, one set of bytes — and the export path starts dogfooding.
 
 ---
 
-## N-4 · MINOR — one concept, two owners across the prop boundary, and a double-fired clear
+## N-9 · MINOR (quantifies L-3) — the design-system route census, measured
 
-**Not in pass 1** (`grep -ci "onClearAll\|clearColorSearch\|colorSearchActive"` → 0, 0, 0).
+Pass 1 established that `demo/ui/**` is pure re-export barrels. The size of the problem was not
+measured. It is three parallel routes, and `BrowsePane` uses two of them eleven lines apart
+(`:180-181` shim, `:195` subpath):
 
-The colour-search feature is split down the middle of the pane/child boundary:
-
-- **params** live in the pane — `BrowsePane.vue:336` `const colorSearchParams = ref<{L,a,b}|null>(null)`
-- **the active flag** lives in the child — `SearchFilterBar.vue:171` `const colorSearchActive = ref(false)`,
-  read only by `activeFilterCount` (`:189-195`)
-
-Neither component can answer "is a colour search on?" without the other, and the flag is set in two
-places in the child (`:185`, `:220`) while the params are set in one place in the parent (`:352`).
-
-The seam is also double-wired. `SearchFilterBar.onClearAll` (`:227-231`) emits **both** events for
-one click:
-
-```ts
-function onClearAll() {
-    colorSearchActive.value = false;
-    colorText.value = "";
-    emit("clearColorSearch");
-    emit("clearFilters");
-}
+```
+$ grep -rn 'from "\(\.\./\)*ui/[a-z-]*"' demo | wc -l      →  90   # via the demo/ui shims
+$ grep -rn 'from "@mkbabb/glass-ui/' demo | wc -l          →  82   # via published subpaths
+$ grep -rn 'from "@mkbabb/glass-ui"' demo | wc -l          →  37   # via the root barrel
 ```
 
-BrowsePane binds both (`:23-25`) to handlers that each null the same ref — `onClearColorSearch`
-(`:357-359`) and `onClearFilters` (`:329-332`, which calls `clearBrowseFilters()` *and*
-`colorSearchParams.value = null`). One intent, two events, three handlers, and
-`colorSearchParams.value = null` executes twice. Harmless today; it is the shape that produces a
-desync the moment either side grows a side effect.
+209 import sites, three conventions, no rule distinguishing them (L-4/N-2: there is no rule at all).
+Of the 20 shim barrels, **19 re-export the root barrel**; only `demo/ui/input/index.ts` uses a
+subpath. Cost of that indirection:
 
-**Cure**: one owner. When the colour target becomes browse-query state (pass-1 L-8 / N-3),
-`SearchFilterBar` reads it as a prop, `activeFilterCount` derives from the same source as the query,
-and the `clearColorSearch` event disappears into `clearFilters`.
+```
+$ ls -la node_modules/@mkbabb/glass-ui/dist/{glass-ui,card,button}.js
+25239  glass-ui.js     # the root barrel
+  217  card.js
+   71  button.js
+```
+
+glass-ui publishes **68** subpaths and marks `sideEffects: ["*.css"]`. The split exists so importing
+a `Card` pulls 217 bytes of module graph rather than a 25 KB barrel; the shims defeat it for 90
+sites. And `demo/ui/alert/index.ts:3-9` records that this directory once held real shadcn
+re-implementations and was converted to re-exports — the conversion stopped one step short of
+deleting the directory, which is precisely the "alias barrel" shape edict 2 forbids.
+
+**Cure**: delete `demo/ui/` (20 barrels, 90 sites → `@mkbabb/glass-ui/<subpath>`), and — once
+L-4/N-2's globs are re-homed onto the live tree — ban the root barrel from `demo/**` by
+`no-restricted-imports`, which makes edict 4 mechanically checkable for the first time.
 
 ---
 
-## N-5 · INFO — two published subpaths have no dogfood
+# §C — Joint verdict across three passes
 
-Adds to pass-1 L-5 (which covers the *missing root*, not the *unused subpaths*):
+**DEFECTIVE.** 25 findings across three independent passes; 15 MAJOR-or-worse; two BLOCKERs.
 
-```
-$ grep -rho 'from "@mkbabb/value.js/[a-z]*"' demo/ | sort | uniq -c | sort -rn
-  24 from "@mkbabb/value.js/color"
-  10 from "@mkbabb/value.js/css"
-   6 from "@mkbabb/value.js/math"
-   5 from "@mkbabb/value.js/easing"
-   4 from "@mkbabb/value.js/quantize"
-```
+The through-line pass 2 identified holds and extends: *one concept, two or three homes, and the
+shipping home is the wrong one* — exports (L-1/N-8), slugs (L-2), the design system (L-3/N-9),
+colour distance (L-8/N-3), the remote row list (L-10), the feedback rail (L-12), the pane surface
+(L-13/N-1), colour-search state (N-4), the package boundary (N-7).
 
-`./value` and `./transform` are published and have **zero** demo consumers — two-sevenths of the
-public surface is proved by its own unit tests and nothing else. Not BrowsePane's fault; recorded
-because this seat owns the public-surface question and the demo is the repo's only integration
-proof of the export map.
+Pass 3 adds the degenerate case of that same mechanism: **the application entry has *zero* homes.**
+Every prior finding describes a concept with too many owners; N-6 describes one with none, and the
+consequence is that none of the other 24 findings currently reach a user, because the tree they
+live in does not ship.
 
----
+**Strongest defect overall (pass 3's, and it displaces the prior ranking):** **N-6** — the
+production `gh-pages` build emits 12,472 bytes of JS and no `BrowsePane` chunk; the same config with
+the composition root given a file emits 1,595,550 bytes across 45 chunks including
+`BrowsePane-bS6gps-Y.js`. 127.9× of the application is missing from the artifact. It is the only
+finding in this blast radius whose cure is five lines and whose absence makes every other cure
+unobservable.
 
-# §C — Joint verdict
+**Strongest defect in the prior passes:** pass-1 L-1 (the byte-exact export contract ships to
+nobody), now strengthened by N-8's live-resolver proof and the dogfood inversion. Closely followed by
+L-4/N-2, the guard whose death let the rest accumulate.
 
-**DEFECTIVE.** 21 findings across two independent passes, 12 MAJOR-or-worse, converging on the same
-mechanism from different directions: *one concept, two or three homes, and the shipping home is the
-wrong one* — exports (L-1), slugs (L-2), the design system (L-3), colour distance (L-8/N-3), the
-remote row list (L-10), the feedback rail (L-12), the pane surface (L-13/N-1), the colour-search
-state (N-4).
+**A structural note the three passes agree on, from three directions.** L-4/N-2 found a lint rule
+that stopped matching and said nothing. N-6 found a build that stopped bundling and said nothing —
+`✓ built in 5.99s`, exit 0, 698-byte entry. N-7 found a `sideEffects` claim that is false and
+currently inert. Every one of these is a *silent* failure of an invariant that was believed held.
+Pass 1's meta-rule is the right one and should be lifted to the tranche: **a structural invariant is
+only real if a green build fails without it.**
 
-**Strongest defect (pass 2's own):** N-1 — a nine-consumer, four-feature global CSS recipe smuggled
-out of one component's unscoped `<style>`, inverting the project's own written residence rule
-(`DESIGN.md:388`) and silently blocking pass-1 L-13's cure. It is the finding that changes what the
-mega-tranche must *do*, not merely what it must delete.
-
-**Strongest defect overall:** pass-1 L-1 — the byte-exact export contract ships to nobody while its
-test stays green, which is the highest-value single deletion in this blast radius. Closely followed
-by L-4/N-2, because that is the guard whose death let every other finding accumulate:
-`npx eslint --print-config demo/palettes/BrowsePane.vue` → `no-restricted-imports = undefined`.
-
-**The negative, proved.** The brief's headline charge — a demo import a real consumer could not
-write — does **not** hold, and both passes prove it independently. Zero bare-root imports
-(`grep -rn 'from "@mkbabb/value.js"' demo/` → 0), zero `@src/` or `../../src/` reaches from `demo/`
-(→ 0), and all 49 value.js specifiers are keys that exist in `package.json#exports`. The mechanism
-is structural, not disciplinary: `vite.config.ts:38-49` *generates* the self-alias set from
-`package.json#exports` by anchored regex, so an alias cannot drift from the export map nor
-prefix-match into a subpath, and `tsconfig.demo.json` carries no `@src/*` path. A non-published
-specifier is not merely absent here — it is unauthorable. That mechanism is the single best-engineered
-thing in this component's library posture and must survive any restructure verbatim.
+**The negative, proved — and it survives pass 3.** The brief's headline charge — a demo import a
+real consumer could not write — does **not** hold. `BrowsePane.vue`'s full import list (`:179-199`,
+14 imports) is `vue`, demo-relative paths, and the published subpath `@mkbabb/glass-ui/search`.
+Zero bare-root value.js imports (`grep -rn 'from "@mkbabb/value.js"' demo/` → 0), zero `@src/` or
+`../../src/` reaches from `demo/` → 0, and all 49 value.js specifiers are keys that exist in
+`package.json#exports`. The mechanism is structural, not disciplinary: `vite.config.ts:38-49`
+*generates* the self-alias set from `package.json#exports` by anchored regex, so an alias cannot
+drift from the export map nor prefix-match into a subpath, and `tsconfig.demo.json` carries no
+`@src/*` path. A non-published specifier is not merely absent — it is **unauthorable**. That
+mechanism remains the single best-engineered thing in this component's library posture and must
+survive any restructure verbatim. N-7's package split would strengthen it further (real resolution
+replacing generated aliases), never weaken it.
 
 ---
 
-## The lattice, greenfield (pass 2's amendment)
+# §D — The lattice, greenfield (pass 3's amendment)
 
-Pass 1's lattice stands; N-1 amends its surface layer:
+Passes 1 and 2 produced a demo-internal lattice that stands unchanged. Pass 3 adds the two moves
+that must come **first**, because they are the ones that make the rest observable:
 
 ```
+0. SPLIT THE PACKAGE (N-7)
+   demo/ becomes a private workspace package.
+     - library keeps "sideEffects": false truthfully; both !dist/gh-pages negations delete
+     - demo declares  "sideEffects": ["*.css", "*.vue"]
+     - demo depends on @mkbabb/value.js as a workspace dep → real exports-map resolution
+     - vite.config.ts:22-49 self-alias apparatus deletes (superseded by real resolution)
+
+1. GIVE THE APPLICATION AN ENTRY MODULE (N-6)
+   demo/color-picker/main.ts        ← the 8 lines currently inline in index.html
+   index.html                       ← <script type="module" src="./main.ts"> and nothing else
+   CI                               ← gh-pages build + entry-chunk floor assertion (>50 KB)
+
+2..n  — passes 1 & 2's lattice, unchanged:
+
 demo/palettes/browse/
-  BrowsePane.vue        template + wiring only; ROOT is <PaneHeader> (N-1, L-13)
+  BrowsePane.vue        template + wiring only; ROOT is <PaneHeader>            (N-1, L-13)
   useBrowseQuery.ts     THE query owner: search · sort · tier · tags · colour(L,a,b,radius)
-                        → api/palettes.ts params. No client-side re-filter. (L-8, N-3)
-  useBrowseActions.ts   fork · vote · rename · visibility · delete; ONE replaceRemote(slug, next) (L-9, L-10)
-  useModalTarget.ts     open/target/show/hide × 3 instances (the 3 hand-rolled ref pairs, :269-320)
-demo/palettes/export/index.ts   ← promoted from serializers.ts; the byte-exact set IS the export (L-1)
-demo/shared/ui/PaneHeader.vue   renders the Card root + sticky header + slot (N-1)
-demo/styles/                    owns .pane-scroll-fade + --pane-scroll, with the DESIGN.md:388 comment (N-1)
+                        → api/palettes.ts params. No client-side re-filter.     (L-8, N-3)
+  useBrowseActions.ts   fork · vote · rename · visibility · delete;
+                        ONE replaceRemote(slug, next)                           (L-9, L-10)
+  useModalTarget.ts     open/target/show/hide × 3 (the 3 hand-rolled ref pairs, :269-320)
+demo/palettes/export/index.ts   ← promoted from serializers.ts; the byte-exact set IS the export
+                                                                                (L-1, N-8)
+demo/shared/ui/PaneHeader.vue   renders the Card root + sticky header + slot     (N-1)
+demo/styles/                    owns .pane-scroll-fade + --pane-scroll, with the
+                                DESIGN.md:388 residence comment                 (N-1)
+src/color/operations.ts         deltaEOK — the distance metric gets a home in the library;
+                                api/ consumes it, retiring its hand-rolled OKLab matrix
+                                (api/.../oklab.ts:16-21 already books this)      (L-8, N-3)
 
-DELETED: demo/ui/** (19 barrels, L-3) · demo/palettes/export.ts + its slugifier (L-1, L-2) ·
-         BrowsePane's displayedBrowse + colorSearchParams (L-8, N-3, N-4) ·
-         useDialogBrowseActions.onRevert + modalStack (L-9)
-FIXED:   eslint.config.js globs → live tree + a zero-match-glob assertion (L-4, N-2)
-         Palette.oklabColors non-optional on the searchable projection (N-3)
+DELETED: demo/ui/** (20 barrels, 90 sites)                                      (L-3, N-9)
+         demo/palettes/export.ts + its slugifier                                (L-1, L-2, N-8)
+         BrowsePane's displayedBrowse + colorSearchParams                       (L-8, N-3, N-4)
+         useDialogBrowseActions.onRevert + modalStack                           (L-9)
+         both cardRefs registries (leak dies with them)                         (L-12)
+FIXED:   eslint.config.js globs → live tree + a zero-match-glob assertion       (L-4, N-2)
+         no-restricted-imports bans the glass-ui root barrel from demo/**       (N-9)
+         Palette.oklabColors non-optional on the searchable projection          (N-3)
 ```
 
 Direction of dependency after the transposition: `pane → feature composables → api client → wire`,
-with `shared/ui` and glass-ui the only upward reaches and `@mkbabb/value.js/*` the only downward
-one. No component owns arithmetic; no CSS class is owned by a component that does not render it;
-one home per concept.
+with `shared/ui` and glass-ui the only upward reaches and `@mkbabb/value.js/*` the only downward one.
+No component owns arithmetic. No CSS class is owned by a component that does not render it. No
+concept has two homes — and the one concept that had none has a file.
+
+`BrowsePane.vue` at the end is roughly 200 lines: a header, a search bar, three states, a grid,
+three portalled surfaces, and no logic another module could own.
 
 ---
 
-## Evidence index (pass 2)
+## Evidence index (pass 3)
 
 | claim | command / artifact |
 |---|---|
-| N-2 no rule for the subject file | `npx eslint --print-config demo/palettes/BrowsePane.vue` → `no-restricted-imports = undefined` |
-| N-2 live glob bans a dead alias | `npx eslint --print-config demo/color-picker/App.vue` → ban on `@components/custom/palette-browser/**/*.vue` |
-| N-2 `demo/@` gone | `find demo -path 'demo/@*' \| wc -l` → `0` |
-| N-1 nine consumers | `grep -rn "pane-scroll-fade" demo/` → 9 pane roots + PaneHeader + DESIGN.md |
-| N-1 the inverted rule | `demo/DESIGN.md:388`; `demo/styles/foundation.css:578`; `PaneHeader.vue:40-58` |
-| N-3 live commons shape | `curl -s "https://api.color.babb.dev/palettes?limit=50"` → rows 10, hasMore false, 5 with `oklabColors` |
-| N-3 no local API | `curl http://localhost:9000/colors/api/palettes` → SPA HTML; `grep -n proxy vite.config.ts` → none |
-| N-3 browse captured in its error branch | `audit/visual/REPORT.md:121,136,151,166`; `audit/visual/shots/safari-desktop-light/browse.png` (read) |
-| N-4 double-fired clear | `SearchFilterBar.vue:227-231` + `BrowsePane.vue:23-25,329-332,357-359` |
-| N-5 subpath dogfood census | `grep -rho 'from "@mkbabb/value.js/[a-z]*"' demo/ \| sort \| uniq -c` |
-| L-3 ✔ 19 pure barrels | loop over `demo/ui/*/index.ts` counting non-re-export lines → 0 for all 19 |
-| L-9 ✔ dead host | `find demo -name "PaletteDialog*"` → empty; `grep -rn modalStack demo/` → 5, all internal |
-| negative proof | `grep -rn 'from "@mkbabb/value.js"' demo/` → 0; `grep -rn '@src/\|\.\./\.\./src/' demo/` (non-`.md`) → 0 |
-| pass 1, preserved | `challenge-L-library-pass1.md` (byte-identical copy of the 13:47 artifact) |
+| N-6 committed artifact is an empty mount | `ls -la dist/gh-pages/assets/` → `index-Dezn_h7o.js` **698 B**, no `index-*.css`, no pane chunks |
+| N-6 that entry is only the preload polyfill | `head -c 900 dist/gh-pages/assets/index-Dezn_h7o.js` → `link.relList.supports('modulepreload')` IIFE, nothing else |
+| N-6 probe A reproduces it byte-for-byte | `npx vite build --mode gh-pages --config probe/vite.probeA.mts` → 2 chunks, 12,472 B, same hash `index-Dezn_h7o.js` |
+| N-6 `sideEffects` is NOT the mechanism | probe B (`treeshake:{moduleSideEffects:true}`) → byte-identical to A |
+| N-6 a file-homed entry fixes it | probe C → 45 chunks, **1,595,550 B**, `BrowsePane-bS6gps-Y.js` 22,321 B + `BrowsePane-B-2cz1Cw.css` 799 B |
+| N-6 the inline entry | `demo/color-picker/index.html:205-213`; `ls demo/color-picker/` → no `main.ts` |
+| N-6 dev-only coverage | `audit/visual/REPORT.md:3` — `Origin: http://localhost:9000`; `LIVE-color.babb.dev.png` (read) renders, so prod predates this toolchain |
+| N-7 untrue package claim | `package.json:12` `"sideEffects": false`; `package.json:60-64` `["dist","!dist/gh-pages","!dist/gh-pages/**"]` |
+| N-8 live resolver names the legacy file | `curl -s "http://localhost:9000/@fs/…/usePaletteExport.ts" \| head -1` → `… from "/@fs/…/demo/palettes/export.ts"` |
+| N-8 byte divergence | `export.ts:26-30` vs `export/css.ts:12-15` |
+| N-8 dogfood inversion | `export/png.ts:11` imports `@mkbabb/value.js/color`; `export.ts:1` imports only `./types` |
+| N-9 route census | `grep -rn` × 3 → 90 shim / 82 subpath / 37 root-barrel sites |
+| N-9 barrel cost | `ls -la node_modules/@mkbabb/glass-ui/dist/{glass-ui,card,button}.js` → 25239 / 217 / 71 |
+| L-7 ✔ port fully consumed | `browsePort` = 32 members (`usePalettePorts.ts:157-192`); `grep -o "pm\.[a-zA-Z]*" BrowsePane.vue \| sort -u \| wc -l` → 30 (+2 transitive) |
+| L-4 ✔ no governance | `ls -d demo/@` → No such file or directory; `npx eslint demo/palettes/BrowsePane.vue` → clean |
+| route renders clean in all 4 matrices | `audit/visual/REPORT.md:121,136,151,166` — overflowX 0, main 1, pageErr 0, consoleErr 0 |
+| probe configs | `./probe/vite.probe{A,B,C}.mts`, `./probe/probe-entry.ts` |
+| pass 1 & 2, preserved | `challenge-L-library-pass1.md`, `challenge-L-library-pass2.md` |

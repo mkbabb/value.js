@@ -1187,3 +1187,593 @@ the adoption that dropped the behaviour without a rendered witness.
 
 No source file was edited by this seat. All writes are confined to
 `docs/tranches/V/megatranche/audit/components/PaletteCard/`.
+
+---
+---
+
+# ADDENDUM II — third CHALLENGE-D seat: the export seat, the row grid, and the redundant expand
+
+## Model receipt
+
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`. The seat was
+spawned with an explicit Opus 5 declaration and the served tier matches it. Declared, not inherited.
+
+---
+
+## Why this addendum exists
+
+Two CHALLENGE-D seats have already run this component (body §1–§19, addendum §D-21–D-28). I did not
+re-derive their findings; I re-measured a sample of them and then went after the three surfaces
+neither seat opened:
+
+1. **`PALETTE-CONTRACT.md`.** The body's §0 names its canon as `VISUAL-CONSTITUTION.md` and
+   `PROPORTION-AUDIT.md`. The seat law names a third authority, and it is the one this card's
+   Export sub-menu is governed by. Nobody read it. It contains five verbatim prohibitions that the
+   card's Export seat violates, and I have the downloaded bytes.
+2. **The rendered row grid across a stack.** Both seats measured one card. The card ships in a
+   vertical list of identical-width siblings; a repeated entity's rhythm is a property of the
+   stack, not the specimen.
+3. **What the expand actually reveals.** Both seats judged the expand's *mechanism* (height
+   animation, PRM, scroll). Neither asked whether the revealed content is worth 72 px.
+
+New evidence written by this seat:
+
+- `probe-D3.mjs` → `probe-D3-results.json` — row geometry across 6 seeded palettes at 1440 px and
+  390 px; the Export seat driven end-to-end through the card's own menu with download capture.
+- `probe-D3b.mjs` → `probe-D3b-results.json` — the Export seat on a *clean* palette (to separate
+  structural failure from name-triggered failure); `/#/browse` request reachability; expanded-card
+  fill geometry.
+- `evidence/dl-*.svg`, `evidence/clean-*.{png,json,svg}` — the actual exported files.
+- `evidence/d3-desktop-rows.png`, `evidence/d3-mobile-rows.png`, `evidence/d3-expanded.png`.
+
+---
+
+## D-29 — BLOCKER. The card's Export seat is wired to a legacy module. The contract-conformant implementation exists, is tested, and ships to no one.
+
+`PaletteCardMenu.vue:107-130` renders a five-item Export sub-menu. Each item emits an action string;
+`PaletteCard.vue:308-312` maps them to `emit("export", palette, fmt)`; both consumers
+(`BrowsePane.vue:115`, `PalettesPane.vue:96`) hand that to `usePaletteExport()`, which is:
+
+```ts
+// demo/palettes/usePaletteExport.ts:1-27  (whole file)
+import { exportAsJSON, … , downloadExport } from "./export";
+…
+        } catch (e) {
+            console.warn("Export failed:", e);
+        }
+```
+
+`"./export"` resolves to **`demo/palettes/export.ts`** — a 140-line flat module with a hand-rolled
+`slugify`, a `<text>`-bearing SVG, and a canvas rasterizer.
+
+There is a second, complete export implementation in the tree:
+
+```
+$ ls demo/palettes/export/
+bytes.ts  canonical.ts  css.ts  digest.ts  json.ts  png.ts  reload.ts
+rfc8785.ts  serializers.ts  svg.ts  tailwind.ts  types.ts
+```
+
+That is the W51 byte authority — RFC 8785 canonicalisation, the domain-separated content digest,
+the frozen PNG/DEFLATE encoder. Its consumer census:
+
+```
+$ grep -rn "palettes/export/" demo test e2e --include='*.ts' --include='*.vue' | grep -v "^demo/palettes/export/"
+demo/test/export/byte-exact.test.ts:23:} from "../../palettes/export/serializers";
+```
+
+**One consumer, and it is a test.** No product surface imports it. The only user-facing export seat
+in the application — this card's menu — is wired to the other one.
+
+This is owner edict 2 in its purest form (no legacy code, no dual paths) and it is not a stylistic
+duplication: the two modules disagree about the bytes. `PALETTE-CONTRACT.md:165-171` states the
+appendix "is W51's sole byte authority for JSON / CSS / Tailwind / SVG / PNG" and "may not be
+prose-compressed." The shipped path satisfies none of it. Measured, from files this seat downloaded
+through the card's own menu:
+
+| Contract clause (verbatim, `PALETTE-CONTRACT.md`) | Shipped bytes (`evidence/clean-sunset.json`, `evidence/clean-oklch-set.svg`) |
+|---|---|
+| JSON value is `{schema:"value.palette-export/v1", source, displayName, contentDigest, colors:[{id:"color-001",…}], canonicalTags}` (L236-247) | `{"name":"Sunset","slug":"sunset","colors":[{"css":"#ff6b6b","position":0},…]}` — no schema, no source, no digest, no positional ids, no tags |
+| "Identifiers are deliberately positional: color `i` is `color-` plus its 1-based index padded to three decimals" (L221) | `--palette-<name-slug>-<0-based index>` |
+| "One canonical CSS color spelling is used everywhere: `oklch(<l/1000 fixed 3>% …)`" (L223-227) | the palette's raw author string, passed through: `fill="#123456"` in one file, `fill="oklch(0.7 0.15 30)"` in the next |
+| Tailwind is "data, not executable JavaScript… V emits no CommonJS/ESM function, comment, plugin, `require`, `eval`" (L266-276); extension `.tailwind.json`, MIME `application/json` | `export.ts:55-58` emits `// Tailwind config for "<name>"\nexport default {…}` — a comment plus an ESM default export — as `.tailwind.ts` with MIME `text/typescript` |
+| "SVG is a **font-free** swatch strip… There is no text rendering, font, external reference, CSS, metadata, script…" (L280, L299) | `export.ts:71` emits `<text … font-family="system-ui, sans-serif" font-size="14" fill="#333">` |
+| PNG is "deterministic client-side rasterization, **not browser canvas serialization**"; "No CSS-string reparse… canvas/platform converter… survives" (L303-305) | `export.ts:84-116`: SVG string → Blob → `<img>` → `canvas.getContext("2d")` → `canvas.toBlob` |
+
+The last row is the one with teeth. The contract makes W8's `toRgba8` the sole Color→byte authority
+precisely so Chromium, Firefox and Safari produce identical pixels. The shipped path hands the
+colour strings to the browser's own CSS parser and compositor. For the `oklch()` palette I exported,
+the PNG's pixels are whatever WebKit's oklch→sRGB path produced — a per-engine value the contract
+says "reopens W8 rather than authorizing a palette-local conversion path."
+
+**Reproduction:** `node docs/tranches/V/megatranche/audit/components/PaletteCard/probe-D3b.mjs` —
+seeds two palettes, opens the card menu, clicks Export → JSON / SVG / PNG, saves the downloads to
+`evidence/clean-*`.
+
+---
+
+## D-30 — BLOCKER. SVG export writes unescaped user text. A palette name closes the `<text>` element and injects a `<script>` into the file on the user's disk.
+
+`PALETTE-CONTRACT.md:280`:
+
+> XML escaping is one scalar pass with exactly five substitutions: `&→&amp;`, `<→&lt;`, `>→&gt;`,
+> `"→&quot;`, and `'→&apos;` … Apply the escape pass to every dynamic text or attribute value after
+> Domain normalization.
+
+`demo/palettes/export.ts:71` applies none of them:
+
+```ts
+`  <text x="${width / 2}" y="${swatchH + 20}" … fill="#333">${palette.name}</text>`,
+```
+
+I seeded a palette named `A & B </text><script>alert(1)</script>`, opened its card menu on
+`/#/palettes`, chose **Export → SVG Swatch**, and captured the download. The file
+(`evidence/dl-a-b-text-script-alert-1-script.svg`) contains, verbatim:
+
+```xml
+<text x="60" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#333">A & B </text><script>alert(1)</script></text>
+```
+
+The `<text>` element is closed by the user's data, a `<script>` element is emitted at document
+level, and a stray `</text>` follows. The bare `&` is additionally a fatal XML well-formedness
+error. Opening that file in a browser executes the script; opening it in a vector editor fails to
+parse.
+
+The severity is not theoretical because of *where* the affordance sits: on `/#/browse` this menu is
+rendered on **other people's palettes** (`BrowsePane.vue:92-116` passes remote rows). The card
+offers "Export → SVG Swatch" on a stranger's entity, and the stranger controls the name.
+
+This is a design defect before it is a security defect: the contract designs the name as escaped
+data, and this seat's markup treats it as trusted document source. A state — "the entity's name
+contains markup" — was never designed.
+
+**Reproduction:** `probe-D3.mjs`, run 1. Pasted output:
+
+```json
+{ "idx": 5, "fmt": "SVG Swatch",
+  "filename": "a-b-text-script-alert-1-script.svg",
+  "head": "<svg …><rect …/><text … fill=\"#333\">A & B </text><script>alert(1)</script></text>\n</svg>" }
+```
+
+---
+
+## D-31 — BLOCKER. Whether an export succeeds depends on the palette's NAME. The failure is a `console.warn` and nothing else.
+
+`PALETTE-CONTRACT.md:172` — the first paragraph of the W51 appendix, verbatim:
+
+> A serializer either yields the bytes below or **a visible terminal/retryable operation state—never
+> a partial download or `console.warn`-only result.**
+
+`usePaletteExport.ts:21-23`:
+
+```ts
+} catch (e) {
+    console.warn("Export failed:", e);
+}
+```
+
+That is the prohibited construct, spelled the way the contract spells it. And it fires. Because PNG
+is rasterized *from the SVG string* (D-29), the injection of D-30 makes the SVG unloadable, `img.onerror`
+rejects, and the whole export dies invisibly.
+
+Measured, same session, same menu, two palettes:
+
+| palette | menu action | download event | console |
+|---|---|---|---|
+| `Sunset` | Export → PNG Swatch | `sunset.png`, **5794 bytes**, sig `137,80,78,71,13,10,26,10` | — |
+| `A & B </text><script>…` | Export → PNG Swatch | **none within 8 s** | `warning: Export failed: Error: Failed to load SVG for PNG conversion` |
+
+So the user clicks *PNG Swatch*, the menu closes, and absolutely nothing happens — no file, no
+chip, no error, no state. The card's own feedback channel (`ActionFeedback`) is not even wired to
+the export path: `showFeedback` is called from `BrowsePane.vue:230,239,249,264` and
+`PalettesPane.vue:207` for save/publish/delete, never for export.
+
+`PROPORTION-AUDIT.md §4` has already dispositioned this family:
+
+> `PR-08` | Pending/failure/**export**/recovery truth only transient | **ADD-AFFORDANCE** |
+> Primary W23; semantic producer W15 … Persistent entity status/recovery
+
+and `VISUAL-CONSTITUTION.md:102` has already ruled where the seat belongs:
+
+> Full detail, rename/lifecycle/**export** actions and durable operation state live in the selected
+> inspector.
+
+Three independent authorities — the byte contract, the proportion register and the interaction
+grammar — name this exact defect. The card ships it anyway, and the shipped failure mode is worse
+than "transient": it is silent.
+
+**Reproduction:** `probe-D3.mjs` run 3 (fails) vs `probe-D3b.mjs` run 1 (succeeds); pasted above.
+
+---
+
+## D-32 — MAJOR. The human name is the CSS identifier and the filename stem. Two palettes collide; an emoji palette exports to a dotfile.
+
+`PALETTE-CONTRACT.md:221`, verbatim:
+
+> A human name remains escaped data/metadata and **never becomes a CSS/Tailwind/XML identifier**.
+> Duplicate, empty, Unicode-only and punctuation names therefore cannot collide or silently rename
+> another token.
+
+The contract enumerates the exact four failure classes this design has. `export.ts:9-11` is the
+generic slugifier the contract also forbids by name ("The prefix already satisfies the target
+namespace/digest grammar; **no generic slugifier** … exists", L262):
+
+```ts
+function slugify(name: string): string {
+    return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+```
+
+Run against the contract's own four classes:
+
+```
+$ node -e '<the exact function above>; …'
+"🎨"                    -> ""                              -> file: ".css"
+"日本語"                 -> ""                              -> file: ".css"
+"---"                   -> ""                              -> file: ".css"
+"My Palette"            -> "my-palette"                    -> file: "my-palette.css"
+"my palette!"           -> "my-palette"                    -> file: "my-palette.css"
+```
+
+Unicode-only → empty stem. Punctuation-only → empty stem. Two distinct palettes → one filename and
+one identifier namespace: exporting both overwrites the first, and pasting both CSS files into one
+sheet silently renames tokens. Confirmed end-to-end through the card menu — the `🎨` palette's CSS
+export, downloaded to `evidence/dl-css.css` (WebKit repaired the empty stem `.css`; the body is
+unambiguous), run 2 of `probe-D3.mjs`:
+
+```css
+:root {
+  --palette--0: #ff0000;
+  --palette--1: #00ff00;
+}
+```
+
+`--palette--0`. The identity is gone from the artifact the card just handed the user.
+
+---
+
+## D-33 — MAJOR. The identity row has no column grid. The one metric every card carries lands at six different x positions in a stack of identical cards.
+
+Both prior seats measured a single card. The card's job is to be one row of a repeated field, and
+the design fails at that scale specifically.
+
+Measured (`probe-D3-results.json`, six seeded palettes, `/#/palettes`, WebKit, DPR 2):
+
+**Desktop 1440 px — every card is 462 px wide, every menu button is at x = 1166:**
+
+| palette | title x | title w | color-count badge x |
+|---|---:|---:|---:|
+| Sunset | 792 | 65 | **865** |
+| A very long palette name that will not fit | 792 | 91 | **891** |
+| Featured One | 792 | 130 | **1057** |
+| Single | 792 | 60 | **860** |
+| 🎨 | 792 | 22 | **822** |
+| `A & B </text>…` | 792 | 328 | **1128** |
+
+The colour-count badge — the only datum every palette in the product has — is scattered across a
+**306 px span** on cards whose left and right edges are identical. Mobile (390 px, 324 px cards) is
+proportionally worse: x = 144, 79, 248, 139, 101, 248 → a **169 px span on a 324 px card**, 52 % of
+the card's width.
+
+This is not a truncation bug; it is the absence of a layout decision. The row is one
+`flex items-center gap-2` (`PaletteCard.vue:43-44`) into which `PaletteCardMeta` injects up to seven
+more `shrink-0` siblings (`PaletteCardMeta.vue:7-54`). Nothing is ever assigned a column. A reader
+scanning the stack for "how many colours" must re-find the number on every row.
+
+`PROPORTION-AUDIT.md §5.2` — "A card has **one protagonist, one identity line**, and at most one
+persistent action/status region. Additional equal-weight zones require a different
+`InstrumentChassis` composition." The shipped identity line is a bag of up to eleven items with no
+internal law. The rendered consequence is visible without instruments in `shots/d-light.png`: four
+cards, four different badge positions, no vertical edge anywhere except the menu column.
+
+---
+
+## D-34 — MAJOR. Expanding the card costs 72 px and reveals nothing the strip did not already show.
+
+Measured (`probe-D3b-results.json`, `Sunset`, 5 colours, 1440 px):
+
+```
+collapsed card:  462 × 100 px      strip: 462 × 40 px (full-bleed, all 5 colours, weighted)
+expanded card:   462 × 172 px      swatch row: 5 × 40 px, x 768→1000
+                                   fill: 232 px of 462 px = 50 %
+```
+
+The card grows **72 %** in height. What appears is five 40 px squares containing the same five
+colours, in the same order, at **one-quarter of the strip's area** (5 × 1600 = 8 000 px² versus
+18 480 px²), occupying the left half of the region and leaving 232 px of empty card. On
+`/#/palettes` — where `show-slug` is not passed (`PalettesPane.vue:82-96`) — the expanded region
+contains *nothing else*: no slug chip, no metadata, no provenance. Its entire informational delta
+over the collapsed card is zero.
+
+What it adds is affordance, not information: hover/tap popovers with add/edit/copy. And that
+affordance is precisely what `VISUAL-CONSTITUTION.md:102` forbids ("the card body owns no expand …
+or hover-only swatch-action path") and what `PROPORTION-AUDIT.md §4 PR-07` dispositions
+("palette hover paths retire into selected inspector").
+
+The design consequence is worse than redundancy. The two representations have **inverted
+semantics**: the strip that carries the full weighted specimen is `aria-hidden="true"
+role="presentation"` (`PaletteColorStrip.vue:2-4`), while the smaller, later, half-empty duplicate
+carries every accessible name and every action. A screen-reader user is told the palette has no
+colours until they discover an expand gesture that has no keyboard path (D-3).
+
+`PROPORTION-AUDIT.md §5.1` — "A Card houses **one** bounded object/specimen." This card houses two
+renderings of one specimen, and hides the better one.
+
+---
+
+## D-35 — MAJOR. Three boundary mechanisms are stacked on one edge; the register already ruled REMOVE.
+
+Measured root, live (`probe-D3-results.json` → `cardGeom`):
+
+```
+borderWidth: 2px
+boxShadow:   oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0 0,  (+2 more casters)
+radius:      16px      overflow: visible      strip radius: 16px 16px 0 0
+```
+
+plus a fourth, interior: `PaletteCardSwatches.vue:6,23` adds `border-t border-border/15` above the
+swatch region.
+
+`PROPORTION-AUDIT.md §4`:
+
+> `PR-05` | **Dividers, caster shadows and corner marks repeat a boundary** | **REMOVE / KEEP** |
+> Primary W18 … every other divider/ornament is zero
+
+and `§5.4`: "A divider is retained only when grouping would be ambiguous without it. Spacing plus
+material already expressing the same boundary makes the line duplicative."
+
+The card expresses its edge four times: 2 px border, three stacked zero-blur casters, a radius, and
+an interior rule. `VISUAL-CONSTITUTION.md:186` is the ruling in plain words — "Saved palettes are
+**matte specimen slips** inside a glass workspace, **not cartoon casters stacked within casters**."
+
+(The body's §1 and the first addendum's D-21/D-25 reached the cartoon register from the tuple and
+from the dead `.cartoon-cast`. This is the third, independent route: the *count* of boundary
+mechanisms, which has its own named register row and its own terminal verb.)
+
+---
+
+## D-36 — MAJOR. The reorder handle is an unnamed 16 px glyph, and its drag state is owned by the consumer.
+
+`PaletteCard.vue:47-50`:
+
+```html
+<GripVertical v-if="draggable" class="drag-handle w-4 h-4 text-muted-foreground shrink-0 cursor-grab …" />
+```
+
+An `<svg>`. No `role`, no accessible name, no `tabindex`, no `aria-grabbed`, no keyboard path. It is
+nonetheless operable: `PalettesPane.vue:184` binds SortableJS to `handle: ".drag-handle"`.
+
+Three canon clauses, each independently violated:
+
+- `VISUAL-CONSTITUTION.md:54` and `PROPORTION-AUDIT.md §5.12`: "An optional reorder handle remains a
+  separate **named** control." It has no name.
+- `PROPORTION-AUDIT.md §5.5`: "A small icon/mark is either data, status, labeled action, drag
+  affordance, focus/selection register or removed. **Decorative controls and operable ornaments
+  without names are forbidden.**"
+- `PROPORTION-AUDIT.md §5.7`: "Visual glyph size, operable target size and layout reservation are
+  separate quantities." The shipped glyph *is* the target: 16 × 16 px = 256 px², against a 44 px
+  (1 936 px²) floor — 13 % of it. This is one of the tap-target rows `REPORT.md` counts on
+  `/#/palettes` without attributing.
+
+And the *state* the affordance enters is not the card's at all:
+
+```ts
+// PalettesPane.vue:183-187
+useSortable(sortableEl, pm.filteredSaved.value, {
+    handle: ".drag-handle",
+    animation: 150,
+    ghostClass: "opacity-30",
+```
+
+The dragging register is a raw `opacity-30` utility and a bare `150` ms declared in the *consumer*.
+The card that renders the handle has no dragging, grabbed, drop-target or drop-invalid state; the
+150 ms is not a motion token (`--duration-fast` is 200 ms, `--duration-normal` 300 ms) and, being a
+SortableJS JS-driven transform, the app's global `prefers-reduced-motion` guard
+(`animations.css:184-192`) cannot reach it. `PROPORTION-AUDIT.md §4 PR-07` names the family
+verbatim: "Hover-only/unlabeled controls and **invisible drag state** → ADD-AFFORDANCE / REMOVE …
+every surviving action/drag seat has a name/state."
+
+---
+
+## D-37 — MINOR. The swatch path consumes the `WatercolorDot` interactive host that the constitution abrogates.
+
+`SwatchHoverMenu.vue:14-20` and `:29-36` both render:
+
+```html
+<WatercolorDot :color="color" tag="button" :aria-label="`Color swatch ${color}`" … />
+```
+
+`VISUAL-CONSTITUTION.md:91`:
+
+> V **abrogates a selection outline and interactive host on `WatercolorDot`**. P051 removes the
+> public `tag="button"`/interactive-host branch in the clean major; the organic face supplies
+> colour/specimen identity only. Selection, activation, drag and keyboard focus belong to a named
+> enclosing geometric button/seat … data-bearing static faces remain present as noninteractive
+> named list/text content with **zero activation/focus/drag semantics**.
+
+Census of the branch across the demo:
+
+```
+$ grep -rn 'tag="button"' demo --include='*.vue' | wc -l
+7
+```
+
+— of which the two in this component's swatch path are the ones the palette-entity law explicitly
+covers (`:102` "the card's compact swatch strip remains noninteractive data with zero
+activation/focus/drag semantics"). This is also owner edict 4 read backwards: the component is not
+hand-rolling past glass-ui, it is consuming a producer branch the tranche has already voted to
+delete, which pins the producer's clean major open.
+
+---
+
+## D-38 — MINOR. The card's action bus is an untyped string channel with a silent no-op default and one dead entry.
+
+`PaletteCardMenu.vue:224-227` declares its only outbound contract as `action: [action: string]`.
+`PaletteCard.vue:290-319` receives it into a `Record<string, () => void>` and dispatches:
+
+```ts
+const fn = actions[action];
+if (!fn) return;
+```
+
+An unrecognised action is a silent success. The compiler cannot check either side, because the seam
+the six-file split created is typed `string` — the split produced a boundary and then made it
+unverifiable.
+
+The proof that this matters is already in the file. Enumerating both sides:
+
+```
+$ grep -o "'action', '[a-zA-Z]*'" PaletteCardMenu.vue | sort -u    # 15 + 1 ternary pair = 17 emitted
+$ grep -rn "copyAll" demo
+demo/palettes/browser/card/PaletteCard/PaletteCard.vue:294:  copyAll: () => void writeClipboard(…)
+```
+
+`copyAll` — "copy every colour in this palette to the clipboard" — is implemented in the action
+table and **emitted by nothing**. The affordance was removed from the menu and the handler was left
+behind, where no type check and no lint can see it. That is owner edict 2 (no legacy, no dead
+paths) and it is invisible precisely because of the string bus.
+
+---
+
+## Second opinion on the decomposition (the seat's specific charge)
+
+I concur with the body's §9 verdict and add three observations it did not make.
+
+**1. The seam is drawn across the state, not around it.** `PaletteCardSwatches` takes
+`openPopoverIndex`, `canHover` and `floatingStyle` as props and re-emits `hover`, `leave`,
+`cancelLeave`, `popoverTouch`. All four are the return values of `useHoverPopover()` living in the
+*parent* (`PaletteCard.vue:246-255`). A module boundary that transports its neighbour's internal
+state across itself in both directions is not encapsulation; it is a cut through the middle of one
+object. The Vue-idiomatic repair of that shape would be `provide`/`inject` — but the correct repair
+here is deletion (§D-34, `VISUAL-CONSTITUTION.md:102`), because the region should not be on the card.
+
+**2. The folder boundary is real; the file boundaries are not.** `card/index.ts:4-9` exports six
+members and `PaletteCard/` contributes exactly one of them. So the directory *is* a legitimate
+public/private line — one public component, five private files. But the five private files each
+declare a full public-API-shaped contract (63 negotiated members, per §9). They pay the whole cost
+of being modules and collect none of the benefit: nothing is hidden, nothing is substitutable,
+nothing is independently testable, and the one contract that *is* crossed at runtime (D-38) is typed
+`string`.
+
+**3. The one real seam in the component was never cut.** The card contains a genuine, nameable
+sub-object: the *operation* — 20 verbs, 18 emits, five of them exports, each with a lifecycle
+(request → in-flight → result → acknowledgement) that the W51 contract specifies in full and that
+`PROPORTION-AUDIT PR-08` has already dispositioned ADD-AFFORDANCE. That is the thing with state, a
+protocol and a failure mode. It is spread across `PaletteCard.vue`'s action table,
+`ActionFeedback.vue`'s 2.5-second timer, `usePaletteExport.ts`'s `console.warn`, and two panes'
+`cardRefs[…]?.showFeedback(…)` reach-ins. The split extracted five *templates* and left the one
+*object* smeared across four files and two components.
+
+That is the sharpest statement of the god-module verdict: **the decomposition split the markup along
+visual regions and left the domain undivided.** Six files, one object, no owner.
+
+---
+
+## Corroborations (measured independently by this seat)
+
+- **D-2 (0 px identity), confirmed and localised.** At 390 px, palette `A very long palette name
+  that will not fit` renders `title: {x: 71, w: 0, h: 61, ov: true}` — a zero-width, two-line clamp
+  box. `Featured One` renders `w: 13, h: 61` — two lines of a 13 px box, i.e. glyph fragments, which
+  is visible in `shots/m-light.png` as `Feature` / `One` with the final glyph hard-clipped and no
+  ellipsis. The inversion is total: the card **grows** (118 → 125 px) exactly when its name becomes
+  unreadable, because the starved title wraps into a second empty line.
+- **D-8 (padding ladder).** `px-3` = 12 px against `VISUAL-CONSTITUTION.md:54`'s
+  `C = --card-pad-inline = --spacing(4)` = 16 px. 25 % under, invariantly.
+- **D-1 (tuple).** `borderWidth: 2px`, three casters, `cursor: pointer`, `role="article"` with
+  `@click` — measured live, unchanged since the first seat.
+- **§6 motion law "exit is shorter than entry" — PASSES.** `animations.css:104-121` (morph) and
+  `:142-155` (celebrate) both use `--duration-normal` + spring on enter and `--duration-fast` on
+  leave; `useHeightTransition.ts:7-8` is 350 ms enter / 250 ms leave. This law is satisfied and I
+  record it as such.
+
+---
+
+## Declared blind spots
+
+- **The skeleton → card transition could not be measured.** `PaletteCardSkeleton` renders only while
+  `pm.browsing` is true, and on this machine no browse request is ever issued: `probe-D3b.mjs` →
+  `browseReach` recorded `offOriginRequests: []`, `skeletons: 0`, and the console error
+  *"value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the
+  cross-origin production API … every palette request will be blocked."* The transport refuses
+  before it fetches. **Hypothesis (NO REPRODUCTION):** the ghost is substantially taller than the
+  card it becomes — `PaletteCardSkeleton.vue:39-79` composes strip 40 px + meta row (20 + 20) +
+  a swatch row of `w-12 h-12 sm:w-14 sm:h-14` blocks that the collapsed card does not render at all,
+  against this seat's measured collapsed card of **100 px** — so the loading register should induce
+  a large downward reflow on settle. It also uses `shadow-cartoon-sm` and `overflow-hidden` where
+  the card uses the md caster stack and `overflow: visible`. Labelled a hypothesis; it needs a
+  reachable API.
+- Same cause explains why `visual/REPORT.md` and `visual/safari-real/MATRIX-SAFARI.md` both record
+  `/#/browse` as unverifiable. One correction to the body's "finding zero": `/#/browse` is not
+  card-free — `probe-D3b.mjs` measured `cards: 2` there, the local *My Palettes* rail in the right
+  pane. The audit's browse frames are empty of cards because `localStorage` was empty, not because
+  the route has none.
+
+---
+
+## Addendum II register
+
+| ID | Severity | Defect | Primary evidence |
+|---|---|---|---|
+| D-29 | BLOCKER | The Export seat ships `demo/palettes/export.ts`; the W51-conformant `demo/palettes/export/` has exactly one consumer and it is a test. Six verbatim contract clauses violated in the downloaded bytes | `usePaletteExport.ts:9`; `grep` census; `evidence/clean-sunset.json`, `evidence/clean-oklch-set.svg`; `PALETTE-CONTRACT.md:165-171,221-305` |
+| D-30 | BLOCKER | SVG export applies none of the five mandated escapes; a palette name closes `<text>` and injects `<script>` into the downloaded file — on Browse the name belongs to another user | `evidence/dl-a-b-text-script-alert-1-script.svg`; `export.ts:71`; `PALETTE-CONTRACT.md:280` |
+| D-31 | BLOCKER | Export success depends on the palette's name; failure is `console.warn`-only — the exact construct the contract prohibits by name. PNG on a clean palette = 5794 bytes; on a markup name = no download in 8 s, no visible state | `usePaletteExport.ts:21-23`; `probe-D3*-results.json`; `PALETTE-CONTRACT.md:172`; `PROPORTION-AUDIT PR-08` |
+| D-32 | MAJOR | The human name is the CSS identifier and the filename stem: `🎨`/`日本語`/`---` → empty stem `.css` and `--palette--0`; `My Palette` and `my palette!` collide | `export.ts:9-11`; node reproduction; `evidence/` CSS body; `PALETTE-CONTRACT.md:221,262` |
+| D-33 | MAJOR | No column grid in the identity row: the colour-count badge spans 306 px across six 462 px cards (169 px across 324 px cards on mobile) | `probe-D3-results.json`; `evidence/d3-desktop-rows.png`; `PROPORTION-AUDIT §5.2` |
+| D-34 | MAJOR | The expand costs +72 px (100→172) to re-present the same colours at ¼ the area and 50 % fill, while the full-bleed original is `aria-hidden` — two renderings of one specimen, the better one hidden | `probe-D3b-results.json`; `PaletteColorStrip.vue:2-4`; `PROPORTION-AUDIT §5.1`; `VISUAL-CONSTITUTION.md:102` |
+| D-35 | MAJOR | Four boundary mechanisms on one edge (2 px border, 3 casters, radius, interior rule) against a register row whose terminal verb is REMOVE | measured `cardGeom`; `PaletteCardSwatches.vue:6,23`; `PROPORTION-AUDIT PR-05, §5.4`; `VISUAL-CONSTITUTION.md:186` |
+| D-36 | MAJOR | The reorder handle is an unnamed, unfocusable 16 px `<svg>` (13 % of the target floor) and its drag state — `opacity-30`, `animation: 150` — is declared in the consumer, outside every token and outside the PRM guard | `PaletteCard.vue:47-50`; `PalettesPane.vue:183-187`; `PROPORTION-AUDIT PR-07, §5.5, §5.7`; `VISUAL-CONSTITUTION.md:54` |
+| D-37 | MINOR | Both swatch arms consume `WatercolorDot tag="button"` — the interactive-host branch the constitution abrogates and P051 deletes | `SwatchHoverMenu.vue:14-20,29-36`; `VISUAL-CONSTITUTION.md:91,102` |
+| D-38 | MINOR | The action bus is `action: [action: string]` with `if (!fn) return`; `copyAll` is implemented and emitted by nothing | `PaletteCardMenu.vue:224-227`; `PaletteCard.vue:290-319`; `grep -rn copyAll` |
+
+**Strongest defect overall — I dissent from both prior seats.** They named D-2 (the 0 px identity).
+D-2 is real, ugly and measured, but it is a layout law with a bounded cure. **D-30 is worse**: the
+card hands the user a file, from a stranger's data, with a `<script>` in it, from an affordance the
+constitution says should not be on the card at all, through a module that a contract-conformant
+replacement already supersedes. It is the only finding in all three passes where the component's
+output leaves the application and lands on a disk. The name-triggered silence of D-31 means neither
+the user nor the developer is ever told.
+
+**Strongest *new* structural defect: D-29** — because it changes the cure's shape. Every prior
+finding is repaired by editing this component. D-29 is repaired by *deleting* `demo/palettes/export.ts`
+and `usePaletteExport.ts` and moving the seat: the conformant serializers already exist, already
+pass a byte-exact test, and are waiting for a consumer. The card does not need an export design; it
+needs to stop having one.
+
+---
+
+## The cure, as an architectural transposition
+
+1. **Move the operation out of the card.** Export, rename, delete, publish, visibility, fork, flag,
+   tags and versions become the selected inspector's action region (`VISUAL-CONSTITUTION.md:102`,
+   `§3.1` Browse/Library rows). The card keeps: specimen, identity, one named pressed seat, one
+   named reorder handle. That single move retires D-1, D-29…D-31, D-34, D-36, D-38 and the body's
+   §1, §9, §10, §13 together, because they are all the same defect — an entity slip carrying an
+   operation console.
+2. **Delete `demo/palettes/export.ts` and `usePaletteExport.ts`; wire the inspector to
+   `demo/palettes/export/serializers`.** No adapter, no shim, no dual path (edict 2). The byte
+   contract's `captured | ready | retryable-failure | terminal-failure | handoff-initiated` becomes
+   the inspector's visible operation state, and Prepare/Download become two seats as
+   `PALETTE-CONTRACT.md:325` specifies. `ActionFeedback`'s 2.5-second timer stops being the
+   product's only failure surface.
+3. **Give the identity row a grid, not a flex bag.** One row: `[handle] [name 1fr] [count] [menu]`,
+   with fork/version/tags/votes moving to the inspector with everything else. The name becomes the
+   only elastic column instead of the only shrinkable one; the count aligns; D-33, D-2, D-5 and
+   D-27 close as one.
+4. **One boundary.** Matte slip: the quiet opaque `sm` tuple, `shadow=false`, one hairline, no
+   casters, no interior rule (`PROPORTION-AUDIT PR-05`).
+5. **The strip is the specimen.** Delete the expanded duplicate; give the strip its accessible name
+   and its data semantics back. One card, one specimen, one representation.
+
+### Addendum II artifacts
+
+- `probe-D3.mjs`, `probe-D3-results.json` — row geometry (desktop + mobile), Export seat with
+  download capture
+- `probe-D3b.mjs`, `probe-D3b-results.json` — clean-palette export, browse reachability, expanded fill
+- `evidence/dl-a-b-text-script-alert-1-script.svg` — the injected SVG, as downloaded
+- `evidence/dl-css.css` — the `🎨` palette's CSS export (`--palette--0`)
+- `evidence/clean-sunset.png` (5794 B), `evidence/clean-sunset.json`, `evidence/clean-oklch-set.json`,
+  `evidence/clean-oklch-set.svg` — the shipped byte grammar
+- `evidence/d3-desktop-rows.png`, `evidence/d3-mobile-rows.png`, `evidence/d3-expanded.png`
+
+No source file was edited by this seat. All writes are confined to
+`docs/tranches/V/megatranche/audit/components/PaletteCard/`.

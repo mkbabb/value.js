@@ -1,0 +1,157 @@
+{
+ "empty-k5": {
+  "stat": null,
+  "statRect": null,
+  "fontVariantNumeric": null,
+  "fontFeature": null,
+  "fontFamily": null,
+  "fontSize": null,
+  "rightGroup": null,
+  "code": null,
+  "ghost": {
+   "x": 224,
+   "y": 581.67,
+   "w": 462,
+   "h": 150
+  },
+  "caption": {
+   "x": 224,
+   "y": 740.67,
+   "w": 462,
+   "h": 21.58
+  },
+  "pane": {
+   "x": 199,
+   "y": 200.98,
+   "w": 512,
+   "h": 578.27
+  }
+ },
+ "empty-k16": {
+  "stat": null,
+  "statRect": null,
+  "fontVariantNumeric": null,
+  "fontFeature": null,
+  "fontFamily": null,
+  "fontSize": null,
+  "rightGroup": null,
+  "code": null,
+  "ghost": {
+   "x": 224,
+   "y": 517.69,
+   "w": 462,
+   "h": 278
+  },
+  "caption": {
+   "x": 224,
+   "y": 804.69,
+   "w": 462,
+   "h": 21.58
+  },
+  "pane": {
+   "x": 199,
+   "y": 137,
+   "w": 512,
+   "h": 706.27
+  }
+ },
+ "img-k5": {
+  "stat": "94%oftheimage",
+  "statRect": {
+   "x": 228,
+   "y": 624.69,
+   "w": 169.48,
+   "h": 41.91
+  },
+  "fontVariantNumeric": "normal",
+  "fontFeature": "normal",
+  "fontFamily": "Fraunces",
+  "fontSize": "41.888px",
+  "rightGroup": {
+   "x": 405.48,
+   "y": 643.69,
+   "w": 276.52,
+   "h": 22.97
+  },
+  "code": {
+   "x": 505,
+   "y": 643.69,
+   "w": 177,
+   "h": 22.97
+  },
+  "ghost": null,
+  "caption": null,
+  "pane": {
+   "x": 199,
+   "y": 103,
+   "w": 512,
+   "h": 774
+  }
+ },
+ "img-k1": {
+  "stat": "100%oftheimage",
+  "statRect": {
+   "x": 228,
+   "y": 624.69,
+   "w": 191.36,
+   "h": 41.91
+  },
+  "fontVariantNumeric": "normal",
+  "fontFeature": "normal",
+  "fontFamily": "Fraunces",
+  "fontSize": "41.888px",
+  "rightGroup": {
+   "x": 427.36,
+   "y": 643.69,
+   "w": 254.64,
+   "h": 22.97
+  },
+  "code": {
+   "x": 526.88,
+   "y": 643.69,
+   "w": 155.13,
+   "h": 22.97
+  },
+  "ghost": null,
+  "caption": null,
+  "pane": {
+   "x": 199,
+   "y": 103,
+   "w": 512,
+   "h": 774
+  }
+ },
+ "img-k16": {
+  "stat": "94%oftheimage",
+  "statRect": {
+   "x": 228,
+   "y": 624.69,
+   "w": 169.48,
+   "h": 41.91
+  },
+  "fontVariantNumeric": "normal",
+  "fontFeature": "normal",
+  "fontFamily": "Fraunces",
+  "fontSize": "41.888px",
+  "rightGroup": {
+   "x": 405.48,
+   "y": 643.69,
+   "w": 276.52,
+   "h": 22.97
+  },
+  "code": {
+   "x": 505,
+   "y": 643.69,
+   "w": 177,
+   "h": 22.97
+  },
+  "ghost": null,
+  "caption": null,
+  "pane": {
+   "x": 199,
+   "y": 103,
+   "w": 512,
+   "h": 774
+  }
+ }
+}

@@ -1,0 +1,185 @@
+{
+  "p1-light": {
+    "tokens": {
+      "cardEdgeVar": "color-mix(in oklab, light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) 12%, transparent)",
+      "wellBgVar": "color-mix(in oklab, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) 92%, light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) 8%)"
+    },
+    "wellFill": {
+      "r": 0.913299,
+      "g": 0.005463,
+      "b": 0.013024,
+      "a": 1
+    },
+    "edgeRaw": {
+      "r": 0.216129,
+      "g": 0.003491,
+      "b": 0.005182,
+      "a": 0.12
+    },
+    "edgeComposited": {
+      "r": 0.8296386,
+      "g": 0.005226359999999999,
+      "b": 0.01208296,
+      "a": 1
+    },
+    "borderWidthUsed": "1px",
+    "borderStyle": "dashed",
+    "edgeVsFill": 1,
+    "wellVsPlate": 2.849,
+    "ghostEdge": {
+      "r": 226,
+      "g": 87,
+      "b": 31,
+      "a": 1
+    },
+    "ghostEdgeWidth": "2px",
+    "ghostVsWell": 5.61,
+    "wellTransition": "all",
+    "wellWillChange": "auto",
+    "zoneTransitions": [
+      {
+        "cls": "flex items-center justify-between gap-2",
+        "transition": "all"
+      },
+      {
+        "cls": "swatch-row flex items-center gap-2.5 fle",
+        "transition": "all"
+      },
+      {
+        "cls": "api-offline-chip api-misconfig-chip fira",
+        "transition": "all"
+      },
+      {
+        "cls": "flex items-center gap-2",
+        "transition": "all"
+      }
+    ],
+    "docScrollH": 900
+  },
+  "p1-dark": {
+    "tokens": {
+      "cardEdgeVar": "color-mix(in oklab, hsl(30 14% 90%) 12%, transparent)",
+      "wellBgVar": "color-mix(in oklab, hsl(26 22% 17%) 92%, hsl(30 14% 90%) 8%)"
+    },
+    "wellFill": {
+      "r": 0.345296,
+      "g": 0.010372,
+      "b": 0.017546,
+      "a": 1
+    },
+    "edgeRaw": {
+      "r": 0.925202,
+      "g": 0.002342,
+      "b": 0.005724,
+      "a": 0.12
+    },
+    "edgeComposited": {
+      "r": 0.41488472,
+      "g": 0.009408399999999999,
+      "b": 0.01612736,
+      "a": 1
+    },
+    "borderWidthUsed": "1px",
+    "borderStyle": "dashed",
+    "edgeVsFill": 1,
+    "wellVsPlate": 1.99,
+    "ghostEdge": {
+      "r": 226,
+      "g": 87,
+      "b": 31,
+      "a": 1
+    },
+    "ghostEdgeWidth": "2px",
+    "ghostVsWell": 5.614,
+    "wellTransition": "all",
+    "wellWillChange": "auto",
+    "zoneTransitions": [
+      {
+        "cls": "flex items-center justify-between gap-2",
+        "transition": "all"
+      },
+      {
+        "cls": "swatch-row flex items-center gap-2.5 fle",
+        "transition": "all"
+      },
+      {
+        "cls": "api-offline-chip api-misconfig-chip fira",
+        "transition": "all"
+      },
+      {
+        "cls": "flex items-center gap-2",
+        "transition": "all"
+      }
+    ],
+    "docScrollH": 900
+  },
+  "p2-hover": {
+    "before": {
+      "scrollH": 900,
+      "clientH": 900,
+      "bodyChildren": 6
+    },
+    "during": {
+      "scrollH": 940,
+      "clientH": 900,
+      "bodyChildren": 7,
+      "panelRect": {
+        "x": 0,
+        "y": 900,
+        "w": 1440,
+        "h": 40
+      },
+      "panelPosition": "static",
+      "panelBg": "rgba(0, 0, 0, 0)",
+      "panelShadow": "none",
+      "panelBackdrop": "none",
+      "panelZ": "auto",
+      "panelInline": "top: 335.59375px; left: 791px;",
+      "panelInViewport": false,
+      "floatingPanelRuleExists": false,
+      "btnInteractiveRuleExists": false
+    }
+  },
+  "p3-touch": {
+    "canHover": false,
+    "anyEditNode": 0,
+    "anyRemoveNode": 0,
+    "popperWrappers": 0,
+    "openDialogs": 0,
+    "bodyTail": [
+      "SPAN.",
+      "DIV.",
+      "DIV."
+    ]
+  },
+  "p4-rtl": {
+    "dir": "rtl",
+    "wellRect": {
+      "x": 224,
+      "w": 462
+    },
+    "rowChildX": [
+      625,
+      567,
+      509,
+      451,
+      393,
+      335
+    ],
+    "chipX": 417.8,
+    "chipText": "dev misconfigured — run `npm run dev`",
+    "countText": [
+      "5 colors"
+    ],
+    "inputX": 277,
+    "btnX": 237
+  },
+  "p5-reduced": {
+    "wellRect": {
+      "h": 196.7
+    },
+    "animatedDots": 0,
+    "rowTransition": "opacity 0.1s, color 0.1s, background-color 0.1s, border-color 0.1s, box-shadow 0.1s",
+    "anyRunning": 3
+  }
+}

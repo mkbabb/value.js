@@ -1,0 +1,322 @@
+{
+  "five-light": {
+    "scheme": "light",
+    "wellFill": {
+      "r": 233,
+      "g": 225,
+      "b": 217,
+      "a": 1
+    },
+    "wellFillCss": "oklab(0.913299 0.005463 0.013024)",
+    "edge": {
+      "raw": "oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "width": "1px",
+      "style": "dashed",
+      "compositedOnFill": {
+        "r": 208,
+        "g": 201,
+        "b": 194,
+        "a": 1
+      },
+      "ratioVsFill": 1.27
+    },
+    "label": {
+      "text": "Current Palette",
+      "ink": {
+        "r": 112,
+        "g": 89,
+        "b": 66,
+        "a": 1
+      },
+      "size": "16.4px",
+      "weight": "600",
+      "family": "Fraunces",
+      "ratioVsFill": 5.08
+    },
+    "count": {
+      "text": "5 colors",
+      "ink": {
+        "r": 112,
+        "g": 89,
+        "b": 66,
+        "a": 1
+      },
+      "size": "16.4px",
+      "family": "\"Fira Code\"",
+      "ratioVsFill": 5.08
+    },
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "ink": {
+        "r": 219,
+        "g": 36,
+        "b": 36,
+        "a": 1
+      },
+      "size": "11px",
+      "bg": {
+        "r": 231,
+        "g": 202,
+        "b": 195,
+        "a": 1
+      },
+      "ratioVsChipBg": 3.18,
+      "role": "alert"
+    },
+    "ghostStroke": {
+      "border": "rgb(226, 87, 31)",
+      "width": "2px",
+      "compositedOnFill": {
+        "r": 226,
+        "g": 87,
+        "b": 31,
+        "a": 1
+      },
+      "ratioVsFill": 2.89
+    },
+    "inputBorder": {
+      "color": "rgb(198, 180, 159)"
+    },
+    "saveBtnBorder": {
+      "color": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "width": "0px",
+      "compositedOnFill": {
+        "r": 215,
+        "g": 202,
+        "b": 187,
+        "a": 1
+      },
+      "ratioVsFill": 1.24
+    },
+    "plate": {
+      "css": "oklab(0.928273 0.005506 0.013193 / 0.664)",
+      "compositedOnWhite": {
+        "r": 244,
+        "g": 239,
+        "b": 233,
+        "a": 1
+      },
+      "wellVsPlate": 1.13
+    }
+  },
+  "empty-light": {
+    "scheme": "light",
+    "wellFill": {
+      "r": 233,
+      "g": 225,
+      "b": 217,
+      "a": 1
+    },
+    "wellFillCss": "oklab(0.913299 0.005463 0.013024)",
+    "edge": {
+      "raw": "oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "width": "1px",
+      "style": "dashed",
+      "compositedOnFill": {
+        "r": 208,
+        "g": 201,
+        "b": 194,
+        "a": 1
+      },
+      "ratioVsFill": 1.27
+    },
+    "label": {
+      "text": "Start a new palette",
+      "ink": {
+        "r": 112,
+        "g": 89,
+        "b": 66,
+        "a": 1
+      },
+      "size": "16.4px",
+      "weight": "600",
+      "family": "Fraunces",
+      "ratioVsFill": 5.08
+    },
+    "count": null,
+    "chip": null,
+    "ghostStroke": {
+      "border": "rgb(226, 87, 31)",
+      "width": "2px",
+      "compositedOnFill": {
+        "r": 226,
+        "g": 87,
+        "b": 31,
+        "a": 1
+      },
+      "ratioVsFill": 2.89
+    },
+    "inputBorder": null,
+    "saveBtnBorder": null,
+    "plate": {
+      "css": "oklab(0.928273 0.005506 0.013193 / 0.664)",
+      "compositedOnWhite": {
+        "r": 244,
+        "g": 239,
+        "b": 233,
+        "a": 1
+      },
+      "wellVsPlate": 1.13
+    }
+  },
+  "five-dark": {
+    "scheme": "dark",
+    "wellFill": {
+      "r": 66,
+      "g": 55,
+      "b": 47,
+      "a": 1
+    },
+    "wellFillCss": "oklab(0.345296 0.010372 0.017546)",
+    "edge": {
+      "raw": "oklab(0.925202 0.002342 0.005724 / 0.12)",
+      "width": "1px",
+      "style": "dashed",
+      "compositedOnFill": {
+        "r": 86,
+        "g": 76,
+        "b": 68,
+        "a": 1
+      },
+      "ratioVsFill": 1.38
+    },
+    "label": {
+      "text": "Current Palette",
+      "ink": {
+        "r": 195,
+        "g": 185,
+        "b": 172,
+        "a": 1
+      },
+      "size": "16.4px",
+      "weight": "600",
+      "family": "Fraunces",
+      "ratioVsFill": 5.97
+    },
+    "count": {
+      "text": "5 colors",
+      "ink": {
+        "r": 195,
+        "g": 185,
+        "b": 172,
+        "a": 1
+      },
+      "size": "16.4px",
+      "family": "\"Fira Code\"",
+      "ratioVsFill": 5.97
+    },
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "ink": {
+        "r": 235,
+        "g": 71,
+        "b": 71,
+        "a": 1
+      },
+      "size": "11px",
+      "bg": {
+        "r": 86,
+        "g": 57,
+        "b": 50,
+        "a": 1
+      },
+      "ratioVsChipBg": 2.73,
+      "role": "alert"
+    },
+    "ghostStroke": {
+      "border": "rgb(226, 87, 31)",
+      "width": "2px",
+      "compositedOnFill": {
+        "r": 226,
+        "g": 87,
+        "b": 31,
+        "a": 1
+      },
+      "ratioVsFill": 3.09
+    },
+    "inputBorder": {
+      "color": "rgb(101, 87, 73)"
+    },
+    "saveBtnBorder": {
+      "color": "oklab(0.46523 0.011049 0.026074 / 0.5)",
+      "width": "0px",
+      "compositedOnFill": {
+        "r": 83,
+        "g": 70,
+        "b": 59,
+        "a": 1
+      },
+      "ratioVsFill": 1.27
+    },
+    "plate": {
+      "css": "oklab(0.395241 0.00968 0.016528 / 0.7536)",
+      "compositedOnWhite": {
+        "r": 122,
+        "g": 114,
+        "b": 108,
+        "a": 1
+      },
+      "wellVsPlate": 2.45
+    }
+  },
+  "empty-dark": {
+    "scheme": "dark",
+    "wellFill": {
+      "r": 66,
+      "g": 55,
+      "b": 47,
+      "a": 1
+    },
+    "wellFillCss": "oklab(0.345296 0.010372 0.017546)",
+    "edge": {
+      "raw": "oklab(0.925202 0.002342 0.005724 / 0.12)",
+      "width": "1px",
+      "style": "dashed",
+      "compositedOnFill": {
+        "r": 86,
+        "g": 76,
+        "b": 68,
+        "a": 1
+      },
+      "ratioVsFill": 1.38
+    },
+    "label": {
+      "text": "Start a new palette",
+      "ink": {
+        "r": 195,
+        "g": 185,
+        "b": 172,
+        "a": 1
+      },
+      "size": "16.4px",
+      "weight": "600",
+      "family": "Fraunces",
+      "ratioVsFill": 5.97
+    },
+    "count": null,
+    "chip": null,
+    "ghostStroke": {
+      "border": "rgb(226, 87, 31)",
+      "width": "2px",
+      "compositedOnFill": {
+        "r": 226,
+        "g": 87,
+        "b": 31,
+        "a": 1
+      },
+      "ratioVsFill": 3.09
+    },
+    "inputBorder": null,
+    "saveBtnBorder": null,
+    "plate": {
+      "css": "oklab(0.395241 0.00968 0.016528 / 0.7536)",
+      "compositedOnWhite": {
+        "r": 122,
+        "g": 114,
+        "b": 108,
+        "a": 1
+      },
+      "wellVsPlate": 2.45
+    }
+  }
+}

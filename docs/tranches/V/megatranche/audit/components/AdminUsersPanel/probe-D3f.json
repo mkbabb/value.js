@@ -1,0 +1,34 @@
+{
+  "filtered": {
+    "headerBadge": "5",
+    "toolbar": [
+      "5 users",
+      "· 1 empty"
+    ],
+    "renderedRows": 1,
+    "renderedSlugs": [
+      "empty-ghost-account-aaaa-33"
+    ]
+  },
+  "filtered_dialog": "Prune 1 empty users? | This will permanently delete 1 user with 0 palettes and their sessions. This cannot be undone. | Cancel | Prune",
+  "filtered_after": {
+    "toolbar": [
+      "2 users",
+      "Pruned 3 users"
+    ],
+    "renderedSlugs": []
+  },
+  "prune_request": {
+    "url": "/admin/users/prune-empty",
+    "postData": null
+  },
+  "signed_out": {
+    "adminRequestsBeforeRefresh": 10,
+    "refreshDisabled": false,
+    "plate": "· ROSTER CLEAR · | No users found.",
+    "pruneDisabled": true,
+    "adminRequestsAfterRefresh": 10,
+    "newRequests": [],
+    "plateUnchanged": "· ROSTER CLEAR · | No users found."
+  }
+}

@@ -631,3 +631,375 @@ Recorded so the negative is proven, not assumed.
 
 D-10 (producer asks) and D-14 (router guard) route outward — to glass-ui and to the router
 respectively — and D-8 is a one-line deletion.
+
+---
+---
+
+# ADDENDUM · second pass — uncontended browser
+
+## Model receipt (second pass)
+
+I observe myself to be **Opus 5**, exact model id `claude-opus-5[1m]`, the tier this seat was
+explicitly spawned with. Declared, not inherited.
+
+## Why an addendum and not a rewrite
+
+The first pass above stands; I re-derived most of it independently and it holds. This pass is
+**additive and corrective**, per the standing addenda-not-patch edict. It exists because the first
+pass's own caveat — the shared MCP browser — capped what it could measure. I hit the same
+contamination and then routed around it.
+
+**Contamination, re-confirmed and then eliminated.** Driving the shared page, my URL drifted with
+no input from me:
+
+```json
+{ "log": ["…/#/atmosphere", "…/#/atmosphere", "…/#/mix", "…/#/blob", "…/#/blob", "…/#/blob"] }
+```
+
+(six reads, 500 ms apart, zero interaction between them). So every **[LIVE-2]** measurement below
+was taken from a **private chromium instance I launched myself** via `@playwright/test` 1.60.0,
+one context per scenario, scripts checked in beside this file:
+
+```
+probe/probe-dvs.mjs   deep-link states + the admin latch, with a control
+probe/probe-dvs2.mjs  admin-authenticated menu, selection paint, accent sweep, mobile AX
+probe/probe-dvs3.mjs  selection paint after the roving cursor moves off
+probe/probe-dvs4.mjs  focus ring — the finding below
+probe/dock-focus.png  photograph of the focused dock
+```
+
+Each is `node probe/<file>.mjs` with the dev server on :9000. Nothing writes to the app.
+
+---
+
+## D-15 · BLOCKER · The inline `--dock-ring` override is a **type error against the producer contract** and it destroys the keyboard focus indicator on the product's primary navigation control
+
+The first pass saw `DockViewSelect.vue:70` and classified it as a per-instance style override
+(D-10, MINOR). That is not what it is. `--dock-ring` is **not a colour token in glass-ui 7.0.0 — it
+is a box-shadow token, and specifically the focus-ring one**:
+
+```
+$ python3 -c "…" node_modules/@mkbabb/glass-ui/dist/styles/tokens/sizing.css
+--dock-selected-accent: color-mix(in oklab, var(--foreground) 14%, transparent);
+--dock-ring: var(--focus-ring-shadow);
+--dock-control-press-bg: …
+
+$ …/glass-ui/dist/components/dock/styles/index.css
+.dock-icon-button:focus-visible, .dock-tab-button:focus-visible,
+.dock-select-trigger:focus-visible, .dock-dropdown-trigger:focus-visible {
+    box-shadow: var(--dock-ring); outline: none;
+}
+```
+
+The component writes a bare `<color>` into it (`:70`, unconditionally — **both** ternary arms):
+
+```vue
+:style="{ '--dock-ring': isAdminMode ? 'var(--color-gold)' : 'var(--accent-view)' }"
+```
+
+`box-shadow: oklch(…)` is invalid at computed-value time, so the declaration resolves to `unset`
+→ `box-shadow: none`; and the very same rule has already set `outline: none`. Net: **the trigger
+has no focus indicator of any kind.**
+
+**Evidence [LIVE-2]** (`probe/probe-dvs4.mjs`, chromium 1440×900, `/#/`):
+
+```json
+"H1 focus ring on the VIEW SELECT trigger": {
+  "focused": true,
+  "matchesFocusVisible": true,
+  "dockRingToken": "oklch(0.471189 0.188448 9.83402)",
+  "focusRingShadowToken": "0 0 0 2px color-mix(in srgb, oklch(47.118925176164% 0.188447570516 9.83402284231deg) 30%, transparent), 0 0 8px color-mi",
+  "boxShadow": "none",
+  "outline": "none 3px color(srgb 0 0 0 / 0.8)"
+}
+```
+
+**Control — the sibling dock control that does not override the token still holds the shadow
+recipe**, so this is the override and nothing else:
+
+```json
+"H2 focus ring on the sibling 'Toggle action bar' control": {
+  "matchesFocusVisible": true,
+  "dockRingToken": "0 0 0 2px color-mix(in srgb, oklch(…) 30%, transparent), 0 0 8px color-mix(in srgb, oklch(…"
+}
+```
+
+**Reached by real keyboard traversal**, so `:focus-visible` is genuinely armed (not a scripted
+`.focus()`):
+
+```json
+"H3 tabbed-to state": { "isViewSelect": true, "ariaLabel": "Select view",
+                        "focusVisible": true, "boxShadow": "none",
+                        "outline": "none 3px color(srgb 0 0 0 / 0.8)" }
+```
+
+**Photograph**: `probe/dock-focus.png` — the dock captured while `Select view` holds keyboard
+focus. Home / Tools / Login / @mbabb, and no ring anywhere.
+
+**Why the audit matrix missed it.** glass-ui's `a11y-overrides.css` re-adds a real indicator under
+`@media (forced-colors: active)` (`.dock-select-trigger:focus-visible { outline: 2px solid
+Highlight; }`). The visual audit's `shots/forced-colors-desktop/` matrix is therefore the **one**
+matrix in which the bug is masked, and `shots/keyboard-focus-desktop/` captures a route's focus
+state without a pass/fail oracle for the ring.
+
+- **Severity**: BLOCKER. WCAG 2.4.7 Focus Visible (AA), total loss, on the control through which
+  all navigation happens, for every user, on every route, in both schemes, in both modes.
+- **Reproduction**: `node probe/probe-dvs4.mjs`. Or by hand: load `/#/`, press Tab until the dock
+  view-select is `document.activeElement`, observe nothing.
+- **Mechanism**: the component reaches into the producer's token namespace and writes a value of
+  the wrong **type** — hijacking an accessibility token for decoration. The code comment at
+  `:62-65` states the producer side was never confirmed (*"the producer-side ring consume is the
+  filed L13/W7-1 ask"*); it shipped on the assumption anyway, and one grep of the shipped
+  `node_modules` refutes it.
+- **Cure (gestalt)**: delete the `--dock-ring` write. A decorative view-hue rim is a **new producer
+  primitive**, not an override of the focus token — relay a `--dock-trigger-rim` colour token (or a
+  `rim` prop on `DockTrigger`) to the glass-ui BH inbox under the standing BH/BI relay edict, and
+  consume it when it lands. The seal→trigger continuity the comment is protecting is already
+  carried by the glyph — `Dock.vue:259-263` says exactly that.
+
+**This supersedes the second half of D-10.** The `--dock-ring` line is not a filed-and-pending
+style ask; it is a live accessibility regression that must not wait on a producer round-trip to be
+removed.
+
+---
+
+## D-16 · MINOR · CORRECTION to D-10 · `[&>span]:line-clamp-none` cancels **nothing** — the producer rule it targets does not exist on this element
+
+D-10 accepts the file's own comment that the class *"cancels glass-ui's internal line-clamp-1 on the
+trigger label span"* and treats the five-tranche-old `clampLabel` ask as still live. Measured, it is
+not: the clamp lives on glass-ui's **styled `SelectTrigger`**, which this file does not use.
+
+```
+$ grep -o ".\{160\}line-clamp.\{80\}" node_modules/@mkbabb/glass-ui/dist/select-BcBAyLXA.js
+…rounded-pill px-3 py-2 text-dropdown … [&>span]:line-clamp-1 transition-control aria-invalid:…
+
+$ grep -o "line-clamp[^;]*;" node_modules/@mkbabb/glass-ui/dist/components/dock/styles/controls/triggers.css
+(no output)
+$ grep -ro "line-clamp[^\"';}]*" node_modules/@mkbabb/glass-ui/dist/dock.js …/dist/components/dock/
+(no output)
+```
+
+`DockTrigger for="select"` renders **reka's bare `SelectTrigger`**, not the glass-ui styled one
+(`node_modules/@mkbabb/glass-ui/dist/dock.js:1225-1230` — the `for === "select"` branch mounts the
+reka primitive and appends only the chevron). No clamp reaches this span. What the class actually
+does is force `display:block; overflow:visible` onto the label:
+
+**[LIVE-2]** `probe/probe-dvs4.mjs`:
+
+```json
+"H4 trigger label span": [ { "text":"Home", "display":"block", "webkitLineClamp":"none",
+                             "overflow":"visible", "boxOrient":"horizontal" } ]
+```
+
+So: the class is **dead**, the comment is **stale**, and the standing `clampLabel` producer ask
+D-10 tracks across tranches A/D/E is **moot for this call site** and should be withdrawn rather
+than re-filed. This is exactly the class of drift the Glass 7 adoption (W44) should have swept and
+did not.
+
+*Cure*: delete the class and the `:57-59` comment; close the `clampLabel` row in the coordination
+ledger with "producer changed shape; consumer no longer affected".
+
+---
+
+## D-17 · MAJOR (a11y) · On mobile the combobox exposes **no value at all** to assistive technology
+
+D-5 correctly identifies the Label-in-Name failure and notes in its *cure* that the mobile branch
+"leaves no content at all below 1024px". Measured, that is worse than a naming problem — the
+accessibility node has **no `value` property whatsoever**.
+
+**[LIVE-2]** CDP `Accessibility.getPartialAXTree`, 390×844 `isMobile` context, `/#/gradient`
+(`probe/probe-dvs2.mjs`) versus the desktop node (`probe/probe-dvs.mjs`):
+
+```json
+"D1 mobile trigger":  { "text": "", "ariaLabel": "Select view", "box": [59,33] }
+"D2 mobile AX node":  [ { "role": "combobox", "name": "Select view" } ]
+
+"P6 AX node (desktop /#/ = Home)":
+                      [ { "role": "combobox", "name": "Select view", "value": "Home",
+                          "nameFrom": ["attribute:aria-label=Select view"] } ]
+```
+
+On desktop the value survives *by accident* — `SelectValue`'s text becomes the combobox's AX value
+despite `aria-label` taking the name. `v-if="isDesktop"` (`:87`) removes the node that carries it,
+so a phone user is told a view selector exists and never told which view they are in. Combined with
+D-3 this is also the **desktop** state on 7 of 14 routes.
+
+- **Failure**: WCAG 4.1.2 Name, Role, **Value** — the value is absent, not merely mis-named.
+- **Cure**: never conditionally render the value node. Mount `SelectValue` always and hide its
+  *text* responsively at the glass-ui trigger root (`sr-only` / container query). The value is
+  semantics; only its pixels are furniture.
+
+---
+
+## D-18 · MINOR (a11y) · The `SelectGroup` emits a **dangling `aria-labelledby`**, and a raw `<div>` sits inside `role="group"` where the design system's `SelectSeparator` ships unused
+
+D-11 measured the **listbox** as nameless. One level in, the **group** is worse: it advertises a
+label that does not exist.
+
+**[LIVE-2]** `probe/probe-dvs2.mjs`, admin-authenticated so the separator branch renders:
+
+```json
+"A1 listbox aria": {
+  "lbLabel": null, "lbLabelledby": null,
+  "groups": [ { "label": null,
+                "labelledby": "reka-select-group-v-60",
+                "labelTargetExists": false,
+                "nonOptionElementChildren": ["DIV.border-t border-border my-1"] } ]
+}
+```
+
+`<SelectGroup>` (`:91`) is opened with no `<SelectLabel>`, so reka stamps its generated id into
+`aria-labelledby` and nothing ever renders that id. Two defects in one node:
+
+1. **An IDREF that resolves to nothing** — the group is nameless, and several AT implementations
+   announce a broken group boundary rather than skipping it silently.
+2. **A non-`option` element child of `role="group"` inside `role="listbox"`** (`:123`,
+   `<div class="border-t border-border my-1">`) — a structure violation, hand-rolled while the
+   shipped primitive sits one import line away, unconsumed by anyone:
+
+```
+$ cat demo/ui/select/index.ts
+export { Select, SelectTrigger, SelectItem, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectSeparator } from "@mkbabb/glass-ui";
+$ grep -rn "SelectSeparator" demo/ --include="*.vue" --include="*.ts"
+demo/ui/select/index.ts:1:…      ← declared; consumed by nobody
+```
+
+Edicts 4 and 5 both bite: `border-t border-border my-1` is a per-instance re-implementation of a
+design-system primitive.
+
+*Cure*: there is one group — the listbox **is** the group; drop `SelectGroup` (or give it a
+`SelectLabel` naming the nav). Replace the div with `<SelectSeparator>`. Under the D-7 cure both
+disappear anyway.
+
+---
+
+## D-19 · INFO · The hue sweep is **live** (first pass argued it, I measured it) — and it desaturates through the middle, outside the guard the whole mechanism exists to enforce
+
+The first pass's "Passes" entry reasons from the `@property` registration that the
+`:159-161` transition is "real, not a no-op". Correct, and now measured — an inherited registered
+custom property animating on a *descendant* of the element whose value changed is easy to get
+wrong, so it was worth proving rather than deducing.
+
+**[LIVE-2]** per-rAF sampling of the trigger's computed `--accent-view` across a
+`picker → gradient` switch (`probe/probe-dvs2.mjs`):
+
+```json
+"C1 accent samples across a view switch": {
+  "distinctValues": 10,
+  "first": "oklch(0.471189 0.188448 9.83402)",
+  "mid":   "474ms oklab(0.471189 -0.0231664 -0.10933)",
+  "last":  "796ms oklch(0.471189 0.132793 249.834)",
+  "uniqSample": [ "oklch(0.471189 0.188448 9.83402)",
+                  "oklab(0.471189 0.185679 0.0321858)",
+                  "oklab(0.471189 0.0798809 -0.039504)",
+                  "oklab(0.471189 0.0209336 -0.0794474)",   ← chroma ≈ 0.082
+                  "oklab(0.471189 -0.0231664 -0.10933)",
+                  … ] }
+```
+
+Ten distinct interpolated values; endpoint hue 9.83° → 249.83°, i.e. exactly gradient's
+`accentHueShift: 240` (`viewSchema.ts:168`). **The sweep is real.** But `syntax: "<color>"`
+(`demo/styles/foundation.css:192-198`) interpolates in **oklab — rectangular**, so the animation
+cuts a chord across the chroma plane (0.188 → **0.082** → 0.133) rather than travelling the hue arc
+the comment claims (`:155-158`, *"the navigation still SWEEPS to the new view's hue"*). Every
+intermediate frame is a colour `useViewAccents` never gamut-mapped and never contrast-guarded; the
+guard is applied to endpoints only. In practice L is pinned at 0.4712 by the guard so the 3:1 floor
+survives — the defect is that the stated mechanism and the delivered one differ, and 550 ms of
+unguarded colour is *asserted* safe rather than *proven* safe.
+
+*Cure*: animate an `<angle>`-registered hue and compose the colour from it if the arc is wanted;
+otherwise correct the comment to describe the chord.
+
+---
+
+## Re-verification of the first pass's contention-capped findings
+
+Re-run on the private browser, each with a control. All hold.
+
+**D-2 (sticky `isAdminMode`) + D-3 (blank trigger) — CONFIRMED, with a control.** Deep-link
+`/#/atmosphere` anonymous → escape to Home → switch to Gradient (`probe/probe-dvs.mjs`):
+
+```json
+"P1 atmosphere trigger":          { "text":"",         "styleAttr":"--dock-ring: var(--color-gold);", "goldIcon": true  }
+"P1 options":                     [ 7 rows, every one "sel":"false" / "state":"unchecked" ]
+"P2 after switching to Home":     { "text":"Home",     "styleAttr":"--dock-ring: var(--color-gold); …", "goldIcon": true }
+"P3 after switching to Gradient": { "text":"Gradient", "styleAttr":"--dock-ring: var(--color-gold); …", "goldIcon": true }
+"P4 control fresh /#/gradient":   { "text":"Gradient", "styleAttr":"--dock-ring: var(--accent-view);",  "goldIcon": false }
+```
+
+P4 is the control the first pass lacked: a *fresh boot at the same view* paints the view accent and
+no gold. One deep-link to a public tuning route therefore disables the entire W7-4 per-view
+chromatic voice for the rest of the session and tells an unauthenticated visitor they are an admin.
+`/#/admin/users` anonymous reproduces it identically (`"P5 admin/users trigger": {"text":"",
+"goldIcon": true}`) — corroborating D-14's unenforced `meta.admin`.
+
+**D-4 (no selection paint) — CONFIRMED, and sharpened.** The first pass established that the
+selection marker was retired. The measurement that closes it is what happens *after the roving
+cursor moves*: keyboard-open at `/#/browse`, then two `ArrowDown` (`probe/probe-dvs3.mjs`):
+
+```json
+"E2 after 2x ArrowDown — is the CURRENT row still marked?": [
+  {"text":"Home",    "sel":"false","hl":null,"bg":"rgba(0, 0, 0, 0)","shadow":"none","fw":"400"},
+  {"text":"Palettes","sel":"false","hl":null,"bg":"rgba(0, 0, 0, 0)","shadow":"none","fw":"400"},
+  {"text":"Browse",  "sel":"true", "hl":null,"bg":"rgba(0, 0, 0, 0)","shadow":"none","fw":"400"},  ← CURRENT VIEW
+  {"text":"Extract", "sel":"false","hl":null,"bg":"rgba(0, 0, 0, 0)","shadow":"none","fw":"400"},
+  {"text":"Mix",     "sel":"false","hl":"",  "bg":"oklab(0.915626 … / 0.52)","shadow":"RING","fw":"400"},
+  … ]
+```
+
+The current row is **byte-identical** to the unselected rows in background, box-shadow, colour and
+weight. The one visual mark belongs to `data-highlighted` — the roving cursor — which leaves the
+current row on the first arrow key. Selection exists only in the accessibility tree.
+
+**D-1's admin arm — CONFIRMED live** (the first pass could only read it from source). Seeding
+`localStorage["palette-admin-token"]` (the key `e2e/smoke/admin/fixtures/admin-auth.ts:22` uses):
+
+```json
+"A1 options (authed, user mode)":  [ Home, Palettes, Browse, Extract, Mix, Generate, Gradient, Admin ]
+"A2 after clicking Admin row":     { "url": "…/#/admin/users?space=lab&color=…", "trigText": "Users" }
+"A3 options (authed, admin mode)": [ Users, Names, Audit Log, Flagged, Tags, Atmosphere, Blob, Back to app ]
+```
+
+Atmosphere and Blob are indeed only behind the admin gate, and the two toggle rows are indeed
+permanently `"sel":"false" / "state":"unchecked"` — a command wearing an option's role, as D-9
+argues from source.
+
+---
+
+## Additional passes (negatives the first pass did not record)
+
+- **Nameless buttons**: the trigger carries `aria-label` and is measured as
+  `role=combobox, name="Select view"`. This component contributes **0** to the matrix's 18
+  `namelessButtons` (`REPORT.md:94-113`). Its a11y debt is *value* and *focus*, not *name*.
+- **Reduced motion**: the `:159-161` transition is neutralised twice over —
+  `demo/styles/animations.css:184-192` (`transition-duration: 0.01ms !important` on `*`) and,
+  independently, glass-ui 7.0.0's `dist/styles/utilities/a11y-overrides.css`, which restricts
+  `transition-property` under `prefers-reduced-motion: reduce` to an
+  opacity/colour/border/box-shadow allow-list that excludes custom properties. The file's PRM claim
+  (`:158`) is true.
+- **Option tap targets**: 174×44 px measured on every row in every state (user mode, admin mode,
+  the toggle row). Clears 2.5.8 AA and 2.5.5 AAA.
+- **SFC compiles clean**: `parse errors: 0`, `compiled ok` via `@vue/compiler-sfc` — the duplicate
+  `update:open` (D-8) is a merge, not a compile error.
+
+---
+
+## Second-pass ranking
+
+**Strongest defect in the whole component: D-15.** It is a total, silent, always-on loss of the
+keyboard focus indicator on the control through which the entire product is navigated; it is masked
+in the one capture matrix that could have caught it; and it shipped on an explicitly unverified
+assumption about a producer contract that one grep of the shipped `node_modules` refutes. It is
+also the cheapest to fix in the whole list — **delete one line** — and, unlike D-1/D-7, it needs no
+architectural transposition and no producer round-trip to stop being a bug.
+
+Revised family map: D-15 and D-16 join D-10 under a **third** mechanism the first pass folded into
+"per-instance patches" but which is really its own thing —
+
+> **producer-token trespass**: the component writes into glass-ui's namespace on assumptions it
+> never verified — once with the wrong *type* (D-15, destroying focus), once against a rule that no
+> longer *exists* (D-16, dead code). Both are unverifiable from inside this file, and both were
+> decided by reading the shipped producer, not the comment above the line.
+
+*Cure for the family, one sentence: a consumer may read producer tokens; it may not write them.
+Anything the design system does not expose as a variant is an ask, not an inline style.*
