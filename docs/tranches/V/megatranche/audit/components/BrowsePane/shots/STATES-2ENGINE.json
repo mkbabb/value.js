@@ -1,0 +1,202 @@
+{
+  "webkit": {
+    "seats": {
+      "engine": "webkit",
+      "cardCount": 10,
+      "cardFocusable": 0,
+      "cardRoles": [
+        "article"
+      ],
+      "cardCursor": [
+        "pointer"
+      ],
+      "ariaPressed": 0,
+      "tabStops": 22,
+      "liveRegions": 0,
+      "searchNamed": false
+    },
+    "tabWalk": [
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "INPUT:",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa"
+    ],
+    "tabHitArticle": 0,
+    "filteredEmpty": {
+      "text": "Browse | Discover palettes from the community. | · THE COMMONS · | No published palettes here yet. | Publish one from My Palettes and start the wall.",
+      "cards": 0
+    },
+    "reducedMotionAnims": [
+      {
+        "n": "pane-header-veil-19daabcf",
+        "it": 1,
+        "tgt": "pane-header px-4 sm:px-6 pt-4 pb-2 s"
+      },
+      {
+        "n": "pane-title-shrink-19daabcf",
+        "it": 1,
+        "tgt": "pane-header-title font-display"
+      },
+      {
+        "n": "pane-desc-shrink-19daabcf",
+        "it": 1,
+        "tgt": "pane-header-desc text-caption"
+      },
+      {
+        "n": "pane-header-veil-19daabcf",
+        "it": 1,
+        "tgt": "pane-header px-4 sm:px-6 pt-4 pb-2 s"
+      },
+      {
+        "n": "pane-title-shrink-19daabcf",
+        "it": 1,
+        "tgt": "pane-header-title font-display"
+      },
+      {
+        "n": "pane-desc-shrink-19daabcf",
+        "it": 1,
+        "tgt": "pane-header-desc text-caption"
+      }
+    ],
+    "darkTint": {
+      "paneBg": "oklab(0.395241 0.00968 0.016528 / 0.7536)",
+      "cardBg": "oklab(0.345296 0.010372 0.017546)",
+      "cardShadow": "oklab(0.34 0.01136 0.027766 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.26) -7px 7px 0px 0px",
+      "stripFirstSwatchBg": "lab(12.23 2.53 0.5)",
+      "stripRect": {
+        "w": 458,
+        "h": 40
+      },
+      "cardRect": {
+        "w": 462,
+        "h": 100
+      }
+    }
+  },
+  "chromium": {
+    "seats": {
+      "engine": "chromium",
+      "cardCount": 10,
+      "cardFocusable": 0,
+      "cardRoles": [
+        "article"
+      ],
+      "cardCursor": [
+        "pointer"
+      ],
+      "ariaPressed": 0,
+      "tabStops": 22,
+      "liveRegions": 0,
+      "searchNamed": false
+    },
+    "tabWalk": [
+      "BUTTON:Select view[combobox]",
+      "BUTTON:Login",
+      "BUTTON:@mbabb",
+      "INPUT:",
+      "BUTTON:Filters",
+      "BUTTON:0 votes, click to vo",
+      "BUTTON:Palette menu",
+      "BUTTON:0 votes, click to vo",
+      "BUTTON:Palette menu",
+      "BUTTON:0 votes, click to vo",
+      "BUTTON:Palette menu",
+      "BUTTON:0 votes, click to vo",
+      "BUTTON:Palette menu",
+      "BUTTON:0 votes, click to vo",
+      "BUTTON:Palette menu",
+      "BUTTON:2 votes, click to vo",
+      "BUTTON:Palette menu",
+      "BUTTON:1 votes, click to vo",
+      "BUTTON:Palette menu",
+      "BUTTON:1 votes, click to vo",
+      "BUTTON:Palette menu",
+      "BUTTON:0 votes, click to vo",
+      "BUTTON:Palette menu",
+      "BUTTON:0 votes, click to vo",
+      "BUTTON:Palette menu",
+      "INPUT:",
+      "BODY:→BrowseToolsBrowsePa",
+      "BUTTON:Select view[combobox]",
+      "BUTTON:Login",
+      "BUTTON:@mbabb"
+    ],
+    "tabHitArticle": 0,
+    "filteredEmpty": {
+      "text": "Browse | Discover palettes from the community. | · THE COMMONS · | No published palettes here yet. | Publish one from My Palettes and start the wall.",
+      "cards": 0
+    },
+    "reducedMotionAnims": [
+      {
+        "n": "pane-header-veil-19daabcf",
+        "it": 1,
+        "tgt": "pane-header px-4 sm:px-6 pt-4 pb-2 s"
+      },
+      {
+        "n": "pane-title-shrink-19daabcf",
+        "it": 1,
+        "tgt": "pane-header-title font-display"
+      },
+      {
+        "n": "pane-desc-shrink-19daabcf",
+        "it": 1,
+        "tgt": "pane-header-desc text-caption"
+      },
+      {
+        "n": "pane-header-veil-19daabcf",
+        "it": 1,
+        "tgt": "pane-header px-4 sm:px-6 pt-4 pb-2 s"
+      },
+      {
+        "n": "pane-title-shrink-19daabcf",
+        "it": 1,
+        "tgt": "pane-header-title font-display"
+      },
+      {
+        "n": "pane-desc-shrink-19daabcf",
+        "it": 1,
+        "tgt": "pane-header-desc text-caption"
+      }
+    ],
+    "darkTint": {
+      "paneBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+      "cardBg": "oklab(0.345295 0.0103877 0.0175526)",
+      "cardShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px",
+      "stripFirstSwatchBg": "lab(12.23 2.53 0.5)",
+      "stripRect": {
+        "w": 458,
+        "h": 40
+      },
+      "cardRect": {
+        "w": 462,
+        "h": 100
+      }
+    }
+  }
+}

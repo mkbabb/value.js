@@ -1,540 +1,577 @@
-# CHALLENGE-D — `GradientStopEditor.vue` is designed wrong
+# CHALLENGE-D (r2) — `GradientStopEditor.vue`: the design is wrong
 
 ## Model receipt
 
-I observe myself to be **Opus 5** (`claude-opus-5[1m]`, 1M-context arm), the tier this seat was
-explicitly spawned with. The declaration is present and matched; the seat is not inherited and not
-undeclared. No Fable/Sonnet substitution occurred in this seat's own reasoning or tool use.
-
-**Subject** `demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue` (392 lines)
-**Route** `http://localhost:9000/#/gradient` · **Verdict** `DEFECTIVE` · **3 BLOCKER / 6 MAJOR / 4 MINOR / 1 INFO**
-**Live base** dev server at :9000, branch `tranche-u`, HEAD `c654824e`
-**Probes** `evidence/p1.mjs`…`p5.mjs` (WebKit/Playwright, desktop 1440×900 @2×, mobile iPhone 14) — re-runnable verbatim.
+I observe myself to be **Opus 5 (`claude-opus-5[1m]`, 1M context)** — the tier this seat was spawned
+with, declared explicitly, not inherited. Sole author of this file and of every measurement in it.
 
 ---
 
-## 0. What this instrument is supposed to be
+**Subject** `demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue` (393 lines)
+**Route** `http://localhost:9000/#/gradient` · **Base** branch `tranche-u`, HEAD `c654824e`, live dev server :9000
+**Verdict** `DEFECTIVE` — **4 BLOCKER / 7 MAJOR / 4 MINOR / 2 INFO**
+**Probes** `evidence/WBGSE-D-probe2.mjs`, `probe4`, `probe5`, `probe7` (Playwright/Chromium, desktop 1440×900 @2×, iPhone 14) — re-runnable verbatim; every number below is pasted from their stdout or measured from a pixel buffer.
 
-`VISUAL-CONSTITUTION.md §7 · Gradient` (binding):
-
-> The rounded meniscus rail and its preview dominate. **Each WatercolorDot stop is a face inside an
-> enclosing geometric button/seat; that seat alone carries selection, focus, drag and accessible
-> state.** Stops have explicit add/move/remove/**numeric** alternatives.
-
-`§5.2` (binding, the direction/axis table):
-
-> **Gradient stop position** | Right increases serialized stop percentage; Left decreases; Up/Down
-> use the same signed step when supported | **Home=0%, End=100%; announce stop identity, percentage,
-> ordinal**
-
-`§5.2` again, the reorder row:
-
-> **horizontal explicit reorder: palette colors, operands, stops** | after Space grabs, Right moves
-> one visual position right … every move announces item and `position of total`; Space drops, Escape
-> cancels
-
-The shipped component satisfies **none** of these three. What follows is why that is not a
-labelling quibble — the constitution is describing the only geometry in which this instrument is
-coherent, and the shipped geometry is incoherent in four independent ways I could measure.
+> **Supersession.** An r1 pass of this seat exists from 2026-07-24; it is preserved verbatim at
+> `challenge-D-design-r1-2026-07-24.md`. This r2 was derived independently (different probe method:
+> pixel sampling and live DOM, not geometry algebra) and then reconciled against it. §17 records
+> convergence and divergence honestly. Where r1 and r2 agree by different methods, the finding is
+> corroborated, not duplicated.
 
 ---
 
-## 1. BLOCKER · D-1 — the rail has **two different position axes**, and the source comment asserts they are one
+## 0. What the canon says this instrument must be
 
-### The claim in the file
+| Authority | Binding text |
+|---|---|
+| `VISUAL-CONSTITUTION.md:206` | "The rounded meniscus rail and its preview **dominate**. Each WatercolorDot stop is a **face inside an enclosing geometric button/seat**; that seat alone carries selection, focus, drag and accessible state. Stops have explicit **add/move/remove/numeric alternatives**." |
+| `VISUAL-CONSTITUTION.md:127` (§5.2) | "Gradient stop position \| Right increases serialized stop percentage; Left decreases; **Up/Down** use the same signed step when supported \| **Home=0%, End=100%**; **announce stop identity, percentage, ordinal**" |
+| `VISUAL-CONSTITUTION.md:104` | "The domain-neutral axis composition sits over BI `Slider` … Picker, Generate count, Extract, **Gradient**, Atmosphere and Blob adopt that one composition; feature waves own their domain arrangement, **not new slider mechanics**." |
+| `OPTICAL-BENCH-COMPOSITIONS.md:44` | "**Gradient** … Landmark-neutral chassis; **stop face inside seat**. W27. Close preview/model/**order**/face-seat." |
+| `OPTICAL-BENCH-COMPOSITIONS.md:78` | Gradient boundaries `[]`, reserve `none` — "meniscus, stop seats and code/action **interval** carry grouping" |
+| `PROPORTION-AUDIT.md:53` (PR-09) | "Gradient/Easing protagonist subordinated — **ENLARGE** — Primary W27. One 19–22rem protagonist; support subordinate" |
+| `PROPORTION-AUDIT.md:51` (PR-07) | "Hover-only/unlabeled controls and **invisible drag state** — ADD-AFFORDANCE / REMOVE … every surviving action/drag seat has a name/state" |
+| `PROPORTION-AUDIT.md:50` (PR-06) | "**Three adjacent action species** or duplicated selected fills — **REMOVE** — One action/selection owner" |
 
-`GradientStopEditor.vue:8–13`:
-
-> the rail ALWAYS paints this — at every type/direction — so **handles, add-ghost and ramp share one
-> axis by construction**.
-
-`GradientStopEditor.vue:49–53`:
-
-> Handle CENTERS ride an inset track `[HANDLE_HALF, width - HANDLE_HALF]`
-
-### The measurement
-
-The **ramp** is painted by `.gradient-rail` (`:317–326`) as `background: var(--rail-ramp)` with
-`background-origin/clip: border-box` and `background-size: 100% 100%`. `serializeRailRamp`
-(`useGradientCSS.ts:266`) emits `linear-gradient(90deg, …)`. So *the ramp's axis is the full
-border-box width `W`*: colour `p%` is painted at `x = W·p/100`.
-
-The **handles** ride `handleLeft()` (`:55–57`) = `calc(10px + (100% − 20px)·p/100)`, resolved against
-the *padding* box. So *the handle axis is `[11, W−11]`*.
-
-Two affine maps. They agree at `p = 50` and nowhere else.
-
-```
-$ node evidence/p1.mjs      # desktop 1440×900
-BAR   x=224.00  w=462.00
-handle "Gradient stop at 0%"    centerX = 235.00     ← ramp paints 0%   at x = 224
-handle "Gradient stop at 100%"  centerX = 675.00     ← ramp paints 100% at x = 686
-```
-
-The 0 % swatch sits **11 px** — `11/462 = 2.38 %` of the ramp — to the right of where the ramp
-paints 0 %. On mobile the same 11 px is a **3.40 %** error (`p5.mjs`: bar `w=324`, handle centres
-`44` / `346`). *The error is viewport-dependent*: the instrument is wrong by a different amount at
-every width.
-
-### The user-visible consequence, measured
-
-`getPosition()` (`:75–81`) inverts the **handle** axis, so a pointer at rail-fraction `f` mints a
-stop at `(fW−10)/(W−20)`, not at `f`:
-
-```
-$ node evidence/p3.mjs   # T6: ten clicks at rail fractions .12 .20 .28 .36 .44 .52 .60 .72 .80 .88
-T6 dense {"pos":["0","10","19","27","35","44","52","60","73","81","90","100"]}
-                          ↑ click at 12.0 %  → stop at 10 %      (−2.0)
-                                                    ↑ click at 88.0 % → stop at 90 % (+2.0)
-```
-
-So all four of these disagree simultaneously and by design:
-
-| what the user points at | what the ghost previews | what is minted | what the ramp shows there |
-|---|---|---|---|
-| rail-fraction 12 % | `colorAt(10)` drawn at handle-x(10) | a stop at 10 % | the colour of 12 % |
-
-The add-ghost (`:214–226`) is *internally* consistent with the handles and *externally* wrong
-against the ramp it floats on. The "self-evident gesture, no instruction line needed" the comment
-at `:35–41` claims is a gesture that lands somewhere else.
-
-**Reproduction** `node evidence/p3.mjs` → block `T6`. **Mechanism** two coordinate systems for one
-domain quantity. **Cure (gestalt, not patch)** *one* axis expressed *once*. Either paint the ramp on
-the inset track (`background-position: 11px 0; background-size: calc(100% − 22px) 100%` — the pill
-caps then hold flat terminal colour, which is also what a gradient stop at 0 % actually means), or
-put the handles on the full-width axis and let the rail's own silhouette be inset instead. The
-`HANDLE_HALF` literal must then be read from the rendered handle box, not re-declared in JS
-(see D-13).
+Measured against that, the component satisfies **none** of the seven laws that name it.
 
 ---
 
-## 2. BLOCKER · D-2 — no ordering invariant: a drag can cross a neighbour and corrupt the artifact
+## 1. BLOCKER · D2-01 — eight characters typed into the route's own CSS field **annihilate the whole application**, silently
 
-Nothing in this component or in `useGradientModel.updateStop` (`useGradientModel.ts:127–131`)
-maintains `stops[i].position ≤ stops[i+1].position`. `addStop` sorts (`:118`); *moving* never does.
+The workbench ships a `contenteditable` CSS field 400px below the rail (`GradientCodeEditor.vue:88`),
+whose whole purpose is to accept authored CSS. Type a CSS-valid but empty-argument colour function
+into it and the entire shell is destroyed.
 
 ```
-$ node evidence/p4.mjs      # T10: add stops at ~30 % and ~62 %, drag the 62 % handle left to ~10 %
-T10 stops after cross {"n":4,"pos":["0","29","8","100"],"centers":[235,362.6,270.6,675]}
-T10 ramp stop %s: first20 = [0, 2.64, 5.27, 7.91, 10.55, 13.18, 15.82, 18.45, 21.09, 23.73,
-                             26.36, 29, 27.1, 25.2, 23.3, 21.4, 19.5, 17.6, 15.7, 13.8]
-                  descendingPairs = [[12,29,27.1],[13,27.1,25.2],…,[21,11.9,10]]
+$ node evidence/WBGSE-D-probe7.mjs
+== p7-oklch-empty ==
+  typed: linear-gradient(90deg, oklch() 0%, red 100%)
+  before: {"stops":2,"bar":true,"bodyLen":649}
+  after:  {"stops":0,"bar":false,"tile":false,"verdict":null,"editorText":"","bodyLen":142}
+  errs:   []
+== p7-rgb-empty ==
+  typed: linear-gradient(90deg, rgb() 0%, red 100%)
+  after:  {"stops":0,"bar":false,"tile":false,"verdict":null,"editorText":"","bodyLen":142}
+  errs:   []
+== p7-bogus ==
+  typed: linear-gradient(90deg, notacolor 0%, red 100%)
+  after:  {"stops":2,"bar":true,"tile":true,"verdict":"unparseable color \"notacolor\"", ...}
 ```
 
-`sampleCoalescedStops` (`useGradientCSS.ts:195–200`) computes `pos = s0.position + t·(s1−s0)`; with
-`s0=29, s1=8` the range is negative, so it emits **ten monotonically decreasing stop percentages
-into a CSS `linear-gradient`**. CSS clamps each stop to its predecessor → the whole interval
-collapses to one hard edge:
+`evidence/D-01-route-annihilated.png` is what the user is left with: an empty ambient field, no dock,
+no heading, no diagnosis — **one unlabelled `Try again` pill**. Body text 649 → 142 characters. Zero
+`pageerror`, zero `console.error`: the failure is completely silent to telemetry, which is why the
+shipped Safari matrix (`visual/REPORT.md:140` — `/#/gradient` pageErr 0, consoleErr 0) reports this
+route as clean.
 
-![cross-drag hard band](evidence/D02-cross-drag-hard-band.png)
+**Root cause is outside my subject file** and is the mega-tranche's own MT-F001:
+`src/css/grammar.ts:181` asserts `slash[0]!` non-null; for `oklch()` the body is empty, `splitTopLevel`
+returns `[]`, and `undefined.replace(…)` throws. `gradientParse.ts:93` (`return parseCssColor(token).ok`)
+consumes that parser as a **total predicate** — it has no `try`, because the library's contract is
+"returns a result", not "may throw". The throw escapes the debounced parse, escapes `applyCSS`'s
+advertised atomic `{ok:false,reason}` contract (`useGradientModel.ts:152–156`), and lands on the app
+error boundary, which replaces everything.
 
-The seam at ≈x 280 is that clamp. The blue-filled ring sitting on green at ≈8 % is the crossed stop —
-its swatch and the ramp now disagree by the entire hue span, not by D-1's 2.4 %.
+**The design defect that is mine.** The instrument has *no error state of its own and no independent
+survival*. The whole error grammar of this workbench is a single one-line verdict owned by a sibling
+(`GradientCodeEditor.vue:109`), and it is bypassed by any failure that is not `{ok:false}`. The rail —
+the protagonist — cannot render a "the model is unreachable" state because it has no state but
+`stops[]`. `VISUAL-CONSTITUTION.md:83` ("failed … states are never colour-only. Role, accessible name,
+state/value and associated error/status are explicit") and §7's storage-recovery pattern ("one
+content-hug recovery article: diagnosis, preservation/export, then separately confirmed reset") are
+both unmet: what the user gets is a blank pink field.
 
-Two further silent corruptions ride along:
-
-- **Easing intervals re-pair without notice.** `intervals[i]` is keyed by array index, not by the
-  stop pair. After the cross, the curve the user authored for "stop 2 → stop 3" now spans a
-  backwards interval. `GradientEasingEditor` still labels it by index — measured
-  (`p2.log`, T3): `["1 → 2", "2 → 3"]`.
-- **`colorAtPosition` (`GradientVisualizer.vue:64–88`) assumes sorted input** and silently returns
-  the wrong interval's colour when it is not; its `throw new Error("No gradient interval contains
-  …")` arm is reachable-in-principle for deeper crossings (labelled **hypothesis** — I did not
-  produce a throw in 5 probe runs).
-
-**Reproduction** `node evidence/p4.mjs` → `T10`. **Mechanism** an ordinal identity that exists in the
-UI vocabulary ("stop 2", "1 → 2") but has no representation the model defends. **Cure** the model owns
-the ordinal: re-sort on every position commit and re-key intervals to the *pair*, or clamp a dragged
-stop into `(prev, next)`. Then add the reorder grammar `§5.2` already specifies (Space-grab,
-`position of total` announcement, Escape cancels) — with a defended ordinal that becomes a small
-feature; without one it is unimplementable.
+**Reproduction** `node evidence/WBGSE-D-probe7.mjs`, or on the live route: click the CSS block, select
+all, type `linear-gradient(90deg, oklch() 0%, red 100%)`, wait 500ms.
+**Mechanism** a throwing dependency consumed as a total function, behind an error grammar that only
+models the `{ok:false}` arm, in a component with no failure state.
+**Cure (gestalt)** the parse boundary is one seam: `applyCSS` is the *only* place the library parser
+is called for this workbench and it must be total there (result-typed, throw-free) — and the rail must
+own a real `model-unavailable` face so a bad parse degrades the *instrument*, never the *shell*.
 
 ---
 
-## 3. BLOCKER · D-3 — on touch, aiming at a selected stop **deletes** it
+## 2. BLOCKER · D2-02 — the ramp and the handles are on **two different axes**; a handle's own colour is not the colour under it
 
-The remove chip (`:284–300`) is `top-11` (44 px) — 4 px below the 40 px rail — and carries the same
-always-on hit inflation as the handle (`:374–391`), which on coarse pointers is
-`--touch-target: 2.75rem` = 44 px. The *selected* handle is `scale(1.25)` (`:262`), and because the
-`::before` expander is a child of the transformed box, **its hit region scales too** → 55 px.
+`.gradient-rail` (`:317–326`) paints `var(--rail-ramp)` with `background-origin/clip: border-box`,
+`background-size: 100% 100%` — so percentage `p` is painted at `x = W·p/100` across the **full** box.
+Handles use `handleLeft()` (`:55–57`) = `calc(10px + (100% − 20px)·p/100)` — the **inset** track. Two
+affine maps that agree only at `p = 50`. The file's own docblock (`:8–13`) asserts the opposite:
+"handles, add-ghost and ramp **share one axis by construction**".
 
-Those two invisible regions overlap, and the chip is `z-20` against the handle's `z-10`:
-
-```
-$ node evidence/p3.mjs      # T7, iPhone 14
-T7 handle-hit offsets -26 → 13  |  chip-hit offsets 14 → 40      (offsets from the handle's centre)
-T7 expander 44px x 44px  (×1.25 on the selected handle → 55px)
-```
+Pixel measurement, ten-hue ramp, element screenshot at DPR 2 (`evidence/D-03-ten-hue-rings.png`,
+924×82 device = 462×41 CSS). Column `err` = (x where the ramp paints that stop's own percentage) −
+(that handle's centre):
 
 ```
-$ node evidence/p4.mjs      # T11, iPhone 14 — the destructive path
-T11 before                             {"n":3,"pos":["0","50","100"]}
-T11 selected                           {"n":3,"pos":["0","50","100"]}
-T11 after tap at handle-centre + 20px  {"n":2,"pos":["0","100"]}     ← the stop is GONE
+ stop%   handle_cx(dev)   ramp_x for that %(dev)   err (CSS px)   fill@handle      ramp directly above handle
+    0.0        22                   1                 -10.5       (232, 49, 49)    (235, 85, 36)
+   11.1       119                 103                  -8.0       (232,158, 48)    (232,172, 40)
+   22.2       217                 205                  -6.0       (195,232, 48)    (188,232, 52)
+   33.3       315                 308                  -3.5       ( 85,232, 48)    ( 88,232, 65)
+   44.4       413                 411                  -1.0       ( 48,232,122)    ( 50,232,131)
+   55.6       511                 513                  +1.0       ( 48,232,232)    ( 53,232,231)
+   66.7       609                 616                  +3.5       ( 48,122,232)    ( 45,135,233)
+   77.8       707                 719                  +6.0       ( 85, 48,232)    ( 88, 67,233)
+   88.9       805                 821                  +8.0       (195, 48,232)    (181, 57,235)
+  100.0       902                 922                 +10.0       (232, 49,159)    (226, 54,176)
 ```
 
-A tap **inside the selected handle's own advertised 55 px target** destroys the stop. There is no
-undo, no confirmation, and no visual cue that the lower third of the handle is a delete zone. This is
-the exact inverse of the comment's own reasoning at `:361–373`, which reasons carefully about the
-*bar's* add-guard and never considers the chip-vs-handle case.
+The error is exactly linear, ±10.5 CSS px at the terminals, zero at the centre — the signature of two
+maps, not of rounding. **The pixel columns are the user-visible half:** at 0% the handle *is* pure
+`(232,49,49)` while the ramp at that same x is already `(235,85,36)` — the swatch and the ground it
+claims to mark are different colours. On mobile (`railW = 324`, probe 2 block 4) the same 10.5px is
+**3.24%** of the ramp: **the instrument is wrong by a different amount at every viewport width.**
 
-**Reproduction** `node evidence/p4.mjs` → `T11`. **Mechanism** two invisible expanded targets stacked
-on one axis with the destructive one on top. **Cure** the chip does not live under the handle. Put
-remove in the (currently non-existent) selected-stop inspector — see D-9 — where the constitution
-already puts destructive verbs: *"Full detail, rename/lifecycle/export actions and durable operation
-state live in the selected inspector"* (`§5`). If it must stay on the rail, it goes *above* the rail
-in the opposite direction from the drag axis, and the two expanders are made mutually exclusive.
+`getPosition()` (`:75–81`) inverts the *handle* axis, so a click at rail-fraction `f` mints a stop at
+`(fW−10)/(W−20)` — the ghost previews `colorAt` of the minted value while sitting over the ramp's
+value. Four quantities disagree at once by construction: pointed-at, previewed, minted, painted.
+
+**Reproduction** `node evidence/WBGSE-D-probe4.mjs` (block 8) then the pixel table above (any image
+tool; the PNG is committed).
+**Mechanism** one domain quantity, two coordinate systems, plus a comment asserting they are one.
+**Cure (gestalt)** express the axis **once**. Inset the *ramp* to the handle track
+(`background-position: 10px 0; background-size: calc(100% − 20px) 100%`) so the pill caps hold flat
+terminal colour — which is what a 0%/100% stop means anyway — and derive `HANDLE_HALF` from the
+rendered handle box instead of re-declaring it in JS (see D2-12).
 
 ---
 
-## 4. MAJOR · D-4 — the chip has **zero reserved geometry** and paints across the next section's rule
+## 3. BLOCKER · D2-03 — the drag gesture has **no ordering law**, and the corrupt result is what gets copied
 
-`PROPORTION-AUDIT.md §5.3` (binding): *"Renderer, icon or touch footprints may reserve collision
-space **only on the axis where collision exists**."* Here collision exists on the block axis and
-**nothing is reserved**.
+`addStop` sorts (`useGradientModel.ts:118`). `updateStop` does not (`:127–131`). The editor owns the
+drag and emits raw positions (`:145`). So a drag across a neighbour leaves the model **non-monotonic**,
+and the serializer faithfully emits it:
 
 ```
-$ node evidence/p2.mjs      # T2, desktop
-editorRoot   y 200.7 → 240.7   (h = 40 — the rail, nothing else)
-chip         y 244.7 → 268.7   (h = 24, z-index 20)
-hr (section) y 260.7 → 261.7
-hrIsUnder    "BUTTON.rail-remove-chip"      ← the chip is what paints at the rule's own y
+$ node evidence/WBGSE-D-probe2.mjs
+== 2 after add ==      ["…at 0%","…at 50%","…at 100%"] | linear-gradient(90deg, oklch(0.75 0.15 145) 0%, oklch(70% 0.165 205deg) 50%, oklch(0.65 0.18 265) 100%)
+== 2 after drag-past == ["…at 84%","…at 50%","…at 100%"]
+   css: linear-gradient(90deg, oklch(0.75 0.15 145) 83.8%, oklch(70% 0.165 205deg) 50%, oklch(0.65 0.18 265) 100%)
+   dom left offsets: ["calc(83.8% - 6.76px)","calc(50% + 0px)","calc(100% - 10px)"]
 ```
 
-The chip protrudes **28 px** past its own component's layout box, consumes the parent's entire
-`gap-5` (`GradientVisualizer.vue:135`), and lands **8 px past the Interpolation section rule**, which
-it visibly cuts:
+CSS Images 3 §3.4.1 clamps a stop below its predecessor **up** to it, so the cyan 50% stop is painted
+at 83.8%. `evidence/D-02-unsorted-drag.png` is the result: a rail that is **flat green for 84% of its
+length** with a hard cut to blue, a cyan handle sitting on solid green, and a render tile showing the
+same collapse. Three handles, two of them lies.
 
-![chip crossing the section rule](evidence/D04-chip-crosses-section-rule.png)
+This is not a transient view state — it is the artifact:
+* the copied CSS (the route's deliverable, `GradientVisualizer.vue:128`) ships the degenerate string;
+* `intervals[]` is index-paired to adjacent stops, so per-interval easing is now attached to a reversed pair;
+* `colorAtPosition` (`GradientVisualizer.vue:64–88`) assumes ascending order — its guards return the
+  *first*/*last array element*, not the *lowest*/*highest stop*, so the add-ghost previews a colour the
+  ramp does not contain, and for some unsorted configurations its loop falls through to
+  `throw new Error("No gradient interval contains X%")` — a throw on a **hover**, into the same
+  boundary as D2-01.
 
-Because the chip is `v-if`-mounted on selection, this also means **selecting a stop repaints another
-section's boundary** — a state change in one instrument mutating the perceived structure of the next.
+`OPTICAL-BENCH-COMPOSITIONS.md:44` names "**order**" as one of four things W27 must close for Gradient.
+It is open, and this component is where it is open.
 
-**Reproduction** `node evidence/p2.mjs` → `T2`. **Mechanism** an absolutely-positioned affordance
-with no block-axis reservation in a `flex-col gap-5` parent. **Cure** as D-3 — the chip leaves the
-rail. If it stays, the editor root reserves its own footprint (`padding-block-end`), never the
-parent's gap.
+**Reproduction** `node evidence/WBGSE-D-probe2.mjs` block 2; or live: click mid-rail to add a stop,
+then drag the left handle past it.
+**Mechanism** an ordinal invariant that exists in one write path (`addStop`) and not in the other
+(`updateStop`), with the gesture owner disclaiming it.
+**Cure (gestalt)** ordering is an invariant of the *aggregate*, not of a call site: `stops` becomes a
+sorted-by-construction collection (every mutation returns a normalised list, ordinals recomputed,
+`intervals` re-derived from adjacency), and the editor keeps handle identity across the crossing so
+the grabbed handle stays grabbed — which is also the only way to make §5.2's "announce item and
+`position of total`" reorder grammar expressible at all.
 
 ---
 
-## 5. MAJOR · D-5 — the stop swatch is a **tautology**, so the instrument reads as a row of holes
+## 4. BLOCKER · D2-04 — the handle's only boundary is a fixed white ring **over a fill that is by construction the ground**: measured 1.00:1
 
-A stop handle's job is to show the stop's colour. But at a stop's own position **the ramp already is
-that colour** — that is what a gradient stop means. Painting the colour again, in a 20 px circle,
-directly on top of the ramp, produces zero figure–ground separation. The only thing that reads is the
-1 px white ring, i.e. a hole:
+The swatch paints the stop's colour (`:247`); the rail paints the ramp; a stop's colour is *exactly*
+the ramp's colour at that point. So the fill can never contrast with its surroundings — the entire
+affordance rests on `border-2 border-white/80` (`:235`, computed
+`oklab(0.999994 … / 0.8)`, probe 1). Measured WCAG contrast of the ring against the fill it encircles:
 
-![rest state, desktop light](evidence/D05-rest-state-rings-desktop-light.png)
+| ramp | ring : fill | ring : adjacent ramp |
+|---|---|---|
+| `#ffffff → #fafafa` (white ramp) | **1.00 : 1** and **1.03 : 1** | 1.37 / 1.03 |
+| ten-hue rainbow, per stop | 3.19, **1.93**, **1.31**, **1.44**, **1.44**, **1.37**, 3.22, 5.07, 3.22, **2.96** | 3.82, 2.13, 1.44, 1.39, 1.44, 1.38, 2.04, 3.96, 4.12, 3.11 |
 
-At working density it is unambiguous — twelve stops, twelve empty rings, no specimen anywhere:
+**6 of 10 hues fall below the 3:1 non-text floor; a light ramp reaches 1.00:1 — the control is
+literally invisible** (`evidence/D-03-white-ramp-handles.png`: the two handles are gone; only the
+`--shadow-sm` smudge survives). This is not an edge case: white, cream, pastel and any stop with
+relative luminance > 0.30 fails, because `contrast(white, C) ≥ 3` requires `L(C) ≤ 0.30`. The shipped
+default green `oklch(0.75 0.15 145)` is one of them.
 
-![twelve stops](evidence/D05-twelve-stops-empty-rings.png)
+The same file already contains the cure and does not apply it: the **focus** ring is dual-contrast by
+design (`:342–349`, measured settled value
+`rgba(0,0,0,0.85) 0 0 0 1px, rgba(255,255,255,0.92) 0 0 0 3px, --shadow-sm`) precisely so that "at
+least one edge contrasts against ANY fill" (`:335–337`). The resting and selected boundaries get a
+single hardcoded white — in **both schemes**, with no `prefers-color-scheme` arm anywhere in the file.
 
-The selected state (6th ring above) differs from its neighbours by `scale(1.25)` plus
-`border-white` vs `border-white/80` (`:236–240`) — a size change of 5 px and an alpha change of 0.2.
-In the shot at 100 % you can find it only by measuring. `§4.1` is explicit: *"Selected, failed,
-pending, withdrawn and disabled states are never colour-only. Role, accessible name, state/value …
-are explicit."* Here the state is *size-and-alpha-only* and (see D-7) absent from the accessibility
-tree entirely.
-
-**Reproduction** the shipped audit shot
-`docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/gradient.png` and
-`evidence/D05-twelve-stops-empty-rings.png`. **Mechanism** a swatch placed on a ground that is
-definitionally identical to it. **Cure** the constitutional one: the stop rank moves **off** the
-meniscus onto its own neutral seat rail beneath it, each seat a geometric button carrying a
-WatercolorDot face (D-6). Then the face reads as a specimen against a quiet ground, the meniscus
-stays an unbroken spectral rail (`§2`: *"a continuous liquid-color rail"*), and selection can be
-expressed by the seat instead of by 5 px of scale.
-
----
-
-## 6. MAJOR · D-6 — species violation: hand-rolled circle where the constitution names WatercolorDot
-
-`§7 Gradient` requires *"Each WatercolorDot stop is a face inside an enclosing geometric
-button/seat"*. `§4.2` names the executor sites explicitly: *"W19–W22/W25–W27 execute Dock seal/edit,
-ColorSpaceSelector, eyedropper, Spectrum, channel, palette, Generate, Mix and **Gradient** sites."*
-
-The shipped handle is a `<button>` with `background: linear-gradient(${cssColor}, ${cssColor}),
-var(--alpha-checker)` (`:247`) — a hand-rolled circular swatch. There is no `WatercolorDot` import in
-the entire gradient workbench:
-
-```
-$ grep -rln "WatercolorDot" demo/ | wc -l
-19            # Mix, Picker, Dock, Generate, Extract, ColorSpaceSelector, palettes, EmptyState …
-$ grep -rn "WatercolorDot" demo/workbenches/gradient/
-(no matches)
-```
-
-The species exists, is a producer primitive, and is consumed by nineteen other demo files. This
-component reaches past it. **Owner edict 4** ("glass-ui is the design system … reuse existing
-component-type names") and `§7` are both violated by the same line.
-
-**Reproduction** the two greps above. **Mechanism** a local re-implementation of a producer species.
-**Cure** consume it — with D-5's seat, the face is `WatercolorDot` and the seat is the named button
-that owns selection/focus/drag, which is precisely the shape `§4.2` already ratified.
+**Reproduction** `node evidence/WBGSE-D-probe4.mjs` (writes both PNGs); contrast recomputable from the
+committed images.
+**Mechanism** a specimen whose fill is definitionally equal to its ground, defended by a one-sided
+hairline.
+**Cure (gestalt)** the resting boundary adopts the dual-contrast recipe the focus ring already
+proves — or, per `OPTICAL-BENCH-COMPOSITIONS.md:44`, the dot becomes a **WatercolorDot face inside a
+named geometric seat** and the *seat* (not the face) carries a scheme-aware boundary. See D2-16.
 
 ---
 
-## 7. MAJOR · D-7 — the keyboard grammar is a third of the specified one, and AT sees no state at all
+## 5. MAJOR · D2-05 — on touch, aiming a few pixels low on a **selected** handle deletes the stop
 
-`§5.2` mandates `Home = 0%`, `End = 100%`, Up/Down at the same signed step, and an announcement
-carrying *"stop identity, percentage, ordinal"*.
+Both the handle and the remove chip inflate to `var(--touch-target, 2.75rem)` = 44px on coarse
+pointers (`:385–391`), measured `beforeSize: "44pxx44px"` (probe 2 block 4). Measured page geometry
+with a stop selected (probe 2 block 3): rail bottom `240.7`, handle centre `220.7`, chip box
+`y 244.7 … 268.7`, chip centre `256.7`.
 
-```
-$ node evidence/p2.mjs      # T4 — focus handle 0, press each key, read the aria-labels
-Home              → "Gradient stop at 0%|Gradient stop at 100%"   (no change)
-End               → (no change)
-ArrowUp           → (no change)
-ArrowDown         → (no change)
-PageUp            → (no change)
-Space             → (no change)          ← §5.2's reorder grab: absent
-ArrowRight        → "Gradient stop at 1%"
-Shift+ArrowRight  → "Gradient stop at 11%"
-```
+* handle hit zone (coarse): `220.7 ± 22` → **198.7 … 242.7**
+* chip hit zone (coarse): `256.7 ± 22` → **234.7 … 278.7**
+* **overlap 234.7 … 242.7** — 8px of it *inside the rail*, 14–22px below the handle's own centre.
 
-`onHandleKeydown` (`:173–187`) handles exactly `ArrowLeft`/`ArrowRight`/`Delete`/`Backspace`/`Escape`.
-Home, End, Up, Down, PageUp/Down and the Space-grab are unhandled no-ops.
+The chip is `z-20` and later in DOM order, so it wins the overlap. A fingertip aimed at the selected
+handle but landing 16px low — well inside one contact patch — hits **"Remove selected stop"** and the
+stop is destroyed. There is no confirmation and no undo (D2-10).
 
-The accessibility surface is thinner still (`p1.mjs` attribute dump):
-
-```
-attrs: data-stop-id, type=button, aria-label="Gradient stop at 0%", class, style
-role: null      aria-pressed: absent    aria-valuenow/min/max: absent    aria-describedby: absent
-```
-
-So: **no ordinal** ("stop 2 of 4" is unspeakable), **no selected state in the a11y tree** (the
-`selectedId` that drives scale and the chip is invisible to AT), no value semantics on a control
-whose entire job is a value. A screen-reader user can move a stop and can never learn which one is
-selected or how many exist. The remove chip appears and disappears from the DOM on selection with no
-live announcement.
-
-**Reproduction** `node evidence/p2.mjs` → `T4`; `node evidence/p1.mjs` → `handles[].attrs`.
-**Mechanism** a bespoke button pretending to be a value control. **Cure** the seat is a real slider
-role (`role="slider"`, `aria-valuenow/min/max`, `aria-valuetext` carrying identity + percentage +
-ordinal, `aria-pressed`/`aria-current` for selection) — or, better and per `§5`, the seat composes
-the producer axis: *"The domain-neutral axis composition sits over BI `Slider` … **Gradient** …
-adopt that one composition; feature waves own their domain arrangement, **not new slider
-mechanics**."*
+**Reproduction** probe 2 block 3 prints the boxes; `chipHitAtHrY: "Remove selected stop"` shows the
+chip already winning hit-tests outside its visual box.
+**Mechanism** two invisible 44px targets stacked 36px apart on a 40px rail — target inflation applied
+per-element with no arbitration.
+**Cure** the destructive action leaves the rail's physical neighbourhood entirely: remove lives in the
+inspector row for the selected stop (where `position` and `colour` fields also belong — D2-08/D2-14),
+so nothing destructive shares a fingertip with the drag surface.
 
 ---
 
-## 8. MAJOR · D-8 — the add affordance **starves as the instrument fills**
+## 6. MAJOR · D2-06 — the keyboard grammar is a third of the specified one, and AT sees no state at all
 
-The bar's add path is gated by `target.closest("[data-stop-id]")` (`:87`, `:98`). Because every
-handle carries an always-on 24 px (fine) / 44 px (coarse) invisible expander, every handle deletes a
-24 px band of rail from both the ghost and the add gesture.
+`VISUAL-CONSTITUTION.md:127` binds the row. Measured against it (probe 1, `== C keys ==`):
 
 ```
-$ node evidence/p3.mjs      # T6 — 12 stops, then sweep elementFromPoint across the rail
-T6 neighbour gaps px [44.9,36.9,36.6,36.9,37,36.5,37,55,36.5,36.9,45.8]  min 36.5
-T6 addable rail {"totalPx":462,"addablePx":165,"pct":35.7}
+ArrowRight       ["…at 0%","…at 100%"] -> ["…at 1%","…at 100%"]     ✔
+Shift+ArrowRight ["…at 1%", …]         -> ["…at 11%", …]            ✔ (undocumented ±10)
+End              ["…at 11%", …]        -> ["…at 11%", …]            ✘ spec: End = 100%
+Home             ["…at 11%", …]        -> ["…at 11%", …]            ✘ spec: Home = 0%
+ArrowUp          unchanged                                          ✘ spec: same signed step
+ArrowDown        unchanged                                          ✘
+Enter            unchanged   (stops still 2)                        ✘ dead on a <button>
+Space            unchanged   (stops still 2)                        ✘ dead on a <button>
 ```
 
-**64.3 % of the rail can no longer mint a stop.** The ghost also vanishes in those bands, so the
-affordance the comment at `:35–41` calls "self-evident" silently stops being available with no
-indication of why. At the ends the effect is absolute from the first frame: the leftmost and
-rightmost 23 px of the rail *never* add — `p2.mjs` T1 clicks at `bar.x + 3` and the stop count stays
-`2`.
+`Enter`/`Space` on a native `<button>` doing nothing is its own defect: the element advertises
+activation semantics it does not implement, and selection is reachable **only** by pointer
+(`:119–134`) or as a side-effect of an arrow nudge (`:178`).
 
-On coarse pointers with 44 px expanders the addable fraction at 12 stops is lower still (not
-measured — labelled **hypothesis**; the arithmetic is `462 − 12·44 < 0`, i.e. plausibly zero).
+Accessible state (probe 5, `== C ==`), with one stop selected:
 
-**Reproduction** `node evidence/p3.mjs` → `T6`. **Mechanism** operable-target inflation applied to an
-element that also acts as a *mask* over a second gesture on the same surface. **Cure** separate the
-surfaces: with D-5's seat rail below the meniscus, the meniscus itself is free for add, and the seats
-never shadow it. `PROPORTION-AUDIT §5.7` is the licence — *"Visual glyph size, operable target size
-and layout reservation are separate quantities"* — but it does not license one control's target
-eating another control's gesture.
+```
+[{"label":"Gradient stop at 0%","attrs":["aria-label=Gradient stop at 0%"]},
+ {"label":"Gradient stop at 24%","attrs":["aria-label=Gradient stop at 24%"]},
+ {"label":"Gradient stop at 100%","attrs":["aria-label=Gradient stop at 100%"]}]
+```
+
+No `role`, no `aria-valuenow/min/max/text`, no `aria-pressed|current|selected`, no ordinal. The spec
+requires "announce stop identity, percentage, **ordinal**". A screen-reader user cannot tell which
+stop is selected, cannot hear a value change (mutating a focused button's `aria-label` is not a
+reliable announcement), and has no `Home`/`End`. §4.1: "Selected … states are never colour-only" —
+here selection is 20% border-alpha plus a 1.25 scale and **nothing else**.
+
+**Mechanism** a bespoke control impersonating a value control. **Cure** the seat *is* the producer
+`Slider` axis composition (`VISUAL-CONSTITUTION.md:104` — "not new slider mechanics"): role, value,
+Home/End, RTL law and announcement all arrive with it, and this file stops owning slider physics.
 
 ---
 
-## 9. MAJOR · D-9 — `select` has no payload: there is **no way to edit a stop's colour anywhere in the product**
+## 7. MAJOR · D2-07 — the add gesture is hover-only, unnamed, unreachable by keyboard, and silently starves on touch
 
-`§5`'s global grammar is **select → tune → commit**. Here select → nothing.
+The bar is a bare `<div>` (probe 1): `role: null`, `tabindex: null`, `ariaLabel: null`,
+`cursor: "copy"`. Its click mints a stop. The file argues (`:35–41`) that the hover ghost makes the
+gesture "self-evident, no instruction line needed" — **there is no hover on touch**, so on every phone
+the largest interactive surface on the route has no affordance, no name, and no preview, and mints a
+new stop on any stray tap.
+
+It also starves as the instrument fills. Probe 2 block 4, iPhone 14 (`railW: 324`): a tap at 40% added
+a stop; the next tap 6% away (≈19px) landed inside that handle's 44px zone and **added nothing** — the
+guard `target.closest("[data-stop-id]")` (`:87`) treats it as a grab:
+
+```
+info: [{"label":"Gradient stop at 0%"},{"label":"Gradient stop at 39%"},{"label":"Gradient stop at 100%"}]   ← 3 stops, not 4
+```
+
+Each stop sterilises `44/324 = 13.6%` of the rail against the add gesture, with no signal that
+anything was refused. There is no keyboard path to add at all.
+
+**Cure** the add is a *named action*, not a bare surface gesture: an "Add stop" control in the
+instrument's action row (position defaulting to the largest gap, editable numerically), with the
+rail-click retained as an accelerator, not as the only door.
+
+---
+
+## 8. MAJOR · D2-08 — `select` has no payload: **nothing in the product can edit a stop's colour**
 
 ```
 $ grep -rn "selectedStopId" demo/
-GradientVisualizer.vue:51    const selectedStopId = defineModel<string|null>("selectedStopId", {default:null});
-GradientVisualizer.vue:140   v-model:selected-id="selectedStopId"
-GradientVisualizer.vue:144   @select="(id) => selectedStopId = id"
+GradientVisualizer.vue:51   const selectedStopId = defineModel<string|null>("selectedStopId", {default:null});
+GradientVisualizer.vue:140  v-model:selected-id="selectedStopId"
+GradientVisualizer.vue:144  @select="(id) => selectedStopId = id"
 ```
 
-Three lines, all inside one file, all of them plumbing the value straight back to the component it
-came from. `GradientPane.vue` never binds it. **No inspector, no readout, no numeric field consumes
-the selection.** The only thing selection does is scale a ring by 25 % and mount the delete chip.
+Three lines: a declaration and two writes. **Zero readers.** Selection propagates nowhere.
+`GradientVisualizer.vue`'s template contains a type/space/hue band, an easing accordion and a CSS
+block — no stop inspector. `GradientPane.vue:8` injects `CSS_COLOR_KEY` and never uses it, so the
+app's current colour cannot even be applied to a stop.
 
-Worse, the domain verb is missing outright:
+So the component named *StopEditor* edits **position** and **existence** only. The entire selection
+apparatus — a `defineModel`, a re-tap-to-deselect gesture (`:148–156`), an Escape handler, a scale
+ladder, a floating chip — exists to unlock exactly one action, `remove`, which is *already* reachable
+two other ways (D2-10). The only way to change a stop's colour is to hand-type CSS into the field that
+D2-01 shows is a loaded gun.
 
-```
-$ grep -rn "updateStop" demo/
-useGradientModel.ts:127   function updateStop(id, patch: Partial<Pick<GradientStop,"cssColor"|"position">>)
-GradientVisualizer.vue:95 updateStop(id, { position });          ← the ONLY call site
-```
+`VISUAL-CONSTITUTION.md:96`: the grammar is **select → tune → commit**. There is no tune.
 
-The `cssColor` arm of `updateStop` is **dead code**. A user can add a stop, move it and delete it,
-but **cannot change its colour** except by hand-editing the CSS text area. `§7 Gradient` requires
-*"explicit add/move/remove/**numeric** alternatives"*; there is no numeric position entry either.
-`PROPORTION-AUDIT` PR-07 (*"Hover-only/unlabeled controls and invisible drag state"* →
-`ADD-AFFORDANCE / REMOVE`) is the register row this sits under, unclosed.
-
-**Reproduction** the two greps above. **Mechanism** a selection state invented for local styling
-before the thing it selects *for* existed. **Cure** either land the selected-stop inspector (colour +
-numeric position + remove, which simultaneously cures D-3 and D-4), or delete the selection state and
-the chip and let the rail be a pure move surface. The present middle position is the only
-indefensible one: it pays the entire cost of selection (a mode, a destructive control, a scale ladder,
-a z-index war) for none of its value.
+**Cure** either selection acquires its payload (a stop inspector: swatch → picker, numeric position,
+remove — which simultaneously discharges D2-05, D2-06's numeric arm and D2-14), or selection is
+deleted and the rail keeps only drag+add. A selection state that buys nothing is decoration.
 
 ---
 
-## 10. MINOR · D-10 — no invalid-colour state: an unparseable stop renders an **invisible** handle
+## 9. MAJOR · D2-09 — the remove chip reserves **no** geometry and paints across the next section's rule
 
-`:247` interpolates `stop.cssColor` verbatim into a `background` **shorthand**. CSS drops the *entire*
-declaration on an invalid value — including the `var(--alpha-checker)` ground:
-
-```
-$ node evidence/p3.mjs      # T8 — set the same shorthand on a probe element, read computed value
-valid       "linear-gradient(rgb(255,0,0), rgb(255,0,0)), repeating-conic-gradient(oklab(…"
-emptyOklch  "none"          ← linear-gradient(oklch(), oklch()), var(--alpha-checker)
-emptyRgb    "none"
-empty       "none"
-```
-
-`gradientParse.ts:252,256` keeps *the authored literal* (`"stops[].cssColor` keeps the AUTHORED
-literal (`red` stays `red`, P2-15)"`), so whatever the code editor accepted flows to this line
-unrewritten. This is the shipped-crash family **MT-F001** (`parseCssColor` throws on 8
-empty-argument colour functions, `src/css/grammar.ts:181`) arriving at the *visual* boundary rather
-than the parser one: no throw, no error state — a stop that is simply not there, on a rail where
-"not there" is indistinguishable from "transparent stop".
-
-**Reproduction** `node evidence/p3.mjs` → `T8`. **Mechanism** a shorthand carrying both untrusted data
-and the fallback ground, so the data's failure takes the fallback with it. **Cure** the ground is a
-separate longhand/pseudo layer that cannot be clobbered, and an unparseable stop gets a *designed*
-state (hatched face + `aria-invalid` + the reason), not an absence.
-
----
-
-## 11. MINOR · D-11 — every drag move dispatches twice
-
-`:206` binds `@pointermove` on the bar and `:266` binds it on each handle. The handle takes pointer
-capture (`:133`), so during a drag the handle's handler runs **and** the same event bubbles to the
-bar, whose branch `if (draggingId.value) { emit("update:position", …) }` (`:92–95`) fires again:
+The chip is `absolute … top-11` (`:288`) on a container whose flow height is only the 40px rail
+(probe 1: `editorRootHeight: 40`). Measured with a stop selected (probe 2 block 3):
 
 ```
-$ node evidence/p3.mjs      # T9 — one synthetic pointermove on a handle
-T9 one pointermove on a handle reaches: {"barHandlerCalls":1,"handleHandlerCalls":1}
+{"chip":{"y":244.7,"h":24,"bottom":268.7},"barBottom":240.7,"hrTop":260.7,
+ "overlapsHr":true,"chipHitAtHrY":"Remove selected stop"}
 ```
 
-Two `update:position` emissions per move, two `stops.value = stops.value.map(…)` array rebuilds
-(`useGradientModel.ts:128`), two re-serialisations of a 32-sample coalesced ramp. The comment at
-`:91–95` calls the bar branch a "fallback path while a handle drag is live (capture sits on the
-handle)" — with capture it is not a fallback, it is a duplicate. **Cure** one owner: the bar's
-`pointermove` handles hover only, and the drag lives entirely on the captured handle.
+The chip protrudes **28px** below its own container and overlaps the following `<hr>` by **8px**;
+`elementFromPoint` at the rule's y returns the chip. `evidence/D-08-chip-on-divider.png` shows the ✕
+sitting astride the hairline, cutting it — and `evidence/D-02-unsorted-drag.png` shows the same collision
+independently. Nothing in the parent reserves that band (`GradientVisualizer.vue:135` is a plain
+`gap-5` column), so the chip's presence is a pure overlay on whatever follows.
+
+Two further design faults in the same object: the glyph is `X` — the universal *dismiss* mark — placed
+on a section divider, so it reads as "close this section", not "remove this stop"; and it is visually
+orphaned from the handle it belongs to (no tether, no shared enclosure, 24px of empty rail between
+them).
+
+Note also `OPTICAL-BENCH-COMPOSITIONS.md:78`: Gradient's binding boundary set is `[]` with reserve
+`none` — the route renders **three** `<hr>` rules (`GradientVisualizer.vue:148, 240, 251`). The chip is
+therefore colliding with a rule that the composition says should not exist. (That row is the parent's
+to close; recorded here because it is the surface the collision lands on.)
 
 ---
 
-## 12. MINOR · D-12 — dual selection channel (owner edict 2: no dual paths)
+## 10. MAJOR · D2-10 — three destructive removal species, no confirmation, no undo, and a silent no-op
 
-`:129–130` writes the `defineModel` **and** emits a separate `select` event for the same fact.
-`GradientVisualizer.vue:140` binds `v-model:selected-id` **and** `:144` assigns the identical value
-again on `@select`. Two wires, one fact, both live. **Cure** delete the `select` emit; the model is
-the channel.
-
----
-
-## 13. MINOR · D-13 — the handle's geometry is declared in four places that nothing keeps in agreement
-
-| declaration | site | value |
-|---|---|---|
-| `HANDLE_HALF = 10` (JS, drives `getPosition` + `handleLeft`) | `:53` | 10 px |
-| `w-5 h-5` (the painted box) | `:235` | 1.25rem = 20 px |
-| `top-11` (the chip's offset from the rail) | `:288` | 2.75rem = 44 px |
-| `max(1.5rem, 100%)` / `--touch-target` (the hit box) | `:380–390` | 24 / 44 px |
-
-`HANDLE_HALF` is a bare JS number that must equal half the *rendered* handle width. Any type-scale or
-rung change silently desynchronises the pointer maths from the paint — and the failure mode is
-exactly D-1's, only larger. (I checked the mobile arm: root font-size is 16 px there too, so the
-constants currently agree — `p5.mjs`. The defect is that nothing makes them.)
-
----
-
-## 14. INFO · D-14 — hand-rolled slider mechanics **next to** the producer `Slider`, in the same feature
-
-`GradientVisualizer.vue:232` drives Direction with the real `Slider` primitive. Forty lines above it,
-its sibling instrument hand-rolls pointer capture, hit-testing, drag state, a scale ladder, a focus
-ring recipe and a hit-inflation pseudo-element — 392 lines of it. `§5` names Gradient as an adopter of
-the one axis composition and forbids "new slider mechanics"; this is the whole of them.
-
----
-
-## 15. What I checked and found **sound** (the negative proof)
-
-Not everything here is broken, and the CHALLENGE-D seat is not licensed to invent defects:
-
-- **Motion is tokenised and correct.** The inline transition resolves to real producer tokens —
-  `box-shadow 0.2s cubic-bezier(0.4,0,0.2,1), transform 0.44s linear(…)` (`p1.mjs`); no ad-hoc
-  durations, no layout-forcing property (it animates `transform` and `box-shadow` only).
-- **Reduced motion is honoured** — by inheritance, correctly. Under `reducedMotion: "reduce"` the
-  computed handle transition is `0.1s` over `opacity, color, background-color, border-color,
-  box-shadow` (`p3.mjs` T8) — `transform` is dropped, so the spring settle is instant. The rule is
-  glass-ui's `dist/styles/utilities/a11y-overrides.css`
-  (`*:not([data-allow-motion]) { transition-property: … !important }`), whose `!important` outranks
-  this component's inline shorthand. No local carve-out is needed and none is present. **Correct.**
-- **Every token this file names resolves.** `--spring-snappy`, `--spring-snappy-duration`
-  (`calc(0.44s * 1)`), `--alpha-checker`, `--card-edge`, `--focus-ring-inner/-outer`,
-  `--touch-target`, `--radius-pill`, `--duration-fast`, `--ease-standard`, `--shadow-sm` — all
-  non-empty (`p1.mjs` `tokens`). The dual-contrast focus ring composes with `--shadow-sm` exactly as
-  `:328–349` claims: `rgba(0,0,0,.85) 0 0 0 1px, rgba(255,255,255,.92) 0 0 0 3px, <shadow-sm>`.
-- **The 20×20 tap-target rows in the visual REPORT are a measurement artefact, not a defect.**
-  `REPORT.json` records `{"w":20,"h":20,"label":"Gradient stop at 0%"}` because it reads the button's
-  border box; the *hit* region is 24×24 on fine pointers, measured by `elementFromPoint` sweep
-  (`p1.mjs`: `hitSpanX [-12,11,24]`, `hitSpanY [-12,11,24]`). WCAG 2.5.8's 24 px minimum is met at
-  rest. (Its *spacing* clause is not, once two stops are within 24 px — but at 12 stops the measured
-  minimum gap was 36.5 px, so I did not observe a violation and do not claim one.)
-- **RTL is correctly non-mirrored.** `§5.2` says gradient coordinates *"do not mirror with prose"*;
-  the ramp is `linear-gradient(90deg,…)` and the handles use physical `left`, both direction-agnostic,
-  and `shots/rtl-desktop/gradient.png` confirms the rail is unchanged. Caveat: the RTL matrix sets
-  `dir="rtl"` on `<html>` and the shell does not visibly mirror at all, so this arm proves less than
-  it appears to.
-- **No console errors, no page errors, no horizontal overflow** on `/#/gradient` in any of the four
-  Safari matrices (`REPORT.md` per-capture table, rows 125/140/155/170: `overflowX 0`, `pageErr 0`,
-  `consoleErr 0`), and none in any of my 11 probe runs.
-- **`verbatimModuleSyntax` and Vue 3.5 idiom are clean.** `:4` is `import type`; `:2` and `:3` are
-  value imports; `useTemplateRef` at `:28`; reactive props destructure at `:6`. No violation of
-  owner edicts 7 or 8. The `colorAt = undefined` default (`:6`) is redundant noise on an optional prop
-  with exactly one always-present call site — speculative optionality, not a defect worth a row.
-- **The forced-colors matrix proves nothing here.** `shots/forced-colors-desktop/gradient.png` renders
-  in full colour — WebKit does not implement `forced-colors`, so Playwright's `forcedColors:"active"`
-  is inert. The `@media (forced-colors: active)` block at `:353–359` is therefore **untested by this
-  audit**, and I did not run a Chromium probe to close it. Recorded as an evidence gap, not a finding.
-
----
-
-## 16. Family summary
-
-| id | severity | mechanism family | one-line |
+| path | source | discoverable? | confirmed? |
 |---|---|---|---|
-| D-1 | BLOCKER | two axes for one quantity | ramp axis ≠ handle axis; 2.38 % desktop / 3.40 % mobile |
-| D-2 | BLOCKER | undefended ordinal | cross-drag → descending CSS stops → hard band + re-paired easing |
-| D-3 | BLOCKER | stacked invisible targets | tap on a selected handle deletes the stop (touch) |
-| D-4 | MAJOR | unreserved footprint | chip protrudes 28 px, cuts the next section's rule |
-| D-5 | MAJOR | tautological specimen | swatch = ground → the rail reads as a row of holes |
-| D-6 | MAJOR | species re-implementation | hand-rolled circle where `§7` names WatercolorDot-in-a-seat |
-| D-7 | MAJOR | bespoke control, no role | Home/End/Up/Down are no-ops; selection invisible to AT |
-| D-8 | MAJOR | target masks gesture | 64.3 % of the rail cannot add at 12 stops |
-| D-9 | MAJOR | select with no tune | `selectedStopId` has no consumer; stop colour is uneditable |
-| D-10 | MINOR | shorthand carries data + fallback | invalid colour → `background: none` → invisible handle |
-| D-11 | MINOR | duplicate dispatch | capture + bubble → 2 emissions per pointermove |
-| D-12 | MINOR | dual channel | `defineModel` + `emit("select")` for one fact |
-| D-13 | MINOR | constant triplication | `HANDLE_HALF` / `w-5` / `top-11` / `--touch-target` |
-| D-14 | INFO | new slider mechanics | producer `Slider` used 40 lines away |
+| right-click / two-finger tap a handle | `:164–167` | no | no |
+| `Delete` / `Backspace` on a focused handle | `:180–182` | no | no |
+| the ✕ chip | `:284–300` | only after selecting | no |
 
-**The single architectural cure that dissolves D-1, D-3, D-4, D-5, D-6, D-8 and D-9 at once** is the
-one the constitution already ratified and this component declined: *stops leave the meniscus*. A
-quiet seat rail beneath the spectral rail, one geometric seat per stop carrying a WatercolorDot face,
-one axis shared by rail and seats because the seats no longer need an inset to avoid the pill's
-corners, remove and colour and numeric position in a selected-stop inspector rather than floating
-over the next section. What remains after that transposition is D-2 (an ordering invariant in the
-model), D-11/D-12 (one owner per channel) and D-10 (a designed invalid state) — three small, local,
-honest fixes.
+```
+$ node evidence/WBGSE-D-probe5.mjs
+B after click-add:   ["…at 0%","…at 50%","…at 100%"] | linear-gradient(90deg, …, oklch(70% 0.165 205deg) 50%, …)
+B after right-click: ["…at 0%","…at 100%"]           | linear-gradient(90deg, …, oklch(0.65 0.18 265) 100%)
+   any dialog/confirm/undo affordance: {"dialogs":0,"undoText":[]}
+```
 
-**No source edits land from this formation.** This file and `evidence/` are the whole of my output.
+A right-click destroys a stop instantly and irreversibly; the route contains **no undo affordance at
+all**. `PROPORTION-AUDIT.md:50` (PR-06) rules exactly this shape: "Three adjacent action species …
+**REMOVE** … One action/selection owner".
+
+The same probe shows the unavailable arm is equally undesigned — at the 2-stop floor `Delete` does
+nothing and says nothing:
+
+```
+A after Delete @2 stops: ["…at 0%","…at 100%"] | live regions: ["· empty plate ·No saved palettes yet. …"]
+```
+
+`removable` (`:66`) merely `v-if`s the chip away, so the constraint is expressed as *absence*. §4.1:
+"disabled states are never colour-only. Role, accessible name, state/value and associated
+error/status are explicit." An affordance that vanishes is not a disabled state, and a key that
+silently no-ops is not feedback.
+
+---
+
+## 11. MAJOR · D2-11 — the protagonist is 40px tall
+
+`h-10` (`:203`) — measured 462 × **40** CSS px on desktop, 324 × 40 on mobile. The route's actual
+"render tile" is `w-20 sm:w-24` (`GradientVisualizer.vue:223`) = 80–96px wide. The constitution's
+Gradient row demands a **dominant** meniscus preview at P122 `golden` 61.8% of the chassis
+(`VISUAL-CONSTITUTION.md:49`, `OPTICAL-BENCH-COMPOSITIONS.md:44`), and PR-09 demands "one 19–22rem
+protagonist" (304–352px). The desktop shot (`visual/shots/safari-desktop-light/gradient.png`) shows
+the truth: the instrument the route exists for is a 40px strip wedged between a subtitle and a rule,
+subordinate to a 3-column select band, an easing accordion and a code block — and sharing the viewport
+50/50 with an unrelated *My Palettes* companion.
+
+The 40px height is also what forces every other defect in this report to be solved by *invisible*
+means: 20px dots (D2-04), 44px phantom targets stacked 36px apart (D2-05), a chip exiled outside the
+box (D2-09). **Give the instrument its height and most of the geometry pathology dissolves.**
+
+---
+
+## 12. MINOR · D2-12 — `HANDLE_HALF = 10` duplicates a rem-derived size; text resize breaks the "end-handle truce"
+
+`:53` hardcodes `const HANDLE_HALF = 10; // w-5 handle → 20px, half = 10`, while the handle's size is
+`w-5 h-5` = `1.25rem`. The two agree only at a 16px root. Measured (probe 2 block 5):
+
+```
+before: {"handleW":20, "handleLeftEdge":225, "barLeftEdge":224, "rootFS":"16px"}   overhang: -1.00 px (inset)
+after:  {"handleW":25, "handleLeftEdge":100.5,"barLeftEdge":102,  "rootFS":"20px"}  overhang: +1.50 px (protruding)
+```
+
+At a 20px root font — an ordinary WCAG 1.4.4 text-size setting — the handle grows to 25px, the JS inset
+stays 10px, and the 0% handle **hangs off the rail's rounded end**, which is the exact condition the
+`:49–53` "end-handle truce" comment claims to have fixed. The same constant is restated in four
+disagreeing places: `HANDLE_HALF` (JS), `w-5` (utility), `top-11` (chip offset), `max(1.5rem,100%)` /
+`--touch-target` (pseudo).
+
+**Cure** one source: the handle's box is measured or expressed in a single custom property that both
+the CSS and the pointer maths read.
+
+---
+
+## 13. MINOR · D2-13 — the protagonist is the only unnamed region on the route
+
+`Interpolation`, `Easing` and `CSS` each carry an `<h3>` (`GradientVisualizer.vue:149, 241, 253`). The
+stop rail carries no heading, no label, no `aria-label`, no `role`, no group. It is the one thing on
+the route with no name — visually or semantically — while three supporting bands are titled. The
+hierarchy inverts: support is announced, the protagonist is anonymous.
+
+---
+
+## 14. MINOR · D2-14 — no visible value, ever
+
+While dragging, the position appears nowhere on screen: the number lives only in `aria-label`
+(invisible) and in the CSS block far below. There is no numeric entry, no readout, no tooltip during
+drag. `VISUAL-CONSTITUTION.md:206` requires "explicit add/move/remove/**numeric** alternatives" and
+PR-07 names "**invisible drag state**" as an ADD-AFFORDANCE row. The user drags a 20px dot and reads
+the result by decoding a CSS string.
+
+---
+
+## 15. MINOR · D2-15 — crowding has no law
+
+Measured, 10 stops (probe 3): desktop centre-to-centre gaps `48.8 48.9 48.8 48.9 49.2 48.9 48.8 48.9
+48.8` px on a 462px rail. On the 324px mobile rail the same 10 stops give `(324−20)/9 = 33.8px` gaps —
+**below the 44px coarse hit zone**, so neighbouring stops become mutually untappable. Two stops may
+also occupy the *same* position (`addStop` permits it; drag permits it), after which only the
+top-of-stack handle is reachable and the other is unreachable forever by pointer. There is no minimum
+separation, no fan-out, no overflow treatment, and no cap.
+
+---
+
+## 16. INFO · D2-16 — species violation: a hand-rolled dot where the canon names WatercolorDot-in-a-seat
+
+`OPTICAL-BENCH-COMPOSITIONS.md:44` — "stop **face inside seat**"; `:108` (P051) names the **Gradient**
+site explicitly in the execution list. `VISUAL-CONSTITUTION.md:206` — "Each **WatercolorDot** stop is a
+face inside an enclosing geometric button/seat".
+
+```
+$ grep -rn "WatercolorDot" demo/ | wc -l
+64                     # 19 files: Mix, Generate, Extract, Picker sliders, Dock, ColorSpaceSelector, palettes…
+$ grep -n "WatercolorDot" demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue
+(no matches)
+```
+
+Instead the file hand-rolls a swatch out of a CSS trick — `background: linear-gradient(c, c),
+var(--alpha-checker)` (`:247`) — which is also the construct that makes an invalid colour silently
+invalidate the whole shorthand (no fill, no checker: an empty ring). Owner edict 4 (glass-ui is the
+design system; reuse existing component-type names) and edict 5 (style at the root, not per-instance)
+are both violated by the same 40 lines of inline `:style` object, which additionally shadows any class
+utility — a trap the file itself documents twice (`:30–33`, `:255–261`) and then re-enters for
+`transition`.
+
+---
+
+## 17. INFO · D2-17 — forced-colors collapses the only colour-coded selection delta, and the shipped matrix cannot see it
+
+Selection is encoded as border-alpha `0.8 → 1.0` plus `scale(1.25)`. In forced-colors mode
+`border-color` is forced to a system colour, so the alpha delta becomes **zero** and selection survives
+only as a 5px diameter change, with no accessible state to fall back on (D2-06). The focus ring is
+correctly re-expressed as a real `outline` there (`:353–359`) — the resting/selected boundary is not.
+
+The shipped state matrix cannot adjudicate this: `visual/states.mjs:25` runs the `forced-colors-desktop`
+row under WebKit, which does not implement forced-colors emulation — and indeed
+`shots/forced-colors-desktop/gradient.png` is pixel-identical in treatment to the ordinary light shot.
+**That row is not evidence.** Re-run with `ENGINE=chromium` before any forced-colors claim, in either
+direction.
+
+---
+
+## 18. What I checked and found **sound** — the negative proof
+
+| Axis | Method | Result |
+|---|---|---|
+| Focus ring | probe 2 block 1, settled after 600ms | `rgba(0,0,0,0.85) 0 0 0 1px, rgba(255,255,255,0.92) 0 0 0 3px, --shadow-sm` — the dual-contrast recipe works, composes with the material lift, and survives over any fill. **Correct.** (A first read at t≈6ms showed `0.0117px` — that was the 200ms transition mid-flight, not a defect. Re-measured before publishing.) |
+| Reduced motion | probe 2 block 6, `reducedMotion: "reduce"` | computed `transition-property: opacity, color, background-color, border-color, box-shadow` — **`transform` is gone**; the global guard `demo/styles/animations.css:184–192` neutralises the inline spring. No spatial motion under reduce. **Correct.** |
+| Motion tokenisation | `:263` | `var(--duration-fast) var(--ease-standard)` + `var(--spring-snappy-duration) var(--spring-snappy)` — producer tokens, no ad-hoc numbers, no keyframes deleted, and the animated properties are `transform`/`box-shadow` (composited), never a layout property. **Correct.** |
+| RTL | `shots/rtl-desktop/gradient.png` (cropped, `evidence/`-adjacent) | the rail does **not** mirror; handles stay on the physical ends — exactly `VISUAL-CONSTITUTION.md:127` ("identical; explicit gradient coordinates do not mirror with prose"). **Correct.** |
+| Hit inflation bleed (fine pointer) | probe 1 block B, `elementFromPoint` | `+0,-14 → div.gradient-rail`; `+0,-21 → div.flex`. The 24px pseudo stays inside the 40px rail and steals nothing from neighbouring content. **Correct.** (The coarse 44px arm is a different story — D2-05/D2-07.) |
+| Vue 3.5 idioms | read `:2, 6, 28` | `useTemplateRef`, reactive props destructure, `import type` under `verbatimModuleSyntax`. No stale `defineModel` read-after-write (`wasSelected` is captured before the write). **Correct.** |
+| Horizontal overflow | `visual/REPORT.json`, all 4 matrices | `overflowX: 0` on `/#/gradient`. **Correct.** |
+
+---
+
+## 19. Family summary
+
+| ID | Sev | Mechanism family | One-line result |
+|---|---|---|---|
+| D2-01 | BLOCKER | throwing dependency behind a `{ok:false}`-only error grammar | `oklch()` in the CSS field ⇒ whole app replaced by a bare "Try again", silently |
+| D2-02 | BLOCKER | two coordinate systems for one quantity | handle centre vs its own ramp colour off by ±10.5px (2.27% desktop / 3.24% mobile) |
+| D2-03 | BLOCKER | invariant held on one write path only | cross-drag ⇒ non-monotonic CSS ⇒ clamped ramp, lying handles, mispaired easing |
+| D2-04 | BLOCKER | specimen fill ≡ its own ground | ring:fill contrast **1.00:1** on a white ramp; 6/10 hues below 3:1 |
+| D2-05 | MAJOR | stacked invisible 44px targets | a touch 16px below a selected handle deletes the stop |
+| D2-06 | MAJOR | bespoke control, no role/value | Home/End/Up/Down/Enter/Space dead; AT sees no selection, no ordinal |
+| D2-07 | MAJOR | hover-only affordance on an unnamed div | no keyboard add, no touch preview, 13.6% of rail sterilised per stop |
+| D2-08 | MAJOR | selection with no payload | `selectedStopId` has zero readers; no stop-colour editor exists anywhere |
+| D2-09 | MAJOR | unreserved absolute footprint | chip protrudes 28px, overlaps the next rule by 8px and wins its hit-test |
+| D2-10 | MAJOR | three action species, no confirm/undo | right-click destroys a stop irreversibly; `Delete` at the floor is a silent no-op |
+| D2-11 | MAJOR | protagonist subordinated | the instrument is 40px tall against a 19–22rem law |
+| D2-12 | MINOR | constant duplicated in 4 places | 20px root font ⇒ the "end-handle truce" inverts to a 1.5px overhang |
+| D2-13 | MINOR | unnamed protagonist | the only region on the route with no heading, label or role |
+| D2-14 | MINOR | invisible value | no readout during drag, no numeric entry |
+| D2-15 | MINOR | no crowding law | 33.8px gaps < 44px targets at 10 stops on mobile; coincident stops unreachable |
+| D2-16 | INFO | producer species re-implemented locally | hand-rolled dot where P051 names Gradient explicitly |
+| D2-17 | INFO | forced-colors delta collapse + blind harness | selection is alpha-only there; the WebKit forced-colors row is not evidence |
+
+### The single transposition that dissolves D2-02, D2-04, D2-05, D2-06, D2-07, D2-08, D2-11, D2-13, D2-14 and D2-16 at once
+
+Stop hand-building a slider. The stop rail becomes the **producer axis composition over BI `Slider`**
+that `VISUAL-CONSTITUTION.md:104` already binds Gradient to, at the height PR-09 already grants it,
+with each stop a **WatercolorDot face inside a named seat** (`OPTICAL-BENCH-COMPOSITIONS.md:44`), one
+axis shared by ramp and handles, and a **stop inspector** carrying colour, numeric position and the
+single remove action. The rail then owns exactly one thing — spatial tuning — and the ordering
+invariant (D2-03) belongs to the collection, not to a gesture.
+
+---
+
+## 20. Convergence with r1 (2026-07-24), stated honestly
+
+Derived independently, then reconciled.
+
+**Corroborated by a different method** — r1 `D-1`≡`D2-02` (r1: geometry algebra; r2: pixel sampling of
+the rendered ramp), `D-2`≡`D2-03`, `D-3`≡`D2-05`, `D-4`≡`D2-09`, `D-5`+`D-6`≡`D2-04`+`D2-16`,
+`D-7`≡`D2-06`, `D-8`≡`D2-07`, `D-9`≡`D2-08`, `D-13`≡`D2-12`. Two seats, two methods, same defects:
+treat these as settled.
+
+**New in r2** — D2-01 (route annihilation; the r1 challenge-D finding table has no such row — its
+`D-10` records an invalid-colour *render* state, not the shell kill. Scrupulously: a sibling artifact
+`probe-oklch-empty-crash.png` (2026-07-24 16:50) sits in this component's root, so a later π seat had
+seen the crash; it is not carried in any finding list I can find, and the measurement, the silence of
+the telemetry and the design attribution here are mine), D2-04's **numbers** (r1 argued the tautology
+qualitatively; the 1.00:1 / 6-of-10 measurement is what makes it a BLOCKER), D2-10 (three removal
+species + silent no-op at the floor), D2-11 (PR-09 proportion), D2-13, D2-14, D2-15's mobile arithmetic,
+D2-17 (the forced-colors harness is blind).
+
+**Carried from r1, not re-derived here** — r1 `D-11` (duplicate dispatch: `pointermove` fires on both
+the captured handle and the bubbling bar, so every drag move emits twice; code-read certainty at
+`:91–99` + `:136–146`), r1 `D-12` (dual selection channel: `defineModel` *and* `emit("select")` for one
+fact, `:26` + `:130`), r1 `D-14`. I found no evidence contradicting any of them.
+
+**Divergence** — none. I found no r1 finding I could refute.
+
+---
+
+**No source edits land from this formation.** This file, `evidence/`, and the preserved
+`challenge-D-design-r1-2026-07-24.md` are the whole of my output.

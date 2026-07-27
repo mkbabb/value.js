@@ -1,0 +1,156 @@
+{
+  "maskGeometry": {
+    "text": "lab(92% 88.8 20 / 82.7%)",
+    "rect": {
+      "x": 563.64,
+      "w": 324.72,
+      "right": 888.36
+    },
+    "borderLeftWidth": 1,
+    "borderRightWidth": 1,
+    "paddingLeft": 12,
+    "paddingRight": 36,
+    "contentRightX": 851.36,
+    "maskFadeStartX": 848.36,
+    "maskEatsIntoContentPx": 3,
+    "inkRight": 851.36,
+    "inkWidth": 274.72,
+    "inkFadedPx": 3,
+    "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0) 100%)",
+    "cssActionWidthVar": "2.5rem",
+    "textAlign": "center",
+    "fontSize": "18.608px",
+    "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "color": "rgb(28, 25, 23)",
+    "backgroundColor": "rgb(251, 250, 248)",
+    "spellcheckIDL": true,
+    "spellcheckAttr": null,
+    "autocapitalize": null,
+    "contentEditable": "true",
+    "tabIndex": -1
+  },
+  "styleFacts": {
+    "btnInteractiveRules": 0,
+    "crownKeyframes": [
+      "input-mode-flash-55dadc03",
+      "crown-appear-55dadc03"
+    ],
+    "sendBtnRules": [
+      ".send-btn[data-v-55dadc03]",
+      ".send-btn[data-v-55dadc03]:disabled"
+    ],
+    "sendBtn": {
+      "classes": "send-btn btn-interactive",
+      "ariaLabel": null,
+      "typeAttr": null,
+      "text": "",
+      "rect": {
+        "w": 24,
+        "h": 24
+      },
+      "transition": "all",
+      "outlineStyle": "none"
+    }
+  },
+  "crown": [
+    {
+      "cls": "lucide lucide-arrow-right-icon lucide-arrow-right w-4 h-4",
+      "tabIndex": -1,
+      "hasTabindexAttr": false,
+      "role": null,
+      "ariaHidden": null,
+      "color": "rgb(28, 25, 23)",
+      "animationName": "none",
+      "inlineStyle": "stroke: oklch(0.471189 0.188448 9.83402);"
+    }
+  ],
+  "caret": {
+    "before": "lab(92% 88.8 20 / 82.7%)"
+  },
+  "caretAfterClick": {
+    "selectionText": "lab(92% 88.8 20 / 82.7%)",
+    "isCollapsed": false,
+    "wholeValueSelected": true,
+    "elText": "lab(92% 88.8 20 / 82.7%)"
+  },
+  "caretAfterKeystroke": {
+    "text": "x"
+  },
+  "undo": {
+    "afterBlur": "lab(92% 88.8 20 / 82.7%)",
+    "afterUndo": "lab(92% 88.8 20 / 82.7%)",
+    "undoRestoredTypedText": false
+  },
+  "focusBorder": {
+    "borderColor": "lab(92 88.8 20 / 0.827)",
+    "borderTopColor": "lab(92 88.8 20 / 0.827)",
+    "borderWidth": "1px",
+    "outlineStyle": "none",
+    "outlineWidth": "1px",
+    "boxShadow": "none"
+  },
+  "focusBoxRect": {
+    "x": 563.640625,
+    "y": 17.59375,
+    "width": 324.71875,
+    "height": 45.90625
+  },
+  "tabAfterField": {
+    "tag": "BUTTON",
+    "cls": "send-btn btn-interactive",
+    "aria": null,
+    "outline": "auto",
+    "boxShadow": "none"
+  },
+  "hoverPopover": {
+    "pops": [],
+    "sendRect": {
+      "x": 860.4,
+      "y": 28.5,
+      "w": 24,
+      "h": 24
+    }
+  },
+  "f001": {
+    "text": "oklch()",
+    "ariaInvalid": null,
+    "ariaDescribedby": null,
+    "badgePresent": true,
+    "badgeRole": null,
+    "badgeAriaLive": null,
+    "badgeRect": {
+      "x": 682.1,
+      "w": 101,
+      "h": 18.4
+    },
+    "sendRect": {
+      "x": 763.1,
+      "w": 24,
+      "h": 24
+    },
+    "badgeOverSendPx2": 367.5,
+    "sendAreaPx2": 576,
+    "inkRect": {
+      "x": 673.9,
+      "w": 80.1
+    },
+    "badgeCoversInkPx": 72
+  },
+  "f001PageErrors": [],
+  "f001ConsoleErrors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+  ],
+  "dark": {
+    "color": "rgb(233, 230, 226)",
+    "background": "rgb(11, 10, 9)",
+    "border": "rgb(101, 87, 73)",
+    "dockBg": "rgba(0, 0, 0, 0)",
+    "htmlHasDark": true,
+    "fontSize": "18.608px"
+  },
+  "reducedMotion": {
+    "transitionDuration": "0.1s",
+    "animationDuration": "1e-05s",
+    "prm": true
+  }
+}

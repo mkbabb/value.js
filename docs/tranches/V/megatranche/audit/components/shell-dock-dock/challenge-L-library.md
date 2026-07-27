@@ -1654,3 +1654,365 @@ single mechanical commit and can land in any order.
 No file under `src/`, `demo/`, `api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`,
 `scripts/dev/dev.sh`, or any `INBOX.md` was modified by this seat. The only write is this
 addendum, appended without altering a byte of L-1…L-29.
+
+---
+---
+
+# Addendum D — fourth pass (fresh seat, blind re-derivation, then delta)
+
+## Model receipt (addendum D)
+
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]` — the tier explicitly
+declared at spawn. The seat is declared, not inherited.
+
+Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`. **Correction to the brief:**
+the brief names HEAD `c654824e`; the live HEAD is `7cae8bd0`
+(*"docs(V·megatranche): bank the wall-interrupted challenge harvest (564 defects, 80 BLOCKER);
+re-deploy all three area bands by resume"*) — i.e. the commit that banked L-1…L-34 above. The
+working tree carries no `demo/` or `src/` change since `c654824e`, so every line citation in
+L-1…L-34 still resolves; only the commit id in their receipts is stale.
+
+**Method note — this pass was blind.** I traced `Dock.vue`, its 17-file subtree, the shell's
+module lattice, the producer surface in `node_modules/@mkbabb/glass-ui@7.0.0`, and drove the
+live dev server to conclusion **before** discovering that `challenge-L-library.md` already
+existed. Everything I derived independently is listed in §D.1 as a replication receipt; §D.2 is
+the delta — five findings no prior pass records.
+
+Probe budget: **9 Playwright evaluates · 5 navigations · 3 resizes.** The shared browser was
+contended by a sibling seat (tab 0 was being driven to `/#/browse` and `/#/gradient` under me);
+I isolated onto my own tab via `goto("…/index.html#/")` and closed it at the end. See §D.4 for
+the two artifacts that contention produced and why neither is a finding.
+
+---
+
+## §D.1 — Independent replication receipt (no new claim)
+
+Derived blind, agreeing with the prior passes. This is offered as evidence of *robustness*: a
+second seat on the same subject converged on the same lattice without seeing it.
+
+| Prior finding | What I measured independently |
+|---|---|
+| **L-1** (desktop-only instance refs) | Mobile 390×844 on `/#/`: **3** `.dock-crossfade > .dock-face` nodes vs **4** on desktop 1440×900 — the `action-bar` layer is absent; `.action-bar-toggle-slot` class is `"action-bar-toggle-slot is-live"` with **no `is-visible`** (0fr, opacity 0) and the Tools control reports `tabIndex: -1`. Source: `App.vue:83` mobile `<PaneSlot>` carries no `:on-mount`; `:105` / `:131` (desktop only) do; `colorPickerRef` is written only in `onDesktopLeftMount` (`App.vue:322-328`). |
+| **L-6 / L-24** (identity lives in the feature) | `SESSION_PORT_KEY` is exported from `demo/palettes/usePalettePorts.ts:271` as `Symbol("palette.session")` and imported by 4 shell files (`Dock.vue:18`, `DockViewSelect.vue:8`, `SlugEditLayer.vue:5`, `MobileMenuDropdown.vue:13`, `ProfileSection.vue:14`). `Dock.vue:44` uses exactly one member: `pm.isAdminAuthenticated`. Its true origin is `demo/platform/auth/useAdminAuth.ts` (`usePalettePorts.ts:57`). |
+| **L-5 / L-20** (the local `useLayerTransition`) | `ActionBarLayer.vue:61` — `void opts.containerEl; // signature parity with the retired producer composable` — and `subLayerGridEl` (`:83`, template `:101`) exists solely to feed that voided parameter. `.dock-layer-grid` matches **zero** rules: `grep -rn "dock-layer-grid" demo/ node_modules/@mkbabb/glass-ui/dist/` → one hit, `ActionBarLayer.vue:101`. The children nonetheless inherit the producer's real rules — measured live: sub-layer A `position: relative, visibility: visible`, sub-layer B `position: absolute, visibility: hidden`, both from `:where(.glass-dock,.dock-layer-group) .dock-layer{…}` in `dist/components/dock/styles/layers.css`. |
+| **L-7** (MT-F005 is `ColorInput`, and the harness counts inert nodes) | Live desktop `/#/`, nameless-button enumeration returned exactly 1: `button.send-btn.btn-interactive` (`ColorInput.vue:67-82`, both branches), DOM path `nav.dock-band > … > div.dock-layer-grid.flex-1 > … > button.send-btn`. Separately: all inactive `.dock-face` nodes report `inert: true, aria-hidden: "true"` — glass 7's packaging is correct, the REPORT counts are partly harness artifacts. |
+| **L-8** (no `h1` owner) | `h1: 0` measured on 4 independent loads (desktop `/#/`, desktop `/#/palettes`, mobile `/#/`, mobile `/#/gradient`); `h2: 12`, `main: 1`. |
+| **L-10 / L-34** (the dock re-partitions the schema) | `useDockAdminMode.ts:25-26` enumerates `userViews` (7) + `adminViews` (7) against `viewSchema.ts`'s 14-member `ViewId`; `atmosphere`/`blob` are `admin` to the dock while the schema's own comment (`viewSchema.ts` `accentHueShift` doc) calls them two of *"the nine primary views … in dock order"* and gives them non-zero hue shifts (280°, 320°) where *"admin views stay at 0°"*. |
+| **L-11 / L-25** (the barrel cycle) | `demo/shell/dock/index.ts:2` re-exports 3 producer symbols; `:5` exports `Dock.vue`; `Dock.vue:4` imports `"./"` — cycle. Its only external consumer is `App.vue:167`. `demo/scenes/ConfigSliderPane.vue:20` bypasses the barrel for the same `GlassDock`. And `Dock.vue:4` + `:5` name the same package on adjacent lines through two different specifiers. |
+| **L-14** (band chrome inside the dock) | `Dock.vue:293` `<DockStatusLamp />` is a second root; `DockStatusLamp.vue` `position:absolute; inset-inline-end:0` resolves against `.dock-band{position:relative}` at `demo/styles/shell.css:39-45`, whose comment names the dependency. |
+| **L-23** (the boundary guards match nothing) | `eslint.config.js` scopes every `no-restricted-imports` boundary rule to `demo/@/composables/**`, `demo/@/components/**`, `demo/@/lib/**`. `ls demo/@` → *No such file or directory*; `find demo -path "demo/@*"` → empty. `demo/color-picker/**` matches 2 `.vue` files, neither of which imports palette-browser. |
+| **negative proof 3** (`verbatimModuleSyntax`) | Re-checked `Dock.vue:22-24`, `ActionBarLayer.vue:2,5,9`, `useDockAdminMode.ts:4-5`, `usePopupMutex.ts:4`, `GenericActionBar.vue:4`, `ActionBarToggle.vue:3`, `SlugEditLayer.vue` — all type-only imports carry `import type`. Clean. |
+| **negative proof 2** (the three `useDark` stores) | All 9 import sites (`grep -rn 'from "@mkbabb/glass-ui/dark"' demo/ \| wc -l` → 9) use `useGlobalDark`; glass 7's implementation (`dist/dark-z_P5QwqI.js:3`) is `createGlobalState(() => useDark({…}))` with no `storageKey` override, so the persisted key is `vueuse-color-scheme` — exactly what `index.html:169`'s FOUC guard reads. The guard and the store agree. |
+
+---
+
+## §D.2 — The delta: five findings no prior pass records
+
+### L-35 · MAJOR (completes L-1) — the mobile edit path cannot even *start*, so the `mobile-edit` dock layer is unreachable code in the only grammar it exists for; and the failure mode is a **2-second silent timeout**
+
+L-1 establishes that the mobile-edit layer's Save button cannot *commit*. The entry half is
+worse and is not recorded anywhere above: **the layer can never activate at all.**
+
+The activation predicate is `Dock.vue:72`:
+
+```ts
+const mobileEditActive = computed(() => !isDesktop.value && !!editTarget);
+```
+
+`editTarget` arrives as a prop from `App.vue:37` ← `activeEditTarget` (`App.vue:268`), written
+only by `onEditTargetChange` ← `ColorPicker`'s `update:editTarget` emit. Inside `ColorPicker.vue`,
+`editTarget` is a **local ref** (`:271`) with exactly one writer, `setEditTarget` (`:279`),
+reachable from three functions — `onStartEdit` (`:282`), `commitEdit` (`:291`), `cancelEdit`
+(`:303`) — and all three are exposed *only* through `defineExpose` (`:331-343`). There is no
+provide/inject, no store, no event bus. **The only way to start an edit is an imperative call on
+the component instance.**
+
+That call is made here:
+
+```ts
+demo/color-picker/composables/usePaletteWiring.ts:106-118
+emitStartEdit: (target) => {
+    …
+    setTimeout(() => {
+        viewManager.mobilePaneIndex.value = 0;
+        whenColorPickerReady((picker) => picker.onStartEdit(target), "startEdit");
+    }, 50);
+},
+```
+
+and `whenColorPickerReady` (`:37-57`) polls `colorPickerRef.value` **40 × 50 ms**, then:
+
+```ts
+usePaletteWiring.ts:49-53
+if (attempts++ >= PICKER_WAIT_ATTEMPTS) {
+    console.warn(`[usePaletteWiring] gave up waiting for the color picker to mount (${label}).`);
+    return;
+}
+```
+
+On mobile `colorPickerRef` is *structurally* null forever (L-1's mechanism: `App.vue:83`'s
+`<PaneSlot>` has no `:on-mount`). So the full mobile sequence, from a user tap on a saved
+swatch's edit affordance (`useSwatchActions.ts:76-82` → `emit("startEdit", …)`):
+
+1. `t+0`   the swatch popover closes;
+2. `t+50ms` the visible pane flips to index 0 (the picker) — **the one visible effect**;
+3. `t+50ms…t+2.05s` forty no-op polls;
+4. `t+2.05s` `console.warn "gave up waiting for the color picker to mount (startEdit)"`;
+5. `editTarget` is never set ⇒ `mobileEditActive` is never true ⇒ `Dock.vue:135-145` — the two
+   `WatercolorDot`s, the `→`, `DockSeparator`, **Save edit**, **Cancel edit** — never renders in
+   the grammar it was written for.
+
+The consequences that L-1 does not state:
+
+- The `mobile-edit` `DockLayer` is **dead code** — not "broken", *unreachable*. Its Save handler
+  can never be observed failing, which is precisely why four waves and every gate missed it.
+- `Dock.vue:72` (`mobileEditActive`), the `mobile-edit` branch of the layer-dispatch watch
+  (`:111`), and the `commitEdit`/`cancelEdit` emit declarations (`:32`) are all dead in the mobile
+  grammar, while `anyEditActive` (`:73`) — the desktop-live sibling one line below — is not. Two
+  computeds one line apart, one live, one unreachable, no marker distinguishing them.
+- The single user-visible symptom is a **pane flip with no edit**, two seconds before any
+  diagnostic appears, and the diagnostic is a `console.warn` no user sees. The bounded-retry
+  hardening (S.W2 W2-6, cited in the file's own comment at `:33-36`) was written to stop an
+  unbounded poll; it converted an infinite loop into a *silent* one. The comment even names the
+  case — *"a permanently-absent picker (a future layout, a ref regression)"* — and the permanently-
+  absent picker is the **current** layout, shipping.
+
+**Reproduction.** Structural, plus the live half. Structural chain fully cited above (every hop
+is a single writer, verified by `grep -n "setEditTarget\|editTarget" demo/picker/ColorPicker.vue`).
+Live half, measured this pass at 390×844 on `/#/`:
+`{layout:"mobile", faces:3, toolsSlot:"action-bar-toggle-slot is-live", toolsTabIndex:-1,
+hasColorInputSendBtn:false}` — i.e. `colorPickerRef` is null exactly as required (the action-bar
+layer is gated on the same ref). To watch step 4 directly: mobile viewport, `/#/palettes`, tap a
+saved swatch → edit; the console warn lands ~2.05 s later.
+
+**Cure.** Identical to L-1's — a `DockCommand` registry the panes *register into* — with one
+addition L-1's sketch does not cover: **`editTarget` must move out of `ColorPicker`'s local ref.**
+It already has a canonical home: `EDIT_TARGET_KEY` is declared at `demo/color-session/keys.ts:15`
+and provided at `App.vue:270`, and `useSwatchActions.ts:23` already *injects* it. Today the same
+`shallowRef` travels two channels — inject for readers, a prop chain (`App.vue:37` → `Dock.vue:31`
+→ `ActionBarLayer` → `ColorInput`) for the dock — and `ColorPicker` keeps a *third*, private copy
+that is the actual source of truth. Collapsing to the one provided cell makes `onStartEdit` a
+plain write on injected state, callable from anywhere, and deletes the instance-ref hop, the
+2 s poll, and `whenColorPickerReady` entirely. The `ref(null)` default at `useSwatchActions.ts:23`
+is a masking fallback (edict 2) that should die with it.
+
+---
+
+### L-36 · MINOR — the dock (and 16 other sites) imports the producer's **200-symbol root barrel** for helpers glass 7 publishes on a 12-symbol subpath; the dock subtree is inconsistent with itself on adjacent lines
+
+`demo/shell/dock/ColorInput.vue:117` and `demo/shell/dock/layers/SlugEditLayer.vue:6`:
+
+```ts
+import { writeClipboard } from "@mkbabb/glass-ui";
+```
+
+Every *other* glass-ui import in the dock subtree is narrow — `@mkbabb/glass-ui/dock` (×5),
+`/watercolor-dot`, `/dark` (×2), `/tabs`. `writeClipboard` is published on the narrow subpath
+too; measured in the installed package:
+
+```
+$ grep -n "writeClipboard" node_modules/@mkbabb/glass-ui/dist/dom.js
+134: export { …, o as useClipboard, …, t as useTouchGate, …, a as writeClipboard };
+$ python3 -c "…"  →  './dom' in exports: True
+```
+
+Transitive JS module closure of each entry, measured by walking relative `from "…"` edges:
+
+| entry | files | bytes |
+|---|---:|---:|
+| `@mkbabb/glass-ui` → `dist/glass-ui.js` | **66** | **224 193** |
+| `@mkbabb/glass-ui/dock` → `dist/dock.js` | 32 | 101 223 |
+| `@mkbabb/glass-ui/dom` → `dist/dom.js` | **8** | **12 599** |
+
+**17.8× the module graph** for the same three helpers.
+
+Census, whole demo, excluding `demo/ui/` (L-4's subject):
+
+```
+$ grep -rn 'from "@mkbabb/glass-ui"' demo/ | grep -v '^demo/ui/' | wc -l   →  18
+$ grep -rn 'from "@mkbabb/glass-ui/' demo/ | wc -l                          →  82
+```
+
+**All 18** are `./dom` symbols: `writeClipboard` ×12, `useClipboard` ×3, `useTouchGate` ×3
+(including one `import type` at `useSpectrumPlateStyle.ts:12`). A single mechanical rewrite —
+`"@mkbabb/glass-ui"` → `"@mkbabb/glass-ui/dom"` at 18 sites — removes the demo's entire dependence
+on the producer's root barrel outside `demo/ui/`, and makes L-4's deletion of `demo/ui/` the *only*
+remaining root-barrel consumer to retire.
+
+**Honesty bound on the severity.** glass-ui declares `"sideEffects": ["*.css"]`, so a competent
+bundler can tree-shake the unused 66-file graph out of the production build; this is not a
+shipped-bytes claim. It is (a) a dev-server / bundler-analysis cost, and (b) a structural claim:
+the producer publishes 40+ narrow subpaths precisely so consumers name what they use, and the
+consumer declines that contract at 18 sites while honouring it at 82 — including twice inside
+this component's own subtree, in files whose sibling lines get it right. MINOR, mechanical, and
+it is the cheapest structural commit in this report.
+
+---
+
+### L-37 · MINOR — the **library's** vitest root contains a resurrection of the owner-retired grep-invariant idiom, and it reaches into three `demo/` SFCs by `process.cwd()`-relative path
+
+`vitest.config.ts` includes `["test/**/*.ts", "demo/test/**/*.ts"]`. Under `test/` — the value.js
+*library* suite — exactly one file reads source as text:
+
+```
+$ grep -rln "readFileSync" test/  →  test/picker-blob-config.test.ts   (1 of 1)
+```
+
+```ts
+test/picker-blob-config.test.ts:5-18
+const demoFile = (file) => readFileSync(path.resolve(process.cwd(), "demo/picker", file), "utf8");
+const source  = demoFile("visual/HeroBlob.vue");
+const picker  = demoFile("ColorPicker.vue");
+const actions = readFileSync(path.resolve(process.cwd(), "demo/shell/dock/ActionToolbar.vue"), "utf8");
+…
+expect(source).toMatch(/^\s*orbitRadius:\s*0\.4,$/m);
+expect(source).not.toMatch(/\bheroScale\b/);
+expect(template).not.toMatch(/press-label=|<Tooltip|tabindex=|<button\b/);
+```
+
+Three defects in one file:
+
+1. **Wrong home.** `test/` is the published library's suite (its sibling files import `@src/*`);
+   this one asserts on demo presentation SFCs. `demo/test/` exists for exactly that and is already
+   in the include glob. This is the same dual-home shape L-32/L-33 found, on a file those passes
+   did not reach — and it is the *inverted* direction (library test → demo source), which is the
+   more serious one.
+2. **Banned idiom.** Grep-over-source as invariant codification is the idiom the owner deleted as
+   *"overfit junk"* (project memory, 2026-06-02: *"Never re-introduce; enforce invariants
+   structurally — types + tsc/eslint + review"*). `expect(source).not.toMatch(/\bheroScale\b/)`
+   is a negative grep standing in for a type. A renamed local variable, a reformat, or a comment
+   containing the word `heroScale` fails the library suite.
+3. **`process.cwd()`.** The paths are cwd-relative, not `import.meta.dirname`-relative, so the
+   suite is only green when vitest is invoked from the repo root.
+
+**Cure.** Move the file to `demo/test/` and replace the text assertions with what they are
+actually about: `HeroBlob`'s morphology tuple belongs in an exported const the test imports
+(`demo/picker/visual/blob-morphology.ts`), and the a11y assertions belong on a mounted component
+via `@vue/test-utils` (already a devDependency), not on the template string. Then no test reads
+a `.vue` file as text anywhere in the repo.
+
+---
+
+### L-38 · MINOR — `PaneSegmentedControl` (imported by `Dock.vue:15`) is a wrapper whose only substance is a `:deep()` into producer internals, and the design catalog's normative `:deep()` claim is false by 14
+
+`demo/shell/PaneSegmentedControl.vue` is 33 lines of `<script>`+`<template>` that forward three
+props to `SegmentedTabs` (`@mkbabb/glass-ui/tabs`) plus a `v-if` guard. Its entire non-passthrough
+substance is one scoped rule:
+
+```css
+PaneSegmentedControl.vue:46-51
+@media (max-width: 639px) {
+    .pane-segmented-control :deep(.segmented-tab) {
+        padding: 0.25rem 0.375rem;
+        font-size: var(--type-caption);
+    }
+}
+```
+
+Its own comment declares *"the ROOT-LEVEL compact variant … Below sm the control compacts AT THE
+ROOT (never per-instance)"*. A `:deep()` from a demo wrapper's scoped block is per-instance by
+construction — it applies only to `SegmentedTabs` instances wrapped by *this* component — and it
+reaches a producer-internal class name. The compact density is a `SegmentedTabs` concern
+(a `size`/`density` prop, or a `--dock-*` container token) and belongs in glass-ui (edicts 4 + 5).
+
+The catalog's rule, which this violates, is itself stale:
+
+> `demo/DESIGN.md:381` — *"**No `:deep()` for shadcn internals** … (`PaletteCard.vue`'s
+> `.featured-badge :deep(svg)` is the post-D.W4 Lane A survivor … no further `:deep()` reaches
+> into reka-ui markup.)"*
+
+Measured (comment lines excluded):
+
+```
+demo/color-session/ColorSpaceSelector.vue                                4
+demo/scenes/ConfigSliderPane.vue                                         4   (.configurator-row, .glass-slider)
+demo/workbenches/gradient/…/EasingAuthoringStage.vue                     3   (.glass-card)
+demo/scenes/about/markdown/Markdown.vue                                  2
+demo/shell/PaneSegmentedControl.vue                                      1   (.segmented-tab)
+                                                                        ──
+                                                                        14 live
+```
+
+and the *named survivor* no longer exists — `PaletteCard.vue:345-350` documents its **removal**
+in favour of a `.featured-badge__icon` wrapper class. So the catalog is wrong in both directions:
+it cites as the sole survivor a reach that is gone, and omits 14 that are live, 8 of which pierce
+glass-ui/reka internals. `DESIGN.md` is normative for this repo; a normative statement that is
+false by 14 is a structural defect in the same sense as a dead lint glob (L-23) — a guard that
+reads as enforcement and enforces nothing.
+
+---
+
+### L-39 · INFO — a load-bearing contract comment names a component that no longer exists
+
+```
+demo/picker/ColorPicker.vue:311
+// --- Action bar context for TopDock (exposed, not provided — TopDock is a sibling) ---
+```
+
+`TopDock` was renamed to `Dock` (`demo/shell/dock/Dock.vue`) at the demo restructure. The comment
+is the *only* place the exposure-not-provision decision — the root cause of L-1 and L-35 — is
+written down, and it justifies that decision by sibling-ness under a name no reader can grep to a
+file. Trivial to fix; recorded because the next seat looking for "why is this exposed rather than
+provided" will not find it.
+
+---
+
+## §D.3 — Negative proofs added by this pass
+
+1. **The `vj-settle` beat is live.** `Dock.vue:302` names `animation: vj-settle …`; a missing
+   `@keyframes` would mean no animation, hence no `animationend`, hence `dockSettle`
+   (`Dock.vue:100,129-131`) latching `true` forever after the first view switch. Checked:
+   `demo/styles/animations.css:170  @keyframes vj-settle {` — present, and correctly global per
+   edict 6 with the class kept local. Not a finding.
+2. **The producer's inert packaging is complete, not partial.** Every inactive `.dock-face`
+   measured carries `inert` **and** `aria-hidden="true"` **and** `opacity: 0`, and the live tab
+   order inside the dock at rest on desktop `/#/` is exactly 6 controls
+   (`Select view · Toggle action bar · <view label> · Menu · Login · @mbabb`) with a cumulative
+   opacity of 1 on each. No hidden layer leaks into the tab order. This closes the question L-7
+   raises rather than leaving it at "the counts are artifacts".
+3. **The FOUC guard and the dark store agree** (see §D.1). The second color-scheme key I observed
+   in `localStorage` (`value-color-mode/v1`) is written by **neither** this repo nor glass-ui 7 —
+   `grep -rn "value-color-mode" demo/ node_modules/@mkbabb/glass-ui/dist/` → 0 hits — so it is
+   residue from another origin sharing the browser profile. Explicitly **not** a finding.
+
+---
+
+## §D.4 — Two observations that are *not* findings (recorded so the next seat does not re-chase them)
+
+- **`/#/` appearing to redirect to `/#/gradient`.** Observed twice. Cause: (a) Playwright's
+  `goto` to a URL differing only in hash performs a *same-document* navigation, and (b) a sibling
+  audit seat was driving the same browser's tab 0 (confirmed when my next `goto` opened tab 1 and
+  the tab list showed tab 0 still on `/#/gradient`). A clean load — `about:blank` → `/#/` — lands
+  on picker with title `Color Picker`. The router (`demo/color-picker/router/index.ts`) contains
+  no such redirect and nothing in `demo/` persists a view. Not a defect.
+- **The visual REPORT's `namelessButtons: 1` on `/#/`, `/#/palettes`, `/#/mix`, `/#/blob`,
+  `/#/does-not-exist` (desktop) but 0 on mobile** reads as a responsive branch and is not one. It
+  is exactly the set of routes whose `left` pane is `color-picker` (`viewSchema.ts`; `does-not-exist`
+  redirects to `/`), i.e. the routes whose action bar is acquired through `colorPickerRef` — L-1's
+  mechanism. `/#/gradient` and `/#/extract` show their nameless buttons on **both** matrices
+  because their bars come from `usePaneRouter`'s route-derived `genericActionBar` instead. The
+  desktop/mobile asymmetry in `REPORT.json` is therefore a *direct fingerprint of L-1*, and the
+  root audit's own data already contained the blocker's signature.
+
+---
+
+## §D.5 — Verdict and where this pass moves the ordering
+
+**DEFECTIVE**, unchanged. The strongest defect in the file remains **L-1**, and L-35 makes it
+strictly worse than stated: the mobile dock does not merely have buttons that no-op — it has an
+entire layer that can never render, and the one path that could have surfaced the fault converts
+it into a two-second silent give-up. L-1 and L-35 are **one commit**, not two: the command
+registry L-1 proposes must be landed together with moving `editTarget` onto the already-declared
+`EDIT_TARGET_KEY` cell, or the registry fixes the verbs and leaves the noun stranded in a private
+ref.
+
+Ordering delta: **L-36** and **L-38** should be pulled forward of the large transpositions — both
+are mechanical, both are one commit, and both shrink the surface the later waves must reason about
+(L-36 removes 18 root-barrel edges before L-4 deletes `demo/ui/`; L-38 removes the last `:deep()`
+inside this component's subtree before the W47 shell wave touches it). **L-37** is independent of
+everything and can land with the test-home work L-32/L-33 already scope. **L-39** is a one-line
+comment fix that should ride whichever commit lands L-1/L-35.
+
+No file under `src/`, `demo/`, `api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`,
+`scripts/dev/dev.sh`, or any `INBOX.md` was modified by this seat. The only write is this
+addendum, appended without altering a byte of L-1…L-34.

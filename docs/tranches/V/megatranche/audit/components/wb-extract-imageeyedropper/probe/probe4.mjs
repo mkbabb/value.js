@@ -1,0 +1,31 @@
+import { webkit } from "playwright";
+const DIR = new URL(".", import.meta.url).pathname;
+const b = await webkit.launch();
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
+const page = await ctx.newPage();
+await page.goto("http://localhost:9000/#/extract", { waitUntil: "load" });
+await page.waitForTimeout(2500);
+await page.locator("input[type=file]").first().setInputFiles(DIR + "probe-1200.png");
+await page.waitForSelector('img[alt="Uploaded image"]');
+await page.waitForTimeout(1000);
+const bx = await page.locator('div[aria-label="Image preview area, tap to sample colors"]').boundingBox();
+await page.mouse.click(bx.x + bx.width / 2, bx.y + bx.height / 2);
+await page.waitForSelector("canvas.eyedropper-canvas");
+await page.waitForTimeout(800);
+const g = () => { const cv = document.querySelector("canvas.eyedropper-canvas"); const r = cv.getBoundingClientRect(); const s = cv.parentElement.getBoundingClientRect();
+  return { canvasX: Math.round(r.x), canvasW: Math.round(r.width), stageX: Math.round(s.x), stageW: Math.round(s.width), transform: getComputedStyle(cv).transform }; };
+const ltr = await page.evaluate(g);
+// sample the leftmost quarter (pure checker) in LTR
+const sx = ltr.stageX + ltr.stageW * 0.25, sy = 560;
+await page.mouse.move(sx, sy); await page.waitForTimeout(80); await page.mouse.move(sx + 1, sy); await page.waitForTimeout(200);
+const ltrRead = await page.evaluate(() => document.querySelector("canvas.eyedropper-canvas").parentElement.parentElement.querySelector("span.text-mono-small").textContent.trim());
+await page.evaluate(() => document.documentElement.setAttribute("dir", "rtl"));
+await page.waitForTimeout(900);
+const rtl = await page.evaluate(g);
+await page.mouse.move(sx, sy); await page.waitForTimeout(80); await page.mouse.move(sx + 1, sy); await page.waitForTimeout(200);
+const rtlRead = await page.evaluate(() => document.querySelector("canvas.eyedropper-canvas").parentElement.parentElement.querySelector("span.text-mono-small").textContent.trim());
+// memory arithmetic
+const mem = await page.evaluate(() => { const cv = document.querySelector("canvas.eyedropper-canvas"); return { visibleCanvasBytes: cv.width * cv.height * 4, imgNatural: [cv.width, cv.height] }; });
+console.log(JSON.stringify({ ltr, ltrRead, rtl, rtlRead, mem }, null, 2));
+await page.screenshot({ path: DIR + "shot-rtl-sampled.png" });
+await b.close();

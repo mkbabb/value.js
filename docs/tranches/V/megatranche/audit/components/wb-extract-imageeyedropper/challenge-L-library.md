@@ -629,3 +629,330 @@ component is not a god module (299 lines, template-dominant), and `useRAFLoop` a
 `useInertiaGesture.ts:114-129` — with `respectReducedMotion: false` and the PRM decision kept local
 and documented — is exemplary design-system consumption. The failure is not "the demo cheats on the
 library"; it is that the demo's *own* internal boundaries are unowned and unenforced.
+
+---
+---
+
+# ADDENDUM — CHALLENGE-L second pass (independent)
+
+## Model receipt (second pass)
+
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, 1M context, the tier this
+seat was explicitly spawned with. Declared, not inherited.
+
+This pass was run **without reading the report above first** — the import trace, the greps and the
+measurements below were derived independently and only then reconciled against it. Everything above
+is preserved verbatim (addenda-not-patch). This addendum records: (§A) what the second pass
+independently **confirms**, with evidence the first pass did not have; (§B) **four findings the
+first pass does not contain**; (§C) one **measurement discrepancy** reported honestly rather than
+overwritten.
+
+---
+
+## §A — independent confirmations
+
+**A-1 · L-1 is now confirmed a fourth way, and visually.** Beyond the first pass's `getImageData`
+counts, two independent proofs:
+
+*(i) A mechanism reproduction* with no browser, using jsdom + the repo's own Vue — this isolates
+the `v-if` / synchronous-draw ordering from every other variable:
+
+```
+$ node --input-type=module -e '<appendix A2>'
+sample #1 (first tap/hover):
+  drawLoupe() sees loupeCanvasRef = null  -> EARLY RETURN, no paint
+  after nextTick: loupeCanvasRef = <canvas>
+sample #2 (subsequent hover):
+  drawLoupe() sees loupeCanvasRef = <canvas> -> paints
+```
+
+*(ii) The existing probe screenshot proves it to the eye.* Reading
+`probe/shot-mobile-dark-tapped.png` (mobile-dark, after a synthetic tap): the loupe ring is
+**transparent**. The purple/grey vertical edge of the fixture runs straight through the circle at
+**the same position and the same scale** as outside it. A painted loupe at `LOUPE_PIXELS = 11` over
+`LOUPE_SIZE = 110` would show a 10× blow-up — one or two enormous blocks, never a 1:1 continuation
+of the surrounding image. What the screenshot shows is the viewer looking *through* an unpainted
+canvas. The magnifier is not merely blank; it is invisible.
+
+The same screenshot independently confirms first-pass **L-7** (no precision policy): the readout
+reads `lab(53.5850…)` — clipped mid-number by the `truncate` span, exactly as predicted.
+
+**A-2 · L-3 / L-7 (DPR + design-system canvas).** Confirmed and extended. glass-ui 7.0.0 publishes
+`./canvas` among **74** export keys, and:
+
+```
+$ grep -rn "useCanvas2D\|useCanvasLifecycle\|glass-ui/canvas" demo
+(no matches)
+```
+
+Zero demo consumers. Meanwhile the demo hand-rolls `getContext("2d")` at **11** sites, and exactly
+one of them re-derives the design system's documented default by hand:
+
+```
+$ grep -rn "devicePixelRatio" demo --include="*.ts" --include="*.vue"
+demo/workbenches/mix/MixAnimationCanvas/composables/useMixingAnimation.ts:141:  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+demo/color-picker/composables/useDevicePixelSnap.ts:40:                                const dpr = window.devicePixelRatio || 1;
+```
+
+`min(devicePixelRatio, 2)` at `useMixingAnimation.ts:141` is character-for-character the policy
+`useCanvas2D.d.ts` documents as its own default. The sibling workbench got it right by hand; the
+magnifier got it wrong; the design system owns it and neither imports it. That is the shape of a
+missing seam, not a missing line.
+
+**A-3 · L-8 (`DisplayColorSpace` × 4).** Confirmed by an independent grep, same four sites. Adding
+one consequence the first pass did not draw: because `useImageSampler.ts:21` **exports** its
+re-mint, `test/image-sampler-v4.test.ts:5` imports the *duplicate* rather than the canonical type —
+the re-mint is now load-bearing in the test suite, so deleting it is a two-file edit, not one.
+
+**A-4 · L-9 (byte→color round trip).** Confirmed, with a correction on cost — see §C.
+
+---
+
+## §B — findings the first pass does not contain
+
+### L-17 · MAJOR — the eyedropper and the picker give **different notations** for the same color in the same selected space
+
+First-pass L-6 found that the eyedropper re-mints a readout format and that its *space names* drift
+(`ICTCP` vs `ICtCp`). The deeper fact is that the app already has a canonical answer to the whole
+question, and the eyedropper contradicts it — not in casing, in **notation**.
+
+`demo/color-session/useColorPipeline.ts:174-179` is the app's one implementation of "render this
+color in the selected `DisplayColorSpace`":
+
+```ts
+const formatForSelectedDisplaySpace = (color: PickerColor) => {
+    if (model.value.selectedColorSpace === "hex") return colorToHexString(color);
+    return serializePickerColor(color);
+};
+```
+
+`serializePickerColor` (`picker-color.ts:206-211`) **already** answers for library-only spaces — it
+converts to `oklch` and serializes. So the branch `useImageSampler.ts:63-65` adds
+(`CSS_PICKER_SPACES.has(space) ? serialize : formatLibraryColor`) is not filling a gap; it is
+**overriding a decision the domain already made**.
+
+Measured, same input `#ff0000`, against the built `dist/subpaths`:
+
+```
+$ node --input-type=module -e '<appendix B2>'
+hsv      | eyedropper: HSV 0 · 1 · 1                   | canonical: oklch(62.795536392143% 0.257683303805 29.233880279628deg)
+kelvin   | eyedropper: KELVIN 1000                     | canonical: oklch(65.925252512236% 0.230113845068 35.205812402185deg)
+ictcp    | eyedropper: ICTCP 0.4279 · -0.1157 · 0.2787 | canonical: oklch(62.795536392143% 0.257683303805 29.233880279629deg)
+jzazbz   | eyedropper: JZAZBZ 0.1344 · 0.1179 · 0.1119 | canonical: oklch(62.795536392144% 0.257683303805 29.233880279632deg)
+```
+
+**Failure scenario.** Select HSV in the picker; open the eyedropper on `/#/extract`; sample pure
+red. The picker's own input field reads `oklch(62.79…% 0.2576… 29.23…deg)`; the eyedropper's readout
+one pane away reads `HSV 0 · 1 · 1`. Same color, same selected space, same session — two spellings
+that share no token. Reachable because `usePaneRouter.ts:139` forwards
+`model.value.selectedColorSpace` live and `color-model.ts:74` declares all 17 spaces + hex
+selectable.
+
+This subsumes first-pass L-6 and raises it: the cure is not "one formatter with consistent names",
+it is "the domain decides once". `formatForSelectedDisplaySpace` is currently trapped inside
+`useColorPipeline` — a 200+-line orchestration composable — which is *why* nobody outside could
+reuse it. Lift it to `color-session/color-model.ts` as a pure
+`formatForDisplaySpace(color, space)`; delete `formatInColorSpace` and `formatLibraryColor`. If
+`HSV 0 · 1 · 1` is the better product answer then it is the canonical one and the picker adopts it —
+but the choice is made in one place, by the domain.
+
+---
+
+### L-18 · MAJOR — the alpha channel is read from the canvas and then thrown away
+
+`useImageSampler.ts:116-118`:
+
+```ts
+const data = offscreenCtx.getImageData(ix, iy, 1, 1).data;
+const hex = formatHex(data[0] ?? 0, data[1] ?? 0, data[2] ?? 0);
+```
+
+`data[3]` is never referenced anywhere in the component. The offscreen canvas is created without
+`{ alpha: false }` (`:83`), and `ImageDropZone.vue:30` accepts `image/*` — PNG, WebP, AVIF and SVG
+all carry alpha.
+
+**Failure scenario.** Drop a logo PNG with a transparent background. Sample the transparent region.
+`getImageData` returns `(0, 0, 0, 0)`; the readout claims `#000000`; "Add to palette"
+(`ImageEyedropper.vue:212-217`) writes an **opaque black** swatch for a pixel the user sees as the
+page behind it. No warning, no cue, and the loupe (once L-1 is fixed) will show the same
+nothing-coloured black.
+
+**Mechanism — this is a library-affordance defect, not an oversight.** The library's byte path is
+alpha-complete in both directions: `rgb(r, g, b, alpha)` on the `./color` subpath accepts it, and
+`toRgba8` round-trips it (`picker-color.ts:214`). The demo loses it because the hand-rolled
+`formatHex` (`:32-35`) has no alpha parameter — a 6-digit hex string is a lossy carrier chosen for
+no reason. First-pass L-9's cure (`fromRgba8` / direct `rgb()`) fixes this defect too, and
+`pickerColorToHex` (`picker-color.ts:213-217`) already emits the 8-digit form when `alpha < 1`, so
+the display side is ready and waiting.
+
+---
+
+### L-19 · MAJOR — `justUnpinned` is a one-shot flag with no reset path; a pan-after-pin swallows the next tap
+
+First-pass L-11 correctly names `justUnpinned` a hand-rolled state machine straddling two
+composables. It has a concrete failure the first pass did not state.
+
+```
+ImageEyedropper.vue:123        let justUnpinned = false;
+ImageEyedropper.vue:178-184    pointerdown (capture): if (pinned) { …; justUnpinned = true; }
+ImageEyedropper.vue:152-155    onTap: if (justUnpinned) { justUnpinned = false; return; }
+useInertiaGesture.ts:277-281   onTap fires ONLY when `!didMove`
+```
+
+The flag is set on any pointerdown-while-pinned and cleared **only inside `onTap`**. A gesture that
+moves never reaches `onTap`.
+
+**Failure scenario.** (1) Tap to sample — `pinned = true`. (2) Press and **drag** to pan the image,
+then release: `hasMoved` is true, `onTap` never runs, `justUnpinned` is left `true`. (3) Tap to
+sample a new pixel: swallowed by `:152-155`, nothing happens, no feedback. (4) Tap again: works.
+Every pan-after-pin costs the user the next tap, on the interaction that *is* the component.
+
+Confirmed by construction from the four line references above. The cure is first-pass L-11's cure —
+the gesture composable owns tap semantics as a first-class option — after which no flag exists to
+go stale.
+
+---
+
+### L-20 · MINOR — `formatInColorSpace` is public only because a test calls it, and the test canonizes the divergence
+
+```
+$ grep -rn "formatInColorSpace" demo test
+useImageSampler.ts:55    function formatInColorSpace(hex: string)          ← definition
+useImageSampler.ts:118       return { hex, formatted: formatInColorSpace(hex) };  ← the ONLY caller
+useImageSampler.ts:136       formatInColorSpace,                           ← exported anyway
+test/image-sampler-v4.test.ts:18,19,20,24,28                               ← the only consumer
+```
+
+`ImageEyedropper.vue` never touches it. The composable's return surface was widened purely to make
+a private formatter reachable from a test — and the test then pins the L-17 divergence as if it were
+the contract:
+
+```
+test/image-sampler-v4.test.ts:24
+expect(sampler("hsv").formatInColorSpace("#ff0000")).toBe("HSV 0 · 1 · 1");
+```
+
+A public surface shaped by a test rather than by a consumer is how a defect acquires tenure. Once
+L-17 lands, the formatter lives in `color-session/` and is tested there, against the one
+implementation the whole app shares.
+
+---
+
+## §C — measurement discrepancy, reported not resolved
+
+First-pass L-9 measured the hex-string round trip at **1.26×** the direct constructor
+(2.237 µs vs 1.773 µs per sample, N=200000). This pass measured **6.5×** (0.55 µs vs 0.08 µs per
+sample, N=20000) on the same built `dist/`:
+
+```
+$ node --input-type=module -e '<appendix C2>'
+parse-roundtrip: 11.0ms / 20000  = 0.55us per sample
+rgb() direct   : 1.7ms / 20000  = 0.08us per sample
+ratio          : 6.5x
+```
+
+Both runs agree on direction and on the finding; they disagree on magnitude by ~4× in ratio and
+~4-25× in absolute per-sample cost. The likely cause is JIT state and allocation pressure at
+different N (the first pass's absolute numbers are ~4× and ~22× slower for the *same* work, which
+points at machine load or a cold/deoptimised run rather than at either script being wrong).
+**Neither number should be quoted as the cost of this defect.** The structural claim — that the
+pixel path re-enters the library through the CSS *parser* to obtain numbers it already holds, and
+loses alpha doing it (L-18) — does not depend on the ratio and stands on either measurement.
+
+---
+
+## §D — second-pass verdict
+
+**DEFECTIVE**, unchanged. The first pass's ranking holds: **L-1** is the strongest defect, and this
+pass adds a jsdom mechanism reproduction and a screenshot in which the magnifier is visibly
+transparent.
+
+The second pass's own contribution to the *premise* — "the library structure underneath is wrong" —
+is L-17 and L-18 taken together: the demo does not merely duplicate library-adjacent logic, it
+**re-decides questions the domain has already answered** (`formatForSelectedDisplaySpace`) and
+**discards library capability it already has** (alpha through `rgb()`/`toRgba8`). Both flow from the
+same root the first pass named — no enforced seam, no barrel, and (first-pass L-10) no live lint
+rule to notice.
+
+One thing worth stating for the mega-tranche's disposition: the correct home for the fix is *not
+all in the demo*. L-7/A-2 lands in **glass-ui** (`./canvas` needs a paint-on-demand, DPR-policy
+sibling to `useCanvas2D`; the loupe and `MixAnimationCanvas` both consume it), and first-pass L-9's
+`fromRgba8` lands in **`src/`**. Per the standing BH/BI relay invariant, the glass-ui half must go
+to the active glass-ui inbox as a component-level change request, not be re-hand-rolled in `demo/`
+a twelfth time.
+
+---
+
+## Appendix — second-pass reproductions
+
+**A2 · the loupe first-draw race, mechanism-isolated** (repo root; jsdom + the repo's Vue):
+
+```bash
+node --input-type=module -e '
+import { JSDOM } from "jsdom";
+const dom = new JSDOM("<!doctype html><div id=app></div>");
+for (const k of ["window","document","SVGElement","Element","Node","HTMLElement","MutationObserver","requestAnimationFrame"]) {
+  Object.defineProperty(globalThis, k, { value: k === "window" ? dom.window : dom.window[k], configurable: true, writable: true });
+}
+const { createApp, ref, h, useTemplateRef, nextTick } = await import("vue");
+const log = [];
+const App = { setup() {
+  const visible = ref(false);
+  const canvasRef = useTemplateRef("loupeCanvasRef");
+  globalThis.__show = () => { visible.value = true;
+    log.push("  drawLoupe() sees loupeCanvasRef = " + (canvasRef.value === null ? "null  -> EARLY RETURN, no paint" : "<canvas> -> paints")); };
+  globalThis.__peek = (t) => log.push(t + " loupeCanvasRef = " + (canvasRef.value === null ? "null" : "<canvas>"));
+  return () => visible.value ? h("canvas", { ref: "loupeCanvasRef", width: 110, height: 110 }) : null;
+} };
+createApp(App).mount(document.getElementById("app"));
+log.push("sample #1 (first tap/hover):"); globalThis.__show();
+await nextTick(); globalThis.__peek("  after nextTick:");
+log.push("sample #2 (subsequent hover):"); globalThis.__show();
+console.log(log.join("\n"));'
+```
+
+**B2 · the readout divergence** (requires a built `dist/`):
+
+```bash
+node --input-type=module -e '
+const { convertColor } = await import("./dist/subpaths/color.js");
+const { parseCssColor, serializeCssColor } = await import("./dist/subpaths/css.js");
+const CSS = new Set(["rgb","hsl","hwb","lab","lch","oklab","oklch","xyz","srgb-linear","display-p3","a98-rgb","prophoto-rgb","rec2020"]);
+const p = parseCssColor("#ff0000");
+for (const space of ["hsv","kelvin","ictcp","jzazbz"]) {
+  const c = convertColor(p.value, space).value;
+  const ch = c.channels.map(x => x==="none" ? x : Number(x.toFixed(4)).toString());
+  const eyedropper = `${c.space.toUpperCase()} ${ch.join(" · ")}` + (c.alpha===1?"":` · α ${c.alpha}`);
+  const target = CSS.has(c.space) ? c : convertColor(c, "oklch").value;
+  const s = serializeCssColor(target);
+  console.log(space.padEnd(8), "| eyedropper:", eyedropper.padEnd(34), "| canonical:", s.ok ? s.value : "ERR");
+}'
+```
+
+**C2 · the round-trip cost** (see §C — magnitude is measurement-sensitive):
+
+```bash
+node --input-type=module -e '
+const { rgb } = await import("./dist/subpaths/color.js");
+const { parseCssColor } = await import("./dist/subpaths/css.js");
+const N = 20000; let acc = 0, t0 = performance.now();
+for (let i=0;i<N;i++){ const h=(v)=>v.toString(16).padStart(2,"0");
+  acc += parseCssColor(`#${h(i&255)}${h((i*7)&255)}${h((i*13)&255)}`).ok ? 1 : 0; }
+const tA = performance.now()-t0; t0 = performance.now();
+for (let i=0;i<N;i++){ acc += rgb(i&255,(i*7)&255,(i*13)&255).ok ? 1 : 0; }
+const tB = performance.now()-t0;
+console.log(`parse-roundtrip: ${tA.toFixed(1)}ms / ${N}  = ${(tA/N*1000).toFixed(2)}us per sample`);
+console.log(`rgb() direct   : ${tB.toFixed(1)}ms / ${N}  = ${(tB/N*1000).toFixed(2)}us per sample`);
+console.log(`ratio          : ${(tA/tB).toFixed(1)}x`);'
+```
+
+**D2 · the greps behind §A** (all run at repo root):
+
+```bash
+grep -rn 'SpaceId | "hex"' demo src test e2e          # 3 re-mints (+ color-model.ts:29 canonical)
+grep -rn "formatInColorSpace" demo test               # 1 internal caller, 1 export, 5 test asserts
+grep -rn "useCanvas2D|useCanvasLifecycle|glass-ui/canvas" demo   # 0 matches
+grep -rn "devicePixelRatio" demo --include="*.ts" --include="*.vue"   # 2 matches, neither here
+grep -rn 'getContext("2d"' demo --include="*.ts" --include="*.vue"    # 11 hand-rolled sites
+node -e 'console.log(Object.keys(require("./node_modules/@mkbabb/glass-ui/package.json").exports).length)'   # 74
+```

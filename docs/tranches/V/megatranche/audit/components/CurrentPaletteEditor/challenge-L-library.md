@@ -765,3 +765,259 @@ component's design-system imports drops from 66 modules / 218.9 KB to roughly 25
 live server *and* a red guard in the repo, and it is the direct product of L-2 (no proof at the seam)
 and L-6 (no governance in the tree). Fixing L-1 alone patches a symptom; fixing L-2 + L-3 + L-6 makes
 the whole class unrepeatable.
+
+---
+---
+
+# Second pass — independent re-verification + three additional findings
+
+## Model receipt (pass 2)
+
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`, the 1M-context variant) — the model this seat
+was explicitly spawned with. Declared, not inherited.
+
+This pass re-ran the seat from a cold read of the subject and re-measured every load-bearing claim
+above **without consulting the pass-1 text first**. Substrate: same repo, HEAD `041ca263`, glass-ui
+`7.0.0`, dev server `http://localhost:9000` (HTTP 200).
+
+## Re-verification stamp
+
+| claim | re-measured how | result |
+|---|---|---|
+| L-1 · `WatercolorDot` has no `tag` prop | `cat node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts` | **CONFIRMED** — `__VLS_Props` declares exactly `color · variant · animate · cycleDuration · range · seed`. No `tag`. |
+| L-1 · listeners + `aria-label` dropped | `grep -o 'inheritAttrs:[^,]*' dist/watercolor-dot.js` → `inheritAttrs: !1`; `grep -c 'renderSlot\|_renderSlot' dist/watercolor-dot.js` → `0`; `grep -o 'attrs\|\$attrs\|mergeProps\|useAttrs' … \| sort \| uniq -c` → `1 useAttrs` **only** | **CONFIRMED** — one `useAttrs()` (class/style), no `mergeProps`, no `$attrs` spread, no slot outlet. |
+| L-1 · live DOM | fresh Playwright probe, `/#/palettes` @1440×900 (script in scratchpad, output pasted below) | **CONFIRMED** |
+| L-5 · `btn-interactive` is a phantom | `grep -rl "btn-interactive" node_modules/@mkbabb/glass-ui/` → **no output**; live `document.styleSheets` walk → `{ n: 0, samples: [] }` | **CONFIRMED** — 0 rules in the running document, 0 occurrences anywhere in glass-ui 7.0.0. |
+| L-6 · boundary lint is dead | `npx eslint --print-config demo/palettes/browser/card/CurrentPaletteEditor.vue` → `no-restricted-imports = undefined`; `ls -d demo/@` → *No such file or directory*; `grep -rn '"@components' demo \| wc -l` → `0` | **CONFIRMED** — and the one glob that still matches live files (`demo/color-picker/**`) bans a specifier prefix with zero usages, so it too is a no-op. |
+| L-4 · `demo/ui/` is pure alias | dumped all 19 `demo/ui/*/index.ts` | **CONFIRMED** — 19 files, every one a single `export … from "@mkbabb/glass-ui"`; only `input` reaches a subpath (`/forms`). |
+| L-8 · collision rule disagrees | `sed -n '60,80p' demo/palettes/usePaletteStore.ts` | **CONFIRMED** — store predicate is `p.isLocal && name-match && colorsMatch(...)`; the component's is name-match alone. |
+| L-9 · lift duplicated | `grep -rn "position: i" demo` | **CONFIRMED** — `CurrentPaletteEditor.vue:244`, `GenerateControls.vue:56`, `GeneratePane.vue:17`, plus `mix.ts:142`. |
+| L-10 · export dual path | `ls demo/palettes/export/` (12 modules, **no `index.ts`**) + `usePaletteExport.ts:9` `from "./export"` | **CONFIRMED** — with no `export/index.ts`, `./export` resolves to the sibling **file** `export.ts`; the 12-module directory is unreachable through that specifier. |
+| negative · no deep `src/` reach | `grep -rEn 'from "(@mkbabb/value\.js[^"]*\|[^"]*\.\./src/[^"]*\|@/src[^"]*)"' demo` | **CONFIRMED** — 44 hits, every one a real `package.json#exports` key (`/color /css /math /easing /quantize`). Zero `src/` internals. This component imports the library not at all. |
+| negative · `verbatimModuleSyntax` | read of the three closure files | **CONFIRMED** — `CurrentPaletteEditor.vue:190`, `useSwatchActions.ts:2-3`, `SwatchHoverMenu.vue:60` all `import type`. |
+
+### Pass-2 probe output (pasted verbatim)
+
+```
+$ node scratchpad/probe.mjs        # playwright chromium, http://localhost:9000/#/palettes, 1440×900
+{
+  "addSlot": {
+    "found": true,
+    "tagName": "SPAN",
+    "ariaHidden": "true",
+    "ariaLabel": null,
+    "tagAttr": null,
+    "pointerEvents": "none",
+    "tabIndex": -1,
+    "matchesButton": false,
+    "childTags": ["svg.watercolor-filter-host", "SPAN.watercolor-ghost-stroke"],
+    "hasPlusSvg": false,
+    "transition": "transform, border-radius, filter, box-shadow / 0.2s, 0.6s, 0.2s, 0.2s"
+  },
+  "btnInteractiveRules": { "n": 0, "samples": [] },
+  "misc": { "swatches": 1, "editOverlay": 0 },
+  "pageErrors": []
+}
+```
+
+Note the `transition` line: the element *does* animate, but the four properties come from glass-ui's
+own `.watercolor-swatch`. The `hover:scale-110 / active:scale-95` press-and-hover legs that
+`CurrentPaletteEditor.vue:68-74` says were "retired onto the producer's `btn-interactive` atom" are
+present in **neither** register. That is L-5, measured from the running page rather than from grep.
+
+---
+
+## L-12 · BLOCKER (escalation of L-1) — the dead-`tag="button"` defect is a 6-mount, 4-component, 3-route epidemic, not a 2-mount local bug
+
+L-1 anchors the defect at `CurrentPaletteEditor.vue:95-105` and `SwatchHoverMenu.vue:14-33`. The
+census is larger. Every `tag="button"` in the demo tree:
+
+```
+$ grep -rn 'tag="button"' demo
+demo/workbenches/mix/MixSourceSelector.vue:168
+demo/workbenches/mix/MixSourceSelector.vue:215
+demo/workbenches/generate/GenerateControls.vue:203
+demo/palettes/browser/card/CurrentPaletteEditor.vue:98
+demo/palettes/browser/card/SwatchHoverMenu.vue:17
+demo/palettes/browser/card/SwatchHoverMenu.vue:32
+```
+
+Six mounts, four components, and **every one of them is a `WatercolorDot`**. All six carry an
+`aria-label`, five carry a `@click`, two carry a default slot, one carries `:disabled`. glass-ui 7
+honours none of those. Measured across three routes in one pass:
+
+```
+$ node scratchpad/probe2.mjs
+{
+  "/#/mix":       { "count": 1, "first": { "tag": "SPAN", "ariaHidden": "true", "ariaLabel": null,
+                                           "pe": "none", "tabIndex": -1, "children": ["svg","SPAN"] } },
+  "/#/generate":  { "count": 5, "first": { "tag": "SPAN", "ariaHidden": "true", "ariaLabel": null,
+                                           "pe": "none", "tabIndex": -1, "children": ["svg"] } },
+  "/#/palettes":  { "count": 7, "first": { "tag": "SPAN", "ariaHidden": "true", "ariaLabel": null,
+                                           "pe": "none", "tabIndex": -1, "children": ["svg"] } }
+}
+```
+
+(`/#/mix` selector `.add-slot-ghost`, `/#/generate` selector `.generate-swatch`, `/#/palettes`
+selector `.watercolor-swatch`.)
+
+**What that costs, beyond this component:**
+
+- `/#/mix` — the mix workbench's *only* way to add the live color is dead. Five e2e assertions query
+  it by role: `e2e/smoke/views/mix.spec.ts:40`, `e2e/smoke/safari/mix-flow.spec.ts:30`,
+  `e2e/smoke/oracles/o14-preview-truth.spec.ts:353` and `:412`,
+  `e2e/smoke/oracles/o15-dock-register.spec.ts:53` — all
+  `getByRole("button", { name: "Add current color to the mix" })`, all unmatchable against a
+  `<span aria-hidden="true">`. Together with `e2e/smoke/flows/palette-save.spec.ts:35`
+  (`/Add current color .* to palette/`) that is **six** red role-queries from one producer change.
+- `/#/generate` — all five generated swatches are "Copy {css}" buttons. None copies. None is
+  focusable. None has a name.
+- `SwatchHoverMenu.vue:14-21` is the **touch** branch: `<PopoverTrigger as-child>` wrapping the dot.
+  `as-child` works by merging the trigger's props (its click handler, `aria-expanded`, `id`,
+  `data-state`) onto the child vnode as **attrs** — which `inheritAttrs: false` discards. So on a
+  coarse-pointer device the saved-swatch popover cannot open at all; the hover branch
+  (`SwatchHoverMenu.vue:29-36`) survives only because `@pointerenter` sits on the wrapping
+  `<div class="relative">` at `:2-6`, not on the dot. **The desktop affordance limps; the mobile
+  affordance is gone.**
+
+**Mechanism (why this is a *library-structure* finding and not a bug report).** There is no seam in
+the demo that names "an interactive color swatch". Six call sites each hand-assemble one out of a
+decoration primitive plus a `tag` prop, and the prop was the only thing holding the assembly
+together. When the producer withdrew it — legitimately; a component that hard-codes
+`aria-hidden="true"` and `pointer-events: none` on its own root is *declaring itself paint* — six
+consumers broke silently and simultaneously. A missing module became six defects.
+
+**Cure (the transposition, not the patch).** glass-ui grows `./swatch` — a real `<button>` that hosts
+a `WatercolorDot`, owning the accessible name, the focus register, the press/hover legs (i.e. the
+home `btn-interactive` never got), and the popover attachment. `WatercolorDot` stays pure paint and
+is consumed only by `./swatch`. `SwatchHoverMenu.vue` is absorbed into it. Six call sites become six
+`<Swatch>`/`<SwatchMenu>` mounts, and the *class* of defect ends: a paint primitive can no longer be
+promoted to a control by passing it a string.
+
+---
+
+## L-13 · MAJOR — the edit-commit control pair has two homes, and the command it sends has two wirings that disagree
+
+`CurrentPaletteEditor.vue:56-84` renders an edit overlay: a FROM→TO `WatercolorDot` pair, then a
+`Check` (Save edit) and an `Undo2` (Cancel edit).
+
+`demo/shell/dock/Dock.vue:136-144` renders — inside the `mobile-edit` `DockLayer` — a FROM→TO
+`WatercolorDot` pair, then a `Check` (`aria-label="Save edit"`) and an `Undo2`
+(`aria-label="Cancel edit"`).
+
+Side by side:
+
+| | `CurrentPaletteEditor.vue` | `Dock.vue` |
+|---|---|---|
+| FROM dot | `:color="color"` `variant="ghost"` `:seed="'edit-from-' + i"` `class="w-11 h-11 sm:w-12 sm:h-12"` (`:62`) | `:color="editTarget.originalCss"` `seed="edit-original"` `class="w-7 h-7 … opacity-50"` (`:136`) |
+| arrow | `<span class="text-muted-foreground text-caption">&rarr;</span>` (`:63`) | `<span class="text-muted-foreground text-caption">&rarr;</span>` (`:137`) |
+| TO dot | `:color="cssColorOpaque"` `:seed="'edit-to-' + i"` (`:64`) | `:color="cssColorOpaque"` `seed="edit-new"` (`:138`) |
+| Save | `<button class="btn-interactive …" aria-label="Save edit"><Check :style="{ color: safeAccent }" /></button>` (`:75-77`) | `<DockControl aria-label="Save edit"><Check :style="{ color: safeAccent }" /></DockControl>` (`:143`) |
+| Cancel | `<button class="btn-interactive …" aria-label="Cancel edit"><Undo2 class="text-muted-foreground" /></button>` (`:78-80`) | `<DockControl aria-label="Cancel edit"><Undo2 /></DockControl>` (`:144`) |
+| gate | `class="edit-overlay glass-floating hidden lg:flex"` (`:58`) | dock layer, active when `editTarget` is set |
+
+One concept — "commit or abandon the in-flight color edit, showing what you are trading" — with two
+implementations, two icon sizes, two seeds, two hosts (bare `<button>` vs `DockControl`), and one
+shared per-instance `:style="{ color: safeAccent }"` copied verbatim between them. The
+`hidden lg:flex` on the overlay and the mobile-only dock layer show the split was *meant* as
+responsive routing; what actually shipped is a fork, because nothing holds the two in agreement.
+
+**And the command diverges.** `commitEdit` reaches `ColorPicker` by two different wirings:
+
+```
+demo/color-picker/App.vue:41
+  @commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"     ← dock path
+
+demo/shell/usePaneRouter.ts:156
+  "onCommit-edit": () => deps.colorPickerRef()?.commitEdit(),                            ← pane path
+```
+
+The dock path resets the mobile pane index; the pane path does not. Same verb, same target ref, two
+call sites, one extra side effect on one of them. That is the definition of a dual path: not two
+copies of the same behaviour, but two copies that have already drifted.
+
+**Cure.** One `EditCommitBar` owning the FROM→TO diff and the two verbs, living in
+`demo/color-session/` (which already owns `EDIT_TARGET_KEY` and the `EditTarget` type), rendered by
+whichever host is on screen and styled by the host's slot, never re-implemented by it. The command
+itself belongs on `COLOR_TARGET_PORT_KEY` — `usePalettePorts.ts:235-240` already exposes
+`commitColorEdit` — so both hosts call one port method and the pane-index reset lives inside it,
+once. That deletes the `commitEdit`/`cancelEdit` emit pair from this component, from `PalettesPane`,
+and from the `usePaneRouter` `rightProps` special case.
+
+---
+
+## L-14 · MINOR — `SAFE_ACCENT_KEY` is injected into a leaf card to power one inline style that a `:root` token already carries
+
+`CurrentPaletteEditor.vue:173,215` imports and injects `SAFE_ACCENT_KEY`. Its **entire** use is one
+attribute, `:76`:
+
+```vue
+<Check class="w-5 h-5" :style="{ color: safeAccent }" aria-hidden="true" />
+```
+
+The provider is `demo/color-picker/composables/boot/useAtmosphereBoot.ts:91` — **app-root boot**. Six
+lines later, `:96`, the very same ref is mirrored onto a document token:
+
+```ts
+provide(SAFE_ACCENT_KEY, safeAccentCss);            // :91
+watch(safeAccentCss, (css) => {
+    document.documentElement.style.setProperty("--accent-live", css);   // :96
+}, { immediate: true });
+```
+
+and `demo/styles/foundation.css:250-251` chains it:
+
+```css
+--accent-view: var(--accent-live);
+--primary: var(--accent-view);
+```
+
+So `safeAccent` and `var(--primary)` are, by construction, the same string. The component pays a
+hard runtime coupling to app-root boot — a non-null `inject(...)!` that throws on render if the
+provider is absent — to obtain a value already sitting on `:root` as a cascading custom property,
+and then spends it on a per-instance inline style, which edict 5 forbids on its face.
+
+Two smaller things fall out of the same site:
+
+- **Asymmetric inject contracts in one component's cone.** `CurrentPaletteEditor.vue:215` uses
+  `inject(SAFE_ACCENT_KEY)!` — crash on missing. `useSwatchActions.ts:23` uses
+  `inject(EDIT_TARGET_KEY, ref(null) as ShallowRef<EditTarget | null>)` — silently degrade on
+  missing (the edit highlight just never appears). Both keys come from the same module, both are
+  provided by the same app root. One of the two is a masking fallback (edict 2); they cannot both be
+  right.
+- **`TransitionGroup` is imported from `vue` at `:172`** although it is a built-in resolved
+  globally by the compiler. Harmless, but it is one more import on a component whose import list is
+  the subject of this seat.
+
+**Cure.** `class="text-primary"` (or `color: var(--accent-live)`), and the `SAFE_ACCENT_KEY` import,
+the inject, and the boot coupling all delete themselves. `Dock.vue:143` carries the identical inline
+style and takes the identical cure. Then make the remaining injects one contract: if a key is
+required, `inject(KEY)!`; if it is optional, the optionality is part of the *key's* documented
+contract, not a per-call-site default.
+
+---
+
+## Supplement to the findings table
+
+| id | sev | finding | anchor |
+|---|---|---|---|
+| L-12 | **BLOCKER** | The dead-`tag="button"` defect is 6 mounts / 4 components / 3 routes, all `WatercolorDot`; 6 e2e role-queries red; `SwatchHoverMenu`'s `PopoverTrigger as-child` path means the **touch** swatch menu cannot open at all. Root cause is a *missing module*: nothing owns "interactive color swatch". | `grep -rn 'tag="button"' demo` (6 hits); probe2 output |
+| L-13 | MAJOR | The edit-commit control pair (FROM→TO dots + Check/Undo2) is implemented twice — here and `Dock.vue:136-144` — and `commitEdit` has two wirings that disagree (`App.vue:41` resets `mobilePaneIndex`, `usePaneRouter.ts:156` does not). | `CurrentPaletteEditor.vue:56-84` vs `Dock.vue:136-144`; `App.vue:41` vs `usePaneRouter.ts:156` |
+| L-14 | MINOR | `SAFE_ACCENT_KEY` injected from app-root boot to feed one per-instance inline style whose value is already `var(--primary)` by construction; plus asymmetric `inject!` / `inject(k, default)` contracts on two keys from one module. | `CurrentPaletteEditor.vue:76,173,215`; `useAtmosphereBoot.ts:91,96`; `foundation.css:250-251`; `useSwatchActions.ts:23` |
+
+**Pass-2 verdict: DEFECTIVE, unchanged, and the strongest defect is stronger than pass 1 recorded.**
+L-1 stands exactly as written; L-12 shows its blast radius is six mounts and six red e2e role-queries
+across three routes, not two mounts on one. The single greenfield move that retires the most —
+glass-ui `./swatch`, a real button hosting the paint — closes L-1, L-3, L-5 (it is where
+`btn-interactive` belongs) and L-12 at once.
+
+### Visual confirmation (pass 2, read directly)
+
+`docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/palettes.png`, read as an image
+this pass: the "Start a new palette" dashed well contains **one small dashed pink silhouette and
+nothing else** — no `+` glyph inside it. That empty silhouette is the L-1 add-slot: the seeded ghost
+outline paints (it is a `border-radius` + filter effect on the `<span>`, which survives), while the
+`<Plus>` that was supposed to sit in the default slot does not, because glass-ui 7's `WatercolorDot`
+renders no slot outlet. The screenshot is the defect's visual signature, and no route-level oracle in
+`REPORT.json` (`pageErrors: []`, `consoleErrors: []`, `overflowX: 0`) could see it — a dead control
+is neither an error nor a blank page.

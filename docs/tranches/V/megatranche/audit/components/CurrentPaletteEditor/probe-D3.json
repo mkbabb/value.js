@@ -1,0 +1,126 @@
+[
+  {
+    "label": "dup-light",
+    "scheme": "light",
+    "structural": {
+      "rowPosition": "static",
+      "rowOffsetParent": "DIV.glass-resting card rounded-card text-card-foreground scrollb",
+      "wrapOffsetParent": "DIV.glass-resting card rounded-card text-card-foreground scrollb",
+      "wrapPosition": "relative",
+      "wellBg": "oklab(0.913299 0.005463 0.013024)",
+      "cardBg": {
+        "el": "relative",
+        "bg": "rgb(173, 61, 116)"
+      },
+      "wellBorderColor": "oklab(0.216129 0.003491 0.005182 / 0.12)"
+    },
+    "clicked": true,
+    "dup": {
+      "text": "\"Palette 2\" already exists. Update Cancel",
+      "rect": {
+        "x": 767.5,
+        "y": 527,
+        "w": 435,
+        "h": 36
+      },
+      "role": null,
+      "ariaLive": null,
+      "liveRegionsOnPage": [
+        "dev misconfigured — run `npm run dev`",
+        "",
+        "",
+        "",
+        "",
+        "dev misconfigured — run `npm run dev`"
+      ],
+      "buttons": [
+        {
+          "text": "Update",
+          "w": 61.8,
+          "h": 36,
+          "fontSize": "14.384px"
+        },
+        {
+          "text": "Cancel",
+          "w": 59.2,
+          "h": 36,
+          "fontSize": "14.384px"
+        }
+      ],
+      "msgFont": {
+        "family": "\"Fira Code\"",
+        "size": "16.4px",
+        "style": "italic"
+      },
+      "wellHeight": 243.7
+    },
+    "focusInfo": {
+      "outline": "3px none rgb(28, 25, 23)",
+      "outlineOffset": "0px",
+      "boxShadow": "color(srgb 0.549224 0.17451 0 / 0.3) 0px 0px 0px 2px, color(srgb 0.549224 0.17451 0 / 0.15) 0px 0px 8px 0px",
+      "activeEl": true
+    }
+  },
+  {
+    "label": "dup-dark",
+    "scheme": "dark",
+    "structural": {
+      "rowPosition": "static",
+      "rowOffsetParent": "DIV.glass-resting card rounded-card text-card-foreground scrollb",
+      "wrapOffsetParent": "DIV.glass-resting card rounded-card text-card-foreground scrollb",
+      "wrapPosition": "relative",
+      "wellBg": "oklab(0.345296 0.010372 0.017546)",
+      "cardBg": {
+        "el": "relative",
+        "bg": "rgb(41, 0, 9)"
+      },
+      "wellBorderColor": "oklab(0.925202 0.002342 0.005724 / 0.12)"
+    },
+    "clicked": true,
+    "dup": {
+      "text": "\"Palette 2\" already exists. Update Cancel",
+      "rect": {
+        "x": 767.5,
+        "y": 527,
+        "w": 435,
+        "h": 36
+      },
+      "role": null,
+      "ariaLive": null,
+      "liveRegionsOnPage": [
+        "dev misconfigured — run `npm run dev`",
+        "",
+        "",
+        "",
+        "",
+        "dev misconfigured — run `npm run dev`"
+      ],
+      "buttons": [
+        {
+          "text": "Update",
+          "w": 61.8,
+          "h": 36,
+          "fontSize": "14.384px"
+        },
+        {
+          "text": "Cancel",
+          "w": 59.2,
+          "h": 36,
+          "fontSize": "14.384px"
+        }
+      ],
+      "msgFont": {
+        "family": "\"Fira Code\"",
+        "size": "16.4px",
+        "style": "italic"
+      },
+      "wellHeight": 243.7
+    },
+    "focusInfo": {
+      "outline": "3px none rgb(233, 230, 226)",
+      "outlineOffset": "0px",
+      "boxShadow": "color(srgb 1 0.754902 0.671578 / 0.3) 0px 0px 0px 2px, color(srgb 1 0.754902 0.671578 / 0.15) 0px 0px 8px 0px",
+      "activeEl": true
+    }
+  }
+]

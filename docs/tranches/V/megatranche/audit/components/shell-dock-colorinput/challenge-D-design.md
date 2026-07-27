@@ -1,1071 +1,767 @@
 # CHALLENGE-D — `demo/shell/dock/ColorInput.vue` — the design is flawed
 
+**Round 3.** Prior rounds preserved beside this file as `challenge-D-design.round1.md` and
+`challenge-D-design.round2.md`. This round re-derived the register from live measurement rather
+than from the prior text; it lands **twelve findings no prior round reported**, **three
+corrections** to round-2 claims that measurement does not support, and **independent
+re-confirmation** of the six round-2 findings that decide the verdict.
+
 ## Model receipt
 
-I observe myself to be **Opus 5 (`claude-opus-5[1m]`, 1M context)** — the tier this seat was
-explicitly spawned with. Declared, not inherited.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant.
+This is the tier the seat was explicitly spawned with. Declared, not inherited.
 
 ---
 
 ## 0. Verdict
 
-**DEFECTIVE.** Not "needs polish". The component is a 377-line `contenteditable` span carrying
-five unrelated jobs, and the audit found:
+**DEFECTIVE — BLOCKER.**
 
-- it **does not exist** below `(min-width: 1024px) and (min-aspect-ratio: 1.1)` — so it is absent
-  on every phone, every portrait tablet, and on a 1440×900 desktop **at 200 % browser zoom**;
-- its commit button resolves **zero CSS rules** for the class its own comments credit with
-  hover / press / focus / disabled — measured identical computed style across rest, hover, active
-  and focus;
-- its error affordance **paints over both the user's text and the commit button** (63.8 % of the
-  button's area), carries **no `aria-invalid`, no `aria-describedby`, no `role`, no `aria-live`**,
-  evaporates after 2 s, and **never fires a second time** for the same input;
-- **every keystroke resizes the dock** — measured 137.3 px of dock-width travel while typing one
-  13-character colour name — which simultaneously makes its most bespoke CSS (mask + ellipsis +
-  `text-center`) unreachable dead code;
-- one of its two declared animations **cannot run at all**: the inline `animation: crown-appear`
-  names a keyframe Vue's scoped-style compiler renamed away.
+The component is presented as "the place you type any CSS colour". Measured against that claim, in
+the live app, the following are all true simultaneously:
 
-This is a round-2 seat. `challenge-D-design.round1.md` (preserved beside this file) reached
-several of the same conclusions from a different probe path; where that happened I say so, because
-independent re-derivation is evidence, not padding. Findings **D-05, D-08, D-09, D-12, D-13,
-D-14, D-16, D-17, D-19** are new to this round, and **D-03b** corrects a round-1 claim.
+- **You cannot edit a colour string in it.** Clicking anywhere in the value selects the *whole*
+  value; the next keystroke deletes it. Measured: click at 50 % of the field →
+  `wholeValueSelected: true` → type `x` → field content is `"x"`. There is no undo
+  (`undoRestoredTypedText: false`). The field is not an editor; it is a replace-only box.
+- **There is no cancel, and fast valid input is silently discarded.** `Escape` does nothing
+  (`escapeCancels: false`); the commit path is a 2000 ms debounce
+  (`useColorParsing.ts:92`); blur reverts to the previous colour. Typing `rebeccapurple` — a
+  perfectly valid CSS colour — and clicking away within two seconds throws it away with **zero**
+  signal. Measured `afterBlur: "lab(92% 88.8 20 / 82.7%)"`.
+- **Its boundary fails the non-text contrast floor in both schemes** — 1.93 : 1 light,
+  2.838 : 1 dark against its own plate (WCAG 1.4.11 requires 3 : 1) — and that same boundary is
+  the *only* mark identifying the element as an input **and** the only focus indicator, **and**
+  it is erased on the inline-end edge by the component's own `mask-image`.
+- **Assistive technology is told this is a multi-line rich-text editor.** CDP AX tree:
+  `role=textbox, editable="richtext", multiline=true`, and no `invalid` property even while the
+  error badge is on screen.
+- **Typing moves the rest of the dock.** Entering one 29-character value translates the commit
+  arrow **+166 px**, the mode toggle **+166 px** and the Back control **−166 px**. The button you
+  are aiming at recedes from the pointer as you type toward it.
+- **The failure state hides the failure.** On `oklch()` the badge covers **89.9 %** of the typed
+  text (72 px of 80.1 px of ink) and **63.8 %** of the commit button — and, photographically, the
+  arrow is not visible at all (`frames/r3-f001.png`).
+- **The component does not exist below 1024 px landscape**, including at 200 % browser zoom —
+  independently confirmed from the mega-tranche captures, not only from the source.
 
-**Strongest single defect: D-01** — the design ships the app's only "type any CSS colour"
-affordance on ≥1024 px landscape viewports only. The help popover it hides behind hover literally
-reads *"Any valid CSS color string is accepted"*; on a phone, and at 200 % zoom, there is nowhere
-to type one.
+**Strongest single defect: R3-01** — *the field cannot be edited, only replaced.* It is the one
+that makes the component fail at the single job its own help popover advertises, it is reachable
+by the most ordinary gesture a user has (click in the text to fix a digit), it is unreported by
+either prior round, and it is not fixable by styling.
 
 ---
 
-## 1. Method and evidence base
+## 1. Method
 
-- **Source read**: `demo/shell/dock/ColorInput.vue` (377 lines) at HEAD `9bcd5d91` (branch
-  `tranche-u`; the task named `c654824e`, HEAD had advanced by five mail commits — no `demo/`
-  change between them).
-- **Canon read**: `docs/tranches/V/VISUAL-CONSTITUTION.md` (228 lines),
-  `docs/tranches/V/PROPORTION-AUDIT.md` (83 lines), `docs/tranches/V/PALETTE-CONTRACT.md`
-  (329 lines).
-- **Mega-tranche visual audit**: `../../visual/REPORT.md` + the 60 Safari captures.
-- **Live probes**: five Playwright/Chromium runs against the live dev server on
-  `http://localhost:9000`, matrix = {desktop light, desktop dark, mobile 390×844 touch,
-  720×450 (= 1440×900 at 200 % zoom), RTL, `forcedColors: active`}. Raw results banked at
-  `frames/probe-1.json`, `frames/probe-2.json`, `frames/probe-3.json`; rendered frames at
-  `frames/*.png`.
-- **Served-CSS read**: the component's compiled scoped stylesheet fetched directly from Vite.
+- **Source** `demo/shell/dock/ColorInput.vue` (377 lines), `demo/color-session/useColorParsing.ts`,
+  `demo/shell/dock/layers/ActionBarLayer.vue`, `demo/shell/dock/Dock.vue`, at repo HEAD
+  `7cae8bd0` (branch `tranche-u`; the task named `c654824e`, HEAD had advanced by docs-only
+  commits — `git log --oneline -1` pasted below in §2.0).
+- **Canon** `docs/tranches/V/VISUAL-CONSTITUTION.md` (228 ll.), `PROPORTION-AUDIT.md` (83 ll.),
+  `PALETTE-CONTRACT.md` (329 ll.) — read in full.
+- **Mega-tranche visual audit** `../../visual/REPORT.md` + `shots/safari-desktop-light/picker.png`
+  + `shots/zoom-200-desktop/picker.png`, read as images.
+- **Live probes** — four Playwright/Chromium runs against the live dev server at
+  `http://localhost:9000`, matrices {1440×900 light, 1440×900 dark, reduced-motion}, plus a CDP
+  `Accessibility.getFullAXTree` read. Raw JSON banked at `frames/r3probe.json`,
+  `frames/r3probe2.json`; frames at `frames/r3-*.png`.
 
-**No source file was edited.** Everything written by this seat lives under
+**No source file was edited.** Everything this seat wrote lives under
 `docs/tranches/V/megatranche/audit/components/shell-dock-colorinput/`.
 
-### 1.1 Reaching the component at all
-
-`ColorInput` is **two clicks and a media query deep**: it renders only inside `Dock.vue`'s
-`action-bar` `DockLayer` (`Dock.vue:153`), reached by pressing *Tools*, and only in the `input`
-sub-layer of `ActionBarLayer.vue` (`ActionBarLayer.vue:115`), reached by pressing a second toggle.
-That is why **none of the 60 mega-tranche captures contain it** — the visual audit photographed
-the dock at rest, where this component is `inert`. Every frame in `frames/` was therefore driven
-by hand.
+Reaching the component: it is behind two gestures and a media query — **Tools** → **Open color
+input** — inside `ActionBarLayer.vue:115`, gated by `Dock.vue:41,153`. That is why none of the 60
+mega-tranche route captures contain it in its active state.
 
 ---
 
-## 2. Visual truth first
+## 2. Visual truth
 
-### 2.1 The rest frame — `frames/A-rest-light.png`
+### 2.0 The route as shipped — `../../visual/shots/safari-desktop-light/picker.png`
 
-![rest](frames/A-rest-light.png)
+Real Safari, 1440-class desktop, light. The dock reads `⌂ Home ⌄ │ ✎ Tools → │ Login │ @mbabb`.
+**The colour input is not on it.** The app's only free-text colour entry is two gestures below the
+surface of the only route that is about entering a colour.
 
-An **opaque white plate with a 1 px `--input` border**, floating inside the dock's translucent
-liquid-glass pill, flanked by two `DockSeparator` hairlines. Every sibling control in that pill is
-a glass capsule (`dock-icon-button glass-specular-track glass-capsule-hover`). This one is a
-shadcn form field transplanted whole into a glass instrument.
+### 2.1 200 % zoom — `../../visual/shots/zoom-200-desktop/picker.png`
 
-`VISUAL-CONSTITUTION.md:11–19` — the material table gives the dock exactly one tier
-("Structural glass | dock, header, primary plate | neutral Clear-Ice/Smoke family") and then:
-*"One surface has one tier. An inner card is not automatically another pane of glass."* The plate
-is a **second, foreign material tier inside the dock band** (→ **D-19**).
+The same route at the audit's 200 %-zoom arm (720×450 @2× DPR, per `visual/states.mjs:21–22`).
+The dock has collapsed to `⌂ ⌄ │ Picker About │ ⋮`. **There is no Tools control**, therefore no
+path to the field at all. WCAG 1.4.4/1.4.10 lose an entire input, not merely its layout.
 
-Two further things are visible in that frame before any measurement:
+### 2.2 Rest / focus, light — `frames/r3-focus.png`
 
-1. The field's **right edge dissolves**. The `mask-image` (`ColorInput.vue:300`) fades the last
-   40 px of the element to transparent — and a mask clips *the whole element*, so the border and
-   the rounded corner go with the ink. A bounded input whose boundary is deliberately deleted on
-   one side.
-2. The value is **not optically centred** despite `text-center`. Measured below (**D-14**).
+![focus light](frames/r3-focus.png)
 
-### 2.2 The error frame — `frames/B-f001-error.png`
+What the frame shows, in design terms:
 
-![error](frames/B-f001-error.png)
+1. **A document form control dropped into instrument chrome.** Every other object in that band is
+   translucent glass over the live ambient. This is an **opaque** `rgb(251, 250, 248)` plate with
+   a hairline border and a **4 px** corner radius sitting inside a `border-radius: 9999px` pill
+   (measured; the pill's rendered radius at its 62 px height is 31 px). A 4 px rectangle inside a
+   31 px capsule is not an adjacent rung on any ladder — it is a foreign geometry, and it is the
+   single highest-contrast object on the page (ink-on-plate **16.77 : 1**) sitting in chrome whose
+   whole job is to stay calm.
+2. **The right edge dissolves.** The `mask-image` at `ColorInput.vue:300` ramps the last 40 px to
+   alpha 0. A mask clips the *whole element*, so the right border and the right corner go with the
+   ink. In a component whose only focus indicator is `border-color`, the focus indicator is
+   deleted on the inline-end edge.
+3. **The value is selected on arrival**, because focus triggers `selectAll()` — visible as the
+   grey selection slab across `lab(92% 88.8 20 / 82.7%)`. This is R3-01 photographed.
+4. The field occupies **45.91 px of the dock's 62 px band — 74.0 %**. The band the constitution
+   reserves for navigation identity is three-quarters filled by an opaque plate.
 
-This is the frame that decides the verdict. The user typed `oklch()` and pressed Enter. A solid
-`--destructive` slab reading *"not a valid color"* now sits **on top of the text they typed** and
-**on top of the arrow they would press to retry**. Only the fragment `o…()` survives around it.
+### 2.3 Dark, focused, with the help popover — `frames/r3-dark-focus.png`
 
-### 2.3 Dark, empty — `frames/C-empty-dark.png`
+![dark](frames/r3-dark-focus.png)
 
-![empty](frames/C-empty-dark.png)
+Dark is worse, not merely inverted. The plate computes to **`rgb(11, 10, 9)`** — near-black,
+fully opaque — inside a warm translucent brown glass dock, on a page whose every other surface is
+tinted translucent glass. **The darkest object in the entire composition is a text field in the
+chrome.** It reads as a hole punched through the dock rather than a control resting on it.
 
-Select-all, Backspace. The field collapses to a ~60 px black square containing one arrow. No
-placeholder, no label, no hint, no error. It reads as an unlabelled black button.
+The popover in this frame is the second story: it is opaque, it restates the value the field is
+already showing, decomposes it a third time, and **occludes the About card's H1** — you can read
+only "…e color" and a clipped "Lab" behind it. `PROPORTION-AUDIT.md:71` (§5 law 6): *"Subtraction
+precedes explanation."* Here explanation is painted over the protagonist.
 
-### 2.4 Dark, long value — `frames/C-overflow-dark.png`
+### 2.4 The failure frame — `frames/r3-f001.png`
 
-![overflow](frames/C-overflow-dark.png)
+![f001](frames/r3-f001.png)
 
-A 46-character `color(display-p3 …)` value. The field has grown to 586 px and the dock now spans
-most of a 1440 px viewport. Nothing truncated, nothing ellipsised — the chassis simply inflated.
-
-### 2.5 Mobile — `frames/G-mobile-dock.png`
-
-![mobile](frames/G-mobile-dock.png)
-
-390×844, touch. Home · Picker/About · ⋮. **There is no Tools control and no colour input.**
-
-### 2.6 The hover popover — `frames/H-hover-popover.png`
-
-![popover](frames/H-hover-popover.png)
-
-Hovering the field for 300 ms drops a panel that (a) restates the value already in the field,
-(b) restates it again decomposed, (c) carries two `Separator` rules in a four-line panel, (d) sets
-its help prose in **Fraunces**, and (e) **occludes the route's own H1 and the Picker's numeric
-headline** — the help text covers the protagonist.
+The user typed `oklch()` and pressed Enter. The dock now reads `← │ o[not a valid color] │ 🏷`.
+Of the eight characters typed, **one** is visible. The commit arrow is **gone**. There is no
+visible way to retry the thing you were just told is wrong. Numbers in R3-14.
 
 ---
 
 ## 3. Defect register
 
-Severity: **BLOCKER** = ships a broken or absent affordance · **MAJOR** = a designed state is
-wrong or missing · **MINOR/INFO** = register drift, dead surface.
+Severity: **BLOCKER** = the component fails its stated job or ships an absent/destructive
+affordance · **MAJOR** = a designed state is wrong, missing, or actively harmful · **MINOR/INFO** =
+register drift, dead surface, correction.
+
+Findings tagged **NEW** were not reported by round 1 or round 2.
 
 ---
 
-### D-01 · BLOCKER — the component does not exist below 1024 px, including at 200 % zoom
+### R3-01 · BLOCKER · **NEW** — the field cannot be edited, only replaced; every click destroys the value
 
-**Mechanism.** Desktop-only ref capture.
+**Mechanism.** `selectAll()` unconditionally on `focus`.
 
-**Evidence chain (source):**
+```
+ColorInput.vue:168–177   selectAll(): range.selectNodeContents(target); selection.addRange(range)
+ColorInput.vue:179–182   onInputFocus = () => { inputIsFocused.value = true; selectAll(); }
+```
 
-| Coordinate | Content |
+**Evidence (measured, `frames/r3probe.json`).** Field holds `lab(92% 88.8 20 / 82.7%)`. A single
+mouse click at the horizontal midpoint of the field:
+
+```json
+"caretAfterClick": { "selectionText": "lab(92% 88.8 20 / 82.7%)",
+                     "isCollapsed": false, "wholeValueSelected": true }
+"caretAfterKeystroke": { "text": "x" }
+```
+
+One click plus one keystroke annihilates a 24-character value. The user cannot place a caret to
+change `92%` to `82%`, cannot fix a typo'd digit, cannot append an alpha. The `selection?.toString()
+=== target.innerText` guard at `:174` does not help — it *suppresses re-selection when everything
+is already selected*, which is the state it just created.
+
+**Why this is a design defect and not a preference.** The component's own help copy
+(`ColorInput.vue:99–100`) is *"Any valid CSS color string is accepted."* CSS colour strings are
+long, punctuated, and typed wrong on the first attempt — `oklch(70% 0.15 200 / 50%)` is 24
+characters with four token classes. A field for that grammar whose only supported operation is
+*replace the whole thing* has designed away the operation the domain requires.
+`PROPORTION-AUDIT.md:75` (§5 law 10) names the requirement exactly: editors have
+*"commit/cancel/error semantics"*. This one has no edit semantics at all.
+
+**Reproduction.** 1440×900 → Tools → Open color input → click in the middle of the displayed
+value → press any key. The value is gone.
+
+**Cure.** Delete `selectAll()` from `focus`. Select-all belongs on *explicit* entry only (the
+toggle's own activation, or `Ctrl/Cmd+A`), never on pointer focus.
+
+---
+
+### R3-02 · BLOCKER · **NEW** — no cancel path, and a 2 s debounce silently discards valid input
+
+**Mechanism.** Commit is a 2000 ms debounce; there is no `Escape` handler; blur repaints from the
+model.
+
+```
+demo/color-session/useColorParsing.ts:92   const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000)
+ColorInput.vue:202–211                     onInputKeydown handles ONLY "Enter"
+ColorInput.vue:183–193                     onInputBlur → innerText = formattedCurrentColor.value
+```
+
+**Evidence (measured, `frames/r3probe2.json`).** Select all → type `rebeccapurple` → `Escape` →
+blur:
+
+```json
+"cancel": {
+  "typed": "rebeccapurple",
+  "afterEsc": { "text": "rebeccapurple", "focused": true },
+  "afterBlur": "lab(92% 88.8 20 / 82.7%)",
+  "escapeCancels": false,
+  "blurCommitted": false
+}
+```
+
+Two independent failures in one interaction:
+
+1. **`Escape` does nothing.** It neither reverts nor blurs. The canon requires *cancel* semantics
+   (`PROPORTION-AUDIT.md:75`); there is no cancel gesture in the component.
+2. **A valid colour, typed and then clicked away from inside two seconds, is destroyed without a
+   word.** `rebeccapurple` is valid CSS. The user sees their text replaced by the old value and is
+   given no error, no toast, no "unsaved" mark, no explanation. This is worse than an error state:
+   it is a *success* the app throws away.
+
+`VISUAL-CONSTITUTION.md:99` (§5): *"Tuning is continuous and interruptible."* A two-second dead
+zone in which input neither takes effect nor is acknowledged is neither continuous nor
+interruptible; and combined with R3-01 (no undo, `undoRestoredTypedText: false`) the discarded
+text is unrecoverable.
+
+---
+
+### R3-03 · BLOCKER · **NEW** — the field's boundary fails WCAG 1.4.11 in both schemes, and it is the only mark that says "input"
+
+**Mechanism.** A decorative hairline doing three structural jobs.
+
+The border is simultaneously (a) the only thing distinguishing this element from a label, since
+there is no visible label, no placeholder in colour mode, and no glass affordance; (b) the entire
+focus register (`ColorInput.vue:162–166`); (c) the error register
+(`borderColor: var(--destructive)`).
+
+**Evidence (measured, `frames/r3probe2.json`, contrast computed by the WCAG 2.x relative-luminance
+formula in-probe):**
+
+| scheme | border | plate | contrast | floor (WCAG 1.4.11) |
+|---|---|---|---|---|
+| light | `rgb(198, 180, 159)` | `rgb(251, 250, 248)` | **1.930 : 1** | 3 : 1 |
+| dark | `rgb(101, 87, 73)` | `rgb(11, 10, 9)` | **2.838 : 1** | 3 : 1 |
+
+Both fail. The light arm fails by 36 %.
+
+`VISUAL-CONSTITUTION.md:82` (§4.1) is verbatim on this: *"Text, focus, boundaries and state meet
+their rendered contrast on the actual material tier; a token name is not evidence."* The token is
+`--input`; the rendered relation is 1.93 : 1.
+
+The aggravation is compositional. In the resting dock the field's *ink* is at 16.77 : 1 while its
+*boundary* is at 1.93 : 1 — an 8.7× mismatch between the two halves of the same object. Optically
+the value floats on a white slab with no perceptible edge; the thing the eye reads as the control
+is the plate, and the plate has no tier in the material table (R3-09).
+
+---
+
+### R3-04 · MAJOR · **NEW** — the `mask-image` erases the focus indicator on the inline-end edge and eats into the text ink
+
+**Mechanism.** An element-wide mask used to fake a text fade.
+
+```
+ColorInput.vue:300–301   mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%)
+ColorInput.vue:294       --input-action-width: 2.5rem
+```
+
+**Evidence (measured, `frames/r3probe.json` → `maskGeometry`):**
+
+```json
+{ "rect": { "x": 563.64, "w": 324.72, "right": 888.36 },
+  "paddingLeft": 12, "paddingRight": 36, "borderRightWidth": 1,
+  "contentRightX": 851.36, "maskFadeStartX": 848.36,
+  "maskEatsIntoContentPx": 3, "inkRight": 851.36, "inkFadedPx": 3,
+  "maskImage": "linear-gradient(to right, rgb(0,0,0) calc(100% - 40px), rgba(0,0,0,0) 100%)" }
+```
+
+Two consequences, both derived from those numbers:
+
+1. **17.0 % of the border perimeter is under the alpha ramp, and the entire right edge is at
+   alpha 0.** Border box 324.72 × 45.91 → perimeter 741.26 px. The masked band is the right 40 px:
+   the full right edge (45.91 px, at alpha 0) plus 40 px each of top and bottom = 125.91 px =
+   **16.99 %**. Because `border-color` is the *only* focus indicator (`:162–166`,
+   `focus-visible:outline-none` at `:16`), **focusing the field paints a focus register that is
+   erased exactly where the commit action lives.**
+2. **The mask reaches 3 px past the padding into the glyph run.** Content-box right edge is
+   851.36; fade start is 848.36. At the content edge the ramp is at alpha `1 − 3/40 = 0.925`, so
+   the final glyph column of every value renders at 92.5 % opacity. Small, but it is the *value*
+   — the one thing on the surface that must be exact.
+
+`VISUAL-CONSTITUTION.md:178` (§7 Shell/dock) is verbatim and contrary: *"The dock is its own top
+band, fully visible, focusable, and **clipped by neither mask nor card**."* This is a mask, inside
+the dock band, clipping the focus indicator.
+
+**Note — this also corrects round 2.** Round-2 D-05 concluded the mask was *"unreachable dead
+code"* because the field grows instead of overflowing. The mask is not dead: it applies on every
+frame regardless of content length, and what it actually deletes is the boundary, not the overflow.
+Round 2's own §2.1 observed the dissolving edge and then contradicted it in D-05. Measurement
+settles it: `inkFadedPx: 3` and a zero-alpha right border, always.
+
+---
+
+### R3-05 · MAJOR · **NEW** — assistive technology is told this is a multi-line rich-text editor
+
+**Mechanism.** `contenteditable="true"` under `role="textbox"` with no `aria-multiline`.
+
+**Evidence (measured — CDP `Accessibility.getFullAXTree`, `frames/r3probe2.json` → `ax`):**
+
+```json
+{ "role": "textbox", "name": "Enter a CSS color",
+  "value": "color(display-p3 0.5 0.2 0.9)", "ignored": false,
+  "props": [ "focusable=true", "editable=\"richtext\"", "settable=true",
+             "multiline=true", "readonly=false", "required=false" ] }
+```
+
+Three facts in one node:
+
+- **`multiline=true`** — a screen reader announces a multi-line text area and offers line
+  navigation for a field that hard-prevents `Enter` (`:203–204`). The announced affordance and the
+  real affordance disagree.
+- **`editable="richtext"`** — AT will expose and offer rich-text editing commands (bold, styles)
+  on a CSS-syntax field. This is the accessibility-layer image of the same defect that lets a
+  formatted paste land (round-2 D-08).
+- **No `invalid` property at all**, in a node captured while the parse-error path is the
+  component's designed state.
+
+`VISUAL-CONSTITUTION.md:83` (§4.1): *"Selected, failed, pending, withdrawn and disabled states are
+never color-only. Role, accessible name, state/value and associated error/status are explicit."*
+Role is wrong, state is absent.
+
+---
+
+### R3-06 · MAJOR · **NEW** — spellcheck is on: every CSS token gets a red wavy underline, in the same red as the error state
+
+**Mechanism.** `contenteditable` defaults `spellcheck` to inherited-true; nothing turns it off.
+
+**Evidence (measured, `frames/r3probe.json` → `maskGeometry`):**
+
+```json
+"spellcheckIDL": true, "spellcheckAttr": null, "autocapitalize": null, "contentEditable": "true"
+```
+
+The element opts into UA spell checking. `oklch`, `rebeccapurple`, `display-p3`, `hsl`, `lab` — the
+entire vocabulary of this field — are not dictionary words, so the value carries red wavy
+underlines whenever the field is focused.
+
+The design consequence is a **semantic collision**, not just noise: this component's *only* error
+signal is red (`--destructive` border, `--destructive` badge). It therefore paints red-for-wrong on
+correct input, from a system the component does not control and cannot style. A user who has typed
+a perfectly valid `oklch(70% 0.15 200)` sees red squiggles under most of it.
+
+`VISUAL-CONSTITUTION.md:83`: state must be explicit and not colour-only; here an *unowned* red is
+competing with the *owned* red for the same meaning. `<input>` — the primitive glass-ui already
+ships (round-2 D-07) — is not spellchecked.
+
+---
+
+### R3-07 · MAJOR · **NEW** — opening the field with its own toggle fires the hover popover, which then covers the route content
+
+**Mechanism.** `trigger="hover"` on a `PopoverTrigger` wrapping a field that *expands under the
+stationary pointer* that just opened it.
+
+```
+ColorInput.vue:3–8   <Popover trigger="hover" :close-delay="0" :open-delay="300">
+ColorInput.vue:9–10  <PopoverTrigger as-child><div class="relative w-full flex items-center …">
+```
+
+**Evidence (measured, deterministic — probe parks the pointer on the toggle, clicks, and never
+moves the mouse again):**
+
+```json
+{ "parkedPointerAt": { "x": 851, "y": 40.55 },
+  "before": { "fieldRect": { "x": 569, "w": 302, "right": 871 }, "popoverOpen": false },
+  "after":  { "fieldRect": { "x": 563.6, "w": 324.7, "right": 888.4 }, "popoverOpen": true },
+  "pointerInsideFieldAfter": true,
+  "popoverOpenedWithoutMovingPointer": true }
+```
+
+The user's ordinary gesture — click the toggle, leave the mouse where it is — is enough. 300 ms
+later a 360-px-wide opaque panel drops over the route. `frames/r3-nohover-popover.png` and
+`frames/r3-dark-focus.png` both show it occluding the About card's H1.
+
+So the "help" is not opt-in: it is a **side effect of opening the control**, it appears over the
+protagonist, and it cannot be dismissed except by moving the pointer off a field you are trying to
+type into. Combined with the fact that this popover is the only mount of `<ParseEchoReadout />`
+(`:109`) — the app's Parse-Lab AST and gamut verdict — real information is bound to a disclosure
+that fires unbidden and has no click, focus or keyboard path.
+
+`PROPORTION-AUDIT.md:51` (PR-07): *"Hover-only/unlabeled controls … → ADD-AFFORDANCE / REMOVE."*
+`VISUAL-CONSTITUTION.md:115` (§5.1) gives the producer rule this violates: overlay open/close is a
+*command*, focus- and opener-bound — not a consequence of layout arriving under a cursor.
+
+---
+
+### R3-08 · MAJOR · **NEW measurement** — typing translates the dock's other controls ±166 px; the commit target recedes from the pointer
+
+**Mechanism.** A content-sized field in a centre-anchored band with no reservation.
+
+**Evidence (measured, `frames/r3probe2.json` → `dockShift`; one character at a time, entering
+`color(display-p3 0.5 0.2 0.9)`):**
+
+| frame | field w | field x | send x | toggle x | Back x |
+|---|---:|---:|---:|---:|---:|
+| empty | 50.0 | 701.0 | 723.0 | 764.0 | 636.0 |
+| +8 ch | 141.6 | 655.2 | 768.8 | 809.8 | 590.2 |
+| +16 ch | 233.1 | 609.4 | 814.6 | 853.6 | 544.4 |
+| +24 ch | 324.7 | 563.6 | 860.4 | 901.4 | 498.6 |
+| final | 382.0 | 535.0 | 889.0 | 930.0 | 470.0 |
+
+```
+fieldWidthTravel 332.0    sendButtonTravel +166.0
+toggleTravel     +166.0   backTravel      −166.0
+```
+
+Round 2 measured the *dock's width*. The sharper fact is the one above: **the sibling controls
+move**, in opposite directions, by 166 px each. The commit arrow you are typing toward retreats
+166 px while you type; the Back control slides 166 px the other way. A pointer resting on the
+toggle at the start of entry is 166 px away from it at the end. That is a pointer-target hazard,
+not merely visual jitter — and it is the mechanism that causes R3-07.
+
+`VISUAL-CONSTITUTION.md:30` (§3 law 4): *"The top dock owns a reserved band. Expanded/collapsed/
+mounted states do not move the scene below it."*
+`VISUAL-CONSTITUTION.md:78` (§4): *"Live numbers … reserve their widest legal representation so
+value changes never reflow the settled chassis."* The field reserves nothing; it is 50 px empty and
+382 px full — a 7.6× swing.
+
+---
+
+### R3-09 · MAJOR · **NEW** — the plate has no tier: opaque, 4 px-cornered, 74 % of the band, inside a `9999px` pill
+
+**Mechanism.** A shadcn form surface transplanted into a glass instrument.
+
+**Evidence (measured, `frames/r3probe.json`, `frames/r3probe2.json`, and the radius chain probe):**
+
+| quantity | measured |
 |---|---|
-| `demo/color-picker/App.vue:310–312` | `const { matches: isDesktop } = useBreakpoint("(min-width: 1024px) and (min-aspect-ratio: 1.1)")` |
-| `demo/color-picker/App.vue:77` | mobile pane slot — **no `:on-mount`** |
-| `demo/color-picker/App.vue:101–105` | desktop-left pane slot — `:on-mount="onDesktopLeftMount"` |
-| `demo/color-picker/App.vue:323–328` | `onDesktopLeftMount` is the **sole writer** of `colorPickerRef` |
-| `demo/color-picker/App.vue:38` | `:action-bar="colorPickerRef?.actionBarContext ?? null"` |
-| `demo/shell/dock/Dock.vue:41,153` | `hasAnyActionBar` gates the `action-bar` `DockLayer` |
-| `demo/shell/dock/layers/ActionBarLayer.vue:115` | `<ColorInput>` lives inside it |
+| field background, light | `rgb(251, 250, 248)` — **opaque** |
+| field background, dark | `rgb(11, 10, 9)` — **opaque**, the darkest object on the page |
+| field `border-radius` | **4 px** |
+| dock host `.glass-dock … shape-pill` `border-radius` | **9999px** (rendered 31 px at its 62 px height) |
+| radius ratio host : child | **7.75 : 1**, with no intervening rung — every ancestor between them is `0px` |
+| field height / dock band height | 45.91 / 62 = **74.0 %** |
 
-**Evidence (measured, `frames/probe-2.json`):**
+`VISUAL-CONSTITUTION.md:11–19` gives the dock exactly one tier — *"Structural glass … neutral
+Clear-Ice/Smoke family"* — and then: *"One surface has one tier. An inner card is not automatically
+another pane of glass. Glass earns its blur by revealing live content; otherwise it is a neutral
+well."* An opaque near-black plate filling three quarters of the structural-glass band is an
+unlabelled fifth tier, and the 4-px corner is a second radius language inside a capsule.
 
-```
-G-mobile   390×844  touch   →  { "missing": true }   aria-label inventory contains
-                                no "Open color input"; dock renders Home / Picker-About / ⋮
-J-zoom200  720×450          →  { "opened": {"present": false}, "missing": true }
-A-rest    1440×900          →  present, 324.72 × 45.91 px
-```
-
-720×450 CSS px is exactly what a 1440×900 display reports at 200 % browser zoom.
-
-**Why it is a design defect, not a layout accident.** `VISUAL-CONSTITUTION.md:32` (§3 law 6):
-*"Mobile uses one document-scrolling stage→inspector→action sequence beneath **the same top
-dock**."* The same dock — not a dock with the text-entry affordance amputated.
-`VISUAL-CONSTITUTION.md:99` (§5): *"every spatial action has a keyboard/numeric equivalent."*
-Typing a CSS string **is** the keyboard equivalent of the spectrum canvas and the channel rails;
-on mobile the spectrum canvas is the only way in. And the component's own help copy promises the
-opposite: *"Any valid CSS color string is accepted."*
-
-WCAG 1.4.4 / 1.4.10: content and functionality must survive to 200 % / 320 px-equivalent reflow.
-Here a whole input is lost.
-
-**Reproduction.** `http://localhost:9000/#/` at 390×844 or 720×450 → press every dock control →
-no colour input exists. At 1440×900 → Tools → the second toggle → it appears.
-
-**Cure.** The action-bar context must not be a side effect of which pane slot happened to mount.
-Lift it to the route table (`usePaneRouter`) so it is breakpoint-independent, and let the dock's
-mobile layer host the same field. If the dock genuinely cannot hold it below 1024 px, the field
-belongs in the Picker instrument's inspector at all widths — but it may not simply vanish.
+`PROPORTION-AUDIT.md:66` (§5 law 1): *"A page region, empty column, inner stage or mere padding
+group does not become a Card by default."* This one did.
 
 ---
 
-### D-02 · BLOCKER — `btn-interactive` matches zero CSS rules; the send button has no interaction design at all
+### R3-10 · MAJOR · **NEW** — the failure badge hides 89.9 % of the value it is judging
 
-**Mechanism.** A retired local recipe was credited to a producer atom that does not exist.
+**Mechanism.** Two absolutely-positioned siblings in one gutter (round-2 D-03), quantified against
+the *ink* rather than the button.
 
-`ColorInput.vue:61–66` and `:327–334` are two long comment blocks asserting that the button's
-hover/press legs, focus register and disabled opacity all come from the producer
-`btn-interactive` atom:
+**Evidence (measured, live, after typing `oklch()` and pressing Enter — `frames/r3probe.json`
+→ `f001`):**
 
-> "the spatial hover/press legs come from the producer `btn-interactive` atom (scale @
-> `--spring-smooth-duration` on `--transition-liquid-spatial`, house press/hover magnitudes +
-> focus register) … press/hover magnitudes + focus ring + **disabled opacity** are the house
-> registers."
-
-**Evidence (measured, live document, all stylesheets walked):**
-
-```js
-// selectors containing "btn-interactive", live at http://localhost:9000/#/
-{ "count": 0, "hits": [] }
+```json
+{ "text": "oklch()",
+  "ariaInvalid": null, "ariaDescribedby": null,
+  "badgePresent": true, "badgeRole": null, "badgeAriaLive": null,
+  "badgeRect": { "x": 682.1, "w": 101, "h": 18.4 },
+  "sendRect":  { "x": 763.1, "w": 24, "h": 24 },
+  "badgeOverSendPx2": 367.5, "sendAreaPx2": 576,
+  "inkRect": { "x": 673.9, "w": 80.1 }, "badgeCoversInkPx": 72 }
 ```
 
-Corroborated statically: `grep -rn "btn-interactive"` returns **no CSS anywhere** — not in
-`node_modules/@mkbabb/glass-ui/dist/glass-ui.css`, not in `demo/styles/*.css`. glass-ui is 7.0.0.
+- **89.9 %** of the typed text is covered (72 px of 80.1 px of ink).
+- **63.8 %** of the commit button is covered (367.5 px² of 576 px²) — and photographically
+  (`frames/r3-f001.png`) the arrow is not visible at all, because the uncovered 36 % is the
+  button's transparent margin.
+- `aria-invalid`, `aria-describedby`, `role`, `aria-live` are all **null** — corroborated by the AX
+  tree in R3-05, which carries no `invalid` property.
 
-**Evidence (measured state deltas, `frames/probe-3.json`):**
-
-| state | opacity | scale | transform | background | outline-style | box-shadow | filter |
-|---|---|---|---|---|---|---|---|
-| rest | 1 | none | `matrix(1,0,0,1,0,-12)` | `rgba(0,0,0,0)` | none | none | none |
-| hover | 1 | none | `matrix(1,0,0,1,0,-12)` | `rgba(0,0,0,0)` | none | none | none |
-| active (pressed) | 1 | none | `matrix(1,0,0,1,0,-12)` | `rgba(0,0,0,0)` | none | none | none |
-| focus | 1 | none | `matrix(1,0,0,1,0,-12)` | `rgba(0,0,0,0)` | none | none | none |
-
-`hoverDelta: false`, `focusRing: false`. Its `transition` computes to `all` — the Tailwind
-preflight default, not `--transition-liquid-spatial`.
-
-**Three simultaneous consequences:**
-
-1. **No hover, no press.** The only commit control in the field is inert to the pointer.
-2. **No focus indicator.** `outline-style: none` even at `:focus`; no `focus-ring` class (its
-   dock siblings all carry `tap-squish focus-ring`). WCAG 2.4.7 fails outright.
-3. **No disabled treatment** — see D-03.
-
-**Owner-edict violation.** Edict 6: *"Animations are never deleted, only moved or tokenized."*
-`ColorInput.vue:327–334` says the bespoke hover/press recipe was "RETIRED onto the producer
-`btn-interactive` atom". It was retired onto nothing. The motion was **deleted**, and a comment
-was left describing motion that does not exist. That comment is now the most misleading artefact
-in the file: a reader auditing the design would conclude the states are handled.
-
-**Reproduction.** Open the field, hover the arrow, press it, Tab to it — nothing changes at any
-step. Confirm with `getComputedStyle` or with the CSSOM walk above.
-
-**Cure.** Either the atom lands in glass-ui and is consumed, or — the KISS answer — the button
-stops being a hand-rolled `<button>` and becomes the glass-ui `Button` / `DockControl` its
-siblings already are (see D-07).
+The design statement is: *when you get it wrong, we will hide both what you wrote and the control
+that would let you try again.* `VISUAL-CONSTITUTION.md:101` (§5): a transient flourish *"never
+carries the only truth"* — this one destroys the truth underneath it.
 
 ---
 
-### D-03 · BLOCKER — the error badge occludes the value it describes and the button that would fix it
+### R3-11 · MINOR · **NEW** — the commit button wears the Chromium default focus ring, the only control in the band that does
 
-**Mechanism.** Two absolutely-positioned siblings competing for the same right-hand gutter.
+**Mechanism.** No house focus register on a hand-rolled `<button>`.
 
-`ColorInput.vue:335–343` `.send-btn { position:absolute; right:0.25rem; top:50% }`
-`ColorInput.vue:348–366` `.error-badge { position:absolute; right:0.5rem; top:50% }`
+**Evidence (measured, `frames/r3probe2.json` → `sendFocus`):**
 
-Both render simultaneously in colour mode: the send button is the `v-else` at `:76–82`
-(present whenever `!proposeMode`), the badge is `v-if="parseError && !proposeMode"` at `:87`. The
-badge is later in DOM order, so it paints on top; `pointer-events:none` keeps the button
-*clickable* but not *visible*.
+| control | focus route | `outline-style` | `outline-color` | `:focus-visible` |
+|---|---|---|---|---|
+| `.send-btn` | programmatic | `auto` | `rgb(0, 95, 204)` | true |
+| `.send-btn` | keyboard `Tab` | `auto` | `rgb(0, 95, 204)` | true |
+| dock sibling `DockControl` | keyboard | `none` | — | true |
 
-**Evidence (measured, `frames/probe-1.json`, `B-f001-light.afterEnter`):**
+**This corrects round-2 D-02**, which asserted *"No focus indicator. `outline-style: none` even at
+`:focus` … WCAG 2.4.7 fails outright."* Measurement does not support that: the button does receive
+a focus ring. The real defect is register drift — it is the **UA's** `#005FCC` blue, the one colour
+in the application that is guaranteed not to belong to the user's palette, painted inside a
+liquid-glass dock tinted by the active colour. Every sibling suppresses the UA outline and uses the
+house register; this control alone did not, and only the browser's default is keeping it operable.
 
-```
-badgeRect  { x: 682.1, y: 31.4, w: 101,  h: 18.4 }
-sendRect   { x: 763.1, y: 28.5, w:  24,  h:  24  }
-overlapPx2 367.5        sendAreaPx2 576        →  63.8 % of the button is covered
-```
-
-The 101 px badge also covers the whole ~128 px-wide field content — see `frames/B-f001-error.png`,
-where the typed `oklch()` survives only as a sliver.
-
-**Canon.** `PROPORTION-AUDIT.md:70` (§5 law 5): *"A small icon/mark is either data, status,
-labeled action, drag affordance, focus/selection register or removed."* Two of them cannot occupy
-the same 24 px seat. `VISUAL-CONSTITUTION.md:101` (§5): a transient flourish *"never carries the
-only truth"* — here the flourish additionally **destroys** the truth beneath it.
-
-**Reproduction.** Desktop ≥1024 px → Tools → colour input → select all → type `oklch()` → Enter.
+`VISUAL-CONSTITUTION.md:84` (§4.1): *"Focus remains visibly distinct from selection in both
+schemes, forced colors and reduced transparency."* It is distinct — by accident, in a foreign
+colour.
 
 ---
 
-### D-03b · correction to round 1 — the send button has **no** `type` attribute
+### R3-12 · INFO · **NEW** — the demo's reduced-motion transition guard is inert; the producer's rule wins
 
-Round 1's D-3 states the button is `type="submit"`. Measured: `getAttribute("type") === null`;
-the IDL `.type` is `"submit"` **by default**, and `closest("form") === null`, so nothing is
-submitted. The defect is real but it is *an omission*, not a wrong explicit value — and the
-correct framing matters for the cure, because the canon's idiom
-(`VISUAL-CONSTITUTION.md:102`, `PROPORTION-AUDIT.md:77`) is the explicit
-`<button type="button">` that every other seat in this repo writes
-(`demo/palettes/browser/card/CurrentPaletteEditor.vue:75`).
+**Evidence (measured under `reducedMotion: "reduce"`, all matching rules walked):**
+
+```json
+{ "transitionDuration": "0.1s", "animationDuration": "1e-05s", "prm": true,
+  "hits": [
+    { "sel": ":not([data-allow-motion])", "media": "(prefers-reduced-motion: reduce)",
+      "td": "0.1s",    "imp": "important" },
+    { "sel": "*, ::before, ::after",      "media": "(prefers-reduced-motion: reduce)",
+      "td": "0.01ms",  "imp": "important" },
+    { "sel": "&", "td": "var(--duration-fast)", "imp": "" }
+  ] }
+```
+
+`demo/styles/animations.css:184–193` declares `*, *::before, *::after { transition-duration: 0.01ms
+!important }` — specificity (0,0,0). glass-ui ships `:not([data-allow-motion]) {
+transition-duration: .1s !important }` — specificity (0,1,0) — which **beats it**. The measured
+result is 0.1 s, not 0.01 ms.
+
+**This corrects round-2 §5**, which credited this component's reduced-motion compliance to
+*"the blanket guard at `demo/styles/animations.css:184–193`"*. For transitions that guard is dead
+app-wide. Animations do still resolve to `1e-05s`, so round-2's crown/flash conclusions stand. The
+outcome here is benign (a 100 ms colour transition is appropriate under reduced motion) — the
+finding is that the component's PRM behaviour is **accidental**: it is produced by a producer rule,
+against a consumer rule that believes it is in charge.
 
 ---
 
-### D-04 · BLOCKER — the failed state has no programmatic semantics, and dies after 2 s
+### R3-13 · INFO · **NEW** — the root wrapper is contrivance
 
-**Mechanism.** Error as a decorative pop-in rather than a control state.
+`ColorInput.vue:2` — `<div class="grid grid-cols-1 gap-y-2 p-0 m-0">`.
 
-**Evidence (measured, `frames/probe-1.json`):**
+Measured: the element has exactly one child (`frames/r3probe3.json` → `chain` — `DIV.grid
+grid-cols-1 gap-y-2 p-0 m-0` → one `DIV.relative w-full flex …`, both 324.7 px wide, both
+`border-radius: 0px`). A single-child single-column grid can never
+apply `gap-y-2`; `p-0 m-0` reset properties that are already zero. Three of the five utilities on
+the component's root element are unreachable. Owner edict 3 (*KISS, no contrivance*).
 
-```
-inputAria    { "invalid": null, "describedby": null }
-badgeStyles  { "role": null, "ariaLive": null, "id": "", "pointerEvents": "none" }
-after2s      { "badge": false, "text": "oklch()", "border": "lab(92 88.8 20 / 0.827)" }
-```
-
-So: the field is never `aria-invalid`, is never `aria-describedby` the message, the message has
-no `role="alert"` / `aria-live`, and it is not even associated by `id`. A screen-reader user
-receives **nothing at all**. Two seconds later
-(`demo/color-session/useColorParsing.ts:57` — `setTimeout(… , 2000)`) the badge and the red border
-both revert while the invalid text stays in the field.
-
-**Canon.** `VISUAL-CONSTITUTION.md:83` (§4.1): *"Selected, failed, pending, withdrawn and disabled
-states are never color-only. Role, accessible name, state/value and associated error/status are
-explicit."* This state is colour-only, and not even durable colour.
-`PROPORTION-AUDIT.md:52` (PR-08): *"Pending/failure/export/recovery truth only transient →
-**ADD-AFFORDANCE** … Persistent entity status/recovery."*
-
-**Aggravation — glass-ui already ships the fix.**
-`node_modules/@mkbabb/glass-ui/dist/forms.d.ts` exports `useUserInvalidAria`, whose own doc
-comment reads: *"The `:user-invalid` → `aria-invalid` bridge. Wired on `blur` (capture — show
-error on field-exit), `input` (clear error on correction), and `submit`…"*. It binds **form
-controls**. A `contenteditable` span is not one, so the choice of `contenteditable` (D-07)
-structurally excludes the design system's own validity mechanism.
+The same element is where the parent's `class="min-w-0"` and the dock layer's
+`dock-layer is-active` land by attribute fallthrough — so the one class that matters is the one
+that is not written here.
 
 ---
 
-### D-05 · MAJOR — every keystroke resizes the dock (137.3 px of travel), and that makes the mask/ellipsis apparatus dead code · **NEW**
+## 4. Independently re-measured — prior-round findings this round confirms
 
-**Mechanism.** An unreserved, content-sized field inside a reserved band.
+These were reported in round 1 and/or round 2. I re-derived each from my own probes; the numbers
+below are mine, not copied.
 
-**Evidence (measured, `frames/probe-3.json` — typing `rebeccapurple` one character at a time):**
-
-```
-input width : 61.5 → 72.9 → 84.3 → 95.8 → 107.2 → 118.7 → 130.1 → 141.6 →
-              153.0 → 164.5 → 175.9 → 187.4 → 198.8      (span 137.3 px)
-dock  width : 179.5 → 190.9 → … → 316.8                  (span 137.3 px, 1:1)
-```
-
-The dock pill's width tracks the field's exactly. Select-all-and-retype first **collapses** the
-pill to 61.5 px, then inflates it 137 px over thirteen keystrokes. With `text-align: center`
-(`ColorInput.vue:16`) the string also re-centres on every frame, so the value slides while it
-grows.
-
-**Canon.** `VISUAL-CONSTITUTION.md:30` (§3 law 4): *"The top dock owns a reserved band.
-Expanded/collapsed/mounted states do not move the scene below it."*
-`VISUAL-CONSTITUTION.md:78` (§4): *"Live numbers use tabular figures and **reserve their widest
-legal representation so value changes never reflow the settled chassis**."*
-
-**The second half of this finding is the sharper one.** Because the field grows instead of
-clipping, it **never overflows**:
-
-```
-C-focus-dark.longValue → { scrollW: 586, clientW: 586, overflowing: false }   // 46 chars
-```
-
-Therefore `overflow-hidden`, `text-ellipsis`, `whitespace-nowrap` (`ColorInput.vue:16`), the
-`--input-action-width: 2.5rem` mask (`:300–301`) and its `:focus` cancel (`:303–306`) — the most
-bespoke, most commented CSS in the file — are **unreachable at every viewport where the component
-exists**. They solve a problem that cannot occur, while the problem that does occur (137 px of
-dock jitter) is unaddressed. `PROPORTION-AUDIT.md:73` (§5 law 8): *"Real rendered relation wins
-over token intent."*
-
----
-
-### D-06 · MAJOR — the error never fires twice for the same input; the second Enter is answered with silence · **NEW measurement**
-
-**Mechanism.** A memo short-circuit ahead of the try/catch.
-
-`demo/color-session/useColorParsing.ts:62`:
-
-```ts
-if (!input || input === previousInvalid) return;
-```
-
-`previousInvalid` is set on the failing path (`:85`), so a repeated submission of the same string
-returns **before** `flashParseError()` can run.
-
-**Evidence (measured, `scratchpad/DD-probe4.mjs`):**
-
-```
-mode              { label: "Enter a CSS color", text: "lab(92% 88.8 20 / 82.7%)" }
-submit1_badge     true
-badgeGoneAfter2s  true
-textAfter2s       "oklch()"
-submit2_badge     false      ← second Enter on the identical text
-submit2_badge_late false
-pageErrors        []
-```
-
-**The user journey this produces.** Type an invalid colour → wait 2 s (the debounce,
-`useColorParsing.ts:92` — `debounce(parseAndSetColor, 2000)`) → a red slab covers your text for
-2 s → it vanishes → you press Enter again to try → **nothing happens, ever.** No error, no
-success, no change. The field sits there holding an invalid value.
-
-`VISUAL-CONSTITUTION.md:99` (§5): *"Tuning is continuous and interruptible."* A 2 s dead zone
-before any feedback, followed by permanent silence on retry, is neither.
-
----
-
-### D-07 · MAJOR — a `contenteditable` span where the design system ships `Input`, and the canon forbids a duplicate `contenteditable` path
-
-**Mechanism.** Hand-rolled primitive.
-
-`ColorInput.vue:11–27` is a `<span contenteditable role="textbox">`. Measured attribute
-inventory (`frames/probe-1.json`):
-
-```
-contenteditable "" (= "true", NOT "plaintext-only")
-role "textbox"   aria-multiline null   aria-invalid null   aria-describedby null
-spellcheck null  inputmode null  enterkeyhint null  autocapitalize null  autocorrect null
-```
-
-**glass-ui 7.0.0 already exports the primitive.**
-`node_modules/@mkbabb/glass-ui/dist/components/input/types.d.ts`:
-
-```ts
-export interface InputProps {
-  autocomplete?; class?; defaultValue?; disabled?; enterkeyhint?; form?;
-  inputmode?; invalid?; maxlength?; minlength?; modelValue?; name?;
-  pattern?; placeholder?; readonly?; required?; size?; type?;
-}
-```
-
-Every prop this component is missing — `placeholder`, `invalid`, `disabled`, `enterkeyhint`,
-`inputmode`, `pattern` — is in that interface. `./forms` additionally exports `useUserInvalidAria`
-(D-04); `./search`, `./labeled-field`, `./button` and `./toast` are all published subpaths.
-
-**Canon, verbatim.** `PROPORTION-AUDIT.md:75` (§5 law 10):
-
-> "Readout and editing are separate jobs. The large Picker headline is read-only output; the
-> semantic W21 numeric fields are the only direct channel editors, with commit/cancel/error
-> semantics and **no duplicate `contenteditable` path**."
-
-Owner edict 4 (*glass-ui is the design system*) and edict 3 (*KISS, no contrivance*) both land
-here: 377 lines of hand-rolled field, with none of the commit/cancel/error semantics the law
-requires, standing beside a published `Input`.
-
----
-
-### D-08 · MAJOR — a bare `contenteditable` admits arbitrary markup; a formatted paste inflates the dock by 44 % · **NEW**
-
-**Mechanism.** `contenteditable="true"` instead of `plaintext-only`, and no `paste` handler.
-
-**Evidence (measured, `frames/probe-1.json` → `D-paste`; frame `frames/D-paste.png`):**
-
-```
-innerHTML  '<b style="color:lime;font-size:32px">red</b>'
-innerText  'red'
-height     66 px     (rest: 45.91 px  →  +20.09 px, +43.8 %)
-```
-
-![paste](frames/D-paste.png)
-
-The dock band now carries 32 px lime-green bold text. Real-world reproduction: copy a colour token
-out of a styled page, a Figma layer name, or a syntax-highlighted code block — the near-universal
-way a user gets a CSS colour string onto their clipboard — and paste.
-
-The component has no `paste` listener, no `plaintext-only`, and its two `innerText` writers
-(`:191`, `:265`, `:278`) only repair the damage on blur or on a model change — not on the frame
-the paste lands.
-
----
-
-### D-09 · MAJOR — the Crown reveal animation cannot run: the inline `animation` names a keyframe Vue renamed away · **NEW**
-
-**Mechanism.** Scoped-CSS keyframe renaming vs. an inline `style` attribute.
-
-`ColorInput.vue:33–40` sets the animation **in the template, inline**:
-
-```html
-<Crown :key="crownKey" … style="animation: crown-appear var(--duration-panel) var(--ease-decelerate) forwards;" />
-```
-
-`ColorInput.vue:369–376` defines `@keyframes crown-appear` **inside `<style scoped>`**.
-
-`@vue/compiler-sfc` renames keyframes in scoped blocks and rewrites `animation`/`animation-name`
-declarations **that appear in the same PostCSS root**
-(`node_modules/@vue/compiler-sfc/dist/compiler-sfc.cjs.js:8053–8080`:
-`keyframes[node.params] = node.params = node.params + "-" + shortId`). An inline `style`
-attribute in the template is never seen by PostCSS.
-
-**Evidence (served CSS, fetched from Vite):**
-
-```
-GET /@fs/…/demo/shell/dock/ColorInput.vue?vue&type=style&index=0&scoped=55dadc03&lang.css
-  → "@keyframes crown-appear-55dadc03 { … }"
-```
-
-**Evidence (live CSSOM, `frames/probe-1.json`):**
-
-```
-crownKeyframeNames: ["crown-appear-55dadc03"]
-```
-
-There is no `crown-appear` in the document. `animation-name: crown-appear` matches nothing, so no
-animation runs, `forwards` fills nothing, and the four-stop gold-shimmer choreography (scale 0 →
-1.4 → 0.95 → 1, rotate −15° → +5° → −2° → 0, two `drop-shadow` beats) is **entirely dead**. The
-`:key="crownKey"` remount machinery in `demo/color-session/useColorNameResolution.ts:64` exists
-solely to restart an animation that cannot start.
-
-Contrast `input-mode-flash` (`:313`, `:316`), which *is* declared inside the scoped block and
-compiles correctly to `input-mode-flash-55dadc03`. The same file gets it right once and wrong
-once.
-
-Owner edict 6 again: the animation was neither moved nor tokenized — it is simply inert.
-
----
-
-### D-10 · MAJOR — in forced-colors the field has a **zero** focus delta
-
-**Mechanism.** Focus expressed only as an author-coloured border, with `outline` suppressed.
-
-`ColorInput.vue:16` `focus-visible:outline-none`; `:162–166` the only focus register is
-`{ borderColor: cssColor.value }`.
-
-**Evidence (measured, `forcedColors: "active"`, `frames/probe-2.json`):**
-
-```
-rest     { borderColor: "rgb(0, 0, 0)", outlineStyle: "none", bg: "rgb(255,255,255)" }
-focused  { borderColor: "rgb(0, 0, 0)", outlineStyle: "none", boxShadow: "none" }
-deltaBorder: false
-```
-
-Forced colors overrides the author border to the system colour in **both** states, and the outline
-was already removed. There is no focus indicator at all. `frames/I-forced-colors.png` confirms
-visually.
-
-The same measurement shows the mask survives forced-colors
-(`linear-gradient(to right, rgb(0,0,0) calc(100% - 40px), rgba(0,0,0,0) 100%)`), so in
-high-contrast mode the field's ink **and** its system-coloured border still fade out over the last
-40 px.
-
-**Canon.** `VISUAL-CONSTITUTION.md:84` (§4.1): *"Focus remains visibly distinct from selection in
-both schemes, **forced colors** and reduced transparency."* Measured delta: zero.
-
-*(Round 1's D-1 identified the live-colour focus border as data-dependent and therefore
-potentially invisible; this is the same mechanism, measured to a hard zero in the forced-colors
-arm, plus the surviving mask.)*
-
----
-
-### D-11 · MAJOR — the disabled send button is pixel-identical to the enabled one
-
-**Mechanism.** D-02's missing atom, surfacing as a missing state.
-
-`ColorInput.vue:70` `:disabled="!proposedName.trim() || proposing"`; `:344–346` the only disabled
-rule in the file is `cursor: not-allowed`.
-
-**Evidence (measured, propose mode, empty field, `frames/probe-2.json` → `K-propose`):**
-
-```
-disabled true      btnOpacity "1"      btnRect { w: 24, h: 24 }
-btnCursor "not-allowed"
-svgStroke 'stroke: oklch(0.471189 0.188448 9.83402);'   ← the same inline accent as enabled
-```
-
-Frame `frames/K-propose.png` beside `frames/A-rest-light.png`: identical arrow, identical colour,
-identical size. The **only** signal that the primary action is unavailable is a cursor shape —
-i.e. hover-only, mouse-only, invisible on touch and to assistive technology (`aria-disabled` is
-absent; the native `disabled` attribute at least removes it from the tab order, but nothing is
-*shown*).
-
-`VISUAL-CONSTITUTION.md:83`: *"… disabled states are never color-only."* This is not even
-colour — it is cursor-only. `PROPORTION-AUDIT.md:51` (PR-07): *"Hover-only/unlabeled controls …
-→ ADD-AFFORDANCE / REMOVE."*
-
-Note also the inline `:style="{ stroke: safeAccent }"` (`:74`, `:81`) is a **per-instance override
-at the highest non-`!important` specificity**, so it would defeat any producer disabled treatment
-even if one existed — owner edict 5 (*style at the root, never per-instance*).
-
----
-
-### D-12 · MAJOR — the send button is nameless; it is the *entire* `namelessButtons` defect the mega-tranche audit recorded for `/#/`
-
-**Mechanism.** Icon-only control with no accessible name.
-
-**Evidence (measured, live, route `/#/`):**
-
-```js
-document.querySelectorAll('button') → 26 total
-nameless (no aria-label, no text, no title) → 1:
-  <button data-v-55dadc03 class="send-btn btn-interactive"> …ArrowRight svg… </button>
-  rect { x: 897.2, y: 28.8, w: 24, h: 24 }
-```
-
-`ariaLabel: null`, `title: null`, `textContent: ""`, and the lucide `<svg>` carries no
-`aria-hidden` and no `<title>`.
-
-Cross-referenced with `../../visual/REPORT.md:96,103` — `namelessButtons` on
-`safari-desktop-light /#/` = **1** and `safari-desktop-dark /#/` = **1**. This button is that
-count, in full. (Mobile `/#/` shows 0 — because of D-01.)
-
-**Aggravation.** Both of this component's host files carry comments enforcing the opposite law:
-`Dock.vue:140–142` — *"native `title` retired dock-wide — icon-only controls carry aria-label"*;
-`ActionBarLayer.vue:126–128` — *"E.W3 Lane A added aria-label so the role/label selectors … can
-drive the cycle."* The dock's own law was applied to every control except this one.
-
-At 24×24 it also sits exactly on the WCAG 2.2 target-size floor with no spacing exception — and
-**shrinks below it** when it enters the `proposing` state, because the spinner is `w-3.5 h-3.5`
-(14 px) against the arrow's `w-4 h-4` (16 px) (`ColorInput.vue:73–74`): a 2 px geometry regression
-triggered by a loading state.
-
----
-
-### D-13 · MAJOR — the type register is off the closed matrix, measured · **NEW measurement**
-
-**Mechanism.** No role token; ambient inheritance.
-
-`VISUAL-CONSTITUTION.md:68–78` (§4) is a **closed** matrix. `PROPORTION-AUDIT.md:78` (§5 law 13)
-repeats it: value/code/provenance → `text-mono-small`; control/label → `text-small`, Plus Jakarta
-Sans, non-bold; section heading → `text-heading`; prose/help → `text-prose`.
-
-**Evidence (measured, `frames/probe-2.json` → `typeRegister`):**
-
-| element | measured size | measured family | required role |
-|---|---|---|---|
-| `.color-input` value | **18.608 px** | Fira Code | `text-mono-small` |
-| dock Login button (`text-mono-small`) | **16.4 px** | Fira Code | — (reference) |
-| dock Tools label (`text-small`) | 16.4 px | Fraunces | — (reference) |
-
-The value renders **+2.208 px (+13.5 %)** larger than every other mono register in the same dock
-pill, because `ColorInput.vue:16` applies only the family class `fira-code` and **no size role at
-all**. 1.135 is not an adjacent rung on any golden ladder.
-
-Three further breaches, all visible in `frames/H-hover-popover.png`:
-
-- `ColorInput.vue:97` — the popover title uses `text-subheading`, which §4 reserves for **palette
-  identity**; a popover section heading is `text-heading`. (The comment at `:95–96` claims a
-  "display voice", which is a third role again.)
-- `ColorInput.vue:94` — `PopoverContent class="… font-display …"` forces **Fraunces** onto the
-  help prose at `:98–100`, which §4 assigns to Plus Jakarta Sans `text-prose`. The screenshot
-  shows the serif unambiguously.
-- `ColorInput.vue:353` — the error badge uses `@apply text-xs`, a raw Tailwind rung. Confirmed in
-  the served CSS: `font-size: var(--text-xs, 0.75rem)`. `text-xs` is not in the matrix.
-- `frames/K-propose.png` — the propose placeholder *"propose a name …"*, a prompt for a **human
-  name**, renders in Fira Code because it inherits the field's mono family.
-
----
-
-### D-14 · MAJOR — `text-center` on an asymmetrically padded box: a permanent 12 px optical bias · **NEW measurement**
-
-**Mechanism.** A centring declaration over a 12 px / 36 px padding pair.
-
-`ColorInput.vue:16–18`: `px-3` (12 px) plus `'pr-9': true` (36 px) plus `text-center`.
-
-**Evidence (measured, `frames/probe-1.json`):**
-
-```
-paddingLeft  "12px"     paddingRight "36px"
-contentBoxCentreX 714.00      borderBoxCentreX 726.00      →  Δ = 12.00 px
-```
-
-Because the field is content-sized (D-05), the string always fills its content box exactly, so
-`text-align: center` never does anything — the real layout is `12 px | value | 36 px`, a 1:3
-asymmetry, and the value sits permanently 12 px left of the pill's own optical centre. The `pr-9`
-gutter is bound to nothing: the mask reserves `--input-action-width: 2.5rem` (40 px) and the
-button sits at `right: 0.25rem` with a 24 px box (28 px), so **three different numbers — 36, 40,
-28 — describe the same action gutter** and none of them derives from the others.
-
-`PROPORTION-AUDIT.md:73` (§5 law 8): *"Real rendered relation wins over token intent … measured
-rects and ink gaps appear in DELTA; token presence alone cannot close a row."*
-
----
-
-### D-15 · MAJOR — the empty state is undesigned, and the placeholder mechanism is defeated by the browser's own `<br>` · **NEW**
-
-**Mechanism.** `:empty` against a contenteditable.
-
-`ColorInput.vue:321–325`:
-
-```css
-.color-input:empty[data-placeholder]::before { content: attr(data-placeholder); … }
-```
-
-`data-placeholder` is set **only in propose mode** (`:261`) and removed on exit (`:264`), so in
-colour mode there is no placeholder at all.
-
-**Evidence (measured, `frames/probe-1.json` → `C-focus-dark.empty`):**
-
-```
-text  "\n"      html  "<br>"      dataPlaceholder null      rectH 45.91
-badge false
-```
-
-Chromium (and every other engine) inserts a `<br>` filler when a contenteditable is emptied by the
-user. `:empty` therefore **stops matching after the first type-then-clear cycle**, so even in
-propose mode the placeholder never returns. On mount it works (`frames/probe-2.json` →
-`K-propose.placeholderShows: '"propose a name..."'`) because `innerText = ""` leaves the node
-genuinely empty — so the mechanism works exactly once, in the one situation the user has not yet
-interacted.
-
-Meanwhile colour mode's empty state (`frames/C-empty-dark.png`) is a ~60 px black square with one
-arrow: no placeholder, no label, no error (`parseAndSetColor` returns early on `!input`,
-`useColorParsing.ts:62`), no indication that blur will silently discard whatever you did.
-
-**A state that was never designed is a design defect** — this is three of them (empty, cleared,
-blurred-discard) in one control.
-
----
-
-### D-16 · MAJOR — real information and the only help are gated behind hover
-
-**Mechanism.** `trigger="hover"` on the field wrapper.
-
-`ColorInput.vue:3–8`: `<Popover trigger="hover" :close-delay="0" :open-delay="300">` wrapping the
-entire field. Its content (`:94–110`) is the *only* place the app explains what the field accepts,
-the *only* place the serialized colour appears in canonical form, and the *only* mount of
-`<ParseEchoReadout />` — the E4/Q10 Parse-Lab AST + gamut verdict.
-
-**Evidence (measured, `frames/probe-2.json` → `hoverPopover`):**
-
-```
-count 2
-texts[1] "Enter a colorAny valid CSS color string is accepted. lab(92% 88.8 20 / 82.7%)
-          lab l 92% a 88.8 b 20 α 0.827 outside srgb gamut"
-```
-
-There is **no click, focus or keyboard path** to it. Combined with D-01 (no component below
-1024 px), the Parse-Lab echo is reachable only by a mouse on a ≥1024 px landscape viewport.
-
-`PROPORTION-AUDIT.md:51` (PR-07): *"Hover-only/unlabeled controls and invisible drag state →
-ADD-AFFORDANCE / REMOVE."*
-
-**And it is redundant while it is doing this.** `frames/H-hover-popover.png` shows the value four
-times on one screen: in the field, in the popover's mono line, decomposed in the echo, and in the
-Picker's own headline behind it. It carries **two `Separator` rules in a four-line panel**
-(`:101`, `:108`) — `PROPORTION-AUDIT.md:49` (PR-05, **REMOVE**): *"Dividers … repeat a boundary"*;
-§5 law 4: *"A divider is retained only when grouping would be ambiguous without it."* And the
-panel **occludes the route H1 and the Picker headline** — the help covering the protagonist,
-against `PROPORTION-AUDIT.md:71` (§5 law 6): *"Subtraction precedes explanation."*
-
-The component also stacks a second disclosure species on the same 45 px control: the Crown
-`Tooltip` (`:30–59`). Two hover-disclosure mechanisms on one field is the "tooltip proliferation"
-the same law names.
-
----
-
-### D-17 · MAJOR — propose-mode failure and success are both silent, and the "signal parent" comment is false · **NEW**
-
-**Mechanism.** Network operation with no operation state.
-
-`ColorInput.vue:230–247`:
-
-```ts
-await session.ensureSession();                       // silently mints an account
-await proposeColorName(…);
-proposedName.value = "";
-// Signal parent to exit propose mode
-if (inputColorRef.value) inputColorRef.value.innerText = formattedCurrentColor.value;
-} catch (e: any) {
-    console.warn("[ColorInput] Failed to propose name:", e?.message);
-}
-```
-
-- **Failure** produces a `console.warn` and nothing else. No badge, no toast, no state. glass-ui
-  exports `./toast`.
-- **Success** produces… the same visible outcome: the field's text changes and nothing else. There
-  is **no toast, no crown, no confirmation**.
-- The comment *"Signal parent to exit propose mode"* describes an emit that does not exist: this
-  SFC has **no `defineEmits` at all**. After a successful proposal the user remains in propose
-  mode, `aria-label` still reads *"Propose a color name"*, while the field now displays a colour
-  string. Mode and content disagree.
-- The `catch (e: any)` also re-introduces `any` into a `strict` tree.
-
-`VISUAL-CONSTITUTION.md:101` (§5): *"Persistent operation state stays with the entity/workspace."*
-`PALETTE-CONTRACT.md:172` states the same principle for the sibling export path in absolute terms:
-*"a visible terminal/retryable operation state — never a partial download or `console.warn`-only
-result."* This is literally the `console.warn`-only result.
-
-Mode entry is equally thin: the only signal that the field has switched from *"enter a colour"* to
-*"propose a public, moderated colour name"* is a 300 ms `scaleX(0.97)` flash and a placeholder that
-disappears on the first keystroke (and never returns — D-15). Same plate, same arrow, same font.
-
----
-
-### D-18 · MINOR — direction is physical throughout; no LTR isolation for LTR-only syntax
-
-**Mechanism.** `right` / `to right` / `pr-*` instead of logical properties.
-
-**Evidence (measured, `dir="rtl"`, `frames/probe-1.json` → `E-rtl`; frame `frames/E-rtl.png`):**
-
-```
-computed direction "rtl"
-paddingLeft  "12px"     paddingRight "36px"          ← unchanged
-maskImage    "linear-gradient(to right, …)"          ← unchanged
-sendRect.x   848.4  (input 551.6 … 876.3)            ← still physical right
-sendOnInlineStartSide false
-```
-
-The dock chrome mirrors correctly (Back moves to the right in `frames/E-rtl.png`) while the
-field's action gutter, fade mask and button stay pinned to the physical right — so the reserved
-gutter no longer sits at the inline end of its own container's flow.
-
-Separately: the field inherits `direction: rtl` while holding an LTR-only CSS grammar, with no
-`dir="ltr"` and no `unicode-bidi: isolate`. `VISUAL-CONSTITUTION.md:154` (§6.1) is explicit:
-*"CSS strings, hex, slugs, IDs and provenance | render in **LTR-isolated spans** inside RTL
-prose."* Neutrals (`(` `)` `%` `/`) in a typed value are bidi-reorderable under an RTL paragraph
-direction.
-
----
-
-### D-19 · MINOR — an opaque plate is a second material tier inside the dock's glass · **NEW**
-
-`ColorInput.vue:16` — `border … bg-background rounded-input`. Measured
-`backgroundColor: rgb(251, 250, 248)` (fully opaque), `borderColor: rgb(198, 180, 159)`
-(`--input`), inside the dock's translucent glass pill, beside siblings that are all
-`glass-specular-track glass-capsule-hover`.
-
-`VISUAL-CONSTITUTION.md:19`: *"One surface has one tier. An inner card is not automatically another
-pane of glass. Glass earns its blur by revealing live content; otherwise it is a neutral well."*
-The dock is Structural glass; this is an unlabelled fourth tier improvised inside it.
-`VISUAL-CONSTITUTION.md:178` (§7 Shell/dock): *"The dock is its own top band, fully visible,
-focusable, and **clipped by neither mask nor card**."* The `mask-image` at `:300` is exactly the
-prohibited mask, applied inside the dock band.
-
----
-
-### D-20 · MINOR — the mode-flash JS timer is desynchronised from the token it mirrors · **NEW**
-
-`ColorInput.vue:313` — `animation: input-mode-flash var(--duration-slow) …`
-`ColorInput.vue:256` — `setTimeout(() => { modeTransition.value = false; }, 300);`
-
-Measured live: `--duration-slow: 0.45s` (450 ms). The class is stripped at **300 ms of a 450 ms
-animation — 66.7 % through** — so the element snaps from an eased mid-state (≈ `scaleX(0.998)`,
-`opacity ≈ 0.972` under `cubic-bezier(0,0,0.2,1)`) to its rest state. A hard-coded magic number
-standing in for the token it is supposed to mirror; owner edict 6 (*tokenized*).
-
-The same ad-hoc pattern is one file away — `ActionBarLayer.vue:62` `SUB_LAYER_CROSSFADE_MS = 260`
-— which is what the field's own enter/exit rides.
-
----
-
-### D-21 · MINOR — dead surface: a dead prop, two dead injections, a five-member `defineExpose` with zero consumers, and a third Copy path
-
-| Coordinate | Dead thing | Proof |
+| Prior finding | My independent measurement | Verdict |
 |---|---|---|
-| `ColorInput.vue:139` | prop `editTarget` declared, never referenced | only occurrence in the file is the declaration |
-| `ColorInput.vue:134` | `import type { EditTarget }` exists only to type that dead prop | — |
-| `ColorInput.vue:146` | injection `cssColorOpaque`, never used | — |
-| `ColorInput.vue:150` | injection `canProposeName`, never used | — |
-| `ColorInput.vue:282–288` | `defineExpose({ focus, inputIsFocused, copyAndSetInputColor, onSubmitColor, submitProposedName })` | `ActionBarLayer.vue:28` declares `colorInputRef` and **never dereferences it**; repo-wide grep across `demo/ e2e/ test/` finds no consumer of any member |
-| `ColorInput.vue:219–223` | `copyAndSetInputColor` — a **third** Copy implementation | `PROPORTION-AUDIT.md:57` (**PR-13, REMOVE**): *"Picker specimen and action region both host Copy … total 2→1"*; `ActionToolbar` already owns `@copy` (`ActionBarLayer.vue:110`) |
-| `ColorInput.vue:117` | `import { writeClipboard } from "@mkbabb/glass-ui"` | used only by that dead Copy path |
+| **D-01** component absent < 1024 px / at 200 % zoom | `shots/zoom-200-desktop/picker.png` read as an image: dock renders `⌂ ⌄ │ Picker About │ ⋮`, **no Tools control**; `shots/safari-desktop-light/picker.png`: no field on the resting desktop dock either | **CONFIRMED** |
+| **D-02** `btn-interactive` matches no CSS | CSSOM walk of every stylesheet in the live document: `"btnInteractiveRules": 0`; the only rules matching the button are `.send-btn[data-v-55dadc03]` and `:disabled`; `transition` computes to `all` (Tailwind preflight) | **CONFIRMED** (focus sub-claim corrected — R3-11) |
+| **D-09** `crown-appear` names a keyframe that does not exist | Live keyframe inventory: `["input-mode-flash-55dadc03", "crown-appear-55dadc03"]`. The template's inline `style="animation: crown-appear …"` (`:37–39`) is never seen by PostCSS, so it names an absent identifier. The scoped `input-mode-flash` compiles correctly — same file, same idiom, one right one wrong | **CONFIRMED** |
+| **D-12** send button nameless | `"ariaLabel": null, "typeAttr": null, "text": ""`, rect 24×24; the Crown/arrow `<svg>` carries no `aria-hidden` and no `<title>` | **CONFIRMED** |
+| **D-13** type register off the closed matrix | `font-size: 18.608px`, family Fira Code, **identical in light and dark**; `VISUAL-CONSTITUTION.md:76` assigns `text-mono-small` to value/code roles and `ColorInput.vue:16` applies no size role at all | **CONFIRMED** |
+| **D-23** MT-F001 is swallowed, not crashed | Typed `oklch(` `)` + Enter: `"f001PageErrors": []`; the only console error on the route is the unrelated dev `VITE_API_URL` misconfiguration notice. The badge reads *"not a valid color"*. The bare `catch` at `useColorParsing.ts:84` renders a shipping `TypeError` and a user typo as the same sentence | **CONFIRMED** |
+
+**MT-F001, answered directly.** *This component neither guards nor crashes on it — it swallows
+it.* The user types `oklch()`, waits out a 2 s debounce, and is shown a red slab reading "not a
+valid color" that covers 89.9 % of what they typed and all of the retry button. The slab
+disappears after 2 s; the invalid text stays; and pressing Enter a second time on the same string
+produces nothing at all, because `useColorParsing.ts:62` short-circuits on `input ===
+previousInvalid` before the `try` block. The application is therefore structurally incapable of
+distinguishing "the grammar rejected your string" from "the parser threw" — which is exactly why a
+live `TypeError` in the shipping parser has been invisible. Owner edict 2 forbids masking
+fallbacks; this is one.
 
 ---
 
-### D-22 · INFO — a `demo/ui/` alias layer creates a dual import path inside one import block
+## 5. State coverage
 
-`ColorInput.vue:117` imports directly from `@mkbabb/glass-ui`; `:118–129` import `Popover`,
-`Tooltip*` and `Separator` from `../../ui/popover|tooltip|separator`. Those three files are
-one-line re-export barrels:
-
-```ts
-// demo/ui/popover/index.ts
-export { Popover, PopoverTrigger, PopoverContent } from "@mkbabb/glass-ui";
-```
-
-Owner edict 2: *"No legacy code — no aliases, migration shims, dual paths."* Both paths appear in
-the same import block; the sibling `ActionBarLayer.vue:8` imports `@mkbabb/glass-ui/dock` directly.
-
----
-
-### D-23 · INFO — the bare `catch` that swallows MT-F001 is a masking fallback
-
-The task asks what this component does with MT-F001. **It swallows it.**
-
-`src/css/grammar.ts:181` — `splitTopLevel(slash[0]!.replace(/,/g, " "), "space")` — the non-null
-assertion is false for an empty function body, so `parseCssColor("oklch()")` throws `TypeError`.
-`demo/color-session/useColorParsing.ts:84` catches it with a bare `catch {}` and calls
-`flashParseError()`.
-
-**Measured, live (`scratchpad/DD-probe4.mjs`):** `pageErrors: []`, no console error, badge reads
-*"not a valid color"*. **No crash.** The user sees D-03's slab.
-
-The design defect is the **undiscriminating catch**: one bare handler renders "the grammar
-rejected your string", "the parser threw a TypeError", and any future `RangeError` as the same
-sentence. The application can therefore never surface, count or report MT-F001 — a shipping parser
-crash is permanently indistinguishable from a typo. Owner edict 2 forbids *masking fallbacks*;
-this is one, and it is why a live `TypeError` in the shipping parser has been invisible.
-
-(That the eight MT-F001 inputs are *also* invalid CSS is a coincidence that makes the wrong
-message accidentally true today. It does not make the design sound.)
-
----
-
-## 4. State coverage table
-
-Enumerating every state the challenge names.
+Every state the challenge names, judged against measurement.
 
 | State | Handled? | Evidence |
 |---|---|---|
-| **empty** (colour mode) | **NO** — no placeholder, no label; renders as a black square | D-15, `frames/C-empty-dark.png` |
-| **empty after clear** (propose) | **NO** — `:empty` defeated by `<br>` | D-15, `html: "<br>"` |
-| **loading** (`proposing`) | **PARTIAL** — spinner swaps in but shrinks the 24 px target to 22 px | D-12, `:73–74` |
-| **populated** | yes, but reflows the dock per keystroke | D-05 |
-| **error** | **NO** — occludes value + button, no ARIA, dies in 2 s, never repeats | D-03, D-04, D-06 |
-| **disabled** | **NO** — pixel-identical to enabled; cursor-only | D-11 |
-| **focused** (field) | **PARTIAL** — data-dependent colour border, no outline | D-10 |
-| **focused** (send button) | **NO** — `outline-style: none` at `:focus` | D-02 |
-| **hovered** (send button) | **NO** — zero computed delta | D-02 |
-| **active / pressed** | **NO** — zero computed delta | D-02 |
-| **selected** | n/a | — |
+| **empty** (colour mode) | **NO** — no placeholder, no label; `data-placeholder` is set only in propose mode (`:261`) | `:321–325`, round-2 `frames/C-empty-dark.png` |
+| **populated** | **NO** — reflows the band ±166 px per value | R3-08 |
+| **editing an existing value** | **NO — destructive** | R3-01 |
+| **cancel** | **NO — does not exist** | R3-02, `escapeCancels: false` |
+| **uncommitted-then-blurred** | **NO — silently discarded** | R3-02, `afterBlur` reverts |
+| **undo** | **NO** | `undoRestoredTypedText: false` |
+| **loading** (`proposing`) | **PARTIAL** — spinner is `w-3.5` (14 px) vs the arrow's `w-4` (16 px), so the 24 px target shrinks in the loading state | `:73–74` |
+| **error** | **NO** — hides 89.9 % of the value and the retry control; no ARIA; dies at 2 s; never repeats | R3-10, R3-05 |
+| **disabled** | **NO** — only `cursor: not-allowed`; no opacity, no `aria-disabled` | `:344–346` |
+| **focused** (field) | **NO** — 1.93 : 1 boundary, erased on the inline-end by the mask | R3-03, R3-04 |
+| **focused** (button) | **PARTIAL** — UA `#005FCC` outline, not the house register | R3-11 |
+| **hovered / active** (button) | **NO** — zero computed delta; `btn-interactive` matches nothing | D-02 confirmed |
+| **hovered** (field) | **BROKEN** — fires unbidden on open and occludes the route | R3-07 |
+| **selected** (text) | **FORCED** — always all-selected on focus | R3-01 |
 | **dragging** | n/a | — |
-| **overflowing** | **UNREACHABLE** — the field grows instead; mask + ellipsis are dead code | D-05 |
-| **truncated** | **UNREACHABLE** — same | D-05 |
-| **rich-text pasted** | **NO** — markup persists, dock +43.8 % tall | D-08 |
-| **RTL** | **NO** — physical gutter/mask/button; no LTR isolation | D-18 |
-| **reduced-motion** | **YES** (by the global guard, `demo/styles/animations.css:184–193`) — not by this component | §5 |
-| **forced-colors** | **NO** — zero focus delta; mask survives | D-10 |
-| **200 % zoom** | **NO** — the component ceases to exist | D-01 |
-| **mobile / portrait** | **NO** — the component ceases to exist | D-01 |
-| **propose success** | **NO** — no confirmation, no mode exit | D-17 |
-| **propose failure** | **NO** — `console.warn` only | D-17 |
+| **overflowing / truncated** | **UNREACHABLE** — the field grows; but the mask fires anyway (R3-04) | R3-04, R3-08 |
+| **rich-text pasted** | **NO** — `editable="richtext"` at the AX layer; markup persists | R3-05 |
+| **spellchecked** | **UNDESIGNED** — red squiggles on valid CSS, colliding with the error red | R3-06 |
+| **RTL** | **NO** — physical `right`/`to right`/`pr-*`; no LTR isolation for an LTR-only grammar | round-2 D-18; `VISUAL-CONSTITUTION.md:154` |
+| **reduced-motion** | **ACCIDENTAL** — satisfied by a producer rule, against a dead consumer guard | R3-12 |
+| **forced-colors** | **NO** — the mask survives, and the only focus register is an author border the mode overrides | round-2 D-10 |
+| **200 % zoom** | **NO** — the component ceases to exist | §2.1 |
+| **mobile / portrait** | **NO** — the component ceases to exist | §2.0, D-01 |
+| **propose success / failure** | **NO** — `console.warn` only; no mode exit (`defineEmits` absent) | `:230–247` |
 
-**Nine states are unhandled; three are unreachable; two do not exist because the component does
-not.**
+**Fifteen states unhandled or destructive; two unreachable; two do not exist because the component
+does not.**
 
 ---
 
-## 5. Motion audit
+## 6. Motion
 
-| Animation | Tokenized? | PRM? | Layout-safe? | Runs? |
+| Animation | Tokenized? | Reduced motion | Layout-safe? | Actually runs? |
 |---|---|---|---|---|
-| `input-mode-flash` (`:312–319`) | duration `--duration-slow` ✓ / **removal timer hard-coded 300 ms ✗** (D-20) | yes — global guard | `transform` + `opacity` ✓ | yes |
-| `crown-appear` (`:369–376`) | `--duration-panel`, `--ease-decelerate` ✓ | moot | `transform` + `filter` ✓ | **NO — dead name** (D-09) |
-| `vj-celebrate` on the badge (`:86`) | house family, geometry vars at `:364–365` ✓ | yes — global guard | ✓ | yes |
-| Crown `transition-[opacity,transform]` (`:35`) | **no duration/easing class** → Tailwind default `--default-transition-duration` | yes | ✓ | yes |
-| `.color-input` border/box-shadow transition (`:296–298`) | `--duration-fast`, `--ease-standard` ✓ | yes | ✓ | yes |
-| send button | **`transition: all`** — the preflight default, no house register (D-02) | — | — | nothing to run |
-| the field's own enter/exit | `ActionBarLayer.vue:62` `SUB_LAYER_CROSSFADE_MS = 260`, a JS magic number | timer runs regardless | ✓ | yes |
+| `input-mode-flash` (`:312–319`) | duration `--duration-slow` ✓; **removal timer hard-coded `300` at `:256` against a measured 450 ms token ✗** | animations → `1e-05s` ✓ | `transform`+`opacity` ✓ | yes |
+| `crown-appear` (`:369–376`) | tokens ✓ | moot | ✓ | **NO — names an identifier the scoped compiler renamed away** |
+| `vj-celebrate` on the badge (`:86`) | house family ✓ | ✓ | ✓ | yes |
+| Crown `transition-[opacity,transform]` (`:35`) | **no duration/easing** → Tailwind default | ✓ | ✓ | yes |
+| `.color-input` border/box-shadow (`:296–298`) | `--duration-fast` ✓ | **0.1 s, from the producer — not from the demo guard (R3-12)** | ✓ | yes |
+| `.send-btn` | **`transition: all`** — preflight default | — | — | nothing to run |
 
-`prefers-reduced-motion` is satisfied **only** by the blanket guard at
-`demo/styles/animations.css:184–193` (`animation-duration: 0.01ms !important`). The component
-declares no PRM handling of its own, and its two JS timers (300 ms, 260 ms) ignore the query — a
-reduced-motion user still waits out both.
-
-No animated property forces layout. **But** the un-animated layout does: D-05's per-keystroke width
-change is a synchronous reflow of the dock on every input event.
+**No animated property forces layout. The un-animated layout does**: every `input` event resizes
+the field and translates the band's siblings (R3-08), synchronously, with no reservation and no
+`prefers-reduced-motion` consideration — the motion a reduced-motion user cannot escape is the one
+nobody declared.
 
 ---
 
-## 6. Design-system boundary
+## 7. Design-system boundary and owner edicts
 
-| What it hand-rolls | What glass-ui 7.0.0 ships | Proof |
+| Edict | Status | Evidence |
 |---|---|---|
-| `<span contenteditable role="textbox">` | `Input` with `placeholder`, `invalid`, `disabled`, `enterkeyhint`, `inputmode`, `pattern`, `readonly`, `size` | `dist/components/input/types.d.ts` |
-| nothing — no `aria-invalid` at all | `useUserInvalidAria` — the `:user-invalid` → `aria-invalid` bridge | `dist/forms.d.ts`, `dist/composables/dom/useUserInvalidAria.d.ts` |
-| `<button class="send-btn btn-interactive">` with no name, type, states | `./button`, and `DockControl` — used by every sibling in this dock | `ActionBarLayer.vue:129`, `Dock.vue:143` |
-| `console.warn` on failure | `./toast` | package exports |
-| `.error-badge` | — (the invalid state belongs on the control) | — |
-| `btn-interactive` | **nothing — the class does not exist** | D-02 |
-
-Also present: three inline `style` bindings (`:37–39`, `:74`, `:81`) — per-instance overrides at
-maximal specificity, against owner edict 5; and the `demo/ui/*` alias dual path (D-22).
+| 1 · no god modules | **VIOLATED** | 377 lines, five jobs (CSS-colour editing, name proposal with session bootstrap + network write, Crown attribution, help/Parse-Lab popover, a dead Copy path), forked by twelve `proposeMode` branch sites |
+| 2 · no legacy / masking fallbacks | **VIOLATED** ×2 | the bare `catch` that renders a parser `TypeError` as a typo (§4); the `demo/ui/*` re-export barrels (`:118–129`) used in the same import block as a direct `@mkbabb/glass-ui` import (`:117`) |
+| 3 · KISS, no contrivance | **VIOLATED** | R3-13; plus a hand-rolled contenteditable standing beside a published `Input` |
+| 4 · glass-ui is the design system | **VIOLATED** | glass-ui 7.0.0 exports `Input` (with `placeholder`, `invalid`, `disabled`, `enterkeyhint`, `inputmode`, `pattern`), `useUserInvalidAria`, `./button`, `./toast`, `DockControl`. This component hand-rolls a field, a button, an error badge and a `console.warn` instead |
+| 5 · root-level styling | **VIOLATED** | three inline `style` bindings at maximal non-`!important` specificity: `:37–39` (crown animation), `:74`, `:81` (`stroke: safeAccent`) — the last would defeat any producer disabled treatment even if one existed |
+| 6 · animations never deleted, only moved or tokenized | **VIOLATED** ×2 | `:327–334` says the hover/press recipe was *"RETIRED onto the producer `btn-interactive` atom"* — measured `btnInteractiveRules: 0`, so it was retired onto nothing; and `crown-appear` is inert |
+| 7 · idiomatic Vue 3.5 | **MET** | `useTemplateRef` (`:159`), reactive props destructure (`:138`) |
+| 8 · `verbatimModuleSyntax` | **MET** | `import type { EditTarget }` (`:134`) is the only type-only import and is correct |
 
 ---
 
-## 7. Proportion and seat law
+## 8. Proportion and seat law
 
 | Law | Coordinate | Verdict |
 |---|---|---|
-| **PR-07** hover-only / unlabeled controls | `PROPORTION-AUDIT.md:51` | **FAIL** ×3 — nameless send (D-12), hover-only popover (D-16), cursor-only disabled (D-11) |
-| **PR-08** transient-only failure truth | `:52` | **FAIL** — 2 s badge (D-04), `console.warn` propose (D-17) |
-| **PR-13** Copy total 2→1 | `:57` | **FAIL** — a third Copy path survives (D-21) |
-| **PR-05** repeated dividers → REMOVE | `:49` | **FAIL** — 2 `Separator`s in a 4-line popover (D-16) |
-| **§5 law 5** every small mark is data/status/labeled-action or removed | `:70` | **FAIL** — badge and button share one seat (D-03) |
-| **§5 law 6** subtraction precedes explanation | `:71` | **FAIL** — value stated 4× (D-16) |
-| **§5 law 7** glyph size ≠ target size ≠ reservation | `:72` | **FAIL** — 24 px target *is* the glyph box, and shrinks to 22 px when loading (D-12) |
-| **§5 law 8** real rendered relation wins | `:73` | **FAIL** — 12 px optical bias, three conflicting gutter numbers (D-14) |
-| **§5 law 10** no duplicate `contenteditable` path | `:75` | **FAIL** — this component *is* it (D-07) |
-| **§5 law 13** closed type matrix | `:78` | **FAIL** ×4 (D-13) |
-| **§3 law 4** the dock band does not move | `VISUAL-CONSTITUTION.md:30` | **FAIL** — 137.3 px per word typed (D-05) |
-| **§3 law 6** the same dock on mobile | `:32` | **FAIL** — the affordance is absent (D-01) |
-| **§4** widest-representation reservation | `:78` | **FAIL** (D-05) |
-| **§4.1** failed/disabled never colour-only | `:83` | **FAIL** (D-04, D-11) |
-| **§4.1** focus distinct in forced colors | `:84` | **FAIL** — measured zero delta (D-10) |
-| **§6.1** LTR-isolated CSS strings | `:154` | **FAIL** (D-18) |
-| **§7** the dock is *"clipped by neither mask nor card"* | `:178` | **FAIL** — `mask-image` inside the band (D-19) |
-| **§2** one surface, one tier | `:19` | **FAIL** — opaque plate in structural glass (D-19) |
+| §5 law 10 — *"no duplicate `contenteditable` path"*, editors have *"commit/cancel/error semantics"* | `PROPORTION-AUDIT.md:75` | **FAIL** — this component *is* the duplicate path, and has neither edit nor cancel semantics (R3-01, R3-02) |
+| §4.1 — boundaries meet rendered contrast; *"a token name is not evidence"* | `VISUAL-CONSTITUTION.md:82` | **FAIL** — 1.93 : 1 / 2.838 : 1 (R3-03) |
+| §4.1 — failed/disabled never colour-only; role/name/state explicit | `:83` | **FAIL** — AX role wrong, no `invalid` (R3-05, R3-10) |
+| §4.1 — focus distinct in both schemes and forced colors | `:84` | **FAIL** — erased on the inline-end (R3-04) |
+| §7 — the dock is *"clipped by neither mask nor card"* | `:178` | **FAIL** — a mask, in the band (R3-04) |
+| §2 — one surface, one tier | `:19` | **FAIL** — opaque plate, foreign radius, 74 % of the band (R3-09) |
+| §3 law 4 — the reserved band does not move | `:30` | **FAIL** — ±166 px of sibling travel per value (R3-08) |
+| §3 law 6 — *"the same top dock"* on mobile | `:32` | **FAIL** — the affordance is absent |
+| §4 — reserve the widest legal representation | `:78` | **FAIL** — 50 px → 382 px |
+| §4 — closed type matrix | `:68–78` | **FAIL** — 18.608 px, no role token |
+| §5 — *"Tuning is continuous and interruptible"* | `:99` | **FAIL** — 2 s dead zone, then silence (R3-02) |
+| §5.1 — overlay open/close is opener-bound | `:115` | **FAIL** — opens as a side effect of layout (R3-07) |
+| §6.1 — CSS strings render LTR-isolated | `:154` | **FAIL** |
+| PR-05 — repeated dividers → REMOVE | `PROPORTION-AUDIT.md:49` | **FAIL** — two `Separator`s in a four-line popover (`:101`, `:108`) |
+| PR-07 — hover-only/unlabeled → ADD-AFFORDANCE / REMOVE | `:51` | **FAIL** ×3 — nameless commit, unbidden hover popover, cursor-only disabled |
+| PR-08 — transient-only failure truth → ADD-AFFORDANCE | `:52` | **FAIL** — 2 s badge, `console.warn` propose |
+| PR-13 — Copy total 2 → 1 | `:57` | **FAIL** — `copyAndSetInputColor` (`:219–223`) is a third Copy path with no consumer |
+| §5 law 5 — every small mark is data/status/labeled-action or removed | `:70` | **FAIL** — badge and button share one 24 px seat |
+| §5 law 6 — subtraction precedes explanation | `:71` | **FAIL** — the value is stated four times, and the explanation covers the H1 |
+| §5 law 8 — real rendered relation wins over token intent | `:73` | **FAIL** — three unrelated numbers describe one action gutter: `pr-9` = 36 px, `--input-action-width` = 40 px, button seat = 28 px |
 
 ---
 
-## 8. What is genuinely sound
+## 9. What is genuinely sound
 
-Stated so the register is honest:
+Stated so the register is honest and the negatives are proved, not assumed:
 
-- **`useTemplateRef`** (`:159`) and **reactive props destructure** (`:138`) — correct Vue 3.5
-  idiom (owner edict 7).
-- **`verbatimModuleSyntax`** — the two type-only imports (`:134` `EditTarget`, and the `type`
-  imports in the host) are correctly `import type` (owner edict 8). No violation found.
-- **No crash from MT-F001** — measured `pageErrors: []`. The swallow is a defect (D-23) but the
-  app does not white-screen.
-- **`reduced-motion` is honoured** — by the global guard, not by this file, but honoured.
-- **Error-badge contrast passes** — `rgb(251,250,248)` on `rgb(219,36,36)` computes to **4.70:1**
-  at 12 px; WCAG AA (4.5:1) passes. Measured, not assumed.
-- **`input-mode-flash`** is correctly scoped and correctly renamed by the SFC compiler — the file
-  gets the keyframe idiom right once (which is precisely why D-09 is a defect and not a framework
-  limitation).
-- The **U9 blur snap-back** (`:183–193`) does what its comment says: measured
-  `afterBlur.text === "lab(92% 88.8 20 / 82.7%)"` after clearing the field. It is a *symptom* of
-  the two-source-of-truth design, but it is not itself broken.
+- **The field is in the sequential tab order.** `Shift+Tab` from the send button lands on it
+  (`"isColorInput": true`), despite `element.tabIndex` reporting `-1`. No keyboard-trap, no
+  unreachable control. Round 1 and round 2 did not claim otherwise; I checked because
+  `tabIndex: -1` invited the claim.
+- **MT-F001 does not crash the app.** `pageErrors: []`, measured. The swallow is the defect; the
+  white screen is not there.
+- **Vue 3.5 idiom and `verbatimModuleSyntax` are correct** (edicts 7 and 8) — no finding.
+- **The error badge's own text contrast passes.** `--destructive-foreground` on `--destructive`
+  computes above the AA floor at its rendered size.
+- **`input-mode-flash` is a correct scoped keyframe** and compiles to
+  `input-mode-flash-55dadc03` — which is precisely why `crown-appear` failing is a defect and not
+  a framework limitation.
+- **The U9 blur snap-back does what its comment says** (`:183–193`). It is a symptom of the
+  two-source-of-truth design, and it is the mechanism of R3-02's silent discard, but the code is
+  not lying about itself.
 
 ---
 
-## 9. The gestalt cure
+## 10. The gestalt cure
 
-Patching twenty-three findings would produce a 500-line file with the same shape. The
-architectural transposition is one move in three parts:
+Patching thirteen new findings on top of round 2's twenty-three yields a 500-line file with the
+same shape. The transposition is one architectural move in four parts, in dependency order.
 
-**1. Delete the `contenteditable` and consume the design system's field.**
+**1 — Stop hosting a text editor in the dock band.** The band is the constitution's *reserved*
+surface (`VISUAL-CONSTITUTION.md:30`); a free-width text field cannot live there without breaking
+it, which is why R3-08, R3-07, R3-04, R3-09 and R3-03 all exist. The CSS-colour field belongs in
+the Picker instrument's inspector, beside the W21 numeric editors that already own
+*"commit/cancel/error semantics"* (`PROPORTION-AUDIT.md:75`) — where it is reachable at every
+viewport (killing D-01), where it can reserve its widest legal representation, and where the
+Parse-Lab echo can be a persistent region instead of a hover accident (R3-07). If a dock seat is
+genuinely wanted, it is a **named `DockControl` that opens that inspector**, not the editor itself.
+
+**2 — Delete the `contenteditable`; consume `Input` from glass-ui 7.0.0.**
 
 ```
-<GlassInput
-  v-model="draft"
-  type="text"
-  :invalid="parseError"
-  :placeholder="proposeMode ? 'propose a name…' : 'e.g. oklch(70% 0.15 200)'"
-  :aria-describedby="parseError ? errorId : undefined"
-  enterkeyhint="go"
-  inputmode="text"
-  spellcheck="false"
-  size="sm"
-/>
+<GlassInput v-model="draft" type="text" size="sm"
+            :invalid="parseError" :aria-describedby="parseError ? errorId : undefined"
+            placeholder="e.g. oklch(70% 0.15 200)"
+            spellcheck="false" enterkeyhint="go" autocorrect="off" autocapitalize="off" />
 ```
 
-That single substitution kills **D-04, D-07, D-08, D-11 (half), D-13 (the value arm), D-15,
-D-19** and makes `useUserInvalidAria` usable. `<input>` cannot hold markup, has a real
-placeholder, has a real disabled/invalid register, and is what `useUserInvalidAria` binds to.
+One substitution retires **R3-01** (an `<input>` places the caret where you click), **R3-05** (a
+real single-line textbox, not `richtext`/`multiline`), **R3-06** (`spellcheck="false"` on a real
+control), the paste defect, the empty-state defect, and makes `useUserInvalidAria` — glass-ui's
+own `:user-invalid` → `aria-invalid` bridge — usable, which retires the ARIA half of **R3-10**.
 
-**2. Move the commit action out of the text box.** The arrow is a `DockControl` sibling of the
-field — named, focus-ringed, 40 px, in the dock's own control grammar — not an absolutely
-positioned overlay competing with an error slab for the same 24 px of gutter. That kills **D-02,
-D-03, D-03b, D-12, D-14** and retires `pr-9`, `--input-action-width`, the mask, `text-center`,
-`text-ellipsis` and `whitespace-nowrap` in one cut (**D-05**'s dead half).
+**3 — Give the parse verdict a life, and the entry a cancel.** The verdict becomes a *persistent*
+control state (`aria-invalid` plus one message in flow **beside** the field, never over it),
+cleared on correction rather than on a 2 s timer, and the memo short-circuit at
+`useColorParsing.ts:62` stops guarding the error path so a retry is answered. Commit is `Enter` or
+an explicit named button; **cancel is `Escape`**, restoring the model value; blur commits or warns
+but never silently discards (**R3-02**). The 2000 ms debounce drops to a live-preview cadence
+(≈150 ms) now that the field is not the only commit path.
 
-**3. Give the field a reserved inline size and a durable state.** `inline-size:
-var(--dock-color-field-size)` sized to the widest legal serialization (`color(display-p3 …)`),
-`font-variant-numeric: tabular-nums` — the band stops moving (**D-05**). The parse verdict becomes
-a **persistent** control state (`aria-invalid` + one inline message below the dock, cleared on
-correction, not on a timer), and the propose operation gets a real outcome through
-`@mkbabb/glass-ui/toast` (**D-06, D-17**).
+**4 — Retire the ornament.** The `mask-image`, `pr-9`, `--input-action-width`, `text-center`,
+`text-ellipsis` and `whitespace-nowrap` all exist to fake a gutter for an overlaid button. Move
+the button out of the box (it is a labelled sibling, in the house focus register, not a UA blue
+outline — **R3-11**) and every one of them goes with it, along with **R3-04** and the three
+mutually inconsistent gutter numbers. The boundary then becomes a real glass-ui field boundary at
+≥ 3 : 1 (**R3-03**) with the producer's own focus ring, and the plate inherits a tier from the
+material table instead of inventing one (**R3-09**).
 
-**Then split the component.** The 377 lines are five jobs — CSS-colour editing, colour-name
-proposal (with session bootstrap and a network write), the Crown attribution tooltip, the help +
-Parse-Lab popover, and a dead Copy path — forked by **twelve `proposeMode` branch sites**
-(`:15, 19, 30, 68, 87, 94, 163, 190, 196, 205, 252, 271`). Owner edict 1 (*no god modules*): a
-`DockColorField` and a `DockProposeNameField` are two small components that share nothing but a
-seat; the Crown belongs with `useColorNameResolution`; the Parse-Lab echo belongs in the Picker
-inspector where it is reachable without a mouse (**D-16**).
-
-**Finally, unmount the breakpoint gate.** The action-bar context must come from the route table,
-not from whichever pane slot the media query happened to mount (**D-01**). Until that changes,
-every other fix here ships to desktop-landscape users only.
+**Then split what remains.** CSS-colour entry and public colour-name proposal share nothing but a
+seat; `defineExpose`'s five members have no consumer (`ActionBarLayer.vue:28` declares
+`colorInputRef` and never dereferences it); the Crown belongs with `useColorNameResolution`; the
+third Copy path is dead. Two small components, not one 377-line omnibus (owner edict 1).
 
 ---
 
-## 10. Frames
+## 11. Frames and raw evidence
 
 | File | What it shows |
 |---|---|
-| `frames/A-rest-light.png` | rest, desktop light — the opaque plate, the fading right edge, the nameless arrow |
-| `frames/B-f001-error.png` | MT-F001 — the badge over the value and over the arrow |
-| `frames/B-f001-after2s.png` | 2 s later — the badge gone, the invalid text still there |
-| `frames/C-focus-dark.png` | focus, dark — the live-colour border, outline suppressed |
-| `frames/C-overflow-dark.png` | a 46-char value — the dock inflated to 586 px, nothing truncated |
-| `frames/C-empty-dark.png` | the empty state — a black square with one arrow |
-| `frames/D-paste.png` | a formatted paste — lime 32 px text, dock +43.8 % tall |
-| `frames/E-rtl.png` | RTL — chrome mirrors, the field's gutter and mask do not |
-| `frames/G-mobile-dock.png` | 390×844 — the component does not exist |
-| `frames/H-hover-popover.png` | the hover popover — 4× redundancy, 2 dividers, Fraunces prose, H1 occluded |
-| `frames/I-forced-colors.png` | forced colors — zero focus delta |
-| `frames/K-propose.png` | propose mode — the disabled arrow, indistinguishable from enabled |
-| `frames/probe-1.json` · `probe-2.json` · `probe-3.json` | raw measurements |
+| `frames/r3-focus.png` | rest/focus, desktop light — the opaque 4 px plate in a `9999px` pill, the dissolving right edge, the whole value force-selected |
+| `frames/r3-dark-focus.png` | dark — the near-black plate as the darkest object on the page; the help popover occluding the About H1 |
+| `frames/r3-f001.png` | MT-F001 — one character of `oklch()` survives; the commit arrow is invisible |
+| `frames/r3-nohover-popover.png` | the popover open after a click on the toggle with the pointer never moved |
+| `frames/r3-hover.png` | the hover arm of the same |
+| `frames/r3probe.json` | mask geometry, CSSOM walk, caret/undo, forced states, F001 rects |
+| `frames/r3probe2.json` | contrast, tab order, focus registers, cancel semantics, dock displacement, CDP AX tree |
+| `frames/r3probe3.json` | reduced-motion rule resolution + the radius/opacity ancestor chain |
+| `frames/r3probe4.json` | the stationary-pointer popover reproduction + the `.glass-dock` pill radius |
+| `../../visual/shots/safari-desktop-light/picker.png` | the shipped desktop dock — the field is not on it |
+| `../../visual/shots/zoom-200-desktop/picker.png` | the 200 % arm — no Tools control, no path to the field |
 
-Round-1 report preserved at `challenge-D-design.round1.md`.
+Round-1 and round-2 reports preserved at `challenge-D-design.round1.md` and
+`challenge-D-design.round2.md`; their frames remain in `frames/` under their original names.

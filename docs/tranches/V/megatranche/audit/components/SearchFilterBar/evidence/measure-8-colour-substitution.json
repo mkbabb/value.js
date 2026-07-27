@@ -1,0 +1,23 @@
+{
+ "hsl(200 50% 50%)": {
+  "badge": "1",
+  "inputValue": "hsl(200 50% 50%)",
+  "swatchLabel": "Open color picker, current color #4488cc",
+  "swatchFill": "rgb(68, 136, 204)",
+  "requests": []
+ },
+ "rebeccapurple": {
+  "badge": "1",
+  "inputValue": "rebeccapurple",
+  "swatchLabel": "Open color picker, current color #4488cc",
+  "swatchFill": "rgb(68, 136, 204)",
+  "requests": []
+ },
+ "#ff0000": {
+  "badge": "1",
+  "inputValue": "#ff0000",
+  "swatchLabel": "Open color picker, current color #4488cc",
+  "swatchFill": "rgb(68, 136, 204)",
+  "requests": []
+ }
+}

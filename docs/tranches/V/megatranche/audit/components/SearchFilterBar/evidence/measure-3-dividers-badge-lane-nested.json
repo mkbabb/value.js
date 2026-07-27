@@ -1,0 +1,126 @@
+{
+ "dividers": {
+  "hostClass": "flex flex-col divide-y divide-border",
+  "children": [
+   {
+    "cls": "filter-section",
+    "bt": "0px/rgb(198, 180, 159)",
+    "bb": "1px/rgb(198, 180, 159)"
+   },
+   {
+    "cls": "filter-section",
+    "bt": "0px/rgb(198, 180, 159)",
+    "bb": "1px/rgb(198, 180, 159)"
+   },
+   {
+    "cls": "filter-section",
+    "bt": "0px/rgb(198, 180, 159)",
+    "bb": "1px/rgb(198, 180, 159)"
+   },
+   {
+    "cls": "filter-section",
+    "bt": "0px/rgb(198, 180, 159)",
+    "bb": "0px/rgb(198, 180, 159)"
+   }
+  ],
+  "rgGap": {
+   "display": "flex",
+   "gap": "26px",
+   "rowGap": "26px",
+   "flexDirection": "column"
+  },
+  "rgItemBox": {
+   "w": "44px",
+   "h": "44px",
+   "minW": "auto",
+   "minH": "auto",
+   "padding": "0px",
+   "cls": "radio-group__item shrink-0"
+  },
+  "optionH": {
+   "h": "30.9375px",
+   "padding": "4px 8px",
+   "gap": "8px",
+   "alignItems": "center"
+  }
+ },
+ "badge": {
+  "present": true,
+  "text": "1",
+  "rect": {
+   "x": 926.1,
+   "y": 635.3,
+   "w": 16.2,
+   "h": 16.2
+  },
+  "trigRect": {
+   "x": 905.8,
+   "y": 639.4,
+   "w": 32.5,
+   "h": 40.6
+  },
+  "overflowsTop": true,
+  "overflowsRight": true,
+  "style": {
+   "fs": "11px",
+   "fw": "700",
+   "ff": "\"Plus Jakarta Sans\", \"Plus Jak",
+   "bg": "oklch(0.470927 0.096235 89.834023)",
+   "color": "rgb(251, 250, 248)",
+   "w": "16px",
+   "h": "16px"
+  },
+  "triggerName": "Filters",
+  "ariaExpanded": "true",
+  "hasAriaHidden": false
+ },
+ "longValue": {
+  "value": "oklch(0.72 0.19 45.3 / 0.85)",
+  "scrollW": 330,
+  "clientW": 146,
+  "laneW": 66,
+  "overflowing": true,
+  "textOverflow": "ellipsis",
+  "whiteSpace": "nowrap"
+ },
+ "nested": [
+  {
+   "cls": "popover-content z-popover glass-floating [--overlay-pad-inli",
+   "rect": {
+    "x": 698,
+    "y": 684,
+    "w": 240,
+    "h": 685.6
+   },
+   "z": "130",
+   "bg": "oklab(0.936408 0.005529 0.013284 / 0.808)"
+  },
+  {
+   "cls": "popover-content z-popover glass-floating [--overlay-pad-inli",
+   "rect": {
+    "x": 727,
+    "y": 1028,
+    "w": 208,
+    "h": 218.7
+   },
+   "z": "130",
+   "bg": "oklab(0.936408 0.005529 0.013284 / 0.808)"
+  }
+ ],
+ "nestedA11y": [
+  {
+   "tag": "DIV",
+   "role": null,
+   "tabindex": null,
+   "label": null,
+   "cls": "sv-canvas relative w-full h-28 rounded-lg cursor-c"
+  }
+ ],
+ "kbdFocus": {
+  "present": false
+ },
+ "kbdFocusStyle": {
+  "reached": false,
+  "active": "BUTTON:Search"
+ }
+}

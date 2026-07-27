@@ -1,0 +1,3709 @@
+[
+  {
+    "name": "empty-desktop-light",
+    "opts": {
+      "w": 1440,
+      "h": 900,
+      "scheme": "light",
+      "rtl": false,
+      "forcedColors": "none",
+      "reducedMotion": "no-preference",
+      "zoom": 1,
+      "colors": 0
+    },
+    "pageErrors": [],
+    "tabOrder": [],
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 115.11
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 345.16,
+            "w": 435,
+            "h": 22.94
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767.5,
+            "y": 378.09,
+            "w": 435,
+            "h": 55.17
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Start a new palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "16.4px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "22.959999px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": null,
+    "swatchRow": {
+      "rect": {
+        "x": 767.5,
+        "y": 378.09,
+        "w": 435,
+        "h": 55.17
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 1,
+      "inkWidth": 48,
+      "fillRatio": 0.11
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 767.5,
+        "y": 378.09,
+        "w": 48,
+        "h": 48
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 767.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": null,
+    "globalChipCount": 1,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": null,
+    "saveBtn": null,
+    "focusables": [],
+    "buttonsInWell": 0,
+    "parentRect": {
+      "x": 754,
+      "y": 331.66,
+      "w": 462,
+      "h": 345.19
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  },
+  {
+    "name": "five-desktop-light",
+    "opts": {
+      "w": 1440,
+      "h": 900,
+      "scheme": "light",
+      "rtl": false,
+      "forcedColors": "none",
+      "reducedMotion": "no-preference",
+      "zoom": 1,
+      "colors": 5
+    },
+    "pageErrors": [],
+    "tabOrder": [
+      {
+        "i": 28,
+        "tag": "input",
+        "inWell": true,
+        "name": "Palette 1"
+      },
+      {
+        "i": 29,
+        "tag": "button",
+        "inWell": true,
+        "name": ""
+      }
+    ],
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 197.7
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 345.16,
+            "w": 435,
+            "h": 22.94
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767.5,
+            "y": 378.09,
+            "w": 435,
+            "h": 55.17
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767.5,
+            "y": 443.27,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 475.86,
+            "w": 435,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "16.4px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "22.959999px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": {
+      "text": "5 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "16.4px",
+      "font-weight": "400",
+      "color": "rgb(112, 89, 66)",
+      "contrastVsWell": 3.19
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 767.5,
+        "y": 378.09,
+        "w": 435,
+        "h": 55.17
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 6,
+      "inkWidth": 288,
+      "fillRatio": 0.662
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 1057.5,
+        "y": 378.09,
+        "w": 48,
+        "h": 48
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 767.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(226, 87, 31)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 825.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(18, 184, 189)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 883.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(255, 198, 11)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 941.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(37, 35, 43)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 999.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(106, 171, 47)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1057.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 767.5,
+        "y": 443.27,
+        "w": 255.19,
+        "h": 22.59
+      },
+      "color": "rgb(219, 36, 36)",
+      "contrast": 4.28
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 767.5,
+        "y": 477.86,
+        "w": 395,
+        "h": 36
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "14.384px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 1170.5,
+        "y": 475.86,
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "borderStyle": "none",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "borderWidth": "0px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 767.5,
+          "y": 477.86,
+          "w": 395,
+          "h": 36
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 1170.5,
+          "y": 475.86,
+          "w": 32,
+          "h": 40
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 754,
+      "y": 331.66,
+      "w": 462,
+      "h": 427.78
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  },
+  {
+    "name": "five-desktop-dark",
+    "opts": {
+      "w": 1440,
+      "h": 900,
+      "scheme": "dark",
+      "rtl": false,
+      "forcedColors": "none",
+      "reducedMotion": "no-preference",
+      "zoom": 1,
+      "colors": 5
+    },
+    "pageErrors": [],
+    "tabOrder": null,
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 197.7
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.925202 0.002342 0.005724 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.345296 0.010372 0.017546)",
+      "box-shadow": "oklab(0.34 0.01136 0.027766 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) -3px 3px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.26) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 345.16,
+            "w": 435,
+            "h": 22.94
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767.5,
+            "y": 378.09,
+            "w": 435,
+            "h": 55.17
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767.5,
+            "y": 443.27,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 475.86,
+            "w": 435,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "16.4px",
+      "font-weight": "600",
+      "color": "rgb(195, 185, 172)",
+      "line-height": "22.959999px",
+      "contrastVsWell": 10.85,
+      "wellBg": "oklab(0.345296 0.010372 0.017546)"
+    },
+    "count": {
+      "text": "5 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "16.4px",
+      "font-weight": "400",
+      "color": "rgb(195, 185, 172)",
+      "contrastVsWell": 10.85
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 767.5,
+        "y": 378.09,
+        "w": 435,
+        "h": 55.17
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 6,
+      "inkWidth": 288,
+      "fillRatio": 0.662
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 1057.5,
+        "y": 378.09,
+        "w": 48,
+        "h": 48
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(101, 87, 73)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 767.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(226, 87, 31)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(101, 87, 73)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 825.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(18, 184, 189)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(101, 87, 73)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 883.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(255, 198, 11)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(101, 87, 73)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 941.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(37, 35, 43)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(101, 87, 73)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 999.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(106, 171, 47)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(101, 87, 73)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1057.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(101, 87, 73)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 767.5,
+        "y": 443.27,
+        "w": 255.19,
+        "h": 22.59
+      },
+      "color": "rgb(235, 71, 71)",
+      "contrast": 5.52
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 767.5,
+        "y": 477.86,
+        "w": 395,
+        "h": 36
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "14.384px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 1170.5,
+        "y": 475.86,
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+      "borderStyle": "none",
+      "borderColor": "oklab(0.46523 0.011049 0.026074 / 0.5)",
+      "borderWidth": "0px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 767.5,
+          "y": 477.86,
+          "w": 395,
+          "h": 36
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 1170.5,
+          "y": 475.86,
+          "w": 32,
+          "h": 40
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 754,
+      "y": 331.66,
+      "w": 462,
+      "h": 427.78
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  },
+  {
+    "name": "five-desktop-hover",
+    "opts": {
+      "w": 1440,
+      "h": 900,
+      "scheme": "light",
+      "rtl": false,
+      "forcedColors": "none",
+      "reducedMotion": "no-preference",
+      "zoom": 1,
+      "colors": 5
+    },
+    "pageErrors": [],
+    "tabOrder": null,
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 197.7
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 345.16,
+            "w": 435,
+            "h": 22.94
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767.5,
+            "y": 378.09,
+            "w": 435,
+            "h": 55.17
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767.5,
+            "y": 443.27,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 475.86,
+            "w": 435,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "16.4px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "22.959999px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": {
+      "text": "5 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "16.4px",
+      "font-weight": "400",
+      "color": "rgb(112, 89, 66)",
+      "contrastVsWell": 3.19
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 767.5,
+        "y": 378.09,
+        "w": 435,
+        "h": 55.17
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 6,
+      "inkWidth": 288,
+      "fillRatio": 0.662
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 1057.5,
+        "y": 378.09,
+        "w": 48,
+        "h": 48
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 767.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(226, 87, 31)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 825.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(18, 184, 189)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 883.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(255, 198, 11)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 941.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(37, 35, 43)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 999.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(106, 171, 47)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1057.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 767.5,
+        "y": 443.27,
+        "w": 255.19,
+        "h": 22.59
+      },
+      "color": "rgb(219, 36, 36)",
+      "contrast": 4.28
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 767.5,
+        "y": 477.86,
+        "w": 395,
+        "h": 36
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "14.384px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 1170.5,
+        "y": 475.86,
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "borderStyle": "none",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "borderWidth": "0px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 767.5,
+          "y": 477.86,
+          "w": 395,
+          "h": 36
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 1170.5,
+          "y": 475.86,
+          "w": 32,
+          "h": 40
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 754,
+      "y": 331.66,
+      "w": 462,
+      "h": 427.78
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 900,
+          "w": 1440,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "buttons": 3
+      }
+    ]
+  },
+  {
+    "name": "many24-desktop-light",
+    "opts": {
+      "w": 1440,
+      "h": 900,
+      "scheme": "light",
+      "rtl": false,
+      "forcedColors": "none",
+      "reducedMotion": "no-preference",
+      "zoom": 1,
+      "colors": 24
+    },
+    "pageErrors": [],
+    "tabOrder": null,
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 256.66,
+        "w": 462,
+        "h": 393.22
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 270.16,
+            "w": 435,
+            "h": 22.94
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767.5,
+            "y": 303.09,
+            "w": 435,
+            "h": 250.69
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767.5,
+            "y": 563.78,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 596.38,
+            "w": 435,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "16.4px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "22.959999px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": {
+      "text": "24 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "16.4px",
+      "font-weight": "400",
+      "color": "rgb(112, 89, 66)",
+      "contrastVsWell": 3.19
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 767.5,
+        "y": 303.09,
+        "w": 435,
+        "h": 250.69
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 25,
+      "inkWidth": 1200,
+      "fillRatio": 2.759
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 941.5,
+        "y": 498.61,
+        "w": 48,
+        "h": 48
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 767.5,
+          "y": 303.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(221, 60, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 825.5,
+          "y": 303.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(221, 100, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 883.5,
+          "y": 303.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(221, 140, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 941.5,
+          "y": 303.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(221, 180, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 999.5,
+          "y": 303.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(221, 221, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1057.5,
+          "y": 303.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(180, 221, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1115.5,
+          "y": 303.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(140, 221, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 767.5,
+          "y": 368.27,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(100, 221, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 767.5,
+        "y": 563.78,
+        "w": 255.19,
+        "h": 22.59
+      },
+      "color": "rgb(219, 36, 36)",
+      "contrast": 4.28
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 767.5,
+        "y": 598.38,
+        "w": 395,
+        "h": 36
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "14.384px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 1170.5,
+        "y": 596.38,
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "borderStyle": "none",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "borderWidth": "0px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 767.5,
+          "y": 598.38,
+          "w": 395,
+          "h": 36
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 1170.5,
+          "y": 596.38,
+          "w": 32,
+          "h": 40
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 754,
+      "y": 256.66,
+      "w": 462,
+      "h": 623.3
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  },
+  {
+    "name": "five-mobile-390",
+    "opts": {
+      "w": 390,
+      "h": 844,
+      "scheme": "light",
+      "rtl": false,
+      "forcedColors": "none",
+      "reducedMotion": "no-preference",
+      "zoom": 1,
+      "colors": 5
+    },
+    "pageErrors": [],
+    "tabOrder": null,
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 33,
+        "y": 291.97,
+        "w": 324,
+        "h": 249.53
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 46.5,
+            "y": 305.47,
+            "w": 297,
+            "h": 19.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 46.5,
+            "y": 335.06,
+            "w": 297,
+            "h": 110.34
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 46.5,
+            "y": 455.41,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 46.5,
+            "y": 488,
+            "w": 297,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "14px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "19.6px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": {
+      "text": "5 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "14px",
+      "font-weight": "400",
+      "color": "rgb(112, 89, 66)",
+      "contrastVsWell": 3.19
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 46.5,
+        "y": 335.06,
+        "w": 297,
+        "h": 110.34
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 6,
+      "inkWidth": 264,
+      "fillRatio": 0.889
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 46.5,
+        "y": 395.23,
+        "w": 44,
+        "h": 44
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 46.5,
+          "y": 335.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(226, 87, 31)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 100.5,
+          "y": 335.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(18, 184, 189)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 154.5,
+          "y": 335.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(255, 198, 11)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 208.5,
+          "y": 335.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(37, 35, 43)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 262.5,
+          "y": 335.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(106, 171, 47)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 46.5,
+          "y": 395.23,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 46.5,
+        "y": 455.41,
+        "w": 255.19,
+        "h": 22.59
+      },
+      "color": "rgb(219, 36, 36)",
+      "contrast": 4.28
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 46.5,
+        "y": 490,
+        "w": 257,
+        "h": 36
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "12.179px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 311.5,
+        "y": 488,
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "borderStyle": "none",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "borderWidth": "0px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 46.5,
+          "y": 490,
+          "w": 257,
+          "h": 36
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 311.5,
+          "y": 488,
+          "w": 32,
+          "h": 40
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 33,
+      "y": 291.97,
+      "w": 324,
+      "h": 472.95
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  },
+  {
+    "name": "many24-mobile-390",
+    "opts": {
+      "w": 390,
+      "h": 844,
+      "scheme": "light",
+      "rtl": false,
+      "forcedColors": "none",
+      "reducedMotion": "no-preference",
+      "zoom": 1,
+      "colors": 24
+    },
+    "pageErrors": [],
+    "tabOrder": null,
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 33,
+        "y": 237.97,
+        "w": 324,
+        "h": 430.05
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 46.5,
+            "y": 251.47,
+            "w": 297,
+            "h": 19.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 46.5,
+            "y": 281.06,
+            "w": 297,
+            "h": 290.86
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 46.5,
+            "y": 581.92,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 46.5,
+            "y": 614.52,
+            "w": 297,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "14px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "19.6px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": {
+      "text": "24 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "14px",
+      "font-weight": "400",
+      "color": "rgb(112, 89, 66)",
+      "contrastVsWell": 3.19
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 46.5,
+        "y": 281.06,
+        "w": 297,
+        "h": 290.86
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 25,
+      "inkWidth": 1100,
+      "fillRatio": 3.704
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 262.5,
+        "y": 521.75,
+        "w": 44,
+        "h": 44
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 46.5,
+          "y": 281.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(221, 60, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 100.5,
+          "y": 281.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(221, 100, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 154.5,
+          "y": 281.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(221, 140, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 208.5,
+          "y": 281.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(221, 180, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 262.5,
+          "y": 281.06,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(221, 221, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 46.5,
+          "y": 341.23,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(180, 221, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 100.5,
+          "y": 341.23,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(140, 221, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 154.5,
+          "y": 341.23,
+          "w": 44,
+          "h": 44
+        },
+        "bg": "rgb(100, 221, 60)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 46.5,
+        "y": 581.92,
+        "w": 255.19,
+        "h": 22.59
+      },
+      "color": "rgb(219, 36, 36)",
+      "contrast": 4.28
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 46.5,
+        "y": 616.52,
+        "w": 257,
+        "h": 36
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "12.179px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 311.5,
+        "y": 614.52,
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "borderStyle": "none",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "borderWidth": "0px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 46.5,
+          "y": 616.52,
+          "w": 257,
+          "h": 36
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 311.5,
+          "y": 614.52,
+          "w": 32,
+          "h": 40
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 33,
+      "y": 237.97,
+      "w": 324,
+      "h": 653.47
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  },
+  {
+    "name": "five-forced-colors",
+    "opts": {
+      "w": 1440,
+      "h": 900,
+      "scheme": "light",
+      "rtl": false,
+      "forcedColors": "active",
+      "reducedMotion": "no-preference",
+      "zoom": 1,
+      "colors": 5
+    },
+    "pageErrors": [],
+    "tabOrder": null,
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 330.66,
+        "w": 462,
+        "h": 197.7
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 344.16,
+            "w": 435,
+            "h": 22.94
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767.5,
+            "y": 377.09,
+            "w": 435,
+            "h": 55.17
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767.5,
+            "y": 442.27,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 474.86,
+            "w": 435,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "16.4px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "22.959999px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": {
+      "text": "5 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "16.4px",
+      "font-weight": "400",
+      "color": "rgb(112, 89, 66)",
+      "contrastVsWell": 3.19
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 767.5,
+        "y": 377.09,
+        "w": 435,
+        "h": 55.17
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 6,
+      "inkWidth": 288,
+      "fillRatio": 0.662
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 1057.5,
+        "y": 377.09,
+        "w": 48,
+        "h": 48
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 767.5,
+          "y": 377.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(226, 87, 31)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 825.5,
+          "y": 377.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(18, 184, 189)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 883.5,
+          "y": 377.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(255, 198, 11)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 941.5,
+          "y": 377.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(37, 35, 43)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 999.5,
+          "y": 377.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(106, 171, 47)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1057.5,
+          "y": 377.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 767.5,
+        "y": 442.27,
+        "w": 255.19,
+        "h": 22.59
+      },
+      "color": "rgb(219, 36, 36)",
+      "contrast": 4.28
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 767.5,
+        "y": 476.86,
+        "w": 395,
+        "h": 36
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "14.384px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 1170.5,
+        "y": 474.86,
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.943611 0.005549 0.013365)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(0, 0, 0)",
+      "borderWidth": "1px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 767.5,
+          "y": 476.86,
+          "w": 395,
+          "h": 36
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 1170.5,
+          "y": 474.86,
+          "w": 32,
+          "h": 40
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 754,
+      "y": 330.66,
+      "w": 462,
+      "h": 427.78
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  },
+  {
+    "name": "five-rtl",
+    "opts": {
+      "w": 1440,
+      "h": 900,
+      "scheme": "light",
+      "rtl": true,
+      "forcedColors": "none",
+      "reducedMotion": "no-preference",
+      "zoom": 1,
+      "colors": 5
+    },
+    "pageErrors": [
+      "null is not an object (evaluating 'document.documentElement.setAttribute')"
+    ],
+    "tabOrder": null,
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 224,
+        "y": 331.66,
+        "w": 462,
+        "h": 197.7
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 237.5,
+            "y": 345.16,
+            "w": 435,
+            "h": 22.94
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 237.5,
+            "y": 378.09,
+            "w": 435,
+            "h": 55.17
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 417.31,
+            "y": 443.27,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 237.5,
+            "y": 475.86,
+            "w": 435,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "16.4px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "22.959999px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": {
+      "text": "5 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "16.4px",
+      "font-weight": "400",
+      "color": "rgb(112, 89, 66)",
+      "contrastVsWell": 3.19
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 237.5,
+        "y": 378.09,
+        "w": 435,
+        "h": 55.17
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 6,
+      "inkWidth": 288,
+      "fillRatio": 0.662
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 334.5,
+        "y": 378.09,
+        "w": 48,
+        "h": 48
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 624.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(226, 87, 31)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 566.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(18, 184, 189)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 508.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(255, 198, 11)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 450.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(37, 35, 43)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 392.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(106, 171, 47)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 334.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 417.31,
+        "y": 443.27,
+        "w": 255.19,
+        "h": 22.59
+      },
+      "color": "rgb(219, 36, 36)",
+      "contrast": 4.28
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 277.5,
+        "y": 477.86,
+        "w": 395,
+        "h": 36
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "14.384px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 237.5,
+        "y": 475.86,
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "borderStyle": "none",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "borderWidth": "0px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 277.5,
+          "y": 477.86,
+          "w": 395,
+          "h": 36
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 237.5,
+          "y": 475.86,
+          "w": 32,
+          "h": 40
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 224,
+      "y": 331.66,
+      "w": 462,
+      "h": 427.78
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  },
+  {
+    "name": "five-reduced-motion",
+    "opts": {
+      "w": 1440,
+      "h": 900,
+      "scheme": "light",
+      "rtl": false,
+      "forcedColors": "none",
+      "reducedMotion": "reduce",
+      "zoom": 1,
+      "colors": 5
+    },
+    "pageErrors": [],
+    "tabOrder": null,
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 197.7
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "16px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 345.16,
+            "w": 435,
+            "h": 22.94
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767.5,
+            "y": 378.09,
+            "w": 435,
+            "h": 55.17
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767.5,
+            "y": 443.27,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767.5,
+            "y": 475.86,
+            "w": 435,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "16.4px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "22.959999px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": {
+      "text": "5 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "16.4px",
+      "font-weight": "400",
+      "color": "rgb(112, 89, 66)",
+      "contrastVsWell": 3.19
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 767.5,
+        "y": 378.09,
+        "w": 435,
+        "h": 55.17
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 6,
+      "inkWidth": 288,
+      "fillRatio": 0.662
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 1057.5,
+        "y": 378.09,
+        "w": 48,
+        "h": 48
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 767.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(226, 87, 31)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 825.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(18, 184, 189)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 883.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(255, 198, 11)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 941.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(37, 35, 43)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 999.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "rgb(106, 171, 47)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1057.5,
+          "y": 378.09,
+          "w": 48,
+          "h": 48
+        },
+        "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 767.5,
+        "y": 443.27,
+        "w": 255.19,
+        "h": 22.59
+      },
+      "color": "rgb(219, 36, 36)",
+      "contrast": 4.28
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 767.5,
+        "y": 477.86,
+        "w": 395,
+        "h": 36
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "14.384px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 1170.5,
+        "y": 475.86,
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "borderStyle": "none",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "borderWidth": "0px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 767.5,
+          "y": 477.86,
+          "w": 395,
+          "h": 36
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 1170.5,
+          "y": 475.86,
+          "w": 32,
+          "h": 40
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 754,
+      "y": 331.66,
+      "w": 462,
+      "h": 427.78
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  },
+  {
+    "name": "five-zoom200",
+    "opts": {
+      "w": 1440,
+      "h": 900,
+      "scheme": "light",
+      "rtl": false,
+      "forcedColors": "none",
+      "reducedMotion": "no-preference",
+      "zoom": 2,
+      "colors": 5
+    },
+    "pageErrors": [],
+    "tabOrder": null,
+    "wellCount": 1,
+    "well": {
+      "rect": {
+        "x": 900,
+        "y": 593.77,
+        "w": 700,
+        "h": 525.78
+      },
+      "padding": "12px",
+      "gap": "10px",
+      "border": "1.5px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "border-radius": "32px",
+      "background-color": "oklab(0.913299 0.005463 0.013024)",
+      "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+      "childZones": [
+        {
+          "tag": "div",
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 927,
+            "y": 620.77,
+            "w": 646,
+            "h": 45.91
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 927,
+            "y": 686.67,
+            "w": 646,
+            "h": 240.69
+          }
+        },
+        {
+          "tag": "span",
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 927,
+            "y": 947.36,
+            "w": 510.42,
+            "h": 45.19
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 927,
+            "y": 1012.55,
+            "w": 646,
+            "h": 80
+          }
+        }
+      ]
+    },
+    "header": {
+      "text": "Current Palette",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-size": "16.4px",
+      "font-weight": "600",
+      "color": "rgb(112, 89, 66)",
+      "line-height": "22.959999px",
+      "contrastVsWell": 3.19,
+      "wellBg": "oklab(0.913299 0.005463 0.013024)"
+    },
+    "count": {
+      "text": "5 colors",
+      "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "font-size": "16.4px",
+      "font-weight": "400",
+      "color": "rgb(112, 89, 66)",
+      "contrastVsWell": 3.19
+    },
+    "swatchRow": {
+      "rect": {
+        "x": 927,
+        "y": 686.67,
+        "w": 646,
+        "h": 240.69
+      },
+      "gap": "10px",
+      "wrap": "wrap",
+      "dotCount": 6,
+      "inkWidth": 576,
+      "fillRatio": 0.892
+    },
+    "addSlot": {
+      "tag": "span",
+      "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childSvgs": 1,
+      "childSvgNonFilter": 0,
+      "rect": {
+        "x": 927,
+        "y": 817.02,
+        "w": 96,
+        "h": 96
+      },
+      "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+      "borderStyle": "solid",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px"
+    },
+    "addSlotIsButton": false,
+    "dots": [
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 927,
+          "y": 686.67,
+          "w": 96,
+          "h": 96
+        },
+        "bg": "rgb(226, 87, 31)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1043,
+          "y": 686.67,
+          "w": 96,
+          "h": 96
+        },
+        "bg": "rgb(18, 184, 189)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1159,
+          "y": 686.67,
+          "w": 96,
+          "h": 96
+        },
+        "bg": "rgb(255, 198, 11)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1275,
+          "y": 686.67,
+          "w": 96,
+          "h": 96
+        },
+        "bg": "rgb(37, 35, 43)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 1391,
+          "y": 686.67,
+          "w": 96,
+          "h": 96
+        },
+        "bg": "rgb(106, 171, 47)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "tabIndex": -1,
+        "pointerEvents": "none",
+        "childSvgs": 1,
+        "childSvgNonFilter": 0,
+        "rect": {
+          "x": 927,
+          "y": 817.02,
+          "w": 96,
+          "h": 96
+        },
+        "bg": "color(srgb 0.886275 0.341177 0.121569 / 0.12)",
+        "borderStyle": "solid",
+        "borderColor": "rgb(198, 180, 159)",
+        "borderWidth": "0px"
+      }
+    ],
+    "dotsAllAriaHidden": true,
+    "dotsAllPointerNone": true,
+    "chip": {
+      "text": "dev misconfigured — run `npm run dev`",
+      "role": "alert",
+      "rect": {
+        "x": 927,
+        "y": 947.36,
+        "w": 510.42,
+        "h": 45.19
+      },
+      "color": "rgb(219, 36, 36)",
+      "contrast": 4.28
+    },
+    "globalChipCount": 2,
+    "globalAlertRoles": [
+      "dev misconfigured — run `npm run dev`",
+      "dev misconfigured — run `npm run dev`"
+    ],
+    "input": {
+      "rect": {
+        "x": 927,
+        "y": 1016.55,
+        "w": 566,
+        "h": 72
+      },
+      "placeholder": "Palette 1",
+      "fontSize": "14.384px"
+    },
+    "saveBtn": {
+      "tag": "button",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+      "ariaHidden": null,
+      "ariaLabel": null,
+      "tagAttr": null,
+      "role": null,
+      "tabIndex": 0,
+      "pointerEvents": "auto",
+      "childSvgs": 1,
+      "childSvgNonFilter": 1,
+      "rect": {
+        "x": 1509,
+        "y": 1012.55,
+        "w": 64,
+        "h": 80
+      },
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "borderStyle": "none",
+      "borderColor": "oklab(0.779406 0.011815 0.034254 / 0.5)",
+      "borderWidth": "0px",
+      "accName": "",
+      "title": null
+    },
+    "focusables": [
+      {
+        "tag": "input",
+        "name": "Palette 1",
+        "rect": {
+          "x": 927,
+          "y": 1016.55,
+          "w": 566,
+          "h": 72
+        }
+      },
+      {
+        "tag": "button",
+        "name": "",
+        "rect": {
+          "x": 1509,
+          "y": 1012.55,
+          "w": 64,
+          "h": 80
+        }
+      }
+    ],
+    "buttonsInWell": 1,
+    "parentRect": {
+      "x": 900,
+      "y": 593.77,
+      "w": 700,
+      "h": 1031.91
+    },
+    "overflowsParent": false,
+    "editOverlay": null,
+    "floatingPanels": []
+  }
+]

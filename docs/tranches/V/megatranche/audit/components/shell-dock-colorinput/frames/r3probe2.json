@@ -1,0 +1,178 @@
+{
+  "restLight": {
+    "border": "rgb(198, 180, 159)",
+    "bg": "rgb(251, 250, 248)",
+    "color": "rgb(28, 25, 23)",
+    "borderRadius": "4px"
+  },
+  "restLightContrast": {
+    "borderVsPlate": 1.93,
+    "inkVsPlate": 16.765
+  },
+  "tabOrder": {
+    "shiftTabFromSendLandsOn": {
+      "tag": "SPAN",
+      "cls": "color-input w-full block border overflow-hidden items-center",
+      "aria": "Enter a CSS color",
+      "isColorInput": true
+    },
+    "fieldMeta": {
+      "tabIndexIDL": -1,
+      "hasTabindexAttr": false,
+      "contentEditable": "true",
+      "isContentEditable": true
+    }
+  },
+  "sendFocus": {
+    "programmatic": {
+      "outlineStyle": "auto",
+      "outlineColor": "rgb(0, 95, 204)",
+      "outlineWidth": "1px",
+      "matchesFocusVisible": true
+    },
+    "keyboard": {
+      "isSend": true,
+      "outlineStyle": "auto",
+      "outlineColor": "rgb(0, 95, 204)",
+      "outlineWidth": "1px",
+      "matchesFocusVisible": true
+    },
+    "dockSiblingKeyboard": {
+      "cls": "dock-icon-button glass-specular-track glass-capsule-hover shrink-0",
+      "outlineStyle": "none",
+      "boxShadow": "oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px",
+      "matchesFocusVisible": true
+    }
+  },
+  "cancel": {
+    "typed": "rebeccapurple",
+    "afterEsc": {
+      "text": "rebeccapurple",
+      "focused": true
+    },
+    "afterBlur": "lab(92% 88.8 20 / 82.7%)",
+    "escapeCancels": false,
+    "blurCommitted": false
+  },
+  "dockShift": {
+    "frames": [
+      {
+        "fieldW": 50,
+        "fieldX": 701,
+        "sendX": 723,
+        "toggleX": 764,
+        "backX": 636
+      },
+      {
+        "fieldW": 95.8,
+        "fieldX": 678.1,
+        "sendX": 745.9,
+        "toggleX": 786.9,
+        "backX": 613.1
+      },
+      {
+        "fieldW": 141.6,
+        "fieldX": 655.2,
+        "sendX": 768.8,
+        "toggleX": 809.8,
+        "backX": 590.2
+      },
+      {
+        "fieldW": 187.4,
+        "fieldX": 632.3,
+        "sendX": 791.7,
+        "toggleX": 832.7,
+        "backX": 567.3
+      },
+      {
+        "fieldW": 233.1,
+        "fieldX": 609.4,
+        "sendX": 814.6,
+        "toggleX": 853.6,
+        "backX": 544.4
+      },
+      {
+        "fieldW": 278.9,
+        "fieldX": 586.5,
+        "sendX": 837.5,
+        "toggleX": 878.1,
+        "backX": 521.5
+      },
+      {
+        "fieldW": 324.7,
+        "fieldX": 563.6,
+        "sendX": 860.4,
+        "toggleX": 901.4,
+        "backX": 498.6
+      },
+      {
+        "fieldW": 370.5,
+        "fieldX": 540.8,
+        "sendX": 883.3,
+        "toggleX": 924.3,
+        "backX": 475.8
+      },
+      {
+        "fieldW": 382,
+        "fieldX": 535,
+        "sendX": 889,
+        "toggleX": 930,
+        "backX": 470
+      }
+    ],
+    "fieldWidthTravel": 332,
+    "sendButtonTravel": 166,
+    "toggleTravel": 166,
+    "backTravel": -166
+  },
+  "popover": {
+    "found": [
+      {
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 1440,
+          "h": 900
+        },
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "hostVisible": "visible",
+        "opacity": "1"
+      }
+    ],
+    "h1": {
+      "tag": "H3",
+      "text": "0.5,0.2,0.9",
+      "rect": {
+        "x": 220.5,
+        "y": 283.1,
+        "w": 311,
+        "h": 61.2
+      }
+    }
+  },
+  "ax": [
+    {
+      "role": "textbox",
+      "name": "Enter a CSS color",
+      "value": "color(display-p3 0.5 0.2 0.9)",
+      "ignored": false,
+      "props": [
+        "focusable=true",
+        "editable=\"richtext\"",
+        "settable=true",
+        "multiline=true",
+        "readonly=false",
+        "required=false"
+      ]
+    }
+  ],
+  "restDark": {
+    "border": "rgb(101, 87, 73)",
+    "bg": "rgb(11, 10, 9)",
+    "color": "rgb(233, 230, 226)"
+  },
+  "restDarkContrast": {
+    "borderVsPlate": 2.838,
+    "inkVsPlate": 15.902
+  }
+}

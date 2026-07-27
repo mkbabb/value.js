@@ -1,0 +1,5644 @@
+[
+ {
+  "matrix": "desktop-light",
+  "trigBox": {
+   "x": 641,
+   "y": 336.65625,
+   "width": 32,
+   "height": 40
+  },
+  "errs": [
+   "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+  ],
+  "found": true,
+  "content": {
+   "rect": {
+    "x": 433,
+    "y": 381,
+    "w": 240,
+    "h": 632.6
+   },
+   "style": {
+    "background-color": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+    "border-color": "oklab(0.216129 0.003491 0.005182 / 0.05)",
+    "border-width": "1px",
+    "box-shadow": "oklab(1 0 0 / 0.3) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+    "border-radius": "12px",
+    "padding": "20.351999px 16px",
+    "animation-name": "none",
+    "animation-duration": "0s",
+    "transition-property": "scale, translate, opacity, filter, display, overlay",
+    "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+    "z-index": "130",
+    "overflow": "visible"
+   }
+  },
+  "sections": [
+   {
+    "label": "Sort",
+    "rect": {
+     "x": 450,
+     "y": 402.3,
+     "w": 206,
+     "h": 197.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tier",
+    "rect": {
+     "x": 450,
+     "y": 599.7,
+     "w": 206,
+     "h": 140.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tags",
+    "rect": {
+     "x": 450,
+     "y": 740.2,
+     "w": 206,
+     "h": 164.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Find by Color",
+    "rect": {
+     "x": 450,
+     "y": 904.7,
+     "w": 206,
+     "h": 87.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   }
+  ],
+  "opts": [
+   {
+    "text": "Newest",
+    "rect": {
+     "x": 462,
+     "y": 441.9,
+     "w": 121.4,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 435.4,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 450.4,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 445.9,
+       "w": 57.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Popular",
+    "rect": {
+     "x": 462,
+     "y": 498.8,
+     "w": 165.4,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 492.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 507.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 502.8,
+       "w": 101.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Forked",
+    "rect": {
+     "x": 462,
+     "y": 555.8,
+     "w": 159.7,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 549.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 564.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 559.8,
+       "w": 95.7,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "All",
+    "rect": {
+     "x": 462,
+     "y": 639.3,
+     "w": 61.1,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 632.8,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 496,
+       "y": 643.3,
+       "w": 19.1,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Featured",
+    "rect": {
+     "x": 462,
+     "y": 696.2,
+     "w": 132.9,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 689.7,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 704.7,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 700.2,
+       "w": 68.9,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "pastel",
+    "rect": {
+     "x": 462,
+     "y": 779.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 787.2,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 783.7,
+       "w": 46,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "neon",
+    "rect": {
+     "x": 462,
+     "y": 812.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 820.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 816.7,
+       "w": 38.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "earth",
+    "rect": {
+     "x": 462,
+     "y": 845.6,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 853.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 849.6,
+       "w": 39.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "monochrome",
+    "rect": {
+     "x": 462,
+     "y": 878.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 886,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 882.5,
+       "w": 100.5,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "retro",
+    "rect": {
+     "x": 462,
+     "y": 911.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 918.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 915.5,
+       "w": 35.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "vaporwave",
+    "rect": {
+     "x": 462,
+     "y": 944.4,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 951.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 948.4,
+       "w": 83.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "high-contrast-accessible-set",
+    "rect": {
+     "x": 462,
+     "y": 977.3,
+     "w": 182,
+     "h": 53.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 996.3,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 981.3,
+       "w": 142,
+       "h": 45.9
+      },
+      "role": null
+     }
+    ]
+   }
+  ],
+  "dividers": [
+   "0px",
+   "0px",
+   "0px"
+  ],
+  "dividerColor": "rgb(198, 180, 159)",
+  "swatch": {
+   "rect": {
+    "x": 462,
+    "y": 947.3,
+    "w": 28,
+    "h": 28
+   },
+   "style": {
+    "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+    "outline-width": "3px",
+    "outline-color": "rgb(28, 25, 23)",
+    "border-color": "rgb(198, 180, 159)",
+    "border-width": "2px",
+    "transition-property": "box-shadow",
+    "transition-duration": "0.2s"
+   },
+   "label": "Open color picker, current color #4488cc",
+   "cls": "block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
+  },
+  "input": {
+   "rect": {
+    "x": 496,
+    "y": 944.3,
+    "w": 148,
+    "h": 36
+   },
+   "style": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "14.384px",
+    "padding-inline-end": "64px",
+    "padding-inline-start": "16px",
+    "text-overflow": "ellipsis",
+    "background-color": "rgb(243, 236, 226)",
+    "color": "rgb(28, 25, 23)"
+   },
+   "placeholder": "#hex, hsl(...)",
+   "label": "Search by CSS color"
+  },
+  "searchBtn": {
+   "rect": {
+    "x": 587.4,
+    "y": 950.3,
+    "w": 52.6,
+    "h": 24
+   },
+   "style": {
+    "font-size": "11px",
+    "background-color": "oklab(0.965259 0.00091 0.006098 / 0.5)",
+    "color": "rgb(112, 89, 66)",
+    "border-radius": "340282346638528859811704183484516925440px",
+    "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to"
+   },
+   "disabled": false
+  },
+  "clearBtn": null,
+  "tagScroll": {
+   "rect": {
+    "x": 462,
+    "y": 779.7,
+    "w": 182,
+    "h": 112
+   },
+   "scrollH": 252,
+   "clientH": 112,
+   "style": {
+    "max-height": "112px",
+    "overflow-y": "auto",
+    "scrollbar-width": "thin",
+    "mask-image": "none"
+   }
+  },
+  "checkboxes": [
+   {
+    "rect": {
+     "x": 470,
+     "y": 787.2,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 820.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 853.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 886,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 918.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 951.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 996.3,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   }
+  ],
+  "radios": [
+   {
+    "rect": {
+     "x": 457,
+     "y": 435.4,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 492.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 549.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 632.8,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 689.7,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   }
+  ],
+  "contentDir": "ltr",
+  "overflowY": 0,
+  "offscreen": true,
+  "innerW": 1440,
+  "innerH": 900
+ },
+ {
+  "matrix": "desktop-dark",
+  "trigBox": {
+   "x": 641,
+   "y": 336.65625,
+   "width": 32,
+   "height": 40
+  },
+  "errs": [
+   "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+  ],
+  "found": true,
+  "content": {
+   "rect": {
+    "x": 433,
+    "y": 381,
+    "w": 240,
+    "h": 632.6
+   },
+   "style": {
+    "background-color": "oklab(0.37944 0.009899 0.01685 / 0.8944)",
+    "border-color": "oklab(0.925202 0.002342 0.005724 / 0.05)",
+    "border-width": "1px",
+    "box-shadow": "oklab(1 0 0 / 0.4) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+    "border-radius": "12px",
+    "padding": "20.351999px 16px",
+    "animation-name": "none",
+    "animation-duration": "0s",
+    "transition-property": "scale, translate, opacity, filter, display, overlay",
+    "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+    "z-index": "130",
+    "overflow": "visible"
+   }
+  },
+  "sections": [
+   {
+    "label": "Sort",
+    "rect": {
+     "x": 450,
+     "y": 402.3,
+     "w": 206,
+     "h": 197.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "rgb(195, 185, 172)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tier",
+    "rect": {
+     "x": 450,
+     "y": 599.7,
+     "w": 206,
+     "h": 140.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "rgb(195, 185, 172)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tags",
+    "rect": {
+     "x": 450,
+     "y": 740.2,
+     "w": 206,
+     "h": 164.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "rgb(195, 185, 172)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Find by Color",
+    "rect": {
+     "x": 450,
+     "y": 904.7,
+     "w": 206,
+     "h": 87.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "rgb(195, 185, 172)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   }
+  ],
+  "opts": [
+   {
+    "text": "Newest",
+    "rect": {
+     "x": 462,
+     "y": 441.9,
+     "w": 121.4,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 435.4,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 450.4,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 445.9,
+       "w": 57.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Popular",
+    "rect": {
+     "x": 462,
+     "y": 498.8,
+     "w": 165.4,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 492.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 507.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 502.8,
+       "w": 101.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Forked",
+    "rect": {
+     "x": 462,
+     "y": 555.8,
+     "w": 159.7,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 549.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 564.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 559.8,
+       "w": 95.7,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "All",
+    "rect": {
+     "x": 462,
+     "y": 639.3,
+     "w": 61.1,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 632.8,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 496,
+       "y": 643.3,
+       "w": 19.1,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Featured",
+    "rect": {
+     "x": 462,
+     "y": 696.2,
+     "w": 132.9,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 689.7,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 704.7,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 700.2,
+       "w": 68.9,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "pastel",
+    "rect": {
+     "x": 462,
+     "y": 779.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 787.2,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 783.7,
+       "w": 46,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "neon",
+    "rect": {
+     "x": 462,
+     "y": 812.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 820.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 816.7,
+       "w": 38.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "earth",
+    "rect": {
+     "x": 462,
+     "y": 845.6,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 853.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 849.6,
+       "w": 39.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "monochrome",
+    "rect": {
+     "x": 462,
+     "y": 878.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 886,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 882.5,
+       "w": 100.5,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "retro",
+    "rect": {
+     "x": 462,
+     "y": 911.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 918.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 915.5,
+       "w": 35.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "vaporwave",
+    "rect": {
+     "x": 462,
+     "y": 944.4,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 951.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 948.4,
+       "w": 83.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "high-contrast-accessible-set",
+    "rect": {
+     "x": 462,
+     "y": 977.3,
+     "w": 182,
+     "h": 53.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 996.3,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 981.3,
+       "w": 142,
+       "h": 45.9
+      },
+      "role": null
+     }
+    ]
+   }
+  ],
+  "dividers": [
+   "0px",
+   "0px",
+   "0px"
+  ],
+  "dividerColor": "rgb(101, 87, 73)",
+  "swatch": {
+   "rect": {
+    "x": 462,
+    "y": 947.3,
+    "w": 28,
+    "h": 28
+   },
+   "style": {
+    "box-shadow": "oklab(0.34 0.01136 0.027766 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) -3px 3px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.26) -4px 4px 0px 0px",
+    "outline-width": "3px",
+    "outline-color": "rgb(233, 230, 226)",
+    "border-color": "rgb(101, 87, 73)",
+    "border-width": "2px",
+    "transition-property": "box-shadow",
+    "transition-duration": "0.2s"
+   },
+   "label": "Open color picker, current color #4488cc",
+   "cls": "block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
+  },
+  "input": {
+   "rect": {
+    "x": 496,
+    "y": 944.3,
+    "w": 148,
+    "h": 36
+   },
+   "style": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "14.384px",
+    "padding-inline-end": "64px",
+    "padding-inline-start": "16px",
+    "text-overflow": "ellipsis",
+    "background-color": "rgb(63, 55, 49)",
+    "color": "rgb(233, 230, 226)"
+   },
+   "placeholder": "#hex, hsl(...)",
+   "label": "Search by CSS color"
+  },
+  "searchBtn": {
+   "rect": {
+    "x": 587.4,
+    "y": 950.3,
+    "w": 52.6,
+    "h": 24
+   },
+   "style": {
+    "font-size": "11px",
+    "background-color": "oklab(0.228631 0.003632 0.007323 / 0.5)",
+    "color": "rgb(195, 185, 172)",
+    "border-radius": "340282346638528859811704183484516925440px",
+    "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to"
+   },
+   "disabled": false
+  },
+  "clearBtn": null,
+  "tagScroll": {
+   "rect": {
+    "x": 462,
+    "y": 779.7,
+    "w": 182,
+    "h": 112
+   },
+   "scrollH": 252,
+   "clientH": 112,
+   "style": {
+    "max-height": "112px",
+    "overflow-y": "auto",
+    "scrollbar-width": "thin",
+    "mask-image": "none"
+   }
+  },
+  "checkboxes": [
+   {
+    "rect": {
+     "x": 470,
+     "y": 787.2,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 820.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 853.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 886,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 918.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 951.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 996.3,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   }
+  ],
+  "radios": [
+   {
+    "rect": {
+     "x": 457,
+     "y": 435.4,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 492.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 549.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 632.8,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 689.7,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   }
+  ],
+  "contentDir": "ltr",
+  "overflowY": 0,
+  "offscreen": true,
+  "innerW": 1440,
+  "innerH": 900
+ },
+ {
+  "matrix": "mobile-light",
+  "trigBox": {
+   "x": 299.671875,
+   "y": 247.28125,
+   "width": 44,
+   "height": 44
+  },
+  "errs": [
+   "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+  ],
+  "found": true,
+  "content": {
+   "rect": {
+    "x": 104,
+    "y": 295.7,
+    "w": 240,
+    "h": 620.7
+   },
+   "style": {
+    "background-color": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+    "border-color": "oklab(0.216129 0.003491 0.005182 / 0.05)",
+    "border-width": "1px",
+    "box-shadow": "oklab(1 0 0 / 0.3) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+    "border-radius": "12px",
+    "padding": "20.351999px 16px",
+    "animation-name": "none",
+    "animation-duration": "0s",
+    "transition-property": "scale, translate, opacity, filter, display, overlay",
+    "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+    "z-index": "130",
+    "overflow": "visible"
+   }
+  },
+  "sections": [
+   {
+    "label": "Sort",
+    "rect": {
+     "x": 121,
+     "y": 317,
+     "w": 206,
+     "h": 184
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "12.179px",
+     "font-weight": "400",
+     "line-height": "18.268499px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.2179px"
+    }
+   },
+   {
+    "label": "Tier",
+    "rect": {
+     "x": 121,
+     "y": 501,
+     "w": 206,
+     "h": 130.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "12.179px",
+     "font-weight": "400",
+     "line-height": "18.268499px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.2179px"
+    }
+   },
+   {
+    "label": "Tags",
+    "rect": {
+     "x": 121,
+     "y": 631.5,
+     "w": 206,
+     "h": 161.3
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "12.179px",
+     "font-weight": "400",
+     "line-height": "18.268499px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.2179px"
+    }
+   },
+   {
+    "label": "Find by Color",
+    "rect": {
+     "x": 121,
+     "y": 792.7,
+     "w": 206,
+     "h": 102.3
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "12.179px",
+     "font-weight": "400",
+     "line-height": "18.268499px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.2179px"
+    }
+   }
+  ],
+  "opts": [
+   {
+    "text": "Newest",
+    "rect": {
+     "x": 133,
+     "y": 353.3,
+     "w": 113,
+     "h": 27.6
+    },
+    "textX": 141,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 128,
+       "y": 345.1,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 167,
+       "y": 360.1,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 189,
+       "y": 357.3,
+       "w": 49,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Popular",
+    "rect": {
+     "x": 133,
+     "y": 406.9,
+     "w": 150.6,
+     "h": 27.6
+    },
+    "textX": 141,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 128,
+       "y": 398.7,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 167,
+       "y": 413.7,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 189,
+       "y": 410.9,
+       "w": 86.6,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Forked",
+    "rect": {
+     "x": 133,
+     "y": 460.4,
+     "w": 145.7,
+     "h": 27.6
+    },
+    "textX": 141,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 128,
+       "y": 452.2,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 167,
+       "y": 467.2,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 189,
+       "y": 464.4,
+       "w": 81.7,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "All",
+    "rect": {
+     "x": 133,
+     "y": 537.3,
+     "w": 58.3,
+     "h": 27.6
+    },
+    "textX": 141,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 128,
+       "y": 529.1,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 167,
+       "y": 541.3,
+       "w": 16.3,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Featured",
+    "rect": {
+     "x": 133,
+     "y": 590.9,
+     "w": 122.8,
+     "h": 27.6
+    },
+    "textX": 141,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 128,
+       "y": 582.7,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 167,
+       "y": 597.7,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 189,
+       "y": 594.9,
+       "w": 58.8,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "pastel",
+    "rect": {
+     "x": 133,
+     "y": 667.7,
+     "w": 182,
+     "h": 27.6
+    },
+    "textX": 127,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 141,
+       "y": 673.5,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 165,
+       "y": 671.7,
+       "w": 39.2,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "neon",
+    "rect": {
+     "x": 133,
+     "y": 697.3,
+     "w": 182,
+     "h": 27.6
+    },
+    "textX": 127,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 141,
+       "y": 703.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 165,
+       "y": 701.3,
+       "w": 32.7,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "earth",
+    "rect": {
+     "x": 133,
+     "y": 726.9,
+     "w": 182,
+     "h": 27.6
+    },
+    "textX": 127,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 141,
+       "y": 732.7,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 165,
+       "y": 730.9,
+       "w": 33.5,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "monochrome",
+    "rect": {
+     "x": 133,
+     "y": 756.5,
+     "w": 182,
+     "h": 27.6
+    },
+    "textX": 127,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 141,
+       "y": 762.3,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 165,
+       "y": 760.5,
+       "w": 85.8,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "retro",
+    "rect": {
+     "x": 133,
+     "y": 786.1,
+     "w": 182,
+     "h": 27.6
+    },
+    "textX": 127,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 141,
+       "y": 791.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 165,
+       "y": 790.1,
+       "w": 30.2,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "vaporwave",
+    "rect": {
+     "x": 133,
+     "y": 815.7,
+     "w": 182,
+     "h": 27.6
+    },
+    "textX": 127,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 141,
+       "y": 821.5,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 165,
+       "y": 819.7,
+       "w": 71.1,
+       "h": 19.6
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "high-contrast-accessible-set",
+    "rect": {
+     "x": 133,
+     "y": 845.3,
+     "w": 182,
+     "h": 47.2
+    },
+    "textX": 127,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 141,
+       "y": 860.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 165,
+       "y": 849.3,
+       "w": 142,
+       "h": 39.2
+      },
+      "role": null
+     }
+    ]
+   }
+  ],
+  "dividers": [
+   "0px",
+   "0px",
+   "0px"
+  ],
+  "dividerColor": "rgb(198, 180, 159)",
+  "swatch": {
+   "rect": {
+    "x": 133,
+    "y": 841,
+    "w": 28,
+    "h": 28
+   },
+   "style": {
+    "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+    "outline-width": "3px",
+    "outline-color": "rgb(28, 25, 23)",
+    "border-color": "rgb(198, 180, 159)",
+    "border-width": "2px",
+    "transition-property": "box-shadow",
+    "transition-duration": "0.2s"
+   },
+   "label": "Open color picker, current color #4488cc",
+   "cls": "block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
+  },
+  "input": {
+   "rect": {
+    "x": 167,
+    "y": 829,
+    "w": 148,
+    "h": 54
+   },
+   "style": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "18.268499px",
+    "padding-inline-end": "64px",
+    "padding-inline-start": "24px",
+    "text-overflow": "ellipsis",
+    "background-color": "rgb(243, 236, 226)",
+    "color": "rgb(28, 25, 23)"
+   },
+   "placeholder": "#hex, hsl(...)",
+   "label": "Search by CSS color"
+  },
+  "searchBtn": {
+   "rect": {
+    "x": 258.4,
+    "y": 844,
+    "w": 52.6,
+    "h": 24
+   },
+   "style": {
+    "font-size": "11px",
+    "background-color": "oklab(0.965259 0.00091 0.006098 / 0.5)",
+    "color": "rgb(112, 89, 66)",
+    "border-radius": "340282346638528859811704183484516925440px",
+    "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to"
+   },
+   "disabled": false
+  },
+  "clearBtn": null,
+  "tagScroll": {
+   "rect": {
+    "x": 133,
+    "y": 667.7,
+    "w": 182,
+    "h": 112
+   },
+   "scrollH": 225,
+   "clientH": 112,
+   "style": {
+    "max-height": "112px",
+    "overflow-y": "auto",
+    "scrollbar-width": "thin",
+    "mask-image": "none"
+   }
+  },
+  "checkboxes": [
+   {
+    "rect": {
+     "x": 141,
+     "y": 673.5,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 141,
+     "y": 703.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 141,
+     "y": 732.7,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 141,
+     "y": 762.3,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 141,
+     "y": 791.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 141,
+     "y": 821.5,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 141,
+     "y": 860.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   }
+  ],
+  "radios": [
+   {
+    "rect": {
+     "x": 128,
+     "y": 345.1,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 128,
+     "y": 398.7,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 128,
+     "y": 452.2,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 128,
+     "y": 529.1,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 128,
+     "y": 582.7,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   }
+  ],
+  "contentDir": "ltr",
+  "overflowY": 0,
+  "offscreen": true,
+  "innerW": 390,
+  "innerH": 664
+ },
+ {
+  "matrix": "forced-colors",
+  "trigBox": {
+   "x": 641,
+   "y": 336.640625,
+   "width": 32,
+   "height": 40
+  },
+  "errs": [
+   "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+  ],
+  "found": true,
+  "content": {
+   "rect": {
+    "x": 433,
+    "y": 381,
+    "w": 240,
+    "h": 632.6
+   },
+   "style": {
+    "background-color": "rgb(255, 255, 255)",
+    "border-color": "rgb(0, 0, 0)",
+    "border-width": "1px",
+    "box-shadow": "oklab(1 0 0 / 0.3) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "border-radius": "12px",
+    "padding": "20.351999px 16px",
+    "animation-name": "none",
+    "animation-duration": "0s",
+    "transition-property": "scale, translate, opacity, filter, display, overlay",
+    "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+    "z-index": "130",
+    "overflow": "visible"
+   }
+  },
+  "sections": [
+   {
+    "label": "Sort",
+    "rect": {
+     "x": 450,
+     "y": 402.3,
+     "w": 206,
+     "h": 197.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tier",
+    "rect": {
+     "x": 450,
+     "y": 599.7,
+     "w": 206,
+     "h": 140.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tags",
+    "rect": {
+     "x": 450,
+     "y": 740.2,
+     "w": 206,
+     "h": 164.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Find by Color",
+    "rect": {
+     "x": 450,
+     "y": 904.7,
+     "w": 206,
+     "h": 87.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   }
+  ],
+  "opts": [
+   {
+    "text": "Newest",
+    "rect": {
+     "x": 462,
+     "y": 441.9,
+     "w": 121.4,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 435.4,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 450.4,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 445.9,
+       "w": 57.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Popular",
+    "rect": {
+     "x": 462,
+     "y": 498.8,
+     "w": 165.4,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 492.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 507.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 502.8,
+       "w": 101.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Forked",
+    "rect": {
+     "x": 462,
+     "y": 555.8,
+     "w": 159.7,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 549.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 564.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 559.8,
+       "w": 95.7,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "All",
+    "rect": {
+     "x": 462,
+     "y": 639.3,
+     "w": 61.1,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 632.8,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 496,
+       "y": 643.3,
+       "w": 19.1,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Featured",
+    "rect": {
+     "x": 462,
+     "y": 696.2,
+     "w": 132.9,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 689.7,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 704.7,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 700.2,
+       "w": 68.9,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "pastel",
+    "rect": {
+     "x": 462,
+     "y": 779.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 787.2,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 783.7,
+       "w": 46,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "neon",
+    "rect": {
+     "x": 462,
+     "y": 812.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 820.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 816.7,
+       "w": 38.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "earth",
+    "rect": {
+     "x": 462,
+     "y": 845.6,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 853.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 849.6,
+       "w": 39.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "monochrome",
+    "rect": {
+     "x": 462,
+     "y": 878.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 886,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 882.5,
+       "w": 100.5,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "retro",
+    "rect": {
+     "x": 462,
+     "y": 911.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 918.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 915.5,
+       "w": 35.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "vaporwave",
+    "rect": {
+     "x": 462,
+     "y": 944.4,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 951.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 948.4,
+       "w": 83.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "high-contrast-accessible-set",
+    "rect": {
+     "x": 462,
+     "y": 977.3,
+     "w": 182,
+     "h": 53.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 996.3,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 981.3,
+       "w": 142,
+       "h": 45.9
+      },
+      "role": null
+     }
+    ]
+   }
+  ],
+  "dividers": [
+   "0px",
+   "0px",
+   "0px"
+  ],
+  "dividerColor": "rgb(198, 180, 159)",
+  "swatch": {
+   "rect": {
+    "x": 462,
+    "y": 947.3,
+    "w": 28,
+    "h": 28
+   },
+   "style": {
+    "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+    "outline-width": "3px",
+    "outline-color": "rgb(28, 25, 23)",
+    "border-color": "rgb(198, 180, 159)",
+    "border-width": "2px",
+    "transition-property": "box-shadow",
+    "transition-duration": "0.2s"
+   },
+   "label": "Open color picker, current color #4488cc",
+   "cls": "block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
+  },
+  "input": {
+   "rect": {
+    "x": 496,
+    "y": 944.3,
+    "w": 148,
+    "h": 36
+   },
+   "style": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "14.384px",
+    "padding-inline-end": "64px",
+    "padding-inline-start": "16px",
+    "text-overflow": "ellipsis",
+    "background-color": "rgb(243, 236, 226)",
+    "color": "rgb(28, 25, 23)"
+   },
+   "placeholder": "#hex, hsl(...)",
+   "label": "Search by CSS color"
+  },
+  "searchBtn": {
+   "rect": {
+    "x": 587.4,
+    "y": 950.3,
+    "w": 52.6,
+    "h": 24
+   },
+   "style": {
+    "font-size": "11px",
+    "background-color": "oklab(0.965259 0.00091 0.006098 / 0.5)",
+    "color": "rgb(112, 89, 66)",
+    "border-radius": "340282346638528859811704183484516925440px",
+    "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to"
+   },
+   "disabled": false
+  },
+  "clearBtn": null,
+  "tagScroll": {
+   "rect": {
+    "x": 462,
+    "y": 779.7,
+    "w": 182,
+    "h": 112
+   },
+   "scrollH": 252,
+   "clientH": 112,
+   "style": {
+    "max-height": "112px",
+    "overflow-y": "auto",
+    "scrollbar-width": "thin",
+    "mask-image": "none"
+   }
+  },
+  "checkboxes": [
+   {
+    "rect": {
+     "x": 470,
+     "y": 787.2,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 820.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 853.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 886,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 918.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 951.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 996.3,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   }
+  ],
+  "radios": [
+   {
+    "rect": {
+     "x": 457,
+     "y": 435.4,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 492.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 549.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 632.8,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 689.7,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   }
+  ],
+  "contentDir": "ltr",
+  "overflowY": 0,
+  "offscreen": true,
+  "innerW": 1440,
+  "innerH": 900
+ },
+ {
+  "matrix": "reduced-motion",
+  "trigBox": {
+   "x": 641,
+   "y": 336.65625,
+   "width": 32,
+   "height": 40
+  },
+  "errs": [
+   "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+  ],
+  "found": true,
+  "content": {
+   "rect": {
+    "x": 433,
+    "y": 381,
+    "w": 240,
+    "h": 632.6
+   },
+   "style": {
+    "background-color": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+    "border-color": "oklab(0.216129 0.003491 0.005182 / 0.05)",
+    "border-width": "1px",
+    "box-shadow": "oklab(1 0 0 / 0.3) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+    "border-radius": "12px",
+    "padding": "20.351999px 16px",
+    "animation-name": "none",
+    "animation-duration": "0.00001s",
+    "transition-property": "opacity",
+    "transition-duration": "0.15s",
+    "z-index": "130",
+    "overflow": "visible"
+   }
+  },
+  "sections": [
+   {
+    "label": "Sort",
+    "rect": {
+     "x": 450,
+     "y": 402.3,
+     "w": 206,
+     "h": 197.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tier",
+    "rect": {
+     "x": 450,
+     "y": 599.7,
+     "w": 206,
+     "h": 140.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tags",
+    "rect": {
+     "x": 450,
+     "y": 740.2,
+     "w": 206,
+     "h": 164.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Find by Color",
+    "rect": {
+     "x": 450,
+     "y": 904.7,
+     "w": 206,
+     "h": 87.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   }
+  ],
+  "opts": [
+   {
+    "text": "Newest",
+    "rect": {
+     "x": 462,
+     "y": 441.9,
+     "w": 121.4,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 435.4,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 450.4,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 445.9,
+       "w": 57.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Popular",
+    "rect": {
+     "x": 462,
+     "y": 498.8,
+     "w": 165.4,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 492.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 507.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 502.8,
+       "w": 101.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Forked",
+    "rect": {
+     "x": 462,
+     "y": 555.8,
+     "w": 159.7,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 549.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 564.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 559.8,
+       "w": 95.7,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "All",
+    "rect": {
+     "x": 462,
+     "y": 639.3,
+     "w": 61.1,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 632.8,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 496,
+       "y": 643.3,
+       "w": 19.1,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Featured",
+    "rect": {
+     "x": 462,
+     "y": 696.2,
+     "w": 132.9,
+     "h": 30.9
+    },
+    "textX": 470,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 457,
+       "y": 689.7,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 496,
+       "y": 704.7,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 518,
+       "y": 700.2,
+       "w": 68.9,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "pastel",
+    "rect": {
+     "x": 462,
+     "y": 779.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 787.2,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 783.7,
+       "w": 46,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "neon",
+    "rect": {
+     "x": 462,
+     "y": 812.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 820.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 816.7,
+       "w": 38.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "earth",
+    "rect": {
+     "x": 462,
+     "y": 845.6,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 853.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 849.6,
+       "w": 39.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "monochrome",
+    "rect": {
+     "x": 462,
+     "y": 878.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 886,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 882.5,
+       "w": 100.5,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "retro",
+    "rect": {
+     "x": 462,
+     "y": 911.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 918.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 915.5,
+       "w": 35.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "vaporwave",
+    "rect": {
+     "x": 462,
+     "y": 944.4,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 951.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 948.4,
+       "w": 83.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "high-contrast-accessible-set",
+    "rect": {
+     "x": 462,
+     "y": 977.3,
+     "w": 182,
+     "h": 53.9
+    },
+    "textX": 456,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 470,
+       "y": 996.3,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 494,
+       "y": 981.3,
+       "w": 142,
+       "h": 45.9
+      },
+      "role": null
+     }
+    ]
+   }
+  ],
+  "dividers": [
+   "0px",
+   "0px",
+   "0px"
+  ],
+  "dividerColor": "rgb(198, 180, 159)",
+  "swatch": {
+   "rect": {
+    "x": 462,
+    "y": 947.3,
+    "w": 28,
+    "h": 28
+   },
+   "style": {
+    "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+    "outline-width": "3px",
+    "outline-color": "rgb(28, 25, 23)",
+    "border-color": "rgb(198, 180, 159)",
+    "border-width": "2px",
+    "transition-property": "opacity",
+    "transition-duration": "0.15s"
+   },
+   "label": "Open color picker, current color #4488cc",
+   "cls": "block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
+  },
+  "input": {
+   "rect": {
+    "x": 496,
+    "y": 944.3,
+    "w": 148,
+    "h": 36
+   },
+   "style": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "14.384px",
+    "padding-inline-end": "64px",
+    "padding-inline-start": "16px",
+    "text-overflow": "ellipsis",
+    "background-color": "rgb(243, 236, 226)",
+    "color": "rgb(28, 25, 23)"
+   },
+   "placeholder": "#hex, hsl(...)",
+   "label": "Search by CSS color"
+  },
+  "searchBtn": {
+   "rect": {
+    "x": 587.4,
+    "y": 950.3,
+    "w": 52.6,
+    "h": 24
+   },
+   "style": {
+    "font-size": "11px",
+    "background-color": "oklab(0.965259 0.00091 0.006098 / 0.5)",
+    "color": "rgb(112, 89, 66)",
+    "border-radius": "340282346638528859811704183484516925440px",
+    "transition-property": "opacity, color, background-color, border-color, box-shadow"
+   },
+   "disabled": false
+  },
+  "clearBtn": null,
+  "tagScroll": {
+   "rect": {
+    "x": 462,
+    "y": 779.7,
+    "w": 182,
+    "h": 112
+   },
+   "scrollH": 252,
+   "clientH": 112,
+   "style": {
+    "max-height": "112px",
+    "overflow-y": "auto",
+    "scrollbar-width": "thin",
+    "mask-image": "none"
+   }
+  },
+  "checkboxes": [
+   {
+    "rect": {
+     "x": 470,
+     "y": 787.2,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 820.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 853.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 886,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 918.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 951.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 470,
+     "y": 996.3,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   }
+  ],
+  "radios": [
+   {
+    "rect": {
+     "x": 457,
+     "y": 435.4,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 492.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 549.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 632.8,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 457,
+     "y": 689.7,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   }
+  ],
+  "contentDir": "ltr",
+  "overflowY": 0,
+  "offscreen": true,
+  "innerW": 1440,
+  "innerH": 900
+ },
+ {
+  "matrix": "zoom-200",
+  "trigBox": {
+   "x": 545.5,
+   "y": 193.953125,
+   "width": 32,
+   "height": 40
+  },
+  "errs": [
+   "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+  ],
+  "found": true,
+  "content": {
+   "rect": {
+    "x": 337.5,
+    "y": 238.5,
+    "w": 240,
+    "h": 610.9
+   },
+   "style": {
+    "background-color": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+    "border-color": "oklab(0.216129 0.003491 0.005182 / 0.05)",
+    "border-width": "1px",
+    "box-shadow": "oklab(1 0 0 / 0.3) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+    "border-radius": "12px",
+    "padding": "20.351999px 16px",
+    "animation-name": "none",
+    "animation-duration": "0s",
+    "transition-property": "scale, translate, opacity, filter, display, overlay",
+    "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+    "z-index": "130",
+    "overflow": "visible"
+   }
+  },
+  "sections": [
+   {
+    "label": "Sort",
+    "rect": {
+     "x": 354.5,
+     "y": 259.8,
+     "w": 206,
+     "h": 187.5
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "12.872px",
+     "font-weight": "400",
+     "line-height": "19.307999px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.2872px"
+    }
+   },
+   {
+    "label": "Tier",
+    "rect": {
+     "x": 354.5,
+     "y": 447.4,
+     "w": 206,
+     "h": 133.1
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "12.872px",
+     "font-weight": "400",
+     "line-height": "19.307999px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.2872px"
+    }
+   },
+   {
+    "label": "Tags",
+    "rect": {
+     "x": 354.5,
+     "y": 580.5,
+     "w": 206,
+     "h": 162.3
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "12.872px",
+     "font-weight": "400",
+     "line-height": "19.307999px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.2872px"
+    }
+   },
+   {
+    "label": "Find by Color",
+    "rect": {
+     "x": 354.5,
+     "y": 742.8,
+     "w": 206,
+     "h": 85.3
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "12.872px",
+     "font-weight": "400",
+     "line-height": "19.307999px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.2872px"
+    }
+   }
+  ],
+  "opts": [
+   {
+    "text": "Newest",
+    "rect": {
+     "x": 366.5,
+     "y": 297.1,
+     "w": 115.1,
+     "h": 28.4
+    },
+    "textX": 374.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 361.5,
+       "y": 289.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 400.5,
+       "y": 304.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 422.5,
+       "y": 301.1,
+       "w": 51.1,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Popular",
+    "rect": {
+     "x": 366.5,
+     "y": 351.5,
+     "w": 154.3,
+     "h": 28.4
+    },
+    "textX": 374.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 361.5,
+       "y": 343.8,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 400.5,
+       "y": 358.8,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 422.5,
+       "y": 355.5,
+       "w": 90.3,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Forked",
+    "rect": {
+     "x": 366.5,
+     "y": 406,
+     "w": 149.2,
+     "h": 28.4
+    },
+    "textX": 374.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 361.5,
+       "y": 398.2,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 400.5,
+       "y": 413.2,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 422.5,
+       "y": 410,
+       "w": 85.2,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "All",
+    "rect": {
+     "x": 366.5,
+     "y": 484.7,
+     "w": 59,
+     "h": 28.4
+    },
+    "textX": 374.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 361.5,
+       "y": 476.9,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 400.5,
+       "y": 488.7,
+       "w": 17,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Featured",
+    "rect": {
+     "x": 366.5,
+     "y": 539.1,
+     "w": 125.4,
+     "h": 28.4
+    },
+    "textX": 374.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 361.5,
+       "y": 531.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 400.5,
+       "y": 546.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 422.5,
+       "y": 543.1,
+       "w": 61.4,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "pastel",
+    "rect": {
+     "x": 366.5,
+     "y": 617.8,
+     "w": 182,
+     "h": 28.4
+    },
+    "textX": 360.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 374.5,
+       "y": 624,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 398.5,
+       "y": 621.8,
+       "w": 40.9,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "neon",
+    "rect": {
+     "x": 366.5,
+     "y": 648.2,
+     "w": 182,
+     "h": 28.4
+    },
+    "textX": 360.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 374.5,
+       "y": 654.4,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 398.5,
+       "y": 652.2,
+       "w": 34.1,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "earth",
+    "rect": {
+     "x": 366.5,
+     "y": 678.6,
+     "w": 182,
+     "h": 28.4
+    },
+    "textX": 360.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 374.5,
+       "y": 684.8,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 398.5,
+       "y": 682.6,
+       "w": 34.9,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "monochrome",
+    "rect": {
+     "x": 366.5,
+     "y": 709.1,
+     "w": 182,
+     "h": 28.4
+    },
+    "textX": 360.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 374.5,
+       "y": 715.3,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 398.5,
+       "y": 713.1,
+       "w": 89.5,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "retro",
+    "rect": {
+     "x": 366.5,
+     "y": 739.5,
+     "w": 182,
+     "h": 28.4
+    },
+    "textX": 360.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 374.5,
+       "y": 745.7,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 398.5,
+       "y": 743.5,
+       "w": 31.5,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "vaporwave",
+    "rect": {
+     "x": 366.5,
+     "y": 769.9,
+     "w": 182,
+     "h": 28.4
+    },
+    "textX": 360.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 374.5,
+       "y": 776.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 398.5,
+       "y": 773.9,
+       "w": 74.1,
+       "h": 20.4
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "high-contrast-accessible-set",
+    "rect": {
+     "x": 366.5,
+     "y": 800.3,
+     "w": 182,
+     "h": 48.8
+    },
+    "textX": 360.5,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 374.5,
+       "y": 816.8,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 398.5,
+       "y": 804.3,
+       "w": 142,
+       "h": 40.8
+      },
+      "role": null
+     }
+    ]
+   }
+  ],
+  "dividers": [
+   "0px",
+   "0px",
+   "0px"
+  ],
+  "dividerColor": "rgb(198, 180, 159)",
+  "swatch": {
+   "rect": {
+    "x": 366.5,
+    "y": 783.1,
+    "w": 28,
+    "h": 28
+   },
+   "style": {
+    "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+    "outline-width": "3px",
+    "outline-color": "rgb(28, 25, 23)",
+    "border-color": "rgb(198, 180, 159)",
+    "border-width": "2px",
+    "transition-property": "box-shadow",
+    "transition-duration": "0.2s"
+   },
+   "label": "Open color picker, current color #4488cc",
+   "cls": "block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
+  },
+  "input": {
+   "rect": {
+    "x": 400.5,
+    "y": 780.1,
+    "w": 148,
+    "h": 36
+   },
+   "style": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "12.872px",
+    "padding-inline-end": "64px",
+    "padding-inline-start": "16px",
+    "text-overflow": "ellipsis",
+    "background-color": "rgb(243, 236, 226)",
+    "color": "rgb(28, 25, 23)"
+   },
+   "placeholder": "#hex, hsl(...)",
+   "label": "Search by CSS color"
+  },
+  "searchBtn": {
+   "rect": {
+    "x": 491.9,
+    "y": 786.1,
+    "w": 52.6,
+    "h": 24
+   },
+   "style": {
+    "font-size": "11px",
+    "background-color": "oklab(0.965259 0.00091 0.006098 / 0.5)",
+    "color": "rgb(112, 89, 66)",
+    "border-radius": "340282346638528859811704183484516925440px",
+    "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to"
+   },
+   "disabled": false
+  },
+  "clearBtn": null,
+  "tagScroll": {
+   "rect": {
+    "x": 366.5,
+    "y": 617.8,
+    "w": 182,
+    "h": 112
+   },
+   "scrollH": 231,
+   "clientH": 112,
+   "style": {
+    "max-height": "112px",
+    "overflow-y": "auto",
+    "scrollbar-width": "thin",
+    "mask-image": "none"
+   }
+  },
+  "checkboxes": [
+   {
+    "rect": {
+     "x": 374.5,
+     "y": 624,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 374.5,
+     "y": 654.4,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 374.5,
+     "y": 684.8,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 374.5,
+     "y": 715.3,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 374.5,
+     "y": 745.7,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 374.5,
+     "y": 776.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 374.5,
+     "y": 816.8,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   }
+  ],
+  "radios": [
+   {
+    "rect": {
+     "x": 361.5,
+     "y": 289.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 361.5,
+     "y": 343.8,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 361.5,
+     "y": 398.2,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 361.5,
+     "y": 476.9,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 361.5,
+     "y": 531.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   }
+  ],
+  "contentDir": "ltr",
+  "overflowY": 0,
+  "offscreen": true,
+  "innerW": 720,
+  "innerH": 450
+ },
+ {
+  "matrix": "rtl-desktop",
+  "trigBox": {
+   "x": 767,
+   "y": 336.640625,
+   "width": 32,
+   "height": 40
+  },
+  "errs": [
+   "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+  ],
+  "found": true,
+  "content": {
+   "rect": {
+    "x": 767,
+    "y": 381,
+    "w": 240,
+    "h": 632.6
+   },
+   "style": {
+    "background-color": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+    "border-color": "oklab(0.216129 0.003491 0.005182 / 0.05)",
+    "border-width": "1px",
+    "box-shadow": "oklab(1 0 0 / 0.3) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+    "border-radius": "12px",
+    "padding": "20.351999px 16px",
+    "animation-name": "none",
+    "animation-duration": "0s",
+    "transition-property": "scale, translate, opacity, filter, display, overlay",
+    "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+    "z-index": "130",
+    "overflow": "visible"
+   }
+  },
+  "sections": [
+   {
+    "label": "Sort",
+    "rect": {
+     "x": 784,
+     "y": 402.3,
+     "w": 206,
+     "h": 197.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tier",
+    "rect": {
+     "x": 784,
+     "y": 599.7,
+     "w": 206,
+     "h": 140.4
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Tags",
+    "rect": {
+     "x": 784,
+     "y": 740.2,
+     "w": 206,
+     "h": 164.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   },
+   {
+    "label": "Find by Color",
+    "rect": {
+     "x": 784,
+     "y": 904.7,
+     "w": 206,
+     "h": 87.6
+    },
+    "labelStyle": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.384px",
+     "font-weight": "400",
+     "line-height": "21.575998px",
+     "color": "oklab(0.457941 0.014425 0.03273)",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4384px"
+    }
+   }
+  ],
+  "opts": [
+   {
+    "text": "Newest",
+    "rect": {
+     "x": 796,
+     "y": 441.9,
+     "w": 121.4,
+     "h": 30.9
+    },
+    "textX": 804,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 791,
+       "y": 435.4,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 830,
+       "y": 450.4,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 852,
+       "y": 445.9,
+       "w": 57.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Popular",
+    "rect": {
+     "x": 796,
+     "y": 498.8,
+     "w": 165.4,
+     "h": 30.9
+    },
+    "textX": 804,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 791,
+       "y": 492.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 830,
+       "y": 507.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 852,
+       "y": 502.8,
+       "w": 101.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Most Forked",
+    "rect": {
+     "x": 796,
+     "y": 555.8,
+     "w": 159.7,
+     "h": 30.9
+    },
+    "textX": 804,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 791,
+       "y": 549.3,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 830,
+       "y": 564.3,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 852,
+       "y": 559.8,
+       "w": 95.7,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "All",
+    "rect": {
+     "x": 796,
+     "y": 639.3,
+     "w": 61.1,
+     "h": 30.9
+    },
+    "textX": 804,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 791,
+       "y": 632.8,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 830,
+       "y": 643.3,
+       "w": 19.1,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "Featured",
+    "rect": {
+     "x": 796,
+     "y": 696.2,
+     "w": 132.9,
+     "h": 30.9
+    },
+    "textX": 804,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 791,
+       "y": 689.7,
+       "w": 44,
+       "h": 44
+      },
+      "role": "radio"
+     },
+     {
+      "tag": "svg",
+      "rect": {
+       "x": 830,
+       "y": 704.7,
+       "w": 14,
+       "h": 14
+      },
+      "role": null
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 852,
+       "y": 700.2,
+       "w": 68.9,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "pastel",
+    "rect": {
+     "x": 796,
+     "y": 779.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 940,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 954,
+       "y": 787.2,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 900,
+       "y": 783.7,
+       "w": 46,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "neon",
+    "rect": {
+     "x": 796,
+     "y": 812.7,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 940,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 954,
+       "y": 820.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 907.7,
+       "y": 816.7,
+       "w": 38.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "earth",
+    "rect": {
+     "x": 796,
+     "y": 845.6,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 940,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 954,
+       "y": 853.1,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 906.8,
+       "y": 849.6,
+       "w": 39.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "monochrome",
+    "rect": {
+     "x": 796,
+     "y": 878.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 940,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 954,
+       "y": 886,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 845.5,
+       "y": 882.5,
+       "w": 100.5,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "retro",
+    "rect": {
+     "x": 796,
+     "y": 911.5,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 940,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 954,
+       "y": 918.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 910.6,
+       "y": 915.5,
+       "w": 35.4,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "vaporwave",
+    "rect": {
+     "x": 796,
+     "y": 944.4,
+     "w": 182,
+     "h": 30.9
+    },
+    "textX": 940,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 954,
+       "y": 951.9,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 862.7,
+       "y": 948.4,
+       "w": 83.3,
+       "h": 22.9
+      },
+      "role": null
+     }
+    ]
+   },
+   {
+    "text": "high-contrast-accessible-set",
+    "rect": {
+     "x": 796,
+     "y": 977.3,
+     "w": 182,
+     "h": 53.9
+    },
+    "textX": 940,
+    "kids": [
+     {
+      "tag": "button",
+      "rect": {
+       "x": 954,
+       "y": 996.3,
+       "w": 16,
+       "h": 16
+      },
+      "role": "checkbox"
+     },
+     {
+      "tag": "span",
+      "rect": {
+       "x": 804,
+       "y": 981.3,
+       "w": 142,
+       "h": 45.9
+      },
+      "role": null
+     }
+    ]
+   }
+  ],
+  "dividers": [
+   "0px",
+   "0px",
+   "0px"
+  ],
+  "dividerColor": "rgb(198, 180, 159)",
+  "swatch": {
+   "rect": {
+    "x": 950,
+    "y": 947.3,
+    "w": 28,
+    "h": 28
+   },
+   "style": {
+    "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+    "outline-width": "3px",
+    "outline-color": "rgb(28, 25, 23)",
+    "border-color": "rgb(198, 180, 159)",
+    "border-width": "2px",
+    "transition-property": "box-shadow",
+    "transition-duration": "0.2s"
+   },
+   "label": "Open color picker, current color #4488cc",
+   "cls": "block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
+  },
+  "input": {
+   "rect": {
+    "x": 796,
+    "y": 944.3,
+    "w": 148,
+    "h": 36
+   },
+   "style": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "14.384px",
+    "padding-inline-end": "16px",
+    "padding-inline-start": "64px",
+    "text-overflow": "ellipsis",
+    "background-color": "rgb(243, 236, 226)",
+    "color": "rgb(28, 25, 23)"
+   },
+   "placeholder": "#hex, hsl(...)",
+   "label": "Search by CSS color"
+  },
+  "searchBtn": {
+   "rect": {
+    "x": 887.4,
+    "y": 950.3,
+    "w": 52.6,
+    "h": 24
+   },
+   "style": {
+    "font-size": "11px",
+    "background-color": "oklab(0.965259 0.00091 0.006098 / 0.5)",
+    "color": "rgb(112, 89, 66)",
+    "border-radius": "340282346638528859811704183484516925440px",
+    "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to"
+   },
+   "disabled": false
+  },
+  "clearBtn": null,
+  "tagScroll": {
+   "rect": {
+    "x": 796,
+    "y": 779.7,
+    "w": 182,
+    "h": 112
+   },
+   "scrollH": 252,
+   "clientH": 112,
+   "style": {
+    "max-height": "112px",
+    "overflow-y": "auto",
+    "scrollbar-width": "thin",
+    "mask-image": "none"
+   }
+  },
+  "checkboxes": [
+   {
+    "rect": {
+     "x": 954,
+     "y": 787.2,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 954,
+     "y": 820.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 954,
+     "y": 853.1,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 954,
+     "y": 886,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 954,
+     "y": 918.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 954,
+     "y": 951.9,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   },
+   {
+    "rect": {
+     "x": 954,
+     "y": 996.3,
+     "w": 16,
+     "h": 16
+    },
+    "state": "false",
+    "attrs": [
+     "data-v-ace91ae4",
+     "data-slot",
+     "class",
+     "checked",
+     "role",
+     "type",
+     "aria-checked",
+     "aria-required",
+     "data-state"
+    ]
+   }
+  ],
+  "radios": [
+   {
+    "rect": {
+     "x": 791,
+     "y": 435.4,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 791,
+     "y": 492.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 791,
+     "y": 549.3,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   },
+   {
+    "rect": {
+     "x": 791,
+     "y": 632.8,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "true"
+   },
+   {
+    "rect": {
+     "x": 791,
+     "y": 689.7,
+     "w": 44,
+     "h": 44
+    },
+    "checked": "false"
+   }
+  ],
+  "contentDir": "rtl",
+  "overflowY": 0,
+  "offscreen": true,
+  "innerW": 1440,
+  "innerH": 900
+ }
+]

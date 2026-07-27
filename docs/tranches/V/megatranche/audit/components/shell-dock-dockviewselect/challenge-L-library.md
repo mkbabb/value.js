@@ -528,15 +528,354 @@ feature's port to reach a platform singleton.
 | L-11 | `grep -rn 'from "\(\.\./\)*\.\./src' demo/` → empty; `node -e "console.log(Object.keys(require('./package.json').exports))"` → the 7 subpaths, no `"."`. |
 | L-12 | `sed -n '66,79p' demo/shell/viewSchema.ts` vs `sed -n '19,26p' demo/color-picker/composables/boot/useViewAccents.ts`. |
 
-## Probe note
+## Probe note — SUPERSEDED
 
-Live probing at `http://localhost:9000` was attempted and abandoned as unreliable: the
-shared Playwright browser is being driven concurrently by sibling seats in this workflow
-(a `browser_navigate` to `/#/browse` landed on `/#/extract`; a subsequent `evaluate` died
-with "Execution context was destroyed"). The findings above therefore rest on the
-controlled capture harness's screenshots, on reka-ui's shipped source, and on the tree —
-none of which the contention can perturb. One clean read did land before contention and is
-consistent with L-1: across `#/`, `#/browse`, `#/gradient`, `#/atmosphere`, `#/blob`,
-`#/admin/users`, `#/admin/audit` the `.view-select-trigger` element existed on every route
-with `aria-label="Select view"` intact — the accessible name survives everywhere, which is
-exactly why the e2e suite cannot see the missing visible label.
+The first pass of this seat attempted live probing at `http://localhost:9000` and abandoned
+it as unreliable (the shared Playwright browser was being driven concurrently by sibling
+seats: a `browser_navigate` to `/#/browse` landed on `/#/extract`; a subsequent `evaluate`
+died with "Execution context was destroyed"). L-1 therefore rested on the capture harness's
+screenshots plus reka-ui's shipped source.
+
+**A clean, uncontended live session has since landed. L-1 is now confirmed in the DOM, and
+its consequences are worse than the screenshots showed.** See the addendum below, §L-13.
+
+---
+
+# ADDENDUM — second pass: live confirmation + five measured findings
+
+Everything above stands as written. This addendum (a) closes the probe gap, (b) adds four
+findings the first pass did not reach, and (c) **corrects the negative proof in L-11**,
+which was drawn from `vite.config.ts` alone and missed a drifted twin.
+
+---
+
+## L-13 · L-1 CONFIRMED LIVE — and the combobox reports *no selection at all*, not merely a blank label
+
+Uncontended Playwright session, dev server `http://localhost:9000`, desktop viewport:
+
+```js
+// navigate #/atmosphere, then:
+const t = document.querySelector('.view-select-trigger');
+→ { hash: "#/atmosphere",
+    triggerText: "",                  // <SelectValue> renders the empty string — as L-1 predicted
+    triggerAriaLabel: "Select view",  // the accessible NAME survives (why e2e cannot see this)
+    triggerRole: "combobox",
+    triggerRectW: 60 }
+```
+
+Control, same session, same page instance:
+
+```js
+// navigate #/browse
+→ { hash: "#/browse", triggerText: "Browse", triggerRectW: 117 }
+```
+
+Then the listbox was opened on `#/atmosphere` and read:
+
+```js
+→ { expanded: "true",
+    optionCount: 7,
+    options: [Home, Palettes, Browse, Extract, Mix, Generate, Gradient],
+    // every one:  aria-selected="false"
+    anySelected: false,
+    activeDescendant: null }
+```
+
+The first pass framed this as a *missing visible label*. The DOM shows it is a **broken
+widget contract**: an expanded `role="combobox"` with seven `role="option"` children, **none**
+carrying `aria-selected="true"`, and `aria-activedescendant` **null**. A screen-reader user
+on `/#/atmosphere` is told they are in a combobox with no value selected while the
+application is unambiguously on a real route; a keyboard user gets no seeded active
+descendant, so arrow-key navigation starts from nothing rather than from the current view.
+
+This raises L-1's severity beyond cosmetic and confirms the first pass's refusal to accept a
+placeholder as the cure: a placeholder would fix `triggerText` and leave `anySelected: false`
+and `activeDescendant: null` exactly as they are. Only the membership invariant
+(`current ∈ entries`) repairs the widget.
+
+**Blast radius restated in DOM terms:** 7 of the 14 named views — `atmosphere`, `blob`, and
+all five `admin/*` — put the product's primary navigation into this state.
+
+---
+
+## L-14 · MAJOR (new) — a design-system primitive is hand-reimplemented inline, while the real one sits unused in the very barrel this file imports from
+
+`DockViewSelect.vue:123`:
+
+```html
+<div class="border-t border-border my-1"></div>
+```
+
+The module on line 6 — `../../ui/select` — re-exports `SelectSeparator`. glass-ui 7.0.0 ships
+it:
+
+```
+$ cat node_modules/@mkbabb/glass-ui/dist/select.js
+export { t as Select, e as SelectContent, n as SelectGroup, a as SelectItem,
+         r as SelectLabel, s as SelectSeparator, i as SelectTrigger, o as SelectValue };
+```
+```
+$ grep -rn "SelectSeparator" demo --include="*.vue"
+(no output)
+```
+
+**Zero** demo components use it. The one place in the repo that needs a separator inside a
+`Select` hand-rolls a bare `<div>` with per-instance Tailwind utilities. That is edict **4**
+(glass-ui is the design system — reuse its primitives) and edict **5** (style at the
+design-system root, never per-instance) violated in a single line, in the same file that
+already imports the barrel exporting the correct primitive.
+
+Note this is the *inverse* shape of L-5. L-5 says the demo forwards a primitive it does not
+own; L-14 says the demo then declines to use the primitive it forwarded and re-rolls it by
+hand. Both are the same root cause — nobody treats `demo/ui/` as a real surface — and both
+die when it is deleted.
+
+**Cure.** `<SelectSeparator />`. If its default margin is wrong for the dock menu, that is a
+token change *in glass-ui*, relayed via the standing BH/BI inbox law — not a `my-1` here.
+
+---
+
+## L-15 · MAJOR (new, measured) — the alias barrel routes through glass-ui's ROOT export, bypassing the `./select` subpath the package ships: 6× the modules, 12× the bytes, for the same eight symbols
+
+`demo/ui/select/index.ts` re-exports from the **bare root** `@mkbabb/glass-ui`. But glass-ui
+7.0.0's `exports` map declares a dedicated `./select` subpath (one of 69 subpath keys), and
+`DockViewSelect.vue:3` already proves the demo knows the idiom — it imports `DockTrigger`
+from `@mkbabb/glass-ui/dock`.
+
+ESM closure of each entry, measured over `node_modules/@mkbabb/glass-ui/dist` (transitive
+relative-import closure + on-disk bytes):
+
+```
+glass-ui.js     modules=  66  bytes=  224193      ← what ../../ui/select resolves to
+select.js       modules=  11  bytes=   18628      ← what @mkbabb/glass-ui/select resolves to
+dock.js         modules=  32  bytes=  101223      ← what line 3 already uses, correctly
+```
+
+**66 modules / 224 KB versus 11 modules / 18.6 KB for the identical eight symbols.** The root
+barrel is `export * from` over 28 component modules plus the composable surfaces
+(`dist/index.d.ts:1-42`); Select is one of them. In the dev server that is 66 module requests
+instead of 11 every time this component loads; in production it is a tree-shaking obligation
+that need not exist.
+
+Repo-wide, this is the third of three parallel routes to one design system:
+
+```
+$ grep -rhno "@mkbabb/glass-ui[a-z/-]*" demo --include="*.vue" --include="*.ts" | sed 's/^[0-9]*://' | sort | uniq -c | sort -rn
+  37 @mkbabb/glass-ui          ← root barrel, direct
+  15 @mkbabb/glass-ui/dock
+  11 @mkbabb/glass-ui/watercolor-dot
+   9 @mkbabb/glass-ui/dom  …   (82 subpath imports in total)
+$ grep -rl "/ui/[a-z-]*\"" demo --include="*.vue" --include="*.ts" | wc -l
+  48                          ← via the demo/ui alias barrels
+```
+
+`DockViewSelect.vue` uses two of the three eight lines apart (L-5). L-15 adds the number that
+makes the deletion argument quantitative rather than aesthetic: the correct import for this
+file is `@mkbabb/glass-ui/select`, and it is 6× cheaper than the one it has.
+
+`demo/ui/select`'s six consumers are the complete work list for this one barrel:
+`GradientVisualizer.vue`, `MixConfigBar.vue`, `GenerateControls.vue`, `AuroraPane.vue`,
+`ColorSpaceSelector.vue`, `DockViewSelect.vue`.
+
+---
+
+## L-16 · MINOR (new) — CORRECTION to L-11: the demo's *runtime* value.js surface is clean, but the **typecheck** twin has drifted — three `paths` entries point at files that do not exist
+
+L-11 proved the negative from `vite.config.ts:37-50`, whose alias set is *generated* from
+`package.json#exports` and therefore cannot drift. That proof is sound for the runtime and is
+upheld. It did not check the hand-written twin.
+
+`tsconfig.demo.json:40-52` declares eight value.js `paths` entries and its comment at `:41-44`
+asserts "the `exports` map is a **CLOSED 8-key set**". Both halves are false as of 4.0.0:
+
+```
+$ ls dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts
+ls: dist/index.d.ts: No such file or directory
+ls: dist/subpaths/parsing.d.ts: No such file or directory
+ls: dist/subpaths/units.d.ts: No such file or directory
+
+$ ls dist/subpaths
+color.d.ts  css.d.ts  easing.d.ts  math.d.ts  quantize.d.ts  transform.d.ts  value.d.ts  (+ .js)
+
+$ node -e "console.log(Object.keys(require('./package.json').exports).join(' '))"
+./color ./value ./css ./easing ./math ./transform ./quantize          # SEVEN keys, no "." root
+```
+
+So: `@mkbabb/value.js` (bare), `/parsing` and `/units` are mapped to **nonexistent files**;
+`./value` and `./css` are exported but named nowhere in the tsconfig; and `/css` is the
+demo's **second-most-used** subpath — 10 imports, including `color-session/picker-color.ts`,
+`view-accent.ts` and `ink.ts`.
+
+`/css` typechecks today only because TypeScript falls back to Node **self-referencing package
+resolution** through the real `exports` map. Verified rather than assumed:
+
+```
+$ npx tsc --noEmit -p tsconfig.demo.json --traceResolution | grep -A3 "'@mkbabb/value.js/css'"
+======== Resolving module '@mkbabb/value.js/css' from '…/demo/color-session/picker-color.ts'. ========
+'paths' option is specified, looking for a pattern to match module name '@mkbabb/value.js/css'.
+Found 'package.json' at '/Users/mkbabb/Programming/value.js/package.json'.
+======== Module name '@mkbabb/value.js/css' was successfully resolved to
+         '…/dist/subpaths/css.d.ts' with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'. ========
+```
+
+**L-11's conclusion survives:** every one of the demo's 49 value.js imports (`color` 24,
+`css` 10, `math` 6, `easing` 5, `quantize` 4) goes through the published `exports` map, no
+demo file reaches `src/`, and a real consumer could write every one of them. The `paths`
+block is not *producing* a violation — it is a stale hand-written declaration of a surface
+that has moved, currently a no-op plus three landmines. The day anyone writes
+`import … from "@mkbabb/value.js"` they will hit a resolution failure whose cause is a
+comment claiming an 8-key set that has not existed since 4.0.0.
+
+**Cure, consistent with the generated-alias discipline vite already follows:** delete the
+value.js `paths` block outright. Self-reference resolution reads the *real* `exports` map, is
+proved above to resolve correctly, and cannot drift — which is the same property
+`valueJsSelfAlias` was written to guarantee on the runtime side. Two hand-written twins of
+one generated fact is one too many.
+
+---
+
+## L-17 · MINOR (new) — L-3's admin render survives cold deep-links because the only eviction guard is a non-immediate watch
+
+L-3 established that `meta: { admin: true }` has zero readers and that the admin console
+renders unauthenticated. There *is* one client-side eviction; it simply cannot fire on the
+path that matters. `demo/color-picker/composables/usePaletteWiring.ts:166-171`:
+
+```ts
+// (4) Hide admin views when admin logs out
+watch(ports.session.isAdminAuthenticated, (auth) => {
+    if (!auth && viewManager.currentView.value.startsWith("admin-")) {
+        viewManager.switchView("picker");
+    }
+});
+```
+
+No `{ immediate: true }` — unlike watch (2) twenty lines above it, which does carry it. The
+guard therefore fires only on the `true → false` *transition*. Cold-boot into `/#/admin/users`
+with `isAdminAuthenticated` already `false` produces no transition, so nothing evicts. That
+is precisely the state `shots/safari-desktop-light/admin-users.png` captured.
+
+It is also a seventh site for the `startsWith("admin-")` predicate L-2 enumerates, with an
+eighth semantic (evict-on-logout-only). Under the greenfield lattice this whole watch is
+subsumed by `shell/nav/guard.ts`, which runs per-navigation and therefore covers cold boot by
+construction.
+
+---
+
+## L-18 · MAJOR (new, measured) — L-4 quantified: the shell→feature edge drags 31 unrelated modules into a 162-line nav dropdown to read one boolean
+
+L-4 named the wrong-direction edge. Here is its cost. Runtime module closure from
+`DockViewSelect.vue` (value imports only; `import type` excluded because it erases):
+
+```
+RUNTIME-REACHABLE LOCAL MODULES from DockViewSelect.vue: 33
+
+  demo/shell/dock/DockViewSelect.vue          ← the component
+  demo/ui/select/index.ts                     ← the alias barrel (L-5/L-15)
+  ────────────────────────────────────────────────────────────────────────
+  demo/palettes/usePalettePorts.ts            ← the one import that costs 31 modules
+  demo/palettes/api/{admin-audit,admin-colors,admin-palettes,admin-users,colors,index,palettes,versions}.ts
+  demo/palettes/{constants,utils}.ts
+  demo/palettes/{useAdminAudit,useAdminFlagged,useAdminTags,useAdminUsers,useBrowsePalettes,
+                 useColorNameQueue,useFilteredList,usePaletteActions,usePaletteStore,
+                 useSlugMigration,useTagEdit,useVersionHistory}.ts
+  demo/platform/auth/{sessionToken,sessions,useAdminAuth,useSession,useUserAuth}.ts
+  demo/platform/storage/useSafeStorage.ts
+  demo/platform/transport/{api-problem,client}.ts
+
+EDGES crossing demo/shell <-> demo/palettes:
+  demo/shell/dock/DockViewSelect.vue -> demo/palettes/usePalettePorts.ts
+```
+
+The component's sole use of all of that is `DockViewSelect.vue:122`
+`v-if="pm.isAdminAuthenticated.value"`. Deleting lines 7-8 and 35 and receiving the boolean as
+a prop drops the closure **33 → 2**.
+
+Two structural readings follow:
+
+1. **The retired god facade still has its blast radius, through the port.**
+   `usePalettePorts.ts:20-30` documents the dissolution of `usePaletteManager` into five narrow
+   ports precisely so "no consumer injects a member outside the port it named". The port
+   *interface* is narrow; the port *module* is not — importing `SESSION_PORT_KEY` from it
+   instantiates the whole assembly graph. Edict 1 is satisfied in the type surface and
+   defeated in the module surface. The key belongs beside its provider only if consumers pay
+   for the provider; here they do, and the fix is to not have shell leaves be consumers at all
+   (L-4's cure), or to move the five `InjectionKey` declarations to a keys module that imports
+   nothing — the idiom `demo/color-session/keys.ts` already uses in this repo, and which
+   `Dock.vue:19` already imports from.
+
+2. **It confirms L-4's "dual data path" claim mechanically.** Every other input to this
+   component arrives as a prop from `Dock.vue`; this one reaches around the prop surface to a
+   feature module. The component is un-mountable in isolation as a direct consequence: with no
+   provider, `inject(SESSION_PORT_KEY)!` yields `undefined` and the template's
+   `pm.isAdminAuthenticated.value` throws.
+
+---
+
+## L-19 · L-7 CONFIRMED by compiler — the index signature disables property checking on the objects that drive the primary navigation
+
+L-7 asserted that `ViewEntry`'s `[k: string]: unknown` "makes the type accept anything at
+all". Demonstrated rather than asserted. Isolated `--strict` program (no repo tsconfig, no
+`types`):
+
+```ts
+import type { ViewEntry } from "…/demo/shell/dock/composables/useDockAdminMode";
+declare const e: ViewEntry;
+const x = e.laebl;                   // typo of `label`
+const y = e.completely_made_up_key;  // never defined anywhere
+export { x, y };
+```
+```
+$ node_modules/.bin/tsc -p .
+TSC EXIT=0        ← zero errors
+```
+
+Both nonsense accesses typecheck clean and yield `unknown`. `vue-tsc` will accept any
+misspelled field on a `viewEntries` row anywhere in `DockViewSelect.vue`'s template. Combined
+with `icon: unknown` flowing into `<component :is>` — a position `vue-tsc` does not check —
+the row objects that drive the entire primary navigation carry **no** compile-time guarantee
+of any kind.
+
+`{ id: ViewId } & PaneConfig` (L-7's cure) restores all of it, and needs no cast at the two
+construction sites: `{ id, ...VIEW_MAP[id] }` structurally *is* that type — the `as ViewEntry`
+exists only because the target was made dishonest.
+
+---
+
+## Addendum reproduction index
+
+| id | reproduction |
+|---|---|
+| L-13 | Playwright, uncontended, `http://localhost:9000`: navigate `#/atmosphere` → `document.querySelector('.view-select-trigger').textContent === ""`, `getBoundingClientRect().width === 60`. Open the listbox → 7 `[role=option]`, all `aria-selected="false"`, `aria-activedescendant === null`. Control: `#/browse` → `"Browse"`, width 117. |
+| L-14 | `grep -rn "SelectSeparator" demo --include="*.vue"` → no output; `grep -n "SelectSeparator" node_modules/@mkbabb/glass-ui/dist/select.js` → present. Compare `DockViewSelect.vue:123`. |
+| L-15 | Transitive relative-import closure over `node_modules/@mkbabb/glass-ui/dist`: `glass-ui.js` 66 modules / 224193 B; `select.js` 11 / 18628; `dock.js` 32 / 101223. `node -e "console.log(Object.keys(require('@mkbabb/glass-ui/package.json').exports))"` shows `./select` is published. |
+| L-16 | `ls dist/index.d.ts dist/subpaths/{parsing,units}.d.ts` → 3× No such file. `npx tsc --noEmit -p tsconfig.demo.json --traceResolution \| grep -A3 "'@mkbabb/value.js/css'"` → resolves via `package.json`, not via `paths`. |
+| L-17 | `sed -n '166,171p' demo/color-picker/composables/usePaletteWiring.ts` — no `{ immediate: true }`, unlike the watch at `:144-155`. |
+| L-18 | Value-import module-closure walk from `demo/shell/dock/DockViewSelect.vue` (script in this session's scratchpad, `graph.mjs`) → 33 modules; remove `DockViewSelect.vue:8` → 2. |
+| L-19 | Isolated `--strict` tsconfig over the four-line probe above → `tsc` exits 0 with zero diagnostics. |
+
+## Consolidated verdict after both passes
+
+**DEFECTIVE.** Nineteen findings; the premise holds on every axis the challenge names except
+one, and that one needed a correction of its own:
+
+- **wrong ownership** — L-1/L-2/L-3/L-17: navigation has no owner; the admin predicate is
+  written seven times in five files with three populations and one of the seven is dead code.
+- **wrong direction** — L-4/L-18: `demo/shell` → `demo/palettes`, measured at 31 unnecessary
+  modules for one boolean, in five shell files.
+- **wrong public surface** — L-5/L-9/L-14/L-15: three-and-a-half parallel routes to glass-ui,
+  20 zero-behaviour alias directories, an import cycle, a primitive forwarded-then-rehandrolled,
+  and a 6×/12× cost for choosing the root barrel over the shipped subpath.
+- **ownership duplication** — L-6/L-7/L-19: a self-declared back-compat shim for a path that
+  no longer exists, and a type-erased duplicate of a type the schema already owns whose index
+  signature the compiler confirms accepts anything.
+- **library import discipline** — L-11 stands (the demo speaks only the published surface),
+  **sharpened by L-16**: the runtime alias set is generated and cannot drift, but its
+  hand-written typecheck twin already has, with three entries pointing at files that do not
+  exist.
+
+Strongest single defect: **L-1/L-13** — the product's primary navigation reports no selected
+option on half its own routes, and the cause is structural, not cosmetic: the option set and
+the model value have different owners and no relation between them is expressed anywhere in
+the type system, the tests, or the schema.
+
+Nothing was edited by either pass. This seat wrote only this file.

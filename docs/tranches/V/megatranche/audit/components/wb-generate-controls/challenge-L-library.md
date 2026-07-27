@@ -1376,3 +1376,485 @@ router defect — same conclusion pass 1 reached. The glass-ui root-barrel impor
 *bundle-size* cost for it: `sideEffects: ["*.css"]` plus 71–260-byte subpath re-export stubs mean
 Rollup tree-shakes the root barrel as well as a subpath. Treat §L-6 as an idiom/consistency
 finding, not a performance one.
+
+---
+---
+
+# §9 — PASS 3 (independent re-audit, 2026-07-27, repo HEAD `7cae8bd0`)
+
+## Model receipt
+
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, matching the
+explicit Opus 5 declaration this seat was spawned with. Declared, not inherited.
+
+This is the third CHALLENGE-L pass. Passes 1 and 2 are thorough and I do not re-argue them. **Every
+finding below is new**, and all of them come from one region neither prior pass entered: the repo's
+*test and type-program topology*, which is where this component's library boundary is actually
+decided. One pass-1 cure is **corrected** (§9.5), and one pass-1/pass-2 finding is **upgraded from
+eyeball to measurement** (§9.8).
+
+## 9.1 Pin re-verification at a third HEAD
+
+```
+$ git rev-parse --short HEAD
+7cae8bd0
+$ shasum -a 256 demo/workbenches/generate/GenerateControls.vue
+4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6  demo/workbenches/generate/GenerateControls.vue
+$ git log --oneline c654824e..HEAD -- demo/workbenches/generate/ | wc -l
+0
+```
+
+**Pin EXACT, zero drift**, now across three HEADs (`c654824e` → `9bcd5d91` → `7cae8bd0`). No consumer
+edit is authored here.
+
+**A property of this pass worth stating up front:** unlike passes 1 and 2, whose yield was
+concentrated *inside* the pinned file, **every pass-3 defect lands in `test/`, `tsconfig.*.json`, or
+`src/` — none touches `GenerateControls.vue`.** Pass 3's entire wave table is therefore
+**CURABLE NOW**, unblocked by Glass 8.
+
+---
+
+## 9.2 NEW · **L3-1 · MAJOR** — `test/` is type-checked by no program, and already holds 27 errors
+
+The repo splits its TypeScript into two leaf programs, and the split is documented as a structural
+invariant — `tsconfig.json:3-8`: *"the PUBLISHED library graph (tsconfig.lib.json, `src/` only) is
+glass-ui-free by construction, while the demo graph (tsconfig.demo.json, `demo/`) resolves glass-ui
+from source."*
+
+Measured includes:
+
+```
+$ node -e "…tsconfig.lib.json…"
+include: ["src/subpaths/color.ts", … 13 enumerated src patterns …]   exclude: undefined
+$ node -e "…tsconfig.demo.json…"
+include: ["demo/","src/vite-env.d.ts"]                                exclude: undefined
+$ tsconfig.json → { "files": [], "references": [lib, demo] }
+```
+
+`test/` appears in none of them. The compiler's own file list confirms it:
+
+```
+$ npx tsc -p tsconfig.lib.json  --noEmit --listFilesOnly | grep -c "/value.js/test/"
+0
+$ npx tsc -p tsconfig.demo.json --noEmit --listFilesOnly | grep -c "/value.js/test/"
+0
+$ npx tsc -p tsconfig.demo.json --noEmit --listFilesOnly | grep -c "/value.js/demo/test/"
+3
+```
+
+**0 of the library's 19 `test/*.ts` files are in any program; 3 `demo/test/` files are.** The demo's
+own tests are gated; the library's are not. And the binding gate cannot reach them —
+`package.json`: `typecheck = vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit`.
+Nor does the runner: `vitest.config.ts` has **no `typecheck` block**, so vitest transpiles
+types away with esbuild and never checks them.
+
+**The region is not merely unchecked — it is already broken.** I built a throwaway config identical
+to `tsconfig.demo.json` but with `include: ["test/","demo/","src/vite-env.d.ts"]`, ran `vue-tsc
+--noEmit`, and deleted it (`rm -f tsconfig.probe-test.json`; `git status` clean):
+
+```
+total errors:                     27
+errors under test/:               27
+errors under demo/:                0
+```
+
+A representative sample:
+
+```
+test/value-domain-clamp.test.ts(35,26): error TS2339: Property 'hue' does not exist on type
+  'Readonly<{ key: string; min: number; max: number; unit: "" | "%" | "deg" | "K"; hue?: true; }>
+   | { key: string; min: number; max: number; unit: "K"; }'.
+test/status-lamp.test.ts(149,15): error TS2488: Type '[message?: any, …] | undefined' must have a
+  '[Symbol.iterator]()' method that returns an iterator.
+test/math.test.ts(318,40): error TS2345: Argument of type 'number[][]' is not assignable to
+  parameter of type 'readonly (readonly [x: number, y: number])[]'.
+```
+
+`test/value-domain-clamp.test.ts` is a **demo-importing** test (`../demo/color-session/picker-color`),
+and its error is a real one: the test reads `.hue` off a union whose `unit: "K"` arm has no such
+property. The assertion is only reached because the runtime object happens to carry it.
+
+**Mechanism.** `test/` is the *only* region of this repository that crosses the `src/` ↔ `demo/`
+boundary (§9.3), and it is the one region no type program covers. The boundary the whole two-program
+split exists to police is enforced everywhere except at the single place it is actually crossed.
+
+Note the irony precisely: the lib program **is** genuinely clean — `npx tsc -p tsconfig.lib.json
+--noEmit --listFilesOnly | grep -c "glass-ui\|/value.js/demo/"` → **0** of 88 files. inv-K-1 holds.
+But it holds partly *because* the files that would violate it were placed outside every program.
+
+**Cure — CURABLE NOW.** Add a third leaf, `tsconfig.test.json`, extending `tsconfig.base.json` with
+`include: ["test/"]` and references to both leaves, and append it to the `typecheck` script. The 27
+errors must be fixed, not suppressed — and fixing `value-domain-clamp` and `status-lamp` will
+sharpen the demo types they consume. Then delete the `@src/*` alias per §9.3.
+
+---
+
+## 9.3 NEW · **L3-2 · MAJOR** — the `@src/*` deep-path alias is alive in `test/`, kept breathing by the bundler alone
+
+The challenge asks whether this component's cone reaches value.js *"through the published subpath
+export map, or through a deep path that only works because the demo shares the repo."* Pass 1
+answered for `demo/` and recorded the negative proof (zero `@src/` in the demo tree). That proof is
+correct and I confirm it. **It is also incomplete: the alias survives in `test/`.**
+
+```
+$ grep -rn "@src/" test/
+test/gradient-v4-consume.test.ts            ← "@src/subpaths/css";
+test/parsing/timeline/parsing-easing.test.ts ← "@src/subpaths/css";
+test/parsing/timeline/parsing-easing.test.ts ← "@src/subpaths/easing";
+test/transform/path-geometry.test.ts        ← "@src/transform/path";
+test/transform/decompose-targeted.test.ts   ← "@src/transform/decompose";   (×2)
+```
+
+Six imports, four files. **Every one has an exact published equivalent** — verified against
+`src/subpaths/transform.ts`, which re-exports the whole of both reached internals:
+
+| deep path written | published specifier that covers it |
+|---|---|
+| `@src/subpaths/css` | `@mkbabb/value.js/css` |
+| `@src/subpaths/easing` | `@mkbabb/value.js/easing` |
+| `@src/transform/decompose` | `@mkbabb/value.js/transform` — exports `decomposeMatrix2D/3D`, `recompose*`, `slerp`, `interpolateDecomposed`, `DecomposedMatrix2D/3D`, `Vec4`, `Mat4` |
+| `@src/transform/path` | `@mkbabb/value.js/transform` — exports `PathGeometry`, `getTotalLength`, `getPointAtLength`, `Point`, `PathSample` |
+
+The two `@src/subpaths/*` cases are the sharpest: they reach the **subpath entry file itself** by
+filesystem path, deliberately stepping around the `exports` map that exists to serve exactly that
+module. The deep path buys nothing at all.
+
+**And the alias exists in only one of the two resolvers.** `vitest.config.ts:11` defines
+`"@src": path.resolve(…, "src")`; `tsconfig.demo.json:6` records that the `@src/*` **path was
+RETIRED**. So the specifier resolves at runtime and fails at typecheck — which is why six of my 27
+errors are `TS2307: Cannot find module '@src/…'`. It is not that the alias is unchecked incidentally;
+**the only reason these imports have never failed is that no type program has ever looked at them.**
+
+**Mechanism — pass 1's §L-5 inverted.** §L-5 found a `paths` mirror shadowing `exports`. This is the
+same disease with the mirror missing: a bundler alias with **no** type-program counterpart, so the
+weaker resolver is the only one consulted. Both are instances of the through-line pass 1 named in §5
+— *a boundary asserted in one tool and unenforced in another.*
+
+Consequence for this component specifically: the library's proof of its own published surface has a
+hole exactly where transform and easing are concerned, and the demo-dogfood keystone (T.W1) is
+narrower than it has been reported to be. It is a **demo→internal-deep-path claim that is true of
+`demo/` and false of `test/`.**
+
+**Cure — CURABLE NOW.** Rewrite the six imports onto the published specifiers, then delete the
+`@src` alias from `vitest.config.ts:11`. `vite.config.ts:70-74` documents `@src` as surviving for two
+other reasons — the `sourceExportPlugin`'s `@src/…?source` snippets and "the vitest suite's own
+`@src` alias" — so the second justification dies with these six lines and the alias narrows to the
+`?source` plugin only.
+
+---
+
+## 9.4 NEW · **L3-3 · MAJOR** — the library's unit suite depends on `demo/`; the one module that should be in `src/` is the one it skipped
+
+```
+$ grep -rl "\.\./demo/" test/*.ts | wc -l
+10          # of 19 library test files
+```
+
+Ten of nineteen. The library's own unit suite cannot run without `demo/` on disk. Enumerated, the
+suite has annexed modules from **six** demo areas — `demo/picker/…/sliderAnnouncement`,
+`demo/platform/transport/availability`, `demo/shell/dock/status-lamp`, `demo/shell/viewSchema`,
+`demo/palettes/mix`, `demo/workbenches/gradient/composables/{gradientParse,useGradientCSS,
+useGradientInterpolation,useGradientModel}`, `demo/workbenches/extract/…/useImageSampler`, and five
+`demo/color-session/*` modules.
+
+That is a de-facto verdict, already rendered: **the repo's own test infrastructure cannot tell where
+the library ends.** It is independent corroboration of pass 1's §L-4 from a direction §L-4 never
+used — not "this code looks library-shaped", but "the library's test suite already treats it as
+library code."
+
+**And the coverage is inverted exactly where it matters here.** Per-module, for
+`demo/color-session/` (24 modules), asking which are imported by a `test/**` file:
+
+| module | lines | covered by the LIBRARY suite |
+|---|---:|---|
+| `picker-color.ts` | 217 | yes (2 tests) |
+| `ink.ts` | 174 | yes (2 tests) |
+| `palettes-ramp.ts` | 120 | yes |
+| `color-chips/sample.ts` | 91 | yes |
+| `view-accent.ts` | 47 | yes |
+| `color-utils.ts` | 25 | yes (2 tests) |
+| **`generate-color.ts`** | **243** | **no — zero unit coverage** |
+| `prng.ts` | 11 | no |
+
+`generate-color.ts` is the **largest module in the directory** and the most nearly-pure (no Vue, no
+DOM, deterministic under an explicit seed — pass 1 fuzzed it at 288,000 calls / 0 throws). Its
+sibling `color-chips/sample.ts`, 91 lines in the same folder and used by the same dropdown rows this
+component renders, **is** covered by `test/preview-chips.test.ts`. There is no rule distinguishing
+them; there is only history.
+
+Its sole automated coverage anywhere is an end-to-end browser oracle:
+
+```
+$ grep -rln "generate-color\|generatePalette" test/ e2e/
+e2e/smoke/oracles/o20-generate-plate.spec.ts
+```
+
+**A pure, seeded, total, sub-millisecond numeric function whose only test drives Safari.** That is an
+inverted test pyramid, and it is why every property this component *relies* on — seed-exactness (the
+F5 TRUTH LAW at `GenerateControls.vue:86-93`), hue-range clamping, `count`-dependence of
+`generateHues` — is unasserted. Pass 2's §8.2 showed what an oracle-only regime misses: O-20 asserted
+`backgroundColor` and stayed green through the entire life of a dead verb.
+
+**Cure — CURABLE NOW, and it sequences *before* pass 1's move 1.** Write
+`test/generate-color.test.ts` against the current demo module: seed-exactness (same
+`(count,preset,harmony,seed)` ⇒ identical output), preset-range containment in OKLCh, harmony hue
+geometry, and the `count`-dependence that forbids truncation (pass 1 §L-9). Those tests are the
+*specification* the `src/palette/` promotion needs, and they are written once and moved with the
+code. Promoting 243 untested lines into a published subpath first would ship an unspecified public
+API.
+
+---
+
+## 9.5 CORRECTION · **L3-4 · MAJOR** — pass 1's `src/palette/` cure, as written, would ship UI copy in the colour library
+
+Pass 1 §L-4 and move 1 propose promoting `demo/color-session/generate-color.ts` to `src/palette/` and
+publishing `GENERATION_PRESETS` and `HARMONY_DEFS`. **Those two tables are not pure math.** They carry
+user-facing English:
+
+```
+$ grep -cn "label:\|description:" demo/color-session/generate-color.ts
+18
+```
+
+`generate-color.ts:47-56` and `:79-84`:
+
+```ts
+vibrant: { l:[0.55,0.80], c:[0.12,0.30], h:[[0,360]], description: "High chroma, bold tones" },
+pastel:  { l:[0.80,0.92], c:[0.04,0.10], h:[[0,360]], description: "Soft, light, airy" },
+earth:   { l:[0.35,0.65], c:[0.04,0.12], h:[[30,90]], description: "Muted clay and soil" },
+…
+"split-complementary": { description: "Base + two flanking complements" },
+```
+
+Sixteen presentation strings, and this component renders them verbatim —
+`GenerateControls.vue:246` `{{ GENERATION_PRESETS[p].description }}` and `:275`
+`{{ HARMONY_DEFS[h].description }}`.
+
+Promoting the file as-is would make `@mkbabb/value.js/palette` a package that ships English prose,
+permanently un-internationalisable behind a semver contract, and would hand every future consumer of
+the numeric ranges a copy deck they did not ask for. The numeric half is the reusable half; the copy
+is this application's voice.
+
+**Corrected cure.** Split at the promotion, not after it:
+
+- `src/palette/presets.ts` publishes `PRESET_RANGES: Record<PresetName, {l,c,h}>` — numbers only.
+- `src/palette/harmony.ts` publishes the six generators and `HarmonyName` — algorithms only.
+- The `description` strings stay in `demo/`, as a `Record<PresetName, string>` copy table beside the
+  component that renders them, keyed by the published union so a missing entry is a **type error**.
+
+This preserves the whole of pass 1's argument (the capability belongs in the library) while keeping
+the library's published surface free of application voice. Recorded as a correction because the cure
+as originally written would have created a new, harder-to-reverse defect in `src/` — the one place in
+this report where a proposed remedy needed changing rather than endorsing.
+
+---
+
+## 9.6 NEW · **L3-5 · MAJOR** — seeded randomness has two implementations; this file invokes both, on the same element, and `/math` publishes neither
+
+```
+$ grep -rn "mulberry32" demo src test
+demo/color-session/prng.ts:2:export function mulberry32(seed: number) {
+demo/color-session/generate-color.ts:35:import { mulberry32 } from "./prng";
+demo/color-session/generate-color.ts:219:  const rng = seed != null ? mulberry32(seed) : Math.random;
+demo/workbenches/generate/GenerateControls.vue:89: // mulberry32-seeded, so the strip and …
+
+$ grep -o "mulberry[A-Za-z0-9]*" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js | sort -u
+mulberry32
+```
+
+**Two independent mulberry32 implementations are live in this application**, and
+`GenerateControls.vue` drives both at the *same visual element*:
+
+- `:95,99` → `generatePalette(count, preset, harmony, seed)` → demo's `mulberry32(number)` decides the
+  swatch's **colour**;
+- `:204` → `:seed="`gen-${css}-${i}`"` → glass-ui's compiled `mulberry32(string-hashed)` decides the
+  same swatch's **shape**.
+
+One dot, two PRNGs, two packages, two seed types (`number` vs `string`), no shared definition of
+"deterministic given a seed". The `seed:` bench note at `:212-214` reports one of the two.
+
+Meanwhile the library that exists to publish numeric primitives ships none:
+
+```
+$ cat src/subpaths/math.ts
+/** `@mkbabb/value.js/math` — pure numeric math (O.W2). parse-that-FREE. */
+export { clamp, scale, lerp, lerpArray, logerp, deCasteljau, cubicBezier,
+         interpBezier, cubicBezierToString } from "../foundation/math";
+$ grep -rn "mulberry32\|seedrandom" src/
+(no output)
+```
+
+`clamp`, `lerp` and `deCasteljau` are published; the seeded PRNG that two separate packages each
+needed badly enough to hand-roll is not. **Wrong home**, by the same argument as §L-4 and with a
+sharper proof: the concept has already been independently re-derived twice, which is the empirical
+signature of a missing shared primitive.
+
+**Cure — CURABLE NOW.** `src/math/prng.ts` → `mulberry32`, plus a `hashSeed(string): number` so the
+string and numeric seed registers are one register; publish from `@mkbabb/value.js/math`.
+`demo/color-session/prng.ts` deletes. glass-ui consuming it is the cross-repo half — same direction of
+dependency as pass 2's §L2-3 `ColorHarmony` ask (colour/numeric primitives flow *from* the library
+*into* the design system), so the two should be filed as one RF-17 row rather than two.
+
+---
+
+## 9.7 NEW · **L3-6 · MINOR** — the two visual matrices that could falsify §L-11 and §L2-1 do not cover this route
+
+```
+$ ls docs/tranches/V/megatranche/audit/visual/shots/
+forced-colors-desktop/  keyboard-focus-desktop/  reduced-motion-desktop/  rtl-desktop/  rtl-mobile/
+safari-desktop-dark/  safari-desktop-light/  safari-mobile-dark/  safari-mobile-light/  zoom-200-desktop/
+
+$ ls forced-colors-desktop/   →  adminusers.png  blob.png  browse.png  gradient.png  picker.png
+$ ls keyboard-focus-desktop/  →  adminusers.png  blob.png  browse.png  gradient.png  picker.png
+```
+
+`generate.png` exists in the four `safari-*` matrices and in **none** of the specialised ones. The
+two omitted matrices are precisely the two that bear on this component's open accessibility-structural
+findings:
+
+- **`forced-colors-desktop`** is the only probe that would exercise §L-11 — the
+  `@media (forced-colors: active)` block in `foundation.css:689` whose hand-maintained selector list
+  had to grow a `.generate-swatch` entry.
+- **`keyboard-focus-desktop`** is the only probe that would exhibit §L2-1 — five swatches with zero
+  focus reachability. Pass 2 had to obtain that by hand-driven Playwright precisely because the
+  matrix that should show it does not run on this route.
+
+Not a defect in the component; a **gap in the evidence base this formation is reasoning from**, and
+worth recording because two of this file's three most serious open items sit in the blind spot.
+
+**Cure — CURABLE NOW:** extend both matrices to `/#/generate` (and to the other routes they omit)
+before the mega-tranche closes its visual evidence.
+
+---
+
+## 9.8 EVIDENCE UPGRADE · §L-10 / §L2-2 — the rail's divergence, measured
+
+Pass 1 rated the hand-rolled CSS rail INFO, reasoning that `color-chips/sample.ts`'s SAMPLING LAW is
+*"scoped to the chip family, so this is boundary-adjacent."* Pass 2 lifted it to MAJOR on the missing
+contrast ring. **Neither quantified the interpolation divergence the law exists to prevent.** I did.
+
+Reading `shots/safari-desktop-dark/generate.png`: the plate's five swatches are orange, teal,
+magenta, chartreuse, blue — and the count rail beneath carries a **visibly washed, low-chroma band
+between the teal and magenta stops** that appears nowhere in the palette or in the specimen strip
+above it.
+
+Taking that adjacent pair and computing both paths against the shipped library
+(`dist/subpaths/{color,css}.js`):
+
+```
+APP    midpoint (OKLCh lerp — what color-chips/sample.ts legislates) : oklch(0.640, 0.215, 262.5deg)
+ENGINE midpoint (sRGB lerp — a raw CSS linear-gradient stop pair)    : oklch(0.522, 0.160, 279.3deg)
+
+chroma: app=0.215  engine=0.160  → the engine desaturates the midpoint by 25.5%
+hue:    app=262.5deg  engine=279.3deg  → 16.8deg of hue drift
+```
+
+`GenerateControls.vue:65-73` hands raw stops to `linear-gradient(to right, …)` with no `in <space>`,
+so **which** of these two the user sees is the rendering engine's choice, not the application's — and
+engine defaults for legacy gradients differ. That is the exact hazard the law names in prose (*"the
+preview must show what THE APP computes, not what the browser's engine would … One mechanism for all
+rows, no engine divergence"*), now with a number: **up to 25.5% chroma and 16.8° of hue, per stop
+pair, on the instrument whose entire job is to show the palette it controls.**
+
+This does not change pass 2's MAJOR rating or its cure. It removes the remaining reason to treat the
+SAMPLING LAW as advisory here: the divergence is not theoretical, it is a quarter of the chroma, and
+it is on screen in the shipped screenshot.
+
+---
+
+## 9.9 Pass-3 negative results (measured, so no fourth seat re-runs them)
+
+- **`demo/` is type-clean.** My probe config type-checked `test/` **and** `demo/` together: 27 errors,
+  **0 of them under `demo/`**. Every error is in the unchecked region. The demo tree earns this.
+- **inv-K-1 holds structurally.** `npx tsc -p tsconfig.lib.json --noEmit --listFilesOnly` → 88 files,
+  `grep -c "glass-ui\|/value.js/demo/"` → **0**. The published library graph is genuinely glass-ui-free
+  and demo-free.
+- **`src/` never imports `demo/`.** `grep -rn "\.\./demo\|@/demo" src/` → no output. The inversion in
+  §9.4 is one-directional (tests only), which is why it is MAJOR and not BLOCKER.
+- **`color-session` is a real layer, not a fourth feature.** Zero back-edges: `grep -rn
+  "from \"\.\./workbenches\|\.\./palettes\|\.\./picker\|\.\./shell\|\.\./scenes" demo/color-session/`
+  → one hit, `color-chips/sample.ts:33 → ../picker-color`, which is *within* `color-session` itself.
+  Fan-in is broad and downward-only: workbenches 18, palettes 14, picker 8, shell 7, color-picker 6,
+  scenes 4. Passes 1 and 2 marked this file's lines 20 and 25–31 "direction correct" — **confirmed by
+  measurement**, and it is the one boundary in this component's import block that is unambiguously
+  right.
+- **The absent root `.` export is deliberate and documented, not a defect.** `package.json#exports`
+  has 7 keys and no `.`; `main`/`module`/`types` are all `undefined`; `README.md:15-21` lists exactly
+  those 7 subpaths and every example imports one (`:30 /css`, `:52 /color`, `:75 /easing`,
+  `:89 /quantize`). No source file anywhere imports the bare specifier. The published surface and its
+  documentation agree. (`tsconfig.demo.json:42` still maps a bare `@mkbabb/value.js` to a
+  non-existent `./dist/index.d.ts` — already covered by pass 1's §L-5 phantom-entry finding.)
+- **`files: ["dist","!dist/gh-pages","!dist/gh-pages/**"]`** — the demo never ships in the tarball.
+  §9.4's test-suite inversion is a *development-graph* defect, not a published-package one.
+
+---
+
+## 9.10 Pass-3 wave rows — all CURABLE NOW, none touches the pin
+
+| id | change | home | blocked? |
+|---|---|---|---|
+| **L3-1c** | add `tsconfig.test.json` (`include: ["test/"]`, references both leaves); append to the `typecheck` script; fix the 27 errors — no suppressions | `tsconfig.test.json`, `package.json`, `test/**` | **no** |
+| **L3-2c** | rewrite the 6 `@src/*` imports onto `@mkbabb/value.js/{css,easing,transform}`; delete the `@src` alias from `vitest.config.ts:11`; narrow `vite.config.ts`'s `@src` to the `?source` plugin only | `test/**`, `vitest.config.ts` | **no** |
+| **L3-3c** | write `test/generate-color.test.ts` — seed-exactness, preset-range containment, harmony geometry, `count`-dependence. **Sequence before pass 1's move 1**; the tests are the spec the promotion needs and they move with the code | `test/` | **no** |
+| **L3-4c** | **amends pass 1 move 1**: promote *numbers only* to `src/palette/{presets,harmony}.ts`; the 16 `description` strings stay in `demo/` as a copy table keyed by the published union | `src/palette/`, `demo/` | **no** |
+| **L3-5c** | `src/math/prng.ts` → `mulberry32` + `hashSeed(string)`, published from `@mkbabb/value.js/math`; delete `demo/color-session/prng.ts`. File the glass-ui half **with** pass 2's §L2-3 `ColorHarmony` ask as one RF-17 row | `src/math/`, RF-17 | **no** |
+| **L3-6c** | extend the `forced-colors-desktop` + `keyboard-focus-desktop` matrices to `/#/generate` | visual capture harness | **no** |
+
+**Sequencing.** L3-1c and L3-2c are prerequisites, not peers: until `test/` is in a program, L3-3c's
+new tests join the same unchecked region and inherit the same blindness. Order:
+**L3-1c → L3-2c → L3-3c → L3-4c/L3-5c**. L3-6c is independent and should land before the mega-tranche
+seals its visual evidence.
+
+**Relation to the hold.** Nothing above requires a `GenerateControls.vue` edit, and nothing above
+waits on Glass 8. Combined with pass 2's escalation on `GeneratePane.vue` (the one-line name-drop
+cure, outside the pinned receiver set), the pre-Glass-8 landable set for this component is now: the
+save-name fix, the test-program closure, the deep-path retirement, the generation-core spec, and the
+two library promotions. The Glass-8-blocked set is unchanged.
+
+---
+
+## 9.11 Pass-3 command log
+
+```bash
+git rev-parse --short HEAD                                      # 7cae8bd0
+shasum -a 256 demo/workbenches/generate/GenerateControls.vue    # 4f95c57c… MATCH (3rd HEAD)
+git log --oneline c654824e..HEAD -- demo/workbenches/generate/  # 0
+git log --oneline c654824e..HEAD -- test/ tsconfig.*.json       # 0
+
+node -e "…tsconfig.lib.json / tsconfig.demo.json include…"      # lib: 13 src patterns; demo: ["demo/", src/vite-env.d.ts]
+npx tsc -p tsconfig.lib.json  --noEmit --listFilesOnly | grep -c "/value.js/test/"       # 0
+npx tsc -p tsconfig.demo.json --noEmit --listFilesOnly | grep -c "/value.js/test/"       # 0
+npx tsc -p tsconfig.demo.json --noEmit --listFilesOnly | grep -c "/value.js/demo/test/"  # 3
+npx tsc -p tsconfig.lib.json  --noEmit --listFilesOnly | grep -c "glass-ui\|/value.js/demo/"  # 0 of 88
+grep -n typecheck vitest.config.ts                              # none — transpile-only
+
+# throwaway program over the unchecked region, then removed
+node -e "…write tsconfig.probe-test.json, include:[test/,demo/,src/vite-env.d.ts]…"
+npx vue-tsc -p tsconfig.probe-test.json --noEmit                # 27 errors: 27 test/, 0 demo/
+rm -f tsconfig.probe-test.json                                  # git status clean
+
+grep -rn "@src/" test/                                          # 6 deep imports / 4 files
+cat src/subpaths/transform.ts                                   # both reached internals are published
+grep -rl "\.\./demo/" test/*.ts | wc -l                         # 10 of 19
+grep -rln "generate-color\|generatePalette" test/ e2e/          # e2e oracle only
+for f in demo/color-session/*.ts …; do …; done                  # per-module test coverage + line counts
+grep -rn "mulberry32" demo src test                             # demo/color-session/prng.ts only
+grep -o "mulberry[A-Za-z0-9]*" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js | sort -u  # mulberry32
+cat src/subpaths/math.ts ; grep -rn "mulberry32\|seedrandom" src/   # published: no PRNG
+grep -n "description:" demo/color-session/generate-color.ts     # 16 UI strings in the "pure" core
+grep -rn "from \"\.\./workbenches\|\.\./palettes\|…" demo/color-session/   # 1 intra-layer hit, 0 back-edges
+grep -rn "\.\./demo\|@/demo" src/                               # none
+node -e "…package.json exports/main/module/types/files…"        # 7 keys, no '.', files=["dist",…]
+grep -n "@mkbabb/value.js" README.md                            # 7 subpaths, every example on a subpath
+node --input-type=module -e "…OKLCh lerp vs sRGB lerp midpoint…"  # 25.5% chroma / 16.8deg hue divergence
+ls docs/tranches/V/megatranche/audit/visual/shots/*/            # generate.png in 4 safari matrices only
+```
+
+Image read: `docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/generate.png`
+(chosen as the one generate matrix neither prior pass read).
+
+**Not claimed.** I did not re-run passes 1–2's live browser probes; §L-1 and §L2-1 already carry two
+independent reproductions each and adding a third would spend the shared browser for nothing. I make
+no bundle-size claim (pass 2's §L-6 caveat stands). I did not adjudicate *which* colour space a given
+engine picks for a legacy `linear-gradient` — §9.8's point is that the application does not get to
+decide, which is the defect regardless of the answer.

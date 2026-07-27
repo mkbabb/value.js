@@ -1,0 +1,23 @@
+{
+ "clip": {
+  "x": 703,
+  "y": 699,
+  "width": 230,
+  "height": 209
+ },
+ "who": {
+  "role": "radio",
+  "state": "checked",
+  "fv": true
+ },
+ "clipTags": {
+  "x": 703,
+  "y": 1037,
+  "width": 230,
+  "height": 129
+ },
+ "who2": {
+  "role": "checkbox",
+  "fv": true
+ }
+}

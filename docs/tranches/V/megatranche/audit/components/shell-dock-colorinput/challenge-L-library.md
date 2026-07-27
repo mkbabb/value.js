@@ -1518,3 +1518,498 @@ The single highest-leverage transposition is unchanged across all four passes: *
 `parseCssColor` total and let `Result` cross the boundary unconverted.** Every pass has now
 re-derived it independently. F (L-19) is the cheapest — a directory rename and a one-line config
 change — and is the only finding in this document whose cure moves no logic at all.
+
+---
+---
+
+# CHALLENGE-L · FIFTH PASS
+
+## Model receipt (fifth pass)
+
+I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]` — the tier this
+seat was spawned with. The declaration is present and matches the served model. Not inherited, not
+undeclared. **Not a defect.**
+
+Fifth independent run of CHALLENGE-L at the same coordinate (branch `tranche-u`, HEAD `c654824e`,
+subject `demo/shell/dock/ColorInput.vue`). **Addendum, not patch** (E-3): passes 1–4 stand unedited
+above.
+
+**Method note, stated so its value is legible.** I ran the whole axis blind — full import trace,
+barrel census, `traceResolution`, MT-F001 node repro, live browser probes — and *then* read the four
+prior passes. Everything I derived independently was already filed: the `Result`→throw laundering
+(L-1), the 19-directory `demo/ui/` forwarder (L-2), the `paths`/`exports` divergence (L-4), the
+`node_modules` twin (L-5), the dead prop + dead `defineExpose` (L-8), the 38/40-member injection
+(L-9), the nameless send button (L-10), the dead `crown-appear` (L-12), the stale root-barrel
+doctrine in `shared/utils.ts` (L-15). **Five independent Opus 5 seats converging on the same set is
+itself a measurement**: this document's finding list is saturated on the axes it has covered. That is
+worth recording, because it changes what a sixth pass should do — stop re-auditing the import graph
+and start auditing the *runtime states* the component can be driven into.
+
+Which is what this pass did. All five new findings are on the **boot and display** paths rather than
+the import graph, and four of them are the same Mechanism A the prior passes named, wearing faces the
+prior passes did not reach. One is a **correction to pass 4**.
+
+Live probes: isolated Playwright/Chromium contexts against `http://localhost:9000`; node against
+`dist/subpaths/{color,css}.js`; `npx tsc --traceResolution` against `tsconfig.demo.json`. Every
+output below is pasted verbatim.
+
+---
+
+## L-20 — MAJOR (NEW) — the malformed-URL boot path: the tab title asserts a colour the app is not showing, the bad link survives, and MT-F001's only observable trace in the entire app is emitted at a severity the mega-tranche audit does not grade
+
+Passes 1–4 drove MT-F001 through the **keystroke** path. There is a second path into the same crash
+that requires no interaction at all — a **shared link** — and it behaves differently in three
+user-visible ways.
+
+**Reproduction.** Navigate to `http://localhost:9000/#/?space=oklch&color=rgb()` (`rgb()` is one of
+the eight MT-F001 crashers), settle 2.5 s, then read the page:
+
+```json
+{ "url":                "http://localhost:9000/#/?space=oklch&color=rgb()",
+  "title":              "rgb() — Color Picker",
+  "colorInputPresent":  true,
+  "colorInputText":     "oklch(72% 0.19 25deg)",
+  "namelessButtons":    ["send-btn btn-interactive"],
+  "bodyEmpty":          1652,
+  "mainCount":          1 }
+```
+
+Three separate defects in one load:
+
+**(a) The tab title states a colour the app is not showing.** `document.title` is
+`"rgb() — Color Picker"`; the model is `oklch(72% 0.19 25deg)` (the persisted seed). The title is the
+browser tab, the bookmark name, the history entry and the share-preview string. Source —
+`demo/color-picker/router/useDocumentTitle.ts:62`:
+
+```ts
+const apply = (to) => { document.title = composeTitle(to.name, to.query.color); };
+```
+
+and `composeTitle` (`:43-45`) takes the raw query verbatim:
+
+```ts
+const colorVoice = typeof color === "string" && color.trim() ? color.trim() : null;
+```
+
+No validation. The router `afterEach` guard fires **independently of** whether
+`useColorUrl.applyUrlToModel()` succeeded, so the title is derived from a string the model rejected.
+The module's own header comment (`:18-19`) states the assumption this breaks, verbatim:
+
+> `to.query.color` is the resolved colour voice (a named colour like `tomato`, or a hex / CSS string)
+> — **the exact string the app uses as the colour's shareable identity everywhere**.
+
+It is not resolved and it is not the app's identity. It is unvalidated user input rendered as
+chrome.
+
+**(b) The bad link survives.** `useColorUrl`'s model→URL writer (`useColorUrl.ts:52-64`) is debounced
+300 ms **and fires only on model change**. `applyUrlToModel` returned `false`, the model never moved,
+so `syncModelToUrl` never navigates and `?color=rgb()` stays in the address bar indefinitely
+(measured at t=2500 ms above). The link is therefore **stably reproducible**: anyone it is sent to
+sees the same title/body divergence, forever.
+
+**(c) MT-F001's one observable trace is a `console.warn`.** `useColorUrl.ts:44-46` is the *only*
+place in the running app where the MT-F001 stack reaches an output channel:
+
+```
+[WARNING] [useColorUrl] Invalid color in URL: rgb() TypeError: Cannot read properties of undefined (reading 'replace')
+    at ae (…/dist/subpaths/css.js:265:17)
+    at T  (…/dist/subpaths/css.js:354:13)
+    at parsePickerColor (…/demo/color-session/picker-color.ts:157:17)
+    at applyUrlToModel  (…/demo/color-session/useColorUrl.ts:22:41)
+```
+
+A perfect diagnosis — library frame, adapter frame, caller frame — logged at **`warn`**. The
+mega-tranche visual audit grades exactly eight categories:
+
+```
+$ grep -n "^### " docs/tranches/V/megatranche/audit/visual/REPORT.md
+7:### blankOrNearBlank   11:### pageErrors        15:### consoleErrors    19:### horizontalOverflow
+23:### darkClassMissing  27:### mainCountNotOne   31:### smallTapTargets  94:### namelessButtons
+```
+
+`consoleWarnings` is *captured* per route into `REPORT.json` but has **no defect section and no
+threshold** — it is collected and never read. So the single line in the entire application that
+correctly names the shipping blocker is emitted at the one severity the audit does not grade.
+
+**Mechanism.** Mechanism A (failure inverted) with a **split-brain** consequence: two consumers read
+the same query parameter, one validates it (`useColorUrl`, and correctly reports failure) and the
+other does not (`useDocumentTitle`, and renders it as fact). The library's `Result` was available to
+both; only one asked.
+
+**Cure.** The title must read the **model**, not the query — the model is the only thing that has
+been through the parser. `composeTitle` takes `cssSpelling` from the colour session (the same
+computed the field renders), so a malformed link produces a correct title for the colour actually
+shown. Separately, `applyUrlToModel` returning `false` should *repair* the URL rather than leave it —
+one `router.replace` with the seeded model's spelling, so a broken share link heals on open instead
+of propagating. And `useColorUrl.ts:44`'s `console.warn` should be `console.error` **only once
+Mechanism A is cured**; while the swallow exists, promoting it would turn a real audit signal into
+noise on every legitimate typo.
+
+---
+
+## L-21 — MAJOR (NEW) — `serializePickerColor` answers a *different question* rather than failing, and `ColorInput.vue:104` renders the substitution under the words "*Any* valid CSS color string is accepted"
+
+This is Mechanism A's most dangerous face and no prior pass reached it. Passes 1–4 catalogued the
+**18 `valueOrThrow` sites** where `picker-color.ts` converts `Result` → throw. There is one place
+where it does something worse: it suppresses a `Result` and **substitutes a plausible wrong answer**.
+
+`demo/color-session/picker-color.ts:206-211`:
+
+```ts
+export function serializePickerColor(color: AnyColor): string {
+    const cssColor = CSS_PICKER_SPACES.has(color.space)
+        ? color as CssColor
+        : convertPickerColor(color, "oklch");   // ← silent space substitution
+    return valueOrThrow(serializeCssColor(cssColor));
+}
+```
+
+The library is explicit that four of the seventeen spaces are not CSS colours. Measured against the
+published bundle:
+
+```
+$ node --input-type=module -e "…"
+hsv ok= true {"space":"hsv","channels":[25,0.8,0.95],"alpha":1}
+serializeCssColor(hsv)      -> {"ok":false,"error":{"code":"color_invalid_input"}}
+demo substitute (oklch)     -> "oklch(71.818014636356% 0.164583951889 51.616475581492deg)"
+kelvin(3200) substitute     -> "oklch(83.541309110086% 0.113041061705 60.63464406001deg)"
+```
+
+`serializeCssColor` returns a correct, structured `{ok:false, code:"color_invalid_input"}` — *"HSV is
+not a CSS colour"*. The demo discards that verdict and returns an oklch string instead.
+
+**Where ColorInput renders it.** `ColorInput.vue:94-105` — the popover, verbatim:
+
+```html
+<p class="font-display font-medium text-subheading">Enter a color</p>
+<p><span class="italic">Any</span> valid CSS color string is accepted.</p>
+<Separator class="my-2" />
+<div class="fira-code w-full flex justify-center">
+    {{ serializePickerColor(currentPhysicalColor) }}
+</div>
+```
+
+Two lines below a sentence promising CSS fidelity, the component prints a **different colour space
+than the one the user selected**, with no marker that a substitution occurred. All four non-CSS
+spaces are user-selectable: `DISPLAY_COLOR_SPACE_NAMES` (`color-model.ts:75-78`) is
+`{...PICKER_SPACE_NAMES, hex}`, and `PICKER_SPACE_NAMES` (`picker-color.ts:72-90`) enumerates all
+seventeen — HSV, Kelvin, ICtCp and Jzazbz among them.
+
+**The same repo already knows the right answer, one file away.** `ColorSpaceSelector.vue:154-165`
+calls the identical function and **guards** the identical case:
+
+```ts
+if (CSS_PICKER_SPACES.has(converted.space)) return serializePickerColor(converted);
+const channels = converted.channels.map(c => typeof c === "number" ? Number(c.toFixed(4)) : c);
+return `${converted.space} · ${channels.join(" · ")}`;     // ← honest non-CSS spelling
+```
+
+The dropdown says `hsv · 25 · 0.8 · 0.95`. The popover, for the very same model colour, says
+`oklch(71.818014636356% …)`. **Two consumers of one function, one guarded and one not, disagreeing
+about what colour the app is showing** — and the guarded one is a *dropdown specimen*, while the
+unguarded one is the surface that claims to speak CSS.
+
+**Mechanism — a new face, worth naming: A′, failure answered with a plausible wrong answer.** A throw
+is at least loud somewhere (pass 4 proved the `catch` swallows it, but the exception object exists). A
+substitution is loud nowhere: it returns a well-formed string that passes every downstream check.
+This is precisely the "masking fallback" edict 2 forbids, and it sits at the bottom of the funnel
+every colour readout in the app runs through.
+
+**Cure.** `serializePickerColor` returns `Result<string, ColorIssue>` and never converts. Callers that
+want the oklch projection ask for it by name (`serializeAsOklch`), so the substitution becomes a
+*request* instead of a silent default. `ColorInput.vue:104` then renders either the CSS spelling or
+the honest non-CSS spelling the selector already implements — one helper, one home, both call sites.
+This falls out of pass 1's transposition 1 at zero extra cost, and it retires the third home for the
+CSS-serializable-space set that pass 3's L-14 counted.
+
+---
+
+## L-22 — MAJOR (NEW) — the propose-submit path has zero automated coverage at any level, and the e2e spec that skips it cites a unit test file that does not exist
+
+`submitProposedName` (`ColorInput.vue:230-247`) is the only authenticated network **mutation** owned
+by a `.vue` file in this repo (pass 1's L-7 established the ownership defect; this is its
+verification consequence, which no pass reached).
+
+`e2e/smoke/flows/color-propose.spec.ts:15-24` documents the skip and asserts a fallback:
+
+> COVERAGE NOTE (E-AUDIT-6 §10 follow-up): the final POST `/colors/propose` submission step is NOT
+> exercised here because the propose-mode `<span role="textbox" contenteditable>` … is not reliably
+> reachable via accessible-name selectors during the cross-fade. … **The contenteditable submission
+> has unit coverage in `test/parsing/extract.test.ts` via the underlying `submitProposedName`
+> handler.**
+
+Both halves fail:
+
+```
+$ ls test/parsing/extract.test.ts
+ls: test/parsing/extract.test.ts: No such file or directory
+
+$ grep -rn "submitProposedName\|proposeColorName" --include=*.ts --include=*.vue . \
+    | grep -v node_modules | grep -v '^./docs'
+demo/color-session/color-names.ts:35:export function proposeColorName(
+demo/shell/dock/ColorInput.vue:71,132,206,230,236,287
+demo/palettes/api/index.ts:7:        (a comment)
+e2e/smoke/flows/color-propose.spec.ts:24:  (the claim itself)
+```
+
+**The file does not exist and there are zero test references anywhere in the repo.** Unit: none.
+Component: none (there is no component-test harness for `demo/` — `demo/test/` holds three files,
+none of them a `.vue` mount). E2e: explicitly skipped.
+
+**And the two reasons for the skip are themselves findings already in this document.** The spec says
+the control is "not reliably reachable via accessible-name selectors" — it has **no accessible name
+at all** (L-10, and L-23 below). It says the cross-fade makes it flaky — that is the
+`SUB_LAYER_CROSSFADE_MS` JS/CSS duplication (L-11). So the untested path is untested *because of*
+two other filed defects, and the coverage note papers over the gap with a citation that was never
+true.
+
+**Why it belongs on the library-structure axis.** A mutation with no composable home (L-7) is also a
+mutation with no *testable seam*: there is nothing to call except by mounting a dock leaf inside a
+dock inside an app. Move it to `useColorNaming.proposeName()` per L-7's cure and it becomes a
+four-line unit test with a stubbed transport — the coverage gap closes as a side effect of the
+ownership cure, which is the argument for doing the ownership cure.
+
+**Live corroboration that the silent-failure path is not hypothetical.** The dev server this pass
+probed emits, on every load:
+
+```
+[ERROR] [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is
+targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list
+excludes localhost — every palette request will be blocked.
+```
+
+Every `/colors/propose` POST from this environment fails at CORS. Per `ColorInput.vue:242-245` the
+user is told **nothing** — no badge (the `.error-badge` is gated `parseError && !proposeMode`,
+`:87`), no state change, only a `console.warn`. The failure mode is live on the machine this audit
+ran on, and it is invisible.
+
+---
+
+## L-23 — CORRECTION to the fourth pass's retraction of L-10 — ColorInput *is* mounted at rest, and `.send-btn` *is* the visual audit's nameless button
+
+Pass 4 (§Fourth-pass confirmations) retracted pass 1's attribution:
+
+> The mega-tranche visual sweep's `namelessButtons: 1` on `/#/` is **not** this button — ColorInput is
+> not mounted at rest (`document.querySelector('.color-input')` → `null` on a fresh load; the row
+> belongs to a dock capsule button).
+
+**That retraction is wrong.** Measured on two independent settled clean navigations this pass, with
+no prior interaction in the context:
+
+*Load 1 — `http://localhost:9000/#/`, enumerating every `<button>` with no `aria-label`, no text and
+no `title`:*
+
+```json
+{ "namelessCount": 1,
+  "nameless": [{ "cls": "send-btn btn-interactive",
+                 "html": "<svg data-v-55dadc03=…",
+                 "rect": "24x24",
+                 "inertAncestor": true }],
+  "colorInputPresent": true,
+  "colorInputAria": "Enter a CSS color" }
+```
+
+*Load 2 — `…/#/?space=oklch&color=rgb()`, settled 2500 ms (the L-20 probe):*
+
+```json
+{ "colorInputPresent": true, "namelessButtons": ["send-btn btn-interactive"] }
+```
+
+**ColorInput is in the DOM at rest, and `.send-btn` is the document's only nameless button — exactly
+the count the visual audit records for `/#/` on both desktop matrices.** Pass 1's attribution was
+correct.
+
+**Why pass 4 measured otherwise, and why this matters more than the attribution.** ColorInput is
+rendered inside an inert dock layer (`inertAncestor: true`, `visibility: hidden`, `opacity: 0` —
+measured), and `ActionBarLayer` itself is behind `v-if="actionBar"` (`Dock.vue:156`), where
+`actionBar` is `colorPickerRef?.actionBarContext ?? null` (`App.vue:38`) — a **template-ref-derived**
+prop that is `null` until `ColorPicker` has mounted and the parent has re-rendered. So presence is a
+*settling* question. A probe that reads too early sees `null`; a probe that reads after settle sees
+the button. And the settle is not fast: `REPORT.json` records `settleMs: 18905` for
+`safari-desktop-light /#/`.
+
+I also reproduced pass 4's `null` — but only in a **dirty** context, after prior clicks had driven the
+dock into its edit face (`aria-label`s enumerated: `Save edit`, `Cancel edit`, …, `hasColorInput:
+false`). Both observations are real; they are different states.
+
+**The structural finding underneath the disagreement is new and is the reason to record this.** *An
+a11y sweep over this app is nondeterministic*, because whether a component is in the DOM depends on a
+template-ref round-trip whose completion the harness does not wait on. Two independent Opus 5 seats
+measured opposite values for the same row of the same audit. Any category the harness counts by
+`document.querySelectorAll` — `namelessButtons`, `smallTapTargets`, `counts.button` — inherits that
+nondeterminism.
+
+**Cure (harness, not component).** The capture must wait on an app-emitted readiness signal, not a
+timeout: the dock already exposes `[data-morphing]` (used by `e2e/smoke/flows/color-propose.spec.ts:49`
+for exactly this reason) and the shell can set a `data-app-ready` attribute once the composition root
+has resolved its refs. Then `namelessButtons: 1` means one thing on every run. (The component-side
+cure is unchanged: L-10 — give the button a name.)
+
+---
+
+## L-24 — MINOR (NEW) — JS timing constants have no home; the parse debounce and the error-badge lifetime are equal by coincidence, in a file that uses a third value for the same class of interaction
+
+Pass 1's L-11 found one instance of this (`SUB_LAYER_CROSSFADE_MS = 260`, a JS constant that must
+equal a CSS duration owned by another repo). It is not one instance; it is the general condition, and
+two of them are load-bearing on ColorInput's own parse path.
+
+`demo/color-session/useColorParsing.ts`:
+
+```
+:57   parseErrorTimer = setTimeout(() => { parseError.value = false; }, 2000);   ← badge lifetime
+:92   const parseAndSetColorDebounced = debounce(parseAndSetColor, 2000);        ← typing debounce
+```
+
+Two independent `2000`s, unnamed, in one file. They are not the same concept — one is *how long the
+user must stop typing before the app parses*, the other is *how long the rejection is shown* — and
+nothing records that their equality is or is not intentional. The immediately adjacent spine uses a
+different value for the same interaction class:
+
+```
+demo/color-session/useColorPipeline.ts:209   debounce(updateColorComponent, 500)   ← slider commit
+demo/color-session/useColorUrl.ts:64         debounce(…, 300)                      ← model→URL
+```
+
+So the demo commits a **slider** drag after 500 ms and a **typed colour** after 2000 ms — a 4× spread
+across two ways of expressing the same intent, with no stated rationale for either. Measured
+consequence on the live app: after typing an invalid colour, the user waits a full **2 s** before any
+feedback appears, and my L-1 probe had to sleep 2600 ms to observe the badge at all.
+
+Census of the class (`grep` for `debounce(…, N)`, `setTimeout(…, N≥100)`, `*_MS = N` under `demo/`):
+**21 sites, 21 distinct literals at 21 call sites, zero shared home** — and that is a *lower bound*,
+since the single-line pattern misses multi-line calls such as `useColorUrl.ts:64`'s `}, 300)`. A
+representative slice:
+
+```
+demo/color-session/useColorParsing.ts:57,92        2000, 2000
+demo/color-session/useColorPipeline.ts:209         500
+demo/color-session/useColorUrl.ts:64               300
+demo/shell/dock/ColorInput.vue:256                 300     (mode-flash, must match --duration-slow = 0.45s → it does NOT)
+demo/shell/dock/layers/ActionBarLayer.vue:62       260     (L-11)
+demo/picker/ColorPicker.vue:288,378                120, 850
+demo/workbenches/extract/…/useExtractSession.ts:161 300
+demo/color-picker/composables/usePaletteWiring.ts:162 400
+```
+
+The `ColorInput.vue:256` row is a live instance of exactly L-11's failure shape, inside the subject
+component:
+
+```ts
+modeTransition.value = true;
+setTimeout(() => { modeTransition.value = false; }, 300);
+```
+
+and the CSS it gates (`:312-314`) runs at `var(--duration-slow)`, measured live at **0.45 s**:
+
+```json
+{ "durationSlow": "0.45s", "durationPanel": "0.55s", "durationFast": "0.2s" }
+```
+
+**The JS clears the class 150 ms before the animation it gates finishes.** The animation is cut short
+on every mode toggle. (Reproduction: read `--duration-slow` off `document.documentElement` — pasted
+above — and compare to the literal.)
+
+**Mechanism.** glass-ui owns the *design-token* half of timing (`--duration-fast/slow/panel`,
+`--spring-smooth-duration`) and the demo consumes it correctly in CSS. The **JavaScript** half has no
+home at all, so every site that must coordinate with a CSS duration copies a number and hopes. There
+is no compiler, lint rule or test linking the two.
+
+**Cure.** One module — `demo/styles/durations.ts` — reading the tokens at runtime
+(`getComputedStyle(document.documentElement).getPropertyValue('--duration-slow')`, parsed once) and
+exporting named constants. Then `ColorInput.vue:256`, `ActionBarLayer.vue:62` and every
+transition-coupled timeout read the *same* value the CSS uses, and retiming a token retimes the JS.
+The pure-behaviour debounces (parse, URL, slider) are a separate, genuinely demo-owned concern and
+belong in one named table with a stated rationale per row — not as bare literals at nine call sites.
+Relay to glass-ui: exporting the duration tokens as a JS map from `@mkbabb/glass-ui/tokens` would let
+consumers skip the `getComputedStyle` read entirely.
+
+---
+
+## Fifth-pass negative proof — pass 3's `gamutVerdict` hypothesis is REFUTED for reachable colours
+
+Pass 3 filed, explicitly labelled a hypothesis:
+
+> *(Hypothesis, not reproduced.* `gamutVerdict`, `useColorParsing.ts:107-117`, calls
+> `convertPickerColor(…, "oklab")` and `mapPickerOklabToSrgb`, both of which throw through
+> `valueOrThrow`, inside a `computed` that `ParseEchoReadout.vue:29` renders unguarded. … I did not
+> find a reachable colour that fails.*
+
+Resolved by exhaustive sweep of the oklab domain — including well outside the valid range — against
+the published bundle:
+
+```
+$ node --input-type=module -e "…729-point sweep of oklab(L∈[-0.5,1.5], a∈[-1,1], b∈[-1,1])…"
+tested 729   failures 0   []
+oklab(NaN,0,0)       ok=false color_non_finite
+oklab(Infinity,0,0)  ok=false color_non_finite
+oklab(-Infinity,0,0) ok=false color_non_finite
+```
+
+`mapColorToGamut(…, "srgb")` did not fail once across the entire sampled domain, including
+out-of-range lightness and chroma. The **only** failing inputs are non-finite, and those are gated
+before the model: `useColorPipeline.ts:195` — `if (Number.isNaN(value) || !Number.isFinite(value))
+return;` — and `picker-color.ts:170,191` (`withChannel`, `withAlpha`) both reject non-finite before
+constructing.
+
+**Ruling: the hypothesis does not hold. `gamutVerdict` cannot throw for any colour reachable through
+the app's write gates.** Recorded so a sixth pass does not re-derive it. (This does *not* soften
+Mechanism A — it narrows one speculative face of it, which makes the confirmed faces, L-20 and L-21,
+the ones worth the cure budget.)
+
+---
+
+## Fifth-pass confirmations of prior findings (independent re-derivation, my numbers)
+
+| prior finding | independently re-derived this pass | agreement |
+|---|---|---|
+| **L-1** (swallow) | node repro of all 8 crashers against `dist/subpaths/css.js`; live type of `oklch()` → badge `"not a valid color"`, `windowErrors: []`, `pageErrors: []` | **exact** |
+| **L-1** (`previousInvalid` silence) | after the 2 s badge timer cleared, pressed Enter on the still-invalid `oklch()`: `{badgeAfterEnter:false, classAfter:false, textStill:"oklch()"}` — **zero feedback of any kind** | **exact** |
+| **L-2** (`demo/ui/`) | 19/19 barrels are pure re-exports, zero local components; **46** demo files import `../ui/*`; **26** import both the shim and `@mkbabb/glass-ui` directly | agrees; adds the dual-dialect file count |
+| **L-4** (`paths` drift) | `ls` misses on all 3 phantom targets; `traceResolution` shows `/css` resolving via `exports` self-reference with `Package ID …@4.0.0` while `/color` hits `paths` | **exact** |
+| **L-5** (the twin) | real dir, not a symlink; `dist/subpaths/css.js` 43,973 B (Jul 27) vs twin 43,972 B (Jul 17); `diff` shows minifier-symbol differences only | agrees; my local `dist` is one rebuild newer than pass 1's |
+| **L-8** (dead surface) | `grep colorInputRef` → 2 hits, declaration + binding, **never dereferenced**; `editTarget` appears exactly once in ColorInput | **exact** |
+| **L-9** (god injection) | machine-parsed the return literal (`useColorPipeline.ts:281-332`): **38** members. Pass 1 states 40; I did not reproduce 40 and do not know which two it counted | minor numeric discrepancy, argument unaffected |
+| **L-12** (dead `crown-appear`) | live: `animation: crown-appear …` → `getAnimations().length === 0`; control `crown-appear-55dadc03` → `1`; document registers only the hashed name | **exact** |
+| **L-15** (phantom root barrel) | `package.json` has no `.`, no `main`, no `module`, no `types`; **no `src/index.ts` exists**; `grep "function debounce" src/` → zero hits | **exact** |
+| §Negative proof (published-surface discipline) | ColorInput imports no library specifier at all; its cone uses only `@mkbabb/value.js/{color,css}`, both real `exports` keys; alias set is *generated* from that map | **exact** |
+
+One numeric correction worth pinning: **`UseColorPipelineReturn` has 38 members, not 40** (machine
+count of the return object literal, `useColorPipeline.ts:281-332`). The argument is unaffected.
+
+---
+
+## Fifth-pass finding index
+
+| id | severity | mechanism | one line |
+|---|---|---|---|
+| L-20 | MAJOR | **A — failure inverted** (new face: split-brain readers of one input) | `?color=rgb()` → tab title `"rgb() — Color Picker"` while the app shows `oklch(72% 0.19 25deg)`; the bad link never heals; MT-F001's only observable trace in the whole app is a `console.warn` — the one severity the mega-tranche audit collects but does not grade. |
+| L-21 | MAJOR | **A′ — failure answered with a plausible wrong answer** | `serializePickerColor` suppresses `serializeCssColor`'s `{ok:false, color_invalid_input}` for the 4 non-CSS spaces and substitutes oklch; `ColorInput.vue:104` prints it two lines under "*Any* valid CSS color string is accepted"; the sibling `ColorSpaceSelector.vue:161` guards the identical call. |
+| L-22 | MAJOR | G — no testable seam | The only component-owned authenticated mutation has **zero** coverage at unit, component and e2e level, and `color-propose.spec.ts:24` cites `test/parsing/extract.test.ts`, which does not exist. Both stated reasons for the e2e skip are themselves filed defects (L-10, L-11). |
+| L-23 | — | **correction to pass 4** | ColorInput **is** in the DOM at rest (measured twice, settled clean loads) and `.send-btn` **is** the visual audit's `namelessButtons: 1`. Pass 1's attribution was right. Underneath: presence depends on a template-ref round-trip the harness does not wait on, so **a11y counts in the sweep are nondeterministic** — two seats measured opposite values for one row. |
+| L-24 | MINOR | H — the JS half of the timing contract has no home | 21 bare timing literals under `demo/`, zero shared home. Two unnamed `2000`s in `useColorParsing.ts` (debounce + badge lifetime) beside `500` for sliders. `ColorInput.vue:256` clears the mode-flash class at **300 ms** while the CSS it gates runs `--duration-slow = 0.45s` (measured live) — the animation is cut short on every toggle. Generalizes L-11. |
+| — | — | negative proof | Pass 3's `gamutVerdict`-throws hypothesis **refuted**: 729-point oklab sweep, 0 failures; only non-finite inputs fail and all three write gates reject those. |
+
+**Consolidated mechanism count across five passes: eight.**
+A — the failure-explicit contract is inverted at the demo boundary (L-1, L-7, L-16, L-17, **L-20**).
+A′ — **failure answered with a plausible wrong answer, not an error (L-21).**
+B — the public surface is described by divergent maps and a stale twin (L-3, L-4, L-5, L-15).
+C — a forbidden forwarding layer sits between the component and the design system (L-2, L-6, L-10).
+D — the public surface is narrower than the library's own internal abstraction (L-14).
+E — the demo re-derives a surface that is already public, and pays in erased types (L-18).
+F — the composition root is a feature directory, splitting the tree into two namespaces (L-19).
+G — **domain writes owned by leaves have no testable seam (L-22).**
+H — **the JS half of the timing contract has no home (L-11, L-24).**
+
+**The ranking is unchanged and is now five-for-five.** Make `parseCssColor` total and let `Result`
+cross the boundary unconverted. This pass strengthens the case twice over: A′ (L-21) shows the
+inversion does not merely hide errors, it manufactures **confident wrong output** on the app's
+primary readout; and L-20 shows the one place the app *does* diagnose MT-F001 correctly is a
+`console.warn` nobody grades. Both are net deletions under the same cure.
+
+**Recommendation for a sixth pass, if one is spawned.** Do not re-audit the import graph — five
+independent seats have now saturated it and agree. Audit the **state space**: this pass's three new
+findings all came from driving the component into states no prior pass entered (a malformed deep
+link, a non-CSS colour space, an unmounted-then-settled dock). The remaining unexplored states are
+the propose leg under a failing backend (L-22 says it is untested *and* silent — nobody has watched
+it fail), and the mobile dock, where `ActionBarLayer` never mounts at all.
+

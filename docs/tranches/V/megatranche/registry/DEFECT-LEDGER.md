@@ -5,7 +5,7 @@ from the workflow journals. **This file exists so that a session limit, a compac
 truncated notification cannot lose work that was already paid for.** Never re-run a seat whose
 rows are already here.
 
-**564 defects** from completed challenger seats: BLOCKER 80 · MAJOR 273 · MINOR 160 · INFO 51
+**1044 defects** from completed challenger seats: BLOCKER 153 · MAJOR 494 · MINOR 296 · INFO 101
 
 > Status: these are **challenger** outputs. A defect here has NOT been adjudicated by a jury —
 > the jury seats were the ones most often killed by the rate wall. Treat every row as an
@@ -195,6 +195,168 @@ demo/palettes/browser/card/PaletteCard/PaletteCard.vue:226-230 (`firstColor` →
 
 ---
 
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-1 · CHALLENGE-C
+
+**Defect.** The "Add current color" control is inert: rendered as an aria-hidden, pointer-events:none <span> with no accessible name, no keyboard seat, no click handler and no + glyph. The component's primary action cannot be performed by any user.
+
+**Mechanism.** M1 — a producer DECORATION (documented as a CSS/SVG primitive, aria-hidden, pointer-events:none) is used as a CONTROL; the consumer assumed a tag/slot/attr-forwarding contract glass-ui 7.0.0 does not offer.
+
+**Evidence.**
+
+```
+demo/palettes/browser/card/CurrentPaletteEditor.vue:95-105 binds tag="button", :aria-label, @click, <Plus> child. Producer node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js: `inheritAttrs: !1`, props {color,variant,animate,cycleDuration,range,seed} (no `tag`), render `o("span", { "aria-hidden": "true", ..., style: u([f.value, { ..., pointerEvents: "none", ... }]) })`, only `n.class`/`n.style` read off useAttrs(), no default slot. Live probe: {"allSpans":true,"allAriaHidden":true,"allPointerEventsNone":true,"anyAriaLabel":false,"anyPlusGlyph":false}; "addClick":"CLICK FAILED: locator.click: Timeout 2500ms exceeded"; MCP probe on the live page: hitAtCentre "DIV.", hitIsGhost false, focusable false. Screenshots docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/palettes.png and safari-mobile-dark/palettes.png show a bare dashed blob with no plus.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/cpe-challenge-c-probe.mjs (fields `structure`, `addClick`, `addByRole`) against the live dev server at http://localhost:9000.
+
+**Proposed cure.** The dot is a face, not a seat. Make the control a real Button that CONTAINS the dot: <Button icon-only :aria-label="…" @click="addCurrentColor"><WatercolorDot variant="ghost" …/><Plus/></Button>. The gestalt transposition is a producer-side glass-ui `WatercolorSwatchButton` primitive (edict 4) consumed at all 7 `tag="button"` sites in demo/ (MixSourceSelector.vue:168,215; GenerateControls.vue:203; SwatchHoverMenu.vue:17,32; this file :98), with the dead `tag` prop deleted everywhere.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-2 · CHALLENGE-C
+
+**Defect.** Every current-palette swatch is inert; on touch devices the edit/copy/remove menu is unreachable by any means. reka-ui PopoverTrigger as-child emits zero trigger attributes because the child swallows them.
+
+**Mechanism.** M1 — same decoration-as-control discard (inheritAttrs:false + hardcoded pointer-events:none/aria-hidden).
+
+**Evidence.**
+
+```
+SwatchHoverMenu.vue:14-20 (touch/Popover path) and :29-36 (hover path) bind tag="button"/:aria-label/@click.stop to WatercolorDot. iPhone-14 probe: {"popoverTriggers":0,"focusables":["INPUT:Palette 1","BUTTON:<NO NAME>"]}; forced tap → {"popoverContent":0,"floatingPanel":0,"anyEditCopyRemoveButton":0}. Desktop survives only because @pointerenter/@pointerleave sit on the wrapping div.relative at SwatchHoverMenu.vue:4-5, not on the dot.
+```
+
+**Reproduction.** node .../cpe-challenge-c-probe3.mjs → `mobileTap`/`mobileAfterTap`; and .../cpe-challenge-c-probe2.mjs → `touch`.
+
+**Proposed cure.** Same producer primitive as C-1. Then collapse the dual hover/touch implementation onto the ONE reka Popover with trigger="hover" (already used in-repo at PaletteSlugBar.vue:47), deleting the Teleport, .floating-panel, useHoverPopover's manual getBoundingClientRect positioning and useLeaveTimer.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-3 · CHALLENGE-C
+
+**Defect.** Data loss: `confirmUpdatePalette` commits an unvalidated, never-revalidated target. Proven twice — renaming after the duplicate banner appears overwrites the palette matched by the OLD name, and emptying the buffer then pressing Update wipes an existing palette's colours to [].
+
+**Mechanism.** M2 — deferred mutation whose target is captured at detection time and committed at click time, with the intervening state never re-checked (TOCTOU on a UI intent). No confirmation, no undo, no announcement.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:267-276 — only guard is `if (id == null) return`; `duplicateTarget` (:241) is set once at collision detection and never invalidated on name change or buffer change; contrast the emptiness guard at :248 in saveCurrentPalette. usePaletteStore.ts:106 assigns whatever it is handed. Probe (a): pre-seeded {id:"pre-existing-id",name:"Dup Test",colors:["#111111"]} → after renaming the field and pressing Update: "afterUpdate":[{"id":"pre-existing-id","name":"Dup Test","colors":["oklch(50% 0.1 200deg)","oklch(90% 0.05 100deg)"]}] (#111111 destroyed). Probe (b): "before":[{"name":"Victim","colors":["#111111","#222222","#333333"]}] → "after":[{"name":"Victim","colors":[]}], with the well simultaneously rendering "Start a new palette | \"Victim\" already exists. | Update | Cancel".
+```
+
+**Reproduction.** node .../cpe-challenge-c-probe2.mjs (`afterUpdate`) and node .../cpe-challenge-c-probe4.mjs (`before`/`afterRemoveAll`/`after`).
+
+**Proposed cure.** Delete the `duplicateTarget` ref. Derive the collision: `const duplicate = computed(() => savedColorStrings.length ? savedPalettes.find(p => p.name.toLowerCase() === effectiveName.value.toLowerCase()) : undefined)` and gate the confirm on `duplicate.value` at commit time. The banner then vanishes the instant the name or buffer stops justifying it, and Update is structurally incapable of addressing a palette the visible label does not name; the three manual `= null` resets (:163, :263, :274) disappear with it.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-1 · CHALLENGE-C
+
+**Defect.** The component renders on zero routes, and `useSlugMigration`'s `slugBarRef` is therefore never bound — making all four `slugBarRef.value?.setError(...)` calls (the ONLY user-visible login-error copy in the app) permanent no-ops.
+
+**Mechanism.** Orphaned surface left by the D.W3 Lane A restructure; the composable's error plumbing was never re-homed to the surviving dock surface (SlugEditLayer.vue, which writes slugError at lines 49/59-62 and never renders it).
+
+**Evidence.**
+
+```
+demo/palettes/browser/slug/PaletteSlugBar.vue:1; `grep -rn "SlugBar\|slug-bar" --include=*.vue --include=*.ts . | grep -v node_modules` returns only the barrel export, the `import type` in useSlugMigration.ts:6, the ref decl at useSlugMigration.ts:30 and an e2e prose comment — no `<PaletteSlugBar>` tag anywhere. usePalettePorts.ts:126-135 does not re-export slugBarRef. Visual-audit negative proof over 60 Safari captures: `grep -c` in docs/tranches/V/megatranche/audit/visual/REPORT.json → "Account menu" 0, "Sign in with slug" 0, "Cancel slug edit" 0, "Copy slug" 0, while the live twin's "Switch to slug" = 60.
+```
+
+**Reproduction.** grep the repo for a `<PaletteSlugBar` template usage — zero hits; then `grep -c "Account menu" docs/tranches/V/megatranche/audit/visual/REPORT.json` → 0 across all 60 captures.
+
+**Proposed cure.** Delete demo/palettes/browser/slug/ and its barrel line; move error RENDERING into SlugEditLayer.vue and change the session port's `onSlugSwitch` to return Promise<void> so the layer awaits and renders its own failure — retiring the reach-through-a-template-ref idiom entirely.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-2 · CHALLENGE-C
+
+**Defect.** `@submit.prevent="onSlugSwitch"` binds to glass-ui SearchBar, which declares `inheritAttrs: false` and spreads non-class $attrs onto its inner `<input>`, not the `<form>` root. A submit event never reaches an input, so the handler never runs and nothing preventDefaults — activating the control performs a native browser GET form submission and reloads the SPA.
+
+**Mechanism.** A component's fallthrough contract was assumed rather than read; `tag="form"` makes SearchBar look like a form element while inheritAttrs:false re-routes every listener to the input.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:5-15; node_modules/@mkbabb/glass-ui/dist/search.js:309 `inheritAttrs: !1` and :327-341 (root gets only class + data-surface; `o.value` = $attrs-minus-class is spread onto the `b("input", w({ref_key:"inputRef"...}, o.value, ...))`). Live measurement: URL before `http://localhost:9000/#/extract` → after clicking the type=submit button `http://localhost:9000/?#/extract` (Playwright: "Execution context was destroyed, most likely because of a navigation"); sessionStorage.PROBE_SWITCH === null. Navigation-safe rerun: formVei null, inputVei null, eventsAfterSubmit [].
+```
+
+**Reproduction.** Mount the unmodified SFC into the live dev page via Vite /@fs, click Login, type a slug, click the submit Button — the page navigates (a `?` is appended to the URL) and the switchSlug emit never fires.
+
+**Proposed cure.** Own the `<form>` in the consumer (`<form @submit.prevent><SearchBar tag="div"/><Button type="submit"/></form>`, the idiom SlugEditLayer.vue:76-79 already uses), or add a first-class `@submit` emit to glass-ui SearchBar so `tag="form"` becomes honest.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-1 · CHALLENGE-C
+
+**Defect.** Tag-filter checkboxes bound to `:checked` / `@update:checked`, which glass-ui 7.0.0's Checkbox does not expose (contract is `modelValue` / `update:modelValue`). `:checked` degrades to a dead DOM attribute, `@update:checked` listens for an event never emitted, and the component runs uncontrolled — so it visibly toggles and flips aria-checked to "true" while `update:selectedTags` never fires and nothing filters. The prop-driven initial state is also ignored (a selected tag renders unchecked).
+
+**Mechanism.** prop/emit-name drift against a major design-system upgrade (glass-ui 7.0.0, W44 whole-major adoption) left unbound because vue-tsc runs with strictTemplates defaulted OFF, so unknown props/handlers fall through as attrs
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:51-55. Contract: node_modules/@mkbabb/glass-ui/dist/components/checkbox/Checkbox.vue.d.ts (CheckboxProps has modelValue/defaultValue/disabled/value/id/class — no `checked`); compiled component node_modules/@mkbabb/glass-ui/dist/glass-ui.js:451 `emits: ["update:modelValue"]`. Measured (vitest+@vue/test-utils mount of the real SFC): rendered HTML `<button data-slot="checkbox" checked="false" role="checkbox" aria-checked="false" data-state="unchecked">`; `emitted after click: ["click"]`, `update:selectedTags = undefined`; `before click data-state: unchecked aria-checked: false` -> `after click data-state: checked aria-checked: true` with `update:selectedTags emitted: undefined`; with props selectedTags=['a','b'], `checkbox aria-checked: [ 'false', 'false' ]`. Family: `grep -rn "<Checkbox" demo/` returns exactly 2 sites — SearchFilterBar.vue:51 and TagEditPopover.vue:27 — and `grep -rn "update:checked|:checked=" demo/` shows both miswired (SearchFilterBar.vue:52-53, TagEditPopover.vue:28-29).
+```
+
+**Reproduction.** npx vitest run --config <scratch>/probe.config.ts with a mount of demo/palettes/browser/search/SearchFilterBar.vue (Popover/PopoverTrigger/PopoverContent stubbed open, availableTags=[{name:'warm'}]): click `[data-slot="checkbox"]` -> data-state flips unchecked->checked and aria-checked false->true, while w.emitted()['update:selectedTags'] is undefined. Latent in prod only because `curl -s https://api.color.babb.dev/colors/tags` returns `[]` (HTTP 200), hiding the section via v-if at line 47; e2e/smoke/admin/flows/tag-create.spec.ts creates tags on every run.
+
+**Proposed cure.** Bind the real contract: `:model-value="selectedTags.includes(tag.name)" @update:model-value="() => toggleTag(tag.name)"` (toggleTag already derives the next array from the prop, so the CheckedState payload is discardable); same repair at TagEditPopover.vue:28-29 where the payload IS used — `(checked) => onToggle(tag.name, checked === true)`. The gestalt cure is architectural, not per-site: set `"vueCompilerOptions": { "strictTemplates": true }` in tsconfig.base.json so the whole prop/emit-drift class becomes a compile error instead of silent runtime breakage.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-2 · CHALLENGE-C
+
+**Defect.** The "Find by Color" text field is decorative. Everything outside `/^#[0-9a-f]{6}$/i` — 3-digit hex, 8-digit hex, hsl()/oklch(), named colours, whitespace, outright garbage — is silently discarded and replaced by `pickerHex.value` (default `#4488cc`), after which the component sets colorSearchActive=true, increments the filter badge and emits, reporting success for a colour the user never asked for. The placeholder advertises the capability it drops (`placeholder="#hex, hsl(...)"`).
+
+**Mechanism.** masking fallback — a validity guard that substitutes a plausible wrong value for the error it should raise (owner edict 2: no masking fallbacks), gratuitously narrowing a stack that already parses full CSS L4
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:213-225 (the ternary at line 218), placeholder line 92, pickerHex default line 170. Measured emissions, all bit-identical: `hsl(120 100% 50%)` -> [0.61358428709272,-0.04147814390571797,-0.11751090263911201]; `#f00` -> same; `not-a-color` -> same; `"   "` -> same; and `oklab(#4488cc) = [0.61358428709272,-0.04147814390571797,-0.11751090263911201]` — exact match. Control `#ff0000` -> [0.6279553639214311,0.2248630684262744,0.125846277330585] (correct). The correct answers the guard threw away, measured through the SAME function: `oklab(hsl(120 100% 50%)) = [0.8664396175234368,-0.23388758093655815,0.1794984451609376]`, `oklab(#f00) = [0.6279553639214311,0.2248630684262744,0.125846277330585]`. The parser is fully capable: SearchFilterBar.vue:206 -> demo/color-session/color-utils.ts:11 -> demo/color-session/picker-color.ts:109-113 (parseCssColor), which throws a typed PickerColorError on real failure (picker-color.ts:112) — the exact error signal the component discards.
+```
+
+**Reproduction.** Mount SearchFilterBar (Popover stubbed open), `input[type=text].setValue('hsl(120 100% 50%)')` then `.trigger('keydown.enter')` -> emitted colorSearch payload is the OKLab of #4488cc, not of green. Repeat with '#f00', 'not-a-color', '   ' — identical payload each time; '#ff0000' is the only shape that works.
+
+**Proposed cure.** Delete the regex and the fallback. Parse the trimmed text directly (rename hexToOklab -> cssToOklab, since it was never hex-only); on empty input or PickerColorError set a local `parseError` and DO NOT emit; render parseError into the polite aria-live region C-6 already requires. Net KISS deletion: one regex and one fallback out, one honest error branch in.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-1 · CHALLENGE-C
+
+**Defect.** The browse wall is non-functional in every Safari matrix, and the pane surfaces a false diagnosis: a client-side JSON-parse failure is rendered as "The commons is unreachable." `request()` returns `res.json()` unguarded (no content-type check) and `loadRemotePalettes` discards the typed error, replacing it with one constant string for all four distinguishable failure classes.
+
+**Mechanism.** Typed failure collapsed to a constant / swallowed — the transport mints ApiProblem/ApiUnavailableError/DevMisconfigError/raw SyntaxError and the caller throws all four away.
+
+**Evidence.**
+
+```
+audit/visual/REPORT.json — /#/browse, 4/4 matrices: consoleWarnings ['Failed to load remote palettes: SyntaxError: The string did not match the expected pattern.'], bodyTextLength 280/124; shots/safari-desktop-light/browse.png renders the error plate, zero cards. probe-C-webkit-json.mjs: `== WebKit ==  /good PARSED OK · /empty|/html|/trailing SyntaxError: The string did not match the expected pattern.` `curl -D - http://localhost:9000/palettes?limit=50&sort=newest` → `HTTP/1.1 200 OK / Content-Type: text/html`. Sites: demo/platform/transport/client.ts:118, demo/palettes/useBrowsePalettes.ts:79, demo/palettes/BrowsePane.vue:62-67.
+```
+
+**Reproduction.** Point VITE_API_URL at any origin whose fallback answers 200 with non-JSON (the repo's own vite dev server does exactly this for /palettes), load /#/browse in Safari/WebKit. Confirmed: 4/4 captured matrices + the WebKit message-identification probe + the curl showing a 200 text/html body on the palette path.
+
+**Proposed cure.** `request()` guards the parse (content-type check → throw a typed ApiProblem/ApiMalformedResponse carrying status + a body excerpt); `browseError` becomes `Ref<ApiProblem | Error | null>`; the EmptyState `detail` slot renders the real machine truth (the DevMisconfig message is already written to be actionable and currently dies in the console).
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-2 · CHALLENGE-C
+
+**Defect.** `loadingMore` is stranded TRUE for the session whenever any reload supersedes an in-flight cursor continuation. The load-more affordance dies permanently and two developing plates sit at the foot of the wall forever; palettes 51+ become unreachable.
+
+**Mechanism.** Lifecycle state guarded by the wrong variable — a generational guard applied to an inflight flag that is not generational state.
+
+**Evidence.**
+
+```
+demo/palettes/useBrowsePalettes.ts:112 `finally { if (gen === loadGeneration) loadingMore.value = false; }` — the generation guard is correct for the append and wrong for the flag; :98 then rejects every future click and nothing else ever writes the flag false. Pane is KeepAlive'd (demo/shell/PaneSlot.vue:126). Unit: `npx vitest run --config <scratch>/probe-c.vitest.config.ts` → `Test Files 2 passed (2) · Tests 6 passed (6)`. Live: probe-C-live-r2.mjs → `"afterRace": { "cards": 50, "strandedSkeletonVisible": true, "loadMoreButtonCount": 0 }`; frame r2-stranded-loadmore.png.
+```
+
+**Reproduction.** Load /#/browse with a commons that reports hasMore. Click "More from the commons", then type one character in the search box while page 2 is in flight (the 400ms debounce at usePaletteWiring.ts:162 bumps loadGeneration). Release page 2. The button never returns for the rest of the session. Reproduced live and in 2 unit probes.
+
+**Proposed cure.** `finally { loadingMore.value = false; }` unconditionally; keep the `gen` guard on the append only. Idiomatically: fold cursor + inflight + error into one `usePagedResource` state machine so "in flight" cannot outlive its request.
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/palettes/browse` · C-1 · CHALLENGE-C
 
 **Defect.** Concurrent-expand race: `toggleUserExpand` writes `userPalettes` from an awaited fetch with no request-generation guard, so a late response for user A renders inside user B's open disclosure — and the admin delete then destroys A's palette while decrementing B's count.
@@ -357,6 +519,132 @@ VISUAL-CONSTITUTION.md §5: "A palette card is a bounded entity article, not a c
 
 ---
 
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-1 · CHALLENGE-D
+
+**Defect.** The primary CTA (add current color) is a decorative, inert, glyph-less, unnamed span — glass-ui 7 honours none of the four contracts written against it
+
+**Mechanism.** M1 — specimen primitive asked to be an interactive instrument; producer executed VISUAL-CONSTITUTION.md:91 ("V abrogates … the public tag=button/interactive-host branch … Selection, activation, drag and keyboard focus belong to a named enclosing geometric button/seat"), consumer never executed its half
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:95-105 passes tag="button", :aria-label, @click and a <Plus> default slot. node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts exposes only {color,variant,animate,cycleDuration,range,seed}; dist/watercolor-dot.js renders `inheritAttrs: !1` … `o("span", {"aria-hidden":"true", … pointerEvents:"none"})` with no <slot/>. Live measurement (probe-D.json → empty-desktop-light.addSlot): tag "span", ariaHidden "true", role null, tabIndex -1, pointerEvents "none", childSvgNonFilter 0, rect 48x48. Frame: frames-D/empty-desktop-light-well.png shows a dashed blob with no plus glyph.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/probe-D.mjs → scenario `empty-desktop-light`; or open http://localhost:9000/#/palettes with an empty draft and inspect `.add-slot-ghost`
+
+**Proposed cure.** Wrap the ghost face in a named `<button type="button">` seat (the law VISUAL-CONSTITUTION.md:91 already ruled, and the same seat law §3.1/§5 mandates for palette cards and gradient stops). The button owns the plus glyph, focus register, press magnitude and accessible name. Closes D-3 and D-6 with it.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-2 · CHALLENGE-D
+
+**Defect.** The desktop swatch action menu (Edit/Copy/Remove) renders one full viewport below the fold, full-bleed, transparent and aria-hidden — three of the component's five verbs are unreachable by every input modality
+
+**Mechanism.** M2 — phantom class atom: a class name used as a positioning/material strategy with no rule behind it
+
+**Evidence.**
+
+```
+SwatchHoverMenu.vue:37-51 teleports `class="floating-panel"` to <body> with aria-hidden="true". `.floating-panel` is defined nowhere: `grep -rn floating-panel demo/` → DESIGN.md prose + the consumer only; `grep -rl floating-panel node_modules/@mkbabb/glass-ui/dist/` → empty. Measured with pointer on swatch 1 (probe-D2.json → wk.panel): {rect:{x:0,y:900,w:1440,h:40}, position:"static", inlineStyle:"top: 336.09375px; left: 791.5px;", background:"rgba(0,0,0,0)", boxShadow:"none", parent:"BODY", ariaHidden:"true", inViewport:false, buttons:["Edit color rgb(226 87 31)","Copy color rgb(226 87 31)","Remove color rgb(226 87 31) from palette"]}. Reproduced identically in Chromium. Frame: frames-D/wk-hover-full.png (pointer on the orange swatch, no menu).
+```
+
+**Reproduction.** node probe-D2.mjs (WebKit + Chromium); or hover any current-palette swatch at 1440x900 on /#/palettes and query `document.querySelector('body > .floating-panel').getBoundingClientRect()`
+
+**Proposed cure.** Delete the `canHover` hover fork in SwatchHoverMenu entirely; the accessible reka-ui Popover path already serves all pointer types. Or execute PROPORTION-AUDIT.md:51 (PR-07) and retire per-swatch actions into the Library's selected inspector.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-3 · CHALLENGE-D
+
+**Defect.** The palette content is invisible to assistive tech and the only keyboard-reachable control has no accessible name
+
+**Mechanism.** M1 + M8 — every data-bearing face is aria-hidden by the producer contract, and the one real control was never named. VISUAL-CONSTITUTION.md:83 requires role, accessible name and state/value explicit; :91 requires data-bearing faces be "noninteractive named list/text content"
+
+**Evidence.**
+
+```
+probe-D.json → five-desktop-light: dotsAllAriaHidden true, dotsAllPointerNone true, buttonsInWell 1, saveBtn.accName "", tabOrder inside the well = [{input,"Palette 1"},{button,""}]. The commit control at CurrentPaletteEditor.vue:134-142 is `Button icon-only` with only a <Check> child and no aria-label. e2e/smoke/flows/palette-save.spec.ts:40-41 already records "the icon-only Save button next to the Input lacks an aria-label" and routes around it. visual/REPORT.json counts namelessButtons:1 on /#/palettes.
+```
+
+**Reproduction.** node probe-D.mjs → five-desktop-light.tabOrder / .focusables; or Tab through /#/palettes with a 5-colour draft
+
+**Proposed cure.** Swatch row becomes a named list (<ul>/<li>, CSS string as text in text-mono-small per VISUAL-CONSTITUTION.md:91); the commit control takes aria-label="Save palette". No new component.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.1 · CHALLENGE-D
+
+**Defect.** The palette seat is pointer-only: the card root is a clickable `role="article"` div with tabIndex:-1 and no aria-pressed seat, so the route's primary action (open a palette) is unreachable by keyboard in both shipping engines.
+
+**Mechanism.** Selection/activation modelled as a click handler on a non-focusable container instead of a named native button seat; the producer comment at PaletteCard.vue:2-4 encodes a false dichotomy ("button semantics omitted because inner interactive controls must be reachable") that the constitution already answers by putting the button INSIDE as a sibling of the nested controls.
+
+**Evidence.**
+
+```
+shots/STATES-2ENGINE.json, identical WebKit + Chromium: {"cardCount":10,"cardFocusable":0,"cardRoles":["article"],"cardCursor":["pointer"],"ariaPressed":0,"tabStops":22,"tabHitArticle":0}. Source: demo/palettes/browser/card/PaletteCard/PaletteCard.vue:5-26 (bare div, @click="$emit('click')", no keydown, no tabindex); consumer elects it at demo/palettes/BrowsePane.vue:97 and :102. Law: VISUAL-CONSTITUTION.md:102.
+```
+
+**Reproduction.** Serve #/browse with a reachable commons; press Tab 30x; observe document.activeElement never has role="article". Reproduced in webkit and chromium via docs/.../BrowsePane/shots/STATES-2ENGINE.json (MT-F022 two-engine proof).
+
+**Proposed cure.** One native named `<button type="button" aria-pressed>` spanning the specimen+identity region inside the article; pressed true iff that palette is the selected-inspector identity, at most one true. Delete expandedId/toggleExpand and move detail/actions into the selected inspector that §3.1 already specifies. Not a tabindex="0" patch on the div — that would manufacture a focusable non-button.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.0 · CHALLENGE-D
+
+**Defect.** All ten Browse captures in the mega-tranche visual audit are the error arm, so REPORT.md's /#/browse row measures an error page, not a palette wall — the component's primary state has zero rendered evidence.
+
+**Mechanism.** The capture harness ran against a web-only dev server whose transport guard short-circuits every palette request before fetch; nothing in the harness asserts that a data-bearing route actually bore data, so the matrix went green on a uniformly degraded page.
+
+**Evidence.**
+
+```
+REPORT.md:121/136/151/166 rows for /#/browse (text 280/124, smallTapTargets 4, namelessButtons 0) all correspond to "The commons is unreachable". Live console at localhost:9000: "DevMisconfigError: value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost" at demo/platform/transport/availability.ts:138:9.
+```
+
+**Reproduction.** Read docs/tranches/V/megatranche/audit/visual/shots/*/browse.png — all ten render the error plate. Confirmed live: curl https://api.color.babb.dev/palettes?limit=50 returns 10 rows, so the commons was healthy the whole time.
+
+**Proposed cure.** The visual harness must fail a route whose primary content did not render, not screenshot the fallback. Add a per-route data precondition (e.g. expect >=1 [role=article] on /#/browse) and run the matrix against the local stack or an explicit VITE_API_URL. Re-capture all Browse/Library/Admin matrices before any of them is cited as a pass.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-1 · CHALLENGE-D
+
+**Defect.** The component has no render path anywhere in the repository. Its sole historical host (PaletteDialogHeader.vue) was deleted in commit 95993197 — the SAME commit that refactored this file ("§8 PaletteSlugBar iconOnly migration") and then declared "code grep-zero". The sweep killed the parent and polished the orphaned child in one breath.
+
+**Mechanism.** orphaned-component / dead render path; a barrel re-export mistaken for a consumer by the excision sweep
+
+**Evidence.**
+
+```
+grep -rn "PaletteSlugBar" over the repo yields only 2 barrel re-exports (demo/palettes/browser/slug/index.ts:3, demo/palettes/browser/index.ts:44) and one `import type` (demo/palettes/useSlugMigration.ts:6) — zero `<PaletteSlugBar>` tags. `git log --all -S "<PaletteSlugBar"` → last hit is the deletion commit 95993197. `git show 95993197 --stat` shows PaletteDialog.vue (-368) + PaletteDialogHeader.vue (-101) alongside PaletteSlugBar.vue (7 +/-). e2e/smoke/flows/login-register.spec.ts:6-8 documents it in prose. LIVE Playwright probe over 12 routes at localhost:9000: [aria-label="Account menu"]=0, [aria-label="Sign in with slug"]=0, [aria-label="Cancel slug edit"]=0, .slug-pill=0 on ALL twelve.
+```
+
+**Reproduction.** grep -rn "PaletteSlugBar" --include="*.vue" --include="*.ts" . --exclude-dir=node_modules --exclude-dir=dist  → no template instantiation. Then the 12-route DOM count above against the running dev server.
+
+**Proposed cure.** DELETE PaletteSlugBar.vue, demo/palettes/browser/slug/index.ts, and the browser/index.ts:44 re-export. The live account surface already exists and is measurably better on every axis in this report: demo/shell/dock/menus/ProfileSection.vue (desktop), MobileMenuDropdown.vue (narrow), layers/SlugEditLayer.vue (edit mode). Do not repair a component whose ratified successor already shipped.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-2 · CHALLENGE-D
+
+**Defect.** The application's ONLY login-failure copy is imperatively pushed into this orphan through a template ref that is never bound to any element. A wrong slug in the live dock therefore fails completely silently — no message, no announcement, no visual state.
+
+**Mechanism.** error surface privatised as a child capability (defineExpose + parent-held instance ref) instead of being a property of the auth composition — so deleting the host silently deleted the app's failure affordance with zero type/test/e2e signal
+
+**Evidence.**
+
+```
+Chain, each link verified: (1) demo/palettes/useSlugMigration.ts:83-87 routes all four failure strings into `slugBarRef.value?.setError(...)`. (2) `slugBarRef` (useSlugMigration.ts:30, returned :121) is packed into `migration` at usePalettePorts.ts:257, and the ONLY consumer — `grep -rn "migration\." demo/ --include="*.vue"` → demo/color-picker/App.vue:153,155,156 — reads only showMigrateDialog/migrateMode/onMigrateRespond. sessionPort (usePalettePorts.ts:132-135) exports only onRegenerateSlug/onSlugSwitch. slugBarRef is never bound; `?.` swallows all four. (3) SlugEditLayer.vue:54 calls `pm.onSlugSwitch(...)` UN-awaited and onSlugSwitch never rethrows (catches at useSlugMigration.ts:77-88), so SlugEditLayer's own catch (:57-62) is unreachable. (4) SlugEditLayer.vue declares `slugError` at :13 and NEVER renders it — template :75-119 contains no binding. (5) SlugEditLayer.vue:56 sets slugEditMode=false synchronously, tearing the form down before any async result.
+```
+
+**Reproduction.** Static chain above is complete and each link is a cited file:line; the non-binding of slugBarRef is proven by exhaustive grep. LIVE end-to-end UI repro NOT COMPLETED — the dock Login pill would not resolve to visible in the shared Playwright session (element resolved but `not visible` at both 390 and 1440 viewports; the browser tab was also being driven by a sibling agent). The code chain stands on its own.
+
+**Proposed cure.** The failure state belongs to the auth composition, rendered declaratively by the surface that owns the form, with role="alert" and aria-describedby on the input. VISUAL-CONSTITUTION.md §7 already names the home: "Account is one modal side Dialog opened from the Dock … owns registration/recovery when signed out." Give that dialog a real status region; delete `setError` entirely.
+
+---
+
 ### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1 · CHALLENGE-L
 
 **Defect.** Inverted dependency: the domain/server-state composable `useAdminUsers` imports the SFC, holds a template-ref to its instance, and mutates the component's private state through 5 `defineExpose`d members. Latent module cycle; 5 optional-chain masking fallbacks.
@@ -463,6 +751,186 @@ $ grep -rn "export/serializers" demo src test → demo/test/export/byte-exact.te
 grep -rn 'from "./export"' demo             # → 1 hit, usePaletteExport.ts:9
 
 **Proposed cure.** Delete demo/palettes/export.ts and demo/palettes/usePaletteExport.ts. onExport becomes: build an ExportSnapshot from the Palette, then serializeJson|Css|Tailwind|Svg|Png + filenameFor/mimeFor from export/canonical.ts. The download side-effect moves to export/download.ts. One home, and the existing byte test then guards shipping code.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1 (pass 1, verified) · CHALLENGE-L
+
+**Defect.** CARRIED FORWARD from the pass-1 seat, independently re-derived by me: the V.W51 byte-exact export contract ships to nobody; the pre-contract copy is what users get.
+
+**Mechanism.** dual path for one concept, deliberately kept from colliding by filename; the tested leg ships nothing and the shipping leg has no byte test — a green test that proves code no user reaches
+
+**Evidence.**
+
+```
+demo/palettes/usePaletteExport.ts:9 imports from './export' → resolves to demo/palettes/export.ts (132 lines, pre-contract), which BrowsePane.vue:115,324 runs. The contract set (demo/palettes/export/, 12 modules, ExportSnapshot at export/types.ts:52-62, RFC-8785 at export/rfc8785.ts, digests at export/digest.ts) has exactly one consumer: demo/test/export/byte-exact.test.ts:23. demo/palettes/export/serializers.ts:1-9 names its own rival in prose: 'the sibling legacy ../export.ts (the pre-contract routed seat that W50 will replace) still resolves ./export … so the two never collide.'
+```
+
+**Reproduction.** grep -rn 'palettes/export/' demo/ test/ e2e/ | grep -v '^demo/palettes/export/' → 1 hit, a test file. grep -rn 'from "./export"' demo/ → 1 hit, usePaletteExport.ts:9.
+
+**Proposed cure.** Promote export/serializers.ts to export/index.ts; delete demo/palettes/export.ts; rewrite usePaletteExport as a Palette→ExportSnapshot builder plus the byte-exact serializers and filenameFor/mimeFor from export/canonical.ts. The download side effect belongs in export/download.ts, not a use* wrapper. Full evidence in challenge-L-library-pass1.md.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1 · CHALLENGE-L
+
+**Defect.** The Tags filter is inert — the component binds `:checked` / `@update:checked`, an API glass-ui 7.0.0's Checkbox does not have. The control is left uncontrolled: it ticks visually, never emits anything the parent listens for, and never resets when the filter state is cleared.
+
+**Mechanism.** Consumer speaks a retired design-system API; Vue admits unknown attrs as fallthrough and unknown on* handlers as native listeners, so the prop/emit rename is silent at both runtime and typecheck.
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:51-55. Spec: node_modules/@mkbabb/glass-ui/dist/components/checkbox/Checkbox.vue.d.ts:4-12,19 declares `modelValue?: CheckedState | null` and `"update:modelValue": (value: CheckedState) => any`. Measured runtime: props=["modelValue","defaultValue","disabled","value","id","class","asChild","as","name","required"] emits=["update:modelValue"]. `grep -rl "update:checked" node_modules/@mkbabb/glass-ui/dist/` → no matches. Mount probe output: EMITTED: ["update:modelValue"] · DOM: <button data-slot="checkbox" … checked="false" role="checkbox" … data-state="checked"> (the `checked` prop landed as a raw fallthrough attribute; data-state flipped from the control's own internal state). `npx vue-tsc -p tsconfig.demo.json --noEmit` → EXIT=0. Identical defect at demo/palettes/browser/search/TagEditPopover.vue:27-30 (the tag WRITE path) — the demo's only other Checkbox usage.
+```
+
+**Reproduction.** npx vitest run --config <scratch cfg pointing root at repo>; probe file mounts glass-ui Checkbox with {checked:false, 'onUpdate:checked', 'onUpdate:modelValue'}, clicks [role=checkbox], asserts the emit ledger → EMITTED: ["update:modelValue"]. In-app: open /#/browse ⋮ → Tags, tick a tag; the badge stays 0 and the wall does not change; then Clear all filters and the tick remains.
+
+**Proposed cure.** Controlled v-model shape: `<Checkbox :model-value="selectedTags.includes(tag.name)" @update:model-value="() => toggleTag(tag.name)" />`, same at TagEditPopover.vue:27-30. Architecturally: make the class of defect impossible — FilterMenu becomes stateless over one `v-model:query` object (see L-4 cure), so no local/uncontrolled state can desynchronise from the wall; and close the gate that let glass-ui 7 land un-migrated (a vue/no-undef-properties-class rule for glass-ui components, since vue-tsc exits 0 on all of these today).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-2 · CHALLENGE-L
+
+**Defect.** `variant="ghost"` is not a prop of glass-ui 7's Button — the string lands as a raw DOM attribute and the button renders at the default `emphasis="secondary"`. 51 sites across 20 demo files.
+
+**Mechanism.** Same as L-1: consumer speaks a retired design-system axis. glass-ui 7 replaced shadcn's single `variant` with orthogonal `emphasis` × `tone`; the demo was never migrated, and per-instance Tailwind size overrides were added to compensate.
+
+**Evidence.**
+
+```
+SearchFilterBar.vue:5 and :111-115. Spec: node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts:3-9 — `export type ButtonEmphasis = "primary"|"secondary"|"quiet"|"text"; interface ButtonProps { emphasis?: ButtonEmphasis; tone?: Tone; … }` — no `variant`. Live DOM at localhost:9000/#/browse: {hasVariantAttr:"ghost", dataEmphasis:"secondary", dataTone:"neutral", bg:"oklab(0.915626 0.00551148 0.0130686 / 0.52)", class:"button tap-squish focus-ring glass-wash glass-capsule …", size:"32x40"}. Button.props.emphasis.default === "secondary" (measured from the bundle). Visual confirmation: audit/visual/shots/safari-desktop-light/browse.png — the ⋮ trigger is a filled chip, and BrowsePane.vue:69-76 `variant="outline"` Retry renders as a solid filled pill. Census: 51 `<Button variant=…>` sites — outline 28, ghost 19, primary-audacious 2, destructive 1, default 1.
+```
+
+**Reproduction.** node -e 'const m=await import("./node_modules/@mkbabb/glass-ui/dist/glass-ui.js"); console.log(Object.keys(m.Button.props))' → no "variant". Then in the live app: document.querySelector('button[aria-label="Filters"]').getAttribute('variant') === "ghost" while .dataset.emphasis === "secondary"; getBoundingClientRect() === 32x40 despite class="h-8 w-8".
+
+**Proposed cure.** Migrate the axis, no compat map (edict 2): ghost→emphasis="quiet", outline→emphasis="secondary", default→emphasis="primary", destructive→emphasis="primary" tone="danger". Delete the per-instance `h-8 w-8` / `h-7 w-full` overrides in favour of `size` (edict 5 — the measured 32x40 shows the override half-loses anyway). Wire a lint rule so a glass-ui prop rename fails loud instead of exiting 0.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-1 · CHALLENGE-L
+
+**Defect.** The component's primary CTA is dead: `<WatercolorDot tag="button" @click="addCurrentColor" :aria-label=…><Plus/></WatercolorDot>` at CurrentPaletteEditor.vue:95-105 binds four contracts (tag prop, fallthrough aria-label, click listener, default slot) that glass-ui 7.0.0 honours none of.
+
+**Mechanism.** missing-module / paint-primitive-promoted-to-control: no seam owns "interactive color swatch", so consumers assemble one from a decoration primitive plus a `tag` prop, and the producer legitimately withdrew the prop (a component hard-coding aria-hidden + pointer-events:none on its own root is declaring itself paint).
+
+**Evidence.**
+
+```
+node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts declares exactly 6 props (color, variant, animate, cycleDuration, range, seed) — no `tag`. dist/watercolor-dot.js: `grep -o 'inheritAttrs:[^,]*'` → `inheritAttrs: !1`; `grep -c 'renderSlot'` → `0`; attrs-handling census → `1 useAttrs` only, no mergeProps, no $attrs spread. Live Playwright probe on http://localhost:9000/#/palettes: {"tagName":"SPAN","ariaHidden":"true","ariaLabel":null,"pointerEvents":"none","tabIndex":-1,"matchesButton":false,"hasPlusSvg":false,"childTags":["svg.watercolor-filter-host","SPAN.watercolor-ghost-stroke"]}. Visual: shots/safari-desktop-light/palettes.png shows the dashed ghost with no `+` glyph.
+```
+
+**Reproduction.** npm run dev (server already live) → open http://localhost:9000/#/palettes → the "Start a new palette" well shows a dashed silhouette with no + glyph; clicking it does nothing; Tab never reaches it. Programmatic: document.querySelector('.add-slot-ghost') → SPAN, aria-hidden=true, pointer-events:none, tabIndex -1. e2e/smoke/flows/palette-save.spec.ts:35 getByRole("button",{name:/Add current color .* to palette/}) cannot match.
+
+**Proposed cure.** glass-ui grows `./swatch` — a real <button> hosting a WatercolorDot, owning the accessible name, focus register, press/hover legs and popover attachment. WatercolorDot stays pure paint, consumed only by ./swatch. SwatchHoverMenu.vue is absorbed. Six call sites become <Swatch>/<SwatchMenu> mounts and the class of defect ends: a paint primitive can no longer be promoted to a control by passing it a string.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-12 · CHALLENGE-L
+
+**Defect.** The dead-`tag="button"` defect is a 6-mount, 4-component, 3-route epidemic, not a local 2-mount bug; on touch the SwatchHoverMenu popover cannot open at all because `<PopoverTrigger as-child>` merges its props as attrs into a component with inheritAttrs:false.
+
+**Mechanism.** missing-module / paint-primitive-promoted-to-control (same mechanism as L-1, at population scale) — one absent seam became six simultaneous silent breakages on a single producer change.
+
+**Evidence.**
+
+```
+`grep -rn 'tag="button"' demo` → 6 hits: MixSourceSelector.vue:168,215 · GenerateControls.vue:203 · CurrentPaletteEditor.vue:98 · SwatchHoverMenu.vue:17,32 — all WatercolorDot. Playwright pass over three routes: /#/mix .add-slot-ghost count 1 → SPAN/aria-hidden/pe:none/tabIndex -1/ariaLabel null; /#/generate .generate-swatch count 5 → same; /#/palettes .watercolor-swatch count 7 → same. Red role-queries: e2e/smoke/views/mix.spec.ts:40, e2e/smoke/safari/mix-flow.spec.ts:30, e2e/smoke/oracles/o14-preview-truth.spec.ts:353 and :412, e2e/smoke/oracles/o15-dock-register.spec.ts:53, e2e/smoke/flows/palette-save.spec.ts:35.
+```
+
+**Reproduction.** node scratchpad/probe2.mjs against the live dev server; or open /#/mix and try to add the current color (impossible), /#/generate and click any swatch to copy (no-op), /#/palettes on a coarse-pointer emulation and tap a saved swatch (menu never opens).
+
+**Proposed cure.** Same transposition as L-1, applied once at the producer: glass-ui `./swatch`. Six consumers converge on one component; the demo stops hand-assembling controls out of paint.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-2 · CHALLENGE-L
+
+**Defect.** The `.d.ts` trust boundary the demo tsconfig argues for is a false proof: vue-tsc is green while L-1 is fully live, because Vue's generated component types accept arbitrary extra attributes as fallthrough attrs, making `tag="button"` on a propless component legal TypeScript.
+
+**Mechanism.** structural-typing at a component seam — a boundary that cannot express "unknown prop" is not a boundary.
+
+**Evidence.**
+
+```
+`timeout 420 npx vue-tsc -p tsconfig.demo.json --noEmit` → EXIT=0, 0 diagnostic lines, at HEAD 041ca263 with L-1 live. The proof stack at the glass-ui seam: vue-tsc green-and-blind (measured); eslint absent (`npx eslint --print-config demo/palettes/browser/card/CurrentPaletteEditor.vue` → `no-restricted-imports = undefined`); unit tests 0 hits; e2e red and unread.
+```
+
+**Reproduction.** npx vue-tsc -p tsconfig.demo.json --noEmit → exit 0, zero output, while the CTA is provably dead.
+
+**Proposed cure.** Make the seam nominal, not structural: glass-ui exports a `WatercolorDotProps` type the demo spreads as a checked object (unknown key → excess-property error, which TS does report), and ships a producer-side contract test for WatercolorDot on the pattern of its existing labeled-field.contract.test.ts.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-1 · CHALLENGE-L
+
+**Defect.** PaletteSlugBar.vue (243 lines) never mounts in the running application — 0 of 15 routes, 0 of 60 visual-audit captures. Its four repo-wide references are two barrel re-exports plus one `import type` and one ref declaration; there is no `<PaletteSlugBar`, no `:is=`, no template binding anywhere. The e2e suite has known since tranche E and encoded the workaround as prose instead of filing it.
+
+**Mechanism.** dead module retained behind a live-looking barrel; deletion deferred by a type-only reference that survives tree-shaking analysis but is erased at build
+
+**Evidence.**
+
+```
+Live Vue tree-walk on http://localhost:9000 → {"total":115,"hasPaletteSlugBar":false,"slugish":[...,"ProfileSection","SlugEditLayer"]}. DOM probe of the component's two unique fingerprints across 4 routes → {"#/":{accountMenu:0,slugPill:0},"#/browse":{0,0},"#/palettes":{0,0},"#/admin":{0,0}} (aria-label="Account menu" occurs ONLY at PaletteSlugBar.vue:84). `grep -rn "SlugBar\|slugBar" demo test e2e src` → 4 refs: browser/index.ts:44, slug/index.ts:3, useSlugMigration.ts:6 (import type), useSlugMigration.ts:30. docs/tranches/V/megatranche/audit/visual/REPORT.md ("4 matrices × 15 routes = 60 captures") → `grep -in slug` = 0 hits. e2e/smoke/flows/login-register.spec.ts:6-9: "The SlugBar live-app surface is only inside the PaletteDialog (currently unused by the App.vue shell post-D.W3 Lane A restructure)". Read shots/safari-mobile-light/palettes.png: no identity affordance present at all.
+```
+
+**Reproduction.** npm run dev; open http://localhost:9000; in the console walk the mounted component tree from document.querySelector('#app').__vue_app__._instance.subTree and assert names.includes('PaletteSlugBar') === false. Also `grep -rn "SlugBar" demo` → 4 hits, none a mount.
+
+**Proposed cure.** Delete demo/palettes/browser/slug/ entire (PaletteSlugBar.vue + index.ts). Its one surviving responsibility — login-error presentation — moves to reactive `lastError` on a new demo/platform/auth/useIdentity.ts, rendered by SlugEditLayer.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-2 · CHALLENGE-L
+
+**Defect.** One concept (user identity: slug pill, copy/switch/logout/regenerate, credential parsing, error mapping) has FOUR homes across two top-level areas — PaletteSlugBar.vue (dead, 243), SlugEditLayer.vue (live, 119), ProfileSection.vue (live desktop, 181), MobileMenuDropdown.vue (live mobile, 115). Two pairs are literal duplicates: the desktop/mobile menus are self-documented verbatim twins forked only by a Tailwind breakpoint, and the two edit handlers share 13 byte-identical lines.
+
+**Mechanism.** ownership duplication across an area boundary — no single home for the identity concept, so each consumer forked a copy; the fork has already drifted in user-visible copy
+
+**Evidence.**
+
+```
+`sed -n '184,196p' demo/palettes/browser/slug/PaletteSlugBar.vue > a; sed -n '25,37p' demo/shell/dock/layers/SlugEditLayer.vue > b; diff a b` → no output, IDENTICAL (13 lines: looksLikeSlug + normalizeTokenInput). MobileMenuDropdown.vue:21-22 comment: "the desktop twin's cure, verbatim (ProfileSection.vue)". Row sets ProfileSection.vue:77-89 vs MobileMenuDropdown.vue:52-63 are the same 4 items with the same icons and copy. `grep -rn ADMIN_TOKEN demo` → exactly 2 hits, one per twin. Handler bodies PaletteSlugBar.vue:198-225 vs SlugEditLayer.vue:39-66 differ only by userSlug→pm.userSlug.value, emit→pm.onSlugSwitch, and a DIVERGED user-visible string: "Already signed in as this slug." vs "Already signed in."
+```
+
+**Reproduction.** The diff command above; `grep -rn "looksLikeSlug\|ADMIN_TOKEN" demo` returns exactly two homes for each.
+
+**Proposed cure.** Hoist the 13 shared lines to a pure demo/platform/auth/slugFormat.ts (isSlug / normalizeCredential / classifyCredential — zero Vue, unit-testable, which no copy is today). Collapse ProfileSection + MobileMenuDropdown into one demo/shell/dock/identity/IdentityMenu.vue with a `compact` prop. Delete PaletteSlugBar.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-3 · CHALLENGE-L
+
+**Defect.** Login failure is silent in the live application on every breakpoint, because the only error surface is a defineExpose on the dead component reached through a template ref that is never bound. The S.W2·W2-6 typed-ApiProblem fix repaired already-unreachable code, and the live twin's own error ref is write-only.
+
+**Mechanism.** cross-boundary responsibility parked on a template ref; the owning area (palettes) hands error presentation to a component the consuming area (shell) does not and cannot mount
+
+**Evidence.**
+
+```
+useSlugMigration.ts:30 `const slugBarRef = ref<InstanceType<typeof PaletteSlugBar>|null>(null)`; :83-87 all four failure branches call `slugBarRef.value?.setError(...)`. `grep -n migration demo/color-picker/App.vue` → only :153 showMigrateDialog, :155 migrateMode, :156 onMigrateRespond — slugBarRef never bound, and appears in no template repo-wide. SlugEditLayer.vue:13 declares slugError, writes it at :49,:59-62, template :75-119 never renders it; :54 calls pm.onSlugSwitch() un-awaited so its catch at :57-65 is unreachable. LIVE REPRO on http://localhost:9000 (dock Login → 'nonexistent-fake-bogus-slugword' → submit → 2.5s): {"slugEditLayerOpen":true,"destructive":0,"slugInputValue":"","matchingLines":["OKLCh is the polar form of OKLab…"],"ariaLive":[{role:alert,text:"dev misconfigured — run `npm run dev`"}]} — zero .text-destructive nodes, no login error in any alert/status region, and the input SELF-CLEARED (the success affordance).
+```
+
+**Reproduction.** npm run dev; http://localhost:9000; click the dock Login control; type any nonexistent 4-lowercase-segment slug; submit; observe zero error feedback and a cleared input. Statically: `grep -rn slugBarRef demo` shows it is declared and read but never bound to a template.
+
+**Proposed cure.** Make `lastError` reactive state on demo/platform/auth/useIdentity.ts, which owns the ApiProblem.status→message map ONCE, and render it inside SlugEditLayer next to the input. Delete setError/defineExpose/slugBarRef entirely — no imperative cross-area reach, no template ref.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-4 · CHALLENGE-L
+
+**Defect.** The ESLint rule G-DEMO-3b that demo/palettes/browser/index.ts cites as "enforced standing (eslint.config.js)" is vacuous. On the subject file no `no-restricted-imports` rule applies at all; on the one file glob that still exists the rule bans an import alias with zero uses repo-wide. Two of its three file globs were deleted at W43·RF-15.
+
+**Mechanism.** enforcement written against a module layout deleted three tranches ago; a rule that cannot fail launders the invariant it claims to hold
+
+**Evidence.**
+
+```
+`npx eslint --print-config demo/palettes/browser/slug/PaletteSlugBar.vue | jq -c '.rules["no-restricted-imports"]'` → `null`. `npx eslint --print-config demo/color-picker/App.vue | jq -c '.rules["no-restricted-imports"]'` → `[2,{"patterns":[{"group":["@components/custom/palette-browser/**/*.vue"],"message":"G-DEMO-3b: …"}]}]`. `grep -rn '\"@components' demo src test e2e | wc -l` → 0. `ls -d demo/@` → "No such file or directory". vite.config.ts:68-72 records the removal: "W43 (RF-15) killed the demo `@…` path aliases". eslint.config.js:232-238 scopes to demo/@/components/**, demo/@/lib/**, demo/color-picker/**; the same dead pattern is re-declared at :294-299.
+```
+
+**Reproduction.** The two --print-config invocations above, plus `ls -d demo/@` and `grep -rn '\"@components' demo`.
+
+**Proposed cure.** Either re-express G-DEMO-3b against the live tree (files: demo/**, banning **/palettes/browser/*/[A-Z]*.vue from outside demo/palettes/), or — per the L-8 lattice — delete the rule together with the barrel it guards. Do not leave a green rule that matches nothing.
 
 ---
 
@@ -736,6 +1204,42 @@ WebKit breakpoint sweep on /#/blob (scratchpad/chD-csp-probe3.mjs -> breakpointS
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-1 · CHALLENGE-C
+
+**Defect.** The local `useLayerTransition` shim produces no visual transition at all — the entire crossfade apparatus (leavingLayer ref, 260ms timer, is-leaving class) is inert machinery over an instantaneous cut.
+
+**Mechanism.** Hand-reimplementation of a producer primitive that kept the bookkeeping (which id is leaving) and dropped the thing doing the work (the animated scalar). glass's DockCrossfade drives a per-face `--dock-t` opacity scalar from useDockSpring; the shim drives nothing, and the producer CSS it piggybacks on has no opacity transition to trigger.
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:53-95. Live probe, http://localhost:9000/#/: getComputedStyle of the two `.dock-layer-grid` children returns transition == "visibility" (active) and "visibility 0s linear 0.3s" (inactive) — no `opacity` entry in either. Nine-frame sample across the swap (+2/+17/+61/+131/+201/+250/+281/+401/+621 ms): leaving-layer opacity == "0" and entering-layer opacity == "1" at EVERY frame, zero intermediate values; `.glass-dock[data-morphing]` == false at every frame. Producer source: node_modules/@mkbabb/glass-ui/dist/components/dock/styles/layers.css declares only `:where(.glass-dock,.dock-layer-group) .dock-layer { transition: visibility 0s linear var(--duration-normal); }`.
+```
+
+**Reproduction.** Open http://localhost:9000/#/ ; in console: `const g=document.querySelector('.dock-layer-grid'); [...g.children].map(e=>getComputedStyle(e).transition)` -> ["visibility","visibility 0s linear 0.3s"]. Then click the `Open color input` toggle while polling `getComputedStyle(g.children[i]).opacity` — it reads only "0" or "1", never between.
+
+**Proposed cure.** Architectural transposition, not a patch: delete lines 53-95 and the template's hand-bound class/inert, and mount the producer's public primitive — `<DockCrossfade :active="showInput ? 'input' : 'actions'" reserve="inline"><DockLayer id="actions">…</DockLayer><DockLayer id="input">…</DockLayer></DockCrossfade>`. This one move also discharges D-3, D-4, D-6, D-7, D-9 and D-14.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-2 · CHALLENGE-C
+
+**Defect.** The shim's stated retirement condition is false: the file claims glass "offers no public composable successor", but glass-ui 7.0.0 publicly exports DockCrossfade/DockLayer/useDockCrossfadeContext — so the CARRY-LEDGER §F condition is already met at HEAD and relay mark M2 is moot.
+
+**Mechanism.** A dual path maintained against a primitive that was never actually missing — the ask (M2) was answered by the release before the ask was sent. Violates owner edict 2 (no dual paths/back-compat) and edict 4 (glass-ui is the design system).
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:54-61 (the claim). node_modules/@mkbabb/glass-ui/dist/dock.js:1373 exports `rt as DockCrossfade, ft as DockLayer, lt as DockLayerGroup` from `@mkbabb/glass-ui/dock`. dist/components/dock/composables/index.d.ts:9 exports `provideDockCrossfadeContext, useDockCrossfadeContext, useOptionalDockCrossfadeContext, DOCK_CROSSFADE_KEY`. dockCrossfadeContext.d.ts:31-51 exposes read-only `activeId` + `leavingId` refs — precisely the "exact two-refs contract" the shim claims it had to hand-roll. DockCrossfade.vue.d.ts documents the controlled-no-rail consumer case and a `reserve?: "block"|"inline"` prop. Already consumed in-repo: demo/shell/dock/index.ts:2 re-exports GlassDock/DockLayerGroup/DockLayer from the same specifier; Dock.vue:153-158 wraps this very component in a real `<DockLayer id="action-bar">`; ActionBarLayer.vue:8 already imports DockControl/DockSeparator from that specifier. Installed version confirmed 7.0.0. CARRY-LEDGER.md:111,124-125 conditions retirement on glass shipping a successor.
+```
+
+**Reproduction.** `grep -n "DockCrossfade" node_modules/@mkbabb/glass-ui/dist/dock.js` -> line 854 (`//#region src/components/dock/DockCrossfade.vue`) and line 1373 (public export). `node -e "console.log(require('./node_modules/@mkbabb/glass-ui/package.json').version)"` -> 7.0.0.
+
+**Proposed cure.** Execute the W47 retirement now — it is unblocked, not pending. Adopt `<DockCrossfade>`+`<DockLayer>` per D-1 and WITHDRAW relay mark M2 rather than awaiting a reply.
+
+---
+
 ### `CHALLENGE-C — implementation defects in `demo/shell/dock/Col` · R2-1 · CHALLENGE-C
 
 **Defect.** The send button can never submit typed text: `onInputBlur` wipes the contenteditable back to the canonical colour, and because the UA moves focus on mousedown but fires click on mouseup, `onSubmitColor` always reads the already-wiped DOM and re-submits the stale colour.
@@ -769,6 +1273,78 @@ demo/color-session/useColorParsing.ts:92 (`debounce(parseAndSetColor, 2000)`); d
 **Reproduction.** npx vite-node --config vite.config.ts <scratchpad>/parseprobe2.ts — scenario C. In the app: type a colour into the dock input, blur without committing, immediately pick a different colour by slider/swatch; ~2 s later the colour reverts to the abandoned text.
 
 **Proposed cure.** Give the pending commit the component's lifetime and make it visible reactive state rather than a hidden timer: fold the debounce into the draft `shallowRef` of R2-1, cancel on every path that resolves the edit, and add `onBeforeUnmount`. Do not merely add a cancel call — the singleton ownership (C-8) is the same defect seen from the other side.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-1 · CHALLENGE-C
+
+**Defect.** The custom-name round-trip is broken: `formattedCurrentColor` is a name-or-CSS union, and the component writes it into the contenteditable at five sites and reads it back into `parseAndSetColor` at three. Approved custom names are never registered with the parser, so the app's own canonical display text fails the app's own parser.
+
+**Mechanism.** type-confused single value — one computed serves both 'label a human reads' and 'value a machine round-trips', so the DOM node that is the source of truth for submission is seeded with a value from the wrong domain
+
+**Evidence.**
+
+```
+demo/color-session/useColorNameResolution.ts:31-46 returns `findCustomName(...)` (an arbitrary user-proposed name) before ever reaching `serializePickerColor`. demo/color-session/useCustomColorNames.ts:61-66 resolves against a demo-side Map built from GET /colors/approved; `grep -rn registerColorNames src/ demo/ api/src` yields ONE hit, a comment at useCustomColorNames.ts:46. The parser's only name table is the frozen 148-entry NAMED_COLORS (src/css/grammar.ts:31,265; src/css/named-colors.ts:1). Writers: ColorInput.vue:191, :240, :265, :272, :278. Readers: :199, :208, :215. Measured: `model colour: rgb(20 60 200) / formattedCurrentColor: "babb-blue" / parseCssColor(displayed).ok: false / after re-submitting the displayed text -> parseError = true / model colour now: rgb(20 60 200)`.
+```
+
+**Reproduction.** VITE_API_URL=http://127.0.0.1:9/api npx vitest run --config docs/tranches/V/megatranche/audit/components/shell-dock-colorinput/probe.vitest.config.ts — test B in roundtrip.probe.ts. Drives the real useCustomColorNames + useColorNameResolution + useColorParsing; only globalThis.fetch is stubbed, and the stub name `babb-blue` is legal under the server's own zod schema (api/src/modules/color/schema.ts:8-19).
+
+**Proposed cure.** Split the union at the pipeline, not with a guard at the call site. Expose `canonicalCssColor` (always serializePickerColor) alongside `displayLabel`; render the label, seed and submit the canonical. The custom name then becomes what it always should have been — presentation, exactly like the crown tooltip beside it. This also collapses R2-1 and C-16: with one canonical string source there is no reason for six imperative innerText writers or for blur to rewrite a node a pending click is about to read.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-MT-F001 · CHALLENGE-C
+
+**Defect.** MT-F001 is SWALLOWED by this path and mislabelled as a user typo. A shipped-library TypeError is rendered byte-identically to a plain typo, reaches no telemetry, and leaves the field in a final state indistinguishable from working.
+
+**Mechanism.** an undiscriminated catch converting a defect in a dependency into an accusation of user error, with a latch that then erases even that signal
+
+**Evidence.**
+
+```
+Library leg re-measured against src/css/index: `"oklch()" "rgb()" "hsl()" "lab()" "lch()" "color()" "oklab()" "hsl(  )" -> THROW TypeError: Cannot read properties of undefined (reading 'replace')`. Site: src/css/grammar.ts:178 guards `slash[1]?.trim()` with optional chaining while :180 asserts `slash[0]!.replace(...)` — the two adjacent indices of the same array handled with opposite rigour, one line apart. Path: ColorInput.vue:194 -> :199 -> useColorParsing.ts:60 -> :64 -> picker-color.ts:110 -> parseCssColor. Live (frames/probe-1.json B-f001-light): afterEnter badgeText 'not a valid color', inputBorder rgb(219,36,36), and pageErrors: []. Swallow site: useColorParsing.ts:84-87, a bare `catch` with no binding and no discrimination, so PickerColorError (which carries result.diagnostics per picker-color.ts:96-112) and a library TypeError render identically.
+```
+
+**Reproduction.** Test A in roundtrip.probe.ts for the library leg; frames/probe-1.json + frames/B-f001-error.png + frames/B-f001-after2s.png for the live leg. The tail nobody had recorded: after2s = {badge:false, text:'oklch()', border:'lab(92 88.8 20 / 0.827)'} — the invalid text remains, the error styling is gone, and previousInvalid is now latched to 'oklch()' so useColorParsing.ts:61 short-circuits and pressing Enter again produces nothing at all.
+
+**Proposed cure.** Narrow the catch: `catch (e) { if (!(e instanceof PickerColorError)) throw e; ... }`. A genuine syntax rejection stays a quiet inline error; anything else reaches window.onerror, where MT-F001 would have surfaced on day one. ParseEchoReadout (ColorInput.vue:109) — already rendering astEcho and gamutVerdict from the same pipeline — is the natural home for the diagnostics the catch discards. The library-side `!` at src/css/grammar.ts:180 is a separate repair; route to the library seat, together with R2-7's adjacent false-accept of `oklch(0.5 0.1 250 / )`.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R2-1-UPHELD · CHALLENGE-C
+
+**Defect.** CARRIED AND STRENGTHENED — the send button is structurally incapable of submitting typed text, in every browser engine. I attempted to refute this as a Chromium-only focus artefact and the refutation FAILED.
+
+**Mechanism.** DOM node as source of truth, mutated by an event that the UA guarantees fires before the event that reads it
+
+**Evidence.**
+
+```
+ColorInput.vue:183-193 onInputBlur overwrites the field with formattedCurrentColor; :213-217 onSubmitColor reads that same node back. Cross-engine test of the exact three-part shape: chromium 148.0.7778.96 / webkit 26.4 / firefox 150.0.2 all produced `typed activeEl=ce` -> `mousedown activeEl=ce` -> `BLUR read="typed-value" -> overwrite` -> `CLICK read="CANONICAL"`. WebKit and Firefox indeed do not focus the button on mousedown, but they blur the contenteditable anyway — the distinction the refutation relied on does not exist for this shape.
+```
+
+**Reproduction.** scratchpad/blurorder.html + blurorder.mjs (session scratchpad; a 12-line static page, no app dependency). `node scratchpad/blurorder.mjs`. Round 2's live app measurement stands as the in-situ leg.
+
+**Proposed cure.** Same cure as R3-1 and C-16, one stroke: hold the draft in a local shallowRef written by @input, render from it, and let blur decide only whether to DISCARD the draft — never to rewrite a DOM node a pending click is about to read. onSubmitColor then reads the ref and the blur/click ordering becomes irrelevant. This is the synchronous-local-cache idiom edict 7 already mandates for the defineModel round-trip; the hazard class is identical.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R2-2-UPHELD · CHALLENGE-C
+
+**Defect.** CARRIED — the pending 2000 ms parse is never cancelled, and the component has no teardown of any kind. An abandoned edit overwrites a later, deliberate commit, and can fire from a destroyed component.
+
+**Mechanism.** broken ownership of pending-commit state — an app-wide singleton debounce (useColorParsing.ts:92 inside the injected pipeline) whose only cancel is owned by a different component's lifetime
+
+**Evidence.**
+
+```
+`grep -n "onUnmounted\|onBeforeUnmount\|clearTimeout\|cancel()" demo/shell/dock/ColorInput.vue` returns NO OUTPUT WHATSOEVER — no lifecycle hook, no timer clear, no debounce cancel, despite the file owning a setTimeout at :256, an rAF at :262 and a 2000 ms debounce via :199. debounce exposes .cancel() (demo/shared/utils.ts:36-41) and the sibling consumer uses it (demo/picker/ColorPicker.vue:383), so the omission is demonstrated, not stylistic. The unmount leg is real: Dock.vue:153 `<DockLayer v-if="hasAnyActionBar">` and :156 `<ActionBarLayer v-if="actionBar" ...>`.
+```
+
+**Reproduction.** Round 2's vite-node reproduction stands (C1 committed #abcdef -> C2 committed #00ff00 -> C3 2.3s later the abandoned 'red' won). Round 3 independently confirms both structural preconditions by grep.
+
+**Proposed cure.** One owner for 'there is a pending commit'. Fold the debounce into the draft shallowRef of R2-1/R3-1 so the pending state is visible reactive state rather than a hidden timer, and give it the component's lifetime.
 
 ---
 
@@ -919,6 +1495,204 @@ Measured (frames/probe-1.json): inputAria {invalid:null, describedby:null}; badg
 
 ---
 
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-01 · CHALLENGE-D
+
+**Defect.** The field cannot be edited, only replaced: clicking anywhere in the value selects the entire value, so the next keystroke destroys it. No undo.
+
+**Mechanism.** Unconditional select-all bound to the focus event of a text-entry surface; the `selection?.toString() === target.innerText` guard at :174 only suppresses re-selection of the state it just created.
+
+**Evidence.**
+
+```
+demo/shell/dock/ColorInput.vue:168-182 (`selectAll()` on `focus`). Measured, frames/r3probe.json: `"caretAfterClick": {"selectionText":"lab(92% 88.8 20 / 82.7%)","isCollapsed":false,"wholeValueSelected":true}` then `"caretAfterKeystroke":{"text":"x"}`; `"undo":{"undoRestoredTypedText":false}`.
+```
+
+**Reproduction.** 1440x900 -> click `Tools` -> click `Open color input` -> click at the horizontal midpoint of the displayed value -> press any key. The 24-character value is replaced by that one character. Ctrl/Cmd+Z does not restore it.
+
+**Proposed cure.** Delete `selectAll()` from `onInputFocus`. Select-all belongs to explicit entry (the toggle's own activation, or Ctrl/Cmd+A) only. Architecturally: replace the contenteditable with glass-ui 7.0.0's published `Input`, whose native caret placement makes the whole mechanism unnecessary.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-02 · CHALLENGE-D
+
+**Defect.** No cancel path exists, and a 2000 ms commit debounce means valid input typed and blurred inside two seconds is silently discarded with zero signal.
+
+**Mechanism.** Two sources of truth (contenteditable text vs. model) reconciled only by a long debounce and an unconditional blur repaint, with no cancel gesture and no uncommitted-state affordance.
+
+**Evidence.**
+
+```
+demo/color-session/useColorParsing.ts:92 `debounce(parseAndSetColor, 2000)`; ColorInput.vue:202-211 handles only `Enter`; :183-193 blur repaints from the model. Measured, frames/r3probe2.json: `"cancel":{"typed":"rebeccapurple","afterEsc":{"text":"rebeccapurple","focused":true},"afterBlur":"lab(92% 88.8 20 / 82.7%)","escapeCancels":false,"blurCommitted":false}`.
+```
+
+**Reproduction.** Open the field -> select all -> type `rebeccapurple` (valid CSS) -> press Escape (nothing happens) -> click elsewhere within 2 s. The value reverts to the previous colour with no error, no toast, no 'unsaved' mark.
+
+**Proposed cure.** Escape restores the model value and exits; blur either commits or warns but never silently discards; drop the debounce to a live-preview cadence (~150 ms) once the field is no longer the sole commit path. PROPORTION-AUDIT.md:75 already mandates commit/cancel/error semantics for editors — adopt the W21 numeric-field contract instead of inventing a third one.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-03 · CHALLENGE-D
+
+**Defect.** The field's boundary fails the WCAG 1.4.11 3:1 non-text contrast floor in both schemes, and that same boundary is the only mark identifying the element as an input and the only focus register.
+
+**Mechanism.** A decorative `--input` hairline carrying three structural jobs (affordance identity, focus register, error register) with no visible label, no placeholder in colour mode, and no glass affordance to fall back on.
+
+**Evidence.**
+
+```
+Measured, frames/r3probe2.json: light border `rgb(198,180,159)` on plate `rgb(251,250,248)` = **1.930:1**; dark border `rgb(101,87,73)` on plate `rgb(11,10,9)` = **2.838:1** (WCAG relative-luminance formula computed in-probe). Ink-on-plate is 16.77:1 — an 8.7x mismatch between the two halves of the same object. Canon: VISUAL-CONSTITUTION.md:82 'boundaries meet their rendered contrast on the actual material tier; a token name is not evidence.'
+```
+
+**Reproduction.** Open the field at 1440x900 in light, then in dark; read `getComputedStyle(document.querySelector('.color-input')).borderTopColor` and `.backgroundColor` and compute WCAG contrast. Both arms are below 3:1.
+
+**Proposed cure.** Consume glass-ui's `Input` so the boundary comes from the producer at its audited contrast, and stop overloading it: focus gets the producer focus ring, invalid gets `aria-invalid` plus a real message region — three separate registers instead of one 1.93:1 hairline.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · C-01 · CHALLENGE-D
+
+**Defect.** CONFIRMED (round-2 D-01): the component does not exist below 1024 px landscape, including at 200% browser zoom — so the app's only free-text colour entry is absent on every phone and at the WCAG reflow arm.
+
+**Mechanism.** The action-bar context is a side effect of which pane slot the media query happened to mount, rather than route-table state.
+
+**Evidence.**
+
+```
+Read as images this round: docs/tranches/V/megatranche/audit/visual/shots/zoom-200-desktop/picker.png renders the dock as `home-chevron | Picker About | ellipsis` with NO Tools control (capture method: 720x450 @2x DPR, per visual/states.mjs:21-22); docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/picker.png shows the resting desktop dock as `Home | Tools | Login | @mbabb` with no field. Source chain: App.vue:310-312 breakpoint -> :323-328 `onDesktopLeftMount` is the sole writer of `colorPickerRef` -> Dock.vue:41,153 -> ActionBarLayer.vue:115.
+```
+
+**Reproduction.** Load http://localhost:9000/#/ at 390x844 or at 720x450 and press every dock control — there is no colour input. At 1440x900 -> Tools -> Open color input, it appears.
+
+**Proposed cure.** Lift the action-bar context to the route table (`usePaneRouter`) so it is breakpoint-independent. Per the R3 gestalt cure, the editor itself belongs in the Picker inspector at all widths, with a named DockControl as its dock-side opener.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-01 · CHALLENGE-D
+
+**Defect.** BLOCKER: the retired-by-law PaneSegmentedControl is painted on top of the Tools/action-bar control, which has itself already lost its capability on every mobile-grammar viewport. Below 1024px the picker's entire action region (Reset color, Copy color, Random color, Palettes, Extract palette, Open color input) does not exist — including for a desktop user at 200% browser zoom.
+
+**Mechanism.** Capability wired to a desktop-only DOM ref, then the resulting hole covered by a second surface the canon already retired. One collision, two defect IDs.
+
+**Evidence.**
+
+```
+Dock.vue:197-204 (switcher still mounted) vs VISUAL-CONSTITUTION.md:89 'V retires the global Dock PaneSegmentedControl and left/right view state' + §3 law 6 + CARRY-LEDGER.md:22 W47 gate 'PaneSegmentedControl 1→0'. Measured (dockprobe9.mjs, live WebKit): slot state on /#/ after 6.5s settle — 390x844 {slotClass:'action-bar-toggle-slot', slotW:'0px', opacity:'0', toolsTabindex:'-1'} · 720x900 identical · 1024x1366 identical · 1440x900 {slotClass:'action-bar-toggle-slot is-visible is-live is-settled', slotW:'125.52px', opacity:'1', toolsTabindex:'0'}. Hit-test (dockprobe4/7/9): 390 tools[153,186] switcher[156,260] elementFromPoint→DIV.segmented-indicator toolsReachable=false · 720 tools[298,330] switcher[300,442] same · 1024x1366 tools[409,510] switcher[398,540] same (100% of a 101px control) · 1440 toolsReachable=true. Both boxes position:static, z-index:auto. Root cause demo/color-picker/App.vue:322-328 `function onDesktopLeftMount(el){ colorPickerRef.value = left==="color-picker" ? el : null; }` feeding App.vue:38 `:action-bar="colorPickerRef?.actionBarContext ?? null"`. Frame: docs/tranches/V/megatranche/audit/components/shell-dock-dock/collision-1024x1366.png shows no paintbrush glyph anywhere in the band.
+```
+
+**Reproduction.** Open http://localhost:9000/#/ at any viewport width < 1024px (or 1440px at 200% browser zoom). The pill renders `Home ˅ | Picker About | ⋮` with no Tools control. Run `document.elementFromPoint()` at the centre of `nav.dock-band button[aria-label="Toggle action bar"]` — it returns DIV.segmented-indicator, not the button. Script: dockprobe9.mjs in the session scratchpad.
+
+**Proposed cure.** Publish the action set through the provide/inject seam the dock already uses for four other concerns (VIEW_MANAGER_KEY, SESSION_PORT_KEY, CSS_COLOR_KEY, SAFE_ACCENT_KEY); delete colorPickerRef and both `?? null` prop hops. Then execute W47's `PaneSegmentedControl 1→0`. Both halves of the collision die together — one colliding surface stops existing, the other stops being conditional.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-1 · CHALLENGE-D
+
+**Defect.** The 260ms `SUB_LAYER_CROSSFADE_MS` window animates nothing — the crossfade it guards does not exist in Glass 7. `layers.css` gives `.dock-layer` exactly one transition (`visibility`) and animates opacity only under `.glass-dock[data-morphing]` (a dock collapse/expand), never during a content swap.
+
+**Mechanism.** consumer reimplemented a producer mechanism against a producer stylesheet that has since moved the mechanism elsewhere; the JS half survived, the CSS half did not
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:62,76. Live measurement (WebKit, localhost:9000, 1440x900): computed `transition` on the active sub-layer = "visibility"; on the inactive = "visibility 0s linear 0.3s". Swap timeline: `t=0 ACT op=1 ... / t=0 off op=0` then `t=40 LEAV op=0 vis=visible inert=1 rect=516,18 408x46` — the leaving layer is already at opacity 0 by the first post-swap sample and no intermediate opacity is ever observed. node_modules/@mkbabb/glass-ui/dist/components/dock/styles/layers.css.
+```
+
+**Reproduction.** Open http://localhost:9000/#/ at 1440x900, click [aria-label="Toggle action bar"], wait 800ms, then click [aria-label="Open color input"] and sample getComputedStyle(el).opacity on both `.dock-layer-grid` children at t=0/40/130/280/480ms. Opacity is only ever 1 or 0.
+
+**Proposed cure.** Delete lines 53-94 and 88-94; replace with `<DockCrossfade :active="activeSubLayer" reserve="inline">` wrapping two `<DockLayer id="actions">` / `<DockLayer id="input">` faces. All four symbols are already public on `@mkbabb/glass-ui/dock`. The real overlap then rides the producer's `--dock-t` scalar on `useDockSpring` (velocity-continuous, interruptible).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-2 · CHALLENGE-D
+
+**Defect.** The component hand-applies GlassDock's PRIVATE shell-pane classes (`.dock-layer` + `is-active`/`is-leaving`) to arbitrary consumer components. In Glass 7 the public face class is `.dock-face`; `.dock-layer` is emitted only by GlassDock's own two internal plates. Because every `.dock-layer` rule is scoped `:where(.glass-dock, .dock-layer-group) .dock-layer`, the counterfeit faces match the dock's private plate rules — including two that are actively hostile during a dock morph.
+
+**Mechanism.** consumer styles itself from producer internals — a silent breakage contract, since no public API ever promised these class names
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:91. Scan of the producer bundle: `python3 -c "...re.finditer(r'dock-layer(?![-a-z])', open('dist/dock.js').read())..."` returns exactly two emission sites, both internal: `class: L(["dock-layer dock-layer--full", {...}])` and `class: L(["dock-layer dock-layer--summary", {...}])`. The public face component emits `class: L(["dock-face", { "is-active": ..., "is-le..." }])`. Hostile rules in layers.css: `.glass-dock[data-morphing] .dock-layer.is-leaving { opacity: calc(1 - var(--dock-morph-t)); }` and `.glass-dock[data-morphing] .dock-layer.is-active > * { opacity: var(--child-reveal); scale: calc(0.82 + 0.18 * var(--child-reveal)); }`.
+```
+
+**Reproduction.** grep the emission sites as above; then on the live page confirm the consumer nodes carry the class: the two `.dock-layer-grid` children report className `"flex items-center justify-around flex-1 dock-layer is-active"` and `"grid grid-cols-1 gap-y-2 p-0 m-0 dock-layer min-w-0"`. (The compound swap-during-dock-morph symptom is a HYPOTHESIS — the rules and the class match are both confirmed, but I did not capture a simultaneous frame.)
+
+**Proposed cure.** Same transposition as D-1 — `<DockLayer>` faces inside `<DockCrossfade>` carry the producer's own `.dock-face` packaging, so the consumer stops naming producer internals at all.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-6 · CHALLENGE-D
+
+**Defect.** No peak reserve: pressing the mode toggle moves the mode toggle 70.4px out from under the pointer. The interaction is a three-state CYCLE, so the design asks the user to press the same control repeatedly and then moves it away after the first press.
+
+**Mechanism.** the producer's MEASURE-ONCE running-max reserve was dropped when the composable was reimplemented; the dock re-measures to the live face on every swap
+
+**Evidence.**
+
+```
+Live measurement at 1440x900 with the pointer parked off-dock between samples: `selfDisplacement: {toggleCentreBefore: 851, toggleCentreAfter: 921.4, dx: 70.4, stillUnderPointer: false, pillWidthBefore: 326, pillWidthAfter: 466.8, pillHeightBefore: 62, pillHeightAfter: 62}`. Sub-layer content 184px (actions) vs 324.8px (input) in a `fit-content` dock. Visual: shot-desktop-light-2-actions.png vs shot-desktop-light-3-input.png. Cycle at ActionBarLayer.vue:33-45.
+```
+
+**Reproduction.** Open http://localhost:9000/#/ at 1440x900, click [aria-label="Toggle action bar"], record the bounding rect of [aria-label="Open color input"], click it, park the mouse off-dock, wait 900ms, record the rect of [aria-label="Propose color name"]. Centre moves +70.4px; |dx| exceeds the control's own 40px width.
+
+**Proposed cure.** `<DockCrossfade reserve="inline">` — its documented contract is 'The reserved box is sized to the peak face as a MEASURE-ONCE min-block-size (a running max)', with `inline` explicitly the axis for 'a horizontal control run'. Zero consumer code.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-7 · CHALLENGE-D
+
+**Defect.** The component has NO mobile composition — it never renders below the lg breakpoint, on any route. The Picker's entire action region (Reset, Copy, Random, Palettes, Extract, CSS-color entry, Propose-name) is desktop-only, and the mobile overflow menu carries no colour actions at all.
+
+**Mechanism.** presence derived from a sibling template ref that only one breakpoint's slot ever assigns — an entire responsive arm silently evaluates to null
+
+**Evidence.**
+
+```
+Root cause: demo/color-picker/App.vue:38 `:action-bar="colorPickerRef?.actionBarContext ?? null"` combined with App.vue:325 `colorPickerRef.value = left === "color-picker" ? el : null;` inside `onDesktopLeftMount` — the mobile `<PaneSlot>` (App.vue:83-90) has no `:on-mount` binding, so below lg the ref is permanently null, `hasAnyActionBar` is false (Dock.vue:41) and `<ActionBarLayer>` (Dock.vue:156) never mounts. Measured at iPhone 14 / 390px: `slotClass: "action-bar-toggle-slot"` (no is-visible / is-live / is-settled), `slotRect: {x:147.4, w:0}`, `tabindex: "-1"`, `rect: 33.3x33.3` (below the 44px floor), `pointerEvents: "auto"`, `hitTestTop: "div.segmented-indicator.segmented-indicator--js"`, `btnContainsTop: false`, and `mobileForced: {opened: false}` — even a programmatic .click() opens nothing. Visual: shot-mobile-light-1-main.png shows Home / [Picker·About] / ⋮ and no Tools trigger. MobileMenuDropdown.vue:52-101 offers only Copy SLUG, slug edit, logout, regenerate slug, share link, dark toggle. Violates VISUAL-CONSTITUTION.md §3.6 ('Mobile uses one document-scrolling stage→inspector→ACTION sequence'), §7 Picker ('Copy lives once in the action region'), and PROPORTION-AUDIT.md PR-13 ('action Copy 1→1').
+```
+
+**Reproduction.** Launch WebKit with devices['iPhone 14'], goto http://localhost:9000/#/, wait 2800ms, then evaluate the slot/button geometry and `document.querySelector('[aria-label="Toggle action bar"]').click()` followed by `document.querySelector('.dock-layer-grid')` — returns null.
+
+**Proposed cure.** Provide the ActionBarContext through DI (the app already provides the ONE pipeline at App.vue:257) instead of a sibling template ref, so presence is breakpoint-independent; then design the mobile action composition §3.6 requires. A `:on-mount` binding on the mobile PaneSlot is the minimal patch but leaves the sibling-ref coupling intact.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-1 · CHALLENGE-D
+
+**Defect.** The keyboard focus ring on the product's primary navigation control renders nothing: line 70 overwrites glass-ui's shadow-valued `--dock-ring` token with a bare color, invalidating the producer's `box-shadow: var(--dock-ring)` at `:focus-visible`, where `outline: none` has already removed the fallback.
+
+**Mechanism.** consumer writes a value of the wrong TYPE into a producer value-token (retyping a producer contract); invalid-at-computed-value-time collapses box-shadow to initial `none`
+
+**Evidence.**
+
+```
+demo/shell/dock/DockViewSelect.vue:70 `:style="{ '--dock-ring': isAdminMode ? 'var(--color-gold)' : 'var(--accent-view)' }"` vs node_modules/@mkbabb/glass-ui/dist/styles/tokens/sizing.css `--dock-ring: var(--focus-ring-shadow)` and .../components/dock/styles/index.css `.dock-select-trigger:focus-visible { box-shadow: var(--dock-ring); outline: none; }`. Chromium measured: {"active":true,"matchesFocusVisible":true,"boxShadow":"none","outlineStyle":"none","dockRing":"oklch(0.471189 0.0962884 89.834)"}. Sibling .dock-icon-button same frame: dockRing = "0 0 0 2px color-mix(...) , 0 0 8px color-mix(...)". In-page substitution test: withConsumerValue -> "none"; withProducerDefault -> the real 2-layer ring. Screenshot scratchpad/D2-focus-chromium.png shows a focused trigger pixel-identical to rest.
+```
+
+**Reproduction.** open http://localhost:9000/#/browse in Chrome; press Tab once; DevTools > Computed on button.view-select-trigger => box-shadow: none, outline-style: none. Repro script: scratchpad/D-dvs-probe2.mjs
+
+**Proposed cure.** Delete the `--dock-ring` arm on line 70 outright — the producer default ring is correct and complete. The hue-on-focus intent needs a producer seam that separates ring GEOMETRY from ring HUE (`--dock-ring-color` / `--focus-ring-hue`) composed inside glass-ui; file it as a BJ ask. Standing rule: a consumer never assigns a producer token a value of a different type.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-2 · CHALLENGE-D
+
+**Defect.** The trigger renders an EMPTY label on 7 of 14 routes and simultaneously wears the admin gold identity on /atmosphere and /blob, which are not admin surfaces; the open menu reports `aria-selected=false` on every option, i.e. "no selection", while the app is on a route.
+
+**Mechanism.** one identity derived twice from two different predicates; the model value and the option set have different owners, so a state exists where the value has no matching option
+
+**Evidence.**
+
+```
+Measured webkit 1440x900 (isDesktop true), scratchpad/D-probe3.json: labels `Home|Palettes|Browse|Extract|Mix|Generate|Gradient` for the 7 user routes; label="" and goldIcon=true for /atmosphere, /blob, /admin/users, /admin/names, /admin/audit, /admin/flagged, /admin/tags, while document.title reads e.g. "Atmosphere — Color Picker". Menu open on /#/atmosphere: all 7 options aria-selected="false". Corroborated by the tracked real-Safari shot docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/atmosphere.png. Mechanism: useDockAdminMode.ts:34-40 gates the option set on `isAdminMode && isAdminAuthenticated` while :56-60 flips `isAdminMode` on route alone; DockViewSelect.vue:70,80 consume `isAdminMode` alone. No route guard exists (`grep -rn beforeEach demo/` = no matches) and router/index.ts:30-34 `meta:{admin:true}` is never read.
+```
+
+**Reproduction.** open http://localhost:9000/#/atmosphere unauthenticated -> dock shows gold sparkle + chevron, no text; open the menu -> 7 options, none selected. Repro script: scratchpad/D-dvs-probe3.mjs
+
+**Proposed cure.** One enumeration, one predicate. Add `audience: "public" | "admin"` to `demo/shell/viewSchema.ts` (which already types every view) and derive BOTH the option set and the mode flag from it, so no state can exist where the value has no option. Promote /atmosphere and /blob to public member routes, as VISUAL-CONSTITUTION.md:58 already declares them, and delete the route-shaped admin guess.
+
+---
+
 ### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1 · CHALLENGE-L
 
 **Defect.** The failure-explicit Result contract is destroyed at the demo boundary, so a LIBRARY CRASH and a USER TYPO are the same event. src/css/grammar.ts:181 throws TypeError on eight inputs; demo/color-session/picker-color.ts:109-113 is a throwing facade that only handles `result.ok === false` and lets the raw TypeError escape past its own typed PickerColorError; demo/color-session/useColorParsing.ts:80-85 catches everything with a bare `catch {}` and renders the hardcoded literal 'not a valid color'. Re-derived and confirmed this pass; first filed by the prior pass.
@@ -1027,6 +1801,204 @@ Screenshots, same matrix (safari-desktop-light, 1440 CSS px, isDesktop true): do
 
 ---
 
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-35 · CHALLENGE-L
+
+**Defect.** The mobile colour-edit path cannot start: `editTarget` is a private ref in ColorPicker reachable only through `defineExpose`, and the imperative call site polls a structurally-null desktop-only instance ref for 2 seconds before giving up silently. The `mobile-edit` DockLayer is dead code in the only grammar it exists for.
+
+**Mechanism.** Capability dispatch through component-instance refs captured per-breakpoint, with optional-call syntax swallowing the null; state ownership split three ways (private ref in ColorPicker, prop chain to the dock, EDIT_TARGET_KEY inject for readers).
+
+**Evidence.**
+
+```
+demo/picker/ColorPicker.vue:271 (`const editTarget = ref(null)`) · :279 setEditTarget (sole writer) · :282 onStartEdit · :331-343 defineExpose (only reach). demo/color-picker/composables/usePaletteWiring.ts:106-118 emitStartEdit -> whenColorPickerReady; :37 PICKER_WAIT_ATTEMPTS=40; :49-53 `console.warn('[usePaletteWiring] gave up waiting for the color picker to mount (startEdit).')`; :55 setTimeout(poll,50). demo/color-picker/App.vue:83 mobile <PaneSlot> has NO :on-mount vs :105/:131 which do; :322-328 colorPickerRef written only in onDesktopLeftMount. demo/shell/dock/Dock.vue:72 mobileEditActive = !isDesktop && !!editTarget; :135-145 the layer. LIVE MEASURED 390x844 /#/: {layout:'mobile', dockFaceCount:3 (vs 4 desktop), toolsSlotClass:'action-bar-toggle-slot is-live' (no is-visible), toolsBtnTabIndex:-1, hasColorInputSendBtn:false}.
+```
+
+**Reproduction.** Mobile viewport 390x844, /#/palettes, tap a saved swatch -> edit. Observed: the visible pane flips to index 0 at t+50ms; no edit layer appears; at t~2.05s the console warn lands. Live half measured this pass (dock face count 3 vs 4, Tools slot collapsed, tabIndex -1); structural half fully cited by single-writer trace.
+
+**Proposed cure.** Land L-1's `demo/shell/dock/commands.ts` DockCommand registry (panes register, nobody reaches in) TOGETHER WITH moving `editTarget` onto the already-declared `EDIT_TARGET_KEY` cell (color-session/keys.ts:15, provided at App.vue:270, already injected by useSwatchActions.ts:23). onStartEdit becomes a plain write on injected state; `whenColorPickerReady`, the 2s poll, colorPickerRef/generatePaneRef/gradientPaneRef/mixPaneRef, both mount callbacks and every `?.()` in the chain die. Delete the `ref(null)` masking default at useSwatchActions.ts:23.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1 (replicated blind) · CHALLENGE-L
+
+**Defect.** REPLICATION, not a new claim: the dock's whole command surface dispatches through desktop-only instance refs, so every dock action is a silent no-op in the mobile grammar and the picker's action bar is absent on phones.
+
+**Mechanism.** Same as L-35.
+
+**Evidence.**
+
+```
+Independently measured this pass before seeing the prior report: mobile 390x844 /#/ -> 3 `.dock-crossfade > .dock-face` nodes vs 4 on desktop 1440x900; `.action-bar-toggle-slot` lacks `is-visible`; Tools control tabIndex -1; no `.dock-layer-grid`, no `button.send-btn`. Source: App.vue:83 (no :on-mount) vs :105/:131; App.vue:322-328; App.vue:37 `:action-bar="colorPickerRef?.actionBarContext ?? null"`.
+```
+
+**Reproduction.** Desktop 1440x900 /#/ then mobile 390x844 /#/, count `.dock-crossfade > .dock-face` and read `.action-bar-toggle-slot` className. 4 vs 3.
+
+**Proposed cure.** See L-35 — one commit with L-35, not two.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-23 (replicated blind) · CHALLENGE-L
+
+**Defect.** REPLICATION: the demo's import-boundary lint guards (G-DEMO-1/3a/3b) match zero files, so there has been no structural enforcement of the demo module lattice since W43.
+
+**Mechanism.** W43/RF-15 moved the demo tree off the `@` aliases and the lint globs were never re-pointed; the rules read as enforcement and enforce nothing.
+
+**Evidence.**
+
+```
+eslint.config.js scopes every `no-restricted-imports` boundary object to `demo/@/composables/**`, `demo/@/components/**`, `demo/@/lib/**`. `ls demo/@` -> 'No such file or directory'; `find demo -path "demo/@*"` -> empty. The one surviving non-empty glob, `demo/color-picker/**/*.vue`, matches 2 files (App.vue, ErrorBoundary.vue), neither importing palette-browser.
+```
+
+**Reproduction.** Commands above, pasted output in the report.
+
+**Proposed cure.** Re-point the globs at the physical homes (demo/shell/**, demo/palettes/**, demo/picker/**, demo/workbenches/**, demo/scenes/**, demo/platform/**, demo/color-session/**) and encode the layering the greenfield lattice states — notably a ban on `demo/shell/**` importing `demo/palettes/**` (the L-6 inversion) and on any file importing `demo/shell/dock/index.ts`.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1 (confirmed) · CHALLENGE-L
+
+**Defect.** BLOCKER, re-derived independently for the fifth time: the library's total Result contract is converted to a throw at picker-color.ts and then to a boolean at useColorParsing.ts, making MT-F001 structurally undetectable by the app.
+
+**Mechanism.** Mechanism A. picker-color.ts:109-113 throws away result.diagnostics; useColorParsing.ts:84's bare `catch` cannot distinguish a library TypeError from a user typo. The information channel that would have made MT-F001 visible on day one was designed out of the app by construction.
+
+**Evidence.**
+
+```
+node against dist/subpaths/css.js (the exact artifact the demo runs): oklch() rgb() hsl() lab() lch() color() oklab() 'hsl(  )' all THROW `TypeError: Cannot read properties of undefined (reading 'replace')`; 'oklch(' correctly returns ok=false with diagnostics; 'oklch(0.7 0.15 250)' ok=true. Origin src/css/grammar.ts:181 `splitTopLevel(slash[0]!.replace(/,/g," "), "space")`. Live at localhost:9000: typing oklch() yields {"badgeText":"not a valid color","borderColor":"rgb(219,36,36)","windowErrors":[]} — zero console errors, zero page errors, zero unhandledrejection. Then, after the 2s badge timer cleared, pressing Enter on the still-invalid text: {"badgeAfterEnter":false,"classAfter":false,"textStill":"oklch()"} — ZERO feedback of any kind (the previousInvalid latch, useColorParsing.ts:62).
+```
+
+**Reproduction.** node -e "import('./dist/subpaths/css.js').then(m => ['oklch()','rgb()','hsl()','lab()','lch()','color()','oklab()','hsl(  )'].forEach(i => { try { m.parseCssColor(i) } catch(e) { console.log(i, 'THREW', e.constructor.name) } }))" ; then in the live app open the dock action-bar input layer and type oklch().
+
+**Proposed cure.** Delete valueOrThrow and PickerColorError. picker-color.ts returns Result unchanged (a thin naming layer, not an exception adapter). Introduce color-session/parse-state.ts with ParseState = idle | ok | invalid(diagnostics); useColorParsing branches on Result with no try/catch and no previousInvalid cache. A throw from a total library function then becomes an uncaught dev error — the alarm that would have fired the first time anyone typed rgb(). Net deletion; the badge renders diagnostics[0].code instead of a constant lie.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1 · CHALLENGE-L
+
+**Defect.** The local `useLayerTransition` reimplementation is bound to glass-ui's orphaned private CSS contract, and produces no motion at all — it is a divergent shim, not an honest one.
+
+**Mechanism.** Consumer adopted a private, untyped, unexported CSS class contract as its integration surface after the producer retired the component that owned it. Invisible to the type system, the build and CI; a glass-ui PATCH that prunes dead CSS silently breaks sub-layer stacking.
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:53-94 (shim) and :91 (binds `.dock-layer`/`is-active`/`is-leaving`). Producer: `grep -rl '"dock-layer"' node_modules/@mkbabb/glass-ui/dist` → NO HITS; dist/dock.js class-string count: "dock-face" 1, "dock-layer" 0; DockLayer.vue.d.ts docstring: "renders its content in a `.dock-face` host". The rules survive only in dist/components/dock/styles/layers.css, reached via exports["./styles"] ← demo/styles/foundation.css:56. Only consumer repo-wide: `grep -rn '"dock-layer"' demo/ | wc -l` → 1. Measured live (1440x900, /#/): transition-property `visibility`, transition-duration `0s` in ALL four sampled phases; opacity exactly 1 and exactly 0 at swap+60ms.
+```
+
+**Reproduction.** node scratchpad/abl-probe.mjs — chromium 1440x900, http://localhost:9000/#/, click [aria-label="Toggle action bar"], click [aria-label="Open color input"], sample getComputedStyle on both .dock-layer-grid children at rest/+60ms/+460ms. Output: {"transitionProperty":"visibility","transitionDuration":"0s"} and opacity in {"0","1"} at every sample.
+
+**Proposed cure.** Delete :53-94 and :88-94 outright and compose the producer: `<DockCrossfade :active="showInput ? 'input' : 'actions'" reserve="inline"><DockLayer id="actions">…</DockLayer><DockLayer id="input">…</DockLayer></DockCrossfade>` from @mkbabb/glass-ui/dock. Nesting is legal — DOCK_CROSSFADE_KEY is module-local and distinct from DockContext, so nearest-ancestor injection binds the inner faces to the inner crossfade. Clean break: no alias, no wrapper.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1/L-13 · CHALLENGE-L
+
+**Defect.** Primary navigation renders a combobox with no selected option on 7 of 14 named routes. The option set and the model value have different owners; membership is never enforced.
+
+**Mechanism.** Duplicated ownership of one concept (the view taxonomy) across two modules, with no relation expressed in the type system, the schema, or the tests. viewSchema.ts owns label/icon/hue/panes/defaultPaneIndex for all 14 views but carries NO nav-grouping field — so the dock had to re-enumerate, and the re-enumeration can disagree.
+
+**Evidence.**
+
+```
+demo/shell/dock/DockViewSelect.vue:52 binds :model-value="currentView" (range = 14 ViewIds, from viewSchema.ts:36-50 via useViewManager) while :92-97 renders one SelectItem per viewEntries (range = 7, from useDockAdminMode.ts:26-27). Live Playwright, http://localhost:9000/#/atmosphere: {triggerText:"", triggerRole:"combobox", triggerRectW:60}; listbox opened → {optionCount:7, anySelected:false, activeDescendant:null}. Control /#/browse → {triggerText:"Browse", triggerRectW:117}. Screenshots: docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/{atmosphere,admin-users}.png show icon+chevron with no label; browse.png shows "Browse". reka-ui SelectValue.js:33-42 returns "" when modelValue is absent from optionsSet; placeholder defaults to "".
+```
+
+**Reproduction.** Open http://localhost:9000/#/atmosphere (or /#/blob or any /#/admin/*) unauthenticated at >=1024px width. document.querySelector('.view-select-trigger').textContent === "". Click it; every [role=option] has aria-selected="false" and the trigger's aria-activedescendant is null. Compare /#/browse.
+
+**Proposed cure.** Add `nav: "primary" | "admin"` to PaneConfig in demo/shell/viewSchema.ts — the table that already owns every other per-view fact. useDockAdminMode becomes a filter over VIEW_MAP (entries = viewsInGroup(activeGroup) ∪ {currentView}); the two literal arrays die. currentView ∈ viewEntries then holds BY CONSTRUCTION for every view, because both sides read one table. The invariant becomes a theorem rather than an untested assumption.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-2/L-3/L-17 · CHALLENGE-L
+
+**Defect.** The "is this view admin?" predicate is implemented seven times across five files with three different populations, and one of the seven (router meta.admin) has zero readers.
+
+**Mechanism.** No owner for the authorisation/grouping concept. Taxonomy encoded in a NAMING CONVENTION (startsWith("admin-")) at four sites — silently wrong the moment a view is renamed — plus a literal array, plus inert route metadata.
+
+**Evidence.**
+
+```
+(1) demo/color-picker/router/index.ts:31-35 meta:{admin:true} on 5 routes — `grep -rn "meta.admin|beforeEach|beforeResolve|addRoute" demo/ --include='*.ts' --include='*.vue'` → NO OUTPUT, zero consumers. (2) useDockAdminMode.ts:27 adminViews = 7 ids (adds atmosphere, blob). (3) useDockAdminMode.ts:32 startsWith("admin-") = 5. (4) useDockAdminMode.ts:56 adminViews.includes = 7. (5) usePaletteWiring.ts:166-171 startsWith("admin-"), watch with NO {immediate:true} unlike the watch at :144-155. (6) usePaneRouter.ts:93,140 startsWith("admin-"). (7) AdminPane.vue:91 a hand-written 5-member union. viewSchema.ts:172,181 gives atmosphere/blob PRIMARY hue shifts 280/320, contradicting its own comment at :69-71 that admin views stay at 0.
+```
+
+**Reproduction.** grep -rn "meta.admin|beforeEach|beforeResolve|addRoute" demo/ --include='*.ts' --include='*.vue' → no output. Then open /#/admin/users in a fresh profile: the full admin console renders (Users · Manage accounts and permissions, search, Prune empty, Refresh) while the dock still reads "Login" — captured at shots/safari-desktop-light/admin-users.png; REPORT.md:128-132 records main=1 and 244-273 chars for all five admin routes in every matrix, unauthenticated. The eviction watch at usePaletteWiring.ts:167 cannot fire because there is no true→false transition on a cold deep-link.
+
+**Proposed cure.** The same single `nav` field is the sole home. Derive router meta at construction (meta:{admin: VIEW_MAP[name].nav==="admin"}); replace all four startsWith sites and AdminPane's union with reads of VIEW_MAP[v].nav (AdminPane's prop type becomes Extract<ViewId, `admin-${string}`>). Add the ONE reader the dead metadata never had: shell/nav/guard.ts router.beforeEach — which runs per-navigation and therefore covers cold boot by construction, subsuming the non-immediate watch.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-1 · CHALLENGE-C
+
+**Defect.** The magnifier loupe renders blank on every first show and stays permanently blank on the touch path. `showLoupeAt` flips `loupeVisible` and calls `drawLoupe` in the same synchronous tick, but the canvas is behind `v-if="loupe.loupeVisible.value"`, so `loupeCanvasRef.value` is still null and the draw is silently skipped. Since `onTap` also sets `pinned=true`, `onHover` (the only path that would repaint) returns early forever.
+
+**Mechanism.** synchronous paint into a v-if element that Vue has not flushed to the DOM yet (mount/paint ordering race)
+
+**Evidence.**
+
+```
+demo/workbenches/extract/ImageEyedropper/composables/useLoupeCanvas.ts:55-60 (showLoupeAt) and :27-30 (drawLoupe early return); ImageEyedropper.vue:78-86 (v-if + canvas). MEASURED (probe2 §A): A_pinned {loupeVisible:true, loupeNonZeroPx:9604, di110:2} → Escape → A_tapNoHover {loupeVisible:true, loupeNonZeroPx:0, di110:2} → A_afterOneMove {loupeNonZeroPx:0, di110:2}. Independent replication (probe4): {"pointermoves":40,"getImageDataCalls":40,"loupeDraws":39} — the missing draw is the first. Visual: .playwright-mcp/eyedropper-live.png shows an empty green-ringed circle.
+```
+
+**Reproduction.** http://localhost:9000/#/extract → upload any image → click the preview to open the eyedropper → tap once WITHOUT moving the pointer first (i.e. any touch tap). The loupe appears and is empty; it never fills. Scripted: .playwright-mcp/probe2.js section A.
+
+**Proposed cure.** Keep the loupe canvas permanently mounted and gate visibility on opacity/visibility instead of v-if. This kills the race by construction, lets the already-declared `.loupe { transition: opacity }` (ImageEyedropper.vue:270 — currently dead CSS) actually run, and removes a DOM create/destroy from the hover path. (`await nextTick()` before drawLoupe is the patch, not the cure.)
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-2 · CHALLENGE-C
+
+**Defect.** `justUnpinned` is a component-scope latch whose only exit is inside `onTap`; a drag never reaches `onTap`, so after pin → press-drag → release the flag stays true and the NEXT legitimate tap is silently swallowed.
+
+**Mechanism.** cross-handler boolean latch with a single clear site that one of two gesture terminations never reaches
+
+**Evidence.**
+
+```
+ImageEyedropper.vue:123 (`let justUnpinned = false`), :151-155 (onTap's only clear), :176-185 (capture-phase pointerdown sets it); useInertiaGesture.ts:277-281 (onTap fires only when !hasMoved). MEASURED (probe-eyedropper.js): tapRed buttons=3 (pinned) → afterDrag buttons=1 → tapTransparent_1st buttons=1 (TAP SWALLOWED) → tapTransparent_2nd buttons=3. Cross-check: Escape-unpin (:226-235) does NOT set the flag and the next tap pins immediately (probe2 A_afterEscape buttons 1 → A_tapNoHover buttons 3).
+```
+
+**Reproduction.** Open the eyedropper, tap to pin a color, then press and drag (this unpins and pans), release, then tap somewhere new — the tap does nothing; a second tap is required. Scripted: .playwright-mcp/probe-eyedropper.js.
+
+**Proposed cure.** Delete the flag and fold unpin into useInertiaGesture's own state machine, which already tracks hasMoved/isPanning. 'A pointerdown while pinned suppresses the pointerup that ends THIS gesture' has a definite lifetime inside the gesture; as a component-scope boolean it has none.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-1 · CHALLENGE-C
+
+**Defect.** The per-swatch copy verb is not wired, not focusable, and not hit-testable. Three of four bindings on <WatercolorDot> are silently discarded and the root is pointer-events:none + aria-hidden.
+
+**Mechanism.** inheritAttrs:false on a library primitive silently swallows consumer listeners/aria/tag; the primitive additionally forces aria-hidden and pointer-events:none on its only root. Vue emits no warning precisely because inheritAttrs is false. Family: DEAD-CONTROL-BY-SILENT-PROP-DISCARD.
+
+**Evidence.**
+
+```
+demo/workbenches/generate/GenerateControls.vue:199-208 (tag="button", :aria-label, @click). /Users/mkbabb/Programming/glass-ui/src/components/watercolor-dot/WatercolorDot.vue:6 `defineOptions({ inheritAttrs: false })`, :99 `aria-hidden="true"`, :115 `pointerEvents: 'none'`. dts declares 6 props, no emits. LIVE probe §1: {"tagName":"SPAN","tagAttr":null,"ariaHidden":"true","ariaLabel":null,"tabIndex":-1,"pointerEvents":"none","cursor":"pointer"}. §2b synthetic click → writes []. §2c Playwright click → "TimeoutError: locator.click: Timeout 4000ms exceeded". §2d control (Copy-all button) → 1 writeText.
+```
+
+**Reproduction.** npx vite --port 9000; node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-C-impl-r3.mjs → blocks 1-swatches, 2b, 2c, 2d. By hand: open http://localhost:9000/#/generate, click any swatch, paste — clipboard unchanged.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8 (wave W-1). Architectural, not a patch: glass-ui 8 gives WatercolorDot an interactive register — a tag/as prop PLUS attrs+listener forwarding, with aria-hidden and pointer-events:none moved onto the decorative blob layer instead of the component root. The consumer then mounts the dot as the FACE of a real <button>. Relay R-1 to the glass-ui BH inbox. Gate: new e2e — click swatch n ⇒ writeText receives palette[n]; Tab reaches each swatch and Enter copies.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-2 · CHALLENGE-C
+
+**Defect.** The editable plate name is discarded on save; every saved palette is named "Generated Palette".
+
+**Mechanism.** A Vue emit contract broken by arity: a handler with fewer parameters is assignable, so TypeScript cannot see the dropped argument (vue-tsc exits 0). Family: DEAD-CONTROL-BY-DROPPED-EMIT-ARGUMENT — same class as C-1, different seam.
+
+**Evidence.**
+
+```
+GenerateControls.vue:48-50 `defineEmits<{ save: [colors: string[], name: string] }>()`, :102-104 emits paletteName. demo/workbenches/generate/GeneratePane.vue:14 `function onSave(colors: string[])` — the name parameter is absent; :19 `pm.createPalette("Generated Palette", paletteColors)` — a string literal. LIVE: typed "ZZ-PROBE-NAME-42", clicked Save, localStorage["color-palettes"] → {"hasProbeName":false,"hasGenericName":true,"name":"Generated Palette","slug":"generated-palette-d8de736b"}.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-C-save-r3.mjs. By hand: /#/generate → click the plate title → type a name → Save → JSON.parse(localStorage['color-palettes']).palettes.at(-1).name === 'Generated Palette'.
+
+**Proposed cure.** Wave W-4, NOT blocked (GeneratePane.vue is not pinned): `function onSave(colors: string[], name: string)` → `pm.createPalette(name, paletteColors)`. Gate: e2e type-name→save→persisted-name.
+
+---
+
 ### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · D1 · CHALLENGE-C
 
 **Defect.** The five palette swatches are inert, AT-invisible spans: `tag="button"`, `@click="copyColor(css)"` and `:aria-label` are all dropped by glass-ui 7.0.0's WatercolorDot (no `tag` prop; `inheritAttrs:false`; only class/style forwarded; hardcoded `<span aria-hidden="true">` with inline `pointer-events:none`). copyColor() is unreachable dead code while `cursor-pointer`/`active:scale-95` still advertise the affordance.
@@ -1099,6 +2071,42 @@ Live: stops [0,50,100] with `steps(4, jump-end)` authored on segment 50→100 �
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-1 · CHALLENGE-C
+
+**Defect.** Pressing any `back`-family specimen tile — or dragging a picker control point outside y∈[0,1] — throws and destroys the whole Gradient pane. 3 of 27 catalogue tiles are a live crash in the default app state.
+
+**Mechanism.** missing-domain-boundary: an easing callable's output (a motion value, unbounded) is fed straight into a color-mix progress parameter (a ratio strictly on [0,1]) at three separate sites, with no clamp at the sampling law that owns the domain.
+
+**Evidence.**
+
+```
+Probe output: `ease-out-back  rails=[] CRASH=["This panel hit an unexpected error.Gradient color mix failed: color_progress_out_of_range Try again"]` — same for ease-in-back and ease-in-out-back; linear/ease/steps/step-start/step-end/ease-in-out-expo all CRASH=no. Guard: src/color/operations.ts:88 `if (progress < 0 || progress > 1) return err({ code: "color_progress_out_of_range" });`. Unclamped call sites: demo/workbenches/gradient/composables/useGradientCSS.ts:199-208 (sampleCoalescedStops), demo/workbenches/gradient/GradientVisualizer/easing/useSpecimenRows.ts:52-59 (fn(0.5)), demo/workbenches/gradient/GradientVisualizer.vue:78-85 (colorAtPosition). Measured ranges on the real sampling grid (vite-node against src/subpaths/easing): ease-in-back min=-0.0969 out-of-range 18/33 fn(0.5)=-0.0636; ease-out-back max=1.0868 out-of-range 19/33 fn(0.5)=1.0676; ease-in-out-back min=-0.0923 max=1.0927 out-of-range 21/33. Drag repro: `AFTER DRAG: {"literal":null,"crash":["...color_progress_out_of_range..."]}`. Catalogue built by blind enumeration: easingCatalogue.ts:178 `for (const name of Object.keys(bezierPresets))` with no compatibility filter; GradientEasingEditor.vue:73-76 emits with no validation.
+```
+
+**Reproduction.** 1. open http://localhost:9000/#/gradient (easing row `1 → 2` is open on arrival). 2. click the `back` family's `out` tile (`[data-specimen='ease-out-back']`). 3. the entire pane is replaced by the ErrorBoundary reading "This panel hit an unexpected error. Gradient color mix failed: color_progress_out_of_range". Scripted: node scratchpad/wbge-probe4.mjs ease-out-back ease-in-back ease-in-out-back. Recoverable via "Try again" (probe 7: crash 1 → 0, heads back to 1) but all pane state is lost.
+
+**Proposed cure.** Progress into a color mix is a ratio on [0,1] and the sampling law is the ONE place that owns it. Add a private `rampProgress = (t) => Math.min(1, Math.max(0, t))` in useGradientCSS and route sampleCoalescedStops' easedT, useSpecimenRows' fn(0.5) and colorAtPosition's easedT through it — matching CSS's own behaviour (an overshoot timing function on a <color> interpolation clamps to the endpoint colour). The overshoot stays visible where it belongs: in the glyph, which samples the raw callable and needs no clamp, and in the authoring canvas. Do NOT delete the back family — the curves are legitimate and the picker authors them freely; the defect is the missing domain boundary, not the curves.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-2 · CHALLENGE-C
+
+**Defect.** The component's own stated "zero letterbox" law (O-17 clause 1) is dead code against glass-ui 7.0.0: the picker renders `svg[role="group"]`, not `role="img"`, so `syncVbRatio` no-ops forever and all three `:deep(svg[role="img"])` declarations select nothing. 59.4% of the authoring canvas renders nothing.
+
+**Mechanism.** brittle-producer-dom-coupling: a consumer reaches into a producer's private DOM (an ARIA role attribute) to correct the producer's geometry, and hand-rolls a rAF mirror of state the producer already owns. The glass-ui 7.0.0 adopt changed the role; the coupling failed open and silent.
+
+**Evidence.**
+
+```
+EasingAuthoringStage.vue:47-53 queries `svg[role='img']`; :104-115 styles `:deep(svg[role="img"])` with !important. Measured live DOM (probe 5, #easing-authoring-0): `{"svgs":[{"role":"group","aria":"Easing curve 1 → 2","viewBox":"0 -0.1 1 1.2000000000000002","box":{"w":410,"h":200}}],"stageStyleAttr":"--vb-ratio: 1.2;"}` — role is "group". Measured geometry via the oracle's own getScreenCTM method (probe 6): `{"elementBox":{"w":410,"h":200},"drawnPlot":{"w":166.7,"h":200},"letterbox":{"left":121.7,"right":121.7,"top":0,"bottom":0},"vbRatioVar":"1.2","svgComputed":{"aspectRatio":"1 / 1","blockSize":"200px"}}` — computed aspect-ratio is the PRODUCER's inline `1 / 1`, not the seat's `calc(1/1.2)`; block-size is the producer's 200px clamp, not the seat's `auto`. O-17 requires ≤1px on all four edges; measured 121.7px on two. Laws 1 and 2 DO still hold (gridCols "436px", cardShadow "none", cardBackdrop "none") — only the role-keyed law broke, and it broke with no console error, no type error, no exception.
+```
+
+**Reproduction.** 1. open http://localhost:9000/#/gradient. 2. press the sliders icon in the readout rail (`aria-label="Author a custom curve"`). 3. inspect `#easing-authoring-0 svg` — role="group", inline style `aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px)`. 4. its viewBox is 1×1.2 with preserveAspectRatio=xMidYMid meet in a 410×200 box → drawn plot 166.7×200 centred, 121.7px dead on each side. Scripted: node scratchpad/wbge-probe5.mjs and wbge-probe6.mjs.
+
+**Proposed cure.** Retire the seat override entirely and take the geometry from glass-ui: the picker should expose its live viewBox ratio as a custom property on its own root (a `--easing-vb-ratio` alongside the `--easing-curve-accent` it already stamps, observed in the live DOM) and size its canvas from it. The component header already books this — "the overrides retire at the P7 adopt" — and the adopt has landed (@mkbabb/glass-ui@7.0.0 installed, W44 closed); this is the glass-ui-first edict, the fix belongs upstream. If the producer packet cannot land now, the interim seat must not be able to break in silence: bind to the stable contract (`[data-testid="easing-picker"] svg[viewBox]`) AND make the miss loud — syncVbRatio should console.error on a failed query rather than `return`, so the next producer bump surfaces on first boot instead of in an audit two tranches later.
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/workbenches/gen` · C-1 · CHALLENGE-C
 
 **Defect.** The per-swatch copy verb is entirely dead: `tag="button"`, `:aria-label` and `@click` are all silently discarded by glass-ui 7.0.0's WatercolorDot, which renders a hardcoded aria-hidden span with pointer-events:none. The swatches are not buttons, have no accessible name, are not focusable, and cannot be clicked; copyColor() is unreachable.
@@ -1114,6 +2122,60 @@ demo/workbenches/generate/GenerateControls.vue:199-208 (the four bindings) · no
 **Reproduction.** http://localhost:9000/#/generate → click any colour swatch inside [data-generate-plate] → nothing is copied, no focus moves, no state changes. Structurally: the DOM dump above (SPAN / aria-hidden=true / pointer-events:none / tabIndex -1 / aria-label null).
 
 **Proposed cure.** The dot is a FACE, not a SEAT. Transpose rather than patch: a real <button> seat wraps the dot (dot stays the decorative aria-hidden child it was built to be; the button carries name, focus affordance, ≥24px target, listener). Better for a 9-consumer species: glass-ui grows the seat — a WatercolorDotButton, or an explicit as/tag + attr-forwarding contract on WatercolorDot. Relay R-1 to the glass BH inbox; the consumer half is BLOCKED-ON-GLASS-V8. Do NOT delete the three dead bindings — that retires the verb, not the defect.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C1 · CHALLENGE-C
+
+**Defect.** Drag (and shift+arrow) inverts stop order — the model has no ordering invariant, so the app emits CSS that its own parser rejects and the rail/tile paint a CSS-clamped lie
+
+**Mechanism.** No invariant owner for the ordered-stop model: updateStop is a primitive map() that never re-sorts, while the parser enforces monotonicity on input only. Sortedness is an invariant on insert and a coincidence on drag.
+
+**Evidence.**
+
+```
+Live, my own run: afterDrag labels ["Gradient stop at 77%","…50%","…63%","…100%"] (DOM order == model order); rail computed background-image head = linear-gradient(90deg, oklch(0.65 0.18 265) 76.6%, oklch(0.657192 0.177842 256.369) 74.18%, oklch(0.664384 0.175685 247.739) 71.76%, …) — positions DESCEND. Round-trip: `npx vite-node evidence/parse-probe.ts` → parseGradientCSS -> reject: stop positions must be non-decreasing. Source: demo/workbenches/gradient/composables/useGradientModel.ts:127-131 vs the sorting addStop at :118; guard on the way IN at gradientParse.ts:284-290.
+```
+
+**Reproduction.** http://localhost:9000/ → set location.hash='#/gradient' in-page → click the rail at 50% → drag the leftmost handle right to ~75%. Read the handle aria-labels in DOM order and getComputedStyle(bar).backgroundImage.
+
+**Proposed cure.** Replace updateStop with one model action that owns ordering totally — setStopPosition(id, position) that maps then .sort((a,b)=>a.position-b.position) — landed together with C2's identity-keyed intervals so the re-sort cannot scramble easing. Sort, do not clamp: clamping to (prev,next) would make a stop un-reorderable.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C11 · CHALLENGE-C
+
+**Defect.** Grab-offset teleport: pressing anywhere but a handle's exact pixel centre and moving the pointer 1 px relocates the stop by the whole grab offset
+
+**Mechanism.** onHandlePointerDown records no grab offset, so the first pointermove snaps the stop centre to the raw pointer. The 4px dead-zone the function already computes (handleGesture.moved) is wired only to the re-tap-to-deselect decision, never to the position emit.
+
+**Evidence.**
+
+```
+Live, pasted: RESULT_grab_offset = { grabbed_px_right_of_centre: 8, pointer_travelled_px: 1, handle_travelled_px: 10.12, label_before: "Gradient stop at 0%", label_after: "Gradient stop at 2%" } on a 462px rail. Source: GradientStopEditor.vue:136-146 — emit("update:position", id, getPosition(e)) is absolute and ungated; the hit pseudo that invites the off-centre grab is .rail-handle::before at :374-391 (24px fine / var(--touch-target)=44px coarse).
+```
+
+**Reproduction.** Fresh /#/gradient, 2-stop seed. page.mouse.move(handleCentreX + 8, barCentreY); mouse.down(); mouse.move(handleCentreX + 9, barCentreY). Read the handle's aria-label and bounding-box centre before/after.
+
+**Proposed cure.** Capture grabDx = e.clientX - handleCentreX at pointerdown (together with a cached bar rect, which also kills C3's per-move forced layout), gate the first emit on the dead-zone the file already computes (`if (!handleGesture.moved) return;`), and emit positionAt(e.clientX - grabDx). One change retires the teleport, the accidental-nudge class, and half of C3's cost.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C2 · CHALLENGE-C
+
+**Defect.** Adding a stop silently re-attaches every authored easing curve to a different pair of stops; removing one does the mirror
+
+**Mechanism.** Intervals are an index-keyed parallel array; the watcher observes only stops.length so it cannot know where the stop landed and always guesses 'at the end'. An adjacency relation modelled as a positional array.
+
+**Evidence.**
+
+```
+Live (pass 1, retained): before insert heads ["1 → 2linear","2 → 3steps"]; after clicking the rail at 25% heads ["1 → 2linear","2 → 3steps","3 → 4linear"] — steps(4, jump-end) moved from 50%→100% onto 25%→50%. Source: useGradientModel.ts:89-100 (length watcher pushes/truncates at the TAIL) vs addStop at :118 (inserts in SORTED position).
+```
+
+**Reproduction.** /#/gradient with stops [0,50,100]; open easing interval row 2, pick the steps specimen; click the rail at 25%; read the interval readouts and row heads.
+
+**Proposed cure.** Hang the interval on the stop that OPENS it — GradientStop { id, cssColor, position, easing }, last stop's easing ignored — so the curve travels with its own stop through any insert/remove/sort. That deletes the intervals array, its sync watcher, and the three 'Gradient interval N is missing' throws (useGradientCSS.ts:189/240, GradientVisualizer.vue:77) outright.
 
 ---
 
@@ -1240,6 +2302,204 @@ Dock: demo/shell/usePaneRouter.ts:196 regenerate / :197 save / :198 copy. Plate:
 **Reproduction.** grep -n 'regenerate\|copyColors' demo/shell/usePaneRouter.ts and read GenerateControls.vue:156-185; both render simultaneously on /#/generate in every tracked frame.
 
 **Proposed cure.** The verbs collapse to the Dock control set alone. This is also the load-bearing move for D-6: removing the cluster dissolves the wrapping chrome row entirely rather than patching its flex basis.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-1 · CHALLENGE-D
+
+**Defect.** The Select popover is a 0.7488-alpha veil with backdrop-filter: blur(11px) saturate(1.6) sited directly over the specimen it previews, covering 58.9% of the plate at 1440 and ~100% at 390. Every seed-exact preview chip is composited over live palette colour whose chroma the veil boosts 60%.
+
+**Mechanism.** Family F — the design was verified in the DOM and never in the frame. Byte-identity of the CSS string was proven (:87-93) and pixel identity was never considered; the rendered chip is 0.7488*chip + 0.2512*(1.6x-saturated specimen).
+
+**Evidence.**
+
+```
+probe-D3-final.mjs, WebKit 1440x900 DPR2: {"contentBg":"oklab(0.955861 0.009528 0.029646 / 0.7488)","contentBackdrop":"blur(11px) saturate(1.6)","overlapPctOfPlate":58.9,"visibleItems":6,"totalItems":10}. Frames frames-D3/desktop-preset-open.png (Generate H1, strip cyan/magenta bands, Regenerate button and two WatercolorDots all legible THROUGH the option rows; the Pastel row's chip sits on the magenta band) and frames-D3/mobile-harmony-open-count12.png. Canon: VISUAL-CONSTITUTION.md:15 instrument-veil row requires a "denser neutral veil with named alpha/clarity levers"; :19 "Glass earns its blur by revealing live content".
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-final.mjs against the live dev server at http://localhost:9000/#/generate — opens the preset list, prints contentBg / contentBackdrop / overlapPctOfPlate.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Architectural transposition, not a patch: the model inspector becomes a RESIDENT region of the InstrumentChassis (pass 2 D-7) with the preview strips inline in the row, so there is no overlay and nothing is painted over the specimen. Producer half relayed as BH-relay-3 — a denser neutral veil tier with named alpha/clarity levers and no saturate, for popovers over live colour.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-01 · CHALLENGE-D
+
+**Defect.** Eight characters typed into the route's own CSS field destroy the whole application, silently: the stop editor, render tile and dock are unmounted and replaced by a bare 'Try again' pill with no diagnosis. The component has no error state and no independent survival; the workbench's only error affordance is a sibling-owned one-line `{ok:false}` verdict that a throw bypasses entirely.
+
+**Mechanism.** a throwing dependency consumed as a total function, behind an error grammar that models only the {ok:false} arm, in a component with no failure face
+
+**Evidence.**
+
+```
+`node evidence/WBGSE-D-probe7.mjs` → `== p7-oklch-empty ==  before: {"stops":2,"bar":true,"bodyLen":649}  after: {"stops":0,"bar":false,"tile":false,"verdict":null,"editorText":"","bodyLen":142}  errs: []`. Same for `rgb()`. Control: `notacolor` → `verdict:"unparseable color \"notacolor\""`, model unchanged. Screenshot `evidence/D-01-route-annihilated.png`. Root cause src/css/grammar.ts:181 (`slash[0]!` on an empty body); consumed as a total predicate at demo/workbenches/gradient/composables/gradientParse.ts:93; atomic contract claimed at useGradientModel.ts:152-156. Telemetry blindness: docs/tranches/V/megatranche/audit/visual/REPORT.md:140 records /#/gradient pageErr 0 consoleErr 0.
+```
+
+**Reproduction.** Live at http://localhost:9000/#/gradient: click the CSS block, select all, type `linear-gradient(90deg, oklch() 0%, red 100%)`, wait 500ms. Or `node docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/evidence/WBGSE-D-probe7.mjs`.
+
+**Proposed cure.** Make the parse boundary total at the one seam that owns it — `applyCSS` is the only place this workbench calls the library parser and it must be result-typed and throw-free — and give the rail a real `model-unavailable` face so a bad parse degrades the instrument, never the shell.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-02 · CHALLENGE-D
+
+**Defect.** The ramp and the handles ride two different axes, so a handle's own colour is never the colour painted under it (except at 50%). The file's docblock asserts the opposite ('handles, add-ghost and ramp share one axis by construction').
+
+**Mechanism.** one domain quantity expressed in two coordinate systems, with a comment asserting they are one
+
+**Evidence.**
+
+```
+Pixel table from the committed element screenshot `evidence/D-03-ten-hue-rings.png` (924x82 device = 462x41 CSS): err (CSS px) between a stop's handle centre and the x where the ramp paints that stop's percentage = -10.5, -8.0, -6.0, -3.5, -1.0, +1.0, +3.5, +6.0, +8.0, +10.0 across p=0..100 — exactly linear, zero at 50%. At p=0 the handle fill is (232,49,49) while the ramp directly above it is (235,85,36). Source: `.gradient-rail` background-origin/clip border-box + size 100% 100% (GradientStopEditor.vue:317-326) vs `handleLeft()` inset track calc(10px + (100% - 20px)*p/100) (:55-57). Mobile railW measured 324 → the same 10.5px = 3.24%.
+```
+
+**Reproduction.** `node .../evidence/WBGSE-D-probe4.mjs` (writes D-03-ten-hue-rings.png), then sample the PNG: pixel at each handle centre y=41 (fill) vs y=10 (ramp at the same x).
+
+**Proposed cure.** Express the axis once: inset the ramp to the handle track (`background-position: 10px 0; background-size: calc(100% - 20px) 100%`) so the pill caps hold flat terminal colour — which is what a 0%/100% stop means — and derive the half-handle from the rendered box instead of re-declaring it in JS.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-03 · CHALLENGE-D
+
+**Defect.** The drag gesture has no ordering law. Dragging a stop across a neighbour leaves the model non-monotonic; the serializer emits a descending stop list, CSS clamps it, and the rail, the render tile and the copied CSS all disagree with the handles.
+
+**Mechanism.** an aggregate invariant enforced on one write path only, with the gesture owner disclaiming it
+
+**Evidence.**
+
+```
+`node evidence/WBGSE-D-probe2.mjs` → `== 2 after drag-past == ["…at 84%","…at 50%","…at 100%"]` and `css: linear-gradient(90deg, oklch(0.75 0.15 145) 83.8%, oklch(70% 0.165 205deg) 50%, oklch(0.65 0.18 265) 100%)`; DOM left offsets `["calc(83.8% - 6.76px)","calc(50% + 0px)","calc(100% - 10px)"]`. Screenshot `evidence/D-02-unsorted-drag.png`: 84% of the rail is flat green with a hard cut, a cyan handle sits on solid green. Cause: useGradientModel.ts:118 `addStop` sorts; :127-131 `updateStop` does not. Canon: OPTICAL-BENCH-COMPOSITIONS.md:44 names 'order' as a W27 close criterion.
+```
+
+**Reproduction.** Live: click mid-rail to add a stop, then drag the left handle past it; read the CSS block. Or `node .../evidence/WBGSE-D-probe2.mjs` block 2.
+
+**Proposed cure.** Ordering belongs to the collection, not the call site: every `stops` mutation returns a normalised sorted list with recomputed ordinals and re-derived `intervals`, and the editor preserves handle identity across a crossing so the grabbed handle stays grabbed (also the precondition for §5.2's 'position of total' reorder announcement).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-04 · CHALLENGE-D
+
+**Defect.** The stop swatch paints the ramp colour it sits on, so the fill can never contrast with its ground; the only boundary is a hardcoded 2px white ring at 80% alpha, in both schemes. Measured contrast reaches 1.00:1 — the control is literally invisible on a light ramp — and 6 of 10 rainbow hues fall below the 3:1 non-text floor.
+
+**Mechanism.** a specimen whose fill is definitionally equal to its ground, defended by a single one-sided hairline with no scheme arm
+
+**Evidence.**
+
+```
+WCAG contrast computed from committed pixel buffers: `#ffffff → #fafafa` ramp gives ring:fill 1.00:1 and 1.03:1 (`evidence/D-03-white-ramp-handles.png` — the handles are gone, only the --shadow-sm smudge remains). Ten-hue ramp ring:fill = 3.19, 1.93, 1.31, 1.44, 1.44, 1.37, 3.22, 5.07, 3.22, 2.96. Computed border colour `oklab(0.999994 … / 0.8)` (probe 1). Source :235 `border-2 border-white/80`, :247 fill. The file already owns the cure for focus only (:342-349, measured `rgba(0,0,0,0.85) 0 0 0 1px, rgba(255,255,255,0.92) 0 0 0 3px`).
+```
+
+**Reproduction.** `node .../evidence/WBGSE-D-probe4.mjs`; or live: paste `linear-gradient(90deg, #ffffff 0%, #fafafa 100%)` into the CSS block and look at the rail.
+
+**Proposed cure.** Apply the dual-contrast recipe the focus ring already proves to the resting/selected boundary — or, per OPTICAL-BENCH-COMPOSITIONS.md:44, make the dot a WatercolorDot face inside a named geometric seat and let the seat carry a scheme-aware boundary.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-01 · CHALLENGE-D
+
+**Defect.** A focused collapsed interval row has no visible focus indicator at all: the row's `overflow-hidden` clips a box-shadow-only focus ring whose element is flush with the clip rect on all four sides.
+
+**Mechanism.** clipping-container-vs-outside-painted-focus-indicator (outline:none + box-shadow ring inside overflow:hidden)
+
+**Evidence.**
+
+```
+demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue:114 (`rounded-card border border-card-edge overflow-hidden`) + :228-231 (`outline:none; box-shadow: var(--focus-ring-shadow)`) + :144 (`v-show`). Live measurement at 1512x806: row rect x=224 w=462 h=197.45 overflow:hidden border 1px; head rect x=225 w=460 h=38.95 -> inset left/right/top = exactly 1.00px; computed box-shadow = '...0.3) 0px 0px 0px 2px, ...0.15) 0px 0px 8px 0px'. Pixel diff of two device-scale screenshots of frames/repro.html: `changed px: 21648, bbox x: 1027 1968 y: 92 177` (case B region only; case A byte-identical). Ring px outside head box: A focused = 3584, A control = 3584 (delta 0); B focused = 7936, B control = 3584 (delta +4352).
+```
+
+**Reproduction.** docs/tranches/V/megatranche/audit/components/wb-gradient-easingeditor/frames/repro.html served over http; focus case A's `.interval-head` and screenshot, focus case B's and screenshot; diff. Artifacts kept at frames/D-01-focus-A-clipped-0px.png and frames/D-01-focus-B-control-4352px.png. In-app: any gradient with >=3 stops leaves >=1 collapsed row; tab to it.
+
+**Proposed cure.** Delete the hand-rolled disclosure and seat glass-ui 7's `Collapsible` (which owns its own trigger/content boxes, focus register and reduced-motion carve-out). The per-row card box and its clip should go entirely (see D-07) — the composition's binding boundary inventory is `none`, so the clip has no job. Do not merely swap box-shadow for outline.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-1 · CHALLENGE-D
+
+**Defect.** The sampled color is not the color displayed under the cursor — stage, loupe and sampler use three different resampling rules over the same bitmap, and the displayed color additionally changes with devicePixelRatio while the sample does not.
+
+**Mechanism.** useImageSampler.ts:111-119 sampleAt takes one nearest source texel via Math.floor((rx-panX)/zoom); the visible canvas (ImageEyedropper.vue:69-75) has no image-rendering declaration so the compositor smooths; useLoupeCanvas.ts:40 sets imageSmoothingEnabled=false. No single sampling model.
+
+**Evidence.**
+
+```
+Measured composited pixels from probe/shot-desktop-light-pinned.png: (300,560)=[127,0,128], (350,500)=[159,0,96], (301,561)=[183,0,72]. Readout at that location: lab(29.568301979097% 68.287364602547 -112.029709525105) = #0000FF. Measured stage zoom 0.4233. probe/shot-forced-colors.png shows crisp red/blue texels in the loupe and flat purple in the surrounding stage in ONE frame. DPR dependence: same region reads flat purple in shot-desktop-light-pinned.png (DPR 1) and resolved red/blue moire in shot-zoom200.png (DPR 2).
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/probe/probe.mjs (displayedVsSampled.zoom 0.4233, displayedCentrePixel [95,0,160]) then probe2.mjs (hoverReadout = pure-blue lab). Or by eye: probe/shot-forced-colors.png.
+
+**Proposed cure.** One resampling law owned in one place. zoom>=1: stage paints image-rendering:pixelated so a texel is a visible square and the loupe is that same law magnified. zoom<1: the sample is the area-average over the 1/zoom x 1/zoom source box the pointer's display pixel actually covers. Stage, loupe, reticle and readout then read one SamplerModel instead of three.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-2 · CHALLENGE-D
+
+**Defect.** Every second tap is a dead tap that also discards the pin, leaving the PREVIOUS color displayed as if it were the current sample. On touch this is the only sampling interaction.
+
+**Mechanism.** ImageEyedropper.vue:176-185 adds a capture-phase pointerdown listener that unpins and raises `justUnpinned`; onTap (:151-155) consumes the flag with an early return. Touch has no hover, so half of all taps are no-ops while the readout keeps showing a color from a different part of the image.
+
+**Evidence.**
+
+```
+probe2.mjs tapCycle: tap purple -> lab(29.5683...) pinned(3 buttons); tap grey -> readout UNCHANGED lab(29.5683...), unpinned(1 button); tap grey again -> lab(53.585013452169% 0 0) pinned; tap purple -> readout UNCHANGED lab(53.5850...), unpinned.
+```
+
+**Reproduction.** node .../probe/probe2.mjs — see tapCycle table.
+
+**Proposed cure.** Delete justUnpinned and the second, never-removed event-binding mechanism (the composable already binds the element at useInertiaGesture.ts:327-350). A tap always samples and always pins; re-sampling the same texel is idempotent; unpin belongs to Escape/close, which already own it (:226-235).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-3 · CHALLENGE-D
+
+**Defect.** The magnifier loupe never draws a single pixel on touch — the user taps to sample and gets an empty ring with the raw image running straight through it.
+
+**Mechanism.** useLoupeCanvas.ts:55-60 showLoupeAt sets loupeVisible=true then synchronously calls drawLoupe; the canvas is behind v-if (ImageEyedropper.vue:78-86) so loupeCanvasRef.value is still null and drawLoupe returns at :30. Every subsequent touch repeats it because the capture pointerdown handler calls hideLoupe(), unmounting the canvas again.
+
+**Evidence.**
+
+```
+probe.mjs, WebKit 390x844 @3x hasTouch, after page.touchscreen.tap(): mobile.loupe.paintedPx = 0 of totalPx 12100. Visible in probe/shot-mobile-dark-tapped.png. Desktop after hover: paintedPx 9684 (the disc IS painted) — hover is the only thing masking it.
+```
+
+**Reproduction.** node .../probe/probe.mjs -> mobile.loupe.paintedPx: 0.
+
+**Proposed cure.** The loupe canvas is a fixed 110px node — keep it mounted and drive visibility with opacity, which is what the CSS already animates (:270). The v-if buys nothing and costs the first frame, which on touch is the only frame.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-4 · CHALLENGE-D
+
+**Defect.** The answer is truncated mid-number and cannot be recovered: 12 decimal places of Lab for an 8-bit sample, in a box half the width it needs, with no title attribute.
+
+**Mechanism.** 12-decimal float serialization fed to a `truncate` span with no title and no expansion. The sibling file in the same feature solved this and says why — ExtractWorkbench.vue:134-141 'truncate may trim trailing digits ... the full readout rides title + select-all (never a lying readout)' — and adds :title. useImageSampler.ts:39-41 rounds to 4dp but only on the non-CSS path; the CSS path (:63-64 serializePickerColor) has no equivalent.
+
+**Evidence.**
+
+```
+probe2.mjs readout: chars 55, clientW 275, scrollW 555, truncated true, title null, font 'Fira Code' 16.4px — 49.5% of the value is on screen. Mobile capture shows `lab(53.5850…`. At the audit's own 200% zoom simulation (720x450@2x) readoutClientW = 117px, about 7 Fira characters.
+```
+
+**Reproduction.** node .../probe/probe2.mjs — readout block.
+
+**Proposed cure.** Quantize at the source (an 8-bit sample carries no information past ~3 Lab decimals) for every space, not only library spaces; then reserve the widest legal representation of the selected space per VISUAL-CONSTITUTION §4, and give the readout its own line when the space is verbose instead of sharing a 275px row with two action buttons.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-5 · CHALLENGE-D
+
+**Defect.** In RTL the specimen canvas is rendered 692px outside its own clipping stage and disappears entirely, while the sampler keeps returning values for an image nobody can see.
+
+**Mechanism.** The canvas is an inline-level element positioned by static flow; its layout box is the full attribute width (1200px), so in an RTL block it right-aligns from the stage's right edge (1239-1200=39) and the transform is applied on top of an accidental origin. In LTR canvasX == stageX by coincidence, and viewportToImage (useImageSampler.ts:103-109) silently depends on that coincidence. Separately the readout inherits direction:rtl with unicode-bidi:normal (measured) for a string full of parentheses and minus signs.
+
+**Evidence.**
+
+```
+probe4.mjs — LTR: canvasX 201, stageX 201, w 508 (aligned). RTL: stageX 731 but canvasX 39, w 508 — zero overlap, and the stage is overflow-hidden. Transform identical in both, matrix(0.423333,0,0,0.423333,0,139.04). rtlRead still returns lab(29.568301979097% ...).
+```
+
+**Reproduction.** node .../probe/probe4.mjs.
+
+**Proposed cure.** State the specimen's origin instead of inheriting it from flow: absolutely position the canvas at the stage's physical top-left — exactly the frame viewportToImage already assumes. Add dir=ltr / unicode-bidi:isolate on the readout per VISUAL-CONSTITUTION §6.1.
 
 ---
 
@@ -1456,6 +2716,60 @@ demo/workbenches/gradient/composables/useGradientModel.ts:49 `export type Gradie
 **Reproduction.** NONE (latent). Failure scenario: glass-ui 8 renames `term`→`jump` or makes `points` optional for steps mode — a semver-legal design-system component change. That silently breaks value.js's headless gradient CSS parser, its serializers and its persisted model shape, none of which involve a picker.
 
 **Proposed cure.** value.js `/easing` mints the record: `export interface AuthoredEasing { readonly mode: "bezier"|"steps"; readonly css: string; readonly fn: EasingFunction; readonly points: readonly [number,number,number,number]; readonly steps: number; readonly term: JumpPosition }`. Then `GradientInterval = AuthoredEasing` (no glass-ui import in the model at all) and glass-ui narrows to `export type EasingPickerValue = AuthoredEasing` — consuming the library's vocabulary, the direction its peerDeps already declare. The glass-ui type imports at useGradientModel.ts:12, easingCatalogue.ts:31-35 and GradientEasingEditor.vue:30 all collapse to `@mkbabb/value.js/easing`.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1 · CHALLENGE-L
+
+**Defect.** The stop-ordering invariant is homeless: three write paths into stops[] with three contradictory policies. addStop sorts (useGradientModel.ts:118); parseGradientCSS rejects violations (gradientParse.ts:284-290); updateStop — the path this component drives from drag (:94,:145) and keyboard (:179) — enforces nothing (useGradientModel.ts:127-131). The model's serializer therefore emits CSS its own parser calls unmodelable, and intervals[i], defined as the span between stops[i] and stops[i+1], ends up attached to an inverted span.
+
+**Mechanism.** Unique semantic ownership violated — position semantics live in the leaf component (pixels/keys → number), array identity lives in the model, the ordering law lives in the parser. One concept, three homes; the invariant died in the seam. Root structural cause is L-3: hand-rolling a multi-thumb slider instead of consuming one.
+
+**Evidence.**
+
+```
+Live at http://localhost:9000/#/gradient, fresh mount, keyboard only — 10x shift+ArrowRight on stops[0] then 10x shift+ArrowLeft on stops[1] yields labels ["Gradient stop at 100%","Gradient stop at 0%"] and CSS readout `linear-gradient(90deg, oklch(0.75 0.15 145) 100%, oklch(0.65 0.18 265) 0%)` with errs: []. Feeding that exact string to the app's own parser in-page: `import('/@fs/…/gradientParse.ts').parseGradientCSS(...)` → "REJECT: stop positions must be non-decreasing (hard-stop reordering isn't modeled)"; the ordered control case returns OK. Computed --rail-ramp came out with DECREASING positions (100.00%, 96.88%, …, 3.13%, 0.00%), which CSS Images 3 §3.4.3 colour-stop fixup silently repairs. Coverage: `grep -rn "non-decreasing|monotonic" e2e test` finds the invariant only in the parser and its unit test; e2e/smoke/views/gradient.spec.ts:144 drags but never asserts order.
+```
+
+**Reproduction.** http://localhost:9000/#/gradient → focus the 0% stop handle → shift+ArrowRight x10 → focus the other handle → shift+ArrowLeft x10 → read the CSS box. Positions descend. Retype that string into the CSS box and the destructive parse verdict appears.
+
+**Proposed cure.** Do NOT add .sort() to updateStop — that makes a fourth policy holder. Transpose the instrument: bind stop positions to a multi-thumb glass-ui Slider (variant="stops"), where the invariant is already solved, shipped and installed one import line away — node_modules/reka-ui/dist/Slider/SliderRoot.js:124 calls getNextSortedValues on every commit, utils.js:8 sorts. Ordering becomes structurally unrepresentable rather than guarded.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-2 · CHALLENGE-L
+
+**Defect.** parseGradientCSS is documented total ("model-or-reject … never a partial", gradientParse.ts:5-6) and is not: it delegates validity to a non-total library oracle. gradientParse.ts:16-17 explicitly names parseCssColor/parseCssScalar "the validity oracles; the demo never hand-validates a color". parseCssColor throws instead of returning {ok:false} for 8 empty-argument colour functions, so isColorToken (gradientParse.ts:92-94) is a crash site and the throw escapes the whole model-or-reject contract. The /css subpath publishes a ParseResult-typed API — a type-level promise of totality — and breaks it.
+
+**Mechanism.** A published boundary whose type says ParseResult<CssColor> and whose runtime says "or I throw". The consumer built its own totality guarantee on a guarantee never given, and no structural check exists that would catch the gap.
+
+**Evidence.**
+
+```
+In-page, against the real module: `parseGradientCSS('linear-gradient(90deg, oklch(), red)')` → THROW: TypeError: Cannot read properties of undefined (reading 'replace'); same for rgb() and color-mix(). Library site confirmed by `grep -n "replace(/,/g" src/css/grammar.ts` → line 181: `const components = splitTopLevel(slash[0]!.replace(/,/g, " "), "space");` — a `!` non-null assertion over splitTopLevel("", "/") which returns [].
+```
+
+**Reproduction.** Type `linear-gradient(90deg, oklch(), red)` into the gradient CSS editor at http://localhost:9000/#/gradient. Chain: GradientCodeEditor.onInput → debouncedParse (GradientCodeEditor.vue:55) → emit("parse") → GradientVisualizer.onParseCSS (:102) → applyCSS → parseGradientCSS. The parseVerdict UI that e2e/smoke/views/gradient.spec.ts:222 certifies ("garbage input fails LOUD") never runs — these 8 inputs fail silently and wrongly.
+
+**Proposed cure.** Totality is the library's contract and belongs in the library: parseFunctionalColor must return failure(source) on an empty body, plus a property test over {fn} × {"", " ", "/", ",,"} so the surface cannot regress to partiality. Explicitly do NOT wrap isColorToken in a try/catch — that is a masking fallback (edict 2) and moves the library's contract into its consumer.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-1 · CHALLENGE-L
+
+**Defect.** The loupe canvas has two owners: `useLoupeCanvas` holds its ref by template-string (`useTemplateRef("loupeCanvasRef")`) while `ImageEyedropper.vue` owns the element's existence with `v-if`. `showLoupeAt` flips the flag and calls `drawLoupe` synchronously, so the ref is still null and the draw silently early-returns. On touch there is no follow-up pointermove and `hideLoupe` unmounts the element again, so the magnifier NEVER paints.
+
+**Mechanism.** ownership split — element lifetime owned by the template, element reference owned by a composable, joined only by a string name and by Vue's flush ordering
+
+**Evidence.**
+
+```
+useLoupeCanvas.ts:21 (useTemplateRef by string), :30 (silent early return), :56-59 (flip + synchronous draw); ImageEyedropper.vue:78,85 (v-if owns the element). jsdom+Vue reproduction output: 'sample #1 … drawLoupe() sees loupeCanvasRef = null -> EARLY RETURN, no paint' / 'after nextTick: <canvas>' / 'sample #2 … -> paints'. Visual: probe/shot-mobile-dark-tapped.png shows the loupe ring fully transparent — the fixture's purple/grey edge continues through the circle at 1:1 scale, not the 10x blow-up a painted loupe would show.
+```
+
+**Reproduction.** node --input-type=module -e '<appendix A2 in the report>' — prints the null-ref early return on sample #1. Independently visible in docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/probe/shot-mobile-dark-tapped.png.
+
+**Proposed cure.** Do not split existence from reference. The DPR-correct, paint-on-demand 2D surface is a design-system primitive: glass-ui `./canvas` publishes `useCanvas2D`/`useCanvasLifecycle` (loop-shaped) and needs a paint-on-demand sibling; the loupe becomes a `Loupe.vue` that owns its canvas outright through it. Relay the glass-ui half to the BH inbox per the standing relay invariant.
 
 ---
 
@@ -2016,6 +3330,528 @@ PaletteCardSwatches.vue:75-95 (8 props, 8 emits, no `ref`/`computed`/`watch` any
 **Reproduction.** Green-keeping mutations, each verified reachable by inspection: (1) delete `@click="$emit('click')"` at PaletteCard.vue:26 — expansion dies entirely; (2) change PaletteCard.vue:226 to `colors[1]?.css` — every card's certified ink is wrong; (3) replace PaletteCardSwatches.vue's template with `<template />` — the expanded card renders empty; (4) set ActionFeedback.vue:30 `autoDismissMs` default to 0 — feedback never dismisses; (5) delete `defineExpose({ showFeedback })` at PaletteCard.vue:244 — four BrowsePane async paths throw at runtime. All five keep the full suite green.
 
 **Proposed cure.** Two files, no new infrastructure. (a) A vitest mount test that expands the card and asserts the swatch row renders NAMED, FOCUSABLE controls — it fails today on C-1. (b) One e2e that expands a card and clicks a swatch — it fails today on C-1 and C-2. Seed through `localStorage['color-palettes']` before boot; the store is a plain `useStorage` singleton (demo/palettes/usePaletteStore.ts:6), so no API is required, as this audit demonstrated.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-4 · CHALLENGE-C
+
+**Defect.** aria-hidden focus trap: the teleported hover panel is aria-hidden="true" yet hosts three tabbable buttons, and keyboard focus demonstrably lands inside it. The in-file comment asserts the opposite invariant.
+
+**Mechanism.** M1/M4 — a second, invisible copy of the action set kept alive because the primary seat is dead; axe `aria-hidden-focus`, WCAG 4.1.2 + 2.4.3 (teleport to body also breaks focus order).
+
+**Evidence.**
+
+```
+SwatchHoverMenu.vue:40-48 sets aria-hidden="true" on the Teleport panel; CurrentPaletteEditor.vue:44-55 fills it with three <button>s. Measured: "hoverPanelAriaHiddenFocus":{"panelAriaHidden":"true","focusableCount":3,"labels":["Edit color …","Copy color …","Remove color … from palette"]}; "tabSequenceFromNameInput":["[in-well] BUTTON:<NO NAME>","[outside] BUTTON:Edit color oklch(72% 0.19 25deg)","[outside] BUTTON:Copy color …","[outside] BUTTON:Remove color …"]. SwatchHoverMenu.vue:38-39 claims "hover-only panel is keyboard-inaccessible — hidden from AT. The reka-ui Popover (touch path) is the accessible route" — both halves falsified (this finding + C-2).
+```
+
+**Reproduction.** node .../cpe-challenge-c-probe3.mjs → `hoverPanelAriaHiddenFocus`, `tabSequenceFromNameInput`.
+
+**Proposed cure.** Once C-1/C-2 give the swatch a real Button seat, serve hover and touch from the ONE reka Popover (trigger="hover", as PaletteSlugBar.vue:47 already does) and delete the Teleport/.floating-panel/useHoverPopover/useLeaveTimer stack. Also delete the false comment.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-5 · CHALLENGE-C
+
+**Defect.** TransitionGroup keys are position-derived, so every swatch after a mutation point is destroyed and remounted: the .vj-enter-move FLIP never runs and N-1 SVG turbulence filter graphs are re-created per removal. The key registry also lives inside an impure computed.
+
+**Mechanism.** M3 — identity derived from position; plus a computed with side effects (mutates a Map and increments a counter during evaluation).
+
+**Evidence.**
+
+```
+useSwatchActions.ts:43-59 keys by `${color}::${i}` and prunes every key not in the new (color,index) set; CurrentPaletteEditor.vue:31 consumes it. Measured DOM identity across a removal: before [wrap0,wrap1,wrap2,wrap3] → after [<NEW NODE>,<NEW NODE>,wrap3] — both survivors recreated; only the literal-keyed add slot (:87 key="__add__") persisted. Filter census: {"inEditor":4,"pageWide":10} five-octave feTurbulence graphs for 3 colours, each id minted by useId() so a remount mints a new filter element. The producer docblock names the hazard: "forces the filter graph to RE-RASTERIZE every frame, which flashes Safari". demo/styles/animations.css:99 defines .vj-enter-move, which can never apply.
+```
+
+**Reproduction.** node .../cpe-challenge-c-probe2.mjs → `keyChurn`.
+
+**Proposed cure.** Key from identity, not position. Mint a stable id where the buffer actually lives (model.savedColors, useColorPipeline.ts:166) and carry it through; failing that, `${color}#${occurrenceIndex}` is position-free and survives shifts. Either way the Map, the counter, the prune watcher and the `?? i` fallback all delete.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-6 · CHALLENGE-C
+
+**Defect.** The save button has no accessible name — an icon-only Button with no aria-label, no title, no text. The repo's own e2e documents the defect and routes around it instead of failing.
+
+**Mechanism.** M4 — accessible name omitted at the call site where the producer supports it.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:134-142. Measured: "saveButtonAria":{"ariaLabel":null,"title":null,"text":"","disabled":false}, "saveButtonAccessibleName":"". e2e/smoke/flows/palette-save.spec.ts:39-41: "the icon-only Save button next to the Input lacks an aria-label; Enter-on-Input commits via the @keydown.enter handler". The sibling icon-only Button at PalettesPane.vue:68 passes aria-label="Delete all saved palettes", so this is a call-site omission, not a producer gap. Its :disabled="savedColorStrings.length === 0" (:138) is also dead — the whole row is v-if'd on length > 0 at :118.
+```
+
+**Reproduction.** node .../cpe-challenge-c-probe3.mjs → `saveButtonAria` / `saveButtonAccessibleName`.
+
+**Proposed cure.** aria-label="Save current palette"; delete the unreachable :disabled binding.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-7 · CHALLENGE-C
+
+**Defect.** The palette-name field has no label: no aria-label, no label[for], not wrapped in a label. Its only accessible name is a placeholder — and that placeholder is dynamic, so the announced name changes with the saved-palette count.
+
+**Mechanism.** M4 — accessible name omitted at the call site.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:125-133 (placeholder = 'Palette ' + (savedPaletteCount + 1)). Measured: "inputAccessibleName":{"ariaLabel":null,"labelFor":false,"placeholder":"Palette 1","wrappedInLabel":false}. The shipped visual audit records the same shape: REPORT.json /#/palettes smallTapTargets[0] = {"w":160,"h":23,"tag":"input","label":""}. WCAG 3.3.2.
+```
+
+**Reproduction.** node .../cpe-challenge-c-probe3.mjs → `inputAccessibleName`.
+
+**Proposed cure.** Static aria-label="Palette name" on the Input; keep the numeric placeholder as the hint it is.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-8 · CHALLENGE-C
+
+**Defect.** The duplicate-name refusal is announced to no one: the banner is an async result with no role="status"/aria-live, so a screen-reader user presses Enter, hears nothing, and gets no signal the save was refused.
+
+**Mechanism.** M4 — status message emitted visually only.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:144-167 has no live-region attribute. Measured inside the well: "duplicate":{"wellText":"Current Palette | 2 colors | dev misconfigured — run `npm run dev` | \"Dup Test\" already exists. | Update | Cancel","liveRegions":1,"activeElement":"INPUT:Palette 2","storedCount":1} — the single live region is ApiOfflineChip's role="alert" (ApiOfflineChip.vue:12), not the banner. WCAG 4.1.3.
+```
+
+**Reproduction.** node .../cpe-challenge-c-probe2.mjs → `duplicate`.
+
+**Proposed cure.** role="status" on the banner container (ApiOfflineChip is the in-repo pattern), and route C-11's silent no-ops through the same region.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-9 · CHALLENGE-C
+
+**Defect.** Vacuous gate: no unit test exists, the only e2e that exercises the component is RED on HEAD, CI never runs Playwright, and vue-tsc is green despite four dead bindings. A one-line deletion of the primary action keeps every gate green.
+
+**Mechanism.** M5 — the gate that would catch it does not run; the gate that runs cannot fail; the test documents the defect in prose instead of asserting against it.
+
+**Evidence.**
+
+```
+`grep -rln CurrentPaletteEditor` over test/, demo/test/, e2e/ → no test file. Pasted run: `npx playwright test e2e/smoke/flows/palette-save.spec.ts --project=smoke --reporter=line` → "1 failed … Error: locator.click: Test timeout of 30000ms exceeded. Call log: - waiting for getByRole('main', …).getByRole('button', { name: /Add current color .* to palette/ })" at spec line 37. .github/workflows/ci.yml steps: npm ci / lint / vue-tsc lib / vue-tsc demo / build / npm test / pack / verify (api job: tsc --noEmit, npm test) — no playwright step anywhere. `npx vue-tsc -p tsconfig.demo.json --noEmit` exits 0 with no output, because unknown component attributes typecheck as fallthrough attrs.
+```
+
+**Reproduction.** Mutation that keeps everything green: delete `@click="addCurrentColor"` at CurrentPaletteEditor.vue:102 and the whole addCurrentColor function at useSwatchActions.ts:62-74 — lint, both vue-tsc projects, npm test and npm run build all still pass.
+
+**Proposed cure.** A @vue/test-utils component test under demo/test/ that mounts the editor and asserts emitted("addColor") after activating the control BY ACCESSIBLE ROLE AND NAME (binding to the contract, not a CSS class), plus a CI step that runs the `smoke` Playwright project so the existing e2e stops being decorative.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-10 · CHALLENGE-C
+
+**Defect.** The component's entire action set is keyboard-unreachable: from the name input, Tab reaches exactly one in-well control (the nameless save button) and then leaves the editor. No keyboard route to add, remove, edit or copy a colour.
+
+**Mechanism.** M1 — downstream sum of C-1/C-2/C-4; listed separately because it is the user-visible loss.
+
+**Evidence.**
+
+```
+Measured tab walk: "tabSequenceFromNameInput":["[in-well] BUTTON:<NO NAME>","[outside] BUTTON:Edit color …","[outside] BUTTON:Copy color …","[outside] BUTTON:Remove color …"]; "focusableInsideWell" contains only the INPUT and one <NO NAME> BUTTON; swatches report focusable:false with no tabindex. WCAG 2.1.1.
+```
+
+**Reproduction.** node .../cpe-challenge-c-probe3.mjs → `tabSequenceFromNameInput`, `structure.focusableInsideWell`.
+
+**Proposed cure.** Falls out of C-1/C-2/C-4: real Button seats put every action in the tab order with a name, and the single Popover carries the menu for both modalities.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-3 · CHALLENGE-C
+
+**Defect.** The slug input is never focused: the focus call runs ~226 ms before the element is inserted, because `nextTick` inside a 50 ms setTimeout races a `<Transition mode="out-in">` whose leave runs for `--duration-fast: 0.2s`. `searchBarRef.value` is null and `?.` swallows the call; there is no retry.
+
+**Mechanism.** A time-based guess (setTimeout 50) layered on a lifecycle fact (Transition out-in completion) — two clocks, no handshake.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:172-182 and :4; demo/styles/animations.css:111-116; measured on the live page: durFast "0.2s", insertedAtMs 276, and document.activeElement never becomes the input across samples at 0/62/82/155/305/606/1207 ms.
+```
+
+**Reproduction.** Mount the SFC live, click Login, rAF-poll for `host.querySelector('input')` and sample document.activeElement — input appears at 276 ms, focus never lands.
+
+**Proposed cure.** Delete the setTimeout and focus from the transition's own `@after-enter` hook; restore focus to the trigger on cancel/escape; switch the string ref to `useTemplateRef` per edict 7.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-4 · CHALLENGE-C
+
+**Defect.** `slugSwitching` is set true and reset in the same synchronous turn (the async `onSlugSwitch` contains no `await`, so `finally` runs before the stack unwinds), making the Loader2 spinner and the `:disabled` double-submit guard unrenderable.
+
+**Mechanism.** A loading flag wrapped around a fire-and-forget `emit` — the actual network work happens in the parent (useSlugMigration.onSlugSwitch, which IS async) and the child has no handle on it.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:198-225 (no await), :23 and :26. Live invocation of the real component's onSlugSwitch through the dev instance handle, 5 inputs × 6 rAF frames: slugSwitchingAfterSyncCall=false and spinnerRenderedAnyFrame=false for every case.
+```
+
+**Reproduction.** Call `inst.setupState.onSlugSwitch()` on the mounted component and read `slugSwitching` synchronously on return: already false; `.animate-spin` absent for 6 consecutive frames.
+
+**Proposed cure.** Make the port's onSlugSwitch return Promise<void> and await it here — one change repairs the spinner, the disabled guard, and gives the dead catch block (C-16) a real rejection to catch.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-5 · CHALLENGE-C
+
+**Defect.** `const isAdmin = !looksLikeSlug(normalized)` makes 'admin token' the catch-all branch: any input that is not exactly four lowercase hyphenated words is submitted as an admin credential, and the parent then wipes the user's persisted identity before trying it.
+
+**Mechanism.** One text field carrying two disjoint credential types, disambiguated by a negated shape test that treats 'unrecognisable' as 'privileged'.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:205,213; useSlugMigration.ts:51-57 (`deps.clearUserSlug(); deps.adminLogin(value)`); demo/platform/auth/useUserAuth.ts:129-132 → clearAuth() at :44-48 (nulls slug ref, safeRemoveItem(localStorage, SLUG_KEY), clearPersistedToken()). Live emissions from the real component: "cool-blue-fox" → ["switchSlug","cool-blue-fox",true]; "cool2-blue-fox-jump" → ["switchSlug","cool2-blue-fox-jump",true].
+```
+
+**Reproduction.** Set slugInput to a 3-word typo ("cool-blue-fox") and invoke onSlugSwitch on the mounted component: emits switchSlug with isAdmin=true. Currently latent behind C-2 in this component; the byte-identical code is LIVE in SlugEditLayer.vue:46,54.
+
+**Proposed cure.** Make the admin route explicit and non-inferred (the `ADMIN_TOKEN=` prefix as the only admin trigger); reject anything that is neither with a shape hint; never clear the existing session before the server accepts the new credential.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-6 · CHALLENGE-C
+
+**Defect.** The slug input has no accessible name — placeholder-only, no label, no aria-label, no name attribute.
+
+**Mechanism.** Placeholder used as label; the design-system SearchBar takes no label prop and the consumer supplies none.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:12; measured on the mounted component: inputAria { label: null, describedby: null, invalid: null, name: null, type: "search" }. WCAG 4.1.2 / 3.3.2.
+```
+
+**Reproduction.** Mount, enter edit mode, read `host.querySelector('input').getAttribute('aria-label')` → null.
+
+**Proposed cure.** Pass `aria-label="Slug or admin token"` (it lands on the input via the same $attrs passthrough that breaks C-2) plus a visible label where layout allows.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-7 · CHALLENGE-C
+
+**Defect.** The async error message is never announced and never associated with the field: the error `<p>` has no aria-live/role=alert, and the input gets neither aria-describedby nor aria-invalid.
+
+**Mechanism.** Error state modelled as decorative text rather than a status message bound to the control it describes.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:124-126; measured after forcing setError(): errorP { ariaLive: null, role: null }; querySelectorAll("[aria-live], [role=alert]").length === 0; inputAria.describedby null, .invalid null. WCAG 4.1.3 / 3.3.1.
+```
+
+**Reproduction.** Mount, call the exposed `setError(...)`, query the component for live regions → 0.
+
+**Proposed cure.** role="alert" + an id on the <p>; bind aria-describedby and aria-invalid="true" on the input while slugError is non-empty.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-8 · CHALLENGE-C
+
+**Defect.** The identity pill is a non-focusable <span> behind a hover-only Popover, so the only copy explaining what a slug is cannot be reached by keyboard or touch; the logged-in bar has exactly one tabbable control.
+
+**Mechanism.** A disclosure implemented as decoration — cursor-help promises an affordance the markup does not provide.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:45-60 (`trigger="hover"`, `<span class="slug-pill cursor-help">`); measured: pill { tag:"SPAN", tabIndex:-1, role:null, ariaDescribedby:null }, `pill.focus()` → activeElement !== pill, tabbablesInBar = ["BUTTON/Account menu"], popoverAfterHover true (mouse only). WCAG 2.1.1 / 1.4.13.
+```
+
+**Reproduction.** Mount with userSlug set; call pill.focus() → not focused; enumerate tabbables → one button only; dispatch pointerenter → popover text appears.
+
+**Proposed cure.** Make it a real disclosure: glass-ui Tooltip/Popover anchored on a <button> (or tabindex=0 + role), with a trigger mode that accepts focus as well as hover — reusing the existing component-type name per edict 4.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-9 · CHALLENGE-C
+
+**Defect.** `variant="ghost"` is not a prop of glass-ui 7's Button (the axes are `emphasis` and `tone`), so it leaks into the DOM as a junk attribute and both edit-mode buttons render with the DEFAULT filled `secondary` emphasis instead of the intended quiet treatment.
+
+**Mechanism.** Pre-7.0 API residue; Vue templates admit arbitrary fallthrough attributes so an unknown prop is silently accepted.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:19,31; node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts (ButtonProps has emphasis/tone/size/iconOnly/loading — no `variant`); _shared/axes.d.ts: tone is "NEVER a `variant` member". Measured DOM: { aria:"Sign in with slug", variantAttr:"ghost", emphasis:"secondary" } and { aria:"Cancel slug edit", variantAttr:"ghost", emphasis:"secondary" }.
+```
+
+**Reproduction.** Mount, enter edit mode, read `btn.getAttribute('variant')` → "ghost" and `btn.dataset.emphasis` → "secondary". `npx vue-tsc -p tsconfig.demo.json --noEmit` → EXIT=0, no diagnostic.
+
+**Proposed cure.** Use `emphasis="quiet"`; if a true ghost rung is wanted it belongs in glass-ui's ButtonEmphasis union, not a demo override.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-18 · CHALLENGE-C
+
+**Defect.** Zero tests cover the component, and named single-line mutations that break the product keep every gate green — a vacuous gate.
+
+**Mechanism.** The component's entire observable behaviour lies outside the tested surface, so both BLOCKERs survived every gate in the repo.
+
+**Evidence.**
+
+```
+`grep -rn "PaletteSlugBar" test/ e2e/` → only a prose comment at e2e/smoke/flows/login-register.spec.ts:6-9 stating the surface is unused; demo/test/ holds 3 unrelated files; `npx vue-tsc -p tsconfig.demo.json --noEmit; echo EXIT=$?` → EXIT=0; eslint.config.js:153-154,182 disable vue/no-unused-vars, no-unused-components and no-unused-properties.
+```
+
+**Reproduction.** Replace the whole <template> with <div/>, or invert line 205 to `const isAdmin = looksLikeSlug(normalized)`, or change looksLikeSlug's regex to /^$/, or delete the emit at line 213 — `vitest run`, `playwright test`, `vue-tsc` and `eslint` all still pass.
+
+**Proposed cure.** Delete this component (C-1) and give the surviving slug surface three tests: a real form submit emits switchSlug exactly once; focus lands in the field after the transition settles; a rejected login renders and announces its message. All three would have failed on day one here.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-19 · CHALLENGE-C
+
+**Defect.** The entire slug protocol (looksLikeSlug, normalizeTokenInput, the submit routine, onCopySlug) is duplicated verbatim in SlugEditLayer.vue, and the two copies have already drifted — different 'already signed in' strings, one surface that renders an unreachable error and one that renders none at all.
+
+**Mechanism.** Credential-parsing policy living in the view layer, so a second view required a second copy; divergence followed immediately.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:168-170,184-196,198-225 vs demo/shell/dock/layers/SlugEditLayer.vue:68-70,25-37,39-66. Both carry C-4 (no await), C-5 (negated classifier) and C-16 (dead substring catch). SlugEditLayer's template (lines 75-119) contains no `{{ slugError }}` at all.
+```
+
+**Reproduction.** Diff the two script blocks — looksLikeSlug and normalizeTokenInput are character-identical; the submit routines differ only in the error string and the emit-vs-port call.
+
+**Proposed cure.** Lift the classifier and normalizer into useSlugMigration.ts (or a focused sibling slugCredential.ts — a new small module, not an addition to a god module) and expose one `submitCredential(raw): Promise<Result>`; the layers then render only a field, a spinner and a message.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-3 · CHALLENGE-C
+
+**Defect.** `applyColorSearch` is declared `async` but contains no `await`, so it runs to completion synchronously and `searching` goes true->false before Vue's scheduler ever runs. The Loader2 spinner, the `:disabled` state and the reentrancy guard are all unreachable dead code.
+
+**Mechanism.** vestigial async ceremony around a synchronous computation — state that mutates and reverts within one tick can never be rendered
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:213-225 (async, no await), spinner line 102, `:disabled="searching"` line 98, guard line 214, Loader2 import line 142. Measured: `Search btn found: true  disabled attr: undefined`; `[sync after dispatch] spinner present: false`; `[after nextTick] spinner present: false`; `[after nextTick] Search label present: true`.
+```
+
+**Reproduction.** Mount SearchFilterBar, locate the button whose text is 'Search', trigger('click'), and inspect w.html() both synchronously after dispatch and after nextTick: 'animate-spin' is absent in both, and the button never carries a disabled attribute.
+
+**Proposed cure.** The search IS synchronous — the OKLab distance filter is a `computed` in BrowsePane.vue:339-349. Delete `searching`, the `async`, the `finally`, the reentrancy guard, the `:disabled` and the Loader2 import. Reintroduce a real loading state only if the server-side colorL/colorA/colorB query noted at BrowsePane.vue:354 is adopted, i.e. only around a real await.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-4 · CHALLENGE-C
+
+**Defect.** The "Clear all filters" button lives inside `v-if="activeFilterCount > 0"`; clicking it drives the count to zero, so the focused button unmounts itself and focus falls to <body> inside an open popover, breaking focus order and leaving the popover's focus scope with nothing to restore.
+
+**Mechanism.** a control whose own side effect destroys its mount condition — self-unmounting focused element with no focus transfer
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:110-120 (the v-if wrapper) and 227-232 (onClearAll); parent zeroing in demo/palettes/browser/dialog/composables/useDialogBrowseActions.ts onClearFilters. Measured with attachTo: document.body and real focus: `focus before: BUTTON "Clear all filters"` -> `Clear-all still in DOM: false` -> `focus after : BODY`. WCAG 2.4.3 (Focus Order) and 2.4.11 (Focus Not Obscured).
+```
+
+**Reproduction.** Mount SearchFilterBar with tier='featured', focus the 'Clear all filters' button, trigger('click'), then setProps({tier:'', selectedTags:[]}) to mimic the parent response; document.activeElement is BODY.
+
+**Proposed cure.** Keep the row mounted and disable it (`:disabled="activeFilterCount === 0"`) rather than v-if-ing it out — this also stops the popover from resizing under the pointer. Alternatively move focus explicitly to the popover content root before the state change.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-5 · CHALLENGE-C
+
+**Defect.** Zero test coverage anywhere in the repo for this component, and the two automated gates that could have caught C-1 are structurally blind: vue-tsc runs with strictTemplates defaulted OFF (no vueCompilerOptions in any tsconfig), so unknown component props and unknown on* handlers are accepted as fallthrough attrs rather than errors; eslint reports nothing.
+
+**Mechanism.** vacuous gate — coverage is zero rather than thin, and the type gate's one relevant switch is left at its permissive default, so a whole-major design-system swap could not surface prop/emit drift
+
+**Evidence.**
+
+```
+`grep -rn "SearchFilterBar|Find by Color|Search by CSS color|Clear all filters|aria-label=\"Filters\"" e2e/ test/ demo/test/` -> no output. `grep -rn "selectedTags|tierFilter|colorSearch|Most Forked|Featured" e2e/ test/` -> no output. `grep -rn "Filters|EllipsisVertical|filter-option|filter-section" e2e/ demo/test/ test/` -> no output (across 240 .spec.ts files + the whole vitest tree). `grep -n "vueCompilerOptions|strictTemplates" tsconfig.base.json tsconfig.demo.json tsconfig.lib.json` -> no output; typecheck script is package.json:65. `npx eslint demo/palettes/browser/search/SearchFilterBar.vue` -> clean, no output.
+```
+
+**Reproduction.** The maximal vacuous mutation: delete the entire <PopoverContent> subtree (lines 16-122) and replace the whole <script setup> with `const emit = defineEmits<{}>()`. `npm test` and `npm run test:e2e` both stay green, because no test references this component at all.
+
+**Proposed cure.** Set `"vueCompilerOptions": { "strictTemplates": true }` in tsconfig.base.json — the single highest-leverage repair in this report, converting the entire prop/emit-drift class from silent runtime breakage into a compile error. Then add one e2e spec that opens the Filters popover and asserts: a tag checkbox click changes the wall, a non-hex CSS colour either searches that colour or refuses, and Clear-all does not drop focus to body.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-3 · CHALLENGE-C
+
+**Defect.** A keyset cursor minted under filter-set A is sent to the server together with filter-set B, so the "next page" is not the continuation of the current result set and rows are skipped silently.
+
+**Mechanism.** Lifecycle state guarded by the wrong variable — cursor identity is not bound to the filter set that minted it.
+
+**Evidence.**
+
+```
+demo/palettes/useBrowsePalettes.ts:103 `listPalettes({ ...currentFilterOpts(), cursor })` re-derives filters at send time. Measured (probe-C-live-r3.mjs): `"G_debounceWindow": { "requests": ["?limit=50&cursor=page-2&sort=newest&q=ab", "?limit=50&sort=newest&q=ab"] }` — the cursor came from the UNFILTERED stream, the q is new. Server keyset windows on (createdAt,_id): api/src/modules/palette/service/crud-list.ts:147-151.
+```
+
+**Reproduction.** Type 2+ characters in "Search the commons…" and click "More from the commons" within the 400ms debounce window. Measured request: `?limit=50&cursor=page-2&sort=newest&q=ab`.
+
+**Proposed cure.** Store the cursor together with the opts that minted it (`nextCursor: { cursor, opts }`) and send the captured opts; invalidate the cursor whenever the filter set changes.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-4 · CHALLENGE-C
+
+**Defect.** The error plate can never render when the wall is non-empty: a failed search/sort/tier reload leaves the stale wall on screen with no error at all, while the load-more button silently vanishes.
+
+**Mechanism.** Typed failure swallowed — an error state whose only rendering path is gated on a condition the error itself cannot produce.
+
+**Evidence.**
+
+```
+BrowsePane.vue:62 `v-else-if="pm.browseError.value && displayedBrowse.length === 0"`; useBrowsePalettes.ts:77-82 never clears `remotePalettes` on failure; BrowsePane.vue:133 gates load-more on `!pm.browseError.value`. Probe C-3 (passing): `expect(b.browseError.value).toBe("Failed to load palettes"); expect(b.filteredBrowse.value.length).toBe(50);`
+```
+
+**Reproduction.** Load the wall (50 rows), then make the next reload fail (type a search while the backend 500s). Unit-reproduced in probe-C1-loadingMore-stuck.test.ts case C-3.
+
+**Proposed cure.** Treat a failed RELOAD as distinct from an empty wall: render a non-blocking band with an inline retry over the retained wall; the full plate owns only the empty-and-failed case.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-5 · CHALLENGE-C
+
+**Defect.** `cardRefs` is a write-only registry: Vue's null-on-unmount ref call is swallowed by the `el &&` short-circuit, so the map grows unboundedly for the session inside a KeepAlive'd pane and pins dead component instances. Feedback written to a stale entry is silently lost.
+
+**Mechanism.** Lifecycle state never released — a parent-held imperative handle map with no release path.
+
+**Evidence.**
+
+```
+BrowsePane.vue:94 `:ref="(el: any) => el && (cardRefs[palette.slug] = el)"`, :209 `reactive<Record<string, InstanceType<typeof PaletteCard>>>({})`. probe-C4-cardrefs-leak.test.ts (passing): `expect(Object.keys(cardRefs).length).toBe(154)` after 4 list changes; `expect(cardRefs.a.$.isUnmounted).toBe(true)`; `cardRefs.a.showFeedback("Saved!")` produces no DOM. Same idiom copy-pasted at PalettesPane.vue:84. Consumers: BrowsePane.vue:228, 237, 249, 264.
+```
+
+**Reproduction.** Search, paginate, or change sort so the rendered slug set changes; the map retains every slug ever rendered. Unit-reproduced with the verbatim idiom (2 probes, including a passing control that shows the null branch releases correctly).
+
+**Proposed cure.** Delete the registry. Card feedback is card-local state driven by a prop/event, not by reaching through a parent-held instance handle. (Minimal patch: `if (el) cardRefs[slug] = el; else delete cardRefs[slug]`.)
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-6 · CHALLENGE-C
+
+**Defect.** "Find by Color" is a second, line-for-line copy of the server's OKLab matcher that runs against only the ≤50 loaded rows and issues zero network requests — the commons is not searched.
+
+**Mechanism.** App-scoped/data-shape cousin — a duplicated predicate and duplicated constant with no shared source, running on the wrong side of the wire.
+
+**Evidence.**
+
+```
+BrowsePane.vue:339-355 (radius 0.15 hard-coded; `(p: any)`; comment at :353-354 admits the API supports it server-side) vs api/src/modules/palette/service/crud-list.ts:159-181 `colorMatcherFor` (`query.colorRadius ?? 0.15`). The client already types the params: demo/palettes/api/palettes.ts:47-50. Measured (probe-C-live-r3.mjs): `"requestsIssuedByColorSearch": 3` — unchanged from before the search, i.e. zero requests issued.
+```
+
+**Reproduction.** Open Filters → Find by Color → pick #00ff00 → Search on a 50-row wall of red palettes: wall goes to 0, network tab shows no request.
+
+**Proposed cure.** Thread colorL/colorA/colorB/colorRadius into `currentFilterOpts()` and delete `displayedBrowse` + `colorSearchParams` outright, so the colour filter composes with the cursor, sort and tag/tier set instead of fighting them.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-7 · CHALLENGE-C
+
+**Defect.** A zero-RESULT search renders the TRUE-EMPTY invitation ("No published palettes here yet. / Publish one from My Palettes and start the wall.") on a commons with 50 published palettes — and "More from the commons" is still offered directly underneath it.
+
+**Mechanism.** App-scoped/data-shape cousin — three distinct states (empty commons / no results for this query / error) collapsed into two plates.
+
+**Evidence.**
+
+```
+Measured twice: probe-C-live-r2 `"zeroResultSearch": { "cards": 0, "eyebrow": true, "copy": true, "hint": true }`; probe-C-live-r3 `"H_colorSearchNoMatch": { "wallCards": 0, "trueEmptyInvitation": true, "hint": true, "loadMoreStillOffered": 1 }`. The load-more block at BrowsePane.vue:132-144 lives OUTSIDE PaletteCardGrid, so `empty` never suppresses it. Frames r2-zero-result-search.png, r3-color-search-empty.png.
+```
+
+**Reproduction.** On a loaded wall, type `zzzzqqq` in "Search the commons…" (or run a colour search that matches nothing). Both measured live.
+
+**Proposed cure.** Three states, three plates: empty commons / no results for THIS query (with a clear-filters action) / error. Gate the load-more block on `displayedBrowse.length > 0`.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-8 · CHALLENGE-C
+
+**Defect.** One `searchQuery` ref drives both simultaneously-visible panes: typing in "Search the commons…" filters My Palettes in the right pane and overwrites its own search box.
+
+**Mechanism.** App-scoped singleton standing in for pane-scoped state.
+
+**Evidence.**
+
+```
+viewSchema.ts:124 `browse: { left: "browse", right: "palettes" }` (both panes visible in shots/safari-desktop-light/browse.png). usePalettePorts.ts:54 one ref → browse port :183 and library port :141. Measured (probe-C-live-r3.mjs): before `myPalettes_KitchenReds: 1`; after typing "zephyr" into the commons box `myPalettes_KitchenReds: 0`, `myPalettesSearchBoxValue: "zephyr"`. The file's own comment (BrowsePane.vue:5-7) claims the field is scoped — only the placeholder is.
+```
+
+**Reproduction.** At 1440 on /#/browse with ≥1 saved palette, type a term into "Search the commons…" that does not match the saved palette's name — it disappears from the right pane. Measured; frame r3-shared-search-query.png.
+
+**Proposed cure.** The query is pane state. `useBrowsePalettes` owns its own `searchQuery`; the library and admin surfaces own theirs.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-9 · CHALLENGE-C
+
+**Defect.** One `expandedId` ref for two simultaneously-visible walls: expanding a card in My Palettes silently collapses the open card in the Browse wall, and vice versa.
+
+**Mechanism.** App-scoped singleton standing in for pane-scoped state.
+
+**Evidence.**
+
+```
+usePalettePorts.ts:144 (library) and :177 (browse) both expose `actions.expandedId`; usePaletteActions.ts:27-29 assigns exclusively; BrowsePane.vue:97 keys on slug, PalettesPane.vue:87 on id. Measured geometrically (probe-C-live-r4.mjs; cards carry no aria-expanded): after expanding the wall card `{"Wall Palette 1": 196, "Kitchen Reds": 120}`; after expanding the My-Palettes card `{"Wall Palette 1": 100, "Kitchen Reds": 172}`. Frame r4-shared-expandedid.png.
+```
+
+**Reproduction.** At 1440 on /#/browse: click a wall card's colour strip (expands), then click a My-Palettes card's colour strip — the wall card collapses. Measured. (Clicking a My-Palettes card's NAME starts a rename instead: PaletteCard.vue:57.)
+
+**Proposed cure.** One `expandedId` per list surface; expansion is per-wall state.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-10 · CHALLENGE-C
+
+**Defect.** Every entry into the browse view refetches page 1 unguarded and DISCARDS every page loaded past the first, while the KeepAlive'd pane keeps its scroll offset.
+
+**Mechanism.** Lifecycle state never released / no freshness guard — a load-on-enter that destroys accumulated pagination.
+
+**Evidence.**
+
+```
+demo/color-picker/composables/usePaletteWiring.ts:143-146 `if (view === "browse") ports.browse.loadRemotePalettes();` — no guard, versus the guarded admin branches three lines below (`&& ports.admin.adminUsers.value.length === 0`). useBrowsePalettes.ts:74 `remotePalettes.value = ...res.data` REPLACES the array. Pane is KeepAlive'd: demo/shell/PaneSlot.vue:126.
+```
+
+**Reproduction.** Page to 150 palettes, switch to Extract, switch back to Browse: 100 rows are gone under an unchanged scroll offset. Derived from the quoted watcher + the replace assignment; not separately driven in-browser (HYPOTHESIS as to the scroll-offset consequence; the refetch-and-replace is deterministic from source).
+
+**Proposed cure.** Guard on `remotePalettes.value.length === 0` (or a freshness stamp), exactly as the sibling admin branches in the same watcher already do.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-11 · CHALLENGE-C
+
+**Defect.** The pane has no live region at all, and both loading blocks put `aria-label` on a role-less `div` (role=generic), where ARIA in HTML prohibits naming — so the loading states are nameless and silent, and no async result is ever announced.
+
+**Mechanism.** Typed state never surfaced — async results with no programmatic status channel.
+
+**Evidence.**
+
+```
+BrowsePane.vue:47 and :128 `<div ... aria-label="Loading palettes|Loading more palettes">`. Measured on the loaded wall (probe-C-live-r2.mjs): `"wallA11y": { "operableControls": 103, "namelessButtons": 0, "smallTapTargets": [], "liveRegionsInPane": 0, "overflowX": 0 }` and `"loadingBlockRoles": { "loadingMore": [{ "tag": "div", "role": null, "ariaLabel": "Loading more palettes", "ariaLive": null, "ariaBusy": null }] }`. The error plate is the pane's only announced state (EmptyState.vue:22 role="alert").
+```
+
+**Reproduction.** Load /#/browse with a routed commons and query the DOM for `[aria-live],[role=status],[role=alert],[aria-busy]` inside the pane: 0. Measured.
+
+**Proposed cure.** One stable `role="status" aria-live="polite"` result-status node announcing "Loading palettes" / "50 palettes" / "No results for …"; `aria-busy` on the grid; drop the prohibited labels.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-12 · CHALLENGE-C
+
+**Defect.** The colour search field silently searches a DIFFERENT colour than the one typed: anything that is not exactly 6 hex digits — including its own placeholder's `hsl(...)`, plus `red`, `#f00`, `oklch(...)` — is discarded and replaced by the swatch's current hex, with no error and no hint.
+
+**Mechanism.** Typed failure swallowed — invalid input silently substituted instead of rejected.
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:212-219 `const hex = text.startsWith("#") && /^#[0-9a-f]{6}$/i.test(text) ? text : pickerHex.value;` — placeholder at :88 is `#hex, hsl(...)`, label at :90 is "Search by CSS color", and `parseColorIn` (which parses all those forms) is already imported at :145. Same function: `hexToOklab` (:203-209) throws inside an async fn with try/finally and NO catch → unhandled rejection.
+```
+
+**Reproduction.** Type `hsl(200 50% 50%)` in the Find-by-Color field and press Search: results are computed for #4488cc. STATIC/DETERMINISTIC from the quoted ternary — labelled: not separately driven in-browser this seat.
+
+**Proposed cure.** Parse with `parseColorIn`; on failure mark the field invalid and say so. Never substitute a different colour.
 
 ---
 
@@ -2646,6 +4482,438 @@ BrowsePane.vue:336-355 — `const radius = 0.15;` then a client-side filter over
 **Reproduction.** NONE for the runtime arm (needs a populated reachable commons). Code-proven: the server params exist and are unused; the radius is a bare literal; the missing-oklabColors branch returns false.
 
 **Proposed cure.** Use the server colour params so the search covers the commons; token the radius and expose it or justify it against a measured OKLab ΔE; render palettes lacking oklabColors as an explicit excluded count rather than dropping them into a false empty.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-4 · CHALLENGE-D
+
+**Defect.** A five-zone omnibus (identity + specimen + status + action + error-action) inside a Card, occupying a region the ratified Library composition never named; at 24 colours it takes 63% of the pane
+
+**Mechanism.** M3 — unregistered composition + zone inflation
+
+**Evidence.**
+
+```
+probe-D.json → five-desktop-light.well.childZones: 4 zones (435x22.94 identity, 435x55.17 specimen, 255x22.59 role=alert chip, 435x40 action); probe-D3.json adds a 5th (435x36) on name collision. PROPORTION-AUDIT.md:67 allows one protagonist, one identity line and AT MOST ONE persistent action/status region. VISUAL-CONSTITUTION.md:45 fixes Library's mobile order as "owner-state selector, library, selected inspector" and :186 fixes exactly four owner states — no current-palette band. many24-desktop-light: well 462x393.22 inside a 512x623.5 Card = 63%.
+```
+
+**Reproduction.** node probe-D.mjs → scenarios five-desktop-light and many24-desktop-light; read well.childZones
+
+**Proposed cure.** The current palette IS the Device Draft owner state. Re-seat it behind the owner-state selector or inside the selected inspector, not as a permanent fifth band above the field.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-5 · CHALLENGE-D
+
+**Defect.** Nested cartoon casters throwing opposite light directions, and three independent devices expressing one boundary
+
+**Mechanism.** M4 — duplicated boundary + contradictory elevation model
+
+**Evidence.**
+
+```
+probe-D2.json → wk.geom, same frame: well box-shadow `… -2px 2px 0 0, … -3px 3px 0 0, … -4px 4px 0 0` (down-LEFT); host Card box-shadow `color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0 0` (down-RIGHT). Visible as a dark smear inside the well's left dashed edge in frames-D/five-zoom200-well.png. demo/styles/utils.css:90-107 stacks opaque --well-bg + 1.5px dashed --card-edge + --shadow-cartoon-sm. VISUAL-CONSTITUTION.md:186 forbids "cartoon casters stacked within casters"; PROPORTION-AUDIT.md:49 (PR-05) REMOVEs repeated boundaries; :69 calls the duplicate line duplicative.
+```
+
+**Reproduction.** node probe-D2.mjs; compare geom.wellShadow with geom.cardEl.shadow
+
+**Proposed cure.** One device per boundary and one light direction per scene: keep the --well-bg tone-step, delete the caster and the dashed edge. Deleting the dashed edge also frees the dashed language to mean exactly one thing (D-6).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-6 · CHALLENGE-D
+
+**Defect.** The identical seeded dashed WatercolorDot ghost signifies four different things — action, transient state, provenance, and absence — within one viewport, none of them labelled
+
+**Mechanism.** M1 — one signifier carrying four meanings because the seat law was never applied
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:95 (add-slot = action), :37 `:ghost="isSwatchEditing(i)"` (being-edited state), :62 (edit-overlay FROM slot = provenance); EmptyPaletteMark ~200px below in the same frame = absence. frames-D/wk-hover-full.png shows sites 1 and 4 simultaneously, 230px apart, pixel-identical. During an edit, sites 1 and 2 are adjacent in the same row. PROPORTION-AUDIT.md:70: "A small icon/mark is either data, status, labeled action, drag affordance, focus/selection register or removed."
+```
+
+**Reproduction.** Open /#/palettes light desktop with a populated draft and no saved palettes: frames-D/wk-hover-full.png; also docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/palettes.png
+
+**Proposed cure.** Reserve the dashed ghost for ABSENCE only (EmptyPaletteMark + the empty outline of the add seat). The action becomes a named geometric button (D-1); the being-edited swatch expresses state via its seat's selection/focus register, never by morphing into the symbol for 'empty'.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-7 · CHALLENGE-D
+
+**Defect.** Three type roles collapse onto one 16.4px size and the identity label uses the wrong family and weight; the error message is typographically louder than the controls that resolve it
+
+**Mechanism.** M5 — type-matrix drift: family, weight and rung all overridden per-site
+
+**Evidence.**
+
+```
+Measured 1440 light: "Current Palette" (src :9 `text-small font-display font-semibold`) renders Fraunces 600 @16.4px/22.96; "5 colors" (:20 text-mono-small) Fira Code 400 @16.4px; the collision sentence (:148) Fira Code ITALIC @16.4px (probe-D3.json → dup.msgFont); Update/Cancel (:154,:162) 14.384px. VISUAL-CONSTITUTION.md:75 fixes control/label = text-small, Plus Jakarta Sans, NON-BOLD; :76 value = text-mono-small; :74 prose = text-prose; :78 declares the matrix closed with one named exception (P019/Picker).
+```
+
+**Reproduction.** node probe-D.mjs → five-desktop-light.header / .count; node probe-D3.mjs → dup.msgFont / dup.buttons
+
+**Proposed cure.** Label → text-small (Plus Jakarta Sans, non-bold); count → a genuinely smaller text-mono-small rung; the collision sentence → text-prose, upright, not italic mono. It is a sentence, not a CSS literal.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-8 · CHALLENGE-D
+
+**Defect.** Light-scheme contrast fails WCAG AA on both header lines (3.19:1) while dark over-delivers (10.85:1) — the two schemes were not designed to the same standard
+
+**Mechanism.** M6 — unowned rendered contrast: text-muted-foreground is calibrated for the pane's glass tier, then rendered on the well's opaque tone-step
+
+**Evidence.**
+
+```
+Measured against the rendered well fill at the same DOM node (probe-D.json): light ink rgb(112,89,66) on oklab(0.913299 …) = 3.19:1 for BOTH "Current Palette" and "5 colors"; dark ink rgb(195,185,172) on oklab(0.345296 …) = 10.85:1. 16.4px @600 is not WCAG large text (floor 18.66px bold / 24px regular), so 4.5:1 applies. VISUAL-CONSTITUTION.md:82: "Text … meet their rendered contrast on the actual material tier; a token name is not evidence."
+```
+
+**Reproduction.** node probe-D.mjs → five-desktop-light.header.contrastVsWell (3.19) vs five-desktop-dark.header.contrastVsWell (10.85)
+
+**Proposed cure.** Define one ink token where --well-bg is defined (demo/styles/foundation.css), resolved per scheme against that fill, so the fixture and its ink move together.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-9 · CHALLENGE-D
+
+**Defect.** At 390px and at 200% desktop zoom, a 5-colour palette pushes the primary CTA alone onto a second row — the action's position is a function of palette length modulo container width
+
+**Mechanism.** M7 — no reflow law for the specimen row, and an action living inside it
+
+**Evidence.**
+
+```
+probe-D.json → five-mobile-390: swatch-row {w:297,h:110.34}, flexWrap wrap, gap 10px, add-slot rect {x:46.5,y:395.23,w:44,h:44} (row two, alone). Arithmetic: 5x44 + 5x10 + 44 = 314 > 297. Identical at desktop 200% zoom (five-zoom200, fillRatio 0.892). Frames: frames-D/five-mobile-390-well.png, frames-D/five-zoom200-well.png. The row has no column count, minimum or justify law; the file carries four `w-11 h-11 sm:w-12 sm:h-12` breakpoint forks (:36,:62,:64,:100) and no container query, against VISUAL-CONSTITUTION.md:33.
+```
+
+**Reproduction.** node probe-D.mjs → scenarios five-mobile-390 and five-zoom200
+
+**Proposed cure.** The add action leaves the specimen row (it is an action, not a swatch — D-1) and moves into the well's action region beside the commit control, where its position is invariant under length, viewport and zoom.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-10 · CHALLENGE-D
+
+**Defect.** 7.17px of line-box slack under every swatch: the specimen row is 15% taller than its ink, items-center is a no-op, and the authored 10px gap renders as 10px above / 17.17px below
+
+**Mechanism.** M7 — block wrappers around inline-block faces inherit a line box the design never accounted for
+
+**Evidence.**
+
+```
+Measured every .swatch-row child at 1440 light: display "block", line-height 27.912px, height 55.17, hosting an inline-block face of height 48 → slack 7.17 per child, all six faces top-anchored at y=378.09. Row height 55.17 for 48px of ink (+14.9%). label bottom 368.09 → row top 378.09 = 10.00px; ink gap below = 17.17px. Because all children are equal height, `items-center` on the row changes nothing. The `<div key="__add__">` wrapper at :87 ("for TransitionGroup compatibility") reproduces the same slack. PROPORTION-AUDIT.md:73: "Real rendered relation wins over token intent."
+```
+
+**Reproduction.** Playwright: measure each `.swatch-row > *` height vs its `[data-testid=watercolor-swatch]` height on /#/palettes at 1440x900 (script retained at the scratchpad `rhythm.mjs`; values pasted above)
+
+**Proposed cure.** Make the wrappers `display:flex` (or the faces `display:block`). The row's height then equals its ink and the authored gap-2.5 renders as authored.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-11 · CHALLENGE-D
+
+**Defect.** The duplicate-name failure state is silent to AT, shifts the layout by 46px, shows two live commit affordances at once, and uses a second confirmation grammar for a destructive overwrite
+
+**Mechanism.** M8 — state without announcement, plus two confirmation grammars in one pane
+
+**Evidence.**
+
+```
+probe-D3.json (seed a saved palette named "Palette 2", populate 5 colours, click commit): {text:'"Palette 2" already exists. Update Cancel', role:null, ariaLive:null, liveRegionsOnPage:[the two API chips + 4 empty], buttons:[{Update,61.8x36},{Cancel,59.2x36}], msgFont:{Fira Code, 16.4px, italic}, wellHeight 243.7 (was 197.7)}. The sibling destructive flow in the same pane uses a real Dialog with tone="destructive" (PalettesPane.vue:102-122). VISUAL-CONSTITUTION.md:83 (error/status explicit), :100 ("Commit uses one glass-ui action set"); PROPORTION-AUDIT.md:50 (PR-06, one action owner), :68 (reserve only where collision exists). Frame: frames-D/dup-light-duplicate-well.png.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/probe-D3.mjs
+
+**Proposed cure.** Make the collision a field-level validation on the name Input (producer error slot, aria-describedby, announced, no reflow), and reuse the exact Dialog the delete-all flow already uses for the overwrite confirmation. One grammar, one owner.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-12 · CHALLENGE-D
+
+**Defect.** Backend status truth is gated on an unrelated swatch count, duplicated as two simultaneous role=alert nodes, and worded as a developer instruction inside the product's save surface
+
+**Mechanism.** M3 — status conditioned on unrelated state, plus a duplicated status seat
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:116 `<ApiOfflineChip v-if="savedColorStrings.length > 0" />` — backend down + empty draft = silence; add one colour and a role=alert appears. Measured on every populated scenario (probe-D.json): globalAlertRoles = ["dev misconfigured — run `npm run dev`", "dev misconfigured — run `npm run dev`"] — this chip plus the always-mounted DockStatusLamp (demo/shell/dock/DockStatusLamp.vue:41 admits "one status language, two seats"). Both visible simultaneously in frames-D/wk-hover-full.png. Chip ink measured rgb(219,36,36) — the highest-chroma non-specimen element in the well. PROPORTION-AUDIT.md:52 (PR-08) requires PERSISTENT entity status.
+```
+
+**Reproduction.** node probe-D.mjs → any populated scenario, field globalAlertRoles; visually frames-D/wk-hover-full.png (chip in the well AND at viewport top-right)
+
+**Proposed cure.** One status seat — the dock lamp already claims band chrome "guaranteed visible the moment the shell paints". The well carries at most a save-scoped, unconditional, user-facing consequence ("saved on this device only") in the muted register.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-13 · CHALLENGE-D
+
+**Defect.** An animation was deleted rather than moved: `.btn-interactive` is a phantom class, so the add slot and the two edit-overlay buttons have no hover scale, no press magnitude and no focus register
+
+**Mechanism.** M2 — phantom class atom; owner edict 6 violated with the comment as confession
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:68-74 documents retiring `transition-all + hover:scale-110/active:scale-95` onto "the producer's `btn-interactive` atom". `grep -rn "btn-interactive" --exclude-dir=node_modules .` → only DESIGN.md:237,247 prose, ColorInput.vue:62,69,78,330, this file :71,75,78,100, and LESSONS-LEARNED.md:603; `grep -rl btn-interactive node_modules/@mkbabb/` → empty; `grep -rn btn-interactive /Users/mkbabb/Programming/glass-ui/src` → empty. LESSONS-LEARNED.md:603 records glass-ui b0debec "retired … `.btn-interactive` under a false zero-site verdict". Independently confirmed at docs/tranches/V/megatranche/audit/components/shell-dock-colorinput/challenge-C-implementation.md:333. The three sites' only authored state is `hover:bg-accent/50`, with no focus-visible rule (contrast :46,:49,:52 which have one).
+```
+
+**Reproduction.** The three greps above, run at HEAD 7cae8bd0
+
+**Proposed cure.** The atom has three live consumer sites across two components — mint it once in demo/styles/utils.css beside .dashed-well and .swatch-row (where the house already puts >=3-consumer recipes, utils.css:172), or file it to glass-ui as a BJ-inbox ask. Until it exists the class is a lie in three templates.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-14 · CHALLENGE-D
+
+**Defect.** The edit state is a desktop-only fork (`hidden lg:flex`) that duplicates a commit/cancel pair the Dock mounts unconditionally — the same verb occupies both the specimen and the action region
+
+**Mechanism.** M9 — breakpoint fork duplicating a verb the action region already owns
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:58 `class="edit-overlay glass-floating hidden lg:flex"` — below 1024px the overlay, its from→to specimen and its Save/Cancel never render. demo/shell/dock/Dock.vue:143-144 mounts DockControl aria-label="Save edit" / "Cancel edit" with no breakpoint gate. So desktop shows the identical commit twice ~400px apart; below lg one set silently disappears. VISUAL-CONSTITUTION.md:32 (one mobile sequence beneath the same top dock), :33 (no desktop/mobile fork, no breakpoint pile); PROPORTION-AUDIT.md:50 (PR-06 one action owner), :57 (PR-13, the identical mechanism ruled for Picker's Copy: "total 2 → 1").
+```
+
+**Reproduction.** Source-evident at CurrentPaletteEditor.vue:58 vs Dock.vue:143-144; the overlay could not be exercised live because its entry point is the dead hover menu (D-2)
+
+**Proposed cure.** Delete the overlay. The Dock layer is the ratified action region for the edit journey; the swatch expresses state via its seat's selection register (D-6), never a second action set.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.2 · CHALLENGE-D
+
+**Defect.** In dark mode the palette specimen — the route's protagonist — renders at 1.41:1 against its own card, versus 12.58:1 in light. There is no design for a dark specimen on a dark stage.
+
+**Mechanism.** The specimen well follows the scheme instead of guaranteeing a contrast floor against the specimen it hosts; §2 assumes "the specimen supplies color" without an arm for a specimen darker than the stage.
+
+**Evidence.**
+
+```
+Pixel-sampled from shots/populated-desktop-{dark,light}.png (DPR2, x=900): dark strip rgb(36,31,31) vs card body rgb(66,55,47) = 1.41:1; light same strip vs rgb(233,225,217) = 12.58:1. Strip geometry: h-10 = 40px of a 100px card, 458px full bleed. 4 of 10 live palettes carry the single color lab(12.23 2.53 0.5). WCAG 1.4.11 requires 3:1.
+```
+
+**Reproduction.** Open shots/populated-desktop-dark.png — the top four cards read as empty dark rectangles. Sample any pixel in the strip band vs the card body below it.
+
+**Proposed cure.** Make the specimen stage scheme-INVERTED rather than scheme-following: a constant light plate under the strip in both schemes, or a producer-owned specimen-well tier that guarantees >=3:1 against any member color. Not a per-card border patch — the stage is the wrong tier.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.3 · CHALLENGE-D
+
+**Defect.** The entity card is a hand-styled div wearing three stacked zero-blur cartoon casters, against a ratified tuple that specifies shadow=false and a prohibition on "cartoon casters stacked within casters"; the pane adds a fourth caster.
+
+**Mechanism.** The card was built as a bespoke div with a decoration atom (cartoon-surface) instead of the ratified glass-ui Card tuple, so the tuple's shadow=false clause has no enforcement point.
+
+**Evidence.**
+
+```
+Live computed style of the card root: class="group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer", boxShadow = oklab(.28 .0168 .0249/.32) -3px 3px 0 0, oklab(...)/.26 -5px 5px 0 0, oklab(...)/.18 -7px 7px 0 0. Pane root: 8px 8px 0px 0px, alpha .8. Law: VISUAL-CONSTITUTION.md:54 (tuple, shadow=false) and :186 ("not cartoon casters stacked within casters"); PROPORTION-AUDIT.md PR-05.
+```
+
+**Reproduction.** getComputedStyle(document.querySelector('[role=article]')).boxShadow on a populated #/browse. Forced-colors consequence: box-shadow is not WHCM-adjusted, so visual/shots/forced-colors-desktop/browse.png shows the caster surviving as a solid black slab while every other surface flattens.
+
+**Proposed cure.** Replace the bespoke div with the ratified Card tuple exactly ({size:sm, material:content, tier:quiet, surface:opaque, shadow:false, grain:false, specular:off}) and delete cartoon-surface from the entity site; retire the pane's own 8px caster under the same PR-05 row so the route paints zero caster layers.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.4 · CHALLENGE-D
+
+**Defect.** The sort-pending state is `opacity-50` string-concatenated into a child's class prop, which drops palette identity text from 13.52:1 to 3.11:1 — below the AA floor — while leaving the grid fully interactive.
+
+**Mechanism.** A pending state expressed in the alpha channel of the whole subtree rather than as a designed status; compounded by building a child's root class list with string concatenation (owner edict 5, per-instance override).
+
+**Evidence.**
+
+```
+demo/palettes/BrowsePane.vue:87-90: `:grid-class="'transition-opacity duration-fast ' + (pm.sortLoading.value ? 'opacity-50' : '')"`. Measured live: ink rgb(28,25,23) on card rgb(233,225,217) = 13.52:1 at rest; composited at opacity .5 over pane fill rgba(238,231,222,.169) = 3.11:1. Law: VISUAL-CONSTITUTION.md §4.1 ("a token name is not evidence"); PROPORTION-AUDIT.md PR-08.
+```
+
+**Reproduction.** Trigger a sort change on a populated #/browse; sample the palette-name ink against the card while pm.sortLoading is true.
+
+**Proposed cure.** Sort-pending reports into the status region R2.5 creates; the field keeps full opacity. If a visual pending cue is wanted, it belongs to the producer's own pending register, not to a consumer-authored opacity utility.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.5 · CHALLENGE-D
+
+**Defect.** There is no status region anywhere in the Browse pane: five independent filters and a pager change the result count and nothing is announced, and no visible result count exists at all.
+
+**Mechanism.** Every state signal in the pane is a rendered plate (skeleton, empty, error) rather than an announced status, so filter transitions have no semantic channel; there is also no receptacle for the pending/failure truth PR-08 requires.
+
+**Evidence.**
+
+```
+shots/STATES-2ENGINE.json: "liveRegions": 0 in both WebKit and Chromium, across skeleton/wall/empty/error. Law: VISUAL-CONSTITUTION.md:114 (§5.1), row "in-route filter, tab, selection, or pagination" — "announce changed result count/state through the owning status region".
+```
+
+**Reproduction.** Populated #/browse: type a query that removes all results; query the DOM for [aria-live] inside the pane — zero nodes, and the result count never appears.
+
+**Proposed cure.** One durable status region owned by the field, driven by a discriminated state union (idle/loading/loaded(n)/filtered(n of m)/error(cause)). Sort-pending (R2.4), filtered-empty (Round 1 D-06), load-more failure (D-07), stale sort (D-08) and operation verdicts (D-17) all report into it instead of into five ad-hoc surfaces.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.6 · CHALLENGE-D
+
+**Defect.** The route's primary control — the commons search field, and the first tab stop in the pane — has no accessible name; a placeholder is not a name.
+
+**Mechanism.** The glass-ui SearchBar is consumed with a placeholder only (BrowsePane.vue:10-14); no aria-label or associated <label> is supplied at the consumer site and none is defaulted by the producer.
+
+**Evidence.**
+
+```
+shots/STATES-2ENGINE.json: "searchNamed": false in both engines; "nameless": ["INPUT.input-bar-field rect=373x24.87"]. Law: VISUAL-CONSTITUTION.md §4.1 ("Role, accessible name, state/value ... are explicit"). The audit missed it because REPORT.md:94's namelessButtons metric counts only <button>.
+```
+
+**Reproduction.** Populated #/browse: document.querySelector('.pane-scroll-fade input') has no aria-label and no labels; Tab once into the pane to land on it unnamed.
+
+**Proposed cure.** Name it at the producer (SearchBar takes a required accessible name) so all three consumer sites inherit, rather than adding an aria-label per instance.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-3 · CHALLENGE-D
+
+**Defect.** The failure state is colour-only, nameless, unannounced and unassociated — three of the four properties VISUAL-CONSTITUTION §4.1 requires are absent.
+
+**Mechanism.** state expressed through a single decorative channel; no semantic role or association
+
+**Evidence.**
+
+```
+Mounted probe P2 (docs/.../PaletteSlugBar/probes/slugbar.test.ts) after calling the exposed setError: `role = null`, `aria-live = null`, `id = null`, `any aria-describedby in tree = false`, `any role=alert/status in tree = false`. Classes: `absolute left-0 -bottom-4 text-mono-small text-destructive whitespace-nowrap` (PaletteSlugBar.vue:124). Only signal is the colour rgb(219,36,36). VISUAL-CONSTITUTION.md §4.1: "Selected, failed, pending, withdrawn and disabled states are never color-only. Role, accessible name, state/value and associated error/status are explicit."
+```
+
+**Reproduction.** npx vitest run --config docs/tranches/V/megatranche/audit/components/PaletteSlugBar/probes/vitest.config.ts  → probe P2 output
+
+**Proposed cure.** One status region owned by the form: role="alert", an id referenced by the input's aria-describedby, and a non-colour token (icon + copy) carrying the state alongside the colour.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-4 · CHALLENGE-D
+
+**Defect.** The error state was given no layout: it is absolutely positioned outside its own box (bottom:-16px) so it overlaps following content by ~31px, and it is whitespace-nowrap so it cannot survive the constitution's own 320px measurement arm.
+
+**Mechanism.** error treated as an overlay ornament rather than a flow-participating line; no reserved space and no wrap policy
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:124 inside a `relative min-h-9 mb-2` root (:2). Measured by injecting the exact recipe into the live document at 1440px: {position:"absolute", bottom:"-16px", left:"0px", whiteSpace:"nowrap", fontSize:"16.4px", rect:{w:312.87,h:22.95}}; barRect {w:1408,h:36}. Bar is 36px + 8px margin; error ink extends 16+22.95 = 38.95px past the bar into an 8px gutter → 30.95px unreserved overlap, and being absolute nothing below can yield. Overflow: 312.87px nowrap = 97.8% of the 320px arm BEFORE container padding. PROPORTION-AUDIT.md §2 and VISUAL-CONSTITUTION.md §3.2 bind measurement to 1440/390/320/actual-400%-zoom.
+```
+
+**Reproduction.** Inject `<p class="absolute left-0 -bottom-4 text-mono-small text-destructive whitespace-nowrap">Already signed in as this slug.</p>` into a `.app-layout` host on http://localhost:9000 and read getComputedStyle + getBoundingClientRect (values above).
+
+**Proposed cure.** The error is a flow line inside the form's own vertical stack, wrapping normally, with the bar's min-height growing to accommodate it. Delete the absolute positioning and the nowrap.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-5 · CHALLENGE-D
+
+**Defect.** The two mutually-exclusive states of one slot (logged-in pill vs logged-out Login button) have different height, different padding on both axes, a different border colour family — and, under prefers-contrast:more, different stroke weight.
+
+**Mechanism.** two independently hand-authored recipes occupying one semantic slot instead of one control with a state-dependent label/icon
+
+**Evidence.**
+
+```
+Measured, both recipes injected into a live `.app-layout` host at 1440px. .slug-pill (PaletteSlugBar.vue:47-52): 229.95 × 28.95px, padding-inline 8px, padding-block 2px, border 1px rgb(198,180,159). Hand-rolled Login button (:71-78): 76.47 × 32.95px, padding-inline 12px, padding-block 4px, border 1px oklab(0.466 -0.026 0.095/0.3). Height delta = 4.00px exactly. demo/styles/foundation.css:729-750, inside @media (prefers-contrast: more), bumps `.console-well, .app-layout .glass-resting, .app-layout .console-well, .slug-pill, [role="tab"]` to border-width:2px — the roster contains .slug-pill but NOT the hand-rolled button, so the same slot renders 2px signed-in and 1px signed-out in exactly the accessibility mode where stroke weight is the affordance.
+```
+
+**Reproduction.** Inject both class strings into a `.app-layout` host on the live app and read getBoundingClientRect + getComputedStyle; then read foundation.css:729-750 for the contrast-mode roster.
+
+**Proposed cure.** One control, one recipe — exactly what the live sibling already does: ProfileSection.vue:59-68 and :111-120 render the SAME `<Button variant="outline" size="xs">` for both states, varying only icon and label (recorded as landed at ProfileSection.vue:55-57, S.W5-4).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-6 · CHALLENGE-D
+
+**Defect.** Type-jurisdiction violation: the Login control label wears the mono/value voice at weight 700, and the four menu rows wear the Fraunces display voice — both roles the constitution's closed matrix assigns to Plus Jakarta Sans, non-bold.
+
+**Mechanism.** role→type mapping bypassed; the voice was chosen for texture rather than semantic role
+
+**Evidence.**
+
+```
+Measured computed style of PaletteSlugBar.vue:73's exact class string in the live document: {fontFamily:'"Fira Code", "Fira Code Fallback", "Fira Mono", monospace', fontSize:"16.4px", fontWeight:"700"} — from `text-mono-small font-bold`. VISUAL-CONSTITUTION.md §4: "control or label, including dropdown options | text-small | Plus Jakarta Sans, non-bold"; text-mono-small is reserved for "value, code, or provenance". Menu rows :91,:98,:106,:113 all carry `text-small font-display`; font-display resolves to --font-stack-display: "Fraunces" (demo/styles/foundation.css:218), which §4 reserves for route H1 / instrument identity / palette identity.
+```
+
+**Reproduction.** getComputedStyle on an element carrying `text-mono-small font-bold` inside .app-layout on the live app → Fira Code / 16.4px / 700. Cross-read VISUAL-CONSTITUTION.md §4 table.
+
+**Proposed cure.** Control copy takes the control rung: text-small, Plus Jakarta Sans, non-bold, for the Login label and all four menu rows. The slug pill itself correctly keeps text-mono-small — a slug IS provenance.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-7 · CHALLENGE-D
+
+**Defect.** The slug pill paints the RAW live pick into both `color` and `borderColor` with no contrast certification — the exact defect the repo measured and cured everywhere else (D6 / T.W3-5 / A11Y-F2). Measured against the project's own guard, 84.0–89.9% of representative picks fail.
+
+**Mechanism.** live-accent ink applied without certifying against the material rung it actually composites over
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:47-50; mounted render (probe P3): style="color: oklch(0.7 0.2 30); border-color: oklch(0.7 0.2 30)". The live sibling routes the identical pill through the guard — ProfileSection.vue:28-31,72-75 via useSafeAccentFn("floating") — because its own comment at :22-27 states "the raw pick as text/border measured ≤1.28:1 on the real menu ground for roughly half of all picks per scheme." Quantified: probes/ink.test.ts sweeps 288 picks (24 hues × 4 L × 3 C) through certifyAccentInk (demo/color-session/ink.ts:130, floor 4.5 + 1.25 headroom) at the composited-ambient bounds the repo measured itself (useContrastSafeColor.ts:26 → 0.376–0.936): floating/light surfaceL 0.9872 MOVED 253/288 (87.8%); floating/dark 0.3487 MOVED 259/288 (89.9%); resting/light 0.9606 MOVED 253/288 (87.8%); resting/dark 0.3176 MOVED 242/288 (84.0%). Example correction magnitude: oklch(0.45 0.05 0) → oklch(79.0% 0.05 0deg) in dark, a 34-point lightness move.
+```
+
+**Reproduction.** npx vitest run --config docs/.../PaletteSlugBar/probes/vitest.config.ts docs/.../PaletteSlugBar/probes/ink.test.ts  → the four [INK] lines above.
+
+**Proposed cure.** Consume the existing useSafeAccentFn(<tier>) instrument, as the surviving surface already does. No new mechanism needed — the guard, the tier model and the probe all ship today.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-8 · CHALLENGE-D
+
+**Defect.** Design-system boundary breached three ways in one file: a hand-rolled account menu built from Popover + four bare <button>s (no role=menu/menuitem, no roving focus), a hand-rolled Login pill re-implementing <Button variant="outline" size="xs">, and a hand-rolled focus register that deliberately deletes the outline in favour of a 40%-alpha box-shadow ring.
+
+**Mechanism.** reaching past the design system for primitives it already provides; per-instance styling of what should be a root-level recipe
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:81-120. Mounted trigger (probe Q2): `<button ... id="reka-popover-trigger-v-0" type="button" aria-haspopup="dialog" aria-expanded="false">` — a dialog-flavoured popover holding four unrelated buttons; no role=menu, no menuitem, no arrow-key roving (VISUAL-CONSTITUTION §5.2 specifies roving focus for this species). The correct primitive is already imported by the live sibling: ProfileSection.vue:9-12,53-91 uses DropdownMenu/Trigger/Content/Item/Separator/Label. The Login pill (:71-78) is a raw <button> with a typed-out px-3 py-1 rounded-full border border-primary/30 hover:bg-accent active:scale-95 recipe; probe P4 shows `type=null aria-label=null`. Focus: :73,:84,:91,:98,:106,:113 each carry `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40`, while probe Q1 shows the two glass-ui <Button>s in the SAME file rendering the producer recipe `class="button tap-squish focus-ring glass-wash glass-capsule"` — two focus registers side by side. foundation.css:674-677 states the cost of deleting the outline in its own words: "box-shadow rings vanish in WHCM, so restore a real `outline` (system Highlight) on every operable control."
+```
+
+**Reproduction.** Mount probe Q2/Q1 (npx vitest run --config docs/.../probes/vitest.config.ts) for the rendered aria surface and the two focus class families; read ProfileSection.vue:53-91 for the correct composition. NOTE: total focus loss under forced-colors is a HYPOTHESIS — I could not measure it because the component mounts in no browser, so no forced-colors frame of it exists. The two-register split and the deliberate outline deletion are CONFIRMED.
+
+**Proposed cure.** Consume DropdownMenu/DropdownMenuItem for the menu, <Button variant="outline" size="xs"> for the pill, and glass-ui's `focus-ring` recipe for focus. If a rung is missing, that is a producer request to glass-ui (owner edict 4), not a demo-local hand-roll.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-9 · CHALLENGE-D
+
+**Defect.** One input multiplexes two different secrets with no visible mode: the placeholder says "enter slug..." but anything failing a four-word shape regex is submitted as an ADMIN BEARER TOKEN — typed into a plaintext type="search" field with no accessible name and no autocomplete policy. The one-field, secret-free login also contradicts the ratified auth contract.
+
+**Mechanism.** overloaded control discriminated by input shape rather than explicit mode; secret handled as ordinary search text
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:12 placeholder="enter slug..."; :184-186 looksLikeSlug = /^[a-z]+-[a-z]+-[a-z]+-[a-z]+$/; :205 `const isAdmin = !looksLikeSlug(normalized)`; :213 emits the raw token when isAdmin; :188-196 strips `ADMIN_TOKEN=` prefixes and quotes. So `brave-amber-quietfox` (one missing hyphen) is silently escalated onto the admin proof path. Measured input attrs (probe P5): type="search", autocomplete=null, aria-label=null, spellcheck=null, has <label> = false. glass-ui SearchBar accepts an `ariaLabel` prop (node_modules/@mkbabb/glass-ui/dist/search.js:136) which this call site never passes → the field has no accessible name (VISUAL-CONSTITUTION §4.1 requires it). The live successor already fixed the copy — SlugEditLayer.vue:84 placeholder="enter slug or token..." — and this file never received it. Contract: PALETTE-CONTRACT.md:106-110 — "POST /sessions (and /sessions/login) take an exact {publicHandle, recoverySecret}".
+```
+
+**Reproduction.** Mount probe P5 for the measured attributes; read PaletteSlugBar.vue:184-225 for the shape-regex branch and PALETTE-CONTRACT.md:106-110 for the two-field contract.
+
+**Proposed cure.** Two fields for the user path (publicHandle + recoverySecret, per the contract), a separately labelled admin entry, type="password" and autocomplete="off" on anything secret, and an explicit accessible name. VISUAL-CONSTITUTION §7 puts all of it in the Dock-opened Account dialog owned by W23.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-10 · CHALLENGE-D
+
+**Defect.** Because the field is type="search" with no ::-webkit-search-cancel-button reset, WebKit — the audit's own capture browser — paints its native clear glyph inside the field's right edge, 6px from the component's own ✕ "Cancel slug edit" button. Two adjacent ✕ affordances with different meanings and no visual distinction.
+
+**Mechanism.** a search primitive conscripted as a login field, importing the search UA affordance along with it
+
+**Evidence.**
+
+```
+Probe Q1 rendered HTML: `<input type="search" placeholder="enter slug..." class="input-bar-field">` (glass-ui hard-codes it at node_modules/@mkbabb/glass-ui/dist/search.js:132). `grep -rn "search-cancel-button\|search-decoration" node_modules/@mkbabb/glass-ui/dist/ demo/styles/*.css` → NO OUTPUT. Live confirmation on the running app: searchCancelResetFound = null; getComputedStyle(input,'::-webkit-search-cancel-button').appearance = "auto". The component's own XIcon cancel button is at PaletteSlugBar.vue:29-39, separated by the root's gap-1.5 (6px).
+```
+
+**Reproduction.** grep above (empty), plus the live getComputedStyle pseudo-element read on http://localhost:9000. Visual double-X frame not captured — the component renders on no route (D-1).
+
+**Proposed cure.** A login field is not a search field. Use the text-input primitive at the same rung; if glass-ui lacks one, raise it as a producer request rather than adding a demo-local UA reset.
 
 ---
 
@@ -3322,6 +5590,384 @@ BrowsePane.vue:209 `reactive<Record<string, InstanceType<typeof PaletteCard>>>({
 **Reproduction.** NONE — HYPOTHESIS for the growth measurement. The mechanism is exact from Vue's function-ref contract plus the two source lines (BrowsePane.vue:94, PalettesPane.vue:84), but I did not measure Object.keys(cardRefs).length growing live: the shared dev browser at localhost:9000 was under concurrent use by other seats mid-session and my probes were contaminated (the page navigated itself from #/browse to #/extract to #/admin/audit between reads). The duplication half of the finding is fully confirmed by grep.
 
 **Proposed cure.** Better than deduplicating: delete the imperative rail. PaletteCard takes a `feedback?: {message,variant}` prop and renders it declaratively — the port already returns {success, message} from onDeleteOwned/onSetVisibility, so the data is in hand. If the imperative form must stay, one usePaletteCardFeedback() in browser/card/composables/ whose bind() deletes on the null call, consumed by both panes.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · N-1 · CHALLENGE-L
+
+**Defect.** A nine-consumer, four-feature global CSS recipe (.pane-scroll-fade + the --pane-scroll scroll-timeline) is defined in an UNSCOPED <style> block inside demo/shared/ui/PaneHeader.vue — a component that renders none of its nine consumers. It also inverts the project's own written residence rule and structurally blocks the pass-1 L-13 cure.
+
+**Mechanism.** ownership inversion — producer/consumer split across components; a shared cross-feature recipe smuggled global out of a single SFC, so the rule's lifetime is coupled to that SFC's presence in the loaded chunk
+
+**Evidence.**
+
+```
+demo/shared/ui/PaneHeader.vue:40-58 (unscoped block; its own comment at :43-49 admits 'the block must be UNSCOPED to reach those consumers'). Nine consumers, all pane ROOTS: BrowsePane.vue:2, PalettesPane.vue:2, admin/AdminPane.vue:2, workbenches/gradient/GradientPane.vue:20, workbenches/mix/MixPane.vue:62, workbenches/extract/ExtractPane.vue:5, workbenches/generate/GeneratePane.vue:31, scenes/about/AboutPane.vue:4, scenes/ConfigSliderPane.vue:106. Inverted rule: demo/DESIGN.md:388 'No new global utility class for ONE consumer — colocate ... The shared survivors are true cross-feature recipes'. Migration recorded at demo/styles/foundation.css:578.
+```
+
+**Reproduction.** grep -rn "pane-scroll-fade" demo/  → 9 pane roots + PaneHeader.vue + DESIGN.md. The load-order failure (a pane applying the class without importing PaneHeader gets no scroll-timeline and every @supports(animation-timeline) rule at PaneHeader.vue:177-194 silently no-ops) is a HYPOTHESIS: all nine consumers currently import PaneHeader (grep -rn PaneHeader demo/ --include=*.vue | grep import → exactly 9), and exhibiting it requires editing demo/, which this seat may not do.
+
+**Proposed cure.** Transposition, not addition (edict 3 respected — no new wrapper): PaneHeader becomes the pane ROOT — it renders the Card tier="resting", the sticky header and a default slot. It already owns the timeline, the display-voice title and the certified caption ink; let it own the surface those live on. .pane-scroll-fade then stops being a public class anyone can forget to type, BrowsePane.vue:2-3 collapses to one element, and eight sibling panes lose their pasted root string. Interim/minimum: move .pane-scroll-fade + the --pane-scroll declaration to demo/styles/ as a named cross-feature recipe with the DESIGN.md-required residence comment. Must land WITH pass-1 L-13's glass-ui variant="pane", which cannot carry a demo-consumed timeline name across the package boundary.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · N-2 · CHALLENGE-L
+
+**Defect.** The effective ESLint config for the subject file contains NO import-boundary rule at all — the G-DEMO-3b barrel-seam law written specifically to protect the palette-browser feature resolves to undefined for that feature. (Strengthens pass-1 L-4, which proved the globs dead by enumeration.)
+
+**Mechanism.** unenforced invariant / false green — 6 of 8 files: globs match zero paths, the 2 live globs ban an unresolvable specifier; codified enforcement that evaluates to nothing while reading as coverage
+
+**Evidence.**
+
+```
+npx eslint --print-config demo/palettes/BrowsePane.vue → rules['no-restricted-imports'] = undefined. npx eslint --print-config demo/color-picker/App.vue → [2,{patterns:[{group:['@components/custom/palette-browser/**/*.vue'],message:'G-DEMO-3b: reach palette-browser through its barrel seam, never a raw .vue file.'}]}] — a ban on an alias that vite.config.ts:68-72 and tsconfig.demo.json:33 both record as deleted at W43/RF-15. find demo -path 'demo/@*' | wc -l → 0. Declaration text: eslint.config.js:221-231 ('Wired STANDING so a future feature edit cannot silently re-invert the demo module graph').
+```
+
+**Reproduction.** npx eslint --print-config demo/palettes/BrowsePane.vue  (inspect rules['no-restricted-imports']) → undefined. BrowsePane already makes the banned SHAPE of reach twice: ../shared/ui/EmptyState.vue:189 and ../shared/ui/PaneHeader.vue:196 (31 raw cross-feature .vue imports exist demo-wide). No live violation past the browser seam: grep -rn 'from "[^"]*browser/[^"]*\.vue"' demo/ → empty; the tree complies by accident.
+
+**Proposed cure.** Re-home the three rule objects onto the live tree (demo/palettes/**, demo/picker/**, demo/workbenches/**, demo/scenes/**, demo/shell/**, demo/color-session/**) and express the seam ban relatively (**/palettes/browser/**/*.vue) since the @… aliases are gone — AND add a config-level assertion that fails when any files: glob matches zero paths. The defect class is 'a glob that stopped matching and said nothing'; fixing it once guarantees recurrence at the next restructure, fencing it does not.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · N-3 · CHALLENGE-L
+
+**Defect.** The pane-local OKLab colour filter silently excludes half the live commons, and the reason is a model defect: oklabColors is optional on a projection the search feature requires, so BOTH the pane and the server independently chose silent exclusion as the fallback. (Extends pass-1 L-8 with live measurement.)
+
+**Mechanism.** masking fallback induced by an optional field on a required projection; plus triple-homed predicate (pane / query layer / server) with a magic constant duplicated across a process boundary
+
+**Evidence.**
+
+```
+Live production API (the demo's DEFAULT_REMOTE_API_URL, demo/platform/transport/client.ts:36-37): curl -s 'https://api.color.babb.dev/palettes?limit=50' → rows 10, hasMore false, rows with a non-empty oklabColors array: 5. Exclusion sites: demo/palettes/BrowsePane.vue:346 'if (!oklabColors || oklabColors.length === 0) return false;' and api/src/modules/palette/service/crud-list.ts:172-173 (identical). Optional field: demo/palettes/types.ts:32. Duplicated constant: BrowsePane.vue:343 radius=0.15 vs crud-list.ts:167 radius = query.colorRadius ?? 0.15. Dead typed seam: demo/palettes/api/palettes.ts:27-29,50-52 wired, useBrowsePalettes.ts:52-61 never passes them.
+```
+
+**Reproduction.** curl -s 'https://api.color.babb.dev/palettes?limit=50' | node -e "…" → rows 10, 5 with oklabColors ⇒ any colour search on #/browse silently drops 5 of 10 published palettes with no UI signal. SECONDARY, HYPOTHESIS (not exhibitable at today's volume, hasMore=false at 10 rows < BROWSE_PAGE_SIZE 50, useBrowsePalettes.ts:18): above 50 published palettes the pane filters only the loaded page, so 'More from the commons' pages an unfiltered cursor and PaletteCardGrid's empty copy ('No published palettes here yet.', BrowsePane.vue:85) states a falsehood about the commons.
+
+**Proposed cure.** Delete the pane's filter entirely. colorL/colorA/colorB(/colorRadius) join currentFilterOpts() in useBrowsePalettes; the colour target becomes browse-query state beside tierFilter/selectedTags; 0.15 becomes one constant owned by the server contract (the client stops asserting a radius); publish oklabDistance/deltaEOk on @mkbabb/value.js/color so quantize.ts:116, color/anchors.ts:203 and the api service share one metric; and make oklabColors NON-OPTIONAL on the searchable projection so neither implementation can choose silence. Also: add a dev API proxy or documented VITE_API_URL — with none (grep -n proxy vite.config.ts → no matches; curl http://localhost:9000/colors/api/palettes → SPA HTML) the browse wall's populated state is not capturable, and the visual matrix certifies only the ERROR branch (REPORT.md:121,136,151,166; shots/safari-desktop-light/browse.png shows 'The commons is unreachable.').
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-3 (pass 1, verified) · CHALLENGE-L
+
+**Defect.** CARRIED FORWARD, verified by me: demo/ui/** is 19 pure re-export barrels of glass-ui with zero implementation, and BrowsePane reaches the design system BOTH ways inside one import block.
+
+**Mechanism.** back-compat shim retained so consumers need not be touched — exactly what edict 2 forbids; it also manufactures a second name for every glass-ui primitive, which is how a local re-implementation sneaks back in
+
+**Evidence.**
+
+```
+BrowsePane.vue:180-181 import Card/Button from ../ui/card and ../ui/button; BrowsePane.vue:195 imports SearchBar from @mkbabb/glass-ui/search. My check: a loop over all 19 demo/ui/*/index.ts counting lines that are neither a comment nor an 'export … from "@mkbabb/glass-ui…"' printed NOTHING — every one of the 19 is a pure re-export (20 export statements total). demo/ui/alert/index.ts:1-9 states the reason it survives: 'converted it to a re-export … The two consumers … import from this barrel unchanged.'
+```
+
+**Reproduction.** for f in demo/ui/*/index.ts; do grep -v '^\s*//' "$f" | grep -v '^\s*$' | grep -cv '^export .* from "@mkbabb/glass-ui'; done → 0 for all 19. grep -rn 'import {[^}]*\bCard\b[^}]*} from "@mkbabb/glass-ui"' demo/ → 0 (nobody uses the direct route for Card).
+
+**Proposed cure.** Delete demo/ui/ wholesale and rewrite the ~40 import sites to the glass-ui subpath they already resolve to (@mkbabb/glass-ui, @mkbabb/glass-ui/forms). One route to the design system, zero indirection files, and grep '@mkbabb/glass-ui' becomes the honest consumer census.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-9 (pass 1, verified) · CHALLENGE-L
+
+**Defect.** CARRIED FORWARD, verified by me: useDialogBrowseActions is mis-homed under browser/dialog/ while its only consumer is a PANE, three of its five members are browse filters, and its modalStack branch is dead code for a host that no longer exists.
+
+**Mechanism.** module homed by its historical extraction site rather than its concept; a dormant second host kept alive as an optional dep = legacy dual path
+
+**Evidence.**
+
+```
+BrowsePane.vue:199 imports it from './browser/dialog'; consumers are only BrowsePane.vue:199,261 plus two barrels (browser/index.ts:41, browser/dialog/index.ts:9). Filters at useDialogBrowseActions.ts:86-100 mutate pm.tierFilter/pm.selectedTags — state owned by useBrowsePalettes.ts:38-39, two directories away. Dead branch: useDialogBrowseActions.ts:37-38,49,76-84.
+```
+
+**Reproduction.** find demo -name "PaletteDialog*" → empty (the docstring's origin host is gone). grep -rn modalStack demo/ → 5 hits, all inside useDialogBrowseActions.ts itself. BrowsePane passes no modalStack and keeps its own revert at BrowsePane.vue:277-284, so onRevert is unreachable from every live caller.
+
+**Proposed cure.** Split by concept, not by former host: onTierChange/onTagsChange/onClearFilters return to useBrowsePalettes (they are its state); onFork becomes useBrowseFork beside the browse query; onRevert, modalStack and the DialogBrowseActionsDeps.modalStack type are deleted.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-3 · CHALLENGE-L
+
+**Defect.** The colour filter is the only one of five that never reaches the wire; BrowsePane re-implements the API's own OKLab matcher client-side over a single 50-row page, while the transport for the server-side filter is built, wired, and dead.
+
+**Mechanism.** Duplicate ownership across the client/server boundary; an optimisation note became the only implementation, so the concept has two homes and the canonical one is unreachable.
+
+**Evidence.**
+
+```
+demo/palettes/BrowsePane.vue:336-349 (`colorSearchParams`, `displayedBrowse`, `const radius = 0.15`, `Math.hypot(c.L-L, c.a-a, c.b-b) <= radius`) vs api/src/modules/palette/service/crud-list.ts:159-180 (`colorMatcherFor`, `query.colorRadius ?? 0.15`, `Math.sqrt(dL*dL+da*da+db*db) <= radius`) — same predicate, same default, same empty-array rule, same .some(). Transport exists: demo/palettes/api/palettes.ts:27-31 declares colorL/colorA/colorB/colorRadius, :50-53 serialises them; api/src/modules/palette/schema.ts:89-92 validates them. Never set: demo/palettes/useBrowsePalettes.ts:52-60 `currentFilterOpts()` emits limit/sort/q/tier/tags only; `grep -rn "colorL" demo/` → 2 hits, both the declaration and the serialiser. BROWSE_PAGE_SIZE = 50 (useBrowsePalettes.ts:19). Comment at BrowsePane.vue:353-354: "API also supports server-side via colorL/colorA/colorB params, but client-side is instant".
+```
+
+**Reproduction.** grep -rn 'colorL' demo/ → only api/palettes.ts:27,50. Read useBrowsePalettes.ts:52-60 — no color* key. Therefore any colour search narrows only the loaded page: a matching palette on keyset page 2 of the commons is invisible and the wall reports empty.
+
+**Proposed cure.** Delete colorSearchParams and displayedBrowse. Put `color: { L, a, b, radius } | null` in the shared filter state next to tier/tags and add three lines to currentFilterOpts(). crud-list.ts becomes the single home for OKLab distance; Math.hypot leaves the demo entirely. Pair with publishing `deltaE(a,b)` from @mkbabb/value.js/color so the API stops hand-rolling it too (`grep -rn "deltaE\|colorDistance" src/` → zero hits in a colour library).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-4 · CHALLENGE-L
+
+**Defect.** The five filters this one component emits have four different owners, and three of them are homed in the *dialog* sub-feature. There is no filter-state module; useBrowsePalettes is a 240-line god module holding filter state + keyset pagination + CRUD.
+
+**Mechanism.** No unique semantic home for the 'browse query' concept, so each filter landed wherever its handler was first written; the god module had no room for it.
+
+**Evidence.**
+
+```
+sort → useBrowsePalettes.ts:116; tier/selectedTags/clearFilters → demo/palettes/browser/dialog/composables/useDialogBrowseActions.ts:91-100 (imported by BrowsePane.vue:255-265 from './browser/dialog'); colorSearch → BrowsePane.vue:351 (pane-local); text → useBrowsePalettes.ts:43 AND :57. That file's own header at :17-18 documents the mismatch: "Browse filter handlers (onTierChange / onTagsChange / onClearFilters): mutate pm.tierFilter / pm.selectedTags and reload." activeFilterCount (SearchFilterBar.vue:189-195) reads tier+selectedTags from PROPS but colorSearchActive from a LOCAL ref (:171); onClearAll (:227-232) must fire TWO events to reset one concept, caught by BrowsePane.vue:328-332 and :357-359. `wc -l demo/palettes/useBrowsePalettes.ts` = 240.
+```
+
+**Reproduction.** Read the six emit sites in SearchFilterBar.vue:154-161 and follow each binding in BrowsePane.vue:15-26 to its handler. Four distinct modules, two of them (dialog composables, pane-local) semantically wrong.
+
+**Proposed cure.** NEW demo/palettes/browse/useBrowseQuery.ts owning { text, sort, tier, tags, color, radius } + toListOptions(): ListPalettesOptions + activeCount + clear(). useBrowsePalettes becomes useBrowsePage (paging + fetch only); vote/rename/delete/visibility/fork lift into usePaletteMutations.ts; useDialogBrowseActions.ts is DELETED. SearchFilterBar becomes a stateless FilterMenu over one `v-model:query` — which also makes L-1's desync arithmetically impossible and collapses the double-fired clear.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-5 · CHALLENGE-L
+
+**Defect.** A hand-rolled 6-digit-hex regex gates the field one line in front of the full CSS Color Level 4 parser it already imports; rejected input is silently replaced by the swatch colour, and the field's own placeholder advertises a syntax the regex refuses.
+
+**Mechanism.** A second, narrower, incompatible parser placed in front of the canonical total parser; failure masked by a fallback instead of surfaced (edict 2: masking fallbacks).
+
+**Evidence.**
+
+```
+SearchFilterBar.vue:218 `const hex = text.startsWith("#") && /^#[0-9a-f]{6}$/i.test(text) ? text : pickerHex.value;` — with hexToOklab (:205-211) calling parseColorIn, and placeholder="#hex, hsl(...)" at :92, pickerHex default "#4488cc" at :170. Measured library capability: parseCssColor+convertColor resolve all of `hsl(210 60% 50%)` → oklab 0.5883 -0.0443 -0.1319, `oklch(0.7 0.15 250)` → 0.7000 -0.0513 -0.1410, `rebeccapurple` → 0.4403 0.0882 -0.1339, `#48c` → 0.6136 -0.0415 -0.1175, `color(display-p3 0.2 0.4 0.8)` → 0.5340 -0.0363 -0.1775. The regex accepts one of the five. The `"none"` guard at :207-209 is unreachable given the gate — it defends the impossible while the possible failure is silenced.
+```
+
+**Reproduction.** Type `rebeccapurple` (or `hsl(210 60% 50%)`, or `#48c`) into the Find-by-Colour field and press Search. The emitted colorSearch triple is that of #4488cc, not the typed colour. No error, no visual difference from success — colorSearchActive goes true and the badge increments.
+
+**Proposed cure.** Delete the regex. `parseColorIn(text, "oklab")` inside a try, surfacing PickerColorError as field-invalid state via glass-ui Input's existing `invalid` prop (measured present). The library is a total parser; stop putting a partial one in front of it.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-6 · CHALLENGE-L
+
+**Defect.** One component carries two colour engines: SearchFilterBar reaches the library for colour while its only child, MiniColorPicker, hand-rolls the full HSV↔RGB↔hex conversion — inside the demo of a colour library.
+
+**Mechanism.** Duplicate ownership of a concept the library exists to own; a library-level lesson re-learned badly at component level.
+
+**Evidence.**
+
+```
+SearchFilterBar.vue:132 imports ./MiniColorPicker.vue, rendered :66-81. MiniColorPicker.vue imports only vue + ../../../ui/popover + ../../../ui/button — no value.js. Its :88-114 is an HSV→RGB sextant switch + toHex padder; :118-134 the RGB→HSV inverse, carrying its own hue hack at :126 `if (d === 0) return; // keep existing hue`. @mkbabb/value.js/color publishes hsv, rgb, convertColor, toRgba8 (src/subpaths/color.ts); demo/color-session/picker-color.ts:56 already declares HSV channel metadata. MEMORY records the hue-drift lesson at library level (stableHue in useColorModel). The two engines meet via a watch→emit→prop→watch round trip (MiniColorPicker.vue:116,118 ↔ SearchFilterBar.vue:175-178).
+```
+
+**Reproduction.** grep -n '^import' demo/palettes/browser/search/MiniColorPicker.vue → vue + two ui shims, no @mkbabb/value.js. Then read :88-134.
+
+**Proposed cure.** Delete both conversion blocks. `convertPickerColor(color, "hsv")` and `colorToCss(color)` from demo/color-session/ do all of it; the SV canvas becomes a thin h/s/v view over one AnyColor (ColorField.vue in the proposed lattice). One colour engine per demo.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-7 · CHALLENGE-L
+
+**Defect.** Text search composes two incompatible matchers in series — a MongoDB $text search on the server and a substring filter on the client — producing three distinct behavioural regimes for one field.
+
+**Mechanism.** Two homes for one concept across the client/server boundary, composed serially rather than one being canonical.
+
+**Evidence.**
+
+```
+Server: api/src/modules/palette/service/crud-list.ts:95-96 `const q = query.q?.trim(); if (q) f.$text = { $search: q };` (stemmed, whole-word, index-driven). Client: demo/palettes/useBrowsePalettes.ts:43-45 `useFilteredList(remotePalettes, deps.searchQuery, (p,q) => p.name.toLowerCase().includes(q) || p.slug.includes(q))` (substring). Gate: useBrowsePalettes.ts:57 `...(q.length >= 2 ? { q } : {})`. Regimes: 0 chars → neither; 1 char → client substring only; ≥2 → server $text THEN client substring.
+```
+
+**Reproduction.** Search `blu` on a commons containing "Blue Ridge": $text has no whole-word token `blu`, the server returns nothing, the wall is empty. Search `ocean sunset`: $text OR-matches and returns rows, then the client requires the literal contiguous string in name/slug and discards nearly all of them.
+
+**Proposed cure.** One matcher. The API owns the text index — delete filteredBrowse from the browse path and lower the q gate to 1 character. useFilteredList survives for PalettesPane's genuinely local list.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-4 · CHALLENGE-L
+
+**Defect.** `demo/ui/` is a 19-module pure-alias layer over glass-ui with zero logic, and 18 of 19 barrels route through the root barrel rather than the granular subpath glass-ui 7 ships — producing four different design-system import idioms inside this one component's tree.
+
+**Mechanism.** alias/shim layer retained after its content was proved empty — the wrapper survived the thing it wrapped.
+
+**Evidence.**
+
+```
+All 19 demo/ui/*/index.ts dumped: each is a single `export … from "@mkbabb/glass-ui"` (only input reaches `/forms`). CurrentPaletteEditor.vue:174-181 imports Input/Button/Tooltip through the aliases while :191 imports WatercolorDot directly from `@mkbabb/glass-ui/watercolor-dot`, and useSwatchActions.ts:5 imports writeClipboard from the root barrel for a function that lives at ./dom. Reachable ESM graph: glass-ui.js root barrel = 66 modules / 218.9 KB vs button.js = 11 / 16.8 KB. demo/ui/alert/index.ts carries the tombstone of its own conversion ("previously held a local shadcn-vue re-implementation … B.W2 converted it to a re-export").
+```
+
+**Reproduction.** for f in demo/ui/*/index.ts; do cat $f; done → 19 single-line re-exports, no logic.
+
+**Proposed cure.** Delete demo/ui/ entirely (19 files, 0 lines of logic) and rewrite the ~200 consumer imports to the granular glass-ui subpath. Mechanical codemod; removes a directory from the demo lattice and makes the design-system dependency legible at every call site.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-5 · CHALLENGE-L
+
+**Defect.** `btn-interactive` is a phantom class. The component's own comment says the hover/press scale legs were "retired onto the producer's btn-interactive atom"; that atom does not exist in glass-ui 7.0.0, so the animation was deleted, not moved — a direct edict-6 violation.
+
+**Mechanism.** cross-repo token deletion under a false zero-site verdict; the consumer kept the class name as documentation of an atom that no longer ships.
+
+**Evidence.**
+
+```
+`grep -rl "btn-interactive" node_modules/@mkbabb/glass-ui/` → no output (0 files in the whole 7.0.0 package). Live document.styleSheets walk → {"n":0,"samples":[]} — zero CSS rules mention it. The class is applied at CurrentPaletteEditor.vue:75,78,100 (and ColorInput.vue:69,78). Live computed transition on .add-slot-ghost is "transform, border-radius, filter, box-shadow / 0.2s, 0.6s, 0.2s, 0.2s" — all from glass-ui's own .watercolor-swatch; no scale leg in either register. Corroborating history: docs/precepts/instructions/LESSONS-LEARNED.md:603 records `.btn-interactive` being retired at the substrate under a false zero-site verdict.
+```
+
+**Reproduction.** In the live page console: [...document.styleSheets].flatMap(s=>{try{return [...s.cssRules]}catch{return[]}}).filter(r=>(r.cssText||'').includes('btn-interactive')).length → 0.
+
+**Proposed cure.** Mint the atom where its comment already claims it lives — glass-ui `@utility btn-interactive`, riding --transition-liquid-spatial @ --spring-smooth-duration with the house focus register — and let ./swatch compose it, so the six swatch sites inherit the press/hover legs instead of naming a class that resolves to nothing.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-6 · CHALLENGE-L
+
+**Defect.** The G-DEMO-1 / G-DEMO-3a / G-DEMO-3b architectural boundary rules are dead config: their file globs target `demo/@/**`, a directory that no longer exists, and their banned specifier prefix `@components/**` has zero usages. The "standing, eslint-enforced" barrel-seam law does not apply to the subject at all.
+
+**Mechanism.** config keyed on a path shape the W43/RF-15 restructure deleted; the guard silently degraded to a no-op while its prose kept asserting enforcement.
+
+**Evidence.**
+
+```
+`npx eslint --print-config demo/palettes/browser/card/CurrentPaletteEditor.vue` → `no-restricted-imports = undefined`. `ls -d demo/@` → No such file or directory. `grep -rn '"@components' demo | wc -l` → 0. eslint.config.js:232-239 globs demo/@/components/**, demo/@/lib/**; :274-277 globs demo/@/composables/**; the restricted group at :247 and :295 is `@components/custom/palette-browser/**/*.vue`. Meanwhile browser/index.ts:6 asserts "the G-DEMO-3b boundary (eslint.config.js) enforces it standing", and CurrentPaletteEditor.vue:193 is the live violation it would have caught (`import ApiOfflineChip from "../status/ApiOfflineChip.vue"` — a raw cross-cluster .vue reach).
+```
+
+**Reproduction.** npx eslint --no-warn-ignored --print-config demo/palettes/browser/card/CurrentPaletteEditor.vue | jq '.rules["no-restricted-imports"]' → null.
+
+**Proposed cure.** Re-key the three rules onto the live tree (demo/palettes/**, demo/picker/**, demo/shell/**, demo/workbenches/**, demo/scenes/**) with relative-path groups (`**/browser/*/*.vue`), and add a CI assertion that each no-restricted-imports group matches ≥1 real import today — a boundary rule that can never fire is indistinguishable from an absent one.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-7 · CHALLENGE-L
+
+**Defect.** Wrong direction of dependency: 4 props + 8 emits re-declare state the app already provides by injection; 6 of 8 emits are 1:1 relays onto ports built for exactly this, and useSwatchActions hand-retypes the colorTargetPort surface.
+
+**Mechanism.** prop-drill/inject dual transport for one concept, plus a second structural declaration of an already-typed port.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:196-213 (4 props / 8 emits). PalettesPane.vue:163 `inject(CSS_COLOR_KEY)!` then re-drills it as a prop at :43, while the child injects SAFE_ACCENT_KEY from the same keys module at :215 and its composable injects EDIT_TARGET_KEY at useSwatchActions.ts:4 — three facets of one colour session, two transport idioms. PalettesPane.vue:46-53 relays @apply/@add-color/@start-edit/@saved/@updated/@clear-current straight onto colorTarget.* and pm.*; usePalettePorts.ts:137-155 (libraryPort) and :234-240 (colorTargetPort: emitApply, emitAddColor, emitStartEdit, emitSetCurrentColor, commitColorEdit) already expose every one. useSwatchActions.ts:12-17 re-declares that port's call signatures by hand.
+```
+
+**Reproduction.** NONE — structural (verified by reading the port definitions against the relay list).
+
+**Proposed cure.** Inject, don't drill. useSwatchActions takes inject(COLOR_TARGET_PORT_KEY) directly (it already injects EDIT_TARGET_KEY two lines up); the component injects CSS_COLOR_KEY and LIBRARY_PORT_KEY. The 4-prop/8-emit surface collapses to zero props and two emits, and PalettesPane.vue:41-54 (14 lines of relay) becomes a single self-closing tag.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-13 · CHALLENGE-L
+
+**Defect.** The edit-commit control pair (FROM→TO WatercolorDot diff + Check/Undo2) is implemented twice — here and in the dock — and the `commitEdit` command it sends has two wirings that have already drifted apart.
+
+**Mechanism.** responsive routing implemented as a fork — two homes for one concept with nothing holding them in agreement, plus a command with two call sites and no single owner.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:56-84 vs Dock.vue:136-144: same arrow span, same Check aria-label="Save edit" with the identical per-instance `:style="{ color: safeAccent }"`, same Undo2 aria-label="Cancel edit"; differing only in dot size (w-11/sm:w-12 vs w-7), seeds (edit-from-i/edit-to-i vs edit-original/edit-new) and host (bare <button class="btn-interactive"> vs <DockControl>). Divergent command wiring: demo/color-picker/App.vue:41 `@commit-edit="colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1"` vs demo/shell/usePaneRouter.ts:156 `"onCommit-edit": () => deps.colorPickerRef()?.commitEdit()` — same verb, same target ref, one extra side effect on one path only.
+```
+
+**Reproduction.** NONE for the drift's user-visible consequence (structural); the duplication itself is verified by the two file:line pairs above.
+
+**Proposed cure.** One EditCommitBar owning the FROM→TO diff and the two verbs, living in demo/color-session/ (which already owns EDIT_TARGET_KEY and the EditTarget type), rendered by whichever host is on screen and styled through the host's slot. The command moves onto COLOR_TARGET_PORT_KEY (usePalettePorts.ts:239 already exposes commitColorEdit), so both hosts call one port method and the pane-index reset lives inside it once — deleting the commitEdit/cancelEdit emit pair from this component, from PalettesPane, and from usePaneRouter's rightProps special case.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-8 · CHALLENGE-L
+
+**Defect.** The palette-name collision rule has two homes that disagree, and hosting it here costs a full `savedPalettes: Palette[]` prop drilled into a swatch editor to run one `.find()`.
+
+**Mechanism.** domain rule duplicated in a presentation component; the duplicate drifted and dragged a heavyweight prop with it.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:253-256 `savedPalettes.find(p => p.name.toLowerCase() === name.toLowerCase())`. demo/palettes/usePaletteStore.ts:66-74 `store.value.palettes.find(p => p.isLocal && p.name.toLowerCase() === name.toLowerCase() && colorsMatch(p.colors, colors))`. Three divergences: isLocal filter present/absent, colorsMatch present/absent, resolution move-to-front-and-reuse vs prompt-to-Update. `Palette` (demo/palettes/types.ts:14-64) is a 23-field type; this component reads only .name and .id.
+```
+
+**Reproduction.** NONE — divergence is structural. Failure shape: a name that collides on the component's rule but not the store's yields an Update confirm for a palette the store would have created fresh.
+
+**Proposed cure.** The store owns identity. usePaletteStore grows findByName(name) (or createPalette returns a discriminated {ok} | {collision: Palette}); the component asks the port and the savedPalettes prop dies with the duplicated predicate.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-10 · CHALLENGE-L
+
+**Defect.** Palette export has two live implementations and the tested one is not the shipped one: `demo/palettes/export.ts` (132 lines) and `demo/palettes/export/` (12 modules, 1073 lines) both exist, and the directory has no index.ts, so `from "./export"` resolves to the file.
+
+**Mechanism.** dual implementation disambiguated only by module-resolution order — the most fragile possible arbiter.
+
+**Evidence.**
+
+```
+`ls demo/palettes/export/` → bytes, canonical, css, digest, json, png, reload, rfc8785, serializers, svg, tailwind, types — no index.ts. `wc -l` → export.ts 132, export/ 1073. usePaletteExport.ts:9 imports exportAsJSON/exportAsCSSCustomProperties/exportAsTailwindConfig/exportAsSVG/exportAsPNG/downloadExport `from "./export"`; Node/Vite extension resolution picks the sibling file over the extensionless directory, so the 12-module implementation is unreachable through that specifier.
+```
+
+**Reproduction.** node -e "console.log(require.resolve('./demo/palettes/export'))" (or read usePaletteExport.ts:9 against `ls demo/palettes/export/`): the directory has no index, so the file wins.
+
+**Proposed cure.** Delete export.ts. `export/serializers.ts` + the 11 byte-exact modules become the only implementation, reached through an explicit `export/index.ts` barrel, and the one slugify moves to demo/palettes/utils.ts.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-3 · CHALLENGE-L
+
+**Defect.** Ownership inversion stated as structure: WatercolorDot declares itself decoration (aria-hidden and pointer-events:none hard-coded in its render, not options), and the demo mounts it as its primary control anyway.
+
+**Mechanism.** a consumer reaching around a producer's declared role; the Glass 7 cut stopped papering over a boundary the demo never respected.
+
+**Evidence.**
+
+```
+dist/watercolor-dot.js render sets `"aria-hidden":"true"` and inline `pointerEvents:"none"` unconditionally. CurrentPaletteEditor.vue:286-290 hangs `.add-slot-ghost { display:inline-flex; align-items:center; justify-content:center }` — nine lines of scoped CSS whose only job is to centre a slot child the component has no slot for.
+```
+
+**Reproduction.** NONE — structural (the generalisable rule: a primitive that sets aria-hidden or pointer-events:none on its own root is paint, and paint may never be a consumer's interactive host).
+
+**Proposed cure.** Encode the rule in the lattice rather than in prose: glass-ui ./swatch is the only interactive host, WatercolorDot is consumed only by it, and the nine lines of orphan centring CSS delete themselves.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-5 · CHALLENGE-L
+
+**Defect.** demo/palettes/browser/index.ts — 45 lines declaring itself "the mega-feature's TOP-LEVEL SEAM … External consumers reach the feature through THIS seam" — has ZERO importers. All twelve real reaches go to sub-barrels. Its own header concedes App.vue bypasses it for tree-shake honesty, which leaves the seam with no property at all. Downstream, ./browser/slug has exactly one importer and it is `import type`.
+
+**Mechanism.** an architectural artefact documenting a contract nobody signs; the seam's only enforcement is the vacuous rule in L-4
+
+**Evidence.**
+
+```
+`grep -rn browser demo | grep -v '^demo/palettes/browser/' | grep -E 'import|from '` → 12 hits, all to ./browser/card (4), ./browser/dialog (3), ./browser/search (2), ./browser/admin (2), ./browser/slug (1, import type). Zero hits on the top-level barrel. browser/index.ts:14-18 self-concedes: "App.vue's eager index.js chunk therefore still reaches MigratePalettesDialog through the dialog/ sub-barrel directly".
+```
+
+**Reproduction.** `grep -rn 'browser' demo | grep -v '^demo/palettes/browser/' | grep -E 'import|from '` — count reaches to index.ts (0) vs sub-barrels (12).
+
+**Proposed cure.** Delete demo/palettes/browser/index.ts and demo/palettes/browser/slug/. Keep the sub-barrels — those are the seams consumers actually use.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-6 · CHALLENGE-L
+
+**Defect.** demo/ui/ is 19 directories, 19 files, 29 lines total — every one a pure alias re-export of a glass-ui primitive that glass-ui 7.0.0 already ships on its own subpath. This is precisely the alias/back-compat shim owner edict 2 forbids, and demo/ui/alert/index.ts self-documents the motive ("the two consumers import from this barrel unchanged"). PaletteSlugBar reaches glass-ui through THREE different idioms in one 14-line import block: subpath, demo alias, and the 43-chunk root barrel.
+
+**Mechanism.** a compatibility alias layer retained as a structural fiction; it also breaks the demo's value as a dogfood, because the imports a real external consumer would write are not the imports the demo writes
+
+**Evidence.**
+
+```
+`cat demo/ui/button/index.ts` → one line: `export { Button } from "@mkbabb/glass-ui";`. `find demo/ui -type f | wc -l` → 19; `find demo/ui -type f -exec wc -l {} + | tail -1` → 29 total. All 19 have a matching glass-ui subpath (verified against node_modules/@mkbabb/glass-ui/package.json exports, v7.0.0). demo/ui/alert/index.ts:1-9 documents the shim rationale verbatim. Consumers: 92 import statements across 81 files (`grep -rn 'from "[^\"]*ui/(button|popover|dropdown-menu|...)"' demo | wc -l` → 92; `grep -rln 'from "[^\"]*ui/' demo | wc -l` → 81). PaletteSlugBar.vue:132-145 mixes @mkbabb/glass-ui/search (subpath), ../../../ui/button + ../../../ui/popover (alias), @mkbabb/glass-ui (root). Barrel fan-out measured: root glass-ui.js imports 43 distinct chunks vs search.js 7; sideEffects is ["*.css"] and `grep -cE 'import\s*\"[^\"]*\.css\"' glass-ui.js` → 0.
+```
+
+**Reproduction.** `cat demo/ui/button/index.ts`; `find demo/ui -type f -exec wc -l {} + | tail -1`; the two grep counts above.
+
+**Proposed cure.** Delete demo/ui/ entire and rewrite the 92 imports to glass-ui subpaths (@mkbabb/glass-ui/button, /popover, /dropdown-menu, …). Mechanical single pass; it removes 19 alias files and makes demo consumption byte-identical to an external consumer's. NOTE (labelled hypothesis, NOT measured): the bundle-size effect of the 43-chunk root reach is unproven — I did not run a comparative build. The consistency defect stands independently.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-7 · CHALLENGE-L
+
+**Defect.** Direction of dependency is inverted: the app SHELL depends on the PALETTES feature for the application's identity surface. Five shell files value-import SESSION_PORT_KEY from demo/palettes/usePalettePorts.ts, whose symbol is literally Symbol("palette.session"). A type back-edge runs the other way (palettes → shell) for a single `as` cast, making the two top-level areas mutually dependent. usePalettePorts.ts is also a god module: 275 lines, 5 injection ports, built from 15 composables.
+
+**Mechanism.** the identity port was namespaced, owned and provided by whichever feature happened to need it first; the shell then injected it, inverting the chrome→feature direction
+
+**Evidence.**
+
+```
+`grep -rn 'from "\.\./*.*palettes/' demo/shell/` → 5 files / 8 edges: DockViewSelect.vue, Dock.vue, layers/SlugEditLayer.vue, menus/ProfileSection.vue, menus/MobileMenuDropdown.vue — all importing ../palettes/usePalettePorts. usePalettePorts.ts:271 `export const SESSION_PORT_KEY: InjectionKey<SessionPort> = Symbol("palette.session")`. Reverse edge: usePalettePorts.ts:19 `import type { ViewId } from "../shell/useViewManager"`, used at :34, :35 and — load-bearingly — only for the cast at :88 `setActiveTab: (tab: string) => depsSwitchView(tab as ViewId)`. usePalettePorts.ts is 275 lines (wc -l), imports 15 composables (:4-18), provides 5 ports (:242-246); PORT 1·Session's inputs all come from demo/platform/auth/ (:5-7), so it is pure pass-through of another area's state under a third area's key.
+```
+
+**Reproduction.** `grep -rn 'palettes/' demo/shell/ | grep -E 'import|from'` → 8 edges; `grep -n 'ViewId' demo/palettes/usePalettePorts.ts` → :19,:34,:35,:88.
+
+**Proposed cure.** Move identity below both areas: new demo/platform/auth/useIdentity.ts exporting IDENTITY_KEY = Symbol("identity") with { userSlug, isAdmin, lastError, login, logout, regenerate }; provided by App.vue. Move useSlugMigration.ts from demo/palettes/ to demo/platform/auth/. PORT 1·Session leaves usePalettePorts (5 ports → 4). Kill the ViewId edge by moving post-login view switching to App.vue (the composition root already owns the router), which removes both the cross-area type import and the `as` cast. Result: shell → platform/auth and palettes → platform/auth, both strictly downward; the shell↔palettes cycle dissolves.
 
 ---
 
@@ -4117,6 +6763,78 @@ ConfigSliderPane.vue:41-52 types config and defaults as Record<string, unknown>.
 
 ---
 
+### `CHALLENGE-C — implementation (pass 4, independent seat) · su` · C-31 · CHALLENGE-C
+
+**Defect.** The slug-login field's programmatic focus is deterministically revoked 0.3 ms after it lands, by glass-ui's own layer focus-repair. On desktop, clicking Login opens a visible, non-inert login layer whose field never holds the caret — every typed keystroke is dropped, and Escape (bound to the input) does nothing either. SlugEditLayer.vue:20-22's nextTick focus is dead code at runtime.
+
+**Mechanism.** Two nextTick-scheduled focus calls race; the producer's runs second, unconditionally, whenever the OUTGOING face contains document.activeElement — and the desktop Login button lives inside that face. The incoming face carries tabindex="-1" so it absorbs focus. (The mobile ⋮→Login path is unaffected and measured working — the trigger is a portaled reka menu item, outside the face, so no repair fires: `input value: "mobile-typed"`.)
+
+**Evidence.**
+
+```
+Instrumented focus()-stack trace (scratchpad/p4-focus2.mjs): `+193.9ms .focus() on input[enter slug or token.] @ ... at /demo/shell/dock/layers/SlugEditLayer.vue:29:25` → `+201.3ms focusin -> input` → `+201.6ms .focus() on div.dock-face.is-active @ ... at w (@mkbabb_glass-ui_dock.js:895:84)` → `+201.6ms focusout <- input`; final `{active:'div.dock-face.is-active', activeTabindex:'-1', inputIsActive:false}`. Producer source, dist/dock.js:892-896: `!n||!r||!n.contains(r)||(await nextTick(),(_(t)??document.body).focus?.())`. Live state of the layer at that moment: `{visibility:'visible',opacity:'1',pointerEvents:'auto',inertAncestor:false,w:160,h:23}`. Typing test: `input value: ""` after typing 'hello-there-friend-x'.
+```
+
+**Reproduction.** Desktop ≥1024px, anonymous session, http://localhost:9000/#/ → click Login → type. The field stays empty. Keyboard users can still reach it with exactly one Tab from the parked face (measured: Tab#1 -> input), so it is a silent focus loss, not a total lockout.
+
+**Proposed cure.** Stop hand-focusing from inside the outgoing layer. Gestalt: the layer declares its entry focus and the layer machine honours it — glass-ui's w() should prefer an explicit target ([autofocus]/focusTarget on DockLayer) inside the incoming face over the face itself (glass-ui BH relay; same cure kills C-35). Demo-side interim: drive focus off the layer's own became-active edge, after the producer's repair, and retire the parent→child imperative poke Dock.vue:61 slugEditRef.value?.onStartSlugEdit().
+
+---
+
+### `CHALLENGE-C — implementation (pass 4, independent seat) · su` · C-32 · CHALLENGE-C
+
+**Defect.** The dock's live backdrop sampler has never once succeeded. `data-backdrop-sample-state="unavailable"` / `reason="source-unavailable"` is re-stamped ~3.5x/s forever on every route; `--glass-backdrop-luma` stays unset (fallback 0), so `--glass-tint-strength` evaluates to its 4% floor permanently and the producer's adaptive-legibility tint (AA 20%) can never engage over the aurora field.
+
+**Mechanism.** A design-system feature wired by CONVENTION (a data-attribute stamp) rather than by a prop, where the producer's resolver stopped honouring the convention across a major — verified once by reading, never by measuring. Live=true with source=null yields an infinite failing retry loop that writes DOM attributes at 3.5 Hz on the persistent chrome.
+
+**Evidence.**
+
+```
+scratchpad/p4-idle.mjs, MutationObserver on nav.dock-band, 4 s idle: `total idle mutations in 4s: 42` — 14x data-backdrop-sample-state=unavailable, 14x -source=canvas, 14x -reason=source-unavailable, and nothing else. scratchpad/p4-backdrop.mjs on #/, #/palettes, #/blob (identical rows): `{"state":"unavailable","reason":"source-unavailable","sampledAttr":false,"luma":"0","tintStrength":"clamp( 4%, calc( 4% + (20% - 4%) * max( 0, ( 0 - 0.6 ) / (1 - 0.6) ) ), 20% )","tintFloor":"4%","tintAA":"20%","autoDiscoverWouldFind":true}`. Source: Dock.vue:132 passes no :background-canvas; dist/dock.js:715-718 always hands the sampler a getter; dist/dock.js:76-89 De() early-returns on the truthy getter so the documented `[data-glass-field-canvas] canvas, canvas[data-glass-field-canvas]` fallback is unreachable, while dist/dock.js:176's is-live predicate DOES use it; dist/dock.js:216 is the source-unavailable branch. Contradicted claim in the record: demo/color-picker/composables/boot/useAtmosphereBoot.ts:40-48 ('auto-discovers THIS canvas as its backgroundCanvas and samples the live field').
+```
+
+**Reproduction.** Load any route, wait past boot, read the dock: `document.querySelector('.glass-dock').getAttribute('data-backdrop-sample-state')` === 'unavailable' and `getComputedStyle(dock).getPropertyValue('--glass-backdrop-luma')` === '0' — on 3/3 routes probed, and re-stamped ~14x per 4 s.
+
+**Proposed cure.** Thread the canvas the App already owns: `<GlassDock :background-canvas="atmosphereCanvas">` (App.vue:9 ref, stamped data-glass-field-canvas at App.vue:16). Producer-side BH relay: De() must fall through to the document convention when the getter yields null, otherwise the stamp is decorative for every consumer in the constellation. No demo-local luminance shim — the ladder token is the producer's and the seam exists. Verify the cured state reaches `sampled` (see C-38: the field canvas is a 300x150 WebGL2 backing store; a blank readback would merely trade source-unavailable for sample-unavailable).
+
+---
+
+### `CHALLENGE-C — implementation (pass 4, independent seat) · su` · C-33 · CHALLENGE-C
+
+**Defect.** MT-F004's mechanism, named: the three login controls are sub-24px because SlugEditLayer passes `compact` to DockControl, which is the producer's explicit opt-out from the coarse-pointer 2.75rem touch floor — and the demo never sets the --dock-compact-control-* token hooks that its own sibling control already uses. The 160x20 slug input additionally has no accessible name (placeholder only, clipped by a fixed w-40).
+
+**Mechanism.** The demo opted into the producer's documented opt-out and then never re-supplied the geometry through the token seam — the same seam the sibling ActionBarToggle.vue:154-158 already uses (T-36's `--dock-compact-control-padding: 0.5rem 0.75rem`, asserted at o15-dock-register.spec.ts:126-129). It survived because nothing ever renders this layer (C-36).
+
+**Evidence.**
+
+```
+Producer rule, dist/components/dock/styles/controls/touch-floor.css: `@media (pointer: coarse){ .dock-icon-button:not(.dock-icon-button--compact):not(:where(.glass-dock *)){ min-block-size: var(--dock-touch-target,2.75rem); min-inline-size: … } }` — the slug controls hit BOTH exclusions. Compact geometry: icon-button.css `.dock-icon-button--compact{ width:var(--dock-compact-control-size,auto); padding:var(--dock-compact-control-padding,0.25rem) }`. Measured live in the OPEN state at 390x844 isMobile+hasTouch (p4-focus4.mjs): `[{"l":"enter slug or token...","w":160,"h":20},{"l":"Switch to slug","w":23,"h":23},{"l":"Generate new slug","w":23,"h":23},{"l":"Cancel","w":23,"h":23}]`. Input name census (p4-focus.mjs): `{ariaLabel:null,id:null,labelFor:false}`. Source: SlugEditLayer.vue:81-87 (input), :91-118 (three compact DockControls).
+```
+
+**Reproduction.** Open the login layer (click Login on desktop, or ⋮→Login on mobile) and measure the three DockControls and the input: 23x23 / 23x23 / 23x23 and 160x20, all < 24 CSS px, under a coarse pointer.
+
+**Proposed cure.** Apply the T-36 idiom to the login controls: set `--dock-compact-control-padding` (and `--dock-compact-control-size: 2.75rem` under `(pointer: coarse)`) at the root of the slug layer's controls — root-level styling through the producer's own hook, not per-instance overrides, no new component. Give the input a real name (a visually-hidden label or aria-label, plus a non-fixed width so the placeholder is not clipped).
+
+---
+
+### `CHALLENGE-C — implementation (pass 4, independent seat) · su` · C-34 · CHALLENGE-C
+
+**Defect.** The dock's layer machine is silent to assistive tech: every layer change parks focus on an unnamed, role-less div.dock-face[tabindex="-1"], and the entire band contains no live region in production — the only aria-live/status/alert element is the DEV-gated status lamp.
+
+**Mechanism.** State changes are expressed purely visually (crossfade + inert toggling); no announcement channel and no named focus target exist, so the layer swap, the linkCopied flip (ProfileSection.vue:156 'Share color'→'Copied!'), the login result and the view switch are all unannounced.
+
+**Evidence.**
+
+```
+Focus landings (p4-focus.mjs): Tools→`div.dock-face.is-active[lab(92% 88.8 20 / 82.7%)]`, Back→`div.dock-face.is-active[HomeToolsPickerAbout Log]`, Login→`div.dock-face.is-active[]`. Live-region census of nav.dock-band (p4-perf.mjs): `[ 'span[role=alert,live=null] "dev misconfigured — run `npm r"' ]` — DockStatusLamp.vue:13 is `v-if="lamp"` with `const isDev = import.meta.env.DEV`, so production has zero live regions. The face's only accessible text is the run-together textContent of the controls inside it.
+```
+
+**Reproduction.** Keyboard-activate any dock layer control (Tools, Back, Login) and read document.activeElement: an unnamed div with tabindex=-1, three times out of three. Then query the band for [aria-live],[role=status],[role=alert],[role=log] in a production build: empty.
+
+**Proposed cure.** One polite live region owned by the dock (the layer machine's announcement seam) plus a real entry-focus target per layer — declared, not poked. Same root as C-31/C-35: the dock's layer machine should own focus and announcement together instead of leaving both to the producer's default face-focus.
+
+---
+
 ### `CHALLENGE-C — implementation (third independent pass on demo` · C-23 · CHALLENGE-C
 
 **Defect.** The dock's slug-login error path is dead in three independent places: an unrendered `slugError` ref, an un-awaited async dispatch that makes the local catch AND the loading spinner unreachable, and a `setError` sink routed at a template ref that is never bound to a component that is never rendered. A failed login from the dock produces zero user feedback of any kind.
@@ -4150,6 +6868,258 @@ Cold load into a FRESH browser context per row, 1440x900, unauthenticated, 1.8s 
 **Reproduction.** Open a private window at http://localhost:9000/#/blob (or #/atmosphere, or any #/admin/* route). The dock's view control shows an icon and a chevron and no name; clicking it lists seven views, none of which is the current one.
 
 **Proposed cure.** Put the user/admin partition on `PaneConfig` in demo/shell/viewSchema.ts (the table that already carries `right`, `label`, `accentHueShift`), derive `viewEntries` as `entries(VIEW_MAP).filter(visibleTo(session))` UNIONED unconditionally with the current view, and make `isAdminMode` a computed over (currentView, auth) rather than a ref with two mutating watchers. The latch, the initialiser/watch disagreement and the blank label all disappear together.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-3 · CHALLENGE-C
+
+**Defect.** `.dock-layer-grid` matches zero CSS rules — the class name asserts a grid that does not exist, so the inactive/leaving sub-layer's absolute positioning resolves against the whole dock face instead of the sub-grid.
+
+**Mechanism.** The producer's stacking container is `.dock-layers { display:grid }`; the consumer invented a similar-sounding name with no rule behind it. Because `.dock-layer:not(.is-active){position:absolute;inset:0}` is inherited from the producer via a descendant selector, the missing `position:relative`/`display:grid` on the container silently redirects the containing block one level up.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:101. Live probe walking every rule of every stylesheet: gridRuleCount == 0; getComputedStyle(.dock-layer-grid).display == "block"; .position == "static". Static cross-check: `grep -rn "dock-layer-grid" node_modules/@mkbabb/glass-ui/dist/ demo/ src/` returns exactly one hit — ActionBarLayer.vue:101, the site that writes it. Measured consequence: the inactive layer's offsetParent is `dock-face is-active`, not the grid; the ActionToolbar sub-layer measures 184.0px wide when active and 447.5px when leaving, and ColorInput measures 447.5px when inactive vs 290.4px when active — each layer stretches to the full dock face whenever inactive, spilling left over the sibling Back control and DockSeparator.
+```
+
+**Reproduction.** http://localhost:9000/#/ console: `const g=document.querySelector('.dock-layer-grid'); getComputedStyle(g).display` -> "block"; `[...g.children].find(c=>!c.classList.contains('is-active')).offsetParent.className` -> "dock-face is-active".
+
+**Proposed cure.** Subsumed by D-2 — DockCrossfade supplies `.dock-crossfade{position:relative;display:grid;isolation:isolate}` and grid-area-stacks its faces. Do NOT patch by adding a local `.dock-layer-grid{display:grid;position:relative}` rule; that would deepen the private-CSS coupling of D-4.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-4 · CHALLENGE-C
+
+**Defect.** The component hand-writes the producer's private layer class vocabulary (`dock-layer`/`is-active`/`is-leaving`) nested inside a genuine producer `.dock-layer`, creating an undeclared name-based coupling to glass's internal CSS.
+
+**Mechanism.** Coupling by class name to a producer's private stylesheet. Invisible to package.json, to typecheck, and to every test — a glass release renaming `.dock-layer` or tightening the selector to `>` breaks this component with no compile error and no failing test.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:91 emits `class: ["dock-layer", {"is-active":…, "is-leaving":…}]`. Live probe: dockLayerAncestors == ["dock-layer dock-layer--full is-active"] — the hand-written layers are descendants of a real producer layer. glass selectors are descendant-scoped: `:where(.glass-dock,.dock-layer-group) .dock-layer {display:flex;align-items:center;grid-area:1/1;gap:var(--dock-layer-gap,.375rem)}`, `.glass-dock:not(.vertical) .dock-layer{min-height:var(--dock-layer-height,2.5rem)}`, and `.glass-dock[data-morphing] .dock-layer.is-active > * {opacity:var(--child-reveal);scale:calc(0.82+0.18*var(--child-reveal))}` — all land on the nested sub-layers unintentionally, including driving opacity/scale on ActionToolbar's and ColorInput's children during any genuine dock morph.
+```
+
+**Reproduction.** http://localhost:9000/#/ console: `document.querySelector('.dock-layer-grid').children[0].closest('.dock-layer--full')` -> non-null, i.e. a `.dock-layer` inside a `.dock-layer`.
+
+**Proposed cure.** D-2. `<DockLayer>` renders its own `.dock-face` host and never asks the consumer to author producer class names — the coupling becomes a typed component contract instead of a string.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-5 · CHALLENGE-C
+
+**Defect.** Vacuous gate: zero unit tests for this component, and the sole e2e touch asserts only the toggle button's aria-label, which no defect in the component can change.
+
+**Mechanism.** The gate observes the mode state machine, not the layer machinery the mode drives; the crossfade, the class, the inert and the swap are entirely unasserted.
+
+**Evidence.**
+
+```
+`ls test/` -> 21 files, none for the dock; `find test -iname "*dock*" -o -iname "*action*"` -> empty. `grep -rln "ActionBarLayer" test/ e2e/ demo/` -> only e2e/smoke/flows/color-propose.spec.ts, whose entire assertion surface is `await expect(page.getByRole("button",{name:"Propose color name"})).toBeVisible()` — a label computed at ActionBarLayer.vue:131 from toolbarMode + canProposeName alone, on a button that lives OUTSIDE .dock-layer-grid and is never inert during the flow.
+```
+
+**Reproduction.** Named green-keeping mutations: (1) delete lines 53-95 and replace subLayerProps with `() => ({})` (no crossfade, no inert, both sub-layers rendered on top of each other) — GREEN; (2) set SUB_LAYER_CROSSFADE_MS to 0 or 10_000_000 — GREEN; (3) invert the guard to `inert: isActive ? true : undefined`, inerting the VISIBLE layer and leaving the hidden role=textbox + five buttons in the tab order — GREEN; (4) swap the ids so subLayerProps('input') binds ActionToolbar and subLayerProps('actions') binds ColorInput, showing the wrong layer in every mode — GREEN.
+
+**Proposed cure.** Add a component test asserting the real invariants — exactly one sub-layer carries is-active, the other carries inert, and the active id tracks toolbarMode — and, once D-2 lands, delete the spec's five-line comment excusing the crossfade race (see D-13).
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-6 · CHALLENGE-C
+
+**Defect.** No size reserve: the sub-layer swap is an unreserved, uninterpolated layout jump.
+
+**Mechanism.** The reimplementation dropped the peak-reserve half of the retired primitive entirely; nothing sizes the container to the larger of the two faces.
+
+**Evidence.**
+
+```
+Measured live: active content width goes 184.0px (ActionToolbar) -> 290.4px (ColorInput) on toggle, a +106.4px instantaneous change with no reserved box. The producer documents this as the primitive's job — DockCrossfade.vue.d.ts: "The reserved box is sized to the peak face as a MEASURE-ONCE `min-block-size` (a running max — NOT a per-swap FLIP)", with `reserve: "block"|"inline"` and `inline` documented for "a horizontal control run". The shim's own comment at ActionBarLayer.vue:55 concedes glass's version did "the layer size-morph + crossfade", then reimplements only the crossfade bookkeeping.
+```
+
+**Reproduction.** http://localhost:9000/#/ : sample `document.querySelector('.dock-layer-grid').children[i].getBoundingClientRect().width` before and after clicking `Open color input` -> 184.0 then 290.4.
+
+**Proposed cure.** D-2 with `reserve="inline"` — inherit the producer's measure-once running-max reserve rather than re-deriving it.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-13 · CHALLENGE-C
+
+**Defect.** The toggle is a disclosure control with no aria-expanded, no aria-controls, no aria-live and no focus management — it swaps a role=textbox in and five named buttons out of the a11y tree silently.
+
+**Mechanism.** The hand-reimplementation kept the class/inert bookkeeping and left the focus-transfer half behind; a control a test harness cannot reach by accessible name during a state change is one a screen-reader user cannot reach either.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:129-142. Measured live over the subtree: toggle == { label:"Open color input", tag:"BUTTON", role:null, ariaExpanded:null, ariaControls:null, ariaPressed:null }; ariaLiveInScope == 0. `grep -c "focus" demo/shell/dock/layers/ActionBarLayer.vue` -> 0: focus is never moved into the revealed input and never restored on close, while line 92 applies inert to the outgoing layer in the same tick as the swap. The producer documents the contract the shim dropped — DockCrossfade.vue.d.ts: "A dissolving focus-holding face transfers focus to its successor, else the body (un-inert-before-focus is load-bearing)." The repo already knows: e2e/smoke/flows/color-propose.spec.ts COVERAGE NOTE concedes the propose contenteditable "is not reliably reachable via accessible-name selectors during the cross-fade. Filed as an E.W3-Lane-A finding". The sibling ActionBarToggle.vue:98-101 models the correct idiom in the same directory (aria-label + :aria-pressed + :tabindex).
+```
+
+**Reproduction.** MEASURED part: at http://localhost:9000/#/ , `const t=document.querySelector('.dock-layer-grid').parentElement.querySelector('button[aria-label]')` -> the toggle; it has none of aria-expanded/aria-controls/aria-pressed, and `t.closest('div').querySelectorAll('[aria-live]').length` -> 0. FOCUS-ORPHAN part: NONE — the specific outcome (document.activeElement falling to <body> when focus is inside ColorInput as inert lands) was NOT reproduced; the live session became unstable (a modal scrim intercepted pointer events, then the app navigated out from under the probe). The absence of focus handling is code-certain; the resulting activeElement is a HYPOTHESIS.
+
+**Proposed cure.** Structurally D-2 — inherit the producer's focus-transfer-on-dissolve rather than re-deriving it. Immediately: add `:aria-expanded="showInput"` plus an :id/aria-controls pair on the sub-layer hosts, following the ActionBarToggle.vue idiom already present in this directory.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-1 · CHALLENGE-C
+
+**Defect.** Seven of the fourteen named views have NO navigation entry point, and two of them (atmosphere, blob) are misclassified as admin. `viewEntries` returns one hand-maintained partition of ViewId or the other, never a union and never a projection of the route table; the admin list needs `isAdminMode && isAdminAuthenticated`, and admin mode can only be entered via a row that itself needs auth. For a non-admin user those seven views are reachable ONLY by typing a URL.
+
+**Mechanism.** The option set is a hand-maintained partition of ViewId held in a composable rather than a projection of the route table; nothing structurally forces userViews ∪ adminViews = keys(VIEW_MAP) or respects meta.admin.
+
+**Evidence.**
+
+```
+demo/shell/dock/composables/useDockAdminMode.ts:26-27 (the two literal arrays; adminViews contains "atmosphere","blob") and :34-39 (one list or the other). Contradicted by demo/color-picker/router/index.ts:28-29 (atmosphere/blob carry NO meta:{admin:true}, unlike :30-34) and demo/shell/viewSchema.ts:177,186 (accentHueShift 280/320 — the primary 40° fan) vs :195,204,213,222,231 (every real admin view pinned to 0, with the schema's own comment saying admin identity is gold, not a hue turn). SHOT docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/atmosphere.png — the full Atmosphere pane renders to an unauthenticated visitor with a Login button in the same dock. GREP: `grep -rn "openView(" e2e/` yields Mix/Palettes/Browse/Gradient/Home/Generate only; atmosphere is reached solely by `page.goto("/#/atmosphere")` (e2e/smoke/oracles/o18-contrast-census.spec.ts:929,1164).
+```
+
+**Reproduction.** Open http://localhost:9000/ unauthenticated, click the "Select view" combobox: exactly 7 options (Home/Palettes/Browse/Extract/Mix/Generate/Gradient) — measured live, count:7. No UI path exists to /#/atmosphere, /#/blob, or any /#/admin/* route.
+
+**Proposed cure.** Delete both literal arrays. Derive the menu from the router, which already holds the authority: one computed over router.getRoutes() partitioned by meta.admin, with label+icon from VIEW_MAP. Drift becomes unrepresentable and atmosphere/blob return to the user set the schema already assigns them.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-2 · CHALLENGE-C
+
+**Defect.** `isAdminMode` is a one-way latch: the route watcher sets it TRUE and has no else-branch, and does not consult authentication. Any visitor landing on the public /#/atmosphere or /#/blob flips the dock into admin mode, and the false gold admin identity persists across every subsequent navigation until a full page reload.
+
+**Mechanism.** Derived state (is this route an admin route, and is the user an admin) is stored as a ref and mutated by a partial watcher, so it can neither clear nor stay consistent with auth.
+
+**Evidence.**
+
+```
+demo/shell/dock/composables/useDockAdminMode.ts:55-59 — `watch(() => viewManager.currentView.value, (view) => { if (adminViews.includes(view)) { isAdminMode.value = true; } })` with no else and no isAdminAuthenticated check. Consumed at DockViewSelect.vue:70 (`--dock-ring: isAdminMode ? var(--color-gold) : var(--accent-view)`) and :80 (`gold-shimmer-icon`). SHOT shots/safari-desktop-light/atmosphere.png shows the gold trigger icon beside a Login button.
+```
+
+**Reproduction.** 1) Load http://localhost:9000/#/atmosphere unauthenticated. Live DOM read of .view-select-trigger: {"dockRing":"var(--color-gold)","iconClass":"lucide lucide-sparkles-icon … gold-shimmer-icon"}. 2) Pick "Home" from the menu. Re-read: {"hash":"#/","triggerText":"Home","dockRing":"var(--color-gold)","iconClass":"lucide lucide-house-icon lucide-house w-6 h-6 shrink-0 gold-shimmer-icon","goldShimmer":true} — still gold, still never authenticated.
+
+**Proposed cure.** isAdminMode is not state: `computed(() => isAdminAuthenticated.value && currentRoute.meta.admin === true)`. Derived, it cannot latch, cannot desync from auth, and cannot be entered by an anonymous deep link; the ref, the watcher and one mutator all disappear.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-3 · CHALLENGE-C
+
+**Defect.** The trigger label goes BLANK on 7 of the 14 routes and the open menu reports "nothing selected": `:model-value="currentView"` (the route) is bound against options drawn from the hand-partitioned list, so on any unmatched route SelectValue — which has no placeholder — renders nothing and every option is aria-selected="false".
+
+**Mechanism.** A controlled Select whose value domain (the route space) is a strict superset of its rendered option set; the unmatched case is silent by construction.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:52 (`:model-value="currentView"`) vs :92-98 (`v-for="entry in viewEntries"`); :87 `<SelectValue v-if="isDesktop" />` with no placeholder (glass-ui SelectValueProps = {placeholder?, class?}). SHOT comparison, all unauthenticated desktop-light: picker.png shows icon + "Home"; atmosphere.png and admin-users.png show icon only, no label. LIVE at /#/atmosphere: {"role":"combobox","ariaLabel":"Select view","text":"","rect":{"w":60,"h":32}} and with the listbox open all 7 options report aria-selected "false".
+```
+
+**Reproduction.** Visit http://localhost:9000/#/atmosphere (or /#/blob, or any /#/admin/*) at ≥1024px width and read the dock trigger: no text. Open it: count 7, zero options with aria-selected="true".
+
+**Proposed cure.** Same as D-1 — if the option set IS the route set, an unmatched value is unrepresentable. A `placeholder` on SelectValue would mask the seam rather than close it and must not be the fix.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-4 · CHALLENGE-C
+
+**Defect.** The open navigation menu contains NO indication of the current view. `hide-indicator` on every SelectItem removes glass-ui's only selected-state render, P4-R4 retired the font-weight marker, and the "producer's glass-quiet highlighted-on-open row" the component's own comment names as the replacement carrier does not exist anywhere in producer or consumer CSS. There is also no visible keyboard highlight (WCAG 2.4.7).
+
+**Mechanism.** An affordance was deleted on the strength of a producer behaviour that was assumed rather than verified; the only remaining carrier (data-state=checked) has no paint in any stylesheet.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:97 `hide-indicator` on every item; the justification comment at :99-109. GREP (contention-free): `grep -c "data-highlighted" node_modules/@mkbabb/glass-ui/dist/glass-ui.css` → 0; `grep -rc "data-highlighted" demo/styles/*.css` → 0 in all six files; `grep -c 'checked' …/glass-ui.css` → 1, and that single rule is `[data-state=checked] .switch__track{...}` (Switch, not Select). Producer source node_modules/@mkbabb/glass-ui/dist/select-BcBAyLXA.js:272 — `hideIndicator ? "none" : "start"`, and the indicator span is the only checked-state render. LIVE measurement of all 7 rows with Home current: distinctBg ["rgba(0, 0, 0, 0)"], distinctWeight ["400"], distinctColor ["rgb(28, 25, 23)"], every row opacity 1 / outline none / boxShadow none / data-highlighted null.
+```
+
+**Reproduction.** Load http://localhost:9000/ (current view Home), open the "Select view" combobox, and compute styles for every [role=option]: all seven are byte-identical in background, colour, weight, opacity, outline and box-shadow. data-state is "checked" on Home and "unchecked" on the rest, and nothing paints it.
+
+**Proposed cure.** Selection is the menu's only job. Restore the treatment at the ROOT (edict 4) — a [data-state=checked] rule in glass-ui's select stylesheet, which the whole constellation's selects are missing, not just this one. hide-indicator may then stay; it must not stay while nothing else paints selection.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-5 · CHALLENGE-C
+
+**Defect.** WCAG 2.5.3 "Label in Name" (Level A) failure on the product's primary navigation: a hard-coded aria-label overrides the visible label, so the accessible name is the constant "Select view" on every route and the current view's name is never in it. Voice-control users cannot operate the nav by what they see.
+
+**Mechanism.** aria-label wins over element content; a static role hint was written where a dynamic name was required.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:68 `aria-label="Select view"`. LIVE accessibility tree, closed state: `- combobox "Select view" [ref=f16e42] [cursor=pointer]:` with child `- generic: Home`. Visible text "Home" is not contained in the accessible name "Select view". Also measured aria-activedescendant: null while closed, so the value is exposed by nothing in the a11y layer once D-3 zeroes aria-selected.
+```
+
+**Reproduction.** Load http://localhost:9000/ and read the trigger's a11y node: name "Select view", visible content "Home". Same on every route.
+
+**Proposed cure.** The visible label IS the name — drop aria-label and let reka compose trigger content + SelectValue into the accessible name. If a role hint is wanted, use aria-labelledby that INCLUDES the value. Note the mobile branch (:87, SelectValue v-if=isDesktop) leaves no content at all below 1024px, so mobile needs the value in the name more than desktop does.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-6 · CHALLENGE-C
+
+**Defect.** Two independent sources of truth for "is this an admin?" in one menu — the forbidden dual path. The parent gates the option list on `isAdminMode && isAdminAuthenticated`; the child re-injects the same port and gates the admin row on `isAdminAuthenticated` alone.
+
+**Mechanism.** The child re-derives a fact the parent already owns and passes four other props for; the two predicates are free to disagree and do disagree in exactly the D-2/D-3 state (isAdminMode true, isAdminAuthenticated false → list falls back to userViews so the current route vanishes from it).
+
+**Evidence.**
+
+```
+Dock.vue:37 injects SESSION_PORT_KEY and Dock.vue:44 passes isAdminAuthenticated into useDockAdminMode, which gates at useDockAdminMode.ts:35 on `isAdminMode.value && isAdminAuthenticated.value`. DockViewSelect.vue:35 injects SESSION_PORT_KEY a second time and DockViewSelect.vue:122 gates on `pm.isAdminAuthenticated.value` alone. usePalettePorts.ts:242 is the single provide site.
+```
+
+**Reproduction.** Reach /#/atmosphere unauthenticated: isAdminMode latches true (D-2) while isAdminAuthenticated is false. viewEntries returns the 7 userViews (so the current view is absent → blank trigger, D-3) while the admin row is correctly withheld — the two gates in disagreement, observable as the blank label.
+
+**Proposed cure.** useDockAdminMode returns the whole menu model — rows plus an optional `adminRow: {mode:"enter"|"exit"} | null` — and DockViewSelect renders it. One predicate, one place, one prop; the child's inject and its non-null assertion both disappear.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-7 · CHALLENGE-C
+
+**Defect.** Every `update:modelValue` reka emits is a committed history-pushing router.push. There is no highlight-vs-commit distinction, because a Select (a value control) is carrying navigation; reka's SelectTrigger implements native-<select> semantics in which arrow keys CYCLE THE VALUE when focus sits on the trigger.
+
+**Mechanism.** A value-change channel wired directly to a destructive commit, with no separation between moving the highlight and choosing a destination — the category error at the root of the component.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:55 forwards the raw value change (`@update:model-value="(id) => emit('update:modelValue', id as string)"`); Dock.vue:174 binds it to onViewChange; useDockAdminMode.ts:66-74 calls viewManager.switchView(id as ViewId) → useViewManager.ts:78 router.push. LIVE (once): at #/ with the listbox open and activeElement the combobox, aria-selected true on Home, one real ArrowDown produced {"hash":"#/palettes","activeRole":"combobox","selected":["Palettes"],"expanded":"true"} — navigated, listbox still open, destination exactly the next option.
+```
+
+**Reproduction.** CONFIRMED-ONCE, NEEDS RE-VERIFICATION ON AN UNCONTENDED BROWSER. Steps: load http://localhost:9000/#/, mouse-click the "Select view" combobox, confirm document.activeElement is the combobox, press ArrowDown once → location.hash becomes #/palettes while aria-expanded stays "true". The dev server is driven concurrently by other workflow seats (a foreign ?probe=3 query landed in my page mid-run), and a repeat on a fresh load instead left document.activeElement as BODY with the listbox open — focus placement after pointer-open was observed in three states (combobox / option / BODY), which is itself what makes the arrow path hazardous. The MECHANISM above is source-certain regardless.
+
+**Proposed cure.** Transpose the architecture: this is a navigation menu, not a form field. Rows become <a href="#/browse"> in a menu/list — arrow keys move focus and commit nothing, Enter/click navigates, ⌘-click and middle-click finally work (today no href exists anywhere in the product's nav), and the current row is aria-current="page" (which HAS paint conventions, curing D-4). glass-ui already ships DropdownMenu primitives, so this is reuse, not a new component.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-13 · CHALLENGE-C
+
+**Defect.** Zero tests target this component's behaviour. No unit test exists; in e2e the selector appears only as a fixture or as an anchor for other assertions. The entire admin branch has no coverage at all — the admin suite authenticates by seeding localStorage and then reaches every admin view with page.goto, never opening the view select.
+
+**Mechanism.** The tests that exist verify the menu's typography and contrast in exhaustive detail (o14, o18) and its behaviour not at all — the gate measures paint, never function.
+
+**Evidence.**
+
+```
+`grep -rln "DockViewSelect|useDockAdminMode|viewEntries" --include=*.ts --include=*.vue .` → only the 3 source files plus 2 unrelated consumers; `grep -rn "DockViewSelect|dock/composables" test/` → no matches (while siblings test/status-lamp.test.ts and test/view-accents.test.ts DO exist); `grep -rn "openView|combobox|role=\"option\"" e2e/smoke/admin/*.spec.ts e2e/smoke/admin/flows/*.spec.ts e2e/smoke/admin/fixtures/*.ts` → no matches. Admin auth is seeded at e2e/smoke/admin/fixtures/admin-auth.ts:22 and views reached at admin-walk.spec.ts:71 via page.goto.
+```
+
+**Reproduction.** Named vacuous mutations, each keeping the suite green: (1) delete DockViewSelect.vue:122-142 entirely — the whole admin block — since no admin spec opens the select; (2) delete :80 and :70 — o18's icon-colour leg only runs in the non-admin branch and is wrapped in `if (await icon.count())` (o18-contrast-census.spec.ts:534-536), so deleting the trigger skips it silently; (3) flip `hide-indicator` on :97 — nothing asserts the selected row's appearance, and o14 actively pins the indicator's ABSENCE (`expect(await listbox.getByRole("option").locator("span.rounded-full").count()).toBe(0)`), so it would fail if D-4 were FIXED with the producer's own dot; (4) change :52 to `:model-value="'picker'"` — openView clicks by option name and the route still changes, and nothing reads the trigger label or aria-selected.
+
+**Proposed cure.** Add behavioural gates the paint tests cannot substitute for: current-view ⇒ trigger label across all 14 routes; current-view ⇒ exactly one aria-selected="true"; every named route reachable from the menu; isAdminMode false after leaving an admin view; the admin row appears/disappears with auth; keyboard — Enter opens, arrows move the highlight WITHOUT navigating, Enter commits, Escape restores focus to the trigger.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-14 · CHALLENGE-C
+
+**Defect.** Adjacent but load-bearing on this component: `meta: { admin: true }` is declared on the five admin routes and never enforced anywhere. There is no navigation guard, so hiding the option row in DockViewSelect is the de-facto access control for the admin surface.
+
+**Mechanism.** An authorization flag declared as data with no enforcement point, leaving entry-point concealment in a presentational component as the only barrier.
+
+**Evidence.**
+
+```
+demo/color-picker/router/index.ts:30-34 declare the meta; the file contains no beforeEach/beforeResolve (`grep -rn "beforeEach|beforeResolve" demo/color-picker/router/*.ts` → no matches) and no consumer reads it (`grep -rn "meta\.admin" demo/` → only import.meta hits). SHOT shots/safari-desktop-light/admin-users.png: an unauthenticated visitor at /#/admin/users gets the full Users administration pane ("0 users", "No users found", "Prune empty", "Refresh") with a Login button in the dock beside it.
+```
+
+**Reproduction.** Load http://localhost:9000/#/admin/users with no admin token: the admin pane renders in full. Committed capture proves it.
+
+**Proposed cure.** Enforce meta.admin in a router.beforeEach guard that redirects unauthenticated hits to picker. Recorded here so the mega-tranche routes the guard to the router and stops treating the menu's option list as a security boundary — which is why D-1's concealment is not a cosmetic finding.
 
 ---
 
@@ -4294,6 +7264,96 @@ Live: {"btnAria":{"label":null,"text":"","title":null},"sendBtn":{"w":24,"h":24}
 **Reproduction.** THE EXACT GREEN-KEEPING MUTATION: delete the entire handler wiring — @keydown, @input, @focus, @blur — and both <button> elements, leaving only the `<span aria-label="Enter a CSS color">` and the Popover. o10d still finds a hoverable span and still reads the popover title; color-propose never touched any of it. A colour input that accepts no input and commits nothing passes the full suite.
 
 **Proposed cure.** A component test that drives the real contract: type → assert the model colour changed; type invalid → assert an announced error; type, blur, click send → assert the TYPED value is what commits (this test alone fails today on R2-1). And delete the false coverage claim in color-propose.spec.ts:22-24 — a citation to a non-existent file is worse than no comment, because it tells the next reader to stop looking.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-2 · CHALLENGE-C
+
+**Defect.** An approved name that collides with a CSS keyword silently rewrites the user's colour. ColorInput performs zero validation before proposing, and neither the zod schema nor the uniqueness index checks the 148 CSS keywords.
+
+**Mechanism.** two unreconciled name authorities (NAMED_COLORS in the library, the approved-names Map in the demo) sharing one flat string namespace with no collision check on either side
+
+**Evidence.**
+
+```
+ColorInput.vue:236 `await proposeColorName(proposedName.value.trim().toLowerCase(), cssStr)` — the only client guard is `:disabled="!proposedName.trim() || proposing"` at :70 (non-emptiness). api/src/modules/color/schema.ts:8-19 checks shape only (/^[a-z][a-z0-9-]*$/, <=50); api/src/modules/color/service/proposals.ts:38-41 checks uniqueness against other proposals only. Measured with approved name `red` mapped to rgb(0 128 0): `model colour: rgb(0 128 0) / formattedCurrentColor: "red" / after re-submit: rgb(255 0 0) <- was rgb(0 128 0) / parseError: false`.
+```
+
+**Reproduction.** Same harness, test C in roundtrip.probe.ts. Needs no bad actor: a moderator approving `tomato` for a tomato-ish red that is not exactly #FF6347 is doing their job, and the corruption follows automatically.
+
+**Proposed cure.** One line of shared domain truth: reject any proposal whose lowercased name is a key of NAMED_COLORS. Authoritative in the zod schema, mirrored in the component so the user learns before the round-trip rather than after. Route the server half to the API seat.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-3 · CHALLENGE-C
+
+**Defect.** A 100 ms debounce on the XYZ key leaves the displayed name, the crown (and its tooltip), and `canProposeName` all reporting the PREVIOUS colour after every commit — while the model itself is synchronous.
+
+**Mechanism.** a derived layer desynchronised from its own source by a hidden timer — the same stale-read hazard class as the defineModel round-trip, reached by a debounce instead of an async parent hop
+
+**Evidence.**
+
+```
+useColorNameResolution.ts:25-30 — `const recomputeXYZ = debounce(() => { currentXYZString.value = ... }, 100); watch(() => model.value.color, () => recomputeXYZ(), { immediate: true })`. `currentXYZString` is the sole input to formattedCurrentColor, currentColorMeta and canProposeName. The model is synchronous by design (useColorPipeline.ts:71: 'the ONE ref — synchronous; derivations recompute now'). Measured: `t+0 model: rgb(255 0 0) displayed: "babb-blue" crown: babb-blue canPropose: false <- STALE` / `t+150 model: rgb(255 0 0) displayed: "rgb(255 0 0)" crown: null canPropose: true`.
+```
+
+**Reproduction.** Same harness, test D in roundtrip.probe.ts. Live consequences: (1) onInputBlur at ColorInput.vue:191 writes formattedCurrentColor unconditionally, so a blur inside the window paints the previous colour's name — unparseable per R3-1 — and the repair watch at :270 is skipped while focused (:271); (2) the crown tooltip at :30-59 describes the wrong colour; (3) canProposeName gates cycleToolbarMode and the toggle's accessible name at ActionBarLayer.vue:38,45,131.
+
+**Proposed cure.** Make the xyz key a plain computed on model.value.color. It is one matrix conversion, on the same tick the pipeline already recomputes cssColor, cssColorOpaque, HSVCurrentColor and the entire slider-gradient set synchronously. If it ever measures hot, memoise on colour identity — do not desynchronise it. Must be repaired together with R3-9, since the debounce is currently the accidental cap on the linear scan.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-4 · CHALLENGE-C
+
+**Defect.** The error badge lands on top of the text it is complaining about — the field is text-centred and the badge is centred on the same point, so the user is told their input is invalid and simultaneously prevented from reading it.
+
+**Mechanism.** an absolutely-positioned feedback chip competing for the same optical centre as the content it annotates, with no stacking or reflow contract between them
+
+**Evidence.**
+
+```
+frames/probe-1.json B-f001-light.afterEnter: badgeRect {x:682.1,w:101} spans 682.1->783.1; sendRect {x:763.1,w:24}; overlapPx2 367.5 of sendAreaPx2 576 = 63.8% of the send button. frames/probe-1.json A-rest-light.styles: textAlign center, padding 12px/36px, contentBoxCentreX 714 — inside the badge span. Neither element carries z-index and the badge is later in DOM order (ColorInput.vue:87 vs :67/:76), so paint order is forced. frames/B-f001-error.png read directly: of `oklch()` only the leading `o` survives. Rider from the same capture: badgeStyles {role:null, ariaLive:null, id:""}, inputAria {invalid:null, describedby:null}.
+```
+
+**Reproduction.** frames/probe-1.json (controlled capture 2026-07-27 13:30) + frames/B-f001-error.png. Type `oklch()` into the dock colour input and press Enter.
+
+**Proposed cure.** The error is a property of the field, not a floating chip. Move it below the row as a role="status" line wired to aria-describedby, and set aria-invalid on the textbox — which also closes C-5 (WCAG 3.3.1 Level A). The dock row already grows and shrinks (R3-6), so one more line is inside its existing motion budget.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-5 · CHALLENGE-C
+
+**Defect.** A machine-syntax field with every UA text-assist left at its human-prose default: spellcheck, autocapitalize, autocorrect, inputmode, enterkeyhint and aria-multiline are all unset on a contenteditable whose UA defaults are spellcheck-on / autocapitalize-sentences / autocorrect-on.
+
+**Mechanism.** a code-entry control inheriting prose-entry UA behaviour because none of the opt-out attributes were declared
+
+**Evidence.**
+
+```
+frames/probe-1.json A-rest-light.attrs: {"spellcheck":null,"autocapitalize":null,"autocorrect":null,"inputmode":null,"enterkeyhint":null,"ariaMultiline":null,"contenteditable":"","role":"textbox"}. Consequences: the browser red-squiggles oklch/hwb/display-p3 under a field whose only error signal is also red (R3-4); autocorrect smart-dashes the hyphen in `color(display-p3 ...)` and turns a double space into `. ` — neither is recoverable by the lowercasing at useColorParsing.ts:60; Enter is a commit (ColorInput.vue:203-211) but the touch keyboard shows `return`.
+```
+
+**Reproduction.** frames/probe-1.json A-rest-light.attrs. Mitigating measurement recorded honestly: frames/probe-2.json G-mobile reports the component {"present":false,"missing":true} on the mobile matrix and REPORT.json shows mobile /#/ at 228 elements vs desktop 1738, so the touch-keyboard legs are latent rather than shipping; the desktop spellcheck leg is live today.
+
+**Proposed cure.** contenteditable="plaintext-only" spellcheck="false" autocapitalize="off" autocorrect="off" inputmode="text" enterkeyhint="go" aria-multiline="false". The plaintext-only value also closes R2-3 (the rich-paste dock blow-out) in the same attribute, removing the sanitisation question entirely.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-6 · CHALLENGE-C
+
+**Defect.** The entire dock relayouts on every keystroke: the field declares no intrinsic width bound, so the dock's width tracks the typed string 1:1.
+
+**Mechanism.** content-driven intrinsic sizing inside a shrink-to-fit container, so a per-keystroke text change becomes a per-keystroke layout+paint of a backdrop-filter glass surface
+
+**Evidence.**
+
+```
+frames/probe-3.json typingReflow, 13 characters typed one at a time: inputWidths 61.5 -> 198.8, dockWidths 179.5 -> 316.8, inputWidthSpan 137.3, dockWidthSpan 137.3 — identical spans, 11.4px per character. Mechanism read from source: ColorInput.vue:16 `class="color-input w-full block ..."` on a contenteditable inside ColorInput's div.grid.grid-cols-1 (:2), inside ActionBarLayer's div.dock-layer-grid.flex-1 (:98). `w-full` against a shrink-to-fit chain resolves to max-content; the min-w-0 at ActionBarLayer.vue:118 caps the minimum, never the maximum.
+```
+
+**Reproduction.** frames/probe-3.json (controlled capture 2026-07-27 13:30). Attribution stated precisely in the report: the measurement is the D-seat's, the mechanism is read from this component's source — the field is the only element in the chain declaring a content-driven width.
+
+**Proposed cure.** Give the field a fixed inline size in `ch` — its font is already monospace Fira Code (frames/probe-1.json A-rest-light.styles.fontFamily) — and let it scroll internally. The text-ellipsis + mask machinery at :16 and :300-306 already exists to handle overflow and is currently never exercised at rest because the box grows instead. This also fixes the usability half: the send button stops sliding 11.4px right per character.
 
 ---
 
@@ -4855,6 +7915,546 @@ ColorInput.vue:230-247: `await session.ensureSession()` (silently mints an accou
 
 ---
 
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-04 · CHALLENGE-D
+
+**Defect.** The component's own `mask-image` erases the focus indicator on the inline-end edge (17.0% of the border perimeter under the alpha ramp, the entire right edge at alpha 0) and reaches 3 px past the padding into the glyph run.
+
+**Mechanism.** An element-wide CSS mask used to fake a text fade; a mask clips the whole element, so border and corner go with the ink — and `border-color` is the only focus indicator (:162-166, with `focus-visible:outline-none` at :16).
+
+**Evidence.**
+
+```
+ColorInput.vue:294,300-301. Measured, frames/r3probe.json -> maskGeometry: rect 324.72x45.91, `paddingRight: 36`, `contentRightX: 851.36`, `maskFadeStartX: 848.36`, `maskEatsIntoContentPx: 3`, `inkFadedPx: 3`. Perimeter 2*(324.72+45.91)=741.26 px; masked band = right edge 45.91 + 40 top + 40 bottom = 125.91 px = 16.99%. Canon: VISUAL-CONSTITUTION.md:178 'The dock is its own top band ... clipped by neither mask nor card.'
+```
+
+**Reproduction.** Open the field and focus it; the right border and corner are absent in the render (frames/r3-focus.png). In DevTools read the computed `mask-image` and compare `100% - 40px` against the content-box right edge at `borderBox.right - 1 - 36`.
+
+**Proposed cure.** Move the commit button out of the text box entirely and delete the mask, `pr-9`, `--input-action-width`, `text-center`, `text-ellipsis` and `whitespace-nowrap` with it. This also retires the three mutually inconsistent numbers that currently describe one action gutter (36 px padding / 40 px mask / 28 px button seat).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-05 · CHALLENGE-D
+
+**Defect.** Assistive technology is told the control is a multi-line rich-text editor, and it exposes no invalid state even while the error badge is on screen.
+
+**Mechanism.** `contenteditable="true"` (not `plaintext-only`) under `role="textbox"` with no `aria-multiline` — the computed AX role resolves to multiline richtext, while the component hard-prevents Enter at :203-204. Announced affordance and real affordance disagree.
+
+**Evidence.**
+
+```
+Measured via CDP `Accessibility.getFullAXTree`, frames/r3probe2.json -> ax: `{"role":"textbox","name":"Enter a CSS color","value":"color(display-p3 0.5 0.2 0.9)","props":["focusable=true","editable=\"richtext\"","settable=true","multiline=true","readonly=false","required=false"]}`. No `invalid` property present. Canon: VISUAL-CONSTITUTION.md:83 'Role, accessible name, state/value and associated error/status are explicit.'
+```
+
+**Reproduction.** Open the field, attach a CDP session, `Accessibility.enable` then `Accessibility.getFullAXTree`, filter for name 'Enter a CSS color'. Read `editable` and `multiline`.
+
+**Proposed cure.** Delete the contenteditable and consume glass-ui's `Input` — a native single-line `<input type="text">` resolves to a correct textbox role, cannot hold markup, and is the element `useUserInvalidAria` (glass-ui's own `:user-invalid` -> `aria-invalid` bridge) binds to.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-06 · CHALLENGE-D
+
+**Defect.** Spellcheck is enabled on the field, so every CSS colour token carries UA red wavy underlines — in the same red the component uses for its own error state.
+
+**Mechanism.** `contenteditable` inherits spellcheck=true; nothing in the component opts out. An unowned, unstylable red-for-wrong system paints over correct input, competing with the owned red for the same meaning.
+
+**Evidence.**
+
+```
+Measured, frames/r3probe.json -> maskGeometry: `"spellcheckIDL": true, "spellcheckAttr": null, "contentEditable": "true", "autocapitalize": null`. The component's only error signal is `--destructive` (border at :163, badge at :348-366).
+```
+
+**Reproduction.** Open the field and focus it; the tokens `oklch`, `lab`, `display-p3`, `rebeccapurple` are all non-dictionary words and receive red squiggles. Confirm with `document.querySelector('.color-input').spellcheck === true`.
+
+**Proposed cure.** `spellcheck="false"` (plus `autocorrect="off"`, `autocapitalize="off"`, `enterkeyhint="go"`) on a real `<input>` — all of which are declared props on glass-ui's published `InputProps`, and none of which a contenteditable span accepts meaningfully.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-07 · CHALLENGE-D
+
+**Defect.** Opening the field with its own toggle fires the hover popover as a side effect, and the popover occludes the route's own content.
+
+**Mechanism.** A hover-triggered disclosure attached to a control that expands under the stationary pointer that just opened it (R3-08 is the motive force). Overlay state becomes a consequence of layout rather than of a user command — against VISUAL-CONSTITUTION.md:115.
+
+**Evidence.**
+
+```
+ColorInput.vue:3-10 `<Popover trigger="hover" :open-delay="300"><PopoverTrigger as-child>` wraps the whole field. Measured deterministically (probe parks the pointer on the toggle, clicks, never moves the mouse again), frames/r3probe4.json: `{"parkedPointerAt":{"x":851,"y":40.55},"before":{"popoverOpen":false},"after":{"fieldRect":{"x":563.6,"right":888.4},"popoverOpen":true},"pointerInsideFieldAfter":true,"popoverOpenedWithoutMovingPointer":true}`. frames/r3-dark-focus.png shows the panel covering the About card's H1.
+```
+
+**Reproduction.** 1440x900 -> click `Tools` -> click `Open color input` and do not move the mouse -> wait 1.6 s. The help panel is open over the route content.
+
+**Proposed cure.** The Parse-Lab echo and the help prose are real information and must not live behind hover: move `<ParseEchoReadout />` into the Picker inspector as a persistent region (reachable by keyboard at every viewport), and if any tooltip survives, bind it to a named control with a click/focus path, not to the field's own bounding box.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-08 · CHALLENGE-D
+
+**Defect.** Typing translates the dock's sibling controls +/-166 px: the commit arrow recedes from the pointer as the user types toward it.
+
+**Mechanism.** A content-sized, unreserved text field inside a centre-anchored band, so every `input` event resizes the field and pushes both halves of the dock outward synchronously.
+
+**Evidence.**
+
+```
+Measured per keystroke, frames/r3probe2.json -> dockShift, entering `color(display-p3 0.5 0.2 0.9)`: field width 50.0 -> 382.0 px; send button x 723.0 -> 889.0 (`sendButtonTravel: +166.0`); mode toggle x 764.0 -> 930.0 (`toggleTravel: +166.0`); Back x 636.0 -> 470.0 (`backTravel: -166.0`). Canon: VISUAL-CONSTITUTION.md:30 'The top dock owns a reserved band ... do not move the scene below it'; :78 'reserve their widest legal representation so value changes never reflow the settled chassis'.
+```
+
+**Reproduction.** Open the field, select all, Backspace, then type one character at a time while sampling `document.querySelector('.send-btn').getBoundingClientRect().x` and the toggle's and Back's rects. 166 px of travel each, in opposite directions.
+
+**Proposed cure.** Give the field `inline-size` reserved to its widest legal serialization (`color(display-p3 ...)`) plus `font-variant-numeric: tabular-nums`, so the band stops moving. The deeper cure is to stop hosting a variable-width text editor in the constitution's reserved band at all — move the editor to the Picker inspector and leave a fixed-width named `DockControl` in the dock.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-09 · CHALLENGE-D
+
+**Defect.** The plate has no tier in the material hierarchy: opaque, 4 px-cornered, 74% of the dock band's height, inside a `border-radius: 9999px` pill — and in dark it is the darkest object on the page.
+
+**Mechanism.** A shadcn form surface (`bg-background border rounded-input`) transplanted whole into a glass instrument, inventing an unlabelled extra material tier and a second radius language inside the structural-glass band.
+
+**Evidence.**
+
+```
+Measured: field background light `rgb(251,250,248)`, dark `rgb(11,10,9)`, both fully opaque; field `border-radius: 4px`; host `.glass-dock horizontal shape-pill layout-line` `border-radius: 9999px` at 62 px height (rendered 31 px) — ratio 7.75:1 with every intervening ancestor at `0px` (frames/r3probe3.json chain, frames/r3probe4.json pill). Field height 45.91 / band 62 = 74.0%. Canon: VISUAL-CONSTITUTION.md:11-19 material table + 'One surface has one tier'; PROPORTION-AUDIT.md:66.
+```
+
+**Reproduction.** Open the field in dark at 1440x900 (frames/r3-dark-focus.png): a near-black opaque rectangle in a warm translucent glass dock, on a page where every other surface is tinted translucent glass. Read `backgroundColor` and `borderTopLeftRadius` on `.color-input` and on the `.glass-dock` ancestor.
+
+**Proposed cure.** Adopt the producer's field surface so the plate inherits a real tier (Instrument veil or Specimen well per VISUAL-CONSTITUTION.md:15-16) and the producer's radius rung, rather than improvising `bg-background` + `rounded-input` inside Structural glass.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-10 · CHALLENGE-D
+
+**Defect.** The failure badge hides 89.9% of the value it is judging and the entire commit button, and carries no programmatic semantics.
+
+**Mechanism.** Two absolutely-positioned siblings (`.send-btn` at right:0.25rem, `.error-badge` at right:0.5rem, ColorInput.vue:335-366) competing for one 24 px gutter, with the badge later in DOM order so it paints on top; plus `useColorParsing.ts:57` clearing it on a 2 s timer and :62 short-circuiting the repeat so a second Enter is answered with silence.
+
+**Evidence.**
+
+```
+Measured after typing `oklch()` + Enter, frames/r3probe.json -> f001: `badgeRect {x:682.1,w:101}`, `inkRect {x:673.9,w:80.1}`, `badgeCoversInkPx: 72` (= 89.9% of the ink); `sendRect {x:763.1,w:24,h:24}`, `badgeOverSendPx2: 367.5` of `sendAreaPx2: 576` (= 63.8%), and photographically the arrow is 100% invisible (frames/r3-f001.png). `ariaInvalid: null`, `ariaDescribedby: null`, `badgeRole: null`, `badgeAriaLive: null`. Canon: VISUAL-CONSTITUTION.md:101 a transient flourish 'never carries the only truth'.
+```
+
+**Reproduction.** Open the field -> select all -> type `oklch(` then `)` -> Enter. The dock reads `<- | o[not a valid color] | tag`; press Enter again on the same string and nothing at all happens, ever.
+
+**Proposed cure.** The parse verdict becomes a persistent control state on the field (`aria-invalid` + `aria-describedby` -> one message region in flow beside the dock, never over the value), cleared on correction rather than on a timer; drop the `input === previousInvalid` short-circuit ahead of the error path so retries are answered. glass-ui already ships `useUserInvalidAria` for exactly this.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · C-02 · CHALLENGE-D
+
+**Defect.** CONFIRMED (round-2 D-02/D-09): `btn-interactive` matches zero CSS rules, and the Crown reveal animation names a keyframe the scoped compiler renamed away — two animations the file's comments claim were 'retired onto' or tokenized are simply inert.
+
+**Mechanism.** (a) A local hover/press recipe deleted with a comment crediting a producer atom that does not exist (ColorInput.vue:61-66, 327-334). (b) An inline template `style` naming a `<style scoped>` keyframe, which @vue/compiler-sfc rewrites only inside the same PostCSS root. Owner edict 6: animations are never deleted, only moved or tokenized.
+
+**Evidence.**
+
+```
+Independently re-measured this round by walking every stylesheet in the live document, frames/r3probe.json -> styleFacts: `"btnInteractiveRules": 0`; the only matching rules are `.send-btn[data-v-55dadc03]` and `.send-btn[data-v-55dadc03]:disabled`; `transition` computes to `all` (Tailwind preflight). Live keyframe inventory: `["input-mode-flash-55dadc03", "crown-appear-55dadc03"]` — there is no unsuffixed `crown-appear`, yet ColorInput.vue:37-39 sets it via an inline `style` attribute that PostCSS never sees.
+```
+
+**Reproduction.** In the live document, walk `document.styleSheets` counting selectors containing `btn-interactive` (0), and collect CSSKeyframesRule names matching /crown/ (only `crown-appear-55dadc03`). Hover, press and Tab to the arrow: nothing changes at any step beyond the UA outline.
+
+**Proposed cure.** Either land the atom in glass-ui and consume it, or — the KISS answer — retire the hand-rolled button for glass-ui's `./button`/`DockControl`. For the Crown, move the `animation` declaration into the scoped `<style>` block (or bind a class) so the compiler rewrites it; the `:key="crownKey"` remount machinery in useColorNameResolution.ts:64 currently exists to restart an animation that cannot start.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · C-03 · CHALLENGE-D
+
+**Defect.** CONFIRMED (round-2 D-23): MT-F001 is swallowed by an undiscriminating bare catch, so a shipping parser TypeError is permanently indistinguishable from a user typo.
+
+**Mechanism.** One untyped catch renders 'the grammar rejected your string', 'the parser threw a TypeError' and any future RangeError as the same sentence, so the application can never surface, count or report MT-F001.
+
+**Evidence.**
+
+```
+Measured live: typing `oklch(` `)` + Enter yields `"f001PageErrors": []` and the badge text 'not a valid color'; the only console error on the route is the unrelated dev VITE_API_URL misconfiguration notice. Source: src/css/grammar.ts:181 `splitTopLevel(slash[0]!.replace(...))` — the non-null assertion is false for an empty function body; demo/color-session/useColorParsing.ts:84 catches it with a bare `catch {}` and calls `flashParseError()`. Owner edict 2 forbids masking fallbacks.
+```
+
+**Reproduction.** http://localhost:9000/#/ -> Tools -> Open color input -> select all -> type `oklch(` then `)` -> Enter. The user sees a red slab covering 89.9% of their text and the whole retry arrow; no crash, no console error, no distinguishable signal.
+
+**Proposed cure.** Discriminate at the boundary: the parse boundary returns a typed result (`{ok:true,value} | {ok:false,reason:'grammar'|'internal'}`) rather than throwing; 'internal' is reported (and countable) rather than rendered as 'not a valid color'. Fixing grammar.ts:181 is necessary but not sufficient — the swallow is the design defect.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-02 · CHALLENGE-D
+
+**Defect.** MAJOR (OVERTURNS r2 D-22, carried by two prior rounds as 'the wax seal has never been observed rendering'): the seal does render. Its gate is pointer history, not elapsed time. The dock therefore has two resting geometries for one idle page, and the collapsed rest is a 56px unlabelled circle that hides all four navigation controls.
+
+**Mechanism.** A resting state selected by input device rather than by design. The producer's collapse timer is armed by pointerenter/leave, so a keyboard-only, touch-only or never-hovered desktop session sees a different dock than a mouse session.
+
+**Evidence.**
+
+```
+Measured (dockprobe2/3/4): fresh load, no pointer, 7s idle → `.glass-dock … expanded`, pill 471x62; same at 20s idle → still expanded 471x62; mouse.move(700,45) then mouse.move(700,700), 7s → `.glass-dock … collapsed`, pill 56x56, `.dock-seal` 40x40, opacity 1; same cycle but with a prior focus() inside the dock → still expanded. Site: Dock.vue:132 `:collapse-delay="5000" :start-collapsed="false"`. Reads against VISUAL-CONSTITUTION.md:178 'The dock is its own top band, fully visible, focusable' and PROPORTION-AUDIT PR-16/PR-07 (terminal verb for hover-only/unlabeled controls = ADD-AFFORDANCE / REMOVE). Note the band floor DOES hold: .dock-band height constant 72px in both geometries at every viewport.
+```
+
+**Reproduction.** 1440x900 WebKit, load http://localhost:9000/#/, wait 20s without moving the pointer — dock stays 471x62 expanded. Reload, move the pointer over the pill then away, wait 7s — dock is 56x56 with `.dock-seal` visible and all navigation gone. Script: dockprobe3.mjs.
+
+**Proposed cure.** Pick one resting state and make it unconditional. If the seal is the rest, set start-collapsed=true and capture the π frame the tranche has never had; if the pill is the rest, delete collapse-delay, the #collapsed slot, .dock-seal* and the ~95 lines of essay above them (Dock.vue:229-268, :309-328). Do not leave a magic 5000ms dwell outside the producer's spring register.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-03 · CHALLENGE-D
+
+**Defect.** MAJOR: the dock implements none of VISUAL-CONSTITUTION §5.2's 'horizontal Dock/rail roving focus' law — no arrow traversal, no Home/End, no separation of movement from activation.
+
+**Mechanism.** Rail behaviour never implemented; the dock is four independent tab stops presented as a horizontal rail.
+
+**Evidence.**
+
+```
+VISUAL-CONSTITUTION.md:129 names this component: 'horizontal Dock/rail roving focus — Right moves to the visual-right item; Left to visual-left … Home=first semantic item, End=last; activation is separate from movement.' Measured (dockprobe4 · B, 1440x900): focus `Select view` → ArrowRight → activeElement still `Select view`; → Home → activeElement still `Select view`. `Dock.vue` binds no keydown handler anywhere.
+```
+
+**Reproduction.** 1440x900, focus `nav.dock-band button[aria-label="Select view"]`, press ArrowRight then Home; activeElement is unchanged both times. Script: dockprobe4.mjs section B.
+
+**Proposed cure.** Roving focus is rail behaviour and belongs to the producer's GlassDock/DockLayerGroup, not a keydown handler grafted into Dock.vue (edict 4: glass-ui is the design system). File it as a glass-ui ask and consume it.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-04 · CHALLENGE-D
+
+**Defect.** MAJOR: three disagreeing responsive predicates inside one component (four counting the child), and the shell's own source comment states that the width-only one was supposed to have been retired. At 1024x1366 the pill renders the mobile and desktop grammars simultaneously.
+
+**Mechanism.** Four thresholds on three different axes, plus pointer history (D3-02), decide what the dock is; no single source of layout truth.
+
+**Evidence.**
+
+```
+Predicates: Dock.vue:71 `useMediaQuery("(min-width: 1024px)")` (width only) · demo/styles/shell.css:111-124 `[data-layout]` (width AND aspect ≥ 1.1) · MobileMenuDropdown.vue:38, ProfileSection.vue:48,127, ActionBarToggle.vue:84,100 `lg:hidden`/`hidden lg:flex` (width only) · PaneSegmentedControl.vue:46-51 `@media (max-width: 639px)`. shell.css:100-110 states the stamp exists precisely because 'a media wrapper would re-introduce the width-only disagreement the stamp exists to retire.' Measured at 1024x1366 (dockprobe2): dataLayout='mobile', .dock-mobile-panes 141x39@398 SHOWN, ProfileSection Login 83x28@563 SHOWN, @mbabb 73x28@669 SHOWN, `dock-separator hidden lg:block` 1x28@398 SHOWN under the mobile switcher. Frame: collision-1024x1366.png.
+```
+
+**Reproduction.** WebKit at 1024x1366 (iPad Pro portrait), load http://localhost:9000/#/. The pill shows `Home ˅ | Picker About | Login | @mbabb` — mobile pane switcher and desktop profile section at once, with the desktop separator buried under the switcher. Script: dockprobe2.mjs.
+
+**Proposed cure.** One injected `useLayoutMode()` derived from the `[data-layout]` stamp (width AND aspect); delete Dock.vue:71 and every `lg:`/`sm:` display utility in the dock subtree, including the 639px fork in PaneSegmentedControl.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-05 · CHALLENGE-D
+
+**Defect.** MAJOR: every operable control in the mobile dock is below the 44px touch floor (26–33px), while the dropdown that dock opens meets it at 44px. The component sets the correct floor on its secondary surface and misses it on its primary one.
+
+**Mechanism.** The glass-ui `compact` DockControl register supplies no invisible hit-seat, so every consumer that wants tight optics also gets a sub-floor target.
+
+**Evidence.**
+
+```
+Measured at 390x844 (dockprobe5): dock at rest — Select view 59x33 · Toggle action bar 33x33 · Picker 49x26 · About 49x26 · Menu 43x33. The menu it opens — Login 44 · Share color 44 · GitHub 55 · Dark mode 44. The 26px rung comes from PaneSegmentedControl.vue:46-51 `@media (max-width:639px){ padding: 0.25rem 0.375rem }`. Same mechanism produces the shell-wide 22x22 (desktop) / 23x23 (mobile) slug controls that appear in the tap-target intersection across all 15 routes x 4 matrices in REPORT.json. Canon: PROPORTION-AUDIT §5 law 7 and PR-12 — 'Visual glyph size, operable target size and layout reservation are separate quantities … Invisible/seat geometry preserves target floor while optics follow rung.'
+```
+
+**Reproduction.** iPhone 14 Pro emulation at http://localhost:9000/#/, measure getBoundingClientRect() on each `nav.dock-band button`; all heights are 26–33. Script: dockprobe5.mjs.
+
+**Proposed cure.** Add a producer-side hit-seat token on the compact register (seat at the 44px floor, optics unchanged at the current rung) and consume it everywhere — not a per-site padding bump, which would violate PR-12's 'touch padding bloats/misaligns visual glyphs'.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-06 · CHALLENGE-D
+
+**Defect.** MAJOR: the mobile overflow menu has a wrapped row and a material that lets the page's own numerals read through the option copy.
+
+**Mechanism.** The menu is composed from the demo-local `demo/ui/dropdown-menu` primitive (MobileMenuDropdown.vue:9-12) rather than the producer's menu tier, so its row layout, type rung and veil/well decision are all re-derived locally and all three land wrong.
+
+**Evidence.**
+
+```
+Frame: docs/tranches/V/megatranche/audit/components/shell-dock-dock/state-mobilemenu.png (390x844, captured live). (a) The `GitHub` row renders its icon on one line and its label on the next; measured height 55px against 44px for Login/Share color/Dark mode (dockprobe5). (b) The picker's `88.8` and `20.0` numerals are legible behind `Share color` and `GitHub` in the same frame. Canon: VISUAL-CONSTITUTION.md:19 'Glass earns its blur by revealing live content; otherwise it is a neutral well' and §4.1 'Text, focus, boundaries and state meet their rendered contrast on the actual material tier; a token name is not evidence.' Same frame also shows r2 D-20's type-jurisdiction break — options at a display rung, not §4's `text-small`.
+```
+
+**Reproduction.** iPhone 14 Pro emulation, http://localhost:9000/#/, click `nav.dock-band button[aria-label="Menu"]`, screenshot. GitHub's glyph sits above its label; page numerals show through the copy. Script: dockprobe5.mjs.
+
+**Proposed cure.** Move the composition onto glass-ui's menu tier (edict 4 — variants/primitives belong in glass-ui, not demo/ui). The row layout, the control type family and the material tier resolve together from one producer decision.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-07 · CHALLENGE-D
+
+**Defect.** MAJOR: opening the action bar deletes the dock's navigation identity — the persistent chrome stops being persistent.
+
+**Mechanism.** A route-local action region implemented as a layer that evicts the global chrome, instead of as a region of the scene the chassis already allocates.
+
+**Evidence.**
+
+```
+Measured 1440x900 (dockprobe5), frame state-tools-desktop.png. Clicking `Toggle action bar` takes the pill 471x62 → 326x62 (−145px) and re-centres it; the live control set becomes Back 40x40 | Reset color 32x32 | Copy color 32x32 | Random color 32x32 | Palettes 32x32 | Extract palette 32x32 | Open color input 40x40. `Select view`, `Login` and `@mbabb` are gone; the only exit is one unlabelled `←`. Canon: VISUAL-CONSTITUTION.md:178 'Direct route changes keep its full navigation identity.' Two secondary reads on the same frame: seven adjacent icon-only controls with zero visible labels (PR-07 species) at two size rungs in one row, 40px DockControl bookends around 32px ActionButton middles (PR-06 family).
+```
+
+**Reproduction.** 1440x900, http://localhost:9000/#/, click the Tools control; measure `.glass-dock` and enumerate non-inert buttons in `nav.dock-band`. Script: dockprobe5.mjs.
+
+**Proposed cure.** Render the action bar in the scene's action region — §3.1 already allocates one for every member composition — and let the dock keep its four navigation seats at all times. This is the same move §7 already ruled for Account ('one modal side Dialog opened from the Dock, not a route chassis').
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-3 · CHALLENGE-D
+
+**Defect.** `.dock-layer-grid` is defined nowhere; the inherited `grid-area: 1/1` is inert and the sub-layer overlap resolves against the wrong box — the inactive layer is 65px left of, 118px wider than, and 3px proud of its nominal box, spanning across the Back control, the separator and the mode toggle.
+
+**Mechanism.** a layout mechanism named but never implemented; the overlap comes solely from `position:absolute; inset:0` with no positioned ancestor at the intended container
+
+**Evidence.**
+
+```
+`grep -rn "dock-layer-grid" demo/ src/ node_modules/@mkbabb/` returns ONE hit — the use site, demo/shell/dock/layers/ActionBarLayer.vue:101. Zero definitions. Live: `gridComputed: {display: "block", position: "static", gridTemplateColumns: "none", flexGrow: "1"}`; `inactiveOffsetParent: "dock-face is-active"`; inactive box `516,18 408x46` vs nominal grid box `634,21 184x40`.
+```
+
+**Reproduction.** Open the action-bar layer, then evaluate `getComputedStyle(document.querySelector('.dock-layer-grid'))` and the offsetParent + getBoundingClientRect of its non-`.is-active` child.
+
+**Proposed cure.** Delete the class. `<DockCrossfade>` supplies `.dock-crossfade { position: relative; display: grid; isolation: isolate }` and anchors `.dock-face` at `grid-area: 1/1` inside it — the box the overlap was always meant to resolve against.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-4 · CHALLENGE-D
+
+**Defect.** The shim's JS duration and the producer's CSS token disagree across a package boundary: 260ms vs `--duration-normal` = 300ms. The shim releases `is-leaving` 40ms before the producer's visibility hand-off elapses.
+
+**Mechanism.** an untokenized magic number required to stay in lockstep with a token in a different package, with no enforcement
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:62 (`const SUB_LAYER_CROSSFADE_MS = 260`). Live: `getComputedStyle(document.documentElement).getPropertyValue('--duration-normal')` = `"0.3s"`. Desync visible in the swap timeline at `t=280 off op=0 vis=visible inert=1` — the element has already dropped `is-leaving` while `transition: visibility 0s linear 0.3s` is still pending. Sibling precedent doing it correctly: demo/shell/dock/ActionBarToggle.vue:121-124 uses `var(--duration-normal) var(--ease-standard)`.
+```
+
+**Reproduction.** Read --duration-normal from the live document and compare to the literal at line 62; sample the leaving node's classList and computed visibility at t=280ms after a swap.
+
+**Proposed cure.** Retire the constant with the shim (D-1). If any local timing survives, read it from the producer token rather than restating it.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-5 · CHALLENGE-D
+
+**Defect.** The shim is a self-declared legacy shim: it accepts and discards a parameter purely for 'signature parity with the retired producer composable', and its header calls itself a shim preserving a contract to an API that no longer exists. Owner edict 2 forbids aliases, migration shims, dual paths and back-compat unconditionally.
+
+**Mechanism.** back-compat fidelity to a dead API, retained as a local factory rather than migrated at the root
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:67 `void opts.containerEl; // signature parity with the retired producer composable`; lines 57-61 `This local successor preserves the exact two-refs contract ... a public content-swap composable would retire this local shim.` Compounding (edict 3, KISS/contrivance): the factory is defined inside `<script setup>` and instantiated exactly once at line 85 — a closure over nothing.
+```
+
+**Reproduction.** NONE — this is a static reading of the file; the code is quoted verbatim above.
+
+**Proposed cure.** Delete. The migration target is public today (see D-1); relay-O-6 mark M2 asking glass to re-ship this as a composable should be WITHDRAWN, not awaited — it would manufacture a second producer API surface for a capability already shipped as a component.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-8 · CHALLENGE-D
+
+**Defect.** Every mode swap drops keyboard focus to `document.body`. The shim applies `inert` to the outgoing layer with no focus transfer, so the browser evicts focus and the next Tab restarts from the top of the document.
+
+**Mechanism.** the reimplementation kept the `inert` half of the producer's contract and dropped the focus-transfer half
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:92 `inert: isActive ? undefined : true`. Live: `{focusBefore: "Copy color", focusImmediate: "Copy color", focusSettled: "BODY"}`. The producer successor documents this as load-bearing (node_modules/@mkbabb/glass-ui/dist/components/dock/DockCrossfade.vue.d.ts): 'A dissolving focus-holding face transfers focus to its successor, else the body (un-inert-before-focus is load-bearing).' Violates VISUAL-CONSTITUTION.md §5.1 and §4.1.
+```
+
+**Reproduction.** Open the action-bar layer at 1440x900, `grid.querySelector('button[aria-label="Copy color"]').focus()`, click [aria-label="Open color input"], then read document.activeElement at +480ms — it is document.body.
+
+**Proposed cure.** `<DockCrossfade>` performs the transfer itself. No consumer code.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-9 · CHALLENGE-D
+
+**Defect.** The outgoing layer's hover popover is stranded fully opaque after the swap, and — because the pointer has not moved — the incoming layer opens ITS popover under the same point, producing two overlapping, mutually illegible tooltip slabs over the dock.
+
+**Mechanism.** the swap owner performs no teardown of the outgoing face's transient UI; two halves of one contract wired to nothing
+
+**Evidence.**
+
+```
+Live: `strandedPopover: [{w:288, h:119, op:"1"}]` while `originButton: {inertAncestor: true, layerOpacity: "0", layerVis: "visible"}`. Screenshot D-02-stranded-popover-after-swap.png shows 'Copy color / Click to copy the current color to the clipboard' interleaved with 'Enter a color / ...ring is accepted / lab(92% 88.8 20 / 82.7%)'. The handle exists and is never turned: ActionBarLayer.vue:29 declares `actionToolbarRef` and never reads it; ActionToolbar.vue:87-91 exposes `clearHover()` and `grep -rn clearHover demo/` finds only the definition and the defineExpose — no caller. Breaks the standing register law recorded at SlugEditLayer.vue:88-90 and Dock.vue:140-142 ('the UA tooltip slab is a foreign register on the liquid-glass dock').
+```
+
+**Reproduction.** Open the action-bar layer at 1440x900, `page.locator('.dock-layer-grid button[aria-label="Copy color"]').hover()`, wait 700ms (300ms open-delay + settle), then `page.evaluate(() => document.querySelector('[aria-label="Open color input"]').click())` WITHOUT moving the mouse, wait 450ms and screenshot.
+
+**Proposed cure.** Once `<DockCrossfade>` owns the swap, dismiss the face's popovers on its inert/unmount hook; failing that, call `actionToolbarRef.clearHover()` on the mode change — the ref already exists for exactly this.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-10 · CHALLENGE-D
+
+**Defect.** The toolbar mode is sticky across a full close-and-reopen. A control labelled 'Tools' with a paintbrush icon reopens showing a text field; the entry affordance and the entered state disagree permanently after one use.
+
+**Mechanism.** sub-mode state with no lifecycle reconciliation against its own container's open/closed state
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:30 — `toolbarMode` is never reset and nothing watches `actionBarLayerActive`. Live: `{s1_openedAs: "Open color input", s1_afterToggle: "Propose color name", s1_afterBack: "Propose color name", s1_onReopen: "Propose color name", s1_verdict: "STICKY — reopens in the prior mode"}`. Entry affordance at Dock.vue:186-187 (`genericBar?.icon ?? Paintbrush`, `?? 'Tools'`). Violates VISUAL-CONSTITUTION.md §5 (select → tune → commit).
+```
+
+**Reproduction.** At 1440x900: click [aria-label="Toggle action bar"] (opens in actions — toggle reads 'Open color input'), click the toggle (now 'Propose color name'), click [aria-label="Back"], then click [aria-label="Toggle action bar"] again — the toggle still reads 'Propose color name'.
+
+**Proposed cure.** Reset `toolbarMode = "actions"` when the action-bar layer closes (watch the parent's active-layer, or reset on the component's own deactivation once it is a `<DockLayer>` face).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-13 · CHALLENGE-D
+
+**Defect.** A second, shadowing `COLOR_MODEL_KEY` provider. The app root already provides the ONE pipeline; ActionBarLayer re-provides a prop-sourced copy for its subtree, with the comment stating the reason outright — 'so ColorInput works unchanged'. One key, two providers, two truths.
+
+**Mechanism.** a compat re-provide so a child need not be migrated, creating a second injection edge for one canonical key
+
+**Evidence.**
+
+```
+demo/color-picker/App.vue:257 `provide(COLOR_MODEL_KEY, pipeline);` vs demo/shell/dock/layers/ActionBarLayer.vue:21-22 `// Re-provide COLOR_MODEL_KEY so ColorInput works unchanged` / `provide(COLOR_MODEL_KEY, actionBar.colorModel);`. Seven other consumers inject the app-root one: ColorPicker.vue:172, ColorInput.vue:155, ParseEchoReadout.vue:31, ComponentSliders.vue:115, SpectrumCanvas.vue:50, HeroBlob.vue:56, ConsoleRail.vue:115; AboutPane.vue:9 records it as 'ambient since S.W2'. Owner edict 2 forbids masking fallbacks and compat paths — 'migrate the consumer to the new API at the root'.
+```
+
+**Reproduction.** NONE for a user-visible symptom — labelled a HYPOTHESIS that the two edges can diverge; the dual provide is confirmed by the grep above (`grep -rn "provide(COLOR_MODEL_KEY" demo/` returns exactly these two sites).
+
+**Proposed cure.** Delete the re-provide; migrate ColorInput and ParseEchoReadout to the app-root pipeline at the root, per edict 2.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-3 · CHALLENGE-D
+
+**Defect.** The open menu marks the current destination with zero pixels: the selected row's computed styles are byte-identical to every unselected row, in light, dark AND forced-colors. Selection and focus/highlight collapse onto one channel, which is the highlight channel.
+
+**Mechanism.** the consumer deleted the producer's sole selection marker and re-pointed selection at the transient highlight channel, merging two orthogonal states
+
+**Evidence.**
+
+```
+Measured webkit /#/browse menu open (scratchpad/D-probe.json): all 7 rows background-color rgba(0,0,0,0), color rgb(28,25,23) (light) / rgb(233,230,226) (dark), font-weight 400, padding-left 10px, box-shadow none, outline none — including the row with aria-selected=true / data-state=checked. Chromium forcedColors:active (D-probe2.json): all 7 rows bg rgba(255,255,255,0), color rgb(0,0,0), boxShadow none, fw 400. Cause: DockViewSelect.vue:97 and :127 pass `hide-indicator`, deleting glass-ui's only selected-state affordance (select-BcBAyLXA.js: `hideIndicator ? "none" : "start"` -> the pl-7 gutter dot); menuRowClass-Nh7CtMON.js + components/_shared/menu.css style only :hover/:focus/[data-highlighted]/[data-state=open]. Violates VISUAL-CONSTITUTION.md:83-84 ("never color-only"; "Focus remains visibly distinct from selection in both schemes, forced colors and reduced transparency"). PROPORTION-AUDIT.md:79 already ruled the identical species for ColorSpaceSelector.
+```
+
+**Reproduction.** open http://localhost:9000/#/browse, click the dock view trigger, inspect all [role=option] computed styles — the checked row differs in no visual property. Repro script: scratchpad/D-dvs-probe.mjs
+
+**Proposed cure.** Delete both `hide-indicator` props and consume the producer indicator gutter, exactly as PROPORTION-AUDIT.md:79 required of ColorSpaceSelector. Widen that register row from one component to EVERY dock Select rather than re-litigating it per instance: one marker agreeing with aria-selected, independent of [data-highlighted].
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-4 · CHALLENGE-D
+
+**Defect.** At 200% browser zoom the primary navigation loses its text label entirely, because label presence is keyed to a device-class media query rather than the control's own available space.
+
+**Mechanism.** a global viewport breakpoint standing in for a local fit decision; browser zoom shrinks the CSS viewport so a desktop/mobile predicate fires on a desktop
+
+**Evidence.**
+
+```
+Measured webkit at 720x450 CSS px (= 200% zoom on a 1440x900 display), scratchpad/D-probe5.json: {"label":"","w":56,"h":32,"overflowX":0}; the same control at 100% reads "Gradient" at 128.1px. Source: DockViewSelect.vue:87 `<SelectValue v-if="isDesktop" />` with Dock.vue:71 `useMediaQuery("(min-width: 1024px)")`. Hits open register row PROPORTION-AUDIT.md:60 (PR-16, "labels remain perceptible in both schemes") and the constitution's mandated actual-400%-zoom evidence arms (VISUAL-CONSTITUTION.md:62,64,78).
+```
+
+**Reproduction.** Chrome at 1440x900, http://localhost:9000/#/gradient, Cmd-+ to 200% -> the dock trigger shows icon+chevron only. Repro script: scratchpad/D-dvs-probe5.mjs
+
+**Proposed cure.** Keep the label unconditionally and let it earn its space — a container query on the dock band, or a flexible label with text-overflow (the widest label is 94.3px of ink, measured). Remove `isDesktop` from this component's prop surface entirely: a navigation control should not know what a desktop is.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-5 · CHALLENGE-D
+
+**Defect.** The constitution's closed type matrix is violated: a display serif (Fraunces) is applied to a control label and to every dropdown option, where the matrix mandates Plus Jakarta Sans text-small non-bold.
+
+**Mechanism.** a per-instance family class overriding a closed role matrix; internally self-contradictory, since the file's own comment (lines 99-109) fights to keep option WEIGHT at 400 for that same law while setting the forbidden family
+
+**Evidence.**
+
+```
+Measured computed font-family on trigger, trigger label span and all 7 option rows: `Fraunces, "Fraunces Fallback", serif` at 16.4px/400 (scratchpad/D-probe.json). Source: DockViewSelect.vue:69 `class="... text-small font-display font-normal ..."` and :91 `<SelectGroup class="text-small font-display">`. Spec quoted: VISUAL-CONSTITUTION.md:75 "| control or label, including dropdown options | text-small | Plus Jakarta Sans, non-bold |"; :78 "Fraunces owns display/identity, Plus Jakarta Sans owns headings/prose/controls ... P019's ... pair is the sole exception"; PROPORTION-AUDIT.md:15 "Dropdown options remain Plus Jakarta Sans text-small control copy and non-bold." Visible in scratchpad/D-dock-open-light.png and the tracked shots/safari-desktop-light/picker.png.
+```
+
+**Reproduction.** open http://localhost:9000/#/browse, open the dock view menu, inspect any [role=option] -> font-family: Fraunces. Repro script: scratchpad/D-dvs-probe.mjs
+
+**Proposed cure.** Delete `font-display` from lines 69 and 91. The role matrix already resolves control/label typography; no class is needed at all at these two sites.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-6 · CHALLENGE-D
+
+**Defect.** The mobile trigger is a 33.34 CSS px tap target against a 44px floor that the producer already ships and already applies to the menu rows in the same frame; it is also label-free at that size.
+
+**Mechanism.** the producer's --touch-target token is consumed by menu rows but not by the dock trigger; the consumer never reconciles glyph size with operable size
+
+**Evidence.**
+
+```
+Measured webkit 390x844 isMobile/hasTouch: trigger rect {w:58.72, h:33.34}, innerText "" (scratchpad/D-probe.json). Producer floor exists and works elsewhere: glass-ui components/_shared/menu.css `.glass-menu-row { min-block-size: max(2rem, var(--touch-target, 2.75rem)) }` -> every measured option row h=44. Tracked audit corroborates: docs/tranches/V/megatranche/audit/visual/REPORT.md counts smallTapTargets 4 on safari-mobile-light /#/browse, a route whose only chrome is the dock. Governing law: PROPORTION-AUDIT.md:56 (PR-12) and :72 (§5.7) — "Visual glyph size, operable target size and layout reservation are separate quantities."
+```
+
+**Reproduction.** http://localhost:9000/#/browse at 390x844 with touch emulation; measure button.view-select-trigger -> 58.72 x 33.34. Repro script: scratchpad/D-dvs-probe.mjs
+
+**Proposed cure.** An invisible seat, not bigger chrome: give the trigger the producer's `--touch-target` min-block-size with the visible pill geometry unchanged (PR-12's stated cure). Restoring the label (D-4) fixes the second half, and removes the house-glyph "you are here" vs "go home" ambiguity PR-16 names.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-7 · CHALLENGE-D
+
+**Defect.** The per-view accent — the design's explicitly declared "one counterweight" after the menu legend was excised — carries near-zero discriminative information: in dark mode all seven views collapse to near-white, and in light mode the chroma is unmatched by 2.31x.
+
+**Mechanism.** colour promoted to carry an identity load it cannot carry once the WCAG/gamut guard equalises lightness; the argument that retired the legend was not applied to the trigger
+
+**Evidence.**
+
+```
+Measured --accent-view on all 7 user routes, both schemes (scratchpad/D-probe4.json). Light: L constant 0.470927, C 0.0814-0.1883, adjacent OKLab separation min 0.0608 / max 0.1226, global max pair 0.2794. Dark: L constant 0.958322, C 0.0206-0.0800, adjacent separation min 0.0152 (Home->Palettes, ~1 JND) / max 0.0522, global max pair 0.0923 — the entire dark gamut is smaller than light mode's smallest adjacent step. /browse resolves to oklch(0.47 0.096 89.8), a dark olive on a hot-pink ambient field (scratchpad/D2-focus-chromium.png). The file's own comment DockViewSelect.vue:37-47 killed the per-row legend because "seven simultaneous 40-degree-fan hues at matched L/C carried near-zero discriminative information"; the survivor is the same fan shown SEQUENTIALLY, which is strictly harder to identify. VISUAL-CONSTITUTION.md:14 puts the dock in the neutral structural-glass tier; :178 "every other Dock label is neutral in both schemes."
+```
+
+**Reproduction.** walk /#/, /#/palettes, /#/browse, /#/extract, /#/mix, /#/generate, /#/gradient in light and dark reading getComputedStyle(document.documentElement)['--accent-view']. Repro script: scratchpad/D-dvs-probe4.mjs
+
+**Proposed cure.** Finish the W6-4 subtraction: retire the per-view hue from the dock entirely. Route identity is the WORD, which this design keeps deleting (D-2/D-4/D-6); restore the word everywhere and the hue has no job left. Chromatic identity stays where the constitution sanctions it — the ambient field and the single Palettes coordinate.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-8 · CHALLENGE-D
+
+**Defect.** The product's primary navigation is a direction island: the trigger and every menu row compute `direction: ltr` inside an `rtl` document, so contents never mirror while the surrounding dock does.
+
+**Mechanism.** a physical direction pinned by a third-party default because no app-level direction provider exists; per-instance dir props would be the wrong cure
+
+**Evidence.**
+
+```
+Measured webkit with document.documentElement.dir='rtl' on /#/gradient: trigDir "ltr", parentDir (.dock-face-content) "rtl"; full ancestor walk (.dock-layer-group, .dock-layer, .dock-layers, .dock-controls, .glass-dock, nav.dock-band, .app-layout, body, html) all "rtl". Child x-positions stay physical LTR: icon 834.2, label 862.2, chevron 934.3. Menu rows also direction "ltr" with symmetric padding 10px/10px, while panel PLACEMENT is RTL-aware (alignedTo "trigger-right") — placement and contents disagree. Corroborated by tracked shots/rtl-desktop/picker.png: the dock's outer order mirrors and the sibling ActionBarToggle mirrors its contents, while the view-select alone keeps icon-label-chevron in LTR order. Nothing in demo/ sets this; reka-ui's Select supplies dir defaulting to "ltr" and DockViewSelect.vue:51-56 never passes :dir. Law: VISUAL-CONSTITUTION.md:150 — "chrome, navigation and layout | logical inline/block direction follows the document".
+```
+
+**Reproduction.** http://localhost:9000/#/gradient, then document.documentElement.setAttribute('dir','rtl'); getComputedStyle(document.querySelector('.view-select-trigger')).direction === 'ltr' while the parent is 'rtl'. Repro script: scratchpad/D-dvs-probe5.mjs
+
+**Proposed cure.** One app-level reka `ConfigProvider :dir` bound to the document direction, set once at the shell root — not a `:dir` prop on this instance, which would be a per-instance override needing repetition on every reka overlay in the app.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-9 · CHALLENGE-D
+
+**Defect.** The view menu is a translucent glass surface over arbitrary route content, so the page beneath cuts a visible seam across the option list and half the options sit on a different value than the other half.
+
+**Mechanism.** the consumer never chose a material tier, so an overlay inherits a see-through default whose effective contrast is whatever route content happens to be underneath
+
+**Evidence.**
+
+```
+Measured webkit /#/browse menu open: panelSurfaceAttr "glass", panelMaterialAttr "overlay", panelBg oklab(0.955861 0.009528 0.029646 / 0.7488), panelBackdrop blur(11px) saturate(1.6). Visible in scratchpad/D-dock-open-light.png: the Browse card's top edge runs straight across the panel so Home/Palettes/Browse/Extract sit on a visibly different value than Mix/Generate/Gradient. glass-ui SelectContent accepts a `surface` prop (select-BcBAyLXA.js props: surface, fieldHue, side, sideOffset, align, alignOffset); DockViewSelect.vue:90 passes only class="min-w-[12rem]". Law: VISUAL-CONSTITUTION.md:19 "Glass earns its blur by revealing live content; otherwise it is a neutral well"; :82 "Text, focus, boundaries and state meet their rendered contrast on the actual material tier; a token name is not evidence."
+```
+
+**Reproduction.** http://localhost:9000/#/browse, open the dock view menu, observe the horizontal seam across the option list where the Browse card's top edge passes behind it (scratchpad/D-dock-open-light.png).
+
+**Proposed cure.** `surface="opaque"` on SelectContent. A menu is a specimen well (VISUAL-CONSTITUTION.md:16), not a pane of glass; the producer already offers the correct rung and the consumer simply never selected it.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-10 · CHALLENGE-D
+
+**Defect.** The admin mode toggle is a command wearing `role="option"` inside a route-selection listbox, keyed by a magic sentinel string in the ViewId namespace, with a label that flips from a destination noun to an action phrase in the same slot.
+
+**Mechanism.** a command placed inside a selection model, guarded by string equality against a sentinel that shares a type with real route names
+
+**Evidence.**
+
+```
+demo/shell/dock/DockViewSelect.vue:124-141 `<SelectItem value="__admin_toggle__" ... hide-indicator>` rendering `Admin` or `Back to app`; demo/shell/dock/composables/useDockAdminMode.ts:70-77 `if (id === "__admin_toggle__") { toggleAdminMode(); return; }`. Its aria-selected is permanently false-by-construction because the choice never becomes the combobox value. Law: VISUAL-CONSTITUTION.md:96-98, the global grammar select -> tune -> commit, where "Selection changes the active specimen without committing it"; PROPORTION-AUDIT.md:71 "Subtraction precedes explanation."
+```
+
+**Reproduction.** open the dock view menu while admin-authenticated; the last row is a verb inside a list of destinations and selecting it never updates the combobox value.
+
+**Proposed cure.** The mode switch is not a destination. Once D-2's `audience` field exists on viewSchema, admin routes become ordinary rows gated by authority and the toggle row — together with its sentinel, its divider and its dual label — is deleted outright.
+
+---
+
 ### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-12 · CHALLENGE-L
 
 **Defect.** The crown entrance animation never runs, on any device, in any browser, and never has. ColorInput.vue:36-39 binds `animation: crown-appear ...` in an INLINE style attribute; ColorInput.vue:369-376 defines `@keyframes crown-appear` inside `<style scoped>`. Vue's SFC compiler hash-suffixes scoped keyframe names and rewrites animation declarations within the same style block, but does NOT process template style attributes. The inline reference resolves to nothing. NEW this pass — it also refutes the first pass's negative proof line 654, 'The animation law is honoured.'
@@ -5161,6 +8761,366 @@ DockViewSelect.vue:105 `<SelectItem value="__admin_toggle__" ...>`. useDockAdmin
 
 ---
 
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-6 (replicated blind) · CHALLENGE-L
+
+**Defect.** REPLICATION: identity/session lives inside the palettes FEATURE, and the shell's persistent chrome imports it on every route — the dependency direction is inverted.
+
+**Mechanism.** A platform concern (auth/session) homed in a feature module; the shell must therefore depend on a feature to know who the user is.
+
+**Evidence.**
+
+```
+SESSION_PORT_KEY is declared at demo/palettes/usePalettePorts.ts:271 as `Symbol("palette.session")` and imported by 5 shell files: Dock.vue:18, DockViewSelect.vue:8, layers/SlugEditLayer.vue:5, menus/MobileMenuDropdown.vue:13, menus/ProfileSection.vue:14. Dock.vue:44 consumes exactly one member, `pm.isAdminAuthenticated`, whose true origin is demo/platform/auth/useAdminAuth.ts (wired at usePalettePorts.ts:57).
+```
+
+**Reproduction.** `grep -rn SESSION_PORT_KEY demo/` -> 12 hits across the 5 shell files + the palettes owner.
+
+**Proposed cure.** Move session identity to `demo/platform/auth/session.ts` with its own SESSION_KEY; palettes consumes it like any other feature. Shell -> palettes edges go 5 -> 0.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-20 · CHALLENGE-L
+
+**Defect.** Malformed-URL boot path: the tab title asserts a colour the app is not showing, the bad link never heals, and MT-F001's only observable trace in the entire app is emitted at a severity the mega-tranche audit collects but does not grade.
+
+**Mechanism.** Mechanism A (failure-explicit contract inverted) with a split-brain consequence: two consumers read the same query parameter; useColorUrl validates it and correctly reports failure, useDocumentTitle does not and renders it as fact. useDocumentTitle.ts:18-19 states the broken assumption verbatim ('the exact string the app uses as the colour's shareable identity everywhere').
+
+**Evidence.**
+
+```
+Live at http://localhost:9000/#/?space=oklch&color=rgb() settled 2500ms: {"title":"rgb() — Color Picker","colorInputText":"oklch(72% 0.19 25deg)","url":"…?space=oklch&color=rgb()"}. Source demo/color-picker/router/useDocumentTitle.ts:62 `document.title = composeTitle(to.name, to.query.color)` and :43-45 takes the raw query verbatim — no validation, and the afterEach guard fires independently of whether useColorUrl.applyUrlToModel() succeeded. Console (level=warning): `[useColorUrl] Invalid color in URL: rgb() TypeError: Cannot read properties of undefined (reading 'replace') at ae (…/dist/subpaths/css.js:265:17) at parsePickerColor (…/picker-color.ts:157:17) at applyUrlToModel (…/useColorUrl.ts:22:41)`. Graded categories: `grep -n "^### " docs/tranches/V/megatranche/audit/visual/REPORT.md` → 8 sections (blankOrNearBlank, pageErrors, consoleErrors, horizontalOverflow, darkClassMissing, mainCountNotOne, smallTapTargets, namelessButtons) — consoleWarnings has none.
+```
+
+**Reproduction.** Navigate to http://localhost:9000/#/?space=oklch&color=rgb() ; wait 2.5s; read document.title, the .color-input textContent, and location.href. Title says rgb(), body shows oklch(72% 0.19 25deg), URL unchanged (useColorUrl.ts:52-64 fires only on model change, and the model never moved).
+
+**Proposed cure.** composeTitle must read the MODEL's cssSpelling, not the query — only the model has been through the parser. Separately, applyUrlToModel returning false should REPAIR the URL with one router.replace so a broken share link heals on open rather than propagating. Promote useColorUrl.ts:44 to console.error only AFTER Mechanism A is cured (while the swallow exists, promoting it would turn a real signal into noise on every typo).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-21 · CHALLENGE-L
+
+**Defect.** `serializePickerColor` answers a different question rather than failing: it suppresses the library's `{ok:false, color_invalid_input}` for the four non-CSS spaces and silently substitutes oklch — and ColorInput.vue:104 renders that substitution two lines beneath the sentence "Any valid CSS color string is accepted."
+
+**Mechanism.** New face of Mechanism A, named A′: failure answered with a plausible wrong answer rather than an error. A throw is at least loud somewhere; a substitution returns a well-formed string that passes every downstream check. This is the masking fallback edict 2 forbids, sitting at the bottom of the funnel every colour readout in the app runs through.
+
+**Evidence.**
+
+```
+demo/color-session/picker-color.ts:206-211 `const cssColor = CSS_PICKER_SPACES.has(color.space) ? color as CssColor : convertPickerColor(color, "oklch")`. Measured against the published bundle: `serializeCssColor(hsv(25,0.8,0.95,1))` → {"ok":false,"error":{"code":"color_invalid_input"}} while the demo substitute yields "oklch(71.818014636356% 0.164583951889 51.616475581492deg)"; kelvin(3200) → "oklch(83.541309110086% …)". All 17 spaces incl. the 4 non-CSS ones are user-selectable (color-model.ts:75-78 DISPLAY_COLOR_SPACE_NAMES = {...PICKER_SPACE_NAMES, hex}). The sibling consumer GUARDS the identical call: ColorSpaceSelector.vue:161 `if (CSS_PICKER_SPACES.has(converted.space)) return serializePickerColor(converted);` else renders `hsv · 25 · 0.8 · 0.95`.
+```
+
+**Reproduction.** node --input-type=module against ./dist/subpaths/{color,css}.js: build hsv(25,0.8,0.95,1), call serializeCssColor → {ok:false,color_invalid_input}; then convertColor(...,'oklch') + serializeCssColor → the oklch string the demo returns instead. In-app: select HSV/Kelvin/ICtCp/Jzazbz in the space selector and hover ColorInput — the popover prints an oklch string under the CSS-fidelity promise, while the selector's own specimen row for the same colour prints the honest non-CSS spelling.
+
+**Proposed cure.** serializePickerColor returns Result<string, ColorIssue> and never converts. Callers wanting the oklch projection request it by name (serializeAsOklch), so substitution becomes a request instead of a silent default. ColorInput.vue:104 then renders either the CSS spelling or the honest non-CSS spelling ColorSpaceSelector already implements — one helper, one home, both call sites. Falls out of the standing transposition-1 cure at zero extra cost and retires the third home for the CSS-serializable-space set (pass 3's L-14).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-22 · CHALLENGE-L
+
+**Defect.** The only component-owned authenticated network mutation has ZERO automated coverage at unit, component and e2e level — and the e2e spec that skips it cites a unit-test file that does not exist.
+
+**Mechanism.** Mechanism G (new): a domain write owned by a leaf has no testable seam — there is nothing to call except by mounting a dock leaf inside a dock inside an app. Both stated reasons for the e2e skip are themselves filed defects (the button has no accessible name — L-10/L-23; the crossfade race — L-11).
+
+**Evidence.**
+
+```
+e2e/smoke/flows/color-propose.spec.ts:22-24 claims 'unit coverage in test/parsing/extract.test.ts via the underlying submitProposedName handler'. `ls test/parsing/extract.test.ts` → No such file or directory. `grep -rn "submitProposedName|proposeColorName" --include=*.ts --include=*.vue . | grep -v node_modules | grep -v ^./docs` → only color-names.ts:35 (the definition), ColorInput.vue:71,132,206,230,236,287, a comment in palettes/api/index.ts:7, and the false claim itself. Zero test references. Failure handling is console.warn only (ColorInput.vue:242-245) and the sole error surface is gated `parseError && !proposeMode` (:87), so propose failures are structurally invisible. The dev server used for this audit emits `[value.js] dev is MISCONFIGURED … CORS allow-list excludes localhost — every palette request will be blocked`, so the silent-failure path is live right now.
+```
+
+**Reproduction.** `ls test/parsing/extract.test.ts` (absent) plus the repo-wide grep above (zero test references). The silent failure itself is code-certain: ColorInput.vue:242-245 is the only catch, it only console.warns, and no reactive error state exists.
+
+**Proposed cure.** Move the mutation to `color-session/useColorNaming.ts` as `proposeName(name, css): Promise<Result<ProposedColorName, ApiProblem>>` (merging useCustomColorNames + useColorNameResolution + this write). The coverage gap then closes as a side effect of the ownership cure: a four-line unit test with a stubbed transport. Delete the false coverage note from the e2e spec. Give the send button an accessible name so the e2e can actually drive submit.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-23 · CHALLENGE-L
+
+**Defect.** CORRECTION to the fourth pass: ColorInput IS mounted in the DOM at rest and `.send-btn` IS the visual audit's `namelessButtons: 1` row — pass 1's attribution was right, pass 4's retraction was measured in an unsettled or dirty state. The deeper finding: a11y counts in the sweep are nondeterministic.
+
+**Mechanism.** Presence is a settling question, not a fixed fact: ActionBarLayer is behind `v-if="actionBar"` (Dock.vue:156) where actionBar = `colorPickerRef?.actionBarContext ?? null` (App.vue:38) — a template-ref-derived prop that is null until ColorPicker has mounted and the parent re-rendered. REPORT.json records settleMs:18905 for safari-desktop-light /#/. Any harness category counted by document.querySelectorAll (namelessButtons, smallTapTargets, counts.button) inherits this nondeterminism — two independent Opus 5 seats measured opposite values for one audit row.
+
+**Evidence.**
+
+```
+Two independent settled clean navigations this pass. Load 1 (http://localhost:9000/#/), enumerating every <button> with no aria-label, text or title: {"namelessCount":1,"nameless":[{"cls":"send-btn btn-interactive","html":"<svg data-v-55dadc03=…","rect":"24x24","inertAncestor":true}],"colorInputPresent":true,"colorInputAria":"Enter a CSS color"}. Load 2 (?space=oklch&color=rgb(), settled 2500ms): {"colorInputPresent":true,"namelessButtons":["send-btn btn-interactive"]}. REPORT.json records namelessButtons:1 for /#/ on both desktop matrices. I also reproduced pass 4's null — but only in a DIRTY context after prior clicks drove the dock into its edit face (labels: Save edit, Cancel edit; hasColorInput:false).
+```
+
+**Reproduction.** Fresh browser context → navigate http://localhost:9000/#/ → wait for settle (>2s) → evaluate the nameless-button enumeration. Compare against the same query run immediately on navigation (yields null) and after driving the dock into edit mode (yields false).
+
+**Proposed cure.** Harness cure: the capture must wait on an app-emitted readiness signal rather than a timeout. The dock already exposes [data-morphing] (used for exactly this in color-propose.spec.ts:49); the shell should additionally set data-app-ready once the composition root resolves its refs. Then namelessButtons:1 means one thing on every run. Component cure unchanged: replace both raw <button>s (ColorInput.vue:67-82) with the glass-ui DockControl primitive carrying a real aria-label.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-2 (confirmed) · CHALLENGE-L
+
+**Defect.** MAJOR, re-derived: demo/ui/ is a 19-directory pure-forwarding table with zero local components, and ColorInput uses BOTH it and @mkbabb/glass-ui directly, five lines apart.
+
+**Mechanism.** Mechanism C: a forbidden forwarding layer between the component and the design system. docs/tranches/V/ARCHITECTURE.md:39 names and forbids this exact construct ('one-line glass-ui forwarding directory'). Edicts 2 (dual paths/shims), 3 (contrivance), 4 (glass-ui IS the design system).
+
+**Evidence.**
+
+```
+19/19 demo/ui barrels are one-line re-exports of @mkbabb/glass-ui; zero local implementations (`cat demo/ui/popover/index.ts` → `export { Popover, PopoverTrigger, PopoverContent } from "@mkbabb/glass-ui";`). ColorInput.vue:117 imports @mkbabb/glass-ui directly while :122/:128/:129 route through the shims. Blast radius measured: 46 demo files import ../ui/*; 82 import glass-ui directly; 26 import BOTH forms. glass-ui 7.0.0 publishes granular ./popover ./tooltip ./separator ./dom ./dock subpaths — the shims re-export from the ROOT barrel instead. The sibling ActionBarLayer.vue:8 already does it right (@mkbabb/glass-ui/dock).
+```
+
+**Reproduction.** for d in demo/ui/*/; do cat $d/index.ts; done — every file is a single re-export line. Then grep the 46 importers and the 26 dual-dialect files.
+
+**Proposed cure.** Delete demo/ui/ entirely — all 19 directories — and rewrite the 46 importers to @mkbabb/glass-ui/<component> subpath specifiers. Mechanical, fully verifiable against the typecheck oracle, and it removes an entire tier from the lattice.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-12 (confirmed) · CHALLENGE-L
+
+**Defect.** MAJOR, re-derived at runtime: the Crown entrance animation is dead — a scoped @keyframes referenced from an inline style attribute, which the SFC compiler never rewrites.
+
+**Mechanism.** Vue's scoped-style compiler hash-suffixes @keyframes names and rewrites animation declarations within the same style block, but never processes template style attributes. Pairing a scoped keyframe with an inline reference is unsatisfiable by construction. Edict 6 (an animation deleted by construction, not decision) and edict 5 (per-instance inline override where a root-level class belongs).
+
+**Evidence.**
+
+```
+Live keyframe census of the running document: {"keyframeNames":["input-mode-flash-55dadc03","crown-appear-55dadc03"]} — no unhashed crown-appear exists anywhere. Synthesising ColorInput's exact element (data-v-55dadc03 + its exact inline shorthand) against the live page: asAuthored {"name":"crown-appear","dur":"0.55s","running":0} vs control hashedName {"name":"crown-appear-55dadc03","dur":"0.55s","running":1}. Tokens resolve correctly ({durationPanel:0.55s, easeDecelerate:cubic-bezier(0,0,0.2,1)}), so this is a name miss, not a token miss. ColorInput.vue:37-39 is the inline style; :369-376 is the scoped @keyframes. The working control is .color-input-mode-flash (:312-314), which references its keyframe from INSIDE the scoped block.
+```
+
+**Reproduction.** On the live app, evaluate: create a span with data-v-55dadc03 and style='animation: crown-appear var(--duration-panel) var(--ease-decelerate) forwards', read getAnimations().length → 0; repeat with crown-appear-55dadc03 → 1.
+
+**Proposed cure.** Promote crown-appear to demo/styles/animations.css (the declared home, already holding edit-drawer-in / stagger-child-in / vj-settle) and drive it from a .crown-badge class; the inline style attribute dies with it. Better still, relay it to glass-ui alongside the vj-celebrate / vj-morph families this component already consumes. Standing rule the codebase should adopt: if the reference is inline, the keyframe must be global; if the keyframe is scoped, the reference must be a class in the same block. No third combination is legal.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-7 · CHALLENGE-L
+
+**Defect.** The published library @mkbabb/value.js@4.0.0 declares the entire glass-ui design system as a RUNTIME dependency while src/ imports it zero times — and glass-ui peer-depends back on value.js, a declared dependency cycle.
+
+**Mechanism.** A devDependency of the DEMO was declared in the LIBRARY's runtime `dependencies`, so every consumer of a colour-maths subpath installs a whole design system, and the two packages declare a cycle.
+
+**Evidence.**
+
+```
+package.json:82-84 `"dependencies": {"@mkbabb/glass-ui": "^7.0.0", "@mkbabb/keyframes.js": "^6.0.0"}`. `grep -rn "@mkbabb/glass-ui" src/ | wc -l` → 0. `grep -rn "@mkbabb/glass-ui" demo/ | wc -l` → 129. node_modules/@mkbabb/glass-ui/package.json peerDependencies contains `"@mkbabb/value.js": "^4.0.0"`. package.json#files = ["dist","!dist/gh-pages","!dist/gh-pages/**"] — the demo is never published. Published surface is seven pure subpaths (./color ./value ./css ./easing ./math ./transform ./quantize); none needs a Vue design system. ActionBarLayer.vue:8 is one of the 129 edges.
+```
+
+**Reproduction.** npm i @mkbabb/value.js in a clean tree; @mkbabb/glass-ui + its peer graph is installed for a consumer that only imports @mkbabb/value.js/color. Static: the two greps above.
+
+**Proposed cure.** Move both @mkbabb/glass-ui and @mkbabb/keyframes.js from `dependencies` to `devDependencies`. Nothing that ships loses a dependency (files[] excludes the demo), and the declared cycle is broken.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-5 · CHALLENGE-L
+
+**Defect.** The dock's action-bar contract has TWO declarations in TWO foreign homes, and neither is the dock.
+
+**Mechanism.** Unique semantic ownership violated: one concept (the run of actions the dock shows for the current view) modelled twice, in two modules that are neither its producer nor its consumer.
+
+**Evidence.**
+
+```
+`ActionBarContext` (8 fields) declared at demo/color-session/keys.ts:17-28 — a DOCK presentation contract living in the COLOR domain module. `DockActionBar`/`DockAction` declared at demo/shell/usePaneRouter.ts:36-58 — the same concept in the ROUTER module. Dock.vue:31 declares BOTH as props; Dock.vue:156-157 renders them as a mutual exclusion (`<ActionBarLayer v-if="actionBar">` / `<GenericActionBar v-else-if="genericBar">`). usePaneRouter.ts:34-35 records that a THIRD home (useDockActionBar.ts + DOCK_ACTION_BAR_KEY) was already folded away.
+```
+
+**Reproduction.** grep -rn "ActionBarContext" demo/ → 6 sites across 3 files; grep -rn "DockActionBar" demo/ → usePaneRouter.ts + Dock.vue. Both feed the same <DockLayer id="action-bar">.
+
+**Proposed cure.** One demo/shell/dock/action-bar/contract.ts owning a single DockActionBar shape. ColorPicker and usePaneRouter both PRODUCE it; the dock consumes one prop and renders one component, not an either/or.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-6 · CHALLENGE-L
+
+**Defect.** ActionToolbar.vue is a hand-unrolled duplicate of GenericActionBar.vue — one concept, two implementations, both alive.
+
+**Mechanism.** Dual path: a data-driven renderer and a hardcoded renderer for the same visual concept, forced by L-5's two contracts.
+
+**Evidence.**
+
+```
+GenericActionBar.vue:12 root `<div class="flex items-center justify-around flex-1">` + `<ActionButton v-for="act in actions">` (:13) + `const activeHover = ref<string|null>(null)` (:11). ActionToolbar.vue:2 the IDENTICAL root + five hand-written `<ActionButton>` (:3-59) + the IDENTICAL `const activeHover = ref<string|null>(null)` (:78). ActionToolbar re-declares five emits (:73-79) that ActionBarLayer.vue:109-113 forwards straight back to actionBar.reset()/copy()/random() and its own emits.
+```
+
+**Reproduction.** Read demo/shell/dock/ActionToolbar.vue and demo/shell/dock/layers/GenericActionBar.vue side by side — same root class string, same child, same local hover ref.
+
+**Proposed cure.** Delete ActionToolbar.vue (86 lines). Have ColorPicker emit its five actions as DockAction[] (it already owns the handlers) and render GenericActionBar for both cases — collapsing L-5 and L-6 together.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-3 · CHALLENGE-L
+
+**Defect.** No peak-size reserve: the dock plate width snaps 141 px in a single frame on the actions→input swap.
+
+**Mechanism.** The shim reproduced a signature but not the behaviour: it kept the containerEl parameter for parity and voided it, so no measurement, no reserve, no morph.
+
+**Evidence.**
+
+```
+Measured (probe 1): mode `actions` .dock-layer-grid 184 px / .dock-plate 326 px; mode `input` at +60 ms 325 px / 467 px. `min-inline-size: auto` at every sample. ActionBarLayer.vue:67 `void opts.containerEl;` is the explicit discard of the one parameter that could have measured it. Producer cure exists: DockCrossfade.vue.d.ts `reserve?: "block" | "inline"` — "`inline` reserves the peak WIDTH (a horizontal control run)".
+```
+
+**Reproduction.** node scratchpad/abl-probe.mjs — plateW 326 (rest) → 467 (+60ms), delta 141 px, gridMinInline "auto" throughout.
+
+**Proposed cure.** `<DockCrossfade reserve="inline">` — the producer measures the peak face once as a running max min-inline-size.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-4 · CHALLENGE-L
+
+**Defect.** `provide(COLOR_MODEL_KEY, actionBar.colorModel)` is a provable identity no-op carrying a false rationale, and the ActionBarContext field that feeds it exists for nothing else.
+
+**Mechanism.** A DI shadow introduced to make a component 'work unchanged' during a move, retained after the move made it redundant — edict 2 (no migration shims).
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:21-22 (comment: "Re-provide COLOR_MODEL_KEY so ColorInput works unchanged"). Identity chain: App.vue:257 `provide(COLOR_MODEL_KEY, pipeline)` → ColorPicker.vue:172 `inject(COLOR_MODEL_KEY)!` (same object) → ColorPicker.vue:321 places it in actionBarContext → App.vue:35,38 renders `<Dock :action-bar="colorPickerRef?.actionBarContext">` INSIDE App's own template, hence inside App's provide scope. `grep -rn "provide(COLOR_MODEL_KEY" demo/` → 3 hits, one of which is a comment. `grep -rn "\.colorModel" demo/` → 1 hit: ActionBarLayer.vue:22.
+```
+
+**Reproduction.** The two greps above plus the five-step identity trace; ColorInput resolves COLOR_MODEL_KEY from App with or without line 22.
+
+**Proposed cure.** Delete ActionBarLayer.vue:21-22; delete `colorModel` from ActionBarContext (color-session/keys.ts:23) and from ColorPicker.vue:321.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-2 · CHALLENGE-L
+
+**Defect.** `.dock-layer-grid` matches zero CSS rules, so the absolutely-positioned inactive face resolves inset:0 against a grandparent and is measured 118 px wider than its nominal parent.
+
+**Mechanism.** A class name invented to imply a grid container that was never authored; the layout that appears to work is actually being supplied by an unrelated ancestor.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:101 `class="dock-layer-grid flex-1"`. Live: {"dockLayerGridRules":{"hits":0,"found":[],"sheets":32}}; computed display `block`, position `static`. Width pairs (grid vs inactive face): rest 184/302, +60ms 325/443, after-cycle 245/363 — a constant 118 px disagreement, because inset:0 resolves against .dock-face.is-active (position:relative, from crossfade.css). Zero definitions anywhere: `grep -rn "dock-layer-grid" node_modules/@mkbabb/glass-ui/dist/` → none.
+```
+
+**Reproduction.** node scratchpad/abl-probe.mjs — dockLayerGridRules.hits = 0 across all 32 loaded stylesheets; gridDisplay "block", gridPosition "static".
+
+**Proposed cure.** The class dies with the shim; <DockCrossfade> supplies `.dock-crossfade { position: relative; display: grid; isolation: isolate }` — a real, owned, producer-versioned container.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-8 · CHALLENGE-L
+
+**Defect.** @mkbabb/keyframes.js@^6.0.0 is a runtime dependency of the published package with ZERO importers anywhere in the repository.
+
+**Mechanism.** A peer-satisfier for the DEMO's glass-ui build declared in the LIBRARY's runtime dependencies — a devDependency concern pushed onto every library consumer. Edict 2 at package granularity.
+
+**Evidence.**
+
+```
+`grep -rn "@mkbabb/keyframes" --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=docs .` → package.json:84 and package-lock.json only. Zero imports in src/, demo/, test/, e2e/, api/.
+```
+
+**Reproduction.** The grep above.
+
+**Proposed cure.** Move to devDependencies alongside glass-ui (see L-7).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-4/L-18 · CHALLENGE-L
+
+**Defect.** Wrong direction of dependency: a 162-line shell leaf value-imports a feature module, dragging 31 unrelated palettes/platform modules into its runtime graph to read one boolean the parent already holds.
+
+**Mechanism.** Shell → feature runtime edge plus a dual data path: every other input arrives as a prop from Dock.vue (:169-174), this one reaches around the prop surface to ambient state. Dock.vue:37 already injects the same key and Dock.vue:42 already passes pm.isAdminAuthenticated into useDockAdminMode. The retired usePaletteManager god facade still has its blast radius through the port MODULE even though the port INTERFACE is narrow (usePalettePorts.ts:20-30).
+
+**Evidence.**
+
+```
+demo/shell/dock/DockViewSelect.vue:8 `import { SESSION_PORT_KEY } from "../../palettes/usePalettePorts"` and :35 `const pm = inject(SESSION_PORT_KEY)!`. Sole use: :122 `v-if="pm.isAdminAuthenticated.value"`. Measured value-import module closure (import type excluded): 33 modules — 31 of them demo/palettes/{api/*,use*}.ts and demo/platform/{auth,storage,transport}/*. Five shell files carry this edge: DockViewSelect.vue:8, Dock.vue:18, layers/SlugEditLayer.vue:5, menus/MobileMenuDropdown.vue:13, menus/ProfileSection.vue:14. The key is even named for the wrong domain: Symbol("palette.session") at usePalettePorts.ts:271. isAdminAuthenticated is not owned by palettes — usePalettePorts.ts:57 re-exports it from demo/platform/auth/useAdminAuth.ts:17-24, a module-level singleton any file may call.
+```
+
+**Reproduction.** Value-import module-closure walk from demo/shell/dock/DockViewSelect.vue → 33 modules. Delete lines 7-8 and 35 → 2. Also: mount DockViewSelect with no provider — inject(...)! yields undefined and the template's pm.isAdminAuthenticated.value throws, so the component is un-mountable in isolation.
+
+**Proposed cure.** Add `canToggleAdmin: boolean` to the prop block; delete lines 7-8 and 35; Dock.vue:167 gains :can-toggle-admin="pm.isAdminAuthenticated.value". Net two lines. Longer arc: useDockNav reads useAdminAuth() directly from demo/platform/auth — the correct edge is shell → platform, one hop, no port, no feature dependency. If injection keys must stay, move the five InjectionKey declarations to a zero-import keys module (the idiom demo/color-session/keys.ts already uses and Dock.vue:19 already imports from), so importing a key does not instantiate a graph.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-5/L-15/L-9 · CHALLENGE-L
+
+**Defect.** Three-and-a-half parallel routes to one design system. demo/ui/ is twenty alias directories with zero behaviour; the select barrel routes through glass-ui's ROOT export instead of the ./select subpath the package ships — 6x the modules, 12x the bytes for the same eight symbols; and demo/shell/dock/index.ts forms a module cycle with Dock.vue.
+
+**Mechanism.** An alias/shim layer surviving the pre-glass-ui era (edict 2: no aliases, dual paths; edict 3: no contrivance wrapper dirs). It also makes a false statement about the design system's surface: a reader of demo/shell/dock/ sees ../../ui/select and concludes the demo owns a Select. It does not.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:3 imports @mkbabb/glass-ui/dock (correct subpath) while :6 imports ../../ui/select, eight lines apart. demo/ui/select/index.ts in full: `export { Select, SelectTrigger, SelectItem, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectSeparator } from "@mkbabb/glass-ui";`. All 20 demo/ui/* barrels are single-line forwards; demo/ui/alert/index.ts documents itself as the residue of a deleted implementation. Measured ESM closure over node_modules/@mkbabb/glass-ui/dist: glass-ui.js 66 modules / 224193 B; select.js 11 / 18628; dock.js 32 / 101223 — glass-ui 7.0.0 publishes ./select as one of 69 subpath keys. Counts: 37 root-barrel + 82 subpath direct imports, plus 48 files via demo/ui barrels. demo/shell/dock/index.ts exports GlassDock/DockLayerGroup/DockLayer from @mkbabb/glass-ui/dock AND `export { default as Dock } from "./Dock.vue"`, while Dock.vue:4 imports from "./" — a genuine ESM cycle (both edges verified).
+```
+
+**Reproduction.** `for d in demo/ui/*/; do cat "$d"index.ts; done` → 20 pure forwards. `node -e "console.log(Object.keys(require('@mkbabb/glass-ui/package.json').exports))"` → ./select is published. Transitive relative-import closure over dist/: 66 vs 11 modules. `cat demo/shell/dock/index.ts` + `sed -n '4p' demo/shell/dock/Dock.vue` → the cycle.
+
+**Proposed cure.** Delete demo/ui/ entirely (20 dirs, 20 files, 0 lines of behaviour); every consumer imports the glass-ui SUBPATH it actually wants — here `@mkbabb/glass-ui/select`, 6x cheaper than the root barrel. `grep -rl 'from "(\.\./)*ui/' demo/` is the complete 48-file work list. Delete demo/shell/dock/index.ts: Dock.vue imports @mkbabb/glass-ui/dock directly (it already does so three lines later at :5) and App.vue:167 imports ../shell/dock/Dock.vue — the cycle and the fourth alias route die in one stroke.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-14 · CHALLENGE-L
+
+**Defect.** A design-system primitive is hand-reimplemented inline while the real one sits unused in the very barrel this file imports from.
+
+**Mechanism.** Inverse of L-5: the demo forwards a primitive it does not own, then declines to use the forwarded primitive and re-rolls it by hand with per-instance Tailwind utilities. Edict 4 (glass-ui is the design system) and edict 5 (style at the root, never per-instance) violated in one line, in the file that already imports the correct primitive.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:123 `<div class="border-t border-border my-1"></div>`. demo/ui/select/index.ts (imported at :6) re-exports SelectSeparator; glass-ui ships it — node_modules/@mkbabb/glass-ui/dist/select.js: `export { ... s as SelectSeparator ... }`. `grep -rn "SelectSeparator" demo --include="*.vue"` → NO OUTPUT: zero demo components use it.
+```
+
+**Reproduction.** grep -rn "SelectSeparator" demo --include="*.vue" → no output; grep -n "SelectSeparator" node_modules/@mkbabb/glass-ui/dist/select.js → present. Compare DockViewSelect.vue:123.
+
+**Proposed cure.** `<SelectSeparator />`. If its default margin is wrong for the dock menu, that is a token change IN glass-ui relayed via the standing BH/BI inbox law — never a my-1 here.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-7/L-19 · CHALLENGE-L
+
+**Defect.** ViewEntry is a type-erased duplicate of a type the schema already owns; its index signature disables all property-name checking on the objects that drive the primary navigation.
+
+**Mechanism.** Ownership duplication of a shape plus deliberate type widening. A presentational component also takes its PROP TYPE from a stateful composable (DockViewSelect.vue:9) rather than from the schema — the contract depends on the machinery instead of the data.
+
+**Evidence.**
+
+```
+useDockAdminMode.ts:8-13 declares `interface ViewEntry { id: ViewId; label: string; icon: unknown; [k: string]: unknown; }` against viewSchema.ts:86-96 where PaneConfig.icon is `Component`. Both construction sites need a cast: `adminViews.map((id) => ({ id, ...viewManager.viewMap[id] } as ViewEntry))` (:36, :38). The erasure propagates into the component's prop surface: DockViewSelect.vue:19 `currentIcon: unknown`, :21 `currentView: string` (not ViewId), :22 `viewEntries: ViewEntry[]` — all fed to <component :is> at :77 and :112, a position vue-tsc does not check. Compiler proof: isolated --strict program accessing e.laebl and e.completely_made_up_key → `tsc -p .` EXIT=0, zero diagnostics.
+```
+
+**Reproduction.** Write probe.ts: `import type { ViewEntry } from ".../useDockAdminMode"; declare const e: ViewEntry; const x = e.laebl; const y = e.completely_made_up_key;` with a bare --strict tsconfig. node_modules/.bin/tsc -p . → EXIT=0, zero errors.
+
+**Proposed cure.** Delete ViewEntry; its meaning already exists as `PaneConfig & { id: ViewId }`. Drop both `as` casts — `{ id, ...VIEW_MAP[id] }` structurally IS that type; the cast exists only because the target was made dishonest. DockViewSelect's props become `currentView: ViewId; currentIcon: Component`. <component :is> gets a real type and `entry.id === "palettes"` (:116) gets exhaustiveness.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-6 · CHALLENGE-L
+
+**Defect.** A self-declared back-compat re-export shim in useViewManager preserves compatibility with an import path that no longer exists — and it is the MAJORITY path, so the SSOT is bypassed by 6 of 9 importers.
+
+**Mechanism.** Edict 2 violation by the file's own admission. Keeps a dual path alive to a pure-data schema through a reactive, router-importing module.
+
+**Evidence.**
+
+```
+demo/shell/useViewManager.ts:15-19 — comment: "Re-export the schema types so existing consumers that import from `@composables/useViewManager` continue to resolve cleanly ... preserves source-compat with the pre-D.W3-Lane-D import paths" followed by `export type { ViewId, LeftPane, RightPane, PaneConfig };`. But vite.config.ts:68-70 records "W43 (RF-15) killed the demo `@…` path aliases: every demo import is now relative to its physical home" — there is no @composables/ alias left. 8 importers take the shim (ColorPicker.vue:130, usePaneRouter.ts:23, Dock.vue:17, useDockAdminMode.ts:5, App.vue:185, usePaletteWiring.ts:22, useAtmosphereBoot.ts:55, usePalettePorts.ts:19) vs 2-3 on viewSchema directly. useAtmosphereBoot.ts:55 pulls a vue-router-importing runtime module into a type-only position.
+```
+
+**Reproduction.** sed -n '15,19p' demo/shell/useViewManager.ts (the shim and its own comment). grep -rn 'useViewManager"' demo/ --include='*.ts' --include='*.vue' | wc -l → 8, vs 3 on viewSchema".
+
+**Proposed cure.** Delete the re-export line. Point all 8 importers at demo/shell/viewSchema.ts (renamed shell/nav/nav-schema.ts under the greenfield lattice). useViewManager keeps runtime state ONLY — type consumers never reach through a vue-router-importing module for pure data again.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-8 · CHALLENGE-L
+
+**Defect.** The emit channel carries two disjoint meanings via an untyped magic string split across two files, and the type predicate written for the write path is never called.
+
+**Mechanism.** One channel, two messages, plus doubled defensive typing that validates nothing (component narrows with `as string`, receiver re-widens to reka's string|number|boolean|Record|null — two casts, zero checks). The option list also has two sources: 7 rows from viewEntries data, an 8th hand-written into the template at :122-142.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:125 `<SelectItem value="__admin_toggle__">` demultiplexed at useDockAdminMode.ts:65-73: `if (id === "__admin_toggle__") { toggleAdminMode(); return; } viewManager.switchView(id as ViewId);` — an unvalidated cast straight into router.push({name:id}) (useViewManager.ts:79). viewSchema.ts:236 exports isViewId, a type predicate written for exactly this; `grep -rn "isViewId" demo/` shows it used only on the READ path (useViewManager.ts:45, useDocumentTitle.ts:50). The sentinel string appears as a bare literal in exactly two files with no shared constant. Separately, DockViewSelect.vue:26 declares `"update:modelValue": [id: string]` while the prop block :11-23 has NO modelValue prop — a v-model contract the component does not implement; the sole call site works only by spelling both halves by hand (Dock.vue:169 :current-view + :174 @update:model-value).
+```
+
+**Reproduction.** grep -rn "__admin_toggle__" demo → exactly 2 files, no shared constant. sed -n '65,73p' demo/shell/dock/composables/useDockAdminMode.ts. grep -rn "isViewId" demo/ → no call on the write path. Read DockViewSelect.vue:11-30 for the modelValue emit with no modelValue prop.
+
+**Proposed cure.** Split the channel: emits become `navigate: [ViewId]` and `toggleAdmin: []`; the sentinel disappears. Under the L-1 cure isAdminMode is derivable from VIEW_MAP[currentView].nav, so the toggle stops being a fake option at all. switchView takes ViewId with no cast; callers narrow with the existing isViewId. Rename the surviving value emit to match its prop (`update:currentView`) so v-model:current-view is coherent.
+
+---
+
 ### `CHALLENGE-L — library structure / module boundaries / owners` · L-18 · CHALLENGE-L
 
 **Defect.** The chrome-tier ink referent probes a node that paints nothing: `resolveLiveTint("chrome")` reads `getComputedStyle(document.querySelector('.glass-dock')).backgroundColor`, which is fully transparent under Glass 7 — the glass is painted on the `.dock-plate` child. The live probe returns undefined on every call and the static model silently serves.
@@ -5248,6 +9208,222 @@ demo/shell/dock/ColorInput.vue:67-82 — both branches are `<button class="send-
 **Reproduction.** node scratchpad/L-probe3.mjs — load /#/, click [aria-label='Toggle action bar'], click [aria-label='Open color input'], then read button.send-btn: visible, 24x24, accessible name null, no inert ancestor. Two clicks from cold boot.
 
 **Proposed cure.** Route the send affordance through `DockControl` (or glass-ui `Button`), which carries the aria-label contract; the 24x24 box also sits at the WCAG 2.2 SC 2.5.8 floor, and since `compact` is a producer variant the size cure belongs producer-side (edict 5), not as a per-instance override.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-3 · CHALLENGE-C
+
+**Defect.** Alpha is discarded when sampling: `formatHex(data[0], data[1], data[2])` never reads `data[3]`, so a fully transparent pixel is reported — and emitted to the palette via `pick`/`addToPalette` — as opaque black.
+
+**Mechanism.** lossy channel projection — RGBA sampled, RGB formatted, no alpha branch
+
+**Evidence.**
+
+```
+useImageSampler.ts:32-35 (formatHex) and :116-118 (getImageData → formatHex, data[3] unread); ImageEyedropper.vue:212-224 (emits sampledColor). MEASURED: sampling the fully-transparent quadrant of the 200×200 probe fixture yields readout `oklch(0% 0 none)` and a solid black WatercolorDot swatch (.playwright-mcp/eyedropper-live.png, top bar); sampledColor = "#000000".
+```
+
+**Reproduction.** Upload a PNG with a fully transparent region (fixture: .playwright-mcp/probe.png, bottom-right quadrant) and sample inside it. Readout: oklch(0% 0 none); swatch: black; Add-to-palette inserts #000000.
+
+**Proposed cure.** Read data[3]. Either refuse the sample and return null — reusing the existing out-of-bounds 'no sample here' path at useImageSampler.ts:114-115 — or carry alpha through into the emitted color. Never project a non-existent pixel onto black.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-4 · CHALLENGE-C
+
+**Defect.** The overlay is inoperable by keyboard and invisible to assistive technology: no role, no aria-modal, no accessible name, no aria-live readout, focus never moves in, no focus trap, no focus restoration; the sampling canvas is aria-hidden with no keyboard alternative; and Add/Apply only render after a pointer-only pin.
+
+**Mechanism.** hand-rolled modal overlay with no dialog semantics and a pointer-only interaction model
+
+**Evidence.**
+
+```
+MEASURED on the live overlay: role=null, aria-modal=null, aria-label=null, [role=dialog] count 0, [aria-live] count 0, focusables inside overlay = 1, document.activeElement = BODY on open, Tab #1 → INPUT with insideOverlay:false, Tab #2 → INPUT with insideOverlay:false. Code: ImageEyedropper.vue:8 (bare div overlay), :74 (canvas aria-hidden), :35-37 (readout span, no aria-live), :43-58 (Add/Apply v-if="pinned", pinned only set from onTap). Entry point also gated: ImageDropZone.vue:21 sets tabindex=-1 once a preview exists. WCAG 2.1.1 (A), 4.1.2 (A), 2.4.3 (A) all fail.
+```
+
+**Reproduction.** Open the eyedropper, press Tab twice: focus lands on inputs OUTSIDE the overlay (measured insideOverlay:false both times). There is no key that samples a color, and Add/Apply never appear without a mouse click.
+
+**Proposed cure.** Adopt the glass-ui dialog primitive instead of hand-rolling `absolute inset-0 z-popover glass-floating` (owner edict 4) — that supplies role/aria-modal/focus trap/restoration for free — then add an aria-live="polite" readout and an arrow-key sample cursor bound to the same sampleAt the pointer already uses.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-5 · CHALLENGE-C
+
+**Defect.** A malformed/undecodable image produces two unhandled promise rejections (one of them an Event, not an Error) and leaves a dead overlay with no error state: the canvas keeps its default 300×150 size and the readout says 'Tap to sample' forever.
+
+**Mechanism.** unguarded async boundary — rejection with a non-Error value into a floating promise, with no error state in the view model
+
+**Evidence.**
+
+```
+useImageSampler.ts:72-75 (`img.onerror = reject` — rejects with an Event); ImageEyedropper.vue:200-204, 237-240, 247 (loadAndFit called as a floating promise from onMounted and from watch, no catch). MEASURED (probe3.js, uploading 38 bytes of text named bad.png): pageErrors ["InvalidStateError: The source image could not be decoded.", "Event"]; in-page unhandledrejection ["The source image could not be decoded.", "error"]; eyedropper {mounted:true, cvBacking:[300,150], transform:"translate(0px,0px) scale(1)", readout:"Tap to sample", errorUI:0}.
+```
+
+**Reproduction.** printf 'not an image' > bad.png; upload it on /#/extract (FileReader succeeds so the preview zone appears), click the preview to open the eyedropper. Two unhandled rejections fire; the overlay shows an unsized 300×150 canvas and no error message.
+
+**Proposed cure.** Reject with a real Error from loadImage, and give the shell an `imageError` ref rendered in the same destructive register the sibling already uses (ExtractWorkbench.vue:80-85), with the close button as the escape.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-6 · CHALLENGE-C
+
+**Defect.** The ResizeObserver calls fitToViewport() unconditionally on every size change, which reassigns zoom and recentres pan — destroying the user's inspection zoom on any window resize, panel reflow, or mobile URL-bar show/hide.
+
+**Mechanism.** initialisation logic wired to a continuous reflow signal — no separation of 'fit once' from 'reflow, preserving state'
+
+**Evidence.**
+
+```
+useInertiaGesture.ts:353-360 (ResizeObserver → fitToViewport) and :152-167 (fitToViewport assigns zoom.value = fit unconditionally). MEASURED (probe2 §C): ctrl-wheel zoom to 2.6924, then change the overlay height → zoom becomes 1.61. {"beforeZoom":2.6924,"afterZoom":1.61}
+```
+
+**Reproduction.** Open the eyedropper, ctrl-wheel to zoom in, then resize the window (or on mobile, scroll so the URL bar collapses). The zoom snaps back to fit. Scripted: .playwright-mcp/probe2.js section C.
+
+**Proposed cure.** Split fit (one-time, called from loadAndFit/onTransitionEnd where the component already calls it) from reflow (preserve the zoom ratio and the image-space centre point, then re-clamp pan). The ResizeObserver should only ever call the latter.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-7 · CHALLENGE-C
+
+**Defect.** Transparent image pixels composite the page behind the translucent glass overlay, so the color the user SEES at a coordinate is (page ⊕ glass tint ⊕ image) while sampleAt returns the raw image pixel — a color instrument that displays a different color than it samples.
+
+**Mechanism.** no opaque ground under an alpha-bearing specimen inside a translucent chrome layer
+
+**Evidence.**
+
+```
+useImageSampler.ts:84,91 (drawImage onto a transparent canvas); ImageEyedropper.vue:8 (glass-floating translucent overlay), :62-75 (no opaque backing in the viewport). VISUAL: .playwright-mcp/eyedropper-live.png — in the transparent quadrant you can read the k-slider, the reset control, and the 'DOMINANT oklch(45.20…718…)' readout of the panel BEHIND the overlay, straight through the image.
+```
+
+**Reproduction.** Upload a PNG with transparency (.playwright-mcp/probe.png) and open the eyedropper: the transparent quadrant shows the workbench underneath, not the image. Screenshot at .playwright-mcp/eyedropper-live.png.
+
+**Proposed cure.** Paint an opaque ground under the image inside the viewport — the conventional alpha checkerboard, or the stage token the workbench already owns (bg-stage, ExtractWorkbench.vue:37) — so the specimen is composited against a known, declared background.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-8 · CHALLENGE-C
+
+**Defect.** Both the offscreen sampling canvas and the visible canvas are sized to the image's NATURAL dimensions, and the visible one carries will-change:transform, permanently promoting a full-resolution compositor layer for the life of the overlay.
+
+**Mechanism.** unbounded backing-store allocation driven by user input, duplicated, plus forced layer promotion
+
+**Evidence.**
+
+```
+useImageSampler.ts:80-92 (both canvases sized to naturalWidth/naturalHeight); ImageEyedropper.vue:71 (will-change-transform); useImageSampler.ts:97-101 (dispose nulls refs but never zeroes canvas.width). MEASURED (probe2 §D, 4000×3000 fixture): {"cvBacking":[4000,3000],"bytesVisibleCanvas":48000000,"totalCanvasBytesMin":96000000,"willChange":"transform","dataUrlChars":69926,"mem":{"usedMB":95}}.
+```
+
+**Reproduction.** Upload a 4000×3000 image (fixture .playwright-mcp/big.png) and open the eyedropper: 48 MB visible canvas backing store in a promoted GPU layer plus a 48 MB offscreen copy, on top of the decoded image and the base64 data URL held by useExtractSession.previewDataUrl.
+
+**Proposed cure.** The visible canvas exists only to be transformed under the loupe and does not need native resolution — cap it to the viewport's device-pixel budget and keep native resolution only in the never-composited offscreen sampling canvas. Replace the static will-change with promotion only during an active gesture (gestureActive is already tracked and already drives a class at ImageEyedropper.vue:72).
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-14 · CHALLENGE-C
+
+**Defect.** The test gate is vacuous: the only test file (31 lines, 3 tests) exercises exactly one pure function, formatInColorSpace, on a sampler built with canvasRef: ref(null). Every defect in this report — including both BLOCKERs — lives in code no test executes.
+
+**Mechanism.** tests bound to the one pure, already-correct leaf while all stateful/DOM behaviour is untested
+
+**Evidence.**
+
+```
+test/image-sampler-v4.test.ts (whole file, 31 lines). `npx vitest run test/image-sampler-v4.test.ts --reporter=basic` → "✓ test/image-sampler-v4.test.ts (3 tests) 2ms / Test Files 1 passed (1) / Tests 3 passed (3)". Coverage grep: `grep -rln "ImageEyedropper|useImageSampler|useLoupeCanvas|useInertiaGesture"` over test/ → one file; over e2e/ → only a prose comment at e2e/smoke/oracles/o7-card-census.spec.ts:16.
+```
+
+**Reproduction.** Named green-keeping mutations: (1) viewportToImage → return {ix:0,iy:0}; (2) sampleAt → return null; (3) formatHex → return '#000000'; (4) delete the bounds check at useImageSampler.ts:114-115; (5) delete useLoupeCanvas.ts entirely; (6) delete useInertiaGesture.ts entirely; (7) loadImage → throw on every input. All seven keep 3/3 green.
+
+**Proposed cure.** Both composables are already injectable (useImageSampler takes a canvasRef; useLoupeCanvas takes getOffscreenCanvas + viewportToImage). A jsdom/happy-dom test feeding a real 2×2 ImageData and asserting sampleAt at four corners + one out-of-bounds + one alpha-0 pixel fails on every mutation above and would have caught D-3. Once the unpin latch lives inside the gesture composable (D-2's cure), the tap state machine becomes a pure unit test.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-3 · CHALLENGE-C
+
+**Defect.** The workbench's entire output — the generated palette — has no accessible representation and no aria-live announcement.
+
+**Mechanism.** Two independent decorative-hiding decisions (the strip's own, and the primitive's) compose to hide 100% of the component's output, and no textual channel was added to compensate. Family: OUTPUT-INVISIBLE-TO-AT.
+
+**Evidence.**
+
+```
+PaletteColorStrip.vue:4-5 `aria-hidden="true" role="presentation"`; every WatercolorDot root carries hard-coded aria-hidden (glass-ui :99) and the consumer's :aria-label never lands (C-1). LIVE probe §3: {"swatchCount":5,"swatchesReachableByAT":0,"liveRegionsInDocument":0,"liveRegionsInPlate":0,"plateAccessibleText":"5 Regenerate seed: 83d35f90","focusablesInPlate":["INPUT:Palette name","BUTTON:Regenerate","BUTTON:Save palette","BUTTON:Copy all colors"]}. grep -rn 'aria-live|role="status"' demo/workbenches/generate/ → NONE.
+```
+
+**Reproduction.** node probe-C-impl-r3.mjs → block 3-a11y-plate; node probe-C-menu-r3.mjs → block 6-tab-order (4 focusables, no colour).
+
+**Proposed cure.** Wave W-8: an aria-live="polite" summary inside the plate that names the palette ('5 colours: …') and re-announces on regenerate; the per-swatch names arrive with W-1 (blocked). Root-level, not per-instance: the summary belongs in the plate section, not sprinkled on swatches.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-4 · CHALLENGE-C
+
+**Defect.** The count-slider thumb is 12 CSS px on its drag axis — under the WCAG 2.2 SC 2.5.8 24px floor — on every viewport and both engines.
+
+**Mechanism.** The glass-ui Slider md thumb is 12px wide; the consumer cannot widen it without a per-instance override (edict 5 forbids). Family: PRODUCER-OWNED-TAP-TARGET-FLOOR.
+
+**Evidence.**
+
+```
+LIVE probe §5, offsetWidth/offsetHeight (transform-immune): 12 x 24 at 1440, 1280, 768 and 390. Safari matrix REPORT.json, /#/generate, all four captures: safari-desktop-light/dark {"w":12,"h":24,"tag":"span","label":"Color count"}; safari-mobile-light/dark {"w":12,"h":44,...}. This is the component's entire contribution to the route's smallTapTargets:5 — the other four (input 160x23 label "", three 22x22 buttons 'Switch to slug'/'Generate new slug'/'Cancel') are PaletteSlugBar in the adjacent pane.
+```
+
+**Reproduction.** node probe-C-impl-r3.mjs → 5-geometry@1440/1280/768/390; and node -e over docs/tranches/V/megatranche/audit/visual/REPORT.json filtering label==='Color count'.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8 (wave W-2, release condition 3): Glass 8's Slider thumb satisfies >=24x24 at data-size=md, by a larger thumb or a transparent expanded target. Relay R-2. Gate: the visual matrix's smallTapTargets for /#/generate drops 5 → 4.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-5 · CHALLENGE-C
+
+**Defect.** The component's only automated oracle cannot pass by construction, CI never runs it, and every gate that does run is green over every defect here.
+
+**Mechanism.** A serialization-form assertion masquerading as a byte-identity law: the spec's own comment says 'the same rgb() strings', so it was written when serializeCssColor emitted rgb(); the serialization moved to oklch(%/deg) and the oracle did not. Family: VACUOUS-GATE + STALE-ORACLE.
+
+**Evidence.**
+
+```
+e2e/smoke/oracles/o20-generate-plate.spec.ts:96-107 asserts expect(live).toEqual(stamped) where live=getComputedStyle().backgroundColor and stamped=data-stops (the library's raw strings). Both sides measured in one page state (probe-C-menu-r3.mjs §3): stamped_first "oklch(55.373499433044% 0.134321687222 305.139642180875deg)" vs live_first "oklch(0.553735 0.134322 305.14)", equal:false — numerically identical, textually never equal. Run at HEAD: `npx playwright test e2e/smoke/oracles/o20-generate-plate.spec.ts --project=smoke` → 2 failed. CI: `grep -n "run:" .github/workflows/ci.yml` = npm ci / lint / vue-tsc lib / vue-tsc demo / build / npm test / verify-packed-surface; `grep -n "playwright|e2e" .github/workflows/*.yml` → no output. Executed: VUE_TSC_EXIT=0, ESLINT_EXIT=0. No vitest file references the component, useColorGeneration, or generatePalette.
+```
+
+**Reproduction.** THE VACUOUS-GATE MUTATION: delete GenerateControls.vue:199-209 (the whole swatch grid + copyColor + its import). lint green, both vue-tsc green, npm test green (no vitest file touches it), build green, visual namelessButtons/smallTapTargets unchanged. Only o20 would notice, and o20 is red before it gets there and is not run in CI.
+
+**Proposed cure.** Wave W-5 (not blocked, e2e/ is not pinned): rewrite o20 test 2 to compare PARSED colours — parseCssColor both sides, per-channel equality within 1e-9 — and add the count-12 leg that exposes C-13. Wave W-6: add the `smoke` playwright project to .github/workflows/ci.yml so W-5 is load-bearing.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-13 · CHALLENGE-C
+
+**Defect.** The preset/harmony preview strips LIE at count 8-12: 12 stops are stamped on data-stops while only 7 segments are painted.
+
+**Mechanism.** A library-level segment cap (7) collides with a consumer-level domain (1..12) that nobody reconciled; the stamped contract surface and the painted surface diverge above the cap. Family: PREVIEW-TRUNCATION-BREAKS-TRUTH-LAW. It also splits the O-14 chain sample.ts:15-20 documents ('the painted gradient must embed exactly those stops in the live DOM').
+
+**Evidence.**
+
+```
+GenerateControls.vue:86-96 asserts 'each option row previews the EXACT palette selecting it yields… A preview that lies is worse than none.' PreviewStrip.vue:25 STRIP_SEGMENT_CAP = 7, with a mask fade on the last segment. LIVE at count 12, harmony menu open (probe-C-menu-r3.mjs §5): {"count":"12","options":6,"stopsPerChip":[12,12,12,12,12,12],"segmentsPerChip":[7,7,7,7,7,7]}. At count 5 the two agree (§2: 5 and 5) — which is why no oracle written at the default can see it.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-C-menu-r3.mjs → block 5-harmony@count12. By hand: /#/generate → focus the count slider → ArrowRight to 12 → open Harmony → each row shows 7 of 12 colours, 42% missing.
+
+**Proposed cure.** Wave W-7 (not blocked, PreviewStrip.vue is not pinned): reconcile the two domains at the root — either lift PreviewStrip's cap to 12 (the strip is 2.618rem wide; 12 segments is ~3.5px each, still legible as a ramp) or narrow the count slider's max to the cap. Gate: stopsPerChip === segmentsPerChip at every reachable count.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-14 · CHALLENGE-C
+
+**Defect.** Generated colours carry 12-15 significant decimals into the clipboard, into localStorage, and onward to the API.
+
+**Mechanism.** No display-precision rounding at the serialization boundary of a generator whose output is a user-facing payload (copy) and a persisted record (save → createPalette → API). Family: UNROUNDED-FLOAT-ESCAPES-TO-PRODUCT.
+
+**Evidence.**
+
+```
+demo/color-session/generate-color.ts:235-243 `generatedCss` serializes with no rounding. Clipboard, intercepted writeText from the plate's Copy-all button (probe §2d): "oklch(57.075309213251% 0.165883022438 44.052828429267deg), oklch(71.53…" (~293 chars for five colours). localStorage after Save (probe-C-save-r3.mjs §2): "colors":[{"css":"oklch(79.838149605785% 0.170167350601 150.3761107…". The browser's own serialization of the identical colour is oklch(0.570753 0.165883 44.0528) — six figures.
+```
+
+**Reproduction.** node probe-C-impl-r3.mjs → 2d-after-copy-all; node probe-C-save-r3.mjs → 2-storage-after-save.
+
+**Proposed cure.** Wave W-3 (not blocked — the fix lives one layer down in the shared color layer, not in the pinned file): round in generatedCss to display precision (4 dp on L%, 4 on C, 2 on H). Gate: vitest — every generatePalette string matches /^oklch\(\d+\.\d{1,4}% \d\.\d{1,4} \d+(\.\d{1,2})?deg\)$/ and a round-trip parse stays within 1/255 per sRGB channel.
 
 ---
 
@@ -5413,6 +9589,60 @@ Live focusable census inside main on /#/gradient: ["Gradient stop at 0%","Gradie
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-3 · CHALLENGE-C
+
+**Defect.** All four e2e tests that gate this component are currently RED, and the CI workflow contains no playwright/e2e step at all — so nothing in the pipeline could ever have caught C-1 or C-2.
+
+**Mechanism.** vacuous-gate: the only tests that exercise this component live in a browser suite that CI never invokes; the unit suite that CI does invoke has zero coverage of it.
+
+**Evidence.**
+
+```
+`npx playwright test e2e/smoke/oracles/o17-easing-composition.spec.ts --project=smoke` → `3 failed` (desktop letterbox, 390 letterbox, composition), all dying at `discloseAuthoring` on `locator('#easing-authoring-0 svg[role=\'img\']')` → `element(s) not found` (the oracle shares C-2's dead selector, so it could never catch the bug it exists to catch). `npx playwright test e2e/smoke/views/gradient.spec.ts -g "easing row carries its live ramp"` → `1 failed`, `Expected substring: "steps(4, end)" / Received string: "steps(4, jump-end)"` at e2e/smoke/views/gradient.spec.ts:292 (easingCatalogue.ts:187 mints jump-end). CI: `ls .github/workflows/` → ci.yml deploy-pages.yml release.yml; `grep -rn "e2e\|playwright" .github/workflows/` → NO OUTPUT. ci.yml producer job = npm ci → npm run lint → vue-tsc lib → vue-tsc demo → npm run build → npm test → pack/verify. vitest include globs are `test/**/*.ts, demo/test/**/*.ts`; grep for specimen|SpecimenStrip|EasingEditor|easingCatalogue|useSpecimenRows|glyphPath|tileIdFor across test/ finds only two unrelated prose matches.
+```
+
+**Reproduction.** npx playwright test e2e/smoke/oracles/o17-easing-composition.spec.ts --project=smoke  → 3 failed. npx playwright test e2e/smoke/views/gradient.spec.ts --project=smoke -g "easing row carries its live ramp"  → 1 failed. grep -rn "e2e|playwright" .github/workflows/  → empty. Mutation that keeps every CI gate green: invert glyphPath's `const y = 1 - fn(t)` to `const y = fn(t)` (easingCatalogue.ts:69) — every portrait in the catalogue and every head glyph renders upside down and lint, tsc, build and vitest are all unchanged. So is shipping C-1.
+
+**Proposed cure.** An e2e suite that is not in the pipeline is not a gate. Add a `demo / e2e` job to .github/workflows/ci.yml running `npx playwright install --with-deps chromium webkit` + `npx playwright test`, and fix the two stale assertions (the O-17 role selector, the steps(4, end) → steps(4, jump-end) literal) in the same wave so the job lands green. Until then, read the O-17 GREEN claims in the record as aspiration, not certification.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-4 · CHALLENGE-C
+
+**Defect.** Interval identity is positional: inserting a stop mid-ramp silently re-hosts every downstream authored curve onto a different colour pair, and the accordion's index-keyed disclosure state follows the index rather than the interval.
+
+**Mechanism.** positional-identity: per-item state keyed on an array ordinal over a list whose items are inserted and removed in the middle, so identity shifts silently under every non-tail edit.
+
+**Evidence.**
+
+```
+Reproduced (probe 9): BEFORE insert `{"heads":["1 → 2linear","2 → 3ease-in-out-expo"],"stops":["0%","50%","100%"],"open":["easing-interval-1"],"tune":["false","true"]}` — ease-in-out-expo authored for 50%→100%. AFTER inserting a stop at 24%: `{"heads":["1 → 2linear","2 → 3ease-in-out-expo","3 → 4linear"],"stops":["0%","24%","50%","100%"],"open":["easing-interval-1"],"tune":["false","true","false"]}` — the curve is still on row `2 → 3`, which now means 24%→50%; the interval it was authored for is now `3 → 4`, reset to linear. Mechanism: useGradientModel.ts:89-100 the sync watch is append/truncate-only (`while (intervals.value.length < needed) intervals.value.push(linearInterval())`) and only observes `stops.value.length`, while addStop (:116-120) inserts positionally sorted and removeStop (:122-125) filters by id. GradientEasingEditor keys ALL its own state on the same ordinal: openInterval (:61), tuneOpen (:84), copiedIndex (:95), the DOM ids `easing-interval-${row.index}` (:145) / `easing-authoring-${row.index}` (:205), the v-for :key (:113), and the update-interval emit (:49).
+```
+
+**Reproduction.** node scratchpad/wbge-probe9.mjs — or manually: 1. open /#/gradient. 2. click the stop bar at 50% (3 stops, 2 intervals). 3. open row `2 → 3` and press the `expo in-out` specimen tile. 4. click the stop bar at 25%. 5. row `2 → 3` still reads ease-in-out-expo but now spans 24%→50%; the 50%→100% interval you authored is now row `3 → 4`, linear.
+
+**Proposed cure.** Give the interval a stable identity derived from the pair it spans, not from its ordinal. Stops already carry uid() (useGradientModel.ts:66-69) — hold intervals in a Map<string, GradientInterval> keyed on the LEFT stop's id. Insertion then splits an interval instead of shifting a list: the new stop's key gets a fresh linearInterval(), every existing key keeps its curve, removal drops exactly one entry. GradientEasingEditor keys its accordion, disclosure, v-for :key, DOM ids and emit on that same id — which also fixes the v-for :key="row.index" that currently makes Vue reuse row DOM across a shift, the reason the disclosure appears to 'stick' to the wrong interval.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-5 · CHALLENGE-C
+
+**Defect.** Every accordion row mounts in full — specimen strip and a live EasingPicker — although the accordion can display exactly one row at a time; ~75% of the mounted DOM is permanently display:none.
+
+**Mechanism.** eager-mount: a v-show accordion mounts the bodies of rows that have never been disclosed, so mount cost scales with item count rather than with disclosure.
+
+**Evidence.**
+
+```
+Row body is v-show (GradientEasingEditor.vue:144); the authoring stage's v-if (:208) guards only `intervals[row.index]`, always truthy. Measured (probes 1 and 2, Chromium 1440×900, /#/gradient): 2 stops / 1 interval → allElements 511, buttons 53, [data-specimen] 27, easing-picker 1, visible rows 1. 5 stops / 4 intervals → allElements 1109, buttons 149, [data-specimen] 108, easing-picker 4, visible rows STILL 1. Delta +598 elements, +96 buttons, +81 hidden tile buttons, +3 fully-wired hidden EasingPicker instances (each with drag handlers and its own curve sampling), plus one useMediaQuery matchMedia subscription per strip (EasingSpecimenStrip.vue:47). Cost on an unrelated interaction, 120 ArrowRight presses on the Direction slider, CDP Performance.getMetrics deltas (probe 8): 1 interval `{scriptMs 13.9, layoutMs 20.7, recalcMs 191.6}` vs 4 intervals `{scriptMs 16.9, layoutMs 26.1, recalcMs 258.0}` → script/tick 0.116ms → 0.141ms (+22%), style recalc +34.7%, layout +26%.
+```
+
+**Reproduction.** node scratchpad/wbge-probe2.mjs — or manually: open /#/gradient, click the stop bar at 25%, 50% and 75%, then run in the console `({elements: document.querySelectorAll('*').length, pickers: document.querySelectorAll('[data-testid="easing-picker"]').length, tiles: document.querySelectorAll('[data-specimen]').length, visibleRows: [...document.querySelectorAll("[id^='easing-interval-']")].filter(e=>getComputedStyle(e).display!=='none').length})` → {elements: 1109, pickers: 4, tiles: 108, visibleRows: 1}.
+
+**Proposed cure.** Keep the alive-once-opened property without the eager fan-out. The v-show choice is documented (:16-18, 'Picker instances stay ALIVE … no remount/echo discipline') and is right for the OPEN row, but does not justify mounting rows never opened. Wrap the existing v-show in `v-if="everOpened.has(row.id)"` — a Set populated by toggleInterval — which gives exactly the stated invariant (no remount, no echo) at one-row cost on arrival. Give the authoring stage the same treatment keyed on tuneOpen: a user who never presses the sliders icon should never pay for an EasingPicker.
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/workbenches/gen` · C-5 · CHALLENGE-C
 
 **Defect.** Gate vacuity, three ways: the component's ONLY oracle (O-20) is currently RED for an unrelated serialization-form reason, CI never runs e2e at all, there are zero unit tests for the generation core, and `npm run typecheck` is green over every defect here.
@@ -5482,6 +9712,96 @@ LIVE: countSliderDescendants → {"tag":"SPAN","role":"slider","cls":"slider-thu
 **Reproduction.** http://localhost:9000/#/generate → measure [role="slider"][aria-label="Color count"] → 12.7 × 24.3 CSS px. Already captured independently by the audit's own Safari matrix on all four cells.
 
 **Proposed cure.** Producer-side always-on hit-inflation on .slider-thumb (the visual dot HELD, the effective target inflated) — relay R-2 to the glass BH inbox, since the BJ W4 hold forbids the consumer touching it. Demo-side and unblocked: generalise o27's BR-3 from openGradient() to the route matrix so this is born-RED rather than silent.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C12 · CHALLENGE-C
+
+**Defect.** Pointer selection never focuses the handle, so the entire documented keyboard contract (±1/±10 nudge, Delete, Escape) is dead after a mouse select
+
+**Mechanism.** preventDefault on pointerdown suppresses the compatibility mouse events; focus is the default action of mousedown, so the button never becomes document.activeElement. Selection state and focus state are two different objects, and every line of the keyboard handler assumes they are one.
+
+**Evidence.**
+
+```
+Live, pasted mechanism proof: PROBE_A = { pointerdown:1, mousedown:0, mouseup:0, click:1, focus:0, defaultPrevented:true, activeElement:"BODY/" }. Live consequence with selection PROVED by the transform ladder: D = { selection_proved_by_scale:["1.25","1"], activeElement_after_click:"BODY/", labels_after_click == labels_after_2x_ArrowRight, keyboard_had_effect:false }. Source: e.preventDefault() at GradientStopEditor.vue:120; keyboard handler at :173-187; docstring claim 'Escape clears selection while the handle keeps focus' at :169-172.
+```
+
+**Reproduction.** Fresh /#/gradient. Install capture listeners for pointerdown/mousedown/focus on a handle; real mouse press+release on its centre; read the counters and document.activeElement; then press ArrowRight twice and compare aria-labels.
+
+**Proposed cure.** Drop e.preventDefault() from pointerdown (text selection is already prevented by `select-none touch-none` on the rail at :203 and by pointer capture at :133) and, if a native drag image still appears, kill exactly that default with @dragstart.prevent on the handle. The :focus-visible ring system the file already builds at :328-359 then finally serves the pointer path.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C3 · CHALLENGE-C
+
+**Defect.** Every drag pointermove emits update:position twice — the bar's 'fallback path while a handle drag is live' is a duplicate, not a fallback
+
+**Mechanism.** Pointer capture retargets the event to the handle but the event still bubbles to the bar, so both handlers run; each calls getPosition (a getBoundingClientRect forced layout) and emits, causing two whole-array rebuilds per move.
+
+**Evidence.**
+
+```
+Live, my own run: E = { barMoves:21, barMovesTargetIsHandle:21, handleMoves:21, capture:"got" } over a 20-step drag — bar and handle handler counts are equal and every bar-level move targeted a handle. Pass 1 independently measured 21/22. Cost: evidence/serialize-cost.ts → 0.223 ms per invalidation at 3 stops. Source: GradientStopEditor.vue:91-99 with the false comment at :93.
+```
+
+**Reproduction.** Fresh /#/gradient; addEventListener('pointermove') on the bar and on a handle; real mouse drag of 20 steps; read the counters.
+
+**Proposed cure.** Delete the branch — `if (draggingId.value) return;` — because with capture on the handle the bar has no job during a drag; and cache the bar rect at pointerdown (supplied by C11's cure) so the drag stops forcing layout at all.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C4 · CHALLENGE-C
+
+**Defect.** The component's only behavioural gate is RED at HEAD, asserts DOM that no longer exists, and Playwright is not wired to CI at all — so the whole defect set above is unobservable
+
+**Mechanism.** Gate vacuity: the single drag assertion is `expect(pct).toBeGreaterThan(60)` on one handle after `mid.hover()` (which grabs the exact centre, so C11 can never fire), and nothing anywhere asserts stop ORDER.
+
+**Evidence.**
+
+```
+Pass-1 run: `npx playwright test e2e/smoke/views/gradient.spec.ts e2e/smoke/oracles/o21-gradient-rail.spec.ts --project=smoke` → 5 failed / 8 passed, including views/gradient.spec.ts:144 'stop add … drag, and touch-true remove'. My own greps: `grep -rln playwright .github/workflows/` → no matches (ci.yml, deploy-pages.yml, release.yml only); `grep -rn 'gradient-ruler-cap|gradient-rung' e2e/` → o21-gradient-rail.spec.ts:135,163, and the same grep over demo/ src/ → no matches. Vacuous assertion at e2e/smoke/views/gradient.spec.ts:157-175.
+```
+
+**Reproduction.** Run the two spec files as above; then run the two greps.
+
+**Proposed cure.** Add a vitest gate on the MODEL (useGradientModel) asserting the ordering invariant across drag/keyboard/add/remove, plus an interval↔segment identity assertion; wire the Playwright smoke project into ci.yml; delete the two oracles that assert retired test-ids. Exact mutation proving today's vacuity: delete the .sort() from useGradientModel.ts:118 — every assertion in the repo stays green while the model goes non-monotonic. Equally green-preserving: HANDLE_HALF = 0, deleting onHandleKeydown, and deleting the duplicate emit.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C5 · CHALLENGE-C
+
+**Defect.** The route's parse path THROWS instead of rejecting on the 8 empty-argument colour functions (MT-F001 live), inverting the 'failure is LOUD' contract into an uncaught TypeError inside a debounce timer with no verdict rendered
+
+**Mechanism.** splitTopLevel pushes its tail only when non-empty, so an empty body yields [] and the non-null assertion on slash[0] is false. gradientParse.ts:92 treats parseCssColor as a TOTAL validity oracle, so the throw escapes parseGradientCSS → applyCSS → GradientVisualizer.onParseCSS (:102-108, no try) → the code editor's debounce timer callback, where nothing can catch it.
+
+**Evidence.**
+
+```
+`npx vite-node evidence/parse-probe.ts` → parseCssColor("oklch()") -> THROW TypeError: Cannot read properties of undefined (reading 'replace'), same for rgb/hsl/hwb/lab/lch/oklab/color; parseGradientCSS -> THROW on `linear-gradient(90deg, oklch(), blue)`. Source: src/css/grammar.ts:181 `splitTopLevel(slash[0]!.replace(/,/g," "), "space")`.
+```
+
+**Reproduction.** Type `linear-gradient(90deg, oklch(), blue)` into the gradient CSS editor on /#/gradient; or run evidence/parse-probe.ts.
+
+**Proposed cure.** Fix it in the library, not the pane: in grammar.ts, `const head = slash[0]; if (head === undefined) return failure(source, "css_syntax", ["CSS color"]);`. A try/catch in onParseCSS would be a masking fallback (edict 2) and would leave every other parseCssColor caller exposed.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C6 · CHALLENGE-C
+
+**Defect.** Accessibility implemented as decoration: no keyboard path to ADD a stop, slider semantics on a bare <button> with no aria-value*, no aria-live, no focus restoration after remove, and 20×20 visible targets
+
+**Mechanism.** The component implements a slider's behaviour on a button's semantics and a pointer-only creation gesture, so AT is told 'button' and keyboard users cannot create a stop at all (WCAG 2.1.1 A; 2.4.3; 2.5.8 met only by an invisible 24px pseudo).
+
+**Evidence.**
+
+```
+REPORT.json /#/gradient, identical in all 4 Safari matrices: smallTapTargets includes {"w":20,"h":20,"tag":"button","label":"Gradient stop at 0%"} and {"…100%"} — 2 of the route's 6, ×4 matrices = 8 rows. Measured live: rail div has role null / tabindex null; handles have role null and no aria-valuenow/min/max/valuetext despite the arrow-key pattern at GradientStopEditor.vue:173-187. removeStop at :158-162 restores no focus.
+```
+
+**Reproduction.** Tab through /#/gradient and enumerate focusables inside main; inspect a handle's computed role and aria-* ; read REPORT.json results[].probe.a11y.smallTapTargets for the four gradient rows.
+
+**Proposed cure.** Give the handle role="slider" with aria-valuemin/max/now/valuetext and aria-orientation, add Home/End/PageUp/PageDown, make the rail itself focusable with Enter/'+' to mint a stop at the selected position, announce add/remove through one aria-live=polite region, move focus to the neighbouring handle after a remove, and raise the visible dot to 24px so the hit target and the seen target agree.
 
 ---
 
@@ -5788,6 +10108,546 @@ GenerateControls.vue:129-132 `class="rounded-card border border-card-edge bg-wel
 **Reproduction.** Read GenerateControls.vue:129-132 and GeneratePane.vue:31; observe the nested offset shadows in shots/safari-desktop-light/generate.png.
 
 **Proposed cure.** Dies with D-7: the InstrumentChassis adoption removes the Card and the specimen well keeps exactly one boundary mechanism.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-2 · CHALLENGE-D
+
+**Defect.** You cannot compare a candidate to the incumbent: the popover hides the current palette for the entire duration of the choice, so candidates can only be compared to each other.
+
+**Mechanism.** Family F. A preview is an instrument of comparison; the composition removes the referent. A popover-based inspector cannot satisfy a three-region chassis at 390px because the region has to be resident.
+
+**Evidence.**
+
+```
+overlapPctOfPlate 58.9 at 1440; at 390 the popover spans x 33->305 of a 390px viewport while the plate spans 33->357, leaving a 52px sliver. Frame frames-D3/mobile-harmony-open-count12.png shows the strip, name, count badge, all three verbs, every dot and the seed line occluded. Canon: VISUAL-CONSTITUTION.md:46 §3.1 requires three regions (specimen stage, model inspector, commit instrument) — an inspector that occludes the stage is not a region.
+```
+
+**Reproduction.** node probe-D3-dropdown.mjs (mobile arm) then read frames-D3/mobile-harmony-open-count12.png; or open http://localhost:9000/#/generate at 390 and click the Harmony trigger.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Same transposition as D3-1 — resident inspector rows inside InstrumentChassis. Sequenced as step 2 of W·GEN-1b because it dissolves D3-1 entirely and moots half of D3-9.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-3 · CHALLENGE-D
+
+**Defect.** The stated seed-exact TRUTH LAW is false for five of the twelve reachable count values: PreviewStrip caps at 7 segments, so at counts 8-12 every option row shows 7 of n stops behind a mask fade while the comment asserts it shows "the EXACT palette selecting it yields" across "5-12 library generations".
+
+**Mechanism.** Family F. A capped producer primitive adopted for an uncapped consumer claim, with six lines of authoritative law asserting the reconciliation that was never made. The producer chip is honest about itself (its docblock calls this "HONEST truncation"); the consumer's comment over-claims.
+
+**Evidence.**
+
+```
+PreviewStrip.vue:25 `const STRIP_SEGMENT_CAP = 7;`. Live at count 12: {"stripSegments":[7,7,7,7,7,7],"truncated":6}. Pure core (vite-node): count=8 -> stops 8, strip shows 7, hidden 1; count=12 -> stops 12, strip shows 7, hidden 5. Chip measured 41.9x14 px, so 7 segments are 6px each and the mask-image fade (PreviewStrip.vue:48-51) is applied to a 6px sliver. GenerateControls.vue:87-93 is the false claim.
+```
+
+**Reproduction.** npx vite-node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-count-stability.mts ; and node probe-D3-dropdown.mjs which drives the live slider to 12 and reads stripSegments/truncated off the open harmony list.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Either raise the segment cap to 12 for this site (a named producer taste knob, so a producer decision) or rewrite :87-93 to state the cap. Sequenced after D3-2 because a truncated chip and an occluded chip are the same defect from the reader's side. A wave that fixes the render and leaves the comment asserting exactness has NOT closed the finding.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-4 · CHALLENGE-D
+
+**Defect.** The count axis rerolls the entire palette under five of six harmonies and preserves it under the sixth, with nothing in the UI or the model naming the difference. One slider, two meanings, conditioned on an unrelated control.
+
+**Mechanism.** Family G — one control, two meanings, conditioned elsewhere. An unannounced second regeneration path hides inside a cardinality control. Compounded because the ramp under the slider IS the palette (:65-73), so dragging count makes the track beneath the thumb rewrite its own colours at every step.
+
+**Evidence.**
+
+```
+probe-D3-count-stability.mts against the real generatePalette, preset vibrant, seed fixed, colours surviving 5->6: golden 5/5 STABLE; analogous 1/5; complementary 0/5; triadic 0/5; split-complementary 0/5; random 0/5. Triadic printed in full shows hues preserved (91.68deg, 207.01deg, 332.86deg) and every L and C changed. Cause: generate-color.ts:98-145 generateHues consumes a harmony-dependent number of rng() draws before the hues.map() L/C loop at :220-228; the golden arm consumes zero so the stream stays aligned. Canon: VISUAL-CONSTITUTION.md:194 "Regeneration names which model inputs stay fixed and how the seed changes."
+```
+
+**Reproduction.** npx vite-node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-count-stability.mts. Live corroboration for the golden arm: node probe-D3-axis.mjs drives the real slider 5->6 in WebKit and measures survived: 5/5.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Owned by the count-axis wave (step 6 of W·GEN-1b) which must produce a STATED regeneration contract per VISUAL-CONSTITUTION.md:194 — which inputs stay fixed. Note the dependency: making count prefix-stable under all harmonies requires reordering the rng draws in demo/color-session/generate-color.ts, which is outside this component and outside the hold — file it as a separate shared-layer row.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-5 · CHALLENGE-D
+
+**Defect.** The constitution's RESERVED spectral meniscus is applied to an integer domain: variant="spectrum" plus a hand-rolled linear-gradient underlay renders a discrete 1..12 cardinality axis as a chromatic continuum. Separately, the value fill is optically absent so the track is 100% painted at every value.
+
+**Mechanism.** Family G. A category error prior to pass 2's D-3 (sRGB chroma loss): rendering a discrete five-member set as a continuum asserts that colours BETWEEN the members are members. Fixing the interpolation hint to `in oklch` would only make the lie prettier. The fully-painted track additionally reads as "full" at every value.
+
+**Evidence.**
+
+```
+GenerateControls.vue:299 variant="spectrum"; measured {"sliderVariant":"spectrum","track":{"w":296},"range":{"w":107.6},"rangeBg":"none","thumb":{"w":12,"h":24},"thumbVal":"5"} — the range is geometrically correct (107.6/296 = 36.4% = (5-1)/(12-1)) and has background-image: none. VISUAL-CONSTITUTION.md:9 verbatim: "The signature risk is the spectral meniscus: a continuous liquid-color rail reserved for genuinely chromatic continuous domains—Picker and Gradient." :104: "a color-bearing or neutral track chosen by semantics".
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-axis.mjs — prints sliderVariant, track/range/thumb rects and rangeBg at 1440 and 390. Visual: frames-D3/mobile-count12.png, where the rail degenerates into a generic hue spectrum.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8, and it ESCALATES the hold's sequencing collision. Retire variant="spectrum" for a NEUTRAL track per VISUAL-CONSTITUTION.md:104's semantics clause and adopt the one domain-neutral axis composition (label, unit, reserved live value). This means the hold's on-release rename (--slider-track-bg -> --glass-slider-track-background) renames a token whose correct final value is no chromatic track at all — filed to the owner as an open question in §8.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-6 · CHALLENGE-D
+
+**Defect.** Two nested zero-blur cartoon casters declare opposite light sources one DOM level apart, in two different shadow vocabularies.
+
+**Mechanism.** Escalates pass 2's D-13, which read the nesting as duplication. In a hard-shadow idiom the offset IS the light-source declaration — it is the only thing the idiom says. Direction reversal is read by the eye before shadow count.
+
+**Evidence.**
+
+```
+probe-D3-shadow.mjs full ancestor chain: SECTION[data-generate-plate] shadow "-2px 2px 0px 0px, -3px 3px 0px 0px, -4px 4px 0px 0px" (alpha 0.32/0.26/0.18) = light from upper RIGHT; its immediate ancestor DIV.glass-resting.card shadow "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px" = light from upper LEFT. Visible in safari-desktop-light/generate.png: the outer card's caster runs down its right edge, the plate's down its left. Canon: VISUAL-CONSTITUTION.md:186 "not cartoon casters stacked within casters"; PROPORTION-AUDIT.md PR-05 "caster shadows ... repeat a boundary -> REMOVE", §5 binding on P122 workbenches ("boundaries [] / reserve none").
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-shadow.mjs — walks parentElement from the plate printing every non-none box-shadow.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Dies with pass 2's D-7 transposition: adopting InstrumentChassis and deleting GeneratePane.vue:31's Card removes the hand-rolled plate chrome entirely, taking the reversed caster, the duplicated boundary and D3-7 with it. Sequenced as step 1 of W·GEN-1b.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-7 · CHALLENGE-D
+
+**Defect.** The plate declares recession and elevation simultaneously (bg-well specimen-well tier plus a hard drop caster) and carries the identical 16px border-radius as the Card it is inset within.
+
+**Mechanism.** Family C (canon not applied at this site), sharpened: the plate was styled from a token (rounded-card) rather than from its position, so it inherits both the parent's radius and the card family's elevation while claiming the well family's recession.
+
+**Evidence.**
+
+```
+Measured plateBg oklab(0.913299 0.005463 0.013024) (the bg-well token), plateShadow a three-layer cartoon caster, plateRadius "16px", ancestor Card radius "16px", plateW 462 / stripW 460, plateOverflow "visible". VISUAL-CONSTITUTION.md:15 specimen-well row: "opaque/quiet neutral stage" — a recessed stage; :19 "One surface has one tier. An inner card is not automatically another pane of glass." Concentric nesting requires inner = outer - inset; with the Card's px-4 sm:px-6 padding the inner radius should be ~0, not 16.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-shadow.mjs prints plateRadius, ancestor radius, plateBg, plateW/stripW and plateOverflow. NOTE: sub-clause (c) — that the strip child's 16px top corners are 1px flatter than the plate's 15px inner contour, producing a possible hairline crescent — is arithmetic I measured but whose VISIBILITY after antialiasing I did NOT pixel-sample. That sub-clause is labelled a hypothesis in the report.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Dies with D-7's InstrumentChassis transposition (step 1): a chassis region is not a card and takes neither the caster nor the parent's radius token.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-8 · CHALLENGE-D
+
+**Defect.** The three action seats occupy more painted area than the specimen they act on, at BOTH viewports — and the commit region physically bisects the specimen stage.
+
+**Mechanism.** Family C. Distinct from pass 2's D-4 (which argued duplication against the Dock set): this is proportion, measured. Confirmed visually in safari-mobile-dark/generate.png where, with the plate reduced to a neutral field, Regenerate is the heaviest object in the composition — the commit verb out-ranking both specimen and identity.
+
+**Evidence.**
+
+```
+Measured painted areas (px^2). 1440: Regenerate 5793 + Save 1296 + Copy 1296 = 8385 verbs vs 8000 for the five dots. 390: 5281 + 1296 + 1296 = 7885 verbs vs 6486 dots (22% more). Reading order down the plate is strip(colour) -> name+count -> three verbs -> dots(same colour again) -> seed. Canon: VISUAL-CONSTITUTION.md:194 closing sentence "The generated palette is a draft specimen, not a flat strip plus unrelated buttons"; PROPORTION-AUDIT.md §1 "Every element earns its scale ... from its job relative to the local protagonist."
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-final.mjs (1440) and probe-D3-axis.mjs (390) — both print per-element rects with an area field.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Closed by pass 2's D-4 (step 3 of W·GEN-1b): the three verbs collapse to the Dock control set that already exists and is already wired via defineExpose at :115 — with the verbs gone from the plate, the specimen IS the plate and the bisection disappears.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-9 · CHALLENGE-D
+
+**Defect.** The same string renders in a different typeface on the two sides of one control's selection boundary: the option name is Fraunces, the trigger value that echoes it is Plus Jakarta Sans. One field stacks three typefaces vertically.
+
+**Mechanism.** Family F. Distinct from pass 2's D-12, which judged the option font against the closed type matrix (PROPORTION-AUDIT §2.1: "Dropdown options remain Plus Jakarta Sans text-small control copy and non-bold"). D3-9 holds regardless of which face the matrix prefers: a control must render the same string identically on both sides of its own boundary or the trigger stops reading as an echo of the choice. Both must be stated, because a wave that harmonised by moving the TRIGGER to Fraunces would close D3-9 and worsen D-12.
+
+**Evidence.**
+
+```
+Measured in one run: SelectItem name span (:240,:270) fontFamily "Fraunces, \"Fraunces Fallback\", serif" 14px weight 400; SelectTrigger value (:224,:258) "\"Plus Jakarta Sans\", ... system-ui, sans-serif" 14px; SelectItem description (:246,:275) Plus Jakarta 11px; the .section-label above the trigger "\"Fira Code\", ... monospace" at 14.384px — larger than the 14px value it labels. Visible in frames-D3/mobile-harmony-open-count12.png: option "Golden" serif, trigger "Golden" sans, 600px apart in one frame.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-dropdown.mjs prints triggerFont/nameFont/descFont; probe-D3-final.mjs prints secLabelFont and secLabelSize.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Resolve toward the matrix, not toward consistency-at-any-face: delete :240/:270's class="font-display" so option names take Plus Jakarta text-small non-bold per PROPORTION-AUDIT §2.1, matching the trigger. Half is producer-owned (the trigger carries no consumer font class at all) — relayed as BH-relay-5. Moots itself if D3-2's resident-inspector transposition deletes the popover.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-05 · CHALLENGE-D
+
+**Defect.** On coarse pointers the selected handle's 44px hit zone and the remove chip's 44px hit zone overlap by 8px inside the rail, and the chip wins. A touch aimed at the selected handle but landing ~16px low destroys the stop.
+
+**Mechanism.** two invisible 44px targets stacked 36px apart on a 40px rail, inflated per element with no arbitration
+
+**Evidence.**
+
+```
+Measured (probe 2 block 3): rail bottom 240.7, handle centre 220.7, chip box y 244.7..268.7 (centre 256.7); coarse pseudo measured `beforeSize: "44pxx44px"` (probe 2 block 4). Handle zone 198.7..242.7, chip zone 234.7..278.7 → overlap 234.7..242.7. `chipHitAtHrY: "Remove selected stop"` shows the chip already winning hit-tests outside its visual box. Source :385-391 (--touch-target on both), :288 (chip at top-11, z-20, later in DOM).
+```
+
+**Reproduction.** iPhone-14 context, select a stop with >=3 stops present, tap ~16px below the handle centre (still on the rail). Geometry printed by `node .../evidence/WBGSE-D-probe2.mjs` block 3.
+
+**Proposed cure.** The destructive action leaves the rail's physical neighbourhood: remove lives in a stop inspector row alongside numeric position and colour, so nothing destructive shares a fingertip with the drag surface.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-06 · CHALLENGE-D
+
+**Defect.** The keyboard grammar implements a third of the binding row and the handle exposes no accessible state: Home, End, ArrowUp, ArrowDown, Enter and Space are all dead, and a screen reader cannot tell which stop is selected or hear a value change.
+
+**Mechanism.** a bespoke <button> impersonating a value control
+
+**Evidence.**
+
+```
+probe `== C keys ==`: `End ["…at 11%"] -> ["…at 11%"]`, `Home` unchanged, `ArrowUp`/`ArrowDown` unchanged, `Enter`/`Space` unchanged with stop count still 2. Probe 5 `== C ==` shows each handle's full attribute set is `["aria-label=Gradient stop at N%"]` — no role, no aria-valuenow/min/max/text, no aria-pressed|current|selected, no ordinal. Binding text VISUAL-CONSTITUTION.md:127 requires Home=0%, End=100%, Up/Down and 'announce stop identity, percentage, ordinal'.
+```
+
+**Reproduction.** Focus a stop handle and press Home, End, Up, Down, Enter, Space — nothing happens. `node .../evidence/WBGSE-D-probe2.mjs`.
+
+**Proposed cure.** Adopt the producer axis composition over BI `Slider` that VISUAL-CONSTITUTION.md:104 already binds Gradient to ('not new slider mechanics'); role, value, Home/End, RTL law and announcement arrive with it and this file stops owning slider physics.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-07 · CHALLENGE-D
+
+**Defect.** The add gesture is hover-only, unnamed, keyboard-unreachable, and silently starves as the instrument fills: the bar is a bare div with no role/name/tabindex whose click mints a stop, its only affordance is a hover ghost (absent on touch), and each existing stop sterilises 44px of rail against the gesture with no feedback.
+
+**Mechanism.** an affordance chosen to replace explanation that half the input modalities cannot perceive, plus operable-target inflation masking the surface gesture
+
+**Evidence.**
+
+```
+Probe 1: bar `{role: null, tabindex: null, ariaLabel: null, cursor: "copy", tag: "DIV"}`. Probe 2 block 4 (iPhone 14, railW 324): a tap at 40% added a stop; the next tap 6% (~19px) away added nothing — `info` shows 3 stops, not 4 — because the guard at :87 `target.closest("[data-stop-id]")` reads it as a grab. 44/324 = 13.6% of the rail sterilised per stop. Source comment :35-41 claims the ghost makes the gesture 'self-evident, no instruction line needed'.
+```
+
+**Reproduction.** On a touch device or an iPhone-14 Playwright context, tap the rail within ~22px of any handle: nothing is added and nothing is said. `node .../evidence/WBGSE-D-probe2.mjs` block 4.
+
+**Proposed cure.** Make add a named action in the instrument's action row (default position = the largest gap, numerically editable), keeping the rail click as an accelerator rather than the only door.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-08 · CHALLENGE-D
+
+**Defect.** Selection has no payload: `selectedStopId` has zero readers, and nothing in the product can edit a stop's colour. The component named StopEditor edits position and existence only; the select -> tune -> commit grammar has no tune.
+
+**Mechanism.** a selection state invented for local styling, unlocking one action that is already reachable two other ways
+
+**Evidence.**
+
+```
+`grep -rn "selectedStopId" demo/` returns exactly three lines — GradientVisualizer.vue:51 (declaration), :140 (v-model write), :144 (write) — and no read. GradientVisualizer.vue's template has type/space/hue, easing and CSS regions and no stop inspector. GradientPane.vue:8 injects CSS_COLOR_KEY and never uses it. Canon VISUAL-CONSTITUTION.md:96 'select -> tune -> commit'.
+```
+
+**Reproduction.** The greps above; live, select any stop and observe that the only new affordance is the remove chip.
+
+**Proposed cure.** Either give selection its payload — a stop inspector with swatch->picker, numeric position and the single remove action (which simultaneously discharges D2-05, D2-06's numeric arm and D2-14) — or delete selection and keep only drag+add.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-09 · CHALLENGE-D
+
+**Defect.** The remove chip reserves no geometry: it is absolutely positioned on a 40px-tall container, protrudes 28px, overlaps the next section's rule by 8px and wins the hit-test there. Its glyph is the universal dismiss mark sitting on a divider, and it is visually orphaned from the handle it belongs to.
+
+**Mechanism.** an absolutely-positioned affordance placed outside its own box with no reservation in the parent flow
+
+**Evidence.**
+
+```
+Probe 2 block 3: `{"chip":{"y":244.7,"h":24,"bottom":268.7},"barBottom":240.7,"hrTop":260.7,"overlapsHr":true,"chipHitAtHrY":"Remove selected stop"}`; probe 1 `editorRootHeight: 40`. Screenshots `evidence/D-08-chip-on-divider.png` and `evidence/D-02-unsorted-drag.png` both show the X astride the hairline. Source :288 (`absolute w-6 h-6 top-11 z-20`). Composition law OPTICAL-BENCH-COMPOSITIONS.md:78 gives Gradient boundaries `[]` / reserve `none`, yet GradientVisualizer.vue:148,240,251 render three `<hr>` rules.
+```
+
+**Reproduction.** Add a third stop, select the middle one, and look at the divider under the rail; `node .../evidence/WBGSE-D-probe2.mjs` block 3 prints the boxes.
+
+**Proposed cure.** The remove action moves into the selected-stop inspector row that D2-08 requires; nothing then floats outside the rail's box, and the band below the instrument returns to the pure interval the composition's `[]`/`none` boundary law specifies.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-10 · CHALLENGE-D
+
+**Defect.** Three destructive removal species (right-click, Delete/Backspace, chip) with no confirmation and no undo anywhere on the route; and at the 2-stop floor the Delete key is a silent no-op with no disabled state and no status.
+
+**Mechanism.** duplicated action species over one verb, with the unavailable arm expressed as absence rather than state
+
+**Evidence.**
+
+```
+`node evidence/WBGSE-D-probe5.mjs`: `B after click-add: ["…0%","…50%","…100%"]` then `B after right-click: ["…0%","…100%"]` with `any dialog/confirm/undo affordance: {"dialogs":0,"undoText":[]}`. `A after Delete @2 stops:` labels unchanged, live regions contain only the unrelated palettes text. Sources :164-167 (contextmenu), :180-182 (Delete), :284-300 (chip), :66 (`removable` merely v-ifs the chip away). Canon PROPORTION-AUDIT.md:50 (PR-06) 'Three adjacent action species … REMOVE … One action/selection owner'; VISUAL-CONSTITUTION.md:83 requires explicit disabled states.
+```
+
+**Reproduction.** Right-click any handle with >=3 stops — the stop is gone, irreversibly. Focus a handle with exactly 2 stops and press Delete — nothing happens and nothing is announced.
+
+**Proposed cure.** One removal owner in the inspector, with an explicit disabled state carrying its reason at the 2-stop floor; the context-menu and bare-Delete paths retire.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-11 · CHALLENGE-D
+
+**Defect.** The protagonist is 40px tall. The route's dominant instrument is an h-10 strip; the actual render preview is an 80-96px tile; the pane shares the viewport 50/50 with an unrelated My Palettes companion. This forces every other geometry problem to be solved by invisible means.
+
+**Mechanism.** protagonist subordinated to its own support regions; PR-09 open at this site
+
+**Evidence.**
+
+```
+Measured rail 462x40 CSS desktop / 324x40 mobile (probe 1, probe 2 block 4); render tile `w-20 sm:w-24` at GradientVisualizer.vue:223. Canon: PROPORTION-AUDIT.md:53 (PR-09) 'one 19-22rem protagonist' = 304-352px; VISUAL-CONSTITUTION.md:49 and OPTICAL-BENCH-COMPOSITIONS.md:44 give Gradient a dominant meniscus preview at P122 golden 61.8%. Shipped shot docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/gradient.png.
+```
+
+**Reproduction.** Open http://localhost:9000/#/gradient at 1440x900 and measure the rail: 40px tall between a subtitle and a rule.
+
+**Proposed cure.** Grant the instrument the 19-22rem stage the composition already assigns it; at that height the 20px dot, the 44px phantom targets and the exiled chip all become unnecessary.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-02 · CHALLENGE-D
+
+**Defect.** The named-curve selection surface hides 70.6% of itself on desktop and 79.9% on mobile, and renders a family divider hairline against a family it does not draw.
+
+**Mechanism.** one-axis flattening of a two-axis catalogue into a horizontally-overflowing rail inside a narrow inspector
+
+**Evidence.**
+
+```
+Live probe at 1512x806: `tiles: 27, families: 8, familyNames: [css,sine,quad,cubic,expo,circ,back,steps], visibleTiles: 8, scrollW: 1482, clientW: 436` -> 70.6% hidden, 2 of 8 families visible. At 390x664: `scrollW 1482, clientW 298` -> 79.9% hidden. Divider source: EasingSpecimenStrip.vue:145-148 `.strip-family + .strip-family { border-left: 1px solid var(--card-edge) }`, visible as a bare rule at the strip's right edge in shots/safari-desktop-light/gradient.png and shots/keyboard-focus-desktop/gradient.png; in shots/rtl-desktop/gradient.png the same edge truncates the eyebrow to the fragment 'ad' (from 'quad'). The mega-tranche harness's own `bleeding` list for /#/gradient (REPORT.json) is exclusively strip nodes: strip-row, strip-family, family-eyebrow, family-tiles, glass-chip.glass-capsule, tile-label.
+```
+
+**Reproduction.** Load http://localhost:9000/#/gradient at 1512x806; read document.querySelector('.specimen-strip').scrollWidth / .clientWidth and document.querySelectorAll('.specimen-tile').length.
+
+**Proposed cure.** Restore the two-axis IA the strip deliberately folded away (EasingSpecimenStrip.vue:141 'compactness: no second control row'): a family selector plus that family's variants at full column width, or wrap to a grid inside the 436px column. Not 'add a scrollbar'.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-03 · CHALLENGE-D
+
+**Defect.** In RTL the row's interval label inverts to `2 -> 1`, contradicting the eased-ramp specimen rendered 20px below it; ordinals/CSS literals are not LTR-isolated as the constitution requires.
+
+**Mechanism.** direction-law-not-applied: bidi-neutral glyph in an un-isolated provenance run
+
+**Evidence.**
+
+```
+useSpecimenRows.ts:62 mints `label: `${i + 1} → ${i + 2}`` as a bare string; GradientEasingEditor.vue:124 renders it with no isolation. shots/rtl-desktop/gradient.png: the head reads `linear / (dots) 2 → 1` while the ramp beneath still runs green->blue (stop1->stop2), and the endpoint dot pair has also reversed. VISUAL-CONSTITUTION.md:133 ('explicit gradient coordinates do not mirror with prose ... no custom bidi reinterpretation') and :154 ('CSS strings, hex, slugs, IDs and provenance render in LTR-isolated spans inside RTL prose').
+```
+
+**Reproduction.** Open docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop/gradient.png and read the easing row head against the ramp directly below it.
+
+**Proposed cure.** Give ordinal/provenance/CSS-literal runs one house LTR-isolated span used at every provenance site (not a per-template patch), or compose the label from two isolated ordinals with no directional glyph (`1–2`).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-04 · CHALLENGE-D
+
+**Defect.** The row's declared 'ONE literal' export truncates at 1512px desktop for first-class catalogue tiles; the only overflow recovery is a native `title` tooltip.
+
+**Mechanism.** payload loses a width fight to its own support controls; no widest-legal-representation reservation
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:167-177 ('the row's ONE literal + copy (the one-literal law)') renders `<code class="... truncate flex-1 min-w-0" :title="row.css">`. Live at 1512x806: computed font `normal 400 16.58px/23.212px "Fira Code"`, code box width 360.0px; canvas measureText with that exact font: 'cubic-bezier(0, 0, 1, 1)' = 244.9px (fits); 'cubic-bezier(0.785, 0.135, 0.15, 0.86)' = 387.7px and 'cubic-bezier(0.68, -0.55, 0.265, 1.55)' = 387.7px (overflow by 27.7px). Those are the circ/back family literals, both in FAMILY_ORDER at easingCatalogue.ts:174. VISUAL-CONSTITUTION.md:78 requires live values to 'reserve their widest legal representation'.
+```
+
+**Reproduction.** Load /#/gradient at 1512 wide; measure `.readout-rail code` box width (360px) and measureText the circ/back literals with the element's computed font.
+
+**Proposed cure.** Reserve the literal's widest legal width and let the rail wrap its two ghost actions beneath it at narrow widths — the literal is the rail's protagonist, the icons are support. `title` is not a design.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-05 · CHALLENGE-D
+
+**Defect.** Hand-rolled disclosure and hand-rolled ghost icon buttons where glass-ui 7.0.0 ships Collapsible, ExpandableContainer, Button and Chip — while the sibling file in the same directory consumes producer primitives correctly.
+
+**Mechanism.** design-system boundary breach: consumer re-implements producer primitives
+
+**Evidence.**
+
+```
+node_modules/@mkbabb/glass-ui/package.json (v7.0.0) exports ./collapsible, ./expandable-container, ./fading-scroll, ./button, ./chip, ./card, ./separator. GradientEasingEditor.vue:61-71 + :119-147 hand-build the accordion (ref + v-show + manual aria-expanded/aria-controls + manually rotated ChevronDown); :84-88 + :187-206 hand-build a second disclosure; :178-197 + :269-291 hand-build two ghost icon buttons with their own hover wash, focus ring, radius and transitions. EasingSpecimenStrip.vue:13-14 imports FadingScroll and Chip from the producer. glass-ui.css contains the file's single prefers-reduced-motion block, `.disclosure-content { animation-duration: .01ms }` — the producer disclosure the hand-roll forfeits.
+```
+
+**Reproduction.** NONE — static, verified against the installed producer's export map and against the sibling file's imports.
+
+**Proposed cure.** Seat `Collapsible` for the row and `ExpandableContainer` for the authoring stage; seat the producer's `Button` (ghost/icon) for the two rail controls. If the ghost-icon density does not exist upstream, it belongs in glass-ui as a Button variant, not as 23 lines of `.rail-btn` here. This cure also dissolves D-01 and D-12.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-06 · CHALLENGE-D
+
+**Defect.** Under forced-colors the focus ring is erased a second way (box-shadow is forced to none while outline is suppressed), and the authoring-disclosure toggle's on-state is colour-only so its forced-colors delta is zero.
+
+**Mechanism.** state and focus expressed only through properties that forced-colors overrides
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:228-231 and :285-288 both pair `outline: none` with a `box-shadow` focus ring; CSS Color Adjust Level 1 §3.2 forces `box-shadow: none` in forced-colors. :289-291 `.rail-btn--on { color: var(--motion-accent, var(--foreground)) }` and :292-294 `.rail-tick` are the entire visual difference between disclosed and not-disclosed; `color` is a forced property. VISUAL-CONSTITUTION.md:83 ('states are never color-only') and :84 (focus distinct 'in both schemes, forced colors and reduced transparency'). Coverage gap proven: shots/forced-colors-desktop/gradient.png is visually indistinguishable from shots/safari-desktop-light/gradient.png (same atmosphere, plates and accent-inked tile), so that harness arm applied no forced-colors treatment.
+```
+
+**Reproduction.** NONE (HYPOTHESIS on the rendered arm) — spec-derived. Neither Playwright-MCP nor Chrome-DevTools-MCP as exposed here can emulate forced-colors (`emulate` accepts colorScheme only), and the captured forced-colors arm is uninformative. A real forced-colors arm is missing from the mega-tranche matrix.
+
+**Proposed cure.** Express focus as `outline` (preserved and recoloured by forced-colors) and give the toggle a non-colour state channel — the producer Toggle/Button pressed register already owns one. Add a genuine forced-colors arm to the visual matrix.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-07 · CHALLENGE-D
+
+**Defect.** Each interval renders a Card-shaped box inside a composition whose binding inventory is Card count 0 and retained dividing line `none`, producing a four-deep boundary stack inside 197px of vertical space.
+
+**Mechanism.** boundary repetition / uncounted card housing in a zero-boundary composition
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:114 `<div class="rounded-card border border-card-edge overflow-hidden">` per interval. OPTICAL-BENCH-COMPOSITIONS.md §5: 'the other sixteen compositions have Card count `0`'; the Gradient row of the same table is P122 boundaries `[]`, reserve `none`, retained non-P122 dividing line `none`, grouping job 'meniscus, stop seats and code/action interval carry grouping'. Measured row height 197.45px containing: row border (:114), ramp border (:153), rail bg-well material step (:176), 27 Chip edges + .strip-family left rules (EasingSpecimenStrip.vue:145), plus the authoring well when disclosed. PROPORTION-AUDIT.md:49 (PR-05 REMOVE) and :69 (§5.4).
+```
+
+**Reproduction.** NONE — static, against the binding composition table.
+
+**Proposed cure.** Delete the per-row card box; let interval rhythm and the open row's well carry grouping, exactly as the binding table's 'grouping job' column already decided for Gradient. This removes the clip that causes D-01.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-6 · CHALLENGE-D
+
+**Defect.** No keyboard path into the eyedropper, nothing operable inside it, and focus is not returned on close — a direct violation of the Extract clause that names this component.
+
+**Mechanism.** No keyboard model exists for the sampler coordinate; the only key handler is Escape (ImageEyedropper.vue:226-235). VISUAL-CONSTITUTION §7 Extract: 'Eyedropper and sampler have keyboard/numeric alternatives.' §5.2 image-sampler row specifies named x/y controls with Home/End. §5.1 requires focus return to the exact connected opener.
+
+**Evidence.**
+
+```
+Entry: measured tabindex="-1" on the only opener when a preview exists (ImageDropZone.vue:19), with @keydown.enter.space gated by !disableClick (:21-22). Inside: probe2.mjs keyboardSampling before === after across ArrowRight x2, ArrowDown, Home, End. Focus: probe.mjs overlayContainsActive false, tabbableOutsideOverlay 7; probe2.mjs afterClose.active 'BODY '.
+```
+
+**Reproduction.** node .../probe/probe2.mjs — keyboardSampling and afterClose.
+
+**Proposed cure.** Expose the sampler coordinate (already a model in viewportToImage) as the two named numeric axes §5.2 specifies, with Home/End, and let reticle, loupe and readout read that one model. Make the opener a named control instead of a tabindex=-1 region, and restore focus to it on close.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-7 · CHALLENGE-D
+
+**Defect.** The overlay is a modal in geometry and nothing in semantics: no role, no name, no aria-modal, no focus containment, no status region — and the sampled value and pinned state are announced nowhere.
+
+**Mechanism.** ImageEyedropper.vue:8 hand-rolls `absolute inset-0 z-popover glass-floating` as a third overlay species while glass-ui already ships dialog housing and §5.1 already specifies overlay focus/announcement behaviour.
+
+**Evidence.**
+
+```
+probe.mjs: overlayRole null, overlayAriaModal null, overlayAriaLabel null, overlayTabindex null; tabbableInsideOverlay 1, tabbableOutsideOverlay 7; activeElementOnOpen is the drop zone behind it. probe5.mjs: liveRegions 0 across the entire document. Measured AT tree: 'button "Close eyedropper" / separator / text: lab(29.568...) / button "Add to palette" / button "Apply as current color"' — the value is bare text, the pinned state absent.
+```
+
+**Reproduction.** node .../probe/probe.mjs (focus block) and probe5.mjs (afterAdd.liveRegions).
+
+**Proposed cure.** Use the producer dialog housing: initial focus, containment, accessible name, and one role=status carrying the sampled value and the pinned state. Do not mint a fourth overlay species in demo/.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-8 · CHALLENGE-D
+
+**Defect.** The sampler stage is translucent structural glass, so the drop-zone preview and the result card read through it — the same photograph is on screen twice at two scales, with the answer legible underneath the question.
+
+**Mechanism.** ImageEyedropper.vue:8 selects `glass-floating` — the STRUCTURAL glass tier per VISUAL-CONSTITUTION §2 ('dock, header, primary plate'). A sampler stage is a specimen well ('opaque/quiet neutral stage') and its chrome is the instrument veil ('denser neutral veil'). The source comment at :4-7 records the substitution of a hand-minted bg-card/75 for this producer rung as the fix; it moved the defect rather than closing it.
+
+**Evidence.**
+
+```
+Measured overlay background oklab(0.936408 0.005529 0.013284 / 0.808) with backdrop-filter blur(11px) saturate(1.6). Visible in probe/shot-desktop-light-open.png, shot-mobile-dark-tapped.png and shot-zoom200.png: the ImageDropZone preview reads as two pale rectangles above the specimen and 'Extracted Palette 3' plus three swatches read through below it.
+```
+
+**Reproduction.** Open the eyedropper on /#/extract with any image; see probe/shot-desktop-light-open.png.
+
+**Proposed cure.** Two tiers, not one: an opaque specimen well for the stage and an instrument veil for the chrome bar that genuinely floats over live color. The double image disappears as a consequence.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-9 · CHALLENGE-D
+
+**Defect.** 45.1% of the sampling stage is empty — the overlay inherits the workbench rectangle rather than the specimen's aspect, so the protagonist occupies barely half its own instrument.
+
+**Mechanism.** ImageEyedropper.vue:8 `absolute inset-0` makes the overlay inherit the ExtractWorkbench rect, whose aspect has nothing to do with the specimen; fitToViewport (useInertiaGesture.ts:152-167) then contains inside it. VISUAL-CONSTITUTION §3 law 2 caps empty content at 15% of the stage; law 8 requires one full-strength protagonist.
+
+**Evidence.**
+
+```
+probe2.mjs geom: stage 508 x 616.8, specimen 508 x 338.7, specimenAreaPctOfStage 54.9. Starkly visible in probe/shot-forced-colors.png where the empty band renders as naked white. Also measured: specimen x=201 == stage x=201, i.e. 0px inset, against px-3 (12px) on the chrome bar directly above it.
+```
+
+**Reproduction.** node .../probe/probe2.mjs — geom block.
+
+**Proposed cure.** Ratify the sampler as its own composition and size the stage to the specimen's aspect (or let the specimen cover and pan), with the chrome bar docked to it — not a workbench-shaped hole with a picture floating in the middle.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-10 · CHALLENGE-D
+
+**Defect.** The pinned state is carried by color alone, at 1.65:1 contrast, and collapses to be byte-identical with the unpinned state in forced-colors mode.
+
+**Mechanism.** ImageEyedropper.vue:273-276 carries the entire distinction on border-color: var(--primary) and box-shadow — exactly the two properties forced-colors neutralizes. VISUAL-CONSTITUTION §4.1: 'Focus remains visibly distinct from selection in both schemes, forced colors and reduced transparency.'
+
+**Evidence.**
+
+```
+probe3.mjs, Chromium forcedColors active — unpinned: border-color rgb(0,0,0), box-shadow none; pinned: border-color rgb(0,0,0), box-shadow none; identical: true. Light mode measured ring-vs-interior contrast 1.65:1 (non-text minimum 3:1) via probe/pixels.mjs over shot-desktop-light-pinned.png. --primary measured oklch(0.470927 0.126432 129.83403) — hue 129.8 degrees, green, which approaches 1:1 over green imagery by construction.
+```
+
+**Reproduction.** node .../probe/probe3.mjs — forcedColors block.
+
+**Proposed cure.** State over arbitrary imagery cannot ride one color. A dual-tone ring (light core + dark casing, the standard optical-loupe treatment) survives any backdrop and any forced palette, and a geometry delta (ring weight, or the reticle appearing) carries the state without color at all.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-11 · CHALLENGE-D
+
+**Defect.** The success flourish fires exactly once per session and is silent forever after; it is also the only record that a commit happened, and the two different verbs produce identical feedback.
+
+**Mechanism.** @animationend="swatchPulse = false" (ImageEyedropper.vue:22) is bound on the <WatercolorDot> COMPONENT; the reset never runs, swatchPulse latches true, and a second Add produces no class change, no re-animation and no feedback of any kind. onAddToPalette and onApplyColor (:212-224) are otherwise identical. Under prefers-reduced-motion the global guard (demo/styles/animations.css:184-192) zeroes the animation, so the truth is then carried by nothing at all. VISUAL-CONSTITUTION §5: 'A transient flourish may celebrate success but never carries the only truth.'
+
+**Evidence.**
+
+```
+probe6.mjs after clicking 'Add to palette': at t+60ms animationName swatch-pop-5659b98f, duration 0.65s, playState running; at t+2000ms stillPulsingAfter2s: true — the .swatch-pulse class is still applied, so @animationend never reset the flag. probe5.mjs: liveRegions 0.
+```
+
+**Reproduction.** node .../probe/probe6.mjs — anim + stillPulsingAfter2s.
+
+**Proposed cure.** State the durable truth (the palette gained a swatch) once in the status region D-7 requires, and distinguish 'added' from 'applied'. If the flourish is kept, key it (:key) so it restarts on repeat instead of depending on a DOM event bubbling out of a producer component.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-12 · CHALLENGE-D
+
+**Defect.** Any container resize silently discards the user's zoom and pan and snaps the view back to fit — on mobile that is every URL-bar collapse and every rotation.
+
+**Mechanism.** useInertiaGesture.ts:354-360 observes the stage and calls fitToViewport(), which unconditionally overwrites zoom, panX and panY (:162-166). Refit is treated as a geometry event when it is a content event.
+
+**Evidence.**
+
+```
+probe6.mjs: after ctrl-wheel zoom {zoom 2.4314, panX -721, panY -664.1}; after setViewportSize(1100x760) {zoom 0.4233, panX 0, panY 133.8}.
+```
+
+**Reproduction.** node .../probe/probe6.mjs — zoomed vs afterResize.
+
+**Proposed cure.** On resize, preserve the image coordinate at the stage centre and the zoom, then re-clamp; refit only when the image itself changes.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-13 · CHALLENGE-D
+
+**Defect.** Hovering the action buttons paints their icons with the sampled color — an arbitrary user color used as ink on chrome, measured as low as 1.45:1 — via a per-instance descendant override of a glass-ui root.
+
+**Mechanism.** A consumer reaching past a glass-ui DockControl root into its svg child and inventing a local hover register. Owner edict 5 (root-level styling); VISUAL-CONSTITUTION §4.2 ('W17 deletes descendant corrections'); §4.1 rendered-contrast rule.
+
+**Evidence.**
+
+```
+ImageEyedropper.vue:279-282 sets `.eyedropper-action-btn:hover:not(:disabled) svg { color: var(--hover-color); transform: scale(1.2) }` with --hover-color = the sampled color (:10). Measured bar backdrop rgb(220,213,206) bright / rgb(197,190,183) dark. Contrast of a sampled white icon: 1.45:1 and 1.84:1; sampled mid-grey: 2.72:1. Non-text minimum 3:1.
+```
+
+**Reproduction.** Computed from measured backdrops with probe/pixels.mjs contrast(); the CSS is unconditional at :279-282.
+
+**Proposed cure.** Delete it. Hover belongs to the producer. The sampled color already has a dedicated carrier — the WatercolorDot two elements away.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-14 · CHALLENGE-D
+
+**Defect.** The readout's legibility is a function of the user's photograph: it passes AA over a bright image and fails over a dark one.
+
+**Mechanism.** A static text-muted-foreground token over a 0.808-alpha backdrop-blurred surface whose backdrop is arbitrary user imagery. The sibling file already diagnosed this exact failure class — ExtractWorkbench.vue:285-292 uses --ink-muted 'boot-stamped, floor-clamped ... never the STATIC text-muted-foreground that failed the text floor over the live-ambient plate in light'. The eyedropper uses the token that comment names as the defect.
+
+**Evidence.**
+
+```
+Ink rgb(112,89,66) (measured computed color). Composited bar backdrop over a bright specimen rgb(220,213,206) -> 4.52:1. Over probe-dark.png (rgb(8,8,10) specimen) the bar composites to rgb(197,190,183) -> 3.57:1, below the 4.5:1 AA floor for 16.4px text. Scanned the whole readout band in shot-desktop-light-darkspecimen.png: best 3.57.
+```
+
+**Reproduction.** node .../probe/probe3.mjs (produces shot-desktop-light-darkspecimen.png) then the pixels.mjs contrast scan over the readout band.
+
+**Proposed cure.** Opaque chrome (which D-8 requires anyway), or the certified floor-clamped --ink-muted rung.
 
 ---
 
@@ -6385,6 +11245,438 @@ Accordion hand-rolled at GradientEasingEditor.vue:61-71 + 117-147 (ref<number|nu
 
 ---
 
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L3-1 · CHALLENGE-L
+
+**Defect.** `test/` — the only region of the repo that crosses the src/↔demo/ boundary — is type-checked by no TypeScript program, and already contains 27 latent type errors. The demo's own tests ARE checked (3 files in the demo program); the library's 19 are not.
+
+**Mechanism.** A boundary enforced by a two-program tsconfig split is left unenforced at the single place it is actually crossed. The lib program is genuinely clean (0 of 88 files match glass-ui|/demo/) partly BECAUSE the boundary-crossing files were placed outside every program.
+
+**Evidence.**
+
+```
+tsconfig.lib.json include = 13 enumerated src patterns; tsconfig.demo.json include = ["demo/","src/vite-env.d.ts"]; tsconfig.json = {files:[],references:[…]}. `npx tsc -p tsconfig.lib.json --noEmit --listFilesOnly | grep -c "/value.js/test/"` → 0; same for tsconfig.demo.json → 0; `grep -c "/value.js/demo/test/"` → 3. package.json: typecheck = vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit. vitest.config.ts has no `typecheck` block (esbuild transpile-only). Probe program over test/+demo/: 27 errors, 27 under test/, 0 under demo/. Sample: test/value-domain-clamp.test.ts(35,26) TS2339 Property 'hue' does not exist on type '… | { key: string; min: number; max: number; unit: "K"; }'; test/status-lamp.test.ts(149,15) TS2488; test/math.test.ts(318,40) TS2345.
+```
+
+**Reproduction.** Create tsconfig.probe-test.json extending tsconfig.base.json with include:["test/","demo/","src/vite-env.d.ts"] and the compilerOptions of tsconfig.demo.json (drop composite/references); run `npx vue-tsc -p tsconfig.probe-test.json --noEmit`; observe 27 errors, all under test/. (Probe file was deleted; git status clean.)
+
+**Proposed cure.** Add a third leaf tsconfig.test.json (include:["test/"], references both leaves) and append it to the `typecheck` script; fix the 27 errors rather than suppress them. This is the prerequisite for every other test-side cure — until test/ is in a program, new tests inherit the same blindness.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L3-2 · CHALLENGE-L
+
+**Defect.** The `@src/*` deep-path alias — declared RETIRED by the T.W1 dogfood keystone and correctly proven absent from demo/ by pass 1 — is alive in `test/`: 6 imports across 4 files reaching library internals directly, each with an exact published-subpath equivalent. It resolves at runtime (vitest alias) and fails at typecheck (no tsconfig counterpart), so it has survived only because no type program has ever read those files.
+
+**Mechanism.** Pass 1's §L-5 inverted: there, a hand-written `paths` mirror shadowed `exports`; here a bundler alias has NO type-program counterpart at all, so the weaker resolver is the only one consulted. Both are the same disease — a boundary asserted in one tool and unenforced in another. The two `@src/subpaths/*` cases are sharpest: they reach the subpath entry file by filesystem path, deliberately stepping around the exports map that exists to serve exactly that module.
+
+**Evidence.**
+
+```
+`grep -rn "@src/" test/` → test/gradient-v4-consume.test.ts ← "@src/subpaths/css"; test/parsing/timeline/parsing-easing.test.ts ← "@src/subpaths/css" and "@src/subpaths/easing"; test/transform/path-geometry.test.ts ← "@src/transform/path"; test/transform/decompose-targeted.test.ts ← "@src/transform/decompose" (×2). src/subpaths/transform.ts re-exports the entirety of both reached internals (decomposeMatrix2D/3D, recompose*, slerp, interpolateDecomposed, PathGeometry, getTotalLength, getPointAtLength + types). Alias defined at vitest.config.ts:11 (`"@src": path.resolve(…, "src")`); tsconfig.demo.json:6 records the `@src/*` path was RETIRED. 6 of the 27 probe errors are TS2307 'Cannot find module @src/…'.
+```
+
+**Reproduction.** `grep -rn "@src/" test/` (6 hits); then run the L3-1 probe program and observe six TS2307 'Cannot find module @src/…' errors — the imports resolve under vitest but not under tsc.
+
+**Proposed cure.** Rewrite the 6 imports onto @mkbabb/value.js/{css,easing,transform}; delete the `@src` alias from vitest.config.ts:11; narrow vite.config.ts's `@src` to the sourceExportPlugin `?source` use only (one of its two documented justifications dies with these six lines).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L3-3 · CHALLENGE-L
+
+**Defect.** Inverted dependency: the library's unit suite imports demo code (10 of 19 test files), so the library suite cannot run without demo/ on disk. And coverage is inverted exactly where it matters — generate-color.ts (243 lines, the largest and most nearly-pure module in demo/color-session/) has ZERO unit coverage, while six smaller siblings in the same directory ARE covered by the LIBRARY suite. Its only automated coverage anywhere is an e2e browser oracle.
+
+**Mechanism.** The repo's own test infrastructure cannot tell where the library ends — independent corroboration of pass 1's §L-4 from a direction §L-4 never used ('the library's test suite already treats this as library code', not 'it looks library-shaped'). The e2e-only coverage is an inverted test pyramid: a pure, seeded, total, sub-millisecond numeric function whose sole test drives Safari. Pass 2's §8.2 showed what that regime misses — O-20 asserted backgroundColor and stayed green through the entire life of a dead verb.
+
+**Evidence.**
+
+```
+`grep -rl "\.\./demo/" test/*.ts | wc -l` → 10 (of 19). Annexed areas: demo/picker/…/sliderAnnouncement, demo/platform/transport/availability, demo/shell/dock/status-lamp, demo/shell/viewSchema, demo/palettes/mix, demo/workbenches/gradient/composables/{gradientParse,useGradientCSS,useGradientInterpolation,useGradientModel}, demo/workbenches/extract/…/useImageSampler, 5× demo/color-session/*. Per-module coverage in demo/color-session/: picker-color.ts 217ln yes(2), ink.ts 174ln yes(2), palettes-ramp.ts 120ln yes, color-chips/sample.ts 91ln yes, view-accent.ts 47ln yes, color-utils.ts 25ln yes(2) — vs generate-color.ts 243ln NO, prng.ts 11ln NO. `grep -rln "generate-color\|generatePalette" test/ e2e/` → e2e/smoke/oracles/o20-generate-plate.spec.ts only.
+```
+
+**Reproduction.** `grep -rl "\.\./demo/" test/*.ts | wc -l` → 10; `grep -rln "generate-color\|generatePalette" test/ e2e/` → e2e oracle only; per-module loop over demo/color-session/*.ts checking `grep -rl "color-session/.*<basename>\"" test/`.
+
+**Proposed cure.** Write test/generate-color.test.ts against the current demo module — seed-exactness (same (count,preset,harmony,seed) ⇒ identical output), preset-range containment in OKLCh, harmony hue geometry, and the count-dependence of generateHues that forbids truncation. These tests ARE the specification the src/palette/ promotion needs and they move with the code; promoting 243 untested lines into a published subpath first would ship an unspecified public API. Sequence this BEFORE pass 1's move 1.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L3-4 · CHALLENGE-L
+
+**Defect.** CORRECTION to pass 1's proposed cure: promoting demo/color-session/generate-color.ts to src/palette/ as written would ship 16 user-facing English UI strings inside the published colour library, making @mkbabb/value.js permanently un-internationalisable behind a semver contract.
+
+**Mechanism.** The module pass 1 correctly identified as library-shaped is not in fact pure: it fuses numeric ranges/algorithms (reusable, library-owned) with application voice (this app's copy deck). Promoting the fused artefact would hand every future consumer of the numeric ranges a copy deck they did not ask for, and would create a new, harder-to-reverse defect inside src/.
+
+**Evidence.**
+
+```
+`grep -cn "label:\|description:" demo/color-session/generate-color.ts` → 18. generate-color.ts:47-56 — vibrant description:"High chroma, bold tones"; pastel "Soft, light, airy"; earth "Muted clay and soil"; …; :79-84 — "split-complementary": {description:"Base + two flanking complements"}, etc. Rendered verbatim by the subject component at GenerateControls.vue:246 ({{ GENERATION_PRESETS[p].description }}) and :275 ({{ HARMONY_DEFS[h].description }}).
+```
+
+**Reproduction.** `grep -n "description:" demo/color-session/generate-color.ts` → 16 prose strings at :47-56 and :79-84.
+
+**Proposed cure.** Split at the promotion, not after it: src/palette/presets.ts publishes PRESET_RANGES: Record<PresetName,{l,c,h}> (numbers only); src/palette/harmony.ts publishes the six generators and HarmonyName (algorithms only); the description strings stay in demo/ as a Record<PresetName,string> copy table keyed by the published union, so a missing entry is a type error. Preserves the whole of pass 1's argument while keeping the published surface free of application voice.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L3-5 · CHALLENGE-L
+
+**Defect.** Seeded randomness has two independent live implementations — demo/color-session/prng.ts and glass-ui's own mulberry32 compiled into watercolor-dot.js — and GenerateControls.vue invokes BOTH on the same visual element (one decides each swatch's colour, the other its shape), while @mkbabb/value.js/math, the package that exists to publish numeric primitives, ships neither.
+
+**Mechanism.** Wrong home for a shared primitive, with the strongest possible empirical signature: the concept has already been independently re-derived twice by two separate packages. One dot, two PRNGs, two seed registers (number vs string), no shared definition of 'deterministic given a seed'; the seed bench note at :212-214 reports only one of the two.
+
+**Evidence.**
+
+```
+`grep -rn "mulberry32" demo src test` → demo/color-session/prng.ts:2 (definition), generate-color.ts:35 (import), :219 (`const rng = seed != null ? mulberry32(seed) : Math.random`), GenerateControls.vue:89 (comment). `grep -o "mulberry[A-Za-z0-9]*" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js | sort -u` → mulberry32. Same element, both paths: GenerateControls.vue:95,99 → generatePalette(…, seed:number) → demo mulberry32 → swatch COLOUR; GenerateControls.vue:204 → :seed="`gen-${css}-${i}`" (string) → glass-ui mulberry32 → same swatch's SHAPE. `cat src/subpaths/math.ts` publishes clamp, scale, lerp, lerpArray, logerp, deCasteljau, cubicBezier, interpBezier, cubicBezierToString; `grep -rn "mulberry32\|seedrandom" src/` → no output.
+```
+
+**Reproduction.** `grep -rn "mulberry32" demo src test` (1 demo definition) + `grep -o "mulberry[A-Za-z0-9]*" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js | sort -u` (glass-ui's own) + `grep -rn "mulberry32\|seedrandom" src/` (empty).
+
+**Proposed cure.** src/math/prng.ts → mulberry32 plus hashSeed(string): number so the string and numeric seed registers become one register; publish from @mkbabb/value.js/math; delete demo/color-session/prng.ts. File the glass-ui-consumes-it half together with pass 2's §L2-3 ColorHarmony ask as ONE RF-17 row — both are the same direction of dependency (colour/numeric primitives flow from the colour library into the design system, not the reverse).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · R1-C1 · CHALLENGE-L
+
+**Defect.** CORRECTION TO THE PRIOR SEAT'S REPORT: challenge-L-library.md:434-449 (finding L-8(b), "two value.js's in one build — the demo type-resolves against the installed package while it runtime-resolves against the working tree") is a FALSE POSITIVE and must not survive into the tranche. Both types and runtime resolve to the repo's own dist/. The prior seat misread TypeScript's packageId label as a node_modules provenance marker; it is the package identity (name/path@version) of whichever package owns the file, and the repo's own package.json declares @mkbabb/value.js@4.0.0.
+
+**Mechanism.** Misattributed causation in a peer audit artifact. The prior report uses L-8(b) as the causal explanation for L-2 ("exactly the crack through which §L-2 shipped"). It is not the crack — L-2 ships through the `!` at src/css/grammar.ts:181, in the working tree, in the published 4.0.0, in every build.
+
+**Evidence.**
+
+```
+`npx tsc --noEmit -p tsconfig.demo.json --traceResolution | grep -A3 value.js/css` → "Found 'package.json' at '/Users/mkbabb/Programming/value.js/package.json'" … "successfully resolved to '/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts' with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'" — no node_modules segment anywhere. `npx tsc -p tsconfig.demo.json --noEmit --explainFiles | grep -A3 subpaths/css` prints the repo-relative path `dist/subpaths/css.d.ts` (not node_modules/@mkbabb/value.js/dist/...) for all 11 import sites. The installed copy is a transitive artifact: node_modules/@mkbabb/keyframes.js@6.0.0 declares "@mkbabb/value.js": "4.0.0" as a hard dependency; nothing in the demo graph consults it. The prior seat's `cmp` DIFFERENT result is true (6dfbff9f vs 0cd5611e) but irrelevant.
+```
+
+**Reproduction.** Run the two tsc commands above at HEAD c654824e and read the resolved paths.
+
+**Proposed cure.** Withdraw L-8(b). Keep L-8(a) (three dead paths entries) and enlarge it: delete the tsconfig.demo.json paths block for @mkbabb/value.js entirely rather than repairing it — the two subpaths with NO paths entry (/css, /value) already resolve correctly via package.json#exports, which is exactly what a real external consumer does, and vite.config.ts:38-47 already generates the runtime aliases from the same map. No workspace link is needed; adopting the prior cure would do work that fixes nothing.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-3 · CHALLENGE-L
+
+**Defect.** Wrong owner for the whole instrument: a bespoke multi-thumb slider (inset-track geometry, pointer capture, drag lifecycle, keyboard model, hit-target inflation, dual-contrast focus-ring composition, pill silhouette, owned paint stack) is hand-rolled in demo/workbenches, while glass-ui already publishes the primitive and the component's own parent already imports it.
+
+**Mechanism.** Design-system ownership inversion (edict 4). The component imitates the design system instead of being it, which is why every recipe (focus ring, hit inflation, paint stack, ordering) had to be re-derived locally and each was fixed by a separate ruling (U-F25, U-F27, T.W6-2) instead of once at the root.
+
+**Evidence.**
+
+```
+GradientStopEditor.vue:53-81 (HANDLE_HALF/handleLeft/getPosition), :119-156 (pointer capture + drag), :173-187 (keyboard), :338-359 (focus ring), :374-391 (hit inflation), :317-326 (paint stack). Against: node_modules/@mkbabb/glass-ui/dist/components/slider/types.d.ts declares `modelValue?: number[] | null` and `minStepsBetweenThumbs?: number` (already N-thumb) and `variant?: SliderVariant`. demo/ui/slider/index.ts is the entire file: `export { Slider } from "@mkbabb/glass-ui";` and GradientVisualizer.vue:10 already imports it — 126 lines above the rail that does not use it. The file's own comments concede the point: :198 "the glass-ui slider-track rounding register (T-46)", :316 "--radius-pill".
+```
+
+**Reproduction.** Structural — read the cited lines against the glass-ui and reka type declarations.
+
+**Proposed cure.** Land `variant="stops"` on the existing glass-ui Slider (edict 4: reuse the existing component-type name; relay to the glass-ui BH inbox per the standing formation invariant), with slots #thumb (per-stop colour fill) and #ghost (add preview) and events add(position)/remove(index). GradientStopEditor.vue then collapses to ~40 lines with no HANDLE_HALF, no getBoundingClientRect, no setPointerCapture, no keydown handler, no scoped focus-ring or hit-inflation CSS, no .gradient-rail paint stack — and L-1, L-6(min-2-stops), L-7 and the paint-stack duplication die with it.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-4 · CHALLENGE-L
+
+**Defect.** Dead re-export barrels kept explicitly as back-compat shims (edict 2: no aliases, no migration shims, no dual paths). useGradientModel.ts:19-29 is headed "── Re-exports (preserve public API surface) ──"; useGradientInterpolation.ts:13-17 says the re-export exists "so the gradient tree's own consumers … keep their import path".
+
+**Mechanism.** One concept, two live import paths, maintained by a shim whose stated purpose is not breaking an import path inside a repo where every consumer is in the same commit.
+
+**Evidence.**
+
+```
+I enumerated every consumer of all seven re-exported names across demo/, test/, e2e/. serializeRailRamp, GradientParseResult and ParsedGradientModel have ZERO consumers through any door. serializeGradient, serializeCoalescedGradient, linearInterval and parseGradientCSS are imported from their real homes directly (test/gradient-parse.test.ts:10,11; test/gradient-v4-consume.test.ts:5,7). The ONLY live pass-through is INTERPOLATION_SPACES/HUE_INTERPOLATION_METHODS at GradientVisualizer.vue:19-20 — and those travel two stacked re-exports from demo/color-session/color-space-meta.ts, while the sibling workbench MixConfigBar.vue:18 imports the same two constants from the real home in one hop.
+```
+
+**Reproduction.** grep -rn over demo/ test/ e2e/ for each of the seven names, excluding the four gradient composables themselves.
+
+**Proposed cure.** Delete both re-export blocks; point GradientVisualizer.vue:19-20 at ../../../color-session/color-space-meta, matching MixConfigBar.vue:18. Strictly smaller graph, zero behaviour delta, one line changed.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-5 · CHALLENGE-L
+
+**Defect.** Selection state is transported twice on one gesture — a dual path in the component's own public contract. The component writes v-model AND emits an event carrying the identical fact in the same tick, and the parent consumes both.
+
+**Mechanism.** Redundant notification channel for one piece of state; the channels have already begun to diverge, which is how dual paths rot.
+
+**Evidence.**
+
+```
+GradientStopEditor.vue:129-130 — `selectedId.value = id;` immediately followed by `emit("select", id);`. GradientVisualizer.vue:140 `v-model:selected-id="selectedStopId"` AND :144 `@select="(id) => selectedStopId = id"` — the same ref written twice. The two channels are already not equivalent: removeStop (:158-162) and onHandlePointerUp (:148-156) write selectedId with no matching select emit.
+```
+
+**Reproduction.** Structural — read GradientStopEditor.vue:129-130 against GradientVisualizer.vue:140,144.
+
+**Proposed cure.** Delete the `select` emit (:22, :130) and the @select handler (GradientVisualizer.vue:144). v-model:selectedId is the whole contract.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-17 · CHALLENGE-L
+
+**Defect.** `useImageSampler.formatInColorSpace` is a second, DIVERGENT implementation of the app's canonical display-space formatter `formatForSelectedDisplaySpace`. For the four non-CSS spaces the eyedropper and the picker render the same color in the same selected space with notations that share no token.
+
+**Mechanism.** unique-semantic-ownership broken — the domain already decided, and the feature overrides the decision privately
+
+**Evidence.**
+
+```
+Canonical: demo/color-session/useColorPipeline.ts:174-179; `serializePickerColor` already answers for non-CSS spaces at demo/color-session/picker-color.ts:206-211. Duplicate: useImageSampler.ts:55-66 + :38-44. Measured on #ff0000 against dist/subpaths — hsv: eyedropper 'HSV 0 · 1 · 1' vs canonical 'oklch(62.795536392143% 0.257683303805 29.233880279628deg)'; kelvin: 'KELVIN 1000' vs 'oklch(65.925252512236% …)'; ictcp: 'ICTCP 0.4279 · -0.1157 · 0.2787' vs 'oklch(…)'; jzazbz: 'JZAZBZ 0.1344 · 0.1179 · 0.1119' vs 'oklch(…)'. Reachable: usePaneRouter.ts:139 forwards model.value.selectedColorSpace live; color-model.ts:74 declares all 17 spaces + hex selectable.
+```
+
+**Reproduction.** node --input-type=module -e '<appendix B2 in the report>'. In-app: select HSV in the picker, open the eyedropper on /#/extract, sample pure red — picker reads oklch(62.79…%), eyedropper reads 'HSV 0 · 1 · 1'.
+
+**Proposed cure.** Lift `formatForSelectedDisplaySpace` out of the `useColorPipeline` orchestration composable into `demo/color-session/color-model.ts` as a pure `formatForDisplaySpace(color, space)`; delete `formatInColorSpace` and `formatLibraryColor`. If the `HSV 0 · 1 · 1` shape is the better product answer it becomes the canonical one and the picker adopts it — the choice is made once, by the domain.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-18 · CHALLENGE-L
+
+**Defect.** The sampler reads the alpha byte from the canvas and discards it. `data[3]` is never referenced; the offscreen canvas is created without `{alpha:false}`, and `image/*` is accepted, so a transparent PNG pixel is reported and saved as opaque #000000.
+
+**Mechanism.** a lossy carrier (6-digit hex string) chosen where the library's own byte↔color pair is alpha-complete in both directions
+
+**Evidence.**
+
+```
+useImageSampler.ts:116-118 (`formatHex(data[0], data[1], data[2])` — data[3] absent), :32-35 (`formatHex` has no alpha parameter), :83 (getContext without alpha:false); demo/workbenches/extract/ImageDropZone.vue:30 `accept="image/*"`. Library affordance that carries alpha: `rgb(r,g,b,alpha)` on src/subpaths/color.ts; `toRgba8` round-trips it at picker-color.ts:214; `pickerColorToHex` (picker-color.ts:213-217) already emits the 8-digit form when alpha<1.
+```
+
+**Reproduction.** Drop any logo PNG with a transparent background on /#/extract, open the eyedropper, sample the transparent region: readout claims #000000 and 'Add to palette' writes an opaque black swatch. No warning.
+
+**Proposed cure.** Stop going through a hex string: `rgb(data[0], data[1], data[2], data[3] / 255)`. Alpha survives end-to-end and the display side is already ready. Pairs with the first pass's `fromRgba8` proposal for src/color/operations.ts.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-19 · CHALLENGE-L
+
+**Defect.** `justUnpinned` is a one-shot module-scope flag cleared ONLY inside `onTap`, but `onTap` fires only when the pointer did not move. A pan-after-pin leaves it stuck true and swallows the user's next tap.
+
+**Mechanism.** the interaction state machine is split across a gesture composable that owns the events and a shell that owns the mode, communicating through DOM capture ordering and a boolean
+
+**Evidence.**
+
+```
+ImageEyedropper.vue:123 (`let justUnpinned = false`), :178-184 (capture-phase pointerdown sets it), :152-155 (onTap is the only reset); useInertiaGesture.ts:277-281 (`if (!didMove) options.onTap?.(…)`).
+```
+
+**Reproduction.** On /#/extract with an image loaded: (1) tap to sample — pinned; (2) press-drag to pan, release — onTap never fires, flag stays true; (3) tap to sample — swallowed, nothing happens; (4) tap again — works.
+
+**Proposed cure.** The gesture composable owns every listener on the element it bound and owns tap semantics: add the mode/`onPointerDown` as first-class options on `useInertiaGesture` beside `onTap`/`onHover`. The capture-phase listener and the flag both disappear.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-3 · CHALLENGE-L
+
+**Defect.** `DisplayColorSpace` is declared four times: the canonical home plus three re-mints inside the extract feature — and the eyedropper's re-mint is EXPORTED, so the library test suite imports the duplicate rather than the canonical type.
+
+**Mechanism.** one concept, four homes; the duplicate acquired a consumer and became load-bearing
+
+**Evidence.**
+
+```
+Canonical demo/color-session/color-model.ts:29 (documented, 8 consumers). Re-mints: demo/workbenches/extract/ExtractPane.vue:30, ExtractWorkbench.vue:202, ImageEyedropper/composables/useImageSampler.ts:21 (exported). test/image-sampler-v4.test.ts:5 imports the re-mint. Grep: `grep -rn 'SpaceId | "hex"' demo src test e2e` → exactly those three.
+```
+
+**Reproduction.** NONE — static, proved by enumeration (the grep above).
+
+**Proposed cure.** Delete all three re-mints; `import type { DisplayColorSpace } from "…/color-session/color-model"`. Type the pane props bag (usePaneRouter.ts:64 `Record<string, unknown>`) so the router cannot lose the type across the boundary.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-7 · CHALLENGE-L
+
+**Defect.** The magnifier is DPR-blind: a fixed 110x110 backing store for a 110 CSS-px box, so on any devicePixelRatio > 1 the one surface whose job is pixel fidelity is composited upscaled. glass-ui publishes the DPR policy; zero demo modules consume it; a sibling workbench re-derives it by hand.
+
+**Mechanism.** a published design-system primitive exists and every consumer hand-rolls a worse version — owner edict 4
+
+**Evidence.**
+
+```
+ImageEyedropper.vue:85 `width="110" height="110"` (hard literal) vs constants.ts:8 LOUPE_SIZE=110 and ImageEyedropper.vue:194-195; useLoupeCanvas.ts:40 `imageSmoothingEnabled = false`. glass-ui useCanvas2D.d.ts: 'dprPolicy — Backing-store DPR policy. Defaults to the existing Canvas2D ceiling: min(devicePixelRatio, 2)'. `grep -rn "useCanvas2D|useCanvasLifecycle|glass-ui/canvas" demo` → 0 matches. `grep -rn devicePixelRatio demo` → 2 matches, neither here; demo/workbenches/mix/MixAnimationCanvas/composables/useMixingAnimation.ts:141 re-derives `Math.min(window.devicePixelRatio || 1, 2)` by hand. 11 hand-rolled `getContext("2d")` sites in demo.
+```
+
+**Reproduction.** NONE for the on-screen blur (this machine reports dpr 1); the absence of any DPR term is proved by the greps and the consequence follows deterministically from the fixed backing store plus `w-full h-full`.
+
+**Proposed cure.** glass-ui `./canvas` grows a paint-on-demand `useCanvas2DSurface` (element observation + min(dpr,2) backing store + context attrs + dispose, no rAF); the loupe and MixAnimationCanvas both consume it. This fix lands in glass-ui, not demo — relay it.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-5 · CHALLENGE-L
+
+**Defect.** One user file is decoded three times and retained in three representations; the eyedropper alone holds two full-resolution canvases (one of which is never sampled and exists only to be CSS-transformed, with will-change-transform promoting it to a compositor layer at native size).
+
+**Mechanism.** 'the decoded image' is a concept with no owner — the session owns a File and a base64 string, the quantizer owns a private decode, the sampler owns two more
+
+**Evidence.**
+
+```
+useExtractSession.ts:29-36,166 (FileReader base64 data URL, never cleared); useImageQuantize.ts:18-26 (independent createImageBitmap + OffscreenCanvas decode of the same File); useImageSampler.ts:80-84 (offscreen canvas at natural size — needed) and :86-92 (visible canvas ALSO at natural size — not needed); ImageEyedropper.vue:71 `will-change-transform`. `node -e 'const b=4032*3024*4; …'` → 46.51 MiB each, 93.02 MiB retained for a phone photo (15.82 MiB at 1080p).
+```
+
+**Reproduction.** NONE measured on-device; byte counts derived from W*H*4 and confirmed arithmetically. The three decode sites are proved by the file:line references.
+
+**Proposed cure.** One `demo/workbenches/extract/image-source.ts`: takes the File once, yields an ImageBitmap consumed by BOTH the quantizer and the sampler plus an object URL (not base64) for display. The visible canvas becomes an `<img src=objectURL>` under the same transform — one decoded copy, no native-resolution compositor layer. The `createObjectURL`/`revokeObjectURL` idiom already exists in-repo at demo/palettes/export.ts:88-131.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-6 · CHALLENGE-L
+
+**Defect.** LOUPE_SIZE has two homes — the constant and a hard-coded `110` literal for the canvas backing store — so the one edit the constant exists to enable silently corrupts the magnifier.
+
+**Mechanism.** dual source of truth for one number, with no type or test connecting them
+
+**Evidence.**
+
+```
+constants.ts:8 `export const LOUPE_SIZE = 110`; ImageEyedropper.vue:85 `width="110" height="110"` (literal) vs :194-195 (`${LOUPE_SIZE}px` for the CSS box); useLoupeCanvas.ts:38 `ctx.arc(LOUPE_SIZE/2, LOUPE_SIZE/2, LOUPE_SIZE/2, …)` and :41-51 `drawImage(…, 0, 0, LOUPE_SIZE, LOUPE_SIZE)`.
+```
+
+**Reproduction.** Set LOUPE_SIZE = 160 in constants.ts. The CSS ring grows to 160px, the backing store stays 110x110; `ctx.arc(80,80,80,…)` centres the clip off-canvas and the 160-unit drawImage overflows a 110-unit surface — the magnified pixels occupy ~47% of the circle, clipped to the wrong disc, then stretched 1.45x. Nothing errors.
+
+**Proposed cure.** Bind it (`:width="LOUPE_SIZE * dpr"`), or better, let the canvas substrate of L-7 size the backing store from the CSS box — which is the reason such a substrate exists.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-1 · L
+
+**Defect.** The eslint objects that structurally enforce the demo's acyclic module graph (G-DEMO-1 / G-DEMO-3a / G-DEMO-3b) have matched zero files since the W43 restructure: four of five globs target `demo/@/**`, which no longer exists, and the surviving `demo/color-picker/**` glob's pattern targets the `@components/*` alias W43 killed. The demo module graph is unguarded.
+
+**Mechanism.** A structural invariant encoded against a directory layout; the layout was refactored and the encoding was not. Flat-config globs that match nothing fail silently.
+
+**Evidence.**
+
+```
+eslint.config.js:232-238 and :276-279 glob `demo/@/components/**`, `demo/@/lib/**`, `demo/@/composables/**`. `ls -d demo/@` → `ls: demo/@: No such file or directory`. `grep -rn 'from "@components/' demo | wc -l` → 0. Decisive: `npx eslint --print-config demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue` → `no-restricted-imports => undefined`. vite.config.ts:70-73 states W43/RF-15 "killed the demo `@…` path aliases".
+```
+
+**Reproduction.** `npx eslint --print-config demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue` and read `rules['no-restricted-imports']` — undefined. Negative control: `grep -rn 'color-picker/' demo/workbenches | wc -l` → 0, so the invariant currently HOLDS by discipline; only the enforcement is dead.
+
+**Proposed cure.** Encode the tier, not the directory-of-the-day. Four no-restricted-imports objects, one per tier that physically exists (boot=demo/color-picker; shell=demo/shell+scenes; features=demo/workbenches+picker; shared=demo/color-session+palettes+platform+shared+ui), each banning `**/{tier-above}/**`. Add one CI assertion that every configured glob matches >=1 file — that is exactly the failure class this finding is.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-2 · L
+
+**Defect.** The gradient's persisted domain type IS a Vue widget's v-model payload: `GradientInterval = EasingPickerValue`, imported from @mkbabb/glass-ui/easing. Three of its six fields are written only to satisfy the widget's type and read by nothing in the gradient tree.
+
+**Mechanism.** The layer with the narrowest lifetime (a picker's transient authoring state) was made the type of the layer with the longest (persisted, parseable gradient truth) — direction of dependency inverted at the type level.
+
+**Evidence.**
+
+```
+demo/workbenches/gradient/composables/useGradientModel.ts:12 (`import type { EasingPickerValue } from "@mkbabb/glass-ui/easing"`) and :49 (`export type GradientInterval = EasingPickerValue`). `grep -rn "\.points\b|\.steps\b|\.term\b" demo/workbenches/gradient/` → exactly 2 hits, easingCatalogue.ts:109 and :123, both WRITES inside the tile factory. easingCatalogue.ts:148-152 comments the filler out loud: "Neutral transient cache — steps mode never reads points." useGradientModel.ts:44 concedes css is "the persisted TRUTH" and fn "only a live cache".
+```
+
+**Reproduction.** Deterministic from source: any glass-ui minor adding a 7th member to EasingPickerValue becomes a required field of the demo's persisted gradient model and of gradientParse's output, with no gradient reason. Today's cost is visible now: 6 fields carry 2 facts.
+
+**Proposed cure.** `GradientInterval = { readonly css: string }` in a leaf `model/gradient-model.ts` (value.js already owns the concept as CssTimingFunction via /css). `easingFnOf` (useGradientCSS.ts:120-133) already memoizes css→EasingFunction, so the fn cache moves into the resolver. The EasingPickerValue adaptation becomes two four-line functions AT THE SEAT (EasingAuthoringStage, easingCatalogue) — which is where a widget boundary belongs. The model stops importing glass-ui entirely.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-3 · L
+
+**Defect.** An invariant module-level catalogue (27 specimen tiles) and a full EasingPicker are instantiated once PER INTERVAL inside the v-for, though at most one row is open at a time. One interval row is 30.9% of the whole route's DOM.
+
+**Mechanism.** Shared, stateless, invariant UI placed inside the iteration that consumes it — cost linear in interval count for a single-open surface.
+
+**Evidence.**
+
+```
+Measured live on http://localhost:9000/#/gradient: `{docNodes: 625, rowCount: 1, perRow: [{nodes: 193, tiles: 27, svgPaths: 41, pickers: 1, pathPointChars: 18541}]}` — 193/625 = 30.9%. SPECIMEN_FAMILIES is a module const (easingCatalogue.ts:198), identical in every row. openInterval is a single `ref<number|null>` (GradientEasingEditor.vue:61). Three downstream workarounds exist because of it: EasingSpecimenStrip.vue:41 ("sibling rows mount hidden twins of every data-specimen id"), its rowEl-scoped querySelector (:55) and no-scrollIntoView rule (:39-46, the O-19 flat-netting root cause), and the v-show-never-v-if picker law (GradientEasingEditor.vue:16-18).
+```
+
+**Reproduction.** Playwright evaluate on the live dev server (recorded in the report's probe log, row 6). Add stops via the rail and re-measure: perRow.nodes stays 193 and rowCount tracks interval count, so a 5-stop gradient is ~772 elements of easing editor against a 625-element baseline route.
+
+**Proposed cure.** Hoist both invariants out of the v-for: the v-for renders head + ramp only (~12 nodes/row); ONE <EasingSpecimenStrip> and ONE <EasingAuthoringStage> sit below the row list bound to the open row. The strip's `visible` prop, its scroll-scoping workaround, the `tuneOpen: Record<number, boolean>` map (line 84) and the v-show law all delete. Route easing DOM becomes O(1) in interval count.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-4 · L
+
+**Defect.** EasingAuthoringStage patches glass-ui's internals from outside via three :deep() selectors keyed on the producer's test id and internal class names (with three !important), and separately scrapes the DOM in a rAF to recover a viewBox that useEasingPicker already publishes as a reactive ComputedRef.
+
+**Mechanism.** A producer exposing geometry to its own SFC but not through its component contract, and a consumer closing the gap by scraping the DOM instead of filing a prop. Violates edict 4 (variants belong in glass-ui) and edict 5 (root-level styling, never per-instance).
+
+**Evidence.**
+
+```
+EasingAuthoringStage.vue:88 `:deep([data-testid="easing-picker"])`, :93 `:deep(.glass-card)`, :104-115 `:deep(svg[role="img"])` with `block-size: auto !important; aspect-ratio: … !important; margin-inline: 0 !important`. Lines 44-67: `rootEl.value?.querySelector<SVGSVGElement>("svg[role='img']")?.viewBox.baseVal` driven by onMounted + a `watch(() => value.css)` + requestAnimationFrame. Producer already exports it: node_modules/@mkbabb/glass-ui/dist/components/easing/composables/useEasingPicker.d.ts — `/** The bezier-canvas viewBox … */ viewBox: ComputedRef<{ minY: number; height: number }>`, and useEasingPicker is exported from @mkbabb/glass-ui/easing (dist/components/easing/index.d.ts:3). The file's own header (:13-15) concedes "the overrides retire at the adopt".
+```
+
+**Reproduction.** Deterministic from source: rename the data-testid or drop role="img" from glass-ui's canvas <svg> in any 7.x patch — no type error, no lint error; the stage silently letterboxes and the one-column law silently reverts to the 18rem chrome rail inside a ~430px pane.
+
+**Proposed cure.** Three props filed at the producer (BH/BI relay): `layout?: "auto" | "stacked"`, `surface?: Surface` (the axis already exists — Chip takes surface?: Surface), and `fit?: "viewbox"` or an @resize emission. All three :deep() blocks, all three !importants, vbRatio, syncVbRatio, the rAF and the watch delete; the stage becomes `<EasingPicker layout="stacked" surface="well" fit="viewbox" :playback="false" :readout="false">` and nothing else.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-5 · L
+
+**Defect.** Four names for three types across the value.js↔glass-ui seam, bridged by two casts in this component's catalogue — and value.js declares the jump union TWICE, independently, in one file, with a runtime membership check guarding a type the compiler already closes.
+
+**Mechanism.** Boundary vocabulary re-declared downstream instead of imported, and the upstream gave it two unlinked spellings to re-declare from.
+
+**Evidence.**
+
+```
+src/easing.ts:4 `EasingFunction = (progress: number) => number` vs glass-ui `EasingFn = (t: number) => number` (useEasingPicker.d.ts, commented "the value.js family shape"). src/easing.ts:13 `JumpPosition = "jump-start"|"jump-end"|"jump-none"|"jump-both"` AND :68 `jumpTerms = [same four] as const` — written out twice; :136 `if (!(jumpTerms as readonly string[]).includes(position)) return err(...)` is the runtime guard against a closed union. src/easing.ts:67 types bezierPresets values as an inline `readonly [number,number,number,number]` with no exported name; glass-ui declares `BezierPoints`. Casts: easingCatalogue.ts:136 `const position = term as JumpPosition;` and :108/:123 `[...points] as BezierPoints`.
+```
+
+**Reproduction.** Deterministic from source: add "jump-both-inclusive" to jumpTerms (src/easing.ts:68) and forget line 13. JumpTerm widens, JumpPosition does not, and easingCatalogue.ts:136's `as` SILENCES the resulting error — the demo compiles clean and steppedEase rejects at runtime with jump_position_invalid.
+
+**Proposed cure.** In value.js: `export type JumpPosition = (typeof jumpTerms)[number];` (one line — kills the drift AND the runtime guard) and `export type BezierQuad = readonly [number,number,number,number]` from /easing. In glass-ui: delete EasingFn, JumpTerm and BezierPoints; import EasingFunction, JumpPosition and BezierQuad from @mkbabb/value.js/easing, which it already depends on (useEasingPicker.d.ts line 2 imports jumpTerms from it today). Both casts in easingCatalogue.ts delete.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-6 · L
+
+**Defect.** value.js /easing publishes the curve callables but no presentation-neutral projection of one, so curve→SVG-path is forked three ways across the constellation — including glyphPath sitting in a demo leaf, which is pure library math with no DOM, Vue or CSS in it.
+
+**Mechanism.** The library published the semantics and withheld the projection, so the projection was re-derived at each consumer.
+
+**Evidence.**
+
+```
+demo/.../easing/easingCatalogue.ts:66-74 `glyphPath(fn, samples = 48)` — its own header (:58-65) names it an assay of keyframes.js `generateCurveSVGPath`. glass-ui ships two more: useEasingPicker.d.ts `bezierPathD: ComputedRef<string>` and `stepPathD: ComputedRef<string>`. src/subpaths/easing.ts exports CubicBezier, bezierPresets, steppedEase, easing, linearEasing and no path/sampling function.
+```
+
+**Reproduction.** NONE — this is a structural claim over three quoted files, not a runtime hypothesis.
+
+**Proposed cure.** `export function sampleCurvePath(fn: EasingFunction, samples = 48): string` in src/easing.ts, exported from /easing. glyphPath deletes; stepPathD deletes; keyframes.js's copy deletes. bezierPathD stays — it is an analytic `C` path, a genuinely different artifact, and that difference becomes visible instead of buried.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-7 · L
+
+**Defect.** Two back-compat re-export barrels in the gradient composables — one measurably dead, one producing a LIVE dual path: two sibling workbenches import the same constant by two different routes (3 hops vs 1).
+
+**Mechanism.** A barrel minted to preserve an import path nobody needed, leaving two live doors to one symbol. Edict 2 (no aliases, no dual paths).
+
+**Evidence.**
+
+```
+useGradientModel.ts:19-29 re-exports 7 names under the comment "Re-exports (preserve public API surface)"; `for n in serializeGradient serializeCoalescedGradient serializeRailRamp linearInterval parseGradientCSS GradientParseResult ParsedGradientModel; do grep -rn "$n" demo --include='*.ts' --include='*.vue' | grep -v workbenches/gradient/composables/; done` → 2 hits, BOTH prose inside comments (GradientStopEditor.vue:9, easingCatalogue.ts:44). Every real consumer imports the origin: gradientParse.ts:22 and useGradientModel.ts:15 take linearInterval from ./useGradientCSS; the subject takes serializeIntervalRamp from ../composables/useGradientCSS (:31). Live dual path: useGradientInterpolation.ts:17 re-exports INTERPOLATION_SPACES with the comment "Re-exported here so the gradient tree's own consumers keep their import path", useGradientModel.ts:21 re-exports it again → GradientVisualizer.vue:19 reaches it in 3 hops while MixConfigBar.vue:18 imports it directly from color-session/color-space-meta in 1.
+```
+
+**Reproduction.** The grep above: 7 re-exported names, 0 non-comment consumers. And the two live import paths at GradientVisualizer.vue:19-21 vs MixConfigBar.vue:18.
+
+**Proposed cure.** Delete both re-export blocks. GradientVisualizer.vue imports INTERPOLATION_SPACES/HUE_INTERPOLATION_METHODS from color-session/color-space-meta exactly as MixConfigBar already does. One name, one door.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-8 · L
+
+**Defect.** value.js is failure-explicit by design but publishes no unwrap: no subpath exports ok/err or an unwrap helper, only the Result type. The demo hand-rolls the unwrap-or-throw 17 times, twice as the same function five files apart.
+
+**Mechanism.** A library published the discipline (explicit Result) and withheld the ergonomic, so seventeen consumers re-invented the escape hatch, each with its own message format and none with a shared type.
+
+**Evidence.**
+
+```
+`cat src/foundation/result.ts` → exports only `Result`, `ok`, `err`; src/subpaths/color.ts:9 exports the Result TYPE alone; no subpath exports an unwrap. `grep -rn "throw new Error(\`" demo --include='*.ts' --include='*.vue' | grep -i error.code` → 17 sites (useGradientCSS.ts ×3, useGradientInterpolation.ts:37, easingCatalogue.ts:103, mixStage.ts:106, useMarkdownColors.ts ×2, generate-color.ts ×3, color-utils.ts:18, ink.ts ×4, palettes/mix.ts:36). Five are in this component's own chain. useGradientCSS.ts:71-77 and easingCatalogue.ts:98-104 are the SAME function, differing only in the error prefix; both are typed `ReturnType<typeof CubicBezier>` while also fed steppedEase results, which type-checks only by coincidence of shape.
+```
+
+**Reproduction.** The grep above returns 17 hand-rolled sites; `diff` the two easingValue bodies (useGradientCSS.ts:71-77, easingCatalogue.ts:98-104) — identical but for the string literal.
+
+**Proposed cure.** Publish the unwrap from the foundation as an eighth subpath: `export function unwrap<T, E extends {code: string}>(r: Result<T,E>, context: string): T { if (r.ok) return r.value; throw new Error(`${context}: ${r.error.code}`); }`. Seventeen hand-rolled sites collapse to seventeen call sites of one function with one message grammar, and easingValue stops existing twice.
+
+---
+
 ## MINOR
 
 ### `CHALLENGE-C — implementation defect hunt on demo/color-picke` · C-5 · CHALLENGE-C
@@ -6873,6 +12165,366 @@ demo/palettes/browser/card/PaletteCard/PaletteCard.vue:182-198 `withDefaults(def
 
 ---
 
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-11 · CHALLENGE-C
+
+**Defect.** addCurrentColor no-ops silently at a domain boundary (current colour already the sole entry) with no feedback; and because C-1 makes the control unactivatable, its reorder branch has never executed in the shipped app.
+
+**Mechanism.** M2 — an intent that silently evaporates instead of reporting its outcome.
+
+**Evidence.**
+
+```
+useSwatchActions.ts:62-74 — `if (existingIdx !== -1 && length > 1) { reorder; return; } if (existingIdx !== -1) { return; }` with no user-visible outcome in either path. Reachability: C-1's measurements (click cannot land) mean lines 63-69 are dead code today. Equality is exact-string indexOf, so #ff0000 and rgb(255,0,0) are distinct entries — undocumented.
+```
+
+**Reproduction.** NONE observable today (the control cannot be activated — C-1); the dead-code claim is proven by C-1's probe output.
+
+**Proposed cure.** After C-1 lands, return a discriminated result and surface it in the role="status" region introduced by C-8 ("already in palette" / "moved to end").
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-12 · CHALLENGE-C
+
+**Defect.** useLeaveTimer never cancels on scope disposal — a scheduled 250 ms callback outlives unmount and writes to a disposed scope.
+
+**Mechanism.** A composable that owns a timer does not own its disposal.
+
+**Evidence.**
+
+```
+demo/palettes/browser/card/composables/useLeaveTimer.ts (whole file, 17 lines) has no onScopeDispose/onUnmounted; the scheduled callback writes openIndex.value = null (useHoverPopover.ts:35).
+```
+
+**Reproduction.** NONE — hypothesis. I did not observe a user-visible break; the post-unmount write is harmless today. Recorded as a latent leak that is a fact of the source.
+
+**Proposed cure.** onScopeDispose(cancel) inside useLeaveTimer so every caller inherits it — or delete the composable entirely under C-4's cure.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-13 · CHALLENGE-C
+
+**Defect.** Five hand-rolled <button> elements with per-instance utility styling where the design system provides Button, including a 130-character class string triplicated verbatim.
+
+**Mechanism.** Edict 4 (glass-ui is the design system) + edict 5 (style at the root component level, never per-instance); triplication is the mechanism by which these three buttons' hover/press/focus register drifts from the app.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:46, :49, :52 each carry `p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40`; :75 and :78 carry `btn-interactive p-2 rounded-full bg-foreground/5 hover:bg-accent/50 cursor-pointer`. The file already imports Button at :175 (demo/ui/button re-exports @mkbabb/glass-ui Button).
+```
+
+**Reproduction.** Source read — CurrentPaletteEditor.vue:46,49,52,75,78.
+
+**Proposed cure.** Three <Button icon-only size="xs">s; if the swatch-action register genuinely differs from the house Button, it is a glass-ui variant, not three copies of a class string.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-14 · CHALLENGE-C
+
+**Defect.** Dead Tooltip tree — TooltipProvider/Tooltip/TooltipTrigger/TooltipContent mounted around a trigger whose attributes the child discards, so the tooltip can never open.
+
+**Mechanism.** M1 — attrs discarded by inheritAttrs:false; four component instances rendering nothing.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:88-111. Measured after a forced hover: "tooltipOpen":{"tooltipContent":0,"addSlotAttrs":["data-v-292b9032","data-v-0ce6f2b0","aria-hidden","class","data-testid","data-variant","style"]} — no data-state, no id, no aria-describedby, i.e. no reka wiring at all. Repo-wide, four components each instantiate their own TooltipProvider with divergent delays (200 here, 300 at ConsoleRail.vue:23).
+```
+
+**Reproduction.** node .../cpe-challenge-c-probe4.mjs → `tooltipOpen`.
+
+**Proposed cure.** Dies with C-1 (a real Button trigger makes it work), or delete it outright since the aria-label already carries the same sentence.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-15 · CHALLENGE-C
+
+**Defect.** The edit-commit affordance is split across two files by an unshared 1024px literal: nothing enforces that the component's `hidden lg:flex` and the dock's useMediaQuery agree.
+
+**Mechanism.** Two literals, two files, one invariant, no shared token.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:58 gates the edit overlay `hidden lg:flex` (Tailwind lg = min-width:1024px); demo/shell/dock/Dock.vue:71-72 gates the complementary path with useMediaQuery("(min-width: 1024px)") → mobileEditActive, feeding the dock's Save edit / Cancel edit controls at Dock.vue:143-144 — the same commitEdit/cancelEdit emits this component uses at :75/:78.
+```
+
+**Reproduction.** NONE — hypothesis about a latent break. Verified there is NO dead band on HEAD (the two literals agree exactly); the defect is the unenforced coupling, not a current failure.
+
+**Proposed cure.** One exported breakpoint constant / CSS custom media consumed by both — or, better, one commit affordance that both surfaces render.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-10 · CHALLENGE-C
+
+**Defect.** The account-menu trigger is a 22 x 22 px tap target, below the WCAG 2.2 §2.5.8 minimum of 24 x 24 — and it is the only tabbable control in the logged-in bar.
+
+**Mechanism.** Per-instance padding utility instead of the design-system control-height token.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:84 (`p-1` around a `w-3.5 h-3.5` icon); measured: { tag:"BUTTON", aria:"Account menu", w:22, h:22 }. The live twin contributes identical 22x22 rows to docs/tranches/V/megatranche/audit/visual/REPORT.json on every route.
+```
+
+**Reproduction.** Mount with userSlug set and read getBoundingClientRect() on the only button → 22 x 22.
+
+**Proposed cure.** Adopt glass-ui `DockControl compact` (already used by the dock cluster) so the size rule lives at the design-system root per edict 5, rather than bumping p-1 to p-1.5 per instance.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-11 · CHALLENGE-C
+
+**Defect.** `onStartSlugEdit` schedules a 50 ms setTimeout with no onBeforeUnmount/onScopeDispose clear, so unmounting within 50 ms leaves the callback to mutate a disposed component's refs and schedule a nextTick against a dead instance.
+
+**Mechanism.** An animation-timing guess implemented as a bare timer; the same delay is what desynchronises the focus call in C-3.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:176-181 — the timer is never captured in a variable and the component registers no lifecycle cleanup hook.
+```
+
+**Reproduction.** NONE — hypothesis at the behavioural level (the mutation is silent in Vue); the missing-cleanup fact itself is direct code evidence at :176.
+
+**Proposed cure.** Delete the timer (C-3's cure removes the need); if any deferral survives, use @vueuse/core's useTimeoutFn so scope disposal is automatic.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-12 · CHALLENGE-C
+
+**Defect.** Dead public surface: `hasSavedPalettes` is declared `required: true` and read nowhere; the `copy` emit is declared and never emitted; `resetEditMode` is exposed and called nowhere.
+
+**Mechanism.** API surface outlived the logic it served; no gate reports unused props/emits.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:147-152 (prop), :155 (emit), :231-236 (expose); compiled SFC from the dev server confirms `hasSavedPalettes: { type: Boolean, required: true }`; the decision it once fed now lives at useSlugMigration.ts:59. `vue-tsc` EXIT=0 and eslint.config.js:153-154,182 disable every rule that would report it.
+```
+
+**Reproduction.** grep the SFC for `hasSavedPalettes` — one hit (the declaration); grep for `emit("copy"` — zero hits; grep the repo for `resetEditMode(` — zero call sites.
+
+**Proposed cure.** Delete all three (they die with the component under C-1).
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-13 · CHALLENGE-C
+
+**Defect.** `void writeClipboard(userSlug)` discards the documented `{ ok }` result and the promise, so a denied or failed clipboard write is indistinguishable from success — and there is no success feedback either.
+
+**Mechanism.** Fire-and-forget on an API whose failure mode is silent, with the feedback channel (the `copy` emit) declared but unused.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:169; node_modules/@mkbabb/glass-ui/dist/composables/dom/useClipboard.d.ts:35-37 documents `const { ok } = await writeClipboard(text)`. Every other demo call site awaits it (MixPane.vue:54, GenerateControls.vue:107, GradientVisualizer.vue:128).
+```
+
+**Reproduction.** NONE — hypothesis for the failure branch (Safari clipboard denial was not induced); the discarded-result fact is direct code evidence at :169 against the typed signature.
+
+**Proposed cure.** `const { ok } = await writeClipboard(userSlug); emit("copy", ok)` — which finally gives the dead `copy` emit a purpose and lets the owner render one feedback affordance for all copy actions.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-14 · CHALLENGE-C
+
+**Defect.** `resetEditMode()` clears the input and the mode but not `slugError`, so a stale error survives the reset and floats under the default pill row (the <p> renders outside the Transition).
+
+**Mechanism.** Asymmetric teardown — two entry/exit paths mutating overlapping but unequal state sets.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:231-234 vs :172-174 (onStartSlugEdit clears slugError, resetEditMode does not); the error <p> is at :124, outside the `<Transition>` that ends at :122.
+```
+
+**Reproduction.** NONE — hypothesis (resetEditMode has no call site to trigger it, per C-12); the asymmetry is direct code evidence.
+
+**Proposed cure.** One `resetSlugState()` clearing input, error and mode together, called from both entry and exit.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-15 · CHALLENGE-C
+
+**Defect.** The error line is `absolute` + `whitespace-nowrap` with server-supplied, unbounded-length text, so it escapes its container horizontally.
+
+**Mechanism.** Fixed-line error affordance sized for the short authored strings, not for the server-titled fallback.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:124-126; measured on a 420 px host: errorP { right: 600.6, hostRight: 440, overflowsHostPx: 160.6 }. The message on the else branch is `e.message` forwarded from useSlugMigration.ts:87.
+```
+
+**Reproduction.** Mount at 420 px width, call setError with a 66-character message, compare the <p>'s right edge to the host's → 160.6 px overhang.
+
+**Proposed cure.** Drop whitespace-nowrap, let it wrap, and reserve the space in flow instead of absolute + -bottom-4 (which also lets it collide with content below the bar).
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-16 · CHALLENGE-C
+
+**Defect.** The catch block is unreachable (emit is synchronous; the parent handler is async so its rejection never throws here) AND it is a stale copy of the substring-matching mapping the repo already proved wrong and replaced with typed ApiProblem.status handling.
+
+**Mechanism.** A dual path left behind when the corrected logic was written elsewhere — legacy code the edicts forbid.
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:216-221; useSlugMigration.ts:78-87 carries the S.W2 comment: the server titles "never contain '409'/'404'/'429', so those branches matched nothing and the authored copy below never showed". Live: across 5 invocations slugError was only ever set by the explicit line-208 assignment. `e: any` at :216 is the file's only untyped catch.
+```
+
+**Reproduction.** Invoke onSlugSwitch on the mounted component with any input: no code inside the try can throw, so the catch never executes.
+
+**Proposed cure.** Delete the block; C-4's `await` supplies the one honest error path, typed on ApiProblem.status.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-6 · CHALLENGE-C
+
+**Defect.** Filter state is invisible to assistive technology: the trigger's aria-label="Filters" overrides the visible active-filter count badge, both role=radiogroup elements are unnamed (the "Sort"/"Tier" labels are unassociated divs), there is no aria-live for the async-feeling colour-search result, and the popover has no heading semantics.
+
+**Mechanism.** accessible-name computation ignored — aria-label suppresses the subtree that carries the state, and visual adjacency substituted for programmatic association
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:5 (aria-label) vs 7-12 (count span); section labels are plain divs at lines 20, 32, 48, 63. Measured in jsdom: `trigger aria-label: Filters` while `trigger text (badge): "3"`; `aria-live regions: 0`; `section-label elements are div (not heading): [ 'DIV','DIV','DIV','DIV' ]`. Measured live against http://localhost:9000/#/browse: `radiogroups: [{name: null}, {name: null}]`, `ariaLive: 0`, `headings: 0`; a11y tree shows `- generic: Sort` followed by an unnamed `radiogroup`, same for Tier.
+```
+
+**Reproduction.** Open http://localhost:9000/#/browse, click button[aria-label="Filters"], then evaluate over the [role=dialog]: querySelectorAll('[role=radiogroup]') both return null for aria-label/aria-labelledby; querySelectorAll('[aria-live]').length === 0. In jsdom, mount with tier='featured' selectedTags=['a','b'] and read the trigger's aria-label ('Filters') against its textContent ('3').
+
+**Proposed cure.** `:aria-label="activeFilterCount > 0 ? `Filters, ${activeFilterCount} active` : 'Filters'"`; give each .section-label an id and point the matching RadioGroup at it with aria-labelledby (RadioGroupProps extends PrimitiveProps, so the attr falls through to the role=radiogroup root); add one polite aria-live region announcing the result count. All root-level, no per-instance overrides.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-7 · CHALLENGE-C
+
+**Defect.** `hexToOklab` carries an unreachable defensive throw, and its name misrepresents what it does — it is a general CSS-colour-to-OKLab conversion, and discarding that generality is precisely defect C-2.
+
+**Mechanism.** dead defensive code paired with a name that encodes the artificial narrowing rather than the real capability
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:205-211. Every reachable argument is either a regex-validated 6-digit hex (line 218) or pickerHex, and pickerHex can only ever be a 6-digit hex because MiniColorPicker.vue:85-105 computes currentHex from clamped HSV via `Math.round(c*255).toString(16).padStart(2,'0')`. No input can produce a "none" channel, so lines 207-209 are dead.
+```
+
+**Reproduction.** NONE — this is a static reachability finding; the branch cannot be entered by any input the component accepts.
+
+**Proposed cure.** Rename to cssToOklab, delete the "none"-channel throw, and let PickerColorError propagate to the user-facing error surface that C-2's cure introduces.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-8 · CHALLENGE-C
+
+**Defect.** `colorSearchActive` is a private local ref that feeds the public activeFilterCount badge while duplicating state the parent already owns (BrowsePane's colorSearchParams), so the badge can report an active colour filter the parent cannot see or clear.
+
+**Mechanism.** unowned duplicated state — a derived public value computed partly from private state the owner of the other inputs cannot reach
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:171 (the ref), 193 (activeFilterCount reads it), against demo/palettes/BrowsePane.vue:336 `const colorSearchParams = ref<{L,a,b}|null>(null)` — the same fact, held twice. Measured: after a colour search the badge reads "1"; after a prop-side reset of tier/selectedTags the badge still reads "1".
+```
+
+**Reproduction.** Mount SearchFilterBar, run a colour search, read the trigger badge ('1'), then setProps({tier:'', selectedTags:[]}) and read it again ('1'). HYPOTHESIS on reachability in today's wiring: the only reset path currently routes through onClearAll, so no live user flow is known to hit the desync. The ownership defect itself is confirmed.
+
+**Proposed cure.** Lift the colour filter to the parent as a prop (`colorFilter: {L,a,b} | null`) — BrowsePane already holds exactly that value. activeFilterCount then derives entirely from props, and C-9's double-emit collapses into one.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-13 · CHALLENGE-C
+
+**Defect.** A masking fallback for a wire-shape lie is planted in the pane: `availableTags` coerces a possibly-object `/colors/tags` payload with `Object.values`, compensating for the shape instead of fixing it, and in the wrong layer.
+
+**Mechanism.** Typed failure swallowed — a masking fallback (owner edict 2: no masking fallbacks).
+
+**Evidence.**
+
+```
+BrowsePane.vue:215-220 — `const tags = pm.tagEdit.allTags.value as Tag[] | Record<string, Tag>; return Array.isArray(tags) ? tags : Object.values(tags);` with a comment stating the declared type is a lie. The wire shape belongs to `getTags` in demo/palettes/api/colors.ts, where one narrowing serves BrowsePane, PaletteDialog and TagEditPopover.
+```
+
+**Reproduction.** Static, from the quoted source and its own comment. HYPOTHESIS as to whether the object-shaped payload is still emitted by the live API this seat could not reach.
+
+**Proposed cure.** Narrow once in `getTags` (parse/validate at the wire boundary); delete the pane-level coercion.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-14 · CHALLENGE-C
+
+**Defect.** Gratuitous `any` casts that the lint gate does not flag: `(p: any)` disables checking on the whole colour predicate for a field that IS declared on `Palette`, and `(el: any)` erases the ref type the next declaration re-asserts.
+
+**Mechanism.** Typecheck escape hatch with no gate behind it.
+
+**Evidence.**
+
+```
+BrowsePane.vue:344 `(p: any)` reaching `oklabColors`, which is declared at demo/palettes/types.ts:32; BrowsePane.vue:94 `(el: any)`. `npx eslint demo/palettes/BrowsePane.vue demo/palettes/useBrowsePalettes.ts` → no output (both clean).
+```
+
+**Reproduction.** Run the quoted eslint command: it reports nothing.
+
+**Proposed cure.** Drop both casts — `p: Palette` already carries `oklabColors?`; type the ref callback as `(el: InstanceType<typeof PaletteCard> | null)`.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-15 · CHALLENGE-C
+
+**Defect.** `onSave` reports "Saved!" unconditionally although the underlying store write is a no-op in both dedupe branches.
+
+**Mechanism.** Typed failure swallowed — a void-returning write whose outcome the UI asserts anyway.
+
+**Evidence.**
+
+```
+BrowsePane.vue:226-232 `pm.onSaveRemote(palette); … card.showFeedback("Saved!", "success")`; demo/palettes/usePaletteStore.ts:121-139 `addPublishedPalette` returns void and returns early on a name+colors match (reorder only) or an existing slug.
+```
+
+**Reproduction.** Save a wall palette whose name+colours already exist locally: the card celebrates "Saved!" and nothing was added. Static from the two quoted call sites.
+
+**Proposed cure.** `addPublishedPalette` returns a discriminated result (`added | reordered | duplicate`); the card reports the truth.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-16 · CHALLENGE-C
+
+**Defect.** Three silent-failure paths: a failed load-more logs and returns with no user-visible signal; `onFlagSubmit` awaits a network write with no catch (dialog stays open, unhandled rejection); a failed tag-catalog load makes the entire Tags filter section silently disappear.
+
+**Mechanism.** Typed failure swallowed.
+
+**Evidence.**
+
+```
+useBrowsePalettes.ts:109-111 (`catch { console.warn }`, no browseError, no flag) — probe C-2 asserts `browseError === null`, wall unchanged, `hasMore` still true. BrowsePane.vue:296-300 `await pm.flagged.report(...)` with no try. useTagEdit.ts:56 `catch { }` → `availableTags` stays [] → SearchFilterBar.vue:47 `v-if="availableTags.length > 0"` hides the whole section.
+```
+
+**Reproduction.** Load-more path unit-reproduced (probe-C1 case C-2, passing). The flag-submit and tag-catalog paths are read from the quoted sources — HYPOTHESIS as to their live behaviour.
+
+**Proposed cure.** Every user-triggered remote mutation reports its verdict on the surface that triggered it (the pane already has that rail for save/delete/visibility); the tag catalog's failure is a visible, retryable state, not an absent section.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-17 · CHALLENGE-C
+
+**Defect.** Test truth: the two e2e gates are vacuous for the pane's real failure modes, and the browse fixture is outside every typecheck program so its shape is validated by nothing.
+
+**Mechanism.** Vacuous gate — an assertion that cannot distinguish the correct state from the broken one, over a fixture nothing typechecks.
+
+**Evidence.**
+
+```
+Only coverage: e2e/smoke/views/browse-pagination.spec.ts + browse-loading.spec.ts; zero unit tests for the pane or useBrowsePalettes. Exact green-keeping mutation: delete useBrowsePalettes.ts:112 — the pagination spec's `await expect(more).toHaveCount(0)` still passes because the button is hidden by `v-if="pm.loadingMore.value"` instead of by cursor exhaustion, and `cards → 62` already happened. Fixture: `npx tsc -p <scratch>/tsconfig.e2e.json` → `e2e/smoke/fixtures/browse-palettes.ts(19,30): error TS2307: Cannot find module '../../../demo/@/lib/palette/types'`; `npm run typecheck` = `vue-tsc -p tsconfig.lib.json && vue-tsc -p tsconfig.demo.json` whose includes are `src/…` and `demo/` — e2e/ is in neither. The fixtures omit `oklabColors` entirely.
+```
+
+**Reproduction.** Run the pasted tsc command for TS2307. For the vacuous gate: delete useBrowsePalettes.ts:112 and run `npx playwright test e2e/smoke/views` — both specs stay green (derived from the quoted assertions and the v-if gating; not executed this seat).
+
+**Proposed cure.** Add e2e/ to a typecheck program (or a third tsconfig) so the dead import fails CI; assert the load-more button's absence FOR THE RIGHT REASON (assert `hasMore` exhaustion, and add a race spec that reloads mid-continuation); add unit coverage for useBrowsePalettes' four state transitions.
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/palettes/browse` · C-10 · CHALLENGE-C
 
 **Defect.** Raw `paletteCount` truthiness leaks domain-boundary values into interaction and layout: -1 makes the row a live disclosure and offers "delete all palettes" for a user with none; MAX_SAFE_INTEGER renders unformatted into a two-digit Badge.
@@ -7104,6 +12756,204 @@ BrowsePane.vue:207 `const SKELETON_COUNT = 4;` and :130 `<PaletteCardSkeleton v-
 **Reproduction.** Read BrowsePane.vue:130 and :207.
 
 **Proposed cure.** One named count derived from the page size (or a deliberate, documented cap) shared by both arms; the constitution's grammar is one species, so it should read from one source.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-15 · CHALLENGE-D
+
+**Defect.** Six per-instance overrides on producer Button roots; two lose outright, leaving a 32x40 'rounded-full' stadium that mis-registers 2px against the 36px field it commits
+
+**Mechanism.** M10 — per-instance override of a root-styled producer component; owner edict 5
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:137 `class="h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"`. Measured (probe-D2.json → wk.geom.saveBtn): width "32px", height "40px", min-height "40px", border-radius 9999px — w-8 won, h-8 lost to the producer's min-height. inputRow: input h 36 @ y 477.86; btn h 40 @ y 475.86 → the two boxes in a two-element row mis-register by 2px top and bottom. Same mechanism at :154,:162 (h-6 = 24px authored, 36px rendered, probe-D3.json → dup.buttons).
+```
+
+**Reproduction.** node probe-D2.mjs → geom.saveBtn and geom.inputRow
+
+**Proposed cure.** Remove all local size classes from producer Buttons. If a 32px circular icon rung does not exist in glass-ui 7 that is a producer ask (BJ-inbox letter), not a consumer class list that silently half-applies.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-16 · CHALLENGE-D
+
+**Defect.** The empty invitation reserves a 462x115px slab for one 48px mark — 4.3% ink — instead of content-hugging
+
+**Mechanism.** M3 — reservation in place of invitation
+
+**Evidence.**
+
+```
+probe-D.json → empty-desktop-light: well rect {w:462, h:115.11}; swatch-row fillRatio 0.11 (48px of ink in a 435px band); ink 2304px² of 53178px² = 4.3%. Frame: frames-D/empty-desktop-light-well.png. VISUAL-CONSTITUTION.md:186 "A true empty invitation content-hugs its text/action"; :29 "Empty secondary content occupies at most a narrow invitation tray (<=15% of the stage) or disappears"; PROPORTION-AUDIT.md:48 (PR-04) "Collapse absent support."
+```
+
+**Reproduction.** node probe-D.mjs → empty-desktop-light.well.rect and .swatchRow.fillRatio
+
+**Proposed cure.** Collapse the empty draft to one named action that hugs its own text ("Start a palette with #e2571f"), or remove it until the first colour exists.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-17 · CHALLENGE-D
+
+**Defect.** Two props for one fact: savedPaletteCount and savedPalettes are the same array's length and the array
+
+**Mechanism.** M11 — redundant public surface: two things that can disagree
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:196-202 declares both `savedPaletteCount: number` and `savedPalettes: Palette[]`; PalettesPane.vue:44-45 passes `pm.savedPalettes.value.length` and `pm.savedPalettes.value`. savedPaletteCount is used at exactly two sites (:128 placeholder, :250 default name), both of which could read the array.
+```
+
+**Reproduction.** Read CurrentPaletteEditor.vue:196-202 against PalettesPane.vue:41-54
+
+**Proposed cure.** Delete savedPaletteCount; derive it from savedPalettes.length at the two use sites.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.7 · CHALLENGE-D
+
+**Defect.** Ten vote controls render at 38.63 x 23.59 CSS px on mobile — below the 24px target floor — immediately beside sibling menu buttons roughly twice their size; and data marks are visually indistinguishable from action marks in the same row.
+
+**Mechanism.** Target geometry follows the glyph rung instead of being an independent quantity, so a compact count+heart cluster inherits a sub-floor block size while its neighbour inherits a generous one.
+
+**Evidence.**
+
+```
+shots/TELEMETRY.json, iPhone 14, ten instances: BUTTON.flex 38.63x23.59 name="0 votes, click to vote". WCAG 2.5.8 minimum is 24x24. Row composition: `1  fork2  heart0  ...` mixes two data marks and two action marks at identical weight (VISUAL-CONSTITUTION.md §5 law 5). PROPORTION-AUDIT.md PR-12.
+```
+
+**Reproduction.** Load #/browse at 390px with data and measure the vote buttons. Note this also means REPORT.md's smallTapTargets:4 for /#/browse understates the populated route by ten, because it was measured on the error page.
+
+**Proposed cure.** Separate visible glyph size from operable seat geometry (PR-12's own wording) so both actions in the cluster meet the floor at the same optical rung, and give the two data marks a non-actionable register so the operable ones are identifiable.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.8 · CHALLENGE-D
+
+**Defect.** `.pane-scroll-fade` implements no fade: maskImage is `none`, so the pane hard-clips the last card through its color strip — a class whose name asserts an affordance the CSS never delivers.
+
+**Mechanism.** The class was renamed or repurposed away from its original masking job while nine consumers kept applying it for the fade it no longer performs; the same h-full scroll host also stretches the empty plate (Round 1 D-13).
+
+**Evidence.**
+
+```
+getComputedStyle(pane).maskImage === "none" and -webkit-mask-image === "none" on the live pane. The rule at demo/shared/ui/PaneHeader.vue:44-47 sets only `contain: layout style paint` and `scroll-timeline: --pane-scroll`. Visible at the bottom of both shots/populated-desktop-*.png: the sixth card is sliced mid-strip by a hard horizontal cut.
+```
+
+**Reproduction.** Open shots/populated-desktop-light.png and look at the pane's bottom edge; then read the .pane-scroll-fade rule.
+
+**Proposed cure.** Either restore the mask at the host or rename the class to what it does (`pane-scroll-host`). A hard cut through a color specimen reads as a rendering fault and must not be the designed boundary; the scroll host and the fade should be decided together with the empty-plate stretch.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.9 · CHALLENGE-D
+
+**Defect.** Two import paths to the same design system inside one 360-line file: Card/Button via one-line `demo/ui/*` re-export barrels, SearchBar direct from @mkbabb/glass-ui.
+
+**Mechanism.** A migration-era indirection layer was never deleted after the direct glass-ui imports landed, so both paths are live and this file demonstrates each.
+
+**Evidence.**
+
+```
+demo/palettes/BrowsePane.vue:180 `import { Card } from "../ui/card"`, :181 `import { Button } from "../ui/button"`, :195 `import { SearchBar } from "@mkbabb/glass-ui/search"`. demo/ui/card/index.ts and demo/ui/button/index.ts are each exactly one line re-exporting from @mkbabb/glass-ui. Census: 18 of 19 demo/ui/* barrels are pure one-line re-exports. Owner edicts 2 and 4.
+```
+
+**Reproduction.** cat demo/ui/card/index.ts; cat demo/ui/button/index.ts; then read BrowsePane.vue:180-195.
+
+**Proposed cure.** Delete the 18 pure re-export barrels and rewrite consumers to import from @mkbabb/glass-ui directly (owner edict: migrate the consumer at the root, no compat shim). Repo-wide family; BrowsePane is a site, not the owner.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.10 · CHALLENGE-D
+
+**Defect.** `availableTags` masks an API contract violation client-side instead of fixing the payload, and the comment admits it.
+
+**Mechanism.** A prop-type warning was silenced at the consumer rather than at the endpoint, so the real defect (an endpoint returning two shapes) is hidden from every future reader and from the API's tests.
+
+**Evidence.**
+
+```
+demo/palettes/BrowsePane.vue:215-220 coerces `Tag[] | Record<string, Tag>` with Object.values; the comment states the declared type is `Tag[]` "but the `/colors/tags` read can resolve an object-shaped payload at runtime". Owner edict 2 bans masking fallbacks by name.
+```
+
+**Reproduction.** Read BrowsePane.vue:210-220; the comment is the reproduction — the coercion exists because the object-shaped branch is real.
+
+**Proposed cure.** Fix /colors/tags to return one shape and delete the coercion; if the shape genuinely varies, that belongs in a typed transport boundary with a test, not in a pane's computed.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-11 · CHALLENGE-D
+
+**Defect.** Motion: an untokenized magic 50ms delay, a Transition mode="out-in" + nextTick focus race that almost certainly leaves the input unfocused in a real browser, and a max-height transition arm that is a no-op while its overflow:hidden side effect still clips.
+
+**Mechanism.** transition mode and imperative focus timing chosen independently; a magic constant standing in for a real settle signal
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:4 `<Transition name="vj-morph" mode="out-in">` around a v-if/v-else pair; :176-181 `setTimeout(() => { slugEditMode.value = true; nextTick(() => searchBarRef.value?.inputRef?.focus()); }, 50)`. 50 is not any --duration-* or --spring-* token in demo/styles/animations.css. Under mode="out-in" Vue mounts the incoming branch only in the outgoing branch's afterLeave, long after nextTick, so searchBarRef is null and ?. swallows the focus. animations.css:104-119 gives .vj-morph-*-active a max-height transition parameterised by --vj-morph-collapse/--vj-morph-expanded plus overflow:hidden; this site sets neither (scoped block :239-243 is a comment and an @reference only). CREDIT: reduced motion is satisfied for free by the global guard (animations.css:80).
+```
+
+**Reproduction.** NEGATIVE in jsdom — probe P1 reports `input present = true, activeElement = INPUT, focused input? = true`, because jsdom reports no transition duration so Vue resolves the leave synchronously. The failure is real-browser-only and I could not produce the frame: the component mounts in no browser (D-1). LABELLED A HYPOTHESIS for the focus arm. Corroboration: the live successor SlugEditLayer.vue:16-23 dropped BOTH the Transition and the setTimeout and focuses directly.
+
+**Proposed cure.** Drop the out-in Transition around a control swap (or focus from the transition's after-enter hook, not nextTick), and delete the 50ms guess — the live successor already proves neither is needed.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-12 · CHALLENGE-D
+
+**Defect.** Overflow, truncation and RTL were never designed: no min-w-0, no max-width, no truncate, not even whitespace-nowrap. A 48-character slug measures 502.44px — 1.29× the 390px arm and 1.57× the 320px arm.
+
+**Mechanism.** unbounded content in an unconstrained flex row; the overflow state was never enumerated
+
+**Evidence.**
+
+```
+Probe Q3: pill class = `slug-pill cursor-help` (nothing else), root class = `flex items-center gap-1.5 mb-2 pt-0.5 relative min-h-9` (no flex-wrap, no min-w-0). Measured in the live document: a 48-char .slug-pill renders 502.44 × 28.95px. PROPORTION-AUDIT.md §2 / VISUAL-CONSTITUTION.md §3.2 bind 1440/390/320/actual-400%-zoom. Both live siblings at least add whitespace-nowrap (ProfileSection.vue:73, MobileMenuDropdown.vue:48). RTL: VISUAL-CONSTITUTION.md §6.1 requires "CSS strings, hex, slugs, IDs and provenance render in LTR-isolated spans inside RTL prose" — the pill (:47-52) has no isolation.
+```
+
+**Reproduction.** Mount probe Q3 for the class inventory; inject a 48-char .slug-pill into a .app-layout host on the live app and read getBoundingClientRect → w 502.44.
+
+**Proposed cure.** min-w-0 on the flex parent, truncate + a max-inline-size on the pill (the full slug already lives in the hover Popover at :54-59 and in "Copy slug"), and dir="ltr"/unicode-bidi:isolate on the value span.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-13 · CHALLENGE-D
+
+**Defect.** Dead contract surface: a required prop that is never read, an emit that is never emitted, and an exposed method with zero consumers — three declared contracts that are lies to any caller.
+
+**Mechanism.** contract surface outliving the consumers that shaped it
+
+**Evidence.**
+
+```
+`hasSavedPalettes` — declared :150, destructured :147; `grep -c hasSavedPalettes PaletteSlugBar.vue` = 2 (the two declaration sites only), never read. `emit copy: []` declared :155; grep for `emit("copy"` / `$emit('copy'` in the file → 0 hits — onCopySlug (:168-170) writes the clipboard directly instead, so a consumer wiring @copy gets silence. `resetEditMode` (:231-234, exposed :236) — zero consumers repo-wide.
+```
+
+**Reproduction.** grep -c "hasSavedPalettes" demo/palettes/browser/slug/PaletteSlugBar.vue → 2; grep -n 'emit("copy"|\$emit(.copy' on the same file → empty; grep -rn resetEditMode demo/ → only the declaration and the defineExpose.
+
+**Proposed cure.** Subsumed by D-1's deletion. If the component were kept, drop all three; a prop every caller must compute and the callee discards is worse than no prop.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-14 · CHALLENGE-D
+
+**Defect.** Non-idiomatic Vue 3.5 plus a resurrected copy of a bug the repo already diagnosed and fixed: error branching on `msg.includes("409")` substrings that the server titles never contain.
+
+**Mechanism.** a copy of a repaired defect surviving in an unmounted twin, where no gate re-reaches it
+
+**Evidence.**
+
+```
+Template ref: :166 `const searchBarRef = ref<InstanceType<typeof SearchBar> | null>(null)` with the string-ref binding at :7 — owner edict 7 and the live counterpart use the 3.5 API (SlugEditLayer.vue:2,14 `useTemplateRef<HTMLInputElement>("slugInputRef")`). Resurrected bug: :216-221 `catch (e: any) { const msg = e?.message ?? ""; if (msg.includes("409")) ... }` — useSlugMigration.ts:78-82 documents this exact pattern as already repaired: "branch on the typed ApiProblem.status, not .message substrings — the server titles ... never contain '409'/'404'/'429', so those branches matched nothing and the authored copy below never showed." This is the third copy of the dead branch set (a fourth is at SlugEditLayer.vue:57-62, dead for D-2's reason). Shadowing: :205 declares a local `isAdmin` inside a scope that already binds a prop `isAdmin` (:147, used :64).
+```
+
+**Reproduction.** Read PaletteSlugBar.vue:166, :216-221, :205 against useSlugMigration.ts:78-87 and SlugEditLayer.vue:2,14.
+
+**Proposed cure.** Subsumed by D-1. If kept: useTemplateRef, typed `ApiProblem` status branching, and rename the local to kill the shadow.
 
 ---
 
@@ -7448,6 +13298,168 @@ BrowsePane.vue:222-224 `onMounted(() => { pm.tagEdit.loadAllTags(); })`. demo/co
 sed -n '129,162p' demo/color-picker/composables/usePaletteWiring.ts
 
 **Proposed cure.** useBrowseWall() owns its own onMounted load and its slug/query watchers, colocated with the pane. usePaletteWiring keeps only the genuinely cross-port watchers (:165-171, admin logout → view switch) and moves out of demo/color-picker/ into demo/shell/.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · N-4 · CHALLENGE-L
+
+**Defect.** The colour-search concept has two owners across the prop boundary (params in the pane, the active flag in the child) and its clear path is double-wired: one click emits two events into three handlers, nulling the same ref twice.
+
+**Mechanism.** split ownership of one concept across a component boundary; redundant event seam with no single source of truth
+
+**Evidence.**
+
+```
+Params: demo/palettes/BrowsePane.vue:336. Active flag: demo/palettes/browser/search/SearchFilterBar.vue:171 (set at :185 and :220; read only by activeFilterCount :189-195). Double fire: SearchFilterBar.vue:227-231 emits both 'clearColorSearch' and 'clearFilters'; BrowsePane.vue:23-25 binds both to onClearColorSearch (:357-359) and onClearFilters (:329-332) — both execute colorSearchParams.value = null.
+```
+
+**Reproduction.** Read SearchFilterBar.vue:227-231 with BrowsePane.vue:23-25,329-332,357-359 — the two emits are unconditional and both handlers null the same ref. Harmless today (idempotent); it is the shape that desyncs the moment either side grows a side effect. No user-visible failure observed — labelled a latent-structure finding, not a live break.
+
+**Proposed cure.** One owner. When the colour target becomes browse-query state (see N-3), SearchFilterBar reads it as a prop, activeFilterCount derives from the same source as the query, and the clearColorSearch event disappears into clearFilters.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-8 · CHALLENGE-L
+
+**Defect.** The library type `Channel = number | "none"` forces every consumer to invent its own policy; four demo sites do so and none agree. The library publishes no projection off it.
+
+**Mechanism.** Missing library-level projection → four ad-hoc homes for one policy.
+
+**Evidence.**
+
+```
+SearchFilterBar.vue:205-211 → THROW ("Hex color produced missing OKLab channels"); demo/color-session/useContrastSafeColor.ts:127-128 → return null; demo/scenes/about/markdown/composables/useMarkdownColors.ts:39-42,52 → THROW on L/C with a different message, COERCE H→0; demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts:39-41 → pass "none" through as display text. src/subpaths/color.ts exports the `Channel` type and no resolver. Related: `grep -rn "deltaE\|colorDistance" src/` → zero hits.
+```
+
+**Reproduction.** grep -rn 'channels' demo/ | grep '"none"' — four call sites, four disciplines.
+
+**Proposed cure.** Publish from @mkbabb/value.js/color: `resolveChannels(color): Result<readonly [number,number,number], ColorIssue>` — one home, one policy, four call sites collapse. Publish `deltaE(a, b)` in the same pass so L-3's duplicate distance metric has a canonical home.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-9 · CHALLENGE-L
+
+**Defect.** `demo/ui/` is a 19-directory alias layer whose entire content is 20 lines of pure re-export; 24 demo files reach glass-ui through it and directly in the same file, and it hides which glass-ui subpath a symbol lives on.
+
+**Mechanism.** Alias/shim layer (edict 2) with zero added ergonomics, covering an arbitrary subset of the design system so the same file must use two idioms.
+
+**Evidence.**
+
+```
+demo/ui/button/index.ts = `export { Button } from "@mkbabb/glass-ui";`; demo/ui/input/index.ts = `export { Input } from "@mkbabb/glass-ui/forms";` (a DIFFERENT subpath, invisible at the import site). `find demo/ui -name "*.ts" | wc -l` = 19; non-comment non-blank lines across all barrels = 20. `for f in $(grep -rl "@mkbabb/glass-ui" demo/ | grep -v '^demo/ui/'); do grep -q 'from "\.\..*ui/[a-z-]*"' $f && echo $f; done | wc -l` = 24 — e.g. BrowsePane.vue imports Card from ../ui/card (:180) and SearchBar from @mkbabb/glass-ui/search (:194). demo/DESIGN.md:384 defends the layer while citing `@components/ui/alert`, an alias W43/RF-15 deleted (`grep -rn '"@components/' demo/ src/` → 0). Counter-evidence recorded: for these five symbols the shim is the only path (Button 22/0, Input 4/0, Popover 5/0, Checkbox 2/0, RadioGroup 2/0), so the 'dual path' hypothesis is refuted per-symbol; the defect is the arbitrary coverage line.
+```
+
+**Reproduction.** cat demo/ui/*/index.ts — 20 lines of substance across 19 files. Then read demo/palettes/BrowsePane.vue:180 and :194.
+
+**Proposed cure.** Delete demo/ui/ (19 files, −20 lines) and import @mkbabb/glass-ui / @mkbabb/glass-ui/forms at the point of use. Zero behaviour change, one idiom, and the subpath becomes legible at the import site.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-10 · CHALLENGE-L
+
+**Defect.** tsconfig.demo.json's `paths` block advertises a value.js public surface that package.json#exports does not have — three phantom keys pointing at files that do not exist, two real exports omitted — and its own header states the wrong map.
+
+**Mechanism.** A hand-maintained second copy of a generated map — a false public surface advertised by the very config that is meant to be the trust boundary.
+
+**Evidence.**
+
+```
+`node -p "Object.keys(require('./package.json').exports).join(' ')"` → `./color ./value ./css ./easing ./math ./transform ./quantize` (7 keys, NO root "."). tsconfig.demo.json paths keys → `@mkbabb/value.js @mkbabb/value.js/color /parsing /math /easing /units /transform /quantize`. Phantoms: bare root (target ./dist/index.d.ts — absent; `ls dist/` shows subpaths/ + 3 chunks), /parsing (dist/subpaths/parsing.d.ts — absent), /units (absent). Omitted: /css and /value (both real exports). The header asserts "the bare `.` root + the 7 subpath barrels … a CLOSED 8-key set". vite.config.ts:41-50 GENERATES its alias set from package.json#exports so it "can never drift"; tsconfig hand-maintains a second, drifted copy. Latent break: `import … from "@mkbabb/value.js"` typechecks via paths but has no Vite alias (no `.` export) → falls to node_modules/@mkbabb/value.js@4.0.0 → ERR_PACKAGE_PATH_NOT_EXPORTED. Currently zero such demo imports (grep → one prose mention at demo/shared/utils.ts:12).
+```
+
+**Reproduction.** Compare the two key sets above; `ls dist/subpaths/` shows color css easing math quantize transform value — no parsing, no units, and no dist/index.d.ts.
+
+**Proposed cure.** Delete the six @mkbabb/value.js* paths entries. `tsc --traceResolution` proves TypeScript already resolves the whole map through Node self-name resolution honouring `exports` exactly as a real consumer does (measured on /css) — strictly more faithful than the paths shortcut. Removing them makes drift impossible rather than merely discouraged.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-11 · CHALLENGE-L
+
+**Defect.** The palette-browser barrel header claims eslint enforces its seam 'standing'. It does not: three of G-DEMO-3b's four file globs are deleted trees, and the banned import specifier can no longer occur.
+
+**Mechanism.** Enforcement rot — a lint rule whose globs and banned specifiers were invalidated by a tree restructure, leaving a claim of enforcement with no mechanism.
+
+**Evidence.**
+
+```
+demo/palettes/browser/index.ts:1-18 — "never a raw internal .vue file — the G-DEMO-3b boundary (eslint.config.js) enforces it standing." eslint.config.js:230-256 scopes it to demo/color-picker/**, demo/@/components/**, demo/@/lib/** and bans group `@components/custom/palette-browser/**/*.vue`. Measured: demo/@/components MISSING, demo/@/lib MISSING, demo/@/composables MISSING (W43/RF-15 killed demo/@ and every @… alias); `grep -rn '"@components/' demo/ src/ | wc -l` → 0. G-DEMO-1 and G-DEMO-3a (:257-303) are scoped entirely to demo/@/composables/** and are therefore inert. demo/palettes/** — where the feature actually lives — is in no rule's scope. Honest counter-evidence: `grep -rn 'from "[^"]*browser/[a-z]*/[A-Z][A-Za-z]*\.vue"' demo/` → nothing; the convention holds by discipline with the guardrail disconnected.
+```
+
+**Reproduction.** for g in demo/color-picker demo/@/components demo/@/lib demo/@/composables; do [ -d $g ] && echo EXISTS || echo MISSING; done → EXISTS MISSING MISSING MISSING. grep -rn '"@components/' demo/ src/ → 0 hits.
+
+**Proposed cure.** Re-point the globs at the real trees (demo/palettes/**, demo/picker/**, demo/shell/**, demo/workbenches/**, demo/scenes/**) and re-express the ban as a relative-path group (**/palettes/browser/*/*.vue) — or delete the rules and stop claiming enforcement in the barrel headers. A rule whose glob does not exist reads as green, which is worse than no rule.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-14 · CHALLENGE-L
+
+**Defect.** SAFE_ACCENT_KEY is injected from app-root boot into a leaf card to power one per-instance inline style whose value is already on :root as var(--primary) by construction; and two keys from the same module use opposite inject contracts (crash-on-missing vs silent masking default).
+
+**Mechanism.** one value, two transports (injection channel duplicating a CSS custom property) — the injection is the sole reason a leaf card is coupled to app-root boot; plus a masking fallback (edict 2) sitting beside a crash-on-missing inject for the same class of dependency.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:173,215 import + `inject(SAFE_ACCENT_KEY)!`; sole use is :76 `<Check :style="{ color: safeAccent }">`. Provider is demo/color-picker/composables/boot/useAtmosphereBoot.ts:91 `provide(SAFE_ACCENT_KEY, safeAccentCss)`; :96 mirrors the same ref onto --accent-live; demo/styles/foundation.css:250-251 `--accent-view: var(--accent-live); --primary: var(--accent-view);`. Contract asymmetry: CurrentPaletteEditor.vue:215 `inject(SAFE_ACCENT_KEY)!` vs useSwatchActions.ts:23 `inject(EDIT_TARGET_KEY, ref(null) as ShallowRef<EditTarget|null>)`.
+```
+
+**Reproduction.** NONE — structural; the identity safeAccent === var(--primary) follows from useAtmosphereBoot.ts:91 vs :96 and foundation.css:250-251.
+
+**Proposed cure.** `class="text-primary"` (or color: var(--accent-live)); the SAFE_ACCENT_KEY import, the inject and the boot coupling all delete themselves, and the same cure applies verbatim to the duplicated inline style at Dock.vue:143. Then make the remaining injects one contract: optionality belongs to the key's documented contract, never to a per-call-site default.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-9 · CHALLENGE-L
+
+**Defect.** The `string[] → PaletteColor[]` lift has no home; four copies.
+
+**Mechanism.** a domain constructor with no canonical home beside its type.
+
+**Evidence.**
+
+```
+`grep -rn "position: i" demo` → CurrentPaletteEditor.vue:244 `colors.map((css, i) => ({ css, position: i }))`, GenerateControls.vue:56 (identical expression), GeneratePane.vue:17, demo/palettes/mix.ts:142.
+```
+
+**Reproduction.** NONE — structural.
+
+**Proposed cure.** `paletteColors(css: string[]): PaletteColor[]` exported from demo/palettes/types.ts beside the type it builds; four call sites collapse to one.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-11 · CHALLENGE-L
+
+**Defect.** tsconfig.demo.json `paths` has drifted from package.json#exports and is entirely redundant under self-name resolution.
+
+**Mechanism.** a hand-maintained mirror of a generated table.
+
+**Evidence.**
+
+```
+Recorded in the pass-1 report with traceResolution output: 3 of 8 path keys target files that do not exist, 2 real exports keys are unmapped, and the vite self-alias set (vite.config.ts:41-50, generated from package.json#exports) already resolves all seven specifiers.
+```
+
+**Reproduction.** NONE at this seat — see pass-1 §L-11 for the pasted traceResolution.
+
+**Proposed cure.** Delete the paths block; let the exports map be the single source, as vite.config.ts already does by generating its aliases from it.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-9 · CHALLENGE-L
+
+**Defect.** Defects internal to the dead file, recorded so that deletion is not mistaken for loss (reviving instead of deleting would require fixing all of these): dead required prop `hasSavedPalettes`; dead `copy` emit; prop shadowing; the retired string-substring error idiom that S.W2·W2-6 already condemned; a magic 50 ms setTimeout contrivance; pre-3.5 template refs; six hand-rolled buttons reimplementing glass-ui Button/DropdownMenuItem; Popover used as a menu; an empty scoped style block.
+
+**Mechanism.** the component froze at its last-edited tranche while its live twins moved on — the canonical signature of a dead dual path
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:150 hasSavedPalettes declared REQUIRED, destructured :147, never referenced (grep confirms only :147/:150). :155 `copy: []` emit declared, never emitted (onCopySlug at :168 calls writeClipboard directly). :205 `const isAdmin` shadows the destructured prop from :147. :216-221 `catch (e:any)` + msg.includes("409"/"404"/"429") — the exact idiom useSlugMigration.ts:75-80 documents as replaced by typed ApiProblem.status; ApiProblem titles never contain those numerals, so the branches match nothing. :176-181 setTimeout(…,50) to race the Popover close, where SlugEditLayer.vue:16-23 uses nextTick alone. :166 `ref<InstanceType<typeof SearchBar>|null>(null)` — pre-3.5, while SlugEditLayer.vue:14 already uses useTemplateRef (same staleness at Dock.vue:60, in a file importing useTemplateRef on line 2). :71-78, :84-86, :89-118 — six hand-rolled <button>s with 14-utility class strings, the 4-row menu repeating one 13-utility string verbatim ×4, in a file that imports and uses glass-ui Button at :17/:29. :45/:81/:84 Popover with aria-haspopup="dialog" used as a MENU where both live twins use DropdownMenu. :239-243 <style scoped> with only an @reference and a comment — zero rules, yet still emits a data-v-* scope id and (per browser/index.ts:9-11's own PI-6 reasoning) still makes the SFC a side-effecting import.
+```
+
+**Reproduction.** Read demo/palettes/browser/slug/PaletteSlugBar.vue at the cited lines; `grep -n 'hasSavedPalettes|emit(\"copy' demo/palettes/browser/slug/PaletteSlugBar.vue` shows declaration without use.
+
+**Proposed cure.** Do not revive — delete (L-1). If any seat argues for revival, all nine rows must be cured first, at which point the file is a rewrite of SlugEditLayer + IdentityMenu, which is the L-8 lattice by another name.
 
 ---
 
@@ -8009,6 +14021,42 @@ ConfigSliderPane.vue:44 "Pass empty array to show empty state." The template has
 
 ---
 
+### `CHALLENGE-C — implementation (pass 4, independent seat) · su` · C-35 · CHALLENGE-C
+
+**Defect.** ActionBarLayer's two template refs are assigned and never read, and ColorInput's exposed focus() has no caller — so activating 'Open color input' leaves focus on the toggle button and the field unfocused; typed text goes nowhere.
+
+**Mechanism.** Same family as C-31 — an entry control that opens a text surface and never hands over focus — plus dead code (two write-only refs, one unused defineExpose surface). ColorInput.vue:262 already does the right thing for the propose-mode swap (rAF focus); the actions→input swap never got it.
+
+**Evidence.**
+
+```
+`grep -n "colorInputRef\|actionToolbarRef" demo/shell/dock/layers/ActionBarLayer.vue` → 28,29 (declared), 103,116 (bound) — no read sites. ColorInput.vue:282-288 `defineExpose({focus: () => inputColorRef.value?.focus(), …})` has no caller in the repo. Measured (p4-focus4.mjs, fresh context, desktop): `focused: button[Open color input]` → `after activate: button[Propose color name]` (focus never moved) → typing 'red' leaves the contenteditable at `"lab(92% 88.8 20 / 82.7%)"`; forward Tab from there goes to `button[Select color space]`, i.e. past the field.
+```
+
+**Reproduction.** Desktop: Tools → focus 'Open color input' → Enter → type. The colour field's text is unchanged; document.activeElement is still the toggle.
+
+**Proposed cure.** Delete the two write-only refs, and let the sub-layer swap focus its own entry field on the became-active edge (the same declarative cure as C-31), rather than exposing a focus() nobody calls.
+
+---
+
+### `CHALLENGE-C — implementation (pass 4, independent seat) · su` · C-36 · CHALLENGE-C
+
+**Defect.** Test truth: nothing in the repository ever opens the slug-edit layer — the whole login surface (C-31's dead focus, C-33's four sub-24px targets, C-23's dead error path) sits behind a documented gate exclusion.
+
+**Mechanism.** A grep standing in for a render. The oracle asserts a source property (no native title) instead of rendering the surface, so no behavioural property of that layer is under test at all.
+
+**Evidence.**
+
+```
+`grep -rn "SlugEditLayer\|slugInput\|Switch to slug\|Generate new slug" e2e/ demo/test/ test/` → no output (zero hits). The exclusion is stated in prose inside the dock's own oracle: e2e/smoke/oracles/o15-dock-register.spec.ts:149-152 — 'The conditional layers (mobile-edit, slug-edit) and the portaled menus … are retired at the same source pass; the lane record carries the dock-tree grep-zero.'
+```
+
+**Reproduction.** Named vacuous mutation (distinct from C-9's and C-29's): delete SlugEditLayer.vue:20-22 (the whole `nextTick(() => { slugInputRef.value?.focus(); })`) — typecheck, unit and e2e all stay green, because the deleted behaviour already does not happen at runtime (C-31).
+
+**Proposed cure.** Replace the grep-shaped assertion with a live one: open the layer, assert document.activeElement IS the input, assert the three controls compute ≥24x24, assert the input has an accessible name, and assert a failed login renders its error. One spec closes four findings' regression surface.
+
+---
+
 ### `CHALLENGE-C — implementation (third independent pass on demo` · C-24 · CHALLENGE-C
 
 **Defect.** `SlugEditLayer.vue` is a verbatim clone of `PaletteSlugBar.vue`'s credential-parsing and submit logic — and `PaletteSlugBar` is rendered by nothing. Two independent parsers of the same user credential, one of them dead.
@@ -8081,6 +14129,222 @@ grep over demo/shell/dock/ and demo/shell/: Dock.vue:105 (rAF, fires on EVERY vi
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-7 · CHALLENGE-C
+
+**Defect.** The crossfade timer is never cleared on unmount — a setTimeout outlives its component scope.
+
+**Mechanism.** Missing cleanup that the retired producer composable would have owned. Also the reason local toolbarMode (line 30) silently resets — an unmount discards the user's chosen mode and any half-typed color.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:70-79 schedules `timer = setTimeout(() => { leavingLayer.value = null; }, SUB_LAYER_CROSSFADE_MS)` inside a watch; `grep -c "onScopeDispose\|onUnmounted" demo/shell/dock/layers/ActionBarLayer.vue` -> 0. The watch is auto-disposed with the setup scope; the pending timeout is not. The component demonstrably unmounts mid-session: during probing `document.querySelector('.dock-layer-grid')` went from present to null (throwing `TypeError: Cannot read properties of null (reading 'parentElement')`) once the app routed to #/admin/users; Dock.vue:153,156 gates it behind two v-ifs (hasAnyActionBar, then actionBar).
+```
+
+**Reproduction.** Toggle the sub-layer, then within 260ms navigate to a route with no action-bar context; the component unmounts (verified: .dock-layer-grid becomes null) while the timeout remains scheduled and later writes to a disposed ref.
+
+**Proposed cure.** D-2 removes the timer entirely (the producer owns the crossfade lifetime). If D-2 is deferred: `onScopeDispose(() => timer && clearTimeout(timer))`.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-8 · CHALLENGE-C
+
+**Defect.** Two dead template refs, and two competing template-ref idioms in one 158-line file (edict 7).
+
+**Mechanism.** Accreted ceremony from an earlier shape, never pruned; the file simultaneously demonstrates the Vue 3.5 idiom and the idiom it replaced.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:28-29 declare `colorInputRef` and `actionToolbarRef` via the pre-3.5 `ref<InstanceType<typeof X>|null>(null)` idiom, bound at lines 103 and 116 and never read — `grep -rn "colorInputRef\|actionToolbarRef" demo/ e2e/ test/` returns only the declarations and the ref= bindings, no `.value` access anywhere in the repo. Meanwhile line 83 uses `useTemplateRef` for subLayerGridEl, which is itself dead (its only consumer is `void opts.containerEl` at line 67). All three template refs in the component are unread.
+```
+
+**Reproduction.** `grep -n "colorInputRef\|actionToolbarRef" demo/shell/dock/layers/ActionBarLayer.vue` -> lines 28, 29, 103, 116 only; no read site exists.
+
+**Proposed cure.** Delete colorInputRef and actionToolbarRef; subLayerGridEl goes with D-2. If the D-12 cure is taken instead, keep actionToolbarRef and convert it to useTemplateRef so the file speaks one idiom.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-9 · CHALLENGE-C
+
+**Defect.** A parameter preserved for "signature parity" with a function that exists nowhere — back-compat shimming against a void.
+
+**Mechanism.** Compatibility ceremony maintained against a removed API — owner edict 2 (no legacy shims) and edict 3 (KISS, no contrivance). The whole useTemplateRef -> containerEl -> void path has no effect.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:63-67: `function useLayerTransition(opts: { containerEl: Ref<HTMLElement|null>; activeLayer: Ref<string> }) { void opts.containerEl; // signature parity with the retired producer composable`. `grep -rn "useLayerTransition" node_modules/@mkbabb/glass-ui/dist/` -> zero hits; there is no caller to be compatible with and no second implementation to swap in. The dead chain also drags `Ref` and `useTemplateRef` into the import at line 2, where neither is otherwise needed.
+```
+
+**Reproduction.** `grep -rn "useLayerTransition" node_modules/@mkbabb/glass-ui/dist/` -> 0 results, while ActionBarLayer.vue:67 maintains parity with it.
+
+**Proposed cure.** D-2. Interim: delete the parameter, the call-site argument at line 86, the ref="subLayerGridEl" binding at line 101, and the now-unused Ref/useTemplateRef imports.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-10 · CHALLENGE-C
+
+**Defect.** `defineExpose` publishes three members with zero consumers, one of them a writable ref that bypasses the component's own state machine.
+
+**Mechanism.** Dead public surface. Worse than inert: exposing a WRITABLE toolbarMode publishes a second, unguarded way to set a mode whose only legal transitions are encoded in cycleToolbarMode (lines 33-45) — a caller writing `toolbarMode.value = "propose"` bypasses the canProposeName gate at line 37 and strands the component in propose mode for a color that cannot be proposed.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:96 `defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode })`. `grep -rn "currentToggleIcon\|cycleToolbarMode" demo/ e2e/ test/` returns hits only inside this file. The sole mount site, Dock.vue:156, passes props and listens to events and holds no template ref to this component.
+```
+
+**Reproduction.** `grep -rn "cycleToolbarMode" demo/ e2e/ test/` -> only ActionBarLayer.vue lines 33, 96, 132.
+
+**Proposed cure.** Delete line 96.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-11 · CHALLENGE-C
+
+**Defect.** A prop is computed, passed, declared, and never used — a reactive dependency that re-renders the toolbar for nothing and misstates its contract.
+
+**Mechanism.** Leftover prop from an earlier ActionToolbar shape; the consumer keeps feeding it.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:106 passes `:can-propose-name="actionBar.canProposeName.value"`. `grep -n "canProposeName" demo/shell/dock/ActionToolbar.vue` -> a single hit, line 72, the declaration; it appears nowhere in ActionToolbar's 65-line template.
+```
+
+**Reproduction.** `grep -n "canProposeName" demo/shell/dock/ActionToolbar.vue` -> `72:    canProposeName: boolean;` and nothing else.
+
+**Proposed cure.** Drop the binding at ActionBarLayer.vue:106 and the declaration at ActionToolbar.vue:72.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-12 · CHALLENGE-C
+
+**Defect.** ActionToolbar publishes `clearHover()` specifically so its parent can reset hover state when the toolbar is hidden; ActionBarLayer holds the only possible handle and never calls it.
+
+**Mechanism.** A producer of state explicitly published the reset and the consumer ignored it; hover survives the layer going inert on any path that generates no pointerleave before the swap.
+
+**Evidence.**
+
+```
+ActionToolbar.vue:85-91 — `const activeHover = ref<string|null>(null); function clearHover(){ activeHover.value = null; } defineExpose({ clearHover });`. `grep -rn "clearHover" demo/` returns the definition and the expose and no caller. ActionBarLayer.vue:29 declares actionToolbarRef (the only handle from which clearHover could be called) and never reads it (D-8). When activeSubLayer flips to "input" the toolbar is inerted with whatever activeHover was last set, and it is restored on the way back.
+```
+
+**Reproduction.** NONE — the pointer/keyboard sequence needed to strand activeHover was not reproduced live. HYPOTHESIS; the unread expose and the absent call site are code-certain.
+
+**Proposed cure.** Preferred (KISS, no cross-component reach-in): move the reset into ActionToolbar via a watch on an `active` prop, so no parent handle is needed and defineExpose can be dropped. Otherwise call `actionToolbarRef.value?.clearHover()` when activeSubLayer leaves "actions".
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-14 · CHALLENGE-C
+
+**Defect.** An untokenized magic duration (260ms) in a file whose other transition is fully tokenized — same component, two motion regimes, one of them off-system.
+
+**Mechanism.** Owner edict 6 (animations tokenized, not hardcoded). The component animates a 24px icon with the design system's tokenized morph family and animates the entire content region it toggles with a hand-rolled off-system non-functional timer.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:62 `const SUB_LAYER_CROSSFADE_MS = 260;`. node_modules/@mkbabb/glass-ui/dist/styles/tokens/scheme-motion.css defines --duration-instant:0.1s, --duration-control:0.12s, --duration-fast:0.2s, --duration-normal:0.3s, --duration-slow:0.45s, --duration-panel:0.55s — 260ms matches none, and no CSS in the repo consumes it, so it is coupled to nothing and cannot drift into agreement. 72 lines below, the toggle ICON swap uses the canonical family correctly: `<Transition name="vj-morph" mode="out-in">` (line 134), whose rules at demo/styles/animations.css:104-116 are fully tokenized (`opacity var(--duration-fast) var(--ease-decelerate)`, `transform var(--spring-snappy-duration) var(--spring-snappy)`), and which demo/DESIGN.md:275 cites as the reference: "PaletteCard.vue's golden-text-shimmer demonstrates the cubic-bezier path, ActionBarLayer.vue the duration-fast path."
+```
+
+**Reproduction.** `grep -n "260" demo/shell/dock/layers/ActionBarLayer.vue` -> line 62; `grep -rn "260ms\|0.26s" demo/styles/ node_modules/@mkbabb/glass-ui/dist/styles/` -> no consumer.
+
+**Proposed cure.** D-2. The KISS interim uses vocabulary already in this file and already blessed by DESIGN.md: wrap the sub-layer content in a plain `<Transition name="vj-morph" mode="out-in">` — exactly what the icon 40 lines below already does, and which would actually render.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-8 · CHALLENGE-C
+
+**Defect.** `update:open` is declared twice — once in defineEmits and again implicitly by defineModel — producing a duplicated runtime emit declaration. The explicitly declared channel is dead: the component never calls emit("update:open", …).
+
+**Mechanism.** A hand-written emit declaration left in place after the channel was migrated to defineModel — a dual declaration under the no-legacy and KISS edicts.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:29 (`"update:open": [open: boolean]`) and :33 (`defineModel<boolean>("open", …)`); the only write is :54 `open = $event`. Compiled SFC via @vue/compiler-sfc: `emits: /*@__PURE__*/_mergeModels(["update:modelValue", "update:open"], ["update:open"])` — mergeModels concatenates, so the runtime array is ["update:modelValue","update:open","update:open"].
+```
+
+**Reproduction.** node -e with @vue/compiler-sfc compileScript on demo/shell/dock/DockViewSelect.vue; grep the output for `emits:` — the duplicate is in the emitted array.
+
+**Proposed cure.** Delete line 29 and its orphaned comment at :27-28. Separately, rename the misnamed `update:modelValue` channel: there is no modelValue prop (the value arrives as `currentView` at :18), so the emit should be `select` or `update:view` — the name currently advertises a v-model contract the component does not implement.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-9 · CHALLENGE-C
+
+**Defect.** The `__admin_toggle__` sentinel is a magic string duplicated across two files with no shared constant, smuggled into the same value space as ViewId, and defended only by an unchecked cast — while the schema exports a type predicate written for exactly that boundary.
+
+**Mechanism.** A non-route value injected into the route value space, then special-cased by string comparison in a different file from its definition.
+
+**Evidence.**
+
+```
+`grep -n "__admin_toggle__" -r demo/` → demo/shell/dock/DockViewSelect.vue:125 and demo/shell/dock/composables/useDockAdminMode.ts:68 — two literals, no constant. useDockAdminMode.ts:72 casts `viewManager.switchView(id as ViewId)`. demo/shell/viewSchema.ts:236 exports `isViewId()` and it is never used at this boundary.
+```
+
+**Reproduction.** Rename either literal without the other: the admin toggle stops matching at useDockAdminMode.ts:68 and falls through to router.push({name:"__admin_toggle__"}), a runtime navigation error rather than a type error, because the cast at :72 erases the check. (Not reproducible against the running app without admin auth — the row only renders when authenticated.)
+
+**Proposed cure.** The sentinel disappears entirely under the D-7 cure — a mode toggle is a <button>, not a fake route. If the Select shape is kept in the interim, the boundary must be `if (!isViewId(id)) return;`, never a cast.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-10 · CHALLENGE-C
+
+**Defect.** Two per-instance overrides of producer styling, both violating the root-level-styling and glass-ui-first edicts; the root fix has been filed and STANDING since Tranche A and glass-ui 7.0.0 still does not ship it.
+
+**Mechanism.** The consumer patches at the instance where the design system should be growing a variant; the ask was filed instead of landed and has survived five tranches.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:69 `[&>span]:line-clamp-none` (cancelling glass-ui's internal line-clamp-1) with the file's own admission at :57-59; :70 inline `--dock-ring` re-pointing a producer token from the call site. GREP: `grep -rn "clampLabel" docs/tranches/*/coordination/Q.md` → A/Q.md:64 "STANDS — a [&>span]:line-clamp-none child-selector hack", D/Q.md:38 "unchanged | STANDS", E/Q.md:46 "unchanged | STANDS". `grep -rn "clampLabel" node_modules/@mkbabb/glass-ui/dist/` → no matches. node_modules/@mkbabb/glass-ui/dist/components/dock/DockTrigger.vue.d.ts props = { for?, class? } only.
+```
+
+**Reproduction.** Static: the arbitrary-variant class is on line 69 of the shipping SFC and DockTrigger 7.0.0 exposes no clampLabel prop.
+
+**Proposed cure.** Land `clampLabel` (or an equivalent label-overflow variant) on glass-ui DockTrigger/DockSelectTrigger and delete the child-selector hack; move the ring source onto a producer variant rather than an inline custom-property override. This is a producer relay, not a consumer patch.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-11 · CHALLENGE-C
+
+**Defect.** The listbox has no accessible name — a screen-reader user entering the popup is told only "listbox", with no indication that this is the site navigation.
+
+**Mechanism.** The popup surface was styled but never named.
+
+**Evidence.**
+
+```
+LIVE: {"listboxLabel":{"label":null,"labelledby":null,"role":"listbox"}}. DockViewSelect.vue:90 passes SelectContent only `class="min-w-[12rem]"`.
+```
+
+**Reproduction.** Open the "Select view" combobox at http://localhost:9000/ and read the [role=listbox] node's aria-label / aria-labelledby: both null.
+
+**Proposed cure.** aria-labelledby the trigger, or aria-label="Views" on SelectContent. Under the D-7 cure this becomes the menu's name and is required anyway.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-12 · CHALLENGE-C
+
+**Defect.** `inject(SESSION_PORT_KEY)!` is an unguarded non-null assertion dereferenced in the template, so rendering outside the provider crashes the whole dock; and ViewEntry's `icon: unknown` plus its `[k: string]: unknown` index signature throw away the properly typed Component the schema already carries.
+
+**Mechanism.** A non-null assertion standing in for a contract, and an index signature that makes the entry interface accept any object at all.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:35 (`const pm = inject(SESSION_PORT_KEY)!`) dereferenced in the template at :122. Provider at demo/palettes/usePalettePorts.ts:242. Type erosion: useDockAdminMode.ts:7-12 declares `icon: unknown` and `[k: string]: unknown`, with `as ViewEntry` casts at :36 and :38, while viewSchema.ts:75 types PaneConfig.icon as Component; the erased type lands at DockViewSelect.vue:19 (`currentIcon: unknown`) and :76 (`<component :is="currentIcon">`).
+```
+
+**Reproduction.** NONE — hypothesis for the crash path: mounting DockViewSelect outside usePalettePorts' provider (unit test, story, future teleport) makes `pm` undefined and the template throw at render. No unit test exists to exercise it (see D-13). The type erosion is directly readable at the cited lines.
+
+**Proposed cure.** The injection disappears under the D-6 cure (the parent already owns the fact). Type ViewEntry as `{ id: ViewId; label: string; icon: Component }` with no index signature, and build it by projection from VIEW_MAP rather than by spread-and-cast.
+
+---
+
 ### `CHALLENGE-C — implementation defects in `demo/shell/dock/Col` · R2-5 · CHALLENGE-C
 
 **Defect.** The propose-mode flash timer is a hardcoded 300 ms that contradicts the design token driving the animation it gates (`--duration-slow` = 450 ms), truncating the animation at 66.7%; the handle is discarded so rapid toggles let an earlier timer clear a later flash.
@@ -8150,6 +14414,60 @@ demo/shell/dock/ColorInput.vue:139 (`editTarget` prop, passed at ActionBarLayer.
 **Reproduction.** The greps above (structural).
 
 **Proposed cure.** Delete the prop, both injections, the defineExpose and `copyAndSetInputColor`; drop the now-orphaned `import type { EditTarget }`. If clipboard copy is genuinely wanted, `const { ok } = await writeClipboard(...)` and route the failure into the component's single error channel (see R2-4's cure).
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-7 · CHALLENGE-C
+
+**Defect.** The resting mask erases the field's right border and both right corner radii, and fades the accent-stroked send arrow into the page ground — a pink glyph on a background dissolving to pink.
+
+**Mechanism.** a mask intended to fade TEXT applied to the whole border box, taking the border, the radii and the sibling glyph's contrast with it
+
+**Evidence.**
+
+```
+ColorInput.vue:299-302 `mask-image: linear-gradient(to right, black calc(100% - var(--input-action-width)), transparent 100%)` with --input-action-width: 2.5rem. Resolved live (frames/probe-1.json A-rest-light.styles): `linear-gradient(to right, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0) 100%)` over borderWidth 1px, borderColor rgb(198,180,159); sendStyles.inlineStyle `stroke: oklch(0.471189 0.188448 9.83402)`. A mask applies to the element's whole rendering including border and box-shadow. frames/A-rest-light.png read directly: the white field dissolves into the pink page across its right 40px, the right border and corner radii are gone, the box reads as unclosed, and the pink arrow sits in the middle of the dissolve.
+```
+
+**Reproduction.** frames/A-rest-light.png + frames/probe-1.json A-rest-light.styles. .color-input:focus clears the mask (:303-306) and frames/C-overflow-dark.png confirms the focused box is whole — so the defect is exclusively in the resting state, which is the state the entire visual census captured.
+
+**Proposed cure.** Scope the fade to the text, not the box: a ::after gradient overlay inside the padding box leaves border, radii and the sibling button untouched. Or drop it — R3-6's fix makes the field a fixed-width scroller where the ellipsis alone carries the same signal. Note round 2 assessed this block as 'careful and right'; the overflow containment is right, its resting collateral is not.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-8 · CHALLENGE-C
+
+**Defect.** Whether the user's first invalid input reports at all depends on how the page booted — and the dominant boot path is the silent one. `initialParse` survives boot to eat the user's first real error.
+
+**Mechanism.** a boot-scoped suppression latch on app-lifetime state, whose consumption depends on persistence and URL state invisible to the user
+
+**Evidence.**
+
+```
+useColorParsing.ts:50,86,88 — initialParse starts true and suppresses the first failure's flash. The only consumer is restoreFromStorage -> parseAndSetColor(storedInput) at useColorPersistence.ts:73, gated twice: demo/color-picker/App.vue:378 `if (!appliedFromUrl && hydration.source !== "url") restoreFromStorage();` and useColorPersistence.ts:68 `if (!hadPersistedColor) return false;`. hydrate.ts:100-127 builds the model directly and never calls parseAndSetColor. So URL-colour boot -> silent; first-ever visit -> silent; returning visit without a URL colour -> flashes. The app writes the colour into its own URL: every observed load landed on `.../#/?color=%23abcdef` or `.../#/?space=lab&color=...` (REPORT.json /#/ probe.url, all four matrices).
+```
+
+**Reproduction.** Code path traced end to end (App.vue:378 -> useColorPersistence.ts:68,73 -> useColorParsing.ts:50,86,88) plus REPORT.json probe.url across all four matrices. Sharpens round-1 C-6 from 'the first invalid input produces no error' to 'whether an error appears at all is a function of state the user cannot see' — two bug reports saying 'nothing happened' and 'it flashed red' can be the same build.
+
+**Proposed cure.** Delete initialParse. Its job — don't flash red at a user who has not typed yet — is already done correctly by the callers: the boot paths that seed the model no longer go through parseAndSetColor at all (hydrate.ts), and the one that does (restoreFromStorage) is restoring a value the user themselves last committed. A latch that survives boot to eat a real error is a masking fallback (edict 2).
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/shell/dock/Colo` · R3-9 · CHALLENGE-C
+
+**Defect.** `findCustomName` is an O(n) linear scan of a Map keyed the wrong way round, called by three hot computeds and once per palette swatch.
+
+**Mechanism.** an inverse lookup performed by linear search because the inverse index was never built alongside the forward one
+
+**Evidence.**
+
+```
+useCustomColorNames.ts:61-66 walks normalizedCustomNames (name -> xyz) comparing values. Callers: formattedCurrentColor, currentColorMeta, canProposeName (three scans per invalidation) and savedColorLabel at useColorNameResolution.ts:48-53 (once per saved swatch). getApprovedColorNames accepts limit up to 500 (api/src/modules/color/schema.ts:27) and the demo passes none (color-names.ts:23-31), so the registry is server-sized. Verified live: findCustomName(xyz) = "babb-blue".
+```
+
+**Reproduction.** Same harness, test E in roundtrip.probe.ts. Not currently hot only because R3-3's 100 ms debounce caps invalidations at ~10/s — fixing R3-3 as prescribed removes that accidental cap, so the two must be repaired together.
+
+**Proposed cure.** Build the inverse index (xyz -> name) inside the same loop that builds normalizedCustomNames at useCustomColorNames.ts:20-33. One extra Map.set, O(1) lookups, and the collision case of R3-2 becomes visible at registry-build time — which is where it wants to be caught.
 
 ---
 
@@ -8351,6 +14669,294 @@ ColorInput.vue:139 prop `editTarget` never referenced; :134 `import type { EditT
 
 ---
 
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-11 · CHALLENGE-D
+
+**Defect.** The commit button wears the Chromium UA default focus ring — the only control in the dock band that does — instead of the house register.
+
+**Mechanism.** A hand-rolled `<button class="send-btn btn-interactive">` where `btn-interactive` matches zero CSS rules (independently re-measured: `btnInteractiveRules: 0`), so the only focus expression left is the UA default — #005FCC, the one colour guaranteed not to belong to the user's palette, inside a dock tinted by the active colour.
+
+**Evidence.**
+
+```
+Measured, frames/r3probe2.json -> sendFocus: `.send-btn` programmatic AND keyboard both `{"outlineStyle":"auto","outlineColor":"rgb(0, 95, 204)","matchesFocusVisible":true}`; the dock sibling `DockControl` at keyboard focus is `{"outlineStyle":"none"}`. This CORRECTS round-2 D-02's claim of 'No focus indicator ... WCAG 2.4.7 fails outright'.
+```
+
+**Reproduction.** Open the field, focus it, press Tab. `getComputedStyle(document.activeElement).outlineColor` is `rgb(0, 95, 204)`; do the same on any `DockControl` sibling and it is `none`.
+
+**Proposed cure.** Retire the hand-rolled button for glass-ui's `./button` or `DockControl` — the same primitive every sibling in this dock already uses — which brings the house focus register, hover/press magnitudes, a disabled treatment and an accessible name in one substitution.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-08 · CHALLENGE-D
+
+**Defect.** MINOR: MT-F005's single desktop-only nameless button, enumerated.
+
+**Mechanism.** Icon-only submit control in a colocated layer that never got the dock-wide W6-8 aria-label register pass.
+
+**Evidence.**
+
+```
+Measured (dockprobe1, 1440x900): the one nameless button inside `nav.dock-band` is `{ cls: "send-btn btn-interactive", rect: 24x24 @916,28, visibility: "hidden" }`. Source: demo/shell/dock/ColorInput.vue:69 and :78 — two `<button class="send-btn btn-interactive">` with no aria-label and no text child. It lives in the dock's `Open color input` layer, which exists only in the desktop action bar; hence 1 on desktop, 0 on mobile, exactly MT-F005's reported pattern.
+```
+
+**Reproduction.** 1440x900, http://localhost:9000/#/, query `nav.dock-band button` filtered to those with no aria-label/aria-labelledby/textContent — exactly one, `.send-btn`. Script: dockprobe1.mjs.
+
+**Proposed cure.** Give both send-btn instances an aria-label in ColorInput.vue, matching the dock-wide register the rest of the component already follows (Dock.vue:140-142 documents that register).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-09 · CHALLENGE-D
+
+**Defect.** MINOR: one producer package reached by two different import paths on consecutive lines, and the indirect path closes a module cycle.
+
+**Mechanism.** A barrel that both re-exports a producer and exports its own consumer, used by that consumer.
+
+**Evidence.**
+
+```
+Dock.vue:4 `import { GlassDock, DockLayerGroup, DockLayer } from "./";` · Dock.vue:5 `import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";` · demo/shell/dock/index.ts:2 re-exports the first three from `@mkbabb/glass-ui/dock` · index.ts:5 `export { default as Dock } from "./Dock.vue"`. So index.ts → Dock.vue → index.ts is a cycle, for five symbols that all come from the same package.
+```
+
+**Reproduction.** Read demo/shell/dock/Dock.vue:4-5 and demo/shell/dock/index.ts:2,5.
+
+**Proposed cure.** Delete Dock.vue:4 and import all five symbols from `@mkbabb/glass-ui/dock` (edict 2, no dual paths; edict 3, KISS). The barrel then exports only the app-specific Dock.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-10 · CHALLENGE-D
+
+**Defect.** MINOR: `Dock.vue` is a two-root SFC whose second root is unrelated band chrome; that chrome currently renders a red dev-error string in the nav band on every route, clipped at the viewport edge on mobile.
+
+**Mechanism.** A component named Dock emits both the dock and a sibling band instrument, so band chrome ownership and dock ownership are the same file.
+
+**Evidence.**
+
+```
+Dock.vue:128 opens the dock wrapper; Dock.vue:293 mounts `<DockStatusLamp />` as a sibling root — multi-root disables attribute fallthrough. Measured live at 1440 and 390: the lamp renders `dev misconfigured — run `npm run dev`` at 218x11, color rgb(219,36,36), opacity 1, visibility visible, display block. Dev-gated at DockStatusLamp.vue:30 (`import.meta.env.DEV`). Its own CSS is `position:absolute; inset-inline-end:0` inside a band whose ancestor clips overflow, so at 390 it renders clipped — visible top-right in state-mobilemenu.png.
+```
+
+**Reproduction.** Load http://localhost:9000/#/ at 390 and 1440; query `nav.dock-band` leaf text nodes — one is the lamp string with the colours above. Script: dockprobe2.mjs.
+
+**Proposed cure.** Mount DockStatusLamp from the band (App.vue's `<nav class="dock-band">`), which is already its documented positioning context, and let Dock.vue return one root. The lamp's mobile clipping then becomes the band's problem to solve once, at the right altitude.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-11 · CHALLENGE-D
+
+**Defect.** `toolbarMode === "propose"` is never reconciled when its own precondition `canProposeName` flips false — the layer stays in propose mode with a live submit button for a proposal the pipeline has already ruled out, and the toggle announces 'Close propose'.
+
+**Mechanism.** a stateful mode with no reconciliation watcher on the reactive precondition that gates entry to it
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:37 reads `actionBar.canProposeName.value` only at the moment of transition; no watcher exists. demo/color-session/useColorNameResolution.ts:66-70 — `const canProposeName = computed(() => !findCustomName(currentXYZString.value))` is live and flips as soon as the current colour acquires a custom name. Consumer: ActionBarLayer.vue:119 `:propose-mode="toolbarMode === 'propose'"`.
+```
+
+**Reproduction.** NONE — labelled a HYPOTHESIS. Reaching it requires a colour that resolves to an approved custom name while propose mode is open; I did not construct that fixture. The mechanism is confirmed by reading only.
+
+**Proposed cure.** `watch(() => actionBar.canProposeName.value, ok => { if (!ok && toolbarMode.value === 'propose') toolbarMode.value = 'actions'; })`.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-12 · CHALLENGE-D
+
+**Defect.** The shim has no `prefers-reduced-motion` branch: `setTimeout(..., 260)` is unconditional, so under PRM the leaving layer holds `is-leaving` — and `visibility: visible` — for a further 260ms after everything has already settled.
+
+**Mechanism.** motion timing expressed as an imperative JS timer that no media query can reach
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:76. The house PRM guard shortens transitions to 0.01ms but cannot touch a JS timer — recorded at demo/shell/dock/ActionBarToggle.vue:29-30 ('PRM included — the global guard shortens transitions to 0.01ms, never removes them'). Violates VISUAL-CONSTITUTION.md §6 ('Reduced motion resolves DIRECTLY to the final geometry and stable chromatic state').
+```
+
+**Reproduction.** NONE for the visible symptom — labelled a HYPOTHESIS at the pixel level; the unconditional timer and the documented guard behaviour are both confirmed by reading. (The state matrix at docs/tranches/V/megatranche/audit/visual/states.mjs never opens this layer, so no PRM capture of it exists.)
+
+**Proposed cure.** Retire with the shim — `<DockCrossfade>` rides `useDockSpring`, which the producer already degrades under PRM.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-14 · CHALLENGE-D
+
+**Defect.** Per-instance inline styling where the design-system root owns the ink — three separate overrides of colour that `DockControl` already owns (a Tailwind `stroke-foreground` hard-stop, a private one-off custom property injected inline per instance, and a scoped `:hover` rule to consume it). Neither survives forced-colors, and no system-color fallback is declared.
+
+**Mechanism.** consumer-authored ink instead of consuming the producer control's token
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:138-139 `class="toggle-btn w-6 h-6 stroke-foreground" :style="{ '--toggle-hover-color': safeAccent }"` and 149-151 `.toggle-btn:hover { stroke: var(--toggle-hover-color); }`. Measured live: `{toggleHoverColor: "oklch(47.09...% 0.188... 9.83...deg)", stroke: "rgb(28, 25, 23)", inlineStyleAttr: "--toggle-hover-color: oklch(...);"}`. Correct pattern two directories up: ActionBarToggle.vue:154-158 styles through the producer's OWN token hook `--dock-compact-control-padding`, commented 'rides the producer's OWN token hook ... never a specificity fight'. Owner edict 5.
+```
+
+**Reproduction.** Open the action-bar layer and read `document.querySelector('.toggle-btn').getAttribute('style')` — the inline custom property is present on the element.
+
+**Proposed cure.** Drop `stroke-foreground` and the inline custom property; take hover ink from DockControl's token, as the sibling ActionBarToggle already does.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-15 · CHALLENGE-D
+
+**Defect.** Three dead handles: the entire `defineExpose` surface is unreachable because the parent mounts the component with no ref, and both component refs are declared and never read.
+
+**Mechanism.** API surface retained after its consumer was removed
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:96 `defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode })` vs demo/shell/dock/Dock.vue:156 `<ActionBarLayer v-if="actionBar" :action-bar="actionBar" ... />` — no `ref=` attribute. Lines 28 (`colorInputRef`) and 29 (`actionToolbarRef`) are declared and never read anywhere in the file.
+```
+
+**Reproduction.** NONE needed — static; the absence of a `ref=` on Dock.vue:156 and of any read of the two refs in the 158-line file are both directly verifiable.
+
+**Proposed cure.** Delete lines 28, 29 and 96 — except `actionToolbarRef`, which should instead be given its one legitimate job (D-9) or deleted alongside the shim.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-16 · CHALLENGE-D
+
+**Defect.** Two template-ref idioms in one 158-line SFC: the legacy `ref<InstanceType<typeof X> | null>(null)` pattern at lines 28-29 and Vue 3.5's `useTemplateRef` at line 83. Owner edict 7 mandates `useTemplateRef`.
+
+**Mechanism.** idiom drift within a single authoring pass
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:28-29 vs :83 (`const subLayerGridEl = useTemplateRef<HTMLElement>("subLayerGridEl");`) — 55 lines apart, same file, same wave.
+```
+
+**Reproduction.** NONE needed — static, both lines quoted.
+
+**Proposed cure.** Delete both legacy refs with D-15; if any survives, use `useTemplateRef`.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-18 · CHALLENGE-D
+
+**Defect.** A 176-character three-branch nested ternary computes the toggle's accessible name inline in the template — the only thing distinguishing three otherwise identical states, and made load-bearing by D-10.
+
+**Mechanism.** presentation logic split between a computed and a template expression
+
+**Evidence.**
+
+```
+demo/shell/dock/layers/ActionBarLayer.vue:131. The same three-way state is already switched on in a `computed` 80 lines above (`currentToggleIcon`, lines 47-51) — two switches on one state variable, in two languages, in two places.
+```
+
+**Reproduction.** NONE needed — static, line quoted.
+
+**Proposed cure.** Lift to a `computed` beside `currentToggleIcon` so icon and name derive from one switch.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-11 · CHALLENGE-D
+
+**Defect.** The separator is hand-rolled with a different recipe while the producer's `SelectSeparator` sits unused in the same import barrel; it is also a role-less bare div inside a listbox subtree, and PR-05 rules the divider REMOVE regardless.
+
+**Mechanism.** reaching past the design system for a primitive the design system already exports into the same file's scope
+
+**Evidence.**
+
+```
+demo/shell/dock/DockViewSelect.vue:123 `<div class="border-t border-border my-1"></div>`; demo/ui/select/index.ts:1 re-exports `SelectSeparator`; producer recipe (node_modules/@mkbabb/glass-ui/dist/select-BcBAyLXA.js) is `-mx-1 my-1 h-px bg-[color-mix(in_srgb,var(--foreground)_12%,transparent)]` — three differences including the missing `-mx-1`, so the hand-rolled line stops short of the panel's --overlay-pad-inline. Law: PROPORTION-AUDIT.md:69 (§5.4) and :49 (PR-05 REMOVE).
+```
+
+**Reproduction.** read DockViewSelect.vue:123 against demo/ui/select/index.ts:1 and the producer class string; the rendered rule is inset differently from every other glass-ui separator.
+
+**Proposed cure.** Delete the divider (PR-05 REMOVE — the admin row already carries gold ink and a Shield glyph, so material already states the boundary). If a separator ever is needed here, use the exported `SelectSeparator`, never a hand-rolled div.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-12 · CHALLENGE-D
+
+**Defect.** Three per-instance overrides reach into producer internals: an arbitrary-variant selector into glass-ui's own DOM, a duplicated-plus-drifted row padding, and a magic min-width.
+
+**Mechanism.** consumer-side correction of producer defaults instead of producer-side props; a filed ask shipped as a permanent hack
+
+**Evidence.**
+
+```
+DockViewSelect.vue:69 `[&>span]:line-clamp-none` cancels glass-ui's internal line-clamp-1 (self-documented at :57-59 as awaiting a `clampLabel` producer prop); :96 and :126 `class="py-1.5 px-2.5"` where `py-1.5` duplicates the producer value verbatim (menuRowClass-Nh7CtMON.js: "... items-center py-1.5") and `px-2.5` overrides the producer's `px-2` — measured padding-left 10px vs the producer's 8px; :90 `min-w-[12rem]` overrides --overlay-min-width / min-w-(--reka-select-trigger-width). Owner edict 5: style at the root component level, never per-instance overrides.
+```
+
+**Reproduction.** inspect any [role=option] in the open menu -> padding-left 10px (producer default 8px); inspect the trigger label span -> the producer's line-clamp is cancelled with no replacement constraint.
+
+**Proposed cure.** Land the filed `clampLabel` prop in glass-ui and delete the arbitrary-variant selector; delete the duplicate `py-1.5` and the `px-2.5` drift so rows use the producer ladder; replace `min-w-[12rem]` with the producer's overlay min-width token (see D-13 for why 12rem is wrong on the measurements anyway).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-13 · CHALLENGE-D
+
+**Defect.** The menu panel is 2.04x wider than its widest row's ink, and the in-file comment justifying the hand-set floor is contradicted by measurement.
+
+**Mechanism.** a magic number preserved by a comment that was never re-measured
+
+**Evidence.**
+
+```
+DockViewSelect.vue:89-90 comment "kept wider than --menu-min-w — long view-option labels need the space" over `min-w-[12rem]`. Measured webkit /#/browse menu open: panel 192.0px, row 174.0px, widest row content 94.3px (Generate); Home 70.9, Palettes 85.0, Browse 81.2, Extract 79.7, Mix 52.3, Gradient 92.1. Every row carries 79.7px of empty inline space = 46% of the row. Law: PROPORTION-AUDIT.md:5 "they do not excuse a mechanically large gap"; :73 "Real rendered relation wins over token intent."
+```
+
+**Reproduction.** open the dock view menu and measure the panel against each row's inner flex span width. Repro script: scratchpad/D-dvs-probe2.mjs (geometry block).
+
+**Proposed cure.** Delete `min-w-[12rem]` and let the panel hug its content against the producer's overlay min-width; if a floor is genuinely wanted it is the trigger width, which the producer already supplies as `min-w-(--reka-select-trigger-width)`.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-14 · CHALLENGE-D
+
+**Defect.** The open menu panel overlaps the dock's reserved band by 10.9px, so a card clips the band the constitution declares must be clipped by neither mask nor card.
+
+**Mechanism.** a zero side offset measured from the trigger rather than from the band, inside a container with its own padding
+
+**Evidence.**
+
+```
+Measured webkit /#/browse menu open: .glass-dock y 9.4 -> bottom 71.4; select-content y 60.5 -> bottom 388.7; overlap 10.9px. Mechanism: glass-ui SelectContent defaults sideOffset: 0 (select-BcBAyLXA.js) and DockViewSelect.vue:90 never sets it, while the trigger's bottom (56.4) sits inside the dock's own padding. Law: VISUAL-CONSTITUTION.md:178 "The dock is its own top band, fully visible, focusable, and clipped by neither mask nor card"; :30 "The top dock owns a reserved band."
+```
+
+**Reproduction.** open the dock view menu at 1440x900 and compare .glass-dock bottom (71.4) to [data-slot=select-content] y (60.5).
+
+**Proposed cure.** The offset must be measured from the dock band, not the trigger: expose the band's bottom as the anchor (a producer `collisionBoundary`/offset seam) so any dock popover clears the reserved band by construction, rather than each consumer guessing a sideOffset.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-15 · CHALLENGE-D
+
+**Defect.** Icon and label are on two different clocks: the glyph plays a `mode="out-in"` morph while SelectValue swaps instantly, so every route change shows a hole where the glyph was while the label already reads the new destination.
+
+**Mechanism.** out-in sequencing applied to one child of a composite control whose sibling is untransitioned
+
+**Evidence.**
+
+```
+DockViewSelect.vue:75-87 `<Transition name="vj-morph" mode="out-in">` around the icon; :87 `<SelectValue v-if="isDesktop" />` with no transition. demo/styles/animations.css:104-121 — leave-active runs --duration-fast before enter-active's spring begins. Two halves of one 128px control desynchronised by construction.
+```
+
+**Reproduction.** switch views from the dock at 1440px with motion enabled and watch the trigger: the word changes first, the glyph slot empties, then the new glyph springs in.
+
+**Proposed cure.** Treat the trigger as one morph unit: key the whole icon+label group on currentView with a single transition, or drop mode="out-in" for a crossfade so the two halves share one timeline. Motion is already correctly tokenized via the shared vj-morph family — the fix is choreography, not new keyframes.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-16 · CHALLENGE-D
+
+**Defect.** The icon is typed `unknown` in both the prop surface and the ViewEntry interface, widening a schema field that viewSchema already types as `Component`, and ViewEntry carries an open `[k: string]: unknown` index signature.
+
+**Mechanism.** a well-typed schema field widened to `unknown` at the composable boundary, plus an index signature that turns a shape into a bag
+
+**Evidence.**
+
+```
+demo/shell/viewSchema.ts:73 `icon: Component;` vs demo/shell/dock/composables/useDockAdminMode.ts:8-12 `export interface ViewEntry { id: ViewId; label: string; icon: unknown; [k: string]: unknown; }` and demo/shell/dock/DockViewSelect.vue:19 `currentIcon: unknown;`. `<component :is="unknown">` type-checks against nothing and can only fail at render.
+```
+
+**Reproduction.** pass any non-component value as `currentIcon` — it type-checks and fails only at render time.
+
+**Proposed cure.** Import `Component` from vue and use it in both places; delete the `[k: string]: unknown` index signature so ViewEntry is a shape (`{ id: ViewId; label: string; icon: Component }`) derived from PaneConfig rather than a bag.
+
+---
+
 ### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-16 · CHALLENGE-L
 
 **Defect.** NEW — the component labelled 'the Parse-Lab echo (AST + gamut verdict)' echoes the committed model, not the parse. useColorParsing.ts:95 reads `model.value.color`, so on the exact failure the readout exists to explain (MT-F001) it renders the PREVIOUS colour's channels: the field says 'oklch()', the badge says 'not a valid color', and the echo confidently reports LAB l 92% a 88.8 b 20. The library DOES produce structured failure detail (ParseIssue[] is a public type in src/subpaths/css.ts) — it is discarded two layers down by L-1's bare catch, so the one component built to render parse structure is wired to the only thing that survives.
@@ -8513,6 +15119,204 @@ DockViewSelect.vue:24-33 declares `const emit = defineEmits<{ "update:modelValue
 
 ---
 
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-36 · CHALLENGE-L
+
+**Defect.** Two dock files (and 16 other demo sites) import the producer's 200-symbol root barrel `@mkbabb/glass-ui` for helpers glass 7 publishes on the narrow 12-symbol `./dom` subpath — inconsistent with the same subtree's own adjacent lines.
+
+**Mechanism.** Consumer declines the producer's narrow published subpaths for a monolithic root barrel, inconsistently, so the public-surface contract carries no information.
+
+**Evidence.**
+
+```
+demo/shell/dock/ColorInput.vue:117 and demo/shell/dock/layers/SlugEditLayer.vue:6 `import { writeClipboard } from "@mkbabb/glass-ui"` while the same subtree uses @mkbabb/glass-ui/dock (x5), /watercolor-dot, /dark (x2), /tabs. node_modules/@mkbabb/glass-ui/dist/dom.js:134 exports writeClipboard, useClipboard, useTouchGate; './dom' is in the exports map. Measured transitive module closures: glass-ui.js = 66 files / 224193 B; dock.js = 32 / 101223 B; dom.js = 8 / 12599 B (17.8x). Census: `grep -rn 'from "@mkbabb/glass-ui"' demo/ | grep -v '^demo/ui/' | wc -l` -> 18, all 18 are ./dom symbols (writeClipboard x12, useClipboard x3, useTouchGate x3); subpath imports -> 82.
+```
+
+**Reproduction.** Commands above, pasted output in the report. Severity bounded honestly: glass-ui declares `sideEffects: ["*.css"]`, so this is a module-graph/dev-transform cost and a structural claim, not a shipped-bytes claim.
+
+**Proposed cure.** Mechanical rewrite of 18 specifiers `"@mkbabb/glass-ui"` -> `"@mkbabb/glass-ui/dom"`. That leaves `demo/ui/` as the ONLY root-barrel consumer, which L-4's deletion then retires entirely.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-37 · CHALLENGE-L
+
+**Defect.** The published library's own vitest root (`test/`) contains the owner-retired grep-over-source invariant idiom, reaching into three `demo/` SFCs by `process.cwd()`-relative path.
+
+**Mechanism.** Wrong test home (library suite asserting on demo presentation) + banned idiom (grep as invariant, owner-deleted 2026-06-02 as 'overfit junk') + cwd-relative paths.
+
+**Evidence.**
+
+```
+vitest.config.ts include = ["test/**/*.ts","demo/test/**/*.ts"]. `grep -rln readFileSync test/` -> test/picker-blob-config.test.ts (1 of 1). Lines 5-18 read demo/picker/visual/HeroBlob.vue, demo/picker/ColorPicker.vue, demo/shell/dock/ActionToolbar.vue via path.resolve(process.cwd(), ...). Assertions include `expect(source).not.toMatch(/\bheroScale\b/)` and `expect(template).not.toMatch(/press-label=|<Tooltip|tabindex=|<button\b/)`.
+```
+
+**Reproduction.** Rename a local variable to contain `heroScale`, or add a comment containing it, in demo/picker/visual/HeroBlob.vue -> the LIBRARY suite goes red. Run vitest from any directory other than the repo root -> ENOENT.
+
+**Proposed cure.** Move the file to demo/test/. Replace the morphology greps with an imported exported const (demo/picker/visual/blob-morphology.ts) and the a11y greps with @vue/test-utils mounts (already a devDependency). Result: no test reads a .vue file as text anywhere in the repo.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-38 · CHALLENGE-L
+
+**Defect.** `PaneSegmentedControl` (imported by Dock.vue:15) is a passthrough wrapper whose only substance is a `:deep()` into a producer-internal class, contradicting its own 'never per-instance' comment; and DESIGN.md's normative `:deep()` rule is false by 14.
+
+**Mechanism.** Density variant homed in a demo wrapper via producer-internal class piercing instead of in glass-ui (edicts 4+5); a normative catalog statement that reads as enforcement and enforces nothing (same class as the dead eslint globs, L-23).
+
+**Evidence.**
+
+```
+demo/shell/PaneSegmentedControl.vue:46-51 `@media (max-width:639px){ .pane-segmented-control :deep(.segmented-tab){padding:.25rem .375rem;font-size:var(--type-caption)} }` under a comment declaring 'the ROOT-LEVEL compact variant ... never per-instance'. demo/DESIGN.md:381 claims PaletteCard's `.featured-badge :deep(svg)` is 'the post-D.W4 Lane A survivor ... no further :deep() reaches into reka-ui markup'. Measured live :deep() selectors (comments excluded): ColorSpaceSelector 4, ConfigSliderPane 4 (.configurator-row/.glass-slider), EasingAuthoringStage 3 (.glass-card), Markdown 2, PaneSegmentedControl 1 (.segmented-tab) = 14; and PaletteCard.vue:345-350 documents the named survivor's REMOVAL in favour of a wrapper class.
+```
+
+**Reproduction.** `grep -rn ':deep(' demo/ --include='*.vue'` with comment lines filtered -> 14 across 5 SFCs, PaletteCard absent. Pasted in the report.
+
+**Proposed cure.** Move the compact density into glass-ui `SegmentedTabs` as a `size`/`density` prop or a dock-container token; delete the wrapper's scoped block. Then either PaneSegmentedControl becomes a bare `SegmentedTabs` call site (CARRY-LEDGER W47's stated '1 -> 0'), or it dies. Re-derive DESIGN.md:381 from a measurement rather than a remembered census.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-24 · CHALLENGE-L
+
+**Defect.** The JS half of the timing contract has no home: 21+ bare timing literals under demo/, two unnamed 2000s in one file, and ColorInput's own mode-flash JS timer clears the class 150ms before the CSS animation it gates finishes.
+
+**Mechanism.** Mechanism H (generalizes pass 1's L-11 SUB_LAYER_CROSSFADE_MS=260): glass-ui owns the design-token half of timing (--duration-fast/slow/panel) and the demo consumes it correctly in CSS, but the JavaScript half has no home at all, so every site that must coordinate with a CSS duration copies a number and hopes. No compiler, lint rule or test links the two.
+
+**Evidence.**
+
+```
+demo/color-session/useColorParsing.ts:57 `setTimeout(…, 2000)` (badge lifetime) and :92 `debounce(parseAndSetColor, 2000)` (typing debounce) — two independent unnamed 2000s in one file; useColorPipeline.ts:209 uses 500 for the slider commit, useColorUrl.ts:64 uses 300 for model→URL. ColorInput.vue:256 `setTimeout(() => { modeTransition.value = false; }, 300)` gates .color-input-mode-flash (:312-314) whose animation runs `var(--duration-slow)`, measured live off document.documentElement as {"durationSlow":"0.45s","durationPanel":"0.55s","durationFast":"0.2s"} — 300ms JS vs 450ms CSS, the animation is cut short on every mode toggle. Census grep across demo/ → 21 sites, 21 distinct literals, zero shared home (lower bound; the single-line pattern misses multi-line calls).
+```
+
+**Reproduction.** Read `getComputedStyle(document.documentElement).getPropertyValue('--duration-slow')` on the live app → 0.45s; compare to the 300 literal at ColorInput.vue:256. Toggle propose mode and the flash animation is truncated at 300ms.
+
+**Proposed cure.** One module — demo/styles/durations.ts — parsing the tokens once at runtime and exporting named constants, so ColorInput.vue:256, ActionBarLayer.vue:62 and every transition-coupled timeout read the same value the CSS uses and retiming a token retimes the JS. The pure-behaviour debounces (parse/URL/slider) are a genuinely demo-owned concern and belong in one named table with a rationale per row. Relay to glass-ui: export the duration tokens as a JS map from @mkbabb/glass-ui/tokens so consumers skip the getComputedStyle read.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-9 · CHALLENGE-L
+
+**Defect.** The entire exposed API of the component is dead: defineExpose has zero consumers and both template refs are declared, bound, and never read.
+
+**Mechanism.** Imperative escape hatches retained after the declarative refactor that removed their callers.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:96 `defineExpose({ currentToggleIcon, toolbarMode, cycleToolbarMode })`. `grep -rn "currentToggleIcon\|cycleToolbarMode\|toolbarMode" demo/ e2e/ test/ | grep -v layers/ActionBarLayer.vue` → NO OUTPUT. Dock.vue:156 mounts <ActionBarLayer> with no `ref`. colorInputRef (:28) bound at :116, zero reads; actionToolbarRef (:29) bound at :103, zero reads. ActionToolbar.vue:82 exposes clearHover — zero consumers.
+```
+
+**Reproduction.** The greps above.
+
+**Proposed cure.** Delete defineExpose and both refs; the greenfield component has no imperative surface.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-10 · CHALLENGE-L
+
+**Defect.** Dead prop and dead contract fields plumbed through three layers.
+
+**Mechanism.** Contract fields survive their readers; the plumbing keeps compiling because nothing checks for unread props.
+
+**Evidence.**
+
+```
+ActionToolbar.vue:72 declares `canProposeName: boolean`; `grep -n "canProposeName" demo/shell/dock/ActionToolbar.vue` → 1 hit, the declaration itself. ActionBarLayer.vue:106 binds it. ActionBarContext.cssColorOpaque (keys.ts:18) and .formattedCurrentColor (keys.ts:19): `grep -rn "actionBar\.\|actionBarContext\." demo/` returns no read of either — ActionBarLayer uses the injected SAFE_ACCENT_KEY (:24) instead, so the context's own colour field is bypassed by its only consumer.
+```
+
+**Reproduction.** The two greps above.
+
+**Proposed cure.** Delete the prop from ActionToolbar (which is itself deleted under L-6) and the two fields from the unified DockActionBar contract.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-11 · CHALLENGE-L
+
+**Defect.** `SUB_LAYER_CROSSFADE_MS = 260` is a magic constant matching no design token, racing a 300 ms CSS delay it cannot win, and redundant with CSS that already performs the hand-off.
+
+**Mechanism.** Hardcoded timing in a component shadowing a producer token, desynchronized from it and from the CSS it races.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:62. Demo duration scale is 200/300/450/550 ms (demo/DESIGN.md:210-213) — 260 is none of them. Measured transition-delay on the non-active face is 0.3s (= --duration-normal). Measured at swap+460 ms the leaving face is STILL {"opacity":"0","visibility":"visible","inert":true} — the shim clears is-leaving at 260 ms, 40 ms before the CSS delay expires, and the face then enters a fresh 300 ms delay.
+```
+
+**Reproduction.** node scratchpad/abl-probe.mjs — at460ms kids[0] reports visibility "visible", opacity "0", transitionDelay "0.3s".
+
+**Proposed cure.** Deleted with the shim; <DockCrossfade> rides useDockSpring (velocity-continuous, interruptible), so no timer or constant exists.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-13 · CHALLENGE-L
+
+**Defect.** The component styles other components' root elements from the outside, pushing layout/stacking/inertness classes through attribute fallthrough.
+
+**Mechanism.** Encapsulation break: a child's layout, stacking, visibility and inertness are decided by a class the child has never heard of — the per-instance-override shape edict 5 forbids, one level up.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:104 and :117 spread `v-bind="subLayerProps('actions'|'input')"` onto <ActionToolbar> and <ColorInput>, delivering `class: ["dock-layer", {is-active,is-leaving}]` and `inert`. Measured merged roots: "flex items-center justify-around flex-1 dock-layer is-active" (ActionToolbar) and "grid grid-cols-1 gap-y-2 p-0 m-0 dock-layer is-active min-w-0" (ColorInput).
+```
+
+**Reproduction.** node scratchpad/abl-probe.mjs — kids[].cls shows the producer classes merged into each child's own root class list.
+
+**Proposed cure.** Wrap each child in the producer's owned host `<DockLayer id="…">`, which renders its own `.dock-face` and leaves the child root untouched.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-12 · CHALLENGE-L
+
+**Defect.** Mixed Vue 3.5 template-ref idiom inside one 158-line file.
+
+**Mechanism.** Incremental modernization stopped mid-file.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:28-29 use the pre-3.5 `ref<InstanceType<typeof X> | null>(null)`; :83 uses `useTemplateRef<HTMLElement>("subLayerGridEl")`. Same concept, two idioms, one file. Edict 7.
+```
+
+**Reproduction.** Read demo/shell/dock/layers/ActionBarLayer.vue:28-29 and :83.
+
+**Proposed cure.** All three refs are dead (L-9, L-1) — the fix is deletion, not conversion.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-16 · CHALLENGE-L
+
+**Defect.** CORRECTION to the clean library-surface finding: tsconfig.demo.json's hand-written value.js `paths` block has drifted from package.json#exports — three entries point at files that do not exist, the second-most-used subpath is undeclared, and the comment asserts a closed 8-key set that has not existed since 4.0.0.
+
+**Mechanism.** Two hand-written twins of one generated fact. vite.config.ts:37-50 GENERATES its alias set from package.json#exports precisely so it cannot drift; tsconfig.demo.json is the hand-written twin that did. Currently a no-op plus three landmines — the first `import … from "@mkbabb/value.js"` hits a resolution failure whose cause is a stale comment.
+
+**Evidence.**
+
+```
+tsconfig.demo.json:40-52 declares 8 paths: @mkbabb/value.js → ./dist/index.d.ts, /parsing → ./dist/subpaths/parsing.d.ts, /units → ./dist/subpaths/units.d.ts (all three: `ls` → No such file or directory), plus color/math/easing/transform/quantize. package.json#exports is a SEVEN-key set with NO "." root: ./color ./value ./css ./easing ./math ./transform ./quantize. /css — 10 imports, the second-most-used — has no paths entry and typechecks only via Node self-referencing resolution: `npx tsc -p tsconfig.demo.json --traceResolution` shows '@mkbabb/value.js/css' resolved via 'Found package.json at /Users/mkbabb/Programming/value.js/package.json' → dist/subpaths/css.d.ts, Package ID @mkbabb/value.js@4.0.0.
+```
+
+**Reproduction.** ls dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts → 3x No such file. node -e "console.log(Object.keys(require('./package.json').exports).join(' '))" → 7 keys, no '.'. npx tsc --noEmit -p tsconfig.demo.json --traceResolution | grep -A3 "'@mkbabb/value.js/css'".
+
+**Proposed cure.** Delete the value.js paths block outright. Self-reference resolution reads the REAL exports map, is proved above to resolve every subpath correctly, and cannot drift — the same property valueJsSelfAlias was written to guarantee on the runtime side. (The underlying import discipline is sound: all 49 demo value.js imports go through the published surface, zero reach src/, and a real consumer could write every one — that negative proof stands.)
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-10 · CHALLENGE-L
+
+**Defect.** One binding, three spellings: the `open` emit is declared twice and then hand-wired a third time.
+
+**Mechanism.** Redundant declaration of one contract; edict 7 (idiomatic Vue 3.5) prefers defineModel + v-model.
+
+**Evidence.**
+
+```
+DockViewSelect.vue:29 declares `"update:open": [open: boolean]` in defineEmits while :33 `defineModel<boolean>("open", { default: false })` generates the same emit (Vue 3.4+). The template then hand-wires what v-model:open does: :53 `:open="open"` and :54 `@update:open="open = $event"`. Verified silent — no Vue console warning in the live session; the compiler merges.
+```
+
+**Reproduction.** sed -n '24,39p' demo/shell/dock/DockViewSelect.vue.
+
+**Proposed cure.** Delete the explicit "update:open" line from defineEmits and bind `v-model:open` on the inner Select instead of the :open/@update:open pair. One statement of one binding.
+
+---
+
 ### `CHALLENGE-L — library structure / module boundaries / owners` · L-21 · CHALLENGE-L
 
 **Defect.** The document heading outline is inverted, not merely missing an h1: the page's most prominent title is an H3 whose own subsections are H2s. No module owns heading level.
@@ -8528,6 +15332,186 @@ h1 = 0 on 60/60 captures (docs/tranches/V/megatranche/audit/visual/REPORT.md per
 **Reproduction.** node scratchpad/L-probe.mjs — reads document.querySelectorAll('h1,h2,h3,...') in order on the live picker route. A screen-reader outline reads: (no title) -> level 3 'About the color spaces' -> level 2 'Basic Information' — the child outranks its parent.
 
 **Proposed cure.** Extend the existing owner rather than adding one: `useDocumentTitle` becomes `useDocumentIdentity(route)` returning `{ title, heading }` from the same `viewSchema` row, the shell renders `<h1 class="sr-only">{{ heading }}</h1>` as the first child of App.vue's `<main>`, and panes start at `h2` by rule. Note the fix cannot land in Dock.vue — the dock is the `<nav>` landmark and a nav cannot own the document heading; CARRY-LEDGER W47's 'main/H1/active-subtree = 1' clause is unowned in code, which is why the wave never noticed.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-9 · CHALLENGE-C
+
+**Defect.** devicePixelRatio is ignored — the loupe canvas backing store is a hardcoded 110×110 regardless of DPR, so the deliberately crisp (imageSmoothingEnabled=false) pixel grid is bilinearly upsampled by the compositor. LOUPE_SIZE also has two sources of truth: the constant drives the CSS and the draw math, but the canvas attributes are literals.
+
+**Mechanism.** fixed-pixel backing store on a device-pixel-scaled display; duplicated dimension constant
+
+**Evidence.**
+
+```
+ImageEyedropper.vue:85 (`width="110" height="110"` literals); constants.ts:8 (LOUPE_SIZE = 110) used at ImageEyedropper.vue:191-196 and useLoupeCanvas.ts:35-51; useLoupeCanvas.ts:40 (imageSmoothingEnabled = false). `grep -n "devicePixelRatio|dpr"` over the ImageEyedropper directory → no matches. MEASURED at devicePixelRatio 2: loupe canvas {"backing":[110,110],"cssW":106} → 212 device pixels rendered from a 110-pixel backing store, a 1.93× upsample.
+```
+
+**Reproduction.** Open the eyedropper on any retina display (probe measured devicePixelRatio: 2) and inspect the loupe canvas: backing 110×110, CSS box 106 px, 212 device px. The magnified pixel edges are smeared by the compositor.
+
+**Proposed cure.** :width="LOUPE_SIZE * dpr" / :height="LOUPE_SIZE * dpr" with ctx.scale(dpr, dpr) in drawLoupe, and no literal dimensions anywhere — one constant, one truth.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-10 · CHALLENGE-C
+
+**Defect.** The readout has unbounded precision, uses a different precision policy from the sibling format path, and is rendered in a `truncate` span with no `title` — violating the invariant the neighbouring component in the same workbench documents and follows.
+
+**Mechanism.** two divergent formatting policies behind one readout slot, plus lossy visual truncation with no full-value affordance
+
+**Evidence.**
+
+```
+MEASURED readout for pure red: `oklch(62.795536392143% 0.257683303805 29.233880279628deg)` (55 chars, 12 decimal places). useImageSampler.ts:38-44 rounds library-space channels to 4 dp (`hsv` → `HSV 0 · 1 · 1`) while :63-65 hands CSS spaces to serializePickerColor unrounded. ImageEyedropper.vue:35-37 is `<span class="... truncate select-all">` with no title; contrast ExtractWorkbench.vue:134-141 which states 'the full readout rides title + select-all (never a lying readout)' and sets :title on its truncated readout.
+```
+
+**Reproduction.** Sample any saturated color with colorSpace=oklch: the readout is 55 characters at 12 decimals and is visually clipped by `truncate` with no hover title to recover the full value.
+
+**Proposed cure.** One precision policy for both branches (round CSS-space channels the same way formatLibraryColor already rounds library-space channels), and put :title on the readout span so the truncated value is recoverable — exactly as the sibling does.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-11 · CHALLENGE-C
+
+**Defect.** The capture-phase pointerdown listener is registered inside a watcher and never removed — no onWatcherCleanup, no unbind, and no counterpart in onBeforeUnmount, in a file whose own composable models the symmetric bind/unbind pattern.
+
+**Mechanism.** asymmetric listener registration inside a reactive effect with no cleanup callback
+
+**Evidence.**
+
+```
+ImageEyedropper.vue:176-185 (addEventListener with {capture:true}, no cleanup); contrast useInertiaGesture.ts:337-344 (unbind) and :362-368 (onBeforeUnmount). ImageEyedropper.vue:242-245 removes the keydown listener and calls sampler.dispose() but knows nothing about this one.
+```
+
+**Reproduction.** NONE — code-level defect. Bounded in practice by the element becoming collectable on unmount, but it will double-register if viewportRef ever re-resolves within a single component lifetime.
+
+**Proposed cure.** This listener exists only to implement the unpin latch (D-2). Removing it entirely — by folding unpin into the gesture composable, which already owns symmetric bind/unbind — cures both defects at once.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-12 · CHALLENGE-C
+
+**Defect.** loadImage has no re-entrancy guard, generation token, or abort; onMounted and watch(() => imageUrl) both fire loadAndFit() as floating promises, so two overlapping loads both write imgWidth/imgHeight/offscreenCanvas and the last to DECODE wins rather than the last requested.
+
+**Mechanism.** unsequenced async writes to shared state — classic last-writer-by-latency race
+
+**Evidence.**
+
+```
+useImageSampler.ts:68-95 (loadImage — no token, no abort, writes shared state after an await); ImageEyedropper.vue:200-204 (loadAndFit), :237-240 (onMounted, unawaited), :247 (watch, unawaited).
+```
+
+**Reproduction.** NONE — labelled a hypothesis. Reasoned from the code: change the image twice in quick succession (upload then camera capture) and the eyedropper can display, and sample, the wrong image. I did not construct the timing race in the browser.
+
+**Proposed cure.** Give loadImage a monotonic generation token captured before the await and checked after it (or an AbortController), and drop the result if a newer load has started.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-13 · CHALLENGE-C
+
+**Defect.** Wheel panning applies each delta directly AND seeds an inertia coast from the same delta, restarting the rAF coast on every wheel event; macOS trackpad momentum keeps delivering wheel events for ~1s, so the net pan should exceed the physical scroll distance.
+
+**Mechanism.** double integration of one input signal — OS-supplied momentum plus author-supplied momentum
+
+**Evidence.**
+
+```
+useInertiaGesture.ts:310-320 — `panX.value -= e.deltaX` (direct) followed by `velocityX = -e.deltaX * 0.3; startInertia();` (coast) in the same handler; startInertia (:131-142) stop/start-cycles the loop on every event.
+```
+
+**Reproduction.** NONE — hypothesis, reasoned from the code, not measured. Two-finger scroll on a macOS trackpad inside the eyedropper viewport should overshoot.
+
+**Proposed cure.** Wheel deltas are already positional; do not seed velocity from them at all. Reserve the coast for pointer-drag release, which is the one gesture the OS does not already provide momentum for.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-6 · CHALLENGE-C
+
+**Defect.** Both clipboard call sites discard the discriminated {ok, reason} result the producer deliberately designed to be read; there is no success or failure feedback of any kind.
+
+**Mechanism.** An explicitly widened error channel discarded at the consumer in the same commit that adopted it. Family: IGNORED-ERROR-CHANNEL.
+
+**Evidence.**
+
+```
+GenerateControls.vue:106-113 `await writeClipboard(...)` with the result dropped at both sites. glass-ui useClipboard.d.ts:31-37: 'Returns the discriminated result ({ ok } / { ok, reason }) rather than a lossy boolean, for identical call ergonomics: const { ok } = await writeClipboard(text)'. CopyFailureReason = 'clipboard-api' | 'no-api'. No toast (vue-sonner removed repo-wide), no aria-live (C-3), no icon state. `git show f2c8f565 -- .../GenerateControls.vue`: the ONLY change to this file in the whole Glass 5→7 adoption was copyToClipboard → writeClipboard — name swapped, result still discarded.
+```
+
+**Reproduction.** NONE for a user-visible failure on this machine (the happy path works — probe §2d). The discard itself is a code fact at GenerateControls.vue:106-113; the failure modes (non-secure origin, denied permission, unfocused document) are the producer's documented reasons.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8 (pinned file). Use glass-ui's own useClipboard({resetMs}) — the reactive form whose `status` ref exists precisely for the confirmation UI this plate lacks — and route failure into the W-8 aria-live region. Idiomatic, no new wrapper, no new shared/ dir.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-8 · CHALLENGE-C
+
+**Defect.** The plate chrome row wraps at the default desktop width — and it is a sub-pixel tie, not the 390-only behaviour the source comment documents.
+
+**Mechanism.** flex-wrap line-breaking on flex-basis: input basis 10rem + badge + a verb cluster whose width steps up 9px at the desktop type scale, landing demand exactly at the available width and losing on the sub-pixel residue. Family: SUB-PIXEL-LAYOUT-TIE.
+
+**Evidence.**
+
+```
+GenerateControls.vue:139-142 claims 'at 390 the verbs settle onto their own right-aligned line'. Measured with offsetTop+height/2 centres (probe §5): 1440 → 65.5 vs 107 (wrapped); 1280 → 65.5 vs 107 (wrapped); 768 → 70.5 vs 70 (one line); 390 → 65.5 vs 107 (wrapped). Independently visible in Safari: audit/visual/shots/safari-desktop-light/generate.png shows the verb cluster dropped below the title. Parts (probe-C-menu-r3.mjs §1 + probe §5): 430 → content 338 vs demand 425; 1440 → content 438 vs demand 438; 768 → content 438 vs demand 429.
+```
+
+**Reproduction.** node probe-C-impl-r3.mjs → 5-geometry@1440 / @1280 / @768 / @390; compare offsetTop+h/2 of the name input vs the Regenerate button.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8 (pinned file). Root-level, not a magic-number nudge: give the row a stated minimum — either reduce the input's flex-basis below the cluster's true demand, or let the verb cluster wrap as a unit only under a container query at a named breakpoint, so the composition's line count is a declared design decision rather than a sub-pixel accident. Correct the comment to match whatever is chosen.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-15 · CHALLENGE-C
+
+**Defect.** The Select handlers' parameter type is imported from reka-ui, a seam glass-ui 7 no longer exposes — a stale pre-Glass-7 type shim that also over-widens the contract.
+
+**Mechanism.** The demo reaches past its declared design system into that system's transitive dependency for a type the system exports itself. Edict 2 (no legacy/dual paths) + edict 4 (glass-ui is the design system). Family: STALE-BOUNDARY-TYPE-IMPORT. Load-bearing: it is also what made r2's C-10 null-crash hypothesis look plausible.
+
+**Evidence.**
+
+```
+GenerateControls.vue:33 `import type { AcceptableValue } from "reka-ui";`, :75-81 `function onPresetChange(value: AcceptableValue) { preset.value = value as PresetName; }`. glass-ui/dist/components/select/Select.vue.d.ts: `SelectEmits { "update:modelValue": [value: SelectionValue] }`; glass-ui/dist/components/_shared/selection.d.ts:2 `export type SelectionValue = string | number;`. reka-ui/dist/index3.d.ts:231 `type AcceptableValue = string | number | bigint | Record<string, any> | null;` — strictly wider, which is why vue-tsc stays green.
+```
+
+**Reproduction.** grep -rn 'from "reka-ui"' demo/workbenches/generate/GenerateControls.vue → line 33; cat node_modules/@mkbabb/glass-ui/dist/components/_shared/selection.d.ts.
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8 (wave W-9, pinned file): import SelectionValue from glass-ui and narrow by membership (PRESET_NAMES.includes / HARMONY_NAMES.includes) instead of casting — glass-ui even ships isSelectionValue() for the runtime half. Subsumes and closes r2's C-10. Gate: grep 'from "reka-ui"' in demo/workbenches/generate/ → 0.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-16 · CHALLENGE-C
+
+**Defect.** A single aria-label lands on two nested elements: the role-less glass-slider root and the role=slider thumb.
+
+**Mechanism.** glass-ui's Slider both lets aria-label fall through to its root and binds it explicitly on the thumb; the root has no role, so it is role=generic, on which ARIA 1.2 prohibits aria-label. Family: DUPLICATE-ACCESSIBLE-NAME.
+
+**Evidence.**
+
+```
+GenerateControls.vue:298 `aria-label="Color count"` on <Slider>. Playwright strict-mode violation is the direct evidence: locator("span[aria-label='Color count']") resolved to 2 elements — 1) <span data-slot="slider" ... aria-label="Color count" class="glass-slider relative w-full"> and 2) <span tabindex="0" role="slider" aria-valuemin="1" aria-valuenow="5" aria-valuemax="12" aria-label="Color count" class="slider-thumb …">.
+```
+
+**Reproduction.** node -e with playwright: page.locator("span[aria-label='Color count']") on http://localhost:9000/#/generate throws the strict-mode violation quoted above.
+
+**Proposed cure.** Producer-owned — relay R-2 to the glass-ui BH inbox alongside the tap-target item: Slider should emit aria-label on the role=slider thumb only. No consumer edit (the pin forbids it, and a per-instance override would violate edict 5).
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-17 · CHALLENGE-C
+
+**Defect.** GeneratePane boundary defects: a dead injection, a non-3.5 template ref, a doubly-dead `save` export, and optional-call shims.
+
+**Mechanism.** Accumulated boundary drift at the component's only consumer; the `?.()` shim is a masking fallback (edict 2) that turns a rename into a silent no-op instead of a throw. Family: CONSUMER-BOUNDARY-ROT.
+
+**Evidence.**
+
+```
+demo/workbenches/generate/GeneratePane.vue:10 `const cssColorOpaque = inject(CSS_COLOR_KEY)!;` — never referenced in the file, and non-null-asserted. :12 `const controlsRef = ref<InstanceType<typeof GenerateControls> | null>(null)` where useTemplateRef is the Vue 3.5 form (edict 7). :22-26 exposes save/regenerate/copyColors; demo/shell/usePaneRouter.ts:196,198 wires only regenerate and copy — `grep -rn "copyColors" demo/ | grep -v workbenches/generate` returns exactly one line and there is no .save() caller, so GenerateControls.save → GeneratePane.save is a dead two-level path. :23-25 `controlsRef.value?.regenerate?.()` optional-chains a defineExpose'd member.
+```
+
+**Reproduction.** grep -n 'cssColorOpaque' demo/workbenches/generate/GeneratePane.vue → one declaration, zero uses. grep -rn 'copyColors' demo/ | grep -v workbenches/generate → 1 line (usePaneRouter.ts:198).
+
+**Proposed cure.** Wave W-10 (not blocked — GeneratePane.vue is not pinned): delete the CSS_COLOR_KEY injection, switch to useTemplateRef, delete the dead save expose at both levels, and drop the `?.()` from the exposed-method calls in usePaneRouter so a rename fails loudly.
 
 ---
 
@@ -8657,6 +15641,96 @@ GradientStopEditor.vue:30-33 and :255-263 (the file documents the shadowing itse
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-6 · CHALLENGE-C
+
+**Defect.** The specimen rows and the open interval's ramp recompute on `type` and `direction` changes, neither of which can affect either — the whole per-row derivation (49-sample glyph, colour parse+mix, 27-tile scan, WCAG floor walk) re-runs on every direction-slider tick.
+
+**Mechanism.** over-broad-reactive-dependency: a monolithic modelState object serves as both the serializer's input and the reactivity graph, so consumers that need four of its six fields subscribe to all six.
+
+**Evidence.**
+
+```
+useSpecimenRows.ts:42-72 reads `modelState()` wholesale; useGradientModel.ts:102-109 rebuilds modelState whenever ANY of type/direction/stops/intervals/interpolationSpace/hueMethod changes. openIntervalRamp (GradientEasingEditor.vue:63-67) likewise re-runs a full sampleCoalescedStops (2 parseColorIn + 33 mixColors) per direction tick. Cost per row per recompute: glyphPath = 49 easing evals + 98 toFixed(3) + string build, measured 13.2 µs/call (`glyphPath(48) x20000 = 265.0ms` via vite-node against the real src/subpaths/easing); plus interpolateStopColors; plus tileIdFor's linear scan over 27 tiles; plus safeCss → certifyAccentInk's WCAG floor walk. Observed coupling: +22% script/tick when interval count goes 1→4 during a direction drag (probe 8, C-5 evidence). Tell-tale: serializeIntervalRamp already hardcodes `type: "linear", direction: 90` in its sub-model (useGradientCSS.ts:243-244) — it demonstrably does not want those fields.
+```
+
+**Reproduction.** node scratchpad/wbge-probe8.mjs (drives 120 ArrowRight presses on [role='slider'] and reads CDP ScriptDuration/RecalcStyleDuration deltas at 1 vs 4 intervals; the ratio scales with interval count even though direction cannot affect any interval).
+
+**Proposed cure.** modelState is doing double duty. Pass the specimen derivation only what it consumes: useSpecimenRows(() => stops, () => intervals, () => interpolationSpace, () => hueMethod). type/direction then cannot reach it. Apply the same narrowing to serializeIntervalRamp, which already discards them.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-7 · CHALLENGE-C
+
+**Defect.** A failed clipboard write is completely silent, and a successful one is never announced — the CopyResult is discarded, no onCopyError is passed, and the route has zero aria-live regions.
+
+**Mechanism.** discarded-result + unannounced-async-state: an async operation's typed failure channel is dropped on the floor, and its success is signalled only by mutating the accessible name of the focused control.
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:100-103 `async function copyLiteral(index, css) { copiedIndex.value = index; await copy(css); }` — the typed `{ ok: false, reason: "clipboard-api" | "no-api" }` return (glass-ui useClipboard.d.ts) is thrown away and no onCopyError option is supplied; on failure the button silently keeps the Copy glyph and the only trace is a console.warn inside glass-ui. Confirmation is an aria-label swap on the button that already has focus (:181 `copiedRow === row.index ? 'Copied' : \`Copy ${row.css}\``) — not reliably announced by any major screen reader. Measured (probe 1): `document.querySelectorAll("[aria-live]").length === 0` on /#/gradient. The house idiom exists elsewhere: demo/palettes/browser/admin/PaginationBar.vue:17 aria-live="polite" aria-atomic, demo/color-picker/ErrorBoundary.vue:20 role="alert".
+```
+
+**Reproduction.** NONE for the failure branch (would require revoking clipboard permission) — the discarded CopyResult and absent onCopyError are established by reading GradientEasingEditor.vue:100-103 against the glass-ui type surface. The zero-live-region measurement IS reproduced: open /#/gradient and run `document.querySelectorAll('[aria-live]').length` → 0.
+
+**Proposed cure.** One polite live region per bench, owned by the editor root, fed by the EXISTING copyStatus: success → "Copied <literal>", failure → "Copy failed — clipboard unavailable". One node, no new component, no new shared/ directory; it covers the silent failure and the unannounced success on the same wire.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-8 · CHALLENGE-C
+
+**Defect.** The seat styles the producer's private internals across a version boundary — three :deep() blocks, two !important declarations, a hardcoded .fading-scroll DOM contract — all booked as temporary overrides that the glass-ui 7 adopt was to retire; one of the three is now dead code that silently drops the component's stated invariant.
+
+**Mechanism.** cross-boundary-styling: the consumer compensates for producer chrome from outside the producer, so every producer bump can invalidate the compensation without any signal.
+
+**Evidence.**
+
+```
+EasingAuthoringStage.vue:88 `:deep([data-testid="easing-picker"])`, :93 `:deep(.glass-card)`, :104 `:deep(svg[role="img"])` with `block-size: auto !important` and `aspect-ratio: … !important`; header comment :20-21 "each recorded on the P7 EasingPicker-v2 packet; the overrides retire at the adopt". EasingSpecimenStrip.vue:60 `el?.closest<HTMLElement>(".fading-scroll")` — a hardcoded producer class. Adopt has landed: `node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"` → 7.0.0. The third override is dead (see C-2). .fading-scroll does still exist in glass-ui 7 (dist/fading-scroll-DhxXIhm2.js:84 emits `class: ["fading-scroll", …]`) so the scroll-reveal is intact — same coupling category, same silent-failure mode.
+```
+
+**Reproduction.** NONE required beyond the C-2 measurement, which is the live consequence. The edict violations are established by reading EasingAuthoringStage.vue:86-116 against the installed glass-ui 7.0.0 and the component's own retire-at-adopt comment.
+
+**Proposed cure.** Retire all three at the producer. Laws 1 (one column) and 2 (wells not cards) are legitimate glass-ui variants — land them as EasingPicker props/variants upstream (`:layout="single"`, `:surface="well"`) rather than consumer :deep() overrides; law 3 is C-2's cure. That satisfies edicts 2 (no legacy), 4 (glass-ui is the design system) and 5 (root-level styling) in one move and removes the whole class of silent breakage.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-9 · CHALLENGE-C
+
+**Defect.** toggleTune clones the entire disclosure record on every press, which Vue 3 does not require, and the record is never pruned when intervals shrink.
+
+**Mechanism.** contrivance: a defensive immutability idiom carried over from a reactivity system that needed it, applied to one that does not.
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:84-88 `const tuneOpen = ref<Record<number, boolean>>({}); function toggleTune(index) { tuneOpen.value = { ...tuneOpen.value, [index]: !tuneOpen.value[index] }; }`. `ref({})` is deep-reactive in Vue 3 — a key addition on the returned proxy triggers the dependency the template registered on the missing-key read, so `tuneOpen.value[index] = !tuneOpen.value[index]` is exact. The spread is a Vue-2-era reflex costing a fresh object allocation and a full re-render trigger per press. Stale entries persist: probe 9 shows `tune: ["false","true"]` → `["false","true","false"]` with the true entry now pointing at a different interval.
+```
+
+**Reproduction.** NONE — established by reading GradientEasingEditor.vue:84-88 against Vue 3.5 reactive-proxy semantics (key additions on a deep ref ARE tracked). The stale-entry half is visible in probe 9's `tune` array.
+
+**Proposed cure.** `tuneOpen.value[index] = !tuneOpen.value[index]`. The never-pruned half disappears with C-4's stable-id cure — a Map keyed on the left stop's id has entries removed exactly when the interval is.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-10 · CHALLENGE-C
+
+**Defect.** Two requestAnimationFrame callbacks are scheduled per authoring emission for identical work, and neither handle is retained for cancellation.
+
+**Mechanism.** double-scheduling: a side effect is attached both to the local emitter and to the round-trip prop change that the same emission causes, so it runs twice per event by construction.
+
+**Evidence.**
+
+```
+EasingAuthoringStage.vue:57-67 — `onAuthored` calls `requestAnimationFrame(syncVbRatio)` then emits; the emission updates the parent's interval, which changes the `value.css` prop, which fires `watch(() => value.css, () => requestAnimationFrame(syncVbRatio), { flush: "post" })`. Both callbacks perform the same querySelector + viewBox read + ref write. During a control-point drag this is two redundant rAF-scheduled DOM queries per pointer-move. Neither rAF id is stored, so neither can be cancelled on unmount (currently harmless: syncVbRatio is null-guarded via `rootEl.value?.`).
+```
+
+**Reproduction.** NONE — established by reading EasingAuthoringStage.vue:57-67; the redundancy is currently masked because C-2 makes syncVbRatio a no-op, and becomes live work the moment C-2 is cured.
+
+**Proposed cure.** Drop the rAF from onAuthored. The `value.css` watcher alone is sufficient and correct — value.css changes on every geometry change, which is exactly the stated trigger set, and `flush: "post"` already guarantees the DOM has been patched. Retain the rAF id and cancel it in onScopeDispose.
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/workbenches/gen` · C-6 · CHALLENGE-C
 
 **Defect.** Both clipboard call sites await `writeClipboard` and discard the discriminated result the producer designed to be read, so a denied or hung copy is indistinguishable from a successful one.
@@ -8726,6 +15800,96 @@ GenerateControls.vue:144-149 — bg-transparent, borderless, `hover:underline de
 **Reproduction.** Open http://localhost:9000/#/generate on a touch device or in Safari mobile emulation — the plate title shows no border, no underline, no field chrome at rest. Confirmed in the audit's own safari-mobile-dark capture.
 
 **Proposed cure.** A rest-state affordance that is not hover-gated (show the card family's dashed underline at rest, or restore it under @media (hover: none)), plus a placeholder so an emptied name is not an invisible unlabelled control. Pairs with C-2 — an affordance for a field whose value is discarded is worse than no field.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C13 · CHALLENGE-C
+
+**Defect.** One axis, two denominators: getPosition measures a 304px border-box track while handleLeft places handles on a 302px padding-box track
+
+**Mechanism.** The rail carries a 1px border (.gradient-rail :319), so the two mappings of 'position along the rail' differ by 1px in origin and 2px in length. HANDLE_HALF is a bare JS literal the stylesheet knows nothing about.
+
+**Evidence.**
+
+```
+Live, pasted: F_axis = { borderLeftWidth:"1px", borderBoxWidth:324, paddingBoxWidth:322, pointerTrackLen_getPosition:304, handleCentreTrackLen_handleLeft:302 }. Confirmed at the other viewport: at w=462, handleLeft(0) centres at x+11 while getPosition maps pointer x+10 to 0%. Source: GradientStopEditor.vue:55-57 (handleLeft, percentages resolve against the padding box) vs :75-81 (getPosition, getBoundingClientRect = border box).
+```
+
+**Reproduction.** On /#/gradient evaluate getComputedStyle(bar).borderLeftWidth and getBoundingClientRect().width, then compare handleLeft's calc() against getPosition's arithmetic at p=0 and p=100.
+
+**Proposed cure.** Declare the inset ONCE as a --rail-inset custom property consumed by the paint contract, by handleLeft, and by getPosition; this also supplies C7's cure (ramp inset to the same track) and C9's cure (geometry back in the stylesheet).
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C7 · CHALLENGE-C
+
+**Defect.** The handle track (inset 11px) and the ramp paint (full border-box) do not share an axis — the file's own headline invariant is false
+
+**Mechanism.** The ramp is painted across the whole border box while handle centres ride an inset track, so the hover ghost is drawn at the pointer but filled with colorAt(p_inset) while the ramp beneath shows p_full — Δhue ≈ 2.9° on the shipped seed near the terminals.
+
+**Evidence.**
+
+```
+Live: barRect {x:224,w:462}, borderTopWidth 1px, bgSize "100% 100%, 16px 16px", bgOrigin border-box; handle centres at 235 and 675 → 11px inside each ramp end = 2.38% of the ramp. Visible in shots/safari-mobile-light/gradient.png (terminal green painted left of the 0% handle centre). Claim at GradientStopEditor.vue:8-13, repeated :211-213, :262-265.
+```
+
+**Reproduction.** On /#/gradient read the bar's rect and computed background-* plus both handle centres; compare against the 0%/100% of the painted ramp.
+
+**Proposed cure.** Inset the ramp to the handle track inside the owned paint contract: background-position: var(--rail-inset) 0, 0 0; background-size: calc(100% - 2*var(--rail-inset)) 100%, 16px 16px — with --rail-inset as the single number C13 also names.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C8 · CHALLENGE-C
+
+**Defect.** Dual write path for the selection plus an unbound public model; and the defineModel stale-read hazard is ARMED (pass-1's mechanism justification was wrong)
+
+**Mechanism.** The parent DOES bind v-model:selected-id, so a write to selectedId.value is invisible to a subsequent read until the parent's ref updates, the parent re-renders and the prop reaches the child's watchSyncEffect — exactly the repo-recorded hazard standing law #7 prescribes a local shallowRef for. No current call site reads after write in the same tick (wasSelected at :123 is captured before the write at :129), so the verdict is a checked negative — but by luck of ordering, not by a synchronous model, and selectedId is written from four sites (:129,:152,:160,:178).
+
+**Evidence.**
+
+```
+GradientStopEditor.vue:129-130 writes selectedId AND emits 'select'; GradientVisualizer.vue:140,144 wires both; grep for selectedStopId finds only 3 lines and GradientPane.vue never binds it. Mechanism correction from node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:4321-4332 (vue 3.5.35, verified via require('vue/package.json').version): `localValue = value` runs ONLY when the parent has NOT passed v-model.
+```
+
+**Reproduction.** NONE — latent hazard, plus a source-level dual path. Read the Vue useModel setter and the two parent bindings.
+
+**Proposed cure.** Make selection a plain local ref in the stop editor, delete the 'select' emit and its handler, and delete GradientVisualizer's unbound selectedStopId defineModel. That removes the dual path, the dead public surface, and the armed stale-read in one move.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C9 · CHALLENGE-C
+
+**Defect.** Hover is modelled as reactive JS state because the inline transform shadows the hover: utility — a reactive tick and re-render per hover, and per-instance style strings
+
+**Mechanism.** An inline style always outranks a class, so hover:scale-110 was dead and hover was re-implemented in the reactivity system — style authored per instance rather than at the root (edicts 5 and 7).
+
+**Evidence.**
+
+```
+GradientStopEditor.vue:30-33 and :255-261 document the defect in prose; hoveredId ref at :33, handleScale at :60-63, @pointerenter/@pointerleave on every handle at :269-270, transform+transition re-authored per instance at :262-263.
+```
+
+**Reproduction.** NONE needed — source-visible; the file states it itself.
+
+**Proposed cure.** Pass per-stop DATA as custom properties (--stop-pos, --stop-color) and own the geometry in the scoped sheet: .rail-handle { --handle-scale:1; transform: translate(-50%,-50%) scale(var(--handle-scale)) } with :hover and [data-selected] overrides. Deletes hoveredId, handleScale and two listeners per handle.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C14 · CHALLENGE-C
+
+**Defect.** No e.button guard: the bar's add gesture is armed by any pointer button, and pendingAdd can survive a context menu to be consumed by a later unrelated pointerup
+
+**Mechanism.** pendingAdd is a bare module-level latch with no button predicate and no contextmenu/pointercancel disarm, so its lifetime can straddle gestures.
+
+**Evidence.**
+
+```
+Source CONFIRMED: GradientStopEditor.vue:85-89 (and :119) inspect e.target and e.clientX/Y but never e.button/e.buttons; pendingAdd is disarmed only at :101-115 (pointerup/pointerleave). Live: clean-state right-click and middle-click on the bare rail did NOT mint a stop (B1/B2 before==after, 2 handles), but an earlier session where a right-press preceded it DID mint one (2→3 handles, new stop at 63%).
+```
+
+**Reproduction.** HYPOTHESIS for the observed add — not reproducible on demand. The missing guard itself is source-confirmed at :85-89.
+
+**Proposed cure.** `if (e.button !== 0) return;` at the top of both pointerdown handlers, and disarm pendingAdd on pointercancel and contextmenu — one owner for the latch and no path that leaves it armed across gestures.
 
 ---
 
@@ -8906,6 +16070,366 @@ GenerateControls.vue:150 `class="text-mono-small shrink-0"` on glass-ui Badge; :
 **Reproduction.** cat demo/ui/{select,slider,button,badge}/index.ts (all pure re-exports); read the five class/style attributes.
 
 **Proposed cure.** The h-9 rows die with D-4 and D-7; the --slider-track-bg row is the one the CARRY-LEDGER hold already schedules for the --glass-slider-track-background seam; the Badge row folds into the type-matrix wave.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-10 · CHALLENGE-D
+
+**Defect.** The option descriptions and preview chips have no accessible representation at all: the accessible name is the bare adjective, there is no aria-describedby, and the chip is aria-hidden.
+
+**Mechanism.** Family F. This finding EXISTS because my run-on-accname hypothesis was falsified — resolving aria-labelledby properly revealed the description is not merely mis-joined but entirely absent from the accessibility tree.
+
+**Evidence.**
+
+```
+Measured: option aria-labelledby="reka-select-item-text-v-1-23", and resolving that node gives accNameNode "Vibrant"; aria-describedby null; stripAriaHidden "true" (PreviewStrip.vue:41). Raw textContent is "VibrantHigh chroma, bold tones" but does NOT become the accname. So a sighted user chooses among ten presets on a colour chip plus "High chroma, bold tones"; an AT user chooses among ten bare adjectives. The glass SelectItem ships the #description slot (SelectItem.vue.d.ts) without associating it.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-final.mjs — reads the option's aria-labelledby, resolves the target node's textContent, and prints aria-describedby.
+
+**Proposed cure.** Producer-side; BH-relay-4 to the active glass-ui BH inbox regardless of the consumer hold: wire SelectItem's #description slot to aria-describedby so every consumer using the slot stops shipping AT-invisible explanatory copy.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-11 · CHALLENGE-D
+
+**Defect.** The single affordance the design gave the seed provenance returns the label together with the value: user-select: all on a paragraph reading "seed: 4469bd4e" yields exactly that string, not the seed.
+
+**Mechanism.** Family E (states specified in comments, never composed). The comment at :211 calls it "the bench note: seed as provenance, select-all kept" — the gesture was named and its output never inspected.
+
+**Evidence.**
+
+```
+GenerateControls.vue:212-214 sets select-all on a <p> whose content is "seed: {{ seedHex }}". Measured seedUserSelect "all", seedText "seed: 04f90ead", and window.getSelection().toString() over the element = "seed: 4469bd4e".
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-final.mjs — builds a Range over the seed paragraph and prints window.getSelection().toString().
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Folds into pass 2's D-19 cure (rule the seed: give it a re-entry path or delete it). Whichever way D-19 is ruled, the capture gesture must yield the bare hex — otherwise the string will not paste into the seed input that D-19's cure introduces.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-12 · CHALLENGE-D
+
+**Defect.** At count = 1 the harmony dropdown collapses from six options to four distinct previews: complementary, triadic and split-complementary render byte-identical chips beside three descriptions promising different structure.
+
+**Mechanism.** Family G. The harmony algorithm has nothing to distribute at n=1, so three arms of the switch collapse to the same first draw — but the preview presents that collapse as an assertion of equivalence, which under the component's own law (:87-93, "a preview that lies is worse than none") is the worst available outcome. Bounded honestly: at the default count=5 all six are distinct (6/6), and preset previews are 10/10 distinct even at count=1.
+
+**Evidence.**
+
+```
+probe-D3-count-stability.mts, preset vibrant, seed fixed, count 1: complementary = triadic = split-complementary = oklch(58.269751294283% 0.119167138242 91.682930497918deg); "distinct harmony previews at count=1: 4/6". count=1 is reachable — GenerateControls.vue:301 :min="1". Descriptions promised: "Opposing hue pairs, 180°" / "Three equidistant hues, 120°" / "Base + two flanking complements".
+```
+
+**Reproduction.** npx vite-node docs/tranches/V/megatranche/audit/components/wb-generate-controls/probe-D3-count-stability.mts
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Folds into the preview-truth wave (step 7) alongside D3-3 and into pass 2's D-16 (count=1 degeneracy). The instrument must either exclude harmony from the model when count < 2 (disabling the select with a stated reason) or raise the count floor — not ship three identical chips under three different names.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-12 · CHALLENGE-D
+
+**Defect.** `HANDLE_HALF = 10` duplicates a rem-derived size in JS. At a 20px root font — an ordinary WCAG 1.4.4 text-size setting — the handle grows to 25px while the inset stays 10px, and the 0% handle hangs off the rail's rounded end: the exact condition the file's 'end-handle truce' comment claims to have fixed.
+
+**Mechanism.** a layout constant duplicated in four disagreeing declarations across two languages
+
+**Evidence.**
+
+```
+Probe 2 block 5: `before {"handleW":20,"handleLeftEdge":225,"barLeftEdge":224,"rootFS":"16px"}` → overhang -1.00px (inset); `after {"handleW":25,"handleLeftEdge":100.5,"barLeftEdge":102,"rootFS":"20px"}` → overhang +1.50px (protruding). Sources :53 (`const HANDLE_HALF = 10`), :235 (`w-5 h-5`), :288 (`top-11`), :380-390 (`max(1.5rem,100%)` / `--touch-target`) — four restatements of one constant.
+```
+
+**Reproduction.** On /#/gradient run `document.documentElement.style.fontSize='20px'` and measure the 0% handle against the rail's left edge; `node .../evidence/WBGSE-D-probe2.mjs` block 5.
+
+**Proposed cure.** One source of truth: express the handle box in a single custom property that both the stylesheet and the pointer maths read, or measure the rendered box.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-13 · CHALLENGE-D
+
+**Defect.** The protagonist is the only unnamed region on the route: Interpolation, Easing and CSS each carry an <h3>, while the stop rail has no heading, no label, no aria-label, no role and no group. The hierarchy inverts — support is announced, the protagonist is anonymous.
+
+**Mechanism.** section identity granted to support regions and withheld from the protagonist
+
+**Evidence.**
+
+```
+Headings at GradientVisualizer.vue:149, 241, 253; the stop editor is rendered bare at :136-145. Probe 1: bar `{role: null, ariaLabel: null}`. Visible in docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/gradient.png.
+```
+
+**Reproduction.** Read the route: three titled bands, one untitled instrument.
+
+**Proposed cure.** The instrument owns a named region (heading plus a group with an accessible name) at the same rung as its siblings, or all four lose their headings together and interval does the grouping the composition's `[]`/`none` boundary law expects.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-14 · CHALLENGE-D
+
+**Defect.** No visible value, ever: during a drag the position appears nowhere on screen — only in an invisible aria-label and in the CSS string far below — and there is no numeric entry for a stop's position.
+
+**Mechanism.** a continuous tuning gesture with no readout and no numeric twin
+
+**Evidence.**
+
+```
+Source :234 (`:aria-label` is the only place the number appears near the control); GradientVisualizer.vue's template has no numeric position field. Canon VISUAL-CONSTITUTION.md:206 requires 'explicit add/move/remove/numeric alternatives'; PROPORTION-AUDIT.md:51 (PR-07) names 'invisible drag state'.
+```
+
+**Reproduction.** Drag any handle and try to land on 42% — the only feedback is the serialized CSS block far below.
+
+**Proposed cure.** A reserved live value beside the axis (the domain-neutral Slider composition already specifies 'label, unit, reserved live value, optional numeric entry').
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-15 · CHALLENGE-D
+
+**Defect.** Crowding has no law: on the 324px mobile rail ten stops give 33.8px centre-to-centre gaps against 44px hit zones, so neighbours become mutually untappable; two stops may also occupy the same position, after which the lower one is unreachable by pointer forever.
+
+**Mechanism.** no minimum separation, no fan-out, no overflow treatment, no cap on stop count
+
+**Evidence.**
+
+```
+Probe 3 (10 stops, desktop 462px rail): gaps `48.8 48.9 48.8 48.9 49.2 48.9 48.8 48.9 48.8` px; mobile railW measured 324 (probe 2 block 4) → (324-20)/9 = 33.8px < the measured 44px coarse target. `addStop` (useGradientModel.ts:116-119) permits coincident positions; drag permits it. Rendered in `evidence/D-03-ten-hue-rings.png`.
+```
+
+**Reproduction.** Paste a 10-stop gradient into the CSS block on a 390px viewport and try to grab the 5th stop.
+
+**Proposed cure.** A separation law owned by the collection (minimum ordinal spacing or an explicit fan-out/overflow face), so target inflation cannot exceed the geometry the rail can actually disambiguate.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-08 · CHALLENGE-D
+
+**Defect.** The row has no protagonist: its ordinal provenance, its curve name and its CSS literal all render at identical size, weight, family and colour, leaving a 16x16 glyph as the only differentiated ink.
+
+**Mechanism.** flat typographic treatment across three distinct semantic roles
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:124 and :136 both carry `fira-code text-mono-small text-muted-foreground`; :177 carries the same triple. Measured live: `normal 400 16.58px "Fira Code"`, color rgb(112, 89, 66) for all three. The head glyph measures 16x16 (`.head-glyph` :255-259). PROPORTION-AUDIT.md:67 (§5.2 'A card has one protagonist, one identity line') and :73 (§5.8 'Real rendered relation wins over token intent'); :53 (PR-09 'Gradient/Easing protagonist subordinated | ENLARGE').
+```
+
+**Reproduction.** Load /#/gradient; read getComputedStyle on the head's label span, name span and the rail's <code>.
+
+**Proposed cure.** Give the row one identity line (the curve) at the identity rung and demote the ordinal to a quiet eyebrow; the curve portrait, not the text, should carry the row's ink and scale.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-09 · CHALLENGE-D
+
+**Defect.** Array position is used as interval identity in four independent pieces of UI state, contradicting the file's own claim that identity derives from the interval.
+
+**Mechanism.** positional identity for entity-scoped state
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:49 (`"update-interval": [index, value]`), :61 (`openInterval = ref<number|null>(0)`), :84 (`tuneOpen = ref<Record<number, boolean>>`), :95 (`copiedIndex = ref<number|null>`). useSpecimenRows.ts:60-70 builds `index: i`. useGradientModel.ts:116-119 inserts stops position-sorted; :88-98 resizes `intervals` by truncating from the end, so a mid-gradient insert renumbers every interval. Header comment :52-53 claims 'identity derived from the interval, the truth'. Contrast useGradientModel.ts:117 where stops DO carry `id: uid()`.
+```
+
+**Reproduction.** NONE — HYPOTHESIS, derived from source. The mid-gradient add path is GradientVisualizer.vue:88-90 (ramp click); I did not execute it.
+
+**Proposed cure.** Give intervals stable ids the way stops already have them, and key openInterval / tuneOpen / copiedIndex / the emit contract on the id. A row is an interval, not a slot.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-10 · CHALLENGE-D
+
+**Defect.** A failed clipboard write is completely silent, and the success result is carried by mutating the copy button's accessible name for 1400ms.
+
+**Mechanism.** unhandled error state + result carried on a control's identity
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:94-98 — `copiedRow` gates only on `copyStatus === "success"`; there is no `error` branch anywhere in the file, so a denial (insecure context, permission refusal, missing user gesture) renders no visual, textual or announced change. :181 — `:aria-label="copiedRow === row.index ? 'Copied' : `Copy ${row.css}`"`. VISUAL-CONSTITUTION.md:83 ('Role, accessible name, state/value and associated error/status are explicit') and :101 ('A transient flourish may celebrate success but never carries the only truth').
+```
+
+**Reproduction.** NONE — HYPOTHESIS on the error arm; the code path's absence is verified by reading the whole file (no reference to copyStatus other than the success comparison at :97).
+
+**Proposed cure.** Stable accessible name; route both success and failure into a polite status region owned by the instrument — the same region the CSS section's copy already needs.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-11 · CHALLENGE-D
+
+**Defect.** The 27-tile global catalogue is instantiated once per interval rather than once per editor.
+
+**Mechanism.** per-row instantiation of a global, stateless catalogue
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:161 renders `<EasingSpecimenStrip>` inside `v-for="row in specimenRows"` (:112). Live measurement: 27 `.specimen-tile` nodes for a single interval. REPORT.json /#/gradient desktop: `button: 53, allElements: 508` with one interval — 27 of the 53 buttons are one stateless module constant (easingCatalogue.ts:198 `SPECIMEN_FAMILIES`). EasingSpecimenStrip.vue:40 acknowledges it: 'sibling rows mount hidden twins of every data-specimen id'. Five stops -> four intervals -> 108 tile buttons plus 4 live EasingPicker instances (header comment :16-18 mandates v-show, never v-if).
+```
+
+**Reproduction.** Load /#/gradient; count document.querySelectorAll('.specimen-tile').length (27) with one interval, and read the v-for nesting at GradientEasingEditor.vue:112/161.
+
+**Proposed cure.** One catalogue for the editor, positioned by the open row — the single-inspector arrangement. This is also what unblocks D-02: a 1482px line cannot be given more room while there are N copies of it.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-12 · CHALLENGE-D
+
+**Defect.** Motion incoherence — the chevron animates for 200ms while the panel it describes has no transition at all; and the chevron's duration/easing are Tailwind defaults that coincide with the house tokens rather than declaring them.
+
+**Mechanism.** indicator animated, indicated thing not; ad-hoc utility standing in for a declared token
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:138 `transition-transform`, resolving live to `transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), translate 0.2s ..., scale 0.2s ..., rotate 0.2s ...`; :144 the disclosed panel is a bare `v-show` display toggle with no <Transition>. Measured tokens: `--duration-fast` = 0.2s, and the sibling rule at :222-224 resolves to `background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)` — i.e. the chevron matches by coincidence, while :222-224 and :277-279 declare the tokens. VISUAL-CONSTITUTION.md:139/141. NOT a reduced-motion defect: demo/styles/animations.css:184-192 carries a global `*,*::before,*::after { transition-duration: 0.01ms !important }` guard that reaches all of it.
+```
+
+**Reproduction.** Load /#/gradient; getComputedStyle(chevron).transition vs getComputedStyle('.interval-head').transition; toggle the row and observe the panel pop.
+
+**Proposed cure.** Adopt the producer Collapsible (D-05), which animates the content and carries its own reduced-motion carve-out; the chevron then follows the producer's register instead of Tailwind's defaults.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-13 · CHALLENGE-D
+
+**Defect.** The endpoint-dot pair uses a physical `margin-left` inside an otherwise fully logical rule, so the pair stops overlapping in RTL — 3px overlap becomes 0px, losing the intended 'a pair' reading.
+
+**Mechanism.** direction-law-not-applied: physical property in a logical-property rule
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:239-251 declares `inline-size`/`block-size` (logical) then `.specimen-dot + .specimen-dot { margin-left: -3px }` (physical); comment at :234 states the intent, 'slightly overlapped — a pair'. Measured in frames/repro.html with the identical rule: LTR dot1.right=1082.23, dot2.x=1079.23 -> overlap 3.00px; RTL dot1.x=1403.77, dot2.right=1403.77 -> overlap 0.00px (tangent). Consistent with shots/rtl-desktop/gradient.png.
+```
+
+**Reproduction.** Serve docs/tranches/V/megatranche/audit/components/wb-gradient-easingeditor/frames/repro.html and read the getBoundingClientRect of `[dir=ltr] .specimen-dot` vs `[dir=rtl] .specimen-dot` (case C on the page).
+
+**Proposed cure.** `margin-inline-start: -3px`.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-14 · CHALLENGE-D
+
+**Defect.** Both readout-rail controls measure exactly 24x24 — the bare WCAG 2.2 target floor — with no invisible seat expansion, so glyph size, target size and reservation are one quantity instead of three.
+
+**Mechanism.** seat geometry collapsed onto visible chrome at the accessibility floor
+
+**Evidence.**
+
+```
+Live measurement, both arms: desktop 1512 rail-btn rects 24x24 at x=646.5 and x=676.5 (6px gap); mobile 390 rail-btn rects 24x24 at x=282 and x=312. Source: GradientEasingEditor.vue:269-272 `padding: 0.3125rem` around a `w-3.5 h-3.5` (14px) icon (:184, :196). PROPORTION-AUDIT.md:72 (§5.7 'Visual glyph size, operable target size and layout reservation are separate quantities') and :56 (PR-12 'Invisible/seat geometry preserves target floor while optics follow rung'). Calibration: the mega-tranche harness flags this route's 22x22 dock controls and 20x20 stop seats (REPORT.json) and clears these by 2px.
+```
+
+**Reproduction.** Load /#/gradient at either arm; read getBoundingClientRect on `.rail-btn`.
+
+**Proposed cure.** Separate the three quantities: keep the 14px optic, expand the operable seat with invisible padding or a pseudo-element hit area to the house target rung, and keep layout reservation at the optic.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-15 · CHALLENGE-D
+
+**Defect.** A DockSeparator divider inside a composition whose binding inventory says the retained dividing line count is `none`.
+
+**Mechanism.** An ad-hoc line added inside a P122 workbench whose grouping job is explicitly stated as 'image/specimen material and interval separate stage from controls'.
+
+**Evidence.**
+
+```
+ImageEyedropper.vue:15 renders <DockSeparator />; confirmed in the measured AT tree as '- separator'. OPTICAL-BENCH-COMPOSITIONS.md §5: 'Extract | [] | none | none', closing with 'Any additional line, automatic P122 divider, consumer-hidden producer line, terminal row rule, caster stroke or corner rule is a defect.'
+```
+
+**Reproduction.** node .../probe/probe2.mjs — ariaTree contains '- separator'.
+
+**Proposed cure.** Remove it; interval and material already separate the close control from the readout.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-16 · CHALLENGE-D
+
+**Defect.** The eyedropper overlay is an unratified composition — a full-bleed sampler sheet with its own chrome bar, protagonist, mobile behaviour and boundary set that appears in none of the eighteen ratified frames.
+
+**Mechanism.** The second protagonist of Extract was built as an element rather than decided as a composition, which is why D-8 (material tier), D-9 (stage aspect) and D-15 (divider) were each decided locally and wrongly.
+
+**Evidence.**
+
+```
+VISUAL-CONSTITUTION §3.1 and OPTICAL-BENCH-COMPOSITIONS.md §5/:113 enumerate exactly eighteen separately named low-fi -> real-render pairs, each recording protagonist/support rects, collapse behaviour, mobile sequence, Card equation, boundary/reserve and main-landmark count. No sampler-overlay pair exists. §5: 'changing topology requires an explicit revision to this artifact and the affected pair, never an ad hoc local Card, divider, reserve or breakpoint.'
+```
+
+**Reproduction.** Read OPTICAL-BENCH-COMPOSITIONS.md §5 table — Extract has one row and it describes the stage/controls split, not the sampler overlay.
+
+**Proposed cure.** Ratify the sampler as a named composition; D-8, D-9, D-13, D-14, D-15 then close as consequences of one decision instead of five patches.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-17 · CHALLENGE-D
+
+**Defect.** All three eyedropper controls are below the touch-target floor.
+
+**Mechanism.** PROPORTION-AUDIT.md PR-12 ('Touch padding bloats/misaligns visual glyphs' — TIGHTEN, 'invisible/seat geometry preserves target floor while optics follow rung') was never applied here.
+
+**Evidence.**
+
+```
+probe2.mjs aria[]: Close eyedropper 40x40, Add to palette 40x40, Apply as current color 40x40 — against a 44x44 floor. Context: /#/extract already reports 6 small tap targets in all four Safari matrices (visual/REPORT.json) before the eyedropper is even opened.
+```
+
+**Reproduction.** node .../probe/probe2.mjs — aria block.
+
+**Proposed cure.** Keep the optical rung and grow the invisible seat to the 44px floor, per PR-12's stated mechanism.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-18 · CHALLENGE-D
+
+**Defect.** The loupe is optically wrong in four independent ways: it is centred under the finger, its backing store ignores devicePixelRatio, its magnification is 9.64x not the intended 10x because LOUPE_SIZE is used as a border-box, and it has no reticle marking which texel is the sample.
+
+**Mechanism.** constants.ts LOUPE_SIZE/LOUPE_PIXELS are treated as CSS px rather than as a model; VISUAL-CONSTITUTION §5.2 requires 'reticle, loupe and numeric value remain one model'.
+
+**Evidence.**
+
+```
+probe.mjs mobile: loupe backing 110x110, CSS box 106x106, dpr 3 -> 318 device px painted from a 110px bitmap (2.89x upscale of a deliberately nearest-neighbour image). The 110->106 delta comes from ImageEyedropper.vue:194-195 setting LOUPE_SIZE as width/height while :265 declares a 2px border, so 110/11=10 px per texel becomes 9.64 and the crisp blocks are resampled by 0.964. probe/shot-forced-colors.png: the loupe shows a red/blue checker while the readout says blue — unverifiable by eye.
+```
+
+**Reproduction.** node .../probe/probe.mjs — mobile.loupe backing vs cssRect vs dpr.
+
+**Proposed cure.** Size the backing store to LOUPE_SIZE * devicePixelRatio, make LOUPE_SIZE the content box, offset the loupe from the touch point on coarse pointers, and draw the reticle on the sampled texel — the same model D-1 and D-6 need.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-19 · CHALLENGE-D
+
+**Defect.** Empty, loading, error, CORS/tainted and out-of-bounds states do not exist; out-of-bounds in particular leaves a stale color displayed as if it were current.
+
+**Mechanism.** The component has one happy path and no state machine around it.
+
+**Evidence.**
+
+```
+useImageSampler.ts:114-115 sampleAt returns null out of bounds and the caller (ImageEyedropper.vue:156-162) does nothing — no message, no cursor change, stale readout retained. loadImage rejects on img.onerror (useImageSampler.ts:72-75) and onMounted(() => { loadAndFit(); ... }) (:237-240) never catches. img.crossOrigin='anonymous' (:70) routes every non-CORS cross-origin URL into that same silent arm; a tainted-canvas getImageData (:116) would throw inside a pointermove handler. No loading affordance exists between mount and decode.
+```
+
+**Reproduction.** Out-of-bounds is directly reproducible: tap the empty 45.1% of the stage (D-9) and observe the unchanged readout. The missing catch on loadAndFit is CONFIRMED by reading; its live reachability is a HYPOTHESIS pending a parent that can supply a remote URL — today ExtractWorkbench only passes same-origin data URLs.
+
+**Proposed cure.** Give the overlay the four states it can actually occupy — decoding, ready, out-of-bounds, undecodable — with the decoding and error arms visible and the out-of-bounds arm clearing rather than preserving the stale sample.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-20 · CHALLENGE-D
+
+**Defect.** Two full-resolution copies of the bitmap are held simultaneously, and dispose() releases only one of them.
+
+**Mechanism.** The visible layer was implemented as a second copy of the sampling authority instead of a view of it.
+
+**Evidence.**
+
+```
+useImageSampler.ts:80-92 draws the same decoded image into an offscreen canvas AND the visible canvas. Measured for probe-1200.png: visibleCanvasBytes 3,840,000 — and the offscreen canvas is the same size again. For a 4032x3024 phone photo that is 48.8 MB x 2, alongside the live <img> and the base64 previewDataUrl the parent retains. dispose() (:97-101) nulls the offscreen reference but never shrinks the visible canvas.
+```
+
+**Reproduction.** node .../probe/probe4.mjs — mem.visibleCanvasBytes 3840000 for a 1200x800 source; the offscreen canvas is created at the same dimensions at useImageSampler.ts:80-83.
+
+**Proposed cure.** One bitmap: the offscreen canvas is the sampling authority and the visible layer paints only what it shows.
 
 ---
 
@@ -9269,6 +16793,222 @@ demo/workbenches/gradient/composables/{gradientParse,useGradientCSS,useGradientI
 
 ---
 
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L3-6 · CHALLENGE-L
+
+**Defect.** Evidence-base gap: the two specialised visual matrices that could falsify this component's two open accessibility-structural findings (§L-11 forced-colors class list, §L2-1 zero-focusable swatches) do not cover the /generate route at all.
+
+**Mechanism.** Not a defect in the component: a gap in the evidence base the formation reasons from. Two of this file's three most serious open items sit in the matrices' blind spot, so the audit apparatus cannot independently confirm or refute them.
+
+**Evidence.**
+
+```
+`ls docs/tranches/V/megatranche/audit/visual/shots/` → 10 matrices. `ls forced-colors-desktop/` → adminusers.png blob.png browse.png gradient.png picker.png. `ls keyboard-focus-desktop/` → identical 5. `ls */generate.png` → only the four safari-* matrices. forced-colors-desktop is the only probe that would exercise foundation.css:689's @media (forced-colors: active) selector list that had to grow a .generate-swatch entry; keyboard-focus-desktop is the only probe that would exhibit five swatches with zero focus reachability — which is why pass 2 had to obtain it by hand-driven Playwright.
+```
+
+**Reproduction.** `ls docs/tranches/V/megatranche/audit/visual/shots/forced-colors-desktop/ docs/tranches/V/megatranche/audit/visual/shots/keyboard-focus-desktop/` — 5 routes each, no generate.png.
+
+**Proposed cure.** Extend both matrices to /#/generate (and to the other routes they omit) before the mega-tranche seals its visual evidence.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-6 · CHALLENGE-L
+
+**Defect.** demo/ui/ is a 19-module, content-free alias barrel over glass-ui — edict 2 (no aliases) and edict 4 (variants/primitives belong in glass-ui, not demo/ui/). The component's parent then imports the design system through three different doors in one file.
+
+**Mechanism.** A shadow design-system layer with zero adaptation; an alias directory that exists only to shorten a specifier.
+
+**Evidence.**
+
+```
+Every directory under demo/ui/ is a single index.ts; 18 of 19 are one line. demo/ui/slider/index.ts is the entire file: `export { Slider } from "@mkbabb/glass-ui";`. GradientVisualizer.vue:9 imports Select via the shim, :10 imports Slider via the shim, :12 imports writeClipboard from the package root, :13 imports DockControl from the @mkbabb/glass-ui/dock subpath. Related: GradientVisualizer.vue:12 uses writeClipboard while its sibling GradientEasingEditor.vue:29 uses useClipboard — two clipboard idioms in one feature.
+```
+
+**Reproduction.** ls demo/ui/*/index.ts; cat demo/ui/slider/index.ts.
+
+**Proposed cure.** Delete demo/ui/. Import @mkbabb/glass-ui/<subpath> everywhere — glass-ui 7.0.0 publishes 60+ subpaths including ./select, ./slider, ./button, so the tree-shakeable door already exists. Settle on one clipboard idiom.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-7 · CHALLENGE-L
+
+**Defect.** Direction of dependency inverted: the leaf presentational component imports the orchestrating composable to obtain a pure data type. GradientStop is {id, cssColor, position} — three fields, no reactivity, no behaviour — declared inside the module that also constructs Vue refs, owns every mutation, and re-exports the serializers and the parser.
+
+**Mechanism.** Types owned by the state factory rather than by a leaf, so every presentational component hangs off the orchestrator. Runtime-erased under verbatimModuleSyntax, but the declaration graph is what the module lattice is made of.
+
+**Evidence.**
+
+```
+GradientStopEditor.vue:4 `import type { GradientStop } from "../composables/useGradientModel";`. The type is declared at useGradientModel.ts:33-37, in a module that imports @mkbabb/value.js/color, @mkbabb/glass-ui/easing, ../../../color-session/picker-color and three sibling composables. useGradientModel has 5 importers, all of which are dragged onto its type graph.
+```
+
+**Reproduction.** Structural — read GradientStopEditor.vue:4 and useGradientModel.ts:33-62.
+
+**Proposed cure.** A leaf model/types.ts with zero intra-tree imports (only @mkbabb/value.js/color and @mkbabb/glass-ui/easing types). Everything depends on the leaf; nothing depends on the factory except the Vue layer. Disappears entirely once L-3 lands.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-8 · CHALLENGE-L
+
+**Defect.** tsconfig.demo.json's hand-written paths block has drifted from the generated package.json#exports map: three dead mappings, two of them pointing at files that do not exist, plus a self-description that contradicts the map it claims to mirror.
+
+**Mechanism.** A hand-written mirror of a generated map, inert enough to drift undetected. Note the two subpaths with NO paths entry (/css, /value) resolve correctly via exports — which is the proof the block is unnecessary rather than incomplete.
+
+**Evidence.**
+
+```
+package.json#exports keys = ["./color","./value","./css","./easing","./math","./transform","./quantize"] — 7 keys, no "." root. tsconfig.demo.json:42 maps "@mkbabb/value.js" → ./dist/index.d.ts (`ls dist/index.d.ts` → No such file; no "." export key); :44 maps /parsing → ./dist/subpaths/parsing.d.ts (no such subpath, no such file); :48 maps /units similarly. The block's comment claims it "Mirrors the vite.config.ts runtime self-alias generated from the same map" and describes "a CLOSED 8-key set".
+```
+
+**Reproduction.** node -e on package.json#exports; ls dist/index.d.ts src/subpaths/; read tsconfig.demo.json:31-50.
+
+**Proposed cure.** Delete the @mkbabb/value.js paths mappings entirely (keep vue/@vue/*). package.json#exports self-resolution already serves types, and vite.config.ts:38-47 already generates the runtime aliases from the same map. Delete the hand-rolled twin; keep the generated one.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · R2-A1 · CHALLENGE-L
+
+**Defect.** The "minimum 2 stops" policy is implemented twice, in the component and in the model.
+
+**Mechanism.** Two homes for one rule. They agree today; a divergence is waiting for the first edit.
+
+**Evidence.**
+
+```
+GradientStopEditor.vue:66 `const removable = computed(() => stops.length > 2);` and useGradientModel.ts:122-123 `function removeStop(id) { if (stops.value.length <= 2) return; … }`.
+```
+
+**Reproduction.** Structural — read both lines.
+
+**Proposed cure.** The model owns the rule and exposes canRemove(id); the component consumes it as a disabled state on the remove chip. Rides the L-3 transposition.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-9 · CHALLENGE-L
+
+**Defect.** The pixel path re-enters the library through the CSS PARSER to obtain numbers it already holds: bytes → hand-rolled hex string → parseCssColor → convert. `rgb()` is published on ./color for exactly this input.
+
+**Mechanism.** the demo proves the parser where it should prove the constructors, and manufactures a failure mode (a throw inside a pointermove handler) that could not otherwise exist
+
+**Evidence.**
+
+```
+useImageSampler.ts:116-118 and :55-66 (parseCssColor(hex) then convertPickerColor); `rgb` is exported from src/subpaths/color.ts and already imported by picker-color.ts:19. Measured this pass: 'parse-roundtrip: 0.55us per sample / rgb() direct: 0.08us per sample / ratio 6.5x' (N=20000). First pass measured 1.26x at N=200000 — see §C of the report; magnitude is measurement-sensitive, direction is not.
+```
+
+**Reproduction.** node --input-type=module -e '<appendix C2 in the report>'. The manufactured throw is at useImageSampler.ts:60, whose message indexes `parsed.diagnostics[0].code` and would itself TypeError on an empty diagnostics array.
+
+**Proposed cure.** `rgb(data[0], data[1], data[2], data[3]/255)`. The parse, the hex string, the throw and the alpha loss (L-18) all vanish together. Symmetrically, add the missing `fromRgba8` inverse to src/color/operations.ts and the ./color subpath, per the first pass.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-20 · CHALLENGE-L
+
+**Defect.** `formatInColorSpace` is exported from the composable only because a test calls it, and the test pins the L-17 divergence as if it were the contract.
+
+**Mechanism.** public surface shaped by a test rather than a consumer — the route by which a defect acquires tenure
+
+**Evidence.**
+
+```
+useImageSampler.ts:55 (definition), :118 (the only in-module caller), :136 (exported anyway); ImageEyedropper.vue never references it; test/image-sampler-v4.test.ts:18,19,20,24,28 are the only consumers, and :24 asserts `toBe("HSV 0 · 1 · 1")`.
+```
+
+**Reproduction.** NONE — static, proved by the grep in the report's §D2.
+
+**Proposed cure.** Once L-17 lands the formatter lives in demo/color-session/ and is tested there, against the one implementation the whole app shares; the composable's return surface narrows to what ImageEyedropper.vue actually calls.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-9 · L
+
+**Defect.** The component imports useClipboard from the glass-ui ROOT BARREL when the composable's published home is the ./dom subpath — and on this route ./dom is already loaded, so the edge is a pure second door, not even a size trade.
+
+**Mechanism.** Root-barrel reach past a published narrow subpath — a second import path to a module the page already has. Edict 2.
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:29 `import { useClipboard } from "@mkbabb/glass-ui";`. glass-ui 7.0.0 publishes 74 subpaths; useClipboard's home is ./dom (dist/dom.js:134 exports it; dist/composables/dom/useClipboard.d.ts declares it). Measured from the live prebundle cache: `ls -la node_modules/.vite/deps/@mkbabb_glass-ui*.js` → `231357 @mkbabb_glass-ui.js` vs `4256 @mkbabb_glass-ui_dom.js` (54×). Static closure over dist/: root barrel 66 modules / 224,193 B vs dom.js 8 modules / 12,599 B. Live network on /#/gradient fetches BOTH (`@mkbabb_glass-ui.js` req #26 and `@mkbabb_glass-ui_dom.js` req #27), so dom.js is in the graph regardless. Same edge at GradientVisualizer.vue:12 (writeClipboard) and across the 19 demo/ui/* one-line barrels.
+```
+
+**Reproduction.** `ls -la node_modules/.vite/deps/@mkbabb_glass-ui*.js` for the 54× size gap; browser_network_requests(filter: glass-ui) on /#/gradient shows both chunks fetched.
+
+**Proposed cure.** `import { useClipboard } from "@mkbabb/glass-ui/dom";` — and a no-restricted-imports rule banning the bare `@mkbabb/glass-ui` group while allowing `@mkbabb/glass-ui/*`, so the class cannot recur. Which requires L-r2-1 to be fixed first.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-10 · L
+
+**Defect.** Three props where one suffices: `:stops` and `:intervals` are the identical array references already inside `:model-state`.
+
+**Mechanism.** A prop surface grown per-need instead of being the model.
+
+**Evidence.**
+
+```
+GradientVisualizer.vue:242-247 passes `:stops="stops" :intervals="intervals" :model-state="modelState"`. useGradientModel.ts:102-109 builds modelState as `{ …, stops: stops.value, intervals: intervals.value, … }` — the same references, not derived copies. GradientEasingEditor.vue:42-46 takes all three and :54-58 forwards all three as getters to useSpecimenRows, which then uses `model` for nothing but interpolationSpace/hueMethod (useSpecimenRows.ts:56-58) — while serializeIntervalRamp(modelState, …) at line 66 reads the stops back OUT of modelState.
+```
+
+**Reproduction.** Read useGradientModel.ts:102-109 against GradientVisualizer.vue:242-247 — the same two arrays arrive by two routes.
+
+**Proposed cure.** One prop: `:model="modelState"`. useSpecimenRows(model) takes one getter. Three props → one, three getters → one, and "which stops are authoritative" stops being askable.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-11 · L
+
+**Defect.** A type-level module cycle between the model, the serializer and the parser — which is why the module named for the composable also owns the types, which is why the dead re-export barrel felt necessary.
+
+**Mechanism.** Types co-located with the composable that consumes them rather than in a leaf, producing mutual reference.
+
+**Evidence.**
+
+```
+useGradientModel.ts:15 imports values from ./useGradientCSS and :16 from ./gradientParse; useGradientCSS.ts:31-34 imports types back from ./useGradientModel; gradientParse.ts:22 imports linearInterval from ./useGradientCSS and :23-27 imports types from ./useGradientModel.
+```
+
+**Reproduction.** NONE at runtime — both back-edges are `import type`, so verbatimModuleSyntax erases them; I verified this and am NOT claiming a runtime cycle. The cycle is real in the type graph only.
+
+**Proposed cure.** A leaf `model/gradient-model.ts` holding GradientStop, GradientInterval, GradientModelState, GradientType and nothing else. Everything imports down into it; nothing imports back out. The cycle and the barrel both vanish.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-12 · L
+
+**Defect.** value.js publishes BezierPresetName for exactly the cast the demo writes by hand; the demo uses it zero times and re-derives it instead.
+
+**Mechanism.** A published type name unused because the library did not also publish the typed key list that would make the cast unnecessary.
+
+**Evidence.**
+
+```
+src/subpaths/easing.ts:2 exports `BezierPresetName`. `grep -rn "BezierPresetName" demo | wc -l` → 0. easingCatalogue.ts:107 writes `bezierPresets[name as keyof typeof bezierPresets]`, where `name` comes from `Object.keys(bezierPresets)` (:178) typed string[] — so the cast is load-bearing. src/easing.ts:15 defines `BezierPresetName = keyof typeof PRESETS`.
+```
+
+**Reproduction.** The two greps above.
+
+**Proposed cure.** Export `bezierPresetNames: readonly BezierPresetName[]` from /easing alongside bezierPresets; the demo iterates it and the `as keyof typeof` cast deletes.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-13 · L
+
+**Defect.** Per-instance CSS override of the exact glass-ui variant the component is simultaneously requesting: .specimen-tile re-declares the flex/gap/padding recipe that shape="cell" already applies.
+
+**Mechanism.** A size variant of an existing root variant expressed as consumer scoped CSS. Edict 5.
+
+**Evidence.**
+
+```
+EasingSpecimenStrip.vue:98-107 passes `shape="cell"`; node_modules/@mkbabb/glass-ui/dist/components/chip/chipVariants.d.ts defines SHAPE.cell = "glass-chip--cell flex-col gap-1.5 px-2 py-2.5 text-micro". EasingSpecimenStrip.vue:163-170 then sets `display:flex; flex-direction:column; align-items:center; gap:0.125rem; padding:0.3125rem 0.375rem 0.25rem; min-width:2.75rem`.
+```
+
+**Reproduction.** Read the two blocks side by side — the seat overrides the padding and gap it just requested.
+
+**Proposed cure.** Add `xs` to Chip's SIZE map in glass-ui (BH/BI relay) and pass `size="xs" shape="cell"`. Six declarations delete here.
+
+---
+
 ## INFO
 
 ### `CHALLENGE-C — implementation defect hunt on demo/color-picke` · C-9 · CHALLENGE-C
@@ -9322,6 +17062,168 @@ shots/forced-colors-desktop/picker.png shows the aurora field, the pink glass an
 **Reproduction.** NONE — this is a hypothesis. To decide: `ENGINE=chromium node docs/tranches/V/megatranche/audit/visual/states.mjs` and compare the regenerated shots/forced-colors-desktop/picker.png against the WebKit one.
 
 **Proposed cure.** First make the state measurable: run the forced-colors matrix under Chromium (states.mjs already supports ENGINE=chromium). Then, if confirmed, the shell's own surfaces join the foundation.css:678 roster with `forced-color-adjust` handling for the canvas, so §4.1's focus-vs-selection distinctness holds in WHCM.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-16 · CHALLENGE-C
+
+**Defect.** Import hygiene: TransitionGroup is explicitly imported although <script setup> auto-resolves built-ins — proven by the same file using <Transition> without an import; and WatercolorDot bypasses the demo/ui barrel that Input/Button/Tooltip use.
+
+**Mechanism.** False dependency signal + inconsistent import discipline within one file.
+
+**Evidence.**
+
+```
+CurrentPaletteEditor.vue:172 `import { inject, ref, toRef, TransitionGroup } from "vue"` vs :57 `<Transition name="vj-enter">` with no import; :191 imports WatercolorDot from "@mkbabb/glass-ui/watercolor-dot" while :174-181 route Input/Button/Tooltip* through the demo/ui/* barrels. verbatimModuleSyntax itself is satisfied throughout — no edict-8 violation found.
+```
+
+**Reproduction.** Source read — CurrentPaletteEditor.vue:57, 172, 174-181, 191.
+
+**Proposed cure.** Drop the TransitionGroup import; route WatercolorDot through the same barrel discipline as its siblings.
+
+---
+
+### `CHALLENGE-C — implementation defects (CurrentPaletteEditor.v` · C-17 · CHALLENGE-C
+
+**Defect.** The route-level visual audit structurally cannot see this component's a11y defects: it captured /#/palettes in the EMPTY state, where the save button, the name input and the duplicate banner do not render.
+
+**Mechanism.** M5 — a gate whose fixture never reaches the state that contains the defects.
+
+**Evidence.**
+
+```
+REPORT.md:97 reports namelessButtons: 1 for /#/palettes; the captured screenshots (shots/safari-desktop-light/palettes.png, shots/safari-mobile-dark/palettes.png) show "Start a new palette" / "No saved palettes yet." The save row is v-if'd on savedColorStrings.length > 0 at CurrentPaletteEditor.vue:118, so this component contributed zero to the audit's counts — while in the populated state it adds one nameless button (C-6), one unlabeled input (C-7) and three tabbable controls inside aria-hidden (C-4).
+```
+
+**Reproduction.** Compare REPORT.json's /#/palettes a11y block against the populated-state measurements in cpe-challenge-c-probe3.mjs.
+
+**Proposed cure.** Seed a non-empty current palette (localStorage key `color-picker`.savedColors) in the visual-audit fixture before capturing /#/palettes, or the sweep will keep certifying an empty well.
+
+---
+
+### `CHALLENGE-C — implementation defects (PaletteSlugBar.vue)` · C-17 · CHALLENGE-C
+
+**Defect.** The component reaches the design system through pure pass-through shim modules (demo/ui/button, demo/ui/popover) and the root barrel, rather than glass-ui's published subpaths.
+
+**Mechanism.** shadcn-era alias files that survived the glass-ui adoption — an aliasing dual path (edict 2) and a demo/ui/ design-system layer (edict 4).
+
+**Evidence.**
+
+```
+demo/ui/button/index.ts is exactly `export { Button } from "@mkbabb/glass-ui";` and demo/ui/popover/index.ts exactly `export { Popover, PopoverTrigger, PopoverContent } from "@mkbabb/glass-ui";`; glass-ui package.json#exports publishes './button' and './popover'; SlugEditLayer.vue:4 already imports '@mkbabb/glass-ui/dock' directly. PaletteSlugBar.vue:145 takes writeClipboard from the root barrel rather than '@mkbabb/glass-ui/dom'.
+```
+
+**Reproduction.** NONE — direct file evidence; no runtime failure claimed.
+
+**Proposed cure.** Import the glass-ui subpaths directly and retire demo/ui/button and demo/ui/popover.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-9 · CHALLENGE-C
+
+**Defect.** onClearAll emits both clearColorSearch and clearFilters, and BrowsePane's clearFilters handler clears colorSearchParams a second time — the colour filter is cleared twice per click.
+
+**Mechanism.** redundant event surface — two emits expressing one intent because the state is split across the boundary (see C-8)
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:227-232 emits both; demo/palettes/BrowsePane.vue:329-332 `onClearFilters()` calls clearBrowseFilters() AND sets colorSearchParams.value = null. Measured: `emitted on clear: ["clearColorSearch","clearFilters","click"]`.
+```
+
+**Reproduction.** Mount with tier='featured', click the 'Clear all filters' button, read Object.keys(w.emitted()).
+
+**Proposed cure.** Collapse to a single `clearFilters` emit once C-8 lifts colorSearchActive into the parent; delete the clearColorSearch event from the emits declaration.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-10 · CHALLENGE-C
+
+**Defect.** Repeated Search activations with unchanged input re-emit every time, each one re-running the full OKLab distance scan over every palette and every colour in the wall. No idempotence or debounce.
+
+**Mechanism.** unguarded event emission driving an O(palettes x colours) recompute per activation
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:213-225 (no comparison against the last emitted value) driving demo/palettes/BrowsePane.vue:339-349 (`palettes.filter(... oklabColors.some(c => Math.hypot(...) <= radius))`). Measured: 5 identical clicks -> `colorSearch emissions for 5 identical clicks: 5`.
+```
+
+**Reproduction.** Mount SearchFilterBar, click the 'Search' button 5 times without touching the input, then read w.emitted()['colorSearch'].length -> 5.
+
+**Proposed cure.** Compare against the last emitted OKLab triple and no-op when unchanged; small today, but it is the shape that does not survive a larger wall.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-11 · CHALLENGE-C
+
+**Defect.** The filter popover can neither shrink nor scroll: max-height is none, overflow-y is visible, and there is no floating-ui `size` middleware — so once the tag list and the Clear-all row are present the content is projected to exceed a phone viewport with no way to reach the bottom.
+
+**Mechanism.** popover sized by content with collision handling that can shift but not resize — no size middleware, no max-height, no inner scroll container on the content root
+
+**Evidence.**
+
+```
+Measured live at 390x664 with the tag section absent: dialog height 441.5px; on the popover root `overflowY: "visible"`, `maxHeight: "none"`, `scrollHeight: 439` === `clientHeight: 439` (no inner scroll). Arithmetic: the tag block adds max-h-28 = 112px plus its section label and padding (~43px) and the Clear-all row adds ~44px -> ~640px against a 664px viewport.
+```
+
+**Reproduction.** NONE — labelled a HYPOTHESIS. Not reproduced because the live tag catalog is empty (`curl -s https://api.color.babb.dev/colors/tags` -> `[]`), so the tag block never renders. Separately I observed one transient 81.5px bottom overflow (dialog y=304, height 441.5, bottom 745.5 vs viewport 664) which floating-ui's collision shift then resolved to a fitting position — that transient is NOT reported as a defect.
+
+**Proposed cure.** Give the popover content a `max-height: var(--reka-popover-content-available-height)` with `overflow-y: auto` on the content root (root-level, in the glass-ui PopoverContent variant rather than as a per-instance override), so the panel scrolls instead of clipping regardless of tag count.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-12 · CHALLENGE-C
+
+**Defect.** An inert single-child flex wrapper and a dead Tailwind @reference directive.
+
+**Mechanism.** vestigial scaffolding — layout and build directives retained past the structure that justified them
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:2 `<div class="flex items-center gap-1.5">` wraps exactly one child (the Popover), so gap-1.5 and items-center compute nothing. Line 236 `@reference "../../../styles/foundation.css"` opens a scoped block that uses no @apply and no theme() — only `var(--font-serif)`, `var(--type-small)`, `var(--radius-md)`, `var(--duration-fast)`, `var(--ease-standard)`, `color-mix(...)`.
+```
+
+**Reproduction.** NONE — static reading of the template root and the scoped style block.
+
+**Proposed cure.** Drop the wrapper div (the Popover can be the component root) and delete the @reference line.
+
+---
+
+### `CHALLENGE-C — implementation defects (SearchFilterBar.vue, a` · C-13 · CHALLENGE-C
+
+**Defect.** Mixed emit idiom and a needless coercion: the template calls $emit(...) for sort and tier while the script holds a typed `emit` used everywhere else, and String(v) coerces a value the type system already guarantees is a string here.
+
+**Mechanism.** idiom drift within a single file — two ways to say the same thing, plus a defensive coercion with no reachable non-string input
+
+**Evidence.**
+
+```
+demo/palettes/browser/search/SearchFilterBar.vue:21 and :33 use `$emit`, against the typed `const emit = defineEmits<{...}>()` at line 154 used at lines 186, 202, 221, 230-231. `SelectionValue` is `string | number` per node_modules/@mkbabb/glass-ui/dist/components/_shared/selection.d.ts, and every option value declared at lines 163-167 and 35/39 is a string literal.
+```
+
+**Reproduction.** NONE — static reading.
+
+**Proposed cure.** Use the typed `emit` uniformly and drop String(v); if the union genuinely needs narrowing later, narrow it at the handler signature rather than coercing at the call site.
+
+---
+
+### `CHALLENGE-C — implementation defects in `demo/palettes/Brows` · C-18 · CHALLENGE-C
+
+**Defect.** NEGATIVE PROOF (not a defect): BrowsePane's a11y-geometry contribution is zero, and the classic local hazard classes are genuinely absent.
+
+**Mechanism.** n/a
+
+**Evidence.**
+
+```
+probe-C-live-r2.mjs on a fully-loaded 50-card wall: `"smallTapTargets": [], "namelessButtons": 0, "operableControls": 103, "overflowX": 0`. REPORT.json shows the SAME 4 small targets on all 15 routes (`input 160x20 ''`, `button 23x23 'Switch to slug'|'Generate new slug'|'Cancel'`) — the dock slug widget. Source read: no ValueUnit wrapping, no defineModel, no requestAnimationFrame, no WebGL, no observers/timers/listeners; `import type { Palette, Tag }` at :197 honours verbatimModuleSyntax.
+```
+
+**Reproduction.** n/a — this is the measured negative. Keyboard reachability deliberately NOT assessed (MT-F022: the 7/12 Chromium gap is roving-tabindex-shaped and needs a two-engine proof this seat did not run).
+
+**Proposed cure.** n/a — do not born-RED tap targets or accessible names against this component.
 
 ---
 
@@ -9397,6 +17299,96 @@ shots/forced-colors-desktop/browse.png is visually indistinguishable from shots/
 
 ---
 
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-18 · CHALLENGE-D
+
+**Defect.** HYPOTHESIS — the swatch leave-transition's containing block is the entire pane Card, not the well
+
+**Mechanism.** M7 — geometry authored against an unpositioned ancestor; risk to stacking and clipping, not (observed) to placement
+
+**Evidence.**
+
+```
+demo/styles/utils.css:177-179 sets `.swatch-row > .vj-enter-leave-active { position: absolute; }`. Measured (probe-D3.json → structural): `.swatch-row` computes position "static" and its offsetParent is `DIV.glass-resting card rounded-card …` — the whole PalettesPane Card. With auto insets the leaving box keeps its static position, so NO jump was observed. Same class: .edit-overlay (:295-311) uses physical left/margin-left/transform-origin: top left, which do not mirror under RTL — the RTL run mirrored the swatch row correctly (add slot x 1057.5 → 334.5) but the overlay could not be exercised.
+```
+
+**Reproduction.** NONE — this is a hypothesis. The only path that removes a swatch is the dead hover menu (D-2), so the leave transition cannot be triggered at HEAD. (Note: the single pageError in probe-D.json's five-rtl scenario is MY init script running before documentElement existed, not an application defect; it is not counted.)
+
+**Proposed cure.** Give .swatch-row `position: relative` so the leaving swatch's containing block is the row it is leaving; re-verify once D-2 restores a working remove path.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.11 · CHALLENGE-D
+
+**Defect.** Round 1's D-01 (one Retry click permanently blanks the pane via mode="out-in") is structurally corroborated: the state container has no height reserve at exactly the moment it is empty.
+
+**Mechanism.** DOM presence made a function of an animation clock, with the reserve attached to the branch rather than to the container that outlives both branches.
+
+**Evidence.**
+
+```
+BrowsePane.vue:29 the state container is `<div class="grid gap-3 pb-3">` with no min-height; the only reserve, `min-h-[120px]`, lives ON PaletteCardGrid (demo/palettes/browser/card/PaletteCardGrid.vue) which is unmounted during the leave of a mode="out-in" swap. Round 1 measured the blank window to 25ms twice with screenshots in ./evidence/.
+```
+
+**Reproduction.** NONE re-run by Round 2 — I did not re-measure the blank window; Round 1's reproduction stands and this is the structural half of the same cure.
+
+**Proposed cure.** Stop animating branch identity (cross-fade content in one persistent region), and put the reserve on the container that survives both branches rather than on a branch.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R2.12 · CHALLENGE-D
+
+**Defect.** The `Featured` badge runs an infinite 5s shimmer with no pause control.
+
+**Mechanism.** A decorative sweep declared with infinite iterations on a static status badge.
+
+**Evidence.**
+
+```
+Live getAnimations(): {n:"metal-shimmer-sweep", iterations:null, duration:5000, target:"badge-atom inline-flex items-c..."}. VISUAL-CONSTITUTION.md §6: continuous ambient motion "terminates within five seconds or exposes one persistent keyboard-operable still/pause control whose state is announced and remembered".
+```
+
+**Reproduction.** Populated #/browse (the Neon Cyberpunk row carries the badge); read document.getAnimations(). Correctly PRM-gated: absent under reducedMotion:"reduce".
+
+**Proposed cure.** Terminate the sweep after its entrance, or move it to the producer's pausable ambient register. Owned by PaletteCard/badge-atom, not BrowsePane; filed here because Browse is the surfacing route.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-15 · CHALLENGE-D
+
+**Defect.** Even if it were remounted, its topology is not the Account composition the constitution ratifies — it is an inline identity strip in the Library body, with no recovery-credential-rotation affordance and no secret-retention region, plus a hover Popover that explains rather than affords.
+
+**Mechanism.** pre-constitutional composition superseded by a ratified topology it was never migrated onto
+
+**Evidence.**
+
+```
+VISUAL-CONSTITUTION.md §7 (Account and storage recovery): "Account is one modal side Dialog opened from the Dock, not a route chassis or second main. It owns registration/recovery when signed out and identity, recovery-credential rotation and logout when active; secret retention temporarily replaces its action region... W23 owns the rendered composition and journey while W15 supplies auth/outbox state." PaletteSlugBar.vue:2 is a flex strip; there is no rotation control and no secret-retention region anywhere in the file. PROPORTION-AUDIT.md §5.6: "do not compensate for an unnecessary action with tooltip proliferation. Subtraction precedes explanation" — vs the w-56 hover card at :54-59 on a cursor-help span explaining what a slug is.
+```
+
+**Reproduction.** Read VISUAL-CONSTITUTION.md §7 and PROPORTION-AUDIT.md §5.6 against PaletteSlugBar.vue:2, :54-59, and the absent rotation/secret-retention affordances.
+
+**Proposed cure.** Deletion (D-1). The composition W23 owns replaces it; remounting would install a shape the constitution has already superseded.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-16 · CHALLENGE-D
+
+**Defect.** RETRACTED FINDING, recorded because the retraction is evidence. I flagged `border-muted-foreground` (:65) as a dead Tailwind class — both live siblings pointedly avoid it with inline styles, which reads exactly like a routed-around broken idiom. Measurement disproved it. The surviving design observation is that the admin state renders grey here while the ratified successor gives admin the gold identity.
+
+**Mechanism.** divergent state treatment between an orphan and its successor — and, for the retracted arm, inference-from-siblings standing in for measurement
+
+**Evidence.**
+
+```
+Live measurement in the running document: withBothClasses → border rgb(124,102,80) / color rgb(124,102,80); onlyTextMuted → border rgb(198,180,159); onlyBorderMuted → border rgb(124,102,80) / color rgb(28,25,23). The class resolves — RETRACTED. Surviving observation: PaletteSlugBar.vue:63-68 renders admin as `text-muted-foreground border-muted-foreground` (grey), while ProfileSection.vue:96 renders it `class="slug-pill cursor-default whitespace-nowrap gold-shimmer" style="border-color: var(--color-gold); color: var(--color-gold)"` — the ratified gold identity (owner feedback: "golden shimmer pill"). Two admin identities in one codebase; the orphan has the un-designed one.
+```
+
+**Reproduction.** Inject the three class combinations into a .app-layout host on http://localhost:9000 and read getComputedStyle().borderTopColor — values above. The retraction is fully reproducible.
+
+**Proposed cure.** None for the retracted arm. For the surviving arm: the admin identity is one composition (gold-shimmer, --color-gold) owned at the root, not two per-surface improvisations — D-1's deletion resolves it.
+
+---
+
 ### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-13 · CHALLENGE-L
 
 **Defect.** The mega-tranche visual audit has zero coverage of this component: all 60 captures rendered its hosts empty, so the greens on /#/palettes, /#/browse and /#/mix are false negatives for PaletteCard.
@@ -9466,6 +17458,60 @@ BrowsePane.vue:211-220 — the comment admits `/colors/tags` "can resolve an obj
 **Reproduction.** sed -n '210,220p' demo/palettes/BrowsePane.vue
 
 **Proposed cure.** Normalize (or validate) in demo/palettes/api/colors.ts so allTags is honestly Tag[]. The cast, the widening and the whole computed then disappear from the component.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · N-5 · CHALLENGE-L
+
+**Defect.** Two published subpaths of the library have zero demo consumers — two-sevenths of the public surface has no integration dogfood.
+
+**Mechanism.** public surface without integration proof — the demo is the repo's only end-to-end proof of the export map, so an unconsumed subpath is asserted only by its own unit tests
+
+**Evidence.**
+
+```
+grep -rho 'from "@mkbabb/value.js/[a-z]*"' demo/ | sort | uniq -c | sort -rn → color 24, css 10, math 6, easing 5, quantize 4. package.json#exports publishes 7 subpaths: ./color ./value ./css ./easing ./math ./transform ./quantize. ./value and ./transform: 0 hits.
+```
+
+**Reproduction.** The grep above, run against demo/ at HEAD c654824e.
+
+**Proposed cure.** Either consume ./value and ./transform somewhere real in the demo (the transform subpath has obvious uses in the picker/workbench motion paths) or record explicitly in the export map's own documentation that they are library-internal-for-now — an export nobody integrates is a claim nobody has tested.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-12 · CHALLENGE-L
+
+**Defect.** Vestigial single-child flex root; the component's name no longer describes what it is (a single popover trigger, not a bar).
+
+**Mechanism.** Residue of an earlier multi-control bar; the wrapper outlived its contents.
+
+**Evidence.**
+
+```
+SearchFilterBar.vue:2 `<div class="flex items-center gap-1.5">` wraps exactly one child, the <Popover> at :3-123. A flex container with gap and one item is a no-op; it also blocks attribute fallthrough to the trigger.
+```
+
+**Reproduction.** Read SearchFilterBar.vue:2-123 — one child element.
+
+**Proposed cure.** Drop the wrapper, make <Popover> the root, and rename to FilterMenu.vue as part of the L-4 lattice move.
+
+---
+
+### `CHALLENGE-L — library structure: module boundaries, ownershi` · L-9b · CHALLENGE-L
+
+**Defect.** The client re-derives the SERVER-owned slug format with a hand-written regex, duplicated in two files, with no shared constant and no contract test. Currently sound — no failing input exists at HEAD — so this is filed as a labelled hypothesis, not a live bug.
+
+**Mechanism.** a format contract owned by the server, re-implemented client-side without a shared definition or a test pinning the two together
+
+**Evidence.**
+
+```
+PaletteSlugBar.vue:185 === SlugEditLayer.vue:26: /^[a-z]+-[a-z]+-[a-z]+-[a-z]+$/. Server authority api/src/modules/session/slugWords.ts:84-90 generateSlug() = `${adj}-${verb}-${color}-${animal}`. I scanned every word literal in that file: total 515, failing /^[a-z]+$/ = ["node:crypto","findBySlug","Failed to generate unique slug after max retries"] — i.e. all 512 real words pass. No live bug.
+```
+
+**Reproduction.** NONE — this is a hypothesis. No input at HEAD exhibits it. The failure would require a hyphenated or non-[a-z] word added to any of the four server word lists (e.g. "off-white"), after which a legitimate slug would classify as an ADMIN TOKEN and route to adminLogin instead of userLogin.
+
+**Proposed cure.** Single-source the shape in demo/platform/auth/slugFormat.ts (SLUG_SEGMENTS + isSlug), and add a contract test that imports api/src/modules/session/slugWords.ts and asserts generateSlug() satisfies isSlug() across N samples — which turns a latent format drift into a red test.
 
 ---
 
@@ -9595,6 +17641,42 @@ ConfigSliderPane.vue:98 `<div class="relative w-full mx-auto h-full min-w-0">` a
 
 ---
 
+### `CHALLENGE-C — implementation (pass 4, independent seat) · su` · C-37 · CHALLENGE-C
+
+**Defect.** Negative proofs — six suspicions raised by the challenge premise that were measured and died. Recorded so a fifth seat does not re-spend the probes.
+
+**Mechanism.** n/a — these are the measured absences of defects, reported for honesty under a 'the implementation is defective' premise.
+
+**Evidence.**
+
+```
+(1) R1 parseCssColor crash class does not reach the dock: 8 malformed ?color= values (oklch(), oklch(NaN NaN NaN), rgb(, color(display-p3 1 0), lab(Infinity 0 0), hsl(0 0% -0%), %%%, empty), fresh context each — every row `{"pageErrors":0,"bandChildren":20,"dockPresent":true,"mainPresent":true}`. (2) Action-bar layer v-if teardown while ACTIVE (location.hash → #/admin/users with the Tools layer open) recovers to main, faceCount 4→3, `pageErrors: []`, restores on return. (3) Zero CanvasRenderingContext2D.getImageData calls across 10 discrete colour changes — the useContrastSafeColor ink probe is properly cached (dock-band mutations 310, ≈31/change). (4) DockControl forwards `type` (dist/dock.js `type: { default: "button" }`), so SlugEditLayer.vue:93's type="submit" is a real submit. (5) ActionBarToggle's hand-rolled `.is-active` hits a real producer rule (icon-button.css `&:is(.is-active,.active,[aria-expanded="true"],[aria-pressed="true"])`). (6) App.vue:32-33's subtree-wide @transitionend.capture/@animationend are guarded (useDockArrival.ts:29-45), so the dock-settle beat cannot re-trigger boot work.
+```
+
+**Reproduction.** scratchpad/p4-edge.mjs (1,2), p4-perf.mjs (3), source reads (4,5,6).
+
+**Proposed cure.** None required. Keep (1) and (2) as the regression floor if the parser band lands its cure.
+
+---
+
+### `CHALLENGE-C — implementation (pass 4, independent seat) · su` · C-38 · CHALLENGE-C
+
+**Defect.** Observation (scoped OUT of this component): the atmosphere field canvas that the dock's sampler is meant to read has a 300x150 UA-default backing store while CSS-stretched to the full viewport, on a webgl2 context.
+
+**Mechanism.** Unverified whether useAtmosphere resizes the drawing buffer later or renders deliberately at low resolution — I did not trace it, so this is a hypothesis about the atmosphere, not a finding about the dock.
+
+**Evidence.**
+
+```
+scratchpad/p4-backdrop.mjs: `{"autoDiscoverWouldFind":true,"canvasSize":"300x150","canvasCtxKind":"webgl2"}` on 3/3 routes; the element is App.vue:11 `class="atmosphere-canvas absolute inset-0 w-full h-full …"`.
+```
+
+**Reproduction.** NONE (labelled hypothesis; the measurement above is real, the defect interpretation is not established).
+
+**Proposed cure.** Sequence it before C-32's cure: after threading :background-canvas, assert the sampler reaches data-backdrop-sample-state="sampled" rather than trading source-unavailable for sample-unavailable (a WebGL2 surface without preserveDrawingBuffer reads back blank).
+
+---
+
 ### `CHALLENGE-C — implementation (third independent pass on demo` · C-28 · CHALLENGE-C
 
 **Defect.** `ActionBarToggle`'s `slotLive` early return makes the watch's re-arm dead code: on a later false->true edge `settled` is never restored by the watch, and the invariant the O-15b oracle asserts is held only by an unacknowledged `transitionend` side channel.
@@ -9646,6 +17728,24 @@ Deleting `<SelectValue v-if="isDesktop" />` (demo/shell/dock/DockViewSelect.vue:
 **Reproduction.** Run the two greps above against the file at HEAD.
 
 **Proposed cure.** The fold owner should either recover the Pass-2 body or correct the banner. Not repaired here: inventing or renumbering another seat's findings would be worse than the gap, and pass-3's write scope is this file only.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/shell/dock/` · D-15 · CHALLENGE-C
+
+**Defect.** A re-provide justified in-comment as back-compat, plus an unnamed DI failure mode from a non-null assertion.
+
+**Mechanism.** DI boundary framed as back-compat rather than as architecture, and an unnamed crash where the producer demonstrates a named one.
+
+**Evidence.**
+
+```
+ActionBarLayer.vue:21-22 — `// Re-provide COLOR_MODEL_KEY so ColorInput works unchanged` / `provide(COLOR_MODEL_KEY, actionBar.colorModel);` — a compatibility shim by its own admission (edict 2). ActionBarLayer.vue:24 — `const safeAccent = inject(SAFE_ACCENT_KEY)!;` asserts non-null, so an absent provider surfaces as `Cannot read properties of undefined (reading 'value')` inside a render function. The producer this file already imports from models the alternative: node_modules/@mkbabb/glass-ui/dist/dockContext-BUTlGRNJ.js throws "[glass-ui:dock] useDockContext() called outside <GlassDock>; use useOptionalDockContext() if the primitive may render outside a dock."
+```
+
+**Reproduction.** NONE for the inject assertion — no path was found that mounts ActionBarLayer outside the SAFE_ACCENT_KEY provider. HYPOTHESIS. The comment at line 21 is quoted verbatim from source.
+
+**Proposed cure.** Reframe the provide as the component's DI boundary (or pass the model to ColorInput as a prop, retiring the re-provide). Replace the `!` with a named-throw accessor in color-session/keys.ts, mirroring glass's useDockContext/useOptionalDockContext pair.
 
 ---
 
@@ -9718,6 +17818,132 @@ src/css/grammar.ts:181 `splitTopLevel(slash[0]!.replace(/,/g, " "), "space")` �
 **Reproduction.** Open the field, type `oklch()`, press Enter: the badge reads 'not a valid color' while page errors remain empty; the TypeError from grammar.ts:181 never reaches any reporter.
 
 **Proposed cure.** Fix the false non-null assertion at the source (grammar.ts:181 must return a typed failure for an empty body), and narrow the consumer catch so a thrown non-parse error is re-raised/reported rather than rendered as user-facing invalid input.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-12 · CHALLENGE-D
+
+**Defect.** The demo's global reduced-motion transition guard is inert app-wide; the producer's rule wins, so this component's PRM behaviour is accidental rather than designed.
+
+**Mechanism.** A `*`-selector `!important` guard in consumer CSS outranked by a producer `!important` rule at higher specificity — so the consumer's declared PRM policy for transitions has no effect anywhere in the app.
+
+**Evidence.**
+
+```
+Measured under `reducedMotion: "reduce"`, frames/r3probe3.json: `transitionDuration: "0.1s"`, `animationDuration: "1e-05s"`, with matching rules `{sel: ":not([data-allow-motion])", media: "(prefers-reduced-motion: reduce)", td: "0.1s", imp: "important"}` (glass-ui, specificity 0,1,0) and `{sel: "*, ::before, ::after", td: "0.01ms", imp: "important"}` (demo/styles/animations.css:184-193, specificity 0,0,0). The producer rule wins. This CORRECTS round-2 section 5, which credited compliance to the demo guard.
+```
+
+**Reproduction.** Launch with `prefers-reduced-motion: reduce`, open the field, read `getComputedStyle(el).transitionDuration` — 0.1 s, not the 0.01 ms the demo guard declares. Animations still resolve to 1e-05s, so the guard is live for `animation-duration` only.
+
+**Proposed cure.** Delete the consumer's blanket transition arm and defer to the producer's PRM register, or raise the guard's specificity deliberately — but do not ship a rule the codebase believes is authoritative and is not. (Outcome here is benign: a 100 ms colour transition is appropriate under reduced motion.)
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · R3-13 · CHALLENGE-D
+
+**Defect.** The component root is contrivance: three of the five utilities on it can never apply.
+
+**Mechanism.** Layout utilities applied speculatively rather than to a measured need. Owner edict 3 (KISS, no contrivance).
+
+**Evidence.**
+
+```
+ColorInput.vue:2 `<div class="grid grid-cols-1 gap-y-2 p-0 m-0">`. Measured, frames/r3probe3.json -> chain: the element has exactly one child (`DIV.relative w-full flex items-center`), both 324.7 px wide. A single-child single-column grid can never apply `gap-y-2`; `p-0 m-0` reset properties already at zero.
+```
+
+**Reproduction.** Inspect `.grid.grid-cols-1.gap-y-2` in the live DOM: `children.length === 1`; removing `gap-y-2 p-0 m-0` produces a pixel-identical render.
+
+**Proposed cure.** Delete the wrapper entirely — the component's single root is the `relative flex` div, which is also where the parent's `class="min-w-0"` and the dock's `dock-layer is-active` need to land by fallthrough.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D3-11 · CHALLENGE-D
+
+**Defect.** INFO: forced-colors is a false green in the state matrix — the capture is not a forced-colors frame, so no seat in any round has verified this component under forced colors.
+
+**Mechanism.** State-matrix harness run on an engine that cannot produce the state it names, producing a green row for an unrun test.
+
+**Evidence.**
+
+```
+`docs/tranches/V/megatranche/audit/visual/shots/forced-colors-desktop/picker.png` read as an image is a full-colour render, identical in character to `safari-desktop-light/picker.png`; WebKit does not emulate `forced-colors`. Obligations left unverified: VISUAL-CONSTITUTION.md:82-84 'Selected, failed, pending, withdrawn and disabled states are never color-only' and 'Focus remains visibly distinct from selection in both schemes, forced colors and reduced transparency', plus §4.2's requirement of nonzero selected/focus deltas in forced colors.
+```
+
+**Reproduction.** Read docs/tranches/V/megatranche/audit/visual/shots/forced-colors-desktop/picker.png as an image and compare against shots/safari-desktop-light/picker.png — the glass, the pink field and the accent inks are all present.
+
+**Proposed cure.** Re-run the forced-colors and keyboard state matrices under Chromium (`ENGINE=chromium`), which supports `forcedColors: "active"`, and re-file this row as measured pass or fail. Until then the row must read UNTESTED, not handled.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-17 · CHALLENGE-D
+
+**Defect.** A dead prop crossing the component seam: `ActionToolbar` declares `canProposeName` as a required prop and its template never references it, while ActionBarLayer dutifully passes it.
+
+**Mechanism.** prop retained after the logic that consumed it moved to the parent
+
+**Evidence.**
+
+```
+demo/shell/dock/ActionToolbar.vue:72 (`canProposeName: boolean;` in defineProps) with no reference anywhere in its template (lines 1-63); demo/shell/dock/layers/ActionBarLayer.vue:106 `:can-propose-name="actionBar.canProposeName.value"`. Confirmed by `grep -rn "canProposeName|can-propose-name" demo/`.
+```
+
+**Reproduction.** NONE needed — static; the grep output enumerates every occurrence.
+
+**Proposed cure.** Delete the prop from ActionToolbar and the binding at ActionBarLayer.vue:106.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-17 · CHALLENGE-D
+
+**Defect.** Two v-model idioms coexist in one 162-line component and `update:open` is declared twice.
+
+**Mechanism.** redundant declaration plus two conventions for the same job in one file
+
+**Evidence.**
+
+```
+demo/shell/dock/DockViewSelect.vue:25-33: defineEmits declares both `update:modelValue` and `update:open`, then `const open = defineModel<boolean>("open", { default: false })` registers the `open` prop and the `update:open` emit again. Meanwhile modelValue uses a manual `emit(...)` with a hand-written `as string` cast at :55.
+```
+
+**Reproduction.** read lines 25-33 and 55 together.
+
+**Proposed cure.** Pick one idiom. Convert modelValue to `defineModel<string>()` and delete the manual emit, the `as string` cast, and the now-redundant `update:open` entry in defineEmits.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-18 · CHALLENGE-D
+
+**Defect.** Eight of fifteen enumerated states are unhandled or visually broken: empty, loading, error, disabled, focused, selected, overflow/truncation, RTL, forced-colors and 200% zoom.
+
+**Mechanism.** the component was designed for one state (populated, desktop, LTR, pointer, light) and the remainder were never composed
+
+**Evidence.**
+
+```
+Template read plus measurement. empty: `v-for="entry in viewEntries"` (line 92) with no v-else. loading: `pm.isAdminAuthenticated` resolves async so the admin row pops in untransitioned. error: `inject(SESSION_PORT_KEY)!` (line 35) is a non-null assertion with no fallback — a missing provider is a render crash. disabled: never passed although the producer supports and styles it (`data-[disabled]:opacity-disabled`). focused: D-1 measured box-shadow none / outline none. selected: D-3 measured zero delta. overflow/truncation: line 69 removes the producer clamp and supplies nothing. RTL: D-8 measured direction ltr inside dir=rtl. forced-colors: selection delta 0 and the trigger glyph keeps its custom olive instead of adopting the system palette (scratchpad/D2-forced-colors.png). zoom 200%: D-4 measured label "".
+```
+
+**Reproduction.** per-state repros are given in D-1, D-3, D-4, D-8; empty/loading/error/disabled are source reads with no rendered branch to observe.
+
+**Proposed cure.** Compose the missing states before restyling the handled one: an empty branch, a disabled pass-through to the producer, an injected-port failure path instead of `!`, and a truncation rule to replace the clamp that line 69 deletes. The seat brief's own rule applies — a state that was never designed is a design defect, and this component has eight.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-19 · CHALLENGE-D
+
+**Defect.** The `Palettes` pastel-rainbow identity coordinate renders as a dark, 80-degree, near-two-tone magenta wash rather than the pastel rainbow the constitution names.
+
+**Mechanism.** upstream: the WCAG 4.5:1 text floor in the palettes-ramp resolver pushes L to 0.47, which is a dark tone, not a pastel; the 3 stops span only 80 degrees so no rainbow reads at 85px
+
+**Evidence.**
+
+```
+DockViewSelect.vue:116 applies `.palettes-ramp-text` (demo/styles/utils.css:192). Measured live resolution: `linear-gradient(90deg, oklch(0.470927 0.188343 329.834), oklch(0.470927 0.188343 9.834), oklch(0.470927 0.188343 49.834))` with background-clip:text, color:transparent — L 0.4709 across an 85px word spanning 80 degrees of hue. VISUAL-CONSTITUTION.md:17 files it under "Watercolor/data ... pastel Palettes identity" and :23 calls it "the pastel-rainbow identity" with W19 owning the Dock witness. Rendered result in scratchpad/D-dock-open-light.png reads as one magenta-to-purple gradient.
+```
+
+**Reproduction.** open the dock view menu and read getComputedStyle on span.palettes-ramp-text -> the three-stop gradient above. Repro script: scratchpad/D-dvs-probe2.mjs (geometry.ramp).
+
+**Proposed cure.** Owner is upstream (demo/color-session/palettes-ramp.ts + useViewAccents), not this file. Either widen the arc and lift lightness so the coordinate actually reads as the pastel rainbow the constitution names, or amend the constitution's wording to match what the contrast floor permits — the two must not disagree while W19 owns this witness.
 
 ---
 
@@ -9847,6 +18073,96 @@ viewSchema.ts:66-79 documents `accentHueShift` as feeding a resolver that 'write
 
 ---
 
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-39 · CHALLENGE-L
+
+**Defect.** The only place the exposure-not-provision decision (the root cause of L-1/L-35) is written down names a component that no longer exists.
+
+**Mechanism.** Stale identifier in a load-bearing contract comment; a reader searching for the rationale cannot grep it to a file.
+
+**Evidence.**
+
+```
+demo/picker/ColorPicker.vue:311 `// --- Action bar context for TopDock (exposed, not provided — TopDock is a sibling) ---`. No `TopDock` file exists; the component is demo/shell/dock/Dock.vue.
+```
+
+**Reproduction.** `grep -rn TopDock demo/` -> comment hits only, no component.
+
+**Proposed cure.** Rewrite the comment at the same commit that lands L-1/L-35, stating the new contract (panes register commands; the dock injects a registry).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-14 · CHALLENGE-L
+
+**Defect.** Parent-edge dual path to the producer's dock kit, plus a genuine module cycle.
+
+**Mechanism.** A barrel whose only content is re-exported producer symbols creates a second specifier for one surface and a self-referential module edge. (Cycle credited to the Dock seat, shell-dock-dock/challenge-L-library.md L-11.)
+
+**Evidence.**
+
+```
+demo/shell/dock/index.ts re-exports `GlassDock, DockLayerGroup, DockLayer` from "@mkbabb/glass-ui/dock" and also `export { default as Dock } from "./Dock.vue"`. Dock.vue:4 imports those three from "./" while Dock.vue:5 imports DockControl/DockSeparator directly from "@mkbabb/glass-ui/dock", and ActionBarLayer.vue:8 also imports directly. Cycle: Dock.vue → ./index.ts → Dock.vue.
+```
+
+**Reproduction.** cat demo/shell/dock/index.ts; head -6 demo/shell/dock/Dock.vue.
+
+**Proposed cure.** Delete demo/shell/dock/index.ts; import glass symbols directly from @mkbabb/glass-ui/dock everywhere.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-15 · CHALLENGE-L
+
+**Defect.** Directory inversion: both leaves live one level ABOVE their only consumer.
+
+**Mechanism.** The physical tree asserts a sharing that does not exist; the module lattice does not match the consumer graph.
+
+**Evidence.**
+
+```
+`grep -rn "ColorInput" demo/ | grep -v "^demo/shell/dock/ColorInput.vue"` → only ActionBarLayer.vue (:7, :28, :115). `grep -rn "ActionToolbar" demo/ | grep -v "^demo/shell/dock/ActionToolbar.vue"` → only ActionBarLayer.vue (:6, :29, :102). Both sit in demo/shell/dock/ as if they were shared dock furniture.
+```
+
+**Reproduction.** The two greps above.
+
+**Proposed cure.** Colocate both under demo/shell/dock/action-bar/ beside their only parent (see the greenfield lattice in the report).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-16 · CHALLENGE-L
+
+**Defect.** The component has ZERO visual-audit coverage — its whole surface sits behind two disclosures and appears in none of the 60 matrix captures.
+
+**Mechanism.** A disclosure-gated surface is structurally invisible to a rest-state screenshot matrix, so no screenshot gate can protect it.
+
+**Evidence.**
+
+```
+docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/picker.png (read as an image) shows the dock at rest as `Home ⌄ | Tools → | Login | @mbabb` — the action-bar layer is behind [aria-label="Toggle action bar"] then [aria-label="Open color input"]. REPORT.md's only indirect row is `namelessButtons safari-desktop-light /#/: 1` (ColorInput's send button, in the DOM but never on screen), and there is NO /#/ namelessButtons row for either mobile matrix.
+```
+
+**Reproduction.** Read the image above and grep REPORT.md's namelessButtons section for `/#/` rows.
+
+**Proposed cure.** The component's born-RED gates must be DRIVEN probes (two clicks behind the disclosures) rather than matrix diffs — see gates G-L4/G-L5 in the report. ActionBarLayer is also ColorInput's ONLY mount site, so ColorInput's mobile-absence cure must land in this file.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-12 · CHALLENGE-L
+
+**Defect.** The SSOT's own field documentation describes machinery its only consumer declares dead.
+
+**Mechanism.** Documentation drift in the single-source-of-truth file, one tranche behind its consumer. Harmless at runtime but it actively misleads the next reader about where the nav taxonomy lives — which is how the duplication in L-2 regrew.
+
+**Evidence.**
+
+```
+viewSchema.ts:66-79 describes accentHueShift as feeding a resolver that "writes --accent-view-<id>/--accent-view as static root tokens" for "nine primary views" — a nine the dock has never had (userViews is 7). useViewAccents.ts:19-26 states the opposite: "THE T-10 EXCISE ... the NINE per-view static tokens (--accent-view-<id>), their resolveViewAccentTokens batch resolver, and the PRIMARY_VIEW_IDS/PRIMARY_VIEW_SHIFTS machinery are DEAD".
+```
+
+**Reproduction.** sed -n '66,79p' demo/shell/viewSchema.ts vs sed -n '19,26p' demo/color-picker/composables/boot/useViewAccents.ts.
+
+**Proposed cure.** Rewrite the accentHueShift doc comment to name the live consumer and the live token set when the `nav` field lands. (Scoped styling itself is clean and needs no change: .gold-shimmer-icon and .palettes-ramp-text are global recipes at demo/styles/utils.css:162 and :192 — edicts 5 and 6 satisfied; --accent-view is genuinely @property-registered at demo/styles/foundation.css:192, so the scoped `transition: --accent-view` at DockViewSelect.vue:160 is legitimate and correctly bounded.)
+
+---
+
 ### `CHALLENGE-L — library structure / module boundaries / owners` · L-22 · CHALLENGE-L
 
 **Defect.** The demo's declared view of the published library surface has drifted from `package.json#exports`: tsconfig.demo.json maps a nonexistent `dist/index.d.ts`, declares two subpaths that are not exported, and omits two that are — while calling itself a mirror of the generated Vite alias set.
@@ -9862,6 +18178,60 @@ viewSchema.ts:66-79 documents `accentHueShift` as feeding a resolver that 'write
 **Reproduction.** NONE — latent, not live. No demo file imports the bare `@mkbabb/value.js` specifier (`grep -rn '@mkbabb/value.js"' demo` -> the only hit is prose at demo/shared/utils.ts:12), and glass-ui's three specifiers (/color, /css, /easing, measured in its dist) are all covered by the generated alias set, so one instance serves the running app. Were the bare specifier ever written it would resolve to node_modules/@mkbabb/value.js@4.0.0 — the published copy npm installed for glass-ui's peer dep — a second instance of this library behind an undeclared specifier.
 
 **Proposed cure.** Generate the tsconfig `paths` from `package.json#exports` exactly as the Vite aliases already are (one loader, one source of truth), or add a real `"."` export plus `dist/index.d.ts`. Either way the two declarations of the public surface cannot drift apart again — this is the axis T.W1's dogfood keystone was fought over.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-15 · CHALLENGE-C
+
+**Defect.** The visual audit never renders this component, so its zero-defect record on /#/extract is vacuous — the overlay only mounts after a pointer click that follows an upload, which the capture harness never performs.
+
+**Mechanism.** capture harness reaches only default route state; interaction-gated overlays are structurally invisible to it
+
+**Evidence.**
+
+```
+docs/tranches/V/megatranche/audit/visual/REPORT.json, /#/extract, all four Safari matrices: counts.canvas = 1 (the atmosphere field only — the eyedropper's two canvases are absent). shots/zoom-200-desktop/ contains adminusers, blob, browse, gradient, picker — no extract. The 3 namelessButtons and 6 smallTapTargets recorded on /#/extract are other components' (JSON lists input 160×23, three 22×22 buttons 'Switch to slug'/'Generate new slug'/'Cancel', two span 12×24 slider labels). ExtractWorkbench.vue:25,173-180 shows the pointer-gated mount.
+```
+
+**Reproduction.** grep the REPORT.json rows for /#/extract: canvas count is 1 in every matrix, and no eyedropper element appears in any a11y row.
+
+**Proposed cure.** Add an interaction-state pass to the visual harness for pointer-gated overlays (upload a fixture, open the overlay, capture), or the component's a11y defects (D-4) remain permanently outside the gate.
+
+---
+
+### `CHALLENGE-C — implementation (assume the component is improp` · D-16 · CHALLENGE-C
+
+**Defect.** Owner-edict deltas: the modal overlay is hand-rolled rather than adopting a glass-ui dialog primitive (edict 4 — and this hand-roll is the direct cause of D-4's missing semantics), and the icon hover tint reaches into a glass-ui DockControl's slot content from the consumer via a descendant selector plus a per-instance inline CSS var (edict 5).
+
+**Mechanism.** design-system responsibilities implemented at the consumer instead of in glass-ui
+
+**Evidence.**
+
+```
+ImageEyedropper.vue:8 (`absolute inset-0 z-popover flex flex-col glass-floating rounded-panel` — hand-rolled overlay, no dialog primitive); :279-282 (`.eyedropper-action-btn:hover:not(:disabled) svg { color: var(--hover-color); transform: scale(1.2) }`); :10 (`:style="{ '--hover-color': sampledColor ?? '' }"` inline per-instance var). Edicts 1, 2, 3, 6, 7, 8 all PASS — verified: every type-only import is `import type`/inline `type` (ImageEyedropper.vue:99, useImageSampler.ts:11-19, useInertiaGesture.ts:1); useTemplateRef throughout; no defineModel, so the stale-read hazard does not apply.
+```
+
+**Reproduction.** NONE — structural/edict finding, read directly from the cited lines.
+
+**Proposed cure.** Adopt the glass-ui dialog primitive for the overlay (which also cures D-4 for free), and move 'icon tints to the active color on hover' into DockControl as a variant plus a token, rather than a demo-side descendant selector over the design system's slot content.
+
+---
+
+### `CHALLENGE-C — implementation audit of demo/workbenches/gener` · C-18 · CHALLENGE-C
+
+**Defect.** WatercolorDot reads its `seed` prop once at setup, so the consumer's colour-derived `:seed="gen-${css}-${i}"` only ever applies its mount-time value — the 'seeded stable per (color,i)' claim decays after the first regenerate.
+
+**Mechanism.** A by-value option passed to a composable that treats it as static, while the consumer passes a value it expects to be reactive. Family: NON-REACTIVE-OPTION-READ-ONCE.
+
+**Evidence.**
+
+```
+GenerateControls.vue:196 comment 'seeded stable per (color,i)'; :204 :seed binding. node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js: useWatercolorBlob destructures `{ …, seed: c = "" }` once from the options object, and its colour watcher recomputes `hashString(newColor + c)` using that closed-over mount-time `c`; only the feTurbulence seed is a computed on (color + seed). The two halves of one dot therefore disagree about their seed after a regenerate.
+```
+
+**Reproduction.** NONE — I did not capture a before/after silhouette diff, and the dots are unreachable for interaction anyway (C-1). Labelled a hypothesis on the observable effect; the code path itself is quoted above and is not in doubt.
+
+**Proposed cure.** Consumer side (BLOCKED-ON-GLASS-V8): pass a stable `gen-${i}` seed, since a colour-derived seed is a category error against that contract and buys nothing. Producer side (relay, optional): make useWatercolorBlob take seed as a getter/ref so the silhouette and the wet edge stay in agreement.
 
 ---
 
@@ -9937,6 +18307,42 @@ Two Playwright evaluates returned {"url":"http://localhost:9000/#/gradient","pla
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-11 · CHALLENGE-C
+
+**Defect.** The readout-rail icon buttons measure exactly 24×24 CSS px — passing WCAG 2.2 SC 2.5.8 by equality with zero margin.
+
+**Mechanism.** floor-equality: a target size derived from tokens lands exactly on the accessibility minimum, so any future icon-size or padding token shift silently breaks conformance.
+
+**Evidence.**
+
+```
+Probe 1 measured boxes: `[{"w":24,"h":24,"label":"Copy cubic-bezier(0, 0, 1, 1)"},{"w":24,"h":24,"label":"Author a custom curve"}]`. Composition: .rail-btn `padding: 0.3125rem` (5px) + a `w-3.5 h-3.5` icon (14px) = 24px exactly (GradientEasingEditor.vue:269-280, :184-196). The two buttons are 6px apart (gap-1.5), so the SC 2.5.8 spacing exception would not rescue them if the size shrank. For contrast, the specimen tiles measure 45.2×43.8 and 44.0×43.8 — comfortably clear.
+```
+
+**Reproduction.** open /#/gradient and run `[...document.querySelectorAll('.rail-btn')].map(e=>{const r=e.getBoundingClientRect();return {w:r.width,h:r.height,label:e.getAttribute('aria-label')}})` → both 24×24.
+
+**Proposed cure.** Raise .rail-btn padding to 0.375rem (6px → 26px) or add an ::before pseudo-target, so the control carries headroom above the floor rather than sitting on it. Better still, adopt the glass-ui ghost icon-button primitive at its certified size instead of hand-rolling the rail button here (edict 4).
+
+---
+
+### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-12 · CHALLENGE-C
+
+**Defect.** Module-level easing resolution cache with no eviction and no size cap.
+
+**Mechanism.** unbounded-cache: a memo keyed on unbounded user input with no eviction policy.
+
+**Evidence.**
+
+```
+useGradientCSS.ts:69 `const resolvedEasingCache = new Map<string, EasingFunction>();` — populated at :131, never cleared. Reached only for literal-only intervals (easingFnOf short-circuits on interval.fn at :122, which authored intervals always carry), so growth is bounded by the number of distinct easing literals ever parsed from pasted CSS. Contrast demo/color-session/useContrastSafeColor.ts's tintLCache, which DOES cap itself: `if (tintLCache.size > 512) tintLCache.clear();`.
+```
+
+**Reproduction.** NONE — hypothesis on the growth path; the missing cap is established by reading useGradientCSS.ts:69-133. Small in practice, unbounded in principle.
+
+**Proposed cure.** Adopt the house idiom already present one directory over: `if (resolvedEasingCache.size > 256) resolvedEasingCache.clear();` after the set at :131.
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/workbenches/gen` · C-10 · CHALLENGE-C
 
 **Defect.** `value as PresetName` / `as HarmonyName` launder reka-ui's nullable AcceptableValue; a null would make GENERATION_PRESETS[preset] undefined and throw a TypeError from inside the palette computed during render.
@@ -9991,6 +18397,24 @@ From the C-2 live reproduction: namesAfter = ["Generated Palette","Generated Pal
 
 ---
 
+### `CHALLENGE-C — implementation defects in demo/workbenches/gra` · C10 · CHALLENGE-C
+
+**Defect.** Masking fallbacks, a dead inject, a no-op prop default, and a null guard that would silently warp a stop to 0%
+
+**Mechanism.** Masking defaults and dead surfaces (edict 2); a guard that answers an unanswerable question with a destructive value.
+
+**Evidence.**
+
+```
+GradientStopEditor.vue:318 var(--radius-pill, 9999px) and :388 var(--touch-target, 2.75rem) — both tokens resolve on :root, so the fallbacks are unreachable; GradientPane.vue:8 injects CSS_COLOR_KEY and never references it; GradientStopEditor.vue:6 `colorAt = undefined` on an already-optional prop; :76 `if (!barRef.value) return 0;`.
+```
+
+**Reproduction.** NONE — source-visible; token values measured on :root.
+
+**Proposed cure.** Delete the var() fallbacks, the dead inject and the no-op default; replace the null guard with a non-null assertion or an early throw — every caller runs from a DOM event on the mounted rail.
+
+---
+
 ### `CHALLENGE-D — design (assume the design is flawed)` · D-21 · CHALLENGE-D
 
 **Defect.** Three labeled fields are hand-rolled against an existing glass-ui primitive that ships label, layout, invalid, disabled and error-slot semantics.
@@ -10024,6 +18448,132 @@ GenerateControls.vue:150 Badge, :287-291 slider label, aria-valuenow measured '5
 **Reproduction.** node gc-probe2.mjs -> COUNT=12 block; frame frames/count12-light.png.
 
 **Proposed cure.** Falls out of D-7: the chassis stage owns one specimen; the model inspector owns the count once.
+
+---
+
+### `CHALLENGE-D — design (pass 3) · demo/workbenches/generate/Ge` · D3-13 · CHALLENGE-D
+
+**Defect.** The plate's spacing is nine hand-numbered Tailwind values rather than the P122 title-gap / section-gap ladder the proportion register requires.
+
+**Mechanism.** Family C. §5.8 says "Real rendered relation wins over token intent" — but a hand-numbered ladder has no intent to test the rendered relation against, so no DELTA row can ever close.
+
+**Evidence.**
+
+```
+GenerateControls.vue:119 gap-4 · :143 px-3 py-2.5 gap-x-2 gap-y-1.5 · :156 gap-2 · :198 px-3 pb-1 gap-1.5 · :212 px-3 pb-2.5 pt-1 · :219 gap-3 · :220 gap-1. PROPORTION-AUDIT.md §5.3: "Header→headline uses title gap; headline→next semantic section uses section gap." §2.2 names the producer seam: "BI P122 exposes --instrument-title-gap with the tight φ² default calc(var(--instrument-dial-padding-inline,1.5rem)/2.618)". None is used.
+```
+
+**Reproduction.** NONE — this is a source and canon reading, not a runtime observation. grep -n 'gap-\\|px-3\\|py-2.5\\|pb-' demo/workbenches/generate/GenerateControls.vue
+
+**Proposed cure.** BLOCKED-ON-GLASS-V8. Absorbed by pass 2's D-7 transposition: InstrumentChassis regions consume --instrument-title-gap and the section gap by construction, so the hand-numbered ladder has no surviving site.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-16 · CHALLENGE-D
+
+**Defect.** Design-system boundary: the stop is a hand-rolled circle built from a CSS `linear-gradient(c, c)` trick where the canon names a WatercolorDot face inside a named geometric seat, and the whole visual contract is a 40-line inline `:style` object that shadows any root-level class.
+
+**Mechanism.** a producer species re-implemented locally, with per-instance overrides where root-level styling belongs
+
+**Evidence.**
+
+```
+`grep -rn "WatercolorDot" demo/ | wc -l` → 64 across 19 files (Mix, Generate, Extract, Picker sliders, Dock, ColorSpaceSelector, palettes); `grep -n "WatercolorDot" …/GradientStopEditor.vue` → no matches. Canon: VISUAL-CONSTITUTION.md:206, OPTICAL-BENCH-COMPOSITIONS.md:44 ('stop face inside seat') and :108 (P051 names the Gradient site explicitly). Source :241-264 is the inline style object; the file itself documents the shadowing trap twice (:30-33, :255-261) and then re-enters it for `transition`.
+```
+
+**Reproduction.** The two greps above.
+
+**Proposed cure.** Consume the producer species: WatercolorDot face inside a named button seat, with the seat's material contract owned by glass-ui rather than by an inline style object.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D2-17 · CHALLENGE-D
+
+**Defect.** In forced-colors the only colour-coded selection delta collapses: selection is border-alpha 0.8 -> 1.0 plus scale, and border-color is forced, so selection survives as a 5px diameter change with no accessible state behind it. Separately, the shipped forced-colors matrix cannot adjudicate this because it runs under WebKit, which does not emulate forced colors.
+
+**Mechanism.** selection encoded only in a channel forced colors overwrites, measured by a harness blind to that mode
+
+**Evidence.**
+
+```
+Computed unselected border `oklab(0.999994 … / 0.8)` vs selected `border-white` (:236-240); no aria state (probe 5 `== C ==`). Focus is correctly re-expressed as a real outline in forced colors (:353-359) but the resting/selected boundary is not. Harness: docs/tranches/V/megatranche/audit/visual/states.mjs:25 declares `forced-colors-desktop` with the default ENGINE=webkit, and shots/forced-colors-desktop/gradient.png is treated identically to the ordinary light shot.
+```
+
+**Reproduction.** NONE for the forced-colors delta — hypothesis by construction; the WebKit row is not evidence. Re-run states.mjs with ENGINE=chromium to settle it in either direction.
+
+**Proposed cure.** Give selection an accessible state (aria-pressed/aria-current on the seat) and a non-colour visual delta that survives forced colors; and pin the forced-colors matrix row to Chromium.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-15 · CHALLENGE-D
+
+**Defect.** The actual curve-authoring surface is buried behind two nested progressive disclosures, whose second trigger has no text label and whose only open-state cue is a colour change.
+
+**Mechanism.** protagonist buried under nested disclosure
+
+**Evidence.**
+
+```
+GradientEasingEditor.vue:143-147 (row disclosure) wraps :187-206 (tune disclosure); the trigger at :187-197 is an icon-only button whose sole affordance cue is `aria-label="Author a custom curve"` (:193) and whose open state is `.rail-btn--on { color: ... }` (:289-291, see D-06). PROPORTION-AUDIT.md:71 (§5.6) and :53 (PR-09 ENLARGE).
+```
+
+**Reproduction.** NONE — structural, read from the template nesting.
+
+**Proposed cure.** Collapse to one disclosure: the open interval row IS the authoring context. Show the canvas with the strip rather than gating it behind a second unlabelled toggle.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-16 · CHALLENGE-D
+
+**Defect.** Adjacent (owner is GradientVisualizer.vue, not the subject): the Easing/Interpolation/CSS section headings use the palette-identity type role instead of the binding section-heading role.
+
+**Mechanism.** type-role substitution against the binding type matrix
+
+**Evidence.**
+
+```
+GradientVisualizer.vue:241 `<h3 class="font-display text-subheading text-muted-foreground">Easing</h3>`, repeated at :149 and :253. VISUAL-CONSTITUTION.md:73 assigns section heading -> `text-heading` + Plus Jakarta Sans; `--type-subheading` + Fraunces is the palette identity role (:72). OPTICAL-BENCH-COMPOSITIONS.md 'Binding type matrix' states the same relation as exact across ALL18.
+```
+
+**Reproduction.** NONE — static, read against the binding matrix. Recorded because it frames the subject component; no edit made and ownership is explicitly the parent file.
+
+**Proposed cure.** Route the three section headings to `text-heading` + Plus Jakarta Sans at the parent, in the wave that owns GradientVisualizer.vue.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-21 · CHALLENGE-D
+
+**Defect.** A composable silently owns a template ref declared in a different file's template, so renaming that ref breaks the loupe with no type error.
+
+**Mechanism.** Encapsulation is nominal — the composable's real interface is an undeclared string contract with the consumer's template.
+
+**Evidence.**
+
+```
+useLoupeCanvas.ts:21 calls useTemplateRef<HTMLCanvasElement>("loupeCanvasRef"), resolving a ref NAME declared at ImageEyedropper.vue:85; the returned loupeCanvasRef handle is never bound by the caller.
+```
+
+**Reproduction.** Rename ref="loupeCanvasRef" in ImageEyedropper.vue:85; vue-tsc stays green and the loupe stops drawing.
+
+**Proposed cure.** The consumer owns its template refs and passes the element ref in as a dep, exactly as it already does for canvasRef (ImageEyedropper.vue:115,130).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-22 · CHALLENGE-D
+
+**Defect.** The pulse class re-declares a utility class's size in hand-written CSS, so the two can diverge silently.
+
+**Mechanism.** A magic number duplicated across the template and the scoped stylesheet.
+
+**Evidence.**
+
+```
+ImageEyedropper.vue:21 `swatchPulse ? 'swatch-pulse' : 'w-7 h-7'` with :285-289 `.swatch-pulse { width: 1.75rem; height: 1.75rem }` — 1.75rem is w-7.
+```
+
+**Reproduction.** Change w-7 to w-8 at :21; the pulsed state keeps 1.75rem and the swatch jumps size when the pulse starts.
+
+**Proposed cure.** Keep the size utility on the element in both states and let .swatch-pulse carry only the animation.
 
 ---
 
@@ -10186,5 +18736,95 @@ easingCatalogue.ts:198 `export const SPECIMEN_FAMILIES: SpecimenFamily[] = build
 **Reproduction.** `node scratchpad/cat-bench.mjs` (the exact catalogue arithmetic against dist/subpaths/easing.js) → `tiles: 33 / build ms (cold): 3.02 / path-string bytes retained: 22651 / avg ms over 10 warm builds: 1.77`.
 
 **Proposed cure.** Make SPECIMEN_FAMILIES a lazily-built module singleton (getter memoized on first strip mount), or generate it at build time as static data — it is a pure function of a frozen library constant, so both are free.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L3-7 · CHALLENGE-L
+
+**Defect.** EVIDENCE UPGRADE (not a new defect) to §L-10/§L2-2: the hand-rolled CSS rail's engine interpolation diverges from the app's own computed path by a measured 25.5% chroma and 16.8deg hue per stop pair — the SAMPLING LAW violation quantified, and visible in the shipped screenshot.
+
+**Mechanism.** Because the gradient carries no interpolation space, WHICH midpoint the user sees is the rendering engine's choice, not the application's — exactly the 'engine divergence' the chips module's SAMPLING LAW names in prose. Pass 1 rated this INFO reasoning the law was 'scoped to the chip family'; the number removes the remaining reason to treat it as advisory.
+
+**Evidence.**
+
+```
+GenerateControls.vue:65-73 builds `linear-gradient(to right, …)` from raw stops with no `in <space>`. Computed against the shipped library (dist/subpaths/{color,css}.js) for the adjacent teal/magenta pair of the dark-matrix palette: APP midpoint (OKLCh lerp, what color-chips/sample.ts legislates) = oklch(0.640, 0.215, 262.5deg); ENGINE midpoint (sRGB lerp, a raw CSS gradient stop pair) = oklch(0.522, 0.160, 279.3deg) → 25.5% chroma loss, 16.8deg hue drift. Corroborated visually in docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/generate.png: a washed low-chroma band between the teal and magenta stops that appears nowhere in the palette or in the specimen strip above it.
+```
+
+**Reproduction.** node --input-type=module: import ./dist/subpaths/{color,css}.js; parse oklch(0.6 0.13 195) and oklch(0.68 0.30 330); lerp channels directly for the OKLCh path; convertColor both to 'rgb', average channels, convertColor back to 'oklch' for the engine path; compare channel[1] (chroma) and channel[2] (hue).
+
+**Proposed cure.** No change to pass 2's MAJOR rating or its cure (glass-ui Slider owns a first-class ramp track carrying the WCAG 1.4.11 contrast ring, per gate G-2'). This finding only removes the grounds for treating the SAMPLING LAW as advisory on this instrument.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · R2-A3 · CHALLENGE-L
+
+**Defect.** The rail's "owned paint stack" — self-described in-file as "a MATERIAL CONTRACT, not a shorthand assembly" — is copy-pasted four times rather than owned once, against edict 5 (style at the root component level).
+
+**Mechanism.** A contract written out four times is a convention, not a contract; each copy can drift independently.
+
+**Evidence.**
+
+```
+Six identical declarations (background: <layer>, var(--alpha-checker) + background-origin/-clip/-repeat/-size + box-shadow) at GradientStopEditor.vue:317-326 (.gradient-rail), GradientVisualizer.vue:271-278 (.gradient-render-tile), GradientEasingEditor.vue:~240-247, and inline at demo/picker/controls/ComponentSliders/ComponentSliders.vue:191-199.
+```
+
+**Reproduction.** grep -rn alpha-checker demo --include='*.vue' --include='*.css'.
+
+**Proposed cure.** Move the ramp/alpha-checker surface recipe into the glass-ui Slider variant of L-3 (and the render-tile equivalent into a glass-ui surface), so all four consumers inherit one recipe.
+
+---
+
+### `CHALLENGE-L — library structure / module boundaries / owners` · L-15 · CHALLENGE-L
+
+**Defect.** This component has ZERO coverage in the visual-audit matrix — the eyedropper overlay is never mounted by the harness, so every /#/extract row describes ImageDropZone/ExtractControls only.
+
+**Mechanism.** the capture harness has no fixture-image state, so the component's entire interactive surface is unphotographed
+
+**Evidence.**
+
+```
+ImageEyedropper is mounted at ExtractWorkbench.vue:173 under `v-if="eyedropperActive && session.previewDataUrl.value"` — it requires an uploaded image. docs/tranches/V/megatranche/audit/visual/REPORT.md:122,137,152,167 show /#/extract with 0 pageErrors, 0 consoleErrors, 0 overflowX across all four Safari matrices; the 3 namelessButtons and 6 smallTapTargets belong to the drop zone. `ls shots/zoom-200-desktop` → adminusers, blob, browse, gradient, picker — no extract.png at all.
+```
+
+**Reproduction.** NONE needed — the absence is directly observable in REPORT.md and the shots tree.
+
+**Proposed cure.** Add an image-fixture state for /#/extract to the capture harness (the states.mjs seam already exists). L-1 is precisely the class of failure a single screenshot would have caught — and the probe/ shot taken by hand did catch it.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-14 · L
+
+**Defect.** HYPOTHESIS (not this seat's axis, recorded for a routing seat): a persisted-route restore appears to win a race against the requested initial hash on a cold browser context.
+
+**Mechanism.** Unknown — suspected boot-time route restore vs initial hash resolution ordering.
+
+**Evidence.**
+
+```
+Playwright navigate to http://localhost:9000/#/gradient, then evaluate a few seconds later → `{href: "http://localhost:9000/#/browse", gradientSfc: 0, rowsRendered: 0, headingText: ["Browse", "My Palettes1 (1 saved)"]}`. Setting location.hash = "#/gradient" afterwards mounted the pane in ~1.0s and it held. The visual-audit matrix does NOT show this (settle 3586ms, captures correct).
+```
+
+**Reproduction.** NONE — observed once, not deterministically reproduced. Labelled a hypothesis; no claim in this report is built on it.
+
+**Proposed cure.** Hand to a routing/boot seat: assert the initial hash wins over any persisted-route restore, or that the restore only applies when the URL carries no route.
+
+---
+
+### `L — library structure (module boundaries, ownership, directi` · L-r2-15 · L
+
+**Defect.** Measurement caveat recorded so no one re-derives a wrong number: the page's resource-timing buffer capped at its 250-entry default during my probes, silently dropping later entries.
+
+**Mechanism.** Default resourceTimingBufferSize truncation.
+
+**Evidence.**
+
+```
+`performance.getEntriesByType('resource').length` returned exactly 250, and a probe consequently reported `gradientSfc: []` on a page that had plainly loaded the gradient modules (rowsRendered: 1, tiles: 27 in the same call).
+```
+
+**Reproduction.** Any evaluate reading performance.getEntriesByType('resource') on this app after full settle returns exactly 250.
+
+**Proposed cure.** Any future perf probe on this app must call `performance.setResourceTimingBufferSize(2000)` via addInitScript before navigation. The chunk facts in L-r2-9 come from the network log and on-disk prebundle sizes, not from the truncated buffer.
 
 ---

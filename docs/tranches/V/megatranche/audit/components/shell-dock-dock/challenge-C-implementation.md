@@ -16,6 +16,22 @@
 > §3.4's forward reference to "§6 · C-19" dangles, and the document as committed contains 14
 > findings, not 22. Running tally of what is actually *in this file*: **21 findings**
 > (C-1…C-14 + C-23…C-29), 1 BLOCKER, 10 MAJOR.
+>
+> **PASS 4 (§8) — appended 2026-07-27.** A fourth independent CHALLENGE-C seat, own probes, same
+> subject. **8 further findings, C-31…C-38, four MAJOR**, none of them a restatement of C-1…C-30.
+> Two are live silently-degraded-forever conditions no prior seat, gate or wave reached:
+> **C-31** — the login field's focus is *deterministically* revoked 0.3 ms after it is set, by
+> glass-ui's own layer focus-repair, so clicking **Login** on desktop and typing drops every
+> keystroke (instrumented `focus()`-stack trace; the mobile path is unaffected, and the mechanism
+> explains exactly why); and **C-32** — the dock's live backdrop sampler has **never succeeded**:
+> `data-backdrop-sample-state="unavailable"` re-stamped ~3.5×/s forever on every route,
+> `--glass-backdrop-luma` pinned at `0`, `--glass-tint-strength` frozen at its 4 % floor, while
+> `useAtmosphereBoot.ts:40-48` asserts in prose that the auto-discovery works. Plus **C-33**, the
+> *mechanism* behind MT-F004 (the demo opted into the producer's touch-floor opt-out, and the cure
+> token is already in the sibling SFC), **C-34** (the chrome is silent to AT and parks focus on an
+> unnamed div), and six measured negative proofs incl. the R1 `parseCssColor` crash class, which does
+> **not** reach the dock. Prior text preserved verbatim; nothing renumbered. Running tally of what is
+> actually *in this file*: **29 findings** (C-1…C-14 + C-23…C-38), 1 BLOCKER, 14 MAJOR.
 
 ## Model receipt
 
@@ -1051,3 +1067,456 @@ Family D. C-29 joins Family C and supplies its sharpest instrument: **the reason
 the gate is not only battery scope — it is that no locator in the suite ever reads what the
 navigation says.**
 
+
+---
+---
+
+# §8 · PASS 4 — an independent fourth CHALLENGE-C seat (2026-07-27)
+
+## 8.0 Model receipt
+
+I observe myself to be **Opus 5 — exact model id `claude-opus-5[1m]`** — declared explicitly at
+spawn for this seat, not inherited from a parent. Seat: CHALLENGE-C (implementation), pass 4.
+Subject: `demo/shell/dock/Dock.vue` (359 lines) + its owned subtree. Repo
+`/Users/mkbabb/Programming/value.js`, branch `tranche-u`. **Working-tree HEAD at probe time was
+`041ca263`** ("docs(V·megatranche): fold Phase D…"), not the `c654824e` named in the seat brief —
+`c654824e` is three commits back; no source under `demo/` differs between them (the intervening
+commits are `docs/` only). Every measurement below is against the live dev server at
+`http://localhost:9000` serving that tree.
+
+Write scope honoured: this file is the only thing this seat wrote. Nothing under `src/`, `demo/`,
+`api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`, `scripts/dev/dev.sh` or any `INBOX.md` was
+touched. Prior passes' text is preserved verbatim — this section is appended, nothing renumbered.
+
+**PASS-4 VERDICT: DEFECTIVE.** 8 further findings, **C-31…C-38**, of which **4 are MAJOR** and two
+are, to my reading, the two most consequential *live* defects in the whole dock record because they
+are both silently-degraded-forever conditions that no seat, no gate and no wave has yet seen:
+
+| id | severity | one line |
+|---|---|---|
+| **C-31** | **MAJOR** | The login field's focus is **deterministically stolen 8 ms after it is set**, by the producer's own layer focus-repair — click *Login* on desktop and every keystroke you type is dropped on the floor |
+| **C-32** | **MAJOR** | The dock's **live backdrop sampler has never once succeeded**: `data-backdrop-sample-state="unavailable"` re-stamped ~3.5×/s forever, `--glass-backdrop-luma` pinned at `0`, so the dock's adaptive-legibility tint is frozen at its 4 % floor on every route — and `useAtmosphereBoot.ts` asserts in prose that this works |
+| **C-33** | **MAJOR** | MT-F004's *mechanism*, named: the three login controls are sub-24 px because the demo passes `compact`, which is the producer's **explicit opt-out** from the 2.75 rem coarse-pointer touch floor — and the exact token cure is already in the sibling file (T-36) |
+| **C-34** | **MAJOR** | Every dock layer change parks focus on an unnamed, role-less `div[tabindex="-1"]`, and the band contains **no live region at all** (bar a dev-only lamp) — the chrome is entirely silent to assistive tech |
+| C-35 | MINOR | `ActionBarLayer`'s two template refs are assigned and never read; `ColorInput.defineExpose({focus})` has no caller — opening the colour input leaves the field unfocused (measured: typed text does not reach it) |
+| C-36 | MINOR | Test truth: **zero** repo references to the slug-edit layer; `o15-dock-register.spec.ts:149` states the exclusion in prose. Named mutation: delete `SlugEditLayer.vue:20-22` entirely — every gate stays green, because the code is already inert (C-31) |
+| C-37 | INFO | Negative proofs, measured: the R1 `parseCssColor` crash class does **not** reach the dock (8 malformed `?color=` inputs, 0 page errors), and the action-bar layer's `v-if` teardown mid-layer recovers cleanly |
+| C-38 | INFO | The field canvas the sampler is supposed to read is a **300×150 UA-default backing store** stretched to the viewport — cure order matters for C-32 |
+
+---
+
+## 8.1 Method / probe ledger (pass 4)
+
+Read-only Playwright (Chromium, the repo's own dep). Scripts in the session scratchpad
+`/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/`:
+
+| probe | what it decided |
+|---|---|
+| `p4-focus.mjs` | dock control census; keyboard activation of Tools/Back/Login; the full Tab walk; slug-input state after activation |
+| `p4-focus2.mjs` | **the mechanism** — `focusin`/`focusout` trace + a patched `HTMLElement.prototype.focus` with stack attribution |
+| `p4-focus3/4.mjs` | severity calibration (Tab reachability), the colour-input path, the mobile `⋮ → Login` path, live tap-target geometry at 390 |
+| `p4-edge.mjs` | 8 malformed `?color=` values through the shell; action-bar layer vs. a hash navigation that removes the bar |
+| `p4-perf.mjs` | `getImageData` census per colour change; hidden-but-mounted subtrees; live-region census |
+| `p4-idle.mjs` | **idle mutation attribution** in `nav.dock-band` |
+| `p4-backdrop.mjs` | the backdrop sampler's state + resolved tokens on 3 routes, plus the auto-discovery counterfactual |
+
+Fresh `browser.newContext()` per measurement, per pass-3's §7.9.1 method note.
+
+---
+
+## 8.2 · C-31 — MAJOR · the login field's focus is stolen 8 ms after it is set; typed keystrokes are dropped
+
+`SlugEditLayer.vue:16-23` is the intended behaviour:
+
+```ts
+function onStartSlugEdit() {
+    slugInput.value = "";
+    slugError.value = "";
+    slugEditMode.value = true;
+    nextTick(() => {
+        slugInputRef.value?.focus();     // ← SlugEditLayer.vue:21
+    });
+}
+```
+
+The producer runs its own focus repair on every layer swap —
+`node_modules/.vite/deps/@mkbabb_glass-ui_dock.js:892-896` (the dev-served bundle the trace below
+attributes to; the same function is in `node_modules/@mkbabb/glass-ui/dist/dock.js`):
+
+```js
+async function w(e, t) {                       // (fromFaceId, toFaceId)
+    if (typeof document > "u") return;
+    let n = _(e), r = document.activeElement;
+    !n || !r || !n.contains(r) || (await nextTick(), (_(t) ?? document.body).focus?.());
+}
+```
+
+i.e. *"if the outgoing face contains the active element, then one `nextTick` later, focus the
+incoming face."* The incoming face is `div.dock-face.is-active` and it carries `tabindex="-1"` — the `DockFace`
+render function in `dist/dock.js` (search `"dock-face"`) emits
+`inert: !i.value || void 0, "aria-hidden": !i.value || void 0, tabindex: i.value ? -1 : void 0`, so
+the active face is itself focusable and swallows the focus. Verified live:
+`{ active: 'div.dock-face.is-active', activeTabindex: '-1' }`.
+
+**Both use `nextTick`. The producer's runs second, every time.** Instrumented trace (`p4-focus2.mjs`,
+patched `HTMLElement.prototype.focus`, timestamps relative to the click):
+
+```
+[P4] +189.9ms focusin  -> button.button.tap-squish[]                    ← the Login button
+[P4] +193.9ms .focus() on input[enter slug or token.] @ … at /demo/shell/dock/layers/SlugEditLayer.vue:29:25   ← the vite-served module's line for the SFC's :21
+[P4] +200.0ms focusout <- button.button.tap-squish[]
+[P4] +201.3ms focusin  -> input[enter slug or token.]                    ← the demo's focus LANDS
+[P4] +201.6ms .focus() on div.dock-face.is-active[] @ … at w (…/@mkbabb_glass-ui_dock.js:895:84)
+[P4] +201.6ms focusout <- input[enter slug or token.]                    ← …and is taken away 0.3 ms later
+[P4] +201.8ms focusin  -> div.dock-face.is-active[]
+final: { active: 'div.dock-face.is-active', activeTabindex: '-1', inputIsActive: false }
+```
+
+The user-visible consequence, measured (`p4-focus.mjs`): after clicking **Login**, the login layer is
+open, visible and non-inert (`{visibility:'visible', opacity:'1', pointerEvents:'auto',
+inertAncestor:false, w:160, h:23}`) — and typing does nothing:
+
+```
+after typing "hello-there-friend-x", activeEl: div.dock-face.is-active[]
+input value: ""                                  ← every keystroke dropped
+after Escape, activeEl: div.dock-face.is-active[]  ← Escape is bound to the INPUT, so it does nothing either
+```
+
+Severity calibration (I looked for the exculpation rather than assuming the worst):
+
+- The field is *reachable*: from the parked face, **one `Tab`** lands on it —
+  `Tab#1 -> input[enter slug or token...]`, then `Generate new slug`, `Cancel`, and out. So this is
+  not a total keyboard lock-out; it is a silent focus loss plus a dead code path.
+- The **mobile** path is unaffected: `⋮ → Login` focuses the input and typing lands
+  (`input value: "mobile-typed"`, `p4-focus4.mjs`). The mechanism explains the split exactly — the
+  producer only repairs focus **when the outgoing face contains `document.activeElement`**. A menu
+  item in a portaled reka dropdown is *not* in the face, so nothing is stolen; the desktop `Login`
+  button *is* in the main face, so it is. **The broken path is the anonymous desktop first-login.**
+- Same for `Escape`: it works when the caret really is in the field (measured: click the field,
+  type, `Escape` → layer closes), which is precisely the state the click path never reaches.
+
+**Reproduction (30 s, no tooling):** desktop ≥1024 px, anonymous session, `http://localhost:9000/#/`
+→ click **Login** → type. Nothing appears in the field.
+
+**Cure (gestalt, not a patch).** Do not hand-focus from *inside* the outgoing layer and hope to win a
+race against the layer machine. Two idiomatic options, in preference order:
+
+1. **The layer declares its own entry focus and the producer honours it** — glass-ui's `w()` should
+   prefer an explicit target (`[autofocus]` / a `focusTarget` prop on `DockLayer`) inside the
+   incoming face over the face itself, exactly as reka's focus-scope does. That is a **glass-ui BH
+   relay** (standing formation invariant: every glass-level finding is relayed), and it fixes the
+   whole class at once — C-35 is the same defect on the colour input.
+2. **Demo-side, until then:** move the focus off `nextTick` and onto the *layer's own activation
+   edge*, after the producer's repair has run — e.g. a `watch` on "this layer became active"
+   resolved one further microtask/frame later. The imperative chain `Dock.vue:61`
+   `slugEditRef.value?.onStartSlugEdit()` is the smell that made this hard to see: the *parent*
+   reaches into the child to start an edit whose focus the *grandparent's* layer machine then
+   revokes.
+
+---
+
+## 8.3 · C-32 — MAJOR · the dock's live backdrop sampler has never succeeded; the adaptive-legibility tint is frozen at its floor
+
+I went looking for per-frame work in the persistent chrome and found the dock is **never quiescent**.
+`p4-idle.mjs`, a `MutationObserver` on `nav.dock-band`, 4 s of true idle (6 s after load, no input):
+
+```
+total idle mutations in 4s: 42
+  14 × attributes data-backdrop-sample-state  on div.glass-dock.horizontal   sample=unavailable
+  14 × attributes data-backdrop-sample-source on div.glass-dock.horizontal   sample=canvas
+  14 × attributes data-backdrop-sample-reason on div.glass-dock.horizontal   sample=source-unavailable
+```
+
+Every mutation in the dock band at idle is one failing backdrop sample, ~3.5 Hz, forever, on every
+route. `p4-backdrop.mjs` reads the resolved state on three routes — identical on all three:
+
+```json
+{"route":"#/","state":"unavailable","reason":"source-unavailable","source":"canvas",
+ "sampledAttr":false,"luma":"0","ambientHue":"rgba(0, 0, 0, 0)",
+ "tintStrength":"clamp( 4%, calc( 4% + (20% - 4%) * max( 0, ( 0 - 0.6 ) / (1 - 0.6) ) ), 20% )",
+ "tintFloor":"4%","tintAA":"20%",
+ "autoDiscoverWouldFind":true,"canvasSize":"300x150","canvasCtxKind":"webgl2"}
+```
+
+(identical rows for `#/palettes` and `#/blob`.)
+
+Read the `tintStrength` expression: `--glass-backdrop-luma` is unset, so its fallback `0` flows into
+`adaptive-legibility.css`'s knee formula, `max(0, (0 − 0.6)/0.4)` = 0, and
+**`--glass-tint-strength` evaluates to the 4 % floor — permanently. The 20 % AA tint is
+unreachable.** That token is the producer's mechanism for keeping dock text legible as the aurora
+brightens underneath it (`:where(.glass-dock)` in
+`dist/components/dock/styles/adaptive-legibility.css`). It is inert here. The `#/` desktop-light
+capture in the visual audit shows exactly this: the dock plate is a nearly untinted wafer over a hot
+pink field, with pink certified ink on it.
+
+**Mechanism — a two-sided miss.**
+
+- `Dock.vue:132` passes four props and no canvas:
+  `<GlassDock ref="dockRef" :collapse-delay="5000" :start-collapsed="false" :fit-content="true" :always-expanded="!isDesktop">`.
+- GlassDock nevertheless *always* hands the sampler a getter (`dock.js:715-718`):
+  ```js
+  n.backdropMode === "live" && n.autoLuminance !== !1 && Pe(g, { backgroundCanvas: () => {
+      let e = n.backgroundCanvas;
+      return typeof e == "function" ? e() : e instanceof HTMLCanvasElement ? e : null;
+  } });
+  ```
+- and the resolver short-circuits on the truthy function *before* it can reach the documented
+  document-level fallback (`dock.js:76-89`):
+  ```js
+  var Ee = "[data-glass-field-canvas] canvas, canvas[data-glass-field-canvas]";
+  function De(e) {
+      if (!e) { … document.querySelector(Ee) … }   // ← unreachable: e is the getter, always truthy
+      if (ye(e)) return e;                          // ye = "is an HTMLCanvasElement" → false
+      if (typeof e == "function") { let t = e(); return ye(t) ? t : null; }  // → null
+      …
+  }
+  ```
+  while the *is-this-live* predicate (`dock.js:176`) **does** use the fallback
+  (`… || De(void 0) !== null`) and therefore says "live". Live mode with a null source is exactly
+  the `source-unavailable` branch at `dock.js:216`. The sampler is structurally guaranteed to fail
+  and to keep retrying.
+
+**And the repo's record asserts the opposite.** `demo/color-picker/composables/boot/useAtmosphereBoot.ts:40-48`:
+
+> *"the atmosphere canvas carries glass-ui's ONE field-canvas convention stamp
+> `data-glass-field-canvas` … Every backdrop-luminance sampler (GlassDock's default-on observer
+> today, any future glass surface) **auto-discovers THIS canvas as its `backgroundCanvas`** and
+> samples the live field"*
+
+Measured: `autoDiscoverWouldFind: true` — the stamp *is* on a real `HTMLCanvasElement`, the selector
+*does* match it, and the auto-discovery path is *never taken*. W7-3's luma-truth claim is false at
+glass-ui 7.0.0. This is the shape of defect the mega-tranche exists to catch: a feature that was
+verified once by reading, never by measuring, and that degraded silently across a producer major.
+
+**Cure.** Demo-side and one line: thread the canvas the App already owns
+(`App.vue:9` `ref="atmosphereCanvas"`, stamped `data-glass-field-canvas`) into
+`<GlassDock :background-canvas="…">`. Producer-side (BH relay): `De()` must fall through to the
+document convention when the getter yields null — otherwise the documented stamp is decorative for
+every consumer, not just this one. **Do not "fix" this by adding a demo-local luminance shim** (no
+god modules, no forks): the ladder token is the producer's, and the seam already exists.
+
+Note the cure ordering constraint in C-38: the canvas that would then be sampled is a WebGL2 surface
+with a 300×150 backing store, so verify the sample actually resolves (`state:"sampled"`) rather than
+trading `source-unavailable` for `sample-unavailable`.
+
+---
+
+## 8.4 · C-33 — MAJOR (WCAG 2.2 SC 2.5.8) · MT-F004's mechanism: the demo opted **into** the producer's touch-floor opt-out
+
+Pass 1's C-7 established *that* the dock ships four sub-24 px controls. Here is *why*, which is what
+a cure needs. The producer ships a coarse-pointer touch floor
+(`dist/components/dock/styles/controls/touch-floor.css`):
+
+```css
+@media (pointer: coarse) {
+  .dock-icon-button:not(.dock-icon-button--compact):not(:where(.glass-dock *)) {
+      min-block-size: var(--dock-touch-target, 2.75rem);
+      min-inline-size: var(--dock-touch-target, 2.75rem);
+  }
+  …
+}
+```
+
+Two exclusions, and the slug controls hit **both**: they are `compact` (`SlugEditLayer.vue:91-118`
+passes `compact` to all three `DockControl`s → `.dock-icon-button--compact`), and they are inside
+`.glass-dock`. The compact register's own geometry is
+`padding: var(--dock-compact-control-padding, 0.25rem)` with `width/height: var(--dock-compact-control-size, auto)`
+(`icon-button.css`) — i.e. a 14 px glyph in 4 px of padding = the measured 22–23 px box.
+
+Measured live in the **open** state (`p4-focus4.mjs`, 390×844, `isMobile`, `hasTouch` — so the coarse
+floor's own media query is active):
+
+```
+live slug-layer control sizes:
+ [{"l":"enter slug or token...","w":160,"h":20,"inert":false},
+  {"l":"Switch to slug","w":23,"h":23,"inert":false},
+  {"l":"Generate new slug","w":23,"h":23,"inert":false},
+  {"l":"Cancel","w":23,"h":23,"inert":false}]
+```
+
+Three 23×23 controls **and** a 160×**20** input — the input is *smaller* than the 23 px the visual
+audit captured, and it still has no accessible name (`ariaLabel: null`, `id: null`, `labelFor:
+false`, `p4-focus.mjs`; source: `SlugEditLayer.vue:81-87` carries a `placeholder` and nothing else).
+A placeholder is not a name, and it is clipped to *"enter slug or to…"* by the fixed `w-40`.
+
+**The cure already exists in this component's own sibling.** `ActionBarToggle.vue:154-158`:
+
+```css
+.dock-tools-btn {
+    --dock-compact-control-padding: 0.5rem 0.75rem;   /* T-36 — the "true button box-model" */
+    margin-inline: 0.25rem;
+    gap: 0.5em;
+}
+```
+
+T-36 lifted the Tools button off the 4 px sticker seat **through the producer's own token hook**,
+and `o15-dock-register.spec.ts:126-129` asserts the resulting `8px 12px` padding. The identical
+one-line move on the login controls (`--dock-compact-control-padding` / `--dock-compact-control-size:
+2.75rem` at coarse pointers) closes MT-F004's dock contribution. It was never applied because
+**nothing ever opened that layer** — see C-36. Root-level styling, no per-instance override, no new
+component: it is the same token seam, on the same control type, one directory away.
+
+---
+
+## 8.5 · C-34 — MAJOR (WCAG 4.1.3 / 2.4.3) · the dock's layer machine is silent, and lands focus on an unnamed div
+
+Two measurements, one conclusion.
+
+1. **Where focus lands.** Every layer change parks focus on `div.dock-face.is-active`,
+   `tabindex="-1"`, **no role, no accessible name** (`p4-focus.mjs`):
+   ```
+   Tools (Enter)  → focus +120ms : div.dock-face.is-active[lab(92% 88.8 20 / 82.7%)]
+   Back  (Enter)  → focus after  : div.dock-face.is-active[HomeToolsPickerAbout Log]
+   Login (Enter)  → focus @2000ms: div.dock-face.is-active[]
+   ```
+   A screen reader lands on a generic container whose only "name" is the run-together text of every
+   control inside it. Nothing announces *what changed*.
+2. **There is no live region.** Census of the whole band (`p4-perf.mjs`):
+   ```
+   aria-live / status roles in the dock band:
+     [ 'span[role=alert,live=null] "dev misconfigured — run `npm r"' ]
+   ```
+   One element — `DockStatusLamp`, `import.meta.env.DEV`-gated, i.e. **absent in production**. So in
+   the shipped app the persistent chrome has **zero** live regions: the `linkCopied` state flip
+   (`Share color` → `Copied!`, `ProfileSection.vue:156`), the login result, the view switch and the
+   layer switch are all silent.
+
+This compounds C-31 exactly: the caret silently leaves the field you just opened, and nothing says
+so. The cure is one polite live region owned by the dock (the layer machine's own announcement seam)
+plus giving the entry control of each layer real focus — not four scattered `aria-label`s.
+
+---
+
+## 8.6 · C-35 — MINOR · two write-only template refs, and an exposed `focus()` with no caller
+
+```
+$ grep -n "colorInputRef\|actionToolbarRef" demo/shell/dock/layers/ActionBarLayer.vue
+28:const colorInputRef = ref<InstanceType<typeof ColorInput> | null>(null);
+29:const actionToolbarRef = ref<InstanceType<typeof ActionToolbar> | null>(null);
+103:                ref="actionToolbarRef"
+116:                ref="colorInputRef"
+```
+
+Assigned, never read. `ColorInput.vue:282-288` exposes `focus: () => inputColorRef.value?.focus()`
+— and nothing in the repo calls it. The behavioural consequence, measured (`p4-focus4.mjs`, fresh
+context, desktop):
+
+```
+focused:        button.dock-icon-button[Open color input]
+after activate: button.dock-icon-button[Propose color name]     ← focus never moves
+contenteditable text after typing "red": "lab(92% 88.8 20 / 82.7%)"   ← the keystrokes went nowhere
+tab from parked: [ 'button[Select color space]', 'span[l component value]', … ]  ← forward Tab passes it by
+```
+
+Open the colour input and the colour input is not focused; the field sits *before* the toggle in DOM
+order, so forward `Tab` walks away from it. Same family as C-31 (an entry control that never hands
+over focus), plus dead code (edict 2: no legacy/unused paths) and an unused `defineExpose` surface.
+`ColorInput.vue:262` already does the right thing for the propose-mode swap
+(`requestAnimationFrame(() => inputColorRef.value?.focus())`) — the actions→input swap simply never
+got the same treatment.
+
+---
+
+## 8.7 · C-36 — MINOR (test truth) · nothing in the repo ever opens the slug-edit layer
+
+```
+$ grep -rn "SlugEditLayer\|slugInput\|Switch to slug\|Generate new slug" e2e/ demo/test/ test/
+(no output)
+```
+
+Zero hits across the entire e2e suite, the demo test dir and the library test dir. The exclusion is
+even documented in prose inside the dock's own oracle,
+`e2e/smoke/oracles/o15-dock-register.spec.ts:149-152`:
+
+> *"The conditional layers (mobile-edit, slug-edit) and the portaled menus (DarkModeToggle rows) are
+> retired at the same source pass; the lane record carries the dock-tree grep-zero."*
+
+That is a *grep* standing in for a *render*. Everything C-31/C-33 found lives behind that sentence.
+
+**The named vacuous mutation** (this seat's, distinct from C-9's and C-29's): delete
+`SlugEditLayer.vue:20-22` outright —
+
+```ts
+    nextTick(() => {
+        slugInputRef.value?.focus();
+    });
+```
+
+— and the entire suite stays green: typecheck (the ref is still declared and used by the template
+`ref="slugInputRef"`), unit, e2e. It stays green because **the deleted behaviour does not happen
+today anyway** (C-31). A gate that cannot distinguish "this focus call works" from "this focus call
+is revoked 0.3 ms later" is not measuring focus; it is measuring nothing. The honest gate is a live
+one: open the layer, assert `document.activeElement` **is** the input, and assert the three controls
+compute ≥24 px.
+
+---
+
+## 8.8 · C-37 — INFO · negative proofs (measured, so a fifth seat does not re-spend them)
+
+1. **The R1 `parseCssColor` crash class does not reach the dock.** Eight malformed values through
+   the shell's own URL seam, fresh context each, 3 s settle (`p4-edge.mjs`):
+   `oklch()` · `oklch(NaN NaN NaN)` · `rgb(` · `color(display-p3 1 0)` · `lab(Infinity 0 0)` ·
+   `hsl(0 0% -0%)` · `%%%` · empty. Every row:
+   `{"pageErrors":0,"bandChildren":20,"dockPresent":true,"mainPresent":true}` and the band still
+   reads `"→ Home Tools Login @mbabb …"`. The only console error is the dev-misconfiguration notice.
+   **The dock's chrome is robust at the domain boundary.**
+2. **The action-bar layer's `v-if` teardown is clean.** With the Tools layer open, a hash navigation
+   to a route with no action bar (`location.hash = "#/admin/users"` — a real back/forward/paste
+   path) removes `DockLayer#action-bar` *while it is active*; measured recovery to the main layer,
+   `faceCount 4 → 3`, `pageErrors: []`, and back again to `#/` restores it. No stuck or blank dock.
+3. **No per-tick canvas work in the chrome.** Patched `CanvasRenderingContext2D.prototype.getImageData`
+   across 10 discrete colour changes (`p4-perf.mjs`): **0 calls**. The `useContrastSafeColor` ink
+   probe is properly cached; the duplicated desktop/mobile menus cost DOM weight (pass-1 Family D)
+   but not per-tick colour math. Dock-band mutations for those 10 changes: 310 (≈31/change).
+4. **`DockControl type="submit"` really submits.** `dist/dock.js` declares
+   `type: { default: "button" }` and forwards it, so `SlugEditLayer.vue:93`'s `type="submit"` is
+   live — the arrow button is a genuine form submit, not a no-op. (Suspected under the challenge
+   premise; refuted at the source.)
+5. **`.is-active` on the Tools button is not a dead class.** `icon-button.css` carries
+   `&:is(.is-active, .active, [aria-expanded="true"], [aria-pressed="true"])` — `ActionBarToggle`'s
+   hand-rolled `is-active` binding hits a real producer rule. (Also suspected, also refuted.)
+6. **`useDockArrival`'s two subtree-wide listeners are guarded.** `App.vue:32-33` binds
+   `@transitionend.capture` and `@animationend` on the *band*, so every dock hover transition and the
+   `dock-settle` beat bubble into them; both handlers early-return (`if (dockRevealed.value) return`
+   and `if (e.animationName.includes("overture-plate-land"))`,
+   `useDockArrival.ts:29-45`). No spurious boot work. (Suspected; refuted.)
+
+---
+
+## 8.9 · C-38 — INFO (observation, scoped out of this component) · the field canvas is a 300×150 default backing store
+
+`p4-backdrop.mjs` also read the canvas the sampler is meant to consume:
+`{"canvasSize":"300x150","canvasCtxKind":"webgl2"}` — the UA default drawing-buffer size, on an
+element CSS-stretched to the full viewport (`App.vue:11` `class="… absolute inset-0 w-full h-full"`).
+I did not trace whether `useAtmosphere` resizes it later or renders deliberately at low resolution,
+so this is an **observation, not a finding**, and it belongs to the atmosphere/App seat, not to
+`Dock.vue`. It is recorded here only because it is on C-32's cure path: after threading
+`:background-canvas`, verify the state actually reaches `sampled` — a WebGL2 surface without
+`preserveDrawingBuffer` can read back blank, which would move the failure from `source-unavailable`
+to `sample-unavailable` and leave the tint just as frozen.
+
+---
+
+## 8.10 · Pass-4 family placement
+
+- **C-31, C-34, C-35 form a family pass 1–3 did not name: "the chrome moves, and no one is told
+  where."** Three separate entry controls (login field, colour input, every layer swap) hand focus
+  to nothing, and the band has no announcement channel. One cure serves all three: the layer machine
+  owns *entry focus* + *one polite live region*, declared per layer rather than imperatively poked
+  from a parent. Half of it is a glass-ui BH relay (`w()` must prefer an explicit target inside the
+  incoming face); half is demo-side.
+- **C-32 opens a genuinely new family: "the producer's adaptive feature is wired by convention, and
+  the convention silently stopped being honoured."** The demo asserts auto-discovery in prose;
+  glass-ui 7.0.0's resolver cannot reach it; nothing measures it. Any other consumer of the
+  `data-glass-field-canvas` convention in the constellation is presumptively in the same state —
+  worth one grep at fold time.
+- **C-33 joins pass-1 Family C ("the chrome is outside every gate"), but supplies the cure**: the
+  producer token hook the sibling control already uses. **C-36 is Family C's instrument**: the gate
+  does not fail because it never renders the surface.
+- **C-37 is offered as ballast.** Under a "the implementation is defective" premise the honest
+  report has to say which suspicions died: the parse crash class, the layer teardown, the per-tick
+  ink math, the submit button, the `is-active` class and the two subtree-wide App listeners are all
+  sound, and each was measured rather than reasoned.
+
+**Running tally of what is actually in this file after pass 4: 29 findings** (C-1…C-14, C-23…C-38),
+1 BLOCKER, 14 MAJOR. The pass-2 body (C-15…C-22) is still absent — pass-3's C-30 stands unrepaired.

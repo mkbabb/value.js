@@ -1399,3 +1399,42 @@ The cure is a design, not a patch — chartered to the layout-gestalt tri-fold: 
 befitting, bespoke variants where not, expressed in the modern facilities (container queries on the
 route scene, cq units, `dvh/svh`, grid + `minmax()`/`clamp()` fluidity to kill the ultrawide cap,
 subgrid/areas where they delete wrapper divs), and ONE adaptation mechanism instead of three.
+
+## MT-F029 — OWNER-MARKED: the Picker headline card opens a dead vertical band between its top row and its readout row
+
+**Witness**: `audit/visual/owner-marked/OM-3-picker-row-gap.png`
+(sha256 `a44389c2b543434ec78cd6ff828351cb6a02d1e1b075518588564e0283736277`), owner-captured
+2026-07-27 18:19 ET. Owner's words: *"the spacing here between the top row and the bottom row is
+too much."*
+
+**What the frame shows**: the Picker headline card — the `Lab ⌄` space selector top-left, the
+HeroBlob ornament top-right — then a tall empty band before the `92.0%, 88.8, 20.0` value readout
+and the spectrum slider begin. The void reads as roughly the height of the readout row itself: the
+card's internal vertical rhythm allocates its largest single interval to nothing.
+
+**Where the cure lives**: the Picker card's internal stack rhythm (header row → readout row →
+spectrum). Owner-marked defects are findings by definition (M-4); the row joins MT-PICKER-1's
+design band and the layout-gestalt spacing laws (ML-*) — the gap must derive from the type scale's
+interval, not from leftover flex/grid slack. π obligation: the OM-3 witness re-captured at the
+same crop after the cure; DELTA: before/after pair.
+
+## MT-F030 — OWNER-MARKED: the Easing configurator mixes four unrelated corner radii in one instrument
+
+**Witness**: `audit/visual/owner-marked/OM-4-easing-radius-incoherence.png`
+(sha256 `5b7906f33e460c707e862f848595b3650977f5bf159715e4a175954e6ade3783`), owner-captured
+2026-07-27 18:03 ET. Owner's words: *"easing config is awful, too rounded in some areas, not
+rounded enough in others."*
+
+**What the frame shows**: the gradient Easing panel (`1 → 2 ● / linear` interval card): fully
+circular preset chips (`linear/ease/in/out/in-out` + `sine in/out/in-out`, radius = 50%), a
+small-radius gradient strip directly above them, a large-radius pill for the
+`cubic-bezier(0, 0, 1, 1)` readout row, and an outer card at yet another radius — four radius
+registers with no derivation between them. The circles read over-rounded against the strip; the
+strip reads under-rounded against the pill.
+
+**Where the cure lives**: one radius scale for the easing instrument, derived from the panel's own
+register (the glass radius tokens), with the preset chips deciding deliberately between circle
+(icon-button register) and the shared rounded-rect register — not both adjacent. Joins the
+gradient/easing wave band (the GradientEasingEditor / EasingSpecimenStrip corpus; note the
+chip-adjacent glass I-9 Chip residual stays glass-owned — this row is about OUR radius choices,
+not the orphaned Chip CSS). π obligation: OM-4 re-capture; DELTA: before/after pair.

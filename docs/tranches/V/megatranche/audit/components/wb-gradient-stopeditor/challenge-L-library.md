@@ -661,3 +661,26 @@ selection (two channels), the design system (three doors), the colour literal (t
 *Probe scripts used for the headless evidence lived in the session scratchpad and are reproduced inline above;
 the only artefacts written to the repository by this seat are this file and
 `evidence-rail-after-reorder.png`, both under `docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/`.*
+
+---
+
+## ADDENDUM (R2, 2026-07-27, Opus 5) — read `challenge-L-library-r2.md` alongside this file
+
+A second independent CHALLENGE-L seat ran at the same HEAD (`c654824e`) and did **not**
+overwrite this report (E-3: addenda, not patch — this directory is untracked, so an overwrite
+would have been unrecoverable). Its findings are in
+`challenge-L-library-r2.md`, same directory. Two material deltas:
+
+- **L-8(b) is WITHDRAWN as a false positive.** Types and runtime both resolve to the *repo's*
+  `dist/`, not to `node_modules`. `packageId '@mkbabb/value.js/…@4.0.0'` is TypeScript's
+  package *identity* for the repo's own package, not a `node_modules` provenance marker;
+  `--traceResolution` prints the absolute path `/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts`
+  with no `node_modules` segment. L-2 therefore did **not** ship through this crack — it ships
+  through the `!` at `src/css/grammar.ts:181` in every build. **L-8(a) stands and is enlarged:
+  delete the whole `paths` block; no workspace link is needed.**
+- **L-1 confirmed by a stronger reproduction** — keyboard-only, on the two-stop default
+  gradient, no pointer geometry involved: the invariant is absent from the *model*, not an
+  artifact of the drag path.
+
+R2 also confirms L-3, L-5, L-6, L-7, L-10, L-13 by independent evidence, and adds three minor
+findings (min-2-stops rule duplicated; two clipboard idioms; the paint stack replicated ×4).
