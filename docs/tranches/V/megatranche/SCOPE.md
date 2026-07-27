@@ -158,3 +158,24 @@ with fewer mechanisms than it found.
 6. *"How many more ecoute-moi's must this take"* — the re-exhortation census exists so the answer
    becomes ZERO: every repeated exhortation either becomes durable law (formation laws, wave
    gates, memory) or is retired as encoded.
+
+## M-15 — CODEX ABROGATED; vnext/ IS OURS (owner ruling, 2026-07-27 evening)
+
+Owner verbatim-in-intent: *"Codex has been totally abrogated in favor of Claude running sessions.
+All of that work is owned by you."*
+
+Consequences, binding immediately:
+1. The standing law "`docs/tranches/V/vnext/**` is Codex-owned READ-ONLY (not one byte)" is
+   **REPEALED**. The tree (165 files, 2.1M, last Codex activity 2026-07-20 08:35) is
+   Claude-owned.
+2. **Absorption posture: OWNED, FROZEN-AS-INHERITED.** The corpus is an inherited authority set
+   (formation, design program, dispositions, target DAGs, isomorphism inventories, schemas,
+   owner amendments) — it is absorbed by RULING, not mutated by drift: the excavation D-seat's
+   standing verdict + a fold pass decide, item by item, ABSORB-INTO-megatranche / SUPERSEDED-BY
+   (naming the superseding artifact) / RETIRE. Until an item is ruled, no seat edits it.
+3. The tree is committed for durability (L-15) — an unowned untracked corpus was tolerable;
+   an OWNED untracked corpus is a violation.
+4. Workflow LAW blocks that still say "vnext Codex-owned READ-ONLY" remain temporarily verbatim
+   (editing them would cache-bust the running bands); their practical effect — audit seats do not
+   WRITE vnext — is exactly the frozen-as-inherited posture, so the text is conservative, not wrong.
+   Scripts update at their next natural prompt change.

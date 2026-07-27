@@ -1,0 +1,70 @@
+{
+  "focus_contrast": {
+    "band": {
+      "x0": 300,
+      "x1": 430,
+      "y0": 20,
+      "y1": 60
+    },
+    "unfocusedMeanRGB": [
+      226.2,
+      189.7,
+      195.7
+    ],
+    "focusedMeanRGB": [
+      220.5,
+      196.6,
+      193.7
+    ],
+    "contrastRatio": 1.034
+  },
+  "focus_contrast_dark": {
+    "unfocusedMeanRGB": [
+      114.2,
+      85.5,
+      87.3
+    ],
+    "focusedMeanRGB": [
+      97.2,
+      78.6,
+      74.9
+    ],
+    "contrastRatio": 1.166
+  },
+  "header_row_open_vs_closed": {
+    "sameSize": true,
+    "dims": [
+      460,
+      57,
+      460,
+      57
+    ],
+    "changedPx": 14,
+    "total": 26220,
+    "maxChannelDelta": 56
+  },
+  "header_row_open_semantics": {
+    "ariaExpanded": "true",
+    "childElementCount": 2,
+    "svgsInsideHeaderRow": 2,
+    "svgNamesInsideHeaderRow": [
+      "lucide lucide-trash2-icon lucide-trash-2 w-3 h-3 mr-1",
+      "lucide lucide-trash2-icon lucide-trash-2 w-3 h-3"
+    ],
+    "computedBg": "rgba(0, 0, 0, 0)",
+    "computedBorderBottom": "0px"
+  },
+  "accordion": {
+    "openBeforeSecondClick": [
+      "mbabb"
+    ],
+    "openAfterSecondClick": [
+      "an-extremely-long-anonymous-visitor-slug-from-the-wild-2"
+    ],
+    "simultaneousOpenRowsMax": 1,
+    "firstRowSilentlyClosed": true,
+    "paneScrollTopBefore": 0,
+    "paneScrollTopAfter": 0,
+    "ariaControlsPresent": false
+  }
+}

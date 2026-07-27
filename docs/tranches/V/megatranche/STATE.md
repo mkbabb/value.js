@@ -5,7 +5,7 @@ here depends on conversation context surviving.
 
 Last updated 2026-07-27. Tree: branch `tranche-u`, HEAD `c654824e`. **No source edit has been made
 by this formation and none is authorized** — `src/`, `demo/`, `api/`, `test/`, `e2e/` are untouched,
-`docs/tranches/V/vnext/**` is Codex-owned READ-ONLY, and `scripts/dev/dev.sh` is never touched.
+`docs/tranches/V/vnext/**` is **CLAUDE-OWNED as of 2026-07-27 (M-15: Codex totally abrogated)** — posture FROZEN-AS-INHERITED, absorbed by ruling not by drift; `scripts/dev/dev.sh` is never touched.
 
 ---
 
