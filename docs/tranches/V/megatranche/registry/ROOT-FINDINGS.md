@@ -1438,3 +1438,93 @@ register (the glass radius tokens), with the preset chips deciding deliberately 
 gradient/easing wave band (the GradientEasingEditor / EasingSpecimenStrip corpus; note the
 chip-adjacent glass I-9 Chip residual stays glass-owned — this row is about OUR radius choices,
 not the orphaned Chip CSS). π obligation: OM-4 re-capture; DELTA: before/after pair.
+
+## MT-F031 — OWNER-MARKED: the "DEV MISCONFIGURED" banner is nonsense in the product and is ordered REMOVED
+
+**Witness**: `audit/visual/owner-marked/OM-5-dev-misconfigured-banner.png`
+(sha256 `9d546c9f…a2ca`), owner-captured 2026-07-27 18:21 ET. Owner's words: *"this nonsense needs
+to be removed."*
+
+**What the frame shows**: a standalone pill banner on the route background reading
+`● DEV MISCONFIGURED — RUN \`NPM RUN DEV\``.
+
+**Honest trigger note (L-12)**: the audit dev server runs `npx vite` directly (API-less; `dev.sh`
+untouched by standing law), which is plausibly exactly the condition this banner detects. That does
+NOT soften the mark: the owner has ruled the *surface itself* out of the product. Disposition: the
+banner's component (candidate owners: DockStatusLamp's dev-state arm / a route-level dev chip —
+adjudication pins the exact file) is REMOVED, not restyled and not gated. A dev-environment
+diagnosis belongs in the console or the terminal, never as product chrome. Born-RED gate: a grep
+for the banner string over `demo/` is non-empty today.
+
+## MT-F032 — OWNER-MARKED: the HeroBlob does not carry the current color's vibrancy
+
+**Witness**: `audit/visual/owner-marked/OM-6-blob-vibrancy.png`
+(sha256 `55fcb390…21a620`), owner-captured 2026-07-27 18:21 ET. Owner's words: *"The blob current
+color is not nearly vibrant enough."*
+
+**What the frame shows**: the HeroBlob rendering a washed-out, near-white pale pink while the
+current color (same session, sibling frames OM-3/OM-9) is a highly vibrant pink — `Lab 92.0%,
+88.8, 20.0`, a far-out-of-sRGB chroma. The blob reads as a desaturated ghost of the color it
+exists to display.
+
+**Mechanism HYPOTHESIS (labelled, not measured)**: the blob's shader receives its color through
+the 1×1-canvas CSS resolver (2D context → sRGB clamp) and applies its own HSV perturbation/
+lightening — two stages that each strip chroma from wide-gamut current colors. The cure wave must
+measure the pipeline (resolver clamp vs shader perturbation vs lighting model) before cutting.
+π: OM-6 re-capture at a high-chroma current color; DELTA: before/after with the same Lab triplet.
+
+## MT-F033 — OWNER-MARKED: the dock capsule buttons carry incorrect shadow treatment (extends MT-F026)
+
+**Witness**: `audit/visual/owner-marked/OM-7-capsule-button-shadows.png`
+(sha256 `3586d746…4b778a`), owner-captured 2026-07-27 18:22 ET. Owner's words: *"these buttons
+have incorrect shadows and the like."*
+
+**What the frame shows**: the `→] Login` and `@mbabb` pills at close crop — each sitting in an
+embossed capsule well with a mix of inner shadow, outer highlight, and cast elevation that reads
+as three light models disagreeing on one control pair.
+
+**Relation to the record**: extends MT-F026 (OM-1, the floating pill elevation over a shadowless
+plate) with a closer witness; the adjudicated cure is already ruled in Dock.md — ProfileSection's
+hand-rolled pills route through the producer's real exports (`DockControl` / `DockTrigger`), the
+in-chrome capsule elevation variant stays a glass ask (O-16 §C-5), and no demo box-shadow patch may
+satisfy any gate (masking-fallback ban). This mark strengthens the evidence row; it does not
+re-open the ruling.
+
+## MT-F034 — OWNER-MARKED MANDATE: pane and sub-pane transitions must be well-defined and ANIMATED
+
+**Witness**: `audit/visual/owner-marked/OM-8-pane-transitions-unanimated.png`
+(sha256 `23d700e7…631a4`), owner-captured 2026-07-27 18:22 ET. Owner's words: *"transitions
+between panes, and sub-panes, need to be well-defined and ANIMATED, not just instantly
+transitioned."*
+
+**What the frame shows**: the Mix pane with its `Colors | Palettes` sub-pane segmented control —
+a surface whose pane swaps and sub-pane swaps cut instantly.
+
+**Scope**: this is a MANDATE row, not a single-component defect — it binds every pane transition
+(the KeepAlive route swaps), every sub-pane swap (segmented-control content like Mix
+Colors/Palettes), and the dock layer swaps. The record already holds the mechanism half:
+Dock L-20 (the crossfade shim times a window in which nothing animates — the `DockCrossfade`
+adoption cures the dock half in MT-DOCK-LAYERS-1). The pane/sub-pane half joins the motion band
+(MT-APP-MOTION-1 and the layout-gestalt composition waves): each transition gets a DEFINED motion
+(direction, duration token, easing from the animation tokens), PRM-respecting per the corrected
+idiom (declarations inside `@media (prefers-reduced-motion: no-preference)`), never a bare
+instant cut. Animations are never deleted, only added or tokenized here — consistent with the
+standing preserve-animations edict.
+
+## MT-F035 — OWNER-MARKED: the About pane's top edge does not align with the Picker card; Mix's does
+
+**Witnesses (a defect/control PAIR)**:
+`audit/visual/owner-marked/OM-9-picker-about-height-misaligned.png`
+(sha256 `a57a57eb…9e6b7ca6`) — Picker card left, "About the color spaces, Lab" right: the right
+card's top edge sits visibly HIGHER than the picker card's; the two panes read as unaligned
+neighbours. Owner: *"why does this not line up in height."*
+`audit/visual/owner-marked/OM-10-picker-mix-height-aligned-CONTROL.png`
+(sha256 `47e115e9…3573c3`) — Picker card left, Mix card right: top edges ALIGNED. Owner: *"But
+this does."*
+
+**What the pair proves**: the intended cross-pane top alignment exists and works (Mix), so the
+About pane's offset is a per-pane deviation, not a grid property — some About-side header/margin
+inserts height the shared row does not. The cure is the shared row contract (one grid row, panes
+aligned to the same track start), not a per-pane nudge. Joins the layout-gestalt band (the
+18-route table's Picker+About composition) and MT-APP-1's ordering. π: BOTH witnesses re-captured;
+DELTA: the OM-9 crop after the cure, aligned, beside the untouched OM-10 control.

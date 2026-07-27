@@ -20,7 +20,7 @@ by this formation and none is authorized** — `src/`, `demo/`, `api/`, `test/`,
 | `registry/harvest/*.json` | **53 raw agent results** pulled from the workflow journals — complete, untruncated | REGENERABLE |
 | `registry/DEFECT-LEDGER.md` | **287 defects** from completed challenger seats, severity-ordered | REGENERABLE |
 | `audit/probes/*.mjs` | born-RED gates and hostile probes; each runnable standalone | STABLE |
-| `audit/visual/` | route + state capture matrices, `owner-marked/` witnesses **OM-1..OM-4** (OM-3 picker row-gap + OM-4 easing radius incoherence added 2026-07-27 evening = MT-F029/MT-F030) | GROWING |
+| `audit/visual/` | route + state capture matrices, `owner-marked/` witnesses **OM-1..OM-10** (evening 2026-07-27 batch: OM-3/4 = MT-F029/F030; OM-5 dev-banner-REMOVE = MT-F031; OM-6 blob vibrancy = MT-F032; OM-7 capsule shadows = MT-F033 extends F026; OM-8 ANIMATED-transitions MANDATE = MT-F034; OM-9+OM-10 defect/control pair About-pane misalignment = MT-F035) | GROWING |
 | `workflows/harvest-journals.mjs` | **run after every workflow completion, before any re-deploy (L-13)** | STABLE |
 
 ## Rules that bind the next session
