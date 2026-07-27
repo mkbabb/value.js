@@ -159,8 +159,8 @@ ColorInput · parser-band · layout-gestalt · library-band · chassis-fitness (
 |---|---|---|
 | TRIFOLD adjudication r2 (ColorSpaceSelector · AdminUsersPanel · ConfigSliderPane · Markdown · Dock) | `Workflow({scriptPath: "docs/tranches/V/megatranche/workflows/trifold-adjudication.js", resumeFromRunId: "wf_9bd0ecd0-037", args: <the r2 unit roster — recover verbatim from the run's journal dir or the r1 diagnostics pattern>})` | completed seats replay from cache; only dead seats re-run (L-13) |
 | Phase D safari-real matrix (routes seat DONE — 22 shots on disk; states+morph seat + synthesis pending) | `Workflow({scriptPath: "docs/tranches/V/megatranche/workflows/safari-real-matrix.js", resumeFromRunId: "wf_060ffe39-0fd"})` | routes seat replays cached; needs env below |
-| O-11..O-15 packet seat (Opus agent, from `registry/adjudicated/library-band.md` §packets) | task notification pending | re-derive the 5 packets from library-band.md's packetsOwed + append rows O-11..O-15 to `docs/tranches/V/coordination/INBOX.md` |
-| INBOX rows for O-11..O-15 **and the O-10 amendment** (`glass-ui/.../valuejs-outbound-2026-07-27-o10-amendment-census-g7-g9.md`, SENT, unrowed) | — | append after the packet seat lands (single-writer discipline on INBOX.md) |
+| O-11..O-15 packet seat | **DONE 5/5** — receipts + THREE PATH DEVIATIONS banked at `registry/harvest/packet-seat-O11-O15-receipts.md` (O-12 → sci-report/atlas P-path, code tree has no docs/; O-14 → fourier `docs/tranches/N/` live inbox; O-15 → parse-that docs-root). INBOX rows O-11..O-15 appended (+5/−0) | — |
+| INBOX rows | **DONE** — O-11..O-15 by the seat; **O-10a (chassis amendment) rowed by the root**; all committed | — |
 
 **Environment recipes (both die between sessions):**
 - dev server: `npx vite --port 9000 --strictPort` from repo root — API-LESS (mongo down; dev.sh NEVER touched); data-backed arms are UNVERIFIABLE-HERE, not defects.
