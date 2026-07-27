@@ -1,0 +1,83 @@
+{
+  "motion_no-preference": {
+    "h2": {
+      "transitionProperty": "color",
+      "transitionDuration": "0.45s",
+      "willChange": "auto"
+    },
+    "h3": {
+      "transitionProperty": "color",
+      "transitionDuration": "0.45s",
+      "willChange": "auto"
+    },
+    "p": {
+      "transitionProperty": "all",
+      "transitionDuration": "0s",
+      "willChange": "auto"
+    },
+    "a": null,
+    "mark": {
+      "transitionProperty": "all",
+      "transitionDuration": "0s",
+      "willChange": "auto"
+    },
+    "matchMediaReduce": false
+  },
+  "motion_reduce": {
+    "h2": {
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s",
+      "willChange": "auto"
+    },
+    "h3": {
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s",
+      "willChange": "auto"
+    },
+    "p": {
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s",
+      "willChange": "auto"
+    },
+    "a": null,
+    "mark": {
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s",
+      "willChange": "auto"
+    },
+    "matchMediaReduce": true
+  },
+  "katex": {
+    "found": true,
+    "innerScrollW": 752,
+    "innerClientW": 306,
+    "innerOverflow": 446,
+    "innerOverflowX": "visible",
+    "innerRect": {
+      "left": 54.9,
+      "right": 361,
+      "width": 306.1
+    },
+    "outerOverflowX": "auto",
+    "outerScrollW": 778,
+    "outerClientW": 332,
+    "cardOverflowX": "hidden",
+    "cardRight": 374,
+    "inkRightEdge": 806.9,
+    "clippedPx": 432.9,
+    "viewportY": 240.4,
+    "viewportH": 46.5
+  },
+  "links": {
+    "count": 0,
+    "sample": []
+  },
+  "zoom200": {
+    "bodyW": 700,
+    "cardW": 800,
+    "docOverflowX": 0,
+    "bodyOverflowX": 0,
+    "h2Size": "30px",
+    "h2MarginTop": "41.882813px"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-p01-css-corpus-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "origin", "execution_manifest", "partitions", "cases", "case_ids_sha256", "covered_modules_sha256", "corpus_hash"],
+  "properties": {
+    "schema": { "const": "vnext-p01-css-corpus/1" },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wave_id", "p00_return_hash"],
+      "properties": {
+        "wave_id": { "const": "P00" },
+        "p00_return_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "execution_manifest": { "$ref": "#/$defs/executionBinding" },
+    "partitions": {
+      "const": [
+        "syntax",
+        "value",
+        "stylesheet",
+        "unicode",
+        "pathological",
+        "serialization",
+        "consumer-ingest",
+        "historical-disposition"
+      ]
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 8,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["case_id", "partition", "entry_module", "covered_modules", "fixture", "expected"],
+        "properties": {
+          "case_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+          "partition": { "$ref": "#/$defs/partition" },
+          "entry_module": { "$ref": "#/$defs/bbnfPath" },
+          "covered_modules": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/bbnfPath" }
+          },
+          "fixture": { "$ref": "#/$defs/evidence" },
+          "expected": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["outcome", "cst_sha256", "diagnostics_sha256", "spans_sha256", "exact_serialization_sha256", "edit_serialization_sha256", "canonical_serialization_sha256", "route_trace_sha256"],
+            "properties": {
+              "outcome": { "enum": ["accept", "recover", "reject"] },
+              "cst_sha256": { "$ref": "#/$defs/sha256" },
+              "diagnostics_sha256": { "$ref": "#/$defs/sha256" },
+              "spans_sha256": { "$ref": "#/$defs/sha256" },
+              "exact_serialization_sha256": { "$ref": "#/$defs/sha256" },
+              "edit_serialization_sha256": { "$ref": "#/$defs/sha256" },
+              "canonical_serialization_sha256": { "$ref": "#/$defs/sha256" },
+              "route_trace_sha256": { "$ref": "#/$defs/sha256" }
+            }
+          }
+        }
+      }
+    },
+    "case_ids_sha256": { "$ref": "#/$defs/sha256" },
+    "covered_modules_sha256": { "$ref": "#/$defs/sha256" },
+    "corpus_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "gitCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "absolutePath": { "type": "string", "pattern": "^/(?!$)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]*$" },
+    "bbnfPath": { "type": "string", "pattern": "^grammar/css/(?:[a-z0-9][a-z0-9-]*/)*[a-z0-9][a-z0-9-]*\\.bbnf$" },
+    "partition": { "enum": ["syntax", "value", "stylesheet", "unicode", "pathological", "serialization", "consumer-ingest", "historical-disposition"] },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "executionBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_hash", "bbnf_commit", "runtime_modules_sha256", "excluded_dispositions_sha256", "resolved_edges_sha256"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^/.*/test/proof/p00/css-module-isomorphism\\.execution\\.json$" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_hash": { "$ref": "#/$defs/sha256" },
+        "bbnf_commit": { "$ref": "#/$defs/gitCommit" },
+        "runtime_modules_sha256": { "$ref": "#/$defs/sha256" },
+        "excluded_dispositions_sha256": { "$ref": "#/$defs/sha256" },
+        "resolved_edges_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

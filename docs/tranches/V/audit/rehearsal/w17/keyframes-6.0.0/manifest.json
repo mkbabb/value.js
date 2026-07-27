@@ -1,0 +1,318 @@
+{
+  "disposition": "AUTHORITATIVE V-A93-CORRECTED KEYFRAMES W17 REHEARSAL · UNCLAIMED · UNPUBLISHED · REHEARSAL ONLY",
+  "package": "@mkbabb/keyframes.js",
+  "version": "6.0.0",
+  "originalHeldTarball": {
+    "disposition": "HELD / DEFECTIVE · HISTORICAL ONLY",
+    "path": "/private/tmp/keyframes-v6-rehearsal-20260716-a85/mkbabb-keyframes.js-6.0.0.tgz",
+    "bytes": 231628,
+    "sha256": "b25871f899a4384762b5f3124bc18fe86b20d00c30fb688b659217c3b96e48b7",
+    "sha512": "9769e31a763e2c192a296bfc9a171707ed91cb3208071efbedcb49fd09c91b314f86200831501d702d1e6597d69515287e354bc21d861bbb9350b03d719491c7",
+    "integrity": "sha512-l2njGnY+LBkqKWv8mhcXB+2RyzIIBx777ctJ/QnJGzFPhiAIMVAdcC0eZZfWlRUofjVLwh2GG7uTULA9cZSRxw==",
+    "shasum": "9e880d3951365d1eef7d2b1123c4ced6e416d760",
+    "files": 11,
+    "lockfile": false
+  },
+  "dependency": {
+    "@mkbabb/value.js": "4.0.0"
+  },
+  "exports": [".", "./engine"],
+  "peerDependencies": false,
+  "optionalDependencies": false,
+  "glassRuntimeEdge": false,
+  "glassDevDependency": "historical archive 6.0.0; held 184,710-byte candidate 7.0.0",
+  "originalHeldDeclarations": {
+    "dist/keyframes.d.ts": {
+      "bytes": 213486,
+      "sha256": "6776964d0961098ae6feb71c65a1b8f29ea23fd5e45696a114b311392e33e794"
+    },
+    "dist/engine/index.d.ts": {
+      "bytes": 139552,
+      "sha256": "830c922fc62a706bbff0e81455e068ea8f4f54c6abb0e71038dfee22ddf1befd"
+    },
+    "kernelLeakScan": 0
+  },
+  "originalHeldVerification": {
+    "sourceTypes": "green",
+    "dependencyCruiser": "153 modules / 663 edges · green",
+    "libraryFiles": "100 passed / 5 skipped",
+    "tests": "1044 passed / 1 expected fail / 14 skipped",
+    "prepare": "green",
+    "build": "green",
+    "isolatedOfflineInstall": "green",
+    "physicalValueCores": 1,
+    "valueVersion": "4.0.0",
+    "deduped": true,
+    "symlinks": false,
+    "valueEntriesResolved": 7,
+    "keyframesEntriesResolved": 2
+  },
+  "semver": {
+    "baseline": "5.3.5",
+    "selected": "6.0.0",
+    "rootRuntimeExports": "34 -> 34 identical",
+    "engineRuntimeExports": "45 -> 44; getTimingFunction removed",
+    "declarationBreaks": [
+      "ValueUnit",
+      "ValueArray",
+      "InterpolatedVar",
+      "ParseDiagnostic",
+      "blendMode",
+      "weighted API"
+    ],
+    "justifiedMajor": true
+  },
+  "originalHeldConsumerDefect": {
+    "foundBy": "Glass real demo production build",
+    "packedEngineDynamicImport": "prettier",
+    "prettierDeclaredRuntimeDependency": false,
+    "bundledRuntimeChunk": "PostCSS",
+    "publicSurfaceToDelete": "printWidth",
+    "glassAcceptedWorkaround": false,
+    "replacementRequired": true,
+    "replacementOwner": "Keyframes W17 producer"
+  },
+  "replacementAttempts": [
+    {
+      "disposition": "HELD / DEFECTIVE · ZERO REHEARSAL CREDIT",
+      "path": null,
+      "bytes": 184655,
+      "hashes": null,
+      "defect": "superseded formatter-free candidate; authoritative owner handoff explicitly rejects it"
+    },
+    {
+      "disposition": "HELD / DEFECTIVE · ZERO REHEARSAL CREDIT",
+      "path": "/private/tmp/keyframes-format-owner-audit-20260716-final/mkbabb-keyframes.js-6.0.0.tgz",
+      "bytes": 184684,
+      "sha256": "9e7e0ccd1637628daea0121c68c965fc2940ad03a7f56844f8e4ad08d46ab4a3",
+      "sha512": "8a40b7ffeea70c66bb73fcd7820f6c7f69af04a84859a544f5996579b925adc5ca7839d0ed40712b45a991ddcde7654445ca42f4ea0edb90a6798f7f5657a75c",
+      "integrity": "sha512-ikC3/+6nDGa7c/zXgg9sf2mvBKhIWaVE9ZllebklrcXKeDnQ7UBxK0Wpkd3N52VERcpC9OoO25CmeY9/VlenXA==",
+      "shasum": "438d076e4d1d905042fddca70d33025c9371a942",
+      "files": 10,
+      "aggregateFailures": 5,
+      "defect": "owned deterministic indentation emitted malformed CSS; compiled replay produced empty frames and color densification collapsed",
+      "fixBoundary": "formatter builder, never snapshots or test expectations",
+      "glassMutationRequested": false
+    }
+  ],
+  "glassValidatedIntermediate": {
+    "disposition": "CORRECTED KEYFRAMES W17 INTERMEDIATE · GLASS-VALIDATED · SUPERSEDED BY FINAL GH-PAGES MIGRATION REHEARSAL",
+    "path": "/private/tmp/keyframes-format-owner-audit-20260716-indent-final/mkbabb-keyframes.js-6.0.0.tgz",
+    "bytes": 184708,
+    "sha256": "ffc3656fb7ed058b5f4515ddce2c8b57107280c8aced6888ba1db4c0e6f2204c",
+    "sha512": "8b300f34952d69854f71d95124e60795f02436a41ffb443e3230b5a6caab6b597a444ac8cae62416bcd1c279060a8212ab63be89945155cce0f59543633f08a4",
+    "integrity": "sha512-izAPNJUtaYVPcdlRJOYHlfAkNqQf+0Q+MjC1psqra1l6RErIyuYkFrzRwnkGCoISq2O+iZRRVczg9ZVDYz8IpA==",
+    "shasum": "3993222289bbb89037b925676c361258a1c38656",
+    "files": 10,
+    "baseHead": "a59d3a22da080a8ed224e8d675112bb3bb0135b0",
+    "syntheticSource": true,
+    "commit": null,
+    "tree": null,
+    "tag": null,
+    "published": false,
+    "declarations": {
+      "dist/keyframes.d.ts": {
+        "bytes": 213303,
+        "sha256": "6efc83c7d6a7e1c8182cdbad2ef53deec0b89899170eb835698fb13735ef0281"
+      },
+      "dist/engine/index.d.ts": {
+        "bytes": 139369,
+        "sha256": "fc4f888922625c3ad26d018f80683539a594f51eb5b8151923bed170aa967969"
+      }
+    },
+    "packedResidue": {
+      "prettier": 0,
+      "pluginsPostcss": 0,
+      "formatCSS": 0,
+      "printWidth": 0,
+      "postcssChunks": 0,
+      "productionJsFiles": 5
+    },
+    "verification": {
+      "priorFailureFiles": "26/26 green",
+      "libraryFiles": "100 passed / 5 skipped",
+      "tests": "1044 passed / 1 expected fail / 14 skipped",
+      "types": "both graphs green",
+      "dependencyGraph": "green",
+      "build": "green",
+      "pack": "green",
+      "compileReplayMidpoint": 0.5,
+      "nestedIndentationTrailingNewline": "green",
+      "isolatedExactValue4Install": "green",
+      "dedupedPhysicalValueCores": 1,
+      "symlinks": false,
+      "valueEntriesResolved": 7,
+      "keyframesEntriesResolved": 2
+    }
+  },
+  "heldStrictConsumerCandidate": {
+    "disposition": "HELD / DEFECTIVE FOR STRICT DECLARATION CONSUMPTION UNDER V-A93 · HISTORICAL RUNTIME/SEMVER/AGGREGATE EVIDENCE ONLY",
+    "path": "/private/tmp/keyframes-v6-rehearsal-20260716-w17-final/mkbabb-keyframes.js-6.0.0.tgz",
+    "bytes": 184710,
+    "sha256": "246e41808cb873726a78b542c68ee6f8aed581e093d8b94bee6ff28a087e8228",
+    "sha512": "6b47452324929ada49805be9397bbad439c0b7459ec3295480e091fad469c6bf3002782eebd9baffa8de48490e8558e85331435254a8ab9203d9228f966cb2ee",
+    "integrity": "sha512-a0dFIySSmtpJgFvpOXu61DnAt0WewylUgOCR+tRpxr8wAngu69m6/6jeSEkOhVjoUzFDUlSoq5ID2SKPlmyy7g==",
+    "shasum": "a626897b54591aa2fbe8e4283fdd95a158da405e",
+    "files": 10,
+    "baseHead": "a59d3a22da080a8ed224e8d675112bb3bb0135b0",
+    "syntheticSource": true,
+    "tree": null,
+    "commit": null,
+    "tag": null,
+    "published": false,
+    "dependency": {
+      "@mkbabb/value.js": "4.0.0"
+    },
+    "devDependency": {
+      "@mkbabb/glass-ui": "7.0.0"
+    },
+    "exports": [".", "./engine"],
+    "peerDependencies": false,
+    "optionalDependencies": false,
+    "glassRuntimeEdge": false,
+    "lockfile": false,
+    "declarations": {
+      "dist/keyframes.d.ts": {
+        "bytes": 213303,
+        "sha256": "6efc83c7d6a7e1c8182cdbad2ef53deec0b89899170eb835698fb13735ef0281"
+      },
+      "dist/engine/index.d.ts": {
+        "bytes": 139369,
+        "sha256": "fc4f888922625c3ad26d018f80683539a594f51eb5b8151923bed170aa967969"
+      }
+    },
+    "packedResidue": {
+      "prettier": 0,
+      "postcss": 0,
+      "printWidth": 0
+    },
+    "valueRuntimeImports": [
+      "@mkbabb/value.js/color",
+      "@mkbabb/value.js/css",
+      "@mkbabb/value.js/easing",
+      "@mkbabb/value.js/math",
+      "@mkbabb/value.js/transform",
+      "@mkbabb/value.js/value"
+    ],
+    "verification": {
+      "types": "both graphs green",
+      "dependencyGraph": "151 modules / 661 edges · green",
+      "libraryFiles": "100 passed / 5 skipped",
+      "tests": "1044 passed / 1 expected fail / 14 skipped",
+      "libraryBuild": "142 modules · green",
+      "ghPagesBuild": "3554 modules · green",
+      "glass7RemovedSubpathMigrations": [
+        "controls -> dark-mode-toggle",
+        "IconTooltip -> Tooltip primitives",
+        "MetricBadge -> Metric"
+      ],
+      "aliasesOrFallbacks": false,
+      "isolatedExactValue4Install": "green",
+      "dedupedPhysicalValueCores": 1,
+      "symlinks": false,
+      "rootRuntimeExports": 34,
+      "engineRuntimeExports": 44,
+      "valueEntriesResolved": 7,
+      "nativeVisual": {
+        "firstFrozenDirectory": "/private/tmp/keyframes-gh-pages-w17-final-20260716",
+        "firstDisposition": "MATERIAL DEFECT · DarkModeToggle center hit target behind overlying panel",
+        "cause": "EditorShell HeaderRibbon used obsolete position=right prop; Glass 7 requires placement=right",
+        "correction": "position=right -> placement=right",
+        "workaround": false,
+        "correctedFrozenDirectory": "/private/tmp/keyframes-gh-pages-w17-placement-final-20260716",
+        "files": 53,
+        "aggregateBytes": 6761455,
+        "sha256Manifest": "/private/tmp/keyframes-gh-pages-w17-placement-final-20260716.sha256",
+        "manifestSha256": "d650a049e8eb1f9653759e4febe510a13556d0aaa484eb3d5527a7f4fa36d162",
+        "indexSha256": "1c360600ec2cfac3bac4a088019a26bf0dcfcaac44a1c9ba04a05427492f10fa",
+        "reclose": "blocked by Glass V-A90/V-A91/V-A92; consume corrected explicit-behavior Glass bytes, rebuild/refreeze this demo input, then rerun the host in-app Browser",
+        "libraryTarballImpact": "none · demo-only source correction"
+      }
+    },
+    "packageLock": {
+      "unchangedStale": true,
+      "sha256": "529bb9b39a45a860b935d3b8a37afa20496aa655d2484776dd853beb250f3071"
+    },
+    "strictConsumerDefect": {
+      "addendum": "V-A93",
+      "declaration": "dist/keyframes.d.ts",
+      "declarationSha256": "6efc83c7d6a7e1c8182cdbad2ef53deec0b89899170eb835698fb13735ef0281",
+      "line": 3578,
+      "diagnostic": "TS2420",
+      "finding": "SpringProgress implements SpringPlayback but the stripped declaration omits disposed, _onFrame and _emitManagedFrame",
+      "strictConsumerGreen": false,
+      "requiredCorrection": "remove the false public implements claim while retaining the internal structural seam; do not expose internal loop members or weaken stripInternal"
+    }
+  },
+  "replacement": {
+    "disposition": "AUTHORITATIVE REPLACEMENT · UNCLAIMED · UNPUBLISHED · REHEARSAL ONLY",
+    "sourceCorrection": "redundant public implements SpringPlayback removed; internal structural calls retained",
+    "path": "/private/tmp/keyframes-v6-rehearsal-20260716-w17-strict-final/mkbabb-keyframes.js-6.0.0.tgz",
+    "bytes": 184254,
+    "sha256": "c8f0d1a469f0b3c03ce053e287f9175939d8a78e823d20594803709cb05e015c",
+    "sha512": "cb45137b3c8155d9f430073f1162d208fb1ef5890ce710838a1ae9b9679439a6100ea4b5ebbac375d6087ccc3eedd5081d1dc023126af93bc4f6507550a1e821",
+    "integrity": "sha512-y0UTezyBVdn0MAc/EWLSCPse9YkM5xCDihrpuWeUOaYQDqS167rDddYIfMw+7dUIHR3AIxJq+TvE9lB1UKHoIQ==",
+    "shasum": "d96116115bef072a9be3ceaa28c5fa4a47bf86d8",
+    "files": 10,
+    "exports": [".", "./engine"],
+    "dependency": {
+      "@mkbabb/value.js": "4.0.0"
+    },
+    "devDependency": {
+      "@mkbabb/glass-ui": "7.0.0"
+    },
+    "peerDependencies": false,
+    "optionalDependencies": false,
+    "glassRuntimeEdge": false,
+    "lockfile": false,
+    "declarations": {
+      "dist/keyframes.d.ts": {
+        "sha256": "c96f9040e39a828caacf2209a0135afb850ddc359b63d042809c40b5f5ba2a37",
+        "springPlaybackReferences": 0
+      },
+      "dist/engine/index.d.ts": {
+        "sha256": "fc4f888922625c3ad26d018f80683539a594f51eb5b8151923bed170aa967969"
+      }
+    },
+    "verification": {
+      "checkAndLint": "green",
+      "libraryBuild": "142 modules · green",
+      "focusedSpring": "35/35",
+      "libraryFiles": "126 passed / 5 skipped",
+      "tests": "1197 passed / 1 expected fail / 14 skipped",
+      "strictIsolatedNoLockConsumer": "green",
+      "skipLibCheck": false,
+      "rootRuntimeExports": 34,
+      "engineRuntimeExports": 44,
+      "dedupedPhysicalValueCores": 1,
+      "symlinks": false,
+      "independentTransportRehash": "green"
+    },
+    "packageLock": {
+      "unchanged": true,
+      "sha256": "529bb9b39a45a860b935d3b8a37afa20496aa655d2484776dd853beb250f3071"
+    },
+    "commit": null,
+    "tag": null,
+    "published": false,
+    "registryCoordinates": null
+  },
+  "commit": null,
+  "tag": null,
+  "published": false,
+  "registryCoordinates": null,
+  "releaseOrdering": {
+    "addendum": "V-A97",
+    "productRehearsalGreen": true,
+    "immutableReleaseBlockedUntilValue4": true,
+    "runtimeReleaseGraph": "Keyframes 6 depends only on exact registry Value 4",
+    "glass7DevEdge": "demo-only; unpublished during Keyframes release and therefore not a Keyframes library publication prerequisite",
+    "mandatoryLockCurrent": false,
+    "valueProducerReverseDevEdges": ["file:../glass-ui", "file:../keyframes.js"],
+    "valueIntegrationFixturesToMove": ["test/aurora-motion.test.ts", "test/aurora-bracket.test.ts"],
+    "valueProducerRequirement": "remove reverse local dev edges, move Glass integration fixtures to later consumer/demo lane, regenerate registry-only lock, then run npm ci plus library types/build/full producer tests",
+    "orderedResolution": "publish hermetic Value 4; refresh Keyframes Value lock and publish Keyframes 6; publish Glass 7 from registry Value 4 + Keyframes 6; then refresh Value/Keyframes demo/dev Glass edges in an ordinary follow-up",
+    "forbidden": ["file link", "forced resolution", "fabricated lock", "stale-lock acceptance", "CI bypass", "hidden peer", "circular publication"]
+  },
+  "nextOwner": "Glass W17 consumes the exact 184,254-byte V-A93 replacement and closes V-A88/V-A90/V-A91/V-A92 plus V-A94/V-A95 Q003 native defects before Keyframes rebuild/refreeze/native re-close; W33 preserves V-A97 Value4-first publication and breaks the demo-only Glass bootstrap cycle without file or lock workarounds"
+}

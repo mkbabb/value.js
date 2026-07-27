@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-p01-access-projection-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "session_id", "transcript_sha256", "tool_calls", "tool_outputs", "messages", "observed_paths", "observability_limit", "projection_hash"],
+  "properties": {
+    "schema": { "const": "vnext-p01-access-projection/1" },
+    "session_id": { "type": "string", "minLength": 1 },
+    "transcript_sha256": { "$ref": "#/$defs/sha256" },
+    "tool_calls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["timestamp", "call_id", "tool_name", "arguments_sha256", "observed_paths"],
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "call_id": { "type": "string", "minLength": 1 },
+          "tool_name": { "type": "string", "minLength": 1 },
+          "arguments_sha256": { "$ref": "#/$defs/sha256" },
+          "observed_paths": { "$ref": "#/$defs/pathArray" }
+        }
+      }
+    },
+    "tool_outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["timestamp", "call_id", "output_sha256", "observed_paths"],
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "call_id": { "type": "string", "minLength": 1 },
+          "output_sha256": { "$ref": "#/$defs/sha256" },
+          "observed_paths": { "$ref": "#/$defs/pathArray" }
+        }
+      }
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["timestamp", "record_sha256", "observed_paths"],
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "record_sha256": { "$ref": "#/$defs/sha256" },
+          "observed_paths": { "$ref": "#/$defs/pathArray" }
+        }
+      }
+    },
+    "observed_paths": { "$ref": "#/$defs/pathArray" },
+    "observability_limit": {
+      "const": "Codex JSONL exposes recorded tool calls, tool outputs and messages, not operating-system reads outside those calls; independence is enforced by fork_turns:none, zero inherited dialogue, undisclosed disjoint roots, concurrent freezes, and no recorded peer-root disclosure before both freezes."
+    },
+    "projection_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "pathArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^/" }
+    }
+  }
+}

@@ -1,0 +1,246 @@
+{
+ "ladder": {
+  "metaRowPad": {
+   "t": 10,
+   "r": 12,
+   "b": 10,
+   "l": 12
+  },
+  "stripH": 40,
+  "cardH": 100,
+  "spacing": "0.25rem",
+  "cardPadInlineLaw": "--spacing(4) = 1rem",
+  "typeSubheading": "1.272rem",
+  "rootRadius": "16px",
+  "rootTransition": "all / 0s / ease",
+  "castTransition": "all / 0s",
+  "glassCardExists": true,
+  "glassCardPadInline": "calc(0.25rem * 6)"
+ },
+ "keyboard": {
+  "cardCount": 5,
+  "cardsFocusable": 0,
+  "focusablesInGrid": [
+   {
+    "tag": "BUTTON",
+    "name": "Palette menu"
+   },
+   {
+    "tag": "BUTTON",
+    "name": "Palette menu"
+   },
+   {
+    "tag": "BUTTON",
+    "name": "Palette menu"
+   },
+   {
+    "tag": "BUTTON",
+    "name": "Palette menu"
+   },
+   {
+    "tag": "BUTTON",
+    "name": "Palette menu"
+   }
+  ],
+  "dragHandles": 5,
+  "dragHandlesFocusable": 0,
+  "dragHandleNamed": 0,
+  "dragHandleRect": {
+   "w": 16,
+   "h": 16
+  },
+  "titleClickHandlerButNotButton": [
+   {
+    "tag": "SPAN",
+    "tabIndex": -1,
+    "role": null
+   },
+   {
+    "tag": "SPAN",
+    "tabIndex": -1,
+    "role": null
+   },
+   {
+    "tag": "SPAN",
+    "tabIndex": -1,
+    "role": null
+   },
+   {
+    "tag": "SPAN",
+    "tabIndex": -1,
+    "role": null
+   },
+   {
+    "tag": "SPAN",
+    "tabIndex": -1,
+    "role": null
+   }
+  ]
+ },
+ "expanded": {
+  "cardH": 222.17,
+  "swatchCount": 5,
+  "swatchRects": [
+   {
+    "w": 40,
+    "h": 40,
+    "tag": "SPAN",
+    "tabIndex": -1,
+    "name": null
+   },
+   {
+    "w": 40,
+    "h": 40,
+    "tag": "SPAN",
+    "tabIndex": -1,
+    "name": null
+   },
+   {
+    "w": 40,
+    "h": 40,
+    "tag": "SPAN",
+    "tabIndex": -1,
+    "name": null
+   }
+  ],
+  "interactiveNames": [
+   {
+    "tag": "BUTTON",
+    "n": "Palette menu"
+   },
+   {
+    "tag": "INPUT",
+    "n": ""
+   },
+   {
+    "tag": "BUTTON",
+    "n": ""
+   },
+   {
+    "tag": "BUTTON",
+    "n": ""
+   }
+  ]
+ },
+ "badge_none": {
+  "color": "rgb(28, 25, 23)",
+  "webkitTextFillColor": "rgb(28, 25, 23)",
+  "bgImage": "linear-gradient(90deg, oklch(0.599 0.132 64.199997), oklch(0.89 0.183 96.099998)",
+  "bgClip": "text",
+  "borderColor": "oklch(0.751 0.147 84.199997)",
+  "w": 119,
+  "h": 26,
+  "animName": "metal-shimmer-sweep",
+  "animDur": "5s"
+ },
+ "cardFC_none": {
+  "border": "oklab(0.216129 0.003491 0.005182 / 0.12) 2px",
+  "bg": "oklab(0.913299 0.005463 0.013024)",
+  "shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab("
+ },
+ "badge_active": {
+  "color": "rgb(28, 25, 23)",
+  "webkitTextFillColor": "rgb(28, 25, 23)",
+  "bgImage": "linear-gradient(90deg, oklch(0.599 0.132 64.199997), oklch(0.89 0.183 96.099998)",
+  "bgClip": "text",
+  "borderColor": "oklch(0.751 0.147 84.199997)",
+  "w": 119,
+  "h": 26,
+  "animName": "metal-shimmer-sweep",
+  "animDur": "5s"
+ },
+ "cardFC_active": {
+  "border": "oklab(0.216129 0.003491 0.005182 / 0.12) 2px",
+  "bg": "oklab(0.913299 0.005463 0.013024)",
+  "shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab("
+ },
+ "motion_no-preference": {
+  "cardTransition": "all",
+  "castTransition": "all",
+  "castTransform": "none",
+  "animatedInGrid": 6
+ },
+ "motion_reduce": {
+  "cardTransition": "opacity 0.1s, color 0.1s, background-color 0.1s, border-color 0.1s, box-shadow 0.1s",
+  "castTransition": "opacity 0.1s, color 0.1s, background-color 0.1s, border-color 0.1s, box-shadow 0.1s",
+  "castTransform": "none",
+  "animatedInGrid": 155
+ },
+ "rtl": {
+  "dir": "ltr",
+  "cards": 5,
+  "gridRect": {
+   "x": 489,
+   "w": 462
+  },
+  "firstCard": {
+   "x": 489,
+   "w": 462,
+   "radius": "16px",
+   "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px"
+  },
+  "metaRowChildOrder": [
+   {
+    "cls": "flex items-center gap-2 min-w-",
+    "x": 503
+   },
+   {
+    "cls": "flex items-center gap-1",
+    "x": 901
+   }
+  ],
+  "overlapWithPicker": null
+ },
+ "titleStarve": [
+  {
+   "name": "Sunset",
+   "titleW": 65.34,
+   "titleH": 30.52,
+   "titleScrollW": 65,
+   "titleClientW": 65,
+   "truncatedBy": 0,
+   "shrink0ChipW": 44.63,
+   "chipMenuOverlapPx": 0
+  },
+  {
+   "name": "",
+   "titleW": 0,
+   "titleH": 61.03,
+   "titleScrollW": 100,
+   "titleClientW": 0,
+   "truncatedBy": 100,
+   "shrink0ChipW": 233.06,
+   "chipMenuOverlapPx": 37.06
+  },
+  {
+   "name": "Featured One",
+   "titleW": 67.83,
+   "titleH": 61.03,
+   "titleScrollW": 86,
+   "titleClientW": 68,
+   "truncatedBy": 18,
+   "shrink0ChipW": 160.17,
+   "chipMenuOverlapPx": 0
+  },
+  {
+   "name": "Single",
+   "titleW": 59.59,
+   "titleH": 30.52,
+   "titleScrollW": 60,
+   "titleClientW": 60,
+   "truncatedBy": 0,
+   "shrink0ChipW": 44.63,
+   "chipMenuOverlapPx": 0
+  },
+  {
+   "name": "Empty",
+   "titleW": 63.84,
+   "titleH": 30.52,
+   "titleScrollW": 64,
+   "titleClientW": 64,
+   "truncatedBy": 0,
+   "shrink0ChipW": 44.63,
+   "chipMenuOverlapPx": 0
+  }
+ ]
+}

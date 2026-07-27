@@ -1,0 +1,49 @@
+{
+ "area": "scenes",
+ "parallelism": 2,
+ "components": [
+  {
+   "file": "demo/scenes/about/markdown/Markdown.vue",
+   "slug": "Markdown",
+   "area": "scenes",
+   "loc": 408,
+   "extra": "408 LoC, the largest component in the demo tree. The owner's standing feedback (feedback_no_god_modules) forbids adding to god modules and requires focused modules with real encapsulation. Assess honestly whether this is one module or several wearing one name -- and if you propose a split, the wave must be individually completable (L-1), not a refactor arc."
+  },
+  {
+   "file": "demo/scenes/ConfigSliderPane.vue",
+   "slug": "ConfigSliderPane",
+   "area": "scenes",
+   "loc": 252
+  },
+  {
+   "file": "demo/scenes/about/ColorNutritionLabel.vue",
+   "slug": "ColorNutritionLabel",
+   "area": "scenes",
+   "loc": 242
+  },
+  {
+   "file": "demo/scenes/atmosphere/AuroraPane.vue",
+   "slug": "AuroraPane",
+   "area": "scenes",
+   "loc": 201
+  },
+  {
+   "file": "demo/scenes/blob/BlobPane.vue",
+   "slug": "BlobPane",
+   "area": "scenes",
+   "loc": 130
+  },
+  {
+   "file": "demo/scenes/about/AboutPane.vue",
+   "slug": "AboutPane",
+   "area": "scenes",
+   "loc": 100
+  },
+  {
+   "file": "demo/scenes/about/katex/Katex.vue",
+   "slug": "Katex",
+   "area": "scenes",
+   "loc": 49
+  }
+ ]
+}

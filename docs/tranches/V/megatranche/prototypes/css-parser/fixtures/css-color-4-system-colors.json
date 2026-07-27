@@ -1,0 +1,27 @@
+{
+  "source": "https://drafts.csswg.org/css-color-4/",
+  "fetched": "2026-07-24",
+  "method": "dfn ids matching data-dfn-for='<color>, <named-color>' / '<color>, <system-color>'",
+  "count": 19,
+  "names": [
+    "accentcolor",
+    "accentcolortext",
+    "activetext",
+    "buttonborder",
+    "buttonface",
+    "buttontext",
+    "canvas",
+    "canvastext",
+    "field",
+    "fieldtext",
+    "graytext",
+    "highlight",
+    "highlighttext",
+    "linktext",
+    "mark",
+    "marktext",
+    "selecteditem",
+    "selecteditemtext",
+    "visitedtext"
+  ]
+}

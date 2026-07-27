@@ -1,0 +1,1134 @@
+{
+ "runId": "wf_dee4c83a-ec2",
+ "workflow": "area-scenes",
+ "resultCount": 5,
+ "results": [
+  {
+   "agentId": "a02050869f6d854fa",
+   "key": "v2:c7e0b3f66d83c66f868a56cee2d0fc47da33e1da0c337b936cbd48b1ab01f85b",
+   "result": {
+    "axis": "CHALLENGE-L — library structure: module boundaries, ownership, dependency direction, public surface",
+    "modelObserved": "Opus 5 (1M context) — exact model id claude-opus-5[1m], the tier explicitly declared at spawn. Seat is declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/Markdown/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "The demo typechecks `@mkbabb/value.js/css` against the PUBLISHED npm 4.0.0 tarball while running it against the LOCAL working-tree build. `tsconfig.demo.json#paths` is a hand-copied mirror of `package.json#exports` and has drifted in both directions: 3 phantom entries (`.` → dist/index.d.ts, `/parsing`, `/units` — all three target files that do not exist) and 2 MISSING real subpaths (`/css`, `/value`). The subject component's composable straddles the seam on adjacent lines 3 and 4.",
+      "severity": "BLOCKER",
+      "evidence": "demo/scenes/about/markdown/composables/useMarkdownColors.ts:3-4 imports /color and /css. `npx tsc -p <probe extending tsconfig.demo.json> --traceResolution` output: `'@mkbabb/value.js/color' ... matched pattern ... successfully resolved to '/Users/mkbabb/Programming/value.js/dist/subpaths/color.d.ts'` vs `'@mkbabb/value.js/css' ... Loading module from 'node_modules' folder ... successfully resolved to '/Users/.../node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts' with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'`. `wc -l`: local css.d.ts=382, installed=350; `diff -q` DIFFER (color.d.ts IDENTICAL). Divergence is semantic: local emits private forks `Color_2/Channel_2/Alpha_2/SpaceId_2/ChannelsBySpace_2` and `[S in CssColorSpace]: Color_2<S>` where published has `Color<S>`. tsconfig.demo.json:42-49 (paths table); comment at :37-41 falsely asserts a 'CLOSED 8-key set' (map has 7 keys, no `.`). Missing targets verified: dist/index.d.ts MISSING, dist/subpaths/parsing.d.ts MISSING, dist/subpaths/units.d.ts MISSING. Blast radius: 9 demo files import /css.",
+      "mechanism": "public-surface resolution lattice hand-maintained instead of generated; runtime lattice (vite valueJsSelfAlias) IS generated from package.json#exports, typecheck lattice is not — the asymmetry is the bug",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; printf 'import { convertColor } from \"@mkbabb/value.js/color\";\\nimport { parseCssColor } from \"@mkbabb/value.js/css\";\\nexport const x=[convertColor,parseCssColor];\\n' > /tmp/probe.ts; printf '{\"extends\":\"/Users/mkbabb/Programming/value.js/tsconfig.demo.json\",\"compilerOptions\":{\"noEmit\":true,\"traceResolution\":true},\"include\":[\"probe.ts\"]}' > /tmp/tsconfig.probe.json; npx tsc -p /tmp/tsconfig.probe.json 2>&1 | grep -E 'value\\.js/(css|color)'",
+      "proposedCure": "Generate tsconfig.demo.json#paths from package.json#exports with the SAME generator vite.config.ts already uses for valueJsSelfAlias — one map, one generator, two consumers. Emit a tsconfig.value-paths.json that tsconfig.demo.json extends; add a golden that fails when any value.js subpath's traceResolution line carries a `Package ID`. Land FIRST: this is the only defect that makes the rest of the repo's evidence untrustworthy (the V·π parser mini-tranche edits src/css/, which the demo typecheck currently cannot see)."
+     },
+     {
+      "id": "L-2",
+      "defect": "The demo module lattice has ZERO structural enforcement over this component. All three eslint `no-restricted-imports` objects encoding the demo module graph (G-DEMO-1/3a/3b) are keyed on `demo/@/**` globs matching zero files (`demo/@` was deleted at W43) and ban `@components/custom/...` specifiers behind an alias the same restructure removed. Additionally `vueCompilerOptions.strictTemplates` is unset everywhere, so vue-tsc never reports unknown component props.",
+      "severity": "BLOCKER",
+      "evidence": "`ls -d demo/@` → 'No such file or directory'. `find demo/@/components demo/@/lib demo/@/composables -type f | wc -l` → 0. eslint.config.js:232-238 and :274-276 (the dead globs); :286 (the dead @components pattern). tsconfig.demo.json:32-34 states the @components alias was killed. Measured effective config: `npx eslint --print-config src/value.ts` → inv-K-1 LIVE; `... demo/color-picker/App.vue` → G-DEMO-3b present but pattern targets dead alias (vacuous); `... demo/scenes/about/markdown/Markdown.vue` → UNSET/OFF; `... demo/scenes/about/markdown/composables/useMarkdownColors.ts` → UNSET/OFF. `grep -n 'strictTemplates' tsconfig*.json` → no match (vue-tsc default false).",
+      "mechanism": "structural invariants encoded against a tree layout that a later restructure moved; the lattice degraded to documentation without any gate noticing",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; npx eslint --print-config demo/scenes/about/markdown/Markdown.vue | python3 -c \"import json,sys; print(json.load(sys.stdin)['rules'].get('no-restricted-imports','UNSET/OFF'))\"  # → UNSET/OFF ; ls -d demo/@  # → No such file or directory",
+      "proposedCure": "Re-key the three objects onto the real tree (demo/{color-session,palettes,picker,platform,scenes,shared,shell,workbenches}/**) and state the lattice as relative-depth bans — a scene leaf may not `../../../../` out of its scene. Enable vueCompilerOptions.strictTemplates. Both verifiable by `eslint --print-config` and one vue-tsc run; neither needs a design decision."
+     },
+     {
+      "id": "L-3",
+      "defect": "Inverted dependency: all 11 repo-root content documents (`assets/docs/*.md`) import a deep internal of the app scene tree. Content names a scene's private subdirectory; the edge points the wrong way.",
+      "severity": "MAJOR",
+      "evidence": "`grep -n 'import' assets/docs/*.md` → 11/11 identical: `import { Katex } from \"../../demo/scenes/about/katex\";` (assets/docs/hex.md:2, hsl.md:2, hsv.md:2, hwb.md:2, kelvin.md:2, lab.md:2, lch.md:2, oklab.md:2, oklch.md:2, rgb.md:2, xyz.md:2). AboutPane.vue:82-92 must climb back out `\"../../../assets/docs/rgb.md\"` ×11 to reach them. `assets/` is outside demo/, outside src/, outside the vite root (demo/color-picker/).",
+      "mechanism": "content stored as repo-root data but authored against app internals — no seam between the two, so the dependency inverted to whichever side was written second",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; grep -n 'import' assets/docs/*.md",
+      "proposedCure": "Move the 11 documents into the scene they serve: demo/scenes/about/content/*.md, importing `\"../katex\"` (one hop, same scene, no inversion). AboutPane's map becomes `\"./content/rgb.md\"`. Verified by `grep -rn 'demo/' assets/` → 0."
+     },
+     {
+      "id": "L-4",
+      "defect": "Dead legacy on the component's supply chain, kept alive by a false comment. `sourceExportPlugin()` runs in EVERY build with zero `?source` consumers; the `@src` alias survives on a documented-but-empty 'docs exemption'; the plugin's cited golden test does not exist. Because @src still resolves, any demo file can silently deep-import src/ internals and the build succeeds — the demo-dogfood keystone is asserted in prose and unenforced in fact.",
+      "severity": "MAJOR",
+      "evidence": "vite.config.ts:70-74 (the @src alias + the justification comment naming assets/docs/*.md via `@src/…?source`); vite.config.ts:160 (`sourceExportPlugin()` first in defaultPlugins). `grep -rn '@src' assets/ demo/` → no output. `grep -rn '?source' assets/ demo/ src/` → only plugins/vite-source-export.ts's own docstring. `ls test/docs-source-snippets.test.ts` → No such file (cited at plugins/vite-source-export.ts:87). Second harm: useMarkdownHighlighting.ts:71-76 documents this component's code-block behaviour entirely via the dead plugin, but `grep -c '^```' assets/docs/*.md` → 0 ×11 (zero fenced code blocks in all 11 docs) and hljs.css is consumed by GradientCodeEditor.vue, not this component.",
+      "mechanism": "a build plugin and a resolution alias outlived their last consumer; the justification comment was never re-measured, so the dead capability now licenses a live boundary hole",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; grep -rn '@src' assets/ demo/ ; grep -rn '?source' assets/ demo/ src/ ; ls test/docs-source-snippets.test.ts",
+      "proposedCure": "Delete plugins/vite-source-export.ts, drop it from defaultPlugins, drop the @src alias from vite.config.ts (it stays in vitest.config.ts:11, where 6 test/ files genuinely use it). Verified by `npm run gh-pages` staying green."
+     },
+     {
+      "id": "L-5",
+      "defect": "`demo/ui/` is a 19-directory back-compat shim tree to glass-ui, by its own written admission. Two of the subject's four value-carrying imports route through it.",
+      "severity": "MAJOR",
+      "evidence": "Markdown.vue:35-36 imports from ../../../ui/alert and ../../../ui/skeleton. Census: all 19 demo/ui/* dirs are files=1 with 1-2 code lines, each a pure `export ... from \"@mkbabb/glass-ui\"` (alert, avatar, badge, button, card, checkbox, collapsible, dialog, dropdown-menu, input, label, popover, radio-group, select, separator, skeleton, slider, switch, tooltip). demo/ui/alert/index.ts:1-9 states the purpose verbatim: 'The two consumers (ColorNutritionLabel.vue, Markdown.vue) import from this barrel unchanged.' 92 import sites across demo/ route through the shims.",
+      "mechanism": "a migration layer preserved so call sites would not have to change — the textbook back-compat shim owner edict 2 forbids",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; for d in demo/ui/*/; do printf '%-28s files=%s codelines=%s\\n' \"$d\" \"$(find $d -type f|wc -l)\" \"$(grep -v '^\\s*//' $d/index.ts|grep -v '^\\s*$'|wc -l)\"; done; cat demo/ui/alert/index.ts",
+      "proposedCure": "Delete demo/ui/ (19 files); rewrite the 92 import sites to `@mkbabb/glass-ui`. Purely mechanical. Evidence: `grep -rn '\\\"\\\\.\\\\./ui/' demo/` → 0 plus a green typecheck and gh-pages build."
+     },
+     {
+      "id": "L-6",
+      "defect": "`useMarkdownColors` re-implements `useSafeAccentFn(\"resting\")` by hand from three separate 4-hop reaches into `demo/color-session/` internals (which has NO index barrel/seam), and `resolveSurfaceLightnessLive` was widened onto color-session's surface specifically to serve that duplication. Same file also converts the library's failure-explicit Result back into thrown exceptions inside a computed.",
+      "severity": "MAJOR",
+      "evidence": "useMarkdownColors.ts:5-7 → ../../../../color-session/keys (INK_AMBIENT_KEY), /ink (certifyAccentInk), /useContrastSafeColor (resolveSurfaceLightnessLive). `ls demo/color-session/index.ts` → No such file (no seam). demo/color-session/useContrastSafeColor.ts:346-361 (useSafeAccentFn) performs the identical three steps: useGlobalDark + inject(INK_AMBIENT_KEY) + certifyAccentInk(css, surfaceLightnessNow(surface, ambient, isDark)). useMarkdownColors.ts:18,25,44-73 hand-assembles the same. useContrastSafeColor.ts:365-368 docstring names the beneficiary: 'for composables that fold the referent into their own computation (`useMarkdownColors`)'. The only markdown-specific step is the chroma floor at useMarkdownColors.ts:52-53, which acts on the INPUT string not the referent. Throws inside computed at useMarkdownColors.ts:33, :37, :41.",
+      "mechanism": "one concept, two homes — a consumer that could not see the existing composable rebuilt it, and the library surface was widened to legitimise the rebuild rather than the call site corrected",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; sed -n '340,370p' demo/color-session/useContrastSafeColor.ts; sed -n '1,10p;40,75p' demo/scenes/about/markdown/composables/useMarkdownColors.ts; ls demo/color-session/index.ts",
+      "proposedCure": "const { safeCss } = useSafeAccentFn(\"resting\"); const accent = computed(() => safeCss(withChromaFloor(cssColor()))). 3 deep imports → 1; resolveSurfaceLightnessLive loses its named justification. Return {} on unparseable input instead of throwing — the --md-color-* vars are decoration and the inherited ink is the correct degenerate; a consumer that answers !parsed.ok with throw re-introduces the exception channel at the render boundary the library exists to eliminate. Give color-session a real index.ts seam."
+     },
+     {
+      "id": "L-7",
+      "defect": "142 of the 331 `<style scoped>` lines (42.9% of the block, 34.8% of the file) style markup that cannot exist — the component ships a GENERIC markdown theme against a CLOSED corpus of 11 hand-authored files using 8 element types, rendered by `Markdown({})` (plain markdown-it, no footnote/deflist/task-list/toc plugins).",
+      "severity": "MAJOR",
+      "evidence": "Static census across all 11 docs: `grep -c '^|'` → 0×11 (tables); `grep -c '^>'` → 0×11 (blockquotes); `grep -c '^!\\['` → 0×11 (images); `grep -c '^```'` → 0×11 (fenced code); heading levels h1=0 h2=53 h3=85 h4=0 h5=0 h6=0. Confirmed in the LIVE DOM (Playwright at http://localhost:9000/#/, querySelectorAll inside .markdown-wrapper .markdown-body, 34 children): {table:0,th:0,td:0,blockquote:0,img:0,dl:0,dt:0,dd:0,'ul.contains-task-list':0,'li.task-list-item':0,'.callout':0,'.footnotes':0,'.footnote-ref':0,'.footnote-item':0,'.toc':0,pre:0,a:0, hr:4,code:14,'mark.cs-name':9,'div.inline-block':9,'.katex':9,'.katex-display':4}. Dead ranges in Markdown.vue: 142-146 (h5/h6 rhythm), 149-155 (14 of 15 adjacency selectors), 157-159 (h1), 171-174 (h4), 176-178 (h5), 180-182 (h6), 229-238 (pre + AB-3 comment), 255-260 (blockquote), 262-276 (table/th/td), 278-283 (img), 316-329 (dl/dt/dd), 331-342 (task lists), 344-357 (callout), 359-378 (footnotes), 380-406 (toc) = 142 lines. Also: `.markdown-wrapper :deep(.markdown-body)` duplicated at :104 and :198 for no reason; Markdown.vue:94-96 claims --phi-* live in 'style.css :root' but `find demo -name style.css` → nothing (they are at demo/styles/foundation.css:458-460). vite.config.ts:162 = `Markdown({})`.",
+      "mechanism": "speculative generality — a component named `Markdown` invited a general markdown theme, and rulings (AB-3 at :229-233, the F6 ONE-grammar law at :380-384) were adjudicated against markup that has never rendered, polluting the audit record",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; for f in assets/docs/*.md; do printf '%s tables=%s quotes=%s imgs=%s fences=%s\\n' $f $(grep -c '^|' $f) $(grep -c '^>' $f) $(grep -c '^!\\[' $f) $(grep -c '^```' $f); done; for lvl in '#' '##' '###' '####' '#####' '######'; do echo -n \"$lvl \"; grep -h \"^$lvl \" assets/docs/*.md | wc -l; done",
+      "proposedCure": "Excise the 142 dead lines and extract the surviving ~90 to demo/styles/markdown.css as ONE global `.md-prose` class (h2 h3 p ul ol li code hr a + the katex-display scroll box) — unscoped, no :deep(). Styling a document is a stylesheet's job, not a component's. Close with a DOM golden asserting styled-selector-set == rendered-selector-set, so speculative CSS cannot re-accumulate."
+     },
+     {
+      "id": "L-8",
+      "defect": "The component calls a glass-ui API that does not exist: `<Skeleton surface=\"glass\" variant=\"shimmer\">` ×3. glass-ui 7.0.0's Skeleton declares exactly one prop (`class`) and its compiled CSS carries a single unconditional recipe with no variant selectors. The props fall through as inert non-standard HTML attributes. Nothing catches it because strictTemplates is off (L-2).",
+      "severity": "MAJOR",
+      "evidence": "Markdown.vue:2-8 (comment 'glass shimmer bones, not opaque pulse blocks' + 3 call sites with surface/variant). node_modules/@mkbabb/glass-ui/dist/components/skeleton/Skeleton.vue.d.ts: `type __VLS_Props = { class?: HTMLAttributes[\"class\"] };`. Compiled CSS (glass-ui.css): `.skeleton[data-v-cd03d0b0]{isolation:isolate;border-radius:var(--radius-input);background:var(--muted);position:relative;overflow:hidden}` plus two unconditional ::after rules — no [surface=]/[variant=]/.shimmer selectors exist (`grep -o 'skeleton[^{,]*\\|shimmer[^{,]*' glass-ui.css | sort -u` → skeleton, skeleton-scan-cd03d0b0, skeleton-title, .skeleton[data-v-cd03d0b0], :after only). `grep -n 'strictTemplates' tsconfig*.json` → no match. Second-order: glass-ui fills the skeleton with var(--muted) — the exact tone this component's own style block (Markdown.vue:229-232) rules must NEVER be used ('never the parallel --muted species, which stepped OPPOSITE the well in dark').",
+      "mechanism": "a design intent expressed through a non-existent prop API; it looks correct only because shimmer is glass-ui's unconditional default, so the props are noise that would keep 'working' if glass-ui changed it — and the gate that should catch it is disabled",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; cat node_modules/@mkbabb/glass-ui/dist/components/skeleton/Skeleton.vue.d.ts; grep -o '\\.skeleton\\[data-v-cd03d0b0\\][^}]*}' node_modules/@mkbabb/glass-ui/dist/glass-ui.css; sed -n '2,8p' demo/scenes/about/markdown/Markdown.vue; grep -n 'strictTemplates' tsconfig*.json",
+      "proposedCure": "Enable vueCompilerOptions.strictTemplates (makes this a compile error), then delete the two dead props. If the skeleton genuinely must seat on --well-bg rather than --muted, that is a glass-ui change per edict 4 — a variant added in glass-ui, never a demo per-instance override."
+     },
+     {
+      "id": "L-9",
+      "defect": "Markdown.vue is the ONLY component in the demo tree that runtime-imports the global stylesheets, which are already imported at the app root — a leaf scene component re-entering the app's global CSS layer.",
+      "severity": "MINOR",
+      "evidence": "Markdown.vue:37-38 `import \"../../../styles/foundation.css\"; import \"../../../styles/utils.css\";`. Already at demo/color-picker/App.vue:199-200. `grep -rn 'foundation.css\\|utils.css' demo/ | grep -v '^demo/styles/'` shows every other component (18 sites: ColorPicker.vue:389, Dock.vue:297, PaneHeader.vue:61, ImageEyedropper.vue:251, AuroraPane.vue:185, SpectrumCanvas.vue:228, ActionButton.vue:103, ColorInput.vue:292, ActionBarToggle.vue:110, DockStatusLamp.vue:36, ActionBarLayer.vue:147, ExtractControls.vue:137, ConfigSliderPane.vue:180, PaletteSlugBar.vue:240, SearchFilterBar.vue:236) using only the Tailwind-4 `@reference` directive. Markdown.vue has BOTH the correct @reference at :79 and the redundant imports at :37-38.",
+      "mechanism": "a side-effect import copied in when @reference was adopted, never removed — one file with two mechanisms for one job",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; grep -rn 'foundation.css\\|utils.css' demo/ | grep -v '^demo/styles/' | grep 'import '",
+      "proposedCure": "Delete Markdown.vue:37-38. The @reference at :79 is the correct and sufficient mechanism."
+     },
+     {
+      "id": "L-10",
+      "defect": "The module's public seam is phantom while the map that belongs behind it lives in the parent, alongside a fourth hand-copy of the colour-space union whose `as` cast defeats exhaustiveness.",
+      "severity": "MINOR",
+      "evidence": "demo/scenes/about/markdown/index.ts:3 `export type DocModule = () => Promise<{ default: any }>` (`any` at the seam); :5-9 `export interface DocItem` — `grep -rn 'DocItem' demo/ assets/ src/ test/ e2e/` returns exactly one hit, the declaration itself (zero consumers). AboutPane.vue:79 re-declares the union as `type MarkdownSpace = \"rgb\"|\"hex\"|...|\"kelvin\"`; canonical union is `DisplayColorSpace` at demo/color-session/color-model.ts:29 (= PickerSpace | \"hex\"). AboutPane.vue:81-93 holds the space→document map; :97 `markdownModules[model.value.selectedColorSpace as MarkdownSpace]` — the cast means adding a space to DisplayColorSpace makes the lookup silently return undefined, the v-if at AboutPane.vue:51 hides the guide, and no error is raised anywhere.",
+      "mechanism": "the seam exports concepts nothing consumes while the concept that needs the seam sits outside it; a hand-copied union plus an `as` cast converts a would-be compile error into a silent render omission",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; cat demo/scenes/about/markdown/index.ts; grep -rn 'DocItem' demo/ assets/ src/ test/ e2e/; sed -n '79,98p' demo/scenes/about/AboutPane.vue; sed -n '26,33p' demo/color-session/color-model.ts",
+      "proposedCure": "Delete DocItem. Hoist the map into the module as `guide/guides.ts` typed `Record<DisplayColorSpace, GuideModule>` — a new space becomes a compile error and the `as MarkdownSpace` cast disappears. Type the module return properly instead of `{ default: any }`."
+     },
+     {
+      "id": "L-11",
+      "defect": "The documentation feature has no route: no /about path exists, so on mobile the entire guide surface has no addressable URL, and the visual audit's route-driven sweep never captured it — the largest component in the demo tree has zero visual-audit coverage.",
+      "severity": "MINOR",
+      "evidence": "demo/color-picker/router/index.ts:22-37 registers 15 paths (/, /palettes, /browse, /extract, /mix, /generate, /gradient, /atmosphere, /blob, /admin/{users,names,audit,flagged,tags}, catch-all redirect) — no /about. demo/shell/viewSchema.ts:107 puts About only as the right pane of the `picker` view; `picker` declares no defaultPaneIndex, so mobile defaults to pane 0 (the picker). docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/picker.png (read): the About card is cut off at 'Key Properties' — the 'Detailed Guide' heading (AboutPane.vue:49) and everything Markdown.vue renders is below the fold and uncaptured. The report's blankOrNearBlank:0 / pageErrors:0 rows therefore say nothing about this component.",
+      "mechanism": "a pane-only surface in a route-driven app: no deep link, and every route-driven gate (visual sweep, e2e) is structurally blind to it",
+      "reproduction": "cd /Users/mkbabb/Programming/value.js; grep -n 'path:' demo/color-picker/router/index.ts; grep -n 'right: \"about\"' demo/shell/viewSchema.ts; open docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/picker.png",
+      "proposedCure": "Register /about and /about/:space so the guide is addressable, deep-linkable and auditable. Evidence: the visual sweep captures the rendered guide; a deep link restores the selected space."
+     }
+    ],
+    "strongestDefect": "L-1 — the demo typechecks `@mkbabb/value.js/css` against the published npm 4.0.0 tarball (Package ID proven by traceResolution) while running against the local working-tree build, whose css.d.ts differs by 32 lines and forks the core `Color` type into private duplicates (`Color_2`, `Channel_2`, `SpaceId_2`). `tsconfig.demo.json#paths` has 3 phantom entries pointing at files that do not exist and omits 2 real published subpaths (`/css`, `/value`). 9 demo files are affected; the subject's composable straddles the seam on adjacent lines 3 and 4. The demo is the repo's only proof that the published API is usable — for `/css` that proof is false, and the V·π parser mini-tranche is about to edit exactly the code the demo typecheck cannot see.",
+    "negativeProof": "Not SOUND, but these specific suspicions were tested and disproved, and are recorded as the negative in the report: (1) The value.js import SPECIFIERS are correct — `@mkbabb/value.js/color` and `@mkbabb/value.js/css` (useMarkdownColors.ts:3-4) are both real keys in package.json#exports, and `grep -rn '@src' demo/ assets/` returns nothing, so there is no deep src/ reach anywhere in this component's graph; a real consumer could write those two lines verbatim (the defect is the resolution lattice, not the specifier). (2) `verbatimModuleSyntax` is honoured — Markdown.vue:40 `import type { DocModule }`, useMarkdownHighlighting.ts:1 `import type { ShallowRef }`; zero mixed imports across the three files. (3) Vue 3.5 idioms are correct — useTemplateRef (Markdown.vue:50, Katex.vue:27), reactive props destructure (Markdown.vue:44, Katex.vue:22), getters passed into composables (Markdown.vue:52-53) rather than leaking props. (4) The named historical suspect 'three parallel useDark stores' is DEAD as a defect: `grep -rn 'useDark|useGlobalDark' demo/` yields 9 call sites, ALL `useGlobalDark` from `@mkbabb/glass-ui/dark` (the App.vue singleton); no vueuse useDark survives in demo/. The comment at useMarkdownHighlighting.ts:76 describes a cure that landed. (5) `Alert` is not a local re-implementation — demo/ui/alert/index.ts genuinely re-exports glass-ui's primitive (the shim TREE is the defect, not duplicated component logic). (6) No duplicate markdown renderer exists — `grep -rn 'Markdown' demo/` finds exactly one component and one consumer (AboutPane.vue:50). (7) The `:deep()` reach is legitimate: it targets content this repo compiles (unplugin-vue-markdown output), not a shadcn internal — the distinction demo/DESIGN.md draws; the rationale at Markdown.vue:81-97 is accurate. (8) Katex.vue:20's script-side stylesheet import is correct and its cure is real — the live DOM shows 9 `.katex` and 4 `.katex-display` nodes rendering."
+   }
+  },
+  {
+   "agentId": "ae1bf496fe742e52e",
+   "key": "v2:770942c5a667375ca9b44c27c4049a2982292a757f59feaa522b6ed8680020f5",
+   "result": {
+    "axis": "CHALLENGE-C — implementation defect hunt on `demo/scenes/ConfigSliderPane.vue` (the generic slider-pane behind /#/atmosphere and /#/blob)",
+    "modelObserved": "Opus 5 (1M context) — exact model id `claude-opus-5[1m]`, the tier this seat was explicitly spawned with. Declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/ConfigSliderPane/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "C-1 — `resetDefaults()` is `Object.assign(config, structuredClone(defaults))`, a depth-1 shallow merge. It preserves runtime state at depth 1 (AuroraPane's `seed`, absent from defaults — the documented intent) and DESTROYS it at depth 2: one click on Reset in BlobPane silently replaces the live picker-derived ramp `[\"#ffbde0\",\"#ffdde5\",\"#fff6f6\",\"#fff6f4\"]` with the producer's canned `[\"#b5947f\",\"#d4b27d\",\"#dad6b1\"]`, because `color.paletteStops` lives inside a `color` key that IS on defaults. The writer (`useAtmosphere.ts:389-403`) is keyed on the colour string, so the picker→blob palette link stays severed until a DIFFERENT colour is picked. Both consumer files declare in prose that this state must survive Reset; the implementation honours that promise only by accident of nesting depth.",
+    "negativeProof": "n/a — verdict is DEFECTIVE. (Negative proofs for the hazards that did NOT fire are tabulated in the report's \"What I checked and found sound\" section: no defineModel, no colour maths, no ValueUnit, no rAF/timers/listeners/observers at all in the file, no canvas, no parser, zero horizontal overflow, zero nameless buttons contributed, aurora Reset correctly preserves `seed`, keyboard operable with a visible ring, min/max clamping and step honoured, verbatimModuleSyntax satisfied, 252 lines so no god module.)",
+    "defects": [
+     {
+      "id": "C-1",
+      "defect": "`resetDefaults()` uses `Object.assign` (shallow, depth-1) so nested runtime state inside any top-level key that also exists on `defaults` is silently destroyed. BlobPane's `color.paletteStops` — the live picker-palette feed the file's own consumer comment declares out of the slider domain — is wiped by one Reset click.",
+      "severity": "MAJOR",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:92-94. Live before/after via scratchpad/csp/p2.mjs on /#/blob (reached props.config through `document.querySelector('.config-console').__vueParentComponent`, 3 parent hops, then clicked the real Reset button): {\"beforePaletteStops\":[\"#ffbde0\",\"#ffdde5\",\"#fff6f6\",\"#fff6f4\"],\"afterPaletteStops\":[\"#b5947f\",\"#d4b27d\",\"#dad6b1\"],\"beforeBodyRadius\":0.425,\"afterBodyRadius\":0.22}. Declared intent: BlobPane.vue:8-9 and aurora-atoms.ts:17-20. Watch that will not re-fire: useAtmosphere.ts:389-403 (`watch(atmosphereColor,…)`). Asymmetry proof: /#/atmosphere probe returns seedPresentOnConfig:true, seedPresentOnDefaults:false, configSeed:\"lab(92% 88.8 20)\".",
+      "mechanism": "stringly-typed reflection layer — a whole-object merge standing in for a declared key domain; reset semantics decided by nesting depth rather than by design",
+      "reproduction": "1. `node scratchpad/csp/p2.mjs desktop-blob` against http://localhost:9000. 2. Or manually: open /#/blob, note the blob's palette tracks the picked colour, click Reset in the pane footer, read `props.config.color.paletteStops` — it is the canned tan triad, and re-picking the SAME colour does not restore it.",
+      "proposedCure": "Adopt glass-ui's `useConfiguratorState<T extends object>` (dist/components/configurator/useConfiguratorState.d.ts — typed config, `resetCurrent()`, `isDirty`, an explicit `clone` hook, and a try/caught structuredClone). This is the still-open C10 A4 [P1] ADOPT book (docs/tranches/N/audit/lanes/C10.md:92-105,265). Failing that, reset exactly the `SliderDef.key` paths the pane owns — the only form that cannot lie about its domain."
+     },
+     {
+      "id": "C-2",
+      "defect": "All 31 config sliders ship an EMPTY `aria-valuetext`; screen readers announce the raw float (`0.2199999988079071`) while the eye sees the formatted `0.220`. The demo's own in-repo cure for exactly this — `useSliderAnnouncements` — was written for the picker's channel sliders and never consumed by the pane the tranche docs repeatedly call \"the app's SECOND slider population\".",
+      "severity": "MAJOR",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:137-152 (`:name=\"fmt(read(def.key))\"` is sighted-only). CDP `Accessibility.getFullAXTree` via scratchpad/csp/p3.mjs on /#/blob — same page, two populations: picker `L channel` value 0.9200000166893005 valuetext=\"Lightness 92.0%\"; ConfigSliderPane `Body Radius` value 0.2199999988079071 valuetext=\"\" (empty); `Satellites` value 3 valuetext=\"\". Existing cure: demo/picker/controls/ComponentSliders/composables/useSliderAnnouncements.ts:2-13 (U.W-A11Y · U-F27; BR-4). Producer forwarding list: glass-ui/dist/slider-DzqeQmMu.js:134-137 forwards aria-label/labelledby/describedby/errormessage only. Standing offer already recorded at ComponentSliders.vue:326.",
+      "mechanism": "producer/in-repo affordance thrown away — the formatted value is computed and rendered but never delivered to the a11y layer",
+      "reproduction": "`node scratchpad/csp/p3.mjs` and read `axSliders`. Or: open /#/blob with VoiceOver/NVDA, tab to Body Radius, press ArrowRight — the announced number is a 17-digit float, not the 0.220 on screen.",
+      "proposedCure": "Consume `useSliderAnnouncements` (or the `sliderAnnouncement` formatter under it) from ConfigSliderPane, fed by the SAME `fmt()` cell the row already renders — one voice, one formatter, no second implementation. Relay the clean `aria-valuetext` prop-through to glass-ui as the durable fix (the producer RELAY is already recorded in that composable's header)."
+     },
+     {
+      "id": "C-3",
+      "defect": "`variant=\"spectrum\"` is a dead prop: the pane's own `--slider-track-bg` override replaces the variant's material with a flat solid, and `.slider-range` is fully transparent. The result is 31 uniform dark slabs with NO filled/unfilled split and no value cue except a 12px thumb — while the SAME variant on the picker's sliders renders a real gradient on the same page.",
+      "severity": "MAJOR",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:145 (`variant=\"spectrum\"`) + :202 (`--slider-track-bg: var(--ink-muted, var(--muted-foreground))`). scratchpad/csp/p3.mjs on /#/blob: ConfigSliderPane track bg `oklch(0.447121 0.00386159 34.63)`, backgroundImage `none`, `.slider-range` backgroundColor `rgba(0,0,0,0)` + image `none`; picker population, same `data-variant=spectrum`, `--slider-track-bg: linear-gradient(to right, lab(0% 88.8 20) 0%, lab(10% 88.8 20) 10%, …)`. Visual: docs/tranches/V/megatranche/audit/visual/shots/forced-colors-desktop/blob.png frames both populations side by side. Unmet mandate: docs/tranches/N/waves/N.W13.md:96,215,295 — \"Feed ConfigSliderPane.vue:139 the real --slider-track-bg gradient so its spectrum variant shows a spectrum.\" The file's own comment concedes half of it at :196-198 and cures only contrast.",
+      "mechanism": "producer affordance thrown away + a per-instance override that defeats the variant it declares; a recorded mandate discharged by substituting a different cure",
+      "reproduction": "`node scratchpad/csp/p3.mjs` (compares both populations, and re-measures the track with the override removed). Visually: open /#/blob at 1440x900 — the 31 config sliders are identical dark bars; the 4 picker sliders to their left are gradients.",
+      "proposedCure": "Either feed the variant a real gradient over the slider's own domain (the honest reading of the N.W13 mandate, and what makes a 31-row console scannable), or stop declaring `spectrum` and consume the variant whose contract the pane actually wants. Declaring a variant and overriding its whole visual contract away is both an edict-2 masking path and an edict-5 per-instance override."
+     },
+     {
+      "id": "C-4",
+      "defect": "`copyAsJson()` awaits `writeClipboard()` and discards its Result. `writeClipboard` never throws — it returns `{ok:false, reason:'no-api'|'clipboard-api'}`. Both documented failure modes are therefore completely silent: no text change, no aria-live, no disabled state, no toast. The success path is equally silent.",
+      "severity": "MAJOR",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:88-90. Producer contract: glass-ui/dist/useClipboard-D36OTaeT.js — returns `{ok:!1,reason:\"no-api\"}` when `navigator.clipboard?.writeText` is absent, `{ok:!1,reason:\"clipboard-api\"}` on rejection. Measured (scratchpad/csp/p3.mjs, both modes forced on the real button): noApi → {bodyTextChanged:false, anyAriaLiveInPane:0, buttonAriaDisabled:null, warns:[]}; rejected → {bodyTextChanged:false, warns:[\"[useClipboard] clipboard writeText rejected: NotAllowedError: Denied\"]}. Success path measured at p2.mjs: visibleFeedbackTextAfter:false.",
+      "mechanism": "Result thrown away — a two-state producer contract collapsed to a fire-and-forget await",
+      "reproduction": "`node scratchpad/csp/p3.mjs` and read `clipboard`. Real-world: the repo sets `server.host:true` in vite.config.ts specifically to drive the demo from a phone over `http://<LAN-ip>:9000`; `navigator.clipboard` is secure-context-gated, so on that origin Copy JSON is a dead button on the exact surface the LAN host exists to serve.",
+      "proposedCure": "Consume the producer's `useClipboard()` — it already ships `status: 'idle'|'pending'|'success'|'failure'` and an `onCopyError(reason)` hook, and glass-ui also exports `toast`/`Toaster`. Bind status to the button and announce it in an `aria-live=\"polite\"` region. Zero new components; edict 4 met by consumption rather than reinvention."
+     },
+     {
+      "id": "C-5",
+      "defect": "Unguarded dot-path read: `read()` casts a possibly-`undefined` path result to `number` and `fmt()` calls `.toFixed` on it during render. One absent optional intermediate segment throws mid-render and unmounts the ENTIRE pane through the error boundary — and the boundary swallows it so completely that nothing reaches `console` or `pageerror`.",
+      "severity": "MAJOR",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:57-86 (`readPath` returns undefined; `read` does `as number`; `fmt` does `v.toFixed(3)`); :66-73 (`writePath` has the mirror hole, walking through three unchecked casts). fmt boundary table measured in node: 0→\"0\", -0→\"0\", 0.5→\"0.500\", NaN→\"NaN\", Infinity→\"Infinity\", 1e21→\"1e+21\", undefined→THROWS, null→THROWS. Type permits the state: AuroraAtoms.zones is optional and the def is {key:\"zones.count\"} (AuroraPane.vue:103). Internal inconsistency: AuroraPane guards the same key 3 lines away — `atoms.zones?.arrangement ?? \"composed\"` (:74) and `atoms.zones?.count ?? 4` (:82).",
+      "mechanism": "stringly-typed reflection layer — an `as number` cast manufacturing an invariant the type system explicitly denies",
+      "reproduction": "INJECTED (labelled — not user-reachable through today's UI): `node scratchpad/csp/p4.mjs` sets the type-legal `config.zones = undefined` on the live reactive object at /#/atmosphere. Result: body text goes from the pane to \"This panel hit an unexpected error. Cannot read properties of undefined (reading 'toFixed')\", configConsoleStillMounted:false, rowsAfter:0, pageErrors:[], consoleNoise:[]. The empty error arrays explain why REPORT.json reads 0 console/page errors on both routes in all four Safari matrices — this failure class is invisible to the visual harness by construction.",
+      "proposedCure": "Delete the reflection layer. Both consumers already double-cast their typed config to nothing (`(cfg as unknown) as Record<string, unknown>` — BlobPane.vue:124, AuroraPane.vue:111), so BlobPane's 13-line `NumericAtomPath` mapped type guards only the key literals while the indexed object is fully untyped. Give `SliderDef` its own `get: () => number` / `set: (n:number) => void` (or a typed lens): the class becomes unrepresentable and `readPath`/`writePath`/the `as number`/both `as unknown as` casts all disappear — strictly less code."
+     },
+     {
+      "id": "C-6",
+      "defect": "31 orphan `<label>` elements that label nothing (no `for`, no id, not wrapping a control), plus 7 visually-grouped sections with ZERO programmatic grouping — no role=group, no fieldset, no heading, no aria-labelledby.",
+      "severity": "MAJOR",
+      "evidence": "scratchpad/csp/p3.mjs on /#/blob: labelCensus {labelCount:31, sliderCount:31, labelsWithFor:0, labelsWrappingControl:0, firstLabelHtml:\"<label data-slot=\\\"label\\\" class=\\\"glass-label truncate text-small font-medium text-foreground\\\">Body Radius<!----></label>\"}. scratchpad/csp/p1.mjs: groupOrHeading:0; sectionHeaders = 7 entries, every one {tag:\"span\", role:null}. CDP AX tree axStructural contains exactly 2 headings, both outside the console. Component sites: ConfigSliderPane.vue:128-130 (bare span section titles), :137-146 (ConfiguratorRow :label + a duplicated :aria-label on the Slider). Producer markup: glass-ui/dist/configurator-M5OaIlJd.js renders :label into a real `<label>`.",
+      "mechanism": "producer/in-repo affordance thrown away — the name was duplicated onto the control instead of the existing label being wired, and drawn structure was never announced",
+      "reproduction": "`node scratchpad/csp/p3.mjs` → labelCensus, and p1.mjs → groupOrHeading/sectionHeaders. Manually: click a row's label text on /#/blob — the slider does not focus or activate. With a screen reader, /#/blob presents 31 sliders in one undifferentiated run with no Geometry/Membrane/Color/… boundaries (WCAG 1.3.1).",
+      "proposedCure": "(a) Section wrapper at :123-127 becomes `role=\"group\" :aria-labelledby=\"sectionId\"` with the title span carrying that id — two attributes, no new markup, structure the pane already draws. (b) `for` cannot work (span[role=slider] is not labelable), so the durable fix is `aria-labelledby` against the label's id — which the producer Slider DOES forward (slider-DzqeQmMu.js:135) but ConfiguratorRow does not currently expose: a glass-ui BH relay item, with the demo-side aria-label kept as an interim that is DOCUMENTED as such."
+     },
+     {
+      "id": "C-7",
+      "defect": "The two most heavily-commented CSS cures in the file are provably inert. The `min-block-size: clamp(2rem, 7cqi, 2.625rem)` \"ONE RHYTHM SOURCE\" never binds (ceiling sits 19px below the row's natural height on both routes), and the `@media (pointer: coarse)` ::before hit-area extension adds exactly zero (the producer's slider root is already 44px tall on coarse pointers, so `max(100%, 2.75rem)` always resolves to 100%).",
+      "severity": "MINOR",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:208-230. scratchpad/csp/p2.mjs: /#/blob container ancestor `.pane-wrapper--right` container-type:inline-size, computed min-block-size 35.84px, actual row height 61px; /#/atmosphere `.pane-wrapper--left`, computed min-block-size 42px (clamp ceiling), actual row height 61px. scratchpad/csp/p1.mjs mobile-atmos (390x844, hasTouch, DPR3, coarse:true): before {content:'\"\"', position:'absolute', blockSize:'44px', pointerEvents:'auto'} against row0slider {h:44} — identical. Cross-check REPORT.json: mobile thumbs 12x44, desktop 12x24 — the height step is the producer's, present with or without this block. No adjacent-row hit-stealing either (zoneOverlapPx -39.6 mobile, -23 desktop).",
+      "mechanism": "comments asserting cures the measurements refute — dead declarations carrying live claims (doc-truth hazard for the next reader)",
+      "reproduction": "`node scratchpad/csp/p2.mjs desktop-blob` and `desktop-atmos` for the clamp; `node scratchpad/csp/p1.mjs mobile-atmos` for the ::before.",
+      "proposedCure": "Delete both blocks and their justification comments (edict 3, no contrivance). If a rhythm law is genuinely wanted, it must be measured against the row's real content height, not asserted below it; if a touch rung is wanted beyond the producer's 44px, it is a glass-ui relay, not a demo pseudo-element."
+     },
+     {
+      "id": "C-8",
+      "defect": "Slider thumbs are 12 CSS px WIDE in every matrix — half of WCAG 2.5.8's 24x24 minimum — under a component comment asserting a \"≥44px touch rung\". This component contributes 35 of the 39 small-tap-target rows the visual REPORT flags on /#/blob and 3 of 7 on /#/atmosphere.",
+      "severity": "MINOR",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:186-187 (the ≥44px claim). REPORT.json: safari-desktop-light and -dark /#/blob each list 35 spans at 12x24 (labels \"Body Radius\", \"Satellites\", \"Sat Radius\", …); /#/atmosphere 3 spans at 12x24; safari-mobile-{light,dark} /#/atmosphere 3 spans at 12x44. scratchpad/csp/p1.mjs independently enumerates all 31 config thumbs at 12x24 on chromium desktop and 3 at 12x44 on chromium mobile. The probe selects [role=slider], i.e. the reka SliderThumb, which receives aria-label via glass-ui's $attrs forwarding (slider-DzqeQmMu.js:134).",
+      "mechanism": "comments asserting cures the measurements refute; geometry owned by the producer but the claim owned here",
+      "reproduction": "`node scratchpad/csp/p1.mjs desktop-blob` → `thumbs` array, all w:12. Cross-check REPORT.json a11y.smallTapTargets for /#/blob in any Safari matrix.",
+      "proposedCure": "Relay the thumb geometry to glass-ui (edict 5 forbids a per-instance demo override of a producer control). Meanwhile DELETE the ≥44px claim from the comment, or replace it with the measured 12x24/12x44 and the 2.5.8 spacing-exception argument (measured 43px desktop / 39.6px mobile between slider centres) so the file states what is true."
+     },
+     {
+      "id": "C-9",
+      "defect": "Copy/reset/clone are hand-rolled over `Record<string, unknown>` where the producer's typed `useConfiguratorState<T>` is one import away — and the file's own header cites that very composable as the principle it follows. The hand-rolled `structuredClone` has no try/catch (the producer's does), there is no `isDirty`, and ConfiguratorRow's per-row `canReset` affordance is never used, so the only reset is nuclear.",
+      "severity": "MINOR",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:6-10 (header cites useConfiguratorState), :88-94 (the hand-roll). Producer surface: glass-ui/dist/components/configurator/useConfiguratorState.d.ts — typed `config`, `resetCurrent()`, `isDirty`, `clone?` (\"Pass a custom cloner for shapes that contain unclonable values\"), `equals?`; its structuredClone call is try/caught with a diagnostic (configurator-M5OaIlJd.js). ConfiguratorRow ships canReset + a reset emit + auto `aria-label=\"Reset {label}\"`; the pane passes neither. Open book: docs/tranches/N/audit/lanes/C10.md:92-105 and :265 (A4, P1, ADOPT).",
+      "mechanism": "producer affordance thrown away — the row primitive was composed, the state machine was rebuilt worse",
+      "reproduction": "`node --input-type=module -e \"import {reactive} from 'vue'; try{structuredClone(reactive({a:1,n:{b:2}}))}catch(e){console.log(e.name,e.message)}\"` → `DataCloneError #<Object> could not be cloned.` Today both consumers pass plain module constants so it holds; the first consumer to pass a reactive `defaults` gets an unhandled DataCloneError out of the click handler, because ConfigSliderPane omits the guard the producer wrote.",
+      "proposedCure": "Close C10 A4: adopt `useConfiguratorState<T>` for config/reset/isDirty/clone and wire ConfiguratorRow's `canReset` for per-row reset. That single adoption also cures C-1 and removes both `as unknown as Record<string, unknown>` casts at the call sites."
+     },
+     {
+      "id": "C-10",
+      "defect": "VACUOUS GATE — not one test in the repository exercises any behaviour of this component. o7-card-census EXPLICITLY excludes it (substituting a grep); o18-contrast-census asserts only computed colours. The entire purpose of the file can be deleted and every gate reads green.",
+      "severity": "MINOR",
+      "evidence": "`grep -rln \"ConfigSliderPane|config-console|copyAsJson|resetDefaults|readPath|writePath\" test/ demo/test/ e2e/` → exactly two files. e2e/smoke/oracles/o7-card-census.spec.ts:38-42: \"AdminPane and ConfigSliderPane (Atmosphere/Blob, admin-mode views) are session-gated and carry the byte-identical one-attribute <Card tier=\\\"resting\\\"> stamp (… grep-verified at the wave gate).\" e2e/smoke/oracles/o18-contrast-census.spec.ts:924-966 asserts only `row.ratio` for `.config-console .configurator-row label` and `.font-mono`; :1161-1210 the same for `.slider-track`. It never reads text, never moves a slider, never clicks a button. 19 vitest files in test/: zero mentions. demo/test/glass/aurora-*.test.ts assert DEFAULT_AURORA_ATOMS constants and resolveAtoms, not the pane.",
+      "mechanism": "comments asserting cures the measurements refute — the vacuous gate is what let every other divergence in this report accumulate unchallenged",
+      "reproduction": "The named green-keeping mutations: M1 `function update(_k: string, _v: number) {}` — all 34 sliders become read-only, o18 measures colours only, o7 excluded, no vitest → GREEN. M2 `function resetDefaults() {}` → GREEN. M3 `async function copyAsJson() {}` → GREEN. M4 `function fmt(v: number) { return String(v); }` — the readout becomes 0.21999999999999997 and the producer's `truncate` class clips the overflow → GREEN. M1 is the damning one.",
+      "proposedCure": "Four small vitest mounts: dot-path read/write round-trip (flat AND nested), resetDefaults preserving a declared live key at depth 2 (C-1's exact assertion), fmt at {0,-0,NaN,Infinity,undefined}, and the clipboard Result on both `reason` values. They kill M1–M4 and pin C-1/C-4/C-5. FIX THIS FIRST — it is what makes the next inert cure impossible to land."
+     },
+     {
+      "id": "C-11",
+      "defect": "Dead branches and a false JSDoc: `:44` promises \"Pass empty array to show empty state\" and no empty state exists; both `v-if=\"sections.length > 0\"` guards (:119, :163) are permanently true because no consumer ever passes empty. Separately, the child mutates its parent's prop object, and `read()` declares `: number` over a value that is provably sometimes undefined.",
+      "severity": "MINOR",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:44 (the JSDoc), :119 and :163 (the two guards), :76-78 (`return readPath(config, key) as number`), :80-82 (`update` → `writePath(config, …)` writes into a prop object). Measured sectionsLen: AuroraPane 1 (AuroraPane.vue:97-106), BlobPane 7 (scratchpad/csp/p3.mjs emptyState → sectionsLen:7). With sections=[] the pane renders PaneHeader + the slot and nothing else — no placeholder element exists anywhere in the template. House idiom the prop-drill contradicts: aurora-atoms.ts:11 (\"the demo's standing injection-key-over-prop-drill idiom\").",
+      "mechanism": "stringly-typed reflection layer (the `as number` lie) + dead paths guarding a nonexistent state (edicts 2 and 3)",
+      "reproduction": "Read the template: there is no element rendered when sections is empty. `node scratchpad/csp/p3.mjs` → emptyState.sectionsLen confirms no consumer passes []. The `as number` consequence is reproduced live under C-5.",
+      "proposedCure": "Delete both `v-if` guards and the false JSDoc line. Have ConfigSliderPane take a `configKey: InjectionKey<T>` and own its own `inject()` (the house idiom), which removes the prop-mutation and both `(x as unknown) as Record<string, unknown>` double-casts at the call sites. Replace the `as number` with the typed lens from C-5."
+     },
+     {
+      "id": "C-12",
+      "defect": "`read()`, `fmt()` and the `[read(def.key)]` array literal are all evaluated in the render function, so one value change re-renders all 31 Slider vnodes and re-creates 31 single-element arrays. Real, and smaller than it looks — reported with a number so no later seat can call it a blocker without one.",
+      "severity": "INFO",
+      "evidence": "demo/scenes/ConfigSliderPane.vue:141 and :147. Measured (scratchpad/csp/p2.mjs — 40 ArrowRight dispatches on the first thumb, timed dispatch→first MutationObserver callback on .config-console): /#/blob 31 rows mean 6.675ms / median 6.6 / p95 8.4 / max 8.6; /#/atmosphere 3 rows mean 5.463 / median 5.4 / p95 6.7 / max 6.8. Delta +1.21ms mean (+22%) for 10x the rows ≈ 43µs/row. mutationFanout confirms Vue's patch is correct: one keystroke mutates exactly ONE row's DOM (mutatedRows:[0] of 31).",
+      "mechanism": "stringly-typed reflection layer — per-render path resolution where a per-key computed/lens would resolve once",
+      "reproduction": "`node scratchpad/csp/p2.mjs desktop-blob` then `desktop-atmos` and compare `latency`. Same run incidentally confirms the write path and clamping: 41 presses drove geometry.bodyRadius 0.22→0.425 at step 0.005, and colorEnergy saturated at max 1.0 (16 of 40 atmosphere samples were ceiling no-ops, hence n:24).",
+      "proposedCure": "Falls out of C-5's typed lens for free: a per-def getter memoised per row stops the whole-pane render effect from tracking every displayed key. Not worth a standalone change at 43µs/row."
+     },
+     {
+      "id": "C-13",
+      "defect": "At 390x844 the pane does not mount at all on /#/blob, so the file's `@media (pointer: coarse)` block is unreachable on the route carrying 31 of its 34 sliders — it can only ever apply to AuroraPane's 3.",
+      "severity": "INFO",
+      "evidence": "scratchpad/csp/p1.mjs mobile-blob (390x844, hasTouch): rowCount:0, actionBar:null, body text shows only the dock \"Blob\" entry and the picker. Cross-check REPORT.json: safari-mobile /#/blob lists 8 small tap targets vs 39 on desktop, and its four 12x44 spans are the picker's L/A/B/ALPHA channels — no \"Body Radius\" row appears in any mobile matrix. Mechanism is the shell's: demo/shell/viewSchema.ts:179-181 maps blob to right:\"blob\" and the mobile layout does not mount the right pane.",
+      "mechanism": "comments asserting cures the measurements refute — a touch cure written for a surface that has no touch presence",
+      "reproduction": "`node scratchpad/csp/p1.mjs mobile-blob` → rowCount:0. Or resize a browser to 390 wide at /#/blob.",
+      "proposedCure": "Not this file's to fix (shell/viewSchema owns it) — recorded so the coarse-pointer block of C-7 is deleted on the correct grounds: it is both inert where it applies and unreachable where it would matter most."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "ada8aa07cd83dbd45",
+   "key": "v2:dcde46da216d001529ef29fc4f3898270ebac96471afb2f6f97a37fc54f00bf0",
+   "result": {
+    "axis": "design",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M-context arm). Seat spawned with an explicit Opus 5 declaration; served tier agrees. Not an inherited or undeclared seat; Fable not used in this lane.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/ConfigSliderPane/challenge-D-design.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D-3 — No slider in the pane shows its value. `variant=\"spectrum\"` (ConfigSliderPane.vue:146) blanks the producer's `.slider-range` by recipe (measured: width 731 of trackW 962 = exactly the value 0.760, backgroundColor `rgba(0,0,0,0)`, backgroundImage `none`), so the value is carried solely by a 12x24px transparent thumb. The component then re-inks the now-information-free track from a body-text token (`--slider-track-bg: var(--ink-muted)`, :202), measured 5.82:1 light / 8.30:1 dark against the well — identical to the live readout's ink. Result: the inert track is the pane's heaviest, second-most-contrasty object and reads as 100% filled, while the actual value is the faintest thing in the row. `Body Radius 0.220` and `Satellites 3` render as visually identical bars. The component's own comment at :198-199 admits the transparent range and ships anyway. This one mechanism also produces the forced-colors blocker (D-1), the area/ink-token defect (D-4), and the reserved-material breach (D-14).",
+    "negativeProof": "Verdict is DEFECTIVE, so no negative proof is claimed. Recorded non-defects (so they are not re-litigated), each with positive evidence: (1) `verbatimModuleSyntax` met — every type-only import in the pane and both consumers is `import type` (BlobPane.vue:15,16; AuroraPane.vue:26,28,34); ConfigSliderPane.vue:16-23 are all genuine value imports. (2) Vue 3.5 reactive props destructure used correctly at :41; `useTemplateRef`/`shallowRef` inapplicable (no template refs, no `defineModel`). (3) Edict 6 not violated — no animation was deleted; the pane never had one. (4) `prefers-reduced-motion` — measured under Chromium `reducedMotion:\"reduce\"`: no layout-animating property in the pane; `trackTransition` is colour-only. (5) Keyboard axis works — ArrowRight on a focused thumb moved `aria-valuenow` 0.22 -> 0.225 (one step) and the readout followed. (6) Shell-level cleanliness — `horizontalOverflow`, `pageErrors`, `blankOrNearBlank`, `mainCountNotOne`, `darkClassMissing` all 0 for /atmosphere and /blob across all four tracked matrices (REPORT.md:7-29). (7) The one `namelessButton` on /#/blob is not in this pane: both pane buttons carry visible text and all 31 sliders carry `aria-label` (:145).",
+    "defects": [
+     {
+      "id": "D-1",
+      "defect": "In forced-colors mode the slider track's extent is 1.00:1 against the well (invisible) and the focus indicator disappears entirely, because both are expressed in the single channel forced-colors overrides.",
+      "severity": "BLOCKER",
+      "evidence": "Chromium forcedColors:\"active\", /#/atmosphere 1440x900 (scratchpad/chD-csp-probe2.mjs -> forcedFocus): trackBg rgb(255,255,255) === wellBg rgb(255,255,255), trackEqualsWell:true, trackBorderWidth 0px, rangeBg rgba(0,0,0,0); outlineStyle:\"none\", boxShadow:\"none\". Frame: scratchpad/chD-csp-forced-focus.png shows three orphan pill outlines with no track. Cause: ConfigSliderPane.vue:202 `--slider-track-bg: var(--ink-muted, var(--muted-foreground))`. The tracked matrix shots/forced-colors-desktop/blob.png could not catch this — WebKit ignores Playwright's forcedColors, so that frame is byte-comparable to the ordinary light frame.",
+      "mechanism": "Single-channel control semantics: the track's entire visual definition routes through `background` (a custom property), which forced-colors overrides to Canvas; no border and no painted range remain as a second channel. Focus ships as box-shadow with outline-style:none, and forced-colors strips shadows. Violates VISUAL-CONSTITUTION.md:84 (\"Focus remains visibly distinct ... forced colors\") and WCAG 1.4.11. `grep -rn forced-colors demo/scenes/` returns zero hits.",
+      "reproduction": "node scratchpad/chD-csp-probe2.mjs (Chromium arm); or Chrome DevTools -> Rendering -> Emulate CSS forced-colors: active -> http://localhost:9000/#/atmosphere",
+      "proposedCure": "Fold into the F1 cure: retire variant=\"spectrum\" so the producer's `.slider-range` paints the value, delete ConfigSliderPane.vue:202 and :204-206, and let glass-ui's Slider own a forced-colors arm — `border: 1px solid` on `.slider-track`, `.slider-range { background: Highlight; forced-color-adjust: none }`, and `outline` (not box-shadow) for :focus-visible. Producer change, not demo (edict 4)."
+     },
+     {
+      "id": "D-2",
+      "defect": "Below 1024px the entire Blob configurator leaves the DOM; the sole purpose of /blob is unreachable at mobile widths and at 200% zoom, behind a global pane toggle the canon names a live defect.",
+      "severity": "BLOCKER",
+      "evidence": "WebKit breakpoint sweep on /#/blob (scratchpad/chD-csp-probe3.mjs -> breakpointSweep): 1440/1280/1100/1024 => .config-console present, 31 rows; 1000/900/768/600/390 => absent, 0 rows. Corroborated: REPORT.json safari-mobile-light /#/blob bodyTextLength 69, allElements 228 (vs 713/642 desktop), smallTapTargets limited to L/A/B/ALPHA channel. shots/safari-mobile-light/blob.png and shots/zoom-200-desktop/blob.png both show the Picker plus a Dock `Picker | Blob` toggle with Picker selected. visual/states.mjs:21-22 captures zoom-200 as a 720x450 viewport at DPR 2.",
+      "mechanism": "The pane has no narrow arm of its own and inherits the shell's global pane toggle. OPTICAL-BENCH-COMPOSITIONS.md:115 names a frame showing a \"global pane toggle\" a live defect; VISUAL-CONSTITUTION.md:32 law 6 says \"no global pane selector ... survives\". The pane's other consumer (/atmosphere) DOES render at 390px (rowCount 3), so one generic pane has two divergent, unspecified narrow behaviours.",
+      "reproduction": "http://localhost:9000/#/blob at 1000px viewport width; or at 1440px with browser zoom 200%",
+      "proposedCure": "The pane owns its narrow composition instead of inheriting a toggle: an always-rendered `essentials` region plus a scroll-confined `advanced` disclosure (the OPTICAL-BENCH-COMPOSITIONS.md:47 mobile sequence preview;essentials;advanced/reset/compare), which requires the D-9 API change. W19 deletes the Dock Picker|Blob toggle in the same cut."
+     },
+     {
+      "id": "D-3",
+      "defect": "No slider in the pane indicates its value: the producer's fill element is correctly sized and paints nothing, while the inert track is painted from a body-text ink token so it reads as 100% filled.",
+      "severity": "BLOCKER",
+      "evidence": "/#/atmosphere 1440x900, Colour Energy 0.760 of 0..1 (scratchpad/chD-csp-probe.mjs): .slider-track w962 h24 backgroundColor oklch(0.4469 0.0039 34.63) backgroundImage none; .slider-range width 731 (=76.0%, exactly the value) backgroundColor rgba(0,0,0,0) backgroundImage none opacity 1; [role=slider] w12 h24 backgroundColor rgba(0,0,0,0). Contrast via 1x1 canvas sRGB round-trip: track vs well 5.82:1 light / 8.30:1 dark — identical to the live readout ink (same token). Visible in shots/safari-desktop-light/blob.png (Body Radius 0.220 and Satellites 3 are identical bars) and shots/safari-mobile-dark/atmosphere.png (near-white slab brighter than the display title).",
+      "mechanism": "ConfigSliderPane.vue:146 sets variant=\"spectrum\" — the producer's chromatic-rail recipe whose `.slider-range` is transparent by design because a gradient supplies the value read. :198-199 admits it (\"the spectrum .slider-range is transparent by recipe so no filled/unfilled split reads either\") and ships anyway. :202 then re-inks the information-free track with `--ink-muted`, amplifying the empty channel. Figure and ground invert: the background reads as the filled value, the thumb as a hole punched in it. Diagnosed twice historically and cured neither time (N/audit/lanes2/U-CONTROLS.md:54; N/waves/N.W13.md:28).",
+      "reproduction": "http://localhost:9000/#/blob at >=1024px; compare the Satellites (3) and Body Radius (0.220) rows — two visually identical bars.",
+      "proposedCure": "Architectural transposition, net deletion: drop variant=\"spectrum\", consume the producer's default neutral Slider so `.slider-range` paints the filled extent from producer tokens. `--slider-track-bg` (:202) and the `:deep(.configurator-row .font-mono)` re-ink (:204-206) then both delete, because the contrast problem they were invented for stops existing — the fill becomes the >=3:1 object and the track returns to a quiet groove. Fixes D-1, D-4 and D-14 with the same cut."
+     },
+     {
+      "id": "D-4",
+      "defect": "A certified text-ink token (`--ink-muted`, specified at >=4.5:1 for glyph mass) is used as a ~23,000px2 area fill, making the inert track the pane's heaviest and near-loudest object.",
+      "severity": "MAJOR",
+      "evidence": "ConfigSliderPane.vue:202 `--slider-track-bg: var(--ink-muted, var(--muted-foreground))`. Measured (chD-csp-probe2.mjs): track vs well 5.82:1 light / 8.30:1 dark; row label vs well 13.52:1 / 9.28:1; section heading 5.08:1 / 5.97:1. In dark mode the inert track sits within one stop of the label. Track geometry 962x24 on /atmosphere, 432x24 on /blob.",
+      "mechanism": "Text ink is specified for a few-hundred-px2 glyph mass; applied to continuous surface it is a different optical object — it reads as a painted bar, not a groove at adequate contrast. Violates VISUAL-CONSTITUTION.md:14-16 (tier separation: instrument veil vs specimen well) and :21 (\"Dark chrome uses the restrained neutral pole\"). PROPORTION-AUDIT.md:73 law 8: \"Real rendered relation wins over token intent ... token presence alone cannot close a row\" — the comment at :190-201 closes its row on token presence.",
+      "reproduction": "node scratchpad/chD-csp-probe2.mjs -> contrast-light / contrast-dark",
+      "proposedCure": "Fold into D-3. The track's material belongs to the producer Slider's neutral recipe at its own graphics rung; if that rung is genuinely below 3:1 on --well-bg, the fix is a glass-ui `--slider-track-*` token pair sized for area, not a consumer re-ink borrowed from the text ladder."
+     },
+     {
+      "id": "D-5",
+      "defect": "31 slider thumbs render 12x24px — below the WCAG 2.5.8 24x24 minimum on the inline axis — and the component's hit-area extension is gated to `@media (pointer: coarse)`, so desktop is uncovered.",
+      "severity": "MAJOR",
+      "evidence": "REPORT.json safari-desktop-light /#/blob a11y.smallTapTargets: 39 entries, 31 of them exactly {w:12,h:24,tag:\"span\"} labelled with every BlobPane slider (Body Radius ... Speed). Identical in safari-desktop-dark. Live: thumb {w:12,h:24} at both 1440 and 390. Cure gate: ConfigSliderPane.vue:218-230. Mobile arm proves the cure works (REPORT.json safari-mobile-light channel spans h:44; /atmosphere mobile rows h 57.59).",
+      "mechanism": "WCAG 2.5.8 is not pointer-type-conditional. The coarse-only guard leaves pointer:fine uncovered, and on /blob the coarse arm is dead code anyway because the pane is not rendered at coarse-pointer widths (D-2). PROPORTION-AUDIT.md:72 law 7 explicitly licenses extending the operable target without growing the visual glyph.",
+      "reproduction": "http://localhost:9000/#/blob at 1440px; inspect any [role=\"slider\"] inside .config-console — 12x24 CSS px.",
+      "proposedCure": "Delete the `pointer: coarse` guard and move the hit extension onto the glass-ui Slider thumb (unconditional), retiring the consumer `:deep()` block entirely. PROPORTION-AUDIT.md:56 PR-12 already owns this family at W18."
+     },
+     {
+      "id": "D-6",
+      "defect": "The pane emits 8 dividing lines on /blob where the binding boundary inventory specifies `none`, and the section rule is scheme-asymmetric: invisible in light (1.08:1), a hard rule in dark (5.03:1).",
+      "severity": "MAJOR",
+      "evidence": "Live /#/blob: sectionHeaders 7, actionBars 1 = 8 lines. Sources: ConfigSliderPane.vue:232-235 (.config-section-header border-bottom, one per section) and :245-251 (.config-action-bar border-top). OPTICAL-BENCH-COMPOSITIONS.md:80-81 gives Atmosphere and Blob `Retained non-P122 dividing line: none`; :90 \"Any additional line ... is a defect\". Measured divider vs well: 1.08:1 light, 5.03:1 dark (chD-csp-probe2.mjs).",
+      "mechanism": "Duplicative boundary: PROPORTION-AUDIT.md:69 law 4 retains a divider only when grouping would be ambiguous without it, and the pane already separates sections with gap-5 plus a distinct heading. `color-mix(in srgb, var(--border) 50%, transparent)` over --well-bg is invisible in one scheme and crisp in the other, a 4.7x swing for one element. Under forced colors this forbidden rule is the only surviving element in the pane (D-1) — a precise inversion of design priority.",
+      "reproduction": "node scratchpad/chD-csp-probe2.mjs -> contrast-light.dividerVsWell / contrast-dark.dividerVsWell; visual: shots/safari-desktop-light/blob.png vs shots/safari-desktop-dark/blob.png under GEOMETRY.",
+      "proposedCure": "Delete both rules (:232-235, :250). Grouping is carried by heading plus interval, exactly the `Grouping job` column of the §5 inventory; the action bar's separation is carried by the material change at the well edge plus the Dock pill's own geometry."
+     },
+     {
+      "id": "D-7",
+      "defect": "A section heading and a control label are computed-identical (6/6 properties), the section heading is the same size as the row labels it groups, and the closed type matrix is breached in three roles.",
+      "severity": "MAJOR",
+      "evidence": "/#/atmosphere 1440x900 (chD-csp-probe3.mjs -> twoSpecies.identicalRecipe): .config-section-title (ConfigSliderPane.vue:237-243) vs .aurora-row-label (AuroraPane.vue:194-199) — fontFamily, fontSize (16.4px), textTransform (uppercase), letterSpacing (1.64px), color rgb(112,89,66), fontWeight 400 — all six equal, and the two CSS blocks are byte-identical in five declarations in the same order. Sizes: section title 16.4px == row label 16.4px (desktop) and 14px == 14px (390px); value 11px at both. Label/value ratio drifts 1.49 (desktop) -> 1.27 (mobile).",
+      "mechanism": "VISUAL-CONSTITUTION.md:66-78 is a closed type matrix. Section heading must be text-heading/Plus Jakarta Sans — rendered Fira Code 16.4px caps. Control label must be text-small PJS non-bold — rendered Fira Code caps in the slot rows and PJS weight 500 in the well rows. Value must be text-mono-small or mono-caption — rendered text-micro 11px, neither token. Mono is thus louder as a heading (16.4px) than as the data it groups (11px), and FIELD vs HARMONY are indistinguishable in the frame.",
+      "reproduction": "node scratchpad/chD-csp-probe3.mjs -> twoSpecies.identicalRecipe / .secTitles / .rowLabels; visual: shots/safari-mobile-dark/atmosphere.png (FIELD and HARMONY render identically).",
+      "proposedCure": "One matrix line per role: section headings -> text-heading (Plus Jakarta Sans), restoring a real size step above the row label; the mono/caps/tracking recipe survives in exactly one place, the value/provenance voice. The duplicated .aurora-row-label block dies with the slot cure (D-13). The value's size token moves to text-mono-small and rides the same container clamp as the label so the pair holds its ratio."
+     },
+     {
+      "id": "D-8",
+      "defect": "The pane roots a glass Card containing a second bordered, radiused opaque sub-card, on two compositions whose binding rows specify Card count 0 and forbid a settings Card stack by name.",
+      "severity": "MAJOR",
+      "evidence": "ConfigSliderPane.vue:17 imports Card (demo/ui/card/index.ts is a one-line glass-ui re-export); :99-101 `<Card tier=\"resting\" ...>` is the pane root; :122 nests .console-well (demo/styles/foundation.css:350-354: background --well-bg, 1px solid --card-edge, --radius-panel). Live ancestor walk from .console-well on /#/blob: [{tag:\"DIV\", m:[\"glass-resting\"]}], wells: 1. OPTICAL-BENCH-COMPOSITIONS.md:67 \"the other sixteen compositions have Card count `0`\"; :46 Atmosphere \"form sections not Cards\"; :47 Blob \"no settings Card stack\".",
+      "mechanism": "A configuration form is a page region, not a bounded specimen. VISUAL-CONSTITUTION.md:19 \"One surface has one tier. An inner card is not automatically another pane of glass.\" PROPORTION-AUDIT.md:66 law 1 \"a mere padding group does not become a Card by default.\" foundation.css:339-348 concedes the point: .console-well is an \"INTERIM demo class — swaps onto the producer .glass-well rung when packet P3 ships\", i.e. a re-minted producer primitive with the swap booked rather than met (edict 4 deferred).",
+      "reproduction": "node scratchpad/chD-csp-probe3.mjs -> blobCounts.paneAncestorGlassClasses and .wells",
+      "proposedCure": "Compose InstrumentChassis' inspector region directly and drop both shells. VISUAL-CONSTITUTION.md:38: \"value.js composes regions with domain content; it does not clone a local chassis recipe.\" Row grouping then comes from the chassis region interval, which is also what retires D-6's dividers and D-13's dual indent."
+     },
+     {
+      "id": "D-9",
+      "defect": "The canon-required essentials/advanced/compare composition is unrepresentable: `SliderSection` has no disclosure axis, so 31 rows ship flat in a 695px window behind a hard clip with no fade.",
+      "severity": "MAJOR",
+      "evidence": "ConfigSliderPane.vue:27-39 — `SliderDef {key,label,min,max,step}`, `SliderSection {title,defs}`; no rank/collapsed/compare/disabled/unit/format. Live /#/blob: scrollHeight 2605, clientHeight 695 (3.7 screens), maskImage \"none\", webkitMaskImage \"none\", scroll-region bottom 799 == action-bar top 799. OPTICAL-BENCH-COMPOSITIONS.md:46-47 names the regions (Atmosphere preview;essentials;advanced — Blob preview;essentials;advanced/reset/compare); VISUAL-CONSTITUTION.md:51-52,214; PROPORTION-AUDIT.md:54 PR-10.",
+      "mechanism": "The API makes the canonical composition impossible for any consumer, which is the difference between a missing feature and a design defect. The `maskImage:none` measurement also falsifies the component's own comment at :104-106 (\"The scroll region owns the fade mask\") and the class name pane-scroll-fade — that class sets only `contain` and `scroll-timeline`. Visible consequence: shots/safari-mobile-dark/atmosphere.png shows `Noise 0.500` with its control amputated at a hard edge.",
+      "reproduction": "node scratchpad/chD-csp-probe2.mjs -> scrollRegion; visual: http://localhost:9000/#/blob at 1440x900, bottom of the well.",
+      "proposedCure": "`SliderSection` gains a disclosure disposition — `{title, rank: \"essential\"|\"advanced\", defs}` — with advanced sections composed into glass-ui's existing configurator disclosure surface (the producer already ships .configurator-layer-region with a PRM-guarded grid-template-rows transition). `compare` and a real reset land as the pane's action region per OPTICAL-BENCH-COMPOSITIONS.md:47."
+     },
+     {
+      "id": "D-10",
+      "defect": "Two actions with zero result state: Copy JSON has no success, failure or pending truth (and swallows rejections), and Reset is destructive, unconfirmed, irreversible, with no compare.",
+      "severity": "MAJOR",
+      "evidence": "ConfigSliderPane.vue:88-94. Live /#/blob: actions.btns = [{text:\"Copy JSON\", aria:null, disabled:false},{text:\"Reset\", aria:null, disabled:false}]; actions.liveRegions finds only the Picker's four channel meters at aria-live=\"off\" — the pane emits no status region at all. `@click=\"copyAsJson\"` on an async function means a writeClipboard rejection is an unhandled promise rejection; every other demo call site marks intent with `void writeClipboard(...)` (ColorPicker.vue:325, ColorInput.vue:222, usePaletteActions.ts:134).",
+      "mechanism": "VISUAL-CONSTITUTION.md:101 \"Persistent operation state stays with the entity/workspace. A transient flourish ... never carries the only truth\" — here there is no truth at all; PROPORTION-AUDIT.md:52 PR-08 is the standing row. The whole interaction grammar (VISUAL-CONSTITUTION.md:96) is select -> tune -> commit; this pane has no commit stage — every drag writes straight into the injected config (:81) and Reset is the only exit. OPTICAL-BENCH-COMPOSITIONS.md:47 requires a `compare` region that does not exist.",
+      "reproduction": "http://localhost:9000/#/blob -> deny clipboard permission -> click Copy JSON: nothing happens, no error surfaces. Click Reset: 31 values change with no confirmation, announcement or undo.",
+      "proposedCure": "One durable status region in the action bar owned by the pane (VISUAL-CONSTITUTION.md:101); Reset becomes Reset + Compare with the canon's destructive-confirmation grammar; copyAsJson gains explicit success/failure arms."
+     },
+     {
+      "id": "D-11",
+      "defect": "The live readout has neither tabular figures nor reserved width, and infers precision from the value instead of the statically-known step — producing a ~27px live width jitter mid-drag on nearly every slider.",
+      "severity": "MAJOR",
+      "evidence": "Live /#/blob: readout fontVariantNumeric \"normal\"; \"3\" = 6.8px, \"0.220\" = 33.9px, \"0.038\" = 33.9px; in-place swap \"0.220\"->\"-0.0005\" = 32.1 -> 43.7px (delta +11.6px). ConfigSliderPane.vue:84-86 `fmt(v) = Number.isInteger(v) ? String(v) : v.toFixed(3)`. VISUAL-CONSTITUTION.md:78: \"Live numbers use tabular figures and reserve their widest legal representation so value changes never reflow the settled chassis.\"",
+      "mechanism": "Precision derived from the value, not the def. Every BlobPane slider whose range contains an integer (warpAmp 0-1, eccentricity 0-0.5, noiseFreq 0.5-10.0, pulseFreq 0-2, specStrength 0-2, rimPower 1-5, iridescence/sssScale/coreGlow 0-1, pointerAttraction -1..1, stretch 0-1.5, tempo 0.25-2.5, ...) flips its readout between 5 chars and 1 char mid-drag — a ~80% width swing on a 33.9px element. `noiseFreq` step 0.1 renders `0.500`, two digits of false precision on 8 of 31 rows. No `unit` field exists, so `Merge (ms)` smuggles its unit into the label while `Hue Range` (degrees) has none, against VISUAL-CONSTITUTION.md:124 (\"announce label, value, unit\").",
+      "reproduction": "node scratchpad/chD-csp-probe2.mjs -> truncation.readoutWidthShift; chD-csp-probe.mjs -> reflow. Visually: drag Warp on /#/blob through 1.00.",
+      "proposedCure": "`SliderDef` declares `precision` (or derives it once from `step`) and `unit`; the readout gets font-variant-numeric: tabular-nums and a min-inline-size reserved from the widest legal string. Both belong on glass-ui's ConfiguratorRow value slot — VISUAL-CONSTITUTION.md:104 already assigns the axis composition (\"label, unit, reserved live value, ...\") to the producer."
+     },
+     {
+      "id": "D-12",
+      "defect": "The declared \"ONE RHYTHM SOURCE\" container clamp is measurably inert — rendered row height is identical at container widths differing by 2.03x — and it bypasses the producer's real sizing API with utility classes plus a :deep() correction.",
+      "severity": "MAJOR",
+      "evidence": "ConfigSliderPane.vue:208-217 `min-block-size: clamp(2rem, 7cqi, 2.625rem)`. Measured (chD-csp-probe.mjs): /atmosphere container 1042px -> resolved 42px, rendered row 60.94px; /blob container 512px -> resolved 35.84px, rendered row 60.94px; /atmosphere 390px container 358px -> 32px, rendered 57.59px. distinctRowHeights = [60.9] on both desktop arms. Separately dataSize: null on every row, while glass-ui.css ships `.configurator-row[data-size=sm|md|lg]` with --configurator-row-gap-* / --configurator-row-py-* plus an @container style(--configurator-size) seam.",
+      "mechanism": "The row content box (label line + gap-1.5 + 24px track + py-1) always exceeds the clamp, so the clamp never binds and the claim at :208-214 is false — the rhythm is fixed, not container-scaled, contrary to VISUAL-CONSTITUTION.md:33 law 7. The actual spacing comes from `class=\"gap-1.5 py-1\"` (:142), replacing the producer's ladder, plus a `:deep()` descendant correction that VISUAL-CONSTITUTION.md:89 says W17 deletes.",
+      "reproduction": "node scratchpad/chD-csp-probe.mjs -> compare desktop-atmosphere.row0 / desktop-blob.row0 / mobile-atmosphere.row0",
+      "proposedCure": "Delete :215-217 and :142. Pass the producer's `size` (or set --configurator-size once on .config-console) and let the producer's gap/padding ladder own the rhythm. If the rhythm must be container-scaled, that clamp belongs in the producer's --configurator-row-py-* tokens so every consumer inherits one law — which is what \"ONE RHYTHM SOURCE\" was meant to mean."
+     },
+     {
+      "id": "D-13",
+      "defect": "The bare unnamed `<slot />` licenses a second control-row species in the same pane: 15px different indent, 1.69x different height, two type families at two weights and two colours, on two material tiers, with ragged control columns.",
+      "severity": "MAJOR",
+      "evidence": "ConfigSliderPane.vue:110 (bare slot); AuroraPane.vue:118-181 fills it. Measured /#/atmosphere 1440x900 (chD-csp-probe3.mjs): .aurora-row left 224 right 1216 height 36px, label Fira Code 400 uppercase rgb(112,89,66), on the Card, controls `space-between` so four triggers form no column; .configurator-row left 239 right 1201 height 60.9px, label Plus Jakarta Sans 500 normal-case rgb(28,25,23), inside .console-well. .aurora-row-label (AuroraPane.vue:194-199) is a byte-copy of .config-section-title (ConfigSliderPane.vue:237-243).",
+      "mechanism": "The pane owns a row grammar and a heading grammar and exposes neither to the slot, so the consumer re-minted the nearest recipe it could see — the duplication is the tell. Violates VISUAL-CONSTITUTION.md:33 law 7 (no fork), :104 (one producer axis composition) and edict 4 (glass-ui is the design system; do not re-mint a row). ConfigSliderPane.vue:3 also documents a prop `extraControls?` that :41-52 never declares — the API drifted from its own header comment.",
+      "reproduction": "node scratchpad/chD-csp-probe3.mjs -> twoSpecies.auroraRows vs twoSpecies.cwRows, twoSpecies.auroraLabels vs twoSpecies.rowLabels; visual: shots/safari-desktop-light/atmosphere.png.",
+      "proposedCure": "The slot must expose rows, not a blank region: a `sections` entry accepts an enum/select def alongside slider defs so every control in the pane is one ConfiguratorRow, in one grid, one material tier, one indent. AuroraPane.vue:118-181 and its whole <style> block delete with it — a real subtraction, no new directory and no wrapper component (edict 3)."
+     },
+     {
+      "id": "D-14",
+      "defect": "The spectral-meniscus material — reserved by the constitution for genuinely chromatic domains (Picker and Gradient only) — is applied unconditionally to 34 geometry, material and time axes.",
+      "severity": "MAJOR",
+      "evidence": "ConfigSliderPane.vue:146 `variant=\"spectrum\"` for all 31 BlobPane defs and all 3 AuroraPane defs; live `data-variant=\"spectrum\"` on every .glass-slider in .config-console. VISUAL-CONSTITUTION.md:7: \"the spectral meniscus: a continuous liquid-color rail reserved for genuinely chromatic continuous domains — Picker and Gradient.\" Domains actually driven: Body Radius, Smooth K, Rim Power, Shininess, Merge (ms), Zones.",
+      "mechanism": "Applying the reserved signature form to non-chromatic domains devalues the signature, and — because the variant blanks .slider-range by recipe — is the direct cause of D-3's missing value read. The record shows it was diagnosed twice and cured neither time: docs/tranches/N/audit/lanes2/U-CONTROLS.md:54 and docs/tranches/N/waves/N.W13.md:28 (\"a spectrum slider with no spectrum\"); the T.W8 cure at :190-202 fed the variant an ink instead of retiring the variant.",
+      "reproduction": "http://localhost:9000/#/blob; inspect data-variant on any .config-console .glass-slider",
+      "proposedCure": "Retire variant=\"spectrum\" from this pane and consume the producer's neutral Slider (see D-3). The spectral meniscus returns to Picker and Gradient only."
+     },
+     {
+      "id": "D-15",
+      "defect": "Dependent-control state was never designed: at Satellites = 0, five sliders control nothing yet remain fully enabled, focusable and draggable with live readouts.",
+      "severity": "MAJOR",
+      "evidence": "BlobPane.vue:59-62 and :111-112 — satelliteCount range 0..4; satelliteRadius, orbitRadius, eccentricity, mergeDuration, emergeDuration all satellite-dependent. ConfigSliderPane.vue:27-33 `SliderDef` has no `disabled` field and the template renders no disabled state; live probe shows aria-disabled: null on every thumb.",
+      "mechanism": "VISUAL-CONSTITUTION.md:83: \"Selected, failed, pending, withdrawn and disabled states are never color-only. Role, accessible name, state/value and associated error/status are explicit.\" There is no disabled state to be colour-only with — the state does not exist in the model, so five controls silently lie about their effect.",
+      "reproduction": "http://localhost:9000/#/blob at >=1024px -> drag Satellites to 0 -> drag Sat Radius, Orbit Radius, Eccentricity, Merge (ms), Emerge (ms): readouts change, the preview does not, and no control indicates it is inert.",
+      "proposedCure": "`SliderDef` gains `enabledWhen?: (config) => boolean` (or a declarative `dependsOn` path); the row renders the producer's disabled state with aria-disabled plus an explicit reason. Consumed once by glass-ui's ConfiguratorRow, not hand-rolled per consumer."
+     },
+     {
+      "id": "D-16",
+      "defect": "The prop contract erases types: both consumers must launder their real config through `as unknown as Record<string, unknown>`, and one spends a 13-line recursive mapped type reconstructing the safety the pane threw away.",
+      "severity": "MAJOR",
+      "evidence": "ConfigSliderPane.vue:41-52 types config and defaults as Record<string, unknown>. Four double-casts: AuroraPane.vue:111, :113; BlobPane.vue:124, :126. BlobPane.vue:36-48 defines `NumericAtomPath` — a 13-line recursive mapped type with a 24-line comment on two levels of `-?` modifier stripping — solely to restore key safety.",
+      "mechanism": "The pane is generic over \"any object addressed by any dot-path string\" — the least typeable contract available — and every consumer pays for the generality. It also carries seven jobs in 252 lines with no encapsulation of any (Card shell, scroll host, dot-path resolver, number formatter, clipboard exporter, reset engine, slot host), which is edict 1 (no god modules) and edict 3 (KISS, no contrivance); the widest possible prop type is the symptom.",
+      "reproduction": "grep -n \"as unknown\" demo/scenes/atmosphere/AuroraPane.vue demo/scenes/blob/BlobPane.vue",
+      "proposedCure": "Make the pane generic over its config: `defineProps<{config: T; sections: SliderSection<T>[]; defaults: T}>()` with SliderDef<T>[\"key\"] a keyof-derived dot-path union. BlobPane.vue:36-48 and all four casts then delete — a net subtraction of ~30 lines. Alternatively the D-8/D-9 split removes the \"generic over any object\" requirement entirely."
+     },
+     {
+      "id": "D-17",
+      "defect": "The class name `pane-scroll-fade` and the component's own comment both promise a fade mask that does not exist; the scroll edge is a hard clip with zero affordance.",
+      "severity": "MINOR",
+      "evidence": "ConfigSliderPane.vue:104-106 claims \"The scroll region owns the fade mask + overflow\". Measured live: maskImage \"none\", webkitMaskImage \"none\"; the class (PaneHeader.vue unscoped block) sets only `contain: layout style paint` and `scroll-timeline: --pane-scroll`. scrollHeight 2605 vs clientHeight 695; scroll bottom 799 abuts action-bar top 799. Visible amputation in shots/safari-mobile-dark/atmosphere.png. Separately `grep -n \"transition|animation|@keyframes\" demo/scenes/ConfigSliderPane.vue` returns zero hits: the v-if swaps at :119/:163 are untransitioned.",
+      "mechanism": "Name/comment drift plus a genuinely missing affordance. Not an edict-6 violation (no animation was deleted) and not a PRM violation (nothing animates geometry; measured under reducedMotion:\"reduce\" the only transition is colour) — but a scroll edge with no affordance is a defect regardless of the class name.",
+      "reproduction": "node scratchpad/chD-csp-probe2.mjs -> scrollRegion.maskImage",
+      "proposedCure": "Add the compositor-side mask-image the name promises, or rename the class to pane-scroll-host and correct :104-105. Given the D-9 disclosure cure the fade becomes the right answer."
+     },
+     {
+      "id": "D-18",
+      "defect": "RTL produces a half-mirrored row — the label/value pair mirrors, the track does not — and reverses the action order so the destructive Reset becomes the leading action.",
+      "severity": "MINOR",
+      "evidence": "shots/rtl-desktop/blob.png: row reads `0.220 Body Radius`; the Body Radius thumb sits at 38% from the visual left in both LTR and RTL (LTR track 770..1200 thumb ~934; RTL track 240..670 thumb ~404 — same fraction from the left, i.e. 62% from the RTL inline-start). Action bar renders `Reset` then `Copy JSON`. The description prose breaks its terminal period onto the next line (\"...and satellite\" / \".behavior\").",
+      "mechanism": "VISUAL-CONSTITUTION.md:124 says the numeric axis sign never mirrors, so the un-mirrored track may be intended — but the row's text mirrors while its track does not, and :154 requires values to render in LTR-isolated spans inside RTL prose, which the readout does not do. The un-designed part is the combination plus the promoted destructive verb.",
+      "reproduction": "http://localhost:9000/#/blob at 1440px, then document.documentElement.setAttribute(\"dir\",\"rtl\")",
+      "proposedCure": "Decide the axis direction explicitly at the producer (.glass-slider already supports data-inverted, which flips --slider-range-origin); wrap the readout in an LTR-isolated span; pin the action order by DOM role rather than letting flex direction choose which verb leads."
+     },
+     {
+      "id": "D-19",
+      "defect": "A truncated row label is silently clipped with no title, tooltip or expansion; the full string survives only in the slider's aria-label, so sighted mouse users lose information screen-reader users keep.",
+      "severity": "MINOR",
+      "evidence": "Live /#/blob, substituting a longer label in place: clientWidth 392, scrollWidth 413, clipped true, title null, text-overflow ellipsis (producer `truncate` class). Full string is present at ConfigSliderPane.vue:145 `:aria-label=\"def.label\"`. Today's longest shipped blob label is `Click Impulse` (13 chars), so the state does not fire in shipped content — LABELLED A LATENT STATE, reproduced by substitution.",
+      "mechanism": "A truncating label with no fallback channel. PROPORTION-AUDIT.md:71 law 6 (\"Add affordance when the surviving action/state is otherwise undiscoverable\") applies.",
+      "reproduction": "node scratchpad/chD-csp-probe2.mjs -> truncation (in-place textContent substitution on the first .configurator-row label)",
+      "proposedCure": "Choose one: guarantee the measure (declare a label budget in SliderDef and enforce it at the producer row) or supply the fallback (title on truncation). Do not ship both a truncating label and no fallback."
+     },
+     {
+      "id": "D-20",
+      "defect": "The JSDoc documents an empty state that has no branch in the template, and the header comment documents a prop that was never declared.",
+      "severity": "MINOR",
+      "evidence": "ConfigSliderPane.vue:44 \"Pass empty array to show empty state.\" The template has v-if=\"sections.length > 0\" at :119 (console) and :163 (action bar) and no v-else anywhere — with sections: [] the pane renders header + slot only, and also loses Copy JSON and Reset. ConfigSliderPane.vue:3 documents `extraControls?` which :41-52 does not declare. Neither consumer passes [] today — LABELLED A LATENT STATE, proven from the template, not reproduced at runtime.",
+      "mechanism": "A state that was named and never designed. VISUAL-CONSTITUTION.md:28 law 2 specifies what an empty secondary should be (a narrow invitation tray or absence), so the shape exists in canon and was simply not built. The `extraControls` line is stale dual-path documentation (edict 2).",
+      "reproduction": "Read ConfigSliderPane.vue:44 against :119 and :163 — no v-else branch exists in the render tree.",
+      "proposedCure": "Either implement the empty state as a content-hug invitation per VISUAL-CONSTITUTION.md:28, or delete the promise from the JSDoc. Delete the `extraControls` line describing an API that never shipped."
+     },
+     {
+      "id": "D-21",
+      "defect": "Dead declarations left behind by the action-bar migration: `relative` on two elements with no positioned descendants, and `mx-auto` on a `w-full` element.",
+      "severity": "INFO",
+      "evidence": "ConfigSliderPane.vue:98 `<div class=\"relative w-full mx-auto h-full min-w-0\">` and :101 `class=\"... relative ...\"` on the Card; the pane's own tree contains no absolutely-positioned child. The migration is recorded in the component's own comment at :159-162 (the action bar was formerly floating).",
+      "mechanism": "Residue of a removed floating overlay; edict 2 (no legacy) applies to dead positioning contexts as much as to shims.",
+      "reproduction": "Read ConfigSliderPane.vue:98 and :101; no descendant in the SFC uses position: absolute.",
+      "proposedCure": "Delete `relative` from both and `mx-auto` from :98 in the same cut that retires the Card (D-8)."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a40698e7a829af147",
+   "key": "v2:044091cb11419285339ca3ef1bf41f98a1023dc0aa81e90f1d38a04b3dc1d5ff",
+   "result": {
+    "juror": "JUROR-3 — design, gestalt, and performance",
+    "modelObserved": "Opus 5 (1M context) — exact model id `claude-opus-5[1m]`, the tier declared at spawn under mega-tranche marks M-1/M-2. The seat is declared, not inherited; no Fable seat participated.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/ConfigSliderPane/jury-3-design-gestalt.md",
+    "verdict": "APOTHEOSIS_REQUIRED",
+    "upheld": [
+     {
+      "id": "J3-01",
+      "defect": "The control paints no value: `variant=\"spectrum\"` blanks the producer's `.slider-range` by recipe, and the consumer then re-inks the now information-free track from a certified TEXT ink, so the inert slab is the loudest object in the row and every slider reads as 100% filled.",
+      "mechanism": "Merges D-3, D-14, D-4, L-6, C-3 — five accusations, one mechanism. Measured on /#/blob: `.slider-range` is laid out to the value to within one ten-thousandth (rendered fraction 0.378472 vs declared (0.220-0.08)/(0.45-0.08)=0.378378, Δ 0.000094) and painted `rgba(0,0,0,0)` with `background-image: none`. The inert 432x24 track measures 5.82:1 light / 8.30:1 dark against the well — identical to the live readout's ink (same token, ConfigSliderPane.vue:202 and :204-206) — while the painted extent measures 1.00:1. Figure and ground invert. Breaches VISUAL-CONSTITUTION.md:104 (\"a color-bearing or neutral track chosen by semantics ... not new slider mechanics\"), :7 (meniscus reserved to Picker/Gradient), PROPORTION-AUDIT.md:73 law 8. Diagnosed twice historically (N/audit/lanes2/U-CONTROLS.md:54, N/waves/N.W13.md:28) and cured neither time — the T.W8 cure fed the variant an ink instead of retiring the variant.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-02",
+      "defect": "Single-channel semantics: in real forced colours the control has no extent, no border and no fill, and the focused control has no focus indicator at all. The frame shows seven labelled rows with NO slider — only orphan 12px lozenges on white.",
+      "mechanism": "Upholds D-1 with its evidentiary claim corrected. The tracked forced-colors matrix ran on WebKit (states.mjs:14), which ignores Playwright's forcedColors — that frame renders the ordinary light composition in full colour and is a false witness. Re-cut in Chromium (matchMedia forced-colors: active === true): trackBg rgb(255,255,255) === wellBg rgb(255,255,255) (ratio 1.00), border-width 0px, range rgba(0,0,0,0), focused thumb outline-style \"none\" and box-shadow \"none\". The only surviving element in the pane is the forbidden section rule at rgb(0,0,0). My own frame (probes/j3-forced-blob.png) carries its own control: the picker's four channel sliders render as legible bordered pills in the SAME image while the config population is erased. Breaches VISUAL-CONSTITUTION.md:84 verbatim and WCAG 1.4.11/2.4.11.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-03",
+      "defect": "The Blob workbench has no blob: the route's protagonist slot holds a different instrument, the split is 50/50 where canon binds 66.7/33.3, and the preview is 8.19% of the form where canon requires preview > form.",
+      "mechanism": "Juror-originated; absorbs D-2 and L-10 as its narrow half and supersedes their framing. Measured at 1440x900 on /#/blob: main 1408px, .pane-wrapper--left 512px, .pane-wrapper--right 512px = 50.0%/50.0%. viewSchema.ts:179-186 gives blob `left: \"color-picker\"` — the protagonist slot is the ColorPicker. The only blob material on the route is a 180.2x180.2 canvas (32,472 px²) inside the picker card; the configurator pane is 396,288 px². preview:form = 0.0819, canon requires >1.0 — inverted by 12.2x. At 390x844 and 720x450 DPR2 the configurator does not mount and the aria-pressed census returns [{Picker,true},{Blob,false}] while location.hash is #/blob: the route renders the pane it is not named for, behind a global pane toggle that OPTICAL-BENCH-COMPOSITIONS.md:115 enumerates as a live defect and :107 declares retired. Breaches OPTICAL:47, VISUAL-CONSTITUTION.md:29 law 3, :32 law 6, :214, PROPORTION-AUDIT.md:54 PR-10.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-04",
+      "defect": "Reset is destructive, unconfirmed, uncompared and unannounced — and silently destroys nested live state at depth 2.",
+      "mechanism": "Merges C-1, L-1, D-10, C-4, L-12: the correctness break and the design absence are one object. ConfigSliderPane.vue:92-94 `Object.assign(config, structuredClone(defaults))` is depth-1: it preserves runtime state at depth 1 (AuroraPane's `seed`, absent from defaults) and destroys it at depth 2 — `color.paletteStops` lives inside a `color` key that IS on defaults, so one click replaces the live picker-derived ramp with the canned tan triad, and useAtmosphere.ts:389-403 is keyed on the colour string so the link stays severed. Both consumers declare in prose that this state must survive Reset. The design half I measured myself: aria-live regions inside the pane and its action bar = 0; Copy JSON swallows writeClipboard's two-state CopyResult (:88-90); Reset has no confirmation, announcement, undo or compare. Breaches VISUAL-CONSTITUTION.md:101, :96 (select→tune→commit has no commit stage), OPTICAL:47 (compare region required), PROPORTION-AUDIT.md:52 PR-08.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-05",
+      "defect": "The closed type matrix is breached in three roles, and there is no size step between a group heading and the rows it groups.",
+      "mechanism": "Merges D-7 with the heading half of D-13. Measured on /#/blob light: section heading Fira Code 16.4px 400 uppercase ls 1.64px where canon binds `text-heading`/Plus Jakarta Sans; row label Plus Jakarta Sans 16.4px WEIGHT 500 where canon binds `text-small` non-bold; value Fira Code 11px where canon binds `text-mono-small`/`mono-caption`. Section heading size EQUALS row label size — the mono voice is louder as a heading (16.4px) than as the data it groups (11px). `.config-section-title` and `.aurora-row-label` are computed-identical on all six properties, so FIELD and HARMONY are indistinguishable in the frame. Breaches VISUAL-CONSTITUTION.md:66-78 (closed matrix) and PROPORTION-AUDIT.md:78 law 13.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-06",
+      "defect": "The live value has no reserved width and no tabular figures, so it jitters horizontally while you drag the thing that changes it.",
+      "mechanism": "Upholds D-11. Measured by in-place text substitution on the shipped readout: font-variant-numeric \"normal\"; shipped \"0.220\" 33.9px, narrowest legal \"3\" 6.8px, widest legal \"-0.0005\" 47.4px = a 40.6px swing, 120% of the element's own width. Precision derives from the value (fmt, :84-86) rather than the statically-known step, so noiseFreq (step 0.1) renders \"0.500\" — two digits of false precision — and every range containing an integer flips between 5 chars and 1 mid-drag. No `unit` field exists, so `Merge (ms)` smuggles its unit into the label while `Hue Range` has none. Breaches VISUAL-CONSTITUTION.md:78 verbatim (\"Live numbers use tabular figures and reserve their widest legal representation so value changes never reflow the settled chassis\") and :124.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-07",
+      "defect": "Two nested bounded shells on two compositions whose binding Card count is 0.",
+      "mechanism": "Merges D-8, L-14. ConfigSliderPane.vue:99-101 roots a `<Card tier=\"resting\">`; :122 nests `.console-well` (foundation.css:350-354 — background + 1px solid --card-edge + --radius-panel). Measured ancestor walk from the well returns [\"glass-resting card rounded-card text-card-foreground …\"] — a bounded, radiused, bordered sub-card inside a glass card, visible as such in both desktop frames. OPTICAL:67 \"the other sixteen compositions have Card count 0\"; :46 Atmosphere \"form sections not Cards\"; :47 Blob \"no settings Card stack\". VISUAL-CONSTITUTION.md:19, :38; PROPORTION-AUDIT.md:66 law 1. foundation.css:339-348 concedes it — an \"INTERIM demo class\" with a booked swap, i.e. a dual path (edict 2).",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-08",
+      "defect": "Eight dividing lines where the binding inventory is `none` — and seven of them are too weak to do the grouping job they were added for.",
+      "mechanism": "Upholds D-6's count; DISMISSES its asymmetry claim and replaces it with a stronger one. Measured: 7 `.config-section-header` rules + 1 `.config-action-bar` rule = 8. Composited HONESTLY over the well (the border is translucent — `color(srgb 0.778 0.7052 0.622 / 0.5)`), the section rules measure 1.24:1 light and 1.29:1 dark: forbidden AND invisible, costing a canon violation and buying nothing. The action-bar rule composites to 10.5:1 light / 2.97:1 dark — the one visible line, and the one canon most clearly forbids since the action region is already separated by a material change. Under forced colours these forbidden lines are the ONLY surviving element in the pane. Breaches OPTICAL:80-81, :90 (\"Any additional line … is a defect\"), VISUAL-CONSTITUTION.md:92, PROPORTION-AUDIT.md:69 law 4.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-09",
+      "defect": "The canon-required essentials/advanced/compare composition is unrepresentable: 31 rows ship flat across 3.76 screens behind a hard clip, under a class named for a fade that applies no mask.",
+      "mechanism": "Merges D-9, D-17. Measured: scrollHeight 2611 / clientHeight 695 = 3.76 screens; mask-image \"none\" and -webkit-mask-image \"none\" on `.pane-scroll-fade`, under a comment at :104-106 claiming \"The scroll region owns the fade mask\". `SliderSection` is `{title, defs}` (:36-39) — no rank, no collapsed, no compare — so the binding composition is unrepresentable by ANY consumer, which is what distinguishes this from a missing feature. Visible consequence in safari-mobile-dark/atmosphere.png: `Noise 0.500` amputated at a hard edge. Breaches OPTICAL:46-47 (mobile sequence `preview; essentials; advanced/reset/compare`), VISUAL-CONSTITUTION.md:51-52, :214, PROPORTION-AUDIT.md:54 PR-10.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-10",
+      "defect": "Ambient motion on /#/blob never terminates and no still/pause control exists.",
+      "mechanism": "Juror-originated, on my motion axis. Instrumented requestAnimationFrame on /#/blob: 112–144 rAF/s sustained across two runs in a 2s sample taken >5s after networkidle; a census of every button/role=switch/role=checkbox matching /pause|still|stop|motion|animate/i returns 0 on /#/blob. (The single match on /#/atmosphere is the MOTION select's own label — AuroraPane.vue:169, options drifting/breathing, not a still state.) Breaches VISUAL-CONSTITUTION.md:145 (\"terminates within five seconds OR exposes one persistent keyboard-operable still/pause control whose state is announced and remembered\"). Booked to this component because :214 places reset/compare — the same class of persistent workbench control — in this pane's action region. NEGATIVE EVIDENCE recorded alongside: reducedMotion resolves to exactly 0.0 rAF/s on every run, so there is NO PRM defect.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-11",
+      "defect": "No announcement, no programmatic grouping, and 31 label elements that label nothing.",
+      "mechanism": "Merges C-2, C-6, D-15. My correctly-scoped census on /#/blob (my first pass had a selector-precedence bug counting document-wide headings; corrected): [role=slider] with empty aria-valuetext 31/31; [role=group] or fieldset inside .config-console 0; headings inside .config-console 0; label elements with no `for` and no wrapped control 31/31; aria-live regions 0. Screen readers announce the raw float 0.2199999988079071 while the eye reads 0.220, and the demo's own cure (useSliderAnnouncements) was written for the picker and never consumed by the population the tranche docs call \"the app's SECOND slider population\". Seven visually-grouped sections have no programmatic boundary (WCAG 1.3.1). D-15 folds in: at Satellites=0 five sliders control nothing yet stay enabled with aria-disabled null — SliderDef has no disabled axis, so the state does not exist in the model (VISUAL-CONSTITUTION.md:83).",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-12",
+      "defect": "The file's two most heavily-commented cures are provably inert, and its touch claim is false by 2x on the inline axis.",
+      "mechanism": "Merges D-12, C-7, C-8, D-5, L-11. The \"ONE RHYTHM SOURCE\" clamp (:208-217) never binds: container 512px → min-block-size resolves 35.84px, rendered row 60.97px; container 1042px → clamp ceiling 42px, rendered row STILL 60.97px. Across a 2.03x container range the rendered rhythm moves 0.00px while the comment declares a container-scaled law — the opposite of VISUAL-CONSTITUTION.md:33 law 7. The @media (pointer: coarse) ::before adds zero (the producer root is already 44px, so max(100%, 2.75rem) always resolves to 100%) and is unreachable on /#/blob anyway. Meanwhile :186-187 asserts a \"≥44px touch rung\" while every thumb measures 12x24 in every matrix — half the WCAG 2.5.8 inline minimum, 31 of the 39 tap-target rows REPORT.json flags on /#/blob — and the guard is pointer:coarse while 2.5.8 is not pointer-conditional. All three :deep() rules reach past a published API into producer internals (`.font-mono` is a Tailwind utility emitted inside the producer template). PROPORTION-AUDIT.md:72 law 7 licenses the correct cure; PR-12 owns the family.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-13",
+      "defect": "The only gate covering this component is vacuous — and worse, it is ADVERSE to the correct cure: it measures the inert surface and will turn RED when the defect is actually fixed.",
+      "mechanism": "Upholds C-10 and sharpens it. grep over e2e/, test/, demo/test/ returns exactly 2 files: o7-card-census.spec.ts:38-42 EXCLUDES the component by name, and o18-contrast-census.spec.ts asserts computed colours only. Zero of 19 vitest files touch it; replacing update() with a no-op makes all 34 sliders read-only and every gate stays green. My addition, and it is load-bearing: o18-contrast-census.spec.ts:1161-1213 asserts `.config-console .configurator-row .slider-track` ratio ≥ GRAPHICS_FLOOR, and its own header (:1144-1156) states it was \"born red against the pre-cure --secondary track, green against the --slider-track-bg: var(--ink-muted) re-ink\". It certifies the loudness of the part that carries NO information, never asks whether the value position reads, and retiring the re-ink (J3-01) will drive it RED for the right reason. A gate that must be broken to fix the defect is not a vacuum, it is a lock — which is exactly how the T.W8 cure produced this defect.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-14",
+      "defect": "A stringly-typed reflection layer that erases the types its consumers then spend 13 lines rebuilding.",
+      "mechanism": "Merges C-5, C-11, D-16, L-7, L-8. read() (:76-78) casts a possibly-undefined path result to `number` and fmt() calls .toFixed on it in the render function; readPath guards every hop, writePath (:66-73) guards none. The type permits the missing state (AuroraAtoms.zones is optional, the def is {key:\"zones.count\"}, AuroraPane.vue:103) and AuroraPane guards that same key three lines away (:74). The prop contract is Record<string, unknown> (:41-52), so both consumers launder their real config through four `as unknown as` casts (AuroraPane.vue:111,113; BlobPane.vue:124,126) and BlobPane.vue:36-48 spends a 13-line recursive mapped type restoring the key safety the pane threw away. Contract types are exported from the .vue, so describing sections requires importing the renderer. I label C-5's mid-render unmount arm a HYPOTHESIS (injected, not user-reachable today) and uphold the asymmetry and the cast on the bytes.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-15",
+      "defect": "A generic configurator hand-rolled inside a feature area, over a design system that already ships the configurator — so every seam it needed became a second home for a concept that already had one.",
+      "mechanism": "Merges L-4, C-9, L-2, L-3, L-13. @mkbabb/glass-ui/configurator exports Configurator, ConfiguratorLayer, ConfiguratorRow, the size-axis provider and useConfiguratorState; the pane consumes ONE and hand-rolls two, and its own header (:6-10) names the surface and declines it. ConfiguratorLayer is exactly the section-group wrapper — with a collapsible body (the disclosure J3-09 needs), a `dividers` prop (the lines J3-08 must delete) and role=button/aria-expanded/aria-controls (the structure J3-11 lacks). useConfiguratorState<T> is exactly the reset engine — typed config, resetCurrent(), isDirty, a clone hook and a try/caught structuredClone (the guard J3-04 omits). Configurator's footer slot already yields { reset }. C10 A4 [P1] ADOPT (N/audit/lanes/C10.md:92-105,265) is the still-open book. Riding with it: demo/ui/ is 19 single-line alias barrels and ConfigSliderPane.vue:16-23 uses BOTH paths in one eight-line import block (edict 2); writeClipboard comes from the 25,239B/46-chunk root barrel when ./dom (4,179B/6) is its home (edict 4). Composed whole, ConfigSliderPane does not exist and J3-04's BLOCKER becomes inexpressible.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-16",
+      "defect": "RTL half-mirrors the row and lets flex direction promote the destructive verb to the leading action.",
+      "mechanism": "Upholds D-18 with its geometry confirmed and severity held at MINOR. In rtl-desktop/blob.png the label/value pair mirrors correctly but the track does not — the Body Radius thumb sits at 38% from the visual left in both directions. VISUAL-CONSTITUTION.md:124 says the numeric axis sign never mirrors, so the un-mirrored track is very likely correct — but correct by accident, not by declaration, and `.glass-slider` already ships data-inverted (which flips --slider-range-origin), so the axis direction is expressible and unexpressed. The readout is not wrapped in an LTR-isolated span (VISUAL-CONSTITUTION.md:154). The action bar renders `Reset` then `Copy JSON`: flex direction, not DOM role, decides which verb leads, so the destructive one does.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-17",
+      "defect": "Dead declarations carrying live claims: a documented prop that was never declared, a promised empty state with no branch, and positioning residue from a removed overlay.",
+      "mechanism": "Merges D-20, D-21, C-11(part). The header comment at :3 documents `extraControls?` which :41-52 never declares. The JSDoc at :44 promises \"Pass empty array to show empty state\" and the template has no v-else anywhere — with sections: [] the pane renders header + slot and silently loses Copy JSON and Reset too (:119, :163). :98 carries `relative … mx-auto` on a w-full element and :101 a second `relative`, with no absolutely-positioned descendant in the SFC — residue of the floating action bar the comment at :159-162 records removing. Edict 2 applies to dead positioning contexts and stale documentation as much as to shims. Latent, proven from the template.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J3-18",
+      "defect": "A truncating row label with no fallback channel: the full string survives only in the slider's aria-label, so sighted mouse users lose information screen-reader users keep.",
+      "mechanism": "D-19 reproduced this only by substituting a longer string in place (clientWidth 392, scrollWidth 413, title null, producer `truncate` class). Today's longest shipped blob label is `Click Impulse` at 13 chars, so the state does not fire in shipped content. Labelled a HYPOTHESIS and FOLDED into J3-14: the typed schema is the natural home for a declared label budget, and a budget enforced at the producer row is strictly better than a `title` attribute bolted on. PROPORTION-AUDIT.md:71 law 6 applies. It does not earn a row of its own.",
+      "severity": "MINOR",
+      "status": "HYPOTHESIS",
+      "disposition": "FOLD"
+     }
+    ],
+    "dismissed": [
+     {
+      "id": "D-6 (asymmetry sub-claim only; the count is UPHELD as J3-08)",
+      "why": "D-6 claims the section rule is \"scheme-asymmetric: invisible in light (1.08:1), a hard rule in dark (5.03:1)\" — a 4.7x swing for one element. No such swing exists. The border colour is TRANSLUCENT, and a 1x1-canvas contrast helper that fills black and then fills the sample composites it over #000 rather than over the well, fabricating a luminance for any alpha<1 colour. Composited honestly over the well the rule measures 1.24:1 light and 1.29:1 dark — near-invisible in BOTH schemes. I hold myself to the same standard: my own first pass reported 5.22 light / 1.19 dark, inverted relative to D's and wrong for the same reason. Both numbers are artifacts. The finding survives on the COUNT (8 lines vs a binding inventory of `none`), which needs no contrast number at all, and gains a better mechanism: the seven section rules are forbidden AND too weak to group.",
+      "refutingBytes": "computed `border-bottom-color` = `color(srgb 0.778 0.7052 0.622 / 0.5)` (light) and `color(srgb 0.3944 0.34 0.2856 / 0.5)` (dark); composited over `.config-console` background → dividerVsWell_composited 1.24 (light) / 1.29 (dark). Source: probes/j3-fix.mjs → j3-fix.json blobLight.sectionBorderRaw / blobDark.sectionBorderRaw."
+     },
+     {
+      "id": "D-2 (the \"unreachable\" framing; the defect is UPHELD as J3-03)",
+      "why": "D-2 is filed BLOCKER on the ground that \"the sole purpose of /blob is unreachable at mobile widths and at 200% zoom\". It is not unreachable — a live Blob affordance is present at both arms, one tap away. The defect is real but is a DIFFERENT defect, and the distinction changes the cure: a wave built on the \"unreachable\" premise would make the pane render at 390px and declare victory, leaving the canon-forbidden global toggle and the 8.19% preview ratio in place. Upheld under J3-03 as (a) the route defaults to the pane it is not named for, and (b) the recovery mechanism is itself enumerated as a live defect by OPTICAL-BENCH-COMPOSITIONS.md:115 and retired by :107.",
+      "refutingBytes": "aria-pressed census at 390x844 DPR3 and at 720x450 DPR2, both on #/blob: `[{\"t\":\"Picker\",\"p\":\"true\"},{\"t\":\"Blob\",\"p\":\"false\"}]` — a Blob affordance exists and is not pressed. Source: probes/j3-probe.mjs → j3-out.json narrow390.pressed / zoom200.pressed."
+     },
+     {
+      "id": "L-16 (Chromium route drift to /#/gradient and a degenerate oklch(none 0.2 30) URL)",
+      "why": "Does not reproduce on today's tree from this seat. I navigated to #/blob in Chromium eight times across two probe files and six distinct contexts (light, dark, forced-colors, focus, motion x2, 390, 720). The hash held every time and the desktop arms mounted 31 rows in every scheme. The challenger labelled it a hypothesis itself. Dismissed here without prejudice to whichever seat owns boot, which measures a different surface.",
+      "refutingBytes": "`location.hash` measured as `\"#/blob?space=lab&color=lab(92%25+88.8+20+/+82.7%25)\"` at BOTH narrow arms, and `rowCount: 31` on every desktop arm. Source: probes/j3-probe.mjs → j3-out.json narrow390.url, zoom200.url, light.rowCount, dark.rowCount."
+     },
+     {
+      "id": "D-1 (the \"byte-comparable\" wording only; the BLOCKER is UPHELD as J3-02)",
+      "why": "D-1 states the tracked forced-colors frame \"is byte-comparable to the ordinary light frame\". It is not — the matrices differ in device scale factor, so the files necessarily differ. The SUBSTANCE is upheld and in fact strengthened: I looked at the frame and it renders the ordinary light composition in full colour, with the aurora, the pink Login pill and the picker's chromatic ramps intact, none of which survives real forced colours. WebKit ignores Playwright's forcedColors and the harness says so at its own line 8. The frame is a false witness; only the wording was wrong.",
+      "refutingBytes": "shasum shots/forced-colors-desktop/blob.png = `c019adcb55d536da25d60b8e19488741c149cece` (898,446 B) vs shots/safari-desktop-light/blob.png = `276bd805fb74deffb4649099a6e43f6e555c8133` (3,108,189 B). Corroborating the substance: visual/states.mjs:8 — \"run ENGINE=chromium before believing any focus gap\"; :14 ENGINE defaults to webkit."
+     },
+     {
+      "id": "C-3 / L-6 (the \"feed the variant a real gradient\" cure arm)",
+      "why": "Not refuted so much as INADMISSIBLE, and it matters because a wave could regress into it. Both challengers float \"feed the variant a real gradient over the slider's own domain\" as an acceptable reading of the N.W13 mandate. Only the other arm — retire the variant — is admissible. The picker rows work because ComponentSliders.vue:193-201 feeds --slider-track-bg an actual linear-gradient; that is the variant's contract. But Body Radius, Smooth K, Rim Power, Merge (ms) and Zones have no chromatic domain to ramp, and manufacturing a gradient for a geometry axis would fix the fill by devaluing the product's signature form — a strictly worse outcome than the defect. My addendum clause CSP-1 is written to close that door.",
+      "refutingBytes": "VISUAL-CONSTITUTION.md:7 — \"the spectral meniscus: a continuous liquid-color rail reserved for genuinely chromatic continuous domains—Picker and Gradient.\" VISUAL-CONSTITUTION.md:104 — \"a color-bearing OR NEUTRAL track chosen by semantics … feature waves own their domain arrangement, not new slider mechanics.\" Domains measured on the shipped surface: Body Radius, Satellites, Sat Radius, Orbit Radius, Eccentricity, Smooth K, Warp, Merge (ms), Zones — none chromatic."
+     }
+    ],
+    "waveSpec": {
+     "waveId": "MT-W49-CONSOLE",
+     "title": "The configurator population — transposition to the producer",
+     "bornRed": true,
+     "scope": "demo/scenes/ConfigSliderPane.vue (DELETED), demo/scenes/atmosphere/AuroraPane.vue, demo/scenes/blob/BlobPane.vue, demo/shell/viewSchema.ts + usePaneRouter.ts (the composition half of J3-03), demo/styles/foundation.css (.console-well deleted), demo/ui/ (DELETED, 19 alias barrels + 92 import sites rewritten to glass-ui subpaths), e2e/smoke/oracles/o18-contrast-census.spec.ts (re-aimed), new demo/shared/config-slider-schema.ts, plus one glass-ui BH relay packet (forced-colors Slider arm, thumb seat geometry, ConfiguratorRow aria-labelledby/aria-valuetext pass-through, ConfiguratorLayer disclosure + Configurator footer confirmation). OUT OF SCOPE: the renderer's motion loop itself (only its still control is in scope); docs/tranches/V/vnext/**; scripts/dev/dev.sh. Five stages, and Stage A must land first because the only existing gate is ADVERSE to the cure: A un-lock the gate; B paint the value; C transpose (ConfigSliderPane ceases to exist); D disclose (essentials/advanced/compare/status/still); E compose (/blob gains its own preview-dominant composition).",
+     "gates": [
+      {
+       "gate": "G1 · The value is painted",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → light.range / light.track / dark.range — assert on /#/blob and /#/atmosphere, both schemes, for every .config-console .configurator-row: .slider-range has a non-transparent computed fill, contrast(range, track) ≥ 3.0, painted range width tracks the declared value fraction within ±1px, and data-variant !== \"spectrum\" on this population",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any consumer re-declaring --slider-track-bg, or re-declaring variant=\"spectrum\" without a linear-gradient payload. RED TODAY: .slider-range background-color rgba(0,0,0,0), background-image none → contrast(range, track) = 1.00 against a floor of 3.0, while the range is laid out to the value to within Δ0.000094 (rendered 0.378472 vs declared 0.378378)."
+      },
+      {
+       "gate": "G2 · Two channels, Chromium forced colours",
+       "command": "ENGINE=chromium node docs/tranches/V/megatranche/audit/visual/states.mjs (new forced-colors-chromium-desktop arm) — assert matchMedia(\"(forced-colors: active)\").matches === true FIRST, then: track border-width ≥ 1px OR contrast(track, well) ≥ 3.0; .slider-range painted; focused [role=slider] outline-style !== \"none\" with outline-width ≥ 2px",
+       "redToday": true,
+       "whatWouldMakeItFail": "Reverting focus to box-shadow, or expressing control extent through `background` alone. GUARD: if the arm ever runs on WebKit, forcedActive reads false and the gate must FAIL rather than pass — a false-witness detector the current tracked matrix lacks. RED TODAY: trackBg rgb(255,255,255) === wellBg rgb(255,255,255) (ratio 1.00), border-width 0px, range rgba(0,0,0,0), focus outline-style \"none\" and box-shadow \"none\"; frame probes/j3-forced-blob.png shows seven labelled rows with no control at all."
+      },
+      {
+       "gate": "G3 · The closed type matrix",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → light.type — assert section heading computed font-family begins \"Plus Jakarta Sans\", fontSize(section heading) > fontSize(row label) by ≥1 glass-ui rung, row label font-weight ≤ 400, value resolves text-mono-small/mono-caption not text-micro; assert the successor of .config-section-title has selector count 1 (no byte-copy)",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any consumer re-declaring font-family/font-size on a row or section; a .aurora-row-label-style byte-copy reappearing. RED TODAY: section heading Fira Code 16.4px; row label Plus Jakarta Sans 16.4px weight 500; heading size EQUALS label size; value 11px."
+      },
+      {
+       "gate": "G4 · Reserved live value",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → light.widthShift — assert font-variant-numeric contains \"tabular-nums\", and that substituting the readout text between its narrowest and widest LEGAL representations (derived from min/max/step/precision) changes rendered width by ≤ 0.5px",
+       "redToday": true,
+       "whatWouldMakeItFail": "Deriving precision from the value rather than the step; any readout without a reserved min-inline-size. RED TODAY: font-variant-numeric \"normal\"; swing \"3\" 6.8px → \"-0.0005\" 47.4px = 40.6px against a floor of 0.5px."
+      },
+      {
+       "gate": "G5 · Boundary inventory",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-fix.mjs → *.sectionBorderRaw / *.actionBarBorderRaw — assert on /#/blob and /#/atmosphere: computed border-bottom-width on every section head === 0 and border-top-width on the action region === 0; total dividing lines contributed by this population === 0",
+       "redToday": true,
+       "whatWouldMakeItFail": "Re-adding any rule, or passing ConfiguratorLayer's `dividers` prop truthy. Assert on COMPUTED style, not source — a producer-emitted line counts too. RED TODAY: 7 section rules + 1 action-bar rule = 8, against a binding inventory of `none` (OPTICAL:80-81, :90)."
+      },
+      {
+       "gate": "G6 · Card count 0",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → light.paneAncestry, and j3-fix.mjs → *.configConsoleRect — assert the configurator subtree emits zero Card/glass-* bounded shells and that .console-well exists in neither the stylesheet nor the DOM",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any re-minted --radius-panel + 1px solid padding group; re-introducing an \"INTERIM\" class with a booked swap. RED TODAY: ancestor walk returns [\"glass-resting card rounded-card text-card-foreground …\"] plus .console-well (foundation.css:350-354) as a second bordered, radiused shell = 2."
+      },
+      {
+       "gate": "G7 · The workbench has a subject",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → light.panes / light.canvases / light.mainRect — at 1440x900 on /#/blob assert preview.width/main.width ∈ [0.6617, 0.6717], inspector.width/main.width ∈ [0.3283, 0.3383], the preview region contains a live blob canvas, and previewPaintArea > inspectorArea",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any viewSchema row placing a configurator in a protagonist slot, or a preview whose paint area falls below its form. RED TODAY: panes 512/512 of main 1408 = 0.364/0.364 (both bounds missed); the protagonist slot holds the ColorPicker (viewSchema.ts:179-186); blob canvas 32,472px² vs inspector 396,288px² → ratio 0.0819 against a floor of 1.0."
+      },
+      {
+       "gate": "G8 · Narrow renders its own subject",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → narrow390 / zoom200 — at 390x844 DPR3 AND 720x450 DPR2 on /#/blob assert the configurator is present with rowCount > 0, and zero elements with aria-pressed whose text matches /^(Picker|Blob)$/; run over EVERY route, not just blob",
+       "redToday": true,
+       "whatWouldMakeItFail": "A tenth view forgetting defaultPaneIndex — which is why the cure DERIVES it from the view's own name rather than setting it by hand, and why the gate sweeps all routes. RED TODAY: consolePresent false, rows 0, and [{Picker,pressed:true},{Blob,pressed:false}] at BOTH arms while location.hash is #/blob."
+      },
+      {
+       "gate": "G9 · Announce, group, label",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → light.valuetextEmpty ; node .../probes/j3-fix.mjs → *.groupsInConsole / *.orphanLabels — assert every [role=slider] has aria-valuetext EQUAL to its rendered readout, role=group count === section count each with an accessible name, orphan <label> count === 0, and dependent controls at Satellites=0 expose aria-disabled=\"true\" with a reason",
+       "redToday": true,
+       "whatWouldMakeItFail": "A second formatter drifting from the rendered one — hence equality against the readout rather than a non-empty check. RED TODAY: valuetextEmpty 31/31; groupsInConsole 0; headingsInConsole 0; orphanLabels 31/31; aria-disabled null on every thumb."
+      },
+      {
+       "gate": "G10 · Disclosure, status, and the still control",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → light.scroll / light.liveRegions ; .../probes/j3-fix.mjs → *.pauseControls — assert scrollHeight/clientHeight ≤ 2.0 in the initial essentials state, a compositor-side mask-image on the scroll host, exactly one aria-live=\"polite\" region in the action region persisting ≥1s after a command settles, a named keyboard-operable still control on /#/blob with remembered state, and Reset preceded by confirmation with a compare affordance",
+       "redToday": true,
+       "whatWouldMakeItFail": "Shipping the disclosure with every section ranked `essential` (the ratio assertion catches it); a transient toast standing in for the durable region (VISUAL-CONSTITUTION.md:101 — hence the ≥1s persistence assertion). RED TODAY: 3.76 screens against a floor of 2.0; mask-image \"none\" on a class named pane-scroll-fade; liveRegions 0; pauseControls 0; Reset unconfirmed with no compare."
+      },
+      {
+       "gate": "G11 · Operable target, unconditionally",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → light.thumb, plus the same probe with hasTouch:false — assert every [role=slider] in the population has an operable target ≥ 24x24 CSS px on pointer:fine AND pointer:coarse, without growing the visual glyph",
+       "redToday": true,
+       "whatWouldMakeItFail": "A demo-side ::before returning; the cure must be --slider-thumb-size / producer seat geometry (PROPORTION-AUDIT.md:72 law 7, PR-12). RED TODAY: thumb 12x24 at both 1440 and 390; the extension is gated to @media (pointer: coarse) and adds 0px even there because the producer root is already 44px."
+      },
+      {
+       "gate": "G12 · The rhythm is real or absent",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/probes/j3-probe.mjs → light.rowH / light.rowMinBlock ; .../probes/j3-fix.mjs → atmoLight — assert no consumer declares min-block-size on a producer row, and that if a container-scaled rhythm is claimed the rendered row height differs across a ≥2x container range",
+       "redToday": true,
+       "whatWouldMakeItFail": "Re-asserting a clamp below the row's real content height. The honest cure passes the producer's `size` axis and deletes the claim. RED TODAY: container 512 → min-block-size resolves 35.84px, rendered 60.97px; container 1042 → clamp ceiling 42px, rendered STILL 60.97px — 0.00px of movement across a 2.03x range under a comment declaring \"ONE RHYTHM SOURCE\"."
+      }
+     ],
+     "piObligations": [
+      "π-1 · safari-desktop-light (WebKit · 1440x900 · DPR2 · light) · /#/blob · selector `.config-console .configurator-row:first-child .slider-range` — computed background-color, background-image, rendered width, and its fraction of `.slider-track` width",
+      "π-2 · safari-desktop-dark (WebKit · 1440x900 · DPR2 · dark) · /#/blob · same selector, plus contrast(`.slider-track`, `.config-console`) and contrast(`.configurator-row label`, `.config-console`)",
+      "π-3 · safari-mobile-dark (WebKit · iPhone 14 · dark) · /#/atmosphere · `.config-console` bottom edge vs the last row's `.glass-slider` (the amputation frame), plus `.pane-scroll-fade` computed mask-image",
+      "π-4 · NEW forced-colors-chromium-desktop (CHROMIUM · 1440x900 · forcedColors:\"active\") · /#/blob · assert matchMedia(\"(forced-colors: active)\").matches FIRST; then `.config-console .slider-track` background-color + border-width, `.config-console .slider-range` background-color, then `.config-console [role=slider]:first-of-type` focused → outline-style, outline-width, box-shadow. ENGINE LAW: WebKit ignores forcedColors and renders the ordinary composition — any WebKit forced-colors witness is void and must be discarded, not compared",
+      "π-5 · keyboard-focus-desktop (Chromium · 1440x900 · 12x Tab) · /#/blob · focused element keyed by DOM PATH never by label (states.mjs:8), outline-*, box-shadow, getBoundingClientRect()",
+      "π-6 · zoom-200-desktop (WebKit · 720x450 · DPR2) AND NEW mobile-390 (Chromium · 390x844 · DPR3) · /#/blob · `.config-console` presence, `.configurator-row` count, and the aria-pressed census over /^(Picker|Blob)$/",
+      "π-7 · NEW composition-1440 (Chromium · 1440x900 · light) · /#/blob · DOMRects for `main`, `.pane-wrapper--left`, `.pane-wrapper--right`, and every `canvas`; the derived preview:form paint-area ratio",
+      "π-8 · reduced-motion-desktop (Chromium · 1440x900 · reducedMotion:\"reduce\") · /#/blob · instrumented window.__raf delta over a 2s window taken ≥5s after settle, ordinary vs reduced arms; plus the still-control census /pause|still|stop/i",
+      "π-9 · rtl-desktop (WebKit · 1440x900 · dir=rtl applied POST-load, states.mjs MT-F022 fix 1) · /#/blob · first row label/value DOM order and rendered x, `.slider-range` inline-start edge, action-region child order by DOM role",
+      "π-10 · safari-desktop-light + safari-desktop-dark · /#/atmosphere · `.config-section-title` and `.aurora-row-label`: computed font-family, font-size, font-weight, text-transform, letter-spacing, color — the six-property identity check",
+      "π-11 · NEW latency-1440 (Chromium · 1440x900) · /#/blob · 40 x ArrowRight on `.config-console [role=slider]:first-of-type`, timed dispatch→MutationObserver on `.config-console`; report n/median/p95/max"
+     ],
+     "deltaObligations": [
+      "Δ-1 · BEFORE `.slider-range` rgba(0,0,0,0) / background-image none, contrast(range,track) 1.00, `Body Radius 0.220` and `Satellites 3` pixel-identical in safari-desktop-light/blob.png → AFTER painted fill, contrast(range,track) ≥ 3.0, the two rows visibly differ at their declared fractions (0.3784 vs 0.75)",
+      "Δ-2 · BEFORE contrast(track, well) 5.82 light / 8.30 dark — equal to the live readout's ink → AFTER track ≤ 3.0 above the well (a groove); the FILL becomes the ≥3:1 object; readout ink no longer shares the track's token",
+      "Δ-3 · BEFORE forced colours trackEqualsWell true (1.00), border-width 0px, focus outline-style \"none\" + box-shadow \"none\" → AFTER track bordered or ≥3:1, range painted Highlight, focus outline-style solid with outline-width ≥ 2px",
+      "Δ-4 · BEFORE /#/blob panes 512/512 (0.364/0.364), preview:form 0.0819 → AFTER 66.6666667%/33.3333333% ±0.5%, preview:form > 1.0, a live blob canvas inside the protagonist region",
+      "Δ-5 · BEFORE 390 and 720: console absent, rows 0, Picker aria-pressed=true at #/blob → AFTER console present, rows > 0, zero Picker|Blob pressed affordances",
+      "Δ-6 · BEFORE section heading Fira Code 16.4px == row label 16.4px, value 11px fvn normal → AFTER heading Plus Jakarta Sans one rung ABOVE the label, value text-mono-small with tabular-nums",
+      "Δ-7 · BEFORE readout width swing 40.6px across the legal range → AFTER ≤ 0.5px",
+      "Δ-8 · BEFORE 8 dividing lines (7 @ 1.24–1.29:1 composited, 1 @ 10.5:1) → AFTER 0",
+      "Δ-9 · BEFORE Card/bounded-shell count 2 (glass-resting + .console-well) → AFTER 0",
+      "Δ-10 · BEFORE scrollHeight/clientHeight 3.76, mask-image none, aria-live regions 0 → AFTER ≤ 2.0 at essentials, mask present, exactly 1 durable status region",
+      "Δ-11 · BEFORE aria-valuetext empty 31/31, groups 0, orphan labels 31/31 → AFTER 0/31 empty, groups == 7, orphan labels 0",
+      "Δ-12 · BEFORE thumb 12x24 on both pointer types → AFTER operable target ≥ 24x24 on both, visual glyph unchanged",
+      "Δ-13 · BEFORE rendered row 60.97px at container 512 AND at 1042 (0.00px across 2.03x) → AFTER either a real container response, or the claim and the clamp both deleted",
+      "Δ-14 · BEFORE Reset destroys color.paletteStops at depth 2 silently → AFTER Reset restores only owned keys, depth-2 live state survives, result announced, compare present",
+      "Δ-15 · BEFORE /#/blob rAF 112–144/s sustained past 5s (2 runs), still controls 0 → AFTER motion terminates ≤5s OR a named remembered still control exists; the reduced-motion arm stays at exactly 0/s",
+      "Δ-16 · BEFORE o18:1161 asserts `.slider-track` ≥3:1 — GREEN over the defect → AFTER the oracle asserts the PAINTED RANGE; re-running the re-aimed oracle against the pre-cure tree must return RED",
+      "Δ-17 · BEFORE latency median 6.9–8.4ms / p95 9.3ms at 31 mounted rows → AFTER no regression (median ≤ 10ms) at the reduced essentials mount count — recorded so the transposition cannot silently cost frames"
+     ]
+    },
+    "addendumClause": "### ADD-CSP · The configurator population\n\n**CSP-1 · Value legibility is a paint obligation, not a token obligation.** Every bounded numeric control in `ALL18` renders its value as a **painted extent**. The filled portion measures ≥3:1 against the unfilled portion of the same control, and the unfilled portion measures ≥3:1 against its ground. A control whose fill element is laid out to the value and painted with zero alpha does not satisfy this clause regardless of the contrast of any other part. **The spectral meniscus (`variant=\"spectrum\"`) is admissible only where the track background is an actual chromatic ramp over the control's own domain — Picker and Gradient. Feeding that variant a flat colour is forbidden**, and a consumer may not re-ink a producer control's track, range or value from a certified **text** ink rung: text ink is specified for glyph mass and is not an area material.\n\n**CSP-2 · Two channels or none.** Control extent, control fill, selection and focus are each expressed in at least two independent channels, at least one of which survives `forced-colors: active`. `background` alone is one channel; `box-shadow` with `outline-style: none` is one channel and it is the wrong one. **Focus uses `outline`.** Forced-colors conformance is proven in **Chromium** — WebKit ignores the emulation, so a WebKit forced-colors frame is not evidence and may not be tracked as one.\n\n**CSP-3 · The configurator is producer-owned.** A consumer composes glass-ui's `Configurator`, `ConfiguratorLayer`, `ConfiguratorRow` and `useConfiguratorState`. It does not re-mint a section head, a reset engine, a surface rung, a row rhythm or a numeric formatter, and it does not reach past a published prop into a producer's internal class with `:deep()`. A demo-local generic configurator component is a defect; the section/reset/size seams have producer homes and those homes are the API.\n\n**CSP-4 · Reset is shape-aware, confirmed and comparable.** A whole-object merge may not stand in for a declared key domain. Reset restores exactly the keys the control surface owns, announces its result in a durable status region, and is paired with a compare affordance per `OPTICAL-BENCH-COMPOSITIONS.md:47`. Copy and every other command in the action region expose success, failure and pending state in that same region; a silent `await` over a two-state producer `Result` is a defect.\n\n**CSP-5 · Depth is disclosed, not scrolled.** A control surface exceeding **two** viewport heights declares a disclosure rank per section (`essential | advanced`), renders essentials unconditionally, and confines the remainder to the producer's disclosure region with a compositor-side edge affordance. A flat list behind a hard clip is a defect, and a class named for a fade must own one.\n\n**CSP-6 · Every control announces, groups and reserves.** Each row exposes `aria-valuetext` equal to its rendered readout; each section is a programmatic group with an accessible name; each rendered `<label>` labels its control. Live numbers use tabular figures and reserve their widest legal representation. Precision and unit derive from the **declared step and domain**, never from the current value. A control with no effect in the current model renders the producer's disabled state with an explicit reason.\n\n**CSP-7 · The workbench has a subject.** On `/blob` and `/atmosphere` the preview region's rendered paint area exceeds the control region's at every desktop size, and the split is the exact `preview-dominant` 66.6666667 / 33.3333333. A configurator may not occupy a protagonist slot, and a protagonist slot may not be filled by a different route's instrument. At narrow width the route renders its own named subject in a single document-scrolling sequence: **no global pane selector, and no route whose default pane is not the pane it is named for.**\n\n**CSP-8 · Ambient motion terminates or is stoppable.** A route carrying continuous renderer motion either stops within five seconds or exposes one persistent, keyboard-operable, announced and remembered still control in its action region. Reduced motion resolving to a still frame does not discharge this; it is a separate obligation.\n\n**CSP-9 · A gate measures the cured object.** A contrast or geometry oracle names the element that carries the information. An oracle that certifies an inert surface, or that turns RED when the defect it was written for is actually fixed, is retired and re-aimed in the same cut as the cure.",
+    "dissent": "FOUR DISSENTS AND ONE CONCURRENCE-WITH-CAVEAT.\n\n(1) I dissent from CHALLENGE-D on D-2's severity framing. D-2 is filed BLOCKER on the ground that the configurator is \"unreachable\" at mobile widths and 200% zoom. It is not unreachable — I measured a live Blob affordance with aria-pressed=\"false\" at both arms, one tap away. The finding survives as a BLOCKER under J3-03 for two DIFFERENT reasons (the route defaults to the pane it is not named for; the recovery mechanism is itself canon-forbidden), and a wave built on the \"unreachable\" premise would ship the wrong cure — it would make the pane render at 390px and declare victory, leaving the forbidden global toggle and the 8.19% preview ratio in place.\n\n(2) I dissent from CHALLENGE-D and CHALLENGE-L on the divider contrast numbers, and I record it against myself as much as against them. D-6 reports a 4.7x light/dark swing; my own first pass reported the same swing INVERTED. Both are artifacts of compositing a translucent border over black. Composited over the well the rule measures 1.24:1 and 1.29:1 — no asymmetry exists. The broader consequence: ANY contrast helper in this formation that fills #000 before filling the sample is unsound for alpha<1 colours, and several numbers already in the harvested ledger were produced that way. That is a harness defect with reach beyond this component and it should be swept across every seat's evidence.\n\n(3) I dissent from CHALLENGE-C and CHALLENGE-L on the SHAPE of the variant=\"spectrum\" cure. Both float \"feed the variant a real gradient\" as an acceptable reading of the N.W13 mandate. Only \"retire the variant\" is admissible. VISUAL-CONSTITUTION.md:7 reserves the meniscus to Picker and Gradient, and Body Radius, Smooth K, Merge (ms) and Zones have no chromatic domain to ramp. Manufacturing a gradient for a geometry axis would fix the fill by devaluing the product's signature form — strictly worse than the defect. CSP-1 is written to close that door.\n\n(4) I dissent from CHALLENGE-L's ORDERING, and this is the single most consequential disagreement in the adjudication. L proposes L-1 (reset) first, L-6 (the track) second, L-5 (tsconfig paths) third. Correctness-first is the right instinct, but it lands a cure into a tree whose only gate is ADVERSE to it: o18-contrast-census.spec.ts:1161-1213 goes RED when the track re-ink is retired, and a wave that discovers this mid-flight will be tempted to preserve the re-ink to keep the gate green — which is precisely how the T.W8 cure produced this defect in the first place. Stage A (un-lock and re-aim the gate) must precede every other stage.\n\nCONCURRENCE WITH CAVEAT, on the transposition. I agree with L-15's greenfield lattice — that ConfigSliderPane.vue should not exist — and Stage C adopts it. My caveat: L presents this as a LIBRARY finding, and it is equally the DESIGN finding. A generic \"pane parameterised by any object addressed by any dot-path string\" cannot express a rank, a unit, a precision, a dependency or a compare, because it knows nothing about its domain. Five of my eighteen upheld defects (J3-06, J3-09, J3-11, J3-16, J3-18) are not oversights a diligent author would have caught — they are UNREPRESENTABLE in the current contract. That is why the verdict is apotheosis and not repair: you cannot fix, in a component, a defect whose cure the component's own type signature forbids you from expressing.\n\nNO DISSENT on J3-01's mechanism, J3-04's mechanism, or the vacuous-gate finding. On those three all challengers converged from different premises onto the same bytes, and I reproduced each of them independently."
+   }
+  },
+  {
+   "agentId": "ab756b8d6d3be2d1f",
+   "key": "v2:d8e66c9cca279f1cea8ece3278a6941f02b87345721107647d6d16bdb1be3bcf",
+   "result": {
+    "juror": "JUROR-2 — ARCHITECTURE AND ISOMORPHISM",
+    "modelObserved": "Opus 5 (1M context) — exact model id `claude-opus-5[1m]`, declared at spawn, not inherited",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/ConfigSliderPane/jury-2-architecture.md",
+    "verdict": "APOTHEOSIS_REQUIRED",
+    "upheld": [
+     {
+      "id": "A-1",
+      "defect": "Reset is shape-blind: `Object.assign(config, structuredClone(defaults))` (ConfigSliderPane.vue:92-94) is a depth-1 merge, so nested runtime state under any top-level key present on `defaults` is destroyed. `color.paletteStops` — declared out of the slider domain by BlobPane.vue:8-9 — is wiped by one click, and the producing watch (useAtmosphere.ts:389-403) is keyed on the colour string so it will not re-fire.",
+      "mechanism": "A component that reads and writes by dot-path but resets by whole-object merge: it understands nested shape for one half of its abstraction and not the other. Reset-to-baseline is a shape-aware operation and this component has no shape.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-2",
+      "defect": "No control in the pane indicates its value. `.slider-range` is correctly sized (163.47 of a 432 track = the value) and paints nothing — background rgba(0,0,0,0), image none, shadow none — while the inert track is re-inked from a body-text token (`--slider-track-bg: var(--ink-muted)`, :202) so it reads 100% filled. Figure and ground are inverted on all 34 rows.",
+      "mechanism": "The value is carried by an element the recipe blanks, and the channel that is painted carries no information. I measured that BOTH shipped variants leave the extent unpainted, so the unanimous cure (retire `variant=\"spectrum\"`) is refuted — see dissent.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-3",
+      "defect": "The stringly-typed reflection layer: `Record<string, unknown>` + dot-path strings + `read(): number` cast over a value the type system says is `unknown` + four `(x as unknown) as Record<string, unknown>` call-site casts + a 37-line `NumericAtomPath` mapped type in BlobPane reconstructing the safety thrown away. `readPath` guards every hop; `writePath` guards none.",
+      "mechanism": "Generality over 'any object addressed by any dot-path string' — the least typeable contract available — bought by erasing the type at the boundary and paying for it at every consumer. It is the direct cause of A-1 and of the render-time crash class.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-4",
+      "defect": "31 of 31 config sliders ship an empty `aria-valuetext` while the formatted value is rendered to the eye; the picker population on the same page announces `Lightness 92.0%`. The repo's own cure (useSliderAnnouncements.ts, written for the first slider population, with a standing offer recorded at ComponentSliders.vue:326) was never consumed.",
+      "mechanism": "Producer/in-repo affordance thrown away — the formatted cell is computed and rendered but never delivered to the a11y layer. Two voices, one control.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-5",
+      "defect": "Drawn structure is unannounced: 7 sections yield 0 `role=group`, 0 `fieldset`, 0 heading, 0 `aria-labelledby`; and 31 of 31 `<label>` elements label nothing (no `for`, no wrapped control), the name having been duplicated onto the slider as `aria-label` instead.",
+      "mechanism": "The section wrapper and the row label are drawn but never wired; the producer's `ConfiguratorLayer` (role=button + aria-expanded + aria-controls) was declined in favour of a bare span.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-6",
+      "defect": "The two most heavily-commented CSS cures in the file are provably inert: the `min-block-size: clamp(2rem, 7cqi, 2.625rem)` 'ONE RHYTHM SOURCE' resolves 35.84px against a 60.97px rendered row and never binds; the `@media (pointer: coarse)` ::before resolves `max(100%, 44px)` = 100% and adds exactly zero — on a route where the pane does not mount at coarse widths at all.",
+      "mechanism": "Comments asserting cures the measurements refute — dead declarations carrying live claims, a doc-truth hazard standing on a vacuous gate.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-7",
+      "defect": "The producer's row size axis is unused: `data-size` is null on every row while glass-ui ships `.configurator-row[data-size=sm|md|lg]` with `--configurator-row-gap-*` / `--configurator-row-py-*`. The component replaces the ladder with `class=\"gap-1.5 py-1\"` plus a `:deep()` descendant correction.",
+      "mechanism": "Bypassing the producer's real sizing API and re-expressing it as utilities plus a cross-boundary override.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-8",
+      "defect": "A second surface tier inside the pane: `.console-well` (foundation.css:350-354 — background/border/radius) nests a bordered, radiused, opaque sub-card inside DIV.glass-resting.card, on two compositions whose binding inventory gives Card count 0 and forbids a settings Card stack by name.",
+      "mechanism": "An interim demo class re-minting a producer surface rung, with the producer swap booked rather than met. VISUAL-CONSTITUTION.md:19 — 'One surface has one tier.'",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-9",
+      "defect": "Eight forbidden dividing lines: 7 section-header `border-bottom` + 1 action-bar `border-top`, where OPTICAL-BENCH-COMPOSITIONS.md:80-81 gives Atmosphere and Blob 'Retained non-P122 dividing line: none' and :90 calls any additional line a defect. Scheme-asymmetric at 1.08:1 light / 5.03:1 dark.",
+      "mechanism": "Duplicative boundary — grouping already carried by heading plus interval plus material, so the rule adds a fourth expression of the same edge.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-10",
+      "defect": "The bare unnamed `<slot />` (:110) licensed a second control-row species. `.aurora-row-label` (AuroraPane.vue:194-199) is a byte-identical five-declaration copy of `.config-section-title` (ConfigSliderPane.vue:237-243) — a section-heading recipe wearing a control-label's job — at 15px different indent, 1.69x different height, two type families, on a different material tier.",
+      "mechanism": "The pane owns a row grammar and a heading grammar and exposes neither to the slot, so the consumer re-minted the nearest recipe it could see. The byte-identity is the tell.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-11",
+      "defect": "The canon-required essentials/advanced composition is unrepresentable: `SliderSection` has no disclosure axis, so 31 rows ship flat behind a hard clip — scrollHeight 2611 / clientHeight 695 = 3.76 screens, `maskImage: none`. The class name `pane-scroll-fade` and the comment at :104-106 both promise a fade that does not exist.",
+      "mechanism": "An API that makes the canonical composition impossible for any consumer — the difference between a missing feature and a design defect. The producer already ships both halves (ConfiguratorLayer's collapsible body, FadingScroll's feathered port).",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-12",
+      "defect": "Two actions with no result state: `copyAsJson` awaits a `CopyResult` and discards it, so both documented failure modes (`no-api`, `clipboard-api`) are silent, and the bare `@click` on an async fn makes rejection unhandled against the demo's own `void writeClipboard(...)` idiom. Reset is destructive, unconfirmed, irreversible, with no compare and no status region anywhere in the pane.",
+      "mechanism": "A two-state producer contract collapsed to fire-and-forget; and an interaction grammar (select → tune → commit) with no commit stage — every drag writes straight into the injected config and Reset is the only exit.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-13",
+      "defect": "31 operable handles render 12 CSS px wide in every desktop matrix — half the WCAG 2.5.8 inline minimum — under a style-block comment asserting a >=44px touch rung. The component contributes 35 of the 39 small-tap-target rows the visual REPORT flags on /#/blob.",
+      "mechanism": "Producer-owned geometry (`--slider-thumb-size` x the spectrum recipe's .75 multiplier) with the claim owned demo-side, and a hit-area extension that reaches the track and never the thumb.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-14",
+      "defect": "In forced-colors mode the track's extent is 1.00:1 against the well and the focus indicator disappears entirely: the track's whole definition routes through `background` (overridden to Canvas), with no border as a second channel, and focus ships as `box-shadow` with `outline-style: none`, which forced-colors strips. `grep -rn forced-colors demo/scenes/` returns zero.",
+      "mechanism": "Single-channel control semantics. The producer's standard arm has the same shape — `.glass-slider:not([data-variant=spectrum]):focus-within .slider-track { box-shadow: var(--focus-ring-shadow) }` — a shadow in the one mode shadows do not paint.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-15",
+      "defect": "Vacuous gate: no test in the repository exercises any behaviour of this file. o7-card-census explicitly excludes it and substitutes a grep (:38-42); o18-contrast-census asserts only computed colours (:924-966, :1161-1210). Replacing `update()` with a no-op makes all 34 sliders read-only and every gate stays green.",
+      "mechanism": "The absence of a behavioural gate is what let every other divergence in this file accumulate unchallenged, and it is why the two inert CSS cures could ship with justification comments.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-16",
+      "defect": "The o18 GRAPHICS leg certifies the wrong object: it asserts `.slider-track` >=3:1 against the well — the inert channel — and never asks whether the value position reads. Authored born-RED against `--secondary` and green against the `--ink-muted` re-ink, so the oracle is green while the control is unreadable and the correct cure would break it.",
+      "mechanism": "A gate aimed at the compensation rather than at the property the compensation was supposed to restore.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-17",
+      "defect": "Dependent-control state was never modelled: at `Satellites = 0` five sliders remain enabled, focusable and draggable with live readouts and no effect. `SliderDef` has no `disabled`/`enabledWhen` field and `aria-disabled` is null on every thumb, while the producer Slider ships a `disabled` prop.",
+      "mechanism": "There is no disabled state to be colour-only with — the state does not exist in the model, so five controls silently lie about their effect.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-18",
+      "defect": "The live readout has neither tabular figures nor reserved width, and infers precision from the value (`Number.isInteger(v) ? String(v) : v.toFixed(3)`) rather than from the statically-known `step` — a ~27px live width swing mid-drag on nearly every row, and `0.500` on a step-0.1 field. No `unit` field exists, so `Merge (ms)` smuggles its unit into the label while `Hue Range` (degrees) has none.",
+      "mechanism": "Presentation precision derived from data instead of from the declaration that already knows it.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-19",
+      "defect": "`demo/ui/` is a 19-barrel pure-alias shim over glass-ui and both paths are live in one 8-line import block: ConfigSliderPane.vue:16-18 takes Button/Card/Slider through the shim while :20-23 goes direct for GlassDock/ConfiguratorRow/writeClipboard. Measured across demo/: 90 shim imports, 37 bare root-barrel, 82 subpath.",
+      "mechanism": "shadcn-era migration residue kept as compatibility aliases — edict 2 (no aliases/dual paths) and edict 4 (glass-ui is the design system, not shadowed in demo/ui/).",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-20",
+      "defect": "Root-barrel import for one function: `import { writeClipboard } from \"@mkbabb/glass-ui\"` pulls dist/glass-ui.js (25,239 B, 46 static chunk deps, CSS-bearing chunks declared side-effectful by name) where `./dom` (4,179 B, 6 deps) is the function's home. 74 subpath keys are published; 17 demo sites take the barrel.",
+      "mechanism": "A published subpath map treated as decorative rather than load-bearing.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-21",
+      "defect": "`tsconfig.demo.json` paths != `package.json` exports: three declared keys are not exports and have no target on disk (`@mkbabb/value.js` root, `/parsing`, `/units`), two real exports (`./css`, `./value`) have no paths entry, and `dist/subpaths/css.d.ts` differs between this checkout and the installed 4.0.0 tarball — so the demo's 10 `@mkbabb/value.js/css` imports typecheck against one public surface and execute against another.",
+      "mechanism": "Two hand-maintained copies of one exports map, one of them generated (vite.config.ts:33-49) and one not. The demo is the dogfood gate and the gate is aimed at a stale artefact.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "FOLD"
+     },
+     {
+      "id": "A-22",
+      "defect": "Pane identity is three string-keyed tables with a masking fallback, and /#/blob is unreachable by URL on mobile: usePaneRouter.ts:81-95 ends `return ColorPicker` for any unknown name, and viewSchema.ts gives blob `{left:\"color-picker\", right:\"blob\"}` with no `defaultPaneIndex` while palettes and mix set `defaultPaneIndex: 1`. Below 1024px the entire Blob configurator leaves the DOM.",
+      "mechanism": "One concept encoded three times with no type linking the arms, ending in a silent substitution — a rename cannot fail a typecheck, it degrades to the picker at runtime.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "FOLD"
+     },
+     {
+      "id": "A-23",
+      "defect": "`.pane-scroll-fade` is defined in PaneHeader.vue's unscoped `<style>` and must be applied by all 9 of its consumers or the header's scroll choreography silently does nothing; its sibling cross-pane class `.console-well` lives in foundation.css. Two cross-pane classes, one category, two homes — and this component is the only one of the nine that puts it on an inner div rather than the pane Card root.",
+      "mechanism": "A global contract expressed as a magic string remembered nine times, with no prop, no type and no runtime check.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "FOLD"
+     },
+     {
+      "id": "A-24",
+      "defect": "Feature → shell/boot up-edge in the subject subtree: demo/scenes/atmosphere/aurora-harmony-stops.ts:23 imports `../../color-picker/composables/boot/atmosphere-calibration`, and demo/color-picker/ is the Vite root — the shell.",
+      "mechanism": "The shell composes features; a feature reaching back into the shell's boot chain inverts the dependency and makes scenes/atmosphere unmovable without the shell. A read across an inverted edge is still an inverted edge.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-25",
+      "defect": "Dead branches and false documentation: :44 promises an empty state with no `v-else` anywhere; :119 and :163 are permanently-true guards; :3 documents an `extraControls?` prop that :41-52 never declares; :98/:101 carry `relative` with no positioned descendant and `mx-auto` on a `w-full` element.",
+      "mechanism": "Residue of removed designs left as live-looking claims — edicts 2 and 3.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-26",
+      "defect": "RTL produces a half-mirrored row — the label/value pair mirrors, the track does not — the readout is not LTR-isolated, and the action bar reverses so the destructive Reset becomes the leading action.",
+      "mechanism": "Axis direction never decided explicitly at the producer (`data-inverted` exists and flips `--slider-range-origin`), and action order left to flex direction rather than pinned by role.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-27",
+      "defect": "A truncated row label is silently clipped with no title, tooltip or expansion — producer `truncate` clips at clientWidth 392 / scrollWidth 413 with `title: null` — so the full string survives only in the slider's aria-label and sighted mouse users lose information screen-reader users keep.",
+      "mechanism": "A truncating label with no fallback channel. Latent in shipped content (longest blob label is 13 chars); reproduced only by DOM substitution, so it is marked a hypothesis.",
+      "severity": "MINOR",
+      "status": "HYPOTHESIS",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-28",
+      "defect": "Whole-pane render fan-out: `read()`, `fmt()` and the `[read(def.key)]` literal all evaluate in the render function, so one value change re-creates 31 Slider vnodes and 31 single-element arrays. Measured +1.21 ms mean (+22%) for 10x the rows, ~43 microseconds per row.",
+      "mechanism": "Per-render path resolution where a per-field accessor resolves once. Real, small, and reported with a number so no later seat can call it a blocker without one.",
+      "severity": "INFO",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-29",
+      "defect": "Zero value.js dogfood in the app's second-largest control population: 34 numeric controls, 34 numeric readouts, no `@mkbabb/value.js` import, and `fmt` is the fourth hand-rolled numeric formatter in the demo.",
+      "mechanism": "A proof gap, not a correctness defect — the demo is the dogfood gate and this population exercises none of the published numeric surface. Retired here with rationale: `clamp` is measurably unnecessary (all 31 blob brackets contain their defaults, 0 defects) and `ValueUnit` is a unit type, not a presentation-precision type; forcing either in to manufacture a dogfood edge is contrivance (edict 3).",
+      "severity": "INFO",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "RETIRE"
+     }
+    ],
+    "dismissed": [
+     {
+      "id": "L-16",
+      "why": "Not reproduced. Four independent isolated-Chromium probes of mine navigated to /#/blob and stayed there with the console mounted and all 31 rows present. The challenger self-labelled it a hypothesis and recorded that the shared MCP browser was being driven concurrently by other seats mid-probe. This is a contended-browser probe-hygiene artefact, not a component or shell defect. The structural half of the same area (three pane tables plus a masking fallback) is upheld separately as A-22.",
+      "refutingBytes": "j2/probe.mjs and j2/clean.mjs, both isolated chromium.launch(): url = \"http://localhost:9000/#/blob?space=lab&color=lab(92%25+88.8+20+/+82.7%25)\", hasConsole: true, configCount: 31, sectionHeaders: 7."
+     },
+     {
+      "id": "D-3/L-6/C-3 — the prescribed cure",
+      "why": "All three challengers prescribe 'drop variant=\"spectrum\" and the producer's default .slider-range will paint the filled extent'. I measured that proposition directly, flipping only the data-variant attribute on a live row and mutating no custom property: the standard arm renders the range MORE transparent, not less, and removes the only surviving value cue. The DEFECT (A-2) stands and is a BLOCKER; the CURE does not. The wave must measure before it chooses.",
+      "refutingBytes": "j2/clean.mjs — shipped(spectrum): rangeBg \"rgba(0, 0, 0, 0)\", rangeShadow \"none\", thumb 12x24 opacity 1. flip-only(standard): rangeBg \"oklab(0 0 0 / 0)\", rangeShadow \"oklab(0 0 0 / 0) 0px 0px 0px 0px inset, …\", thumb 0x20 opacity 0, with --liquid-fill-tint correctly resolved to oklch(0.88 0.1 75). dist/glass-ui.css: `.slider-thumb[data-v-4f4cab01]{width:0;…;opacity:0}` is the BASE rule; `width:calc(var(--slider-thumb-size,1rem)*.75);opacity:1` is spectrum-scoped."
+     },
+     {
+      "id": "L-4 — 'compose the producer whole: <Configurator>'",
+      "why": "<Configurator> is a studio, not a section stack. Nesting it inside the pane's glass-resting Card would create a THIRD surface tier and a stage region this pane has no stage for — worsening A-8 rather than curing it. The size axis it was invoked for does not require the chassis at all: provideConfiguratorSize() is a standalone export.",
+      "refutingBytes": "dist/configurator-M5OaIlJd.js class strings: \"configurator glass-floating rounded-panel border border-border/60 overflow-hidden\", \"configurator-stage relative min-h-0 min-w-0 overflow-hidden\", \"configurator-aside flex min-h-0 min-w-0 flex-col border-t lg:border-t-0\". dist/components/configurator/styles.css: [data-slot=\"configurator\"] grid-template-columns/rows rules. dist/components/configurator/size.d.ts: `export declare function provideConfiguratorSize(size: ComputedRef<ConfiguratorSize>): void`. VISUAL-CONSTITUTION.md:19 'One surface has one tier.'"
+     },
+     {
+      "id": "D-8 — 'compose InstrumentChassis' inspector region and drop both shells'",
+      "why": "The demo has never adopted InstrumentChassis anywhere. Doing it for one pane is a shell-wide chassis migration across the 9 panes that share .pane-scroll-fade, and OPTICAL-BENCH-COMPOSITIONS.md assigns Atmosphere/Blob chassis closure to W28/W29. The defect (two nested surfaces) is upheld as A-8; the component-scope cure is deleting the INNER .console-well, taking the surface count 2 → 1. Eight sibling panes root a <Card tier=\"resting\">, so retiring it from this pane alone breaks isomorphism with all eight.",
+      "refutingBytes": "`grep -rn \"instrument-chassis\\|InstrumentChassis\" demo` → 0 hits. OBC §3.1 (chassis contract) and the Atmosphere/Blob rows (owner W28/W29). Eight sibling `<Card tier=\"resting\">` pane roots measured: GradientPane:20, MixPane:62, GeneratePane:31, ExtractPane:5, AboutPane:4, BrowsePane:2, AdminPane:2, PalettesPane:2."
+     },
+     {
+      "id": "L-13 — 'a demo/shared/PaneShell.vue wrapping header + scroll region'",
+      "why": "Edict 3 forbids a new wrapper component that does not already exist, and it would rewrite 9 panes to solve a class-home problem whose honest fix is a two-line move. The defect stands as A-23 and folds to MT·W-PANESHELL-CLASS.",
+      "refutingBytes": "Owner edict 3 (KISS, no new shared dirs or wrapper components that do not exist yet). Nine measured .pane-scroll-fade consumers: GradientPane, MixPane, GeneratePane, ExtractPane, ConfigSliderPane, AboutPane, BrowsePane, AdminPane, PalettesPane."
+     },
+     {
+      "id": "L-7 — 'demo/shared/config-path.ts exporting readPath/writePath with symmetric guards + a vitest'",
+      "why": "This promotes the reflection layer to a repo-wide primitive and ships a well-tested wrong abstraction. A guarded readPath cannot restore the type information the string erased, and it cannot make A-1 unrepresentable. Extracting plumbing you should be deleting is how a defect becomes a platform. The defect stands as A-3; the cure is deletion.",
+      "refutingBytes": "ConfigSliderPane.vue:57-78 (readPath/writePath/read) plus the four call-site casts at AuroraPane.vue:111,113 and BlobPane.vue:124,126 — the layer exists only because the prop type is Record<string, unknown>; typed accessors on the field make every one of them unrepresentable."
+     },
+     {
+      "id": "C-1/C-9/L-1/L-4 — 'adopt useConfiguratorState<T> for reset'",
+      "why": "Partial dismissal (the defect A-1 is upheld as a BLOCKER; the named cure is retired). resetCurrent() carries the same whole-object semantics that produced the BLOCKER, relocated behind a clone hook documented for a different problem. Making color.paletteStops survive would require a hand-written cloner reaching into the shape — exactly the shape-knowledge the generic component was not supposed to need, moved one level out. Domain-scoped reset over the declared fields makes the clobber unrepresentable instead of merely guarded, in three lines, with no new dependency. C-1's own report reaches this in its last sentence ('the only form that cannot lie') and then recommends the other thing.",
+      "refutingBytes": "dist/components/configurator/useConfiguratorState.d.ts — `resetCurrent(): void` documented '/** Restore `config` to the active preset's baseline. */'; `clone?: (value: T) => T` documented 'Pass a custom cloner for shapes that contain unclonable values (functions, DOM nodes, etc.)'. Neither models 'reset only the declared domain' nor 'exclude a live key from a baseline'."
+     }
+    ],
+    "waveSpec": {
+     "waveId": "MT·W-CSP",
+     "title": "The configurator transposition — ConfigSliderPane stops re-implementing @mkbabb/glass-ui/configurator",
+     "bornRed": true,
+     "scope": "IN: demo/scenes/ConfigSliderPane.vue (rewritten, generic <T>, presentation only, zero scoped CSS rules); demo/scenes/config-fields.ts (NEW — Field<T>/FieldSection<T> with typed get/set accessors, precision derived from step, explicit unit, enabledWhen predicate, essential|advanced rank, plus precisionOf/formatField/widestValue); demo/scenes/atmosphere/AuroraPane.vue (rewritten — its 4 enum rows become EnumField entries with named per-option slots; the bare <slot/>, .aurora-row, .aurora-row-label and the whole <style> block delete); demo/scenes/blob/BlobPane.vue (rewritten — NumericAtomPath's 13 lines + 24-line comment + s() delete); demo/scenes/atmosphere/atmosphere-calibration.ts (MOVED down out of the shell's boot chain); demo/test/config-fields.test.ts (NEW); e2e/smoke/oracles/o21-config-console.spec.ts (NEW); the re-aimed o18-contrast-census config legs. Deletions named explicitly in the report §4: readPath, writePath, read()/as number, fmt(), resetDefaults()/Object.assign/structuredClone, SliderDef+SliderSection exported from the SFC, both Record<string, unknown> prop types, the extraControls? doc line, the empty-state JSDoc promise, relative/mx-auto, the bare <slot/>, both permanently-true v-if guards, the population-clause comment, console-well on the console div, .config-section-header + .config-section-title, gap-1.5 py-1, variant=\"spectrum\", --slider-track-bg: var(--ink-muted), the :deep() font-mono re-ink, the :deep() min-block-size clamp, the whole @media (pointer: coarse) ::before block, the action-bar border-top, and the entire <style scoped> block. OUT, folded to named waves: demo/ui/ (87 remaining sites → MT·W-UISHIM), tsconfig.demo.json paths/exports drift (→ MT·W-DOGFOOD-PATHS), the three pane tables + masking return ColorPicker + blob's missing defaultPaneIndex (→ MT·W-PANETABLE), .pane-scroll-fade's class home (→ MT·W-PANESHELL-CLASS), the pane-root Card and the first InstrumentChassis adoption (→ W28/W29 obligation O-1). Five producer relays R-1..R-5 to glass-ui BH.",
+     "gates": [
+      {
+       "gate": "G1 RESET-DOMAIN — reset touches only declared field paths",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # leg G1 (also: npx vitest run demo/test/config-fields.test.ts; npx playwright test e2e/smoke/oracles/o21-config-console.spec.ts -g \"reset domain\")",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any reset that writes a key not declared as a field. RED today: [\"#ffbde0\",\"#ffdde5\",\"#fff6f6\",\"#fff6f4\"] → [\"#b5947f\",\"#d4b27d\",\"#dad6b1\"]. Re-introduce a whole-object merge (Object.assign / structuredClone over `defaults`), or add a defaults path the field list does not cover, and it goes RED again."
+      },
+      {
+       "gate": "G2 VALUE-READ — the filled extent is a painted object >=3:1 against the track",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # leg G2 (plus the re-aimed o18 GRAPHICS leg: range-vs-track, not track-vs-well)",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any variant, override or token state that leaves .slider-range with background-color transparent AND background-image none AND no painted shadow. RED today: painted=false bg=rgba(0,0,0,0) img=none variant=spectrum. WAVE OBLIGATION: measure data-variant=\"standard\" FIRST — my measurement says it is also unpainted here (oklab(0 0 0 / 0), thumb 0x20 opacity 0), so the unanimous 'drop spectrum' cure is refuted; the deterministic fallback is to feed --slider-range-bg once at .config-console (the producer's published seam, root-level, the exact idiom ComponentSliders.vue:193-201 uses for --slider-track-bg) and open relay R-1."
+      },
+      {
+       "gate": "G3 ONE-VOICE — every config slider carries aria-valuetext matching its rendered readout",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # leg G3",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any slider whose aria-valuetext is absent or differs from the readout string rendered in its own row. RED today: 31 of 31 empty, while the picker population on the same page announces \"Lightness 92.0%\"."
+      },
+      {
+       "gate": "G4 GROUPING — every drawn section is a programmatic, named group",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # leg G4",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any drawn section without a programmatic group carrying an accessible name. RED today: 0 groups (role=group[aria-labelledby] or fieldset) for 7 drawn sections, 0 headings, 31 of 31 orphan labels."
+      },
+      {
+       "gate": "G5 NO-FORK — 9 static legs, no server needed",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # legs G5a..G5i",
+       "redToday": true,
+       "whatWouldMakeItFail": "RED today, all nine: :deep() 4 · demo/ui shim imports 3 · bare glass-ui root-barrel 1 · `as unknown) as Record` casts 4 · readPath/writePath present · Object.assign(config,…) present · 4 scoped CSS rules in the pane · .aurora-row/.aurora-row-label present in AuroraPane · NumericAtomPath present in BlobPane. Re-adding any shim import, any root-barrel import, any :deep(), any config cast, any path-string resolver, any whole-object merge, any scoped rule in the pane, or any row-species CSS in a consumer turns it RED."
+      },
+      {
+       "gate": "G7 DISCLOSURE/SCROLL — an overflowing console feathers its edge or does not overflow",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # leg G7",
+       "redToday": true,
+       "whatWouldMakeItFail": "A console that overflows past 1.5 screens with a hard-clipped edge. RED today: scrollHeight 2611 / clientHeight 695 = 3.76 with maskImage \"none\". Re-flattening the essentials/advanced disclosure, or dropping the FadingScroll port, turns it RED."
+      },
+      {
+       "gate": "G8 SIZE-AXIS — row rhythm rides the producer axis, not a consumer clamp",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # leg G8",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any consumer-authored row metric. RED today: data-size=null, component min-block-size 35.84px against a rendered row height of 60.97px — the clamp misses by 25px and never binds. Re-adding a min-block-size, or failing to call provideConfiguratorSize(), turns it RED."
+      },
+      {
+       "gate": "G9 HANDLE-FLOOR — the operable handle meets the 24px inline floor",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # leg G9",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any operable handle narrower than 24 CSS px on the inline axis. RED today: distinct thumb widths [12] across all 31 rows. Producer-owned geometry — relay R-1; the wave may close this leg with a --slider-thumb-size feed at the console root only if the producer declines."
+      },
+      {
+       "gate": "G10 NO-LINE — the console emits no retained dividing line",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # leg G10",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any border-top or border-bottom inside the console or its action bar. RED today: 8 ruled edges, where OPTICAL-BENCH-COMPOSITIONS.md §5 gives Atmosphere and Blob a retained dividing line of `none` and :90 calls any additional line a defect."
+      },
+      {
+       "gate": "G11 ONE-SURFACE — exactly one surface tier between the pane plate and a row",
+       "command": "node docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs   # leg G11",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any second bordered/radiused/opaque surface between the pane plate and a row. RED today: `.console-well` nests a second surface inside DIV.glass-resting.card. Re-adding a demo-local well class, or re-minting a producer surface rung, turns it RED."
+      },
+      {
+       "gate": "G12 ANTI-VACUITY — the unit gate kills all four green-keeping mutations",
+       "command": "npx vitest run demo/test/config-fields.test.ts",
+       "redToday": true,
+       "whatWouldMakeItFail": "RED today by absence: the file does not exist and neither do the functions it names. It must fail against each of C-10's four mutations by name — M1 `update` → no-op (all 34 sliders read-only), M2 `resetDefaults` → no-op, M3 `copyAsJson` → no-op, M4 `fmt` → String(v). A gate that does not fail against all four is deleted, not weakened (FORMATION-LAWS L-2). Land this FIRST, before any cure."
+      },
+      {
+       "gate": "G13 FORCED-COLORS — control extent and focus survive forced colors",
+       "command": "npx playwright test e2e/smoke/oracles/o21-config-console.spec.ts --project=chromium -g \"forced colors\"",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any control whose extent or focus is expressed in a single channel forced-colors overrides — no border on the track, or a shadow-only focus ring. RED today: track background === well background (1.00:1), outlineStyle \"none\", boxShadow \"none\"; and the producer's standard arm is also shadow-only (.glass-slider:not([data-variant=spectrum]):focus-within .slider-track { box-shadow: var(--focus-ring-shadow) }). MUST run on Chromium: WebKit ignores Playwright's forcedColors, so the existing shots/forced-colors-desktop/*.png frames are byte-comparable to the ordinary light frames and cannot witness this."
+      }
+     ],
+     "piObligations": [
+      "π-1 — safari-desktop-light and safari-desktop-dark × /#/blob × `.config-console`: the 31-row console, the primary witness for the dead value read (A-2), the nested surface (A-8), the 12px handle (A-13) and the 3.76-screen clip (A-11).",
+      "π-2 — safari-desktop-light and safari-desktop-dark × /#/atmosphere × `.config-console` and its enum rows: A-10's two control-row species in one frame, where `.aurora-row-label` is a byte-identical copy of `.config-section-title`.",
+      "π-3 — NEW MATRIX ARM `chromium-forced-colors` × /#/blob × `.config-console .configurator-row:first-child`, focused: A-14. The existing forced-colors-desktop matrix is WebKit, which ignores Playwright's forcedColors, so that frame is byte-comparable to the ordinary light frame and cannot witness this. The arm must be added, never reused.",
+      "π-4 — safari-mobile-dark × /#/atmosphere × `.config-console`: the coarse-pointer rung. This is the component's ONLY mobile surface until MT·W-PANETABLE lands, because /#/blob does not mount the pane below 1024px (A-22).",
+      "π-5 — chromium-desktop × /#/blob × every `[role=\"slider\"]` and every section node, captured as an ACCESSIBILITY TREE, not a screenshot: A-3/A-4/A-5. No image can carry aria-valuetext or a group's accessible name.",
+      "π-6 — rtl-desktop × /#/blob × `.config-console .configurator-row:first-child` and `.config-action-bar`: A-26, the half-mirrored row and the promoted destructive verb."
+     ],
+     "deltaObligations": [
+      "Δ-1 — first row `.slider-range` {backgroundColor, backgroundImage, boxShadow} + rect, and the same for `.slider-track`. BEFORE (measured): rgba(0,0,0,0) / none / none, 163.47 × 24 inside a 432 × 24 track at oklch(0.447121 0.00386159 34.63).",
+      "Δ-2 — `config.color.paletteStops` before and after one Reset with the picked colour held constant. BEFORE (measured): [\"#ffbde0\",\"#ffdde5\",\"#fff6f6\",\"#fff6f4\"] → [\"#b5947f\",\"#d4b27d\",\"#dad6b1\"].",
+      "Δ-3 — console scrollHeight / clientHeight and the scroll port's mask-image. BEFORE (measured): 2611 / 695 = 3.76, maskImage \"none\".",
+      "Δ-4 — per-section accessibility: group/heading count plus accessible names, and the orphan-label census. BEFORE (measured): 0 groups, 0 headings for 7 drawn sections; 31 of 31 <label> elements orphaned.",
+      "Δ-5 — `[role=\"slider\"]` aria-valuetext census, config population vs picker population on the same page. BEFORE (measured): config 0/31 non-empty; picker \"Lightness 92.0%\", \"a axis 88.8\", \"b axis 20.0\".",
+      "Δ-6 — first row data-size, computed min-block-size, rendered height. BEFORE (measured): null, 35.84px, 60.97px.",
+      "Δ-7 — ruled-edge census inside the console and its action bar. BEFORE (measured): 8.",
+      "Δ-8 — thumb rect census across all config sliders. BEFORE (measured): distinct widths [12], heights [24] desktop / [44] mobile.",
+      "Δ-9 — LOC and scoped-CSS-rule count for the three SFCs. BEFORE (measured): ConfigSliderPane 252 lines / 4 scoped rules, AuroraPane 201 / 2, BlobPane 130 / 0 — 583 lines total. TARGET: <=400 lines across four files including the new schema, with zero scoped rules in the pane and zero in AuroraPane.",
+      "Δ-10 — import-edge census on the three SFCs. BEFORE (measured): 3 demo/ui shim imports, 1 bare glass-ui root-barrel import, 4 `as unknown) as Record` casts, 4 :deep() reaches."
+     ]
+    },
+    "addendumClause": "**ADD-CSP — the configurator transposition.**\n\n`demo/scenes/ConfigSliderPane.vue` is a demo-local re-implementation of `@mkbabb/glass-ui/configurator`, authored by a file that imports from that package and consumes one of its five exports. It re-mints the section (`ConfiguratorLayer`), the state (`useConfiguratorState`), the scroll port (`FadingScroll`), the row rhythm (the `size` axis), the seated surface (`.configurator-layer`) and the reset affordance (`ConfiguratorRow.canReset`), and it pays for that generality with a stringly-typed reflection layer — `Record<string, unknown>`, dot-path strings, `read(): number` over a provably-`undefined` value, and four `as unknown as Record<string, unknown>` casts at the call sites — whose shape-blindness silently destroys live application state on every Reset (measured: `color.paletteStops` `[\"#ffbde0\",\"#ffdde5\",\"#fff6f6\",\"#fff6f4\"]` → `[\"#b5947f\",\"#d4b27d\",\"#dad6b1\"]`).\n\nThe cure is a transposition, not a patch. The schema moves to `demo/scenes/config-fields.ts` as `Field<T>` / `FieldSection<T>` carrying typed `get`/`set` accessors, `precision` derived from `step`, an explicit `unit`, an `enabledWhen` dependency predicate and an `essential | advanced` disclosure rank. Reset becomes an iteration over the declared fields, which makes the clobber **unrepresentable** rather than merely guarded. Sections become `ConfiguratorLayer`s — announced, collapsible, and materially seated by the producer — so `.console-well`, both `.config-section-*` rules, all eight forbidden dividing lines and the second surface tier delete together. Row rhythm rides `provideConfiguratorSize()`, deleting a `:deep()` clamp measured 25px below the row's natural height (35.84px against 60.97px) and a coarse-pointer hit extension measured to add exactly zero (`max(100%, 44px)` = 100%). The scroll port becomes `FadingScroll axis=\"y\"`, delivering the feather the class name `pane-scroll-fade` has promised and never rendered (`maskImage: \"none\"`, 2611/695 = 3.76 screens hard-clipped). `AuroraPane`'s bare `<slot />` — which licensed a second control-row species whose label recipe is a byte-identical five-declaration copy of the pane's *section-heading* recipe — is replaced by typed enum fields with named per-option slots, deleting that pane's entire `<style>` block; `BlobPane`'s 37-line `NumericAtomPath` mapped type deletes because typed accessors check the value, not the key literal. The pane's own `<style scoped>` block goes to zero rules: a component that composes correctly emits no corrections.\n\n**The value-read cure is not the variant retirement all three challengers prescribe.** Measured live, flipping only `data-variant` and mutating nothing else: `spectrum` renders `.slider-range { background-color: rgba(0,0,0,0) }` with a 12 × 24 handle, and `standard` renders `oklab(0 0 0 / 0)` with a `0 × 20`, opacity-0 handle. Both recipes leave the filled extent unpainted on this surface, and the prescribed cure removes the last remaining value cue. The wave therefore *measures before it chooses*, and feeds the producer's published `--slider-range-bg` seam once at the console root — the exact idiom `ComponentSliders.vue:193-201` uses for `--slider-track-bg`, root-level and edict-5 clean — moving one token from the inert groove to the filled extent and inverting figure and ground with a single declaration. The `o18` GRAPHICS leg re-aims from *track vs well* to *range vs track*: it currently certifies the inert channel, which is why it reads green while no slider in the pane indicates its value.\n\nThe wave opens RED: 18 of 18 gates fail against `tranche-u @ c654824e`, proven by the committed runnable gate at `docs/tranches/V/megatranche/audit/components/ConfigSliderPane/gates/csp-gate.mjs` (exit 1). Four repo-level defects this component merely sits downstream of — the 19-barrel `demo/ui` alias shim (90 shim imports against 37 bare-barrel and 82 subpath), the `tsconfig.demo.json` ↔ `package.json#exports` drift that typechecks the demo's `@mkbabb/value.js/css` imports against a different `.d.ts` than it executes, the three string-keyed pane tables ending in a masking `return ColorPicker` with `blob` missing the `defaultPaneIndex` its siblings set, and `.pane-scroll-fade`'s leaf-emitted global class — fold to `MT·W-UISHIM`, `MT·W-DOGFOOD-PATHS`, `MT·W-PANETABLE` and `MT·W-PANESHELL-CLASS`, each chartered with its own RED-today gate. Five producer asks (R-1 the two incomplete Slider recipes, R-2 `aria-valuetext` pass-through and a `ConfiguratorRow` label id, R-3 a domain-scoped reset, R-4 a forced-colors arm matching the one the producer already ships for `.disclosure-*`, R-5 `--slider-range-bg` documented as a public seam) relay to glass-ui BH under the standing relay edict. The pane-root `<Card tier=\"resting\">` and the first `InstrumentChassis` adoption are named obligations on W28/W29, not carries. The standing `C10 A4 [P1]` book closes by supersession, with its residual ask carried upstream as R-3. No item in this clause is re-booked.",
+    "dissent": "FIVE dissents, each byte-grounded.\n\n(1) AGAINST ALL THREE CHALLENGERS, ON THE VALUE-READ CURE. D-3/D-14, L-6 and C-3 independently converge on \"drop `variant='spectrum'` and the producer's default `.slider-range` will paint the filled extent.\" I measured the proposition directly (flip only `data-variant`, mutate no custom property): shipped/spectrum → rangeBg `rgba(0, 0, 0, 0)`, shadow `none`, thumb 12×24 opacity 1; flip-only/standard → rangeBg `oklab(0 0 0 / 0)`, a fully transparent rim shadow, thumb `0 × 20` opacity 0. BOTH recipes leave the extent unpainted here, and the prescribed cure removes the last remaining value cue. `--liquid-fill-tint` resolves correctly on that element (`oklch(0.88 0.1 75)`) and a bare `<div class=\"glass-liquid-fill\">` in the same subtree paints (`oklab(0.88 0.0259 0.0966 / 0.88)`), so this is not a demo token misconfiguration. Most probable mechanism — labelled a HYPOTHESIS, the observation is not — `.glass-liquid-fill` lives in `@layer components` (dist/styles/glass/liquid-fill.css) while every SFC-scoped `.slider-range[data-v-4f4cab01]` rule in dist/glass-ui.css is unlayered, and unlayered beats every layered declaration. The defect (A-2) is a BLOCKER and stands; the cure is a producer relay plus a root-level `--slider-range-bg` feed, and G2 is written as an experiment with a deterministic fallback rather than as an assumption.\n\n(2) AGAINST C-1 / C-9 / L-1 / L-4 AND THE STANDING C10 A4 BOOK, ON RESET. They converge on adopting `useConfiguratorState<T>`. Its `resetCurrent()` is documented \"Restore `config` to the active preset's baseline\" — the same whole-object semantics that produced the BLOCKER — and its `clone` hook is documented for \"shapes that contain unclonable values\", a different problem. Making `color.paletteStops` survive would require a hand-written cloner reaching into the shape: exactly the shape-knowledge the generic component was not supposed to need, moved one level out where a future consumer gets it wrong the same way. Domain-scoped reset — iterate the declared fields, write each one's default through its own setter — makes the clobber UNREPRESENTABLE in three lines with no new dependency, because `color.paletteStops` is not a field and therefore no code path can reach it. C-1's own report reaches this in its final sentence (\"the only form that cannot lie\") and then recommends the other thing; I take the sentence over the recommendation. `useConfiguratorState` is RETIRED for this component and relay R-3 carries the residual ask upstream.\n\n(3) AGAINST L-4, ON COMPOSING `<Configurator>` WHOLE. It is a studio, not a section stack: `configurator-M5OaIlJd.js` renders `class=\"configurator glass-floating rounded-panel border border-border/60\"` over a `configurator-stage` / `configurator-aside` CSS grid (`components/configurator/styles.css`, `[data-slot=\"configurator\"]`). Nesting a `glass-floating` studio inside the pane's `glass-resting` Card creates a THIRD surface tier and a stage this pane has no stage for — worsening A-8, not curing it, against VISUAL-CONSTITUTION.md:19 \"One surface has one tier.\" The size axis it was invoked for needs no chassis: `provideConfiguratorSize()` is a standalone export from `configurator/size.d.ts`. The correct decomposition takes the four leaf primitives (`provideConfiguratorSize`, `ConfiguratorLayer`, `ConfiguratorRow`, `FadingScroll`) and leaves the chassis unused.\n\n(4) AGAINST D-8, ON SCOPE. `grep -rn \"InstrumentChassis\" demo` → 0 hits: the demo has never adopted it. Doing so for one pane is a shell-wide chassis migration across the 9 panes sharing `.pane-scroll-fade`, and OPTICAL-BENCH-COMPOSITIONS.md assigns Atmosphere/Blob chassis closure to W28/W29. Eight sibling panes root a `<Card tier=\"resting\">`, so retiring it here alone breaks isomorphism with all eight and o7 already excludes this component from its runtime walk. The defect stands; the component-scope cure is deleting the INNER `.console-well`, taking the surface count 2 → 1 and handing W28/W29 a pane already one tier from compliant. The pane-root Card retirement is a NAMED obligation (O-1), not a carry.\n\n(5) AGAINST L-7 AND L-13, ON EXTRACTION AS A CURE. L proposes three new shared modules; I take exactly one (the schema), because it is the only one that removes a concept rather than relocating it. A `demo/shared/config-path.ts` with symmetric guards promotes the reflection layer to a repo-wide primitive and ships a well-tested wrong abstraction — a guarded `readPath` cannot restore the type the string erased, and cannot make A-1 unrepresentable. A `demo/shared/PaneShell.vue` is a new wrapper component that does not exist, which edict 3 forbids, and would rewrite 9 panes to solve a class-home problem whose honest fix is a two-line move to `foundation.css`. Extracting plumbing you should be deleting is how a defect becomes a platform.\n\nNO DISSENT on the underlying defects: I upheld every BLOCKER and MAJOR the three challengers raised except where the bytes refuted the claim (L-16 only). Where they described one mechanism in three vocabularies I merged them — A-2 absorbs D-3/D-4/D-14/L-6/C-3, A-3 absorbs C-5/C-11b/C-11c/D-16/L-7/L-8, A-13 absorbs D-5/C-8/L-11, A-22 absorbs L-10/D-2/C-13."
+   }
+  }
+ ]
+}

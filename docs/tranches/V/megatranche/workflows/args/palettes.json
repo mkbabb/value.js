@@ -1,0 +1,199 @@
+{
+ "area": "palettes",
+ "parallelism": 2,
+ "components": [
+  {
+   "file": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+   "slug": "AdminUsersPanel",
+   "area": "palettes",
+   "loc": 391
+  },
+  {
+   "file": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+   "slug": "PaletteCard",
+   "area": "palettes",
+   "loc": 364
+  },
+  {
+   "file": "demo/palettes/BrowsePane.vue",
+   "slug": "BrowsePane",
+   "area": "palettes",
+   "loc": 360,
+   "extra": "Route surface for #/browse. The corrected state matrix measures text=280 at 1440 desktop and 124 at mobile with 12 operable controls; keyboard reachability is 7/12 in Chromium (the gap is largely roving tabindex, which is CORRECT -- do not born-RED it without proving otherwise in two engines, per MT-F022)."
+  },
+  {
+   "file": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+   "slug": "CurrentPaletteEditor",
+   "area": "palettes",
+   "loc": 312
+  },
+  {
+   "file": "demo/palettes/browser/search/SearchFilterBar.vue",
+   "slug": "SearchFilterBar",
+   "area": "palettes",
+   "loc": 249
+  },
+  {
+   "file": "demo/palettes/browser/slug/PaletteSlugBar.vue",
+   "slug": "PaletteSlugBar",
+   "area": "palettes",
+   "loc": 243
+  },
+  {
+   "file": "demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue",
+   "slug": "PaletteCardMenu",
+   "area": "palettes",
+   "loc": 228
+  },
+  {
+   "file": "demo/palettes/PalettesPane.vue",
+   "slug": "PalettesPane",
+   "area": "palettes",
+   "loc": 212
+  },
+  {
+   "file": "demo/palettes/browser/dialog/VersionHistoryDrawer.vue",
+   "slug": "VersionHistoryDrawer",
+   "area": "palettes",
+   "loc": 168
+  },
+  {
+   "file": "demo/palettes/browser/search/MiniColorPicker.vue",
+   "slug": "MiniColorPicker",
+   "area": "palettes",
+   "loc": 164
+  },
+  {
+   "file": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+   "slug": "AdminFlaggedPanel",
+   "area": "palettes",
+   "loc": 153
+  },
+  {
+   "file": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+   "slug": "AdminNamesPanel",
+   "area": "palettes",
+   "loc": 152
+  },
+  {
+   "file": "demo/palettes/admin/AdminPane.vue",
+   "slug": "AdminPane",
+   "area": "palettes",
+   "loc": 135
+  },
+  {
+   "file": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+   "slug": "AdminTagsPanel",
+   "area": "palettes",
+   "loc": 126
+  },
+  {
+   "file": "demo/palettes/browser/card/PaletteCardSkeleton.vue",
+   "slug": "PaletteCardSkeleton",
+   "area": "palettes",
+   "loc": 124
+  },
+  {
+   "file": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+   "slug": "AdminAuditPanel",
+   "area": "palettes",
+   "loc": 120
+  },
+  {
+   "file": "demo/palettes/browser/card/ShadowPalette.vue",
+   "slug": "ShadowPalette",
+   "area": "palettes",
+   "loc": 115
+  },
+  {
+   "file": "demo/palettes/browser/dialog/FlagReportDialog.vue",
+   "slug": "FlagReportDialog",
+   "area": "palettes",
+   "loc": 101
+  },
+  {
+   "file": "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+   "slug": "MigratePalettesDialog",
+   "area": "palettes",
+   "loc": 97
+  },
+  {
+   "file": "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+   "slug": "PaletteCardSwatches",
+   "area": "palettes",
+   "loc": 96
+  },
+  {
+   "file": "demo/palettes/browser/card/SwatchHoverMenu.vue",
+   "slug": "SwatchHoverMenu",
+   "area": "palettes",
+   "loc": 93
+  },
+  {
+   "file": "demo/palettes/browser/status/ApiOfflineChip.vue",
+   "slug": "ApiOfflineChip",
+   "area": "palettes",
+   "loc": 91
+  },
+  {
+   "file": "demo/palettes/browser/search/TagEditPopover.vue",
+   "slug": "TagEditPopover",
+   "area": "palettes",
+   "loc": 87
+  },
+  {
+   "file": "demo/palettes/browser/card/PaletteColorStrip.vue",
+   "slug": "PaletteColorStrip",
+   "area": "palettes",
+   "loc": 72
+  },
+  {
+   "file": "demo/palettes/browser/card/PaletteCard/PaletteRenameInput.vue",
+   "slug": "PaletteRenameInput",
+   "area": "palettes",
+   "loc": 66
+  },
+  {
+   "file": "demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+   "slug": "PaletteCardMeta",
+   "area": "palettes",
+   "loc": 64
+  },
+  {
+   "file": "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue",
+   "slug": "ActionFeedback",
+   "area": "palettes",
+   "loc": 58
+  },
+  {
+   "file": "demo/palettes/browser/search/UserSortMenu.vue",
+   "slug": "UserSortMenu",
+   "area": "palettes",
+   "loc": 58
+  },
+  {
+   "file": "demo/palettes/browser/card/PaletteCardGrid.vue",
+   "slug": "PaletteCardGrid",
+   "area": "palettes",
+   "loc": 53
+  },
+  {
+   "file": "demo/palettes/browser/admin/PaginationBar.vue",
+   "slug": "PaginationBar",
+   "area": "palettes",
+   "loc": 48
+  },
+  {
+   "file": "demo/palettes/browser/admin/AdminListSkeleton.vue",
+   "slug": "AdminListSkeleton",
+   "area": "palettes",
+   "loc": 24
+  },
+  {
+   "file": "demo/palettes/browser/admin/AdminListItem.vue",
+   "slug": "AdminListItem",
+   "area": "palettes",
+   "loc": 24
+  }
+ ]
+}

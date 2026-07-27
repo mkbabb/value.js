@@ -1,0 +1,14 @@
+# Durability-checkpoint law (2026-07-27): git carries the KNOWLEDGE corpus —
+# registries, apotheoses, laws, probes, workflows, harvest JSON — plus the
+# load-bearing witnesses (owner-marked OM-1/OM-2, the first real-Safari witness).
+# Bulk pixel corpora stay disk-durable; every cited shot's sha256 is recorded in
+# the committed registry docs, so loss or tampering is detectable. Regenerable
+# trees (node_modules, vendored published artifacts) are never committed.
+node_modules/
+vendor/
+audit/visual/shots/
+audit/components/**/*.png
+audit/visual/safari-real/*.png
+!audit/visual/safari-real/picker-safari26.4-light.png
+# The repo-root .gitignore blanket-ignores *.png; re-include the owner-marked witnesses
+!audit/visual/owner-marked/*.png

@@ -1,0 +1,1 @@
+{"artifact":"FORMATION-CLEAN-PASS-1-ADJ.report.json","bytes":12946,"limit":12000,"reason":"report exceeded the fail-closed clean-artifact byte ceiling","schema":"vnext-clean-pass-artifact-rejection/1","sha256":"d73323d6d0f65b40b423d56ffbac6b8f7c5e3da6df55262173dd2630d29e78d6","status":"REJECTED"}

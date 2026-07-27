@@ -1,0 +1,260 @@
+{
+ "runId": "wf_22b7a7b7-97b",
+ "workflow": "area-palettes",
+ "resultCount": 2,
+ "results": [
+  {
+   "agentId": "a014cb72c5bd972db",
+   "key": "v2:4f77048d09d82d986c08e3fd306cb6e7a1f74df1e99dc3711e82deca9c7dc422",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, direction of dependency, public surface) under demo/palettes/browser/admin/AdminUsersPanel.vue",
+    "modelObserved": "Opus 5 (claude-opus-5[1m]) — matches the explicit spawn declaration; no inherited or undeclared seat.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/AdminUsersPanel/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1 — the state layer imports the view and drives it: demo/palettes/useAdminUsers.ts:14 does `import type { AdminUsersPanel } from \"./browser/admin\"`, holds `InstanceType<typeof AdminUsersPanel>` at :27, and mutates the component's private state through 4 exposed methods at :95/:117/:132/:146 (plus usePalettePorts.ts:123). It closes a module cycle (useAdminUsers → browser/admin/index → AdminUsersPanel.vue → usePalettePorts → useAdminUsers) that is acyclic at runtime ONLY because line 14 is `import type` and verbatimModuleSyntax erases it. Of 25 .ts→.vue import edges in demo/, 24 are barrels and this is the only state module importing a component; of 14 defineExpose sites, this is the only one consumed by a composable and the only one exposing mutable state. It is the root of L-2 (adminPort carries `adminUsersPanelRef` solely to serve it).",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "Inverted dependency: the domain/server-state composable `useAdminUsers` imports the SFC, holds a template-ref to its instance, and mutates the component's private state through 5 `defineExpose`d members. Latent module cycle; 5 optional-chain masking fallbacks.",
+      "severity": "BLOCKER",
+      "evidence": "demo/palettes/useAdminUsers.ts:14 `import type { AdminUsersPanel } from \"./browser/admin\";` · :27 `const adminUsersPanelRef = ref<InstanceType<typeof AdminUsersPanel> | null>(null);` · :95 `adminUsersPanelRef.value?.updatePaletteTier(...)` · :117 `?.removeUserPalette(...)` · :132/:146 `?.clearUserPalettes(...)` · demo/palettes/usePalettePorts.ts:123 `admin.adminUsersPanelRef.value?.onPruneDone(pruned);` · demo/palettes/admin/AdminPane.vue:27,:134 · AdminUsersPanel.vue:389 `defineExpose({ removeUserPalette, updatePaletteTier, clearUserPalettes, onPruneDone, userPalettes })`. Measured: `grep -rn --include='*.ts' 'from \"[^\"]*\\.vue\"' demo/ | wc -l` = 25, of which 24 are barrel re-exports — useAdminUsers.ts:14 is the sole state module importing a component. `grep -rn --include='*.vue' defineExpose demo/` = 14 sites; this is the largest (5) and the only one whose consumer is a composable. tsconfig.base.json:8 `verbatimModuleSyntax: true` is why the cycle erases.",
+      "mechanism": "Split ownership: `expandedUserSlug`/`userPalettes`/`loadingUserPalettes` (AdminUsersPanel.vue:236-238) are stored in the view but every mutation originates in the state layer, so the state layer must reach across the layer boundary through an instance handle.",
+      "reproduction": "AdminPane.vue:26 mounts the panel under `v-if=\"subView === 'admin-users'\"`. Call `useAdminUsers.onDeleteUser(slug)` (:140-150) and switch the admin sub-view during the `await deleteUser(token, slug)`; `adminUsersPanelRef.value` is then null and the `?.` at :146 silently swallows `clearUserPalettes(slug)`. The panel remounts with the deleted user's `userPalettes` never cleared. Same swallow at all 5 call sites.",
+      "proposedCure": "Lift the three refs into a `useAdminUserPalettes()` composable colocated with `useAdminUsers`; the panel receives them as props and emits `toggleUserExpand`. Then delete AdminUsersPanel.vue:352-389 (4 state fns + defineExpose), useAdminUsers.ts:14/:27 and the 4 `?.` call sites, usePalettePorts.ts:123/:197, AdminPane.vue:27/:134. Net: −5 exposed members, −1 port member, −1 inverted import, −1 latent cycle, −5 masking fallbacks."
+     },
+     {
+      "id": "L-2",
+      "defect": "The ADMIN 'port' is the god facade renamed, not dissolved: 34 members spanning five unrelated sub-domains. AdminUsersPanel injects all 34 to call exactly one method — and it is a SECOND data path into a component the parent already fully prop-drives.",
+      "severity": "MAJOR",
+      "evidence": "Script over `usePalettePorts.ts` adminPort literal → 34 members (adminUsers, adminUsersPanelRef, filteredAdminUsers, loadAdminUsers, loadUserPalettes, loadingUsers, usersLoadError, onDeleteUser, onDeleteUserPalettes, onAdminDeleteUserPalette, onUserSortChange, userSortMode, onFeaturePalette, onPrune, adminColorQueue, filteredColorQueue, loadColorQueue, loadingColorQueue, queueLoadError, filteredApproved, loadApprovedColors, loadingApproved, approvedLoadError, approvedLoaded, onApproveColor, onRejectColor, onDeleteColor, searchQuery, searchPlaceholder, expandedId, toggleExpand, audit, flagged, tags). AdminUsersPanel.vue:234 injects it; `grep -n 'pm\\.' AdminUsersPanel.vue` → 2 lines, one a comment (:233), one the sole use (:361 `await pm.loadUserPalettes(slug)`). AdminPane.vue:26-42 passes 6 props + 7 emit handlers, all from the same `pm`. usePalettePorts.ts:20-30 header claims the RF-15 dissolution of 'ONE cross-everything injected blob' into 'FIVE narrow, feature-owned ports'.",
+      "mechanism": "Aggregation without a seam: the port re-assembles five already-cohesive sub-composables into one injected object, so no consumer can be reasoned about without reading all 34 members. Injection is used as a second transport alongside props for the same parent/child pair.",
+      "reproduction": "NONE — structural. Measured by member count (34) versus use count (1) in the subject file.",
+      "proposedCure": "With L-1 applied, the parent owns the fetch and the `inject` at AdminUsersPanel.vue:234 deletes outright — the panel becomes purely prop/emit driven and mountable without a provider. Structurally, split `adminPort` along its five existing seams (users / names-queue / audit / flagged / tags); the sub-composables already own those slices."
+     },
+     {
+      "id": "L-3",
+      "defect": "51 dead `variant` props fleet-wide (5 in the subject file): glass-ui 7.0.0 Button has no `variant` prop, so the shadcn styling vocabulary that survived the Glass 7 adoption is silently discarded and leaks to the DOM as a literal attribute. The subject file speaks BOTH vocabularies 40 lines apart.",
+      "severity": "MAJOR",
+      "evidence": "node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts:6-19 — ButtonProps = { emphasis, tone, size, iconOnly, loading, type, disabled, class }; no `variant`. `grep -o \"outline\\|ghost\" node_modules/@mkbabb/glass-ui/dist/button-Bu9F4uU6.js` → ZERO matches. `emphasis: { default: \"secondary\" }` in the same chunk. Subject file: variant=\"outline\" at :22,:33,:58,:114 and variant=\"ghost\" at :123 — while :174 `emphasis=\"text\"` and :175 `:tone=\"confirmDestructive ? 'destructive' : 'neutral'\"` are correct Glass 7. Live DOM (Playwright browser_evaluate on http://localhost:9000): `{\"tag\":\"BUTTON\",\"text\":\"Login\",\"variant\":\"outline\"}`, `{\"text\":\"@mbabb\",\"variant\":\"ghost\"}`, `{\"text\":\"Try again\",\"variant\":\"outline\"}`. Fleet script: 51 `<Button variant=...>` sites in 22 files, incl. FlagReportDialog.vue:41 `variant=\"destructive\"` (a TONE passed as a dead variant). Gate is blind: `npx vue-tsc -p tsconfig.demo.json --noEmit` → exit 0, 0 errors.",
+      "mechanism": "Vue treats an unrecognised lowercase prop as an HTML fallthrough attribute, so a retired design-token vocabulary is neither type-checked nor visibly broken — it renders at the default `emphasis=\"secondary\"` and ships the string to the DOM.",
+      "reproduction": "Load http://localhost:9000/#/admin/users and evaluate `[...document.querySelectorAll('button')].map(b=>b.getAttribute('variant'))` — `outline`/`ghost` appear as literal attributes. Design consequence at AdminUsersPanel.vue:107-111: the comment asserts the per-row destructive is 'quieted to ink-at-rest' via variant=\"ghost\"; glass-ui discards it and renders `secondary`.",
+      "proposedCure": "Mechanical: variant=\"outline\"→emphasis=\"secondary\", variant=\"ghost\"→emphasis=\"quiet\", variant=\"destructive\"→tone=\"destructive\", variant=\"default\"→emphasis=\"primary\". Structurally the reason 51 sites drifted for a whole tranche is that nothing rejects an unknown token prop: glass-ui Button should set `inheritAttrs: false` with an explicit attr allowlist so an unrecognised design prop is a visible no-op. That half is a glass-ui change and belongs in the BH relay."
+     },
+     {
+      "id": "L-4",
+      "defect": "`demo/ui/` is 19 pure alias barrels re-exporting glass-ui; the subject file imports Button/Badge through the barrel and Dialog through the real subpath — two specifiers for one design system in one file. Direct violation of the no-alias / no-dual-path law.",
+      "severity": "MAJOR",
+      "evidence": "All 19 demo/ui/*/index.ts are one-line re-exports (e.g. demo/ui/button/index.ts `export { Button } from \"@mkbabb/glass-ui\";`). AdminUsersPanel.vue:188 `from \"../../../ui/button\"`, :189 `from \"../../../ui/badge\"`, :190-197 `from \"@mkbabb/glass-ui/dialog\"` — and demo/ui/dialog/index.ts exists exporting the same 8 symbols, unused. Measured: 35 files import through a demo/ui barrel; 24 files import through BOTH the barrel and @mkbabb/glass-ui directly. glass-ui 7.0.0 publishes 74 export entries incl. granular ./button ./badge ./card ./dialog ./select ./slider ./switch ./tooltip ./popover ./label ./separator ./collapsible ./dropdown-menu. Module graph: dist/button.js imports 1 chunk; dist/glass-ui.js (25239 bytes) imports 43 relative chunks.",
+      "mechanism": "An indirection layer with zero content: the barrel adds a name and a resolution hop and nothing else, while pinning consumers to the 43-chunk root entry instead of the leaf subpath.",
+      "reproduction": "NONE for the bundle-cost half — labelled HYPOTHESIS in the report (Rollup tree-shaking likely recovers most of it in the production build; the dev-server graph is not tree-shaken and was not measured). The dual-path half is proven by the two specifiers on lines 188-197 of one file plus the 24-file both-paths count.",
+      "proposedCure": "Delete demo/ui/ entirely; every consumer imports the glass-ui subpath directly. This removes a directory rather than adding one, so it satisfies the KISS/no-new-dirs edict rather than straining it. 35 files, mechanical."
+     },
+     {
+      "id": "L-5",
+      "defect": "The unauthorized state is costumed as an empty roster — the exact F-2 invariant the component's own comment claims to have cured. The auth precondition is a route concern re-asserted 22× as per-method early returns, with no route guard anywhere.",
+      "severity": "MAJOR",
+      "evidence": "demo/palettes/useAdminUsers.ts:54-58 `const token = getAdminToken(); if (!token) return;` — returns without touching `loadingUsers` or `usersLoadError`. AdminUsersPanel.vue:63 `<EmptyState v-else-if=\"users.length === 0\" eyebrow=\"· roster clear ·\" message=\"No users found.\" />`. Certified screenshot docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/admin-users.png: dock reads 'Login' (unauthenticated), panel reads '· ROSTER CLEAR · / No users found.' REPORT.json for that row: consoleErrors [], pageErrors [], bodyTextLength 273, counts.button 15 — all four matrices identical. Component comment AdminUsersPanel.vue:49-50 states the violated invariant verbatim: 'error ≠ empty — a dead backend never costumes as an empty roster.' `grep -c 'if (!token)' demo/palettes/useAdminUsers.ts` = 11; `grep -rn --include='*.ts' 'if (!token)' demo/ | wc -l` = 22 across 5 admin composables. No guard: grep over demo/shell/ for beforeEnter|requiresAdmin|guard on admin views = 0 hits; demo/shell/viewSchema.ts:188 declares \"admin-users\" with no auth meta.",
+      "mechanism": "An authorization precondition that belongs once at the route boundary is modelled as a silent early return inside every data method, so the view can never distinguish 'no data' from 'not allowed' — the panel models 3 states where the domain has 4.",
+      "reproduction": "Open http://localhost:9000/#/admin/users with no admin session (the state the whole certified visual matrix was captured in). The full admin console renders and affirmatively reports '· ROSTER CLEAR · / No users found.' with zero console errors — see the four safari-* admin-users.png shots and their REPORT.json rows.",
+      "proposedCure": "One gate at the composition boundary: an `<AdminGate>` in AdminPane.vue (or an `auth: \"admin\"` flag in viewSchema honoured by one guard in useViewManager) rendering an authentication plate when `!isAdminAuthenticated`. Inside the gate `getAdminToken()` is a non-null contract and all 22 `if (!token) return` guards delete; the panel never needs an unauthorized state because it never mounts unauthorized."
+     },
+     {
+      "id": "L-6",
+      "defect": "The admin list-row grammar has three homes: the declared atom, an inline transcription in AdminUsersPanel, and a third copy in AdminListSkeleton. The atom serves 1 of the 3 sites.",
+      "severity": "MAJOR",
+      "evidence": "demo/palettes/browser/admin/AdminListItem.vue:13 `flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0` (slots: swatch/content/actions). AdminUsersPanel.vue:80 `flex items-center gap-3 px-3 py-2.5 transition-colors` with border-card-edge on the wrapper at :68. AdminListSkeleton.vue:12 `flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge`. AdminListItem's only consumer: AdminNamesPanel.vue:44 and :94 (grep across demo/). AdminListSkeleton.vue:4-5 names its own source in a comment: 'shaped as the AdminListItem row grammar'.",
+      "mechanism": "The atom is transcribed rather than used, so one concept has three storage sites and a row-rhythm change must land in three files, two of which are not the atom.",
+      "reproduction": "NONE — structural duplication, proven by the three pasted class strings and the 1-of-3 consumer count.",
+      "proposedCure": "AdminUsersPanel's row becomes `<AdminListItem>` with the disclosure semantics (role/tabindex/aria-expanded/keydown) hoisted into the atom behind an `interactive` prop — the atom is the right home for 'an admin list row', disclosure included. AdminListSkeleton becomes `<AdminListItem>` with `<Skeleton>` in its slots. One home, three consumers."
+     },
+     {
+      "id": "L-7",
+      "defect": "The transient action-result beat is reimplemented inline with a bare uncancelled setTimeout, while the existing component for exactly this concept is homed inside one card's private folder where the admin panel could not find it.",
+      "severity": "MAJOR",
+      "evidence": "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue — same `<Transition name=\"vj-celebrate\">` family, props { message, variant, visible, autoDismissMs = 2500 }, and a watch that does `if (timer) clearTimeout(timer)` before re-arming. AdminUsersPanel.vue:16-20 + :301-309 rebuilds it: `const pruneResult = ref<string|null>(null)` and `setTimeout(() => { pruneResult.value = null; }, 3000)` with no handle, no clearTimeout, no onUnmounted. `grep -rn 'setTimeout(() => { *[a-zA-Z]*\\.value = null' demo/` matches only AdminUsersPanel.vue:308.",
+      "mechanism": "A generic UI atom filed under a specific component's private directory is undiscoverable, so the next consumer rebuilds it — and the rebuild loses the timer-cancellation the original had.",
+      "reproduction": "HYPOTHESIS (labelled as such in the report; an admin token is required and the dev server has no seeded admin session). Mechanically certain from the code: two prunes within 3s and the first timer nulls `pruneResult` while the second message is still young, so the second confirmation vanishes in under 3s; separately a prune followed by a sub-view switch (AdminPane.vue:26 v-if) leaves a live timer writing to an unmounted component's ref.",
+      "proposedCure": "Move ActionFeedback.vue beside EmptyState.vue/PaneHeader.vue in the existing demo/shared/ui/ (no new dir) and use it here; `pruneResult` becomes `message` + `v-model:visible` and the raw setTimeout deletes."
+     },
+     {
+      "id": "L-8",
+      "defect": "The confirmation concept has no home, so exactly one of three destructive admin panels confirms: AdminUsersPanel hand-rolls a 35-line confirm state machine while AdminFlaggedPanel and AdminTagsPanel delete irreversibly with no confirmation at all.",
+      "severity": "MAJOR",
+      "evidence": "AdminUsersPanel.vue:254-286 — 7 refs (confirmOpen/confirmTitle/confirmDescription/confirmSlug/confirmLabel/confirmDestructive/confirmAction) + showConfirm + onConfirm, ~9% of the file. `grep -rln --include='*.vue' 'confirmOpen' demo/` → AdminUsersPanel.vue only. `grep -rn 'function showConfirm' demo/` → AdminUsersPanel.vue:263 only. Siblings: demo/palettes/browser/admin/AdminFlaggedPanel.vue:99 `@click=\"flagged.deletePalette(item.paletteSlug)\"` and demo/palettes/browser/admin/AdminTagsPanel.vue:101 `@click=\"tagsApi.deleteTag(tag.name)\"` — both fire immediately. AdminTagsPanel.vue:98 also uses a raw `<button>` rather than the design-system Button (a fourth path to a button). Cause recorded at AdminUsersPanel.vue:280-282: 'Glass 7 folded ConfirmDialog onto the Dialog family … the old ConfirmDialog auto-close, made explicit at the call site.'",
+      "mechanism": "Removing a shared component without providing a replacement home pushes the concept to whichever call site bothers to rebuild it; the safety invariant 'a destructive admin action is confirmed' is then enforced per-file rather than per-concept.",
+      "reproduction": "Read AdminTagsPanel.vue:101 and AdminFlaggedPanel.vue:99 — the click handler calls the delete API directly with no intervening dialog, against AdminUsersPanel.vue:315-335 where the identical class of action routes through showConfirm.",
+      "proposedCure": "One `useConfirm()` composable returning `{ confirm(opts): Promise<boolean> }` plus one `<ConfirmDialog>` composed from the Glass 7 Dialog family, sited in the existing demo/shared/ui/. All three panels call it. −35 lines here, +2 confirmations there. If the preset is generally useful (3 call sites in this repo alone) it belongs back in glass-ui — a BH-relay item."
+     },
+     {
+      "id": "L-9",
+      "defect": "One component, one concern (colour), two transport mechanisms: `safeAccent` is injected across a feature boundary while the adjacent `cssColor` is prop-drilled from the same source module.",
+      "severity": "MINOR",
+      "evidence": "AdminUsersPanel.vue:232 `const safeAccent = inject(SAFE_ACCENT_KEY)!;` from demo/color-session/keys (imported at :187). AdminUsersPanel.vue:209 `cssColor` is a prop, which AdminPane.vue:133 obtained via `inject(CSS_COLOR_KEY)` from the same demo/color-session/keys module. 11 files inject SAFE_ACCENT_KEY across demo/.",
+      "mechanism": "A feature→feature edge (demo/palettes/** reaching into demo/color-session/**) taken by one datum and not its neighbour, so the same concern has two shapes in one component.",
+      "reproduction": "NONE — structural, proven by the two lines cited.",
+      "proposedCure": "Pick one: either the colour session is an app-wide ambient (inject `cssColor` too and delete the prop) or it is a pane-level input (make `safeAccent` a prop from AdminPane). The 11 SAFE_ACCENT_KEY injectors should follow whichever ruling lands."
+     },
+     {
+      "id": "L-10",
+      "defect": "`Transition` is imported from \"vue\", shadowing the compiler built-in — 1 of 17 `<Transition>` users in demo/ does this.",
+      "severity": "MINOR",
+      "evidence": "`grep -rn --include='*.vue' 'from \"vue\"' demo/ | grep -w Transition` → demo/palettes/browser/admin/AdminUsersPanel.vue:186 `import { inject, ref, computed, Transition } from \"vue\";` (sole hit). `grep -rl --include='*.vue' '<Transition' demo/ | wc -l` = 17.",
+      "mechanism": "A redundant local binding shadows the template compiler's built-in resolution — identical behaviour, gratuitous divergence from the other 16 sites.",
+      "reproduction": "NONE — style/idiom, proven by the 1-of-17 measurement.",
+      "proposedCure": "Drop `Transition` from the import list at :186."
+     },
+     {
+      "id": "L-11",
+      "defect": "Per-instance geometry and typography overrides on a design-system primitive instead of the shipped size rung (edict 5).",
+      "severity": "MINOR",
+      "evidence": "AdminUsersPanel.vue:24 `class=\"h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5\"`, :35 same, :116 `h-7 px-2 cursor-pointer font-display text-caption`, :125 `h-7 px-2 cursor-pointer …` — all on `<Button size=\"sm\">`. glass-ui ships `size?: \"xs\" | \"sm\" | \"md\" | \"lg\"` (Button.vue.d.ts:4). Fleet script: 22 `<Button>` sites in 11 demo files hand-set a height in `class`.",
+      "mechanism": "The `xs` rung is reconstructed by hand at each call site, so the design system's height scale has no authority and a token change cannot propagate.",
+      "reproduction": "NONE — structural, proven by the four cited class strings and the 22-site count.",
+      "proposedCure": "Use `size=\"xs\"`. If xs is not the right height for a dock-adjacent toolbar, the token moves in glass-ui — not in eleven demo files."
+     }
+    ],
+    "negativeProof": "Not applicable to the overall verdict (DEFECTIVE), but recorded as the checked-and-sound surface on this component's edge, each with positive evidence: (1) The published value.js surface is dogfooded correctly — the demo imports only the seven bare subpaths (@mkbabb/value.js/{color,css,easing,math,quantize,transform,value}); vite.config.ts:37-50 GENERATES the self-alias set from package.json#exports as anchored regexes so it cannot drift; grep for @src/, ../../src/ or any deep path in demo/ returns nothing. AdminUsersPanel imports value.js not at all, so it makes no false proof of the public API. (2) verbatimModuleSyntax discipline is clean in the subject file — :199 is `import type { Palette, User }`, :186/:200-203 are genuine value imports, and `npx vue-tsc -p tsconfig.demo.json --noEmit` exits 0 with 0 errors. (3) Animations are rooted correctly (edict 6): vj-celebrate is defined in demo/styles/animations.css:142-165 with per-instance geometry passed as CSS custom properties, slug-pill in demo/styles/foundation.css:585; nothing inlined, nothing deleted. (4) demo/shared/ is not a new contrivance — it predates this component and EmptyState has 12 consumers; the L-7 cure moves a file INTO it rather than creating anything (edict 3 satisfied). (5) Idiomatic Vue 3.5 (edict 7): :205-220 uses reactive props destructure with a default on loadError, and emptyCount at :241 reads `users` inside a computed and stays reactive. (6) No a11y defect on this route is attributable to this component — all four safari-* rows in REPORT.json show the same 4 smallTapTargets (a 160x23 input and three 22x22 buttons labelled 'Switch to slug', 'Generate new slug', 'Cancel'), every one of which is in demo/shell/dock/menus/ProfileSection.vue, not the panel; namelessButtons 0, imgNoAlt 0, overflowX 0, consoleErrors [], pageErrors [] on all four matrices. The roving-tabindex / Full-Keyboard-Access delta (MT-F022) is confirmed not a library-structure concern and is not counted. (7) The api layer is correctly shaped — demo/palettes/api/admin-users.ts takes the token as a parameter and delegates to one adminRequest; no ambient token, no store reach-in. The rot is entirely in the composable layer above it. (8) Named historical suspects (ActionBarLayer's local useLayerTransition, demo/palettes/export.ts + usePaletteExport.ts vs export/serializers, the three parallel useDark stores) are reachable from demo/palettes/ but none lies on any import path out of AdminUsersPanel.vue — out of scope for this seat and explicitly left unexamined rather than cleared."
+   }
+  },
+  {
+   "agentId": "afa8144be4cacfe0c",
+   "key": "v2:a6016496ebe8970f24eee547a88b3d04705bc7bf1d2cacf49f053da97da8e86c",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) beneath demo/palettes/browser/card/PaletteCard/",
+    "modelObserved": "Opus 5 (1M context) — exact model id `claude-opus-5[1m]`; the tier declared at spawn, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteCard/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "PaletteCard feeds arbitrary user/API color strings into `certifyAccentInk`, a demo-side wrapper that converts the library's typed Result error into a thrown exception during render. Any palette color carrying alpha < 1 destroys the whole hosting pane via the error boundary; zero cards render and the poison is persisted in localStorage.",
+      "severity": "BLOCKER",
+      "evidence": "PaletteCard.vue:226 `firstColor = props.palette.colors[0]?.css ?? …`; PaletteCard.vue:229-230 `const { safeCss } = useSafeAccentFn(\"well\"); const safeFirstColor = computed(() => safeCss(firstColor.value))`; demo/color-session/ink.ts:78 `if (!result.ok) throw new Error(`Ink certification failed: ${result.error.code}`)`; src/color/operations.ts:213-214 `if (accent.alpha !== 1 || surface.alpha !== 1) return err({ code: \"color_invalid_input\" })`. node against the served dist: `lab(50% 20 10 / 82.7%) => safeAccent ERR color_invalid_input`, `oklch(0.7 0.1 200 / 0.5) => ERR color_invalid_input`, `#e11d48 => OK`. Live: pane shows `This panel hit an unexpected error. / color_non_finite`, articles: 0. The app's own persisted state held `color-picker = {\"inputColor\":\"lab(92% 88.8 20 / 82.7%)\"}`, i.e. it mints alpha'd colors itself.",
+      "mechanism": "Ownership inversion at the library boundary: the library owns 'certification may fail, here is a typed error'; demo/color-session/ink.ts unilaterally re-declares it as 'cannot fail' and PaletteCard consumes that re-declaration on untrusted data. A total function was made partial at the wrong layer.",
+      "reproduction": "With the dev server live at http://localhost:9000: (1) in the page, `localStorage.setItem('color-palettes', JSON.stringify({version:1,palettes:[{id:'p',slug:'p',name:'Probe',isLocal:true,colors:[{css:'lab(50% 20 10 / 82.7%)',position:0},{css:'#0ea5e9',position:1}]}]}))`; (2) full reload of `/#/palettes`, settle 2s. Observed `{url:'http://localhost:9000/#/palettes', boundary:true, bodyHead:'…This panel hit an unexpected error.\\n\\ncolor_non_finite…', articles:0}`. Repeats with `lab(92% 88.8 20 / 82.7%)`. Control with `['#e11d48','#0ea5e9']` → no boundary. (Exact throw site among ink.ts:47/59/78 is a hypothesis; the Result-to-throw class is confirmed.)",
+      "proposedCure": "Make `certifyAccentInk` TOTAL on dynamic input — return the input css (or the muted-ink token) for every non-certifiable value, exactly as it already does for unparseable input at ink.ts:136, and add the alpha pre-condition the library states at operations.ts:214. Keep throws only for producer literals (ink.ts:53), which are build-time invariants. Then no ink consumer can crash a pane and PaletteCard needs no guard at all."
+     },
+     {
+      "id": "L-2",
+      "defect": "The card imports the design system through `demo/ui/*` — 19 one-line glass-ui forwarding directories that tranche V's ratified architecture explicitly forbids — while importing the same package directly six lines below in the same file.",
+      "severity": "MAJOR",
+      "evidence": "PaletteCard.vue:165 `import { Badge } from \"../../../../ui/badge\"`, :166 `import { Button } from \"../../../../ui/button\"`, :170 `import { writeClipboard } from \"@mkbabb/glass-ui\"`, :171 `@mkbabb/glass-ui/motion`; PaletteCardMenu.vue:190 `../../../../ui/dropdown-menu`. `demo/ui/button/index.ts` in full: `export { Button } from \"@mkbabb/glass-ui\";`. 19 dirs × 1 file each (enumerated). docs/tranches/V/ARCHITECTURE.md §1: \"There is no `panes/` dumping ground, `demo/@`, TS/Vite project alias, `@src`, or one-line glass-ui forwarding directory.\" Debt: 49 demo files import via the barrels vs 14 direct (`grep -rl … | wc -l` = 49; `grep -rn 'from \"@mkbabb/glass-ui\"' demo --include=*.vue | wc -l` = 14). `git log -- demo/ui/button/index.ts` → f2c8f565 (glass-ui 7 adoption), a61094e3 (demo/@ dies).",
+      "mechanism": "Aliasing — two names for one concept (edict 2, no aliases; edict 3, no contrivance). It also hides the design-system boundary, which is why L-7's hand-rolled forks survived beside producer atoms.",
+      "reproduction": "`for d in demo/ui/*/; do echo \"$d $(ls $d)\"; done` → 19 directories, each containing only index.ts, each a single re-export line from @mkbabb/glass-ui. Compare PaletteCard.vue:165-171 for both paths in one file.",
+      "proposedCure": "Delete `demo/ui/` entirely; rewrite the 49 importers to the bare `@mkbabb/glass-ui` specifier. Zero runtime delta (the barrels are pure re-exports), −19 directories, and every producer-atom consumption becomes visible in one grep."
+     },
+     {
+      "id": "L-3",
+      "defect": "PaletteCard is consumed across feature boundaries (workbenches/mix, workbenches/extract) in violation of the ratified import lattice, and its 16 optional emits are wired 0/16, 4/16, 6/16, 15/16 by its four hosts — so it renders Delete/Export/Publish controls that provably do nothing. In Mix the card is additionally nested inside a native <button>, whose content model forbids interactive descendants.",
+      "severity": "MAJOR",
+      "evidence": "ARCHITECTURE.md §1: \"Cross-feature internal imports are forbidden by construction\" + the lattice `feature → color-session / own descendants / platform / shared / published packages`. Violating edges: MixSourceSelector.vue:8 `import { PaletteCard, PaletteColorStrip } from \"../../palettes/browser/card\"`, ExtractWorkbench.vue:197-200. Measured binding table (emits from PaletteCard.vue:200-218 tested against each `<PaletteCard …>` tag): BrowsePane.vue 15/16, PalettesPane.vue 6/16, ExtractWorkbench.vue 4/16, MixSourceSelector.vue 0/16. PaletteCardMenu gates items only on paletteKind/isOwned/isAdmin (PaletteCardMenu.vue:16,28,49,74,134), never on host capability. Nesting: MixSourceSelector.vue:246-267 `<button …><PaletteCard …/></button>` wrapping PaletteCard.vue:96-104 `<Button icon-only aria-label=\"Palette menu\">`.",
+      "mechanism": "Wrong direction of dependency. A palettes-feature component that three features must render was made optional-everything and pushed outward as 16 emits; the component therefore cannot know whether an action is serviceable and renders controls it cannot honour.",
+      "reproduction": "Static and deterministic: `MixSourceSelector.vue:264-267` passes only `:palette` and `:css-color`; PaletteCard's menu still renders Save/Publish/Rename/Export×5/Delete for a `saved` palette; an emit with no listener is a no-op. (Live confirmation of the nested-button click bubbling was blocked by L-14's route drift — that half is a hypothesis; the unlistened-emit half is not.)",
+      "proposedCure": "Split presentation from capability: a `shared/ui/SwatchCard.vue` (colors + slots, zero Palette knowledge, zero actions) consumed directly by mix/extract — the cross-feature edge disappears — and a feature-owned `PaletteCard` that binds the Palette DTO plus the existing injected ports (usePalettePorts.ts:138-192) to it, building the menu from a capability list the port supplies so unserviceable actions are absent, not dead. Emits collapse 16 → 1."
+     },
+     {
+      "id": "L-4",
+      "defect": "The menu↔card action channel is an untyped `string` bus with a silent-drop default, so the two halves cannot be related by the compiler; it already carries a dead handler.",
+      "severity": "MAJOR",
+      "evidence": "PaletteCardMenu.vue:225 `action: [action: string]`; PaletteCard.vue:293-319 `const actions: Record<string, () => void> = {…}` then `const fn = actions[action]; if (!fn) return;`. Measured set diff: menu emits 17 strings, card handles 18; `handled but NEVER emitted: ['copyAll']`. `grep -rn \"copyAll\" demo/` returns exactly one line — PaletteCard.vue:294.",
+      "mechanism": "God-module symptom relocated, not cured: an 18-entry dispatch table in the root file, coupled to a sibling by string literals that no tool checks.",
+      "reproduction": "node script extracting `$emit('action','X')` literals from PaletteCardMenu.vue and the `X: () =>` keys from PaletteCard.vue's handler record: emitted-but-unhandled = [], handled-but-never-emitted = ['copyAll'].",
+      "proposedCure": "Delete the bus. The menu receives `actions: readonly CardAction[]` (`{id,label,icon,disabled?,run()}`) built once in a `useCardActions.ts` from the port, and renders `v-for`. No strings, no orphan possible, no silent drop, and PaletteCardMenu's 228 lines of v-if policy collapse into a list renderer."
+     },
+     {
+      "id": "L-5",
+      "defect": "Feedback display state lives in the card but is driven by an imperative `defineExpose` handle harvested through `(el: any)` ref maps in two panes; the handle has leaked into a composable's dependency contract.",
+      "severity": "MAJOR",
+      "evidence": "PaletteCard.vue:233-244 (`feedbackMessage/Variant/Visible` refs + `defineExpose({ showFeedback })`); BrowsePane.vue:94 `:ref=\"(el: any) => el && (cardRefs[palette.slug] = el)\"`, :209 `reactive<Record<string, InstanceType<typeof PaletteCard>>>({})`, :230/:239/:249/:264 `showFeedback(...)`; PalettesPane.vue:84/:177/:207; useDialogBrowseActions.ts:36-44 documents `onForkError?` as routing onto \"the palette card's showFeedback\".",
+      "mechanism": "Inverted ownership: the pane knows the outcome of every mutation, the card owns the state that displays it. Bridging that gap costs an imperative handle, a per-row instance map (never pruned — the `el && …` guard skips the null unmount callback) and two `any` casts that erase the instance type.",
+      "reproduction": "Static: 7 call sites listed above; `cardRefs` entries for removed palettes are retained because the unmount invocation passes `el === null` and the guard short-circuits before deletion.",
+      "proposedCure": "Make it data: hold the per-palette operation result in the port (`feedback: Record<slug, {message,variant}|null>`) and pass `:feedback` down as a prop. `defineExpose`, both `any` casts, both `cardRefs` maps and the `onForkError?` indirection all die."
+     },
+     {
+      "id": "L-6",
+      "defect": "The six-file folder is a god module distributed across files, not a decomposition along seams: the root keeps every piece of state and PaletteCardSwatches is a markup shard taking 8 props / re-emitting 8 events with zero state of its own.",
+      "severity": "MAJOR",
+      "evidence": "Per-file measure — PaletteCard.vue: 364 L, 10 props, 16 emits, 4 refs + 3 composables + an 18-entry dispatch table; PaletteCardSwatches.vue: 8 props (:75-84 `colors,isLocal,displaySlug,safeFirstColor,openPopoverIndex,canHover,floatingStyle,swatchClass`), 8 emits (:86-95), 0 state; PaletteCardMeta 1/1/0; PaletteRenameInput 1/2/2; ActionFeedback 4/1/1. Four of the swatch props and four of its emits exist only because the root calls `useHoverPopover()` on its behalf (PaletteCard.vue:246-255 ↔ PaletteCard.vue:139-157). The sibling composable useSwatchActions.ts:30-40 calls `useHoverPopover()` itself, proving the child could.",
+      "mechanism": "The seam was cut through the state rather than around it. The one real force (useHeightTransition's onBeforeCollapse closes the popover — PaletteCard.vue:276-278) argues for moving BOTH into the expandable child, not for hoisting one into the parent.",
+      "reproduction": "Static: prop/emit counts above; `wc -l` shows the root is still the largest file by 1.6× after five extractions.",
+      "proposedCure": "Re-cut on the three seams the DOM already has: PaletteCardHeader (handle/title/rename/badges/meta/menu trigger), PaletteCardBody (the expandable region, owning useHoverPopover AND the collapse motion, emitting only addColor/editColor/copyColor), and a root that owns only press + expanded + the DTO. Body props 8→3, emits 8→3, root loses 4 refs and a composable."
+     },
+     {
+      "id": "L-7",
+      "defect": "A hand-rolled icon-button recipe is duplicated 16× across the demo (4× inside this component folder) while the same component uses the glass-ui Button atom for its menu trigger six lines away — a dual path for one concept, and the fork's ~26px target is below the tap-target floor.",
+      "severity": "MAJOR",
+      "evidence": "PaletteCard.vue:93-104 carries the ratified cure in comment form (\"S.W5-4: 3rd copy of the hand-rolled icon-trigger recipe dies onto the glass-ui atom; the sm square also cures the ~24px touch target\") and uses `<Button icon-only variant=\"ghost\" size=\"sm\">`. The fork survives at PaletteCardSwatches.vue:14,41,49,56; PaletteCardMeta.vue:45; PaletteRenameInput.vue:20,26 — `class=\"p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40\"`. Measured: `grep -ro \"active:bg-accent/70 transition-colors\" demo --include=*.vue | wc -l` = 16, across 6 files.",
+      "mechanism": "Dual path / per-instance styling: the producer atom and a 10-utility local fork coexist inside one folder, breaking edict 4 (variants belong in glass-ui) and edict 5 (root-level styling, never per-instance overrides).",
+      "reproduction": "`grep -rl \"active:bg-accent/70\" demo --include=\"*.vue\"` → PaletteSlugBar.vue, PaletteCardMeta.vue, CurrentPaletteEditor.vue, PaletteRenameInput.vue, PaletteCardSwatches.vue, AdminTagsPanel.vue.",
+      "proposedCure": "Substitute all 16 sites with `<Button icon-only variant=\"ghost\" size=\"sm\" :aria-label=\"…\">`. If the swatch popover row genuinely needs a smaller square, add a `size=\"xs\"` variant in glass-ui — producer-side, one place — never a local class list."
+     },
+     {
+      "id": "L-8",
+      "defect": "Two `slugify` implementations own one concept inside the same feature, both reachable from the card's Export action, producing measurably different output for the same palette name.",
+      "severity": "MAJOR",
+      "evidence": "demo/palettes/export.ts:9-11 (lowercase + `[^a-z0-9]+` → '-') vs demo/palettes/utils.ts:3-12 (NFKD normalize, strip combining marks, then slugify) — the latter is what `createSlug` mints store ids with (utils.ts:14-16, usePaletteStore.ts:4). Measured: \"Café Noir!\" → export.ts `caf-noir` vs utils.ts `cafe-noir`; \"Ω palette\" → `palette` vs `-palette`. Path from the card: PaletteCard.vue:308-312 (`export` emit) → BrowsePane.vue:324 / PalettesPane.vue:211 `usePaletteExport()` → usePaletteExport.ts:15-19 → export.ts.",
+      "mechanism": "Duplicate semantic ownership: one concept, two homes, divergent behaviour — so a palette stored as `cafe-noir` downloads as `caf-noir.json` with `--palette-caf-noir-*` custom properties.",
+      "reproduction": "node with both function bodies verbatim: `\"Café Noir!\" export.ts=> \"caf-noir\"  utils.ts=> \"cafe-noir\"`. (Note: the brief's named suspect `src/export/serializers` does not exist — `ls src/` → color css easing.ts foundation quantize.ts subpaths transform value.ts.)",
+      "proposedCure": "One `palettes/slug.ts` exporting `slugify` (the NFKD form) + `createSlug`; export.ts imports it. Fix the leading-hyphen bug for non-Latin names once, in the single home. Also surface `usePaletteExport.ts:21-23`'s swallowed failure through the ActionFeedback chip the card already has."
+     },
+     {
+      "id": "L-9",
+      "defect": "The expand/collapse motion is a bespoke JS height animation with hardcoded durations and easings living in a feature composable, and it performs a document `scrollIntoView` — a feature reaching into shell-owned scroll. It is the third parallel motion mechanism inside one component.",
+      "severity": "MINOR",
+      "evidence": "useHeightTransition.ts:1-10 (self-described \"bespoke … no exact glass-ui canon match — 350ms sits between --duration-normal 300ms and --duration-slow 450ms\"), :30/:61 inline `style.transition` strings, :32/:56/:63 forced reflows, :48 `htmlEl.scrollIntoView({behavior:'smooth', block:'nearest'})`. The same component also runs the producer register (PaletteCard.vue:263-267 `useLiquidPress` + `cartoon-surface`) and named CSS families (PaletteCard.vue:112 `vj-morph`, :123-128 `vj-celebrate`, geometry vars :358-363).",
+      "mechanism": "A motion register forked demo-side instead of consumed from the design system, plus a cross-boundary side effect (scroll) issued by a leaf.",
+      "reproduction": "Static: read useHeightTransition.ts:1-88; three motion mechanisms are visible in PaletteCard.vue simultaneously.",
+      "proposedCure": "Move (never delete — edict 6) the collapse onto a glass-ui disclosure/Collapse motion primitive on the canon clock, or express it with the same named CSS family idiom the file already uses twice; relocate the scrollIntoView to the pane that owns scroll, behind the existing click intent."
+     },
+     {
+      "id": "L-10",
+      "defect": "Two prop idioms and two hand-rolled two-way bindings coexist inside the one folder, against the Vue 3.5 idiom edict.",
+      "severity": "MINOR",
+      "evidence": "PaletteCard.vue:182-198 uses `withDefaults(defineProps<…>(), {…})` and then `props.palette` at :226,:230,:231,:286,:294-312, while PaletteCardMenu.vue:206, PaletteCardMeta.vue:61 and PaletteRenameInput.vue:39 use reactive destructure. Hand-rolled v-models: `:menu-open` + `@update-open` (PaletteCard.vue:86-89 ↔ PaletteCardMenu.vue:226) and `:visible` + `@update:visible` (PaletteCard.vue:126-127 ↔ ActionFeedback.vue:33-35).",
+      "mechanism": "Idiom drift inside a single unit — the root file predates the destructure convention its own children adopted.",
+      "reproduction": "Static: compare PaletteCard.vue:182 with PaletteCardMenu.vue:206.",
+      "proposedCure": "`const { palette, layout = \"default\", swatchClass = \"w-9 h-9 sm:w-10 sm:h-10\" } = defineProps<…>()` in the root; `defineModel<boolean>(\"open\")` in the menu and `defineModel<boolean>(\"visible\")` in the chip — which also removes one prop and one emit from the decomposition table."
+     },
+     {
+      "id": "L-11",
+      "defect": "ActionFeedback's auto-dismiss timer is never cleared on unmount, so a card unmounted while the chip is up leaves a live 2.5s timer emitting at a dead component.",
+      "severity": "MINOR",
+      "evidence": "ActionFeedback.vue:37-47 — `let timer` cleared only on the next `visible` change; no onUnmounted/onScopeDispose. Its sibling useLeaveTimer.ts:1-17 has the right shape but likewise no disposal hook.",
+      "mechanism": "Lifecycle ownership gap: a timer owned by a component that can be destroyed by its list parent (delete, re-sort, navigate).",
+      "reproduction": "Static: no disposal hook exists in either file; PaletteCard is rendered inside `v-for` lists that remove rows on delete (PalettesPane.vue:82-96).",
+      "proposedCure": "Add `onScopeDispose(cancel)` to useLeaveTimer and have ActionFeedback use it instead of its own setTimeout — one timer home for the folder."
+     },
+     {
+      "id": "L-12",
+      "defect": "Ownership records in the card's composables and action chain cite modules excised three tranches ago, and a dead optional dependency for a host that no longer exists survives.",
+      "severity": "MINOR",
+      "evidence": "useHoverPopover.ts:6-9 \"Used by PaletteDialog (current swatches) and PaletteCard\"; demo/palettes/constants.ts:6 cites `PaletteDialog.vue:403`; PaletteDialog was excised at T.W0-3/CC-6 (demo/DESIGN.md:253, demo/styles/foundation.css:487,580). useDialogBrowseActions.ts:38,:77-78 `modalStack?` has zero callers (`grep -rn \"modalStack\" demo/` → only its own definition) and the composable has exactly one caller, BrowsePane.vue:261.",
+      "mechanism": "Legacy residue (edict 2): documentation and optional branches preserved for a deleted consumer, in a folder still named `dialog/`.",
+      "reproduction": "`grep -rn \"PaletteDialog\" demo/` and `grep -rn \"modalStack\" demo/`.",
+      "proposedCure": "Delete the `modalStack?` branch, fold the single-caller composable into BrowsePane (or rename the folder to what it now is), and correct the two stale citations."
+     },
+     {
+      "id": "L-13",
+      "defect": "The mega-tranche visual audit has zero coverage of this component: all 60 captures rendered its hosts empty, so the greens on /#/palettes, /#/browse and /#/mix are false negatives for PaletteCard.",
+      "severity": "INFO",
+      "evidence": "REPORT.json safari-desktop-light /#/palettes: `bodyTextLength: 237`, and its eight smallTapTargets are dock/slug/channel elements — no card element. Screenshot docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/browse.png reads \"The commons is unreachable. / Failed to load palettes\" beside \"· EMPTY PLATE · / No saved palettes yet.\" /#/mix bodyText = 186.",
+      "mechanism": "Capture harness runs against an unreachable API and an empty local store, so the component under audit never mounts.",
+      "reproduction": "Read REPORT.json rows for /#/palettes, /#/browse, /#/mix and the corresponding shots.",
+      "proposedCure": "Seed `localStorage['color-palettes']` (and stub /colors/api/palettes) in capture.mjs before the matrix runs. Choose the seed deliberately: per L-1 an alpha'd color reproduces a pane crash rather than a card."
+     },
+     {
+      "id": "L-14",
+      "defect": "The live app rewrites its own route hash within seconds of load and writes `oklch(none …)` into its own URL — which blocks any route-held probe of this component and is a live hazard for the ink path of L-1.",
+      "severity": "INFO",
+      "evidence": "Playwright: `goto('http://localhost:9000/#/mix')` settled at `/#/extract`, then `/#/atmosphere`, then `/#/`; a later read returned `url: 'http://localhost:9000/#/?space=oklch&color=oklch(none%200.2%2030)'` with title `oklch(none 0.2 30) — Color Picker`. demo/color-session/ink.ts:47 throws `Ink color is missing lightness` for exactly `L === \"none\"`.",
+      "mechanism": "The shell syncs picker state into the location hash and overwrites the route; a `none`-channel color is round-tripped through the URL into color code that treats `none` as an invariant break.",
+      "reproduction": "Navigate to /#/mix, wait 2s, read `location.href` — observed drift on four separate attempts in one session.",
+      "proposedCure": "Shell/router seat: separate the route hash from the color query state (or use a replaceState-free param channel), and normalise `none` channels out of any persisted/URL color before it can reach the ink path."
+     }
+    ],
+    "strongestDefect": "L-1 — `demo/color-session/ink.ts:78` converts the library's typed `Result` error into a thrown exception, and `PaletteCard.vue:229-230` calls it inside a render-consumed `computed` on arbitrary user color data. Because `src/color/operations.ts:214` rejects every accent with alpha < 1, a single saved palette color carrying alpha (the app persists such colors itself — the live profile held `lab(92% 88.8 20 / 82.7%)`) destroys the entire hosting pane: reproduced twice on the live server as `This panel hit an unexpected error / color_non_finite` with `articles: 0`, with a hex-only control that does not crash.",
+    "negativeProof": "Not SOUND overall, but these specific structural suspicions were tested and cleared, with positive evidence: (1) Published-surface integrity — no file in the six-file folder imports `@mkbabb/value.js` at all, deeply or otherwise; there is no `@src/*`, no `dist/*`, no path alias in the folder, and `vite.config.ts:33-53` generates the self-alias set from `package.json#exports` (7 subpaths, no `\".\"` root). Every specifier a real consumer could write, except the three repo-local `demo/ui/*` barrels flagged in L-2. (2) `verbatimModuleSyntax` — 100% compliant: PaletteCard.vue:168,169; PaletteCardMenu.vue:177,178; PaletteCardSwatches.vue:72; PaletteCardMeta.vue:59 all use `import type` or inline `type`. (3) Injected-seam posture holds — PaletteCardMenu.vue:216 reads availability via `useApiClient()`, not a module singleton. (4) The named triple-`useDark` suspect is cured: `grep -rn \"useGlobalDark\\|useDark(\" demo/` shows one store (glass-ui `useGlobalDark`) at all six consumers, no local fork. (5) The named `ActionBarLayer`/`useLayerTransition` reimplementation does not reach this folder (no references). (6) `PaletteColorStrip.vue:47-60` is pure percentage arithmetic — the card carries no second color pipeline beside the ink path. (7) Scoped styles are geometry/hue only (PaletteCard.vue:343-363, ActionFeedback.vue:53-57): no `!important`, no `:deep(` reach, and the `.featured-badge__icon` wrapper is the documented cure for the retired deep-pierce."
+   }
+  }
+ ]
+}

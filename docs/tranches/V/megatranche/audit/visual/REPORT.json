@@ -1,0 +1,4679 @@
+{
+ "summary": {
+  "origin": "http://localhost:9000",
+  "samenessGuard": "PASS — routes render distinct content",
+  "matrixCount": 4,
+  "routeCount": 15,
+  "captures": 60,
+  "defects": {
+   "blankOrNearBlank": [],
+   "pageErrors": [],
+   "consoleErrors": [
+    "safari-desktop-light /#/: WebGL: context lost."
+   ],
+   "horizontalOverflow": [],
+   "darkClassMissing": [],
+   "mainCountNotOne": [],
+   "smallTapTargets": [
+    "safari-desktop-light /#/: 8",
+    "safari-desktop-light /#/palettes: 8",
+    "safari-desktop-light /#/browse: 4",
+    "safari-desktop-light /#/extract: 6",
+    "safari-desktop-light /#/mix: 8",
+    "safari-desktop-light /#/generate: 5",
+    "safari-desktop-light /#/gradient: 6",
+    "safari-desktop-light /#/atmosphere: 7",
+    "safari-desktop-light /#/blob: 39",
+    "safari-desktop-light /#/admin/users: 4",
+    "safari-desktop-light /#/admin/names: 4",
+    "safari-desktop-light /#/admin/audit: 4",
+    "safari-desktop-light /#/admin/flagged: 4",
+    "safari-desktop-light /#/admin/tags: 4",
+    "safari-desktop-light /#/does-not-exist: 8",
+    "safari-desktop-dark /#/: 8",
+    "safari-desktop-dark /#/palettes: 8",
+    "safari-desktop-dark /#/browse: 4",
+    "safari-desktop-dark /#/extract: 6",
+    "safari-desktop-dark /#/mix: 8",
+    "safari-desktop-dark /#/generate: 5",
+    "safari-desktop-dark /#/gradient: 6",
+    "safari-desktop-dark /#/atmosphere: 7",
+    "safari-desktop-dark /#/blob: 39",
+    "safari-desktop-dark /#/admin/users: 4",
+    "safari-desktop-dark /#/admin/names: 4",
+    "safari-desktop-dark /#/admin/audit: 4",
+    "safari-desktop-dark /#/admin/flagged: 4",
+    "safari-desktop-dark /#/admin/tags: 4",
+    "safari-desktop-dark /#/does-not-exist: 8",
+    "safari-mobile-light /#/: 8",
+    "safari-mobile-light /#/palettes: 4",
+    "safari-mobile-light /#/browse: 4",
+    "safari-mobile-light /#/extract: 6",
+    "safari-mobile-light /#/mix: 4",
+    "safari-mobile-light /#/generate: 5",
+    "safari-mobile-light /#/gradient: 6",
+    "safari-mobile-light /#/atmosphere: 7",
+    "safari-mobile-light /#/blob: 8",
+    "safari-mobile-light /#/admin/users: 4",
+    "safari-mobile-light /#/admin/names: 4",
+    "safari-mobile-light /#/admin/audit: 4",
+    "safari-mobile-light /#/admin/flagged: 4",
+    "safari-mobile-light /#/admin/tags: 4",
+    "safari-mobile-light /#/does-not-exist: 8",
+    "safari-mobile-dark /#/: 8",
+    "safari-mobile-dark /#/palettes: 4",
+    "safari-mobile-dark /#/browse: 4",
+    "safari-mobile-dark /#/extract: 6",
+    "safari-mobile-dark /#/mix: 4",
+    "safari-mobile-dark /#/generate: 5",
+    "safari-mobile-dark /#/gradient: 6",
+    "safari-mobile-dark /#/atmosphere: 7",
+    "safari-mobile-dark /#/blob: 8",
+    "safari-mobile-dark /#/admin/users: 4",
+    "safari-mobile-dark /#/admin/names: 4",
+    "safari-mobile-dark /#/admin/audit: 4",
+    "safari-mobile-dark /#/admin/flagged: 4",
+    "safari-mobile-dark /#/admin/tags: 4",
+    "safari-mobile-dark /#/does-not-exist: 8"
+   ],
+   "namelessButtons": [
+    "safari-desktop-light /#/: 1",
+    "safari-desktop-light /#/palettes: 1",
+    "safari-desktop-light /#/extract: 3",
+    "safari-desktop-light /#/mix: 1",
+    "safari-desktop-light /#/gradient: 1",
+    "safari-desktop-light /#/blob: 1",
+    "safari-desktop-light /#/does-not-exist: 1",
+    "safari-desktop-dark /#/: 1",
+    "safari-desktop-dark /#/palettes: 1",
+    "safari-desktop-dark /#/extract: 3",
+    "safari-desktop-dark /#/mix: 1",
+    "safari-desktop-dark /#/gradient: 1",
+    "safari-desktop-dark /#/blob: 1",
+    "safari-desktop-dark /#/does-not-exist: 1",
+    "safari-mobile-light /#/extract: 3",
+    "safari-mobile-light /#/gradient: 1",
+    "safari-mobile-dark /#/extract: 3",
+    "safari-mobile-dark /#/gradient: 1"
+   ]
+  }
+ },
+ "results": [
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/",
+   "name": "picker",
+   "settleMs": 18905,
+   "probe": {
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "url": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 26,
+     "dialog": 0,
+     "allElements": 1738
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [
+     "path",
+     "math",
+     "semantics",
+     "mrow",
+     "msup",
+     "mi",
+     "mo",
+     "mo",
+     "mn",
+     "mrow",
+     "mo",
+     "mi"
+    ],
+    "bodyTextLength": 859
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/picker.png",
+   "consoleErrors": [
+    "WebGL: context lost."
+   ],
+   "consoleWarnings": [
+    "The resource http://localhost:9000/fonts/fraunces-latin-normal.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it wasn't preloaded for nothing."
+   ],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/palettes",
+   "name": "palettes",
+   "settleMs": 3139,
+   "probe": {
+    "title": "Palettes — Color Picker",
+    "url": "http://localhost:9000/#/palettes",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 25,
+     "dialog": 0,
+     "allElements": 351
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [],
+    "bodyTextLength": 237
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/palettes.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/browse",
+   "name": "browse",
+   "settleMs": 3595,
+   "probe": {
+    "title": "Browse — Color Picker",
+    "url": "http://localhost:9000/#/browse",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 247
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 280
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/browse.png",
+   "consoleErrors": [],
+   "consoleWarnings": [
+    "Failed to load remote palettes: SyntaxError: The string did not match the expected pattern."
+   ],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/extract",
+   "name": "extract",
+   "settleMs": 3568,
+   "probe": {
+    "title": "Extract — Color Picker",
+    "url": "http://localhost:9000/#/extract",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 15,
+     "dialog": 0,
+     "allElements": 293
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Number of colors"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Chroma weight"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 3
+    },
+    "bleeding": [],
+    "bodyTextLength": 299
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/extract.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/mix",
+   "name": "mix",
+   "settleMs": 4201,
+   "probe": {
+    "title": "Mix — Color Picker",
+    "url": "http://localhost:9000/#/mix",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 3,
+     "button": 30,
+     "dialog": 0,
+     "allElements": 342
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [],
+    "bodyTextLength": 186
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/mix.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/generate",
+   "name": "generate",
+   "settleMs": 3553,
+   "probe": {
+    "title": "Generate — Color Picker",
+    "url": "http://localhost:9000/#/generate",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 21,
+     "dialog": 0,
+     "allElements": 339
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Color count"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 310
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/generate.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/gradient",
+   "name": "gradient",
+   "settleMs": 3586,
+   "probe": {
+    "title": "Gradient — Color Picker",
+    "url": "http://localhost:9000/#/gradient",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 53,
+     "dialog": 0,
+     "allElements": 508
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 20,
+       "h": 20,
+       "tag": "button",
+       "label": "Gradient stop at 0%"
+      },
+      {
+       "w": 20,
+       "h": 20,
+       "tag": "button",
+       "label": "Gradient stop at 100%"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [
+     "div.strip-row",
+     "div.strip-family",
+     "span.family-eyebrow",
+     "div.family-tiles",
+     "button.glass-chip.glass-capsule",
+     "button.glass-chip.glass-capsule",
+     "svg",
+     "path",
+     "span.tile-label",
+     "button.glass-chip.glass-capsule",
+     "svg",
+     "path"
+    ],
+    "bodyTextLength": 611
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/gradient.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/atmosphere",
+   "name": "atmosphere",
+   "settleMs": 3606,
+   "probe": {
+    "title": "Atmosphere — Color Picker",
+    "url": "http://localhost:9000/#/atmosphere",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 16,
+     "dialog": 0,
+     "allElements": 243
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Colour Energy"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Zones"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 299
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/atmosphere.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/blob",
+   "name": "blob",
+   "settleMs": 3515,
+   "probe": {
+    "title": "Blob — Color Picker",
+    "url": "http://localhost:9000/#/blob",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 27,
+     "dialog": 0,
+     "allElements": 642
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Body Radius"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Satellites"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Sat Radius"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Orbit Radius"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Eccentricity"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Smooth K"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Warp"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Amp"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Freq"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Speed"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Pulse Freq"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Pulse Amp"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Hue Range"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Saturation"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Brightness"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Freq"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Speed"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Specular"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Shininess"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Rim"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Rim Power"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Iridescence"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Sub-surface"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Core Glow"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Attraction"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Strength"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Stretch"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Click Impulse"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Merge (ms)"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Emerge (ms)"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Speed"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [],
+    "bodyTextLength": 713
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/blob.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/admin/users",
+   "name": "admin-users",
+   "settleMs": 3494,
+   "probe": {
+    "title": "Users — Color Picker",
+    "url": "http://localhost:9000/#/admin/users",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 15,
+     "dialog": 0,
+     "allElements": 277
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 273
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/admin-users.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/admin/names",
+   "name": "admin-names",
+   "settleMs": 3506,
+   "probe": {
+    "title": "Names — Color Picker",
+    "url": "http://localhost:9000/#/admin/names",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 264
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 274
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/admin-names.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/admin/audit",
+   "name": "admin-audit",
+   "settleMs": 3451,
+   "probe": {
+    "title": "Audit Log — Color Picker",
+    "url": "http://localhost:9000/#/admin/audit",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 13,
+     "dialog": 0,
+     "allElements": 266
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 259
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/admin-audit.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/admin/flagged",
+   "name": "admin-flagged",
+   "settleMs": 3473,
+   "probe": {
+    "title": "Flagged — Color Picker",
+    "url": "http://localhost:9000/#/admin/flagged",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 13,
+     "dialog": 0,
+     "allElements": 261
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 256
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/admin-flagged.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/admin/tags",
+   "name": "admin-tags",
+   "settleMs": 3488,
+   "probe": {
+    "title": "Tags — Color Picker",
+    "url": "http://localhost:9000/#/admin/tags",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 269
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 244
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/admin-tags.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-light",
+   "route": "/#/does-not-exist",
+   "name": "notfound-redirect",
+   "settleMs": 3496,
+   "probe": {
+    "title": "Color Picker",
+    "url": "http://localhost:9000/#/",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 26,
+     "dialog": 0,
+     "allElements": 1741
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [
+     "path",
+     "math",
+     "semantics",
+     "mrow",
+     "msup",
+     "mi",
+     "mo",
+     "mo",
+     "mn",
+     "mrow",
+     "mo",
+     "mi"
+    ],
+    "bodyTextLength": 859
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/notfound-redirect.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/",
+   "name": "picker",
+   "settleMs": 3515,
+   "probe": {
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "url": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 26,
+     "dialog": 0,
+     "allElements": 1741
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [
+     "path",
+     "math",
+     "semantics",
+     "mrow",
+     "msup",
+     "mi",
+     "mo",
+     "mo",
+     "mn",
+     "mrow",
+     "mo",
+     "mi"
+    ],
+    "bodyTextLength": 859
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/picker.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/palettes",
+   "name": "palettes",
+   "settleMs": 3443,
+   "probe": {
+    "title": "Palettes — Color Picker",
+    "url": "http://localhost:9000/#/palettes",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 25,
+     "dialog": 0,
+     "allElements": 351
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [],
+    "bodyTextLength": 237
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/palettes.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/browse",
+   "name": "browse",
+   "settleMs": 3470,
+   "probe": {
+    "title": "Browse — Color Picker",
+    "url": "http://localhost:9000/#/browse",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 247
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 280
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/browse.png",
+   "consoleErrors": [],
+   "consoleWarnings": [
+    "Failed to load remote palettes: SyntaxError: The string did not match the expected pattern."
+   ],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/extract",
+   "name": "extract",
+   "settleMs": 3450,
+   "probe": {
+    "title": "Extract — Color Picker",
+    "url": "http://localhost:9000/#/extract",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 15,
+     "dialog": 0,
+     "allElements": 293
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Number of colors"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Chroma weight"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 3
+    },
+    "bleeding": [],
+    "bodyTextLength": 299
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/extract.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/mix",
+   "name": "mix",
+   "settleMs": 3491,
+   "probe": {
+    "title": "Mix — Color Picker",
+    "url": "http://localhost:9000/#/mix",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 3,
+     "button": 30,
+     "dialog": 0,
+     "allElements": 342
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [],
+    "bodyTextLength": 186
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/mix.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/generate",
+   "name": "generate",
+   "settleMs": 3498,
+   "probe": {
+    "title": "Generate — Color Picker",
+    "url": "http://localhost:9000/#/generate",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 21,
+     "dialog": 0,
+     "allElements": 339
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Color count"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 310
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/generate.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/gradient",
+   "name": "gradient",
+   "settleMs": 3498,
+   "probe": {
+    "title": "Gradient — Color Picker",
+    "url": "http://localhost:9000/#/gradient",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 53,
+     "dialog": 0,
+     "allElements": 508
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 20,
+       "h": 20,
+       "tag": "button",
+       "label": "Gradient stop at 0%"
+      },
+      {
+       "w": 20,
+       "h": 20,
+       "tag": "button",
+       "label": "Gradient stop at 100%"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [
+     "div.strip-row",
+     "div.strip-family",
+     "span.family-eyebrow",
+     "div.family-tiles",
+     "button.glass-chip.glass-capsule",
+     "button.glass-chip.glass-capsule",
+     "svg",
+     "path",
+     "span.tile-label",
+     "button.glass-chip.glass-capsule",
+     "svg",
+     "path"
+    ],
+    "bodyTextLength": 611
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/gradient.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/atmosphere",
+   "name": "atmosphere",
+   "settleMs": 3438,
+   "probe": {
+    "title": "Atmosphere — Color Picker",
+    "url": "http://localhost:9000/#/atmosphere",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 16,
+     "dialog": 0,
+     "allElements": 243
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Colour Energy"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Zones"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 299
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/atmosphere.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/blob",
+   "name": "blob",
+   "settleMs": 3435,
+   "probe": {
+    "title": "Blob — Color Picker",
+    "url": "http://localhost:9000/#/blob",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 27,
+     "dialog": 0,
+     "allElements": 642
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Body Radius"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Satellites"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Sat Radius"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Orbit Radius"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Eccentricity"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Smooth K"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Warp"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Amp"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Freq"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Speed"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Pulse Freq"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Pulse Amp"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Hue Range"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Saturation"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Brightness"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Freq"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Noise Speed"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Specular"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Shininess"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Rim"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Rim Power"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Iridescence"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Sub-surface"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Core Glow"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Attraction"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Strength"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Stretch"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Click Impulse"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Merge (ms)"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Emerge (ms)"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "Speed"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [],
+    "bodyTextLength": 713
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/blob.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/admin/users",
+   "name": "admin-users",
+   "settleMs": 3454,
+   "probe": {
+    "title": "Users — Color Picker",
+    "url": "http://localhost:9000/#/admin/users",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 15,
+     "dialog": 0,
+     "allElements": 277
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 273
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/admin-users.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/admin/names",
+   "name": "admin-names",
+   "settleMs": 3427,
+   "probe": {
+    "title": "Names — Color Picker",
+    "url": "http://localhost:9000/#/admin/names",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 264
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 274
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/admin-names.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/admin/audit",
+   "name": "admin-audit",
+   "settleMs": 3452,
+   "probe": {
+    "title": "Audit Log — Color Picker",
+    "url": "http://localhost:9000/#/admin/audit",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 13,
+     "dialog": 0,
+     "allElements": 266
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 259
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/admin-audit.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/admin/flagged",
+   "name": "admin-flagged",
+   "settleMs": 3454,
+   "probe": {
+    "title": "Flagged — Color Picker",
+    "url": "http://localhost:9000/#/admin/flagged",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 13,
+     "dialog": 0,
+     "allElements": 261
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 256
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/admin-flagged.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/admin/tags",
+   "name": "admin-tags",
+   "settleMs": 3485,
+   "probe": {
+    "title": "Tags — Color Picker",
+    "url": "http://localhost:9000/#/admin/tags",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 269
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 244
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/admin-tags.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-desktop-dark",
+   "route": "/#/does-not-exist",
+   "name": "notfound-redirect",
+   "settleMs": 3499,
+   "probe": {
+    "title": "Color Picker",
+    "url": "http://localhost:9000/#/",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 26,
+     "dialog": 0,
+     "allElements": 1741
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 23,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 22,
+       "h": 22,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 24,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [
+     "path",
+     "math",
+     "semantics",
+     "mrow",
+     "msup",
+     "mi",
+     "mo",
+     "mo",
+     "mn",
+     "mrow",
+     "mo",
+     "mi"
+    ],
+    "bodyTextLength": 859
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/notfound-redirect.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/",
+   "name": "picker",
+   "settleMs": 3317,
+   "probe": {
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "url": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 17,
+     "dialog": 0,
+     "allElements": 228
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [
+     "canvas.goo-blob-canvas"
+    ],
+    "bodyTextLength": 70
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/picker.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/palettes",
+   "name": "palettes",
+   "settleMs": 3365,
+   "probe": {
+    "title": "Palettes — Color Picker",
+    "url": "http://localhost:9000/#/palettes",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 12,
+     "dialog": 0,
+     "allElements": 216
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 169
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/palettes.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/browse",
+   "name": "browse",
+   "settleMs": 3457,
+   "probe": {
+    "title": "Browse — Color Picker",
+    "url": "http://localhost:9000/#/browse",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 187
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 124
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/browse.png",
+   "consoleErrors": [],
+   "consoleWarnings": [
+    "Failed to load remote palettes: SyntaxError: The string did not match the expected pattern."
+   ],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/extract",
+   "name": "extract",
+   "settleMs": 3422,
+   "probe": {
+    "title": "Extract — Color Picker",
+    "url": "http://localhost:9000/#/extract",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 15,
+     "dialog": 0,
+     "allElements": 233
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Number of colors"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Chroma weight"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 3
+    },
+    "bleeding": [],
+    "bodyTextLength": 142
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/extract.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/mix",
+   "name": "mix",
+   "settleMs": 3413,
+   "probe": {
+    "title": "Mix — Color Picker",
+    "url": "http://localhost:9000/#/mix",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 21,
+     "dialog": 0,
+     "allElements": 230
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 118
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/mix.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/generate",
+   "name": "generate",
+   "settleMs": 3417,
+   "probe": {
+    "title": "Generate — Color Picker",
+    "url": "http://localhost:9000/#/generate",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 21,
+     "dialog": 0,
+     "allElements": 279
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Color count"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 148
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/generate.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/gradient",
+   "name": "gradient",
+   "settleMs": 3377,
+   "probe": {
+    "title": "Gradient — Color Picker",
+    "url": "http://localhost:9000/#/gradient",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 53,
+     "dialog": 0,
+     "allElements": 440
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 20,
+       "h": 20,
+       "tag": "button",
+       "label": "Gradient stop at 0%"
+      },
+      {
+       "w": 20,
+       "h": 20,
+       "tag": "button",
+       "label": "Gradient stop at 100%"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [
+     "div.strip-row",
+     "div.strip-family",
+     "span.family-eyebrow",
+     "div.family-tiles",
+     "button.glass-chip.glass-capsule",
+     "svg",
+     "path",
+     "span.tile-label",
+     "button.glass-chip.glass-capsule",
+     "svg",
+     "path",
+     "span.tile-label"
+    ],
+    "bodyTextLength": 449
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/gradient.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/atmosphere",
+   "name": "atmosphere",
+   "settleMs": 3357,
+   "probe": {
+    "title": "Atmosphere — Color Picker",
+    "url": "http://localhost:9000/#/atmosphere",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 16,
+     "dialog": 0,
+     "allElements": 237
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Colour Energy"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Noise"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Zones"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [
+     "button.dock-icon-button.glass-specular-track",
+     "svg",
+     "path",
+     "path",
+     "path",
+     "button.dock-icon-button.glass-specular-track",
+     "svg",
+     "path",
+     "path"
+    ],
+    "bodyTextLength": 286
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/atmosphere.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/blob",
+   "name": "blob",
+   "settleMs": 3308,
+   "probe": {
+    "title": "Blob — Color Picker",
+    "url": "http://localhost:9000/#/blob",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 17,
+     "dialog": 0,
+     "allElements": 228
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [
+     "canvas.goo-blob-canvas"
+    ],
+    "bodyTextLength": 69
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/blob.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/admin/users",
+   "name": "admin-users",
+   "settleMs": 3352,
+   "probe": {
+    "title": "Users — Color Picker",
+    "url": "http://localhost:9000/#/admin/users",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 15,
+     "dialog": 0,
+     "allElements": 217
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 122
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/admin-users.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/admin/names",
+   "name": "admin-names",
+   "settleMs": 3353,
+   "probe": {
+    "title": "Names — Color Picker",
+    "url": "http://localhost:9000/#/admin/names",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 204
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 123
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/admin-names.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/admin/audit",
+   "name": "admin-audit",
+   "settleMs": 3371,
+   "probe": {
+    "title": "Audit Log — Color Picker",
+    "url": "http://localhost:9000/#/admin/audit",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 13,
+     "dialog": 0,
+     "allElements": 206
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 108
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/admin-audit.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/admin/flagged",
+   "name": "admin-flagged",
+   "settleMs": 3364,
+   "probe": {
+    "title": "Flagged — Color Picker",
+    "url": "http://localhost:9000/#/admin/flagged",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 13,
+     "dialog": 0,
+     "allElements": 201
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 107
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/admin-flagged.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/admin/tags",
+   "name": "admin-tags",
+   "settleMs": 3364,
+   "probe": {
+    "title": "Tags — Color Picker",
+    "url": "http://localhost:9000/#/admin/tags",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 209
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 92
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/admin-tags.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-light",
+   "route": "/#/does-not-exist",
+   "name": "notfound-redirect",
+   "settleMs": 3307,
+   "probe": {
+    "title": "Color Picker",
+    "url": "http://localhost:9000/#/",
+    "overflowX": 0,
+    "hasDarkClass": false,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 17,
+     "dialog": 0,
+     "allElements": 228
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [
+     "canvas.goo-blob-canvas"
+    ],
+    "bodyTextLength": 70
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/notfound-redirect.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/",
+   "name": "picker",
+   "settleMs": 3287,
+   "probe": {
+    "title": "lab(92% 88.8 20 / 82.7%) — Color Picker",
+    "url": "http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 17,
+     "dialog": 0,
+     "allElements": 228
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [
+     "canvas.goo-blob-canvas"
+    ],
+    "bodyTextLength": 70
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/picker.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/palettes",
+   "name": "palettes",
+   "settleMs": 3353,
+   "probe": {
+    "title": "Palettes — Color Picker",
+    "url": "http://localhost:9000/#/palettes",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 12,
+     "dialog": 0,
+     "allElements": 216
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 169
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/palettes.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/browse",
+   "name": "browse",
+   "settleMs": 3414,
+   "probe": {
+    "title": "Browse — Color Picker",
+    "url": "http://localhost:9000/#/browse",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 187
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 124
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/browse.png",
+   "consoleErrors": [],
+   "consoleWarnings": [
+    "Failed to load remote palettes: SyntaxError: The string did not match the expected pattern."
+   ],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/extract",
+   "name": "extract",
+   "settleMs": 3355,
+   "probe": {
+    "title": "Extract — Color Picker",
+    "url": "http://localhost:9000/#/extract",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 15,
+     "dialog": 0,
+     "allElements": 233
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Number of colors"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Chroma weight"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 3
+    },
+    "bleeding": [],
+    "bodyTextLength": 142
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/extract.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/mix",
+   "name": "mix",
+   "settleMs": 3361,
+   "probe": {
+    "title": "Mix — Color Picker",
+    "url": "http://localhost:9000/#/mix",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 21,
+     "dialog": 0,
+     "allElements": 230
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 118
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/mix.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/generate",
+   "name": "generate",
+   "settleMs": 3423,
+   "probe": {
+    "title": "Generate — Color Picker",
+    "url": "http://localhost:9000/#/generate",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 21,
+     "dialog": 0,
+     "allElements": 279
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Color count"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 148
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/generate.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/gradient",
+   "name": "gradient",
+   "settleMs": 3397,
+   "probe": {
+    "title": "Gradient — Color Picker",
+    "url": "http://localhost:9000/#/gradient",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 53,
+     "dialog": 0,
+     "allElements": 440
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 20,
+       "h": 20,
+       "tag": "button",
+       "label": "Gradient stop at 0%"
+      },
+      {
+       "w": 20,
+       "h": 20,
+       "tag": "button",
+       "label": "Gradient stop at 100%"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 1
+    },
+    "bleeding": [
+     "div.strip-row",
+     "div.strip-family",
+     "span.family-eyebrow",
+     "div.family-tiles",
+     "button.glass-chip.glass-capsule",
+     "svg",
+     "path",
+     "span.tile-label",
+     "button.glass-chip.glass-capsule",
+     "svg",
+     "path",
+     "span.tile-label"
+    ],
+    "bodyTextLength": 449
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/gradient.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/atmosphere",
+   "name": "atmosphere",
+   "settleMs": 3392,
+   "probe": {
+    "title": "Atmosphere — Color Picker",
+    "url": "http://localhost:9000/#/atmosphere",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 16,
+     "dialog": 0,
+     "allElements": 237
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Colour Energy"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Noise"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "Zones"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [
+     "button.dock-icon-button.glass-specular-track",
+     "svg",
+     "path",
+     "path",
+     "path",
+     "button.dock-icon-button.glass-specular-track",
+     "svg",
+     "path",
+     "path"
+    ],
+    "bodyTextLength": 286
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/atmosphere.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/blob",
+   "name": "blob",
+   "settleMs": 3277,
+   "probe": {
+    "title": "Blob — Color Picker",
+    "url": "http://localhost:9000/#/blob",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 17,
+     "dialog": 0,
+     "allElements": 228
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [
+     "canvas.goo-blob-canvas"
+    ],
+    "bodyTextLength": 69
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/blob.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/admin/users",
+   "name": "admin-users",
+   "settleMs": 3333,
+   "probe": {
+    "title": "Users — Color Picker",
+    "url": "http://localhost:9000/#/admin/users",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 15,
+     "dialog": 0,
+     "allElements": 217
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 122
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/admin-users.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/admin/names",
+   "name": "admin-names",
+   "settleMs": 3372,
+   "probe": {
+    "title": "Names — Color Picker",
+    "url": "http://localhost:9000/#/admin/names",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 204
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 123
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/admin-names.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/admin/audit",
+   "name": "admin-audit",
+   "settleMs": 3376,
+   "probe": {
+    "title": "Audit Log — Color Picker",
+    "url": "http://localhost:9000/#/admin/audit",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 13,
+     "dialog": 0,
+     "allElements": 206
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 108
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/admin-audit.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/admin/flagged",
+   "name": "admin-flagged",
+   "settleMs": 3339,
+   "probe": {
+    "title": "Flagged — Color Picker",
+    "url": "http://localhost:9000/#/admin/flagged",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 13,
+     "dialog": 0,
+     "allElements": 201
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 107
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/admin-flagged.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/admin/tags",
+   "name": "admin-tags",
+   "settleMs": 3351,
+   "probe": {
+    "title": "Tags — Color Picker",
+    "url": "http://localhost:9000/#/admin/tags",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 1,
+     "button": 14,
+     "dialog": 0,
+     "allElements": 209
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [],
+    "bodyTextLength": 92
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/admin-tags.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  },
+  {
+   "matrix": "safari-mobile-dark",
+   "route": "/#/does-not-exist",
+   "name": "notfound-redirect",
+   "settleMs": 3353,
+   "probe": {
+    "title": "Color Picker",
+    "url": "http://localhost:9000/#/",
+    "overflowX": 0,
+    "hasDarkClass": true,
+    "counts": {
+     "main": 1,
+     "h1": 0,
+     "nav": 1,
+     "canvas": 2,
+     "button": 17,
+     "dialog": 0,
+     "allElements": 228
+    },
+    "a11y": {
+     "smallTapTargets": [
+      {
+       "w": 160,
+       "h": 20,
+       "tag": "input",
+       "label": ""
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Switch to slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Generate new slug"
+      },
+      {
+       "w": 23,
+       "h": 23,
+       "tag": "button",
+       "label": "Cancel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "L channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "A channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "B channel"
+      },
+      {
+       "w": 12,
+       "h": 44,
+       "tag": "span",
+       "label": "ALPHA channel"
+      }
+     ],
+     "imgNoAlt": 0,
+     "namelessButtons": 0
+    },
+    "bleeding": [
+     "canvas.goo-blob-canvas"
+    ],
+    "bodyTextLength": 70
+   },
+   "shot": "docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-dark/notfound-redirect.png",
+   "consoleErrors": [],
+   "consoleWarnings": [],
+   "pageErrors": [],
+   "failedRequests": []
+  }
+ ]
+}

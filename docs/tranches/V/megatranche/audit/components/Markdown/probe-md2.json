@@ -1,0 +1,290 @@
+{
+  "measure": [
+    {
+      "viewportWidth": 1440
+    },
+    {
+      "viewportWidth": 1920
+    },
+    {
+      "viewportWidth": 2560
+    }
+  ],
+  "light": {
+    "codeSplit": {
+      "total": 14,
+      "groups": {
+        "LI>code": {
+          "n": 6,
+          "color": "oklch(0.470927 0.188343 9.834023)",
+          "paddingLeft": "4px",
+          "paddingTop": "2px",
+          "fontSize": "12px",
+          "bg": "oklab(0.913299 0.005463 0.013024)"
+        },
+        "STRONG>code": {
+          "n": 3,
+          "color": "rgb(28, 25, 23)",
+          "paddingLeft": "0px",
+          "paddingTop": "0px",
+          "fontSize": "12px",
+          "bg": "oklab(0.913299 0.005463 0.013024)"
+        },
+        "P>code": {
+          "n": 5,
+          "color": "oklch(0.470927 0.188343 9.834023)",
+          "paddingLeft": "4px",
+          "paddingTop": "2px",
+          "fontSize": "12px",
+          "bg": "oklab(0.913299 0.005463 0.013024)"
+        }
+      }
+    },
+    "inkDeltas": {
+      "h2Rgb": [
+        0.470927,
+        0.188343,
+        9.834023
+      ],
+      "h3Rgb": [
+        0.373594,
+        0.116019,
+        0.021859
+      ],
+      "pRgb": [
+        28,
+        25,
+        23
+      ],
+      "plateRgb": [
+        0.928273,
+        0.005506,
+        0.013193
+      ],
+      "h2_vs_p_rgbDist": 39.3,
+      "h2_vs_h3_rgbDist": 9.8,
+      "h2_contrast_on_plate": 1,
+      "p_contrast_on_plate": 1.2,
+      "h2_contrast_vs_p": 1.19
+    },
+    "collision": {
+      "headerFound": true,
+      "headerPosition": "sticky",
+      "headerZ": "35",
+      "headerBg": "rgba(0, 0, 0, 0)",
+      "veilBg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+      "veilOpacity": "1",
+      "headerRect": {
+        "top": 104,
+        "height": 136.6
+      },
+      "overlappingCount": 2,
+      "overlapping": [
+        {
+          "tag": "P",
+          "text": "Standardized by the CIE in 1976, Lab was desig",
+          "overlapPx": 3.1,
+          "opacity": "1"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "overlapPx": 36,
+          "opacity": "1"
+        }
+      ]
+    }
+  },
+  "dark": {
+    "codeSplit": {
+      "total": 14,
+      "groups": {
+        "LI>code": {
+          "n": 6,
+          "color": "oklch(0.958322 0.021053 9.834023)",
+          "paddingLeft": "4px",
+          "paddingTop": "2px",
+          "fontSize": "12px",
+          "bg": "oklab(0.345296 0.010372 0.017546)"
+        },
+        "STRONG>code": {
+          "n": 3,
+          "color": "rgb(233, 230, 226)",
+          "paddingLeft": "0px",
+          "paddingTop": "0px",
+          "fontSize": "12px",
+          "bg": "oklab(0.345296 0.010372 0.017546)"
+        },
+        "P>code": {
+          "n": 5,
+          "color": "oklch(0.958322 0.021053 9.834023)",
+          "paddingLeft": "4px",
+          "paddingTop": "2px",
+          "fontSize": "12px",
+          "bg": "oklab(0.345296 0.010372 0.017546)"
+        }
+      }
+    },
+    "inkDeltas": {
+      "h2Rgb": [
+        0.958322,
+        0.021053,
+        9.834023
+      ],
+      "h3Rgb": [
+        0.94567,
+        0.013714,
+        0.004409
+      ],
+      "pRgb": [
+        233,
+        230,
+        226
+      ],
+      "plateRgb": [
+        0.395241,
+        0.00968,
+        0.016528
+      ],
+      "h2_vs_p_rgbDist": 391.7,
+      "h2_vs_h3_rgbDist": 9.8,
+      "h2_contrast_on_plate": 1.01,
+      "p_contrast_on_plate": 16.87,
+      "h2_contrast_vs_p": 16.79
+    },
+    "collision": {
+      "headerFound": true,
+      "headerPosition": "sticky",
+      "headerZ": "35",
+      "headerBg": "rgba(0, 0, 0, 0)",
+      "veilBg": "color(srgb 0.2074 0.165013 0.1326 / 0.72)",
+      "veilOpacity": "1",
+      "headerRect": {
+        "top": 104,
+        "height": 136.6
+      },
+      "overlappingCount": 2,
+      "overlapping": [
+        {
+          "tag": "P",
+          "text": "Standardized by the CIE in 1976, Lab was desig",
+          "overlapPx": 3.1,
+          "opacity": "1"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "overlapPx": 36,
+          "opacity": "1"
+        }
+      ]
+    }
+  },
+  "mobile": {
+    "markdownFound": false,
+    "controls": [
+      {
+        "tag": "BUTTON",
+        "label": "Save edit"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Cancel edit"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Switch to slug"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Generate new slug"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Cancel"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Select view"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Toggle action bar"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Picker"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "About"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Menu"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Login"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "@mbabb"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "Select color space"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "l channel"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "a channel"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "b channel"
+      },
+      {
+        "tag": "BUTTON",
+        "label": "alpha channel"
+      }
+    ],
+    "measure": null
+  },
+  "forced": {
+    "found": true,
+    "h2": {
+      "color": "oklch(0.519287 0.207684 9.834023)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "transitionDuration": "0.1s"
+    },
+    "h3": {
+      "color": "oklab(0.40348 0.127796 0.023901)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "transitionDuration": "0.1s"
+    },
+    "p": {
+      "color": "rgb(28, 25, 23)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "transitionDuration": "0.1s"
+    },
+    "code": {
+      "color": "oklch(0.519287 0.207684 9.834023)",
+      "bg": "oklab(0.913299 0.005463 0.013024)",
+      "transitionDuration": "0.1s"
+    },
+    "mark": {
+      "color": "oklch(0.519287 0.207684 9.834023)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "transitionDuration": "0.1s"
+    },
+    "hr": {
+      "color": "rgb(28, 25, 23)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "transitionDuration": "0.1s"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "disposition": "BOOTSTRAP ONLY · A85 REPLACEMENT HANDED TO KEYFRAMES · PRIOR CANDIDATES HELD/DEFECTIVE",
+  "package": "@mkbabb/value.js",
+  "version": "4.0.0",
+  "claimed": false,
+  "published": false,
+  "historicalHeldTarball": {
+    "path": "/private/tmp/value-v4-bootstrap-20260716-selector-emerging/mkbabb-value.js-4.0.0.tgz",
+    "bytes": 36378,
+    "sha256": "3154ecc13e67a6ddb3de36a394167f642ad0d76d033d4b434fe4d9220a4475f2",
+    "sha512": "4ca28ba9b56d9315e5b8902ff9a88d54b38aa8aca928856f8c119c689f46a9f89e5e17f9332f33bf7e946afea06b91cf560b0ea9a18b00a8cb21434d6b50d0d0",
+    "integrity": "sha512-TKKLqbVtkxXluJAv+aiNVLOKqKypKIVvjBGcaJ9GqfieXhf5My8zv36Uav6ga5HPVgsOqaGLAKjLIUNNa1DQ0A=="
+  },
+  "historicalHeldSource": {
+    "head": "86a9a178cd7a6f2b573216966964c33513494f05",
+    "prePackSyntheticTree": "0681a6a98b1ddb3c72b8dcb405966920fae41aef"
+  },
+  "exports": {
+    "entries": ["./color", "./css", "./easing", "./math", "./quantize", "./transform", "./value"],
+    "root": false,
+    "css": {"runtime": 19, "types": 33},
+    "easing": {"runtime": 16, "types": 5}
+  },
+  "historicalHeldVerification": {
+    "focused": "46/46",
+    "aggregate": "2320/2320",
+    "types": "green",
+    "lint": "green",
+    "build": "green"
+  },
+  "supersededHeldTarball": "/private/tmp/value-v4-bootstrap-20260716/mkbabb-value.js-4.0.0.tgz",
+  "releaseCoordinates": null,
+  "rehearsalDefects": [
+    "parseStylesheet rejects leading and inter-rule CSS block comments",
+    "declaration parsing rejects zero-argument animation-timeline: view()"
+  ],
+  "subsequentHeldCandidate": {
+    "bytes": 36447,
+    "path": null,
+    "hashes": null,
+    "sourceIdentity": null,
+    "disposition": "HELD/DEFECTIVE FOR REHEARSAL",
+    "verifiedEvidence": "Keyframes comments/timeline direct fixture 21/21 green",
+    "defect": "collectAnimationOptions ignores structural animation shorthand and cannot faithfully represent comma-separated animations"
+  },
+  "replacement": {
+    "disposition": "BOOTSTRAP ONLY · UNCLAIMED · UNPUBLISHED · HANDED TO KEYFRAMES",
+    "tarball": {
+      "path": "/private/tmp/value-v4-bootstrap-20260716-a85-shorthand/mkbabb-value.js-4.0.0.tgz",
+      "bytes": 38126,
+      "sha256": "497af55c763099f8d71b2734981350a8c65cc753b34cdf6e7dda85222810b03d",
+      "sha512": "32887bd899461a326510a585c9ebe12b4707a0b5494b45f2cde480d15ad12c989f286420489945229cd18becf3a599e1989e73ce086115d2d3c133932d8dcd21",
+      "integrity": "sha512-Moh72JlGGjJlEKWFyevhK0cHoLVJS0XyzeSA0VrRLJifKGQgSJlFIpzRi+zzpZnhmJ5zzghhFdLTwTOTLY3NIQ==",
+      "shasum": "f9bab172a0582669f61edbaaea13545a84d074c8"
+    },
+    "source": {
+      "head": "86a9a178cd7a6f2b573216966964c33513494f05",
+      "prePackSyntheticTree": "5425e315a9fce9d348dbb1f5eb18edc654c8109f"
+    },
+    "exports": {
+      "entries": ["./color", "./css", "./easing", "./math", "./quantize", "./transform", "./value"],
+      "root": false,
+      "css": {"runtime": 19, "types": 33},
+      "easing": {"runtime": 16, "types": 5}
+    },
+    "verification": {
+      "focused": "58/58",
+      "aggregate": "2332/2332",
+      "types": "green",
+      "lint": "green",
+      "build": "green",
+      "pack": "green",
+      "runtime": "green"
+    },
+    "commit": null,
+    "tag": null,
+    "published": false,
+    "releaseCoordinates": null,
+    "keyframesConsumerVerification": {
+      "installedWithoutLockMutation": true,
+      "independentRehash": "exact",
+      "runtime": "exact seven/no-root; /css 19 runtime; /easing 16 runtime; frozen multi-row shorthand output",
+      "deleted": ["firstAnimation", "collectShorthandOptions", "collectStyleAnimationOptions"],
+      "singularConsumption": "collectAnimationOptions(...).at(0) ?? {}",
+      "focused": "49/49",
+      "sourceTypes": "green",
+      "localClassifierParserFallbackAlias": false,
+      "rehearsal": false,
+      "commit": null,
+      "tag": null,
+      "published": false
+    }
+  }
+}

@@ -1,0 +1,1166 @@
+{
+ "runId": "wf_66b1fcba-daa",
+ "workflow": "area-core",
+ "resultCount": 6,
+ "results": [
+  {
+   "agentId": "a8aa2bb4c1975e7b1",
+   "key": "v2:86bc10bff7cc80a2910e919a02a8b3088a60fcf33c487e7b5882f17061596ab8",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) under demo/color-picker/App.vue",
+    "modelObserved": "Opus 5 (claude-opus-5[1m]) — matches the explicit spawn declaration; no undeclared/inherited seat defect.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/App/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1 — There is no entry module. `find demo -name \"main.ts\"` returns nothing; the application entry is the eight-line inline `<script type=\"module\">` at demo/color-picker/index.html:205-213. Because an HTML file cannot express a composition root, App.vue IS the composition root by default, and it therefore carries five unwritten boot assumptions: (a) `app.use(router)` ran before mount (App.vue:274 → useViewManager.ts:36-41 hard-requires it; nothing declares it); (b) the pre-module fouc-guard already stamped the scheme + four `--saved-bg-n` props (index.html:159-201), agreement maintained by a hand-mirrored predicate that ground.ts:40-46 records having drifted once already; (c) the mount container is `<body>` (measured: `document.querySelector('#app') === document.body` → true); (d) App.vue is the CSS document root (four sheet imports at :199-210, one of which is the whole barrel); (e) two app-level installs — `useGlobalDark()` :214 and `provideApiClient()` :219 — run in a component setup, with correctness resting on App's setup preceding Dock's, a contract written only in the comment at :212-213. MT-F012's blank production deploy is the visible symptom of this missing file; the four structural assumptions are the invisible ones. A twelve-line `main.ts` makes (a), (d), (e) disappear, makes (c) expressible, and reduces (b) to its irreducible pre-module core.",
+    "negativeProof": "N/A for the overall verdict (DEFECTIVE), but two axes the premise named are provably SOUND and are recorded in the report so a later wave does not re-litigate them. N-1 — the demo consumes the PUBLISHED library correctly: `grep -rn \"@mkbabb/value.js\" demo/ | wc -l` → 39, all through published subpaths (/color /css /easing /math /quantize, all present in package.json#exports); `grep -rn '\\.\\./\\.\\./src\\|\"@src' demo/ --include='*.ts' --include='*.vue'` → no output. The self-alias set is GENERATED from the exports map with anchored per-subpath regexes (vite.config.ts:39-50), so a demo import absent from `exports` fails to resolve rather than silently working — the demo structurally cannot write an import a real consumer could not. The one surviving `@src` alias is scoped by vite.config.ts:70-74 to `assets/docs/*.md` source-snippet embedding. App.vue itself imports the library not at all, which is correct for a shell. N-2 — the named three-parallel-`useDark` suspect is CURED: all nine dark consumers in demo/ use `useGlobalDark` from `@mkbabb/glass-ui/dark` (App.vue:190, useContrastSafeColor.ts:9, HeroBlob.vue:39, ConsoleRail.vue:92, useMarkdownColors.ts:1, ProfileSection.vue:8, MobileMenuDropdown.vue:6); zero vueuse `useDark`, zero local stores. N-3 — the visual audit finds nothing this component owns: 60 captures, `blankOrNearBlank 0`, `pageErrors 0`, `horizontalOverflow 0`, `darkClassMissing 0`, `mainCountNotOne 0` — App.vue's `<main>` (:47) and `<nav>` (:24) landmarks are correct on every route in every matrix, confirmed live (`mainCount: 1, navCount: 1`).",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "No entry module exists; App.vue is the composition root by default and silently carries the whole boot contract (router-plugin dependency, fouc-guard lockstep, body mount, CSS document root, two app-level installs in a component setup).",
+      "severity": "BLOCKER",
+      "evidence": "`find demo -name \"main.ts\" -o -name \"main.js\"` → (no output). Entry = demo/color-picker/index.html:205-213 (inline `<script type=\"module\">`). Assumption (a): App.vue:274 `useViewManager()` → demo/shell/useViewManager.ts:36-37 `useRouter()`/`useRoute()` then :41 `router.isReady()`. (b): index.html:159-201 fouc-guard; ground.ts:40-46 \"LOCKSTEP CLAUSE 2\" records the predicate having drifted (dropped 'auto' arm). (d): App.vue:199-210 four CSS imports; demo/styles/foundation.css:1,2,56,57,76,81,85 is itself the barrel. (e): App.vue:214 `useGlobalDark()`, :219 `provideApiClient()`, rationale at :212-213 = a mount-order contract in a comment. Build-side proof already measured in MT-F012.1: 698-byte application-free entry chunk, content hash `Dezn_h7o` byte-identical to a stock-Vite inline-entry repro.",
+      "mechanism": "missing composition root — boot logic migrates into the root component because HTML cannot express one",
+      "reproduction": "docs/tranches/V/megatranche/audit/probes/vite-entry-repro/ for the build half. Structural half: remove `app.use(router)` from index.html:211 → TypeError at useViewManager.ts:41, a dependency App.vue never declares.",
+      "proposedCure": "Create demo/color-picker/main.ts holding createApp + `app.use(router)` + `app.provide(API_CLIENT_KEY, createApiClient())` + `initGlobalDark()` + `import \"../styles/foundation.css\"`, referenced as `<script type=\"module\" src=\"./main.ts\">`. Assumptions (a), (d), (e) become explicit compiler-checked lines; (c) becomes expressible; (b) reduces to the irreducible pre-module guard. App.vue drops both installs and all four CSS imports and becomes pure layout. Also fixes MT-F012 as a side effect — this is the form Vite documents."
+     },
+     {
+      "id": "L-2",
+      "defect": "`<body>` is simultaneously the Vue mount container and the teleport/portal host — two roles collapsed onto one element, so the app root and every portal escape hatch are siblings with no intervening app container.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-picker/index.html:214 → `<body class=\"relative\" id=\"app\" data-paper-field></body>`. Live probe at http://localhost:9000/#/ returned `{\"appIsBody\": true, \"appTagName\": \"BODY\", \"appLayoutParent\": \"BODY#app\", \"bodyChildCount\": 5, \"bodyChildren\": [\"DIV\",\"DIV.app-layout\",\"SPAN\",\"DIV\",\"DIV\"]}` — `.app-layout` is one of five body children; the other four are teleported overlay hosts. `app.mount()` clears `container.innerHTML`, so the mount also owns body's initial children.",
+      "mechanism": "role collapse on one DOM node — mount container conflated with portal host",
+      "reproduction": "Playwright evaluate on the live dev server: `document.querySelector('#app') === document.body` → true.",
+      "proposedCure": "Keep `data-paper-field` on `<body>` (it correctly must dominate the body-portaled dialogs — index.html:203-213 documents this) and give Vue its own container: `<body data-paper-field><div id=\"app\" class=\"relative\"></div></body>`, with `#app { position: relative; min-height: 100dvh }` in demo/styles/shell.css (the sheet that already owns `.app-layout` at :19). Only expressible once L-1's main.ts exists, because today the mount call lives inside the HTML that declares the body."
+     },
+     {
+      "id": "L-3",
+      "defect": "`vite.config.ts` imports an application feature composable four levels deep; `ground.ts` carries two disjoint lifetimes (browser runtime contract + node build-time HTML transform) in one module, so a build-only function ships to the browser and the build depends on app internals.",
+      "severity": "MAJOR",
+      "evidence": "vite.config.ts:15 → `import { injectGroundTokens } from \"./demo/color-picker/composables/boot/ground\";`. ground.ts (146 lines) splits as: runtime = GROUND_STORE_KEY/GROUND_RECORD_VERSION/GROUND_STOP_COUNT/FIRST_VISIT_GROUND/normalizeGroundStops/buildGroundRecord (consumer boot/useAtmosphere.ts); build-only = injectGroundTokens :131-146 (sole consumer vite.config.ts:150-155). Live resource probe on /#/ lists `composables/boot/ground.ts` in the browser's eager module set — a node-only string-replace function in the runtime graph. `ls plugins/` → vite-defer-glass-fonts.ts, vite-source-export.ts (the correct home already exists; no new directory needed).",
+      "mechanism": "two execution lifetimes in one module → inverted build→app-internals dependency",
+      "reproduction": "vite.config.ts:15 pulls a demo/ app module into the node build graph; the live `performance.getEntriesByType('resource')` probe shows the reverse edge shipping ground.ts (with injectGroundTokens) to the browser.",
+      "proposedCure": "Split by lifetime, not feature: demo/shell/boot/ground.contract.ts (constants + buildGroundRecord + normalizeGroundStops, browser only) and plugins/vite-ground-tokens.ts (a `Plugin` exporting `groundRecordInject()`, node only, importing the contract). vite.config.ts then imports from plugins/ like its two siblings and the edge reverses to build → contract, which is legal."
+     },
+     {
+      "id": "L-4",
+      "defect": "The 14-view route table is duplicated between router/index.ts and viewSchema.ts with no compile-time link; viewSchema.ts's own header states the duplicate was retired (it was not); a masking fallback silently converts drift into a wrong render; and `meta:{admin:true}` is a third, dead encoding of the admin predicate.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-picker/router/index.ts:21-38 = 14 bare string literals. demo/shell/viewSchema.ts:35-49 (`ViewId`) + :104-233 (`VIEW_MAP`) = the same 14. viewSchema.ts:7-11 claims the `router/index.ts` copy was retired at D.W3 Lane D; `grep -n \"viewSchema\\|ViewId\" demo/color-picker/router/index.ts` → (no output) — it was not. Masking fallback: demo/shell/useViewManager.ts:43-46 `return isViewId(name) ? name : \"picker\"`. Dead third encoding: router/index.ts:31-35 carries `meta:{admin:true}`; `grep -rn \"meta\\.admin\\|meta\\?\\.admin\" demo/` → (no output). The live admin predicate is the string prefix at usePaletteWiring.ts:168, usePaneRouter.ts:93 and :140.",
+      "mechanism": "one concept, three partial untyped homes, drift absorbed by a masking fallback",
+      "reproduction": "Add `{ path: \"/foo\", name: \"foo\", component: Stub }` to router/index.ts and navigate to /#/foo: `isViewId(\"foo\")` is false, `currentView` becomes \"picker\", the picker renders at a URL claiming otherwise. No error, no warning. (The inverse case is masked by the catch-all at :37 — which is why /#/does-not-exist shows text length 859, identical to /#/, in audit/visual/REPORT.md.)",
+      "proposedCure": "Derive routes from VIEW_MAP: `...(Object.keys(VIEW_MAP) as ViewId[]).map(id => ({ path: …, name: id, component: Stub }))` plus the catch-all. Delete `meta.admin`. Replace the `?? \"picker\"` coercion with a router-level redirect (the catch-all already exists) so an unknown name is a navigation event, not a silent substitution."
+     },
+     {
+      "id": "L-5",
+      "defect": "vue-router is installed but renders nothing (14 null-render Stub components; `<router-view>` appears nowhere), and view→component resolution is a THIRD table — a 10-arm string if-chain that discards the closed unions viewSchema already defines and ends in a masking fallback.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-picker/router/index.ts:19 `const Stub = { render: () => null }` used 14×. `grep -rn \"router-view\\|RouterView\" demo/` → one hit, router/index.ts:16, the comment admitting it. demo/shell/usePaneRouter.ts:81-95 `componentFor(name: string | null)` — a 10-arm if-chain ending `return ColorPicker;` at :94. Its parameter is `string | null` although viewSchema.ts:52-66 defines `LeftPane` and `RightPane` as closed unions and the only callers pass exactly those (usePaneRouter.ts:165, :171).",
+      "mechanism": "three tables for one lattice, none linked by a type; discarded union forces a masking fallback",
+      "reproduction": "Add \"foo\" to the `LeftPane` union and a VIEW_MAP row using it. `tsc` reports nothing — `componentFor(\"foo\")` type-checks and returns ColorPicker at runtime.",
+      "proposedCure": "Collapse to one table: PaneConfig gains `leftComponent`/`rightComponent` (viewSchema.ts already imports `type { Component }` at :17, so defineAsyncComponent values live there); componentFor becomes a Record keyed by the closed union so tsc proves exhaustiveness; routes derive from the same keys (L-4). Three tables → one; two masking fallbacks die by construction."
+     },
+     {
+      "id": "L-6",
+      "defect": "App.vue's eager static import graph defeats the async pane split: 20 demo/palettes modules (29 live), including all five admin ports and four admin API modules, load on an anonymous visitor's first paint while AdminPane/PalettesPane/BrowsePane are lazy. The 10-line comment booking this as a known residual rests on a package.json premise that has been false since commit 164343c1.",
+      "severity": "MAJOR",
+      "evidence": "Static walker from App.vue: 72 eager modules — `{demo/color-picker:13, demo/color-session:20, demo/palettes:20, demo/platform:10, demo/shell:5, ...}`; the 20 palettes modules include useAdminAudit/useAdminFlagged/useAdminTags/useAdminUsers/useColorNameQueue/useSlugMigration/useVersionHistory/usePalettePorts/palettes/api/index.ts; 10 dynamic-import boundaries found (all ten panes). Live probe on /#/: `totalEagerModules: 238`, `demoDirs: {shell:31, palettes:29, color-session:23, picker:23, ui:11, platform:10, scenes:3, shared:2}`, with palettes/api/admin-audit.ts, admin-colors.ts, admin-palettes.ts, admin-users.ts, dialog/FlagReportDialog.vue, dialog/VersionHistoryDrawer.vue all present. Edges: App.vue:188 → composables/usePaletteWiring.ts:24 → palettes/usePalettePorts.ts (imports :4-19, 15 composables + 3 auth); App.vue:176 → ../palettes/browser/dialog barrel (dialog/index.ts:6-9 re-exports 3 dialogs + a composable) while only MigratePalettesDialog is used. False premise: App.vue:168-175 asserts \"the root package.json marks ./demo/** side-effecting\"; `python3 -c \"import json;print(json.load(open('package.json'))['sideEffects'])\"` → `False`; `git log -p -S '\"./demo/**\"' -- package.json` → the array was replaced at 164343c1 (feat(v4)!).",
+      "mechanism": "provide-scope conflated with use-scope — root-level DI statically pins every port to the eager chunk regardless of async boundaries",
+      "reproduction": "Both probes pasted above and in the report: the static walker output and the live `performance.getEntriesByType('resource')` bucketing on http://localhost:9000/#/.",
+      "proposedCure": "Split providePalettePorts by lifetime and provide each part where it is used: always-on (session/store/paletteActions) from main.ts via `app.provide`; browse ports from BrowsePane.vue; the five admin ports + palettes/api/admin-* from AdminPane.vue — both already async boundaries. usePaletteWiring's four orchestration watchers (:137-171) move to the panes whose ports they bridge; only the genuinely cross-cutting logout rule (:167-171) stays at the shell, needing the session port alone. Import MigratePalettesDialog from its file, or reduce dialog/index.ts to a type barrel. Delete the false 10-line rationale rather than carrying its booked follow-up."
+     },
+     {
+      "id": "L-7",
+      "defect": "`usePalettePorts` is a god provider: one function constructs and provides fifteen composables, so every injector of any single port pulls the construction of all fifteen — reconstituting at the DI seam the god facade it was created to dissolve.",
+      "severity": "MAJOR",
+      "evidence": "demo/palettes/usePalettePorts.ts:4-19 imports and installs usePaletteStore, useAdminAuth, useUserAuth, useSession, useBrowsePalettes, useAdminUsers, useColorNameQueue, useSlugMigration, usePaletteActions, useFilteredList, useAdminAudit, useAdminFlagged, useAdminTags, useVersionHistory, useTagEdit. usePaletteWiring.ts:1-4 records it \"replaced the old usePaletteManager god facade … dissolved into five narrow ports\" — the ports are narrow, the installer is not.",
+      "mechanism": "god module reconstituted at the DI seam after being dissolved into parts",
+      "reproduction": "L-6's measurement is the reproduction: 15 composables + 4 API modules in the eager graph of a route that mounts none of them.",
+      "proposedCure": "Same cure as L-6 — there is no separate fix. A provider whose scope equals its constituents' scopes is not a god module; scope each group to the pane that consumes it."
+     },
+     {
+      "id": "L-8",
+      "defect": "Ownership inversion: the shell reaches into three workbench panes and calls their private methods by name through `any` refs with optional-call, so a rename in a workbench produces a silently dead dock button with no compile error and no runtime error.",
+      "severity": "MAJOR",
+      "evidence": "App.vue:317-319 three `ref<any>(null)` (generatePaneRef/gradientPaneRef/mixPaneRef); App.vue:323 and :330 `function onDesktopLeftMount(el: any)` / `onDesktopRightMount(el: any)`. demo/shell/usePaneRouter.ts:196-222 makes nine duck-typed reaches, each optional-chained on the METHOD: `paneRefs.generate.value?.regenerate?.()`, `.save?.()`, `.copyColors?.()`; `paneRefs.gradient.value?.reset?.()`, `.copyCSS?.()`, `.seedFromPalette?.()`; `paneRefs.mix.value?.clearSelection?.()`, `.startMix?.()`, `.copyResult?.()`. No interface, no type.",
+      "mechanism": "dependency direction reversed — shell depends on leaf internals via untyped duck typing",
+      "reproduction": "Rename `regenerate` → `regen` in demo/workbenches/generate/GeneratePane.vue. Demo typecheck passes (the ref is `any`). The dock's Regenerate button becomes a no-op. Nothing reports it.",
+      "proposedCure": "Invert: `demo/shell/actionBar.ts` exporting `ACTION_BAR_KEY: InjectionKey<Ref<DockActionBar|null>>`; each workbench calls `useProvidedActionBar({label, icon, actions})` in its own setup, naming its own handlers in its own file; the shell injects. usePaneRouter's 40-line actionBar computed (:188-228) deletes entirely; App.vue loses three `any` refs, two mount callbacks, and the paneRefs parameter. `DockActionBar` (already at usePaneRouter.ts:49-58) becomes the real contract instead of a shape three files re-guess."
+     },
+     {
+      "id": "L-9",
+      "defect": "A 195-line stylesheet declaring three global @keyframes and six global classes lives inside a `composables/` directory rather than demo/styles/ — a direct violation of the standing animations edict.",
+      "severity": "MINOR",
+      "evidence": "demo/color-picker/composables/boot/overture.css, imported at App.vue:210. `grep -n \"@keyframes\\|^\\.\" …/overture.css` → :84 `@keyframes overture-plate-land`, :118 `@keyframes plate-land`, :167 `@keyframes blob-emerge`, plus global classes at :33 .atmosphere-canvas, :37 .atmosphere-canvas--arrived, :65/:68/:72 .overture-appear-*, :81 .overture-dock-veiled, :102 .overture-dock-land. `wc -l` → 195. Standing edict 6: global keyframes live in demo/styles/.",
+      "mechanism": "global CSS colocated as if it were scoped CSS",
+      "reproduction": "`grep -n \"@keyframes\" demo/color-picker/composables/boot/overture.css` → three hits; the file is not under demo/styles/.",
+      "proposedCure": "A MOVE, never a deletion: `git mv demo/color-picker/composables/boot/overture.css demo/styles/overture.css` and add `@import \"./overture.css\";` to demo/styles/foundation.css beside the existing `@import \"./animations.css\"` (:76) and `@import \"./shell.css\"` (:85). Combined with L-1 this takes App.vue's CSS import count from four to zero and main.ts's to one. Same wave: foundation.css:91-92 declares two @source globs described at :23-24 as disjoint trees; after the W43 flattening `../**` strictly contains `../../color-picker/**`, so one glob suffices."
+     },
+     {
+      "id": "L-10",
+      "defect": "`picker-shell` is a styling hook applied by the application with no rule defining it anywhere in the repo or in glass-ui 7.0.0 — a class name that exists only to be applied.",
+      "severity": "MINOR",
+      "evidence": "`grep -rn \"picker-shell\" demo/ node_modules/@mkbabb/glass-ui/dist/` → exactly one line: demo/shell/usePaneRouter.ts:134 `class: \"picker-shell w-full\"`. No definition in demo/styles/, no SFC, no shipped glass-ui CSS.",
+      "mechanism": "styling seam outlived its stylesheet — legacy residue",
+      "reproduction": "The grep above returns exactly one hit, and it is the consumer.",
+      "proposedCure": "Delete the `picker-shell` token from the class string at usePaneRouter.ts:134."
+     },
+     {
+      "id": "L-11",
+      "defect": "App.vue reaches the glass-ui ROOT barrel for `useClipboard` while importing a sibling composable from the correct `/dom` subpath on the very next line — three depths into one package across three consecutive lines.",
+      "severity": "MINOR",
+      "evidence": "App.vue:190-192: `useGlobalDark` from \"@mkbabb/glass-ui/dark\"; `useClipboard` from \"@mkbabb/glass-ui\" (root barrel); `useBreakpoint` from \"@mkbabb/glass-ui/dom\". useClipboard's published home is /dom: `grep -n useClipboard node_modules/@mkbabb/glass-ui/dist/composables/dom/index.d.ts` → `6:export * from \"./useClipboard\";`. Sizes: glass-ui.js 25239 B (root barrel reached) vs dom.js 4179 B (subpath used one line below) vs useClipboard-D36OTaeT.js 1321 B.",
+      "mechanism": "reaching past the published subpath surface into the root barrel",
+      "reproduction": "The `ls -l` output above plus the dist/composables/dom/index.d.ts re-export line.",
+      "proposedCure": "Fold into the existing subpath import: `import { useBreakpoint, useClipboard } from \"@mkbabb/glass-ui/dom\";`"
+     },
+     {
+      "id": "L-12",
+      "defect": "Two owners of \"read the colour out of the URL\"; the router-side reader is inert at boot (vue-router's initial navigation is asynchronous, so `route.query` is empty during App setup) and its result is logically subsumed by the hydration source, making the `!appliedFromUrl` guard term unable to change any branch.",
+      "severity": "MINOR",
+      "evidence": "Reader 1: demo/color-picker/composables/boot/hydrate.ts:51-61 hand-parses the hash with URLSearchParams, requires both space+color. Reader 2: demo/color-session/useColorUrl.ts:26-31 reads route.query.space/color, requires both. hydrate.ts:49-50's stated justification (\"runs before router installation\") is false — index.html:211 `app.use(router)` precedes :212 `app.mount()`, so App setup runs after installation. The real mechanism: node_modules/vue-router/dist/vue-router.js:1462-1466 starts the initial navigation with `push(routerHistory.location)` — a Promise — inside `install`, so `currentRoute.value` is still START_LOCATION_NORMALIZED (query {}) when App's setup runs synchronously inside app.mount(). Hence useColorUrl.ts:70 `const appliedFromUrl = applyUrlToModel()` is false on every cold load. Subsumption: both readers require both params, so appliedFromUrl===true ⟹ hydration.source===\"url\", and App.vue:378 `if (!appliedFromUrl && hydration.source !== \"url\")` already gates on the latter.",
+      "mechanism": "dual ownership of one concept, one instance vestigial after a transposition",
+      "reproduction": "Deterministic source read, both halves: vue-router.js:1462-1466 (async navigation start) + index.html:210-212 (synchronous mount ordering) + the conjunct-subsumption argument over hydrate.ts:51-61 vs useColorUrl.ts:26-31.",
+      "proposedCure": "hydrate.ts owns the FIRST value (already correct); useColorUrl owns the LIVE sync only — delete its boot-time applyUrlToModel() call and the appliedFromUrl return, and reduce App.vue:378 to `if (hydration.source !== \"url\") restoreFromStorage();`. One owner per phase. Correct hydrate.ts:49-50's rationale to the real one (the router's initial navigation is a promise) — that is the fact a future reader needs."
+     },
+     {
+      "id": "L-13",
+      "defect": "Ownership recorded in prose rather than in types has drifted: three files point at App.vue for watchers it does not contain, and two of App.vue's own structural rationales cite artefacts that no longer exist.",
+      "severity": "MINOR",
+      "evidence": "`grep -c \"watch(\" demo/color-picker/App.vue` → 0. Yet demo/scenes/blob/BlobPane.vue:9 cites \"App.vue's deriveBlobPalette watch\" (real owner: boot/useAtmosphere.ts:393) and demo/scenes/atmosphere/aurora-atoms.ts:16-18 cites \"App.vue's watch\" (real owner: useAtmosphere.ts:143). App.vue's own dead rationales: :168-175 the `./demo/**` sideEffects premise (dead since 164343c1 — see L-6), and :201-206 + :208-210 both order imports \"AFTER style.css\"; `ls demo/styles/style.css` → No such file or directory (`ls demo/styles/` → animations.css focus-ring.css foundation.css hljs.css shell.css utils.css). The same rename also stranded demo/DESIGN.md, which cites demo/@/styles/style.css line numbers throughout (routed, out of scope here).",
+      "mechanism": "ownership expressed in prose, not in types — prose does not move when code moves and grep cannot verify it",
+      "reproduction": "The four commands above: the `grep -c`, the two citing lines, and the `ls`.",
+      "proposedCure": "Not \"fix the comments\" — remove the need for them. The cross-file pointers exist because the owner is not discoverable from the type: useAtmosphereBoot returns `{auroraCssGradient, auroraArrived}` while silently provide-ing SAFE_ACCENT_KEY, AURORA_ATOMS_KEY, BLOB_CONFIG_KEY (documented only in App.vue:278-289). Make the provides part of the declared surface and have injection keys carry their producer's name; then the owner is found by go-to-definition and every \"App.vue's watch\" comment becomes deletable rather than correctable."
+     },
+     {
+      "id": "L-14",
+      "defect": "A glass-ui primitive removed at 7.0.0 is re-implemented locally inside the demo's dock, complete with a parameter accepted and discarded solely to match the deleted API's signature — a back-compat shim whose purpose is confessed in the comment beside it.",
+      "severity": "MINOR",
+      "evidence": "demo/shell/dock/layers/ActionBarLayer.vue:54-82 (reachable from App.vue:35 via `<Dock>`): header \"V-W44 (Glass 7): glass-ui removed the standalone `useLayerTransition` … (Relay note for glass: a public content-swap composable would retire this local shim.)\"; :63 `function useLayerTransition(...)`; :67 `void opts.containerEl; // signature parity with the retired producer composable`. Upstream confirmation: `grep -rn useLayerTransition node_modules/@mkbabb/glass-ui/dist/*.d.ts` → (no output) at glass-ui 7.0.0.",
+      "mechanism": "design-system primitive retired without a successor → consumer re-homes it locally and preserves the dead signature",
+      "reproduction": "The grep above (absent upstream) plus ActionBarLayer.vue:67 (the discarded parameter).",
+      "proposedCure": "Two moves, in order: (1) drop `containerEl` from the local signature today — it is dead weight the moment nothing else implements the interface; (2) relay to glass-ui for a public content-swap composable (the standing BH/BI relay fond) and delete the local copy when it lands. Do not leave the parity parameter as a placeholder for a successor that may never arrive."
+     },
+     {
+      "id": "L-15",
+      "defect": "Two directories are named for the colour picker and the entry is the one that is not the picker — the name signals the inverse of the ownership, which is why shell concerns were filed under the entry's `composables/` instead of demo/shell/.",
+      "severity": "INFO",
+      "evidence": "vite.config.ts:243 `root: \"./demo/color-picker/\"` (the application root, holding index.html, App.vue, router/, ErrorBoundary.vue and ten boot composables). App.vue:164 `import { ColorPicker } from \"../picker\";` → demo/picker/ (the actual feature). Misfiled-by-name consequences: demo/color-picker/composables/boot/* (10 files, ~1500 lines), usePaletteWiring.ts, useDevicePixelSnap.ts — all shell concerns whose siblings (PaneSlot, Dock, useViewManager, usePaneRouter, viewSchema) live in demo/shell/. hydrate.ts:32-40 reaches `../../../color-session/...` — three parent hops out of a directory nominally \"the entry\".",
+      "mechanism": "naming collision mis-signalling ownership, driving misfiled modules",
+      "reproduction": "`ls demo/color-picker demo/picker` — both exist; the entry is the former, the feature the latter.",
+      "proposedCure": "Rename demo/color-picker/ → demo/app/ (five path updates: vite.config.ts:243, the two @source globs at foundation.css:91-92 collapsing to one, and the two plugins/ references), and move boot/, usePaletteWiring, useDevicePixelSnap, ErrorBoundary.vue into demo/shell/. Do it in the same wave as L-1, since main.ts lands there anyway."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a6bcb14ea1916634e",
+   "key": "v2:d2b616b21dc40c0351713072cbe3ca61a7d23c287b2f361a5b63aff6a7f91567",
+   "result": {
+    "axis": "CHALLENGE-L — library structure: module boundaries, ownership, dependency direction, public surface (subject `demo/color-session/ColorSpaceSelector.vue`)",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]`, declared explicitly at spawn and confirmed in this seat's environment block. Declared, not inherited; no model-receipt defect.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/ColorSpaceSelector/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1 — the color-space catalog has FOUR independent homes (18 / 13 / 11 / 9 members) and this component owns the largest of them, so no downstream consumer is total over it. Selecting \"Display P3\" from this selector makes the About pane render the CIE RGB (1931) card — wrong definition, wrong white point, wrong creation year, wrong components — via the masking fallback at ColorNutritionLabel.vue:214, and renders the \"Detailed Guide\" section completely empty via AboutPane.vue:51's v-if. Reproduced live and screenshotted; the product states a false fact about color science purely because \"which spaces exist\" has no single home.",
+    "negativeProof": "n/a — verdict is DEFECTIVE. For completeness, the two axes that came back CLEAN with positive proof: (1) published-surface consumption — the component reaches @mkbabb/value.js only transitively through picker-color.ts:27,34 using bare subpaths a real consumer could write; `npx tsc -p tsconfig.demo.json --traceResolution` shows `'@mkbabb/value.js/css' … resolved to '/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts'` (local build, not the stale transitive node_modules copy whose css.d.ts differs 350 vs 382 lines). No deep-path defect. (2) verbatimModuleSyntax — line 122 correctly isolates `import type { DisplayColorSpace }`; `npx eslint` on the component + both hosts + the barrel exits 0.",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "The color-space catalog has four independent homes and no total consumer. PICKER_SPACE_NAMES→DISPLAY_COLOR_SPACE_NAMES = 18 members (this component's catalog); colorSpaceInfo = 13; MarkdownSpace = 11; INTERPOLATION_SPACES = 9. Seven of the 18 offered rows have no markdown doc; five have no info row. Every consumer covers the shortfall with a masking fallback (`: colorSpaceInfo.rgb`), an `as any`, or a silent `v-if`.",
+      "severity": "BLOCKER",
+      "evidence": "demo/color-session/picker-color.ts:72 (17 labels) → demo/color-session/color-model.ts:75 (+hex = 18) → ColorSpaceSelector.vue:150. demo/color-session/colorSpaceInfo.ts:18 (13 keys). demo/scenes/about/AboutPane.vue:82 (MarkdownSpace, 11). demo/color-session/color-space-meta.ts:26 (9). Fallbacks: demo/scenes/about/ColorNutritionLabel.vue:212-214 `space in colorSpaceInfo ? … : colorSpaceInfo.rgb`; demo/picker/controls/ComponentSliders/ConsoleRail.vue:174 `(colorSpaceInfo as any)[space]`; demo/scenes/about/AboutPane.vue:51 `v-if=\"activeMarkdownModule\"`. Live probe output: ABOUT AFTER display-p3 { \"nutrition\": \"Definition | A color space based on the additive mixture of red, green, and blue light. | … | White Point: | Varies (typically D65) | Gamut: | Limited (device-specific) | Created: | 1931 | Components | Red | 0 \", \"guide\": \"Detailed Guide\", \"triggers\": [\"Display P3\",\"Display P3\"] }. Screenshot: docs/tranches/V/megatranche/audit/components/ColorSpaceSelector/probe-display-p3-about.png",
+      "mechanism": "absent unique semantic ownership — one concept (the space catalog) split across four modules with zero type-level relation, so partial consumers mask the gap instead of failing to compile",
+      "reproduction": "Dev server at http://localhost:9000/#/ (1600x1000). Click the color-space title in the picker card, select \"Display P3\". Both titles read \"Display P3\"; the About card beneath reads CIE RGB facts (Created: 1931, Components Red/Green/Blue) and the \"Detailed Guide\" heading has nothing under it. Script: scratchpad/chL-css-probe.mjs",
+      "proposedCure": "One `color-session/space-catalog.ts` exporting a single `readonly SpaceEntry[]` typed `satisfies Record<DisplayColorSpace, SpaceEntry>` where SpaceEntry carries id · label · channels · info · doc · interpolatable. Adding a SpaceId then fails to compile until its doc and info exist. All three fallbacks and both `as any`/`as keyof` casts delete; INTERPOLATION_SPACES becomes CATALOG.filter(e => e.interpolatable)."
+     },
+     {
+      "id": "L-2",
+      "defect": "Display precision has five homes and no owner. specimenFor() is a dual formatter inside one 12-line function: the CSS branch emits the library's 12-digit output, the non-CSS branch rounds to 4. Result: 16 of 18 specimen lines are clipped mid-number, defeating the row's entire stated purpose.",
+      "severity": "MAJOR",
+      "evidence": "Measured: {\"capCount\":18,\"truncatedCount\":16,\"sampleCap\":{\"text\":\"rgb(385.302835934518 143.376536829596 199.64311881105 / 82.7%)\",\"scrollW\":653,\"clientW\":234}} — 653px of text in a 234px box. The five homes: src/css/grammar.ts:285 `Number(value.toFixed(12)).toString()` (ships to screen); demo/color-session/color-model.ts:67 `toCSSColorString(color, _digits = 2)` — dead param, no caller passes it (3 call sites verified: ColorPicker.vue:293, useColorPipeline.ts:214,216); demo/color-session/useColorPipeline.ts:28 `const DIGITS = 2` returned at :331 with ZERO importers repo-wide; demo/color-session/useSliderGradients.ts:14 second copy of the same constant; ColorSpaceSelector.vue:163 `Number(channel.toFixed(4))`; demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue:109 `fmt.value.toFixed(d)`. Adjacent-row proof in the DOM: \"HSV\" → \"hsv · 346.0454 · 0.6279 · 1.511\" (4 digits) vs \"HSL\" → \"hsl(346.045357898758deg -1295.152156124318% …)\" (12 digits). Spec quote, docs/tranches/V/ARCHITECTURE.md:245: \"serializeCssColor(color: CssColor): Result<string,ColorIssue>\" and \"no library-wide string serializer exists\".",
+      "mechanism": "a demanded capability (display-precision formatting) that the library deliberately declines to own and the demo never gave a home, so it scattered into five partial/dead implementations",
+      "reproduction": "Open http://localhost:9000/#/, click the color-space title, read any row: the caption truncates as `hsl(346.045357898758d…`. Screenshot: probe-catalog-open.png. Script: scratchpad/chL-css-probe2.mjs",
+      "proposedCure": "One `color-session/format.ts` exporting `formatColorForDisplay(color: AnyColor, opts: { digits: number }): string`, total over all 17 spaces + hex, gamut-projected. specimenFor becomes a one-line call; toCSSColorString, both DIGITS constants, and ColorComponentDisplay's local rule all collapse into it."
+     },
+     {
+      "id": "L-3",
+      "defect": "Out-of-gamut, non-CSS-parseable channel values ship to screen as the component's user-facing statement of \"your color, in this space\". `clampPickerColor` and the library's `mapColorToGamut` wrapper both already exist in the same module and are not on this path.",
+      "severity": "MAJOR",
+      "evidence": "Live DOM rows: \"rgb(385.302835934518 143.376536829596 199.64311881105 / 82.7%)\" (R > 255); \"hsl(346.045357898758deg -1295.152156124318% 103.662622110611% / 82.7%)\" (s = -1295%); \"hwb(346.045357898758deg 56.226092874351% -51.09915134687% / 82.7%)\" (b < 0); \"color(display-p3 1.402321458483 0.628430810501 0.790516044279 / 82.7%)\"; \"color(srgb-linear 2.580409706575 …)\". Unused projection helpers: demo/color-session/picker-color.ts:195 clampPickerColor, :119 mapPickerOklabToSrgb (wraps mapColorToGamut, imported at :15). Call path with no projection step: ColorSpaceSelector.vue:157-161 convertPickerColor → serializePickerColor.",
+      "mechanism": "the gamut-projection decision has no home either — it is a per-callsite choice and this callsite never made one",
+      "reproduction": "Open http://localhost:9000/#/, click the color-space title. The default color lab(92% 88.8 20 / 82.7%) is far outside sRGB; the RGB/HSL/HWB rows emit values that are not valid CSS and would not parse.",
+      "proposedCure": "Fold gamut projection into the single formatColorForDisplay from L-2 (project through mapColorToGamut before serializing), so no caller can forget it."
+     },
+     {
+      "id": "L-4",
+      "defect": "`import … from \"../ui/select\"` — a one-line glass-ui forwarding directory that the tranche-V architecture authority bans by name, drawing an edge (`color-session → ui`) the declared lattice does not admit. The same file imports the same producer correctly through its published subpath eleven lines later.",
+      "severity": "MAJOR",
+      "evidence": "demo/ui/select/index.ts is one line: `export { Select, SelectTrigger, SelectItem, SelectValue, SelectContent, SelectGroup, SelectLabel, SelectSeparator } from \"@mkbabb/glass-ui\";`. 19 sibling directories, all the same shape, zero local implementations. docs/tranches/V/ARCHITECTURE.md:37 verbatim: \"There is no `panes/` dumping ground, `demo/@`, TS/Vite project alias, `@src`, or one-line glass-ui forwarding directory.\" Lattice, ARCHITECTURE.md:53: `color-session → platform / shared / published packages` — no `ui`. Sole offender: `grep -rn '\"\\.\\./ui/' demo/color-session/` → ColorSpaceSelector.vue:109. Contrast in the same file: :110 `@mkbabb/glass-ui/watercolor-dot`. glass-ui ships `./select` as a first-class subpath (dist/select.js, 260 B) while the barrel forwards through the root (dist/glass-ui.js, 25239 B); sideEffects is [\"*.css\"] so production tree-shakes — no bundle claim made.",
+      "mechanism": "an alias/indirection layer that launders a published-package import into a local-tree import the lattice forbids; two idioms for one producer in one file",
+      "reproduction": "NONE — static; the ban is a quoted spec line and the offending edge is a single grep hit.",
+      "proposedCure": "Delete demo/ui/ entirely (19 directories, 19 files); every consumer imports the glass-ui subpath directly (`@mkbabb/glass-ui/select`). shared/ui/ in the target tree is reserved for \"only genuinely app-owned controls with 2+ consumers\" (ARCHITECTURE.md:31) — forwarding is not that."
+     },
+     {
+      "id": "L-5",
+      "defect": "Inverted dependency edge: a color-session component hard-injects SAFE_ACCENT_KEY, which is provided in exactly one place — the app composition root's boot. The eslint rule written to ban precisely this inversion matches ZERO files, because all three demo boundary globs still point at `demo/@`, which no longer exists.",
+      "severity": "MAJOR",
+      "evidence": "ColorSpaceSelector.vue:134 `const safeAccent = inject(SAFE_ACCENT_KEY)!;` (no default, non-null asserted) vs :142 `const colorModel = inject(COLOR_MODEL_KEY, null);` (default, documented null-tolerant) — two injection policies eight lines apart. Sole provider: `grep -rn \"provide(SAFE_ACCENT_KEY\" demo/` → demo/color-picker/composables/boot/useAtmosphereBoot.ts:91. Dead enforcement: eslint.config.js:275-286 files: [\"demo/@/composables/**/*.ts\", \"demo/@/composables/**/*.vue\"] with group [\"**/color-picker/**\"] message \"G-DEMO-1: the shared color layer … must never import app-root boot\". `ls -d demo/@` → \"No such file or directory\"; `find demo/@ -type f | wc -l` → 0. Same for G-DEMO-3a and G-DEMO-3b (eslint.config.js:232-239).",
+      "mechanism": "wrong direction of dependency (lower layer reaching app boot), unenforced because the structural guard's file globs were never repointed after the W43/RF-15 restructure",
+      "reproduction": "NONE for the styling loss (reasoned from CSS invalid-at-computed-value-time: undefined --space-title-ink makes every color declaration in the scoped block invalid → color falls back to inherit → the entire W4-1 affordance grammar silently vanishes). The dead-glob and sole-provider facts are both verified commands.",
+      "proposedCure": "Repoint the three eslint `files` globs at the real tree (demo/color-session/**, demo/picker/**, demo/shell/**, demo/workbenches/**) and ban demo/color-picker/** from color-session — it fails immediately, which is the point. Then pass safeAccent as a prop exactly as cssColor already is (KISS, no new module), or provide SAFE_ACCENT_KEY from a color-session-owned composable that boot merely seeds."
+     },
+     {
+      "id": "L-6",
+      "defect": "The \"switch color space\" operation has no home. The canonical pipeline command `updateToColorSpace` has exactly one caller — a watcher inside ColorPicker.vue. This component instead emits a state-write that each of its two hosts reinvents differently; the actual conversion is a side effect of the picker's watcher, so the About-side selector converts the color only because the Picker happens to be mounted.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-session/useColorPipeline.ts:170-173 defines updateToColorSpace. `grep -rn \"updateToColorSpace\" demo/` returns exactly 4 lines: the definition (:170), the return key (:324), the destructure (ColorPicker.vue:214) and the sole call site (ColorPicker.vue:352, inside `watch(() => model.value.selectedColorSpace, …)` at :348-354). Two divergent host writes: ColorPicker.vue:43 `updateModel({ selectedColorSpace: colorSpace })` vs AboutPane.vue:24 `model = { ...model, selectedColorSpace: colorSpace }`. Shared single pipeline: App.vue:257 `provide(COLOR_MODEL_KEY, pipeline)`. Panes are KeepAlive'd: demo/shell/PaneSlot.vue:120. Target architecture that breaks the coupling: ARCHITECTURE.md:41 \"About is a quiet trailing destination, not Picker's permanent right-hand companion\" with /about a first-class route.",
+      "mechanism": "a command modelled as a state-change-plus-watcher, with the effect owned by one of two peer hosts instead of by the domain — no unique home for the operation",
+      "reproduction": "NONE for the picker-free break — labelled HYPOTHESIS: I did not stand up a picker-free /about route, so the failure is predicted from the call graph. All call-graph facts above are verified greps.",
+      "proposedCure": "The component calls the pipeline operation directly — colorModel.updateToColorSpace(space) — and stops emitting a state-write for hosts to reinvent. Both host handlers die; ColorPicker's watcher at :348-354 dies. One command, one home, zero host-specific write mechanics."
+     },
+     {
+      "id": "L-7",
+      "defect": "God-surface injection: COLOR_MODEL_KEY is typed InjectionKey<UseColorPipelineReturn>, a 38-key composable return, and this component consumes exactly one field of it. 2.6% utilisation, 100% coupling.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-session/keys.ts:7 `InjectionKey<UseColorPipelineReturn>`. demo/color-session/useColorPipeline.ts:265-332 return object — 38 keys counted (`awk '/return \\{/,/^    \\};/' | grep -c ','` → 38). Consumed here: ColorSpaceSelector.vue:156,158 `colorModel.model.value.color` only. Symptom of the bag: DIGITS is exported in that return (:331) with zero consumers repo-wide.",
+      "mechanism": "god module — a single injected symbol carrying an entire feature surface, so every consumer couples to all of it regardless of what it uses",
+      "reproduction": "NONE — static; the key count is a measured number from the pasted awk command.",
+      "proposedCure": "Split COLOR_MODEL_KEY into role-scoped keys — CURRENT_COLOR_KEY (ComputedRef<PickerColor>), COLOR_COMMANDS_KEY (the mutation surface), COLOR_NAMING_KEY. This component injects the first two and nothing else. Three symbols in the file that already holds five; no new directory, no wrapper."
+     },
+     {
+      "id": "L-8",
+      "defect": "`tag=\"div\"` is a dead prop from a retired glass-ui API — legacy that survived the W44 glass-7 adoption. WatercolorDot 7.0.0 has no `tag` prop; the attribute does not even land in the DOM.",
+      "severity": "MINOR",
+      "evidence": "ColorSpaceSelector.vue:82 `<WatercolorDot tag=\"div\" …>`. glass-ui 7.0.0 prop list is exactly { color, variant, animate, cycleDuration, range, seed } — node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts:24-51. Live DOM: {\"dotTag\":\"SPAN\",\"dotHasTagAttr\":false,\"dotTagAttrValue\":null}.",
+      "mechanism": "stale producer-API call surviving a major producer upgrade — legacy code (edict 2)",
+      "reproduction": "Open http://localhost:9000/#/, open the color-space catalog, inspect `[role=option] .specimen-dot` — it is a SPAN with no `tag` attribute. Script: scratchpad/chL-css-probe2.mjs",
+      "proposedCure": "Delete the attribute."
+     },
+     {
+      "id": "L-9",
+      "defect": "Eighteen byte-identical WatercolorDots. Every row binds the same :color=\"cssColor\" and passes no `seed`, so all 18 dots share one silhouette and one background — the producer's own doc warns against exactly this. The swatch conveys zero information.",
+      "severity": "MINOR",
+      "evidence": "ColorSpaceSelector.vue:81-86 — `:color=\"cssColor\"`, no seed. Measured: {\"distinctDotSignatures\": 1} across all 18 rows (computed borderRadius + backgroundColor). Producer doc, WatercolorDot.vue.d.ts:16-17: \"The filter `seed` is per-instance off `hashString(color + seed)` so each dot's wet edge is uniquely displaced (no twelve-clones).\" Visible in probe-catalog-open.png.",
+      "mechanism": "design-system misuse — the producer's uniqueness affordance (seed) unused, and the one datum that would differ per row (the space's own gamut-projected color) is the datum L-3 shows is never computed",
+      "reproduction": "Open http://localhost:9000/#/, open the catalog: all 18 dots are the same pink blob. Script: scratchpad/chL-css-probe2.mjs",
+      "proposedCure": "Seed per row and paint the space's own projected color (which the L-2/L-3 cure computes anyway), or drop the dot."
+     },
+     {
+      "id": "L-10",
+      "defect": "A missing glass-ui SelectTrigger variant, implemented in the consumer as a 110-line scoped block with two :deep() reaches into producer internals and three self-declared BOOKED SWAPs.",
+      "severity": "MINOR",
+      "evidence": "SelectTriggerProps is exactly { disabled, class, variant: \"default\"|\"ghost\", size: \"sm\"|\"default\" } — node_modules/@mkbabb/glass-ui/dist/components/select/SelectTrigger.vue.d.ts:2-9. Consumer overrides of producer properties: ColorSpaceSelector.vue:209 font-size, :213 font-weight, :216 gap, :224 padding/margin. Producer-internal reaches: :239 `.space-trigger :deep(svg)`, :249 `.space-trigger > :deep(span)`. Utility-hardcode re-pin: :300 `.specimen-name { font-weight: var(--type-weight-display) }` against glass-ui semantic.css:132's `text-title` font-weight:700. Self-declared IOUs: :199 \"BOOKED SWAP: retires onto the P10 SelectTrigger size station\", :212 \"the P10 weight-tokenization booked swap\", :235 the em-relative caret.",
+      "mechanism": "design-system variant carried in the consumer instead of the producer — edict 4/5 (variants belong in glass-ui; style at the root component level, never per-instance)",
+      "reproduction": "NONE — static; the producer's prop union is a quoted declaration file.",
+      "proposedCure": "Add `variant: \"title\"` (or a display size rung) to glass-ui's SelectTrigger absorbing the size/weight/padding/caret/underline grammar; the consumer keeps only --space-title-ink. Discharges all three BOOKED SWAPs at once."
+     },
+     {
+      "id": "L-11",
+      "defect": "color-model.ts is three-sixths shim: a zero-consumer alias, a pure rename, and a function with a declared-but-dead precision parameter. This component imports one of them.",
+      "severity": "MINOR",
+      "evidence": "demo/color-session/color-model.ts:58 `export const CSS_NATIVE_SPACES = CSS_PICKER_SPACES;` — zero consumers repo-wide (grep returns only the definition). :61-65 `colorToHexString` = `return pickerColorToHex(color)`, a pure rename with 5 callers. :67-72 `toCSSColorString(color, _digits: number = 2)` = `return serializePickerColor(color)`; all 3 call sites pass one argument (ColorPicker.vue:293, useColorPipeline.ts:214, :216). ColorSpaceSelector.vue:119 imports colorToHexString while already importing from picker-color, which exports pickerColorToHex directly.",
+      "mechanism": "alias/shim layer — edict 2 (no aliases, no dual paths)",
+      "reproduction": "NONE — static; verified by grep over all consumers.",
+      "proposedCure": "Delete all three; callers use pickerColorToHex and the new formatColorForDisplay from L-2 directly."
+     },
+     {
+      "id": "L-12",
+      "defect": "Two v-model idioms in one 45-line script, and a prop type wider than the domain type, forcing three `any` casts at the component boundary plus a fourth cast inside.",
+      "severity": "MINOR",
+      "evidence": "ColorSpaceSelector.vue:125 prop `modelValue: string` + :146-148 explicit `emit(\"update:modelValue\")` (pre-3.4 idiom) vs :144 `defineModel<boolean>(\"open\")` (3.4+). The `any` sites: ColorSpaceSelector.vue:11 `(colorSpace: any)`, demo/picker/ColorPicker.vue:43 `(colorSpace: any)`, demo/scenes/about/AboutPane.vue:24 `(colorSpace: any)`. Fourth hole: :91 `space as DisplayColorSpace`, because `Object.entries` at :150 erases the key type. `npx eslint` on all three files exits 0 — nothing guards this.",
+      "mechanism": "public component surface typed wider than the domain it models; two generations of the same Vue idiom coexisting (edict 7)",
+      "reproduction": "NONE — static; the three `any` sites are exact file:line citations.",
+      "proposedCure": "`defineModel<DisplayColorSpace>({ required: true })` plus the typed catalog array from L-1. All four holes close; both `emit`s and all three host handlers delete."
+     },
+     {
+      "id": "L-13",
+      "defect": "`cssColor` is a required prop that duplicates a field of the pipeline the component already injects — one datum, two transports, one of which drags a three-hop prop-drill through the shell router.",
+      "severity": "MINOR",
+      "evidence": "ColorSpaceSelector.vue:126 `cssColor: string` prop. Picker origin: demo/picker/ColorPicker.vue:201 destructures cssColor from inject(COLOR_MODEL_KEY) (:172) and passes it back down at :42. About origin: demo/color-picker/App.vue:340 `cssColor: () => cssColor.value` → demo/shell/usePaneRouter.ts:98,150 → AboutPane prop → AboutPane.vue:23.",
+      "mechanism": "redundant transport for a single datum, making the component's documented \"null-tolerant injection\" story incoherent (without a provider the specimen degrades but the swatch still requires the prop)",
+      "reproduction": "NONE — static; the transport chain is four verified file:line hops.",
+      "proposedCure": "Read the color from CURRENT_COLOR_KEY (L-7's split) and delete the prop; the three-hop drill through usePaneRouter dies with it."
+     },
+     {
+      "id": "L-14",
+      "defect": "tsconfig.demo.json `paths` has drifted off package.json#exports: three entries point at files that do not exist, and the two subpaths this component's dependency chain actually uses are absent. The Vite side is generated from the exports map; the TS side is hand-maintained.",
+      "severity": "MINOR",
+      "evidence": "exports keys are exactly `./color ./value ./css ./easing ./math ./transform ./quantize`. tsconfig.demo.json:41-49 lists `@mkbabb/value.js` (root), `/parsing`, `/units` — targets verified MISSING: dist/index.d.ts, dist/subpaths/parsing.d.ts, dist/subpaths/units.d.ts. It omits `/css` and `/value`. picker-color.ts:34 imports `@mkbabb/value.js/css`. Generated counterpart: vite.config.ts:41-52 derives its alias set from package.json#exports.",
+      "mechanism": "stale legacy configuration (edict 2) plus an asymmetry between a generated and a hand-maintained view of the same public surface",
+      "reproduction": "NONE for a break — traceResolution proves self-name resolution covers the gap today (see negativeProof). The three missing targets and two omissions are verified file existence checks.",
+      "proposedCure": "Generate the paths block from package.json#exports as vite.config.ts already does, or drop the block entirely and let TS self-name resolution do it."
+     },
+     {
+      "id": "L-15",
+      "defect": "Two further inline reimplementations of \"choose a color space\" — three implementations, two data sources, two cast idioms, one concept.",
+      "severity": "MINOR",
+      "evidence": "demo/workbenches/mix/MixConfigBar.vue:99-118 and demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue:181-194 are near-identical inline Select blocks over INTERPOLATION_SPACES, narrowing with `(v: AcceptableValue) => v as PickerSpace`; ColorSpaceSelector.vue is the third, over DISPLAY_COLOR_SPACE_NAMES, narrowing with `(colorSpace: any)`.",
+      "mechanism": "dual (triple) implementation of one concept — no shared component because the two data sources make one impossible",
+      "reproduction": "NONE — static; three file:line ranges.",
+      "proposedCure": "Once L-1's single catalog exists, all three surfaces render from `CATALOG` / `CATALOG.filter(e => e.interpolatable)` through this one component. The two inline blocks delete."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a6ddabe00e5ee97dd",
+   "key": "v2:3c1d0bb845512bada385e4427a42cf5280b57c303a9ac1560ab556b593c27c67",
+   "result": {
+    "axis": "DESIGN (CHALLENGE-D) — demo/color-picker/App.vue, the app shell",
+    "modelObserved": "Opus 5 (1M context) — exact model ID `claude-opus-5[1m]`. Spawned with an explicit Opus 5 declaration; the served tier matches the declaration. Not an inherited or undeclared seat.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/App/challenge-D-design.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D-2 — App.vue is, structurally and exclusively, a two-pane `left`+`right` workspace shell, and Tranche V's constitution retires that architecture by name (VISUAL-CONSTITUTION.md:89 \"V retires the global Dock PaneSegmentedControl and left/right view state\"; :32 \"no global pane selector, left/right split state ... survives\"; :218 Admin's \"Palettes companion, right label and resulting mobile pane selector are removed rather than restyled\"). Measured: 13 of 14 views in demo/shell/viewSchema.ts ship a companion, including all five Admin views at right:\"palettes\" (:190,199,208,217,226). Its measured harm is D-1: because the shell forks its slot mounting by breakpoint, the mobile PaneSlot (App.vue:83-91) lacks the `:on-mount` the two desktop slots have (App.vue:105,131), so nine named, enabled action-bar controls are silently inert on mobile — proven by a differential synthetic click on /#/generate (desktop specimenChanged=true, mobile specimenChanged=false, zero errors either side).",
+    "negativeProof": "N/A — verdict is DEFECTIVE. For credibility the report records what IS sound (report §7), each positively evidenced: exactly one `<main>` on every route/matrix (mainCount=1 measured at 1440/720/390; mainCountNotOne=0, REPORT.md:27); a real labelled `<nav>` (App.vue:24-27); a focus-managed `role=\"alert\"`/`aria-live=\"assertive\"` ErrorBoundary that stops a pane throw white-screening (App.vue:50, ErrorBoundary.vue:6,20); genuinely correct reduced-motion — the WebGL loops actually stop, measured rafPer1500ms=0 under reducedMotion:reduce (STATES.json), via prmInstant (App.vue:30) + useOverture.ts:98-100 + overture.css:51,184; no layout-forcing transitions (the former height/margin/padding co-transition deleted with reason recorded, App.vue:388-394); overflowX=0 and pageErrors=0 on all 60 tracked captures (REPORT.md:19,23); correct `verbatimModuleSyntax` (all type-only imports are `import type`, App.vue:163); correct producer deference (useClipboard replacing a hand-rolled copy+timer, App.vue:362); and a correct hydration-before-derivation ORDERING law (App.vue:225-231) whose only fault is duplicating the prepaint script's precedence.",
+    "defects": [
+     {
+      "id": "D-1",
+      "defect": "On mobile, nine named and enabled action-bar controls are completely inert, plus every colorPickerRef-dependent affordance. App.vue attaches PaneSlot's `:on-mount` only to the two DESKTOP slots, so the four pane-instance refs the action handlers dereference are permanently null at mobile — `null?.regenerate?.()` yields undefined with no call, no throw and no feedback.",
+      "severity": "BLOCKER",
+      "evidence": "App.vue:83-91 (mobile PaneSlot, NO :on-mount) vs App.vue:105 and App.vue:131 (:on-mount on the desktop slots). App.vue:323-328 onDesktopLeftMount is the sole writer of colorPickerRef/generatePaneRef/gradientPaneRef; App.vue:330-332 the sole writer of mixPaneRef. usePaneRouter.ts:196 `handler: () => paneRefs.generate.value?.regenerate?.()` (and :197,198,208,209,210,220,221,222 — 9 actions). Dock.vue:41 `hasAnyActionBar = !!actionBar || !!genericBar` gates rendering on metadata, not liveness, so the layer still draws. Downstream of the same null: App.vue:38 `:action-bar=\"colorPickerRef?.actionBarContext ?? null\"`, App.vue:41-42 commit/cancel-edit, App.vue:352 usePaletteWiring(colorPickerRef, …). Measured: p3.mjs output `{\"label\":\"mobile-390\",\"clicked\":\"dispatched\",\"specimenChanged\":false,\"errs\":[]}` / `{\"label\":\"desktop-1440\",\"clicked\":\"dispatched\",\"specimenChanged\":true,\"errs\":[]}`; desktop before oklch(0.667417 0.182968 248.748459) -> after oklch(0.632577 0.21149 37.050613), mobile unchanged at oklch(0.685775 0.168594 55.603336). Canon: VISUAL-CONSTITUTION.md:100 \"Commit uses one glass-ui action set\"; :83 states \"are never color-only. Role, accessible name, state/value and associated error/status are explicit.\"",
+      "mechanism": "breakpoint-forked slot plumbing — instance registration is a per-call-site prop (`:on-mount`), so liveness desynchronises with every v-if branch; `any`-typed refs (D-13) suppress the compiler diagnostic that would have caught it",
+      "reproduction": "node <scratchpad>/p3.mjs  — webkit, http://localhost:9000/#/generate, waits 3000ms, dispatches a synthetic MouseEvent('click') on the nav.dock-band button whose aria-label/textContent matches /regenerate/i (the button is in a collapsed DockLayer so a real .click() times out), then diffs the first 10 `main [style*='background-color']` style attributes. Ran at viewport 390x844@3 isMobile and 1440x900. Mobile: no change. Desktop: palette regenerates.",
+      "proposedCure": "Do not pass instance capture per call site. `usePaneRouter` already owns the route table and the paneRefs record — let it own registration too: expose one `bindPane(slotName)` capture that every PaneSlot call site passes through, so a slot cannot mount without registering and the breakpoint cannot fork liveness. Type PaneSlot's onMount generically over the mounted component's instance type so the gap is a compile error, not a silent no-op. Under D-2's single-scene shell the branch disappears and the question stops existing."
+     },
+     {
+      "id": "D-2",
+      "defect": "The entire left/right dual-pane workspace architecture the file is built on is retired by the tranche constitution, by name and in four separate clauses. Thirteen of fourteen views ship a companion pane; all five Admin views ship the exact `right: \"palettes\"` companion §7 says must be REMOVED rather than restyled; About is rendered as Picker's companion which §3.1 explicitly forbids; two canonical member routes (/about, /easing) do not exist.",
+      "severity": "BLOCKER",
+      "evidence": "VISUAL-CONSTITUTION.md:89 \"V retires the global Dock `PaneSegmentedControl` and left/right view state.\"; :32 \"no global pane selector, left/right split state, or simultaneous two-stage miniature survives.\"; :218 \"Each Admin route uses the full main width: the current Palettes companion, right label and resulting mobile pane selector are removed rather than restyled.\"; :58 \"About is a quiet trailing destination rather than Picker's companion.\"; :38 InstrumentChassis is the housing contract and \"value.js composes regions with domain content; it does not clone a local chassis recipe.\"; :56 \"Picker cannot stand in for About.\" Live table demo/shell/viewSchema.ts: right:\"about\" (:107), right:\"palettes\" (:116,126,135,154,163,190,199,208,217,226), right:\"mix\" (:144), right:\"blob\" (:181), right:null only at :172 (/atmosphere). Rendered by App.vue:113-137; mobilePaneIndex written at App.vue:41-42; the `Picker | About` selector is visible in shots/safari-mobile-light/picker.png. Member-route inventory fixed at exactly eleven incl. /about and /easing (VISUAL-CONSTITUTION.md:58) — neither is in viewSchema.ts.",
+      "mechanism": "a local chassis recipe standing in for the producer's InstrumentChassis composition — one hand-rolled stage/inspector split with its own ratio, collapse rule and reserve, applied uniformly to eleven members that the canon requires to be separately composed",
+      "reproduction": "grep -n 'right:' demo/shell/viewSchema.ts  → 13 of 14 non-null; then compare against VISUAL-CONSTITUTION.md:218 for the five /admin/* rows (:190,199,208,217,226). Visual: shots/safari-desktop-light/picker.png (About as Picker's equal companion) and shots/safari-mobile-light/picker.png (the retired pane selector).",
+      "proposedCure": "Transpose, do not patch. App.vue becomes a single-scene shell: `<nav>` dock band + one `<main>` + one landmark-neutral route scene + the stable H1 (D-4). Region composition — stage/inspector/action, ratio, collapse behaviour, mobile order — moves onto glass-ui's InstrumentChassis per route exactly as §3.1's table already binds. The `left`/`right` axis, `mobilePaneIndex`, `pane-wrapper--left/--right`, the ghost slot, `pane-container--dual` and the desktop/mobile v-if fork all die in one cut, collapsing D-1, D-3, D-7, D-10 and D-12 with them."
+     },
+     {
+      "id": "D-3",
+      "defect": "The desktop two-part scene renders exactly 50.0000% / 50.0000%. The canon permits only `golden` (61.8033989/38.1966011) or `preview-dominant` (66.6666667/33.3333333), and binds Picker specifically to the exact golden inspector. Equal columns are shipped by written intent, so nothing in the frame identifies the protagonist.",
+      "severity": "BLOCKER",
+      "evidence": "Measured at 1440x900 (probe-app-D.mjs, desktop-1440): `paneGridCols = \"512px 512px\"`, left {x:199,w:512}, right {x:729,w:512}, left share = 50.0000%. Delta from the nearest legal ratio = 11.80 percentage points. Source: demo/styles/shell.css:133-138 `.pane-container--dual { /* Equal columns always (the kept 1fr<->1fr invariant) */ grid-template-columns: repeat(2, minmax(var(--pane-min), 1fr)); }`. Canon: VISUAL-CONSTITUTION.md:27 (§3 law 1) and :43 (§3.1 Picker row, \"exact golden inspector 38.1966011%\"); also :28 (§3 law 2) \"Empty secondary content ... never receives half the viewport\" — every right:\"palettes\" route with an empty library receives exactly half. PROPORTION-AUDIT.md:48 PR-04 requires Admin companion 50%->0.",
+      "mechanism": "the shell owns grid-template-columns, so one ratio is imposed on eleven differently-composed members; ratio is a property of the route composition, not of the shell",
+      "reproduction": "node <scratchpad>/probe-app-D.mjs  → row label \"desktop-1440\": getComputedStyle('.pane-container').gridTemplateColumns === '512px 512px'; getBoundingClientRect widths 512/512 inside a 1042px container.",
+      "proposedCure": "Move the ratio onto InstrumentChassis as named typed values (`golden` | `preview-dominant`) per VISUAL-CONSTITUTION.md:40-52's table, and have the shell stop declaring grid-template-columns at all. The 50/50 grid then cannot outlive the composition that chose it."
+     },
+     {
+      "id": "D-4",
+      "defect": "There is no `<h1>` anywhere in demo/. The shell owns the `<main>` landmark but not the route heading, so every row of the canon's navigation-focus contract targets a node that does not exist. There is also no skip link.",
+      "severity": "BLOCKER",
+      "evidence": "`grep -rln \"<h1\" demo/` → no output (zero files). Measured h1Count = 0 at 1440x900, 720x450@2x and 390x844 (probe-app-D.mjs, all three rows). Tracked matrix agrees: the `h1` column in REPORT.md:119-178 is 0 for all 60 captures. `grep -rn \"skip-link\\|Skip to\" demo/` → empty. mainCount = 1 everywhere (REPORT.md:27 mainCountNotOne=0) so the landmark half IS correct — App.vue:47. Canon: VISUAL-CONSTITUTION.md:85 \"Each route has one H1 and exactly one stable main landmark, owned by the shell\"; :118 \"The shell `<main>` and route H1 are stable nodes\"; the §5.1 table at :108-116 resolves focus to \"destination H1\" in four of seven rows. STATES.json keyboard-focus-desktop rows report focused: \"body[…]\" after 12 Tabs — the active element is still document.body (which is also the mount host, D-9).",
+      "mechanism": "landmark ownership split — the shell claims `<main>` but delegates identity to the panes, so no node satisfies the H1 half of a contract that names the shell as its owner",
+      "reproduction": "grep -rln '<h1' demo/  (empty) ; node <scratchpad>/probe-app-D.mjs  → h1Count 0 on all three matrices ; awk on REPORT.md:119-178 h1 column → 0/60.",
+      "proposedCure": "The shell renders one `<h1>` inside `<main>`, fed by the same route identity `installDocumentTitle` already composes (router/useDocumentTitle.ts:62) — one source, two sinks (`<title>` + H1) — plus the temporary `tabindex=\"-1\"` focus seat §5.1 requires and a skip link as the shell's first tabbable node. Both belong to App.vue and nowhere else."
+     },
+     {
+      "id": "D-5",
+      "defect": "Continuous ambient WebGL motion never terminates and there is no still/pause control, failing both arms of the canon's motion law. Measured still running at 14.6s after load, on mobile included.",
+      "severity": "MAJOR",
+      "evidence": "VISUAL-CONSTITUTION.md:145 \"Continuous Aurora/Blob ambient motion terminates within five seconds or exposes one persistent keyboard-operable still/pause control whose state is announced and remembered. Paused, parked and offscreen mean no animation work.\" Measured sustained rAF rate over t=8.5s->14.6s (probe-overture.mjs, instrumented requestAnimationFrame, two concurrent loops so ~2x frame rate): desktop-1440-light 261.0/s (raf 2024@8565ms -> 3590@14576ms); desktop-1440-dark 284.0/s (2304@8112ms -> 4008@14117ms); mobile-390 259.5/s (2193@8624ms -> 3750@14631ms). No control exists: `grep -rniE \"animation-play-state|pauseAnim|\\\"pause\\\"|'pause'|isPaused\" demo/` → no output. App.vue:285-289 mounts the atmosphere renderer and App.vue:9-17 owns its canvas, so the control has no other home. (The reduced-motion arm IS satisfied — rafPer1500ms=0 under reducedMotion:reduce, STATES.json — but an OS preference is not the persistent, announced, remembered control §6 demands.)",
+      "mechanism": "an unbounded ambient renderer with no user-facing lifecycle seam; the overture DAG exposes beats to START motion and nothing to stop it",
+      "reproduction": "node <scratchpad>/probe-overture.mjs  → per-matrix `rafRate_last6s` field: 261.0/s, 284.0/s, 259.5/s, all sampled from t=8.5s to t=14.6s post-load. Then grep for any pause mechanism → none.",
+      "proposedCure": "One shell-level ambient-motion control, keyboard-operable with `aria-pressed`, persisted alongside the color-mode store, gating BOTH renderers through the OVERTURE_KEY beats App.vue already provides — so \"paused\" tears the rAF loops down rather than merely zeroing opacity, satisfying §6's \"Paused, parked and offscreen mean no animation work.\""
+     },
+     {
+      "id": "D-6",
+      "defect": "The Picker's Blob specimen is nondeterministically present or absent at desktop, and its absence has no designed fallback — the overture's B4 gate has only a success edge. When it loses, the headline interval ships as ~230px of dead acreage, which is verbatim the PR-15 defect the register says must be closed.",
+      "severity": "MAJOR",
+      "evidence": "Four observations of the same route/viewport class: REPORT.md:119 tracked safari-desktop-light /#/ → canvas=1 (blob ABSENT), consoleErr=1 = \"WebGL: context lost.\" (REPORT.md:17), settle 18905ms; REPORT.md:134 safari-desktop-dark /#/ → canvas=2 (present), settle 3515ms; probe-app-D.mjs desktop-1440 (networkidle+2500ms) → `canvases: [atmosphere-canvas]` only, ABSENT; probe-overture.mjs desktop-1440-light (DCL+4000ms) → b4@2306ms and goo-blob-canvas PRESENT. The losing frame is shots/safari-desktop-light/picker.png: no blob, ~230 CSS px empty between the `Lab` identity and the `92.0%, 88.8, 20.0` headline. Asymmetry: the aurora canvas HAS a loss contract — demo/color-picker/composables/boot/useAtmosphere.ts:288,298,301 (`webglcontextlost` / `webglcontextrestored`) — and those are the ONLY matches in the tree (`grep -rn 'webglcontextlost|contextlost|isContextLost|contextrestored' demo/ src/`). The blob has none. App.vue:296 owns the DAG; useOverture.ts:28-40 gates B4 on \"B3-complete AND B2-STARTED AND chunk-resolved\" with no failed/unavailable arm. Canon: PROPORTION-AUDIT.md:59 (PR-15) and VISUAL-CONSTITUTION.md:182 \"The headline->next-instrument interval is not dead acreage\"; :142 \"The CSS ground is the honest first frame. Aurora/Blob enhance it after paint without geometry change.\"",
+      "mechanism": "a success-only gating DAG — B4 cannot express \"the ornament will not arrive\", so no downstream geometry can collapse the interval it reserved",
+      "reproduction": "node <scratchpad>/probe-app-D.mjs (desktop-1440 row → canvases length 1, blob absent) vs node <scratchpad>/probe-overture.mjs (desktop-1440-light → marks include overture:b4@2306ms, canvases include goo-blob-canvas). Re-run either a few times; the outcome flips. Static: REPORT.md:17,119,134 and shots/safari-desktop-{light,dark}/picker.png side by side.",
+      "proposedCure": "Give B4 a terminal `unavailable` arm (context lost, WebGL absent, chunk rejected) and add the blob's own `webglcontextlost`/`webglcontextrestored` contract mirroring useAtmosphere.ts:288-301. On `unavailable`, the headline interval collapses to the named shared section rhythm — the alternative PROPORTION-AUDIT.md:59 already authorises — so the layout is correct with the blob absent, per §6's \"enhance it after paint without geometry change.\""
+     },
+     {
+      "id": "D-7",
+      "defect": "200% zoom is not a designed state: it is silently aliased onto \"mobile\", handing the user a different information architecture rather than a reflow, and the hard v-if remount destroys all three KeepAlive caches, every pane's local state and both WebGL contexts on an ordinary zoom/rotate gesture. Combined with D-8 the primary editing instrument is then clipped below a non-scrolling fold.",
+      "severity": "MAJOR",
+      "evidence": "Measured at 720x450@2 DPR, the 200% arm (probe-app-D.mjs, zoom200-720x450): mobileSlot {x:104,y:104,w:512,h:338} renders, left=null, right=null; STATES.json same matrix textLen=70 vs 859 at desktop 1440. Breakpoint: App.vue:310-312 `useBreakpoint(\"(min-width: 1024px) and (min-aspect-ratio: 1.1)\")`, consumed as v-if/v-else at App.vue:77 and :94 — so crossing it unmounts/remounts the scene, destroying the :max=9 (App.vue:87), :max=6 (:107) and :max=4 (:133) caches. Clipping: channelRail {y:439.67, h:206, bottom:645.67} against vh=450 → 195.67px below the fold; docScrollable=0; clippedY = div.channel-rail.self-stretch@y452, button.channel-rail-item@y455,@y499,@y543,@y587; reachable only via `div.glass-resting.card +223px`, an unlabelled inner scroller. Canon: VISUAL-CONSTITUTION.md:32 (§3 law 6, mobile is a distinct sequence) and :33 (§3 law 7, \"No desktop-tight/mobile-airy fork and no breakpoint pile\"); PROPORTION-AUDIT.md:16 requires an actual-400%-zoom arm, which is unreachable when 200% already clips. WCAG 2.1 SC 1.4.4 and 1.4.10 both fail. Why it never surfaced: the tracked state probe measures horizontal clipping only — states.mjs:69-71 `return b.right > de.clientWidth + 1 || b.left < -1;` has no vertical term, so STATES.json reports clipped:[] for zoom-200-desktop /#/ while shots/zoom-200-desktop/picker.png shows the rail gone.",
+      "mechanism": "a hard mount fork keyed on a viewport media query, standing in for responsive reflow — the breakpoint changes the architecture instead of the layout",
+      "reproduction": "node <scratchpad>/probe-app-D.mjs  → row label \"zoom200-720x450\": mobileSlot non-null with left/right null, docScrollable 0, channelRail.bottom 645.67 vs vh 450, clippedY lists five channel-rail nodes. Visual: docs/tranches/V/megatranche/audit/visual/shots/zoom-200-desktop/picker.png — card cut mid-body, no scrollbar.",
+      "proposedCure": "Under D-2's single-scene shell there is no mount fork to cross: one scene, container queries for its regions (`.pane-wrapper` is already `container-type: inline-size`, shell.css:82-84), so zoom reflows instead of re-architecting. Separately, add a vertical term to states.mjs:69-71 so this defect class is measurable at all."
+     },
+     {
+      "id": "D-8",
+      "defect": "The document never scrolls at any viewport — the shell is a fixed overflow:hidden viewport frame — so every route's overflow is forced into nested card scroll wells, up to 7251px deep behind a backdrop-filter. The canon requires mobile to be one document-scrolling sequence.",
+      "severity": "MAJOR",
+      "evidence": "VISUAL-CONSTITUTION.md:32 (§3 law 6): \"Mobile uses one document-scrolling stage->inspector->action sequence beneath the same top dock.\" Measured on all three matrices (probe-app-D.mjs): desktop-1440 docScrollable 0 / bodyScrollable 0 / appLayoutOverflow \"hidden/hidden h=900px\"; zoom200-720x450 0 / 0 / \"hidden/hidden h=450px\"; mobile-390x844 0 / 0 / \"hidden/hidden h=843.98px\". Source: demo/styles/shell.css:19-28 `.app-layout { height: 100dvh; overflow: hidden; }` plus shell.css:75 `max-height: var(--content-max-h)` resolving to clamp(30rem,62dvh,38rem) on the mobile arm (foundation.css:481). Consequence measured at desktop /#/: `scrollables = [\"div.glass-resting.card +7251px\"]` — 7251px of content inside a 774px card, behind the shell.css:196-208 backdrop-filter carrier, with the page scrollbar suppressed.",
+      "mechanism": "a viewport-locked shell (100dvh + overflow:hidden) that displaces the document scroller into per-card wells, inverting the canon's scroll ownership",
+      "reproduction": "node <scratchpad>/probe-app-D.mjs  → all three rows report docScrollable 0 and bodyScrollable 0; the desktop-1440 row reports scrollables ['div.glass-resting.card +7251px'].",
+      "proposedCure": "The shell's block axis becomes `min-height: 100dvh` and the document scrolls. The dock band keeps its reserved band via `position: sticky` on grid row 1 — §3 law 4 is already satisfied structurally by `--dock-band-min-h` (shell.css:44) — so the reservation survives without the `overflow: hidden` that costs the document its scroll."
+     },
+     {
+      "id": "D-9",
+      "defect": "App.vue's boot contract is split across a file it does not own and duplicated in two languages. It mounts onto `<body>` as a three-root fragment, depends on three host attributes declared in index.html (one of which is provably dead), makes the canon's required static boot-error region structurally impossible to preserve, and re-runs the prepaint script's URL/storage/default precedence a second time in TypeScript — which §6.2 forbids in those words.",
+      "severity": "MAJOR",
+      "evidence": "Measured (probe-app-D.mjs, all three matrices): mountHostIsBody=true, appLayoutParent=\"body\", bodyAttrs=`class=\"relative\" id=\"app\" data-paper-field=\"\" data-v-app=\"\"`, groundState=null. The mount is demo/color-picker/index.html:205-213 (MT-F012's P0 inline module) ending `app.mount(\"#app\")`, and `#app` IS `<body>` (index.html:226). App.vue is a 3-root fragment: div.app-layout (:2), comment nodes (:144-149), MigratePalettesDialog (:152). (1) `class=\"relative\"` is DEAD: the atmosphere canvas (App.vue:9-17, `absolute inset-0`) is a descendant of `.app-layout` (App.vue:2) which is already `position: relative` (shell.css:25), so the nearest positioned ancestor is never `<body>` — a legacy positioning ancestor, owner edict 2. (2) `data-paper-field` is glass-ui's field contract governing App.vue's own descendants incl. portalled dialogs (index.html:222-226) yet is declared where App.vue cannot see it. (3) Mount replaces the host's children, so `<body>` can hold no `<noscript>` and no pre-rendered fallback — while VISUAL-CONSTITUTION.md:168 requires \"A static semantic boot-error region already present in HTML becomes visible through that data state\"; measured groundState=null confirms the whole §6.2 latch (data-ground-state / -schema / -store) is unimplemented. (4) index.html:180-200 runs URL/storage/default precedence in vanilla JS writing --saved-bg-0..N; App.vue:231 `resolveHydratedBootModel()` runs URL->storage->default AGAIN in TypeScript (boot/hydrate.ts:53-78) — VISUAL-CONSTITUTION.md:172: \"The hydrated model consumes the frozen boot object ...; it does not repeat scheme/URL/storage precedence, reconstruct an initial palette in TypeScript, or repaint a second 'equivalent' ground.\"",
+      "mechanism": "split root ownership — the component's own root contract (positioning ancestor, material attribute, boot precedence) lives in the entry HTML, so it is untyped, untestable, invisible to the component, and duplicated",
+      "reproduction": "node <scratchpad>/probe-app-D.mjs  → every row: mountHostIsBody true, appLayoutParent \"body\", bodyAttrs 'class=\"relative\" id=\"app\" data-paper-field=\"\"', groundState null. Then read index.html:205-213 (mount), :222-226 (data-paper-field rationale), :180-200 (prepaint precedence) against boot/hydrate.ts:53-78 (the second precedence engine).",
+      "proposedCure": "Take MT-F012's cure and finish it. Move the 8 lines to main.ts referenced via `src=`, with `<div id=\"app\">` as the host. Then: `.app-layout` becomes the app's own root and already declares position:relative, so `class=\"relative\"` is DELETED not moved; `data-paper-field` moves onto `.app-layout` — the element App.vue owns and documents; `<body>` regains the right to carry §6.2's static boot-error region and a `<noscript>`; and main.ts becomes the single reader of the frozen `window.__VALUE_GROUND_BOOT__`, handing it to `createApp(App, { boot })` so App.vue CONSUMES the boot object as §6.2 requires and `resolveHydratedBootModel`'s duplicate precedence engine is deleted outright rather than kept in sync. Necessary but insufficient: it does not fix the 3-root fragment, D-2, D-3 or D-4."
+     },
+     {
+      "id": "D-10",
+      "defect": "Under RTL the logical grid relocates the protagonist to the visual right while App.vue's slot names and its entrance choreography remain physical, so a directional stacking intent becomes wrong-sided and the entrance sweep runs against the reading direction.",
+      "severity": "MAJOR",
+      "evidence": "shots/rtl-desktop/picker.png: with dir=\"rtl\" the Picker (protagonist) renders on the RIGHT and About on the LEFT; the dock reads `mbabb@ | Login <- | <- Tools | Home v`. Names are physical: `pane-wrapper--left` / `pane-wrapper--right` at App.vue:77, 96, 119 — and shell.css:94-96 gives `.pane-wrapper--left { z-index: 1 }` explicitly \"so the bead's overlap strip is never buried under the About card\", a directional stacking intent that under RTL applies to the visual right. Timing is physical: `--overture-left-delay: 40ms` / `--overture-right-delay: 120ms` (boot/overture.css:18-19) bound per slot inline at App.vue:96 and :121. Canon: VISUAL-CONSTITUTION.md:150 (§6.1) \"chrome, navigation and layout | logical inline/block direction follows the document.\"",
+      "mechanism": "half-logical layout — the box model went logical (grid/flex) while the identifiers and the motion schedule stayed physical, so they disagree the moment `dir` flips",
+      "reproduction": "docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop/picker.png (captured by states.mjs, which applies dir=rtl post-load per its MT-F022 note at states.mjs:47) — compare pane order against shots/safari-desktop-light/picker.png; then read shell.css:94-96 and overture.css:18-19 against App.vue:96,119,121.",
+      "proposedCure": "Rename to role, not side (`--protagonist` / `--inspector`) and key the entrance stagger off role so both survive `dir` inversion by construction. Under D-2 the slots vanish entirely and the finding is moot."
+     },
+     {
+      "id": "D-11",
+      "defect": "\"Not found\" has no designed state: an unknown route silently redirects to `/` with no announced reason, rendering byte-identical content to the home route. The canon requires the redirect reason in one polite status plus the destination title/H1.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-picker/router/index.ts:37 `{ path: \"/:pathMatch(.*)*\", redirect: \"/\" }`. Measured in the tracked matrix: REPORT.md:133 `/#/does-not-exist` text=859 vs REPORT.md:119 `/#/` text=859 — identical, in all four matrices (REPORT.md:133,148,163,178). Canon: VISUAL-CONSTITUTION.md:113 (§5.1) \"auth, not-found, or policy redirect | destination H1 | top | redirect reason in one polite status, then destination title/H1; no focus on removed content.\" The shell mounts no polite status region — its only live region is ErrorBoundary's role=\"alert\" / aria-live=\"assertive\" (ErrorBoundary.vue:6,20), which is assertive and reserved for render throws — and there is no H1 to focus (D-4).",
+      "mechanism": "a state elided rather than designed — the router expresses the recovery (redirect) but not the communication (status + identity), so the app silently rewrites the user's intent",
+      "reproduction": "Compare REPORT.md rows 119 and 133 (text 859 both) ; grep -n 'pathMatch' demo/color-picker/router/index.ts → :37 redirect \"/\" ; grep -rn 'aria-live' demo/shell/ demo/color-picker/ → only ErrorBoundary.vue:20 (assertive).",
+      "proposedCure": "One shell-owned polite status region (`role=\"status\"`, `aria-live=\"polite\"`) beside the H1, written by the same route-settlement commit installDocumentTitle already hooks (router/index.ts:47). The 404 becomes an announced redirect rather than a silent rewrite."
+     },
+     {
+      "id": "D-12",
+      "defect": "Two statements of business logic inside an inline template handler, mutating a foreign composable's ref directly, with a bare magic index — and the state it mutates is the very left/right view state the canon retires. It also fires on desktop where it is meaningless, and on mobile the other half of the same expression is a no-op.",
+      "severity": "MINOR",
+      "evidence": "App.vue:41-42: `@commit-edit=\"colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1\"` and `@cancel-edit=\"colorPickerRef?.cancelEdit(); viewManager.mobilePaneIndex.value = 1\"`. Three faults: sequenced statements in a template expression; a foreign composable's ref mutated from the template rather than through its API; the literal `1` as an unnamed index meaning \"the right pane\". It runs on desktop where mobilePaneIndex is meaningless, and per D-1 `colorPickerRef` is null on mobile so on the one viewport where the index matters the `commitEdit()` half never fires. `mobilePaneIndex` is itself the state VISUAL-CONSTITUTION.md:89 retires. Owner edicts 3 (KISS) and 7 (idiomatic Vue 3.5).",
+      "mechanism": "logic leaking into the template because the composable exposes raw state instead of named intents",
+      "reproduction": "Read App.vue:41-42 ; grep -n 'mobilePaneIndex' demo/shell/useViewManager.ts and demo/color-picker/App.vue ; VISUAL-CONSTITUTION.md:89.",
+      "proposedCure": "`viewManager` exposes a named intent (`returnToInspector()`); the handler becomes one method call and the magic index becomes a named position inside the composable. Under D-2 the state disappears."
+     },
+     {
+      "id": "D-13",
+      "defect": "`any` throughout the shell's ref plumbing erases the real public shapes of the three pane instances, which is the direct enabling condition for D-1: the null-safe call chain type-checks forever, so the missing mobile `:on-mount` produced no diagnostic anywhere.",
+      "severity": "MINOR",
+      "evidence": "App.vue:317-319 `const generatePaneRef = ref<any>(null);` (x3, generate/gradient/mix); App.vue:323 `function onDesktopLeftMount(el: any)`; App.vue:330 `function onDesktopRightMount(el: any)`; demo/shell/PaneSlot.vue:52 `onMount?: (instance: any) => void;`. The erased shapes are real and enumerated at usePaneRouter.ts:196-222 — regenerate, save, copyColors, reset, copyCSS, seedFromPalette, clearSelection, startMix, copyResult. `paneRefs.generate.value?.regenerate?.()` type-checks against `null` indefinitely. (The file otherwise honours verbatimModuleSyntax correctly — all type-only imports are `import type`, App.vue:163.)",
+      "mechanism": "type erasure at a DI seam — `any` at the boundary converts a structural wiring error into a silent runtime no-op",
+      "reproduction": "grep -n 'ref<any>\\|: any' demo/color-picker/App.vue → :317,318,319,323,330 ; grep -n 'onMount' demo/shell/PaneSlot.vue → :52 ; then usePaneRouter.ts:196 shows the erased call.",
+      "proposedCure": "Make PaneSlot's `onMount` generic over the mounted component's instance type and give the three refs their real `InstanceType<typeof …>` unions. Then D-1's missing mobile registration becomes a compile error rather than an inert button."
+     },
+     {
+      "id": "D-14",
+      "defect": "A palette-migration choice dialog is mounted unconditionally at the shell root — two of the five recovery presentations the canon names as forbidden, in one mount — and it accretes the shell toward a god module by giving it a domain dialog to own.",
+      "severity": "MINOR",
+      "evidence": "App.vue:152-157 mounts `MigratePalettesDialog` as a permanent shell child bound to `paletteManager.migration.*`. VISUAL-CONSTITUTION.md:224 (§7): \"Unsupported/corrupt palette storage replaces the Library body inside its existing main with one content-hug recovery article: diagnosis, preservation/export, then separately confirmed reset. ... It is never rendered as an empty library, silent reset, migration choice, overlay, or companion pane.\" This mount is simultaneously a migration choice AND an overlay. Owner edict 1 (no god modules) — the shell should own landmarks and routing, not the palette domain's recovery flow.",
+      "mechanism": "domain accretion at the shell root — a global-modal slot invites every feature to hang its dialog on the shell",
+      "reproduction": "Read App.vue:151-157 against VISUAL-CONSTITUTION.md:224 ; the dialog is reached through the palette-browser sub-barrel per App.vue:168-176.",
+      "proposedCure": "The recovery article renders inside `<main>`, owned by the Library scene, exactly as §7 specifies (diagnosis -> preservation/export -> separately confirmed reset, content-hug). The shell mounts no domain dialogs at all."
+     },
+     {
+      "id": "D-15",
+      "defect": "HYPOTHESIS (not proven) — the shell appears to render fully chromatic under forced colors, and it has no forced-colors rules of its own. The captured frame is not admissible because Playwright's forcedColors emulation is not honoured by WebKit.",
+      "severity": "INFO",
+      "evidence": "shots/forced-colors-desktop/picker.png shows the aurora field, the pink glass and the full chromatic dock rendering unchanged under `forcedColors: \"active\"` — but states.mjs:1-9 itself warns that WebKit-only rows mislead, and forced-colors emulation is not a WebKit capability, so this frame proves nothing. LABELLED A HYPOTHESIS. The admissible source-side fact: demo/styles/foundation.css:678 has one `@media (forced-colors: active)` block, and none of the shell's own selectors — .app-layout, .dock-band, .pane-main, .pane-container, .pane-wrapper, .atmosphere-canvas — appear in it; the atmosphere canvas has no forced-colors arm at all. Canon: VISUAL-CONSTITUTION.md:84 \"Focus remains visibly distinct from selection in both schemes, forced colors and reduced transparency.\"",
+      "mechanism": "unverifiable-by-construction evidence — an audit matrix whose emulation the engine ignores, producing a green-looking frame for an untested state",
+      "reproduction": "NONE — this is a hypothesis. To decide: `ENGINE=chromium node docs/tranches/V/megatranche/audit/visual/states.mjs` and compare the regenerated shots/forced-colors-desktop/picker.png against the WebKit one.",
+      "proposedCure": "First make the state measurable: run the forced-colors matrix under Chromium (states.mjs already supports ENGINE=chromium). Then, if confirmed, the shell's own surfaces join the foundation.css:678 roster with `forced-color-adjust` handling for the canvas, so §4.1's focus-vs-selection distinctness holds in WHCM."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "abd62a74bc18eaa36",
+   "key": "v2:3e31b3006e63f8f5383513796e87bdaea67df93c430ca0d2beb3940cc47eaed8",
+   "result": {
+    "axis": "CHALLENGE-C — implementation defect hunt on demo/color-picker/App.vue (core shell): boot contract, reactivity/ref wiring, error paths, a11y-as-implementation, performance, test truth",
+    "modelObserved": "Opus 5 (1M context) — exact model id claude-opus-5[1m]; matches the explicit Opus 5 declaration this seat was spawned with (declared, not inherited).",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/App/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "defects": [
+     {
+      "id": "C-1",
+      "defect": "A cold load / refresh / shared link on any route whose left pane is not the color-picker (10 of 14 routes) permanently stalls the overture beat DAG at B2: overture:b3 and overture:b4 never fire for the life of the session, and the picker's hero-blob ornament (v-if gated on b4) never mounts again on ANY route thereafter.",
+      "severity": "BLOCKER",
+      "evidence": "Measured with an isolated Chromium probe against localhost:9000. CONTROL cold-load /#/ → marks [b0,b1,b3,b2,b4], `.hero-blob-anchor` present. DEEPLINK /#/generate → marks [b0,b1,b2] only, blob absent; after hash-nav to /#/ still [b0,b1,b2], `.picker-shell` present but blob STILL absent. Identical for /#/browse. First-pane oracle (pre-navigation MutationObserver) on cold /#/generate records `picker-shell` as the FIRST mounted left pane before the GeneratePane. Code: App.vue:90 and App.vue:109 are the ONLY call sites of overture.noteLeftPlateSettled (grep), both via PaneSlot.vue:118 `@after-appear`; useViewManager.ts:43-46 falls back to \"picker\" while route.name is undefined; PaneSlot.vue:74 seeds liveComponent at setup; useOverture.ts:153-183 gates b4 on b3Complete.",
+      "mechanism": "State derived from a source of truth that is not yet true: index.html:205-213 mounts without awaiting router.isReady(), so the first render uses the picker config; PaneSlot then swaps the child (router resolution + the deliberate one-rAF commit at PaneSlot.vue:95), which cancels Vue's `appear` transition so @after-appear never fires. B3 is the one beat in this boot chain with NO state-checked fallback (contrast useDockArrival.ts:63-72 and useOverture.ts:173), so one missed DOM event is terminal.",
+      "reproduction": "node <scratchpad>/probe-b3.mjs — launches chromium 1440x900, goto http://localhost:9000/#/generate (or /#/browse), wait 5s, read performance marks + `.hero-blob-anchor`; then set location.hash='#/', wait 7s, re-read. Compare against goto('/#/'). Deep links yield 3 marks and no blob; the control yields 5 marks and a blob.",
+      "proposedCure": "Take the MT-F012 entry cure and make it the idiomatic vue-router SPA boot: in the new main.ts do `app.use(router); await router.isReady(); app.mount('#app')`. With the route true at first render the first-mounted left pane is the final one, its appear completes, B3 and B4 fire. Second, independent arm: arm B3 on the left pane's MOUNT plus a getAnimations() settle check (the sibling beats' idiom) instead of a single Transition appear event."
+     },
+     {
+      "id": "C-2",
+      "defect": "The mobile pane slot is the only slot with no `:on-mount`, so colorPickerRef / generatePaneRef / gradientPaneRef / mixPaneRef are permanently null at mobile viewports. Nine dock action-bar actions render, accept clicks, and silently do nothing; the picker's action bar and the dock commit/cancel-edit affordances are dead on mobile.",
+      "severity": "MAJOR",
+      "evidence": "Same script, same selectors, two viewports: desktop-1440 /#/generate — dock button[aria-label='Regenerate'] scoped to nav.dock-band → palette seed 05a86311 → e84f5064 (works); mobile-390 /#/generate → seed f16915bd → f16915bd (dead), while the pane's own Regenerate on the same page changes it f16915bd → e04dde63 (control passes). At 390px on /#/ the picker's `.action-bar-toggle-inner` measures zero width (toggleVisible=false) vs true at 1440px. Code: App.vue:83-91 (mobile slot, no :on-mount) vs App.vue:105/:131; refs assigned only in App.vue:323-332; handlers optional-chain into null at usePaneRouter.ts:196-198/:208-210/:220-222; App.vue:38 and :41-42 read the null ref; usePaletteWiring.ts:37-58/:117 turns its 2s race-guard into the guaranteed path.",
+      "mechanism": "Ref capture is wired per-slot by hand and one slot was missed; every consumer then optional-chains (`?.`) into the nulls, so the structural gap degrades silently instead of failing. usePaletteWiring.ts:65-73/:121-127 add masking fallbacks (edict 2) that hide it further.",
+      "reproduction": "node <scratchpad>/probe-actionbar2.mjs — goto /#/generate, click `nav.dock-band .action-bar-toggle-inner`, then `nav.dock-band button[aria-label='Regenerate']`, diff the `seed: <hex>` in main; run at viewport 1440x900 and 390x844.",
+      "proposedCure": "Delete the two currentConfig-name dispatchers. PaneSlot already owns `liveKey`: have it call `onMount(instance, liveKey)` and let App store into one `paneRefs` record keyed by pane name — one path for mobile and both desktop slots, with the slot (not a second source of truth) answering 'which ref'. Retires three `ref<any>` and the `any` callback params, and cures C-3 in the same move."
+     },
+     {
+      "id": "C-3",
+      "defect": "The ref-capture callback fills the WRONG ref for one frame during a pane swap (a ColorPicker instance lands in generatePaneRef while colorPickerRef is nulled), and it re-fires on every unrelated parent re-render.",
+      "severity": "MAJOR",
+      "evidence": "jsdom repro using this repo's own vue, modelling the exact PaneSlot↔App contract (inline arrow :ref, one-rAF commit, `left === '…' ? el : null` dispatcher). Trace: after the config flip and before the rAF commit → `left=generate el=Picker -> picker=null generate=Picker`; one unrelated parent re-render → the callback fires again with the same instance. Code: App.vue:323-332 reads currentConfig.value.left (the incoming view) while PaneSlot.vue:86-97 delays the rendered triplet by one rAF; PaneSlot.vue:124 builds a fresh arrow `:ref` on every render; App.vue:317-319 declare `ref<any>` so no type error is possible.",
+      "mechanism": "Two sources of truth for one identity: 'what is mounted' (the slot's liveKey) vs 'what the route says' (currentConfig.left), read in the window where they disagree. The `any` typing plus `?.method?.()` optional calls convert a wrong-instance assignment into silence rather than a TypeError.",
+      "reproduction": "node <scratchpad>/ref-churn.mjs (jsdom + vue) — prints the callback trace; line `left=generate el=Picker -> picker=null generate=Picker` is the mis-assignment.",
+      "proposedCure": "Same as C-2: PaneSlot emits (instance, key); App keys the record off that name. Additionally hoist PaneSlot's `:ref` to a stable function so Vue stops re-running it on every parent-driven update."
+     },
+     {
+      "id": "C-4",
+      "defect": "The shell publishes nav+main landmarks with no h1, no h2 and no skip link — the first heading on every route is an h3, and a keyboard user must traverse the entire dock before reaching pane content.",
+      "severity": "MAJOR",
+      "evidence": "docs/tranches/V/megatranche/audit/visual/REPORT.md per-capture table: `h1` column = 0 for all 60 captures (15 routes × 4 matrices). Live probe on 3 routes × 2 viewports: {h1:0, h2:0, landmarks:{main:1,nav:1,header:0}, skipLink:[]}. `grep -rn \"<h1\" demo/` → no matches anywhere in the demo tree; demo/shared/ui/PaneHeader.vue:21 renders `<h3>`. Measured first three focusables at 1440px: BUTTON 'Save edit', BUTTON 'Cancel edit', INPUT; 16 buttons enumerated inside nav.dock-band on /#/generate. App.vue:24 and :47 are the landmark owners.",
+      "mechanism": "Landmark structure was implemented without the heading/bypass half of the same contract; no component below the shell can supply a document h1, so the gap is structurally unfillable elsewhere.",
+      "reproduction": "node <scratchpad>/probe-app.mjs — counts h1/h2/landmarks/skip links at 1440x900 and 390x844 on /#/generate and /#/blob; corroborated by the 60-row h1 column in REPORT.md.",
+      "proposedCure": "Add one visually-hidden <h1> naming the app in the shell, a skip link as the first focusable targeting `#pane-main` (with tabindex=-1 on <main>), and promote PaneHeader to h2 so the outline reads h1→h2→h3. If the skip link is to be styled, the primitive belongs in glass-ui (edict 4), not demo/ui/."
+     },
+     {
+      "id": "C-5",
+      "defect": "`import { ColorPicker } from \"../picker\"` is used only in a type position but is not `import type` — a verbatimModuleSyntax (edict 8) violation that emits a runtime import for a type.",
+      "severity": "MINOR",
+      "evidence": "App.vue:164 (the import) and App.vue:223 (`ref<InstanceType<typeof ColorPicker> | null>(null)`) — `grep -n \"ColorPicker\" demo/color-picker/App.vue` returns only 164, 223 and a prose comment at 294. The same symbol is imported correctly as `import type { ColorPicker }` in demo/color-picker/composables/usePaletteWiring.ts:21.",
+      "mechanism": "Under verbatimModuleSyntax the compiler emits value imports verbatim; a type-only use therefore drags the picker module graph into App's eager chunk.",
+      "reproduction": "NONE (static; direct file:line evidence).",
+      "proposedCure": "`import type { ColorPicker } from \"../picker\";` — mirror the sibling file that already does it."
+     },
+     {
+      "id": "C-6",
+      "defect": "The eager-barrel doc-comment books a bundle residual on a manifest fact that is false.",
+      "severity": "MINOR",
+      "evidence": "App.vue:168-175 asserts 'the root `package.json` marks `./demo/**` side-effecting, so this eager-chunk barrel reach does NOT tree-shake the lazy sibling dialogs'. package.json:20 is `\"sideEffects\": false` — no demo/** mark exists.",
+      "mechanism": "A stale build claim carried forward across tranches, now steering a booked follow-up that has no basis in the manifest.",
+      "reproduction": "NONE (static; `grep -n sideEffects package.json` → line 20 `\"sideEffects\": false,`).",
+      "proposedCure": "Delete the booking, or re-derive the residual from the actual bundle if one still exists; never leave a booked item resting on a contradicted fact."
+     },
+     {
+      "id": "C-7",
+      "defect": "Every boot rewrites the address bar with a colour the user never picked, violating the hydrate.ts 'born hydrated, ONE commit' law App.vue's own comment asserts.",
+      "severity": "MINOR",
+      "evidence": "Clean browser context (empty localStorage) loading http://localhost:9000/#/generate settles at http://localhost:9000/#/generate?space=lab&color=lab(92%25+88.8+20+/+82.7%25) — measured in every isolated probe run. Mechanism code: useColorPipeline.ts:50-52 unconditionally re-assigns model.value at setup (clampColorToSpaceDomain returns a fresh object; the `if (model.value.color)` guard is always true), tripping the identity-based watcher at useColorUrl.ts:79-82 → router.replace. App.vue:245 then :377 fix the composition order; App.vue:369-376 claims the opposite ('an idempotent re-commit').",
+      "mechanism": "An identity-changing write performed for a value-level clamp, observed by an identity-based watcher — the boot commits a URL write no user action requested.",
+      "reproduction": "node <scratchpad>/probe-app.mjs (fresh context per run) — read `location.href` after load; it always carries ?space=&color= even with empty storage and a bare hash.",
+      "proposedCure": "Make the boot clamp a no-op write: compare the clamped colour to the incoming one and skip the assignment when nothing changed (or clamp inside hydrate before the ref exists, which is where the ordering law already says the first value is decided)."
+     },
+     {
+      "id": "C-8",
+      "defect": "App.vue's root contract (glass field declaration, positioning context, pre-paint boot) is externalized into index.html, so the shell cannot be mounted anywhere else with its material intact; the MT-F012 entry cure does not repair this.",
+      "severity": "MINOR",
+      "evidence": "App.vue is a two-root fragment (.app-layout + MigratePalettesDialog) mounted straight onto `<body id=\"app\" class=\"relative\" data-paper-field>`; measured body attributes after boot: [class, id, data-paper-field, data-v-app]. The field contract lives at index.html:216-224 while App.vue supplies only the field CANVAS stamp (App.vue:16). The pre-paint half — @property --saved-bg-* registrations, the .dark class and performance.mark('overture:b0') — lives at index.html:101-203, and useOverture documents B0 as index.html's beat with no fallback.",
+      "mechanism": "Component-owned material declared on a container the component does not render: the coupling is invisible to the compiler and travels with the HTML, not with the component.",
+      "reproduction": "NONE for a failure (the current entry satisfies it); the coupling itself is evidenced by the measured body attributes plus the file:line split above.",
+      "proposedCure": "Give App.vue a single root element that carries its own field stamp (data-paper-field) and layout positioning, and have the new main.ts mount into a plain <div id=\"app\">. Then the shell is mountable in a test/story harness with its material intact and MT-F012's move carries no hidden coupling."
+     },
+     {
+      "id": "C-9",
+      "defect": "Vacuous gates: no test in the repo mounts App.vue at all, and the single oracle that asserts its boot DAG only ever visits the one route class where the BLOCKER does not reproduce.",
+      "severity": "INFO",
+      "evidence": "`grep -rn \"mount(\" test/ demo/test/` → no matches (vitest include is [\"test/**/*.ts\",\"demo/test/**/*.ts\"], vitest.config.ts). e2e/smoke/oracles/o4-order-invariance.spec.ts:47 is `await page.goto(\"/\")` before asserting all five overture marks and the DAG order at 1x and 6x throttle; every blob spec is also goto(\"/\") — o12-blob-seat.spec.ts:66, webgl-blob.spec.ts:46, webgl-blob-idle.spec.ts:54, mobile/blob-presence-mobile.spec.ts:66.",
+      "mechanism": "Coverage is anchored on the default route and on library-level units, so the shell's route-dependent and viewport-dependent behaviour has no oracle at all.",
+      "reproduction": "Mutation that keeps `npm test` fully green: delete the entire `<nav class=\"dock-band\">…</nav>` block from App.vue, or delete `:on-mount=\"onDesktopLeftMount\"` from the desktop left slot. Both pass. So does C-2's live defect today.",
+      "proposedCure": "Parametrise O-4 over at least one non-picker-left route (/#/gradient suffices) so the B3/B4 stall is a gate failure, and add a mobile assertion that the dock's Regenerate changes the generate seed at 390px."
+     }
+    ],
+    "strongestDefect": "C-1 — a cold load / refresh / shared link on 10 of the 14 routes permanently stalls the overture DAG at B2 (b3 and b4 never fire for the session), so the hero-blob ornament never mounts again on any route; caused by App.vue rendering panes before router.isReady() (the picker mounts first on every deep link) combined with B3 being armed solely by a Vue Transition `appear` hook that the swap cancels, with no state-checked fallback. Cured outright by making MT-F012's new main.ts await router.isReady() before mount.",
+    "negativeProof": "Attacked and could not break: (1) boot is throw-safe against malformed URL colour input including the repo's live parseCssColor crash class — five deep links (oklch(), oklch(0.7), lab(NaN NaN NaN), rgb(1e400 -0 255), space=nonsense&color=#ffffff) each booted with booted:true, panes:2, boundary:false and ZERO page errors and ZERO console errors, falling through to the default seed (hydrate.ts:98-130, useColorUrl.ts:44-47) — no white screen, no ErrorBoundary trip, no unhandled rejection; (2) the 60-capture Safari matrix reports 0 pageErrors, 0 blankOrNearBlank, 0 horizontalOverflow, 0 darkClassMissing and mainCountNotOne=0, so App.vue's landmark and layout contract holds on every route x matrix (the one console error, 'WebGL: context lost' on safari-desktop-light /#/, belongs to the blob/atmosphere seat); (3) no leaked observers/listeners/rAF — useDevicePixelSnap.ts:90-97 disconnects its ResizeObserver + MutationObserver, removes the window resize and both capture-phase document listeners and cancels its pending rAF on unmount, PaneSlot.vue:108 cancels its commit rAF, and useOverture/useDockArrival run finite self-terminating chains with idempotent guards (useAtmosphere.ts contains no requestAnimationFrame at all) — the PRM-RAF epidemic class is absent here; (4) no defineModel stale-read hazard — the model is a shallowRef provided via COLOR_MODEL_KEY (App.vue:232/:257) and the stableHue invariant is honoured through the documented external-write seam (App.vue:263-265 with useColorPipeline.ts:78-97); (5) no ValueUnit re-wrapping anywhere in App.vue; (6) the X6 single-mount law holds — measured paneWrappers:1/desktopLeft:false at 390px and paneWrappers:2/mobileSlot:false at 1440px, so exactly one live picker and one WebGL context per viewport; (7) App.vue contributes ZERO of the REPORT's 18 nameless buttons and 60 small tap targets — it renders no buttons, so those counts are not charged to it."
+   }
+  },
+  {
+   "agentId": "a02d332aa49d41504",
+   "key": "v2:2a81da5fdcb355e09964fc60cb6acf3f68128b85e7debabd8d928d99bbd3bcea",
+   "result": {
+    "juror": "JUROR-2 — ARCHITECTURE AND ISOMORPHISM",
+    "modelObserved": "Opus 5 (1M context) — exact model id claude-opus-5[1m]; matches the explicit Opus 5 spawn declaration. No inherited or undeclared seat.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/App/jury-2-architecture.md",
+    "verdict": "APOTHEOSIS_REQUIRED",
+    "upheld": [
+     {
+      "id": "A-1 (merges L-1, L-2, C-1, C-8c, D-9, C-7, C-6, L-12, L-15)",
+      "defect": "There is no composition root. The entry is 8 inline lines of script type=module at demo/color-picker/index.html:205-213, so App.vue is the composition root by default: router-plugin dependency, CSS document graph (4 imports :199-210), two app-level installs in a component setup (:214 useGlobalDark, :219 provideApiClient), a body mount host, and a duplicate URL/storage/default precedence engine. Dependent BLOCKER: mount without await router.isReady(), so on 10 of 14 routes the picker mounts first, the appear transition is cancelled, and overture b3/b4 never fire for the session.",
+      "mechanism": "An HTML file cannot express a composition root, so boot logic migrates into the root component and the contract becomes ordering convention. find demo -name main.ts -> no output; grep -c '<script type=module src=' index.html -> 0. B3 is armed by a single Transition appear hook (useOverture.ts:206, only call sites App.vue:90 and :109) with no state-checked floor, while its sibling useDockArrival.ts:58-72 carries exactly that floor AND the post-mortem of the identical failure.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-2 (merges L-8, D-1, C-2, C-3, D-13, C-5)",
+      "defect": "The shell reaches into three workbench panes and calls nine private methods by name through any refs with optional calls, and instance registration is a per-call-site prop. The mobile PaneSlot (App.vue:83-91) has no :on-mount while both desktop slots do (:105, :131), so four pane refs are permanently null at mobile and nine named enabled dock controls are inert. A second arm: onDesktopLeftMount reads currentConfig.left (incoming) while PaneSlot.liveKey is the rendered pane, so during a swap a ColorPicker instance lands in generatePaneRef.",
+      "mechanism": "Dependency direction reversed - the shell depends on leaf internals via untyped duck typing, and liveness is a prop each call site may omit. Measured: grep -c 'ref<any>' App.vue -> 3; ': any' -> 2; paneRefs reaches in usePaneRouter -> 9. PaneSlot.vue:52 onMount?: (instance: any) => void; :124 builds a NEW inline arrow ref every render, so the callback re-fires on every parent tick.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-3 (merges D-2, D-3, D-7, D-10, D-12)",
+      "defect": "App.vue plus shell.css is a hand-rolled clone of glass-ui 7.0.0's shipping InstrumentChassis, and the clone is worse on five axes: ratio (50/50 vs two legal named proportions), narrow collapse (a hard v-if mount fork destroying three KeepAlive caches and both WebGL contexts vs a container query reflow), empty secondary (a ghost slot with visibility:hidden/position:absolute vs a region that simply does not render), reserve (none vs data-reserve), boundaries (none vs a typed set).",
+      "mechanism": "A local chassis recipe standing in for the producer housing contract - a dual path under edict 2. Measured by me at 1440x900: gridTemplateColumns '512px 512px', protagonist share 50.0000% on /#/, /#/generate AND /#/admin/users (11.80pp from the nearest legal ratio), instrument-chassis nodes 0. Producer CSS ships grid-template-columns minmax(0,61.8033989fr) minmax(0,38.1966011fr) for golden and a @container (max-width:44.9375rem) single-column collapse. OPTICAL-BENCH-COMPOSITIONS.md section 5 seam 1: 'value owns the route main and adds no grid CSS' - shell.css declares it at :61 and :137.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-4 (D-8)",
+      "defect": "The document never scrolls at any viewport. The shell is a fixed overflow:hidden viewport frame (shell.css:19-28, height:100dvh), so every route's overflow is displaced into nested card scroll wells up to 7251px deep behind a backdrop-filter, with the page scrollbar suppressed.",
+      "mechanism": "Scroll ownership inverted: a viewport-locked shell displaces the document scroller into per-card wells. VISUAL-CONSTITUTION section 3 law 6 requires mobile to be one document-scrolling stage-inspector-action sequence. Measured docScrollable 0 / bodyScrollable 0 on all three matrices.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-5 (merges L-4, L-5)",
+      "defect": "One route lattice with three partial untyped homes and two masking fallbacks: router/index.ts (14 bare literals), viewSchema VIEW_MAP, and usePaneRouter.componentFor (a 10-arm string chain ending in a catch-all return ColorPicker). Plus meta:{admin:true} on five routes with zero consumers.",
+      "mechanism": "One concept, three homes, none linked by a type; drift absorbed by masking fallbacks (useViewManager.ts:43-46 '? name : \"picker\"'). Measured: grep -c viewSchema router/index.ts -> 0 (its own header claims the duplicate was retired at D.W3 Lane D); grep -c 'name: \"' -> 14; grep -rn 'meta.admin' demo/ -> no output. viewSchema.ts:52-66 already defines closed unions that componentFor discards.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-6 (merges L-6, L-7)",
+      "defect": "providePalettePorts constructs and provides fifteen composables at the shell root, so every injector of any one port pulls the construction of all fifteen - reconstituting at the DI seam the god facade it was created to dissolve. All five admin ports are built on an anonymous visitor's first paint while AdminPane is lazy.",
+      "mechanism": "Provide-scope conflated with use-scope: root-level DI statically pins every port to the eager graph regardless of the async pane boundaries. usePalettePorts.ts:4-19 imports 15 composables, all invoked in the body; App.vue:188 -> usePaletteWiring.ts:24 -> usePalettePorts. Structural, needs no probe: the constituents are reachable-and-invoked and cannot be tree-shaken at any setting.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-7 (L-3, cure replaced)",
+      "defect": "vite.config.ts:15 imports injectGroundTokens from demo/color-picker/composables/boot/ground - the build configuration reaching four levels into an application composable tree, and ground.ts carries a browser runtime contract and a node build-time HTML transform in one 146-line module.",
+      "mechanism": "Two execution lifetimes in one module produce an inverted build -> app-internals edge. Measured scope of the mechanism is larger than the challenger assumed: grep -rn __GROUND_ demo/ vite.config.ts plugins/ -> 20 hits, including index.html:102-106 @property initial-value declarations in the CRITICAL CSS and :113 meta theme-color, not only the guard script.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-8 (merges D-4, C-4, D-11)",
+      "defect": "The shell owns the landmark half of the constitution's contract and none of the identity half: zero h1 anywhere in demo/, no skip link, no polite status region. Every row of the section 5.1 navigation-focus table resolves to a 'destination H1' that does not exist, and an unknown route silently redirects to / with byte-identical content and no announcement.",
+      "mechanism": "Landmark ownership split - the shell claims <main> but delegates identity to the panes, so no node satisfies the H1 half of a contract that names the shell as its owner. Measured by me live at 1440x900 on /#/, /#/generate, /#/admin/users: h1=0 h1InMain=0 main=1 skip=0 polite=0 on all three. grep -rln '<h1' demo/ -> no output. Corroborated by the 60-capture matrix h1 column = 0.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-9 (D-14)",
+      "defect": "MigratePalettesDialog is mounted unconditionally at the shell root (App.vue:152-157) - simultaneously a migration choice AND an overlay, two of the five presentations VISUAL-CONSTITUTION.md:224 names as forbidden for storage recovery.",
+      "mechanism": "Domain accretion at the shell root: a global-modal slot invites every feature to hang its dialog on the shell. Edict 1 - the shell owns landmarks and routing, not the palette domain's recovery flow.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "FOLD"
+     },
+     {
+      "id": "A-10 (D-5)",
+      "defect": "Continuous ambient WebGL motion never terminates and there is no still/pause control, failing both arms of the constitution's section 6 motion law. Measured still running at 14.6s after load, mobile included.",
+      "mechanism": "An unbounded ambient renderer with no user-facing lifecycle seam: the overture DAG exposes beats to START motion and nothing to stop it. Sustained rAF t=8.5s to 14.6s: 261.0/s desktop-light, 284.0/s desktop-dark, 259.5/s mobile-390. grep -rniE 'animation-play-state|pauseAnim|isPaused' demo/ -> no output. App.vue owns the canvas (:9-17) and the OVERTURE_KEY provide (:297), so the control has no other home.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "A-11 (merges D-6, C-1 arm 2, L-13)",
+      "defect": "The overture beat DAG has only success edges: B4 gates on b3Complete && b2 with no failed/unavailable/lost terminal arm, and B3 has a single event-shaped input with no state-checked floor. The blob has no webglcontextlost contract while the aurora does, so the headline interval reserves ~230 CSS px for an ornament that may never arrive.",
+      "mechanism": "A success-only gating DAG cannot express 'the ornament will not arrive', so no downstream geometry can collapse the interval it reserved; and one missed DOM event is terminal for a beat. useOverture.ts:154 gates b4; :206-226 is the sole non-PRM b3 writer. grep -rn webglcontextlost demo/ src/ -> only useAtmosphere.ts:288,298,301. Four observations of the same route/viewport class flip: REPORT.md:119 canvas=1 consoleErr=1 settle 18905ms vs :134 canvas=2 settle 3515ms. Same mechanism at the type level (L-13): useAtmosphereBoot silently provides three keys that are not part of its returned surface, so ownership lives in prose that has drifted (grep -c 'watch(' App.vue -> 0 while two files cite 'App.vue's watch').",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "L-14",
+      "defect": "ActionBarLayer.vue:54-82 re-implements a glass-ui primitive locally, including a parameter accepted and discarded solely to match the deleted API's signature (void opts.containerEl). Its own comment claims glass-ui 'offers no public composable successor'.",
+      "mechanism": "A design-system primitive retired without a successor drives the consumer to re-home it locally and preserve the dead signature. But a COMPONENT successor is exported today: dist/components/dock/index.d.ts:5 exports DockCrossfade. MT-F013 already records this as a bank that rotted into a live dual path. The cure is to compose <DockCrossfade> and delete the shim - not to relay for a composable that will never come.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "L-9 / L-10 / L-11 / L-12 / C-6 / C-9 / L-15",
+      "defect": "Seven minors, each verified in bytes: a 195-line global-keyframes sheet inside composables/ (edict 6); picker-shell applied once and defined nowhere; useClipboard reached through the glass-ui root barrel while /dom is used one line below; two owners of 'read the colour out of the URL' with a logically dead conjunct; a booked residual resting on sideEffects './demo/**' when the manifest measures false; zero tests mount App.vue and the one boot-DAG oracle only visits /; and the entry directory named for the feature it is not.",
+      "mechanism": "Residue of prior transpositions that moved code without moving its ownership, plus gates anchored on the one route class where the blockers do not reproduce. Each dies inside a named wave rather than as its own row: L-9/L-11/L-12/C-6/L-15 in W-ARCH-1, L-10 in W-ARCH-3, C-9 in W-ARCH-4.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "H-1 (D-15)",
+      "defect": "The shell may render fully chromatic under forced colors and has no forced-colors rules of its own; foundation.css:678 has one @media (forced-colors: active) block and none of the shell's selectors appear in it.",
+      "mechanism": "Unverifiable-by-construction evidence: Playwright's forcedColors emulation is not honoured by WebKit, so the captured frame proves nothing. Labelled a hypothesis by its own challenger and kept as one.",
+      "severity": "INFO",
+      "status": "HYPOTHESIS",
+      "disposition": "BUILD"
+     }
+    ],
+    "dismissed": [
+     {
+      "id": "D-9 (cure arm: delete class=\"relative\" from <body>)",
+      "why": "The attribute is not dead weight. D-9 correctly proves the atmosphere canvas does not need it, then wrongly generalises to the whole document. One position:absolute DIRECT child of <body> exists and uses body as its containing block; deleting the class would reparent it to the initial containing block.",
+      "refutingBytes": "node <scratchpad>/j2-body.mjs -> {\"bodyPosition\":\"relative\",\"absoluteBodyChildren\":1,\"bodyChildren\":[{\"tag\":\"DIV\",\"cls\":\"\",\"pos\":\"absolute\"},{\"tag\":\"DIV\",\"cls\":\"app-layout\",\"pos\":\"relative\"},...],\"atmosphereCanvasOffsetParent\":\"app-layout\"}"
+     },
+     {
+      "id": "D-9 (cure arm: move data-paper-field onto .app-layout)",
+      "why": "The stamp must DOMINATE the body-portalled dialogs, which are .app-layout's siblings, not its descendants. Moving it would silently re-arm the producer's orphan-card warm field-floor for every portalled dialog. L-2's cure (keep both attributes on <body>, give Vue a new <div id=\"app\">) is the correct one and is exactly one attribute wide.",
+      "refutingBytes": "index.html:216-224 (the field-contract rationale) + j2-body.mjs bodyChildren: 6 children, of which 4 are teleport hosts SIBLING to div.app-layout; appIsBody: true"
+     },
+     {
+      "id": "C-8 (arms a and b: App.vue must own a single root carrying its own field stamp and positioning)",
+      "why": "Same refutation as D-9's two cure arms. The split root contract is real, but two of its three parts are CORRECT: data-paper-field and class=\"relative\" belong on <body>. Only arm (c) - the prepaint contract and the duplicated precedence - is upheld, and it folds into A-1. Arms a and b RETIRE with this rationale.",
+      "refutingBytes": "j2-body.mjs absoluteBodyChildren:1, atmosphereCanvasOffsetParent:\"app-layout\"; index.html:216-224"
+     },
+     {
+      "id": "L-3 (cure: relocate injectGroundTokens into plugins/)",
+      "why": "Relocation preserves a mechanism the constitution retires by name. The correct cure is deletion, and the deletion is larger than L-3 scoped it: the __GROUND_*__ tokens are in the critical CSS (@property initial-value) and the theme-color meta, not only the guard script.",
+      "refutingBytes": "VISUAL-CONSTITUTION.md section 6.2: 'groundRecordInject, __GROUND_*__, the stop cache, and the initial deriveAurora twin all die in the same cut' and 'One synchronous same-origin external classic script ... uses no inline code, eval, import, arbitrary CSS parser, or build-time token injection'. grep -rn __GROUND_ demo/ vite.config.ts plugins/ | wc -l -> 20, incl. index.html:102-106,113"
+     },
+     {
+      "id": "L-6 (evidence: totalEagerModules 238 measured on the dev server)",
+      "why": "The instrument is structurally blind to the property claimed. The dev server serves unbundled ESM, so every static import is a separate resource BY CONSTRUCTION; the count cannot distinguish 'eager in the bundle' from 'this module exists'. The defect survives on its static/structural half, which needs no probe. A wave inheriting 238 as its baseline would author a gate it cannot make RED against dist/.",
+      "refutingBytes": "FORMATION-LAWS.md L-12: 'Performance and bundle claims are measured against the built artifact (MT-F011) - never the dev server.' Compounded by MT-F012: today's built artifact has no application in it to measure."
+     },
+     {
+      "id": "C-5 (rationale: the un-typed import drags the picker into App's eager chunk)",
+      "why": "The picker is in the eager graph regardless, so the import-type edit would change zero bytes of the module graph. The edict-8 violation itself stands and is upheld - but it is cured by DELETION (colorPickerRef and its type dies with A-2's inversion), not by adding import type.",
+      "refutingBytes": "demo/shell/usePaneRouter.ts:21 'import { ColorPicker } from \"../picker\";' (a genuine runtime value) + demo/color-picker/App.vue:187 'import { usePaneRouter } from \"../shell/usePaneRouter\";'"
+     },
+     {
+      "id": "L-14 (cure: relay to glass-ui for a public content-swap composable)",
+      "why": "The successor already shipped, in the very version adopted at W44. Relaying would re-bank a row that MT-F013 already names as the archetype of a bank that rotted into a live dual path. The cure is to compose the shipped component and delete the local shim now.",
+      "refutingBytes": "grep -n DockCrossfade node_modules/@mkbabb/glass-ui/dist/components/dock/index.d.ts -> 5:export { default as DockCrossfade } from \"./DockCrossfade.vue\";"
+     },
+     {
+      "id": "D-2 (unit: 'transpose the shell onto InstrumentChassis' as one cure)",
+      "why": "The premise is correct and I uphold it (A-3), but eleven member compositions is an arc wearing a wave's name. The shell half is one wave; the eleven members FOLD to the waves the binding artifact already assigns them by name, with row ids preserved. This is a scope dismissal, not an evidentiary one.",
+      "refutingBytes": "FORMATION-LAWS.md L-1 (1,005 promised / 380 landed = 38%; standing 193-wave formation at 3 of 199 = 2%) + OPTICAL-BENCH-COMPOSITIONS.md section 6: 'W18 authors eighteen separately named low-fi->real-render pairs'"
+     }
+    ],
+    "waveSpec": {
+     "waveId": "V·MT-W-ARCH-1",
+     "title": "The composition root and the one route lattice",
+     "bornRed": true,
+     "scope": "CREATE demo/app/main.ts (createApp + use(router) + await router.isReady() + app.provide(API_CLIENT_KEY) + app.provide(SESSION_PORTS_KEY) + initGlobalDark() + import ../styles/foundation.css + createApp(App,{boot:window.__VALUE_GROUND_BOOT__}) + mount('#app')) and demo/app/prepaint.js (external classic script, no build-time injection, freezes __VALUE_GROUND_BOOT__, sets data-ground-state/-schema/-store). RENAME demo/color-picker/ -> demo/app/ (5 path updates: vite.config.ts:243, the two @source globs at foundation.css:91-92 collapsing to one, two plugins/ refs). REWRITE demo/app/index.html: zero inline executable script; <body class=\"relative\" data-paper-field><div id=\"app\"></div><div id=\"boot-error\" hidden>…</div></body>; both attributes STAY on body (measured: 1 position:absolute body child + 4 portal hosts sibling to .app-layout). DERIVE demo/app/router.ts from shell/viewSchema VIEW_MAP; delete 14 literals and meta:{admin:true}. DELETE demo/color-picker/composables/boot/hydrate.ts, demo/color-picker/composables/boot/ground.ts, vite.config.ts:15 and :150-155 (groundRecordInject), every __GROUND_*__ token site, useViewManager.ts:43-46 masking fallback, useColorUrl.ts:70 boot-time applyUrlToModel + appliedFromUrl, App.vue:168-175 the false-premise comment, App.vue:199-210 four CSS imports, App.vue:214 useGlobalDark, App.vue:219 provideApiClient. MOVE demo/app/composables/boot/overture.css -> demo/styles/overture.css (a move, never a deletion - edict 6) + @import in foundation.css. FOLD useClipboard into the existing @mkbabb/glass-ui/dom import. MAKE the useColorPipeline.ts:50-52 boot clamp a no-op write. END STATE: vite.config.ts imports nothing under demo/; the entry HTML has one external classic script and one external module script; the route table has one home; App.vue holds no CSS imports and no app-level installs.",
+     "gates": [
+      {
+       "gate": "GA-1 · the build configuration imports nothing under demo/ (the node build graph and the browser runtime graph are disjoint module sets)",
+       "command": "test \"$(grep -c 'from \"\\./demo/' vite.config.ts)\" = 0",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any `import … from \"./demo/…\"` in vite.config.ts. Today: 1 hit — vite.config.ts:15 `import { injectGroundTokens } from \"./demo/color-picker/composables/boot/ground\";`"
+      },
+      {
+       "gate": "GA-2 · the entry HTML carries zero inline executable script and zero build-injected tokens (CSP script-src 'self', canon §6.2)",
+       "command": "H=demo/app/index.html; test \"$(grep -c '<script>' $H)\" = 0 && test \"$(grep -c '<script type=\"module\">' $H)\" = 0 && test \"$(grep -c '<script type=\"module\" src=' $H)\" = 1 && test \"$(grep -rn '__GROUND_' demo/ vite.config.ts plugins/ | grep -v node_modules | wc -l)\" -eq 0",
+       "redToday": true,
+       "whatWouldMakeItFail": "Re-inlining either script, or re-introducing a __GROUND_*__ token. Today at demo/color-picker/index.html: inline classic 1, inline module 1, external module 0, __GROUND_ hits 20 (incl. :102-106 @property initial-value in the critical CSS and :113 meta theme-color)."
+      },
+      {
+       "gate": "GA-3 · the BUILT gh-pages artifact contains the application (the MT-F012 product gate — `exit 0` is not a gate, FORMATION-LAW L-2)",
+       "command": "npm run gh-pages && node -e 'const fs=require(\"fs\"),p=\"dist/assets\";const e=fs.readdirSync(p).filter(f=>/^index-.*\\.js$/.test(f));if(!e.some(f=>fs.statSync(p+\"/\"+f).size>50000)){console.error(\"FAIL: entry chunk is application-free\");process.exit(1)}'",
+       "redToday": true,
+       "whatWouldMakeItFail": "Returning the entry to an inline <script type=\"module\">. RED today by committed measurement, registry/ROOT-FINDINGS.md:247,495-504 — `698  index-Dezn_h7o.js  ← the ENTRY   BOOTED-marker=NO  ← app code GONE`, entirely Vite's modulepreload polyfill IIFE, hash byte-identical to a stock-Vite inline-entry repro. Not re-run by this seat (full demo build); cited as a committed artifact under FORMATION-LAW L-6."
+      },
+      {
+       "gate": "GA-4 · the route table has exactly one home (adding a view is one edit; forgetting one is a type error)",
+       "command": "R=demo/app/router.ts; test \"$(grep -c 'viewSchema' $R)\" -ge 1 && test \"$(grep -c 'name: \"' $R)\" = 0 && test -z \"$(grep -rn 'meta: { admin' demo/)\"",
+       "redToday": true,
+       "whatWouldMakeItFail": "A route-name literal in router.ts, or a VIEW_MAP key with no route. Today at demo/color-picker/router/index.ts: viewSchema imports 0 (its own header claims the duplicate was retired at D.W3 Lane D), literal `name: \"` rows 14, meta:{admin:true} on 5 routes with 0 consumers."
+      },
+      {
+       "gate": "GA-5 · no masking fallback survives in view or component resolution (an unknown view is a navigation event, never a substituted render)",
+       "command": "test -z \"$(grep -n '? name : \\\"picker\\\"' demo/shell/useViewManager.ts)\" && test -z \"$(grep -n 'return ColorPicker;' demo/shell/usePaneRouter.ts)\"",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any `?? \"picker\"` or catch-all `return` in the resolution path. Today: useViewManager.ts:45 `return isViewId(name) ? name : \"picker\";` and usePaneRouter.ts:94 `return ColorPicker;`. Structure over gate (L-8): once PaneConfig carries a closed-union scene field, the catch-all is unwritable."
+      },
+      {
+       "gate": "GA-6 · the route is TRUE at first render — overture:b4 fires on every route, and the first-mounted scene equals the final scene (the C-1 product gate)",
+       "command": "node -e 'import(\"playwright\").then(async({chromium})=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1440,height:900}});await p.goto(\"http://localhost:9000/#/gradient\",{waitUntil:\"networkidle\"});await p.waitForTimeout(5000);const m=await p.evaluate(()=>performance.getEntriesByType(\"mark\").map(x=>x.name));await b.close();if(!m.includes(\"overture:b4\")){console.error(\"FAIL marks=\"+m);process.exit(1)}})'",
+       "redToday": true,
+       "whatWouldMakeItFail": "Removing `await router.isReady()` from main.ts. RED today (CHALLENGE-C probe-b3.mjs, pasted): DEEPLINK /#/generate marks [overture:b0,overture:b1,overture:b2], blob false — and after hash-nav to /#/ still 3 marks, blob STILL absent; CONTROL cold /#/ marks [b0,b1,b3,b2,b4], blob true. Mechanism verified in bytes by this seat: useOverture.ts:206 is the sole non-PRM b3 writer and its only call sites are App.vue:90 and :109, both :on-appeared."
+      },
+      {
+       "gate": "GA-7 · one precedence engine and one boot-time URL reader (canon §6.2: the hydrated model consumes the frozen boot object and does not repeat scheme/URL/storage precedence)",
+       "command": "test ! -f demo/app/composables/boot/hydrate.ts && test ! -f demo/color-picker/composables/boot/hydrate.ts && test -z \"$(grep -n 'const appliedFromUrl' demo/color-session/useColorUrl.ts)\"",
+       "redToday": true,
+       "whatWouldMakeItFail": "A second reader of the space/color pair at boot. Today: hydrate.ts exists (130 L, :53-78 runs URL→storage→default in TypeScript) and useColorUrl.ts:70 declares `const appliedFromUrl = applyUrlToModel()`. Both readers require BOTH params (hydrate.ts:56-60, useColorUrl.ts:26-29), so appliedFromUrl ⟹ source===\"url\" and App.vue:378's first conjunct can never change the branch."
+      },
+      {
+       "gate": "GA-8 · a clean boot does not rewrite the address bar (the 'born hydrated, ONE commit' law App.vue's own comment asserts)",
+       "command": "node -e 'import(\"playwright\").then(async({chromium})=>{const b=await chromium.launch();const c=await b.newContext();const p=await c.newPage();await p.goto(\"http://localhost:9000/#/generate\",{waitUntil:\"networkidle\"});await p.waitForTimeout(3000);const h=await p.evaluate(()=>location.href);await b.close();if(h!==\"http://localhost:9000/#/generate\"){console.error(\"FAIL \"+h);process.exit(1)}})'",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any identity-changing model write during setup. RED today (CHALLENGE-C, fresh context, empty localStorage): settles at http://localhost:9000/#/generate?space=lab&color=lab(92%25+88.8+20+/+82.7%25). Mechanism: useColorPipeline.ts:50-52 re-assigns model.value unconditionally for the domain clamp (clampColorToSpaceDomain returns a fresh object), tripping the identity-based watcher at useColorUrl.ts:79-82 → router.replace."
+      }
+     ],
+     "piObligations": [
+      "π-1 · matrix safari-desktop-light 1440×900 · route /#/gradient cold-load · selector `.hero-blob-anchor` + performance.getEntriesByType(\"mark\") · committed capture docs/tranches/V/megatranche/audit/visual/shots/arch1-deeplink-gradient/{before,after}.png",
+      "π-2 · matrix safari-mobile-light 390×844 · route /#/browse cold-load · selector `.hero-blob-anchor` · committed capture .../shots/arch1-deeplink-browse/{before,after}.png",
+      "π-3 · matrix BUILT ARTIFACT (not the dev server — FORMATION-LAW L-12) · route dist/index.html · selector `<script type=\"module\" src>` + entry chunk byte size · committed capture docs/tranches/V/megatranche/audit/probes/arch1-entry-manifest.txt",
+      "π-4 · matrix safari-desktop-light 1440×900 · route /#/does-not-exist · selector location.href + document.title + [role=status] · committed capture .../shots/arch1-404/{before,after}.png",
+      "All four force-added past .gitignore:34 `*.png`, or the claim is not made (FORMATION-LAW L-7)."
+     ],
+     "deltaObligations": [
+      "DELTA-1 deep-link overture · BEFORE /#/gradient marks [b0,b1,b2] + no blob for the session · AFTER [b0,b1,b3,b2,b4] + blob present · named delta: TIMING/MOUNT — the first-mounted left scene changes from ColorPicker to GradientPane, so the appear transition completes instead of being cancelled.",
+      "DELTA-2 entry chunk · BEFORE index-Dezn_h7o.js 698 bytes, BOOTED-marker=NO · AFTER an entry chunk >50 KB whose graph reaches App.vue · named delta: ARTIFACT CONTENT — the built bundle contains the application.",
+      "DELTA-3 address bar · BEFORE /#/generate becomes /#/generate?space=lab&color=lab(92%25+88.8+20+/+82.7%25) on a clean boot · AFTER unchanged · named delta: INTERACTION — zero router.replace during setup.",
+      "DELTA-4 not-found · BEFORE /#/does-not-exist renders text length 859, byte-identical to /#/, with no announcement (REPORT.md:133 vs :119) · AFTER destination title plus one polite status naming the redirect reason · named delta: ANNOUNCEMENT, not geometry (the H1 half lands in V·MT-W-ARCH-3; this wave delivers the status region's writer).",
+      "DELTA-5 build→app edge · BEFORE vite.config.ts:15 imports an app composable and 20 __GROUND_*__ token sites exist · AFTER both counts are 0 · named delta: DEPENDENCY DIRECTION — the build reads nothing under demo/."
+     ]
+    },
+    "addendumClause": "## ADDENDUM — App shell: the composition root, the one lattice, and the producer housing\n\n**Normative.** The value.js demo has no composition root, and every structural defect in\n`demo/color-picker/App.vue` is downstream of that fact or of one adjacent fact: the shell hand-rolls\na housing primitive glass-ui already ships.\n\n1. **The entry is a module, not markup.** `demo/app/main.ts` is the sole composition root. It\n   performs, in order: the one stylesheet import (`../styles/foundation.css`), `initGlobalDark()`,\n   `createApp(App, { boot: window.__VALUE_GROUND_BOOT__ })`, `app.use(router)`,\n   **`await router.isReady()`**, the app-level `provide`s (API client, always-on session ports),\n   and `app.mount(\"#app\")`. `demo/app/index.html` contains **zero inline executable script**: one\n   external classic prepaint (`./prepaint.js`) and one external module (`./main.ts`). No component\n   may perform app-level installs, import a stylesheet, or assume mount order. The `await\n   router.isReady()` is normative, not stylistic: without it the first-rendered scene is not the\n   final scene on 10 of 14 routes and the overture DAG stalls at B2 for the life of the session.\n\n2. **The mount container is not the portal host.** `<body class=\"relative\" data-paper-field>` keeps\n   **both** attributes — they serve the body-portalled dialogs, which are the app root's siblings —\n   and Vue receives its own `<div id=\"app\">`. Exactly one attribute (`id`) moves. Proposals to\n   delete `class=\"relative\"` or relocate `data-paper-field` onto `.app-layout` are refused: one\n   `position:absolute` direct child of `<body>` uses body as its containing block, and the field\n   stamp must dominate four sibling portal hosts.\n\n3. **`groundRecordInject`, `__GROUND_*__` and the TypeScript precedence engine die in one cut.**\n   Per §6.2 the prepaint is an external classic script with no build-time token injection; the\n   scheme defaults are canonical tokens in `--ground-seed-token-light` / `-dark`. `vite.config.ts`\n   imports nothing under `demo/`. `boot/ground.ts` and `boot/hydrate.ts` are deleted; the app\n   consumes the frozen boot object and never re-derives URL→storage→default. `useColorUrl` owns the\n   live sync only.\n\n4. **One route lattice.** `demo/shell/viewSchema.ts` is the single table. Routes derive from its\n   keys; scene resolution is a `Record` over the closed union; dock metadata reads the same rows.\n   `meta.admin` (five producers, zero consumers), the fourteen literal route rows, the\n   `isViewId(name) ? name : \"picker\"` coercion and `componentFor`'s `return ColorPicker` catch-all\n   are deleted. An unknown view is a navigation event, never a substituted render.\n\n5. **Region composition is the producer's.** glass-ui 7.0.0 exports `InstrumentChassis` with\n   `proportion: \"golden\" | \"preview-dominant\"`, `reserve`, a typed `boundaries` set, `#stage` /\n   `#inspector` / `#action` slots, inspector-absent expansion, and a container-query collapse. Per\n   `OPTICAL-BENCH-COMPOSITIONS.md` §5 seam 1, **value.js owns the route `<main>` and adds no grid\n   CSS**. `.pane-container`, `.pane-container--dual`, `.pane-wrapper--left/--right/--ghost`, the\n   `[data-layout]` display witnesses, the breakpoint `v-if` mount fork, `mobilePaneIndex`,\n   `PaneSegmentedControl.vue` and `PaneSlot.vue` are deleted, not restyled. The shell's block axis\n   becomes `min-height: 100dvh` with a sticky dock band; the document scrolls.\n\n6. **The edge points down.** No shell module may name a leaf component's method. Workbenches publish\n   their own action bar through `ACTION_BAR_KEY` (`demo/shell/actionBar.ts`); the shell injects.\n   `usePaneRouter.ts` is deleted whole. `providePalettePorts` is split by lifetime — always-on ports\n   at `main.ts`, browse ports at `BrowsePane.vue`, admin ports at `AdminPane.vue`. A provider whose\n   scope exceeds its consumers' scope is a god module and is refused.\n\n7. **The shell owns identity, not just landmarks.** One `<h1>` inside `<main>`, fed by the same\n   route identity `installDocumentTitle` composes; a skip link as the first tabbable node; one\n   `role=\"status\" aria-live=\"polite\"` region beside the H1 for redirect reasons; `tabindex=\"-1\"` on\n   `<main>`. The shell mounts no domain dialogs: storage recovery renders inside the Library's\n   `<main>` per §7.\n\n8. **Beats carry terminal arms.** No beat may be armed by a single DOM event without a\n   state-checked floor (`getAnimations()`, the idiom `useDockArrival.ts:58-72` already proves). B4\n   gains a terminal `unavailable` arm (context lost, WebGL absent, chunk rejected) and the blob\n   gains the `webglcontextlost`/`webglcontextrestored` contract the aurora already has; on\n   `unavailable` the headline interval collapses to the named shared section rhythm.\n\n9. **Ambient motion has a lifecycle seam.** One shell-level, keyboard-operable, `aria-pressed`,\n   persisted still/pause control gating both renderers through `OVERTURE_KEY`. Paused means the rAF\n   loops are torn down, not opacity-zeroed.\n\n10. **Design-system successors are composed, never re-implemented.** `DockCrossfade` ships at\n    glass-ui 7.0.0; the local `useLayerTransition` and its `void opts.containerEl` parity parameter\n    are deleted in the same wave. This clause is the standing answer to every \"relay for a\n    successor\" bank: run the grep first.\n\n**Execution order (binding).** `V·MT-W-ARCH-1` (entry + lattice) → `V·MT-W-ARCH-2` (action-bar\ninversion) → `V·MT-W-ARCH-3` (single-scene shell + identity + scroll) → `V·MT-W-ARCH-4` (terminal\nbeats + non-vacuous oracles) → `V·MT-W-ARCH-5` (DI scope, gated against `dist/`, which requires\nW-ARCH-1). The eleven member compositions FOLD to W18/W19/W24/W26/W27 with row ids `D-2`, `D-3`,\n`D-7`, `D-10`, `D-12` preserved; storage recovery FOLDs to W22 as `D-14`. No row is re-booked.",
+    "dissent": "AGAINST CHALLENGE-D, ON SHAPE (not evidence). D's gestalt — \"the cure is a transposition, not a sequence of patches\" — is correct about the premise and wrong about the unit of work. Eleven member compositions onto InstrumentChassis is an arc, and FORMATION-LAW L-1 exists precisely because this repository has landed 380 of 1,005 commitments (38%) and the standing 193-wave formation sits at 3 of 199 (2%). Authoring D-2's cure as one wave would produce the thirteenth arc wearing a wave's name. I split it: the shell half (deleting the grid CSS, the mount fork, the ghost slot, mobilePaneIndex, PaneSegmentedControl.vue, PaneSlot.vue) is one completable wave; the eleven members FOLD to the waves OPTICAL-BENCH-COMPOSITIONS.md §6 already names as their owners. I expect JUROR-3 to weigh this against D's framing.\n\nAGAINST CHALLENGE-L, ON EVIDENCE DISCIPLINE. L's strongest structural finding (the eager palette-ports graph) is measured with an instrument structurally blind to the property claimed: dev-server `performance.getEntriesByType('resource')` counts as a bundle claim. The dev server serves unbundled ESM, so every static import is a separate resource by construction. The finding survives on its static half — `providePalettePorts` is CALLED at the root, so its fifteen constituents are reachable-and-invoked and untree-shakeable at any setting — but the number 238 does not, and a wave inheriting it as a baseline would author a gate it cannot make RED against `dist/`. Compounding: today's built artifact has no application in it (MT-F012), so the correct gate cannot even open until W-ARCH-1 lands. I record that ordering as an explicit edge, not a deferral. FORMATION-LAW L-12 is not decoration.\n\nAGAINST CHALLENGE-C AND CHALLENGE-D TOGETHER, ON THE ROOT CONTRACT. C-8 and D-9 independently reach the same conclusion — that App.vue's root contract must be repatriated from index.html — and both are wrong on two of three arms, in the same direction. I measured: `<body>` has one `position:absolute` direct child (so `class=\"relative\"` is a live containing block, not dead weight) and four teleport hosts that are `.app-layout`'s SIBLINGS (so `data-paper-field` cannot move onto `.app-layout` without re-arming the producer's orphan-card field-floor for every portalled dialog). A wave executing either cure verbatim would break both. The split root contract is real; two thirds of the split are correct, and the correct cut is exactly one attribute (`id`) wide. This is the dissent I most want preserved, because two independent seats agreeing is exactly the condition under which an unmeasured cure gets executed.\n\nCORRECTION OF RECORD, NOT DISSENT. None of the three challengers established the fact that decides the architecture: glass-ui 7.0.0 exports `InstrumentChassis` on a published subpath, ships its CSS (golden = 61.8033989fr/38.1966011fr, preview-dominant = 66.6666667fr/33.3333333fr, a `@container (max-width: 44.9375rem)` single-column collapse, `data-reserve` with two reserve properties, and a typed boundary set), and the demo uses it exactly zero times. D quoted the canon's requirement; I measured the primitive. That reclassifies the shell from \"wrong proportions\" to \"a dual path against a shipping producer primitive\", which makes the transposition mandatory under edict 2 rather than aspirational under the constitution — and, decisively, makes it EXECUTABLE today. Likewise, the `useLayerTransition` relay-cure is refuted by a one-line grep (`DockCrossfade` is exported at 7.0.0), which is the same failure mode FORMATION-LAW L-4 was written from.\n\nNO DISSENT ON SEVERITY. All three challengers found real defects on their axis; both BLOCKERs reproduce against today's tree; the premise of guilt was, this time, correct."
+   }
+  },
+  {
+   "agentId": "ae7e0592c866803e2",
+   "key": "v2:9c0d6ed193b641f3f1e01044a3a65fca2841e4969acc616c8f41eee1c9b59a8e",
+   "result": {
+    "juror": "JUROR-1 — correctness and evidence",
+    "modelObserved": "Opus 5 (1M context) — exact model id `claude-opus-5[1m]`; matches the explicit Opus 5 declaration this seat was spawned with. Not an inherited or undeclared seat.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/App/jury-1-correctness.md",
+    "verdict": "REPAIR_REQUIRED",
+    "upheld": [
+     {
+      "id": "J-1",
+      "defect": "A cold load / refresh / shared link on any route whose left pane is not the color-picker (10 of 14) permanently stalls the overture beat DAG at B2: b3 and b4 never fire for the life of the session, and the picker's hero-blob ornament never mounts again on ANY route thereafter.",
+      "mechanism": "Route-untrue first render plus an event-only beat with no state floor. index.html:210-212 mounts with no `await router.isReady()`; vue-router's initial navigation is a Promise (vue-router.js:1462), so route.name is undefined and useViewManager.ts:43-46 falls back to \"picker\"; PaneSlot.vue:74 seeds liveComponent at setup, then PaneSlot.vue:86-97 commits the real pane one rAF later, cancelling the Transition `appear` whose @after-appear (PaneSlot.vue:118) is the SOLE call site of noteLeftPlateSettled (App.vue:90, :109). B3 (useOverture.ts:206-228) is the only beat in the chain with no getAnimations() floor — contrast useDockArrival.ts:63-72 and useOverture.ts:173 — so one missed DOM event is terminal.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-2",
+      "defect": "Nine named, enabled dock action-bar controls are completely inert at mobile viewports, and the ref-capture additionally fills the WRONG ref for one frame during a desktop pane swap while re-firing on every parent tick. Merges D-1, C-2 and C-3.",
+      "mechanism": "Instance registration is a per-call-site prop dispatched by a name the slot does not own. PaneSlot.vue:124 `:ref=\"onMount ? (el) => onMount!(el) : undefined\"` registers nothing when onMount is absent; App.vue:83-91 (mobile) passes no :on-mount while App.vue:105 and :131 do, so the four refs written only at App.vue:323-332 are permanently null at mobile and usePaneRouter.ts:196,197,198,208,209,210,220,221,222 optional-chain into them silently. Dock.vue:41 gates rendering on metadata (`!!actionBar.value || !!genericBar.value`), not liveness. The same seam mis-assigns on desktop because App.vue:324 reads currentConfig.value.left (the incoming view) while the slot's triplet trails by one rAF, and the inline arrow at PaneSlot.vue:124 is a new function every render.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-3",
+      "defect": "The shell duck-types nine workbench methods through `any` refs with optional calls, so renaming a pane method produces a silently dead dock button with no compile error and no runtime error. Merges L-8 and D-13.",
+      "mechanism": "Dependency direction inverted at an untyped DI seam. App.vue:317-319 three `ref<any>(null)`; App.vue:323/:330 `(el: any)`; PaneSlot.vue:52 `onMount?: (instance: any) => void`. The real shapes are enumerated at usePaneRouter.ts:196-222 (regenerate/save/copyColors/reset/copyCSS/seedFromPalette/clearSelection/startMix/copyResult) and every one is erased, which is the enabling condition that let J-2 ship without a diagnostic.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-4",
+      "defect": "There is no `<h1>` anywhere in demo/ and no skip link; the shell owns `<main>` and `<nav>` but not the heading or the bypass, so the canon's whole navigation-focus contract targets a node that does not exist. Merges D-4 and C-4.",
+      "mechanism": "Landmark ownership split — the shell claims the landmark and delegates identity to the panes, so no node satisfies the H1 half of a contract that names the shell as owner (VISUAL-CONSTITUTION.md:85, :118, :108-116).",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-5",
+      "defect": "The entire left/right dual-pane workspace architecture the file is built on is retired by the tranche constitution in five separate clauses; 13 of 14 views ship a companion, all five Admin views ship the exact `right:\"palettes\"` companion §7 says must be removed rather than restyled, and About is rendered as Picker's companion which §3.1 forbids.",
+      "mechanism": "A local chassis recipe standing in for per-route InstrumentChassis composition — one hand-rolled stage/inspector split with its own ratio, collapse rule and reserve, applied uniformly to eleven members the canon requires to be separately composed.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "FOLD"
+     },
+     {
+      "id": "J-6",
+      "defect": "The desktop two-part scene renders exactly 50.0000% / 50.0000% where the canon permits only golden (61.8033989/38.1966011) or preview-dominant (66.6666667/33.3333333), and binds Picker specifically to the exact golden inspector. Delta 11.80 percentage points.",
+      "mechanism": "The shell owns grid-template-columns (shell.css:133-138, comment \"Equal columns always\"), so one ratio is imposed on eleven differently-composed members; ratio is a property of the route composition, not of the shell.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-7",
+      "defect": "The document never scrolls at any viewport — the shell is a fixed overflow:hidden viewport frame — so every route's overflow is displaced into nested card scroll wells (6685px deep on desktop /#/, 223px at 200% zoom) behind a backdrop-filter carrier, with the page scrollbar suppressed.",
+      "mechanism": "Viewport-locked shell (shell.css:19-28 `height:100dvh; overflow:hidden` plus `.pane-container{max-height:var(--content-max-h)}` at :75) inverts scroll ownership, contradicting VISUAL-CONSTITUTION.md:32's \"one document-scrolling stage->inspector->action sequence\".",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-8",
+      "defect": "200% zoom is not a designed state: it is silently aliased onto \"mobile\", handing the user a different information architecture rather than a reflow, and the hard v-if remount destroys all three KeepAlive caches, every pane's local state and both WebGL contexts on an ordinary zoom or rotate gesture; the channel rail then sits below a non-scrolling fold.",
+      "mechanism": "A hard mount fork keyed on a viewport media query (App.vue:310-312 consumed as v-if/v-else at :77 and :94) standing in for responsive reflow — the breakpoint changes the architecture instead of the layout.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "FOLD"
+     },
+     {
+      "id": "J-9",
+      "defect": "There is no entry module; the application entry is eight inline lines at index.html:205-213, `<body>` is simultaneously the Vue mount container and the teleport/portal host, and §6.2's frozen boot object / data-ground-state latch is entirely unimplemented. Merges L-1, L-2, D-9 and C-8.",
+      "mechanism": "Missing composition root — an HTML file cannot express one, so boot logic migrates into the root component: the router-plugin dependency, the fouc-guard lockstep, the body mount, the CSS document root and two app-level installs (App.vue:214, :219) all become ordering convention enforced by a comment.",
+      "severity": "BLOCKER",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-10",
+      "defect": "The 14-view route table is duplicated across router/index.ts, viewSchema.ts and usePaneRouter's 10-arm componentFor if-chain with no compile-time link; two masking fallbacks (`?? \"picker\"`, `return ColorPicker`) convert drift into a wrong render; `meta:{admin:true}` is a third, dead encoding with zero consumers. Merges L-4 and L-5.",
+      "mechanism": "One concept with three partial untyped homes; the closed LeftPane/RightPane unions viewSchema already defines are discarded at the componentFor boundary, so the compiler cannot check exhaustiveness and the author had to write a catch-all.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-11",
+      "defect": "An anonymous visitor's first paint eagerly downloads nine admin modules (useAdminAuth/useAdminUsers/useAdminAudit/useAdminFlagged/useAdminTags plus four palettes/api/admin-* modules) and two unused dialog SFCs, defeating the async pane split. Merges L-6 and L-7.",
+      "mechanism": "Provide-scope conflated with use-scope: usePalettePorts.ts:4-19 constructs and provides fifteen composables at the root, so root-level DI statically pins every port to the eager chunk regardless of the defineAsyncComponent boundaries at usePaneRouter.ts:69-78.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-12",
+      "defect": "`ground.ts` carries two disjoint execution lifetimes in one module — browser runtime constants plus the node build-time `injectGroundTokens` HTML transform — so vite.config.ts:15 imports an application composable four directories deep and the build-only function ships in the browser graph.",
+      "mechanism": "Two execution lifetimes in one module, producing an inverted build -> app-internals dependency edge. NOTE: the challenger's cure (relocate to plugins/vite-ground-tokens.ts) is forbidden by VISUAL-CONSTITUTION.md:172, which retires `groundRecordInject` and `__GROUND_*__` by name in the same cut as the frozen boot object; the cure is retirement, folded into J-9.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-13",
+      "defect": "Every boot rewrites the address bar with a colour the user never picked: a fresh context with empty localStorage entering /#/ or /#/generate settles at ?space=lab&color=lab(92%25+88.8+20+/+82.7%25).",
+      "mechanism": "Confirmed writer: a `router.replace` carrying exactly useColorUrl.ts:64's `{...route.query, space, color}` payload, fired ~300ms post-debounce (instrumented replaceState stack: changeLocation <- Object.replace <- finalizeNavigation at t=477ms). The challenger's named cause is REFUTED — useColorPipeline.ts:50-52's clamp runs at App.vue:245, before useColorUrl's non-immediate watch is installed at App.vue:377. Which post-setup model write flips the colour's identity is NOT established and must be found before a cure is written.",
+      "severity": "MINOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-14",
+      "defect": "\"Not found\" has no designed state: router/index.ts:37 silently redirects any unknown route to `/` with no announced reason, rendering byte-identical content (REPORT.md:133 text 859 == :119 text 859 in all four matrices).",
+      "mechanism": "A state elided rather than designed — the router expresses the recovery (redirect) but not the communication (polite status + identity); the shell's only live region is ErrorBoundary's assertive alert, and there is no H1 to focus.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-15",
+      "defect": "Continuous ambient WebGL motion never terminates and no still/pause control exists anywhere in the tree, failing both arms of VISUAL-CONSTITUTION.md:145. Measured rAF 307 callbacks at t=5.2s rising to 670 at t=10.2s on /#/ — 363 callbacks after the five-second cap — with the same sustained rate at mobile.",
+      "mechanism": "An unbounded ambient renderer with no user-facing lifecycle seam; the overture DAG exposes beats to START motion and nothing to stop it. `grep -rniE 'animation-play-state|pauseAnim|isPaused' demo/` returns nothing.",
+      "severity": "MAJOR",
+      "status": "UPHELD_REPRODUCED",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-16",
+      "defect": "The hero blob has no WebGL context-loss contract and B4 has only a success edge, so when the ornament does not arrive nothing downstream can collapse the ~200 CSS px interval it reserved — the PR-15 dead-acreage defect, visible in shots/safari-desktop-light/picker.png.",
+      "mechanism": "A success-only gating DAG: useOverture.ts:143-183 opens B4 on B3-complete AND B2-started AND chunk-resolved with no failed/unavailable/lost terminal arm. The asymmetry is decisive — `webglcontextlost`/`webglcontextrestored` appear in exactly three lines tree-wide, all in useAtmosphere.ts:288,298,301; the blob has none.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-17",
+      "defect": "Under RTL the logical grid relocates the protagonist to the visual right (confirmed in shots/rtl-desktop/picker.png: Picker right, About left) while the slot names and the entrance choreography remain physical, so a directional stacking intent becomes wrong-sided and the entrance sweep runs against the reading direction.",
+      "mechanism": "Half-logical layout — the box model went logical (grid/flex) while the identifiers (`pane-wrapper--left/--right`, App.vue:77,96,119; shell.css:94-96's explicitly directional z-index rationale) and the motion schedule (`--overture-left-delay` 40ms / `--overture-right-delay` 120ms bound inline at App.vue:96,121) stayed physical.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "FOLD"
+     },
+     {
+      "id": "J-18",
+      "defect": "App.vue contains zero `watch(` calls yet two files point at it for watchers it does not own, and three of its own structural rationales cite artefacts that no longer exist (a `demo/styles/style.css` that was renamed, and a `\"./demo/**\"` sideEffects mark that package.json:20 contradicts with `\"sideEffects\": false`). Merges L-13 and C-6.",
+      "mechanism": "Ownership recorded in prose rather than in types — useAtmosphereBoot returns {auroraCssGradient, auroraArrived} while silently providing SAFE_ACCENT_KEY, AURORA_ATOMS_KEY and BLOB_CONFIG_KEY, so the owner is not discoverable by go-to-definition and a comment had to stand in.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-19",
+      "defect": "A 195-line stylesheet declaring three global @keyframes and six global classes lives at demo/color-picker/composables/boot/overture.css, inside a composables/ directory rather than demo/styles/ — a direct violation of the standing animations edict.",
+      "mechanism": "Global CSS colocated as if it were scoped CSS; colocation is right for scoped rules but these are document-global.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-20",
+      "defect": "`picker-shell` is a styling hook applied by the application with no rule defining it anywhere in the repo or in glass-ui 7.0.0 — exactly one occurrence tree-wide (usePaneRouter.ts:134) and it is the consumer. Verified not used as a test or probe selector by e2e/, test/ or scripts/.",
+      "mechanism": "A styling seam outlived its stylesheet — legacy residue (edict 2).",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-21",
+      "defect": "App.vue:191 reaches the glass-ui ROOT barrel for `useClipboard` while importing a sibling composable from the correct `/dom` subpath on the very next line; useClipboard's published home is /dom (dist/composables/dom/index.d.ts:6), and dom.js is 4179 B against the root barrel's 25239 B.",
+      "mechanism": "Reaching past the published subpath surface into the root barrel makes the eager chunk's contents depend on bundler DCE rather than on the import.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-22",
+      "defect": "Two owners of \"read the colour out of the URL\"; the router-side reader is inert at boot and its result is logically subsumed by the hydration source, so the `!appliedFromUrl` guard term at App.vue:378 can never change a branch. hydrate.ts:49-50's stated rationale (\"runs before router installation\") is false as written.",
+      "mechanism": "Dual ownership of one concept with one instance left vestigial after the T.W2 hydration transposition. The real reason the router-side reader is dead at boot is vue-router.js:1462 — the initial navigation is a Promise, so currentRoute is still START_LOCATION_NORMALIZED (query {}) when App's setup runs synchronously inside app.mount().",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-23",
+      "defect": "A glass-ui primitive removed at 7.0.0 (`useLayerTransition`, confirmed absent from dist/*.d.ts) is re-implemented locally at ActionBarLayer.vue:54-82, complete with a parameter accepted and discarded solely to match the deleted API's signature — `void opts.containerEl; // signature parity with the retired producer composable`.",
+      "mechanism": "A design-system primitive retired without a successor, so the consumer re-homed it locally and preserved the dead signature — a back-compat shim (edict 2) whose purpose is confessed in the comment beside it, in a place the design system should own (edict 4).",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-24",
+      "defect": "App.vue:164 `import { ColorPicker } from \"../picker\";` is a value import for a symbol whose only use in the file is the type position at :223 (`ref<InstanceType<typeof ColorPicker> | null>`), so under verbatimModuleSyntax the picker's module graph is emitted into App's eager chunk for a type.",
+      "mechanism": "verbatimModuleSyntax (edict 8) violation. The sibling file gets it right — usePaletteWiring.ts:21 `import type { ColorPicker }` for the same symbol used the same way.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-25",
+      "defect": "A palette-migration choice dialog is mounted unconditionally at the shell root (App.vue:152-157) — simultaneously a \"migration choice\" and an \"overlay\", two of the five recovery presentations VISUAL-CONSTITUTION.md:224 names as forbidden — and it drags the dialog/ barrel's two unused sibling SFCs into the eager chunk (measured in J-11).",
+      "mechanism": "Domain accretion at the shell root: a global-modal slot invites every feature to hang its dialog on the shell, which should own landmarks and routing and not the palette domain's recovery flow (edict 1).",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-26",
+      "defect": "No test in the repo mounts App.vue at all (`grep -rn \"mount(\" test/ demo/test/` returns nothing across the whole vitest suite), and the single oracle that asserts its boot DAG only ever visits `/` (o4-order-invariance.spec.ts:47) — one of the four routes where J-1 does not reproduce.",
+      "mechanism": "Coverage anchored on the default route and on library-level units, so the shell's route-dependent and viewport-dependent behaviour has no oracle at all. This is why both BLOCKERs shipped green.",
+      "severity": "MAJOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "BUILD"
+     },
+     {
+      "id": "J-27",
+      "defect": "Two statements of business logic sequenced inside an inline template handler with a bare magic index — App.vue:41-42 `colorPickerRef?.commitEdit(); viewManager.mobilePaneIndex.value = 1` — which also runs on desktop where the index is meaningless and, per J-2, cannot fire its commitEdit half on the one viewport where the index matters.",
+      "mechanism": "Logic leaking into the template. NOTE: the challenger's stronger charge — that this mutates a foreign composable's ref directly rather than through its API — is refuted; mobilePaneIndex is a writable computed whose setter IS the composable's intent encoding (useViewManager.ts:60-70). Only the sequenced statements and the unnamed literal survive.",
+      "severity": "MINOR",
+      "status": "UPHELD_BY_BYTES",
+      "disposition": "FOLD"
+     }
+    ],
+    "dismissed": [
+     {
+      "id": "D-15",
+      "why": "The challenger correctly labelled its WebKit frame inadmissible, then asserted a \"solid\" source-side fact that is false: that none of the shell's own selectors appear in foundation.css's forced-colors block and that \"the atmosphere canvas has no forced-colors arm at all\". Both are wrong. I then ran the deciding matrix the challenger named — Chromium with forcedColors:\"active\" — and measured the shell chrome transforming correctly: body bg rgb(255,255,255) with backgroundImage:none, .app-layout and .dock-band transparent with rgb(0,0,0) ink, cards white with black borders, channel sliders monochrome. The colour-display surfaces keep colour by deliberate, documented design, which is correct for a colour tool. No gate is written for it: a forced-colors gate would be GREEN at authorship and therefore vacuous.",
+      "refutingBytes": "demo/styles/foundation.css:678-695 — `@media (forced-colors: active) { /* tier 1 — color-display surfaces keep their colors */ canvas, .spectrum-picker, .gamut-overlay, .atmosphere-canvas, [data-glass-field-canvas], .gradient-rail, .rail-handle, .readout-rail, .swatch-row > *, .generate-swatch, .shadow-swatch, .goo-blob-canvas, .watercolor-swatch, ... { forced-color-adjust: none; }` — `.atmosphere-canvas` is at :683 and `[data-glass-field-canvas]` (App.vue:16's own stamp) at :684, with the U-F57/BR-5 two-tier rationale documented at :665-677."
+     },
+     {
+      "id": "D-9.4",
+      "why": "The fourth point of D-9 claims \"Two precedence engines over the same three inputs: index.html:180-200 runs a URL/storage/default resolution in vanilla JS ... then App.vue:231 resolveHydratedBootModel() runs URL->storage->default AGAIN in TypeScript.\" The prepaint script performs no URL read at all — it resolves SCHEME (localStorage 'vueuse-color-scheme' + prefers-color-scheme) and then GROUND (localStorage 'color-picker-ground'), a different key from hydrate.ts's 'color-picker'. It cannot be duplicating hydrate.ts:51-61's URL arm. The parent finding J-9 stands on independently measured grounds (#app === document.body; data-ground-state null on all five matrices; window.__VALUE_GROUND_BOOT__ absent from demo/ and src/).",
+      "refutingBytes": "`awk 'NR>=159&&NR<=203' demo/color-picker/index.html | grep -nE \"location|URLSearchParams|hash|search\"` returns NOTHING. The script's only reads are index.html:169 `localStorage.getItem('vueuse-color-scheme')`, :170 `matchMedia('(prefers-color-scheme: dark)')` and :187 `localStorage.getItem('color-picker-ground')`."
+     },
+     {
+      "id": "D-12.2",
+      "why": "D-12 charges three faults; its second — \"a foreign composable's ref mutated from the template rather than through its API\" — is false. mobilePaneIndex is not a raw ref exposed for direct mutation; it is a writable computed whose setter is precisely the composable's intent encoding, and writing `.value = 1` invokes that setter. What survives (kept as J-27) is the two sequenced statements in an inline template handler and the unnamed literal 1.",
+      "refutingBytes": "demo/shell/useViewManager.ts:59-70 — `const paneOverride = ref<{view: ViewId; index: 0|1} | null>(null); const mobilePaneIndex = computed<0|1>({ get: () => { const o = paneOverride.value; return o && o.view === currentView.value ? o.index : (currentConfig.value.defaultPaneIndex ?? 0); }, set: (v) => { paneOverride.value = { view: currentView.value, index: v }; } });`"
+     },
+     {
+      "id": "D-13.par",
+      "why": "D-13's closing parenthetical asserts \"Note the file otherwise honours verbatimModuleSyntax correctly — all four type-only imports use `import type` (App.vue:163)\". CHALLENGE-C's C-5 asserts the opposite for App.vue:164, and the bytes settle it in C-5's favour: ColorPicker is imported as a value and used only in a type position. Both claims cannot stand; D-13's is dismissed and C-5's is upheld as J-24.",
+      "refutingBytes": "demo/color-picker/App.vue:164 `import { ColorPicker } from \"../picker\";` — and `grep -n ColorPicker demo/color-picker/App.vue` returns only 164, 223 (`ref<InstanceType<typeof ColorPicker> | null>(null)`) and a prose comment at 294. Contrast demo/color-picker/composables/usePaletteWiring.ts:21 `import type { ColorPicker } from \"../../picker\";`."
+     },
+     {
+      "id": "C-4.h2",
+      "why": "C-4 asserts \"The shell publishes nav+main landmarks with no h1, no h2 and no skip link — the first heading on every route is an h3\". The h2 arm is over-broad and route-dependent: the challenger's live probe visited /#/generate and /#/blob only. J-4 asserts only the universal half — zero h1 and zero skip link — which is what VISUAL-CONSTITUTION.md:85 and :118 actually bind, and which holds on every matrix I measured and on all 60 tracked captures.",
+      "refutingBytes": "My probe, chromium 1440x900, route /#/, 12s settle: `h1: 0, h2: 10, h3: 11, main: 1, nav: 1, skipLinks: []`. (On /#/generate the same probe returns `h1: 0, h2: 0, h3: 2` — so the h2 claim is true there and false on the home route.)"
+     },
+     {
+      "id": "C-7.mech",
+      "why": "The measurement is correct and I reproduced it on every run, but the stated mechanism cannot be the path. C-7 attributes the boot URL rewrite to useColorPipeline.ts:50-52's setup-time clamp tripping the identity watcher at useColorUrl.ts:79-82. Composition order forbids it: the clamp runs inside useColorPipeline, invoked at App.vue:245; the watcher is installed inside useColorUrl, invoked at App.vue:377; and a non-immediate `watch` does not fire for a change that happened before it was registered. I instrumented history.replaceState and captured the writer instead. The defect is upheld as J-13 and gated on the OBSERVABLE, not on the guess — the wave must find the real post-setup model write before it cures it, because the proposed cure (\"make the boot clamp a no-op write\") has no proven basis.",
+      "refutingBytes": "demo/color-picker/App.vue:245 `const pipeline = useColorPipeline(model);` vs App.vue:377 `const { appliedFromUrl } = useColorUrl({ model, updateModel: patchModelExternal });`, against demo/color-session/useColorUrl.ts:79-82 `watch([() => model.value.selectedColorSpace, () => model.value.color], () => syncModelToUrl());` (no `immediate`). Instrumented stack of the actual writer, t=477ms: `history.replaceState <- changeLocation <- Object.replace <- finalizeNavigation` with query `space=lab&color=lab(92%25+88.8+20+/+82.7%25)` — i.e. useColorUrl.ts:64's `router.replace({ query: { ...route.query, space, color } })` after its 300ms debounce."
+     }
+    ],
+    "waveSpec": {
+     "waveId": "V·APP-1",
+     "title": "The shell tells the truth about what it mounted",
+     "bornRed": true,
+     "scope": "demo/color-picker/ (entry, App.vue, composables/boot/*), demo/shell/ (PaneSlot.vue, useViewManager.ts, usePaneRouter.ts, viewSchema.ts, dock/), demo/styles/shell.css + the overture.css relocation, vite.config.ts (entry + ground seam), e2e/smoke/oracles/o4-order-invariance.spec.ts, docs/tranches/V/megatranche/audit/visual/states.mjs. OUT OF SCOPE, FOLDED BY NAME: the eleven per-member InstrumentChassis compositions and their ratios belong to W18 by VISUAL-CONSTITUTION.md:56, which requires W18 to ratify one low-fidelity and one real-rendered composition per member before feature styling proceeds. This wave lands the SEAM (the shell stops owning ratio, stage/inspector split, breakpoint mount fork and domain dialogs); W18 lands the VALUES. Five cuts in dependency order: (1) main.ts with `app.use(router); await router.isReady(); app.mount(\"#app\")` and `<body data-paper-field><div id=\"app\"></div></body>`, App.vue dropping both app-level installs and all four CSS imports; (2) PaneSlot reports (instance, liveKey) from a stable non-inline :ref at every call site, then ACTION_BAR_KEY inverts the direction so panes publish and the shell injects, deleting usePaneRouter's 40-line actionBar computed and three ref<any>; (3) the shell owns one <h1> fed by installDocumentTitle's route identity, a skip link as its first tabbable node, and one role=status aria-live=polite region that announces the 404 redirect; (4) .app-layout becomes min-height:100dvh with a sticky dock band so the document scrolls, the shell stops declaring grid-template-columns, and the v-if mount fork / pane-wrapper--left|--right / --ghost / mobilePaneIndex die together with container queries carrying the reflow; (5) routes derive from VIEW_MAP with componentFor keyed by the closed unions (both masking fallbacks die by construction), providePalettePorts splits by lifetime across main.ts/BrowsePane/AdminPane, B4 gains a terminal `unavailable` arm and the blob gains the context-loss contract useAtmosphere.ts:288-301 already models, one aria-pressed still control tears the rAF loops down, overture.css moves to demo/styles/ (a move, never a deletion), injectGroundTokens RETIRES per VISUAL-CONSTITUTION.md:172, and the residue clears (picker-shell, useClipboard subpath, useColorUrl's vestigial boot read, the useLayerTransition parity parameter, `import type { ColorPicker }`, the three dead rationales, and the real writer of the boot URL rewrite).",
+     "gates": [
+      {
+       "gate": "G1 — cold load on every member route completes the overture DAG b0..b4",
+       "command": "node docs/tranches/V/megatranche/audit/components/App/gates/gates.mjs   (landed form: parametrise e2e/smoke/oracles/o4-order-invariance.spec.ts:47 over [\"/\", \"/#/gradient\"])",
+       "redToday": true,
+       "whatWouldMakeItFail": "A cold load on any route where VIEW_MAP[r].left !== \"color-picker\". Measured at c654824e: /#/ => [b0,b1,b3,b2,b4] but /#/gradient, /#/generate and /#/browse each => [b0,b1,b2]. Reproduced in three independent runs."
+      },
+      {
+       "gate": "G1b — routing to the Picker after a deep link mounts its ornament",
+       "command": "node docs/tranches/V/megatranche/audit/components/App/gates/gates.mjs",
+       "redToday": true,
+       "whatWouldMakeItFail": "Cold-load /#/gradient, wait 8s, set location.hash='#/', wait 8s. Measured: heroBlob=false, overtureMarks=3 (contract is 5 marks + ornament). NOTE ON SOUNDNESS: this gate originally selected on `.picker-shell`, which J-20 deletes — it would have reddened because its own selector retired, not because the contract broke. Rewritten to assert marks+ornament and re-verified RED."
+      },
+      {
+       "gate": "G2 — a rendered, enabled dock action does the same thing at every viewport",
+       "command": "node docs/tranches/V/megatranche/audit/components/App/gates/gates.mjs   (landed form: a new e2e spec asserting the dock's Regenerate changes the generate seed at 390x844)",
+       "redToday": true,
+       "whatWouldMakeItFail": "Dispatch a synthetic click on nav.dock-band button[aria-label='Regenerate'] on /#/generate at 390x844 (the button sits in a collapsed DockLayer, so a real .click() times out). Measured: desktop-1440 rendered=true disabled=false effective=TRUE; mobile-390 rendered=true disabled=false effective=FALSE, while the pane's own Regenerate works at both as the control."
+      },
+      {
+       "gate": "G2b — no `any` in the shell's pane-instance plumbing",
+       "command": "grep -c 'ref<any>\\|: any' demo/color-picker/App.vue   # must be 0",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any surviving `ref<any>` or `: any` parameter in App.vue. Measured: 5 (App.vue:317, 318, 319, 323, 330)."
+      },
+      {
+       "gate": "G3 — the shell publishes one H1 and a bypass link as the first focusable",
+       "command": "node docs/tranches/V/megatranche/audit/components/App/gates/gates.mjs",
+       "redToday": true,
+       "whatWouldMakeItFail": "Load any route and count h1 / in-page anchors / the first three visible focusables. Measured on /#/ at 1440x900: h1=0, inPageAnchors=0, firstFocusables=[\"BUTTON:Save edit\",\"BUTTON:Cancel edit\",\"INPUT:\"] — a keyboard user traverses the whole 16-button dock with no bypass."
+      },
+      {
+       "gate": "G3a — (source) exactly one <h1> and a skip link exist in demo/",
+       "command": "grep -rln '<h1' demo/ ; grep -rn 'skip-link\\|Skip to' demo/",
+       "redToday": true,
+       "whatWouldMakeItFail": "An empty result from either grep. Measured: both empty. Corroborated by the h1 column being 0 for all 60 captures in docs/tranches/V/megatranche/audit/visual/REPORT.md:119-178."
+      },
+      {
+       "gate": "G4a — a two-part desktop scene renders golden or preview-dominant",
+       "command": "node docs/tranches/V/megatranche/audit/components/App/gates/gates.mjs",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any desktop viewport >=1024px wide with aspect >=1.1 on a route whose config has right !== null. Measured at 1440x900: gridTemplateColumns='512px 512px', shares 50.0000% / 50.0000% — 11.80 percentage points from the nearest legal ratio. Source: demo/styles/shell.css:133-138 'Equal columns always'."
+      },
+      {
+       "gate": "G4b — overflow rides the document scroller, not a nested well",
+       "command": "node docs/tranches/V/megatranche/audit/components/App/gates/gates.mjs",
+       "redToday": true,
+       "whatWouldMakeItFail": "Any viewport. Measured documentElement scrollHeight-clientHeight = 0px on all five matrices (1440x900, 720x450@2, 390x844), with a 6685px-deep nested card scroller on desktop /#/ and 223px at the 200% arm. Source: demo/styles/shell.css:19-28 `height: 100dvh; overflow: hidden`."
+      },
+      {
+       "gate": "G5 — a boot with no user action leaves the address bar untouched",
+       "command": "node docs/tranches/V/megatranche/audit/components/App/gates/gates.mjs",
+       "redToday": true,
+       "whatWouldMakeItFail": "A fresh browser context with empty localStorage entering any route. Measured: '/#/' settles at '/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25)' on every one of six runs; the write is a router.replace at t=477ms. A genuine share-link deep load must still round-trip its colour, so the gate asserts the no-input case only."
+      },
+      {
+       "gate": "G6 — an anonymous visitor downloads zero admin modules on first paint",
+       "command": "node docs/tranches/V/megatranche/audit/components/App/gates/gates.mjs",
+       "redToday": true,
+       "whatWouldMakeItFail": "Load /#/ or /#/generate not logged in and bucket performance.getEntriesByType('resource'). Measured: 9 admin modules eager (useAdminAuth, useAdminUsers, useAdminAudit, useAdminFlagged, useAdminTags, api/admin-users, api/admin-colors, api/admin-audit, api/admin-palettes) plus FlagReportDialog.vue and VersionHistoryDrawer.vue, out of 137 demo modules / 250 resources, on a route that mounts AdminPane never."
+      },
+      {
+       "gate": "G7 — the application entry is a module file, not inline HTML",
+       "command": "find demo -name main.ts -o -name main.js ; grep -c 'app.mount' demo/color-picker/index.html",
+       "redToday": true,
+       "whatWouldMakeItFail": "An empty find plus a non-zero grep. Measured: find => \"\" and grep => 1 (demo/color-picker/index.html:205-213, the MT-F012 P0's inline module)."
+      },
+      {
+       "gate": "G7b — type-only imports use `import type` (verbatimModuleSyntax, edict 8)",
+       "command": "grep -n '^import { ColorPicker }' demo/color-picker/App.vue   # must be empty",
+       "redToday": true,
+       "whatWouldMakeItFail": "A value import of a symbol used only in a type position. Measured: `164:import { ColorPicker } from \"../picker\";` with its only uses at :223 (type) and :294 (a comment)."
+      },
+      {
+       "gate": "G8 — ambient motion terminates within 5s, or a still/pause control exists",
+       "command": "node docs/tranches/V/megatranche/audit/components/App/gates/gates.mjs",
+       "redToday": true,
+       "whatWouldMakeItFail": "Instrument requestAnimationFrame at init-script time, load any route with PRM off, and compare the counter at t=5.2s against t=10.2s. Measured on /#/: 307 -> 670 callbacks, i.e. 363 after the five-second cap; the same sustained rate at 390x844."
+      },
+      {
+       "gate": "G8b — a persistent still/pause control exists in the tree",
+       "command": "grep -rniE 'animation-play-state|pauseAnim|isPaused' demo/",
+       "redToday": true,
+       "whatWouldMakeItFail": "An empty result. Measured: empty. The control must be keyboard-operable with aria-pressed, persisted alongside the colour-mode store, and must tear the rAF loops down rather than zero their opacity (VISUAL-CONSTITUTION.md:145: 'Paused, parked and offscreen mean no animation work')."
+      },
+      {
+       "gate": "G9 — at least one test mounts the shell",
+       "command": "grep -rn 'mount(' test/ demo/test/",
+       "redToday": true,
+       "whatWouldMakeItFail": "An empty result across the whole vitest include set (test/**/*.ts, demo/test/**/*.ts). Measured: empty — zero component mounts anywhere, which is why both BLOCKERs shipped green. Landed form additionally parametrises o4-order-invariance.spec.ts:47 off the sole `page.goto(\"/\")`."
+      }
+     ],
+     "piObligations": [
+      "safari-desktop-light · /#/ · `.pane-container` computed grid-template-columns plus both `.pane-wrapper` bounding rects — the 50.0000%/50.0000% witness for J-6.",
+      "zoom-200-desktop (720x450 @2 DPR) · /#/ · full viewport plus the `.channel-rail` rect against innerHeight and documentElement scrollHeight-clientHeight — the reflow/clipping witness for J-7 and J-8.",
+      "safari-desktop-light · /#/ · the picker card, measuring the `Lab` identity baseline to the `92.0%, 88.8, 20.0` headline baseline in CSS px with the blob absent — the PR-15 dead-acreage witness for J-16.",
+      "rtl-desktop · /#/ · both `.pane-wrapper` bounding rects under dir=\"rtl\" — the protagonist-side witness for J-17.",
+      "safari-mobile-light · /#/generate · `nav.dock-band` with the action-bar layer expanded, capturing the named+enabled Regenerate/Save palette/Copy colors controls — the inert-affordance witness for J-2.",
+      "keyboard-focus-desktop · /#/ · document.activeElement after exactly one Tab from load — the bypass witness for J-4."
+     ],
+     "deltaObligations": [
+      "Overture DAG: /#/gradient marks [b0,b1,b2] -> [b0,b1,b2,b3,b4]; and after hash-nav to /#/, `.hero-blob-anchor` absent -> present.",
+      "Dock parity: on /#/generate at 390x844 the palette signature unchanged -> changed on the same synthetic dispatch, with the desktop-1440 arm unchanged as a control.",
+      "Proportion: `512px 512px` (50.0000%/50.0000%) -> the ratified golden split, both `.pane-wrapper` rects captured at 1440x900.",
+      "Scroll ownership: documentElement scrollHeight-clientHeight = 0 -> > 0 at mobile, with the dock band's reserved height unchanged (the §3 law 4 non-regression).",
+      "Reflow: zoom-200-desktop/picker.png with the channel rail below a non-scrolling fold -> the rail in frame or reachable by document scroll, and the retired `Picker | About` pane selector gone from the dock.",
+      "Identity: {h1: 0, skipLinks: 0, firstFocusable: 'BUTTON:Save edit'} -> {h1: 1, skipLink present, firstFocusable: the skip link}.",
+      "Eager graph: 9 admin modules on an anonymous /#/ -> 0, with AdminPane's own chunk still resolving on /#/admin/users (proving the split, not a deletion).",
+      "Ambient motion: rAF +363 between t=5.2s and t=10.2s -> 0 with the still control engaged, and the control's state announced and restored across reload.",
+      "Boot quiescence: '/#/' -> '/#/?space=lab&color=...' becomes '/#/' -> '/#/', while a genuine share link still round-trips its colour."
+     ]
+    },
+    "addendumClause": "**V·§App-shell — route truth, slot truth, and shell identity.** The application entry is a module file. It installs the router, awaits `router.isReady()`, and only then mounts; no component may render a route-derived pane before the route is true, and no boot beat may be armed by a single DOM event without a state-checked floor. Pane-instance registration is reported by the slot that mounted the instance, never dispatched by a name a call site guesses; a slot that renders a pane registers it at every viewport, and a control the dock renders as named and enabled is live at every viewport or it is not rendered. The shell owns its route's sole `<main>`, exactly one `<h1>`, one bypass link as its first tabbable node, and one polite status region; it does not own a ratio, a stage/inspector split, a breakpoint mount fork, or any domain dialog. The document is the scroller. No masking fallback may stand between a lattice table and its consumer: unknown names are navigation events, not silent substitutions. Every one of these obligations is discharged by an executable gate that is RED against the tree it was written for; a gate with no input that reddens it is deleted, not weakened.",
+    "dissent": "AGAINST CHALLENGE-D, ON SEVERITY AND SCOPE. D-2 is upheld — the canon retires the two-pane workspace in five clauses and I read all five. But D-2's framing, that \"every finding except D-5, D-6, D-9 and D-14 is a consequence of that one premise, which is why the cure is a transposition\", does not survive the measurements. The two defects that actually break the product for a real user are NOT consequences of the two-pane premise. J-1 breaks on /#/gradient at any viewport, dual-pane or single, and would survive the single-scene transposition untouched because its cause is `router.isReady()` and an unfloored beat. J-2 would be MASKED by removing the breakpoint fork, not cured — the per-call-site `:on-mount` prop and the `any`-typed `currentConfig.left` dispatcher would still be there waiting for the next branch. Adjudicating this component as \"the architecture is retired, therefore transpose\" would ship a beautiful single-scene shell with a wedged boot DAG and a dead dock on mobile. Cut 1 and Cut 2 come first for that reason, and they are the two cuts that need no W18 ratification to land.\n\nAGAINST CHALLENGE-D, ON EVIDENCE DISCIPLINE. Four of its sub-claims are refuted by bytes: D-15's \"solid source-side fact\" (foundation.css:678-695 contains .atmosphere-canvas at :683 and [data-glass-field-canvas] at :684, and my Chromium forced-colors run shows the shell chrome transforming correctly); D-13's verbatimModuleSyntax parenthetical (App.vue:164); D-12's API-violation charge (useViewManager.ts:59-70 — mobilePaneIndex is a writable computed, its setter IS the API); and D-9's URL-duplication arm (the prepaint script contains no URL read at all). Four refuted sub-claims in one report is the cost of arriving from a premise of guilt, and correcting it is what this seat exists for.\n\nAGAINST CHALLENGE-C, ON C-7. The measurement is right and the mechanism is wrong. A cure written against the stated mechanism (\"make the boot clamp a no-op write\") would have landed, looked green on inspection, and left the address bar still rewriting — because useColorPipeline's clamp runs at App.vue:245, before useColorUrl's non-immediate watch is installed at App.vue:377. I have gated the observable instead and made \"find the real writer\" an explicit obligation of the wave.\n\nAGAINST CHALLENGE-L, ON L-3'S CURE. Relocating `injectGroundTokens` to `plugins/vite-ground-tokens.ts` is the right shape of fix for the wrong tranche: VISUAL-CONSTITUTION.md:172 retires `groundRecordInject` and `__GROUND_*__` BY NAME, in the same cut as the frozen boot object. Building the plugin would be building something the canon has already scheduled for demolition. The finding stands; the cure is retirement, folded into J-9.\n\nWHERE I EXPECT THE OTHER JURORS TO DISAGREE WITH ME, AND MY POSITION. I graded J-5 (the retired architecture) BLOCKER but split its disposition BUILD + FOLD(W18), and I graded J-6 (50/50) MAJOR rather than BLOCKER. A design-axis juror will likely grade both BLOCKER and demand they land whole in this wave. I hold that VISUAL-CONSTITUTION.md:56 settles it against them: W18 must ratify one low-fidelity and one real-rendered composition PER MEMBER — \"Picker cannot stand in for About\" — before feature styling proceeds. This wave can honestly land the seam and exactly one ratified value (Picker's exact golden inspector 38.1966011%, :42) and no more. A wave that promised eleven compositions would be promising W18's work with W18's authority, and its gate would be unwritable — which is the same failure mode as a vacuous gate, arriving from the other direction.\n\nTWO GATES I REFUSED TO WRITE, ON PURPOSE. A forced-colors gate would be GREEN at authorship (DIS-1) and is therefore vacuous. A blob-determinism gate would be flaky rather than sound, because I cannot name an input that reliably reddens it (HYP-2: both of my Chromium /#/ desktop runs produced the blob; the one tracked WebKit absence is a real context loss, not a demonstrated rate). Under born-RED law both must be deleted rather than weakened, and I deleted them. What survives from HYP-2 and IS gated is the byte-certain half: the blob has no context-loss contract anywhere in the tree, and B4 has only a success edge.\n\nONE UNSOUND GATE I FOUND IN MY OWN SUITE AND FIXED. G1b originally selected on `.picker-shell` — a token J-20 deletes. It would have gone RED after the wave because its own selector retired, not because the contract broke. Rewritten to assert \"5 overture marks + ornament present\" and re-verified RED. I own the gate soundness of this spec and that is what owning it looks like."
+   }
+  }
+ ]
+}
