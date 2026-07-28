@@ -1734,3 +1734,29 @@ live seat left (`ExtractWorkbench.vue:159` — R12 already evicted every other h
 discs wrapping to ~276px of skeleton that restates the 40px strip above it, stacked on an
 ImageDropZone that is already a complete empty state. Converges with the M-16 meta-audit §5.2
 verdict (delete if no honest seat remains) — the adjudication round rules the kill.
+
+### MT-F038 census COMPLETE (2026-07-28, source-only)
+
+`audit/om-14-formatting/FORMAT-AUDIT.md` (40 KB, §0–§6) — **95 sites: 50 user-facing/actionable
+· 22 internal (out of scope) · 14 existing facilities.** M-16's 31-runtime-calls figure
+CONFIRMED and refined: 30 runtime lines / 31 calls (a second prose-comment hit at
+`easingCatalogue.ts:41` the meta-audit did not name; `:71` carries two calls on one line).
+Zero `toPrecision`, zero `Intl.NumberFormat`; six precisions in use (0/1/2/3/4/12). **Worst
+class: 29 user-facing raw-12-decimal sites** — 17 visible text, 11 SPOKEN VERBATIM by screen
+readers, 1 written back into the model — all tracing to the single constant at
+`src/css/grammar.ts:285`. **The card identity**: `ColorSpaceSelector.vue` SelectItem specimen
+rows (`specimenFor` → `serializePickerColor` at `:161`; renders 17× simultaneously).
+
+**Facility disposition (adjudication input, census-grade)**: `demo/color-session/format-color.ts`
+— NOT `src/` (serializeCssColor is a tested round-trip contract under the parser proof gate;
+display policy lives demo-side beside `serializePickerColor`). Four context registers
+(`compact`/`caption`/`interchange`/`exact`) over ONE per-CHANNEL decimal table seeded from the
+already-RULED `readoutDecimals` (whose ignored `_component` argument is the pre-cut seam);
+implemented as round-via-`withChannel` THEN serialize, keeping the library sole authority on
+spelling. Subsumes 11 live policies, retires 3 dead ones; `canonical.ts` (W51 byte contract) and
+`bezierLiteral` (glass byte-identity) explicitly untouched. Two guard-rails recorded: the
+ColorInput display rounding is PROVABLY SAFE (programmatic innerText dispatches no input event —
+flagged so a careless reading doesn't back the fix out), and **this defect was cured ONCE
+before** — U-F27's formatted `aria-valuetext` landed on the slider thumbs and nowhere else,
+leaving 11 palette/generate/mix ARIA labels speaking machine spelling: the partial-cure disease
+class, now with a named prior.
