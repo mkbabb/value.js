@@ -1699,3 +1699,19 @@ scroll-condensed header collapses its paddings proportionally (this is the same 
 PaneHeader's scroll-timeline shrink, MT-F023's component — the two rulings must land coherently).
 Ownership split pinned at adjudication: if the pad/margin scale lives in the glass card/chassis
 shrink variant, it is a MARKED BJ ask at root; the demo never per-instance-overrides it.
+
+### MT-F040 census COMPLETE (2026-07-28, source-only)
+
+`audit/om-16-palette-scalability/SCALABILITY-AUDIT.md` — 18 surfaces, 15-row severity ranking.
+**Correction to this finding's own premise**: the data layer IS bounded — `api/src/modules/
+palette/schema.ts:33` colors `.min(1).max(50)`, `:35` tags `.max(10)` of ≤30 chars, `:25` name
+≤100 (admin import reuses the caps); the genuinely uncapped surfaces are the client-local store
+(`usePaletteStore.ts:66-107`) and tag selection (`TagEditPopover.vue:64-66`). **The P0 breaks
+INSIDE the legal bound**: the card meta row (`PaletteCard.vue:43-44`) is no-wrap with every chip
+`shrink-0` — three legal 30-char tags ≈ 450px of unshrinkable chips on a 390px card; the name
+collapses to zero width first. Tags 4–10 render NOWHERE (`PaletteCardMeta.vue:37` slices to 3,
+no +N). Slivers at N≥100; weighting silently flattens to equal-width at n≥13; the PNG export
+rasterizes N×120px and goes BLANK past N≈136 while the N-invariant SVG path sits unused; publish
+at N=51 surfaces a raw zod string; zero number compaction repo-wide. **Four GLASS-FORWARD items**
+(relayed O-18a same-day): +N overflow chip/ChipGroup max-visible · priority-collapse meta row ·
+compact-number formatting atom · count-badge min-width variant.
