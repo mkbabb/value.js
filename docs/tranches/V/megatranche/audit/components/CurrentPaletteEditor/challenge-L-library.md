@@ -1021,3 +1021,372 @@ outline paints (it is a `border-radius` + filter effect on the `<span>`, which s
 renders no slot outlet. The screenshot is the defect's visual signature, and no route-level oracle in
 `REPORT.json` (`pageErrors: []`, `consoleErrors: []`, `overflowX: 0`) could see it — a dead control
 is neither an error nor a blank page.
+
+---
+---
+
+# Third pass — the library's own public surface, and one correction to the standing negative proof
+
+## Model receipt (pass 3)
+
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`, the 1M-context variant) — the model this seat
+was explicitly spawned with. Declared, not inherited.
+
+Substrate: same repo, **HEAD `5c13465d`** (`git rev-parse --short HEAD`; the brief said `c654824e`,
+pass 2 observed `041ca263` — the tree has moved twice more; nothing below depends on the delta),
+glass-ui `7.0.0`, dev server `http://localhost:9000` (HTTP 200, driven read-only with Playwright).
+This pass re-ran the seat cold, then read passes 1–2 to avoid re-reporting. Passes 1–2 stand
+unamended; L-1 and L-12 are re-confirmed below with a **cleaner discriminator** than either used.
+Everything else here is new, and one item is a **correction**.
+
+---
+
+## The correction · pass 1's negative proof was true but under-scoped, and it hid the on-axis defect
+
+Passes 1 and 2 both recorded this negative:
+
+> *"no deep `src/` reach … every one a real `package.json#exports` key … **This component imports the
+> library not at all.**"* — pass 2 re-verification stamp
+
+Both halves are true and I re-measured both (`grep -rEn 'from "(\.\./)+src/|@src/' demo` → **0**;
+`grep -rEn 'value\.js/(dist|src)/' demo` → **0**; 39 `@mkbabb/value.js/*` specifiers in `demo/`, every
+one an `exports` key). But the brief's question was not only *"does the demo reach around the
+export map"* — it was also *"is the **public surface** right"*. Answering the first question green
+made the second question invisible: **the demo does not reach past the export map because it cannot;
+the export map does not publish the thing it needs, so the demo built a second copy instead.** A
+consumer that silently forks the model rather than deep-importing produces a *clean* import graph and
+a *duplicated* domain. That is the L-15 finding, and it is the most on-axis library-structure defect
+in this cone.
+
+---
+
+## L-15 · MAJOR — wrong public surface: the library's generic colour model is private, so the demo forged a second one
+
+**The library has it.** `src/color/model.ts` exports, today:
+
+| symbol | line | what it is |
+|---|---|---|
+| `SPACE_SCHEMA` | `:56-74` | the canonical registry — 17 spaces × channel names + `hueIndex` + `css` flag |
+| `SPACE_IDS` | `:76` | the frozen id list |
+| `makeColor(space, channels, alpha)` | `:136-142` | the **generic** constructor over `SpaceId` |
+| `isAnyColor(value)` | `:127-135` | the runtime guard |
+
+**The package publishes none of them.** `src/color/index.ts` re-exports 17 per-space factories +
+6 operations and **omits all four**; `src/subpaths/color.ts` can only re-export what the index gives
+it. Measured against the shipped artefact, not the source:
+
+```
+$ node -e "import('./dist/subpaths/color.js').then(m=>console.log(Object.keys(m).sort().join(', ')))"
+a98Rgb, convertColor, displayP3, hsl, hsv, hwb, ictcp, interpolateHue, jzazbz, kelvin, lab, lch,
+linearSrgb, mapColorToGamut, mixColors, oklab, oklch, prophotoRgb, rec2020, rgb, safeAccentColor,
+toRgba8, xyz
+```
+
+23 names. `makeColor`, `SPACE_SCHEMA`, `SPACE_IDS`, `isAnyColor` are absent. Reproduced from the
+consumer's side — a real consumer's import fails at module-link time:
+
+```
+$ node -e "import('./dist/subpaths/color.js').then(m => m.withAlpha)"     # …and for makeColor:
+SyntaxError: The requested module '…/dist/subpaths/color.js' does not provide an export named 'withAlpha'
+```
+
+**So the one consumer that exists rebuilt the model by hand**, in
+`demo/color-session/picker-color.ts`:
+
+| demo symbol | lines | duplicates |
+|---|---|---|
+| `buildColor(space, channels, alpha)` | `:123-143` | `makeColor` — a **17-arm `switch`** that re-derives the generic by exhaustive enumeration, one arm per `SPACE_SCHEMA` key |
+| `PICKER_CHANNELS` | `:52-…` | `SPACE_SCHEMA[…].channels` — a second copy of every channel name for every space |
+| the `hue: true` marker | `:50` | `SPACE_SCHEMA[…].hueIndex` |
+| `CSS_PICKER_SPACES` | (via `serializePickerColor:207`) | `SPACE_SCHEMA[…].css` |
+| `withAlpha` · `withChannel` · `withNormalizedChannel` · `channelNumber` · `normalizedChannel` | `:151-192` | **nothing** — the library has no immutable channel combinators at all |
+
+The last row is the sharp one. `package.json:4` describes this package as *"**Immutable**,
+failure-explicit CSS color, value, easing, transform, math, and quantization capabilities."* The
+immutable channel-update combinators — the operation that makes an immutable colour type usable —
+live in the **demo**. `grep -rn "withAlpha" src/` → **0 hits**. Every future consumer of
+`@mkbabb/value.js/color` must write them again.
+
+**Why this is the root of the cone, not a distant concern.** Because there is no publishable colour
+*value* with `with*` and equality, every layer above traffics in **CSS strings**:
+`useColorPipeline.ts:166` projects `savedColors: PickerColor[]` down to `savedColorStrings: string[]`;
+`PalettesPane.vue:42` passes strings; `CurrentPaletteEditor.vue:198` receives
+`savedColorStrings: string[]` and compares colours with `Array.prototype.indexOf`
+(`useSwatchActions.ts:63`); `types.ts` stores `{ css: string, position: number }`. Pass 1's L-9 (the
+`string[] → PaletteColor[]` lift with four copies) and this pass's L-16 (two disagreeing membership
+predicates) are both *consequences* of a string-typed colour, and a string-typed colour is a
+consequence of an under-published model.
+
+**Cure (library-side, small).** Add to `src/color/index.ts` + `src/subpaths/color.ts`:
+`makeColor`, `SPACE_SCHEMA`, `SPACE_IDS`, `isAnyColor`, plus a `withChannel` / `withAlpha` pair moved
+**down** from `picker-color.ts` (they are pure model operations; nothing about them is a picker
+concern). Then delete `buildColor`, the duplicated channel-name table and the five combinators from
+the demo — `picker-color.ts` collapses to what its name promises: a *UI-range projection*
+(min/max/unit per channel, display-space naming), not a parallel colour model. Net: the library gets
+~6 export lines, the demo loses ~90, and the duplication cannot recur because the thing being
+duplicated is finally reachable.
+
+---
+
+## L-16 · MAJOR — "is this colour already in the palette?" is implemented twice, with different alpha semantics, and the two disagree on live data
+
+Pass 1's L-8 found the *palette-name* collision rule duplicated. This is the same disease one level
+down, on **colour identity**, and it fires on a single click.
+
+| home | predicate | alpha posture |
+|---|---|---|
+| `demo/palettes/browser/card/composables/useSwatchActions.ts:63` | `savedColorStrings.value.indexOf(cssColorOpaque.value)` | **alpha-stripped** candidate vs **alpha-bearing** haystack |
+| `demo/color-session/useColorPipeline.ts:213-217` | `savedColors.some(c => toCSSColorString(c) === toCSSColorString(model.value.color))` | **alpha-bearing** both sides |
+
+`cssColorOpaque = serializePickerColor(withAlpha(model.value.color, 1))` (`useColorPipeline.ts:104`)
+— alpha forced to 1. `savedColorStrings = model.value.savedColors.map(serializePickerColor)`
+(`:166-168`) — alpha preserved. The two run **in sequence on one gesture**: `addCurrentColor` guards,
+emits `addColor`, and `onPaletteAddColor` guards again with a different rule.
+
+**Reproduction (live, `http://localhost:9000/#/palettes`).** Seed the persisted colour state with an
+alpha-bearing saved colour and reload:
+
+```js
+localStorage.setItem("color-picker", JSON.stringify({
+  inputColor: "oklch(0.7 0.15 30 / 0.5)", savedColors: ["oklch(0.7 0.15 30 / 0.5)"] }));
+location.reload();
+```
+
+Measured after settle:
+
+```json
+{ "countLabel": ["1 color"],
+  "store": "{\"inputColor\":\"oklch(0.7 0.15 30 / 0.5)\",\"savedColors\":[\"oklch(70% 0.15 30deg / 50%)\"]}" }
+```
+
+The restore round-trips the alpha (`/ 50%` survives). Now the two predicates hold opposite beliefs
+about the same pair of colours: `savedColorStrings[0] === "oklch(70% 0.15 30deg / 50%)"` while
+`cssColorOpaque === "oklch(70% 0.15 30deg)"`, so `indexOf → -1` (**absent** — emit the add) and
+`.some(...)` → `true` (**present** — return without adding). The gesture is a silent no-op with no
+feedback, and neither guard is wrong on its own terms.
+
+**Alpha is one gesture away**, not a synthetic edge: the boot capture
+`shots/safari-desktop-light/palettes.png` shows the picker's α channel at **82.7 %**, and
+`ColorPicker.vue:293` commits every swatch edit as `toCSSColorString(model.value.color)` — the
+**alpha-bearing** serialisation — straight back into `savedColorStrings` via
+`usePaletteActions.ts:99-106` → `onPaletteApply`. Edit a swatch, touch the α slider, commit, then
+press add: the add is dead until the colour changes.
+
+**Cure.** One predicate, one home. Colour identity is a library question the moment L-15 is fixed
+(`colorsEqual(a, b)` beside `mixColors` in `src/color/operations.ts`); until then it belongs in
+`demo/color-session/` as the single owner of "what colour is current", called by both sites. And the
+policy must be *decided*, not inherited: `addColor` currently **stores** the opaque colour while
+**deduping** against the alpha-bearing one — that combination is not a rule anyone chose.
+
+---
+
+## L-17 · MINOR — two pure aliases with a dead parameter sit exactly where L-16's divergence hides
+
+`demo/color-session/color-model.ts:60-72`:
+
+```ts
+export function colorToHexString(color: PickerColor): string { return pickerColorToHex(color); }
+export function toCSSColorString(color: PickerColor, _digits: number = 2): string {
+    return serializePickerColor(color);
+}
+```
+
+Both are one-line pass-throughs into `picker-color.ts`. `_digits` is declared, defaulted, and
+**never read** — a parameter that advertises precision control and silently ignores it (4 call sites
+pass no second argument; a future caller passing one would get no effect and no error).
+
+This is edict 2 verbatim (no aliases), and it is not cosmetic: an alias is how one concept acquires
+two names, and two names are how L-16's two policies grew. `useColorPipeline.ts:214,216` compares via
+`toCSSColorString`; `useSwatchActions.ts:63` compares via the `cssColorOpaque` computed built on
+`serializePickerColor` — *the same function under two names*, which is why nobody noticed they had
+been given different alpha inputs.
+
+**Cure.** Delete both; call `serializePickerColor` / `pickerColorToHex` at the four sites
+(`ColorPicker.vue:293`, `useColorUrl.ts:6`, `useColorPipeline.ts:214,216`).
+
+---
+
+## L-18 · MINOR — the "TOP-LEVEL SEAM" that pass 1's L-6 found unenforced also has zero importers
+
+Pass 1 established that G-DEMO-3b lints to `undefined`. The complement: the seam it was written to
+protect is **dead module**. `demo/palettes/browser/index.ts` opens with 18 lines declaring itself
+*"the mega-feature's TOP-LEVEL SEAM … The stable public API … External consumers reach the feature
+through THIS seam (or a sub-barrel it re-exports), never a raw internal `.vue` file"* and then
+re-exports 16 symbols across six clusters.
+
+```
+$ grep -rn "palettes/browser" demo | grep -v '^demo/palettes/browser/'
+demo/workbenches/mix/MixSourceSelector.vue:8:      from "../../palettes/browser/card"
+demo/workbenches/generate/GenerateControls.vue:16: from "../../palettes/browser/card"
+demo/workbenches/extract/ExtractWorkbench.vue:200: from "../../palettes/browser/card"
+demo/color-picker/App.vue:176:                     from "../palettes/browser/dialog"
+```
+
+Four external consumers, four sub-barrel reaches, **zero** through the seam. So the file is 46 lines
+of unreachable re-export whose only effect is to make a claim that is false in both directions — the
+law does not run, and the surface it names has no users. And the subject component reaches *past* it
+in the other direction too: `CurrentPaletteEditor.vue:193` imports `../status/ApiOfflineChip.vue`, a
+raw internal `.vue` from a **different** cluster, which `demo/palettes/browser/status/index.ts:2-3`
+documents as a self-granted exception (*"ApiOfflineChip's live consumer is CurrentPaletteEditor
+(internal, direct relative import)"*).
+
+**Cure.** Pick one. Either the sub-barrels are the contract — delete `browser/index.ts`, re-point
+G-DEMO-3b's globs at the real tree (`files: ["demo/**/*.{ts,vue}"]`, pattern
+`**/palettes/browser/**/*.vue` with barrels excepted), and fix the one violating edge — or the seam
+is the contract and the four consumers move to it. What must not survive is a 46-line module and a
+36-line lint comment that together assert an invariant with no enforcement and no users.
+
+---
+
+## L-19 · MINOR — the component's only real `<button>` is the one with no accessible name
+
+A corollary of L-1/L-12 worth its own row, because it is the *inverse* failure: everywhere the
+component tried to build a button out of a decoration it wrote a careful `aria-label`
+(`:46`, `:49`, `:52`, `:75`, `:78`, `:101` — six of them, each with a `W5-a11y` comment); the one
+place it used a genuine glass-ui `Button`, it wrote none.
+
+`CurrentPaletteEditor.vue:134-142` — the save-palette confirm: `<Button variant="outline" icon-only …>`
+wrapping a bare `<Check>`. No `aria-label`, no `title`, no text. Measured live with a non-empty
+palette, scoped to the component's own root:
+
+```js
+[...document.querySelector('.dashed-well').querySelectorAll('button,[role=button]')]
+  .map(b => b.getAttribute('aria-label') || b.textContent.trim() || '(nameless)')
+// → ["(nameless)"]
+```
+
+Corroborated at route level by the visual audit: `REPORT.json` → `safari-desktop-light /#/palettes`
+and `safari-desktop-dark /#/palettes` → `a11y.namelessButtons: 1`.
+
+**Cure.** `aria-label="Save current palette"` is the one-line fix, but the structural reading is the
+point and it is the same as L-1's: an `icon-only` Button that renders with no accessible name should
+be impossible **at the design-system root** (edict 4/5 — fix at the root, never per instance), not a
+discipline each of ~40 demo call sites must remember. That is a second line in the same glass-ui
+letter the swatch primitive ask belongs to.
+
+---
+
+## Re-confirmation of L-1 / L-12 with a clean discriminator
+
+Passes 1–2 reproduced the dead CTA with a real click on a populated palette. That reproduction is
+**confounded by L-16**: with any saved colour present, `onPaletteAddColor`'s alpha-bearing guard can
+also swallow the add, so "nothing happened" has two possible causes. This pass ran the discriminator
+that separates them — **empty palette, opaque current colour**, so L-16 cannot fire, and the event
+dispatched directly on the element, so hit-testing cannot be the explanation either:
+
+```js
+localStorage.setItem("color-picker",
+  JSON.stringify({ inputColor: "oklch(0.7 0.15 30)", savedColors: [] }));   // no alpha, no colours
+location.reload();
+// …after settle:
+const well  = document.querySelector('.dashed-well');
+const ghost = well.querySelector('.add-slot-ghost');
+ghost.dispatchEvent(new MouseEvent('click',   { bubbles: true, cancelable: true }));
+ghost.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true }));
+ghost.dispatchEvent(new PointerEvent('pointerup',   { bubbles: true }));
+```
+
+```json
+{ "heading": "Start a new palette",
+  "solidBefore": 0, "solidAfter": 0,
+  "store": "{\"inputColor\":\"oklch(0.7 0.15 30)\",\"savedColors\":[]}",
+  "ghostPE": "none" }
+```
+
+Zero swatches before, **zero after**, store untouched by a click delivered straight to the node.
+`@click="addCurrentColor"` is not bound at all. **L-1 stands, cause isolated.** Independently
+re-measured this pass, same page:
+
+```json
+[{ "tag":"SPAN", "ariaHidden":"true", "hasAriaLabel":false, "pe":"none", "variant":"solid",
+   "childTags":["svg.watercolor-filter-host"] },
+ { "tag":"SPAN", "ariaHidden":"true", "hasAriaLabel":false, "pe":"none", "variant":"ghost",
+   "cls":"add-slot-ghost btn-interactive …", "childTags":["svg.watercolor-filter-host","SPAN.watercolor-ghost-stroke"] }]
+"lucideIconsInsideDots": 0
+"elementFromPoint(ghost centre)": "DIV.",  "hitIsGhost": false
+```
+
+and the producer contract that explains all of it, from the shipped build
+(`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js:79-115`): `inheritAttrs: !1` ·
+`props{color,variant,animate,cycleDuration,range,seed}` (no `tag`) · root `o("span", {"aria-hidden":"true", …})` ·
+`style: u([f.value, { …, pointerEvents: "none", … }])` — **`pointerEvents` is applied after
+`attrs.style`, unconditionally and un-gated by `variant`**, so a consumer cannot override it with a
+style binding and the *touch* branch's `PopoverTrigger as-child` host (pass 2's L-12) is inert by the
+same clause. Children are `[svg, ghost-stroke-or-comment]` — no `renderSlot`.
+
+---
+
+## Supplement to the findings table (pass 3)
+
+| id | sev | finding | anchor |
+|---|---|---|---|
+| L-15 | MAJOR | **Wrong public surface** — `makeColor` / `SPACE_SCHEMA` / `SPACE_IDS` / `isAnyColor` exist in `src/color/model.ts` and are published nowhere (23-name `dist/subpaths/color.js` pasted); no immutable `with*` combinators exist in `src/` at all (`grep -rn "withAlpha" src/` → 0). The demo forged `buildColor` (17-arm switch), `PICKER_CHANNELS`, `CSS_PICKER_SPACES` and five combinators. String-typed colour everywhere above is the consequence. | `src/color/model.ts:56-142` vs `src/color/index.ts`; `demo/color-session/picker-color.ts:52-192` |
+| L-16 | MAJOR | Colour-membership predicate has two homes with **different alpha semantics** that disagree on live data (repro pasted); the two run in sequence on one click, producing a silent dead add | `useSwatchActions.ts:63` vs `useColorPipeline.ts:213-217` |
+| L-17 | MINOR | `toCSSColorString` / `colorToHexString` are pure aliases; `_digits` declared, defaulted, never read. The alias is the seam L-16's divergence hides behind. | `demo/color-session/color-model.ts:60-72` |
+| L-18 | MINOR | The declared "TOP-LEVEL SEAM" has **zero importers** (4 external consumers, all sub-barrel); complements pass-1 L-6 (the law) with the surface being dead too | `demo/palettes/browser/index.ts:1-46`; `grep` output pasted |
+| L-19 | MINOR | The component's **only** genuine `<button>` is its only nameless one; corroborated by `REPORT.json` `namelessButtons: 1` on both desktop `/#/palettes` rows | `CurrentPaletteEditor.vue:134-142` |
+
+**Pass-3 verdict: DEFECTIVE, unchanged. Strongest defect: L-1** (re-confirmed with the confound
+removed). **Strongest *on-axis* defect: L-15** — L-1 is a producer-contract break the demo could not
+have typed its way out of, whereas L-15 is this repository's own library publishing the wrong
+surface, and it is the upstream cause of pass-1 L-9, pass-3 L-16 and the string-typed colour that
+makes this whole cone fragile.
+
+**The three-move retirement, ranked by defects closed per change:**
+
+1. **glass-ui ships an interactive swatch** (`./swatch`: a real `<button>` hosting the paint, owning
+   `btn-interactive`) → closes L-1, L-3, L-5, L-12, L-19's class. One producer letter.
+2. **value.js publishes its model** (`makeColor`, `SPACE_SCHEMA`, `SPACE_IDS`, `isAnyColor`,
+   `withChannel`/`withAlpha`, `colorsEqual`) → closes L-15, enables L-9 and L-16 to have one home,
+   deletes ~90 lines of demo. Six export lines.
+3. **Delete the alias layers** (`demo/ui/`'s 19 barrels, `export.ts`, `color-model.ts`'s two
+   pass-throughs, `browser/index.ts`) → closes L-4, L-10, L-17, L-18. Pure subtraction, no behaviour
+   delta.
+
+Nothing in this list is a patch to `CurrentPaletteEditor.vue`. The component is a faithful reader of
+the surfaces it was given; every finding in three passes is a surface that was wrong before it got
+there.
+
+---
+
+## Pass-3 evidence appendix — commands run, verbatim
+
+```bash
+git rev-parse --short HEAD                                            # 5c13465d
+
+# L-15 · the published surface, measured on the shipped artefact
+node -e "import('./dist/subpaths/color.js').then(m=>console.log(Object.keys(m).sort().join(', ')))"
+  # 23 names; makeColor / SPACE_SCHEMA / SPACE_IDS / isAnyColor ABSENT
+grep -n "SPACE_SCHEMA\|SPACE_IDS\|makeColor\|isAnyColor" src/color/model.ts   # :56 :76 :127 :136
+grep -n "SPACE_SCHEMA\|SPACE_IDS\|makeColor\|isAnyColor" src/color/index.ts   # (none)
+grep -rn "withAlpha" src/                                             # 0 hits
+sed -n '123,143p' demo/color-session/picker-color.ts                  # buildColor: 17-arm switch
+sed -n '151,192p' demo/color-session/picker-color.ts                  # the five combinators
+
+# L-16 · the two predicates
+sed -n '60,74p'   demo/palettes/browser/card/composables/useSwatchActions.ts
+sed -n '211,222p' demo/color-session/useColorPipeline.ts
+sed -n '104p;166,168p' demo/color-session/useColorPipeline.ts         # cssColorOpaque vs savedColorStrings
+sed -n '291,298p' demo/picker/ColorPicker.vue                         # commitEdit → toCSSColorString (alpha-bearing)
+
+# L-17 · the aliases
+sed -n '59,72p' demo/color-session/color-model.ts
+
+# L-18 · the dead seam
+grep -rn "palettes/browser" demo | grep -v '^demo/palettes/browser/'  # 4 hits, 0 through index.ts
+
+# negatives re-measured at 5c13465d
+grep -rEn 'from "(\.\./)+src/|@src/' demo                             # 0
+grep -rEn 'value\.js/(dist|src)/' demo                                # 0
+npx vue-tsc -p tsconfig.demo.json --noEmit                            # exit 0, 9.9s wall
+npx eslint demo/palettes/browser/card/CurrentPaletteEditor.vue \
+           demo/palettes/browser/card/composables/useSwatchActions.ts # clean
+```
+
+Live probes: 7 read-only Playwright `evaluate` calls against `http://localhost:9000`; the two that
+decide findings are pasted verbatim above (L-16 seed/reload, L-1 clean discriminator). Images read
+directly: `shots/safari-desktop-light/palettes.png`. `REPORT.json` rows read: all four
+`/#/palettes` matrices.
+
+**No source file was edited by this pass.** The only writes are this appended section and two probe
+scripts in the session scratchpad.

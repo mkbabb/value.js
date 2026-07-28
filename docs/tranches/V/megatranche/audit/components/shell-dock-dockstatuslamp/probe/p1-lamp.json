@@ -1,0 +1,358 @@
+{
+  "w1440": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "dom": {
+      "present": true,
+      "role": "alert",
+      "variant": "misconfigured",
+      "textContent": "dev misconfigured — run `npm run dev`",
+      "innerText": "dev misconfigured — run `npm run dev`",
+      "labelDisplay": "block",
+      "labelText": "dev misconfigured — run `npm run dev`",
+      "dotAriaHidden": "true",
+      "dotSize": "6.39062px x 6.39062px",
+      "pointerEvents": "none",
+      "position": "absolute",
+      "color": "rgb(219, 36, 36)",
+      "box": {
+        "x": 1168.4,
+        "y": 32.7,
+        "w": 255.6,
+        "h": 22.6
+      },
+      "bandBox": {
+        "x": 16,
+        "w": 1408,
+        "h": 72
+      },
+      "dockBox": {
+        "x": 484.3,
+        "y": 9.5,
+        "w": 471.5,
+        "h": 62
+      },
+      "lampOverlapsDock": false,
+      "layoutOverflow": "hidden",
+      "clippedRight": 0,
+      "coveredInteractive": [],
+      "anims": [
+        {
+          "name": "lamp-dot-pulse-45530b34",
+          "state": "running"
+        }
+      ],
+      "liveRegions": [
+        {
+          "role": "alert",
+          "live": null,
+          "text": "dev misconfigured — run `npm run dev`",
+          "display": "flex"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "92.0%",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "88.8",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "20.0",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "82.7%",
+          "display": "block"
+        }
+      ],
+      "elementFromLampCentre": "nav.dock-band overture-dock-land"
+    },
+    "ax": {
+      "role": "alert",
+      "name": "",
+      "ignored": false,
+      "childIds": 1
+    }
+  },
+  "w1024": {
+    "viewport": {
+      "width": 1024,
+      "height": 800
+    },
+    "dom": {
+      "present": true,
+      "role": "alert",
+      "variant": "misconfigured",
+      "textContent": "dev misconfigured — run `npm run dev`",
+      "innerText": "dev misconfigured — run `npm run dev`",
+      "labelDisplay": "block",
+      "labelText": "dev misconfigured — run `npm run dev`",
+      "dotAriaHidden": "true",
+      "dotSize": "6.39062px x 6.39062px",
+      "pointerEvents": "none",
+      "position": "absolute",
+      "color": "rgb(219, 36, 36)",
+      "box": {
+        "x": 752.4,
+        "y": 32.7,
+        "w": 255.6,
+        "h": 22.6
+      },
+      "bandBox": {
+        "x": 16,
+        "w": 992,
+        "h": 72
+      },
+      "dockBox": {
+        "x": 283.1,
+        "y": 10.9,
+        "w": 457.8,
+        "h": 60
+      },
+      "lampOverlapsDock": false,
+      "layoutOverflow": "hidden",
+      "clippedRight": 0,
+      "coveredInteractive": [],
+      "anims": [
+        {
+          "name": "lamp-dot-pulse-45530b34",
+          "state": "running"
+        }
+      ],
+      "liveRegions": [
+        {
+          "role": "alert",
+          "live": null,
+          "text": "dev misconfigured — run `npm run dev`",
+          "display": "flex"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "92.0%",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "88.8",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "20.0",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "82.7%",
+          "display": "block"
+        }
+      ],
+      "elementFromLampCentre": "nav.dock-band overture-dock-land"
+    },
+    "ax": {
+      "role": "alert",
+      "name": "",
+      "ignored": false,
+      "childIds": 1
+    }
+  },
+  "w1023": {
+    "viewport": {
+      "width": 1023,
+      "height": 800
+    },
+    "dom": {
+      "present": true,
+      "role": "alert",
+      "variant": "misconfigured",
+      "textContent": "dev misconfigured — run `npm run dev`",
+      "innerText": "",
+      "labelDisplay": "none",
+      "labelText": "dev misconfigured — run `npm run dev`",
+      "dotAriaHidden": "true",
+      "dotSize": "6.39062px x 6.39062px",
+      "pointerEvents": "none",
+      "position": "absolute",
+      "color": "rgb(219, 36, 36)",
+      "box": {
+        "x": 981,
+        "y": 43,
+        "w": 26,
+        "h": 18
+      },
+      "bandBox": {
+        "x": 16,
+        "w": 991,
+        "h": 72
+      },
+      "dockBox": {
+        "x": 371.9,
+        "y": 20.9,
+        "w": 279.1,
+        "h": 56
+      },
+      "lampOverlapsDock": false,
+      "layoutOverflow": "hidden",
+      "clippedRight": 0,
+      "coveredInteractive": [],
+      "anims": [
+        {
+          "name": "lamp-dot-pulse-45530b34",
+          "state": "running"
+        }
+      ],
+      "liveRegions": [
+        {
+          "role": "alert",
+          "live": null,
+          "text": "dev misconfigured — run `npm run dev`",
+          "display": "flex"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "92.0%",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "88.8",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "20.0",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "82.7%",
+          "display": "block"
+        }
+      ],
+      "elementFromLampCentre": "nav.dock-band overture-dock-land"
+    },
+    "ax": {
+      "role": "alert",
+      "name": "",
+      "ignored": false,
+      "childIds": 0
+    }
+  },
+  "w390": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "dom": {
+      "present": true,
+      "role": "alert",
+      "variant": "misconfigured",
+      "textContent": "dev misconfigured — run `npm run dev`",
+      "innerText": "",
+      "labelDisplay": "none",
+      "labelText": "dev misconfigured — run `npm run dev`",
+      "dotAriaHidden": "true",
+      "dotSize": "6.39062px x 6.39062px",
+      "pointerEvents": "none",
+      "position": "absolute",
+      "color": "rgb(219, 36, 36)",
+      "box": {
+        "x": 348,
+        "y": 43,
+        "w": 26,
+        "h": 18
+      },
+      "bandBox": {
+        "x": 16,
+        "w": 358,
+        "h": 72
+      },
+      "dockBox": {
+        "x": 73.9,
+        "y": 23,
+        "w": 242.1,
+        "h": 52
+      },
+      "lampOverlapsDock": false,
+      "layoutOverflow": "hidden",
+      "clippedRight": 0,
+      "coveredInteractive": [
+        {
+          "tag": "button",
+          "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+          "aria": "Cancel",
+          "box": {
+            "x": 348.9,
+            "y": 38,
+            "w": 22,
+            "h": 22
+          }
+        }
+      ],
+      "anims": [
+        {
+          "name": "lamp-dot-pulse-45530b34",
+          "state": "running"
+        }
+      ],
+      "liveRegions": [
+        {
+          "role": "alert",
+          "live": null,
+          "text": "dev misconfigured — run `npm run dev`",
+          "display": "flex"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "92.0%",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "88.8",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "20.0",
+          "display": "block"
+        },
+        {
+          "role": null,
+          "live": "off",
+          "text": "82.7%",
+          "display": "block"
+        }
+      ],
+      "elementFromLampCentre": "nav.dock-band overture-dock-land"
+    },
+    "ax": {
+      "role": "alert",
+      "name": "",
+      "ignored": false,
+      "childIds": 0
+    }
+  }
+}
