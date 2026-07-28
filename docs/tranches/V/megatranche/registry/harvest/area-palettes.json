@@ -1,7 +1,7 @@
 {
  "runId": "wf_22b7a7b7-97b",
  "workflow": "area-palettes",
- "resultCount": 37,
+ "resultCount": 41,
  "results": [
   {
    "agentId": "a014cb72c5bd972db",
@@ -5532,6 +5532,485 @@
     ],
     "strongestDefect": "C3-2 — the card hand-authors a producer internal (<span class=\"cartoon-cast\">) whose stylesheet the demo never loads, and drives it through pressVar:\"--card-press-t\" while the rule that would consume it reads --cartoon-press-t. Four compounding mechanisms — an unloaded sheet, a wrong variable name, a zero-blur triple-stacked shadow token that facets, and a nine-line comment asserting all of it works — produce exactly the artifact the owner marked in OM-11/OM-12. It is the clearest instance of the folder's general disease: the demo describing producer behaviour it does not have, in prose, where no gate can read it (C3-1's diff:{} is the same disease at the hover leg; C3-10 is the gate that should have caught both and cannot reach its own assertion). Across all three passes the single most severe finding remains pass 2's C-3 — one malformed colour string on the public wall destroys the Browse pane for every visitor — which pass 3 does not displace and, on re-reading, corrects itself in favour of.",
     "negativeProof": "N/A — verdict is DEFECTIVE. Recorded for completeness, the four things I checked and found SOUND, so a fourth pass does not re-spend the probes: (1) Interrupted expand/collapse does NOT corrupt state — this bounds pass 2's C-18 hypothesis. Clean expand → inline:\"\", panel 66.5px, 3 dots, card 191.5px; collapse then re-expand 80ms into the 250ms collapse → inline:\"\", 66.5px, 3 dots, 191.5px. Byte-identical; Vue's v-if remount recovers and the transitionend listener dies with the removed node. (2) The press spring is PRM-correct and disposes — dist/useSpring-9u2_shxV.js defaults `respectReducedMotion: u.respectReducedMotion !== !1` and registers onScopeDispose; no ungated rAF originates in these nine files. Pass 2's C-7 PRM finding concerns useHeightTransition's inline transition string and scrollIntoView, a different mechanism, and stands. (3) verbatimModuleSyntax: PASS, verified file by file across all six components and three composables — every type-only import is `import type` or an inline `type` specifier. (4) useTemplateRef used correctly at PaletteRenameInput.vue:48. Brief hazard sweep: no defineModel (stale-read N/A), no HSV roundtrip (stableHue N/A), no ValueUnit construction, no reka slider, no WebGL."
+   }
+  },
+  {
+   "agentId": "af3b9d0b4f6b5d27a",
+   "key": "v2:ee95fbdf7501c12e4dc9a9e36520795627d082b78776733116f5dbcfcf6f9f3c",
+   "result": {
+    "axis": "CHALLENGE-C — implementation (AdminUsersPanel.vue, area palettes, route #/admin/users)",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M context), the tier this seat was explicitly spawned with. Declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/AdminUsersPanel/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "C-1 — the unguarded expand race renders user A's palettes under user B's row, and the admin delete written from there deletes A's palette while debiting B's count. It is the only row that writes wrong data to the server. Measured end-to-end (probe/dbg3.mjs): DELETE /admin/palettes/azure-one-11aa issued from crimson-owl-77's region; azure left reading 4 with 3 palettes, crimson zeroed while still owning 1.",
+    "defects": [
+     {
+      "id": "C-1",
+      "defect": "toggleUserExpand awaits pm.loadUserPalettes(slug) and assigns unconditionally — no request key, no re-check after the await, no abort. Two expands (or an expand-then-collapse) resolve in completion order, so one user's palettes render under another user's row; the card's admin-delete is wired to the ROW's slug (`:150`), so the delete goes to the leaked palette while the count is debited from the wrong owner.",
+      "severity": "BLOCKER",
+      "evidence": "demo/palettes/browser/admin/AdminUsersPanel.vue:352-365 and :150. probe/aup-probe.mjs R3, chromium AND webkit byte-identical: `R3 t+2.4s expanded row = \"crimson- owl-77 1 Palettes\"` / `AZURE rows visible under it: true | CRIMSON visible: false`. End-to-end, probe/dbg3.mjs: `CALLS: [... ,\"DELETE /admin/palettes/azure-one-11aa\"]` issued from crimson's region; `BADGES: [\"azure-fox-014Palettes\",\"azure-fox-01\",\"crimson-owl-77\"]` — azure still reads 4 with 3 palettes, crimson's row lost role=button because useAdminUsers.ts:118-121 decremented crimson 1→0.",
+      "mechanism": "async write into shared component state without carrying the request's identity through the await (mechanism A: value sourced from a different authority than the one that acts on it)",
+      "reproduction": "VITE_API_URL=http://localhost:9124 npx vite --port 9124; node probe/aup-probe.mjs chromium R3 (and webkit); node probe/dbg3.mjs — delay /admin/users/azure-fox-01/palettes 1500ms, crimson 30ms, click azure then crimson 100ms later, then open the leaked card's ADMIN > Delete (admin).",
+      "proposedCure": "Replace the imperative fetch with a keyed, self-invalidating resource in the admin port — useAdminUserPalettes(slugRef) driven by watch(slugRef) with an AbortController cancelled on key change, returning {palettes, loading, error} bound to the key it was fetched for, so a response for a non-current key is unrepresentable. Take the delete's owner from palette.userSlug (already returned by the API), not from the row. This also supplies C-4's missing error cell and deletes the whole defineExpose back-channel."
+     },
+     {
+      "id": "C-2",
+      "defect": "The prune confirmation quotes emptyCount, computed over the search-filtered, first-50-only client list, while POST /admin/users/prune-empty takes no scope and the server deletes every empty user in the corpus plus their sessions. The dialog's number and the request's effect have different authorities.",
+      "severity": "BLOCKER",
+      "evidence": "AdminUsersPanel.vue:241 + :288-299; demo/palettes/api/admin-users.ts:69-71 (no body, no filter); api/src/modules/admin/service/users.ts:228-237 (`users.findEmptyUserSlugs()` → deleteMany, unbounded). probe/aup-probe.mjs R5, chromium AND webkit: dialog = \"Prune 1 empty users? This will permanently delete 1 user…\"; request sent = [\"POST /admin/users/prune-empty\"]; result banner = \"Pruned 2 users\".",
+      "mechanism": "a destructive verb's stated scope derived from a view of the data while it executes against the corpus",
+      "reproduction": "node probe/aup-probe.mjs chromium R5 (and webkit) — 4 users, 2 empty; type \"verdant\" in Search users…; press Prune empty → Prune. Server answers {pruned:2}; the app promised 1 and then printed 2.",
+      "proposedCure": "Make the count and the act the same object: either the server answers a preview (GET /admin/users/prune-empty → {count}) that the dialog quotes and the button gates on, or the client sends the explicit slug list it just described. Renaming the computed does not fix it."
+     },
+     {
+      "id": "C-15",
+      "defect": "onConfirm fires the action and only then sets confirmOpen=false; nothing disables the footer button, nothing clears confirmAction, and the Dialog plays a leave transition — so the destructive control stays mounted and hit-testable after it fires. One double-click = two whole-corpus prunes.",
+      "severity": "BLOCKER",
+      "evidence": "AdminUsersPanel.vue:283-286. probe/aup-probe4.mjs H2 (a single dblclick): `H2 prune POSTs after ONE dblclick: [\"POST /admin/users/prune-empty\",\"POST /admin/users/prune-empty\"]`. Independently reproduced from a different harness than the r2 seat's.",
+      "mechanism": "a control outlives its own activation (mechanism C)",
+      "reproduction": "node probe/aup-probe4.mjs chromium H2 — open Prune empty, then a single dblclick on the dialog's Prune button.",
+      "proposedCure": "onConfirm becomes async with the footer button bound :disabled to the pending state (visibly inert the instant it fires), and confirmAction is taken out of the ref before invocation so a late event has nothing to call. Store it in shallowRef. The whole 33-line confirm engine (:254-286) is the natural extraction out of a 391-line SFC."
+     },
+     {
+      "id": "C-23",
+      "defect": "NEW. A request that never answers leaves the prune control terminally spinning: `pruning` is set true at :295 and cleared only by onPruneDone, which only runs after the awaited port call settles — and there is no AbortController, AbortSignal or timeout anywhere in demo/. The identical shape strands loadingUserPalettes and the disclosure skeletons.",
+      "severity": "MAJOR",
+      "evidence": "AdminUsersPanel.vue:295,304,359-364; usePalettePorts.ts:121-124; demo/platform/transport/client.ts:67-92 (fetch(input, init) with no signal, inside a retry loop). `grep -rn \"AbortController\\|AbortSignal\" demo/ | wc -l` → 0. probe/aup-probe4.mjs H1: `t+1000ms {\"disabled\":true,\"spinner\":true}` / `t+5000ms …true` / `t+10000ms …true`.",
+      "mechanism": "work started with no bounded termination (mechanism C) — an unbounded promise is the sole clearing path for a UI flag",
+      "reproduction": "node probe/aup-probe4.mjs chromium H1 — route POST /admin/users/prune-empty to never fulfil; the button spins, disabled, indefinitely; only a reload recovers.",
+      "proposedCure": "Put the deadline in the transport once: give fetchWithRateLimitRetry an AbortSignal.timeout(ms) composed with any caller signal, so all ~30 API wrappers inherit a bounded wait and ApiProblem/ApiUnavailableError become reachable on a hang. The panel then derives `pruning` from the port's in-flight state instead of hand-toggling it at two call sites — the same move C-1's keyed-resource cure already needs. A per-component setTimeout watchdog would be the contrivance."
+     },
+     {
+      "id": "C-24",
+      "defect": "NEW. The tail-priority slug pill splits the identifier into two spans inside a flex container; flex items compute display:block, so the identifier is two block boxes. Selecting and copying a slug yields \"azure-\\nfox-01\", innerText carries a newline, and the row's accessible name is announced as two words. This is the measured root of the mangled accName strings both prior seats recorded as probe noise.",
+      "severity": "MAJOR",
+      "evidence": "AdminUsersPanel.vue:97-101, :243-252. probe/aup-probe2.mjs F4, chromium AND webkit byte-identical: {\"pillTitle\":\"azure-fox-01\",\"pillInnerText\":\"azure-\\nfox-01\",\"pillTextContent\":\"azure-fox-01\",\"selectionToString\":\"azure-\\nfox-01\\n\",\"rowInnerText\":\"azure-⏎fox-01⏎4⏎Palettes\",\"childDisplays\":[\"block\",\"block\"],\"pillDisplay\":\"flex\"}.",
+      "mechanism": "a presentation transform destroys the datum it presents — visual truncation implemented by DOM surgery on the string rather than by CSS on one text node (new mechanism D)",
+      "reproduction": "node probe/aup-probe2.mjs chromium F4 (and webkit) — selects the pill's contents via a Range and reads window.getSelection().toString(), i.e. what the clipboard receives.",
+      "proposedCure": "Keep one text node and do the tail-priority truncation in CSS: direction:rtl; unicode-bidi:plaintext; overflow:hidden; text-overflow:ellipsis on a single span. The F-13 intent (two prune candidates stay distinguishable on a phone) is preserved; slugHead/slugTail/SLUG_TAIL (:243-252) delete with it, and the rule lands on the existing .slug-pill recipe at demo/styles/foundation.css:585-587 rather than per instance."
+     },
+     {
+      "id": "C-25",
+      "defect": "NEW. The app ships a working Idempotency-Key replay store (server middleware mounted globally, covering /admin/*; both transport helpers forward the header) and uses it on palette saves — while EVERY admin destructive verb (prune-empty, deleteUser, deleteUserPalettes, deletePaletteAdmin, featurePalette) sends un-keyed mutations. C-15's double-fire therefore reaches the server as two genuinely distinct prunes, not one replayed request.",
+      "severity": "MAJOR",
+      "evidence": "api/src/app.ts:69-73 (`app.use(\"*\", idempotency)`); api/src/platform/http/idempotency.ts:93-99 (opt-in per header); demo/platform/transport/client.ts:112-114 and :145-147 (header forwarded). `grep -rn \"idempotencyKey\" demo/palettes/api/` → only palettes.ts:80,145,161 (crypto.randomUUID()); `grep -rln idempotencyKey demo/palettes/api/admin-*.ts | wc -l` → 0. demo/palettes/api/admin-users.ts:69-71 is the un-keyed prune.",
+      "mechanism": "one concern (mutation replay safety) with two contradictory implementations in one directory — the server-side half of mechanism C, already built and simply not called",
+      "reproduction": "The greps above are exact. The consequence is measured by node probe/aup-probe4.mjs chromium H2 (two distinct POSTs from one gesture). Rider, source-derived and labelled: the replay key scopes on `c.var.sessionToken ?? c.var.userSlug ?? \"anon\"` (idempotency.ts:108), which a Bearer-authenticated admin may collapse to \"anon\" — I did not run the server.",
+      "proposedCure": "Two lines per admin mutation — { method: \"POST\", idempotencyKey: crypto.randomUUID() } — using the header, helper and middleware that already ship; add the admin identity to the server's scope key. Zero new modules. It does not replace C-15's UI cure; it makes the failure of that cure survivable, which is what a destructive console requires."
+     },
+     {
+      "id": "C-4",
+      "defect": "The nested palette load costumes an error as empty: loadUserPalettes catches and returns [], and :138 renders EmptyState \"No palettes.\" for an empty array. The file's own header comment at :49-50 declares the opposite law (\"error ≠ empty — a dead backend never costumes as an empty roster\") and honours it for the roster only.",
+      "severity": "MAJOR",
+      "evidence": "AdminUsersPanel.vue:49-50 vs :138; demo/palettes/useAdminUsers.ts:152-162 (\"Returns [] on failure\"). probe/aup-probe.mjs R2, chromium AND webkit: `R2 after 500 on /palettes: \"· 2 empty | Palettes | · NONE PINNED · | No palettes. | …\"` / `R2 shows any error affordance: false`.",
+      "mechanism": "error-to-neutral coercion at the port boundary (mechanism B): `return []` destroys the failure before the UI can see it",
+      "reproduction": "node probe/aup-probe.mjs chromium R2 (and webkit) — route /admin/users/*/palettes to 500, expand a user with 4 palettes.",
+      "proposedCure": "The keyed resource of C-1 returns {palettes, loading, error}; the expanded region renders the same EmptyState variant=\"error\" + Retry the roster already uses at :51-62. One species selector used at both levels — the correct grammar already exists in the file and is merely unreachable from this path."
+     },
+     {
+      "id": "C-21",
+      "defect": "A failed prune is reported with a success-shaped sentence. onPruneEmpty swallows every error and returns 0; onPruneDone maps 0 to \"No empty users to prune\" — so a 500, a missing credential and a genuine no-op are one string, printed while the toolbar next to it still reads \"· 2 empty\".",
+      "severity": "MAJOR",
+      "evidence": "demo/palettes/useAdminUsers.ts:186-199 (two `return 0` paths); AdminUsersPanel.vue:303-309. probe/aup-probe.mjs R4: `[console.error] status 500` then `R4 after a 500 the panel says: \"No empty users to prune\"` / `R4 still lists empty users: true`.",
+      "mechanism": "error-to-neutral coercion (mechanism B); onPruneDone(count: number) is the signature defect — a number cannot express failure, so no downstream code can",
+      "reproduction": "node probe/aup-probe.mjs chromium R4 — route POST /admin/users/prune-empty to 500, prune 2 empty users.",
+      "proposedCure": "onPruneEmpty returns a result union ({ok, pruned} | {error} | {unauthenticated}); onPruneDone takes it and routes failure into the EmptyState error register the panel already owns."
+     },
+     {
+      "id": "C-17",
+      "defect": "With no admin token loadAdminUsers returns before touching loading or usersLoadError, so the state ladder falls through to the success-with-no-data plate: an unauthenticated visitor sees \"· ROSTER CLEAR · No users found.\" with no mention of authentication, and the Refresh button issues zero requests forever with no feedback.",
+      "severity": "MAJOR",
+      "evidence": "demo/palettes/useAdminUsers.ts:54-57 (`if (!token) return;` before both state writes). probe/aup-probe.mjs R1: `R1 admin API calls on load: []` / `shows 'No users found.': true` / `shows any error/retry: false` / `Refresh -> new admin API calls: 0 []` / `text unchanged after Refresh: true`. Corroborated by the shipped capture audit/visual/shots/safari-desktop-light/admin-users.png (dock reads \"Login\", panel reads \"0 users … No users found.\").",
+      "mechanism": "a function that can fail three ways returns void for two of them (mechanism B)",
+      "reproduction": "node probe/aup-probe.mjs chromium R1 — boot #/admin/users with no palette-admin-token in localStorage, then press Refresh.",
+      "proposedCure": "Add `unauthenticated` to the discriminated union at the composable boundary; the panel's arm becomes a sign-in affordance, never the clear-roster plate. A control that can neither succeed nor fail should not render."
+     },
+     {
+      "id": "C-7",
+      "defect": "Focus is dropped to document.body after every destructive confirm (the dialog restores focus to a trigger that lives inside the row it just deleted), and the destructive action's only receipt is both un-announced and truncated: the pruneResult setTimeout is never cleared, so a second result is killed early by the first result's orphan timer, and the banner sits outside every live region.",
+      "severity": "MAJOR",
+      "evidence": "AdminUsersPanel.vue:303-309 (no handle, no clear, no onScopeDispose) and :17-19 (bare span). probe/aup-probe2.mjs F1, chromium AND webkit identical: `focus AFTER confirm: {\"tag\":\"BODY\",\"isBody\":true}`. probe/aup-probe2.mjs F3: banner2 set at +2109ms, alive at +1303ms after it, DEAD at +2207ms after it — killed at t≈3.4s by banner1's 3000ms timer, ~1.9s early. probe/aup-probe5.mjs, both engines: {\"bannerText\":\"No empty users to prune\",\"bannerInLiveRegion\":false}.",
+      "mechanism": "un-owned scheduled work + focus restoration to a node the action removes (mechanism C)",
+      "reproduction": "node probe/aup-probe2.mjs chromium F1 (and webkit); node probe/aup-probe2.mjs chromium F3; node probe/aup-probe5.mjs chromium (and webkit).",
+      "proposedCure": "One owned timer handle cleared on re-arm and on onScopeDispose — or drop the manual timer for @vueuse/core's useTimeoutFn, already a dependency, which auto-disposes with the scope. Wrap pruneResult in role=\"status\". After a row-removing action move focus to the next surviving row (or the roster heading when the list empties), hooked off the users prop change."
+     },
+     {
+      "id": "C-3",
+      "defect": "The roster silently truncates at 50 and prints a total it never measured: listUsers(token, 50) discards res.total, totalUsers is the loaded length, search is a client-side filter over that page, and the panel mounts no pagination while two sibling admin panels mount the PaginationBar that sits unused in the same directory.",
+      "severity": "MAJOR",
+      "evidence": "demo/palettes/useAdminUsers.ts:59-60 (res.total discarded), :29-34 (client-side filter); AdminPane.vue:33; demo/palettes/api/admin-users.ts:21-32 declares offset and q, both dead. AdminAuditPanel.vue:83 and AdminFlaggedPanel.vue:126 both mount PaginationBar. probe/aup-probe3.mjs G2 with total=1372: `panel header: \"Users 50 | … | 50 users | · 17 empty\"` / `pagination controls in the panel: 0`.",
+      "mechanism": "a view mistaken for the corpus (mechanism A) — and it sets the scale of C-2's blast radius",
+      "reproduction": "node probe/aup-probe3.mjs chromium G2 — server answers 50 rows with total:1372.",
+      "proposedCure": "Consume res.total for the count, debounce searchQuery into the server-side q parameter that already exists, and mount the PaginationBar already sitting in this component's directory. Deleting the client-side filter is part of the cure — two search authorities for one concern is the defect."
+     },
+     {
+      "id": "C-6",
+      "defect": "Every interactive row is a role=\"button\" containing two real focusable <button> descendants (WAI-ARIA 1.2 gives button Children Presentational: True), it has no aria-controls, the disclosed region has no id, and the row's accessible name is computed from its contents so it absorbs the label of the destructive button inside it.",
+      "severity": "MINOR",
+      "evidence": "AdminUsersPanel.vue:78-132 (row) and :112-130 (nested buttons); :134 (region, no id). probe/aup-probe2.mjs F5, chromium AND webkit identical: {\"rowsWithNestedButtons\":[2,2],\"inertRowsInTabOrder\":2}; probe/aup-probe.mjs R7: rowAccName \"azure- fox-01 4 Palettes\", rowAriaControls null. One DOM, two engines — independent of macOS Full Keyboard Access (MT-F022 absorbs none of it).",
+      "mechanism": "a container promoted to a widget role it cannot satisfy, because the disclosure affordance was defined as the whole row",
+      "reproduction": "node probe/aup-probe2.mjs chromium F5 (and webkit); node probe/aup-probe.mjs chromium R7.",
+      "proposedCure": "Hoist the disclosure into a real sibling <button> carrying aria-expanded + aria-controls and its own name (the slug + count cluster), leaving the row a plain container with the action cluster as a sibling — the standard row-with-a-disclosure-button shape, and the shape the adjudicated MT-AU1 move into AdminListItem.vue should carry."
+     },
+     {
+      "id": "C-26",
+      "defect": "EVIDENCE CORRECTION against the r2 seat's C-20, which states the loading container's aria-label \"is discarded by BOTH engines\" on the strength of Playwright's ariaSnapshot. Chromium's real accessibility tree exposes it. The row survives on its other two legs but the mechanism claim must not enter the ledger unqualified — as written it invites the wrong fix.",
+      "severity": "INFO",
+      "evidence": "probe/aup-probe3.mjs G3 via CDP Accessibility.getFullAXTree while loading: `Chromium AX nodes whose computed NAME is 'Loading users': 1 [{\"role\":\"generic\",\"ignored\":false,\"name\":\"Loading users\"}]`. DOM: {\"role\":null,\"ariaLive\":null,\"ariaBusy\":null} (AdminUsersPanel.vue:46). The surviving legs: ARIA 1.2 prohibits naming on generic (so AT behaviour is undefined, i.e. engine-dependent — now demonstrated rather than asserted), and probe/aup-probe5.mjs measures three identical role=\"status\" \"Loading\" live regions in both engines (AdminListSkeleton.vue:10-11 × v-for=\"i in 3\").",
+      "mechanism": "a tool's normalised view mistaken for the browser's accessibility tree",
+      "reproduction": "node probe/aup-probe3.mjs chromium G3 — delay /admin/users 6000ms, dump the CDP AX tree at t+1200ms.",
+      "proposedCure": "Keep r2's cure (role=\"status\" once on the container carrying the name; skeletons aria-hidden=\"true\" — one edit correcting five admin panels), but restate the mechanism as \"a name on a role whose ARIA name-from is prohibited, exposed inconsistently across engines and tools\" rather than \"discarded by both engines\"."
+     }
+    ],
+    "negativeProof": "Verdict is DEFECTIVE, so this is the recorded negative proof for what I attacked and could NOT break — it bounds the finding set rather than supporting a SOUND verdict. (1) The shipped visual audit charges this component nothing: audit/visual/REPORT.json, route /#/admin/users, all four Safari matrices — namelessButtons 0, imgNoAlt 0, overflowX 0, pageErrors [], consoleErrors [], failedRequests []; the four smallTapTargets are input 160×23, \"Switch to slug\" 22×22, \"Generate new slug\" 22×22, \"Cancel\" 22×22, all dock chrome, none from this file. The component's own icon-only control measures 28×36px and is named (probe/aup-probe.mjs R7: deleteBtnBox {\"w\":28,\"h\":36}, aria-label=\"Delete user <slug>\"). (2) The BR-9 keyboard cure is genuinely correct: role/tabindex/aria-expanded apply only when paletteCount>0 (:85-87), measured inertRowsInTabOrder 2 for 2 non-empty rows of 4 users, and the e.target!==e.currentTarget guard (:345) really does stop a nested button's Enter from toggling the row. (3) Destructive dialogs open focus on Cancel, not the destructive button, in both engines (F1: focus in dialog BUTTON \"Cancel\") — I could not make them open on the destructive action. (4) The roster's own error path is right: loadError → EmptyState variant=\"error\" with a real Retry (:51-62), and EmptyState.vue:17 carries role=\"alert\" — C-4 is the absence of that pattern one level down, not a defect in the pattern. (5) vj-celebrate is a real defined transition family (demo/styles/animations.css:142-157 plus the --vj-celebrate-x/-y/-scale token contract) — edict 6 satisfied, nothing orphaned. (6) None of the named local hazards has a site here: over the subject file defineModel 0, ValueUnit 0, parseCssColor 0, requestAnimationFrame 0, addEventListener 0, Observer 0, setInterval 0, WebGL 0, reka-ui slider 0 — no PRM-RAF instance, no oklch→HSV roundtrip, no pointer capture to leak, nothing that wraps a possibly-already-wrapped value. (7) verbatimModuleSyntax satisfied — :199 `import type { Palette, User }` is the only type-only import and is correctly marked. (8) No unbounded growth and no leaked handle beyond the known one: userPalettes is replaced wholesale (:361, :368, :375), never appended; confirmAction is overwritten per showConfirm; the file's only scheduled work is the single setTimeout at :308. (9) Refresh is correctly gated by :disabled=\"loading\" — I could not produce concurrent loadAdminUsers calls from the button. Separately, a probe-honesty note for later seats: WebKit does not expose CORS preflights to Playwright's router, so a cross-origin mock makes every admin DELETE/POST fail in WebKit only and will manufacture a false engine-divergence finding — all two-engine claims above were re-run same-origin (receipt in the report §1)."
+   }
+  },
+  {
+   "agentId": "ad4df764e149e1218",
+   "key": "v2:45cfad6c8766afe353bfc1852e7bf79c009f9fab203a5003b71135f0b94821a5",
+   "result": {
+    "axis": "CHALLENGE-L — library structure: module boundaries, ownership, direction of dependency, public surface",
+    "modelObserved": "Opus 5 (claude-opus-5[1m], 1M-context variant) — the model this seat was explicitly spawned with. Declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-12/L-1 — the component's interactive surface is dead. `@mkbabb/glass-ui`'s `WatercolorDot` is a declared *paint* primitive (`inheritAttrs: !1`, root `<span aria-hidden=\"true\">`, inline `pointer-events: none`, zero slot machinery, six props with no `tag`); the demo mounts it as its primary *control* at 6 sites. Every prop, listener, aria-label and child is silently discarded. Measured: the \"Add current color\" vnode carries prop keys `[\"aria-hidden\",\"class\",\"data-testid\",\"data-variant\",\"style\"]` — no `onClick` exists to fire — and on an iPhone-13 profile the component's own `.swatch-row` yields 3 swatches with `aria-expanded: null` / `data-state: null`, so Edit/Copy/Remove are unreachable on every touch device. This pass converted that touch BLOCKER from a mechanism inference (all prior probes ran at 1440×900 desktop, where the `!canHover` Popover branch never mounts) into a reproduction.",
+    "negativeProof": "N/A — verdict is DEFECTIVE. Recording the proven negatives anyway, since a challenge seat that only accuses is not evidence. (1) The value.js boundary is CLEAN: `grep -rn 'from \"@src' demo` → 0; `grep -rn 'from \"@mkbabb/value.js\"' demo test src` → 0; within demo/palettes/ the only library imports are mix.ts:14 and export/png.ts:11, both `@mkbabb/value.js/color`. Every demo import is one a real consumer could write verbatim through the published exports map — T.W1's dogfood keystone holds. This is precisely why the colour-identity and colour-model findings are surface GAPS, not boundary violations. (2) The brief's named suspect \"three parallel useDark stores\" is CURED — all 10 sites route to `@mkbabb/glass-ui/dark`; the `useMarkdownHighlighting.ts:76` pointer is stale. (3) `verbatimModuleSyntax` clean across the closure. (4) `ActionBarLayer`'s local `useLayerTransition` is real but not a fork (glass-ui 7 removed the standalone export, recorded at :54) and is outside this subtree. (5) All four Safari matrices report /#/palettes at overflowX 0, pageErr 0, consoleErr 0, main 1, and none of the 8 smallTapTargets belong to this component — which is itself the finding: the broken controls are aria-hidden and pointer-events:none, so they are invisible to the very probe that would have flagged them.",
+    "defects": [
+     {
+      "id": "L-12",
+      "defect": "On every touch device, the current palette's per-swatch actions (Edit / Copy / Remove) are unreachable. SwatchHoverMenu's touch branch wraps WatercolorDot in `<PopoverTrigger as-child>`; reka-ui delivers the trigger's click handler, `id`, `aria-expanded` and `data-state` as fallthrough attrs, and the producer's `inheritAttrs: false` discards all of them. Previously filed on mechanism alone — every prior probe ran at desktop width where `canHover` is true and this branch never mounts.",
+      "severity": "BLOCKER",
+      "evidence": "demo/palettes/browser/card/SwatchHoverMenu.vue:13-21. Playwright, devices[\"iPhone 13\"], savedColors seeded via addInitScript, scoped to CurrentPaletteEditor's own `.swatch-row`: {\"swatchRowFound\":true,\"solidDots\":3,\"rootTag\":\"SPAN\",\"ariaHidden\":\"true\",\"ariaLabel\":null,\"ariaExpanded\":null,\"dataState\":null,\"pointerEvents\":\"none\",\"editCopyRemoveVisible\":false,\"afterTap\":{\"editBtn\":false,\"copyBtn\":false,\"removeBtn\":false}}. `aria-expanded: null` + `data-state: null` are reka-ui's own trigger attributes — their absence proves the as-child merge reached the DOM with nothing.",
+      "mechanism": "Consumer binds an interactive contract onto a producer primitive whose published surface is presentational: inheritAttrs:false drops every attr and listener except class/style.",
+      "reproduction": "node scratchpad/probe6.mjs — chromium, iPhone 13 profile, addInitScript sets localStorage['color-picker'] = {inputColor:'rgb(255 0 0)', savedColors:['rgb(255 0 0)','rgb(0 128 255)','rgb(0 200 120)']}; goto http://localhost:9000/#/palettes; settle 6s; dispatch pointerdown+click directly on the first solid dot inside .swatch-row (bypassing pointer-events and actionability entirely); query [aria-label^=\"Edit color\"|\"Copy color\"|\"Remove color\"] before and after — absent both times.",
+      "proposedCure": "glass-ui grows `./swatch` — a real `<button>` hosting a WatercolorDot, owning the accessible name, focus register, press/hover legs and popover attachment. WatercolorDot stays pure paint, consumed only by ./swatch. SwatchHoverMenu.vue is absorbed. The class of defect ends: a paint primitive can no longer be promoted to a control by passing it a string."
+     },
+     {
+      "id": "L-1",
+      "defect": "The \"Add current color\" affordance — the component's primary CTA — has no click listener in the render tree at all. `tag=\"button\"`, `:aria-label`, `@click` and the `<Plus>` default-slot child are all discarded; the control renders as a non-focusable `<span aria-hidden=\"true\">` with `pointer-events: none` and no glyph.",
+      "severity": "BLOCKER",
+      "evidence": "demo/palettes/browser/card/CurrentPaletteEditor.vue:95-105. Live vnode prop keys read off __vnode: [\"aria-hidden\",\"class\",\"data-testid\",\"data-variant\",\"style\"] — no onClick. Producer: node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js declares `inheritAttrs: !1`, 6 props (color/variant/animate/cycleDuration/range/seed, no `tag`), root `o(\"span\",{ \"aria-hidden\":\"true\", …, style:u([f.value,{…pointerEvents:\"none\"…}]) })`, and greps for renderSlot / $slots / slots.default / _ctx.$slots all return false. Visible in docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/palettes.png: the dashed ghost renders with no `+` inside it.",
+      "mechanism": "Same as L-12 — ownership inversion: a producer-declared decoration mounted as the consumer's interactive host.",
+      "reproduction": "node scratchpad/probe4.mjs — chromium 1440x900, http://localhost:9000/#/palettes, waitForSelector('.add-slot-ghost',{state:'attached'}); dispatch MouseEvent('click') directly on the node: swatch count 7 -> 7, changed=false. Note waitForSelector at the default state:'visible' TIMES OUT at 20s, and page.click('[data-variant=\"ghost\"]') fails with 'Timeout 3000ms exceeded'.",
+      "proposedCure": "Invert the containment: `<button type=\"button\" :aria-label @click><WatercolorDot …/><Plus/></button>`. The control is the demo's button; the dot is its paint. Then hoist to the glass-ui ./swatch component per L-12, since 6 sites hand-assemble the same thing."
+     },
+     {
+      "id": "L-16-space",
+      "defect": "Colour identity is compared as raw string equality over a SPACE-PRESERVING serializer, so the dedup predicate fails on the product's most common gesture. Prior passes filed this on the alpha axis only; space is the wider and more reachable failure.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-session/picker-color.ts:206-211 serializes in the colour's OWN space for all 13 members of CSS_PICKER_SPACES (:92-95). savedColorStrings (useColorPipeline.ts:166-168) and cssColorOpaque (:104) both route through it. Measured against dist: ONE physical colour (pure red) -> rgb: 'rgb(255 0 0)' / oklch: 'oklch(62.795536392143% 0.257683303805 29.233880279628deg)' / hsl: 'hsl(0deg 100% 50%)'; savedColorStrings.indexOf(cssColorOpaque) -> -1.",
+      "mechanism": "One concept (colour identity) with no published home, reimplemented privately as string comparison.",
+      "reproduction": "node scratchpad/id2.mjs — imports /Users/mkbabb/Programming/value.js/dist/subpaths/{color,css}.js, builds rgb(255,0,0,1), serializes it directly and after convertColor to oklch and hsl, then runs the exact useSwatchActions.ts:63 predicate. Output pasted in the report. User-level: save a colour, switch the picker's colour space (Lab is the boot default), press add — the identical colour is added twice.",
+      "proposedCure": "Add `colorsEqual(a, b, opts?)` (and the deltaE it implies) to src/color/ and export it from src/subpaths/color.ts — value.js currently exports NO equality primitive (`grep -rn \"export .*(equal|Equal|sameColor|compareColor|colorsEqual)\" src/` -> 0; deltaE/distance -> 0). Then delete all three demo predicates and give membership exactly one home in the palette store."
+     },
+     {
+      "id": "L-16-third-home",
+      "defect": "A third implementation of the membership predicate exists, unlisted in prior passes, and it disagrees with the first on INSERTION ORDER — so one button has two orderings: adding a new colour prepends it, re-adding an existing one appends it.",
+      "severity": "MAJOR",
+      "evidence": "Three homes: useSwatchActions.ts:63 (indexOf on opaque strings) -> `reordered.push(...)` END at :66; usePaletteWiring.ts:85-89 (serializePickerColor ===) -> `savedColors.unshift(...)` FRONT at :98; useColorPipeline.ts:215-217 (toCSSColorString ===) -> `savedColors.push(...)` END at :220. addCurrentColor handles a hit itself (END) but delegates a miss to emit('addColor') -> emitAddColor -> unshift (FRONT). Wiring confirmed at PalettesPane.vue:45 `@add-color=\"(css) => colorTarget.emitAddColor(css)\"` and :44 `@apply=\"(colors) => colorTarget.emitApply(colors)\"` -> usePaletteWiring.ts:65-73 -> onPaletteApply.",
+      "mechanism": "Unique-semantic-ownership violation: neither site imports the other, so nothing holds the orderings in agreement.",
+      "reproduction": "Code-path trace with all three sites and the full emit wiring pasted. Behavioural repro NOT driven — the ordering contradiction is derived from the three call sites, not observed in the UI. Labelled a hypothesis at the behavioural level.",
+      "proposedCure": "Collapse to one `paletteMembership` module in demo/palettes/ owning both the predicate and the insertion policy, consumed by the swatch UI, the wiring layer and the pipeline alike; delete the three private copies."
+     },
+     {
+      "id": "L-16-guard",
+      "defect": "`onPaletteAddColor` computes its existence guard from `model.value.color` but inserts `parseColor(cssColor)` — the guard tests a different colour than the one pushed.",
+      "severity": "MAJOR",
+      "evidence": "demo/color-session/useColorPipeline.ts:212-220 — `const currentStr = toCSSColorString(model.value.color); const alreadyExists = savedColors.some((c) => toCSSColorString(c) === currentStr); if (alreadyExists) return; savedColors.push(parseColor(cssColor));` — the `cssColor` parameter is never read by the guard.",
+      "mechanism": "Guard and mutation read different sources; no test covers the fallback arm.",
+      "reproduction": "NONE — hypothesis. The code defect is exact and the divergence condition is stated (any caller adding a colour other than the live picker colour), but I did not drive a UI path into this fallback; it is the catch arm of usePaletteWiring.ts:101-103.",
+      "proposedCure": "Guard on the argument, or delete the guard entirely once membership has a single home (L-16-third-home)."
+     },
+     {
+      "id": "L-10",
+      "defect": "Palette export has two live implementations; the 914-LoC spec-conformant one has ZERO runtime consumers while its 29-test byte-exact suite runs GREEN, and the shipped 132-LoC path is untested and emits a completely different format.",
+      "severity": "MAJOR",
+      "evidence": "Live: demo/palettes/export.ts <- usePaletteExport.ts:9 <- BrowsePane.vue:198/324 and PalettesPane.vue:152/211 (the subject's direct parent). Orphaned: demo/palettes/export/ — 12 modules, `wc -l demo/palettes/export/*.ts | tail -1` = 914 total; `grep -rn \"palettes/export/|\\./export/|\\.\\./export/\" demo --include='*.ts' --include='*.vue' | grep -v '^demo/test/' | grep -v '^demo/palettes/export/'` -> no output. `npx vitest run demo/test/export/byte-exact.test.ts` -> '✓ 29 tests ... Test Files 1 passed (1) · Tests 29 passed (29)'. Formats diverge totally: export/json.ts emits RFC8785-canonicalised `value.palette-export/v1` with contentDigest + positional ids + per-colour oklch + trailing LF against 'Byte authority: Appendix W51 §3'; export.ts:13-23 emits JSON.stringify({name,slug,colors:[{css,position,name}]},null,2).",
+      "mechanism": "Dual path with the test suite pointed at the dead fork — a false proof.",
+      "reproduction": "The three commands above, run at HEAD 7775473b; outputs pasted in the report.",
+      "proposedCure": "Finish W50: delete export.ts, point usePaletteExport at ./export/serializers, and let the 29 byte-exact tests guard the shipped path. Fold export.ts:9's naive slugify into utils.ts:3's NFKD-normalizing one (they disagree: 'Café Noir' -> 'cafe-noir-…' vs 'caf-noir')."
+     },
+     {
+      "id": "L-4",
+      "defect": "`demo/ui/` is a 19-directory pure-alias layer over glass-ui with zero local components, and it has already produced a LIVE dual path — six Dialog symbols are reached both through the barrel and directly, both forks inside demo/palettes/.",
+      "severity": "MINOR",
+      "evidence": "All 19 barrels are 1-line re-exports (alert is 11 lines, 10 of them comment); zero local .vue anywhere under demo/ui/. Programmatic scan of every demo/**/*.{ts,vue} import excluding demo/ui/: SYMBOLS REACHED BOTH WAYS = ['Dialog','DialogContent','DialogDescription','DialogFooter','DialogHeader','DialogTitle']; barrel x3 e.g. demo/palettes/browser/dialog/FlagReportDialog.vue, direct from demo/palettes/PalettesPane.vue and demo/palettes/browser/admin/AdminUsersPanel.vue via @mkbabb/glass-ui/dialog. Total barrel import-symbol bindings = 189; distinct glass-ui subpaths reached directly = 17. The subject carries both idioms 17 lines apart: CurrentPaletteEditor.vue:174-181 via ../../../ui/*, :191 via @mkbabb/glass-ui/watercolor-dot, useSwatchActions.ts:5 via bare @mkbabb/glass-ui.",
+      "mechanism": "A shim kept after its contents were removed; edict 2 (no aliases / dual paths) and edict 4 (glass-ui is the design system).",
+      "reproduction": "python3 script walking demo/**/*.{ts,vue}, parsing every `import {…} from \"…\"` block and classifying each symbol as barrel vs direct; output pasted in the report.",
+      "proposedCure": "Delete demo/ui/ entirely (19 files, 0 lines of logic) and rewrite the 189 bindings to granular glass-ui subpaths. Mechanical codemod; removes one whole indirection level and makes the design-system dependency legible at every call site."
+     },
+     {
+      "id": "L-8",
+      "defect": "The palette-name collision rule has two homes with divergent predicates, and five other createPalette callers bypass the component's rule entirely.",
+      "severity": "MINOR",
+      "evidence": "CurrentPaletteEditor.vue:253-256 `savedPalettes.find(p => p.name.toLowerCase() === name.toLowerCase())` — name only. usePaletteStore.ts:69-74 `p.isLocal && name-match && colorsMatch(p.colors, colors)` — name AND colours. Bypassing callers: GeneratePane.vue:19, MixPane.vue:43, MixPane.vue:45, useExtractSession.ts:187, usePaletteActions.ts:73. Cost: the whole `savedPalettes: Palette[]` array (a 23-field type) is drilled into a swatch editor to run one .find().",
+      "mechanism": "Identity rule hosted in a leaf view instead of the store that owns identity.",
+      "reproduction": "NONE — hypothesis. Derived from the two predicates plus the caller census; not driven in the UI. NOTE a related concern I DISPROVED: savedPalettes (usePaletteStore.ts:51-55) is already isLocal-filtered, so the component cannot be tricked into emitting `updated` against a remote palette.",
+      "proposedCure": "usePaletteStore grows findByName(name) (or createPalette returns a discriminated {ok} | {collision}); the component asks the port; the savedPalettes prop dies with the duplicated predicate."
+     },
+     {
+      "id": "L-9",
+      "defect": "The `string[] -> PaletteColor[]` lift has no canonical home and is reimplemented at four sites.",
+      "severity": "MINOR",
+      "evidence": "CurrentPaletteEditor.vue:244 `colors.map((css, i) => ({ css, position: i }))`; GenerateControls.vue:56 identical; GeneratePane.vue:17; mix.ts:142. `PaletteColor` is defined in demo/palettes/types.ts; the canonical way to construct one is defined nowhere.",
+      "mechanism": "A type without its constructor — every consumer re-derives the shape.",
+      "reproduction": "grep -rn \"position: i|css, position\" demo --include='*.ts' --include='*.vue' — four hits pasted in the report.",
+      "proposedCure": "`export function paletteColors(css: string[]): PaletteColor[]` beside the type it constructs (demo/palettes/types.ts or utils.ts — both exist; no new shared/ dir, per edict 3), and delete the four copies."
+     },
+     {
+      "id": "L-10-info",
+      "defect": "vite.config.ts documents a bare `.` entry in package.json#exports that does not exist, so its resolution-safety rationale describes a case that cannot arise.",
+      "severity": "INFO",
+      "evidence": "vite.config.ts:30-36 explains why alias finds are anchored regexes 'so the bare `.` entry never swallows a subpath specifier'. package.json#exports has seven keys — ./color ./value ./css ./easing ./math ./transform ./quantize — and no '.'. The generator at :41-50 therefore never emits a bare alias. `grep -rn 'from \"@mkbabb/value.js\"' demo test src` -> 0, so nothing depends on it.",
+      "mechanism": "Stale documentation surviving an exports-map change.",
+      "reproduction": "Read package.json exports block + vite.config.ts:23-50; grep pasted above.",
+      "proposedCure": "One-line correction to the comment so the next reader does not trust a non-existent entry."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a7745d5c2f64bbf4c",
+   "key": "v2:8c1b3d96ebd081208d74f54e7f458f8ff5855b2b79e8000a8f2b43934f0989d8",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) under demo/palettes/BrowsePane.vue",
+    "modelObserved": "Opus 5 (1M context) — exact model id claude-opus-5[1m]. Declared seat, matches the explicit Opus 5 spawn declaration; not inherited. No DEFECT.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/BrowsePane/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "defects": [
+     {
+      "id": "N-10",
+      "defect": "The palette wire contract has no single home. It is declared independently in api/src/modules/palette/format.ts (FormattedPalette — the authority, constructed by formatPalette) and hand-transcribed in demo/palettes/types.ts (Palette — what BrowsePane and every pm.* member is typed against). 20 of 22 fields diverge. The transport asserts the transcription without validation. The server publishes a literal discriminant (isLocal: false); the client widens it to boolean, which forces every server-guaranteed field to become optional.",
+      "severity": "BLOCKER",
+      "evidence": "`node docs/tranches/V/megatranche/audit/components/BrowsePane/probe-L4/typediff.mjs` → `DIVERGENT: 20 of 22`. api/src/modules/palette/format.ts:19-47 vs demo/palettes/types.ts:15-71. Unchecked assertion: demo/palettes/api/palettes.ts:39-41 `Promise<CursorPaginatedResponse<Palette>>` over `request()`. Discriminant: format.ts:45 `isLocal: false` vs demo/palettes/types.ts:47 `isLocal: boolean`. userSlug: format.ts:26 `string | null` vs types.ts:29 `userSlug?: string`.",
+      "mechanism": "One concept, two homes, and the shipping home is the transcription. One interface is asked to model two disjoint inhabitants (a client-minted local draft and a server envelope); erasing the discriminant makes optionality the only way to keep both inhabitable.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/BrowsePane/probe-L4/typediff.mjs",
+      "proposedCure": "One declaration. Hoist the envelope to a types-only contracts/palette.ts that api/ and demo/ both import (or have api/ emit contract.d.ts). Then `type Palette = LocalPalette | RemotePalette` discriminated on isLocal, with RemotePalette = Serialized<FormattedPalette> (Date→string applied once by a mapped type). pm.remotePalettes becomes Ref<RemotePalette[]>, which deletes the (p: any) cast, the `as {L,a,b}[]`, the !oklabColors exclusion, the Array.isArray(tags) masking fallback and the null-ownership bug — each becomes impossible rather than patched."
+     },
+     {
+      "id": "N-11",
+      "defect": "BrowsePane.vue:99 computes `:is-owned=\"palette.userSlug === pm.userSlug.value\"`. For an anonymous visitor pm.userSlug.value is null, and five of the ten live commons rows carry userSlug: null, so null === null → true. Those five cards offer Publish/Make private, Rename, Edit Tags and Delete, and hide the Report item. TypeScript cannot warn because demo/palettes/types.ts:29 declares userSlug?: string — the client type says null is impossible, so no guard was written.",
+      "severity": "MAJOR",
+      "evidence": "`curl -s https://api.color.babb.dev/palettes?limit=50` → 10 rows, 5 with userSlug null (lavender-dreams, forest-canopy, neon-cyberpunk, ocean-depths, sunset-blaze). useUserAuth.ts:32,60 + useSafeStorage.ts:5-11 → fresh visitor slug is null; `grep -rn ensureUser demo` → only usePaletteActions.ts:42 (publish) and useDialogBrowseActions.ts:53 (fork), so a browsing visitor never registers. PaletteCardMenu.vue:49,74,84,134 gate the four owner items on isOwned; :144 gates Report on !isOwned. demo/palettes/utils.ts:22-23 + format.ts:45 → paletteKind === 'remote'. Probe: `node docs/tranches/V/megatranche/audit/components/BrowsePane/probe-L4/probe-isowned-deterministic.mjs` → `isOwned===true for anon : 5`.",
+      "mechanism": "N-10's erased null, cashed out at the leaf. The client type narrows a nullable server field, so the leaf writes a naive equality; the shared null value makes the equality true.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/BrowsePane/probe-L4/probe-isowned-deterministic.mjs",
+      "proposedCure": "Falls out of N-10 for free: RemotePalette.userSlug: string | null makes :99 a type error until it is written with a null guard. Better, ownership is not the pane's arithmetic — useBrowsePalettes exposes isOwnedBy(p) and the template reads a boolean it did not compute. Independently, formatPalette should not emit a null owner to the public wall (or the seed script should own its rows). NOT a BLOCKER: api/src/modules/palette/require-ownership.ts:33-38 rejects `!userSlug` with 401 and `ownerSlug === null` with 404, so there is no privilege escalation — the defect is a false affordance on half the public wall plus suppression of the only moderation path."
+     },
+     {
+      "id": "N-12",
+      "defect": "The demo's type map bypasses the exports map it claims to enforce. vite.config.ts:38-49 GENERATES the runtime alias set from package.json#exports; tsconfig.demo.json:43-53 declares the same mapping BY HAND and has drifted: 3 of its 8 keys point at files that do not exist (`.`→dist/index.d.ts, /parsing, /units) and 2 published subpaths are unlisted (./value, ./css — the latter has 10 live demo import sites). Because TS `paths` runs before node resolution it never consults `exports`, so a specifier the package does not publish typechecks GREEN while Vite cannot resolve it.",
+      "severity": "MAJOR",
+      "evidence": "`ls dist/index.d.ts dist/subpaths/{parsing,units}.d.ts` → all MISSING. `npx tsc -p docs/.../probe-L4/tsconfig.probe.json` → exit 0 for `import { parseCssColor } from \"@mkbabb/value.js/parsing\"`. `npx vite-node .../vite-parsing.mjs` → `generated alias count = 7 | covers /parsing? false` and resolveId → `\"./parsing\" is not exported under the conditions [\"module\",\"browser\",\"development\",\"import\"]`. `grep -roh '@mkbabb/value.js/css' demo | wc -l` → 10. tsconfig.demo.json:47-50 asserts a 'CLOSED 8-key set' including a root that package.json#exports does not publish.",
+      "mechanism": "The same invariant enforced two ways — one generated and drift-proof, one hand-maintained and already drifted. The demo-dogfood keystone's guarantee ('a non-published specifier is unauthorable') is structural on the runtime side and merely conventional on the type side.",
+      "reproduction": "npx tsc -p /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/BrowsePane/probe-L4/tsconfig.probe.json ; echo exit=$?   (exit 0) ; then npx vite-node docs/tranches/V/megatranche/audit/components/BrowsePane/probe-L4/vite-parsing.mjs (resolve error)",
+      "proposedCure": "Delete all eight @mkbabb/value.js `paths` entries from tsconfig.demo.json. TypeScript ≥5 already resolves the package's own name through its exports map by self-reference — proved live for @mkbabb/value.js/css, which has no paths entry and resolves correctly at 10 sites. With moduleResolution: \"Bundler\" retained, package.json#exports becomes the single authority for both the type gate and the runtime gate. Imminent, not theoretical: the V·π mini-tranche is chartered to ship src/subpaths/parsing.ts, at which point the green-typecheck/red-runtime split goes live."
+     },
+     {
+      "id": "N-13",
+      "defect": "The OKLab colour-search protocol is fully implemented at both ends and connected at neither. The server matcher (crud-list.ts:153-180, schema.ts:89, tested) and the client transport params (api/palettes.ts:27-30,49-52) both exist and have zero callers; the shipping implementation is a page-local client filter hand-rolled in the leaf with a duplicated 0.15 radius. Consequences: colour search cannot see past the loaded cursor page, the load-more trigger is gated on pm.hasMore (untouched by the filter) so it offers more of a wall the filter has emptied, and a zero-match colour search renders empty-text \"No published palettes here yet.\" — a false statement about the commons.",
+      "severity": "MAJOR",
+      "evidence": "`grep -rn 'colorL|colorRadius' demo | grep -v api/palettes.ts` → exactly one hit, the comment at BrowsePane.vue:354. useBrowsePalettes.ts:52-60 currentFilterOpts() builds limit/sort/q/tier/tags and no colour param. Live implementation BrowsePane.vue:339-349 with `const radius = 0.15` at :343, duplicating crud-list.ts:167 `query.colorRadius ?? 0.15`. Empty-state copy BrowsePane.vue:85-86. Server tests exist: api/src/modules/palette/__tests__/palette-list.test.ts:118,137,161.",
+      "mechanism": "Three homes for one concept, and the live one is the leaf's — the weakest, least testable and most privileged position in the tree. The two correct implementations are dead plumbing at both ends of the same wire.",
+      "reproduction": "grep -rn 'colorL\\|colorRadius' /Users/mkbabb/Programming/value.js/demo | grep -v 'api/palettes.ts'   → one comment only",
+      "proposedCure": "Delete displayedBrowse and colorSearchParams from the pane. useBrowseQuery puts (L,a,b,radius) into ListPalettesOptions alongside tier/tags/sort — where the other four filters already live — and the wall reloads through the one path. Colour search then searches the commons rather than the viewport, hasMore is honest, and the empty state is reached only when the query truly has no rows. The metric itself moves to src/color/ as deltaEOK; api/src/modules/palette/service/oklab.ts:16-21 already books consuming it, retiring the api's hand-rolled sRGB→OKLab matrix."
+     },
+     {
+      "id": "N-14",
+      "defect": "The published library's build configuration imports application code out of the demo tree. vite.config.ts:16 imports injectGroundTokens from ./demo/color-picker/composables/boot/ground; groundRecordInject() wraps it at :143 and sits in defaultPlugins (:159), which the production library build spreads at :203. The module graph that produces dist/subpaths/*.js depends on demo/.",
+      "severity": "MAJOR",
+      "evidence": "vite.config.ts:16, :143-151, :159-165, :203. `grep -nE '^\\s*import ' demo/color-picker/composables/boot/ground.ts` → no output (ground.ts is import-free, so no demo runtime enters the library bundle, and transformIndexHtml never fires in production because the library build has no index.html — the plugin is loaded and inert). npm run prepare = `rm -rf dist && npm run build`, so the publish path traverses this edge.",
+      "mechanism": "Direction-of-dependency inversion at the top of the tree: library ← demo. It makes demo/ a build-time dependency of the library.",
+      "reproduction": "grep -n 'injectGroundTokens' /Users/mkbabb/Programming/value.js/vite.config.ts  (line 16) ; grep -n 'defaultPlugins' vite.config.ts  (159 declared, 203 spread by production mode)",
+      "proposedCure": "The token contract is a build concern, not an application concern. Move injectGroundTokens and the GROUND_* constants to plugins/vite-ground-tokens.ts beside its two siblings (vite-source-export.ts, vite-defer-glass-fonts.ts); demo/.../boot/ground.ts imports the constants from there. Single-sourcing (U-F23 · G-CANON-4) is preserved exactly and the arrow points the way the layering requires. This is a PREREQUISITE of pass 3's §D-0 demo/ package split — without it, npm run build breaks the day the split lands."
+     },
+     {
+      "id": "N-15",
+      "defect": "demo/palettes/browser/index.ts is a 47-line barrel that documents itself as 'the stable public API of the palette-browser feature … the G-DEMO-3b boundary (eslint.config.js) enforces it standing'. It has zero importers. BrowsePane reaches the three cluster barrels directly.",
+      "severity": "MINOR",
+      "evidence": "`grep -rn 'from \"./browser\"|from \"../browser\"|palettes/browser\"' demo` → no output. BrowsePane.vue:186-194 imports ./browser/card, ./browser/search, ./browser/dialog directly. Combined with pass-1 L-4/N-2: the G-DEMO-3b globs in eslint.config.js:220-303 match nothing (demo/@ does not exist).",
+      "mechanism": "A boundary that is documented, un-enforced and un-used, in a tree whose actual reach convention is 'whichever barrel is nearest'.",
+      "reproduction": "grep -rn 'from \"\\./browser\"\\|from \"\\.\\./browser\"\\|palettes/browser\"' /Users/mkbabb/Programming/value.js/demo   → no output",
+      "proposedCure": "Delete it. The six cluster barrels (card/, search/, dialog/, admin/, slug/, status/) are the real seams, are already named-re-export-only, and are what every consumer already uses. Re-home the eslint glob onto those six paths with pass 2's zero-match-glob assertion so the rule fails loudly if it ever stops matching again."
+     },
+     {
+      "id": "N-16",
+      "defect": "usePaletteExport is a composable in name only: 27 lines with no ref, computed, watch, lifecycle hook or closed-over state — one switch statement in a function returning { onExport }, and both consumers immediately unwrap it.",
+      "severity": "MINOR",
+      "evidence": "demo/palettes/usePaletteExport.ts (whole file). BrowsePane.vue:324 and PalettesPane.vue:211 — both `const { onExport } = usePaletteExport();`.",
+      "mechanism": "The use* prefix is a contract with the reader (reactive state or lifecycle inside). A module-level function wearing the prefix, plus a factory call on every mount to obtain it. Edict 3 (KISS, no contrivance).",
+      "reproduction": "cat /Users/mkbabb/Programming/value.js/demo/palettes/usePaletteExport.ts   (27 lines, zero reactive primitives)",
+      "proposedCure": "It disappears entirely under the L-1/N-8 cure: export/index.ts (promoted from serializers.ts) exports exportPalette(snapshot, format) and the two panes import it. One home, no factory, no prefix lie."
+     },
+     {
+      "id": "N-17",
+      "defect": "An undeclared second copy of @mkbabb/value.js@4.0.0 sits in node_modules, pulled by @mkbabb/keyframes.js's exact-pin runtime dependency (not a peer). This repo IS @mkbabb/value.js@4.0.0 and does not declare itself. The two copies carry the same version string and different bytes.",
+      "severity": "MINOR",
+      "evidence": "package.json dependencies = {glass-ui ^7.0.0, keyframes.js ^6.0.0}; node_modules/@mkbabb/keyframes.js/package.json dependencies = {\"@mkbabb/value.js\":\"4.0.0\"}. `cmp dist/subpaths/css.js node_modules/@mkbabb/value.js/dist/subpaths/css.js` → differ (43,973 vs 43,972 B). Dist-tree md5: e13ed2ad291a5cd37bcd7882375552da (repo) vs 993b31794f22be55bdf4b2f117ff92d8 (node_modules). NEGATIVE PROOF that it is currently shadowed: `import.meta.resolve('@mkbabb/value.js/color')`, vite pluginContainer.resolveId from BrowsePane.vue, and `tsc --traceResolution` ALL resolve to the repo's own dist/ by package self-reference.",
+      "mechanism": "A latent second instance of the library in the resolution path of a repo whose central structural claim is 'the demo consumes exactly one published surface'. vitest.config.ts:6-13 carries no value.js alias at all (only @src) and relies entirely on self-reference — a property of the tooling, not of this repo's configuration.",
+      "reproduction": "node -e \"console.log(require('./node_modules/@mkbabb/keyframes.js/package.json').dependencies)\" ; cmp dist/subpaths/css.js node_modules/@mkbabb/value.js/dist/subpaths/css.js",
+      "proposedCure": "Fix before pass 3's §D-0 package split, not after: once demo/ stops sharing the library's package.json, self-reference no longer applies and the phantom copy becomes reachable. npm dedupe cannot help across an exact pin, so the real cure is producer-side — keyframes.js moves @mkbabb/value.js to peerDependencies. Belongs in the keyframes relay."
+     }
+    ],
+    "strongestDefect": "Overall, unchanged from pass 3: N-6 (the composition root has no module home; the gh-pages build emits 12,472 B and no BrowsePane chunk — until cured, no other finding reaches a user). Strongest NEW in pass 4: N-10 — the wire contract has no home and 20 of 22 fields diverge between api/src/modules/palette/format.ts::FormattedPalette and demo/palettes/types.ts::Palette, asserted without validation at demo/palettes/api/palettes.ts:39-41. It outranks every remaining finding because its blast radius is the whole feature area rather than one file: every pm.* member, every card, both panes and both walls are typed against the transcription. N-11 is what it costs today — five of the ten live commons rows (lavender-dreams, forest-canopy, neon-cyberpunk, ocean-depths, sunset-blaze) evaluate is-owned as true for every anonymous visitor, offering Publish/Rename/Edit Tags/Delete and hiding Report — and pass-1 L-16's masking fallback and pass-3's 5-of-10 silent oklabColors exclusion are two further instalments of the same debt. Its cure is also the cheapest relative to blast radius: publish the type that already exists and restore the isLocal discriminant the server already emits.",
+    "negativeProof": "Verdict is DEFECTIVE, but two negatives are proved and must be carried forward. (1) THE BRIEF'S HEADLINE CHARGE DOES NOT HOLD. BrowsePane.vue's 14 imports (:179-199) are `vue`, demo-relative paths, and one published subpath (@mkbabb/glass-ui/search) — no import a real consumer could not write. Repo-wide: `grep -rn 'from \"@mkbabb/value.js\"' demo` → 0 bare-root imports; `@src/` or `../../src/` reaches from demo/ → 0; all 46 value.js specifiers in demo/ name keys that exist in package.json#exports (census: color 25, css 10, math 6, easing 5, quantize 4, value 0, transform 0). The runtime mechanism is genuinely well engineered — vite.config.ts:38-49 GENERATES the alias set from the exports map by anchored regex, so it cannot drift and cannot prefix-match into a subpath; a non-published specifier is unauthorable at runtime. This must survive any restructure verbatim. N-12 narrows this negative rather than overturning it: the guarantee is structural on the runtime side and only conventional on the type side. (2) N-17's phantom-library hazard is NOT currently live: import.meta.resolve, vite's pluginContainer.resolveId from BrowsePane.vue, and tsc --traceResolution all resolve @mkbabb/value.js/* to the repo's own dist/ by package self-reference, and the byte difference between the two 4.0.0 dists is minifier identifier assignment only (semantically equivalent). I falsified my own live-DOM hypothesis for N-11: the dev origin latches `misconfigured` (availability.ts:29-35) and issues zero /palettes requests, so I could not confirm the menu in the running app — which independently corroborates pass 1's note that every #/browse row in the visual matrix was captured on the error plate. The wall has still never been captured by any seat; the deterministic probe is the reproduction of record."
+   }
+  },
+  {
+   "agentId": "ac7565f91bd53bd72",
+   "key": "v2:f8fc79eef79c4c565c5df9bf11349ccc7f2dbcc7674e450b0465384eea54e9d6",
+   "result": {
+    "axis": "CHALLENGE-C — implementation defects in demo/palettes/browser/card/CurrentPaletteEditor.vue (area: palettes)",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M-context variant). Declared seat honoured; not inherited, not undeclared.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "C-1 — the add-current-colour control is not a control. `WatercolorDot` in glass-ui@7.0.0 has no `tag` prop, no default slot, and `inheritAttrs:false` forwarding only class+style, so `tag=\"button\"`, `:aria-label`, `@click=\"addCurrentColor\"` and the `<Plus>` child are all silently discarded; the shipped DOM is `<span aria-hidden=\"true\" tabindex=\"-1\" style=\"pointer-events:none\">`. `getByRole(\"button\",{name:/Add current color/})` = 0 live. The repo's own e2e spec for this flow is RED on HEAD (`palette-save.spec.ts:37`, 30s locator timeout) — and CI runs no Playwright, so nothing reports it. It is the entire reason the component exists, and it does not work.",
+    "negativeProof": "Not a SOUND verdict — but the following hazard classes were probed and cleared with positive evidence, so they are not carried as findings: (a) `defineModel` stale-read — absent, component uses defineProps/defineEmits and a plain local `ref` for the name field (CurrentPaletteEditor.vue:240), with correct Vue 3.5 reactive-props destructure + `toRef(() => …)` at :196-202/:234-235; (b) PRM-RAF — zero `requestAnimationFrame` in the component or its three composables, and glass-ui's `useWatercolorBlob` rAF is opt-in via `animate` (never set here) and is `pauseWhenHidden`+`respectReducedMotion`; (c) `ValueUnit` nesting — never touched; (d) oklch→HSV `stableHue` drift — no hue math on this path; (e) reka-ui slider pointer capture — no sliders; (f) WebGL — none; (g) `parseCssColor` crash class — the component performs NO parsing (strings interpolated into aria-label/background-color only), and `length===0`, whitespace-only name (`.trim() || default`, :249-250) and `id == null` (:270-271) are all guarded; `/#/palettes` shows 0 pageErrors and 0 consoleErrors in all four Safari matrices (REPORT.json) and in every probe run; (h) horizontal overflow — `overflowX: 0` all four matrices (REPORT.md:120,135,150,165); (i) `verbatimModuleSyntax` — satisfied (`import type` at :190); (j) `useBreakpoint` media-query subscription disposes (glass-ui dist/dom.js registers onScopeDispose); (k) `useLeaveTimer.schedule` cancels before re-arming so timers cannot stack; (l) the mobile `hidden lg:flex` edit-overlay is NOT a missing affordance — Dock.vue:143-144 supplies labelled Save edit / Cancel edit on the same emits; (m) the store layer is honest — one lazy module singleton with a defensive serializer and a type-predicate `id` narrowing, so all corruption originates above it; (n) `writeClipboard` is correctly `void`-ed (useSwatchActions.ts:87).",
+    "defects": [
+     {
+      "id": "C-1",
+      "defect": "The add-current-colour control is a decorative <span>, not a button: glass-ui@7.0.0 WatercolorDot has no `tag` prop, no default slot, and `inheritAttrs:false` forwarding only class+style, so `tag=\"button\"`, `:aria-label`, `@click` and the <Plus> child are all discarded at runtime. The primary action of the component is inert.",
+      "severity": "BLOCKER",
+      "evidence": "demo/palettes/browser/card/CurrentPaletteEditor.vue:95-105 vs node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts (props = {color,variant,animate,cycleDuration,range,seed}; slots = {}) and dist/watercolor-dot.js (inheritAttrs:!1, hard-coded \"span\", aria-hidden:\"true\", pointerEvents:\"none\", no renderSlot). Live DOM via probe-A.mjs: {\"addSlot\":{\"tagName\":\"SPAN\",\"ariaLabel\":null,\"ariaHidden\":\"true\",\"tabIndex\":-1,\"pointerEvents\":\"none\",\"hasPlusSvg\":false},\"addButtonByRole\":0,\"swatchCount\":{\"before\":7,\"after\":7}}. e2e run: `npx playwright test e2e/smoke/flows/palette-save.spec.ts --project=smoke` -> \"1 failed … locator.click: Test timeout of 30000ms exceeded … waiting for getByRole('button', { name: /Add current color .* to palette/ })\" at palette-save.spec.ts:37.",
+      "mechanism": "producer-API drift consumed as if polymorphic; typecheck-invisible because unknown props/attrs/listeners are legal fall-through in Vue's type contract",
+      "reproduction": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/probe/probe-A.mjs  (dev server on :9000); or `npx playwright test e2e/smoke/flows/palette-save.spec.ts --project=smoke`",
+      "proposedCure": "Transposition, not patch: the interactive element owns semantics, the dot owns paint. Wrap — `<button type=\"button\" :aria-label=\"…\" @click=\"addCurrentColor\"><WatercolorDot variant=\"ghost\" class=\"absolute inset-0\"/><Plus/></button>`. No producer change needed; delete `tag=\"button\"` from every WatercolorDot site in the repo."
+     },
+     {
+      "id": "C-2",
+      "defect": "Every current-palette swatch renders as `<span aria-hidden=\"true\" tabindex=\"-1\" pointer-events:none>`, so edit/copy/remove are unreachable by keyboard AND completely unreachable on touch (the reka-ui PopoverTrigger `as-child` props are discarded by inheritAttrs:false, so the touch trigger never binds).",
+      "severity": "BLOCKER",
+      "evidence": "demo/palettes/browser/card/SwatchHoverMenu.vue:14-20 (touch) and :29-36 (hover). probe-B.mjs: all 4 solid swatches -> {\"tag\":\"SPAN\",\"ariaHidden\":\"true\",\"ariaLabel\":null,\"tabIndex\":-1,\"pointerEvents\":\"none\"}. probe-C.mjs keyboard tab set inside .dashed-well = exactly 2 stops: [{\"tag\":\"INPUT\",\"name\":\"Palette 2\"},{\"tag\":\"BUTTON\",\"name\":\"\"}]. Touch matrix 390x844 hasTouch:true -> {\"beforeTapPopovers\":0,\"afterTapPopovers\":0}.",
+      "mechanism": "same producer-API drift as C-1, applied to the swatch renders",
+      "reproduction": "node .../probe/probe-B.mjs and node .../probe/probe-C.mjs",
+      "proposedCure": "C-1's transposition applied to both renders in SwatchHoverMenu.vue, plus C-4's collapse of the two-path hover/touch fork into a single glass-ui Popover."
+     },
+     {
+      "id": "C-3",
+      "defect": "Latched `duplicateTarget` outlives its premise: renaming the name field does not invalidate the duplicate banner, so pressing Update overwrites the ORIGINALLY matched palette's colours, discards the name the user typed, and clears the current buffer. Measured data loss, no undo.",
+      "severity": "BLOCKER",
+      "evidence": "CurrentPaletteEditor.vue:241 (ref), :247-265 (set), :267-276 (act), :144-167 (banner); nothing watches currentPaletteName. probe-C.mjs measured store diff: storeBeforeUpdate [{id:\"seed-dup-id\",name:\"Dup\",colors:[\"#123456\"]}] -> rename field to \"Brand New Name\" -> bannerStillShownAfterRename still reads '\"Dup\" already exists.' with updateBtnVisible:true -> click Update -> storeAfterUpdate [{id:\"seed-dup-id\",name:\"Dup\",colors:[\"rgb(255 0 0)\",\"rgb(0 255 0)\",\"rgb(0 0 255)\"]}]; editorTextAfterUpdate \"Start a new palette\". Sink is usePaletteActions.ts:79-81 `updatePalette(id, { colors })` (wholesale replace).",
+      "mechanism": "derived state stored as a ref and never invalidated (stale latch)",
+      "reproduction": "node .../probe/probe-C.mjs — see probe/desktop-after-update.png",
+      "proposedCure": "Delete the ref; derive it. `const duplicate = computed(() => confirmingSave.value ? savedPalettes.find(p => p.name.toLowerCase() === effectiveName.value.toLowerCase()) ?? null : null)` with `confirmingSave` cleared by any name edit. Staleness becomes structurally impossible and confirmUpdatePalette inherits every precondition for free."
+     },
+     {
+      "id": "C-4",
+      "defect": "`.floating-panel` is a phantom class — zero CSS rules exist for it anywhere. The teleported hover action menu therefore renders `position:static` at the end of <body>, transparent, shadowless, unlayered, 1440x40 at y=900 in a 900px viewport — 767px/521px away from the swatch it anchors to, and below the fold.",
+      "severity": "MAJOR",
+      "evidence": "SwatchHoverMenu.vue:37-51 (Teleport, class=\"floating-panel\", inline top/left from useHoverPopover.ts:20-24). Live stylesheet walk (probe-D.mjs): {\"floating-panel\":{\"count\":0,\"sample\":[]}}. Measured while hovering: {\"panel\":{\"position\":\"static\",\"rect\":{\"x\":0,\"y\":900,\"w\":1440,\"h\":40},\"docHeight\":940,\"viewportH\":900,\"inViewport\":false}}, {\"background\":\"rgba(0, 0, 0, 0)\",\"boxShadow\":\"none\",\"zIndex\":\"auto\",\"parentTag\":\"BODY\"}; firstSwatchRect {\"x\":767,\"y\":379}. Screenshot probe/hover-panel-fullpage.png shows the pencil/copy/trash icons naked in the document's bottom-left corner.",
+      "mechanism": "phantom CSS class + one-shot getBoundingClientRect positioning with no scroll/resize listener and no viewport clamp",
+      "reproduction": "node .../probe/probe-D.mjs — see probe/hover-panel-fullpage.png",
+      "proposedCure": "Delete useHoverPopover.ts, useLeaveTimer.ts, the Teleport branch, the floatingStyle prop and the canHover fork. Both pointer classes get the one glass-ui Popover already imported three lines above (floating-ui positioning, glass-floating surface, focus management, dismissal). DESIGN.md:99 already names popovers a producer-owned CHROME rung."
+     },
+     {
+      "id": "C-5",
+      "defect": "`.btn-interactive` is a SECOND phantom class — zero CSS rules exist for it in demo/ or glass-ui. Commit 2f4623e5 (T.W5·R5) DELETED working `transition-all hover:scale-110 active:scale-95` utilities from the Save-edit, Cancel-edit and add-slot buttons and 'retired' them onto this class, so those buttons now have no hover, no press, and no focus register at all.",
+      "severity": "MAJOR",
+      "evidence": "CurrentPaletteEditor.vue:68-74 comment claims 'press/hover magnitudes + the house focus register come with it'. `grep -rl \"btn-interactive\" node_modules/@mkbabb/glass-ui/` -> no output. `grep -rn \"btn-interactive\" demo/styles/` -> no output. Live stylesheet walk (probe-D.mjs): {\"btn-interactive\":{\"count\":0,\"sample\":[]}}. Only computed transition on .add-slot-ghost comes from glass-ui's own .watercolor-swatch: {\"transitionProperty\":\"transform, border-radius, filter, box-shadow\",\"transform\":\"none\"}. `git show 2f4623e5` body: 'CurrentPaletteEditor save/cancel/add-slot: transition-all + hover:scale-110/active:scale-95 per-site utilities -> the producer btn-interactive atom'. 8 .vue sites consume the phantom.",
+      "mechanism": "phantom CSS class — an animation/focus deletion executed as a 'move' to a destination that was never built; identical to the inv-N-7 phantom already recorded at demo/styles/utils.css:86 for .dashed-well",
+      "reproduction": "node .../probe/probe-D.mjs ; grep -rl \"btn-interactive\" node_modules/@mkbabb/glass-ui/ ; git show 2f4623e5",
+      "proposedCure": "One decision, not eight patches: either glass-ui ships .btn-interactive (then this is a producer BH-inbox relay under the standing glass-ui relay edict) or the class is retired from all 8 demo sites in favour of the utilities it displaced. Then install the 20-line 'every template class resolves to >=1 CSS rule' walk from probe-D.mjs — it kills C-4 and C-5 as a family permanently."
+     },
+     {
+      "id": "C-6",
+      "defect": "Three focusable buttons live inside an `aria-hidden=\"true\"` container (axe-core `aria-hidden-focus`, WCAG 4.1.2). Because the panel is teleported to body, they sit at the very end of the tab order, actionable but unannounceable, targeting a swatch the user cannot identify.",
+      "severity": "MAJOR",
+      "evidence": "SwatchHoverMenu.vue:40-50 (aria-hidden=\"true\" on the panel) hosting CurrentPaletteEditor.vue:46-54 (three <button>s). probe-B.mjs: {\"floatingPanel\":{\"ariaHidden\":\"true\",\"buttonsInside\":3,\"focusableInsideAriaHidden\":3}}.",
+      "mechanism": "aria-hidden used as a fig leaf over a broken second render path rather than the path being fixed",
+      "reproduction": "node .../probe/probe-B.mjs",
+      "proposedCure": "Subsumed by C-4 — a real Popover needs neither the aria-hidden fig leaf nor a second render path."
+     },
+     {
+      "id": "C-7",
+      "defect": "The Save button is nameless — icon-only <Button> wrapping a bare <Check> with no aria-label, title or text, while every other icon-only button in the same file carries one. This is the component's contribution to the visual REPORT's namelessButtons count on /#/palettes.",
+      "severity": "MAJOR",
+      "evidence": "CurrentPaletteEditor.vue:134-142. probe-C.mjs: editorButtons (the only button inside .dashed-well when the save row renders) = [{\"name\":\"\",\"title\":null,\"rect\":{\"width\":32,\"height\":40}}]. audit/visual/REPORT.md:97 and :104 -> `/#/palettes: 1` nameless button (desktop light + dark). The repo's own e2e documents it in prose instead of failing on it: e2e/smoke/flows/palette-save.spec.ts:40-41 'the icon-only Save button next to the Input lacks an aria-label'.",
+      "mechanism": "icon-only control shipped without an accessible name; the test routed around the defect instead of asserting it",
+      "reproduction": "node .../probe/probe-C.mjs (key editorButtons)",
+      "proposedCure": "aria-label=\"Save current palette\". And treat the e2e prose as the smell it is — a spec that documents a defect has stopped being a gate."
+     },
+     {
+      "id": "C-8",
+      "defect": "The duplicate-name refusal is silent to assistive tech: the '\"X\" already exists.' message has no aria-live / role=status ancestor and focus does not move, so a screen-reader user sees the save simply do nothing.",
+      "severity": "MAJOR",
+      "evidence": "CurrentPaletteEditor.vue:144-150 (plain <span>). probe-C.mjs: {\"dupBannerLive\":{\"found\":true,\"liveAncestor\":null,\"focusedAfterSave\":\"<input … placeholder=\\\"Palette 2\\\" …\"}} — the walk from the message to <body> finds no live region.",
+      "mechanism": "async-shaped result rendered without an announcement channel",
+      "reproduction": "node .../probe/probe-C.mjs",
+      "proposedCure": "Wrap the confirmation row in role=\"status\" and move focus to the Update button when it appears — it is a decision point, not an aside."
+     },
+     {
+      "id": "C-9",
+      "defect": "`swatchKeys` put the array index inside the identity (`${color}::${i}`), so ANY removal or reorder re-mints EVERY key. TransitionGroup therefore never observes a move — it tears down and remounts the whole remaining row, replaying the enter animation and rebuilding a fresh feTurbulence numOctaves=5 SVG filter per surviving swatch.",
+      "severity": "MAJOR",
+      "evidence": "useSwatchActions.ts:43-59; consumed at CurrentPaletteEditor.vue:24-32. Deterministic re-execution of that exact code: initial [\"#f00\",\"#0f0\",\"#00f\",\"#ff0\"] -> [0,1,2,3]; after removing index 0 -> [4,5,6] (all three re-minted). Move-to-end reorder (the branch addCurrentColor performs at useSwatchActions.ts:64-68): [0,1,2] -> [3,4,5]. After 200 churn cycles map.size=5, counter=1000. The pre-flush prune at :54-59 deletes exactly the moved entries, guaranteeing the re-mint.",
+      "mechanism": "lossy projection at a layer boundary — identity re-derived from position instead of carried on the model",
+      "reproduction": "node -e '<verbatim re-implementation of useSwatchActions.ts:43-59>' (pasted in the report); output as above",
+      "proposedCure": "Mint an id at insert time on the model: give ColorModel.savedColors entries a crypto.randomUUID() where they are pushed (useColorPipeline.ts:220) and key the v-for on it. That deletes swatchKeys, the Map, the counter and the prune watcher — 17 lines replaced by the field that should have existed."
+     },
+     {
+      "id": "C-10",
+      "defect": "`colorsFromStrings` projects to `{ css, position }` only, dropping PaletteColor.name and PaletteColor.weight. Because confirmUpdatePalette feeds it into a wholesale `updatePalette(id, { colors })`, updating an extracted palette erases every per-colour name and every quantizer population weight, collapsing PaletteColorStrip to uniform segments.",
+      "severity": "MAJOR",
+      "evidence": "CurrentPaletteEditor.vue:243-245 (projection) and :272 (emit \"updated\"); demo/palettes/types.ts:1-11 declares name?/weight? with weight documented as the quantizer population share that PaletteColorStrip sizes from; usePaletteActions.ts:79-81 `deps.updatePalette(id, { colors })`. Measured in the C-3 store diff — the target's entire colors array, metadata included, was replaced.",
+      "mechanism": "lossy projection at a layer boundary — the current buffer is string[] and structurally cannot carry metadata",
+      "reproduction": "node .../probe/probe-C.mjs (keys storeBeforeUpdate / storeAfterUpdate)",
+      "proposedCure": "Either merge by position against the target's existing colors on update, or lift the current palette to PaletteColor[] end to end so the lossy projection disappears entirely."
+     },
+     {
+      "id": "C-11",
+      "defect": "`addCurrentColor` tests colour identity with a raw string `indexOf`, but savedColorStrings serialize in each colour's OWN space while cssColorOpaque serializes in the CURRENT space. After any space switch the same physical colour fails to match, so both the move-to-end branch and the no-op guard become unreachable and the click appears to do nothing.",
+      "severity": "MINOR",
+      "evidence": "useSwatchActions.ts:63 `savedColorStrings.value.indexOf(cssColorOpaque.value)`; useColorPipeline.ts:166-168 vs :104. probe-E.mjs (saved reds in rgb, live colour in oklch, same physical red): {\"savedColorStrings\":[\"rgb(255 0 0)\",\"rgb(0 255 0)\"],\"cssColorOpaque\":\"oklch(62.8% 0.2577 29.23deg)\",\"indexOfResult\":-1}. The fall-through emit is then swallowed downstream by a DIFFERENT predicate — useColorPipeline.ts:213-217 uses canonical toCSSColorString.",
+      "mechanism": "two identity predicates answering one question; display-string used as an identity key",
+      "reproduction": "node .../probe/probe-E.mjs",
+      "proposedCure": "One canonical colour identity exported from the pipeline (toCSSColorString or a space-agnostic key) and used at both comparison sites."
+     },
+     {
+      "id": "C-12",
+      "defect": "`useLeaveTimer` registers no onScopeDispose, so a pending 250ms close callback survives component unmount.",
+      "severity": "MINOR",
+      "evidence": "useLeaveTimer.ts:1-17 (closure-local handle, schedule/cancel only, no onScopeDispose); scheduled from useHoverPopover.ts:33-36.",
+      "mechanism": "unowned timer in a composable advertised as shared",
+      "reproduction": "NONE — hypothesis by inspection; no observable symptom found (the callback writes a ref nobody reads after unmount).",
+      "proposedCure": "onScopeDispose(cancel) in useLeaveTimer — or delete the composable entirely under C-4."
+     },
+     {
+      "id": "C-13",
+      "defect": "The three swatch-action buttons still carry the exact per-site strays the file's own comment declares retired (`active:scale-95`, `transition-colors`), plus `focus-visible:outline-none` which SUPPRESSES the root focus ring in favour of a bespoke one — the same regression this file calls out by name elsewhere. They are also raw <button> elements while the design-system Button is imported and used 80 lines below.",
+      "severity": "MINOR",
+      "evidence": "CurrentPaletteEditor.vue:46, :49, :52 — three byte-identical strings 'p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40'. Contradicted by the same file's :68-74 retirement comment, and by :121-124 which names a suppressed focus ring 'an a11y regression'. Button imported at :175, used at :134 and :151/:159.",
+      "mechanism": "per-instance override of a root register (standing edict 5), applied three times in seven lines",
+      "reproduction": "read demo/palettes/browser/card/CurrentPaletteEditor.vue:46-54",
+      "proposedCure": "One <Button variant=\"ghost\" size=\"icon\"> per action; the focus register comes from the root component; zero per-instance classes."
+     },
+     {
+      "id": "C-14",
+      "defect": "Redundant prop pair: `savedPaletteCount` is exactly `savedPalettes.length`, and the parent passes both from the same expression — two props, one truth, with an invariant nothing enforces.",
+      "severity": "MINOR",
+      "evidence": "CurrentPaletteEditor.vue:196-202 declares both; demo/palettes/PalettesPane.vue:44-45 passes `:saved-palette-count=\"pm.savedPalettes.value.length\"` and `:saved-palettes=\"pm.savedPalettes.value\"`.",
+      "mechanism": "derivable state elevated to a prop (standing edict 3, KISS / no contrivance)",
+      "reproduction": "read demo/palettes/PalettesPane.vue:44-45",
+      "proposedCure": "Delete savedPaletteCount; read savedPalettes.length at the two use sites."
+     },
+     {
+      "id": "C-15",
+      "defect": "Needless and asymmetric built-in import, plus an unused parameter.",
+      "severity": "INFO",
+      "evidence": "CurrentPaletteEditor.vue:172 imports TransitionGroup from \"vue\" (built-ins are resolved by the SFC compiler) while Transition, used at :57, is not imported. useSwatchActions.ts:90 `onCurrentSwatchRemove(css: string, index: number)` never reads `css`; the call site at CurrentPaletteEditor.vue:52 passes it anyway. (verbatimModuleSyntax itself is SATISFIED — :190 correctly uses `import type`.)",
+      "mechanism": "dead surface left behind by refactors",
+      "reproduction": "read demo/palettes/browser/card/CurrentPaletteEditor.vue:172 and composables/useSwatchActions.ts:90",
+      "proposedCure": "Drop the TransitionGroup import; drop the unused css parameter."
+     },
+     {
+      "id": "C-16",
+      "defect": "Vacuous gate stack: there is no test that would fail if the component were broken — and it IS broken, while every gate is green. Zero unit coverage; vue-tsc is blind to the whole C-1/C-2 family by construction; CI invokes no Playwright at all, so the one e2e spec written for this flow is RED and unobserved.",
+      "severity": "BLOCKER",
+      "evidence": "vitest.config.ts:21 includes only test/**/*.ts + demo/test/**/*.ts; `grep -rn \"CurrentPaletteEditor|swatchKeys|duplicateTarget|saveCurrentPalette|useSwatchActions\" demo/test test` -> 0 hits. `npx vue-tsc -p tsconfig.demo.json --noEmit` -> exit 0, zero output at HEAD. `grep -rn \"playwright\" .github/workflows/*.yml` -> no hits (ci.yml runs lint, vue-tsc x2, build, npm test, api tsc, api test). e2e/smoke/flows/palette-save.spec.ts fails at :37 with a 30s locator timeout.",
+      "mechanism": "gates that cannot observe the failure class they nominally cover — the mutation that keeps everything green is the shipped code itself",
+      "reproduction": "npx vue-tsc -p tsconfig.demo.json --noEmit ; grep -rn \"playwright\" .github/workflows/*.yml ; npx playwright test e2e/smoke/flows/palette-save.spec.ts --project=smoke",
+      "proposedCure": "(1) Wire the existing Playwright smoke suite into ci.yml as a HARD step — it already catches C-1 with zero new assertions. (2) Add a mount-level vitest asserting the three role queries the flow depends on (Add current color / Save current palette / Color swatch) — each fails on HEAD. (3) Add the 20-line 'every template class resolves to >=1 CSS rule' walk from probe-D.mjs, which kills C-4 and C-5 as a family."
+     }
+    ]
    }
   }
  ]

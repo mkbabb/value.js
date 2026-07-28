@@ -18,8 +18,8 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | shell-dock-slugeditlayer | CDL | CDL | ON-DISK |
 | shell-dock-profilesection | CDL | CDL | ON-DISK |
 | shell-dock-mobilemenudropdown | CDL | CDL | ON-DISK |
-| shell-paneslot | — | — | **NOT-STARTED** |
-| shell-panesegmentedcontrol | CL | — | **PARTIAL — missing D** |
+| shell-paneslot | CDL | CDL | ON-DISK |
+| shell-panesegmentedcontrol | CDL | CDL | ON-DISK |
 
 ## demo-workbenches · `wf_6edda4a1-192` · record: completed · 19/19 claimed, failures: []
 
@@ -94,24 +94,24 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | PreviewStrip | — | — | **NOT-STARTED** |
 | PreviewRamp | — | — | **NOT-STARTED** |
 
-## scenes · `wf_dee4c83a-ec2` · record: completed · 7/7 claimed, failures: []
+## scenes · `wf_dee4c83a-ec2` · record: killed · —
 
 | component | disk axes | harvest axes | status |
 |---|---|---|---|
 | Markdown | L | L | **ADJUDICATED** |
-| ConfigSliderPane | CDL | CD | **ADJUDICATED** |
+| ConfigSliderPane | CDL | CDL | **ADJUDICATED** |
 | ColorNutritionLabel | — | — | **NOT-STARTED** |
 | AuroraPane | — | — | **NOT-STARTED** |
 | BlobPane | — | — | **NOT-STARTED** |
 | AboutPane | — | — | **NOT-STARTED** |
 | Katex | — | — | **NOT-STARTED** |
 
-## picker · `wf_3c8798e8-23e` · record: completed · undefined/undefined claimed, failures: []
+## picker · `wf_3c8798e8-23e` · record: killed · —
 
 | component | disk axes | harvest axes | status |
 |---|---|---|---|
 | picker-colorpicker | CDL | CDL | **ADJUDICATED** |
-| picker-componentsliders | — | — | **NOT-STARTED** |
+| picker-componentsliders | DL | DL | **PARTIAL — missing C** |
 | picker-spectrumcanvas | — | — | **NOT-STARTED** |
 | picker-heroblob | — | — | **NOT-STARTED** |
 
@@ -134,57 +134,55 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 
 ## VERDICT
 
-**50 incomplete component rows.** 13 covered by an ACTIVE resume · 37 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
+**48 incomplete component rows.** 40 covered by an ACTIVE resume · 8 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
 
 A run record saying "completed" does not clear a row — only banked axes do. Bands re-open until every roster row is ADJUDICATED or ON-DISK.
 
-- demo-shell / **shell-paneslot** — missing D/L/C (`wf_e28d617f-9eb` · completed) — QUEUED resume
-- demo-shell / **shell-panesegmentedcontrol** — missing D (`wf_e28d617f-9eb` · completed) — QUEUED resume
-- demo-workbenches / **wb-extract-controls** — missing D/L/C (`wf_6edda4a1-192` · completed) — QUEUED resume
-- demo-workbenches / **wb-mix-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — QUEUED resume
-- demo-workbenches / **wb-gradient-codeeditor** — missing D/L/C (`wf_6edda4a1-192` · completed) — QUEUED resume
-- demo-workbenches / **wb-gradient-easingauthoringstage** — missing D/L/C (`wf_6edda4a1-192` · completed) — QUEUED resume
-- demo-workbenches / **wb-extract-imagedropzone** — missing D/L/C (`wf_6edda4a1-192` · completed) — QUEUED resume
-- demo-workbenches / **wb-generate-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — QUEUED resume
-- demo-workbenches / **wb-extract-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — QUEUED resume
-- demo-workbenches / **wb-mix-animationcanvas** — missing D/L/C (`wf_6edda4a1-192` · completed) — QUEUED resume
-- demo-workbenches / **wb-gradient-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — QUEUED resume
-- palettes / **PaletteCardMenu** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **PalettesPane** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **VersionHistoryDrawer** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **MiniColorPicker** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **AdminFlaggedPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **AdminNamesPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **AdminPane** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **AdminTagsPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **PaletteCardSkeleton** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **AdminAuditPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **ShadowPalette** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **FlagReportDialog** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **MigratePalettesDialog** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **PaletteCardSwatches** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **SwatchHoverMenu** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **ApiOfflineChip** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **TagEditPopover** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **PaletteColorStrip** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **PaletteRenameInput** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **PaletteCardMeta** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **ActionFeedback** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **UserSortMenu** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **PaletteCardGrid** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **PaginationBar** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **AdminListSkeleton** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
-- palettes / **AdminListItem** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — QUEUED resume
+- demo-workbenches / **wb-extract-controls** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
+- demo-workbenches / **wb-mix-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
+- demo-workbenches / **wb-gradient-codeeditor** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
+- demo-workbenches / **wb-gradient-easingauthoringstage** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
+- demo-workbenches / **wb-extract-imagedropzone** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
+- demo-workbenches / **wb-generate-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
+- demo-workbenches / **wb-extract-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
+- demo-workbenches / **wb-mix-animationcanvas** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
+- demo-workbenches / **wb-gradient-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
+- palettes / **PaletteCardMenu** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **PalettesPane** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **VersionHistoryDrawer** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **MiniColorPicker** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **AdminFlaggedPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **AdminNamesPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **AdminPane** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **AdminTagsPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **PaletteCardSkeleton** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **AdminAuditPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **ShadowPalette** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **FlagReportDialog** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **MigratePalettesDialog** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **PaletteCardSwatches** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **SwatchHoverMenu** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **ApiOfflineChip** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **TagEditPopover** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **PaletteColorStrip** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **PaletteRenameInput** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **PaletteCardMeta** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **ActionFeedback** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **UserSortMenu** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **PaletteCardGrid** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **PaginationBar** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **AdminListSkeleton** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **AdminListItem** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - core / **PaneHeader** — missing D/L/C (`wf_66b1fcba-daa` · killed) — ACTIVE resume
 - core / **EmptyState** — missing D/L/C (`wf_66b1fcba-daa` · killed) — ACTIVE resume
 - core / **ErrorBoundary** — missing D/L/C (`wf_66b1fcba-daa` · killed) — ACTIVE resume
 - core / **PreviewStrip** — missing D/L/C (`wf_66b1fcba-daa` · killed) — ACTIVE resume
 - core / **PreviewRamp** — missing D/L/C (`wf_66b1fcba-daa` · killed) — ACTIVE resume
-- scenes / **ColorNutritionLabel** — missing D/L/C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
-- scenes / **AuroraPane** — missing D/L/C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
-- scenes / **BlobPane** — missing D/L/C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
-- scenes / **AboutPane** — missing D/L/C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
-- scenes / **Katex** — missing D/L/C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
-- picker / **picker-componentsliders** — missing D/L/C (`wf_3c8798e8-23e` · completed) — ACTIVE resume
-- picker / **picker-spectrumcanvas** — missing D/L/C (`wf_3c8798e8-23e` · completed) — ACTIVE resume
-- picker / **picker-heroblob** — missing D/L/C (`wf_3c8798e8-23e` · completed) — ACTIVE resume
+- scenes / **ColorNutritionLabel** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
+- scenes / **AuroraPane** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
+- scenes / **BlobPane** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
+- scenes / **AboutPane** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
+- scenes / **Katex** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
+- picker / **picker-componentsliders** — missing C (`wf_3c8798e8-23e` · killed) — QUEUED resume
+- picker / **picker-spectrumcanvas** — missing D/L/C (`wf_3c8798e8-23e` · killed) — QUEUED resume
+- picker / **picker-heroblob** — missing D/L/C (`wf_3c8798e8-23e` · killed) — QUEUED resume
