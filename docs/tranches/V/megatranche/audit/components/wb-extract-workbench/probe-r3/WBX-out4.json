@@ -1,0 +1,77 @@
+{
+ "s0": {
+  "t": "initial",
+  "railBg": "none",
+  "plateExists": false,
+  "plateTop": null,
+  "plateBottom": null,
+  "paneBottom": null,
+  "paneScroll": null,
+  "clippedByPane": null,
+  "code": null,
+  "destructiveLines": [],
+  "ghostCaption": false,
+  "skeletons": 0,
+  "previewSrc": null,
+  "imgNaturalW": null,
+  "unhandled": []
+ },
+ "s1": {
+  "t": "after-good",
+  "railBg": "linear-gradient(to right, oklch(0.543346 0.174006 29.6967) 0%, oklch(0.575854 0.119012 242.282) 50%, oklch(0.662876 0.16",
+  "plateExists": true,
+  "plateTop": 624,
+  "plateBottom": 664,
+  "paneBottom": null,
+  "paneScroll": null,
+  "clippedByPane": null,
+  "code": "oklch(54.334570875357% 0.17400641367 29.696692379622deg)",
+  "destructiveLines": [],
+  "ghostCaption": false,
+  "skeletons": 0,
+  "previewSrc": "data:image/png;base64,iVBORw0KGgoA",
+  "imgNaturalW": 64,
+  "unhandled": []
+ },
+ "s2": {
+  "t": "after-corrupt",
+  "railBg": "linear-gradient(to right, oklch(0.543346 0.174006 29.6967) 0%, oklch(0.575854 0.119012 242.282) 50%, oklch(0.662876 0.16",
+  "plateExists": true,
+  "plateTop": 554,
+  "plateBottom": 594,
+  "paneBottom": null,
+  "paneScroll": null,
+  "clippedByPane": null,
+  "code": "oklch(54.334570875357% 0.17400641367 29.696692379622deg)",
+  "destructiveLines": [],
+  "ghostCaption": false,
+  "skeletons": 0,
+  "previewSrc": "data:image/png;base64,iVBORw0KGgot",
+  "imgNaturalW": 0,
+  "unhandled": [
+   "InvalidStateError: The source image could not be decoded."
+  ]
+ },
+ "s3": {
+  "t": "after-recover",
+  "railBg": "linear-gradient(to right, oklch(0.835795 0.168969 91.7666) 0%, oklch(0.52606 0.170494 314.653) 50%, oklch(0.695758 0.159",
+  "plateExists": true,
+  "plateTop": 624,
+  "plateBottom": 664,
+  "paneBottom": null,
+  "paneScroll": null,
+  "clippedByPane": null,
+  "code": "oklch(52.605962264871% 0.170493714778 314.653437476509deg)",
+  "destructiveLines": [],
+  "ghostCaption": false,
+  "skeletons": 0,
+  "previewSrc": "data:image/png;base64,iVBORw0KGgoA",
+  "imgNaturalW": 64,
+  "unhandled": [
+   "InvalidStateError: The source image could not be decoded."
+  ]
+ },
+ "pageErrors": [
+  "InvalidStateError: The source image could not be decoded."
+ ]
+}

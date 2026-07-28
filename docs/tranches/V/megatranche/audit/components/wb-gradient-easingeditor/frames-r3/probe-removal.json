@@ -1,0 +1,100 @@
+{
+  "before": {
+    "rows": 4,
+    "heads": [
+      "1 → 2linear",
+      "2 → 3linear",
+      "3 → 4linear",
+      "4 → 5linear"
+    ],
+    "expanded": [
+      "false",
+      "false",
+      "false",
+      "true"
+    ],
+    "openCount": 1,
+    "visibleLiterals": [
+      "cubic-bezier(0, 0, 1, 1)"
+    ],
+    "visibleRamps": 1,
+    "visibleStrips": 1,
+    "sectionH": 344.5,
+    "tryAgain": false
+  },
+  "afterRemoveMiddle": {
+    "rows": 3,
+    "heads": [
+      "1 → 2linear",
+      "2 → 3linear",
+      "3 → 4linear"
+    ],
+    "expanded": [
+      "false",
+      "false",
+      "false"
+    ],
+    "openCount": 0,
+    "visibleLiterals": [],
+    "visibleRamps": 0,
+    "visibleStrips": 0,
+    "sectionH": 139.6,
+    "tryAgain": false
+  },
+  "headsNow": [
+    "1 → 2linear",
+    "2 → 3linear",
+    "3 → 4linear"
+  ],
+  "register": {
+    "openRow": null,
+    "closedRow": {
+      "cls": "rounded-card border border-card-edge overflow-hidden",
+      "w": 462,
+      "h": 41.2,
+      "radius": "16px",
+      "curvature": 0.388,
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "1px oklab(0.216129 0.003491 0.005182 / 0.12)"
+    },
+    "ramp": null,
+    "rail": {
+      "cls": "readout-rail flex items-center gap-1.5 rounded-md bg-well px",
+      "w": 0,
+      "h": 0,
+      "radius": "6px",
+      "curvature": null,
+      "bg": "oklab(0.913299 0.005463 0.013024)",
+      "border": "0px rgb(198, 180, 159)"
+    },
+    "railBtn": {
+      "cls": "rail-btn shrink-0",
+      "w": 0,
+      "h": 0,
+      "radius": "4px",
+      "curvature": null,
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "0px rgb(198, 180, 159)"
+    },
+    "dot": {
+      "cls": "specimen-dot",
+      "w": 10,
+      "h": 10,
+      "radius": "9999px",
+      "curvature": 999.9,
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "1px oklab(0.216129 0.003491 0.005182 / 0.12)"
+    },
+    "tile": {
+      "cls": "glass-chip glass-capsule accent-tone inline-flex items-cente",
+      "w": 0,
+      "h": 0,
+      "radius": "9999px",
+      "curvature": null,
+      "bg": "oklab(0.925647 0.009411 0.029177 / 0.83872)",
+      "border": "0px rgb(198, 180, 159)"
+    }
+  },
+  "pageErrors": [],
+  "consoleErrors": []
+}

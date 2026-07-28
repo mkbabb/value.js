@@ -1,590 +1,490 @@
-# CHALLENGE-D — `EasingSpecimenStrip.vue` — the design is flawed · **PASS 2**
+# CHALLENGE-D — `EasingSpecimenStrip.vue` — the design is flawed · **PASS 3**
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model ID `claude-opus-5[1m]`, the 1M-context variant.
-That is the tier this seat was explicitly spawned with. The declaration is **explicit, not
-inherited**; an undeclared seat would be a defect and this one is not.
+I observe myself to be **Opus 5** — exact model ID `claude-opus-5[1m]`, the 1M-context arm. That is
+the tier this seat was explicitly spawned with; the declaration is **explicit, not inherited**.
 
 ---
 
 ## Pass note
 
-Pass 1 of this seat is preserved verbatim at **`challenge-D-design.pass-1-2026-07-27.md`**
-(17 findings D-01…D-17, verdict DEFECTIVE). It is good work and its rows are **carried forward
-unchanged** except where §0 below corrects them on measurement.
-
-This pass exists because pass 1 opened the component and read it, but never **pressed a tile**,
-never **enumerated the radius register the owner actually marked** (MT-F030 / OM-4), and never
-measured the **dark arm** of anything. All three omissions hid findings, one of which is a
-route-killing BLOCKER.
-
 | | |
 |---|---|
-| **Subject** | `demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue` (215 lines) |
-| **Corpus read** | `easing/easingCatalogue.ts` (230) · `easing/useSpecimenRows.ts` (74) · `easing/EasingAuthoringStage.vue` (116) · `GradientEasingEditor.vue` (295) · `composables/useGradientInterpolation.ts` · `composables/useGradientCSS.ts` · `src/color/operations.ts` · `src/easing.ts` |
-| **Canon read** | `VISUAL-CONSTITUTION.md` · `PROPORTION-AUDIT.md` · `PALETTE-CONTRACT.md` (carries **no row** naming this component — it is the API/wire authority, not a visual one) · `demo/DESIGN.md §Radii` · `excavation/DESIGN-CANON-BRIEF.md` (OM-4 row) |
+| **Subject** | `demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue` (216 lines) |
+| **Prior passes** | pass 1 → `challenge-D-design.pass-1-2026-07-27.md` (D-01…D-17) · pass 2 → `challenge-D-design.pass-2-2026-07-28.md` (D-18…D-27, corrections C-1/C-2) |
+| **Corpus read** | `easing/easingCatalogue.ts` · `easing/useSpecimenRows.ts` · `easing/EasingAuthoringStage.vue` · `GradientEasingEditor.vue` · `src/easing.ts` · `demo/color-picker/router/index.ts` · glass-ui 7.0.0 `dist/` (chip, capsule, fading-scroll, typography) |
+| **Canon read** | `VISUAL-CONSTITUTION.md` (228 ll.) · `PROPORTION-AUDIT.md` (83 ll.) · `PALETTE-CONTRACT.md` (329 ll. — API/wire authority, carries no visual row for this component; pass 2's reading confirmed) |
 | **Base** | branch `tranche-u`, HEAD `c654824e`, `@mkbabb/glass-ui@7.0.0`, dev server live at `:9000` |
 | **Verdict** | **DEFECTIVE** |
-| **Findings** | pass 1: 17 · **pass 2: +10 new (D-18…D-27), 2 corrections** = **27 total** |
-| **Strongest defect** | **D-18** — three of the twenty-seven tiles this component offers as one-click choices **destroy the entire `/#/gradient` route** into the app error boundary. Two steps, no console error, 100 % reproducible. |
+| **This pass** | **1 independent BLOCKER verification (second engine) + a sharper lethal predicate · 9 new findings D-28…D-36 · 2 corrections C-3/C-4** |
+| **Strongest defect** | **D-18 (pass 2), now confirmed on Chromium as well as WebKit — and its lethal set is `range(fn) ⊄ [0,1]`, not "the back family"** |
 
-**Probes this pass wrote and ran** (kept beside this file; every number below is pasted from a
-probe return or a `grep`, never estimated):
-`probe-D2-radius-material-matrix.mjs` · `probe-D2-port-census.mjs` · `probe-D2-tile-crash-sweep.mjs` ·
-`probe-D2-rendered-contrast.mjs` · `probe-D2-dom-mass.mjs`.
-**Frames this pass produced:** `frames/D2-*.png` (WebKit, `deviceScaleFactor` 3 where marked).
+Passes 1 and 2 are good and their rows are carried forward. Pass 2's own framing named its
+predecessor's blind spots honestly; this pass names three of its own:
+
+1. **Nobody had opened the authoring disclosure.** Doing so reveals that the row ships a **second
+   preset selector for the same catalogue**, 40px tall, showing a *different* state (D-29).
+2. **Nobody had measured the strip's box against its port.** The port is 72px tall to hold 60px of
+   content and **all 12px of the surplus is pinned above it** — one declaration, `inline-flex` (D-28).
+3. **"Colour-only" was asserted but never quantified.** Selected-vs-unselected label ink measures
+   **1.16:1** light / **1.11:1** dark — not merely colour-only but essentially **isoluminant** (D-30).
+
+**Probes this pass wrote and ran** (scratchpad; every number below is pasted from a probe return, a
+`grep`, or a rendered-pixel decode — none estimated):
+`chD-strip-probe.mjs` · `chD-states.mjs` / `chD-states2-run.mjs` · `chD-p3.mjs` · `chD-p4.mjs` ·
+`chD-p5.mjs` · `chD-contrast.mjs` · `chD-crash.mjs`.
+**Frames produced:** `shots/chD-*.png` (24). Load-bearing: `chD-row-tuneopen.png` (D-29),
+`chD-rtl-strip.png` (D-34), `chD-row-1440.png` / `chD-dark-row.png` (D-28, D-31),
+`chD-crash-ease-out-back.png` (C-3).
 
 ---
 
-## §0 · Corrections to pass 1
+## §0 · Independent verification of pass 2's BLOCKER, and a sharper predicate
 
-### C-1 · pass-1 D-07 states the scroll port has no `tabindex`. It has one, and it is nameless.
+### C-3 · D-18 reproduces on Chromium as well as WebKit — but it is the **pane** boundary, not the route, and the lethal predicate is **range**, not the family name
 
-Pass 1: *"The scroll port itself (`.specimen-strip`, `overflow-x: auto`, 1046 px of hidden content)
-has **no `tabindex`**, so it is not a focusable scrollable region."* Measured
-(`probe-D2-port-census.mjs`):
-
-```
-portAttrs: { "tabIndex": 0, "role": null, "ariaLabel": null,
-             "cls": "fading-scroll fading-scroll--x specimen-strip" }
-```
-
-The producer's `FadingScroll` **does** make the port tabbable. The real defect is the opposite of
-the one pass 1 named and is worse: the port is a **focus stop with no role and no accessible name**,
-whose computed name falls back to its concatenated text content
-(`"csslineareaseinoutin-out…"` — measured as tab-order entry #2). So the true tab count for one
-interval row is **28, not 27** (measured sequence, `probe-D2-port-census.mjs` → `tabOrder.total: 33`
-for the whole card, of which 28 are the strip). Everything else in D-07 stands, and is confirmed:
+Pass 2 found D-18 on WebKit and characterised it as "three of the twenty-seven tiles destroy the
+route." I re-ran it cold on **Chromium** (`chD-crash.mjs`, fresh context per tile, one click, force):
 
 ```
-keyboard: { before: "ease", afterRight: "ease", afterHome: "ease", afterEnd: "ease" }
+CHROMIUM ease-out-back    before {tiles:27,rows:1,readout:"cubic-bezier(0, 0, 1, 1)"}
+                          after  {tiles:0, rows:0, readout:null}   survived:false  errs:[]
+CHROMIUM ease-in-back     after  {tiles:0, rows:0, readout:null}   survived:false  errs:[]
+CHROMIUM ease-in-out-back after  {tiles:0, rows:0, readout:null}   survived:false  errs:[]
+CHROMIUM ease-out-expo    after  {tiles:27,rows:1,readout:"cubic-bezier(0.19, 1, 0.22, 1)"}   survived:true
+CHROMIUM smooth-step-3    after  {tiles:27,rows:1,readout:"cubic-bezier(0.65, 0, 0.35, 1)"}   survived:true
+WEBKIT   ease-out-back    after  {tiles:0, rows:0, readout:null}   survived:false  errs:[]
 ```
 
-Arrow keys, `Home` and `End` move nothing. `VISUAL-CONSTITUTION.md:129` §5.2 legislates exactly this
-mechanism (`horizontal … rail roving focus | Home=first semantic item, End=last; activation is
-separate from movement`) and none of it exists.
+**CONFIRMED on both engines. Zero console errors, zero page errors** — the boundary swallows it
+silently, exactly as pass 2 reported.
 
-### C-2 · pass-1 D-12's contrast numbers are single-scheme and derived; here are rendered-pixel numbers for both schemes.
+**Correction of scope.** Measured `document.body.innerText` after the crash:
 
-`probe-D2-rendered-contrast.mjs` screenshots the live strip at DPR 3 in each scheme, decodes it in a
-canvas, takes the extreme-luminance pixel pair inside each text/graphic box, and computes WCAG 2.x
-contrast. Best case for the ink (the anti-aliased core), so these are **conservative**:
+```
+"dev misconfigured — run `npm run dev`  This panel hit an unexpected error.  Grad…"
+```
 
-| Ink | light | dark | floor | verdict |
-|---|---:|---:|---|---|
-| **family eyebrow** on the plate | **2.77 : 1** | **2.94 : 1** | 4.5 (1.4.3, 9 px is not large text) | **FAILS BOTH SCHEMES** |
-| resting tile label on the chip | 6.81 : 1 | **4.52 : 1** | 4.5 | passes; dark has 0.4 % headroom |
-| selected tile label on the chip | 5.98 : 1 | 5.74 : 1 | 4.5 | passes |
-| resting glyph stroke on the chip | 4.92 : 1 | **3.39 : 1** | 3.0 (1.4.11) | passes; dark has 13 % headroom |
-| selected glyph stroke on the chip | 5.89 : 1 | 4.94 : 1 | 3.0 | passes |
+The Gradient **pane** is replaced by its error boundary; the dock, the atmosphere and the sibling
+`My Palettes` pane survive. "Destroys the route" overstates it by one region. It is still a
+BLOCKER — a visible one-click affordance blanks the workbench with no explanation — but the row
+should read *pane boundary*, because the cure lands in a different place than a route-level failure
+would.
 
-Pass 1 reported the eyebrow at 3.24 : 1 in one scheme. The rendered truth is worse and holds in
-both. Note also the honest positive: the component's own docblock claim at lines 182-186 — *"65 %
-clears 3:1 in both schemes"* — **is true** (4.92 / 3.39). The author's contrast reasoning was
-correct where it was applied; it simply was never applied to the eyebrow, which additionally
-multiplies `opacity: 0.75` on top of an already-de-emphasised `--muted-foreground` (line 153).
+**The predicate, which matters more.** Pass 2 attributed the crash to the overshoot family and to
+the midpoint ink derivation (`useSpecimenRows.ts:53–59` feeds `fn(0.5)` into `interpolateStopColors`
+as a position). Computed from `src/easing.ts:62–64`, sampling each preset at 1001 points:
+
+| preset | `fn(0.5)` | **range over t ∈ [0,1]** | escapes `[0,1]` | crashes |
+|---|---:|---|:--:|:--:|
+| `ease-in-back` `[0.6,−0.28,0.735,0.045]` | **−0.0636** | `[−0.0969, 1.0000]` | **yes** | **yes** |
+| `ease-out-back` `[0.175,0.885,0.32,1.275]` | **+1.0676** | `[0.0000, 1.0869]` | **yes** | **yes** |
+| `ease-in-out-back` `[0.68,−0.55,0.265,1.55]` | **0.6067 — in range** | `[−0.0927, 1.0927]` | **yes** | **yes** |
+| `ease-out-expo` | 0.9778 | `[0.0000, 1.0000]` | no | no |
+| `ease-in-out-circ` | — | `[0.0000, 1.0000]` | no | no |
+
+`ease-in-out-back`'s **midpoint is in range and it still crashes.** So the midpoint call is not the
+only mouth: the interval's live ramp is serialized by sampling the curve *across* the interval
+(`serializeIntervalRamp`, consumed at `GradientEasingEditor.vue:63–67`), and any sample that leaves
+`[0,1]` is fed to the colour interpolator as a position.
+
+**The lethal set is exactly `{ tiles whose curve range escapes [0,1] }`** — which the table shows
+selects the three `back` presets and nothing else. That reframes the defect from "three bad tiles"
+to a **domain-boundary defect**: the design routes *timing-function output* directly into
+*colour-interpolation position* with no projection at the seam, at every sample, and the catalogue
+advertises the escaping family as its showcase — `EasingSpecimenStrip.vue:172–174`:
+
+> *"overshoot curves (the back family) draw past the box — visible, never clipped"*
+
+The overshoot was designed **into the portrait** and never **out of the ink**. The cure is one named
+projection at the timing→colour seam (the same shape as the `/color` gamut-map the canon already
+uses at the colour boundary), not three deletions and not a `try/catch`.
+
+### C-4 · The dark resting label sits **on** the 4.5:1 floor, not above it
+
+Pass 2 §0 C-2 reports the dark resting tile label at **4.52 : 1** ("passes; 0.4 % headroom"). My
+independent decode (`chD-contrast.mjs`, DPR 3, darkest label pixel vs modal tile-fill pixel) returns
+**4.48 : 1** on the same ink. Both readings straddle 4.5 within sampling noise. The honest reading
+is **at the floor, not above it** — a value that changes with the user's gradient, since the tile
+fill is `.glass-capsule`'s translucent warm mix over a live chromatic pane. A contrast row that
+depends on user content is not a passing row; it is an unbounded one.
 
 ---
 
 ## §1 · New findings
 
-### D-18 · BLOCKER · Three of the twenty-seven tiles destroy the route. The design designed the overshoot *portrait* and never the overshoot *selection*.
+### D-28 · MAJOR · OURS · Twelve pixels of unowned space are pinned above the strip; the card's vertical rhythm is 24 px / 12 px
 
-Reproduction, from a cold load, two steps:
-
-1. `http://localhost:9000/#/gradient` (interval `1 → 2` is open by default —
-   `GradientEasingEditor.vue:61`, `openInterval = ref(0)`).
-2. Click the tile `[data-specimen="ease-out-back"]`.
-
-The whole route is replaced by the app error boundary — a bare **"Try again"** button on the
-atmosphere (`frames/D2-CRASH-after-selecting-ease-out-back.png`). Measured before/after
-(`probe-D2-tile-crash-sweep.mjs`, WebKit):
+Measured boxes, light, 1440 (`chD-p3.mjs`):
 
 ```
-before        : { rails:1, strips:1, tiles:27, rows:1, selected:["linear"], readout:"cubic-bezier(0, 0, 1, 1)" }
-afterBackClick: { rails:0, strips:0, tiles:0,  rows:0, selected:[],          readout:null }
+.specimen-strip  (FadingScroll port)   t=622.3  b=694.3   h=72   padding: 0px
+.strip-row                             t=634.3  b=694.3   h=60   padding: 2px
+.strip-family                          t=636.3  b=692.3   h=56
 ```
 
-The sweep presses ten tiles from a fresh context each and reports whether the row survives:
+The port is **72 px tall to hold 60 px of content**, and every pixel of the 12 px surplus is above
+the content — `.strip-row`'s bottom is flush with the port's bottom.
 
-| tile | route survives |
-|---|---|
-| `ease-out`, `ease-in-out-sine`, `steps`, `step-start`, `smooth-step-3`, `ease-in-expo`, `ease-out-circ` | yes |
-| **`ease-in-back`** | **NO — error boundary** |
-| **`ease-out-back`** | **NO — error boundary** |
-| **`ease-in-out-back`** | **NO — error boundary** |
-
-Nothing reaches the console: `caught: []` after filtering the pre-existing dev-misconfig banner.
-A user gets a blank pink page and no explanation.
-
-**Mechanism — a catalogue built by blind enumeration feeding a consumer with a closed domain.**
-
-- `easingCatalogue.ts:178` — `for (const name of Object.keys(bezierPresets))`. Every preset the
-  library exports becomes a tile. There is **no domain filter and no guard**.
-- `src/easing.ts:62-64` — the three `back` presets are the only ones whose control points leave the
-  unit square: `[0.6,-0.28,0.735,0.045]`, `[0.175,0.885,0.32,1.275]`, `[0.68,-0.55,0.265,1.55]`.
-  Evaluated (1001-sample sweep):
-
-  ```
-  ease-in-back      fn(0.5) = -0.063622   range = [-0.0969, 1.0000]
-  ease-out-back     fn(0.5) =  1.067553   range = [ 0.0000, 1.0869]
-  ease-in-out-back  fn(0.5) =  0.606680   range = [-0.0927, 1.0927]
-  ```
-
-- `useSpecimenRows.ts:53-59` derives each row's ink from `interpolateStopColors(c0, c1, fn(0.5), …)`.
-- `useGradientInterpolation.ts:36-38` — `if (!mixed.ok) throw new Error(...)`.
-- `src/color/operations.ts:90` — `if (progress < 0 || progress > 1) return err({ code: "color_progress_out_of_range" })`.
-
-So `ease-in-back` and `ease-out-back` die on the **ink** derivation (`fn(0.5)` off-domain), and
-`ease-in-out-back` — whose `fn(0.5)` *is* in range — dies on the **ramp** sampler
-(`serializeIntervalRamp`, `useGradientCSS.ts:232-254`), whose samples span `[-0.0927, 1.0927]`.
-Both throws happen inside a `computed` during render, which is why Vue's boundary eats the whole
-subtree. The library is not at fault: it returns a `Result`. The demo converts a legitimate
-`Result` into a throw and then hands it a value it never checked.
-
-**This is a design defect, not merely a bug.** The component's own style comment, lines 172-176,
-*names the overshoot family and designs for it*:
-
-> *"the portrait: unit-box sparkline … overshoot curves (**the back family**) draw past the box —
-> visible, never clipped"*
-
-The design saw the overshoot, reasoned about how to **draw** it, and never asked what happens when
-someone **chooses** it. A state that was never designed is a design defect; a state that was
-half-designed — rendered beautifully and then made fatal to press — is a worse one.
-
-**Corroboration.** The independent CHALLENGE-C seat reached the same three tiles from the
-implementation side and captured the boundary string
-(`challenge-C-implementation.md:74-76,91,98`: *"Gradient color mix failed:
-color_progress_out_of_range"*). Two seats, two methods, same result — this is CONFIRMED, not
-plausible.
-
-**Cure (gestalt, not patch).** The catalogue must be *curated*, not enumerated. `SpecimenTile`
-already carries a `payload()`; give it a declared **range**, and make the interval model's contract
-explicit: an interval's easing may leave `[0,1]` in *time-space* but the colour mixer's `progress`
-is a *domain*, not a curve output. Either (a) the ramp/ink samplers clamp `fn(t)` into the mixer's
-domain at the one boundary where curve-space becomes colour-space — a single named projection, not
-a scattered `Math.min` — or (b) the `back` family is honestly declared out of catalogue for
-colour intervals and the three tiles do not exist. Not acceptable: a `try/catch` around the
-computed, which would be the masking fallback the standing edict forbids.
-
----
-
-### D-19 · MAJOR · The radius register the owner marked (MT-F030 / OM-4): six boxes, five radii, and curvature that runs *inversely* to box size. The glass fix does not cure it.
-
-The owner's mark: *"easing config is awful, too rounded in some areas, not rounded enough in
-others"* (`DESIGN-CANON-BRIEF.md:73`, witness `OM-4-easing-radius-incoherence.png`). The seat brief
-asks for **every radius declaration in the easing corpus** and a judgement of the register. Here it
-is, exhaustively.
-
-**Declared radii in the easing corpus** (`grep -rn "radius\|rounded" demo/workbenches/gradient/`):
-
-| Site | Declaration | Resolves to |
-|---|---|---|
-| `EasingSpecimenStrip.vue` | **none — zero border-radius declarations in 215 lines** | whatever `Chip` hands it |
-| `EasingAuthoringStage.vue` | **none** | inherits `.glass-card` → `--radius-card` |
-| `GradientEasingEditor.vue:114` | `class="rounded-card"` | `--radius-card` = **16 px** |
-| `GradientEasingEditor.vue:153` | `class="h-5 rounded-md"` (the ramp) | `--radius-md` = **6 px** |
-| `GradientEasingEditor.vue:176` | `class="rounded-md"` (the readout rail) | `--radius-md` = **6 px** |
-| `GradientEasingEditor.vue:242` | `border-radius: 9999px` (specimen dots) | **9999 px**, hand-rolled |
-| `GradientEasingEditor.vue:274` | `border-radius: var(--radius-input)` (rail buttons) | **4 px** |
-
-**Rendered register**, every non-zero-radius box inside the open interval row, measured live at
-1440 px (`probe-D2-radius-material-matrix.mjs`, `radiusRegister`):
-
-| Box | rendered size | radius | **curvature `r ÷ min-dim`** |
-|---|---:|---:|---:|
-| specimen tile (`Chip`) | 45.2 × 43.8 | 9999 px → 21.9 effective | **0.500** |
-| specimen dot | 10 × 10 | 9999 px → 5 effective | **0.500** |
-| eased ramp | 436 × 20 | 6 px | **0.300** |
-| readout rail | 436 × 32 | 6 px | **0.188** |
-| rail button | 24 × 24 | 4 px | **0.167** |
-| interval row plate | 462 × 196 | 16 px | **0.082** |
-
-Three separate judgements follow, and all three are ours:
-
-1. **Curvature is inversely proportional to size.** The two *smallest* boxes are the *most* rounded
-   (0.500 — full semicircles) and the *largest* is the *least* (0.082). An optically coherent
-   register does the opposite or holds constant: corner curvature is what makes a set of boxes read
-   as one material. Here the 44 px tile and the 462 px plate belong to visibly different materials
-   sitting 12 px apart. That is precisely the owner's *"too rounded in some areas, not rounded
-   enough in others"*, and it is a **register**, not a taste, so it is decidable.
-2. **Equal absolute radius is not equal curvature.** The ramp and the readout rail both carry
-   `--radius-md` = 6 px, and the owner nonetheless read them as different shapes (calling one
-   "small-radius strip" and the other a "pill code row"). They are: 6 px on a 20 px-tall box is
-   0.300 curvature; on a 32 px-tall box it is 0.188. Token identity is not optical identity —
-   `PROPORTION-AUDIT.md §5.8`: *"Real rendered relation wins over token intent. … token presence
-   alone cannot close a row."*
-3. **The canon has no law to appeal to, and what law it does have blesses the defect.**
-   `demo/DESIGN.md §Radii` lists four role tokens and says *"`rounded-pill` / `rounded-full` —
-   **chips**, slug pills, dock control."* Read literally, a disc-shaped chip is **correct** — which
-   is why nobody caught it, and why the owner had to. The doc has no size conditioning and no
-   derivation rule. This is exactly the gap `DESIGN-CANON-BRIEF.md:73` names: *"**RADIUS
-   DERIVATION**: how a nested register derives from its parent; when circle may sit beside
-   rounded-rect."* This report is evidence for that law, not a request to invent one locally.
-   (Drift note, same section: `DESIGN.md` states `--radius-input` = **8 px**; measured live it is
-   `0.25rem` = **4 px**. The doc is wrong about the token the easing rail buttons use.)
-
-**And the finding that changes the disposition:** the glass fix does **not** cure OM-4. When glass
-lands the orphaned rule (§3), `.glass-chip--cell { border-radius: var(--radius-card) }` gives the
-44 px tile **16 px** → curvature **0.364** — still the most-rounded box in the row, and now carrying
-*the same absolute radius as the 462 px row plate*. The register stays incoherent, just differently.
-So OM-4 cannot be banked and waited out. It needs (a) our own derivation law in the register, and
-(b) an **ask** on glass for a cell radius that derives from the chip's own box (or a
-`--chip-cell-radius` knob) rather than a fixed card rung.
-
----
-
-### D-20 · MAJOR · The seat per-instance-overrides four of the producer's five cell-recipe declarations, and never passes the size prop that exists.
-
-`Chip`'s compiled recipe (`node_modules/@mkbabb/glass-ui/dist/chip-DFZQr6rV.js`, `chipVariants`):
-
-```js
-size: { sm: "gap-1 px-2.5 py-1 text-caption", md: "gap-1.5 px-3.5 py-1.5 text-small", lg: … }
-shape:{ pill: "", cell: "glass-chip--cell flex-col gap-1.5 px-2 py-2.5 text-micro", icon: … }
-```
-
-The call site (`EasingSpecimenStrip.vue:98-102`) passes `mode="selectable" shape="cell"` and **no
-`size`**, so it takes `md`, then overrides the result four times in scoped CSS:
-
-| Producer declaration | Seat override | Line |
-|---|---|---|
-| `px-2 py-2.5` (8 px / 10 px) | `padding: 0.3125rem 0.375rem 0.25rem` (5/6/4 px) | 168 |
-| `gap-1.5` (6 px) | `gap: 0.125rem` (2 px) | 167 |
-| `text-micro` (11 px — measured on the chip root) | `font-size: 0.5625rem` (9 px) on `.tile-label` | 195 |
-| — | `min-width: 2.75rem` added | 169 |
-
-Standing edict 5: *"Root-level styling — style at the shadcn/glass root component level, never
-per-instance overrides."* Edict 4: *"variants/primitives belong in glass-ui."* A "specimen-scale
-cell" is a **size**, and `Chip` already has a size axis. The seat needed either `size="sm"` or a new
-producer rung; it hand-shrank the recipe instead. Pass-1 D-08 caught the type rung; the pattern is
-four declarations wide, and its consequence is D-21.
-
-**Cure:** delete all four overrides. Pass `size="sm"`; if `sm` is still too large for a specimen
-grid, that is an **ask on glass** for a specimen rung — the same relay channel as M3, not a local
-shrink.
-
----
-
-### D-21 · MAJOR · On touch the tiles miss the 44 px target floor — and the producer rule that would have met it is in the orphaned stylesheet.
-
-Measured at 390 × 844, `isMobile`, `hasTouch` (`probe-D2-port-census.mjs`):
-
-```
-mobile: { tileBox: { w: 45.23, h: 43.80 }, coarsePointer: true, touchFloorMet: false }
-```
-
-43.80 < 44. Glass ships the rule that fixes it — in the file nothing imports:
+**One declaration causes it.** `EasingSpecimenStrip.vue:126`:
 
 ```css
-/* dist/styles/glass/glass-chip.css — NOT imported by dist/styles/index.css */
-@media (pointer: coarse) {
-  .glass-chip--interactive { min-inline-size: var(--touch-target, 2.75rem);
-                             min-block-size:  var(--touch-target, 2.75rem); }
-}
+.strip-row { display: inline-flex; … width: max-content; }
 ```
 
-`--touch-target` resolves to `2.75rem` = 44 px in our document (measured). So the orphaned-CSS
-residual is **not cosmetic** — it has an accessibility consequence, and D-20's local padding shrink
-is what put the box within 0.2 px of the line in the first place. This belongs in the M3 evidence
-packet: it upgrades the glass row from "visual residual" to "visual + a11y residual".
+`inline-flex` is **inline-level**, so the block-container port generates a line box around it and the
+parent's half-leading lands above the content. The `width: max-content` on line 129 already supplies
+the intrinsic sizing that `inline-flex` was presumably reached for; the inline-level-ness buys
+nothing.
 
-Note this defect is **invisible to the shipped harness**: `REPORT.json`'s six `smallTapTargets` on
-`/#/gradient` are the dock slug controls (22 × 22 ×3) and the two gradient stop seats (20 × 20), plus
-one input — the harness's threshold is `< 24`, so a 43.8 px box never trips it.
+**Rendered consequence** — the three stacked instruments in the open row do not share one rhythm,
+though their declared gap is a uniform `gap-2.5` (10 px):
+
+| interval | measured |
+|---|---:|
+| eased-ramp bottom (612.3) → first ink (eyebrow top 636.3) | **24.0 px** |
+| last ink (tile bottom 692.3) → readout-rail top (704.3) | **12.0 px** |
+
+A 2 : 1 asymmetry in a stack the author wrote as symmetric. It is plainly visible in
+`shots/chD-row-1440.png` as a pale band under the ramp, and it is why the `css` / `sine` eyebrows
+appear to float rather than to cap their families.
+
+`VISUAL-CONSTITUTION.md §3.7`: *"Spacing is container-scaled from glass-ui tokens."* A 12 px interval
+that no token authored and no rule intends is not container-scaled spacing; it is a line-box
+accident.
+
+**Cure:** `display: flex`. One word.
 
 ---
 
-### D-22 · MAJOR · The family eyebrow carries the entire information architecture and fails four ways at once.
+### D-29 · MAJOR · OURS · The row ships **two** selection surfaces for one model — and the producer's one shows a different state
 
-`.family-eyebrow` (lines 96, 147-154) is the only thing that says which family a tile belongs to.
-It is:
+Open the authoring disclosure (`GradientEasingEditor.vue:187–197`, the sliders button) and enumerate
+every control inside `.easing-authoring` (`chD-p4.mjs`). There is exactly one:
 
-1. **Below every rung of the type ladder.** 9 px measured. The smallest rung glass defines is
-   `--type-micro: 0.6875rem` = 11 px (`dist/styles/typography/scale.css`). 9 px is 18 % below the
-   floor and exists nowhere in the system.
-2. **Failing contrast in both schemes** — 2.77 : 1 light, 2.94 : 1 dark (§0 C-2), because
-   `opacity: 0.75` (line 153) multiplies an already-de-emphasised `--muted-foreground`.
-3. **`aria-hidden="true"`** (line 96). There is no accessible substitute: the tiles carry
-   `aria-label="{tile.id}"` and sit in one flat `role="group"`. A screen-reader user receives 27
-   unrelated toggle buttons with no family structure whatever.
-4. **Scrolled out of view almost always.** The eyebrow is painted once at each family's inline start
-   and is not sticky. Measured families *fully visible* at rest:
+```
+{ tag: "BUTTON", role: "combobox", name: "Easing preset", w: 436, h: 40 }
+```
 
-   ```
-   desktop 1440 : portW 436, contentW 1482, ratio 3.40× → 2 of 8 families fully visible, 8/27 tiles
-   mobile   390 : portW 298, contentW 1482, ratio 4.97× → 1 of 8 families fully visible, 5/27 tiles
-   zoom 200 %   : portW 436, contentW 1482, ratio 3.40× → 2 of 8, 8/27 (unchanged)
-   ```
+`shots/chD-row-tuneopen.png` shows it: under a `PRESET` section label, a 436 × 40 combobox reading
+**"Pick a curve"**.
 
-   Scroll to the far end (`frames/D2-scroll-end-back-steps.png`) and the leftmost visible tiles have
-   **no eyebrow at all** — their family label is off-port. In RTL
-   (`shots/rtl-desktop/gradient.png`) an eyebrow is sliced mid-word to `ad` (from `quad`).
+The strip's own catalogue module states the duplication outright — `easingCatalogue.ts:16–17`:
 
-The design's own thesis (docblock lines 4-6) is *"family-grouped under mono eyebrows"*. The grouping
-is carried by an element that is off-ladder, sub-contrast, invisible to AT, and off-screen 75–88 %
-of the time. **Cure:** the eyebrow becomes a real `aria-label` on a per-family `role="group"`, takes
-`text-micro` with no `opacity` multiplier, and — if the strip survives at all after pass-1 D-01 —
-sticks to the port's inline start while its family is in view.
+> *"the tile catalogue IS value.js `bezierPresets` + the steps family — **the SAME catalogue the
+> glass-ui `<EasingPicker>`'s preset menu speaks** (never a second mint)"*
+
+The comment guards against a second *mint* and misses the second *surface*. One interval row now
+offers the identical 27-preset catalogue through two controls stacked 12 px apart, and **they
+disagree about state**: the strip shows `linear` pressed (measured `aria-pressed="true"`,
+`data-state="on"`); the combobox shows its empty-state placeholder `"Pick a curve"`. Two controls
+over one model, one of which never reflects the model.
+
+- `PROPORTION-AUDIT.md PR-06`: *"Three adjacent action species or **duplicated selected fills** →
+  **REMOVE** → One action/selection owner across …"*
+- `VISUAL-CONSTITUTION.md §5`: the grammar is *select → tune → commit*, and *"Secondary verbs
+  disclose within that same instrument"* — not a second copy of the primary verb.
+- Owner edict 3 (KISS, no contrivance) and edict 4 (glass-ui is the design system): a 216-line
+  bespoke gallery was authored to do a job a producer control already mounted 12 px below it was
+  doing.
+
+This is the design-system-boundary finding the brief asks for, and it is larger than any styling
+row: the seat did not merely style past glass-ui, it **rebuilt a producer control beside the
+producer control**.
+
+**Cure:** one selection owner per row. Either the strip owns selection and `EasingPicker`'s preset
+menu is suppressed at this seat — the producer already accepts `:readout="false"` and
+`:playback="false"` (`EasingAuthoringStage.vue:78–79`), so a `:presets="false"` door is the
+idiomatic **ask on glass**, the same channel as M3 — or the producer's menu is the owner and the
+strip dissolves into it. It cannot be both, and the placeholder proves nobody checked.
 
 ---
 
-### D-23 · MAJOR · The strip is instantiated once per interval, so a constant catalogue is duplicated into `display:none` twins.
+### D-30 · MAJOR · OURS · Selection is not merely colour-only — it is **isoluminant**: 1.16 : 1
 
-`GradientEasingEditor.vue:161-165` renders `<EasingSpecimenStrip>` inside the per-row `v-for`, inside
-the `v-show` panel. `SPECIMEN_FAMILIES` is a **module-level constant** (`easingCatalogue.ts:198`) and
-the accordion has **exactly one open row** (`openInterval: number | null`). So every closed row
-mounts a complete hidden copy of a surface that can never be seen.
+Passes 1 and 2 established that selection carries no surface delta (glass, orphaned pressed wash)
+and that the surviving signal is colour. Neither measured **how much** colour. Rendered-pixel decode
+at DPR 3 (`chD-contrast.mjs`; extreme-luminance label pixel vs modal tile-fill pixel — the *best*
+case for the ink, so these are conservative):
 
-Measured with one interval (`probe-D2-dom-mass.mjs`):
+| arm | selected tile fill | unselected tile fill | selected label ink | unselected label ink | **selected ↔ unselected label contrast** |
+|---|---|---|---|---|---:|
+| light | `rgb(244,222,208)` | `rgb(244,222,208)` | `rgb(0,92,100)` | `rgb(90,69,50)` | **1.16 : 1** |
+| dark | `rgb(105,87,72)` | `rgb(105,87,72)` | `rgb(79,239,255)` | `rgb(213,208,200)` | **1.11 : 1** |
 
+The tile fills are **byte-identical** (confirming pass 1 D-02 in a third measurement), and the ink
+delta is a **pure hue rotation carrying essentially no luminance**. 1.16 : 1 is below the threshold
+at which any luminance-based channel — greyscale rendering, monochrome display, print, a
+deuteranope's or protanope's cone response — can separate the two. The chosen curve is, on those
+channels, one of twenty-seven identical discs.
+
+`VISUAL-CONSTITUTION.md §4.1`: *"Selected, failed, pending, withdrawn and disabled states are never
+colour-only."* The number is what makes this decidable rather than a matter of taste: a design that
+encodes its **only meaning** in a 1.16 : 1 hue step at 9 px has not encoded it.
+
+**Why this survives the glass fix, and is therefore ours.** When glass lands `glass-chip.css` the
+producer contributes `--accent-band` / `--accent-edge` / `--accent-ink`. The seat's own contribution
+remains, unchanged, at `EasingSpecimenStrip.vue:204–211`:
+
+```css
+.specimen-tile[data-state="on"] .tile-glyph path { stroke: var(--motion-accent, …); stroke-width: 1.75; }
+.specimen-tile[data-state="on"] .tile-label      { color:  var(--motion-accent, …); font-weight: 600; }
 ```
-routeElements(main *) : 315
-stripElements         : 134       ← 42.5 % of the entire route's main subtree
-easingCardElements    : 194
-svgPaths in strip     : 27  (49 points each)
-```
 
-The component's docblock knows and works *around* it rather than removing it — lines 40-41:
-*"sibling rows mount hidden twins of every `data-specimen` id"* — which is why the reveal must scope
-its `querySelector` to `rowEl`. A four-stop gradient (3 intervals) mounts **402 elements** of which
-268 are unreachable twins.
+Four declarations, all colour or near-colour: two hues, a 0.5 px stroke bump, and a weight step on
+9 px mono. No shape delta, no size delta, no indicator, no rule, no check. And `--motion-accent` is
+the interval's *own eased-ramp midpoint* (`useSpecimenRows.ts:53–69`) — an arbitrary user colour
+whose separation from `--muted-foreground` is not certified by anything, because
+`useSafeAccentFn("resting")` certifies ink against a **surface**, not against the **other state**.
+The quantity that carries the component's meaning is the one quantity nothing guards.
 
-**Cure:** one strip, hoisted to `GradientEasingEditor`, bound to `openInterval`, emitting
-`(index, tile)`. The `rowEl`-scoping workaround (lines 37-46) dissolves with it, and so does its
-`data-specimen` id-collision hazard.
+**Cure:** the selected register must survive hue loss. Structurally, not by adding a third colour.
 
 ---
 
-### D-24 · MINOR · The scroll port is a nameless, roleless tab stop. (Supersedes pass-1 D-07's claim of no tabindex.)
+### D-31 · MAJOR · OURS + glass · The support fixtures cast a shadow **3× the blur and 2.33× the ink** of the card containing them — and the "glass" has no blur
 
-Measured: `{ tag: "DIV", tabIndex: 0, role: null, ariaLabel: null }`. Its computed accessible name
-is its concatenated text content. Combined with the 27 tile stops that is **28 tab stops** to cross
-one single-select decision; the readout's `Copy` button is stop 30 of the card's 33.
-`VISUAL-CONSTITUTION.md:83` §4.1 requires role, accessible name and state to be explicit. Producer-owned element,
-consumer-visible consequence: **relay it with M3** (`FadingScroll` should take a labelling prop or
-emit `role="region"` + `aria-label` when tabbable), and locally stop feeding it 27 tab stops (D-07's
-composite cure).
+Pass 1 D-14 recorded "27 casters". Here is the comparison that makes it a proportion violation
+rather than an inventory note. Measured `box-shadow` (`chD-p5.mjs`):
 
----
-
-### D-25 · MINOR · One tile fails WCAG 2.5.3 Label in Name.
-
-`probe-D2-port-census.mjs` walks all 27 tiles comparing `aria-label` against the visible
-`.tile-label` text. Exactly one mismatch:
-
-```
-labelInName: [ { acc: "steps", vis: "n = 4", contains: false } ]
-```
-
-`easingCatalogue.ts:187` mints `stepsTile("steps", "n = 4", 4, "jump-end")` — the id is the accessible
-name, the label is the visible text, and "steps" does not contain "n = 4". Voice control cannot
-target this tile by what it reads. The other 26 pass (`ease-in-out` ⊃ `in-out`, `step-start` ⊃
-`start`, `smooth-step-3` ⊃ `smooth`, …).
-
-**Cure:** the accessible name must contain the visible string — e.g. `aria-label="steps, n = 4"` —
-or the visible label becomes `steps`. This is also the tile whose visible label advertises a
-parameter (`n = 4`) that the docblock (lines 18-20 of the catalogue) admits is a *default* the model
-may have departed from, so the honest fix is the former.
-
----
-
-### D-26 · MINOR · The tiles carry warm chroma on a surface the material table says is neutral.
-
-Measured tile fill (`probe-D2-radius-material-matrix.mjs`):
-
-```
-light : oklab(0.925647 0.009411 0.029177 / 0.83872)   → C = 0.0306, h ≈ 72.1°
-dark  : oklab(0.467325 0.012705 0.030851 / 0.911296)  → C = 0.0334, h ≈ 67.6°   (rendered rgb 105,86,72)
-```
-
-Non-zero chroma in both schemes, from `.glass-capsule`'s
-`--glass-capsule-warm: oklch(0.88 0.1 75)` at a 16 % floor. Rendered
-(`frames/D2-easing-card-dark.png`) the dark-scheme tiles are **warm-brown discs on a plum plate** —
-they read as light-mode chips dimmed, not as dark-mode surfaces.
-
-`VISUAL-CONSTITUTION.md:16` §2 material table: *"Specimen well | image, **curve**, palette or code
-artifact | opaque/quiet **neutral** stage; **the specimen supplies color**."* `:21`: *"Dark chrome
-uses the restrained neutral pole. Seed tint is forbidden outside the ambient field, active accent,
-WatercolorDot/specimen, and pastel Palettes lanes."* A specimen-selection tile is a well; the curve
-is the specimen; the well is tinted and the curve is not.
-
-**Disposition — glass.** Same producer register as pass-1 D-14 (`.glass-capsule` elevation) and
-already-relayed **MT-F026**. A local `background: var(--well-bg)` would be the MT-F014 masking
-fallback. **Bank it and add the tint to the ask**: the capsule register conflates *shape* + *warm
-tint* + *floating elevation*; a well-tier chip needs all three separable.
-
----
-
-### D-27 · INFO · The D-18 crash escaped 60 route captures and five state matrices, because no harness presses anything.
-
-`audit/visual/capture.mjs` navigates, settles ~3.5 s, probes and screenshots. `states.mjs` adds
-`forced-colors`, `keyboard-focus`, `reduced-motion`, `rtl-desktop/mobile`, `zoom-200`. **None of them
-activates a control.** `REPORT.md` accordingly reports `/#/gradient` as clean:
-`pageErrors 0 · consoleErrors 0 · blankOrNearBlank 0` in all four matrices — while one click on a
-visible tile blanks the route.
-
-Recorded as a harness gap, not a component defect: a route-level capture matrix cannot certify a
-selection surface. The component-level state matrix needs a *press-every-affordance* arm.
-(Second, smaller harness note, confirming pass-1 D-16: the `bleeding` array for `/#/gradient` is
-12/12 this component in every matrix — `div.strip-row`, `div.strip-family`, `span.family-eyebrow`,
-`div.family-tiles`, `button.glass-chip.glass-capsule` ×3, `svg` ×2, `path` ×2, `span.tile-label` —
-so the harness's 12-slot budget is saturated and blind to genuine bleeding elsewhere on the route.
-`overflowX` is 0, so this is the 1482 px `width: max-content` row, not user-visible overflow.)
-
----
-
-## §2 · The glass residual, precisely: what is orphaned, what it costs, what its fix does *not* fix
-
-The brief names this component's known residual (INBOX **I-9**, **D58**, our mark **M3**). Here is
-the exact mechanism, because "orphaned dist CSS" understates it.
-
-**What is orphaned.** `dist/styles/index.css` is a flat list of `@import`s. `dist/styles/glass.css`
-imports eighteen files. **Neither imports `./glass/glass-chip.css` or `./glass/glass-atom.css`,**
-which exist in the tarball and are referenced by nothing:
-
-```
-$ grep -rn "glass-chip.css\|glass-atom.css" node_modules/@mkbabb/glass-ui/dist/styles/
-$ echo $?            # 0 matches
-$ grep -c "glass-chip" node_modules/@mkbabb/glass-ui/dist/glass-ui.css
-0
-```
-
-`.glass-capsule` *is* imported (`glass/glass-capsule.css`) and sets
-`border-radius: var(--radius-pill)`. The orphaned file contains the rule that would have won —
-`.glass-chip--cell, .glass-chip--cell.glass-capsule { border-radius: var(--radius-card); }` — at
-higher specificity. So the disc is not a mystery: it is `glass-capsule` unopposed.
-
-**What is lost, measured.** Everything in `glass-chip.css` — which is the *entire* chip behaviour:
-
-| Orphaned rule | Consequence measured on our tiles |
+| element | computed `box-shadow` |
 |---|---|
-| `.glass-chip--cell { border-radius: var(--radius-card) }` | `borderRadius: 9999px` → discs (D-19) |
-| `.glass-chip[data-mode=selectable][data-state=on] { background-color: var(--accent-band); border-color: var(--accent-edge); color: var(--accent-ink) }` | selected and unselected chips are **byte-identical**: `bg` and `boxShadow` string-equal in light, dark, RTL and reduced-motion (pass-1 D-02, re-confirmed this pass in 4 matrices) |
-| `.glass-chip[data-mode=selectable]::after` accent flood | absent |
-| `.glass-chip--interactive { scale: … }` press feedback | `scale: "none"` measured |
-| `@media (pointer: coarse) { min-inline/block-size: var(--touch-target) }` | 43.8 px touch target (**D-21 — an a11y consequence, new to the M3 packet**) |
-| `@media (prefers-reduced-motion)` and `(prefers-contrast: more)` arms | absent |
-| `.glass-chip[data-disabled] { opacity: … }` | absent |
+| **specimen tile** (×27) | `…, color(srgb .11 .098 .09 / 0.14) 0px 8px 24px 0px, …` + 4 rim insets |
+| interval row card (their container) | `color(srgb .11 .098 .09 / 0.06) 0px 2px 8px 0px` |
+| eased ramp (sibling instrument) | `none` |
+| readout rail (sibling instrument) | `none` |
 
-**The rendered proof that selection is colour-only.** `frames/D2-strip-3x-grayscale.png` is the live
-strip with hue removed. The pressed `linear` tile differs from its six neighbours **only** by a
-slightly darker/bolder 9 px word and a 1.25 → 1.75 px stroke. `VISUAL-CONSTITUTION.md:83` §4.1:
-*"Selected, failed, pending, withdrawn and disabled states are **never colour-only**."* Because both
-surviving signals are `stroke` and `color` — both of which the forced-colors palette substitution
-overrides — the selected state collapses entirely under forced colors, leaving `font-weight: 600` on
-9 px mono as the sole differentiator.
+**Blur 24 px vs 8 px = 3.0×. Ink 0.14 vs 0.06 = 2.33×.** The support fixtures out-shadow the card
+that holds them, while both of that card's other instruments cast nothing at all.
 
-**Disposition — FOLD-BANK on glass. Do not patch.** Re-declaring a radius, a pressed wash, a touch
-floor or a well background locally would hide glass's defect and then fight the real rules when they
-land: the MT-F014 disease class by name. **Bank.** What this pass adds to the M3 packet:
+Source, unconditional in the Chip base class list:
 
-1. the **exact orphan mechanism** (two files, importable, imported by nothing — a one-line fix in
-   `styles/glass.css`);
-2. the **a11y** consequence (D-21), which reclassifies the row from cosmetic;
-3. an **ask**: `.glass-chip--cell` at `--radius-card` will still be the most-rounded box in our row
-   and will equal the 462 px plate's radius (D-19) — the cell radius should derive from the chip's
-   own box, or expose `--chip-cell-radius`;
-4. an **ask**: `.glass-capsule` conflates shape + warm tint + floating elevation (D-26, pass-1 D-14 /
-   MT-F026) — a well-tier chip needs them separable;
-5. an **ask**: `FadingScroll` makes its port `tabindex="0"` with no role or name (D-24).
+```css
+/* glass-ui/dist/styles/glass/glass-capsule.css  — imported, unlike glass-chip.css */
+.glass-capsule { … box-shadow: var(--glass-rim-top), var(--glass-rim-bottom), var(--glass-shadow-floating); }
+--glass-shadow-floating: 0 8px 24px color-mix(in srgb, …14%, transparent)
+```
 
-**And the half that is ours regardless of glass:** the disc is not the only radius problem (D-19),
-the register is ours (D-19), the type/padding/gap overrides are ours (D-20), the eyebrow is ours
-(D-22), the per-interval duplication is ours (D-23), the label-in-name is ours (D-25) — and D-18
-is entirely ours and fatal.
+And measured on the same element: **`backdrop-filter: none`**. So the tile is a *floating-tier drop
+shadow with no blur* — a shadowed opaque disc wearing glass's costume.
+
+The seat's own host declares the opposite law, in the template, two files up
+(`GradientEasingEditor.vue:108–110`):
+
+> *"Z2 in-plate specimen rows: flat on the plate, `--card-edge` hairline, **no shadow**
+> (DESIGN.md § Depth)"*
+
+Canon, three places:
+
+- `VISUAL-CONSTITUTION.md §2` — *"Instrument veil … **no drop shadow**"*; *"One surface has one tier.
+  An inner card is not automatically another pane of glass. **Glass earns its blur by revealing live
+  content; otherwise it is a neutral well.**"* Blur = none. It has not earned it.
+- `VISUAL-CONSTITUTION.md §3.8` — *"Supporting fixtures do not compete with it through equal size or
+  **equal shadow**."* They do not compete; they **exceed**.
+- `PROPORTION-AUDIT.md PR-05` — *"Dividers, **caster shadows** and corner marks repeat a boundary →
+  **REMOVE**."*
+
+**Disposition:** the *ask* is glass's (pass 2's MT-F026 relay — `.glass-capsule` conflates shape +
+warm tint + floating elevation and a well-tier chip needs the three separable). The *decision* to
+seat 27 floating capsules inside a declared-flat plate is ours. Cancelling the shadow in this SFC's
+scoped CSS would be a per-instance override (edict 5) **and** a masking fallback (edict 2, MT-F014).
 
 ---
 
-## §3 · Consolidated state coverage
+### D-32 · MAJOR · OURS · Protagonist inversion, measured: the support is 55 % of the open row and the protagonist has zero area at rest
 
-Every state this component can be in, judged. Pass-1 rows retained, new rows marked.
+Pass 1 D-01 raised the topology (no `/easing` route — confirmed: `demo/color-picker/router/index.ts:22–37`
+mounts `/`, `/palettes`, `/browse`, `/extract`, `/mix`, `/generate`, `/gradient`, `/atmosphere`,
+`/blob`, five `/admin/*`, catch-all; **no `/easing`, no `/about`**). Here is the in-row arithmetic
+that makes it a `PR-09` row with a number attached. Measured, default open row, 1440:
 
-| State | Handled? | Evidence |
+| element | rendered box | share of open-row ink |
+|---|---|---:|
+| eased ramp | 436 × **20** | 16 % |
+| **specimen strip** | 436 × **72** | **55 %** |
+| readout rail | 436 × **32** | 25 % |
+| **curve / authoring stage** | **0 × 0** — hidden | **0 %** |
+
+`tuneOpen` initialises to `{}` (`GradientEasingEditor.vue:84`), so the stage — measured **436 × 311.6**
+when disclosed, 4.3× the strip — is behind a second click that nothing signposts.
+
+Canon, three places, all naming this exact relationship:
+
+- `VISUAL-CONSTITUTION.md §3.1`, Easing member: protagonist = *"neutral curve/time stage"*; support =
+  *"catalogue, **specimen strip** and code inspector"*.
+- `VISUAL-CONSTITUTION.md §7`, Easing: *"The curve is a centered, container-clamped 19–22 rem stage. …
+  Catalogue and specimen strips **support the curve rather than reducing it to a tiny nested
+  widget**."*
+- `PROPORTION-AUDIT.md PR-09`: *"Gradient/Easing protagonist subordinated → **ENLARGE** → One
+  19–22 rem protagonist; support subordinate."*
+
+As shipped, the protagonist has **zero** area at rest and the support is the largest object in the
+card. The strip **is** the tiny nested widget the canon names by name.
+
+---
+
+### D-33 · MINOR · OURS · The family hairline is duplicative at a 7 : 1 spacing ratio
+
+Pass 1 D-04 called for the divider's deletion. The measurement that makes it unarguable:
+
+- inter-family separation = `.strip-row { gap: 14px }` **+** `.strip-family + .strip-family { padding-left: 14px }` = **28 px**
+- intra-family separation = `.family-tiles { gap: 4px }`
+
+**7 : 1.** Grouping is already unmistakable from spacing alone, at which point
+`EasingSpecimenStrip.vue:143–146` draws a rule on top of it — measured
+`1px solid oklab(0.216 0.0035 0.0052 / 0.12)` light, `/0.12` dark, `rgb(0,0,0)` forced-colors.
+
+- `PROPORTION-AUDIT.md §5.4`: *"A divider is retained only when grouping would be ambiguous without
+  it. **Spacing plus material already expressing the same boundary makes the line duplicative.**"*
+- `VISUAL-CONSTITUTION.md §4.2` / `PROPORTION-AUDIT.md PR-05`: the binding inventory selects
+  boundaries `[]`; *"every other divider/ornament is zero."*
+
+**Cure:** delete the rule; keep the 28 px. (The `border-left`/`padding-left` physical sides are pass 1
+D-05's row and dissolve with it.)
+
+---
+
+### D-34 · MINOR · glass · RTL: the fade feathers the **selected** tile and leaves the cut edge hard — the reveal watcher is defeated by the mask
+
+Pass 1 D-05b recorded that `FadingScroll`'s fade lands on the wrong edge in RTL. The consequence is
+worse than an edge treatment, and it is visible. Measured with `dir="rtl"` (`chD-states2-run.mjs`):
+
+```
+stripPort   l=767    r=1203
+firstTile   l=1155.8 r=1201        ← content flush at the START (right) edge
+mask: linear-gradient(to right, rgba(0,0,0,0) 0px, rgb(0,0,0) 0px,
+                      rgb(0,0,0) calc(100% - 16px), rgba(0,0,0,0) 100%)
+```
+
+The content overflows **leftward** past `l=767`; the 16 px feather is a physical `to right`, so it
+sits on the **flush** edge and the **cut** edge gets none.
+
+`shots/chD-rtl-strip.png` shows the result: the **selected** `linear` tile, at the right edge, is
+fading out under the mask (`linea` + a ghosted `r`), while the left edge terminates in a hard slice
+through a tile (`ad`) with no feather at all.
+
+The component spends thirty lines (`EasingSpecimenStrip.vue:37–80`) on a hand-written nearest-edge
+reveal whose entire purpose is *"the selected specimen stays in view"*. In RTL, the producer's mask
+hides the one tile that reveal exists to show. Neither half is wrong on its own; the seam is.
+
+`VISUAL-CONSTITUTION.md §6.1`: *"chrome, navigation and layout — logical inline/block direction
+follows the document."*
+
+**Disposition: BANK with M3** (`FadingScroll` must feather on the logical overflow edge). No local
+counter-mask — that is edict 2 by definition.
+
+---
+
+### D-35 · MINOR · OURS · The motion register is split inside one card, and the one species that carries meaning is the one that does not animate
+
+Full motion inventory of the open interval row:
+
+| species | motion | tokenized? |
 |---|---|---|
-| populated | yes — the only fully designed state | — |
-| **selected — `back` family** | **NO — destroys the route** | **D-18** |
-| selected — 24 other tiles | surface delta **zero** (glass) + colour-only (canon) | pass-1 D-02, §2 |
-| **custom / no tile matches** | NO — renders as "nothing selected" while the head prints `custom` | pass-1 D-17 |
-| empty / loading / error | n/a — catalogue is a build-time constant. Correct. | — |
-| disabled | absent; no interval can disable easing. Acceptable. | — |
-| hovered | designed wrong — beats selection, no `(hover: hover)` guard | pass-1 D-03 |
-| focused | producer ring, clipped by 2 px of headroom; louder than selection | pass-1 D-11, D-12 |
-| pressed (active) | `scale` rule orphaned → no press feedback | §2 |
-| dragging | n/a | — |
-| **overflowing / truncated** | unhandled — 70.6 % desktop / 79.9 % mobile hidden; family labels off-port | pass-1 D-10, **D-22** |
-| RTL | broken — physical `border-left`/`padding-left`; eyebrow sliced mid-word | pass-1 D-05, D-22 |
-| reduced motion | **handled correctly** — `useMediaQuery` → `behavior:"auto"` | pass-1 D-15 |
-| forced colors | broken; and selection collapses to a 600 weight | pass-1 D-06, §2 |
-| zoom 200 % | port does not narrow (436/1482 unchanged) — no new defect | **D-22 table** |
-| **coarse pointer / touch** | **43.8 px < 44 px floor** | **D-21** |
-| dark scheme | tiles carry warm chroma; resting label 4.52 : 1, glyph 3.39 : 1 (thin) | **D-26, §0 C-2** |
-| AT / screen reader | 28 flat stops, one nameless region, no family structure, no set semantics | pass-1 D-07, **D-24, D-25** |
+| `.interval-head` hover | `background-color var(--duration-fast) var(--ease-standard)` | ✓ house |
+| `.rail-btn` hover | `color`, `background-color` `var(--duration-fast) var(--ease-standard)` | ✓ house |
+| tile hover | producer `.glass-capsule-hover { scale: 1.015 }` | ✓ producer |
+| **tile selection** | **no transition declared** — stroke colour, `stroke-width 1.25→1.75`, label colour, `font-weight 400→600` all cut instantly | ✗ |
+| **reveal scroll** | `port.scrollBy({ behavior: "smooth" })` (lines 72–75) | ✗ **UA duration + UA easing** |
+
+Three of five species share one house register; the two that belong to this component share none.
+`VISUAL-CONSTITUTION.md §6`: *"Spatial continuity uses **one producer-owned glass-ui spring
+register**. Colour/opacity effects use the corresponding short effect curve."*
+
+No property in play forces layout (`scale` is compositor-only; scroll position is not layout;
+`stroke-width` is SVG paint) — pass 2's positive holds. And **no animation is deleted anywhere**;
+edict 6 is clean. The defect is register incoherence, not motion excess.
 
 ---
 
-## §4 · Disposition summary (pass 1 + pass 2)
+### D-36 · MINOR · OURS · Forced colors: selection does **not** collapse entirely — it survives as the **same colour as focus**
+
+Pass 2 §2 states that under forced colors *"the selected state collapses entirely … leaving
+`font-weight: 600` on 9 px mono as the sole differentiator."* Measured (`chD-states2-run.mjs`,
+`chD-p3.mjs`, `forcedColors: "active"`):
+
+| | selected tile | unselected tile |
+|---|---|---|
+| background | `rgb(255,255,255)` | `rgb(255,255,255)` |
+| **border-color** | **`rgba(5,0,73,0.8)`** | **`rgb(0,0,0)`** |
+| label colour | `rgb(0,0,0)` | `rgb(0,0,0)` |
+| label weight | 600 | 400 |
+
+and the focus indicator, same arm, on a third tile:
+
+```
+{ outlineWidth: "2px", outlineStyle: "solid", outlineColor: "rgba(5,0,73,0.8)", boxShadow: "none" }
+```
+
+Two refinements:
+
+1. **A border delta does survive** — navy vs black — so "collapses entirely" is one step too strong.
+   Pass 2's conclusion (that forced colors leaves selection near-invisible) is correct in substance.
+2. **The surviving delta is the same colour as focus.** Selection = a 1 px `rgba(5,0,73,0.8)` border;
+   focus = a 2 px `rgba(5,0,73,0.8)` outline. They differ only in stroke width.
+   `VISUAL-CONSTITUTION.md §4.1`: *"**Focus remains visibly distinct from selection** in both
+   schemes, **forced colors** and reduced transparency."* One pixel of width is not visible
+   distinctness on a 44 px disc.
+
+Also worth recording as a positive: focus does **not** disappear under forced colors. The house
+ring is a `box-shadow` (`focus-ring`, measured light:
+`color(srgb .665 .0001 .2617 / .3) 0 0 0 2px, … 0 0 8px`) with `outline-style: none`, and box-shadows
+are suppressed in forced-colors mode — but the UA substitutes its own `2px solid` outline, so the
+state is not lost. That is luck, not design: nothing in this component or its producer guarantees it.
+
+---
+
+## §2 · Consolidated disposition (passes 1 + 2 + 3)
+
+Pass 1 and pass 2 rows stand as written in their archived files. This pass adds:
 
 | Row | Owner | Disposition |
 |---|---|---|
-| **D-18** back-family selection kills the route | **ours** | **BLOCKER.** One named curve-space → colour-space projection, or the family leaves the catalogue. No `try/catch`. |
-| **D-19** radius register / OM-4 · MT-F030 | **ours** + **ask on glass** | derivation law in the register; ask glass for a size-derived cell radius. **Not curable by waiting for the glass fix.** |
-| **D-20** four per-instance overrides of the cell recipe | **ours** | delete; `size="sm"` or ask for a specimen rung |
-| **D-21** 43.8 px touch target | **glass (M3)** | **BANK** — and upgrade M3 from cosmetic to a11y |
-| **D-22** eyebrow: off-ladder + sub-contrast + aria-hidden + off-port | **ours** | `text-micro`, no `opacity`, real group label, sticky-or-gone |
-| **D-23** strip duplicated per interval (134 el = 42.5 % of route) | **ours** | one strip bound to `openInterval` |
-| **D-24** nameless tabbable scroll port | **glass** + ours | **BANK** the producer half; fix the 28-stop half with D-07's composite |
-| **D-25** Label-in-Name (`steps` / `n = 4`) | **ours** | name contains the visible string |
-| **D-26** warm chroma on a well-tier surface | **glass (MT-F026)** | **BANK. Do not patch.** |
-| **D-27** harness never presses | **formation** | component state matrix needs a press-every-affordance arm |
-| pass-1 D-01 topology / no `/easing` route | ours — W27 / PR-09 | carried forward |
-| pass-1 D-02 orphaned chip CSS · zero pressed delta | **glass (M3)** | **BANK.** Mechanism now pinned exactly (§2) |
-| pass-1 D-02b register keyed on `[data-state]` | ours | re-root on `selectedId` |
-| pass-1 D-03 hover beats selected | ours | delete the hover colour rule |
-| pass-1 D-04 seven family divider rules | ours | delete — §5 retained-line count is `none` |
-| pass-1 D-05 physical box sides | ours | logical properties |
-| pass-1 D-05b FadingScroll fade on the wrong edge in RTL | glass | **BANK** with M3 |
-| pass-1 D-06 forced colors | ours + glass | own the glyph/eyebrow arm; bank the boundary |
-| pass-1 D-07 no roving focus | ours | one composite; **28 stops, not 27** (§0 C-1) |
-| pass-1 D-08 9 px Fira 600 | ours | subsumed by D-20/D-22 |
-| pass-1 D-09 portraits drawn without their unit box | ours | the painter draws the box |
-| pass-1 D-10 82 % hidden | ours | dissolved by D-01 |
-| pass-1 D-11 focus ring clipped | ours | reserve the ring's true extent |
-| pass-1 D-12 contrast inversion + double de-emphasis | ours | numbers restated per-scheme (§0 C-2) |
-| pass-1 D-13 ragged module (44 / 45.23) | ours | one fixed module width |
-| pass-1 D-14 27 casters | glass (MT-F026) | **BANK. Do not patch.** |
-| pass-1 D-15 native smooth-scroll | ours | producer spring register, or delete with D-01 |
-| pass-1 D-16 bleeding budget saturated | ours | dissolved by D-01 |
-| pass-1 D-17 `custom` state undesigned | ours | give `custom` a rendered register |
+| **C-3** D-18 confirmed on Chromium + WebKit; scope = **pane** boundary; lethal predicate = **`range(fn) ⊄ [0,1]`** | **ours** | **BLOCKER stands.** Cure is one named projection at the timing→colour seam (all samples, not just the midpoint), not three deletions and not a `try/catch`. |
+| **C-4** dark resting label is **at** the 4.5 : 1 floor (4.48 / 4.52), and depends on the user's gradient | ours | an unbounded contrast row is not a passing row |
+| **D-28** 12 px unowned line-box space; 24/12 rhythm | **ours** | `inline-flex` → `flex` |
+| **D-29** two selection surfaces for one model; producer's reads "Pick a curve" | **ours** + ask on glass | one selection owner per row; ask for `:presets="false"` |
+| **D-30** selection is isoluminant at **1.16 : 1** / 1.11 : 1 | **ours** | a selected register that survives hue loss |
+| **D-31** fixtures out-shadow their container 3× blur / 2.33× ink; blur = none | ours + **glass (MT-F026)** | tiles are wells; **BANK** the producer half |
+| **D-32** protagonist 0 % / support 55 % of the open row | ours — W27 / PR-09 | protagonist first |
+| **D-33** family hairline duplicative at 7 : 1 | ours | delete the rule, keep the 28 px |
+| **D-34** RTL fade feathers the selected tile | **glass** | **BANK with M3** |
+| **D-35** split motion register; selection has no transition; reveal untokenized | ours | one house register |
+| **D-36** forced colors: selection survives as the **same colour as focus** | ours | refines pass 2 §2; §4.1 distinctness |
 
-**No source edits land from this formation.** Nothing under `src/`, `demo/`, `api/`, `test/`, `e2e/`
-or any `INBOX.md` was touched. This seat wrote only under
-`docs/tranches/V/megatranche/audit/components/wb-gradient-easingspecimenstrip/`.
+**Glass rows to bank (cumulative across passes): M3 / I-9 / D58** — orphaned `glass-chip.css`
+(radius, pressed wash, press scale, coarse-pointer touch floor, PRC/PRM arms), `.glass-capsule`
+conflating shape + warm tint + floating elevation (MT-F026), `FadingScroll`'s nameless tabbable port
+and its physical-direction fade, plus this pass's two asks: a **cell radius that derives from the
+chip's own box**, and a **`:presets` door on `EasingPicker`**.
+
+**Our rows are the majority and the BLOCKER is entirely ours.**
 
 ---
 
-## §5 · What passes
+## §3 · What passes (re-verified this pass, not restated from prior passes)
 
-Recorded so the negatives are not read as a blanket condemnation. All re-verified this pass:
+- **`prefers-reduced-motion` is honoured and it works.** Line 74 resolves the reveal to
+  `behavior: "auto"`, and under `reducedMotion: reduce` the tile's computed transition list drops
+  `scale` entirely (`"opacity 0.1s …, color 0.1s …, background-color 0.1s …"` vs the cartoon-punch
+  spring at rest) — the global carve-out reaches into the producer. Measured, not assumed.
+- **Focus is real in every arm measured**, including forced colors (§ D-36).
+- **House-correct selection semantics**: native `<button type="button" aria-pressed>` with exactly
+  one true seat — the same law `VISUAL-CONSTITUTION.md §3.1/§5` imposes on the palette seats. No
+  `role="option"`, no listbox fiction.
+- **The refusal of `scrollIntoView`** (lines 37–46) remains exemplary: it names the O-19 defect it
+  prevents and writes exactly one axis on exactly one element.
+- **Zero curve maths re-derived**; literals byte-mirrored against the picker's own law.
+- **Edicts 1, 6, 7, 8 clean**: 216 lines and one job; no animation deleted; `useTemplateRef` (48) and
+  reactive props destructure (18); `import type` (16) correct under `verbatimModuleSyntax`.
 
-- **Reduced motion — correct and deliberate.** `useMediaQuery("(prefers-reduced-motion: reduce)")`
-  (line 47) resolves the reveal to `behavior: "auto"`. No keyframes are declared, none deleted, and
-  the sibling stage carries its own PRM carve-out.
-- **No layout-forcing animation.** The only motion properties in play are `scale` (compositor) and
-  scroll position. Nothing animates `width`/`height`/`top`.
-- **The contrast reasoning the docblock records is true.** Lines 182-186 claim 65 % ink clears the
-  1.4.11 3:1 graphics floor in both schemes; measured 4.92 : 1 light / 3.39 : 1 dark. It holds.
-- **The refusal of `scrollIntoView`** (lines 37-46) is exemplary: the comment names the O-19 defect
-  it prevents (an ancestor-walking reveal yanking the pane's vertical scroll ~95 px) and the
-  hand-rolled single-axis nearest-edge implementation is the right call.
-- **`verbatimModuleSyntax`** — clean. `import type { SpecimenTile }` (line 16) is the only type-only
-  import and is correctly marked.
-- **Vue 3.5 idioms** — clean. `useTemplateRef` (line 48), reactive props destructure with a default
-  (lines 18-24), no `defineModel` (so no stale-read hazard).
-- **No god module** — 215 lines, one job; the catalogue is a sibling module.
-- **No legacy shims, no dual paths, no back-compat aliases; no new `shared/` dir; no wrapper
-  component.** It consumes `FadingScroll` and `Chip` from glass-ui directly, which is the correct
-  boundary — the failures are in *how* it consumes them, not in whether it should.
-- **Zero glyph maths is re-derived.** Every portrait is sampled from the library callable through
-  one painter (`glyphPath`), and the minted literals are byte-mirrored against the picker's own
-  law — a genuinely good decision that the D-18 catalogue defect does not diminish.
+The component is not lazy work. Its data layer is excellent and several of its comments diagnose
+real defects correctly. What it lacks is a design that survives contact with its own catalogue
+(C-3), its own producer (D-29, D-31), and its own canon (D-30, D-32).
+
+---
+
+**No source edits land from this formation.** Nothing under `src/`, `demo/`, `api/`, `test/`, `e2e/`,
+`docs/tranches/V/vnext/`, `scripts/dev/dev.sh` or any `INBOX.md` was touched. This seat wrote only
+under `docs/tranches/V/megatranche/audit/components/wb-gradient-easingspecimenstrip/`.

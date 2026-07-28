@@ -1,0 +1,105 @@
+{
+ "P2": {
+  "before": {
+   "cardCount": 1,
+   "emptyVisible": false,
+   "headerBadge": "(1 saved)"
+  },
+  "filtered": {
+   "cardCount": 0,
+   "emptyText": "· empty plate ·No saved palettes yet.Add colors above, then save the set.",
+   "headerBadge": "(1 saved)"
+  },
+  "after": {
+   "storedNames": [
+    "Aurora Draft",
+    "Zebra"
+   ],
+   "cardCount": 0,
+   "emptyText": "· empty plate ·No saved palettes yet.Add colors above, then save the set.",
+   "headerBadge": "(2 saved)",
+   "wellHeader": "Start a new palette",
+   "activeElement": "BODY:",
+   "searchStillActive": "qqqzzz"
+  }
+ },
+ "P3": {
+  "collapsed": {
+   "draftDot": {
+    "w": 48,
+    "h": 48
+   },
+   "draftDotRadius": "59.1746% 69.1889% 31.6219% 33.2892% / 67.017% 75.0312% 23.6854% 75.7299%",
+   "draftDotFilter": "url(\"#watercolor-filter-v-1-0\")",
+   "strip": {
+    "w": 458,
+    "h": 40
+   },
+   "stripSeg": {
+    "w": 91.6,
+    "h": 40
+   },
+   "stripSegRadius": "0px",
+   "stripSegFilter": "none",
+   "cardCount": 1
+  },
+  "expanded": {
+   "wellDots": 6,
+   "cardDots": 3,
+   "cardDot": {
+    "w": 28,
+    "h": 28
+   },
+   "stripStillPresent": true,
+   "stripBox": {
+    "w": 458,
+    "h": 40
+   }
+  }
+ },
+ "P5": {
+  "addSlot": {
+   "w": 48,
+   "h": 48,
+   "x": 767,
+   "y": 397.2,
+   "classList": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+   "variant": "ghost",
+   "strokeColor": "rgb(198, 180, 159)",
+   "opacity": "1",
+   "ariaLabel": null,
+   "role": null,
+   "tag": "SPAN"
+  },
+  "trio": [
+   {
+    "w": 32,
+    "h": 32,
+    "x": 927,
+    "y": 521.1,
+    "opacity": "0.8",
+    "cls": "w-8 h-8 opacity-80 watercolor-swatch"
+   },
+   {
+    "w": 44,
+    "h": 44,
+    "x": 967,
+    "y": 509.1,
+    "opacity": "1",
+    "cls": "w-11 h-11 watercolor-swatch"
+   },
+   {
+    "w": 24,
+    "h": 24,
+    "x": 1019,
+    "y": 529.1,
+    "opacity": "0.6",
+    "cls": "w-6 h-6 opacity-60 watercolor-swatch"
+   }
+  ],
+  "verticalGap": 63.9,
+  "bothVisibleInViewport": true,
+  "wellIsCardDescendant": true,
+  "wellAncestorClasses": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-w-0 h-full"
+ }
+}

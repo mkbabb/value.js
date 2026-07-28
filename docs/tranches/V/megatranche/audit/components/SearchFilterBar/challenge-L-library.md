@@ -1,585 +1,414 @@
 # CHALLENGE-L — library structure · `demo/palettes/browser/search/SearchFilterBar.vue`
 
-## PASS 2 (2026-07-28) — read this header first
+## PASS 3 (2026-07-28) — read this header first
 
-A prior CHALLENGE-L seat already audited this component at HEAD `c654824e` and produced a
-42 745-byte report with a 12-row ledger. **I did not overwrite it.** It is preserved verbatim at
+Two CHALLENGE-L seats preceded me on this axis. **I overwrote neither.** Both are preserved verbatim:
 
-    docs/tranches/V/megatranche/audit/components/SearchFilterBar/challenge-L-library-pass1-c654824e.md
+    challenge-L-library-pass1-c654824e.md   (42 745 B · 12-row ledger · HEAD c654824e · had a browser)
+    challenge-L-library-pass2-80fc5c40.md   (31 870 B ·  8-row ledger · HEAD 80fc5c40 · no browser)
 
-and it remains authoritative for its own findings. This file is the **second pass** (E-1
-twice-audit): I re-derived the axis independently, then reconciled. It contains only
+This file is the **third pass** (E-1 twice-audit, extended). I re-derived the axis independently
+before reading either predecessor, then reconciled. It contains only what survives that
+reconciliation:
 
-1. **independent verification** of pass 1's two BLOCKERs — one confirmed, one confirmed-but-remeasured
-   with a number I dispute (§2);
-2. **five findings pass 1 does not have** (§3), one of which is a confirmed correctness defect in the
-   **published library surface** and is, in my judgement, the most consequential thing either pass
-   found;
-3. a **stronger proof** of pass 1's L-11 (§4).
+1. **three findings neither pass has** (§2) — one of them a live-measured a11y hole whose cure is
+   already written, and commented, one file away in this repo;
+2. **one measurement reconciliation** (§3) that materially changes how pass 2's headline number
+   should be read;
+3. **one live confirmation** (§4) upgrading a pass-1 static finding to an observed one;
+4. **a retraction of my own first measurement** (§5), published so that nobody inherits it.
 
-For the import trace, the `tsconfig.demo.json`↔`exports` drift (their L-10), the text-search
-two-matcher finding (their L-7), the four-owner filter topology (their L-4), the `Channel` guard
-homes (their L-8) and the out-of-chain suspects, **read pass 1** — I re-checked those and have nothing
-to add or correct.
+For the import trace, `demo/ui/`, the dead G-DEMO eslint boundaries, the dead
+`colorL/colorA/colorB` client params, the `BROWSE_PAGE_SIZE = 50` pagination consequence, the
+`/^#[0-9a-f]{6}$/i` gate, the inert `:checked` Checkbox surface, `variant` not being a `ButtonProps`
+key, `searching` being dead state, and the tag-list duplication — **read passes 1 and 2.** I
+re-verified all of them at `f36f780c` and have nothing to add or correct.
 
 ## Model receipt
 
-I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]`, as declared at
-spawn. Declared, not inherited.
+I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]`, the tier this
+seat was spawned with. Declared, not inherited.
 
 ## Substrate
 
-- Repo HEAD at this pass: **`80fc5c4054d5bd790b1b2b73280a2e0ced4535de`** — *not* the `c654824e` named
-  in my work order and used by pass 1. The branch advanced (`docs(V·mega): shell band COMPLETE-TRUE
-  12/12`). All line numbers below are against `80fc5c40`; I re-verified that every line I cite is
-  unchanged from pass 1's reading of it.
-- The dev server at `:9000` answered `200`, but the Playwright MCP profile was held by a concurrent
-  seat: `Browser is already in use for …/mcp-chrome-83447af`. **I had no browser.** Every claim below
-  is static evidence, a pasted command, or a measured number from `node` against the built `dist/`.
-  Where a claim needs the browser I label it HYPOTHESIS and say so. Pass 1 *did* have the browser, so
-  where our evidence classes differ I defer to its live measurements and note it.
+- **HEAD at this pass: `f36f780c`** (`docs(V·mega): STATE — three OM censuses complete, findings at
+  MT-F043`) — not the `c654824e` in my work order (pass 1's substrate), nor pass 2's `80fc5c40`.
+  The branch has advanced twice under this axis. The subject file is byte-identical across all
+  three; every line number cited by all three passes still resolves.
+- **I had a browser.** The Playwright MCP profile was held by a concurrent seat
+  (`Browser is already in use for …/mcp-chrome-83447af`), so I drove WebKit directly through the
+  repo's own `playwright` dependency. Pass 2 had no browser at all; that is precisely the gap this
+  pass fills.
+- Dev server `:9000` is live but **CORS-blocked against the production API** (`DevMisconfigError`,
+  no `VITE_API_URL`) → zero palettes load. Anything requiring populated palette data is labelled
+  HYPOTHESIS or deferred to pass 1.
 
-**Verdict: DEFECTIVE.** One BLOCKER (confirming pass 1), and one new MAJOR in the published library
-that neither pass 1 nor the library-audit seat caught.
+**Verdict: DEFECTIVE.** Confirming both predecessors. One new MAJOR, one new MAJOR, one new MINOR,
+one measurement correction, one self-retraction.
 
 ---
 
-## §1 · Ledger — pass 2 only
+## §1 · Ledger — pass 3 only
 
-| id | sev | defect | status vs pass 1 |
+| id | sev | defect | status vs passes 1–2 |
 |---|---|---|---|
-| LP2-1 | **BLOCKER** | Tags filter is inert: `:checked`/`@update:checked` are not glass-ui 7's `Checkbox` surface | **confirms** its L-1, independent evidence |
-| LP2-2 | MAJOR | `variant` is not a `ButtonProps` key; "ghost" buttons render at `primary` emphasis | **confirms** its L-2; **disputes** the count (28/19, not 51/20) and the severity |
-| LP2-3 | MAJOR | **NEW** — published `toRgba8` is not channel-symmetric: an achromatic colour projects to a *tinted* byte triple |
-| LP2-4 | MAJOR | **NEW measurement** — the two colour engines disagree on **27.37%** of a 14 641-point HSV grid (quantifies its L-6) |
-| LP2-5 | MAJOR | **NEW** — inverted seam discipline: 7 barrels on the leaf, 0 on `color-session/`, which 57 files reach through 18 raw modules |
-| LP2-6 | MINOR | **NEW** — `searching` is dead state; the `Loader2` spinner and `:disabled` can never render |
-| LP2-7 | MINOR | **NEW measurement** — `demo/ui/` funnels glass-ui's *root* barrel (66 modules / 224 193 B) past the granular subpaths it ships (quantifies its L-9) |
-| LP2-8 | INFO | **NEW** — `hexToOklab`'s `"none"` throw is unreachable |
-
-Pass 1's L-3, L-4, L-5, L-7, L-8, L-10, L-11, L-12 stand as written; I reproduced L-3, L-5 and L-11
-and found them exactly as reported (my L-11 proof is stronger — §4).
+| LP3-1 | **MAJOR** | **NEW** — the swatch's `focus-ring` never paints: its own `shadow-cartoon-sm` box-shadow beats glass-ui's layered `.focus-ring:focus-visible`. `:focus-visible` matches TRUE and the ring is absent. The repo already cured this exact death for `.search-seated` | neither pass has it |
+| LP3-2 | **MAJOR** | **NEW** — `UserSortMenu` is admin **user** sorting living in the palette-browser **search** cluster, and is a second, primitive-incompatible implementation of this component's own sort affordance | neither pass has it |
+| LP3-3 | MINOR | **NEW** — the visual-audit matrix cannot see this component: the popover is closed at capture. Opened, it yields two sub-44px targets (28×28, 53×24) that appear in no REPORT.json row | neither pass has it |
+| LP3-4 | — | **RECONCILIATION** — the HSV divergence rate is grid-dependent: **12.49%** on 159 201 points vs pass 2's **27.37%** on 14 641. Both correct; the number is not a property of the defect | corrects how LP2-4 reads |
+| LP3-5 | — | **LIVE CONFIRMATION** — pass 1's regex-gate finding, observed end-to-end in WebKit: badge asserts "1 active filter" for a search the user did not make | upgrades pass 1's L-5 evidence class |
+| LP3-6 | — | **RETRACTION (mine)** — my first probe reported 0 `.focus-ring` and 0 `.scrollbar-thin` rules. Probe bug. Both classes exist | self-correcting |
 
 ---
 
-## §2 · Independent verification of pass 1's two BLOCKERs
+## §2 · New findings
 
-### LP2-1 · BLOCKER · The Tags filter is inert — CONFIRMED
+### LP3-1 · MAJOR · NEW · the swatch's focus ring is defeated by the shadow it carries
 
-`SearchFilterBar.vue:51-55`:
+`SearchFilterBar.vue:74–79` — the mini-picker's trigger swatch:
 
-```vue
-<Checkbox
-    :checked="selectedTags.includes(tag.name)"
-    @update:checked="toggleTag(tag.name)"
-    class="shrink-0"
+```html
+<!-- W5-a11y: swatch trigger needs accessible name -->
+<button
+    class="block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
+    :style="{ backgroundColor: pickerHex }"
+    :aria-label="`Open color picker, current color ${pickerHex}`"
 />
 ```
 
-glass-ui 7.0.0's declared surface,
-`node_modules/@mkbabb/glass-ui/dist/components/checkbox/Checkbox.vue.d.ts:4-11, 21`:
+Two box-shadow authorities on one element: the Tailwind utility `shadow-cartoon-sm`, and the glass-ui
+class `focus-ring`, which resolves to
 
-```ts
-export interface CheckboxProps extends PrimitiveProps, FormFieldProps {
-    modelValue?: CheckedState | null;
-    defaultValue?: CheckedState;
-    disabled?: boolean;
-    value?: SelectionValue;
-    id?: string;
-    class?: HTMLAttributes["class"];
-}
-…
-{ "update:modelValue": (value: CheckedState) => any; }
+```css
+/* node_modules/@mkbabb/glass-ui/dist/styles/utilities/base.css — inside @layer components */
+.focus-ring:focus-visible { outline: none; border-radius: var(--radius-pill); box-shadow: var(--focus-ring-shadow); }
 ```
 
-There is **no `checked` prop and no `update:checked` emit.** Both authored bindings fall through to
-`$attrs`: `:checked` becomes a stray DOM attribute, and `onUpdate:checked` is a listener nothing ever
-calls. Therefore `toggleTag` (`:197-203`) is never invoked, `update:selectedTags` is never emitted,
-and the tag rows are additionally *uncontrolled* (`modelValue` undefined), so the box can latch
-visually while `selectedTags` stays empty forever.
+`box-shadow` does not compose across rules — the winner replaces, it does not add. And the winner is
+decided by **cascade layer**, not specificity: `dist/styles/index.css:1` declares
+`@layer theme, base, components, utilities;`, the focus ring is in `components`, and every Tailwind
+utility is in `utilities`. Utilities win unconditionally.
 
-**Why CI cannot see it.** Vue permits arbitrary fallthrough attributes on a component, so `vue-tsc`
-has nothing to reject — the prop is not *wrong*, it is *absent*, which is legal. This is the exact
-class of defect the "no legacy code / no dual paths" edict exists to prevent: the markup is written
-against a glass-ui API that was retired, and nothing in the toolchain is positioned to notice.
-
-**Blast radius is cluster-local, not repo-wide** — four sites, two files, both inside this
-component's own cluster:
+**Measured, live** (WebKit, `/#/browse`, popover opened, swatch focused):
 
 ```
-$ grep -rn 'update:checked\|:checked=' demo --include=*.vue
-demo/palettes/browser/search/TagEditPopover.vue:28:  :checked="currentTags.includes(tag.name)"
-demo/palettes/browser/search/TagEditPopover.vue:29:  @update:checked="(checked: boolean) => onToggle(tag.name, checked)"
-demo/palettes/browser/search/SearchFilterBar.vue:52:  :checked="selectedTags.includes(tag.name)"
-demo/palettes/browser/search/SearchFilterBar.vue:53:  @update:checked="toggleTag(tag.name)"
+first .focus-ring element: {"tag":"BUTTON","cls":"button tap-squish focus-ring glass-wash glass-capsule …"}
+RAW CSS TEXT AUDIT: {"sheets":42,"unreadable":0,"bytes":570808,
+                     ".focus-ring:focus-visible": 2,   ".scrollbar-thin": 6,
+                     "--focus-ring-shadow": "0 0 0 2px color-mix(in srgb, oklch(47.09% 0.188 9.83deg) 30%, transparent),
+                                             0 0 8px color-mix(in srgb, oklch(47.09% 0.188 9.83deg) 15%, transparent)"}
+
+swatch el.focus(): {"focusVisible": true,
+                    "boxShadow": "oklab(0.28 …/0.32) -2px 2px 0px 0px,
+                                  oklab(0.28 …/0.26) -3px 3px 0px 0px,
+                                  oklab(0.28 …/0.18) -4px 4px 0px 0px"}
 ```
 
-So the *same* mistake disables tag filtering in the browse bar and tag *editing* in the popover — the
-`search/` cluster is the only place in `demo/` that uses `Checkbox` at all, and it uses it wrongly in
-both places. Nothing else regressed; there is no third copy to hunt.
+Every precondition is satisfied — the rule is loaded, the token resolves to a real two-layer ring,
+the element **matches `:focus-visible`** — and the computed `box-shadow` contains **only the three
+cartoon-elevation layers**. `outline-style` is `none`. **A keyboard user reaches this control and
+receives no indication whatsoever.**
 
-**Reproduction status.** CONFIRMED by type declaration, not by click — the browser was locked. Pass 1
-reports having measured it live; I defer to that for the runtime half and note that the declarative
-evidence alone is sufficient, since the named prop and emit simply do not exist in the installed
-package.
+**This repo has already diagnosed and cured this exact death, one file away.**
+`demo/styles/utils.css:140–144`:
 
-**Cure.** `v-model="…"` semantics, i.e. `:model-value="selectedTags.includes(tag.name)"` +
-`@update:model-value="toggleTag(tag.name)"`. But per §5 the structural cure is better: the component
-should not own tag-selection state at all.
-
-### LP2-2 · MAJOR · `variant` is not a Button prop — CONFIRMED, count disputed
-
-`SearchFilterBar.vue:5` (`variant="ghost" icon-only`) and `:111-114` (`variant="ghost" size="sm"`)
-against `node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts:4-19`:
-
-```ts
-export type ButtonEmphasis = "primary" | "secondary" | "quiet" | "text";
-export interface ButtonProps extends PrimitiveProps {
-    emphasis?: ButtonEmphasis;   // ← the axis "ghost" was aiming at is `quiet`
-    tone?: Tone;
-    size?: ButtonSize;
-    iconOnly?: boolean;
-    loading?: boolean;
-    …
+```css
+/* Compose, never replace: the producer's focus ring joins the stamp (the
+ * unlayered base box-shadow above would otherwise silently beat the layered
+ * `.input-bar:focus-within` ring). */
+.search-seated:focus-within {
+    box-shadow: var(--shadow-cartoon-sm), var(--focus-ring-shadow);
 }
 ```
 
-No `variant`. It falls to `$attrs` and lands as a literal `variant="ghost"` attribute on the
-`<button>`; `emphasis` takes its declared default, `primary`. So the filter `⋮` trigger and the
-"Clear all filters" row render at **primary** emphasis — the loudest register in the system — where
-the author asked for the quietest.
+And `demo/styles/focus-ring.css:9–15` names it as the U-F25 lesson:
+> "The U-F25 defect had TWO deaths: (1) an inline `boxShadow` on the control CLOBBERED Tailwind's
+> `focus-visible:ring-2` box-shadow layer … The cascade half of the cure — hoisting the material
+> shadow off the inline style so the ring COMPOSES with it — lives in the control's own scoped CSS."
 
-**Where I differ from pass 1.** Two points, both stated so the record is honest rather than
-consensual:
+The knowledge is written down twice. The swatch is a control the cure never reached — it writes the
+class name and stops, which reads at a glance as compliance.
 
-- *Count.* Pass 1 reports "51 sites / 20 files repo-wide". I measure **28 occurrences across 19
-  files** in `demo/`:
+**Why this is a library-structure defect and not a CSS typo.** The design system publishes a focus
+affordance as a class whose only mechanism is `box-shadow`, on a system whose material language
+(`shadow-cartoon-*`, `glass-wash`, `glass-capsule`) is *also* `box-shadow`. The two are structurally
+incapable of coexisting, and nothing — not the type system, not eslint, not `vue-tsc` — can observe
+the collision. Every glass-ui control that carries both is silently ringless.
 
-  ```
-  $ grep -rn 'variant="ghost"' demo --include=*.vue | wc -l
-        28
-  $ grep -rln 'variant="ghost"' demo --include=*.vue | wc -l
-        19
-  ```
+**Reproduction:** `node scratchpad/SFB-L-focusring2.mjs` (pasted above). One element measured
+directly; I do **not** generalise to the whole control fleet — the sole non-focus-visible `.focus-ring`
+element I sampled cannot support that claim, and I decline to make it.
 
-  I cannot reproduce 51. The likeliest explanation is that pass 1 counted all `variant="…"` values
-  (glass-ui `Badge` *does* declare `variant`, `badgeVariants` is exported from
-  `demo/ui/badge/index.ts`, so some `variant=` sites are correct) or included non-`demo/` trees. The
-  `ghost`-specific figure is 28/19. I use mine and flag the discrepancy rather than average them.
-- *Severity.* Pass 1 grades this BLOCKER; I grade it **MAJOR**. It degrades appearance
-  deterministically and repo-wide, but no command stops working — unlike LP2-1, where a control
-  silently does nothing. A reviewer triaging both should fix LP2-1 first.
-
-**Cure.** `emphasis="quiet"` at all 28 sites. This is a consumer-side migration, not a glass-ui
-change — and it is worth saying that the *reason* 28 sites drifted silently is edict-4-shaped: the
-demo talks to the design system through `demo/ui/`'s re-export barrels (LP2-7), which are the one
-place a migration could have been noticed and were instead the place it was laundered.
+**Cure — at the root, not the instance (edict 5).** The composition belongs in the design system, not
+in 40 call sites. Relay to the glass-ui BH inbox: `.focus-ring:focus-visible` should emit
+`box-shadow: var(--control-shadow, ), var(--focus-ring-shadow)` — a control sets `--control-shadow`
+to its material stamp and the ring composes by construction — or move the affordance to `outline`,
+which composes with `box-shadow` by definition and which WHCM already prefers
+(`a11y-overrides.css` already ships the `@media (forced-colors: active)` outline fallback for exactly
+these selectors). Until then the local fix is the one `.search-seated` already models: a scoped
+`:focus-visible` rule that names both shadows.
 
 ---
 
-## §3 · New findings
+### LP3-2 · MAJOR · NEW · wrong home, and a second implementation of this component's own sort affordance
 
-### LP2-3 · MAJOR · NEW · `toRgba8`, a published API, maps an achromatic colour to a tinted byte triple
-
-This is the finding I would most want carried into the mega-tranche, because it is not in the demo —
-it is in `@mkbabb/value.js`, on the public surface, and it is why the duplicated colour engine
-(LP2-4 / pass 1's L-6) has survived every previous audit: **the canonical path is worse than the
-copy on the neutral axis, so nothing ever forced convergence.**
-
-**Where.** `src/color/operations.ts:305-331`, shipped as `@mkbabb/value.js/color`.
-
-```ts
-// src/color/operations.ts:305
-function roundHalfEven(value: number): number {
-    const floor = Math.floor(value);
-    const fraction = value - floor;
-    if (Math.abs(fraction - 0.5) < Number.EPSILON * Math.max(1, Math.abs(value))) {
-        return floor % 2 === 0 ? floor : floor + 1;
-    }
-    return Math.round(value);
-}
-```
-
-**Mechanism — two faults compounding.**
-
-1. `hsv → rgb` is not channel-symmetric at `s = 0`: a colourless input yields three RGB channels
-   1–3 ulp apart instead of bit-identical.
-2. `roundHalfEven`'s "is this exactly .5" tolerance is **scaled by the value's magnitude** —
-   `Number.EPSILON * max(1, |value|)` ≈ 1.70e-14 at 76.5, i.e. about *one* ulp. Channels whose float
-   error differs by 1–3 ulp therefore take **different rounding branches**: some banker's-round down,
-   some `Math.round` up. `toRgba8` is not a pure per-channel map.
-
-**Reproduction — pasted output.**
+`demo/palettes/browser/search/UserSortMenu.vue` sorts **admin users**. Its consumers:
 
 ```
-$ node -e "import('./dist/subpaths/color.js').then(({hsv,convertColor,toRgba8})=>{ … })"
-hsv channels: [ 0, 0, 0.30000000000000004 ]
- ch0 exact=76.500000000000042633 frac-0.5=4.2633e-14 tol=1.6986e-14 halfEvenBranch=false -> byte 77
- ch1 exact=76.500000000000014211 frac-0.5=1.4211e-14 tol=1.6986e-14 halfEvenBranch=true  -> byte 76
- ch2 exact=76.500000000000028422 frac-0.5=2.8422e-14 tol=1.6986e-14 halfEvenBranch=false -> byte 77
-toRgba8: [ 77, 76, 77, 255 ]
+$ grep -rn "UserSortMenu" demo/ | grep -v "search/index.ts"
+demo/palettes/browser/index.ts:35:export { SearchFilterBar, UserSortMenu, TagEditPopover } from "./search";
+demo/palettes/admin/AdminPane.vue:17:                <UserSortMenu
+demo/palettes/admin/AdminPane.vue:86:import { UserSortMenu } from "../browser/search";
 ```
 
-Three mathematically identical channels → `[77, 76, 77]` = `#4d4c4d`: a magenta cast on what must be
-neutral grey.
+It lives in the palette-browser *search* cluster, is re-exported through the palette-browser seam,
+and is consumed **only** by `demo/palettes/admin/` — which has its own barrel. `admin` reaches into
+`browser/search` for a component about neither browsing nor searching. Unique semantic ownership
+fails on the first question you can ask it: *what feature does this belong to?*
 
-**Rate, over ladders a UI can actually emit.**
+And it is a **parallel implementation of the affordance the subject builds fifteen lines into its own
+template**:
 
-```
-v = k/10   (0.1 step, JS accumulation)      2/11    v=0.30000000000000004 -> [77,76,77]
-                                                    v=0.8999999999999999  -> [230,229,230]
-v = k/100  (1% step, accumulation)          0/101
-v = k/255  (byte ladder)                    0/256
-v = (k+0.5)/255 (half-byte ladder)         67/255   v=0.00196078431372549 -> [1,0,0]
-                                                    v=0.01764705882352941 -> [5,4,4]
-```
-
-`hsv(0, 0, 0.5/255)` → `[1, 0, 0]`: a **pure red** byte from a colourless input. Over 200 000 random
-`v` the hit rate is 0/200 000 — the defect fires only at half-byte boundaries, so it is
-rare-but-exact rather than noisy, which is precisely why sampling-style tests miss it.
-
-**Reachability from the shipped UI — HYPOTHESIS.** The picker's HSV sliders are
-`demo/picker/controls/ComponentSliders/ComponentSliders.vue:70` → `:step="0.001"`. Canonical step
-quantization (`min + step*n`) puts the V slider's `.700` detent at `0.001*700 === 0.7000000000000001`
-— *not* `0.7`; verified in `node` — and:
-
-```
-V slider at .700  v=0.7000000000000001  bytes=[179,178,179]  hex=#b3b2b3  neutral=false
-V slider at .300  v=0.3                 bytes=[76,76,76]     hex=#4c4c4c  neutral=true
-V slider at .500  v=0.5                 bytes=[128,128,128]  hex=#808080  neutral=true
-```
-
-`#b3b2b3` is what `pickerColorToHex` (`demo/color-session/picker-color.ts:212`, reached via
-`color-model.ts:64`) would hand the hex readout and the clipboard, and what `colorToRgb255`
-(`color-utils.ts:17`) would hand the WebGL shader. I could **not** confirm that reka-ui computes the
-detent as `step*n` — no browser — so the UI hop is a hypothesis. The library defect is confirmed.
-
-**Cure.** The magnitude-scaled epsilon is the wrong instrument: at byte scale it is ~1 ulp, so it
-cannot distinguish "exactly .5" from "0.5 + 2 ulp of upstream conversion error", and it resolves
-*per channel* what is logically one decision. Two changes, both structural:
-
-1. Make achromaticity structural in the conversion: `hsv → rgb` at `s === 0` must emit the value
-   channel three times, bit-identically, not compute it three times.
-2. Replace `roundHalfEven`'s tolerance with an absolute ulp budget on the *triple* (round the three
-   channels under one shared decision), or accept plain half-even on exact `.5` and stop pretending a
-   float-error window is the same thing.
-3. Add the property test that would have caught it: **for every `AnyColor` whose RGB channels are
-   equal, `toRgba8` returns equal bytes.** This is a one-line invariant over the library's most
-   depended-on projection and it does not exist today.
-
-### LP2-4 · MAJOR · NEW measurement · the two colour engines disagree on 27.37% of the HSV grid
-
-Pass 1's L-6 establishes that `MiniColorPicker.vue` contains a second colour engine. It does not say
-how far the two engines have drifted. They have drifted a long way.
-
-Transcribing `MiniColorPicker.vue:85-105` verbatim and diffing it against the library path
-(`hsv()` → `toRgba8()`, which is what `pickerColorToHex` does) over a 14 641-point HSV grid:
-
-```
-$ node scratchpad/hsv.mjs
-samples=14641  mismatches=4007  (27.37%)
-  h=0 s=0.0 v=0.3  local=#4d4d4d library=#4d4c4d
-  h=0 s=0.0 v=0.7  local=#b3b3b3 library=#b2b2b2
-  h=0 s=0.0 v=0.9  local=#e5e5e5 library=#e6e5e6
-  h=0 s=0.1 v=0.1  local=#1a1717 library=#191717
-```
-
-Two distinct causes inside that 27.37%: a **deliberate rounding-policy fork** (the local
-`Math.round(c*255)` at `:103` is half-up; the library is banker's) and the LP2-3 asymmetry. Both are
-consequences of the same structural fact — one concept, two homes — and note the direction: on the
-neutral axis the *demo's copy* is right and the *library* is wrong.
-
-Four homes already own this conversion, which is the actual finding:
-
-| home | symbol | anchor |
+| | `SearchFilterBar` Sort section (`:19–28`) | `UserSortMenu` (`:2–37`) |
 |---|---|---|
-| the library | `hsv()` · `convertColor()` · `toRgba8()` | `src/subpaths/color.ts` (published) |
-| the demo's colour layer | `pickerColorToHex(color)` | `demo/color-session/picker-color.ts:212` |
-| the demo's colour layer | `convertPickerColor(color, "hsv")` | used 6× in `useColorPipeline.ts`, `useColorParsing.ts` |
-| glass-ui 7 | `oklchStopToHex` · `cssToOklch` | `@mkbabb/glass-ui/color` |
+| trigger | `Button icon-only variant="ghost"` + `EllipsisVertical` (`:5–6`) | `Button icon-only variant="ghost"` + `EllipsisVertical` (`:6–16`) |
+| surface | `Popover` / `PopoverContent` | `DropdownMenu` / `DropdownMenuContent` |
+| selection | `RadioGroup` + `RadioGroupItem` inside a hand-built `<label class="filter-option">` | `DropdownMenuRadioGroup` + `DropdownMenuRadioItem` |
+| row styling | scoped CSS class (`:240–248`) | inline utilities |
+| a11y name | `aria-label="Filters"` | `aria-label="Sort users"` |
 
-`grep "toString(16)"` across `demo/` + `src/` returns 5 sites; `MiniColorPicker.vue:103` is the only
-one that is a *colour* serializer not routed through `toRgba8`.
+Two glass-ui primitive families, two row-styling homes, one affordance, same directory. Edict 4 says
+reuse existing component-type names; the `DropdownMenuRadioItem` path already ships the
+selected/`data-state` register that `SearchFilterBar` re-builds by hand out of `<label>` +
+`RadioGroupItem` — which is, per pass 1's L-1, the same surface whose `:checked`/`@update:checked`
+sibling is inert under glass-ui 7. **The hand-built path is the one that breaks.**
 
-**Cure.** As pass 1 says — delete both conversions, `currentHex` becomes
-`pickerColorToHex(convertPickerColor(hsv(hue, sat, val), "rgb"))` and the incoming watcher becomes
-`convertPickerColor(parsePickerColor(hex), "hsv")` — with the addition that **LP2-3 must land first**,
-or the deletion is a regression: convergence onto a wrong canonical path makes neutral greys worse
-than they are today. Sequence matters here; that is the whole reason to record the 27.37%.
+**Cure.** Move `UserSortMenu.vue` to `demo/palettes/admin/` (its only consumer); drop it from
+`search/index.ts` and `browser/index.ts`. Then collapse both onto the `DropdownMenuRadioGroup`
+recipe, which is the one that gets selection state from the design system instead of re-deriving it.
 
-### LP2-5 · MAJOR · NEW · seam discipline is inverted — 7 barrels on the leaf, 0 on the spine
-
-`SearchFilterBar.vue:145` reaches three levels up, out of its own area, into a sibling area's
-internal module:
-
-```ts
-import { parseColorIn } from "../../../color-session/color-utils";
-```
-
-Pass 1 marks this edge ✔ ("correct layer"), and on *direction* it is right — `palettes` (feature) →
-`color-session` (spine) is downward. But the target has no seam to arrive at. `demo/color-session/`
-contains 24 files and **no `index.ts`**. Its de-facto public surface, measured:
-
-```
-$ grep -rho 'from "[^"]*color-session/[^"]*"' demo --include=*.ts --include=*.vue | sed … | sort | uniq -c | sort -rn
-  26 keys            11 useContrastSafeColor     4 color-names        2 color-space-meta
-  19 picker-color      6 color-utils             3 color-chips        2 ColorSpaceSelector.vue
-  16 color-model       5 ink                     2 colorSpaceInfo     1 view-accent   (+5 more)
-$ grep -rl 'color-session/' demo --include=*.ts --include=*.vue | grep -v '^demo/color-session/' | wc -l
-      57
-```
-
-**57 files** outside the area reach **18 distinct raw internal modules** of it, one of them a raw
-`.vue`. Meanwhile `demo/palettes/browser/` — a *leaf* — carries **seven** barrels (`browser/index.ts`
-plus `card/ admin/ search/ dialog/ slug/ status/`), and its top barrel opens with eighteen lines of
-prose about seam law (`browser/index.ts:1-18`).
-
-The effort is spent exactly inverse to the risk. And the inversion has a second edge: because
-`color-session` is simultaneously a peer feature and the shared spine, it has the surface discipline
-of neither — nothing declares what of it is public, so all of it is.
-
-**Cure.** Give `color-session/` the one barrel that matters — `demo/color-session/index.ts`, named
-exports only (`parseColorIn`, `colorToCss`, `colorToRgb255`, `pickerColorToHex`,
-`convertPickerColor`, `parsePickerColor`, the `PICKER_*` tables, `keys`) — and route the 57 consumers
-through it. Then collapse the leaf's seven barrels to the one at `browser/index.ts`: a sub-barrel per
-sub-directory is the "new shared dir that does not already exist" contrivance the KISS edict forbids,
-five times over.
-
-While doing it, fix the throw-vs-`Result` inversion the barrel would otherwise enshrine:
-`parsePickerColor` (`picker-color.ts:103`) converts the library's explicit `Result` into an exception,
-which is why the component ended up writing a regex instead of reading a failure (pass 1's L-5). The
-barrel should re-export the `Result`-shaped function and let callers narrow once.
-
-### LP2-6 · MINOR · NEW · `searching` is dead state; the spinner branch cannot render
-
-`SearchFilterBar.vue:213-225` is declared `async` and contains **no `await`**:
-
-```ts
-async function applyColorSearch() {
-    if (searching.value) return;
-    searching.value = true;
-    try {
-        …
-        emit("colorSearch", lab.L, lab.a, lab.b);
-    } finally {
-        searching.value = false;
-    }
-}
-```
-
-`searching.value = true` and the `finally` reset execute in the same synchronous tick, so Vue never
-observes `true`. Therefore:
-
-- `:98` `:disabled="searching"` never binds,
-- `:102` `<Loader2 v-if="searching" class="… animate-spin" />` is an unreachable branch,
-- `:99`'s `disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none` are dead
-  classes.
-
-This is honest in one respect: the search *is* synchronous, because it is the client-side
-`Array.filter` of pass 1's L-3. The spinner is residue from an intended server call.
-
-**Cure, ordered.** Fix L-3 (send `colorL/colorA/colorB` on the wire) and the async-ness becomes real
-and the spinner earns its place. If L-3 is deferred, delete `searching`, the `Loader2` import and both
-dead attribute sets. *Edict-6 check:* `animate-spin` is a Tailwind utility on a never-rendered node,
-not an authored keyframe — removing it deletes no animation, and `demo/styles/` keeps its keyframe
-library untouched.
-
-### LP2-7 · MINOR · NEW measurement · `demo/ui/` funnels the root barrel past the subpaths glass-ui ships
-
-Pass 1's L-9 establishes that `demo/ui/` is a pure alias layer. Two costs it does not quantify.
-
-**(a) It flattens glass-ui 7's own module lattice into shadcn-vue's 2023 directory taxonomy.**
-glass-ui 7.0.0 publishes 70 subpaths, including `./button`, `./popover`, `./card`, `./select`,
-`./slider`, `./switch`, `./tooltip`, `./separator`, `./label`, `./collapsible`, `./dropdown-menu`,
-`./dialog`, `./badge`. **Thirteen of `demo/ui/`'s nineteen names have a dedicated glass-ui entry
-point, and the barrels route all of them through the root `.` barrel anyway** — while
-`demo/ui/input/index.ts` alone reaches a real subpath (`@mkbabb/glass-ui/forms`). From a call site
-`demo/ui/button` and `demo/ui/input` are indistinguishable, so the design system's actual boundaries
-are invisible at the point of use. The demo invented a second, worse module map for a package that
-already has a good one — and that laundering is the mechanism by which LP2-2's 28-site drift went
-unnoticed.
-
-**(b) Measured funnel.** Transitive closure of glass-ui's unbundled `dist/`:
-
-```
-root barrel closure:  66 modules, 224 193 bytes
-button.js  closure:   11 modules,  17 224 bytes
-popover.js closure:    7 modules,  13 960 bytes
-```
-
-and Vite's dep pre-bundle confirms nothing goes through the granular entries:
-
-```
-$ ls -l node_modules/.vite/deps/ | grep glass
-231357  @mkbabb_glass-ui.js          ← the root barrel
-202019  @mkbabb_glass-ui_aurora.js
-104093  @mkbabb_glass-ui_blob.js
- 43369  @mkbabb_glass-ui_dock.js
-  2940  @mkbabb_glass-ui_color.js
-…                                     ← no @mkbabb_glass-ui_button.js, no _popover.js
-```
-
-**Honest scoping**, because the number invites overclaiming: the root chunk loads anyway (three demo
-files import `writeClipboard` / `useClipboard` / `useTouchGate` from bare glass-ui), and
-`sideEffects: ["*.css"]` lets Rolldown tree-shake the production build. So the 231 KB is a **dev-mode**
-cost, not a shipped one. Cost (a) is unconditional.
-
-**Cure.** Delete `demo/ui/` (19 directories, 29 lines total) and import glass-ui at the point of use
-through the granular subpath where one exists — `import { Button } from "@mkbabb/glass-ui/button"`.
-That kills the alias layer the no-legacy edict forbids, replaces `../../../ui/popover` with a bare
-specifier at every depth, and makes the design system's boundaries visible in the import block.
-
-### LP2-8 · INFO · NEW · unreachable defensive throw
-
-```ts
-// SearchFilterBar.vue:205
-function hexToOklab(hex: string): { L: number; a: number; b: number } {
-    const [L, a, b] = parseColorIn(hex, "oklab").channels;
-    if (L === "none" || a === "none" || b === "none") {
-        throw new Error("Hex color produced missing OKLab channels");
-    }
-    return { L, a, b };
-}
-```
-
-Both callers can only pass a 6-digit hex or `pickerHex.value`; neither can yield a `none` channel —
-`none` arrives from CSS `none` keywords, which the L-5 regex gate excludes by construction. The branch
-is type narrowing wearing runtime-error clothes. It disappears once the `"none"` policy has the single
-home pass 1's L-8 asks for.
+**Folder-cohesion consequence, stated once.** `search/` holds four members: `SearchFilterBar`
+(browse filters), `MiniColorPicker` (a color picker), `TagEditPopover` (a **mutation** surface —
+`tagEdit.saveTags` writes tags to a palette), `UserSortMenu` (admin user sorting). **One of four is
+search.** Pass 1's greenfield lattice renames the leaf; I would go further and split it —
+`filters/`, `tags/`, and `admin/` — because the directory name is currently doing no work at all.
 
 ---
 
-## §4 · A stronger proof of pass 1's L-11 (the seam is enforced by nothing)
+### LP3-3 · MINOR · NEW · the visual-audit matrix cannot see this component
 
-Pass 1 infers the G-DEMO rules are inert from their globs. That inference is correct, and it can be
-made a direct measurement — worth recording because it is the form a gate should be checked in:
+`docs/tranches/V/megatranche/audit/visual/REPORT.json` records **4** small tap targets on `/#/browse`
+in each of the four matrices — a 160×23 unlabeled input and three 22×22 slug-bar buttons
+("Switch to slug", "Generate new slug", "Cancel"). **None belongs to `SearchFilterBar`.** The row
+also reports `"dialog": 0` and `bodyTextLength: 280`: the popover is closed at capture, so everything
+this component renders except its 32×32 kebab trigger is outside the audit's reach.
 
-```
-$ npx eslint --print-config demo/palettes/browser/search/SearchFilterBar.vue | …
-no-restricted-imports for SearchFilterBar.vue -> "<ABSENT>"
-$ npx eslint --print-config demo/palettes/BrowsePane.vue | …
-no-restricted-imports for BrowsePane.vue -> "<ABSENT>"
-```
-
-The rule is not merely unable to match — it is **absent from the effective configuration** for both
-files. Root cause as pass 1 states: `eslint.config.js:232-239` scopes G-DEMO-3b to
-`demo/@/components/**` / `demo/@/lib/**`, `:275-278` scopes G-DEMO-3a to `demo/@/composables/**`, and
-W43 (RF-15) deleted that tree — quoted in `vite.config.ts:66-72`. Confirmed:
+Opened, measured live:
 
 ```
-$ ls -d demo/@
-ls: demo/@: No such file or directory
-$ grep -rn '"@components' tsconfig*.json vite.config.ts vitest.config.ts     # → nothing
-$ grep -rn 'from "@components' demo --include=*.ts --include=*.vue | wc -l
-0
+POPOVER SMALL TAP TARGETS: [{"w":28,"h":28,"label":"Open color picker, current color #4488cc"},
+                            {"w":53,"h":24,"label":"Search"}]
 ```
 
-**Corroboration that the seam is already being bypassed inside its own tree**, which pass 1 does not
-have: `demo/palettes/browser/card/CurrentPaletteEditor.vue:193` → `import ApiOfflineChip from
-"../status/ApiOfflineChip.vue"` — a raw `.vue` reach from the `card/` sub-feature into `status/`, past
-`status/`'s barrel. Exactly the crossing G-DEMO-3b names, and `eslint` is green.
+28×28 swatch; 53×24 inline Search button — sitting exactly on the 24px floor of WCAG 2.5.8 AA with
+zero margin, and well under 2.5.5 AAA's 44px. Screenshot: `evidence-p3-L/SFB-L-popover-open.png`.
 
-**Cure.** Re-target the globs to physical homes (`demo/palettes/**`, `demo/picker/**`,
-`demo/workbenches/**`, `demo/scenes/**`, `demo/shell/**`) and re-express the ban against physical
-paths. Better and cheaper to keep true: replace the bespoke `no-restricted-imports` encoding with a
-declarative boundary map (`import/no-restricted-paths` zones, or `eslint-plugin-boundaries`) where
-each area declares its allowed targets once — so a rename cannot silently unhook it, which is what
-happened here.
+The screenshot carries one more thing no JSON row does: the placeholder `"#hex, hsl(...)"`
+(`:92`) **truncates on screen to `#hex, …`**. The popover is `w-60` (240px) and the input reserves
+`pr-16` (64px) for the inline button; ~110px survives. The single affordance that tells a user
+non-hex CSS syntax is accepted is unreadable — and, per pass 1's L-5 and §4 below, would be a lie if
+it were readable.
+
+**This is a finding about the audit instrument as much as the component.** Any component whose
+surface lives behind a `Popover`, `DropdownMenu`, `Dialog` or `Drawer` is structurally invisible to
+the current capture. The `/#/browse` row's clean `smallTapTargets: 4` is a **false negative** for
+this component's real surface.
+
+**Cure.** The visual matrix needs an interaction pass per route — open each overlay trigger, re-probe,
+re-shoot. Until then, treat every popover-hosted component's a11y row as UNMEASURED, not GREEN.
 
 ---
 
-## §5 · Greenfield lattice — pass 2's amendments
+## §3 · Reconciliation — the HSV divergence rate is grid-dependent
 
-Pass 1's lattice (its §4) is sound and I adopt it. Three amendments, all consequences of §3:
+Pass 2 (LP2-4) reports the two color engines disagreeing on **27.37%** of a 14 641-point HSV grid.
+I measured the same defect independently, before reading it, on a different grid:
 
 ```
-L0  @mkbabb/value.js   (7 published subpaths — posture unchanged)
-      + deltaE(a, b)                                pass 1's L-3 cure, unchanged
-      + resolveChannels(c): Result<[n,n,n]>          pass 1's L-8 cure, unchanged
-   ▸ + toRgba8 channel-symmetry INVARIANT + test     NEW (LP2-3) — and it must land
-   ▸   hsv→rgb emits bit-identical channels at s=0     BEFORE the L-6 engine merge,
-                                                        or convergence is a regression
-
-L1 ▸demo/color-session/index.ts    NEW (LP2-5) — the ONE barrel that matters, named exports only.
-      Re-exports the Result-shaped parse, not the throwing wrapper — which is what
-      made pass 1's L-5 regex feel necessary in the first place.
-
-L2  demo/palettes/browse/useBrowseQuery.ts     pass 1's design, unchanged: one owner for
-      { text, sort, tier, tags, color, radius } + toListOptions() + activeCount + clear()
-
-L3  FilterMenu.vue  (was SearchFilterBar)      stateless over v-model:query.
-      Loses colorText · pickerHex · colorSearchActive · miniPickerOpen · searching (:169-173)
-    ▸ and `searching` does not come back until the search is actually async (LP2-6)
-    ColorField.vue  (was MiniColorPicker)      two pointer-drag regions; emits an AnyColor.
-    ▸ ~45 lines of duplicated library math deleted — AFTER L0 (LP2-4)
-
-  ▸demo/ui/  DELETED — and the 28 `variant="ghost"` sites (LP2-2) migrate to `emphasis="quiet"`
-              in the same pass, since deleting the laundering layer is what makes the drift visible
+$ node scratchpad/SFB-L-hsv.mjs      # h ∈ [0,360] step 1 ; s,v ∈ [0,1] step 0.05  →  361×21×21
+HSV->hex: 19884 mismatches / 159201 samples          (12.49%)
+  h=0 s=0    v=0.3  handRolled=#4d4d4d  library=#4c4c4c
+  h=0 s=0    v=0.5  handRolled=#7f7f7f  library=#808080
+  h=0 s=0    v=0.7  handRolled=#b3b3b3  library=#b3b2b3
 ```
 
-The transposition underneath all of it, which both passes reach from different directions: **a filter
-bar should own no state and no arithmetic.** LP2-1 (a control that cannot report), LP2-6 (state that
-cannot render), pass 1's L-5 (a parser that should not exist) and LP2-4 (a conversion that should not
-exist) are four faces of one fact — a *view* is holding filter truth and colour math that belong one
-or two layers down. Move both down and every one of them becomes unwriteable.
+**12.49% and 27.37% are both correct.** They differ because the defect is a per-channel
+quantization/rounding fork whose hit rate depends entirely on how densely the grid samples `s` and
+`v` — pass 2's 121×121 grid samples those two axes ~6× more finely than mine and collapses the hue
+axis, concentrating on exactly the region where the fork bites.
 
-The sequencing constraint is the genuinely new claim: **LP2-3 gates LP2-4.** Merging the two colour
-engines onto today's `toRgba8` would make neutral greys measurably worse than the hand-rolled copy
-produces. Fix the library first, then delete the duplicate.
+**Why this matters for the wave that fixes it.** A born-RED gate written as "assert divergence ==
+27.37%" would be measuring the grid, not the code. The invariant a gate should assert is
+**zero**: after `MiniColorPicker` is transposed onto `color-session`, the mismatch count is 0 on
+*any* grid, and that is falsifiable without agreeing on a sampling policy first. I record 12.49%
+solely so a future reader who finds two different numbers in two reports does not conclude one of us
+mismeasured.
+
+Independent corroboration of the fork's direction, for the record: HSV(0, 0, 0.5) →
+hand-roll `#7f7f7f`, library `#808080`. The mini-picker and the main picker display **different hex
+strings for the same coordinate** in the same running app. That is the user-visible face of pass 1's
+L-6, and it needs no percentage at all.
 
 ---
 
-## §6 · Negative results — pass 2
+## §4 · Live confirmation — the wrong-color search, observed
 
-Pass 1's §5 negatives I re-checked and confirm: no wrong-direction edge; honest library reach;
-`verbatimModuleSyntax` clean (`:144 import type { Tag }`); Vue 3.5 idioms correct (reactive props
-destructure `:147`; `useTemplateRef` in `MiniColorPicker.vue:82-83`); tokens live; `@reference` idiom
-correct; no animation deleted; `/#/browse` clean for `pageErrors`, `horizontalOverflow`, `main`,
-`namelessButtons` across all four Safari matrices (`REPORT.md:120-121, 135-136, 150-151, 165-166`);
-the four `smallTapTargets` on that route are `PaletteSlugBar`'s, not this component's
-(`REPORT.json`: `input 160×23` + three `button 22×22` labelled "Switch to slug" / "Generate new slug"
-/ "Cancel").
+Pass 1 establishes the gate statically (`SearchFilterBar.vue:218`) and tabulates OKLab distances.
+Neither pass drove it. I did.
 
-Two negatives I add, both bearing on the CHALLENGE-L premise, which was that the library structure
-under this component is wrong. On the axis the premise most directly names, it is **right**:
+WebKit, `/#/browse`, popover opened, typed `hsl(120, 80%, 40%)` into the field, clicked the inline
+Search button:
 
-- **The demo's consumption of `@mkbabb/value.js` is genuinely honest — no deep-path cheating
-  anywhere.** `grep -rn 'from "\(\.\./\)*src/' demo` returns **zero** hits across the whole demo tree.
-  The five specifiers in use (`/color` ×24, `/css` ×10, `/math` ×6, `/easing` ×5, `/quantize` ×4) are
-  all real keys in `package.json#exports`, and `vite.config.ts:38-49` **generates** the self-alias set
-  *from* that exports map — with anchored regexes, so a subpath cannot prefix-collide — resolving to
-  `dist/subpaths/*.js`, the built artifact. A real npm consumer could write every import the demo
-  writes. Pass 1 proved the same point with `tsc --traceResolution`; two independent methods agree.
-  **This is a true proof of the public API, and it is the strongest thing about the structure here.**
-- **glass-ui composition uses the design system's own contract, not an override.** `SearchFilterBar`
-  is slotted into glass-ui's `SearchBar` default slot (`BrowsePane.vue:15-26`); `SearchBar`'s compiled
-  definition ends in `A(n.$slots, "default")` after its own input, so a trailing default slot is the
-  intended host for exactly this. No glass-ui internal is reached and no variant is forked into
-  `demo/ui/`. The scoped block (`:235-249`) styles only demo-local `.filter-*` classes through tokens
-  (`--font-serif`, `--type-small`, `--leading-small`, `--radius-md`, `--duration-fast`,
-  `--ease-standard`, `--accent`) — no hard-coded colour, no glass-root override. Root-level-styling
-  edict: satisfied. (Pass 1's `#filters`-slot request to glass-ui is an *enhancement*, not a violation
-  by this component.)
+```
+AFTER hsl() SEARCH: {"fieldValue":"hsl(120, 80%, 40%)",
+                     "swatchLabel":"Open color picker, current color #4488cc",
+                     "swatchBg":"rgb(68, 136, 204)",
+                     "badge":"1"}
+```
 
-Caveats I will not paper over: I had no browser, so LP2-1's runtime half and LP2-3's UI hop rest on
-declarative and arithmetic evidence rather than a click; and every browse capture in the visual matrix
-logged `Failed to load remote palettes: SyntaxError: The string did not match the expected pattern.`
-— the API was down, so the component was photographed filtering an empty wall, and no capture has
-ever opened its popover.
+The field still reads green. The swatch is still the default blue. **The filter badge asserts "1
+active filter."** The UI reports success for a search the user did not make — the searched color is
+`#4488cc`, `0.2957` in OKLab from the requested green, **≈2× the 0.15 match radius**
+(`BrowsePane.vue:344`, `api/.../crud-list.ts:167`), i.e. a categorically different result set.
+
+Independent replay of the gate against the real published surface, all nine inputs the placeholder
+or CSS Color 4 would lead a user to type:
+
+```
+input                    libParses gatePass searchedColor  dist(intended,searched)
+hsl(200 50% 50%)         true      false    #4488cc        0.0453
+hsl(120, 80%, 40%)       true      false    #4488cc        0.2957   <-- beyond the 0.15 radius
+#abc                     true      false    #4488cc        0.1950   <-- beyond
+#4488ccff                true      false    #4488cc        0.0000
+rebeccapurple            true      false    #4488cc        0.2171   <-- beyond
+oklch(0.7 0.15 30)       true      false    #4488cc        0.2718   <-- beyond
+color(display-p3 1 0 0)  true      false    #4488cc        0.4028   <-- beyond
+  #ff0000                true      true     #ff0000        0.0000
+#FF0000                  true      true     #FF0000        0.0000
+```
+
+**The library parses 9 of 9. The component accepts 2 of 9. Five of the seven rejections land beyond
+the search radius.** The defect is not "unsupported syntax is ignored" — it is "unsupported syntax
+silently searches a different color and the UI says it worked."
+
+Evidence class upgraded: pass 1's L-5 is no longer inferred from a code path, it is observed in the
+running app. Its severity should be read accordingly.
 
 ---
 
-## §7 · Reproduction scripts
+## §5 · Retraction — my own first measurement was wrong
 
-Written to the session scratchpad, not committed (this seat writes only under
-`docs/tranches/V/megatranche/audit/components/SearchFilterBar/`). Both import `dist/subpaths/*.js`
-directly, so they exercise the **published** surface, not `src/`:
+My first CSS probe (`scratchpad/SFB-L-probe.mjs`) walked `document.styleSheets` testing
+`rule.selectorText` and reported:
 
-- `probe.mjs` — applies `SearchFilterBar.vue:218`'s gate verbatim to 7 CSS colours and compares
-  against `parseCssColor` + `convertColor(_, "oklab")`. Reproduces pass 1's L-5 independently:
-  6 of 7 library-valid colours — including the placeholder's own `hsl(...)` example and 3-digit hex —
-  are discarded and silently replaced by `#4488cc`.
-- `hsv.mjs` — LP2-4: transcribes `MiniColorPicker.vue:85-105` verbatim, diffs against
-  `hsv()` → `toRgba8()` over 14 641 points.
-- `gray.mjs` + inline `node -e` probes — LP2-3: the achromatic asymmetry, the ulp/tolerance
-  arithmetic, the four UI ladders, and the `step=0.001` detent test.
+```
+CSS AUDIT: {"focusRingRules":0,"scrollbarThinRules":0,"total":5322,"unreadable":0}
+```
+
+From which I drafted — and here retract — the claim that `.focus-ring` and `.scrollbar-thin` are
+phantom classes that resolve to nothing.
+
+**Both exist.** `node_modules/@mkbabb/glass-ui/dist/styles/utilities/base.css` defines
+`.focus-ring:focus-visible` and `.scrollbar-thin` (with a `::-webkit-scrollbar` fallback), and the
+chain reaches the app: `demo/styles/foundation.css:56` → `@mkbabb/glass-ui/styles` →
+`dist/styles/index.css` → `./utilities.css` → `./utilities/base.css`. A raw-text audit of the loaded
+CSSOM (`SFB-L-focusring2.mjs`, 42 sheets / 570 808 bytes) finds `.focus-ring:focus-visible` twice and
+`.scrollbar-thin` six times. My walker under-counted rules nested in `@layer` blocks; `total: 5322`
+was itself the tell, against 570 KB of actual CSS.
+
+I publish this because the retracted claim is exactly the kind that gets folded into a ledger and
+acted on — someone would have "cured" a non-defect by adding a duplicate `.focus-ring` rule to
+`demo/styles/`, creating a genuine dual path in the process. **The real defect (LP3-1) is worse and
+in a different place: the class exists, it matches, and it is overridden.** A probe that answers
+"does the rule exist?" was the wrong probe; "what does the element actually compute?" was the right
+one, and only the second one finds it.
+
+---
+
+## §6 · Negative proof — what pass 3 independently re-verified as sound
+
+Stated so this pass is a measurement and not only a complaint. Each re-derived before reading the
+predecessors.
+
+1. **No demo → `src/` deep imports anywhere.**
+   `grep -rn "from \"@src\|value.js/src\|\.\./\.\./\.\./src/" demo --include="*.vue" --include="*.ts"`
+   → **0 hits.** The subject reaches value.js only transitively, via
+   `color-session/color-utils.ts:1` → `@mkbabb/value.js/color` and `picker-color.ts:27,33` →
+   `@mkbabb/value.js/color` + `/css` — both published `package.json#exports` subpaths. Every import
+   on this path is one a real consumer could write. The demo is **not** a false proof of the public
+   API here.
+2. **`palettes → color-session` is a correct downward edge.** Measured inbound edges to
+   `color-session/` by consuming area: `workbenches 28 · picker 19 · color-picker 17 · palettes 16 ·
+   shell 14 · scenes 14` (108 total, 6 areas). Outbound edges from `color-session/` into
+   `palettes|picker|workbenches|shell`: **0**. It is a clean lower layer by measurement, and
+   `SearchFilterBar.vue:145` reaches down into it. *(Pass 2's LP2-5 is right that it lacks a barrel;
+   the layering itself is sound.)*
+3. **Relative-path climbing is not a defect here.** `../../../` is the sanctioned idiom since
+   W43 · RF-15 deleted the demo `@…` aliases (`vite.config.ts:64–71`); `@src` survives only for the
+   exempt `assets/docs/*.md` source-embed pages.
+4. **`verbatimModuleSyntax` holds.** Line 144 is the file's only type-only import and is written
+   `import type`. `npx eslint demo/palettes/browser/search/SearchFilterBar.vue` → clean.
+5. **Idiomatic Vue 3.5.** Reactive props destructure (`:147`); `useTemplateRef` in the child
+   (`MiniColorPicker.vue:82–83`). No `defineModel` stale-read hazard on this surface.
+6. **The cluster barrel is correctly shaped** — named re-exports only (PI-6), and `MiniColorPicker`
+   is deliberately unexported.
+7. **Zero page errors and zero component-attributable console errors** on `/#/browse` across all four
+   Safari matrices (`REPORT.json`: `pageErrors: []`, `consoleErrors: []` on every row). The one
+   console error I observed live is the environment's `DevMisconfigError`, not this component.
+
+---
+
+## §7 · Where pass 3 lands the axis
+
+Passes 1 and 2 established that four concepts here have two homes each — color filtering, CSS-color
+validation, HSV↔sRGB conversion, and the design-system surface — and that the boundary meant to
+prevent exactly that (`G-DEMO-3b`) lints zero files. I re-verified all of it and add nothing.
+
+What pass 3 adds is that **the same disease has a fifth instance nobody had looked for, and it is in
+the design system's own composition rules**: an affordance published as a `box-shadow` class, on a
+system whose material language is `box-shadow`, on an element that carries both. It cannot be caught
+by types, by lint, by `vue-tsc`, or by a screenshot — only by asking a focused element what it
+actually computes. That the repo has already written the cure twice (`utils.css:140–144`,
+`focus-ring.css:9–15`) and still shipped a ringless control is the structural point: **a cure that
+lives in a comment is not an invariant.**
+
+Priority order for the wave, folding all three passes:
+
+1. pass 1 **L-1** (inert tags filter — a dead control beats every aesthetic concern),
+2. pass 1 **L-5** / §4 here (silently wrong search — wrong answers with a success signal),
+3. **LP3-1** (ringless control — keyboard users get nothing, and the cure exists),
+4. pass 1 **L-4** / pass 2 **LP2-3** (the filter topology and the library's byte projection),
+5. **LP3-2**, pass 1 **L-9**, pass 2 **LP2-7** (re-homing: `UserSortMenu`, `demo/ui/`),
+6. the eslint boundaries last — but *before* the re-homing lands, or nothing will hold it.
+
+---
+
+## Appendix — pass 3 probes
+
+| purpose | script | key result |
+|---|---|---|
+| Gate vs library parser; OKLab distance table (§4) | `scratchpad/probe.mjs` (overwritten by a concurrent seat mid-session; output pasted verbatim in §4) | lib 9/9, gate 2/9, 5 rejections beyond radius |
+| HSV↔hex divergence on a 159 201-point grid (§3) | `scratchpad/SFB-L-hsv.mjs` | 19 884 mismatches = **12.49%** |
+| First CSS audit — **retracted**, probe bug (§5) | `scratchpad/SFB-L-probe.mjs` | reported 0 rules; also produced the valid tap-target and live-search numbers |
+| Raw-CSSOM audit + focused-element computation (§2 LP3-1, §5) | `scratchpad/SFB-L-focusring2.mjs` | rule present ×2; `:focus-visible` TRUE; ring absent from computed `box-shadow` |
+| glass-ui dev module fan-out (context for pass 2's LP2-7) | `scratchpad/SFB-L-modules.mjs` | 13 glass-ui requests / 312 total — Vite pre-bundling absorbs the dev cost |
+| Screenshots (§2 LP3-3) | `SFB-L-popover-open.png`, `SFB-L-after-hsl.png` | the popover interior — outside the visual-audit matrix |
+
+All six artifacts are preserved in-tree beside this report at
+`docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p3-L/` (the `scratchpad/`
+paths in the table are where they ran; the scratchpad is shared with concurrent seats and is not
+durable — `probe.mjs` was already overwritten under me, which is why its output is pasted verbatim
+in §4 rather than cited by path).
+
+**No source edits were made by this seat.** The only files written are this report and the
+preservation copy `challenge-L-library-pass2-80fc5c40.md`.

@@ -1,649 +1,648 @@
-# CHALLENGE-L — PaneHeader.vue · library structure
+# CHALLENGE-L — `demo/shared/ui/PaneHeader.vue` · library structure · **PASS 2**
 
 ## Model receipt
 
-I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, matching the
-explicit declaration this seat was spawned with. Not inherited, not undeclared.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant.
+The seat was spawned with an explicit Opus 5 declaration and the declaration matches the model
+actually serving this turn. **DECLARED, not inherited.**
 
-Subject: `demo/shared/ui/PaneHeader.vue` (224 lines; 121 substantive / 91 comment / 12 blank —
-`awk` accounting below). Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD
-`c654824e`. Nine consumers. No source edits made; probe scripts only, written under this seat's
-own directory.
+Subject: `demo/shared/ui/PaneHeader.vue`, 224 lines, area core, 9 consumers, 11 live host sites.
+Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`.
+
+**HEAD at read time was `fe8785e5`** ("docs(megatranche): bank the consumer CRUD and Goldilocks DAG
+audit"), not the `c654824e` named in the brief — the tree advanced between the brief being written
+and this seat running. Every line number below is against `fe8785e5`.
+
+---
+
+## Provenance — this is a second pass
+
+A prior CHALLENGE-L pass exists, authored earlier today (11:07) at HEAD `c654824e`. It is preserved
+verbatim at **`challenge-L-library.pass-1-2026-07-28-prior.md`** and is **not superseded** — it is
+carried. Pass 1 found the strongest defect in this component and I could not improve on it.
+
+This pass did three things:
+
+1. **Independently re-derived** pass 1's load-bearing claims from scratch, without reading its probe
+   scripts, and reports the verification ledger below.
+2. **Corrected one** of pass 1's negatives (its 9/9 host-contract compliance claim).
+3. **Added five findings pass 1 did not have**, one of which is the *mechanism* that explains how
+   pass 1's L-2 was able to happen at all and will cause it to recur if left alone.
+
+### Verification ledger — pass-1 claims re-tested by this seat
+
+| pass-1 claim | my independent test | result |
+|---|---|---|
+| WebKit `atan2()`→`tan()` unit-carry defect | my own 5-declaration CSS repro (`trig-verify.mjs`), written before reading `probe-L-structure.mjs` | **CONFIRMED, digit-for-digit** |
+| WebKit mobile title *grows* 1.4338× at 390px | `ratio-verify.mjs`, `/#/gradient`, webkit 390×844 | **CONFIRMED — `matrix(1.433843, …)`, exact match** |
+| `transform-origin: left top` breaks RTL | `rtl-verify.mjs`, webkit 1440×900, `/#/gradient` (pass 1 used `/#/about`) | **CONFIRMED on a second route** |
+| `@reference` at `:61` is a dead edge | `grep -n "@apply\|theme(" demo/shared/ui/PaneHeader.vue` | **CONFIRMED — no output.** My own first read had provisionally cleared this; pass 1 is right and I was wrong |
+| producer feather is tokenized | `grep -o -- "--card-pad-title-gap:[^;]*;" …/card/styles.css` → `calc(var(--card-pad-inline) / 2.618);` | **CONFIRMED** |
+| glass-ui nests `@supports` inside `no-preference` everywhere | `grep -c` on `dist/styles/scroll-driven.css` (2) and `scroll-choreography.css` (3) | **CONFIRMED** |
+| `<ScrollCardHeader>` absent from 7.0.0 | `grep -rl ScrollCardHeader node_modules/@mkbabb/glass-ui/` | **CONFIRMED — no output** |
+| `.card-scroll-host` exists upstream, byte-identical | `dist/styles/utilities/base-misc.css` → `.card-scroll-host { contain: layout style paint; }` | **CONFIRMED** |
+| `package.json` has no `"."` export | `'.' in p.exports` → `false`; `main`/`module`/`types` all `undefined`; `src/index.ts` absent | **CONFIRMED** |
+| demo value.js imports are all published subpaths | `grep -rho "@mkbabb/value\.js[a-z/.-]*" demo/ \| sort \| uniq -c` | **CONFIRMED — 50 hits, 0 bare-root (the 1 apparent bare hit is inside a code comment), 0 deep** |
+| host-class compliance is 9/9 | `hosts.mjs` — live DOM on `/#/blob`, `/#/atmosphere`, `/#/gradient` | **CORRECTED — see L2-3** |
+
+Pass 1's headline repro, reproduced by my own script:
+
+```
+$ node trig-verify.mjs
+webkit    {"a":"310.796875px","b":"618.03125px","c":"311.34375px","d":"31717.265625px","e":"618px"}
+chromium  {"a":"618.016px",   "b":"618.031px",  "c":"311.344px",  "d":"31717.3px",     "e":"618px"}
+```
+
+`a = tan(atan2(1.618rem, 2.618rem))`, `c = tan(31.71776rad)`. WebKit's `a` lands on `c`. `atan2()`
+alone (`d`), `tan(<deg>)` (`b`) and `atan`→`tan` (`e`) are all correct. The defect is isolated to
+`atan2`→`tan` nesting, and `PaneHeader.vue:141` is the only site in the repository that depends on
+it. **Two independently authored repros, identical to the sixth figure.** Pass 1's L-1 stands as a
+BLOCKER without qualification.
+
+**New data on that defect.** Pass 1 measured the endpoint ratio. I measured mid-range, on a second
+route, and the divergence is present at *every* scroll offset, not only at the range end:
+
+```
+$ node ratio-verify.mjs                       # /#/gradient, scrollTop := 200 (clamps to pane overflow)
+webkit    1440x900  fs=41.888px  rest matrix(1,…) w=462  ->  stuck matrix(0.655404,…) w=303
+chromium  1440x900  fs=41.888px  rest matrix(1,…) w=462  ->  stuck matrix(0.805831,…) w=372
+webkit     390x844  fs=25.888px  rest matrix(1,…) w=324  ->  stuck matrix(1.433843,…) w=465
+chromium   390x844  fs=25.888px  rest matrix(1,…) w=324  ->  stuck matrix(1,…)        w=324
+```
+
+Identical viewport, identical computed `font-size`, identical tokens
+(`--type-heading: 1.618rem`, `--type-display-1: clamp(1.618rem, 1.2rem + 1.6vw, 2.618rem)`), and the
+two engines paint title boxes **303px vs 372px wide** at the same scroll position. On mobile,
+Chromium holds the designed `1.0` no-op while WebKit **enlarges by 43%** inside a 390px viewport —
+324px → 465px. (The 1440 figures are mid-range, ~60px of a 120px range: solving
+`scale = 1 + p(r−1)` gives `p ≈ 0.50` against pass 1's endpoint ratios `r = 0.618` Chromium /
+`0.3108` WebKit, so the two passes are arithmetically consistent.)
 
 ---
 
 ## Verdict
 
-**DEFECTIVE.** The premise holds, and it holds at the sharpest possible place: this component is a
-**hand fork of a design-system primitive that the repo already adopted whole**, and the fork
-diverges from the original on the two axes the original got right — unit-safe type stepping and
-motion-preference gating. Two of the defects below are BLOCKER-class and both are *consequences* of
-the wrong-home mistake, not independent bugs.
+**DEFECTIVE.** Unchanged from pass 1, on strictly more evidence.
 
-The single cure retires the component.
+Strongest defect remains **pass-1 L-1** — the condensed type rung is derived by nested browser trig
+in a leaf component, and WebKit, the app's primary engine, computes it wrong by roughly 2× on
+desktop and *in the wrong direction* on mobile.
 
----
-
-## Executive summary
-
-`@mkbabb/glass-ui@7.0.0` — the design system, adopted **whole** at V·W44 (`91fa1368`) — ships
-`CardHeader` with a `shrink` prop whose grammar is:
-
-```
-node_modules/@mkbabb/glass-ui/dist/components/card/card-scroll.css
-  .card-header--shrink                              → position:relative; isolation:isolate
-  .card-header--shrink::before                      → --glass-bg-resting + --glass-blur-resting
-                                                       + bottom-feather mask + border-radius:inherit
-  [data-condensed="true"]                           → padding-block-start: --card-header-pad-condensed
-  [data-condensed] > [data-slot=card-title]         → --type-display-2 → --type-display-1
-  [data-condensed] > [data-slot=card-description]   → display:none
-  @media (prefers-reduced-motion: reduce) { … transition:none }
-```
-
-plus, in `dist/card-Bk96VI2R.js` (`__name: "CardHeader"`), the crossing mechanism:
-`root.closest(".card-scroll-host")`, sufficiency gate
-`e.scrollHeight - e.clientHeight > root.height/2 + 24`, triggers `at: 24` down/up, `flush:"post"`.
-And `.card-scroll-host { contain: layout style paint; }` in
-`dist/styles/utilities/base-misc.css`.
-
-The demo carries **two independent forks of that primitive**:
-
-| | home | mechanism | consumers | veil feather | title step |
-|---|---|---|---|---|---|
-| producer | glass-ui 7.0.0 `CardHeader shrink` | threshold cross → `data-condensed` | 0 (unused) | `--card-pad-title-gap` ≈ 9.17px | token step d2→d1 |
-| **fork A** | **`demo/shared/ui/PaneHeader.vue`** | scroll-timeline scrub | **9 panes** | hardcoded **14px** | `calc(tan(atan2(…)))` |
-| fork B | `demo/picker/composables/useHeaderCondense.ts` + `demo/picker/header.css` | IntersectionObserver → `.is-condensed` | 1 (ColorPicker) | hardcoded **12px** | token step d2→d1 |
-
-Fork A is the subject. It is the only one of the three that computes its type rung with a browser
-trigonometric function, and the only one of the three with no `prefers-reduced-motion` arm. Those
-two facts are L-1 and the standing born-RED MT-F023, and they are the *same* defect wearing two
-hats: the component took ownership of a design-system concern and then failed to reproduce the
-design system's discipline.
+What pass 2 adds is the answer to the question pass 1 did not ask: **why was any of this
+possible?** Because the demo's module lattice is enforced by nothing at all. Every
+`no-restricted-imports` boundary rule in `eslint.config.js` matches zero live files or bans a
+specifier nobody can write. A cure that lands the transposition without restoring the gate will be
+re-broken by the next tranche, exactly as W44's whole-adoption of glass-ui 7.0.0 failed to retire
+the forks it obsoleted.
 
 ---
 
-## L-1 — BLOCKER · the condensed type rung is derived by browser trig in a leaf component, and WebKit gets it wrong by 2×
+## Consolidated defect ledger
 
-### The code
+Provenance column: **P1** = found by pass 1 (carried, verification status above); **P2** = new in
+this pass.
 
-`demo/shared/ui/PaneHeader.vue:140-142`
-
-```css
---pane-title-shrink-ratio: calc(
-    tan(atan2(var(--type-heading), var(--type-display-1)))
-);
-```
-
-The file's own comment (`:132-139`) certifies this: *"The ratio is CLOSED-FORM, not a hand constant:
-tan(atan2(y, x)) is the CSS length-ratio identity, so the endpoint law survives display-1's
-viewport-fluid clamp at every band — ≈0.618 (1/φ) at the ≥1440 cap, degenerating to exactly 1 on
-phones where display-1 floor-pins AT heading (the shrink self-neutralizes …)"*.
-
-**Both halves of that claim are false on WebKit.**
-
-### Measured — live app, both engines
-
-`node docs/tranches/V/megatranche/audit/components/PaneHeader/probe-L-structure.mjs`
-(route `/#/about`, viewport 1440×900, scroll the `.pane-scroll-fade` host to 200px):
-
-| engine | `--type-heading` | `--type-display-1` (computed) | title transform at 200px | title width |
-|---|---|---|---|---|
-| **webkit** | `1.618rem` | `41.888px` | `matrix(0.310808, …)` | 462px → **144px** |
-| **chromium** | `1.618rem` | `41.888px` | `matrix(0.618029, …)` | 462px → **286px** |
-
-Same viewport, same tokens, same computed `titleFontSize: 41.888px`, both report
-`supportsSDA: true`. Chromium lands the designed `1/φ = 0.618`. WebKit lands **0.3108** — the
-scrolled title's effective size is `41.888 × 0.310808 = 13.02px`.
-
-That is below the legibility floor **this repo's own sibling grammar explicitly protects**.
-`demo/picker/header.css:87-93`: *"`--type-display-1` floors at 1.618rem (25.9px @390 / 41.9px
-@1440) — above the legibility floor the wave doc names (BR-11: the T-42 'text too small'
-below-bound)."* Fork A ships 13.0px on Safari, the app's primary target (`color.babb.dev`; the
-entire visual-audit matrix is WebKit).
-
-### Measured — the "self-neutralizing no-op" INVERTS on mobile
-
-`node /…/scratchpad/m390b.mjs` (390×844, `/#/gradient`, host scrolled to 200):
-
-```
-webkit   #/gradient REST {"fs":"25.888px","tr":"matrix(1, 0, 0, 1, 0, 0)","w":324,"h":27}
-                    STUCK {"fs":"25.888px","tr":"matrix(1.433843, 0, 0, 1.433843, 0, 0)","w":465,"h":39}
-chromium #/gradient REST {"fs":"25.888px","tr":"matrix(1, 0, 0, 1, 0, 0)","w":324,"h":27}
-                    STUCK {"fs":"25.888px","tr":"matrix(1, 0, 0, 1, 0, 0)","w":324,"h":27}
-```
-
-Chromium: exactly `1` — the designed no-op. **WebKit: `1.4338`** — on Safari mobile the pane title
-*grows 43% as you scroll*, 324→465px wide and 27→39px tall, inside a 390px-wide viewport. The
-comment's "deliberate no-op" is, on the primary mobile engine, a 43% enlargement in the wrong
-direction.
-
-### Mechanism — isolated to a 5-declaration CSS repro
-
-I did not want to assert an engine bug from an app measurement, so I isolated it. Script:
-`/…/scratchpad/trig.mjs` (5 divs, `width: calc(1000px * <expr>)`, no app, no framework):
-
-```
-webkit   {"a":"310.796875px","b":"618.03125px","c":"311.34375px","d":"31717.265625px","e":"618px"}
-chromium {"a":"618.016px",   "b":"618.031px",  "c":"311.344px",  "d":"31717.3px",     "e":"618px"}
-```
-
-| id | expression | webkit | chromium |
+| id | prov | sev | defect |
 |---|---|---|---|
-| a | `tan(atan2(var(--type-heading), var(--type-display-1)))` | **0.3108** | 0.618016 |
-| b | `tan(31.71776deg)` | 0.618031 | 0.618031 |
-| c | `tan(31.71776rad)` | 0.311344 | 0.311344 |
-| d | `atan2(1.618rem, 2.618rem) / 1deg` | **31.71727** | 31.7173 |
-| e | `tan(atan(0.618))` | 0.618 | 0.618 |
+| **L-1** | P1 | **BLOCKER** | condensed type rung derived by `tan(atan2(…))` in a leaf; WebKit gets it wrong (13.0px desktop title; 43% mobile *enlargement*) |
+| **L-2** | P1 | **BLOCKER** | triplicate ownership of one design-system concept; the canonical home has zero consumers; both forks' justifying premise is false against 7.0.0 |
+| **L2-1** | **P2** | **MAJOR** | **the module lattice is enforced by nothing — 100% of `no-restricted-imports` boundary rules are dead** |
+| **L-3** | P1 | MAJOR | physical `transform-origin: left top` in a document with a live RTL seam |
+| **L-4** | P1 | MAJOR | inverted, untyped, silently-failing global-class edge; the class already exists upstream |
+| **L-5** | P1 | MAJOR | heading level hardcoded `<h3>`; `h1 = 0` on all 60 visual captures; the fork discarded `CardTitle`'s `as` seam and the `data-slot` grammar |
+| **L2-2** | **P2** | MINOR | **the public prop cannot be passed optionally under the repo's own `exactOptionalPropertyTypes`** |
+| **L2-3** | **P2** | MINOR | **the host-class contract is violated on 2 of 11 sites — corrects pass 1's 9/9** |
+| **L2-4** | **P2** | MINOR | **the dead producer surface is not merely unused, it is shipped and parsed: 9 rules, 0 matching elements, every route** |
+| **L-6** | P1 | MINOR | one feather concept, three magnitudes, seven literals |
+| **L-7** | P1 | MINOR | dead `@reference` edge (systemic: 15 of 17 demo SFCs) |
+| **L-8** | P1 | MINOR | dangling `<ScrollCardHeader>` reference in both forks |
+| **L2-5** | **P2** | INFO | **the `demo/ui/card` barrel silently narrows the design system, dropping `CardAction`** |
+| **L-9** | P1 | INFO | the `demo/ui/*` barrel layer is an alias tier and a false proof of the glass-ui surface |
+| **L-10** | P1 | INFO | `demo/shared/` is a three-file residue colliding with `demo/ui/` |
+| **L2-6** | **P2** | INFO | `demo/shared/utils.ts:17` asserts a root barrel that does not exist (pass 1 filed this for the library seat; I re-file it here because it sits *inside* `shared/`, two files from the subject) |
 
-Read it: `atan2()` alone is **correct** in WebKit (row d: 31.717deg, matching Chromium to 6 figures).
-`tan()` with an explicit `deg` is **correct** (row b). `atan`→`tan` nesting is **correct** (row e).
-Only `atan2`→`tan` breaks (row a), and it breaks to *exactly* row c — `tan(31.71776**rad**)`.
-WebKit produces the right angle from `atan2()` and then consumes its numeric value as radians
-inside `tan()`. `atan(0.618) = 0.5536 rad`; `31.71727 − 10π = 0.301343 rad`; `tan(0.301343) =
-0.31081` — the measured value to 5 figures. Confirmed unit-carry defect in nested trig, and
-`grep -rn "atan2" demo/ src/` shows PaneHeader.vue:141 is the **only** site in the repository that
-depends on it.
-
-### Why this is a *structure* finding, not a browser-bug finding
-
-"One golden rung down from display-1" is a **type-scale** proposition. Its home is the token layer.
-glass-ui owns that layer and expresses the identical relationship as a discrete token step
-(`card-scroll.css`: `[data-slot=card-title]` `--type-display-2` → `--type-display-1`) — no math
-function, no engine-dependent evaluation, no `@supports` gate needed. Fork A re-derived a token
-relationship inside a leaf component's `calc()`, which promoted *a browser's math-function
-implementation* into a design-system input. Two engines, two designs.
-
-### Cure
-
-Delete the trig. The condensed rung is a token step, taken at the design system's level. Concretely:
-`CardTitle` steps `--type-display-1` → `--type-heading` under `[data-condensed]`, declared once in
-glass-ui, consumed by every card header in the constellation. No `transform: scale()` at all — which
-also kills L-3 outright, because a token step has no `transform-origin`.
+Carried findings are documented in full in the preserved pass-1 file. Below I write up only what is
+new or corrected.
 
 ---
 
-## L-2 — BLOCKER · triplicate ownership; the premise that justifies both demo forks is false against glass-ui 7.0.0
+## L2-1 · MAJOR — the module lattice is enforced by nothing *(new)*
 
-`demo/picker/composables/useHeaderCondense.ts:9-15` is the load-bearing justification for the
-demo owning header-condense at all:
-
-> *"NEVER a compositor-only title `scale()` over an un-shrunk band (t33-research §6.6 — the pinned
-> defect; the producer's shipped `card-header--shrink` / `<ScrollCardHeader>` choreography **is
-> compositor-only BY ARCHITECTURAL COMMITMENT** — `proof:no-layout-animation` forbids its layout
-> lane — so it **structurally cannot** satisfy §0.8/BR-9 …)"*
-
-Against the installed `@mkbabb/glass-ui@^7.0.0`, that is **false**. From
-`dist/components/card/card-scroll.css` (full text pasted in the Executive summary above):
-
-- `.card-header--shrink { transition: padding-block-start … }` — a **layout** property.
-- `[data-condensed="true"] { padding-block-start: var(--card-header-pad-condensed) }` — a real box shrink, `getComputedStyle`-measurable.
-- `[data-condensed="true"] > [data-slot=card-title] { font-size: var(--type-display-1) }` — a real **token step**, not a `scale()`.
-- `[data-condensed="true"] > [data-slot=card-description] { display: none }`.
-- `@media (prefers-reduced-motion: reduce) { … transition: none }`.
-
-That is, line for line, the §0.8 grammar the demo says the producer structurally cannot ship: padding
-contraction + title token step + description collapse + veil, PRM-guarded. Compare
-`demo/picker/header.css:79-120` — the same four rows, hand-written. And compare the mechanism:
-
-| concern | glass-ui `CardHeader` (`dist/card-Bk96VI2R.js`) | `useHeaderCondense.ts` |
-|---|---|---|
-| host resolution | `root.closest(".card-scroll-host")` | `resolveScrollRoot()` walk for `overflowY: auto\|scroll` (`:65-73`) |
-| threshold | `at: 24` | `opts.threshold ?? 24` (`:80`) |
-| sufficiency gate | `e.scrollHeight - e.clientHeight > root.height/2 + 24` | `overflow <= savings + threshold`, `savings = expandedH - expandedH*0.5` (`:94-98`) |
-| binding | `watch(host, …, { immediate:true, flush:"post" })` | `watch([sentinel, header], …, { immediate:true, flush:"post" })` (`:75,121`) |
-
-Same algorithm, same constant, same flush. 127 lines reimplementing an installed dependency.
-
-**Three homes for one concept, and the canonical home has zero consumers.**
-`grep -rn "shrink" demo/ | grep -i cardheader` → nothing; `grep -rn "card-scroll-host" demo/` → nothing.
-The design system's header primitive is dead code in `node_modules` while two demo forks carry the
-app.
-
-This is the edict-2 violation in its exact form: W44 adopted glass-ui 7.0.0 *whole*
-(`91fa1368`), which obsoleted both forks, and neither was retired. The forks are legacy that
-survived their own supersession, and one of them (Fork A) has since drifted into the two blockers in
-this report.
-
-### Cure
-
-Retire both forks. `PaneHeader.vue` ceases to exist; the nine panes become
-`<Card tier="resting" class="card-scroll-host …"><CardHeader shrink><CardTitle as="h2">…`.
-Where 7.0.0's grammar is genuinely short of §0.8 (if it is — the claim must be re-measured, not
-re-quoted), the delta goes to glass-ui as a variant/knob via the standing BH relay, per edict 4. It
-does not go back into `demo/`.
-
----
-
-## L-3 — MAJOR · physical `transform-origin: left top` in a document that ships an RTL seam
-
-`demo/shared/ui/PaneHeader.vue:184`: `transform-origin: left top;`
-
-`demo/color-picker/index.html:6` documents a deliberate *"`dir` seam so `dir="rtl"` flips the whole
-document and the grid/flex layout"*, and the mega-tranche visual audit captures `rtl-desktop/` and
-`rtl-mobile/` matrices. I read `shots/rtl-desktop/gradient.png`: under RTL the pane titles
-("Gradient", "My Palettes") render **right-aligned**, as they must.
-
-Measured (same probe, `document.documentElement.dir = "rtl"`, 1440×900, `/#/about`):
-
-| state | header box | title box | title `transformOrigin` |
-|---|---|---|---|
-| rest | `l:200 r:710` | `l:224 r:686` | `0px 0px` |
-| scrolled 200 | `l:200 r:710` | `l:224 **r:368**` | `0px 0px` |
-
-The title box collapses toward **physical left**. Its text, right-aligned by `dir`, therefore
-travels from `r:686` (24px inside the header's right edge) to `r:368` — a **342px drift** away from
-the edge it is aligned to, ending mid-header. In LTR the same measurement pins `l:754` at both
-states, which is why nobody saw it. Identical in both engines (`chromium` rtl: `r:686 → r:510`,
-286px-wide box, same left-anchored collapse).
-
-The design system does not make this mistake because it does not scale: a `font-size` token step
-shrinks a text box from its own inline-start by construction, in either direction, with no origin
-declaration to get wrong.
-
-### Cure
-
-Subsumed by L-1/L-2. If a `scale()` were kept for some independent reason, the origin must be
-logical — but the correct move is that no `scale()` survives.
-
----
-
-## L-4 — MAJOR · inverted, untyped, silently-failing dependency edge; and the class already exists in glass-ui
-
-`demo/shared/ui/PaneHeader.vue:54-57`, in an **unscoped** `<style>` block:
-
-```css
-.pane-scroll-fade {
-    contain: layout style paint;
-    scroll-timeline: --pane-scroll block;
-}
-```
-
-A leaf component in `demo/shared/ui/` publishes a **global** class that each of its nine
-**ancestors** must independently remember to apply. There is no import edge, no prop, no type, and
-no `vue-tsc` or eslint rule that can see the contract. The direction of dependency is inverted:
-the parent depends on a stylesheet fragment shipped by the child, addressed by string.
-
-The file argues for the arrangement at `:41-53` — *"the class is applied across siblings of
-PaneHeader (not its descendants), the block must be UNSCOPED to reach those consumers … PaneHeader
-owns the only consumers of `--pane-scroll` … so the producer + consumer live in one file."* The
-premise is imprecise (the hosts are *ancestors*, not siblings — `scroll-timeline` name lookup
-requires it, and I verified `t.closest(".pane-scroll-fade") === true` on every route that renders),
-and the conclusion does not follow: a global class is not made local by living next to one of its
-consumers.
-
-**Compliance today is 9/9** — GradientPane:20, MixPane:62, GeneratePane:31, ExtractPane:5,
-ConfigSliderPane:106, AboutPane:4, PalettesPane:2, BrowsePane:2, AdminPane:2. I checked the one
-non-obvious case, `ConfigSliderPane.vue:106-107`, where the host is an inner `<div>` and PaneHeader
-is its first child — correct.
-
-**The failure mode is silent and indistinguishable from a designed state.** On `/#/palettes` at
-390px both engines report `titleTransform: "none"` at rest *and* after scroll — the timeline is
-inactive because that pane does not overflow, and `animation-timeline` with no active source simply
-does not apply. A pane that *forgot* the host class produces byte-identical telemetry. There is no
-observable difference between "correctly dormant" and "wired wrong", so no test can be written that
-catches a future omission.
-
-**And the class already exists upstream**, byte-identically:
+`docs/tranches/V/ARCHITECTURE.md` §1 ratifies an import-direction lattice —
 
 ```
-node_modules/@mkbabb/glass-ui/dist/styles/utilities/base-misc.css
-  .card-scroll-host { contain: layout style paint; }
+app → shell / color-session / feature / platform / shared
+shell → color-session / platform / shared
+feature → color-session / own descendants / platform / shared / published packages
+color-session → platform / shared / published packages
+platform → shared / external packages
+shared → external packages
 ```
 
-Same declaration, different name, no consumers in the demo. The demo renamed a design-system
-utility into a demo-global and then documented the rename as colocation.
+— and states: *"Cross-feature internal imports are **forbidden by construction**."*
 
-### Cure
-
-`.card-scroll-host` on the pane `Card`, and the timeline concern moves inside glass-ui's
-`CardHeader`, where the host relationship is resolved in **code** (`root.closest(".card-scroll-host")`)
-and can therefore fail *loudly*. The `.pane-scroll-fade` global and the unscoped `<style>` block
-both disappear.
-
----
-
-## L-5 — MAJOR · heading level hardcoded; the document outline is inverted, and the fork lost the seam that would fix it
-
-`demo/shared/ui/PaneHeader.vue:21`: `<h3 class="pane-header-title font-display"><slot /></h3>` —
-no `as`, no `level`, no prop. The component is the sole owner of pane titles (its own comment,
-`:12-13`: *"the pane title speaks the DISPLAY voice — the ONE site; all 9 panes inherit"*), so this
-one literal fixes the heading level for every pane in the app.
-
-**Measured, first-hand, `/#/about` at 1440, both engines:**
+They are not forbidden by construction. They are forbidden by paragraph.
 
 ```
-"headings":{"h1":0,"h2":10,"h3":11,"main":1}
+$ npx eslint --print-config demo/shared/ui/PaneHeader.vue | jq '.rules["no-restricted-imports"]'
+"ABSENT"
+$ npx eslint --print-config demo/workbenches/mix/MixPane.vue | jq '.rules["no-restricted-imports"]'
+"ABSENT"
 ```
 
-The page's own title is an `<h3>` sitting **above ten `<h2>`s**. The outline is inverted, and there
-is no `h1` at all. This is not an isolated route: the mega-tranche visual audit's per-capture table
-(`docs/tranches/V/megatranche/audit/visual/REPORT.md:118-178`) has `h1 = 0` in **all 60 rows** —
-4 matrices × 15 routes, `main = 1` throughout. A single `<main>` landmark containing no level-1
-heading, on every route.
+`eslint.config.js` carries four config objects with `no-restricted-imports`. Their `files` globs, in
+full:
 
-The structural sting: **glass-ui already parameterizes this.** From `dist/card-Bk96VI2R.js`,
-`__name: "CardTitle"`:
+```
+"demo/@/components/**/*.ts"    "demo/@/components/**/*.vue"
+"demo/@/composables/**/*.ts"   "demo/@/composables/**/*.vue"
+"demo/@/lib/**/*.ts"           "demo/@/lib/**/*.vue"
+"demo/color-picker/**/*.ts"    "demo/color-picker/**/*.vue"
+```
+
+```
+$ ls -d "demo/@"
+ls: demo/@: No such file or directory
+$ find "demo/@" -name "*.ts" -o -name "*.vue" | wc -l
+0
+$ find demo -name "*.ts" -o -name "*.vue" | wc -l
+250
+$ find demo/color-picker -name "*.ts" -o -name "*.vue" | wc -l
+16
+```
+
+Three of the four objects match **zero files** — `demo/@` was dissolved and ARCHITECTURE.md §1 now
+names it as forbidden (*"There is no … `demo/@` …"*), but the rules that policed it were never
+re-keyed. The fourth object covers **16 of 250** demo TS/Vue files (6.4%), and its single pattern
+bans `@components/custom/palette-browser/**/*.vue` — an alias `vite.config.ts:68` records as killed
+at W43/RF-15:
+
+```
+$ grep -rn 'from "@components' demo/ | wc -l
+0
+```
+
+So the one surviving live rule bans a specifier that can no longer be written.
+
+**Net: 100% of the demo's import-direction law is unenforced, and 93.6% of demo files sit outside
+every boundary glob.**
+
+The contrast is instructive. The repo *does* have one working structural gate — `inv-K-1`,
+`eslint.config.js:206-217`, which forbids `src/` from importing glass-ui:
 
 ```js
-props: { as: { default: "h3" }, class: {…} },
-… "data-slot": "card-title", class: cn("card-title", props.class)
+group: ["@mkbabb/glass-ui", "@mkbabb/glass-ui/*"],
+message: "inv-K-1: the value.js LIBRARY (src/) must never import glass-ui — the topology is glass-ui → value.js(lib), one direction, no cycle."
 ```
 
-`as` is a prop, defaulted to `h3`. The design system got the semantics/typography separation right;
-Fork A collapsed them back into one hardcoded tag and **lost the seam**. A component that cannot be
-mounted at two different outline depths cannot be structurally correct in both, and PaneHeader is
-mounted both as a top-level pane title (Browse, Gradient, About …) and inside the nested
-`ConfigSliderPane` shell.
+That direction has held for tranches. The demo→design-system direction, which is where pass-1's L-2
+happened, has nothing watching it.
 
-Second-order: `CardTitle` also emits `data-slot="card-title"` and `CardDescription` emits
-`data-slot="card-description"`. glass-ui's entire header grammar is addressed through those slots
-(`card-scroll.css` targets `> [data-slot=card-title]`). By minting demo-local `.pane-header-title` /
-`.pane-header-desc` instead, Fork A **permanently forked the panes out of the design system's
-header grammar** — no future glass-ui header improvement can ever reach them. That is the
-mechanism by which a local reimplementation becomes load-bearing.
+**Why this is the keystone.** Pass 1 correctly framed L-2 as *"legacy that survived its own
+supersession"* — W44 adopted glass-ui 7.0.0 whole and neither fork was retired. That is not a lapse
+of attention; it is the predictable output of a lattice with no gate. The forks were invisible to
+every automated check in the repository. Land pass-1's transposition without this and the next
+whole-adoption produces fork C.
 
-### Cure
-
-`CardTitle as="h2"` (or `h1` where the pane is the page), `CardDescription` for the caption. The
-outline becomes correct *and* addressable by the producer in one move.
+**Cure.** Re-key the boundary objects to the live tree — `demo/shell/**`, `demo/picker/**`,
+`demo/palettes/**`, `demo/workbenches/**`, `demo/scenes/**`, `demo/platform/**`, `demo/shared/**`,
+`demo/color-picker/**` — and encode §1's lattice as real patterns: feature↔feature bans,
+`demo/shared/**` restricted to external packages only (which is exactly the rule `PaneHeader.vue`
+would need to satisfy), `platform/**` barred from feature reaches. The lattice is already written.
+It needs to be typed into the linter rather than into a markdown table. Add one further rule that
+would have caught L-2 directly: ban demo-local redefinition of published glass-ui utility class
+names (`stylelint`, or a CI grep asserting that no `demo/**` selector duplicates a
+`node_modules/@mkbabb/glass-ui/dist/styles/utilities/**` selector's declaration block).
 
 ---
 
-## L-6 — MINOR · one design concept, three magnitudes, nine literals
+## L2-2 · MINOR — the public prop cannot be passed optionally *(new)*
 
-The bottom feather — the band-killer the file rightly calls constitutive (`:76-81`) — is tokenized
-upstream and hardcoded twice downstream:
+```ts
+// PaneHeader.vue:35-37
+defineProps<{ description?: string }>();
+```
 
-| home | value | literals |
-|---|---|---|
-| glass-ui `card-scroll.css` | `--card-pad-title-gap` = `calc(var(--card-pad-inline) / 2.618)` ≈ **9.17px** at `--card-pad-inline: 1.5rem` | 0 |
-| `PaneHeader.vue:84,91,94` | **14px** | 4 (`inset`, `mask-image`, `-webkit-mask-image` × its own stop) |
-| `picker/header.css:59,67,70` | **12px** | 3 |
+`tsconfig.base.json:11` sets `"exactOptionalPropertyTypes": true`. Under EOPT, `description?: string`
+admits *absent* but rejects an explicit `undefined`. Every consumer forwarding an optional
+description must therefore contrive around the component's own public surface.
+`demo/scenes/ConfigSliderPane.vue:107`:
 
-`grep -o "\-\-card-pad-title-gap:[^;]*;" node_modules/@mkbabb/glass-ui/dist/components/card/styles.css`
-→ `--card-pad-title-gap: calc(var(--card-pad-inline) / 2.618);`
+```vue
+<PaneHeader v-bind="description !== undefined ? { description } : {}">{{ title }}</PaneHeader>
+```
 
-Three feather depths for what the DESIGN doc calls one recipe. PaneHeader's own comment (`:8`,
-`:67-69`) claims it *"retires the bespoke `--card` 60% / blur(12px) pair, the census's 7th parallel
-recipe, CC-3"* — it retired the 7th by minting the 8th, and Fork B minted the 9th.
+The pane's own prop at `:50` is `description?: string` — the identical shape it cannot forward to
+the identical shape. The ternary `v-bind` exists for no other reason; `PaneHeader.vue:22` already
+guards with `v-if="description"`, so `:description="description"` is runtime-identical.
 
-**Negative result, stated so the jury does not chase it:** glass-ui's veil carries
-`border-radius: inherit` and PaneHeader's does not. I measured it — `headerRadius: "0px"`,
-`veilRadius: "0px"` on `.pane-header` in both engines, because `.pane-header` itself has no radius
-for the pseudo to inherit. **Not a defect.** No corner artifact exists.
+This is a public-surface defect, not a call-site defect: a shared component whose optional prop is
+un-passable pushes contrivance into every conditional consumer, and contrivance is what edict 3
+forbids.
+
+**Cure.** `description?: string | undefined`. Under the L-2 transposition the prop becomes
+`<CardDescription>` and the question dissolves.
 
 ---
 
-## L-7 — MINOR · dead dependency edge on the foundation stylesheet
+## L2-3 · MINOR — the host-class contract is violated on 2 of 11 sites *(corrects pass 1)*
 
-`demo/shared/ui/PaneHeader.vue:61`: `@reference "../../styles/foundation.css";`
+Pass 1 reported *"Compliance today is 9/9"* and specifically cleared the one non-obvious case:
+*"I checked the one non-obvious case, `ConfigSliderPane.vue:106-107`, where the host is an inner
+`<div>` and PaneHeader is its first child — correct."*
 
-`grep -n "@apply\|theme(" demo/shared/ui/PaneHeader.vue` → **NONE**. Neither style block uses
-`@apply` or `theme()`, which are the only things `@reference` serves. The directive declares a
-dependency on a 600+-line stylesheet that the file does not consume; rename or restructure
-`foundation.css` and this file breaks for no reason.
+That is correct against the *functional* requirement (`scroll-timeline` name lookup needs an
+ancestor that scrolls) but **not against the contract the file itself states**.
+`PaneHeader.vue:43-45`:
 
-Systemic, not local — 15 of the 17 demo SFCs carrying `@reference` have zero `@apply`/`theme()`:
+> *"The `.pane-scroll-fade` host class lives on the **ROOT element of each pane Card**."*
 
+Measured live, three routes:
+
+| route | host tag | `data-slot` | is Card root | parent `data-slot` | `overflow-y` | `scroll-timeline` | `.pane-header` inside |
+|---|---|---|---|---|---|---|---|
+| `/#/blob` | `DIV` | `null` | **false** | `card` | `auto` | `--pane-scroll` | 1 |
+| `/#/atmosphere` | `DIV` | `null` | **false** | `card` | `auto` | `--pane-scroll` | 1 |
+| `/#/gradient` | `DIV` ×2 | `card` | true | — | `auto` | `--pane-scroll` | 1 each |
+
+`ConfigSliderPane.vue:106` places the class on an inner scroll `<div>` nested *inside* the Card, so
+the two routes it serves break the stated contract. The ConfigSliderPane seat reached the same
+conclusion independently (`ConfigSliderPane/jury-2-architecture.md:154`, A-23: *"this component is
+the only one of the nine that puts it on an inner div rather than the pane Card root"*).
+
+**Why the correction matters rather than being pedantry.** Pass 1's own strongest argument in L-4 is
+that the edge *cannot fail loudly* — that a pane which forgot the class produces byte-identical
+telemetry to a pane that is correctly dormant. This is the empirical proof of that argument: the
+contract has *already* drifted on 18% of its sites, silently, and it took a cross-seat comparison to
+notice. An unenforceable prose contract does not stay 9/9; it decays, and nothing reports the decay.
+
+The stakes are not cosmetic. `.pane-scroll-fade` carries `contain: layout style paint` — a
+paint/layout containment decision with real consequences for portals, sticky descendants and scroll
+anchoring. On `/#/blob` and `/#/atmosphere` that containment lands on an inner div; on the other
+nine sites it lands on a route-level Card. Two different containment topologies, authored by a leaf
+component's stylesheet, chosen by whoever typed the class.
+
+**And the coupling has already reached the shell.** `demo/color-picker/App.vue:399-408`:
+
+```css
+/* Ghost pane: always in DOM to preserve scroll-timeline state, but invisible
+   and non-interactive. content-visibility:auto (W3-4) … */
+.pane-wrapper--ghost { visibility: hidden; position: absolute; pointer-events: none; opacity: 0; content-visibility: auto; }
 ```
-demo/workbenches/extract/ExtractControls.vue          demo/shell/dock/ActionButton.vue
-demo/workbenches/extract/ImageEyedropper/…            demo/shell/dock/Dock.vue
-demo/scenes/ConfigSliderPane.vue                      demo/shell/dock/DockStatusLamp.vue
-demo/scenes/atmosphere/AuroraPane.vue                 demo/shell/dock/ActionBarToggle.vue
-demo/picker/ColorPicker.vue                           demo/shell/dock/layers/ActionBarLayer.vue
-demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue demo/shared/ui/PaneHeader.vue
-demo/color-picker/App.vue                             demo/palettes/browser/slug/PaletteSlugBar.vue
-demo/palettes/browser/search/SearchFilterBar.vue
-```
 
-(I did not measure the build-time cost; the dead-edge claim rests on the grep alone.)
+Route-level DOM **lifetime** is dictated by a leaf's CSS mechanism. Confirmed live: `/#/browse` and
+`/#/generate` each mount **2** `.pane-scroll-fade` hosts and **2** `.pane-header` elements, one real
+and one ghost. The shell pays a permanent DOM cost to preserve a named scroll-timeline defined three
+layers down. Under the L-2 cure that retention should be re-derived on routing grounds — KeepAlive
+scroll restoration is a routing concern with a routing solution. It may well survive. It must not
+survive *for this reason*.
 
 ---
 
-## L-8 — MINOR · dangling producer reference; `<ScrollCardHeader>` does not exist in 7.0.0
+## L2-4 · MINOR — the dead producer surface is shipped and parsed on every route *(new)*
 
-Both forks defer their future to a producer component that is not in the installed dependency:
+Pass 1 established from `grep` that glass-ui's shrink primitive has zero demo consumers. Measured
+live, it is worse than unused — it is **loaded**. `demo/styles/foundation.css:56-57` imports both
+glass-ui distribution surfaces, and `card-scroll.css` rides the Card JS chunk
+(`dist/card-Bk96VI2R.js` imports it), so the rules are parsed into `document.styleSheets` on every
+route while matching nothing:
 
-- `PaneHeader.vue:157` — *"until P3's ScrollCardHeader knobs land (BOOKED)"*
-- `useHeaderCondense.ts:11` — *"the producer's shipped `card-header--shrink` / `<ScrollCardHeader>` choreography"*
+| route | `.card-scroll-host` **elements** | `.card-header--shrink` **elements** | `.card-scroll-host` **rules shipped** | `.card-header--shrink` **rules shipped** |
+|---|---:|---:|---:|---:|
+| `/#/` | 0 | 0 | 1 | 8 |
+| `/#/mix` | 0 | 0 | 1 | 8 |
+| `/#/browse` | 0 | 0 | 1 | 8 |
+| `/#/generate` | 0 | 0 | 1 | 8 |
 
-```
-$ grep -rn "ScrollCardHeader" node_modules/@mkbabb/glass-ui/dist/
-$ (no output)
-```
+Against which the demo ships **8** `.pane-header*` rules and **9** `.picker-header*` rules doing the
+same job, on the same routes, in the same cascade. Nine producer rules parsed for nothing; seventeen
+fork rules parsed instead.
 
-Zero hits across `dist/`. The real producer surface is `CardHeader` with `shrink: boolean` —
-`dist/components/card/CardHeader.vue.d.ts` states it, including the host contract:
-*"Requires `.card-scroll-host` on the scrollable ancestor."* Two forks are parked waiting for a
-component that shipped under a different name and is already installed and unused.
+The rule counts come from a full `document.styleSheets` walk (including nested `@supports` /
+`@media` groups) in `paneheader-lattice.mjs`. This is the runtime confirmation of pass-1 L-2's
+`grep`: the design system's header primitive is not merely unreferenced in source, it is **live in
+the shipped cascade with zero matching elements**.
+
+One more measurement, on the call site itself: `demo/picker/ColorPicker.vue:21-27` renders glass-ui's
+`<CardHeader>` and declines `shrink`, passing `:class="['picker-header …', condensed ? 'is-condensed' : '']"`
+instead. Live DOM confirms: `[data-slot=card-header]` count 1 on `/#/`, `.card-header--shrink` count
+0. The prop is one identifier away from the fork it was replaced by.
 
 ---
 
-## L-9 — INFO · the `demo/ui/*` barrel layer is an alias tier; no demo file exercises the design system's real specifier
+## L2-5 · INFO — the barrel silently narrows the design system *(new)*
 
-Nineteen directories under `demo/ui/`; **eighteen are one-line pure re-exports** of
-`@mkbabb/glass-ui` (the nineteenth, `alert`, is the same plus a docblock). Full listing produced by
-iterating `demo/ui/*/index.ts` — e.g. `demo/ui/card/index.ts` in its entirety:
+`demo/ui/card/index.ts`, in full:
 
 ```ts
 export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@mkbabb/glass-ui";
 ```
 
-Every one of PaneHeader's nine consumers imports `Card` through it (`../../ui/card`,
-`../ui/card`) rather than through the design system's published specifier. Two consequences:
+glass-ui exports **seven** card members (`dist/components/card/index.d.ts`): `Card, CardHeader,
+CardTitle, CardDescription, CardContent, CardFooter, **CardAction**`. The barrel re-exports six.
 
-1. It is an alias tier — the edict-2 shape ("no aliases, no dual paths"). The barrel adds no
-   type, no default, no composition; only a second name for the same symbol.
-2. It is a **false proof of the design-system surface**, precisely analogous to the deep-import
-   defect this challenge names for `@mkbabb/value.js`. Because no demo file writes
-   `from "@mkbabb/glass-ui"` for card primitives, the demo never demonstrates that glass-ui's
-   export map resolves as a real consumer would use it.
-
----
-
-## L-10 — INFO · `demo/shared/` is a three-file contrivance colliding with `demo/ui/`
-
-`find demo/shared -type f` → exactly three: `utils.ts`, `ui/PaneHeader.vue`, `ui/EmptyState.vue`.
-Created at `6dc12aad` ("panes/ 16→0 — distribute/promote/relocate to feature homes"), i.e. it is
-the residue of a *different* directory's dissolution: two components that had no feature home were
-given a new generic one. `demo/shared/ui/` and `demo/ui/` now both mean "ui", one holding demo-owned
-components and the other holding glass-ui re-exports — a name collision a reader must learn by
-convention. This is the shape edict 3 names ("no new `shared/` dirs"). Under the L-2 cure the
-directory reduces to `utils.ts` + `EmptyState.vue` and should be dissolved into their consumers'
-homes.
+Pass-1 L-9 correctly names the barrel tier as an alias tier and a false proof of the glass-ui
+surface. The narrowing is the second-order harm and it is the concrete mechanism by which
+`CardHeader`'s `shrink` prop and `CardTitle`'s `as` prop went unnoticed for three tranches: a
+consumer reading `demo/ui/card/index.ts` sees a flat list of six names and no props, no docblocks,
+no `.d.ts`. A forwarding layer that silently subsets the design system does not merely add a name —
+it **hides** the design system.
 
 ---
 
-## The `@mkbabb/value.js` question — answered, and clean
+## L2-6 · INFO — a false claim about the library's public surface, inside `shared/` *(re-filed)*
 
-This is the one axis where the premise **fails**, and I want it on the record as a proved negative
-rather than an unexamined pass.
+Pass 1 filed this for the library seat. I re-file it here because it lives in
+`demo/shared/utils.ts`, the same three-file directory as the subject, and because it is the same
+species as L-8 (a fork parked against a producer surface that does not exist).
 
-**PaneHeader.vue has zero imports.** Its entire `<script setup>` is four lines
-(`:34-38`): `defineProps<{ description?: string }>()`. There is no import edge to violate — no
-feature→shell reach, no component→boot reach, no `src/` deep path. (Note that this is *why* L-4
-matters: the component's real cross-boundary coupling is a global CSS class, which is exactly the
-kind of edge no import-graph lint can see.)
-
-Demo-wide, the published-surface discipline is **correct**:
-
-```
-$ grep -rhn 'from "@mkbabb/value.js' demo/ --include=*.ts --include=*.vue | sed 's/.*from //' | sort | uniq -c
-  24 "@mkbabb/value.js/color";
-  10 "@mkbabb/value.js/css";
-   6 "@mkbabb/value.js/math";
-   5 "@mkbabb/value.js/easing";
-   4 "@mkbabb/value.js/quantize";
-
-$ grep -rn 'from "\.\./\.\./\.\./src/\|value.js/src' demo/     → (no output)
-$ grep -rn 'from "@mkbabb/value.js";'  demo/ test/ e2e/        → (no output)
-```
-
-All 49 imports go through the `package.json` `exports` map; the five subpaths used are a subset of
-the seven published (`./color ./value ./css ./easing ./math ./transform ./quantize`, each backed by
-`src/subpaths/*.ts`). **No demo import exists that a real consumer could not write.** No deep path,
-no bare-barrel reach.
-
-**One defect found in the neighbourhood, filed for the library seat, not this one.**
-`package.json` has **no `"."` key** in `exports` (`require('./package.json').exports['.'] ===
-undefined`; `main`, `module`, `types` all `undefined` too). The bare specifier
-`@mkbabb/value.js` is therefore unresolvable for any external consumer. But
-`demo/shared/utils.ts:9-21` justifies the demo's private `debounce` copy on exactly that basis:
+`demo/shared/utils.ts:12-18`:
 
 > *"`debounce` was the last symbol holding 7 demo files on the BARE `@mkbabb/value.js` specifier …
-> The utility tail has no rightful subpath home …, so the demo owns its copy; **the library's
-> root-barrel export stands for external consumers.**"*
+> so the demo owns its copy; **the library's root-barrel export stands for external consumers.**"*
 
-The final clause is false against the shipped manifest — there is no root barrel to stand for
-anyone. Either the root export should exist (and `debounce` needs no demo copy), or it should not
-(and the comment's justification must be restated, since the "external consumers" it defers to
-cannot import it). Not PaneHeader's defect; recorded because this seat's charter is the published
-surface and this is what the surface actually says.
+```
+$ node -e "const p=require('./package.json');
+           console.log('has . export:', '.' in (p.exports||{}));
+           for (const k of ['main','module','types','typings']) console.log(k,'=',p[k])"
+has . export: false
+main = undefined
+module = undefined
+types = undefined
+typings = undefined
+$ ls src/index.ts
+ls: src/index.ts: No such file or directory
+```
+
+There is no root barrel — no `"."` key, no `main`/`module`/`types` fallback, no source file, no
+built artifact. `import { debounce } from "@mkbabb/value.js"` is unresolvable for any external
+consumer. A subpath-only export map is a defensible design; the defect is a stale justification
+asserting a surface that was removed, which is precisely the kind of comment that licenses the next
+local copy.
 
 ---
 
-## The greenfield lattice
+## The `@mkbabb/value.js` question — proved negative, twice
 
-Asked concretely, with no legacy: **`PaneHeader.vue` does not exist.** Nine panes do not need a
-demo-owned header component when the design system ships a card header, and the concept
-"sticky card header that condenses as its card scrolls" belongs to the design system in every
-respect — geometry, material, type rung, motion policy, and semantics.
+Both passes reach the same answer and I record the mechanism because it is the one part of the
+lattice that works, and the cure for L2-1 should copy it.
+
+`PaneHeader.vue` has **zero** JavaScript or TypeScript imports — its entire `<script setup>` is the
+four-line `defineProps`. There is no import edge to violate. (Which is exactly why L-4/L2-3 matter:
+this component's real cross-boundary coupling is a global CSS class, the one kind of edge no
+import-graph lint can see.)
+
+Demo-wide:
 
 ```
-@mkbabb/glass-ui (the ONE home for the concept)
-  components/card/
-    Card.vue          — tier/material/surface; consumers add .card-scroll-host
-    CardHeader.vue    — shrink?: boolean            ← ALREADY SHIPS the crossing mechanism
-    CardTitle.vue     — as?: string (default h3)    ← ALREADY SHIPS the outline seam
-    CardDescription.vue
-    card-scroll.css   — the ONE veil recipe (--card-pad-title-gap), the ONE token step
-                        (display-2 → display-1), the ONE PRM arm
-  styles/utilities/base-misc.css
-    .card-scroll-host { contain: layout style paint; }   ← ALREADY SHIPS
-
-demo/
-  <pane>/<Pane>.vue   — <Card tier="resting" class="card-scroll-host …">
-                          <CardHeader shrink>
-                            <CardTitle as="h2">Gradient</CardTitle>
-                            <CardDescription>Build gradients …</CardDescription>
-                          </CardHeader>
-                          <CardContent>…</CardContent>
-                        </Card>
-  styles/              — tokens + app-level keyframes ONLY; zero header geometry
+$ grep -rho "@mkbabb/value\.js[a-z/.-]*" demo/ | sort | uniq -c | sort -rn
+  25 @mkbabb/value.js/color
+  10 @mkbabb/value.js/css
+   6 @mkbabb/value.js/math
+   5 @mkbabb/value.js/easing
+   4 @mkbabb/value.js/quantize
+   1 @mkbabb/value.js          ← inside a code comment, demo/shared/utils.ts:14
+$ grep -rn "value\.js/dist\|value\.js/src\|\.\./\.\./\.\./src/" demo/
+(no output)
 ```
 
-Deleted by this transposition, from `demo/`:
+Fifty specifiers, all declared subpaths, zero bare-root imports, zero deep reaches. **And it is
+structural, not disciplinary** — `vite.config.ts:37-50` *generates* the self-alias set by reading
+`package.json#exports` at config time:
 
-| artifact | lines |
-|---|---|
-| `demo/shared/ui/PaneHeader.vue` | 224 |
-| `demo/picker/composables/useHeaderCondense.ts` | 127 |
-| `demo/picker/header.css` Row B (`:48-143`) | ~96 |
-| `.pane-scroll-fade` global + 3 `@keyframes` + `--pane-title-shrink-ratio` + the `@supports` gate | (within the 224) |
-| **≈ 447 lines of demo-owned CSS/TS** | |
+```ts
+const valueJsSelfAlias = Object.entries(VALUE_JS_PKG.exports).map(([subpath, conditions]) => {
+    const specifier = "@mkbabb/value.js" + subpath.slice(1);
+    ...
+    return { find: new RegExp(`^${escaped}$`), replacement: path.resolve(..., conditions.import) };
+});
+```
 
-Deleted *problems*: L-1 (no trig ⇒ no engine divergence ⇒ no 13px Safari title, no 43% mobile
-inversion), L-3 (no `scale()` ⇒ no `transform-origin` ⇒ RTL correct by construction), L-4 (host
-contract resolved in code, fails loudly), L-5 (`as` prop restores the outline seam; `data-slot`
-re-attaches the panes to the producer grammar), L-6 (one tokenized feather), L-7 (no `@reference`),
-L-8 (the dangling `<ScrollCardHeader>` reference retires with the comment), MT-F023 (glass-ui's PRM
-arm is already inside `card-scroll.css`), and half of L-10.
+An import a real consumer could not write **cannot resolve in the demo**. Add a subpath to
+`exports` and the alias follows; remove one and every demo import of it breaks immediately. That is
+what "forbidden by construction" actually looks like, and it is the template for L2-1's cure:
+derive the gate from the declaration, do not restate the declaration in a second place.
 
-Three parallel implementations → one. Nine hardcoded feather literals → zero. Two `prefers-reduced-motion`
-policies → one, owned where policy belongs.
+Two further negatives, checked and cleared so the jury does not chase them:
 
-**Where the transposition owes work upstream.** Two things must be measured, not assumed, before
-the swap lands:
-
-1. `useHeaderCondense.ts`'s §0.8/BR-9 claim must be re-tested against 7.0.0's *actual*
-   `padding-block-start` + `font-size` grammar. My reading of `card-scroll.css` says the producer
-   satisfies it; the demo's docblock says it structurally cannot. One of those is stale, and the
-   evidence above says it is the docblock — but the *picker's* specific §0.8 geometry (readout
-   line-lock, blob reservation release) is Fork B's business, not mine, and deserves its own
-   measurement.
-2. Any genuine residual delta — a scroll-*scrub* variant if the scrubbed veil is judged worth
-   keeping over the discrete crossing, or the veil rest-floor knob PaneHeader calls the P3
-   BOOKED swap — goes to glass-ui as a `CardHeader` variant/token through the standing BH relay
-   (edict 4). It does not come back into `demo/`.
+- **`z-header` (`:11`) is a live utility, not an inert class.** Live computed on `.pane-header`:
+  `z-index: 35`, `position: sticky`, `top: 0px`. `--z-header: 35` comes from glass-ui
+  `dist/styles/tokens/scheme-motion.css` and is bridged as `--z-index-header` in
+  `dist/styles/theme/bridges.css`, which is what makes the bare Tailwind v4 `z-header` utility
+  resolve. `DESIGN.md:299` documents the `z-[var(--z-header)]` spelling; the bare utility is
+  equivalent. Not a defect.
+- **Scoped `@keyframes` do not leak globally (edict 6).** Live computed
+  `animation-name: pane-header-veil-19daabcf` / `pane-title-shrink-19daabcf` — the SFC compiler
+  hashes them. Global keyframes correctly live in `demo/styles/animations.css`. Not a defect.
+- **`verbatimModuleSyntax` (edict 8)** is vacuously satisfied — no imports of any kind.
 
 ---
 
 ## Standing born-RED · MT-F023
 
-Adopted as stated, on the disposition the root already ruled: **STRUCTURE, not gate.** The three
-scroll-timeline declarations (`PaneHeader.vue:178-193`) move inside
+**ADOPTED**, on the root's ruled disposition: **STRUCTURE, not gate.** The three scroll-timeline
+declarations (`PaneHeader.vue:178-193`) move inside
 `@media (prefers-reduced-motion: no-preference)`, matching the existing idiom at
-`demo/styles/animations.css:43`. I did not weaken it into another override stacked on the blunt
-guard at `animations.css:184`.
+`demo/styles/animations.css:43`. Not weakened into another override stacked on the blunt guard at
+`animations.css:184`.
 
-Two reinforcements from this seat's evidence, both strengthening the structural reading:
+Pass 1 supplied the producer-side reinforcement (glass-ui nests `@supports` inside `no-preference`
+throughout — verified above: 2 occurrences in `scroll-driven.css`, 3 in `scroll-choreography.css`).
+This pass adds the **consumer-side census** and two sharpenings.
 
-1. **glass-ui already enforces exactly that idiom, everywhere, without exception.** Every
-   scroll-driven rule in the design system nests the `@supports` gate *inside* a
-   `prefers-reduced-motion: no-preference` media query — `dist/styles/scroll-driven.css`
-   (`.scroll-progress`, `[data-scroll-reveal]`), `dist/styles/scroll-choreography.css`
-   (`.scroll-cascade`, `.scroll-pin-*`, `.smooth-scroll`), and `card-scroll.css` carries the
-   `reduce` arm for its transitions. Fork A is the **only** scroll-driven surface in the app
-   outside that discipline. MT-F023 is therefore not a missing gate — it is the measurable
-   signature of L-2: the fork left the design system and left the design system's motion policy
-   behind with it.
-2. **Under the L-2 cure, F023 cannot recur.** The producer's grammar is discrete transitions with
-   a `reduce` arm, so `animation-duration: auto` never enters the picture and the blunt guard's
-   structural blind spot stops mattering for this surface. The gate fix is correct and should land;
-   the transposition is what makes it permanent.
+**The census.** `PaneHeader.vue` is the demo's *only* `animation-timeline` site:
+
+```
+$ grep -rn "animation-timeline" demo/
+demo/shared/ui/PaneHeader.vue:177   @supports (animation-timeline: scroll()) {
+demo/shared/ui/PaneHeader.vue:180       animation-timeline: --pane-scroll;
+demo/shared/ui/PaneHeader.vue:186       animation-timeline: --pane-scroll;
+demo/shared/ui/PaneHeader.vue:191       animation-timeline: --pane-scroll;
+```
+
+Four hits, one file. Meanwhile **five** other demo files already ride the correct additive idiom —
+`SpectrumCanvas.vue`, `DockStatusLamp.vue`, `animations.css:43`, `overture.css`,
+`ApiOfflineChip.vue`. The app has exactly one scroll-driven animation site, and exactly that site
+opted out of the house idiom in favour of the global guard's coverage — coverage the guard cannot
+supply, because a scroll-driven animation has `animation-duration: auto` and the guard overrides
+only `animation-duration`, `animation-iteration-count`, `transition-duration`, `scroll-behavior`.
+
+**Sharpening 1 — nest, do not stack.** Wrap the existing `@supports (animation-timeline: scroll())`
+block *inside* the `no-preference` media query — one nested gate, not two siblings. Both gates
+express the same predicate ("this scroll choreography is permitted here"); emitting them as peers
+reproduces in miniature the dual-path species this whole report is about, and glass-ui's own
+`scroll-driven.css` / `scroll-choreography.css` already nest rather than stack. The
+`from`-state = base-state construction guarantees the rest header is byte-identical when either gate
+fails, so nesting costs nothing, and `e2e/smoke/oracles/o11-header-gates.spec.ts:312-346` (no
+`--pane-scroll` binding outside the `@supports` gate) still passes on a nested block.
+
+**Sharpening 2 — demote the guard, do not extend it.** `animations.css:178` claims the block
+*"Neutralises CSS keyframe animations and transitions app-wide."* That headline is false and cannot
+be made true: the guard is a **subtractive** policy over an **open** set of animation mechanisms —
+scroll timelines today, view timelines / `animation-trigger` / scroll-state container queries next —
+so every new mechanism escapes it by default. The `no-preference` idiom is **additive** and
+therefore total. The guard's honest scope is *"a backstop for third-party CSS we do not author"*
+(glass-ui, reka-ui) and its comment must say so. Its narrower claims about the WebGL rAF loops are
+true and were verified by the root probe; those stand unchanged.
+
+**And under the L-2 cure, F023 cannot recur.** The producer's grammar is discrete transitions with a
+`reduce` arm already in `card-scroll.css`, so `animation-duration: auto` never enters the picture
+for this surface and the blunt guard's blind spot stops mattering. The gate fix is correct and
+should land now; the transposition is what makes it permanent. If the `shrink="scrub"` variant is
+sent upstream (below), the `no-preference` wrapper goes upstream with it — once, for every consumer
+in the constellation.
+
+---
+
+## The greenfield lattice
+
+Pass 1 stated it and I endorse it without change: **`PaneHeader.vue` does not exist.** The concept
+"sticky card header that condenses as its card scrolls" belongs to the design system in every
+respect — geometry, material, type rung, motion policy, semantics — and glass-ui 7.0.0 already ships
+all five.
+
+```
+@mkbabb/glass-ui — the ONE home
+  components/card/
+    Card.vue             tier/material/surface
+    CardHeader.vue       shrink?: "threshold" | "scrub"     ← boolean today; mode is the one addition
+    CardTitle.vue        as?: keyof HTMLElementTagNameMap    ← ALREADY SHIPS (default "h3")
+    CardDescription.vue                                      ← ALREADY SHIPS data-slot grammar
+    card-scroll.css      ONE veil (--card-pad-title-gap) · ONE token step (display-2 → display-1)
+                         · ONE PRM arm, nested no-preference ⊃ @supports
+  styles/utilities/base-misc.css
+    .card-scroll-host { contain: layout style paint; }       ← ALREADY SHIPS
+
+demo/
+  <feature>/<Pane>.vue   <Card tier="resting" class="card-scroll-host …">
+                           <CardHeader shrink="scrub">
+                             <CardTitle :as="frame.level">Gradient</CardTitle>
+                             <CardDescription>Build gradients …</CardDescription>
+                           </CardHeader>
+                           <CardContent>…</CardContent>
+                         </Card>
+  shell/route-frame/     owns heading level, document title, the single <h1>   ← L-5's real home
+  styles/                tokens + app keyframes ONLY; zero header geometry
+```
+
+Deleted from `demo/`: `shared/ui/PaneHeader.vue` (224 lines) · `picker/composables/useHeaderCondense.ts`
+(127) · `picker/header.css` Row B (~96) · the `.pane-scroll-fade` / `.is-condensed` /
+`.header-sentinel` vocabulary · the `--pane-scroll` named timeline · the `pane-header-veil` /
+`pane-title-shrink` / `pane-desc-shrink` keyframe trio · the `@supports` gate · nineteen
+`demo/ui/*/index.ts` barrels · `demo/shared/ui/` itself once `EmptyState` is homed. **≈447 lines of
+demo-owned CSS/TS, plus the barrel tier.**
+
+Sent upstream, once: a `shrink` **mode** (`"threshold"` = today's `data-condensed` crossing,
+`"scrub"` = the scroll-timeline variant if the scrubbed veil is judged worth keeping) plus three
+custom properties — `--card-header-veil-rest` (default `0`; fork A's constitutive `0.52`),
+`--card-scroll-range`, `--card-header-title-scale-condensed` — through the standing BH relay, per
+edict 4. **Nothing comes back into `demo/`.**
+
+Deleted *problems*: L-1 (no trig ⇒ no engine divergence ⇒ no 13px Safari title, no 43% mobile
+inversion), L-2, L-3 (no `scale()` ⇒ no `transform-origin` ⇒ RTL correct by construction),
+L-4/L2-3 (host contract resolved in code via `closest(".card-scroll-host")`, fails loudly),
+L-5 (`as` restores the outline seam; `data-slot` re-attaches the panes to the producer grammar),
+L2-2 (prop dissolves into `CardDescription`), L2-4 (the shipped rules acquire consumers),
+L-6 (one tokenized feather), L-7 (no `@reference`), L-8, L2-5, MT-F023, and half of L-10.
+
+Three parallel implementations → one. Seven hardcoded feather literals → zero. Two motion policies
+→ one, owned where policy belongs.
+
+**What pass 2 adds to the plan.** The transposition is necessary and insufficient. Add, as a
+first-class wave item and not a follow-up:
+
+> **Restore the gate (L2-1).** Re-key `eslint.config.js`'s boundary objects to the live tree and
+> encode ARCHITECTURE.md §1 as patterns, deriving the rule set from the lattice the way
+> `vite.config.ts:41-50` derives the alias set from `package.json#exports`. Add the
+> duplicate-utility check that would have caught `.pane-scroll-fade` ≡ `.card-scroll-host` on the
+> day it was written.
+
+Without it, W44's failure mode repeats: a whole-adoption lands, obsoletes demo-local code, and
+nothing in the repository notices.
+
+**Two things the transposition owes measurement**, carried from pass 1 unchanged:
+
+1. `useHeaderCondense.ts`'s §0.8/BR-9 claim must be re-tested against 7.0.0's *actual*
+   `padding-block-start` + `font-size` grammar. My reading of `card-scroll.css` agrees with pass 1
+   that the producer satisfies it; the picker's specific geometry (readout line-lock, blob
+   reservation release) is fork B's business and deserves its own measurement.
+2. Any genuine residual delta goes to glass-ui as a variant/knob, never back into `demo/`.
 
 ---
 
 ## Reproduction
 
 ```bash
-# dev server must be live on :9000  (verified: curl → 200)
+# dev server live on :9000 (verified: curl -o /dev/null -w "%{http_code}" → 200)
+# NOTE the app is HASH-routed. A first probe pass using path URLs (/about, /mix) silently
+# served the same page for every route and was discarded; all figures use /#/….
 
-# L-1 (ratio, both engines, LTR/RTL/390) · L-3 (RTL drift) · L-4 (host resolution) · L-5 (outline)
-node docs/tranches/V/megatranche/audit/components/PaneHeader/probe-L-structure.mjs
+# ── pass-2 verification of pass-1 L-1 (independent repro, 5 CSS declarations, no app)
+node <scratchpad>/trig-verify.mjs
+#   webkit   a=310.796875px  c=311.34375px   b,d,e correct   ⇒ atan2→tan consumes deg as rad
+#   chromium a=618.016px     c=311.344px
 
-# L-1 mechanism, isolated — 5 CSS declarations, no app
-#   a: tan(atan2(1.618rem,2.618rem))  b: tan(31.71776deg)  c: tan(31.71776rad)
-#   d: atan2(1.618rem,2.618rem)/1deg  e: tan(atan(0.618))
-#   → webkit a=0.3108 (== c) while b,d,e correct  ⇒  atan2→tan consumes deg as rad
-node <scratchpad>/trig.mjs
+# ── pass-2 cross-engine in-app ratio, desktop + mobile, /#/gradient
+node <scratchpad>/ratio-verify.mjs
+#   1440: webkit 0.655404 vs chromium 0.805831 (mid-range, same scroll offset)
+#    390: webkit 1.433843 vs chromium 1.000000 (the inversion)
 
-# L-1 mobile inversion (WebKit 1.4338× vs Chromium 1.0 at 390px, /#/gradient)
-node <scratchpad>/m390b.mjs
+# ── pass-2 verification of pass-1 L-3 (RTL), webkit 1440, /#/gradient
+node <scratchpad>/rtl-verify.mjs
+#   RTL rest   title l:754 r:1216   transformOrigin 0px 0px
+#   RTL 200px  title l:754 r:1057   ← left edge PINNED, right edge (the inline-start
+#                                     the text is aligned to) drifts 159px inward
+#   LTR rest/200: l:224 pinned, r:686→527  ← correct
 
-# L-2  producer grammar + mechanism
-cat node_modules/@mkbabb/glass-ui/dist/components/card/card-scroll.css
-cat node_modules/@mkbabb/glass-ui/dist/components/card/CardHeader.vue.d.ts
-node -e 'const s=require("fs").readFileSync("node_modules/@mkbabb/glass-ui/dist/card-Bk96VI2R.js","utf8");
-         const i=s.indexOf(String.fromCharCode(34)+"CardHeader"+String.fromCharCode(34)); console.log(s.slice(i-60,i+900))'
+# ── L2-1  the enforcement void
+npx eslint --print-config demo/shared/ui/PaneHeader.vue  | jq '.rules["no-restricted-imports"]'  # "ABSENT"
+npx eslint --print-config demo/workbenches/mix/MixPane.vue | jq '.rules["no-restricted-imports"]' # "ABSENT"
+ls -d "demo/@"                                                    # No such file or directory
+find demo -name "*.ts" -o -name "*.vue" | wc -l                   # 250
+find demo/color-picker -name "*.ts" -o -name "*.vue" | wc -l      # 16
+grep -rn 'from "@components' demo/ | wc -l                        # 0
 
-# L-4  the class already exists upstream
-grep -o "card-scroll-host {[^}]*}" node_modules/@mkbabb/glass-ui/dist/styles/utilities/base-misc.css
+# ── L2-3 / L2-4  live lattice facts (element counts, shipped-rule counts, host descriptors)
+node <scratchpad>/paneheader-lattice.mjs      # /#/ /#/mix /#/browse /#/generate
+node <scratchpad>/hosts.mjs                   # /#/blob /#/atmosphere /#/gradient
 
-# L-5  h1 = 0 across all 60 visual-audit captures
-sed -n '118,178p' docs/tranches/V/megatranche/audit/visual/REPORT.md   # per-capture table, h1 column
+# ── L2-2  the EOPT contrivance
+grep -n exactOptionalPropertyTypes tsconfig.base.json     # :11 true
+sed -n '107p' demo/scenes/ConfigSliderPane.vue
 
-# L-6  the tokenized feather
-grep -o "\-\-card-pad-title-gap:[^;]*;" node_modules/@mkbabb/glass-ui/dist/components/card/styles.css
+# ── L2-5  the barrel narrows the producer
+cat demo/ui/card/index.ts
+cat node_modules/@mkbabb/glass-ui/dist/components/card/index.d.ts   # 7 members vs the barrel's 6
 
-# L-7  dead @reference
-grep -n "@apply\|theme(" demo/shared/ui/PaneHeader.vue            # → no output
-for f in $(grep -rln "@reference" demo --include="*.vue"); do grep -q "@apply\|theme(" "$f" || echo "$f"; done
+# ── L2-6  no root barrel
+node -e "const p=require('./package.json'); console.log('.' in (p.exports||{}), p.main, p.types)"
+ls src/index.ts
 
-# L-8  ScrollCardHeader absent
-grep -rn "ScrollCardHeader" node_modules/@mkbabb/glass-ui/dist/    # → no output
-
-# L-9 / L-10  the barrel tier and the shared/ residue
-for d in demo/ui/*/; do printf "%-16s " "$(basename $d)"; tr '\n' ' ' < "$d/index.ts" | cut -c1-110; echo; done
-find demo/shared -type f
-
-# published surface (clean) + the root-export gap (library seat)
-grep -rhn 'from "@mkbabb/value.js' demo/ --include=*.ts --include=*.vue | sed 's/.*from //' | sort | uniq -c
-node -e 'console.log(require("./package.json").exports["."])'      # → undefined
+# ── carried pass-1 verifications
+grep -n "@apply\|theme(" demo/shared/ui/PaneHeader.vue                        # no output  (L-7)
+grep -o -- "--card-pad-title-gap:[^;]*;" node_modules/@mkbabb/glass-ui/dist/components/card/styles.css  # (L-6)
+grep -rl "ScrollCardHeader" node_modules/@mkbabb/glass-ui/                    # no output  (L-8)
+grep -c "prefers-reduced-motion: no-preference" node_modules/@mkbabb/glass-ui/dist/styles/scroll-driven.css        # 2
+grep -c "prefers-reduced-motion: no-preference" node_modules/@mkbabb/glass-ui/dist/styles/scroll-choreography.css  # 3
+grep -rn "animation-timeline" demo/                                           # 4 hits, one file (MT-F023)
+sed -n '118,178p' docs/tranches/V/megatranche/audit/visual/REPORT.md          # h1 = 0, all 60 rows (L-5)
 ```
+
+---
 
 ## Artifacts
 
-- `docs/tranches/V/megatranche/audit/components/PaneHeader/challenge-L-library.md` (this file)
-- `docs/tranches/V/megatranche/audit/components/PaneHeader/probe-L-structure.mjs` (retained; the
-  cross-engine / cross-direction structural probe)
+- `docs/tranches/V/megatranche/audit/components/PaneHeader/challenge-L-library.md` — this file (pass 2)
+- `docs/tranches/V/megatranche/audit/components/PaneHeader/challenge-L-library.pass-1-2026-07-28-prior.md`
+  — pass 1, preserved verbatim and **carried**, not superseded
+- `docs/tranches/V/megatranche/audit/components/PaneHeader/probe-L-structure.mjs` — pass 1's
+  cross-engine / cross-direction structural probe (retained)
+
+Pass-2 probe scripts (`trig-verify.mjs`, `ratio-verify.mjs`, `rtl-verify.mjs`,
+`paneheader-lattice.mjs`, `hosts.mjs`) were written to this session's scratchpad; their full bodies
+are short enough to reconstruct from the reproduction block above, and the seat's write permission
+covers only this directory, so they are not banked here.
+
+**No file under `src/`, `demo/`, `api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`,
+`scripts/dev/dev.sh`, or any `INBOX.md` was modified.** The two writes in this directory — this
+report and the preserved pass-1 copy — are the only changes this seat made to the repository.

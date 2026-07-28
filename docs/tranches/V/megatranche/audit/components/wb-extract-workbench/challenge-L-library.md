@@ -2,509 +2,396 @@
 
 ## Model receipt
 
-I observe myself to be **Opus 5** (`claude-opus-5[1m]`, 1M-context variant) — the tier this seat was
-explicitly spawned with. Declared, not inherited.
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`, the 1M-context variant) — the tier this seat
+was explicitly spawned with. Declared, not inherited.
 
 - Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
-- Subject: `demo/workbenches/extract/ExtractWorkbench.vue` (294 lines incl. trailing newline; `wc -l` → 293).
+- Subject: `demo/workbenches/extract/ExtractWorkbench.vue` — `wc -l` → 293 (template 1–182, script 184–282, style 284–293).
 - Axis: **library structure** — module boundaries, ownership, dependency direction, public surface.
 
-**This is pass 2.** Pass 1 (2026-07-27) is preserved verbatim at
-`challenge-L-library.pass1-2026-07-27.md`. It is a strong report and it found a **live BLOCKER I did
-not reach** (the `<KeepAlive>` camera-stream leak). This file is the canonical record: it carries
-pass 1's findings forward with re-verification status, adds six findings pass 1 did not reach, and
-issues **one correction** to a pass-1 conclusion that my measurement contradicts.
+**This is pass 3.** Pass 1 (2026-07-27) is at `challenge-L-library.pass1-2026-07-27.md`; pass 2
+(2026-07-28) is preserved verbatim at `challenge-L-library.pass2-2026-07-28.md`. Both are strong.
+I worked the component cold before reading either, then reconciled. This file is the canonical
+record: it re-verifies the load-bearing prior claims with my own commands, adds **five findings
+neither pass reached**, and records one place where pass 2's live measurement **corrected a
+conclusion I had independently drafted** — which is worth stating, because it is evidence the
+correction was real and not a stylistic preference.
 
-**Verdict: DEFECTIVE.** 1 BLOCKER · 8 MAJOR · 8 MINOR.
+**Verdict: DEFECTIVE.** Prior severity roll-up (1 BLOCKER · 8 MAJOR · 8 MINOR) stands; pass 3 adds
+2 MAJOR · 3 MINOR.
+
+**Strongest defect after three passes:** the forged `Palette` entity is not cosmetic. The palettes
+feature **parses the extract workbench's private sentinel back out** and branches nine ways on it
+(§2.1). Passes 1 and 2 established the forgery; neither found the return edge that makes it a
+cycle.
 
 ---
 
-## 0 · Pass-1 carry-forward
+## §0 · Reconciliation with the prior passes
 
-I independently re-verified four of pass 1's load-bearing claims. All four hold.
+Independently re-run, this pass, on the same HEAD:
 
-| pass-1 § | finding | re-verified this pass | status |
+| prior finding | my command | result | status |
 |---|---|---|---|
-| L-1 | `onBeforeUnmount(stopCamera)` is dead under `<KeepAlive>`; the camera survives navigation | `demo/shell/PaneSlot.vue:120` `<KeepAlive :max="max">` · `demo/color-picker/App.vue:107` `:max="6"` · `grep -rn "onDeactivated" demo/` → **0 hits** (only 2 `onActivated`, both `HeroBlob.vue`) | **CONFIRMED — BLOCKER stands** |
-| L-3 | `useExtractSession` bypasses `LIBRARY_PORT_KEY` into the raw store | `useExtractSession.ts:41` `usePaletteStore()` vs `MixPane.vue:43,45` / `GeneratePane.vue:19` all `pm.createPalette` | **CONFIRMED** |
-| L-4 | `ShadowPalette` is owned by `palettes/browser` but has one consumer, in `workbenches/extract` | sole render site `ExtractWorkbench.vue:159`; exported at `palettes/browser/card/index.ts:7` + `palettes/browser/index.ts:22` | **CONFIRMED** |
-| L-14 | extract is the only defaulted `CSS_COLOR_KEY` inject | 9 inject sites: 8 use `inject(CSS_COLOR_KEY)!`, only `ExtractWorkbench.vue:218` uses `inject(CSS_COLOR_KEY, undefined)` | **CONFIRMED** |
+| B-1 · camera `MediaStream` outlives the view | `grep -n ':max=' demo/color-picker/App.vue` → `88:"9"` `107:"6"` `133:"4"`; `grep -n KeepAlive demo/shell/PaneSlot.vue` → `:120`; `grep -rn "onDeactivated" demo/` → **0 hits** (2 `onActivated`, both `HeroBlob.vue:27,246`) | desktop-left `:max="6"` equals exactly the 6 non-admin left panes named at `App.vue:96-99` — extract is never LRU-evicted in non-admin use, so `ExtractWorkbench.vue:281 onBeforeUnmount(stopCamera)` never runs | **CONFIRMED — BLOCKER stands** |
+| camera implemented twice, composable copy dead | `grep -rn "quantizeFromCamera\|quantizeFromCanvas\|useImageQuantize" demo src test e2e` → only the definitions at `useImageQuantize.ts:110,115` and the returns at `:158,:159`; zero call sites | 41 of 161 lines (`:110-150`) unreachable, while `ExtractWorkbench.vue:239-279` reimplements the same flow *without* the `stop()` handle the dead copy already returns | **CONFIRMED** |
+| port bypass into the raw store | `useExtractSession.ts:17,41,185` vs `usePalettePorts.ts` `libraryPort = { … createPalette … }` provided at `LIBRARY_PORT_KEY` | the port publishes exactly the capability that is bypassed; `usePalettePorts.ts:22-30` states "no consumer injects a member outside the port it named" | **CONFIRMED** |
+| demo import-boundary law dead | `npx eslint --print-config demo/workbenches/extract/ExtractWorkbench.vue` → `no-restricted-imports = null`; same for `useExtractSession.ts` and `palettes/browser/card/index.ts`; `ls -d demo/@` → *No such file or directory*; `grep -rn "@components/" demo/` → 2 hits, both prose | `browser/index.ts:6-8` asserts "the G-DEMO-3b boundary (eslint.config.js) **enforces it standing**" — it does not | **CONFIRMED** |
+| dead `layout="split"` arm | `grep -rn "ExtractWorkbench" demo e2e test` → one mount, `ExtractPane.vue:11`; `grep -rn 'layout=' demo/workbenches/extract/` → `ExtractPane.vue:13 layout="column"` is the only pass | `:5`, `:13`, `:18`, `:148` unreachable; `useBreakpoint("(min-width: 640px)")` (`:188`,`:226`) is the demo's **only** 640px literal and feeds only `:148` | **CONFIRMED** |
+| `DisplayColorSpace` ×4 + type-erased hop | 4 declarations (`color-model.ts:29`, `useImageSampler.ts:21`, `ExtractWorkbench.vue:202`, `ExtractPane.vue:30`); `picker-color.ts:37 export type PickerSpace = SpaceId` is a bare alias so all four denote one type; `usePaneRouter.ts:141` → `PaneSlot["props"]: Record<string, unknown>` → `PaneSlot.vue:125 v-bind="liveProps"` | **CONFIRMED** | |
+| only defaulted `CSS_COLOR_KEY` inject | `grep -rn "inject(CSS_COLOR_KEY" demo/` → 8 sites use `inject(CSS_COLOR_KEY)!`, only `ExtractWorkbench.vue:218` uses `inject(CSS_COLOR_KEY, undefined)`; `App.vue:271` provides unconditionally | one site in nine, and it is the one that installs the `?? ''` degrade (`:71`, `:149`) | **CONFIRMED** |
+| `.plate-ink` ×5 | `grep -rln "\.plate-ink" demo/` → `ExtractWorkbench.vue`, `ExtractControls.vue`, `ImageDropZone.vue`, `EmptyState.vue`, `ErrorBoundary.vue`; `demo/styles/utils.css` already hosts `.fira-code` / `.section-subtitle` — the same class of cross-component text recipe | **CONFIRMED** | |
 
-Pass-1 §L-2 (camera dual path), §L-5 (dead eslint law), §L-7 (`DisplayColorSpace` ×4), §L-8
-(`dominantColor` surface), §L-9/L-10 (tsconfig `paths` drift + self-install), §L-11 (`.plate-ink` ×5),
-§L-12 (`EmptyState` duplication), §L-13 (`PaletteCard` god component + forged entity), §L-15 (ref
-idioms) I reached independently and concur with. Where this pass adds a **measurement** to a pass-1
-assertion, it is called out below.
-
----
-
-## 1 · NEW — findings pass 1 did not reach
-
-### N-1 · MAJOR · The dead `split` arm has already killed a *foreign feature's public API*
-
-Pass 1 (§L-6) correctly found `layout="split"` dead and prescribed "delete the prop; `PaletteCard`
-gets `layout="default"` literally". It stopped one hop short. **That hop is the finding.**
-
-**Provenance.** The `split` arm did not rot on its own — a legacy sweep orphaned it, 18 days ago:
-
-```
-$ git log --oneline -S 'layout="split"' -- demo/
-95993197 refactor(T.W0 · lane t-legacy-sweep): W0-3 excisions — the dead named set + CC-6 orphan removed, code grep-zero
-65ba2c65 feat(R.W4 Lane E · extract + input): T19 dominance surfaced end-to-end + T20 dup-shell collapse …
-```
-
-`95993197` (2026-07-10) deleted the only caller:
-
-```
---- a/demo/@/components/custom/image-palette-extractor/ImagePaletteExtractor.vue
-+++ /dev/null
--        <ExtractWorkbench
--            class="pb-4"
--            layout="split"
-```
-
-Its own commit body records the cascade it followed and where it stopped: *"Its child
-ExtractWorkbench stays live via ExtractPane."* It verified its **own** deletions were grep-zero. It
-did not re-derive reachability of the surviving producer's conditional arms.
-
-**The cascade it missed.** `ExtractWorkbench.vue:148` is:
-
-```vue
-:layout="layout === 'split' && isWide ? 'aside' : 'default'"
-```
-
-```
-$ grep -rn "<PaletteCard" -A 8 demo/ | grep "layout"
-demo/workbenches/extract/ExtractWorkbench.vue-148-  :layout="layout === 'split' && isWide ? 'aside' : 'default'"
-```
-
-That is the **only** `layout` binding to `PaletteCard` in the entire demo, and `PaletteCard.vue:198`
-defaults the prop to `"default"`. With `split` unreachable, the expression is a constant.
-
-Therefore `PaletteCard`'s entire `aside` implementation — `PaletteCard.vue:20`, `:35`, `:36`, `:39`,
-`:40`, and the prop declaration `:192-193` — is **dead public API on the `palettes/browser/card`
-barrel seam**, kept nominally alive by a dead branch in a *different feature*.
-
-**Live confirmation** (`http://localhost:9000`, Playwright `browser_evaluate`, three routes):
-
-```json
-{ "splitGrid": 0, "asideCards": 0 }
-```
-
-`.sm\:grid-cols-2` inside the pane: 0. `.rounded-l-card` (the `aside` marker, `PaletteCard.vue:36`):
-0 — on `/#/extract`, `/#/mix` and `/#/`.
-
-**Mechanism.** Dead-branch cascade across a feature boundary. Dead code did not merely accumulate —
-it *migrated* and became dead **API**, which is strictly worse: it is now surface a future consumer
-could reasonably build on.
-
-**Cure.** Pass 1's cure (delete the prop, `isWide`, `useBreakpoint`) **plus**: delete `PaletteCard`'s
-`aside` arm and its prop declaration. The seam shrinks by one option.
+**Epistemic note on pass 2's C-1.** Working cold, I reached pass 1's conclusion — that the three
+nameless buttons on `/#/extract` (`REPORT.json` `safari-desktop-light /#/extract`: `"button": 15`,
+`"namelessButtons": 3`, in all four matrices) indict glass-ui's `DockControl`, whose declared prop
+surface (`node_modules/@mkbabb/glass-ui/dist/components/dock/DockControl.vue.d.ts`) is
+`{shape, compact, active, type, disabled, as, asChild, class}` — no `title`, no `ariaLabel`. I had
+that finding drafted. Pass 2's live audit (`/#/mix`, `/#/` — eight `DockControl`s, every one
+`aria-label`, none `title`) shows the app-wide idiom is already correct and
+`ExtractControls.vue:41,50,85` is the **sole divergence**. Pass 2 is right and I withdraw the
+drafted finding: pushing a `title`→`aria-label` fallback into the design system would install a
+masking fallback (edict 2) to accommodate one file. **Cure stands as pass 2 states it:** three
+`aria-label`s in `ExtractControls.vue`, no glass-ui change, no BH relay.
 
 ---
 
-### N-2 · MAJOR · Measured: 77% of the runtime module closure is foreign, and an offline quantizer reaches the HTTP transport client
+## §1 · Nothing found in the published surface — the negative, re-proved
 
-Pass 1 §L-13 diagnosed the `PaletteCard` contract correctly (11 props / 17 emits, 4 bound, one a
-no-op). Nobody measured what that contract *costs*.
-
-**Measurement.** Runtime import closure rooted at `ExtractWorkbench.vue`, with `import type` /
-inline-`type` edges excluded (they are erased under `verbatimModuleSyntax`, so counting them
-overstates by 16 modules — my own first run made that error and is corrected here):
+This is the axis's headline question and it is worth re-establishing independently each pass,
+because it is the one thing that is right.
 
 ```
-ExtractWorkbench RUNTIME demo-module closure: 47
-  inside demo/workbenches/extract : 11
-  outside                          : 36
+$ grep -rn "@mkbabb/value.js" demo/workbenches/extract/
+quantize-worker.ts:6                    import { quantizePixels }                  from "@mkbabb/value.js/quantize";
+quantize-worker.ts:7                    import type { QuantizeOptions, QuantizedColor } from "@mkbabb/value.js/quantize";
+ExtractWorkbench.vue:189                import type { SpaceId }                    from "@mkbabb/value.js/color";
+composables/useExtractSession.ts:14     import type { QuantizedColor }             from "@mkbabb/value.js/quantize";
+composables/useExtractSession.ts:15     import { serializeCssColor }               from "@mkbabb/value.js/css";
+ExtractPane.vue:28                      import type { SpaceId }                    from "@mkbabb/value.js/color";
+ImageEyedropper/composables/useImageSampler.ts:12  import type { SpaceId }         from "@mkbabb/value.js/color";
+ImageEyedropper/composables/useImageSampler.ts:13  import { parseCssColor }        from "@mkbabb/value.js/css";
+composables/useImageQuantize.ts:9       import type { QuantizedColor, QuantizeOptions } from "@mkbabb/value.js/quantize";
+
+$ grep -rn "@src\|\.\./\.\./\.\./\.\./src\|from \"src/" demo/workbenches/extract/
+NONE
 ```
 
-Among the 36:
+Nine imports, three specifiers, all three real keys in `package.json#exports`. Symbol-by-symbol:
+`SpaceId` → `src/subpaths/color.ts:11`; `serializeCssColor` + `parseCssColor` → `src/subpaths/css.ts`;
+`QuantizedColor` / `QuantizeOptions` / `quantizePixels` → `src/subpaths/quantize.ts:1-2`.
+`vite.config.ts:38-49` *generates* the demo self-alias set from `package.json#exports`, so a subpath
+that is not published cannot resolve in the demo either. **A real external consumer of
+`@mkbabb/value.js@4.0.0` could write all nine lines verbatim.**
 
-```
-demo/platform/transport/useApiClient.ts        ← the HTTP client
-demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue
-demo/palettes/browser/card/CurrentPaletteEditor.vue
-demo/palettes/browser/card/PaletteCardGrid.vue
-demo/palettes/browser/card/SwatchHoverMenu.vue
-demo/palettes/browser/status/ApiOfflineChip.vue
-demo/shared/ui/EmptyState.vue
-demo/ui/{badge,button,dropdown-menu,input,popover,skeleton,slider,tooltip}/index.ts
-```
+Also sound, stated so this report is not read as an unqualified condemnation:
 
-`demo/platform/transport/useApiClient.ts` is a **runtime** edge, entering at
-`PaletteCardMenu.vue:179`. An image quantizer that never touches the network transitively loads the
-API client because the card it borrows carries an owner/admin menu.
-
-**The cost is the wrong component, not a coarse barrel.** Splitting it:
-
-```
-barrel closure (card/index.ts, 6 symbols): 34
-the 3 symbols actually imported          : 25
-modules pulled ONLY by the other 3       :  9
-```
-
-So barrel over-reach costs 9 modules; `PaletteCard` itself costs 25. This sharpens pass-1 §L-13's
-cure: the repair is the `PaletteSpecimen` split it proposed, **not** a narrower barrel.
-
-*Caveat, stated so no seat mistakes it for a bundle measurement.* This is the static runtime graph —
-exactly what the Vite dev server loads. `card/index.ts:2-3` uses named re-exports specifically so
-rolldown can tree-shake, so the production chunk may carry less. I could not verify: `dist/gh-pages/`
-holds 2 JS assets and is stale. The **contract** half (17 emits, 3 used, 1 no-op, a forged entity) is
-bundler-independent.
+- **`verbatimModuleSyntax`** — every type-only import in the 12-file subtree is `import type` or an
+  inline `type` specifier (`ImageEyedropper.vue:99`). Zero violations.
+- **The `../../palettes/browser/card` reach complies with G-DEMO-3b's letter** — `browser/index.ts:23-30`
+  re-exports the `./card` sub-barrel and `:11-13` explicitly blesses sub-barrel reaches. The code
+  complies independently of the fact that the rule is dead.
+- **`demo/ui/` is not a measured tree-shaking defect.** `node_modules/@mkbabb/glass-ui/package.json`
+  declares `"sideEffects": ["*.css"]`, so the bundler may elide unused root re-exports. I went
+  looking for a byte cost here and did not find one; the finding (pass-2 N-3) is a coherence
+  defect — one concept, two names — and should be stated as exactly that.
+- **No named historical suspect touches this graph.** `ActionBarLayer`/`useLayerTransition`,
+  `palettes/export.ts` vs `usePaletteExport.ts` vs `export/serializers`, and the three parallel
+  `useDark` stores appear nowhere in the subtree's transitive import set.
 
 ---
 
-### N-3 · MAJOR · `demo/ui/` is 19 pure pass-through barrels, and this one feature uses both routes at once
+## §2 · NEW — what passes 1 and 2 did not reach
 
-Not covered by pass 1.
-
-```
-$ for d in demo/ui/*/; do cat $d/index.ts; done
-demo/ui/slider/index.ts    export { Slider } from "@mkbabb/glass-ui";
-demo/ui/card/index.ts      export { Card, CardHeader, … } from "@mkbabb/glass-ui";
-demo/ui/button/index.ts    export { Button } from "@mkbabb/glass-ui";
-demo/ui/input/index.ts     export { Input } from "@mkbabb/glass-ui/forms";
-…19 directories, every one a pass-through
-```
-
-This three-file feature uses **both** routes simultaneously:
+Coverage check before claiming novelty:
 
 ```
-ExtractWorkbench.vue:187   import { DockControl }   from "@mkbabb/glass-ui/dock";   ← direct, narrow subpath
-ExtractWorkbench.vue:188   import { useBreakpoint } from "@mkbabb/glass-ui/dom";    ← direct, narrow subpath
-ExtractControls.vue:99     import { Slider }        from "../../ui/slider";         ← alias hop → root barrel
-ExtractPane.vue:24         import { Card }          from "../../ui/card";           ← alias hop → root barrel
+$ for t in __extracted__ TEMP_ID_PREFIXES getPaletteKind quantizeError totalPopulation lastFile K-PALID; do
+      grep -c -- "$t" challenge-L-library.pass1-*.md challenge-L-library.pass2-*.md; done
+__extracted__      pass1=1  pass2=0     ← named, but only as a forged field
+TEMP_ID_PREFIXES   pass1=0  pass2=0
+getPaletteKind     pass1=0  pass2=0
+quantizeError      pass1=0  pass2=0
+totalPopulation    pass1=0  pass2=0
+lastFile           pass1=0  pass2=0
+K-PALID            pass1=0  pass2=0
 ```
 
-The hop also *widens* the specifier: `demo/ui/*` reaches `@mkbabb/glass-ui` (the **root** barrel)
-while glass-ui 7.0.0 publishes narrow subpaths — `./slider`, `./card`, `./badge`, `./button`,
-`./tooltip` all exist (73 export keys, read from `node_modules/@mkbabb/glass-ui/package.json`).
+### 2.1 · P3-1 · MAJOR — the forgery is a **cycle**: palettes parses the workbench's sentinel back and branches nine ways on it
 
-Edict 2 (no aliases / dual paths) and edict 3 (KISS — no wrapper indirection). **The precedent for
-the cure is already in this repo's history** — the same commit as N-1, `95993197` F3:
+Pass 1 §L-13 found the forged entity and called it "the canonical symptom of a wrong module
+boundary." Correct, and one hop short. The sentinel does not sit inert in a display prop — **the
+palettes feature reads it back out and drives live UI with it.**
 
-> *"`dark-mode-toggle/` — a 2-line re-export folder. **DISSOLVED**: the 4 consumers repoint DIRECTLY
-> at `@mkbabb/glass-ui/controls` … Folder deleted."*
+The outbound edge (workbench → palettes), `useExtractSession.ts:88-100`:
 
-The rule was applied to one folder and not to the other nineteen.
+```ts
+return {
+    id: "__extracted__",
+    name: paletteName.value,
+    slug: "extracted",
+    colors,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    isLocal: true,
+};
+```
 
-**Cure.** Dissolve `demo/ui/`; repoint consumers at glass-ui subpaths. `demo/ui/alert/index.ts`
-carries real historical prose (the B.W2 de-duplication record) — preserve it in `demo/DESIGN.md`, not
-as a folder.
+The **return** edge (palettes → workbench), `demo/palettes/utils.ts:18-30`:
+
+```ts
+export type PaletteKind = "temporary" | "saved" | "remote";
+
+const TEMP_ID_PREFIXES = ["gen-", "__extracted__", "mix-"];
+
+export function getPaletteKind(palette: Palette): PaletteKind {
+    if (!palette.isLocal) return "remote";
+    const id = palette.id;
+    if (id != null && TEMP_ID_PREFIXES.some((p) => id.startsWith(p))) return "temporary";
+    return "saved";
+}
+```
+
+```
+$ grep -rn "__extracted__" demo/
+demo/workbenches/extract/composables/useExtractSession.ts:91:   id: "__extracted__",
+demo/palettes/utils.ts:20:                                      const TEMP_ID_PREFIXES = ["gen-", "__extracted__", "mix-"];
+demo/palettes/types.ts:17:                                       * `gen-`/`mix-`/`__extracted__` temp prefix), present **iff** `isLocal`.
+```
+
+And the consumption, `PaletteCard.vue:225` → `:85` → `PaletteCardMenu.vue`:
+
+```
+$ grep -n 'kind\b' demo/palettes/browser/card/PaletteCard/PaletteCard.vue
+225:  const kind = computed<PaletteKind>(() => getPaletteKind(props.palette));
+ 85:  :palette-kind="kind"
+
+$ grep -n "paletteKind" demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue
+16,28,49,64,74,84,134,144,153   ← nine v-if branches
+```
+
+**So the menu the extract workbench's card renders is selected by a string literal the extract
+workbench mints and the palettes feature parses.** The coupling is bidirectional, load-bearing,
+untyped in both directions, and invisible to `vue-tsc` at every hop.
+
+**The decisive test of a wrong boundary.** Adding a fourth workbench that renders a `PaletteCard`
+requires editing `demo/palettes/utils.ts:20` — a file in a *foreign feature* — or the new
+workbench's card silently renders the `"saved"` menu (Publish / Rename / Delete on a thing that was
+never saved). The registry already enumerates three workbenches (`gen-`, `__extracted__`, `mix-`),
+so this has happened three times.
+
+**Mechanism.** There is no type for "a candidate palette not yet persisted." Its absence forces the
+workbench to impersonate a persisted entity, which forces the palettes feature to un-impersonate it
+by string sniffing. The two halves of one missing type, split across two features and joined by a
+literal.
+
+**Cure.** Pass 1's `PaletteSpecimen` split is the right shape but is scoped as a *display* fix. It
+must also carry the discriminant: introduce `PaletteDraft { name, colors }` in `demo/palettes/` as
+a first-class sibling of `Palette`, make the card's contract `Palette | PaletteDraft`, and derive
+`PaletteKind` from the **union tag**, not from `id.startsWith`. `TEMP_ID_PREFIXES` is then deleted
+and the return edge disappears — the palettes feature stops knowing that workbenches exist.
+
+### 2.2 · P3-2 · MAJOR — the forged entity defeats the K-PALID id-honesty invariant by construction
+
+`demo/palettes/usePaletteStore.ts:47-55` installs the R.W2 K-PALID invariant as a **type predicate**:
+
+```ts
+// K-PALID: a "saved" palette is a LOCAL palette that carries its local store
+// key. The type predicate encodes the store invariant — every stored local
+// palette is minted an `id` (`createPalette` / `addPublishedPalette`) — so
+// downstream consumers read `id` as a definite `string` with no coercion.
+const savedPalettes = computed(() =>
+    getStore().value.palettes.filter(
+        (p): p is Palette & { id: string } => p.isLocal && p.id != null,
+    ),
+);
+```
+
+The forged extract palette satisfies **both** conjuncts: `isLocal: true` (`useExtractSession.ts:97`)
+and `id: "__extracted__"` (`:91`). It is, to the predicate, indistinguishable from a palette the
+store minted. `demo/palettes/types.ts:15-27` states the invariant it is supposed to encode —
+*"client-minted (`crypto.randomUUID()` or a `gen-`/`mix-`/`__extracted__` temp prefix)"* — i.e. the
+type doc has already been widened to grandfather the forgeries in. The invariant that "every stored
+local palette is minted an `id`" is now enforced by nothing: three features mint `id`s outside the
+store's two minting functions, and the predicate cannot tell the difference.
+
+This is not currently a live bug — the forged object never enters `getStore().value.palettes`
+(`onSave` at `useExtractSession.ts:185` calls `createPalette`, which mints a fresh entity). It is a
+**structural** finding: an invariant installed to stop exactly this class of impersonation has been
+defeated by three consumers and then documented as if the defeat were the design.
+
+**Reproduction:** NONE — this is a type-level defect with no runtime symptom today. Labelled as
+such. It becomes live the moment any workbench pushes its display object into the store.
+
+### 2.3 · P3-3 · MAJOR — the camera writes its error into the quantizer's error channel, where the next image silently erases it
+
+```ts
+// ExtractWorkbench.vue:251-254
+} catch (err) {
+    session.quantizeError.value = `Camera access denied: ${err}`;
+    cameraActive.value = false;
+}
+```
+
+`quantizeError` is a **writable computed over the worker's error ref**
+(`useExtractSession.ts:66-73`):
+
+```ts
+const quantizeError = computed<string | null>({
+    get: () => workerError.value ?? (presentedPalette.value.ok ? null : presentedPalette.value.error),
+    set: (value) => { workerError.value = value; },
+});
+```
+
+and `useImageQuantize.ts:86` clears that ref at the top of **every** quantize:
+
+```ts
+error.value = null;
+```
+
+So a camera-permission denial is stored in the quantizer's slot and is wiped by the next unrelated
+image drop. One error channel, three semantically distinct producers (worker failure, serialization
+failure, device-permission failure), one of which is written from *outside* the composable that
+owns the channel by reaching through a computed setter.
+
+The ownership defect is the setter itself: `useExtractSession` exposes a write path into
+`useImageQuantize`'s private state so that the SFC can inject an error the quantizer knows nothing
+about. Three modules share one mutable slot.
+
+**Reproduction:** open `/#/extract`, press the camera control, **deny** camera permission → the
+destructive line at `ExtractWorkbench.vue:100-105` reads "Camera access denied: …". Now drop any
+image → the message vanishes on `runQuantize`'s first statement, with no user action
+acknowledging it. (Attempted live; both drivers were held by concurrent seats — output in §4 — so
+this is carried on the three cited lines, which are unambiguous.)
+
+**Cure.** `useCameraCapture` (pass-2's lattice already creates it) owns its own `error` ref; the SFC
+renders whichever of the two is set. Delete the `set:` half of the `quantizeError` computed — a
+writable computed over another composable's private ref is the whole defect in one construct.
+
+### 2.4 · P3-4 · MINOR — 4 of `useExtractSession`'s 17 returned members are read by nobody
+
+```
+$ for m in palette lastFile paletteName totalPopulation extractedPalette dominant dominantShare kSliderGradient; do
+      grep -c "session\.$m" demo/workbenches/extract/ExtractWorkbench.vue; done
+palette           0      extractedPalette  2
+lastFile          0      dominant          4
+paletteName       0      dominantShare     1
+totalPopulation   0      kSliderGradient   1
+```
+
+`useExtractSession` has exactly one consumer (`ExtractWorkbench.vue:220`). `palette` (`:200`),
+`lastFile` (`:207`), `paletteName` (`:208`) and `totalPopulation` (`:212`) are exported into a
+one-consumer surface that reads none of them. `totalPopulation` is additionally a full recomputation
+of a sum `dominantShare` already computes internally.
+
+That is the composable drifting toward an aggregate: 17 members returned, 13 used, in a module with
+a single caller. The right surface for a one-consumer composable is exactly what that consumer
+reads.
+
+### 2.5 · P3-5 · MINOR — the sentinel registry is not a prefix scheme
+
+```ts
+const TEMP_ID_PREFIXES = ["gen-", "__extracted__", "mix-"];   // utils.ts:20
+```
+
+`"gen-"` and `"mix-"` are separator-terminated prefixes matched against ids like `gen-<uuid>`.
+`"__extracted__"` has no separator and is the **complete** id (`useExtractSession.ts:91`), matched by
+`startsWith` as a degenerate case. Three workbenches, two incompatible id conventions, in one array
+named for the convention only two of them follow. Cosmetic on its own; it is listed because it is
+the visible tell that the registry grew by accretion rather than by design, which is P3-1's
+mechanism in miniature.
 
 ---
 
-### N-4 · MINOR · Dead scoped CSS, forked from a rule another feature deliberately owns unscoped
+## §3 · Amendments to pass 2's greenfield lattice
 
-Not covered by pass 1.
-
-```
-demo/workbenches/extract/ExtractControls.vue:139-142
-    /* Touch gate styling for extract sliders */
-    .touch-gate-target { border-radius: var(--radius-pill); }
-```
-
-`touch-gate-target` appears **nowhere** in `ExtractControls.vue`'s template. Its real consumers are
-in another feature:
+Pass 2's lattice is sound and I adopt it. Three amendments, all consequences of §2:
 
 ```
-demo/picker/controls/ComponentSliders/ComponentSliders.vue:58   'touch-gate-target flex-1 min-w-0'
-demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue:11       '… touch-gate-target'
-demo/picker/controls/ComponentSliders/ComponentSliders.vue:253  .touch-gate-target { … }   ← UNSCOPED, deliberately
-```
-
-`ComponentSliders.vue:245-253` documents *why* its block is unscoped. A `<style scoped>` block cannot
-reach another component's subtree, so the extract copy styles nothing. It is a stranded fork of a
-rule that already has a considered home.
-
-**Cure.** Delete `ExtractControls.vue:139-142`.
-
----
-
-### N-5 · MINOR · `ExtractPane` should not exist
-
-The pane/workbench split exists solely because there were once two shells — `useExtractSession.ts:4-6`
-says so: *"The former ExtractPane ↔ ImagePaletteExtractor twins … **both shells** now consume this
-session through ExtractWorkbench."* `95993197` deleted the second shell (N-1).
-
-What remains is `ExtractPane.vue` — 37 lines that mount a `Card`, a `PaneHeader`, and forward two
-events — plus a redundant local `DisplayColorSpace` (`:30`) and a redundant `colorSpace` prop hop.
-Two files, one screen, one consumer each.
-
-This compounds pass-1 §L-14: the pane injects `COLOR_TARGET_PORT_KEY` while the workbench injects
-`CSS_COLOR_KEY` at the leaf — two levels of a two-file feature reaching two different injection
-surfaces, because there are two levels for no reason.
-
-**Cure.** Fold `ExtractPane.vue` into `ExtractWorkbench.vue`. One file, one injection site, and
-pass-1 §L-14's cure (`inject(CSS_COLOR_KEY)!`, matching Mix/Generate/Gradient) applies at that one
-site.
-
----
-
-### N-6 · MINOR · The import-boundary law's coverage, quantified
-
-Pass 1 §L-5 established that `no-restricted-imports` is off for this file. The scale is worth
-recording, because it determines how much of the demo a repair must cover:
-
-```
-$ npx eslint --print-config demo/workbenches/extract/ExtractWorkbench.vue   → no-restricted-imports: undefined
-$ npx eslint --print-config demo/palettes/usePaletteStore.ts               → no-restricted-imports: undefined
-$ npx eslint --print-config demo/color-picker/App.vue                      → [2,{patterns:[{group:["@components/custom/palette-browser/**/*.vue"]…}]}]
-$ npx eslint --print-config src/color/model.ts                             → [2,{patterns:[{group:["@mkbabb/glass-ui","@mkbabb/glass-ui/*"]…}]}]
-
-$ find demo/color-picker -name '*.ts' -o -name '*.vue' | wc -l   →   16
-$ find demo -name '*.ts' -o -name '*.vue' | wc -l                →  250
-$ find demo -path 'demo/@*' | wc -l                              →    0
-```
-
-- G-DEMO-1 + G-DEMO-3a (`eslint.config.js:258-303`) are globbed at `demo/@/composables/**` — they
-  match **zero files**. The whole object is inert.
-- G-DEMO-3b covers **16 of 250** demo files (6.4%), and its ban pattern
-  `@components/custom/palette-browser/**/*.vue` targets an alias killed at W43/RF-15
-  (`vite.config.ts:70-77`, `tsconfig.demo.json:33-35`). No specifier in the tree can match it. The
-  rule is unfalsifiable even over the 16 files it does reach.
-- `inv-K-1` over `src/**` is the only structural boundary in this repo that actually fires.
-
-`demo/workbenches/**` — where the subject lives — has never been governed by an import boundary at
-all. This makes pass-1 §L-5's "highest-leverage repair" assessment correct and gives it a number.
-
----
-
-## 2 · Measurement added to a pass-1 assertion
-
-### M-1 · `dominantColor` (pass-1 §L-8) — the claim is right; here is the quantity
-
-Pass 1 asserted that because `src/quantize.ts:127` already sorts population-descending, the demo's
-22-line re-derivation (`useExtractSession.ts:120-141`) has *"only the chroma tiebreak"* as live
-behaviour. I measured it rather than reasoning about it.
-
-`scratchpad/dom.mjs` — 400 synthetic 24×24 images against the **built** `dist/subpaths/quantize.js`,
-k ∈ [1,16], chromaWeight ∈ [0,1.5], running the demo's dominance loop verbatim beside `value[0]`:
-
-```
-trials=400  first-place ties=9  demoDominant !== value[0] : 4
-```
-
-The sorted-descending invariant held in 400/400. So:
-
-- pass 1 is **correct**: the `population >` branch is unreachable; only the tiebreak is live.
-- the tiebreak changes the answer in **4 of 400** trials (1%), and only on **exact integer population
-  ties** — 9 of 400 here on 576-pixel synthetic noise, and rarer still on real photographs.
-
-Twenty-two lines of duplicated ordering logic exist to alter a measure-near-zero case, while the
-concept "the dominant color" has **three** homes: `src/quantize.ts:127` (the sort),
-`src/quantize.ts:132-139` (`dominantColor`, hardcoded `k: 5`, zero production consumers), and the
-demo loop. This strengthens rather than softens pass-1 §L-8's cure — move the tiebreak into the
-library comparator and the demo loop collapses to `palette[0]`.
-
----
-
-## 3 · Correction to pass 1
-
-### C-1 · The `/#/extract` nameless buttons are a **local divergence**, not a glass-ui root defect
-
-Pass 1's appendix concluded:
-
-> *"the structural half is that `DockControl` carries only `title=` at all four extract call sites,
-> and the accessible-name default belongs in glass-ui's `DockControl` root (edict 4/5), not as four
-> per-instance `aria-label` patches."*
-
-**That prescription is wrong, and the measurement says so.** Live, `http://localhost:9000`:
-
-`/#/extract` — the three nameless buttons, all `.dock-icon-button`, all 41×41:
-
-```json
-[ { "title": "Upload image", "ariaLabel": null },
-  { "title": "Open camera",  "ariaLabel": null },
-  { "title": "Reset",        "ariaLabel": null } ]
-```
-
-`/#/mix` and `/#/` — every `DockControl` in the app:
-
-```json
-[ {"title":null,"ariaLabel":"Save edit"},        {"title":null,"ariaLabel":"Cancel edit"},
-  {"title":null,"ariaLabel":"Switch to slug"},   {"title":null,"ariaLabel":"Generate new slug"},
-  {"title":null,"ariaLabel":"Cancel"},           {"title":null,"ariaLabel":"Back"},
-  {"title":null,"ariaLabel":"Open color input"}, {"title":null,"ariaLabel":"Toggle action bar"} ]
-```
-
-**Every other `DockControl` in the application carries `aria-label` and none carries `title`.**
-`ExtractControls.vue:41`, `:50`, `:85` are the sole divergence from an idiom the rest of the app
-already follows — and the same file uses `aria-label` correctly on both its `Slider`s (`:25`, `:69`).
-
-glass-ui is behaving correctly: it forwards whatever attribute the consumer supplies. Pushing a
-`title`→`aria-label` fallback into `DockControl` would install a **masking fallback** in the design
-system (edict 2) to accommodate one file's deviation, and would silently paper over the same mistake
-everywhere in the constellation.
-
-**Corrected cure.** Add `aria-label` to the three `DockControl`s in `ExtractControls.vue`; keep
-`title` as the tooltip. No glass-ui change. No BH relay needed for this item.
-
-*(Pass 1 also reported 4 nameless buttons including "Capture frame". That one is inside
-`v-if="cameraActive"` (`ExtractWorkbench.vue:34-59`) and is not in the DOM at rest — which is why
-`REPORT.json` records 3, not 4, in all four Safari matrices. Pass 1's own parenthetical noted the
-discrepancy; this resolves it.)*
-
----
-
-## 4 · The public surface — stated plainly, because it is the one thing that is right
-
-Every value.js reach in the extract subtree goes through a published subpath:
-
-```
-ExtractWorkbench.vue:189                      @mkbabb/value.js/color      (import type SpaceId)
-composables/useExtractSession.ts:14,15        @mkbabb/value.js/quantize, /css
-composables/useImageQuantize.ts:9             @mkbabb/value.js/quantize
-quantize-worker.ts:6,7                        @mkbabb/value.js/quantize
-ImageEyedropper/composables/useImageSampler.ts:12,13   /color, /css
-```
-
-Zero `@src/*`, zero `../../src/*`, zero `dist/*`. `/color`, `/css` and `/quantize` are all real keys
-in `package.json#exports`. **A real consumer could write every one of these lines.** The T.W1
-dogfood keystone holds in this subtree.
-
-The rot is in the machinery *around* the surface, not the surface: pass-1 §L-9 (`tsconfig.demo.json`
-`paths` naming `parsing`/`units`, which do not exist, while omitting `css`/`value`, which do) and
-§L-10 (a real installed `node_modules/@mkbabb/value.js@4.0.0`). I re-verified both:
-
-```
-dist/index.d.ts             MISSING      dist/subpaths/css.d.ts     EXISTS
-dist/subpaths/parsing.d.ts  MISSING      dist/subpaths/value.d.ts   EXISTS
-dist/subpaths/units.d.ts    MISSING
-```
-
-and traced resolution with the demo's exact `paths` on an in-package probe:
-
-```
-======== Module name '@mkbabb/value.js/css' was successfully resolved to
-         '/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts'
-         with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'. ========
-```
-
-— i.e. by **package self-reference through `package.json#exports`**, not through `paths`. Pass 1's
-cure (delete the seven `@mkbabb/value.js*` `paths` entries and let self-reference do it) is right.
-
-One refinement to pass-1 §L-10's severity: I compared the two copies' *exported symbol sets*, not
-just their bytes. `css.d.ts` differs in size (12490 vs 10910) but the difference is a `rollupTypes`
-`_2`-suffix dedup artifact — **the exported symbol sets are identical**, and `quantize.js` is
-byte-identical. So the stale self-install is a **latent** hazard with a confirmed mechanism, not a
-live divergence. It should still be removed; it is not currently breaking anything.
-
----
-
-## 5 · Consolidated findings table
-
-| id | severity | finding | source |
-|---|---|---|---|
-| **B-1** | **BLOCKER** | camera `MediaStream` outlives the view — `onBeforeUnmount` never fires under `<KeepAlive>`; worker + debounce timer bind to the same dead hook | pass 1 §L-1, re-verified |
-| N-1 | MAJOR | dead `split` arm has killed `PaletteCard`'s `aside` layout — dead API on a foreign seam | **new** |
-| N-2 | MAJOR | 36 of 47 runtime modules foreign; `useApiClient` reached by an offline quantizer | **new (measured)** |
-| N-3 | MAJOR | `demo/ui/` = 19 pass-through barrels; both routes to glass-ui alive in one feature | **new** |
-| — | MAJOR | camera implemented twice; the complete composable copy is dead | pass 1 §L-2 |
-| — | MAJOR | `useExtractSession` bypasses `LIBRARY_PORT_KEY` into the raw store | pass 1 §L-3, re-verified |
-| — | MAJOR | `ShadowPalette` owned by the wrong feature (1 consumer, foreign) | pass 1 §L-4, re-verified |
-| — | MAJOR | demo import-boundary law dead — quantified at 16/250 files, unmatchable pattern | pass 1 §L-5 + **N-6** |
-| — | MAJOR | published `./quantize` surface wrong: `dominantColor` zero-consumer, sort invariant untyped | pass 1 §L-8 + **M-1** |
-| N-4 | MINOR | dead scoped `.touch-gate-target`, forked from `ComponentSliders`' unscoped rule | **new** |
-| N-5 | MINOR | `ExtractPane` is a 37-line shell for a component with one consumer | **new** |
-| — | MINOR | `DisplayColorSpace` ×4; canonical home unused by this subtree | pass 1 §L-7 |
-| — | MINOR | `tsconfig.demo.json#paths` drifted; 3 phantom keys, 2 real subpaths omitted | pass 1 §L-9 |
-| — | MINOR | repo installs a stale copy of itself (latent, not live — see §4) | pass 1 §L-10 |
-| — | MINOR | `.plate-ink` copy-pasted into 5 scoped stylesheets, 3 in this subtree | pass 1 §L-11 |
-| — | MINOR | empty caption re-implements `EmptyState`, whose `dots={false}` was built for it | pass 1 §L-12 |
-| — | MINOR | `PaletteCard` god component; a persistence record forged to feed it | pass 1 §L-13 + **N-2** |
-| — | MINOR | only defaulted `CSS_COLOR_KEY` inject + `?? ''` mask degrading certified ink | pass 1 §L-14, re-verified |
-| — | MINOR | two template-ref idioms on adjacent lines (`:222` / `:223`) | pass 1 §L-15 |
-| **C-1** | correction | nameless buttons are a local divergence, **not** a glass-ui root defect | **corrects pass 1** |
-
----
-
-## 6 · The lattice, greenfield
-
-Pass 1's lattice is sound. Three amendments from this pass:
-
-```
-demo/platform/media/                    ← NEW sibling of auth/ storage/ transport/
-    useCameraCapture.ts                   open · close · captureFrame(video) → File   (pass1 L-2)
-    imageToPixels.ts
-
-demo/shell/usePaneLifecycle.ts          ← onPaneRelease = onDeactivated + onBeforeUnmount  (pass1 L-1)
-
-demo/imaging/                           ← clean lower layer, pixel domain, zero feature deps
-    quantize/{worker.ts, useImageQuantize.ts}     camera + canvas variants DELETED
-    sample/{useImageSampler.ts, useLoupeCanvas.ts}
-    (useInertiaGesture → glass-ui/dom, beside useDragVelocity — edict 4)
-
 demo/palettes/
-    index.ts                            ← NEW top-level seam (today only browser/ has one)
+    draft.ts                     ← NEW.  export interface PaletteDraft { name: string; colors: readonly PaletteColor[] }
+                                   The type whose ABSENCE is P3-1's entire mechanism. Every workbench
+                                   (extract · generate · mix) produces one; none forges a Palette.
+    types.ts                     ← Palette loses the `gen-`/`mix-`/`__extracted__` prose at :17;
+                                   K-PALID's predicate becomes honest again              (P3-2)
+    utils.ts                     ← TEMP_ID_PREFIXES DELETED. getPaletteKind derives from the
+                                   Palette | PaletteDraft union tag, not id.startsWith().
+                                   The palettes feature stops knowing workbenches exist  (P3-1, P3-5)
     browser/card/
-        PaletteSpecimen.vue             ← NEW: { colors: readonly PaletteColor[], name? }.  (pass1 L-13)
-                                          No id, no slug, no timestamps, no menu, no transport.
-        PaletteCard.vue                 ← composes PaletteSpecimen + identity + menu + transport.
-                                          `aside` layout DELETED.                          (AMENDMENT — N-1)
-        ShadowPalette.vue               → MOVED OUT to workbenches/extract/                (pass1 L-4)
+        PaletteSpecimen.vue      ← pass-2's split, now taking PaletteDraft as its contract
+        PaletteCard.vue          ← contract `Palette | PaletteDraft`; menu branches on the tag
 
-demo/workbenches/extract/               ← thin UI. No device APIs, no persistence, no forged entities.
-    ExtractWorkbench.vue                  ~150 lines. ExtractPane FOLDED IN.                (AMENDMENT — N-5)
-                                          One layout. No <style>. Injects CSS_COLOR_KEY + ports here.
-    ExtractControls.vue                   aria-label ×3; Slider from @mkbabb/glass-ui/slider;
-                                          dead .touch-gate-target deleted.        (AMENDMENTS — C-1, N-3, N-4)
-    ImageDropZone.vue                     owns its own <input type=file>; no defineExpose handshake
-    ShadowPalette.vue                     ← moved home
-    ImageEyedropper/
-    composables/useExtractSession.ts      persistence INJECTED, not imported;    (pass1 L-3)
-                                          dominant = palette[0]                  (M-1)
-
-src/quantize.ts                         ← chroma tiebreak moves INTO the sort comparator;
-                                          dominantColor retired or given QuantizeOptions   (pass1 L-8 + M-1)
-
-eslint.config.js                        ← boundary globs re-aimed at the physical tree      (pass1 L-5, N-6)
-tsconfig.demo.json                      ← the 7 @mkbabb/value.js* paths entries DELETED     (pass1 L-9)
-demo/ui/                                ← DELETED — 19 pass-through barrels                 (N-3)
+demo/workbenches/extract/composables/
+    useExtractSession.ts         ← returns 13 members, not 17                             (P3-4)
+                                   `quantizeError` becomes read-only: the `set:` half DELETED (P3-3)
+    useCameraCapture.ts          ← (pass-2) owns its own `error` ref alongside the stream  (P3-3)
 ```
 
-**Ordering by leverage** (amending pass 1's): **pass-1 §L-5 / N-6 first** — turn the boundary law
-back on; it is what prevents every other finding from recurring, and N-1 is the proof that an
-unenforced boundary lets dead code migrate into a neighbour's public API. Then **B-1 + pass-1 §L-2**
-(the confirmed leak and its structural cause). Then **N-1 + N-2** (both are seam damage that grows
-while unaddressed). Then **pass-1 §L-8 + M-1**, which changes a *shipped* API and wants its own
-major-version wave. The remainder is mechanical.
+**Ordering by leverage**, amending pass 2's: pass 2 puts the boundary law first and that is right —
+`no-restricted-imports = null` over `demo/workbenches/**` is why every other finding could
+accumulate unobserved. But **P3-1 now ranks immediately after the BLOCKER**, ahead of the seam
+findings, because it is the only defect on the list where a *neighbouring feature's* source file
+must be edited whenever this feature changes shape. That is the definition of a boundary that is in
+the wrong place, and unlike the dead-code findings it actively grows: it has grown three times
+already.
 
 ---
 
-## 7 · What I could not measure
+## §4 · What I could not measure
 
-- **Production chunk composition.** N-2's 47/36 is the static runtime graph — what the dev server
-  loads. `dist/gh-pages/assets/` holds 2 JS files and is stale; I did not run `npm run gh-pages`.
-  The contract half of N-2 is bundler-independent.
-- **Whether the frozen `node_modules/@mkbabb/value.js@4.0.0` ever wins a resolution.** I proved
-  `/css` and `/quantize` land on the repo's `dist/` and that both copies export identical symbol
-  sets. That some nested specifier reaches the frozen copy is **a hypothesis, not a finding**.
-- **A `?probe=1` self-navigation.** During browser probing the app twice navigated itself from
-  `/#/extract` to `/#/`, and once to `http://localhost:9000/?probe=1#/`, destroying the JS context
-  mid-evaluate. That is boot / ink-probe behaviour outside this component and outside this seat's
-  axis; flagged for whichever seat owns boot.
+Both browser drivers were held by concurrent seats for the whole of this pass:
+
+```
+$ (playwright) browser_navigate http://localhost:9000/#/extract
+Error: Browser is already in use for /Users/mkbabb/Library/Caches/ms-playwright-mcp/mcp-chrome-83447af,
+       use --isolated to run multiple instances of the same browser
+
+$ (chrome-devtools) navigate_page http://localhost:9000/#/extract
+Error: The browser is already running for /Users/mkbabb/.cache/chrome-devtools-mcp/chrome-profile.
+       Use a different `userDataDir` or stop the running browser first.
+```
+
+Consequently P3-3's reproduction is carried on three cited lines rather than a photograph, and I
+took pass 2's live `DockControl` audit (C-1) on its evidence rather than re-running it. Everything
+else in this pass is static, and the static evidence is complete: the §2 findings are all
+file:line + pasted command output.
+
+I did **not** re-open pass 2's own open items (production chunk composition; whether the frozen
+`node_modules/@mkbabb/value.js@4.0.0` ever wins a resolution; the `?probe=1` self-navigation). They
+remain open as pass 2 states them.
 
 ---
 
-## 8 · Reproduction index (this pass)
+## §5 · Pass-3 delta table
+
+The full roll-up is `challenge-L-library.pass2-2026-07-28.md` §5. This pass adds:
+
+| id | severity | finding | evidence |
+|---|---|---|---|
+| **P3-1** | **MAJOR** | the forged entity is a **cycle** — `palettes/utils.ts:20` parses `"__extracted__"` back and drives 9 `PaletteCardMenu` branches; a 4th workbench must edit a foreign feature's file | `useExtractSession.ts:91` · `utils.ts:18-30` · `PaletteCard.vue:225,85` · `PaletteCardMenu.vue:16,28,49,64,74,84,134,144,153` |
+| **P3-2** | **MAJOR** | K-PALID's type predicate is defeated by construction — the forgery satisfies `p.isLocal && p.id != null` | `usePaletteStore.ts:47-55` · `useExtractSession.ts:91,97` · `types.ts:15-27` |
+| **P3-3** | **MAJOR** | camera error written into the quantizer's channel through a writable computed, silently cleared by the next quantize | `ExtractWorkbench.vue:252` · `useExtractSession.ts:66-73` · `useImageQuantize.ts:86` |
+| **P3-4** | MINOR | 4 of 17 returned session members read by nobody, in a one-consumer composable | grep counts, §2.4 |
+| **P3-5** | MINOR | `TEMP_ID_PREFIXES` mixes two id conventions; `"__extracted__"` is a whole id, not a prefix | `utils.ts:20` · `useExtractSession.ts:91` |
+| — | withdrawn | glass-ui `DockControl` accessible-name defect — **pass 2's C-1 is correct**, I reached pass 1's wrong conclusion cold and withdraw it | §0 |
+
+---
+
+## §6 · Reproduction index (this pass)
 
 ```
-git log --oneline -S 'layout="split"' -- demo/                    → 95993197 deleted the only caller (N-1)
-grep -rn "<PaletteCard" -A 8 demo/ | grep layout                  → ExtractWorkbench.vue:148 is the ONLY binding (N-1)
-live: {"splitGrid":0,"asideCards":0} on /#/extract,/#/mix,/#/     → aside never renders (N-1)
-node scratchpad/c3.mjs   (runtime closure, import-type excluded)  → 47 / 11 / 36; barrel 34, used-3 25 (N-2)
-for d in demo/ui/*/; do cat $d/index.ts; done                     → 19 pass-through barrels (N-3)
-grep -rn "touch-gate-target" demo/                                → ExtractControls has the rule, never the class (N-4)
-npx eslint --print-config demo/workbenches/extract/…              → undefined; 16/250 files covered (N-6)
-node scratchpad/dom.mjs                                           → trials=400 ties=9 disagreements=4 (M-1)
-live DockControl audit on /#/extract vs /#/mix, /#/               → 3 title-only here, 8 aria-label there (C-1)
-grep -rn "onDeactivated" demo/                                    → 0 hits (B-1 re-verify)
-grep -n "KeepAlive" demo/shell/PaneSlot.vue                       → :120  ·  App.vue:107 :max="6" (B-1 re-verify)
-grep -rn "createPalette" demo/                                    → extract = sole raw-store caller (pass1 L-3 re-verify)
-grep -rn "\bShadowPalette\b" demo/                                → 1 render consumer, foreign (pass1 L-4 re-verify)
-grep -rn "inject(CSS_COLOR_KEY" demo/                             → 8 asserted, 1 defaulted (pass1 L-14 re-verify)
+grep -rn "__extracted__" demo/                                → 3 sites: mint · parse · type-doc         (P3-1)
+grep -n "paletteKind" .../PaletteCardMenu.vue                 → 9 v-if branches on the parsed value      (P3-1)
+grep -n 'kind\b' .../PaletteCard.vue                          → :225 getPaletteKind → :85 :palette-kind  (P3-1)
+grep -n "savedPalettes = computed" -A8 usePaletteStore.ts     → :53 predicate the forgery satisfies      (P3-2)
+grep -n "quantizeError" -A10 useExtractSession.ts             → :66-73 writable computed, set→workerError (P3-3)
+grep -n "error.value = null" useImageQuantize.ts              → :86 cleared every quantize               (P3-3)
+for m in palette lastFile paletteName totalPopulation; do grep -c "session.$m" ExtractWorkbench.vue; done → 0 0 0 0  (P3-4)
+grep -n ':max=' demo/color-picker/App.vue                     → :88 "9"  :107 "6"  :133 "4"       (B-1 re-verify)
+grep -rn "onDeactivated" demo/                                → 0 hits                            (B-1 re-verify)
+npx eslint --print-config .../ExtractWorkbench.vue            → no-restricted-imports = null      (boundary re-verify)
+ls -d demo/@                                                  → No such file or directory         (boundary re-verify)
+grep -rn "@mkbabb/value.js" demo/workbenches/extract/         → 9 imports, 3 published subpaths          (§1)
+grep -rn "@src\|from \"src/" demo/workbenches/extract/        → NONE                                     (§1)
+python3 -c "…glass-ui package.json…" → sideEffects: ['*.css']  → demo/ui is coherence, not bytes          (§1)
 ```
-
-Scratchpad probes:
-`/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/{dom.mjs,c3.mjs}`

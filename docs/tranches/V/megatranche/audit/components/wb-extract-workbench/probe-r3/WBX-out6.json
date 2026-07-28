@@ -1,0 +1,33 @@
+{
+ "controlAfterOpen": [
+  [
+   "live"
+  ]
+ ],
+ "controlAfterRouteChange": [
+  [
+   "live"
+  ]
+ ],
+ "midflightAfterUnmount": {
+  "streams": 2,
+  "states": [
+   [
+    "live"
+   ],
+   [
+    "live"
+   ]
+  ],
+  "onExtract": "#/mix",
+  "videoEls": 0
+ },
+ "midflight6sLater": [
+  [
+   "live"
+  ],
+  [
+   "live"
+  ]
+ ]
+}

@@ -1,0 +1,129 @@
+{
+  "C_no-prm": {
+    "afterExpand": {
+      "panelPresent": true,
+      "inlineStyle": "",
+      "computedTransitionDuration": "0s",
+      "clientH": 182,
+      "scrollH": 182,
+      "clippedPx": 0,
+      "swatchCount": 24,
+      "cardH": 281.7
+    },
+    "afterRewrap": {
+      "panelPresent": true,
+      "inlineStyle": null,
+      "computedTransitionDuration": "0s",
+      "clientH": 168,
+      "scrollH": 168,
+      "clippedPx": 0,
+      "swatchCount": 24,
+      "cardH": 267.6
+    },
+    "afterCollapse": {
+      "panelPresent": false,
+      "inlineStyle": null,
+      "computedTransitionDuration": null,
+      "clientH": null,
+      "scrollH": null,
+      "clippedPx": null,
+      "swatchCount": null,
+      "cardH": 100
+    },
+    "afterReExpand": {
+      "panelPresent": true,
+      "inlineStyle": "",
+      "computedTransitionDuration": "0s",
+      "clientH": 182,
+      "scrollH": 182,
+      "clippedPx": 0,
+      "swatchCount": 24,
+      "cardH": 281.7
+    }
+  },
+  "C_prm": {
+    "afterExpand": {
+      "panelPresent": true,
+      "inlineStyle": "height: 182px; opacity: 1; transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms;",
+      "computedTransitionDuration": "0.1s",
+      "clientH": 182,
+      "scrollH": 182,
+      "clippedPx": 0,
+      "swatchCount": 24,
+      "cardH": 282
+    },
+    "afterRewrap": {
+      "panelPresent": true,
+      "inlineStyle": null,
+      "computedTransitionDuration": "0.1s",
+      "clientH": 168,
+      "scrollH": 168,
+      "clippedPx": 0,
+      "swatchCount": 24,
+      "cardH": 267.6
+    },
+    "afterCollapse": {
+      "panelPresent": true,
+      "inlineStyle": "height: 0px; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms; opacity: 0;",
+      "computedTransitionDuration": "0.1s",
+      "clientH": 0,
+      "scrollH": 182,
+      "clippedPx": 182,
+      "swatchCount": 24,
+      "cardH": 100
+    },
+    "afterReExpand": {
+      "panelPresent": true,
+      "inlineStyle": "height: 182px; opacity: 1; transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms;",
+      "computedTransitionDuration": "0.1s",
+      "clientH": 182,
+      "scrollH": 182,
+      "clippedPx": 0,
+      "swatchCount": 24,
+      "cardH": 282
+    }
+  },
+  "C4_panelContents": {
+    "swatchWrappers": 24,
+    "firstWrapperTag": "DIV",
+    "firstDot": {
+      "tag": "SPAN",
+      "cls": "w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer watercolor-swatch",
+      "ariaLabel": null,
+      "ariaHidden": "true",
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "w": 40,
+      "h": 40
+    },
+    "interactiveInPanel": 0,
+    "panelHTMLHead": "<!-- User slug display --><!--v-if--><div class=\"px-3 pb-3 flex flex-wrap gap-2 items-start pt-3 min-w-0 border-t border-border/15\"><div class=\"relative\"><!-- Touch: native Popover click toggle --><!-- Hover: manually positioned floating pa"
+  },
+  "C5_hoverFanout": {
+    "totalMeasures": 0,
+    "topMeasures": [],
+    "floatingPanels": 1
+  },
+  "C6_mix": {
+    "articles": 2,
+    "outerButtonsWrappingCards": 2,
+    "nestedButtonInButton": 2,
+    "sample": [
+      {
+        "outerRole": "BUTTON",
+        "outerLabel": "Select palette Twentyfour",
+        "innerInteractive": [
+          "BUTTON:Palette menu"
+        ]
+      },
+      {
+        "outerRole": "BUTTON",
+        "outerLabel": "Select palette Deep Ocean",
+        "innerInteractive": [
+          "BUTTON:Palette menu"
+        ]
+      }
+    ],
+    "mainText": "Lab92.0%,88.8,20.0Labα92.0%88.820.082.7% Mix Mix colors and palettes together.ColorsPalettesTwentyfour24Deep Ocean3coolColor spaceOKLab Hue methodShorter Size m"
+  }
+}

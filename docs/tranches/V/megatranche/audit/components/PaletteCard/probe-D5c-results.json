@@ -1,0 +1,92 @@
+{
+  "forcedColorsSpecimen": {
+    "segs": [
+      {
+        "declared": "background-color: rgb(244, 162, 97); width: 20%;",
+        "computedBg": "rgb(255, 255, 255)",
+        "w": 91.6
+      },
+      {
+        "declared": "background-color: rgb(231, 111, 81); width: 20%;",
+        "computedBg": "rgb(255, 255, 255)",
+        "w": 91.6
+      },
+      {
+        "declared": "background-color: rgb(42, 157, 143); width: 20%;",
+        "computedBg": "rgb(255, 255, 255)",
+        "w": 91.6
+      },
+      {
+        "declared": "background-color: rgb(38, 70, 83); width: 20%;",
+        "computedBg": "rgb(255, 255, 255)",
+        "w": 91.6
+      },
+      {
+        "declared": "background-color: rgb(233, 196, 106); width: 20%;",
+        "computedBg": "rgb(255, 255, 255)",
+        "w": 91.6
+      }
+    ],
+    "distinctRenderedColors": [
+      "rgb(255, 255, 255)"
+    ],
+    "declaredDistinct": 5
+  },
+  "expandedSwatches": {
+    "cardH": 171.9,
+    "stripH": 40,
+    "dotCount": 10,
+    "dotSize": {
+      "w": 40,
+      "h": 40
+    },
+    "dotLabels": [
+      null,
+      null
+    ],
+    "allAriaLabels": [
+      "Palette menu"
+    ],
+    "stripColors": [
+      "rgb(244, 162, 97)",
+      "rgb(231, 111, 81)",
+      "rgb(42, 157, 143)",
+      "rgb(38, 70, 83)",
+      "rgb(233, 196, 106)"
+    ]
+  },
+  "extractLTR": {
+    "rootDisplay": "block",
+    "rootClass": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer",
+    "stripClass": "overflow-hidden flex h-10 w-full rounded-t-card",
+    "stripRadius": [
+      "16px",
+      "16px",
+      "0px",
+      "0px"
+    ],
+    "stripRect": {
+      "x": 756,
+      "w": 458,
+      "h": 40
+    },
+    "cardRect": {
+      "x": 754,
+      "w": 462,
+      "h": 171.9
+    }
+  },
+  "dragStyles": {
+    "sortableRules": [],
+    "handle": {
+      "tag": "svg",
+      "ariaLabel": null,
+      "role": null,
+      "tabIndex": -1,
+      "rect": {
+        "w": 16,
+        "h": 16
+      }
+    }
+  }
+}

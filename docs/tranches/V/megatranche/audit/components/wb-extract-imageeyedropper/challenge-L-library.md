@@ -1406,3 +1406,309 @@ ls -d demo/@ ; for g in demo/@/composables demo/@/components demo/@/lib; do
 grep -rln '"\.\./demo/' test/
 sed -n '20,32p' vitest.config.ts
 ```
+
+---
+---
+
+# ADDENDUM — CHALLENGE-L fourth pass (independent)
+
+## Model receipt (fourth pass)
+
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`. This seat was
+spawned with an explicit Opus 5 declaration and the model serving it matches; nothing inherited,
+nothing defaulted.
+
+This pass was run without reading passes 1–3 first: the component, its three composables, the
+`package.json`/`tsconfig`/`vite.config` surface, `ARCHITECTURE.md`, and the visual-audit rows were
+read cold and probed live, and the prior report was opened only at write time. Everything in §A
+below is therefore an independent arrival at the same place, not a re-reading; everything in §B is
+absent from the 27-finding record.
+
+---
+
+## §A — independently reproduced (no new claim)
+
+**L-1 — the blank loupe, now reproduced in real Chromium with a real touchscreen at dpr 2.**
+Passes 1 and 2 reproduced this with a *synthetic* `pointerType:"touch"` PointerEvent at `dpr: 1`,
+and with a jsdom mechanism isolation. I drove headless Chromium (Playwright 1.60,
+`deviceScaleFactor: 2`, `hasTouch: true`) against the live dev server, uploaded a real PNG through
+the drop zone's file input, opened the eyedropper, and used **`page.touchscreen.tap()`** — a trusted
+event from the browser's own input pipeline, not a `dispatchEvent`. Same harness, second run, with
+`hasTouch: false` and `mouse.move` + `mouse.click`:
+
+```
+TOUCH-TAP:         {"loupeMounted":true,"loupeBackingStore":"110x110","loupeCssBox":"106x106",
+                    "dpr":2,"nonTransparentPixels":0}
+MOUSE-HOVER+CLICK: {"loupeMounted":true,"loupeBackingStore":"110x110","loupeCssBox":"106x106",
+                    "dpr":2,"nonTransparentPixels":9683}
+```
+
+0 of 12 100 on trusted touch; 9 683 on the mouse path that has a hover stream to mask it. The
+finding survives the strongest reproduction available short of a device. The cure passes 1 and 2
+name (delete the split — permanent mount, visibility by `opacity`; a `nextTick` is the patch) is the
+right one and I arrived at it independently.
+
+**L-2 / L-3 / L-24 — the loupe geometry.** Confirmed identically and by measurement:
+`loupeBackingStore: "110x110"` vs `loupeCssBox: "106x106"` at `dpr: 2`. The 106 is
+`110 − 2×2px` border under Tailwind preflight `box-sizing: border-box`. `useLoupeCanvas.ts:33-51`
+constructs an exact integer grid (`LOUPE_PIXELS = 11` source px → 110 backing px = 10 px per source
+px, `imageSmoothingEnabled = false` at `:40`) and the last hop — 110 backing → 106 CSS → 212 device
+— destroys it. Also confirmed: `LOUPE_SIZE` (`constants.ts:8`) drives the CSS box
+(`ImageEyedropper.vue:191-196`) while the backing store is the literal `width="110" height="110"`
+(`:85`) — one constant, two truths.
+
+**L-5 — the triple decode. Pass 1's byte counts were explicitly flagged "derived …, not measured
+on-device." They are now measured, and one of them changes the cure.** P3: a 3000×2000 PNG
+(1 579 354 B on disk) uploaded through the real drop zone, live Chromium, dpr 2:
+
+```
+{"dpr":2,
+ "canvases":[
+   {"cls":"atmosphere-canvas …","backing":"300x150","bytes":180000,"css":"1280x900"},
+   {"cls":"origin-top-left will-change-transform ey…","backing":"3000x2000",
+    "bytes":24000000,"css":"508x339"}],
+ "dataUrlChars":2105830}
+```
+
+- `previewDataUrl` = **2 105 830 chars** for a 1 579 354 B file → ratio **1.333**. Pass 1 predicted
+  4/3 analytically; confirmed to three digits.
+- The **visible** eyedropper canvas = **24 000 000 B of backing store to paint a 508×339 CSS box**.
+  At dpr 2 that box is 1 016×678 device px = 2 755 392 B of addressable pixels. That is an
+  **8.71× over-allocation against the device pixels it can actually show**, and 17.4× against the
+  CSS box — *per canvas*, and there are two at native size (`useImageSampler.ts:80-82` offscreen,
+  `:88-91` visible).
+
+This sharpens pass 1's cure rather than replacing it. Pass 1 says "drop the visible canvas in favour
+of an `<img>` under the same transform." Correct, and the measurement says why it is not cosmetic:
+nothing reads a pixel from the visible canvas — `sampleAt` (`:116`) and `drawLoupe`
+(`useLoupeCanvas.ts:41`) both read the *offscreen* twin — so those 24 MB buy exactly nothing that
+`<img>` does not give for free with the browser's own tiled decode.
+
+**L-8 (`DisplayColorSpace` ×4), L-9 (byte→string→parser round-trip), L-13 (dead camera arm),
+L-11 (the capture-phase reach-around), L-21 (the `tsconfig.demo.json` paths drift), L-20
+(`formatInColorSpace` public only for a test)** — all four reproduced independently, same file:line,
+same conclusions. Two numeric additions worth banking:
+
+- **L-9, measured.** 200 000 iterations against `dist/subpaths/{css,color}.js`, comparing the
+  shipped path (bytes → hex string → `parseCssColor` → `convertColor` → `serializeCssColor`) against
+  the direct path (`rgb()` → `convertColor` → `serializeCssColor`):
+  `4.442 µs/op` vs `3.734 µs/op` — a **0.708 µs/op, 1.19× parser tax**. Honest scale: on the default
+  `colorSpace = "hex"` path the parser is never reached (`useImageSampler.ts:57`), so the runtime
+  cost is genuinely minor and the finding stands on the *ownership* argument, not the clock. I record
+  the number so no later pass has to guess at it or inflate it.
+- **L-21, the drift is already live.** `node_modules/@mkbabb/value.js@4.0.0` is present — hoisted
+  from `node_modules/@mkbabb/glass-ui/package.json:543` (`"@mkbabb/value.js": "^4.0.0"`) — and its
+  declarations have **already diverged from the working tree**:
+  `diff dist/subpaths/css.d.ts node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts` → **41 diff
+  lines** (382 vs 350 lines); `color.d.ts` → identical. So `/color`, which *has* a `paths` entry, is
+  pinned to the working tree, while `/css` — this component's import, which has none — resolves
+  correctly only because the repo self-matches its own `exports`. The second copy that would win if
+  that walk ever lost is measurably not the same file.
+
+---
+
+## §B — findings absent from passes 1–3
+
+### L-28 · MAJOR — `--hover-color` is a per-instance override of `DockControl`'s hover register, and it has **two** live consumers in areas that cannot import each other
+
+This contradicts a clean bill. Pass 1's L-16 certifies *"Materials (edict 5): `glass-floating
+rounded-panel` matches DESIGN.md § Surfaces rung 3 … **No violation**."* That is true of the
+overlay's *surface*. It is not true of the control chrome sitting on it.
+
+`ImageEyedropper.vue:10` injects a custom property by **inline style on the top bar**:
+
+```html
+<div class="flex items-center gap-2 px-3 py-2 shrink-0" :style="{ '--hover-color': sampledColor ?? '' }">
+```
+
+and `:279-282` reaches into the producer component's rendered subtree to repaint it:
+
+```css
+.eyedropper-action-btn:hover:not(:disabled) svg {
+    color: var(--hover-color, var(--foreground));
+    transform: scale(1.2);
+}
+```
+
+`DockControl`'s own published declaration
+(`node_modules/@mkbabb/glass-ui/dist/components/dock/DockControl.vue.d.ts`, header) states it already
+owns *"glass hover, interruptible spring press, pointer-anchored specular gleam"*. The demo rule
+fights that register from outside the component, through a descendant selector on a class the
+producer does not know about. Edict 5 (style at the glass root, never per-instance) — violated.
+
+It is not a one-off, and that is what makes it structural rather than cosmetic:
+
+```
+$ grep -rn -- "--hover-color" demo/
+demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue:10    :style="{ '--hover-color': sampledColor ?? '' }"
+demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue:280   color: var(--hover-color, var(--foreground));
+demo/shell/dock/ActionButton.vue:30                                :style="{ …, '--hover-color': cssColorOpaque ?? 'currentColor' }"
+demo/shell/dock/ActionButton.vue:119                               stroke: var(--hover-color);
+```
+
+**Two live consumers**, and they have already diverged — `stroke` in `shell/`, `color` in
+`workbenches/`. They live in two areas that cannot import each other:
+`ARCHITECTURE.md:50-56` gives `feature → color-session / own descendants / platform / shared /
+published packages` with **no `shell` edge**. So there is no legal demo-side home for the shared
+idiom at all; the only legal home is the producer. `ARCHITECTURE.md:58`: *"When two live consumers
+need another semantic object, it is promoted once; superficial similarity does not earn a shared
+home."* Two consumers exist and the similarity is not superficial — it is the same intent
+(tint the dock control's icon with the live specimen color on hover) implemented twice.
+
+**Cure.** glass-ui `DockControl` gains a first-class icon-tint token — `--dock-control-icon-hover`,
+or a `tint?: string` prop — resolved inside the same hover register that already owns the gleam and
+the press spring, at the producer's root. Both demo `:style` injections and both demo CSS rules
+delete. This joins the second pass's §D list of fixes whose correct home is **glass-ui, not demo**,
+and per the standing BH/BI relay invariant it goes to the active glass-ui inbox as a component-level
+change request — it must not be hand-rolled in `demo/` a third time.
+
+### L-29 · MINOR — a non-modal overlay claims a `window`-level Escape
+
+`ImageEyedropper.vue:237-245` binds on `window`:
+
+```ts
+onMounted(() => { loadAndFit(); window.addEventListener("keydown", onKeyDown); });
+onBeforeUnmount(() => { window.removeEventListener("keydown", onKeyDown); sampler.dispose(); });
+```
+
+and `onKeyDown` (`:226-235`) swallows `Escape`. But the overlay is `absolute inset-0` on the
+*workbench root only* (`:8`) — it is not modal. My P3 screenshot shows the dock, the Login control,
+and the entire `My Palettes` pane fully visible and interactive beside it; there is no focus trap,
+no `inert` on the rest of the page, and no `role="dialog"`. A surface that does not own the page's
+modality should not own the page's Escape key: any other Escape-consuming surface open at the same
+time reacts simultaneously, and the winner is registration order.
+
+The listener is correctly removed on unmount, so this is not a leak — it is a scope defect.
+
+**Cure.** Either scope the handler to the overlay root (give the `glass-floating` div `tabindex="-1"`,
+focus it on mount, bind `keydown` there — the natural home, since that element is the thing Escape
+closes), or make the surface genuinely modal via `@mkbabb/glass-ui/dialog`, which is already in the
+producer's export map and already owns focus trapping, `inert`, and the Escape contract. The second
+is the design-system-correct answer if the eyedropper is meant to be modal; the first is correct if
+it is not. What is not defensible is claiming a global key while behaving locally.
+
+### L-30 · MINOR — `clientToViewport` is a third dead export, alongside `drawLoupe` and `loupeCanvasRef`
+
+Passes 1–3 name the dead surface inside `useLoupeCanvas`. One more sits in the gesture composable:
+
+```
+$ grep -rn "clientToViewport" demo/ test/ e2e/
+demo/workbenches/extract/ImageEyedropper/composables/useInertiaGesture.ts:377        (the export)
+```
+
+Zero consumers — it is returned (`:376-377`, with a doc comment) and never called from outside its
+own module. Completing the census for this component's composable layer:
+
+| Export | Site | Consumers outside its own file |
+|---|---|---|
+| `drawLoupe` | `useLoupeCanvas.ts:71` | 0 |
+| `loupeCanvasRef` | `useLoupeCanvas.ts:67` | 0 |
+| `clientToViewport` | `useInertiaGesture.ts:377` | 0 |
+| `formatInColorSpace` | `useImageSampler.ts:136` | 1 — and it is a test (pass 2's L-20) |
+
+Four public names on three composables, and **not one of them has a production consumer.** Delete
+all four (the fourth after pass 2's L-20 cure relocates its test). Public surface that nothing
+consumes is not extensibility; it is the seam through which the string-coupling in L-1 hid.
+
+### L-31 · INFO (negative, recorded so a later seat does not get it wrong) — `useInertiaGesture` must **not** be promoted to glass-ui
+
+`useInertiaGesture` is 379 lines of fully generic pan / pinch / wheel / inertia with **zero**
+eyedropper coupling, and it already consumes two glass-ui subpaths (`/dom`, `/motion-core`). It
+reads exactly like a design-system primitive that leaked into a feature, and pass 1's L-12 correctly
+prescribes adopting glass-ui's `useResizeObserver` and `useDragVelocity` *inside* it. The obvious
+next step — move the whole engine into glass-ui — is **wrong**, and I want that on the record before
+a remediation wave takes it:
+
+```
+$ grep -rln "pointers.set\|prevPinchDist\|Math.hypot" demo/
+demo/workbenches/mix/MixAnimationCanvas/composables/mixStage.ts    → Math.hypot at :164, a stage normal
+demo/workbenches/extract/ImageEyedropper/composables/useInertiaGesture.ts
+demo/palettes/BrowsePane.vue                                       → Math.hypot at :347, an OKLab distance
+```
+
+Neither other hit is a gesture engine. **One live consumer.** `ARCHITECTURE.md:58`: *"superficial
+similarity does not earn a shared home."* Its current component-local home is correct; promote it
+when and only when a second consumer appears. Likewise, the two `composables/` directories in this
+feature (`extract/composables/` feature-scoped, `extract/ImageEyedropper/composables/`
+component-scoped) are not a defect — that is exactly the "own descendants" shape `ARCHITECTURE.md:52`
+describes.
+
+---
+
+## §C — fourth-pass verdict
+
+**DEFECTIVE**, unchanged in kind, and the ranking of passes 1–3 stands: **L-1** remains the strongest
+user-visible defect and **L-21** the strongest structural one. This pass adds nothing that displaces
+either.
+
+What it adds is threefold. First, **L-1 is now reproduced through the browser's real input
+pipeline** — trusted `touchscreen.tap()`, real Chromium, dpr 2, against the live server — so the
+blank loupe can no longer be argued away as a synthetic-event artefact. Second, **pass 1's L-5 byte
+counts are now measured rather than derived**, and the measurement adds a ratio the analytic estimate
+did not surface: the visible canvas is an 8.71× over-allocation against the device pixels it can
+show, and nothing ever reads a pixel from it — which turns "drop it for an `<img>`" from a
+tidiness suggestion into the removal of 24 MB that buys nothing. Third, **L-28 withdraws part of a
+clean bill**: pass 1's L-16 certified edict 5 with "No violation," and that certification covered the
+overlay's surface but not its control chrome, where a per-instance override of `DockControl`'s hover
+register is live in **two** demo areas that cannot import each other — the exact
+two-consumer condition under which `ARCHITECTURE.md:58` requires a producer-side promotion.
+
+Passes 2 and 3 both closed by noting that the correct home for several fixes is **not the demo**.
+L-28 is the clearest instance yet: there is no legal demo-side home for it. It belongs in glass-ui,
+and it belongs in the glass-ui inbox.
+
+**Cumulative count across four passes: 31 findings** — L-1..L-16 (pass 1), L-17..L-20 (pass 2),
+L-21..L-27 (pass 3), L-28..L-31 (pass 4).
+
+No source edits were made by this pass. It wrote to exactly one path, this file.
+
+---
+
+## Appendix — fourth-pass reproductions
+
+All probes ran against the live dev server at `http://localhost:9000`, repo HEAD `c654824e`.
+Scripts are throwaway and live in this session's scratchpad, not in the repo.
+
+```bash
+# L-1 / L-2 / L-5 · live Chromium, real touchscreen vs mouse (Playwright 1.60, dpr 2)
+#   ctx = browser.newContext({ viewport:{width:1280,height:900}, hasTouch:<t>, deviceScaleFactor:2 })
+#   goto /#/extract → input[type=file].setInputFiles(probe.png) → click the data: preview <img>
+#   touch run : page.touchscreen.tap(cx, cy)
+#   mouse run : page.mouse.move(cx,cy); page.mouse.click(cx,cy)
+#   read back : loupeCanvas.getContext("2d").getImageData(...) → count alpha !== 0
+#
+#   TOUCH-TAP:         nonTransparentPixels 0     backing 110x110  css 106x106  dpr 2
+#   MOUSE-HOVER+CLICK: nonTransparentPixels 9683  backing 110x110  css 106x106  dpr 2
+
+# L-5 · measured allocations, 3000x2000 PNG (1 579 354 B on disk)
+#   eyedropper visible canvas : backing 3000x2000 = 24 000 000 B, css box 508x339
+#   device px it can show     : 1016x678 = 2 755 392 B   → 8.71x over-allocation
+#   previewDataUrl            : 2 105 830 chars          → 1.333x the file (4/3 confirmed)
+
+# L-9 · parser tax, 200 000 iterations against the built dist
+node --input-type=module -e "
+import { parseCssColor, serializeCssColor } from './dist/subpaths/css.js';
+import { rgb, convertColor } from './dist/subpaths/color.js';  … "
+#   hex-roundtrip path: 4.442 us/op
+#   direct rgb() path : 3.734 us/op
+#   parser tax        : 0.708 us/op = 1.19x
+
+# L-21 · the hoisted second copy is measurably a different file
+diff dist/subpaths/css.d.ts   node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts   # 41 diff lines (382 vs 350)
+diff dist/subpaths/color.d.ts node_modules/@mkbabb/value.js/dist/subpaths/color.d.ts # identical
+grep -n '"@mkbabb/value.js"' node_modules/@mkbabb/glass-ui/package.json              # :543  "^4.0.0"  (the hoist source)
+
+# L-28 · the two-consumer per-instance override
+grep -rn -- "--hover-color" demo/
+#   ImageEyedropper.vue:10,280           color:  var(--hover-color, …)
+#   demo/shell/dock/ActionButton.vue:30,119   stroke: var(--hover-color)
+sed -n '1,12p' node_modules/@mkbabb/glass-ui/dist/components/dock/DockControl.vue.d.ts   # the owned hover register
+sed -n '50,58p' docs/tranches/V/ARCHITECTURE.md                                          # no feature → shell edge; the promotion rule
+
+# L-30 · the dead-export census
+for s in drawLoupe loupeCanvasRef clientToViewport formatInColorSpace; do
+  echo "== $s"; grep -rn "$s" demo/ test/ e2e/; done
+
+# L-31 · the negative — one live gesture consumer, so no promotion
+grep -rln "pointers.set\|prevPinchDist\|Math.hypot" demo/
+```

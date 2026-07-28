@@ -1,670 +1,461 @@
-# CHALLENGE-D · PASS 3 — `demo/palettes/BrowsePane.vue` — the design is flawed
+# CHALLENGE-D · PASS 4 — `demo/palettes/BrowsePane.vue` — the design is flawed
 
 ## Model receipt
 
 I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier this
-seat was explicitly spawned with. Declared, not inherited.
+seat was explicitly spawned with. Declared at the seat, not inherited from a parent.
 
 ---
 
 ## 0. Verdict
 
-**DEFECTIVE.** This pass contributes **fifteen findings** — three that overturn or narrow a prior
-pass's ruling, ten that no prior pass raised, and two corrections to prior measured numbers — plus
-**six negative proofs**, one of which kills a claim I had myself half-written before the pixels
-refuted it.
+**DEFECTIVE.**
 
-The strongest single result of this pass:
+Three CHALLENGE-D passes already stand at this path. I did not re-run them. This pass contributes
+**seven findings that no prior pass raised** — one BLOCKER — plus **eight independent
+corroborations carried at my own coordinates**, and **one narrowing of a negative proof pass 2
+banked**.
 
-> **Pass 2 KILLED the mobile placeholder clip as "a font-loading transient". It is not. It is a
-> permanent, post-`fonts.ready`, two-engine geometry defect that appears only on the real mobile
-> control rung — the arm pass 2 did not measure. `21px` type in a `217px` box: the field clips its
-> own placeholder mid-word, in Chromium (+9.6 px) and WebKit (+10.7 px), stable at t+0 and
-> t+3000 ms with `document.fonts.status === "loaded"`.**
+The strongest new result:
 
-The second strongest is new: **the wall's `Retry` and `More from the commons` affordances sit at the
-bottom of a scroll host that hides its scrollbar, paints no fade, and slices a colour specimen in
-half at its terminus.** At 200 % zoom that host holds **1.5 cards out of 3.8 viewports** of content.
+> **The Browse wall's primary interaction — expand a palette — is a state machine with no state and
+> no seat.** Clicking a card grows it from **100 px → 211 px** (desktop 1440) and **125 px → 228 px**
+> (iPhone 14). After the growth the element carries `aria-expanded: null`, `aria-pressed: null`,
+> `tabIndex: -1`. There is no attribute anywhere in the subtree that records that the card is open.
+> Pass 2/3 established the card cannot be *reached* by keyboard. This pass establishes that even
+> when it is reached by pointer, **nothing about the resulting state is expressible** — so the
+> defect is not one missing `tabindex`, it is that the expand affordance was never designed as a
+> control at all. `VISUAL-CONSTITUTION §5` names both halves: the seat must be
+> `<button type="button" aria-pressed="false|true">`, and *"the card body owns no expand"*.
 
-And the third: **the pane throws away the one error species the transport layer went out of its way
-to name.** `DevMisconfigError` ships a message ending *"This is a dev-config error, NOT 'backend
-offline'"*. `useBrowsePalettes.ts:79` discards it and substitutes the constant
-`"Failed to load palettes"`. All **60** captures in the mega-tranche visual audit show the resulting
-plate. The audit has been looking at a mislabelled error for its entire run.
+The second: **the specimen loses area to its own chrome.** On the audit's exact mobile profile the
+colour strip — the thing a person opens a colour commons to see — is **40 px of a 125 px card
+(32 %)**; the metadata rail owns the other **68 %**. Pass 2 proved the *identity* loses width. Nobody
+had measured that the *specimen* loses area.
+
+The third: **`show-slug` is inert.** `BrowsePane.vue:101` passes `show-slug`; `PaletteCard.vue:143`
+consumes it only inside `v-if="expanded"`. Measured on the settled populated wall:
+`slugShown: false`. And when it does render it is a **button** named `"Copy slug user-1"` — an
+action, not a shown slug. A prop whose name promises a wall affordance and delivers an
+unreachable copy button.
 
 **Model observed: Opus 5 (`claude-opus-5[1m]`).**
 
 ---
 
-## 1. Provenance and scope of this pass
+## 1. Provenance, scope, and what I deliberately did not re-litigate
 
-Two CHALLENGE-D reports already existed at this path:
-
-| file | findings | date |
+| file | findings | status |
 |---|---|---|
-| `./challenge-D-design-pass1.md` | 20 + 11 (Round 2) | 2026-07-27 17:52 |
-| `./challenge-D-design-pass2.md` | 26, six BLOCKER | preserved verbatim from the prior `challenge-D-design.md` before this write |
+| `./challenge-D-design-pass1.md` | 20 + 11 | preserved |
+| `./challenge-D-design-pass2.md` | 26, six BLOCKER | preserved |
+| `./challenge-D-design-pass3.md` | 15 + 6 negative proofs | **preserved verbatim from the prior `challenge-D-design.md` before this write** |
 
-I did **not** re-litigate pass 2's composition family (D-01 Card inversion, D-05/06 the equal-card
-matrix, D-11 the clickable `role="article"`, D-16 the Retry blank, D-23 the dark specimen dissolve).
-I re-derived several of those independently and **concur**; §5 records the concurrence with my own
-coordinates so the finding does not rest on a single seat. This report's body is what pass 2 did not
-have, got wrong, or killed on the wrong arm.
+I ran a dedup grep of every candidate finding against all three files before writing a word of §3.
+The families already owned — the `Card` shell inversion, the equal-card matrix, the clickable
+`role="article"`, the `role="list"`/`role="article"` mismatch, the caster stacking, the
+`DevMisconfigError` collapse, the filtered-to-zero lie, the mobile placeholder clip, the expanded
+double-specimen, the absent status region — are **not re-reported**. Where I reached them
+independently I record the concurrence in §4 with my own coordinates, so they no longer rest on one
+or two seats.
 
-Per the seat brief (MT-F022) I have **not** born-RED the 7/12 keyboard figure. The one keyboard
-consequence I record (§5, concurrence with pass-2 D-11) is engine-invariant by construction — the
-element carries no `tabindex` and no key handler, so no engine can focus it — and it is not a roving
-group: my Chromium walk shows every vote chip and every card menu individually tabbable, which is
-the opposite of roving.
+**MT-F022 compliance.** I have not born-RED the 7/12 keyboard reachability figure. The one keyboard
+consequence in §3 is engine-invariant by construction and proved on two engines: I measured
+`[...document.querySelectorAll('[role="article"]')].map(a => a.tabIndex)` → `[-1,-1,-1,-1,-1]` in
+**Chromium** and the same in **WebKit**, and the Chromium tab walk lands on every vote chip and
+every card menu *individually* — which is the opposite of a roving group. A roving rail has exactly
+one `tabindex="0"`; this wall has zero.
 
-**Reproduction environment.** Branch `tranche-u`, HEAD `c654824e`.
+### Reproduction environment
 
-- **Error arm** — `http://localhost:9000`. The loopback origin latches `detectDevMisconfig`
-  (`demo/platform/transport/availability.ts:107–115`), so no request is issued. This is the arm all
-  60 audit captures froze.
-- **Populated arm** — I stood up a read-only, GET-only CORS mirror of the production API on
-  `:9101` (`./probe/p3-D-proxy.mjs`; every mutating verb returns 405, so the probe cannot write to
-  the commons) and a second Vite dev server on `:9010` with `VITE_API_URL` set, which clears the
-  latch. **This is the first pass to render the wall from real production rows in this seat's
-  evidence set.**
-- **Operator note, disclosed.** The second Vite instance shares `node_modules/.vite`, and its
-  optimiser replaced the `deps` directory out from under the running `:9000` server, which then
-  served `504 (Outdated Optimize Dep)`. I detected this, stopped both probe servers, and restarted
-  `:9000` exactly as it had been running (`npx vite --port 9000 --strictPort`). Verified recovered:
-  `textLen 324` on `/#/browse`. No repository file was touched. Recorded because an undisclosed
-  side effect on the owner's dev server would be worse than the finding it bought.
+Branch `tranche-u`, HEAD `c654824e`. Dev server live at `http://localhost:9000` (not started or
+modified by me).
 
----
-
-## 2. Findings
-
-Severity is against the shipped user-visible surface, not against wave ownership.
-
-### F-A · The mobile control rung was never measured
-
-#### D3-01 · MAJOR — the mobile search field clips its own placeholder mid-word. Two engines. Post-`fonts.ready`. **Pass-2's KILL is overturned.**
-
-Pass 2 recorded:
-
-> *"**KILLED** — Chromium 390 px: text 151.0 px vs 236.0 px available. WebKit 390 px: 151.1 vs
-> 235.0. **Fits, in both engines, with 36 % slack.** … it is a font-loading transient, not a geometry
-> defect of the field."*
-
-Those two numbers are reproducible — on a **bare 390 px viewport**, which does not activate the
-mobile control rung. Measured on both arms, both engines, after `await document.fonts.ready`
-(`./probe/p3-D-ph.mjs`):
-
-| engine | arm | computed font | placeholder | available | overflow |
-|---|---|---|---:|---:|---:|
-| chromium | `devices["iPhone 14"]` | **21 px** Plus Jakarta Sans | 226.6 | 217.0 | **+9.6 CLIPPED** |
-| chromium | bare `390×844` | 14 px | 151.0 | 236.0 | −85.0 fits |
-| webkit | `devices["iPhone 14"]` | **21 px** | 226.7 | 216.0 | **+10.7 CLIPPED** |
-| webkit | bare `390×844` | 14 px | 151.1 | 236.0 | −84.9 fits |
-
-`fontsReady: "loaded"` in all eight rows; identical at `t+0 ms` and `t+3000 ms`. The transient
-hypothesis predicts convergence over time — there is none. The bar is `54 px` tall on the device arm
-and `36 px` on the bare arm, which is the independent tell that the two arms are different type
-rungs, not different moments.
-
-`text-overflow` computes to `clip`, so the glyph run is severed mid-word with no ellipsis:
-**"Search the common"** + a sliver of the `s`.
-
-The mega-tranche's own capture harness uses the device descriptor
-(`audit/visual/capture.mjs` → `devices["iPhone 14"]`), which is why
-`shots/safari-mobile-light/browse.png` and `shots/rtl-mobile/browse.png` both show the clip at
-settle. Pass 2's counter-measurement and the audit's own screenshot disagreed; the screenshot was
-right.
-
-**Evidence:** `./evidence/D-p3-mobile-placeholder-clip.png` (crop of the audit's own WebKit capture).
-
-**Mechanism.** `BrowsePane.vue:13` authors a 21-character placeholder for a field whose mobile
-inline measure is 217 px, while `BrowsePane.vue:15–26` injects `SearchFilterBar` into glass-ui
-`SearchBar`'s default slot — a 44 px trailing control the input's `flex:1 min-w-0` correctly yields
-to. The pane composed a field with a trailing slot and did not re-measure its own copy against the
-result.
-
-**Cure.** Not a shorter string bolted on. The placeholder is the field's *only* visible label
-(`aria-label` is absent — §2 F-C below), so shortening it degrades the label. The gestalt cure is to
-give the field a real label and let the placeholder become an example: `SearchBar` gains a producer
-`label` affordance (its sibling `FuzzySearch` already ships `ariaLabel`; `SearchBar` does not —
-`node_modules/@mkbabb/glass-ui/dist/search.js`, `SearchBar` props: `modelValue, placeholder, icon,
-tag, size, surface, variant`). Until then, `::placeholder { text-overflow: ellipsis }` at the
-producer root is the honest interim, because a severed word is worse than an elided one.
+- **Error arm** — `http://localhost:9000/#/browse`. The loopback origin latches
+  `detectDevMisconfig` (`demo/platform/transport/availability.ts:112–115`), so no request is
+  issued. This is the arm all 60 mega-tranche captures froze on.
+- **Populated arm** — the LAN origin `http://192.168.1.166:9000` (`vite.config.ts` binds
+  `server.host: true`). `isLoopbackHost("192.168.1.166")` is `false`
+  (`availability.ts:74–81`), so the misconfig latch never fires and a real request goes out; I then
+  fulfilled it from a Playwright `page.route` stub. **No mutating verb is ever issued and nothing is
+  written to the commons.** Probe: `./probe/p4-D-wall.mjs`.
+- **Stub-shape honesty.** My first stub used `{ color }` for a swatch and the wall rendered five
+  blank plates. I checked `demo/palettes/types.ts:1–11` — the field is `css` — corrected the stub,
+  and **discarded the blank-strip frame rather than report it.** Every measurement below comes from
+  the corrected run. The discarded artefact is named here so no reader mistakes it for a finding.
 
 ---
 
-#### D3-02 · MAJOR — the filter trigger is a deformed control: a per-instance override that half-lands. **Pass-2's D-22 number is wrong.**
-
-Pass 2 states *"`SearchFilterBar.vue:5` is one of them (`h-8 w-8` = 32 × 32)"*. Measured
-(`./probe/p3-D-fine.mjs`, Chromium 1440×900, populated arm):
-
-```
-btnClass : "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8"
-computed : height 40px · width 32px · min-height 40px · min-width 0px · border-radius 9999px
-rect     : 32 × 40   (aspect 0.800)
-bar      : height 36 · top 208.7 · bottom 244.7
-button   : top 206.7 · bottom 246.7
-overhangTop 2 · overhangBottom 2
-```
-
-The control is **32 × 40, not 32 × 32.** The consumer's `w-8` lands because the producer sets
-`min-width: 0`; the consumer's `h-8` **loses** to the producer's `min-height: 40px`. The result is
-a `border-radius: 9999px` element at aspect 0.8 — a visible **ellipse, not a circle** — seated in a
-**36 px** bar, overhanging it by **2 px at the top and 2 px at the bottom**.
-
-This is the exact harm owner edict 5 names ("style at the root, never per-instance overrides"): the
-override does not simply fail, it *half* succeeds, and the half that succeeds is the one that
-deforms the glyph. `PROPORTION-AUDIT.md §5.7` — *"Visual glyph size, operable target size and layout
-reservation are separate quantities"* — is violated in the worst direction: one class was asked to
-set all three and set one.
-
-Visible at every scale; unmissable at 200 % zoom.
-**Evidence:** `./evidence/D-p3-filter-trigger-overhang.png` — the blister protruding past the field's
-rounded cap, top and bottom, from the audit's own `zoom-200-desktop/browse.png`.
-
-**Cure.** Delete `relative h-8 w-8` from `SearchFilterBar.vue:5` and consume a producer `size` rung
-on `Button`. If no rung is 32 px tall, that is the glass-ui ask — not a consumer class.
-
----
-
-#### D3-03 · MINOR — the field's visible chrome is 36 px; its operable target is 24.6 px
-
-```
-barH 36 · inputH 24.6 · deadBandTop 5.7 · deadBandBottom 5.7
-elementFromPoint(bar.centerX, bar.top + 3) → div.input-bar
-click at bar.top + 3 → document.activeElement === BODY
-```
-
-`.input-bar` is a `<div>`, not a `<label>`, so **32 % of the field's visible height (11.4 / 36 px) is
-dead to the pointer** — clicking the top or bottom sixth of a control that looks entirely like a text
-field does nothing at all. Same law as D3-02: glyph size, target size and reservation are three
-quantities and here two of them disagree by 11.4 px.
-
-**Cure.** The producer's `SearchBar` root becomes a `<label>` (or the input takes
-`position:absolute; inset:0` inside a positioned root). Root-level, one edit, all three consumers.
-
----
-
-### F-B · The wall's scroll terminus
-
-#### D3-04 · MAJOR — a scroll host named `pane-scroll-fade` that paints no fade, hides its scrollbar, and slices a specimen in half. **Pass-2's KILL narrowed and re-raised.**
-
-Pass 2 killed the pass-1 claim with: *"`PaneHeader.vue:54–57` defines `scroll-timeline:
---pane-scroll block`; the header's `::before` veil is its consumer. The fade exists."*
-
-That answers a different question. The header veil is a **top-edge** material that swells on scroll.
-The defect is the **bottom terminus of the scroll host itself**. Measured on the host element
-(`./probe/p3-D-fine.mjs`):
-
-```
-.pane-scroll-fade  maskImage: none   webkitMaskImage: none
-                   ::before background: rgba(0,0,0,0) none     (no gradient)
-                   ::after  background: url("data:image/svg+xml,…")   (the grain texture, not a fade)
-                   overflowY: auto   scrollbarWidth: none
-                   scrollHeight 1289 / clientHeight 772        → 517 px hidden
-```
-
-So: **517 px of content below the fold, a hidden scrollbar, no mask, no gradient, no cue.** The
-rendered consequence is in `./evidence/D-p3-wall-desktop-light.png` — the sixth card's colour
-specimen is severed by a hard horizontal edge at the pane's bottom, which reads as a paint bug, not
-as "there is more".
-
-At 200 % zoom (`720×450 @2`, the WCAG 1.4.4 arm the audit already runs):
-
-```
-scrollHeight 1275 / clientHeight 336   → 3.79 viewports of content in the host
-rendered: 1.5 cards visible
-```
-
-`./evidence/D-p3-wall-zoom200.png`. A discovery wall that shows one and a half specimens at 200 %
-zoom is not a discovery wall. `VISUAL-CONSTITUTION.md §3.6` requires mobile to be *"one
-document-scrolling stage"*; the reflow arm inherits a nested `h-full` scroller instead
-(`BrowsePane.vue:2` — `overflow-y-auto … h-full`).
-
-**Cure.** The field does not own a scroll host at all once §3.1's *"the field … [has] none"* is
-honoured: the document scrolls, the chassis region grows, and the terminus problem dissolves. Until
-then the host owes a bottom mask and a visible scrollbar — the class already claims the former by
-name.
-
----
-
-### F-C · States and errors that were never designed
-
-#### D3-05 · BLOCKER — the pane discards the one error species the transport designed
-
-`demo/platform/transport/availability.ts:120–130` builds this message and throws it as a distinctly
-named `DevMisconfigError`:
-
-> *"value.js dev is MISCONFIGURED: … whose CORS allow-list excludes localhost — every palette
-> request will be blocked. Run `npm run dev` … or set `VITE_API_URL` … **This is a dev-config error,
-> NOT "backend offline"**."*
-
-`markApiUnreachable()` even refuses to downgrade it: *"A designed misconfig is NOT an unreachable
-backend — never mislabel it."*
-
-`demo/palettes/useBrowsePalettes.ts:74–80`:
-
-```js
-} catch (e) {
-    if (gen !== loadGeneration) return;
-    browseError.value = "Failed to load palettes";   // <- `e` is discarded here
-    …
-    console.warn("Failed to load remote palettes:", e);
-}
-```
-
-`BrowsePane.vue:62–66` then renders it:
-
-```
-message = "The commons is unreachable."     ← a claim about the backend
-detail  = pm.browseError                     ← "Failed to load palettes"
-```
-
-`EmptyState.vue:10–13` documents the `detail` rung as *"**the machine truth** in Fira"*. It receives
-a hand-written constant. The rung carries **zero** information beyond the headline — it is a
-decorative second line wearing a mono voice that signals provenance it does not have.
-
-The severity is not hypothetical: **every one of the 60 captures in
-`audit/visual/REPORT.md` renders this exact plate.** The mega-tranche's whole visual evidence base
-has been reading "the commons is unreachable" where the truth was "this dev server is pointed at the
-wrong origin". `REPORT.md` records `consoleErrors` for `/#/browse` as **0** in all four matrices,
-because the diagnostic is a `console.error` emitted at module init before the harness attaches — so
-the one signal that would have caught it was invisible to the harness too.
-
-**Cure.** Errors are entities, not strings. `browseError` becomes the caught error, and the plate
-switches on its type: `DevMisconfigError` → a configuration plate with the actionable remedy;
-`ApiUnavailableError` → the unreachable plate; `ApiProblem` → title + `detail` from the
-`problem+json` the transport already parses (`client.ts:118–124`). One `catch` stops flattening
-three species into one lie.
-
----
-
-#### D3-06 · BLOCKER — the colour-search affordance is dead against production data
-
-`BrowsePane.vue:339–349`:
-
-```ts
-return palettes.filter((p: any) => {
-    const oklabColors = p.oklabColors as { L: number; a: number; b: number }[] | undefined;
-    if (!oklabColors || oklabColors.length === 0) return false;   // ← excluded, not skipped
-    return oklabColors.some((c) => Math.hypot(c.L - L, c.a - a, c.b - b) <= radius);
-});
-```
-
-Measured against the live production wall:
-
-```
-$ curl -s "https://api.color.babb.dev/palettes?limit=50"
-rows 10  hasMore False
-oklabColors EMPTY: 5 of 10
-  hey-v2-…-remix-fe 0 · hey-v2-…-remix-2a 0 · hey-v2-cd3e1e3b 0 · hey-7600d315 0 · audit-test-… 0
-  lavender-dreams 4 · forest-canopy 7 · neon-cyberpunk 5 · ocean-depths 6 · sunset-blaze 5
-```
-
-**Half of the shipped commons is unreachable by colour search by construction** — a palette whose
-index the backend never computed is not "unmatched", it is *deleted from the result set*, silently,
-for a filter the user believes is about colour.
-
-Two further design decisions compound it. `BrowsePane.vue:353–354` declines the server-side filter
-the API already supports (`listPalettes` accepts `colorL/colorA/colorB/colorRadius`,
-`api/palettes.ts:26–29`) with the comment *"client-side is instant"* — so the search also only ever
-sees the **first 50 loaded rows**, never the commons. And `radius = 0.15` (`:343`) is an
-undocumented magic constant in OKLab units with no user control and no visible indication of what it
-means.
-
-When it returns nothing, it returns nothing into D3-07's lying empty plate.
-
-**Cure.** Colour search is a server query, not a client array filter. Route it through the port with
-the other four filters (see D3-10), and let a row with no index be *ranked last*, never dropped.
-
----
-
-#### D3-07 · BLOCKER — filtered-to-zero is not empty, and the plate says the opposite. Reproduced.
-
-`BrowsePane.vue:83–86` renders the true-empty invitation whenever `displayedBrowse.length === 0`,
-unconditionally on filter state:
-
-```
-empty-eyebrow "· the commons ·"
-empty-text    "No published palettes here yet."
-empty-hint    "Publish one from My Palettes and start the wall."
-```
-
-Reproduced live on the populated arm (`./probe/p3-D-wall.mjs`): with **ten** published palettes
-loaded, typing `zzzzqqqqxxxx` into the field yields
-
-```
-"Browse Discover palettes from the community. · THE COMMONS ·
- No published palettes here yet. Publish one from My Palettes and start the wall."
-statusRole: true   loadMoreVisible: false
-```
-
-`./evidence/D-p3-filtered-zero.png`.
-
-Two lies in one plate: the commons **does** have published palettes, and the remedy offered
-(*publish one*) is not the user's problem and will not change the result. `EmptyState.vue:2–13`
-declares exactly two species — *"loading ≠ empty, error ≠ empty"* — and the third species the wall
-actually produces, **no-results-for-your-filters**, was never designed. A state that was never
-designed is a design defect; this one also emits false guidance.
-
-**Cure.** The wall has four terminal states, not three: `loading | error | empty | no-match`. The
-`no-match` plate names the constraint that produced it and offers the only useful action — clear it.
-`SearchFilterBar` already computes `activeFilterCount`; the pane already owns `searchQuery`. The
-predicate exists; nobody wrote the branch.
-
----
-
-#### D3-08 · MAJOR — the developing plate depicts a card that never arrives, and under-reserves the wall by 42 %
-
-`BrowsePane.vue:30–39` claims the design intent verbatim:
-
-> *"skeleton→content is 'ONE surface, NEW content' … the developing plates SETTLE into the wall on
-> the snappy spring instead of a hard v-if POP"*
-
-Measured through a held response (`./probe/p3-D-morph.mjs`, `/palettes` delayed 4.5 s, rAF sampling
-of the state container):
-
-```
-t=4318…4810 ms   stateBox 648 px   skeleton nodes 52   gridChildren −1
-t=8460 ms        stateBox 1120 px  skeleton nodes  0   gridChildren 10
-```
-
-- **648 → 1120 px in one step.** A **+472 px (+73 %) jump**, no intermediate frame in a 60 Hz
-  sample. `mode="out-in"` (`:40`) guarantees it: the outgoing state is fully removed before the
-  incoming one mounts, so the container's height is never interpolated.
-- **Per-plate geometry is inverted.** Skeleton: `(648 − 3×12) / 4 = 153 px` per plate. Real card:
-  `(1120 − 9×12) / 10 = 101.2 px`. The stand-in is **51 % taller** than the thing it stands for,
-  while `SKELETON_COUNT = 4` (`:207`) reserves **58 %** of a 10-card wall — and the page size is
-  **50** (`BROWSE_PAGE_SIZE`), so at a full page it reserves 12 %.
-- **The anatomy differs.** `./evidence/D-p3-skeleton-phase.png` — the plate has **three** bands: a
-  5-cell strip, a title row, and a **5-cell swatch row that the real card does not have**
-  (`./evidence/D-p3-wall-desktop-light.png` — strip + identity row, two bands). The skeleton is not
-  a low-fidelity picture of the card; it is a picture of a different card.
-
-The sharpest part: **the `vj-morph` family ships the cure and this site declines it.**
-`demo/styles/animations.css:104–136` gives the family an optional height morph via
-`--vj-morph-collapse` / `--vj-morph-expanded`; both are unset at this site, so `max-height` computes
-`none` at every keyframe and the height leg is inert. Pass 2 observed the same unset knob and filed
-it as a *negative proof* (no layout-forcing transition). It is that — and it is also the mechanism
-of the pop the file's own comment claims to have cured. Both readings are true; only one is a
-finding.
-
-**Cure.** Either set the family's two height variables so the box interpolates, or — better and
-simpler — stop swapping surfaces: keep one grid, let the skeletons be its children, and let cards
-replace them in place. That is what *"ONE surface, NEW content"* actually means, and it makes
-`SKELETON_COUNT` a real reservation instead of a decoration.
-
----
-
-#### D3-09 · MINOR — the pagination affordance is outside the transition it claims to belong to
-
-`BrowsePane.vue:121–124` claims *"The next page arrives as developing plates (the W5-1 grammar)"*.
-The load-more block (`:125–144`) sits **outside** the `<Transition>` that closes at `:119`. So the
-initial load morphs and the paged load hard-swaps a 36 px button for two 153 px plates — a **270 px
-unanimated jump** at the exact moment the user's eye is at the bottom of the list. One wall, two
-motion grammars, the inconsistent one on the more frequent event.
-
----
-
-### F-D · State that lives in the wrong place
-
-#### D3-10 · MAJOR — one filter of five lives outside the port, and it is the one that is broken
-
-Four filters live in the shared port and flow through `pm.filteredBrowse`:
-`searchQuery` `:11`, `sortMode` `:16`, `tierFilter` `:17`, `selectedTags` `:18`.
-The fifth, colour, lives **pane-locally** at `:336` (`colorSearchParams`) and is applied by a second,
-private filter pass at `:339–349`.
-
-That split is the direct cause of D3-06 (a client-side pass over the loaded page cannot use the
-server predicate) and it produces a **second** split inside `SearchFilterBar`: the child keeps its
-own `colorSearchActive` ref (`SearchFilterBar.vue:170`) purely to render the filter-count badge,
-because the real state is in the parent and the parent never tells it. Two components hold two
-representations of one filter; only one of them can be right after any path that touches only the
-other. `BrowsePane.onClearFilters()` `:329–332` clears the parent's copy — the child's
-`colorSearchActive` is reset only by the child's own `onClearAll` `:227`.
-
-Also: `activeFilterCount` (`SearchFilterBar.vue:186–192`) counts `tier`, `selectedTags` and
-`colorSearchActive` — **but not `sort` and not the text query**. Change the sort to *Most Forked* and
-the badge stays absent; §5.1's *"changed result count/state through the owning status region"* has
-no region, and now the trigger has no badge either.
-
-**Cure.** Five filters, one home: the port. The pane emits, the port decides, the badge reads one
-source.
-
----
-
-#### D3-11 · MINOR — the card-ref map only ever grows, and can deliver feedback to a dead component
-
-`BrowsePane.vue:94` and `:209`:
-
-```ts
-const cardRefs = reactive<Record<string, InstanceType<typeof PaletteCard>>>({});
-…
-:ref="(el: any) => el && (cardRefs[palette.slug] = el)"
-```
-
-Vue invokes a function ref with `null` on unmount. The `el &&` guard **skips the delete**, so the map
-retains every `PaletteCard` instance the wall has ever rendered — across sorts, filters, searches and
-route re-entries. Two consequences, one of which is a design consequence:
-
-1. `cardRefs[palette.slug]?.showFeedback(...)` (`:229`, `:238`, `:249`, `:264`) can resolve to a
-   **detached** instance after a re-sort, in which case the save/delete/visibility/fork verdict is
-   rendered into a component that is not in the document. The user's action reports nothing. That
-   verdict is the *only* channel these operations have (see §5, concurrence with `VISUAL-CONSTITUTION
-   §5`'s *"never carries the only truth"*), so a dropped feedback is a dropped outcome.
-2. `reactive()` deep-proxies component instances — every nested property of every retained instance.
-   Owner edict 7 asks for `useTemplateRef` / `shallowRef` idiom; this is neither.
-
-**Cure.** `const cardRefs = new Map()` with an explicit `el ? set : delete`, or — after the §3.1
-inspector exists — no card refs at all, because durable operation state belongs to the inspector.
-
----
-
-#### D3-12 · MINOR — a masking coercion for a wire-shape lie, documented in place
-
-`BrowsePane.vue:213–220`:
-
-```ts
-// X9: coerce to an Array. `allTags` is typed `Tag[]` but the `/colors/tags`
-// read can resolve an object-shaped payload …
-const tags = pm.tagEdit.allTags.value as Tag[] | Record<string, Tag>;
-return Array.isArray(tags) ? tags : Object.values(tags);
-```
-
-Owner edict 2 forbids masking fallbacks. This one is a double cast that widens a declared type in
-order to reach a branch the type says is impossible, then silently manufactures tags out of whatever
-shape arrived. The comment is honest about all of it. Honesty is not a cure: the payload shape is the
-API's contract, and it is being repaired at the last consumer, three layers from the seam.
-
----
-
-### F-E · Direction and copy
-
-#### D3-13 · MINOR — the error headline's authored full stop jumps to the head of the line under RTL
-
-`shots/rtl-desktop/browse.png` renders **".The commons is unreachable"**. The trailing `.` of
-`BrowsePane.vue:65`'s `message="The commons is unreachable."` is a bidi-neutral run at the end of an
-LTR run inside an RTL paragraph, so it resolves to the paragraph direction and is laid out at the
-visual left. The twin pane shows the same artefact (".No saved palettes yet", ".Save, organize, and
-share your colors").
-
-`VISUAL-CONSTITUTION §5.2` governs direction; `REPORT.md`'s `horizontalOverflow` bucket is empty and
-`STATES.json` shows `overflowX 0` in both RTL matrices, so the mirroring itself is sound — this is the
-one direction defect the mechanical check cannot see.
-
-**Cure.** `dir="auto"` (or `unicode-bidi: plaintext`) on `EmptyState`'s two text nodes — a root-level
-edit that fixes all eight consumers at once. Not per-string punctuation surgery.
-
----
-
-### F-F · Composition of the wall itself, from the first populated render in this seat
-
-#### D3-14 · MAJOR — the wall has no scale, no separators, and six equal protagonists
-
-`./evidence/D-p3-wall-desktop-light.png` is the first populated Browse wall in this seat's evidence.
-Read as a design:
-
-- **Nowhere does the wall say how many palettes it holds.** No count, no "10 of 10", no end-of-list
-  mark. The only signal that the list has ended is that scrolling stops — inside a host with no
-  scrollbar (D3-04).
-- **Every card's specimen strip is full-strength, full-bleed, and identically sized regardless of how
-  much colour it carries.** A one-colour palette gets the same 50 px band as a seven-colour palette.
-  `PROPORTION-AUDIT.md §3.8`: *"One pane may have one full-strength visual protagonist. Supporting
-  fixtures do not compete with it through equal size or equal shadow."* Six stacked equals is six
-  protagonists.
-- **Two ellipsis species, one column.** The pane filter is a **vertical** ellipsis
-  (`SearchFilterBar.vue:6`, `EllipsisVertical`); each card's menu is a **horizontal** ellipsis. Two
-  glyphs, two orientations, two meanings, 40 px apart. `PROPORTION-AUDIT.md §4 PR-16` asks for one
-  named menu purpose per `…`, not two dialects of the same mark.
-
----
-
-#### D3-15 · MINOR — the sort-pending wash is a per-instance string injected into a design-system root
-
-`BrowsePane.vue:87–90`:
-
-```
-:grid-class="'transition-opacity duration-fast ' + (pm.sortLoading.value ? 'opacity-50' : '')"
-```
-
-Measured on the rendered grid:
-
-```
-class: "palette-card-grid grid grid-cols-1 gap-3 min-h-[120px] transition-opacity duration-fast"
-pointerEvents: auto
-```
-
-Two defects in four tokens. (a) The pane passes **styling as a string prop** into
-`PaletteCardGrid`'s root — precisely the per-instance override edict 5 forbids; the pending register
-belongs to the grid as a prop with meaning (`pending`), not as a class the caller concatenates.
-(b) `opacity-50` with `pointer-events: auto` renders a wall that **reads disabled and is fully
-interactive** — the user can click a card that is about to be replaced by the arriving sort. Colour
-alone carries the state, which `VISUAL-CONSTITUTION §4.1` forbids outright: *"Selected, failed,
-pending, withdrawn and disabled states are never color-only."*
-
-Pass 2 raised (b) as D-19; (a) — that the mechanism is a stringly-typed style prop crossing the
-design-system boundary — is this pass's addition.
-
----
-
-## 3. Correction of my own prior reading — recorded so it cannot be repeated
-
-I nearly filed a BLOCKER that the seated search field has **no focus indicator**. The first
-measurement supported it: focused, `.search-seated`'s computed `box-shadow` gained two layers of
-`oklab(0 0 0 / 0) 0px 0px 0px 0px` — transparent, zero-sized. The token itself was well-formed, so
-this looked like `.search-seated:focus-within`'s composition
-(`utils.css:143–145`) resolving to nothing.
-
-The pixels refuted it. Blur-vs-focus screenshot difference over the field
-(`./probe/p3-D-ring4.mjs`):
-
-```
-diff bbox (6,0,484,63)   max channel delta 68   pixels differing > 8: 2019
-ring perimeter of a 462×36 box at 2 px ≈ 1992 px
-```
-
-**The ring paints.** The two null layers were a mid-transition serialisation: `.input-bar` carries
-`transition: box-shadow var(--duration-fast)`, and I sampled computed style in the same tick as
-`.focus()`. Recorded as a standing trap: *a computed `box-shadow` read inside a transitioning
-element's first frame is not that element's resting or settled style.*
-
----
-
-## 4. Negative proofs — attacked, and could not break
-
-1. **The seated field's focus ring composes and paints.** §3 above. `--focus-ring-shadow` resolves
-   correctly on the bar (`0 0 0 2px color-mix(…30%…), 0 0 8px color-mix(…15%…)`), and the unlayered
-   `.search-seated:focus-within` correctly *composes* rather than replaces the cartoon stamp — the
-   comment at `utils.css:140–142` explains exactly why, and it works.
-2. **Reduced motion is honoured at this site.** Under `reducedMotion: "reduce"`,
-   `.vj-morph-enter-active` computes `transition-duration: 0.1s`, `animation-name: none`; and
-   `STATES.json` records `rafPer1500ms: 0` for `/#/browse` against **270** at rest — the renderer
-   loop actually stops, which `getAnimations()` cannot see (the MT-F022 instrumentation earned this).
-3. **No horizontal overflow anywhere, including RTL.** `overflowX: 0` in all six state matrices and
-   all four Safari matrices; `clipped: []` in every one. My own probes at 1440, 390, 320 and the
-   200 % arm reproduce `overflowX 0`. I tried to produce one and could not. The corrected state
-   matrix given to this seat is accurate.
-4. **`verbatimModuleSyntax` is honoured.** `BrowsePane.vue:197` — `import type { Palette, Tag }`.
-   No mixed type/value import in the file.
-5. **No duplicate tag fetch on route entry.** Entering `/#/browse` issues exactly one API request:
-   `/palettes?limit=50&sort=newest`. `onMounted(() => pm.tagEdit.loadAllTags())` (`:222–224`) did not
-   produce a second read — the shared port's catalog is already resolved. A plausible-looking
-   duplicate-fetch finding, killed by measurement.
-6. **Motion is tokenized, and no animation is deleted.** BrowsePane defines no local keyframes,
-   removes none, and names only producer tokens (`duration-fast`, the `vj-morph` family). Owner
-   edict 6 holds.
-
-### Hypothesis (labelled — no reproduction I trust)
-
-- **H3-1 · the dark plate may violate the neutral-pole law.** Sampled from
-  `./evidence/D-p3-wall-desktop-dark.png`: the Browse card body is `rgb(66,55,47)` — hue 25°, **HSV
-  saturation 28.8 %** — against `rgb(233,225,217)` — hue 30°, **6.9 %** — in light. The dark
-  structural plate is ~4× more chromatic than the light one, which reads against
-  `VISUAL-CONSTITUTION §2` (*"Dark chrome uses the restrained neutral pole. Seed tint is forbidden
-  outside the ambient field…"*). **But** HSV saturation on a translucent surface composited over a
-  live chromatic aurora is not a measure of the surface's own tint, and pass 2's H-2 already flags
-  that the captured ambient field is seed-dependent, not scheme-dependent. A real finding needs the
-  plate's own `background-color` token sampled against a neutral ground, in two seeds. Not claimed.
-
----
-
-## 5. Concurrence with pass 2 — independently re-derived, with my coordinates
-
-I did not re-report these. I record that I reached them separately, so they no longer rest on one
-seat.
-
-| pass-2 finding | my independent coordinate |
+## 2. Visual truth — the frames this pass adds
+
+The mega-tranche matrix never photographed the populated wall. All 60 captures show the error plate
+(`REPORT.json` → every `/#/browse` row carries
+`consoleWarnings: ["Failed to load remote palettes: …"]` and `bodyTextLength: 280` desktop /
+`124` mobile). Pass 3 reached the populated arm through a production mirror; this pass reaches it
+through a route stub with deliberately adversarial rows — a 12-colour palette, a 2-colour palette, a
+45-character name, an untagged palette — and adds the **iPhone 14** arm, which is the exact profile
+`audit/visual/capture.mjs:57` uses and which no pass had rendered populated.
+
+| frame | what it establishes |
 |---|---|
-| **D-01** the field wears the `Card` shell §3.1 forbids | `BrowsePane.vue:2` is `<Card tier="resting">`; §3.1's Browse row: *"browse workspace chassis; every rendered bounded palette entity slip has exactly one Card shell, and **the field/empty/inspector have none**"* |
-| **D-05 / D-06** the equal-card matrix, no inspector | measured `paneRect.w = 512` at viewport 1440 → **35.6 %** where §3.1 says 64–66.7 %; the companion `My Palettes` occupies another 35.6 % **while empty**, against §3.2's *"at most a narrow invitation tray (≤15 %)"* |
-| **D-11** the card is a clickable `role="article"`, keyboard-unreachable | `PaletteCard.vue:5–25` — `<div role="article" … cursor-pointer @click>`, no `tabindex`, no key handler. My Chromium tab walk: **25 stops inside the pane, none of them a card**; only `"n votes, click to vote"` and `"Palette menu"` per row. §5 names the anti-pattern verbatim: *"A palette card is a bounded entity article, **not a clickable `role=article`**"*. Engine-invariant; not roving tabindex (every chip is individually tabbable, which is the opposite of roving) |
-| **D-12** `role="list"` with `role="article"` children | measured `gridRole: "list"`, children `role="article"` — a list AT reports with zero items |
-| **D-20** no status region | measured `liveRegions: []`, `ariaBusy: 0`, `resultCountAnnounced: null` on the populated wall. Both loading blocks (`:47`, `:128`) are role-less `<div>`s carrying only `aria-label`, which the accname computation does not expose on a generic element |
-| **D-23** the dark specimen dissolves into its stage | same specimen `rgb(36,31,31)`: **12.58 : 1** against the light card body, **1.41 : 1** against the dark one. (Pass 2 correctly notes luminance contrast mis-scores chromatic pairs; for a near-neutral pair like this one it is serviceable, and it agrees with their OKLab ΔE.) |
-| **D-14 / §5 omnibus** | `BrowsePane.vue:102–116` wires **twelve** action verbs plus `expanded` onto the card. §5: *"The card body owns no expand, inline rename, action menu, transient result or hover-only swatch-action path."* All five are present |
+| `./evidence/D-p4-wall-desktop-1440.png` | the wall at 1440: Browse 512 px beside an **empty** 512 px `My Palettes` |
+| `./evidence/D-p4-wall-iphone14.png` | the wall on the audit's own mobile profile — identity annihilated, rhythm ragged |
+| `./evidence/D-p4-expanded-desktop.png` | the expand: +111 px of card to reveal one 6-character owner chip and a second copy of the strip |
+| `./evidence/D-p4-expanded-iphone14.png` | the same, +103 px, on mobile |
+| `./evidence/D-p4-filtered-zero.png` | `zzzznotathing` in the field; the plate says the commons is empty |
+| `./evidence/D-p4-wall-measurements.json` | raw probe output, both viewports |
+
+Read at desktop, the wall is a column of five 462 × 100 px drawers whose top 40 px is the only
+colour on the plate and whose bottom 60 px is a six-species jumble — name, filled count chip, fork
+glyph + n, two tag chips, heart + n, `···` — left-packed against a right-anchored menu, leaving a
+ragged 0–400 px void mid-row that changes width per card. Read at 390, it is worse: see §3.
+
+---
+
+## 3. New findings
+
+### D4-01 · BLOCKER — the expand is a state machine with no state and no seat
+
+**Defect.** `BrowsePane.vue:97` binds `:expanded="pm.expandedId.value === palette.slug"` and
+`:102` binds `@click="pm.toggleExpand(palette.slug)"`. The card therefore has two designed visual
+states. Neither is expressible to anything but the eye.
+
+**Evidence** (`./probe/p4-D-iphone14-expand.mjs`, WebKit, both viewports):
+
+```
+iPhone 14   collapsed cardH = 125   → click → { h: 228, expandedAttr: null, pressed: null, buttons: 3 }
+1440 × 900  collapsed cardH = 100   → click → { h: 211, expandedAttr: null, pressed: null, buttons: 3 }
+artTabIndex (chromium) = [-1,-1,-1,-1,-1]   artTabIndex (webkit) = [-1,-1,-1,-1,-1]
+```
+
+The element grows by **103 px / 111 px** and emits no `aria-expanded`, no `aria-pressed`, no
+`aria-controls`, no `role="button"`, no `tabindex`, no `keydown`. The revealed payload, read back
+from the live DOM, is `"Sunset Commons | 5 | 1 | warm | sunset | 7 | user-1"` — the collapsed row
+verbatim, **plus one token**: `user-1`.
+
+**Mechanism.** `PaletteCard.vue:5–26` is a `<div role="article" … cursor-pointer @click>`. `expanded`
+is a *render prop* (`:185`), never a *state attribute*. The component was designed as a display
+surface that happens to respond to clicks, not as a disclosure control. That is why no attribute
+exists to carry the state: nobody ever modelled one.
+
+**Against canon.** `VISUAL-CONSTITUTION §5`: *"One native named `<button type="button">` spans its
+specimen/identity region and expresses inspector selection only through `aria-pressed` … The card
+body owns no expand, inline rename, action menu, transient result or hover-only swatch-action
+path."* `PROPORTION-AUDIT §5.12` repeats it with the `aria-pressed="false|true"` spelling and the
+"at most one seat is true" invariant. Both halves fail: there is no seat, and there is no state.
+
+**Why this is distinct from pass 2/3's D-11.** D-11 is *reachability*: the card cannot be focused.
+D4-01 is *expressibility*: even a pointer user's successful expansion produces no machine-readable
+state, so no AT transcript, no `:has()` styling hook, no test assertion and no deep link can
+observe it. Adding `tabindex="0"` — the obvious patch — closes D-11 and leaves D4-01 fully open.
+
+**Reproduction.** `node ./probe/p4-D-iphone14-expand.mjs` (LAN origin + stub); or manually: open
+`#/browse` with a reachable API, click a card, inspect the `[role="article"]` element.
+
+---
+
+### D4-02 · MAJOR — the specimen loses area to its own chrome, 32 % / 68 %
+
+**Defect.** The palette *is* the colours. On the card the colours get less than a third of the
+plate.
+
+**Evidence** (`./probe/p4-D-iphone14-expand.mjs`, `devices["iPhone 14"]`):
+
+```
+cardH  = 125       (the ragged arm; 100 on the one-line arm)
+stripH =  40       PaletteColorStrip, role="presentation"
+→ specimen share 40/125 = 32.0 %   chrome share 85/125 = 68.0 %
+```
+
+Desktop 1440: `cardH = 100`, `stripH = 40` → **40 % / 60 %**. The strip is a fixed `h-10`
+(`PaletteColorStrip.vue:9`) at every viewport, while the metadata rail grows with wrapping. The
+narrower the device, the smaller the specimen's share — exactly backwards.
+
+**Against canon.** `VISUAL-CONSTITUTION §3` law 8: *"One pane may have one full-strength visual
+protagonist. Supporting fixtures do not compete with it through equal size or equal shadow."*
+`PROPORTION-AUDIT §5.2`: *"A card has one protagonist, one identity line, and at most one persistent
+action/status region."* Counting the shipped card's persistent regions: colour count chip, fork
+count, tag chips, vote button, `···` menu — **five**, and together they out-mass the protagonist
+2 : 1 on mobile.
+
+**Distinct from pass 2's D-13.** D-13 measured the identity *span's* width collapse. This is the
+*specimen's* area share, a different quantity on a different element, and it is the one that
+explains why the card reads as a metadata row that happens to have a colour bar on top rather than
+as a colour specimen with a caption.
+
+**Reproduction.** `node ./probe/p4-D-iphone14-expand.mjs`; frame
+`./evidence/D-p4-wall-iphone14.png`.
+
+---
+
+### D4-03 · MAJOR — `show-slug` is inert on the wall, and is an action when it fires
+
+**Defect.** `BrowsePane.vue:101` passes `show-slug` to every card on the commons. On the settled
+populated wall the slug is nowhere.
+
+**Evidence** (`./probe/p4-D-iphone14-expand.mjs`):
+
+```
+slugShown: false            // document.body.innerText.includes("sunset-commons")
+```
+
+**Mechanism.** `PaletteCard.vue:140–143`:
+
+```
+v-if="expanded"
+  … :display-slug="showSlug ? displaySlug : undefined"
+```
+
+The prop is gated behind `expanded` — the state D4-01 proves is unreachable by keyboard and
+unexpressible when reached. And what it renders is not a slug line: the live subtree reports
+
+```
+{ t: "button", ds: null, r: null, ti: 0, al: "Copy slug user-1" }
+```
+
+— a **named action button**, not provenance text.
+
+**Against canon.** `VISUAL-CONSTITUTION §4` assigns *"value, code, or provenance"* to
+`text-mono-small` — a text role. `§7`: *"Principal attribution renders only the supplied principal
+identity."* A slug is provenance; rendering it as a clipboard action, only inside a disclosure that
+has no state, is neither. And per owner edict 2 (no dead paths), a prop that cannot be observed on
+the surface it is passed on is dead plumbing at the call site.
+
+**Reproduction.** Populated wall, no card expanded: grep the rendered text for any palette slug —
+zero hits. Expand one: the slug appears only as `Copy slug <userSlug>`.
+
+---
+
+### D4-04 · MINOR — the wall's vertical rhythm is set by whether a name happens to wrap
+
+**Defect.** Card height is data-dependent, so the wall has no rhythm.
+
+**Evidence** (`./evidence/D-p4-wall-measurements.json`, `populated-mob`, 390 px):
+
+```
+arts: [ {h:125}, {h:125}, {h:100}, {h:100}, {h:100} ]
+```
+
+Two cards are 125 px because their names wrapped to two clipped lines; three are 100 px. The wall
+therefore alternates 125/125/100/100/100 with a constant 12 px `gap-3`
+(`BrowsePane.vue:46`). Desktop is uniform at 100 px only because no name wrapped at 462 px.
+
+**Against canon.** `VISUAL-CONSTITUTION §3` law 7: *"Spacing is container-scaled from glass-ui
+tokens."* A row height that is a function of a *string* is not container-scaled; it is content
+noise reaching the layout. `PROPORTION-AUDIT §5.3` — *"Renderer, icon or touch footprints may
+reserve collision space only on the axis where collision exists"* — the metadata rail reserves a
+second line on an axis where the specimen has no collision at all.
+
+**Reproduction.** `./evidence/D-p4-wall-mobile-390.png` — the five-card column, two tall, three
+short.
+
+---
+
+### D4-05 · MINOR — the only keyboard-reachable control on each card is mis-named
+
+**Defect.** The vote chip is the first tab stop inside each card and its accessible name is
+ungrammatical and mis-scoped.
+
+**Evidence** (`./probe/p4-D-filtered-empty.mjs`, live subtree read):
+
+```
+{ t: "button", ti: 0, al: "1 votes, click to vote" }
+```
+
+and from the Chromium tab walk (`./probe/p4-D-wall.mjs`):
+
+```
+BUTTON "7 votes, click to vote" → BUTTON "Palette menu" → BUTTON "14 votes, click to vote" → …
+```
+
+`"1 votes"` is a plural rule that was never written. Worse: the name embeds the *instruction*
+(`click to vote`) rather than the *object*, so the AT transcript for a wall of ten palettes is ten
+interchangeable `"n votes, click to vote"` with no palette identity in any of them — because the
+palette identity is on the `role="article"` parent, which is not a control and is not announced as
+the button's context.
+
+**Against canon.** `VISUAL-CONSTITUTION §4.1`: *"Selected, failed, pending, withdrawn and disabled
+states are never color-only. Role, accessible name, state/value and associated error/status are
+explicit."* A toggle whose name is an imperative and whose count is its only variable content
+exposes neither its object nor its pressed state.
+
+**Note on prior passes.** Pass 2 *quoted* this string inside a tab-walk transcript. Neither pass
+raised it as a finding. I raise it because it is the consequence of D4-01: once the card seat is
+missing, the vote chip becomes the card's de-facto accessible representative, and it is not fit for
+that job.
+
+---
+
+### D4-06 · MINOR — the pane header keeps animating under `prefers-reduced-motion: reduce`
+### (this narrows a negative proof pass 2 banked)
+
+**Prior claim being narrowed.** `challenge-D-design-pass2.md:667` banks
+*"Motion is tokenized and reduced-motion-correct."*
+
+**Measurement** (`./probe/p4-D-wall.mjs`, WebKit context `reducedMotion: "reduce"`, `#/browse`,
+t + 4000 ms):
+
+```
+document.getAnimations() → 6 entries, all playState: "running", all timeline: ScrollTimeline
+  pane-header-veil    on div.pane-header    ×2   (Browse + My Palettes)
+  pane-title-shrink   on h3.pane-header-title ×2
+  pane-desc-shrink    on p.pane-header-desc  ×2
+```
+
+This matches `STATES.json`'s `reduced-motion-desktop` `#/browse` row (`animatedCount: 6`,
+`rafPer1500ms: 0`) — the rAF loop stops, the CSS animations do not.
+
+**Mechanism.** `PaneHeader.vue:177` gates the whole choreography on
+`@supports (animation-timeline: scroll())` **and nothing else**. There is no
+`prefers-reduced-motion` media query in the file. `PaneHeader.vue:148–151` states the design
+position explicitly: *"A scroll SCRUB is position-mapped, not time-based motion, so it needs no PRM
+gate."*
+
+**Why I narrow rather than born-RED it.** That argument is defensible for `pane-title-shrink`, a
+pure `transform: scale()` whose from-state equals the base state. It is **not** defensible for
+`pane-desc-shrink` (`PaneHeader.vue:214–223`), which drives `opacity: 1 → 0` plus a `translateY`:
+under PRM, scrolling the Browse wall makes the pane's description *disappear*.
+`VISUAL-CONSTITUTION §6`: *"Reduced motion resolves directly to the final geometry and stable
+chromatic state."* A description that fades out as a function of scroll offset is neither final
+geometry nor a stable chromatic state.
+
+**Disposition.** Pass 2's proof holds for the transform arm and fails for the opacity arm. The
+correct verb is `TIGHTEN` on `pane-desc-shrink`, not a wholesale PRM gate — and the owner is
+`PaneHeader`, not `BrowsePane`, which merely consumes it at `:3`. Filed here because this is the
+route the measurement was taken on.
+
+---
+
+### D4-07 · INFO — the pane hands its search field to the design system and then fights it
+
+**Defect.** `BrowsePane.vue:12` applies `class="search-seated"` to the glass-ui `SearchBar` root.
+`demo/styles/utils.css:132–137` implements it as an **unlayered** override chosen specifically to
+beat the producer's `@layer components` recipe by layer order — the file says so at `:125–128`:
+*"a consumer opt-in on the producer recipe (unlayered, so it wins over the `@layer components`
+recipe by layer order …)"*.
+
+**Evidence.** glass-ui is at **7.0.0**
+(`node -p "require('@mkbabb/glass-ui/package.json').version"` → `7.0.0`);
+`grep -rn "seated" node_modules/@mkbabb/glass-ui/dist/*.d.ts *.css` → **no match**. The booked swap
+(`variant="seated"`, ASK-D) did not land in the 7.0.0 adoption, so the override is live in three
+consumers: `BrowsePane.vue:12`, `PalettesPane.vue:35`, `AdminPane.vue:14`.
+
+**Against owner edicts 4 and 5.** *"Glass-ui is the design system — variants/primitives belong in
+glass-ui"* and *"style at the shadcn/glass root component level, never per-instance overrides."*
+A three-consumer per-instance class that wins by cascade-layer exploitation is the textbook shape
+of both violations, and it also stacks a third caster (`box-shadow: var(--shadow-cartoon-sm)`,
+`utils.css:137`) onto the plate pass 1's R2.3 already found stacked twice.
+
+**Not born-RED.** The carry is *documented* and *booked* — `utils.css:129–131` names the exact
+producer ask. This is an INFO row recording that the booked swap did **not** arrive with glass-ui
+7.0.0 and the interim is now a year-old cascade hack in three files, not a proposal that the
+component invented.
+
+---
+
+## 4. Concurrence — independently re-derived, at my coordinates
+
+Recorded so these no longer rest on one or two seats. **Not re-reported as findings.**
+
+| prior finding | my independent coordinate |
+|---|---|
+| the field wears a `Card` §3.1 forbids | `BrowsePane.vue:2` — `<Card tier="resting" class="pane-scroll-fade … h-full">`. §3.1 Browse row: *"the field/empty/inspector have none"* |
+| the equal-card matrix | measured at 1440: Browse `{x:199, w:512}`, My Palettes `{x:729, w:512}`. Browse = **35.6 %** of viewport, **49.1 %** of the 1042 px stage. §3.1 demands **64–66.67 %**; §3 law 1 floors the protagonist at **61.8 %**. The companion holds the other 49.1 % **while empty** — §3 law 2 caps an empty secondary at **≤15 %** |
+| there is no inspector | `viewSchema.ts:124–131` — `browse: { left: "browse", right: "palettes" }`. The §3.1 "complementary selected-public-palette inspector" slot is occupied by a *different route's pane*. BrowsePane renders no inspector region at all |
+| the clickable `role="article"` | `PaletteCard.vue:5–26`; `artTabIndex` = `[-1,-1,-1,-1,-1]` in **both** Chromium and WebKit. §5 names the anti-pattern verbatim |
+| `role="list"` over `role="article"` | measured `gridRole: "list"`, `gridChildRoles: ["article"×5]` (`PaletteCardGrid.vue:3`). Zero owned `listitem` |
+| the identity annihilation | iPhone 14, WebKit: `"Sunset Commons"` `clientWidth **15** / scrollWidth **99**`; `"Mine"` `clientWidth **7** / scrollWidth **48**`. **The identity is allotted a constant ~15 % of the ink it needs** (15.2 %, 14.6 %) — a structural ratio, not a per-string accident. Class is correct (`font-display font-medium text-subheading`, §4's palette-identity rung); the flex layout destroys it |
+| the error-species collapse | live loopback console: `error: [value.js] value.js dev is MISCONFIGURED … This is a dev-config error, NOT "backend offline"`, and the same string as the caught error at `warning: Failed to load remote palettes: DevMisconfigError: …`. `useBrowsePalettes.ts:79` overwrites it with the constant `"Failed to load palettes"`; `BrowsePane.vue:65` heads the plate *"The commons is unreachable."* — the exact claim the transport layer forbids |
+| the filtered-to-zero lie | typed `zzzznotathing` into the Browse field over a live 2-row wall; the plate rendered, verbatim: `· THE COMMONS · | No published palettes here yet. | Publish one from My Palettes and start the wall.` Strings are hard-coded at `BrowsePane.vue:84–86` with no dependence on `searchQuery`, `tierFilter`, `selectedTags` or `colorSearchParams`, and no clear-filters affordance in that state |
+| the expanded double-specimen | `./evidence/D-p4-expanded-desktop.png` — the 5-band strip at card top, five WatercolorDots of the identical colours 100 px below it |
+| caster stacking | three registers on one plate: pane `Card` shadow → `.search-seated` `box-shadow: var(--shadow-cartoon-sm)` (`utils.css:137`) → per-card `cartoon-surface` (`PaletteCard.vue:20`) |
+
+---
+
+## 5. Negative proofs — what I tried to fault and could not
+
+1. **`duration-fast` is live, not dead.** `DESIGN.md:250` warns the `@theme` alias is *"DEAD until
+   PKT-1 clears the dist `:root` 150ms clobber"*, and `BrowsePane.vue:88` reaches for it. Measured
+   on the live grid: `getComputedStyle(grid).transitionDuration === "0.2s"`. The token resolves.
+   **Not a finding.**
+2. **Type roles on the card are correct.** The identity element computes
+   `font-display font-medium text-subheading` — exactly `VISUAL-CONSTITUTION §4`'s *"palette
+   identity → `--type-subheading`, Fraunces"*. The defect is layout, not typography. **Not a
+   finding.**
+3. **`verbatimModuleSyntax` is clean.** `BrowsePane.vue:197` is `import type { Palette, Tag }`;
+   every other import at `:179–199` is value-only. **Not a finding.**
+4. **No horizontal overflow, in any matrix.** `overflowX = 0` measured on my populated desktop and
+   mobile arms, matching `REPORT.json`'s `0` across all four Safari matrices and `STATES.json`'s
+   `rtl-desktop` / `rtl-mobile` / `zoom-200-desktop` rows. The RTL frame mirrors pane order
+   correctly. **Not a finding.**
+5. **The keyboard gap is not a born-RED.** Per MT-F022 I checked the roving hypothesis and rejected
+   it *in the direction that favours the code*: a roving rail has one `tabindex="0"`; this wall has
+   zero, and every chip is individually tabbable. The reachable-control count is real, but the
+   cause is absence, not roving. **Recorded as cause, not as a new count.**
+6. **The blank colour strip was my bug, not the app's.** Named in §1 so it cannot be mistaken for
+   evidence.
+7. **The RTL punctuation flip** (`.The commons is unreachable` in `rtl-desktop/browse.png`) is the
+   expected bidi rendering of untranslated English prose in a forced `dir="rtl"` document, not a
+   component defect. The app has no i18n; `index.html`'s own comment records `dir` as *"mechanical
+   readiness"* only. **Not claimed.**
 
 ---
 
 ## 6. The gestalt cure this pass adds
 
-Pass 2's four transpositions stand. This pass adds two that are independent of them and can land
-first, because they need no chassis:
+Passes 2 and 3 own the chassis transposition and the typed-error/typed-empty cure. Both stand. This
+pass adds one that is orthogonal and can land without either:
 
-**A. Errors and empties become typed states, not strings.**
-`browseError` carries the caught error; the plate switches on species (D3-05). The wall's terminal
-state set grows from three to four so `no-match` stops impersonating `empty` (D3-07). Colour search
-becomes the port's fifth filter and a server predicate, so a palette with no index is ranked, not
-deleted (D3-06, D3-10). One `catch`, one predicate, one home — and three BLOCKERs close together
-because they are one mechanism: *the pane flattens distinct truths into one presentation.*
+**The entity card stops being a display surface with a click handler and becomes a control.**
 
-**B. The three field defects are one producer ask, not three consumer patches.**
-D3-01 (no label, so the placeholder must carry the label and cannot fit), D3-02 (a consumer size
-class half-losing to a producer `min-height`), and D3-03 (a `<div>` root, so the chrome and the
-target disagree by 11.4 px) are all the same shape: **glass-ui's `SearchBar` is missing the API its
-own sibling `FuzzySearch` already has.** `FuzzySearch` ships `ariaLabel` and sizes its slot
-children; `SearchBar` ships neither. The ask is one producer variant — the already-booked ASK-D
-`variant="seated"` — carrying a label affordance, a `<label>` root, and a sized trailing slot.
-Three consumers (`BrowsePane:12`, `PalettesPane:35`, `AdminPane:14`) stop hand-rolling on the day it
-lands.
+Today `expanded` is a render prop and the click is an afterthought on a `<div role="article">`. The
+transposition is the one `VISUAL-CONSTITUTION §5` already specifies, and it closes D4-01, D4-03,
+D4-05 and pass-2's D-11/D-13 in one move because they are all the same mechanism — *the card was
+never modelled as a control, so it has no seat, no state, no name and no reason to give its
+identity priority in the layout*:
+
+- the `<article>` root becomes a noninteractive container (no `@click`, no `cursor-pointer`);
+- one native `<button type="button" aria-pressed>` spans specimen + identity and owns activation,
+  focus and the selected state — which makes the identity a *button label*, and a button label is
+  not a flex item that yields to a vote chip, so D4-02's 32 % and the ~15 % identity ratio both
+  resolve as a consequence rather than as separate padding fixes;
+- the payload that today lives in the 103 px in-card expansion (owner, slug, duplicate swatches)
+  moves to the §3.1 inspector the route is supposed to have and currently gives to `My Palettes` —
+  which simultaneously fills the 49.1 % empty companion §3 law 2 forbids;
+- the metadata rail keeps **one** persistent status region and discloses the rest in the inspector,
+  per §5.2.
+
+`show-slug` then either becomes a real wall-level provenance line in `text-mono-small` or is
+deleted. It cannot stay as a prop gated behind an unreachable disclosure that renders a clipboard
+button.
 
 ---
 
 ## 7. Evidence index
 
-| Artifact | What it establishes |
+| artifact | what it establishes |
 |---|---|
-| `./probe/p3-D-ph.mjs` | **the placeholder clip, two engines × two arms, post-`fonts.ready`** — overturns pass-2's KILL |
-| `./probe/p3-D-fine.mjs` | filter-trigger 32×40 + 2 px overhang; the 5.7 px dead bands; `pane-scroll-fade` mask/scrollbar; `liveRegions: []`; one API request per route entry |
-| `./probe/p3-D-morph.mjs` | the 648 → 1120 px out-in step, plate-vs-card geometry |
-| `./probe/p3-D-wall.mjs` | the populated wall in light/dark/mobile/200 %; the filtered-to-zero reproduction |
-| `./probe/p3-D-browse-probe.mjs` | the error arm at 1440 / 390 / 200 % / 320 |
-| `./probe/p3-D-focus.mjs` | the 25-stop Chromium tab walk; no card-level stop |
-| `./probe/p3-D-ring4.mjs` | the focus-ring pixel proof (2019 px) that killed my own draft finding |
-| `./probe/p3-D-proxy.mjs` | the GET-only CORS mirror used to reach the populated arm |
-| `./evidence/D-p3-wall-desktop-light.png` · `-dark.png` | the wall from real production rows, both schemes |
-| `./evidence/D-p3-skeleton-phase.png` | the three-band developing plate vs the two-band card |
-| `./evidence/D-p3-wall-zoom200.png` | 1.5 cards in 3.79 viewports |
-| `./evidence/D-p3-filtered-zero.png` | the empty plate lying over ten published palettes |
-| `./evidence/D-p3-mobile-placeholder-clip.png` | the severed placeholder, from the audit's own WebKit capture |
-| `./evidence/D-p3-filter-trigger-overhang.png` | the ellipse overhanging its 36 px bar |
-| `./challenge-D-design-pass2.md` | the prior pass, preserved verbatim |
+| `./probe/p4-D-wall.mjs` | the LAN-origin populated arm; desktop + mobile geometry; the reduced-motion `getAnimations()` read; the Chromium tab walk and `artTabIndex` |
+| `./probe/p4-D-iphone14-expand.mjs` | the `devices["iPhone 14"]` arm: identity `clientWidth`/`scrollWidth`, `stripH`/`cardH`, `slugShown`, and the expand before/after |
+| `./probe/p4-D-filtered-empty.mjs` | the `zzzznotathing` reproduction and the expanded-card subtree read |
+| `./evidence/D-p4-wall-desktop-1440.png` | the populated wall beside its empty 512 px companion |
+| `./evidence/D-p4-wall-mobile-390.png` | the ragged 125/125/100/100/100 column |
+| `./evidence/D-p4-wall-iphone14.png` | the audit's own mobile profile, populated for the first time |
+| `./evidence/D-p4-expanded-desktop.png` · `-iphone14.png` | the stateless expand, both viewports |
+| `./evidence/D-p4-filtered-zero.png` | the empty-commons plate over a live wall |
+| `./evidence/D-p4-wall-measurements.json` | raw probe output |
+| `./challenge-D-design-pass3.md` | the prior pass, preserved verbatim |
+
+---
+
+## 8. Findings summary
+
+| id | severity | finding |
+|---|---|---|
+| **D4-01** | BLOCKER | the expand is a state machine with no state and no seat — `100→211` / `125→228` px with `aria-expanded: null`, `aria-pressed: null`, `tabIndex: -1` on two engines |
+| **D4-02** | MAJOR | the specimen loses area to its own chrome — strip `40 px` of a `125 px` card (**32 %**) on iPhone 14; five persistent status/action regions where §5.2 allows one |
+| **D4-03** | MAJOR | `show-slug` is inert on the wall (`slugShown: false`) and renders as a `Copy slug` **button** only inside the unreachable expansion |
+| **D4-04** | MINOR | wall rhythm is a function of string length — `125/125/100/100/100` at 390 px |
+| **D4-05** | MINOR | the card's only keyboard-reachable control is named `"1 votes, click to vote"` — bad plural, imperative-as-name, no palette identity |
+| **D4-06** | MINOR | six `ScrollTimeline` animations run under `prefers-reduced-motion: reduce`; `pane-desc-shrink` fades the description to `opacity: 0` — **narrows pass 2's negative proof**, `TIGHTEN` on the opacity arm only |
+| **D4-07** | INFO | `.search-seated` is an unlayered per-instance override of a glass-ui root in three consumers; the booked `variant="seated"` did **not** ship in glass-ui 7.0.0 |

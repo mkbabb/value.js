@@ -1,0 +1,96 @@
+{
+  "expanded": 186,
+  "swatchCount": 0,
+  "tapTargets": [
+    {
+      "tag": "DIV",
+      "cls": "badge-atom inline-flex items-center gap-",
+      "w": 32.9,
+      "h": 31.1
+    },
+    {
+      "tag": "svg",
+      "cls": "lucide lucide-ellipsis-icon lucide-ellip",
+      "w": 16,
+      "h": 16
+    },
+    {
+      "tag": "circle",
+      "cls": "",
+      "w": 1.3,
+      "h": 1.3
+    },
+    {
+      "tag": "circle",
+      "cls": "",
+      "w": 1.3,
+      "h": 1.3
+    },
+    {
+      "tag": "circle",
+      "cls": "",
+      "w": 1.3,
+      "h": 1.3
+    },
+    {
+      "tag": "svg",
+      "cls": "lucide lucide-pencil-icon lucide-pencil ",
+      "w": 14,
+      "h": 14
+    },
+    {
+      "tag": "path",
+      "cls": "",
+      "w": 11.7,
+      "h": 11.7
+    },
+    {
+      "tag": "path",
+      "cls": "",
+      "w": 2.3,
+      "h": 2.3
+    },
+    {
+      "tag": "BUTTON",
+      "cls": "p-0.5 rounded-sm hover:bg-accent/50 acti",
+      "w": 18,
+      "h": 18
+    },
+    {
+      "tag": "svg",
+      "cls": "lucide lucide-check-icon lucide-check w-",
+      "w": 14,
+      "h": 14
+    },
+    {
+      "tag": "path",
+      "cls": "",
+      "w": 9.3,
+      "h": 6.4
+    },
+    {
+      "tag": "BUTTON",
+      "cls": "p-0.5 rounded-sm hover:bg-accent/50 acti",
+      "w": 18,
+      "h": 18
+    },
+    {
+      "tag": "svg",
+      "cls": "lucide lucide-x-icon lucide-x w-3.5 h-3.",
+      "w": 14,
+      "h": 14
+    },
+    {
+      "tag": "path",
+      "cls": "",
+      "w": 7,
+      "h": 7
+    },
+    {
+      "tag": "path",
+      "cls": "",
+      "w": 7,
+      "h": 7
+    }
+  ]
+}

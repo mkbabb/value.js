@@ -1,73 +1,392 @@
-# CHALLENGE-C — SearchFilterBar.vue · the implementation is defective (r2)
+# CHALLENGE-C — SearchFilterBar.vue · the implementation is defective (r3)
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant. This
-seat was spawned with that declaration and I am serving it; nothing here is inherited or delegated.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant. That
+is the tier this seat was spawned with and the tier I am serving. Nothing here is inherited from an
+ambient default and nothing was delegated to another model.
 
 ---
 
 **Subject** `demo/palettes/browser/search/SearchFilterBar.vue` (249 lines · area `palettes`)
 **Repo** `/Users/mkbabb/Programming/value.js` · branch `tranche-u`
-**HEAD at audit time** `32b4040e` (the brief cited `c654824e`; the branch advanced during the
-mega-tranche. The **subject file is unchanged** since `a61094e3` — `git status --short
-demo/palettes/browser/search/` is empty, so every measurement below is against the same bytes the
-brief points at.)
-**Sole consumer** `demo/palettes/BrowsePane.vue:15-26`
-**Verdict** **DEFECTIVE** — three blockers, four majors. All seven reproduced live.
+**HEAD at audit time** `f36f780c`. The brief cites `c654824e`; the branch advanced during the
+mega-tranche. The **subject file is unchanged** since `a61094e3`
+(`git log --oneline -1 -- demo/palettes/browser/search/SearchFilterBar.vue` → `a61094e3`), so every
+measurement below is against the bytes the brief points at.
+**Sole consumer** `demo/palettes/BrowsePane.vue:10-27`
+**Verdict** **DEFECTIVE** — four blockers, seven majors.
 
-**Relationship to r1.** A previous C seat wrote to this path. This report supersedes it and states
-explicitly what happened to each of its claims: **5 verified**, **1 promoted from HYPOTHESIS to
-BLOCKER by reproduction**, **1 partially retracted**, **3 new defects found that r1 missed** (§3, §4,
-and the escalated §6). r1's probe scripts and evidence are preserved untouched in `probes/` and
-`evidence/`; mine are added alongside as `probe-C1..C5.mjs` and `C-r2-*`.
+### Relationship to r2
+
+A previous C seat (r2) wrote to this path and banked C-1…C-14. **Its report is preserved verbatim at
+`challenge-C-implementation-r2-32b4040e.md`**; its probes and evidence in `probes/` and `evidence/`
+are untouched. This report supersedes it and states what happened to its load-bearing claims:
+
+| r2 claim | r3 disposition |
+|---|---|
+| C-1 Checkbox prop/emit drift | **re-verified independently** against the published `.d.ts` (§2.1) |
+| C-2 hex-only masking fallback | **re-verified, and a second entry path found** — the empty string (§1.4) |
+| C-3 popover cannot shrink or scroll | **ESCALATED — reproduced with NO fixture at the repo's own certified mobile matrix** (§1.1). r2 needed a mocked tag list; the shipped zero-tag state is already broken. |
+| C-4 `variant="ghost"` is not a glass-ui 7 prop | **re-verified independently** against `Button.vue.d.ts` (§2.2) |
+| C-5 dead `async`/`searching` | re-verified; **and it is the only reason a nameless button is not already in the visual REPORT** (§1.6) |
+| C-6 Clear-all unmounts under focus | carried; compounded by §1.4 |
+| C-7 zero tests / `strictTemplates` off | re-verified with my own count — **94** spec/test files, 0 references |
+| C-8 a11y (badge not in name, unnamed radiogroups) | re-verified (`triggerAccessibleLabel: "Filters"` while `badgeText: "1"`) |
+| C-9 "no `requestAnimationFrame`, no `defineModel`, no lossy roundtrip" | **partially challenged and then confirmed by a harder probe** — the parent *does* close a lossy HSV↔hex writeback loop; I measured it and it converges (§4) |
+
+**Six defects r2 did not find** are in §1: C-15 … C-22. Four of them are measurable without any
+network fixture at all, which is what makes them shipped rather than hypothetical.
 
 ---
 
 ## 0. Method
 
-Static read of the subject, `MiniColorPicker.vue`, `BrowsePane.vue`, the `demo/ui/*` barrels, and the
-**published** glass-ui 7.0.0 surface (`node_modules/@mkbabb/glass-ui/dist/**` — both `.d.ts` and the
-compiled `.js`, because the `.d.ts` is what the gate reads and the `.js` is what the user gets).
+**Static.** Full read of the subject; `MiniColorPicker.vue`; `BrowsePane.vue:10-27` and `:326-358`;
+the `demo/ui/*` barrels; and the **published** glass-ui 7.0.0 surface in
+`node_modules/@mkbabb/glass-ui/dist/**` — both the `.d.ts` (what a gate would read) and the compiled
+`.js`/`.css` (what the user gets).
 
-Then five live Playwright probe batches against the running dev server `http://localhost:9000/#/browse`
-— real reka-ui, real glass-ui, real floating-ui. Two route interceptions were needed to reach the
-component's populated state and are the only fixture in play:
+**Live.** Three Playwright probe batches against the running dev server at `http://localhost:9000`:
 
-1. `**/platform/transport/availability.ts*` — neuter `assertApiAttemptAllowed()` so the demo will
-   talk to a mocked API from `localhost` (the dev server logs `value.js dev is MISCONFIGURED …
-   CORS allow-list excludes localhost`).
-2. `https://api.color.babb.dev/colors/tags` → `[{"name":"pastel"},{"name":"neon"},{"name":"earth"}]`.
+- `probes/probe-C6-r3.mjs` → `evidence/probeC6-r3.json` — style-token liveness, computed panel
+  geometry, mount-state, the valid-hex desync, `type` audit, and five instrumented SV-canvas drags.
+  *(Uses r2's two route interceptions so the tag section can be reached; every finding states whether
+  it needs them.)*
+- `probes/probe-C7-r3.mjs` → `evidence/probeC7-r3.json` + `evidence/C-r3-panel-over-live-text.png` —
+  **no fixture at all**: panel material, per-button `type`, and the undo experiment.
+- `probes/probe-C8-r3.mjs` → `evidence/probeC8-r3.json` + `evidence/C-r3-trap-*.png` —
+  **no fixture at all**, three viewports including `devices["iPhone 14"]`.
 
-**Why the tag fixture is legitimate and not a contrivance.** `v-if="availableTags.length > 0"`
-(line 47) gates a third of this component. The production catalog is empty *today*, which is the
-only reason two of the three blockers are not already user-visible. `e2e/smoke/admin/flows/`
-contains a tag-create flow; an admin creating one tag is the trigger. Auditing the component only in
-its degenerate zero-tag state is auditing the wrong component. Every finding below states whether it
-needs the fixture.
-
-Probes: `probes/probe-C1-buttonvariant.mjs` … `probe-C5.mjs`; raw output
-`evidence/probeC1.json`, `probeC2.json`, `probeC4.json`, `probeC5.json`; screenshots
-`evidence/C-r2-*.png`; type-gate output `evidence/C-r2-strictTemplates-SearchFilterBar.txt`.
+**Why "no fixture" matters.** r2's strongest finding was gated behind a mocked
+`/colors/tags` response, which let it be read as conditional. §1.1 and §1.2 need nothing: a bare dev
+server, one click, one screenshot.
 
 ---
 
-## 1. BLOCKER — C-1: the tag checkboxes are bound to a prop and an event glass-ui 7 does not have. Selecting a tag filters nothing, and the control announces success anyway.
+# 1. New defects
+
+## 1.1 BLOCKER — C-15: on the repo's **own certified mobile matrix**, the entire "Find by Color" section is below the fold in the shipped zero-tag state. The Search button cannot be clicked.
+
+### The matrix is not my choice — it is the repo's
+
+`docs/tranches/V/megatranche/audit/visual/capture.mjs:53-58` defines `safari-mobile-light` /
+`safari-mobile-dark` as `{ ...devices["iPhone 14"] }`:
+
+```
+$ node --input-type=module -e 'import {devices} from "playwright"; console.log(JSON.stringify(devices["iPhone 14"].viewport))'
+{"width":390,"height":664}
+```
+
+So 390×664 is the viewport the visual gate certified `/#/browse` at, four captures deep, twice.
+
+### Measurement (`probe-C8-r3.mjs`, **zero fixtures, zero tags, one click on the Filters trigger**)
+
+```json
+"mobile-390x664": {
+  "panel":            { "top": 304, "bottom": 745.4, "h": 441.4 },
+  "viewport":         { "w": 390, "h": 664 },
+  "maxHeight":        "none",
+  "overflowY":        "visible",
+  "scrollable":       false,
+  "availableHeight":  "359.7156372070313px",
+  "findByColorVisible": false,
+  "searchClicked":    false
+}
+"mobile-390x664_searchClickError":
+  "TimeoutError: locator.click: Timeout 4000ms exceeded. | Call log:
+   | - waiting for locator('button').filter({ hasText: /^Search$/ }).first()"
+```
+
+Read the five numbers together:
+
+- The panel is **441.4px** tall and its bottom edge sits at **745.4px** — **81.4px past the fold.**
+- reka publishes the exact budget on the popper wrapper: **`--reka-popper-available-height:
+  359.72px`**. The panel is 441.4px. It overruns the number the positioning engine handed it by
+  **81.7px**, and consumes that variable nowhere.
+- `max-height: none`, `overflow-y: visible`, `scrollHeight === clientHeight` → **there is no scroll
+  container anywhere in the chain.** Nothing is clipped-and-scrollable; it is simply gone.
+- `findByColorVisible: false` — the "Find by Color" label's own rect is outside the viewport.
+- Playwright could not even *resolve* the Search button for a click.
+
+### The screenshot (`evidence/C-r3-trap-mobile-390x664.png`)
+
+The rendered panel contains, top to bottom: `SORT` (three radios), `TIER` (two radios), and then the
+words `FIND BY COLOR` bisected by the bottom edge of the screen. The swatch, the text field and the
+Search button are not on the device. There is no scrollbar and no visual cue that anything more
+exists.
+
+**This component exists to filter palettes by colour. On the repo's certified phone viewport, in the
+state it ships in today, that feature is not reachable.**
+
+### Why every gate was green
+
+`audit/visual/REPORT.json`, all four `/#/browse` rows, is identical:
+
+```json
+"counts": { "main": 1, "h1": 0, "nav": 1, "canvas": 1, "button": 14, "dialog": 0, "allElements": 187 },
+"a11y": { "smallTapTargets": [ {"w":160,"h":20,"tag":"input","label":""},
+                               {"w":23,"h":23,"tag":"button","label":"Switch to slug"},
+                               {"w":23,"h":23,"tag":"button","label":"Generate new slug"},
+                               {"w":23,"h":23,"tag":"button","label":"Cancel"} ],
+          "imgNoAlt": 0, "namelessButtons": 0 }
+```
+
+`"dialog": 0` — the popover is never opened. All four tap-target rows belong to `PaletteSlugBar`.
+**This component's contribution to the REPORT is zero because the REPORT never looked inside it**,
+which is not the same as clean. The same four rows also carry
+`"Failed to load remote palettes: SyntaxError: The string did not match the expected pattern."`,
+so `availableTags` is empty in every capture — the third gate that would have surfaced C-1.
+
+### Cure
+
+The height contract belongs in glass-ui's `PopoverContent` root (edicts 4 and 5), not here —
+the same design system already ships the idiom one component over
+(`dist/styles/utilities/components.css`:
+`max-height:min(24rem, var(--reka-combobox-content-available-height,60dvh))`). Popover needs
+`max-h-[min(var(--reka-popover-content-available-height,80dvh),80dvh)] overflow-y-auto
+overscroll-contain`. **BH/BI relay item.** The demo-side contribution is §1.2 (40.7px of padding the
+author already tried to delete) and C-9's 44px radio rows.
+
+---
+
+## 1.2 MAJOR — C-16: `p-0` on the PopoverContent is **inert**. The padding it deletes is still there — 40.7px of it — while `w-60`, in the same class attribute, wins.
+
+### Measurement (`probe-C6-r3.mjs`, `freshOpen`)
+
+```json
+"classList": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem]
+              [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]
+              px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-60 p-0",
+"padding":       "20.352px 16px",
+"paddingInline": "16px",
+"paddingBlock":  "20.352px",
+"width":         "240px"
+```
+
+`SearchFilterBar.vue:16` writes `class="w-60 p-0"`. Both are per-instance overrides of a design-system
+root, which edict 5 forbids outright. What actually happened:
+
+- **`w-60` won.** 240px, against glass-ui's own `w-72` (288px).
+- **`p-0` lost.** `padding-inline` is 16px (`--overlay-pad-inline: 1rem`) and `padding-block` is
+  20.352px (`1rem × 1.272`). The `px-(--overlay-pad-inline)` / `py-(--overlay-pad-block)` pair in
+  glass-ui's own emitted sheet orders after `.p-0`, so the shorthand never lands.
+
+One class attribute, two overrides, **opposite outcomes**. That asymmetry is precisely why edict 5
+exists: at the design-system root the consumer cannot predict which of its overrides survives.
+
+### The three consequences, each independently observable
+
+1. **40.7px of block padding the author explicitly asked to remove** — 9.2% of the 441.4px panel in
+   §1.1, and a direct contributor to the overflow measured there and in C-3.
+2. **The `divide-y` hairlines do not reach the panel edge.** Lines 17 and 19-120 build the sections
+   as full-bleed rows separated by `divide-y divide-border`; with `p-0` inert they are inset 16px on
+   each side. Visible in `evidence/C-r3-panel-over-live-text.png` (2× DPR): the rule under
+   "Most Forked" stops ~17 CSS px short of the panel edge on both sides, and there is a ~20px empty
+   band above `SORT` and below the last row.
+3. **It reads as done.** A future maintainer sees `p-0` and believes the panel is unpadded. Dead code
+   that lies about the layout is worse than absent code.
+
+### Cure
+
+Delete `p-0`, and take the section padding from glass-ui's overlay tokens instead of re-deriving it
+in `.filter-section` (`0.75rem`, line 238) — or, if the design really is full-bleed divided rows, that
+is a `PopoverContent` variant request for glass-ui (**BH/BI relay**), not a consumer class. Either
+way the current line asserts something untrue.
+
+---
+
+## 1.3 MAJOR — C-17: the swatch's hover affordance cannot exist. `hover:shadow-cartoon-md` is a variant Tailwind is structurally unable to generate.
+
+`SearchFilterBar.vue:76`:
+
+```
+class="block h-7 w-7 rounded-full border-2 border-border shadow-cartoon-sm cursor-pointer
+       transition-shadow hover:shadow-cartoon-md shrink-0 focus-ring"
+```
 
 ### Mechanism
 
-`SearchFilterBar.vue:51-55`:
+`.shadow-cartoon-sm` / `.shadow-cartoon-md` are **hand-authored CSS classes** in glass-ui's shipped
+sheet, not Tailwind theme utilities:
 
-```vue
-<Checkbox
-    :checked="selectedTags.includes(tag.name)"
-    @update:checked="toggleTag(tag.name)"
-    class="shrink-0"
-/>
+```
+$ grep -o ".\{0,40\}\.shadow-cartoon-md.\{0,60\}" node_modules/@mkbabb/glass-ui/dist/styles/utilities/components.css
+… :where(.shadow-cartoon-sm, .shadow-cartoon-md, .shadow-cartoon-lg) { border: 2px solid var(--border); }
+  .shadow-cartoon-sm { box-shadow: var(--shadow-cartoon-sm); translate: 0 -1px; }
+  .shadow-cartoon-md { box-shadow: var(--shadow-cartoon-md); translate: 0 -1px; }
 ```
 
-`Checkbox` resolves `demo/ui/checkbox/index.ts:1` → `export { Checkbox } from "@mkbabb/glass-ui"`.
-The published contract, `node_modules/@mkbabb/glass-ui/dist/components/checkbox/Checkbox.vue.d.ts`:
+The *tokens* exist (`--shadow-cartoon-sm: -2px 2px 0 …`, `--shadow-cartoon-md: -3px 3px 0 …`,
+measured live on `:root`), and the *bare* classes exist. But a `hover:` variant of a hand-written
+class is not something Tailwind can emit — it only varies utilities it generated. And it did not:
+
+```
+$ grep -rn "hover\\\\:shadow-cartoon" node_modules/@mkbabb/glass-ui/dist/*.css demo/styles/*.css
+(no output)
+```
+
+The CSSOM scan in `probe-C6-r3.mjs` walked every stylesheet in the live document and found exactly
+two selectors containing `shadow-cartoon-md` — `:where(.shadow-cartoon-sm, .shadow-cartoon-md,
+.shadow-cartoon-lg)` and `.shadow-cartoon-md`. **No hover rule is served.**
+
+### Reproduction (live, no fixture)
+
+```json
+"freshOpen.swatchBoxShadow":
+  "oklab(0.28 0.0167833 0.0248661/0.32) -2px 2px 0px 0px,
+   oklab(0.28 0.0167833 0.0248661/0.26) -3px 3px 0px 0px,
+   oklab(0.28 0.0167833 0.0248661/0.18) -4px 4px 0px 0px"
+"swatchHover.boxShadow":
+  "oklab(0.28 0.0167833 0.0248661/0.32) -2px 2px 0px 0px,
+   oklab(0.28 0.0167833 0.0248661/0.26) -3px 3px 0px 0px,
+   oklab(0.28 0.0167833 0.0248661/0.18) -4px 4px 0px 0px"
+```
+
+Byte-identical after a real `hover()` and a 350ms settle — and the offsets `-2/-3/-4px` are the **sm**
+recipe, not md (`-3/-5/-7px`). The swatch has **no hover state at all**, and `transition-shadow`
+transitions a property that never changes. Three classes on the same element transacting nothing.
+
+The same dead class sits on `MiniColorPicker.vue:18` and `:41` (the SV thumb and the readout dot use
+the bare `shadow-cartoon-sm`, which *does* work) — so the family is one site, this one.
+
+### Cure
+
+Two honest options, and the choice is glass-ui's, not the demo's (edicts 4/5):
+promote `--shadow-cartoon-*` into glass-ui's `@theme` so the `shadow-*` namespace generates real
+variant-capable utilities, or ship an explicit `.hover\:shadow-cartoon-md` (and `focus-visible:`)
+alongside the base classes. **BH/BI relay item**, and it is a general one: any consumer writing
+`hover:`/`focus:`/`dark:` on a glass hand-authored utility gets silence.
+
+---
+
+## 1.4 MAJOR — C-18: the colour filter cannot be undone, and the empty string performs a search.
+
+### Measurement (`probe-C7-r3.mjs`, **no fixture**)
+
+```json
+"afterSearch":         { "badge": "1", "inputValue": "#ff0000", "clearAllPresent": true }
+"afterEmptyingField":  { "badge": "1", "inputValue": "",        "clearAllPresent": true }
+"afterEnterOnEmpty":   { "badge": "1", "inputValue": "",        "clearAllPresent": true }
+```
+
+Three states, one badge value. Specifically:
+
+1. **Emptying the field does not undo the search.** `colorText` is cleared; `colorSearchActive`
+   (line 171) is not, because the only writer that clears it is `onClearAll` (line 228). The wall
+   stays filtered and the badge keeps claiming one active filter, with nothing on screen naming it.
+2. **`Enter` on an empty field runs a search.** `applyColorSearch` (line 213) takes
+   `text = ""` → `"".startsWith("#")` is false → `hex = pickerHex.value` → `colorSearchActive = true`
+   → emit. The empty string — the canonical domain-boundary input the brief asks about — produces a
+   **silently successful search for `#4488cc`**. This is a second entry into C-2's masking fallback
+   that requires the user to type nothing at all.
+3. **There is no per-filter clear.** The panel's full control inventory after a search:
+   `["", "", "", "", "", "Open color picker, current col", "Search", "Clear all filters"]` — five
+   radios, the swatch, Search, and one global reset. Nothing removes the colour filter alone.
+
+### Why "Clear all filters" is not an answer
+
+It is the control C-3/§1.1 pushes below the fold and C-6 makes unmount itself under focus. Measured
+at the two viewports where a filter can actually be applied:
+
+| viewport | panel height | panel bottom | Clear row rect | verdict |
+|---|---|---|---|---|
+| 1440×800 | 521.3 | **852.3** (52.3 past the fold) | top 786.9, bottom **822.9** | **63% of the button is off-screen**; its centre is below the fold |
+| 390×844 | 494.4 | 888.4 (44.4 past) | top 823.1, bottom 859.1 | 58% off-screen |
+
+(`probeC8-r3.json`; r2 measured it *fully* off-screen at 1440×1000, 1440×800 and 390×664 once tags
+exist.) So the only undo is a sliver of a button hanging past the bottom of the window, and
+activating it dismisses the whole panel and drops focus to `<body>` (C-6).
+
+### Cure
+
+Delete `colorSearchActive` and lift the truth to the prop the parent already owns
+(`BrowsePane.colorSearchParams`, `BrowsePane.vue:336`) — that is r2's C-10 cure and it makes the
+badge honest for free. Then: empty input must not search (it must say so — see C-2's cure), and the
+colour row needs its own dismiss (an `×` on the swatch when a filter is live), so the global reset
+stops being the only exit.
+
+---
+
+## 1.5 MAJOR — C-19: after a valid-hex search, the swatch and its accessible name name a different colour than the one filtering the wall.
+
+### Measurement (`probe-C6-r3.mjs`, `afterValidHexSearch`, no fixture)
+
+Typed `#ff0000` — a *valid* input that C-2's regex **accepts** — and pressed Search:
+
+```json
+{ "inputValue": "#ff0000",
+  "badgeText": "1",
+  "swatchLabel": "Open color picker, current color #4488cc",
+  "swatchBg": "rgb(68, 136, 204)",
+  "triggerAccessibleLabel": "Filters" }
+```
+
+The wall is filtered against red. The swatch is painted blue. Its accessible name **states** the
+colour is `#4488cc`. And the trigger's accessible name is still the bare word "Filters" while a badge
+reads `1` (C-8).
+
+This is the mirror image of C-2 and it has been missed because C-2 is the louder half. C-2 is *"the
+search ignores what you typed"*; C-19 is *"the indicator ignores what you searched"*. Both come from
+the same root: `colorText` (line 169) and `pickerHex` (line 170) are two sources of truth with a
+one-way link — `onPickerHexUpdate` (line 175) pushes picker → text, and **nothing** pushes text →
+picker. After any typed search the swatch is stale for the rest of the session.
+
+An `aria-label` that asserts a specific value is a contract. Announcing `current color #4488cc` when
+the applied colour is `#ff0000` is worse than announcing nothing.
+
+### Cure
+
+One source of truth. Keep `colorText` as the field's model and derive the swatch from the last
+*applied* colour, not from the picker's independent HSV state:
+`:style="{ backgroundColor: appliedHex }"`, `:aria-label="\`Open color picker, current color
+${appliedHex}\`"`, where `appliedHex` is set by both entry points. Under C-18's cure that value is a
+prop and the desync becomes unrepresentable.
+
+---
+
+## 1.6 MINOR — C-20 / C-21 / C-22: the small ones, all measured.
+
+**C-20 · the inline Search button is a submit button.** `SearchFilterBar.vue:97-104` is a raw
+`<button>` with no `type`. Every other button in the panel carries `type="button"` because reka sets
+it on its primitives (`probeC7-r3.json`, `buttonTypes`: five `role="radio"` buttons and the swatch
+trigger, all `typeAttr: "button"`), but:
+
+```json
+{ "name": "Search", "role": null, "typeAttr": null, "typeProp": "submit",
+  "rect": { "w": 52.6, "h": 24 } }
+```
+
+`button.type === "submit"`. Inert **today** — `probeC6-r3.json.host.hasFormAncestor: false`, and the
+panel is portalled out of the tree anyway (`chain: BUTTON.button → DIV.flex → DIV.input-bar → …`).
+It becomes live the day glass-ui's `SearchBar` root becomes a `<form>`, which is the idiomatic
+markup for a search field. The fix is one attribute and the asymmetry with its own siblings is the
+argument for it.
+
+**C-21 · a latent nameless button, and the only reason it is not in the REPORT.** Lines 97-104:
+when `searching` is true the button's entire content is `<Loader2 class="animate-spin"/>` — an SVG
+with no `title` and no `aria-label`, on a button with no `aria-label`. The control becomes
+**nameless**. It is unreachable solely because C-5 makes `searching` unobservable
+(`async` with no `await`). `REPORT.json` records `"namelessButtons": 0` for `/#/browse`; that zero is
+purchased by a second bug. Fix C-5 as written and the nameless button ships. Both must be cured
+together: keep a persistent `aria-label="Search by color"` on the button so its name survives the
+content swap.
+
+**C-22 · the Search button is exactly at the WCAG 2.5.8 floor.** Measured 52.6 × **24.0**px — not
+below it, but with zero margin, and it is absolutely positioned *over* the input's text lane
+(`absolute right-1 top-1/2 -translate-y-1/2`), so it also subtracts from the field's own target. Any
+future `h-6` → line-height interaction, browser zoom below 100%, or `--spacing` retune puts it under.
+INFO, recorded so the next seat does not re-measure.
+
+---
+
+# 2. Independent re-verification of the r2 blockers
+
+I did not take these on trust; each was re-read from the published contract.
+
+## 2.1 C-1 — the Checkbox prop/emit pair does not exist (CONFIRMED)
+
+`node_modules/@mkbabb/glass-ui/dist/components/checkbox/Checkbox.vue.d.ts`:
 
 ```ts
 export interface CheckboxProps extends PrimitiveProps, FormFieldProps {
@@ -78,668 +397,213 @@ export interface CheckboxProps extends PrimitiveProps, FormFieldProps {
     id?: string;
     class?: HTMLAttributes["class"];
 }
-// … emits: { "update:modelValue": (value: CheckedState) => any }
+// emits: { "update:modelValue": (value: CheckedState) => any }
 ```
 
-No `checked` prop. No `update:checked` emit. Therefore `:checked` degrades to a fallthrough DOM
-attribute, `@update:checked` listens for an event nobody emits, and `modelValue` is `undefined` so
-reka runs the checkbox **uncontrolled** — it keeps its own state and the parent never hears about it.
+No `checked`. No `update:checked`. `SearchFilterBar.vue:51-55` binds both. The checkbox therefore
+runs uncontrolled, fills in, sets `aria-checked="true"`, and filters nothing — r2 measured
+`states: ["unchecked","checked","unchecked"]`, `badgeText: ""`, and an unchanged network triple in
+the same frame. **The severity stands: an affordance that confirms an action it did not perform, to
+sighted and AT users simultaneously.** 2 of 2 `<Checkbox>` sites in `demo/` are wrong
+(`TagEditPopover.vue:28-29` is the other).
 
-### Reproduction — live, with tags present (`probe-C2.mjs`)
+## 2.2 C-4 — `variant` is not a glass-ui 7 Button prop (CONFIRMED)
 
-```
-$ node probes/probe-C2.mjs
-"checkbox": {
-  "before": { "n": 3, "states": ["unchecked","unchecked","unchecked"],
-              "badge": "",  "checkedAttr": ["false","false","false"] },
-  "afterSync": ["unchecked","unchecked","unchecked"] },
-"checkboxAfter": {
-  "states": ["unchecked","checked","unchecked"],
-  "aria":   ["false","true","false"],
-  "badgeText": "" },
-"netAfterTagClick": [
-  "GET https://api.color.babb.dev/colors/approved",
-  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest",
-  "GET https://api.color.babb.dev/colors/tags" ]
-```
+`node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts:6-19` declares
+`emphasis · tone · size · iconOnly · loading · type · disabled · class` and **defaults**
+`{ size, as, tone, loading, emphasis, iconOnly }`. There is no `variant` and there is no `type`
+default — which is exactly why C-20's sibling asymmetry exists (reka supplies `type="button"`,
+glass-ui does not). Lines 5 and 111-112 pass `variant="ghost"`; it lands as an inert DOM attribute
+while `emphasis` defaults to `"secondary"`, painting `glass-wash glass-capsule`. Visible in my own
+capture `evidence/C-r3-panel-over-live-text.png`: the ⋮ trigger is a filled capsule, not a ghost.
 
-Read the three lines together:
-
-- `states[1]` → `"checked"` and `aria[1]` → `"true"`: the box fills in and **announces "checked"** to
-  a screen reader.
-- `badgeText` → `""` both before and after: `activeFilterCount` reads `selectedTags`, the prop that
-  never changed, so the badge does not appear. **The component contradicts itself in the same frame.**
-- `netAfterTagClick` is the *unchanged* boot triple — **not one request fired.** Nothing filtered.
-
-`checkedAttr: ["false","false","false"]` is the dead `:checked` binding, sitting on the DOM as an
-inert attribute on a `<button role="checkbox">`.
-
-This is the worst failure class an affordance has: it confirms an action it did not perform, to both
-a sighted user and an AT user simultaneously.
-
-r1 reached the same conclusion in jsdom and then discounted it because `curl .../colors/tags`
-returned `[]`. **The live reproduction removes that comfort:** with one tag in the catalog the defect
-is immediate, not latent.
-
-### The family is 2 of 2 — every `<Checkbox>` in the demo
+## 2.3 C-7 — the test surface, re-counted
 
 ```
-$ grep -rn "<Checkbox" demo/ | grep -v node_modules
-demo/palettes/browser/search/TagEditPopover.vue:27
-demo/palettes/browser/search/SearchFilterBar.vue:51
-
-$ grep -rn "update:checked\|:checked=" demo/ | grep -v node_modules
-demo/palettes/browser/search/SearchFilterBar.vue:52:  :checked="selectedTags.includes(tag.name)"
-demo/palettes/browser/search/SearchFilterBar.vue:53:  @update:checked="toggleTag(tag.name)"
-demo/palettes/browser/search/TagEditPopover.vue:28:   :checked="currentTags.includes(tag.name)"
-demo/palettes/browser/search/TagEditPopover.vue:29:   @update:checked="(checked: boolean) => onToggle(tag.name, checked)"
-```
-
-The demo's Checkbox integration has a **0% working rate**. The `checked`/`update:checked` pair is the
-pre-7 shadcn-vue-era surface: this is unmigrated debris from the W44 whole-major glass-ui adoption,
-and §7 is why no gate said a word.
-
-### Cure
-
-```vue
-<Checkbox
-    :model-value="selectedTags.includes(tag.name)"
-    @update:model-value="() => toggleTag(tag.name)"
-/>
-```
-
-`toggleTag` already derives the next array from `selectedTags`, so the `CheckedState` payload is
-discardable here. At `TagEditPopover.vue:28-29` the payload *is* used, so
-`(v) => onToggle(tag.name, v === true)`. The gestalt cure is §7 — turn on `strictTemplates` so the
-class cannot recur.
-
----
-
-## 2. BLOCKER — C-2: the colour field discards every input that is not an exact 6-digit hex, silently searches the swatch colour instead, and reports success.
-
-### Mechanism
-
-`SearchFilterBar.vue:213-225`:
-
-```ts
-async function applyColorSearch() {
-    if (searching.value) return;
-    searching.value = true;
-    try {
-        const text = colorText.value.trim();
-        const hex = text.startsWith("#") && /^#[0-9a-f]{6}$/i.test(text) ? text : pickerHex.value;
-        const lab = hexToOklab(hex);
-        colorSearchActive.value = true;
-        emit("colorSearch", lab.L, lab.a, lab.b);
-    } finally { searching.value = false; }
-}
-```
-
-The ternary is a **masking fallback** — a direct violation of standing edict 2 (*no masking
-fallbacks*). Every input outside `/^#[0-9a-f]{6}$/i` — 3-digit hex, 8-digit hex, `hsl()`, `oklch()`,
-a named colour, whitespace, the empty string, outright garbage — is discarded without a word and
-replaced by `pickerHex.value` (default `#4488cc`, line 170). Then `colorSearchActive = true` and the
-emit fires, so the badge increments and the wall filters. The user is shown a *successful* search for
-a colour they never asked for.
-
-The placeholder advertises the capability it throws away: `placeholder="#hex, hsl(...)"` (line 92).
-
-### Reproduction — live (`probe-C2.mjs`)
-
-Typed `totally-not-a-color` into the field, clicked Search:
-
-```
-"garbageSearch": {
-  "badgeText": "1",
-  "fieldStillReads": "totally-not-a-color",
-  "swatchLabel": "Open color picker, current color #4488cc",
-  "errorTextPresent": false,
-  "clearAllPresent": true }
-```
-
-The badge says one filter is active. The field still shows the garbage. No error anywhere in the
-popover. The wall has been filtered against `#4488cc`. Nothing in the UI is capable of telling the
-user that.
-
-r1's jsdom table measured the payload identity behind this and it holds — `hsl(120 100% 50%)`,
-`#f00`, `not-a-color` and `"   "` all emit the bit-identical triple
-`[0.61358428709272, -0.04147814390571797, -0.11751090263911201]` = `oklab(#4488cc)`. Pure green,
-pure red and literal garbage all search the default blue.
-
-### The guard is not merely wrong — it is unnecessary
-
-The function it guards already parses full CSS. `hexToOklab` (line 205) calls
-`parseColorIn(hex, "oklab")` → `demo/color-session/color-utils.ts:11` → `parsePickerColor` →
-`parseCssColor` (`demo/color-session/picker-color.ts:109-113`). That path handles every rejected
-input correctly. The regex throws away a capability the stack already has, and substitutes a lie for
-the error it should raise: `parsePickerColor` throws a typed `PickerColorError`
-(`picker-color.ts:112`) — precisely the signal a "no such colour" affordance needs. It is discarded.
-
-### Cure
-
-Delete the regex; parse the text; surface the failure.
-
-```ts
-const text = colorText.value.trim();
-if (!text) { parseError.value = "Enter a colour."; return; }
-try {
-    const { L, a, b } = cssToOklab(text);          // rename: it was never hex-only
-    parseError.value = null;
-    colorSearchActive.value = true;
-    emit("colorSearch", L, a, b);
-} catch (e) {
-    parseError.value = e instanceof PickerColorError ? "Not a CSS colour." : "Search failed.";
-}
-```
-
-with `parseError` rendered into the `aria-live` region C-8 also requires. One regex and one fallback
-out, one honest branch in — a KISS deletion, not an addition.
-
----
-
-## 3. BLOCKER — C-3 (NEW): the popover can neither shrink nor scroll. With tags present, "Clear all filters" is entirely off-screen and unreachable by pointer at every viewport tested.
-
-r1 raised this as **C-11, explicitly labelled a HYPOTHESIS**, because it could not populate the tag
-list. With the tag fixture it reproduces immediately, and it is worse than projected. **Promoted to
-BLOCKER.**
-
-### How I found it
-
-I did not go looking. `probe-C3.mjs` tried to click "Clear all filters" with a real Playwright click.
-Playwright retried for 30 seconds and threw:
-
-```
-locator.click: Timeout 30000ms exceeded.
-  - locator resolved to <button … variant="ghost" … data-emphasis="secondary"
-        class="button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover
-               h-7 w-full text-small text-muted-foreground">…</button>
-  - attempting click action
-    2 × waiting for element to be visible, enabled and stable
-      - element is visible, enabled and stable
-      - scrolling into view if needed
-      - done scrolling
-      - element is outside of the viewport      <-- 62 retries, all identical
-```
-
-`visible, enabled and stable` — and `outside of the viewport`, with scrolling attempted and useless.
-A control that is `visible` to the accessibility and layout engines while being unreachable to a
-pointer is the exact shape of a defect no static read produces.
-
-### Measurement across three viewports (`probe-C4.mjs`, one tag set, one active filter)
-
-| viewport | content height | `max-height` | `overflow-y` | scrollable ancestor | `--reka-popper-available-height` | bottom overflow | "Clear all filters" |
-|---|---|---|---|---|---|---|---|
-| 1440×1000 | **670.8px** | `none` | `visible` | `null` | 569.01px | **101.8px** | top `1036.4` — **fully off-screen** |
-| 1440×800 | **670.8px** | `none` | `visible` | `null` | 469.01px | **201.8px** | top `936.4` — **fully off-screen** |
-| 390×664 | **630.4px** | `none` | `visible` | `null` | 371.02px | **259.4px** | top `858.1` — **fully off-screen** |
-
-`scrollHeight === clientHeight` in all three (669/669, 669/669, 628/628): there is no clipped inner
-content to scroll to, because there is no scroll container at all. `clearFullyOffscreen: true` in all
-three rows.
-
-Note the fourth-from-right column: **reka publishes the exact number needed to fix this.** The
-component and the design system both ignore it.
-
-### What the user actually sees
-
-`evidence/C-r2-overflow-mobile-390x664.png` — at 390×664 the popover renders `SORT`, `TIER`, and the
-bare word `TAGS`. That is all. The tag list, the **entire "Find by Color" section** (the reason this
-component exists), and "Clear all filters" are all below the fold, with no scrollbar and no
-affordance suggesting anything more exists.
-
-`evidence/C-r2-overflow-desktop-1440x1000.png` — at desktop the "FIND BY COLOR" row is sliced
-horizontally by the viewport edge mid-control; the Clear row is gone.
-
-### Root cause, and why the cure is not in this file
-
-glass-ui 7's `PopoverContent` root class list, from the compiled module
-(`node_modules/@mkbabb/glass-ui/dist/popover-BQGYXZyO.js`):
-
-```
-"popover-content z-popover w-72 glass-floating [--overlay-pad-inline:1rem]
- [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]
- px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal"
-```
-
-```
-$ grep -c "available-height" node_modules/@mkbabb/glass-ui/dist/popover-BQGYXZyO.js
-0
-$ grep -oE "max-h-[^ \"'\`]*" node_modules/@mkbabb/glass-ui/dist/popover-BQGYXZyO.js
+$ find test e2e -name "*.spec.ts" -o -name "*.test.ts" | wc -l
+      94
+$ grep -rln "SearchFilterBar|Find by Color|Search by CSS color|Clear all filters" test/ e2e/
 (no output)
 ```
 
-No `max-height`, no `overflow-y`, no consumption of the available-height variable. And the asymmetry
-is self-indicting — **the same design system already knows the idiom** and applies it to the
-Combobox family (`node_modules/@mkbabb/glass-ui/dist/styles/components.css`):
+**94 spec/test files, zero references.** The vacuous mutation is total: delete lines 16-122 and
+reduce `<script setup>` to a bare `defineEmits`, and `npm test` and `npm run test:e2e` both stay
+green. `e2e/smoke/views/browse-loading.spec.ts` and `browse-pagination.spec.ts` exist; neither opens
+the popover, which is the same blindness §1.1 found in the visual gate.
 
-```css
-.max-h-\[min\(24rem\,var\(--reka-combobox-content-available-height\,60dvh\)\)\]{
-  max-height:min(24rem, var(--reka-combobox-content-available-height,60dvh))}
-```
+## 2.4 C-8 — the accessible name, re-measured
 
-Popover was left out of the pattern. Under edicts 4 and 5 (*glass-ui is the design system*;
-*root-level styling, never per-instance overrides*) the cure belongs in glass-ui's `PopoverContent`
-root:
-
-```
-max-h-[min(var(--reka-popover-content-available-height,80dvh),80dvh)] overflow-y-auto overscroll-contain
-```
-
-A demo-side `class="w-60 p-0 max-h-… overflow-y-auto"` would fix this instance and violate edict 5
-while leaving every other glass Popover in the constellation broken. **This is a BH/BI relay item**
-(standing formation invariant: every glass-ui-level finding goes to the active glass-ui inbox).
-
-Secondary contributor, which *is* this file's: 5 radio rows consume `5 × 57 = 285px` of the 670.8px
-because glass-ui's `RadioGroupItem` carries a 44×44 hit target inside a 31px `.filter-option` label
-row (measured, `probe-C5.mjs`). Even with the tag section removed, the fixed content is ~530px
-against mobile's 371px of available height. This popover was never sized for its own content.
+`probeC6-r3.json.afterValidHexSearch`: `"triggerAccessibleLabel": "Filters"` alongside
+`"badgeText": "1"`. `aria-label` (line 5) overrides the subtree, so the visible name "Filters 1" and
+the accessible name "Filters" disagree whenever a filter is active.
 
 ---
 
-## 4. MAJOR — C-4 (NEW): `variant="ghost"` is not a glass-ui 7 Button prop. Both buttons in this file render as filled glass capsules, and the attribute lands on the DOM as garbage.
+# 3. Edict ledger
 
-r1 missed this entirely — it audited the Checkbox contract and stopped there.
-
-### Mechanism
-
-Lines 5 and 111-112 both pass `variant="ghost"`. `Button` resolves
-`demo/ui/button/index.ts:1` → `export { Button } from "@mkbabb/glass-ui"`. The published contract
-(`dist/components/button/types.d.ts`) is:
-
-```ts
-export interface ButtonProps extends PrimitiveProps {
-    emphasis?: ButtonEmphasis;   // "primary" | "secondary" | "quiet" | "text"
-    tone?: Tone;
-    size?: ButtonSize;
-    iconOnly?: boolean;
-    loading?: boolean;
-    type?: ButtonHTMLAttributes["type"];
-    disabled?: ButtonHTMLAttributes["disabled"];
-    class?: HTMLAttributes["class"];
-}
-```
-
-There is no `variant`. The compiled component (`dist/button-Bu9F4uU6.js`) makes the consequence exact:
-
-```js
-props: { emphasis: { default: "secondary" }, tone: { default: "neutral" }, … },
-…
-g = r(() => p.tone === "neutral" && (p.emphasis === "primary" || p.emphasis === "secondary")),
-x = r(() => e("button tap-squish focus-ring",
-              g.value && "glass-wash glass-capsule",
-              _.value && "glass-capsule-hover", p.class));
-```
-
-`variant` falls through as an attribute; `emphasis` defaults to `"secondary"`; `tone` defaults to
-`"neutral"`; so `g === true` and the button is painted `glass-wash glass-capsule`. The author asked
-for a transparent ghost button and got a washed capsule.
-
-### Reproduction (`probe-C1-buttonvariant.mjs`, `probe-C2.mjs`)
-
-Trigger button, line 5:
-
-```
-"A_trigger": {
- "outerHTMLhead": "<button data-v-ace91ae4 data-slot=\"button\" data-emphasis=\"secondary\"
-                    data-tone=\"neutral\" data-size=\"md\" data-icon-only=\"true\" …",
- "attr_variant": "ghost",                       <-- rendered onto the DOM, inert
- "data_emphasis": "secondary",                  <-- what actually applied
- "classList": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
- "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)" }
-```
-
-Clear-all button, line 111:
-
-```
-"clearAll": { "variantAttr": "ghost", "dataEmphasis": "secondary",
-              "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
-              "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-7 w-full …" }
-```
-
-A **52%-** and a **60%-opaque** background where the source says `ghost`. This is not a cosmetic
-quibble: it is visible in `evidence/C-r2-overflow-mobile-390x664.png` as the filled pill sitting on
-the search bar, and it is why the component's two "quiet" commands read as primary chrome.
-
-### The family is 51 sites
-
-```
-$ node -e '…walk demo/**/*.vue, match /<Button\b[\s\S]*?>/ containing variant=…'
-<Button ...variant=> sites: 51
-{ outline: 28, ghost: 19, destructive: 1, default: 1, 'primary-audacious': 2 }
-```
-
-`outline` / `ghost` / `destructive` / `default` is the shadcn-vue Button variant vocabulary verbatim —
-**51 unmigrated call sites** from the pre-7 era, none of which glass-ui 7 understands. In this
-component's own directory: `SearchFilterBar.vue:5`, `:111`, `UserSortMenu.vue:6`,
-`MiniColorPicker.vue:47`. For the record, `variant` *is* real on 12 other glass-ui components
-(Badge, Card, ToggleGroup, SelectTrigger, …) — which is exactly why the mistake is invisible to a
-reader and needs a compiler.
-
-**Cure**: `emphasis="quiet"` (line 5) and `emphasis="quiet" size="sm"` (line 111). Repo-wide the
-mapping is `ghost→quiet`, `outline→secondary`, `default→primary`, `destructive→tone="destructive"`.
-Same BH/BI relay: 51 sites is a migration note glass-ui's 7.0.0 adoption owed its consumers.
+| edict | status | evidence |
+|---|---|---|
+| 1 · no god modules | **clean** | 249 lines, one concern, one consumer |
+| 2 · no legacy code, no masking fallbacks | **VIOLATED ×2** | C-2's regex fallback (line 218) — now with a second entry via the empty string (§1.4); and `variant="ghost"` / `:checked` are unmigrated pre-7 shadcn-vue vocabulary (C-1, C-4) |
+| 3 · KISS, no contrivance | **VIOLATED** | five pieces of machinery around `searching` that transact nothing (C-5); `hexToOklab`'s unreachable `"none"` branch (C-13); an inert single-child flex wrapper (line 2) |
+| 4 · glass-ui is the design system | **clean at the demo boundary** | all primitives come from the barrels; the failures are contract drift, not forks |
+| 5 · root-level styling, no per-instance overrides | **VIOLATED, and half of it does not even work** | `class="w-60 p-0"` (line 16) — `w-60` wins, `p-0` is inert (§1.2) |
+| 6 · animations never deleted | **clean** | scoped `transition` on `.filter-option` is layout-local; global keyframes untouched. *(Note: `transition-shadow` on line 76 animates nothing — that is C-17, a dead target, not a deleted animation.)* |
+| 7 · idiomatic Vue 3.5 | **VIOLATED** | dead `async` (C-5); mixed `$emit`(lines 21, 33) vs typed `emit` (line 154). Reactive props destructure (line 147) is correct; `useTemplateRef` N/A here |
+| 8 · `verbatimModuleSyntax` | **clean** | `import type { Tag }` (line 144) is the only type-only import and it is correct |
 
 ---
 
-## 5. MAJOR — C-5: the loading state is dead code. `applyColorSearch` is `async` with nothing to await.
+# 4. Negative proof — hypotheses I formed, probed, and killed
 
-`applyColorSearch` (line 213) is declared `async` and its body contains **no `await`**. It runs to
-completion synchronously — `searching.value` goes `true` then `false` inside one call, before Vue's
-scheduler gets a turn. Therefore:
+Recorded in full so the next seat does not re-spend the probes.
 
-- `<Loader2 v-if="searching" class="animate-spin"/>` (line 102) can never mount;
-- `:disabled="searching"` (line 98) can never apply;
-- `if (searching.value) return` (line 214) guards against a reentrancy that a synchronous function
-  cannot have.
+**4.1 The mount-time autofill. RETRACTED.** I predicted the field would self-populate on every
+open. The arithmetic is worth writing down because it is *almost* right:
+`MiniColorPicker`'s refs start `hue=210, sat=0.6, val=0.8` → `currentHex` = `#528fcc`. The
+`{immediate:true}` watcher on the `hex` prop (line 110-125) runs during setup with `hex="#4488cc"`
+and corrects `sat` to `0.5333/0.8 = 0.6667` — a real change — which makes `currentHex` `#4488cc`, a
+different value, which should fire `watch(currentHex, …)` (line 107) and emit `update:hex` at mount,
+and the parent's `onPickerHexUpdate` (line 175) writes **both** `pickerHex` *and* `colorText`.
+Measured on a fresh open: `{"inputValue": "", "inputPlaceholderShown": true}`. It does not fire.
+Independently confirms r2's retraction. **Sound.**
 
-Measured live (`probe-C4.mjs`) — five Search activations back to back, polling for `.animate-spin`
-after each:
+**4.2 The lossy HSV↔hex writeback loop. Mechanism real, hazard does not fire.** This is the one r2
+waved past. `SearchFilterBar` **closes a feedback loop**: `MiniColorPicker` emits `update:hex` on
+every `currentHex` change (line 107), the parent writes it to `pickerHex` (line 176), and `pickerHex`
+is bound straight back into the child as `:hex` (line 68), where the incoming watcher re-derives
+`hue/sat/val` from the 8-bit string. That is the exact shape of this repo's documented hazard —
+`demo/color-session/useColorPipeline.ts:73-76` ("oklch→HSV loses hue at low chroma
+(`atan2(0,0)=0`)") — and the child's guard is far weaker than the repo's cure:
+`MiniColorPicker.vue:119` guards only `d === 0` (exact gray), whereas
+`demo/color-session/useColorParsing.ts:43` guards the whole low-chroma neighbourhood
+(`if (saturation * value > 0.01) stableHue.value = …`).
 
-```
-"T3_reentrancy": { "fiveClicksMs": 43, "spinnerEverSeen": false }
-```
+So I drove it: five instrumented drags across the SV canvas, sampling the thumb and the readout
+during and after each (`probeC6-r3.json.dragSamples`).
 
-Five full searches in 43ms and the spinner never existed. Corroborated in the DOM: `probe-C2.mjs`
-reports `"btnDisabledAttr": null` on an idle button that is never anything but idle.
+| drag target | readout | thumb left | thumb top |
+|---|---|---|---|
+| fx 0.90, fy 0.20 (control) | `#1470cc` | `90%` | `20%` |
+| fx 0.02, fy 0.20 (near-gray) | `#c8cacc` | `2.00001%` | `20%` |
+| fx 0.90, fy 0.20 (return) | **`#1470cc`** | `90%` | `20%` |
+| fx 0.60, fy 0.95 (dark) | `#05090d` | `60%` | `95%` |
+| fx 0.60, fy 0.50 | `#335980` | `60%` | `50%` |
 
-An `async` keyword, a `ref`, a `try/finally`, a `:disabled` binding and the `Loader2` import
-(line 142) — five pieces of machinery that transact nothing.
+The thumb tracks the pointer to five decimals, and the near-gray excursion returns **bit-identical**
+(`#1470cc` → `#c8cacc` → `#1470cc`): HSV → RGB8 → HSV is idempotent to within the quantum, so the
+loop converges in one pass and the hue survives. No "Maximum recursive updates exceeded" in the
+console (only the known dev CORS misconfiguration error). **The loop is a latent coupling, not a
+live defect. Recorded as INFO, retracted as a defect.**
 
-**Cure**: the search *is* synchronous. `BrowsePane.vue:339-349` runs the OKLab distance filter inside
-a `computed`, client-side. Delete `searching`, the `async`, the `finally`, the guard, the `:disabled`
-and the `Loader2` import. If the server-side colour query is later adopted (`BrowsePane.vue:354`
-notes the API supports `colorL/colorA/colorB`), reintroduce the state around a real `await`.
+**4.3 The unhandled rejection. RETRACTED — but it constrains the C-2 cure.** `applyColorSearch`
+(line 213) is `async` with `try`/`finally` and **no `catch`**, so a throw from `hexToOklab` becomes a
+rejected promise the `@click`/`@keydown` handlers ignore. I expected it to vanish into
+`unhandledrejection`. It does not: Vue wraps template handlers in `callWithAsyncErrorHandling`, which
+routes the rejection to the error handler, and `demo/color-picker/ErrorBoundary.vue:59` has an
+`onErrorCaptured`. **Nothing is swallowed — which is worse for the cure than it sounds.** Deleting
+C-2's regex without adding a `catch` converts "that is not a colour" into an ErrorBoundary teardown
+of the Browse pane. **The C-2 cure MUST land the `catch` and the `aria-live` error surface in the
+same change.**
 
----
+**4.4 Nested-layer dismissal. Sound.** `Escape` inside the mini picker closes only the inner layer
+and restores focus correctly: `{"wrappers": 1, "svPresent": false, "filterPanelPresent": true,
+"activeEl": "BUTTON/Open color picker, current color #335980"}`.
 
-## 6. MAJOR — C-6: "Clear all filters" unmounts itself while focused — focus falls to `<body>` *and the whole popover dismisses*.
+**4.5 Panel legibility over live content. NOT a defect.** The 1× shot in `shots/desktop-light-open.png`
+shows page text apparently crisp through the panel, which reads as a contrast failure. Measured:
+`backgroundColor: oklab(0.936403 0.00557132 0.0133027 / 0.808)` (80.8% opaque) plus
+`backdrop-filter: blur(11px) saturate(1.6)`, and my own 2× capture
+(`evidence/C-r3-panel-over-live-text.png`) shows the blur rendering correctly over
+"The commons is unreachable." / "Failed to load palettes" / "Retry". The 1× artefact was a capture
+resolution effect. **Retracted.**
 
-`SearchFilterBar.vue:110-120` wraps the Clear row in `v-if="activeFilterCount > 0"`. Activating it
-emits `clearFilters`; `BrowsePane.onClearFilters` (`BrowsePane.vue:329-332`) zeroes the filters; the
-props come back `""`/`[]`; `activeFilterCount` falls to 0; **the focused button is removed from the
-DOM mid-activation.**
+**4.6 The repo's other named hazards.** No `requestAnimationFrame` (PRM-RAF clean), no WebGL, no
+`ValueUnit` wrapping, no `defineModel` in this file (`colorText`, `pickerHex`, `colorSearchActive`,
+`miniPickerOpen`, `searching` are plain local refs — the async-round-trip stale-read hazard does not
+apply), no timers, no listeners, no observers, nothing owed to `onUnmounted`, no unbounded growth.
+The only pointer-capture surface is `MiniColorPicker.vue:129/144`, outside this subject.
 
-r1 measured this in jsdom and reported `focus after: BODY`. Live, the cascade goes one step further
-(`probe-C2.mjs`, focus set on the button, then activated — which is exactly what keyboard activation
-does):
-
-```
-"clearAll":      { "active": "Clear all filters", … }
-"clearAllAfter": { "activeTag": "BODY",
-                   "activeText": "→BrowseToolsBrowsePalettes Login  @mbabb",
-                   "clearStillPresent": null,        <-- no popover content in the DOM at all
-                   "badgeText": "" }
-```
-
-`clearStillPresent: null` means the popper content wrapper was gone: focus landing on `<body>` trips
-reka's dismissable-layer focus-outside handling, so **the entire filter panel closes as a side effect
-of clearing filters.** The user's next interaction starts from a collapsed popover with focus at the
-top of the document.
-
-And it compounds with C-3: because the Clear row is off-screen at every tested viewport, the *only*
-reachable activation path is the keyboard — which means a keyboard user must Tab to a control they
-cannot see (WCAG 2.4.7 Focus Visible, 2.4.11 Focus Not Obscured), activate it blind, and then have
-focus dumped to `<body>` (2.4.3 Focus Order).
-
-**Cure**: keep the row mounted and disable it — `:disabled="activeFilterCount === 0"`. KISS, and it
-also stops the popover resizing under the pointer. If the row must stay conditional, move focus to
-the popover content root *before* the state change.
-
----
-
-## 7. MAJOR — C-7: zero tests, and the type gate is switched off in exactly the way that hides C-1 and C-4.
-
-### No test exists
-
-```
-$ grep -rn -E "SearchFilterBar|Find by Color|Search by CSS color|Clear all filters|aria-label=\"Filters\"|Most Forked" \
-      e2e test demo --include='*.ts' | grep -vE '\.vue:'
-demo/palettes/browser/index.ts:35:export { SearchFilterBar, UserSortMenu, TagEditPopover } from "./search";
-demo/palettes/browser/search/index.ts:3:export { default as SearchFilterBar } from "./SearchFilterBar.vue";
-```
-
-Two barrel re-exports. Across **71 `.spec.ts` files** and the entire vitest tree there is not one
-assertion. `e2e/smoke/views/browse-loading.spec.ts` and `browse-pagination.spec.ts` exist; neither
-opens the popover.
-
-**The vacuous mutation.** There is no mutation that turns the suite red. Delete the whole
-`<PopoverContent>` subtree (lines 16-122) and reduce `<script setup>` to
-`const emit = defineEmits<{}>()`: `npm test` and `npm run test:e2e` both stay green. That is the
-maximal vacuity statement and it is literally true, because coverage is zero rather than thin.
-
-The visual gate is blind here too, and measurably so. `audit/visual/REPORT.json` for
-`safari-desktop-light /#/browse` records `"dialog": 0` and four small tap targets — `input 160×23`
-and three 22×22 buttons `"Switch to slug"` / `"Generate new slug"` / `"Cancel"`, all of which belong
-to `PaletteSlugBar`. The capture never opens the popover, so **12 of this component's 13 controls,
-the off-viewport Clear row, and all three blockers are outside the visual gate's reach.** This
-component's contribution to the REPORT's counts is zero *because it was never looked at*, which is
-not the same as clean.
-
-### The type gate cannot see C-1 or C-4 — and I measured exactly what it would say if it could
-
-```
-$ grep -rn "vueCompilerOptions\|strictTemplates" tsconfig.base.json tsconfig.json tsconfig.demo.json tsconfig.lib.json
-(no output)
-```
-
-No `vueCompilerOptions` anywhere, so `strictTemplates` takes vue-tsc's default of **false**, under
-which unknown component props and unknown `on*` handlers are accepted as fallthrough attrs instead of
-errors. Baseline:
-
-```
-$ npx vue-tsc -p tsconfig.demo.json --noEmit
-(no output — clean)
-$ npx eslint demo/palettes/browser/search/SearchFilterBar.vue
-(no output — clean; exit 0)
-```
-
-Now the same program with one line added — `"vueCompilerOptions": { "strictTemplates": true }`
-(`probes/tsconfig.strictTemplates-probe.json`):
-
-```
-$ npx vue-tsc -p probes/tsconfig.strictTemplates-probe.json --noEmit
-… 271 error TS lines demo-wide; 8 on the subject:
-
-SearchFilterBar.vue(5,25):   TS2353 'variant' does not exist in type '{ emphasis?: ButtonEmphasis; tone?: …
-SearchFilterBar.vue(52,38):  TS2353 'checked' does not exist in type '{ modelValue?: CheckedState | null; …
-SearchFilterBar.vue(53,38):  TS2353 ''onUpdate:checked'' does not exist in type 'NonNullable<{ modelValue? …
-SearchFilterBar.vue(89,46):  TS2322 Type 'string | number' is not assignable to type 'string'.
-SearchFilterBar.vue(93,37):  TS2353 ''aria-label'' does not exist in type '{ autocomplete?: string; … }'
-SearchFilterBar.vue(95,38):  TS2353 'onKeydown' does not exist in type 'NonNullable<{ autocomplete?: string; …
-SearchFilterBar.vue(112,29): TS2353 'variant' does not exist in type '{ emphasis?: ButtonEmphasis; …
-SearchFilterBar.vue(115,30): TS2353 'onClick' does not exist in type 'NonNullable<{ emphasis?: ButtonEmphasis; …
-```
-
-(full text: `evidence/C-r2-strictTemplates-SearchFilterBar.txt`)
-
-**Three gates, three greens, three blockers.** And I will read those 8 errors honestly, because
-turning the flag on is not free:
-
-- **4 are the real defects** — lines 5, 52, 53, 112: exactly C-1 and C-4, caught at compile time.
-- **1 is genuine type unsoundness, runtime-benign** — line 89: `v-model="colorText"` where
-  `colorText` is `Ref<string>` and glass-ui's Input emits `string | number`. With `type="text"` the
-  runtime value is always a string; the declaration is still wrong.
-- **3 are glass-ui declaration gaps, not demo defects** — lines 93/95 (`aria-label`, `onKeydown` on
-  Input) and 115 (`onClick` on Button). Those attributes **do** reach the DOM, measured: Input sets
-  `inheritAttrs: false` and spreads `forwardedAttrs` onto its `<input>` root, and the a11y tree
-  reports `textbox "Search by CSS color"`; the Clear button's click demonstrably fired in §6. glass-ui
-  simply does not declare native attrs/emits on `InputProps`/`ButtonProps`.
-
-So the cure has a prerequisite: **glass-ui must declare its native attribute surfaces before
-`strictTemplates` can be turned on cleanly across 271 demo errors.** That prerequisite is itself a
-BH/BI relay item, and it is the single highest-leverage repair in this report — it converts the whole
-prop/emit-drift class (2 Checkbox sites + 51 Button sites + whatever the other 271 contain) from
-silent runtime breakage into a compile error, which is exactly the gate a whole-major design-system
-swap owed itself.
+**4.7 eslint.** `npx eslint demo/palettes/browser/search/SearchFilterBar.vue` → exit 0, no output
+(re-run at `f36f780c`).
 
 ---
 
-## 8. MINOR (a11y) — C-8: the filter state is invisible to assistive technology.
+# 5. Defect ledger
 
-| defect | evidence |
-|---|---|
-| **Badge count is not in the accessible name.** The trigger carries `aria-label="Filters"` (line 5) plus a visible count span (lines 7-12). `aria-label` overrides subtree text, so the accessible name stays `"Filters"` while the visible name is `"Filters 3"`. | `evidence/measure-5-accessible-names.json`: `{ role: "button", name: "Filters" }`; `probe-C2.mjs` badge text `"1"` |
-| **Both radiogroups are unnamed.** "Sort" and "Tier" are plain `<div class="section-label">` (lines 20, 32) with no `id`/`aria-labelledby`. | r1 live a11y tree: `generic: Sort` then `radiogroup [no name]`; `measure-1-matrices.json` `radiogroups: [{name: null},{name: null}]` |
-| **No `aria-live`.** The colour search mutates the palette wall silently; nothing announces the result count — and after C-2's cure there will be a parse error with nowhere to go. | r1 live probe `ariaLive: 0` |
-| **No headings.** Four sections, zero heading semantics. | r1 live probe `headings: 0` |
-
-**Cure**: `:aria-label="activeFilterCount > 0 ? \`Filters, ${activeFilterCount} active\` : 'Filters'"`;
-give each `.section-label` an `id` and point its `RadioGroup` at it with `aria-labelledby`
-(`RadioGroupProps extends PrimitiveProps`, so the attribute falls through to the `role="radiogroup"`
-root); add one polite live region carrying both the result count and C-2's parse error. All
-root-level; no per-instance style overrides.
-
----
-
-## 9. The remainder
-
-**C-9 · asymmetric hit boxes: 16×16 checkboxes beside 44×44 radios.** Measured (`probe-C5.mjs`) in
-the same `.filter-option` label row:
-
-```
-radio "Newest"  label 121.4x31 | control 44x44      checkbox "pastel" label 182x31 | control 16x16
-radio "All"     label  61.1x31 | control 44x44      checkbox "neon"   label 182x31 | control 16x16
-radio "Featured" label 132.9x31 | control 44x44     checkbox "earth"  label 182x31 | control 16x16
-radio label pitch 57px  →  44px controls, 13px clear (no overlap)
-tag  label pitch 33px
-```
-
-Two consequences. (a) glass-ui's `RadioGroupItem` ships a 44px target and its `Checkbox` ships 16px —
-an internal inconsistency in the design system, and the 44px target is what makes the popover 670px
-tall (§3). (b) **This is not a WCAG 2.5.8 failure**, and I checked rather than assumed: the effective
-target is the 182×31 `<label>`, `label.control` resolves to the `BUTTON/checkbox`, and clicking the
-row's text fires exactly one click and one state change — `{"clicksOnControl": 1, "stateChanges":
-["checked"]}`, no double-fire. So r1's "every tap target ≥24×24" verdict survives *on the effective
-target* while being wrong about the control box. Recorded as INFO + a BH/BI relay note, not a defect.
-
-**C-10 · `colorSearchActive` duplicates parent state.** Line 171 is a private `ref` feeding the
-public `activeFilterCount` (line 193), while `BrowsePane` already holds the authoritative value in
-`colorSearchParams` (`BrowsePane.vue:336`). Today the only reset path is `onClearAll`, so a live
-desync is a **HYPOTHESIS**; the ownership defect is structural and confirmed. Cure: lift it to a prop
-(`colorFilter: {L,a,b} | null`) and delete the local ref.
-
-**C-11 · double clear.** `onClearAll` (lines 227-232) emits `clearColorSearch` *and* `clearFilters`;
-`BrowsePane.onClearFilters` (lines 329-332) clears `colorSearchParams` a second time. Harmless,
-redundant; collapses into one emit under C-10's cure.
-
-**C-12 · no idempotence.** Five identical Search activations → five `colorSearch` emissions
-(measured in §5: 43ms), each re-running `displayedBrowse`'s `Math.hypot` scan over every palette ×
-every colour (`BrowsePane.vue:344-348`). Cheap today; the wrong shape for a bigger wall.
-
-**C-13 · `hexToOklab` is misnamed, and its guard is unreachable.** Line 205 throws on `"none"`
-channels, but every reachable argument is either a regex-validated 6-hex or `pickerHex`, which
-`MiniColorPicker`'s `currentHex` computed (`MiniColorPicker.vue:85-105`) can only produce as a 6-hex.
-The name lies in the direction that matters: the function is a general CSS-colour → OKLab, and C-2 is
-the act of discarding that generality. Rename `cssToOklab`, delete the branch, let `PickerColorError`
-reach the surface C-2's cure adds.
-
-**C-14 · inert wrapper, dead directive, mixed emit idiom.** The root `<div class="flex items-center
-gap-1.5">` (line 2) wraps exactly one child, so `gap` and `items-center` do nothing. The scoped block
-opens with `@reference "../../../styles/foundation.css"` (line 236) but uses no `@apply`/`theme()` —
-only `var(--…)` — so the directive buys nothing. The template calls `$emit(...)` (lines 21, 33) while
-the script holds a typed `emit` (line 154) used everywhere else, and `String(v)` coerces a
-`SelectionValue` (`= string | number`) that is always a string here.
-
----
-
-## 10. Negative proof — what I probed and found sound
-
-Recorded so the next seat does not re-spend the probes. Four of these are hypotheses I formed and then
-killed by measurement, which is the point of writing them down.
-
-- **`pr-16` survives `field-control`.** I expected glass-ui's `.field-control` padding to override the
-  Tailwind utility and let the value run under the Search button. It does not:
-  `paddingRight: "64px"`, text lane right edge `580.0`, Search button left edge `587.4` →
-  **7.4px clearance, `overlapPx: -7.4`**. The `class` prop merges onto the `<input>` itself (Input
-  renders a single `<input>` root — `dist/Input-9BlLluik.js`), so there is no wrapper mis-targeting
-  either. **Sound.**
-- **No colour-text autofill on open.** I reasoned that `MiniColorPicker`'s `watch(currentHex)` plus
-  its `{immediate:true}` hex watcher would emit `update:hex` at mount and stamp `#4488cc` into the
-  field before the user typed anything. Measured on a fresh open:
-  `{"inputValue": "", "placeholderShown": true}`. **Retracted.**
-- **Typed text survives close/reopen.** Typed `rebeccapurple`, Escape, reopened:
-  `D_typed: "rebeccapurple"` → `D_afterReopen: "rebeccapurple"`. `colorText` lives in
-  `SearchFilterBar`, which stays mounted. **Sound.**
-- **`miniPickerOpen` does not leak.** I expected the inner popover's open state to survive the outer
-  popover's unmount and re-pop on reopen. Measured: open mini (`wrappers: 2, sv: 1`) → click far
-  outside (`wrappers: 0, sv: 0`) → reopen (`wrappers: 1, sv: 0, miniAutoOpened: false`). Reka
-  dismisses both layers and `@update:open` resets the flag. **Retracted.**
-- **The nested popover does not dismiss its parent.** Opening `MiniColorPicker` inside the filter
-  popover keeps both alive (`popperWrappers: 2, outerStillOpen: true`), and a 12-move pointer drag
-  across the SV canvas does not dismiss the outer layer (`E_afterDrag.outerStillOpen: true`). The
-  drag drives the text field live (`#dbe2e8 → #3a5f84`, 12 monotone updates), which is the intended
-  coupling. **Sound.**
-- **No `<label>` double-fire.** `<label>` wrapping a reka `<button role="checkbox">` makes the button
-  a labelable control, so I checked for a synthetic-click double toggle: `{"clicksOnControl": 1,
-  "stateChanges": ["checked"]}`. **Sound** — and this same wrapping is what gives the radios their
-  accessible names (`radio "Newest"`, `radio "Most Forked"`, …), so it must not be removed.
-- **Radio wiring is correct** — the control that makes C-1 an asymmetry rather than a harness
-  artifact. `RadioGroup`'s `modelValue`/`update:modelValue` match
-  `dist/components/radio-group/RadioGroup.vue.d.ts`, `value=""` for "All" round-trips
-  (`update:tier: [[""]]`), and the live a11y tree shows the correct checked radio in both groups.
-- **No radio hit-box overlap** — pitch 57px against 44px controls, 13px clear (§9).
-- **The popover names itself correctly** — `dialog "Filters"`, `aria-haspopup="dialog"`,
-  `aria-expanded` toggling, all via reka.
-- **No local hazards from the repo's record.** No `requestAnimationFrame` (PRM-RAF clean), no WebGL,
-  no `ValueUnit` wrapping, no `defineModel` (so the async-round-trip stale-read hazard does not
-  apply — `colorText`/`pickerHex` are plain local refs), no timers, no listeners, no observers, no
-  `onUnmounted` cleanup owed, no unbounded growth. The only pointer-capture surface is
-  `MiniColorPicker.vue:129/144`, outside this seat's subject.
-- **`verbatimModuleSyntax` compliant** — `import type { Tag }` (line 144) is the only type-only
-  import and it is correct. Vue 3.5 reactive props destructure (line 147) used correctly.
-- **`.section-label` and `scrollbar-thin` are real utilities**, not dead classes —
-  `demo/styles/utils.css:13` and `glass-ui/dist/styles/components.css`. The scoped block adds layout
-  only; no shadcn-root override. Edicts 1 (no god modules), 3 (KISS), 6 (animations preserved) clean.
-- **eslint clean**, exit 0.
-
-**Edict ledger.** Violated: **2** (C-2 is a masking fallback), **5** (C-3's only demo-side fix is a
-per-instance override, which is why the cure must go to glass-ui), **7** (C-5's dead `async`),
-**8** (line 89's `string | number` mismatch — declaration-level). Clean: 1, 3, 4, 6.
-
----
-
-## 11. Defect ledger
-
-| id | severity | defect | reproduced | r1 status |
+| id | sev | defect | reproduction | origin |
 |---|---|---|---|---|
-| C-1 | **BLOCKER** | Tag checkboxes bound to `:checked`/`@update:checked`; glass-ui 7 exposes `modelValue`/`update:modelValue`. Filtering never fires; the control reports "checked" visibly *and* via `aria-checked`; zero network requests. 2 of 2 demo sites. | **yes — live, tags present** (`probeC2.json`) | verified; mitigation removed |
-| C-2 | **BLOCKER** | Colour field discards every input but `/^#[0-9a-f]{6}$/i` and silently searches `pickerHex`, reporting success. Edict-2 masking fallback. | **yes — live** (`probeC2.json` `garbageSearch`) | verified |
-| C-3 | **BLOCKER** | Popover `max-height:none` / `overflow-y:visible` / no scroll container / ignores `--reka-popper-available-height`. Content 670.8px; "Clear all filters" **fully off-screen at 1440×1000, 1440×800, 390×664**; real pointer click fails "element is outside of the viewport". Root cause in glass-ui `PopoverContent`. | **yes — live ×3 viewports** (`probeC4.json`, 3 screenshots, Playwright timeout log) | **promoted from HYPOTHESIS** |
-| C-4 | MAJOR | `variant="ghost"` is not a glass-ui 7 Button prop; renders as an inert DOM attribute while `emphasis` defaults to `"secondary"` → `glass-wash glass-capsule`, measured bg 52% / 60% opaque. 51 `<Button variant>` sites demo-wide. | **yes — live** (`probeC1.json` `A_trigger`, `probeC2.json` `clearAll`) | **NEW** |
-| C-5 | MAJOR | `async` with no `await` → `searching` never observable; spinner, `:disabled` and reentrancy guard all dead. | **yes — live** (5 clicks/43ms, spinner never present) | verified |
-| C-6 | MAJOR | Clear-all unmounts itself while focused → focus to `<body>` **and the whole popover dismisses**; only reachable path is keyboard onto an off-screen control. | **yes — live** (`probeC2.json` `clearAllAfter`) | verified + **escalated** |
-| C-7 | MAJOR | Zero tests (71 spec files, 0 references); visual gate never opens the popover; `strictTemplates` unset → baseline vue-tsc clean while 8 errors (4 real) wait behind one config line; eslint clean. | **yes — measured both gate states** | verified + quantified |
-| C-8 | MINOR | Badge count absent from the accessible name; 2 unnamed radiogroups; no `aria-live`; no headings. | yes (live a11y tree) | verified |
-| C-9 | INFO | Checkbox control 16×16 vs radio 44×44 in the same 31px row; a glass-ui inconsistency and the cause of the 670px height. Passes 2.5.8 via the 182×31 label; no double-fire. | yes (`probeC5.json`) | **partially retracts** r1's blanket "all ≥24×24" |
-| C-10 | INFO | `colorSearchActive` duplicates `BrowsePane.colorSearchParams`. | mechanism yes; reachability HYPOTHESIS | verified |
-| C-11 | INFO | Double clear of `colorSearchParams`. | yes | verified |
-| C-12 | INFO | No idempotence: N clicks → N full wall rescans. | yes | verified |
-| C-13 | INFO | `hexToOklab` misnamed; unreachable throw branch. | yes (static) | verified |
-| C-14 | INFO | Inert single-child flex wrapper; dead `@reference`; mixed `$emit`/`emit`; needless `String(v)`. | yes (static) | verified |
+| **C-15** | **BLOCKER** | At `devices["iPhone 14"]` (390×664) — the repo's own certified mobile matrix — the panel is 441.4px against a 359.72px published budget, `max-height:none`, `overflow-y:visible`, no scroll container; the **entire "Find by Color" section is below the fold** and the Search button cannot be resolved for a click. **No fixture, no tags, shipped state.** | `probeC8-r3.json`, `C-r3-trap-mobile-390x664.png` | **NEW (r3)** — escalates r2's fixture-gated C-3 |
+| C-1 | **BLOCKER** | Tag checkboxes bound to `:checked`/`@update:checked`; glass-ui 7 exposes `modelValue`/`update:modelValue`. Filters nothing; announces `aria-checked="true"` anyway. 2 of 2 demo sites. | r2 `probeC2.json` + `.d.ts` re-read §2.1 | r2, re-verified |
+| C-2 | **BLOCKER** | Every input but `/^#[0-9a-f]{6}$/i` is discarded and `pickerHex` searched instead, reporting success. Edict-2 masking fallback. | r2 `probeC2.json`; **second entry path §1.4** | r2, extended |
+| C-3 | **BLOCKER** | Popover has no height contract at any viewport once tags exist; "Clear all filters" fully off-screen at 1440×1000 / 1440×800 / 390×664. Root cause in glass-ui `PopoverContent`. | r2 `probeC4.json` ×3 viewports | r2, subsumed by C-15 |
+| **C-16** | MAJOR | `class="w-60 p-0"` — `w-60` wins (240px), **`p-0` is inert** (measured `padding: 20.352px 16px`). 40.7px of block padding the author asked to delete, `divide-y` rules inset 16px, and an edict-5 override that reads as done. | `probeC6-r3.json` `freshOpen`; `C-r3-panel-over-live-text.png` | **NEW (r3)** |
+| **C-17** | MAJOR | `hover:shadow-cartoon-md` is a variant Tailwind cannot generate (`.shadow-cartoon-md` is hand-authored in glass-ui); no hover rule is served; measured box-shadow byte-identical at rest and on hover. `transition-shadow` transitions nothing. | `probeC6-r3.json` `swatchHover`; CSSOM scan; grep | **NEW (r3)** |
+| **C-18** | MAJOR | Colour filter has no undo: emptying the field leaves badge `1` and the wall filtered; **`Enter` on an empty field performs a search**; the only exit is the partially/wholly off-screen, self-unmounting "Clear all filters". | `probeC7-r3.json`; `probeC8-r3.json` | **NEW (r3)** |
+| **C-19** | MAJOR | After a valid-hex search the swatch and its `aria-label` name a different colour than the applied filter (`#ff0000` searched, `current color #4488cc` announced). | `probeC6-r3.json` `afterValidHexSearch` | **NEW (r3)** |
+| C-4 | MAJOR | `variant="ghost"` is not a glass-ui 7 Button prop; renders inert while `emphasis` defaults `"secondary"` → filled capsule. 51 `<Button variant>` sites demo-wide. | r2 `probeC1.json`; `.d.ts` re-read §2.2 | r2, re-verified |
+| C-5 | MAJOR | `async` with no `await` → `searching` never observable; spinner, `:disabled`, reentrancy guard all dead. | r2: 5 clicks/43ms, spinner never present | r2 |
+| C-6 | MAJOR | Clear-all unmounts itself under focus → focus to `<body>` and the whole panel dismisses. | r2 `probeC2.json` `clearAllAfter` | r2 |
+| C-7 | MAJOR | **94** spec/test files, 0 references; visual gate never opens the popover (`"dialog": 0` ×4); `strictTemplates` unset, hiding C-1 and C-4 behind one config line. | §2.3; `REPORT.json` | r2, re-counted |
+| **C-20** | MINOR | The one hand-written `<button>` has no `type` → `button.type === "submit"`; all five reka siblings + the swatch carry `type="button"`. Inert today (no form ancestor, portalled), latent. | `probeC7-r3.json` `buttonTypes` | **NEW (r3)** |
+| **C-21** | MINOR | Latent nameless button: `Loader2`-only content with no accessible name while `searching`. Unreachable **only** because C-5 is broken — curing C-5 alone ships it. | source lines 97-104; `REPORT.json` `namelessButtons: 0` | **NEW (r3)** |
+| C-8 | MINOR | Badge count absent from the accessible name (`"Filters"` vs badge `1`); 2 unnamed radiogroups; no `aria-live`; no headings. | §2.4; r2 a11y tree | r2, re-verified |
+| **C-22** | INFO | Search button measured 52.6 × **24.0**px — exactly the WCAG 2.5.8 floor, overlapping the field's own lane. | `probeC6-r3.json` `searchBtnRect` | **NEW (r3)** |
+| C-9…C-14 | INFO | 16×16 checkbox vs 44×44 radio in a 31px row; `colorSearchActive` duplicates parent state; double clear; no idempotence; `hexToOklab` misnamed with an unreachable branch; inert wrapper / dead `@reference` / mixed emit idiom. | r2 | r2, carried |
+| — | INFO | **The parent closes a lossy HSV↔hex writeback loop** (`update:hex` → `pickerHex` → `:hex` → HSV re-derivation) with a `d === 0` guard where the repo's own cure guards `sat*val > 0.01`. Probed with 5 drags: converges, hue survives. Latent coupling only. | §4.2 | **NEW (r3), retracted as a defect** |
 
-**Strongest defect: C-3.** C-1 is the more shocking mechanism — a control that confirms an action it
-did not perform — but C-3 is strictly worse in effect and reach: it takes the *entire* "Find by Color"
-section and the *only* escape hatch from a bad filter state off the screen at every viewport I tested
-including a full-size desktop, it defeats a real pointer click for 30 seconds of retries, its root
-cause sits in a design-system primitive that every glass Popover in the constellation shares, and the
-same design system already ships the correct idiom one component over. It also explains why C-1 and
-C-2 could live this long: the surface that would have exposed them is the part that falls off the
-bottom of the screen.
+---
 
-## 12. Relay obligations created by this report
+## Strongest defect
 
-Per the standing BH/BI edict, three items are glass-ui-level and must reach the active glass-ui inbox
+**C-15.** Not because it is the most surprising mechanism — C-1's checkbox, which announces "checked"
+to a screen reader while filtering nothing, still holds that title — but because of what it costs and
+how little it needs to be true.
+
+It needs **nothing**: no mocked tag list, no admin action, no unusual state. A bare dev server, the
+shipped zero-tag catalog, one tap on the ⋮ button, on the exact 390×664 viewport this repo's own
+visual audit certified `/#/browse` at four times. And what it costs is the component: "Find by Color"
+is the reason `SearchFilterBar` exists, and on a phone it is not on the device. The swatch, the
+field, and the Search button render 81.4px past the fold of a panel that declares `max-height: none`
+and `overflow-y: visible` while reka hands it `--reka-popper-available-height: 359.72px` on the very
+element it sits in.
+
+It also explains the rest of this report. The three gates are green — vue-tsc clean, eslint exit 0,
+visual REPORT `"dialog": 0`, 94 spec files with zero references — because **the surface that would
+have exposed C-1, C-2, C-16, C-17, C-18 and C-19 is the part that falls off the bottom of the
+screen.** Fix the height contract and six other defects become visible to the naked eye on the first
+open.
+
+---
+
+## 6. Relay obligations created by this report
+
+Per the standing BH/BI edict, four items are glass-ui-level and must reach the active glass-ui inbox
 rather than being patched in `demo/`:
 
-1. **`PopoverContent` has no height contract** — add
+1. **`PopoverContent` has no height contract** (C-15/C-3) — add
    `max-h-[min(var(--reka-popover-content-available-height,80dvh),80dvh)] overflow-y-auto
-   overscroll-contain` to the root class list; the Combobox family already does exactly this.
-2. **7.0.0 shipped no `variant`→`emphasis` migration note** — 51 consumer sites in this repo alone
-   still speak the shadcn-vue vocabulary and fail silently.
-3. **`InputProps`/`ButtonProps` do not declare their native attribute surfaces**, so
-   `strictTemplates: true` reports 3 false positives on this file alone. Declaring them is the
-   prerequisite for the repo turning the gate on — and `Checkbox`'s 16px control against
-   `RadioGroupItem`'s 44px belongs in the same note.
+   overscroll-contain` to the root class list. The Combobox family already ships exactly this idiom.
+2. **`PopoverContent` padding cannot be overridden by consumers** (C-16) — `p-0` loses to
+   `px-(--overlay-pad-inline)`/`py-(--overlay-pad-block)` while `w-60` beats `w-72` in the same class
+   string. Either expose a `pad="none"` variant or document that the pad is not overridable; the
+   current behaviour teaches consumers to write code that silently does nothing.
+3. **Hand-authored utilities carry no variants** (C-17) — `hover:`/`focus-visible:`/`dark:` on
+   `shadow-cartoon-*` (and any other hand-written glass utility) produce no rule at all. Promote them
+   into `@theme`, or ship the variants.
+4. **7.0.0 shipped no migration note, and no native attribute declarations** (C-4, C-20, C-7) —
+   51 `<Button variant>` sites in this repo alone still speak the shadcn-vue vocabulary and fail
+   silently; `ButtonProps` declares `type` but defaults it nowhere (reka supplies `type="button"`,
+   glass-ui does not); and `InputProps`/`ButtonProps` do not declare their native attr/emit surfaces,
+   which is the prerequisite for this repo turning `strictTemplates: true` on. `Checkbox`'s 16px
+   control against `RadioGroupItem`'s 44px belongs in the same note.
 
-**No source edits land from this seat.** Everything written by this seat lives under
-`docs/tranches/V/megatranche/audit/components/SearchFilterBar/`.
+---
+
+**No source edits land from this seat.** Everything written here lives under
+`docs/tranches/V/megatranche/audit/components/SearchFilterBar/`: this report, the r2 archive
+(`challenge-C-implementation-r2-32b4040e.md`), `probes/probe-C6-r3.mjs`, `probes/probe-C7-r3.mjs`,
+`probes/probe-C8-r3.mjs`, `evidence/probeC6-r3.json`, `evidence/probeC7-r3.json`,
+`evidence/probeC8-r3.json`, `evidence/C-r3-panel-over-live-text.png`,
+`evidence/C-r3-trap-mobile-390x664.png`, `evidence/C-r3-trap-mobile-390x844.png`,
+`evidence/C-r3-trap-laptop-1440x800.png`.

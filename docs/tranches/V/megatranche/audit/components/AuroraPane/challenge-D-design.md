@@ -1,626 +1,492 @@
-# CHALLENGE-D — AuroraPane design audit
+# CHALLENGE-D — AuroraPane design audit · **PASS 2 (consolidated, supersedes pass 1)**
 
 ## Model receipt
 
-I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]`, as declared at
-spawn. The seat is declared, not inherited.
+I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]`, the tier this
+seat was spawned with. Declared, not inherited.
+
+- Subject: `demo/scenes/atmosphere/AuroraPane.vue` (201 lines), area `scenes`, route `/#/atmosphere`.
+- Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
+- Prior seat's report preserved verbatim at **`challenge-D-design-pass1.md`** (13 findings + 5 INFO).
+  I re-measured it independently against a live server and the Safari matrix rather than reading it
+  first; the overlap below is convergent evidence, not restatement.
 
 ---
 
 ## Verdict
 
-**DEFECTIVE.** Thirteen substantive design defects, two of them blockers. The component is not
-"a good form that needs polish" — it is a **form for a thing it hides**, built from a hand-rolled
-row primitive that sits eighteen inches from the glass-ui row primitive its own sibling rows use.
-Every alignment, rhythm, tap-rung, label-association and typographic-hierarchy defect below is a
-downstream consequence of that one wrong decision.
+**DEFECTIVE.** Pass 1's verdict stands and its blocker D-1 is confirmed by independent measurement.
+Pass 2 adds **six findings pass 1 did not reach**, **corrects three of its diagnoses**, and — most
+consequentially — **retires pass 1's proposed cure**, which routes the four enum rows through the
+wrong producer primitive. glass-ui's own doc comment forbids exactly that move and names the right
+component, which the demo consumes **zero** times.
 
-The strongest single finding is **D-2**: in the component's primary interaction state — the open
-Select — **193,875 px² of underlying interface reads straight through the menu** on desktop. Two
-text runs occupy the same pixels. `/#/atmosphere` was absent from every state matrix in
-`audit/visual/states.mjs:18`, so no capture in this repository had ever held that state open.
+Strongest defect (unchanged in substance, sharpened in citation): **the binding Atmosphere
+composition is inverted — the protagonist region does not exist.** Pass 1 cited
+`VISUAL-CONSTITUTION.md`; the *binding* authority is `OPTICAL-BENCH-COMPOSITIONS.md:46`, which
+pass 1 never quoted, and which adds two further breached clauses (housing and boundary inventory).
 
 ---
 
-## Evidence provenance
+## 0. Pass-1 disposition at a glance
 
-Everything below is a measured number, a pasted computed style, or a pixel in a screenshot I
-opened. Nothing is inferred from reading source alone.
-
-| artefact | what it is |
+| pass-1 finding | pass-2 disposition |
 |---|---|
-| `docs/tranches/V/megatranche/audit/components/AuroraPane/probe-D.mjs` / `.json` | geometry, typography, acreage, tap targets, open-menu, focus — 7 matrices |
-| `.../probe-D2.mjs` / `.json` | label-click reproduction, voice comparison, declared-vs-computed, reload persistence, forced-colors focus, zoom menu |
-| `.../probe-D3.mjs` / `.json` | open-menu occlusion area, surface alpha, PreviewStrip specimen size |
-| `.../frames/*.png` | 6 states never before captured for this route |
-| `audit/visual/shots/safari-{desktop,mobile}-{light,dark}/atmosphere.png` | the four shipped Safari captures, read visually |
-
-```
-$ node docs/tranches/V/megatranche/audit/components/AuroraPane/probe-D.mjs
-$ node docs/tranches/V/megatranche/audit/components/AuroraPane/probe-D2.mjs
-$ node docs/tranches/V/megatranche/audit/components/AuroraPane/probe-D3.mjs
-```
-
-**Evidence gap I closed.** `audit/visual/states.mjs:18` reads
-`const ROUTES = ["#/", "#/gradient", "#/browse", "#/blob", "#/admin/users"];` — `#/atmosphere` is
-in none of them. `ls audit/visual/shots/{zoom-200-desktop,rtl-desktop,forced-colors-desktop,keyboard-focus-desktop}/`
-returns five files each, no `atmosphere.png`. Zoom-200, RTL, forced-colors, keyboard-focus and
-open-dropdown for this component were **unmeasured** before this seat.
+| D-1 blocker (no preview) | **CONFIRMED + EXTENDED** → see N-1; adds the binding-composition citation, the `InstrumentChassis` zero-usage census, and the "form sections not Cards" breach |
+| D-2 blocker (menu bleed-through) | **CONFIRMED, not re-measured** — pass-1's 193,875 px² stands; my open-menu capture reproduces it |
+| D-3 ragged edges | **CONFIRMED** — independently measured, identical numbers; adds the 320 px arm and the RTL arm |
+| D-4 second row primitive | **CONFIRMED but CURE WRONG** → see C-3 / N-4 |
+| D-5 two spines / two rhythms | **CONFIRMED, not re-measured** |
+| D-6 "four dead declarations" | **CORRECTED** → see C-1. `text-caption` is not dead; it is *half*-applied, and the half that lands is the half that does the damage |
+| D-7 label is not a label | **CONFIRMED + EXTENDED** → N-4 supplies the producer primitive that fixes it |
+| D-8 hierarchy inversion | **CONFIRMED**; its `1/√φ` sub-claim **CORRECTED** → C-2 |
+| D-9 no persistence | **CONFIRMED, not re-measured** |
+| D-10 advanced-first / truncation | **CONFIRMED** — my zoom arm reproduces 567/259 exactly |
+| D-11 undersized specimen | **CONFIRMED + EXTENDED** — adds the discriminability failure (N-6) |
+| D-12 Zones pinned at ceiling | **CONFIRMED, not re-measured** |
+| D-13 identical-branch ternary | **CONFIRMED + EXTENDED** → N-5 quantifies the loss: 5 of 7 media are single-state |
+| D-18 forced-colors "unproven" | **RESOLVED** → focus *does* survive forced colors (measured); but a different forced-colors defect is real and new → N-2 |
+| — | **NEW** N-1…N-6 below |
 
 ---
 
-## D-1 · BLOCKER · The atmosphere pane has no atmosphere in it
+## 1. New findings
 
-`/#/atmosphere` renders **zero preview surface**. Measured, every matrix:
+### N-1 · BLOCKER — the *binding* composition is inverted, and two further clauses of it are breached
 
-```
-desktop-light  canvasesInMain: 0   canvasesInPage: 1   cardShareOfViewport: 52.54 %
-desktop-dark   canvasesInMain: 0   canvasesInPage: 1   cardShareOfViewport: 52.54 %
-mobile         canvasesInMain: 0   canvasesInPage: 1   cardShareOfViewport: 76.31 %
-zoom-200       canvasesInMain: 0   canvasesInPage: 1   cardShareOfViewport: 53.41 %
-```
+Pass 1 proved preview = 0 %. The binding authority it did not cite is
+`OPTICAL-BENCH-COMPOSITIONS.md:46`, verbatim:
 
-The single canvas is the app-shell aurora, which lives **outside `main`** and is the page ground.
-The pane's Card (1042 × 653.42 at 1440 × 900) is stacked directly on top of it. So the seven knobs
-tune a surface the form is occluding while you tune it, and four of the seven —
-harmony / arrangement / medium / motion — have no other read-out anywhere in the component.
+> | **Atmosphere** | P122 `preview-dominant`: Aurora preview 66.6666667%; atom/disclosure inspector
+> 33.3333333%. | preview; essentials; advanced. | **Landmark-neutral chassis; form sections not
+> Cards.** | W28. Close ratio, causal map, lifecycle and chromatic first frame. |
 
-This is the canon's named row, verbatim and unremedied:
+and `:80`:
 
-- `PROPORTION-AUDIT.md:54` — `| PR-10 | Atmosphere/Blob form acreage exceeds preview | **TIGHTEN** |`
-- `VISUAL-CONSTITUTION.md:29` — "Configuration panes show preview first, controls second.
-  **Atmosphere/Blob preview area is larger than the form at every desktop size.**"
-  Measured: form 52.54 % of the viewport, dedicated preview **0 %**.
-- `VISUAL-CONSTITUTION.md:51` — Atmosphere shall be "persistent Aurora preview | compact atom
-  essentials plus scroll-confined advanced disclosure | **preview, essentials, advanced**".
-  There is no preview, no essentials/advanced split; all seven knobs sit at one flat rung.
-- `VISUAL-CONSTITUTION.md:214` — "every select/axis has an observable effect on **its live
-  preview**." There is no live preview to observe.
+> | Atmosphere | `[]` | `none` | none | preview material and confined inspector carry grouping |
 
-**Mechanism.** The pane was built as `ConfigSliderPane`-with-extra-rows — a settings card — when
-the constitution specifies an *instrument*: a preview-dominant stage (66.6666667 %) with the
-controls subordinate. `ConfigSliderPane.vue:98-101` hard-codes `w-full h-full` Card; there is no
-stage slot to put a preview in, so the pane could not host one even if AuroraPane asked.
+Three separate breaches, each measured:
 
-**Reproduction.** `node probe-D.mjs` → `out["desktop-light"].acreage.canvasesInMain === 0`.
-Or: open `frames/desktop-light-harmony-open.png` — the aurora is visible only in the margin strip
-around a card that fills the centre of the screen.
+1. **Ratio.** Rendered 0 % preview / 100 % inspector against the binding 66.6666667 / 33.3333333.
+   Measured at 1440×900: `<main>` 1408×804, pane Card **1042 × 654.2 = 681,676 px²** = **60.2 % of
+   `<main>`**, 52.6 % of the viewport; dedicated preview area **0 px²**.
+   (Cross-engine: the Safari capture puts the card at x 201.6 w 1036.8 — agreement within 5 px.)
+2. **Housing.** "form sections **not Cards**". `AuroraPane.vue:110` roots on `ConfigSliderPane`,
+   whose root is `Card tier="resting"` (`ConfigSliderPane.vue:99–102`); measured computed class
+   `glass-resting card rounded-card text-card-foreground …`. And
+   `grep -rn "InstrumentChassis" demo/ --include="*.vue" --include="*.ts"` → **0 hits**, while
+   `@mkbabb/glass-ui@7.0.0` exports `./instrument-chassis` (package `exports` map, verified). The
+   producer ships the required housing; the demo has never consumed it, on any route.
+3. **Boundaries.** Binding inventory is `[]` / reserve `none`. Rendered: 2 boundaries —
+   `.config-section-header { border-bottom: 1px … }` (`ConfigSliderPane.vue:233`) and
+   `.config-action-bar { border-top: 1px … }` (`:250`). Cf. `PROPORTION-AUDIT` PR-05.
 
-**Cure (transposition, not patch).** Transpose the route to the constitution's `preview-dominant`
-instrument: a bounded, live aurora stage occupying 66.6666667 % of the desktop scene with the
-control column at 33.3333333 %, and mobile as stage → inspector → action per `§3.6`. The stage is
-the same renderer, *bounded and foregrounded* rather than the page ground the form sits on. That
-single change also gives arrangement / medium / motion the observable effect `§214` requires,
-which nothing else can.
+`grep` census and geometry are in `scratchpad/D-aurora-probe.json`.
 
 ---
 
-## D-2 · BLOCKER · The open menu does not occlude what it covers
+### N-2 · MAJOR — the selected option paints **zero pixels**; selection has no visual existence
 
-This is the state no matrix had captured. Open `frames/desktop-light-harmony-open.png` and
-`frames/mobile-harmony-open.png`.
+Pass 1's state table records *"selected (in menu) | partial | 1 px pink ring spanning the full
+889.86 px option"*. **That ring is the `data-highlighted` state, not selection.** Measured with the
+keyboard moved two rows off the selected item (`scratchpad/D-aurora-probe3.mjs`):
 
-Measured overlap between the open listbox and content-bearing elements beneath it:
+| option | `aria-selected` | `data-highlighted` | background | box-shadow | outline |
+|---|---|---|---|---|---|
+| Analogous | **true** | – | `rgba(0,0,0,0)` | `none` | `none` |
+| Split Complementary | false | `""` | `oklab(0.9156 … / 0.52)` | 2 px ring | `none` |
 
-```
-desktop 1440×900                                 mobile iPhone 14
- aurora-row-label "Arrangement"        862 px²    "Arrangement"           592 px²
- control-surface  "Scattered"       30,634 px²    "Scattered"           7,266 px²
- control-surface  "Smooth"          32,328 px²    "Smooth"              8,712 px²
- control-surface  "Drifting"        32,328 px²    "Drifting"            8,712 px²
- configurator-row "Colour Energy…"  53,808 px²    "Colour Energy0.760" 17,614 px²
- configurator-row "Noise0.500"      43,915 px²    "Noise0.500"         17,614 px²
-                                                  "Zones6"              3,379 px²
- TOTAL                            193,875 px²     TOTAL                63,889 px²
-```
+The producer *does* emit a marker for the checked item — measured DOM on
+`[role="option"][aria-selected="true"][data-state="checked"]`:
 
-with the surfaces measured as:
-
-```
-contentBg        oklab(0.955861 0.009528 0.029646 / 0.7488)     ← α 0.75
-optionBg         oklab(0.915631 0.00547  0.013051 / 0.52)       ← α 0.52
-contentBackdrop  blur(11px) saturate(1.6)
-contentOpacity   1
+```html
+<span aria-hidden="true" class="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+  <span aria-hidden="true"><span class="inline-block w-2 h-2 rounded-pill"
+    style="background-color: var(--select-dot-color, var(--glass-accent, currentColor))">
 ```
 
-α 0.52 on the option rows plus an 11 px blur is not enough veil to hide 16.4 px text sitting on a
-chromatic aurora. The screenshots are unambiguous: on mobile, "Scattered" reads *through*
-"Analogous", "Smooth" through the gap above "Complementary", "Drifting" through "Split
-Complementary", and the Colour Energy slider track runs straight across "Triad". Two text runs,
-one set of pixels. This is not a taste call; it is a legibility failure in the component's
-primary interaction state.
+Element present, 8 × 8 px, at (334, 331.3). Its computed paint:
 
-**Mechanism.** Two compounding causes. (a) The menu surface recipe is producer-owned and tuned for
-an opaque-ish app background, not for a translucent card over a live chromatic canvas.
-(b) AuroraPane makes the menu enormous — the trigger is 897.86 px wide (D-3), so the menu inherits
-889.86 px and covers three sibling rows plus two slider rows instead of a compact list beside its
-own row.
+```
+dot.backgroundColor  = "rgba(0, 0, 0, 0)"
+--select-dot-color   = ""                    (unset)
+--glass-accent       = "rgba(0, 0, 0, 0)"    (DEFINED, and transparent)
+```
 
-**Reproduction.** `node probe-D3.mjs`; or navigate to `http://localhost:9000/#/atmosphere`, click
-the Harmony trigger, and read the text behind the menu.
+`var()` falls through only on *undefined*, never on *transparent*. `--glass-accent` is defined, so
+`currentColor` is unreachable and **the marker renders at alpha 0**.
 
-**Cure.** Demo-side: shrink the menu to its content (D-3's cure removes the 890 px inheritance) and
-stop covering the whole form. Producer-side: this needs a **coordination packet, not a wave** —
-glass-ui's SelectContent needs a resting opacity (or an opaque scrim beneath the blur) that is
-sufficient for content-over-chroma compositions. `glass-ui@^7.0.0` is not ours to edit this
-formation.
+Net: `aria-selected="true"` is announced and **nothing whatsoever is drawn**. Selected-state delta
+= **0 px in light, dark, monochrome and forced colors.** This inverts `VISUAL-CONSTITUTION.md` §4.1
+(*"Focus remains visibly distinct from selection in both schemes, forced colors and reduced
+transparency"* — here selection is not merely confusable with focus, it is absent) and fails §4.2 /
+`PROPORTION-AUDIT` §5.14's demand for *"exactly one visible marker [that] agrees with the selected
+option and `aria-selected`"* with a *"nonzero selected-state delta in monochrome and forced colors"*.
+
+The defect hides from casual capture because reka seeds the highlight onto the selected row at open
+time — which is precisely how pass 1 read a ring that belongs to focus as the selection marker.
+
+Consumer half of the cure is one token. The transparent-fallback masking is a producer packet (§5).
 
 ---
 
-## D-3 · MAJOR · Four control edges, three different left margins
+### N-3 · MAJOR — dark mode ships the producer's own *named* "dark-leg defect"
 
-Measured trigger `x`, desktop 1440 (LTR):
+glass-ui `dist/components/aurora/composables/atoms.d.ts`, documenting the `lightnessScheme` atom,
+verbatim:
 
-| row | label width | trigger x | trigger w |
-|---|---:|---:|---:|
-| Harmony | 82.14 | **318.14** | 897.86 |
-| Arrangement | 129.06 | **365.06** | 850.94 |
-| Medium | 70.41 | **306.41** | 909.59 |
-| Motion | 70.41 | **306.41** | 909.59 |
+> `"dark"` shifts the WHOLE ramp into the luminous-dark band [0.18, 0.42] so a derived-from-seed
+> field reads as a rich luminous-dark wash behind glass in a dark shell — **never a washed-pale
+> salmon field with dark cards floating on it (the dark-leg defect)**.
 
-Spread = 365.06 − 306.41 = **58.65 px**. Mobile (390 px viewport): 115.11 / 155.17 / 105.09 /
-105.09 → spread **50.08 px**, which is **14.0 % of the 358 px card**. RTL mirrors the defect rather
-than fixing it — in `frames/rtl.png` the four chevrons land at four different `x`.
+`shots/safari-desktop-dark/atmosphere.png` **is** a washed-pale salmon field with a dark
+brown-mauve card floating on it. The producer named the exact failure mode; the demo renders it.
 
-**Mechanism.** `AuroraPane.vue:187-192`:
+Cause, and it is entirely demo-side:
 
-```css
-.aurora-row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
-```
+- `demo/scenes/atmosphere/aurora-atoms.ts:60–84` (`DEFAULT_AURORA_ATOMS`) sets no `lightnessScheme`.
+- `grep -rn "lightnessScheme\|lBand\|hueSpread\|chromaVariance\|chromaCounterpoint" demo/ --include="*.ts" --include="*.vue"`
+  → matches only prose inside comments; **zero assignments** anywhere in the demo.
+- AuroraPane exposes no control for it. Of the producer's atom surface, the pane exposes 7 and
+  declines 6 — and the one it declines that has a *visible* consequence is the one that fixes its
+  own dark leg.
 
-`space-between` anchors the label left and the control right, so the control's inline-start is a
-function of the label's text length. A label column and a control column are a **grid**, not a
-`space-between` flex row. Four rows, four label lengths, four (well, three) start edges.
-
-This is the visible ugliness in `shots/safari-mobile-light/atmosphere.png` — the four pills form a
-zig-zag left edge that no amount of colour work can rescue.
-
-**Cure.** Delete `.aurora-row` and render through `ConfiguratorRow` (see D-4), which already gives
-the slider rows their single spine.
+`VISUAL-CONSTITUTION.md` §2 requires *"Dark chrome uses the restrained neutral pole"*; §7 requires
+Atmosphere to *"begin chromatic"* under a real seven-atom causal map. The dark leg fails both, and
+the failure is one atom wide. No glass-ui edit is required.
 
 ---
 
-## D-4 · MAJOR · A hand-rolled row primitive beside the glass-ui one, in the same card
-
-`ConfigSliderPane.vue:137` renders every slider row through **`ConfiguratorRow`** imported from
-`@mkbabb/glass-ui/configurator` (`ConfigSliderPane.vue:21`), with the file's own header comment at
-lines 6-10 stating the law:
-
-> "glass-ui already ships `./configurator` with ConfiguratorRow + useConfiguratorState. This
-> component uses ConfiguratorRow for each labeled row so the demo composes the existing glass-ui
-> surface rather than rebuilding the row primitive."
-
-AuroraPane then fills that same component's default slot with **a second, hand-rolled labeled-row
-primitive** (`AuroraPane.vue:118-180`, `.aurora-row` + `.aurora-row-label`). One card, two row
-primitives, seven rows split 4/3 between them.
-
-Everything else in this report is the bill for that decision:
-
-| consequence | finding |
-|---|---|
-| ragged control edge | D-3 |
-| broken vertical spine, two rhythms | D-5 |
-| 36 px tap rung while the sibling rows get 44 px | D-6 |
-| inert, unassociated label | D-7 |
-| leaf label wearing the group-title voice | D-8 |
-| four dead style declarations | D-9 |
-
-Owner edict 4 ("Glass-ui is the design system — reuse existing component-type names") and edict 3
-(KISS, no contrivance) both land here. `.aurora-row-label`'s five declarations
-(`AuroraPane.vue:194-200`) are also a **verbatim copy** of `.config-section-title`
-(`ConfigSliderPane.vue:237-243`) — same five properties, same values, copied not shared.
-
-**Cure.** Delete both scoped classes and both the wrapper `<div>`s; render the four enum atoms as
-`ConfiguratorRow`s whose slot carries the `Select` instead of the `Slider`. Verify first whether
-`ConfiguratorRow` wires `for`/`id` for a non-slider control; if it does not, that is the second
-coordination packet.
-
----
-
-## D-5 · MAJOR · The card has two vertical spines 15 px apart, and two rhythms
-
-```
-desktop  cardX 199  auroraLabelX 224  sectionTitleX 239  sliderRowX 239   Δ = 15 px
-mobile   cardX  16  auroraLabelX  33  sectionTitleX  48  sliderRowX  48   Δ = 15 px
-```
-
-The enum labels start 15 px to the left of every other label in the card, at both viewports.
-Cause: `.console-well` begins at x = 224 (the same inset as the enum block) but adds
-`padding: 0.75rem 0.875rem` (`ConfigSliderPane.vue:189`), pushing its contents to 239 — and the
-enum block never enters the well. Visible in `shots/safari-desktop-light/atmosphere.png`: "HARMONY"
-hangs left of "FIELD" and "Colour Energy".
-
-Rhythm, same measurement run:
-
-```
-auroraRowH   36.00 (desktop)   36.00 (mobile)      auroraRowGaps  [12, 12, 12]
-sliderRowH   60.94 (desktop)   77.59 (mobile)      sliderRowGaps  [6, 6]
-```
-
-Two defects in one table. First, the **looser gap sits on the shorter rows** and the tighter gap on
-the taller ones — optically backwards; taller rows need more air, not less. Second, the aurora rows
-are a **hard 36 px at both viewports** (`h-9`, `AuroraPane.vue:122,142,156,170`) while the sibling
-rows are container-scaled — `ConfigSliderPane.vue:216` gives them
-`min-block-size: clamp(2rem, 7cqi, 2.625rem)` and they grow 60.94 → 77.59.
-
-`VISUAL-CONSTITUTION.md:33` (§3.7): *"Spacing is container-scaled from glass-ui tokens. No
-desktop-tight/mobile-airy fork and no breakpoint pile."* AuroraPane's rows are the only fixed-metric
-rows in the pane, and its enum block carries the breakpoint pile `px-4 sm:px-6 pt-2 pb-1`
-(`AuroraPane.vue:118`).
-
----
-
-## D-6 · MAJOR · Four dead declarations on the same element — the design intent never renders
-
-`probe-D2.json.deadDeclarations`, read off the live Harmony trigger:
-
-```
-classList              …text-dropdown … h-9 text-caption min-w-menu
-selectFontToken        "Fira Code", "Fira Code Fallback", "Fira Mono", monospace
-computedFontFamily     "Plus Jakarta Sans", "Plus Jakarta Sans Fallback", system-ui, sans-serif
-typeCaptionToken       clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )
-typeCaptionResolvedPx  14.375px
-computedFontSize       16.4px
-computedFontStyle      italic
-```
-
-1. **`text-caption` is dead.** It asks for `--type-caption` = **14.375 px**; the element computes
-   **16.4 px**. The producer class list already carries `text-dropdown` and wins. Present on all
-   four triggers (`:122,142,156,170`) and all eighteen `SelectItem`s.
-2. **`--select-font: var(--font-mono)` is dead.** `foundation.css:371-373` declares it a "PROJECT
-   OVERRIDE: monospace fonts for Select and DropdownMenu triggers"; it resolves correctly at
-   `:root` to Fira Code, and the trigger computes **Plus Jakarta Sans**. The override does not
-   reach Glass 7's trigger.
-3. **`max-h-[16rem]` is dead.** 16 rem = 256 px. The open Harmony menu measures `h: 322.28`,
-   `scrollH === clientH === 320`, `scrollable: false`. The cap is not applied.
-4. **`min-w-menu` is inert.** The producer already puts `w-full` on the trigger; the measured widths
-   (850.94–909.59) are flex-fill, never a min-width.
-
-Owner edict 5 — "Root-level styling: style at the shadcn/glass root component level, **never
-per-instance overrides**". Four per-instance overrides, four failures, silently. The rendered
-component is not the component that was designed, and nothing in the build says so.
-
-Consequence that matters visually: `font-style: italic`. The selected value of every one of the
-four controls renders italic, in both schemes, at every viewport. In this app the italic register
-belongs to the pane *description* (`PaneHeader.vue:29`, `.pane-header-desc` — visible italic in
-every screenshot). So the row's protagonist — the current value — wears the voice of explanatory
-prose, which reads as placeholder text. AuroraPane never asks for italic; it accepts it.
-
----
-
-## D-7 · MAJOR · The visible label is not a label
-
-```
-labelTag SPAN   labelHasFor false   trigAriaLabelledby null   labelCursor "auto"
-trigAriaLabel   "Palette harmony"   (visible text: "HARMONY")
-```
-
-Clicking "HARMONY" does nothing. Measured before/after in `probe-D2.json.labelClick`:
-
-```
-before { expanded: "false", focused: "BODY" }
-after  { expanded: "false", focused: "BODY", listboxOpen: false, labelCursor: "auto" }
-```
-
-A `<span>` (`AuroraPane.vue:120,140,154,168`) that is styled exactly like a form label, positioned
-exactly where a form label goes, and does none of a form label's work: no `for`, no
-`aria-labelledby`, no click-to-focus, no pointer affordance, no hit area contribution. The
-adjacent slider rows get the association free from `ConfiguratorRow`'s `label` prop
-(`ConfigSliderPane.vue:139`).
-
-Secondary: the accessible name is a *second vocabulary* — "Palette harmony" / "Zone arrangement" /
-"Painterly medium" / "Motion register" against the visible "HARMONY" / "ARRANGEMENT" / "MEDIUM" /
-"MOTION". Each accessible name happens to contain its visible string, so WCAG 2.5.3 is not breached
-— but two names for one knob is a seat-law defect (`PROPORTION-AUDIT.md:70-71`: every surviving
-control seat has *a* name, singular).
-
----
-
-## D-8 · MAJOR · Hierarchy inversion: leaf labels wear the group-title voice
-
-`probe-D2.json.voice`, three labels in one card:
-
-| element | family | size | weight | tracking | case | colour |
-|---|---|---|---|---|---|---|
-| `.aurora-row-label` "Harmony" (**leaf**) | Fira Code | 16.4px | 400 | 1.64px | uppercase | rgb(112, 89, 66) |
-| `.config-section-title` "Field" (**group**) | Fira Code | 16.4px | 400 | 1.64px | uppercase | rgb(112, 89, 66) |
-| `.configurator-row` "Colour Energy" (**leaf**) | Plus Jakarta Sans | 16.4px | 500 | normal | none | rgb(28, 25, 23) |
-
-The two rows that differ in **rank** are byte-identical. The two rows that are **peers** differ in
-family, weight, tracking, case *and* colour. Exactly inverted. Look at
-`shots/safari-desktop-light/atmosphere.png`: "HARMONY" and "FIELD" are indistinguishable; "HARMONY"
-and "Colour Energy" look like different kinds of thing.
-
-The colour split compounds it: the enum labels are muted `rgb(112,89,66)` while the slider labels
-are full-strength `rgb(28,25,23)`. The four enum rows therefore read as **secondary or disabled**
-relative to the three slider rows, when all seven are peer atoms of the same `AuroraAtoms` door.
-
-**Label:value proportion**, against `PROPORTION-AUDIT.md:15` ("exactly one adjacent glass-ui golden
-typography rung smaller… `label/headline = 1/√φ`", i.e. **0.786**):
-
-```
-desktop  label 16.4px : value 16.4px  →  ratio 1.000   (no hierarchy at all)
-mobile   label 14px   : value 21px    →  ratio 0.667   (value 1.5× the label)
-```
-
-The relation does not merely miss the target — it **inverts direction between viewports**, which
-`PROPORTION-AUDIT.md:16` forbids outright: *"Mobile and desktop use the same source."* Here the two
-rungs resolve from two different clamps that cross somewhere between 390 px and 1440 px.
-
----
-
-## D-9 · MAJOR · Nothing the pane does survives a reload — including the app's only motion stop
-
-```
-probe-D2.json.persistence
-{ "set": "Still", "afterReload": "Drifting", "persisted": false }
-```
-
-Set Motion → Still, reload → Drifting. Every atmosphere tuning is destroyed on reload.
-`useAtmosphere.ts:128` is `reactive(structuredClone(DEFAULT_AURORA_ATOMS))` with no storage read or
-write anywhere in the chain.
-
-Two canon breaches:
-
-- `VISUAL-CONSTITUTION.md:145` — "Continuous Aurora/Blob ambient motion terminates within five
-  seconds **or exposes one persistent keyboard-operable still/pause control whose state is
-  announced and remembered**." The Motion select is the app's only still control. It is not
-  persistent (route-local, behind a Dock navigation), not announced as a motion control (its
-  accessible name is "Motion register"), and — measured — **not remembered**.
-- `VISUAL-CONSTITUTION.md:99` — "Persistent operation state stays with the entity/workspace."
-
-The only escape hatch is **Copy JSON**, which (a) has no matching import anywhere in the app, so it
-is write-only, and (b) serialises `config` = the atoms object — which `useAtmosphere.ts:132-139`
-has written the live picker `seed` onto. So the export silently includes a colour the user did not
-ask to export, and nothing can consume the result.
-
----
-
-## D-10 · MAJOR · Advanced knobs first, essentials below the fold
-
-Measured block heights (identical at both viewports because D-5's rows do not scale):
-
-```
-enumBlockH 192.00        wellH  261.77 (desktop)  /  307.78 (mobile)
-```
-
-The four **advanced** enum atoms consume 192 / (192 + 261.77) = **42.3 %** of the pane's control
-acreage on desktop, 38.4 % on mobile, and they sit **above** the three continuous atoms that give
-immediate feedback. `VISUAL-CONSTITUTION.md:51` specifies the order "preview, **essentials**,
-advanced".
-
-The cost is truncation:
-
-```
-mobile     scrollH 632  clientH 456  hidden 176 px  = 27.8 % of the form
-zoom-200   scrollH 567  clientH 259  hidden 308 px  = 54.3 % of the form
-desktop    scrollH 574  clientH 574  hidden   0
-```
-
-And the clip lands badly. In `shots/safari-mobile-light/atmosphere.png` the cut falls **between
-"Noise 0.500" and its slider** — the label is visible, the control it names is not. A scroll region
-that severs a label from its control is a rhythm defect regardless of the scroll affordance;
-`ConfigSliderPane.vue:104-105` explicitly reasoned about the *footer* never occluding a slider, but
-not about the scroll boundary bisecting a row.
-
-At 200 % zoom the header plus the four enums fill the entire 259 px window; the essentials are
-wholly below the fold. (`overflowX` is 0 at every matrix, so WCAG 1.4.4 reflow itself is not
-breached — see negative results.)
-
----
-
-## D-11 · MINOR · The palette specimen is the smallest thing in the row that exists to show it
-
-The `PreviewStrip` (`AuroraPane.vue:130-133`) is the reason the harmony row was built (T-17,
-"the palette each candidate harmony would resolve from the CURRENT atoms"). Measured, desktop:
-
-```
-optionRect          { w: 889.86, h: 51.69 }
-chips               4 × { w: 10.47, h: 16.39 }
-stripTotalW         41.88          →  4.7 % of the option's width
-optionTextWidthShare 8.29 %
-```
-
-A 41.88 px specimen in an 889.86 px row. **~87 % of every option row is empty.** Six harmonies,
-each represented by four 10 px chips, are meant to be compared against each other — at 10 px a
-chip, chroma differences between `analogous` and `split-complementary` are barely resolvable, and
-`frames/desktop-light-harmony-open.png` shows the strips are additionally washed out by the α 0.52
-option surface (D-2) sitting over them.
-
-`PROPORTION-AUDIT.md:5` names this failure in its opening sentence: *"The glass-ui golden ladders
-supply adjacent rungs; they do not excuse a mechanically large gap, **an undersized specimen**, or
-decoration without information."*
-
-Compounding: the strip exists **only inside the open menu**. The closed trigger — the state the
-control is in essentially always — shows the word "Analogous" and nothing else. On a pane whose
-entire subject is colour, the closed state of its colour control carries zero colour. Arrangement,
-Medium and Motion have no preview at any time, in any state.
-
----
-
-## D-12 · MINOR · The Zones slider ships pinned at its own ceiling
-
-`AuroraPane.vue:103` — `{ key: "zones.count", label: "Zones", min: 1, max: 6, step: 1 }`.
-`aurora-atoms.ts:56` — `zones: { count: 6, … }`.
-
-Default **equals maximum**. The slider ships with five units of downward travel and zero upward;
-the thumb is jammed against the right cap in every one of the four Safari captures (visibly
-clipping the track's rounded end in `shots/safari-desktop-dark/atmosphere.png`). A control whose
-rest state sits on a boundary communicates "broken / maxed out", not "tuned".
-
-Also a duplicated producer constant with no seam: `aurora-atoms.ts:36-38` documents
-`MAX_NUCLEI = 6, presets.ts:346 — a shader #define`, and `AuroraPane.vue:103` hand-copies the 6.
-Two copies of one producer number; a producer ceiling lift silently desynchronises them.
-
----
-
-## D-13 · MINOR · A ternary with two identical branches, and an unreachable atom
-
-`AuroraPane.vue:85-91`:
+### N-4 · MAJOR — glass-ui ships the labeled-form-control primitive, its own doc forbids pass-1's cure, and the demo consumes it **zero** times
+
+Pass 1 correctly identified the hand-rolled row (its D-4/D-7) and proposed rendering the four enums
+through `ConfiguratorRow` — then listed as open coordination question #1: *"Does `ConfiguratorRow`
+accept a non-slider control in its slot with the label association wired?"*
+
+**Answered, from the producer's own type doc** (`dist/components/configurator/ConfiguratorRow.vue.d.ts`):
+
+> \# ConfiguratorRow vs LabeledField
+> - **ConfiguratorRow** (this) — for TOKEN, PRESET controls. Carries the token-`name` reference, the
+>   opt-in `reset` affordance (`canReset`), and the three-rung `size` axis. **No a11y for/id wiring.**
+> - **LabeledField** — for form controls. Carries stable label, description, error, requirement,
+>   state, and layout associations without styling the control.
+>
+> Reach for ConfiguratorRow only when token metadata or reset is the content; **use LabeledField
+> directly for an accessible form control**, including inside a Configurator. Never nest both solely
+> to repeat a label.
+
+So pass-1's Move 2 would have shipped the enum rows into the one row primitive the producer
+explicitly says does **not** wire `for`/`id` — i.e. it would have fixed alignment and left pass-1's
+own D-7 (the inert label) unfixed.
+
+The right primitive exists, and it is specialised for this exact case
+(`dist/components/labeled-field/index.d.ts`):
 
 ```ts
-function setMedium(v: AcceptableValue) {
-    // `smooth` carries no texture amount; textured mediums let glass-ui apply
-    // its own default amount (the atom shape forbids an `amount` on `smooth`,
-    // and an absent `amount` on a textured kind is valid — glass-ui defaults it).
-    const kind = String(v) as AuroraMedium;
-    atoms.medium = kind === "smooth" ? { kind } : { kind };
-}
+export { default as LabeledField }  from "./LabeledField.vue";
+export { default as LabeledSelect } from "./LabeledSelect.vue";
 ```
 
-Both branches evaluate to `{ kind }`. Four lines of comment describe a distinction the code does
-not make. The design intent it records — that textured media carry a texture `amount` — is real,
-and `medium.amount` is **not exposed anywhere in the pane**, so choosing `watercolor` or `vangogh`
-gives the user a medium with no way to tune its strength. Seven "knobs" is the door; the pane
-reaches six and a half.
+```ts
+// types.d.ts
+export type LabeledFieldLayout = "default" | "horizontal";
+export interface LabeledSelectProps extends LabeledFieldCommonProps {
+  modelValue: string; items: readonly string[]; open?: boolean; placeholder?: string;
+  invalid?: boolean; disabled?: boolean; required?: boolean;
+}   // + label, description, requirement, layout, errorLive
+```
+
+That is an aurora row, label column, `horizontal` layout, description, disabled and invalid states
+included. Census:
+
+```
+$ grep -rn "LabeledField\|LabeledSelect" demo/ --include="*.vue" --include="*.ts"   →  0 hits
+```
+
+The demo has never used the design system's form-field layer. Owner edicts 3 (KISS, no contrivance)
+and 4 (glass-ui is the design system) land here, and the finding is *sharper* than pass-1's: the
+pane did not merely re-roll a row, it re-rolled a row **whose correct version ships with error,
+disabled, requirement and layout states the hand-roll has none of** (see the state table, §3).
 
 ---
 
-## INFO — observed, attributed elsewhere
+### N-5 · MAJOR — the pane advertises a 7-way medium axis and collapses 5 of the 7 to a single unparameterised state
 
-- **D-14 · no `<h1>` on the route.** `audit/visual/REPORT.md:126,141,156,171` — the `h1` column
-  reads **0** for `/#/atmosphere` in all four Safari matrices. `PaneHeader.vue:21` renders
-  `<h3 class="pane-header-title">`, so the route's only heading is an h3 with no h1 or h2 above it.
-  `VISUAL-CONSTITUTION.md §5.1` requires "the single visible H1 exist before app-ready" and routes
-  focus to "destination H1". AuroraPane supplies `title="Atmosphere"`; PaneHeader chooses the tag.
-  **Owned by the PaneHeader seat** — flagged here, not counted against this component.
-- **D-15 · no loading or error state for the pane at all.** `usePaneRouter.ts:77` is a bare
-  `defineAsyncComponent(() => import("../scenes/atmosphere/AuroraPane.vue"))` — no
-  `loadingComponent`, no `errorComponent`. A chunk-load failure renders nothing, silently. Family-wide.
-- **D-16 · `inject(AURORA_ATOMS_KEY)!`** (`AuroraPane.vue:42`) — non-null assertion, no guard. The
-  component has no designed state for "provider absent"; it throws on first property read.
-- **D-17 · non-idiomatic reactivity with a real cost.** `harmony()`, `arrangement()`, `medium()`,
-  `motion()` (`:73-76`) are plain functions invoked in the template rather than `computed`, and
-  `auroraHarmonyStops(atoms, h)` (`:132`) runs inside `v-for`. Each render of an open Harmony menu
-  performs **six full `resolveCalibratedAtmosphere` palette solves**. Edict 7 (idiomatic Vue 3.5)
-  and a design consequence: the comment at `:36-38` claims "zero rest cost", which is true, but the
-  open-menu cost is six solves per render, not per open.
-- **D-18 · forced-colors is unproven, both ways.** Under WebKit's `forcedColors: "active"`
-  emulation the pane renders essentially unchanged (`frames/forced-colors.png`) and focus reports
-  `outline: solid 2px rgba(128,188,254,0.6)` — WebKit's own ring, not the app's. The structural
-  risk is real and unmeasured: the trigger computes `backgroundColor: rgba(0,0,0,0)` with
-  `border: solid 1px color(srgb 0.11 0.098 0.09 / 0.14)` — an **alpha-only boundary**, exactly what
-  a real Windows HCM flattens away, and the row has no other boundary. Labelled a **hypothesis**;
-  it needs a real HCM machine, not an emulator.
+Pass 1 found the identical-branch ternary (`AuroraPane.vue:85–91`). The design consequence is
+larger than "four lines of comment describe a distinction the code does not make."
 
----
+The producer's atom union (`atoms.d.ts:160–176`):
 
-## State coverage
+```ts
+export type AuroraAtoms = AuroraAtomsBase & (
+  { medium?: { kind: "smooth" }; interactivity?: AuroraSmoothInteractivityAtom }
+| { medium: { kind: Exclude<AuroraMedium,"smooth">; amount?: number };
+    interactivity?: AuroraPainterlyInteractivityAtom });
+```
 
-A state that was never designed is a design defect. Enumerated:
+Every textured medium carries a second axis, `amount`. Nothing in the demo ever writes it. So
+**Watercolor, Oil, Crayon, Vangogh and Oil-Pastel — five of the seven `MEDIA` options
+(`AuroraPane.vue:54–62`) — each have exactly one strength, permanently.** The `MEDIUM` control
+presents a seven-way choice over a space that is really 2 kinds × 1 unreachable amplitude.
 
-| state | handled? | evidence |
-|---|---|---|
-| populated (default) | yes | 4 Safari matrices |
-| **empty** | **n/a but unguarded** | no empty state possible; `inject(…)!` has no absent-provider design (D-16) |
-| **loading** | **NO** | bare `defineAsyncComponent`, no `loadingComponent` (D-15) |
-| **error** | **NO** | no `errorComponent`; no design for a failed atmosphere derive |
-| **disabled** | **NO** | no path sets `disabled`; producer classes present, never exercised |
-| focused | partial | ring is `outline:none` + a 2 px box-shadow at α 0.30; survives in WebKit, unproven under HCM (D-18) |
-| hovered | producer-owned | `glass-capsule-hover` on the trigger; the `.aurora-row` and its label have **no** hover (D-7) |
-| active / pressed | producer-owned | `tap-squish` |
-| **open (dropdown)** | **BROKEN** | D-2 — 193,875 px² bleed-through; never previously captured |
-| selected (in menu) | partial | 1 px pink ring spanning the full 889.86 px option — a second boundary species over the menu's own (PR-05) |
-| dragging | n/a | slider drag is `ConfiguratorRow`/producer |
-| **overflowing / truncated** | **BROKEN** | D-10 — 176 px hidden mobile, 308 px at 200 % zoom, clip bisects the Noise row |
-| RTL | **sound** | mirrors correctly; `overflowX 0`; raggedness mirrors with it (D-3) |
-| reduced-motion | root-verified, not re-probed | per seat instruction |
-| forced-colors | **unproven** | D-18 |
-| zoomed 200 % | partial | no overflow, menu fits — but 54.3 % of the form is below the fold (D-10) |
+`VISUAL-CONSTITUTION.md` §7 requires *"every select/axis has an observable effect on its live
+preview"*. The *kind* axis clears that bar; the amplitude axis the producer exposes is unreachable
+from the UI — and, per N-1, there is no live preview to observe it on anyway.
+
+Same mechanism family, one line up: `setArrangement` (`:82–84`) rebuilds `{ count, arrangement }`
+from scratch, so any sibling key on `zones` is dropped on every arrangement change. The write is
+structurally lossy independent of today's atom shape.
 
 ---
 
-## Canon judgement
+### N-6 · MINOR — the italic control face clips its own terminal glyph
 
-| authority | clause | verdict |
-|---|---|---|
-| `PROPORTION-AUDIT.md:54` | PR-10 Atmosphere form acreage exceeds preview → TIGHTEN | **OPEN** — preview = 0 % (D-1) |
-| `PROPORTION-AUDIT.md:5` | "an undersized specimen" | **BREACHED** — 41.88 px strip in an 889.86 px row (D-11) |
-| `PROPORTION-AUDIT.md:15-16` | paired rungs at `1/√φ`; one source for mobile and desktop | **BREACHED** — 1.000 desktop, 0.667 mobile (D-8) |
-| `PROPORTION-AUDIT.md:49` | PR-05 dividers/boundaries repeat → REMOVE | **AT RISK** — the "FIELD" rule beneath a single-section header, plus the full-width selected-option ring |
-| `VISUAL-CONSTITUTION.md:29` | preview larger than the form at every desktop size | **BREACHED** (D-1) |
-| `VISUAL-CONSTITUTION.md:51` | preview → essentials → advanced; scroll-confined advanced disclosure | **BREACHED** — no preview, no split, advanced first (D-1, D-10) |
-| `VISUAL-CONSTITUTION.md:33` (§3.7) | container-scaled spacing, no breakpoint pile | **BREACHED** — fixed 36 px rows, `px-4 sm:px-6` (D-5) |
-| `VISUAL-CONSTITUTION.md:104` | one domain-neutral axis composition over BI Slider | **HELD** — the sliders do ride `ConfiguratorRow` |
-| `VISUAL-CONSTITUTION.md:145` | still/pause state announced **and remembered** | **BREACHED** (D-9) |
-| `VISUAL-CONSTITUTION.md:214` | "every select/axis has an observable effect on its live preview" | **BREACHED** (D-1) |
-| `VISUAL-CONSTITUTION.md §5.1` | one visible H1 per route | **BREACHED**, PaneHeader-owned (D-14) |
-| `PALETTE-CONTRACT.md` | — | no clause of the contract is engaged by this component; the strips are live-resolved, not canned (`aurora-harmony-stops.ts:38`), and the vitest oracle holds them to a direct recompute |
+Pass 1 found the italic (its D-6) and read it as a voice error. It is also a **render** error.
 
-## Owner edicts
+The value box is sized to the glyph *advance* width and carries `overflow: hidden;
+text-overflow: clip` (measured, `scratchpad/D-aurora-probe2.mjs`). Layout therefore reports no
+overflow — `clientWidth === scrollWidth` (74 === 74 for "Scattered") — while the box's fractional
+rect is 73.67 px and the italic `d` paints past its own advance. `overflow: hidden` clips **paint**,
+not just layout, so the tail is sliced and no `scrollWidth` check can ever detect it.
 
-| edict | verdict |
-|---|---|
-| 1. no god modules | **CLEAN** — 201 lines, one concern |
-| 2. no legacy code / dual paths | **CLEAN** — `demo/ui/select` is a single re-export used by all six Select consumers; no competing direct-glass-ui import exists (`grep -rn "SelectTrigger" demo --include="*.vue" \| grep glass-ui` → 0 imports) |
-| 3. KISS, no contrivance | **VIOLATED** — a second row primitive invented beside the existing one (D-4) |
-| 4. glass-ui is the design system | **VIOLATED** — `.aurora-row` hand-rolls `ConfiguratorRow` (D-4) |
-| 5. root-level styling, never per-instance overrides | **VIOLATED** — four per-instance overrides, all four inert (D-6) |
-| 6. animations never deleted | **CLEAN** — the component declares no keyframes, deletes none, hand-rolls no motion; all motion on its surface is producer-owned |
-| 7. idiomatic Vue 3.5 | **WEAK** — getter functions where `computed` belongs; six palette solves per open-menu render (D-17) |
-| 8. `verbatimModuleSyntax` | **CLEAN** — all four type imports are `import type` (`:25, :26-31, :34`) |
+Rendered proof at DPR 3 — `scratchpad/D-rows-3x.png`: **"Scattered" loses the right stem of its
+final `d` to a straight vertical cut.** Reproduced at DPR 2 in `scratchpad/D-probe-zoom200.png`
+("Scattereᴅ", "Smootһ", "Driftin").
+
+Also new, and it compounds pass-1's D-11: at the size the `PreviewStrip` is drawn (≈40 px of an
+890 px row, 4.5 %), the two harmonies the strip most needs to separate — `Analogous` and
+`Monochrome` — render as **visually identical pink triples** (`scratchpad/D-probe-menu-open.png`).
+The affordance is substantively correct and defeated by its scale.
 
 ---
 
-## Negative results — what I checked and found sound
+### N-7 · MINOR — the component types itself on a **devDependency**, past a design system that already narrows the type
 
-Stated so the absence of a finding is evidence, not silence.
+`AuroraPane.vue:25` — `import type { AcceptableValue } from "reka-ui";`
 
-- **No horizontal overflow anywhere.** `documentElement.scrollWidth − clientWidth === 0` at
-  desktop LTR, RTL, and the 200 %-zoom matrix. The visual REPORT agrees: `horizontalOverflow — 0`.
-- **RTL is structurally correct.** `frames/rtl.png` — labels mirror to the inline-end, controls to
-  the inline-start, footer button order reverses, no overflow. The only RTL artefact is the bidi
-  period leading the description string, which is content/PaneHeader-owned.
-- **The 200 %-zoom menu fits.** The longest menu (Medium, 7 options) measures `h: 270` in a 450 px
-  viewport, `overflowBottom: −153`, **7 of 7 options visible**, not scrollable. I expected a clip
-  here and did not find one.
-- **No page errors on the route.** `REPORT.md:126,141,156,171` — `pageErr 0`, `consoleErr 0` in all
-  four Safari matrices. The one console error in the whole audit is on `/#/`, not here.
-- **The harmony strips tell the truth.** `aurora-harmony-stops.ts:38` resolves through
-  `resolveCalibratedAtmosphere({...atoms, harmony})` — the same calibrated path selection uses, held
-  to a direct recompute by `test/preview-chips.test.ts`. The strips are too small (D-11) but they
-  are not lying.
-- **Reduced motion** — not born-RED here, per the root's verified `raf/1.5s = 0` finding.
-- **C2 "aurora palette-blind static-Sky"** — not re-litigated. The chronic is producer-signature,
-  not AuroraPane's; D-1 is a distinct and larger defect (there is no preview to be palette-blind on).
+`package.json` `dependencies` is exactly `{ "@mkbabb/glass-ui": "^7.0.0", "@mkbabb/keyframes.js":
+"^6.0.0" }` — **`reka-ui` is a devDependency**. Shipped app source types itself on glass-ui's
+transitive UI kernel.
+
+glass-ui narrows it already (`dist/components/select/Select.vue.d.ts:13–14`):
+
+```ts
+export interface SelectEmits { "update:modelValue": [value: SelectionValue] }   // string | number
+```
+
+Because the imported type is wider than the emit actually is, all four setters must launder it —
+`String(v) as AuroraHarmony` (`:79`), `as AuroraZoneArrangement` (`:83`), `as AuroraMedium` (`:89`),
+`as AuroraMotionAtom` (`:93`): a runtime coercion **plus** an unchecked assertion, neither of which
+validates the result against `HARMONIES` / `ARRANGEMENTS` / `MEDIA` / `MOTIONS`. Owner edicts 2 (no
+masking fallbacks) and 4. `import type` erases at build, so this is a layering and correctness
+defect rather than a runtime one — pass 1 marked edict 8 CLEAN on form, which is right; the *source*
+is the problem, not the syntax.
 
 ---
 
-## Proposed cure — one transposition, not thirteen patches
+## 2. Corrections to pass 1
 
-Twelve of the thirteen findings collapse into two moves.
+### C-1 · `text-caption` is not dead — it is **half**-applied, and the half that lands is the damage
 
-**Move 1 — the pane becomes an instrument.** Transpose `/atmosphere` from "a form card floating over
-the page ground" to the constitution's `preview-dominant` composition: a bounded live aurora stage
-at 66.6666667 % of the desktop scene, the control column at 33.3333333 %, and mobile as
-stage → inspector → action (`§3.6`). Reorder to preview → essentials (colour energy, noise, zones)
-→ advanced disclosure (harmony, arrangement, medium, motion). Persist the atoms to the workspace.
-This closes **D-1, D-9, D-10**, satisfies PR-10, and is the only thing that can give
-arrangement/medium/motion the observable effect `§214` demands.
+Pass-1 D-6 claim 1 reads: *"`text-caption` is dead. It asks for `--type-caption` = 14.375 px; the
+element computes 16.4 px. The producer class list already carries `text-dropdown` and wins."*
 
-**Move 2 — delete the second row primitive.** Remove `.aurora-row`, `.aurora-row-label`, and the
-wrapper `<div>` at `AuroraPane.vue:118`; render the four enum atoms through the same
-`ConfiguratorRow` the three sliders already use, with the `Select` in the control slot. One row
-primitive gives, for free: one spine, one container-scaled rhythm, one aligned control edge, the
-coarse-pointer 44 px hit rung, the `label`↔control association, and one label voice. This closes
-**D-3, D-4, D-5, D-6, D-7, D-8** — and with the menu no longer inheriting a 890 px trigger width, it
-removes most of **D-2**'s blast radius.
+Measured (`scratchpad/D-probe6.mjs`, `D-probe7.mjs`), resolved **at the trigger's own container**:
 
-The residue is small and local: put the `PreviewStrip` on the closed trigger sized to the row
-(D-11); make `zones.count` read its ceiling from the producer instead of a hand-copied `6`, and
-move the default off the boundary (D-12); delete the identical-branch ternary and either expose
-`medium.amount` or stop claiming it (D-13); replace the getter functions with `computed` (D-17).
+```
+trigger classes (type)     ["text-dropdown", "text-caption"]
+computed font-size          16.4px
+computed font-style         italic
+--type-caption   clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )               → 14.384px
+--type-small     clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )            → 16.4px
+--dropdown-text  calc(clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem ) * 1)  → 16.4px
+```
 
-**Coordination packets — not waves.** glass-ui is `@mkbabb/glass-ui@^7.0.0` and is not ours to edit
-this formation. Three producer-side questions, verify-first, to be sent as mail:
+and glass-ui's rule is exactly one declaration: `text-dropdown { font-size: var(--dropdown-text) }`.
 
-1. Does `ConfiguratorRow` accept a non-slider control in its slot with the label association wired?
-   Move 2 depends on it.
-2. `SelectContent` resting opacity (measured α 0.7488 content / **α 0.52 option**, `blur(11px)`) is
-   insufficient to occlude 16.4 px text over a live chromatic canvas — D-2. Producer recipe.
-3. Is `--select-font` still a live seam in Glass 7? Measured, the demo's root override does not
-   reach the trigger, and the trigger renders sans **italic** — D-6.
+So:
+
+- the **font-size** arm of `text-caption` loses to `text-dropdown` — pass 1 is right on that arm;
+- the **`font-style: italic`** arm has *no competitor* (`text-dropdown` declares font-size only),
+  so it lands, on all four triggers and all eighteen options. `text-caption` is the sole source of
+  the slant. It is not dead.
+
+This matters for the cure, and the corrected reading is *better news* than pass 1's: **glass-ui's
+`text-dropdown` already resolves to `--type-small` = 16.4 px — exactly the rung
+`VISUAL-CONSTITUTION.md` §4 mandates for controls and dropdown options.** The producer default is
+canon-conformant. The consumer's `text-caption` therefore buys nothing but the italic — which
+breaches §4's closed matrix (the italic caption is the annotation voice; §4 puts controls and
+options at non-bold Plus Jakarta `text-small`) and clips glyphs (N-6). Deleting the eight
+`text-caption` stamps needs **no replacement class**; the producer role is already correct
+underneath. Pass-1's framing ("the rendered component is not the component that was designed")
+implies a specificity bug to chase; there is none.
+
+Pass-1's D-6 claims 2 (`--select-font` dead) and 4 (`min-w-menu` inert) are confirmed. Claim 3
+(`max-h-[16rem]` dead) is confirmed with a sharper number: computed `max-height` on the open listbox
+measures **384px**, not the 256 px the class asks for.
+
+### C-2 · the `1/√φ` clause does not govern this component
+
+Pass-1 D-8 judges AuroraPane's label:value ratio against `PROPORTION-AUDIT.md:15–16`'s
+`label/headline = 1/√φ`. That clause is **Picker-specific**: `:15` opens *"W20/W29 therefore freeze
+this result"* and `:16` is P019's paired clamp for the Picker identity/headline pair;
+`VISUAL-CONSTITUTION.md` §4 names it *"the sole paired-scale exception"* for Picker. It does not
+reach a form label and its control value.
+
+The correct authority for these rows is §4's role matrix, under which **both** a control and a label
+sit at `text-small` — so an equal rung between the two is not itself a defect. Pass-1's *observation*
+survives intact and is the real finding, restated correctly: the enum label wears the **mono /
+uppercase / caps-tracked / muted** voice that `.config-section-title` uses for a **group heading**
+(the two rules are byte-identical, `AuroraPane.vue:194–200` vs `ConfigSliderPane.vue:237–243`;
+measured identical computed values), so a leaf label is typographically indistinguishable from the
+section title beneath it while differing from its own peer labels in family, weight, tracking, case
+and colour. That is a §4 jurisdiction breach and a hierarchy inversion. It is not a `1/√φ` breach.
+
+The mobile 14 px : 21 px figure pass 1 reports also needs care: it compares the mono label token
+against a differently-clamped value rung; it is a real cross-viewport inconsistency, but
+`PROPORTION-AUDIT.md:16`'s *"Mobile and desktop use the same source"* is likewise a P019/Picker
+sentence. The honest statement is: two clamps, two crossing curves, no single source — a §3.7
+container-scaling breach (which pass-1 already lands independently as its D-5).
+
+### C-3 · pass-1's Move 2 names the wrong primitive
+
+Superseded by **N-4**. `ConfiguratorRow` is documented "No a11y for/id wiring"; `LabeledField` /
+`LabeledSelect` is the producer's named component for an accessible form control, and it is unused
+in the demo. The revised cure is in §5.
+
+---
+
+## 3. State coverage — delta from pass 1
+
+Pass-1's table is sound. Three rows change:
+
+| state | pass 1 | pass 2 | evidence |
+|---|---|---|---|
+| **selected (in menu)** | "partial — 1 px pink ring" | **BROKEN — 0 px delta** | N-2; the ring belongs to `data-highlighted`, not `aria-selected` |
+| **forced-colors** | "unproven, both ways" | **partially RESOLVED** | measured under `forcedColors: "active"`: focused trigger reports `outline-style: solid`, `outline-width: 2px`, `outline-color: rgba(5,0,73,.8)`, `border: 1px solid rgba(5,0,73,.8)` — **focus and boundary both survive**, the producer handles it. What does *not* survive is selection (N-2), and the ragged column (pass-1 D-3) becomes conspicuous once glass is stripped: see `scratchpad/D-probe-forced-colors.png` |
+| **disabled / error** | "NO" | **NO, and now attributable** | `LabeledSelect` ships `disabled`, `invalid`, `requirement` and an `error` slot (N-4). The hand-rolled row has no seat for any of them — the states are not merely unimplemented, the chosen primitive cannot express them |
+| **truncated / zoomed** | BROKEN | **CONFIRMED, same numbers** | independently measured at 720×450 / DPR 2: `.pane-scroll-fade` scrollHeight **567** / clientHeight **259** = 45.7 % visible; `.app-layout` 456/450 |
+| **RTL** | sound | **CONFIRMED sound** | measured `dir=rtl`: labels 1086.9…1145.6, triggers all x 224, `scrollWidth === 1440` |
+
+---
+
+## 4. Independently re-measured and confirmed
+
+Stated so convergence is visible rather than assumed. All from
+`scratchpad/D-aurora-probe.{mjs,json}` against `http://localhost:9000/#/atmosphere`.
+
+- **Ragged control column**, 1440: trigger `x` = 318.10 / 365.06 / 306.41 / 306.41, widths
+  897.86 / 850.94 / 909.59 / 909.59 — spread **58.65 px**, exactly the label-width delta
+  (`ARRANGEMENT` 129.06 − `MEDIUM` 70.41). Mobile 390: spread 50.08 px = 14.0 % of the 358 px card.
+  **New arm — 320 px:** the `min-w-menu` floor (`--menu-min-w: 11rem` = 176 px,
+  `foundation.css:445`) clamps two rows, giving 176 / 176 / 181.9 / 181.9 — a 5.9 px mismatch, too
+  small to read as intent, large enough to read as broken.
+- **Label voice identity**: `.aurora-row-label` and `.config-section-title` both compute
+  `"Fira Code" 16.4px, uppercase, letter-spacing 1.64px, rgb(112,89,66)` — zero delta between a
+  leaf label and a group heading.
+- **No page or console errors** on the route in any of the four Safari matrices
+  (`visual/REPORT.md:126,141,156,171`).
+- **No horizontal overflow** at 1440 / 390 / 320 / 720-dpr2 / RTL: `scrollWidth === innerWidth`.
+- **The harmony strips tell the truth** — `aurora-harmony-stops.ts:38` resolves through
+  `resolveCalibratedAtmosphere({...atoms, harmony})`; six visibly distinct palettes render in
+  `scratchpad/D-probe-menu-open.png`. **C2 "aurora palette-blind static-Sky" did not reproduce
+  here.**
+- **`SelectItem`'s `#description` slot is real producer API** (`SelectItem.vue.d.ts` declares
+  `description?: (props: {}) => any`) — the `PreviewStrip` usage is not a slot invention.
+- **Reduced motion** — not born-RED, per the root's verified `raf/1.5 s = 0`.
+- **Edicts 1 (no god module), 6 (no motion deleted — the component declares none), 8
+  (`verbatimModuleSyntax`)** remain CLEAN.
+
+Cross-engine check: the Safari capture and my chromium probe agree on the pane rect to <5 px, so
+every geometry claim here is engine-independent. My probe ran against a dev server displaying a
+`DEV MISCONFIGURED` shell badge; it affects no measurement used above and does not appear in the
+Safari matrix.
+
+---
+
+## 5. Revised cure — three moves, one of them corrected
+
+The consolidated 19-defect set collapses into three mechanisms: **the route has no protagonist
+region**, **the pane hand-rolls a form field the design system already ships**, and **the atom door
+is narrower than the producer's**.
+
+**Move 1 — the pane becomes an instrument.** (Unchanged from pass 1, with the binding citation.)
+Build `/atmosphere` as the P122 `preview-dominant` `InstrumentChassis`
+(`@mkbabb/glass-ui/instrument-chassis`, currently 0 usages in `demo/`): a bounded live aurora stage
+at 66.6666667 %, the atom inspector at 33.3333333 %, boundaries `[]`, reserve `none`, form sections
+not Cards, order preview → essentials → advanced, mobile stage → inspector → action. Closes
+pass-1 D-1/D-9/D-10 and N-1, satisfies PR-10, retires the inner scroller, and — by removing two
+thirds of the inline space from the form — makes the 890 px trigger (and therefore most of pass-1's
+D-2 blast radius, and N-6's 4.5 % specimen) structurally impossible.
+
+**Move 2 — CORRECTED: consume `LabeledSelect`, not `ConfiguratorRow`.** Delete `.aurora-row`,
+`.aurora-row-label`, the wrapper `<div>` at `AuroraPane.vue:118` and all eight `text-caption`
+stamps. Render the four enum atoms as `LabeledSelect layout="horizontal"` (label column, real
+`for`/`aria-labelledby`, `disabled`/`invalid`/`description`/`error` seats) and keep the three
+numerics on `ConfiguratorRow` + `Slider`, both inside one `<Configurator>` supplying the size rung.
+One spine, one measure, one container-scaled rhythm, one label voice, one accessible name per
+control — and the italic dies with the class, taking N-6's glyph clip with it and leaving the
+producer's already-conformant `text-dropdown` (= `--type-small`) in place with no replacement class
+needed. Closes pass-1 D-3/D-4/D-5/D-6/D-7/D-8 and N-4, N-6, and C-1.
+
+**Move 3 — widen the atom door to the producer's actual surface.** Type the setters on glass-ui's
+`SelectionValue`, drop the `reka-ui` import and the four `String(...) as …` launders (N-7), collapse
+the dead ternary to one write, and expose the two atoms whose absence is currently *visible*:
+`medium.amount` (a slider mounting only for textured kinds — N-5) and `lightnessScheme` (defaulted
+from the resolved colour mode, which alone cures the dark leg — N-3). Read `zones.count`'s ceiling
+from the producer instead of the hand-copied `6` (pass-1 D-12), and replace the getter functions
+with `computed` (pass-1 D-17).
+
+### Coordination packets to glass-ui — answers and one new item
+
+glass-ui is `@mkbabb/glass-ui@^7.0.0` and is **not ours to edit this formation**; these are mail,
+not waves.
+
+1. **Pass-1's open question #1 is ANSWERED and needs no packet.** `ConfiguratorRow` is documented
+   "No a11y for/id wiring"; `LabeledField` / `LabeledSelect` is the producer's named component for
+   an accessible form control and already ships. Consumer-side fix only.
+2. **`SelectContent` resting opacity** (pass-1 D-2 — α 0.7488 content / α 0.52 option, `blur(11px)`)
+   is insufficient to occlude 16.4 px text over a live chromatic canvas. Producer recipe. **Stands.**
+3. **`--select-font` seam** (pass-1 D-6 claim 2) — the demo's root override does not reach the
+   Glass 7 trigger. **Stands.**
+4. **NEW — the selected-marker fallback chain swallows itself.** `SelectItem`'s marker inks through
+   `var(--select-dot-color, var(--glass-accent, currentColor))`. `var()` falls through only on
+   *undefined*; a **defined-but-transparent** `--glass-accent` (measured `rgba(0,0,0,0)` at `:root`
+   in this app) therefore wins and `currentColor` is never reached, so the marker paints at alpha 0
+   and every `aria-selected="true"` option is visually unmarked. Suggested producer fix: ink the
+   marker through a token that cannot be transparent, or floor the chain (`color-mix` /
+   `@supports`) rather than relying on undefined-only fallthrough. Any consumer under a
+   transparent-accent root inherits an invisible selected state — this is not AuroraPane-local.
+
+---
+
+## 6. Verdict
+
+**DEFECTIVE.** Nineteen distinct design defects across the two passes; two blockers, both confirmed.
+
+The strongest defect is **N-1 / pass-1 D-1**: `OPTICAL-BENCH-COMPOSITIONS.md:46` binds Atmosphere to
+a `preview-dominant` chassis — Aurora preview 66.6666667 %, inspector 33.3333333 %, "form sections
+not Cards", boundaries `[]` — and the route ships **0 % preview / 100 % inspector inside a Card
+with two boundaries**, with `InstrumentChassis` unconsumed anywhere in `demo/`. The surface built to
+tune the atmosphere is the surface covering it.
+
+The most *correctable* defect is **N-4**: the design system already ships `LabeledSelect` with the
+label column, the association, and the disabled/invalid/error seats this pane lacks, and the demo
+has never once imported it. Pass 1 reached for `ConfiguratorRow` and would have shipped the
+alignment fix while leaving the inert label in place; the producer's own doc says which component to
+use.
 
 ---
 
 **Report path:** `/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/AuroraPane/challenge-D-design.md`
+**Pass 1 preserved:** `/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/AuroraPane/challenge-D-design-pass1.md`
+**Probes (tracked):** `.../AuroraPane/pass2/probes/` — `D-aurora-probe.mjs` + `.json`,
+`D-aurora-probe2.mjs`, `D-aurora-probe3.mjs`, `D-probe4.mjs`, `D-probe5.mjs`, `D-probe6.mjs`,
+`D-probe7.mjs`. Run any of them with `node <file>` against a live `http://localhost:9000`.
+**Frames (tracked):** `.../AuroraPane/pass2/frames/` —
+`D-probe-{desktop-1440,mobile-390,narrow-320,zoom200,forced-colors,rtl,menu-open}.png`,
+`D-rows-3x.png` (the DPR-3 glyph-clip crop), `D-menu-kb.png` (selection vs keyboard highlight),
+`D-fc-focus.png` (forced-colors focus).
+
+Every `scratchpad/…` path cited in the body resolves to the corresponding file under
+`pass2/probes/` or `pass2/frames/`.

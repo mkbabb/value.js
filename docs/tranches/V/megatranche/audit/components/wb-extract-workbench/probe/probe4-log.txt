@@ -1,0 +1,202 @@
+=== P1. dominance readout vs card order (1440x1400) ===
+{
+ "codeTruncated": null,
+ "strip": [],
+ "swatches": [
+  {
+   "bg": "lab(92 88.800003 20)",
+   "title": null
+  },
+  {
+   "bg": "lab(92 88.800003 20)",
+   "title": null
+  }
+ ],
+ "paneTitleFontSize": "41.888px",
+ "paneTitleText": "Extract"
+}
+=== P2. fold at 1440x900 (default desktop) ===
+{
+ "viewportH": 900,
+ "scroller": {
+  "clientH": 772,
+  "scrollH": 774,
+  "scrollTop": 0,
+  "overflow": "auto"
+ },
+ "imageRect": {
+  "x": 226,
+  "y": 131.65625,
+  "width": 458,
+  "height": 458,
+  "top": 131.65625,
+  "right": 684,
+  "bottom": 589.65625,
+  "left": 226
+ },
+ "dominanceRect": {
+  "x": 503.59375,
+  "y": 644.234375,
+  "width": 178.40625,
+  "height": 22.9375,
+  "top": 644.234375,
+  "right": 682,
+  "bottom": 667.171875,
+  "left": 503.59375
+ },
+ "stripRect": null,
+ "hiddenBelowFold": 2
+}
+=== P3. result-column height across a k drag (px) ===
+{
+ "samples": [
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325,
+  325
+ ],
+ "min": 325,
+ "max": 325
+}
+=== P4. mobile 390 dominance row ===
+{
+ "codeVisible": "oklch(73.892055422424% 0.217857767251 137.844885067367deg)",
+ "codeClientW": 87,
+ "codeScrollW": 500,
+ "codeTruncated": true,
+ "visibleFraction": 0.17,
+ "displayText": "25% of the image",
+ "rowW": 324
+}
+=== P5.reduced-motion /#/extract ===
+{
+ "dir": "ltr",
+ "overflowX": 0,
+ "segAnimDuration": "(no shadow)",
+ "dominanceRowChildrenLTRorder": [
+  {
+   "t": "25% of the imagedominant",
+   "x": 489
+  },
+  {
+   "t": "Extracted Palette4",
+   "x": 489
+  }
+ ],
+ "codeTruncated": true,
+ "displayColor": "rgb(28, 25, 23)",
+ "clipped": [
+  "div.pane-container.pane-container--dual",
+  "div.pane-wrapper.pane-wrapper--left",
+  "div.relative.w-full",
+  "div.pane-header.px-4",
+  "div.group.relative",
+  "code.fira-code.text-mono-small"
+ ]
+}
+=== P5.forced-colors /#/extract ===
+{
+ "dir": "ltr",
+ "overflowX": 0,
+ "segAnimDuration": "(no shadow)",
+ "dominanceRowChildrenLTRorder": [
+  {
+   "t": "25% of the imagedominant",
+   "x": 489
+  },
+  {
+   "t": "Extracted Palette4",
+   "x": 489
+  }
+ ],
+ "codeTruncated": true,
+ "displayColor": "rgb(28, 25, 23)",
+ "clipped": [
+  "div.pane-container.pane-container--dual",
+  "div.pane-wrapper.pane-wrapper--left",
+  "div.relative.w-full",
+  "div.pane-header.px-4",
+  "div.group.relative",
+  "code.fira-code.text-mono-small"
+ ]
+}
+=== P5.rtl /#/extract ===
+{
+ "dir": "ltr",
+ "overflowX": 0,
+ "segAnimDuration": "(no shadow)",
+ "dominanceRowChildrenLTRorder": [
+  {
+   "t": "25% of the imagedominant",
+   "x": 489
+  },
+  {
+   "t": "Extracted Palette4",
+   "x": 489
+  }
+ ],
+ "codeTruncated": true,
+ "displayColor": "rgb(28, 25, 23)",
+ "clipped": [
+  "div.pane-container.pane-container--dual",
+  "div.pane-wrapper.pane-wrapper--left",
+  "div.relative.w-full",
+  "div.pane-header.px-4",
+  "div.group.relative",
+  "code.fira-code.text-mono-small"
+ ]
+}
+=== P5.zoom-200 /#/extract ===
+{
+ "dir": "ltr",
+ "overflowX": 0,
+ "segAnimDuration": "(no shadow)",
+ "dominanceRowChildrenLTRorder": [
+  {
+   "t": "25% of the imagedominant",
+   "x": 129
+  },
+  {
+   "t": "Extracted Palette4",
+   "x": 129
+  }
+ ],
+ "codeTruncated": true,
+ "displayColor": "rgb(28, 25, 23)",
+ "clipped": [
+  "div.pane-container.pane-container--dual",
+  "div.pane-wrapper.pane-wrapper--left",
+  "div.relative.w-full",
+  "div.glass-resting.card",
+  "div.pane-header.px-4",
+  "div.group.relative",
+  "code.fira-code.text-mono-small"
+ ]
+}

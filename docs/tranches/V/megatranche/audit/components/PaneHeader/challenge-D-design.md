@@ -11,8 +11,12 @@ Subject: `demo/shared/ui/PaneHeader.vue` (224 lines), the sole route-identity su
 (`BrowsePane`, `PalettesPane`, `AdminPane`, `AboutPane`, `MixPane`, `GradientPane`, `GeneratePane`,
 `ExtractPane`, `ConfigSliderPane` → Atmosphere + Blob).
 
-**Verdict: DEFECTIVE.** 15 findings, 3 BLOCKER, 4 MAJOR. Two of the three BLOCKERs falsify claims the
-file makes about itself in its own comment prose, by measurement, on the shipping engine.
+**Verdict: DEFECTIVE.** 16 findings, 4 BLOCKER, 4 MAJOR.
+
+Two of the BLOCKERs falsify claims the file makes about itself in its own comment prose, by
+measurement, on the shipping engine. The fourth (D-16) is the gestalt defect and was found on the
+**verification pass that corrected my own D-8** — see §0.1. It subsumes D-4, D-5 and D-8 and rewrites
+the cure.
 
 ---
 
@@ -28,11 +32,43 @@ no source file outside this directory was touched):
 | `probe-cure-and-shots.mjs` | isolates the `tan(atan2())` fault, proves the proposed cure, captures 20 rest/stuck frames (2 engines × 2 bands × 2 schemes + RTL) |
 | `probe-occlusion-prm-fc.mjs` | in-browser A/B pixel difference of the header band with content under the veil vs. hidden; PRM shipped vs. naive-cure; forced-colors |
 
-Frames: `shots/` (20 + 6). Reused: `docs/tranches/V/megatranche/audit/visual/REPORT.md`,
+Frames: `shots/` (34). Reused: `docs/tranches/V/megatranche/audit/visual/REPORT.md`,
 `visual/shots/{safari-desktop-light,safari-desktop-dark,forced-colors-desktop,zoom-200-desktop}/`.
 
 Law read and applied: `docs/tranches/V/VISUAL-CONSTITUTION.md` (§3, §3.1, §4, §4.1, §5.1, §6, §6.1,
-§7), `docs/tranches/V/PROPORTION-AUDIT.md` (§4 PR-01/PR-12, §5.3/5.8/5.11/5.13).
+§7), `docs/tranches/V/PROPORTION-AUDIT.md` (§2, §4 PR-01/PR-12, §5.3/5.8/5.11/5.13).
+
+### 0.1 Self-correction — D-8's negative claim was FALSE, and correcting it produced D-16
+
+An earlier draft of this report asserted, as a measured negative:
+
+> "```grep -rlo "ScrollCardHeader\|scroll-card-header\|title-collapse\|card-scroll"
+> node_modules/@mkbabb/glass-ui/dist/``` → (no output). Zero hits across the entire installed
+> `@mkbabb/glass-ui@7.0.0` dist. The 'one grammar' the ranges claim to inherit is not in the shipped
+> producer."
+
+**That is wrong.** Re-run at verification time, same command, same tree:
+
+```
+$ grep -rlo "ScrollCardHeader\|scroll-card-header\|title-collapse\|card-scroll" \
+      node_modules/@mkbabb/glass-ui/dist/
+node_modules/@mkbabb/glass-ui/dist/card-Bk96VI2R.js
+node_modules/@mkbabb/glass-ui/dist/styles/index.css
+node_modules/@mkbabb/glass-ui/dist/styles/utilities/base-misc.css
+node_modules/@mkbabb/glass-ui/dist/components/card/CardHeader.vue.d.ts
+$ node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"
+7.0.0
+```
+
+Term by term: `ScrollCardHeader` **0 hits**, `scroll-card-header` **0**, `title-collapse` **0**,
+`card-scroll` **4 files**. So the file's `:157` reference to a `ScrollCardHeader` component is
+genuinely unresolvable, but its `:171-172` citation of **`card-scroll.css`'s** lane is *real* — the
+file `node_modules/@mkbabb/glass-ui/dist/components/card/card-scroll.css` exists and ships the whole
+choreography. D-8 is rewritten below to the narrower defect that survives.
+
+The pursuit of that correction is what surfaced **D-16**, which is the largest finding in this
+report. A negative claim I did not re-verify was hiding a producer seam that makes most of the rest
+of this document a consequence rather than a cause.
 
 ---
 
@@ -80,6 +116,116 @@ contrast than the shrunken white "Gradient" sitting inside it. Two headings, ink
 
 ## 2. Findings
 
+### D-16 · BLOCKER · This is the **third** parallel header-condense choreography in one app, and it is the only one that does not contract anything
+
+This is the gestalt defect. The other findings are its symptoms.
+
+The repository contains three independent implementations of "a pane header that contracts on
+scroll". PaneHeader is the third, and it is the only one that steps **no layout quantity at all**.
+
+**(1) The producer.** `@mkbabb/glass-ui@7.0.0` ships the complete seam. Verified installed version
+`7.0.0`.
+
+`node_modules/@mkbabb/glass-ui/dist/components/card/CardHeader.vue.d.ts`:
+
+```ts
+type __VLS_Props = {
+    /** Requires `.card-scroll-host` on the scrollable ancestor. */
+    shrink?: boolean;
+    class?: HTMLAttributes["class"];
+};
+```
+
+`node_modules/@mkbabb/glass-ui/dist/styles/utilities/base-misc.css`:
+
+```css
+.card-scroll-host { contain: layout style paint; }
+```
+
+`node_modules/@mkbabb/glass-ui/dist/components/card/card-scroll.css` (whole file, reflowed):
+
+```css
+.card-header--shrink {
+  --card-header-pad-condensed: calc(var(--card-pad-block) / 2);
+  position: relative; isolation: isolate;
+  transition: padding-block-start var(--duration-normal) var(--ease-standard);
+}
+.card-header--shrink::before {
+  content: ""; position: absolute;
+  inset: 0 0 calc(var(--card-pad-title-gap) * -1);
+  z-index: -1; border-radius: inherit;
+  background: var(--glass-bg-resting);
+  -webkit-backdrop-filter: var(--glass-blur-resting);
+  backdrop-filter: var(--glass-blur-resting);
+  mask-image: linear-gradient(to bottom, black calc(100% - var(--card-pad-title-gap)), transparent);
+  opacity: 0; pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-standard);
+}
+.card-header--shrink > [data-slot="card-title"] {
+  font-size: var(--type-display-2);
+  transition: font-size var(--duration-normal) var(--ease-standard);
+}
+.card-header--shrink[data-condensed="true"] { padding-block-start: var(--card-header-pad-condensed); }
+.card-header--shrink[data-condensed="true"]::before { opacity: 1; }
+.card-header--shrink[data-condensed="true"] > [data-slot="card-title"] { font-size: var(--type-display-1); }
+.card-header--shrink[data-condensed="true"] > [data-slot="card-description"] { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .card-header--shrink, .card-header--shrink::before,
+  .card-header--shrink > [data-slot="card-title"] { transition: none; }
+}
+```
+
+Its condense state is a **discrete two-state toggle with hysteresis** (`card-Bk96VI2R.js`: down at
+`scrollTop >= 24`, back up at `12`, gated on `scrollHeight - clientHeight > headerRect.height/2 + 24`),
+and `CardTitle` takes `as` with default `"h3"` — so `as="h1"` is a producer-supported prop.
+
+**(2) The Picker's local one.** `demo/picker/composables/useHeaderCondense.ts` (127 lines) +
+`demo/picker/header.css`. Also discrete two-state, IntersectionObserver sentinel, with a sufficiency
+gate. It **explicitly rejects the producer**, in its own docblock at `useHeaderCondense.ts:9-15`:
+
+> "NEVER a compositor-only title `scale()` over an un-shrunk band (t33-research §6.6 — the pinned
+> defect; the producer's shipped `card-header--shrink` / `<ScrollCardHeader>` choreography is
+> compositor-only BY ARCHITECTURAL COMMITMENT … so it structurally cannot satisfy §0.8/BR-9)"
+
+and it delivers real layout steps — `header.css:82-85` `padding-top/bottom: 0.375rem` on condense,
+`header.css:87-102` a real `--type-display-2 → --type-display-1` **font-size** step, described at
+`:80-81` as "a REAL layout-box shrink, measurable by getComputedStyle — BR-9; NOT a compositor
+translate".
+
+**(3) PaneHeader.** `transform: scale()` on a box that never changes size. `PaneHeader.vue:205-212`.
+
+Now put them side by side against `VISUAL-CONSTITUTION.md §3.5` — "A header contracts as a whole
+block… when stuck, **title, padding, and band all** take the compact token step":
+
+| §3.5 quantity | producer `card-scroll.css` | Picker `header.css` | **PaneHeader (9 panes)** |
+|---|---|---|---|
+| title | `font-size` display-2 → display-1 (real) | `font-size` display-2 → display-1 (real) | `transform: scale()` — **optical only, box unchanged** |
+| padding | `padding-block-start` → `calc(--card-pad-block/2)` | `padding-top/bottom → 0.375rem` | **none, 16px/8px constant** |
+| band | contracts with the padding | contracts with the padding | **none, 0.00px Δ on 30/30 captures** |
+| description | `display: none` (leaves layout) | collapses with the strip | `opacity: 0` — **keeps its 18.69px box** |
+| motion tokens | `--duration-normal` / `--ease-standard` | same | raw `64px`/`120px`/`80px`/`-0.25rem` |
+| reduced motion | explicit `@media … reduce { transition: none }` | transitions, reachable by the global guard | **structurally unreachable** (D-7 / MT-F023) |
+| RTL | no transform → no origin to mirror | no transform | `transform-origin: left top` (D-5) |
+| heading level | `CardTitle` `as` prop | — | hardcoded `<h3>` (D-6) |
+| host containment | `.card-scroll-host { contain: layout style paint }` | — | `.pane-scroll-fade { contain: layout style paint; … }` — **byte-identical duplicate** |
+
+The Picker rejected the producer *because* it was compositor-only and could not contract the box.
+PaneHeader then shipped, on the other nine surfaces, a choreography that is **compositor-only and
+contracts even less than the producer does** — the producer at least steps `font-size` and
+`padding-block-start` and removes the description from layout; PaneHeader steps nothing. The nine
+main pane surfaces received the worst of the three available options, and the one route that got the
+good one (Picker) is the one route that is not a PaneHeader consumer.
+
+Owner edict 4 ("Glass-ui is the design system — variants/primitives belong in glass-ui, not in
+demo/") and edict 3 (KISS, no contrivance) are both violated at the largest available scale. And the
+file's own comment kills the "census's 7th parallel recipe, CC-3" at `:66-67` — while writing the
+8th, in a repo that already had two.
+
+Repro: the greps and file reads in §0.1 and above; `demo/picker/header.css:82-102`;
+`demo/picker/composables/useHeaderCondense.ts:9-15`.
+
+---
+
 ### D-1 · BLOCKER · Safari phone: the title **grows** 1.62× on scroll and collides with the pane content
 
 The file states the phone band is a deliberate no-op:
@@ -121,7 +267,8 @@ webkit   SHIPPED tan(atan2(--type-heading, --type-display-1))*1000px = 310.79687
 chromium SHIPPED  same expression                                     = 618.016px     <- right
 ```
 
-Repro: `node docs/tranches/V/megatranche/audit/components/PaneHeader/probe-shrink-ratio.mjs`.
+Repro: `node docs/tranches/V/megatranche/audit/components/PaneHeader/probe-shrink-ratio.mjs`
+(re-run at verification time; numbers above reproduced exactly).
 
 The @supports guard at `:177` gates on `animation-timeline: scroll()` and the comment at `:138-139`
 justifies it as "Guarded by the same @supports SDA gate as its one consumer (atan2: Chromium 111+ ⊂
@@ -144,7 +291,8 @@ Same expression, viewport 1440×900, `/#/gradient`, full-progress scrub:
 2.618rem)` = 41.888px at the ≥1440 cap. True ratio 25.888/41.888 = **0.618029**. WebKit is off by
 1.9886×, in the wrong direction for legibility. `shots/webkit-desktop1440-{light,dark}-STUCK.png`.
 
-**The cure is one substitution and it is already proven portable.** `probe-cure-and-shots.mjs`:
+**If the transform survives at all, the cure is one substitution and it is already proven portable.**
+`probe-cure-and-shots.mjs`:
 
 ```
 webkit   CURE (var(--type-heading) / var(--type-display-1)) * 1000px = 618.015625px   -> 0.618016
@@ -157,6 +305,9 @@ Identical in both engines at both bands, equal to `1/φ` at the cap and exactly 
 the closed form the design wanted, without the trig. `<length> / <length> → <number>` is CSS Values 4
 and both engines already honour it. `tan(atan2(a,b))` was never an identity that needed inventing;
 it is contrivance (owner edict 3) with a shipped, measured, cross-engine visual consequence.
+
+Under D-16's cure the transform disappears entirely and this token dies with it. The one-line
+substitution stands as the **interim** fix if the jury stages the work.
 
 ---
 
@@ -192,13 +343,16 @@ underlying luminance transmits by construction, at every state, forever. There i
 which this component occludes anything. The "naked window" the design says it closed is a permanent
 window; the swell only makes it 35% instead of 66% naked.
 
-Frames confirm it cross-engine (`chromium-desktop1440-light-STUCK.png`,
-`webkit-desktop1440-dark-STUCK.png`, `webkit-rtl-STUCK.png`) — so it is a **design** defect in the
-material choice, and the gate-3 claim in the source comment is false as written.
+**Scope note (important for the cure).** The producer's `card-scroll.css` uses the *same*
+`background: var(--glass-bg-resting)` fill, so this is a **producer material defect**, not one
+PaneHeader invented — adopting D-16's cure inherits it. The stuck state needs an **opaque** plate
+token, which is a BH/BI producer request, not a local opacity nudge.
 
 ---
 
 ### D-4 · MAJOR · The header never contracts — §3.5 is violated in every quantity it names
+
+*(Consequence of D-16.)*
 
 > `VISUAL-CONSTITUTION.md §3.5` — "A header contracts as a whole block. At rest it breathes; when
 > stuck, **title, padding, and band all** take the compact token step."
@@ -232,9 +386,15 @@ lives here on **nine more surfaces** with no register row and no owner. `§5.3` 
 touch footprints may reserve collision space **only on the axis where collision exists**") and `§5.8`
 ("Real rendered relation wins over token intent") both bite.
 
+Note that both sibling implementations already solve this (D-16 table). The description's dead box in
+particular is one producer declaration: `[data-condensed="true"] > [data-slot="card-description"]
+{ display: none }`.
+
 ---
 
 ### D-5 · MAJOR · RTL: `transform-origin: left top` is a physical keyword; the title detaches from its margin
+
+*(Consequence of D-16 — neither sibling has a transform, so neither has this defect.)*
 
 `PaneHeader.vue:184` — `transform-origin: left top`. Measured under `dir="rtl"`, both engines,
 `/#/gradient`, desktop 1440:
@@ -252,15 +412,21 @@ title shrinks *away from* its inline-start margin and lands nowhere.
 > `VISUAL-CONSTITUTION.md §6.1` — "chrome, navigation and layout: logical inline/block direction
 > follows the document"
 
-`transform-origin` has no logical keywords, so this must be a `:dir()` pair (`0 0` / `100% 0`) — or,
-better, dissolved by D-4's cure, which removes the transform entirely.
+`transform-origin` has no logical keywords, so a transform-preserving fix requires a `:dir()` pair
+(`0 0` / `100% 0`). The correct fix is D-16's: a `font-size` step has no origin to mirror.
 
 ---
 
 ### D-6 · MAJOR · No `<h1>` exists on any route; the pane title is an `<h3>` peer of its own subsections
 
 Measured, 30/30 captures: `h1: 0`, `h2: 0`, `h3: 1…5`. Independently corroborated by the tranche's own
-`visual/REPORT.md` per-capture table — the `h1` column reads **0 on 60/60 captures**.
+`visual/REPORT.md` per-capture table — the `h1` column reads **0 on 60/60 captures**. Corroborated a
+third way by source census:
+
+```
+$ grep -rn "<h1\|as=\"h1\"\|tag=\"h1\"" demo/
+(no output)
+```
 
 `PaneHeader.vue:21` emits `<h3 class="pane-header-title font-display">`. On `/#/gradient` the document
 outline is five sibling `h3`s and nothing else:
@@ -284,11 +450,13 @@ different panes' identities are peers. Violations:
   `grep -rn "tabindex\|focus()" demo/shared/ demo/scenes/ConfigSliderPane.vue` returns zero rows.
 - `PROPORTION-AUDIT.md §5.11` — "route H1 owns heading hierarchy".
 
-PaneHeader is the only element that could own the route H1. It declines to.
+And the `h3` is not even a producer constraint: glass-ui's `CardTitle` takes `as` with default
+`"h3"` (`card-Bk96VI2R.js`, `CardTitle.props.as = { default: "h3" }`), so `as="h1"` is available
+today. PaneHeader is the only element that could own the route H1. It declines to.
 
 ---
 
-### D-7 · MAJOR · MT-F023 — **ADOPTED**, cure **AMENDED** with measurement
+### D-7 · MAJOR · MT-F023 — **ADOPTED**, cure **AMENDED** with measurement, then **DISSOLVED** by D-16
 
 I adopt the root's finding. Independently reproduced, both engines, `reducedMotion: "reduce"`:
 
@@ -323,52 +491,53 @@ under it. The leak, measured under exactly that condition:
 | shipped, terminal veil 1.00 | chromium | 21.245 | 24.63 | 16.99 | 239 |
 | **naive cure, veil 0.52** | chromium | **26.439** | **24.60** | **17.89** | 241 |
 
-Repro: `node /…/scratchpad/leak52.mjs` (inlined in §5 below). **Strictly worse on every metric, on
-both engines.** The naive cure trades a legibility floor for stillness, for exactly the cohort the
-guard exists to protect. That is the wrong trade and it is not what §6 asks for:
+**Strictly worse on every metric, on both engines.** The naive cure trades a legibility floor for
+stillness, for exactly the cohort the guard exists to protect. That is the wrong trade and it is not
+what §6 asks for:
 
 > `§6` — "Reduced motion resolves directly to the **final geometry and stable chromatic state**."
 
-Note "final", not "rest". **Amended cure**, in the root's own idiom (structure, not another override
-stacked on the blunt guard):
+Note "final", not "rest". The root's disposition — "STRUCTURE not gate (L-8)" — is **right**, and I
+keep it; what I amend is *which* structure. Wrapping the three declarations in
+`@media (prefers-reduced-motion: no-preference)` is still a scroll-timeline fork, just a gated one.
 
-1. Gate the two **transform** channels — `pane-title-shrink` and `pane-desc-shrink`'s `translateY` —
-   inside `@media (prefers-reduced-motion: no-preference)`, matching `animations.css:43`. These are
-   motion; they go.
-2. Do **not** gate the veil's opacity ramp. It translates and scales nothing; it is a material
-   ramp, and killing it is a legibility regression I have measured. Under PRM the veil resolves to
-   its **stuck** value (the "final … stable chromatic state" §6 names), not its rest value.
-3. Better still, and preferred: once D-3's cure lands the stuck veil is a **static opaque material**
-   rather than an animation, so there is nothing for the guard to reach and PRM is satisfied by
-   construction. That is the disposition I would put to the jury — dissolve the gate question by
-   removing the animation that raised it.
+**The structural cure that actually satisfies L-8 is D-16.** Both sibling implementations drive their
+condense from a discrete state attribute through **transitions**, which:
+
+1. the global guard at `animations.css:184` **does** reach (`transition-duration: 0.01ms !important`), and
+2. the producer independently belt-and-braces with its own arm —
+   `card-scroll.css`: `@media (prefers-reduced-motion: reduce) { .card-header--shrink, …::before,
+   … > [data-slot="card-title"] { transition: none } }`.
+
+So MT-F023 is not gated, not overridden, and not patched — it **ceases to exist**, because there is
+no longer a scroll-driven animation for the guard to fail to reach. That is a strictly stronger
+disposition than the one proposed, in the root's own idiom, and it is the one I put to the jury.
+
+*(If the jury stages the work and the scroll-timeline survives an interim, then the interim gate must
+be the no-preference wrapper **plus** a static `--pane-veil-rest: 1` under `reduce` — never the
+wrapper alone, per the leak table above.)*
 
 ---
 
-### D-8 · MAJOR · Three desynchronised magic ranges on one "block", citing a producer grammar that does not exist
+### D-8 · MAJOR · Three desynchronised magic ranges on one "block", none of them tokenized *(REWRITTEN — see §0.1)*
 
 `:182` `animation-range: 0px 64px` (veil) · `:188` `0px 120px` (title) · `:192` `0px 80px` (desc).
 Three un-tokenized constants with three different clocks on a surface §3.5 calls "a whole block". At
 scroll 80px the desc is fully gone, the veil finished 16px ago, and the title is 67% through its
 travel — the block does not contract, it decomposes. `translateY(-0.25rem)` at `:221` is likewise a
-raw literal. Owner edict 6 asks for tokenized motion; nothing here is a token.
+raw literal, and the feather at `:82-96` hardcodes `14px` in four places.
 
-The stated provenance for the 120px is:
+Owner edict 6 asks for tokenized motion. **The producer tokenizes every one of these quantities** —
+`var(--duration-normal)`, `var(--ease-standard)`, and, for the feather PaneHeader writes as a bare
+`14px`, `var(--card-pad-title-gap)` (= `calc(var(--card-pad-inline) / 2.618)`,
+`components/card/styles.css`). PaneHeader's numbers are hand constants standing where producer tokens
+already exist.
 
-> `:156-157` — "the producer scroll grammar's compositor transposition — title `scale` (the
-> title-collapse lane…)"
-> `:171-172` — "The title-shrink range stays the producer grammar's own 0–120px (one grammar —
-> card-scroll.css's title-collapse lane…)"
-
-```
-$ grep -rlo "ScrollCardHeader\|scroll-card-header\|title-collapse\|card-scroll" \
-      node_modules/@mkbabb/glass-ui/dist/
-(no output)
-```
-
-Zero hits across the entire installed `@mkbabb/glass-ui@7.0.0` dist. The "one grammar" the ranges
-claim to inherit is not in the shipped producer. Whatever the history, against the dependency this
-repo actually resolves, 64/120/80 are three unowned hand constants wearing a citation.
+**Correction to the previous draft:** I previously asserted the cited producer grammar was absent
+from glass-ui 7.0.0. It is not — `components/card/card-scroll.css` exists and is quoted in full under
+D-16. The `:157` reference to a `ScrollCardHeader` *component* is still unresolvable (0 hits), but
+the `:171-172` citation of the `card-scroll.css` lane is accurate. The defect is not a fabricated
+citation; it is that the file cites a producer grammar it then declines to consume.
 
 ---
 
@@ -377,11 +546,10 @@ repo actually resolves, 64/120/80 are three unowned hand constants wearing a cit
 > `§4` — the role matrix is seven rows and "This matrix is closed across all eighteen compositions",
 > with exactly one named exception (P019's Picker pair).
 
-`PaneHeader.vue:29` uses `text-caption`. `caption` is a real glass-ui typography rung (`grep` of the
-dist bundle shows the producer role set `caption|body|prose|admin-label|heading|subheading|title|
-display|…`) — but it is **not one of the seven authorized roles**, and it is not `mono-caption`
-(the one caption spelling §4 does admit, "where the content is a caption" — and that row is Fira
-Code). Measured computed style on the `<p>`:
+`PaneHeader.vue:29` uses `text-caption`. `caption` is a real glass-ui typography rung — but it is
+**not one of the seven authorized roles**, and it is not `mono-caption` (the one caption spelling §4
+does admit, "where the content is a caption" — and that row is Fira Code). Measured computed style on
+the `<p>`:
 
 ```
 fontStyle: "italic"   fontFamily: "Plus Jakarta Sans"
@@ -396,32 +564,38 @@ it is applied to is unauthorized.
 
 ### D-10 · MINOR · The display rung and the whole veil recipe are per-instance re-implementations of producer seams
 
-`:106-112` restates four properties of a producer type rung locally:
+*(Now a sub-case of D-16, retained for its two distinct booked-swap coordinates.)*
 
-```css
-.pane-header-title { font-size: var(--type-display-1); line-height: var(--type-leading-display);
-                     letter-spacing: var(--type-tracking-display); font-weight: var(--type-weight-display); }
-```
+`:106-112` restates four properties of a producer type rung locally, with the reason given at
+`:103-105`: "the producer `text-heading` utility hardcodes 700 — retired here; the weight rides the
+:root pin, **the P10 booked swap**". Likewise the entire `::before` at `:82-98` is admitted at
+`:74-76` as "The producer rest-floor + bottom-feather knobs are packet P3 (BOOKED swap); this veil +
+feather are the **carried interim**", and `:157` waits "until P3's ScrollCardHeader knobs land
+(BOOKED)".
 
-with the reason given at `:103-105`: "the producer `text-heading` utility hardcodes 700 — retired
-here; the weight rides the :root pin, **the P10 booked swap**". Likewise the entire `::before` at
-`:82-98` is admitted at `:74-76` as "The producer rest-floor + bottom-feather knobs are packet P3
-(BOOKED swap); this veil + feather are the **carried interim**", and `:157` waits "until P3's
-ScrollCardHeader knobs land (BOOKED)".
-
-Two producer seams deferred, two local interims shipped. Owner edict 4 (variants/primitives belong in
-glass-ui) and edict 5 (style at the root, never per-instance) are both live violations today; *booked*
-is not *landed*. §4.2's own posture — "Consumer CSS may not hide a producer divider", producer owns
-the register — is the same principle. The correct move is a glass-ui non-bold display rung + a
-stuck-state plate token, requested through the standing BH/BI relay, not a fourth parallel recipe in
-a leaf component. (The file already killed the "census's 7th parallel recipe, CC-3" at `:66-67` and
-then wrote the 8th.)
+Two producer seams deferred, two local interims shipped. Owner edict 4 and edict 5 (style at the
+root, never per-instance) are both live violations today; *booked* is not *landed*. The sharper point
+after D-16: the `::before` at `:82-98` is not merely "an interim pending P3" — it is a
+character-for-character reimplementation of `card-scroll.css`'s `::before`, differing only by
+substituting the literal `14px` for `var(--card-pad-title-gap)`. The interim is a copy of the thing
+it is waiting for.
 
 ---
 
-### D-11 · MINOR · The documented `.pane-scroll-fade` contract is false, and the timeline dependency is unenforced
+### D-11 · MINOR · `.pane-scroll-fade` duplicates a producer utility, and its documented contract is false
 
-`:43-45` asserts:
+`:54-57`:
+
+```css
+.pane-scroll-fade { contain: layout style paint; scroll-timeline: --pane-scroll block; }
+```
+
+Line 1 is byte-identical to the producer's `.card-scroll-host { contain: layout style paint; }`
+(`base-misc.css`) — the class `CardHeader`'s own docblock names as its required host. A demo leaf
+re-declares a producer utility under a new name (edict 4), and by renaming it makes the producer
+`CardHeader shrink` prop unusable on these nine surfaces without a second class.
+
+The contract comment is also wrong. `:43-45` asserts:
 
 > "The `.pane-scroll-fade` host class lives on the **ROOT element** of each pane Card (9 sibling
 > panes: Browse/Admin/About/Palettes/Mix/Gradient/Extract/Generate/**ConfigSlider**)"
@@ -432,10 +606,10 @@ inside it a `<Card class="… overflow-hidden">`, and only inside *that* the
 root, on a flex child, not on a Card root. The contract comment is wrong about at least one of its
 nine named consumers — and that consumer is the one serving two routes (`/#/atmosphere`, `/#/blob`).
 
-Structurally: a leaf presentational component publishes a **global unscoped class** (`:54-57`) that
-styles its own *ancestors*, and its entire designed behaviour silently evaporates if a consumer
-forgets the magic string — an unresolved `scroll-timeline` name makes the animations inert, with no
-prop, no `provide`/`inject`, no dev warning, and no type. Nine hand-maintained couplings to a string.
+Structurally: a leaf presentational component publishes a **global unscoped class** that styles its
+own *ancestors*, and its entire designed behaviour silently evaporates if a consumer forgets the
+magic string — an unresolved `scroll-timeline` name makes the animations inert, with no prop, no
+`provide`/`inject`, no dev warning, and no type. Nine hand-maintained couplings to a string.
 
 ---
 
@@ -447,7 +621,8 @@ prop, no `provide`/`inject`, no dev warning, and no type. Nine hand-maintained c
 > prose"
 
 A `string` prop admits no markup, so no consumer can wrap a hex, slug, ID or code fragment in an
-isolating span. A `<slot name="description">` costs nothing and is the idiom the title already uses.
+isolating span. A `<slot name="description">` costs nothing and is the idiom the title already uses
+(and matches the producer's `[data-slot="card-description"]`).
 
 The symptom of an unclear API is in the consumer: `ConfigSliderPane.vue:107` writes
 `v-bind="description !== undefined ? { description } : {}"` — a conditional-object dance that is
@@ -502,7 +677,7 @@ FORCED-COLORS dark  {"veilBg":"rgb(0, 0, 0)","veilFilter":"blur(0px) saturate(1.
 | state | disposition | evidence |
 |---|---|---|
 | rest / populated | **designed, good** | `chromium-desktop1440-light-REST.png` |
-| stuck / scrolled | **broken** | D-1, D-2, D-3, D-4, D-8 |
+| stuck / scrolled | **broken** | D-1, D-2, D-3, D-4, D-8, D-16 |
 | empty title | **unhandled** — `<slot />` at `:21` has no fallback and no `v-if`; an empty `<h3>` with `text-wrap: balance` and a 41.888px line box reserves 43.97px of nothing | code read |
 | loading | **absent** — no pending affordance. `AdminPane.vue` suppresses its count Badge to `null` while the roster loads (a correct decision) but the header carries no pending truth, so the pane identity is silent during work. §4.1: "pending … states are never color-only … state/value … explicit" | `AdminPane.vue:118-121` |
 | error | **absent** — `BrowsePane`'s "The commons is unreachable." error lives in the body while the header keeps saying nothing changed (`safari-desktop-dark/browse.png`) | frame |
@@ -510,7 +685,7 @@ FORCED-COLORS dark  {"veilBg":"rgb(0, 0, 0)","veilFilter":"blur(0px) saturate(1.
 | hover / active / pressed / selected / dragging | correctly none — the header is not interactive | code read |
 | overflowing / truncated | **unhandled** | D-13 |
 | RTL | **broken** | D-5 |
-| reduced-motion | **broken; proposed cure regresses it further** | D-7 |
+| reduced-motion | **broken; the naive cure regresses it further** | D-7 |
 | forced-colors | **undesigned** | D-14 |
 | zoom 200% | rest **fine** (`zoom-200-desktop/gradient.png`); stuck at 200% **unmeasured — hypothesis**: the shrink ratio is viewport-derived and 200% zoom halves the layout viewport to 720px, which puts `--type-display-1` on its fluid arm rather than at the cap, so the WebKit fault of D-1/D-2 will land on a third value again | hypothesis, labelled |
 | dark | rest fine; stuck **worse than light** (higher-contrast bleed-through) | `webkit-desktop1440-dark-STUCK.png` |
@@ -520,15 +695,18 @@ FORCED-COLORS dark  {"veilBg":"rgb(0, 0, 0)","veilFilter":"blur(0px) saturate(1.
 
 ## 3. Motion audit (owner edict 6, §6)
 
-- **Tokenized?** No. Three raw ranges (64/120/80px) and a raw `-0.25rem`. `--animation-slide-sm/md/lg`
-  are not consumed and are the wrong register anyway — a scrub has no duration. There is no
-  tokenized *scroll* register to consume, which is itself the producer gap D-10 describes.
-- **Reduced motion?** Structurally unreachable. D-7.
-- **Layout-forcing properties?** No — and this is genuinely well done. The F3 fork (padding /
-  font-size / grid-template-rows scrubbed per frame) was correctly killed at `:152-155`; what remains
-  is `opacity` + `transform` + a compositor `opacity`, all off the main thread. **But** the price paid
-  for that purity is D-4: the header cannot contract, because contraction *is* layout. The component
-  chose compositor purity over the constitution's §3.5, silently, and never recorded the trade.
+- **Tokenized?** No. Three raw ranges (64/120/80px), a raw `-0.25rem`, a raw `14px` feather ×4.
+  `--animation-slide-sm/md/lg` are not consumed and are the wrong register anyway — a scrub has no
+  duration. The right tokens exist and are the producer's: `--duration-normal`, `--ease-standard`,
+  `--card-pad-title-gap`. D-8.
+- **Reduced motion?** Structurally unreachable. D-7 / MT-F023.
+- **Layout-forcing properties?** No — and the intent was sound. The F3 fork (padding / font-size /
+  grid-template-rows scrubbed *per frame*) was correctly killed at `:152-155`. **But the conclusion
+  drawn from it was wrong.** The choice was framed as "compositor purity vs. §3.5's contraction", and
+  purity won. That is a false dilemma: both sibling implementations contract real layout while
+  running layout **once per threshold crossing**, not per frame (`useHeaderCondense.ts:18-24`
+  — "A discrete toggle (not a per-scroll-frame scrub) ⇒ ZERO per-frame reflow"). The component paid
+  §3.5 to avoid a cost that a discrete toggle does not incur, and never recorded the trade.
 - **Animations deleted?** None found. The three keyframes are additive; the F3 keyframes were
   removed but the choreography they expressed was retained in transposed form. Edict 6 satisfied.
 - **§6 "exit is shorter than entry"?** Not applicable to a bidirectional scrub — correctly so.
@@ -539,53 +717,64 @@ FORCED-COLORS dark  {"veilBg":"rgb(0, 0, 0)","veilFilter":"blur(0px) saturate(1.
 
 ## 4. Proposed cure — architectural, in priority order
 
-Not a patch list. The component's fault is a single wrong premise — **"a scroll-reactive header can be
-expressed as three independent compositor scrubs on a fixed box, with CSS trig standing in for design
-decisions."** Every finding above falls out of that.
+Not a patch list. The component's fault is a single wrong premise — **"a scroll-reactive header can
+be expressed as three independent compositor scrubs on a fixed box, with CSS trig standing in for
+design decisions"** — held in a repository that had already answered the question twice, correctly,
+in two places PaneHeader's own comments cite by name.
 
-1. **Delete the trig.** `--pane-title-shrink-ratio: calc(var(--type-heading) / var(--type-display-1))`.
-   Measured identical in both engines at both bands (§D-2). Kills D-1 and D-2 in one line, keeps the
-   closed form, keeps the phone no-op. *Do this first regardless of what else the jury rules — it is
-   a shipped Safari defect with a proven one-token fix.*
+1. **Adopt an existing condense seam. Do not write a fourth.** The choice is between two shipped,
+   discrete, two-state, real-layout-step implementations:
 
-2. **Make the contraction real, as a two-state step rather than a scrub.** §3.5 asks for a *step*
-   ("title, padding, and band all take the compact **token step**"), not a continuous scrub — the
-   design over-delivered motion and under-delivered the law. One `data-stuck` boundary, detected once
-   per crossing (a zero-height `IntersectionObserver` sentinel today; `@container scroll-state(stuck:
-   top)` when both engines ship it), driving a single tokenized transition over `padding-block`,
-   `font-size`, and the desc wrapper's `grid-template-rows: 1fr → 0fr`. Layout runs **once per
-   crossing**, not per frame, so the dead F3 fork does not return. This dissolves D-4 (the band and
-   the desc actually collapse), D-8 (one clock, one token, zero magic ranges), and D-5 (no transform
-   survives, so there is no origin to mirror).
+   - **(a) the producer** — `<CardHeader shrink>` + `.card-scroll-host`, `card-scroll.css`. Ships
+     tokenized transitions, a `display:none` description collapse, `CardTitle as="h1"`, and its own
+     PRM arm. Its rung pair is display-2 → display-1, whereas value's ratified pair (T.W4-1) is
+     display-1 → heading, so adoption needs the rungs tokenized
+     (`--card-header-title-rung-{rest,condensed}`) via the standing BH/BI relay — a producer request,
+     which is the correct direction of travel under edict 4.
+   - **(b) the in-repo primitive** — `useHeaderCondense.ts`, already shipping on Picker, already
+     carrying the sufficiency gate that stops the condense oscillating on
+     barely-overflowing content (`useHeaderCondense.ts:25-34`), and already the declared "REFERENCE
+     implementation a producer real-box-shrink door later absorbs" (`:14-15`).
+
+   **My recommendation is (b) now, (a) when the producer door lands** — because (b) needs no producer
+   release, is the option the repo already ruled correct for exactly this problem, and (a)'s
+   compositor-only commitment is the very thing `useHeaderCondense.ts:9-13` rejects. Either way, one
+   transposition retires: the `@supports` block (`:177-194`), all three `@keyframes` (`:196-223`),
+   `--pane-title-shrink-ratio` (`:140-142`), `transform-origin` (`:184`), and `.pane-scroll-fade`
+   (`:54-57`). That single move dissolves **D-16, D-4, D-5, D-7, D-8, D-11**, and makes D-1/D-2
+   unreachable because there is no ratio left to compute.
+
+2. **Interim only, if the jury stages the work:** `--pane-title-shrink-ratio: calc(var(--type-heading)
+   / var(--type-display-1))`. Measured identical in both engines at both bands (D-2). It is a shipped
+   Safari defect with a proven one-token fix, so it should not wait on the transposition — but it is
+   a stopgap on code that step 1 deletes, not a cure.
 
 3. **Make the veil a material, not a ramp.** Rest keeps the ratified 0.52-of-0.65 breathing floor.
-   Stuck must **occlude**, which an α-0.65 fill cannot do at any opacity — so the stuck state needs
-   an **opaque** plate token, not the resting fill at opacity 1. That is a producer request through
-   the standing BH/BI relay (the P3 rest-floor / feather knobs are already booked; add a stuck fill),
-   and it repairs D-3, D-14 and — because the stuck state becomes static material rather than
-   animation — D-7 by construction, with nothing left for the blunt guard to fail to reach.
+   Stuck must **occlude**, which an α-0.65 fill cannot do at any opacity (D-3) — so the stuck state
+   needs an **opaque** plate token. This defect is inherited from the producer (`card-scroll.css`
+   uses the same `--glass-bg-resting`), so it is a BH/BI producer request — add a stuck fill
+   alongside the already-booked P3 rest-floor/feather knobs — and it repairs D-3 and D-14 on every
+   consumer at once.
 
-4. **Own the route heading.** Render `<h1 id="route-title" tabindex="-1">`, demote the panes' section
-   headings to `<h2>` (`GradientVisualizer.vue:149/241/253` and siblings). One structural change,
-   nine sites inherit, and §5.1's seven-origin focus contract becomes implementable for the first
-   time. D-6.
+4. **Own the route heading.** Render the route identity as `<h1 id="route-title" tabindex="-1">`
+   (producer-supported: `CardTitle as="h1"`), and demote the panes' section headings to `<h2>`
+   (`GradientVisualizer.vue:149/241/253` and siblings). One structural change, nine sites inherit,
+   and §5.1's seven-origin focus contract becomes implementable for the first time. D-6.
 
 5. **Retire the two local interims into the producer.** A non-bold glass-ui display rung (P10) so
    `.pane-header-title` stops restating four properties; the stuck plate fill (P3) so the `::before`
-   recipe dies. D-10.
+   recipe — currently a copy of `card-scroll.css`'s `::before` with `14px` substituted for
+   `var(--card-pad-title-gap)` — dies. D-10.
 
 6. **Caption:** `text-prose`, `max-inline-size: 66ch`, and `<slot name="description">` instead of a
    `string` prop — which also lets `ConfigSliderPane.vue:107`'s conditional-`v-bind` contrivance go.
    D-9, D-12, D-13.
 
-7. **Make the host coupling structural.** `.pane-scroll-fade` should not be a global class published
-   by a leaf that styles its ancestors. Either the pane scroll host becomes a real component that
-   provides the timeline name, or PaneHeader takes the timeline as a required token — and the false
-   contract comment at `:43-45` gets corrected against `ConfigSliderPane.vue:106` either way. D-11.
-
-**What must NOT happen:** another `!important` override stacked on `animations.css:184`, another
-opacity number tuned by eye, or a `@supports` arm added to paper over D-1 — the atan2 support query
-already returns `true` in the engine that computes the wrong answer.
+**What must NOT happen:** a fourth bespoke condense (including the zero-height `IntersectionObserver`
+sentinel I proposed in an earlier draft of this report — that is `useHeaderCondense.ts` re-typed);
+another `!important` override stacked on `animations.css:184`; another opacity number tuned by eye;
+or a `@supports` arm added to paper over D-1 — the atan2 support query already returns `true` in the
+engine that computes the wrong answer.
 
 ---
 
@@ -599,13 +788,25 @@ node docs/tranches/V/megatranche/audit/components/PaneHeader/probe-cure-and-shot
 node docs/tranches/V/megatranche/audit/components/PaneHeader/probe-occlusion-prm-fc.mjs    # D-3 leak, D-7 PRM, D-14 forced-colors
 ```
 
+D-16 needs no browser — it is four file reads and two greps:
+
+```bash
+node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"     # 7.0.0
+cat node_modules/@mkbabb/glass-ui/dist/components/card/card-scroll.css        # the producer choreography
+cat node_modules/@mkbabb/glass-ui/dist/components/card/CardHeader.vue.d.ts    # the `shrink` prop + host contract
+grep -o "card-scroll-host[^}]*}" node_modules/@mkbabb/glass-ui/dist/styles/utilities/base-misc.css
+#   -> card-scroll-host { contain: layout style paint; }
+sed -n '1,45p;75,120p' demo/picker/composables/useHeaderCondense.ts           # the in-repo primitive + its rejection of (a)
+sed -n '75,120p' demo/picker/header.css                                      # the Picker's real padding + font-size steps
+```
+
 The naive-cure leak baseline in D-7 was measured with a one-off variant of the fourth probe: same
 A/B differencing, with `reducedMotion: "reduce"` and
 `.pane-header::before, .pane-header-title, .pane-header-desc-wrap > p { animation: none !important;
 animation-timeline: auto !important }` injected to emulate the proposed gate, veil asserted at 0.52
 before differencing.
 
-Frames: `docs/tranches/V/megatranche/audit/components/PaneHeader/shots/`.
+Frames: `docs/tranches/V/megatranche/audit/components/PaneHeader/shots/` (34).
 
 ---
 
@@ -613,17 +814,18 @@ Frames: `docs/tranches/V/megatranche/audit/components/PaneHeader/shots/`.
 
 | ID | Severity | Family | Defect |
 |---|---|---|---|
+| D-16 | BLOCKER | duplicate-choreography | third parallel header-condense in one app; the only one that steps **no** layout quantity, while glass-ui 7.0.0 `CardHeader shrink` and in-repo `useHeaderCondense` both do |
 | D-1 | BLOCKER | CSS-arithmetic-as-law | Safari phone: title grows 1.62× and collides; ratio 1.619766 where the law demands 1.0 |
 | D-2 | BLOCKER | CSS-arithmetic-as-law | Safari desktop: ratio 0.310797 vs the law's 0.618; title ink 13.67px, below body copy |
-| D-3 | BLOCKER | material-cannot-occlude | veil leaks 14.7–24.6% of the band at its **strongest** state; α 0.65 caps coverage forever |
-| D-4 | MAJOR | optical-not-layout contraction | band/padding/desc Δ = 0.00px rest→stuck on 30/30; 58–79% of the stuck content box is empty |
-| D-5 | MAJOR | optical-not-layout contraction | `transform-origin: left top` is physical; 176px inline-start drift in RTL |
-| D-6 | MAJOR | no-heading-owner | `h1 = 0` on 60/60 captures; route identity is an `<h3>` peer of its own subsections; §5.1 focus contract unimplementable |
-| D-7 | MAJOR | material-cannot-occlude | MT-F023 adopted; the naive cure measurably worsens the leak on both engines — cure amended |
-| D-8 | MAJOR | numbers-without-law | 64/120/80px, three clocks, un-tokenized; cited producer grammar absent from glass-ui 7.0.0 |
+| D-3 | BLOCKER | material-cannot-occlude | veil leaks 14.7–24.6% of the band at its **strongest** state; α 0.65 caps coverage forever (producer-inherited) |
+| D-4 | MAJOR | duplicate-choreography | band/padding/desc Δ = 0.00px rest→stuck on 30/30; 58–79% of the stuck content box is empty |
+| D-5 | MAJOR | duplicate-choreography | `transform-origin: left top` is physical; 176px inline-start drift in RTL |
+| D-6 | MAJOR | no-heading-owner | `h1 = 0` on 60/60 captures and 0 in source; route identity is an `<h3>` peer of its own subsections; §5.1 focus contract unimplementable; `CardTitle as` was available |
+| D-7 | MAJOR | duplicate-choreography | MT-F023 adopted; naive cure measurably worsens the leak on both engines — amended, then dissolved by D-16 |
+| D-8 | MAJOR | numbers-without-law | 64/120/80px + `-0.25rem` + `14px`×4, three clocks, un-tokenized where producer tokens exist. **Corrected**: the cited `card-scroll.css` grammar *does* ship |
 | D-9 | MINOR | producer-seam-deferred | `text-caption` is an eighth type role; renders italic, unsanctioned by §4 |
-| D-10 | MINOR | producer-seam-deferred | display rung + veil recipe re-implemented per-instance; two "booked" swaps unlanded |
-| D-11 | MINOR | producer-seam-deferred | `.pane-scroll-fade` contract comment false vs `ConfigSliderPane.vue:106`; global class from a leaf, unenforced |
+| D-10 | MINOR | producer-seam-deferred | display rung + veil recipe re-implemented per-instance; the `::before` is a copy of the producer's with `14px` for `var(--card-pad-title-gap)` |
+| D-11 | MINOR | duplicate-choreography | `.pane-scroll-fade` duplicates producer `.card-scroll-host`; contract comment false vs `ConfigSliderPane.vue:106`; global class from a leaf, unenforced |
 | D-12 | MINOR | string-prop-caption | `description: string` forbids §6.1 LTR isolation; drives a `v-bind` contrivance downstream |
 | D-13 | MINOR | string-prop-caption | no measure, no clamp: header reaches 11.9% of a phone viewport on `/#/atmosphere` |
 | D-14 | INFO | material-cannot-occlude | forced-colors: veil = flat Canvas wash, `blur(0px)`, `--ink-muted` inert; existing FC matrix did not apply |

@@ -1,0 +1,53 @@
+files scanned: 250
+runtime SCCs (size>1): 1
+--- SCC size 2
+   demo/shell/dock/Dock.vue
+   demo/shell/dock/index.ts
+
+entry roots: [ 'demo/color-picker/App.vue', 'demo/color-picker/router/index.ts' ]
+reachable modules: 239 / 250
+UNREACHABLE .vue (2):
+   demo/palettes/browser/slug/PaletteSlugBar.vue
+   demo/scenes/about/katex/Katex.vue
+
+shell↔palettes runtime edges: 8
+   shell→palettes  demo/shell/dock/Dock.vue  ->  demo/palettes/usePalettePorts.ts
+   shell→palettes  demo/shell/dock/DockViewSelect.vue  ->  demo/palettes/usePalettePorts.ts
+   shell→palettes  demo/shell/dock/layers/SlugEditLayer.vue  ->  demo/palettes/usePalettePorts.ts
+   shell→palettes  demo/shell/dock/menus/MobileMenuDropdown.vue  ->  demo/palettes/usePalettePorts.ts
+   shell→palettes  demo/shell/dock/menus/ProfileSection.vue  ->  demo/palettes/usePalettePorts.ts
+   shell→palettes  demo/shell/usePaneRouter.ts  ->  demo/palettes/PalettesPane.vue
+   shell→palettes  demo/shell/usePaneRouter.ts  ->  demo/palettes/BrowsePane.vue
+   shell→palettes  demo/shell/usePaneRouter.ts  ->  demo/palettes/admin/AdminPane.vue
+
+UNREACHABLE .ts (24):
+   demo/color-picker/vite.d.ts
+   demo/palettes/browser/index.ts
+   demo/palettes/browser/slug/index.ts
+   demo/palettes/browser/status/index.ts
+   demo/palettes/export/bytes.ts
+   demo/palettes/export/canonical.ts
+   demo/palettes/export/css.ts
+   demo/palettes/export/digest.ts
+   demo/palettes/export/json.ts
+   demo/palettes/export/png.ts
+   demo/palettes/export/reload.ts
+   demo/palettes/export/rfc8785.ts
+   demo/palettes/export/serializers.ts
+   demo/palettes/export/svg.ts
+   demo/palettes/export/tailwind.ts
+   demo/palettes/export/types.ts
+   demo/palettes/types.ts
+   demo/scenes/about/katex/index.ts
+   demo/test/export/byte-exact.test.ts
+   demo/test/glass/aurora-bracket.test.ts
+   demo/test/glass/aurora-motion.test.ts
+   demo/ui/label/index.ts
+   demo/ui/switch/index.ts
+   demo/workbenches/extract/quantize-worker.ts
+
+value-importers of demo/palettes/browser/index.ts: []
+
+value-importers of demo/palettes/browser/slug/index.ts: ["demo/palettes/browser/index.ts"]
+
+value-importers of demo/palettes/browser/status/index.ts: ["demo/palettes/browser/index.ts"]

@@ -10,14 +10,13 @@ page.on("pageerror", e => pageErrs.push(String(e.message ?? e)));
 await page.goto("http://localhost:9000/", { waitUntil: "domcontentloaded" });
 await page.waitForTimeout(2500);
 
-// open the Gradient view via the dock
-const dockBtn = page.getByRole("button", { name: /gradient/i }).first();
-if (await dockBtn.count()) { await dockBtn.click().catch(()=>{}); }
-else {
-  // fall back: a select/menu
-  const anyGrad = page.getByText("Gradient", { exact: true }).first();
-  await anyGrad.click().catch(()=>{});
-}
+// open the Gradient view via the dock (the e2e openView idiom)
+const pill = page.locator(".glass-dock.collapsed");
+if (await pill.count()) { await pill.click(); await page.waitForTimeout(800); }
+const viewSelect = page.getByRole("combobox", { name: "Select view" });
+await viewSelect.click();
+await page.waitForTimeout(400);
+await page.getByRole("option", { name: "Gradient", exact: true }).click();
 await page.waitForTimeout(1500);
 
 const head = page.locator("button[aria-controls^='easing-interval-']").first();

@@ -1,0 +1,39 @@
+{
+  "rampAbsent": {
+    "note": "no .preview-chip rendered — sampleInterpolationRamp returns null with <2 operands, so the ramp's honest-absence arm is LIVE on a fresh /mix",
+    "optionCount": 9,
+    "firstOptionText": "OKLCh Perceptual, hue-preserving"
+  },
+  "stripDark": {
+    "rect": {
+      "w": 41.875,
+      "h": 16.391
+    },
+    "ratio": 2.5548,
+    "boxShadow": "oklab(0.925196 0.00238398 0.00574207 / 0.12) 0px 0px 0px 1px inset",
+    "chipFontSize": "16.4px",
+    "copyFontSize": "16.4px",
+    "copyClass": "preview-strip-segment",
+    "laneClass": "flex items-center gap-2 min-w-0",
+    "nameLaneFont": {
+      "fontSize": "16.4px",
+      "fontFamily": "Fraunces",
+      "fontWeight": "400"
+    }
+  },
+  "genLightRow": {
+    "chipFontSize": "16.4px",
+    "chipH": 16.391,
+    "copyFontSize": "16.4px",
+    "copyClass": "preview-strip-segment",
+    "copyInkH": 16.391,
+    "chipOverCopyFont": 1,
+    "nameFontSize": "16.4px",
+    "nameFamily": "Fraunces",
+    "nameWeight": "400",
+    "optionRect": {
+      "w": 262,
+      "h": 55
+    }
+  }
+}

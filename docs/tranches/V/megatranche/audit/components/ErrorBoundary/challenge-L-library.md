@@ -1,587 +1,783 @@
-# CHALLENGE-L — library structure · `demo/color-picker/ErrorBoundary.vue`
+# CHALLENGE-L (round 2) — library structure · `demo/color-picker/ErrorBoundary.vue`
 
 ## Model receipt
 
-I observe myself to be **Opus 5** (`claude-opus-5[1m]`), the model this seat was explicitly
-spawned with. Declared, not inherited.
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`) — the model this seat was explicitly
+spawned with. The declaration was named in my spawn prompt and matches the model I am. Not
+inherited, not substituted.
 
-**Repo state.** The commission names HEAD `c654824e`. The branch had already advanced when this
-seat opened: `git log --oneline -1` → `32b4040e docs(V·mega): r3 DELTA COMPLETE — 3 apotheoses
-merged in place; scenes promoted from queue`. `demo/color-picker/ErrorBoundary.vue` is byte-identical
-across that range (`git log --follow` shows its last touch at `a61094e3`, three commits before
-`c654824e`), so no finding below is affected. Recorded for the record, not as a caveat.
+**Repo state.** The commission names HEAD `c654824e`. The branch has advanced:
+`git log --oneline -1` → `f36f780c docs(V·mega): STATE — three OM censuses complete, findings at
+MT-F043`. `demo/color-picker/ErrorBoundary.vue` is untouched across that range (last write
+`a61094e3`, three commits *before* `c654824e`), so nothing below is affected by the drift.
 
-**Verdict: DEFECTIVE.** Eleven findings, one BLOCKER. The component's single job — recover a failed
-pane — does not work: the boundary latches the whole application dead across navigation and its own
-Retry button, and only a full page reload restores it. That is not an implementation slip; it is a
-wrong-altitude ownership defect. Error containment is owned by a component that has no relationship
-to the unit that fails.
+**Round handling.** A round-1 CHALLENGE-L report existed at this path (committed, authored by a
+declared Opus 5 seat). It is preserved verbatim as `challenge-L-library-r1.md`. This file is the
+round-2 report. My probes live in `probes-L-r2/`; r1's live in `probes/`. I re-ran r1's suite before
+writing a word — **13/13 pass**, so every r1 claim I cite is reproducible, not taken on trust.
+
+---
+
+## Verdict
+
+**DEFECTIVE — BLOCKER.**
+
+Round 1 found that the boundary is *too coarse*: it wraps the whole pane grid, so one pane's throw
+kills both panes and latches the application dead across navigation. That is confirmed and
+reproduced.
+
+Round 2's contribution is the other half of the same defect, which round 1 did not reach: **the
+boundary is simultaneously too narrow, and there is no layer beneath it.** It is a *sibling* of the
+Dock, of the aurora canvas, and of the global dialog — a throw in any of them is not caught
+(measured, R2-A). And when it does catch, nothing downstream ever learns: the live app has
+`app.config.errorHandler === undefined` and `window.onerror === null` (measured on
+`localhost:9000`), and even with a handler installed the boundary's `return false` means it is
+called **zero** times (measured, R2-C).
+
+The reason no reporting layer exists is structural and, as far as I can find, unrecorded anywhere in
+this audit directory: **there is no boot module.** `demo/` contains no `main.ts`. The single
+`createApp` in the entire repository is an inline `<script type="module">` inside
+`demo/color-picker/index.html:206-212`. There is no module in which `app.config.errorHandler` could
+be installed, which is why it is not installed, which is why this 87-line component is the app's
+only failure net — at one fixed altitude that is wrong in both directions.
 
 ---
 
 ## Method — what I actually ran
 
-| Probe | Artifact | Result |
-|---|---|---|
-| Unit probes against the **shipped** SFC (6 tests) | `probes/boundary.test.ts` + `probes/vitest.config.ts` | 6/6 pass |
-| Live latch probe against the running dev server | `probes/live-latch.mjs` | pasted below |
-| Effective lint boundary for this file | `npx eslint --print-config` | pasted below |
-| Dev-server root exposure | `curl localhost:9000` | pasted below |
-| Vue error-propagation semantics | `node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:227-256` | quoted below |
+| # | Probe | Artifact | Result |
+|---|---|---|---|
+| 1 | r1's suite, re-run for reproducibility | `probes/` (13 tests) | 13/13 pass — pasted below |
+| 2 | Altitude probes (3, raw `createApp`, not VTU) | `probes-L-r2/altitude.test.ts` | 3/3 pass — pasted below |
+| 3 | Live error-net read on the running dev server | `probes-L-r2/live-net.mjs` | pasted below |
+| 4 | TypeScript module resolution of the published surface | `probes-L-r2/ts-resolve.mjs` | pasted below |
+| 5 | **Production** bundle cost, root barrel vs subpath | `probes-L-r2/vite.measure.config.ts` + 2 entries | pasted below |
+| 6 | Effective ESLint import boundary for this file | `npx eslint --print-config` | pasted below |
+| 7 | Visual matrix, the `/#/does-not-exist` capture | `audit/visual/shots/…/notfound-redirect.png` | read; finding L2-7 |
 
 ```
-$ npx vitest run --config docs/tranches/V/megatranche/audit/components/ErrorBoundary/probes/vitest.config.ts
+$ npx vitest run --config docs/.../ErrorBoundary/probes/vitest.config.ts
  ✓ docs/.../ErrorBoundary/probes/boundary.test.ts (6 tests) 56ms
+ ✓ docs/.../ErrorBoundary/probes/challenge-c-impl.test.ts (7 tests) 112ms
+ Test Files  2 passed (2)
+      Tests  13 passed (13)
+
+$ npx vitest run --config docs/.../ErrorBoundary/probes-L-r2/vitest.config.ts
+ ✓ docs/.../ErrorBoundary/probes-L-r2/altitude.test.ts (3 tests) 122ms
  Test Files  1 passed (1)
-      Tests  6 passed (6)
+      Tests  3 passed (3)
 ```
 
-The probes mount the real `demo/color-picker/ErrorBoundary.vue` (aliased `@demo`), stub only
-`Button`/`CircleAlert`/`RotateCcw`, and touch nothing in `demo/`. No source edits land from this seat.
+Everything is read-only. The probes mount the shipped SFC through a `@demo` alias and stub only
+`Button` / `CircleAlert` / `RotateCcw`. **No source edits land from this seat.** Nothing under
+`src/`, `demo/`, `api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`, `scripts/dev/dev.sh` or any
+`INBOX.md` was written.
 
 ---
 
-## The import graph of this component, traced
+## Position relative to round 1
 
-`demo/color-picker/ErrorBoundary.vue:39-41` — three edges, total:
+Stated up front so the wave author is not left reconciling two documents.
 
-| Import | Home | Verdict |
+| r1 finding | r2 disposition |
+|---|---|
+| L-1 latch / blast radius (BLOCKER) | **CONFIRMED** — r1's probes reproduce 13/13. Subsumed into **L2-1**, which adds the opposite-direction half. |
+| L-2 plate duplicated from `EmptyState` | **CONFIRMED** independently (constants re-diffed below). **Cure amended** — see **L2-5**: r1's `demo/shared/ui/ErrorPlate.vue` keeps a design-system primitive in the demo, which is edict 4 the wrong way round. |
+| L-3 terminal unreportable sink | **CONFIRMED and root-caused** — **L2-2**. r1 prescribed a cure site (`boot/useErrorReporting.ts`) that cannot exist: there is no boot module to call it. |
+| L-4 `demo/ui/` shim + 231 KB root-barrel cost | **SPLIT.** The edict-2 shim finding is **CONFIRMED**. The **cost claim is REFUTED by measurement** — see **L2-6**. Production bundles are byte-length identical. 231 KB is a dev-prebundle artifact and must not enter a wave spec as a shipped-bytes argument. |
+| L-5 dead ESLint globs | **CONFIRMED** independently, and **escalated**: the dead rules now have **live violations** — see **L2-3**. |
+| L-6 mis-homed in the Vite root | **CONFIRMED**, and root-caused: the directory is not merely "the boot dir with an outlier"; it is a **cycle participant** (L2-3). |
+| L-7 dead public surface · L-8 `.plate-ink` ×5 · L-9 dead class · L-10 dead retry · L-11 test coupling | **CONFIRMED**, not re-derived. L-11 sharpened by **L2-9**. |
+| "value.js consumption — clean by absence" | **CONTESTED** — see **L2-4**. The axis is clean, but the *proof* is vacuous: the demo's TypeScript view of the published surface is misdeclared in 3 of 8 entries and silent on 2 real ones. |
+
+---
+
+## The import graph, traced
+
+`ErrorBoundary.vue:39-41` — three edges:
+
+| Import | Resolves to | Verdict |
 |---|---|---|
 | `vue` → `ref, nextTick, onErrorCaptured, useTemplateRef` | framework | fine |
-| `@lucide/vue` → `CircleAlert, RotateCcw` | `devDependencies`; glass-ui declares it a **peerDependency** (`^1.16.0`), so it is the constellation's icon set, not a demo private choice; 47 demo files use it | fine |
-| `../ui/button` → `Button` | `demo/ui/button/index.ts`, **one line**: `export { Button } from "@mkbabb/glass-ui";` | **L-4** |
+| `@lucide/vue` → `CircleAlert, RotateCcw` | `devDependencies`; glass-ui declares it `peerDependencies: {"@lucide/vue": "^1.16.0"}` | fine — the constellation's icon set |
+| `../ui/button` → `Button` | `demo/ui/button/index.ts`, **one line**: `export { Button } from "@mkbabb/glass-ui";` | **L2-6** |
 
-**Nothing from `@mkbabb/value.js`.** No `@src/*` deep path, no `src/` reach, no demo→library
-boundary crossing of any kind. See *Negative proofs* — this is the one axis on which the component
-is clean, and it is clean by construction, not by luck.
+Zero imports from `@mkbabb/value.js`, zero `@src/*`, zero reach into `src/`. But that edge is not
+absent — it is *transitive*: `Button` → the glass-ui root barrel → glass-ui's `Chip`/`Surface`/etc.
+→ `@mkbabb/value.js/{color,css,easing}`. Measured:
+
+```
+$ grep -ohE 'from "@mkbabb/value\.js[^"]*"' node_modules/@mkbabb/glass-ui/dist/*.js | sort | uniq -c
+   5 from "@mkbabb/value.js/color"
+   3 from "@mkbabb/value.js/css"
+   1 from "@mkbabb/value.js/easing"
+```
+
+So this component *does* consume the library — through glass-ui, through the one layer in the demo
+that has no subpath discipline. That is the shape of L2-4 and L2-6.
 
 ---
 
 # Findings
 
-## L-1 · **BLOCKER** — the boundary latches the entire app dead across navigation; error containment is owned at an altitude that cannot know when the failure is stale
+## L2-1 · **BLOCKER** — containment is wrong in *both* directions: too coarse for the pane, too narrow for the shell
 
-`demo/color-picker/App.vue:47-50` opens **one** `<ErrorBoundary>` around the whole two-pane grid and
-closes it at `:139-141`. Its `caught` flag (`ErrorBoundary.vue:55`) is component-local state on a
-component whose lifetime is the *application's*. The thing that actually failed is a **pane** — the
-unit `demo/shell/PaneSlot.vue` mounts under `:key="liveKey"` (`PaneSlot.vue:113-119`), from the route
-table. The boundary has no access to that key, so nothing can ever tell it the failure is stale.
+Round 1 proved the coarse half. This is the narrow half, and together they show the defect is not a
+missing `:key` but a component owning a responsibility at a fixed altitude that no single altitude
+can discharge.
 
-The live app confirms the consequence. `probes/live-latch.mjs` walks the running Vue tree, finds the
-one instance carrying an `onErrorCaptured` hook, fires it exactly as Vue's `handleError` does, then
-navigates:
+`App.vue`'s template, by line:
 
 ```
-$ node docs/.../ErrorBoundary/probes/live-latch.mjs
-instances_with_onErrorCaptured: [{"name":"ErrorBoundary","depth":1}]
-hook_return_value: "false"
-after_catch: {"alerts":["dev misconfigured — run `npm run dev`",
-                        "This panel hit an unexpected error.L-probe induced render th"],
-              "paneContainerPresent":false,
-              "focusTag":"vj-error-boundary flex flex-col items-ce"}
-after_navigation_to_/palettes: {"hash":"#/palettes",
-              "alerts":["dev misconfigured — run `npm run dev`",
-                        "This panel hit an unexpected error.L-probe induced render th"],
-              "paneContainerPresent":false,
-              "mainText":"This panel hit an unexpected error.\n\nL-probe induced render throw\n\nTry again"}
-after_reload: {"alerts":1,"paneContainerPresent":true}
+$ grep -n '^\s*<nav\|^\s*</nav>\|^\s*<main\|^\s*</main>\|<ErrorBoundary\|</ErrorBoundary>\|<MigratePalettesDialog\|^</template>' demo/color-picker/App.vue
+24:        <nav                         ← the Dock — the app's ONLY navigation
+44:        </nav>
+47:        <main class="pane-main" aria-label="Color tool panes">
+50:        <ErrorBoundary message="This panel hit an unexpected error.">
+140:        </ErrorBoundary>
+141:        </main>
+152:    <MigratePalettesDialog           ← the global modal
+158:</template>
 ```
 
-Read that third line. The user clicked a different view. **The URL changed. The content did not.**
-`.pane-container` is still absent. The dock is still live and still accepts clicks, so every
-subsequent navigation is a silent no-op — the app presents a working navigation affordance over a
-corpse. Only `page.reload()` restores it (`after_reload`).
+The boundary opens at `:50` and closes at `:140`. Everything at `:24-44` and `:152-158` is outside
+it. The live tree confirms a third uncontained sibling the source read alone does not show — the
+aurora canvas:
 
-Reproduced in isolation at `probes/boundary.test.ts` P2 — replace the slotted component outright and
-the boundary stays latched, the healthy replacement never mounts:
+```
+$ node docs/.../ErrorBoundary/probes-L-r2/live-net.mjs
+{
+  "containment_coverage": {
+    "elements_under_app": 1695,
+    "elements_inside_main_the_only_guarded_region": 1535,
+    "pct": 90.6
+  },
+  "app_mounted": true,
+  "errorHandler": "undefined",
+  "warnHandler": "undefined",
+  "window_onerror": "object",              ← i.e. null
+  "onErrorCaptured_carriers": [ { "name": "ErrorBoundary", "depth": 1, "path": "App" } ],
+  "app_layout_children": [ "canvas", "nav", "main" ],
+  "main_present": true,
+  "uncontained_top_level": [ "div", "div.app-layout", "span", "div", "div", "div" ]
+}
+```
+
+**Exactly one** `onErrorCaptured` carrier exists in the whole mounted application. `.app-layout` has
+three children — `canvas`, `nav`, `main` — and containment covers a subtree of the third only. Five
+of the six top-level nodes under `#app` (the teleport hosts for every portaled dialog, popover and
+tooltip) sit outside `.app-layout` entirely.
+
+The guarded 90.6% is the pane grid. The **unguarded 9.4% is every affordance a user would need to
+recover with.** When the boundary fires, the 1,535 guarded elements vanish and what survives is the
+dock — which, per r1's live probe, still accepts clicks and silently changes nothing.
+
+That a sibling throw is not caught is measured, not inferred. R2-A replicates App.vue's exact
+containment shape and throws in the `<nav>` position:
+
+```
+$ npx vitest run --config docs/.../probes-L-r2/vitest.config.ts
+{"probe":"R2-A","boundary_announced":false,
+ "errors_escaped_to_app_root":["dock render throw"],"rendered_html_len":1066}
+```
+
+`boundary_announced: false`. The error walked past the boundary to the app root — where, in the real
+app, `errorHandler` is `undefined`.
+
+**Mechanism.** Unique semantic ownership violated twice over. *"Which unit is currently failing"* is
+a fact about a **pane**, stored on the **app**; *"has the shell failed"* is a fact about the
+**shell**, owned by **nobody**. One component named `ErrorBoundary` at one fixed depth cannot hold
+both, and holding one at the wrong depth produces the latch.
+
+**Cure — transposition, three altitudes, three owners:**
+
+1. **Pane containment → `demo/shell/PaneSlot.vue`**, where `liveKey` already lives
+   (`PaneSlot.vue:113-125`). Keying the boundary on `liveKey` makes `caught` structurally incapable
+   of outliving its subject; blast radius falls from *the application* to *one slot*.
+2. **Shell containment → above `App`**, at the mount site — which requires L2-2's boot module.
+3. **Reporting → the boot module**, which is the only layer that can also see the async half no
+   `onErrorCaptured` can (L2-2).
+
+`App.vue` then holds **zero** boundary markup, which is correct: an application root is not an error
+handler.
+
+---
+
+## L2-2 · **BLOCKER** — there is no boot module, so error reporting has nowhere to live
+
+This is the root cause of r1's L-3, and it changes the cure.
+
+```
+$ find demo -name "main.ts" -o -name "main.js"
+(no output)
+
+$ grep -rn "createApp" demo/ --include="*.ts" --include="*.vue" --include="*.html"
+demo/color-picker/index.html:206:            import { createApp } from "vue";
+demo/color-picker/index.html:210:            const app = createApp(App);
+```
+
+The entire boot is seven lines inside an HTML file (`index.html:205-213`):
+
+```html
+<script type="module">
+    import { createApp } from "vue";
+    import App from "./App.vue";
+    import { router } from "./router/index";
+
+    const app = createApp(App);
+    app.use(router);
+    app.mount("#app");
+</script>
+```
+
+There is no module here. There is no importable unit, nothing a test can call, nothing to which a
+composable can be attached. `demo/color-picker/composables/boot/` holds nine files — every one of
+them is called from `App.vue`'s `setup()`, i.e. from *inside* the component tree, *after* the app
+object is gone. `app.config.errorHandler` cannot be installed from there.
+
+The consequence is measured three ways:
+
+- **Live** (above): `errorHandler: "undefined"`, `warnHandler: "undefined"`,
+  `window.onerror: "object"` (`null`).
+- **R2-C** — the boundary is a terminal sink even when a reporter *does* exist:
+
+  ```
+  {"probe":"R2-C","boundary_announced":true,"app_errorHandler_calls":0}
+  ```
+
+  An `app.config.errorHandler` was installed on a real `createApp` instance. The boundary caught the
+  pane throw and announced it. The handler was called **zero** times — `return false` at
+  `ErrorBoundary.vue:68` halts propagation before Vue reaches it
+  (`@vue/runtime-core` `handleError`: early `return` on a `false` hook result, so `logError` at the
+  tail is never reached either).
+- **Static**: `grep -rn "errorHandler\|onErrorCaptured\|unhandledrejection\|window.onerror" demo/ src/`
+  matches only `ErrorBoundary.vue:39` and `:59`.
+
+So the demo's error contract is: *one boundary, one altitude, one screen-painted string, and no
+record*. And the one failure class the visual matrix actually captured —
+`safari-desktop-light /#/: WebGL: context lost.` (`audit/visual/REPORT.md` §consoleErrors) — is
+asynchronous, therefore structurally invisible to `onErrorCaptured`, therefore lost entirely.
+
+**Cure.** Create `demo/color-picker/main.ts`. `index.html` reduces to
+`<script type="module" src="./main.ts"></script>` (Vite's canonical form; the fouc-guard classic
+script at `:159-203` is unaffected). `main.ts` owns exactly what only it can own:
 
 ```ts
-which.value = "good"; boom.value = false;   // the parent swaps in a healthy pane
-expect(w.find('[role="alert"]').exists()).toBe(true);    // still latched
-expect(w.find(".alive-GOOD").exists()).toBe(false);      // healthy pane never mounts
+const app = createApp(App);
+app.config.errorHandler = report;          // the sync half the boundary suppresses
+window.addEventListener("unhandledrejection", report);   // the async half it cannot see
+window.addEventListener("error", report);
+app.use(router);
+app.mount("#app");
 ```
 
-Two further consequences fall straight out of the altitude:
-
-- **Blast radius.** P1: one sibling's throw unmounts every sibling. Live: `paneContainerPresent:false`
-  after a single pane's failure — both panes die, and every `KeepAlive` cache inside the three
-  `PaneSlot` sites (`App.vue:83,101,127`) is destroyed with them.
-- **Dead recovery.** P3, and L-10 below.
-
-**Mechanism.** Unique semantic ownership violated at the boundary's own altitude: *"which pane is
-currently failing"* is a fact about a pane, stored on the app.
-
-**Cure — architectural transposition, not a patch.** Containment moves **into** `PaneSlot`, where the
-key already lives:
-
-```vue
-<!-- demo/shell/PaneSlot.vue -->
-<Transition …>
-  <KeepAlive :max="max">
-    <PaneErrorBoundary :key="liveKey" @retry="remount">
-      <component :is="liveComponent" :key="liveKey" v-bind="liveProps" />
-    </PaneErrorBoundary>
-  </KeepAlive>
-</Transition>
-```
-
-`:key="liveKey"` on the boundary is the whole fix for the latch: a view change destroys the boundary
-instance along with the pane it guarded, so `caught` cannot outlive its subject. Blast radius drops
-from *the application* to *one slot* — a broken gradient pane costs the gradient pane, not the
-picker beside it and not navigation. `App.vue` then holds **zero** boundary markup: the shell owns
-pane containment, which is what a shell is for.
+Then `PaneErrorBoundary` emits `caught: [err, info]` and stops owning the decision, and r1's
+`useErrorReporting` has, for the first time, a caller.
 
 ---
 
-## L-2 · **MAJOR** — the error plate is a drifted hand-copy of `EmptyState`'s `error` variant
+## L2-3 · **MAJOR** — a live directory-level dependency **cycle** through the boot root, in the exact region whose guard rule is dead
 
-Two homes for one concept, and the constants have already diverged:
+Round 1 established that the ESLint demo-boundary rules point at the deleted `demo/@` tree. I
+confirmed that independently:
 
 ```
-$ diff <(sed -n '14,27p' demo/shared/ui/EmptyState.vue) <(sed -n '15,34p' demo/color-picker/ErrorBoundary.vue)
-<         class="flex flex-col items-center justify-center gap-2.5 py-8 text-center"
->         class="vj-error-boundary flex flex-col items-center justify-center gap-3 py-10 px-6 …"
-<         <CircleAlert class="w-6 h-6 text-destructive/80" aria-hidden="true" />
->         <CircleAlert class="w-7 h-7 text-destructive/80" aria-hidden="true" />
-<         <p class="font-display text-heading text-foreground max-w-[26ch] …">
->         <p class="font-display text-heading text-foreground max-w-[28ch] …">
-<         <p v-if="detail" class="text-mono-small plate-ink max-w-[44ch] break-words">
->         <p v-if="detail" class="text-mono-small plate-ink max-w-[46ch] break-words">
-<         <slot name="action" />
->         <Button variant="outline" size="sm" class="font-display mt-1" @click="reset"> … </Button>
+$ ls -d demo/@
+ls: demo/@: No such file or directory
+
+$ npx eslint --print-config demo/color-picker/ErrorBoundary.vue   # (import rules only)
+no-restricted-imports = [2,{"patterns":[{"group":["@components/custom/palette-browser/**/*.vue"],
+  "message":"G-DEMO-3b: reach palette-browser through its barrel seam, never a raw .vue file."}]}]
 ```
 
-Same glyph, same font stack, same `plate-ink` detail line, same scoped `.plate-ink` rule
-**byte-identical** in both files — and gap `10px` vs `12px`, icon `24px` vs `28px`, measure `26ch` vs
-`28ch`, `44ch` vs `46ch`. The comment at `ErrorBoundary.vue:12-14` *names* the duplication as
-deliberate ("The plain register mirrors EmptyState's `error` variant"). Deliberate duplication is
-still duplication: `EmptyState` has **7** error-variant consumers
-(`BrowsePane.vue:64`, `AdminTagsPanel.vue:70`, `AdminAuditPanel.vue:44`, `AdminFlaggedPanel.vue:24`,
-`AdminUsersPanel.vue:53`, `AdminNamesPanel.vue:32,82`) and this is a silent eighth that no design
-change to the other seven will ever reach.
+One rule survives, and it bans a specifier under the `@components` alias — which
+`tsconfig.demo.json:33-34` states was itself deleted at W43. The file is governed by zero enforceable
+boundaries.
 
-**Cure.** Extract `demo/shared/ui/ErrorPlate.vue` — glyph + statement + machine-truth detail +
-`#action` slot, one set of constants. `EmptyState` composes it for `variant="error"`;
-`PaneErrorBoundary` composes it and fills `#action` with its Retry. `EmptyState` sheds its error
-branch entirely and becomes what its name says — the empty plate. Two concepts, two files, no
-`variant` discriminator straddling them.
+The escalation: **the rule that died has live violations.** G-DEMO-1 exists to stop lower layers
+reaching *up* into `demo/color-picker/`. They do:
+
+```
+$ grep -rn "color-picker/" demo/ --include="*.ts" --include="*.vue" | grep -v "^demo/color-picker/" | grep -E 'from "|import\('
+demo/scenes/atmosphere/aurora-harmony-stops.ts:23:import { resolveCalibratedAtmosphere } from "../../color-picker/composables/boot/atmosphere-calibration";
+demo/test/glass/aurora-bracket.test.ts:14:} from "../../color-picker/composables/boot/atmosphere-calibration";
+demo/picker/ColorPicker.vue:129:import { OVERTURE_KEY } from "../color-picker/composables/boot/useOverture";
+```
+
+Against the downward direction (`App.vue:164` `import { ColorPicker } from "../picker";`) this
+closes a cycle at the directory level:
+
+```
+demo/color-picker  ──App.vue:164──▶  demo/picker
+        ▲                                 │
+        └────── ColorPicker.vue:129 ───────┘
+
+demo/color-picker ─▶ demo/shell ─▶ demo/scenes/atmosphere ─▶ demo/color-picker
+                                   (aurora-harmony-stops.ts:23)
+```
+
+`demo/color-picker/` is therefore **not the boot root**. It is the boot root *and* a shared library
+that three feature files depend on. That ambiguity is precisely why a generic presentational
+component "fits" there — r1's L-6 read the mis-homing; this is why the directory accepts it. A leaf
+would have rejected the file; a de-facto shared layer does not.
+
+**Cure.** Split the two identities. `demo/color-picker/` keeps `index.html`, `main.ts` (L2-2),
+`App.vue`, `router/`. The three genuinely shared boot units that features import
+(`atmosphere-calibration`, `useOverture`'s injection key, `ground`) move down to a layer the features
+may legally reach — `demo/platform/` already exists and is exactly that stratum. Then re-aim the
+three ESLint objects at the live physical homes and add the invariant that would have caught this:
+`demo/color-picker/**` may be imported by **nothing**. A rule whose glob matches zero files should
+fail CI as loudly as a rule that is violated.
 
 ---
 
-## L-3 · **MAJOR** — a terminal, unreportable sink: `return false` suppresses Vue's own logging, and the app installs no error handler anywhere
+## L2-4 · **MAJOR** — the demo's TypeScript view of the published surface is misdeclared: 3 dead entries, 2 real subpaths undeclared
 
-`ErrorBoundary.vue:68` returns `false`. Vue's `handleError`:
-
-```js
-// node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:227-256
-if (errorCapturedHooks[i](err, exposedInstance, errorInfo) === false) {
-  return;                                    // ← line 239: EARLY RETURN
-}
-…
-if (errorHandler) { … return; }
-logError(err, type, contextVNode, throwInDev, throwUnhandledErrorInProduction);   // ← 256, never reached
-```
-
-`logError` is what emits `"Unhandled error during execution of …"` with the component trace and
-rethrows in dev. Returning `false` skips it. And there is no downstream net:
+Round 1 recorded "clean by absence" and cited `package.json#exports` as "a closed 8-key set
+(7 subpaths + root)". Measured, it is a closed **7**-key set with **no root**:
 
 ```
-$ grep -rn "errorHandler\|onErrorCaptured\|unhandledrejection\|window.onerror" demo/ src/
-demo/color-picker/ErrorBoundary.vue:39   (the import)
-demo/color-picker/ErrorBoundary.vue:59   (the hook)
+$ node -e "const p=require('./package.json');console.log(JSON.stringify(Object.keys(p.exports)));
+           console.log('has root \".\":',Object.prototype.hasOwnProperty.call(p.exports,'.'))"
+["./color","./value","./css","./easing","./math","./transform","./quantize"]
+has root ".": false
 ```
 
-Four matches, all inside this one file. `demo/color-picker/index.html:205-213` is the whole boot:
-`createApp(App); app.use(router); app.mount("#app")` — no `app.config.errorHandler`, no
-`window.onerror`, no `unhandledrejection`. So the *only* error path in the application terminates in
-a `ref<string|null>` that is rendered on screen and then discarded on Retry.
+`vite.config.ts:52-62` generates its self-alias set *from that map* — deliberately, and the comment
+says why: *"GENERATED (not hand-rolled) so the alias set can never drift from the exports map."* The
+TypeScript half of the same contract was left hand-rolled. It drifted. Resolved with the TS compiler
+API under `tsconfig.demo.json`'s exact options:
 
-Probe P4 confirms the component reports nothing outward: on catch, `w.emitted()` deep-equals `{}` —
-no event, no callback, no injected reporter.
+```
+$ node docs/.../ErrorBoundary/probes-L-r2/ts-resolve.mjs
+@mkbabb/value.js                 UNRESOLVED                   -
+@mkbabb/value.js/color           local checkout               dist/subpaths/color.d.ts
+@mkbabb/value.js/value           local checkout               dist/subpaths/value.d.ts
+@mkbabb/value.js/css             local checkout               dist/subpaths/css.d.ts
+@mkbabb/value.js/easing          local checkout               dist/subpaths/easing.d.ts
+@mkbabb/value.js/math            local checkout               dist/subpaths/math.d.ts
+@mkbabb/value.js/transform       local checkout               dist/subpaths/transform.d.ts
+@mkbabb/value.js/quantize        local checkout               dist/subpaths/quantize.d.ts
+@mkbabb/value.js/parsing         UNRESOLVED                   -
+@mkbabb/value.js/units           UNRESOLVED                   -
+```
 
-Probe P5 confirms the other half of the hole: `onErrorCaptured` covers synchronous render/lifecycle
-only. A raw `setTimeout`/promise escape — the shape of every fetch, `requestAnimationFrame` and WebGL
-callback in this demo — never reaches it, and with no `unhandledrejection` handler it is lost
-silently. The visual audit's one recorded console error, `safari-desktop-light /#/: WebGL: context
-lost.` (`audit/visual/REPORT.md`, §consoleErrors), is exactly this class: a failure that no boundary
-can catch and no handler records.
+`tsconfig.demo.json:42-49` declares eight `paths` entries. Three of them name files that do not
+exist:
 
-**Mechanism.** Three distinct responsibilities have been collapsed into one file and two of them have
-no home at all: *containment* (shell), *presentation* (shared/ui), *reporting* (boot).
+```
+$ test -f dist/index.d.ts || echo "dist/index.d.ts MISSING"
+dist/index.d.ts MISSING
+$ ls dist/subpaths/
+color.d.ts color.js css.d.ts css.js easing.d.ts easing.js math.d.ts math.js
+quantize.d.ts quantize.js transform.d.ts transform.js value.d.ts value.js
+```
 
-**Cure.** The boundary emits `caught: [err: unknown, info: string]` and stops owning the decision;
-`demo/color-picker/` — the boot directory, whose actual job this is — installs
-`app.config.errorHandler`, `window.onerror` and `unhandledrejection` in one `boot/useErrorReporting.ts`.
-That is a *single* place that knows how failures are recorded, and it covers the async half the
-boundary structurally cannot.
+No `parsing.*`, no `units.*`, no `index.d.ts`. And two subpaths that **are** published and **are**
+used — `./value` and `./css`, the latter by 10 demo imports —
+
+```
+$ grep -rhoE '"@mkbabb/value\.js(/[a-z-]+)?"' demo/ --include="*.ts" --include="*.vue" | sort | uniq -c | sort -rn
+  25 "@mkbabb/value.js/color"
+  10 "@mkbabb/value.js/css"
+   6 "@mkbabb/value.js/math"
+   5 "@mkbabb/value.js/easing"
+   4 "@mkbabb/value.js/quantize"
+```
+
+— have **no `paths` entry at all**. They typecheck only because Node/TS *self-reference* resolution
+kicks in (a package may import itself by name when it has an `exports` field). That is luck, not
+design: the declared contract and the working contract are different objects, and the working one is
+a language feature nobody wrote down.
+
+Compounding it, `node_modules/@mkbabb/value.js` is a **real registry copy of 4.0.0**, not a symlink:
+
+```
+$ python3 -c "import os;print(os.path.islink('node_modules/@mkbabb/value.js'))"
+False
+```
+
+so a *fourth* candidate resolution exists for any specifier the self-reference misses.
+
+**Why this is a CHALLENGE-L finding for this component.** My seat is asked whether the demo import
+of the library is one a real consumer could write. For `ErrorBoundary.vue` the answer is trivially
+yes — it imports nothing from value.js. But the axis on which r1 declared it clean is an axis where
+the *instrument is broken*: the demo cannot be a proof of the published surface while its declared
+view of that surface contains three names that do not exist and omits two that do. The clean bill is
+vacuous, and it will stay vacuous for every one of the remaining 87 component seats.
+
+**Cure.** Generate `tsconfig.demo.json#paths` from `package.json#exports`, the same way
+`vite.config.ts` already generates the runtime aliases — or delete the `paths` block entirely and let
+self-reference be the single mechanism, declared in one comment. Two encodings of one contract, one
+generated and one hand-rolled, is the drift. Add a `test/dist/` gate (that directory already exists
+for exactly this species of repo-hygiene invariant, per `vitest.config.ts:23-27`) asserting
+`keys(exports) === basenames(src/subpaths/)` and that every `paths` target resolves.
 
 ---
 
-## L-4 · **MAJOR** — `demo/ui/` is a 19-directory back-compat alias layer over glass-ui, and it degrades the published subpath surface into a root-barrel reach
+## L2-5 · **MAJOR** — failure presentation has three demo homes and zero design-system home; the plate belongs in glass-ui
 
-`ErrorBoundary.vue:41` reads `import { Button } from "../ui/button";`. That file, in full:
+I confirm r1's L-2 duplication independently — the constants have diverged:
+
+| | `EmptyState.vue` (`variant="error"`) | `ErrorBoundary.vue` |
+|---|---|---|
+| container | `gap-2.5 py-8` (`:16`) | `gap-3 py-10 px-6` (`:18`) |
+| glyph | `CircleAlert w-6 h-6 text-destructive/80` (`:19`) | `CircleAlert w-7 h-7 text-destructive/80` (`:23`) |
+| statement | `font-display text-heading … max-w-[26ch]` (`:20`) | `font-display text-heading … max-w-[28ch]` (`:24`) |
+| detail | `text-mono-small plate-ink max-w-[44ch] break-words` (`:23`) | `text-mono-small plate-ink max-w-[46ch] break-words` (`:27`) |
+| `.plate-ink` rule | `color: var(--ink-muted, var(--muted-foreground));` (`:102`) | **byte-identical** (`:85`) |
+| action | `<slot name="action" />` (`:26`) | hard-coded `<Button>` (`:30-33`) |
+
+Three demo surfaces publish `role="alert"`:
+
+```
+$ grep -rn 'role="alert"' demo/ --include="*.vue"
+demo/shared/ui/EmptyState.vue:17
+demo/color-picker/ErrorBoundary.vue:19
+demo/palettes/browser/status/ApiOfflineChip.vue:13
+```
+
+And the design system ships **no** error plate at all:
+
+```
+$ grep -oE "ErrorBoundary|EmptyState|ErrorPlate" node_modules/@mkbabb/glass-ui/dist/*.js | sort -u
+(no output)
+$ grep -oE "Alert[A-Za-z]*" node_modules/@mkbabb/glass-ui/dist/glass-ui.js | sort -u
+Alert
+AlertDescription
+AlertTitle
+```
+
+glass-ui exports `Alert` / `AlertTitle` / `AlertDescription` — from the **root barrel only**; its 74
+`exports` keys contain no `./alert`. Two demo files consume it
+(`ColorNutritionLabel.vue:181`, `markdown/Markdown.vue:35`) and neither error surface does.
+
+**This is where I part from round 1.** r1's cure extracts `demo/shared/ui/ErrorPlate.vue`. That
+resolves the duplication but leaves a design-system primitive living in the demo, which is edict 4
+the wrong way round — *"Glass-ui is the design system; add variants/primitives there, not in
+demo/ui/. Reuse existing component-type names."* An announced failure plate is not application
+logic; it is the failure register of the design language, and glass-ui is the only place a change to
+it can reach every consumer in the constellation.
+
+**Cure.** glass-ui gains the plate — reusing the existing component-type name rather than inventing
+one: `Alert` acquires a `plate` variant (glyph + statement + machine-truth detail + `#action` slot),
+and a `./alert` subpath is published so it can be reached narrowly. This is a glass-ui-owned change
+and therefore a **BH/BI relay item** under the standing mail edict, not a value.js wave item. In the
+demo: `EmptyState` sheds its `error` branch and its `variant` prop and becomes what its name says;
+`PaneErrorBoundary` composes `<Alert variant="plate">` and fills `#action` with the retry the shell
+listens to; `ApiOfflineChip` composes the same. `.plate-ink` — copy-pasted byte-identically into five
+scoped blocks (r1's L-8) — dies with them, because the rung becomes the plate's own.
+
+---
+
+## L2-6 · **MAJOR (shim) / REFUTED (cost)** — `demo/ui/` is a 19-directory back-compat alias layer, but its measured production cost is zero
+
+The shim finding stands, and the component rides it. `ErrorBoundary.vue:41` reads
+`import { Button } from "../ui/button";`, and that file is one line:
 
 ```ts
 // demo/ui/button/index.ts
 export { Button } from "@mkbabb/glass-ui";
 ```
 
-Eighteen of the nineteen `demo/ui/*` barrels are exactly this — a single re-export line, no content.
-The layer documents its own provenance:
+Eighteen of the nineteen barrels are exactly this shape (only `demo/ui/input/index.ts` reaches a
+subpath, `@mkbabb/glass-ui/forms`). The layer documents its own provenance at
+`demo/ui/alert/index.ts:1-10`: *"This barrel previously held a local shadcn-vue re-implementation …
+B.W2 converted it to a re-export … The two consumers import from this barrel **UNCHANGED**."*
+"Consumers import unchanged" is the definition of a back-compat shim under edict 2. Nineteen of them.
+
+**The cost argument, however, does not survive measurement.** Round 1 cited 231,357 bytes from
+`node_modules/.vite/deps/`. That is a **dev-server prebundle**, not shipped output. I built both
+forms with the repo's real bundler (Rolldown via Vite 8), peers externalised, minified:
+
+```
+$ MEASURE_ENTRY=entry-barrel.ts  npx vite build --config docs/.../probes-L-r2/vite.measure.config.ts
+✓ 76 modules transformed.
+…/out-entry-barrel/m.js   15.66 kB │ gzip: 5.62 kB
+
+$ MEASURE_ENTRY=entry-subpath.ts npx vite build --config docs/.../probes-L-r2/vite.measure.config.ts
+✓ 13 modules transformed.
+…/out-entry-subpath/m.js  15.66 kB │ gzip: 5.62 kB
+
+$ wc -c out-entry-barrel/m.js out-entry-subpath/m.js
+   15665 out-entry-barrel/m.js
+   15665 out-entry-subpath/m.js
+```
+
+Byte-length identical. A byte-level diff shows the only differences are minified identifier
+assignment and import ordering (3,689 differing bytes, zero length delta):
+
+```
+A: … import { Primitive as _ } from "reka-ui";  import { SpringProgress as v } from "@mkbabb/ke…
+B: … import { SpringProgress as _ } from "@mkbabb/keyframes.js"; import { Primitive as v } fro…
+```
+
+Rolldown tree-shakes the root barrel completely. **The shipped cost of `demo/ui/button` is zero.**
+
+What is real is the **dev** cost — 76 modules transformed against 13, a 5.8× cold-transform and HMR
+graph for one button — and the edict-2 violation. Both are sufficient to delete the layer. The
+231 KB figure is not, and a wave spec that carries it will be refuted at the gate.
+
+**Cure unchanged from r1, for the correct reason.** Delete `demo/ui/` outright; every consumer
+imports `@mkbabb/glass-ui/<subpath>` directly (`ErrorBoundary` → `@mkbabb/glass-ui/button`). Where a
+symbol is root-barrel-only — `Alert` (L2-5) — the missing subpath is a glass-ui relay item, not a
+reason to keep a shim.
+
+---
+
+## L2-7 · **MAJOR** — the third failure state has no plate at all: an unknown route silently renders the picker
+
+The component's own first line claims the contract: *"NEVER a silent white-screen dead plate"*
+(`ErrorBoundary.vue:2-3`). Its sibling failure state is worse than a dead plate — it is a **wrong**
+plate presented as correct.
+
+```
+$ grep -n "pathMatch" demo/color-picker/router/index.ts
+36:    // Catch-all: redirect unknown routes to picker
+37:    { path: "/:pathMatch(.*)*", redirect: "/" },
+```
+
+and, independently, in the pane resolver (`demo/shell/usePaneRouter.ts:81-95`), `componentFor` ends:
 
 ```ts
-// demo/ui/alert/index.ts:1-10
-// ui/alert — re-export of the glass-ui Alert primitive.
-// This barrel previously held a local shadcn-vue re-implementation … B.W2 converted it to a
-// re-export: glass-ui is the design system … The two consumers import from this barrel UNCHANGED.
+    if (name.startsWith("admin-")) return AdminPane;
+    return ColorPicker;                 // ← any unknown slot name
 ```
 
-"…import from this barrel unchanged" is the definition of a back-compat shim under
-`feedback_no_backwards_compat` (*"Never add legacy-compat shims; migrate the consumer to the new API
-at the root"*). The layer exists so that the shadcn→glass-ui migration never had to touch consumers.
-Edict 2, violated 19 times, and `ErrorBoundary.vue:41` is one of the 22 imports riding it.
+Two masking fallbacks for one concept. The visual matrix captured the result: the route
+`/#/does-not-exist` is in the 15-route matrix as `notfound-redirect.png`. I read it
+(`audit/visual/shots/safari-desktop-light/notfound-redirect.png`): it renders the Lab colour picker
+and the About pane, with no indication whatsoever that the requested URL does not exist. The
+`REPORT.md` summary records it as clean — `pageErrors 0`, `blankOrNearBlank 0` — because from the
+matrix's point of view it *is* clean. It is a correct render of the wrong thing.
 
-It is not free. glass-ui publishes a narrow `./button` subpath; the barrel reaches the **root** one:
+Edict 2 bans masking fallbacks. The demo has an error plate and an empty plate and no not-found
+plate, and the gap was filled with a redirect.
 
-```
-$ wc -c node_modules/@mkbabb/glass-ui/dist/glass-ui.js node_modules/@mkbabb/glass-ui/dist/button.js
-   25239 …/dist/glass-ui.js      (47 top-level import/export statements — the whole component graph)
-      71 …/dist/button.js        (2)
-
-$ curl -s "http://localhost:9000/@fs/.../demo/ui/button/index.ts"
-export { Button } from "/@fs/.../node_modules/.vite/deps/@mkbabb_glass-ui.js?v=a019c022";
-
-$ ls -la node_modules/.vite/deps/ | grep glass
-231357  @mkbabb_glass-ui.js          ← what `../ui/button` resolves to
-   103  @mkbabb_glass-ui_chip.js     ← what a narrow subpath costs
-```
-
-**231,357 bytes** of prebundle for one button, against ~100 for a narrow subpath. Eighteen barrels do
-this; only `demo/ui/input/index.ts` reaches a subpath (`@mkbabb/glass-ui/forms`). Repo-wide the split
-is 37 root-barrel imports vs 82 subpath imports — the alias layer is where the root-barrel habit is
-concentrated.
-
-**Honest caveat.** This edge is not the *marginal* cost on the boot path: `App.vue:194-196` already
-root-barrels `useClipboard` from `@mkbabb/glass-ui`, so the 231 KB chunk is eager regardless. The
-finding is the **layer**, not this one import. And the repo already knows better —
-`demo/shared/utils.ts:8-18` documents the identical argument as settled practice:
-
-> *"The demo's ONE debounce (T.W6.5 Lane M · row 12 — **the root-barrel shed**). `debounce` was the
-> last symbol holding 7 demo files on the BARE `@mkbabb/value.js` specifier — the full-barrel import
-> that drags the scroll-timeline grammar chunk (~36 KiB gz) into the eager graph for a 40-line timer
-> utility."*
-
-The demo shed the value.js root barrel for a 40-line utility and left the glass-ui root barrel
-standing behind nineteen alias directories.
-
-**Cure.** Delete `demo/ui/` outright. Every consumer imports `@mkbabb/glass-ui/<subpath>` directly
-(`ErrorBoundary` → `@mkbabb/glass-ui/button`), which is what edict 4 means by "glass-ui is the design
-system" — you name it, you do not shadow it. The one genuine content file (`demo/ui/alert`'s 10 lines
-of comment) becomes a note in the ADR, not a module.
+**Cure.** The failure-presentation family is one lattice, not three accidents: `Alert variant="plate"`
+(L2-5) serves *empty*, *error* and *not-found*. The catch-all route resolves to a `NotFound` view
+that renders the plate with a real navigation affordance; `componentFor` returns `null` for an
+unknown name and `PaneSlot` renders the plate rather than substituting a component the caller did
+not ask for.
 
 ---
 
-## L-5 · **MAJOR** — the demo's import-boundary invariants are dead code: every guard glob targets a tree deleted at W43
+## L2-8 · **MAJOR** — the chunk-404 class lands in this boundary, and "Try again" cannot cure it
 
-`eslint.config.js` declares three objects of demo module-graph law — G-DEMO-1 (shared layer must not
-reach up into app-root boot), G-DEMO-3a (shared must not reach feature internals), G-DEMO-3b (reach
-the palette-browser through its barrel). Their file globs:
+All ten panes are bare async components — no `errorComponent`, no `onError`, no retry policy:
 
 ```
-eslint.config.js:232-239   "demo/color-picker/**", "demo/@/components/**", "demo/@/lib/**"
-eslint.config.js:275-278   "demo/@/composables/**/*.ts", "demo/@/composables/**/*.vue"
+$ sed -n '69,78p' demo/shell/usePaneRouter.ts
+const AboutPane = defineAsyncComponent(() => import("../scenes/about/AboutPane.vue"));
+const PalettesPane = defineAsyncComponent(() => import("../palettes/PalettesPane.vue"));
+… (10 total, every one a bare one-argument call)
 ```
 
-```
-$ ls -d demo/@
-ls: demo/@: No such file or directory
-```
-
-`demo/@` was deleted at `bc06a0cd feat(v-w43b)!: demo @-alias death` / `a61094e3 feat(v-w43b3)!: home
-the feature UI trees; demo/@ dies (D-c)`. Every glob above matches zero files except
-`demo/color-picker/**`, whose sole surviving pattern is unresolvable:
+On a deployed gh-pages build (`vite.config.ts` `gh-pages` mode: `base: "./"`, hashed chunk names) a
+client holding a stale `index.html` after a redeploy requests a chunk that no longer exists. That is
+a `Failed to fetch dynamically imported module` — a routine, expected, *recoverable* production
+event. R2-B measures where it lands:
 
 ```
-$ npx eslint --print-config demo/color-picker/ErrorBoundary.vue
-no-restricted-imports for ErrorBoundary.vue:
-[ 2, { "patterns": [ { "group": ["@components/custom/palette-browser/**/*.vue"],
-                       "message": "G-DEMO-3b: reach palette-browser through its barrel seam…" } ] } ]
+{"probe":"R2-B",
+ "caught_on_load_failure":true,
+ "detail_shown":true,
+ "loader_attempts_after_retry":2,
+ "still_announced_after_retry":true,
+ "pane_present_after_retry":false,
+ "text_after_retry":"\"This panel hit an unexpected error.Failed to fetch dynamically imported module Try again\""}
 ```
 
-`@components` no longer exists either — `tsconfig.demo.json:33-34` says so in as many words:
-*"W43 (RF-15): the demo `@…` path aliases were killed … No `@styles`/`@components`/`@utils`/`@lib`/
-`@composables`/`@assets` project alias survives."*
+Two honest results, one of which corrects my own hypothesis:
 
-**`demo/color-picker/ErrorBoundary.vue` is governed by exactly zero enforceable import boundaries.**
-Every finding in this report describes an edge that the repo intended to forbid and can no longer
-detect. The guard rails were not removed; they were left pointed at a deleted tree, which reads GREEN
-forever.
+1. **Retry *does* re-invoke the loader** (`attempts` 2). I had predicted `defineAsyncComponent`
+   memoisation would make it a no-op; measured, it does not. Recorded so the claim is not repeated.
+2. **It still does not recover.** The plate stays, the pane never mounts, and the user is shown
+   `Failed to fetch dynamically imported module` — a message that is *machine truth for the wrong
+   machine*. The only action that cures a stale-chunk failure is a page reload, and the boundary's
+   sole affordance is the one action that cannot.
 
-**Cure.** Re-aim the three rules onto the live physical homes (`demo/color-session`, `demo/palettes`,
-`demo/shell`, `demo/shared`, `demo/workbenches`, `demo/scenes`, `demo/platform`), and add the layering
-ban that would have caught L-6:
+**Mechanism.** A generic boundary cannot distinguish *"this render is broken"* from *"this build is
+stale"*, because the discriminating information lives in the async loader it does not own. So it
+offers one affordance for two classes and it is wrong for one of them.
 
-```js
-{ files: ["demo/color-picker/**/*.vue"],
-  rules: { /* the boot root may hold App.vue and boot composables only —
-              a component exported from here is a mis-homing (see L-6) */ } }
-```
-
-A rule whose glob matches nothing should fail CI as loudly as a rule that is violated. A one-line
-`npm run lint:boundaries` gate that asserts each declared glob matches ≥1 file is cheaper than any
-of the audits that keep rediscovering these edges.
-
----
-
-## L-6 · **MAJOR** — the component is homed in the Vite **root** (the boot/entry directory), not in the UI layer
-
-`vite.config.ts` sets `root: "./demo/color-picker/"` for **both** dev and `gh-pages`. That directory
-is the boot surface and nothing else — its full contents:
-
-```
-$ find demo/color-picker -type f \( -name '*.vue' -o -name '*.ts' -o -name '*.css' \)
-demo/color-picker/App.vue                                  ← the root component
-demo/color-picker/ErrorBoundary.vue                        ← ★ the one outlier
-demo/color-picker/composables/boot/{atmosphere-calibration,ground,hydrate,useAtmosphere,
-    useAtmosphereBoot,useDockArrival,useOverture,useViewAccents,view-accents}.ts, overture.css
-demo/color-picker/composables/{useDevicePixelSnap,usePaletteWiring}.ts
-demo/color-picker/router/{index,useDocumentTitle}.ts
-demo/color-picker/vite.d.ts
-```
-
-Sixteen boot artifacts and one reusable presentational component. The mis-homing is observable over
-HTTP — Vite serves the root directory's files at top-level URLs:
-
-```
-$ curl -s -o /dev/null -w "%{http_code} %{size_download}\n" http://localhost:9000/ErrorBoundary.vue
-200 12546                                        ← the real transformed module
-$ curl -s -o /dev/null -w "%{http_code} %{size_download}\n" http://localhost:9000/shared/ui/EmptyState.vue
-200 13183                                        ← the SPA index.html fallback, i.e. not addressable
-```
-
-`ErrorBoundary.vue` is root-relative addressable; its sibling-in-concept `EmptyState.vue` is not.
-That asymmetry is the module lattice telling you where the file belongs. The directory name compounds
-it: `demo/color-picker/` is the **shell**, while `demo/picker/` (19 files) is the actual colour
-picker — two directories named for the same thing, one of which is not that thing.
-
-**Cure.** `demo/shell/PaneErrorBoundary.vue` (containment, beside `PaneSlot.vue` which will own it)
-and `demo/shared/ui/ErrorPlate.vue` (presentation, beside `EmptyState.vue` and `PaneHeader.vue`).
-`demo/color-picker/` returns to holding only what boots the app.
-
----
-
-## L-7 · **MINOR** — the component's entire declared public surface is dead
-
-It declares two props and one event (`ErrorBoundary.vue:43-53`). Against its one and only consumer:
-
-| Surface | Declared | Actual |
-|---|---|---|
-| `message` | default `"This panel hit an unexpected error."` (`:44`) | `App.vue:50` passes **the identical string** |
-| `retryLabel` | default `"Try again"` (`:45`) | never passed, anywhere |
-| `emit("reset")` | `:53`, fired at `:74` | `App.vue:50` declares **no `@reset` listener** |
-
-```
-$ sed -n '50p' demo/color-picker/App.vue
-        <ErrorBoundary message="This panel hit an unexpected error.">
-```
-
-100% speculative API for a single-consumer component — edict 3 (KISS, no contrivance). The props
-should collapse to nothing, or `reset` should become the *load-bearing* `retry` the shell actually
-listens to (which is the L-1 cure: the shell remounts the slot).
-
----
-
-## L-8 · **MINOR** — `.plate-ink` is copy-pasted into five scoped style blocks instead of living in `demo/styles/utils.css`
-
-```
-$ grep -rn "^\.plate-ink" demo/
-demo/workbenches/extract/ImageDropZone.vue:109
-demo/workbenches/extract/ExtractWorkbench.vue:290
-demo/workbenches/extract/ExtractControls.vue:148
-demo/shared/ui/EmptyState.vue:102
-demo/color-picker/ErrorBoundary.vue:84
-```
-
-All five bodies are byte-identical: `color: var(--ink-muted, var(--muted-foreground));`. This is a
-design-system utility class replicated five times as a per-component override, when
-`demo/styles/utils.css` already holds exactly this species of shared recipe — `.section-subtitle`,
-`.skeleton-ink-register`, `.fraunces`, `.fira-code`. Edict 5: root-level styling, never per-instance.
-One rule in `utils.css`, five `<style scoped>` blocks deleted.
-
----
-
-## L-9 · **MINOR** — `vj-error-boundary` is a dead class
-
-```
-$ grep -rn "vj-error-boundary" demo/ src/ e2e/ test/
-demo/color-picker/ErrorBoundary.vue:18
-```
-
-One occurrence repo-wide. No CSS rule, no selector, no test hook, no `data-testid` either. Probe P6
-confirms it is emitted into the DOM on every catch. Either it is a styling hook (then it needs a
-rule) or a test hook (then it should be `data-slot="error-boundary"`, matching the
-`data-slot="empty-state-trio"` convention at `EmptyState.vue:41`). As it stands it is a name with no
-referent.
-
----
-
-## L-10 · **MINOR** — "Try again" is a dead affordance for the deterministic case
-
-Probe P3: with the throwing child unchanged, clicking Retry sets `caught=false`, remounts the same
-subtree with the same inputs, and re-catches within the same tick. The plate never leaves the screen;
-the user sees a button that visibly does nothing.
+**Cure.** The load-failure class belongs to the loader:
 
 ```ts
-await w.find("button").trigger("click");
-expect(w.find('[role="alert"]').exists()).toBe(true);   // still latched
-expect(w.emitted("reset")).toBeTruthy();                 // and nobody is listening (L-7)
+const AboutPane = defineAsyncComponent({
+    loader: () => import("../scenes/about/AboutPane.vue"),
+    onError: (err, retry, fail, attempts) => (attempts <= 2 ? retry() : fail()),
+    errorComponent: PaneLoadFailed,      // offers RELOAD, the affordance that works
+});
 ```
 
-This is downstream of L-1: a meaningful retry must change *something* — refetch the pane's data,
-bump the mount key. Neither is reachable from a component that owns only a boolean. Under the L-1
-cure the boundary emits `retry`, `PaneSlot` bumps `liveKey`, and Retry becomes a real remount.
+Ten call sites, one factory in `usePaneRouter.ts` — the file already owns the registry table. The
+boundary is then left with the class it can genuinely own: a synchronous render throw.
 
 ---
 
-## L-11 · **INFO** — the only test of a core-shell component lives in the admin feature's e2e suite and reaches it through a feature bug
+## L2-9 · **MINOR** — the demo's component-test home exists, is wired into `npm test`, and this component is absent from it
+
+Round 1 (L-11) found the only coverage is `e2e/smoke/admin/a11y-authed-admin.spec.ts:107-156`, which
+induces the throw through an `AdminUsersPanel` feature bug. Confirmed. The sharpening: no new
+infrastructure is required, because the home already exists and already runs.
 
 ```
-$ grep -rln "ErrorBoundary\|onErrorCaptured" test/ e2e/
-e2e/smoke/admin/a11y-authed-admin.spec.ts
+$ sed -n '21p' vitest.config.ts
+        include: ["test/**/*.ts", "demo/test/**/*.ts"],
+$ find demo/test -type f
+demo/test/glass/aurora-bracket.test.ts
+demo/test/glass/aurora-motion.test.ts
+demo/test/export/byte-exact.test.ts
 ```
 
-`e2e/smoke/admin/a11y-authed-admin.spec.ts:107-156` induces the throw by serving `{slug: null}` so
-that `AdminUsersPanel`'s `slugHead(null)` throws in a `v-for`. Two structural consequences:
+`demo/test/**/*.ts` is in the default vitest include. Three demo suites live there. A core-shell
+component's containment contract is not among them, which is why every defect in this report and
+r1's survived. My `probes-L-r2/altitude.test.ts` and r1's `probes/boundary.test.ts` are 9 working
+tests that need no browser, no auth and no fixture; they are `demo/test/shell/` contents, not audit
+artefacts.
 
-1. **Coupling.** Null-guard `slugHead` — an obviously correct fix, and one another audit seat will
-   propose — and the demo shell's error boundary silently loses 100% of its coverage. A core
-   component's only test is a hostage of a feature defect.
-2. **Selector aliasing.** The assertion is
-   `page.getByRole("alert").filter({visible:true}).first()`. Three independently-owned surfaces
-   publish `role="alert"`: this boundary (`:19`), `EmptyState`'s error branch (`EmptyState.vue:17`),
-   and `ApiOfflineChip`'s misconfigured register (`ApiOfflineChip.vue:13`). The live probe caught
-   **two of them mounted simultaneously** — `after_catch.alerts` lists the misconfig chip *first* in
-   DOM order, ahead of the boundary. The `aria-live` assertion on the next line happens to narrow it
-   today; DOM order is doing load-bearing work it should not be doing.
+---
 
-**Cure.** A unit suite for the boundary in `test/` (the probes in this directory are a working
-starting point — they need no browser, no auth, no fixture), plus a stable
-`data-slot="error-boundary"` for the e2e to bind to. The admin spec keeps only what it is actually
-about: that an admin render failure is *announced*.
+## L2-10 · **MINOR** — two directories named `ui`, two named for the picker; the naming carries no information
+
+```
+demo/ui/            19 barrels, each one re-export line from @mkbabb/glass-ui   (L2-6)
+demo/shared/ui/     EmptyState.vue, PaneHeader.vue — demo-owned plates
+demo/color-picker/  the Vite root: index.html, App.vue, router/, boot composables — and this file
+demo/picker/        the actual colour picker (19 files)
+```
+
+`ErrorBoundary.vue` imports its `Button` from the first `ui`, while its concept-sibling
+`EmptyState.vue` lives in the second, and it is itself homed in the `color-picker` that is not the
+colour picker. Four directory names, two distinctions, zero mnemonic value. Under the greenfield
+lattice below, `demo/ui/` ceases to exist (L2-6), `demo/shared/ui/` keeps the demo-owned plates, and
+`demo/color-picker/` narrows to boot (L2-3) — at which point renaming it `demo/app/` costs one
+`vite.config.ts` line and removes the collision permanently.
 
 ---
 
 # The greenfield lattice
 
-Structuring this today with no legacy, three responsibilities, three homes, one direction of
-dependency:
+Structured today with no legacy. Four responsibilities that this one file currently holds two and a
+half of, four homes, one direction of dependency:
 
 ```
-demo/color-picker/                     BOOT — the Vite root; only what boots the app
-    index.html  App.vue  router/  composables/boot/
-    composables/boot/useErrorReporting.ts    ← NEW (L-3): app.config.errorHandler +
-                                               window.onerror + unhandledrejection.
-                                               The ONE place that knows how a failure is recorded.
-    (ErrorBoundary.vue is GONE from here — L-6)
+demo/app/                        BOOT — the Vite root; only what boots the app
+    index.html                     <script type="module" src="./main.ts">
+    main.ts                      ← NEW (L2-2). The ONLY createApp. Owns the error CONTRACT:
+                                   app.config.errorHandler + unhandledrejection + window.error.
+                                   Mounts <AppErrorBoundary><App/></AppErrorBoundary> so a shell
+                                   throw is contained too (L2-1, half two).
+    App.vue                        layout only — ZERO boundary markup
+    router/                        + the NotFound route (L2-7)
 
-demo/shell/                            SHELL — layout, routing-to-panes, pane lifecycle
-    PaneSlot.vue                         owns <PaneErrorBoundary :key="liveKey"> — containment
-                                         is scoped to the unit that mounts, and dies with it (L-1)
-    PaneErrorBoundary.vue              ← NEW: onErrorCaptured → emit("caught", err, info);
-                                         emit("retry"); ~25 lines, ZERO presentation.
-                                         `caught` cannot outlive the pane because the KEY kills it.
+demo/platform/                   PLATFORM — the layer features may legally reach
+    atmosphere-calibration.ts    ← moved down from boot (L2-3: kills the cycle)
+    overture-key.ts              ← moved down from boot (L2-3)
 
-demo/shared/ui/                        PRESENTATION — plates, no behaviour
-    ErrorPlate.vue                     ← NEW (L-2): glyph + statement + machine-truth detail +
-                                         #action slot. ONE set of constants.
-    EmptyState.vue                       sheds its `error` branch and its `variant` prop —
-                                         it becomes what its name says
+demo/shell/                      SHELL — layout, routing-to-panes, pane lifecycle
+    PaneSlot.vue                   owns <PaneErrorBoundary :key="liveKey">; the key is the whole
+                                   cure for the latch — caught cannot outlive its subject (L2-1)
+    PaneErrorBoundary.vue        ← NEW: onErrorCaptured → emit("caught", err, info) → emit("retry").
+                                   ~20 lines. ZERO presentation, ZERO decision, no `return false`.
+    usePaneRouter.ts               defineAsyncComponent({loader, onError, errorComponent}) ×10 —
+                                   the load-failure class goes home to the loader (L2-8)
+
+demo/shared/ui/                  PRESENTATION — demo-owned plates, no behaviour
+    EmptyState.vue                 sheds `variant` and its error branch — becomes its name
     PaneHeader.vue
+    (no ErrorPlate — it is not the demo's to own)
 
-demo/styles/utils.css                    .plate-ink lands here, once (L-8)
+@mkbabb/glass-ui                 DESIGN SYSTEM  ← BH/BI relay item (L2-5)
+    Alert + variant="plate"        glyph · statement · machine-truth detail · #action slot.
+                                   ONE set of constants for every failure register in the
+                                   constellation. Published at ./alert (the subpath is missing today).
 
-(demo/ui/ is DELETED — L-4. Every consumer: @mkbabb/glass-ui/<subpath>, narrow, direct.)
+(demo/ui/ is DELETED — L2-6. Every consumer: @mkbabb/glass-ui/<subpath>, narrow, direct.)
+(tsconfig.demo.json#paths is GENERATED from package.json#exports, or deleted — L2-4.)
 ```
 
-Dependency direction, single and acyclic: **boot → shell → features → shared/ui → glass-ui →
-value.js**. Nothing reaches up. `ErrorPlate` knows nothing about panes; `PaneErrorBoundary` knows
-nothing about typography; `useErrorReporting` knows nothing about either and catches the async half
-that neither can see.
+Dependency direction, single and acyclic:
+**boot → shell → features → platform → shared/ui → glass-ui → value.js.** Nothing reaches up; the
+three edges that do today (L2-3) are cut by moving two files down one layer.
 
-The whole of `ErrorBoundary.vue` under this lattice is ~25 lines of `PaneErrorBoundary` plus a
-`<ErrorPlate>` tag. Every one of L-1, L-2, L-6, L-7, L-8, L-9, L-10 dissolves — not because each was
-patched, but because each was an artefact of one file trying to be three things in the wrong place.
+The whole of `ErrorBoundary.vue` under this lattice is ~20 lines of `PaneErrorBoundary` plus an
+`<Alert variant="plate">` tag. Every finding in this report and in r1's — L2-1 through L2-10, L-1
+through L-11 — dissolves, not because each was patched, but because each is an artefact of one file
+holding containment, presentation, decision and reporting at a single fixed altitude in a directory
+that is simultaneously the entry and a shared library.
 
 ---
 
 # Negative proofs
 
-The seat's premise is that the library structure is wrong. These axes are **clean**, and the evidence
-that proves the negative is recorded so no later seat re-litigates them:
+The seat's premise is that the structure is wrong. These axes are **clean**; the evidence that proves
+the negative is recorded so no later seat re-litigates them.
 
-- **value.js consumption — clean by absence.** The component imports `vue`, `@lucide/vue`,
-  `../ui/button`, and nothing else (`ErrorBoundary.vue:39-41`). No `@mkbabb/value.js` import, no
-  `@src/*`, no reach into `src/`. `package.json#exports` is a closed 8-key set
-  (`["./color","./value","./css","./easing","./math","./transform","./quantize"]` + root) and this
-  file touches none of it. There is no false proof of the public API here: a real external consumer,
-  given glass-ui, could write this file verbatim.
-- **No `src/`-belongs logic.** Nothing in the file is colour, parsing, maths or transform. There is
-  no library code doing this component's job and no component code doing the library's.
-- **Not a god module.** 87 lines, one responsibility, no composables of its own.
+- **No deep-path library reach.** `ErrorBoundary.vue:39-41` is three imports: `vue`, `@lucide/vue`,
+  `../ui/button`. No `@mkbabb/value.js`, no `@src/*`, no path into `src/`. A real external consumer
+  holding `vue` + `@lucide/vue` + `@mkbabb/glass-ui` could write this file verbatim.
+  **Caveat recorded, not withdrawn:** this clean bill is real but its *instrument* is broken — see
+  L2-4. The axis is clean; the proof that it is clean is weaker than r1 stated.
+- **No `src/`-belongs logic, and no library code doing this component's job.** Nothing in the file
+  is colour, parsing, maths, easing or transform. The 87 lines are Vue lifecycle and template.
+- **Not a god module.** 87 lines, no composables of its own, one exported component, one hook.
 - **`verbatimModuleSyntax` — nothing to violate.** Every imported binding is a value
-  (`ref`, `nextTick`, `onErrorCaptured`, `useTemplateRef`, `CircleAlert`, `RotateCcw`, `Button`);
-  there is no type-only import to have mis-declared.
-- **Vue 3.5 idioms present and correct.** `useTemplateRef<HTMLElement>("alertRef")` at `:57` (not the
-  legacy same-name `ref`); reactive props destructure with defaults at `:43-51`; typed
-  `defineEmits<{ reset: [] }>()` at `:53`.
+  (`ref`, `nextTick`, `onErrorCaptured`, `useTemplateRef`, `CircleAlert`, `RotateCcw`, `Button`).
+  There is no type-only import to have mis-declared.
+- **Vue 3.5 idioms present and correct.** `useTemplateRef<HTMLElement>("alertRef")` (`:57`), not the
+  legacy same-name `ref`; reactive props destructure with defaults (`:43-51`); typed
+  `defineEmits<{ reset: [] }>()` (`:53`).
 - **None of the named historical suspects touch this file.** No local `useLayerTransition`
   reimplementation; no `usePaletteExport` / `export/serializers` dual path; none of the three
   parallel `useDark` stores. It imports no composable at all.
-- **The `@lucide/vue` devDependency is not a mis-declaration.** glass-ui declares it a
-  **peerDependency** (`^1.16.0`), so it is the constellation's icon set; the demo is not published
-  (`package.json#files` is `["dist","!dist/gh-pages",…]`), so a devDependency is the correct
-  declaration for a demo-only runtime import.
-- **The component renders correctly when it renders.** `audit/visual/REPORT.md` over 4 matrices × 15
-  routes = 60 Safari captures reports `pageErrors — 0`, `blankOrNearBlank — 0`, and one console error
-  (`safari-desktop-light /#/: WebGL: context lost.`) which is the L-3 async class, not a render
-  throw. The boundary never fired in the matrix; no screenshot shows it. The live probe's
-  `after_catch` capture is the only rendered evidence of this component that exists, and the plate
-  itself is correct — announced, focus-managed, named, with a visible affordance. **The a11y
-  contract U-F58 shipped is genuinely met.** The defect is that the affordance it offers is a lie
-  (L-1, L-10), not that the plate is wrong.
+- **`@lucide/vue` as a devDependency is correct.** glass-ui declares it
+  `peerDependencies: {"@lucide/vue": "^1.16.0"}`, and `package.json#files` is
+  `["dist","!dist/gh-pages","!dist/gh-pages/**"]` — the demo is never published, so a devDependency
+  is the right declaration for a demo-only runtime import.
+- **The plate itself is correct when it paints.** Announced (`role="alert"` +
+  `aria-live="assertive"`), focus-managed (`tabindex="-1"` + `nextTick` focus), with a visible
+  affordance. The U-F58 a11y contract genuinely shipped. Across the 4×15 = 60-capture Safari matrix
+  the boundary never fired: `pageErrors 0`, `blankOrNearBlank 0`, one console error
+  (`safari-desktop-light /#/: WebGL: context lost.`) which is the async class no boundary can catch.
+  **The defect is never that the plate is wrong. It is that the plate is at the wrong altitude, in
+  the wrong directory, offering an affordance that does not work, with nothing beneath it.**
 
 ---
 
 # Defect table
 
-| ID | Severity | Defect | Anchor |
+| ID | Severity | Defect | Anchor / evidence |
 |---|---|---|---|
-| L-1 | **BLOCKER** | Boundary latches the whole app dead across navigation; containment owned at an altitude that cannot know the failure is stale | `App.vue:47-50,139-141` · `ErrorBoundary.vue:55` · `PaneSlot.vue:113-119` · `probes/live-latch.mjs` · P1/P2 |
-| L-2 | MAJOR | Error plate is a drifted hand-copy of `EmptyState`'s `error` variant; constants already diverged | `ErrorBoundary.vue:15-34` vs `EmptyState.vue:14-27` |
-| L-3 | MAJOR | Terminal unreportable sink: `return false` kills Vue's `logError`, no `errorHandler`/`onerror`/`unhandledrejection` anywhere | `ErrorBoundary.vue:68` · `runtime-core.cjs.js:238-239,256` · `index.html:205-213` · P4/P5 |
-| L-4 | MAJOR | `demo/ui/*` = 19-dir back-compat alias layer over glass-ui; degrades the subpath surface to a 231 KB root-barrel reach | `ErrorBoundary.vue:41` · `demo/ui/button/index.ts:1` · `demo/ui/alert/index.ts:1-10` · measured 231357 B |
-| L-5 | MAJOR | Demo import-boundary invariants are dead: every guard glob targets the deleted `demo/@`; this file has ZERO enforced boundaries | `eslint.config.js:232-239,275-278` · `ls demo/@` · `eslint --print-config` |
-| L-6 | MAJOR | Homed in the Vite root (boot dir), not the UI layer; root-relative HTTP addressable while its concept-sibling is not | `vite.config.ts` root · `find demo/color-picker` · `curl` 200/12546 vs SPA fallback |
-| L-7 | MINOR | Entire declared public surface is dead: `message` passed as its own default, `retryLabel` never passed, `reset` never listened | `ErrorBoundary.vue:43-53,74` · `App.vue:50` |
-| L-8 | MINOR | `.plate-ink` copy-pasted into 5 scoped blocks instead of `demo/styles/utils.css` | 5 × `grep -rn "^\.plate-ink" demo/` |
-| L-9 | MINOR | `vj-error-boundary` is a dead class — 1 occurrence, no rule, no selector, no test hook | `ErrorBoundary.vue:18` · P6 |
-| L-10 | MINOR | "Try again" is a dead affordance for deterministic errors — remounts the same subtree with the same inputs | P3 |
-| L-11 | INFO | Core-shell component's only test lives in the admin feature suite and depends on a feature bug; `role="alert"` selector aliases across 3 owners | `e2e/smoke/admin/a11y-authed-admin.spec.ts:107-156` · `probes/live-latch.mjs` `after_catch` |
+| **L2-1** | **BLOCKER** | Containment wrong in both directions: too coarse for the pane (r1 L-1, confirmed) **and** too narrow for the shell — `<nav>`/canvas/global dialog are siblings, uncaught | `App.vue:24-44,47-50,140-141,152-158` · `probes-L-r2/altitude.test.ts` R2-A · `live-net.mjs` (`app_layout_children:[canvas,nav,main]`, 1 carrier) |
+| **L2-2** | **BLOCKER** | No boot module anywhere — the only `createApp` is inline in `index.html`; error reporting has no home. Live: `errorHandler undefined`, `onerror null`. R2-C: handler called **0** times | `find demo -name main.ts` → ∅ · `index.html:206-212` · `live-net.mjs` · R2-C |
+| **L2-3** | MAJOR | Live directory-level **cycle** through the boot root (`App.vue:164` ↔ `ColorPicker.vue:129`; `aurora-harmony-stops.ts:23`) — the G-DEMO-1 rule that forbids it is dead | 3 × `grep` hits · `ls demo/@` → ENOENT · `eslint --print-config` |
+| **L2-4** | MAJOR | Demo TS view of the published surface misdeclared: 3 of 8 `paths` targets do not exist; `./value` + `./css` (10 imports) undeclared, resolving only by Node self-reference | `probes-L-r2/ts-resolve.mjs` · `tsconfig.demo.json:42-49` · `ls dist/subpaths/` · `package.json#exports` (7 keys, no root) |
+| **L2-5** | MAJOR | Failure presentation: 3 demo homes, 0 design-system home; constants already diverged. Plate belongs in glass-ui (`Alert variant="plate"` + missing `./alert` subpath) — **BH/BI relay** | `EmptyState.vue:15-26,102` vs `ErrorBoundary.vue:15-34,85` · 3 × `role="alert"` · glass-ui grep: no ErrorPlate/EmptyState |
+| **L2-6** | MAJOR (shim) / **REFUTED** (cost) | `demo/ui/` = 19-dir back-compat alias layer (edict 2). **Cost claim refuted**: production bundles byte-length identical, 15,665 B both ways; 231 KB is a dev prebundle | `demo/ui/button/index.ts:1` · `demo/ui/alert/index.ts:1-10` · 2 × `vite build` (76 vs 13 modules, 15.66 kB both) |
+| **L2-7** | MAJOR | No not-found state: unknown routes silently render the picker — two masking fallbacks for one concept (edict 2) | `router/index.ts:36-37` · `usePaneRouter.ts` `componentFor` tail · `shots/safari-desktop-light/notfound-redirect.png` |
+| **L2-8** | MAJOR | Chunk-404 class (all 10 panes are bare `defineAsyncComponent`) lands in this boundary; Retry re-invokes the loader but cannot recover — the only cure is reload, which is not offered | `usePaneRouter.ts:69-78` · R2-B (`attempts 2`, `pane_present_after_retry false`) |
+| **L2-9** | MINOR | The demo component-test home exists and is wired into `npm test`; this component is absent from it | `vitest.config.ts:21` · `find demo/test` (3 suites) · r1 L-11 |
+| **L2-10** | MINOR | Two directories named `ui`, two named for the picker; naming carries no information | `demo/ui/` vs `demo/shared/ui/` · `demo/color-picker/` vs `demo/picker/` |
 
-**Strongest defect: L-1.** Every other finding is a mis-homing or a duplication; L-1 is the one where
-the shipped product is broken for the user, and it is broken for a structural reason — the boundary
-owns state about a subject it cannot observe.
+**Strongest defect: L2-1.** Round 1's latch and this report's uncontained-shell half are one defect
+seen from two sides — a single component holding "containment" at a single fixed altitude. Fixing
+either half alone leaves the other; the transposition (three altitudes, three owners) is what
+dissolves both. **L2-2 is the enabling condition** — until a boot module exists, the shell half has
+nowhere to be fixed and reporting has nowhere to live.
 
 ---
 
 ## Probe artifacts (this directory)
 
-- `probes/boundary.test.ts` — 6 unit probes against the shipped SFC; P1 blast radius, P2 the latch,
-  P3 dead retry, P4 total swallowing, P5 async hole, P6 dead class.
-- `probes/vitest.config.ts` — standalone runner
-  (`npx vitest run --config docs/tranches/V/megatranche/audit/components/ErrorBoundary/probes/vitest.config.ts`).
-- `probes/live-latch.mjs` — read-only Playwright probe against `localhost:9000`
-  (`node docs/tranches/V/megatranche/audit/components/ErrorBoundary/probes/live-latch.mjs`).
+| Path | What it is |
+|---|---|
+| `probes-L-r2/altitude.test.ts` + `vitest.config.ts` | R2-A/B/C. `npx vitest run --config docs/tranches/V/megatranche/audit/components/ErrorBoundary/probes-L-r2/vitest.config.ts` → 3/3 |
+| `probes-L-r2/live-net.mjs` | read-only Playwright probe of the live error net + containment coverage. `node docs/.../probes-L-r2/live-net.mjs` |
+| `probes-L-r2/ts-resolve.mjs` | TS compiler-API resolution of all 10 candidate value.js specifiers under `tsconfig.demo.json` |
+| `probes-L-r2/vite.measure.config.ts` + `entry-barrel.ts` + `entry-subpath.ts` | production bundle measurement. `MEASURE_ENTRY=entry-barrel.ts npx vite build --config …` |
+| `challenge-L-library-r1.md` | round 1, preserved verbatim |
+| `probes/` | round 1's suite — re-run at 13/13 before this report was written |
 
-All three are read-only. **No source edits landed from this seat.** Nothing under `src/`, `demo/`,
-`api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`, `scripts/dev/dev.sh` or any `INBOX.md` was written.
+All read-only. **No source edits landed from this seat.**

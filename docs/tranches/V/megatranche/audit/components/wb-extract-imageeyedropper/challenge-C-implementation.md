@@ -1,582 +1,499 @@
-# CHALLENGE-C — ImageEyedropper: implementation (r2 — independent replication + delta)
+# CHALLENGE-C — ImageEyedropper: implementation (r3 — blind third replication, two corrections, three new defects)
 
-**Subject** `demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue` (299 lines)
+**Subject** `demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue` (299)
 · `composables/useImageSampler.ts` (139) · `composables/useLoupeCanvas.ts` (75)
 · `composables/useInertiaGesture.ts` (379) · `constants.ts` (11)
 **Repo** `/Users/mkbabb/Programming/value.js`, branch `tranche-u`
-**HEAD at this seat's run** `4f78e57b` (the task brief named `c654824e`; `git rev-parse HEAD` →
-`4f78e57b823347bc879f36024b1f0f9d59f03eda`. Three docs-only commits have landed since; no file this
-report cites was touched.)
+**HEAD at this seat's run** `f36f780c` (the brief named `c654824e`; docs-only commits have landed
+since — `git rev-parse HEAD` → `f36f780c5938390b8dc93cd87920418e82cdd81a`. No file cited below was
+touched by them.)
 **Date** 2026-07-28
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]` (the 1M-context variant), as
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant, as
 declared at spawn. The seat is declared, not inherited.
 
-## Relationship to r1
+## Relationship to r1 and r2
 
-A prior CHALLENGE-C seat produced a report at this path on 2026-07-27. It is preserved verbatim at
-**`challenge-C-implementation.r1.md`** and nothing in it is retracted. This seat ran **independently
-and blind** — the whole probe programme below was designed and executed against a live browser
-*before* r1 was opened — and then reconciled.
+Two prior CHALLENGE-C seats reported at this path. Both are preserved verbatim
+(`challenge-C-implementation.r1.md`, `challenge-C-implementation.r2.md`); **nothing in either is
+retracted here except where §I states a correction with its own receipt.**
 
-That makes this document an r2 with three jobs:
+This seat ran **blind**: the entire probe programme below was designed and executed against a live
+browser before either prior report was opened. That makes this an r3 whose value is not volume but
+**adjudication** — three jobs:
 
-1. **Replication.** Five of r1's findings (its D-1, D-2, D-4, D-5, D-6 — including both BLOCKERs)
-   are reproduced here with *different fixtures, different probe construction, and a different
-   interaction script*. They are no longer single-seat claims.
-2. **Delta.** Four defects r1 does not carry (§N-1…N-4) and one refinement of its edict row (§N-5).
-3. **Negative proof.** Five plausible hypotheses that this seat tested and **refuted** (§NEG). A
-   challenge seat that only accumulates is not auditing; the refutations bound the blast radius.
+1. **§I — Two corrections to the standing record.** One prior finding is *understated by a factor
+   of ∞* (a bounded 650 ms window is in fact a permanent latch) and the negative proof that bounded
+   it (r2 NEG-2) rests on the wrong test; one attribution in r2's Part IV names the wrong three
+   buttons. Both are corrected with pasted receipts.
+2. **§II — Three defects neither prior seat carries**, including a session-destroying remount.
+3. **§III — Independent replication on WebKit**, the audit's shipping engine. r1 and r2 both ran
+   Chromium only. Three of the standing findings — including both BLOCKERs — are now confirmed on
+   the engine the visual matrix actually ships against, with different fixtures and a different
+   interaction script.
+4. **§IV — Bounded claims and non-replications**, stated as such.
 
-**Verdict: DEFECTIVE.** Two BLOCKERs, seven MAJORs, seven MINORs, four INFO.
-
----
-
-## Live-probe methodology (this seat's receipts)
-
-Dev server `http://localhost:9000`, live Chromium via Playwright MCP, `devicePixelRatio: 2`,
-viewport gave the eyedropper a 508×626 CSS-px sampling viewport (later 354×602 after a reload).
-All probes were `page.evaluate` scripts — **no repo file outside this directory was written**.
-
-Fixtures were synthesised *in-page* (`canvas.toBlob` → `File` → `DataTransfer` → a real `drop`
-event on `ImageDropZone`), so no binary fixture entered the tree:
-
-| fixture | content |
-|---|---|
-| `probe.png` | **16×16**, ground `#808080`, with three single-pixel landmarks: `(0,0)=#ff0000`, `(8,8)=#00ff00`, `(15,15)=#0000ff` |
-| `grid.png` | 512×512, 8×8 grid of `hsl()` tiles — used for the zoom/resize probe (fit < 1, so zoom has headroom) |
-| `notes.pdf` | 28 bytes of `%PDF-1.4 not an image at all`, MIME `application/pdf`, pushed through the **`<input type=file>`** path |
-
-The 16×16 fixture is the point: at `fit = min(508/16, 626/16, maxZoom 10) = 10`, one image pixel is
-a 10×10 CSS-px target, so a synthesised pointer coordinate maps to a *known* image pixel with a
-5 px margin. Every colour assertion below is against a landmark, not against a screenshot.
-
-`Element.prototype.setPointerCapture` was stubbed to a no-op for the duration of each probe
-(synthesised `PointerEvent`s carry no live pointer, and `useInertiaGesture.ts:173` calls it
-unconditionally); it was restored before return.
-
-**Fit math verified first, so the coordinate frame is trustworthy:** measured
-`transform: matrix(10, 0, 0, 10, 174, 233.254)` against the arithmetic
-`panX = (508 − 16·10)/2 = 174`, `panY = (626.5 − 160)/2 = 233.25`. Exact.
+**Verdict: DEFECTIVE.** The prior verdict stands and hardens.
 
 ---
 
-# Part I — replicated defects
+## Probe apparatus — persisted and re-runnable
 
-## C-1 · BLOCKER — the loupe paints NOTHING on first show; on touch it never paints at all
-
-*(replicates r1 D-1, by a different measurement)*
-
-```ts
-// useLoupeCanvas.ts:55-60
-function showLoupeAt(rx: number, ry: number) {
-    loupeVisible.value = true;   // queues the v-if render on the microtask queue
-    loupeRelX.value = rx;
-    loupeRelY.value = ry;
-    drawLoupe(rx, ry);           // runs NOW — the canvas element does not exist yet
-}
-```
-
-`drawLoupe` early-returns on `if (!loupeCanvas || !offscreenCanvas) return` (`:30`) because the
-`<canvas ref="loupeCanvasRef">` lives inside `v-if="loupe.loupeVisible.value"`
-(`ImageEyedropper.vue:78-86`). Nothing else in the component calls `drawLoupe` — it is exported and
-never consumed by the shell.
-
-**Measurement — hover path (two identical hovers over the same pixel):**
-
-| step | readout | loupe `opaquePx / 12100` | loupe centre RGBA |
-|---|---|---|---|
-| `hover1` @ image (8,8) | `oklch(86.643961752344% 0.294827224543 142.495345041444deg)` | **0** | `[0,0,0,0]` |
-| `hover2` @ image (8,8) — *same coords* | same | **9604** | `[0,255,0,255]` ✅ |
-
-The colour readout is correct on the first hover; the magnifier is empty. It only fills on the
-**second** pointer event.
-
-**Measurement — touch path (a single tap, no hover ever):** two separate runs, two fixtures.
+r2 recorded that "no probe script was persisted". This seat's are, which matters for a formation
+that (per r2's own N-4) gitignores every component PNG:
 
 ```
-run A (16×16 probe.png, tap on the green landmark):
-  A_firstTapGreen.loupe = { present: true, backing: [110,110], opaquePx: 0, total: 12100,
-                            centerRGBA: [0,0,0,0] }
-run B (512×512 grid.png, tap at 45%/45%):
-  touchTapLoupe = { present: true, opaquePx: 0, total: 12100 }
-  readout        = "oklch(80.359228533808% 0.242599271741 145.709407560116deg)"
+/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/
+  6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/ccED/
+    probe.mjs  probe2.mjs  probe3.mjs  probe4.mjs  probe5.mjs  probe6.mjs  probe7.mjs  probe9.mjs
+    probe.png  big.png  small.png  dark.png  alpha.png  bad.png
+    wk-touch-loupe.png  overlay-desktop.png  overlay-dark.png
 ```
 
-Zero opaque pixels out of 12 100, on both. And it can never recover: `onTap` sets `pinned = true`
-(`ImageEyedropper.vue:161`) and `onHover` opens with `if (pinned.value) return`
-(`:165`), so no further event will redraw. **On a phone — where the finger occludes the pixel and
-the loupe is the only way to see what you are sampling — the magnifier is a permanently empty
-circle.**
-
-**Visual evidence — `evidence-touch-tap-blank-loupe.png`** (written beside this file; see N-4 — the
-formation gitignores component PNGs, so the *numbers above* are the durable record and the image is
-a convenience). The loupe is a transparent hole: the 64-px `hsl` grid tiles read at the *same* scale
-inside the circle as outside it. There is no magnification, only a ring.
-
-**Cure (gestalt, not patch).** `showLoupeAt` should not paint; it should record. Make the paint a
-function of state, not a side effect of an event: a single
-`watchEffect`/`watch([loupeVisible, loupeRelX, loupeRelY], …, { flush: 'post' })` inside
-`useLoupeCanvas` draws whenever the position changes *after* the DOM settles. That deletes
-`drawLoupe`'s exported-but-unused surface and removes the ordering hazard permanently, instead of
-sprinkling `nextTick`.
-
----
-
-## C-2 · BLOCKER — `justUnpinned` is a one-exit latch; a pan-while-pinned eats the next tap
-
-*(replicates r1 D-2, by a scripted 5-gesture sequence)*
-
-```ts
-// ImageEyedropper.vue:176-185 — capture-phase interceptor
-el.addEventListener("pointerdown", () => {
-    if (pinned.value) { pinned.value = false; loupe.hideLoupe(); justUnpinned = true; }
-}, { capture: true });
-
-// ImageEyedropper.vue:151-155 — the ONLY place the flag is cleared
-onTap(rx, ry) { if (justUnpinned) { justUnpinned = false; return; } … }
-```
-
-`onTap` fires only when `!hasMoved` (`useInertiaGesture.ts:277-281`). So: press while pinned → the
-flag is set and `pinned` is already `false`; then *drag* → `onTap` never runs → **the flag survives
-with nothing left to justify it**. The next clean tap is consumed clearing it.
-
-**Reproduction (single scripted run, touch pointers, 16×16 fixture):**
-
-| # | gesture | expected | measured readout |
-|---|---|---|---|
-| A | tap image (8,8) | green | `oklch(86.643…% 0.2948… 142.495…deg)` = `#00ff00` ✅ pins |
-| B | press + drag +80 px + release | pan | readout unchanged; `pinned` now false, `justUnpinned` **stuck true** |
-| C | clean tap | a new sample | **unchanged — the tap was swallowed** ❌ |
-| D | identical tap, same coordinates | a new sample | `oklch(59.987080562215% 0 none)` = `#808080` ✅ |
-| E | identical tap, same coordinates | — | unchanged (D pinned; E is the by-design unpin) |
-
-C and D are byte-identical inputs at identical coordinates and produce different outcomes. That is
-the latch.
-
-The severity is not cosmetic: pan-then-sample is the *normal* way to use a zoomable eyedropper.
-Every first tap after a pan silently does nothing, and the component gives no feedback that it
-declined.
-
-**Cure.** The unpin does not need a flag at all — it needs to live in one place. Move the pinned
-state into `useInertiaGesture` (which already owns `hasMoved`/`isPanning`) and let it decide, at
-`pointerup`, between *unpin*, *sample*, and *pan-end* from the gesture facts it already has. The
-capture-phase side-channel and the cross-tick boolean both disappear.
-
----
-
-## C-3 · MAJOR — a malformed image ⇒ two unhandled rejections + a dead, error-less overlay
-
-*(replicates r1 D-5, through the `<input type=file>` path rather than a drop)*
-
-`ImageDropZone` guards the **drop** path (`ImageDropZone.vue:97` `file?.type.startsWith("image/")`)
-but the **file-input** path has no guard at all (`:87-92`) — `accept="image/*"` is a picker filter
-the user can defeat with "All Files".
-
-**Reproduction.** Assign a `application/pdf` `File` to the hidden input and dispatch `change`:
-
-```json
-"step1": { "previewZoneAppeared": true,
-           "previewLabel": "Image preview area, tap to sample colors",
-           "overlayOpen": true,
-           "canvasBacking": [300, 150],
-           "readout": "Tap to sample",
-           "errorSurfacedToUser": false },
-"rejections": ["The source image could not be decoded.", "error"]
-```
-
-Browser console (`.playwright-mcp/console-2026-07-28T13-54-12-549Z.log`):
-
-```
-[ 38906ms] The source image could not be decoded.
-[ 38971ms] Event
-```
-
-Reading it out: the drop zone advertises *"Image preview area, tap to sample colors"* over a file
-that is not an image; the eyedropper mounts; `canvasBacking [300,150]` is the browser's **default**
-canvas size, proving `loadImage` threw before `useImageSampler.ts:88-89` ever sized it; the readout
-says "Tap to sample" forever; `errorSurfacedToUser: false` — no error affordance anywhere in the
-overlay. Two promise rejections escape unhandled, one of them the literal `Event` from
-`img.onerror = reject` (`useImageSampler.ts:74`), because `loadAndFit()` is a floating promise at
-both call sites (`ImageEyedropper.vue:238` and `:247`).
-
-The sibling surface in the same workbench does this correctly —
-`ExtractWorkbench.vue:80-85` renders an explicit `text-destructive` line for
-`session.quantizeError`.
-
-**Cure.** `loadImage` rejects with a real `Error`; the shell owns an `imageError` ref rendered in
-the destructive register the workbench already owns; and `ImageDropZone.onFileSelected` applies the
-same MIME guard `onDrop` already applies — one guard, both entrances.
-
----
-
-## C-4 · MAJOR — zero keyboard operability, no dialog semantics, no focus management
-
-*(replicates r1 D-4)*
-
-Measured on the live open overlay:
-
-| property | measured |
-|---|---|
-| overlay `role` | `null` |
-| `aria-modal` | `null` |
-| `[aria-live]` inside overlay | **0** |
-| `document.activeElement` on open | **`BODY`** — focus never enters |
-| focusables inside overlay (unpinned) | **1** (Close) |
-| `canvas.eyedropper-canvas` | `tabIndex: -1`, `aria-hidden="true"` |
-| viewport div | `tabIndex: -1`, `role: null` |
-| overlay buttons | `[{title:"Close eyedropper", ariaLabel:null, text:""}]`, 40×40 CSS px |
-
-The sampling surface is `aria-hidden` with **no keyboard alternative** — no arrow-key cursor, no
-"sample centre". The Add/Apply controls are `v-if="pinned"` and `pinned` is set only from `onTap`,
-i.e. only from a pointer — measured: with the overlay pinned the button set becomes
-`["Close eyedropper", "Add to palette", "Apply as current color"]`, and a keyboard user can reach
-that state through no path at all.
-
-WCAG 2.1.1 Keyboard (A), 4.1.2 Name/Role/Value (A), 2.4.3 Focus Order (A) — fail.
-Tap targets are fine (40×40 ≥ 24).
-
-**Cure.** Adopt the glass-ui dialog primitive rather than hand-rolling
-`absolute inset-0 z-popover flex flex-col glass-floating` (`ImageEyedropper.vue:8`) — the hand-roll
-*is* the cause of the missing role/focus semantics. Bind arrow keys to the same `sampleAt` the
-pointer uses, and give the readout `aria-live="polite"`.
-
----
-
-## C-5 · MAJOR — the ResizeObserver refit destroys the user's zoom and pan
-
-*(replicates r1 D-6, with a resize that leaves component state untouched)*
-
-```ts
-// useInertiaGesture.ts:354-360
-resizeObserver = new ResizeObserver(() => fitToViewport());
-// :164-166 — fitToViewport writes unconditionally
-zoom.value = fit;
-panX.value = (rect.width - cw * fit) / 2;
-panY.value = (rect.height - ch * fit) / 2;
-```
-
-**Reproduction** (512×512 fixture, 12 × ctrl-wheel zoom-in, then the overlay host's height changed
-by −120 px and restored — the *only* thing touched is a CSS height on a DOM ancestor, no component
-API is called):
-
-```json
-"beforeZoom":     { "zoom": 0.691406, "vp": [354,602], "backing": [512,512] },
-"afterWheelZoom": { "zoom": 1.39125 },
-"afterResize":    { "zoom": 0.691406 },
-"afterRestore":   { "zoom": 0.691406 }
-```
-
-A 2.01× inspection zoom is discarded by a viewport resize and does **not** return when the resize is
-undone. On mobile Safari the URL-bar show/hide resizes the layout viewport, so this fires during
-ordinary scrolling-adjacent gestures.
-
-**Cure.** Split *fit* (once, on image load — the component already calls it exactly there,
-`ImageEyedropper.vue:203, 207`) from *reflow* (preserve the zoom ratio and the image-space centre,
-re-clamp the pan). A `ResizeObserver` should never be wired to an initialiser.
-
----
-
-# Part II — delta (findings r1 does not carry)
-
-## N-1 · MINOR — off-image sampling leaves a **stale readout and a parked loupe**: the instrument lies
-
-`sampleAt` returns `null` outside the image (`useImageSampler.ts:114-115`), and both callers then
-do **nothing** (`ImageEyedropper.vue:156-171` — `if (result) {…}` with no `else`). The previous
-sample stays on screen as if it were live, and the loupe stays frozen at its last position showing
-the *previous* pixel.
-
-**Reproduction** (16×16 fixture, image occupies viewport x ∈ [174, 334]):
-
-```
-hover3 @ image (0,0)                   → readout oklch(62.795…% 0.2576… 29.233…deg)   [= #ff0000]
-                                         loupe centreRGBA [255,0,0,255], opaquePx 2996
-hover4 @ viewport (5,5)  ← OFF-IMAGE   → readout UNCHANGED (still #ff0000)
-                                         loupePresent: true, centreRGBA STILL [255,0,0,255]
-```
-
-169 CSS px to the left of the image's left edge, the eyedropper still reports red and still shows a
-red loupe. There is no "nothing here" state. This is the same class of defect as r1's D-3 (alpha
-discarded) reached from the other side: the component has exactly one honest failure path
-(`return null`) and both call sites drop it on the floor.
-
-**Cure.** `onHover`/`onTap` must handle the `null`: hide the loupe and clear the readout to its
-`'Tap to sample'` register. One `else` branch each — but better, have `sampleAt` return a
-discriminated result so the `null` cannot be ignored silently by a third caller later.
-
----
-
-## N-2 · MINOR — the confirmation pulse cannot re-fire inside its own window
-
-```html
-<!-- ImageEyedropper.vue:21-22 -->
-:class="['shrink-0 transition-transform', swatchPulse ? 'swatch-pulse' : 'w-7 h-7']"
-@animationend="swatchPulse = false"
-```
-```css
-/* :285-289 */
-.swatch-pulse { width: 1.75rem; height: 1.75rem; animation: swatch-pop 0.65s var(--ease-spring) forwards; }
-```
-
-`onAddToPalette` sets `swatchPulse.value = true` (`:215`). If it is already `true`, the class list
-does not change, so **the CSS animation does not restart** — a second "Add to palette" inside the
-0.65 s window emits the event but gives the user no confirmation at all. The standard cures (drop
-the class + force reflow, or `:key` the node, or `animation: none` toggle) are all absent.
-
-Two smaller truths in the same three lines: `.swatch-pulse` re-declares `1.75rem` — the exact value
-`w-7 h-7` already carries in the other branch, so the size has two sources; and the branch swap
-exists only because the pulse class also owns the size, which it need not.
-
-**Reproduction.** Pin a sample, then click *Add to palette* twice within 650 ms. The first click
-pops; the second is silent. (`addToPalette` still emits both times — the *feedback* is lost, not
-the action.)
-
-**Cure.** Keep `w-7 h-7` always; add/remove only `swatch-pulse`; restart with `:key="pulseSeq"` on
-the dot, incremented per action. The keyframe itself stays (edict 6).
-
----
-
-## N-3 · MINOR — `loadImage` resurrects a disposed sampler after unmount
-
-```ts
-// ImageEyedropper.vue:242-245
-onBeforeUnmount(() => { window.removeEventListener("keydown", onKeyDown); sampler.dispose(); });
-```
-```ts
-// useImageSampler.ts:68-95 — everything after the await runs unconditionally
-await new Promise<void>((resolve, reject) => { img.onload = () => resolve(); … });
-imgWidth.value = img.naturalWidth; …
-offscreenCanvas = document.createElement("canvas");     // ← re-allocated post-dispose
-offscreenCtx = offscreenCanvas.getContext("2d", { willReadFrequently: true })!;
-offscreenCtx.drawImage(img, 0, 0);
-imageLoaded.value = true;                                // ← flipped true on a torn-down instance
-```
-
-`dispose()` (`:97-101`) nulls the handles and sets `imageLoaded = false`, but there is no
-generation token and no abort, so an in-flight decode's continuation runs *after* teardown and
-undoes all three. For a 12 MP photo that is a full-resolution canvas allocated for a component that
-no longer exists.
-
-**Reproduction.** Open the eyedropper on a large image and press `Escape` before the decode
-finishes (`onKeyDown` → `emit('close')` → `v-if` unmount, `ImageEyedropper.vue:226-235`,
-`ExtractWorkbench.vue:174-177`).
-
-Not a *lasting* leak — the closure is unreachable once the component is gone, so GC reclaims it —
-which is why this is MINOR and not MAJOR. It is the same root cause as r1's D-12 (no generation
-token), seen from the teardown side rather than the re-entrancy side; one token fixes both.
-
----
-
-## N-4 · INFO — image evidence in this audit is structurally unreviewable; transcribe or lose it
-
-This finding began as "r1's screenshots live in gitignored `.playwright-mcp/`, mine are committed" —
-and **this seat's own check refuted the second half**:
-
-```
-$ git check-ignore -v docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/evidence-touch-tap-blank-loupe.png
-docs/tranches/V/megatranche/.gitignore:10:audit/components/**/*.png    …/evidence-touch-tap-blank-loupe.png
-```
-
-The formation ignores **every** PNG under `audit/components/**` by policy. So no screenshot produced
-by any component seat — r1's, mine, or any sibling's — survives into the record. That is a defensible
-weight decision, but it has a consequence the seats must honour: **an image is not a receipt here.**
-
-The live risk is concrete. r1's D-7 ("the page behind bleeds through transparent pixels") rests on
-*"in the transparent quadrant you can read the k-slider, the reset control, and the `DOMINANT
-oklch(45.20…718…)` readout of the panel behind the overlay"* — a claim whose only evidence is
-`.playwright-mcp/eyedropper-live.png`, which no reviewer can now open. The finding is almost
-certainly true (the canvas is drawn with `drawImage` onto a transparent backing,
-`useImageSampler.ts:84, 91`, inside a translucent `glass-floating` overlay — that is code-evident),
-but its *stated* proof is unreachable. This seat did not re-derive it and does not carry it.
-
-**Rule for the remaining seats:** every load-bearing observation must appear in the markdown as a
-number, a quoted line, or pasted command output. Screenshots may illustrate; they may not testify.
-
----
-
-## N-5 · INFO — refinement of the edict-4/5 row: `DockControl` exposes no accessible-name prop
-
-r1's D-16 flags the `.eyedropper-action-btn:hover svg` descendant override as a partial edict-5
-violation. Confirmed, and there is a second half to it that belongs in the glass-ui relay.
-
-`node_modules/@mkbabb/glass-ui/dist/components/dock/DockControl.vue.d.ts` — the full prop surface is
-`shape | compact | active | type | disabled | as | asChild | class`. **There is no `label`,
-`ariaLabel`, or `title` prop.** So the eyedropper's three controls (`title="Close eyedropper"`,
-`"Add to palette"`, `"Apply as current color"` — measured `ariaLabel: null`, `text: ""`) are named
-solely by a fall-through `title` attribute, which is the *last-resort* source in the accessible-name
-computation and is invisible to touch users entirely.
-
-The consumer cannot fix this correctly on its own: adding `aria-label` at the call site is a
-per-instance patch of exactly the kind edict 5 forbids. **Relay to the glass-ui BH inbox** (standing
-relay edict): `DockControl` should take a required-ish `label` and stamp `aria-label`, the way the
-sibling dock components in `dock.js` already do (`"aria-label": e.label ?? e.id`), and should own
-the hover-tint variant that `ImageEyedropper.vue:279-282` currently reaches in to fake.
-
----
-
-# Part III — negative proof (hypotheses this seat tested and refuted)
-
-A challenge seat that only accumulates is not auditing. Five plausible defects were probed and
-**did not hold**:
-
-### NEG-1 · the loupe's edge mapping is CORRECT — no off-centre magnification at image borders
-
-`drawLoupe` draws source rect `(ix−5, iy−5, 11, 11)` (`useLoupeCanvas.ts:41-51`), which is partly
-outside the bitmap whenever the pointer is within 5 px of an edge. The obvious hypothesis — the
-loupe centre stops corresponding to the sampled pixel near borders — is **wrong**, because the HTML
-Standard's `drawImage` requires that when the source rectangle is not entirely within the source
-image, *the source rectangle is clipped to the source image and the destination rectangle is
-clipped in the same proportion*. At `ix = 0`: source clips to `(0,0,6,6)`, destination clips to
-`(50,50,60,60)`, so 6 source px cover 60 dest px, and the loupe centre (55) still resolves to
-source pixel 0.
-
-**Measured, at the exact corner pixel:** `hover3_red00.loupe.centerRGBA = [255,0,0,255]` with
-`opaquePx 2996/12100` (the out-of-image ~75 % correctly empty). The mapping is exact. Not a defect.
-
-### NEG-2 · no bubbling-`animationend` hazard from `WatercolorDot`
-
-`@animationend="swatchPulse = false"` (`ImageEyedropper.vue:22`) is a native listener on a child
-component's root, so any animation *inside* `WatercolorDot` would bubble up and clear the flag
-early, truncating the pop. Checked:
-`grep -o "@keyframes [a-zA-Z0-9_-]*" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js` → **0
-matches**. No internal keyframes exist. Hypothesis refuted.
-
-### NEG-3 · the capture-phase interceptor's ordering is safe even at AT_TARGET
-
-The unpin listener is `{ capture: true }` on the viewport; `useInertiaGesture` binds `pointerdown`
-on the *same* element in the bubble phase. Capture-before-bubble holds only when the target is a
-descendant (the canvas). When the pointer is over the bare viewport, the element **is** the target,
-and DOM dispatch runs both listeners in registration order regardless of the capture flag — so the
-gesture handler runs first. Traced through: `onPointerDown` does `stopInertia()` + records
-`lastX/lastY/hasMoved`; the interceptor only writes `pinned`/`justUnpinned`. The two do not
-interact, so the outcome is order-independent. The comment at `ImageEyedropper.vue:184`
-("capture: runs before composable's handler") is imprecise but the code is correct. Not a defect.
-
-### NEG-4 · the un-coalesced hover path is cheap — measured, not a defect on its own
-
-`onHover` runs `getImageData` + `parseCssColor` + `convertPickerColor` + `serializePickerColor` +
-a loupe repaint on **every** `pointermove`, with no rAF coalescing. Measured cost:
-
-```json
-"perf": { "moves": 200, "totalMs": 4.5, "perMoveMs": 0.022 }
-```
-
-200 dispatched moves in 4.5 ms — 22 µs each, dominated by the parse/convert round trip, not by
-`getImageData` (which is correctly constructed with `willReadFrequently: true`,
-`useImageSampler.ts:83`). At a 120 Hz pointer that is ~0.26 % of a frame budget. Corroborates r1's
-performance note: real, worth coalescing on principle, **not a defect**. Reported so the mega-tranche
-does not spend a wave on it.
-
-### NEG-5 · the CORS-tainted-canvas hazard is unreachable on the shipped wiring
-
-`getImageData` throws `SecurityError` on a canvas tainted by a cross-origin image. Here `imageUrl`
-is always `session.previewDataUrl`, which is a `FileReader.readAsDataURL` result
-(`useExtractSession.ts:29-36, 166`) — a same-origin `data:` URL that cannot taint. `crossOrigin =
-"anonymous"` is set anyway (`useImageSampler.ts:70`). The prop's *type* is `string`, so a future
-caller could pass a remote URL and reach the hazard, but no shipped path does. Not a live defect.
-
-**Also swept and clean:** no `defineModel` (the stale-read hazard is N/A); no `ValueUnit` wrapping
-anywhere in the sampler's path; no oklch→HSV roundtrip (`stableHue` N/A); no WebGL; the inertia
-coast rides glass-ui `useRAFLoop` with `pauseWhenHidden: true` and an explicit PRM decision in
-`startInertia` (`useInertiaGesture.ts:114-142`) — **not** part of the PRM-RAF epidemic, and the one
-exemplary part of this component. `verbatimModuleSyntax` is satisfied at every import site
-(`ImageEyedropper.vue:99`, `useImageSampler.ts:11-19`, `useInertiaGesture.ts:1`).
-
----
-
-# Part IV — test truth
-
-*(replicates r1 D-14; re-verified independently at this HEAD)*
-
-```
-$ grep -rl "Eyedropper\|useImageSampler\|useInertiaGesture\|useLoupeCanvas" test/ e2e/
-test/image-sampler-v4.test.ts
-```
-
-One file, 31 lines, three tests, all calling exactly one export — `formatInColorSpace` — on a
-sampler built with `canvasRef: ref(null)` and an identity transform
-(`test/image-sampler-v4.test.ts:8-14`). `e2e/` has **no** spec that opens the eyedropper: the
-overlay requires an image upload followed by a pointer click, and `e2e/smoke/walk.spec.ts:74-76`
-only asserts the Extract heading. `grep -rn -i "eyedrop" e2e/` returns one prose comment
-(`oracles/o7-card-census.spec.ts:16`).
-
-**Mutations that keep the suite green** — every defect in this report lives in unexecuted code:
-
-| mutation | still green? | which finding it hides |
+Driven against the live dev server `http://localhost:9000` with the repo's own
+`node_modules/playwright` (the MCP browser profile was held by a sibling seat throughout). Engines
+and matrices:
+
+| matrix | engine | viewport | DPR | input |
+|---|---|---|---|---|
+| A | Chromium | 390×844 `isMobile` `hasTouch` | 2 | `page.touchscreen` (trusted touch) |
+| B | Chromium | 1280×900 | 1 | `page.mouse` (trusted mouse + wheel) |
+| C | **WebKit** | 390×844 `isMobile` `hasTouch` | 3 | `page.touchscreen` |
+| D | **WebKit** | 1280×900 | 1 | `page.mouse` |
+| E | Chromium | 390×844 `hasTouch` | 2 | CDP `Input.dispatchTouchEvent` (multi-event drag) |
+
+All pointer input was **trusted browser input**, not synthesised `PointerEvent`s — so no
+`setPointerCapture` stub was needed (r2 had to stub it; the stub is itself a deviation from the
+shipped path this seat avoided).
+
+Fixtures, all generated by a pasted `python3` heredoc:
+
+| fixture | content | purpose |
 |---|---|---|
-| `viewportToImage` → `{ ix: 0, iy: 0 }` | ✅ never called | all coordinate mapping |
-| `sampleAt` → `return null` | ✅ never called | the entire sampling feature |
-| delete the bounds check `useImageSampler.ts:114-115` | ✅ never called | N-1, OOB `getImageData` |
-| delete `useLoupeCanvas.ts` | ✅ not imported by any test | C-1 |
-| delete `useInertiaGesture.ts` | ✅ not imported by any test | C-2, C-5 |
-| `loadImage` → `throw` on every input | ✅ never called | C-3 |
-| swap `Math.floor` → `Math.round` in `viewportToImage` | ✅ never called | half-pixel sampling error |
-
-3/3 green is a statement about `parseCssColor` + `convertPickerColor`. It says nothing about this
-component.
-
-**Also vacuous: the visual gate.** `REPORT.json` `/#/extract`, all four Safari matrices, records
-`counts.canvas: 1` — the atmosphere field. The eyedropper's two canvases are absent because the
-overlay never mounts without an upload. The 3 `namelessButtons` and 6 `smallTapTargets` on that
-route belong to other components (the JSON names them: `input 160×23`, `button 22×22 "Switch to
-slug"`, `"Generate new slug"`, `"Cancel"`, two `span 12×24` slider labels). And
-`shots/zoom-200-desktop/` holds `adminusers, blob, browse, gradient, picker` — **no `extract`**.
-This component contributes zero rows to the visual audit, so its clean record there is empty.
+| `probe.png` | 64×64, four opaque quadrants `#ff0000 / #00ff00 / #0000ff / #ffff00` | quadrant-addressable colour assertions |
+| `big.png` | 2400×1800 gradient | memory + fit + resize |
+| `dark.png` | 200×200 `#08080a` | glass-bar legibility over dark imagery |
+| `alpha.png` | 64×64, **left half opaque `#ff0000`, right half α = 0** | alpha handling |
+| `bad.png` | 320 garbage bytes named `.png` | decode-failure path |
+| `small.png` | 8×8 | load-race attempt |
 
 ---
 
-# Severity roll-up (r2 consolidated — r1 ids preserved)
+# §I — Corrections to the standing record
 
-| id | r1 id | severity | one line |
+## I-1 · CORRECTION — r2's N-2 is understated: `swatchPulse` does not expire after 650 ms, it **latches forever**, because `@animationend` is **never bound at all**
+
+r2's N-2 reads: *"a second 'Add to palette' inside the 0.65 s window emits the event but gives the
+user no confirmation"* — i.e. a bounded window, after which `@animationend` clears the flag and
+service resumes. r2 further filed **NEG-2** refuting the bubbling hazard by grepping
+`watercolor-dot.js` for `@keyframes` (0 matches) and concluding "no internal keyframes exist.
+Hypothesis refuted."
+
+That grep tests the wrong thing. The listener is not defeated by a *competing* animation event; it
+is defeated because **it is never attached to any element**:
+
+```
+$ grep -o "inheritAttrs[^,}]*" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js
+inheritAttrs: !1
+$ grep -o "onAnimationend\|\$attrs\|mergeProps\|useAttrs" node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js | sort | uniq -c
+   1 useAttrs
+```
+
+`WatercolorDot` compiles with **`inheritAttrs: false`** and hand-merges only `class` through
+`useAttrs()`. The consumer's `@animationend="swatchPulse = false"` (`ImageEyedropper.vue:22`) is
+therefore dropped on the floor. `swatchPulse` is set `true` once and is **never set false again for
+the life of the overlay**.
+
+**Receipt — one press, class sampled over 2 s (`probe7.mjs`):**
+
+```
+before add: shrink-0 transition-transform w-7 h-7 watercolor-swatch
+t~80ms:     shrink-0 transition-transform swatch-pulse watercolor-swatch
+t~300ms:    shrink-0 transition-transform swatch-pulse watercolor-swatch
+t~700ms:    shrink-0 transition-transform swatch-pulse watercolor-swatch    ← animation is 0.65s
+t~1200ms:   shrink-0 transition-transform swatch-pulse watercolor-swatch
+t~2000ms:   shrink-0 transition-transform swatch-pulse watercolor-swatch
+second add (after settle): +200ms: shrink-0 transition-transform swatch-pulse watercolor-swatch
+```
+
+At 2 000 ms — more than 3× the animation duration — the class has not reverted, and a **second
+press after full settle changes nothing**.
+
+**Receipt — the event does fire on the element, so the miss is the binding (`probe6.mjs`,
+document-level capture listener, two presses 150 ms apart):**
+
+```
+events: [ "animationstart:swatch-pop-5659b98f:SPAN.swatch-pulse|watercolor-swatch",
+          "animationend:swatch-pop-5659b98f:SPAN.swatch-pulse|watercolor-swatch" ]
+```
+
+One `animationstart` for two presses; the `animationend` fires and is heard by *my* document
+listener but not by the component's.
+
+**Corrected severity: MAJOR, not MINOR.** "Add to palette" and "Apply as current colour" are the
+only two productive actions this component has, the pulse is their **only** feedback channel
+(neither emits anything else visible in the overlay), and after the first press of the overlay's
+life every subsequent press is silent forever. A user cannot tell whether their second, third and
+fourth swatches landed.
+
+*(Note the scoped-keyframes trap for future seats: Vue rewrites the animation name, so
+`e.animationName === "swatch-pop"` never matches — the real name is `swatch-pop-5659b98f`. My own
+first probe returned a false `0` on that comparison before I corrected the matcher. Numbers above
+are from the corrected run.)*
+
+**Cure.** Do not depend on attribute fall-through from a design-system component that documents
+`inheritAttrs: false`. Drive the pulse from a `:key="pulseSeq"` remount in the shell (which also
+fixes the restart-within-window half r2 identified), and **relay the fall-through gap to the
+glass-ui BH inbox** under the standing relay edict — a dot that silently swallows every native
+listener a consumer attaches will bite more than this one call site. This joins r2's N-5 relay
+(`DockControl` has no `label` prop) in the same letter.
+
+---
+
+## I-2 · CORRECTION — r2's Part IV names the wrong three nameless buttons; the eyedropper's true contribution is **+1 unpinned / +3 pinned**, measured
+
+r2's Part IV states: *"The 3 `namelessButtons` … on that route belong to other components (the JSON
+names them: `input 160×23`, `button 22×22 "Switch to slug"`, `"Generate new slug"`, `"Cancel"`, two
+`span 12×24` slider labels)."*
+
+Those six rows are `REPORT.json`'s **`smallTapTargets`** array, which is a different metric from
+`namelessButtons` — and it cannot be the source, because every one of those rows *has* a label
+(`"Switch to slug"` etc.), which is precisely what disqualifies them from the nameless count. The
+nameless three are unnamed by definition, so the JSON cannot name them.
+
+I ran `capture.mjs`'s own filter (lines 102-105 — it counts `aria-label || aria-labelledby ||
+textContent` and **ignores `title`**) against the live route, closed and open (`probe4.mjs`, WebKit):
+
+```
+nameless buttons, eyedropper CLOSED (audit baseline): {"count":3,"inOverlay":0,
+    "titles":["Upload image","Open camera","Reset"]}
+nameless buttons, eyedropper OPEN:                    {"count":4,"inOverlay":1,
+    "titles":["Upload image","Open camera","Reset","Close eyedropper"]}
+```
+
+So: the REPORT's three are `ExtractControls`' **Upload image / Open camera / Reset**, and the
+eyedropper adds **+1 while unpinned, +3 while pinned** — its three `DockControl`s are all
+`title`-only (`probe.mjs`: `[{"tag":"BUTTON","w":44,"h":44,"title":"Close eyedropper",
+"ariaLabel":null,"text":""}, {"…":"Add to palette",…}, {"…":"Apply as current color",…}]`).
+
+This sharpens rather than overturns r2's D-15/N-5 conclusion — the direction was right, the
+attribution was not — and it puts a **number** on the component's unmeasured a11y debt for the
+mega-tranche ledger. Tap targets themselves are clean: 44×44 CSS px on mobile, ≥ 24 everywhere.
+
+---
+
+# §II — New defects (neither r1 nor r2 carries these)
+
+## II-1 · MAJOR — a viewport change across a layout breakpoint **destroys the entire extract session**: overlay, sample, zoom, and the uploaded image itself
+
+Neither prior seat probed a *breakpoint-crossing* resize. r2's C-5 covers a `ResizeObserver` refit
+that discards zoom; this is a strictly larger injury and a different mechanism — the pane is
+**remounted**, so state above the eyedropper dies too.
+
+**Receipt (`probe9.mjs`, Chromium, 2400×1800 image, pinned sample, then three resizes):**
+
+```
+pinned, before resize:   {"overlayPresent":true,"canvasPresent":true,"viewportRect":[508,378],
+                          "transform":"translate(2px, 0px) scale(0.21)","previewStillLoaded":true,
+                          "readout":"lab(53.216681509299% 0.149032261987 -0.544516968625)"}
+after resize 1100x800:   {"overlayPresent":true,"canvasPresent":true,"viewportRect":[508,378],
+                          "transform":"translate(2px, 0px) scale(0.21)","previewStillLoaded":true,
+                          "readout":"lab(53.216681509299% …)"}
+after resize 1000x640:   {"overlayPresent":false,"canvasPresent":false,"viewportRect":null,
+                          "transform":null,"previewStillLoaded":false,"readout":null}
+after resize 600x640:    {"overlayPresent":false,"canvasPresent":false,…,"previewStillLoaded":false}
+```
+
+`previewStillLoaded: false` is the load-bearing field: it is
+`img[alt="Uploaded image"]` in `ImageDropZone` (`ImageDropZone.vue:37-43`), i.e.
+`session.previewDataUrl`. The **uploaded image is gone**, not merely the overlay. `eyedropperActive`
+and the whole `useExtractSession` live as local state inside `ExtractWorkbench`
+(`ExtractWorkbench.vue:220,224`) under an async-loaded pane (`usePaneRouter.ts:72`), so a shell
+layout switch re-creates the tree and takes the session with it. The user must re-upload.
+
+On a phone this is not exotic: rotation crosses breakpoints, and mobile Safari's URL-bar
+show/hide changes the layout viewport during ordinary scrolling.
+
+**Reproduction:** `/#/extract`, upload, open the eyedropper, sample, then resize the window from
+1280×900 to 1000×640 (or rotate a phone). Everything is gone.
+
+**Cure.** Session state that survives a layout change must not live in a component the layout can
+unmount. `previewDataUrl` + `eyedropperActive` belong at the pane-router/store altitude the repo
+already has (`usePaletteStore` is the precedent), not in `ExtractWorkbench`'s setup scope. This is
+an *altitude* fix, not a guard.
+
+---
+
+## II-2 · MINOR — a plain wheel over a fitted image cancels the page default, moves nothing, and arms an inertia coast that burns ~70 frames and 75 forced layouts
+
+r2's D-13 carries "wheel momentum double-counted (**hypothesis**)". This is a different, *measured*
+defect on the same handler.
+
+`onWheel` calls `e.preventDefault()` unconditionally on a `{ passive: false }` listener
+(`useInertiaGesture.ts:300,333`); the non-`ctrlKey` branch then mutates pan, calls `clampPan()` —
+which re-centres to a **no-op** whenever the content fits (`:80-89`) — and unconditionally calls
+`startInertia()` (`:311-320`). `clampPan` reads `getBoundingClientRect()` on every call (`:75`),
+and the coast loop calls it every frame (`:126`).
+
+**Receipt (`probe3.mjs` §2) — ONE wheel tick over a fully fitted image, 1 000 ms window:**
+
+```
+getBoundingClientRect calls: 75   rAF requests: 253
+canvas transform: translate(0px, 57.8203px) scale(7.9375)  (unchanged => the pan was a clamped no-op)
+```
+
+Zero pixels moved; 75 forced synchronous layouts; ~70 coast frames above this shell's ambient rAF
+baseline (`STATES.json` records `rafPer1500ms: 270` ≈ 180/s for these routes). The velocity decay
+`v *= 0.92` from the wheel's seeded `-deltaY * 0.3` to the `< 0.5` exit takes ~50-90 frames, which
+matches. The gesture is simultaneously **inert, expensive, and event-swallowing**.
+
+**Cure.** Gate on effect: compute the clamped delta first; if it is zero, neither `preventDefault`
+nor arm inertia. Cache the viewport rect — the `ResizeObserver` at `:354-360` already exists to
+invalidate it — instead of measuring inside a per-frame loop.
+
+---
+
+## II-3 · INFO — the glass top bar reads a **static** ink token over a backdrop that is the user's arbitrary image, against a cure both neighbours in this directory already ratified
+
+The bar is `glass-floating` — true translucency over live content (`ImageEyedropper.vue:8`) — and
+its readout uses the static `text-muted-foreground` (`:35`), while both sibling files carry the
+E1-R1 comment saying that exact token failed the text floor over a live plate:
+
+```css
+/* ExtractWorkbench.vue:285-292 and ImageDropZone.vue:104-111 — E1-R1 (T.W8 remediation_1) */
+.plate-ink { color: var(--ink-muted, var(--muted-foreground)); }
+```
+
+`scratchpad/ccED/wk-touch-loupe.png` shows the exposure concretely: the bar's backdrop is the
+user's own image, so its luminance is unbounded (there, a red/green split directly under the text).
+The three action icons inherit the same exposure.
+
+Filed **INFO, not MINOR**: I did not compute a contrast ratio, so this is a documented-precedent
+deviation, not a measured WCAG failure. It belongs with r1's D-16 / r2's N-5 edict row.
+
+---
+
+# §III — Independent replication (WebKit, new fixtures, trusted input)
+
+r1 and r2 both ran Chromium. The visual audit matrix — and the product's hardest platform, per this
+repo's own iOS-Safari record — is **WebKit**. Three standing findings now hold there.
+
+## III-1 · BLOCKER — the loupe paints **nothing** on the touch path — replicated on WebKit at DPR 3
+
+*(replicates r1 D-1 / r2 C-1; different fixture, different engine, trusted touch)*
+
+```
+=== 1. WEBKIT (Safari engine) mobile touch, 390×844, DPR 3 ===
+  after single TAP: {"readout":"lab(54.290541404672% 80.804928170435 69.890964768624)",
+                     "loupeVisible":true,"loupeOpaquePx":0,"backing":110,"cssW":110,
+                     "dpr":3,"buttons":3}
+
+=== A. CHROMIUM mobile touch, 390×844, DPR 2 ===
+TAP#1 (top-left quadrant = #ff0000): {"loupeVisible":true,"loupePinned":true,"loupeOpaquePx":0,…}
+  +800ms: {"loupeOpaquePx":0,"loupeVisible":true}
+TAP#3 (bottom-right = #ffff00): {"readout":"lab(97.60…)","loupeVisible":true,"loupeOpaquePx":0}
+
+=== B. CHROMIUM desktop, same code path but a hover preceded the tap ===
+pin click: {"buttons":3,"readout":"lab(54.29…","loupePinned":true,"loupeOpaquePx":9683}
+```
+
+`loupeOpaquePx` counts α > 0 pixels in the loupe canvas's own backing store: **0** on both touch
+engines, **9 683** when a hover preceded the tap. The delta is the bug, not the fixture. The
+mechanism is exactly as r1/r2 state — `showLoupeAt` paints before the `v-if` canvas mounts
+(`useLoupeCanvas.ts:55-60`, guard at `:30`), and `onHover`'s `if (pinned.value) return`
+(`ImageEyedropper.vue:165`) guarantees no redraw ever follows.
+
+Visual: `scratchpad/ccED/wk-touch-loupe.png` — WebKit, one tap on the red quadrant. A bare outlined
+circle with the unmagnified image showing through it. Three seats, two engines, four fixtures.
+
+## III-2 · BLOCKER — `justUnpinned` swallows the next tap after a pan — replicated, and on touch it is **total**
+
+*(replicates r1 D-2 / r2 C-2; CDP-dispatched multi-event touch drag)*
+
+```
+=== TOUCH: pin -> drag -> tap  (probe5.mjs) ===
+tap#1 (red quadrant):                                {"readout":"lab(54.290541404672% 8","buttons":3,"pinned":true}
+after drag:                                          {"readout":"lab(54.290541404672% 8","buttons":1,"pinned":false}
+tap#2 on the YELLOW quadrant (should read #ffff00):  {"readout":"lab(54.290541404672% 8","buttons":1,"pinned":false}
+tap#3 same spot:                                     {"readout":"lab(97.607007864501% -","buttons":3,"pinned":true}
+
+=== DESKTOP  (probe.mjs §B) ===
+pin click:                                 {"buttons":3,"loupePinned":true}
+after drag (unpins):                       {"buttons":1,"loupePinned":false}
+click post-drag (SHOULD pin => 3 buttons): {"buttons":1,"readout":"lab(97.60…","loupePinned":false}
+next click:                                {"buttons":3,"loupePinned":true}
+```
+
+Tap #2 landed on a **different colour** and produced no readout change, no pin, no loupe. On
+desktop the readout still moves (hover masks it) but the pin does not — so the desktop symptom is
+"the buttons don't appear" and the touch symptom is "nothing happened at all". Adds to the prior
+record that on touch the swallow is *complete*, because there is no hover to leak a partial update.
+
+## III-3 · MAJOR — malformed image ⇒ unhandled rejection + page errors + a dead, error-less overlay
+
+*(replicates r1 D-5 / r2 C-3; reached through `setInputFiles` with 320 garbage bytes named `.png`)*
+
+```
+=== C. MALFORMED image/png (probe.mjs) ===
+overlay: {"open":true,"readout":"Tap to sample","canvasW":300,"canvasRect":{"w":300,"h":150},
+          "loupeVisible":false}
+after click on dead canvas: {"readout":"Tap to sample","buttons":1}
+unhandled rejections: ["InvalidStateError: The source image could not be decoded.",
+                       "error event on <IMG> src=data:image/png;base64,Tk9ULUEtUE5HLUFULU"]
+errors: [ 'pageerror: The source image could not be decoded.', 'pageerror: Event' ]
+```
+
+The second rejection is transcribed with its **target and src** this time, which nails the
+attribution: it is `img.onerror = reject` at `useImageSampler.ts:74`, floating out of
+`loadAndFit()` (`ImageEyedropper.vue:238,247`). `canvasW: 300 / canvasRect 300×150` is the
+browser's default canvas geometry, proving `useImageSampler.ts:86-92` never ran. Every subsequent
+click returns `null` at `:112`. No error text, no `aria-live`, no self-close.
+
+## III-4 · corroborations, briefly
+
+| finding | prior id | this seat's independent number |
+|---|---|---|
+| alpha discarded — transparent pixels reported as **opaque black** | r1 D-3 | `alpha.png`, hover on the α = 0 half → readout `lab(0% 0 0)`; opaque half → `lab(54.29…)`. `formatHex` drops `data[3]` (`useImageSampler.ts:117`) |
+| two full-resolution bitmaps + permanent `will-change` layer | r1 D-8 | 2400×1800 upload → `{"canvasW":2400,"canvasH":1800,"bitmapMB":16.5}` **per canvas**, rendered at `scale(0.21)`; ×2 in-component, ×3 counting the drop zone's decoded `<img>`, plus the retained base64 in `previewDataUrl` |
+| DPR-blind loupe backing store | r1 D-9 | `{"dpr":2,"loupeBackingW":110,"loupeCssW":110}` and `{"dpr":3,"backing":110,"cssW":110}` — a nearest-neighbour magnifier (`imageSmoothingEnabled = false`, `useLoupeCanvas.ts:40`) resampled 2×/3× by the compositor |
+| 12-decimal readout, truncated, no `title` | r1 D-10 | `{"readout":"lab(41.909687279726% -4.519858059834 -17.827996111849)","readoutLen":54,"readoutClipped":true}`, `readout has title attr: false`. The sibling readout carries `:title` **and says why** (`ExtractWorkbench.vue:134-141`, *"never a lying readout"*). Library spaces round to 4 dp (`useImageSampler.ts:39-41`); CSS spaces do not (`:63-65`) |
+| no dialog semantics / no focus management / no keyboard path | r1 D-4 / r2 C-4 | `{"role":null,"ariaModal":null,"ariaLabel":null,"ariaLive":"none","dialogCount":0,"vpTabIndex":null,"vpRole":null,"active":"DIV.group"}`; **Tab trail from the open overlay:** `["INPUT inOverlay=false","BODY inOverlay=false","SPAN{Number of colors} inOverlay=false","BUTTON[Upload image] inOverlay=false","BUTTON[Open camera] inOverlay=false","SPAN{Chroma weight} inOverlay=false"]` — six presses, focus never enters, and it walks controls the overlay *covers*. `overlay-dark.png` shows those same controls bleeding through the glass |
+| vacuous test gate | r1 D-14 / r2 Part IV | `npx vitest run test/image-sampler-v4.test.ts` → `✓ (3 tests) 7ms`; the file's only call is `formatInColorSpace` on a sampler built with `canvasRef: ref(null)`. `grep -rn "eyedropper\|Eyedropper" e2e/ test/` → one prose comment in `o7-card-census.spec.ts:16` plus the import line |
+
+On the test gate I add one observation neither prior seat makes: the suite's **only error-branch
+test asserts an unreachable state.** `formatInColorSpace("not-a-color")` (`test:27-30`) can never
+occur — the product only ever passes a locally generated `#rrggbb` (`useImageSampler.ts:117`) — so
+the `throw` at `:59-61` is dead code on the shipped path, while the error path that *does* fire in
+production (§III-3) has no test at all. Worse, that `throw` sits on the **hover** path: were it
+reachable it would raise once per `pointermove`.
+
+---
+
+# §IV — Bounded claims, non-replications, and one refutation
+
+A seat that only accumulates is not auditing.
+
+### IV-1 · r2's C-5 (ResizeObserver destroys zoom) — **not reproduced by this seat, and not refuted**
+
+I zoomed to `scale(0.2226)` and resized the browser viewport 1280×900 → 1100×800. The transform was
+**unchanged**, and the reason is visible in the same capture:
+
+```
+ pinned, before resize: {"viewportRect":[508,378],"transform":"translate(2px, 0px) scale(0.21)"}
+ after resize 1100x800: {"viewportRect":[508,378],"transform":"translate(2px, 0px) scale(0.21)"}
+```
+
+The observed box did not change (`[508,378]` → `[508,378]`), so the `ResizeObserver` never fired.
+My manipulation was the wrong instrument, not a counter-example. r2's manipulation (a −120 px height
+written directly onto the overlay host) does change the observed box, and its mechanism is
+code-evident: `new ResizeObserver(() => fitToViewport())` (`useInertiaGesture.ts:357`) against a
+`fitToViewport` that writes `zoom.value` unconditionally (`:164-166`). **r2's C-5 stands.** Recorded
+here so no later seat reads my silence as disagreement. The next viewport step (1000×640) destroyed
+the component outright — that is §II-1, a different defect.
+
+### IV-2 · the per-`pointermove` sample cost — **counted here, and r2's "not a defect" verdict is accepted**
+
+Independent count (`probe.mjs` §B, `probe3.mjs` §2), trusted mouse:
+
+```
+hover sweep (61 mouse.move, 2602ms): getImageData=61  loupe drawImage=60
+41-move hover sweep: {"getImageData":41,"getBoundingClientRect":57}
+```
+
+Strictly one-to-one with events, with no rAF coalescing and no `getCoalescedEvents` handling — the
+*shape* r1 flagged. But r2 measured the cost at **22 µs per move** (200 moves / 4.5 ms), which is
+~0.26 % of a 120 Hz frame. I did not measure a contradicting number and I **do not** raise this to a
+defect. Worth coalescing on principle; not worth a wave. Both seats now agree, from different
+directions.
+
+### IV-3 · load-race / dispose-resurrection — **HYPOTHESIS; my repro attempt did not fire**
+
+r1's D-12 and r2's N-3 describe the same missing generation token from the re-entrancy and teardown
+sides. The code is unambiguous (`useImageSampler.ts:68-95` runs its entire tail unconditionally
+after the await; `dispose()` at `:97-101` has no token). My attempt to *observe* the inversion:
+
+```
+[RACE] swap BIG -> SMALL while overlay open   (probe2.mjs)
+  delay=0ms  -> eyedropper canvas 8x8; dropzone img natural 8x8  (consistent)
+  delay=15ms -> eyedropper canvas 8x8; dropzone img natural 8x8  (consistent)
+  delay=40ms -> eyedropper canvas 8x8; dropzone img natural 8x8  (consistent)
+```
+
+Three attempts, no inversion. Reported as a hypothesis grounded in code, exactly as r2 filed it.
+
+### IV-4 · swept and clean
+
+No `defineModel` anywhere in the component or its composables — the stale-read hazard is N/A. No
+`ValueUnit` wrapping on the sampling path. No oklch→HSV roundtrip (`stableHue` N/A). No WebGL. The
+inertia coast rides glass-ui `useRAFLoop` with `pauseWhenHidden: true` and an explicit PRM decision
+in `startInertia` (`useInertiaGesture.ts:114-142`) — **not** part of the PRM-RAF epidemic, and the
+best-engineered part of this component. `verbatimModuleSyntax` is satisfied at every import site
+(`ImageEyedropper.vue:93-101`, `useImageSampler.ts:11-19`, `useLoupeCanvas.ts:10-11`,
+`useInertiaGesture.ts:1-3`). Edict 1 (no god modules) is satisfied — the split into three
+composables plus constants has real seams. Edict 2 (no legacy) is satisfied. Edict 7 (Vue 3.5)
+is satisfied: `useTemplateRef` throughout, reactive props destructure. Tap targets measure 44×44.
+
+---
+
+# Consolidated roll-up (r3 — prior ids preserved)
+
+| id | prior id | severity | one line |
 |---|---|---|---|
-| C-1 | D-1 | **BLOCKER** | loupe blank on every first show; permanently blank on the touch path |
-| C-2 | D-2 | **BLOCKER** | `justUnpinned` latch swallows the first tap after any pan-while-pinned |
-| — | D-3 | MAJOR | alpha discarded — transparent pixels reported and emitted as opaque black |
-| C-4 | D-4 | MAJOR | no role/name/live-region, no focus management, zero keyboard operability |
-| C-3 | D-5 | MAJOR | malformed image → 2 unhandled rejections + dead overlay, no error UI |
-| C-5 | D-6 | MAJOR | ResizeObserver refit destroys the user's zoom/pan (1.39 → 0.691, measured) |
-| — | D-7 | MAJOR | transparent pixels composite the page behind — displayed ≠ sampled |
-| — | D-8 | MAJOR | two full-res canvases, 48 MB force-promoted layer (~96 MB @ 12 MP) |
-| — | D-9 | MINOR | DPR ignored — 110×110 backing for a 110-CSS-px box at dpr 2 (re-measured ✔) |
-| — | D-10 | MINOR | 12-decimal readout, inconsistent with the library path, truncated with no `title` |
-| — | D-11 | MINOR | capture-phase `pointerdown` listener never removed |
-| — | D-12 | MINOR | `loadImage` re-entrancy race (reasoned) |
-| — | D-13 | MINOR | wheel momentum double-counted (hypothesis) |
-| **N-1** | *new* | MINOR | off-image hover keeps a stale readout + parked loupe — no "nothing here" state |
-| **N-2** | *new* | MINOR | `swatch-pulse` cannot restart inside its 0.65 s window — second Add is silent |
-| **N-3** | *new* | MINOR | `loadImage` resurrects a disposed sampler after unmount |
-| — | D-14 | MAJOR | test gate vacuous — 7 named mutations keep 3/3 green |
-| — | D-15 | INFO | visual audit never renders this component; its clean record is vacuous |
-| **N-4** | *new* | INFO | ALL component PNGs are gitignored by formation policy — image evidence cannot testify (r1's D-7 proof is unreachable) |
-| **N-5** | *new* | INFO | `DockControl` has no `label`/`ariaLabel` prop → glass-ui BH relay, not a call-site patch |
-| — | D-16 | INFO | edict deltas: hand-rolled modal (4), `DockControl` descendant override (5) |
+| III-1 | r1 D-1 / r2 C-1 | **BLOCKER** | loupe paints nothing on the touch path — **now replicated on WebKit at DPR 3**, `opaquePx 0` |
+| III-2 | r1 D-2 / r2 C-2 | **BLOCKER** | `justUnpinned` latch swallows the first tap after any pan; on touch the swallow is total |
+| **I-1** | r2 N-2 *(corrected: MINOR → **MAJOR**)* | **MAJOR** | `swatchPulse` latches **forever** — `@animationend` is never bound (`inheritAttrs: !1` in `watercolor-dot.js`); r2's NEG-2 tested the wrong mechanism |
+| **II-1** | *new* | **MAJOR** | a breakpoint-crossing resize **destroys the whole extract session** — overlay, sample, zoom **and the uploaded image** |
+| III-3 | r1 D-5 / r2 C-3 | MAJOR | malformed image → unhandled rejection + 2 page errors + dead, error-less overlay |
+| — | r1 D-4 / r2 C-4 | MAJOR | no role/name/live-region, no focus management, zero keyboard operability (Tab trail re-measured) |
+| — | r2 C-5 | MAJOR | `ResizeObserver` refit destroys zoom/pan — **stands**; my instrument was wrong (§IV-1) |
+| — | r1 D-3 | MAJOR | alpha discarded — α = 0 pixel reported as `lab(0% 0 0)` (re-measured) |
+| — | r1 D-7 | MAJOR | transparent pixels composite the page behind — displayed ≠ sampled (carried from r1; not re-derived) |
+| — | r1 D-8 | MAJOR | two full-res bitmaps + promoted layer — **16.5 MB each measured at 2400×1800** |
+| — | r1 D-14 | MAJOR | test gate vacuous; and its one error-branch test asserts an unreachable state |
+| **I-2** | r2 Part IV *(attribution corrected)* | MINOR | the route's 3 nameless buttons are `Upload image / Open camera / Reset`; the eyedropper adds **+1 unpinned, +3 pinned** |
+| **II-2** | *new* | MINOR | inert wheel: cancels the page default, moves nothing, burns **253 rAF + 75 forced layouts** per tick |
+| — | r2 N-1 | MINOR | off-image hover keeps a stale readout + parked loupe — no "nothing here" state |
+| — | r1 D-9 | MINOR | DPR-blind loupe backing — 110 px backing at DPR 2 **and** 3 |
+| — | r1 D-10 | MINOR | 12-dp readout, clipped, no `title` (`readoutLen 54, clipped true, title false`) |
+| — | r1 D-11 | MINOR | capture-phase `pointerdown` listener never removed, no rebind discipline |
+| — | r1 D-12 / r2 N-3 | MINOR | no generation token: load race + post-dispose resurrection (**hypothesis**, §IV-3) |
+| — | r2 D-13 | MINOR | wheel momentum double-counted (hypothesis; §II-2 is the measured sibling) |
+| **II-3** | *new* | INFO | static `text-muted-foreground` on a true-glass bar over arbitrary user imagery, against the ratified E1-R1 cure |
+| — | r1 D-15 / r2 | INFO | the visual audit never renders this component; its clean record is vacuous |
+| — | r2 N-4 | INFO | component PNGs are gitignored by formation policy — images illustrate, numbers testify (honoured throughout) |
+| — | r2 N-5 / r1 D-16 | INFO | `DockControl` has no `label` prop; hand-rolled modal; descendant `svg` override — glass-ui relay, not a call-site patch |
+| — | *this seat* | INFO | per-`pointermove` sampling is uncoalesced but **cheap** (22 µs, r2) — counted 1:1 here, **not** raised (§IV-2) |
 
-**Strongest defect: C-1 / D-1.** The magnifier is the entire reason this component exists rather
+**Strongest defect: III-1 (r1 D-1).** The magnifier is the whole reason this is a component rather
 than a click handler on the drop zone, and it paints nothing on the path a phone user takes —
-`opaquePx 0 / 12100`, replicated across two fixtures, two interaction paths, and two independent
-seats. C-2 is the same class of injury to the other half of the interaction: the tap.
+`opaquePx 0` across three seats, two engines (now including **WebKit**, the shipping one), and four
+fixtures.
 
-Both BLOCKERs share one mechanism worth naming for the tranche: **event handlers mutating reactive
-state and then immediately acting on the DOM or on a hand-rolled cross-tick flag, instead of letting
-derived state drive the effect.** C-1 paints before the render; C-2 latches a boolean across two
-gestures. The idiomatic cure for both is the same shape — move the decision into the state that
-already exists (a post-flush watcher for the loupe; the gesture composable for the tap) rather than
-adding a `nextTick` and a flag reset.
+**The mechanism worth naming for the tranche** — and I-1 and II-1 both join it — is a single family:
+**state that is written in an event handler and then acted on immediately, instead of state that
+derives the effect.** C-1 paints before the render flush. C-2 latches a boolean across two
+gestures. I-1 depends on a listener the design system never binds. II-1 keeps session-lifetime
+state in a component the layout is free to unmount. Every cure is the same shape: move the decision
+to the altitude that already owns the fact — a post-flush watcher for the loupe, the gesture
+composable for the tap, an explicit key for the pulse, the pane router for the session — rather
+than adding a `nextTick`, a flag, a listener, or a guard.
 
 ---
 
 ## Provenance
 
-- Prior seat's report preserved verbatim: `challenge-C-implementation.r1.md` (nothing retracted)
-- Visual illustration (gitignored by formation policy — see N-4):
-  `evidence-touch-tap-blank-loupe.png`
-- Console capture cited: `.playwright-mcp/console-2026-07-28T13-54-12-549Z.log` (ignored dir —
-  the two lines are transcribed inline in C-3 so the claim stands without it)
-- Every probe was an ephemeral `page.evaluate`; no probe script was persisted, and every number
-  either appears inline above or is re-derivable from the fixture recipes in the methodology table.
+- Prior seats preserved verbatim: `challenge-C-implementation.r1.md`,
+  `challenge-C-implementation.r2.md`. Nothing retracted except the two corrections in §I, each with
+  its own pasted receipt.
+- Probe scripts and fixtures persisted and re-runnable at
+  `…/scratchpad/ccED/probe{,2,3,4,5,6,7,9}.mjs` (+ `probe.png`, `big.png`, `small.png`, `dark.png`,
+  `alpha.png`, `bad.png`).
+- Screenshots (illustrative only, per r2's N-4): `wk-touch-loupe.png`, `overlay-desktop.png`,
+  `overlay-dark.png`, in the same scratch directory. Every load-bearing claim above appears as a
+  number or pasted output in this markdown.
 - Nothing was written outside
   `docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/`. No file under `src/`,
   `demo/`, `api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`, `scripts/dev/dev.sh`, or any
-  `INBOX.md` was modified.
+  `INBOX.md` was modified. No source edit lands from this seat.

@@ -1,0 +1,16 @@
+{
+  "portsFound": [
+    "Symbol(palette.session)",
+    "Symbol(palette.library)",
+    "Symbol(palette.browse)",
+    "Symbol(palette.admin)",
+    "Symbol(palette.colorTarget)"
+  ],
+  "searchQuery_browse_is_library": true,
+  "searchQuery_browse_is_admin": true,
+  "expandedId_browse_is_library": true,
+  "expandedId_browse_is_admin": true,
+  "toggleExpand_browse_is_library": true,
+  "control_remotePalettes_vs_savedPalettes": false,
+  "expandedId_value": null
+}

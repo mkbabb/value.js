@@ -1,727 +1,778 @@
-# CHALLENGE-L — PaletteCard: the library structure underneath (pass 4)
+# CHALLENGE-L — PaletteCard: the library structure underneath (pass 5)
 
 ## Model receipt
 
 I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier
 declared at spawn. The seat is declared, not inherited.
 
-- Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `7775473b` (task named
-  `c654824e`; the tree advanced by docs-only commits — no file in this component's cone differs)
+- Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`. Task named HEAD `c654824e`;
+  the tree is at **`fe8785e5`** (`docs(megatranche): bank the consumer CRUD and Goldilocks DAG
+  audit`). The advance touches three demo files, none of them in this component's cone:
+  `git diff --stat c654824e..fe8785e5 -- demo/ src/` → `demo/palettes/api/admin-palettes.ts`,
+  `demo/palettes/api/index.ts`, `demo/palettes/useAdminUsers.ts`; the same command over
+  `demo/palettes/browser/card/ demo/color-session/ demo/ui/ demo/styles/` is **empty**. Every prior
+  pass's source citation still resolves.
 - Subject: `demo/palettes/browser/card/PaletteCard/PaletteCard.vue` (364 L) + its five folder
-  siblings + `card/composables/` (4 modules) + the two `card/` siblings they consume
-- Design system under test: `@mkbabb/glass-ui@7.0.0`, read from the installed tree
+  siblings + `card/composables/` (4 modules) + the two `card/` siblings they consume.
+- Design system under test: `@mkbabb/glass-ui@7.0.0`, read from the installed tree.
+- Published library surface under test: `package.json#exports`, `src/subpaths/`, `dist/`,
+  `tsconfig.demo.json#paths`, `vite.config.ts` self-alias generator.
 - Live probes: dev server `http://localhost:9000`, Playwright/WebKit, read-only except
-  `localStorage` seeding in an isolated browser profile
+  `localStorage` seeding in an isolated profile. Artifacts: `probe-L5.mjs`,
+  `evidence/L5-results.json`.
 - Owner marks in scope: **MT-F036** (`OM-11-palette-card-shadow-artifacts.png`,
-  `OM-12-palette-card-shadow-artifact-closeup.png`) — read, root-caused, and dispositioned in §7
-- Verdict: **DEFECTIVE** — **1 new BLOCKER (reproduced live), 4 new MAJOR, 3 new MINOR**
+  `OM-12-palette-card-shadow-artifact-closeup.png`) — both read at 1:1, both re-measured, and the
+  **shadow half is re-dispositioned** in §7 on new evidence.
+- Verdict: **DEFECTIVE** — **3 new MAJOR, 3 new MINOR, 1 new INFO**, on top of 42 open findings.
 
 ### Supersession notice — nothing lost
 
-Three CHALLENGE-L reports have occupied this path. All are preserved verbatim:
+Four CHALLENGE-L reports have occupied this path. All are preserved verbatim:
 
 - `challenge-L-library.pass-1-2026-07-24.md` — L-1..L-14
 - `challenge-L-library.pass-2-2026-07-27.md` — L-15..L-24
 - `challenge-L-library.pass-3-2026-07-27.md` — L-25..L-33
+- `challenge-L-library.pass-4-2026-07-27.md` — L-34..L-42
 
-Pass 4 numbers from **L-34**. It does not re-derive their evidence; §6 re-verifies their dockets.
-Where pass 4 lands on ground a prior pass touched, the section says so explicitly and states what is
-new.
+Pass 5 numbers from **L-43**. Where it lands on ground a prior pass touched, the section says so and
+states exactly what is new. §6 re-verifies the carried dockets; §3 records what I *tried* to
+convict and could not.
 
----
-
-## 0. What pass 4 went at
-
-Three questions no prior pass asked:
-
-1. **Is the seam real?** Every prior pass reasoned about "the barrel seam" as if it were enforced.
-   Nobody ran the linter. I ran it. It is not enforced — the rule's file globs address a directory
-   tree deleted three waves ago.
-2. **Does the card touch the library it exists to demonstrate?** Nobody counted the edges. The
-   answer is **zero**, and the one module in the whole palettes feature that *is* a real value.js
-   consumer is the module the application does not load.
-3. **What does the wrong-home export actually emit?** Pass 2 found the dual path and named the
-   winner. Nobody drove it with adversarial input. I did. It injects.
-
-Two more come from the owner's new marks (MT-F036), which postdate pass 3: the **faceted shadow
-slab** and the **absent hover register**. Both are measured here, and both root-cause into the
-producer, not into this file — which is exactly the disposition the owner ordered.
+Housekeeping, recorded because it happened: a prior seat's shell-quoting accident had left an empty
+directory tree named
+`challenge-L-library.md (pass 2; the prior seat's pass-1 report is preserved verbatim at /Users/…/PaletteCard`
+inside this folder — 12 nested empty dirs, **zero files** (`find … -type f` → 1 leaf dir, no
+regular files). Removed. No report content existed in it.
 
 ---
 
-## L-34 · BLOCKER (new, reproduced live) — the card's Export→SVG writes attacker-controlled markup into a downloadable document, because the escaping implementation lives in the module the app does not load
+## 0. What pass 5 went at
 
-### The two homes
+Pass 4 asked whether the seam was enforced, whether the card touches the library, and what the
+wrong-home exporter emits. Three questions it did **not** ask:
 
-The concept *"serialize a palette to a document"* has two implementations in this repository:
+1. **Is the shell one recipe or three?** Every pass reasoned about "the card"; DESIGN.md calls
+   PaletteCard + its skeleton "**one shared shell**". Nobody diffed the three class strings against
+   each other or against the token DESIGN.md normatively assigns. They have already diverged in two
+   properties, and one of the divergences **is** the owner's shadow mark.
+2. **Is the published `@mkbabb/value.js` surface map correct?** Pass 4 counted the card's edges to
+   the library (zero). Nobody audited the *map an author would consult to add one*. Four of its
+   eight entries are wrong, and the whole block turns out to be unnecessary.
+3. **Who owns a palette row's identity?** The card takes `expanded: boolean` and lets each host
+   invent the key. Three hosts invented **two different key spaces** against **one** shared ref.
 
-| | live (wired to PaletteCard's menu) | contracted (app-dead) |
-|---|---|---|
-| module | `demo/palettes/export.ts` (132 L) | `demo/palettes/export/` (12 files) |
-| reached by | `usePaletteExport.ts:9` → `BrowsePane.vue:198`, `PalettesPane.vue:152` | **nothing but `demo/test/export/byte-exact.test.ts:23`** |
-| colour spelling | raw `c.css` pass-through | `canonicalColor()` (`export/canonical.ts:28`) |
-| XML escaping | **none** | `xmlEscape()` (`export/canonical.ts:39`) |
-| PNG encoder | `<img>` → canvas → `toBlob` (`export.ts:84-116`) | deterministic, `import { oklch, toRgba8 } from "@mkbabb/value.js/color"` (`export/png.ts:11`) |
-| governed by | nothing | `docs/tranches/V/PALETTE-CONTRACT.md` Appendix W51 |
-
-`export/serializers.ts:6-9` admits the split in its own header:
-
-> This module is intentionally NOT named `index.ts`: the sibling legacy `../export.ts` (the
-> pre-contract routed seat that W50 will replace) still resolves `./export`.
-
-Consumer census:
-
-```
-$ grep -rn "usePaletteExport\|export/serializers" demo --include="*.ts" --include="*.vue"
-demo/palettes/BrowsePane.vue:198:import { usePaletteExport } from "./usePaletteExport";
-demo/palettes/PalettesPane.vue:152:import { usePaletteExport } from "./usePaletteExport";
-demo/test/export/byte-exact.test.ts:23:} from "../../palettes/export/serializers";
-```
-
-Two app consumers of the legacy path. **Zero app consumers of the contracted path.**
-
-### The reproduction
-
-`export.ts:60-82` builds SVG by string interpolation with no escaper on either axis:
-
-```ts
-(c, i) => `  <rect … fill="${c.css}" />`,          // export.ts:66-67  — colour string, unescaped
-`  <text …>${palette.name}</text>`,                 // export.ts:73     — palette NAME, unescaped
-```
-
-The palette name is set by **PaletteCard's own Rename action** (`PaletteCard.vue:298` →
-`PaletteRenameInput.vue`). The colour string arrives from the browse feed for any remote palette.
-
-Probe: `probe-L4b.mjs` (seeds one palette, then drives PaletteCard's menu → Export → SVG Swatch on
-the running dev server; the downloaded file is read back verbatim).
-
-Seed:
-
-```js
-name  = 'Ridge</text><rect x="0" y="0" width="999" height="999" fill="#f0f"/><text>'
-color = '#ff6b6b" onload="0'
-```
-
-Measured output (`evidence/L4b-ridge-text-rect-….svg`, full file):
-
-```xml
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="110" viewBox="0 0 120 110">
-  <rect x="0" y="0" width="60" height="80" fill="#ff6b6b" onload="0" />
-  <rect x="60" y="0" width="60" height="80" fill="#123456" />
-  <text … fill="#333">Ridge</text><rect x="0" y="0" width="999" height="999" fill="#f0f"/><text></text>
-</svg>
-```
-
-```json
-{ "escaped": false, "injectedElementCount": 3, "rawColorAttrPresent": true }
-```
-
-Two independent breakouts in one document: the colour string escaped its `fill` attribute and became
-an **`onload` attribute** on a rendered element; the name escaped its text node and injected a
-full-canvas `<rect>`. A standalone `.svg` is an active document — this is a delivered payload, not a
-cosmetic glitch.
-
-### Why this is a library-structure finding and not merely a bug
-
-The correct implementation **already exists, is already correct, and is already tested**:
-
-```ts
-// demo/palettes/export/svg.ts:16,19
-`  <title id="title">${xmlEscape(snapshot.displayName)}</title>\n`
-out += `  <rect x="${i}" … fill="${xmlEscape(canonicalColor(color))}"/>\n`;
-```
-
-```ts
-// demo/test/export/byte-exact.test.ts:187
-it("escapes the display name and never renders text/font/script", () => { … })
-```
-
-**That test is green. It is a green gate over code the application does not load.** The suite proves
-a property the shipped product does not have. That is the structural defect: *unique semantic
-ownership* is violated, the wrong home won the wiring, and the test suite's greenness now
-actively conceals it.
-
-This is pass-2 **L-18**'s dual path, escalated: L-18 established *which* path is wired; L-34
-establishes *what the wired path emits* and *that the unwired path is the one the contract, the
-tests and the library all live in*.
-
-**Cure (architectural transposition, not a patch).** Delete `demo/palettes/export.ts` and
-`usePaletteExport.ts` outright. Rename `export/serializers.ts` → `export/index.ts` (the header's
-stated reason for the odd name dies with the legacy module). Route the card's five export actions
-through the contracted serializers. Do **not** add an escaper to `export.ts` — that would preserve
-two homes for one concept, which is the actual defect.
+Plus one refinement the owner's mark forces: pass-3 L-25 established that `.cartoon-cast`'s rule is
+in an orphaned producer file. It is not merely orphaned — the same rule has a **second home inside
+glass-ui that IS reachable**, and that changes the BJ ask.
 
 ---
 
-## L-35 · MAJOR (new) — the card's clipboard is the *third* palette→text implementation, and the whole card cone has **zero** edges to `@mkbabb/value.js`
+## L-43 · MAJOR (new; owner mark MT-F036, shadow half — **re-dispositioned**) — the rung-2 "one shared shell" has three homes and has already drifted; the card paints a shadow rung its own normative spec forbids
 
-`PaletteCard.vue:294`:
+### The normative assignment
 
-```ts
-copyAll: () => void writeClipboard(props.palette.colors.map((c) => c.css).join(", ")),
-```
+`demo/DESIGN.md:98`, §Surfaces — **THE MATERIAL LADDER (NORMATIVE — T.W3-1 / SYNTHESIS §2 D1)**,
+rung 2 · WELL:
 
-That is a third serialization of "this palette as text", sitting on the **same dropdown** as the
-Export items (L-34's path 2) while the contract's `canonicalColor` (path 3) is unreachable. Three
-spellings of one concept, two of them reachable from one menu, all three disagreeing on output.
+> … dashed edge / **`--shadow-cartoon-sm`** where the affordance calls for it | `.dashed-well` ·
+> **PaletteCard (+skeleton — one shared shell)** · …
 
-The library edge census is the sharper half of this finding:
+`demo/styles/utils.css:122` says it again, naming the component:
 
-```
-$ grep -rn "@mkbabb/value.js" demo/palettes/browser/card/
-(no matches)
+> `stamp   — --shadow-cartoon-sm, the chip-scale elevation PaletteCard rides;`
 
-$ grep -rln "@mkbabb/value.js" demo/palettes/
-demo/palettes/export/png.ts
-demo/palettes/mix.ts
-```
+### What the three files actually declare
 
-- The **entire card cone** — six SFCs, four composables, two `card/` siblings — imports the
-  published library **zero times**.
-- The palettes feature has exactly **two** library consumers, and one of them (`export/png.ts:11`,
-  `import { oklch, toRgba8 } from "@mkbabb/value.js/color"`) is inside L-34's dead branch.
+| file:line | root class string | shadow | border |
+|---|---|---|---|
+| `PaletteCard.vue:19` | `group rounded-card **cartoon-surface** border-card-edge bg-well cursor-pointer` | `--shadow-cartoon-**md**` (via the utility) | **2px** (via the utility) |
+| `PaletteCardSkeleton.vue:34` | `skeleton-ink-register rounded-card **border** border-card-edge bg-well overflow-hidden **shadow-cartoon-sm**` | `--shadow-cartoon-**sm**` | **1px** |
+| `ShadowPalette.vue:43` | `shadow-palette skeleton-ink-register rounded-card **border** border-card-edge bg-well overflow-hidden **shadow-cartoon-sm**` | `--shadow-cartoon-**sm**` | **1px** |
 
-So the feature's *only* export-path library edge is in the module the app does not load, and the
-shipped PNG encoder is instead a `<img>`→canvas→`toBlob` rasterization (`export.ts:84-116`) whose
-output depends on the user agent's SVG renderer.
-
-`T.W1`'s stated keystone is that the demo is the library's dogfood surface (`vite.config.ts:60-64`).
-The flagship palette surface does not dogfood: every colour string it holds, copies, or exports is
-an opaque `string` that never passes through `parseCssColor`/`serializeCssColor`. On the *public
-surface* question this seat is charged with: there is no incorrect deep import to report, because
-there is no import at all. That is a worse answer than a deep-path violation — a deep import would
-at least be evidence the API is exercised.
-
-**Cure.** `PaletteColor.css` stops being `string`. The palette store parses on ingest through
-`@mkbabb/value.js/css` and holds a parsed colour; clipboard, export and swatch rendering all
-serialize from that one representation through the contracted facility. One parse, one
-serialization, one home.
-
----
-
-## L-36 · MAJOR (new; owner mark MT-F036, hover half) — the interaction register the root claims is *measurably* absent, and the producer's own typing says it was never there
-
-`PaletteCard.vue:7-15` is the recorded rationale for the current root:
-
-```
-// T.W5-R4 (T-14 / D7): the producer CARTOON REGISTER — the
-// `cartoon-surface` atom owns the hover/press choreography
-// (translate/scale on --ease-cartoon-punch @ --duration-normal,
-// shadow bezier md→lg, :active squash, 2px border) …
-// The hand-rolled shadow-only hover on the dead 150ms default (F1/F3) is retired.
-```
-
-**The whole of `cartoon-surface` in glass-ui 7.0.0** —
-`node_modules/@mkbabb/glass-ui/dist/components/card/styles.css:1`:
+`cartoon-surface` is not a demo class. It is a producer Tailwind `@utility`
+(`node_modules/@mkbabb/glass-ui/dist/components/card/styles.css`), and it hard-codes the rung:
 
 ```css
 @utility cartoon-surface { position: relative; border-width: 2px; box-shadow: var(--shadow-cartoon-md); }
 ```
 
-Three declarations. No `:hover`, no `:active`, no `transition`. And there is no attribute-keyed
-companion:
+### Measured live (`probe-L5.mjs` §A, `evidence/L5-results.json`)
 
-```
-$ grep -rno "data-cartoon" node_modules/@mkbabb/glass-ui/dist/**/*.css
-(no matches)
+```json
+"cardBoxShadow":            "oklab(… / 0.32) -3px 3px 0px 0px, oklab(… / 0.26) -5px 5px 0px 0px, oklab(… / 0.18) -7px 7px 0px 0px",
+"token_shadow_cartoon_sm":  "oklab(… / 0.32) -2px 2px 0px 0px, oklab(… / 0.26) -3px 3px 0px 0px, oklab(… / 0.18) -4px 4px 0px 0px",
+"token_shadow_cartoon_md":  "oklab(… / 0.32) -3px 3px 0px 0px, oklab(… / 0.26) -5px 5px 0px 0px, oklab(… / 0.18) -7px 7px 0px 0px",
+"cardShadowEqualsSm": false,
+"cardShadowEqualsMd": true,
+"cardBorderWidth": "2px",
+"cardBorderStyle": "solid"
 ```
 
-The producer's own typed documentation states the intent
-(`dist/components/card/Card.vue.d.ts`):
+The card's shadow is **byte-identical to `md` and unequal to `sm`**. The contact layer sits at
+**7 px vs the specified 4 px — 75 % deeper**, across three zero-blur layers. That *is* the
+"hard-edged faceted shadow slab" of `OM-11`, and at 1:1 in `OM-12` the three discrete steps are
+individually countable. The owner marked a real, spec-violating paint.
+
+### Why this is a library-structure finding
+
+The concept is *"the rung-2 WELL card shell"*. DESIGN.md asserts it has **one** home ("one shared
+shell"). In the tree it has **three**, each an independently hand-typed class string, and they have
+already drifted on two of the four properties that define the material (shadow rung, border weight).
+Nothing can detect the drift: a class string is not a type, and `vue-tsc` never sees it.
+
+The concrete cost beyond the owner's mark: the loading skeleton and the loaded card are **not the
+same shell**. When rows arrive, every card's border snaps 1px→2px and its shadow steps
+−2/−3/−4 → −3/−5/−7. `PaletteCardSkeleton.vue:6-8` exists precisely to prevent that, and says so:
+
+> The shell speaks the same card grammar as PaletteCard (hairline + glass rung + **chip-scale
+> cartoon stamp**) so the ghost reads as "a palette card developing", not a foreign grey box.
+
+"Chip-scale cartoon stamp" is `--shadow-cartoon-sm`. The skeleton kept the contract; the card left
+it.
+
+The demo already owns the correct home and only built the dashed half of it.
+`demo/styles/utils.css:90` defines `.dashed-well` as exactly this recipe —
+`border: 1.5px dashed var(--card-edge); border-radius: var(--radius-card); background: var(--well-bg);
+box-shadow: var(--shadow-cartoon-sm);` — and its header (`:86`) records that `.dashed-well` was
+itself once *"a never-defined phantom (inv-N-7)"* before being minted. **The solid sibling was never
+written**, so three components inline it by hand. That is not a missing abstraction to be invented
+(edict 3 forbids inventing one); it is an existing utility with a missing member.
+
+### Why the producer cannot express it either
+
+`CardProps.cartoon` is a **boolean** (`dist/components/card/Card.vue.d.ts:10-11`):
 
 ```ts
 /** Static Memphis edge treatment; it does not add command behavior. */
 cartoon?: boolean;
 ```
 
-**Measured on the live card** (`probe-L4.mjs` §A, `/#/palettes`, two seeded palettes, WebKit,
-computed style read at rest, during `hover()`, and during a held `mousedown`):
+There is no rung selector, so `<Card cartoon>` also yields `md`. And neither producer axis carries
+the WELL material at all — `SurfaceMaterial = "content" | "elevated" | "functional" | "overlay"`
+(`dist/components/surface/Surface.vue.d.ts:5`), `SurfaceTier = "wash" | "quiet" | "resting" |
+"floating" | "overlay"` (`dist/components/_shared/axes.d.ts:5-6`).
 
-```json
-"hoverDelta": {},
-"pressDelta": { "scale": { "rest": "none", "press": "1.0091 0.9512" } },
-"groupHoverRulesLoaded": []
-```
+**Disposition — split, not wholly BJ.** Pass-4 L-38 routed the entire shadow half of MT-F036 to the
+producer. On this evidence that is half right:
 
-**Zero** computed-style properties change on hover — box-shadow, translate, scale, transform,
-border-colour, background, filter and opacity are all byte-identical at rest and on hover. The press
-squash exists only because `useLiquidPress` writes an inline `scale` from JS; nothing in the cascade
-participates.
-
-This is the measured form of pass-3 **L-27** (which established from source that `Card`'s comment is
-counter-factual). What is new here is (a) the measurement, (b) that it is now an **owner mark
-ORDERED FIXED**, and (c) the corollary in L-37.
-
-**Disposition — this is a BJ ask, not a local patch.** The owner's standing law: the hover register
-is designed at the glass/card root; a missing glass variant becomes a marked ask. The ask is stated
-verbatim in §7.
+- **Demo-side, curable now, no producer dependency**: the component rides `md` where its own
+  normative ladder says `sm`. Give `utils.css` the solid `.well-card` sibling of `.dashed-well`
+  (ONE home, ONE token, `--shadow-cartoon-sm`, `--card-edge`, `--well-bg`, `--radius-card`) and have
+  PaletteCard, PaletteCardSkeleton and ShadowPalette all consume it. Three hand-typed strings → one
+  named material. This is root-level styling (edict 5), not a per-instance override.
+- **BJ ask (§7)**: the cartoon axis is under-parameterised — `cartoon?: boolean` cannot address the
+  `sm/md/lg` rungs the producer's own tokens define. `cartoon?: boolean | "sm" | "md" | "lg"`.
 
 ---
 
-## L-37 · MINOR (new, corollary of L-36) — `group` on the card root is a dead marker class
+## L-44 · MAJOR (new; refines pass-3 L-25) — `.cartoon-cast` has **two** homes inside glass-ui 7.0.0, and the one that reaches consumers is descendant-scoped, so repairing the orphan import would create a conflict rather than a cure
 
-`PaletteCard.vue:19` opens the class expression with `group`. Tailwind's `group` is a *hook*: it
-does nothing unless some descendant carries a `group-*` variant.
+Pass-3 L-25 established that the demo's `<span class="cartoon-cast">` (`PaletteCard.vue:30`) is dead
+markup because `dist/styles/glass/glass-atom.css` is imported by nothing. True, and re-confirmed.
+What it did not establish is that the producer ships the same private child **twice**.
 
-```
-$ grep -rn "group-hover\|group/" demo/palettes/browser/card/
-(no matches)
-```
-
-Measured in the running document (49 stylesheets, recursive through `@layer`/`@media`):
-
-```json
-"groupHoverRulesLoaded": []
-```
-
-Not one `.group…hover` rule is loaded anywhere in the app. `group` is residue of the
-"hand-rolled shadow-only hover" the comment on line 11 says was retired — the retirement deleted the
-rules and left the hook. Under edict 2 (no legacy) this is a one-token deletion; it is filed because
-it is the visible tombstone of L-36's regression, and because its presence makes the class list read
-as though a hover register exists.
-
----
-
-## L-38 · MAJOR (new; owner mark MT-F036, shadow half) — the faceted slab is three zero-blur producer shadow layers, painted by a class the demo hand-rolls outside the primitive that compensates for it
-
-Measured resolved `box-shadow` on the live card root (`probe-L4.mjs` §A):
+Orphan census, measured over the whole published stylesheet graph:
 
 ```
-oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px,
-oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px,
-oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px
+$ python3 - <<'EOF'   # walk every .css in dist, collect @import "...glass/..."
+files in dist/styles/glass: 21
+imported by some stylesheet: 19
+ORPHANS: ['glass-atom.css', 'glass-chip.css']
+importer of ladder.css: node_modules/@mkbabb/glass-ui/dist/styles/glass.css
+EOF
 ```
 
-Three layers, **blur radius `0px`**, offsets `-3/-5/-7 px`, alphas `.32/.26/.18`. Three hard-edged
-translated copies of the card's silhouette, stepped — that is precisely the "hard-edged faceted
-shadow slab" in `OM-11` and, at 1:1, the stepped down-left corner in `OM-12`.
-
-The token is **producer property**, not demo CSS (`dist/styles/tokens/shadow.css`):
+Two orphans, not one. And the *reachable* copy lives in `dist/styles/glass/liquid-enter.css`
+(imported by `glass.css`), where the identical declarations are scoped to a parent class:
 
 ```css
---shadow-cartoon-md: -3px 3px 0 var(--cartoon-ink-lead),
-                     -5px 5px 0 var(--cartoon-ink-mid),
-                     -7px 7px 0 var(--cartoon-ink-contact);
+.liquid-enter.is-cel > .cartoon-cast {
+    position: absolute; inset: 0; z-index: -1;
+    border-radius: inherit; box-shadow: var(--shadow-cartoon-md); pointer-events: none;
+}
 ```
 
-Two library-structure consequences follow, and both are caused by hand-rolling the class instead of
-using the primitive:
+Enumerated from the **live cascade** on a rendered card (`probe-L5.mjs` §B — 40 stylesheets, 0
+unreadable):
 
-1. **Double-shadow risk is real and the primitive already guards it.** `<Card>` passes
-   `shadow: n.shadow && !n.cartoon` to `Surface` (`dist/card-Bk96VI2R.js`) — i.e. the producer
-   *turns off* the material shadow whenever the cartoon slab is on. The demo's hand-rolled root gets
-   no such coordination; it stacks `cartoon-surface` on its own `bg-well border-card-edge` fork
-   (pass-3 L-28) with nothing arbitrating.
-2. **`.cartoon-cast` remains inert.** Re-measured this pass, unchanged from pass-3 L-25:
-   `{"position":"static","zIndex":"auto","boxShadow":"none","display":"inline","w":0}`. The card
-   renders a span for a rule that is not in the cascade. Whatever the slab is, it is not the cast.
+```json
+"castSelectorsInCascade": [
+  "[SURFACE] .cartoon-surface",
+  ".liquid-enter.is-cel > .cartoon-cast",
+  ".liquid-enter.is-cel > .cartoon-cast",
+  ".liquid-enter.is-cel > .cartoon-cast",
+  ".liquid-enter.is-cel > .cartoon-cast"
+],
+"castElementPresent": true,
+"castMatchesAnyCastRule": false,
+"castComputed": { "position": "static", "zIndex": "auto", "boxShadow": "none",
+                  "display": "inline", "inset": "auto", "borderRadius": "0px",
+                  "width": 0, "height": 0 },
+"cartoonPressT": "0",
+"cardPressT": "0.0000"
+```
 
-`--cartoon-press-t` resolves to `0` while the card writes `--card-press-t: 0.0000` — pass-3 L-26
-re-verified.
+Four `.cartoon-cast` rules are loaded; the card's span matches **none** of them
+(`castMatchesAnyCastRule: false`), because the card root carries no `liquid-enter is-cel`. It
+computes `static / inline / no shadow / 0 × 0` — a `<span>` rendered for a contract that, in this
+consumer, does not exist in either of its two producer homes.
 
-**Disposition — root cure at the producer (BJ), per the owner's order.** See §7.
+The same block re-confirms pass-3 L-26 live: **`--cartoon-press-t` = `0`** (the registered
+`@property` initial) while the component writes **`--card-press-t` = `0.0000`**. `useLiquidPress`
+writes exactly `{[pressVar]: value}` and nothing else
+(`dist/useLiquidPress-BOxuDkKa.js`, the `pressStyle` computed) — so the press drive
+`PaletteCard.vue:263-267` feeds a custom property no stylesheet in the app reads. Grep confirms the
+name is a demo invention:
+
+```
+$ grep -rn "card-press-t" demo src | cut -c1-120
+demo/palettes/browser/card/PaletteCard/PaletteCard.vue:29:  … rides --card-press-t, PRM-zeroed. -->
+demo/palettes/browser/card/PaletteCard/PaletteCard.vue:260: // … writing --card-press-t for
+demo/palettes/browser/card/PaletteCard/PaletteCard.vue:264:     pressVar: "--card-press-t",
+$ grep -rl "card-press-t" node_modules/@mkbabb/glass-ui/dist/    # → (no output)
+```
+
+**Why this changes the ask.** Pass-3's relay was "the orphan import is missing; add it." Adding it
+would put an **unscoped** `.cartoon-cast` rule into the cascade alongside the existing
+`.liquid-enter.is-cel > .cartoon-cast` rule — two definitions of one private child, differing in
+specificity and in whether they animate. The correct producer cure is consolidation plus
+encapsulation: **one** cast definition, **emitted by `<Card>` itself**, so no consumer ever types
+the class name. A private DOM contract a consumer must hand-forge is the defect; a second copy of it
+is the aggravation.
+
+The demo-side half needs no producer at all: **delete the span and the `pressVar` line.** Both are
+inert today; keeping inert markup that documents a false guarantee ("PRM-zeroed", `:29`) is worse
+than not having it.
 
 ---
 
-## L-39 · MAJOR (new) — the barrel seam that makes this a "six-file internal folder" is enforced by nothing: the lint rule's globs address a tree deleted at W43
+## L-45 · MAJOR (new) — the map of the published `@mkbabb/value.js` surface is 3/8 phantom, the map has no root at all, and the whole block is unnecessary
 
-`demo/palettes/browser/index.ts:6-8` states as fact:
+This seat is asked whether the component imports the library "through the published subpath export
+map… The published surface is in `package.json` `exports` + `src/subpaths/`." The card cone has zero
+value.js edges (pass-4 L-35). So I audited the map an author would consult **to add one**.
 
-> External consumers reach the feature through THIS seam (or a sub-barrel it re-exports), never a
-> raw internal `.vue` file — the G-DEMO-3b boundary (eslint.config.js) enforces it standing.
-
-The rule (`eslint.config.js`, the two demo objects) is scoped to:
-
-```js
-files: ["demo/color-picker/**/*.ts", "demo/color-picker/**/*.vue",
-        "demo/@/components/**/*.ts", "demo/@/components/**/*.vue",
-        "demo/@/lib/**/*.ts", "demo/@/lib/**/*.vue"],
-files: ["demo/@/composables/**/*.ts", "demo/@/composables/**/*.vue"],
-```
-
-and bans the pattern `"@components/custom/palette-browser/**/*.vue"`.
+### The three declarations of the surface, side by side
 
 ```
-$ ls demo/@
-ls: demo/@: No such file or directory
+$ python3 -c "import json;print(list(json.load(open('package.json'))['exports'].keys()))"
+['./color', './value', './css', './easing', './math', './transform', './quantize']
 
-$ git log --oneline -1 -- demo/@
-a61094e3 feat(v-w43b3)!: home the feature UI trees; demo/@ dies (D-c)
-
-$ grep -rn "@components" demo --include="*.vue" --include="*.ts"
-demo/palettes/browser/status/index.ts:5:// (@components/custom/dock/DockStatusLamp.vue);   ← a comment
+$ ls src/subpaths/
+color.ts  css.ts  easing.ts  math.ts  quantize.ts  transform.ts  value.ts
 ```
 
-`demo/@` was deleted at W43; the `@components` alias was retired with it (`vite.config.ts:68-72`
-records the deletion). Both the rule's file region and its banned specifier address a tree that no
-longer exists.
+Seven keys. **No `"."` root.** `src/subpaths/` matches the map exactly — the library's own two
+declarations agree.
 
-Measured, per file, with the linter itself:
+`tsconfig.demo.json` disagrees, and its header states the disagreement as fact (verbatim, the
+comment immediately above the `paths` block):
+
+> `The value.js published surface: the bare "." root + the 7 subpath barrels, each → its
+> dist/*.d.ts (the T.W1 demo-dogfood keystone; TS paths needs an explicit per-subpath entry — there
+> is no .../* wildcard because the exports map is a CLOSED 8-key set). Mirrors the vite.config.ts
+> runtime self-alias generated from the same map.`
+
+There is no bare `"."` root in the map to mirror, and the vite generator — which reads the same map
+— accordingly emits no bare alias.
+
+It declares eight entries: bare, `/color`, `/parsing`, `/math`, `/easing`, `/units`, `/transform`,
+`/quantize`. Against the real map: **`/value` and `/css` are absent, and `/parsing`, `/units` and
+the bare root are inventions.** Their targets do not exist:
 
 ```
-$ npx eslint --print-config <file> | jq -c '.rules["no-restricted-imports"]'
-demo/palettes/BrowsePane.vue                                           null
-demo/palettes/browser/card/PaletteCard/PaletteCard.vue                 null
-demo/workbenches/extract/ExtractWorkbench.vue                          null
-demo/palettes/browser/card/composables/useSwatchActions.ts             null
+$ for f in dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts \
+           dist/subpaths/value.d.ts dist/subpaths/css.d.ts; do printf "%-34s " $f; \
+      [ -f "$f" ] && echo EXISTS || echo MISSING; done
+dist/index.d.ts                    MISSING
+dist/subpaths/parsing.d.ts         MISSING
+dist/subpaths/units.d.ts           MISSING
+dist/subpaths/value.d.ts           EXISTS
+dist/subpaths/css.d.ts             EXISTS
 ```
 
-**`null` — the rule is not in effect for a single live demo file.** Nothing prevents any consumer
-from importing `browser/card/PaletteCard/PaletteCardMenu.vue` directly tomorrow. (The `src/**`
-`inv-K-1` object in the same config *is* live and correct; only the demo half is dead.)
+Neither the checkout's `dist/` nor the published tarball (`node_modules/@mkbabb/value.js@4.0.0`,
+installed as glass-ui's peer) contains any of the three.
 
-This matters more than a stale comment, because the entire justification for PaletteCard's six-file
-shape is "these five are internal, the barrel is the surface." That distinction is currently
-enforced by convention alone — and pass-1 L-3 already measured that cross-feature consumers do
-whatever they like with the surface that *is* exported.
+### Both runtimes agree the root is not public
 
-This is the third instance of pass-1 L-12's stale-citation mechanism (pass-3 L-33 was the second),
-and the first that is **load-bearing**: the other two were prose, this one is a guarantee the
-codebase asserts and does not hold.
+```
+$ node -e "import('@mkbabb/value.js').then(m=>console.log('BARE OK',Object.keys(m).length)).catch(e=>console.log('BARE FAIL:',e.code,'|',e.message.split('\n')[0]))"
+BARE FAIL: ERR_PACKAGE_PATH_NOT_EXPORTED | No "exports" main defined in /Users/mkbabb/Programming/value.js/package.json
 
-**Cure.** Re-aim the globs at the real trees (`demo/palettes/**`, `demo/workbenches/**`,
-`demo/picker/**`, `demo/scenes/**`, `demo/shell/**`) and re-express the ban against the real
-specifier shape (`**/palettes/browser/**/*.vue`, with the barrels exempt). If the boundary is not
-worth re-aiming, delete the rule and the paragraph that cites it — an unenforced invariant recorded
-as enforced is worse than an absent one.
+$ node -e "import('@mkbabb/value.js/color').then(m=>console.log('SUBPATH OK',Object.keys(m).length))"
+SUBPATH OK 23
+```
+
+And TypeScript, resolved with the demo program's own parsed options
+(`ts.resolveModuleName`, `moduleResolution = Bundler`, containing file
+`demo/color-session/ink.ts` — the card's only route to the library, via `useSafeAccentFn`):
+
+```
+@mkbabb/value.js               UNRESOLVED
+@mkbabb/value.js/color         dist/subpaths/color.d.ts
+@mkbabb/value.js/css           dist/subpaths/css.d.ts
+@mkbabb/value.js/value         dist/subpaths/value.d.ts
+@mkbabb/value.js/parsing       UNRESOLVED
+@mkbabb/value.js/units         UNRESOLVED
+@mkbabb/value.js/math          dist/subpaths/math.d.ts
+@mkbabb/value.js/easing        dist/subpaths/easing.d.ts
+@mkbabb/value.js/quantize      dist/subpaths/quantize.d.ts
+@mkbabb/value.js/transform     dist/subpaths/transform.d.ts
+```
+
+### The block is not merely wrong — it is unnecessary
+
+Look at the `/css` and `/value` rows. They have **no `paths` entry** and they still resolve to the
+checkout's own `dist/subpaths/*.d.ts` (absolute paths verified:
+`/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts`, `isExternalLibraryImport: false`).
+That is Node/TypeScript **package self-reference**: a package whose `package.json` has a `name` and
+an `exports` map may import itself by name. The keystone the header attributes to the hand-written
+`paths` block is delivered by the `exports` map alone.
+
+So the block buys nothing and costs drift — which is exactly the drift measured above. And the
+runtime half is already immune for the right reason: `vite.config.ts:37-50` **generates** its alias
+set from `package.json#exports`, so it cannot drift; it emits seven anchored regexes and, correctly,
+no bare entry.
+
+Two further stale claims in the same header, both measurable:
+
+- *"glass-ui's published `dist/` imports the value.js core by the bare `@mkbabb/value.js`
+  specifier (aurora/color paths, inv-K-2)."* False at glass-ui 7.0.0 — every one of its six
+  value.js-importing chunks uses subpaths only:
+  `accent-tone-solve-Cw7WkRD9.js → {/color,/css}`, `value-DMhh2R94.js → {/color,/css}`,
+  `color.js → {/color}`, `aurora.js → {/color}`, `easing.js → {/css,/easing}`,
+  `dock.js → {/color}`. Nothing in the installed tree imports the bare specifier.
+- *"a CLOSED 8-key set"* / *"the 8 public keys"* — the set is seven, and does not include a root.
+
+**Cure (transposition).** Delete the eight value.js entries from `tsconfig.demo.json#paths` entirely.
+Self-reference then makes `package.json#exports` the single source of truth for both the type
+resolver and (via the existing generator) the bundler, and the class of drift found here becomes
+structurally impossible. If a bare root is genuinely wanted, add `"."` to `exports` — do not keep a
+`paths` entry that grants a specifier the package refuses to serve. Correct the header's three
+factual claims or delete them.
 
 ---
 
-## L-40 · MAJOR (new) — the card hard-requires an app-**boot** provider through a non-null-asserted inject; the dependency runs backwards and no lint rule can see it
+## L-46 · MINOR (new) — one host wires 15 of 16 emits, another 1 of 16; the surface is measured, and the prior denominator was wrong
 
-`PaletteCard.vue:229` unconditionally, at setup top level:
+Pass-1 L-3 and pass-4 §1 both quote "18 emits". The parsed surface is **16 emits / 10 props**:
+
+```
+emits: 16 ['click','delete','publish','save','vote','rename','editColor','addColor','feature',
+           'adminDelete','setVisibility','fork','versions','flag','editTags','export']
+props: 10 ['palette','expanded','cssColor','isOwned','editableName','isAdmin','showSlug',
+           'draggable','layout','swatchClass']
+```
+
+Wiring, all six hosts, counted by kebab-cased listener presence:
+
+| host | wired | unhandled |
+|---|---:|---|
+| `demo/palettes/BrowsePane.vue` | **15/16** | `publish` |
+| `demo/palettes/PalettesPane.vue` | 7/16 | save, vote, feature, adminDelete, setVisibility, fork, versions, flag, editTags |
+| `demo/palettes/browser/admin/AdminUsersPanel.vue` | 3/16 | 13 |
+| `demo/workbenches/extract/ExtractWorkbench.vue` | 4/16 | 12 |
+| `demo/workbenches/mix/MixSourceSelector.vue` | **1/16** | 15 |
+| `demo/workbenches/generate/GenerateControls.vue` | **1/16** | 15 |
+
+Mean 5.2/16 — **67 % of the published surface is unhandled at the average call site**. Two hosts
+consume the component for exactly one event (`click`) and inherit fifteen silently-dropped menu
+actions, because `PaletteCardMenu` renders from `paletteKind`/`isOwned`/`isAdmin`, never from what
+the host can service. Combined with pass-1 L-4's untyped `Record<string, () => void>` +
+`if (!fn) return` (`PaletteCard.vue:315-316`), a user in Mix can open the menu and pick Delete and
+nothing happens, with no diagnostic anywhere.
+
+This is the carried finding with a corrected denominator and its first full census; the structural
+cure is pass-4 §2's: one `activate` + one discriminated-union `action`, so an unhandled member is a
+compile error rather than a no-op.
+
+---
+
+## L-47 · MINOR (new) — one shared `expandedId` ref, two identity key spaces; the card's `expanded: boolean` pushes row identity out to hosts that disagree
+
+`demo/palettes/usePaletteActions.ts:24` declares one cell:
 
 ```ts
-const { safeCss } = useSafeAccentFn("well");
+const expandedId = ref<string | null>(null);
+function toggleExpand(id: string) { expandedId.value = expandedId.value === id ? null : id; }
 ```
 
-`demo/color-session/useContrastSafeColor.ts:347`:
+`usePaletteActions` is instantiated **once** (`usePalettePorts.ts:92`) and the same ref is handed to
+all three ports (`usePalettePorts.ts:144, 177, 226`). The consumers key it differently:
+
+```
+demo/palettes/PalettesPane.vue:87        :expanded="pm.expandedId.value === palette.id"     @click="pm.toggleExpand(palette.id)"
+demo/palettes/BrowsePane.vue:97          :expanded="pm.expandedId.value === palette.slug"   @click="pm.toggleExpand(palette.slug)"
+demo/palettes/browser/admin/AdminUsersPanel.vue:144  :expanded="expandedId === palette.slug"
+```
+
+The two axes are disjoint by construction — `usePaletteStore.ts:85` mints `id: crypto.randomUUID()`
+while `utils.ts:14` mints `slug` as `${slugify(name)}-${uuid.slice(0,8)}` — and the writers inside
+the composable use the **id** axis (`usePaletteActions.ts:76` `expandedId.value = palette.id`;
+`:81` `expandedId.value = id`).
+
+**Reproduction: NONE — labelled a hypothesis for the cross-talk half.** I did not drive a case where
+one pane's key spuriously matches another's; a UUID colliding with a slug is not reachable in
+practice. What is *not* a hypothesis is the structural fact: one untyped `string` cell carries two
+key spaces, `toggleExpand(id: string)` accepts either, and the type system cannot tell them apart.
+The observable consequence is that an expansion opened in Palettes is silently un-expandable in
+Browse and vice versa, because the surviving value can never match in the other pane.
+
+**Root cause in the component's surface.** `PaletteCard` takes `expanded?: boolean` and emits a
+payload-free `click`. It publishes `palette: Palette` — it *holds* the row's identity — and then
+declines to use it, so every host must re-derive a key and they chose differently. Cure: the card
+owns row identity (`@activate: [palette: Palette]`, host compares `palette` or a branded
+`PaletteRowKey`), or the list owner owns expansion entirely (pass-4 §2's `PaletteGrid`). Either way
+the string cell dies.
+
+---
+
+## L-48 · MINOR (new) — a dead `@source` directive in the stylesheet that emits every utility on the card's root
+
+`demo/styles/foundation.css:91-92`:
+
+```css
+@source "../../color-picker/**/*.{vue,ts,html}";
+@source "../**/*.{vue,ts,html}";
+```
+
+Tailwind v4 resolves `@source` relative to the containing CSS file. This file is at
+`demo/styles/foundation.css`, so `../../color-picker` is **`<repo>/color-picker`**:
+
+```
+$ ls -d color-picker;      ls: color-picker: No such file or directory
+$ ls -d demo/color-picker; demo/color-picker
+```
+
+The block comment above it still describes the file's pre-W43 home — *"The paths resolve relative to
+THIS file (`demo/@/styles/`): `../../color-picker` reaches the App.vue shell, `..` reaches the `@/`
+component/composable tree"* — a tree deleted at W43 (`demo/@` does not exist).
+
+Not currently breaking: the sibling `@source "../**"` is `demo/**`, which subsumes
+`demo/color-picker/**`. But the file's own header explains at length that the explicit scan exists
+so coverage is *"EXPLICIT and git-independent"* and names a CI probe
+(`scripts/ci/css-emission-probe.mjs`) that asserts it. One of the two directives it relies on is a
+no-op, and the probe passes on the other. This is card-relevant because **every utility on
+`PaletteCard.vue:19`** — `rounded-card`, `bg-well`, `border-card-edge`, `cartoon-surface`,
+`cursor-pointer` — is JIT-emitted from this scan.
+
+This is the fifth instance of pass-1 L-12's stale-citation mechanism (after pass-3 L-33, pass-4
+L-39, and the ten `PaletteDialog.vue` citations to a file that does not exist).
+
+---
+
+## L-49 · INFO (new; quantifies pass-1 L-2) — the shim census, and the dual path inside one file
+
+`demo/ui/` is 19 directories. Every one contains exactly one file, `index.ts`, and every one of those
+is a pure re-export of glass-ui with **zero local implementation**:
+
+```
+$ for d in demo/ui/*/; do echo "$(basename $d): $(ls $d | tr '\n' ' ')"; done
+alert: index.ts      avatar: index.ts     badge: index.ts      button: index.ts
+card: index.ts       checkbox: index.ts   collapsible: index.ts dialog: index.ts
+dropdown-menu: index.ts  input: index.ts  label: index.ts      popover: index.ts
+radio-group: index.ts    select: index.ts separator: index.ts  skeleton: index.ts
+slider: index.ts     switch: index.ts     tooltip: index.ts
+
+$ cat demo/ui/button/index.ts
+export { Button } from "@mkbabb/glass-ui";
+```
+
+Measured reach across the demo:
+
+```
+$ grep -rn 'from "[^"]*ui/(alert|avatar|badge|…|tooltip)"' demo | wc -l   →  92
+$ grep -rn 'from "@mkbabb/glass-ui"' demo | wc -l                          →  37
+```
+
+**92 import sites go through the forwarding layer; 37 files import the design system directly.** Two
+live paths to one set of symbols — the shim being exactly the *"legacy-compat shim / alias"* edict 2
+forbids and the *"wrapper component that earns nothing"* edict 3 forbids.
+
+PaletteCard walks **both, five lines apart**:
 
 ```ts
-const ambient = inject(INK_AMBIENT_KEY)!;
+// PaletteCard.vue:165-171
+import { Badge } from "../../../../ui/badge";        // → @mkbabb/glass-ui
+import { Button } from "../../../../ui/button";      // → @mkbabb/glass-ui
+import { Award, MoreHorizontal, GripVertical } from "@lucide/vue";
+import type { Palette, PaletteColor } from "../../../types";
+import { getPaletteKind, type PaletteKind } from "../../../utils";
+import { writeClipboard } from "@mkbabb/glass-ui";   // ← direct
 ```
 
-The **only** provider (`grep -rn "provide(INK_AMBIENT_KEY"`):
-
-```
-demo/color-picker/composables/boot/useAtmosphereBoot.ts:92:    provide(INK_AMBIENT_KEY, derivedLightness);
-```
-
-So the dependency edge is:
-
-```
-demo/palettes/browser/card/PaletteCard/PaletteCard.vue   (a leaf presentational card)
-      → demo/color-session/useContrastSafeColor.ts
-      → INK_AMBIENT_KEY
-      → demo/color-picker/composables/boot/useAtmosphereBoot.ts   (APP-ROOT BOOT)
-```
-
-`demo/color-picker/` is the app root. This is exactly the edge G-DEMO-1 was written to forbid —
-its own message: *"the shared color layer must never import app-root boot (demo/color-picker) — the
-spine is a clean lower layer."* The edge survives because it is expressed through
-`provide`/`inject`, which no `no-restricted-imports` rule can observe, and because the rule that
-would have caught the import form is dead (L-39).
-
-Three concrete consequences:
-
-1. **The card cannot be mounted outside the boot tree.** The `!` assertion means a missing provider
-   yields `undefined`; the first `safeCss()` call then throws on `ambient.value`. That call is
-   deferred until `expanded` renders `PaletteCardSwatches` (`PaletteCard.vue:143`), so the failure
-   is *latent*: mount succeeds, first expand crashes. Unit-testing or isolating this component
-   requires standing up the atmosphere boot.
-2. **Per-card global cache invalidation.** `useSafeAccentFn` calls `bumpProbeEpochOnMount()`
-   (`useContrastSafeColor.ts:76-81`), which registers an `onMounted` that increments a
-   **module-global** `probeEpoch`. `resolveLiveTintCached` (`:239-249`) keys a module-global
-   `liveTintCache` on `(darkClass, epoch)`. Mounting *N* cards therefore performs *N* epoch bumps,
-   each invalidating the cached tint of **every** surface rung for **every** consumer in the app.
-   `BrowsePane` pages 50 rows (`BrowsePane.vue`, the load-more seam), and each invalidation costs a
-   `getComputedStyle` plus two canvas `getImageData` readbacks per surface on the next read.
-3. **The value bought is one string on the collapsed card: nothing.** `safeFirstColor`
-   (`PaletteCard.vue:230`) is consumed only inside the `v-if="expanded"` subtree. Collapsed cards
-   pay the provider coupling and the epoch bump for a computed they never read.
-
-**Cure.** The certified ink for a palette's first colour is a property of the *palette row*, not of
-the card chrome — hoist it to the list owner (`usePaletteStore`/`PaletteCardGrid`) and pass it in as
-a plain prop, or compute it lazily inside `PaletteCardSwatches` where it is used. Either way the
-card stops reaching up into boot, one instrument instance serves the whole grid, and the epoch bump
-happens once.
+`demo/DESIGN.md:384` still instructs authors to use the shim ("consume `Alert` … from
+`@components/ui/alert` … The barrel exists for ergonomics"), citing an alias retired at W43.
+`sed -i` on 92 sites is a mechanical, reviewable change; the shim's only argument is that it is
+already there.
 
 ---
 
-## L-41 · MINOR (new) — a host wraps the card in a native `<button>`; the card ships interactive descendants
+## 1. The decomposition, judged (pass-5 reading)
 
-`demo/workbenches/mix/MixSourceSelector.vue:246-268`:
+Pass-4 §1 tabulated prop-flow and convicted `PaletteCardSwatches` as a pure conduit (8 in / 8 out /
+0 state). I re-derived the table and agree on every row. Pass 5 adds the axis pass 4 did not measure
+— **what each file owns of the card's *material*** — because the owner's question is whether the
+six-file split is along real seams.
 
-```html
-<button v-for="palette in savedPalettes" type="button" :aria-pressed="…" @click="togglePalette(palette)">
-    <PaletteCard :palette="palette" :css-color="''" />
-</button>
-```
+| file | owns behaviour | owns material | verdict |
+|---|---|---|---|
+| `PaletteCard.vue` | 5 refs, 2 composables, press drive, menu dispatch, 3 popover handlers | **the whole shell** (`:19`) + 2 scoped rules | the god module; also the sole material owner |
+| `PaletteCardSwatches.vue` | none | 6 hand-typed button recipes (`:14,44,51,58`) | conduit — 8 in / 8 out / 0 decisions |
+| `PaletteCardMenu.vue` | `apiOffline`, `isPublic` | menu item classes | **the one real seam** — own data dependency |
+| `PaletteCardMeta.vue` | none | chip + vote-button recipes | legitimate leaf |
+| `PaletteRenameInput.vue` | 1 ref, focus/select on mount | `.input-bar` + 2 button recipes | legitimate leaf |
+| `ActionFeedback.vue` | dismiss timer | chip recipe + 3 CSS vars | should not exist (glass-ui ships `./toast` — pass-3 L-29) |
 
-Measured interactive descendants of a collapsed card (`probe-L4.mjs` §C): **1** (the
-`aria-label="Palette menu"` trigger — itself a glass-ui `<Button>`, i.e. a real `<button>` element).
-On the expanded card it is still 1 plus a slug-copy `<button>` whenever `show-slug` is set
-(`PaletteCardSwatches.vue:13`).
+The material column is the new information and it is the sharper indictment. **The split moved
+markup and left material ownership entirely undistributed**: the parent owns the shell, and each
+child independently hand-types its own interactive recipe. `PaletteCardSwatches.vue:44,51,58` repeat
+the same 9-utility button string three times verbatim; `PaletteRenameInput.vue:20,26` repeat a
+near-identical pair; `PaletteCardMeta.vue:45` a third variant. Six files, **nine hand-typed
+icon-button recipes**, in a repository whose edict 4 says the design system owns variants and whose
+`demo/ui/button/index.ts` re-exports a `Button` with an `icon-only` prop that
+`PaletteCard.vue:96-104` already uses correctly. The one file that consumes the primitive is the
+parent; every child hand-rolls.
 
-`<button>` has *interactive content* excluded from its content model (HTML Living Standard, §4.10.6
-"Content model: phrasing content, but there must be no interactive content descendant"). A
-`<button>` inside a `<button>` is invalid, has undefined activation behaviour across engines, and
-makes the inner control unreachable in some AT modes.
+So the answer to the owner's question is: **the split is along markup length, not along seams, and it
+is worse than pass 4 said** — it did not merely fail to distribute behaviour, it multiplied material
+ownership from one home to nine. Against edict 1 (no god modules): the parent is still the god
+module *and* the children each acquired a small private one.
 
-**Live-nesting status: NOT reproduced.** `/#/mix` rendered `0` `[role="article"]` elements in the
-isolated profile (`probe-L4.mjs` §B: `{"articles": 0}`) — the mix source list did not surface the
-seeded palettes on that route. The nesting is therefore established by **source reading plus the
-measured descendant count**, not by a live DOM capture. Labelled a hypothesis on that one axis.
-
-The structural point stands regardless of the live capture: PaletteCard's contract is
-`role="article"` + a root `@click` + interactive children, and it publishes no statement that it
-contains interactive content. A host reading only the emit list reasonably concluded "this is a
-clickable tile" and wrapped it. Pass-1 L-3 and pass-3 L-32 found hosts under-wiring the emit
-surface; this is a host *over*-wrapping it. Same root cause: the card's public surface does not
-describe what the card is.
-
-**Cure.** The card's activation belongs to the card. Drop the `click` emit, make the *title row* the
-single activator (a real `<button>` around the name), and let hosts pass `@activate`. Selection
-state (`aria-pressed`) becomes a prop the card renders, not a wrapper element the host invents —
-glass-ui already ships `Card`'s `variant="selection"` + `selected` for exactly this
-(`Card.vue.d.ts`: `variant?: CardVariant; selected?: boolean`).
-
----
-
-## L-42 · MINOR (new) — `card/composables/` is a mixed-ownership folder, and the "feature" it belongs to is a flat 19-module drawer the seam does not cover
-
-`demo/palettes/browser/card/composables/` holds four modules. Three are card-generic
-(`useHoverPopover`, `useHeightTransition`, `useLeaveTimer`). The fourth is not:
-
-```
-$ grep -rn "useSwatchActions" demo --include="*.ts" --include="*.vue"
-demo/palettes/browser/card/CurrentPaletteEditor.vue:194:import { useSwatchActions } from "./composables/useSwatchActions";
-```
-
-`useSwatchActions` has exactly one consumer, is not the card's, and reaches sideways into the colour
-domain and up into the feature root:
-
-```ts
-// useSwatchActions.ts:3-7
-import type { EditTarget } from "../../../../color-session/color-model";
-import { EDIT_TARGET_KEY } from "../../../../color-session/keys";
-import { CURRENT_PALETTE_ID } from "../../../constants";
-```
-
-The wider shape: `demo/palettes/` root is a **flat 19-module drawer** (`types`, `utils`,
-`constants`, `export.ts`, `mix`, `dateFormat`, and 13 `use*` composables) beneath which
-`demo/palettes/browser/` (42 files) declares "the mega-feature's TOP-LEVEL SEAM". The leaves reach
-back up through it:
-
-```
-$ grep -rhno 'from "\(\.\./\)\{1,4\}\(types\|utils\|constants\|export\|usePaletteStore\|usePaletteActions\
-|usePaletteExport\|mix\|useBrowsePalettes\|useFilteredList\|dateFormat\)"' demo/palettes/browser \
-  | sed 's/.*from //' | sort | uniq -c | sort -rn
-   5 "../../types"
-   5 "../../../types"
-   3 "../dateFormat"
-   2 "../../../utils"
-   1 "../../../constants"
-```
-
-16 upward edges from inside the declared seam to modules **outside** it. A seam that its own
-internals reach around is a directory convention, not a module boundary. (`utils.ts` is itself a
-two-concept drawer: slug minting + palette-kind classification.)
-
----
-
-## 1. The decomposition, judged (pass-4 reading)
-
-Pass-1 L-6 called the six-file split "markup shards with pass-through props". Pass 4 sharpens the
-diagnosis with a prop-flow count, because the owner's question is whether the split earns its files.
-
-| file | own state | props in | emits out | verdict |
-|---|---:|---:|---:|---|
-| `PaletteCard.vue` | 5 refs + 2 composables + press drive | 10 | 18 | the god module |
-| `PaletteCardSwatches.vue` | **0** | **8** | **8** | pure conduit — 8 in, 8 out, no decision |
-| `PaletteCardMenu.vue` | 2 computed | 5 | 2 | the one real seam (own data dependency) |
-| `PaletteCardMeta.vue` | 0 | 1 | 1 | legitimate leaf (renders `palette`, emits `vote`) |
-| `PaletteRenameInput.vue` | 1 ref | 1 | 2 | legitimate leaf |
-| `ActionFeedback.vue` | timer | 4 | 1 | should not exist (glass-ui ships `./toast` — pass-3 L-29) |
-
-`PaletteCardSwatches` is the proof that the split is not along seams: **eight props in, eight emits
-out, zero state, zero decisions.** Every one of its eight props is a value `PaletteCard` computed
-and every one of its eight emits is forwarded straight back. It is a `<template>` extraction wearing
-a component's costume — and the cost is real: `swatchClass`, `floatingStyle`, `canHover`,
-`openPopoverIndex` and `safeFirstColor` are all now part of a *published* prop contract that a
-future refactor must honour, purely because a template got long.
-
-The two seams that *are* real are the two the split did not make: **the popover machine** (hover
-timer + positioning + open index, currently split across `useHoverPopover` and five props) and
-**the menu's data dependency** (the only child with a reason to exist independently).
-
-Against edict 3 (KISS, no contrivance): the folder is not a `shared/` dir, so it does not trip the
-letter of the rule — but `PaletteCardSwatches` is exactly the wrapper-that-earns-nothing the edict
-is aimed at.
+Against edict 3 (KISS, no contrivance): the folder is not a `shared/` dir, so the letter is intact.
+`PaletteCardSwatches` and `ActionFeedback` are the wrapper-that-earns-nothing the edict aims at.
 
 ---
 
 ## 2. The lattice I would build greenfield
 
-Stated concretely, as asked — no hedging.
+Pass-4 §2 stated one. I concur with its shape and state it again with the three corrections this
+pass earned; the deltas are marked **←new**.
 
 ```
-@mkbabb/value.js/css                    parse + serialize; the ONE colour representation
+@mkbabb/value.js/css                    parse + serialize; the ONE colour representation.
+                                        Reached by SELF-REFERENCE off package.json#exports —
+                                        no tsconfig `paths` block at all.               ←new (L-45)
       ↑
-demo/palettes/model/                    Palette, PaletteColor(parsed), kind, slug   ← types + utils merged, no drawer
+demo/palettes/model/                    Palette, PaletteColor(parsed), PaletteRowKey (branded),
+                                        kind, slug — types + utils merged, no flat drawer.
+                                        PaletteRowKey kills the id/slug split.           ←new (L-47)
 demo/palettes/export/                   the contracted serializers, renamed index.ts, sole home
 demo/palettes/store/                    usePaletteStore + ports; owns rows, owns certified ink per row
       ↑
-demo/palettes/browser/index.ts          the seam — and a LIVE lint rule that names the real tree
+demo/styles/utils.css  ·  .well-card    the rung-2 WELL material, ONE home, the solid sibling of
+                                        the existing .dashed-well; --shadow-cartoon-sm.  ←new (L-43)
       ↑
-PaletteGrid.vue                         list; owns selection, drag, expansion, the ONE ink instrument
+demo/palettes/browser/index.ts          the seam — with a LIVE lint rule naming the real tree
+      ↑
+PaletteGrid.vue                         list; owns selection, drag, expansion (by PaletteRowKey),
+                                        and the ONE certified-ink instrument
 PaletteRow.vue                          ← the card, ~120 L
-   ├ <Card cartoon material="well" variant="selection" :selected>   glass-ui ./card, no hand-roll
-   ├ <PaletteColorStrip>                                            already correct
+   ├ .well-card                         no cartoon-surface, no .cartoon-cast span, no pressVar
+   ├ <PaletteColorStrip>                already correct
    ├ header: <button> around the name = the ONE activator; <Chip> ×N; <Toast> via useToast()
-   ├ <PaletteRowMenu>                                               the real seam; keeps its own data dep
-   └ <ExpandableContainer v-model:open>                             glass-ui ./expandable-container
-        └ <SwatchStrip>                                             owns the popover machine WHOLE
+   ├ <PaletteRowMenu>                   the real seam; keeps its own data dependency
+   └ <ExpandableContainer v-model:open> glass-ui ./expandable-container
+        └ <SwatchStrip>                 owns the popover machine WHOLE; <Button icon-only> ×3,
+                                        not three hand-typed 9-utility strings          ←new (§1)
 ```
 
-Deletions this implies: `PaletteCardSwatches.vue` (conduit), `ActionFeedback.vue` (→ `./toast`),
-`useHeightTransition.ts` (→ `./expandable-container`), `useLeaveTimer.ts` (folds into the popover
-machine), `demo/palettes/export.ts` + `usePaletteExport.ts` (L-34), the `.cartoon-cast` span
-(L-38), the `group` class (L-37), the 19 `demo/ui/*` forwarding dirs (pass-1 L-2).
+Deletions this implies: `PaletteCardSwatches.vue`, `ActionFeedback.vue`, `useHeightTransition.ts`,
+`useLeaveTimer.ts`, `demo/palettes/export.ts` + `usePaletteExport.ts`, the `.cartoon-cast` span, the
+`pressVar: "--card-press-t"` line, the `group` class, the 19 `demo/ui/*` forwarding dirs, and the
+eight `@mkbabb/value.js` entries in `tsconfig.demo.json#paths`.
 
-Surface change: **18 emits → 2**. One `activate`, one `action: PaletteAction` where `PaletteAction`
-is a discriminated union, not `string` (pass-1 L-4's silent-drop default becomes a type error). The
-host handles the union exhaustively or the compiler objects — which is the structural cure for every
-"host wires 3 of 18" finding in this docket.
+Surface change: **16 emits → 2** (one `activate`, one `action: PaletteAction` discriminated union),
+and `expanded: boolean` → the grid owning expansion. The 5.2/16 mean wiring rate (L-46) becomes a
+compile error rather than a silent drop.
 
-Performance consequence, stated because it is the reason to prefer this shape: the certified-ink
-instrument goes from *N* instances and *N* global cache invalidations (L-40) to one, and the
-expand animation goes from three hand-forced reflows per card
-(`useHeightTransition.ts:32,56,63` — `void htmlEl.offsetHeight`) to the producer's container.
+Performance consequence, stated because it is the reason to prefer the shape: the certified-ink
+instrument goes from *N* instances with *N* global cache invalidations (pass-4 L-40) to one; the
+expand animation goes from three hand-forced reflows per card (`useHeightTransition.ts:32,56,63` —
+`void htmlEl.offsetHeight`) to the producer's container; and the shell goes from three drifting class
+strings to one utility, so the skeleton→card swap stops repainting a different border and shadow.
 
 ---
 
-## 3. What I checked and found sound (pass-4 negatives)
+## 3. What I tried to convict and could **not** (pass-5 negatives)
 
-- **`verbatimModuleSyntax` (edict 8).** All six SFCs and all four composables use `import type` or
-  inline `type` modifiers for every type-only import. `PaletteCard.vue:168-169`,
-  `PaletteCardMenu.vue:177-178`, `PaletteCardSwatches.vue:72`, `PaletteCardMeta.vue:59`,
-  `useSwatchActions.ts:2-3`. Zero violations.
-- **No deep `src/` import anywhere in the cone.** `grep -rn "@src\|\.\./\.\./src" demo/palettes/browser/card/`
-  → no matches. The T.W1 ban holds here.
+Recorded because a seat that only reports hits is not measuring.
+
+- **"The hand-rolled root forfeits the producer's contrast compensation."** *Refuted by
+  measurement.* The card is not a `glass-atom` (`isGlassAtom: false`, `data-surface: null`,
+  `data-slot: null`), so I expected `@media (prefers-contrast: more)` compensation to miss it.
+  Under WebKit `emulateMedia({contrast:"more"})` it **does** compensate — border α `0.12 → 0.55`,
+  shadow α `0.32/0.26/0.18 → 0.42/0.34/0.24` (`probe-L5.mjs` §C). The compensation is token-level,
+  not `.glass-atom`-scoped. No finding.
+- **"`onPopoverAdd/Edit/Copy` poke `openPopoverIndex.value = null` instead of the composable's
+  `close()`, leaving the 250 ms leave-timer armed."** (`PaletteCard.vue:322,327,332` vs
+  `useHoverPopover.ts:42-45`.) A duplicated idiom, yes — but both re-entry points call
+  `cancelLeave()` first (`useHoverPopover.ts:26` `onHover`, `:51` `onSwatchClick`), so no stale
+  timer can close a freshly-opened popover. Duplication only; **no defect**.
+- **"`:style="press.pressStyle.value"` (`PaletteCard.vue:25`) double-unwraps."** It does not.
+  `press` is a `SETUP_MAYBE_REF` const binding; the compiler emits `_unref(press).pressStyle`, which
+  is still the `ComputedRef`, so `.value` is required. Correct as written.
+- **"`@import "@mkbabb/glass-ui/styles"` + `"@mkbabb/glass-ui/styles.css"` is a double import"**
+  (`foundation.css:56-57`). They are different files — `dist/styles/index.css` (Tailwind-source) and
+  `dist/glass-ui.css` (compiled SFC-scoped). Complementary, as the comment says. No finding.
+- **"The demo typechecks against the registry copy of value.js while bundling the local `dist/`."**
+  *Refuted.* `ts.resolveModuleName` returns `/Users/mkbabb/Programming/value.js/dist/subpaths/*.d.ts`
+  for every resolvable specifier, including the two with no `paths` entry. Self-reference wins over
+  `node_modules`. No split-brain. (The local `dist/subpaths/css.{js,d.ts}` does differ from the
+  published 4.0.0 tarball by one byte — below the threshold of a finding.)
+- **`verbatimModuleSyntax` (edict 8).** Re-verified across all six SFCs and all four composables:
+  every type-only import carries `import type` or an inline `type` modifier. Zero violations.
+- **No deep `src/` reach.** `grep -rn "@src\|\.\./\.\./src" demo/palettes/browser/card/` → no
+  matches. The T.W1 ban holds in this cone.
 - **The `card/` sub-barrel reach is legal.** `MixSourceSelector.vue:8` imports from
-  `"../../palettes/browser/card"` — a sub-barrel the top-level seam re-exports, which the seam's own
-  contract permits. (That it is *unenforced* is L-39; the import itself is correct.)
-- **`inv-K-1` is live and correct.** `npx eslint --print-config src/css/grammar.ts` returns the
-  glass-ui ban intact. Only the demo half of the config is dead.
-- **`AdminUsersPanel.vue:201` reaches the barrel**, not a raw file. Correct.
-- **The press drive is real.** Measured `scale: 1.0091 0.9512` under a held pointer — `useLiquidPress`
-  works; it is the *CSS* register that is absent (L-36), not the JS one.
+  `"../../palettes/browser/card"` — a sub-barrel the top-level seam re-exports.
+- **`inv-K-1` is live.** `npx eslint --print-config demo/color-picker/App.vue` returns the
+  G-DEMO-3b object intact for that region; the `src/**` glass-ui ban is likewise live. Only the
+  *content* of the demo ban is dead (pass-4 L-39, re-verified below).
 
 ---
 
-## 4. Probe log (pass 4)
+## 4. Probe log (pass 5)
 
-| # | probe | file | result |
+| # | probe | command / file | result |
 |---|---|---|---|
-| 1 | eslint effective config, 4 live demo files | `npx eslint --print-config` | `no-restricted-imports: null` ×4 → **L-39** |
-| 2 | `demo/@` existence + deletion commit | `ls`, `git log` | absent; deleted at `a61094e3` → **L-39** |
-| 3 | card root computed style at rest / hover / press | `probe-L4.mjs` §A | `hoverDelta {}`; 3× zero-blur shadow; cast inert → **L-36/L-37/L-38** |
-| 4 | loaded `.group…hover` rules, 49 sheets | `probe-L4.mjs` §A | `[]` → **L-37** |
-| 5 | interactive descendants, collapsed + expanded | `probe-L4.mjs` §C | 1 / 1 → **L-41** |
-| 6 | `/#/mix` card nesting | `probe-L4.mjs` §B | `articles: 0` — **not reproduced**, L-41 labelled |
-| 7 | Export→SVG with hostile name + colour | `probe-L4b.mjs` | `escaped:false`, 3 rects, `onload` attribute → **L-34** |
-| 8 | `@mkbabb/value.js` edge census | `grep -rln` | card cone 0; feature 2, one of them dead → **L-35** |
-| 9 | upward edges out of the seam | `grep -rhno` | 16 → **L-42** |
-| 10 | owner marks OM-11 / OM-12 | image read | slab matches the measured token exactly → **L-38** |
-| 11 | visual matrix rows for this component | `shots/safari-desktop-{light,dark}/{palettes,browse}.png` | palettes = "No saved palettes yet"; browse = "The commons is unreachable" → **zero coverage, pass-1 L-13 unchanged** |
+| 1 | shell recipe, card root, live | `probe-L5.mjs` §A | shadow ≡ `--shadow-cartoon-md`, ≠ `-sm`; border `2px solid` → **L-43** |
+| 2 | shell recipe, skeleton + shadow-palette | source read `PaletteCardSkeleton.vue:34`, `ShadowPalette.vue:43` | `shadow-cartoon-sm`, `border` (1px) → **L-43** |
+| 3 | `.cartoon-cast` selectors in the live cascade | `probe-L5.mjs` §B, 40 sheets | only `.liquid-enter.is-cel > .cartoon-cast` ×4; `castMatchesAnyCastRule:false` → **L-44** |
+| 4 | orphan census over `dist/styles/glass/` | python walk of every `@import` | 21 files, 19 imported; orphans `glass-atom.css`, `glass-chip.css` → **L-44** |
+| 5 | press var, live | `probe-L5.mjs` §B | `--cartoon-press-t: 0`, `--card-press-t: 0.0000` → **L-44** (pass-3 L-26 confirmed) |
+| 6 | `useLiquidPress` writes only `pressVar` | `dist/useLiquidPress-BOxuDkKa.js` `pressStyle` | `{[u]: e.toFixed(4)}` + `--flex-vel` + `scale` → **L-44** |
+| 7 | bare specifier, Node | `node -e "import('@mkbabb/value.js')"` | `ERR_PACKAGE_PATH_NOT_EXPORTED` → **L-45** |
+| 8 | 10 specifiers, TS resolver, demo options | `ts.resolveModuleName` | 3 UNRESOLVED, 7 → local `dist/` → **L-45** |
+| 9 | `paths` target existence | `[ -f ]` ×5 | `index.d.ts`/`parsing.d.ts`/`units.d.ts` MISSING → **L-45** |
+| 10 | glass-ui's value.js specifiers | python regex over 6 chunks | subpaths only; **no bare import** → **L-45** |
+| 11 | emit/prop surface + 6-host wiring | python parse of `defineEmits`/`defineProps` | 16 emits, 10 props; 15/7/3/4/1/1 → **L-46** |
+| 12 | `expandedId` key spaces | `grep -rn expandedId demo/` | one ref (`usePaletteActions.ts:24`), `id` in Palettes, `slug` in Browse+Admin → **L-47** |
+| 13 | `@source` path resolution | `ls -d color-picker` vs `demo/color-picker` | `<repo>/color-picker` absent → **L-48** |
+| 14 | `demo/ui/*` census + reach | `for d in demo/ui/*/`, two greps | 19 dirs, 1 file each, 0 impls; 92 shim vs 37 direct → **L-49** |
+| 15 | hover register, live | `probe-L5.mjs` §D | `changedKeys: []` across 9 properties → MT-F036 hover half confirmed |
+| 16 | `prefers-contrast: more`, live | `probe-L5.mjs` §C | border α .12→.55, shadow α raised — **hypothesis refuted** (§3) |
+| 17 | owner marks OM-11 / OM-12 | image read at 1:1 | three countable hard steps down-left = the `md` rung exactly → **L-43** |
+| 18 | skeleton captured live | `probe-L5.mjs` §E | `NO SKELETON OBSERVED` on `/#/browse` — L-43's skeleton row is source-derived + token-measured, not live-captured |
 
-Artifacts: `probe-L4.mjs`, `probe-L4-results.json`, `probe-L4b.mjs`,
-`evidence/L4b-ridge-text-rect-….svg`, `evidence/L4-card-rest.png`.
+Artifacts: `probe-L5.mjs`, `evidence/L5-results.json`.
 
 ---
 
-## 5. Pass-4 ranked docket
+## 5. Pass-5 ranked docket
 
 | id | sev | one line | cure altitude |
 |---|---|---|---|
-| **L-34** | BLOCKER | Export→SVG injects; the escaping implementation is in the app-dead contract module, under a green test | delete `export.ts`, rename `serializers.ts`→`index.ts`, rewire |
-| **L-35** | MAJOR | third palette→text path (clipboard); card cone has **0** `@mkbabb/value.js` edges | parse on ingest; one colour representation |
-| **L-36** | MAJOR | hover register measurably absent; producer typing says `cartoon` adds no command behaviour | **BJ ask** (§7) |
-| **L-38** | MAJOR | faceted slab = 3 zero-blur producer shadow layers; hand-roll forfeits `<Card>`'s shadow arbitration | **BJ ask** (§7) + adopt `<Card>` |
-| **L-39** | MAJOR | the barrel-seam lint rule addresses a tree deleted at W43; `null` for every live file | re-aim globs or delete the claim |
-| **L-40** | MAJOR | leaf card → app-root boot via `inject(...)!`; per-card global tint-cache invalidation | hoist ink to the list owner |
-| **L-41** | MINOR | a host wraps the card in `<button>`; card ships interactive descendants (live nesting not reproduced) | one activator + `variant="selection"` |
-| **L-42** | MINOR | `card/composables/` mixed ownership; 16 upward edges out of the declared seam | merge `types`/`utils` into `model/` |
-| **L-37** | MINOR | `group` marker class with zero consumers in the whole app | delete one token |
+| **L-43** | MAJOR | the "one shared shell" is three drifting class strings; the card paints `--shadow-cartoon-md` where DESIGN.md + utils.css assign `-sm` (7px vs 4px contact) | demo: `.well-card` beside `.dashed-well`; BJ: `cartoon` rung param |
+| **L-44** | MAJOR | `.cartoon-cast` has two producer homes; the reachable one is descendant-scoped, so the card's span matches nothing | delete span + `pressVar`; BJ: consolidate + Card-emit the cast |
+| **L-45** | MAJOR | the published-surface map is 3/8 phantom, has no root, and the whole `paths` block is redundant under self-reference | delete the `paths` block; fix 3 header claims |
+| **L-46** | MINOR | 16 emits (not 18); mean host wiring 5.2/16, two hosts at 1/16 | discriminated-union `action` |
+| **L-47** | MINOR | one `expandedId` ref, two key spaces (`id` vs `slug`) across three hosts | branded `PaletteRowKey`; grid owns expansion |
+| **L-48** | MINOR | dead `@source "../../color-picker/**"` in the stylesheet that emits the card's own utilities | re-aim to `../color-picker/**` or delete |
+| **L-49** | INFO | 19 forwarding `demo/ui/*` dirs, 0 implementations; 92 shim sites vs 37 direct; PaletteCard uses both, 5 lines apart | mechanical rewrite; delete the dirs + DESIGN.md:384 |
 
 ---
 
-## 6. Carried dockets, re-verified at pass 4
+## 6. Carried dockets, re-verified at pass 5
 
-Re-checked by direct read at HEAD `7775473b`; all **still open** unless noted.
+Re-checked by direct read at `fe8785e5`; **all still open** unless noted.
 
-- **Pass 1** L-1 (throwing wrapper on untrusted colour), L-2 (19 `demo/ui/` forwarding dirs — still
-  present, `demo/ui/badge/index.ts` and `demo/ui/button/index.ts` are one-line re-exports of
-  glass-ui while `PaletteCard.vue:170` imports glass-ui directly four lines away), L-3 (host
-  wiring 3/18, 4/18, 0/18 — re-confirmed at `AdminUsersPanel.vue:148-150`,
-  `ExtractWorkbench.vue:152-155`, `MixSourceSelector.vue:264-267`), L-4 (`handleMenuAction`'s
-  untyped `Record<string, () => void>` + silent `if (!fn) return`, `PaletteCard.vue:290-319`), L-5
-  (`defineExpose({ showFeedback })` at `PaletteCard.vue:244`, harvested through
-  `:ref="(el: any) => …"` at `BrowsePane.vue:94` into the `cardRefs` record at `BrowsePane.vue:209`),
-  L-6 (see §1),
-  L-7, L-8 (two `slugify`: `export.ts:9` vs `utils.ts:3` — different normalization), L-9, L-10,
-  L-11 (`ActionFeedback.vue:37-47` still has no `onUnmounted`), L-12, **L-13 re-verified this pass
-  (§4 #11)**, L-14.
-- **Pass 2** L-15..L-24 — all open. L-18 is **escalated by L-34**.
-- **Pass 3** L-25..L-33 — all open. L-25 and L-26 re-measured live this pass (§4 #3). L-27 receives
-  its measurement in L-36.
+- **Pass 1** L-1..L-14 open. L-2 quantified this pass (**L-49**). L-3 re-measured with the corrected
+  denominator (**L-46**). L-8 re-confirmed: two `slugify` implementations with different
+  normalisation — `demo/palettes/export.ts:9` (ASCII-only, no NFKD) vs `demo/palettes/utils.ts:3`
+  (NFKD + combining-mark strip). L-11 re-confirmed: `ActionFeedback.vue:37-47` still has no
+  `onUnmounted`, so the dismiss timer outlives the component. L-13 (zero visual-matrix coverage)
+  re-confirmed at §4 #18 — the captured routes render empty states, so no shipped screenshot shows
+  this component at all.
+- **Pass 2** L-15..L-24 open. L-18 remains escalated by pass-4 L-34.
+- **Pass 3** L-25..L-33 open. **L-25 refined by L-44** (two homes, not merely one orphan).
+  **L-26 re-measured live** (`--cartoon-press-t: 0` vs `--card-press-t: 0.0000`).
+- **Pass 4** L-34..L-42 open, all re-verified:
+  - **L-34** (Export→SVG injection): the wiring is unchanged. `demo/palettes/usePaletteExport.ts:9`
+    imports from `"./export"` — the legacy module — and `BrowsePane.vue:115` /
+    `PalettesPane.vue:96` are its only call sites. The contracted set has exactly **one** importer
+    in the whole repository: `grep -rn "export/serializers" demo test src` →
+    `demo/test/export/byte-exact.test.ts:23`. **Zero production consumers.** Confirmed.
+  - **L-39** (dead lint globs): re-run this pass.
+    `npx eslint --print-config demo/palettes/browser/card/PaletteCard/PaletteCard.vue`
+    → `no-restricted-imports => null`. And the ban is inert even where the rule *is* live — a raw
+    reach written the modern way passes clean:
+    ```
+    $ printf '<script setup lang="ts">\nimport PaletteCard from "../palettes/browser/card/PaletteCard/PaletteCard.vue";\n</script>…' \
+        | npx eslint --stdin --stdin-filename demo/color-picker/__probe.vue --no-warn-ignored
+    EXIT=0
+    ```
+    The banned pattern is `@components/custom/palette-browser/**/*.vue`; that alias was retired at
+    W43, so no import string in the tree can ever match it.
+  - **L-36 / MT-F036 hover half** re-measured: `changedKeys: []` across boxShadow, translate, scale,
+    transform, backgroundColor, borderColor, filter, opacity, transitionProperty. The root does
+    declare `transition-property: all` — a transition for a register that never fires.
 
-Stale-citation instances now at four: pass-1 L-12, pass-3 L-33, **L-39** (load-bearing), and
-`PaletteDialog.vue` — a file that does not exist, cited 10 times including a line number
-(`demo/palettes/constants.ts:6` "inlined in `PaletteDialog.vue:403`";
-`useHoverPopover.ts:8` "Used by PaletteDialog").
+Stale-citation instances now at **six**: pass-1 L-12, pass-3 L-33, pass-4 L-39 (load-bearing),
+`PaletteDialog.vue` (a file that does not exist, cited 10 times with line numbers — e.g.
+`demo/palettes/constants.ts:6`, `useHoverPopover.ts:8`), **L-45** (three false claims in
+`tsconfig.demo.json`'s header, load-bearing), **L-48** (`foundation.css:91` + its comment).
 
 ---
 
 ## 7. Verdict and the marked asks
 
-**DEFECTIVE.** One reproduced BLOCKER, four MAJOR, three MINOR new this pass, on top of 33 open
-findings from passes 1–3.
+**DEFECTIVE.** Three new MAJOR, three new MINOR, one new INFO, on top of 42 open findings from
+passes 1–4.
 
-The strongest single defect is **L-34**: the card's Export→SVG emits an unescaped, attacker-shaped
-document, and the module that would have escaped it — the contract-governed, library-consuming,
-byte-exact serializer set — is loaded by the test suite and by nothing else. A green test named
-*"escapes the display name and never renders text/font/script"* currently certifies code the product
-does not run. That is the mechanism this whole docket keeps rediscovering: **the concept has two
-homes and the wrong one won the wiring.**
+The strongest single defect this pass is **L-43**, and it matters more than its severity suggests
+because it *changes a disposition the previous pass had already sent upstream*. Pass 4 read the
+faceted slab, matched it to a producer token, and routed the whole of MT-F036's shadow half to
+glass-ui. The token is indeed the producer's — but the demo's own **normative** material ladder
+assigns this component the `sm` rung and the component is riding `md`, because it consumes a producer
+utility that hard-codes the rung. The owner marked a shadow that is 75 % deeper than the demo's own
+law permits, and roughly half of that is curable in `demo/styles/utils.css` today, with no producer
+dependency, by writing the solid sibling of a well that already exists.
 
-### Owner mark MT-F036 — root cause and disposition
+That is this docket's recurring mechanism in its purest form. **The concept has more than one home,
+and the wrong one won the wiring** — export (pass-2/4), clipboard (pass-4), the `.cartoon-cast` rule
+(pass-3/5), the surface map (pass-5), the shell recipe (pass-5). Every finding in five passes is an
+instance.
 
-Both halves of the mark root-cause into `@mkbabb/glass-ui@7.0.0`, not into `PaletteCard.vue`. Per
-the owner's standing law, they are relayed as **BJ asks**, not patched locally.
+### Owner mark MT-F036 — root cause and disposition (revised)
 
-> **BJ ask 1 — a hover register for the card root.**
-> `cartoon-surface` (`dist/components/card/styles.css:1`) is three declarations with no `:hover`,
-> no `:active` and no `transition`; `Card.vue.d.ts` documents `cartoon` as *"Static Memphis edge
-> treatment; it does not add command behavior."* Measured on a live PaletteCard: **zero** computed
-> style change on hover. Interactive cards therefore have no hover affordance anywhere in the app.
-> Ask: an interaction register on `Card` — e.g. `interactive` / `<Card interactive>` — that carries
-> hover lift + shadow step + `:active` squash on the producer's own easing tokens, composable with
-> `cartoon` and with every `material`/`tier`. glass-ui already ships `.hover-lift{,-md,-lg}`
-> (`dist/styles/utilities/components.css`); the ask is to seat that register on `Card` so consumers
-> stop hand-rolling it.
+**Shadow half — SPLIT.** Pass-4's "wholly BJ" reading is superseded on the evidence in L-43.
 
-> **BJ ask 2 — the faceted slab.**
-> `--shadow-cartoon-md` is three **zero-blur** layers at `-3/-5/-7 px` (`dist/styles/tokens/shadow.css`),
-> measured live as `… -3px 3px 0px 0px, … -5px 5px 0px 0px, … -7px 7px 0px 0px`. At the card's scale
-> this reads as a hard-edged, stepped slab trailing the silhouette (witnesses OM-11, OM-12) rather
-> than as a cast shadow. Ask: retune the cartoon shadow ramp at the producer — fewer layers, or a
-> non-zero blur on the trailing layers, or a size-aware ramp — and confirm the interaction with
-> `Surface`'s own shadow (the `shadow: shadow && !cartoon` arbitration in `Card` is invisible to any
-> consumer that applies `cartoon-surface` by hand, which is what this demo does).
+> **Demo-side, no producer dependency (the majority of the visible defect).** `PaletteCard.vue:19`
+> drops `cartoon-surface` and consumes a new solid `.well-card` in `demo/styles/utils.css`, written
+> beside the existing `.dashed-well` and using the tokens DESIGN.md §Surfaces rung 2 already
+> specifies: `--well-bg`, `--card-edge`, `--radius-card`, **`--shadow-cartoon-sm`**.
+> `PaletteCardSkeleton.vue:34` and `ShadowPalette.vue:43` consume the same class, which retires the
+> 1px/2px and sm/md drift and makes the skeleton→card swap invisible. This is root-level styling
+> (edict 5) in an existing home (edict 3) with one owner (edict 1). The `.cartoon-cast` span and the
+> `pressVar: "--card-press-t"` line are deleted in the same change — both measurably inert.
+>
+> **BJ ask 1 — the cartoon axis is under-parameterised.** `CardProps.cartoon` is `boolean`
+> (`dist/components/card/Card.vue.d.ts:11-12`) while the producer's own tokens define three rungs
+> (`--shadow-cartoon-sm/-md/-lg`, `dist/styles/tokens/*.css`). A consumer that wants the chip-scale
+> stamp has no way to ask for it and must hand-roll — which is how this defect arose. Ask:
+> `cartoon?: boolean | "sm" | "md" | "lg"`.
+>
+> **BJ ask 2 — `.cartoon-cast` has two homes and neither is encapsulated.** The unscoped rule is in
+> `dist/styles/glass/glass-atom.css`, which no stylesheet imports (one of two orphans in that
+> directory, with `glass-chip.css`); a duplicate scoped to `.liquid-enter.is-cel >` is in
+> `dist/styles/glass/liquid-enter.css` and IS reachable. Measured on a live consumer: four
+> `.cartoon-cast` rules in the cascade, zero matching the element. Merely adding the missing
+> `@import` would create two conflicting definitions. Ask: consolidate to one definition and have
+> `<Card>` **emit** the caster itself, so no consumer ever types the class name or the press
+> variable.
 
-**Demo-side companions to those asks** (no source lands from this formation): adopt
-`<Card cartoon material="well" as="div">` in place of the hand-rolled root (pass-3 L-27/L-28),
-delete the inert `.cartoon-cast` span (L-38) and the dead `group` hook (L-37). The demo's job is to
-stop hand-rolling the class; the register's job stays at the producer.
+**Hover half — BJ, unchanged, re-measured.**
+
+> **BJ ask 3 — an interaction register for the card root.** `cartoon-surface` is three declarations
+> with no `:hover`, no `:active`, no `transition`; `Card.vue.d.ts` documents `cartoon` as *"Static
+> Memphis edge treatment; it does not add command behavior."* Measured on a live PaletteCard: zero
+> computed-style change on hover across nine properties, while the root declares
+> `transition-property: all` and `cursor: pointer`. Every interactive card in the app therefore has
+> no hover affordance. Ask: an interaction register on `Card` — `interactive` / `<Card interactive>`
+> — carrying the hover/press choreography at the glass root. Per the owner's standing law this is
+> a marked BJ ask and **not** a local patch; the demo must not grow a `.well-card:hover` fork.
+
+Relay all three to the active glass-ui BH inbox per the standing formation invariant
+(`feedback-glassui-bhbi-relay`).

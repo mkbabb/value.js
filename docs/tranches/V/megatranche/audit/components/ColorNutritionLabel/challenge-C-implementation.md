@@ -2,8 +2,18 @@
 
 ## Model receipt
 
-I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier
-declared at spawn. The seat is declared, not inherited.
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier declared
+at spawn. The seat is declared, not inherited.
+
+Substrate: branch `tranche-u`, HEAD `c654824e`, dev server live at `http://localhost:9000`.
+Every number below is measured in this session. Probe scripts:
+`…/scratchpad/cnl-c2-probe{1..8}.mjs`, `…/scratchpad/graph-edges.mjs`, `…/scratchpad/tsrepro/repro.ts`.
+
+The pass-1 report for this seat is preserved verbatim at `challenge-C-implementation.pass-1.md`.
+This pass re-measured every one of its claims independently. **It was wrong about one thing that
+matters** — the finding it filed as a negative proof ("the F-3 fill/ink contrast chain HOLDS…
+latent, not live; recorded, not counted") is a **live, reproducible WCAG failure**. See C-2, and
+§"Correction to pass-1".
 
 ---
 
@@ -11,498 +21,592 @@ declared at spawn. The seat is declared, not inherited.
 
 **DEFECTIVE.**
 
-The component is a *nutrition label*: its entire reason to exist is to state facts about the
-selected color space. For **6 of the 18 spaces the app lets you select**, it states facts about a
-**different color space** — confidently, with no hedge, under a title naming the space it is not
-describing. The formation's test suite cannot tell the difference: not one assertion anywhere in
-`test/` or `e2e/` reads a single field this component renders.
-
-Strongest defect: **C-1**.
-
-Substrate: branch `tranche-u`, HEAD `c654824e`, dev server live at `http://localhost:9000`.
-All browser evidence below is measured, not inferred. Probe scripts:
-`…/scratchpad/CNL-probe{,2,3,4,5,6,7,8}.mjs`, `…/scratchpad/CNL-cast-repro2.ts`.
+Strongest defect: **C-2** (new this pass) — the component paints a colored fill under *no* ink at
+all for a slider-reachable region of the color solid, measured **3.97 : 1** against the 4.5 floor
+the file's own comment promises "a pass by construction". C-1 is equally severe by a different
+measure: for **6 of the 18 spaces the app offers**, this label prints facts about a different color
+space.
 
 ---
 
-## C-1 · BLOCKER — the metadata fallback fabricates false color science for 6 of 18 selectable spaces
+## C-1 · BLOCKER — the metadata fallback prints another space's color science under the selected space's title
 
-**Site.** `demo/scenes/about/ColorNutritionLabel.vue:210-215`
+**Site.** `ColorNutritionLabel.vue:210-215`
 
 ```ts
 const currentColorSpaceInfo = computed(() => {
     const space = resolveColorSpace(model.value.selectedColorSpace);
     return space in colorSpaceInfo
         ? colorSpaceInfo[space as keyof typeof colorSpaceInfo]
-        : colorSpaceInfo.rgb;          // ← the masking fallback
+        : colorSpaceInfo.rgb;           // ← the masking fallback
 });
 ```
 
-**Mechanism.** `demo/color-session/colorSpaceInfo.ts` has **13** keys. `SpaceId` /
-`PICKER_CHANNELS` (`demo/color-session/picker-color.ts:52-70`) has **17**, and the About selector
-renders **all 18** `DISPLAY_COLOR_SPACE_NAMES` entries
-(`demo/color-session/ColorSpaceSelector.vue:150` — `Object.entries(DISPLAY_COLOR_SPACE_NAMES)`).
-Absent from the table: `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`. Every one
-of those five silently resolves to the **CIE RGB** row. A sixth, `hex`, is folded to `rgb` upstream
-(see C-2).
+**Mechanism.** `colorSpaceInfo` (`demo/color-session/colorSpaceInfo.ts`) has **13** keys.
+`PICKER_CHANNELS` is `satisfies Record<SpaceId, …>` over **17** ids (`picker-color.ts:52-70`) and
+the selector offers all **18** `DISPLAY_COLOR_SPACE_NAMES`. Missing from the table: `srgb-linear`,
+`display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`. All five fall to `colorSpaceInfo.rgb`. A sixth,
+`hex`, is folded to `rgb` one line earlier (C-6).
 
-The `? :` is exactly the "masking fallback" the standing edicts forbid. It converts a missing-data
-bug into a *wrong-data* bug — and wrong data here is not a rendering artifact, it is a false claim
-about colorimetry printed as reference material.
-
-**Reproduction (measured).** `node …/scratchpad/CNL-probe3.mjs` — drive the About space selector:
+**Reproduction — the real user path, not a URL trick.** `node …/scratchpad/cnl-c2-probe5.mjs` opens
+the About pane's own space selector and clicks the options. Verbatim output:
 
 ```
-PICK Adobe RGB -> {
- "aboutTrigger": "Adobe RGB",
- "hash": "#/?space=a98-rgb&color=color(a98-rgb+1+0.557139518712+0.770090470472+/+82.7%25)",
- "comps": "Components | Red | 0 to 1 | Green | 0 to 1 | Blue | 0 to 1",
- "def": "Definition | A color space based on the additive mixture of red, green, and blue light."
-}
-PICK ProPhoto RGB -> { "aboutTrigger": "ProPhoto RGB", … same CIE-RGB definition … }
-PICK Rec. 2020    -> { "aboutTrigger": "Rec. 2020",    … same CIE-RGB definition … }
+--- selected: ProPhoto RGB ---
+ "title":      "About the color spaces, ProPhoto RGB",
+ "definition": "Definition A color space based on the additive mixture of red, green, and blue light.",
+ "basic":      "Device Dependency:Device-dependent White Point:Varies (typically D65)
+                Gamut:Limited (device-specific) Created:1931",
+ "components": "Red 0 to 1 Green 0 to 1 Blue 0 to 1",
+ "graph":      "RGB XYZ  RGB Kelvin  RGB HSL  RGB Hex"
+
+--- selected: Display P3 ---   … byte-identical to ProPhoto RGB …
+--- selected: Rec. 2020 ---    … byte-identical to ProPhoto RGB …
+--- selected: Kelvin ---       (correct: black-body definition, "Temperature (K) 1000K to 40000K")
 ```
 
-and the full section read at Display P3 (`CNL-probe.mjs`):
+ProPhoto RGB's white point is **D50**, not "typically D65"; its gamut covers ~90% of visible
+chromaticities, not "Limited (device-specific)"; it dates to **2000**, not 1931. Rec. 2020 is a 2012
+ITU recommendation, not a 1931 CIE space, and does not convert to "Kelvin" through this graph.
+`a98-rgb` and `srgb-linear` take the identical branch (same `? :`, same rendered rows); I measured
+four of the six by hand, the other two follow from the single line of code.
 
-```
-=== AFTER selecting Display P3 ===
-"Basic Information": "Device Dependency: | Device-dependent | White Point: | Varies (typically D65)
-                      | Gamut: | Limited (device-specific) | Created: | 1931"
-"Conversion Graph":  "RGB | XYZ | RGB | Kelvin | RGB | HSL | RGB | Hex"
-"Usage":             "Industries: Digital media, Entertainment, Gaming"
-"detailedGuideLen":  14        ← the "Detailed Guide" heading with nothing under it
-```
+Note the *hybrid* row this produces: the component NAMES come from `colorSpaceInfo.rgb`
+(`["Red","Green","Blue"]`) while the RANGES come from `PICKER_CHANNELS["prophoto-rgb"]` (0–1), so
+the Components section reads `Red 0 to 1` — RGB's names married to P3's domain. That row describes
+no color space that exists.
 
-So with **ProPhoto RGB** selected the label asserts white point "typically D65" (ProPhoto is
-**D50**), gamut "Limited (device-specific)" (ProPhoto's gamut is famously *wider than sRGB*, ~90% of
-visible), and "Created: 1931" (ProPhoto: 2000). With **Rec. 2020** selected it asserts the
-conversion graph `RGB → Kelvin` and industries "Entertainment, Gaming". Every field is wrong and
-every field is stated flatly.
-
-**Proposed cure (gestalt, not patch).** Type the table so the hole cannot exist:
+**Cure (structural, not a patch).** Type the table:
 
 ```ts
 export const colorSpaceInfo: Record<DisplayColorSpace, ColorSpaceInfo> = { … }
 ```
 
-The five missing rows then become a **compile error**, not a runtime lie. Author them, and **delete
-the fallback branch outright** — `colorSpaceInfo[space]` with no ternary. The `space in
-colorSpaceInfo` test exists only to paper over an untyped record; typing the record retires the
-test, the fallback, and the `as keyof typeof` cast in one move.
+The five holes become compile errors; author the rows; then **delete the ternary** and index
+directly. The `space in colorSpaceInfo` guard, the `as keyof typeof` cast and the fallback all
+disappear together — one type replaces three runtime hedges. (Owner edict 2: no masking fallbacks.)
 
 ---
 
-## C-2 · MAJOR — `colorSpaceInfo.hex` is unreachable dead data, and the About card contradicts itself on Hex
+## C-2 · BLOCKER — the F-3 fill/ink pair splits: a live-colored fill painted under **no ink at all**, measured 3.97 : 1
 
-**Site.** `ColorNutritionLabel.vue:211` (`resolveColorSpace`) ×
-`demo/color-session/color-model.ts:32-34`:
+**Site.** `ColorNutritionLabel.vue:207-208` and the template at `:121-126`
 
 ```ts
-export function resolveColorSpace(space: DisplayColorSpace): PickerSpace {
-    return space === "hex" ? "rgb" : space;
-}
+const nodeFill = cssColorOpaque;
+const nodeInk = computed(() => contrastInkFor(nodeFill.value) ?? "");   // ← fail-open
 ```
-
-`resolveColorSpace` can never *return* `"hex"`, so line 211 can never select the `hex` key. The
-21-line hex entry at `colorSpaceInfo.ts:313-333` — with its own components `["Red (00-FF)", …]`,
-its own conversions `[["Hex","RGB"], …]`, its own 1996 date — is **unreachable from this
-component**. It is unreachable from the only other consumer too: `ConsoleRail.vue:173` reads
-`currentColorSpace`, which is `resolveColorSpace(model.value.selectedColorSpace)`
-(`demo/color-session/useColorPipeline.ts:112-114`). Dead across the whole app.
-
-**Reproduction (measured).** `CNL-probe.mjs`, after selecting Hex:
-
-```
-=== AFTER selecting Hex ===
-"definition":     "A color space based on the additive mixture of red, green, and blue light."
-"Basic Information": "… White Point: | Varies (typically D65) | … | Created: | 1931"
-"Components":     "Red | 0 to 255 | Green | 0 to 255 | Blue | 0 to 255"
-"detailedGuideLen": 1523        ← hex.md DID render
-```
-
-The same `<Card>` therefore says two different things at once: the nutrition label describes CIE RGB
-(1931), and eighteen pixels below it the Detailed Guide renders 1523 characters of `hex.md` about
-hexadecimal notation. The user selected "Hex" and the title says "Hex".
-
-**Cure.** Index the metadata table by the **display** space (`model.value.selectedColorSpace`) and
-keep `resolveColorSpace` for `PICKER_CHANNELS` only — the two lookups answer different questions and
-should stop sharing a key. Rider: the hex entry's `components` are hex-digit ranges, so once it is
-reachable the Components row needs its ranges from the entry rather than from `PICKER_CHANNELS.rgb`
-(which would pair "Red (00-FF)" with "0 to 255").
-
----
-
-## C-3 · MAJOR — the hover highlight bleeds across every conversion row
-
-**Site.** `ColorNutritionLabel.vue:122-126`
-
-```
-hoveredPath.length && hoveredPath.includes(space as string)
-    ? { backgroundColor: nodeFill, color: nodeInk }
-    : undefined
-```
-
-**Mechanism.** `hoveredPath` (line 232) is ONE shared ref holding the hovered row's **node names**.
-The per-node condition asks "is my *text* in that set?" — not "am I in the hovered row?". Every row
-that repeats a name lights up. Since a conversion graph for a space is by definition a set of paths
-that all *start at that space*, the source node repeats in every row by construction — the bleed is
-guaranteed, not incidental.
-
-**Reproduction (measured).** `node …/scratchpad/CNL-probe8.mjs`, Lab, hovering row 1 (`Lab → XYZ`):
-
-```
-A. hovered Lab row1: {"space":"Lab","nodes":[
-   "Lab [LIT]","XYZ [LIT]",            ← row 1, the row the pointer is in
-   "Lab [LIT]","LCh",                  ← row 2 — pointer never entered
-   "Lab [LIT]","XYZ [LIT]","OKLab",    ← row 3 — pointer never entered
-   "Lab [LIT]","LCh","OKLCh"]}         ← row 4 — pointer never entered
-```
-
-**6 of 10 nodes paint the live color; 4 of them are in rows the pointer never touched.** Same at
-OKLCh (`CNL-probe.mjs`): hovering row 1 lit indices 0,1,2,3,5,6 of 9 — every `OKLCh` and every
-`OKLab` in all three rows, each carrying the full inline pair
-`backgroundColor: oklch(0.805525 0.131623 350.246); color: oklch(0 0 0)`.
-
-The affordance is meant to read "this conversion path". It reads "every occurrence of these names",
-which is not a statement about a path at all.
-
-**Cure.** Identity by row, not by string. Replace the three-symbol `hoveredPath` /
-`setHoveredPath` / `clearHoveredPath` apparatus with `const hoveredRow = ref<number | null>(null)`
-and highlight on `index === hoveredRow`. This is strictly smaller code, is correct by construction,
-and takes both `as any` casts (lines 111, 123) with it.
-
----
-
-## C-4 · MAJOR — hover-only, mouse-only, keyboard-unreachable rows wrapped in an empty tooltip
-
-**Sites.** `ColorNutritionLabel.vue:97-142` (the `TooltipProvider` / `Tooltip` / `TooltipTrigger`
-stack), `109-113` (the trigger `<div>`), `139-140` (the empty `TooltipContent`).
-
-**Measured (`CNL-probe.mjs`, `CNL-probe2.mjs`).**
-
-```
-=== conversion-node trigger a11y ===
-{ "triggerTag": "DIV", "role": null, "tabindex": null, "cursor": "pointer",
-  "ariaDescribedby": "reka-tooltip-content-v-0-6", "focusablesInSection": 0 }
-
-=== tab-order walk (first 25 stops) ===
-["A:OKLab","BODY:→oklch(…","BUTTON:Select color space","SPAN:l component value", … ]
-   ← 25 consecutive Tab stops; not one lands inside the Conversion Graph
-
-=== tooltip DOM after hover ===
-{ "contentFound": true,
-  "contentText": "\"\"",
-  "contentHTML": "<span aria-hidden=\"true\" id=\"reka-tooltip-content-v-0-6\" role=\"tooltip\"
-                   style=\"position:absolute; …clip:rect(0px,0px,0px,0px)…\"></span>",
-  "totalTooltipContentNodes": 1 }
-```
-
-Four distinct defects in one construction:
-
-1. **No keyboard path.** `focusablesInSection: 0`; a 25-stop tab walk never reaches a node. The
-   only way to see the highlight is a mouse hover. WCAG 2.1.1.
-2. **`cursor: pointer` on a non-interactive `<div>`** with no `role` — the pointer promises an
-   activation that does not exist. WCAG 4.1.2.
-3. **`aria-describedby` names an empty element.** Every row wires a description to a `<span
-   role="tooltip">` whose `textContent` is `""`. Screen-reader users are pointed at nothing.
-4. **The whole Tooltip stack renders nothing, ever.** `totalTooltipContentNodes: 1` — only the
-   visually-hidden mirror; no visible tooltip is produced in any state. Three glass-ui components
-   per row, and one **`TooltipProvider` per row** (line 97 — the provider is *inside* the `v-for`),
-   instantiated to render an empty span.
-
-Corroborating: `class="contents w-64 p-2 text-small"` on line 139 is self-contradicting —
-`display: contents` erases the box that `w-64 p-2` sizes. And `colorSpaceInfo.notes` (13 entries,
-one prose line each — `colorSpaceInfo.ts:38,65,90,112,139,159,185,206,237,258,284,310,332`) is
-referenced by **no consumer in `demo/`** (`grep -rn "\bnotes\b" demo/` → only the table itself and
-its header comment). That is almost certainly the content this tooltip was built to carry, orphaned.
-
-**Cure — pick one, do not keep the middle.** Either (a) put `notes` in the tooltip, make the row a
-real `<button type="button">` and mirror `@mouseenter`/`@mouseleave` with `@focus`/`@blur` so the
-highlight has a keyboard path; or (b) delete the Tooltip stack, the `cursor-pointer` and the
-`aria-describedby` entirely and let the rows be static data. Either way, one `TooltipProvider`
-wraps *many* `Tooltip`s — a provider per row is the contrivance the KISS edict names.
-
----
-
-## C-5 · MAJOR — the component ranges are unreadable under `dir="rtl"`
-
-**Site.** `ColorNutritionLabel.vue:59-63`
 
 ```html
-<div>
-    {{ range.min }}
-    <span class="italic">to</span>
-    {{ range.max }}
-</div>
+<!-- F-3 split: the hovered node commits to the live fill AND the fill-derived
+     ink together — never a colored fill under the fixed foreground. -->
+:style="… ? { backgroundColor: nodeFill, color: nodeInk } : undefined"
 ```
 
-Three bare inline runs in one bidi paragraph, with no isolation. The numbers are LTR-strong runs,
-`to` is an LTR-strong word, and the leading `-` is a bidi-neutral — under an RTL base direction the
-reorder is not cosmetic, it destroys the range.
+**Mechanism.** `contrastInkFor` (`demo/color-session/ink.ts:158-174`) returns `null` when *neither*
+neutral endpoint survives `safeAccentColor` unmoved. `?? ""` converts that "I cannot certify an ink"
+into an empty `color:` declaration, which Vue **omits from the style attribute entirely** — so the
+node keeps the plate's inherited foreground and paints the saturated fill underneath it. That is
+precisely the arrangement the comment three lines above swears never happens.
 
-**Reproduction (measured).** `node …/scratchpad/CNL-probe5.mjs`, `dir="rtl"` at 1440 — each range's
-runs sorted by measured `getBoundingClientRect().x`:
+**Is the null region reachable?** Scan of the OKLCh solid through the real module
+(`…/scratchpad/cnl-c2-probe6.mjs`, importing `/@fs/…/demo/color-session/ink.ts` from the dev server):
 
 ```
-=== RTL component rows (visual glyph order per cell) ===
-{ "name": "L* (Lightness)", "source": "0% to 100%",  "visualLeftToRight": "to 100% 0%"  }
-{ "name": "a* (Green-Red)", "source": "-125 to 125", "visualLeftToRight": "to 125 -125" }
-{ "name": "b* (Blue-Yellow)","source": "-125 to 125","visualLeftToRight": "to 125 -125" }
+{ "scanned": 11128, "nullCount": 53,
+  "nullSamples": ["oklch(0.470 0.400 30)","oklch(0.490 0.400 0)","oklch(0.510 0.350 30)",
+                 "oklch(0.520 0.350 0)","oklch(0.530 0.400 330)","oklch(0.540 0.400 330)", …] }
 ```
 
-In every case **the separator is no longer between its operands** — the two numbers end up adjacent
-and `to` is flung to one end. Independently corroborated by the formation's own captured RTL
-matrix, `docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop/picker.png`, where the a\*/b\*
-cells render `to 125 125-` — the minus sign visually orphaned onto the wrong number, producing the
-glyph sequence `125-`.
+53 nulls, all at L ≈ 0.47–0.54 with C ≥ 0.35 — **inside** the picker's own OKLCh slider domain
+(`PICKER_CHANNELS.oklch` = L 0–1, C 0–0.5, h 0–360, `picker-color.ts:60`).
 
-This is an audited surface: `rtl-desktop` is one of the formation's capture matrices.
+**Live reproduction.** `node …/scratchpad/cnl-c2-probe7.mjs` — drive the app to that color, hover
+the first conversion node, read the painted result and compute the WCAG ratio through a canvas:
 
-**Cure.** Emit the range as ONE isolated run — a single `computed` string `` `${min} – ${max}` ``
-inside one element carrying `dir="ltr"` (or a `<bdi>`). One element, one direction, no neutral
-floating between two numbers. It also retires the per-instance `<span class="italic">`.
+```
+=== requested oklch(0.53 0.4 330) ===
+hash now: #/?space=oklch&color=oklch(53%+0.4+330deg)
+{ "inlineStyle":        "background-color: oklch(0.53 0.4 330);",     ← no `color:` at all
+  "computedBackground": "oklch(0.53 0.4 330)",
+  "computedColor":      "rgb(28, 25, 23)",                            ← the plate's ink, uncertified
+  "fillRgb": [213, 0, 211], "inkRgb": [28, 25, 23],
+  "wcagInkOnFill":      3.97 }                                        ← floor is 4.5
+```
+
+Control, same probe, same hover, a color one step away:
+
+```
+=== requested oklch(0.62 0.28 145) ===
+{ "inlineStyle": "background-color: oklch(0.62 0.28 145); color: oklch(0 0 0);",
+  "wcagInkOnFill": 6.90 }
+```
+
+So the pair commits together at 6.90 and splits at 3.97 depending only on where the user parks the
+chroma slider. `TEXT_CONTRAST_FLOOR` is 4.5 (`ink.ts:15`); `e2e/smoke/oracles/o18-contrast-census.spec.ts:697-743`
+asserts `>= TEXT_FLOOR` for exactly this element — at one color (`bootAtOwnerColor`). See C-12.
+
+**Cure.** The fail-open is the defect; make the pair atomic. One computed that returns *both or
+neither*:
+
+```ts
+const nodeSkin = computed(() => {
+    const ink = contrastInkFor(cssColorOpaque.value);
+    return ink ? { backgroundColor: cssColorOpaque.value, color: ink } : undefined;
+});
+```
+
+`:style="isHovered ? nodeSkin : undefined"` — when the ink cannot be certified the fill is not
+painted either, and the node stays on its resting recipe, which the census already certifies. The
+deeper cure belongs in `ink.ts`: `contrastInkFor` should not be able to return `null` for an opaque
+sRGB-representable fill — walk the neutral axis (it currently tests only the two endpoints, `ink.ts:162-172`)
+rather than giving up.
 
 ---
 
-## C-6 · MINOR — heading inversion: an `h3` pane title owns five `h2` children; the document has no `h1`
+## C-3 · MAJOR — the hover highlight lights nodes in rows the pointer never entered
 
-**Measured (`CNL-probe4.mjs`).**
+**Site.** `:122-126` — `hoveredPath.length && hoveredPath.includes(space as string)`.
+
+**Mechanism.** `hoveredPath` (`:232`) is one shared ref holding the hovered row's node *names*; the
+per-node test asks "is my text in that list", not "am I in that row". Since every path in a space's
+conversion graph starts at that space, the source node repeats in every row **by construction** — so
+the bleed is guaranteed, not incidental.
+
+**Reproduction.** `node …/scratchpad/cnl-c2-probe3.mjs`, space Lab, pointer on node 0 (row 1):
 
 ```
-{ "h1CountDoc": 0,
+=== A1. hover node 0 (row 1) — lit map ===
+[{Lab:true},{XYZ:true},          ← row 1 — the row the pointer is in
+ {Lab:true},{LCh:false},         ← row 2 — pointer never entered
+ {Lab:true},{XYZ:true},{OKLab:false},   ← row 3 — pointer never entered
+ {Lab:true},{LCh:false},{OKLCh:false}]  ← row 4 — pointer never entered
+litCount: 6 of 10
+```
+
+Six of ten nodes paint the live color; four of the six are in rows the pointer never touched. An
+affordance that means "this path" instead reads "every occurrence of these three words".
+
+**Cure.** Identity by row, not by string: `const hoveredRow = ref<number | null>(null)` and
+`index === hoveredRow`. Strictly less code, correct by construction, and it retires both
+`as any` / `as string` casts (`:111`, `:123`) and the dead `hoveredPath.length` guard.
+
+---
+
+## C-4 · MAJOR — three glass-ui components per row wired to an **empty** tooltip, on a target no keyboard can reach
+
+**Sites.** `:97-142` (the `TooltipProvider`/`Tooltip`/`TooltipTrigger` stack, provider **inside**
+the `v-for`), `:109-113` (the trigger `<div>`), `:139-140` (the empty `TooltipContent`).
+
+**Measured** (`…/cnl-c2-probe3.mjs`):
+
+```
+=== A2. tooltip DOM while hovering ===
+{ "count": 2,
+  "samples": [
+   { tag: "DIV",  text: "\"\"", html: "<div data-reka-popper-content-wrapper … z-index:120 …>" },
+   { tag: "SPAN", text: "\"\"", html: "<span aria-hidden=\"true\" id=\"reka-tooltip-content-v-0-6\"
+                                        role=\"tooltip\" style=\"…clip:rect(0,0,0,0)…\"></span>" }]}
+
+=== A3. trigger a11y ===
+{ "triggerTag":"DIV", "role":null, "tabindex":null, "cursor":"pointer",
+  "ariaDescribedby":"reka-tooltip-content-v-0-6", "describedTargetText":"\"\"",
+  "focusablesInSection":0, "nodeBox":[49,37] }
+
+=== C1. 40-stop tab walk ===
+… "BUTTON[about]:Select color space","DIV[about]:L∗=116 f(Y/Yn)−16","BODY:→lab(92% 88.8 20 …" …
+stops inside the Conversion Graph: 0
+```
+
+Four defects in one construction:
+
+1. **The tooltip has no content, in any state.** A popper wrapper and a visually-hidden mirror, both
+   `textContent === ""`. Nothing is ever shown to anyone.
+2. **`aria-describedby` points at that empty span.** Every row promises a screen reader a description
+   and delivers `""`.
+3. **No keyboard path.** 40 Tab presses, `focusablesInSection: 0`, zero stops in the section. The
+   highlight (such as it is) is mouse-only. WCAG 2.1.1.
+4. **`cursor: pointer` on a `<div>` with `role: null`** — an activation promise with nothing behind
+   it. WCAG 4.1.2.
+
+The content this was built for is sitting unused: `colorSpaceInfo.notes` — one prose line per space,
+13 of them — has **zero consumers**:
+
+```
+$ grep -rn "\.notes\b" demo/ --include="*.vue" --include="*.ts"
+(no matches)
+```
+
+Corroborating shape defects: one `TooltipProvider` **per row** (`:97` is inside the `v-for`) — Lab
+renders 4, XYZ renders 8, and the provider is designed to wrap many tooltips once; and
+`class="contents w-64 p-2"` on `:139`, where `display: contents` erases the very box `w-64 p-2` sizes.
+
+**Cure — pick an end, do not keep the middle.** Either (a) render `notes` in the tooltip, make the
+row a real `<button type="button">`, mirror `@mouseenter/@mouseleave` with `@focus/@blur`, and hoist
+ONE `TooltipProvider` above the `v-for`; or (b) delete the entire Tooltip stack, the
+`cursor-pointer` and the `aria-describedby` with it, and let the rows be static data. Today's state
+pays the full cost of (a) and delivers less than (b).
+
+---
+
+## C-5 · MAJOR — 16 renders of this component per 1 render of the picker's own slider, for 9 distinct pixels of output
+
+**Sites.** `:186` (`defineModel<ColorModel>`), `:200` (`componentInk` off the **uncoalesced**
+`cssColorOpaque`), `:217-230` (`formattedRange` rebuilding a fresh object per evaluation).
+
+**Mechanism.** The component reads exactly ONE field of the model — `selectedColorSpace` — but
+receives the whole `ColorModel`, and the pipeline replaces that object on **every** colour tick
+(`useColorPipeline.ts:70`, `model.value = next`). So `model.value` invalidates per tick →
+`currentColorSpaceInfo` and `formattedRange` invalidate → `formattedRange` returns a brand-new
+object → the whole 5-section plate re-renders, dragging the reka-ui Tooltip machinery with it.
+
+**Measured** — Vue's own devtools hook, stubbed via `addInitScript` before app init, counting
+`component:updated` by instance uid (`…/cnl-c2-probe5.mjs`; 30-step drag of the picker's first
+channel slider, nothing hovered):
+
+```
+=== A. fresh-page drag: instance census ===
+ ColorNutritionLabel: { liveInstancesSeen: 1, perInstanceUpdates: [160] }
+ AboutPane:           { liveInstancesSeen: 1, perInstanceUpdates: [50]  }
+ ColorPicker:         { liveInstancesSeen: 1, perInstanceUpdates: [10]  }
+ ComponentSliders:    { liveInstancesSeen: 1, perInstanceUpdates: [10]  }
+```
+
+and, with the CNL subtree isolated by ancestry plus a `MutationObserver` on the only elements whose
+output actually depends on the colour (`…/cnl-c2-probe2.mjs`, 40-step drag):
+
+```
+{ "cnlSelf": 160, "cnlSubtree": 950, "all": 15010,
+  "byName": { ColorNutritionLabel:160, TooltipTrigger:200, TooltipProvider:120,
+              Tooltip:80, TooltipRoot:80, PopperAnchor:80, PrimitiveSlot:80,
+              Primitive:80, PopperRoot:40, Alert:10, AlertTitle:10, AlertDescription:10 },
+  "domStyleWrites": 27, "distinctInkValues": 9 }
+```
+
+**160 renders and 950 descendant component updates produced 27 DOM writes carrying 9 distinct
+values.** The picker's own `ComponentSliders` — the component being dragged — rendered 10 times.
+
+The cost of each tick's real work is measurable too (same dev server, real module):
+
+```
+=== B. split ink microbench (per call) ===
+{ "contrastInkFor_us": 72.2, "certifyAccentInk_us": 704.6, "note": "vite dev build, unminified" }
+```
+
+`componentInk` (`:200`) calls `certifyAccentInk` once per colour tick — ~0.7 ms per tick in dev —
+and it reads `cssColorOpaque`, the **uncoalesced** projection, even though the pipeline already
+exposes `cssColorOpaqueFrame` (`useColorPipeline.ts:279`), the rAF-coalesced ref built for exactly
+this fan-out and provided app-wide.
+
+**Cure (two moves, both subtractive).**
+1. Pass the field, not the model: `defineProps<{ space: DisplayColorSpace }>()` at the child,
+   `:space="model.selectedColorSpace"` at `AboutPane.vue:43`. A primitive prop that does not change
+   lets Vue skip the child render entirely — the 160 collapse to the number of *space* changes.
+2. Certify off the coalesced colour (`cssColorOpaqueFrame`), the same discipline the atmosphere
+   fan-out already follows: at most one 0.7 ms certification per frame instead of one per pointer
+   event.
+
+---
+
+## C-6 · MAJOR — `colorSpaceInfo.hex` is unreachable, and the About card contradicts itself on Hex
+
+**Site.** `:211` × `demo/color-session/color-model.ts:32-34` — `resolveColorSpace` maps `"hex" → "rgb"`
+and can never *return* `"hex"`, so the 21-line `hex` entry (`colorSpaceInfo.ts:313-333`) can never be
+selected. The only other consumer resolves the same way (`ConsoleRail.vue:171-176` reads
+`currentColorSpace`, which is `resolveColorSpace(...)` — `useColorPipeline.ts:113-115`). Dead across
+the app.
+
+**Measured** (`…/cnl-c2-probe5.mjs`, selecting Hex from the About selector; guide length from
+`…/cnl-c2-probe4.mjs`):
+
+```
+--- selected: Hex ---
+ "title":      "About the color spaces, Hex",
+ "definition": "A color space based on the additive mixture of red, green, and blue light.",
+ "basic":      "Device-dependent | Varies (typically D65) | Limited (device-specific) | 1931",
+ "components": "Red 0 to 255 Green 0 to 255 Blue 0 to 255"
+ (guideChars: 4244 — hex.md DID render, immediately below)
+```
+
+One `<Card>` says two things at once: the label describes CIE RGB (1931) while the Detailed Guide
+renders 4,244 characters about hexadecimal notation. The unreachable entry has the right answer in
+it — `components: ["Red (00-FF)", …]`, `created: "1996"`, `conversions: [["Hex","RGB"], …]`.
+
+**Cure.** Index the metadata by the **display** space (`model.value.selectedColorSpace`) and keep
+`resolveColorSpace` for `PICKER_CHANNELS` only — they answer different questions and should stop
+sharing a key. Rider: once `hex` is reachable, its Components ranges must come from the entry
+(hex digits), not from `PICKER_CHANNELS.rgb` (0–255).
+
+---
+
+## C-7 · MINOR — on touch, the hover affordance latches: 6 nodes stay painted with no way to dismiss
+
+**Reproduction** (`…/cnl-c2-probe3.mjs`, context with `hasTouch: true`, real `touchscreen.tap`):
+
+```
+=== B1. after TAP on node 0 (touch) === litCount: 6
+ [{Lab:true},{XYZ:true},{Lab:true},{LCh:false},{Lab:true},{XYZ:true},{OKLab:false},{Lab:true},…]
+=== B2. after tapping elsewhere ===    litCount: 0
+```
+
+A tap fires the emulated `mouseenter`; no `mouseleave` follows until the user happens to tap
+something else. So a touch user taps a row that advertises itself with `cursor: pointer`, gets six
+scattered nodes flooded with the live colour across four rows, **no tooltip** (C-4), and no
+dismissal affordance. On the mobile matrix this is the *only* way the highlight can ever be seen.
+
+**Cure.** Folded into C-4(b)/C-3: a row that is a real button with `@focus/@blur` + row-scoped
+identity behaves correctly on touch, keyboard and mouse without a device sniff.
+
+---
+
+## C-8 · MINOR — the component ranges disintegrate under `dir="rtl"`
+
+**Site.** `:59-63` — three bare inline runs in one bidi paragraph:
+
+```html
+<div>{{ range.min }} <span class="italic">to</span> {{ range.max }}</div>
+```
+
+The numbers are LTR-strong, `to` is LTR-strong, the leading `-` is bidi-neutral. Under an RTL base
+direction the reorder is not cosmetic.
+
+**Evidence — the formation's own captured matrix**, which I read directly:
+`docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop/picker.png`. The Components row renders
+
+```
+b* (Blue-Yellow)      a* (Green-Red)       L* (Lightness)
+   to 125 125-           to 125 125-          to 100% 0%
+```
+
+The separator is no longer between its operands and the minus sign has detached onto the *right*
+number's tail (`125-`). `rtl-desktop` is an audited capture matrix, so this ships as-audited.
+
+**Cure.** One isolated run: a computed `` `${min} – ${max}` `` inside one element carrying `dir="ltr"`
+(or `<bdi>`). One element, one direction, no neutral floating between two numbers.
+
+---
+
+## C-9 · MINOR — `defineModel` for a value the component never writes
+
+**Site.** `:186` — `const model = defineModel<ColorModel>({ required: true })`.
+
+```
+$ grep -n "model.value" demo/scenes/about/ColorNutritionLabel.vue
+211:    const space = resolveColorSpace(model.value.selectedColorSpace);
+219:        PICKER_CHANNELS[resolveColorSpace(model.value.selectedColorSpace)].map(…)
+```
+
+Two reads, zero writes. The component publishes an `update:modelValue` contract it never fires and
+the host binds it two-way (`AboutPane.vue:43`, `v-model="model"`) as though it could write back.
+This is not the repo's known `defineModel` stale-read hazard — that hazard bites *writers* through
+the async parent round-trip and there is no writer here — it is a false mutability contract on a
+display leaf, and it is the same line that causes C-5. One prop (`space`) fixes both.
+
+---
+
+## C-10 · MINOR — three type escapes; one is provably gratuitous
+
+**Sites.** `:111` `setHoveredPath(path as any)` · `:123` `space as string` · `:160`
+`(currentColorSpaceInfo.industries as any).join(", ")` — while `:154` does the identical `.join(", ")`
+on `applications` with **no** cast. Adjacent lines disagreeing about the same type is the tell.
+
+**Measured.** `…/scratchpad/tsrepro/repro.ts` reproduces `:210-215`, `:154`, `:160`, `:111` against
+the real table, with the `:160` cast removed:
+
+```
+$ npx tsc --noEmit --ignoreConfig --strict --target es2022 --lib es2023,dom \
+      --moduleResolution bundler --module esnext repro.ts
+repro.ts(18,78): error TS2345: Argument of type 'readonly ["RGB","XYZ"] | … | readonly [...]'
+  is not assignable to parameter of type 'string[]'.
+  The type 'readonly ["RGB","XYZ"]' is 'readonly' and cannot be assigned to the mutable type 'string[]'.
+```
+
+One diagnostic, and it is **not** on the `industries` line. So `:160`'s `as any` is gratuitous — it
+disables checking on a live expression for nothing. `:111`/`:123` are load-bearing only because
+`setHoveredPath(path: string[])` (`:234`) demands a **mutable** array; `readonly string[]` retires
+both, and C-3's cure deletes the function.
+
+---
+
+## C-11 · MINOR — heading inversion: an `h3` container owning five `h2` children, in a document with no `h1`
+
+**Measured** (`…/cnl-c2-probe8.mjs`):
+
+```
+{ "h1": 0,
   "outline": ["H3: About the color spaces, Lab",
               "H2: Basic Information","H2: Components","H2: Key Properties",
               "H2: Conversion Graph","H2: Usage","H2: Detailed Guide", …] }
 ```
 
-The pane title is `<h3>` (`demo/shared/ui/PaneHeader.vue:22`); this component's five section
-headings are `<h2>` (lines 18, 43, 71, 93, 149). Every subsection outranks its own container.
-`document.querySelectorAll("h1").length === 0`, corroborated by the visual REPORT's `h1` column
-reading `0` on all 60 captures (`audit/visual/REPORT.md:119-178`). WCAG 1.3.1 / 2.4.10 — an AT
-user navigating by heading level reads the sections as siblings of the pane, not children of it.
-
-**Cure.** The pane ladder needs one decision, not five edits; this component's contribution is the
-five `h2` → `h3` (or `h2` under a promoted `h2` title). Rider for the pane-level seat.
+The pane title is `<h3>` (`demo/shared/ui/PaneHeader.vue`); this component's five section headings
+are `<h2>` (`:18,43,71,93,149`). Every subsection outranks its own container, and the page has no
+`h1` at all — corroborated by the visual REPORT's `h1` column reading `0` on all 60 captures
+(`audit/visual/REPORT.md`, per-capture table). WCAG 1.3.1 — heading-navigation reads the sections as
+siblings of the pane, not children of it. The ladder needs one pane-level decision; this
+component's contribution is the five `h2`.
 
 ---
 
-## C-7 · MINOR — `as any` casts: one provably gratuitous, two masking a wrong signature
-
-**Sites.** lines 111 (`setHoveredPath(path as any)`), 123 (`space as string`), 160
-(`(currentColorSpaceInfo.industries as any).join(", ")`).
-
-Line 154 does the identical `.join(", ")` on `applications` with **no** cast. The two adjacent lines
-disagree about the same type, which is the tell.
-
-**Measured.** `…/scratchpad/CNL-cast-repro2.ts` reproduces lines 210-215 and 154/160 verbatim
-against the real `colorSpaceInfo`, with the line-160 cast **removed**:
-
-```
-$ npx tsc --noEmit --strict --target es2022 --lib es2023 --moduleResolution bundler \
-      --module esnext CNL-cast-repro2.ts
-(no output — zero diagnostics)
-```
-
-The line-160 cast is **gratuitous**: it disables type checking on a live expression for nothing.
-
-Lines 111/123 *are* load-bearing, but for the wrong reason: `conversions` is `as const` (readonly
-tuples) and `setHoveredPath(path: string[])` (line 234) demands a **mutable** array. Typing the
-parameter `readonly string[]` retires both casts. Under C-3's cure the handler disappears entirely.
-
----
-
-## C-8 · MINOR — `defineModel` for a value the component never writes
-
-**Site.** line 186 — `const model = defineModel<ColorModel>({ required: true })`.
-
-The file contains **no** `model.value =`; `model` is read at 211 and 219 only. The component
-publishes an `update:modelValue` contract it never fires, and the host binds it as two-way
-(`AboutPane.vue:43` — `<ColorNutritionLabel … v-model="model" />`) as if it could write back. Edict
-7 asks for the idiomatic Vue 3.5 shape; the honest one here is `defineProps<{ model: ColorModel }>()`.
-
-Note for the record: this is **not** the repo's known `defineModel` stale-read hazard — that hazard
-bites *writers* through the async parent round-trip, and this component never writes. The cost here
-is a false mutability contract on a data-display leaf, which is a correctness-of-intent defect, not
-a runtime one.
-
----
-
-## C-9 · MINOR — an object round-trip over an already-ordered array, with a silent-collision failure mode
-
-**Site.** lines 217-230 build `Record<string, {min,max}>` from `PICKER_CHANNELS[space]` — which is
-already an **ordered readonly array** — via `Object.fromEntries`; line 48 immediately re-flattens it
-with `Object.entries`.
-
-The intermediate object buys nothing and costs two things:
-
-1. **Silent channel loss.** Two channels sharing a `key` collapse to one entry, dropping a component
-   from the label with no error. No current space collides (verified across all 17 rows of
-   `PICKER_CHANNELS`), so this is a **latent** failure mode, not an observed one.
-2. **Accidental positional coupling.** `currentColorSpaceInfo.components[index]` (line 57) is joined
-   to `Object.entries` order, i.e. insertion order — which JS guarantees only while no key is
-   integer-like. The names/ranges pairing rides an ordering guarantee the code never states.
-
-**Cure.** `computed(() => PICKER_CHANNELS[space].map(meta => ({ name, min, max })))` and iterate the
-array with `:key="meta.key"`. This also removes the reason `?? rangeKey` (line 57) exists and
-replaces the index `:key` (line 49) with a stable one.
-
----
-
-## C-10 · INFO — dead guard, array-literal class binding
-
-- Line 123 `hoveredPath.length && …` — `[].includes(x)` is already `false`. The guard can never
-  change an outcome.
-- Line 127 `:class="['px-2 py-1 rounded transition-colors']"` — a one-element array binding for a
-  wholly static class list, routing static classes through the dynamic patch path every render.
-  `class="px-2 py-1 rounded transition-colors"` is the same thing without the indirection.
-
----
-
-## C-11 · INFO — **HYPOTHESIS (no reproduction)** — `hoveredPath` is never invalidated on a space change
-
-`clearHoveredPath` (line 238) fires on `mouseleave` only. The rows are `v-for`-keyed by `index`
-(line 99), so a space change **patches the rows in place** — the hovered row is never unmounted, so
-no `mouseleave` fires, and if the pointer has not moved no `mouseenter` fires either. A space change
-driven from anywhere other than the pointer (keyboard on either space `Select`, a `?space=` deep
-link, browser back/forward) would leave `hoveredPath` holding the **previous** space's node names,
-lighting whichever new-space nodes happen to share a name.
-
-**I could not reproduce it.** `…/scratchpad/CNL-probe8.mjs` steps B (keyboard-driven `Select`) and
-C (`location.hash` write) both failed to change the space at all from the harness — the trigger
-still read `Lab` afterward. Labelled a hypothesis, not a finding.
-
-Note that C-3's cure (`hoveredRow` index) does **not** fix this on its own — the stale index would
-survive the same way. The complete cure is a `watch` on the resolved space that clears the hover, or
-a `:key` on the rows that changes with the space so the subtree remounts.
-
----
-
-## C-12 · BLOCKER (test truth) — vacuous gate: no assertion reads any field this component renders
+## C-12 · BLOCKER (test truth) — the gate is vacuous, and C-2 is the escape that proves it
 
 **Measured.**
 
 ```
-$ grep -rn "Conversion Graph\|Perceptual Uniformity\|Device Dependency\|White Point\|\
-Key Properties\|Basic Information" e2e/ test/ demo/test/
-(no matches)
-
 $ grep -rn "ColorNutritionLabel" test/ e2e/
-e2e/smoke/oracles/o10d-display-voice-census.spec.ts:41:  * ColorNutritionLabel "Definition" alert …
-   ← a COMMENT, explaining why the Definition alert is EXCLUDED from that census
+e2e/smoke/oracles/o10d-display-voice-census.spec.ts:41:  * ColorNutritionLabel "Definition" alert …   ← a COMMENT explaining an EXCLUSION
+
+$ grep -rn "Conversion Graph|Perceptual Uniformity|Device Dependency|White Point|Key Properties" e2e/ test/
+(no matches)
 ```
 
-There is no unit test file for the component. The only executing coverage is
-`e2e/smoke/oracles/o18-contrast-census.spec.ts:697-743`, which measures the **contrast ratio** of
-the first `[data-o18="graph-node"]` (resting + hovered) and the first `[data-o18="component-name"]`.
-It asserts ink legibility and nothing else.
+No unit test exists. The only executing coverage is
+`e2e/smoke/oracles/o18-contrast-census.spec.ts:697-743`, which hovers `[data-o18="graph-node"].first()`
+**at one colour** (`bootAtOwnerColor`) and asserts a contrast ratio. It asserts nothing about what
+the label *says*.
 
-**Exact mutations that keep the suite green:**
+This is not a hypothetical. **C-2 walked straight through it**: the assertion the oracle makes
+(`>= 4.5` on the hovered node) is *false at a reachable colour* and the suite is green, because the
+suite never varies the colour.
 
-| # | Mutation | Result | Caught? |
+Mutations that keep the suite green:
+
+| # | Mutation | Consequence | Caught? |
 |---|---|---|---|
-| 1 | Replace lines 210-215 with `computed(() => colorSpaceInfo.rgb)` | **every** space renders CIE RGB — C-1 at 100% instead of 33% | **No** |
-| 2 | Replace line 123's condition with `true` | every node paints the live fill permanently; the hover affordance is gone | **No** — o18 measures `graph-node-resting` and `graph-node-hovered`, both `contrastInkFor`-derived and passing *by construction* |
-| 3 | Delete lines 97-142 (the Tooltip stack), keeping the nodes | the `aria-describedby` and the empty tooltip vanish | **No** |
-| 4 | Delete lines 92-144 (the whole Conversion Graph section) | o18's `.first()` locator fails | **Yes** — the one mutation the gate catches |
+| 1 | `currentColorSpaceInfo` → `computed(() => colorSpaceInfo.rgb)` | every space prints CIE RGB (C-1 at 100% instead of 33%) | **No** |
+| 2 | `:123` condition → `true` | every node permanently painted; the hover affordance gone | **No** (both census rows stay `contrastInkFor`-derived) |
+| 3 | delete `:97-142` (the whole Tooltip stack) | the empty tooltip and its `aria-describedby` vanish | **No** |
+| 4 | delete `:92-144` (the Conversion Graph section) | the `.first()` locator fails | **Yes** — the one mutation it catches |
 
-The gate certifies that whatever text appears has ≥4.5:1 contrast. It does not certify that the text
-is true, that the highlight follows the pointer, or that the tooltip has content. **The component
-could assert that OKLCh was created in 1931 and ship green** — which is precisely C-1, already
-shipped, already green.
-
-**Cure.** A component test that is *about the data contract*: for **every** key of
-`DISPLAY_COLOR_SPACE_NAMES`, mount the label and assert the rendered `Definition` matches
-`colorSpaceInfo[space].definition` and the rendered component names match
-`colorSpaceInfo[space].components`. That single table-driven test kills C-1, C-2 and mutation 1 at
-once, and it is the test whose absence let C-1 exist.
+**Cure.** Two tests, both table-driven, both cheap:
+(a) for **every** key of `DISPLAY_COLOR_SPACE_NAMES`, mount and assert the rendered Definition /
+Components / Created equal `colorSpaceInfo[space]`'s — kills C-1, C-6 and mutation 1;
+(b) parameterise the o18 graph-node row over a colour set that includes the C-2 null region
+(`oklch(0.53 0.4 330)`) — kills C-2 and mutation 2.
 
 ---
 
-## C-13 · MINOR — per-instance overrides of glass-ui roots
+## C-13 · INFO — construction residue
 
-**Sites.** line 8 — `<Alert class="m-0 bg-well border-border/30 rounded-card">`; line 139 —
-`<TooltipContent class="contents w-64 p-2 text-small">`.
+- **`Object.fromEntries` round-trip** (`:217-230` → `:48`): an ordered readonly array is turned into
+  an object and immediately re-flattened with `Object.entries`. It buys nothing, silently drops a
+  channel if two ever share a `key` (no current collision — checked all 17 rows of
+  `PICKER_CHANNELS`), and makes the names↔ranges pairing ride insertion order that the code never
+  states. `PICKER_CHANNELS[space].map(meta => …)` with `:key="meta.key"` retires the round-trip, the
+  index `:key` (`:49`) and the `?? rangeKey` fallback (`:57`) at once.
+- **Dead guard** (`:123`): `hoveredPath.length && …` — `[].includes(x)` is already `false`.
+- **Array-literal class binding** (`:127`): `:class="['px-2 py-1 rounded transition-colors']"` routes
+  a wholly static class list through the dynamic patch path on every one of those 160 renders.
+- **Per-instance overrides of glass roots** (edict 5): `:8` overrides the glass-ui `Alert`'s margin,
+  background, border colour and radius at the call site (the reasoning in the `:5-7` comment is
+  right; its conclusion belongs in an `Alert` variant), and `:139` overrides `TooltipContent`'s
+  `display` with `contents`.
+- **Audit hooks in shipped markup**: `data-o18="component-name"` / `data-o18="graph-node"` (`:55`,
+  `:128`) are test selectors in production DOM. Recorded, not counted — the census depends on them.
 
-Edict 5 puts styling at the design-system root, not the call site. Here the call site overrides the
-glass-ui `Alert`'s margin, background, border color **and** radius — four axes — and overrides
-`TooltipContent`'s `display` with `contents`, which erases the primitive's own box (and with it the
-`w-64 p-2` on the same line — see C-4). The in-file comment at lines 5-7 correctly reasons that the
-Definition chip belongs on the one rung-2 well tone; the conclusion belongs in a glass-ui `Alert`
-variant (`tier="well"`), not in a class list on one instance.
+---
+
+## C-14 · INFO (adjacent, not in this file) — the `space=` deep-link parameter is decorative
+
+Found while driving this component; the defect is in `useColorUrl` / `ColorPicker`, and it decides
+what this label shows.
+
+**Measured** (`…/cnl-c2-probe8.mjs`):
+
+```
+start:                              #/?space=lab&color=lab(92% 88.8 20 / 82.7%)   title "… Lab"
+after space-only change to xyz:     #/?space=xyz&color=lab(92% 88.8 20 / 82.7%)   title "… Lab"   ← ignored
+after space+color change to xyz:    #/?space=oklch&color=oklch(55% 0.12 200deg)   title "… OKLCh" ← overridden
+```
+
+Two mechanisms: (1) `useColorUrl.ts:73-76` watches **only** `route.query.color`, so a link that
+changes only the space is a no-op; (2) `ColorPicker.vue:356-363` watches `model.value.inputColor` and
+calls `parseAndSetColor`, which re-derives `selectedColorSpace` from the colour's own **notation**
+(`useColorParsing.ts:64-75`), so `?space=xyz&color=oklch(…)` lands on OKLCh and rewrites the URL to
+say so. A shared link cannot select a display space that differs from its colour's syntax.
 
 ---
 
 ## Negative proofs — what I attacked and could not break
 
-These are stated so the DEFECTIVE verdict is not read as a blanket one. Each is a measurement.
+Stated as measurements so the DEFECTIVE verdict is not read as a blanket one.
 
-**The F-3 fill/ink contrast chain HOLDS.** I attacked `contrastInkFor` (`demo/color-session/ink.ts`)
-at both domain poles, at the black/white ink crossover, and at colors whose serialization leaves the
-sRGB gamut (`rgb()` emitting >255, `hsl()` emitting negative saturation). Real painted
-`backgroundColor`/`color`, resolved through a canvas, WCAG ratio computed
-(`…/scratchpad/CNL-probe6.mjs`):
+**No crash path into the unguarded lookup.** `:219` indexes `PICKER_CHANNELS[…]` with **no** guard
+(unlike `:212`), so a space id outside the table would be `undefined.map` — a render crash. I could
+not reach it:
 
-| space | color | painted fill | painted ink | ratio |
-|---|---|---|---|---:|
-| rgb | `oklch(95.83% 0.2724 9.83deg)` | `rgb(255,143,200)` *(clamped from 385.3)* | `oklch(0 0 0)` | **10.02** |
-| hsl | `oklch(95.83% 0.2724 9.83deg)` | `oklch(0.9583 0.2724 9.83)` | `oklch(0 0 0)` | **10.02** |
-| oklch | `oklch(0.55 0.2 250)` | `oklch(0.55 0.2 250)` | `oklch(1 0 0)` | **4.74** |
-| oklch | `oklch(0.5 0 0)` / `0.501` / `0.499` | mid grey | `oklch(1 0 0)` | **6.01** |
-| lab | `lab(0% 0 0)` | `lab(0 0 0)` | `oklch(1 0 0)` | **21.0** |
-| lab | `lab(100% 0 0)` | `lab(100 0 0)` | `oklch(0 0 0)` | **21.0** |
-| oklch | `oklch(0.62 0.28 145)` | in-gamut green | `oklch(0 0 0)` | **6.90** |
-| oklch | `oklch(0.7 0.4 90)` | out-of-gamut yellow | `oklch(0 0 0)` | **7.69** |
+```
+$ node -e "convertColor(red, 'bogus'|'srgb'|'HEX'|'')"   → ERR color_invalid_input (all)
+$ parseCssColor("color(srgb 1 0 0)")     → space "rgb"
+  parseCssColor("color(xyz-d50 1 0 0)")  → space "xyz"        (parser normalizes to SpaceId)
+```
 
-Minimum 4.74, floor 4.5. The `resting`-rung component-name ink measured 5.76–16.88 against its true
-composited ground across the same set. **No defect.** The one residual is shape, not behavior:
-`nodeInk = contrastInkFor(nodeFill.value) ?? ""` (line 208) paints the fill *even when the ink
-cannot be certified* (`""` → inherit), which is a fail-open split of the pair the F-3 comment says
-must commit together. `contrastInkFor` returns `null` only on parse failure or `alpha !== 1`, and
-`cssColorOpaque` is `serializePickerColor(withAlpha(color, 1))`
-(`useColorPipeline.ts:104`) — always parseable, always opaque — so the branch is **unreachable
-today**. Latent, not live; recorded, not counted.
+Both entry points that could inject a foreign space — `useColorUrl.applyUrlToModel` (`:30-47`) and
+`boot/hydrate.modelFrom` (`:80-91`) — run the value through `convertPickerColor` first and fall
+through on failure, and the parser only ever emits ids that `PICKER_CHANNELS` covers (it is
+`satisfies Record<SpaceId, …>`). The asymmetry is real but currently unreachable; recorded, not
+counted.
 
-**Tap targets — this component contributes 0 to the REPORT's 60.** Measured node boxes at 1440:
-`80×35.9`, `76.8×35.9`, `54×35.9` CSS px. All above the 24px floor.
+**Every advertised conversion path is real.** `node …/scratchpad/graph-edges.mjs` walks all **44**
+paths in `colorSpaceInfo.conversions` through the actual library, chained node by node:
 
-**No overflow anywhere.** 390px mobile: `docOverflowX: 0`, component names `100×48` with
-`scrollWidth === clientWidth`. 200% zoom: `docOverflowX: 0`, `clipped: false` on all three names.
+```
+rgb     RGB→XYZ            ok      xyz    XYZ→RGB→Kelvin       ok
+rgb     RGB→Kelvin         ok      ictcp  ICtCp→XYZ→OKLab      ok
+lab     Lab→LCh→OKLCh      ok      jzazbz Jzazbz→XYZ→RGB       ok
+…  44/44 ok, 0 failures
+```
 
-**Nothing to leak.** The file has **no** `requestAnimationFrame`, no `addEventListener`, no
-observer, no timer, no `onMounted`/`onUnmounted`, no async, no fetch. The constellation-wide PRM-RAF
-epidemic does not touch it. No `ValueUnit` construction — the nesting-accumulation hazard is absent.
-No `parseCssColor` call in this file (parsing happens inside `certifyAccentInk`/`contrastInkFor`
-behind `Result` types), so the live `parseCssColor` crash class has no surface here. No reka-ui
-slider, so no pointer-capture leak.
+**No leaks, no loops, one instance.** The file has no `requestAnimationFrame`, no
+`addEventListener`, no observer, no timer, no `onMounted`/`onUnmounted`, no async, no fetch — the
+constellation PRM-RAF epidemic does not touch it. No `ValueUnit` construction (no nesting-accumulation
+surface). No `parseCssColor` call in the file (parsing happens behind `Result` types in `ink.ts`),
+so the live parser crash class has no surface here. No reka-ui slider, so no pointer-capture leak.
+Instance census during a drag: `liveInstancesSeen: 1` — no duplicate/leaked instances.
 
-**Edict 8 (`verbatimModuleSyntax`) satisfied** — line 182 `import type { ColorModel }` is the only
-type-only import and it is correct. **Edict 4 (glass-ui first) satisfied** — `Alert`, `Separator`
-and the `Tooltip` family are all re-exports of `@mkbabb/glass-ui`
-(`demo/ui/alert/index.ts:9`, `demo/ui/separator/index.ts:1`, `demo/ui/tooltip/index.ts:1`); nothing
-is hand-rolled locally. **Edict 6 (animations)** — the only motion is `transition-colors`, tokenized
-by Tailwind; nothing deleted.
+**KeepAlive does pause it.** I expected off-screen work; there is none. After navigating to
+`/#/gradient` and dragging 40 steps: `aboutGraphNodesInDom: 0` and **zero** `ColorNutritionLabel`
+updates (`…/cnl-c2-probe1.mjs`, section B). Vue 3.5's deactivated-subtree effect pausing holds.
 
-**Perf: inconclusive, reported as such.** A 60-step programmatic drag of the first channel slider
-with the About pane mounted produced **9** style-attribute writes on `[data-o18="component-name"]`,
-p95 frame `108.4ms`, max `141.7ms` (`CNL-probe7.mjs`). The frame numbers are whole-app (WebGL blob +
-atmosphere + picker) and I could not attribute any share to this component, and 9 patches over 60
-moves does not distinguish "computed re-evaluated and produced the same string" from "computed did
-not re-evaluate". `componentInk`/`nodeInk` do depend on the **uncoalesced** `cssColorOpaque` rather
-than the rAF-coalesced `cssColorOpaqueFrame` (`useColorPipeline.ts:104` vs `:279`, provided at
-`App.vue:271`), which is the shape a per-tick-work defect would take — but I have no measurement
-that shows it costing anything, so **I am not filing it as a finding.**
+**Tap targets pass.** Measured node box `49 × 37` CSS px at 1600 wide (`…/cnl-c2-probe3.mjs`, A3) —
+above the 24 px floor. This component contributes **0** rows to the REPORT's 60 small-tap-targets and
+0 to its 18 nameless buttons (it renders no `<button>` at all — which is C-4's problem, not a tap
+problem).
+
+**No errors, no overflow.** Zero `pageerror`s across all eight probes; the only console error on
+`/#/` is the dev API-misconfiguration warning, which is not this component. The visual REPORT records
+`horizontalOverflow: 0` and `pageErrors: 0` for `/#/` in all four Safari matrices.
+
+**Edicts 6 and 8 satisfied.** The only motion is `transition-colors` (tokenized, nothing deleted);
+`:182` `import type { ColorModel }` is the file's only type-only import and it is correct.
+
+---
+
+## Correction to pass-1
+
+Pass-1 filed, under *Negative proofs*: *"The F-3 fill/ink contrast chain HOLDS… `contrastInkFor`
+returns `null` only on parse failure or `alpha !== 1`… so the branch is **unreachable today**.
+Latent, not live; recorded, not counted."*
+
+That is false, and the error is instructive: pass-1 tested `contrastInkFor` at eight hand-picked
+colours (domain poles, the L crossover, two out-of-gamut cases) and generalised from eight passes to
+"unreachable". A scan of the reachable solid returns **53 nulls in 11,128 samples**, and the live
+app at one of them paints **3.97 : 1**. The lesson for the formation: a null-returning guard is
+reachable until a *scan* says otherwise; spot checks at the interesting-looking points measure the
+prover's imagination, not the domain.
 
 ---
 
 ## Family grouping
 
-- **Incomplete-domain / masking fallback** — C-1, C-2 (and C-9's latent collision). One mechanism:
-  a partial lookup table papered over by a `? :` instead of closed by a type.
-- **Identity-by-string instead of identity-by-position** — C-3, C-11. One mechanism: state keyed on
-  rendered text rather than on the structure that produced it.
-- **Affordance without semantics** — C-4, C-6, C-5. One mechanism: visual affordance and reading
-  order built out of raw `<div>`s and bare text runs, with the roles, focus path, heading level and
-  bidi isolation all left implicit.
-- **Type escapes and idiom drift** — C-7, C-8, C-10, C-13.
-- **Gate vacuity** — C-12, which is why the other four families survived to HEAD.
+- **Incomplete domain papered over by a fallback** — C-1, C-6 (+ C-13's latent key collision). One
+  mechanism: a partial lookup table closed with `? :` instead of with a type.
+- **Fail-open guards** — C-2 (`?? ""` on an uncertifiable ink). The same shape as the family above:
+  a missing answer rendered as a plausible one instead of as a refusal.
+- **Identity by string instead of by position** — C-3, C-7. State keyed on rendered text rather than
+  on the structure that produced it.
+- **Affordance without semantics** — C-4, C-8, C-11. Interaction and reading order built from raw
+  `<div>`s and bare text runs, with role, focus path, heading level and bidi isolation all implicit.
+- **Contract too wide for the need** — C-5, C-9, C-10. A whole model where one string was wanted;
+  casts where a `readonly` would do.
+- **Gate vacuity** — C-12, which is why every family above survived to HEAD.

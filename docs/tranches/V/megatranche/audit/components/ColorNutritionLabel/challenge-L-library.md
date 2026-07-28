@@ -3,643 +3,837 @@
 ## Model receipt
 
 I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]` — the tier
-declared at spawn. Seat declared, not inherited.
+declared at spawn. The seat is declared, not inherited.
 
 Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
-Subject: `demo/scenes/about/ColorNutritionLabel.vue`, 242 lines, area `scenes`.
-Dev server probed live at `http://localhost:9000` (Chromium via `playwright-core`; the MCP
-browser was held by another seat, so probes ran as standalone scripts).
+Subject: `demo/scenes/about/ColorNutritionLabel.vue`, 242 lines, area `scenes`, sole consumer
+`demo/scenes/about/AboutPane.vue:43`, sole route `/#/about`.
 
-**Verdict: DEFECTIVE.** The premise holds. Two spaces of measured, wrong-on-screen colour
-science; four parallel declarations of the same domain concept in three layers, none of them the
-owner; a forwarding directory the ratified architecture names by name as forbidden; and a
-component interface that drills a two-way whole-model binding through three files to read one
-enum it could inject.
+Live probes ran against the dev server at `http://localhost:9000` as standalone Chromium scripts
+(`node_modules/playwright-core@1.60.0`) — the Playwright MCP browser profile was held by another
+seat (`Error: Browser is already in use for .../mcp-chrome-83447af`), so I drove a private
+instance. Every probe is read-only navigation.
+
+**Verdict: DEFECTIVE.** The premise holds and is worse than "wrong boundaries". The fact this
+component exists to publish — *what a color space is and what its channels range over* — is
+declared in **five** places across two packages, none of which owns it; two of those declarations
+**contradict each other on the same rendered page**; a third prints 1931 CIE RGB science under the
+heading "Display P3"; and the demo-side adapter that exists only because the library publishes no
+consumer surface for that fact **blanks the entire application** on three separate color values
+the library is contractually required to accept and, in one case, to *emit*.
+
+> Note on provenance: a `challenge-L-library.md` written earlier today (11:41) already occupied
+> this path. I did not read it until after my own trace and probes were complete. Its findings
+> L-1/L-2/L-3/L-4/L-5/L-6/L-8 converge independently with mine and I have re-verified each from
+> source before restating it here; this document supersedes it as a superset — the whole-app blank
+> (§L-2), the cross-package on-screen contradiction (§L-3.4), the missing contrast predicate
+> (§L-11) and the `/about` evidence hole (§L-14) are new.
 
 ---
 
-## 0. What the component imports, and where each import comes home
+## 0. The import graph, edge by edge
 
-`ColorNutritionLabel.vue:167-184`
+`ColorNutritionLabel.vue:167-184`:
 
-| Import | Home | Layer per `docs/tranches/V/ARCHITECTURE.md §1` | Legal? |
+| Specifier | Resolves to | Edge on the ratified lattice (`docs/tranches/V/ARCHITECTURE.md:47-56`) | Legal? |
 |---|---|---|---|
 | `vue` | external | — | yes |
-| `../../color-session/keys` (`CSS_COLOR_KEY`) | `color-session` | feature → color-session | yes |
-| `../../color-session/useContrastSafeColor` (`useSafeAccentFn`) | `color-session` | feature → color-session | yes |
-| `../../color-session/ink` (`contrastInkFor`) | `color-session` | feature → color-session | yes, but see **L-11** |
-| `../../color-session/picker-color` (`PICKER_CHANNELS`) | `color-session` | feature → color-session | yes, but see **L-3** |
-| `../../ui/separator`, `../../ui/tooltip`, `../../ui/alert` | `demo/ui/**` | **not on the lattice at all** | **no — L-4** |
-| `@lucide/vue` (`ArrowRight`) | external | published package | yes |
-| `../../color-session/color-model` (type + `resolveColorSpace`) | `color-session` | feature → color-session | yes, see **L-12** |
-| `../../color-session/colorSpaceInfo` | `color-session` | should be `shared/content` — **L-12** | wrong home |
+| `../../color-session/keys` | `demo/color-session/keys.ts` | feature → color-session | yes |
+| `../../color-session/useContrastSafeColor` | `demo/color-session/useContrastSafeColor.ts` | feature → color-session | yes (but §L-11) |
+| `../../color-session/ink` | `demo/color-session/ink.ts` | feature → color-session | yes (but §L-11) |
+| `../../color-session/picker-color` | `demo/color-session/picker-color.ts` | feature → color-session | yes (but §L-3) |
+| `../../color-session/color-model` | `demo/color-session/color-model.ts` | feature → color-session | yes |
+| `../../color-session/colorSpaceInfo` | `demo/color-session/colorSpaceInfo.ts` | **wrong home** — §L-3 | no |
+| `../../ui/separator`, `../../ui/tooltip`, `../../ui/alert` | `demo/ui/*/index.ts` | **not a node on the lattice** — §L-4 | no |
+| `@lucide/vue` | external devDependency | published package | yes |
 
-**Negative proof — the value.js public surface is used correctly.** The component reaches
-`@mkbabb/value.js` only transitively, and the whole demo does so only through the published
-subpath export map:
+### Negative proof — the published `@mkbabb/value.js` surface is consumed correctly
+
+This is the one structural thing that is right, and it is right *by construction*:
 
 ```
-$ grep -rn "@mkbabb/value.js" demo/ --include="*.ts" --include="*.vue" | sed 's/.*from //' | sort | uniq -c | sort -rn
+$ grep -rhn "@mkbabb/value.js" demo --include="*.ts" --include="*.vue" | sed 's/.*from //' | sort | uniq -c
   24 "@mkbabb/value.js/color";
   10 "@mkbabb/value.js/css";
    6 "@mkbabb/value.js/math";
    5 "@mkbabb/value.js/easing";
    4 "@mkbabb/value.js/quantize";
 
-$ grep -rn "@src\|\.\./\.\./\.\./src/\|value.js/src" demo/ --include="*.ts" --include="*.vue"
+$ grep -rn "@src\|value\.js/src\|\.\./\.\./\.\./src/" demo --include="*.ts" --include="*.vue"
 (no output)
 ```
 
-All five specifiers are keys of `package.json#exports`. Zero deep paths into `src/`, zero `@src`
-in demo code. `vite.config.ts:23-47` generates the self-alias set *from* `package.json#exports`
-so the demo can never resolve a specifier a real consumer could not write. This is the one part
-of the structure that is right, and it is right by construction rather than by discipline. It
-should be preserved verbatim through any transposition below.
+All five specifiers are keys of `package.json#exports` (`package.json:20-47`). Zero deep paths
+into `src/`. The subject component reaches the library only transitively, through
+`color-session`. There is no demo import a real consumer could not write. **This must survive
+every transposition below unchanged.**
+
+The defect is not that the demo reaches *past* the public surface. It is that the public surface
+**withholds the one thing this component is built to display**, so the demo re-declares it — five
+times, inconsistently.
 
 ---
 
 ## 1. Findings
 
-### L-1 · BLOCKER — the masking fallback prints factually wrong colour science for 5 of the 17 selectable spaces
+### L-2 · BLOCKER — three legal CSS colors blank the entire application
 
-`ColorNutritionLabel.vue:210-215`
+The demo's library-boundary adapter converts the library's failure-explicit `Result` protocol into
+uncaught exceptions at the top of the render tree. `demo/color-session/picker-color.ts:104-107`:
+
+```ts
+function valueOrThrow<T, E extends Readonly<{ code: string }>>(result: Result<T, E>): T {
+    if (result.ok) return result.value;
+    throw new PickerColorError(result.error.code);
+}
+```
+
+and `picker-color.ts:152-158`:
+
+```ts
+export function channelNumber(color: AnyColor, key: string): number {
+    const index = PICKER_CHANNELS[color.space].findIndex((meta) => meta.key === key);
+    if (index < 0) throw new PickerColorError(`Unknown ${color.space} channel: ${key}`);
+    const value = color.channels[index];
+    if (typeof value !== "number") throw new PickerColorError(`Missing ${color.space}.${key}`);
+    return value;
+}
+```
+
+`ARCHITECTURE.md:84` fixes `Channel = number | "none"` as part of the **final object model** —
+`"none"` is "the sole missing-component sentinel … cross-realm-stable". `ARCHITECTURE.md:217`
+requires the library to *emit* hue `"none"` whenever chroma is powerless (`OKLCH c<=0.000004`).
+The demo aliases `export type PickerColor = AnyColor` (`picker-color.ts:36`) — asserting the demo
+handles the whole library type — and then supplies functions that are **partial over it and throw**.
+
+Reproduction (probe `probe-cnl4.mjs`, four navigations, pasted verbatim):
+
+```
+### E · PICKER route, L=none
+   url=http://localhost:9000/#/?space=oklch&color=oklch(none%200.1%20200)
+   {"bodyLen":0,"first80":"","rootChildren":0}
+   errors=["pageerror: color_missing_channel"]
+### F · ABOUT route, hue=none (powerless, legal)
+   url=http://localhost:9000/#/about?space=oklch&color=oklch(0.6%200%20none)
+   {"bodyLen":0,"first80":"","rootChildren":0}
+   errors=["pageerror: Missing oklch.h"]
+### G · ABOUT route, chroma=none
+   url=http://localhost:9000/#/about?space=oklch&color=oklch(0.6%20none%20200)
+   {"bodyLen":0,"first80":"","rootChildren":0}
+   errors=["pageerror: color_missing_channel"]
+### H · ABOUT route, control (valid)
+   url=http://localhost:9000/#/about?space=oklch&color=oklch(0.6%200.1%20200)
+   {"bodyLen":1905,"first80":"→ Home Tools Login @mbabb dev misconfigured — run `npm run dev` OKLCh 60.0 % , 0","rootChildren":6}
+   errors=[]
+```
+
+`rootChildren: 0` — `#app` is **empty**. Not a broken pane: the whole SPA fails to mount. Case F
+is the sharpest: `oklch(0.6 0 none)` is a value the library's own contract says it will hand back
+to a caller who converts an achromatic color to OKLCH. The demo cannot render its own library's
+output.
+
+The subject component sits directly on this surface: `ColorNutritionLabel.vue:219` indexes
+`PICKER_CHANNELS[...]`, and `ink.ts:45-49` (reached from `ColorNutritionLabel.vue:208`) has the
+identical partiality — `if (L === "none") throw new Error("Ink color is missing lightness")`.
+
+**Attribution.** The crash is in `color-session`, not in the `.vue` file, and fires on `/#/` too
+(case E). It belongs to this seat because it is *caused by the boundary*: the throwing adapter
+exists only to bridge a `Result`-shaped library to a component tree, and it does so by discarding
+the exact property the library was designed around.
+
+**Cure (transposition, not patch).** Delete `valueOrThrow`. The demo resolves `"none"` **once**, at
+the parse/restore boundary, into a `ResolvedColor` type whose channels are `number` — a real,
+narrower type, not an alias claiming to be `AnyColor`. Everything downstream (`channelNumber`,
+`withChannel`, `ink.ts`) then becomes total by construction and needs no throw. If the library
+wants to help, `/color` should publish `resolvePowerless(color): Result<Color<S>, ColorIssue>`
+rather than leaving every consumer to invent the same lowering.
+
+---
+
+### L-3 · BLOCKER — "the channels of a color space" has five declarations and no owner
+
+The single fact `ColorNutritionLabel`'s **Components** section renders — channel name, minimum,
+maximum, unit — is declared independently in five places:
+
+| # | Site | Form | Owns |
+|---|---|---|---|
+| 1 | `src/color/model.ts:56-74` `SPACE_SCHEMA` | `{channels: string[], hueIndex?, css}` | channel **keys** only |
+| 2 | `src/css/grammar.ts:184-220` | inline literals `255`, `360`, `125`, `150`, `0.4`, `1` | percentage references |
+| 3 | `demo/color-session/picker-color.ts:52-70` `PICKER_CHANNELS` | `{key,min,max,unit,hue?}` ×17 | physical ranges + units |
+| 4 | `demo/color-session/colorSpaceInfo.ts` `.components` | prose arrays ×13 | display names |
+| 5 | `assets/docs/*.md` `### Attributes` | markdown bullets ×11 | prose ranges |
+
+`ARCHITECTURE.md:153` assigns the whole job to exactly one of them:
+
+> `SPACE_SCHEMA satisfies Record<SpaceId, SpaceSchema>` is the one authority for **tuple keys,
+> physical ranges, normalization, accepted/canonical units**, factory identity, syntax family and
+> anchor pair.
+
+The shipped `SPACE_SCHEMA` (`src/color/model.ts:50-74`) carries `{channels, hueIndex?, css}` and
+**nothing else** — no range, no unit, no normalization. The ranges the architecture assigns to it
+live instead as bare numeric literals inside the CSS parser, which the same document forbids by
+name (`ARCHITECTURE.md:110`: *"`SPACE_SCHEMA` freezes unit normalization as conversion math, **not
+parser folklore**"*):
+
+```
+$ grep -n "125\|360\|255\|0\.4\b\|150" src/css/grammar.ts | sed -n '1,8p'
+148:            case "turn": return value * 360;
+184:        const values = components.map((part) => channelToken(part, 255));
+190:        const values = [channelToken(components[0]!, 360, true), channelToken(components[1]!, 1), channelToken(components[2]!, 1)];
+202:        const values = [channelToken(components[0]!, 100), channelToken(components[1]!, 125), channelToken(components[2]!, 125)];
+208:        const values = [channelToken(components[0]!, 100), channelToken(components[1]!, 150), channelToken(components[2]!, 360, true)];
+214:        const values = [channelToken(components[0]!, 1), channelToken(components[1]!, 0.4), channelToken(components[2]!, 0.4)];
+```
+
+`src/subpaths/color.ts` exports **neither** `SPACE_SCHEMA` nor `SPACE_IDS`. A consumer who wants
+the channel table has no way to get it — so the demo wrote its own (#3), and the About page
+publishes *the demo's copy* as if it were the library's contract.
+
+#### L-3.4 — the copies disagree, one scroll apart, on the same route
+
+`/#/about` renders the nutrition label (source #3) directly above the "Detailed Guide" markdown
+(source #5). They contradict:
+
+| Space | Nutrition label (`PICKER_CHANNELS`) — **measured live** | Detailed Guide (`assets/docs/*.md`) | Library contract (`ARCHITECTURE.md:88-106`) |
+|---|---|---|---|
+| `rgb` | `Red 0 to 255` | `` `R`: Red component (0 to 1) `` | `[r,g,b]`, each **0–255** → markdown is **wrong** |
+| `hsv` | `h 0deg to 360deg` | `` `H`: Hue (0 to 1) `` | h **0–360** → markdown is **wrong** |
+| `oklch` | `C (Chroma) 0 to 0.5` | `` `C`: Chroma (0 to ~0.4) `` | raw **0–0.5**, `%` reference **0.4** — both half-right |
+| `lch` | `C (Chroma) 0 to 150` | `` `C`: Chroma (0 upward) `` | **0–150** |
+| `lab` | `L* (Lightness) 0% to 100%` | `` `L*`: Lightness (0 to 100) `` | 0–100 |
+
+Measured (probe `probe-cnl3.mjs`, case B, `?space=rgb&color=rgb(128 80 176)`):
+
+```
+ "rows": ["Red0 to 255", "Green0 to 255", "Blue0 to 255"]
+```
+
+against `assets/docs/rgb.md`:
+
+```
+-   `R`: Red component (0 to 1)
+```
+
+Two answers to one question, 400px apart, in a component whose entire purpose is to be
+authoritative about color science. The `oklch` row is the most instructive: neither copy models
+the distinction the library actually makes (physical range vs. percentage reference), so both are
+incomplete and the disagreement is *unresolvable at the demo layer* — proof that the fact does not
+belong there.
+
+**Cure.** Widen `SPACE_SCHEMA` to what `ARCHITECTURE.md:153` already promises —
+`{channels: readonly ChannelSchema[], hueIndex?, css}` with
+`ChannelSchema = {key, min, max, unit, percentReference?}` — export it and `SPACE_IDS` from
+`/color`, and make `src/css/grammar.ts` **read** it instead of restating it. `PICKER_CHANNELS`,
+`CSS_PICKER_SPACES` and the five scale-rule copies (§L-5) then delete outright, and the
+`### Attributes` blocks in `assets/docs/*.md` delete because the label above already renders the
+same facts from the one source. One fact, one home, one render.
+
+---
+
+### L-1 · MAJOR — the masking fallback prints 1931 CIE RGB science under the heading "Display P3"
+
+`ColorNutritionLabel.vue:210-215`:
 
 ```ts
 const currentColorSpaceInfo = computed(() => {
     const space = resolveColorSpace(model.value.selectedColorSpace);
     return space in colorSpaceInfo
         ? colorSpaceInfo[space as keyof typeof colorSpaceInfo]
-        : colorSpaceInfo.rgb;          // ← the mask
+        : colorSpaceInfo.rgb;          // ← masking fallback
 });
 ```
 
-The selector offers every key of `DISPLAY_COLOR_SPACE_NAMES` (`ColorSpaceSelector.vue:150`,
-`= {...PICKER_SPACE_NAMES, hex}` — 18 entries). `colorSpaceInfo` has 13. Enumerated:
+`colorSpaceInfo` (`demo/color-session/colorSpaceInfo.ts:17-334`) is declared `as const` with **no
+`satisfies`**, so nothing checks it for totality. It has 13 keys. `DisplayColorSpace` has 18
+(`SpaceId` ×17 + `"hex"`). The five missing keys — `srgb-linear`, `display-p3`, `a98-rgb`,
+`prophoto-rgb`, `rec2020` — are all selectable: `ColorSpaceSelector.vue:150` builds its item list
+from `Object.entries(DISPLAY_COLOR_SPACE_NAMES)`, which is `{...PICKER_SPACE_NAMES, hex}` =
+all 18 (`color-model.ts:75-78`).
+
+Compare with the sibling table `PICKER_CHANNELS`, which **is** guarded —
+`picker-color.ts:70`: `} satisfies Record<SpaceId, readonly ChannelMeta[]>` — and is therefore
+complete. The two tables describing the same 17 spaces have different totality regimes, ten
+lines apart in the same directory.
+
+Measured (probe `probe-cnl3.mjs`, case A):
 
 ```
-$ node -e "…compare colorSpaceInfo keys vs PICKER_CHANNELS keys…"
-colorSpaceInfo keys (13): rgb, hsl, hsv, hwb, lab, lch, oklab, oklch, xyz, kelvin, ictcp, jzazbz, hex
-PICKER_CHANNELS keys (17): rgb, hsl, hsv, hwb, lab, lch, oklab, oklch, xyz, kelvin, srgb-linear,
-                           display-p3, a98-rgb, prophoto-rgb, rec2020, ictcp, jzazbz
-IN SELECTOR BUT NO INFO ENTRY: srgb-linear, display-p3, a98-rgb, prophoto-rgb, rec2020
+### A · display-p3
+ "title": "Display P3",
+ "definition": "DefinitionA color space based on the additive mixture of red, green, and blue light.",
+ "device": "Device-dependent",
+ "white": "Varies (typically D65)",
+ "gamut": "Limited (device-specific)",
+ "created": "1931",
+ "rows": ["Red0 to 1", "Green0 to 1", "Blue0 to 1"]
 ```
 
-**Reproduction** (dev server live, Chromium 1600×1000):
+Screenshot: `about-display-p3.png` (regenerable — see §4). The plate title reads *Display P3*;
+under it, **Gamut: Limited (device-specific)**, **Created: 1931**, and a Conversion Graph of
+`RGB→XYZ`, `RGB→Kelvin`, `RGB→HSL`, `RGB→Hex`. Every stated fact is false for the named space:
+ProPhoto RGB is D50 (`ARCHITECTURE.md:103`), Rec.2020 is a wide gamut, sRGB-linear is not
+"device-specific limited". Identical output for `rec2020`, `prophoto-rgb`, `a98-rgb`,
+`srgb-linear` (probe `probe-cnl2.mjs`, all five cases).
+
+Note the hybrid: the **Components** rows are *correct* (`0 to 1`, from the guarded
+`PICKER_CHANNELS`) while everything around them is *wrong* (from the unguarded `colorSpaceInfo`).
+The card is half-true, which is worse than uniformly broken — nothing on screen signals which half.
+
+This is edict 2 (no masking fallbacks) in its most literal form: `: colorSpaceInfo.rgb` converts a
+compile-time gap into a plausible-looking lie.
+
+**Cure.** Declare the record's type and let the compiler close it:
+`export const COLOR_SPACE_DOCS = {...} satisfies Record<DisplayColorSpace, ColorSpaceDoc>`. The
+five gaps become build errors; the `? :` fallback deletes.
+
+---
+
+### L-4 · MAJOR — `demo/ui/**` is nineteen one-line glass-ui forwarding directories, forbidden by name
+
+`ARCHITECTURE.md:39`, verbatim:
+
+> There is no `panes/` dumping ground, `demo/@`, TS/Vite project alias, `@src`, **or one-line
+> glass-ui forwarding directory**.
 
 ```
-$ node scratchpad/probe.mjs
-# http://localhost:9000/#/?space=display-p3&color=color(display-p3 0.5 0.2 0.7)
-=== space = display-p3 ===
- "trigger": "Display P3",
- "definition": ["A color space based on the additive mixture of red, green, and blue light."],
- "grid": ["Device Dependency:","Device-dependent","White Point:","Varies (typically D65)",
-          "Gamut:","Limited (device-specific)","Created:","1931", …],
- "graph": ["RGB","XYZ","RGB","Kelvin","RGB","HSL","RGB","Hex"],
- "names": ["Red","Green","Blue"]
+$ for d in demo/ui/*/; do echo "$(basename $d) | $(ls $d | tr '\n' ' ')| $(wc -l < $d/index.ts) lines"; done
+alert | index.ts | 11 lines
+avatar | index.ts | 1 lines
+badge | index.ts | 1 lines
+button | index.ts | 1 lines
+card | index.ts | 1 lines
+checkbox | index.ts | 1 lines
+collapsible | index.ts | 1 lines
+dialog | index.ts | 1 lines
+dropdown-menu | index.ts | 1 lines
+input | index.ts | 1 lines
+label | index.ts | 1 lines
+popover | index.ts | 1 lines
+radio-group | index.ts | 1 lines
+select | index.ts | 1 lines
+separator | index.ts | 1 lines
+skeleton | index.ts | 1 lines
+slider | index.ts | 1 lines
+switch | index.ts | 1 lines
+tooltip | index.ts | 1 lines
+
+$ cat demo/ui/separator/index.ts
+export { Separator } from "@mkbabb/glass-ui";
 ```
 
-The plate title reads **Display P3** while every fact below it is CIE RGB's: created **1931**
-(Display P3 is 2015, SMPTE ST 431/Apple), gamut **"Limited (device-specific)"** (P3 is the wide
-gamut — the whole point of the space), white point "Varies (typically D65)" (P3 is fixed D65),
-and a conversion graph rooted at RGB. `rec2020` reproduces identically. `srgb-linear`,
-`a98-rgb`, `prophoto-rgb` follow by the same enumeration.
+Nineteen directories, nineteen files, zero implementation. `demo/ui/alert/index.ts` is 11 lines
+only because 9 of them are a comment explaining that the directory used to contain something.
 
-This is an **owner-edict-2 masking fallback** ("no masking fallbacks") in its purest form: the
-absence of data is converted into confident wrong data on a page whose entire purpose is teaching
-colour science. A `Card` titled "About the color spaces" is the single worst place in the product
-to lie.
+The lattice (`ARCHITECTURE.md:31-33`) has exactly one app-owned UI node, `shared/ui/`, defined as
+*"only genuinely app-owned controls with 2+ consumers"* — and it is correctly populated
+(`demo/shared/ui/` = `EmptyState.vue`, `PaneHeader.vue`). `demo/ui/` is not on the lattice at all.
 
-Note the render is a **chimera**: the Components section takes its *names* from the fallback
-(`Red/Green/Blue`) and its *ranges* from the correct space (`0 to 1`, i.e.
-`PICKER_CHANNELS["display-p3"]`), because the two are index-joined at line 57 from two different
-tables. See **L-3**.
-
-### L-2 · MAJOR — the `hex` entry is unreachable dead data
-
-`colorSpaceInfo.ts:313-332` authors a full 20-line `hex` record (own definition, `created: 1996`,
-`components: ["Red (00-FF)", "Green (00-FF)", "Blue (00-FF)"]`). `ColorNutritionLabel.vue:211`
-applies `resolveColorSpace()` *before* the lookup, and `color-model.ts:32-34` maps
-`"hex" → "rgb"`. The key can never be hit from this component.
-
-**Reproduction**: `http://localhost:9000/#/?space=hex&color=%238a2be2`
+It is also a **dual path** (edict 2): the demo already imports glass-ui directly 119 times, and
+through the shim 48 times.
 
 ```
-=== space = hex ===
- "trigger": "Hex",
- "definition": ["A color space based on the additive mixture of red, green, and blue light."],
- "grid": [… "Created:","1931", "Red0 to 255","Green0 to 255","Blue0 to 255" …]
+$ grep -rn "from \"@mkbabb/glass-ui" demo --include="*.vue" --include="*.ts" | wc -l
+     119
+$ grep -rl "from \"\(\.\./\)\+ui/" demo --include="*.vue" --include="*.ts" | wc -l
+      48
 ```
 
-Title "Hex", body CIE RGB 1931, components `Red 0 to 255` — the authored `Red (00-FF)` never
-renders. The only other consumer, `ConsoleRail.vue:173-174`, reaches it through
-`(colorSpaceInfo as any)[space]` where `currentColorSpace` is likewise the *resolved* space
-(`useColorPipeline.ts:113-115`). The entry is dead in both consumers: 20 lines of maintained
-prose that no code path can display.
+`ConsoleRail.vue:90-92` does **both in adjacent lines** — `} from "../../../ui/tooltip";` then
+`import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";`.
 
-### L-3 · BLOCKER — "the channels of a colour space" has four homes and no owner
+The subject component takes three of its imports through the shim
+(`ColorNutritionLabel.vue:173,174-179,181`).
 
-One concept — the identity, count, order, range, unit and human name of a space's channels — is
-declared four independent times across three layers:
+**Cure.** `rm -r demo/ui` and rewrite 48 files' specifiers to `@mkbabb/glass-ui`. Nineteen
+directories and one whole tree level vanish; no behavior changes; the ratified sentence becomes
+true.
 
-| # | Declaration | Location | Carries |
-|---|---|---|---|
-| 1 | `SPACE_SCHEMA` | `src/color/model.ts:56-74` (library) | keys, order, `hueIndex`, `css` flag |
-| 2 | `PICKER_CHANNELS` | `demo/color-session/picker-color.ts:52-70` | keys, order, min, max, unit |
-| 3 | `colorSpaceInfo[space].components` | `demo/color-session/colorSpaceInfo.ts` | prose names, order |
-| 4 | `SPACE_GLYPHS` | `demo/picker/controls/ComponentSliders/ConsoleRail.vue:156-164` | display glyphs |
-
-`ColorNutritionLabel.vue:48,57` joins **#2 and #3 positionally by array index**:
-
-```vue
-v-for="([rangeKey, range], index) in Object.entries(formattedRange)"
-…
-{{ currentColorSpaceInfo.components[index] ?? rangeKey }}
-```
-
-Nothing type-checks that #2 and #3 agree in arity or order. They currently do where both exist
-(measured: all 12 overlapping keys match arity), and they catastrophically do not where #3 is
-absent — which is exactly the chimera in **L-1**.
-
-The root cause is a **library public-surface gap**. `SPACE_SCHEMA` is `export`ed from
-`src/color/model.ts:56` but is re-exported by neither `src/color/index.ts` nor
-`src/subpaths/color.ts`:
-
-```
-$ grep -rn "SPACE_SCHEMA\|SpaceSchema" src/subpaths/ src/color/index.ts
-(no output)
-```
-
-And even if it were exported it carries no ranges or units. The normative ranges exist only as
-prose in `docs/tranches/V/ARCHITECTURE.md §2` (the 17-row space contract table: `rgb` 0–255,
-`lab` a/b −125–125, `lch` c 0–150, `oklch` c raw 0–0.5 / `%` reference 0.4, `jzazbz` jz
-0–0.222 …) and as **inline magic numbers at each parse site**:
-
-```
-$ grep -rn "255\|0\.4\b\|150\b" src/css/grammar.ts
-src/css/grammar.ts:184: const values = components.map((part) => channelToken(part, 255));
-src/css/grammar.ts:208: … channelToken(components[0]!, 100), channelToken(components[1]!, 150), channelToken(components[2]!, 360, true)
-src/css/grammar.ts:214: … channelToken(components[0]!, 1), channelToken(components[1]!, 0.4), channelToken(components[2]!, 0.4)
-src/css/grammar.ts:220: … channelToken(components[0]!, 1), channelToken(components[1]!, 0.4), channelToken(components[2]!, 360, true)
-```
-
-So the library **knows** every number `PICKER_CHANNELS` re-declares, and hides all of it. The
-demo is forced to maintain a 17-row shadow of the library's own space contract, and that shadow
-is the sole executable copy of the ARCHITECTURE §2 table in the repository. `ColorNutritionLabel`
-is the component where the gap becomes visible as wrong text.
-
-### L-4 · MAJOR — `demo/ui/**` is nineteen one-line glass-ui forwarding directories, named as forbidden by the ratified architecture
-
-`docs/tranches/V/ARCHITECTURE.md:37` (normative, §1 Physical demo tree):
-
-> "There is no `panes/` dumping ground, `demo/@`, TS/Vite project alias, `@src`, **or one-line
-> glass-ui forwarding directory**."
-
-Measured:
-
-```
-$ wc -l demo/ui/*/index.ts | tail -1
-      29 total                     # 19 directories, 29 lines
-$ find demo/ui -name "*.vue" | wc -l
-       0
-$ grep -hv "^//" demo/ui/*/index.ts | grep -v "^$" | grep -vc "@mkbabb/glass-ui"
-       0                           # zero lines that are not a glass-ui re-export
-```
-
-`demo/ui/separator/index.ts` in full: `export { Separator } from "@mkbabb/glass-ui";`.
-The subject imports through three of them (`:173`, `:174-179`, `:181`).
-
-The layer is not only redundant, it is **lossy**. glass-ui 7.0.0 publishes 70 export keys
-including first-class `./separator`, `./tooltip`, `./card`, `./select`, `./dialog`, `./popover`,
-`./label`, `./slider`, `./switch`, `./badge`, `./button`, `./collapsible` — but the forwarding
-barrels all pull from the **root** barrel, whose `dist/index.d.ts` is `export *` over 27
-component modules plus the whole motion/pointer-field surface. Every consumer of
-`demo/ui/separator` therefore eagerly names the accordion, data-table, command-palette,
-tags-input, toast and configurator graph to obtain one `<hr>`.
-
-There is also a live **dual path**: 14 `.vue` files and ~28 `.ts` files already import
-`@mkbabb/glass-ui` / `@mkbabb/glass-ui/<subpath>` directly (`demo/shell/dock/index.ts:2`,
-`ColorSpaceSelector.vue:110` `@mkbabb/glass-ui/watercolor-dot`, `useContrastSafeColor.ts:9`
-`@mkbabb/glass-ui/dark`, …). So the same design system is reached two ways in the same feature —
-`ColorSpaceSelector.vue` imports `../ui/select` *and* `@mkbabb/glass-ui/watercolor-dot` in the
-same script block. Owner edict 2 (no dual paths) and edict 3 (KISS, no contrivance) both bite;
-edict 4 is satisfied in spirit (nothing is re-implemented) but the indirection buys nothing.
-
-One directory *does* carry information — `demo/ui/alert/index.ts`'s comment records that a local
-shadcn re-implementation was deleted at B.W2. That history belongs in the tranche record, not in
-a shipped module.
+---
 
 ### L-5 · MAJOR — the channel display-scale rule is copy-pasted five times
 
 ```
-$ grep -rn "max <= 1" demo/ --include="*.ts" --include="*.vue"
-demo/scenes/about/ColorNutritionLabel.vue:220:   const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
-demo/picker/display/ColorComponentDisplay/readoutReservation.ts:98: const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
-demo/color-session/useColorParsing.ts:98:        const display = meta.unit === "%" && meta.max <= 1 ? value * 100 : value;
-demo/color-session/useSliderGradients.ts:73:     const displayed = meta.unit === "%" && meta.max <= 1 ? value * 100 : value;
-demo/color-session/useSliderGradients.ts:84:     const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
+$ grep -rn "meta.unit === \"%\" && meta.max <= 1" demo src --include="*.ts" --include="*.vue"
+demo/scenes/about/ColorNutritionLabel.vue:220:            const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
+demo/picker/display/ColorComponentDisplay/readoutReservation.ts:98:                    const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
+demo/color-session/useColorParsing.ts:98:            const display = meta.unit === "%" && meta.max <= 1 ? value * 100 : value;
+demo/color-session/useSliderGradients.ts:73:                const displayed = meta.unit === "%" && meta.max <= 1 ? value * 100 : value;
+demo/color-session/useSliderGradients.ts:84:            const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
 ```
 
-Two of the five are the *same function*, character for character in behaviour:
+Five copies of one predicate, in three different trees, two of them in the same file. It is a
+*schema* rule ("this channel's canonical unit is a percentage of a 0–1 physical range") wearing a
+`?:` disguise, and it exists only because `ChannelMeta` (`picker-color.ts:40-46`) records the
+physical range but not the canonical unit the library already defines
+(`ARCHITECTURE.md:88-106`, "accepted units → canonical units").
+
+Worse, two of the five are the **same function**:
+
+`demo/color-session/useSliderGradients.ts:82-88`
+```ts
+const currentColorRanges = computed(() => {
+    return PICKER_CHANNELS[currentColorSpace.value].reduce((acc: Record<string, string>, meta) => {
+        const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
+        acc[meta.key] = `(${meta.min * scale}${meta.unit} - ${meta.max * scale}${meta.unit})`;
+        return acc;
+    }, {});
+});
+```
+
+`demo/scenes/about/ColorNutritionLabel.vue:217-230`
+```ts
+const formattedRange = computed<Record<string, { min: string; max: string }>>(() =>
+    Object.fromEntries(
+        PICKER_CHANNELS[resolveColorSpace(model.value.selectedColorSpace)].map((meta) => {
+            const scale = meta.unit === "%" && meta.max <= 1 ? 100 : 1;
+            return [meta.key, { min: `${meta.min * scale}${meta.unit}`, max: `${meta.max * scale}${meta.unit}` }];
+        }),
+    ),
+);
+```
+
+Same input, same reduction, same heuristic, different string punctuation. And `currentColorRanges`
+is **already ambient in this component's host** — `AboutPane.vue:6-14` documents that About reads
+the one App-provided pipeline via `COLOR_MODEL_KEY`, and `useColorPipeline.ts:322` returns
+`currentColorRanges`. `ConsoleRail.vue:114` consumes it that way. `ColorNutritionLabel` re-derives
+it from scratch instead.
+
+**Cure.** The library's schema carries `unit`/`percentReference` (§L-3); formatting becomes one
+exported `formatChannelRange(schema): {min,max}` in `color-session`, consumed by both the rail and
+the label. Five copies → one.
+
+---
+
+### L-7 · MAJOR — a two-way whole-model binding for one enum the component never writes
+
+`ColorNutritionLabel.vue:186`:
 
 ```ts
-// ColorNutritionLabel.vue:222-227
-min: `${meta.min * scale}${meta.unit}`,
-max: `${meta.max * scale}${meta.unit}`,
-// useSliderGradients.ts:85
-acc[meta.key] = `(${meta.min * scale}${meta.unit} - ${meta.max * scale}${meta.unit})`;
+const model = defineModel<ColorModel>({ required: true });
 ```
 
-"How a `ChannelMeta` renders to a human" is a property of `ChannelMeta`, declared in
-`picker-color.ts:40-46`, and belongs beside it (or, per **L-3**, in the library beside the range
-itself). Five homes means five places to change when the `%` reference for `oklch` chroma is
-respected (today the label prints `0 to 0.5` for OKLCh C, which is the raw physical max; the CSS
-percentage reference is 0.4 per ARCHITECTURE §2 — the label does not say which it means).
+```
+$ grep -n "model\.value\s*=\|^\s*model = " demo/scenes/about/ColorNutritionLabel.vue
+(no output — only the declaration on line 186)
+```
 
-### L-6 · MAJOR — the public interface is a two-way whole-model binding the component never writes, for one enum that is already ambient
+The component reads exactly one field, `model.value.selectedColorSpace`, at lines 211 and 219. It
+never writes. `ColorModel` (`color-model.ts:36-41`) additionally carries `color`, `inputColor` and
+`savedColors[]` — three fields this component has no business holding a write channel to. The
+binding is drilled `App → AboutPane (defineModel) → ColorNutritionLabel (defineModel)`.
 
-`ColorNutritionLabel.vue:186` — `const model = defineModel<ColorModel>({ required: true });`
+Meanwhile the *same component* takes its other dependency by injection —
+`ColorNutritionLabel.vue:188`: `const cssColorOpaque = inject(CSS_COLOR_KEY)!`. Two mechanisms for
+two pieces of the same session state, in one 242-line file, and the drilled one is the
+higher-privilege of the two.
 
-`model.value` is read at `:211` and `:219`. It is **never assigned**. Yet the two-way declaration
-forces a three-file wiring chain for a single enum:
-
-- `demo/shell/usePaneRouter.ts:146-152` — the shell router special-cases `about` to build
-  `{ modelValue: model.value, "onUpdate:modelValue": …, cssColor: … }`
-- `demo/scenes/about/AboutPane.vue:72` — re-declares `defineModel<ColorModel>({required:true})`
-- `demo/scenes/about/ColorNutritionLabel.vue:186` — re-declares it again, to read one field
-
-Meanwhile the app already provides the whole pipeline at `demo/color-picker/App.vue:257`
-(`provide(COLOR_MODEL_KEY, pipeline)`), and that pipeline **already exposes the exact derived
-value this component computes**:
+**Cure.** The component's honest interface is one required prop:
 
 ```ts
-// demo/color-session/useColorPipeline.ts:113-115, returned at :295
-const currentColorSpace = computed(() => resolveColorSpace(model.value.selectedColorSpace));
+const { space } = defineProps<{ space: DisplayColorSpace }>();
 ```
 
-`ConsoleRail.vue:114` injects it (`inject(COLOR_MODEL_KEY)!`). `ColorSpaceSelector.vue:142` —
-the sibling *inside AboutPane's own header* — injects it. `AboutPane.vue:6-14` even documents
-the law it is breaking:
+`AboutPane` passes `:space="model.selectedColorSpace"`. The component becomes pure and
+independently mountable; a snapshot test over all 18 spaces becomes a five-line loop instead of a
+model fixture. (The alternative — `inject(COLOR_MODEL_KEY)` like `ConsoleRail` — also works and
+additionally kills §L-5, but couples a presentational card to the pipeline. Prefer the prop for
+the card and let `AboutPane` own the injection.)
 
-> "Its specimen rows read the ONE App-provided pipeline (COLOR_MODEL_KEY, App.vue …) — ambient
-> since S.W2's transposition"
+---
 
-So within one 100-line pane, the selected colour space is reached **two ways**: ambiently by the
-selector, prop-drilled by the label. The component also mixes channels for the *same* domain —
-`selectedColorSpace` by prop, `cssColorOpaque` by `inject(CSS_COLOR_KEY)` at `:188`. One domain,
-two transports, in one 242-line file.
+### L-8 · MAJOR — the hover highlight is a value-membership test and leaks across every row
 
-Secondary consequence: `usePaneRouter.ts:168-175` reads `model.value` inside the `desktopRight`
-computed, so every colour tick replaces the props object identity and re-renders the About
-subtree. (Cost is small — the subtree legitimately re-inks per frame for `componentInk` — so I
-label the *performance* claim a HYPOTHESIS. The *interface* defect stands on the code alone.)
+`ColorNutritionLabel.vue:121-129`:
 
-`formattedRange` (`:217-230`) additionally re-derives `PICKER_CHANNELS[resolveColorSpace(...)]`,
-which `useColorPipeline.ts:117-123` already computes and caches as `colorComponents`.
-
-### L-7 · MAJOR — the conversion-graph hover highlight is a value-membership test; it leaks across rows
-
-`:232-240` stores `hoveredPath: string[]` — the hovered row's *contents*. `:123` tests
-`hoveredPath.includes(space)` for **every node in every row**. Row identity is right there in the
-`v-for` (`index`, `:99`) and is unused.
-
-**Reproduction** — hover row 0 (`OKLCh → OKLab`) at `?space=oklch`:
-
-```
-$ node scratchpad/probe3.mjs
-GRAPH_ROWS [["OKLCh","OKLab"],["OKLCh","OKLab","XYZ"],["OKLCh","OKLab","XYZ","Lab"]]
-AFTER_HOVER_ROW0
- row0: OKLCh filled=true  OKLab filled=true
- row1: OKLCh filled=true  OKLab filled=true  XYZ filled=false
- row2: OKLCh filled=true  OKLab filled=true  XYZ filled=false  Lab filled=false
+```vue
+<div :style="hoveredPath.length && hoveredPath.includes(space as string)
+        ? { backgroundColor: nodeFill, color: nodeInk } : undefined"
 ```
 
-**6 nodes light across 3 rows; 2 are in the hovered row.** Rows 1 and 2 render as ragged
-partial fills — a coloured prefix and an uncoloured tail — which reads as neither "this path" nor
-"everywhere this space appears". Either intent would need a different predicate; the current one
-implements neither.
+`hoveredPath` is one component-level `ref<string[]>` (line 232) shared by every
+`TooltipProvider` row (lines 97-142). The predicate asks *"is this node's label a member of the
+hovered path?"* — not *"is this node in the hovered row?"*. There is no row identity anywhere in
+the template.
 
-(The F-3 ink chain itself is correct — measured
-`background-color: oklch(0.6 0.2 300); color: oklch(0 0 0);`, i.e. `contrastInkFor` returning the
-WCAG-maximal endpoint as designed. The defect is state ownership, not contrast.)
+Consequence, by construction from `colorSpaceInfo.xyz.conversions` (lines 227-236): hovering
+`["XYZ","RGB"]` sets `hoveredPath = ["XYZ","RGB"]`, and every one of the other seven rows
+containing an `XYZ` or `RGB` node lights up simultaneously — 15 of the 20 nodes on the XYZ card.
 
-### L-8 · MAJOR — the Conversion Graph is hand-authored prose where the library owns the real topology
+*Labelled: CONFIRMED by construction from source; I did not drive a hover probe, because the
+absence of any row key in the template is dispositive without one.*
 
-`colorSpaceInfo[space].conversions` is a hand-maintained array of display-string chains
-(`[["OKLCh","OKLab"], ["OKLCh","OKLab","XYZ"], …]`, `colorSpaceInfo.ts:305-309` etc.). The
-library owns the *actual* conversion graph — `convertColor` in `@mkbabb/value.js/color`, with the
-"Total conversion anchor" column of ARCHITECTURE §2 specifying every space's real route
-(`prophoto-rgb`: "encoded ProPhoto RGB ↔ XYZ D50 ↔ frozen D50/D65 Bradford pair ↔ XYZ D65").
+**Cure.** Key the hover by row index, not by value: `hoveredRow = ref<number | null>(null)`, and
+the node condition becomes `hoveredRow === index`. Two lines, and it is also *faster* — an integer
+compare per node instead of an `Array.prototype.includes` scan.
 
-A section named **Conversion Graph** that renders a prose table instead of the shipped graph is a
-second source of truth for the library's central invariant, unverifiable by any test, and
-already 5 spaces short (**L-1**). It is also the reason the graph shows RGB→Kelvin→HSL→Hex for
-Display P3.
+---
 
-### L-9 · MINOR — three fully-mounted, entirely empty tooltips per space
+### L-9 · MAJOR — the Conversion Graph is hand-authored prose over a topology the library owns
 
-`:139-140`
+`colorSpaceInfo.ts` hand-writes 13 arrays of conversion chains (e.g. lines 227-236 for XYZ).
+`ARCHITECTURE.md:153` states the library holds the real thing:
+
+> `CONVERSION_ANCHORS satisfies Record<SpaceId,{toXYZ,fromXYZ}>` is statically assembled and total
+> … **All 17×17 ordered conversions are therefore defined** without a late registry.
+
+The authored table is a lossy, stale transcription of it. Two demonstrations from the rendered
+page: the `display-p3` card shows `RGB→Kelvin` and `RGB→Hex` as if they were P3's conversions
+(§L-1), and no card anywhere mentions `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb` or
+`rec2020` as a *destination*, though the library defines every one of those 17×17 pairs.
+`ARCHITECTURE.md:99-106` even names each space's anchor pair in a column — the exact data this
+section wants.
+
+**Cure.** Publish the anchor pair (or a `conversionPath(from, to): readonly SpaceId[]`) from
+`/color` and derive the graph. 13 authored arrays delete; the section becomes true for all 17
+spaces automatically, including future ones.
+
+---
+
+### L-11 · MAJOR — the ink layer reconstructs a contrast *predicate* out of a contrast *solver*
+
+`ColorNutritionLabel.vue:208` calls `contrastInkFor`. `demo/color-session/ink.ts:157-174`:
+
+```ts
+export function contrastInkFor(fillCss: string): string | null {
+    const fill = parseOklch(fillCss);
+    if (!fill || fill.alpha !== 1) return null;
+    const L = lightness(fill);
+    const endpoints = L >= 0.5 ? [0, 1] as const : [1, 0] as const;
+    for (const endpoint of endpoints) {
+        const ink = surfaceColor(endpoint);
+        const result = safeAccentColor(ink, fill, { minimumRatio: TEXT_CONTRAST_FLOOR, gamut: "srgb" });
+        if (result.ok && Math.abs(lightness(result.value) - endpoint) < 1e-9) {
+            return endpoint === 0 ? "oklch(0 0 0)" : "oklch(1 0 0)";
+        }
+    }
+    return null;
+}
+```
+
+This asks a yes/no question — *"does pure black clear 4.5:1 against this fill?"* — by invoking a
+**search** (`safeAccentColor` walks OKLCH lightness intervals, `ARCHITECTURE.md:191`) and then
+testing whether the search's answer came back **unchanged**, via floating-point equality at `1e-9`.
+It is an oracle probe standing in for a predicate.
+
+The reason is structural: `/color` publishes `safeAccentColor` and nothing else in this family
+(`ARCHITECTURE.md:396-400`; `src/subpaths/color.ts` confirms — no contrast function is exported).
+A consumer that wants a WCAG ratio has no way to compute one, so it runs the solver and inspects
+the residue. That is an **inverted dependency**: the low-level primitive (`contrastRatio`) is
+private, and only the high-level policy built on top of it is public.
+
+CSS Color 5 names this exact operation `contrast-color()`. The demo has re-derived it by
+inference.
+
+**Cure.** `/color` exports the primitive it already computes internally:
+`contrastRatio(a: AnyColor, b: AnyColor): Result<number, ColorIssue>`. `contrastInkFor` becomes
+three lines and one comparison, with no `1e-9` and no solver call. `safeAccentColor` stays exactly
+as it is — it is the *policy*, and policy on top of a published primitive is the right shape.
+
+---
+
+### L-6 · MINOR — `colorSpaceInfo.hex` is 21 lines of unreachable dead data
+
+`colorSpaceInfo.ts:313-333` authors a full `hex` record — `"Hex (Hexadecimal RGB)"`, `created:
+"1996"`, `components: ["Red (00-FF)","Green (00-FF)","Blue (00-FF)"]`, `conversions: [["Hex",
+"RGB"], …]`.
+
+It can never be read. Both consumers call `resolveColorSpace` **before** the lookup, and
+`color-model.ts:32-34` maps `"hex" → "rgb"`:
+
+- `ColorNutritionLabel.vue:211`: `const space = resolveColorSpace(model.value.selectedColorSpace);`
+- `ConsoleRail.vue:172-174`: `const space = currentColorSpace.value as DisplayColorSpace;` — and
+  `currentColorSpace` is itself `resolveColorSpace(...)` (`useColorPipeline.ts:113-115`).
+
+Measured (probe `probe-cnl2.mjs`, `?space=hex&color=%238050b0`): the trigger reads **Hex**, and
+the card below reads `created: 1931` (not 1996) with `component rows: ["Red0 to 255","Green0 to
+255","Blue0 to 255"]` (not `00-FF`) and a `["RGB","XYZ"],["RGB","Kelvin"],["RGB","HSL"],
+["RGB","Hex"]` graph. The rgb record, verbatim.
+
+Also note the type escape it forces on the other consumer: `ConsoleRail.vue:174`
+`const info = (colorSpaceInfo as any)[space];` — the `as any` exists precisely because `space` is a
+`DisplayColorSpace` and the table is not keyed by one.
+
+**Cure.** Either `hex` is a display space with its own record (then don't resolve it away before
+the lookup — the docs table should be keyed by `DisplayColorSpace`, the *math* table by `SpaceId`),
+or it isn't (then delete the record). Currently it is both and neither.
+
+---
+
+### L-10 · MINOR — three to eight fully-mounted, entirely empty tooltips per card
+
+`ColorNutritionLabel.vue:97-142`: every conversion row mounts `TooltipProvider` →
+`Tooltip` → `TooltipTrigger` → `TooltipContent`, and the content is empty:
 
 ```vue
 <TooltipContent class="contents w-64 p-2 text-small">
 </TooltipContent>
 ```
 
-**Reproduction** — hover a conversion row:
+Per-space row counts come straight from `colorSpaceInfo`: `xyz` has 8 conversions (lines 227-236),
+`rgb`/`hsl`/`lab` have 4, `oklch`/`hwb` have 3. So the XYZ card mounts 8 provider/root/trigger/
+content trees, 8 floating-UI contexts, and 8 `:delay-duration="100"` timers, to render nothing.
 
-```
-$ node scratchpad/probe2.mjs
-TOOLTIP_AFTER_HOVER
- [data-reka-popper-content-wrapper]  text="" rect 0×0 at (943,902)
- [data-state="delayed-open"][data-surface="glass"][data-material="overlay"]
-     class="… glass-reveal glass-floating …"  text=""  display: contents
- [role="tooltip"]                     text=""
-```
+It is also a design-system misuse: one `TooltipProvider` is meant to wrap a *region*, not each
+tooltip (glass-ui/reka semantics). The `class="contents"` on `TooltipContent` reinforces that the
+element was never meant to paint.
 
-Each hover mounts a portal, a floating-ui popper, a dismissable layer, glass-ui's full
-`glass-floating` overlay recipe and an ARIA `role="tooltip"` — carrying **zero content**. A
-screen reader following `aria-describedby` lands on an empty node.
+**Cure.** Delete the tooltip scaffolding, or give it the content it was scaffolded for (the
+per-hop conversion description is exactly what `colorSpaceInfo.notes` holds). Do not ship the
+scaffold empty.
 
-`class="contents"` sets `display: contents` on the glass surface (measured above), which deletes
-the box the shipped glass recipe paints into — border, radius, blur, `--overlay-pad-inline` all
-inert. This is a per-instance override fighting a root-level design-system recipe (edict 5) and
-losing to physics.
+---
 
-`TooltipProvider` is also instantiated **inside** the `v-for` (`:97-101`), one provider per
-conversion path, where the primitive's contract is one provider as a common ancestor supplying
-`delayDuration` to a subtree. Measured 3 providers on the `oklch` plate.
+### L-12 · MINOR — `?? ""` at line 208 is a provably dead masking fallback
 
-Either the tooltip carries `notes` (`colorSpaceInfo[space].notes` exists and is rendered
-*nowhere*) or the whole `Tooltip*` import comes out.
-
-### L-10 · MINOR — two type escapes, one proven unnecessary
-
-`:160` `(currentColorSpaceInfo.industries as any).join(", ")` — while `:154`
-`currentColorSpaceInfo.applications.join(", ")` is uncast. Proven identical in type:
-
-```
-$ tsc --noEmit --ignoreConfig --strict --target ES2022 --module esnext --moduleResolution bundler probe.ts
-probe.ts(13,14): error TS2322: Type 'readonly ["RGB","XYZ"] | …' is not assignable to type 'string[]'.
+```ts
+const nodeFill = cssColorOpaque;                                    // :207
+const nodeInk = computed(() => contrastInkFor(nodeFill.value) ?? ""); // :208
 ```
 
-Only line 13 (`conversions`) errors. `industries.join(", ")` and `applications.join(", ")` both
-type-check clean. The `as any` at `:160` is pure cruft.
+`contrastInkFor` returns `null` on exactly two arms: parse failure, and `fill.alpha !== 1`
+(`ink.ts:160`). But `cssColorOpaque` is
+`serializePickerColor(withAlpha(model.value.color, 1))` (`useColorPipeline.ts:104`), and
+`ARCHITECTURE.md:86` fixes that alpha is *"omitted only when exactly numeric 1"* — so the
+round-trip always yields `alpha === 1`. The alpha arm is unreachable.
 
-`:111` `setHoveredPath(path as any)` — real, but the cure is the signature, not the cast:
-`setHoveredPath(path: readonly string[])` and `hoveredPath = shallowRef<readonly string[]>([])`.
-`as const` on the table produces `readonly` tuples; the handler demands mutable `string[]`.
-Same for `space as string` at `:123`.
+The comment above it (lines 205-206) claims the fallback is a designed behavior — *"On parse
+failure the caller keeps the resting ink (empty string → inherit)"* — but `color: ""` does not
+"keep the resting ink", it removes the declaration and inherits `--foreground`, which is precisely
+the *"colored fill under the fixed foreground"* the D6 comment three lines above says was killed.
+A dead branch documented as a live safety net is worse than either.
 
-### L-11 · MINOR — `ink.ts` is three concepts in one module, one of which is a hand-copy of glass-ui's theme
+(The genuinely reachable failure arm is not `null` at all — it is the **throw** at `ink.ts:47`.
+See §L-2.)
 
-`demo/color-session/ink.ts` (174 lines), which the subject imports at `:171`, holds:
+---
 
-1. **universal colour science** — `contrastInkFor` (`:158-173`): parse → OKLCh → WCAG endpoint
-   walk. Zero Vue, zero DOM, built on the library's own `safeAccentColor`. This is library work
-   living in a demo module.
-2. **glass-ui's theme values, hand-copied** — `PRODUCER_TINTS` (`:25-28`)
-   `card: {light: "hsl(30 85% 96%)", dark: "hsl(26 22% 17%)"}`, `RUNG_ALPHA`, `FLOATING_TINT_L`,
-   `WELL_FOREGROUND_FRACTION`.
-3. **the demo's surface model** — `InkSurface`, `resolveSurfaceLightness`.
+### L-13 · MINOR — three type escapes, all symptoms of untyped content
 
-(2) is a second path for values the app already reads live. Measured — the shipped token and the
-hardcoded literal are the same string today:
+`ColorNutritionLabel.vue:111` `setHoveredPath(path as any)` ·
+`:123` `hoveredPath.includes(space as string)` ·
+`:160` `(currentColorSpaceInfo.industries as any).join(", ")`.
 
-```
-$ node scratchpad/probe2.mjs
---card:       light-dark(hsl(30 85% 96%), hsl(26 22% 17%))
---foreground: light-dark(hsl(24 10% 10%), hsl(30 14% 90%))
-ink.ts PRODUCER_TINTS.card.light   = hsl(30 85% 96%)     ← identical
-ink.ts PRODUCER_TINTS.foreground.light = hsl(24 10% 10%) ← identical
-```
+All three trace to one cause: `colorSpaceInfo` is `as const` with no declared interface
+(`colorSpaceInfo.ts:334`), so `currentColorSpaceInfo` is a **union of 13 structurally distinct
+frozen literal types**. `.industries` is a union of readonly tuples of differing lengths, whose
+`join` signatures do not unify — hence `as any`. `.conversions` is a union of readonly tuple
+arrays, so `path` is not `string[]` — hence the other two.
 
-So: **in sync today, therefore not a live defect** — but a duplicate of a producer's private
-theme numbers, maintained by hand, in a consumer, with no test binding them. `useContrastSafeColor.ts:225-232`
-records that this exact duplication has already shipped a contrast failure once ("the light-scheme
-profile trigger certified against the model's 0.90 while the REAL band composited 0.75 — 3.59:1
-measured"). The live probe path works in a real browser — verified:
+Declaring `interface ColorSpaceDoc { …; industries: readonly string[]; conversions: readonly
+(readonly SpaceId[])[] }` and using `satisfies` (§L-1's cure) removes all three escapes as a side
+effect, and makes the conversion arrays type-check against real `SpaceId`s — which would have
+caught `"Hex"` and `"Kelvin"` appearing as graph nodes under `display-p3`.
 
-```
---glass-bg-resting → color(srgb 0.994 0.96 0.926 / 0.65)
---well-bg          → oklab(0.913295 0.00550478 0.0130424)
-[data-ink-probe] element present in the live DOM: true
-```
+---
 
-so the static model is reachable only under jsdom. A second implementation kept alive for the
-test environment is the canonical shape of a dual path.
+### L-14 · MINOR — `/about` and `/easing` are absent from the visual-audit matrix
 
-### L-12 · INFO — two home/idiom nits in the import block
-
-- `colorSpaceInfo.ts` (334 lines of authored pedagogical prose, `notes`, `applications`,
-  `industries`) is homed in `color-session/`, whose charter is "active color/specimen, editing
-  target, accent/ink and action context" (ARCHITECTURE §1). The lattice has an exact home for it:
-  `shared/content/  # deliberately authored typed pedagogical snippets`.
-- `:182-183` splits one module across two import statements (`import type { ColorModel }` then
-  `import { resolveColorSpace }` from `../../color-session/color-model`). `verbatimModuleSyntax`
-  is satisfied either way, but the repo idiom (`picker-color.ts:22-26`,
-  `ColorSpaceSelector.vue:117-122`) is one statement with inline `type`.
-- `:188` `inject(CSS_COLOR_KEY)!` vs `ColorSpaceSelector.vue:142` `inject(COLOR_MODEL_KEY, null)`
-  with an explicit "a future host outside any provider renders … rather than crashing" rationale.
-  Two opposite provider-tolerance conventions in one feature. This matters concretely because
-  ARCHITECTURE §1 requires About to become the standalone `/about` route (below).
-
-### L-13 · INFO — stale published-surface prose in the shared tail
-
-`demo/shared/utils.ts:11-16` justifies a local `debounce` copy by "the library's **root-barrel**
-export stands for external consumers". There is no root barrel:
+The live evidence bundle covers 15 routes:
 
 ```
-$ node -e "const p=require('./package.json'); console.log('main',p.main,'rootExport',JSON.stringify(p.exports['.']))"
-main undefined rootExport undefined
-$ grep -rn "export function debounce\|export const debounce" src/
-(no output)
+$ python3 -c "import json;d=json.load(open('docs/tranches/V/megatranche/audit/visual/REPORT.json'));
+print(sorted({r['route'] for r in d['results']}))"
+['/#/', '/#/admin/audit', '/#/admin/flagged', '/#/admin/names', '/#/admin/tags', '/#/admin/users',
+ '/#/atmosphere', '/#/blob', '/#/browse', '/#/does-not-exist', '/#/extract', '/#/generate',
+ '/#/gradient', '/#/mix', '/#/palettes']
 ```
 
-`@mkbabb/value.js` 4.0.0 is subpath-only (7 keys, no `.`), and ships no `debounce` at all. The
-comment documents a surface that does not exist. Adjacent to the subject (`AboutPane`'s sibling
-`useColorUrl.ts:8` consumes it), not on its import path.
+`ARCHITECTURE.md:43` fixes eleven first-class product destinations including `/about` and
+`/easing`. Nine of the eleven were captured. **The subject component's only route has zero rows in
+`REPORT.md`/`REPORT.json` and no screenshot under `shots/`** — which is why §L-1's five wrong
+cards, visible in light and dark at every viewport, were never seen. `REPORT.json.summary`
+nonetheless reports `"routeCount": 15` and empty `blankOrNearBlank`/`pageErrors` arrays; the §L-2
+blank would also have been invisible to it, since the matrix drives no `?color=` query.
+
+**Cure.** Add `/about` and `/easing` to the matrix route list, and add one parameterised
+`?space=…&color=…` sweep so the URL-restore surface is covered at all.
 
 ---
 
 ## 2. Checked and clean — the negative proofs
 
-These were the named historical suspects and the standing edicts. Each was checked and each is
-sound; recording them so the next seat does not re-litigate.
+Findings I went looking for on this axis and could **not** substantiate:
 
-| Claim tested | Result | Evidence |
-|---|---|---|
-| Deep imports into `src/` bypassing the export map | **none** | grep above; 5 subpaths only, all in `package.json#exports` |
-| `@src` / project alias in demo | **none in demo** | grep above (`vite.config.ts:74` keeps `@src` for the vitest suite only) |
-| Three parallel `useDark` stores | **cured** | `useMarkdownHighlighting.ts:68-80` documents the kill; census shows one authority, glass-ui `useGlobalDark`, 8 call sites |
-| `useContrastSafeColor.ts:242` `classList.contains("dark")` = a fourth scheme store | **no** — it is a cache-validity stamp (`TintCacheEntry.darkClass`, `:234-247`), documented, correct |
-| The canvas ink probe cannot resolve `light-dark()` | **no** — the probe assigns `var(--token)` to a real element and reads `getComputedStyle().backgroundColor`, which the CSSOM has already resolved (`useContrastSafeColor.ts:205-210`); measured `color(srgb 0.994 …)` |
-| Local reimplementation of a removed composable (the `ActionBarLayer`/`useLayerTransition` pattern) | **none in this component** |
-| God module | **no** — 242 lines, one concern, no local state machine, no `<style>` block |
-| `verbatimModuleSyntax` compliance | **clean** — the one type-only import is `import type` (`:182`) |
-| Animations deleted | **none** — the component owns no keyframes; transitions are glass-ui `transition-colors` utilities |
-| Page/console errors, horizontal overflow on `/#/` | **none for this component** — `audit/visual/REPORT.md` records 0 pageErrors, 0 horizontalOverflow, 0 blankOrNearBlank across all 4 Safari matrices; the single consoleError is `WebGL: context lost` (the blob, not About) |
-| Visual render of a *covered* space | **correct** — `shots/safari-desktop-light/picker.png` shows Lab rendering its true record (device-independent, D50/D65, unlimited gamut, 1976, `L* (Lightness) / a* (Green-Red) / b* (Blue-Yellow)`) |
-
-The visual matrix cannot see **L-1/L-2** because it captures 15 routes and About is not one of
-them — it is the right-hand pane of `/#/` at the default space (`oklch`, a covered key). The
-wrong-data render is only reachable by selecting one of the 5 uncovered spaces. That is itself an
-argument for **M-1** below.
+1. **No deep-import of the library.** Zero `@src`, zero `../../../src/`, zero
+   `@mkbabb/value.js/dist/*` in `demo/` (grep in §0). Every specifier is a `package.json#exports`
+   key. `vite.config.ts` generates the demo's self-alias set from the export map, so a specifier a
+   real consumer could not write cannot resolve — right by construction, not by discipline.
+2. **`verbatimModuleSyntax` is satisfied.** The one type-only import in the component is
+   `import type { ColorModel }` (line 182), correctly split from the value import of
+   `resolveColorSpace` on line 183.
+3. **No cross-feature internal import.** The component imports from `color-session` (legal:
+   `feature → color-session`) and `ui` (illegal for a different reason, §L-4). It reaches into no
+   sibling feature's descendants — no `picker/`, no `palettes/`, no `workbenches/`.
+4. **`ink.ts` composes the library rather than re-implementing it.** `ink.ts:1-11` imports
+   `convertColor`, `mixColors`, `oklch`, `safeAccentColor`, `parseCssColor`, `serializeCssColor`
+   from the published subpaths and builds only *policy* on top. There is no second OKLCH
+   implementation, no hand-rolled WCAG luminance, no matrix copy in `demo/`. The defect there is
+   the library's missing primitive (§L-11), not a demo duplicate.
+5. **No `useLayerTransition`-style local reimplementation here.** The named historical suspects
+   (`ActionBarLayer`, `demo/palettes/export.ts`, the three `useDark` stores) have no edge to this
+   component; it imports no dark-mode store at all and inherits scheme through CSS.
+6. **No animation was deleted.** The component's only motion is `transition-colors` utilities
+   (lines 110, 127); no keyframes are defined or removed here.
+7. **`colorSpaceInfo` is genuinely pure data** with no runtime dependency, as its header claims —
+   so the transposition in §3 is a move, not a rewrite.
 
 ---
 
 ## 3. The greenfield lattice
 
-Stated concretely, no hedging. Four moves; the first is the one that matters.
+If I were structuring this today with no legacy, this is the module lattice. It is a
+transposition, not a patch list: **three modules move across a package boundary and eleven
+declarations collapse into three.**
 
-### M-1 — the library owns the space contract; the demo owns nothing about colour spaces
+### M-1 — the library owns the space contract, as data
 
-Promote the ARCHITECTURE §2 table into executable, exported library data. Extend
-`SPACE_SCHEMA` (`src/color/model.ts:56`) from names-only to the full contract and export it
-through `src/color/index.ts` → `src/subpaths/color.ts`:
+`src/color/model.ts` widens `SPACE_SCHEMA` to the shape `ARCHITECTURE.md:153` already assigns it,
+and `/color` exports it:
 
 ```ts
-// src/color/model.ts
-export type ChannelSpec = Readonly<{
-    key: string;            // "l" | "c" | "h" | …
-    min: number; max: number;
+export type ChannelSchema = Readonly<{
+    key: string;
+    min: number;
+    max: number;
     unit: "" | "%" | "deg" | "K";
-    pctReference?: number;  // oklch c: 0.4 while max stays 0.5   ← kills L-5's ambiguity
+    percentReference?: number;   // oklch chroma: 0.4 while raw max is 0.5
     hue?: true;
 }>;
-export const SPACE_SCHEMA = { … } as const satisfies Record<SpaceId, {
-    channels: readonly ChannelSpec[]; css: boolean;
+export type SpaceSchema = Readonly<{
+    channels: readonly ChannelSchema[];
+    hueIndex?: number;
+    css: boolean;
+    anchor: readonly SpaceId[];   // the real conversion chain to XYZ D65
 }>;
-export function formatChannelBound(spec: ChannelSpec, which: "min" | "max"): string;
+export const SPACE_SCHEMA: Readonly<Record<SpaceId, SpaceSchema>>;
+export const SPACE_IDS: readonly SpaceId[];
+export const CSS_COLOR_SPACES: ReadonlySet<CssColorSpace>;
+export function contrastRatio(a: AnyColor, b: AnyColor): Result<number, ColorIssue>;
 ```
 
-`src/css/grammar.ts:184-220` then reads `pctReference` instead of inlining `255 / 100 / 150 / 0.4 / 360`
-at each call site — the library stops having two copies of its own contract.
+`src/css/grammar.ts:184-220` **reads** `percentReference`/`max` instead of restating `255`, `360`,
+`125`, `150`, `0.4` — closing `ARCHITECTURE.md:110`'s "not parser folklore" clause, which is
+currently false in the shipped tree.
 
-Consequences: `PICKER_CHANNELS` (**#2**) is **deleted**, all 19 lines of it. The five copies of
-the display-scale rule (**L-5**) collapse into `formatChannelBound`. `readoutReservation.ts`,
-`useColorParsing.ts`, `useSliderGradients.ts` and `ColorNutritionLabel` all consume one exported
-function. The demo carries no colour-space math, no ranges, no units — which is the
-already-declared law (`useContrastSafeColor.ts:35`: "sourced ENTIRELY from the library … the demo
-carries NO norm/denorm color math"), applied to the one place it was never applied.
+Deletes: `PICKER_CHANNELS` (56 lines), `CSS_PICKER_SPACES`, `PICKER_SPACE_NAMES`'s range twin, the
+five scale-rule copies, `ink.ts`'s solver-probe loop.
 
-### M-2 — one typed content record per space, keyed exhaustively, joined by key not by index
+### M-2 — the demo owns *pedagogy*, in the home the architecture already named
 
-Move the prose to its charter home and make the gap in **L-1** a compile error:
+`demo/shared/content/color-spaces.ts` — `ARCHITECTURE.md:31-33` reserves `shared/content/` for
+*"deliberately authored typed pedagogical snippets"* and the directory **does not yet exist**
+(`demo/shared/` currently holds only `ui/` and `utils.ts`). This is its first inhabitant:
 
 ```ts
-// demo/shared/content/color-space-notes.ts
-import type { SpaceId } from "@mkbabb/value.js/color";
-
-export type SpaceNote = Readonly<{
-    displayName: string;
+export interface ColorSpaceDoc {
+    name: string;
     definition: string;
-    deviceDependency: string; whitePoint: string; gamut: string; created: string;
-    perceptualUniformity: string; hueLinearity: string; lightnessSeparation: string;
-    applications: readonly string[]; industries: readonly string[];
+    created: string;
+    deviceDependency: string;
+    whitePoint: string;
+    gamut: string;
+    perceptualUniformity: string;
+    hueLinearity: string;
+    lightnessSeparation: string;
+    applications: readonly string[];
+    industries: readonly string[];
     notes: string;
-    channelNames: Readonly<Record<string, string>>;   // keyed by ChannelSpec.key — NOT positional
-}>;
-
-export const SPACE_NOTES: Readonly<Record<SpaceId | "hex", SpaceNote>> = { … };
+    /** keyed by ChannelSchema.key — never positional */
+    channelNames: Readonly<Record<string, string>>;
+}
+export const COLOR_SPACE_DOCS = { … } satisfies Record<DisplayColorSpace, ColorSpaceDoc>;
 ```
 
-`Record<SpaceId | "hex", SpaceNote>` is exhaustive: the 5 missing spaces become a `tsc` failure,
-not a silent `?? colorSpaceInfo.rgb`. The fallback at `:214` is **deleted outright** — there is
-nothing left to mask. `channelNames` keyed by `ChannelSpec.key` kills the positional join at
-`:57` and the arity hazard with it. `SPACE_GLYPHS` (**#4**, `ConsoleRail.vue:156-164`) folds in as
-a `glyph` field; the four homes become one.
+Two structural changes carry all the weight: `satisfies` closes the five gaps (§L-1) at build time,
+and `channelNames` keyed by channel key kills the positional index-join at
+`ColorNutritionLabel.vue:57` (`components[index] ?? rangeKey`) — a join across two independently
+authored tables with no shared key, currently aligned only by luck.
 
-`hex` (**L-2**) becomes reachable by looking up `selectedColorSpace` (the *display* space) for
-content while `resolveColorSpace` continues to govern *computation* — the two questions separate,
-which is what `DisplayColorSpace` was introduced to express.
+`conversions` is **absent** from the interface: it is derived (M-3).
 
-### M-3 — the Conversion Graph is derived, not authored
+### M-3 — `assets/docs/*.md` keeps prose and loses facts
 
-Delete `SpaceNote.conversions`. Render the route the library actually takes, from the exported
-schema — either a small exported `conversionRoute(from, to): readonly SpaceId[]` beside
-`convertColor`, or the anchor chains of ARCHITECTURE §2 promoted to data. A graph that cannot
-disagree with the converter is the only graph worth drawing on this page, and it makes the section
-correct for all 17 spaces for free.
+The eleven `### Attributes` blocks delete. They are the fifth declaration of §L-3's fact and two of
+them are outright wrong (`rgb` 0–1, `hsv` hue 0–1). The label directly above already renders the
+same rows from `SPACE_SCHEMA`; the guide keeps history, characteristics, advantages, math — the
+things only prose can carry. Nothing authored is lost; one duplicated table is.
 
-Then split the leaf out — it is the only stateful part of the component:
+### M-4 — the Conversion Graph is derived
 
+`SPACE_SCHEMA[space].anchor` gives the real chain. The section renders
+`SPACE_IDS.map(target => conversionPath(space, target))` or the anchor pair itself. Thirteen
+hand-authored arrays delete, the graph becomes true for all 17 spaces, and it can never again
+claim `display-p3 → Kelvin`.
+
+### M-5 — `demo/ui/**` dies
+
+Nineteen directories deleted; 48 files' specifiers rewritten to `@mkbabb/glass-ui`, joining the 119
+that already do. `ARCHITECTURE.md:39` becomes true.
+
+### M-6 — the component becomes pure
+
+```vue
+<script setup lang="ts">
+import { computed } from "vue";
+import type { DisplayColorSpace } from "../../color-session/color-model";
+import { COLOR_SPACE_DOCS } from "../../shared/content/color-spaces";
+import { SPACE_SCHEMA } from "@mkbabb/value.js/color";
+const { space } = defineProps<{ space: DisplayColorSpace }>();
+const doc = computed(() => COLOR_SPACE_DOCS[space]);          // total; no fallback
+const schema = computed(() => SPACE_SCHEMA[resolveColorSpace(space)]);
+</script>
 ```
-demo/scenes/about/
-  AboutArticle.vue          # the /about route leaf (ARCHITECTURE §1, W18)
-  NutritionLabel.vue        # pure presentational; props: { space: SpaceId | "hex" }
-  ConversionGraph.vue       # owns hoveredRow: shallowRef<number | null>   ← kills L-7 by construction
-  markdown/ katex/
-```
 
-`hoveredRow` is an index; `:class` keys off `rowIndex === hoveredRow`. The value-membership leak
-cannot be written.
+One required prop, no `defineModel`, no `inject` for state it does not own, no local range
+derivation, no `as any`, no `? :` fallback, no `?? ""`. The ink pair
+(`componentInk`/`nodeInk`) stays — it is genuinely this component's presentation concern — and
+`nodeInk` loses its `?? ""` once `contrastRatio` exists (M-1).
 
-### M-4 — kill `demo/ui/**`; About becomes the route the architecture already ratified
+### M-7 — the `"none"` boundary is resolved once
 
-Delete all 19 forwarding directories (29 lines) and rewrite every consumer to the glass-ui
-**subpath** that actually owns the primitive — `@mkbabb/glass-ui/separator`,
-`/tooltip`, `/card`, `/select`, `/dialog`, … — reserving the root barrel for the handful of
-symbols that have no subpath (`Alert`, `cn`). One path to the design system, and the root barrel
-stops being pulled in to fetch an `<hr>`. This is ARCHITECTURE §1 line 37 executed literally.
-
-Simultaneously: About stops being Picker's right-hand pane. `viewSchema.ts:107` (`right: "about"`)
-and the `about` special case in `usePaneRouter.ts:146-152` both go; `/about` becomes a member
-route as §1 requires ("About is a quiet trailing destination, not Picker's permanent right-hand
-companion"). At that point:
-
-- `defineModel<ColorModel>` (**L-6**) has no parent to bind to and is **replaced by
-  `inject(COLOR_MODEL_KEY)`** — the transport the sibling `ColorSpaceSelector` has used since
-  S.W2. Three files stop carrying a whole-model round trip for one enum.
-- `inject(CSS_COLOR_KEY)!` (**L-12**) must be audited for the standalone mount, since the picker
-  is no longer guaranteed to be an ancestor. `App.vue:271` provides it at app root, so it holds —
-  but it must be *asserted*, not assumed, once the route stands alone.
-- **L-1/L-2 become visible to the visual audit**: `/about` enters the 15-route matrix and any
-  future content gap is caught by a screenshot rather than by a seat selecting Display P3 by hand.
-
-### M-5 — the tooltip decides what it is
-
-Either `<TooltipContent>{{ note.notes }}</TooltipContent>` (the `notes` field is authored for all
-13 covered spaces and rendered nowhere today), with the `class="contents"` removed so glass-ui's
-overlay recipe can paint, and **one** `TooltipProvider` hoisted above the `v-for`; or the four
-`Tooltip*` imports and the wrapper come out entirely. Shipping a mounted, portalled,
-ARIA-announced empty popper is the worst of the three options.
+`valueOrThrow` deletes. `color-session` lowers `AnyColor` → `ResolvedColor` (channels
+`number`) exactly once, at parse/URL-restore, and returns a `Result` on failure that the boot path
+renders as the existing configuration-error surface. Every downstream function becomes total.
+`#app` stops emptying itself (§L-2).
 
 ### Net
 
-| Deleted | Promoted |
-|---|---|
-| `PICKER_CHANNELS` (19 lines) | `SPACE_SCHEMA` with ranges/units/pct-reference, exported via `/color` |
-| 5 × display-scale rule | one exported `formatChannelBound` |
-| `colorSpaceInfo.conversions` (13 hand-authored graphs) | derived from `convertColor`'s real topology |
-| `?? colorSpaceInfo.rgb` fallback | exhaustive `Record<SpaceId \| "hex", SpaceNote>` |
-| positional `components[index]` join | key-addressed `channelNames[spec.key]` |
-| `SPACE_GLYPHS` | `ChannelSpec`-adjacent `glyph` |
-| `demo/ui/**` — 19 dirs, 29 lines | direct glass-ui subpath imports |
-| `defineModel<ColorModel>` × 2 + the router's `about` case | `inject(COLOR_MODEL_KEY)` |
-| `hoveredPath: string[]` | `hoveredRow: shallowRef<number \| null>` |
-| 3 × `as any` / `as string` | `readonly string[]` in the signature |
-
-The through-line is one sentence: **the library knows every fact this component displays and
-exports none of them, so the demo re-declares the space contract four times and gets it wrong in
-five places.** Close the library's public surface and the component becomes ~120 lines of pure
-presentation with no colour knowledge of its own.
+| | before | after |
+|---|---|---|
+| declarations of "channel ranges" | 5 (2 packages) | 1 (`SPACE_SCHEMA`) |
+| declarations of "space pedagogy" | 3 (`colorSpaceInfo`, `assets/docs`, prose in-component) | 1 (`shared/content`) |
+| copies of the display-scale rule | 5 | 0 (schema-carried) |
+| `demo/ui/` forwarding dirs | 19 | 0 |
+| spaces documented correctly | 12 / 18 | 18 / 18 (compiler-enforced) |
+| `as any` / `as string` in subject | 3 | 0 |
+| masking fallbacks in subject | 3 (`: rgb`, `?? rangeKey`, `?? ""`) | 0 |
+| colors that blank the app | ≥3 | 0 |
 
 ---
 
 ## 4. Reproduction assets
 
-Probe scripts (scratchpad, not committed):
+All probes are read-only navigations against the running dev server; none writes to the repo.
 
-- `scratchpad/probe.mjs` — drives `?space=…&color=…` for `display-p3 / rec2020 / hex / oklch`
-  and dumps the rendered Definition, Basic Information grid, Components names and Conversion
-  Graph. Produces the **L-1** and **L-2** transcripts verbatim.
-- `scratchpad/probe2.mjs` — reads `--card` / `--foreground` / `--well-bg` / `--glass-bg-resting`
-  from the live cascade (**L-11**) and hovers a conversion row to dump the tooltip subtree
-  (**L-9**).
-- `scratchpad/probe3.mjs` — resolves the tier tokens through a real probe element (**L-11**
-  negative proof) and captures the per-row highlight state after hovering row 0 (**L-7**).
-- `scratchpad/tsprobe/probe.ts` — the standalone `tsc --ignoreConfig --strict` run proving the
-  `industries as any` cast is unnecessary and the `conversions` cast is a `readonly` mismatch
-  (**L-10**).
+- `probe-cnl2.mjs` — eight `?space=…&color=…` navigations to `/#/about`; prints trigger title,
+  Definition, Basic-Information rows, Components rows, graph nodes. Produces §L-1 and §L-6.
+- `probe-cnl3.mjs` — four cases with screenshots; produces §L-1's `about-display-p3.png`, §L-3.4's
+  `rgb 0 to 255` row, and case D (`oklch(none 0.1 200)` → `pageerror: color_missing_channel`,
+  `bodyLen: 0`).
+- `probe-cnl4.mjs` — the §L-2 attribution matrix: picker route, powerless hue, missing chroma,
+  valid control.
 
-No source file was modified. No file was written outside
+Scripts live in this session's scratchpad
+(`/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/`)
+and are regenerable from the URLs quoted inline — every one of them is a plain address bar entry:
+
+```
+http://localhost:9000/#/about?space=display-p3&color=color(display-p3 0.5 0.3 0.7)   → 1931 CIE RGB card
+http://localhost:9000/#/about?space=rgb&color=rgb(128 80 176)                        → "Red 0 to 255" over "R: 0 to 1"
+http://localhost:9000/#/about?space=oklch&color=oklch(0.6 0 none)                    → blank app
+http://localhost:9000/#/about?space=oklch&color=oklch(none 0.1 200)                  → blank app
+http://localhost:9000/#/?space=oklch&color=oklch(0.6 none 200)                       → blank app
+```
+
+No source file was modified by this seat. Writes are confined to
 `docs/tranches/V/megatranche/audit/components/ColorNutritionLabel/`.

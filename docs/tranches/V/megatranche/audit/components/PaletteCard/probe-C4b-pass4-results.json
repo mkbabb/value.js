@@ -1,0 +1,142 @@
+{
+  "P1_no-prm": {
+    "prm": false,
+    "samples": {
+      "120": {
+        "inlineStyle": "height: 182px; opacity: 1; transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms;",
+        "clientH": 141,
+        "scrollH": 182,
+        "clipped": 41,
+        "cardH": 241.2,
+        "scrollCalls": []
+      },
+      "500": {
+        "inlineStyle": "",
+        "clientH": 40,
+        "scrollH": 40,
+        "clipped": 0,
+        "cardH": 281.7,
+        "scrollCalls": [
+          {
+            "arg": "{\"behavior\":\"smooth\",\"block\":\"nearest\"}",
+            "cls": "overflow-hidden"
+          }
+        ]
+      },
+      "1200": {
+        "inlineStyle": "",
+        "clientH": 40,
+        "scrollH": 40,
+        "clipped": 0,
+        "cardH": 281.7,
+        "scrollCalls": [
+          {
+            "arg": "{\"behavior\":\"smooth\",\"block\":\"nearest\"}",
+            "cls": "overflow-hidden"
+          }
+        ]
+      },
+      "2500": {
+        "inlineStyle": "",
+        "clientH": 40,
+        "scrollH": 40,
+        "clipped": 0,
+        "cardH": 281.7,
+        "scrollCalls": [
+          {
+            "arg": "{\"behavior\":\"smooth\",\"block\":\"nearest\"}",
+            "cls": "overflow-hidden"
+          }
+        ]
+      }
+    },
+    "afterResize": {
+      "inlineStyle": "",
+      "clientH": 40,
+      "scrollH": 40,
+      "clipped": 0,
+      "cardH": 268.7,
+      "scrollCalls": [
+        {
+          "arg": "{\"behavior\":\"smooth\",\"block\":\"nearest\"}",
+          "cls": "overflow-hidden"
+        }
+      ]
+    }
+  },
+  "P1_prm": {
+    "prm": true,
+    "samples": {
+      "120": {
+        "inlineStyle": "height: 182px; opacity: 1; transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms;",
+        "clientH": 182,
+        "scrollH": 182,
+        "clipped": 0,
+        "cardH": 282,
+        "scrollCalls": []
+      },
+      "500": {
+        "inlineStyle": "height: 182px; opacity: 1; transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms;",
+        "clientH": 182,
+        "scrollH": 182,
+        "clipped": 0,
+        "cardH": 282,
+        "scrollCalls": []
+      },
+      "1200": {
+        "inlineStyle": "height: 182px; opacity: 1; transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms;",
+        "clientH": 182,
+        "scrollH": 182,
+        "clipped": 0,
+        "cardH": 282,
+        "scrollCalls": []
+      },
+      "2500": {
+        "inlineStyle": "height: 182px; opacity: 1; transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms;",
+        "clientH": 182,
+        "scrollH": 182,
+        "clipped": 0,
+        "cardH": 282,
+        "scrollCalls": []
+      }
+    },
+    "afterResize": {
+      "inlineStyle": "",
+      "clientH": 40,
+      "scrollH": 40,
+      "clipped": 0,
+      "cardH": 268.7,
+      "scrollCalls": []
+    }
+  },
+  "P2_swatchIdentity": {
+    "panelDescendants": 24,
+    "tagHistogram": {
+      "DIV": 24
+    },
+    "dotLikeCount": 0,
+    "firstDot": null,
+    "interactiveInPanel": 0
+  },
+  "P2_hoverFanout": {
+    "dotLocatorCount": 0,
+    "totalMeasures": 0,
+    "topMeasures": []
+  },
+  "P3_titleControl": {
+    "present": true,
+    "tag": "SPAN",
+    "role": null,
+    "tabIndex": -1,
+    "ariaLabel": null,
+    "text": "Sunset Ridge",
+    "cls": "font-display font-medium text-subheading line-clamp-2 sm:line-clamp-1 "
+  },
+  "P4_mix": {
+    "mainText": "Lab92.0%,88.8,20.0Labα92.0%88.820.082.7% Mix Mix colors and palettes together.ColorsPalettesSelectedFrom palettes3Color spaceOKLab Hue methodShorter Mix ",
+    "articles": 0,
+    "outerButtonsWrappingCards": 0,
+    "nestedButtonInButton": 0,
+    "sample": []
+  }
+}

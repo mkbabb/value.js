@@ -193,7 +193,7 @@ async function main() {
                     label: c.getAttribute("aria-label"),
                     card: rr(c),
                     title: t ? { ...rr(t), scrollW: t.scrollWidth, text: t.textContent.trim() } : null,
-                    rowChildren: row ? [...row.children].map((k) => ({ tag: k.tagName.toLowerCase(), cls: k.className.slice(0, 40), w: +k.getBoundingClientRect().width.toFixed(1) })) : null,
+                    rowChildren: row ? [...row.children].map((k) => ({ tag: k.tagName.toLowerCase(), cls: String(k.getAttribute("class") || "").slice(0, 40), w: +k.getBoundingClientRect().width.toFixed(1) })) : null,
                 };
             }),
         };

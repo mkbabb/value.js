@@ -1,0 +1,57 @@
+{
+  "requests": [
+    {
+      "phase": "boot",
+      "url": "AboutPane.vue?t=1785272908643"
+    },
+    {
+      "phase": "retry",
+      "url": "AboutPane.vue?t=1785272919096"
+    }
+  ],
+  "beforeRetry": {
+    "boundaryUp": true,
+    "text": "This panel hit an unexpected error.Importing a module script failed. Try again",
+    "activeElement": "DIV.vj-error-boundary",
+    "paneContainerPresent": false,
+    "dockPressed": [
+      "Home=closed",
+      "Tools=false",
+      "Picker=true",
+      "About=false",
+      "=closed",
+      "Login=",
+      "@mbabb=closed"
+    ]
+  },
+  "phase": "retry",
+  "afterRetry": {
+    "boundaryUp": true,
+    "activeElement": "DIV.vj-error-boundary",
+    "activeIsButton": false,
+    "paneContainerPresent": false
+  },
+  "networkAttempts": {
+    "boot": 1,
+    "retry": 0,
+    "note": "retry==0 ⇒ the module map served the cached rejection; no fetch was made"
+  },
+  "escape": {
+    "tabbablesInsideBoundary": [
+      "BUTTON:Try again"
+    ],
+    "linksOut": 0,
+    "anyReloadAffordance": false
+  },
+  "afterRouteChange": {
+    "hash": "#/gradient",
+    "boundaryUp": true,
+    "paneContainerPresent": false,
+    "text": "This panel hit an unexpected error.Importing a module script failed. Try again"
+  },
+  "afterReload": {
+    "hash": "#/gradient",
+    "boundaryUp": true,
+    "paneContainerPresent": false
+  }
+}

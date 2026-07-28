@@ -1,0 +1,616 @@
+{
+ "requestLog": [],
+ "webkit": {
+  "open": true,
+  "apiLeak": {
+   "triggerAttrs": [
+    "data-v-ace91ae4=",
+    "data-slot=button",
+    "data-emphasis=secondary",
+    "data-tone=neutral",
+    "data-size=md",
+    "data-icon-only=true",
+    "data-control-target=",
+    "data-press-armed=",
+    "type=button",
+    "class=button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+    "id=reka-popover-trigger-v-1-0",
+    "aria-haspopup=dialog",
+    "aria-expanded=true",
+    "aria-controls=reka-popover-content-v-1-1",
+    "data-state=open",
+    "variant=ghost",
+    "aria-label=Filters",
+    "style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000; --mouse-x: 50.00%; --mouse-y: 48.38%;"
+   ],
+   "triggerClass": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+   "clearAttrs": [
+    "data-v-ace91ae4=",
+    "data-slot=button",
+    "data-emphasis=secondary",
+    "data-tone=neutral",
+    "data-size=sm",
+    "data-press-armed=",
+    "type=button",
+    "class=button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-7 w-full text-small text-muted-foreground",
+    "variant=ghost",
+    "style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;"
+   ],
+   "clearClass": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-7 w-full text-small text-muted-foreground",
+   "popoverClass": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-60 p-0",
+   "popoverPadding": "20.351999px 16px",
+   "checkboxes": [],
+   "checkboxHostAttrs": null
+  },
+  "contrasts": {
+   "sectionLabel": {
+    "ratio": 2.9,
+    "ink": [
+     101,
+     84,
+     66
+    ],
+    "ground": [
+     0,
+     0,
+     0
+    ]
+   },
+   "optionText": {
+    "ratio": 1.2,
+    "ink": [
+     28,
+     25,
+     23
+    ],
+    "ground": [
+     0,
+     0,
+     0
+    ]
+   },
+   "searchPill": {
+    "ratio": 1.53,
+    "ink": [
+     112,
+     89,
+     66
+    ],
+    "ground": [
+     123,
+     122,
+     119
+    ]
+   },
+   "clearAll": {
+    "ratio": 3.47,
+    "ink": [
+     0,
+     0,
+     0
+    ],
+    "ground": [
+     102,
+     98,
+     94
+    ]
+   },
+   "input": {
+    "ratio": 14.91,
+    "ink": [
+     28,
+     25,
+     23
+    ],
+    "ground": [
+     243,
+     236,
+     226
+    ]
+   },
+   "badge": {
+    "ratio": 6.53,
+    "ink": [
+     251,
+     250,
+     248
+    ],
+    "ground": [
+     112,
+     88,
+     0
+    ]
+   }
+  },
+  "tags": null,
+  "swatchStyleAttr": "background-color: rgb(68, 136, 204);",
+  "swatchComputedBg": "rgb(68, 136, 204)",
+  "forcedColorsActive": false,
+  "badgeText": "1",
+  "popoverStillOpenAfter16Tabs": false,
+  "focusShots": {
+   "swatchFocusOutline": "none 3px rgb(28, 25, 23)",
+   "swatchFocusShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.",
+   "rect": {
+    "x": 462,
+    "y": 782.7
+   }
+  },
+  "pillFocus": {
+   "active": true,
+   "outline": "none 3px rgb(112, 89, 66)",
+   "boxShadow": "none",
+   "tabIndex": 0
+  },
+  "spinnerWatch": {
+   "sawSpinner": 0,
+   "sawDisabled": 0,
+   "frames": 30,
+   "buttonHTML": "<span data-v-ace91ae4=\"\">Search</span>"
+  },
+  "substitution": [
+   {
+    "typed": "hsl(200 50% 50%)",
+    "fieldAfter": "hsl(200 50% 50%)",
+    "swatchLabel": "Open color picker, current color #4488cc",
+    "badge": "1",
+    "anyErrorNode": false,
+    "inputAriaInvalid": null
+   },
+   {
+    "typed": "rebeccapurple",
+    "fieldAfter": "rebeccapurple",
+    "swatchLabel": "Open color picker, current color #4488cc",
+    "badge": "1",
+    "anyErrorNode": false,
+    "inputAriaInvalid": null
+   },
+   {
+    "typed": "oklch(0.7 0.15 30)",
+    "fieldAfter": "oklch(0.7 0.15 30)",
+    "swatchLabel": "Open color picker, current color #4488cc",
+    "badge": "1",
+    "anyErrorNode": false,
+    "inputAriaInvalid": null
+   },
+   {
+    "typed": "#abc",
+    "fieldAfter": "#abc",
+    "swatchLabel": "Open color picker, current color #4488cc",
+    "badge": "1",
+    "anyErrorNode": false,
+    "inputAriaInvalid": null
+   },
+   {
+    "typed": "not-a-color",
+    "fieldAfter": "not-a-color",
+    "swatchLabel": "Open color picker, current color #4488cc",
+    "badge": "1",
+    "anyErrorNode": false,
+    "inputAriaInvalid": null
+   },
+   {
+    "typed": "#FF0000",
+    "fieldAfter": "#FF0000",
+    "swatchLabel": "Open color picker, current color #4488cc",
+    "badge": "1",
+    "anyErrorNode": false,
+    "inputAriaInvalid": null
+   }
+  ],
+  "focusWalk": [
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "outline": "none 3px rgb(251, 250, 248)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 457,
+     "y": 632.8,
+     "w": 44,
+     "h": 44
+    },
+    "insidePopover": true
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search by CSS color",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.",
+    "rect": {
+     "x": 496,
+     "y": 779.7,
+     "w": 148,
+     "h": 36
+    },
+    "insidePopover": true
+   },
+   {
+    "tag": "span",
+    "role": null,
+    "name": "",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 0,
+     "y": 900,
+     "w": 0,
+     "h": 0
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "body",
+    "role": null,
+    "name": "→BrowseToolsBrowsePalettes Log",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 900
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search the commons...",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 259,
+     "y": 344.4,
+     "w": 374,
+     "h": 24.6
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search your palettes...",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 789,
+     "y": 344.4,
+     "w": 414,
+     "h": 24.6
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "body",
+    "role": null,
+    "name": "→BrowseToolsBrowsePalettes Log",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 900
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search the commons...",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 259,
+     "y": 344.4,
+     "w": 374,
+     "h": 24.6
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search your palettes...",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 789,
+     "y": 344.4,
+     "w": 414,
+     "h": 24.6
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "body",
+    "role": null,
+    "name": "→BrowseToolsBrowsePalettes Log",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 900
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search the commons...",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 259,
+     "y": 344.4,
+     "w": 374,
+     "h": 24.6
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search your palettes...",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 789,
+     "y": 344.4,
+     "w": 414,
+     "h": 24.6
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "body",
+    "role": null,
+    "name": "→BrowseToolsBrowsePalettes Log",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 900
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search the commons...",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 259,
+     "y": 344.4,
+     "w": 374,
+     "h": 24.6
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search your palettes...",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 789,
+     "y": 344.4,
+     "w": 414,
+     "h": 24.6
+    },
+    "insidePopover": false
+   },
+   {
+    "tag": "body",
+    "role": null,
+    "name": "→BrowseToolsBrowsePalettes Log",
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "w": 1440,
+     "h": 900
+    },
+    "insidePopover": false
+   }
+  ]
+ },
+ "chromium-forced-colors": {
+  "open": true,
+  "apiLeak": {
+   "triggerAttrs": [
+    "data-v-ace91ae4=",
+    "data-slot=button",
+    "data-emphasis=secondary",
+    "data-tone=neutral",
+    "data-size=md",
+    "data-icon-only=true",
+    "data-control-target=",
+    "data-press-armed=",
+    "type=button",
+    "class=button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+    "id=reka-popover-trigger-v-1-0",
+    "aria-haspopup=dialog",
+    "aria-expanded=true",
+    "aria-controls=reka-popover-content-v-1-1",
+    "data-state=open",
+    "variant=ghost",
+    "aria-label=Filters",
+    "style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000; --mouse-x: 50.00%; --mouse-y: 50.00%;"
+   ],
+   "triggerClass": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+   "clearAttrs": null,
+   "clearClass": null,
+   "popoverClass": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-60 p-0",
+   "popoverPadding": "20.352px 16px",
+   "checkboxes": [],
+   "checkboxHostAttrs": null
+  },
+  "contrasts": {
+   "sectionLabel": {
+    "ratio": 1,
+    "ink": [
+     0,
+     0,
+     0
+    ],
+    "ground": [
+     0,
+     0,
+     0
+    ]
+   },
+   "optionText": {
+    "ratio": 1,
+    "ink": [
+     0,
+     0,
+     0
+    ],
+    "ground": [
+     0,
+     0,
+     0
+    ]
+   },
+   "searchPill": {
+    "ratio": 5.32,
+    "ink": [
+     0,
+     0,
+     0
+    ],
+    "ground": [
+     128,
+     128,
+     128
+    ]
+   },
+   "clearAll": null,
+   "input": {
+    "ratio": 21,
+    "ink": [
+     0,
+     0,
+     0
+    ],
+    "ground": [
+     255,
+     255,
+     255
+    ]
+   },
+   "badge": null
+  },
+  "tags": null,
+  "swatchStyleAttr": "background-color: rgb(68, 136, 204);",
+  "swatchComputedBg": "rgb(255, 255, 255)",
+  "swatchForcedAdjust": "auto",
+  "forcedColorsActive": true,
+  "badgeText": null
+ },
+ "chromium-light": {
+  "open": true,
+  "apiLeak": {
+   "triggerAttrs": [
+    "data-v-ace91ae4=",
+    "data-slot=button",
+    "data-emphasis=secondary",
+    "data-tone=neutral",
+    "data-size=md",
+    "data-icon-only=true",
+    "data-control-target=",
+    "data-press-armed=",
+    "type=button",
+    "class=button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+    "id=reka-popover-trigger-v-1-0",
+    "aria-haspopup=dialog",
+    "aria-expanded=true",
+    "aria-controls=reka-popover-content-v-1-1",
+    "data-state=open",
+    "variant=ghost",
+    "aria-label=Filters",
+    "style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000; --mouse-x: 50.00%; --mouse-y: 49.98%;"
+   ],
+   "triggerClass": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+   "clearAttrs": null,
+   "clearClass": null,
+   "popoverClass": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-60 p-0",
+   "popoverPadding": "20.352px 16px",
+   "checkboxes": [],
+   "checkboxHostAttrs": null
+  },
+  "contrasts": {
+   "sectionLabel": {
+    "ratio": 2.9,
+    "ink": [
+     101,
+     84,
+     66
+    ],
+    "ground": [
+     0,
+     0,
+     0
+    ]
+   },
+   "optionText": {
+    "ratio": 1.2,
+    "ink": [
+     28,
+     25,
+     23
+    ],
+    "ground": [
+     0,
+     0,
+     0
+    ]
+   },
+   "searchPill": {
+    "ratio": 1.53,
+    "ink": [
+     112,
+     89,
+     66
+    ],
+    "ground": [
+     123,
+     122,
+     120
+    ]
+   },
+   "clearAll": null,
+   "input": {
+    "ratio": 14.91,
+    "ink": [
+     28,
+     25,
+     23
+    ],
+    "ground": [
+     243,
+     236,
+     226
+    ]
+   },
+   "badge": null
+  },
+  "tags": null,
+  "swatchStyleAttr": "background-color: rgb(68, 136, 204);",
+  "swatchComputedBg": "rgb(68, 136, 204)",
+  "swatchForcedAdjust": "auto",
+  "forcedColorsActive": false,
+  "badgeText": null
+ }
+}

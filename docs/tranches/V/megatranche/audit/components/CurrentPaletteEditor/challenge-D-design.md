@@ -2,9 +2,9 @@
 
 ## Model receipt
 
-I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`. This seat was
-spawned with an explicit Opus 5 declaration and is running as declared, not inherited. An
-undeclared or inherited seat would be a DEFECT; this one is neither.
+I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]`. This seat was
+spawned with an explicit Opus 5 declaration and runs as declared, not inherited. An undeclared or
+inherited seat is a DEFECT; this one is neither.
 
 ---
 
@@ -16,390 +16,362 @@ undeclared or inherited seat would be a DEFECT; this one is neither.
 | Subject | `demo/palettes/browser/card/CurrentPaletteEditor.vue` (312 lines), area `palettes` |
 | Route | `/#/palettes` only — sole consumer `demo/palettes/PalettesPane.vue:41-54` |
 | Repo | `/Users/mkbabb/Programming/value.js`, branch `tranche-u` |
-| HEAD **as observed** | `640652df` (the brief named `c654824e`; the tree has advanced). `git status --porcelain` on the subject file: **clean**. |
-| Producer | `@mkbabb/glass-ui@7.0.0` (`node_modules/@mkbabb/glass-ui/package.json:3`) |
-| Run | **2026-07-28, pass 3.** Passes 1 and 2 are preserved beside this file as `challenge-D-design.2026-07-27-pass1.md` and `challenge-D-design.2026-07-28-pass2.md`. |
-| This seat's probes | `probe-D3-pass3-a.mjs` (empty-state DOM + whole-document tab walk) · `probe-D3-pass3-b.mjs` (seeded 12-colour populated state × desktop / mobile 390 / dark / forced-colors / RTL / 360) · frames in `frames-D3/` |
-| Canon read | `PROPORTION-AUDIT.md`, `VISUAL-CONSTITUTION.md`, `PALETTE-CONTRACT.md`, `OPTICAL-BENCH-COMPOSITIONS.md §3.1/§5` |
+| HEAD **as observed** | `f36f780c` (the brief named `c654824e`; the tree has advanced twice since). Subject file `git status --porcelain`: **clean** |
+| Producer | `@mkbabb/glass-ui@7.0.0` |
+| Run | **2026-07-28, pass 4.** Passes 1–3 preserved beside this file |
+| This seat's probes | `probe-D10-pass4.mjs` · `probe-D11-pass4.mjs` · `probe-D12-pass4.mjs` · `probe-D13-pass4.mjs`; JSON beside each; frames in `frames-D10/` |
+| Canon read | `PROPORTION-AUDIT.md`, `VISUAL-CONSTITUTION.md`, `PALETTE-CONTRACT.md`, `OPTICAL-BENCH-COMPOSITIONS.md` |
 
-**Verdict: DEFECTIVE.** This pass re-derived its numbers independently. It **replicates 12 of the
-banked findings from scratch** (§A), **files 4 new ones** (§B), and **refutes nothing**.
+**Verdict: DEFECTIVE.** Five new findings (§B), one of them BLOCKER-class and not reachable by any
+prior pass's instruments. Nothing banked is refuted; §D records the negative evidence, including one
+claim a future seat would otherwise mis-file.
 
 ---
 
-## What pass 3 is for
+## What pass 4 is for
 
-Pass 2 is a good report. A third pass that re-narrates it is worthless. So this pass did two things
-and only two things:
+Passes 1–3 filed 31 findings between them. They exhaustively probed the component **at rest** —
+empty, populated, hovered, RTL, forced-colors, dark, 390 px. What none of them did was **operate it
+to completion and look at what the product does afterwards**, or check it against the *domain*
+contract rather than the *visual* one. Both of those are design questions, and both were open.
 
-1. **Independent replication.** I re-derived the load-bearing numbers with my own instruments,
-   from the source and the live server, before reading pass 2. §A is the replication table. A
-   banked BLOCKER that a second instrument cannot reproduce is not a BLOCKER; all of them
-   reproduced.
-2. **The gaps.** §B holds the four defects that survive pass 2's coverage — a visual-language
-   contradiction, a state that has no design, a design-system boundary crossing, and the gestalt
-   claim that ties the file's twenty-odd symptoms to one wrong decision.
+So this pass drove the one live path the component still has — name it, commit it — and asked the
+two questions nobody had asked:
+
+1. **What does a successful save look like?** (§B · D4-01. It looks like a lie.)
+2. **Does the editor know what a palette is?** (§B · D4-02. It does not — 1–50 is contractual and
+   the editor accepts 80.)
+
+Everything in §B is measured this session against the live dev server at `http://localhost:9000`.
 
 ---
 
 ## The one-sentence gestalt
 
-**This file writes five different jobs onto one flat `<div>`, gives every one of its verbs to a
-decoration that the design system had already ruled to be a decoration, and then sites the whole
-thing in a route composition that has no seat for it** — so the component is not "buggy", it is
-*sited*, *housed* and *voiced* wrongly, and the dead verbs are the downstream symptom of that,
-not the disease.
-
----
-
-# §A · Independent replication of the banked findings
-
-Every row was produced by this seat's own probe, this session, against the live dev server at
-`http://localhost:9000`. "Pass-2 ID" names the finding this replicates.
-
-| # | Claim | This seat's own measurement | Pass-2 ID | Result |
-|---|---|---|---|---|
-| A1 | Every `WatercolorDot` in the file renders as a non-interactive `<span>` | 13 of 13 faces (12 colours + add slot): `tagName:"SPAN"`, `tabIndex:-1`, `aria-hidden:"true"`, computed `pointer-events:none`, `aria-label:null` | D2-01 | **REPRODUCED** |
-| A2 | `addCurrentColor` is unreachable by pointer | `page.click(".add-slot-ghost",{force:true})` × 5 with slider nudges between → swatch count **0 → 0** | D2-01 | **REPRODUCED** |
-| A3 | The `<Plus>` glyph at `:104` never renders | Full `outerHTML` of the empty well contains the watercolor filter `<svg>` and the ghost-stroke `<span>` and **nothing else** — no lucide node | D2-01 | **REPRODUCED** |
-| A4 | The hover action panel is unstyled and lands off-anchor | `.floating-panel` live: `position:"static"` (so its inline `top:305.156px; left:791px` is **inert**), rect `{x:0, y:900, w:1440, h:40}`, `background rgba(0,0,0,0)`, `boxShadow none`, `borderRadius 0px`, `zIndex auto`, `aria-hidden true`; document `scrollHeight 900 → 940` | D2-01 / D2-15 | **REPRODUCED** |
-| A5 | `.floating-panel` has no rule anywhere | Live CSSOM walk over every stylesheet including nested rules: **`cssRulesDefiningFloatingPanel: 0`**. Repo-wide grep finds the string only at `SwatchHoverMenu.vue:42`, `useHoverPopover.ts:7` (a comment) and `animations.css:2` (a comment) | D2-15 | **REPRODUCED** |
-| A6 | The commit control has no accessible name | Populated well button inventory = exactly one entry: `{name:"<<NO ACCESSIBLE NAME>>", w:32, h:40}` | D2-14 | **REPRODUCED** |
-| A7 | The name field has no accessible name | `{ariaLabel:null, labelled:false, id:"", placeholder:"Palette 1"}` | D2-14 | **REPRODUCED** |
-| A8 | The component exposes two focusable nodes and both are nameless | `wellFocusables` with 12 colours = `[INPUT "<<NO ACCESSIBLE NAME>>", BUTTON "<<NO ACCESSIBLE NAME>>"]`. 12 colours × 3 verbs = 36 actions, **0 reachable** | D2-01 / D2-14 | **REPRODUCED** |
-| A9 | The edit overlay is a desktop-only fork | At 390 px the computed `display` of `.edit-overlay glass-floating hidden lg:flex` is **`none`**, while `isSwatchEditing(i)` still drives `:ghost` at `:37` — so the swatch goes ghost with no commit/cancel anywhere on the surface | D2-18 | **REPRODUCED** |
-| A10 | The collision state is announced to nobody | With `"Dup" already exists.` on screen, live regions inside the well = **only** the `ApiOfflineChip` `role="alert"`; the message span has no `role` and no `aria-live`; `document.activeElement` is still the same `INPUT` | D2-02 / D2-07 | **REPRODUCED** |
-| A11 | The empty well is a slab | 1440: well `462 × 113.88`; ink (label + ghost) `5 684.7 px²` of `52 610.3 px²` = **10.8 % ink, 89.2 % void**. 390: `324 × 105.59`, `4 404.2 / 34 212.4` = **12.9 %** | D2-22 | **REPRODUCED** |
-| A12 | Identity type is off-matrix in family and weight | `.text-small` header computed `{fontFamily:"Fraunces", fontSize:"16.4px", fontWeight:"600"}` against `VISUAL-CONSTITUTION.md:75` — *"control or label … **Plus Jakarta Sans, non-bold**"* | D2-10 | **REPRODUCED** |
-| A13 | The `h-8` per-instance override on the commit button does not take | Authored `h-8 w-8` at `:137` → measured **32 × 40**. The width override won; the height was defeated by the producer's own minimum | D2-21 | **REPRODUCED** |
-| A14 | Mobile forks the field metrics | Name input `36 px` tall at 1440, `54 px` at 390 — and at 1440 it sits in a `flex items-center` row beside a `40 px` button, so the pair never shares a height | D2-13 area | **REPRODUCED** |
-
-Twelve distinct claims, twelve agreements, two instruments. **No banked finding was refuted by this
-pass.**
+**The component is materially indistinguishable from the artifact it produces, has no idea how big a
+palette is allowed to be, and its single successful mutation ends in a frame where the header says
+"2", the body says "none", the screen reader is told "No saved palettes yet", and the user's work is
+nowhere on screen** — the file does not merely lack states, it *contradicts itself at the exact
+moment it succeeds*.
 
 ---
 
 # §B · New findings
 
-## D3-01 · MAJOR — one palette, two irreconcilable specimen species, on one screen
+## D4-01 · BLOCKER — the commit has no designed outcome; under an active filter it renders four contradictory truths in one frame, announces the opposite of what happened, and destroys focus
 
-`frames-D3/duplicate-state.png` is a single live frame. In it the *same twelve colours* are drawn
-twice:
+This is the headline. `frames-D10/p2b-after-save-under-filter.png` is a single live frame captured
+immediately after a **successful** save. In it, simultaneously:
 
-| | In `CurrentPaletteEditor` | In the saved `PaletteCard` directly below |
+| where | what it says | truth |
 |---|---|---|
-| Source | `CurrentPaletteEditor.vue:36` `size-class="w-11 h-11 sm:w-12 sm:h-12"` → glass-ui `WatercolorDot` | `PaletteColorStrip.vue:8-24` |
-| Form | 12 discrete organic faces, **48 × 48 px measured**, each with its own seeded `border-radius` (e.g. `28.1208% 33.6845% 57.986% 49.3693% / 79.1234% …`) and its own `feTurbulence`/`feDisplacementMap` filter | one continuous band, `flex h-10 w-full` = **40 px tall**, hard-edged, `border-radius: 0`, segments painted by raw `backgroundColor` |
-| Reads as | "twelve individual specimens you may act on" | "one indivisible ribbon of provenance" |
-| Semantics | (intended) data-bearing | `aria-hidden="true" role="presentation"` |
+| header badge, `PalettesPane.vue:21-26` | **`My Palettes  2`** | 2 palettes exist |
+| the field | `· EMPTY PLATE ·` / **"No saved palettes yet."** | 0 palettes exist |
+| the field's hint | **"Add colors above, then save the set."** | the user did exactly this, one second ago |
+| the well header, `:11-16` | **"Start a new palette"** | the draft they built is gone |
+| `localStorage["color-palettes"]` | `["Aurora Draft","Zebra"]` | the save **worked** |
 
-`VISUAL-CONSTITUTION.md:18` names exactly **one** colour-bearing species — *"Watercolor/data |
-swatches, active mark, pastel `Palettes` identity | **the only** ornamental color-bearing
-species"*.
+Measured (`probe-D11-pass4.json` → `P2.after`):
 
-The defect is not that a strip exists somewhere in the app. It is that **the single most important
-state change on this route — draft becomes saved — is expressed by silently swapping the visual
-language for the object.** A user watches twelve blobs become one band. Nothing in the design says
-these are the same twelve colours; the two forms share no shape, no size, no edge, no rhythm and
-no unit. That is a comprehension failure, not a style inconsistency: the product's stated job is
-that a person *"leaves with an understood … color artifact"* (`VISUAL-CONSTITUTION.md:5`), and this
-discontinuity sits exactly where the understanding is supposed to be handed over.
+```json
+"storedNames": ["Aurora Draft", "Zebra"],
+"cardCount": 0,
+"emptyText": "· empty plate ·No saved palettes yet.Add colors above, then save the set.",
+"headerBadge": "(2 saved)",
+"wellHeader": "Start a new palette",
+"activeElement": "BODY:",
+"searchStillActive": "qqqzzz"
+```
 
-**Reproduction.** Seed `localStorage["color-picker"] = {inputColor, savedColors:[12 lab colours]}`;
-load `/#/palettes`; type a name; press Enter. The well and the new card are visible at once.
-Frame: `frames-D3/duplicate-state.png`. Geometry: measured 48 × 48 (probe) vs `h-10` = 40 px
-(`PaletteColorStrip.vue:10`).
+Three separate design failures compose here.
 
-**Cure.** One species per object. Either the saved card's compact strip becomes the same seeded
-`WatercolorDot` row at a smaller rung — `VISUAL-CONSTITUTION.md:102` authorises *"the card's compact
-swatch strip … noninteractive data"*, it does not authorise a *second rendering technology* — or the
-well adopts the band and drops the blobs. It cannot be both. This is a `PR-05`-family row (one mark
-device per meaning) and it shares an owner with D2-01, because both are resolved by deciding once
-what a palette *looks like*.
+**(a) The success has no representation at all.** `saveCurrentPalette` at `:247-265` emits `saved`,
+blanks the name field, and emits `clearCurrent`. There is no result state, no operation status, no
+focus move, no scroll-to-artifact, nothing. `VISUAL-CONSTITUTION.md:116` fixes the contract for
+exactly this event — *"successful command that deliberately navigates to a new resource | new
+resource H1 | focused resource identity followed by **one durable operation result**; transient
+celebration is silent."* There is neither the celebration nor the durable result. `:101` — *"Persistent
+operation state stays with the entity/workspace."* Nothing persists.
+
+**(b) The only live-region announcement the commit produces is false.** `EmptyState.vue:33` is
+`role="status"`. When the save empties the draft and the new palette is filtered out, that status
+region mounts and announces *"empty plate, No saved palettes yet, Add colors above, then save the
+set."* A screen-reader user's sole feedback on a successful save is a statement that they own
+nothing and an instruction to repeat the action. `VISUAL-CONSTITUTION.md:83` — *"Selected, failed,
+pending, withdrawn and disabled states are never color-only. Role, accessible name, state/value and
+**associated error/status are explicit**."* This one is explicit and wrong, which is worse than absent.
+
+**(c) The commit destroys focus.** `activeElement: "BODY:"`. The commit button lives inside
+`v-if="savedColorStrings.length > 0"` (`:118`). Saving clears `savedColorStrings`, so the button
+**unmounts itself while focused**, and the browser falls back to `<body>`.
+`VISUAL-CONSTITUTION.md:115` — *"exact connected opener on close, otherwise the nearest surviving
+owning action"*; `:113` — *"no focus on removed content."* A keyboard user presses Enter and is
+returned to the top of the document with no announcement and no visible change they can locate.
+
+### Reproduction (exact)
+
+```
+localStorage["color-picker"]   = {inputColor, savedColors:[4 lab colors]}
+localStorage["color-palettes"] = {version:1, palettes:[{id,slug,name:"Zebra",colors:[...],isLocal:true}]}
+load /#/palettes
+type "qqqzzz" into input[placeholder="Search your palettes..."]
+type "Aurora Draft" into .dashed-well input
+click .dashed-well button (last)
+```
+→ `probe-D11-pass4.mjs` § P2. Frames: `frames-D10/p2b-filter-no-results.png` (before),
+`frames-D10/p2b-after-save-under-filter.png` (after).
+
+**Note on the store schema.** Pass 4's first probe (`probe-D10-pass4.mjs`) seeded
+`{palettes:[…]}` without `version`, which `usePaletteStore.ts:24-27` rejects in favour of
+`defaultStore`. `probe-D11` re-ran with `{version:1, palettes:[…]}`. Both runs are preserved; the
+D11 numbers are the ones quoted. I flag this because a future seat reusing the D10 seed will
+silently probe an empty library.
+
+**Cure (architectural, not a patch).** The commit's outcome is not this component's to invent
+ad hoc — it belongs to the composition. `VISUAL-CONSTITUTION.md:45` gives the Library a *"selected
+action/history inspector"*, and `:102` puts *"rename/lifecycle/export actions and durable operation
+state"* there. Commit should land the new palette **as the selected inspector identity**, move focus
+to it, clear the filter or say why the result is hidden, and leave one durable operation result on
+the entity. That single relocation kills all three arms at once — and it is the same relocation
+D3-04 already prescribes, which is why D4-01 is not a new owner but new *evidence* for that owner.
 
 ---
 
-## D3-02 · MINOR — the "nothing to save" state is not designed, and the control that would express it is structurally unreachable
+## D4-02 · MAJOR — the domain's contractual 1–50 palette cardinality has no representation anywhere in the editor, and the house already has the pattern
 
-Two predicates on the same expression, twenty lines apart:
+A palette's cardinality is not a preference. `PALETTE-CONTRACT.md:126` — *"A palette's content is
+exactly **1–50** `CanonicalNamedColor` atoms."* The bound is enforced downstream in three places:
 
+- `demo/palettes/export/reload.ts:191` — `if (parsed.orderedNamedColors.length < 1 || parsed.orderedNamedColors.length > 50)` → terminal reject
+- `api/README.md:24` — *"Palettes are slug-addressed collections of 1–50 color stops."*
+- `PALETTE-CONTRACT.md:192` (Appendix W51) — *"The color array is exactly 1–50 `CanonicalNamedColor` atoms from the Wire contract."*
+
+The editor is where the number is *produced*, and it knows nothing about it. Measured
+(`probe-D10-pass4.json`):
+
+| draft size | count line | add slot present | save button `disabled` | any limit copy | well height @1440×900 |
+|---:|---|---|---|---|---:|
+| 12 | `12 colors` | yes | `false` | no | 274.6 px |
+| 50 | `50 colors` | yes | `false` | no | 456.6 px |
+| **51** | `51 colors` | yes | **`false`** | **no** | 650.8 px |
+| **80** | `80 colors` | yes | **`false`** | **no** | **910.4 px** |
+
+At 80 colours the scratch tray alone is **910.4 px tall in a 900 px viewport** — the draft surface
+exceeds the stage, inside a `overflow-y-auto` pane Card, and the interface still offers to save it.
+There is no counter approaching the bound, no cap on the add slot, no disabled commit, no message.
+The failure is deferred past the commit to the far side of an export or a publish, where it surfaces
+as `snapshot_corrupt` — a terminal failure code (`PALETTE-CONTRACT.md:319`) for something the user
+was invited to do.
+
+**This is not a missing feature; it is an inconsistency inside one product.** The same app already
+ships the correct design for the identical problem, 60 lines of code away:
+
+```ts
+// demo/workbenches/mix/MixSourceSelector.vue:37-40
+// Source guards: remove needs ≥ 1 remaining, add stops at a sensible upper bound.
+const MIN_COLORS = 1;
+const MAX_COLORS = 12;
+const canRemoveColor = computed(() => selectedColors.length > MIN_COLORS);
+const canAddColor    = computed(() => selectedColors.length < MAX_COLORS);
 ```
-:118   v-if="savedColorStrings.length > 0"        ← the whole save row
-:138   :disabled="savedColorStrings.length === 0" ← the button inside it
-```
 
-They are complementary, so the `disabled` arm can never evaluate true — the element it sits on does
-not exist when it would. Live: with 12 colours the sole well button reports `disabled:false`; with 0
-colours the button is absent from the DOM entirely (the empty-state `outerHTML` ends
-`<!--v-if--><!--v-if--><!--v-if-->`).
+Mix bounds an operand rack whose limit is a **taste** judgement ("a sensible upper bound") and wires
+it to its add affordance. The palette editor, whose limit is a **contract**, wires nothing.
+`PROPORTION-AUDIT.md §5.5` — a control is *"either data, status, labeled action, drag affordance,
+focus/selection register or removed"*; an add control that cannot know when it must stop is none of
+those.
 
-Two things are wrong and only one of them is dead code:
+**Reproduction.** Seed `savedColors` with 51 and 80 entries; load `/#/palettes`; read the count
+line and the commit button's `disabled`. `probe-D10-pass4.mjs` § P1; frames
+`frames-D10/p1-n50-1440.png`, `p1-n80-1440.png`.
 
-1. **The dead branch.** Owner edict 2 (no masking fallbacks) and edict 3 (KISS): a guard that
-   cannot fire is a guard someone will later trust. `PROPORTION-AUDIT.md §5.5` — a control is
-   *"either data, status, labeled action, drag affordance, focus/selection register or removed"*.
-2. **The state it pretended to cover has no design at all.** When the tray empties, the entire
-   naming-and-commit region *vanishes* rather than resting. The interface teaches a two-step
-   grammar — collect, then name and commit — then deletes step two the moment step one is empty,
-   taking the explanation of the workflow with it. `VISUAL-CONSTITUTION.md:83` — *"Selected,
-   failed, pending, **withdrawn and disabled** states are never color-only. Role, accessible name,
-   state/value … are explicit."* A state expressed by *removal* is not expressed.
-
-**Reproduction.** Load `/#/palettes` with an empty tray: `wellFocusables: []` — no input, no
-button. Populate: both appear. There is no frame in which the button renders disabled.
-
-**Cure.** Delete `:disabled` — it is a lie — *and* keep the save region mounted and genuinely
-disabled at zero colours, with the count line reading `0 colors` instead of the header swapping to
-a different sentence. One region, one identity line, one resting action (`PROPORTION-AUDIT.md
-§5.2`).
+**Cure.** One bound, declared once where the domain declares it, consumed by the add slot (rests at
+50), the count line (`50 / 50`), and the commit. The Mix guard is the shape; the number comes from
+the palette contract, not from a second local opinion. Fixing this also caps D3-04's uncapped growth
+at a knowable maximum, which is the only way that row can ever have a geometry budget.
 
 ---
 
-## D3-03 · MINOR — a design-system context provider is instantiated per component instance, around a control that cannot fire it
+## D4-03 · MAJOR — the draft well and the saved palette Card are the same material, byte-for-byte; the scratch surface and the durable artifact are indistinguishable, and the scratch specimen is the larger of the two
 
-`:88-111`:
+Measured in one frame with the same five colours in both surfaces (`probe-D13-pass4.mjs`):
 
-```
-<TooltipProvider :delay-duration="200">
-  <Tooltip>
-    <TooltipTrigger as-child>
-      <WatercolorDot … />   ← renders <span aria-hidden pointer-events:none>
-```
-
-Four nodes of design-system machinery (`TooltipProvider`, `Tooltip`, `TooltipTrigger`,
-`TooltipContent`) supporting **zero reachable behaviour**, because the `as-child` target is the same
-inert span as A1.
-
-Independently of the dead trigger, the *provider placement* is the boundary defect.
-`TooltipProvider` is a context owner. Instantiating it inside a leaf component makes this one
-control's `delay-duration` a local opinion (200 ms) that **cannot by construction agree** with any
-other tooltip in the app; only a root-level provider makes the delay a system property. Owner
-edict 5 — *style at the shadcn/glass root component level, never per-instance overrides* — and
-edict 3 (no contrivance).
-
-**Reproduction.** Read `:88`. Live: hovering the add slot produces no tooltip (`pointer-events:none`,
-measured A1); no other tooltip in the app shares this provider instance.
-
-**Cure.** One `TooltipProvider` at the app root; delete this one. Once D2-01 is cured and the add
-slot is a real named button, the tooltip is redundant with the button's own accessible name and
-should go too — `PROPORTION-AUDIT.md §5.6`, *"do not compensate for an unnecessary action with
-tooltip proliferation. Subtraction precedes explanation."*
-
----
-
-## D3-04 · MAJOR — the gestalt: five jobs on one flat `<div>`, in a route composition that has no seat for any of them
-
-This is the finding the other twenty-odd are downstream of, and it is a *design* finding, so it
-belongs on this axis.
-
-### (a) Five zones, one container
-
-The `.dashed-well` root renders, top to bottom:
-
-| Zone | Job (`PROPORTION-AUDIT.md §5.2` vocabulary) | Source |
+| | draft well `.dashed-well` | saved palette Card |
 |---|---|---|
-| header row: name + count | identity | `:5-23` |
-| swatch row + per-swatch hover menu | specimen **and** action | `:24-113` |
-| `ApiOfflineChip` | status (`role="alert"`) | `:116` |
-| name input + commit button | action | `:117-143` |
-| collision message + Update/Cancel | a **second** action, in a different grammar | `:144-167` |
+| fill | `oklab(0.913295 0.00550478 0.0130424)` | `oklab(0.913295 0.00550478 0.0130424)` |
+| radius | `16px` | `16px` |
+| shadow | `-2px 2px 0`, `-3px 3px 0`, `-4px 4px 0` @ `oklab(0.28 … /.32 /.26 /.18)` | `-3px 3px 0`, `-5px 5px 0`, `-7px 7px 0` @ the same three alphas |
+| edge | `1.5px dashed var(--card-edge)` (`utils.css:97`) | `2px solid` `--card-edge` |
+| classes | `dashed-well` | `group rounded-card cartoon-surface border-card-edge bg-well` |
 
-`PROPORTION-AUDIT.md §5.2` — *"A card has one protagonist, one identity line, and **at most one**
-persistent action/status region. Additional equal-weight zones require a different
-`InstrumentChassis` composition."* This has one identity line and **four** further zones, two of
-which are competing action species: a nameless 32 × 40 icon circle and two 36 px text pills
-(measured `Update` 61.8 × 36, `Cancel` 59.2 × 36). That is `PR-06` verbatim — *"Three adjacent
-action species."*
+The fill token is **identical to the last digit**. The radius is identical. The shadow is not merely
+similar — it is the same three-step cartoon ladder, the same colour, the same three alphas, one rung
+apart. The **entire** material difference between a user's throwaway scratch tray and their saved,
+durable, exportable, publishable palette is: `dashed` versus `solid`, and half a pixel of border
+width.
 
-### (b) There is no seat for it in the ratified composition
+`VISUAL-CONSTITUTION.md:34` — *"One pane may have one full-strength visual protagonist. Supporting
+fixtures do not compete with it through equal size or **equal shadow**."* This is equal shadow,
+measured, plus equal fill and equal radius.
 
-`OPTICAL-BENCH-COMPOSITIONS.md:40` fixes the Library's regions exactly — *"owner-state selector;
-resource field; selected inspector/actions"* — and adds *"**Field, lane, empty state and inspector
-have zero Cards**"*. `CurrentPaletteEditor` is none of the three regions: it is a
-compose-and-commit **instrument**, a Generate/Mix-class job, parked inside the Library's field.
+And the competition is not even a draw — **the support wins on size**. Same probe, same frame:
 
-And it *is* materially a Card. Measured on the live well: `box-shadow` = the three-step
-`--shadow-cartoon-sm` cartoon stamp, plus a `1px dashed` edge, plus a `--well-bg` fill, plus
-`border-radius: 16px`. `VISUAL-CONSTITUTION.md:19` — *"One surface has one tier. **An inner card is
-not automatically another pane of glass.**"* It also carries **two boundary devices at once** — a
-dashed edge *and* a cast shadow — so a *provisional* edge reads as a *raised solid* card. `PR-05`:
-*"Dividers, caster shadows and corner marks repeat a boundary → REMOVE."*
-
-### (c) The consequence: the route's protagonist is the wrong object
-
-On the live empty route (`frames-D3/pop-desktop-1440.png` and the tranche's own
-`shots/safari-desktop-light/palettes.png`) the pane shows **two dashed empty invitations
-simultaneously**: the "Start a new palette" slab, and ~200 px below it the `EmptyPaletteMark`
-(*· EMPTY PLATE ·* plus three dashed dots). Same vocabulary, same dashes, same message, twice, in
-one column.
-
-Once populated, the scratch tray holds the only saturated colour on the route — twelve blobs —
-while the actual protagonist, the saved-palette field, is empty.
-`VISUAL-CONSTITUTION.md:34`: *"One pane may have one full-strength visual protagonist. Supporting
-fixtures do not compete with it through equal size or equal shadow."*
-
-**Measured growth — the tray is uncapped.** 1440 px: `113.88 px` empty. 390 px:
-**`105.59 px` empty → `322.2 px` populated**, i.e. **38 % of an 844 px viewport for a scratch
-surface**. 360 px: `308.2 px`, of which the swatch block alone is `170 px`.
-`VISUAL-CONSTITUTION.md §3` law 2: *"Empty secondary content occupies at most a narrow invitation
-tray (≤ 15 % of the stage) or disappears."*
-
-### Reproduction
-
-All three sub-claims are visible in `frames-D3/pop-desktop-1440.png`, `frames-D3/pop-mobile-390.png`
-and the empty capture in the tranche's own visual audit; numbers from `probe-D3-pass3-b.mjs`.
-
-### Cure — architectural, not a patch
-
-Split by job and let each land in a region that already exists in the ratified composition:
-
-- The **draft tray** (identity + specimen row) is the Library's *empty-state / draft lane* content.
-  It collapses to a tray when empty (`§3` law 2) instead of reserving a slab.
-- The **naming and commit** step is the *selected inspector / action* region — where the
-  constitution already puts *"rename/lifecycle/export actions and durable operation state"*
-  (`VISUAL-CONSTITUTION.md:102`).
-- The **collision decision** is a confirmation inside that same action region, in the one glass-ui
-  action set (`§5`: *"Commit uses one glass-ui action set"*), not a third inline grammar.
-- The **backend status** does not belong in a user's palette editor at all.
-
-That split dissolves D3-02 (the save region gains a home and can rest), most of D2-19, `PR-05`'s
-double boundary, `PR-06`'s three action species, and it removes the second dashed invitation.
-
----
-
-# §C · Visual truth — what my own frames show
-
-**Desktop light, empty.** A full-bleed dashed rectangle, `462 × 113.88`, containing a `147 × 23`
-label and one `48 px` pale ghost pinned to the top-left. 89.2 % of it is nothing. It casts a hard
-three-step cartoon shadow, so a dashed (= provisional) edge reads as a raised solid card: the two
-materials contradict one another. Below it, the EMPTY PLATE mark says the same thing again in the
-same dashes.
-
-**Desktop light, populated, hovering swatch 1** (`frames-D3/hover-panel-full.png`). This frame
-should end the argument. The pencil / copy / trash icons for the hovered swatch render **at the
-bottom-left corner of the document**, 900 px below the swatch, as three bare glyphs on the page
-background — no panel, no shadow, no radius, no ground — and they grow the document by 40 px.
-Simultaneously the `DEV MISCONFIGURED` chip is visible **twice**: floating at top-right and again
-inside the palette well.
-
-**Mobile 390, populated** (`frames-D3/pop-mobile-390.png`). The swatch block wraps 5 / 5 / 3 — the
-last row is 40 % empty, and the add slot is its third tile. So **the primary "add" affordance
-relocates every time the count crosses a multiple of five**, and it is visually identical to "an
-empty thirteenth slot": no `+`, no label, no interactivity. The well is 322 px of an 844 px
-viewport. The `role="alert"` configuration banner sits in the middle of the user's palette, between
-their colours and the name field.
-
-**Dark** (`frames-D3/pop-desktop-dark.png`). Fill `oklab(0.345 …)`, edge
-`oklab(0.925 … / 0.12)` — a 12 %-alpha hairline on a dark plate — and both header lines resolve to
-the *same* ink `rgb(195,185,172)`, so the identity label and the value count are separated only by
-family and size, never by ink hierarchy. Pass 2's corrected contrast figures (5.08 : 1 light,
-5.97 : 1 dark) stand; the defect here is the flattened hierarchy, not the ratio.
-
-**Forced colors** (`frames-D3/pop-forced-colors.png`). The well loses its `--well-bg` ground
-entirely; the dashed edge survives, so the "well" becomes an outline floating on the pane. The
-`DEV MISCONFIGURED` chip loses its destructive red and becomes ordinary neutral text — the only
-things distinguishing "misconfigured" (a loud state) from "backend offline" (a quiet one) were
-colour and a filled-versus-open 6.4 px dot. `VISUAL-CONSTITUTION.md:83`: *"never color-only … in
-both schemes, forced colors and reduced transparency."*
-
-**RTL** (`frames-D3/pop-rtl.png`). The swatch row mirrors (`firstDotX 625 > lastDotX 335`) with no
-ordinal announcement of any kind, and the collision message renders a user-supplied palette name
-straight into RTL prose with no LTR isolation (`:149` — `"{{ duplicateTarget.name }}" already
-exists.`). `VISUAL-CONSTITUTION.md §6.1`: *"CSS strings, hex, slugs, IDs and provenance | render in
-LTR-isolated spans inside RTL prose."*
-
-**360 px** (`frames-D3/pop-360.png`). `docOverflowX: 0` — no horizontal overflow. This is one of the
-places the component is clean and I record it as such.
-
----
-
-# §D · State coverage matrix
-
-The brief asks for every state enumerated. This is the whole set. "Unreachable" means the state
-exists in the source and cannot be produced in the shipped app.
-
-| State | Designed? | Evidence |
+| rendering of the same five colours | geometry | technology |
 |---|---|---|
-| empty | yes, but as an 89.2 %-void slab that does not content-hug | A11, D3-04 |
-| populated | yes | measured |
-| **the only path from empty → populated** | **dead** | A2 — `pointer-events:none`, 0 → 0 |
-| loading / request in flight | absent — no skeleton, no pending affordance on save | source |
-| error (save failed) | absent — `emit("saved")` is fire-and-forget and the tray is cleared unconditionally at `:262-264` | `:261-265` |
-| error (name collision) | present, but unannounced, unassociated, and in a third action grammar | A10, D3-04(a) |
-| disabled (nothing to save) | **structurally unreachable** | **D3-02** |
-| focused | only two nodes are focusable and both are nameless | A8 |
-| hovered (swatch) | renders an unstyled strip at the document's bottom edge | A4 |
-| active / pressed (swatch) | unreachable | A1 |
-| selected / being edited | ghost silhouette only; commit/cancel is `hidden lg:flex` | A9 |
-| dragging / reorder | absent — no reorder affordance for palette colours at all, though `§5.2` specifies one | source |
-| overflowing / wrapping | wraps, uncapped, and relocates the primary action | D3-04(c) |
-| truncated (long palette name) | absent — no `maxlength`, no ellipsis, no measure | `:125-133` |
-| RTL | mirrors; no ordinal announcement; no LTR isolation of names or CSS literals | §C |
-| reduced motion | inherited global guard at `animations.css:184-192` neutralises it — **correct**, recorded as such | `animations.css:184` |
-| forced colors | ground lost; status distinguishable only by colour | §C |
-| 360 px / narrow | no overflow — **clean** | §C |
-| backend offline | shown, but gated on `savedColorStrings.length > 0` — suppressed exactly when a first-time user would need it | `:116` |
+| draft well | 5 × **48 × 48** faces, seeded radius `59.17% 69.19% 31.62% 33.29% / 67.02% 75.03% 23.69% 75.73%` | `filter: url("#watercolor-filter-v-1-0")` |
+| saved card | one **458 × 40** band, 5 segments of 91.6 × 40, `border-radius: 0px` | `filter: none`, raw `backgroundColor` |
 
-Nineteen states. **Four are designed and correct** (populated, reduced motion, narrow-viewport
-reflow, and the singular/plural count copy at `:21`). Six are unreachable or dead. Five are absent
-entirely.
+The scratch draft's specimen is 20 % taller than the artifact's, drawn in the expensive organic
+species, while the artifact gets flat rectangles. `VISUAL-CONSTITUTION.md:186` — saved palettes are
+*"matte specimen slips inside a glass workspace"*; here the matte slip is out-dressed by the notepad
+above it.
 
----
+Two further facts fall out of the same measurement and belong to their own owners, recorded here as
+evidence rather than filed as my rows:
 
-# §E · Motion
+- The saved palette Card carries a three-step cartoon shadow (`-3/-5/-7`). `VISUAL-CONSTITUTION.md:54`
+  fixes every Library palette entity Card at exactly `{size:"sm", material:"content", tier:"quiet",
+  surface:"opaque", **shadow:false**, grain:false, specular:"off"}`. → PaletteCard's seat.
+- The whole pane root is `glass-resting card rounded-card …` with its own `8px 8px 0` stamp, so the
+  route is Card → Card → Card, three nested bounded surfaces. `VISUAL-CONSTITUTION.md:45` gives the
+  Library an *"owner workspace chassis"* in which *"the field/lane/empty/inspector have none"*.
+  → the composition owner (D3-04).
 
-The file keys the correct family — `vj-enter`, one of the three sanctioned names
-(`animations.css:67-77`) — and animates only `opacity` and `transform`, neither of which forces
-layout. The global reduced-motion guard covers it. On the axis's own terms, the motion *tokens* are
-right.
+**Reproduction.** `probe-D13-pass4.mjs`, seeded with five identical colours in both the draft and one
+saved palette; frames `frames-D10/p3b-three-renderings.png`, `frames-D10/p6-material-comparison.png`.
 
-What is wrong is what they are attached to:
-
-- `.swatch-row > .vj-enter-leave-active { position: absolute }` (`utils.css:177`) lifts a leaving
-  dot out of flow, but neither `.swatch-row` nor `.dashed-well` establishes a containing block, so
-  the leaving dot positions against whatever positioned ancestor happens to exist above it. *(This
-  is the CSS reading; pass 2 measured the landing box — see D2-05. I did not re-measure it and do
-  not claim a coordinate.)*
-- `useSwatchActions.ts:45-53` keys each swatch `${color}::${i}`. Removing a mid-list colour changes
-  the index of every survivor, so every survivor gets a fresh key and unmounts/remounts. The
-  `.vj-enter-move` FLIP class the shared recipe advertises (*"neighbours reflow on the family move
-  class"*, `utils.css:172`) therefore **can never fire for a survivor**. This reproduces pass 2's
-  D2-16 by reading; I could not exercise it live because the remove verb is dead (A1).
-
-So the motion defect is the same defect as everything else: correct tokens, attached to a structure
-that cannot deliver them.
+**Cure.** Material must encode durability. The draft is *provisional* and belongs one tier **below**
+the artifact — no cartoon stamp at all, the dashed edge alone carrying the in-progress semantics
+(which is exactly what `utils.css:103` already claims in prose: *"The dashed edge ALONE carries the
+in-progress semantics"* — and then the very next line adds `box-shadow: var(--shadow-cartoon-sm)`).
+Delete the well's stamp; let the saved Card's quiet tuple be the only bounded object on the route.
+This is `PR-05` verbatim — *"Dividers, caster shadows and corner marks repeat a boundary →
+REMOVE"* — and it is a one-declaration cure, unlike most of this file's rows.
 
 ---
 
-# §F · Two notes that are not findings
+## D4-04 · MINOR — the field has one empty state for two incompatible meanings, and this component's commit is what routes users into the wrong one
 
-**On the `role="alert"` dev banner.** `ApiOfflineChip` is self-gating
-(`ApiOfflineChip.vue:12-24`) and renders nothing against a correctly-configured backend. My probes
-ran against `npm run dev:web-only`, so the `misconfigured` arm fired. The chip's *presence* in my
-frames is a local environment fact and I do not file it as a product defect. What **is** a product
-fact — and is filed inside D3-04 — is that a maintainer-addressed configuration alert is mounted
-inside a user's palette editor and gated on the user's palette length.
+`PalettesPane.vue:77-80`:
 
-**On the empty-state ghost's `Plus`.** Pass 2 established that the glyph never renders. I reproduce
-it (A3) rather than re-file it.
+```
+:empty="pm.filteredSaved.value.length === 0"
+empty-eyebrow="· empty plate ·"
+empty-text="No saved palettes yet."
+empty-hint="Add colors above, then save the set."
+```
+
+The predicate is **filtered** length; the copy is about **owned** length. Measured
+(`probe-D11-pass4.json` § P2): with one saved palette and the filter `qqqzzz`, `cardCount: 0` and
+`emptyText: "· empty plate ·No saved palettes yet.…"` while `headerBadge: "(1 saved)"`.
+
+`VISUAL-CONSTITUTION.md:186` reserves this mark precisely: *"A **true empty** invitation content-hugs
+its text/action and may carry one static, aria-hidden `EmptyPaletteMark`."* `PaletteCardGrid.vue:16`
+says the same thing in its own comment — *"TRUE EMPTY is the EmptyState invitation ALONE"*. A
+filtered-to-zero field is not true empty; it is a query result, and
+`VISUAL-CONSTITUTION.md:114` gives it its own contract — *"in-route filter … changed result
+count/state through the owning status region"*, i.e. announce the **result**, not the inventory.
+
+I file this on this axis because it is the second half of D4-01: the commit is the moment that
+converts "I have one palette and a stale filter" into "the interface tells me I have none". The
+locus is shared with `PalettesPane.vue`, and the co-owner is named.
+
+**Reproduction.** As D4-01, but observable before the save: `probe-D11-pass4.mjs` § P2 `filtered`;
+frame `frames-D10/p2b-filter-no-results.png`.
+
+**Cure.** Two states, two copies. `empty` (no palettes owned) keeps the plate mark and the
+invitation; `no-results` (filter excludes everything) names the query and offers to clear it. One
+predicate each. No new component — `EmptyState.vue` already carries a `variant` union
+(`:15`/`:32`); this is a third arm on an existing switch, not a new species.
 
 ---
 
-# §G · Ranked disposition
+## D4-05 · MINOR — at the constitution's own 200 % zoom arm the scratch tray takes 57.6 % of the stage
 
-| ID | Severity | Family | Owner |
+`VISUAL-CONSTITUTION.md:62` and `:78` make actual browser zoom a **named evidence arm**, not an
+optional extra. Measured at 720 × 450 CSS px (= 1440 × 900 at 200 %), 12 colours
+(`probe-D10-pass4.json` § P4):
+
+```json
+{ "wellH": 259, "vh": 450, "share": 57.6, "docOverflowX": 0 }
+```
+
+**57.6 % of the viewport for the draft tray.** Pass 3 measured 38 % at 390 px and called the tray
+uncapped; the zoom arm is worse than the phone, and it is the arm the canon actually names.
+`VISUAL-CONSTITUTION.md §3` law 2 caps *empty* secondary content at 15 %; law 8 forbids a supporting
+fixture competing with the protagonist. At 200 % zoom the protagonist gets 42 % of what is left.
+
+`docOverflowX: 0` — no horizontal overflow at this arm. That part is clean and I record it as such.
+
+**Reproduction.** `probe-D10-pass4.mjs` § P4; frame `frames-D10/p4-zoom200-720x450.png`.
+
+**Cure.** D4-02 gives the tray a maximum cardinality; D3-04 gives it a home that can scroll
+independently of the stage. Neither alone is sufficient — an uncapped tray in a collapsing lane is
+still unbounded.
+
+---
+
+# §C · State coverage — the rows pass 4 adds
+
+Pass 3's §D matrix stands. These rows were absent or wrong in it:
+
+| State | Prior verdict | Pass-4 verdict | Evidence |
 |---|---|---|---|
-| D2-01 (replicated: A1–A3, A8) | BLOCKER | dead specimen host — the `P051` abrogation at `VISUAL-CONSTITUTION.md:91` was executed by the producer and never by this consumer | the wave owning `WatercolorDot` seats |
-| D2-15 (replicated: A4–A5) | BLOCKER | phantom CSS atom `.floating-panel` — 0 rules in the live CSSOM, the exact `inv-N-7` failure that `.dashed-well` was minted to cure (`utils.css:86`) | same |
-| D2-02 (replicated: A10) | BLOCKER | destructive confirmation with no association, no announcement, no focus move | same |
-| **D3-04** | **MAJOR (gestalt)** | **five jobs, one div, no seat in the ratified composition** | **W18 / W22 — the composition owner** |
-| **D3-01** | **MAJOR** | **two specimen species for one object** | **the palette-specimen owner, with D2-01** |
-| **D3-02** | MINOR | unreachable `disabled` arm; undesigned "nothing to save" | as D3-04 |
-| **D3-03** | MINOR | per-instance design-system context provider | as D3-04 |
+| **commit succeeded** | not enumerated | **undesigned, and actively announces its opposite** | D4-01 |
+| **commit succeeded, filter active** | not enumerated | **artifact invisible; four contradictory truths in one frame** | D4-01 |
+| **focus after commit** | not enumerated | **destroyed — `activeElement: BODY`** | D4-01(c) |
+| **at the contractual maximum (50)** | not enumerated | **no design; add slot open, commit enabled** | D4-02 |
+| **over the contractual maximum (51–80)** | not enumerated | **no design; well exceeds the viewport at 80** | D4-02 |
+| field filtered to zero | not enumerated | **rendered as "no palettes owned"** | D4-04 |
+| zoomed to 200 % | not measured | **57.6 % of the stage; no overflow** | D4-05 |
 
-`D3-04` is the row I would fix first if only one could be fixed, because all three BLOCKERs resolve
-*inside* it: deciding where this component lives forces the decision about what its verbs are
-attached to — the decision the file has been deferring since R.W4.
+Adding these to pass 3's nineteen: **twenty-six enumerated states, four designed and correct.**
+
+---
+
+# §D · Negative evidence — what is right, and one claim a future seat must not file
+
+Pass 4 is an adversarial seat, so its negative findings are worth as much as its positive ones.
+
+1. **The edit overlay's containing block is correct.** `.edit-overlay` is `position: absolute; top:0;
+   left:0` (`:295-311`) and its comment claims it aligns over the original swatch. It does:
+   `SwatchHoverMenu.vue:2-3` gives the slot host `class="relative"`, so the overlay anchors to the
+   swatch wrapper, not to the pane. Pass 3 §E correctly limited its containing-block claim to the
+   *leave transition* (`.swatch-row`, which is `static`). **A future seat must not extend that claim
+   to the edit overlay.** The `-0.375rem` margin offsets are a legitimate padding correction.
+
+2. **`PANEL_LAYOUT` is a real anti-drift device.** `SwatchHoverMenu.vue:63-65` shares one layout
+   string across the touch `PopoverContent` and the hover panel so the two paths cannot diverge.
+   That is the correct instinct and it should survive whatever cures D2-15.
+
+3. **No horizontal overflow at any arm measured** — 360, 390, 720@200 %, 1440. Four for four.
+
+4. **The reactive-props bridge is idiomatic.** `:234-235` uses `toRef(() => savedColorStrings)` to
+   carry destructured props across the composable boundary — owner edict 7, satisfied, no stale
+   `defineModel` round-trip.
+
+5. **`verbatimModuleSyntax` is honoured.** `:190` `import type { Palette, PaletteColor }` is the
+   file's only type-only import and it is correctly marked — owner edict 8, satisfied.
+
+6. **The singular/plural count copy at `:21` is correct** and commented as deliberate. It is the one
+   piece of copy in the file that was designed.
+
+---
+
+# §E · Ranked disposition
+
+| ID | Severity | Mechanism | Owner |
+|---|---|---|---|
+| **D4-01** | **BLOCKER** | **the commit has no outcome; it announces its own negation and destroys focus** | **the composition owner (with D3-04) — the cure is the same relocation** |
+| **D4-02** | **MAJOR** | **contractual cardinality unrepresented; the house pattern exists at `MixSourceSelector.vue:38-40`** | the palette-domain wave, with W45 |
+| **D4-03** | **MAJOR** | **draft and artifact share one material byte-for-byte; support out-dresses protagonist** | `PR-05` family — W18 |
+| **D4-04** | MINOR | one empty state for two meanings; shared locus `PalettesPane.vue:77-80` | W22, with D4-01 |
+| **D4-05** | MINOR | 57.6 % of the stage at the canon's own zoom arm | as D3-04 |
+
+**D4-01 is the row I would fix first**, and not because it is the loudest. Every other finding in
+four passes describes a surface that is *wrong*; D4-01 describes a surface that is *dishonest* — it
+tells the user, in text and to their screen reader, that the thing they just did did not happen.
+A component may be ugly and still be trusted. This one cannot.
 
 ---
 
@@ -407,15 +379,20 @@ attached to — the decision the file has been deferring since R.W4.
 
 | path | what |
 |---|---|
-| `challenge-D-design.md` | this report (pass 3) |
-| `challenge-D-design.2026-07-28-pass2.md` | the preserved pass-2 report — its 27 findings stand; §A here replicates twelve of them |
-| `challenge-D-design.2026-07-27-pass1.md` | the preserved pass-1 report (its D-8 was retracted in pass 2 §0) |
-| `probe-D3-pass3-a.mjs` | empty-state `outerHTML`, add-slot inertness, whole-document tab walk |
-| `probe-D3-pass3-b.mjs` | seeded 12-colour populated state × desktop 1440 / mobile 390 / dark / forced-colors / RTL / 360; live CSSOM phantom-class walk; hover-panel geometry; collision-flow live regions |
-| `frames-D3/hover-panel-full.png` | **the frame that ends the argument** — the action menu at the document's bottom-left corner |
-| `frames-D3/hover-panel-viewport.png` | the same hover, viewport crop |
-| `frames-D3/pop-desktop-1440.png` · `pop-mobile-390.png` · `pop-desktop-dark.png` · `pop-forced-colors.png` · `pop-rtl.png` · `pop-360.png` | the populated state across the matrix |
-| `frames-D3/duplicate-state.png` | the collision state **and** the D3-01 two-species frame |
+| `challenge-D-design.md` | this report (pass 4) |
+| `challenge-D-design.2026-07-28-pass3.md` | preserved pass 3 (4 findings; its §A replication stands) |
+| `challenge-D-design.2026-07-28-pass2.md` | preserved pass 2 (27 findings) |
+| `challenge-D-design.2026-07-27-pass1.md` | preserved pass 1 |
+| `probe-D10-pass4.mjs` / `.json` | cardinality at 1/12/50/51/80 · 200 % zoom · first (schema-rejected) filter run |
+| `probe-D11-pass4.mjs` / `.json` | commit-under-filter end to end · three-renderings · ghost-collision geometry |
+| `probe-D12-pass4.mjs` / `.json` | material comparison, draft well vs saved artifact |
+| `probe-D13-pass4.mjs` | the ancestor material chain: well → palette Card → grid → pane Card |
+| `frames-D10/p2b-after-save-under-filter.png` | **the frame that carries D4-01** — badge "2", body "No saved palettes yet.", hint "Add colors above, then save the set." |
+| `frames-D10/p2b-filter-no-results.png` | the same field before the save — D4-04 |
+| `frames-D10/p1-n50-1440.png` · `p1-n80-1440.png` | the contractual bound and 30 colours past it — D4-02 |
+| `frames-D10/p3b-three-renderings.png` · `p6-material-comparison.png` | the same five colours as 48 px organic faces and as a 40 px flat band — D4-03 |
+| `frames-D10/p4-zoom200-720x450.png` | the 200 % arm — D4-05 |
+| `frames-D10/p5-ghost-collision-1440.png` | add-slot ghost 48 px and empty-plate ghost 44 px, 63.9 px apart, one viewport (replicates pass-1 D-6 / pass-2 D2-09 with geometry) |
 
 **No source file was edited by this seat.** Every write is confined to
 `docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/`.

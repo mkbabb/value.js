@@ -24,8 +24,8 @@ const BANDS = {
 // is a point-in-time CLAIM (a resume in flight leaves the old record's "completed" in place,
 // and wall-killed runs have written false "completed" records), so activity is declared here,
 // not inferred. An incomplete row that is neither ACTIVE nor QUEUED exits 1.
-const ACTIVE = new Set(['core', 'scenes', 'demo-workbenches', 'palettes']);
-const QUEUED = new Set(['picker']);
+const ACTIVE = new Set(['scenes', 'demo-workbenches', 'palettes', 'picker']);
+const QUEUED = new Set([]);
 
 // adjudicated apotheosis file → roster slug(s) it covers
 const ADJUDICATED = {

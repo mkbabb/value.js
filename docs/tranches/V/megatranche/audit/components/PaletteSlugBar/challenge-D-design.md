@@ -1,15 +1,22 @@
-# CHALLENGE-D — `PaletteSlugBar.vue` · design axis
+# CHALLENGE-D — `PaletteSlugBar.vue` · design axis · run-3
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context arm. This is
-the tier this seat was spawned with, declared explicitly in the seat brief, not inherited from a
-parent session. Not Fable, not Sonnet, not Haiku.
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`. This is the tier
+this seat was spawned with, declared explicitly in the seat brief. Not inherited, not Fable, not
+Sonnet, not Haiku. An undeclared seat is a DEFECT; this one is declared.
 
-Subject: `demo/palettes/browser/slug/PaletteSlugBar.vue` (243 lines).
+Subject: `demo/palettes/browser/slug/PaletteSlugBar.vue` (243 lines, area `palettes`).
 Base: `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
-Prior run of this seat preserved verbatim at `./challenge-D-design.run-1.md`.
-Probes reproduced in `./probes/` (see §9 for exact invocations).
+Prior runs preserved verbatim at `./challenge-D-design.run-1.md` and `./challenge-D-design.run-2.md`.
+Probes for this run: `./probes/psb-probe.mjs`, `psb-probe2.mjs`, `psb-probe3.mjs`, `psb-ground.mjs`,
+`psb-ink.mjs`, `psb-submit2.mjs`.
+
+**Scope law honoured.** I wrote only under
+`docs/tranches/V/megatranche/audit/components/PaletteSlugBar/`. No file under `src/`, `demo/`,
+`api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`, `scripts/dev/dev.sh` or any `INBOX.md` was
+edited. Browser work was read-only navigation plus transient, self-removing DOM injection inside a
+single `evaluate` (the injected node is removed before the evaluate returns).
 
 ---
 
@@ -17,126 +24,132 @@ Probes reproduced in `./probes/` (see §9 for exact invocations).
 
 **DEFECTIVE — BLOCKER.**
 
-The premise handed to this seat was "the design is wrong." The finding is narrower and worse: **this
-component has no design, because it has no place.** Two independent facts establish it, and every
-other defect below is a consequence of them.
+I was told to assume the design is wrong and not to start by looking for reasons it is fine. Working
+from that premise independently, I reached the same terminal finding the two prior runs reached, by
+different routes: **this component has no design because it has no place.** It renders on zero
+routes; the account surface it duplicates already ships three times over elsewhere; and the ratified
+topology assigns that surface to a different housing entirely.
 
-1. **It renders on zero routes.** There is no `<PaletteSlugBar` tag anywhere in the tree. Its only
-   remaining references are a barrel re-export and a *type-only* import.
-2. **The ratified topology says its job belongs somewhere else.** `VISUAL-CONSTITUTION.md:222` —
-   *"Account is one modal side Dialog opened from the Dock, not a route chassis or second main. It
-   owns registration/recovery when signed out and identity, recovery-credential rotation and logout
-   when active."* An inline identity/login/logout bar sitting in the `My Palettes` pane header is
-   neither the Dock nor the Dialog. It is constitutionally homeless.
+This run's job was not to restate fourteen findings. It was to **attack them** — confirm what
+survives independent evidence, upgrade what was under-proved, add what was missed, and kill what
+would have been a false positive. Result:
 
-The most damaging consequence is **D-2**: the component's login form **cannot submit**. Its
-`@submit.prevent` handler is bound to an `<input type="search">` — an element that can never receive
-a `submit` event — because glass-ui 7.0.0's `SearchBar` is `inheritAttrs: false` and spreads `$attrs`
-onto its inner input rather than its root. The `<form>` therefore has *no* submit listener, so a real
-browser performs an **unprevented native form submission** and reloads the SPA. That regression
-landed in the glass-7 adoption commit `f2c8f565` and has never been observed, because the component
-it broke is not on screen anywhere.
+| | count | detail |
+|---|---:|---|
+| **Confirmed independently** | 2 BLOCKERs | D-1, D-2 — re-derived from scratch, not read off the prior report |
+| **Upgraded PLAUSIBLE → CONFIRMED** | 1 | **D-2**: the prior run could only argue the real-browser consequence "from the HTML spec rather than a probe" (jsdom died at `requestSubmit`). I reproduced the actual navigation in WebKit. |
+| **New findings** | 4 | D-15 (elevated-contrast opt-out), D-16 (focus ring below 1.4.11), D-17 (slug not LTR-isolated), D-18 (dead `resetEditMode`) |
+| **Negative proofs — false findings killed** | 2 | N-1 (the morph does *not* jump), N-2 (`outline-none` does *not* kill the forced-colors focus outline) |
+| **Convergent by different method** | 1 | D-4 raw-ink contrast, re-measured against a differently-sampled ground at a different threshold |
 
-This is the shape of the whole file: a login journey that rotted in the dark. Fourteen findings
-follow; nine are reproduced with pasted output or measured numbers.
+**Strongest defect: D-2.** The login form cannot submit, and in a real browser the attempt performs
+an unprevented native GET submission that reloads the SPA and discards the typed credential. The
+prior run identified the cause correctly but could not demonstrate the consequence. It is now
+demonstrated.
 
 ---
 
-## 1. Visual truth first
+## 1. What this run did differently
 
-### 1.1 The instruction, and the honest answer
+The premise "the design is flawed" is only useful if the seat can be surprised. So I deliberately
+did **not** read the prior reports until after I had formed my own findings from the source, the
+canon, the captures and live probes. I read them at the end, to diff. That ordering is why §4's two
+negative proofs exist: both are traps I walked into myself before measuring, and both would have
+shipped as confident false findings from a code-read alone.
 
-The brief says: open the Safari captures for this component's routes, desktop and mobile, light and
-dark, and say what is ugly. I did. **The component appears in none of them, because it is on no
-route.** Reporting "it looks fine" would be the false negative this seat exists to prevent; so the
-visual section is a *negative* proof plus what actually occupies the space.
+Evidence conventions:
 
-| capture read | what the identity region actually contains |
-|---|---|
-| `visual/shots/safari-desktop-light/palettes.png` | `My Palettes` (Fraunces, pastel `Palettes`), the italic sub-line, `Search your palettes…`, the dashed `Start a new palette` tray, the `EMPTY PLATE` mark, `No saved palettes yet.` **No slug pill, no identity row, no account affordance inside the pane.** The only account control on screen is the dock's `Login` pill — that is `demo/shell/dock/menus/ProfileSection.vue:111`, a different component. |
-| `visual/shots/safari-mobile-dark/palettes.png` | Same pane, single column, dark plate. **No account affordance visible at all.** It is folded behind the dock's vertical `⋮` (`MobileMenuDropdown.vue`). |
+- **Captures**: `docs/tranches/V/megatranche/audit/visual/shots/<matrix>/palettes.png`, Safari/WebKit,
+  desktop 2880×1800 and mobile, light and dark. Read as images.
+- **Live**: `http://localhost:9000`, WebKit and Chromium via Playwright, viewport 1440×900 @2×.
+- **Contrast**: WCAG 2.x relative luminance; grounds sampled from the shipped PNGs by canvas
+  `getImageData` over a 700×60 px region of the Library pane interior.
+- **Injection**: PaletteSlugBar's markup is copied **verbatim** from the SFC (line ranges cited per
+  probe) into the live cascade, measured, and removed in the same `evaluate`.
 
-Both images were read directly (I have vision; I looked). The desktop capture also confirms the
-horizontal-overflow column in `REPORT.md:120` — `/#/palettes` overflowX = 0 — so nothing this
-component would have contributed is visible in the measured page either.
+---
 
-### 1.2 The measured absence, from the audit's own data
+## 2. Confirmations — independently re-derived
+
+### 2.1 D-1 · BLOCKER — the component renders nowhere, and the topology says it should not exist
+
+**Static.** An exhaustive case-insensitive search over the whole tree finds no render site:
 
 ```
-$ grep -rn "PaletteSlugBar" --include="*.vue" --include="*.ts" . | grep -v node_modules | grep -v docs/tranches
+$ grep -rniE "PaletteSlugBar|palette-slug-bar|SlugBar|slug-bar" --exclude-dir=node_modules --exclude-dir=.git .
 demo/palettes/useSlugMigration.ts:6:import type { PaletteSlugBar } from "./browser/slug";
 demo/palettes/useSlugMigration.ts:30:    const slugBarRef = ref<InstanceType<typeof PaletteSlugBar> | null>(null);
 demo/palettes/browser/index.ts:44:export { PaletteSlugBar } from "./slug";
 demo/palettes/browser/slug/index.ts:3:export { default as PaletteSlugBar } from "./PaletteSlugBar.vue";
+(remainder: CHANGELOG + docs/tranches/* only)
 ```
 
-Four hits. Two are barrels. One is `import type` — it contributes **no runtime import**, so the
-component is not even in the bundle graph through it. The fourth is a template ref declared for a
-component that is never rendered.
+Two barrels, one `import type` (no runtime edge), one ref for a component that is never rendered.
+I closed the two remaining escape hatches a grep for the tag name would miss — dynamic
+`<component :is>` and render-function mounting:
 
 ```
-$ grep -c "PaletteSlugBar\|slug-pill" docs/tranches/V/megatranche/audit/visual/STATES.json
-0
+$ grep -rnE ':is="[A-Za-z]*Slug|h\(\s*PaletteSlugBar' demo/ | grep -v node_modules
+(no output — the 7 `<component :is>` sites in demo/ are all Lucide icon swaps)
 ```
 
+**Live DOM** (`probes/psb-probe.mjs`, WebKit, `/#/palettes`, 3.5 s settle). The three accessible
+names unique to this file — verified unique by grep — are absent, and so is every `.slug-pill`:
+
 ```
-$ git log --oneline -5 -- demo/palettes/browser/slug/PaletteSlugBar.vue
-f2c8f565 feat(v-w44)!: adopt @mkbabb/glass-ui 7.0.0 across the demo consumer surface
-a61094e3 feat(v-w43b3)!: home the feature UI trees; demo/@ dies (D-c)
+PRESENCE {
+  "accountMenu": 0,          // [aria-label="Account menu"]      — PaletteSlugBar.vue:84
+  "cancelSlugEdit": 0,       // [aria-label="Cancel slug edit"]  — PaletteSlugBar.vue:35
+  "signInWithSlug": 0,       // [aria-label="Sign in with slug"] — PaletteSlugBar.vue:24
+  "slugPillsTotal": 0,
+  "slugPillsInMain": 0,
+  "mainText": "Lab\n92.0\n%\n,\n88.8\n,\n20.0\nL\na\nb\nα\n…\nMy Palettes\n\nSave, organize, and
+               share your colors.\n\nStart a new palette\n\n· EMPTY PLATE ·\n\nNo saved palet"
+}
 ```
 
-The file was *modernised* to glass-ui 7 (`f2c8f565`, 2026-07-17) after its host had already gone. It
-has been maintained as live code for eleven days while being unreachable.
+**Visual.** I read `safari-desktop-light/palettes.png` and `safari-mobile-dark/palettes.png`
+directly. The Library pane runs `My Palettes` → italic sub-line → `Search your palettes…` → dashed
+`Start a new palette` tray → `EMPTY PLATE` mark → `No saved palettes yet.` There is no identity row,
+no slug pill, no account affordance anywhere inside the pane, in either scheme or either form
+factor. The only account control on screen is the dock's `Login` pill, which is
+`demo/shell/dock/menus/ProfileSection.vue:111` — a different component. Across the audit's full
+4 × 15 = 60-capture matrix this component appears zero times.
 
-### 1.3 The design that *did* ship, three times over
+**Topology.** `VISUAL-CONSTITUTION.md:222`:
 
-The job this component claims is discharged by three live siblings, in the Dock, where the
-constitution puts it:
+> "Account is one modal side Dialog opened from the Dock, not a route chassis or second main. It owns
+> registration/recovery when signed out and identity, recovery-credential rotation and logout when
+> active."
 
-| live component | what it owns | primitives |
-|---|---|---|
-| `demo/shell/dock/menus/ProfileSection.vue` | desktop identity: `Profile` trigger, slug pill, Copy/Switch/Logout/Regenerate | glass-ui `Button`, `DropdownMenu*`, `DockSeparator`, **`useSafeAccentFn`** |
-| `demo/shell/dock/layers/SlugEditLayer.vue` | the slug/token entry form as a dock *layer* | glass-ui `DockControl`, `DockSeparator`, `useTemplateRef` |
-| `demo/shell/dock/menus/MobileMenuDropdown.vue` | the same identity folded into `⋮` on coarse pointers | `slug-pill` + dock menu rows |
+An inline identity/login/logout/regenerate bar in the `My Palettes` pane header is neither the Dock
+nor the Dialog. Reviving it as-authored would be a constitutional violation, so there is no version
+of "fix its design" that terminates anywhere but deletion.
 
-So the design question is not "is this bar pretty." It is: **why does a fourth, divergent,
-unreachable implementation of the account surface exist at all?** Every finding below is a place
-where the orphan drifted away from the three that ship.
+**The design that did ship, three times.** `SlugEditLayer.vue` (dock edit layer), `ProfileSection.vue`
+(desktop dock menu) and `MobileMenuDropdown.vue` (mobile dock menu) each own a slice of the same
+surface. And the domain rule — *is this string a slug or an admin token?* — is forked byte-for-byte:
+
+```
+$ diff <(sed -n '184,196p' demo/palettes/browser/slug/PaletteSlugBar.vue) \
+       <(sed -n '25,37p'   demo/shell/dock/layers/SlugEditLayer.vue) && echo IDENTICAL
+IDENTICAL — verbatim duplicate of the slug/admin classification rule
+```
+
+An authentication classification rule living verbatim in two presentational components is not a
+styling defect; it is the absence of an owner. It belongs in `demo/platform/auth/`.
+
+**Corollary — the error channel is unreachable at the port, not just on screen.** `slugBarRef` is
+created at `useSlugMigration.ts:30`, returned at `:121`, and **never bound to any template ref**;
+`usePalettePorts.ts:133-134` forwards only `onRegenerateSlug` and `onSlugSwitch`, so the ref is not
+even re-exported. All four `setError` calls at `useSlugMigration.ts:84-87` therefore write to
+`null`, permanently. The component's only designed failure state cannot fire even in principle.
 
 ---
 
-## 2. D-1 · BLOCKER — the component contradicts the ratified topology and has no render path
+### 2.2 D-2 · BLOCKER — the login form cannot submit · **PLAUSIBLE → CONFIRMED**
 
-**Defect.** An inline account bar in a route pane is not an admitted composition. The constitution
-enumerates the eighteen compositions and assigns Account to *one modal side Dialog opened from the
-Dock* (`VISUAL-CONSTITUTION.md:222`), with `W23` owning the rendered composition. It further closes
-the member-route inventory (`§3.1`, line 58) and gives `Library / My Palettes` the region budget
-`owner-state selector, library, selected inspector` — no identity row. `PROPORTION-AUDIT.md §5.2`:
-*"A card has one protagonist, one identity line, and at most one persistent action/status region."*
-This bar adds a **second, unrelated identity line** (the user's slug) above the pane's real identity
-line (`My Palettes`), inside the same header block (measured host: `DIV.pane-header.px-4.sm:px-6`).
-
-**Evidence.** `VISUAL-CONSTITUTION.md:222`, `:44-45`, `:58`; `PROPORTION-AUDIT.md:67` (§5.2);
-grep output in §1.2; screenshots in §1.1.
-
-**Reproduction.** `grep -rn "<PaletteSlugBar" demo/` → 0 results. Load `http://localhost:9000/#/palettes`
-in any matrix and the identity region is absent (see the two captures).
-
-**Mechanism.** The composition was authored before the topology was ratified, its host was deleted
-at `a61094e3`, and nothing structural noticed: a barrel export keeps the module "used", and the one
-remaining consumer reference is `import type`, which TypeScript erases. There is no gate that fails
-on "exported, never rendered."
-
-**Cure (architectural, not a patch).** Delete the file, `demo/palettes/browser/slug/`, and
-`demo/palettes/browser/index.ts:44`. Move the *one* thing worth keeping — an authored error surface
-for failed sign-in (see D-3) — into the constitution's Account Dialog under `W23`, where the Dock
-already hosts the trigger. Do not "re-home" the bar; the bar is the defect.
-
----
-
-## 3. D-2 · BLOCKER — the login form cannot submit; the glass-7 migration silently severed it
-
-**Defect.** `PaletteSlugBar.vue:5-15` binds the submit handler on the `SearchBar` component:
+`PaletteSlugBar.vue:5-15` binds the submit handler on the `SearchBar` *component*:
 
 ```
 <SearchBar v-if="slugEditMode" ref="searchBarRef" key="slug-edit" tag="form"
@@ -145,549 +158,387 @@ already hosts the trigger. Do not "re-home" the bar; the bar is the defect.
     @keydown.escape.stop="slugEditMode = false">
 ```
 
-glass-ui 7.0.0's `SearchBar` is `inheritAttrs: false` and merges `$attrs` (minus `class`) onto its
-inner `<input type="search">`, not onto the root element that `tag="form"` produces:
+**Cause — read from the compiled producer myself**, not taken on report:
 
 ```
-# node_modules/@mkbabb/glass-ui/dist/search.js — SearchBar definition
-inheritAttrs: !1,
-__name: "SearchBar",
-...
-b("input", w({ ref_key: "inputRef", ref: s, type: "search" }, o.value, {   /* o.value = $attrs minus class */
-    value: e.modelValue, placeholder: e.placeholder, class: "input-bar-field",
-    onInput: ... }), null, 16, Q),
+$ grep -o "inheritAttrs[^,}]*" node_modules/@mkbabb/glass-ui/dist/search.js
+inheritAttrs: !1
 ```
 
-So `onSubmit` lands on an `<input>`. An `<input>` never fires `submit`. The `<form>` has **no submit
-listener at all**, so the browser's default action for the `submit` event — navigation — is never
-prevented.
-
-**Evidence / reproduction** (`probes/submit.test.ts`, `probes/submit2.test.ts`):
-
-```
-[dom] form tag = FORM  input type = search
-[dom] form attrs = data-v-e6a0327e,class,data-surface
-[dom] input attrs = type,placeholder,class,value
-[A] submit on <form> -> switchSlug emitted = null
-[B] submit on <input> -> switchSlug emitted = [["brave-amber-quiet-fox",false]]
-
-[btn0] type="submit" aria-label="Sign in with slug" disabled=""
-[btn1] type="button" aria-label="Cancel slug edit" disabled=null
-[slot] buttons render inside <form>? = 2
-Error: Not implemented: HTMLFormElement.prototype.requestSubmit
-[click] clicking control 0 (the intended submit)…
-[click] switchSlug emitted = null
-[click] slugEditMode still true = true
+```js
+// node_modules/@mkbabb/glass-ui/dist/search.js — the SearchBar definition
+$ = C({ inheritAttrs: !1, __name: "SearchBar",
+  props: { modelValue, placeholder, icon, tag: { default: "div" }, size, surface, variant },
+  setup(e, { expose: n, emit: r }) {
+    let i = r, a = P(),                            // a = useAttrs()
+        o = g(() => { let { class: e, ...t } = a; return t; }),   // o = $attrs MINUS class
+        s = O(null);
+    return n({ inputRef: s }), (n, r) => (D(), _(j(e.tag), {
+        class: E(...), "data-surface": e.surface           // ← the ROOT gets class + data-surface ONLY
+    }, { default: L(() => [
+        …icon…,
+        b("input", w({ ref_key: "inputRef", ref: s, type: "search" },
+                     o.value,                              // ← every other attr lands on the INPUT
+                     { value: …, placeholder: …, class: "input-bar-field", onInput: … }), …),
+        A(n.$slots, "default")
+    ]) }));
+  }});
 ```
 
-`[A]` dispatches a real cancelable `submit` on the `<form>` — **nothing fires**. That is proof of
-absence of a form listener (Vue attaches via `addEventListener`, so attribute absence alone would
-not be). `[B]` dispatches `submit` directly on the input — the handler fires, proving where the
-binding actually went. `[C]` clicks the genuine `type="submit"` button that renders inside the form:
-jsdom stops at `requestSubmit`, and `switchSlug` is still unemitted, edit mode still open.
+`onSubmit` is in `o.value`. It is attached to an `<input type="search">`. An `<input>` never fires
+`submit`; `submit` fires on the `<form>` and bubbles *up*, never down. The `<form>` root therefore
+carries **no submit listener at all**, and nothing calls `preventDefault()`.
 
-**Real-browser consequence** (mechanism, from the HTML spec rather than a probe): `requestSubmit` /
-Enter fires `submit` on the `<form>`; with no listener nothing calls `preventDefault()`; the form has
-no `action`, so the default action is a GET navigation to the current URL. The hash-routed SPA
-reloads and the typed slug is discarded. There is no path by which `onSlugSwitch` runs.
+**Consequence — the gap this run closes.** The prior run stated the real-browser outcome as
+"mechanism, from the HTML spec rather than a probe", because jsdom threw
+`Not implemented: HTMLFormElement.prototype.requestSubmit`. I ran it in WebKit against the live app,
+two arms identical but for listener placement (`probes/psb-submit2.mjs`):
 
-**Mechanism.** The component previously hand-rolled its own `<form>` + `<input>`; `f2c8f565` swapped
-in the producer's `SearchBar` for casing. `SearchBar`'s attribute-forwarding contract makes it a
-*field*, not a *form host*, but it accepts `tag="form"` without objecting, so the consumer's
-`@submit` silently relocates. Typechecking cannot catch it: `onSubmit` is a legal fall-through attr.
-The live sibling `SlugEditLayer.vue:76-79` writes a **real `<form @submit.prevent>`** with a plain
-`<input>` and is therefore correct — the orphan is the only site that adopted `SearchBar` for a form.
+```
+===== listener-on-FORM (what the author wrote) =====
+{ "handlerRuns": 1,
+  "formStillPresent": true,
+  "url": "http://localhost:9000/#/palettes?space=lab&color=lab(92%25+88.8+20+/+82.7%25)" }
+main-frame navigations after Enter: []
 
-**Cure.** The producer contract is the defect surface: `SearchBar` should either refuse `tag="form"`
-or route non-input listeners to its root (a glass-ui BH/BI relay item, per the standing edict). At
-the value.js altitude, the composition is wrong anyway — a *search* field is not the idiom for a
-credential entry (see D-9). The Account Dialog should own a real `<form>` with a real
-`<input autocomplete=…>`, exactly as `SlugEditLayer` already does.
+===== listener-on-INPUT (what SearchBar produces) =====
+{ "handlerRuns": "gone (page navigated)",
+  "formStillPresent": false,
+  "url": "http://localhost:9000/?#/palettes?space=lab&color=lab(92%25+88.8+20+/+82.7%25)" }
+main-frame navigations after Enter: [
+  "http://localhost:9000/#/palettes?space=lab&color=lab(...)",
+  "http://localhost:9000/?#/palettes?space=lab&color=lab(...)",
+  "http://localhost:9000/?#/palettes?space=lab&color=lab(...)",
+  "http://localhost:9000/?#/palettes?space=lab&color=lab(...)"]
+```
+
+The interposed `?` in arm B is the signature of a native GET form submission to the current URL. The
+handler never ran, three main-frame navigations were recorded, the SPA reloaded, and the DOM under
+test was destroyed. In arm A — the same markup with the listener where the author believed it was —
+the handler runs once and nothing navigates.
+
+**Verdict on D-2: CONFIRMED.** Enter or a click on the `type="submit"` button reloads the app and
+discards the typed slug. There is no path by which `onSlugSwitch` runs.
+
+**Mechanism.** `f2c8f565` (the glass-7 adoption) swapped a hand-rolled `<form>` + `<input>` for the
+producer's `SearchBar`. `SearchBar` is a *field*, not a *form host*, but it accepts `tag="form"`
+without objecting, so the consumer's `@submit` silently relocated. Typecheck cannot see it:
+`onSubmit` is a legal fall-through attr. The live sibling `SlugEditLayer.vue:76-79` writes a real
+`<form @submit.prevent>` around a plain `<input>` and is correct. This orphan is the only site that
+adopted `SearchBar` as a form. **Producer-relay item** under the standing glass-ui BH/BI edict:
+`SearchBar` should either refuse `tag="form"` or route non-input listeners to its root.
 
 ---
 
-## 4. D-3 · MAJOR — the failure state collides, clips, and is announced to nobody
+### 2.3 D-4 · convergent by a different method — the pill wears raw uncertified ink
 
-Three independent defects in one four-line element (`PaletteSlugBar.vue:124-126`):
-
-```
-<p v-if="slugError" class="absolute left-0 -bottom-4 text-mono-small text-destructive whitespace-nowrap">
-```
-
-### 4.a It overlaps the following content by 8px at every viewport
-
-Measured in the **real cascade** on the live dev server, with the bar's exact class string hosted
-inside `main` and a 40px block placed after it (`probes/geom.mjs`):
+`PaletteSlugBar.vue:49` paints the identity pill with the raw live pick:
 
 ```
-### desktop-1440 (viewport 1440x900)   errOverlapsFollowing: 8   errOverflowsBarBox: 16
-### mobile-390  (viewport 390x844)     errOverlapsFollowing: 8   errOverflowsBarBox: 16
-### narrow-320  (viewport 320x640)     errOverlapsFollowing: 8   errOverflowsBarBox: 16
+:style="{ color: cssColorOpaque, borderColor: cssColorOpaque }"
 ```
 
-Arithmetic: the root reserves `min-h-9` (36px) and `mb-2` (8px measured `marginBottom: "8px"`); the
-error is `absolute` with `bottom: -1rem` (−16px) and a 19.59px line box. It therefore ends **16px**
-below the bar's border box while only **8px** of margin exists — an 8px overlap, invariant across
-all three arms. `PROPORTION-AUDIT.md §5.3`: *"Renderer, icon or touch footprints may reserve
-collision space only on the axis where collision exists."* Here the collision axis is reserved at
-half the required amount.
-
-### 4.b A real server message is 758px wide inside a 286px host, and is silently clipped
-
-`PaletteSlugBar.vue:221` — `else slugError.value = msg || "Login failed"` — puts an **arbitrary
-server string** into an absolutely-positioned `whitespace-nowrap` element. Measured against the
-component's actual historical host, the `My Palettes` `pane-header` (`probes/geom2.mjs`):
+Every other live consumer of an accent-on-surface routes through the repo's own certifier:
 
 ```
-### desktop-1440 { hostTag: "DIV.pane-header.px-4.sm:px-6", hostWidth: 510,
-  shortErrW: 312.88, shortErrOverflowsHost: -173.13,
-  longErrW: 888.13,  longErrOverflowsHost:  402.13, longErrOverflowsViewport: 202.13 }
-### narrow-320   { hostTag: "DIV.pane-header.px-4.sm:px-6", hostWidth: 286,
-  shortErrW: 267.08, shortErrOverflowsHost:   -2.92,
-  longErrW: 758.16, longErrOverflowsHost:  488.16, longErrOverflowsViewport: 471.16 }
+$ grep -rn "useSafeAccentFn" demo/ | grep -v node_modules
+demo/workbenches/gradient/GradientVisualizer/easing/useSpecimenRows.ts:40  ("resting")
+demo/workbenches/extract/ExtractControls.vue:118                          ("resting")
+demo/scenes/about/ColorNutritionLabel.vue:199                             ("resting")
+demo/shell/dock/menus/MobileMenuDropdown.vue:23                           ("floating")
+demo/shell/dock/menus/ProfileSection.vue:28-29                            ("chrome", "floating")
+demo/palettes/browser/card/PaletteCard/PaletteCard.vue:229                ("well")
 ```
 
-Two things to read here. First, the *shortest authored* message —
-`"Already signed in as this slug."` — fits its host at 320px with **2.92px of slack**: one character
-of copy revision and the shipped string bleeds. Second, the realistic API title (the API's own words,
-e.g. `"Rate limit exceeded: too many sign-in attempts…"`) measures **758px in a 286px host — 488px
-of overflow, 471px past the viewport.** `document.scrollWidth` stayed at 320, so an ancestor clips
-it: the user is shown a *truncated* error and the actionable half is discarded. `whitespace-nowrap`
-makes wrapping — the one thing that would fix it — impossible by construction.
+`ProfileSection.vue:22-31` names the exact hazard this file still carries:
 
-### 4.c It is a color-only failure state with no role, no live region, no association
+> "the raw pick as text/border measured ≤1.28:1 on the real menu ground for roughly half of all picks
+> per scheme."
 
-`probes/mount.test.ts`:
+I re-measured independently. Grounds sampled from the shipped `/palettes` captures over a 700×60 px
+Library-pane region (`probes/psb-ground.mjs`): light `rgb(228,218,210)`, dark `rgb(74,62,54)`. Ink
+resolved through a canvas 2D context — the repo's own CSS-color-resolver idiom — over a 32-point
+sweep of the picker's operating band (`probes/psb-ink.mjs`):
 
 ```
-[error] exists = true  attrs = {"data-v-e6a0327e":"","class":"absolute left-0 -bottom-4 text-mono-small text-destructive whitespace-nowrap"}
-[error] tree has role=alert|status = false
-[error] tree has aria-live = false
-[error] tree has aria-invalid = false
-[error] tree has aria-describedby = false
+oklch(0.60 0.15 180)   rgb(0,156,132)    light=  2.51:1  dark=  2.99:1
+oklch(0.72 0.15 135)   rgb(122,185,83)   light=  1.72:1  dark=  4.37:1
+oklch(0.85 0.15 180)   rgb(34,237,209)   light=  1.08:1  dark=  6.94:1
+oklch(0.45 0.15 180)   rgb(0,109,88)     light=  4.58:1  dark=  1.64:1
+…
+n=32
+below 4.5:1 (WCAG AA text) on the LIGHT library pane: 24/32 = 75%
+below 4.5:1 on the DARK  library pane: 23/32 = 72%
+below 3.0:1 (WCAG 1.4.11 border/non-text) in EITHER scheme: 32/32 = 100%
 ```
 
-`VISUAL-CONSTITUTION.md:83` — *"Selected, failed, pending, withdrawn and disabled states are never
-color-only. Role, accessible name, state/value and associated error/status are explicit."* This
-error is `text-destructive` and nothing else: no icon, no role, no `aria-live`, no `aria-invalid` on
-the field, no `aria-describedby` linking field to message. In forced-colors mode
-`text-destructive` is overridden to the system text color, so the *only* signal disappears entirely.
-`/palettes` was never captured in the forced-colors matrix (see D-14), so this has never been seen.
-
-**Cure.** The error belongs in normal flow beneath the field, wrapping, `role="alert"`, with
-`aria-invalid` + `aria-describedby` on the input, and copy authored by the app rather than passed
-through from the transport. That is the Account Dialog's job under `W23`, with `W15` supplying auth
-state — `PROPORTION-AUDIT.md` PR-08 already owns exactly this row (*"Pending/failure/export/recovery
-truth only transient → ADD-AFFORDANCE, Primary W23"*).
+Different ground sample, different threshold, different resolver from the prior run's 82–93% figure —
+same conclusion. Note the last line: because the same value paints **both** `color` and
+`border-color`, and the pill must read in both schemes, **every** point in the sweep fails the 3:1
+non-text floor in at least one scheme. The certified path already exists and is consumed six times;
+this file simply does not call it.
 
 ---
 
-## 5. D-4 · MAJOR — the slug pill wears raw uncertified ink; 82–93% of picks fail the app's own floor
+### 2.4 Confirmed without restatement
 
-**Defect.** `PaletteSlugBar.vue:47-52` paints the live picked color straight onto text and border:
+Independently reproduced, and already correctly recorded in run-2 — no new evidence needed here:
 
-```
-<span class="slug-pill cursor-help" :style="{ color: cssColorOpaque, borderColor: cssColorOpaque }">
-```
-
-The repo *already fixed this exact bug elsewhere and documented it*. `ProfileSection.vue:22-31`:
-
-> `D6 (T.W3-5 / A11Y-F2): the live-color identity keeps its voice but wears CERTIFIED ink — the raw
-> pick as text/border measured ≤1.28:1 on the real menu ground for roughly half of all picks per
-> scheme.`
-
-Nine sites consume `useSafeAccentFn`; `PaletteSlugBar` is not one of them:
-
-```
-$ grep -rln "useSafeAccentFn" demo/
-demo/workbenches/gradient/GradientVisualizer/easing/useSpecimenRows.ts
-demo/workbenches/extract/ExtractControls.vue
-demo/scenes/about/ColorNutritionLabel.vue
-demo/shell/dock/menus/MobileMenuDropdown.vue
-demo/shell/dock/menus/ProfileSection.vue
-demo/color-session/useContrastSafeColor.ts
-demo/color-session/keys.ts
-demo/color-picker/composables/boot/useAtmosphereBoot.ts
-demo/palettes/browser/card/PaletteCard/PaletteCard.vue
-```
-
-**Measured** — `probes/ink-sweep.test.ts` sweeps 1728 realistic picks (L 0.35→0.95 × C 0.05→0.30 ×
-H 0…345/15°), computes WCAG 2.x contrast independently of the app's own predicate, and asks the app's
-own `certifyAccentInk` whether it would move each one. Surface = the `resting` plate rung the pill
-sits on, via the app's own `resolveSurfaceLightness`. Floor = the app's own
-`TEXT_CONTRAST_FLOOR + CERTIFY_HEADROOM` = **5.75**.
-
-```
-[SWEEP light-ambient-0.75] restingL=0.8955 n=1728 fail(<5.75)=1421 (82.2%) median=2.60:1 worst=1.00:1 @ oklch(0.90 0.05 45)
-[SWEEP light-ambient-0.75] certifyAccentInk would MOVE 1621/1728 (93.8%)
-[SWEEP light-ambient-0.51] restingL=0.8115 n=1728 fail(<5.75)=1610 (93.2%) median=1.98:1 worst=1.00:1 @ oklch(0.80 0.10 195)
-[SWEEP light-ambient-0.51] certifyAccentInk would MOVE 1685/1728 (97.5%)
-[SWEEP dark-ambient-0.35]  restingL=0.3103 n=1728 fail(<5.75)=1193 (69.0%) median=3.71:1 worst=1.04:1 @ oklch(0.35 0.25 270)
-[SWEEP dark-ambient-0.35]  certifyAccentInk would MOVE 1534/1728 (88.8%)
-[SWEEP dark-ambient-0.22]  restingL=0.2739 n=1728 fail(<5.75)=1104 (63.9%) median=4.20:1 worst=1.17:1 @ oklch(0.35 0.25 270)
-[SWEEP dark-ambient-0.22]  certifyAccentInk would MOVE 1506/1728 (87.2%)
-
-[CASE] plate L=0.8955
-[CASE] RAW  oklch(0.80 0.15 60)  -> 1.42:1  (PaletteSlugBar.vue:49)
-[CASE] CERT oklch(44.480782728642% 0.10431327346 60deg) -> 5.75:1  (ProfileSection.vue:31)
-```
-
-Median contrast for the pill on a light plate is **1.98–2.60:1**; the worst cases are **1.00:1** —
-literally invisible. An ordinary warm pick renders the user's own identity at **1.42:1** where the
-certified path gives **5.75:1**. And this ink is the border too, so the pill's *boundary* vanishes
-with the text, taking the "pill" reading with it. The dark scheme is better but still fails 64–69%.
-
-Corroborated live: the geometry probe read the pill's computed style back as
-`color: "oklch(0.8 0.15 60)"` — the raw value, unmodified, in the real cascade.
-
-`VISUAL-CONSTITUTION.md:82` — *"Text, focus, boundaries and state meet their rendered contrast on the
-actual material tier; a token name is not evidence."*
-
-**Cure.** There is no new mechanism to invent: `useSafeAccentFn("resting")` exists, is the ratified
-D6 idiom, and is already wired at nine sites. The orphan simply never received the fix — which is
-precisely what happens to code no one can see.
+- **D-3** — the error `<p>` (`:124`) is `absolute … -bottom-4 whitespace-nowrap`. Measured
+  (`probes/psb-probe.mjs`): `errOverflowPx: 16.00` past the bar's own box against `margin-bottom: 8px`
+  → an 8 px collision into following content; the message box measures 312.88 px wide for a 29-char
+  string with `white-space: nowrap`; no `role="alert"`, no `aria-live`, no `aria-describedby` or
+  `aria-invalid` binding to the field. A color-only failure state.
+- **D-5** — hover-only help on a non-focusable `<span class="slug-pill cursor-help">` (`:47-52`).
+  Measured `pillTabbable: -1`, `pillRole: null` (`probes/psb-probe3.mjs`). `PROPORTION-AUDIT` PR-07.
+- **D-6** — target size. Measured `dots: 22 × 22` CSS px (`p-1` + a 14 px glyph), against WCAG 2.2
+  SC 2.5.8's 24 × 24 minimum.
+- **D-8, D-10, D-11, D-12, D-13** — dead substring error-branching (`msg.includes("409")` at `:218`,
+  the exact pattern `useSlugMigration.ts:78-82` documents as already fixed, on a `catch` around a
+  synchronous `emit` that cannot throw an HTTP-shaped error); the untokenized 50 ms `setTimeout` at
+  `:176`; `text-mono-small font-bold` on a control label; the unused `hasSavedPalettes` prop and
+  never-emitted `copy` event; four hand-rolled `<button>` rows inside a `Popover` where glass-ui's
+  `DropdownMenu` — already consumed by the live sibling, and shipping a typeahead engine, `disabled`
+  and cancellable `select` — is the design system's menu.
 
 ---
 
-## 6. D-5 · MAJOR — hover-only help on a non-focusable `<span>`, with the producer's hover-intent delay overridden to zero
+## 3. New findings
 
-**Defect.** `PaletteSlugBar.vue:45-60` wraps the pill in `<Popover trigger="hover" :close-delay="0"
-:open-delay="300">` and makes the trigger a bare `<span class="slug-pill cursor-help">`.
+### D-15 · MAJOR — the hand-rolled Login pill opts out of the root-level elevated-contrast law
 
-**Measured** (`probes/mount.test.ts`) — the rendered trigger:
+`foundation.css:745-750` raises operable-chrome borders once, at the root, for elevated contrast:
 
-```
-[trigger] tag = SPAN
-[trigger] tabindex = null
-[trigger] role = null
-[trigger] aria-label = null
-[trigger] aria-expanded = null
-[trigger] all attrs = {"data-v-e6a0327e":"","class":"slug-pill cursor-help","data-state":"closed",
-                       "data-grace-area-trigger":"","style":"color: oklch(0.8 0.15 60); border-color: oklch(0.8 0.15 60);"}
+```css
+@media (prefers-contrast: more) {
+    .console-well, .app-layout .glass-resting, .app-layout .console-well,
+    .slug-pill, [role="tab"] { border-width: 2px; }
+}
 ```
 
-No `tabindex`, no `role`, no accessible name, no `aria-expanded`. `as-child` forwards `data-state`
-and handlers but does not synthesize focusability. Consequences:
+`.slug-pill` is in that list. The Login button at `:71-78` is not — it hand-rolls its own pill out of
+utilities (`px-3 py-1 rounded-full border border-primary/30`) instead of consuming the recipe. The
+penalty is measurable. Chromium, `contrast: "more"`, authored markup injected verbatim
+(`probes/psb-probe2.mjs`):
 
-- **Keyboard:** the "Your slug — This is your unique identity…" explanation is unreachable. It is the
-  only place the app explains what a slug *is*.
-- **Touch:** glass-ui's Popover is pointer-adaptive — `popover-BQGYXZyO.js` computes
-  `matchMedia("(pointer: coarse)").matches` and, on coarse pointers, falls back from the hover root
-  to the **click** root. So on mobile the `<span>` becomes an *operable control* with no role, no
-  name, and no focus — `PROPORTION-AUDIT.md §5.5`: *"Decorative controls and operable ornaments
-  without names are forbidden."*
-- **Hover intent:** the producer's default is 150ms, deliberately —
+```
+prefers-contrast:more
+  pill  : borderWidth "2px"   borderColor oklch(0.7 0.18 20)                 ← root bump applied
+  login : borderWidth "1px"   borderColor oklab(0.514617 0.0879612 0.104213 / 0.3)   ← opted out
+```
 
-  ```
-  $ grep -rn "closeDelay" node_modules/@mkbabb/glass-ui/dist/*.js
-  node_modules/@mkbabb/glass-ui/dist/popover-BQGYXZyO.js:23:  closeDelay: { default: 150 },
-  ```
+Two pills, same bar, same semantic weight; under elevated contrast one thickens to 2 px full-ink and
+the other stays a 1 px, 30 %-alpha hairline. This is precisely the failure mode owner edict 5 exists
+to prevent: styling per instance instead of at the root means the root's later laws cannot reach you.
+`VISUAL-CONSTITUTION.md:82` — "Text, focus, boundaries and state meet their rendered contrast on the
+actual material tier; a token name is not evidence."
 
-  The component overrides it to **0**. With a `sideOffset` gap between trigger and content, moving
-  the pointer toward the panel to read it dismisses it. A 300ms wait to open and a 0ms dismissal is
-  a hostile pairing, and it is a **per-instance override of a producer-tuned default** — the edict-5
-  failure mode in its exact form.
-
-This is `PROPORTION-AUDIT.md` **PR-07** named verbatim: *"Hover-only/unlabeled controls and invisible
-drag state → ADD-AFFORDANCE / REMOVE."*
-
-**Cure.** PR-07's disposition ordering applies — *"Subtraction precedes explanation"* (§5.6). A slug
-does not need a hover essay next to it; the Account Dialog is where identity is explained, once, as
-prose. If a trigger survives, it is a named `<button>` and it keeps the producer's delays.
+**Cure.** The Login control is a `.slug-pill`-shaped affordance; it should be the glass-ui `Button`
+the live sibling already uses (`ProfileSection.vue:111` — `variant="outline" size="xs"`), not a
+utility reconstruction.
 
 ---
 
-## 7. D-6 · MAJOR — every operable target is under the audit harness's own floor
+### D-16 · MINOR — the focus indicator computes below WCAG 1.4.11 on the measured pane ground
 
-Measured in the real cascade (`probes/geom.mjs`), invariant across 1440 / 390 / 320:
+All six operable seats in the file share one focus idiom:
+`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40` (`:73`, `:84`, `:91`,
+`:98`, `:106`, `:113`). The token resolves live (`probes/psb-probe3.mjs`):
 
-| control | source | measured | floor |
-|---|---|---|---|
-| three-dot account menu | `:84` `p-1` + `w-3.5 h-3.5` | **22.00 × 22.00** | < 24 (harness), ≪ 44 (touch) |
-| `Login` pill | `:71-78` `px-3 py-1 text-mono-small` | 89.08 × **29.59** | ≪ 44 (touch) |
-| slug pill (hover trigger, click on coarse) | `:47` `.slug-pill` = `px-2 py-0.5` | 198.94 × **25.59** | ≪ 44 (touch) |
+```
+WebKit light : --ring = rgb(28, 25, 23)
+WebKit dark  : --ring = rgb(233, 230, 226)
+```
 
-The audit's own harness defines the floor it fails: `visual/capture.mjs` —
-`.filter((m) => m.w < 24 || m.h < 24)`. The three-dot trigger is 22×22 and would be counted as a
-`smallTapTargets` defect on any route that rendered it. The component is the only reason it never
-was.
+Composited at the authored 40 % alpha over the Library-pane grounds measured in §2.3
+(`probes/psb-ground.mjs`):
 
-`PROPORTION-AUDIT.md` **PR-12** owns this family — *"Touch padding bloats/misaligns visual glyphs →
-TIGHTEN, Primary W18"* — and §5.7 gives the cure precisely: *"Visual glyph size, operable target
-size and layout reservation are separate quantities. Accessibility floors do not require bloated
-visible chrome."* The 14px glyph is right; the seat must grow invisibly, not the pill.
+```
+light: ring=28,25,23    ground=228,218,210  composite=[148,141,135]  contrast=2.38:1
+dark : ring=233,230,226 ground=74,62,54     composite=[138,129,123]  contrast=2.71:1
+                                                   (WCAG 2.x SC 1.4.11 requires 3.0)
+```
+
+**Labelled precisely: this is a computed projection, not a photographed frame** — the component does
+not render, so the composite is derived from the real token, the real authored alpha and the real
+sampled ground rather than sampled from a shipped pixel. The 40 % alpha is the whole cause: at 100 %
+the same token clears the bar comfortably in both schemes. `VISUAL-CONSTITUTION.md:84` requires focus
+to remain "visibly distinct from selection in both schemes, forced colors and reduced transparency."
+This idiom is not local to this file, so the cure belongs to whichever wave owns the focus register,
+not to a per-file patch.
 
 ---
 
-## 8. Remaining findings
+### D-17 · MINOR — the slug is not LTR-isolated
 
-### D-7 · MAJOR — the pending state is structurally unrenderable, and would be frozen if it weren't
+`VISUAL-CONSTITUTION.md §6.1` is explicit:
 
-`onSlugSwitch` (`:198-225`) sets `slugSwitching = true`, and its `try` block contains **zero
-`await`s** — measured:
+> "CSS strings, hex, slugs, IDs and provenance | render in LTR-isolated spans inside RTL prose"
 
-```
-[unused] awaits inside onSlugSwitch try-block = 0
-```
-
-`emit("switchSlug", …)` is synchronous; the host's handler (`useSlugMigration.onSlugSwitch`) is
-async and un-awaited. Then `:215` sets `slugEditMode = false`, unmounting the form, and `finally`
-resets `slugSwitching = false` — all in one synchronous block. So the `Loader2` spinner at `:26` and
-the `aria-label="Signing in…"` at `:24` can never be observed. DOM-driven confirmation
-(`probes/pending.test.ts`) samples the spinner across every microtask and macrotask boundary around
-a real submit:
+Measured on the authored pill in the live cascade (`probes/psb-probe.mjs`, `psb-probe3.mjs`):
 
 ```
-[dom] spinner presence timeline = before-submit:false  sync-after-trigger:false  microtask-1:false
-                                  microtask-2:false  after-await-trigger:false  after-nextTick:false
-                                  after-macrotask:false
+pill: { unicodeBidi: "normal", direction: "ltr" }
 ```
 
-And even if it were reachable, the global reduced-motion guard freezes it (`demo/styles/animations.css:183-192`):
-
-```
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-```
-
-`animate-spin` becomes a static circle glyph, `aria-hidden="true"`, sitting where an arrow was —
-indistinguishable from the idle state. `VISUAL-CONSTITUTION.md:83`: pending is *"never color-only"*
-and here it is not even color. **A designed state that no user can ever see is a design defect, not
-dead code.**
-
-### D-8 · MAJOR — dead legacy error-branching, plus auth normalization forked byte-for-byte
-
-`:216-221` branches on HTTP-status *substrings* of an exception message:
-
-```
-if (msg.includes("409")) slugError.value = "Already signed in as this slug.";
-else if (msg.includes("404")) slugError.value = "Slug not found.";
-```
-
-The repo already ruled this mechanism broken and replaced it. `useSlugMigration.ts:78-87`:
-
-> `S.W2 W2-6: branch on the typed ApiProblem.status, not .message substrings — the server titles
-> ("Already logged in as this user", "User not found", "Rate limit exceeded") never contain
-> "409"/"404"/"429", so those branches matched nothing and the authored copy below never showed.`
-
-`PaletteSlugBar` still carries the superseded version. It is also unreachable twice over: `emit` is
-synchronous and cannot throw an `ApiProblem`, so the `catch` never runs at all. Two live spellings of
-one decision = the **no-legacy-code** edict violated in its canonical form (dual path, masking
-fallback, superseded mechanism retained).
-
-Worse, the credential normalizer is duplicated verbatim:
-
-```
-$ diff <(sed -n '184,196p' demo/palettes/browser/slug/PaletteSlugBar.vue) \
-       <(sed -n '25,37p'  demo/shell/dock/layers/SlugEditLayer.vue) && echo IDENTICAL
-IDENTICAL: looksLikeSlug + normalizeTokenInput duplicated byte-for-byte
-```
-
-`looksLikeSlug` (the slug grammar) and `normalizeTokenInput` (the `ADMIN_TOKEN=…` / quote-stripping
-admin-secret unwrapper) exist twice, in two files, in two trees. Admin-token parsing is the last
-place in this app that should be forked.
-
-### D-9 · MAJOR — a credential typed into a search field, with no mobile input hygiene
-
-The rendered input carries exactly four attributes:
-
-```
-[dom] input attrs = type,placeholder,class,value
-```
-
-`type` is `"search"` — hardcoded by the producer (`search.js`: `b("input", w({… type: "search"}, …)`),
-not choosable by the consumer. Consequences for a field that accepts an **admin secret token**
-(`normalizeTokenInput` explicitly parses `ADMIN_TOKEN=<secret>`):
-
-- no `autocomplete` → the UA is free to persist the value; `type="search"` specifically feeds
-  datalist/search history, in plaintext.
-- no `autocapitalize` → iOS Safari capitalizes the first character by default. The slug path
-  survives (`:204` lowercases), but the **admin path does not**: `:213` forwards
-  `normalizeTokenInput(raw)` with original casing. A correct token typed on iPhone fails, with no
-  diagnosis (and, per D-3c, no announced error).
-- no `autocorrect` / `spellcheck=false` / `inputmode` → autocorrect is live on a
-  hyphen-delimited four-word slug.
-- The placeholder says `"enter slug..."` (`:12`) while the parser accepts admin tokens. The live
-  sibling says `"enter slug or token..."` (`SlugEditLayer.vue:84`). The orphan's copy contradicts its
-  own grammar.
-
-`VISUAL-CONSTITUTION.md §5` — *"every spatial action has a keyboard/numeric equivalent"* and §4.1's
-explicit-state law both assume the field states what it accepts.
-
-### D-10 · MINOR — motion is ad hoc: two press scales, one untokenized transition, one magic delay
-
-- Two press amplitudes in one component: `active:scale-95` (`:73`, `:84`) and `active:scale-[0.98]`
-  (`:91`, `:98`, `:106`, `:113`). `scale-[0.98]` is an arbitrary-value escape hatch — a magic number.
-- `:73` uses bare `transition-colors` (Tailwind's default 150ms); `:84`/`:91`/`:98`/`:106`/`:113` use
-  `transition-colors duration-fast`. Two timing idioms, same component, same interaction.
-- In every case the transition property list is **colors only**, so the `scale` press is an
-  untransitioned snap. `VISUAL-CONSTITUTION.md:139` — *"Spatial continuity uses one producer-owned
-  glass-ui spring register."* A raw un-eased transform is not that register.
-- `:176-181` gates the mode swap on a hardcoded `setTimeout(…, 50)` with the comment *"Delay to let
-  the Popover fully close"*. `--duration-fast` is **0.2s = 200ms** (glass-ui `:root`), so 50ms does
-  not cover the exit it claims to wait for; and under `prefers-reduced-motion` transitions collapse
-  to 0.01ms, making the 50ms pure dead latency before focus lands. Motion timing coupled by a
-  magic number, in the wrong direction, PRM-unaware.
-
-The `vj-morph` family usage itself is **correct** and worth saying so: `name="vj-morph"
-mode="out-in"` is the ratified family for one-surface-new-content (`animations.css:70-74` names
-"slug bar" explicitly), it is globally PRM-guarded, it animates `opacity`/`transform`/`max-height`
-rather than layout-forcing geometry, and the scoped block correctly declines to re-parameterise it.
-This is the one axis where the file obeys the canon.
-
-### D-11 · MINOR — type jurisdiction violated in both directions
-
-`VISUAL-CONSTITUTION.md §4` closes the type matrix: *control or label → `text-small`, Plus Jakarta
-Sans, non-bold*; *value/code/provenance → `text-mono-small`*; *prose/help → `text-prose`*.
-
-- `:73` renders the control label **"Login"** as `text-mono-small font-bold` — Fira Code, bold.
-  Measured live: `login: { fs: "14px", ff: "\"Fira Code\"" }`. A verb is not provenance. (The slug
-  *itself* in `text-mono-small` is correct — that is a value.)
-- `:56` renders the help paragraph as `text-caption`. `text-caption` is a real glass-ui utility but
-  **not an admitted semantic role** in the closed matrix; help copy is `text-prose`.
-- `PROPORTION-AUDIT.md §5.13` restates the same matrix as law, so this is doubly cited.
-
-### D-12 · MINOR — dead public API surface
-
-```
-[unused] 'hasSavedPalettes' occurrences outside its declaration = 0
-[unused] emit("copy") call sites = 0  / $emit('copy') = 0
-[unused] declared emits = copy DECLARED
-```
-
-- `hasSavedPalettes: boolean` is a **required** prop (`:150`, no `?`) with zero uses. Every
-  hypothetical host is compelled to compute and pass a value that is discarded.
-- `copy: []` is declared in `defineEmits` (`:155`) and never emitted. The component instead calls
-  `writeClipboard` itself (`:169`), so the host can never observe, announce, or confirm the copy —
-  which is why the live `ProfileSection.vue:77` emits `copySlug` upward instead. The declared event
-  is a promise the component does not keep.
-- `:205` declares `const isAdmin = !looksLikeSlug(normalized)` inside `onSlugSwitch`, **shadowing
-  the destructured prop `isAdmin`** from `:147`. One identifier, two meanings, one function apart.
-
-### D-13 · MINOR — reaches past the design system, then styles per instance
-
-- **Four hand-rolled menu rows.** `:89-118` repeats a ~110-character utility string four times to
-  hand-build dropdown items inside a `Popover`:
-  `class="flex items-center gap-2 px-3 py-1.5 text-small font-display rounded-sm hover:bg-accent active:scale-[0.98] active:bg-accent/70 transition-colors duration-fast cursor-pointer w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"`.
-  glass-ui already ships `DropdownMenu`, `DropdownMenuContent`, `DropdownMenuItem`,
-  `DropdownMenuLabel`, `DropdownMenuSeparator`, and the **live sibling uses them**
-  (`ProfileSection.vue:70-90`, where each row is `<DropdownMenuItem class="text-small gap-2
-  cursor-pointer">`). Edict 4 (glass-ui is the design system, reuse existing component-type names)
-  and edict 5 (style at the root, not per instance) are both violated by the same four lines. A
-  `Popover` is also the wrong *semantic* primitive for a command menu — the trigger even declares
-  `aria-haspopup="dialog"` (`:84`) for what is a menu.
-- **Two idioms for one recipe.** The admin pill uses Tailwind color utilities
-  (`text-muted-foreground border-muted-foreground`, `:65`); the live sibling uses inline custom
-  properties (`style="border-color: var(--muted-foreground); color: var(--muted-foreground)"`,
-  `MobileMenuDropdown.vue:67`). `.slug-pill` is a shared recipe in `demo/styles/foundation.css:585`
-  whose comment states *"Consumers set `color` / `border-color` per-instance via :style"* — so the
-  orphan diverges from the recipe's own documented contract.
-- **The shared recipe carries a forced-colors rider the orphan never tested.**
-  `foundation.css:746` bumps `.slug-pill` to `border-width: 2px` under
-  `prefers-reduced-transparency`. Untested here (D-14).
-
-### D-14 · INFO — zero state coverage in every state matrix
-
-```
-$ ls visual/shots/forced-colors-desktop/ visual/shots/rtl-desktop/ visual/shots/zoom-200-desktop/
-forced-colors-desktop: adminusers.png blob.png browse.png gradient.png picker.png
-rtl-desktop:           adminusers.png blob.png browse.png gradient.png picker-postload.png picker.png
-zoom-200-desktop:      adminusers.png blob.png browse.png gradient.png picker.png
-```
-
-`/palettes` is absent from all three. Combined with `STATES.json` = 0 hits and the component's
-absence from all 60 Safari captures, the coverage table is:
-
-| state | designed? | observed? |
-|---|---|---|
-| populated (slug), admin, logged-out, edit-mode, menu-open | yes | **never, anywhere** |
-| loading / pending | authored, **unrenderable** (D-7) | never |
-| error | authored, colliding + clipped + unannounced (D-3) | never |
-| disabled | yes (`:23`, measured `disabled=""`) | never |
-| focused | **no** — the pill trigger cannot take focus (D-5) | never |
-| hovered | yes, with a 0ms dismissal (D-5) | never |
-| pressed | yes, at two inconsistent amplitudes, untransitioned (D-10) | never |
-| overflowing / truncated | **no** — `whitespace-nowrap` on an absolute box (D-3b) | never |
-| RTL | **no** — `left-0` is a physical inset; the slug needs LTR isolation per §6.1 | never |
-| reduced-motion | inherited guard; freezes the pending glyph (D-7) | never |
-| forced-colors | **no** — the error's only signal is `text-destructive` (D-3c) | never |
-| reduced-transparency | recipe rider at `foundation.css:746`, untested | never |
-| zoom 200% / 400% | `--type-small` is a `vw` clamp; `-bottom-4` is fixed rem — the 8px collision worsens as text grows | never |
-| empty | n/a | — |
-
-Eleven interaction states designed, **zero ever rendered.** Note `left-0` at `:124` and
-`align="end"` at `:88`: `VISUAL-CONSTITUTION.md §6.1` requires *"logical inline/block direction
-follows the document"* for chrome and *"CSS strings, hex, slugs, IDs and provenance render in
-LTR-isolated spans inside RTL prose"* — the physical `left-0` and the un-isolated slug both fail
-that, unobserved.
-
-### Adjacent, not mine — flagged for the library-heading seat
-
-In `safari-desktop-light/palettes.png` the `Palettes` substring of `My Palettes` renders with the
-pastel-rainbow identity; in `safari-mobile-dark/palettes.png` it reads as the same cream as `My`.
-`VISUAL-CONSTITUTION.md:23` requires *"Both coordinates render in light and dark."* This belongs to
-the Library-heading owner (W22), not to this component. Recorded as a cross-reference only.
+`unicode-bidi: normal` is the absence of isolation. `index.html` currently pins `dir="ltr"`
+document-wide, which is why nothing is visibly wrong today — but that attribute is described in its
+own source comment as the RTL *seam*, deliberately established so `dir="rtl"` flips the document. The
+moment it does, an un-isolated slug reorders its hyphen-separated segments against the surrounding
+prose. The `.slug-pill` recipe (`foundation.css:585-587`) is the right owner: isolation belongs in
+the shared recipe, once, not at each of its five call sites.
 
 ---
 
-## 9. Reproductions
+### D-18 · INFO — `resetEditMode` is exposed and never called
 
-All probes live at `docs/tranches/V/megatranche/audit/components/PaletteSlugBar/probes/`. Run from
-the repo root with the dev server up at `http://localhost:9000`:
+`defineExpose({ slugEditMode, setError, resetEditMode })` at `:236`. `resetEditMode` (`:231-234`)
+occurs exactly twice in the file — its definition and that expose — and zero times anywhere else:
 
 ```
-# D-4, the ink sweep (set environment to "node" in the config for this one)
-npx vitest run --testTimeout=60000 --config probes/vitest.config.ts probes/ink-sweep.test.ts
-
-# D-2 / D-3c / D-5 / D-7 / D-12, jsdom mount probes
-npx vitest run --testTimeout=60000 --config probes/vitest.config.ts probes/submit.test.ts
-npx vitest run --testTimeout=60000 --config probes/vitest.config.ts probes/submit2.test.ts
-npx vitest run --testTimeout=60000 --config probes/vitest.config.ts probes/mount.test.ts
-npx vitest run --testTimeout=60000 --config probes/vitest.config.ts probes/pending.test.ts
-
-# D-3a / D-3b / D-6, real-cascade geometry against the live dev server
-node probes/geom.mjs
-node probes/geom2.mjs
+$ grep -rn "resetEditMode" --exclude-dir=node_modules --exclude-dir=.git .
+demo/palettes/browser/slug/PaletteSlugBar.vue:231:function resetEditMode() {
+demo/palettes/browser/slug/PaletteSlugBar.vue:236:defineExpose({ slugEditMode, setError, resetEditMode });
 ```
 
-`probes/vitest.config.ts` points `test.include` at the session scratchpad; repoint it at `probes/`
-to run the copies in place. The geometry probes inject the component's exact class strings into the
-live page — they never mutate the source tree. **No source edits landed from this seat.**
+This completes run-2's D-12 dead-surface list: of the component's public surface, one prop
+(`hasSavedPalettes`) is never read, one emit (`copy`) is never emitted, and one of three exposed
+members is never called — while a second (`setError`) is called only through a ref that is
+permanently `null` (§2.1). The scoped `<style>` block (`:239-243`) contains a `@reference` and a
+comment and no rules.
 
 ---
 
-## 10. Disposition
+## 4. Negative proofs — two false findings this run killed
 
-| id | severity | defect | family |
-|---|---|---|---|
-| D-1 | BLOCKER | no render path; contradicts the Account-Dialog topology | orphaned composition |
-| D-2 | BLOCKER | `@submit` bound to `<input>` by `SearchBar`'s `inheritAttrs:false`; form submits natively | producer-contract misuse |
-| D-3 | MAJOR | error state: 8px collision, 488px clip, no role/live/association | unowned failure surface |
-| D-4 | MAJOR | raw uncertified accent ink; 82–93% of picks below the 5.75 floor | missed D6 certification |
-| D-5 | MAJOR | hover-only help on a non-focusable span; producer delay overridden to 0 | PR-07 |
-| D-6 | MAJOR | 22×22 / 29.59px targets under the harness's own 24px floor | PR-12 |
-| D-7 | MAJOR | pending state unrenderable, and PRM-frozen if it weren't | unreachable designed state |
-| D-8 | MAJOR | superseded substring error-branching retained; auth normalizer forked byte-for-byte | legacy dual path |
-| D-9 | MAJOR | admin secret in a `type="search"` field; no autocomplete/autocapitalize; iOS breaks the admin path | credential hygiene |
-| D-10 | MINOR | two press scales, one untokenized transition, a 50ms magic delay | ad-hoc motion |
-| D-11 | MINOR | mono+bold on a control label; `text-caption` for help prose | closed type matrix |
-| D-12 | MINOR | required-but-unused prop; declared-but-never-emitted `copy`; shadowed `isAdmin` | dead public surface |
-| D-13 | MINOR | four hand-rolled dropdown rows; two idioms for one pill recipe | design-system boundary |
-| D-14 | INFO | zero coverage in the forced-colors / RTL / zoom-200 / STATES matrices | unobserved by construction |
+The brief warns that a state never designed is a design defect. The inverse trap is equally real: a
+state that *looks* undesigned from the source and is in fact handled at the root. I walked into both
+of these from a code read and had to be corrected by measurement. Recording them so a later seat does
+not re-file them.
 
-**Recommended cure — one move, not fourteen patches.** Delete
-`demo/palettes/browser/slug/` and the `demo/palettes/browser/index.ts:44` re-export. Retire
-`slugBarRef` from `useSlugMigration.ts` (it is returned at `:121` but not even re-exported by
-`usePalettePorts.ts`, which forwards only `onRegenerateSlug`/`onSlugSwitch` — so its four
-`setError` calls at `:84-87` are already writing to `null`). Fold the one genuinely missing
-affordance — a wrapping, `role="alert"`, field-associated sign-in error with app-authored copy —
-into the constitution's single Account Dialog under `W23`, with `W15` supplying auth state, and
-lift `looksLikeSlug`/`normalizeTokenInput` to one owner that both the Dialog and `SlugEditLayer`
-consume.
+### N-1 — the `vj-morph` swap does **not** jump
 
-The lesson generalises past this file: **the repo has no gate that fails on "exported, typechecks,
-never rendered."** D-2, D-4, D-7 and D-8 are each a fix that landed everywhere except here, or a
-regression that landed only here. Every one of them was invisible for the same reason. A
-render-reachability census belongs in the mega-tranche's born-RED set.
+`<Transition name="vj-morph" mode="out-in">` (`:4`) swaps between a pill branch and a Login-button
+branch that are visibly different sizes. `out-in` means the outgoing element is fully removed before
+the incoming one mounts, so an unequal-height pair produces a collapse-and-grow. Measured heights of
+the two authored branches in the live cascade (`probes/psb-probe.mjs`):
+
+```
+root  (pill branch)  h = 36.00   minHeight "36px"    pill  h = 28.94
+root2 (login branch) h = 36.00   minHeight "auto"    login h = 32.94
+branchDeltaPx = 0.00
+```
+
+The `min-h-9` on the bar root absorbs both branches. **Not a defect.** The bar height is stable
+across the swap.
+
+### N-2 — `focus-visible:outline-none` does **not** kill the forced-colors focus outline
+
+Every operable seat writes `focus-visible:outline-none`, and `foundation.css:700-721` supplies the
+Windows-High-Contrast focus affordance through a **zero-specificity** `:where(...)` selector:
+
+```css
+:where(a[href], button, [role="button"], …, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+}
+```
+
+Specificity reasoning predicts a defect: `.focus-visible\:outline-none:focus-visible` is (0,2,0);
+`:where(button):focus-visible` is (0,1,0). The component should win and blank the outline, and since
+`ring-*` is a `box-shadow` — which does not paint in forced colors — focus would vanish entirely.
+Measured instead, Chromium `forcedColors: "active"` (`probes/psb-probe2.mjs`):
+
+```
+dots    : outline "solid 2px rgba(5, 0, 73, 0.8)"   boxShadow "none"
+login   : outline "solid 2px rgba(5, 0, 73, 0.8)"   boxShadow "none"
+menurow : outline "solid 2px rgba(5, 0, 73, 0.8)"   boxShadow "none"
+```
+
+The root outline wins on all three species. **Mechanism:** the `foundation.css` rule is *unlayered*,
+and unlayered declarations beat every `@layer` regardless of specificity; Tailwind's `outline-none`
+utility lives in `@layer utilities` and therefore loses. **Not a defect** — and a genuinely good piece
+of design in the foundation, since it holds against consumers that opt out by hand. Specificity alone
+gets this wrong; only measurement gets it right.
+
+Also verified sound and not filed: `prefers-reduced-motion` is neutralized globally at
+`demo/styles/animations.css:184-193` (`transition-duration: 0.01ms !important` on `*`), so the morph
+resolves directly to final geometry per `VISUAL-CONSTITUTION.md:144`; the `active:scale-*` presses
+animate `transform`, which is compositor-only and forces no layout (their defect is that
+`transition-property` omits `transform` entirely, so the scale snaps — that is run-2's D-10, an
+ad-hoc-motion finding, not a layout-thrash one); and the audit's `horizontalOverflow` is 0 on every
+`/palettes` capture, to which this component contributes nothing because it renders nothing.
+
+---
+
+## 5. Disposition
+
+Run-2's D-1…D-14 stand. This run adds D-15…D-18, upgrades D-2 to CONFIRMED, and records N-1/N-2 as
+proved-sound.
+
+| ID | Severity | Defect | Mechanism family | This run |
+|---|---|---|---|---|
+| D-1 | BLOCKER | zero render path; contradicts the Account-Dialog topology (`VISUAL-CONSTITUTION.md:222`); auth rule forked byte-for-byte; `slugBarRef` permanently `null` | orphaned composition | confirmed independently |
+| D-2 | BLOCKER | `@submit` lands on `<input>` via `SearchBar`'s `inheritAttrs:false`; real WebKit run performs a native GET submission and reloads the SPA | producer-contract misuse | **PLAUSIBLE → CONFIRMED** |
+| D-3 | MAJOR | error state: 16 px overflow / 8 px collision, `nowrap` clip, no role / live region / field association | unowned failure surface | confirmed |
+| D-4 | MAJOR | raw uncertified accent ink: 75 % / 72 % below AA, 100 % below 3:1 in one scheme | missed D6 certification | convergent, new method |
+| D-5 | MAJOR | hover-only help on a non-focusable `<span>` (`tabIndex −1`) | PR-07 | confirmed |
+| D-6 | MAJOR | 22 × 22 px operable target vs SC 2.5.8's 24 × 24 | PR-12 | confirmed |
+| D-7 | MAJOR | pending state structurally unrenderable | unreachable designed state | run-2 |
+| D-8 | MAJOR | superseded substring error-branching on a `catch` that cannot fire | legacy dual path | confirmed |
+| D-9 | MAJOR | admin secret typed into `type="search"`; no input hygiene | credential hygiene | run-2 |
+| D-10 | MINOR | two press scales with no `transform` in `transition-property`; 50 ms magic delay | ad-hoc motion | confirmed |
+| D-11 | MINOR | Fira Code + bold on a control label vs the closed §4 matrix | closed type matrix | confirmed |
+| D-12 | MINOR | unused prop, never-emitted `copy` | dead public surface | confirmed |
+| D-13 | MINOR | four hand-rolled rows in a `Popover` where `DropdownMenu` exists and is consumed next door | design-system boundary | confirmed |
+| D-14 | INFO | zero coverage in forced-colors / RTL / zoom-200 / STATES matrices | unobserved by construction | confirmed |
+| **D-15** | **MAJOR** | hand-rolled Login pill opts out of the root `prefers-contrast: more` border bump — 1 px @ 30 % α beside a 2 px sibling | per-instance override defeats root law | **new** |
+| **D-16** | **MINOR** | `ring-ring/40` computes 2.38:1 light / 2.71:1 dark vs SC 1.4.11's 3.0 | focus register | **new** |
+| **D-17** | **MINOR** | slug pill `unicode-bidi: normal` — not LTR-isolated per §6.1 | bidi isolation | **new** |
+| **D-18** | **INFO** | `resetEditMode` exposed, zero call sites | dead public surface | **new** |
+| N-1 | — | branch heights equal at 36.00 px; the `out-in` morph does not jump | — | **proved sound** |
+| N-2 | — | unlayered `:where()` WHCM outline beats the layered `outline-none`; forced-colors focus survives | — | **proved sound** |
+
+### Recommended cure — one architectural move, not eighteen patches
+
+Delete `demo/palettes/browser/slug/`, the `demo/palettes/browser/index.ts:44` re-export, and
+`useSlugMigration.ts`'s `slugBarRef` (`:6`, `:30`, `:84-87`, `:121`) — the last of which is already
+writing to `null`. Lift `looksLikeSlug` / `normalizeTokenInput` into `demo/platform/auth/` as the one
+owner both the Dialog and `SlugEditLayer` consume, killing the byte-for-byte fork. Route the sign-in
+failure to the **port** — a `slugError` on `sessionPort` — rather than to a component-instance
+handle, so the error renders wherever the account surface lives instead of depending on a ref that
+must be manually threaded. Then build the constitution's single Account Dialog under W23 (with W15
+supplying auth state), where D-3 through D-13 and D-15 through D-17 are solved once, correctly, on a
+surface that is actually on screen.
+
+Two items escape this file and must be relayed rather than deleted with it:
+
+- **glass-ui (BH/BI relay, standing edict):** `SearchBar` accepts `tag="form"` while forwarding all
+  non-`class` attrs to its inner input, so any consumer's `@submit` silently relocates and the form
+  submits natively. It should refuse `tag="form"` or route non-input listeners to its root.
+- **Focus register (D-16) and bidi isolation (D-17):** both idioms are repo-wide, not local. D-17's
+  natural home is the shared `.slug-pill` recipe at `foundation.css:585-587`.
+
+The generalisable lesson is unchanged from run-2 and worth restating because this run re-derived it
+blind: **the repo has no gate that fails on "exported, typechecks, renders nowhere."** A 243-line
+component carrying a BLOCKER-severity broken login path survived a glass-7 migration, a full 60-shot
+Safari matrix, and two prior audits — because nothing ever asked whether it was mounted.
+
+---
+
+## 6. Reproductions
+
+All probes are in `./probes/`. Dev server at `http://localhost:9000` must be live. None writes to the
+repo; DOM injections are removed inside the same `evaluate`.
+
+| Probe | Establishes |
+|---|---|
+| `psb-probe.mjs` | D-1 live absence (`PRESENCE` all zero); authored geometry — `dots 22×22`, `errOverflowPx 16.00`, `branchDeltaPx 0.00` (N-1); computed type roles |
+| `psb-probe2.mjs` | D-15 (`prefers-contrast: more`, 2 px vs 1 px); N-2 (`forcedColors: active`, `outline: solid 2px Highlight` on all three species) |
+| `psb-probe3.mjs` | D-5 (`pillTabbable −1`), D-17 (`unicode-bidi: normal`), the live `--ring` token per scheme |
+| `psb-ground.mjs` | Library-pane grounds sampled from the shipped captures; D-16 focus-ring composite math |
+| `psb-ink.mjs` | D-4 — 32-point ink sweep vs the measured grounds; 75 % / 72 % / 100 % failure rates |
+| `psb-submit2.mjs` | **D-2 CONFIRMED** — two-arm WebKit run; listener-on-input produces a native GET submission, 3 main-frame navigations, DOM destroyed |
+
+Static commands quoted inline in §2.1 (exhaustive reference grep, dynamic-component grep, the
+`sed`/`diff` byte-comparison of the forked auth normalizer) and §3 (`resetEditMode` grep).

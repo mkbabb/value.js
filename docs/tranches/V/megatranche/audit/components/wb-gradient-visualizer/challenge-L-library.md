@@ -1,786 +1,436 @@
-# CHALLENGE-L — library structure under `GradientVisualizer`
+# CHALLENGE-L — library structure under `GradientVisualizer` · ROUND 3
 
-> **ROUND 2 ADDENDUM — read `challenge-L-library-r2.md` alongside this file.**
-> A second independent Opus 5 seat re-ran this axis and found a **BLOCKER this report misses**:
-> one click on the `ease-in-back` easing tile, from the landing state of `/#/gradient`, throws
-> `color_progress_out_of_range` inside a Vue computed and — because the single `ErrorBoundary` sits
-> outside the whole pane grid — **erases the entire application** (verified live in WebKit; body
-> text 611 → 141). value.js ships three `ease-*-back` presets whose eased output leaves `[0,1]`
-> (`src/easing.ts:62-64`) and a `mixColors` that rejects progress outside `[0,1]`; the adapter
-> between them has no owner, so this tree implements it **three** times (r2 adds a third copy at
-> `easing/useSpecimenRows.ts:52`, beyond the two in L-5 below) and all three crash.
-> r2 also **corrects N-1** of this report: the *import* half of the published-surface question is
-> sound as stated, but `tsconfig.demo.json` `paths` has drifted **five rows** from
-> `package.json#exports` — three dead entries (one pointing at a non-existent `dist/index.d.ts`)
-> and two missing, including `@mkbabb/value.js/css`, the subpath this component depends on most.
-> This file is **not superseded** (E-3, addenda-not-patch); L-1..L-17 stand and r2 confirms six of
-> them independently.
+> **This file does not supersede anything (E-3, addenda-not-patch).**
+> Two prior seats ran this axis. Both are preserved verbatim beside this file:
+>
+> - `challenge-L-library.pass-1-2026-07-27.md` — r1, findings **L-1 … L-17**
+> - `challenge-L-library.pass-2-r2-2026-07-28.md` — r2, findings **R2-1 … R2-11**, including the
+>   **BLOCKER** (`ease-*-back` → `color_progress_out_of_range` → whole-app erasure) that r1 missed
+>
+> Read them first. Round 3 was run **blind** — the closure trace, probes and benchmarks below were
+> produced before either prior report was opened — and is reported here as an *independent
+> replication plus delta*. §2 states exactly which prior findings replicate and which of my
+> findings are new; §3 carries only what is new; §4 carries corrections to r1/r2.
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context
-Opus 5 seat, matching the explicit declaration this seat was spawned with. Not an
-inherited or undeclared seat.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context Opus 5
+seat, matching the explicit declaration this seat was spawned with. Not inherited, not undeclared.
 
 ---
 
-- **Axis**: CHALLENGE-L — the library structure underneath the component is wrong
-  (module boundaries / ownership / dependency direction / public surface).
-- **Subject**: `demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue` (279 L)
-  and its owned tree (`GradientStopEditor` 392 L, `GradientEasingEditor` 295 L,
-  `GradientCodeEditor` 116 L, `easing/` 635 L, `../composables/` 884 L).
-- **Repo**: `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
-- **Verdict**: **DEFECTIVE.**
+## 0 · Substrate and method
 
-The premise is correct, and the reason is structural rather than local: **the demo has
-no enforced module lattice at all.** Every `no-restricted-imports` boundary in
-`eslint.config.js` targets the pre-W43 `demo/@/**` tree, which no longer exists. With
-the guard rail gone, this component has grown three separate boundary violations that
-lint, typecheck, and CI all pass in silence. Underneath that, the value.js `/css` ↔
-`/easing` seam is missing both halves of its round-trip, and this component's tree is
-where those halves were re-implemented — twice over, once dead.
+- **Subject**: `demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue` (279 L).
+- **Substrate**: branch `tranche-u`. The brief pins HEAD `c654824e`; the tree had already advanced
+  to **`f36f780c`** (`docs(V·mega): STATE — three OM censuses complete`) when this seat opened.
+  r1 reports against `c654824e`. All line numbers below are read at `f36f780c`.
+- **Method**: full import-closure trace; `package.json#exports` vs `tsconfig.demo.json#paths` vs a
+  real `npx tsc -p tsconfig.demo.json --traceResolution` run; a per-symbol consumer census;
+  three live browser probes (WebKit + Chromium) against the dev server on `:9000`; one in-page
+  micro-benchmark that imports the **shipped** composables through Vite's `/@fs/` dev graph, so the
+  numbers are the real modules and not a re-implementation; the four `/#/gradient` rows of
+  `docs/tranches/V/megatranche/audit/visual/REPORT.json` and the desktop-light screenshot.
+- **Verdict**: **DEFECTIVE** — concurring with r1 and r2, on independently derived evidence.
 
 ---
 
-## Negative proof first (what is genuinely sound)
+## 1 · The import closure, edge by edge
 
-Two things this axis expects to be broken are **not** broken, and the proof is
-positive, not an absence of evidence.
+`GradientVisualizer.vue:1–28`. Every edge traced to its home. This is the on-axis spine; the
+cross-references say which report owns each defect.
 
-**N-1 — value.js is consumed through the published subpath export map, exclusively.**
+| # | Line | Specifier | Resolves to | Verdict |
+|---|------|-----------|-------------|---------|
+| 1 | 2 | `vue` | host `vue@3.5` | ✅ |
+| 2 | 3–9 | `../../../ui/select` | `demo/ui/select/index.ts` → **1-line re-export of `@mkbabb/glass-ui`** | ❌ r1 L-6 |
+| 3 | 10 | `../../../ui/slider` | `demo/ui/slider/index.ts` → **1-line re-export of `@mkbabb/glass-ui`** | ❌ r1 L-6 |
+| 4 | 11 | `@lucide/vue` | glass-ui peer, declared devDep | ✅ |
+| 5 | 12 | `@mkbabb/glass-ui` (`writeClipboard`) | root barrel; also reachable at `./dom` | ⚠️ r1 L-9 / R2-11 |
+| 6 | 13 | `@mkbabb/glass-ui/dock` (`DockControl`) | dock **chrome** primitive rendered in a pane **body** | ❌ r1 L-10 / R2-9 |
+| 7 | 14–16 | `./Gradient{Stop,Code,Easing}Editor.vue` | siblings | ✅ |
+| 8 | 17–22 | `../composables/useGradientModel` | own tree; 2 of 10 named imports arrive via a 3-hop shim | ❌ r1 L-7 / R2-6 |
+| 9 | 23 | `../composables/useGradientInterpolation` | own tree | ⚠️ **L3-1** |
+| 10 | 24 | `../composables/useGradientCSS` (`easingFnOf`) | own tree | ❌ r1 L-4 (+ **L3-2** below) |
+| 11 | 25 | `@mkbabb/value.js/color` (type `HueInterpolationMethod`) | **published subpath** → `dist/subpaths/color.d.ts` | ✅ **correct** |
+| 12 | 26 | `../../../color-session/picker-color` (type `PickerSpace`) | cross-feature reach for `export type PickerSpace = SpaceId` (`picker-color.ts:37`) — a **rename of a library type whose sibling this same file imports from the published surface on line 25** | ❌ **L3-3** |
+| 13 | 27 | `../../../palettes/usePalettePorts` (`LIBRARY_PORT_KEY`) | cross-feature **value** import: workbench → palettes DI | ❌ r1 L-2 (72 modules) |
+| 14 | 28 | `reka-ui` (type `AcceptableValue`) | reach **past** the design system into its peer | ❌ R2-5 |
 
-```
-$ grep -rn "@mkbabb/value.js" demo --include="*.vue" --include="*.ts" -h \
-    | sed 's/.*from "//; s/".*//' | sort | uniq -c | sort -rn
-  24 @mkbabb/value.js/color
-  10 @mkbabb/value.js/css
-   6 @mkbabb/value.js/math
-   5 @mkbabb/value.js/easing
-   4 @mkbabb/value.js/quantize
-```
-
-Five of the seven `package.json#exports` subpaths, zero deep paths, zero bare-root
-imports (there is no `"."` export — verified: `node -e "…'.' in p.exports"` → `false`).
-
-```
-$ grep -rn "@src/" demo --include="*.vue" --include="*.ts" --include="*.md"
-(no output)
-```
-
-The demo tree carries **no** `@src/*` reach. Every import this component makes of the
-library is one a real npm consumer could write verbatim. `vite.config.ts:38-51`
-generates the self-alias set *from* the exports map, so the alias set cannot drift from
-the published surface. This half of the axis is clean and should be recorded as an
-invariant worth keeping.
-
-**N-2 — `verbatimModuleSyntax` is fully satisfied across the cluster.**
-
-```
-$ grep -n "^import\|^} from" <all 9 files of the cluster> \
-    | grep -v "import type" | grep -iE "type |Type\b"
-(no output)
-```
-
-Every type-only import in `GradientVisualizer.vue`, its three siblings, `easing/*`,
-and `composables/*` is `import type`. No violations.
+The one edge this component gets right is **#11**. `@mkbabb/value.js/color` is a real key of
+`package.json#exports:12`, resolves through `dist/subpaths/color.d.ts`, and a published consumer
+could write it verbatim. No deep `src/` path appears in the component or in any of its three
+composables. That half of the T.W1 demo-dogfood keystone **holds** — but see **L3-4**, which shows
+the *test* half does not.
 
 ---
 
-## The defects
+## 2 · Replication ledger
 
-### L-1 · BLOCKER — every demo-side import boundary is dead lint
+Round 3 was blind. Where it lands on the same defect from a different starting point, that is an
+independent replication and should raise confidence; where it lands somewhere new, §3 has it.
 
-This is the enabling defect; everything below is downstream of it.
+**Independently replicated (evidence re-derived, no cross-reading):**
 
-`eslint.config.js:230-300` declares three structural invariants — **G-DEMO-1** (the
-shared composable layer must not reach app-root boot), **G-DEMO-3a** (shared must not
-reach feature internals), **G-DEMO-3b** (palette-browser only through its barrel seam).
-Each is scoped to file globs `demo/@/components/**`, `demo/@/lib/**`,
-`demo/@/composables/**`, and each bans specifiers of the form `@components/custom/…`.
+| Prior finding | R3 evidence |
+|---|---|
+| r1 **L-4** — the CSS→easing bridge is unreachable, ships for one test | Re-derived from the *type side*: `EasingPickerValue.fn` is `readonly fn: EasingFn` — **required** — at `glass-ui/dist/components/easing/composables/useEasingPicker.d.ts:17`, and all three interval producers set it (`useGradientCSS.ts:53–62`, `useGradientModel.ts:134–140`, `gradientParse.ts:297`). Live confirmation: `{"intervalHasFn": true, "intervalKeys":["mode","css","fn","points","steps","term"]}`. **Extension in L3-2.** |
+| r1 **L-6** — `demo/ui/*` is 19 alias barrels | Dumped all 19; every one a bare re-export, zero add value. Measured 48 demo files import through them; **0** import `Select`/`Slider` directly — so it is uniform indirection, deletable mechanically rather than migratable. |
+| r1 **L-7** — 3-hop re-export chain | `color-space-meta.ts:26` → `useGradientInterpolation.ts:17` → `useGradientModel.ts:21` → `GradientVisualizer.vue:19–20`, while `MixConfigBar.vue:18` takes the same constant in **one** hop. |
+| r1 **L-10** / R2-9 — `DockControl` outside a dock | Chromium probe: `--dock-control-size` and `--dock-control-safe-inset` both resolve **`""`**, box **28×28**, versus `max(calc(2.5rem*1),0px)` / `calc(…*0.1)` and **40×40** for a control inside the dock. Then, using `capture.mjs:102–105`'s *exact* filter under WebKit, the route's `"namelessButtons": 1` resolves **uniquely** to this control (`title="Copy CSS"`, `x:658 y:791 28×28`). |
+| r1 **L-12** — `railRampCSS` recomputes on `direction` | Benchmarked in-page against the shipped module, N=500 warmed: `serializeRailRamp` **0.041 ms/call**, `serializeCoalescedGradient` 0.038, `serializeGradient` 0.0004, 33 sub-stops, `COALESCE_RESOLUTION = 32`. A measured 60-step drag (90°→150°, 60 tile style-writes, 800 ms wall) discards ≈ **2.5 ms**. Small — I record it MINOR, as r1 did. |
+| R2-4 — `tsconfig.demo.json#paths` drift | Independently enumerated: 3 dead targets (`dist/index.d.ts`, `dist/subpaths/parsing.d.ts`, `dist/subpaths/units.d.ts` — all confirmed absent by `ls`), 2 live subpaths missing (`/css`, `/value`). `--traceResolution` shows `/css` landing correctly **only** via Node package self-reference (`with Package ID '…@4.0.0'`), not via the declared `paths`. |
+| R2-5 — reka-ui reach because glass-ui hides its type | `glass-ui/dist/components/_shared/selection.d.ts:2` declares `export type SelectionValue = string \| number`; `components/select/index.d.ts` exports `SelectEmits`/`SelectProps` and **not** `SelectionValue`. Four demo files took the escape hatch: `GradientVisualizer.vue:28`, `MixConfigBar.vue:15`, `GenerateControls.vue:33`, `AuroraPane.vue:25`. |
+| R2-6 — the barrel's re-exports are dead | Per-symbol census: `serializeGradient`, `serializeCoalescedGradient`, `serializeRailRamp`, `linearInterval`, `parseGradientCSS`, `GradientParseResult`, `ParsedGradientModel` — **zero** consumers through `useGradientModel`; every real importer names the owning module directly. |
+| R2-8 — phantom `defineModel("selectedStopId")` | No binder anywhere in `demo/`, `e2e/`, `test/`; `GradientPane.vue:25` renders `<GradientVisualizer ref="visualizerRef" />` with no props. |
+| R2-10 — dead cross-boundary DI at the mount point | `GradientPane.vue:8` — `const cssColorOpaque = inject(CSS_COLOR_KEY)!;` never referenced in that file. |
 
-W43 / RF-15 restructured the demo tree and deleted both. `vite.config.ts:66-71` states
-it plainly: *"W43 (RF-15) killed the demo `@…` path aliases: every demo import is now
-relative to its physical home."*
+**New in round 3** — five findings, carried in §3:
 
-```
-$ ls -d demo/@
-ls: demo/@: No such file or directory
+- **L3-1** — one library `Result`, **six** demo unwrap sites, **two contradictory failure policies**;
+  and the census *bounds* r2's BLOCKER.
+- **L3-2** — the mechanism under r1 L-4, plus its full blast radius on the library imports.
+- **L3-3** — `PickerSpace` is a rename of a library type the same file already imports properly.
+- **L3-4** — `npm test` has no `pretest`, and the gradient consume test straddles `src/` and `dist/`
+  in one process.
+- **L3-5** — one paint recipe, two scoped homes, plus three inline assemblies the tree's own
+  comments forbid; and three raw `<hr>` where the design system ships `Separator`.
 
-$ npx eslint --print-config demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue \
-    | node -e "…console.log(c.rules['no-restricted-imports'])"
-no-restricted-imports for GradientVisualizer.vue = undefined
-```
+---
 
-The globs match **zero** files. The banned specifier shape no longer exists in the
-codebase. The effective import-restriction rule set for the subject component is
-`undefined`. The one surviving boundary is `inv-K-1` (`files: ["src/**/*.ts"]`, banning
-`src/` → glass-ui) — that one is live and correct.
+## 3 · New findings
 
-- **Reproduction**: the two commands above, verbatim.
-- **Mechanism**: boundary invariants encoded as *path-shaped* lint globs; a tree
-  rename silently un-scopes them. Nothing fails when a rule stops matching anything.
-- **Cure (transposition, not patch)**: stop encoding boundaries as path globs that a
-  rename can orphan. Re-express the demo lattice as **layer tags** with a rule that
-  fails on an *unclassified* file, so a new or moved directory is a lint error until it
-  is placed in the lattice. Concretely: four layers —
-  `platform` (transport/auth/storage) → `session` (`color-session`, the color spine) →
-  `feature` (`palettes`, `workbenches/*`, `scenes/*`, `picker`) → `shell` (`shell`,
-  `color-picker`), with `shared`/`ui` as a zero-dependency leaf. Edges point *down*
-  only; sibling `feature → feature` is banned outright. Add a lint assertion that the
-  union of the layer globs covers `demo/**` — that assertion is what a rename trips.
+### L3-1 · MAJOR — one `Result`, six unwrap sites, two contradictory policies — and it bounds the r2 BLOCKER
 
-### L-2 · BLOCKER — one `Symbol` import drags 72 modules across the feature boundary
+`@mkbabb/value.js/color`'s `mixColors` returns a `Result`. The demo has no owner for unwrapping it,
+so six independent sites re-write the unwrap, with **five different message prefixes and two
+incompatible failure policies**:
 
-`GradientVisualizer.vue:27`
+| # | Site | Progress argument | Policy |
+|---|---|---|---|
+| 1 | `workbenches/gradient/composables/useGradientInterpolation.ts:36–38` | **eased `t`** | `throw` — `"Gradient color mix failed"` |
+| 2 | `workbenches/gradient/composables/useGradientCSS.ts:202–208` | **eased `t`** | `throw` — `"Gradient color mix failed"` |
+| 3 | `workbenches/mix/MixAnimationCanvas/composables/mixStage.ts:102–106` | `index/(RAMP_STOPS-1)` | `throw` — `"Pigment mix failed"` |
+| 4 | `color-session/ink.ts:147–152` | literal `0.382` | `throw` — `"Muted ink mix failed"` |
+| 5 | `palettes/mix.ts:35` (`mixedOrThrow`) | `weight/total` (`:63`), `t` (`:102`) | `throw` — `"Color mix failed"` |
+| 6 | `color-session/color-chips/sample.ts:75–79` | `j/(perSegment-1)` | **`return null`** — silent |
 
-```ts
-import { LIBRARY_PORT_KEY } from "../../../palettes/usePalettePorts";
-```
+Site 6 is a masking fallback (edict 2): the same failure that halts five call sites silently yields
+`null` at the sixth. `palettes/mix.ts:27–37` already *named* the concept — `mixedOrThrow` — but
+parked it inside the palettes feature, so nobody else can reach it.
 
-`LIBRARY_PORT_KEY` is one line — `usePalettePorts.ts:272`,
-`export const LIBRARY_PORT_KEY: InjectionKey<LibraryPort> = Symbol("palette.library")`.
-It is co-located with the **provider**, a 272-line wiring module that composes fifteen
-sub-composables plus auth, admin, and the API client. ES module semantics mean
-importing the `Symbol` evaluates the whole graph.
+**And the census bounds r2's BLOCKER.** r2 established that value.js's own `ease-*-back` presets
+emit eased output outside `[0,1]` (`src/easing.ts:62–64`) while `mixColors` rejects progress outside
+`[0,1]`, and that the three gradient sites feeding *eased* `t` therefore all crash. Auditing the
+progress argument at every one of the six sites shows sites 3–6 always pass a clean fraction —
+`index/(RAMP_STOPS-1)`, a literal, `weight/total`, `fracPos-lo`, `j/(perSegment-1)`, each in
+`[0,1]` by construction. **No additional crash site exists outside the gradient tree.** That is a
+negative worth recording: it confines the blast radius r2 measured, and it means the cure is a
+single adapter, not a sweep.
 
-Measured (static relative-import closure, script at
-`…/scratchpad/graph2.mjs`):
+- **Reproduction (policy split)**: `grep -rn "mixColors" demo --include='*.ts' --include='*.vue'` →
+  the six sites above; read the four lines after each.
+- **Mechanism**: a library that returns `Result` and a consumer tree with no boundary module to
+  absorb it. Every caller invents a policy.
+- **Cure**: `color-session/color-utils.ts` — 25 lines, already the demo's colour boundary, already
+  the home of `parseColorIn`/`colorToCss` — gains **one** pair:
+  `mixOrThrow(c0, c1, t, space, hue)` and `mixCssColors(css0, css1, t, space, hue): string`, the
+  latter carrying r2's clamp/rejection ruling in exactly one place. All six sites become one-liners.
+  Note that `interpolateStopColors` (`useGradientInterpolation.ts:27–39`) *is* `mixCssColors` with a
+  gradient-flavoured name and zero gradient semantics — it should not live in a gradient composable
+  at all.
 
-```
-full: 107   without palettes edge: 35   delta: 72
-```
+### L3-2 · MAJOR — the mechanism under r1 L-4, and its full blast radius
 
-The 72 modules that one import pulls in include the entire admin surface and transport
-stack:
-
-```
-demo/palettes/browser/admin/AdminAuditPanel.vue      demo/palettes/api/admin-users.ts
-demo/palettes/browser/admin/AdminUsersPanel.vue      demo/palettes/api/versions.ts
-demo/palettes/browser/admin/AdminFlaggedPanel.vue    demo/platform/auth/sessionToken.ts
-demo/palettes/browser/admin/AdminTagsPanel.vue       demo/platform/auth/useAdminAuth.ts
-demo/palettes/browser/card/PaletteCardGrid.vue       demo/platform/transport/useApiClient.ts
-demo/palettes/useSlugMigration.ts                    demo/shell/useViewManager.ts
-…72 total
-```
-
-This is not academic: `demo/shell/usePaneRouter.ts:74` code-splits the pane —
-`defineAsyncComponent(() => import("../workbenches/gradient/GradientPane.vue"))`. The
-route is a real chunk boundary, and this edge erases its independence. It is also a
-**direction** violation: a workbench feature statically depends on another feature's
-admin internals.
-
-The gradient's *own* domain closure is 7 modules
-(`useGradientModel.ts` → `local modules: 7`). The palettes edge is 10× the feature.
-
-- **Reproduction**: `node /private/tmp/.../scratchpad/graph2.mjs` (closure diff over
-  relative imports from `GradientVisualizer.vue`).
-- **Mechanism**: injection keys co-located with their providers. The key is a
-  zero-dependency contract; the provider is a god-wiring module. Importing the contract
-  should not import the implementation. Note that `demo/color-session/keys.ts` already
-  does this correctly — `GradientPane.vue:6` imports `CSS_COLOR_KEY` from a keys-only
-  module. The palettes feature simply never got the same treatment.
-- **Cure**: `demo/palettes/keys.ts` holding the five port symbols + their port
-  interface types and nothing else; `usePalettePorts.ts` imports *from* it and
-  `provide()`s. Zero new directories (`keys.ts` is an existing, proven idiom here), and
-  the gradient closure drops 107 → 35. Then, per L-1's lattice, the sibling
-  `feature → feature` edge itself should be re-expressed: the gradient's
-  `seedFromPalette` wants *"a list of colors"*, not *"the palette library port"* — it
-  should receive `savedColorStrings` from the shell that already owns it
-  (`usePalettePorts.ts` deps take `savedColorStrings: Ref<string[]>` — the shell has it).
-
-### L-3 · MAJOR — the value.js `/css` ↔ `/easing` seam is missing both halves, and this tree owns both
-
-The library publishes an asymmetric round-trip:
-
-| capability | parse | serialize |
-|---|---|---|
-| CSS color | `parseCssColor` ✓ | `serializeCssColor` ✓ |
-| CSS timing function | `parseTimingFunction` ✓ | **absent** |
-
-```
-$ grep -rn "serializeTimingFunction\|serializeEasing\|timingFunctionToCss" src/
-(no output)
-```
-
-And `/css` produces a `CssTimingFunction` AST that `/easing` cannot consume — there is
-no published `CssTimingFunction → EasingFunction` evaluator. Both missing halves are
-re-implemented **outside** the library:
-
-**Missing half A (AST → callable)** lives at
-`demo/workbenches/gradient/composables/useGradientCSS.ts:106-117`:
+r1 established that the CSS→easing bridge is unreachable. The **mechanism** is a signature that
+widens a field the domain type declares required:
 
 ```ts
-function timingFunctionValue(ast: CssTimingFunction, source: string): EasingFunction {
-    switch (ast.kind) {
-        case "keyword":         return easingValue(easing(ast.name), source);
-        case "cubic-bezier":    return easingValue(CubicBezier(ast.x1, ast.y1, ast.x2, ast.y2), source);
-        case "steps":           return easingValue(steppedEase(ast.count, ast.position), source);
-        case "linear-function": return easingValue(linearEasing(linearStops(ast.stops)), source);
-    }
-}
-```
-
-Both the input type and the output type are value.js types. The demo owns the only
-adapter between two of the library's own published capabilities. Alongside it,
-`linearStops()` (`useGradientCSS.ts:80-104`) re-implements the CSS Easing Functions L2
-`linear()` optional/double-position filling algorithm — because the library ships
-`CssLinearStop` (`input: number[]`, `src/css/types.ts:28`) and `LinearEasingStop`
-(`{output, input}` both required, `src/easing.ts:14`) with no conversion between them.
-
-**Missing half B (value → literal)** is hand-mirrored in *two independent packages*.
-`demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts:41-58` says so
-in its own prose:
-
-```
-// ── The literal mint law (byte-identity with the picker) ───────────────
-// glass-ui `useEasingPicker.readout` mints `cubic-bezier(…)` by mapping each
-// coordinate through `+n.toFixed(3)` and joining with `", "`, and `steps(…)`
-// as `steps(${n}, ${term})`. … a tile-minted payload and a picker-emitted
-// payload for the same curve MUST be byte-identical
-export function bezierLiteral(quad: readonly number[]): string { … }
-export function stepsLiteral(n: number, term: JumpTerm): string { … }
-```
-
-The canonical serializer is private inside `@mkbabb/glass-ui@7.0.0`
-(`dist/easing.js:33-35`, unexported). The demo mirrors it byte-for-byte across a
-package boundary, with **no test binding the two**. A formatting change in a future
-glass-ui minor silently desynchronises persisted gradient literals from
-picker-authored ones — `useGradientCSS.ts:44-50` explicitly relies on that byte
-identity for `linearInterval()`.
-
-- **Reproduction**: the `grep` above (absent inverse) + the three cited file:line
-  blocks + `node_modules/@mkbabb/glass-ui/dist/easing.js:33-35`. NONE for the
-  desynchronisation itself — that is a **hypothesis** about future releases; the
-  duplication is a fact.
-- **Mechanism**: a published capability seam with one direction implemented. Every
-  consumer that needs the other direction mints it, so N consumers → N implementations
-  and the "one home per concept" invariant is broken *by the library's shape*, not by
-  consumer carelessness.
-- **Cure**: value.js `/css` gains `serializeTimingFunction(ast: CssTimingFunction):
-  string` (the exact inverse of the `parseTimingFunction` it already ships, and the
-  exact sibling of the `parseCssColor`/`serializeCssColor` pair), and `/easing` gains
-  `easingOf(ast: CssTimingFunction): Result<EasingFunction, EasingIssue>` — the
-  round-trip closes inside the library. `linearStops` moves into `/css` as part of
-  `parseTimingFunction`'s own normalisation, so `CssLinearStop.input` is already
-  resolved when it crosses the API. glass-ui's `useEasingPicker.readout` and the demo's
-  `bezierLiteral`/`stepsLiteral` both then call one published function, and byte
-  identity becomes structural rather than aspirational. Net deletion: ~65 demo lines,
-  ~10 glass-ui lines, one comment-enforced invariant.
-
-### L-4 · MAJOR — that bridge is unreachable at runtime; it ships to satisfy one test
-
-`GradientInterval = EasingPickerValue` (`useGradientModel.ts:49`), and glass-ui declares
-`readonly fn: EasingFn;` — **required**, not optional
-(`node_modules/@mkbabb/glass-ui/dist/components/easing/composables/useEasingPicker.d.ts`).
-So every `GradientInterval` carries `fn` by type.
-
-`useGradientCSS.ts:120-133` nevertheless *weakens* the parameter to create a branch the
-type system says cannot be taken:
-
-```ts
+// useGradientCSS.ts:120-133
 export function easingFnOf(
     interval: Pick<GradientInterval, "css"> & Partial<Pick<GradientInterval, "fn">>,
+                                            // ^^^^^^^ invents an optional `fn`
 ): EasingFunction {
-    if (interval.fn) return interval.fn;          // ← always taken in the app
-    const cached = resolvedEasingCache.get(interval.css);
-    …
+    if (interval.fn) return interval.fn;              // always taken
+    ...
+    const parsed = parseTimingFunction(interval.css); // never reached
 ```
 
-Call-site census:
+`GradientInterval = EasingPickerValue` (`useGradientModel.ts:49`), and `EasingPickerValue.fn` is
+`readonly fn: EasingFn` — **required** (`useEasingPicker.d.ts:17`). The `Partial<>` fabricates a
+caller shape the model cannot produce; the dead branch is downstream of that one word.
 
-```
-$ grep -rn "easingFnOf" demo test
-demo/…/composables/useGradientCSS.ts:190       easingFnOf(interval)          // GradientInterval
-demo/…/GradientVisualizer.vue:78               easingFnOf(interval)(t)       // GradientInterval
-demo/…/easing/useSpecimenRows.ts:52            easingFnOf(interval)          // GradientInterval
-test/gradient-v4-consume.test.ts:49            easingFnOf({ css: "linear(0, 0.25 50%, 1)" })
-test/gradient-v4-consume.test.ts:50            easingFnOf({ css: "not-an-easing" })
-```
+**Blast radius, not previously enumerated.** Deleting the fabricated branch removes:
 
-All three production sites pass a full `GradientInterval`. Only the **test** passes an
-`fn`-less object. Consequently `resolvedEasingCache` (`:69`), `easingValue` (`:71-77`),
-`linearStops` (`:80-104`), `timingFunctionValue` (`:106-117`), the `easingFnOf`
-fallback body (`:124-132`) — ~65 lines — plus the imports of `CubicBezier`, `easing`,
-`linearEasing`, `steppedEase`, `parseTimingFunction` are **dead in the browser**. They
-ship anyway.
+- `useGradientCSS.ts:69–118` — `resolvedEasingCache`, `easingValue`, `linearStops`,
+  `timingFunctionValue` — **50 lines**, plus the cache/parse tail of `easingFnOf`.
+- The module's **entire** `@mkbabb/value.js/css` import (lines 25–29: `parseTimingFunction`,
+  `CssLinearStop`, `CssTimingFunction`) — this component tree's only `/css` consume.
+- **Four of five** `/easing` value imports (lines 14–20): `CubicBezier`, `easing`, `linearEasing`,
+  `steppedEase`. Only `linear` is live, at line 58.
 
-This is also a **false proof of the public API**: `parseTimingFunction` looks
-dogfooded by the demo. It is not exercised on any user path.
+So the component tree's advertised consume of two library subpaths collapses to a single symbol.
 
-- **Reproduction**: the grep above + the glass-ui `.d.ts` line declaring `fn` required.
-- **Mechanism**: a type deliberately weakened at the boundary so a test can reach an
-  otherwise-unreachable branch. The test's convenience became production surface.
-- **Cure**: with L-3 landed, `easingFnOf` collapses to `interval.fn` and disappears;
-  the CSS-literal → callable path becomes `easingOf(parseTimingFunction(css))` — a
-  *library* function with *library* tests, in `test/` where it belongs. Delete the
-  module-level `Map` with it (it is also unbounded and never cleared).
+- **Cure**: `easingFnOf(interval: GradientInterval) => interval.fn` — one expression. The CSS→callable
+  direction, if wanted, is **the library's** job: `@mkbabb/value.js/easing` should expose
+  `easingFromCss(css): Result<EasingFunction, EasingIssue>` and own `linearStops`' position-filling
+  algorithm (`useGradientCSS.ts:80–104`), which is a CSS `linear()` *spec* concern with no business
+  in a demo gradient module. Then `test/gradient-v4-consume.test.ts`'s second case becomes a
+  **library** test that proves something true.
 
-### L-5 · MAJOR — two sampling laws, measured to disagree by 107/255
+### L3-3 · MINOR — `PickerSpace` is a rename of a library type the same file already imports properly
 
-`useGradientCSS.ts:2-4` claims the module *"owns the ONE sampling law
-(`sampleCoalescedStops`)"*. There is a second one, in the component's `<script setup>`:
-`GradientVisualizer.vue:64-88` `colorAtPosition(position)`. It re-walks the stops,
-re-finds the interval, re-applies `easingFnOf`, and mixes — the same law, expressed
-`position → color` instead of `model → samples[]`, and untestable where it sits.
-
-They are not equivalent, because the rail paints **Law B discretised to 33 stops that
-the browser then blends linearly**, while the add-ghost and the minted stop colour come
-from **Law A, exact**. Measured (`…/scratchpad/sampling.mjs`, run against
-`dist/subpaths/*` — the published surface):
-
-```
-easing = steps(4, jump-end), stops = oklch(0.75 0.15 145) -> oklch(0.65 0.18 265)
-worst disagreement between the two sampling laws:
-{"pos":24.99,"d":107,"A":[107,198,112],"B":[0,197,160]}
-```
-
-At 24.99 % the ghost previews `rgb(107,198,112)`; the rail under the cursor is
-`rgb(0,197,160)`. **107/255 = 42 % of the red channel range.** Click there and the stop
-you get is not the colour you clicked on.
-
-- **Reproduction**: `node /private/tmp/.../scratchpad/sampling.mjs`. In the app: set an
-  interval to `steps(4, jump-end)`, hover the rail near 25 %.
-- **Mechanism**: the composable exposed only `model → samples[]`. The component needed
-  `position → colour`, found no seam, and grew one. A stated invariant with no single
-  callable to enforce it is a comment, not an invariant.
-- **Cure**: make `rampColorAt(model, position): AnyColor` the primitive and define
-  `sampleCoalescedStops` as `positions.map(p => rampColorAt(model, p))`. One law,
-  literally. Then L-17 removes the discretisation entirely and the divergence cannot
-  exist.
-
-### L-6 · MAJOR — `demo/ui/*` is nineteen pure alias barrels over glass-ui
-
-`GradientVisualizer.vue:9-10` imports `Select…` and `Slider` from `../../../ui/select`
-and `../../../ui/slider`. Those files are, in full:
+`GradientVisualizer.vue` line 25 imports `HueInterpolationMethod` from `@mkbabb/value.js/color` —
+correct. Line 26 then crosses into another feature for its sibling:
 
 ```ts
-// demo/ui/select/index.ts
-export { Select, SelectTrigger, SelectItem, SelectValue, SelectContent,
-         SelectGroup, SelectLabel, SelectSeparator } from "@mkbabb/glass-ui";
-// demo/ui/slider/index.ts
-export { Slider } from "@mkbabb/glass-ui";
+// demo/color-session/picker-color.ts:37
+export type PickerSpace = SpaceId;      // SpaceId is imported from @mkbabb/value.js/color
 ```
 
-All nineteen `demo/ui/*/index.ts` are the same shape. `demo/ui/alert/index.ts` states
-the history outright:
+A cross-feature edge, in a component, to obtain a re-branded copy of a library type that is one hop
+away on the line above. `PickerSpace` adds no constraint, no branding, no narrowing.
 
-> *"This barrel previously held a local shadcn-vue re-implementation … B.W2 converted it
-> to a re-export: glass-ui is the design system … The two consumers … import from this
-> barrel unchanged."*
+- **Cure**: `import type { HueInterpolationMethod, SpaceId } from "@mkbabb/value.js/color";` — one
+  line, one edge removed. Retire the alias wherever it constrains nothing. (Where the picker really
+  does mean "a space the picker supports", that is a *subset* and should be a real subset type, not
+  an identity alias.)
 
-That is the definition of a migration shim: the implementation moved, the import path
-was preserved so consumers would not have to change. The standing law
-(`feedback_no_backwards_compat`) is *"migrate the consumer to the new API at the root"*.
-Ninety demo import sites still route through the shim.
+### L3-4 · MAJOR — `npm test` has no `pretest`, and the gradient consume test straddles `src/` and `dist/` in one process
 
-It is not cost-free. glass-ui publishes 70 granular subpaths (`./select`, `./slider`,
-`./card`, …); the barrels re-export from the **root** entry, `dist/glass-ui.js`, which
-opens with 46 chunk imports:
+r1's N-1 proved the *demo* tree carries no `@src/*` reach. True — but the grep was scoped to `demo`.
+The test that certifies this component's library consume does:
 
-```
-$ grep -c "^import" node_modules/@mkbabb/glass-ui/dist/glass-ui.js
-46
-$ ls -la node_modules/@mkbabb/glass-ui/dist/{glass-ui,select,slider}.js
-25239  glass-ui.js      260  select.js       71  slider.js
-```
-
-This component *already knows better* — line 13 imports `DockControl` from
-`@mkbabb/glass-ui/dock`. Two adjacent lines, two disciplines.
-
-- **Reproduction**: `cat demo/ui/*/index.ts`; `ls -d demo/ui/*` → 19 directories, each
-  containing only `index.ts`.
-- **Mechanism**: a completed migration whose final step (retiring the compatibility
-  path) was never taken.
-- **Cure**: delete `demo/ui/` entirely; rewrite the 90 import sites to the glass-ui
-  subpath that owns each primitive (`@mkbabb/glass-ui/select`, `/slider`, `/card`, …).
-  Mechanical, one commit, and it re-establishes "one home per concept" for the whole
-  design-system boundary. Add a `no-restricted-imports` ban on `**/ui/**` under the
-  L-1 lattice so the layer cannot come back.
-
-### L-7 · MAJOR — a three-hop re-export chain that exists for exactly one consumer: this component
-
-```
-GradientVisualizer.vue:17-21          from "../composables/useGradientModel"
-  → useGradientModel.ts:21            export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS }
-                                        from "./useGradientInterpolation"
-    → useGradientInterpolation.ts:17  export { … } from "../../../color-session/color-space-meta"
-      → color-space-meta.ts:26,38     the definitions
+```ts
+// test/gradient-v4-consume.test.ts
+1  import { describe, expect, it } from "vitest";
+2  import { parseCssColor } from "@src/subpaths/css";                       ← SOURCE
+3  import { easingFnOf, linearInterval, sampleCoalescedStops,
+7          serializeCoalescedGradient } from "…/composables/useGradientCSS"; ← which imports
+                                                                            ← @mkbabb/value.js/css
+                                                                            ← = dist/
 ```
 
-Both intermediate hops confess their purpose. `useGradientModel.ts:19` —
-`// ── Re-exports (preserve public API surface) ──`. `useGradientInterpolation.ts:13-17`
-— *"Re-exported here so the gradient tree's own consumers … keep their import path."*
+`vitest.config.ts` aliases **only** `@src`. The demo module's own `@mkbabb/value.js/css` therefore
+resolves by package self-reference to `dist/subpaths/css.js`. **Both copies of the library are live
+in one test process**: line 2's `parseCssColor` comes from `src/`, and the assertion
+`expect(parseCssColor(css).ok).toBe(true)` (line 30) validates a string produced by a `dist/`-backed
+pipeline against a `src/`-backed parser.
 
-The census shows the chain has exactly one remaining user:
-
-```
-$ grep -rn "INTERPOLATION_SPACES" demo | grep -v color-space-meta
-demo/workbenches/gradient/composables/useGradientModel.ts:21        (the shim)
-demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue:19,186
-demo/workbenches/mix/MixConfigBar.vue:60,107                        (direct)
-```
-
-`MixConfigBar.vue:16-18` already migrated, with a comment saying so: *"the interpolation
-vocabulary lives in its neutral @lib/ home … no more cross-feature reach."* Gradient did
-not. The shim's entire remaining job is to spare **one file** a one-line edit — and in
-doing so it couples a pure data constant to a stateful composable module.
-
-- **Reproduction**: the grep above.
-- **Mechanism**: a half-finished migration; the barrel that was supposed to be
-  scaffolding became permanent.
-- **Cure**: `GradientVisualizer.vue` imports from `../../../color-session/color-space-meta`
-  directly (matching Mix); delete both re-export blocks. Two deletions, one edit.
-
-### L-8 · MAJOR — the interpolation-controls widget exists twice, and the copies have diverged
-
-`GradientVisualizer.vue:179-211` and `MixConfigBar.vue:98-140` render the *same* pair of
-Selects over the *same* two constants with the *same* `#description` slot. They differ
-in one respect: Mix renders live `<PreviewRamp>` chips in the description lane
-(`MixConfigBar.vue:111,133`); Gradient renders text only.
+The scripts make this unpinned:
 
 ```
-$ grep -rn "PreviewRamp" demo
-demo/color-session/color-chips/PreviewRamp.vue          ← already in the neutral home
-demo/color-session/color-chips/index.ts:25
-demo/workbenches/mix/MixConfigBar.vue:23,111,133        ← only consumer
+"pretypecheck": "npm run build",   ← typecheck rebuilds dist
+"prepare":      "rm -rf dist && npm run build",
+"test":         "vitest run"       ← NO pretest hook
 ```
 
-The improvement (T-17) landed on one copy. The Gradient pane — where interpolation
-space has the most visible consequence — is the one without the preview. This is the
-characteristic failure mode of duplication, caught in the act.
+- **Current state (honest)**: not diverged right now. `find src -name '*.ts' -newer dist/subpaths/css.js`
+  → **0 files**; `dist/subpaths/css.js` built `2026-07-27 11:52`. So this is a live *hazard* with a
+  confirmed mechanism, not a live *failure*. A registry copy of `@mkbabb/value.js@4.0.0` is also
+  installed at `node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts` (10 910 B) and **differs**
+  from the local build (12 490 B, different inode) — a third copy on disk.
+- **Reproduction**: edit any `src/css/**` behaviour, run `npm test` without building. The demo half
+  of the suite exercises the stale `dist/`; the `@src` half exercises the edit. Green means nothing.
+- **Cure**: pick one surface per program and enforce it. Either add `"pretest": "npm run build"` and
+  let the demo-facing suites speak `dist/` exclusively (retiring `@src` from any test that also
+  imports a demo module), or alias `@mkbabb/value.js/*` → `src/subpaths/*` in `vitest.config.ts` so
+  the whole suite is source-resolved. Straddling is the defect. Related: **R2-4** — the same
+  single-source discipline `vite.config.ts:24–36` already applies by *generating* its alias set from
+  `package.json#exports` is what `tsconfig.demo.json` and `vitest.config.ts` both lack.
 
-- **Reproduction**: open `/#/mix` and `/#/gradient`, open the "Space" dropdown on each.
-- **Mechanism**: two features each hand-assembled the same control pair from
-  primitives, because no component owns the concept.
-- **Cure**: `demo/color-session/color-chips/` already hosts `PreviewRamp` and
-  `sampleInterpolationRamp` — the neutral home exists. Add
-  `InterpolationSelect.vue` (space + hue, chips included) beside them; both workbenches
-  consume it. **No new `shared/` directory** — the home is the one the vocabulary
-  already lives in, so this satisfies KISS rather than straining it.
+### L3-5 · MINOR — one paint recipe, two scoped homes; three inline assemblies the tree forbids; three raw `<hr>`
 
-### L-9 · MAJOR — three parallel clipboard idioms, with the split running through this directory
+`demo/DESIGN.md:338` (S owner-ruling 2026-07-05): *"ONE recipe, one home."* There are two, in two
+SFCs of the same feature:
 
-```
-$ grep -rn "writeClipboard" demo | wc -l    → 14 call sites / 12 files
-$ grep -rn "useClipboard"  demo | wc -l     →  4 call sites /  4 files
-$ grep -rn "navigator.clipboard" demo       →  1 (picker/visual/PointerDebugOverlay.vue:112)
-```
-
-`GradientVisualizer.vue:12,127-129` uses `writeClipboard` — fire-and-forget, **no
-confirmation state**. Its sibling in the same folder, `GradientEasingEditor.vue:29,94-103`,
-uses `useClipboard({ resetMs: 1400 })` and renders a check-mark tick. Same concept, same
-directory, two implementations, divergent user-visible behaviour: the per-interval copy
-buttons confirm; the main **Copy CSS** button does not.
-
-- **Reproduction**: on `/#/gradient`, click the copy icon in an Easing row (tick
-  appears) then the copy icon in the CSS header (nothing happens visibly).
-- **Mechanism**: glass-ui publishes both a stateless helper and a stateful composable
-  for one concept; the demo picked per-site.
-- **Cure**: `useClipboard` is the strictly-richer surface (it *is* `writeClipboard`
-  plus status). Standardise on it demo-wide and ask glass-ui to retire the bare
-  `writeClipboard` export — a BH relay item under the standing glass-ui relay edict.
-
-### L-10 · MAJOR — a dock-scoped primitive used outside the dock, measured to degrade
-
-`GradientVisualizer.vue:13,254`
-
-```html
-<DockControl compact title="Copy CSS" @click="copyCSS">
+```css
+/* GradientVisualizer.vue:271-278 */            /* GradientStopEditor.vue:319-327 */
+.gradient-render-tile {                         .gradient-rail {
+    background: var(--tile-render),                 border-radius: var(--radius-pill, 9999px);
+                var(--alpha-checker);               border: 1px solid var(--card-edge);
+    background-origin: border-box;                  background: var(--rail-ramp), var(--alpha-checker);
+    background-clip: border-box;                    background-origin: border-box;
+    background-repeat: no-repeat, repeat;           background-clip: border-box;
+    background-size: 100% 100%, 16px 16px;          background-repeat: no-repeat, repeat;
+    box-shadow: var(--shadow-sm);                   background-size: 100% 100%, 16px 16px;
+}                                                   box-shadow: var(--shadow-sm);
+                                                }
 ```
 
-`DockControl`'s own contract (`dist/components/dock/DockControl.vue.d.ts`) states:
-*"the painted plate insets via the dock-scoped `--dock-control-safe-inset` fold, while
-the HIT CELL stays the full `--dock-control-size` (≥44px on coarse via the density
-clamp)."* Those custom properties are **dock-owned**. Measured live on
-`http://localhost:9000/#/gradient` (Playwright `evaluate`, ancestor walk):
+Five of six declarations byte-identical; `GradientVisualizer.vue:267–268` concedes it in prose —
+*"the rail's material contract, same shape"*. That same comment ends *"Never a per-callsite
+`background` shorthand assembly"*, and the feature does exactly that three times:
+`GradientStopEditor.vue:220–221`, `:247`, `GradientEasingEditor.vue:154`.
 
-| | `--dock-control-size` | `--dock-control-safe-inset` | rendered |
-|---|---|---|---|
-| in the real dock | `max( calc( 2.5rem * 1 ), 0px )` | `calc(… * 0.1)` | **40 × 40** |
-| this call site | `""` (undefined at the button **and every ancestor**) | `""` | **28 × 28** |
+Also confirmed live (`"hrs": ["border-border","border-border","border-border"]`): three raw
+`<hr class="border-border" />` at lines 148, 240, 251, where glass-ui ships `Separator` — already
+barrelled at `demo/ui/separator/index.ts` — and three repeated
+`<h3 class="font-display text-subheading text-muted-foreground">` at 149, 241, 253, a per-instance
+typographic recipe where `.section-label` (`demo/styles/utils.css:13`) shows the house already knows
+how to do this at root level. Edicts 4 and 5.
 
-The safe-inset fold and the coarse-pointer ≥44 px floor simply do not apply. It is also
-the sole nameless button on the route — `aria-label` absent, only `title="Copy CSS"` —
-matching `audit/visual/REPORT.md:100-113`, `namelessButtons: 1` on
-`safari-desktop-light/dark` and `safari-mobile-light/dark` for `/#/gradient`.
-
-The pattern is systemic — `DockControl` appears at 6 non-dock sites (gradient ×1, mix
-×3, extract ×3) — but this component is one of them.
-
-- **Reproduction**: the Playwright `evaluate` recorded above; and
-  `docs/tranches/V/megatranche/audit/visual/REPORT.json`, `/#/gradient` row,
-  `a11y.namelessButtons: 1`.
-- **Mechanism**: a primitive whose geometry contract is satisfied by a *scope* it does
-  not itself establish. Exported from `/dock` and usable anywhere, it fails open.
-- **Cure**: this is a glass-ui structural defect, not a demo one, and belongs in the BH
-  relay: either `DockControl` self-establishes its token defaults (`--dock-control-size`
-  falls back to its own `:where()` default so it is correct standalone), **or** glass-ui
-  publishes the non-dock sibling — `IconButton` under `@mkbabb/glass-ui/button` — and
-  the six non-dock sites migrate. The latter is the honest fix: "a quiet square icon
-  button" is a design-system primitive, not a dock part. Meanwhile the call site needs
-  `aria-label="Copy CSS"`.
-
-### L-11 · MAJOR — the shell reaches the gradient model through a three-hop `Ref<any>` chain
-
-```
-demo/shell/usePaneRouter.ts:107-111
-    export interface PaneActionRefs { generate: Ref<any>; gradient: Ref<any>; mix: Ref<any>; }
-demo/shell/usePaneRouter.ts:208-210
-    handler: () => paneRefs.gradient.value?.copyCSS?.()
-demo/workbenches/gradient/GradientPane.vue:11-15
-    copyCSS: () => visualizerRef.value?.copyCSS?.(),
-demo/workbenches/gradient/GradientVisualizer.vue:131
-    defineExpose({ resetGradient, copyCSS, seedFromPalette });
-```
-
-Three hops, `any` at the top, optional-call masking at every hop
-(`?.copyCSS?.()`). `@typescript-eslint/no-explicit-any` is `"off"` globally
-(`eslint.config.js:70,184`), so nothing objects. Rename `copyCSS` in the leaf and the
-dock button becomes a silent no-op with a green typecheck and a green lint.
-
-The `?.` after the method name is a **masking fallback** in the sense the standing law
-forbids: it converts a broken contract into silence.
-
-- **Reproduction**: read the four cited lines; `Ref<any>` propagates `any` through
-  `.value?.copyCSS?.()` by definition.
-- **Mechanism**: the gradient model is *component-local state*
-  (`useGradientModel()` called inside `GradientVisualizer.vue:32`), so the only way for
-  the shell to act on it is to drill an instance-ref chain.
-- **Cure**: the codebase already has the right idiom and this component already
-  consumes it. Provide the gradient model as a **port** at `GradientPane` —
-  `GRADIENT_PORT_KEY` in `demo/workbenches/gradient/keys.ts`, exactly parallel to
-  `LIBRARY_PORT_KEY`/`CSS_COLOR_KEY` — and let the action bar `inject` it. All three
-  `defineExpose` blocks and the `Ref<any>` triple delete themselves, and the actions
-  become type-checked. This is the same cure as L-2 seen from the other side: keys are
-  the demo's real cross-boundary contract, and `defineExpose` is the untyped shadow of
-  it.
-
-### L-12 · MINOR — `railRampCSS` recomputes on `direction`, which it provably ignores
-
-`useGradientModel.ts:102-109` builds one monolithic `modelState` computed carrying all
-six fields. `useGradientCSS.ts:325-327` derives three computeds from it, each
-re-executing whenever *any* field changes.
-
-`serializeRailRamp` (`:266-275`) reads only `stops` and, via `sampleCoalescedStops`,
-`intervals`/`interpolationSpace`/`hueMethod`. It never reads `type` or `direction` — by
-construction, the rail is always `linear-gradient(90deg, …)`. Yet dragging the
-direction slider (`min 0, max 360, step 1` — up to 360 emissions per sweep) re-runs the
-full 33-sample colour pipeline for the rail every tick.
-
-Measured cost of one `sampleCoalescedStops` + serialize at the default 2-stop model
-(`…/scratchpad/perf.mjs`, node, published `dist/subpaths`):
-
-```
-sampleCoalescedStops + serialize, 2-stop default model: 0.044 ms per call
-per direction-slider tick the tree runs it TWICE (coalescedCSS + railRampCSS): 0.089 ms
-sample count: 33, serialized bytes: 787
-```
-
-Small in absolute terms; it scales with stop count and it is entirely avoidable.
-
-- **Reproduction**: read `useGradientCSS.ts:266-275` (no `type`/`direction` access)
-  against `useGradientModel.ts:102-109` (both in the dependency). Vue does not
-  deep-compare a computed returning a fresh object literal.
-- **Mechanism**: one god-shaped state object as the sole dependency surface.
-- **Cure**: split the state at its real seam — `rampState` (`stops`, `intervals`,
-  `interpolationSpace`, `hueMethod`) and `geometry` (`type`, `direction`).
-  `railRampCSS` depends on `rampState` alone; `coalescedCSS` composes both. The two
-  serializers stop computing the same sample array twice, and the rail stops
-  recomputing for a value it discards.
-
-### L-13 · MINOR — a hand-rolled ghost icon button with per-instance styling
-
-`GradientEasingEditor.vue:178-197` renders bare `<button class="rail-btn">` elements and
-`:269-294` defines `.rail-btn`, `.rail-btn:hover`, `.rail-btn:focus-visible`,
-`.rail-btn--on` locally. Same visual concept as L-10's `DockControl`, third
-implementation in the tree (`DockControl` / `.rail-btn` / the specimen-tile
-`glass-chip`). Violates both the glass-ui-first edict and the root-level-styling edict.
-
-- **Reproduction**: `grep -rn "rail-btn" demo` → 7 hits, all in this one file.
-- **Cure**: folds into L-10 — one glass-ui `IconButton` primitive, consumed at all
-  three sites.
-
-### L-14 · MINOR (out of axis, blocks measurement) — the gh-pages build emits no application
-
-```
-$ npx vite build --mode gh-pages
-✓ built in 3.44s
-$ find dist/gh-pages -name "*.js"
-dist/gh-pages/assets/index-Dezn_h7o.js       ← 698 bytes, the modulepreload polyfill ONLY
-dist/gh-pages/assets/quantize-worker-…js
-```
-
-The build reports success and emits no app chunks. This matches the carried
-`gh-pages prod-preview empty-mount` item in `CARRY-LEDGER.md §F`. Recorded here because
-it **prevented** the decisive measurement for L-2 (actual route-chunk sizes); the static
-closure diff is the substitute.
-
-### L-15 · MINOR — a stale rationale comment describing a library that no longer exists
-
-`demo/shared/utils.ts:9-21` justifies the demo's forked `debounce`:
-
-> *"`debounce` was the last symbol holding 7 demo files on the BARE `@mkbabb/value.js`
-> specifier … the library's root-barrel export stands for external consumers."*
-
-Both claims are now false:
-
-```
-$ node -e "const p=require('./package.json'); console.log('.' in p.exports)"   → false
-$ grep -rn "export function debounce" src/                                    → (no output)
-```
-
-There is no root export in the map, and `debounce` no longer exists in `src/` at all.
-A comment that describes a boundary that has moved is a false map, and this one is load-
-bearing — it is the stated reason the fork is allowed to stand.
-
-- **Cure**: delete the paragraph; `debounce` is simply the demo's utility now.
-
-### L-16 · MINOR — non-idiomatic template ref in the pane, idiomatic in its children
-
-`GradientPane.vue:9` uses `ref<InstanceType<typeof GradientVisualizer> | null>(null)`
-with a string `ref="visualizerRef"`. `GradientCodeEditor.vue:31` and
-`GradientStopEditor.vue` both use `useTemplateRef` correctly. Edict 7 (idiomatic Vue
-3.5) — and the inconsistency is inside one feature. Dissolves entirely under L-11's
-port cure, which removes the ref.
-
-### L-17 · MINOR → the largest single simplification available
-
-`rampGradient` (`useGradientCSS.ts:219-224`) and `serializeCoalescedGradient` (`:281-305`)
-emit gradients with **no `<color-interpolation-method>`**, so the browser blends the
-oklch sub-stops in **sRGB**. The 33-stop coalescing exists precisely to make that sRGB
-blend imperceptible. Measured live on the running app:
-
-```js
-CSS.supports('background-image', 'linear-gradient(in oklch, red, blue)')              → true
-CSS.supports('background-image', 'linear-gradient(in oklch longer hue, red, blue)')   → true
-CSS.supports('background-image', 'conic-gradient(in oklab from 90deg, red, blue)')    → true
-
-.gradient-rail                → { subStops: 33, hasInterpMethod: false, bytes: 1478 }
-[data-testid=gradient-render-tile] → { subStops: 33, hasInterpMethod: false, bytes: 1471 }
-```
-
-The browser has supported the native form for years. The entire coalescing apparatus —
-`COALESCE_RESOLUTION`, `sampleCoalescedStops`, `rampGradient`, `serializeRailRamp`,
-`serializeCoalescedGradient`, ~1.5 KB of generated CSS per surface per keystroke — is
-compensating for a serializer the *library* does not publish.
-
-Note the compensation is not complete: easing genuinely cannot be expressed natively,
-so per-interval easing must still be baked. But the **space** and **hue-method** halves
-can and should be native, and the sub-stop density then only has to resolve the easing
-curve, not the colour space — a far weaker requirement, and L-5's divergence collapses
-with it.
-
-- **Cure**: `serializeGradient` moves into value.js `/css` as
-  `serializeGradient(model): string`, emitting
-  `linear-gradient(in oklch longer hue, <stops>)` natively and baking sub-stops **only**
-  where an interval carries a non-linear easing. Pairs with the gradient **parser**
-  (below).
+- **Cure**: one `demo/styles/` utility (`.paint-over-checker`, parameterised by `--paint-layer`)
+  consumed by both SFCs and the three inline sites; `Separator` for the rules; a
+  `.section-heading` register beside `.section-label`.
 
 ---
 
-## The greenfield lattice
+## 4 · Corrections and refinements to the prior passes
 
-Stated concretely, as asked, with no hedging.
+1. **r1 N-1 is correctly scoped but incompletely titled.** *"value.js is consumed through the
+   published subpath export map, exclusively"* is true of `demo/`. It is **not** true of the test
+   that certifies this component's consume — see **L3-4**. r2 already corrected N-1's `paths` half;
+   this is the second half.
+2. **r1 L-2's blast radius survives, its bundle consequence does not follow automatically.** The
+   72-module drag across the feature boundary is a real architectural defect. But
+   `demo/shell/usePaneRouter.ts:69–77` code-splits every pane via
+   `defineAsyncComponent(() => import(...))`, and `App.vue` calls `providePalettePorts` in the main
+   chunk regardless — so `usePalettePorts` is retained by the root entry with or without this edge.
+   The *coupling* finding stands unchanged; a *chunk-weight* claim would need a build-stats
+   measurement I did not run and therefore do not assert.
+3. **r1 L-12's cost, measured.** r1 established the invalidation coupling; the number is
+   **0.041 ms/call**, ≈ 2.5 ms over a 60-step drag (§2). Materially small — the finding's value is
+   the mechanism (one invalidation cell for two domains), not the millisecond.
+4. **A detail not in either report**, offered as INFO: the **CSS** section's copy control copies
+   `coalescedCSS` while the editor directly beneath displays `simpleCSS`. Measured on the default
+   model: `simpleLen` **74**, `coalLen` **1363** — **18.4×**. Both readings are defensible
+   (`useGradientCSS.ts:277–280` calls coalesced "the CSS that actually renders"); shipping both
+   under one unqualified label is not. Also: `useGradientCSS.ts:190` declares
+   `const easing = easingFnOf(interval)`, **shadowing** the module import `easing` from
+   `@mkbabb/value.js/easing` on line 16, in the same file; and `resolvedEasingCache`
+   (`useGradientCSS.ts:69`) and `nextId` (`useGradientModel.ts:66`) are module-global mutable state
+   inside modules named as composables.
 
-### value.js — `@mkbabb/value.js/css` gains the gradient capability
+---
 
-`demo/workbenches/gradient/composables/gradientParse.ts` is **301 lines of CSS
-`<gradient>` parser living in a demo**. The library has none:
+## 5 · Negative results (checked at round 3, sound)
 
-```
-$ grep -rn "gradient" src/ -i
-(no output)
-```
+Stated explicitly so the absence is evidence rather than silence.
 
-A package whose description is *"Immutable, failure-explicit CSS color, value, easing,
-transform, math, and quantization capabilities"*, which publishes `parseCssColor`,
-`parseCssScalar`, `parseTimingFunction`, `parseStylesheet`, and `serializeCssColor`, has
-no opinion on `<gradient>` — the single most common CSS value that is *made of* colors,
-angles, and positions. The demo's own module header names the gap as the reason it
-exists:
+1. **No deep-`src/` import in the component or its composables.** All library imports go through
+   published subpaths a real consumer could write. (The *test* does not — L3-4.)
+2. **`verbatimModuleSyntax` honoured.** Every type-only import in the component is `import type`
+   (lines 22, 25, 26, 28). Edict 8 satisfied. Replicates r1 N-2.
+3. **The brief's named historical suspects are not in this closure.**
+   `grep -rn "useLayerTransition\|ActionBarLayer\|useDark" demo/workbenches/gradient/ demo/color-session/{color-utils,picker-color,color-space-meta}.ts`
+   → **no matches**. The `ActionBarLayer` reimplementation, the
+   `palettes/export.ts` + `usePaletteExport.ts` vs `export/serializers` triple, and the three
+   parallel `useDark` stores (`useMarkdownHighlighting.ts:76`) are all real and all belong to other
+   seats.
+4. **No console errors, no page errors, no failed requests, `overflowX: 0`** on `/#/gradient` across
+   all four Safari matrices (`REPORT.json`). The route's only reported a11y defects are the
+   `namelessButtons: 1` resolved in §2 and two 20×20 stop handles owned by `GradientStopEditor`.
+5. **No god module.** Largest file in the closure is `GradientStopEditor.vue` at 392 L; the subject
+   is 279 L; the composables are 301/334/193/56 L. The R.W4 / S.W5 decompositions held. Every defect
+   on this axis is a **boundary or ownership** defect, not a size defect.
+6. **The r2 BLOCKER's crash class does not extend beyond the gradient tree** — the four non-gradient
+   `mixColors` sites all pass clean fractions (**L3-1**).
 
-> *"Segmentation is textual … because the library's flat `FunctionValue` token stream
-> loses the comma grouping — `red 30%, blue` and `red, 30%, blue` (an interpolation
-> hint) parse to identical flat streams."* — `gradientParse.ts:12-16`
+---
 
-That is a demo working around a library defect and documenting it in place of fixing
-it. The comma-grouping loss is a real bug in the library's value tokeniser, and the
-fix belongs there.
+## 6 · The greenfield lattice
 
-```
-@mkbabb/value.js/css
-  parseCssColor / serializeCssColor                     (exists)
-  parseTimingFunction / serializeTimingFunction         (+ the inverse — L-3)
-  parseGradient / serializeGradient                     (+ new — absorbs gradientParse.ts
-                                                          301 L and the serializers, and
-                                                          emits `in <space>` natively — L-17)
-@mkbabb/value.js/easing
-  easingOf(ast: CssTimingFunction): Result<EasingFunction, EasingIssue>
-                                                        (+ the AST→callable bridge — L-3/L-4)
-```
-
-The demo's parser is *good* — model-or-reject, library-oracle validation, no silent
-drops, authored literals preserved. It is a better parser than most published ones. It
-is in the wrong package. Moving it up is the single highest-value transposition
-available in this tree, and it turns 635 lines of demo composable into roughly 80.
-
-### glass-ui — one relay, two items
-
-- Export the picker's literal mint so `easingCatalogue.bezierLiteral` /
-  `stepsLiteral` can be deleted rather than mirrored (L-3) — or, better, have
-  `useEasingPicker` consume value.js `serializeTimingFunction` once it exists, at which
-  point both copies vanish.
-- Publish `IconButton` under `@mkbabb/glass-ui/button` and make `DockControl` a
-  dock-scoped *composition* of it, so the six non-dock call sites stop borrowing a
-  primitive whose contract they cannot satisfy (L-10, L-13).
-
-### demo — four layers, keys as the only cross-boundary contract
-
-```
-shell/          shell, color-picker            — routing, dock, panes
-  ↓
-feature/        workbenches/*, palettes, scenes, picker
-  ↓                 ·  sibling feature→feature edges BANNED
-session/        color-session                  — the color spine + color-chips + keys
-  ↓
-platform/       transport, auth, storage
-leaf/           shared                         — zero-dependency utilities
-                (ui/ DELETED — consume glass-ui subpaths directly)
-```
-
-with, for this feature specifically:
+Concurring with r1 §"The greenfield lattice" and r2's `R2-1` cure; stated here in the shape round 3
+would build, with the deltas marked.
 
 ```
+@mkbabb/value.js                    — published library, seven subpaths
+  /color   mixColors, convertColor, …
+  /css     parseCssColor, serializeCssColor, parseTimingFunction
+  /easing  CubicBezier, linear, steppedEase, linearEasing
+           + easingFromCss(css): Result<EasingFunction, EasingIssue>       ← absorbs L3-2 / r1 L-4
+             (also owns CSS linear() position-filling — today it is
+              useGradientCSS.ts:80-104, stranded in a demo module)
+           + the [0,1] range contract stated ONCE, where ease-*-back        ← r2 R2-1
+             and mixColors are both defined
+
+@mkbabb/glass-ui                    — the design system, consumed BY SUBPATH, never renamed
+  /select  Select… + export type SelectionValue                            ← closes R2-5
+  /slider  Slider
+  /button  Button   ← the Copy control's real home                         ← closes r1 L-10 / R2-9
+  /easing  EasingPicker, EasingPickerValue
+  (demo/ui/ DOES NOT EXIST)                                                ← closes r1 L-6
+
+demo/color-session/                 — the colour BOUNDARY (correct today, under-used)
+  color-utils.ts      parseColorIn · colorToCss · mixOrThrow · mixCssColors ← closes L3-1
+  color-space-meta.ts INTERPOLATION_SPACES · HUE_INTERPOLATION_METHODS
+                      ← the ONE home; Gradient and Mix both one hop         ← closes r1 L-7
+
 demo/workbenches/gradient/
-  keys.ts                     GRADIENT_PORT_KEY  (the shell's typed contract — L-11)
-  GradientPane.vue            provides the port; no defineExpose, no InstanceType ref
   model/
-    state.ts                  rampState + geometry, split at the invalidation seam (L-12)
-    ports.ts                  useGradientModel → the provided port
-  GradientVisualizer/
-    GradientVisualizer.vue    layout + wiring only; colorAtPosition GONE (L-5)
-    GradientStopEditor.vue
-    GradientCodeEditor.vue
-    GradientEasingEditor.vue
-    easing/                   specimen gallery only; easingCatalogue's literal
-                              minting GONE (L-3)
+    gradientModel.ts     GradientStop · GradientInterval · GradientType
+                         rampState = { stops, intervals, space, hue }
+                         geometry  = { type, direction }                    ← closes r1 L-12
+    gradientSample.ts    sampleRamp(rampState): CoalescedSample[]           ← THE one sampling law
+                         sampleAt(rampState, position): AnyColor            ← closes r1 L-5 / R2-7
+    gradientSerialize.ts serializeSimple · serializeCoalesced · serializeRail
+                         (take (geometry, samples) — pure, never re-sample)
+    gradientParse.ts     parseGradientCSS  (already correct)
+    NO re-export barrel anywhere                                            ← closes R2-6
+  GradientPane.vue       composition seam: owns useGradientModel(), owns
+                         seedFromPalette — the ONLY file that may know a
+                         palettes port; passes colours down                 ← closes r1 L-2
+  GradientVisualizer.vue PRESENTATION ONLY — no interval search, no eased
+                         mixing, no unbound defineModel, no function props
 ```
 
-`composables/gradientParse.ts` → value.js. `composables/useGradientCSS.ts` → value.js
-(serializers) + `model/state.ts` (the two reactive derivations). The interpolation
-Select pair → `demo/color-session/color-chips/InterpolationSelect.vue`, shared with Mix
-(L-8). No new `shared/` directory anywhere; every destination is a home that already
-exists.
+Four moves carry the value, in dependency order:
+
+1. **r2's `R2-1` cure first** — it is the only user-visible outage. One `mixCssColors` owner in
+   `color-utils.ts` carries the range ruling; three gradient sites collapse onto it (**L3-1** shows
+   the other three demo sites need only the *policy* unification, not a crash fix).
+2. **Push `easingFromCss` into `@mkbabb/value.js/easing`**, delete the `Partial<>` (**L3-2**). The
+   demo stops owning a CSS-spec algorithm; the test that today certifies a fiction becomes a real
+   library test — which also removes the reason `test/gradient-v4-consume.test.ts` straddles two
+   library copies (**L3-4**).
+3. **Delete the three shim layers** — `demo/ui/` (19 files), `useGradientModel`'s re-export block
+   (8 symbols), `useGradientInterpolation`'s re-export line (2 symbols). Net −20 files, −11
+   re-exported names, zero behaviour change. Pure subtraction.
+4. **Split `modelState` into `rampState × geometry`** and make the serializers take samples rather
+   than re-derive them. "The ONE sampling law" becomes true rather than asserted.
 
 ---
 
-## Strongest defect
+## 7 · Strongest defect
 
-**L-1.** Not because it is the largest — L-2 and L-3 cost more — but because it is the
-one that made the others possible and will make them recur. Nineteen alias barrels, a
-three-hop re-export chain, a 72-module cross-feature edge, and a `Ref<any>` shell
-handle all survive in a repository that believes it enforces its module lattice. It
-does not: `no-restricted-imports` is `undefined` for the file under audit, and the three
-demo boundary rules point at a directory (`demo/@`) that has not existed since W43.
-Every other finding in this report is a thing that lint was supposed to catch and
-silently stopped catching.
+Round 3's strongest **new** contribution is **L3-4**: `npm test` has no `pretest`, and
+`test/gradient-v4-consume.test.ts` runs `src/` and `dist/` copies of the library side by side in one
+process — so the suite that certifies this component's library consume is not pinned to the surface
+the component actually consumes. Combined with r1 L-4 / **L3-2** (the consume it certifies is
+unreachable in the app), the position is: *the component's declared relationship to
+`@mkbabb/value.js/css` is fictional in the application and unpinned in the test that vouches for
+it.* That is exactly the "false proof of the public API" this axis exists to find.
+
+Across all three passes, the strongest defect on this axis remains **r2's `R2-1`** — the unowned
+eased-ramp adapter, which crashes on the library's own shipped presets and erases the whole
+application. Round 3 concurs, and **L3-1** bounds it: six demo sites unwrap `mixColors`, but only
+the three in this tree feed it *eased* progress, so a single adapter in `color-session/color-utils.ts`
+closes the whole class.
+
+| ID | Severity | One line | Status |
+|---|---|---|---|
+| R2-1 | **BLOCKER** | eased-ramp adapter unowned; `ease-*-back` erases the app | r2 · R3 concurs, bounds it (L3-1) |
+| r1 L-1 | BLOCKER | every demo import boundary is dead lint | r1 |
+| r1 L-2 | BLOCKER | one `Symbol` drags 72 modules across the feature boundary | r1 · R3 refines (§4.2) |
+| L3-4 | MAJOR | `npm test` unpinned; the consume test straddles `src/` and `dist/` | **NEW** |
+| L3-2 | MAJOR | `Partial<>` fabricates the dead branch; kills the whole `/css` consume + 4/5 `/easing` imports | **NEW** (extends r1 L-4) |
+| L3-1 | MAJOR | six unwrap sites, two contradictory policies; bounds the BLOCKER | **NEW** |
+| r1 L-6 | MAJOR | `demo/ui/*` = 19 alias barrels | r1 · R3 replicates |
+| r1 L-7 | MAJOR | 3-hop re-export chain for one consumer | r1 · R3 replicates |
+| r1 L-10 / R2-9 | MAJOR | `DockControl` outside the dock: tokens empty, 28×28 vs 40×40, the route's nameless button | r1+r2 · R3 replicates + measures |
+| R2-4 | MAJOR | `tsconfig.demo.json#paths` drifted five rows | r2 · R3 replicates via `--traceResolution` |
+| R2-5 | MAJOR | reka-ui typed because glass-ui hides `SelectionValue` | r2 · R3 replicates |
+| R2-6 | MAJOR | 7 of the barrel's re-exports have zero consumers | r2 · R3 replicates |
+| L3-3 | MINOR | `PickerSpace` renames a library type imported correctly one line above | **NEW** |
+| L3-5 | MINOR | one paint recipe two homes; 3 forbidden inline assemblies; 3 raw `<hr>` | **NEW** |
+| r1 L-12 | MINOR | `railRampCSS` recomputes on `direction` — 0.041 ms/tick | r1 · R3 measures |
+
+---
+
+*No source edits were made by this seat. The only writes were under*
+`docs/tranches/V/megatranche/audit/components/wb-gradient-visualizer/`*: this file, plus verbatim
+archive copies of the two prior passes (`challenge-L-library.pass-1-2026-07-27.md`,
+`challenge-L-library.pass-2-r2-2026-07-28.md`) made before this file replaced the base name, so that
+r1's L-1…L-17 and r2's R2-1…R2-11 remain readable and citable. Probe scripts live in the session
+scratchpad.*

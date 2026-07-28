@@ -1,0 +1,548 @@
+{
+  "desktop-1440": {
+    "heads": [
+      {
+        "headW": 460,
+        "headH": 38.9,
+        "label": {
+          "t": "1 → 2",
+          "r": [
+            237,
+            50.5
+          ]
+        },
+        "dots": [
+          297.5,
+          17
+        ],
+        "glyph": [
+          324.5,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            350.5,
+            296.5
+          ],
+          "clientW": 297,
+          "scrollW": 297,
+          "trunc": false
+        },
+        "chevron": [
+          657,
+          16
+        ],
+        "fontSize": "16.4px"
+      },
+      {
+        "headW": 460,
+        "headH": 38.9,
+        "label": {
+          "t": "2 → 3",
+          "r": [
+            237,
+            50.5
+          ]
+        },
+        "dots": [
+          297.5,
+          17
+        ],
+        "glyph": [
+          324.5,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            350.5,
+            296.5
+          ],
+          "clientW": 297,
+          "scrollW": 297,
+          "trunc": false
+        },
+        "chevron": [
+          657,
+          16
+        ],
+        "fontSize": "16.4px"
+      },
+      {
+        "headW": 460,
+        "headH": 38.9,
+        "label": {
+          "t": "3 → 4",
+          "r": [
+            237,
+            50.5
+          ]
+        },
+        "dots": [
+          297.5,
+          17
+        ],
+        "glyph": [
+          324.5,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            350.5,
+            296.5
+          ],
+          "clientW": 297,
+          "scrollW": 297,
+          "trunc": false
+        },
+        "chevron": [
+          657,
+          16
+        ],
+        "fontSize": "16.4px"
+      },
+      {
+        "headW": 460,
+        "headH": 38.9,
+        "label": {
+          "t": "4 → 5",
+          "r": [
+            237,
+            50.5
+          ]
+        },
+        "dots": [
+          297.5,
+          17
+        ],
+        "glyph": [
+          324.5,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            350.5,
+            296.5
+          ],
+          "clientW": 297,
+          "scrollW": 297,
+          "trunc": false
+        },
+        "chevron": [
+          657,
+          16
+        ],
+        "fontSize": "16.4px"
+      }
+    ],
+    "code": {
+      "t": "cubic-bezier(0, 0, 1, 1)",
+      "clientW": 360,
+      "scrollW": 360,
+      "trunc": false,
+      "fs": "16.4px"
+    },
+    "strip": {
+      "clientW": 436,
+      "scrollW": 1482,
+      "hiddenPct": 70.6
+    },
+    "docOverflowX": false,
+    "railBtn": [
+      24,
+      24
+    ],
+    "tile": [
+      45.2,
+      43.8
+    ],
+    "rootFontPx": "16px"
+  },
+  "mobile-390": {
+    "heads": [
+      {
+        "headW": 322,
+        "headH": 35.6,
+        "label": {
+          "t": "1 → 2",
+          "r": [
+            46,
+            43.1
+          ]
+        },
+        "dots": [
+          99.1,
+          17
+        ],
+        "glyph": [
+          126.1,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            152.1,
+            165.9
+          ],
+          "clientW": 166,
+          "scrollW": 166,
+          "trunc": false
+        },
+        "chevron": [
+          328,
+          16
+        ],
+        "fontSize": "14px"
+      },
+      {
+        "headW": 322,
+        "headH": 35.6,
+        "label": {
+          "t": "2 → 3",
+          "r": [
+            46,
+            43.1
+          ]
+        },
+        "dots": [
+          99.1,
+          17
+        ],
+        "glyph": [
+          126.1,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            152.1,
+            165.9
+          ],
+          "clientW": 166,
+          "scrollW": 166,
+          "trunc": false
+        },
+        "chevron": [
+          328,
+          16
+        ],
+        "fontSize": "14px"
+      },
+      {
+        "headW": 322,
+        "headH": 35.6,
+        "label": {
+          "t": "3 → 4",
+          "r": [
+            46,
+            43.1
+          ]
+        },
+        "dots": [
+          99.1,
+          17
+        ],
+        "glyph": [
+          126.1,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            152.1,
+            165.9
+          ],
+          "clientW": 166,
+          "scrollW": 166,
+          "trunc": false
+        },
+        "chevron": [
+          328,
+          16
+        ],
+        "fontSize": "14px"
+      },
+      {
+        "headW": 322,
+        "headH": 35.6,
+        "label": {
+          "t": "4 → 5",
+          "r": [
+            46,
+            43.1
+          ]
+        },
+        "dots": [
+          99.1,
+          17
+        ],
+        "glyph": [
+          126.1,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            152.1,
+            165.9
+          ],
+          "clientW": 166,
+          "scrollW": 166,
+          "trunc": false
+        },
+        "chevron": [
+          328,
+          16
+        ],
+        "fontSize": "14px"
+      }
+    ],
+    "code": {
+      "t": "cubic-bezier(0, 0, 1, 1)",
+      "clientW": 222,
+      "scrollW": 222,
+      "trunc": false,
+      "fs": "14px"
+    },
+    "strip": {
+      "clientW": 298,
+      "scrollW": 1482,
+      "hiddenPct": 79.9
+    },
+    "docOverflowX": false,
+    "railBtn": [
+      24,
+      24
+    ],
+    "tile": [
+      45.2,
+      43.8
+    ],
+    "rootFontPx": "16px"
+  },
+  "zoom200-720": {
+    "heads": [
+      {
+        "headW": 460,
+        "headH": 36.4,
+        "label": {
+          "t": "1 → 2",
+          "r": [
+            142,
+            44.9
+          ]
+        },
+        "dots": [
+          196.9,
+          17
+        ],
+        "glyph": [
+          223.9,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            249.9,
+            302.1
+          ],
+          "clientW": 302,
+          "scrollW": 302,
+          "trunc": false
+        },
+        "chevron": [
+          562,
+          16
+        ],
+        "fontSize": "14.6px"
+      },
+      {
+        "headW": 460,
+        "headH": 36.4,
+        "label": {
+          "t": "2 → 3",
+          "r": [
+            142,
+            44.9
+          ]
+        },
+        "dots": [
+          196.9,
+          17
+        ],
+        "glyph": [
+          223.9,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            249.9,
+            302.1
+          ],
+          "clientW": 302,
+          "scrollW": 302,
+          "trunc": false
+        },
+        "chevron": [
+          562,
+          16
+        ],
+        "fontSize": "14.6px"
+      },
+      {
+        "headW": 460,
+        "headH": 36.4,
+        "label": {
+          "t": "3 → 4",
+          "r": [
+            142,
+            44.9
+          ]
+        },
+        "dots": [
+          196.9,
+          17
+        ],
+        "glyph": [
+          223.9,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            249.9,
+            302.1
+          ],
+          "clientW": 302,
+          "scrollW": 302,
+          "trunc": false
+        },
+        "chevron": [
+          562,
+          16
+        ],
+        "fontSize": "14.6px"
+      },
+      {
+        "headW": 460,
+        "headH": 36.4,
+        "label": {
+          "t": "4 → 5",
+          "r": [
+            142,
+            44.9
+          ]
+        },
+        "dots": [
+          196.9,
+          17
+        ],
+        "glyph": [
+          223.9,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            249.9,
+            302.1
+          ],
+          "clientW": 302,
+          "scrollW": 302,
+          "trunc": false
+        },
+        "chevron": [
+          562,
+          16
+        ],
+        "fontSize": "14.6px"
+      }
+    ],
+    "code": {
+      "t": "cubic-bezier(0, 0, 1, 1)",
+      "clientW": 360,
+      "scrollW": 360,
+      "trunc": false,
+      "fs": "14.6px"
+    },
+    "strip": {
+      "clientW": 436,
+      "scrollW": 1482,
+      "hiddenPct": 70.6
+    },
+    "docOverflowX": false,
+    "railBtn": [
+      24,
+      24
+    ],
+    "tile": [
+      45.2,
+      43.8
+    ],
+    "rootFontPx": "16px"
+  },
+  "reflow-320": {
+    "heads": [
+      {
+        "headW": 252,
+        "headH": 35.6,
+        "label": {
+          "t": "1 → 2",
+          "r": [
+            46,
+            43.1
+          ]
+        },
+        "dots": [
+          99.1,
+          17
+        ],
+        "glyph": [
+          126.1,
+          16
+        ],
+        "name": {
+          "t": "linear",
+          "r": [
+            152.1,
+            95.9
+          ],
+          "clientW": 96,
+          "scrollW": 96,
+          "trunc": false
+        },
+        "chevron": [
+          258,
+          16
+        ],
+        "fontSize": "14px"
+      }
+    ],
+    "code": {
+      "t": "cubic-bezier(0, 0, 1, 1)",
+      "clientW": 152,
+      "scrollW": 207,
+      "trunc": true,
+      "fs": "14px"
+    },
+    "strip": {
+      "clientW": 228,
+      "scrollW": 1482,
+      "hiddenPct": 84.6
+    },
+    "docOverflowX": false,
+    "railBtn": [
+      24,
+      24
+    ],
+    "tile": [
+      45.2,
+      43.8
+    ],
+    "rootFontPx": "16px"
+  }
+}

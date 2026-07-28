@@ -7,6 +7,476 @@ declared at spawn. Declared, not inherited. No defect on this axis.
 
 ---
 
+# REVISION 4 — 2026-07-28
+
+The **fourth run** of the CHALLENGE-L seat at this path. Revisions 3, 2 and 1 are **retained in full
+below the divider**; nothing in them is discarded or edited. This revision does three things:
+
+1. **Re-measures Revision 3's load-bearing claims from my own commands**, before reading its
+   answers. Ledger in §V4-A.
+2. **Adds five findings (L-18 … L-22)** that no prior revision contains. **L-18 is the strongest
+   defect inside this component's own closure** and it *amends L-6 upward*: the value
+   `useMarkdownColors` computes is **already published on `:root`**, byte-identical across the app's
+   entire normal operating range, and `demo/DESIGN.md:334` forbids exactly this construction in
+   law-voice.
+3. **Proves the transposition instead of proposing it** — including proving that the *obvious* form
+   of it is wrong, by 35/255 on a case I reproduced.
+
+**Verdict unchanged: DEFECTIVE.** Now **22 findings** — 1 BLOCKER, 10 MAJOR, 9 MINOR, 2 INFO.
+Strongest defect *overall* remains **L-1** (the lattice is unenforced — it is the gate that lets the
+rest exist and recur); strongest defect *newly established* is **L-18**.
+
+---
+
+## §V4-A · Verification ledger — prior claims, re-measured by this seat
+
+Every claim below was re-derived from my own commands before I read the prior revision's treatment
+of it. Commands and outputs pasted.
+
+**L-1 (BLOCKER) — CONFIRMED.**
+```
+$ npx eslint --print-config demo/scenes/about/markdown/Markdown.vue | jq -r '.rules["no-restricted-imports"]'
+UNSET
+```
+The subject file is governed by no import restriction of any kind.
+
+**L-4 (≥124 dead style lines) — CONFIRMED, and I raise the proof from "the pipeline cannot emit it"
+to "and the corpus does not contain it, and the live DOM has none of it."** Three independent
+instruments agree.
+
+*(i) The pipeline.* `Markdown({})` (`vite.config.ts:162`) registers zero markdown-it plugins; no
+`markdownItSetup` exists anywhere; the only markdown package installed is the plugin itself:
+```
+$ grep -rn "markdownItSetup\|markdownItUses\|markdown-it-" vite.config.ts package.json
+(no output)
+$ node -e "const d=require('./package.json');console.log(Object.keys({...d.dependencies,...d.devDependencies}).filter(k=>/markdown/i.test(k)))"
+[ 'unplugin-vue-markdown' ]
+```
+Core markdown-it emits no `dl`/`dt`/`dd`, no `.footnotes`, no `ul.contains-task-list`, no `.toc`, no
+`.callout`. Those five rule families are **structurally unreachable**, not merely unused.
+
+*(ii) The corpus* — all 11 files, 980 lines:
+```
+$ cd assets/docs
+$ for pat in '^> ' '^\s*\|' '^!\[' 'callout' 'toc' '\[\^' '^- \[ \]' '^#####' '^######'; do
+    printf "%-12s %s\n" "$pat" "$(grep -lE "$pat" *.md | tr '\n' ' ')"; done
+^>
+^\s*\|
+^!\[
+callout
+toc
+\[\^
+^- \[ \]
+^#####
+^######
+                       ← every family: zero files
+$ echo "h1:$(grep -h -c '^# ' *.md|awk '{s+=$1}END{print s}') h2:$(grep -h -c '^## ' *.md|awk '{s+=$1}END{print s}') h3:$(grep -h -c '^### ' *.md|awk '{s+=$1}END{print s}') h4:$(grep -h -c '^#### ' *.md|awk '{s+=$1}END{print s}')"
+h1:0 h2:53 h3:85 h4:0
+$ echo "fences:$(grep -h -c '^```' *.md|awk '{s+=$1}END{print s/2}')  links:$(grep -hoE '\]\([^)]+\)' *.md|wc -l)  inline-code:$(grep -hoE '`[^`]+`' *.md|wc -l)"
+fences:0  links:3  inline-code:207
+```
+**Zero fenced code blocks across all 11 documents** — so `pre` (`:229-238`) is dead too, a rule
+Revision 3's table does not list, and with it the entire AB-3 ruling attached to it.
+
+*(iii) The live DOM* (headless Chromium against the dev server, `lab.md` rendered):
+```
+h1:0  h4:0  h5:0  h6:0  blockquote:0  table:0  img:0  dl:0  dt:0  dd:0
+ul.contains-task-list:0  .callout:0  .footnotes:0  .footnote-ref:0  .toc:0  pre:0  a:0
+--- live: h2:4  h3:9  hr:4  ul:4  p>code:5  mark.cs-name:9  div:has(>.katex-display):4
+```
+Seventeen selector families, zero matches; seven families live. L-4 stands, wider than stated.
+
+**L-6 (the hand copy + the omitted epoch bump) — CONFIRMED.**
+```
+$ grep -rn "bumpProbeEpochOnMount" demo/ | grep -v useContrastSafeColor.ts
+demo/picker/controls/ComponentSliders/ConsoleRail.vue:96,133          ✓
+demo/color-picker/composables/boot/useViewAccents.ts:52,89            ✓
+$ grep -rn "resolveSurfaceLightnessLive" demo/ | grep -v useContrastSafeColor.ts
+demo/scenes/about/markdown/composables/useMarkdownColors.ts:7,44      ✗ no bump
+demo/picker/visual/HeroBlob.vue:42,99                                 ✗ no bump
+demo/picker/controls/ComponentSliders/ConsoleRail.vue:97,136          ✓
+demo/color-picker/composables/boot/useViewAccents.ts:53,108           ✓
+```
+Two of four external folders violate the contract stated in law-voice at
+`useContrastSafeColor.ts:72-77` — a contract whose docstring names *this component* as the reason the
+export exists. **Reproduction of a symptom: NONE.** The contract violation is proved; a wrong first
+paint is not. Same posture as Revision 3.
+
+**L-7 (glass-ui `Skeleton` props do not exist) — CONFIRMED from the shipped declaration:**
+```
+$ cat node_modules/@mkbabb/glass-ui/dist/components/skeleton/Skeleton.vue.d.ts
+type __VLS_Props = { class?: HTMLAttributes["class"]; };
+```
+`Markdown.vue:4,6,7` passes `surface="glass"` and `variant="shimmer"`. Neither is declared. Both
+fall through as raw HTML attributes.
+
+**L-11 (`?source` / `@src` / `vite-source-export` is dead) — CONFIRMED:**
+```
+$ grep -rn "?source" demo/ assets/ src/            → (no output)
+$ grep -rn "@src" demo/ assets/                    → (no output)
+```
+`vite.config.ts:70-74` keeps the `@src` alias alive on a comment naming *this component's corpus*
+(`assets/docs/*.md` "which embed live source snippets via `@src/…?source`") — a corpus that embeds
+none. `sourceExportPlugin()` runs first in `defaultPlugins` (`:160`) for every build, serving no
+consumer. `useMarkdownHighlighting.ts:71-76` documents this component's code-block behaviour entirely
+through that dead plugin, over a corpus with **0 fenced blocks × 11**.
+
+**L-17 (the `.markdown-body` seam is a third-party default) — CONFIRMED:**
+```
+$ grep -n 'wrapperClasses: "markdown-body"' node_modules/unplugin-vue-markdown/dist/src-5Xwh9b7i.mjs
+281:        wrapperClasses: "markdown-body",
+$ node -e "console.log(require('./node_modules/unplugin-vue-markdown/package.json').version)"
+32.0.0
+```
+`Markdown({})` passes no options; the class that couples the stylesheet (`:98,104,198`) and
+`useMarkdownHighlighting.ts:11` to the build is a package default under a floating `^32.0.0`.
+
+**L-9 — one correction to the record, in the defect's favour and against a possible overread.** I
+measured the *dev injection count*, which Revision 3 did not:
+```
+$ # style tags whose vite dev-id contains the sheet, in the live page
+foundation.css → 1     utils.css → 1     (32 style tags total)
+```
+Vite dedupes by module id, so the double import injects **nothing twice today**. This does not
+weaken Revision 3's §A: it measured the *edge weight* (526,224 emitted bytes hanging off
+`Markdown.vue:37`), which is the number that governs a module-graph edge, and its severity argument
+is about what happens when `App.vue:199-200` changes. Both numbers belong in the record. The
+component still holds **both spellings of the same intent four lines apart** — the runtime `import`
+at `:37-38` and the compile-time `@reference` at `:79` — and is the **only** file in the tree that
+does:
+```
+$ grep -rln "@reference" demo/ --include="*.vue" | wc -l          → 17
+$ grep -rln "@reference" demo/ --include="*.vue" | xargs grep -ln 'import "\.\./.*styles/'
+demo/scenes/about/markdown/Markdown.vue        ← a scene leaf
+demo/color-picker/App.vue                      ← the boot root
+```
+
+**Two prior negatives re-proved, not disturbed.** The value.js import *specifiers* are correct
+(`useMarkdownColors.ts:3-4` uses `@mkbabb/value.js/color` and `/css`, both real `exports` keys; a
+real npm consumer could write those two lines verbatim; `grep -rn "@src" demo/ assets/` → 0). And
+there is exactly one dark store: `useGlobalDark` from `@mkbabb/glass-ui/dark`, zero vueuse `useDark`
+anywhere — the brief's named historical suspect at `useMarkdownHighlighting.ts:76` is the *comment
+describing the landed cure*, not a live defect.
+
+---
+
+## §V4-B · NEW FINDINGS
+
+### L-18 · MAJOR — the composable is a bespoke resolver for a value `:root` already publishes, and the repo's own design law names the violation
+
+This amends **L-6**. Revision 3 proved `useMarkdownColors` is a hand copy of
+`useSafeAccentFn("resting")` and proposed consuming that composable instead. That cure is correct and
+insufficient, because it leaves the computation in JavaScript. The computation should not exist at
+all: **its result is already a CSS custom property on `:root`.**
+
+**The law it breaks, written in this repo, in law-voice:**
+
+> `demo/DESIGN.md:334` — **The accent axis (R.W3 Lane A / A2).** `--accent-live` is the
+> contrast-guarded LIVE picked color — written onto `:root` by App.vue from the library
+> `safeAccentColor` path (**the SAME computation `SAFE_ACCENT_KEY` provides; ONE color-resolution
+> path, never a bespoke resolver**).
+
+`useMarkdownColors` is a bespoke resolver. It reaches four levels out of the scene into three
+separate `color-session` files (`:5-7`), reassembles `inject(INK_AMBIENT_KEY)` +
+`useGlobalDark()` + `resolveSurfaceLightnessLive("resting", …)` + `certifyAccentInk(…)`, and arrives
+where the boot writer already is:
+
+```ts
+// demo/color-picker/composables/boot/useAtmosphereBoot.ts:92-105 — the ONE resolver
+provide(SAFE_ACCENT_KEY, safeAccentCss);
+provide(INK_AMBIENT_KEY, derivedLightness);
+watch(safeAccentCss, css => document.documentElement.style.setProperty("--accent-live", css), { immediate: true });
+watch(mutedInkCss,   css => document.documentElement.style.setProperty("--ink-muted",   css), { immediate: true });
+```
+
+**Measured, in the live app, at the same instant** — `--accent-live` read off `:root` versus
+`--md-color-h2` read off `.markdown-wrapper`'s inline style, for five inputs driven through the URL:
+
+| picked colour | `--accent-live` (`:root`) | `--md-color-h2` (this component) | identical? |
+|---|---|---|---|
+| `oklch(0.6 0.25 30)` | `oklch(43.412458514795% 0.174109526153 30deg)` | `oklch(43.412458514795% 0.174109526153 30deg)` | **yes, byte-for-byte** |
+| `oklch(0.6 0.08 30)` | `oklch(42.215958461165% 0.08 30deg)` | `oklch(42.215958461165% 0.08 30deg)` | **yes, byte-for-byte** |
+| `oklch(0.6 0.02 30)` | `oklch(41.536896047182% 0.02 30deg)` | `oklch(42.215958461165% 0.08 30deg)` | no — chroma floored |
+| `oklch(0.6 0 30)` | `oklch(41.325579076074% 0 30deg)` | `oklch(42.215958461165% 0.08 30deg)` | no — chroma floored |
+| `rgb(128 128 128)` | `oklch(41.322157068913% 0 none)` | `oklch(41.322157068913% 0 0deg)` | same colour, `none` vs `0deg` |
+
+The default app state agrees too — first probe of the session, no URL override:
+`--accent-live` = `--md-color-h2` = `oklch(47.118925176164% 0.188447570516 9.83402284231deg)`,
+rendering `rgb(170,0,67)` in both readings.
+
+**So the entire composable — 83 lines, three cross-area deep imports, a per-frame
+parse → convert → re-serialise → re-parse → gamut-map → WCAG-walk — exists to add ONE chroma floor
+(`Math.max(C, 0.08)`, `:52`) to a string the root already carries.** Outside the window
+`0 < C < 0.08` it computes a value that is already there. Chroma 0 gives the same rendered colour by
+a different serialisation of a powerless hue.
+
+**What that redundancy costs, measured.** `mdColorVars` is a `computed` keyed on the live picked
+colour and bound with `:style` on the wrapper (`Markdown.vue:15`), so every recompute rewrites an
+inline style attribute on the root of the rendered document:
+
+```
+markdown subtree elements under .markdown-wrapper …… 1,352
+inline-style rewrites during one ~1 s slider drag ……  198   (MutationObserver on the style attr)
+parseCssColor + convertColor, in-page, 5,000 iters ……   3.02 µs/call
+                                                        (certifyAccentInk then parses AGAIN,
+                                                         gamut-maps, and walks the WCAG floor)
+```
+
+198 inline-property rewrites over a 1,352-element subtree per drag, to reproduce a `:root` token that
+is being rewritten on the same frames by the boot writer anyway.
+
+**The cure — and why the obvious form of it is wrong.** The repo already consumes `--accent-live`
+through relative-colour syntax (`demo/styles/utils.css:79`:
+`oklch(from var(--accent-live) l 0.12 calc(h + var(--i,0) * 36deg))`), so the tempting
+pure-CSS transposition is:
+
+```css
+--md-color-h2: oklch(from var(--accent-live) l max(c, 0.08) h);   /* WRONG — see the last row */
+```
+
+I ran it against the shipping JS for the same five inputs, comparing rendered sRGB and WCAG contrast
+against the live composited plate:
+
+| picked colour | JS (ships) | CSS form | max channel Δ | contrast Δ |
+|---|---|---|---|---|
+| `oklch(0.6 0.25 30)` | `rgb(154,8,0)` | `rgb(154,8,0)` | **0** | 0.000 |
+| `oklch(0.6 0.08 30)` | `rgb(115,59,51)` | `rgb(115,59,51)` | **0** | 0.000 |
+| `oklch(0.6 0.02 30)` | `rgb(115,59,51)` | `rgb(113,58,49)` | 2 | +0.164 |
+| `oklch(0.6 0 30)` | `rgb(115,59,51)` | `rgb(112,57,48)` | 3 | +0.280 |
+| `rgb(128 128 128)` | `rgb(75,75,75)` | `rgb(110,55,73)` | **35** | +0.334 |
+
+(`CSS.supports("color","oklch(from red l max(c, 0.08) h)")` → `true`, so the syntax is not the
+problem.) The last row is the refutation: on an achromatic pick the JS path honours the
+powerless-hue rule (`useMarkdownColors.ts:52-53`, chroma → 0, a true grey) while naive CSS invents
+0.08 chroma on a hue that means nothing and paints headings pink. **The floor is not a CSS
+expression; it is an ink policy with a branch.**
+
+Which tells you where it belongs. It is not a *markdown* policy at all — if a near-grey pick makes
+markdown headings read grey, it makes the space trigger and the plate titles read grey too. It is the
+**letterform rung of the accent axis**, and that rung already has a published sibling: `--ink-muted`,
+stamped by the same writer, in the same `watch` block, four lines below `--accent-live`, described in
+its own docstring as "the floor-clamped certified plate ink … the plate-caption / parse-echo voice."
+
+> **Transposition.** Add `accentInkCss` beside `mutedInkCss` in `useContrastSafeColor` — the same
+> `certifyAccentInk` call it already makes, with the chroma floor and the powerless-hue branch moved
+> in from `useMarkdownColors.ts:50-53` verbatim — and stamp it from the boot writer as `--ink-accent`
+> in a third `watch`, three lines, structurally identical to the two above it. Then this component's
+> ink is three CSS declarations and no JavaScript:
+>
+> ```css
+> > h2                        { color: var(--ink-accent); }
+> > h3, > h4                  { color: color-mix(in oklab, var(--ink-accent) 61.8%, var(--foreground)); }
+> mark.cs-name, p > code      { color: var(--ink-accent); }
+> ```
+>
+> `useMarkdownColors.ts` (83 lines) is **deleted**, not migrated. `:style="mdColorVars"` is deleted.
+> The 198 inline rewrites become 0; the 1,352-element invalidation becomes 0; the per-frame double
+> parse becomes 0; the three cross-area deep imports become 0; the omitted `bumpProbeEpochOnMount`
+> (L-6a) becomes structurally impossible to omit because there is nothing left to omit; and
+> `resolveSurfaceLightnessLive` loses its *namesake* justification — its docstring cites
+> `useMarkdownColors` as the reason it is exported.
+
+This is smaller than Revision 3's MD-c cure (which keeps the composable and swaps its innards for
+`useSafeAccentFn`) and it is the one that obeys `DESIGN.md:334` rather than merely reducing the
+number of ways it is disobeyed.
+
+---
+
+### L-19 · MINOR — two token names, one value, in the same returned object
+
+```ts
+// useMarkdownColors.ts:75-79
+return {
+    "--md-color-h2":     accent,
+    "--md-color-h3":     `color-mix(in oklab, ${accent} 61.8%, var(--foreground))`,
+    "--md-color-accent": accent,          // ← the same expression as --md-color-h2
+} as Record<string, string>;
+```
+
+`--md-color-h2` and `--md-color-accent` are assigned the identical expression and both are consumed —
+`--md-color-h2` at `Markdown.vue:163,312`, `--md-color-accent` at `:187,252`. A pure alias, minted
+inside the component's own token surface, against edict 2 (no aliases). Verified live: both resolve
+to `oklch(47.118925176164% 0.188447570516 9.83402284231deg)`. One name survives the L-18
+transposition (`--ink-accent`); the split does not.
+
+The `as Record<string, string>` cast on the same line is the second half of the tell — the object is
+cast to a shape that erases exactly the distinction the two keys pretend to make.
+
+---
+
+### L-20 · MINOR — a declared-optional prop its only consumer always supplies, and two masking fallbacks that therefore cannot fire
+
+```ts
+// Markdown.vue:44-48
+const { module, cssColor, colorSpaceName } = defineProps<{
+    module: DocModule;
+    cssColor?: string;          // optional
+    colorSpaceName?: string;    // optional
+}>();
+```
+```vue
+<!-- AboutPane.vue:75-77 (the sole consumer), :54-55 -->
+defineProps<{ cssColor: string }>();          <!-- required, one level up -->
+<Markdown … :cssColor="cssColor" :colorSpaceName="colorSpaceName" />   <!-- always passed -->
+```
+
+`colorSpaceName` is likewise always supplied (`AboutPane.vue:95` computes it with a `??` of its own).
+The optionality is never exercised by any caller. Downstream, two CSS fallbacks exist solely to
+service the unexercised branch — `mdColorVars` returns `{}` only when `cssColor` is falsy
+(`useMarkdownColors.ts:29`):
+
+```css
+Markdown.vue:252   color: var(--md-color-accent, var(--foreground));
+Markdown.vue:312   border-color: var(--md-color-h2, var(--border));
+```
+
+Neither fallback can fire in the shipping app. Edict 2 (no masking fallbacks). Under L-18 both
+become unconditional `var(--ink-accent)` reads of a token `foundation.css:231` already gives a
+pre-hydration literal — the fallback moves to the one place a fallback is honest, the token's own
+declaration.
+
+---
+
+### L-21 · MINOR — the demo has one sanctioned `Result` → exception adapter; this composable hand-rolls a second
+
+The canonical one, with a typed error that preserves the library's diagnostics:
+
+```ts
+// demo/color-session/picker-color.ts:97-113
+export class PickerColorError extends Error { … }
+function valueOrThrow<T, E extends Readonly<{ code: string }>>(result: Result<T, E>): T { … }
+export function parsePickerColor(source: string): CssColor {
+    const result = parseCssColor(source.trim());
+    if (result.ok) return result.value;
+    throw new PickerColorError("Invalid CSS color", result.diagnostics);
+}
+```
+
+`valueOrThrow` is the demo's single unwrapping seam — 16+ call sites in `picker-color.ts` alone
+(`:116,120,126-139,…`). `useMarkdownColors.ts` does not use it; it hand-writes three ad-hoc throws:
+
+```ts
+:33  throw new Error(`[MarkdownColors] invalid CSS color: ${parsed.diagnostics[0].code}`);
+:37  throw new Error(`[MarkdownColors] OKLCH conversion failed: ${converted.error.code}`);
+:41  throw new Error("[MarkdownColors] OKLCH lightness and chroma are required");
+```
+
+Three differences, each a loss: the error type is bare `Error` (uncatchable by kind), all diagnostics
+past `[0]` are discarded, and `diagnostics[0]` is indexed without a guard. And it re-parses a string
+the app *already parsed* — `AboutPane` receives a structured `ColorModel` and hands this component a
+*serialised* `cssColor: string`, which this composable parses back. A serialise→parse round trip
+across a component boundary, per frame. **Reproduction of a user-visible failure: NONE** — the app's
+own pipeline only ever supplies strings it just serialised, and `useColorUrl.ts:42-46` already
+try/catches the untrusted URL edge, so the throws are defensively unreachable today; `App.vue:50-140`
+wraps the panes in `ErrorBoundary` in any case. This is an ownership defect, not a live crash. It
+dies with L-18: no parse, no unwrap, no second policy.
+
+---
+
+### L-22 · INFO — `demo/scenes/about/katex/` has zero consumers inside `demo/`
+
+```
+$ grep -rn "katex" demo/ --include="*.vue" --include="*.ts" -l
+demo/scenes/about/katex/Katex.vue        ← itself
+$ grep -hn "import" assets/docs/*.md | sort -u
+2:import { Katex } from "../../demo/scenes/about/katex";     ← ×11, the only importers
+```
+
+A module that lives in the demo component tree and whose only consumers are **repo-root content
+files reaching back into `demo/`** — the inverse edge of L-5, and the reason `Markdown.vue:291-306`
+carries a 16-line ruling styling a component it neither imports nor owns. The coupling runs
+`Markdown.vue`'s stylesheet → `.katex-display` → `Katex.vue` → `assets/docs/*.md` → back to
+`AboutPane.vue`, with no module edge anywhere along it. Under Revision 3's MD-d (content moves to
+`demo/scenes/about/docs/`) the import becomes `../../katex` — one hop, inside the scene, one
+direction — and the styling rule sits beside the component it styles.
+
+---
+
+## §V4-C · The god-module question, re-answered from the split
+
+408 lines. **76 are the component** (template + script) and **330 are a stylesheet** (`:78-408`,
+81% of the file). Measured against that split, the honest answer:
+
+`Markdown.vue` is **not one module wearing several names — it is one stylesheet wearing a
+component's name.** The Vue module underneath is 76 lines with three responsibilities (load a doc
+module, derive ink, mark a name), two of which should not be there at all: the ink derivation is
+L-18's redundant resolver, and the name-marking is L-13's DOM mutation. Strip both and the component
+is ~40 lines: `async import → <component :is>`, with a skeleton and an error state. That is not a god
+module. It is a correctly-sized component with a 330-line global stylesheet nailed to it, and the
+`:deep()` on 100% of the content rules (L-3) is the nail.
+
+The prose sheet is not a *component* concern in any sense that survives inspection: it targets markup
+this component never authors, addressed by a class name this component does not own (L-17), for a
+corpus this component does not know about. It is a global stylesheet, and `demo/styles/` — where
+`hljs.css` already sits as the exact precedent — is its home. No new directory, no new wrapper
+component, no new concept: edict 3 satisfied by *moving* rather than *creating*.
+
+---
+
+## §V4-D · Findings index after Revision 4
+
+| # | severity | one line | status |
+|---|---|---|---|
+| L-1 | BLOCKER | demo module lattice vacuous; subject under zero import restriction | **re-verified (R4)** |
+| L-2 | MAJOR | `tsconfig.demo.json#paths` describes a non-existent surface | retained |
+| L-3 | MAJOR | `<style scoped>` scoped in name only; `:deep()` on 100% of content rules | retained |
+| L-4 | MAJOR | ≥124 style lines target markup the pipeline cannot emit | **re-verified + widened (R4)** — 17 selector families dead in the live DOM; `pre` added (0 fences × 11) |
+| L-5 | MAJOR | registry in the consumer; content outside `demo/`; the edge is a cycle | retained |
+| L-6 | MAJOR | `useMarkdownColors` hand-copies `useSafeAccentFn("resting")`; epoch bump omitted | **re-verified; AMENDED by L-18** |
+| L-7 | MAJOR | `Skeleton surface`/`variant` do not exist in glass-ui 7.0.0 | **re-verified (R4)** |
+| L-8 | MAJOR | `demo/ui/` is a 19-dir back-compat shim; 90 vs 18 dual path | retained |
+| L-9 | MAJOR | the only scene leaf that runtime-imports the global stylesheets (526 KiB edge) | **re-verified + dev-injection count added (R4)** |
+| L-10 | MINOR | barrel ships a dead export (`DocItem`) and `any` | retained |
+| L-11 | MINOR | `?source`/`@src`/`vite-source-export` is a dead subsystem documented as live | **re-verified (R4)** |
+| L-12 | MINOR | correct only because its single consumer keys it | retained |
+| L-13 | MINOR | `onUpdated` driving imperative mutation of another component's DOM | retained |
+| L-14 | MINOR | the name promises a general renderer | retained |
+| L-15 | INFO | documentation surface has no route, therefore no visual-audit coverage | retained |
+| L-16 | MINOR | `ref()` safe only by an unstated ESM invariant | retained |
+| L-17 | MAJOR | `.markdown-body` is an undeclared default of a floating third-party range | **re-verified (R4)** |
+| **L-18** | **MAJOR** | **bespoke resolver for a value `:root` already publishes; `DESIGN.md:334` forbids it** | **NEW (R4)** |
+| **L-19** | **MINOR** | **`--md-color-accent` is a pure alias of `--md-color-h2`** | **NEW (R4)** |
+| **L-20** | **MINOR** | **optional prop always supplied; two masking fallbacks that cannot fire** | **NEW (R4)** |
+| **L-21** | **MINOR** | **second `Result`→exception adapter; drops diagnostics; re-parses a just-serialised string** | **NEW (R4)** |
+| **L-22** | **INFO** | **`demo/scenes/about/katex/` has zero consumers inside `demo/`** | **NEW (R4)** |
+
+---
+
+## §V4-E · Wave amendment — MD-c is replaced
+
+Revision 3's MD-a, MD-b and MD-d stand as written. **MD-c is replaced** by a strictly smaller wave
+that deletes rather than migrates. Individually completable, one session, no successor dependency:
+
+| wave | scope | closing evidence |
+|---|---|---|
+| **MD-c′** | Add `accentInkCss` beside `mutedInkCss` in `useContrastSafeColor.ts` (same `certifyAccentInk` call; the chroma floor + powerless-hue branch moved verbatim from `useMarkdownColors.ts:50-53`); stamp `--ink-accent` from `useAtmosphereBoot.ts` in a third `watch` beside the two existing ones. **Delete `useMarkdownColors.ts` entirely.** Delete `:style="mdColorVars"` (`Markdown.vue:15`) and the `useMarkdownColors` import (`:41,52`). Repoint the four style rules onto `var(--ink-accent)`; collapse `--md-color-h2`/`--md-color-accent` to one name (L-19) and drop both `var(…, fallback)` forms (L-20). | `ls demo/scenes/about/markdown/composables/useMarkdownColors.ts` → ENOENT; `grep -c "md-color" Markdown.vue` → 0; re-run this seat's five-input URL probe and assert rendered `> h2` colour byte-identical for `oklch(0.6 0.25 30)` → `rgb(154,8,0)`, `oklch(0.6 0.02 30)` → `rgb(115,59,51)`, `rgb(128 128 128)` → `rgb(75,75,75)` (**the achromatic row is the gate — it is where the naive CSS form fails by 35/255**); MutationObserver on `.markdown-wrapper` during a 40-step slider drag → **0** style rewrites (was 198); `npm run typecheck` green. |
+
+**Riders unchanged**, with one addition: L-18's `resolveSurfaceLightnessLive` deletion now has three
+remaining call sites (`HeroBlob.vue:99`, `ConsoleRail.vue:136`, `useViewAccents.ts:108`) rather than
+four, and `HeroBlob.vue` is the one that still omits the epoch bump — that is `picker/`'s wave, not
+this one.
+
+**MD-c′ is the highest-leverage single edit in this report**: it removes 83 lines, three cross-area
+deep imports, a per-frame double parse, 198 inline-style rewrites per drag over a 1,352-element
+subtree, one dead alias token, two dead fallbacks, one duplicate `Result` adapter, and one silent
+contract violation — by adding three lines to a file that already contains their exact structural
+twin.
+
+---
+
+*Revision 4 evidence, all against `/Users/mkbabb/Programming/value.js` @ `c654824e` (branch
+`tranche-u`), no source file modified: five headless-Chromium probes against the live dev server at
+`localhost:9000` (DOM/scope-attribute census; 17-family dead-selector census; a four-home token
+comparison; a five-input URL-driven divergence matrix; a JS-vs-relative-colour-CSS equivalence matrix
+with contrast measurement), one 5,000-iteration in-page `parseCssColor`+`convertColor` benchmark, one
+`MutationObserver` count over a scripted 40-step slider drag, one Node run against
+`dist/subpaths/{css,color}.js` characterising `convertColor` channel types on achromatic input, one
+`eslint --print-config` read, a static construct census over all 11 `assets/docs/*.md`, and reads of
+`visual/REPORT.md` and `shots/safari-desktop-light/picker.png` (which show the About card's
+`ColorNutritionLabel` above the fold and **no captured pixel of this component** — L-15 confirmed by
+inspection).*
+
+---
 # REVISION 3 — 2026-07-28
 
 This is the **third run** of the CHALLENGE-L seat at this path. Revision 2 (2026-07-28 10:45) is

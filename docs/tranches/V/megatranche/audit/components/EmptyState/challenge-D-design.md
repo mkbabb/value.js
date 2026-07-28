@@ -2,638 +2,826 @@
 
 ## Model receipt
 
-I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier
-declared at spawn. The seat is declared, not inherited.
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier declared
+at spawn. The seat is declared, not inherited.
 
 Seat: CHALLENGE-D (design). Component: `demo/shared/ui/EmptyState.vue` (105 lines, area `core`).
 Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
-Write scope honoured: this file plus `./probes/` only. No source edits.
+Write scope honoured: this file, `./challenge-D-design.pass1.md`, and `./probes/` only.
+**No source edit was made by this seat.**
+
+Pass 2. Pass 1 is preserved verbatim at `./challenge-D-design.pass1.md`; §J is the concordance.
+Every number below was re-measured by this seat against the live tree — nothing is inherited.
 
 ---
 
 ## Verdict
 
-**DEFECTIVE.** 22 findings: **2 BLOCKER, 12 MAJOR, 8 MINOR, 2 INFO.**
+**DEFECTIVE.** 20 findings: **2 BLOCKER, 10 MAJOR, 8 MINOR** (+ 3 INFO, + 8 negative proofs).
 
-The gestalt: **`EmptyState` is one composition wearing two species' names, and neither species has
-the anatomy its job requires.** The *invitation* has no action anywhere in the product; the
-*failure* has no non-destructive form, so on 5 of 6 hosts a failed refresh deletes the data the
-user was reading. Everything else — the flat rhythm, the inert `ch` measures, the dark-mode
-hierarchy inversion, the unconditional Admin ornament — follows from that one missing distinction.
+The gestalt, in one line: **`EmptyState` is a decoration with a caption attached, and it is wired to
+a predicate it does not describe.** Its species taxonomy has exactly two members — *invitation* and
+*failure* — and the product needs four. The two it is missing are the two the user actually hits:
+*your filter matched nothing* and *the refresh failed but your data is still here*. Because neither
+exists, the component ships a **provable lie** (BLOCKER `D-1`: a library holding two palettes renders
+"No saved palettes yet." while the header badge four hundred pixels above reads **2**) and a
+**data-hiding** failure register (BLOCKER `D-2`).
 
-Strongest defect: **D-2** (error variant is defined only as a content *replacement*, so a
-refresh failure destroys visible truth on Admin Users/Tags/Audit/Names/Flagged).
+Everything downstream is the same mistake at smaller scale: the ornament outranks the message in
+every scheme, the de-emphasis rung that carries the whole hierarchy is 6.4× weaker in dark than in
+light, one 10 px gap token is asked to express four semantic ranks and produces a 14 : 23 : 16
+rhythm that *inverts* the title/section relation, and the canon's named mark primitive
+(`EmptyPaletteMark`) does not exist so it is hand-rolled, unconditional, and shipped onto five Admin
+routes the canon zeroes ornament on.
+
+**Strongest defect: `D-1`.** It is the only one where the component renders a statement that the
+same viewport simultaneously disproves.
 
 ---
 
 ## Evidence index
 
-| Kind | Path / command |
+| Kind | Coordinate |
 |---|---|
 | Source | `demo/shared/ui/EmptyState.vue:1–105` |
-| Call sites (16) | `MixSourceSelector.vue:239`, `BrowsePane.vue:57`, `PaletteCardGrid.vue:21`, `AdminUsersPanel.vue:51,63,138`, `AdminAuditPanel.vue:42,56`, `AdminNamesPanel.vue:30,42,80,92`, `AdminFlaggedPanel.vue:22,37`, `AdminTagsPanel.vue:68,82` |
-| Canon | `docs/tranches/V/VISUAL-CONSTITUTION.md:17,23,62,68–78,82–92,140–145,186,218` · `PROPORTION-AUDIT.md:5,45,49,52,66–79` |
-| Real-Safari matrix | `../../visual/shots/safari-desktop-light/admin-tags.png`, `safari-mobile-dark/admin-tags.png`, `safari-desktop-light/browse.png`, `forced-colors-desktop/adminusers.png` |
-| Live probes (this seat) | `./probes/emptystate-light-admintags.png`, `emptystate-dark-admintags.png`, `forced-colors-admintags.png`, `state-320-admintags.png`, `state-zoom200-admintags.png`, `state-rtl-admintags.png`, `state-overflow-long-strings-1440.png`, `state-unbreakable-token-clip.png` |
-| Producer | `node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts:23–52` · `dist/glass-ui.css` (`.watercolor-swatch`) |
-| Token source | `demo/styles/foundation.css:220–231` (`--accent-live` = *ink-contrast-guarded*) |
+| Call sites (16 across 7 files) | `MixSourceSelector.vue:239` · `BrowsePane.vue:61` · `PaletteCardGrid.vue:21` · `AdminUsersPanel.vue:51,63,138` · `AdminAuditPanel.vue:42,56` · `AdminNamesPanel.vue:30,42,80,92` · `AdminFlaggedPanel.vue:22,37` · `AdminTagsPanel.vue:68,82` |
+| Uncalled clones of the same plate | `ErrorBoundary.vue:16–33,84–86` · `Markdown.vue:20–29` |
+| Canon | `VISUAL-CONSTITUTION.md:23,28,34,66–78,82–85,92,101,139–145,151–154,186,218` · `PROPORTION-AUDIT.md:5,39,49,52,66–79` |
+| Real-Safari matrix | `../../visual/shots/{safari-desktop-light,safari-desktop-dark,safari-mobile-light}/admin-{tags,users}.png` · `{forced-colors,zoom-200,rtl}-desktop/adminusers.png` |
+| Live probes (this seat) | `./probes/probeD-*.png` — 13 captures, Chromium/Playwright, `http://localhost:9000` HTTP 200 |
+| Probe sources | `/private/tmp/.../scratchpad/D2-empty-probe.mjs`, `D2-probe2.mjs` … `D2-probe7.mjs` |
+| Producer | `node_modules/@mkbabb/glass-ui@7.0.0/dist/components/watercolor-dot/WatercolorDot.vue.d.ts:26–52` · `dist/glass-ui.css` (`.watercolor-swatch`, `.watercolor-ghost-stroke`) |
+| Token source | `demo/styles/foundation.css:221,231` · `demo/color-picker/composables/boot/useAtmosphereBoot.ts:85,103` |
 
-Probes were driven read-only against the live dev server (`http://localhost:9000`, HTTP 200) with
-Chromium/Playwright at 1440×900 DPR 2, plus 320px, `zoom:2`, `colorScheme` light/dark,
-`reducedMotion: reduce`, `forcedColors: active`, and `dir="rtl"`.
-
----
-
-## A. Species anatomy — the two BLOCKERs
-
-### D-1 · BLOCKER · The invitation species has no action. Anywhere.
-
-`EmptyState.vue:9` promises "optional hint + CTA slot". Across all 16 call sites the `#action`
-slot is filled **only** on the `error` variant (8×, always a `Retry`). On the `empty` variant it
-has **zero live consumers**:
-
-```
-$ grep -rn "emptyAction|empty-action" --include=*.vue demo/
-demo/palettes/browser/card/PaletteCardGrid.vue:28:  <template v-if="$slots.emptyAction" #action>
-demo/palettes/browser/card/PaletteCardGrid.vue:29:      <slot name="emptyAction" />
-```
-
-`PaletteCardGrid` declares the forward; **no consumer ever passes it** (`BrowsePane.vue:84–86` and
-`PalettesPane.vue:78–80` pass only `empty-eyebrow` / `empty-text` / `empty-hint`).
-
-So all 11 empty plates are text-only dead ends, and the `hint` prop is carrying the job:
-
-- `MixSourceSelector.vue:242` — "Save two or more palettes, then pour them together here."
-- `BrowsePane.vue:86` — "Publish one from My Palettes and start the wall."
-- `PalettesPane.vue:80` — "Add colors above, then save the set."
-
-All three are **navigations rendered as monospace prose**. `PROPORTION-AUDIT.md:71` (law §5.6) is
-exactly on point: *"Add affordance when the surviving action/state is otherwise undiscoverable; do
-not compensate for an unnecessary action with tooltip proliferation. Subtraction precedes
-explanation."* The plate explains instead of affording.
-
-The inversion is visible in one frame. `../../visual/shots/safari-desktop-light/browse.png`: the
-**error** plate carries the product's only `Retry`; the **empty** plate beside it — the path where
-the user actually has something to do — carries a sentence.
-
-**Reproduction:** `http://localhost:9000/#/palettes` (cold, empty library) → measured accessible
-text of the plate is exactly `"· empty plate ·No saved palettes yet.Add colors above, then save
-the set."`; the plate contains **0** elements matching `button, a, [tabindex]`.
-
-**Cure (architectural).** Split the species and give the invitation a required primary action.
-`EmptyInvitation` = mark + label + one statement + **one required named action** (the verb it is
-inviting: *New palette*, *Publish a palette*, *Add a source*). The `hint` prop dies with it — the
-sentence it carried was a button all along. `EmptyState`'s current `hint` copy converts 1:1 into
-action labels.
+Probe matrix: 1440×900 and 320/390×1000 at DPR 2 and DPR 1, `colorScheme` light/dark,
+`forcedColors: active`, `dir=rtl` (from the tracked matrix), plus seeded-`localStorage` population.
 
 ---
 
-### D-2 · BLOCKER · The failure species exists only as a content *replacement*, so a failed refresh destroys visible data
+## A. The predicate — two BLOCKERs
 
-`EmptyState`'s `error` variant is a full-plate takeover. It has no "banner over retained content"
-form. Because that is the only shape on offer, 5 of 6 hosts wire it as an unguarded
-`v-else-if` **after** the loading branch and **before** the data branch:
+### D-1 · BLOCKER · The plate asserts "No saved palettes yet." while the header badge reads 2
+
+`PalettesPane.vue:77` binds the empty predicate to the **filtered** collection and then hands
+`EmptyState` a single string for both meanings:
 
 ```
-demo/palettes/browser/admin/AdminUsersPanel.vue:55    v-else-if="loadError"                       ← no length guard
-demo/palettes/browser/admin/AdminTagsPanel.vue:66     v-else-if="tagsApi.loadError.value"         ← no length guard
-demo/palettes/browser/admin/AdminAuditPanel.vue:43    v-else-if="audit.loadError.value"           ← no length guard
-demo/palettes/browser/admin/AdminNamesPanel.vue:31    v-else-if="pendingError"                    ← no length guard
-demo/palettes/browser/admin/AdminNamesPanel.vue:81    v-else-if="approvedError"                   ← no length guard
-demo/palettes/browser/admin/AdminFlaggedPanel.vue:23  v-else-if="flagged.loadError.value"         ← no length guard
-demo/palettes/BrowsePane.vue:57  v-else-if="pm.browseError.value && displayedBrowse.length === 0"  ← guarded
+77:  :empty="pm.filteredSaved.value.length === 0"
+78:  empty-eyebrow="· empty plate ·"
+79:  empty-text="No saved palettes yet."
+80:  empty-hint="Add colors above, then save the set."
 ```
 
-One species, two contradictory policies. On the six unguarded branches, `Refresh` on a populated
-Admin roster that fails leaves `users.length > 0` **and** `loadError` truthy → the roster the user
-was reading is replaced by "The roster is unreachable." Retrying is the only way back to data that
-was never lost.
+**Rendered reproduction** (`probes/probeD-filtered-zero-populated.png`, script `D2-probe7.mjs`):
 
-This is the law the plate breaks, verbatim — `VISUAL-CONSTITUTION.md:101`: *"Persistent operation
-state stays with the entity/workspace. A transient flourish may celebrate success but never carries
-the only truth."* And `PROPORTION-AUDIT.md:52` PR-08: *"Pending/failure/export/recovery truth only
-transient → **ADD-AFFORDANCE** … Persistent entity status/recovery."*
+1. seed `localStorage["color-palettes"]` with two local palettes (`usePaletteStore.ts:6` — key
+   `color-palettes`, shape `{version:1, palettes:[…]}`);
+2. load `#/palettes` → probe reads `{ plate: null, cards: 2 }` — no plate, two cards;
+3. type `zzzzqqqq` into *Search your palettes…*;
+4. probe reads:
 
-Second-order: the takeover also unmounts whatever row control held focus. On refresh failure focus
-falls to `<body>`; `VISUAL-CONSTITUTION.md:113` forbids *"focus on removed content."*
-**(the focus consequence is a HYPOTHESIS — it needs a forced backend failure with focus parked on a
-row action to reproduce; the branch order above is measured fact.)**
+```json
+"filteredZero": { "plate": { "text": "· empty plate ·No saved palettes yet.Add colors above, then save the set.",
+                             "role": "status", "hasTrio": true }, "cards": 1 }
+```
 
-**Reproduction (the data-destruction half, measured by construction):** any state where
-`loadError` is truthy and `items.length > 0`. The template makes it unreachable to render both.
+The screenshot shows the contradiction inside one frame: the pane heading renders **`My Palettes ②`**
+and, 400 px below it, **`· EMPTY PLATE · / No saved palettes yet. / Add colors above, then save the set.`**
 
-**Cure (architectural).** `error` is not a variant of *empty* — it is a *status on the field*.
-Two distinct shapes: **cold-load failure** → plate replacement (correct, keep it); **refresh
-failure** → a persistent, dismissible status strip *above the retained field*, owning the retry.
-The tri-state then reduces to: `field | field+status | empty-invitation`, and the plate stops being
-the container for a truth it cannot hold.
+Every one of the four rendered elements is false or actively misdirecting:
+
+| element | asserts | truth |
+|---|---|---|
+| `· empty plate ·` | the plate is empty | it holds 2 |
+| `No saved palettes yet.` | nothing has ever been saved | 2 are saved |
+| `Add colors above, then save the set.` | the recovery is *save something* | the recovery is *clear the search* |
+| the three-dot mark | canon §7's TRUE-EMPTY invitation | this is not a true empty |
+
+Canon `VISUAL-CONSTITUTION.md:186` reserves the mark explicitly: "A **true empty** invitation
+content-hugs its text/action and may carry one static, aria-hidden `EmptyPaletteMark`." §5.1 row 5
+puts the filtered case in a different jurisdiction entirely: "in-route filter … announce **changed
+result count/state** through the owning status region; no route announcement."
+
+The same mechanism is live at two more sites: `BrowsePane.vue:83` (`displayedBrowse.length === 0` →
+"No published palettes here yet.") and `AdminUsersPanel.vue:63` (`users` is the *query result*; the
+message "No users found." is honest but the eyebrow `· roster clear ·` is not — the roster is not
+clear, the query missed).
+
+**Mechanism.** The component exposes one `message` and one `variant` and therefore cannot express
+*why* the collection is zero. The consumer is given no place to put the distinction, so it doesn't
+make it. This is a component-API defect, not a copywriting slip: no amount of consumer diligence can
+render two states from one string.
+
+**Cure (transposition, not patch).** Model the *reason*, not the *rendering*. One discriminated prop
+replaces `variant`:
+
+```ts
+state:
+  | { kind: "empty" }                                   // true zero — invitation, mark, CTA
+  | { kind: "filtered"; query: string; total: number }  // zero of N — "no match for “zzzz” · 2 saved" + Clear
+  | { kind: "failed"; detail: string; retry: () => void }
+  | { kind: "unavailable" }                             // failed with data retained — see D-2
+```
+
+The mark then rides `kind === "empty"` structurally and cannot leak. `dots` (D-7) dies with it.
 
 ---
 
-## B. Chroma and scheme — the ornament outranks the content
+### D-2 · BLOCKER · The failure species is defined only as a content *replacement*, so a failed refresh hides data the user is reading
 
-### D-3 · MAJOR · In dark mode the `aria-hidden` ornament is the highest-luminance ink on the plate
-
-Measured OKLab lightness of every ink in one dark plate (`/#/admin/tags`, probe values +
-computation):
-
-| Ink | Token | OKLab L | Job |
-|---|---|---:|---|
-| ghost trio stroke | `--accent-live` (dark) | **95.83 %** | `aria-hidden="true"` decoration |
-| headline "No tags yet." | `--foreground` → `rgb(233,230,226)` | 92.62 % | the statement |
-| eyebrow / hint | `--ink-muted` (dark) | 89.00 % | the label, the help |
-
-On a dark plate higher L is more contrast. The luminance hierarchy therefore runs
-**decoration > statement > label** — exactly inverted. `+3.22 L pts` of the ornament over the
-headline.
-
-**Evidence:** `./probes/emptystate-dark-admintags.png` and
-`../../visual/shots/safari-mobile-dark/admin-tags.png` — the white dashed blob is the loudest thing
-in the panel, louder than the "Tags" identity line.
-
-**Reproduction:** `colorScheme: "dark"` → `http://localhost:9000/#/admin/tags`;
-`getComputedStyle(html).getPropertyValue("--accent-live")` = `oklch(95.832172477266% 0.021053120065 9.83402284231deg)`.
-
-### D-4 · MAJOR · `plate-ink` de-emphasis is 6.4× weaker in dark than in light
-
-`EmptyState.vue:102–104` binds the eyebrow, the hint, and the error detail — 3 of the plate's 4
-text lines — to `--ink-muted`.
-
-| Scheme | `--foreground` L | `--ink-muted` L | Δ |
-|---|---:|---:|---:|
-| light | 21.61 % | 44.71 % | **+23.10 L pts** |
-| dark | 92.62 % | 89.00 % | **−3.62 L pts** |
-
-Asymmetry **6.38×**. In dark the "de-emphasis rung" is 3.6 lightness points from the headline —
-below any perceptual threshold for rank. The component's own comment (`:49–54`, `:95–101`) records
-that D6's floor-clamp was adopted to cure a 3.84:1 small-text contrast failure in light. It did.
-The clamp then pushed the dark rung *up* to L 89.0 % to satisfy the same 4.5:1 floor — and
-**bought contrast by spending hierarchy.** A contrast floor is not a hierarchy law; the plate needs
-both and has only one.
-
-**Reproduction:** the two `--ink-muted` values above, read from `documentElement` under each
-`colorScheme`.
-
-### D-5 · MAJOR · The mark is fed an *ink-contrast-guarded* token into a *specimen* slot
-
-`EmptyState.vue:45–47` passes `color="var(--accent-live)"`. But
-`demo/styles/foundation.css:220–231` defines that token as **ink**: *"`--accent-live` is the
-**contrast-guarded** LIVE picked color … guarded to the light-scheme lightness so first paint is
-never ink."*
-
-Measured, same hue, both schemes:
+The `error` variant is a sibling root (`EmptyState.vue:14` `v-if` / `:28` `v-else`). It has no
+non-destructive form. Consumers therefore have exactly one way to use it — put it in the `v-if`
+chain — and six of seven do:
 
 ```
-light  oklch(47.118925176164%  0.188447570516  9.83402284231deg)
-dark   oklch(95.832172477266%  0.021053120065  9.83402284231deg)
-                               ^^^^^^^^^^^^^^  chroma collapse 8.95×
+AdminTagsPanel.vue:68     v-else-if="tagsApi.loadError.value"     ← error plate
+AdminTagsPanel.vue:82     v-else-if="tags.length === 0"           ← empty plate
+AdminTagsPanel.vue:85     v-else                                  ← the list
 ```
 
-The component's opening comment (`:6`) states the design premise: *"seeded WatercolorDot ghosts
-reading the **LIVE accent**."* In dark that premise is **false**: chroma 0.021 is achromatic
-white. `VISUAL-CONSTITUTION.md:17` assigns the Watercolor tier the job *"the only ornamental
-**color-bearing** species"* — in dark it bears no color.
+The data is **still in state** when that happens. `useAdminTags.ts:53–59`:
 
-There is no unguarded chromatic source wired for it to read: `--ground-seed`, `--atom-1`,
-`--atom-2` all resolve to `""` on the live tree, and `data-ground-state` is `null` (V-next boot is
-unshipped). So the premise is not merely mis-wired — it is architecturally unbacked.
+```ts
+try   { tags.value = await getAdminTags(token); loadError.value = null; }
+catch (e: any) { loadError.value = e?.message ?? "Backend unreachable"; }   // tags.value untouched
+```
 
-**Cure (gestalt, and it dissolves D-3, D-5, D-6 and D-17 together).** **Absence is neutral.** A
-ghost that reads the user's live color is claiming to depict data that is not there. Retint the
-absence mark to the neutral boundary/de-emphasis rung, and reserve `--accent-live` (and the ghost
-species generally) for the *add-slot* — where the dashed outline legitimately previews the colour
-the next swatch will take. That single move also stops the mark competing with the live add-slot
-ghost 200 px away (see D-6 evidence frame).
+Identical shape at `useAdminFlagged.ts:69–75` and `useAdminAudit.ts:63–67`. So after a user has
+loaded 200 tags and presses *Refresh* on a flaky link, `tags.value` still holds 200 rows and the UI
+replaces all of them with a 235 px plate reading "The tag ledger is unreachable."
+
+Sites: `AdminTagsPanel.vue:68`, `AdminFlaggedPanel.vue:22`, `AdminAuditPanel.vue:42`,
+`AdminUsersPanel.vue:51`, `AdminNamesPanel.vue:30`, `AdminNamesPanel.vue:80` — **6 sites, 5 routes.**
+
+`BrowsePane.vue:62` is the lone correct site and it had to invent the guard itself:
+
+```
+v-else-if="pm.browseError.value && displayedBrowse.length === 0"
+```
+
+One consumer in seven discovering the right predicate unaided is the signature of a missing
+component contract.
+
+Canon `PROPORTION-AUDIT.md:52` PR-08: "Pending/failure/export/recovery truth only transient →
+**ADD-AFFORDANCE** … Persistent entity status/recovery."
+`VISUAL-CONSTITUTION.md:101`: "Persistent operation state stays with the entity/workspace."
+
+**Reproduction:** source-derived and exact — template order (`v-if=error` before the list) plus
+composable retention (`tags.value` not cleared on catch). Not rendered: this dev host cannot reach
+the failure branch at all (see `D-19`).
+
+**Cure.** The `failed` register must be a *strip*, not a *stage*: when the collection is non-empty,
+the failure renders as a bounded status band above retained rows carrying `Retry`; only a failure
+with nothing to retain escalates to a full plate. That is the `unavailable` arm in D-1's union, and
+it deletes the guard from all seven consumers.
 
 ---
 
-## C. Scope — the mark ships where the canon forbids it
+## B. Chroma and scheme — the ornament outranks the message
 
-### D-6 · MAJOR · The three-dot Watercolor mark is unconditional on all 5 Admin routes; the `dots` escape hatch has zero consumers
+### D-3 · MAJOR · The de-emphasis rung is 6.4× weaker in dark than in light — the hierarchy is gone
+
+Measured from **rendered pixels** (`D2-probe2.mjs` + a PIL scan of `probes/probeD-{light,dark}-trio-crop.png`),
+`#/admin/users`, 1440×900:
+
+| scheme | plate | eyebrow ink | contrast | headline ink | contrast | **headline : eyebrow** |
+|---|---|---|---|---|---|---|
+| light | `rgb(243,189,206)` | `rgb(86,84,83)` | 4.65 : 1 | `rgb(28,25,23)` | 10.81 : 1 | **2.32×** |
+| dark | `rgb(121,78,89)` | `rgb(221,218,217)` | 4.96 : 1 | `rgb(233,230,226)` | 5.54 : 1 | **1.12×** |
+
+In OKLCH lightness, from the computed tokens:
+
+| scheme | `--foreground` L | `--ink-muted` L | separation |
+|---|---|---|---|
+| light | 0.2161 | 0.4471 | **23.10 L-points** |
+| dark | 0.9262 | 0.8900 | **3.62 L-points** |
+
+**6.38× weaker in dark.** The two crops make it visible without arithmetic: in
+`probeD-light-trio-crop.png` the caption is grey and the statement is near-black; in
+`probeD-dark-trio-crop.png` "· ROSTER CLEAR ·" and "No users found." read at the same brightness.
+The same collapse is in the tracked Safari matrix — `safari-desktop-dark/admin-tags.png`, where
+"Add colors above, then save the set." is as bright as "No saved palettes yet."
+
+`EmptyState.vue:49–54` and `:95–101` both certify this rung by name ("the certified de-emphasis
+rung … boot-stamped, floor-clamped against the live resting plate; D6"). The certification is a
+*floor* — it guarantees the caption is legible. It never established a *ceiling*, so in dark the
+floor-clamp pushes the caption up to within 3.6 L-points of the primary ink and the rung stops being
+a rung. `PROPORTION-AUDIT.md:73`: "Real rendered relation wins over token intent. … token presence
+alone cannot close a row."
+
+**Cure.** `--ink-muted` needs a paired *separation* obligation, not only a contrast floor: clamp it
+to the plate **and** hold ≥ 12 OKLCH L-points from `--foreground` in the same scheme, resolving the
+conflict by moving the plate, not the ink. Rung, not floor.
+
+---
+
+### D-4 · MAJOR · The mark is fed an ink-contrast-guarded token into a paint slot — 8.95× chroma loss in dark
+
+`EmptyState.vue:45–47` paints all three dots `color="var(--accent-live)"`.
+`foundation.css:221`: "`--accent-live` is the **contrast-guarded** LIVE picked color". It is guarded
+for *ink over the plate*, which means its lightness is driven to whichever pole reads as text:
+
+| scheme | `--accent-live` computed | L | C |
+|---|---|---|---|
+| light | `oklch(47.119% 0.188448 9.834deg)` | 0.471 | **0.1884** |
+| dark | `oklch(95.832% 0.021053 9.834deg)` | 0.958 | **0.0211** |
+
+**8.95× chroma loss.** The dot's own paint confirms it — computed `background-color`
+(`color-mix(… --watercolor-color 12% …)`): light `color(srgb 0.6655 0.0001 0.2617 / 0.12)`,
+dark `color(srgb 0.9999 0.9247 0.9331 / 0.12)`. The mark is crimson in light and near-white in dark.
+
+`EmptyState.vue:6` states the intent: "seeded WatercolorDot ghosts **reading the LIVE accent**." In
+dark they read a near-neutral. `VISUAL-CONSTITUTION.md:17` puts WatercolorDot in the
+"Watercolor/data" tier — "the **only** ornamental color-bearing species." A color-bearing species
+that loses 89 % of its chroma in one scheme is not bearing color.
+
+The same-frame proof is in the tracked matrix: `safari-desktop-dark/admin-tags.png` renders the
+EmptyState trio achromatic white **while the sibling "Start a new palette" ghost dot 150 px above it
+stays pink** — two ghost marks, same scheme, same viewport, different chromatic law.
+
+The codebase already owns the correct token family: `ExtractControls.vue:124` resolves graphic paint
+through `safeCss(cssColor, GRAPHICS_CONTRAST_FLOOR)` rather than the ink-guarded variable.
+
+**Cure.** Specimen paint reads a *graphics*-floored accent (`GRAPHICS_CONTRAST_FLOOR`), never the
+ink guard. One-line token swap at the producer seam; nothing else moves.
+
+---
+
+### D-5 · MAJOR · In dark, the `aria-hidden` ornament is the loudest thing on the plate
+
+Combine D-3 and D-4 and the rank order inverts. In dark the message sits at 5.54 : 1 while the
+44 px mark — `aria-hidden="true"`, zero information — carries a hard 2 px dashed edge at near-white
+`oklch(95.8 %)` against a plate at OKLCH L 0.395. Measured edge-vs-plate contrast from
+`probeD-dark-trio-crop.png` exceeds the headline's.
+
+`VISUAL-CONSTITUTION.md:34`: "One pane may have one full-strength visual protagonist. Supporting
+fixtures do not compete with it through equal size or equal shadow."
+`PROPORTION-AUDIT.md:70`: "A small icon/mark is either data, status, labeled action, drag affordance,
+focus/selection register **or removed**. Decoration without information" is not on the list.
+
+The protagonist of an empty plate is the sentence. Here it is the ornament, in both schemes — in
+light because the mark is the only saturated element (`probeD-light-trio-crop.png`), in dark because
+it is the only high-contrast one.
+
+**Cure.** The mark's rendered contrast against the plate must be *bounded above* by the caption's,
+not merely bounded below by legibility. Practically: the ghost stroke drops to the caption rung, and
+its chroma comes from a graphics floor (D-4), so it reads as atmosphere rather than as an edge.
+
+---
+
+## C. Scope — the mark ships where the canon zeroes ornament
+
+### D-6 · MAJOR · `dots` defaults **true**, so the canon-restricted mark ships on all 5 Admin routes; the prop has zero consumers
+
+`EmptyState.vue:90`: `{ variant: "empty", eyebrow: "· empty plate ·", dots: true }`.
 
 ```
-$ grep -rn ":dots|dots=" --include=*.vue demo/
-(no output)
+$ grep -rn "dots" demo/ --include=*.vue
+demo/shared/ui/EmptyState.vue:37,40,88,90       ← the definition only
+demo/workbenches/gradient/.../GradientEasingEditor.vue:5,125,127,233,235   ← unrelated `specimen-dots`
 ```
 
-`dots` defaults `true` (`EmptyState.vue:90`) and is **never passed** at any of the 16 call sites.
-The prop's own doc (`:83–88`) says it must be shed *"ONLY where a card-scale instrument ghost seats
-beside this caption"* — a clause with no enforcement, because the escape hatch is dead API.
+**Zero consumers pass `dots`.** The prop, its four-line justification (`:83–87`) and the ten-line
+`N-3 RE-AIMED` comment block (`:29–38`) exist to describe an escape hatch nobody uses. Every one of
+all 10 empty-variant call sites therefore render the mark, including
+`AdminUsersPanel.vue:63,138`, `AdminTagsPanel.vue:82`, `AdminAuditPanel.vue:56`,
+`AdminFlaggedPanel.vue:37`, `AdminNamesPanel.vue:42,92`.
 
-The canon scopes the mark narrowly:
+Canon scopes the mark to the palette field: `VISUAL-CONSTITUTION.md:186` grants it under
+*"### Palette library and Browse"*, and `PROPORTION-AUDIT.md:49` PR-05 rules for everything else —
+"only the five Admin fields retain one adjacent-row separator and no terminal rule; **every other
+divider/ornament is zero**." `VISUAL-CONSTITUTION.md:218`: Admin's "elevated authority is
+communicated by labeling and scope, not by a fourth visual system."
 
-- `VISUAL-CONSTITUTION.md:186` — *"A true empty invitation … may carry one static, aria-hidden
-  `EmptyPaletteMark`: exactly three WatercolorDots plus the established dashes"* — authorised for
-  the **palette library / Browse** field.
-- `VISUAL-CONSTITUTION.md:218` — the **Admin** paragraph authorises **no** such mark. *"Elevated
-  authority is communicated by labeling and scope, not by a fourth visual system."*
-- `VISUAL-CONSTITUTION.md:17` — Watercolor tier = *"swatches, active mark, pastel `Palettes`
-  identity"*. An Admin tag ledger is none of those.
+The tracked frame shows the compounding: `safari-desktop-light/admin-tags.png` renders the identical
+three-dot mark **twice in one viewport** (Tags pane + the Palettes companion) at identical scale.
+`EmptyState.vue:31` says "never two ghost registers at two scales" — the clause is satisfied and the
+outcome is worse, because the two registers are at the *same* scale and read as a repeated stamp.
 
-**Evidence frame:** `../../visual/shots/safari-desktop-light/admin-tags.png` — **two** identical
-trios in one 1440×900 viewport (Tags panel + My Palettes companion), plus a **third** dashed ghost
-in the "Start a new palette" slab. Three dashed-outline registers, one frame. Measured on the live
-tree: 2 trios on `/#/admin/tags`, 2 on `/#/browse`, 1 on `/#/palettes`.
+**Cure.** Default `false`; the mark becomes a structural consequence of `kind === "empty"` **and**
+the palette-field host, per D-1's union. The prop disappears rather than flipping.
 
-### D-7 · MAJOR · The canon's named primitive `EmptyPaletteMark` does not exist; the mark is inlined with per-instance overrides
+---
 
-```
-$ grep -rn "EmptyPaletteMark" --include=*.vue --include=*.ts demo/
-(no output)
-```
+### D-7 · MAJOR · The canon names a primitive `EmptyPaletteMark`; it does not exist, so it is hand-rolled with per-instance overrides
 
-The name is ratified in `VISUAL-CONSTITUTION.md:186`, in the W22 plan
-(`archive/waves/W22.md:20` — "the static three-face `EmptyPaletteMark`") and in
-`reformation/waves/W49-W52.md:45`. It was never built. Instead `EmptyState.vue:45–47` hand-rolls it
-as three raw producer calls with Tailwind utilities written onto the glass-ui root:
+`VISUAL-CONSTITUTION.md:186`: "may carry one static, aria-hidden **`EmptyPaletteMark`**: exactly three
+WatercolorDots plus the established dashes."
 
 ```
-<WatercolorDot … class="w-8 h-8 opacity-80" />
-<WatercolorDot … class="w-11 h-11" />
-<WatercolorDot … class="w-6 h-6 opacity-60" />
+$ ls node_modules/@mkbabb/glass-ui@7.0.0/dist/components/ | grep -i -E "empty|mark"
+handmark
 ```
 
-Three violations in three lines: **edict 5** (styling a producer root per instance rather than at
-the root), **edict 4** (a mark species composed in `demo/` rather than owned by the design system),
-and **edict 3** (the ratified primitive is the KISS answer; the inline recipe is the contrivance).
-The consequence is structural: the mark cannot be reused without the plate, and the plate cannot be
-had without the mark — which is precisely why `dots` is dead (D-6) and why the mark leaks onto
-Admin.
-
-### D-8 · MINOR · The mark's own composition is not optically centred
-
-The trio is mechanically centred by flex (`items-end gap-2`, container 116 px, centre x = 455).
-Weighting each dot by outline perimeter × opacity — the quantity that actually reads:
+No such primitive. `EmptyState.vue:39–48` inlines it: a bare `<div class="flex items-end gap-2">`
+plus three `<WatercolorDot>` whose entire composition is expressed as per-instance Tailwind:
 
 ```
-32px×0.80 @ x=413   44px×1.00 @ x=459   24px×0.60 @ x=501
-ink centroid = 452.2 px      text axis = 455.0 px      → mark sits 2.8 px left of the copy axis
+w-8 h-8 opacity-80 · w-11 h-11 · w-6 h-6 opacity-60
 ```
 
-Small, but it is the difference between a *drawn mark* and three divs in a row — and it is
-un-fixable while the mark is flex children rather than one primitive (see D-7, D-18).
+Three consequences, all measured:
+
+1. **The stroke weight does not scale.** `glass-ui.css` `.watercolor-ghost-stroke` is
+   `border: var(--watercolor-ghost-weight, 2px) dashed …` — a fixed 2 px. Against the three
+   diameters that is **8.3 % of Ø on the 24 px dot vs 4.5 % on the 44 px** — the smallest dot carries
+   a proportionally **1.8× heavier** edge. Visible in `probeD-light-trio-crop.png`: the small dot
+   reads as a heavier, denser ring than the large one.
+2. **The dash rhythm does not scale.** `--watercolor-dash: 8px` / `--watercolor-gap: 5px`, also fixed
+   → ≈ 5.8 dashes around the 24 px dot and ≈ 10.6 around the 44 px. Three different textures in one
+   mark.
+3. **The producer's own scaling seam is bypassed.** The ghost sets `container-type: inline-size`
+   (`glass-ui.css`, `[data-variant=ghost]`) — it is built to respond to its container. The consumer
+   pins it with fixed `w-*` utilities instead.
+
+Owner edict 4 ("variants/primitives belong in glass-ui, not in demo/") and edict 5 ("style at the
+root component level, never per-instance overrides") are both breached, and edict 3's KISS clause is
+the reason it happened — nobody wanted to open a producer PR for three dots.
+
+**Cure.** `EmptyPaletteMark` lands in glass-ui as the canon already names it, owning the three
+diameters, the proportional `--watercolor-ghost-weight`/dash pair, `aria-hidden`, and the graphics
+accent from D-4. `EmptyState` then renders `<EmptyPaletteMark />` and its ten-line comment block
+(`:29–38`) is deleted rather than re-litigated.
+
+---
+
+### D-8 · MINOR · The mark's own optical mass sits 3.5 px left of the axis it is centred on
+
+Measured centres (`D2-empty-probe.mjs`, `#/admin/users`, 1440): dots at cx `413 / 459 / 501`,
+container 397→513 (centre 455.0), eyebrow centre 454.99, headline centre 454.995.
+
+Weighting the three by painted area × opacity:
+
+```
+(32²·0.8·413 + 44²·1.0·459 + 24²·0.6·501) / (32²·0.8 + 44²·1.0 + 24²·0.6) = 451.53
+```
+
+and by stroke perimeter × opacity: `452.18`. Both land **~3 px left** of the 455.0 text axis, because
+the descending 32 → 44 → 24 arrangement puts 76 px of dot on the left of the big one and 24 px on
+the right. `items-end` (`:42`) then bottom-aligns them, so the residual asymmetry reads as a
+tail rather than as a considered fall.
+
+MINOR because 3 px on a 116 px mark is at the edge of perception — but it is a *designed* mark, and
+the design does not resolve.
 
 ---
 
 ## D. Proportion and rhythm
 
-### D-9 · MAJOR · One flat `gap-2.5` serves four semantic ranks; the rendered ink rhythm is ragged
+### D-9 · MAJOR · One 10 px token serves four semantic ranks; the rendered ink rhythm is 14 : 23 : 16 and it inverts the title/section relation
 
-`EmptyState.vue:16,28` — `gap-2.5` (10 px) between *every* sibling. Measured line boxes and
-half-leadings on `/#/palettes`:
+`gap-2.5` (`:16`, `:28`) is the only vertical relation in the component. Box gaps are exactly 10 px
+between all four children (`D2-probe5.mjs`, offsets from plate top: trio `32→76`, eyebrow `86→107.58`,
+headline `117.58→153.17`, hint `163.17→186.14`).
 
-| Pair | authored gap | half-leadings | **rendered ink gap** |
-|---|---:|---|---:|
-| mark → eyebrow | 10 px | 0 + 3.596 | **13.60 px** |
-| eyebrow → headline | 10 px | 3.596 + 4.854 | **18.45 px** |
-| headline → hint | 10 px | 4.854 + 3.280 | **18.13 px** |
+Rendered **ink** bands, scanned per-row from `probes/probeD-inkscan.png` (DPR 1, 462×218,
+`#/palettes` empty plate, threshold Δluma > 18):
 
-(`font-size/line-height` measured: eyebrow 14.384/21.576, headline 25.888/35.596, hint 16.40/22.96.)
+```
+ink bands (y0,y1):  (32,75) h=44   (90,100) h=11   (124,149) h=26   (166,181) h=16
+rendered gaps:      75→90 = 14px   100→124 = 23px   149→166 = 16px
+```
 
-So the **decoration is bound 26 % more tightly to the label than the label is to the statement**,
-and the two most semantically distinct joints — label→statement and statement→help — get
-indistinguishable intervals. `PROPORTION-AUDIT.md:68` law §5.3 requires the opposite:
-*"Header→headline uses title gap; headline→next semantic section uses section gap."* There is no
-rendered title/section distinction here at all. `PROPORTION-AUDIT.md:73` §5.8 governs the reading:
-*"Real rendered relation wins over token intent."*
+| relation | canon rank (`PROPORTION-AUDIT.md:68`) | token | **rendered ink** |
+|---|---|---|---|
+| mark → eyebrow | section boundary (should be widest) | 10 px | **14 px** |
+| eyebrow → statement | title gap (should be tightest) | 10 px | **23 px** |
+| statement → hint | within-section | 10 px | **16 px** |
 
-### D-10 · MAJOR · Nothing about the plate is container-scaled; the type pair's ratio drifts 19.5 %
+The rhythm is **inverted**: the annotation is optically bonded to the ornament it does not describe
+(14 px) and optically detached from the line it labels (23 px). A reader's eye groups
+`[mark + eyebrow]` and then `[statement]`, which is exactly backwards — the eyebrow is the
+statement's label.
 
-Measured at 1440 px vs 320 px, same component, same host:
+Cause: one flex `gap` across three different font metrics (Fira Code 14.38/21.58, Fraunces
+25.89/35.60, Fira Code 16.4/22.96). Half-leading differs per pair, so a uniform box gap cannot
+produce a uniform ink gap. `PROPORTION-AUDIT.md:68` requires the two ranks to be *different* tokens;
+`:73` requires the *rendered* relation to be the one that counts.
 
-| Quantity | 1440 px | 320 px | change |
-|---|---:|---:|---:|
-| `padding-block` | 32 px | 32 px | 0 % |
-| `row-gap` | 10 px | 10 px | 0 % |
-| trio width | 116 px | 116 px | 0 % |
-| eyebrow font-size (`text-mono-caption`, fluid) | 14.384 px | 12.032 px | **−16.4 %** |
-| headline font-size (`text-heading`, fixed) | 25.888 px | 25.888 px | 0 % |
-| **headline : eyebrow ratio** | **1.800** | **2.152** | **+19.5 %** |
-
-`VISUAL-CONSTITUTION.md:33` §3.7: *"Spacing is container-scaled from glass-ui tokens."* None of the
-three spatial quantities responds. And the mixed scaling law is worse than either pure choice: one
-arm of the type pair is fluid and the other is frozen, so the pair's ratio is a function of
-viewport. The Picker pair is held to *"one paired proportional clamp; both sizes resolve from that
-one clamp … through floor, fluid arm and ceiling rather than only at endpoints"*
-(`PROPORTION-AUDIT.md:15`). The same principle condemns a 19.5 % drift here.
-
-At 320 px the consequence is visible: the 116 px ornament occupies **45.7 %** of the 254 px plate
-width (`./probes/state-320-admintags.png`).
-
-### D-11 · MAJOR · The `ch` measures are font-relative across three families, so the authored ladder does not render — and the headline's measure is inert
-
-| Line | authored | resolved `max-inline-size` | plate width | binds? |
-|---|---|---:|---:|---|
-| headline (Fraunces 25.888 px) | `max-w-[26ch]` | 469.474 px | 462 px | **NO — inert** |
-| error detail (Fira 16.4 px) | `max-w-[44ch]` | 444.062 px | 462 px | yes |
-| hint (Fira 16.4 px) | `max-w-[36ch]` | 363.323 px | 462 px | yes |
-
-The display line — the one measure that matters most — never engages on `/#/palettes`,
-`/#/browse` or any of the five Admin plates, because 26 ch of Fraunces at 25.888 px (469.474 px) is
-**wider than the container it lives in** (462 px). Above a 469.5 px container it suddenly does
-engage. One component, two typographic behaviours, crossover at an accidental number nobody chose.
-
-This matters concretely against `VISUAL-CONSTITUTION.md:218` — *"Each Admin route uses the full
-main width: the current Palettes companion … removed rather than restyled."* The moment that law
-lands, every Admin plate crosses 469.5 px and the headline's measure silently switches on.
-
-`PROPORTION-AUDIT.md:73` §5.8 again: *"token presence alone cannot close a row."*
-
-### D-12 · MAJOR · Two same-species plates in one frame are 78 px out of vertical register
-
-Measured, `/#/admin/tags` at 1440×900 — the Tags plate and the My Palettes plate:
-
-| | Tags | My Palettes | Δ |
-|---|---:|---:|---:|
-| plate height | 185.17 px | 218.14 px | 32.97 px |
-| mark top y | 466.19 px | 544.06 px | **77.87 px** |
-
-At 200 % zoom the same pair measures 370.3 / 482.1 px tall with mark tops 156.7 px apart
-(`./probes/state-zoom200-admintags.png`). The plate has no `min-height`, no shared baseline, and no
-relation to its sibling — height is purely a function of how many optional props the host happened
-to pass. Two instances of one ornament at two heights in one frame reads as accident.
-`VISUAL-CONSTITUTION.md:34` §3.8: *"Supporting fixtures do not compete with it through equal size
-or equal shadow"* — here they do not even agree with each other.
-
-### D-13 · MINOR · The centred island introduces a second, unrelated horizontal axis
-
-Plate copy axis x = 455; the panel's established reading axis (pane header "Tags", "0 tags", the
-tag-name field) x = 224. A **231 px** offset, and there is no other centred text on the route.
-`PROPORTION-AUDIT.md:5`: *"Every element earns its scale, interval, boundary and material from its
-job relative to the local protagonist."* A centred stack inside a left-aligned reading column has
-no relation to the protagonist.
+**Cure.** Trim the line boxes so the token *is* the ink — `text-box: trim-both cap alphabetic` on the
+three text rows — then give the two ranks two tokens: `--empty-title-gap` (eyebrow→statement, tight)
+and `--empty-section-gap` (mark→eyebrow and statement→action, φ× larger). One CSS property change
+plus two tokens replaces the whole guessed ladder.
 
 ---
 
-## E. Type jurisdiction
+### D-10 · MAJOR · The `26ch` measure is 46 % wider than it reads, because `ch` is sampled in a display serif
 
-### D-14 · MAJOR · Two violations of the closed type matrix
+`:20` and `:58`: `max-w-[26ch]` on a `font-display` (Fraunces) line.
 
-`VISUAL-CONSTITUTION.md:68–78` is a **closed** matrix with exactly one authorised exception
-(P019's Picker identity/headline pair).
+Computed at 1440 (`D2-empty-probe.mjs`): `font-size 25.888px`, `max-width **469.474px**` → Fraunces
+`ch` = 18.06 px = 0.698 em (the advance of `0`, a lining figure).
+Rendered average glyph advance, from a real string: "No saved palettes yet." = 22 chars in 272.84 px
+→ **12.40 px/char**.
 
-1. **`font-display text-heading`** (`EmptyState.vue:20,58`) → measured **25.888 px / 35.596 px /
-   700 / Fraunces**. The matrix binds `text-heading` to *"section heading → Plus Jakarta Sans."*
-   Applying Fraunces to that role is a second paired exception, unauthorised. (`PROPORTION-AUDIT.md:78`
-   law §5.13 restates it: *"Fraunces owns display/identity, Plus Jakarta Sans owns headings/prose/controls
-   … P019's paired Picker scale is the sole exception."*)
-2. **`hint` in `text-mono-small`** (`EmptyState.vue:61`) → measured **16.4 px Fira Code**. The
-   matrix binds *"prose/help → `text-prose` → Plus Jakarta Sans"* and reserves Fira for
-   *"value, code, or provenance."* "Add colors above, then save the set." is help copy. Rendering
-   an invitation in monospace is why it reads as terminal output rather than an invitation —
-   see `../../visual/shots/safari-desktop-light/browse.png`. (The error `detail` in Fira is
-   **correct** — that one *is* machine truth.)
+```
+469.474 / 12.40 ≈ 38 characters   —  the authored intent was 26
+```
 
-### D-15 · MINOR · Two incompatible mark languages inside one component, and the failure mark is the smaller one
+**The measure is 46 % looser than written.** For a display line the typographic target is 20–35
+characters; this permits 38. The error is confined to the display rows: the two Fira Code rows
+(`max-w-[36ch]` → 363.32 px at 16.4 px = 10.09 px/ch; `max-w-[44ch]` → 444.06 px) are monospace, so
+their `ch` is exact.
 
-The `error` arm draws a `@lucide/vue` `CircleAlert` — a 24×24 px geometric 1.5 px-stroke line glyph
-at `oklab(0.574 0.192 0.100 / 0.8)` (`EmptyState.vue:19`). The `empty` arm draws seeded organic
-watercolour blobs under an SVG turbulence filter. Two mark grammars, one file, no shared tier in
-`VISUAL-CONSTITUTION.md:11–17`.
+Same class of defect, opposite direction, in the same component: the *hint*'s honest 36 ch measure
+(363 px) is **narrower** than the *headline*'s nominal 26 ch (469 px), so the small support line is
+set tighter than the large statement it supports.
 
-The ranking is backwards: ornament footprint 116×44 = **5 104 px²** vs failure glyph 24×24 =
-**576 px²** — the non-event's mark is **8.9×** the failure's. Visible side by side in
-`../../visual/shots/safari-desktop-light/browse.png`.
+**Cure.** Display measures are authored in `em` of their own face or as a token
+(`--measure-display: 22em`), never in `ch` of a proportional serif. `ch` survives only on the mono rows.
 
-### D-16 · MINOR · The `· … ·` frame is presentation encoded in 11 content strings
+---
 
-Every empty call site hand-writes the bullets: `"· empty plate ·"`, `"· no tags minted ·"`,
-`"· roster clear ·"`, `"· ledger clear ·"`, `"· queue clear ·"`, `"· none approved yet ·"`,
-`"· nothing flagged ·"`, `"· none pinned ·"`, `"· nothing to mix ·"`, `"· the commons ·"`.
-A copy edit that drops one bullet silently breaks the register. `PalettesPane.vue:78` restates the
-component's own default verbatim (`empty-eyebrow="· empty plate ·"` vs default
-`eyebrow: "· empty plate ·"` at `EmptyState.vue:90`) — dead duplication. And AT reads them: the
-measured accessible text is `"· no tags minted ·No tags yet."` (the eyebrow is not `aria-hidden`).
-If the frame is part of the plate-label species, the species should draw it.
+### D-11 · MINOR · `justify-center` is a provable no-op, duplicated in both branches
+
+`:16` and `:28` both carry `justify-center` on a `flex-col` whose height is content-derived. Measured
+(`D2-empty-probe.mjs`):
+
+```
+#/admin/users  plate h = 185.17 = 32 + 44 + 10 + 21.58 + 10 + 35.59            (py-8 + 4 rows)
+#/palettes     plate h = 218.14 = 32 + 44 + 10 + 21.58 + 10 + 35.59 + 10 + 22.97
+```
+
+Both exact to 0.01 px — the box is precisely its content, so main-axis centring has nothing to
+distribute. It is inert in every one of the 16 call sites. Two copies of a no-op inside a 105-line
+file, in a repo whose canon opens with a subtraction mandate.
+
+---
+
+### D-12 · MINOR · `py-8` is a fixed 32 px in a container-scaled system
+
+`:16`, `:28`. Measured `padding-top: 32px` / `padding-bottom: 32px` identically at 1440, 390 and 320,
+and identically inside a 462 px Admin column and a 254 px mobile column.
+`VISUAL-CONSTITUTION.md:33`: "Spacing is container-scaled from glass-ui tokens. No desktop-tight/
+mobile-airy fork and no breakpoint pile." The mark's `w-8/w-11/w-6` are fixed for the same reason —
+at 320 px the 116 px mark occupies 46 % of the 254 px column against 25 % of the 462 px desktop one
+(`probes/probeD-real320-palettes320.png`). At 200 % zoom (`../../visual/shots/zoom-200-desktop/adminusers.png`)
+the mark plus eyebrow consume the visible plate and push "No users found." to the fold.
+
+---
+
+## E. Type jurisdiction and the design-system boundary
+
+### D-13 · MAJOR · `font-display text-heading` is a family↔size mapping the closed type matrix does not contain
+
+`VISUAL-CONSTITUTION.md:66–78` publishes the matrix and closes it: "This matrix is **closed** across
+all eighteen compositions. P019's family-neutral Picker identity/headline pair is the **sole**
+paired-scale exception."
+
+| role | glass-ui role | family |
+|---|---|---|
+| section heading | `text-heading` | **Plus Jakarta Sans** |
+| instrument identity | `--type-title` | Fraunces |
+| palette identity | `--type-subheading` | Fraunces |
+
+`EmptyState.vue:20` and `:58` render `font-display text-heading` — Fraunces at `text-heading`.
+Measured: `fontFamily: "Fraunces"`, `fontSize 25.888px`, `fontWeight 700`. That mapping is not in the
+matrix and is not the granted exception.
+
+Two further per-instance overrides sit on the same root-owned utility: `leading-snug` (rendered
+line-height 35.596 px = 1.375 — overriding `text-heading`'s own leading, which `foundation.css:379`
+notes is producer-hardcoded) and `text-balance`. Edict 5: "style at the shadcn/glass root component
+level, never per-instance overrides."
+
+Blast radius — `grep -rn "font-display text-heading" demo/ --include=*.vue`:
+`EmptyState.vue:20`, `EmptyState.vue:58`, `ErrorBoundary.vue:24`, `Markdown.vue:26`. Four sites,
+three of them copies of this plate (D-14). Whatever this pairing is, it is a real 18th role and the
+matrix should either name it or the component should drop to `--type-subheading`.
+
+---
+
+### D-14 · MAJOR · "the ONE shared empty atom" is false — the plate is cloned twice, with drifted proportions
+
+`EmptyState.vue:98` claims: "This is the ONE shared empty atom (8 consumers incl. the admin walls),
+so every consumer inherits the cure."
+
+`ErrorBoundary.vue:16–33` is the same plate, re-typed, with every number nudged:
+
+| | EmptyState error | ErrorBoundary | drift |
+|---|---|---|---|
+| glyph | `CircleAlert w-6 h-6 text-destructive/80` | `CircleAlert w-7 h-7 text-destructive/80` | +1 rung |
+| row gap | `gap-2.5` | `gap-3` | +2 px |
+| block pad | `py-8` | `py-10 px-6` | +8 px |
+| statement measure | `max-w-[26ch]` | `max-w-[28ch]` | +2 ch |
+| detail measure | `max-w-[44ch]` | `max-w-[46ch]` | +2 ch |
+
+…and the scoped `.plate-ink` rule is duplicated verbatim (`EmptyState.vue:102–104` ≡
+`ErrorBoundary.vue:84–86`). `Markdown.vue:20–29` is a third rendering of the same idea through an
+`Alert` + `AlertTitle class="font-display text-heading"`, with its own comment explaining that it
+"joins the EmptyState error-statement register **verbatim**" — which it does not; it is a fourth
+geometry.
+
+So the failure plate exists in three incompatible geometries, each with a comment asserting it is the
+shared one. Edicts 1 (no god modules → focused modules with **real encapsulation**) and 3 (KISS) both
+fail here: the abstraction was declared and then not used.
+
+**Cure.** One `FailurePlate` composition owns the glyph rung, gaps, and both measures; `EmptyState`'s
+`failed`/`unavailable` arms, `ErrorBoundary`, and `Markdown`'s doc-miss all render it. The three
+comment blocks asserting shared-ness are deleted, because the code will assert it instead.
+
+---
+
+### D-15 · MINOR · `tag="div"` is passed three times to a prop glass-ui 7.0.0 deleted
+
+`:45–47` pass `tag="div"` to `WatercolorDot`. The 7.0.0 surface
+(`dist/components/watercolor-dot/WatercolorDot.vue.d.ts:26–52`) is
+`{ color, variant?, animate?, cycleDuration?, range?, seed? }` — **no `tag`**. Canon
+`VISUAL-CONSTITUTION.md:91` is why: "V **abrogates** a selection outline and interactive host on
+`WatercolorDot`. P051 removes the public `tag="button"`/interactive-host branch in the clean major."
+
+The producer executed the abrogation; the consumer still speaks the retired API. Measured outcome
+(`D2-empty-probe.mjs`): the elements render as `<span … class="w-8 h-8 opacity-80 watercolor-swatch"
+data-variant="ghost">` — a `<span>`, not the requested `div` — and `document.querySelectorAll("[tag]")`
+returns `[]`, so it is silently swallowed rather than leaked. Dead words asking for something that
+cannot happen. Owner edict 2 (no legacy code, no dual paths).
+
+---
+
+### D-16 · MINOR · `tracking-[0.18em]` is an arbitrary literal on a root-owned caption utility
+
+`:55`: `text-mono-caption uppercase tracking-[0.18em]`. Measured `letter-spacing: 2.58912px`
+(= 0.18 × 14.384 px). `text-mono-caption` is the producer's caption role
+(`foundation.css:88` registers glass-ui's `@utility` set); its tracking belongs there, not at one
+call site as a magic literal. Same class as D-13's `leading-snug`.
 
 ---
 
 ## F. State coverage
 
-Every state the plate can occupy, and its disposition. **Unhandled = design defect.**
+Every state the component can occupy, and where it stands. **Un-designed states are the finding.**
 
-| State | Handled? | Evidence |
+| state | handled? | evidence |
 |---|---|---|
-| empty (populated copy) | yes | measured |
-| empty, **no message** | **NO** | `message?: string` has no default; `<slot>{{ message }}</slot>` yields an empty `<p>` that still occupies a 35.596 px line box |
-| empty, **with action** | **NO — 0 consumers** | D-1 |
-| loading | **NO — deliberately absent** | D-19 |
-| error, cold load | yes | `BrowsePane.vue:57` |
-| error, **refresh over data** | **NO — destroys data** | D-2 |
-| error, **very long `detail`** | **NO clamp** | D-17 |
-| overflowing / unbreakable token | **NO — silent clip** | D-17 |
-| RTL | **mirrors the mark** | D-18 |
-| forced-colors | **ornament keeps author colour** | D-20 |
-| reduced-motion | n/a (no own motion) | negative proof N-4 |
-| zoomed 200 % | renders; register worsens | D-12 |
-| 320 px | renders; ornament 45.7 % of plate | D-10 |
-| disabled / focused / hovered / pressed / selected / dragging | n/a — the plate is non-interactive, and its only focusable descendant is the slotted `Retry`, which is styled by an 8× repeated per-instance `class="font-display"` (edict 5) | `grep -c 'class="font-display"'` = 11 |
-| enter / exit transition | **host-owned, inconsistent** | D-21 |
+| true empty | ✔ | `probeD-light-trio-crop.png` |
+| **filtered-zero** | ✘ **renders the true-empty lie** | **D-1** |
+| loading | n/a — consumer-owned (`PaletteCardSkeleton`) | `BrowsePane.vue:41–54` |
+| error, no data | ✔ | `probeD-errorspecies-light.png` (synthesised — D-19) |
+| **error, data retained** | ✘ **hides the data** | **D-2** |
+| populated | n/a | — |
+| disabled / focused / hovered / pressed / selected / dragging | n/a — the plate has no interactive element of its own; the `#action` slot's `Button` owns its own states | `AdminUsersPanel.vue:58` |
+| **overflowing / unbreakable** | ✘ silent clip | **D-17** |
+| **RTL** | ✘ mark mirrors, punctuation reorders, machine `detail` un-isolated | **D-18** |
+| reduced-motion | ✔ (vacuously) | negative proof N-3 |
+| forced-colors | ~ hierarchy flattens, decoration keeps chroma | **D-20** |
+| zoomed 200 % | ~ mark + eyebrow push the message to the fold | `zoom-200-desktop/adminusers.png` |
+| 320 px | ✔ for shipped copy | `probeD-real320-*.png` |
 
-### D-17 · MINOR · Unbounded and unbreakable content: silent clipping, no clamp
+### D-17 · MINOR · `break-words` is applied to one of the three text rows; the other two clip silently
 
-- **Unbreakable token in `message`.** The headline carries `max-w-[26ch] text-balance` but **no**
-  `break-words`, while the error `detail` at `:23` **does** (`break-words`) — an inconsistency
-  inside one component. Injecting a 63-char unbroken token into the live headline:
-  ```
-  headline box 469.5 px   plate 462 px   → clipped 3.7 px left AND right
-  host overflow-x: hidden ; hostScrollWidth 510 == hostClientWidth 510  → no scroll produced
-  ```
-  Glyphs are **silently clipped at both edges** — no ellipsis, no scroll, no wrap.
-  (`./probes/state-unbreakable-token-clip.png`)
-- **Long `hint` / `detail`.** A 100-char URL in the hint grew the plate **218.14 → 322.64 px
-  (+48 %)** with no clamp (`./probes/state-overflow-long-strings-1440.png`). `detail` is a raw
-  server string of arbitrary length, sitting inside an **assertive** `role="alert"` region (D-22) —
-  a 2 000-char stack trace is both rendered whole and read out whole.
+`:23` (error `detail`) carries `break-words`. `:20/:58` (`message`) and `:61` (`hint`) do not.
+Computed on the live component: `overflow-wrap: normal`, `word-break: normal`, `hyphens: manual`.
 
-### D-18 · MINOR · The mark mirrors under RTL
-
-Measured with `dir="rtl"`, dot x-positions: `32 px @ 1011`, `44 px @ 959`, `24 px @ 927` — the
-32 px dot moves from leftmost to rightmost; the composition flips. `VISUAL-CONSTITUTION.md:150–154`
-§6.1 assigns inline mirroring to *"chrome, navigation and layout"*. A deliberately asymmetric
-drawn mark (32/44/24 with graded opacity) is neither. It mirrors only because it is built from flex
-children instead of being one direction-invariant primitive — the same root cause as D-7 and D-8.
-(`./probes/state-rtl-admintags.png`)
-
-### D-19 · MINOR · The tri-state has no owner, so it is re-wired 16 times
-
-`EmptyState.vue:2–3` deliberately excludes loading: *"TWO species, never conflated … loading ≠
-empty."* Correct as a *conflation* rule, wrong as an *ownership* rule. The `loading | error | empty
-| populated` machine is now spread across two shared components plus inline blocks:
+Measured on the **real mounted component** (`D2-probe5.mjs`, message text replaced in place, no clone):
 
 ```
-demo/shared/ui/EmptyState.vue            error + empty
-demo/palettes/browser/admin/AdminListSkeleton.vue      loading (admin rows)
-demo/palettes/browser/card/PaletteCardSkeleton.vue     loading (palette cards)
-+ inline Skeleton blocks in BrowsePane, AdminUsersPanel, AdminTagsPanel,
-  AdminAuditPanel, AdminNamesPanel, AdminFlaggedPanel, ExtractWorkbench
+vw 320 :  <p> L=33  R=502.5  w=469.5   host L=33 R=287 w=254
+          scrollWidth 1198   clientWidth 469
+          documentElement.scrollWidth 320 == clientWidth 320 ; body.scrollWidth 320
 ```
 
-Each host re-decides the branch **order**, which is exactly how the D-2 policy split arose. This
-is edict 1 read in reverse: not a god module, but a **fissioned** one — a shared atom too small to
-own its own state machine, so 16 hosts own fragments of it.
+An 84-character unbreakable token renders **1198 px of ink into a 254 px column**. The `<p>` extends
+182.5 px past the right viewport edge, and the document does **not** scroll — an ancestor clips it.
+The user sees 254 px of 1198 px (21 %) with no ellipsis, no wrap, no scroll, no signal. At 1440 the
+same string overruns the 462 px Admin column by 7.5 px and clips 729 px internally.
 
-### D-20 · MINOR · Forced colors strips the content and keeps the decoration
+MINOR rather than MAJOR because no current call site supplies a triggering value — all 16 pass
+literals (`PalettesPane.vue:79`, `BrowsePane.vue:85`, the nine Admin strings). But `message` is
+public, is also a `<slot>` (`:21`, `:59`), and the component already demonstrates it knows the hazard
+by guarding `detail` alone. The asymmetry is the defect.
 
-Under `forcedColors: active` the text forces to `rgb(0,0,0)` but the ghost retains its author
-colour:
+**Cure.** The three text rows share one `overflow-wrap: anywhere` + `hyphens: auto` rule, or the
+component stops carrying arbitrary strings in the display row.
+
+### D-18 · MINOR · RTL: the mark mirrors, the punctuation reorders, and the machine string has no isolation
+
+`../../visual/shots/rtl-desktop/adminusers.png`:
+
+- The mark reverses: LTR renders 32/44/24 left-to-right; RTL renders 24/44/32. The trio is a flex row
+  in document direction. A *composed mark* (canon calls it `EmptyPaletteMark`) is an image and should
+  not mirror; chrome and layout should (`VISUAL-CONSTITUTION.md:151`).
+- Every message renders its full stop at the **line start**: `.No users found`,
+  `.No saved palettes yet`, `.Add colors above, then save the set`. Trailing neutrals reorder under
+  an RTL paragraph direction because the strings carry no `dir`/isolation.
+- The failure `detail` (`:23`) is the acute case: it carries `e?.message`
+  (`useAdminTags.ts:58`, `useAdminFlagged.ts:74`, `useAdminAudit.ts:66`) — URLs, HTTP codes, JS error
+  text. `VISUAL-CONSTITUTION.md:154`: "CSS strings, hex, slugs, IDs and provenance render in
+  **LTR-isolated spans** inside RTL prose." It has none.
+
+RTL is not a shipped user mode; it is a tracked canon obligation with its own table
+(`VISUAL-CONSTITUTION.md:122–133`), which is why this is MINOR rather than INFO.
+
+### D-19 · MINOR · The failure species has zero rendered evidence anywhere in the audit corpus
+
+Not in the 60-capture Safari matrix (`../../visual/REPORT.md` — the routes render loading, empty or
+populated), not in the 26 state captures, and not reachable on this dev host: probing `#/browse` with
+`page.on("request")` returned exactly one non-asset request (`GET http://localhost:9000/`), and the
+Admin composables early-return before the fetch when unauthenticated (`useAdminTags.ts:50`
+`if (!token) return;`). I synthesised it (`D2-probe4.mjs` → `probeD-errorspecies-{light,dark}.png`,
+built from `EmptyState.vue:14–27` verbatim against the live `data-v-7acf0aa0` scope) purely to measure
+it; that is a reconstruction, not a witness.
+
+A species that has never been photographed is a species nobody has judged. Given D-2 is *about* that
+species, the mega-tranche needs a fault-injection arm before the register can close.
+
+### D-20 · MINOR · Forced colors keeps the decoration's chroma and flattens all three text ranks
+
+`probes/probeD-forcedcolors-adminusers.png` (Chromium, `forcedColors: active` — the tracked
+`forced-colors-desktop/adminusers.png` did **not** take, because WebKit ignores the emulation, so that
+matrix arm is void for this component).
+
+Measured: eyebrow, message and hint all resolve to `rgb(0,0,0)` — the `--ink-muted` rung is overridden
+away, so the entire colour-borne hierarchy of D-3 collapses to one register. Meanwhile the mark keeps
+its pink dashed stroke and its `--accent-live` fill. The single element that should drop first is the
+only one that survives with colour. `VISUAL-CONSTITUTION.md:82`: "Text, focus, boundaries and state
+meet their rendered contrast **on the actual material tier**; a token name is not evidence."
+
+### D-21 · MINOR · The motion contract lives in the consumers, so 4 of 7 hosts hard-cut
+
+The two species are sibling roots with no transition of their own. Consumers therefore diverge:
 
 ```
-text        color: rgb(0, 0, 0)                                        ← forced
-ghost fill  background-color: color(srgb 0.79408 0.000149 0.318273 / 0.12)   ← NOT forced
-ghost stroke  dashed, 2px, the accent                                  ← NOT forced
+BrowsePane.vue:41            <Transition name="vj-morph" mode="out-in">   ✔ (keys: developing/error/wall)
+AdminUsersPanel.vue          <Transition> present                          ✔
+MixSourceSelector.vue        <Transition> present                          ✔
+AdminTagsPanel.vue           none                                          ✘
+AdminAuditPanel.vue          none                                          ✘
+AdminFlaggedPanel.vue        none                                          ✘
+AdminNamesPanel.vue          none                                          ✘
+PaletteCardGrid.vue          none                                          ✘
 ```
 
-So in the one mode whose entire purpose is to remove author colour, the trio becomes the **only
-coloured ink on the plate** — the decoration is *promoted* by the accessibility mode.
-`./probes/forced-colors-admintags.png` and `../../visual/shots/forced-colors-desktop/adminusers.png`.
-`VISUAL-CONSTITUTION.md:84`: *"Focus remains visibly distinct from selection in both schemes,
-forced colors and reduced transparency"* — the plate has no forced-colors design at all; it
-inherits whatever the producer happens to leak. The `EmptyPaletteMark` primitive (D-7) is where
-`forced-color-adjust` would be decided once.
+`VISUAL-CONSTITUTION.md:141`: "A scene swap preserves the specimen and changes the surrounding
+instrument. **No full-slab remount hole.**" Four Admin routes pop. Edict 6 is not breached (nothing
+was deleted) but the animation was never *placed* — it was left to sixteen call sites to remember.
 
-### D-21 · MINOR · Motion belongs to the hosts, so 4 of 5 Admin routes pop
+### D-22 · MINOR · Every empty plate is a polite live region, and the decorative eyebrow is inside the announcement
 
-```
-$ grep -c Transition demo/palettes/BrowsePane.vue                        → 1  (vj-morph, out-in, :40)
-$ grep -c Transition demo/palettes/browser/admin/AdminUsersPanel.vue     → 3
-$ grep -c Transition demo/workbenches/mix/MixSourceSelector.vue          → 4
-$ grep -c Transition demo/palettes/browser/admin/AdminTagsPanel.vue      → 0
-$ grep -c Transition demo/palettes/browser/admin/AdminAuditPanel.vue     → 0
-$ grep -c Transition demo/palettes/browser/admin/AdminNamesPanel.vue     → 0
-$ grep -c Transition demo/palettes/browser/admin/AdminFlaggedPanel.vue   → 0
+`:28` `role="status"` (implicit `aria-live="polite"`). Measured on `#/admin/users`:
+
+```json
+"liveRegions": [
+ { "role": "alert",  "text": "dev misconfigured — run `npm run dev`" },
+ { "role": "status", "text": "· roster clear ·No users found." },
+ { "role": "status", "text": "· empty plate ·No saved palettes yet.Add colors ab…" }
+]
 ```
 
-`EmptyState` declares **no** motion of its own: no `@keyframes`, no `transition`, no
-`--animation-slide-*`, no `prefers-reduced-motion` branch. `BrowsePane.vue:29–40` carries a long
-comment explaining that skeleton→content must *"SETTLE into the wall on the snappy spring instead
-of a hard v-if POP"* — and then only BrowsePane gets it. Four of five Admin routes swap a
-185–218 px slab with a hard `v-if`. `VISUAL-CONSTITUTION.md:141` §6: *"No full-slab remount hole."*
-Edict 6 says animations are moved or tokenized, never deleted — here the animation was never
-*given* to the species, so it exists on 3 hosts of 16 by accident of authorship. Motion is a
-property of the species, not of its 16 addresses.
+Two polite regions per Admin route, and the authoritative count readout ("0 users",
+`AdminUsersPanel.vue`) is **not** one. So the ornamented plate announces and the number stays silent —
+the inverse of `VISUAL-CONSTITUTION.md:114`: "changed result count/state through the **owning status
+region**." The Picker rule at `:182` is the general law: "never a routine live region: ordinary text
+uses `aria-live="off"`."
 
-### D-22 · MINOR · The live-region design is asymmetric and reads the ornament aloud
-
-- `role="status"` (`:28`) carries implicit `aria-live="polite"` **and** `aria-atomic="true"`, and it
-  sits on the **empty branch**. So "the field became empty" announces; "results arrived" never does
-  — the region unmounts. One direction of the state change is audible, the other is silent.
-  The live region should belong to the *field*, not to one of its states
-  (`VISUAL-CONSTITUTION.md:114`: *"changed result count/state through the **owning** status region"*).
-- Because it is atomic, the whole plate re-announces on any mutation, ornament included: measured
-  accessible text `"· no tags minted ·No tags yet."`
-- `role="alert"` (`:17`) is **assertive** and wraps a focusable `Retry` button — an interactive
-  control inside an assertive live region, and the region is never focused, so the keyboard user
-  hears the failure and must hunt for the button.
-- Measured: 2 `role="status"` regions coexist on `/#/admin/tags`.
+And the announced string opens with `· roster clear ·` — a decoration (`EmptyState.vue:7` calls it
+"the plate label") that is not `aria-hidden`, unlike the mark it sits under (`:43`). The component
+hides its silent ornament from AT and reads its visual ornament aloud.
 
 ---
 
-## G. INFO
+## G. The eyebrow — MAJOR, and it belongs to no section above
 
-### D-23 · INFO · `withDefaults` rather than Vue 3.5 reactive props destructure
+### D-23 · MAJOR · The eyebrow restates the message at 10 of 10 live sites
 
-`EmptyState.vue:72–91` uses `withDefaults(defineProps<…>(), {…})`. Edict 7 names reactive props
-destructure as the 3.5 idiom for custom components: `const { variant = "empty", eyebrow = "· empty
-plate ·", dots = true } = defineProps<…>()`. `verbatimModuleSyntax` is satisfied (both imports at
-`:69–70` are value imports; no type-only import is present to mis-declare). The six redundant
-`| undefined` unions on already-optional props are noise, not defect.
+| site | eyebrow | message |
+|---|---|---|
+| `PalettesPane.vue:78` | `· empty plate ·` | No saved palettes yet. |
+| `BrowsePane.vue:84` | `· the commons ·` | No published palettes here yet. |
+| `MixSourceSelector.vue:241` | `· nothing to mix ·` | No saved palettes yet. |
+| `AdminUsersPanel.vue:63` | `· roster clear ·` | No users found. |
+| `AdminUsersPanel.vue:138` | `· none pinned ·` | No palettes. |
+| `AdminTagsPanel.vue:82` | `· no tags minted ·` | No tags yet. |
+| `AdminAuditPanel.vue:56` | `· ledger clear ·` | No audit entries found. |
+| `AdminFlaggedPanel.vue:39` | `· nothing flagged ·` | No flagged palettes. |
+| `AdminNamesPanel.vue:42` | `· queue clear ·` | No pending proposals. |
+| `AdminNamesPanel.vue:92` | `· none approved yet ·` | No approved color names. |
 
-### D-24 · INFO · One host of this species is unphotographed by the visual matrix
+Ten of ten (nine distinct; `dots`-bearing). **Not one eyebrow carries information the message does
+not.** It is the same proposition in a second typeface.
 
-`MixSourceSelector.vue:239` renders the plate only in **Palettes** source mode, behind a tab. Live
-probe of `/#/mix` in both schemes returned **0** instances. The species therefore has a host that
-appears in none of the 60 real-Safari captures — a coverage hole for the next visual pass, not a
-defect in the component.
+`safari-mobile-light/admin-users.png` shows the density that produces: the mobile Users plate states
+the same fact **four times** in one screen — heading badge `0`, the `0 users` readout, `· ROSTER
+CLEAR ·`, and `No users found.`
+
+`PROPORTION-AUDIT.md:34`: rationale must say "what comprehension/action improves; **'prettier' is
+invalid**." `:71`: "Subtraction precedes explanation."
+
+The Q6 ruling quoted at `EmptyState.vue:7` ("this annotation class survives ONLY here, on TRUE
+EMPTY") narrowed *where* the annotation may appear. It never established *what it says*. Ten sites
+later, it says nothing.
+
+Secondary defect in the same string: the `· … ·` frame is presentation encoded as content, repeated
+across ten literals in seven files. Changing the frame is a ten-file edit; the component cannot own
+its own punctuation.
+
+**Cure.** Either the eyebrow carries the datum the message cannot — the **count** and the **scope**
+(`2 saved · 0 shown`) — which is exactly what D-1's `filtered` arm needs, or it is subtracted. There
+is no third option in which it repeats the sentence below it.
 
 ---
 
 ## H. Negative proofs — claims I tried to make and could not
 
-Recorded so the next seat does not re-litigate them.
+Recorded so the arbiter can see the boundary of the attack.
 
-- **N-1 · `tag="div"` does not leak into the DOM.** `WatercolorDot`'s v7 prop surface
-  (`WatercolorDot.vue.d.ts:23–52`) declares `color / variant / animate / cycleDuration / range /
-  seed` — **no `tag`** (V's P051 abrogation removed the interactive host). `EmptyState.vue:45–47`
-  still passes `tag="div"`. I expected a stray HTML attribute; measured
-  `document.querySelectorAll("[tag]").length === 0` on 4 routes × 2 schemes. It is **dead API, not
-  a rendered defect** — hand it to CHALLENGE-C as a legacy-surface finding (edict 2), not to design.
-- **N-2 · The 0.34 CLS on `/#/browse` is not the plate's.** Measured `CLS = 0.3415`, dominated by a
-  single `0.32588` shift. Attribution from `LayoutShift.sources`: `DIV.pane-container
-  pane-container--dual`, `pane-wrapper--left|right`, and `DIV.glass-resting card …` moving
-  `774 → 515 px` tall. The identical shift (`0.31024`) occurs on `/#/admin/tags`. **Pane-layout
-  settle, not the EmptyState branch swap.** D-21's remount-hole claim therefore rests on the
-  missing `Transition` (code fact), not on CLS.
-- **N-3 · No horizontal document overflow.** 320 px: `documentElement.scrollWidth === 320 ===
-  clientWidth`. 200 % zoom: `1440 === 1440`. The REPORT.md `horizontalOverflow — 0` row holds for
-  this component.
-- **N-4 · Reduced motion is not violated.** `animationName: none` on all three dots. Under
-  `reducedMotion: "reduce"` the only surviving declaration is a producer-owned
-  `opacity .1s / color .1s` — a colour/opacity effect, which `VISUAL-CONSTITUTION.md:140` permits.
-  No layout-forcing property is animated, because nothing is animated.
-- **N-5 · The Q6 species separation *is* honoured at content level.** The error arm renders no
-  eyebrow and no trio: the measured `/#/browse` error instance has children
-  `svg / p / p / button` and **no** `[data-slot="empty-state-trio"]`. The rule at
-  `EmptyState.vue:10–13` is implemented as written. The defect is that the two species share one
-  *composition* (D-15), not that the content rule leaks.
-- **N-6 · The producer's small-scale legibility affordance is inert here (mechanism unresolved).**
-  `glass-ui.css` contains `@container (width<=48px){ .watercolor-ghost-stroke{ border-style: solid } }`
-  and all three dots are ≤ 48 px with `container-type: inline-size`. Measured `border-top-style`
-  is nonetheless **`dashed`** on all three. Either the rule loses to a later declaration or the
-  query does not resolve. Recorded as a producer/consumer seam observation for the BJ relay, not
-  claimed as a value.js defect. Its practical effect is that the canon's *"established dashes"*
-  survive — which is what the constitution wants.
-- **N-7 · The absolute stroke geometry is a real optical inconsistency but a producer default.**
-  `--watercolor-ghost-weight: 2px`, `--watercolor-dash: 8px`, `--watercolor-gap: 5px` are fixed on
-  `.watercolor-swatch`. Consumed at three diameters that yields stroke/diameter of
-  **8.33 % / 6.25 % / 4.55 %** (a **1.83×** weight spread) and dash cycles of
-  **5.80 / 7.73 / 10.63** over perimeters ≈ 75.4 / 100.5 / 138.2 px — non-integer, so each outline
-  carries a dash-phase seam at a different place. Visible on the small right dot in
-  `./probes/emptystate-dark-admintags.png`. **The design decision that exposes it is
-  EmptyState's** (three arbitrary Tailwind diameters, D-7); the token law is the producer's. It
-  belongs in the BJ relay alongside a request for a scale-invariant ghost stroke, and is the reason
-  the mark should be **one** primitive at **one** size with internally-proportioned satellites.
+**N-1 · The mark is canon-shaped.** `VISUAL-CONSTITUTION.md:186` requires "exactly three
+WatercolorDots plus the established dashes." There are exactly three (`:45–47`), and the dashes are
+real: `glass-ui.css` `.watercolor-ghost-stroke { border: 2px dashed var(--watercolor-color) }`,
+confirmed rendered in `probeD-light-trio-crop.png`. **No finding.** (D-6/D-7 are about *where* and
+*who owns it*, not shape.)
+
+**N-2 · The plate content-hugs.** Canon `:186` requires the true-empty invitation to content-hug.
+Measured exactly: 185.17 px = 32+44+10+21.58+10+35.59 and 218.14 px = …+10+22.97. Zero reserve, zero
+min-height of its own. **No finding.**
+
+**N-3 · Motion is clean.** `animationName: none` on all three dots; `animate` defaults `false`
+(`WatercolorDot.vue.d.ts:35`) so no rAF is started; the only transitions are producer-owned
+(`transform .2s, border-radius .6s, filter .2s, box-shadow .2s`) and nothing in this component
+triggers them. Nothing animates a layout-forcing property. `prefers-reduced-motion` is vacuously
+satisfied. **No finding** — and note `reduced-motion-desktop` in `STATES.json` reports
+`rafPer1500ms: 0` on `#/browse`. Edict 6 (animations never deleted) is intact: none existed here.
+
+**N-4 · `?: T | undefined` is required, not noise.** `tsconfig.base.json:11` sets
+`exactOptionalPropertyTypes: true`, so the explicit `| undefined` on all six optional props
+(`:74–88`) is correct. **No finding.**
+
+**N-5 · `verbatimModuleSyntax` is satisfied.** Both imports (`:69`, `:70`) are value imports of
+components; there is no type-only import to mark. **No finding.**
+
+**N-6 · No god module.** 105 lines, one responsibility, no barrel, no util drawer. Edict 1 intact.
+**No finding.**
+
+**N-7 · The mark is properly hidden from AT.** `aria-hidden="true"` on the wrapper (`:43`) and,
+independently, on each producer `<span>`. **No finding.** (D-22 is about the *eyebrow*, which is not.)
+
+**N-8 · No horizontal overflow ships today.** `../../visual/REPORT.md` → `horizontalOverflow — 0`
+across all 60 captures; my own `documentElement.scrollWidth == clientWidth` at 320, 390 and 1440.
+D-17 is latent, and I have labelled it MINOR for exactly that reason. **No finding beyond D-17.**
+
+Additionally **retracted** during this pass: an earlier measurement suggested the plate overflows its
+host by 7.5 px with ordinary long copy. Re-measured on the real mounted component
+(`D2-probe4.mjs`, `mutate_1440/390/320`) the `<p>` clamps to the host every time (462/324/254 px).
+The first reading was an artefact of appending a second grid item. Only the **unbreakable-token** case
+overflows, and that is what D-17 now claims.
 
 ---
 
 ## I. The gestalt cure
 
-Not 22 patches. Three transpositions, in order.
+One transposition retires D-1, D-2, D-6, D-23 and most of the rest; the remainder are token moves.
 
-**1 · Split the species; give each the anatomy its job requires.** `EmptyState` is not one
-component. It is:
+**1. The component models the reason, not the picture.** Replace `variant` + `message` + `eyebrow` +
+`hint` + `dots` with the discriminated union from D-1. `empty` earns the mark and the CTA; `filtered`
+earns the count and *Clear*; `failed` earns the detail and *Retry*; `unavailable` renders as a strip
+over retained rows. The mark's scope becomes structural, so `dots` cannot be defaulted wrong.
 
-- **`EmptyInvitation`** — mark + label + statement + **one required named action**. `hint` dies;
-  its three live strings were verbs. This closes D-1 and, with the action present, removes the
-  reason the plate needed a 26 ch display line to carry persuasion (D-11).
-- **`FieldFailure`** — with **two** shapes, cold (plate replacement) and warm (persistent status
-  strip *above retained content*, owning retry). This closes D-2 and unifies the 7 divergent
-  branch policies to one.
-- **`FieldSkeleton`** — the loading arm the current design pushed out to 7 files. Closes D-19 and
-  removes the branch-order freedom that caused D-2.
+**2. The mark becomes the primitive the canon already named.** `EmptyPaletteMark` lands in glass-ui
+owning three diameters, proportional `--watercolor-ghost-weight`/dash, `aria-hidden`, and a
+**graphics**-floored accent instead of the ink guard. `EmptyState` renders one tag; D-4, D-7, D-8 and
+D-15 close together, and the ten-line `N-3 RE-AIMED` comment block is deleted rather than amended.
 
-One `<FieldState>` wrapper owning the `loading | failure | empty | populated` switch, its live
-region (bound to the *field*, so both directions announce — D-22), and its transition (so motion is
-the species' property, not the host's — D-21).
+**3. One `FailurePlate` composition, actually shared.** `EmptyState`'s failure arms, `ErrorBoundary`
+and `Markdown`'s doc-miss all consume it. D-14's three geometries collapse to one; the three comments
+claiming shared-ness are replaced by code that is.
 
-**2 · Build the ratified `EmptyPaletteMark` in glass-ui, and make absence neutral.** One primitive,
-one authored size with internally proportioned satellites, direction-invariant internals, a
-scale-invariant stroke, one `forced-color-adjust` decision, `aria-hidden` once. Retint it to the
-neutral de-emphasis rung and reserve `--accent-live` for the add-slot ghost, where a live-colour
-preview is *data*. This single move closes D-3, D-5, D-7, D-8, D-18, D-20 and answers N-7 — and it
-makes D-6 enforceable by construction: Admin composes `EmptyInvitation` without the mark because
-the mark is a separate import, not a `dots` boolean nobody passes.
+**4. The rhythm is trimmed, then tokenised.** `text-box: trim-both cap alphabetic` on the text rows so
+the token equals the ink, then two tokens — `--empty-title-gap` and `--empty-section-gap` — for the
+two canon ranks. D-9 closes with measurement rather than taste.
 
-**3 · Re-derive the plate's spacing and measure from the glass-ui ladders, not from Tailwind
-brackets.** A title gap between label and statement and a section gap between statement and action
-(closing D-9); container-scaled padding and a paired clamp that holds the caption:headline ratio
-across the whole range (closing D-10); measures expressed in one font's `ch` or in the shared
-measure token so the ladder that is authored is the ladder that renders (closing D-11); a
-`min-block-size` on the species so sibling plates share a register (closing D-12); the type roles
-re-seated on the closed matrix — Plus Jakarta Sans for `text-heading` and for help copy (closing
-D-14); the `· … ·` frame drawn by the label species rather than typed into 11 strings (closing
-D-16); `overflow-wrap: anywhere` on every text arm, not one of four (closing D-17).
+**5. The de-emphasis rung gains a ceiling.** `--ink-muted` holds ≥ 12 OKLCH L-points from
+`--foreground` in both schemes, resolved by moving the plate, not the ink. D-3, D-5 and half of D-20
+close at the boot writer, once, for all 33 consumers of the token.
 
-What survives untouched: the Q6 species separation (N-5), the `--ink-muted` contrast floor's
-*light* behaviour, and the decision that loading is not empty. Those were right. The design failure
-is that being right about the *distinction* was mistaken for being finished with the *anatomy*.
+**6. Measures leave `ch` for the display face.** `--measure-display` in `em`; `ch` survives only on
+the mono rows. `overflow-wrap: anywhere` applies to all three text rows, not one. D-10 and D-17 close.
+
+**7. The status role moves to the count.** The plate drops `role="status"`; the owning result-count
+region announces, and the eyebrow — if it survives §G at all — carries the count rather than a second
+copy of the sentence. D-22 and D-23 close together.
+
+What must **not** happen: another prop, another comment block explaining why the current shape is
+correct, or a per-instance override that makes one route look right. The file is 101 non-blank lines,
+**43 of them comment/doc citing rulings** against 58 of code (counted, `EmptyState.vue`); the next
+edit should remove ruling-citation, not add it.
+
+---
+
+## J. Concordance with pass 1
+
+Pass 1 (`./challenge-D-design.pass1.md`, 22 findings) and this pass were produced independently. They
+converge on the chroma/scheme block, the mark's scope and ownership, the flat rhythm, the type-matrix
+breach, and the state-coverage tail — which is strong cross-validation of those.
+
+**This pass adds, as new material:**
+
+- **D-1 (BLOCKER)** — the filtered-zero falsehood, with a rendered reproduction. Absent from pass 1.
+- **D-15** — `tag="div"` against a prop glass-ui 7.0.0 deleted. Absent from pass 1.
+- **D-23** — the eyebrow's 10-of-10 redundancy tabulated site by site, promoted to MAJOR.
+- Rendered-pixel contrast for D-3 (4.65/10.81 vs 4.96/5.54) and a per-row ink scan for D-9
+  (14 : 23 : 16), replacing token-level argument with measurement.
+
+**This pass retracts** pass 1's overflow-by-7.5 px claim for ordinary copy (see §H); the finding
+survives only for the unbreakable-token case, as D-17.
+
+Pass 1 additionally raises a *no-CTA-anywhere* finding and a *two-plates-out-of-vertical-register*
+finding that I did not independently reach; I have not re-verified them and do not carry them here.
+The arbiter should read both files.

@@ -89,10 +89,10 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | App | CDL | CDL | **ADJUDICATED** |
 | ColorSpaceSelector | CDL | CDL | **ADJUDICATED** |
 | PaneHeader | CDL | CDL | ON-DISK |
-| EmptyState | DL | DL | **PARTIAL — missing C** |
+| EmptyState | CDL | CDL | ON-DISK |
 | ErrorBoundary | CDL | CDL | ON-DISK |
 | PreviewStrip | CDL | CDL | ON-DISK |
-| PreviewRamp | — | — | **NOT-STARTED** |
+| PreviewRamp | CDL | CDL | ON-DISK |
 
 ## scenes · `wf_dee4c83a-ec2` · record: completed · 3/7 claimed, failures: []
 
@@ -102,8 +102,8 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | ConfigSliderPane | CDL | CDL | **ADJUDICATED** |
 | ColorNutritionLabel | CDL | CDL | ON-DISK |
 | AuroraPane | CDL | CDL | ON-DISK |
-| BlobPane | — | — | **NOT-STARTED** |
-| AboutPane | — | — | **NOT-STARTED** |
+| BlobPane | DL | DL | **PARTIAL — missing C** |
+| AboutPane | CDL | CDL | ON-DISK |
 | Katex | — | — | **NOT-STARTED** |
 
 ## picker · `wf_3c8798e8-23e` · record: killed · —
@@ -135,7 +135,7 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 
 ## VERDICT
 
-**41 incomplete component rows.** 38 covered by an ACTIVE resume · 3 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
+**38 incomplete component rows.** 38 covered by an ACTIVE resume · 0 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
 
 A run record saying "completed" does not clear a row — only banked axes do. Bands re-open until every roster row is ADJUDICATED or ON-DISK.
 
@@ -172,11 +172,8 @@ A run record saying "completed" does not clear a row — only banked axes do. Ba
 - palettes / **PaginationBar** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **AdminListSkeleton** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **AdminListItem** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- core / **EmptyState** — missing C (`wf_66b1fcba-daa` · completed) — ACTIVE resume
-- core / **PreviewRamp** — missing D/L/C (`wf_66b1fcba-daa` · completed) — ACTIVE resume
-- scenes / **BlobPane** — missing D/L/C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
-- scenes / **AboutPane** — missing D/L/C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
+- scenes / **BlobPane** — missing C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
 - scenes / **Katex** — missing D/L/C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
-- picker / **picker-componentsliders** — missing C (`wf_3c8798e8-23e` · killed) — QUEUED resume
-- picker / **picker-spectrumcanvas** — missing D/L/C (`wf_3c8798e8-23e` · killed) — QUEUED resume
-- picker / **picker-heroblob** — missing D/L/C (`wf_3c8798e8-23e` · killed) — QUEUED resume
+- picker / **picker-componentsliders** — missing C (`wf_3c8798e8-23e` · killed) — ACTIVE resume
+- picker / **picker-spectrumcanvas** — missing D/L/C (`wf_3c8798e8-23e` · killed) — ACTIVE resume
+- picker / **picker-heroblob** — missing D/L/C (`wf_3c8798e8-23e` · killed) — ACTIVE resume

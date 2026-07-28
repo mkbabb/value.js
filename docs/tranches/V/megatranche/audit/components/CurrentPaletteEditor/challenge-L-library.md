@@ -1696,3 +1696,526 @@ decide findings are pasted verbatim above. Images read: `shots/safari-desktop-li
 
 **No source file was edited by this pass.** The only writes are this appended section and four probe
 scripts in the session scratchpad. Nothing above `# Fourth pass` was altered.
+
+---
+---
+
+# Fifth pass — a second dead producer contract, a forked status concept, and the cost of a key's address
+
+## Model receipt (pass 5)
+
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`, the 1M-context variant) — the model this seat
+was explicitly spawned with. Declared, not inherited.
+
+## Substrate
+
+| | |
+|---|---|
+| HEAD **as observed** | `f36f780c` — `docs(V·mega): STATE — three OM censuses complete, findings at MT-F043`. The brief said `c654824e` (confirmed an ancestor: `git merge-base --is-ancestor c654824e HEAD` → YES). Five different trees across five passes: `041ca263` → `5c13465d` → `7775473b` → `f36f780c`. Anchor on the stamp. |
+| Producer | `@mkbabb/glass-ui` **7.0.0** (`node -e "require('./node_modules/@mkbabb/glass-ui/package.json').version"`) |
+| Live substrate | dev server `http://localhost:9000` (HTTP 200), driven read-only with Playwright |
+| Method | Ran cold against the subject, the producer's `.d.ts` surface and the demo module graph, *then* read passes 1–4 to avoid re-reporting. Findings L-20…L-25 are new; L-22 **amends the cure of pass-1 L-7**. |
+
+Passes 1–4 hunted `WatercolorDot`. This pass asks the question one level out: **which *other* producer
+contracts does this component write against, and are any of them equally dead?** The answer is yes —
+and the second one is not a leaf primitive, it is `Button`, at 51 sites.
+
+---
+
+## L-20 · MAJOR — `Button variant="…"` is a second dead producer contract: 51 sites address an axis glass-ui 7 replaced
+
+`CurrentPaletteEditor.vue` mounts three glass-ui `Button`s and gives each a `variant`:
+
+```
+:134   <Button variant="outline" icon-only …>   ← the save-palette confirm
+:151   <Button variant="outline" size="sm" …>   ← "Update" (duplicate-name branch)
+:159   <Button variant="ghost"   size="sm" …>   ← "Cancel"
+```
+
+**Glass 7's `Button` has no `variant` prop.** The shipped declaration
+(`node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts`) is exhaustive:
+
+```ts
+export type ButtonEmphasis = "primary" | "secondary" | "quiet" | "text";
+export interface ButtonProps extends PrimitiveProps {
+    emphasis?: ButtonEmphasis;   // "Visual priority. It does not change the command's semantics."
+    tone?: Tone;                 // "Semantic intent, orthogonal to emphasis."
+    size?: ButtonSize; iconOnly?: boolean; loading?: boolean;
+    type?: …; disabled?: …; class?: …;
+}
+```
+
+and the runtime carries no such prop either:
+
+```
+$ node -e "const s=fs.readFileSync('node_modules/@mkbabb/glass-ui/dist/button.js','utf8');
+           console.log(s.match(/variant:\{[^}]*\}/g))"
+NONE
+```
+
+The producer even documents the migration in the *sibling* component's declaration
+(`Badge.vue.d.ts`), which kept `variant` as a style plate and added `tone`:
+
+> "the semantic status register (the shared `tone` axis …). Orthogonal to the `variant` STYLE plate;
+> a set tone overrides the plate colour. **Replaces the former `variant="destructive|success|warning|info"`
+> (a tone is not a style).**"
+
+### Measured live — the prop falls through to the DOM and the intent is lost
+
+`http://localhost:9000/#/palettes`, 1440×900, `savedColors` seeded (scratchpad `cpe-L5-button.mjs`):
+
+```json
+{
+  "domVariantAttrCount": 3,
+  "domVariantAttrTags": ["BUTTON[variant=outline]", "BUTTON[variant=ghost]", "BUTTON[variant=outline]"],
+  "buttonsWithVariantAttr": [
+    { "label": "Login",      "attrVariant": "outline", "dataEmphasis": "secondary", "dataTone": "neutral" },
+    { "label": "@mbabb",     "attrVariant": "ghost",   "dataEmphasis": "secondary", "dataTone": "neutral" },
+    { "label": "(nameless)", "attrVariant": "outline", "dataEmphasis": "secondary", "dataTone": "neutral",
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full …" }
+  ],
+  "dataEmphasisNodes": 3
+}
+```
+
+Three facts, each decisive:
+
+1. **`variant` reached the DOM as a literal attribute** (`<button variant="outline">`). That is the
+   signature of a prop the component does not declare: Vue passed it through as a fallthrough attr.
+   It is also invalid HTML — no such attribute exists on `<button>`.
+2. **`outline` and `ghost` render identically** — both `data-emphasis="secondary" data-tone="neutral"`,
+   the component defaults. Two authored intents collapse to one plate. The third row is this
+   component's own save button (`.dashed-well`'s only control, matching pass-3 L-19).
+3. **`dataEmphasisNodes: 3`** — three glass-ui `Button`s are mounted on this route, and *all three*
+   address the design system through the dead axis. **Zero** use `emphasis`/`tone`.
+
+### The blast radius, censused
+
+```
+$ python3  # parse every <Button …> tag in demo/**/*.vue
+Button variant values: {'outline': 28, 'ghost': 19, 'destructive': 1, 'default': 1, 'primary-audacious': 2}
+                       total 51 across 22 files
+Button emphasis: 2      Button tone: 2
+```
+
+**51 dead `variant` bindings against 4 live `emphasis`/`tone` bindings.** Seventeen of the 22 files are
+inside `demo/palettes/`. The two live ones are in this component's own parent
+(`PalettesPane.vue:113` `emphasis="text"`, `:116` `tone="destructive"`) — so **the same file uses both
+vocabularies**: `:63` still writes `variant="ghost"`. The migration touched two lines of one dialog
+footer and stopped.
+
+And no authored value is even a member of the new vocabulary (`primary | secondary | quiet | text`):
+`outline`, `ghost`, `default`, `destructive` are the shadcn-era plate names, and
+**`primary-audacious`** (`MixConfigBar.vue:163`, `GenerateControls.vue:158`) is not a member of *any*
+vocabulary the producer has ever shipped — it is a string invented for a plate that no longer exists.
+
+### Why this is a library-structure finding, and why nothing caught it
+
+This is pass-1 **L-2's mechanism reproduced on a second primitive**, which retires L-2 from
+"a claim about one component" to "a property of the seam": Vue's fallthrough-attr rule makes an
+unknown prop *legal TypeScript*, so `vue-tsc -p tsconfig.demo.json --noEmit` is green over all 51.
+But there is a sharper structural cause here that L-2 does not name, and it is **L-4's alias layer**:
+
+```
+demo/ui/button/index.ts   →   export { Button } from "@mkbabb/glass-ui";
+```
+
+Because every consumer imports `Button` from `../../../ui/button`, the Glass 6 → 7 upgrade changed
+**no import specifier anywhere in the demo**. A producer that renames a component's entire prop axis
+normally announces itself at the import site; the alias layer swallowed the announcement. L-4 charged
+`demo/ui/` with being redundant and, at pass 4, with hosting a live dual path. This is the third and
+worst charge: **it is a signal absorber.** The demo pays a directory of zero-logic modules for the
+privilege of not noticing that its design system changed.
+
+**Cure (transposition).** Delete `demo/ui/` (L-4) so the specifier is `@mkbabb/glass-ui/button` at
+every call site, then codemod the axis: `variant="outline"|"ghost"` → `emphasis="secondary"|"quiet"`
+(the producer's stated equivalents), `variant="destructive"` → `tone="destructive"`,
+`variant="default"` → nothing (it is the default), and `primary-audacious` → an
+`emphasis="primary"` + a named glass-ui plate if the audacious register is wanted — in glass-ui,
+per edict 4, not as a string the producer ignores. Then make the seam nominal (L-2's cure): with
+`demo/ui/` gone and a `satisfies ButtonProps` object or an excess-property-checked spread, the 51st
+site fails the build instead of the eye.
+
+---
+
+## L-21 · MAJOR — the status affordance this component imports is a fork of a tested resolver, and both render at once
+
+`CurrentPaletteEditor.vue:116` mounts `<ApiOfflineChip>`, imported at `:193` from
+`../status/ApiOfflineChip.vue`. Passes 1/3 charged that import with bypassing a barrel (L-6, L-18).
+The larger fact is what is *inside* the file.
+
+**One concept, two homes.**
+
+| | `demo/palettes/browser/status/ApiOfflineChip.vue` | `demo/shell/dock/status-lamp.ts` + `DockStatusLamp.vue` |
+|---|---|---|
+| resolver | inline in the SFC: `availability.value === "unavailable"` / `=== "misconfigured"` (`:36-37`) | `resolveLampState(availability, isDev)` — **pure, total, exported** (`status-lamp.ts:46-65`) |
+| tests | **none** (`grep -rln "ApiOfflineChip\|api-offline-chip" test/ demo/test/ e2e/` → no output) | **6** (`grep -c "it(" test/status-lamp.test.ts` → 6) + `e2e/smoke/oracles/o22-status-lamp.spec.ts` |
+| dev gate | **none** — the chip ships in production | `if (!isDev) return null` — "the lamp ships dark in production" |
+| labels | hard-coded in the template | returned by the resolver |
+| roles | `alert` / `status`, hard-coded | `role: "alert" \| "status"` in `LampState` |
+
+`status-lamp.ts`'s own header claims the two are one register — *"speaking the instrument register the
+per-surface `ApiOfflineChip` already speaks … one status language, two seats"* — and
+`DockStatusLamp.vue`'s style comment repeats it: *"in the ApiOfflineChip's exact register (small-caps
+mono caption, hairline edge, pill radius)"*. **A comment is not a mechanism.** Measured:
+
+```
+$ python3  # normalize both <style scoped> blocks to (property, value) pairs
+ApiOfflineChip declarations: 28 distinct: 24
+DockStatusLamp declarations: 34 distinct: 33
+IDENTICAL (property:value) pairs shared: 19
+```
+
+19 of the chip's 24 distinct declarations are byte-identical to the lamp's — `font-variant:
+small-caps`, `letter-spacing: 0.06em`, `font-size: var(--type-mono-caption, 0.6875rem)`,
+`border: 1px solid var(--card-edge)`, `color: color-mix(in oklab, var(--foreground) 72%, transparent)`,
+`background: color-mix(in oklab, var(--background) 55%, transparent)`, the 0.4rem dot, the
+destructive mixes. Of the 5 that differ, three differ only in whitespace and **two have already
+drifted**:
+
+| | chip | lamp |
+|---|---|---|
+| `padding` | `0.3rem 0.7rem` | `0.3rem 0.55rem` |
+| `border-radius` | `var(--radius-pill)` | `var(--radius-pill, 9999px)` |
+
+And the pulse is **two keyframes with identical bodies under two names** —
+`@keyframes offline-dot-pulse` and `@keyframes lamp-dot-pulse`, both
+`0%,100%{opacity:1} 50%{opacity:0.35}`, both `2.4s var(--ease-standard) infinite`, each locked inside
+a scoped SFC. `demo/styles/animations.css` — the declared home for global keyframes (edict 6) —
+contains no pulse at all (`grep -rn "pulse" demo/styles/*.css` → no output).
+
+### Measured live: two `role="alert"` regions with byte-identical text
+
+Prior evidence recorded this as unreproduced — `registry/harvest/area-shell.json:4518`:
+*"**HYPOTHESIS (not reproduced)**: with ≥1 saved colour on /#/palettes both seats render
+simultaneously as two `role="alert"` nodes with identical text — measured
+`document.querySelectorAll('[role="alert"]').length === 1` on an empty session because
+`CurrentPaletteEditor.vue:116`'s `v-if="savedColorStrings.length > 0"` gate was false."*
+
+Seeding the gate open reproduces it (scratchpad `cpe-L5-probe.mjs`, `savedColors` = 3 colours):
+
+```json
+{
+  "liveRegionCount": 3,
+  "liveRegions": [
+    { "role": "alert", "cls": "dock-status-lamp fira-code",
+      "text": "dev misconfigured — run `npm run dev`", "owner": "dock band",
+      "padding": "4.8px 8.8px",  "animName": "lamp-dot-pulse-45530b34" },
+    { "role": "alert", "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+      "text": "dev misconfigured — run `npm run dev`", "owner": "CurrentPaletteEditor(.dashed-well)",
+      "padding": "4.8px 11.2px", "animName": "offline-dot-pulse-cb533f05" },
+    { "role": "status", "text": "· empty plate ·No saved palettes yet.…" }
+  ],
+  "chipPresent": true, "lampPresent": true, "identicalText": true
+}
+```
+
+**HYPOTHESIS → CONFIRMED.** Two `role="alert"` live regions, byte-identical text, 400 px apart, with
+the measured padding drift visible (`8.8px` vs `11.2px`) and two separately-hashed copies of the same
+animation. A screen reader announces the identical alert twice.
+
+### The structural mechanism — and it is the interesting part
+
+The resolver is *right*: pure, total, `(availability × dev-gate) → LampState | null`, six tests, a
+matching e2e oracle. It is simply **at the wrong address**. It lives in `demo/shell/dock/`, so a
+feature seat in `demo/palettes/browser/status/` cannot consume it without minting a
+**feature → shell** import — precisely the boundary the brief names. Faced with that, the feature did
+the locally-correct thing and re-derived the matrix in two computeds.
+
+The concept's real owner is neither: `ApiAvailability` is defined in
+`demo/platform/transport/availability.ts`, and both seats already inject `useApiClient()` from
+`demo/platform/transport/useApiClient.ts`. **The resolver belongs beside the state it resolves.**
+Measured cones make the misplacement concrete:
+
+```
+demo/shell/dock/status-lamp.ts                     modules= 2  LoC=  260
+demo/palettes/browser/status/ApiOfflineChip.vue    modules= 5  LoC=  566
+```
+
+Two modules. Moving `resolveLampState` from `shell/dock/` to `platform/transport/` costs nothing and
+converts an unreachable dependency into a shared one.
+
+**Cure (transposition, not patch).**
+1. `resolveLampState` + `LampState` move to `demo/platform/transport/status.ts`, beside
+   `ApiAvailability` (no new `shared/` dir — `platform/transport/` already exists; edict 3). The six
+   tests move with it unchanged.
+2. Both seats become thin consumes of one resolver. The chip inherits the dev gate or explicitly
+   declines it — **as a decision, not as an omission**, because today the chip will render the
+   developer-facing string ``dev misconfigured — run `npm run dev` `` to an end user in a production
+   build if the latch ever trips, and the lamp deliberately will not.
+3. The shared *register* — small-caps mono caption, hairline edge, pill radius, status pulse — is one
+   glass-ui atom (`Chip` already exists: `node_modules/@mkbabb/glass-ui/dist/chip.js`), not 19
+   duplicated declarations across two scoped `<style>` blocks. That is edict 4 and edict 5 in one
+   move, and it takes the keyframe with it into a place where it can be tokenized rather than cloned.
+4. Only one of the two may be a live region on any given route. Two `role="alert"` nodes with the
+   same text is not a design; it is the absence of one.
+
+---
+
+## L-22 · MAJOR (amends pass-1 L-7's cure) — the palette ports' injection keys are colocated with a 275-line provider, so the contract costs its implementation
+
+Pass-1 L-7 is right that this component should inject `LIBRARY_PORT_KEY` / `COLOR_TARGET_PORT_KEY`
+instead of taking 4 props and 8 emits. **Its cure as written cannot be executed cheaply**, because of
+where those keys live.
+
+```
+$ grep -n "^export const .*_KEY" demo/palettes/usePalettePorts.ts
+271: export const SESSION_PORT_KEY … 272: LIBRARY_PORT_KEY … 273: BROWSE_PORT_KEY …
+274: ADMIN_PORT_KEY … 275: COLOR_TARGET_PORT_KEY
+$ wc -l demo/palettes/usePalettePorts.ts      →  275
+```
+
+All five injection keys are declared in the same module as `providePalettePorts`, which **value-imports
+16 composables** (`usePaletteStore`, `useBrowsePalettes`, `useAdminUsers`, `useAdminAudit`,
+`useAdminFlagged`, `useAdminTags`, `useVersionHistory`, `useTagEdit`, `useSlugMigration`,
+`useColorNameQueue`, `usePaletteActions`, `useFilteredList`, the three auth composables). An
+injection key is a **contract**; a provider is an **implementation**. Colocating them makes every
+consumer of the contract depend on the whole implementation cone.
+
+Measured — transitive walk of relative imports, counting only value (non-type-only) edges:
+
+| entry | runtime modules | runtime LoC |
+|---|---:|---:|
+| `demo/palettes/usePalettePorts.ts` | **26** | **2,971** |
+| `demo/color-session/keys.ts` | **1** | **27** |
+
+(Full graph including type-only edges: 92 modules / 9,482 LoC vs 18 / 2,035. `keys.ts`'s entire cone
+is type-only and erases at build; `usePalettePorts`' is not.)
+
+**The repo already contains the correct idiom, and this component already uses it.**
+`demo/color-session/keys.ts` is keys-and-types only — five `InjectionKey` symbols, every import an
+`import type`. `CurrentPaletteEditor.vue:173` reaches it for `SAFE_ACCENT_KEY` and pays 27 lines.
+`useSwatchActions.ts:4` reaches it for `EDIT_TARGET_KEY` and pays the same 27. The palettes feature
+does the opposite of its sibling.
+
+The bill is already being paid elsewhere: **five shell/dock modules import `SESSION_PORT_KEY`** —
+`Dock.vue:18`, `DockViewSelect.vue:8`, `SlugEditLayer.vue:5`, `MobileMenuDropdown.vue:13`,
+`ProfileSection.vue:14` — each pulling a 26-module / ~3k-LoC cone including the entire admin API
+surface to obtain one `Symbol()`. Following L-7's cure without this move would add
+`CurrentPaletteEditor` to that list.
+
+**Cure.** Split `demo/palettes/ports.ts` (keys + port interfaces, `import type` only, ~60 lines) from
+`demo/palettes/usePalettePorts.ts` (the provider). Consumers import the former; only the app root
+imports the latter. That is a mechanical file split with no behaviour delta, it makes L-7's cure free,
+and it is the same shape `color-session/` already ships.
+
+---
+
+## L-23 · MINOR — `TooltipProvider` is mounted per call-site, so a house timing decision has four values
+
+`CurrentPaletteEditor.vue:88` opens a provider **inside its `TransitionGroup`**, around a single
+trigger:
+
+```vue
+<TooltipProvider :delay-duration="200">
+    <Tooltip><TooltipTrigger as-child>…</TooltipTrigger><TooltipContent>…</TooltipContent></Tooltip>
+</TooltipProvider>
+```
+
+Census of the whole demo:
+
+```
+$ grep -rn "<TooltipProvider" demo --include='*.vue'          → 4
+demo/scenes/about/ColorNutritionLabel.vue:97                    delay-duration="100"
+demo/picker/controls/ComponentSliders/ConsoleRail.vue:23        delay-duration="300"
+demo/shell/dock/ColorInput.vue:30                               delay-duration="200"
+demo/palettes/browser/card/CurrentPaletteEditor.vue:88          delay-duration="200"
+$ grep -rn "TooltipProvider" demo/color-picker/App.vue demo/shell/*.vue   → (no output)
+```
+
+**Four providers, zero at app root, three different delays.** A `TooltipProvider` is a *scope*
+primitive, not a decoration: reka-ui uses it to share open/close and skip-delay state across the
+tooltips beneath it. Four isolated providers means the grouping behaviour never spans them — moving
+between two tooltips in different providers re-incurs the full delay — and "how long before a tooltip
+appears" becomes a per-instance decision with no house value, which is edict 5 (root-level styling,
+never per-instance overrides) applied to motion timing.
+
+**Cure.** One `<TooltipProvider>` at the app root with the house delay expressed as a token, and the
+four local providers deleted. If a surface genuinely needs a different delay, that is a *named*
+register in glass-ui, not a magic number at a call site.
+
+---
+
+## L-24 · MINOR — `demo/palettes` and `demo/shell` are mutually dependent; neither tree is extractable
+
+```
+$ grep -rn 'shell/' demo/palettes --include='*.ts' --include='*.vue'
+demo/palettes/usePalettePorts.ts:19: import type { ViewId } from "../shell/useViewManager";
+
+$ grep -rn 'palettes/' demo/shell --include='*.ts' --include='*.vue'
+demo/shell/usePaneRouter.ts:70,71,76      → PalettesPane / BrowsePane / AdminPane (lazy)
+demo/shell/dock/Dock.vue:18               → SESSION_PORT_KEY
+demo/shell/dock/DockViewSelect.vue:8      → SESSION_PORT_KEY
+demo/shell/dock/layers/SlugEditLayer.vue:5      → SESSION_PORT_KEY
+demo/shell/dock/menus/MobileMenuDropdown.vue:13 → SESSION_PORT_KEY
+demo/shell/dock/menus/ProfileSection.vue:14     → SESSION_PORT_KEY
+```
+
+The shell→feature edge is legitimate composition (a router mounts panes; a dock reads a session
+port). The feature→shell edge is not: `PalettePortsDeps` is parameterised by the shell's **view
+vocabulary** (`currentView: Ref<ViewId>`, `switchView: (id: ViewId) => void`), so the palette
+feature's port *contract* cannot be stated without naming the shell's routes. The type import erases
+at runtime, so this is not a load-time cycle — but it is a genuine cycle in the dependency lattice,
+and it means neither directory can be lifted, tested, or reasoned about alone.
+
+**Cure.** Invert it: the ports declare `onNavigate: (intent: "library" | "browse") => void` — a
+*feature-owned* vocabulary — and the app root (which already owns both) adapts intents to `ViewId`.
+The feature stops knowing the shell exists; the shell keeps knowing the feature does. One direction,
+which is the whole point of a lattice.
+
+---
+
+## L-25 · MINOR — `EditTarget.paletteId` is a two-kind union flattened into `string`, discriminated by a sentinel
+
+```ts
+// demo/color-session/color-model.ts:19-23
+export interface EditTarget { paletteId: string; colorIndex: number; originalCss: string; }
+// demo/palettes/constants.ts:9
+export const CURRENT_PALETTE_ID = "__current__";
+```
+
+Two consumers branch on the sentinel to decide which *store* they are editing:
+
+```
+useSwatchActions.ts:26   et.paletteId === CURRENT_PALETTE_ID && et.colorIndex === index
+usePaletteActions.ts:100 if (paletteId === CURRENT_PALETTE_ID) { …write the draft buffer… }
+                         else …resolve against the local palette store by id…
+```
+
+The field carries two disjoint kinds — "the in-memory draft buffer" and "a saved palette's local store
+key" — in one `string`, and the two live in **one namespace by construction**: `Palette.id` is
+documented (`types.ts:15-27`) as `crypto.randomUUID()` *or* a `gen-`/`mix-`/`__extracted__` temp
+prefix, i.e. the same underscore-sentinel shape. Nothing prevents a future temp prefix from colliding,
+and nothing tells a new consumer that the branch exists — `constants.ts`'s doc comment is the only
+record, and it is in a third file.
+
+This is the same disease as pass-3 L-16 one level up: a domain distinction with no type. **Cure:**
+`type EditTarget = { kind: "draft"; colorIndex: number; originalCss: string } | { kind: "saved";
+paletteId: string; colorIndex: number; originalCss: string }`. The sentinel and `constants.ts` both
+delete themselves, and both branches become exhaustive rather than remembered.
+
+---
+
+## Re-verification of prior passes at `f36f780c`
+
+Re-measured cold this pass. Everything load-bearing still holds.
+
+| claim | re-measured | result |
+|---|---|---|
+| L-1 · the add slot has **no click listener at all** | live vnode read: `vnodePropKeys: ["aria-hidden","class","data-testid","data-variant","style"]`; `tag: "SPAN"`, `ariaHidden: "true"`, `ariaLabel: null`, `pointerEvents: "none"`, `hasSvgPlus: false` | **CONFIRMED** — no `onClick`, no `aria-label`, no `<Plus>` |
+| L-1 · the e2e guard still targets the dropped name | `grep -n "Add current color" e2e/smoke/flows/palette-save.spec.ts` → `:35 getByRole("button", { name: /Add current color .* to palette/ })` | **CONFIRMED** — the selector is unchanged, so the guard is still red |
+| L-19 · the only real button is nameless | live: `.dashed-well` controls = `[INPUT "Palette 1", BUTTON "(nameless)"]` | **CONFIRMED** |
+| negative · no deep `src/` reach, no illegal specifier | `grep -rEn 'from "(\.\./)+src/\|@src/\|value\.js/(dist\|src)/' demo` → **0**; `exports` keys = `./color ./value ./css ./easing ./math ./transform ./quantize` | **CONFIRMED** |
+| negative · this component imports the library not at all | `grep -rn "@mkbabb/value" demo/palettes/browser/card/ demo/palettes/types.ts demo/palettes/constants.ts` → no output | **CONFIRMED** — correct for a UI leaf |
+| negative · the card composables are not forked | `useHoverPopover` → 2 consumers (`useSwatchActions.ts:40`, `PaletteCard.vue:255`); `useLeaveTimer` → 1 (`useHoverPopover.ts:18`); `useHeightTransition` → 1 (`PaletteCard.vue:276`) | **CONFIRMED** — one home each, no dead module |
+| negative · `verbatimModuleSyntax` clean | `CurrentPaletteEditor.vue:190`, `useSwatchActions.ts:2-3` all `import type` | **CONFIRMED** |
+
+### Visual cross-check (image read directly this pass)
+
+`shots/safari-desktop-light/palettes.png`: the "Start a new palette" well shows a lone dashed pink
+silhouette with **no `+` glyph** — pass 1/2's reading of the deleted `<slot/>` stands. Two further
+things are visible now that L-20 and L-21 are on the table:
+
+- The dock's **Login** pill renders as a filled glass capsule, not an outline — the live-measured
+  `variant="outline"` → `data-emphasis="secondary"` collapse, visible in the capture.
+- **No status chip appears in the well** — because the capture ran with zero saved colours, so
+  `v-if="savedColorStrings.length > 0"` was false. That is exactly why the double-`role="alert"` of
+  L-21 was recorded as an unreproduced hypothesis: the visual matrix photographs the one state in
+  which the defect is invisible. Both L-20 and L-21 needed the DOM, not the picture, and L-1/L-12
+  needed it before them. **Three passes of route-level capture have now missed four defects on this
+  one route for the same reason: the oracles ask "did it paint and did it error", and every defect
+  here is a control that paints beautifully and errors never.**
+
+---
+
+## Supplement to the findings table (pass 5)
+
+| id | sev | finding | anchor |
+|---|---|---|---|
+| L-20 | MAJOR | **Second dead producer contract.** `Button variant=` is not a Glass 7 prop (`emphasis`+`tone` replaced it); **51 sites / 22 files** vs 4 live `emphasis`/`tone`; measured DOM fallthrough `<button variant="outline">` and all 3 mounted Buttons collapsing to `data-emphasis="secondary" data-tone="neutral"`; `primary-audacious` belongs to no vocabulary. `demo/ui/`'s alias layer is why the upgrade changed no import specifier and announced nothing. | `CurrentPaletteEditor.vue:134,151,159`; `Button.vue.d.ts`; probe output |
+| L-21 | MAJOR | The `ApiOfflineChip` this component mounts **forks** `status-lamp.ts`'s pure, 6-test-covered `resolveLampState`; 19/24 identical CSS declarations, two identically-bodied keyframes, already drifted on padding + radius; chip is not dev-gated, lamp is. **Two `role="alert"` regions with byte-identical text render simultaneously (HYPOTHESIS → CONFIRMED).** Cause: the resolver is homed in `shell/`, unreachable from the feature. | `ApiOfflineChip.vue:36-37,116` vs `demo/shell/dock/status-lamp.ts:46-65`; probe output |
+| L-22 | MAJOR | Injection keys colocated with a 275-line provider that value-imports 16 composables: the contract costs **26 runtime modules / 2,971 LoC**, against **1 / 27** for the correct in-repo idiom (`color-session/keys.ts`). 5 shell/dock files already pay it for one `Symbol`. **Amends L-7's cure.** | `usePalettePorts.ts:1-19,271-275` |
+| L-23 | MINOR | `TooltipProvider` mounted per call-site — 4 providers, 0 at app root, 3 different `delay-duration` values (100/200/300). A scope primitive and a house timing token decided per instance (edict 5). | `CurrentPaletteEditor.vue:88` + 3 |
+| L-24 | MINOR | `demo/palettes` ↔ `demo/shell` mutual dependency: the palette ports' contract is parameterised by the shell's `ViewId`; 5 shell files import the feature's `SESSION_PORT_KEY`. Neither tree is extractable. | `usePalettePorts.ts:19`; 5 shell sites |
+| L-25 | MINOR | `EditTarget.paletteId: string` flattens two disjoint kinds (draft buffer vs saved-palette key) discriminated by the `"__current__"` sentinel, in a namespace shared with `__extracted__`-prefixed temp ids; 2 consumers branch on it. | `color-model.ts:19-23`; `constants.ts:9`; `useSwatchActions.ts:26`; `usePaletteActions.ts:100` |
+
+**Pass-5 verdict: DEFECTIVE, unchanged.**
+
+**Strongest defect overall: L-1** (re-confirmed here from the vnode props — there is no listener in
+the tree). **Strongest *new* defect: L-20**, because it converts pass-1 L-2 from a claim into a law.
+L-2 said "the `.d.ts` boundary catches nothing"; it had one instance. L-20 supplies the second
+primitive, the 51-site census, and the *reason*: `demo/ui/`'s alias layer means a major producer
+upgrade can change every prop axis in the design system without changing one character of any
+consumer's import. `WatercolorDot` broke loudly (a control that does nothing). `Button` broke
+silently (a design system rendering every command at one emphasis). The second is worse, because
+nothing will ever report it.
+
+**Amendment to the pass-3 three-move retirement.** Move 3 ("delete the alias layers") is not "pure
+subtraction, no behaviour delta" — that was true of the deletion and false of what the deletion
+*reveals*. Deleting `demo/ui/` exposes 51 dead `variant` bindings that must be migrated in the same
+change. Sequencing it after moves 1–2 is right; costing it as free is not. The corrected ranking:
+
+1. **glass-ui ships `./swatch`** (a real `<button>` hosting the paint, owning `btn-interactive`) →
+   closes L-1, L-3, L-5, L-12, L-19's class.
+2. **value.js publishes its model** (`makeColor`, `SPACE_SCHEMA`, `SPACE_IDS`, `isAnyColor`,
+   `withChannel`/`withAlpha`, `colorsEqual`) → closes L-15, gives L-9/L-16/L-25 one home.
+3. **Delete `demo/ui/` *and migrate the Button axis in the same commit*** → closes L-4, L-20, and
+   makes L-2's seam nominal. This is the largest of the three and the only one with a behaviour delta.
+4. **Re-home the two misplaced modules**: `resolveLampState` → `platform/transport/` (L-21), the port
+   keys → `palettes/ports.ts` (L-22). Two file splits, no behaviour delta, and they unblock L-7.
+
+Every one of these is a surface that was wrong before `CurrentPaletteEditor.vue` was written. Pass 3's
+closing sentence stands verbatim and this pass adds nothing to contradict it: **the component is a
+faithful reader of the surfaces it was given.**
+
+---
+
+## Pass-5 evidence appendix — commands run, verbatim
+
+```bash
+git rev-parse HEAD                                    # f36f780c…
+git merge-base --is-ancestor c654824e HEAD && echo YES # YES
+node -e "console.log(require('./node_modules/@mkbabb/glass-ui/package.json').version)"  # 7.0.0
+
+# L-20 · the dead axis
+cat node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts   # emphasis|tone, NO variant
+node -e "s=fs.readFileSync('node_modules/@mkbabb/glass-ui/dist/button.js','utf8');
+         console.log(s.match(/variant:\{[^}]*\}/g))"                        # NONE
+python3  # parse every <Button|Badge|Input …> tag in demo/**/*.vue:
+        # Button variant 51 (outline 28, ghost 19, destructive 1, default 1, primary-audacious 2)
+        # Button emphasis 2 · Button tone 2 · Badge variant 7 (LEGAL — Badge kept it) · Input size 6
+node scratchpad/cpe-L5-button.mjs                     # DOM fallthrough, output pasted above
+
+# L-21 · the forked status concept
+python3  # normalize both <style scoped> blocks → 19 identical (property,value) pairs of 24
+grep -c "it(" test/status-lamp.test.ts                # 6
+grep -rln "ApiOfflineChip\|api-offline-chip" test/ demo/test/ e2e/   # no output
+grep -rn "pulse" demo/styles/*.css                    # no output (no global keyframe home)
+node scratchpad/cpe-L5-probe.mjs                      # 2× role=alert, identical text — pasted above
+
+# L-22 · the cost of a key's address
+wc -l demo/palettes/usePalettePorts.ts                # 275
+python3  # transitive relative-import walk, value edges only:
+        # usePalettePorts.ts  26 modules / 2971 LoC   |   color-session/keys.ts  1 / 27
+
+# L-23 / L-24 / L-25
+grep -rn "<TooltipProvider" demo --include='*.vue'    # 4 mounts, delays 100/200/200/300
+grep -rn 'shell/' demo/palettes --include='*.ts' --include='*.vue'   # 1 (ViewId, type-only)
+grep -rn 'palettes/' demo/shell --include='*.ts' --include='*.vue'   # 8 (5× SESSION_PORT_KEY)
+grep -rn "CURRENT_PALETTE_ID\|__current__" demo src test e2e        # 6 sites, 2 branching
+
+# re-verification + negatives
+node scratchpad/cpe-L5-final.mjs                      # add-slot vnode props, well roster — pasted
+grep -n "Add current color" e2e/smoke/flows/palette-save.spec.ts    # :35 selector unchanged
+grep -rEn 'from "(\.\./)+src/|@src/|value\.js/(dist|src)/' demo | wc -l   # 0
+node -e "console.log(Object.keys(require('./package.json').exports).join(' '))"
+                                                      # ./color ./value ./css ./easing ./math ./transform ./quantize
+grep -rn "useHoverPopover\|useLeaveTimer\|useHeightTransition" demo   # 1–2 consumers each, no fork
+```
+
+Live probes: **3** read-only Playwright runs against `http://localhost:9000` (chromium, 1440×900,
+`localStorage` seeded via `addInitScript`); all three are pasted verbatim above. Images read
+directly: `shots/safari-desktop-light/palettes.png`. `REPORT.json` `/#/palettes` rows re-read.
+
+**No source file was edited by this pass.** The only writes are this appended section and three probe
+scripts in the session scratchpad. Nothing above `# Fifth pass` was altered.

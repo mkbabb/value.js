@@ -601,3 +601,289 @@ All under `/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/
 | `probe-C9.mjs` | **C-2**: Chromium +99.9% overstatement + the literal 200px placeholder |
 | `probe-C10.mjs` / `probe-C11.mjs` | frames + ink readback, light and dark |
 | `probe-C12.mjs` | the DOM-mutation-integrity negative across 6 space switches |
+
+---
+---
+
+# SECOND SEAT — independent CHALLENGE-C pass
+
+## Model receipt
+
+I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]`, as declared at
+spawn. Not an inherited or undeclared seat.
+
+This is a **second, independently-run CHALLENGE-C seat** on the same component. I was spawned
+against `c654824e`; the tree had advanced to `fe8785e5` when I opened
+(`fe8785e5 docs(megatranche): bank the consumer CRUD and Goldilocks DAG audit`).
+`demo/scenes/about/markdown/**` is byte-identical across `c654824e`, `80fc5c40` and `fe8785e5`.
+
+I found the first seat's report already on disk after completing my own probes. **I have not
+overwritten it.** Its findings are correct, its evidence is stronger than mine on four axes, and
+destroying it to install a near-duplicate would lose evidence for no gain. What follows is only
+(a) independent corroboration where two seats measured the same thing separately, (b) findings
+the first seat did not make, (c) one finding the first seat explicitly declined to claim which I
+was able to measure, and (d) a retraction of one of my own claims that the first seat's
+source-reading disproves.
+
+My probes are under the session scratchpad, not this directory (they were written before I saw
+the first seat's artefacts): `md-challenge-c-probe.mjs`, `md-c-probe3.mjs`, `md-c-probe4.mjs`,
+`md-c-probe5.mjs`, `md-c-probe6.mjs`, `md-p3-empty.png`.
+
+---
+
+## Independent corroboration
+
+Two seats, separately written probes, same live tree. Where the numbers agree exactly, the
+finding is no longer a single measurement.
+
+| claim | first seat (`probe-C7.mjs`) | this seat (`md-c-probe5.mjs`) | agree |
+|---|---:|---:|:--:|
+| `pre` across all 11 docs | 0 | 0 | ✅ |
+| `table` / `th` / `td` | 0 | 0 / 0 / 0 | ✅ |
+| `blockquote` | 0 | 0 | ✅ |
+| `img` | 0 | 0 | ✅ |
+| `dl` / `dt` / `dd` | 0 | 0 / 0 / 0 | ✅ |
+| task lists | 0 | 0 | ✅ |
+| `.callout` | 0 | 0 | ✅ |
+| `.footnotes` / `.footnote-ref` / `.footnote-item` | 0 | 0 / 0 / 0 | ✅ |
+| `.toc` | 0 | 0 | ✅ |
+| `> h1` / `> h4` / `> h5` / `> h6` | 0 / — / 0 / 0 | 0 / 0 / 0 / 0 | ✅ |
+| `a` | 3 | 3 | ✅ |
+| `p > code` | 83 | 83 | ✅ |
+| KaTeX display boxes | 37 | 37 | ✅ |
+| `hr` | 44 | 44 | ✅ |
+| `ol` | 30 | 30 | ✅ |
+| `ul` | 37 | 39 | ~ |
+
+The single divergence (`ul` 37 vs 39) is a selector-scope difference — I counted all `ul`
+descendants, the first seat's census excludes two nested lists. Immaterial.
+
+I also independently reproduced, by separate script:
+
+- **C-3 (7 doc-less spaces).** Selecting **Display P3** yields
+  `sectionHTML: "<h2 class=\"font-display text-title mb-phi-3\">Detailed Guide</h2><!--v-if-->"`,
+  `sectionChildCount: 1`, `markdownWrapperPresent: false`, `ohSnapPresent: false`. Screenshot:
+  `md-p3-empty.png`. I enumerated the selector's live option list at **18 rows** and confirmed the
+  7 uncovered keys are `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`,
+  `ictcp`, `jzazbz` — including the **ICtCp** row the first seat mis-clicked and left inferred.
+  That row is now measured, not inspected.
+- **C-5 (heading collision).** `.about-card` sequence measured
+  `H3` (pane title) → `H2`×5 → `H2:Detailed Guide` → `H3:Attributes` → `H3:Historical Context` →
+  `H2:Key Characteristics` → … , with `docH2Count: 4` per doc. Source-side cross-check:
+  `grep -oE "^#{1,6} " assets/docs/*.md` emits only `##` and `###` — zero `#` in all 11 files.
+- **C-6 (silent swap).** `wrapperRole: null`, `wrapperAriaLabelledby: null`, `wrapperAriaBusy:
+  null`, `landmarkAncestors: ["MAIN"]`, `guideH2HasId: false`. The last one is new: even if a
+  seat wanted to add `aria-labelledby`, the host heading has no `id` to point at.
+- **C-4's structural half.** Verified `vite.config.ts:162` is `Markdown({})` and `package.json:112`
+  carries `unplugin-vue-markdown@^32.0.0` with no `markdown-it-*` dependency. The first seat's
+  "67 lines structurally unreachable" claim holds.
+
+---
+
+## Retraction of one of my own claims
+
+I initially recorded that `useMarkdownColors.ts:33`'s `parsed.diagnostics[0].code` could throw a
+`TypeError` on an empty diagnostics array. **That is wrong.** `src/css/types.ts:26-27` types the
+failure arm as `readonly [ParseIssue, ...ParseIssue[]]` — a non-empty tuple. The first seat's
+proven-negatives table already had this right. Withdrawn.
+
+---
+
+## New findings
+
+### C-13 · MAJOR — the skeleton reserves 199px for a 5 887px document, and its shape is a copy-pasted avatar stub
+
+The first seat's proven-negatives table records, honestly:
+
+> a long skeleton window on space switch — **not observed** … The chunk is warm in dev; the code
+> path exists but I have no measurement of it and do not claim one.
+
+I was able to force the window open and measure it. `md-c-probe3.mjs` PROBE B holds
+`assets/docs/lab.md` for 5 s with a `page.route` delay handler, then samples the Detailed Guide
+section's height in both phases:
+
+```json
+DURING skeleton: { "phase": "skeleton", "sectionH": 199 }
+AFTER  content:  { "sectionH": 6036, "bodyH": 5887 }
+```
+
+**A 5 837px layout shift inside an `overflow-y: auto` card** (`AboutPane.vue:4`). Anything the
+reader has scrolled to below the Detailed Guide is thrown 5 837px up the instant the doc resolves.
+
+The shape is separately wrong. `Markdown.vue:3-9`:
+
+```
+<div v-if="isLoading" class="flex items-center space-x-4 h-full">
+    <Skeleton surface="glass" variant="shimmer" class="h-12 w-12 rounded-full" />
+    <div class="space-y-2">
+        <Skeleton surface="glass" variant="shimmer" class="h-4 w-full" />
+        <Skeleton surface="glass" variant="shimmer" class="h-4 w-full" />
+```
+
+One 48×48 **circle** and two 16px bars — the stock shadcn `Skeleton` demo (an avatar plus two
+comment lines), verbatim, in a prose surface that renders 5 headings, 4 rules, 24 list items and
+4 KaTeX blocks. There is no avatar anywhere in this component's output. The DOM dump from the
+skeleton phase confirms the primitives carry `aria-hidden="true"`, so the placeholder is both
+visually and semantically nothing.
+
+This interacts with C-2: `content-visibility` inflates the *post*-load geometry by ~100%, and the
+skeleton understates the *pre*-load geometry by ~30×. The two defects push the scroll position in
+opposite directions across the same swap.
+
+**Cure.** The reservation must derive from the content, not from a demo snippet: reserve the last
+known body height (or a per-doc constant), and replace the avatar+2-lines with a heading bar plus
+N paragraph runs. The circle should never have shipped here.
+
+*Note for W-MD-2: the first seat's gate (`overstatementPct ≤ 2`) does not catch this, because the
+skeleton phase is not sampled. Add the two-phase height sample to that wave's close condition.*
+
+---
+
+### C-14 · MAJOR — `currentDoc = ref()` deep-proxies the compiled SFC and destroys component identity
+
+`Markdown.vue:55`:
+
+```
+const currentDoc = ref<Awaited<ReturnType<DocModule>> | null>(null);
+```
+
+`ref()` calls `reactive()` on any plain object assigned to it. A compiled SFC module is
+`{ default: { __name, setup, render, __scopeId, … } }` — a plain object — so Vue walks it and
+returns a **proxy of the component definition**, which `markdownContent` (`:64-67`) then hands to
+`<component :is>` at `:16`.
+
+Measured against Vue's own reactivity (`npx tsx`, simulating the exact assignment shape):
+
+```
+ref()      -> module isProxy: true  | .default isProxy: true | .default isReactive: true
+shallowRef -> module isProxy: false | .default isProxy: false
+identity preserved with ref()?   false
+identity preserved with shallow? true
+```
+
+Identity is **broken**: the object reaching `<component :is>` is `!==` the module's real export.
+`<component :is>` keys component resolution, `keep-alive` caching and HMR on definition identity.
+Every property access on the definition during patch also traverses a Proxy trap, and reactive
+tracking is installed on `render`, `setup` and the compiled static VNode trees — which are exactly
+the objects Vue's fast paths assume are raw.
+
+This is the repo's own standing edict 7 — *`shallowRef` where deep reactivity is wrong* — and the
+miss is isolated: the same file uses `useTemplateRef` (`:50`) and reactive props destructure
+(`:44`) correctly.
+
+**Cure.** `shallowRef`. There is no consumer of deep reactivity here: the only read is
+`currentDoc.value.default`, and `markdownContent` already re-derives on ref replacement. One word.
+
+*Fits W-MD-1 (containment) — same function, same edit site as the `try/catch/finally`.*
+
+---
+
+### C-15 · MINOR — `parseCssColor` still throws a raw `TypeError`, re-confirmed at `fe8785e5`
+
+The first seat's C-10 correctly establishes that the three `throw`s in `useMarkdownColors` are on
+the render path and currently unreachable. It did not test the parser itself. Measured
+(`npx tsx`, importing `./src/css/index.ts` directly):
+
+```
+"oklch()"               => THREW TypeError Cannot read properties of undefined (reading 'replace')
+""                      => ok= false  diagLen= 1
+"not-a-color"           => ok= false  diagLen= 1
+"oklch(none none none)" => ok= true
+"rgb(0 0 0 / NaN)"      => ok= false  diagLen= 1
+```
+
+`parseCssColor("oklch()")` **throws instead of returning `{ ok: false }`** — the R1 shipping-crash
+class from `apotheosis/parser-proof/GATE-VERDICT.md`, still live at `fe8785e5`.
+`useMarkdownColors.ts:32` calls it bare, with no `try`. So the composable's total-function
+contract is broken one level deeper than the first seat's C-10 found: even making
+`mdColorVars` return `{}` instead of throwing would not make it total, because the call itself can
+throw before any guard runs.
+
+This does not change C-10's reachability verdict (the pipeline still serialises upstream), but it
+does change C-10's **cure**: `return {}` is insufficient; the call must be wrapped.
+
+---
+
+### C-16 · MAJOR (test truth) — the entire certified-ink apparatus can be replaced by a constant and every gate stays green
+
+The first seat's C-7 gives two vacuous-gate mutations, both against the *highlighting* subsystem.
+There is a third, against the *colour* subsystem, and it is worse.
+
+```
+$ grep -rn "md-color|markdown-body > h|cs-name" e2e/
+(no matches)
+```
+
+Nothing anywhere asserts heading ink. `o18-contrast-census.spec.ts:745-777` measures
+`.markdown-body p` (which inherits `--foreground`) and `pre code, p > code` — precisely the two
+surfaces `useMarkdownColors` does **not** control.
+
+**Vacuous-gate mutation #3.** Replace `color: var(--md-color-h2)` (`Markdown.vue:163`) and
+`--md-color-h3` (`:168`, `:173`) with `var(--foreground)`.
+
+**Vacuous-gate mutation #4.** Delete `useMarkdownColors` entirely and drop `:style="mdColorVars"`
+from `:15`. Its only other consumers are `mark.cs-name` (`:187`) and `hr` (`:312`) — neither
+asserted.
+
+Either mutation deletes the whole chain — `parseCssColor` → `convertColor` →
+`INK_AMBIENT_KEY` inject → `resolveSurfaceLightnessLive` → `certifyAccentInk` (distance guard +
+gamut map + WCAG floor walk, `ink.ts:130-141`) — and **every gate in the repository still passes.**
+
+A certified-ink composable with no gate on its certification is vacuous by construction. This
+matters more than mutations #1/#2 because the machinery being protected is the *contrast-safety*
+machinery: the one thing a contrast census exists to guarantee is the one thing this contrast
+census does not measure.
+
+*W-MD-5 must therefore also carry a heading-ink oracle: for each of the 11 docs, assert
+`--md-color-h2` resolves to a value distinct from `--foreground` and clears the text floor against
+the live resting-plate ground. That is the same shape as the existing o18 helper and belongs in
+the same file.*
+
+---
+
+### C-17 · MINOR — inline code renders at 12px against 16px body copy, 207 times
+
+`Markdown.vue:241` — `code { @apply text-xs font-mono bg-well rounded }`. Measured live:
+
+```json
+{ "bodyFontSize": "16px", "inlineCodeFontSize": "12px", "inlineCodeCount": 14 }
+```
+
+A 25% size drop mid-sentence on the spans carrying the document's technical payload — channel
+names, ranges, CSS function syntax. `text-xs` is the smallest rung in the scale; body copy sits at
+`text-base`. Corpus-wide this fires **207 times** (`code` census, above); `p > code` alone is 83.
+The neighbouring `p > code` rule at `:249-253` adds padding and accent ink but does not restore
+size.
+
+*Belongs in W-MD-3 alongside the transposition — it is a one-token change and the computed-style
+diff gate that wave already specifies will catch it.*
+
+---
+
+## Second-seat verdict
+
+**DEFECTIVE — concurring.** The first seat's ranking stands: C-1 (fetch failure → app-wide
+teardown) and C-2 (`content-visibility` geometry lie) are the BLOCKERs, and C-3 (7 doc-less
+spaces) is the most user-visible defect on the default route.
+
+Net change from this seat: **+2 MAJOR (C-13 skeleton geometry, C-14 `ref()` identity), +1 MAJOR
+test-truth (C-16 heading-ink vacuity), +2 MINOR (C-15 parser throw, C-17 12px code), −1 of my own
+claims retracted.** One negative the first seat declined to claim (the skeleton window) is now
+measured and is a MAJOR.
+
+On the god-module question I concur with the first seat's answer and want to sharpen one point.
+The script is not a god module — 43 lines, two composables already extracted. The style block is,
+and it is not "several modules wearing one name": it is **one real module (markdown content
+typography for 11 enumerable documents) plus one phantom module (a general-purpose markdown
+stylesheet for a CMS this project does not have and, per `Markdown({})` with no markdown-it
+plugins, cannot have)**. That distinction matters for the cure: a *split* would be contrivance
+under edict 3 — three files of which 136 lines are still dead is worse than one, and a
+`markdown-tables.css` for zero tables is a wrapper for nothing. The first seat's W-MD-3
+(transposition to `demo/styles/markdown.css` **plus deletion of the measured-dead 136**) is
+correct precisely because it is subtraction carrying a move, not decomposition.
+
+One addition to W-MD-3's close condition: land the corpus selector-census as a standing oracle,
+not just as a one-shot diff. Both seats' probes already emit the exact shape. A gate that fails
+when any selector the stylesheet declares has zero matches across all 11 documents is what stops
+the phantom module from regrowing — and it is the only one of the five waves whose gate is a
+*permanent* guard rather than a one-time before/after comparison.

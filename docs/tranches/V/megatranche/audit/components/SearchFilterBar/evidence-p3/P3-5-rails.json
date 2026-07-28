@@ -1,0 +1,109 @@
+{
+ "rails": {
+  "dialogLeft": 432.75,
+  "dialogRight": 672.75,
+  "dialogWidth": 240,
+  "producerPadInline": "16px",
+  "sectionBoxLeft": [
+   449.75,
+   449.75,
+   449.75
+  ],
+  "dividerLeft": 449.75,
+  "dividerRight": 655.75,
+  "sectionLabelInk": [
+   {
+    "t": "Sort",
+    "x": 461.75
+   },
+   {
+    "t": "Tier",
+    "x": 461.75
+   },
+   {
+    "t": "Find by Color",
+    "x": 461.75
+   }
+  ],
+  "optionMarkerBox": [
+   456.75,
+   456.75,
+   456.75,
+   456.75,
+   456.75
+  ],
+  "optionMarkerInk": [
+   469.75,
+   469.75,
+   469.75,
+   469.75,
+   469.75
+  ],
+  "optionTextInk": [
+   {
+    "t": "Newest",
+    "x": 517.75
+   },
+   {
+    "t": "Most Popular",
+    "x": 517.75
+   },
+   {
+    "t": "Most Forked",
+    "x": 517.75
+   },
+   {
+    "t": "All",
+    "x": 495.75
+   },
+   {
+    "t": "Featured",
+    "x": 517.75
+   }
+  ],
+  "swatchLeft": 461.75,
+  "inputLeft": 495.75,
+  "clearLeft": 461.75,
+  "clearInk": 485.2,
+  "swatchH": 28,
+  "inputH": 36,
+  "clearH": 36,
+  "rowH": 30.94,
+  "rowGap": 26,
+  "labelToFirstOptionGap": 6,
+  "radioGroupGap": "26px",
+  "radioGroupClass": "radio-group",
+  "popoverTopY": 380,
+  "popoverBottomY": 901.06,
+  "browseCardRect": {
+   "x": 199,
+   "y": 232,
+   "w": 512,
+   "h": 515.84,
+   "bottom": 747.84
+  },
+  "popoverBackdrop": "blur(11px) saturate(1.6)",
+  "popoverBg": "oklab(0.936408 0.005529 0.013284 / 0.808)"
+ },
+ "grounds": {
+  "w": 928,
+  "h": 2048,
+  "topBand": [
+   241,
+   224,
+   220
+  ],
+  "midBand": [
+   241,
+   223,
+   220
+  ],
+  "bottomBand": [
+   199,
+   183,
+   179
+  ]
+ },
+ "groundDeltaTopVsBottom": 71.6,
+ "groundDeltaTopVsMid": 1
+}

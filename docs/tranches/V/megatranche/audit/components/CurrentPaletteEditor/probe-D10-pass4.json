@@ -1,0 +1,215 @@
+{
+ "P1_n1": {
+  "found": true,
+  "wellH": 196.5,
+  "wellW": 462,
+  "wellTop": 301.2,
+  "wellBottom": 497.7,
+  "dotCount": 2,
+  "dotBox": {
+   "w": 48,
+   "h": 48
+  },
+  "buttons": [
+   {
+    "name": "<<NONAME>>",
+    "disabled": false
+   }
+  ],
+  "wellText": "Current Palette 1 color dev misconfigured — run `npm run dev`",
+  "docH": 900,
+  "vh": 900,
+  "addSlotPresent": true,
+  "addSlotAriaDisabled": null,
+  "addSlotPointerEvents": "none",
+  "countLine": "1 color",
+  "anyOverLimitCopy": false,
+  "saveBtnDisabled": false
+ },
+ "P1_n12": {
+  "found": true,
+  "wellH": 261.4,
+  "wellW": 462,
+  "wellTop": 301.2,
+  "wellBottom": 562.6,
+  "dotCount": 13,
+  "dotBox": {
+   "w": 48,
+   "h": 48
+  },
+  "buttons": [
+   {
+    "name": "<<NONAME>>",
+    "disabled": false
+   }
+  ],
+  "wellText": "Current Palette 12 colors dev misconfigured — run `npm run dev`",
+  "docH": 900,
+  "vh": 900,
+  "addSlotPresent": true,
+  "addSlotAriaDisabled": null,
+  "addSlotPointerEvents": "none",
+  "countLine": "12 colors",
+  "anyOverLimitCopy": false,
+  "saveBtnDisabled": false
+ },
+ "P1_n50": {
+  "found": true,
+  "wellH": 650.8,
+  "wellW": 462,
+  "wellTop": 256.7,
+  "wellBottom": 907.5,
+  "dotCount": 51,
+  "dotBox": {
+   "w": 48,
+   "h": 48
+  },
+  "buttons": [
+   {
+    "name": "<<NONAME>>",
+    "disabled": false
+   }
+  ],
+  "wellText": "Current Palette 50 colors dev misconfigured — run `npm run dev`",
+  "docH": 900,
+  "vh": 900,
+  "addSlotPresent": true,
+  "addSlotAriaDisabled": null,
+  "addSlotPointerEvents": "none",
+  "countLine": "50 colors",
+  "anyOverLimitCopy": true,
+  "saveBtnDisabled": false
+ },
+ "P1_n51": {
+  "found": true,
+  "wellH": 650.8,
+  "wellW": 462,
+  "wellTop": 256.7,
+  "wellBottom": 907.5,
+  "dotCount": 52,
+  "dotBox": {
+   "w": 48,
+   "h": 48
+  },
+  "buttons": [
+   {
+    "name": "<<NONAME>>",
+    "disabled": false
+   }
+  ],
+  "wellText": "Current Palette 51 colors dev misconfigured — run `npm run dev`",
+  "docH": 900,
+  "vh": 900,
+  "addSlotPresent": true,
+  "addSlotAriaDisabled": null,
+  "addSlotPointerEvents": "none",
+  "countLine": "51 colors",
+  "anyOverLimitCopy": false,
+  "saveBtnDisabled": false
+ },
+ "P1_n80": {
+  "found": true,
+  "wellH": 910.4,
+  "wellW": 462,
+  "wellTop": 256.7,
+  "wellBottom": 1167.1,
+  "dotCount": 81,
+  "dotBox": {
+   "w": 48,
+   "h": 48
+  },
+  "buttons": [
+   {
+    "name": "<<NONAME>>",
+    "disabled": false
+   }
+  ],
+  "wellText": "Current Palette 80 colors dev misconfigured — run `npm run dev`",
+  "docH": 900,
+  "vh": 900,
+  "addSlotPresent": true,
+  "addSlotAriaDisabled": null,
+  "addSlotPointerEvents": "none",
+  "countLine": "80 colors",
+  "anyOverLimitCopy": false,
+  "saveBtnDisabled": false
+ },
+ "P2": {
+  "before": {
+   "cards": 0,
+   "gridText": "Current Palette 4 colors dev misconfigured — run `npm run dev` · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set."
+  },
+  "filtered": {
+   "bodyText": "→ Palettes Tools Login @mbabb dev misconfigured — run `npm run dev` Lab 30.0 % , -70.0 , 80.0 L a b α 30.0% -70.0 80.0 100.0% My Palettes Save, organize, and share your colors. Current Palette 4 colors dev misconfigured — run `npm run dev` · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set."
+  },
+  "after": {
+   "storedPaletteNames": [
+    "Aurora Draft"
+   ],
+   "visibleBodyText": "dev misconfigured — run `npm run dev` Lab 30.0 % , -70.0 , 80.0 L a b α 30.0% -70.0 80.0 100.0% My Palettes1 (1 saved) Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+   "wellStillHasSwatches": 1,
+   "liveRegions": [
+    {
+     "role": "alert",
+     "live": null,
+     "text": "dev misconfigured — run `npm run dev`"
+    },
+    {
+     "role": null,
+     "live": "off",
+     "text": "30.0%"
+    },
+    {
+     "role": null,
+     "live": "off",
+     "text": "-70.0"
+    },
+    {
+     "role": null,
+     "live": "off",
+     "text": "80.0"
+    },
+    {
+     "role": null,
+     "live": "off",
+     "text": "100.0%"
+    },
+    {
+     "role": "status",
+     "live": null,
+     "text": "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    }
+   ],
+   "activeElement": "BODY:"
+  }
+ },
+ "P3": {
+  "collapsed": {
+   "draftDot": {
+    "w": 48,
+    "h": 48
+   },
+   "draftDotRadius": "59.1746% 69.1889% 31.6219% 33.2892% / 67.017% 75.0312% 23.6854% 75.7299%",
+   "stripRect": null,
+   "stripSegment": null,
+   "stripSegmentRadius": null,
+   "stripSegmentFilter": null
+  },
+  "expanded": {
+   "totalDots": 12,
+   "wellDots": 6,
+   "cardDots": 6,
+   "cardDotBox": {
+    "w": 28,
+    "h": 28
+   },
+   "stripStillPresent": false
+  }
+ },
+ "P4": {
+  "wellH": 259,
+  "vh": 450,
+  "share": 57.6,
+  "docOverflowX": 0
+ }
+}

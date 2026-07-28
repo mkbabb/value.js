@@ -1,356 +1,534 @@
-# AuroraPane — CHALLENGE-C (implementation)
+# AuroraPane — CHALLENGE-C (implementation) · PASS 2
 
 ## Model receipt
 
 I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]` — the tier this
-seat was spawned with, declared, not inherited.
+seat was spawned with, explicitly declared, not inherited.
 
 ---
 
-## Subject & method
+## Standing on the prior pass
 
-- Subject: `demo/scenes/atmosphere/AuroraPane.vue` (201 lines) + its two colocated modules
-  `aurora-atoms.ts`, `aurora-harmony-stops.ts`, its parent `demo/scenes/ConfigSliderPane.vue`,
-  its provider `demo/color-picker/composables/boot/useAtmosphere.ts`, and the producer door
-  `@mkbabb/glass-ui@7.0.0 /dist/components/aurora/composables/atoms.d.ts`.
-- Repo state: `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `32b4040e`
-  (the brief named `c654824e`; the tree advanced during the formation — AuroraPane and its
-  siblings are byte-identical across the range, `git log --oneline` shows only docs commits).
-- Probes actually run (all pasted below in-place): 4 headless-Chromium live runs against
-  `http://localhost:9000`, 4 `vite-node` pure-module runs, 1 `vue-tsc -p tsconfig.demo.json`,
-  1 `vitest run demo/test/glass/aurora-bracket.test.ts`, and the 4 real-Safari matrices in
-  `docs/tranches/V/megatranche/audit/visual/REPORT.json` + both desktop screenshots read by eye.
+A pass-1 report existed at this path (written earlier today). It is preserved **verbatim** at
+`challenge-C-implementation.pass-1-2026-07-28-prior.md`. This pass is independent: I re-derived
+every claim from the tree and from live probes rather than adopting it. The result is
+**three corroborations, two material corrections, and six findings pass-1 did not have.**
 
-**Verdict: DEFECTIVE.** Twelve findings; five MAJOR, of which four carry a live reproduction.
-
----
-
-## C-1 · MAJOR — the dark-scheme field is still light-band, and the cure is a SHIPPED atom the demo believes is producer-gated
-
-**Evidence.** glass-ui 7.0.0 ships two lightness atoms on the atoms door:
-
-`node_modules/@mkbabb/glass-ui/dist/components/aurora/composables/atoms.d.ts` (interface
-`AuroraAtomsBase`):
-
-```
-lightnessScheme?: "light" | "dark";   // "shifts the WHOLE ramp into the luminous-dark band
-                                      //  [0.18, 0.42] ... never a washed-pale salmon field
-                                      //  with dark cards floating on it (the dark-leg defect)"
-lBand?: readonly [number, number];    // "an explicit derived L band ... OVERRIDES lightnessScheme"
-```
-
-Both are live and reachable through the demo's own calibrated resolver:
-
-```
-$ npx vite-node scratchpad/probe4.mts
-no scheme        mean L = 0.6600 0.500,0.607,0.713,0.820
-lightnessScheme dark    = 0.3000 0.180,0.260,0.340,0.420
-lBand [0.18,0.42]       = 0.3000 0.180,0.260,0.340,0.420
-REACHABLE at the atoms door? true true
-```
-
-`demo/color-picker/composables/boot/useAtmosphere.ts:233-236` asserts the opposite, as fact:
-
-> "The FIELD itself remains light-band in dark — the atoms door ships no scheme/lBand (GAP-L2,
-> probed at this dist: seed-atom resolution clobbers a base-palette override) — that half rides
-> packet P1 and the W7 re-verify"
-
-That is FALSE at the consumed dist. `AuroraPane.vue` — the file whose own header calls itself
-"the ≤7-knob consumer-facing surface" — exposes neither atom in `SECTIONS` (lines 97-106) nor in
-the four enum rows (lines 117-180), and `DEFAULT_AURORA_ATOMS` (aurora-atoms.ts:53-71) carries
-neither key.
-
-**The consequence is visible.** `docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/atmosphere.png`
-and `.../safari-desktop-dark/atmosphere.png` share an **identical** salmon→pink field; only the
-card plate darkens. That is precisely the composition glass-ui's own doc-comment names as the
-defect the atom exists to cure.
-
-**Reproduction.** `npx vite-node` on the three-line probe above; or open
-`http://localhost:9000/#/atmosphere` in a dark-scheme context and compare the field to light.
-
-**Mechanism.** A stale producer-capability claim frozen in a consumer comment, never re-probed
-after the Glass 7 adoption (W44). The pane's knob vocabulary is a hand-maintained duplicate of a
-producer union with no drift detector.
-
-**Cure (transposition, not patch).** `useAtmosphere` feeds `lightnessScheme` from `useGlobalDark`'s
-`isDark` at the ONE place the field is resolved (`useAtmosphere.ts:170`), which makes the ground
-banding at `useAtmosphere.ts:237-247` — currently a second, *separate* `deriveAurora(seed,{scheme:"dark"})`
-call that exists only because the field could not be banded — collapse into the same source. Two
-derive paths become one. AuroraPane then exposes the band as a knob only if the owner wants it
-tunable; the scheme itself is not a knob, it is the shell's state.
+| pass-1 | this pass |
+|---|---|
+| C-1 lightnessScheme/lBand shipped-but-unused | **CORROBORATED + EXTENDED** — `hueSpread` and `chromaVariance` are shipped too (4 atoms, not 2) |
+| C-2 strip lies about the field | **CORROBORATED + STRENGTHENED** — reproduced live at *two* seeds, Δ up to 44 rgb units |
+| C-3 zones ceiling 6 vs 8 | **CORROBORATED** (+ the repo's own test contradicts itself in one `it()`) |
+| C-4 `h-9` defeats the control floor; `text-caption` overrides the rung | **HALF CORRECTED** — `h-9` is real (36 vs 60px); **`text-caption` is a DEAD class**, it overrides nothing (measured 16.4px) |
+| C-5 labels fail light (3.56), **dark passes at 6.12** | **CORRECTED** — measured against the real painted pixel, **both** schemes fail: light 3.89–3.94, dark 3.50–3.63 |
+| C-6/C-7/C-8/C-9/C-10/C-11/C-12 | corroborated, folded in below |
+| — | **NEW: C-1 (5-of-7 knobs inert on the css substrate), C-3 (the seam guarantee is itself broken), C-4 (3 of 10 media unreachable), C-9's false-oracle citation, C-11 "Vangogh", C-14 duplicate aria-label** |
 
 ---
 
-## C-2 · MAJOR — the harmony PreviewStrip LIES about the field it previews (the O-14 truth law is violated at this site)
+## Subject, tree state, method
 
-`aurora-harmony-stops.ts:2-13` states the law it must satisfy:
+- Subject: `demo/scenes/atmosphere/AuroraPane.vue` (201 lines) + `aurora-atoms.ts`,
+  `aurora-harmony-stops.ts`; parent `demo/scenes/ConfigSliderPane.vue`; provider
+  `demo/color-picker/composables/boot/useAtmosphere.ts`; resolver
+  `demo/color-picker/composables/boot/atmosphere-calibration.ts`; producer door
+  `@mkbabb/glass-ui@7.0.0`.
+- Tree: `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `f36f780c` (the brief named
+  `c654824e`; the range between them is docs-only — `AuroraPane.vue` and its two siblings are
+  byte-identical across it).
+- **9 probes, all committed under `probes/pass2/`, all output pasted in place**: 2 pure-module
+  (`node`, direct ESM import of the consumed dist), 7 live headless-Chromium against
+  `http://localhost:9000`. Plus the 4 real-Safari matrices in `audit/visual/REPORT.json` and both
+  desktop screenshots read by eye.
+
+**Verdict: DEFECTIVE.** Seventeen findings; nine MAJOR, seven of them with a live reproduction.
+
+---
+
+# MAJOR
+
+## C-1 · MAJOR (NEW) — on the CSS substrate **five of the pane's seven knobs are structurally inert**, and nothing says so
+
+`useAtmosphere.ts:158` resolves the render substrate **once at setup**:
+
+```ts
+const auroraRenderMode = resolveRenderMode("auto");
+```
+
+On a low-power or software-WebGL device it resolves to `"css"`, and the atmosphere becomes
+(`useAtmosphere.ts:207-211`) `paletteToCssGradient(resolvedPalette.value)` — **the palette, and
+nothing else**. `medium`, `zones.count`, `zones.arrangement`, `noise` and `motion` do not touch
+`config.palette`; they drive `nuclei`, the warp fields, the texture pass and the drift fields —
+all of which only the shader reads. So on that tier those five knobs are dead by construction.
+
+**AuroraPane never learns this.** It does not inject `auroraRenderMode`, it renders no disabled
+state, no notice, no degraded label. Seven controls, five of them permanently no-ops, presented
+identically to the two that work.
+
+**Live reproduction with positive controls** (`probes/pass2/p8-control.mjs`, headless Chromium
+= SwiftShader ⇒ the `"css"` tier; `motion` first set to `Still` so the field is provably static —
+the baseline hashed identically twice):
+
+```
+$ node probes/pass2/p8-control.mjs
+baseline  {"patch":"a8c89a0286ea4835", "body":"linear-gradient(135deg, rgb(200,70,215) 0%, ...)"}
+
+--- POSITIVE CONTROL: Harmony (a PALETTE atom) ---
+  harmony=Monochrome     patchMoved=true   bg=rgb(238, 44, 130) ...
+  harmony=Triad          patchMoved=true   bg=rgb(238, 44, 130) rgb(203,166,0) rgb(0,238,179) ...
+  harmony=Complementary  patchMoved=true   bg=rgb(238, 44, 130) rgb(199,136,255) ...
+--- and the Colour Energy slider (a PALETTE atom) ---
+  energy row now "Colour Energy0.060"  patchMoved=true
+
+--- NEGATIVE: the SHAPE atoms ---
+  Painterly medium =Watercolor   patchMoved=false
+  Painterly medium =Vangogh      patchMoved=false
+  Zone arrangement =Centred      patchMoved=false
+  Motion register  =Drifting     patchMoved=false
+--- NEGATIVE: the Noise slider ---
+  noise row now "Noise1"   (0.5 -> 1.0)  patchMoved=false
+```
+
+Two independent positive controls move the pixels; five shape knobs leave a **byte-identical** PNG.
+`p7-liveness.mjs` confirms the substrate directly: `renderer: "ANGLE (Google, Vulkan 1.3.0
+(SwiftShader Device …))"`, `fullPageGradientEl: "BODY.relative"`.
+
+**Scope, stated honestly.** This is the `"css"` tier only. On a real-GPU device (the visual
+REPORT's Safari matrices) the WebGL field is armed and those knobs live. But the `"css"` tier is a
+**shipped, deliberate** degradation path — `useAtmosphere.ts:148-157` explains at length why it
+exists — and this repo already wrote the honesty law for exactly it (`useAtmosphere.ts:283-290`,
+"THE NO-FIELD HONEST TERMINAL … never a blank canvas presented as a field"). That law was applied
+to the *canvas* and never to the *controls*.
+
+**Mechanism.** A device-tier fact is known at one site and consumed at none; the pane's knob set is
+a static literal with no relation to what the live substrate can express.
+
+**Cure (transposition).** `useAtmosphere` already computes `auroraRenderMode`; provide it beside
+`AURORA_ATOMS_KEY` (one more `provide`, zero new modules). `SliderSection`/the enum rows carry a
+`substrate: "palette" | "field"` tag, and the pane renders the field-only rows disabled with the
+one-line reason the composable already writes in prose. Seven honest knobs beats seven knobs of
+which five lie.
+
+---
+
+## C-2 · MAJOR (corroborated, strengthened) — the harmony PreviewStrip **lies about the field it previews**; the O-14 truth law is broken at this site
+
+`aurora-harmony-stops.ts:6-8` states the law it must satisfy:
 
 > "THE TRUTH LAW (O-14): the strip a harmony row shows must be byte-identical to the palette
 > selecting it yields."
 
-What selecting yields **on screen** is not `resolveCalibratedAtmosphere(...)`. It is
+What selecting yields on screen is not `resolveCalibratedAtmosphere(...)`. It is
 `guaranteeSeamOffset(resolveCalibratedAtmosphere(...), seed)` — the P9-R3 derive-seam guarantee at
-`useAtmosphere.ts:92-110`, which uniformly shifts the whole palette's L by up to `DERIVE_SEAM_FLOOR
-= 0.06` whenever the field mean L would land within 0.06 of the wax L.
-`aurora-harmony-stops.ts:38` never applies it.
+`useAtmosphere.ts:170` and `:181`, which shifts the whole palette's L by up to
+`DERIVE_SEAM_FLOOR = 0.06`. `aurora-harmony-stops.ts:38` never applies it.
 
-**Live reproduction — one URL:**
-
-```
-$ node scratchpad/live3.mjs      # headless chromium, 1440x900
-URL seed  : oklch(0.5 0.16 10)
-STRIP  (AuroraPane 'Analogous' row): oklch(0.35 0.136 323.568) | oklch(0.4567 0.1568 354.5227) | ...
-STRIP  rgb : [[90,23,98],[148,35,92],[192,71,67],[211,125,54]]
-GROUND (--saved-bg-*, the painted field material): #692770 | #a5346a | #d25751 | #e48c47
-GROUND rgb : [[105,39,112],[165,52,106],[210,87,81],[228,140,71]]
-IDENTICAL?  false   <-- THE STRIP LIES ABOUT THE FIELD
-```
-
-Navigate to `http://localhost:9000/#/atmosphere?space=oklch&color=oklch(0.5%200.16%2010)`, open
-the Harmony select, and the *currently-selected* row's strip is 15 rgb units darker per channel
-than the field behind it.
-
-**Extent.** Re-running the verbatim `guaranteeSeamOffset` over a 14×5 seed grid × 4 harmonies:
+**Live, two seeds** (`probes/pass2/p4-truth-and-ax.mjs` — opens the Harmony select, reads the
+*selected* row's stamped `data-stops`, converts through glass-ui's own `oklchStopToHex`, and
+compares against `--saved-bg-0..3`, the material the page actually paints):
 
 ```
-$ npx vite-node scratchpad/probe3.mts
-strip != painted in 140 / 280 (seed x harmony) cases; max |dL| = 0.0600
+$ node probes/pass2/p4-truth-and-ax.mjs
+===== GUARD-FIRING SEED  seed=oklch(0.5 0.16 10) =====
+  STRIP  rgb : [[90,23,98],[148,35,92],[192,71,67],[211,125,54]]
+  GROUND rgb : [[105,39,112],[165,52,106],[210,87,81],[228,140,71]]
+  IDENTICAL? false   <-- THE STRIP DISAGREES WITH THE FIELD
+  per-channel delta: [[-15,-16,-14],[-17,-17,-14],[-18,-16,-14],[-17,-15,-17]]
+
+===== APP DEFAULT-ish SEED  seed=oklch(0.62 0.27 9.8) =====
+  STRIP  rgb : [[141,0,155],[211,0,127],[255,77,77],[255,155,77]]
+  GROUND rgb : [[160,37,174],[233,44,145],[255,99,95],[255,175,97]]
+  IDENTICAL? false
+  per-channel delta: [[-19,-37,-19],[-22,-44,-18],[0,-22,-18],[0,-20,-20]]
 ```
 
-Half the seed space. (At the app's *default* seed the guard does not fire, which is why every
-gate and every eyeball has passed it — `live2.mjs` confirms strip rgb ≡ ground rgb there.)
+`oklch(0.62 0.27 9.8)` is **the exact seed the O-14 unit oracle uses** (see C-9).
 
-**Mechanism.** A truth function and its referent were separated when P9-R3 landed in the
-provider; the strip module was never re-pointed. The unit oracle cannot see it (see C-6).
+**Extent** (`probes/pass2/p2-seam.mjs`, a 17×5 seed grid × 6 harmonies, both demo functions
+transcribed verbatim):
 
-**Cure.** The seam guarantee is the *field resolver*, not a decoration on it. Export one
-`resolveAtmosphereField(atoms)` from `boot/atmosphere-calibration.ts` that composes
-`resolveCalibratedAtmosphere` ∘ `guaranteeSeamOffset`, and make `useAtmosphere` and
-`aurora-harmony-stops` both consume it. One resolver, two consumers — the same shape the O-14
-`palettes-ramp` leg already uses.
+```
+strip != field in 210 / 510 (seed x harmony) cases;  max |dL| = 0.0600
+```
+
+41% of the seed space. At the app's cold-boot seed the guard does not fire and the strip is exact
+(`p3-live.mjs` ground `[[200,70,215],[255,113,177],[255,182,175],[255,234,220]]` ≡ the converted
+strip stops) — which is precisely why every gate and every eyeball has passed it.
+
+**Mechanism.** A truth function and its referent were separated when P9-R3 landed in the provider;
+the strip module was never re-pointed. Its oracle is structurally incapable of noticing (C-9).
+
+**Cure.** The seam guarantee is *part of the field resolver*, not a decoration on it — but see
+**C-3 first**: the resolver it must fold into is itself broken, so this cannot be a one-line
+re-point.
 
 ---
 
-## C-3 · MAJOR — the Zones slider caps at 6; the producer ceiling is 8 at Glass 7
+## C-3 · MAJOR (NEW) — the seam guarantee C-2's cure must consume **does not hold its own guarantee**
 
-`AuroraPane.vue:103`:
+`useAtmosphere.ts:88-90` states the contract:
+
+> "Guarantee |field mean L − wax L| ≥ DERIVE_SEAM_FLOOR by shifting the whole derived palette
+> uniformly away from the seed … internal spread preserved"
+
+The implementation (`useAtmosphere.ts:99-108`):
 
 ```ts
-{ key: "zones.count", label: "Zones", min: 1, max: 6, step: 1 },
+let dir = delta >= 0 ? 1 : -1;
+const need = DERIVE_SEAM_FLOOR - Math.abs(delta);
+const headroom = dir === 1 ? 0.98 - meanL : meanL - 0.02;
+if (headroom < need) dir = -dir;
+const push = dir * (DERIVE_SEAM_FLOOR - dir * delta);
+return { ...config, palette: palette.map((stop) => ({ ...stop, L: clamp(stop.L + push, 0.02, 0.98) })) };
 ```
 
-`aurora-atoms.ts:35-40` justifies the 6 as a hard producer fact:
+Two defects, one mechanism — **the headroom test is computed on the MEAN, the clamp is applied per
+STOP**:
 
-> "`count: 6` IS the producer ceiling (`MAX_NUCLEI = 6`, presets.ts:346 — a shader `#define`, so a
-> count raise is atom-UNREACHABLE at the consumed dist; the ceiling lift is a producer book"
-
-The consumed dist says otherwise:
+1. `headroom` asks whether the *mean* can travel `need`. But the clamp bites the *extreme stops*
+   first. A palette whose top stop already sits near 0.98 gets that stop pinned while the rest
+   shift, so the realised mean displacement is short of `push` and the floor is missed.
+2. When `dir` flips, the required travel becomes `FLOOR + |delta|`, not `need = FLOOR − |delta|`.
+   The headroom that was checked is not the headroom that is used.
 
 ```
+$ node probes/pass2/p2-seam.mjs
+=== B · does guaranteeSeamOffset actually deliver its own guarantee? ===
+  guard FIRED in 1200 cases; guarantee BROKEN in 90 of them
+  examples: [{"seed":"oklch(0.77 0 25)","h":"analogous","want":0.06,"got":0.0575}, ... ]
+
+=== C · does the shift preserve the palette's internal spread, as claimed? ===
+  guard fired 120 times; internal L-spread CHANGED in 9
+  examples: [{"seed":"oklch(0.77 0 25)","spreadBefore":0.32,"spreadAfter":0.31},
+             {"seed":"oklch(0.78 0 25)","spreadBefore":0.32,"spreadAfter":0.30}, ...]
+```
+
+7.5% of firings silently miss the WCAG-motivated wax↔field standoff the whole mechanism exists to
+guarantee, and the "internal spread preserved" sentence is false in 7.5% of firings.
+
+**Why this is an AuroraPane finding.** It is the referent of the pane's only truth-bearing
+affordance. Any cure that points `auroraHarmonyStops` at the field resolver (C-2's cure) inherits
+this. Attribution is explicit: the code is in `useAtmosphere.ts`, not in the pane.
+
+**Cure.** Clamp-aware, still closed-form: compute the push, apply it, then measure the realised
+mean and, if the clamp ate any of it, solve once more against the true per-stop headroom
+`min(0.98 − max(L), min(L) − 0.02)`. Two passes, still no iteration — or drop the per-stop clamp
+and let the derive domain own the range.
+
+---
+
+## C-4 · MAJOR (NEW) — **3 of the 10 shipped media are unreachable** through this pane, and the type annotation cannot catch it
+
+`AuroraPane.vue:54-62`:
+
+```ts
+const MEDIA: AuroraMedium[] = ["smooth","pastel","watercolor","oil","crayon","vangogh","oil-pastel"];
+```
+
+The consumed union (`node_modules/@mkbabb/glass-ui/dist/components/aurora/constants/presets.d.ts:52`):
+
+```ts
+export type AuroraMedium = "smooth" | "pastel" | "watercolor" | "oil" | "crayon" | "vangogh"
+                         | "oil-pastel" | "kuwahara" | "metal" | "metal-gradient";
+```
+
+```
+$ node probes/pass2/p1-vocabulary.mjs
+MEDIA         pane=7 dist=10  MISSING=["kuwahara","metal","metal-gradient"]  EXTRA=[]
+
+  kuwahara        resolved medium=kuwahara        reachable=true  inPaneUI=false   <-- SHIPPED BUT UNREACHABLE IN THE UI
+  metal           resolved medium=metal           reachable=true  inPaneUI=false   <-- SHIPPED BUT UNREACHABLE IN THE UI
+  metal-gradient  resolved medium=metal-gradient  reachable=true  inPaneUI=false   <-- SHIPPED BUT UNREACHABLE IN THE UI
+```
+
+All three resolve cleanly through `resolveAtoms` — not producer-gated, simply never added.
+
+**The mechanism is the annotation.** `MEDIA: AuroraMedium[]` type-checks a *subset* perfectly: a
+missing union member is invisible to `tsc`. The other three vocabularies happen to be complete
+(HARMONIES 6/6, ARRANGEMENTS 3/3, MOTIONS 3/3 — verified in the same probe), so the drift detector
+that would have caught this never existed and nobody noticed the one that drifted.
+
+**Cure.** Make the completeness checkable rather than hoped-for: a `Record<AuroraMedium, true>`
+keyed literal (exhaustiveness is then a compile error) whose `Object.keys` feeds the `v-for`. One
+construct, no new module, and the next producer medium fails the build instead of vanishing.
+
+---
+
+## C-5 · MAJOR (corroborated) — the Zones slider caps at **6**; the producer ceiling is **8**, and the repo's own test says so in the same `it()`
+
+`AuroraPane.vue:103`: `{ key: "zones.count", label: "Zones", min: 1, max: 6, step: 1 }`.
+
+`aurora-atoms.ts:35-38` justifies the 6 as a hard producer fact ("`MAX_NUCLEI = 6`, presets.ts:346
+— a shader `#define`, so a count raise is atom-UNREACHABLE at the consumed dist").
+
+```
+$ node probes/pass2/p1-vocabulary.mjs
+  zones.count=6   -> resolved nuclei = 6
+  zones.count=7   -> resolved nuclei = 7   <-- ABOVE THE PANE SLIDER MAX
+  zones.count=8   -> resolved nuclei = 8   <-- ABOVE THE PANE SLIDER MAX
+  zones.count=9   -> resolved nuclei = 8
 $ grep -n "define MAX_NUCLEI" node_modules/@mkbabb/glass-ui/dist/aurora.js
 128:#define MAX_NUCLEI 8
 402:#define MAX_NUCLEI 8
-
-$ npx vite-node scratchpad/probe.mts
-  zones.count=6 -> resolved nuclei = 6
-  zones.count=7 -> resolved nuclei = 7
-  zones.count=8 -> resolved nuclei = 8
-  zones.count=9 -> resolved nuclei = 8
 ```
 
-The repo's own test already knows (`demo/test/glass/aurora-bracket.test.ts:117-119`: "Glass 7 raised
-the ceiling from 6 → 8") and asserts `clamped.nuclei.length === 8`. The slider was never followed.
+`demo/test/glass/aurora-bracket.test.ts:108-130` contradicts itself inside one test:
 
-The standing owner mandate this blocks is quoted in the same comment: MANDATE §0.5, *"The aurora
-should have a few more zones."* It was parked on a ceiling that has since lifted. Two of the three
-reachable steps are unreachable through the UI.
+```ts
+expect(landed.nuclei.length).toBe(6);   // "the ceiling, fully used"
+…
+expect(clamped.nuclei.length).toBe(8);  // "Glass 7 raised the ceiling from 6 → 8"
+```
 
-**Reproduction.** The probe above; or drag Zones on `/#/atmosphere` — it stops at 6.
+The standing owner mandate quoted in that comment is MANDATE §0.5, *"The aurora should have a few
+more zones."* It was parked on a ceiling that lifted; two of the three newly-reachable steps remain
+unreachable through the UI. The desktop screenshot shows the Zones thumb **pegged at the right
+edge** at value 6 — the user is told they are at the maximum.
 
-**Mechanism.** A producer constant hardcoded in a consumer literal, with the justification frozen
-in prose rather than derived.
-
-**Cure.** glass-ui exports the ceiling implicitly through `resolveAtoms`' clamp. The pane should
-not carry the number at all: derive `max` once — `resolveAtoms({zones:{count:99}}).nuclei.length` —
-or ask glass-ui to export `MAX_NUCLEI` (a coordination packet, one const). Either way the literal
-`6` leaves the demo.
+**Cure.** Do not carry the number in the demo. `resolveAtoms({zones:{count:99}}).nuclei.length`
+derives it in one expression; or ask glass-ui to export `MAX_NUCLEI` (a one-const coordination
+packet). Either way the literal `6` leaves `AuroraPane.vue`.
 
 ---
 
-## C-4 · MAJOR — `class="h-9"` on the four Select triggers defeats the design system's coarse-pointer scaling
+## C-6 · MAJOR (corroborated, extended) — **four** shipped ramp atoms are believed unshipped; the dark field is the visible cost
+
+The demo asserts, as fact, in three places, that the ramp atoms are producer-gated:
+
+- `useAtmosphere.ts:233-236` — "the atoms door ships no scheme/lBand (GAP-L2, probed at this dist)"
+- `atmosphere-calibration.ts:29-35` — "Q2-FULL (P1-GATED …): chroma-adaptive hueSpread [24°,64°] ·
+  the +165° counterpoint stop … the dark lBand — all atom-unreachable at the consumed dist"
+- `aurora-atoms.ts:31-33` — "the WIDER chroma-adaptive fan … are the Q2-FULL half (P1-gated atoms)"
+
+Measured at the consumed dist, through the demo's own resolver path:
+
+```
+$ node probes/pass2/p1-vocabulary.mjs
+=== D · the atoms the demo prose calls 'P1-gated / atom-unreachable' ===
+  baseline                  meanL=0.6200 hueSpread=341.33 chromaSpread=0.0975
+  lightnessScheme:"dark"    meanL=0.3000  CHANGED=true
+  lBand:[0.18,0.42]         meanL=0.3000  CHANGED=true
+  hueSpread:64              hueSpread=317.33  CHANGED=true
+  chromaVariance:1          chromaSpread=0.1855  CHANGED=true
+  +chromaCounterpoint:true  chromaSpread=0.1855  CHANGED=false
+```
+
+**Four of the five are live.** (Pass-1 found two.) `AuroraPane.vue` exposes none of them, in
+`SECTIONS` or in the enum rows, and `DEFAULT_AURORA_ATOMS` carries no key for any.
+
+**The consequence is visible.** `visual/shots/safari-desktop-light/atmosphere.png` and
+`safari-desktop-dark/atmosphere.png` — read by eye — carry an **identical** salmon→pink field;
+only the card plate darkens. That is verbatim the composition glass-ui's own doc-comment names as
+the defect `lightnessScheme` exists to cure:
+
+> "never a washed-pale salmon field with dark cards floating on it (the dark-leg defect)"
+
+`chromaCounterpoint` is a genuine producer no-op at this dist (measured above, `CHANGED=false`
+even at `chromaVariance: 1`, against its documented "the deepest ramp stop is pinned to the
+sage-whisper pole"). **glass-ui is not ours to edit this formation — that one is a coordination
+packet, not a wave.**
+
+**Cure.** `lightnessScheme` is not a knob, it is the shell's state: feed it from `useGlobalDark`'s
+`isDark` at the single site the field resolves (`useAtmosphere.ts:170`). That also collapses the
+*second*, separate `deriveAurora(seed, {scheme:"dark"})` call at `:243` — which exists only because
+the field could not be banded — into one derive path. Two paths become one.
+
+---
+
+## C-7 · MAJOR (half corrected) — `h-9` defeats the coarse-pointer control floor; **`text-caption` is a dead class**
 
 `AuroraPane.vue:122,142,156,170` all pass `class="h-9 text-caption min-w-menu"` to `SelectTrigger`.
 
-glass-ui's `SelectTrigger` ships a `size` prop that resolves to a token
-(`dist/select-BcBAyLXA.js`): `size:"sm" → h-(--control-h-sm)`, default → `h-(--control-h-md)`.
-Those tokens are (`dist/styles/tokens/sizing.css`):
+**`h-9` is real and harmful.** glass-ui's `SelectTrigger` resolves its height from a responsive
+token; `h-9` is a flat `2.25rem` that overrides both the density response and the touch floor:
 
 ```
---control-h-sm: max(calc(2.25rem * var(--ui-scale)), var(--control-floor));
---control-h-md: max(calc(2.5rem  * var(--ui-scale)), var(--control-floor));
-@media (pointer: coarse) { :root { --ui-scale: 1.5; --control-floor: var(--touch-target, 2.75rem); } }
+$ node probes/pass2/p3-live.mjs
+########## MOBILE iPhone 14 ##########
+  (pointer:coarse)=true  --ui-scale='1.5'  --control-floor='2.75rem'
+  --control-h-md='max(calc(2.5rem * 1.5), 2.75rem)'      ->  60px
+  trigger LEFT spread = 50.1px   heights = 36,36,36,36
+########## DESKTOP 1440x900 ##########
+  --control-h-md='max(calc(2.5rem * 1), 0px)'            ->  40px
+  heights = 36,36,36,36
 ```
 
-`h-9` is a flat `2.25rem`. It overrides both the `--ui-scale` density response and the
-`--control-floor` touch floor. Measured on a real coarse-pointer profile:
+**36px where the design system resolves 60px** on coarse pointers — a 40% shortfall, below the
+44px touch guidance, on four of the pane's seven controls. (The visual REPORT's tap-target probe
+uses a 24px threshold, so it scores these clean; they are not.)
+
+**`text-caption` is inert — pass-1's claim that it overrides the `text-dropdown` rung is wrong:**
 
 ```
-$ node scratchpad/live4.mjs     # playwright devices["iPhone 14"]
-  (pointer:coarse) matches : true
-  --ui-scale               : 1.5
-  --control-floor          : 2.75rem
-  --control-h-md (default) : max(calc(2.5rem * 1.5), 2.75rem)      ->  60px
-  AuroraPane Select triggers (hardcoded h-9 = 2.25rem):
-    {"label":"Harmony","h":36,...,"cls":"h-9"}
-    {"label":"Arrangement","h":36,...,"cls":"h-9"}
-    {"label":"Medium","h":36,...,"cls":"h-9"}
-    {"label":"Motion","h":36,...,"cls":"h-9"}
+$ node probes/pass2/p9-tokens.mjs
+ "trigger":            { "height":"36px", "minWidth":"176px", "fontSize":"16.4px" }
+ "probe_h9":           { "height":"36px",   "fontSize":"18.608px" }
+ "probe_text_caption": { "fontSize":"14.384px" }
+ "probe_text_dropdown":{ "fontSize":"16.4px" }
 ```
 
-**36px where the design system resolves 60px** — a 40% shortfall, and below the 44px touch
-guidance, on four of the pane's seven controls. The visual REPORT's tap-target probe uses a 24px
-threshold, so it reports these as clean; they are not.
+In isolation `text-caption` computes 14.384px; on the trigger the computed size is **16.4px** —
+`text-dropdown`, the producer's own rung. The class loses the cascade and does nothing. So the pane
+carries four per-instance overrides (edict 5), one of which is actively harmful and one of which is
+decoration that has never applied. `min-w-menu` is live (176px).
 
-`text-caption` is likewise a real bridged utility (`glass-ui/dist/styles/theme/bridges.css`:
-`--text-caption: var(--type-caption)`) overriding the trigger's own `text-dropdown` rung — a
-second per-instance override of a root-level token, on the same four elements.
-
-**Mechanism.** Owner edict 5 ("style at the root component level, never per-instance overrides")
-violated four times over; the override silently disables a responsive token the producer authored
-precisely so consumers would not hand-size controls.
-
-**Cure.** Delete `h-9` and `text-caption`. If the pane genuinely wants the smaller register, that
-is `size="sm"` — the shipped prop, which still honours scale and floor.
+**Cure.** Delete both. If the smaller register is genuinely wanted, that is `size="sm"` — the
+shipped prop, which still honours `--ui-scale` and `--control-floor`.
 
 ---
 
-## C-5 · MAJOR — the four enum-row labels ride the raw `--muted-foreground` this repo already condemned; measured **3.56:1** in light
+## C-8 · MAJOR (corrected) — the four enum-row labels fail WCAG 1.4.3 in **both** schemes
 
-`AuroraPane.vue:194-200`:
+`AuroraPane.vue:194-200`: `.aurora-row-label { … color: var(--muted-foreground); }`
 
-```css
-.aurora-row-label { ... color: var(--muted-foreground); }
-```
+This repo has already ruled against that raw token twice on this very pane's surface
+(`demo/shared/ui/PaneHeader.vue:24-29`; `demo/scenes/ConfigSliderPane.vue:190-206`). AuroraPane's
+four labels sit inside that same pane and were never re-inked.
 
-The repo has already ruled on that token, twice, on this very pane's own surface:
-`demo/shared/ui/PaneHeader.vue:24-29` ("never raw `--muted-foreground`, which measured 4.29:1 on the
-TRUE header ground") and `demo/scenes/ConfigSliderPane.vue:190-206` (T.W8 boot-A: the config
-population re-inks to the certified `--ink-muted` rung). AuroraPane's four labels sit inside that
-same pane and were never re-inked.
-
-Measured live, o18-census model (composite the ancestor background stack over the published
-`--ink-ambient-l`, then WCAG-contrast the ink against it):
+Measured by **sampling the actual painted pixel** from a screenshot of the plate immediately below
+each label, then WCAG-contrasting the computed ink against it (`probes/pass2/p6-ink-and-knobs.mjs`
+— no composite model, no assumed ambient):
 
 ```
-$ node scratchpad/live5.mjs
-=== LIGHT ===
-  --ink-ambient-l: 0.79
-  AuroraPane .aurora-row-label (raw --muted-foreground):
-    {"text":"Harmony","color":"rgb(112, 89, 66)","fontSize":"16.4px","ratio":3.56}   <-- BELOW 4.5:1
-    {"text":"Arrangement", ... "ratio":3.56}   <-- BELOW 4.5:1
-    {"text":"Medium",      ... "ratio":3.56}   <-- BELOW 4.5:1
-    {"text":"Motion",      ... "ratio":3.56}   <-- BELOW 4.5:1
-  sibling ConfigSliderPane .configurator-row label (certified rung):
-    {"text":"Colour Energy","color":"rgb(28, 25, 23)","ratio":13.52}
-=== DARK ===
-  AuroraPane .aurora-row-label ... "ratio":6.12          (dark passes)
+############ scheme=light ############
+   {"text":"Harmony",    "ink":"rgb(112, 89, 66)","plate":"rgb(244,181,217)","fontSize":"16.4px","ratio":3.9, "need":4.5}   <-- BELOW WCAG 1.4.3
+   {"text":"Arrangement","ink":"rgb(112, 89, 66)","plate":"rgb(244,181,216)","ratio":3.89,"need":4.5}   <-- BELOW
+   {"text":"Medium",     "ink":"rgb(112, 89, 66)","plate":"rgb(244,183,214)","ratio":3.94,"need":4.5}   <-- BELOW
+   {"text":"Motion",     "ink":"rgb(112, 89, 66)","plate":"rgb(244,183,213)","ratio":3.94,"need":4.5}   <-- BELOW
+   sibling ConfiguratorRow label: {"text":"Colour Energy","color":"rgb(28, 25, 23)"}
+############ scheme=dark ############
+   {"text":"Harmony",    "ink":"rgb(195, 185, 172)","plate":"rgb(122,74,100)","ratio":3.63,"need":4.5}   <-- BELOW
+   {"text":"Arrangement","ink":"rgb(195, 185, 172)","plate":"rgb(122,75,99)", "ratio":3.6, "need":4.5}   <-- BELOW
+   {"text":"Medium",     "ink":"rgb(195, 185, 172)","plate":"rgb(122,77,100)","ratio":3.53,"need":4.5}   <-- BELOW
+   {"text":"Motion",     "ink":"rgb(195, 185, 172)","plate":"rgb(122,78,99)", "ratio":3.5, "need":4.5}   <-- BELOW
+   sibling ConfiguratorRow label: {"text":"Colour Energy","color":"rgb(233, 230, 226)"}
 ```
 
-16.4px, not large text ⇒ WCAG 1.4.3 requires 4.5:1. **3.56:1, light scheme, four labels.** On the
-same plate, four inches away, the sibling population measures 13.52:1 — the divergence is entirely
-the token choice.
+16.4px, weight 400 ⇒ WCAG 1.4.3 requires 4.5:1. **Eight failures — four labels × two schemes.**
+Pass-1 reported dark as passing at 6.12:1 under a re-implemented composite model; the direct
+pixel measurement says 3.50–3.63. Four inches away on the same plate, the sibling
+`ConfiguratorRow` label inks at rgb(28,25,23) light / rgb(233,230,226) dark — near-black on light,
+near-white on dark — the maximum-contrast choice. The divergence is entirely the token.
 
-*Measurement caveat, stated honestly:* the composite model is my faithful re-implementation of
-`e2e/smoke/oracles/o18-contrast-census.spec.ts`'s `censusElement`, not that function itself; the
-absolute value could shift a little under the canonical implementation. The **relative** fact — two
-populations on one plate, one at 13.52:1 and one at 3.56:1, differing only by certified-vs-raw
-token — is not model-dependent.
-
-**Cure.** Same one-line cure the sibling already took: the certified `--ink-muted` rung. Better,
-per C-6: stop hand-authoring the row label at all (see C-7's cure, which deletes this CSS block).
+**Cure.** The same one-line cure the sibling already took (the certified `--ink-muted` rung); or,
+better, per C-10 — stop hand-authoring the row label at all, which deletes this CSS block whole.
 
 ---
 
-## C-6 · MAJOR (test truth) — nothing tests this component; the one oracle that names it is self-referential
+## C-9 · MAJOR (test truth) — nothing tests this component, the oracle that names it compares it **to itself**, and its cited oracle **does not exist**
 
 ```
-$ grep -rn "Palette harmony|Zone arrangement|Painterly medium|Motion register|aurora-row" e2e/ test/ demo/test/
+$ grep -rn "AuroraPane" --include="*.ts" --include="*.vue" . | grep -v node_modules | grep -v ^./docs
+demo/shell/usePaneRouter.ts:77   (the only non-prose hit: the async import)
+$ grep -rn "aurora-row|Palette harmony|Zone arrangement|Painterly medium|Motion register" e2e/ test/ demo/test/
 (no matches)
+$ grep -rln "@vue/test-utils|mount(" test/ demo/test/
+(no matches — the repo has NO component-mount tests at all)
 ```
 
-- **No test mounts `AuroraPane.vue`.** `grep -rn "AuroraPane" test/ demo/test/ e2e/` returns only
-  prose in comments.
-- The only e2e that visits the route (`e2e/smoke/oracles/o18-contrast-census.spec.ts:929` and
-  `:1164`) censuses `.config-console .configurator-row` — the *parent's* rows. It never selects
-  `.aurora-row`, which is why C-5 has ridden every close.
-- `demo/test/glass/aurora-bracket.test.ts:165-184` (the O-14 leg) compares
-  `auroraHarmonyStops(atoms,h)` against `resolveCalibratedAtmosphere({...atoms,h}).palette` — the
-  **same function the strip itself calls**. It can never observe the seam offset, i.e. it is
-  structurally blind to C-2.
+Three separate blindnesses:
 
-**Exact mutations that keep the whole suite green:**
+1. **No test mounts it.** Nor any component. `usePaneRouter.ts:88` is the sole mount site.
+2. **The O-14 unit oracle is self-referential.** `demo/test/glass/aurora-bracket.test.ts:165-184`
+   compares `auroraHarmonyStops(atoms, h)` against `resolveCalibratedAtmosphere({...atoms,h}).palette`
+   — the *same function the strip itself calls* — and it does so at seed `"oklch(0.62 0.27 9.8)"`,
+   the exact seed I proved live diverges from the painted field by up to 44 rgb units (C-2). It is
+   structurally incapable of observing the defect.
+3. **`aurora-harmony-stops.ts:11-13` cites an oracle that carries no aurora coverage.** It claims
+   "the vitest oracle (`test/preview-chips.test.ts`) holds this function strictly equal to a direct
+   recompute." That file is 97 lines and its four `it()` blocks are all `sampleInterpolationRamp` /
+   `mixColors`:
+   ```
+   $ grep -n "aurora" test/preview-chips.test.ts   ->  (nothing)
+   $ grep -n "it(" test/preview-chips.test.ts
+   53: two operands …   65: three operands …   78: every stop serializes paintable …   90: honest absence …
+   ```
+   The e2e half it names (`o14-preview-truth.spec.ts`, 560 lines) covers the T-10 letterform ramp
+   and the T-17 mix chips; it never visits `/#/atmosphere` and never opens the Harmony select.
+4. The only e2e that censuses this route (`o18-contrast-census.spec.ts:934,950,959`) selects
+   `.config-console .configurator-row …` — the *parent's* rows. The enum rows are provably not in
+   there (`p3-live.mjs`: `enum rows inside .console-well? false`), which is why C-8 has ridden
+   every close.
+
+**Exact mutations that keep the entire suite green** (the vacuous-gate proof):
 
 | # | Mutation | Result |
 |---|---|---|
-| M1 | Swap the `@update:model-value` handlers on the Medium and Motion rows (`AuroraPane.vue:155` ↔ `:169`) | GREEN — vitest 1600+, all e2e |
-| M2 | Delete the entire default-slot `<div>` (lines 118-180) — all four enum controls vanish | GREEN |
+| M1 | Swap the `@update:model-value` handlers on Medium and Motion (`:155` ↔ `:169`) | GREEN |
+| M2 | Delete the whole default-slot `<div>` (`:118-180`) — all four enum controls vanish | GREEN |
 | M3 | `SECTIONS[0].defs[2].max: 6 → 1` (Zones becomes a dead slider) | GREEN |
-| M4 | Delete `guaranteeSeamOffset` from `useAtmosphere.ts:170`, or set `DERIVE_SEAM_FLOOR = 0.5` | GREEN — and the O-14 strip test *gets more correct*, because the divergence it cannot see disappears |
-| M5 | `setHarmony` → `function setHarmony(){}` (harmony becomes unwritable) | GREEN |
+| M4 | Delete `guaranteeSeamOffset` from `useAtmosphere.ts:170`/`:181` | GREEN — **and the O-14 test becomes MORE correct**, because the divergence it cannot see disappears |
+| M5 | `function setHarmony() {}` (harmony unwritable) | GREEN |
+| M6 | Delete `"vangogh"` and `"oil-pastel"` from `MEDIA` | GREEN — the union annotation accepts any subset (C-4) |
 
-M4 is the vacuous-gate proof: the oracle's verdict is *inverted* with respect to the law it claims
-to hold.
+M4 is the proof the oracle's verdict is **inverted** with respect to the law it claims to hold.
 
-**Cure.** One Playwright leg on `/#/atmosphere` that (a) reads each option's `data-stops` (the
-strip already stamps them — `PreviewStrip.vue:44`), (b) selects that option, (c) reads
-`--saved-bg-0..3`, and asserts equality. That is the O-14 law as written, measured against the real
-referent, and it fails today. Plus an o18 census leg on `.aurora-row-label`.
+**Cure.** One Playwright leg on `/#/atmosphere` that (a) reads each option's `data-stops` — the
+strip already stamps them, `PreviewStrip.vue:44` — (b) selects that option, (c) reads
+`--saved-bg-0..3`, (d) asserts equality. That is the O-14 law as written, measured against its real
+referent, and it fails today. Plus an o18 census leg on `.aurora-row-label`, and a liveness leg
+that asserts each knob moves *something* (which would have caught C-1).
 
 ---
 
-## C-7 · MAJOR — the pane rebuilds the row primitive its own parent composes; the control column is ragged by 58.7px
+## C-10 · MAJOR (corroborated) — the pane rebuilds the row primitive its own parent composes; the control column is ragged by 58.7px
 
 `AuroraPane.vue:187-192` hand-rolls `.aurora-row { display:flex; justify-content:space-between }`.
 With no label column, each trigger's left edge is a function of its label's text length:
 
 ```
-$ node scratchpad/live2.mjs      # 1440x900
+$ node probes/pass2/p3-live.mjs      # 1440x900
   {"label":"Harmony",    "labelW":82.1, "trigLeft":318.1,"trigW":897.9}
   {"label":"Arrangement","labelW":129.1,"trigLeft":365.1,"trigW":850.9}
   {"label":"Medium",     "labelW":70.4, "trigLeft":306.4,"trigW":909.6}
   {"label":"Motion",     "labelW":70.4, "trigLeft":306.4,"trigW":909.6}
-  trigger LEFT edges: 318.1, 365.1, 306.4, 306.4   SPREAD = 58.7px
-  trigger WIDTHS    : 897.9, 850.9, 909.6, 909.6   SPREAD = 58.7px
+  trigger LEFT spread = 58.7px      (mobile: 50.1px)
+  enum rows inside .console-well? false  (a .console-well exists: true)
 ```
 
-and on mobile (`live4.mjs`): `trigger LEFT spread = 50.1 px`. Four stacked controls that read as a
-column are misaligned by ~59px. This is plainly visible in
-`shots/safari-desktop-light/atmosphere.png` — "Analogous", "Scattered", "Smooth", "Drifting" all
-start at different x.
+Plainly visible in `shots/safari-desktop-light/atmosphere.png`: "Analogous", "Scattered", "Smooth",
+"Drifting" all start at different x. Meanwhile the *parent* states the law being broken
+(`ConfigSliderPane.vue:6-10`):
 
-Meanwhile the *parent* file states the law being broken, `ConfigSliderPane.vue:6-10`:
+> "glass-ui already ships `./configurator` with ConfiguratorRow … This component uses
+> ConfiguratorRow for each labeled row so the demo composes the existing glass-ui surface rather
+> than rebuilding the row primitive."
 
-> "HARDEN-4 §5.1: glass-ui already ships `./configurator` with ConfiguratorRow + useConfiguratorState.
-> This component uses ConfiguratorRow for each labeled row so the demo composes the existing
-> glass-ui surface rather than rebuilding the row primitive."
+AuroraPane rebuilds it — and puts the result **outside** the `.console-well` that holds the
+sliders, so one pane shows two unrelated row grammars (both screenshots).
 
-AuroraPane rebuilds it. Compounding: the four enum rows sit **outside** the `.console-well` that
-holds the sliders (`ConfigSliderPane.vue:110` renders `<slot/>` before the `v-if="sections.length"`
-well at `:118-122`), so one pane shows two unrelated row grammars — visible in both screenshots.
-
-**Mechanism.** Owner edicts 3 (KISS/no contrivance) and 4 (glass-ui is the design system) violated
-by a 14-line CSS block that re-derives a shipped primitive worse.
-
-**Cure — one transposition that kills C-4, C-5 and C-7 together.** Render the four enum rows as
-`<ConfiguratorRow :label="…">` — the primitive already imported two files up — inside the same
-`.console-well` as the sliders. The grid alignment, the certified label ink, and the tokenized
-control height all arrive by construction, and `.aurora-row` / `.aurora-row-label` are deleted.
+**Cure — one transposition that kills C-7, C-8 and C-10 together.** Render the four enum rows as
+`<ConfiguratorRow :label="…">` — the primitive already imported one file up — inside the same
+`.console-well`. Grid alignment, certified label ink and the tokenized control height all arrive by
+construction; `.aurora-row` / `.aurora-row-label` are deleted.
 
 ---
 
-## C-8 · MINOR — three fallback constants disagree with the defaults they shadow
+# MINOR / INFO
 
-`AuroraPane.vue:73-76, 82`:
+## C-11 · MINOR (NEW) — the pane renders the painter's name as **"Vangogh"**
+
+`AuroraPane.vue:65-70`'s `label()` splits on `-` and title-cases. The producer identifier `vangogh`
+has no hyphen, so it survives as one word. Live DOM, the Medium dropdown as it actually renders:
+
+```
+$ node probes/pass2/p7-liveness.mjs
+1 · the exact option text the pane's label() emits (Medium)
+  ["Smooth","Pastel","Watercolor","Oil","Crayon","Vangogh","Oil Pastel"]
+```
+
+**Mechanism.** A mechanical identifier→prose transform standing in for a display-name map. It is
+correct for 6 of 7 by luck of spelling and will mis-render each of the three media C-4 says are
+missing too (`metal-gradient` → "Metal Gradient" is fine; `kuwahara` is a surname and will read as
+a bare token).
+
+**Cure.** The vocabulary should carry its own display name. The `Record<AuroraMedium, string>` that
+C-4's cure introduces for exhaustiveness *is* that map — one construct fixes both, and `label()`
+(a 6-line generic string-masher, an owner-edict-3 contrivance) disappears.
+
+## C-12 · MINOR (corroborated) — three fallback constants disagree with the defaults they shadow
+
+`AuroraPane.vue:74,76,82`:
 
 ```ts
 const arrangement = () => atoms.zones?.arrangement ?? "composed";   // DEFAULT is "scattered"
@@ -358,171 +536,167 @@ const motion      = () => atoms.motion ?? "breathing";              // DEFAULT i
 function setArrangement(v) { const count = atoms.zones?.count ?? 4;  // DEFAULT count is 6
 ```
 
-```
-$ npx vite-node scratchpad/probe.mts
-  DEFAULT arrangement: scattered  AuroraPane fallback: 'composed'
-  DEFAULT motion: drifting  AuroraPane fallback: 'breathing'
-  DEFAULT zones.count: 6  AuroraPane setArrangement fallback count: 4
-```
+All three are stale, left by the T-32 rider and U33 (documented at `aurora-atoms.ts:39-45` and
+`:59-62`). They are currently unreachable — `useAtmosphere.ts:128` seeds every key via
+`structuredClone(DEFAULT_AURORA_ATOMS)` and `resetDefaults` uses `Object.assign`, which never
+deletes — but they are exactly the masking fallback owner edict 2 forbids: were `zones` ever
+absent, changing *arrangement* would silently drop the count 6 → 4.
 
-All three are stale — left behind by the T-32 rider (`arrangement` composed→scattered) and U33
-(`motion` breathing→drifting) documented at `aurora-atoms.ts:41-45` and `:59-62`. Today they are
-unreachable (`useAtmosphere.ts:128` seeds every key via `structuredClone(DEFAULT_AURORA_ATOMS)` and
-`ConfigSliderPane.resetDefaults` uses `Object.assign`, which never deletes). But they are exactly
-the "masking fallback" owner edict 2 forbids: were `zones` ever absent, changing *arrangement*
-would silently drop the count 6→4.
+**Reproduction: NONE — a latent/dead-path defect, labelled as such.**
 
-**Reproduction:** NONE — this is a latent/dead-path defect, labelled as such.
+**Cure.** The one source of truth is imported two lines above: `atoms.harmony ??
+DEFAULT_AURORA_ATOMS.harmony`, etc. No hand-copied literal survives.
 
-**Cure.** There is one source of truth for these values and it is imported two lines above:
-`atoms.harmony ?? DEFAULT_AURORA_ATOMS.harmony`, etc. No hand-copied literal survives.
-
----
-
-## C-9 · MINOR — 12px-wide slider thumbs; the coarse-pointer cure covers only the block axis
-
-The pane's three `SECTIONS` defs produce three slider thumbs. Measured:
+## C-13 · MINOR (corroborated) — 12px-wide slider thumbs; the coarse cure covers only the block axis
 
 ```
-$ node scratchpad/live2.mjs
-=== B  slider thumbs (WCAG 2.5.8 min 24x24) ===
-  {"label":"Colour Energy","w":12,"h":24}   <-- BELOW 24px
-  {"label":"Noise","w":12,"h":24}           <-- BELOW 24px
-  {"label":"Zones","w":12,"h":24}           <-- BELOW 24px
+$ node probes/pass2/p3-live.mjs
+DESKTOP: slider thumbs: [{"label":"Colour Energy","w":12,"h":24},{"label":"Noise","w":12,"h":24},{"label":"Zones","w":12,"h":24}]
+MOBILE : slider thumbs: [{"label":"Colour Energy","w":12,"h":44},{"label":"Noise","w":12,"h":44},{"label":"Zones","w":12,"h":44}]
 ```
 
-These are **3 of the 7** small-tap-target defects the visual REPORT attributes to `/#/atmosphere`
-in all four matrices (`REPORT.json`, rows `safari-*-*/#/atmosphere`: `{"w":12,"h":24,"tag":"span",
-"label":"Colour Energy"}` etc.; mobile shows `{"w":12,"h":44}`). The mobile height comes from
-`ConfigSliderPane.vue:218-229`, which extends the hit area on the **block** axis only
-(`block-size: max(100%, var(--dock-touch-target))`) — the inline axis stays 12px in every matrix,
-so WCAG 2.5.8's 24×24 minimum fails on both desktop and mobile.
+These are **3 of the 7** small-tap-target defects `REPORT.json` attributes to `/#/atmosphere` in all
+four Safari matrices. `ConfigSliderPane.vue:218-229` extends the hit area on the **block** axis only
+(`block-size: max(100%, var(--dock-touch-target))`); the inline axis stays 12px everywhere, so WCAG
+2.5.8's 24×24 fails on desktop and mobile alike. Shared mechanism with `ConfigSliderPane` /
+glass-ui's `Slider`; AuroraPane owns the three rows.
 
-Shared mechanism with `ConfigSliderPane` / the glass-ui `Slider`; AuroraPane owns the three rows.
+## C-14 · MINOR (NEW) — a duplicated `aria-label` on a role-less wrapper
 
-**Cure.** The same hit-area extension on the inline axis (`inline-size: max(100%, 24px)` on the
-thumb), authored where the block-axis one already lives — or, correctly, in glass-ui's Slider
-(coordination packet).
+Observed while driving the Noise slider (Playwright strict-mode violation, which is the evidence):
 
----
+```
+locator('[aria-label="Noise"]') resolved to 2 elements:
+  1) <span data-slot="slider" aria-label="Noise" class="glass-slider" …>      <-- no role
+  2) <span tabindex="0" role="slider" aria-label="Noise" aria-valuenow="0.5" …>
+```
 
-## C-10 · MINOR — `inject(...)!` with no default is a white-screen trapdoor (HYPOTHESIS)
+`ConfigSliderPane.vue:145` sets `:aria-label="def.label"` on `<Slider>`; glass-ui forwards it to
+both the root wrapper and the thumb. An `aria-label` on a role-less generic is ignored by AT
+(harmless) but it is a duplicated name in the automation surface and an ARIA misuse. Attribution:
+`ConfigSliderPane` + glass-ui, with AuroraPane's three `SECTIONS` defs as the rows in question.
+**A coordination packet if glass-ui owns the forwarding.**
+
+## C-15 · MINOR (corroborated, HYPOTHESIS) — `inject(...)!` with no default is a white-screen trapdoor
 
 `AuroraPane.vue:42`: `const atoms = inject(AURORA_ATOMS_KEY)!;` — no default, and every template
-expression dereferences it (`atoms.harmony`, `atoms.zones?.count`, `auroraHarmonyStops(atoms, h)`).
-Mounted outside `useAtmosphere`'s provider the setup returns `undefined` and the first render
-throws — the `inv-N-1` white-screen class `useAtmosphere.ts:122-126` explicitly guards elsewhere.
+expression dereferences it. Mounted outside `useAtmosphere`'s provider, setup yields `undefined`
+and the first render throws — the `inv-N-1` white-screen class `useAtmosphere.ts:122-126` guards
+against elsewhere. **Reproduction: NONE today** — `usePaneRouter.ts:88` is the only mount site.
+Labelled a hypothesis. It becomes real the moment anyone writes the component test C-9 asks for.
+**Cure:** `inject(AURORA_ATOMS_KEY, structuredClone(DEFAULT_AURORA_ATOMS))` — the default is
+already in the file's own imports, so it costs nothing and is not a compat shim.
 
-**Reproduction:** NONE today — `usePaneRouter.ts:88` is the only mount site and it always sits under
-App.vue. Labelled a hypothesis. It becomes real the moment anyone writes the component test C-6
-asks for.
+## C-16 · MINOR (corroborated) — two `as unknown as` casts hand the dot-path sliders an untyped key space
 
-**Cure.** `inject(AURORA_ATOMS_KEY, structuredClone(DEFAULT_AURORA_ATOMS))` — the default already
-exists in the file's own imports, so this costs nothing and is not a compat shim.
+`AuroraPane.vue:111,113` cast both `atoms` and `DEFAULT_AURORA_ATOMS` to `Record<string, unknown>`.
+`SliderDef.key` is a bare `string` and `ConfigSliderPane.writePath` (`:66-73`) walks it unchecked,
+so a typo `"zones.cont"` compiles and ships, silently creating a junk key or throwing
+`Cannot set properties of undefined` if an intermediate segment is absent. The pane's own knob names
+are the one thing the atom type could have checked, and the cast is what stops it.
 
----
+Also under this head, edict 7: `harmony`/`arrangement`/`medium`/`motion` (`:73-76`) are plain
+functions re-invoked on every render rather than `computed`. (Not a `defineModel` hazard — the pane
+has none.)
 
-## C-11 · MINOR — two `as unknown as` casts hand the dot-path sliders an untyped key space
-
-`AuroraPane.vue:111,113`:
-
-```
-:config="(atoms as unknown) as Record<string, unknown>"
-:defaults="(DEFAULT_AURORA_ATOMS as unknown) as Record<string, unknown>"
-```
-
-`vue-tsc -p tsconfig.demo.json --noEmit` passes (verified: exit 0, no output) — because the casts
-erase the atom type. `SliderDef.key` is a bare `string`; `ConfigSliderPane.writePath` (`:66-73`)
-walks it unchecked. A typo `"zones.cont"` compiles, ships, and either silently creates a junk key
-or — if the intermediate segment is absent — throws `Cannot set properties of undefined`. The pane's
-own knob names are the one thing the atom type could have checked, and the cast is what stops it.
-
-Also under this head, edict 7 (idiomatic Vue 3.5): `harmony`/`arrangement`/`medium`/`motion`
-(`:73-76`) are plain functions re-invoked on every render rather than `computed`.
-
-**Cure.** `SliderDef.key` becomes a generic keyed on the config type, so `SECTIONS` is checked
-against `AuroraAtoms` and both casts disappear. (Not a `defineModel` hazard — the pane has none.)
-
----
-
-## C-12 · INFO — dead-looking ternary, and `fmt()` is total only inside its domain
+## C-17 · INFO — the dead-looking ternary
 
 `AuroraPane.vue:90`: `atoms.medium = kind === "smooth" ? { kind } : { kind };` — both branches are
-byte-identical at runtime. It is a TS **narrowing** device against the `AuroraAtoms` medium/
-interactivity discriminated union (`atoms.d.ts`), so it is not dead code — but it reads as dead
-code and its comment (":86-88") explains an `amount` distinction the expression does not make.
-
-`aurora-harmony-stops.ts:26-28`: `v.toFixed(4).replace(/\.?0+$/,"")`. Exhaustively probed — total
-and correct across every value the palette can produce, and across every harmony × 6 boundary seeds
-including `#000000`, `#ffffff`, achromatic `#808080`:
-
-```
-$ npx vite-node scratchpad/probe.mts
-=== P2 ... malformed/throwing = 0
-=== P3  fmt(0)="0" fmt(1)="1" fmt(100)="100" fmt(0.0001)="0.0001" fmt(-12.5)="-12.5"
-        fmt(1e+21)="1e+21"  fmt(NaN)="NaN"  fmt(Infinity)="Infinity"
-```
-
-The last three emit unpaintable CSS but are unreachable (the resolver clamps L/C/h). INFO only.
+byte-identical at runtime. It is a real TS **narrowing** device against the medium-discriminated
+`AuroraAtoms` union (`atoms.d.ts:155-167`), so it is not dead code — but it reads as dead code and
+its comment (`:86-88`) explains an `amount` distinction the expression does not make. Delete the
+comment or replace the construct with an explicit narrowing that says what it is.
 
 ---
 
-## Negative proofs — what I checked and found SOUND
+## Negative proofs — hazard classes I checked and found SOUND
 
-I was told the implementation is defective. These specific hazard classes are **not** how:
+I was told the implementation is defective. These are **not** how:
 
 1. **No rAF, no listeners, no observers, no timers, no async, no cleanup surface.** AuroraPane is
-   fully declarative: `inject` + four handlers + one const array. The PRM-RAF epidemic, leaked
+   fully declarative: one `inject`, four handlers, one const array. The PRM-RAF epidemic, leaked
    listeners, unbounded growth and missing-cleanup classes are *structurally absent*, not merely
    unobserved. (Per the brief, the aurora rAF loop is glass-ui's and was verified by the root.)
 2. **No `defineModel`, no `ValueUnit`, no `stableHue`, no `parseCssColor`, no WebGL, no reka-ui
    slider pointer-capture surface** in this file. Every named local hazard is off this component.
-3. **The parse-crash class does not reach here.** All 6 harmonies × 6 boundary seeds (incl.
-   `#000000`, `#ffffff`, achromatic, `oklch(0 0 0)`, `oklch(1 0 0)`) → `malformed/throwing = 0`,
-   every stop a well-formed `oklch(L C H)` (probe P2).
-4. **The strip is not palette-blind** (the chronic C2 disease does not manifest here). All six
-   harmonies produce pairwise-distinct strips on chromatic seeds — `DISTINCT STRIPS: 6 of 6` for
-   both `oklch(0.62 0.27 9.8)` and `oklch(0.7 0.18 145)` (probe2). Live DOM confirms six distinct
-   `data-stops` on the open dropdown (`live.mjs`, section C).
-5. **The `#description` slot is real and renders.** glass-ui's `SelectItem.vue.d.ts` declares it;
-   the built component renders it outside `SelectItemText` (so typeahead/`textValue` are unpolluted);
-   live: 6/6 options carry a visible 41.9×16.4px strip with painted segments.
-6. **The strip recompute is not a perf defect.** 0.556 ms for all six candidates
-   (10 799 resolves/s, probe P4), and `SelectContent` genuinely unmounts when closed
-   (`grep -c forceMount select-BcBAyLXA.js` → 0), so the "zero rest cost" claim at
-   `AuroraPane.vue:36-38` holds.
-7. **Reset does not clobber the picker colour.** `resetDefaults` (`ConfigSliderPane.vue:92-94`) is
-   `Object.assign(config, structuredClone(defaults))` and `DEFAULT_AURORA_ATOMS` carries no `seed`,
-   so the seed survives — as documented. `structuredClone` at both `useAtmosphere.ts:128` and the
-   reset means the module-level default is never aliased or mutated.
-8. **Zero page errors, zero console errors, zero horizontal overflow** on `/#/atmosphere` across
-   all four real-Safari matrices (`REPORT.json`), and zero in my Chromium runs apart from the
-   app-wide `VITE_API_URL` dev-config warning.
-9. **`verbatimModuleSyntax` is honoured** — all four type-only imports (`AcceptableValue`, the four
-   aurora atoms, `SliderSection`) are `import type`. **Zero nameless buttons** on this route
-   (`REPORT.json`: `namelessButtons: 0`); all four triggers carry `aria-label`, and focus returns to
-   the trigger on Escape (`live.mjs` section E: `{"active":"Palette harmony"}`).
+3. **A hypothesis of mine, REFUTED.** I suspected `aria-label` on the four `SelectTrigger`s would
+   suppress the current value from the accessibility tree. It does not — the raw CDP node
+   (`probes/pass2/p5-ax-raw.mjs`) shows `role: "combobox"`, `name: "Palette harmony"` (nameFrom
+   `aria-label`), **`value: {"type":"string","value":"Analogous"}`**, `hasPopup=listbox`,
+   `expanded=false`. Name and value are both exposed. Recording the refutation because a seat that
+   only reports its confirmed guesses is not measuring.
+4. **WCAG 2.5.3 Label in Name passes** on all four rows: "Harmony" ⊂ "Palette harmony",
+   "Arrangement" ⊂ "Zone arrangement", "Medium" ⊂ "Painterly medium", "Motion" ⊂ "Motion register".
+5. **The PreviewStrip does not pollute option names or typeahead.** `PreviewStrip.vue:39` is
+   `aria-hidden="true"`; live, all six options carry `"ariaLabel":null` with clean text
+   (`"Analogous"`, `"Split Complementary"`, …) and `"stripAriaHidden":"true"`.
+6. **The strip is not palette-blind** — the chronic C2 disease does not manifest here.
+   `distinct data-stops: 6 of 6` on the live open dropdown, desktop and mobile.
+7. **Focus is restored on Escape.** `p3-live.mjs` section E: `focus after Escape: Palette harmony`,
+   both matrices. Keyboard opening via Enter works; six options render.
+8. **Reset is correct and does not clobber the picker colour.** Live: after exercising every enum
+   knob, Reset restores `["Analogous","Scattered","Smooth","Drifting"]` — exactly
+   `DEFAULT_AURORA_ATOMS`. `structuredClone` at both `useAtmosphere.ts:128` and
+   `ConfigSliderPane.resetDefaults` means the module-level default is never aliased or mutated, and
+   it carries no `seed`, so the colour survives.
+9. **Zero page errors, zero console errors, zero horizontal overflow** on `/#/atmosphere` across all
+   four real-Safari matrices (`REPORT.json`) and across every one of my seven live runs (the only
+   console line is the app-wide `VITE_API_URL` dev-config warning). **`namelessButtons: 0`** on this
+   route; all four triggers carry `aria-label`.
+10. **`verbatimModuleSyntax` is honoured** — all four type-only import groups (`AcceptableValue`,
+    the four aurora atom types, `SliderSection`) are `import type` (`AuroraPane.vue:25,26,34`).
+11. **`demo/ui/select` is a pure re-export of glass-ui** (`export { Select, SelectTrigger, … } from
+    "@mkbabb/glass-ui"`) — edict 4 is honoured at the import, whatever C-7 does to it downstream.
+12. **The strip recompute is not a perf defect.** `SelectContent` genuinely unmounts when closed, so
+    the six-candidate resolve is paid only while the menu is open; the "zero rest cost" claim at
+    `AuroraPane.vue:36-38` holds.
+13. **HARMONIES, ARRANGEMENTS and MOTIONS are complete** against the consumed unions (6/6, 3/3, 3/3).
+    Only MEDIA drifted (C-4).
 
 ---
 
-## Family grouping
+## Family grouping — four mechanisms generate fifteen of the seventeen findings
 
-Three mechanisms generate ten of the twelve findings:
-
-- **Stale producer facts frozen in consumer prose** — C-1 (`lightnessScheme` "not shipped"),
-  C-3 (`MAX_NUCLEI = 6`), C-8 (default drift). The demo hand-maintains duplicates of producer
-  capabilities with no drift detector, and the Glass 7 adoption (W44) re-verified the *build*, not
-  the *claims*.
-- **Hand-rolled surface where a shipped primitive exists** — C-4, C-5, C-7. One 14-line CSS block
-  and one class string re-derive `ConfiguratorRow` and the control-height tokens, worse, and take
-  the alignment and contrast defects with them.
-- **A truth function separated from its referent** — C-2 and its blind oracle C-6. The law is
-  stated in prose in three places and enforced against the wrong side.
+- **A producer fact frozen in consumer prose, never re-probed after the Glass 7 adoption** —
+  C-4 (3 media), C-5 (`MAX_NUCLEI`), C-6 (4 ramp atoms), C-12 (default drift). The demo
+  hand-maintains duplicates of producer capabilities and there is no drift detector; W44
+  re-verified the *build*, not the *claims*. C-4 shows the type annotation cannot serve as one.
+- **A truth function separated from its referent, guarded by an oracle pointed the wrong way** —
+  C-2, C-3, C-9. The O-14 law is stated in prose in four places and enforced against the wrong
+  side in all of them; one cited oracle does not exist.
+- **A hand-rolled surface where a shipped primitive exists** — C-7, C-8, C-10, C-11. One 14-line CSS
+  block, one class string and one 6-line string-masher re-derive `ConfiguratorRow`, the control
+  tokens and a display-name map, worse, and carry the alignment, contrast and typography defects
+  with them.
+- **A capability known at one site and consumed at none** — C-1. `auroraRenderMode` is computed and
+  never told to the surface whose entire job is to expose what the substrate can do.
 
 ## Strongest defect
 
-**C-1** — the dark-scheme atmosphere is still light-band because the demo believes a producer atom
-is unshipped that glass-ui 7.0.0 ships and that a three-line probe proves reachable
-(mean L 0.66 → 0.30). It is the most visible defect (half of every route's rendering), it is
-name-checked as "the dark-leg defect" in the producer's own doc-comment, the cure is already in the
-tree, and it collapses a duplicated derive path rather than adding one.
+**C-2** — the harmony strip, the pane's only truth-bearing affordance, disagrees with the field it
+claims to preview in 210 of 510 measured seed×harmony cases and at both live seeds I drove (Δ up to
+44 rgb units per channel), violating a law the file itself states in its own header; and the oracle
+that names that law compares the strip to itself, at the exact seed where the divergence is largest,
+so the gate is *inverted* — M4 (deleting the seam guarantee) makes the test pass harder while making
+the product worse. C-3 then shows the resolver the strip must be re-pointed at is itself broken in
+7.5% of firings, so this is not a one-line re-point but a real repair.
+
+**C-1 is the most surprising** and would be my pick if scope were unrestricted: on the shipped
+software-WebGL tier, five of the seven knobs this pane exists to offer are byte-verified no-ops
+with no honesty signal — in an app that already wrote the honest-terminal law for exactly that tier.
+
+---
+
+## Probe index (all committed, all re-runnable)
+
+| file | what it proves |
+|---|---|
+| `probes/pass2/p1-vocabulary.mjs` | C-4 (media drift), C-5 (zones ceiling 8), C-6 (4 ramp atoms live) |
+| `probes/pass2/p2-seam.mjs` | C-2 (210/510 grid), C-3 (90/1200 broken guarantee, 9/120 spread crush) |
+| `probes/pass2/p3-live.mjs` | C-7 (36 vs 60px), C-10 (58.7/50.1px spread), C-13 (12×24 thumbs), negatives 5–7, 9 |
+| `probes/pass2/p4-truth-and-ax.mjs` | C-2 live at two seeds vs `--saved-bg-*` |
+| `probes/pass2/p5-ax-raw.mjs` | negative proof 3 (the refuted a11y hypothesis) |
+| `probes/pass2/p6-ink-and-knobs.mjs` | C-8 (8 contrast failures, light + dark, pixel-sampled) |
+| `probes/pass2/p7-liveness.mjs` | C-1 substrate identification, C-11 ("Vangogh"), negative proof 8 |
+| `probes/pass2/p8-control.mjs` | C-1 with two positive controls — the result that makes the nulls mean something |
+| `probes/pass2/p9-tokens.mjs` | C-7's correction (`text-caption` is dead) |

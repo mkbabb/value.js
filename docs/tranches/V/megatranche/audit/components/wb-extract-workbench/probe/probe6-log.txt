@@ -1,0 +1,90 @@
+=== P7. preview crop + preview focusability (1440x900) ===
+{
+ "imgRect": {
+  "y": 131.7,
+  "h": 458,
+  "bottom": 589.7
+ },
+ "containerRect": {
+  "y": 200.7,
+  "h": 320,
+  "bottom": 520.7
+ },
+ "containerOverflow": "hidden",
+ "imgObjectFit": "contain",
+ "imgHeightDecl": "458px",
+ "croppedTopPx": 69,
+ "croppedBottomPx": 69,
+ "croppedFraction": 0.301,
+ "dzTabindex": "-1",
+ "dzAriaLabel": "Image preview area, tap to sample colors",
+ "dzRole": "button"
+}
+=== P7b. tabbable set on the populated route ===
+[
+ {
+  "tag": "button",
+  "name": "Save edit"
+ },
+ {
+  "tag": "button",
+  "name": "Cancel edit"
+ },
+ {
+  "tag": "input",
+  "name": ""
+ },
+ {
+  "tag": "button",
+  "name": "Generate new slug"
+ },
+ {
+  "tag": "button",
+  "name": "Cancel"
+ },
+ {
+  "tag": "button",
+  "name": "Select view"
+ },
+ {
+  "tag": "button",
+  "name": "Login"
+ },
+ {
+  "tag": "button",
+  "name": "@mbabb"
+ },
+ {
+  "tag": "span",
+  "name": "Number of colors"
+ },
+ {
+  "tag": "button",
+  "name": "Upload image"
+ },
+ {
+  "tag": "button",
+  "name": "Open camera"
+ },
+ {
+  "tag": "span",
+  "name": "Chroma weight"
+ },
+ {
+  "tag": "button",
+  "name": "Reset"
+ },
+ {
+  "tag": "button",
+  "name": "Palette menu"
+ },
+ {
+  "tag": "input",
+  "name": ""
+ }
+]
+=== P7c. Enter on the focused preview ===
+{
+ "eyedropperOpen": false,
+ "activeEl": "DIV/Image preview area, tap to sample colors"
+}

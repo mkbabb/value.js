@@ -1,0 +1,29 @@
+======== Resolving module '@mkbabb/value.js/css' from '/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/EmptyState/evidence/_probe.ts'. ========
+Explicitly specified module resolution kind: 'Bundler'.
+Resolving in CJS mode with conditions 'import', 'types'.
+'paths' option is specified, looking for a pattern to match module name '@mkbabb/value.js/css'.
+File '/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/EmptyState/evidence/package.json' does not exist.
+File '/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/EmptyState/package.json' does not exist.
+File '/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/package.json' does not exist.
+File '/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/package.json' does not exist.
+File '/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/package.json' does not exist.
+File '/Users/mkbabb/Programming/value.js/docs/tranches/V/package.json' does not exist.
+File '/Users/mkbabb/Programming/value.js/docs/tranches/package.json' does not exist.
+File '/Users/mkbabb/Programming/value.js/docs/package.json' does not exist.
+Found 'package.json' at '/Users/mkbabb/Programming/value.js/package.json'.
+Entering conditional exports.
+Matched 'exports' condition 'types'.
+Using 'exports' subpath './css' with target './dist/subpaths/css.d.ts'.
+File '/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts' exists - use it as a name resolution result.
+'package.json' does not have a 'peerDependencies' field.
+Resolved under condition 'types'.
+Exiting conditional exports.
+======== Module name '@mkbabb/value.js/css' was successfully resolved to '/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts' with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'. ========
+======== Resolving module '@mkbabb/value.js/color' from '/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/EmptyState/evidence/_probe.ts'. ========
+Explicitly specified module resolution kind: 'Bundler'.
+Resolving in CJS mode with conditions 'import', 'types'.
+'paths' option is specified, looking for a pattern to match module name '@mkbabb/value.js/color'.
+Module name '@mkbabb/value.js/color', matched pattern '@mkbabb/value.js/color'.
+Trying substitution './dist/subpaths/color.d.ts', candidate module location: './dist/subpaths/color.d.ts'.
+File '/Users/mkbabb/Programming/value.js/dist/subpaths/color.d.ts' exists - use it as a name resolution result.
+======== Module name '@mkbabb/value.js/color' was successfully resolved to '/Users/mkbabb/Programming/value.js/dist/subpaths/color.d.ts'. ========

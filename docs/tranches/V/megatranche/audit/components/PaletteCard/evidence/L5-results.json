@@ -1,0 +1,79 @@
+{
+  "A_shell": {
+    "cardClasses": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer",
+    "cardBoxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+    "cardBorderWidth": "2px",
+    "cardBorderStyle": "solid",
+    "cardBorderRadius": "16px",
+    "cardOverflow": "visible",
+    "token_shadow_cartoon_sm": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+    "token_shadow_cartoon_md": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+    "cardShadowEqualsSm": false,
+    "cardShadowEqualsMd": true
+  },
+  "B_cast": {
+    "sheets": 40,
+    "unreadable": 0,
+    "castSelectorsInCascade": [
+      "[SURFACE] .cartoon-surface",
+      ".liquid-enter.is-cel > .cartoon-cast",
+      ".liquid-enter.is-cel > .cartoon-cast",
+      ".liquid-enter.is-cel > .cartoon-cast",
+      ".liquid-enter.is-cel > .cartoon-cast"
+    ],
+    "castElementPresent": true,
+    "castMatchesAnyCastRule": false,
+    "castComputed": {
+      "position": "static",
+      "zIndex": "auto",
+      "boxShadow": "none",
+      "display": "inline",
+      "inset": "auto",
+      "borderRadius": "0px",
+      "width": 0,
+      "height": 0
+    },
+    "cartoonPressT": "0",
+    "cardPressT": "0.0000"
+  },
+  "C_forfeits": {
+    "before": {
+      "isGlassAtom": false,
+      "hasDataSurface": null,
+      "hasDataSlot": null,
+      "borderColor": "oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px"
+    },
+    "afterPrefersContrastMore": {
+      "borderColor": "oklab(0.216129 0.003491 0.005182 / 0.55)",
+      "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.42) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.34) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.24) -7px 7px 0px 0px"
+    },
+    "changed": true
+  },
+  "D_hover": {
+    "rest": {
+      "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+      "translate": "none",
+      "scale": "none",
+      "transform": "none",
+      "backgroundColor": "oklab(0.913299 0.005463 0.013024)",
+      "borderColor": "oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "filter": "none",
+      "opacity": "1",
+      "transitionProperty": "all"
+    },
+    "hover": {
+      "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+      "translate": "none",
+      "scale": "none",
+      "transform": "none",
+      "backgroundColor": "oklab(0.913299 0.005463 0.013024)",
+      "borderColor": "oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "filter": "none",
+      "opacity": "1",
+      "transitionProperty": "all"
+    },
+    "changedKeys": []
+  },
+  "E_skeleton": "NO SKELETON OBSERVED"
+}

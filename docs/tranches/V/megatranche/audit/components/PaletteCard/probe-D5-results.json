@@ -1,0 +1,417 @@
+{
+  "field_1440": {
+    "gridTemplateColumns": "462px",
+    "gridGap": "12px",
+    "gridWidth": 462,
+    "contain": "content",
+    "cards": [
+      {
+        "label": "Palette: Sunset Ridge",
+        "card": {
+          "w": 462,
+          "h": 100
+        },
+        "aspect": 4.62,
+        "strip": {
+          "w": 458,
+          "h": 40
+        },
+        "stripAspect": 11.4,
+        "inkArea": {
+          "w": 125.4,
+          "h": 30.5
+        },
+        "padInline": "0px",
+        "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+        "borderWidth": "2px",
+        "borderRadius": "16px",
+        "cursor": "pointer",
+        "tabIndex": -1,
+        "transition": "all / 0s"
+      },
+      {
+        "label": "Palette: Deep Ocean",
+        "card": {
+          "w": 462,
+          "h": 100
+        },
+        "aspect": 4.62,
+        "strip": {
+          "w": 458,
+          "h": 40
+        },
+        "stripAspect": 11.4,
+        "inkArea": {
+          "w": 115.4,
+          "h": 30.5
+        },
+        "padInline": "0px",
+        "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+        "borderWidth": "2px",
+        "borderRadius": "16px",
+        "cursor": "pointer",
+        "tabIndex": -1,
+        "transition": "all / 0s"
+      },
+      {
+        "label": "Palette: Empty",
+        "card": {
+          "w": 462,
+          "h": 100
+        },
+        "aspect": 4.62,
+        "strip": {
+          "w": 458,
+          "h": 40
+        },
+        "stripAspect": 11.4,
+        "inkArea": {
+          "w": 63.8,
+          "h": 30.5
+        },
+        "padInline": "0px",
+        "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+        "borderWidth": "2px",
+        "borderRadius": "16px",
+        "cursor": "pointer",
+        "tabIndex": -1,
+        "transition": "all / 0s"
+      },
+      {
+        "label": "Palette: Twentyfour",
+        "card": {
+          "w": 462,
+          "h": 100
+        },
+        "aspect": 4.62,
+        "strip": {
+          "w": 458,
+          "h": 40
+        },
+        "stripAspect": 11.4,
+        "inkArea": {
+          "w": 114.1,
+          "h": 30.5
+        },
+        "padInline": "0px",
+        "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+        "borderWidth": "2px",
+        "borderRadius": "16px",
+        "cursor": "pointer",
+        "tabIndex": -1,
+        "transition": "all / 0s"
+      },
+      {
+        "label": "Palette: A very long palette name that will not fit",
+        "card": {
+          "w": 462,
+          "h": 100
+        },
+        "aspect": 4.62,
+        "strip": {
+          "w": 458,
+          "h": 40
+        },
+        "stripAspect": 11.4,
+        "inkArea": {
+          "w": 146.8,
+          "h": 30.5
+        },
+        "padInline": "0px",
+        "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+        "borderWidth": "2px",
+        "borderRadius": "16px",
+        "cursor": "pointer",
+        "tabIndex": -1,
+        "transition": "all / 0s"
+      }
+    ]
+  },
+  "hoverRegister": {
+    "classList": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer",
+    "matchingHoverRules": [],
+    "castComputed": {
+      "display": "inline",
+      "position": "static",
+      "boxShadow": "none",
+      "w": 0,
+      "h": 0,
+      "content": "normal"
+    },
+    "cardPressTReaders": [],
+    "shadowCartoonMd": "-3px 3px 0 color-mix(in oklab, oklch(from light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 32%, transparent), -5px 5px 0 color-mix(in oklab, oklch(from light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 26%, transparent), -7px 7px 0 color-mix(in oklab, oklch(from light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 18%, transparent)",
+    "cardPadInline": "",
+    "spacing": "0.25rem"
+  },
+  "hoverDelta": {
+    "before": {
+      "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+      "transform": "none",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "borderColor": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "filter": "none"
+    },
+    "after": {
+      "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+      "transform": "none",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "borderColor": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "filter": "none"
+    },
+    "identical": true
+  },
+  "skeletonVsCard": {
+    "collapsedCardHeights": [
+      100,
+      100,
+      100,
+      100,
+      100
+    ]
+  },
+  "field_390": {
+    "gridTemplateColumns": "324px",
+    "cards": [
+      {
+        "label": "Palette: Sunset Ridge",
+        "card": {
+          "w": 324,
+          "h": 125.1
+        },
+        "title": {
+          "w": 0,
+          "h": 61.1,
+          "scrollW": 65,
+          "text": "Sunset Ridge"
+        },
+        "rowChildren": [
+          {
+            "tag": "svg",
+            "cls": "lucide lucide-grip-vertical-icon lucide-",
+            "w": 16
+          },
+          {
+            "tag": "span",
+            "cls": "font-display font-medium text-subheading",
+            "w": 0
+          },
+          {
+            "tag": "div",
+            "cls": "badge-atom inline-flex items-center gap-",
+            "w": 28.6
+          },
+          {
+            "tag": "span",
+            "cls": "flex items-center gap-0.5 text-micro tex",
+            "w": 20.8
+          },
+          {
+            "tag": "span",
+            "cls": "flex items-center gap-0.5 text-micro tex",
+            "w": 20.8
+          },
+          {
+            "tag": "span",
+            "cls": "rounded-full bg-muted/60 px-1.5 py-0.5 t",
+            "w": 40.2
+          },
+          {
+            "tag": "span",
+            "cls": "rounded-full bg-muted/60 px-1.5 py-0.5 t",
+            "w": 30.6
+          },
+          {
+            "tag": "span",
+            "cls": "rounded-full bg-muted/60 px-1.5 py-0.5 t",
+            "w": 40.3
+          }
+        ]
+      },
+      {
+        "label": "Palette: Deep Ocean",
+        "card": {
+          "w": 324,
+          "h": 100
+        },
+        "title": {
+          "w": 115.4,
+          "h": 30.5,
+          "scrollW": 115,
+          "text": "Deep Ocean"
+        },
+        "rowChildren": [
+          {
+            "tag": "svg",
+            "cls": "lucide lucide-grip-vertical-icon lucide-",
+            "w": 16
+          },
+          {
+            "tag": "span",
+            "cls": "font-display font-medium text-subheading",
+            "w": 115.4
+          },
+          {
+            "tag": "div",
+            "cls": "badge-atom inline-flex items-center gap-",
+            "w": 28.6
+          },
+          {
+            "tag": "span",
+            "cls": "rounded-full bg-muted/60 px-1.5 py-0.5 t",
+            "w": 33.2
+          }
+        ]
+      },
+      {
+        "label": "Palette: Empty",
+        "card": {
+          "w": 324,
+          "h": 100
+        },
+        "title": {
+          "w": 63.8,
+          "h": 30.5,
+          "scrollW": 64,
+          "text": "Empty"
+        },
+        "rowChildren": [
+          {
+            "tag": "svg",
+            "cls": "lucide lucide-grip-vertical-icon lucide-",
+            "w": 16
+          },
+          {
+            "tag": "span",
+            "cls": "font-display font-medium text-subheading",
+            "w": 63.8
+          },
+          {
+            "tag": "div",
+            "cls": "badge-atom inline-flex items-center gap-",
+            "w": 28.6
+          }
+        ]
+      },
+      {
+        "label": "Palette: Twentyfour",
+        "card": {
+          "w": 324,
+          "h": 100
+        },
+        "title": {
+          "w": 114.1,
+          "h": 30.5,
+          "scrollW": 114,
+          "text": "Twentyfour"
+        },
+        "rowChildren": [
+          {
+            "tag": "svg",
+            "cls": "lucide lucide-grip-vertical-icon lucide-",
+            "w": 16
+          },
+          {
+            "tag": "span",
+            "cls": "font-display font-medium text-subheading",
+            "w": 114.1
+          },
+          {
+            "tag": "div",
+            "cls": "badge-atom inline-flex items-center gap-",
+            "w": 37.2
+          }
+        ]
+      },
+      {
+        "label": "Palette: A very long palette name that will not fit",
+        "card": {
+          "w": 324,
+          "h": 125.1
+        },
+        "title": {
+          "w": 10.3,
+          "h": 61.1,
+          "scrollW": 66,
+          "text": "A very long palette name that will not fit"
+        },
+        "rowChildren": [
+          {
+            "tag": "svg",
+            "cls": "lucide lucide-grip-vertical-icon lucide-",
+            "w": 16
+          },
+          {
+            "tag": "span",
+            "cls": "font-display font-medium text-subheading",
+            "w": 10.3
+          },
+          {
+            "tag": "div",
+            "cls": "badge-atom inline-flex items-center gap-",
+            "w": 28.6
+          },
+          {
+            "tag": "span",
+            "cls": "flex items-center gap-0.5 text-micro tex",
+            "w": 20.8
+          },
+          {
+            "tag": "span",
+            "cls": "flex items-center gap-0.5 text-micro tex",
+            "w": 20.8
+          },
+          {
+            "tag": "span",
+            "cls": "rounded-full bg-muted/60 px-1.5 py-0.5 t",
+            "w": 31.3
+          },
+          {
+            "tag": "span",
+            "cls": "rounded-full bg-muted/60 px-1.5 py-0.5 t",
+            "w": 30
+          },
+          {
+            "tag": "span",
+            "cls": "rounded-full bg-muted/60 px-1.5 py-0.5 t",
+            "w": 38.3
+          }
+        ]
+      }
+    ]
+  },
+  "dark": {
+    "htmlClass": "dark",
+    "cardBg": "oklab(0.345295 0.0103877 0.0175526)",
+    "cardBorder": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+    "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -7px 7px 0px 0px",
+    "fieldBg": "rgba(0, 0, 0, 0)",
+    "shadowCartoonMd": "-3px 3px 0 color-mix(in oklab, oklch(from hsl(30 14% 90%) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 46%, transparent), -5px 5px 0 color-mix(in oklab, oklch(from hsl(30 14% 90%) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 38%, transparent), -7px 7px 0 color-mix(in oklab, oklch(from hsl(30 14% 90%) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 26%, transparent)"
+  },
+  "mix": {
+    "wrapperButtonCount": 0,
+    "wrappers": []
+  },
+  "extract": {
+    "cardPresent": true,
+    "ghostPresent": true,
+    "ghostRect": {
+      "w": 462,
+      "h": 150
+    },
+    "ghostSwatchDeclared": [
+      {
+        "w": 56,
+        "h": 56
+      },
+      {
+        "w": 56,
+        "h": 56
+      }
+    ],
+    "ghostSegCount": 5
+  },
+  "consoleErrors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+  ]
+}

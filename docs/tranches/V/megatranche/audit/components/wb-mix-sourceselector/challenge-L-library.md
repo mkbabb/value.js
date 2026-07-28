@@ -1009,3 +1009,378 @@ L-4/L-7/L-8/L-12 producer relays.
   (12×24); the 1 `namelessButton` is dock-level. Pass 1's reading is correct and I confirm it —
   **none of the 30 buttons is the add slot or a palette swatch, because those are `aria-hidden`
   `<span>`s the scanner cannot see.** The matrix's silence is corroboration, not absolution.
+
+---
+---
+
+# §P3 — Pass 3 (Opus 5, third seating)
+
+## Model receipt
+
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`), the model this seat was explicitly spawned
+with. No inherited or undeclared tier.
+
+Tree state: branch `tranche-u`, HEAD advanced to **`f36f780c`** during this seating (commissioned at
+`c654824e`). `git diff --stat c654824e..HEAD -- demo/workbenches/mix/MixSourceSelector.vue
+demo/ui/collapsible demo/palettes/mix.ts` is **empty**, so passes 1–3 all describe the same subject
+bytes. No source file was edited; every probe artefact went to the session scratchpad.
+
+I derived pass 3 before reading passes 1–2, then reconciled. Four findings survived as new; the
+reconciliation and three cleared hypotheses are recorded at the end.
+
+## P3-0 · Third independent re-derivation of L-1 — CONFIRMED
+
+Reached from a third direction (published `.d.ts` → live DOM → real mouse clicks → glass-ui git
+provenance), landing on the same commit pass 1 named:
+
+```
+$ cat node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts
+type __VLS_Props = { color: string; variant?: "solid"|"ghost"; animate?: boolean;
+                     cycleDuration?: number; range?: [number, number]; seed?: string; };
+```
+
+Live, Chromium 1440×900, dev server, two palettes seeded via `addInitScript` (`probe7.mjs`):
+
+```
+ADDSLOT_children: { tag: 'SPAN', ariaHidden: 'true', pe: 'none',
+                    children: [ 'svg.watercolor-filter-host', 'SPAN.watercolor-ghost-stroke' ],
+                    tabIndex: -1 }
+chips after 5 clicks on add-slot:        0
+chips after 4 clicks on dropdown swatch: 0
+focusable watercolor swatches: 0 total swatches: 4
+```
+
+Five real mouse clicks at the add-slot's centre and four at a dropdown swatch both leave
+`selectedColors` empty; no watercolor swatch is keyboard-reachable. The `<Plus>` child is absent
+from `children` — confirming pass 1's slot-drop from the rendered DOM rather than from the source.
+`vue-tsc -p tsconfig.demo.json --noEmit` → **exit 0, 0 errors** (re-measured), confirming L-3.
+
+Provenance re-derived independently and matching pass 1's line 74:
+
+```
+$ git -C ../glass-ui show 490cc46e -- src/components/watercolor-dot/WatercolorDot.vue \
+    | grep -E '^[+-].*\btag\b'
+-        /** Host tag — `div` (decorative) or `button` (interactive). */
+-        tag?: "div" | "button";
+-        tag: "div",
+-        :is="tag"
+-        :type="tag === 'button' ? 'button' : undefined"
+```
+
+One addition to the provenance record passes 1–2 do not carry: the cut was **contested inside
+glass-ui and the contest missed this prop.** `git -C ../glass-ui log` shows `f04f05d8`
+(*"retire dead-config props"*, 2026-07-21) followed 52 minutes later by `a77ae9fe`
+(*"**re-true** BJ.W-REDUCE-PROPDIET — **restore live-consumer props a stale census mis-cut**"*).
+glass-ui already knows its prop census went stale against live consumers, already ran a restore
+pass — and `tag` was not in it. At glass-ui HEAD (`192879b7`) the `WatercolorDot` props block is
+still `color · variant · animate · cycleDuration · range · seed`. **The relay this document
+proposes is therefore not a new request but a correction to a repair glass-ui already attempted**,
+which is the strongest possible framing for the outbound letter.
+
+---
+
+## L-19 · **MAJOR (new)** — the disclosure's motion contract is overridden per-instance, and the design system's spring loses
+
+`MixSourceSelector.vue:195` is the demo's **only** `Collapsible` (L-4 established the single
+consumer). It writes:
+
+```html
+<CollapsibleContent class="overflow-hidden data-[state=open]:animate-collapsible-down
+                                            data-[state=closed]:animate-collapsible-up">
+```
+
+glass-ui 7.0.0 already owns every one of those declarations. From
+`node_modules/@mkbabb/glass-ui/dist/glass-ui.css`, verbatim:
+
+```css
+.disclosure-content{color:var(--muted-foreground-strong);font-size:var(--type-small);
+  line-height:var(--leading-small);animation-duration:var(--spring-smooth-duration);
+  animation-timing-function:var(--spring-smooth);overflow:hidden}
+.disclosure-content[data-disclosure=collapsible]{--disclosure-content-size:var(--reka-collapsible-content-height)}
+```
+
+The design system ships the duration token, the timing token, `overflow:hidden`, and the
+content-size plumbing, under a `disclosure-open` / `disclosure-close` family. The demo's
+per-instance utilities win the cascade. Measured live (`probe10.mjs`, collapsible opened, computed
+style on the content element):
+
+```json
+{ "DELIVERED_duration": "0.2s",
+  "DELIVERED_timing":   "ease-out",
+  "DELIVERED_name":     "collapsible-down",
+  "GLASS_TOKEN_duration": "calc(0.35s * 1)",
+  "GLASS_TOKEN_settle":   "0.35s",
+  "GLASS_TOKEN_tempo":    "1",
+  "GLASS_TOKEN_timing_stops": 48 }
+```
+
+**A 48-stop `linear()` spring at 350 ms is replaced by `ease-out` at 200 ms** — a 43 % duration cut
+and the loss of the design system's signature easing, at the one call site in the application that
+uses this component. `overflow-hidden` is additionally redundant with `.disclosure-content`'s own
+`overflow:hidden`.
+
+**Mechanism — motion has two owners and the wrong one wins.** `animate-collapsible-down` is a
+`tw-animate-css` utility (`demo/styles/foundation.css:2 @import "tw-animate-css";`), a package
+retained from the radix-vue era; its keyframes resolve height through
+`var(--radix-… , var(--bits-… , var(--reka-collapsible-content-height, auto)))`. So the demo's
+disclosure motion is specified by a **fourth** package, keyed on a **fifth** package's variable
+namespace, reaching glass-ui's value only through the third fallback in that chain. glass-ui is the
+design system (edict 4); motion belongs to it, tokenized (edict 6); and this is a per-instance
+override of a root-level concern (edict 5) — three edicts on one line.
+
+**Cure.** Delete all three utility classes from line 195. `<CollapsibleContent>` then inherits
+`.disclosure-content` and the disclosure animates on `--spring-smooth` like every other glass
+surface in the app, with no demo-side motion code at all. If a *different* motion is genuinely
+wanted, it is a glass-ui `variant`, not a class list at a call site. Once no demo file references
+`animate-*`, audit `tw-animate-css` for removal from `foundation.css` — a radix-era dependency
+outliving radix is exactly the legacy standing edict 2 forbids. (Scoped separately: 20 other demo
+files still use `animate-*` utilities, so the import removal is not this component's call.)
+
+---
+
+## L-20 · **MAJOR (new)** — 8 of the demo's runtime packages are declared `devDependencies`; `dependencies` holds only the library's two
+
+A second, independent instance of P2's L-13 mechanism — one manifest owning two artifacts — that
+neither pass found. `package.json`:
+
+```
+dependencies (2):  @mkbabb/glass-ui   @mkbabb/keyframes.js
+```
+
+Those two are the *library's* runtime needs. Resolving every bare specifier imported anywhere under
+`demo/` against the manifest:
+
+```
+DEMO runtime imports declared ONLY as devDependencies (9):
+  @lucide/vue            ^1.16.0
+  @vueuse/core           ^14.3.0
+  @vueuse/integrations   ^14.3.0
+  highlight.js           ^11.11.1
+  katex                  ^0.16.47
+  reka-ui                ^2.9
+  vitest                 ^3.2.4      ← legitimately dev (test files under demo/test)
+  vue                    ^3.5.34
+  vue-router             ^5.1.0
+```
+
+Eight real application runtime dependencies — including **`vue` itself** — are declared build-time
+only. `MixSourceSelector.vue` is a direct participant: line 2 imports `vue`, line 3 imports
+`@lucide/vue` (47 demo files do), and its `../../ui/collapsible` edge reaches `reka-ui` through
+glass-ui's externals. Three of this component's five runtime package edges are undeclared as runtime
+dependencies.
+
+**This is not a mistake to correct in place.** `"dependencies": { "vue": … }` on `@mkbabb/value.js`
+would be *wrong* — a colour library must not force Vue on its consumers, and the current two-entry
+`dependencies` block is exactly right for the published package. The manifest is correct for the
+library and incorrect for the application **because one manifest cannot be correct for both**. Any
+`npm ci --omit=dev` in a demo deployment path installs a tree in which the application cannot boot;
+`npm pack` on this package produces a tarball whose `demo/` (if ever shipped) is uninstallable.
+
+**Cure.** This is the same cure as L-13 and it now has two independent justifications. The
+workspace split — `demo/package.json` with its own `dependencies` (`vue`, `vue-router`, `reka-ui`,
+`@vueuse/*`, `@lucide/vue`, `highlight.js`, `katex`, `@mkbabb/glass-ui`, and `@mkbabb/value.js` by
+`file:..`) — makes both L-13 and L-20 unrepresentable, because each artifact then declares only what
+it actually needs. Record L-20 in the L-13 wave: it raises that finding from "a build flag deletes
+the app" to "the manifest is structurally wrong for the app in two independent ways", which is what
+justifies paying for a workspace rather than patching a field.
+
+---
+
+## L-21 · **MAJOR (new)** — the stable-key apparatus is duplicated, refuting a negative both prior passes recorded
+
+Pass 1's *"What I checked and did NOT find defective"* states: **"No duplicate implementation of
+*this* component's concept."** Pass 2 confirms it, having searched the three *named* historical
+suspects. Both searched for the named suspects; neither searched for a twin of the apparatus L-5 is
+about. There is one.
+
+`demo/palettes/browser/card/composables/useSwatchActions.ts:42-59`, verbatim:
+
+```ts
+    // --- Stable keys for TransitionGroup ---
+    let swatchKeyCounter = 0;
+    const swatchKeyMap = new Map<string, number>();
+    const swatchKeys = computed(() =>
+        savedColorStrings.value.map((color, i) => {
+            const mapKey = `${color}::${i}`;
+            if (!swatchKeyMap.has(mapKey)) { swatchKeyMap.set(mapKey, swatchKeyCounter++); }
+            return swatchKeyMap.get(mapKey)!;
+        }),
+    );
+    watch(savedColorStrings, () => {
+        const validKeys = new Set(savedColorStrings.value.map((c, i) => `${c}::${i}`));
+        for (const key of swatchKeyMap.keys()) { if (!validKeys.has(key)) swatchKeyMap.delete(key); }
+    });
+```
+
+Set that beside `MixSourceSelector.vue:78-98`: the same comment header, the same counter, the same
+`` `${…}::${i}` `` map key, the same mint-on-miss `computed`, the same prune `watch`. Two homes for
+one concept — and `grep -rn "swatchKeyCounter" demo` returns these two sites and no others, so the
+duplication is exactly twofold.
+
+Three consequences the prior passes' cure does not account for:
+
+1. **L-5's cure must land at two sites, not one.** Fixing only `useMixingState` leaves the identical
+   churn bug alive in the palette card cluster, on a list (`savedColorStrings`) that users reorder —
+   where it is *more* observable than in the mix row, not less.
+2. **The composable form already existed and was not reused.** `useSwatchActions` is the natural
+   home; `MixSourceSelector` inlined 20 lines of the same logic into an SFC instead. This is the
+   god-module/duplication axis, with the correct home already in the tree.
+3. **The recorded negative should be struck.** A future pass reading passes 1–2 would take
+   "no duplicate implementation" as settled.
+
+The shared defect is confirmed by executing the exact transcription (`keytrace.mjs`):
+
+```
+keys [a,b,c]        : [ 0, 1, 2 ]
+keys after remove(0): [ 3, 4 ]  <- survivors re-keyed
+keys [a,b,c] again  : [ 5, 6, 7 ]
+```
+
+**Cure.** L-5's model-owned `id` is right, and it generalises: identity is minted where the list is
+mutated. `useMixingState.addColor` mints for `SelectedColor`; whichever store owns
+`savedColorStrings` mints for its entries. Both copies of the apparatus then delete, and no
+composable is needed to share — the shared thing was a *workaround*, and the right move is to
+delete it twice rather than extract it once (edict 3: no wrapper that need not exist).
+
+---
+
+## L-22 · **MAJOR (new)** — the selection cardinality rule has no owner, and the second add path ignores it
+
+The bound lives in the **view** (`MixSourceSelector.vue:38-40`):
+
+```ts
+// Source guards: remove needs ≥ 1 remaining, add stops at a sensible upper bound.
+const MIN_COLORS = 1;
+const MAX_COLORS = 12;
+const canRemoveColor = computed(() => selectedColors.length > MIN_COLORS);
+const canAddColor    = computed(() => selectedColors.length < MAX_COLORS);
+```
+
+The **state machine** that performs the mutation enforces nothing
+(`demo/workbenches/mix/composables/useMixingState.ts:55-61`):
+
+```ts
+function addColor(css: string, source: string = "picker") {
+    selectedColors.value = [...selectedColors.value, { css, source }];
+}
+function removeColor(index: number) {
+    selectedColors.value = selectedColors.value.filter((_, i) => i !== index);
+}
+```
+
+And the rule is not even applied consistently *within the view that owns it*. There are two add
+paths in this file. The add-slot consults the guard (`:172 :disabled="!canAddColor || undefined"`).
+The palette-dropdown swatch — `:211-221`, the other add path, forty lines below — carries **no
+`:disabled` and no guard**:
+
+```
+:220  @click="emit('addColor', color.css, palette.name)"
+```
+
+So `MAX_COLORS = 12` is bypassable by clicking dropdown swatches, and `MIN_COLORS` is defended only
+by a `disabled` attribute that any programmatic caller of `removeColor` ignores. (Both are
+**latent** today: L-1 makes every add path inert, so this is confirmed by construction and by code
+read, not by live reproduction. It surfaces the instant L-1 is cured, in the same wave.)
+
+Note the interaction with L-1 that makes this worse than it looks: pass 1's L-2 census records that
+`MixSourceSelector:164` is *"the only site that also loses a `:disabled` guard"* to the phantom API.
+So the one add path that does consult the bound is also the one whose guard the design-system cut
+silently dropped. Cure L-1 alone and the guard returns to a rule that is still only half-applied.
+
+**Mechanism.** Policy was written where it was rendered rather than where it is enforced, so a
+second call site could be added without it — and was.
+
+**Cure.** The invariant belongs to the machine. Move `MIN_COLORS`/`MAX_COLORS` into
+`useMixingState`, have `addColor`/`removeColor` refuse out-of-range mutations, and export
+`canAddColor`/`canRemoveColor` from the machine. The view then *renders* a decision it does not
+*make*, both add paths are governed by construction, and adding a third add path cannot reintroduce
+the hole. Fold into the same wave as L-5/L-21's `id` minting — both are the same transposition
+(state belongs to the state machine) applied to two different fields, and both edit the same six
+lines of `useMixingState`.
+
+---
+
+## P3 · What I checked and did NOT find defective
+
+Recorded because each was a live hypothesis that measurement killed — and because P3's own L-21
+shows what an unexamined negative costs.
+
+- **`variant="pill"` on `SegmentedTabs` (line 106) is a real published prop.** I suspected a second
+  phantom from the same 7.0.0 cut. It is not:
+  `node_modules/@mkbabb/glass-ui/dist/components/tabs/SegmentedTabs.vue.d.ts:20` →
+  `export type SegmentedTabsVariant = "pill" | "underline";`, and `:55 variant?: SegmentedTabsVariant`.
+  Clean. **`WatercolorDot` is the only phantom surface in this file.**
+- **`animate-collapsible-down` / `-up` *do* resolve — the utilities are not dead.** I expected them
+  to be radix-era orphans. They are not: `tw-animate-css` is imported at
+  `demo/styles/foundation.css:2`, its `@keyframes collapsible-down` falls through
+  `--radix-…` → `--bits-…` → `--reka-collapsible-content-height`, and glass-ui sets that last one.
+  Measured live: `--reka-collapsible-content-height: 265.9375px`, height animates `0px → 265.938px`,
+  `animation-name: collapsible-down`. The animation **runs**. L-19's defect is *which* motion plays
+  and *who owns it*, not whether motion happens — and no animation is being deleted by L-19's cure
+  (edict 6), only returned to its tokenized owner.
+- **`demo/palettes/mix.ts` consumes value.js correctly.** `:10-14` imports `mixColors`, `AnyColor`,
+  `HueInterpolationMethod` from `@mkbabb/value.js/color` — a real key in `package.json#exports`
+  (7 keys: `./color ./value ./css ./easing ./math ./transform ./quantize`). `useMixingState.ts:19`
+  likewise, with `import type`. No deep `src/` reach anywhere in the mix workbench. Pass 1's L-8
+  (wrong *home*) stands; the *dogfooding* is sound, and I confirm it from a third reading.
+- **`package.json#exports` really is a 7-key closed set with no `.` root.** Worth stating plainly,
+  since `tsconfig.demo.json:42` maps a bare `"@mkbabb/value.js"` → `./dist/index.d.ts` and
+  `ls dist/index.d.ts` reports **no such file**. That sharpens L-9/L-17: one of the three phantom
+  `paths` keys points at a file that does not exist in the checkout at all.
+
+## P3 · Reconciliation with passes 1–2
+
+- **L-1, L-2, L-3 — confirmed** by a third independent derivation (P3-0), with the glass-ui
+  contested-restore provenance added.
+- **L-4 — confirmed.** Independently measured the bundle cost a second way: esbuild 0.27.7 over two
+  identical entries importing the same three symbols, `--external:vue --external:reka-ui` →
+  root barrel **8 856 B** vs `./collapsible` subpath **7 797 B** (−12.0 % after tree-shaking).
+  Pass 2's 30.3× static-closure figure and this delivered-bytes figure are both correct and measure
+  different things: the closure is what the bundler walks, the delta is what survives shaking.
+  Neither is the whole cost, and quoting the 30.3× as a payload figure would overstate it.
+- **L-5 — confirmed, and extended by L-21** (a second copy exists; the cure is two-site).
+- **L-6, L-7, L-8, L-9, L-10 — confirmed** by independent derivation, including the nested-button
+  measurement (`probe8.mjs`): `{ "outer": "Select palette Alpha", "n": 1, "tags": ["BUTTON[Palette
+  menu]"] }` — a `<button>` inside a `<button>`, twice.
+- **P1's negative "no duplicate implementation" — REFUTED** (L-21). Recommend striking that bullet
+  from the P1 list rather than leaving two passes' worth of false assurance in the record.
+- **New in P3: L-19, L-20, L-21, L-22.**
+
+## P3 · Additions to the greenfield lattice
+
+Pass 2's two-package workspace stands, and L-20 supplies its second independent justification. Two
+laws to add:
+
+```
+LAW (P3):
+  · motion is a design-system token. A demo file may not name an `animate-*` utility on a
+    glass-ui component; if the motion is wrong, the fix is a glass-ui variant.          (L-19)
+  · list identity and list cardinality are state-machine fields, minted and enforced where
+    the list is mutated — never derived in a view, never twice.                  (L-5/L-21/L-22)
+```
+
+Ordering, amending pass 2's: L-13 **and L-20 together** (one workspace split discharges both — do
+not land the split without re-homing the 8 dependencies, or the demo package will be born broken);
+then L-1 + L-15; then the state-machine wave folding **L-5 + L-21 + L-22** into one six-line edit of
+`useMixingState.ts` plus two deletions; then L-14/L-16/L-18; then the producer relays
+(L-4/L-7/L-8/L-12) with **L-19 added to the glass-ui letter** — it is a design-system motion
+question and belongs in the same envelope as L-1's `WatercolorSwatchButton` request.
+
+## P3 · Evidence index
+
+| Artefact | Path (scratchpad) |
+|---|---|
+| Live click-death + focusability probe | `probe7.mjs` (output quoted in P3-0) |
+| Rendered add-slot / dropdown-content HTML | `probe6.mjs` |
+| Collapsible open-state + CSSOM probe | `probe9.mjs` |
+| Motion-token measurement | `probe10.mjs` (output quoted in L-19) |
+| Nested-button measurement | `probe8.mjs` (quoted in reconciliation) |
+| Stable-key churn trace | `keytrace.mjs` (quoted in L-21) |
+| Bundle delta, esbuild 0.27.7 | `bundle/via-root.ts`, `bundle/via-subpath.ts` |
+| Dependency-placement census | `specs.txt` + inline node script (quoted in L-20) |
+
+Scratchpad root:
+`/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad`
+
+**No source edits were made in this seating. Exactly one file was written — this one, appended
+in place under the permitted path.**

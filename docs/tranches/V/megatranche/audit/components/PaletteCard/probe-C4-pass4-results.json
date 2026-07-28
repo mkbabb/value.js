@@ -1,0 +1,111 @@
+{
+  "A1_listSemantics": {
+    "gridRole": "list",
+    "gridChildRoles": [
+      "article",
+      "article",
+      "article",
+      "article"
+    ],
+    "cardCount": 4,
+    "listitemCount": 0
+  },
+  "A1_roleCounts": {
+    "list": 1,
+    "listitem": 0,
+    "article": 4,
+    "listitemsInsideGrid": 0,
+    "articlesInsideGrid": 4
+  },
+  "A2_tabWalk": {
+    "everFocusedCardRoot": false,
+    "stopsInsideCards": [
+      "BUTTON:Palette menu",
+      "BUTTON:Palette menu",
+      "BUTTON:Palette menu",
+      "BUTTON:Palette menu",
+      "BUTTON:Palette menu"
+    ]
+  },
+  "A2_afterTabWalk": {
+    "hash": "#/palettes?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "articles": 4
+  },
+  "A2_enterOnCard": {
+    "cardTabIndex": -1,
+    "focusableViaFocus": false,
+    "swatchesBefore": 0,
+    "swatchesAfterEnter": 0
+  },
+  "A3_menuKeyboard": {
+    "itemsOpen": 4,
+    "labels": [
+      "Publish",
+      "Rename",
+      "Export",
+      "Delete"
+    ],
+    "focusedBefore": "Rename",
+    "renameInputAfterEnter": 1
+  },
+  "A3b_menuMouse": {
+    "renameInputAfterClick": 1
+  },
+  "A4_targets": [
+    {
+      "tag": "svg",
+      "cls": "lucide lucide-grip-vertical-icon lucide-",
+      "w": 16,
+      "h": 16,
+      "name": "",
+      "under24": true
+    },
+    {
+      "tag": "BUTTON",
+      "cls": "button tap-squish focus-ring glass-wash ",
+      "w": 36,
+      "h": 36,
+      "name": "Palette menu",
+      "under24": false
+    }
+  ],
+  "A5_emptyPalette": {
+    "stripChildren": 0,
+    "stripHeightPx": 40,
+    "stripBackground": "rgba(0, 0, 0, 0)",
+    "cardText": "Empty0"
+  },
+  "A6_ariaLive": {
+    "liveRegionsInCard": 0,
+    "liveRegionsInDocument": 5
+  },
+  "A7_vote": {
+    "present": false,
+    "note": "local palettes render no vote button (v-if=!isLocal)"
+  },
+  "A8_hoverFanout": {
+    "dotCount": 0,
+    "totalMeasures": 0,
+    "topMeasures": []
+  },
+  "A9_prm": {
+    "prmMatches": true,
+    "scrollIntoViewCalls": [],
+    "midFlightInlineStyles": [
+      "height: 72px; opacity: 1; transition: height 350ms cubic-bezier(0.16, 1, 0.3, 1), opacity 350ms;"
+    ]
+  },
+  "B_mixNesting": {
+    "outerButtonsWrappingCards": 0,
+    "sample": [],
+    "totalNestedButtonInButton": 0
+  },
+  "errors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+  ]
+}
