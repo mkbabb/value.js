@@ -20,7 +20,7 @@ The rest of the dirty tree belongs to the active Claude formation and includes a
 |---|---|---|
 | `SCOPE.md` | owner marks M-1..M-18; M-17 adds named consumer/Admin CRUD proof and M-18 adds the Goldilocks DAG/constellation commission | STABLE |
 | `FORMATION-LAWS.md` | **L-1..L-17**, including tri-fold, durability, evidence-mode, and graph-cluster laws | STABLE |
-| `registry/ROOT-FINDINGS.md` | **40 findings (MT-F001..MT-F040)**; MT-F038's `toFixed` count corrected by M-16 and the three late censuses marked honestly absent | GROWING |
+| `registry/ROOT-FINDINGS.md` | **43 findings (MT-F001..MT-F043)**; the three OM censuses are COMPLETE 2026-07-28 late (`audit/om-14-formatting/` · `om-15-text/` · `om-16-palette-scalability/`, census-complete notes appended per finding); M-16's toFixed figure confirmed-and-refined (30 lines/31 calls) | GROWING |
 | `registry/DISEASE-REGISTRY.md` | **33 disease rows** (18 BUILD · 11 RETIRE · 4 FOLD) + 22 mechanism families — the anti-rename ledger; wave authoring's primary input | **COMPLETE** |
 | `registry/harvest/*.json` | **53 raw agent results** pulled from the workflow journals — complete, untruncated | REGENERABLE |
 | `registry/DEFECT-LEDGER.md` | **2,329 challenger accusations** (334 BLOCKER · 1,112 MAJOR · 680 MINOR · 203 INFO), severity-ordered; not jury findings | REGENERABLE |
