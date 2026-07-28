@@ -1,7 +1,7 @@
 {
  "runId": "wf_6edda4a1-192",
  "workflow": "area-workbenches",
- "resultCount": 41,
+ "resultCount": 47,
  "results": [
   {
    "agentId": "a74718d771cc29ddd",
@@ -5820,6 +5820,765 @@
       "mechanism": "a code artifact rendered as ordinary inline prose",
       "reproduction": "Range-measure the glyph x-positions of the value span under dir=ltr and dir=rtl (numbers above): no reordering for this string form; the missing isolation is a canon-letter violation, not a rendering defect here.",
       "proposedCure": "Wrap the value in an LTR-isolated span and use `overflow-wrap: anywhere` on a `min-width:0` flex child instead of `break-all`, so the artifact wraps at token boundaries."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a604bc206312e1d10",
+   "key": "v2:ff6d3da847a83bc1fa5c40c6342cd755f3e6f970f51703ada9618083be4a12f5",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) for demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+    "modelObserved": "Opus 5 (claude-opus-5[1m], 1M-context variant) — the tier this seat was explicitly spawned with; declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/wb-gradient-easingeditor/challenge-L-library-r3.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1 — easingCatalogue.ts:174 uses FAMILY_ORDER as a FILTER instead of a sort, so 6 of value.js's 30 published bezierPresets (ease-{in,out,in-out}-quart and -quint) are unreachable from the specimen strip; worse, glass-ui's own EasingPicker preset Select DOES offer all 30, so authoring ease-out-quart makes tileIdFor() miss and the row head print \"custom\" for a first-class named CSS preset. Measured: 27 tiles in the live DOM === 24 bezier + 3 steps computed. Found by neither prior round.",
+    "negativeProof": "Not applicable to the verdict, but recorded as a genuine negative result the seat could not falsify: the component's public-surface hygiene is CLEAN. Every specifier in its transitive tree (@mkbabb/value.js/{easing,css,color}, @mkbabb/glass-ui/{easing,chip,fading-scroll} and the root barrel) is a real published export map key that an external consumer could write verbatim — zero @src/* reaches, zero dist/ deep paths, zero cross-package internals. The T.W1 demo-dogfood keystone HOLDS. Dependency direction is also sound: `grep -rn \"color-session/\" demo/workbenches/ | wc -l` -> 28 uniform feature -> shared-domain (downward) edges across all four workbenches; the 4-deep ../../../../ at useSpecimenRows.ts:13 is a depth smell, not a direction violation.",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "easingCatalogue.ts:174 hardcodes FAMILY_ORDER (8 families) and line 191 uses it as a FILTER over the catalogue, silently dropping value.js's `quart` and `quint` families. Six published bezierPresets are unreachable from the specimen strip, and because glass-ui's EasingPicker preset Select iterates all 30 presetNames, selecting one of the six makes tileIdFor() miss so specimenNameFor() prints `custom` for a first-class named CSS preset.",
+      "severity": "BLOCKER",
+      "evidence": "demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts:174 (FAMILY_ORDER) and :191 (`FAMILY_ORDER.filter((f) => byFamily.has(f))`); miss path at :219-223 (tileIdFor) and :228-230 (specimenNameFor). Transcribed-buildFamilies run against dist/subpaths/easing.js printed: `all families: css, cubic, sine, quad, quart, quint, expo, circ, back` / `DROPPED families: quart, quint` / `dropped presets: ease-in-quart ease-out-quart ease-in-out-quart ease-in-quint ease-out-quint ease-in-out-quint` / `bezier tiles rendered: 24 + 3 steps = 27` / `bezier presets published: 30 => unreachable: 6`. Live DOM at http://localhost:9000/#/gradient: document.querySelectorAll('[data-specimen]').length -> 27, Object.keys(bezierPresets).length -> 30. Producer offers all 30: node_modules/@mkbabb/glass-ui/dist/easing.js contains \"Easing preset\", placeholder \"Pick a curve\", and two presetNames references.",
+      "mechanism": "A hand-maintained ordering array doing partition duty — a second, drifting mint of a partition the library already implies in its own key names (familyLabelFor at :168 already parses the `ease-(in|out|in-out)-<family>` structure, then the order array discards what the parse found).",
+      "reproduction": "1) Open http://localhost:9000/#/gradient. 2) Count specimen tiles: document.querySelectorAll('[data-specimen]').length -> 27, against Object.keys(bezierPresets).length -> 30 (24 bezier + 3 steps rendered). 3) Open the tune disclosure (aria-label=\"Author a custom curve\") and pick `ease-out-quart` from the EasingPicker's \"Easing preset\" select. 4) The closed-row head reads `custom` instead of `ease-out-quart`.",
+      "proposedCure": "Rank, never filter: build the family list from the catalogue itself and use the array only to sort — `const RANK = new Map([...,'quart','quint',...].map((f,i)=>[f,i])); return [...byFamily.keys()].sort((a,b)=>(RANK.get(a)??99)-(RANK.get(b)??99)||a.localeCompare(b)).map(...)` — so an unknown family sorts last and STILL renders. Gestalt cure upstream: value.js /easing publishes `bezierPresetFamilies` so no consumer re-derives the partition, and easingCatalogue.ts's ~40 lines of family plumbing delete."
+     },
+     {
+      "id": "L-2",
+      "defect": "The CSS-timing-AST -> callable bridge is ~70 lines of pure library logic living in the demo, including a hand-transcribed W3C spec algorithm. value.js publishes parseTimingFunction on /css and the four constructors on /easing but nothing that joins them, so every consumer must re-derive it.",
+      "severity": "MAJOR",
+      "evidence": "demo/workbenches/gradient/composables/useGradientCSS.ts:79-104 (`linearStops` — the CSS Easing Functions L2 omitted/doubled input-position resolution), :106-117 (`timingFunctionValue` four-arm dispatch), :69 (unbounded module-scope `resolvedEasingCache` keyed by arbitrary user CSS). `grep -rn \"CssTimingFunction\" src/` returns only declarations/re-exports (src/css/{stylesheet,index,grammar,types}.ts, src/subpaths/css.ts) — no code in src/ ever builds a callable from the AST. glass-ui retreated from the same wall: node_modules/@mkbabb/glass-ui/dist/easing.js calls parseTimingFunction only for a boolean `reparseOk` (`let e = M(u.value); if (!e.ok) return !1;`), never to obtain a function.",
+      "mechanism": "Missing library capability at the seam between two subpaths the library already owns (/css owns the grammar, /easing owns evaluation); the join has no home, so it materialises in whichever consumer needs it first.",
+      "reproduction": "NONE — this is a structural/ownership finding, not a runtime failure. Verifiable statically: read useGradientCSS.ts:64-133 and confirm via `grep -rn \"CssTimingFunction\" src/` that no src/ module consumes the AST.",
+      "proposedCure": "value.js /easing gains `timingFunction(source: string): Result<EasingFunction, EasingIssue | ParseIssue>` and `fromTimingFunction(ast: CssTimingFunction): Result<EasingFunction, EasingIssue>`, with the memo bounded or absent inside the library. useGradientCSS.ts:64-133 collapses to a re-export and easingFnOf's `Pick<...,'css'> & Partial<Pick<...,'fn'>>` contortion (:120-122) disappears."
+     },
+     {
+      "id": "L-3",
+      "defect": "Two selection surfaces over one catalogue. The component's doc comment declares the kf BG-8 division (\"the strip selects, the picker authors\") but glass-ui's EasingPicker renders its own 30-item preset Select unconditionally — there is no prop to suppress it, unlike `readout` and `playback` which the seat does switch off.",
+      "severity": "MAJOR",
+      "evidence": "Subject GradientEasingEditor.vue:7-12 states the division. EasingAuthoringStage.vue:76-82 passes `:readout=\"false\" :playback=\"false\"` — props that exist. node_modules/@mkbabb/glass-ui/dist/components/easing/EasingPicker.vue.d.ts:2-18 shows the complete prop surface `mode|preset|steps|term|readout|playback|label` — no presets toggle. glass-ui/dist/easing.js renders `\"Easing preset\"` / placeholder `\"Pick a curve\"` over `presetNames`. The seat's only related override, EasingAuthoringStage.vue:88-90 `grid-template-columns: 1fr`, merely restacks that chrome below the canvas.",
+      "mechanism": "An architectural division asserted in prose and unenforced by the producer's prop surface; the consumer builds a parallel surface rather than suppressing the producer's.",
+      "reproduction": "NONE at the unit level — statically decidable from EasingPicker.vue.d.ts's prop list plus glass-ui/dist/easing.js's unconditional Select. Visually reproducible by opening the tune disclosure on /#/gradient (a 27-tile strip and a 30-item dropdown over the same catalogue in one ~430px column).",
+      "proposedCure": "Either glass-ui gains `:presets=\"false\"` (a one-line producer change matching the readout/playback precedent it already set), or the demo drops EasingSpecimenStrip and consumes the producer's gallery. Pick one owner for the catalogue-selection concept."
+     },
+     {
+      "id": "L-4",
+      "defect": "`shape=\"cell\"` is requested from glass-ui and then overridden at the instance: the demo re-declares flex-direction, gap and padding that the cell variant already specifies, and the variant does not carry radius so the tiles render as capsules — the owner's marked \"radius incoherence\".",
+      "severity": "MAJOR",
+      "evidence": "EasingSpecimenStrip.vue:98-108 requests `mode=\"selectable\" shape=\"cell\"`. node_modules/@mkbabb/glass-ui/dist/components/chip/chipVariants.d.ts: `readonly cell: \"glass-chip--cell flex-col gap-1.5 px-2 py-2.5 text-micro\"`. EasingSpecimenStrip.vue:163-170 re-declares `display:flex; flex-direction:column; gap:0.125rem; padding:0.3125rem 0.375rem 0.25rem`. Rendered class recorded in docs/tranches/V/megatranche/audit/visual/STATES.json (matrix zoom-200-desktop, route #/gradient, clipped[]) as `button.glass-chip.glass-capsule`. Owner mark: visual/shots/owner-marked/OM-4-easing-radius-incoherence.png shows circular tiles inside a rounded-card row with a rounded-md ramp and rounded-md rail.",
+      "mechanism": "Design-system variant purchased then fought at the instance (edict 5: style at the root component level, never per-instance); the `cell` shape in glass-ui does not own its own radius, so capsule geometry survives it.",
+      "reproduction": "Open /#/gradient and inspect a specimen tile: its class list is `glass-chip glass-capsule ... specimen-tile` and its computed border-radius is the capsule token, not a cell radius. Corroborated by STATES.json's recorded `button.glass-chip.glass-capsule` and by OM-4.",
+      "proposedCure": "glass-ui's `cell` chip shape owns its own radius token instead of inheriting the capsule. The six geometry declarations in `.specimen-tile` delete; only genuine sizing (min-width, portrait dimensions) survives."
+     },
+     {
+      "id": "L-5",
+      "defect": "The readout rail hand-rolls a read-only literal field with a copy affordance out of raw primitives plus 28 lines of scoped CSS, re-minting hover wash, focus ring, radius and icon tone that glass-ui's input and button primitives already own. The owner marked this exact surface.",
+      "severity": "MAJOR",
+      "evidence": "GradientEasingEditor.vue:176-198 (div.readout-rail + <code> + two bespoke .rail-btn) and :268-294 (.rail-btn, .rail-btn--on, .rail-tick — 28 lines). Owner mark: docs/tranches/V/megatranche/audit/visual/shots/owner-marked/OM-13-easing-readout-not-glass-input.png, a crop of this rail. The same shape recurs at demo/workbenches/mix/MixResultDisplay.vue:31 and demo/color-picker/App.vue:362, both also driving a copy tick from useClipboard.",
+      "mechanism": "Ownership duplication with the design system (edict 4): a contrast-floored read-only literal field with a trailing copy adornment is a design-system component, and the demo mints it locally three times.",
+      "reproduction": "NONE — a design-system ownership finding, confirmed by the owner's own mark OM-13 rather than by a failure trace.",
+      "proposedCure": "glass-ui gains the variant under an existing component-type name — `Input` with `readonly` + mono + a trailing-adornment slot (reuse the name, do not invent CopyField unless the register truly differs). The subject's .readout-rail, .rail-btn, .rail-btn--on and .rail-tick blocks all delete."
+     },
+     {
+      "id": "L-6",
+      "defect": "tsconfig.demo.json hand-lists an 8-key `paths` map for value.js that is redundant with TypeScript's package self-name resolution through the repo's own exports map, and has drifted from it: 3 targets do not exist, 2 real subpaths are missing, and its comment asserts a closed 8-key set when exports has 7 keys and no \".\".",
+      "severity": "MINOR",
+      "evidence": "`npx tsc -p tsconfig.demo.json --noEmit --traceResolution` for '@mkbabb/value.js/css' (which has NO paths entry) prints: `Found 'package.json' at '/Users/mkbabb/Programming/value.js/package.json'` / `Entering conditional exports.` / `Using 'exports' subpath './css' with target './dist/subpaths/css.d.ts'` / `successfully resolved to '.../dist/subpaths/css.d.ts'`. Dead targets: `for p in dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts; do ...` -> MISSING, MISSING, MISSING. Missing entries: package.json#exports has ./value and ./css; tsconfig.demo.json paths has neither. Contrast vite.config.ts:37-50, which GENERATES its alias set from the same exports map so it cannot drift.",
+      "mechanism": "A hand-rolled twin of a generated mechanism — two resolution paths for one specifier set (edict 2: no dual paths), where only the generated one is drift-proof.",
+      "reproduction": "Run `npx tsc -p tsconfig.demo.json --noEmit --traceResolution | grep -A14 \"Resolving module '@mkbabb/value.js/css'\"` and observe resolution proceeds through package self-name + exports, not through paths; then `ls dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts` -> all missing.",
+      "proposedCure": "Delete the seven value.js `paths` entries from tsconfig.demo.json. The exports map becomes the single door in both resolvers — exactly the argument vite.config.ts already makes for itself."
+     },
+     {
+      "id": "L-7",
+      "defect": "useGradientCSS.ts is a 334-line mixed module wearing a `use*` name: only 13 lines are the composable, the rest is pure serialization plus L-2's bridge, and consumers import pure functions out of it. It also closes two module-graph cycles — both type-only, hence erased at runtime, a qualification round 2 left implicit.",
+      "severity": "MINOR",
+      "evidence": "demo/workbenches/gradient/composables/useGradientCSS.ts is 334 lines; the composable is :322-334. Pure-function imports out of the `use*` module: GradientEasingEditor.vue:31 (serializeIntervalRamp), useSpecimenRows.ts:14 and GradientVisualizer.vue:24 (easingFnOf). Cycles: useGradientCSS.ts:31-34 <- useGradientModel types and useGradientModel.ts:15 <- useGradientCSS values; gradientParse.ts:23-27 <- useGradientModel types and useGradientModel.ts:16 <- gradientParse. Both inbound edges are `import type`, so nothing survives to runtime.",
+      "mechanism": "A module named for a reactive scope it mostly does not have, which then becomes the natural dumping ground for the pure logic that has no other home (a god-module-in-waiting).",
+      "reproduction": "NONE — structural. `wc -l demo/workbenches/gradient/composables/useGradientCSS.ts` -> 334 against a 13-line composable at :322-334.",
+      "proposedCure": "Four leaves, acyclic: `model.ts` (types only, zero imports) <- `serialize.ts` (pure) <- `parse.ts` (pure) <- `useGradientModel.ts` (the single composable). Folding L-2, the bridge leaves for the library and the cycle dissolves because the types land on a leaf."
+     },
+     {
+      "id": "L-8",
+      "defect": "EasingAuthoringStage scrapes the producer's rendered SVG for a viewBox ratio that glass-ui already publishes as a ComputedRef, re-running the DOM query through requestAnimationFrame on every emission; and it selects on a test attribute for styling.",
+      "severity": "MINOR",
+      "evidence": "EasingAuthoringStage.vue:47-53 `rootEl.value?.querySelector<SVGSVGElement>(\"svg[role='img']\")?.viewBox.baseVal`, driven at :57-67 by requestAnimationFrame on every authored emission and every `value.css` change. Producer already exposes it: node_modules/@mkbabb/glass-ui/dist/components/easing/composables/useEasingPicker.d.ts:64-67 `viewBox: ComputedRef<{ minY: number; height: number }>`. Styling on a test hook: EasingAuthoringStage.vue:88 `:deep([data-testid=\"easing-picker\"])`.",
+      "mechanism": "State the producer holds in a ref but does not forward through its SFC, so the consumer re-derives it from rendered DOM; and a test attribute pressed into service as a styling contract, coupling demo layout to glass-ui's test ids.",
+      "reproduction": "NONE at runtime today — the rAF sync works. Structurally verifiable: compare EasingAuthoringStage.vue:47-53 against useEasingPicker.d.ts:64-67.",
+      "proposedCure": "glass-ui exposes `viewBox` (slot prop, or the producer writes `--vb-ratio` itself) and gains a `surface`/`density` axis so the seat's laws become props. `syncVbRatio` and the entire `<style scoped>` block delete, including the three `!important` at :104-115 and the data-testid selector at :88."
+     },
+     {
+      "id": "L-9",
+      "defect": "value.js's css + easing modules load twice in the dev module graph — once inlined into the Vite optimized-dep chunk serving glass-ui, once served unbundled to the demo.",
+      "severity": "INFO",
+      "evidence": "node_modules/.vite/deps/css-CwYd9pBf.js.map `sources` = ['../../../dist/result-CZJK1CwL.js','../../../dist/anchors-C_wdoOYd.js','../../../dist/subpaths/css.js'] — the local checkout build, inlined. Meanwhile `curl -s \"http://localhost:9000/@fs/.../demo/workbenches/gradient/composables/useGradientCSS.ts\" | grep '^import'` shows `import { parseTimingFunction } from \"/@fs/.../dist/subpaths/css.js?t=1785167569503\"` — a second, unbundled instance. Both copies are the checkout (the vite alias was honoured by the optimizer).",
+      "mechanism": "Vite dep pre-bundling inlines the aliased self-package into the optimizer chunk while the demo's own modules import it unbundled — two module instances of one physical file.",
+      "reproduction": "With the dev server up: `node -e \"JSON.parse(require('fs').readFileSync('node_modules/.vite/deps/css-CwYd9pBf.js.map','utf8')).sources\"` then `curl -s \"http://localhost:9000/@fs/$PWD/demo/workbenches/gradient/composables/useGradientCSS.ts\" | grep '^import'`.",
+      "proposedCure": "No action required. Recorded honestly with its own refutation: `grep -n \"^const .* = new Map\\|^let \" src/css/*.ts src/easing.ts` finds only frozen constant Sets and pure functions — no mutable module state — so two instances cannot desynchronise. Dev-only byte cost; documented so the next reader need not re-derive it."
+     },
+     {
+      "id": "L-10",
+      "defect": "A registry copy of value.js@4.0.0 sits in node_modules as a real directory (npm auto-installed from glass-ui's peerDependencies), shadowing the checkout for any specifier that escapes vite.config's generated alias set.",
+      "severity": "INFO",
+      "evidence": "node_modules/@mkbabb/value.js is a real directory, not a symlink (`readlink` returns nothing), at version 4.0.0; value.js is absent from its own package.json dependencies. Only vite.config.ts:41-50's generated anchored-regex alias binds glass-ui's bare `@mkbabb/value.js/*` imports to the checkout. Measured divergence today: easing/color/math/quantize/value/transform SAME by sha1; css local=43973 bytes/6dfbff9f vs installed=43972/0cd5611e, and the diff is minifier identifier mangling only (`< r as ee / s as f` vs `> r as f / s as p`).",
+      "mechanism": "A package that cannot install itself, consumed through a self-alias, while a registry tarball of the same package is auto-installed as a transitive peer — two candidate resolution targets for one name.",
+      "reproduction": "NONE — labelled a hypothesis. No behavioural divergence exists at c654824e; the two builds are semantically identical. The shadow becomes real only once src/ advances past published 4.0.0 while some specifier escapes the alias set.",
+      "proposedCure": "Pin the exposure rather than the symptom: keep the alias generated from package.json#exports (already correct), and add a CI assertion that no module in the served graph resolves under node_modules/@mkbabb/value.js. Longer term, glass-ui's peer on value.js plus this repo BEING value.js is the structural oddity — a workspace/link posture removes the second copy entirely."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "abc0e82368d40337d",
+   "key": "v2:65a3999f6cf7cf4c6aa30c3ba89b87337a3f20ead70d5897fa12c1df3b29e3c1",
+   "result": {
+    "axis": "CHALLENGE-C — implementation defects (demo/workbenches/extract/ImageEyedropper)",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M-context variant), matching the explicit Opus 5 declaration at spawn. Seat is declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "C-1 — the magnifier loupe paints NOTHING on first show and, on the touch path, never paints at all: `showLoupeAt` flips `loupeVisible` and calls `drawLoupe` in the same synchronous tick, so the `v-if` canvas does not exist yet and `drawLoupe` early-returns; `onHover` is then gated by `if (pinned.value) return`, so no later event can repaint it. Measured `opaquePx 0 / 12100` on two fixtures and two interaction paths. The magnifier is the entire reason this component exists rather than a click handler on the drop zone, and it is a transparent hole exactly on the phone path where a finger occludes the pixel.",
+    "negativeProof": "Verdict is DEFECTIVE, but five plausible defects were probed and REFUTED, which bounds the blast radius: (NEG-1) the loupe's edge mapping is correct — HTML Standard drawImage clips the source rect and the destination rect *in the same proportion*, so at image pixel (0,0) the loupe centre still resolves to (0,0); measured centerRGBA [255,0,0,255] with opaquePx 2996/12100. (NEG-2) WatercolorDot's dist contains 0 `@keyframes`, so no internal animation can bubble and clear `swatchPulse` early. (NEG-3) the capture-phase unpin listener and the gesture's bubble-phase pointerdown are on the same element; at AT_TARGET they run in registration order, but the two write disjoint state so the outcome is order-independent. (NEG-4) the un-coalesced hover path costs 0.022 ms/move (200 moves in 4.5 ms) — real but NOT a defect; reported so the mega-tranche does not spend a wave on it. (NEG-5) the CORS-tainted-canvas hazard is unreachable: imageUrl is always a FileReader data: URL (useExtractSession.ts:29-36,166). Also swept clean: no defineModel, no ValueUnit wrapping, no oklch→HSV roundtrip, no WebGL, no ungated rAF (the coast rides glass-ui useRAFLoop with pauseWhenHidden + an explicit PRM decision — the exemplary part of this component), and verbatimModuleSyntax is satisfied at every import site.",
+    "defects": [
+     {
+      "id": "C-1",
+      "defect": "The magnifier loupe renders blank on every first show, and on the touch path never renders at all — the canvas is painted one tick before the v-if element that owns it exists.",
+      "severity": "BLOCKER",
+      "evidence": "demo/workbenches/extract/ImageEyedropper/composables/useLoupeCanvas.ts:55-60 (showLoupeAt sets loupeVisible.value=true then calls drawLoupe synchronously) + :30 (early-return on !loupeCanvas) + ImageEyedropper.vue:78-86 (canvas is inside v-if=\"loupe.loupeVisible.value\") + ImageEyedropper.vue:165 (onHover opens with `if (pinned.value) return`). MEASURED live at http://localhost:9000 (dpr 2): hover1 @ image(8,8) -> loupe opaquePx 0/12100, centerRGBA [0,0,0,0]; hover2 @ SAME coords -> opaquePx 9604/12100, centerRGBA [0,255,0,255]. Touch path, two independent runs/fixtures: A_firstTapGreen.loupe = {opaquePx:0, total:12100, centerRGBA:[0,0,0,0]}; touchTapLoupe (512x512 grid fixture) = {opaquePx:0, total:12100}.",
+      "mechanism": "Event handler mutates reactive state and then acts on the DOM in the same synchronous tick, before Vue's render flush creates the element — compounded by a state gate (pinned) that makes the miss permanent instead of self-healing.",
+      "reproduction": "On a touch device (or with synthesised touch PointerEvents): open /#/extract, drop an image, click the preview to open the eyedropper, TAP once anywhere on the image. The loupe circle appears and is fully transparent (no magnification), and stays that way until you unpin. On desktop, hover once -> blank; hover a second time -> it fills.",
+      "proposedCure": "Make the paint a function of state, not a side effect of an event: delete the exported-but-unused drawLoupe call from showLoupeAt and drive the canvas from a single `watch([loupeVisible, loupeRelX, loupeRelY], ..., { flush: 'post' })` inside useLoupeCanvas. That removes the ordering hazard structurally rather than sprinkling nextTick, and collapses the composable's public surface."
+     },
+     {
+      "id": "C-2",
+      "defect": "`justUnpinned` is a cross-tick latch with exactly one exit, so a pan-while-pinned leaves it set and the NEXT clean tap is silently swallowed — no sample, no pin, no feedback.",
+      "severity": "BLOCKER",
+      "evidence": "ImageEyedropper.vue:176-185 (capture-phase pointerdown sets justUnpinned=true whenever pinned) + :151-155 (onTap is the ONLY clearer) + useInertiaGesture.ts:277-281 (onTap fires only when !hasMoved). MEASURED, one scripted touch sequence, 16x16 fixture: A tap(8,8) -> readout `oklch(86.643961752344% 0.294827224543 142.495345041444deg)` (=#00ff00, pins); B press+drag 80px+release -> readout unchanged, pinned now false, flag stuck; C clean tap -> readout UNCHANGED (swallowed); D byte-identical tap at identical coords -> readout `oklch(59.987080562215% 0 none)` (=#808080). C and D are the same input with different outcomes.",
+      "mechanism": "A hand-rolled boolean flag carried across two separate gestures through a capture-phase side channel, whose clear-path is reachable only on one of the three ways a gesture can end.",
+      "reproduction": "Open the eyedropper, tap to sample+pin, then press-drag to pan the image, release. Now tap once to sample a new pixel — nothing happens. Tap again — it works. Every first tap after a pan is dropped.",
+      "proposedCure": "Delete the flag and the capture-phase interceptor. Move `pinned` into useInertiaGesture, which already owns hasMoved/isPanning, and let it decide at pointerup between unpin / sample / pan-end from facts it already has. One state machine in one place instead of two halves talking through a boolean."
+     },
+     {
+      "id": "C-3",
+      "defect": "A malformed or non-image file produces two unhandled promise rejections and a dead, error-less eyedropper overlay that still advertises \"tap to sample\"; the <input type=file> path also lacks the MIME guard the drop path has.",
+      "severity": "MAJOR",
+      "evidence": "useImageSampler.ts:72-75 (`img.onerror = reject` — rejects with a raw Event, not an Error) + ImageEyedropper.vue:238,247 (loadAndFit() is a floating promise at both call sites, no catch) + ImageDropZone.vue:87-92 (onFileSelected has NO type check) vs :97 (onDrop DOES check `file?.type.startsWith(\"image/\")`). MEASURED: assigning an application/pdf File to the hidden input yields {previewZoneAppeared:true, previewLabel:\"Image preview area, tap to sample colors\", overlayOpen:true, canvasBacking:[300,150], readout:\"Tap to sample\", errorSurfacedToUser:false} and unhandled rejections [\"The source image could not be decoded.\",\"error\"]. Browser console log .playwright-mcp/console-2026-07-28T13-54-12-549Z.log: `[38906ms] The source image could not be decoded.` / `[38971ms] Event`. canvasBacking [300,150] is the browser DEFAULT — proof loadImage threw before useImageSampler.ts:88-89 ever sized the canvas.",
+      "mechanism": "Async work started from a lifecycle hook as a floating promise, with the failure branch rejecting a non-Error and no consumer-side error state — so the failure is invisible to both the user and the code.",
+      "reproduction": "On /#/extract click the drop zone, choose 'All Files' in the OS picker, select any non-image (a .pdf). The preview zone appears labelled 'Image preview area, tap to sample colors'; click it; the eyedropper opens permanently empty saying 'Tap to sample' with no error anywhere, and two unhandled rejections hit the console.",
+      "proposedCure": "loadImage rejects with a real Error; the shell owns an `imageError` ref rendered in the same `text-destructive` register the sibling already uses (ExtractWorkbench.vue:80-85); and ImageDropZone applies its existing MIME guard at BOTH entrances rather than only at the drop."
+     },
+     {
+      "id": "C-4",
+      "defect": "The eyedropper is 100% inoperable by keyboard and invisible to assistive technology: no dialog role, no focus move/trap/restore, no aria-live on the async readout, and the sampling surface is aria-hidden with no keyboard alternative.",
+      "severity": "MAJOR",
+      "evidence": "MEASURED on the live open overlay: overlay role=null, aria-modal=null, [aria-live] count inside overlay = 0, document.activeElement on open = BODY (focus never enters), focusables inside overlay (unpinned) = 1 (Close only), canvas tabIndex=-1 + aria-hidden=\"true\", viewport div tabIndex=-1 role=null, buttons = [{title:\"Close eyedropper\", ariaLabel:null, text:\"\"}] at 40x40 CSS px. Source: ImageEyedropper.vue:8 (bare div `absolute inset-0 z-popover ... glass-floating`), :74 (aria-hidden canvas), :35-37 (readout span, no aria-live), :43-58 (Add/Apply are v-if=\"pinned\", and pinned is set only from onTap i.e. only from a pointer). Entry is gated too: ImageDropZone.vue:21 sets tabindex -1 once a preview exists.",
+      "mechanism": "A modal surface hand-rolled from positioning utilities instead of adopting the design system's dialog primitive — the hand-roll is the direct cause of every missing semantic.",
+      "reproduction": "Open /#/extract, upload an image, open the eyedropper, then use only the keyboard. Tab moves into the controls the overlay is visually covering, never into it. There is no key that samples a pixel, and the Add/Apply buttons never render because pinned is pointer-only. WCAG 2.1.1 (A), 4.1.2 (A), 2.4.3 (A) all fail.",
+      "proposedCure": "Adopt the glass-ui dialog primitive (edict 4) so role/aria-modal/focus-trap/restoration come from the design system; add aria-live=\"polite\" to the readout; and bind arrow keys to the same sampleAt the pointer uses so pinning has a keyboard path."
+     },
+     {
+      "id": "C-5",
+      "defect": "A ResizeObserver is wired directly to the initialiser, so any viewport size change unconditionally discards the user's zoom and pan.",
+      "severity": "MAJOR",
+      "evidence": "useInertiaGesture.ts:354-360 (`new ResizeObserver(() => fitToViewport())`) + :164-166 (fitToViewport unconditionally assigns `zoom.value = fit` and recentres pan). MEASURED with a 512x512 fixture, changing only a CSS height on a DOM ancestor (no component API called): beforeZoom {zoom:0.691406}, afterWheelZoom {zoom:1.39125}, afterResize {zoom:0.691406}, afterRestore {zoom:0.691406}. A 2.01x inspection zoom is destroyed and does not return when the resize is undone.",
+      "mechanism": "Conflation of 'fit' (a one-time initialisation) with 'reflow' (a size-change response), so a continuous observer keeps re-running an initialiser.",
+      "reproduction": "Open the eyedropper on any image, ctrl+wheel to zoom in, then resize the window (or on mobile Safari, scroll so the URL bar collapses). The zoom snaps back to fit and the pan recentres.",
+      "proposedCure": "Split the two: fitToViewport stays a one-time call from loadAndFit/onTransitionEnd (where ImageEyedropper.vue:203,207 already calls it), and the ResizeObserver runs a distinct `reflow()` that preserves the zoom ratio and the image-space centre point and only re-clamps the pan."
+     },
+     {
+      "id": "N-1",
+      "defect": "Off-image sampling leaves a stale readout and a parked loupe — the instrument reports a colour that is not under the pointer, with no 'nothing here' state.",
+      "severity": "MINOR",
+      "evidence": "useImageSampler.ts:114-115 (sampleAt returns null out of bounds) + ImageEyedropper.vue:156-171 (both callers are `if (result) {...}` with NO else). MEASURED, 16x16 fixture where the image occupies viewport x in [174,334]: hover3 @ image(0,0) -> readout `oklch(62.795536392143% 0.257683303805 29.233880279628deg)` (=#ff0000), loupe centerRGBA [255,0,0,255], opaquePx 2996; hover4 @ viewport(5,5) — 169 CSS px OUTSIDE the image — readout UNCHANGED, loupePresent true, centerRGBA STILL [255,0,0,255].",
+      "mechanism": "The one honest failure signal the sampler produces (null) is dropped on the floor by every caller, so the last successful sample masquerades as the current one.",
+      "reproduction": "Open the eyedropper on an image smaller than the viewport, hover over the image (readout shows a colour), then move the pointer into the empty letterboxed area beside the image. The readout and the loupe keep showing the old pixel.",
+      "proposedCure": "Have sampleAt return a discriminated result rather than `T | null` so a caller cannot silently ignore the miss, and give onHover/onTap an explicit miss branch: hide the loupe and return the readout to its 'Tap to sample' register."
+     },
+     {
+      "id": "N-2",
+      "defect": "The 'added to palette' confirmation pulse cannot restart inside its own 0.65 s window, so a rapid second Add gives the user no feedback at all.",
+      "severity": "MINOR",
+      "evidence": "ImageEyedropper.vue:21-22 (`:class=\"[..., swatchPulse ? 'swatch-pulse' : 'w-7 h-7']\"` with `@animationend=\"swatchPulse = false\"`) + :215 (onAddToPalette sets swatchPulse.value = true) + :285-289 (`.swatch-pulse { width:1.75rem; height:1.75rem; animation: swatch-pop 0.65s var(--ease-spring) forwards }`). If swatchPulse is already true the class list does not change, so the CSS animation is never re-triggered — no reflow-forcing removal, no :key restart, no `animation:none` toggle anywhere in the file. Secondary: `.swatch-pulse` re-declares the same 1.75rem that `w-7 h-7` carries in the other branch, so the swatch size has two sources of truth.",
+      "mechanism": "A CSS animation restarted by toggling a boolean that is already set — the classic missing-restart, made structural by having the animation class also own the element's size so the two cannot be decoupled.",
+      "reproduction": "Pin a sample, then click 'Add to palette' twice within 650 ms. The first click pops the swatch; the second emits addToPalette but produces no visible confirmation.",
+      "proposedCure": "Keep `w-7 h-7` unconditionally, add/remove only `swatch-pulse`, and restart with an incrementing `:key` on the WatercolorDot. The keyframe itself stays put (edict 6 — animations are moved or tokenized, never deleted)."
+     },
+     {
+      "id": "N-3",
+      "defect": "`loadImage` resurrects a disposed sampler: its post-await continuation re-allocates a full-resolution offscreen canvas and flips `imageLoaded` true on a component that has already unmounted.",
+      "severity": "MINOR",
+      "evidence": "ImageEyedropper.vue:242-245 (onBeforeUnmount calls sampler.dispose()) + useImageSampler.ts:68-95 — everything after `await new Promise(...)` runs unconditionally: `offscreenCanvas = document.createElement(\"canvas\")` (:80), `offscreenCtx.drawImage(img,0,0)` (:84), `imageLoaded.value = true` (:94). dispose() at :97-101 nulls the handles and sets imageLoaded=false, but there is no generation token and no abort, so the continuation undoes all three.",
+      "mechanism": "Un-cancelled async work whose completion path writes to state the teardown has already reclaimed — the same missing generation token that produces r1's D-12 re-entrancy race, seen from the teardown side.",
+      "reproduction": "Open the eyedropper on a large photo and press Escape (ImageEyedropper.vue:226-235 -> emit('close') -> v-if unmount at ExtractWorkbench.vue:174-177) before the decode finishes. A full-resolution canvas (~48 MB for a 12 MP image) is allocated after the component is gone. Not a lasting leak — the closure is unreachable so GC reclaims it — which is why this is MINOR.",
+      "proposedCure": "One generation counter in useImageSampler: increment on every loadImage and on dispose, and have the continuation bail if its generation is stale. That single token fixes both this and the overlapping-load race."
+     },
+     {
+      "id": "N-5",
+      "defect": "glass-ui `DockControl` exposes no accessible-name prop, so the eyedropper's three controls are named solely by a fall-through `title` attribute — and the consumer cannot fix it without a per-instance patch that edict 5 forbids.",
+      "severity": "INFO",
+      "evidence": "node_modules/@mkbabb/glass-ui/dist/components/dock/DockControl.vue.d.ts — the complete __VLS_Props surface is `shape | compact | active | type | disabled | as | asChild | class`; there is no label/ariaLabel/title prop. MEASURED on the live overlay: buttons = [{title:\"Close eyedropper\", ariaLabel:null, text:\"\"}, {title:\"Add to palette\", ...}, {title:\"Apply as current color\", ...}]. Sibling dock components in dist/dock.js already do this correctly: `\"aria-label\": e.label ?? e.id`. Related: ImageEyedropper.vue:279-282 reaches into the control's slotted svg (`.eyedropper-action-btn:hover:not(:disabled) svg { color: var(--hover-color); transform: scale(1.2) }`) driven by an inline per-instance `--hover-color` at :10.",
+      "mechanism": "A design-system primitive missing a first-class affordance, which pushes consumers into per-instance overrides and title-only naming — an upstream gap, not a call-site bug.",
+      "reproduction": "NONE — this is a static read of the shipped .d.ts plus a live DOM measurement of the rendered buttons; there is no failing interaction beyond the weak accessible name (title is the last-resort accname source and is invisible on touch).",
+      "proposedCure": "Relay to the glass-ui BH inbox under the standing relay edict: DockControl should take a `label` prop and stamp aria-label the way its dock siblings already do, and should own the 'icon tints to the active colour on hover' variant that ImageEyedropper currently fakes with a descendant selector. Fix upstream; delete the demo-side override."
+     },
+     {
+      "id": "N-4",
+      "defect": "Image evidence in this audit is structurally unreviewable — every PNG under audit/components/** is gitignored by formation policy, so at least one prior finding rests on proof no reviewer can open.",
+      "severity": "INFO",
+      "evidence": "`git check-ignore -v docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/evidence-touch-tap-blank-loupe.png` -> `docs/tranches/V/megatranche/.gitignore:10:audit/components/**/*.png`. This refuted this seat's own first draft of the finding (which claimed its screenshot was durable). Consequence in the record: r1's D-7 ('the page behind bleeds through transparent pixels') cites only `.playwright-mcp/eyedropper-live.png` — a doubly-ignored path — for its central observation.",
+      "mechanism": "An evidence policy (ignore binaries) that the seats' reporting convention (cite screenshots) does not honour, producing findings whose stated proof is unreachable at review time.",
+      "reproduction": "Run the git check-ignore command above from the repo root; then attempt to open any artifact listed in challenge-C-implementation.r1.md's Artifacts section.",
+      "proposedCure": "Formation rule for the remaining component seats: screenshots may illustrate but may not testify. Every load-bearing observation must land in the markdown as a number, a quoted source line, or pasted command output — as done throughout this r2."
+     },
+     {
+      "id": "C-T",
+      "defect": "The test gate is vacuous: the sole test file exercises one pure formatting function, and seven named mutations that delete or invert the component's entire behaviour keep it 3/3 green. No e2e spec ever opens the eyedropper, and the visual audit never renders it.",
+      "severity": "MAJOR",
+      "evidence": "`grep -rl \"Eyedropper|useImageSampler|useInertiaGesture|useLoupeCanvas\" test/ e2e/` -> exactly one file, test/image-sampler-v4.test.ts (31 lines, 3 tests, all calling only formatInColorSpace on a sampler built with `canvasRef: ref(null)` and an identity transform, :8-14). `grep -rn -i \"eyedrop\" e2e/` -> one prose comment at e2e/smoke/oracles/o7-card-census.spec.ts:16. Green-keeping mutations: viewportToImage -> {ix:0,iy:0}; sampleAt -> return null; delete the bounds check at useImageSampler.ts:114-115; delete useLoupeCanvas.ts; delete useInertiaGesture.ts; loadImage -> throw always; Math.floor -> Math.round in viewportToImage. Visual gate is equally empty: REPORT.json /#/extract records counts.canvas:1 (the atmosphere field) in all four Safari matrices — the eyedropper's two canvases are absent because the overlay only mounts after an upload plus a pointer click; the 3 namelessButtons and 6 smallTapTargets on that route are itemised in the JSON as belonging to other components (input 160x23, 'Switch to slug', 'Generate new slug', 'Cancel', two 12x24 slider label spans); and shots/zoom-200-desktop/ contains adminusers, blob, browse, gradient, picker — no extract.",
+      "mechanism": "Coverage aimed at the one pure function that was easy to isolate, while every stateful surface (coordinate mapping, bounds, load, gesture machine, loupe) sits behind DOM/pointer wiring no gate drives.",
+      "reproduction": "`npx vitest run test/image-sampler-v4.test.ts` passes 3/3. Apply any mutation in the table above and it still passes 3/3 — including deleting both composables that contain both BLOCKERs.",
+      "proposedCure": "The two composables are already injectable by construction (useImageSampler takes a canvasRef; useLoupeCanvas takes getOffscreenCanvas + viewportToImage). A happy-dom test feeding a known 2x2 ImageData and asserting sampleAt at four corners, one out-of-bounds, and one alpha-0 pixel would fail on every mutation listed and would have caught N-1. The tap/unpin machine becomes unit-testable the moment C-2's cure moves it into the gesture composable — the cure and the coverage are the same change."
+     },
+     {
+      "id": "C-R1",
+      "defect": "Carried forward from r1 and NOT independently re-verified by this seat: alpha discarded (transparent pixels emitted as opaque black), the see-through specimen (displayed colour != sampled colour over alpha), and the double full-resolution canvas with a force-promoted compositor layer.",
+      "severity": "MAJOR",
+      "evidence": "challenge-C-implementation.r1.md D-3 (useImageSampler.ts:32-35,116-118 — data[3] is never read), D-7 (useImageSampler.ts:84,91 — drawImage onto a transparent canvas inside a translucent glass-floating overlay), D-8 (useImageSampler.ts:80-92 sizes BOTH canvases to natural dimensions + ImageEyedropper.vue:71 will-change-transform pins the visible one as its own layer; r1 measured 4000x3000 -> bytesVisibleCanvas 48000000, totalCanvasBytesMin 96000000). This seat independently confirmed the shared premise — the visible canvas backing always equals the image's natural size (measured [16,16] for the 16x16 fixture, [512,512] for the 512x512 fixture, and the browser-default [300,150] when the decode failed) — but did not construct the alpha or compositing measurements.",
+      "mechanism": "Same root as the premise this seat did verify: the sampler treats the visible canvas as a second full-resolution copy of the bitmap and reads only RGB from the offscreen one.",
+      "reproduction": "NONE by this seat — see challenge-C-implementation.r1.md for r1's reproductions. Listed here so the r2 hand-off loses nothing from r1.",
+      "proposedCure": "Per r1: read data[3] and refuse (or carry) alpha via the null path sampleAt already owns; paint an opaque ground (the bg-stage token the workbench already uses) under the specimen; cap the visible canvas at the viewport's device-pixel budget and keep native resolution only in the never-composited offscreen canvas; promote only while gestureActive, which is already tracked."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "ab7895f4e8c0f70a9",
+   "key": "v2:e1d94075c4840ac3fb8ba747c80f86955166d899b6ece2e1e4c35177a76f76a8",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) for demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+    "modelObserved": "Opus 5 (1M context) — exact model id `claude-opus-5[1m]`. Declared for this seat, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-21 — the demo's TYPE resolution of the published value.js surface has drifted off `package.json#exports`: `tsconfig.demo.json:42,44,47` map `@mkbabb/value.js` → `dist/index.d.ts`, `/parsing`, `/units`, all three targets MISSING and none of the three a published `exports` key; and the two subpaths that ARE published but unmapped include `/css` — the exact specifier this component's composable imports at `useImageSampler.ts:13`. The runtime alias set is GENERATED from `package.json#exports` (vite.config.ts:33-49) and cannot drift; the type side was hand-maintained and did. Both prior audit passes certified \"the published-surface discipline is what is sound\"; this falsifies the type half of that certification. Cure is a deletion, and its sufficiency is already proved: `tsc --traceResolution` shows the UNMAPPED `@mkbabb/value.js/css` resolving correctly to `/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts` through Node self-reference, i.e. through `package.json#exports` itself.",
+    "negativeProof": "Three axes were probed and are provably clean, so the DEFECTIVE verdict is scoped, not global. (1) IMPORT DIRECTION: every edge in the chain was traced to its home (11 edges, tabulated in the report §0). No feature→shell, feature→boot (demo/color-picker), or cross-feature edge exists; the one cross-tree edge (workbenches/extract → color-session) is explicitly permitted by docs/tranches/V/ARCHITECTURE.md:56-62 (`feature → color-session / own descendants / platform / shared / published packages`). (2) RUNTIME PUBLISHED-SURFACE HONESTY: `useImageSampler.ts:12-13` imports `@mkbabb/value.js/color` and `@mkbabb/value.js/css`; both are literal keys in `package.json#exports` (package.json:20-49), and the Vite alias set that resolves them is generated from that same map with anchored regexes (vite.config.ts:33-49), so a deep `src/` path could not silently work. `grep -rn \"@src\" demo/workbenches/extract` → zero hits. A real npm consumer could write both lines verbatim. (3) verbatimModuleSyntax (edict 8): every type-only import carries `type` — ImageEyedropper.vue:99 (`type DisplayColorSpace`), useImageSampler.ts:11 (`type Ref`), :12 (`type SpaceId`), :19 (`type PickerColor`), useInertiaGesture.ts:1 (`type Ref`). Also clean: no object-URL leaks in this feature (`grep -rn \"createObjectURL\" demo` → only demo/palettes/export.ts:88,126, both revoked at :99,:114,:131); `willReadFrequently` correctly set (useImageSampler.ts:83); `@keyframes swatch-pop` is correctly a scoped component keyframe (edict 6, no violation); and inv-K-1 (`src/**` never imports glass-ui, eslint.config.js:204-217) is the one boundary lint still alive and is unaffected.",
+    "defects": [
+     {
+      "id": "L-21",
+      "defect": "tsconfig.demo.json `paths` has drifted off package.json#exports: three mappings point at files that do not exist, two published subpaths (including `/css`, used by this component) have no mapping at all, and the one bare specifier that IS mapped is not a published exports key. The runtime axis is generated and drift-proof; the type axis is hand-maintained and drifted. NEW — absent from both prior passes (grep -c tsconfig on the pre-existing 958 lines = 0).",
+      "severity": "BLOCKER",
+      "evidence": "tsconfig.demo.json:42 `@mkbabb/value.js` → `./dist/index.d.ts`; :44 `/parsing`; :47 `/units`. Measured: `for f in dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts; do [ -e $f ] && echo EXISTS || echo MISSING; done` → MISSING / MISSING / MISSING. `ls dist/subpaths/` → color css easing math quantize transform value (7, .d.ts+.js each). package.json:20-49 exports keys = ./color ./value ./css ./easing ./math ./transform ./quantize — no `.` root key (vite.config.ts:203-205 states so). `/css` and `/value` have NO tsconfig mapping; useImageSampler.ts:13 imports `@mkbabb/value.js/css`. Also md5 -q dist/subpaths/css.d.ts node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts → e0968b8d3b9a5ecabc7c8c1d01de9995 vs 4309648d15b521dc8281eab37ccc32a2 (hoisted glass-ui peer copy is a different file).",
+      "mechanism": "single-source-of-truth split: one derived surface (Vite alias, generated from package.json#exports) and one hand-copied surface (tsconfig paths) for the same contract. Generated half stays correct; copied half rots silently because nothing compares them.",
+      "reproduction": "cat > /tmp/tsconfig.probe.json <<'JSON'\n{ \"extends\": \"/Users/mkbabb/Programming/value.js/tsconfig.demo.json\", \"include\": [], \"files\": [\"/Users/mkbabb/Programming/value.js/demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts\"] }\nJSON\nnpx tsc -p /tmp/tsconfig.probe.json --noEmit --traceResolution 2>&1 | grep -E \"@mkbabb/value.js/(css|color)'\"\n→ '/color' : \"matched pattern '@mkbabb/value.js/color'\" → dist/subpaths/color.d.ts (via paths)\n→ '/css'   : resolved to dist/subpaths/css.d.ts \"with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'\" (via self-reference, NO paths entry)\nTwo mechanisms for two lines of one file.",
+      "proposedCure": "DELETE the entire `@mkbabb/value.js*` paths block (tsconfig.demo.json:42-49). Node/TS self-reference resolves all seven subpaths through package.json#exports — the same single source the Vite alias is generated from — making the type axis drift-proof by construction rather than by vigilance. The traceResolution output above is the proof of sufficiency: an unmapped published subpath already resolves exactly right. Corollary benefit: dist/index.d.ts and /parsing and /units become unreachable, which is correct — they are not published."
+     },
+     {
+      "id": "L-22",
+      "defect": "Hex serialization has four independent demo homes because the published library surface has none. value.js parses hex but cannot write it, so every consumer that needs a hex string mints its own encoder. NEW — the prior passes' L-9 covers the byte→string→parser round-trip but not the hex-writer ownership gap (killing the round-trip does not kill formatHex; only a library toHex does).",
+      "severity": "MAJOR",
+      "evidence": "`grep -rn \"export function.*[Hh]ex\\|export const.*[Hh]ex\" src/` → zero hits. test/image-sampler-v4.test.ts:19 proves both halves: parseCssColor accepts '#ff0000', and serializeCssColor of it emits 'rgb(255 0 0)', never hex. Four mints: `grep -rn \"padStart(2\" demo src --include=*.ts --include=*.vue` → useImageSampler.ts:33, picker-color.ts:215, MiniColorPicker.vue:103, palettes/export/bytes.ts:31.",
+      "mechanism": "asymmetric public surface — the library owns one direction of a bijection (parse) and declines the other (serialize), so the missing half is re-implemented once per consumer. Ownership vacuum, not duplication-by-carelessness.",
+      "reproduction": "grep -rn \"export function.*[Hh]ex\\|export const.*[Hh]ex\" src/   # zero hits\ngrep -rn \"padStart(2\" demo src --include=\"*.ts\" --include=\"*.vue\"  # four sites\nnpx vitest run test/image-sampler-v4.test.ts   # line 19 asserts rgb(255 0 0), not #ff0000",
+      "proposedCure": "`/color` exports `toHex(color, { alpha?: boolean }): string` beside the existing `toRgba8`. All four demo mints die; picker-color.ts:213-217 (pickerColorToHex) and its pass-through wrapper color-model.ts:61-65 (colorToHexString) collapse with them."
+     },
+     {
+      "id": "L-23",
+      "defect": "docs/tranches/V/ARCHITECTURE.md §2 declares a canonical numeric library-display spelling for the four non-CSS spaces; nothing implements it, two demo modules invented two divergent notations, and a test canonizes a third. NEW reference axis — the prior pass-2 L-17 establishes that the two demo notations disagree with EACH OTHER but never cites the spec, so it could not show that both are wrong.",
+      "severity": "MAJOR",
+      "evidence": "ARCHITECTURE.md §2 hsv row: 'no CSS spelling; numeric library display `hsv(hdeg s% v% / α%)` only' → for #ff0000 the specified rendering is `hsv(0deg 100% 100%)`. Shipped: useImageSampler.ts:38-44 emits 'HSV 0 · 1 · 1'; ColorSpaceSelector.vue:154-165 emits 'hsv · 0 · 1 · 1'. Both drop the required %/deg units AND print physical 0–1 coordinates where the spec's display form is percentage — differently SCALED, not merely differently formatted. test/image-sampler-v4.test.ts:26 freezes the eyedropper's version: expect(...).toBe(\"HSV 0 · 1 · 1\").",
+      "mechanism": "a notation defined by the library's own specification has no library implementation, so the concern falls to consumers; two consumers implement it independently and neither reads the spec. Same root as L-22 (library declines a job that is its own).",
+      "reproduction": "grep -n 'hsv' docs/tranches/V/ARCHITECTURE.md | grep 'numeric library display'\nsed -n '38,44p' demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts\nsed -n '154,165p' demo/color-session/ColorSpaceSelector.vue\nsed -n '25,27p' test/image-sampler-v4.test.ts",
+      "proposedCure": "`/css` gains `serializeLibraryColor(color)` beside `serializeCssColor`, emitting the ARCHITECTURE §2 spelling for hsv/kelvin/ictcp/jzazbz. Both demo implementations then reduce to `CSS_PICKER_SPACES.has(s) ? serializeCssColor : serializeLibraryColor` — and that two-line function belongs once, in color-session/, not twice. The test's expectation is corrected to the spec, not the other way round."
+     },
+     {
+      "id": "L-24",
+      "defect": "The loupe's resolution loss is fixed by arithmetic at every devicePixelRatio (backing store == CSS box by construction), and the DISPLAY canvas has the opposite defect: it is bilinearly smoothed while sampleAt returns the exact nearest source pixel, so seen ≠ sampled at every edge above 1× zoom. NEW half — the prior L-2/L-3 note the 110→106 resample and 'no DPR policy'; neither states that the ratio is DPR-invariant by construction, and neither examines the display canvas's filter.",
+      "severity": "MAJOR",
+      "evidence": "ImageEyedropper.vue:85 hard-codes `width=\"110\" height=\"110\"`; the CSS box is `${LOUPE_SIZE}px` = 110px (ImageEyedropper.vue:194-195, constants.ts:8). backing ÷ CSS box = 1.0 regardless of dpr → 1/2 device resolution at dpr 2, 1/3 at dpr 3, on the surface that deliberately sets imageSmoothingEnabled=false (useLoupeCanvas.ts:40). Display canvas measured live on localhost:9000 #/extract with a 64×64 synthetic upload: canvasBacking {w:64,h:64}, transform 'translate(0px, 59.1836px) scale(7.9375)'. `grep -rn \"image-rendering\\|pixelated\" demo --include=*.css --include=*.vue` → no output. sampleAt (useImageSampler.ts:111-119) reads the offscreen canvas at native resolution.",
+      "mechanism": "one bitmap rendered twice under two filter policies, split across two composables with no shared filter or DPR contract; and a backing-store size expressed as a template literal instead of derived from the constant + dpr. glass-ui already owns the concern (useCanvas2D `dprPolicy`) and is bypassed — edict 4.",
+      "reproduction": "grep -n 'width=\"110\"' demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue\ngrep -n 'LOUPE_SIZE' demo/workbenches/extract/ImageEyedropper/constants.ts demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue\ngrep -rn \"image-rendering\\|pixelated\" demo --include=\"*.css\" --include=\"*.vue\"   # zero hits\n# live: navigate localhost:9000/#/extract, upload any image, click preview, read\n#   document.querySelector('canvas.eyedropper-canvas').style.transform → scale(7.9375) with backing 64x64",
+      "proposedCure": "Size the loupe backing store `LOUPE_SIZE * dpr` with ctx.scale(dpr,dpr) — or mount it through glass-ui's useCanvas2D, whose dprPolicy already owns this (node_modules/@mkbabb/glass-ui/dist/composables/glass/canvas2d/useCanvas2D.d.ts). Give the display surface `image-rendering: pixelated` above 1× so seen == sampled. Under the File-based decode cure the display canvas becomes an <img> and only the image-rendering decision survives."
+     },
+     {
+      "id": "L-25",
+      "defect": "The DockControl labelling idiom forks by directory — demo/shell/dock/* uses aria-label, demo/workbenches/* uses the raw HTML `title` attribute — and this component is on the `title` side, doubling the extract route's namelessButtons row when it opens. NEW — grep -c 'aria-label' on the pre-existing report = 0; pass 1's L-15 reads namelessButtons:3 as saying 'nothing about this component'.",
+      "severity": "MINOR",
+      "evidence": "aria-label sites: Dock.vue:143,144,154; ActionBarToggle.vue:90; SlugEditLayer.vue:94,106,114. title sites: ImageEyedropper.vue:11,46,53; ExtractControls.vue:41,50,85; ExtractWorkbench.vue:52; MixResultDisplay.vue:123,130,138; GradientVisualizer.vue:254. DockControl's declared props (node_modules/@mkbabb/glass-ui/dist/components/dock/DockControl.vue.d.ts) contain NEITHER — both ride $attrs. Audit probe (visual/capture.mjs:102-105) counts `aria-label || aria-labelledby || textContent`, ignoring title, and REPORT.md:36,51,66,81 report exactly 3 on /#/extract in all four matrices. Driven live: those 3 are [{t:'Upload image',a:null},{t:'Open camera',a:null},{t:'Reset',a:null}]; opening the eyedropper took the count 3 → 4 (adding title='Close eyedropper'); pinning renders 'Add to palette' + 'Apply as current color' → 6. Verified live that title lands on the <button> element itself, so these are NOT truly nameless (title is the accname last-resort fallback).",
+      "mechanism": "a design-system component with no declared labelling prop leaves the contract to $attrs, so each consumer tree settles on a different convention; glass-ui's ./tooltip subpath (the sanctioned visible-affordance surface) goes unused. Edict 4.",
+      "reproduction": "grep -rn \"<DockControl\" demo --include=\"*.vue\" -A4 | grep -E \"title=|aria-label=\"\ngrep -n \"namelessButtons\" -A4 docs/tranches/V/megatranche/audit/visual/capture.mjs\n# live: navigate localhost:9000/#/extract, then in-page:\n#   [...document.querySelectorAll('button')].map(b=>({t:b.getAttribute('title'),a:b.getAttribute('aria-label')})).filter(o=>o.t)\n#   → 3 title-only entries at rest, 4 with the eyedropper open",
+      "proposedCure": "One idiom: aria-label for the accessible name, glass-ui Tooltip for the hover text — title never reaches touch or keyboard users. Structurally, add a required `label` prop to glass-ui's DockControl (relayed to the glass-ui BH inbox per the standing fond) so the fork becomes unrepresentable."
+     },
+     {
+      "id": "L-26",
+      "defect": "The demo import lattice the dead lint was meant to encode is already written down normatively in docs/tranches/V/ARCHITECTURE.md:56-62 and is enforced by nothing; and its 'promoted once' clause is exactly what DisplayColorSpace×4 breaks, via a seam choice — the component reaches past color-session's face (color-model.ts) into its substrate (picker-color.ts). NEW — grep -c ARCHITECTURE on the pre-existing report = 0; pass 1's L-10 reports the dead lint but never names the law or the face/substrate mechanism.",
+      "severity": "MINOR",
+      "evidence": "ARCHITECTURE.md:56-62 gives the six-row lattice and states 'Cross-feature internal imports are forbidden by construction' and 'When two live consumers need another semantic object, it is promoted once'. Nothing constructs it: eslint.config.js:235-238 and :275-276 glob demo/@/**; `ls -d demo/@` → No such file or directory; the three globs match 0,0,0 files. The surviving glob (demo/color-picker/**) bans '@components/custom/palette-browser/**/*.vue', an alias tsconfig.demo.json:36 records as deleted. Mechanism: useImageSampler.ts:14-19 imports from color-session/picker-color (substrate) not color-session/color-model (the face — its header at :1-6 declares itself the shared surface, and it owns DisplayColorSpace at :29, CSS_NATIVE_SPACES at :58, toCSSColorString at :67, colorToHexString at :61). color-session has no index.ts, so 'the face' is a convention nothing can enforce.",
+      "mechanism": "a boundary law expressed only as prose plus lint aimed at a deleted tree; combined with a flat domain directory that publishes no public/private seam, so a consumer cannot tell the face from the substrate and picks the deeper one — putting the canonical type out of view and inviting the local mint.",
+      "reproduction": "sed -n '54,64p' docs/tranches/V/ARCHITECTURE.md\ngrep -n 'demo/@' eslint.config.js\nls -d demo/@ ; for g in demo/@/composables demo/@/components demo/@/lib; do echo -n \"$g: \"; find $g -type f 2>/dev/null | wc -l; done\n→ ls: demo/@: No such file or directory ; 0 ; 0 ; 0",
+      "proposedCure": "Delete the three dead lint objects (they read as coverage, which is worse than absent) and encode the ARCHITECTURE lattice as real no-restricted-imports zones over the physical tree: for each demo/workbenches/<f>/**, ban demo/workbenches/!(<f>)/**, demo/shell/**, demo/color-picker/**, demo/picker/**, demo/scenes/**; for demo/color-session/**, ban every feature tree. Six objects, mechanically derivable from the doc. Optionally add color-session/index.ts as the face so the substrate reach is nameable too."
+     },
+     {
+      "id": "L-27",
+      "defect": "Two residues: (a) a demo feature's unit test lives in the library test tree in violation of the convention vitest.config.ts states in its own words, and it is the file that freezes the non-spec readout of L-23 as a contract; (b) `img.crossOrigin = \"anonymous\"` guards a cross-origin case the prop's only producer cannot create. NEW — grep -c vitest.config and grep -c crossOrigin on the pre-existing report both = 0.",
+      "severity": "MINOR",
+      "evidence": "(a) test/image-sampler-v4.test.ts:6 imports '../demo/workbenches/extract/ImageEyedropper/composables/useImageSampler'. vitest.config.ts:26-30 states demo suites live under demo/test/** and that the glob was added at V′.W40-S3 precisely because relocated demo suites were being silently dropped. `grep -rln '\"\\.\\./demo/' test/` → 10 files (gradient-parse, gradient-v4-consume, image-sampler-v4, ink, mix-v4, preview-chips, slider-announcement, status-lamp, value-domain-clamp, view-accents). (b) useImageSampler.ts:70 sets crossOrigin='anonymous'; the sole caller passes session.previewDataUrl (ExtractWorkbench.vue:175), always a data: URL from readAsDataUrl (useExtractSession.ts:29-36, 166). crossOrigin is meaningless on a data: URL.",
+      "mechanism": "(a) a stated tree convention with no gate — the vitest include glob accepts both locations, so nothing reports the misfiling. (b) defensive scaffolding for a state the type-level contract makes unreachable — legacy under edict 2; the `imageUrl: string` prop is too wide for what the only producer emits.",
+      "reproduction": "grep -rln '\"\\.\\./demo/' test/ ; sed -n '20,32p' vitest.config.ts\nsed -n '68,72p' demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts\nsed -n '29,36p;164,168p' demo/workbenches/extract/composables/useExtractSession.ts\ngrep -n 'previewDataUrl' demo/workbenches/extract/ExtractWorkbench.vue",
+      "proposedCure": "(a) Move the ten demo suites under demo/test/<feature>/ and narrow the vitest `include` to `test/**` (library) + `demo/test/**` (demo) with a lint or CI grep banning '../demo/' imports from test/**, so the split cannot silently re-invert. (b) Delete the crossOrigin line; it dies naturally when ImageEyedropper takes a File/ImageBitmap instead of a string URL (the single-decode cure)."
+     },
+     {
+      "id": "L-8/L-1/L-5/L-10/L-12-confirmed",
+      "defect": "Independently reproduced, no new claim — carried forward from passes 1–2 so the mega-tranche ledger sees one consolidated set: DisplayColorSpace minted 4× (canonical color-model.ts:29 ignored); the loupe's first paint lands on a v-if'd canvas that does not exist yet (0/12100 painted px, permanently blank on touch); one user file decoded through two APIs and retained in three representations; every demo boundary lint rule dead; a raw ResizeObserver that discards the user's zoom.",
+      "severity": "MAJOR",
+      "evidence": "DisplayColorSpace: color-model.ts:29 (canonical) vs useImageSampler.ts:21 (exported re-mint), ExtractWorkbench.vue:202, ExtractPane.vue:30 — all four structurally `SpaceId | \"hex\"` (PickerSpace = SpaceId, picker-color.ts:37). Loupe: ImageEyedropper.vue:78 `v-if=\"loupe.loupeVisible.value\"` vs useLoupeCanvas.ts:55-60 setting loupeVisible then calling drawLoupe synchronously; drawLoupe bails at :30. Decode: useImageQuantize.ts:19-26 (createImageBitmap+OffscreenCanvas) vs useImageSampler.ts:68-95 (new Image + data URL + two document.createElement('canvas')) over useExtractSession.ts:29-36. Lint: eslint.config.js:235-238,275-276 → 0/0/0 files. ResizeObserver: useInertiaGesture.ts:353-360 calling fitToViewport, which ASSIGNS zoom/panX/panY at :163-166.",
+      "mechanism": "ownership split across a boundary that cannot be split — a canvas's existence vs its ref (loupe), an image's decode vs its pixels (dual decode), a concept's canonical home vs its convenience re-declaration (DisplayColorSpace) — plus boundary enforcement aimed at a tree that no longer exists.",
+      "reproduction": "grep -rn 'SpaceId | \"hex\"' demo src test\nsed -n '55,60p' demo/workbenches/extract/ImageEyedropper/composables/useLoupeCanvas.ts\nsed -n '19,26p' demo/workbenches/extract/composables/useImageQuantize.ts\nsed -n '68,95p' demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts\nsed -n '152,167p;353,360p' demo/workbenches/extract/ImageEyedropper/composables/useInertiaGesture.ts\nLoupe measurement is pass 1's (0/12100 first hover, 9604/12100 second); I predicted it statically and did not re-measure.",
+      "proposedCure": "Per the greenfield lattice in the report: (1) promote useInertiaGesture WHOLE to @mkbabb/glass-ui/gesture as usePanZoom — 379 of the feature's 1002 lines, zero demo coupling, and it arrives with useResizeObserver + useDragVelocity already in hand; (2) decode once at the session (useExtractSession owns the ImageBitmap; ImageEyedropper takes File/ImageBitmap, not a string URL; the visible canvas becomes an <img>); (3) useImageSampler returns {r,g,b} only — hex to /color, display formatting to color-session — dropping it 139 → ~60 lines and removing both value.js imports and the four-hop climb; (4) useLoupeCanvas takes its canvas as an argument (or mounts it via glass-ui useCanvas2D) so existence and reference share one owner; (5) delete the three local DisplayColorSpace mints and import the canonical one."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a5e833d285d9ab107",
+   "key": "v2:5beaf0828190e9f81e2a669692af7efae93fe18e88b8b61560ee1bee835625fa",
+   "result": {
+    "axis": "CHALLENGE-D — design (visual truth, state coverage, motion, design-system boundary, proportion/seat law)",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M-context variant). Declared by the spawn, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/challenge-D-design.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D-02 — the two-law modal collision: after the first sample, every subsequent sample costs two clicks, and the discarded first click deletes the only commit affordance. Measured cycle at 1512x806 WebKit DPR2 (evidence/probe-B-behaviour.json `pinCycle`): hover A -> readout=A, 1 button, loupe painted 9684px; click A -> pinned, 3 buttons [\"Close eyedropper\",\"Add to palette\",\"Apply as current color\"]; **click B -> readout STILL A, buttons back to 1, loupe canvas gone**; click B again -> readout finally B. Cause: the capture-phase pointerdown unpin at ImageEyedropper.vue:176-185 sets a non-reactive `justUnpinned`, and onTap (lines 151-155) early-returns on it. The same law makes the magnifier loupe permanently blank on touch (0 of 12100 non-transparent px, evidence/E2), because pinning suppresses the only redraw path.",
+    "negativeProof": "Not applicable to the verdict (DEFECTIVE), but four named suspects were cleared with positive evidence and are recorded in report section 7: (N-1) no object-URL leak is possible — `grep -rn \"createObjectURL\" demo/workbenches/` returns 0 hits; the image path is FileReader.readAsDataURL at useExtractSession.ts:29-36, and the only createObjectURL in demo/ is palettes/export.ts:88,126 each with a matching revoke at 99,114,131. (N-2) tainted-canvas/CORS getImageData is unreachable — every imageUrl this component can receive is a same-origin `data:` URL minted in-process, so useImageSampler.ts:116 cannot throw SecurityError. (N-3) interior pointer→pixel mapping is EXACT — against a specimen obeying r=4·x, g=4·y, hovering the geometric centre of image pixel (ix,iy) produced swatch colours (16,16)→rgb(64,64,0), (48,16)→rgb(192,64,0), (16,48)→rgb(64,192,0), (48,48)→rgb(192,192,0); four for four, zero error. (N-4) prefers-reduced-motion IS honoured — measured swatch-pop animation-duration 0.00001s under reducedMotion:\"reduce\"; the global guard at demo/styles/animations.css:184-193 reaches the scoped keyframes, and useInertiaGesture.ts:131-142 owns its own PRM branch. (N-6) horizontal overflow is clean at both 100% and 200% (docOverflowX 0).",
+    "defects": [
+     {
+      "id": "D-01",
+      "defect": "The magnifier loupe paints nothing on the first sample, and never at all on touch — the component's one specialised organ renders as a hollow ring over the un-magnified image.",
+      "severity": "BLOCKER",
+      "evidence": "useLoupeCanvas.ts:55-60 sets loupeVisible=true then calls drawLoupe() synchronously, but the canvas is behind v-if at ImageEyedropper.vue:78-86 so loupeCanvasRef.value is still null and drawLoupe returns at line 30. Measured `loupeEmpty {nonAlphaPx: 0, totalPx: 12100}` and `loupeCenter [0,0,0,0]` in three independent matrices: desktop-dark after one pointermove, forced-colors, and mobile-dark after tap (evidence/probe-A-matrices.json). Visually confirmed in evidence/E1-desktop-dark-loupe-hollow.png and evidence/E2-mobile-dark-tap-loupe-blank.png.",
+      "mechanism": "draw-before-mount: imperative draw issued in the same tick as the v-if that creates its own canvas",
+      "reproduction": "WebKit 1512x806 DPR2 or 390x844 DPR3, http://localhost:9000/#/extract, load an image, click the drop zone to open the eyedropper, dispatch one pointerdown+pointerup on the sampler region (no prior pointermove), then read the loupe canvas: `document.querySelector('.loupe canvas').getContext('2d').getImageData(0,0,110,110)` has 0 pixels with alpha>0. On touch it never recovers because pinned=true suppresses onHover (ImageEyedropper.vue:165).",
+      "proposedCure": "Delete the imperative show/draw pair. Render the loupe unconditionally with opacity/visibility driven by a reactive `sample` model — never v-if — so no draw can precede its own canvas, and let the canvas repaint in a post-DOM effect on that model. The loupe becomes a derived view, not a commanded one."
+     },
+     {
+      "id": "D-02",
+      "defect": "Every sample after the first costs two clicks; the discarded intermediate click silently deletes Add-to-palette and Apply while leaving the previous colour on screen as if current.",
+      "severity": "BLOCKER",
+      "evidence": "ImageEyedropper.vue:176-185 registers a capture-phase pointerdown that unpins and sets a plain `let justUnpinned = true` (line 123); onTap at 151-155 then early-returns. Measured `pinCycle` in evidence/probe-B-behaviour.json: hoverA readout=lab(26.204...), 1 button, loupeNonAlpha 9684 → click1 pinned, 3 buttons → click2 at a different pixel: readout UNCHANGED lab(26.204...), buttons back to [\"Close eyedropper\"], loupeNonAlpha null → click3 finally reads lab(75.771...).",
+      "mechanism": "two-law modal collision (hover-samples vs pin-freezes) mediated by a non-reactive flag and a capture-phase listener",
+      "reproduction": "Open the eyedropper, hover pixel A, click A (pins, 3 buttons appear), click pixel B — the readout still shows A and only the Close button remains; click B again to actually sample it. `node docs/tranches/V/megatranche/audit/components/wb-extract-imageeyedropper/evidence/probe-B.mjs` reproduces the four-step table.",
+      "proposedCure": "Introduce one `sample: {ix,iy,rgb,css} | null` + `frozen: boolean` model. A tap always sets a new sample and freezes it; delete `justUnpinned` and the capture-phase listener entirely so no gesture can be consumed without producing a sample. D-01, D-02 and D-11 collapse into this one change."
+     },
+     {
+      "id": "D-03",
+      "defect": "No keyboard or numeric sampling path exists at all — the only key bound anywhere in the component is Escape.",
+      "severity": "BLOCKER",
+      "evidence": "ImageEyedropper.vue:226-235 is the entire keyboard surface (Escape only), registered globally on window at line 239. Measured `keyboard.focusablesInOverlay: 1` of `totalFocusables: 22` (evidence/probe-B-behaviour.json); the single overlay focusable is the Close button. VISUAL-CONSTITUTION.md §5.2 row 'image sampler coordinates' mandates Right/Left = source-image x, Down/Up = source-image y, 'named x/y controls own Home=min and End=max; reticle, loupe and numeric value remain one model'. §7 Extract: 'Eyedropper and sampler have keyboard/numeric alternatives.' §5: 'every spatial action has a keyboard/numeric equivalent.'",
+      "mechanism": "missing model surface — the sample is only addressable by pointer coordinates",
+      "reproduction": "Open the eyedropper and press Tab 12 times: every landing is outside the overlay (evidence/probe-A-matrices.json `tabWalk`, all 12 entries `inOverlay: false`). Arrow keys, Home and End produce no sample and no reticle movement.",
+      "proposedCure": "Adopt the §5 domain-neutral axis composition already used by Picker/Generate/Gradient/Atmosphere/Blob: a named x and y Slider pair over the same sample model, Home=min End=max, sharing the reticle/loupe/readout. No new mechanism is required — the composition already ships."
+     },
+     {
+      "id": "D-05",
+      "defect": "In RTL the sampler canvas is rendered 444 px outside its own clipping stage; only ~8 of 64 image columns remain visible and every sample addresses a pixel that is not under the pointer.",
+      "severity": "BLOCKER",
+      "evidence": "Measured at 1512x806 WebKit, dir=rtl (evidence/probe-A-matrices.json `rtl`): sampler region x=767.5 w=508, canvas x=1211.5 w=508 → canvas.x − viewport.x = +444.0, while the model panX is 0. The LTR delta is 0.0. Visually catastrophic in evidence/E3-rtl-canvas-444px-off.png — the specimen collapses to a sliver overhanging the Extract card's rounded edge. sampleAt (useImageSampler.ts:111-119) computes ix from the model pan, so it disagrees with the render by 444 px / 7.94 = 56 image columns.",
+      "mechanism": "direction-unaware geometry: a statically-positioned canvas with origin-top-left + translate() flips its layout origin to the inline-end edge under dir=rtl",
+      "reproduction": "Set document.documentElement.dir='rtl' before app boot, open the eyedropper, and compare getBoundingClientRect() of canvas.eyedropper-canvas against the touch-action:none sampler region. `node .../evidence/probe-A.mjs` matrix 5.",
+      "proposedCure": "The sampler stage is a scientific coordinate surface, not chrome (VISUAL-CONSTITUTION §6.1). Position the canvas absolutely at inset-inline-start:0; top:0 (or express the whole pan/zoom in one direction-neutral transform anchored to the stage origin) so the render and the model share one origin in both directions."
+     },
+     {
+      "id": "D-04",
+      "defect": "A modal in geometry, nothing in semantics: the overlay has no role, no accessible name, no aria-modal, moves no focus in, restores no focus out, leaves 21 of 22 document focusables tabbable behind it, and installs a global window keydown listener.",
+      "severity": "MAJOR",
+      "evidence": "ImageEyedropper.vue:8 is a bare `<div class=\"absolute inset-0 z-popover ...\">`; measured overlayRole null, overlayAriaModal null, overlayAriaLabel null, overlayTabindex null (evidence/probe-A-matrices.json). `keyboard.totalFocusables: 22`, `focusablesInOverlay: 1`, no inert or aria-hidden ancestor anywhere. focusAfter open = 'DIV|Image preview area, tap to sample colors' (focus never entered); after Escape closes it, activeElement is BODY — the opener is not restored. VISUAL-CONSTITUTION §5.1 'Dialog/Drawer/Popover open and close | producer initial-focus rule on open; exact connected opener on close'. Global listener at line 239.",
+      "mechanism": "hand-rolled dialog where a producer primitive exists",
+      "reproduction": "Open the eyedropper and Tab: focus cycles through the k slider, chroma slider and file input behind the overlay and never enters it (evidence/probe-A-matrices.json `tabWalk`). Press Escape twice: `escape.afterEsc2.active` = 'BODY|'.",
+      "proposedCure": "Use the producer Dialog primitive instead of `absolute inset-0` + window.addEventListener. Role, accessible name, aria-modal, initial focus, focus restoration and background inerting all arrive with it, and the global keydown listener disappears."
+     },
+     {
+      "id": "D-06",
+      "defect": "The sampler stage overflows the viewport fold and cannot be scrolled to, because the overlay is sized to a content-flow parent rather than anchored to the visual viewport.",
+      "severity": "MAJOR",
+      "evidence": "At 1512x806: overlay y=186.4 h=685.6 → bottom 872.0 vs innerHeight 806; sampler-region bottom 870.9; canvas bottom 811.1 (evidence/probe-A-matrices.json). At documentElement zoom 2: overlay bottom 1743.9, canvas bottom 2381.9, vs innerHeight 806 — two-thirds of the specimen off-fold (evidence/probe-B-behaviour.json `zoom200`, evidence/E4-zoom200-stage-off-fold.png). The sampler carries `touch-action: none` (ImageEyedropper.vue:66), so touch cannot scroll it back.",
+      "mechanism": "content-sized overlay geometry — `absolute inset-0` on ExtractWorkbench's content-height root instead of viewport-anchored dialog geometry",
+      "reproduction": "Open the eyedropper at 1512x806 and try to hover image row y=63 of a 64px specimen: the required client y is 807.2, below innerHeight 806. Set document.documentElement.style.zoom='2' and measure canvas.getBoundingClientRect().bottom = 2381.9.",
+      "proposedCure": "Make the sampler a region of the bound `golden` Extract stage rather than a plate-wide overlay (see D-10); if a dialog is retained, give it viewport-anchored geometry with max-block-size clamped to the dock-adjusted dvh so the stage can never exceed the fold."
+     },
+     {
+      "id": "D-07",
+      "defect": "The readout is a lying readout: it truncates the sampled value with no title, no tooltip and no expansion path — in a file whose sibling forty lines away documents the exact opposite rule.",
+      "severity": "MAJOR",
+      "evidence": "ImageEyedropper.vue:35-37 carries `truncate select-all` and no title. Measured (evidence/probe-B-behaviour.json `readoutTruncation`): full value `lab(52.149527332% -9.447862249415 56.024088496729)` = 50 chars, scrollWidth 510, clientWidth 371, clippedPx 139, hasTitle false. At 200% zoom clippedPx 378. On mobile it renders as `lab(52.1495…` (evidence/E2). The direct in-repo counterexample is ExtractWorkbench.vue:136-140, same route, same author, with the comment 'truncate may trim trailing digits at narrow widths; the full readout rides title + select-all (never a lying readout)' and `:title=\"session.dominant.value.serialized\"`. VISUAL-CONSTITUTION §4 also requires live numbers to 'reserve their widest legal representation so value changes never reflow the settled chassis' — measured reflow: readout box 275px unpinned → 371px pinned, a 96px jump.",
+      "mechanism": "lying readout — truncation without a recovery path, plus unreserved width",
+      "reproduction": "Sample any pixel and read `document.querySelector('.z-popover span.text-mono-small')`: scrollWidth 510 vs clientWidth 371, hasAttribute('title') === false.",
+      "proposedCure": "Reserve the widest legal representation for the selected space, round to the meaningful precision of an 8-bit sample (12 decimals on a value derived from three bytes is noise), and carry `title` with the full serialization exactly as the sibling does."
+     },
+     {
+      "id": "D-08",
+      "defect": "The readout ink uses the static `text-muted-foreground` token that both sibling files on this route explicitly retired for failing the text floor, and it measures 4.07:1 against its own composited paper — below the 4.5:1 AA floor — over an unbounded live-photograph ground.",
+      "severity": "MAJOR",
+      "evidence": "ImageEyedropper.vue:35 uses raw `text-muted-foreground`. ImageDropZone.vue:104-111 and ExtractWorkbench.vue:285-292 each carry the E1-R1 / T.W8 remediation comment 'instead of the STATIC `text-muted-foreground` that failed the text floor over the live-ambient plate in light' and use `--ink-muted` via `.plate-ink`; the eyedropper never received it. Measured contrast by decoding the rendered readout crop (268x48 device px) and computing WCAG relative luminance: p1 ink (112,89,66) L=0.1098, p99 paper (219,198,209) L=0.6005 → ratio 4.07:1. The ground is `oklab(0.936408 0.005529 0.013284 / 0.808)` + `backdrop-filter: blur(11px) saturate(1.6)` composited over the user's own photograph, so the ratio is content-dependent and unbounded. VISUAL-CONSTITUTION §4.1: 'Text, focus, boundaries and state meet their rendered contrast on the actual material tier; a token name is not evidence.'",
+      "mechanism": "token regression plus an unbounded live-image ground behind small text",
+      "reproduction": "Open the eyedropper on any image, screenshot the readout span, decode and compute WCAG luminance contrast: 4.07:1. `getComputedStyle(span).color` = rgb(112,89,66); the span's class list contains `text-muted-foreground`, not `plate-ink`.",
+      "proposedCure": "Thread `--ink-muted` / `.plate-ink` exactly as the two siblings do, and give the chrome bar a real instrument-veil tier (VISUAL-CONSTITUTION §2) with named alpha/clarity levers instead of compositing small mono text directly over a blurred user photograph."
+     },
+     {
+      "id": "D-09",
+      "defect": "Consumer CSS reaches inside a producer control to restyle its glyph, with an unguarded :hover that latches on touch — the close X renders permanently tinted the sampled colour and 1.2x larger than its siblings.",
+      "severity": "MAJOR",
+      "evidence": "ImageEyedropper.vue:279-282 `.eyedropper-action-btn:hover:not(:disabled) svg { color: var(--hover-color, var(--foreground)); transform: scale(1.2) }`, driven by an inline `--hover-color` on the row at line 10. No `@media (hover: hover)` guard. Visually confirmed in evidence/E2-mobile-dark-tap-loupe-blank.png: the X glyph is olive-tinted and visibly larger than the + and ✓ beside it. glass-ui 7.0.0 already publishes the seams — `--dock-control-hover-bg`, `--dock-active-color`, `--glass-accent`, `--dock-control-glyph-size` (node_modules/@mkbabb/glass-ui/dist/styles/**). Owner edict 5 forbids per-instance overrides of a root that should be styled at the root; edict 4 puts variants in glass-ui. `:not(:disabled)` also guards a state no control here can reach — a dead selector.",
+      "mechanism": "per-instance override reaching past the design-system boundary, plus unguarded hover on a touch surface",
+      "reproduction": "On a touch context (WebKit 390x844, hasTouch), open the eyedropper by tapping the drop zone: the pointer lands on the overlay's close control and the hover style latches for the session.",
+      "proposedCure": "Drive the accent through the producer seams (`--dock-active-color` / `--glass-accent`) on the DockControl root, delete the descendant `svg` selector and the dead `:not(:disabled)`, and gate any hover-only affordance behind `@media (hover: hover)`."
+     },
+     {
+      "id": "D-10",
+      "defect": "The eyedropper occludes 100% of the binding Extract composition — result plate, both sliders, dominance readout and reset all disappear — where the ratified topology puts the sampler at 61.8% with result/controls at 38.2%.",
+      "severity": "MAJOR",
+      "evidence": "OPTICAL-BENCH-COMPOSITIONS.md:42 binds Extract to P122 `golden`: 'source/sampler 61.8033989%; result controls 38.1966011%; absent result collapses context' and 'image well is specimen, not Card'. The shipped component is `absolute inset-0` over ExtractWorkbench's root (ImageEyedropper.vue:8, mounted at ExtractWorkbench.vue:173-180); measured overlay 510x685.6 covering the whole workbench box. Visible in evidence/E1: the k slider, chroma slider, dominance row and palette card are all gone while sampling. VISUAL-CONSTITUTION §3 law 8 also allows one pane exactly one full-strength protagonist.",
+      "mechanism": "overlay-instead-of-region — a mode implemented as a plate-wide takeover",
+      "reproduction": "Open the eyedropper on /#/extract and observe that no control of the Extract instrument remains visible or reachable; measured overlay rect equals the workbench rect.",
+      "proposedCure": "Implement the sampler as a mode of the bound `golden` stage region rather than a full-plate overlay. The result and controls stay visible at 38.2%, the glass tier stops floating over a duplicate of its own specimen (retiring the double-image seam), and the off-fold geometry of D-06 disappears with it."
+     },
+     {
+      "id": "D-11",
+      "defect": "The commit affordances are bound to a transient pin mode rather than to the existence of a sample; a stray pointerdown removes Add-to-palette and Apply while the sampled colour survives.",
+      "severity": "MAJOR",
+      "evidence": "ImageEyedropper.vue:43-58 gates both action controls behind `v-if=\"pinned\"`. Measured button lists across the click cycle (evidence/probe-B-behaviour.json `pinCycle`): ['Close eyedropper','Add to palette','Apply as current color'] → ['Close eyedropper'] → back again, while the readout text is unchanged across the first two. VISUAL-CONSTITUTION §5: 'Persistent operation state stays with the entity/workspace. A transient flourish may celebrate success but never carries the only truth.' PROPORTION-AUDIT PR-07/PR-08.",
+      "mechanism": "two-law modal collision — actions coupled to a mode instead of to state",
+      "reproduction": "Sample a pixel (3 controls appear), then press once anywhere on the image: the controls vanish though `sampledColor` is still set and still displayed.",
+      "proposedCure": "Bind the action set to `sample !== null`, not to `frozen`. The commit region then stops appearing and disappearing, and the 96px readout reflow of D-07 goes with it."
+     },
+     {
+      "id": "D-12",
+      "defect": "The magnifier is sub-device-resolution and has no reticle: its backing store is 110x110 for a 110 CSS-px box, so nearest-neighbour texels are bilinearly upscaled by the compositor, and nothing marks which of the 11x11 cells was actually sampled.",
+      "severity": "MAJOR",
+      "evidence": "ImageEyedropper.vue:85 hardcodes `width=\"110\" height=\"110\"`; measured loupeBox 110x110 CSS px at devicePixelRatio 2 (desktop) and 3 (mobile) → the buffer supplies 0.5x / 0.33x of the device pixels the box occupies. useLoupeCanvas.ts:40 sets `imageSmoothingEnabled = false` to draw crisp texels, which the compositor then smooths away on every retina display. drawLoupe (lines 27-53) draws the magnified region and never strokes a centre cell; the loupe is also centred exactly on the pointer (loupeStyle, lines 191-196), so it occludes the very pixel being sampled and sits under the finger on touch.",
+      "mechanism": "DPR-unaware backing store plus a magnifier with no index mark",
+      "reproduction": "Hover twice so the loupe paints, then read `document.querySelector('.loupe canvas')` — width/height attributes 110 while getBoundingClientRect() is 110 CSS px at devicePixelRatio 2. No stroked cell appears at the loupe centre in any captured frame.",
+      "proposedCure": "Size the backing store to `LOUPE_SIZE * devicePixelRatio` and scale the context, stroke the sampled cell's outline so the loupe indexes its own answer, and offset the loupe from the pointer (or render it in the chrome bar beside the swatch) so it stops occluding the target."
+     },
+     {
+      "id": "D-13",
+      "defect": "The stage paints with `image-rendering: auto` at up to 10x magnification, so the colour the user sees under the cursor is a bilinear blend while the sample taken is a single integer texel — three surfaces over one bitmap using three resampling laws.",
+      "severity": "MAJOR",
+      "evidence": "Measured `getComputedStyle(canvas.eyedropper-canvas).imageRendering === 'auto'` with `transform: matrix(7.9375,0,0,7.9375,0,59.789)` — a 7.94x upscale, and useInertiaGesture allows maxZoom 10 (ImageEyedropper.vue:149). The loupe explicitly disables smoothing (useLoupeCanvas.ts:40); sampleAt takes one nearest texel (useImageSampler.ts:111-119). My N-3 proof shows the sampler arithmetic is exact, so the divergence is entirely display-side: on a 1-px checker the blend is precisely the average of the two texels.",
+      "mechanism": "three resampling laws over one bitmap",
+      "reproduction": "Load a 1-px red/blue checker, magnify, and compare the composited screen pixel under the cursor against the reported value — the screen shows the blend, the readout reports one texel. Confirmed independently by round 1 (evidence quoted in challenge-D-design.r1.md §D-1: composited rgb(127,0,128) against a reported #0000FF).",
+      "proposedCure": "One resampling law owned in one place: `image-rendering: pixelated` on the stage above 1x so a texel is a visible square and the loupe becomes a true magnification of the same law. Below 1x, sample the area-average over the source box the pointer's display pixel actually covers — i.e. sample what the pixel shows. Do not patch sampleAt; the arithmetic is correct."
+     },
+     {
+      "id": "D-14",
+      "defect": "A dead prop from an abrogated API: `tag=\"div\"` is passed to WatercolorDot, which has no such prop in glass-ui 7.0.0, and the demo typecheck does not catch it.",
+      "severity": "MINOR",
+      "evidence": "ImageEyedropper.vue:29 passes `tag=\"div\"`. glass-ui 7.0.0 declares `props: { color, variant, animate, cycleDuration, range, seed }` (node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js) — no `tag` — because VISUAL-CONSTITUTION §4.2 / OPTICAL-BENCH-COMPOSITIONS.md P051 removed the public tag/interactive-host branch. The attribute is silently swallowed: measured `document.querySelectorAll('[tag]').length === 0`. Gate gap: `npx vue-tsc -p tsconfig.demo.json --noEmit` exits 0 with zero output. Owner edict 2 forbids legacy residue.",
+      "mechanism": "legacy residue against an abrogated producer API, plus a typecheck that does not see unknown component props",
+      "reproduction": "Read ImageEyedropper.vue:26-33; grep the glass-ui dist props list; run the demo typecheck and observe exit 0 with no diagnostic.",
+      "proposedCure": "Delete the `tag=\"div\"` attribute. Separately, close the gate gap so an unknown prop on a producer component is a hard typecheck failure — otherwise every future producer API removal leaves silent residue across the demo."
+     },
+     {
+      "id": "D-15",
+      "defect": "No loading, decode-error or out-of-bounds state exists, and the image-load rejection is unhandled — a decode failure leaves the overlay permanently blank with an unhandled promise rejection.",
+      "severity": "MINOR",
+      "evidence": "useImageSampler.ts:72-75 rejects on `img.onerror`; loadAndFit (ImageEyedropper.vue:200-204) has no try/catch and is fired and forgotten from onMounted (line 238) and from the imageUrl watcher (line 247). Nothing in the template renders an `imageLoaded === false` state — the overlay opens as an empty glass panel. sampleAt returns null out of bounds (useImageSampler.ts:114-115) and the caller silently ignores it (lines 156-162), so an out-of-range gesture produces no feedback of any kind.",
+      "mechanism": "absent states — the happy path is the only path rendered",
+      "reproduction": "Supply an imageUrl that fails to decode: the promise rejects with no handler and the overlay stays blank indefinitely with no error, retry or dismissal cue beyond Escape.",
+      "proposedCure": "Model load as an explicit union (`idle | decoding | ready | failed`) rendered by the overlay, with the failure arm naming the fault and offering dismissal — the same discipline ExtractWorkbench.vue:80-85 already applies to quantizeError."
+     },
+     {
+      "id": "D-16",
+      "defect": "Two sources of truth for two dimensions: the loupe diameter is both a constant and a literal, and the swatch size is stated once as a utility and again in CSS.",
+      "severity": "MINOR",
+      "evidence": "constants.ts:8 `LOUPE_SIZE = 110` drives the CSS box (ImageEyedropper.vue:191-196) while line 85 hardcodes `width=\"110\" height=\"110\"` for the backing store — changing the constant silently desyncs the buffer from the box and distorts the magnification. ImageEyedropper.vue:21 swaps `w-7 h-7` out when the pulse class is applied, so lines 285-289 re-declare `width: 1.75rem; height: 1.75rem` to compensate; measured computed 28px x 28px.",
+      "mechanism": "duplicated constant",
+      "reproduction": "Change LOUPE_SIZE to 140 in constants.ts: the CSS box grows to 140px while the backing store stays 110px, and the magnifier silently rescales. Change the swatch utility from w-7 to w-8: the pulse animation still renders at 28px.",
+      "proposedCure": "Bind the canvas width/height from LOUPE_SIZE (times DPR, per D-12), and drive the pulse from a class that adds animation only, never one that replaces the sizing utilities."
+     },
+     {
+      "id": "D-17",
+      "defect": "All three overlay controls carry only a `title` attribute with `aria-label: null`, against the app's own convention and against the audit harness's own nameless-button rule.",
+      "severity": "MINOR",
+      "evidence": "ImageEyedropper.vue:11, 46, 53 use `title` and no aria-label; measured controls `[{title:'Close eyedropper', aria:null},{title:'Add to palette', aria:null},{title:'Apply as current color', aria:null}]`. Every other button probed on the page carries aria-label and no title ('Save edit', 'Cancel edit', 'Select view', 'Toggle action bar', 'Menu'). The mega-tranche harness at docs/tranches/V/megatranche/audit/visual/capture.mjs:102-105 counts a button nameless unless it has aria-label, aria-labelledby or text content — title is not consulted — so these three would score as nameless if the audit ever opened the component. PROPORTION-AUDIT PR-07: 'every surviving action/drag seat has a name/state'.",
+      "mechanism": "naming — title as the sole accessible-name source",
+      "reproduction": "Open the eyedropper and read the three buttons' aria-label attributes: all null. Apply the harness predicate at capture.mjs:102-105 to them: all three score nameless.",
+      "proposedCure": "Give each control an aria-label matching the app convention; keep title only as a supplementary pointer tooltip, never as the sole name."
+     },
+     {
+      "id": "D-18",
+      "defect": "`will-change: transform` is applied unconditionally and permanently to a full-resolution image canvas, promoting a layer sized to the source bitmap for the lifetime of the overlay.",
+      "severity": "MINOR",
+      "evidence": "ImageEyedropper.vue:71 `class=\"origin-top-left will-change-transform eyedropper-canvas\"`; measured `getComputedStyle(canvas).willChange === 'transform'` with the canvas backing store equal to the image's natural size (measured [64,64] for the test specimen; a phone photograph is 4000x3000). MDN and the CSS Will Change spec both direct that will-change be applied only for the duration of the change, not permanently.",
+      "mechanism": "unconditional layer promotion",
+      "reproduction": "Open the eyedropper and read the computed willChange on canvas.eyedropper-canvas: 'transform', present at rest with no gesture in flight. NOTE: the GPU-memory magnitude for a large photograph is a HYPOTHESIS — I measured the property and the backing-store sizing rule, not the allocation for a 12MP source.",
+      "proposedCure": "Apply will-change only while `gesture.gestureActive` is true — the component already tracks exactly that flag for the `.no-transition` class at line 72 — and drop it at rest."
+     },
+     {
+      "id": "D-19",
+      "defect": "The component has no rendered coverage anywhere in the mega-tranche visual audit, so none of the above is visible to the tranche's evidence base.",
+      "severity": "INFO",
+      "evidence": "`ls docs/tranches/V/megatranche/audit/visual/shots/zoom-200-desktop/` → adminusers.png blob.png browse.png gradient.png picker.png — no extract. The same five-route set holds for rtl-desktop, rtl-mobile, forced-colors-desktop, keyboard-focus-desktop and reduced-motion-desktop. The four Safari matrices do capture /#/extract (REPORT.md:122,137,152,167) but only in its empty state — the eyedropper is behind `v-if=\"eyedropperActive && session.previewDataUrl\"` (ExtractWorkbench.vue:174), and no capture loads an image. STATES.json contains no #/extract row.",
+      "mechanism": "evidence gap — a state-gated component that no capture path ever reaches",
+      "reproduction": "grep '#/extract' docs/tranches/V/megatranche/audit/visual/STATES.json → no match; list the non-Safari shot directories.",
+      "proposedCure": "Extend states.mjs with a fixture-image upload step for /#/extract so the eyedropper's open, hovered, pinned, RTL, 200%-zoom and forced-colors states enter the standing matrix. The probes in ./evidence/ are a working template."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "ad9b1b27c0fc06734",
+   "key": "v2:d778f2d0267a7d88f587043aadc84e7eb6eac9014f5b0175f32dfc414f41aefa",
+   "result": {
+    "axis": "CHALLENGE-C — implementation (round 2) of demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+    "modelObserved": "Opus 5 (claude-opus-5[1m], 1M-context variant) — the tier this seat was explicitly spawned with; declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/wb-gradient-easingeditor/challenge-C-implementation-r2.md",
+    "verdict": "DEFECTIVE",
+    "defects": [
+     {
+      "id": "C2-1",
+      "defect": "Three of the twenty-seven shipped specimen tiles (the whole `back` family) destroy the Gradient pane on a single click, in the default two-stop state — and the crash emits ZERO page errors and ZERO console errors, so every automated console gate (including this formation's own visual audit) is structurally blind to it.",
+      "severity": "BLOCKER",
+      "evidence": "probe14.mjs on a fresh page at http://localhost:9000/#/gradient: `BEFORE: {\"heads\":1,...}` then `ease-in-back -> clicked {\"heads\":0,\"code\":null,\"easingSection\":false,\"paneText\":102}` (pane body text 599 -> 102 chars); subsequent tiles report MISSING because the subtree is gone. probe15.mjs numeric proof: ease-in-back quad [0.6,-0.28,0.735,0.045] fn(0.5) = -0.0636, ease-out-back [0.175,0.885,0.32,1.275] fn(0.5) = 1.0676, both -> `Gradient color mix failed: color_progress_out_of_range`; ease-in-out-back ramp min/max -0.0923 / 1.0927. probe15 full listener output after the fatal click: `MESSAGES: [\"DEBUG [vite] connecting...\",\"DEBUG [vite] connected.\",\"ERROR Failed to load resource: ... 404\"]` — no pageerror, no component console error. Code: demo/workbenches/gradient/GradientVisualizer/easing/useSpecimenRows.ts:52-59 (`fn(0.5)` fed to interpolateStopColors); demo/workbenches/gradient/composables/useGradientInterpolation.ts:37 (`if (!mixed.ok) throw`); demo/workbenches/gradient/composables/useGradientCSS.ts:206-208 (same unclamped throw in the sampler). Corroborated by docs/tranches/V/megatranche/audit/visual/REPORT.json which records consoleErrors: [] / pageErrors: [] for /#/gradient in all four Safari matrices.",
+      "mechanism": "Domain contract stated in prose, enforced nowhere: `mixColors` models progress as a closed [0,1] interval while CSS easing output is unbounded by spec; the demo converts the library's Result rejection into a throw inside a computed that the template reads during render, so the whole GradientVisualizer subtree unmounts.",
+      "reproduction": "Fresh page -> http://localhost:9000/#/gradient -> wait for settle -> click the tile `#easing-interval-0 [data-specimen=\"ease-in-back\"]` (or ease-out-back, or ease-in-out-back). The Easing section and the rest of the pane vanish; document.querySelectorAll('.interval-head').length goes 1 -> 0. Script: scratchpad/probe14.mjs.",
+      "proposedCure": "Not a Math.min at the crash site. Introduce ONE eased-progress boundary for the gradient tree — a single named `easedProgress(fn, t): number` that is the only place an easing OUTPUT becomes a mix PROGRESS, clamping to [0,1] there with the reason documented — and route useSpecimenRows, sampleCoalescedStops and GradientVisualizer.colorAtPosition through it. This is fidelity, not a fudge: browsers clamp gradient colour interpolation identically. If the owner instead rules overshoot must be visible, the same boundary is where the extrapolation lives, and it is still one place."
+     },
+     {
+      "id": "C2-2",
+      "defect": "`FAMILY_ORDER` silently deletes 6 of the library's 30 bezier presets from the specimen catalogue; those curves are unreachable from the selection strip AND, when chosen from the EasingPicker's own preset menu, are labelled `custom` — a false identity for a canonically named curve. The module header's claim of catalogue parity with the picker is false at HEAD.",
+      "severity": "MAJOR",
+      "evidence": "easingCatalogue.ts:174 `const FAMILY_ORDER = [\"css\",\"sine\",\"quad\",\"cubic\",\"expo\",\"circ\",\"back\",\"steps\"]` and :191 `return FAMILY_ORDER.filter((f) => byFamily.has(f))`. scratchpad/fam.mjs replaying the real PRESETS table (src/easing.ts:34-65): `families derived from presets: css, cubic, sine, quad, quart, quint, expo, circ, back, steps` / `DROPPED FAMILIES: quart, quint` / `tiles rendered: 27  bezier presets covered: 24 of 30`. Live DOM (Playwright MCP on /#/gradient): {\"tileNodeCount\":27,\"hasQuart\":false,\"hasQuint\":false}. probe2.mjs: `PRESET MENU OPTIONS: 30 [... \"ease-in-quart\",\"ease-out-quart\",\"ease-in-out-quart\",\"ease-in-quint\",\"ease-out-quint\",\"ease-in-out-quint\" ...]`. probe3.mjs: `ease-out-quint => {\"headName\":\"1 → 2custom\",\"readout\":\"cubic-bezier(0.23, 1, 0.32, 1)\",\"pressedTiles\":[]}` and `ease-in-quart => {\"headName\":\"1 → 2custom\",...}`. False claim at easingCatalogue.ts:15-17.",
+      "mechanism": "A hand-maintained allow-list used as a FILTER over a derived set: buildFamilies() derives ten families from the library, then discards any family the constant forgot, with no error and no test. Same mechanism class as C2-1 and C2-5 — an invariant that lives in a comment.",
+      "reproduction": "node scratchpad/fam.mjs (pure, no browser). Or live: /#/gradient -> open the row's tune stage -> open the `Easing preset` combobox -> select `ease-out-quint` -> the closed-row head reads `custom` and no tile is pressed, while the readout correctly shows cubic-bezier(0.23, 1, 0.32, 1). Script: scratchpad/probe3.mjs.",
+      "proposedCure": "Delete FAMILY_ORDER as a filter; make it a sort RANK over the derived set so the catalogue is total by construction: `const rank = f => FAMILY_RANK.get(f) ?? FAMILY_RANK.size` then sort the derived keys — unknown families sort last, never vanish. The 'SPECIMEN_TILES covers every bezierPresets key' invariant then becomes structural and the unit test can assert it by enumeration instead of by `> 20`."
+     },
+     {
+      "id": "C2-3",
+      "defect": "`useSpecimenRows` is one monolithic computed that couples the WCAG ink certification to the whole `modelState` object, so dragging the Gradient DIRECTION slider — which cannot change any curve, endpoint colour or ink — re-derives every row. At 20 stops it is 60.3% of all main-thread JS on the route, 44x the cost of the serialization the drag actually requires.",
+      "severity": "MAJOR",
+      "evidence": "CDP Profiler, 100us sampling, inclusive time, 60-move verified drag (direction 90 -> 270), scratchpad/probe13.mjs: 2 stops / 1 interval -> busy 504 ms, useSpecimenRows inclusive 67.3 ms (13.4%), certifyAccentInk 64.2 ms, useGradientCSS 11.3 ms. 20 stops / 19 intervals -> busy 1441 ms, useSpecimenRows inclusive 869.3 ms (60.3%), certifyAccentInk 810.5 ms, useGradientCSS 19.8 ms => 14.5 ms per direction tick (87% of a 16.7 ms frame). scratchpad/probe11.mjs at the live surface lightness (--ink-ambient-l = 0.79): msPerFullSpecimenRowsRecompute = 19.04 for 19 rows. scratchpad/bench.mjs, 2000 iterations each: glyphPath 0.0064 ms, interpolateStopColors 0.0062 ms, certifyAccentInk 1.6849 ms (99.2% of per-row cost). Code: useSpecimenRows.ts:42-73; useGradientModel.ts:102-109 (modelState returns a fresh object literal on any of type/direction/stops/intervals/space/hue); useContrastSafeColor.ts:356 (ambient dep) and :229-232 ('the AMBIENT is what moves per frame').",
+      "mechanism": "Over-broad dependency: the computed takes `modelState` wholesale but needs only interpolationSpace + hueMethod, and it recomputes cheap per-row identity (48-sample glyph paths, tile ids, labels) in the same body as the expensive ambient-dependent WCAG floor walk.",
+      "reproduction": "node scratchpad/probe13.mjs — paste a 20-stop gradient into the code editor, then pointer-drag [role=\"slider\"][aria-label=\"Gradient direction\"] 60 moves under CDP Profiler; read inclusive samples for `(anon) @ useSpecimenRows.ts:17` (8693 samples = 869.3 ms) vs total busy (1441 ms).",
+      "proposedCure": "Split the computed along its real seams rather than memoizing the symptom: (1) derive identity per row from (stops[i], stops[i+1], intervals[i]) so an untouched interval never rebuilds its glyph; (2) memoize the certified ink on (c0, c1, space, hue, ambient, dark); (3) stop passing modelState wholesale — take narrow getters `() => modelState.interpolationSpace` / `.hueMethod` so `type` and `direction` cease to be dependencies BY CONSTRUCTION, which is stronger than any cache."
+     },
+     {
+      "id": "C2-4",
+      "defect": "Every interval eagerly mounts a full producer <EasingPicker> and a full 27-tile specimen strip, although at most one row's body can ever be shown and zero tune panels are disclosed.",
+      "severity": "MAJOR",
+      "evidence": "scratchpad/probe9.mjs on /#/gradient: 2 stops -> 511 pane elements / 1 easing-picker / 27 tiles / 6076 document nodes / 1241 JS listeners; 8 stops -> 1705 / 7 / 189 / 11468 / 2997; 20 stops -> 4093 / 19 / 513 / 21817 / 6389. scratchpad/probe8.mjs at 8 stops: openPanels = [\"easing-interval-0:flex\", 6x \"none\"], tunePanels = all \"none\" — i.e. 7 pickers mounted with no tune disclosed. ~199 elements per hidden row. Code: GradientEasingEditor.vue:143-147 (body is v-show) and :203-213 (authoring stage v-show=tuneOpen with an inner v-if gated on intervals[i], which is always true).",
+      "mechanism": "The docstring's state-continuity argument for v-show (GradientEasingEditor.vue:16-18) is sound for the OPEN row and false for the other N-1: their state is intervals[i], which lives in the model, not in the picker instance.",
+      "reproduction": "node scratchpad/probe9.mjs — paste 2-, 8- and 20-stop gradients into the code editor and count [data-testid=\"easing-picker\"], [data-specimen] and document nodes after each.",
+      "proposedCure": "Render the disclosed body for the open row only (v-if=\"openInterval === row.index\") and mount the authoring stage on FIRST disclosure (v-if=\"tuneOpen[row.index]\"), keeping it alive thereafter. Closed rows keep their head — the specimen label, which is the entire closed-row design — at ~15 elements instead of ~199. Continuity is unaffected because the model already owns it."
+     },
+     {
+      "id": "C2-5",
+      "defect": "Disclosure state is keyed by array index and never reconciled with the collection, producing two observable failures: a DEAD state (after the interval list shrinks below openInterval, no row is open at all, contradicting the component's own contract) and RESURRECTION (a stale tuneOpen key re-opens the authoring stage on a completely different interval when the list re-grows).",
+      "severity": "MAJOR",
+      "evidence": "scratchpad/probe8.mjs verbatim: after opening row 6 + its tune at 8 stops -> expandedHeads [false x6, true], tunePanels [... \"easing-authoring-6:block\"]. Shrunk to 3 stops -> rows 2, expandedHeads [\"false\",\"false\"] (NO row open). Re-grown to 8 stops -> expandedHeads [false x6, \"true\"] and tunePanels [... \"easing-authoring-6:block\"] — state resurrected onto a different interval whose curve applyCSS had re-seeded to linear (gradientParse.ts:292-297). Code: GradientEasingEditor.vue:61 (openInterval seeded 0), :84-88 (tuneOpen only ever adds keys). Contract cited: GradientEasingEditor.vue:4-6 and e2e/smoke/oracles/o17-easing-composition.spec.ts:40-41 ('The bench mounts with row 0 open').",
+      "mechanism": "UI state keyed by positional index rather than by stable identity, with no clamp on shrink and no prune on removal; the object-spread in toggleTune guarantees monotonic key growth.",
+      "reproduction": "node scratchpad/probe8.mjs — at 8 stops click .interval-head[6] then its 'Author a custom curve' rail button; paste a 3-stop gradient (no row open, all aria-expanded false); paste an 8-stop gradient again (row 6 and its tune re-open). Realistic user path is the stop editor's Remove control, not a paste.",
+      "proposedCure": "Key both openInterval and tuneOpen by the stable left-anchor stop id (GradientStop.id already exists, useGradientModel.ts:34) instead of by index. A removed stop then takes its disclosure state with it: no clamp needed, no key can resurrect, and r1's C-4 positional re-hosting dissolves in the same move — one change, three defects."
+     },
+     {
+      "id": "C2-6",
+      "defect": "The only unit gate covering this component asserts far less than its own title claims, so every mutation that actually shipped keeps it green; and the sole e2e that would catch the BLOCKER has no CI step at all.",
+      "severity": "MAJOR",
+      "evidence": "test/gradient-v4-consume.test.ts:55-58 — `it(\"builds every easing specimen from valid Result values\")` asserts only `expect(SPECIMEN_TILES.length).toBeGreaterThan(20)` plus a NaN check; actual length is 27. Verified green: `npx vitest run test/gradient-v4-consume.test.ts` -> `✓ test/gradient-v4-consume.test.ts (3 tests) 10ms`. CI: `ls .github/workflows/` -> ci.yml deploy-pages.yml release.yml; `grep -rn \"playwright\\|e2e\" .github/workflows/` -> no matches. e2e/smoke/oracles/o17-easing-composition.spec.ts:117 and :189 both click [data-specimen='ease-out-back'], so o17 must be RED at HEAD and never runs.",
+      "mechanism": "An arithmetic proxy (`> 20`) standing in for a totality invariant (`every`), plus zero assertions over the portrait geometry and the per-specimen ink that are the component's entire thesis.",
+      "reproduction": "Green-keeping mutations, each verified against both gates by inspection: (1) delete \"circ\" and \"expo\" from FAMILY_ORDER (easingCatalogue.ts:174) -> 21 tiles > 20 passes; o17 touches only ease-out-back and step-end, both in kept families -> green. This is exactly the mutation that already shipped for quart/quint. (2) make glyphPath return a constant \"M 0 0 L 1 1\" -> NaN check passes, o17 never reads a `d` attribute -> green. (3) make useSpecimenRows' ink return null always -> no gate reads --motion-accent on a specimen row -> green.",
+      "proposedCure": "Replace the arithmetic with the invariants it was proxying, all three as UNIT tests so they run in the CI that exists today: (a) totality — the set of tile css literals equals the set of bezierPresets literals plus the steps literals; (b) round-trip identity — specimenNameFor(interval with tile.css) === tile.id for every tile, which kills the `custom` lie; (c) domain safety — serializeIntervalRamp must not throw for any catalogued curve, which fails on ease-in-back in milliseconds without a browser and would have stopped C2-1 shipping."
+     },
+     {
+      "id": "C2-7",
+      "defect": "A failed clipboard copy is completely silent and a successful one is never announced: the seat passes no onCopyError and never reads the producer's \"failure\" status, and there is no aria-live region on the route.",
+      "severity": "MINOR",
+      "evidence": "GradientEasingEditor.vue:94-103 (`useClipboard({ resetMs: 1400 })`, no onCopyError; copiedRow at :96-98 maps anything not \"success\" to null) and :181 (the only success signal is the button's own accessible name flipping to 'Copied'). Producer implementation node_modules/@mkbabb/glass-ui/dist/useClipboard-D36OTaeT.js sets status \"failure\" and invokes onCopyError on no-api / clipboard-api rejection.",
+      "mechanism": "Error path discarded at the consumer; the confirmation signal is a name change on the focused element, which AT does not reliably re-announce.",
+      "reproduction": "NONE — hypothesis for the failure branch specifically (it requires a denied clipboard permission or a non-secure context). The silent-discard code path itself is direct from source: the \"failure\" status has no reader anywhere in the component.",
+      "proposedCure": "This belongs to the design system, not the seat. glass-ui already owns the confirmation state machine; it should own the announcement — a role=\"status\" node seated by the producer alongside the existing FeedbackMark — so all 88 demo components inherit one copy voice instead of 88 silent ticks."
+     },
+     {
+      "id": "C2-8",
+      "defect": "The seat styles the producer component's private internals with :deep() and !important, reaching in through a data-testid (a test hook used as a style hook) — a per-instance override of a design-system component and a variant authored in demo/ rather than glass-ui.",
+      "severity": "MINOR",
+      "evidence": "EasingAuthoringStage.vue:88-115 — `:deep([data-testid=\"easing-picker\"]) { grid-template-columns: 1fr }`, `:deep(.glass-card) { background: var(--well-bg); box-shadow: none; backdrop-filter: none }`, `:deep(svg[role=\"img\"]) { block-size: auto !important; aspect-ratio: calc(1 / var(--vb-ratio, 1.2)) !important }`. Violates standing edicts 4 (glass-ui is the design system) and 5 (root-level styling, never per-instance overrides). The file documents the debt at :14-27 and files it on the P7 EasingPicker-v2 packet.",
+      "mechanism": "Consumer-side compensation for missing producer variants; the seat's own doc concedes the overrides 'retire at the adopt'.",
+      "reproduction": "NONE required — direct source read. Note r1 reports the svg[role=\"img\"] selector is already dead against glass-ui 7.0.0 (the node is now role=\"group\"), which would make the !important rules no-ops while still violating the edicts.",
+      "proposedCure": "Land the three laws as producer variants on <EasingPicker> (a `layout=\"single-column\"` prop, a `surface=\"well\"` variant reusing the existing surface vocabulary, and a viewBox-driven intrinsic aspect) so the seat consumes them by name and the entire :deep() block, including both !important declarations, is deleted rather than migrated."
+     },
+     {
+      "id": "C2-9",
+      "defect": "Two uncancelled requestAnimationFrame callbacks are scheduled per authoring emission for one idempotent DOM read; nothing coalesces or cancels them.",
+      "severity": "MINOR",
+      "evidence": "EasingAuthoringStage.vue:57-67 — `function onAuthored(v) { requestAnimationFrame(syncVbRatio); emit(\"authored\", v); }` plus `watch(() => value.css, () => requestAnimationFrame(syncVbRatio), { flush: \"post\" })`. A bezier drag emits update:model-value per pointermove, and each emission both schedules an rAF directly and propagates to the parent (updateInterval -> new value.css) which schedules a second rAF for the identical read.",
+      "mechanism": "Unmanaged one-shot fan-out: no handle is retained, so a one-second drag queues ~120 querySelector + viewBox.baseVal reads and up to 120 writes to a reactive ref. Not the PRM-RAF loop epidemic — these are one-shots and the null guard at :50 makes post-unmount execution harmless.",
+      "reproduction": "NONE measured — this is a code-level defect confirmed by reading the two scheduling sites; the drag path was not instrumented per-frame.",
+      "proposedCure": "Retain one handle and cancel-then-schedule, and delete the onAuthored rAF entirely: the watch on value.css already covers every geometry change, since the file's own premise (:55-56) is that 'Every geometry change routes through an emission'."
+     },
+     {
+      "id": "C2-10",
+      "defect": "`toggleTune` clones the entire record on every press and never prunes it — an unnecessary contrivance under Vue 3 deep reactivity, and the mechanical half of the C2-5 resurrection.",
+      "severity": "MINOR",
+      "evidence": "GradientEasingEditor.vue:84-88 — `const tuneOpen = ref<Record<number, boolean>>({})` with `tuneOpen.value = { ...tuneOpen.value, [index]: !tuneOpen.value[index] }`. `ref` on a plain object is already deeply reactive; `tuneOpen.value[index] = !tuneOpen.value[index]` suffices (edict 7 idiomatic Vue 3.5, edict 3 KISS).",
+      "mechanism": "Defensive immutability applied where the reactivity system does not need it, which also guarantees monotonic key growth.",
+      "reproduction": "NONE required — direct source read; the growth consequence is demonstrated by probe8.mjs (C2-5).",
+      "proposedCure": "Assign in place. Then re-key by stop id per C2-5, at which point the record prunes itself naturally as stops are removed."
+     },
+     {
+      "id": "C2-11",
+      "defect": "The readout-rail buttons measure exactly 24x24 CSS px — the WCAG 2.5.8 AA floor with zero headroom, and failing 2.5.5 AAA.",
+      "severity": "INFO",
+      "evidence": "Live measurement via Playwright MCP on /#/gradient: `\"railBtns\": [{\"w\":24,\"h\":24,\"label\":\"Copy cubic-bezier(0, 0, 1, 1)\"},{\"w\":24,\"h\":24,\"label\":\"Author a custom curve\"}]`. Source: GradientEasingEditor.vue:269-280, padding 0.3125rem (5px) + w-3.5 icon (14px) = 24px exactly. For contrast, the specimen tiles measure 45.23x43.8 / 44x43.8. This component contributes 0 of the 6 smallTapTargets the visual audit records for /#/gradient (REPORT.json — those are the slug controls, a bare input, and the two 20x20 GradientStopEditor stop handles).",
+      "mechanism": "A derived size that lands on the threshold rather than being tokenized against it, so any future icon or padding token change silently drops the component below the floor.",
+      "reproduction": "NONE needed — measured live and reproducible by querying getBoundingClientRect on .rail-btn at /#/gradient.",
+      "proposedCure": "Express the ghost icon-button as a design-system size token whose floor is the accessibility minimum (e.g. a glass-ui `size=\"icon-sm\"` with min-block-size/min-inline-size 24px baked in), so the constraint is enforced by the system rather than by arithmetic coincidence at one call site."
+     }
+    ],
+    "strongestDefect": "C2-1 — clicking any of the three `back`-family specimen tiles (11% of the shipped gallery) destroys the entire Gradient pane in the default two-stop state, because an easing curve's designed overshoot/undershoot (fn(0.5) = -0.0636 for ease-in-back, 1.0676 for ease-out-back) leaves mixColors' closed [0,1] progress domain and the demo converts the library's Result rejection into a throw inside a render-read computed — and the collapse emits zero page errors and zero console errors, so the visual audit and every `expect(consoleErrors).toEqual([])` clause are blind to it.",
+    "negativeProof": "N/A — verdict is DEFECTIVE. For completeness, the hazards that were tested and found ABSENT are recorded in the report's 'Negative proofs' table with evidence: no defineModel anywhere in the tree (props + emit only, so no stale async round-trip and no shallowRef cache required); no HSV roundtrip so stableHue is not implicated; zero ValueUnit construction (`grep -rn \"ValueUnit\" demo/workbenches/gradient/` -> no matches); no component-owned reka-ui slider so no pointer-capture leak; no self-rescheduling rAF loop (only the two one-shots of C2-9) and reduced motion IS honoured at EasingSpecimenStrip.vue:47,74; no WebGL in this tree; zero idle churn (MutationObserver over #easing-interval-0 subtree/childList/attributes/characterData for 3001 ms at rest returned 0 mutations); zero duplicate DOM ids; overflowX 0 in all four Safari matrices (the 12 `bleeding` entries on /#/gradient are this component's deliberate FadingScroll inline scroller, clipped by the port); zero NaN in any rendered glyph path; full verbatimModuleSyntax compliance across all five files; no god module (295 lines, four extracted collaborators); no deleted animations; and the accordion is fully keyboard operable with real buttons, aria-expanded/aria-controls, role=\"img\" + distinguishing aria-label on the ramp, and the house focus ring."
+   }
+  },
+  {
+   "agentId": "abe70e5bbffe66a7d",
+   "key": "v2:3a9d16a6f830080f336be3405302c4b1c5ad0dedcb014dd9d62a1fbbc71c2a70",
+   "result": {
+    "axis": "CHALLENGE-D — design (visual truth, state coverage, motion, design-system boundary, proportion/seat law) for demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+    "modelObserved": "Opus 5 — claude-opus-5[1m] (1M-context variant). Declared at spawn, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/wb-gradient-easingeditor/challenge-D-design-r2.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D2-01 — three of the twenty-seven specimen tiles the component itself renders (ease-in-back, ease-out-back, ease-in-out-back), and ordinary dragging of the control point the component itself discloses, SILENTLY destroy the entire /gradient route: 0 rows, error boundary \"Try again\", 0 pageErrors, 0 consoleErrors. Mechanism: the seat enumerates the whole bezierPresets table as pressable specimens and derives the row ink from an UNBOUNDED fn(0.5), while src/color/operations.ts:90 rejects progress outside [0,1] and useGradientInterpolation.ts:37 / useGradientCSS.ts:206 throw on it. The disclosed producer picker advertises y in [-0.6, 1.6] — 2.2x the consumer's admissible domain. The strip's own CSS deliberately renders the overshoot (\"overshoot curves draw past the box — visible, never clipped\"), so the design advertises the overshoot, invites the press, and dies on it.",
+    "negativeProof": "Not SOUND — verdict is DEFECTIVE. (Negative results recorded in report §5: motion IS tokenized and resolves — --duration-fast 0.2s / --duration-normal 0.3s / --ease-standard cubic-bezier(0.4,0,0.2,1); PRM is globally guarded, animations.css:184, and measured rafPer1500ms=0 on #/gradient in the reduced-motion matrix; no god module; no legacy shims; verbatimModuleSyntax clean across all 5 files; idiomatic Vue 3.5 reactive props destructure + useTemplateRef; every button in this subtree named — the route's 1 nameless button is button.dock-icon-button, not this component; rail buttons exactly 24x24 meets WCAG 2.5.8; no document horizontal overflow on any of 4 Safari matrices despite a 1482px strip; the zero-row empty state is unreachable by construction, useGradientModel.ts:123 enforces min 2 stops. Contrast is explicitly NOT MEASURED — my compositing walk could not resolve the translucent oklab()/color(srgb) glass stack, so I declined to publish the ratios I computed.)",
+    "defects": [
+     {
+      "id": "D2-01",
+      "defect": "Three of 27 shipped specimen tiles, and ordinary control-point dragging in the disclosed authoring stage, silently destroy the entire /gradient route (error boundary, bare \"Try again\", no message and no logged error). The catalogue is a mechanical enumeration of Object.keys(bezierPresets) with no domain filter, and the row's decorative ink is an unbounded fn(0.5) evaluation.",
+      "severity": "BLOCKER",
+      "evidence": "src/color/operations.ts:90 `if (progress < 0 || progress > 1) return err({ code: \"color_progress_out_of_range\" })`; demo/workbenches/gradient/composables/useGradientInterpolation.ts:37 `if (!mixed.ok) throw`; useGradientCSS.ts:199-207 `const easedT = easing(t) … if (!mixed.ok) throw`; easing/useSpecimenRows.ts:53-59 calls it inside a computed with fn(0.5); easingCatalogue.ts:178 enumerates every preset. Measured midpoints (independent node bezier solve): ease-in-back fn(0.5)=-0.063622, ease-out-back fn(0.5)=1.067553, ease-in-out-back fn(0.5)=0.606680. Fresh-page WebKit trials, before.rows=1 each: ease-out-back/pointer -> rows=0 tryAgain=true pageErrors=0 consoleErrors=0; ease-in-back/KEYBOARD (focus+Enter) -> rows=0 tryAgain=true; ease-in-out-back/pointer -> rows=0 tryAgain=true; steps/pointer (control) -> rows=1 tryAgain=false. Drag trial: handle moved 30px above the plot box -> {\"rows\":0,\"tryAgain\":true,\"literal\":null}, pageErrors:[]. Producer sr-only text read live: \"Up and Down change y from -0.6 to 1.6\". Screenshot DE-crash-ease-in-back.png shows both plates gone.",
+      "mechanism": "Domain/range mismatch at a composition seam: an unbounded easing RANGE is piped into a [0,1]-bounded colour-progress DOMAIN at two call sites, with the failure surfaced as a throw inside a Vue computed, swallowed by a route error boundary.",
+      "reproduction": "open http://localhost:9000/#/gradient (first Easing row is open by default) -> scroll the specimen strip to the \"back\" family -> press ease-in-back, ease-out-back or ease-in-out-back by click OR by Tab+Enter. Alternative: press the sliders glyph in the readout rail to disclose the authoring stage, then drag the upper control handle above the plot box.",
+      "proposedCure": "Declare the bounded progress domain ONCE at sampleCoalescedStops — already named \"the ONE sampling law\" (useGradientCSS.ts:3) — and map curve range into it there (clamp, or a named overshoot-to-endpoint reflection). useSpecimenRows consumes the same mapped value instead of raw fn(0.5). No try/catch at the seat; no quiet deletion of the back family from the catalogue."
+     },
+     {
+      "id": "D2-02",
+      "defect": "The component IS the missing /easing route, mis-seated as an accordion inside /gradient. It violates five clauses of the binding topology at once: separate route/chassis, 19-22rem centred protagonist, no tiny nested Card, boundaries []/dividers none, and no local picker.",
+      "severity": "BLOCKER",
+      "evidence": "OPTICAL-BENCH-COMPOSITIONS.md:31 \"the route inventory is exactly … /easing Easing … Easing sits adjacent to Gradient in navigation but owns a separate route/chassis\"; :45 \"centered 19-22rem curve/time stage 61.8033989% … no tiny nested Card … no local picker\"; :79 Easing boundaries [] reserve none dividers none. VISUAL-CONSTITUTION §3.1 \"Gradient cannot stand in for Easing\". research/proportion-register.md:32 PR-09 \"Gradient preview and embedded Easing selector are presently subordinate/tiny\" verb ENLARGE owner W27. Measured: demo/color-picker/router/index.ts has no /easing (falls to :37 catch-all redirect \"/\"); the curve is DRAWN at 166.7px = 10.42rem, 45% below the 19rem floor, behind two disclosures; row card computed border-radius 16px = --radius-card; boundary count in one open row = 1 card + 1 ramp + 7 family hairlines + 1 rail well + 1 authoring well + 1 producer .glass-card.",
+      "mechanism": "A whole instrument compressed into the wrong housing: a 19-22rem P122 golden composition folded into a 462x39px accordion head inside another route's inspector column.",
+      "reproduction": "http://localhost:9000/#/easing redirects to Picker; the easing instrument is reachable only via /#/gradient, scrolled to the Easing section. Measure the disclosed svg: 410x200 box, viewBox 1 x 1.2, meet-fit drawn width = 200/1.2 = 166.7px.",
+      "proposedCure": "Execute PR-09: lift the instrument to its own /easing route + InstrumentChassis with the curve/time stage as the 19-22rem centred protagonist and the catalogue as the 38.2% inspector. What remains in /gradient is one identity+selection line per interval (name, portrait, literal) linking out. The accordion, nested wells, local picker and six of the eight boundaries then die by subtraction."
+     },
+     {
+      "id": "D2-03",
+      "defect": "\"Law 3 — zero letterbox\" is dead CSS: it targets svg[role=\"img\"] but glass-ui 7.0.0 renders the plot as role=\"group\". All three :deep declarations, the rAF sync, the onMounted call and the watch are inert; --vb-ratio is frozen at its seed; the canvas ships the exact 2.05:1 letterbox the law was written to kill.",
+      "severity": "MAJOR",
+      "evidence": "EasingAuthoringStage.vue:19-24 declares the law; :48-50 querySelector(\"svg[role='img']\"); :104-115 the :deep(svg[role=\"img\"]) block. Measured live DOM: hasRoleImgSvg=false; svgs[0]={role:\"group\", vb:\"0 -0.1 1 1.2000000000000002\", w:410, h:200, aspect:\"1 / 1\", blockSize:\"200px\", inlineSize:\"410px\", transition:\"all\"}. If the rules applied: aspect calc(1/1.2)=0.833, block-size auto, inline-size min(100%,19rem)=304px, transition naming aspect-ratio — none true. Meet-fit drawn plot = 166.7 x 200 -> letterbox 243.3px = 59.3% of canvas width. Visible in DE-row-light.png / DE-row-dark.png.",
+      "mechanism": "A consumer re-deriving a producer's intrinsic ratio through a DOM-attribute read plus rAF, keyed on a role selector that drifted at the glass-ui 7 adoption; the failure is invisible because the ref seed (1.2) happens to equal the linear viewBox ratio.",
+      "reproduction": "Open /#/gradient, press the sliders glyph in the readout rail, then read getComputedStyle on `.easing-authoring svg` — role is \"group\", inline-size 410px, block-size 200px, aspect-ratio \"1 / 1\", transition \"all\".",
+      "proposedCure": "Delete the whole --vb-ratio apparatus. The plot's aspect is a producer fact: put it on the EasingPicker root (producer-owned custom property, or intrinsic aspect-ratio on the svg) via the existing P7 packet. Until then size by inline-size alone and let the svg's own ratio govern."
+     },
+     {
+      "id": "D2-04",
+      "defect": "Two selection surfaces for one catalogue, 30px apart, showing contradictory state. The disclosed picker ships a full-width PRESET select over the same bezierPresets the strip already selects from, and it reads \"Pick a curve\" while the strip's pressed tile and the row head both say `linear`.",
+      "severity": "MAJOR",
+      "evidence": "Measured live: presetControl = {label:\"Easing preset\", text:\"Pick a curve\", w:436, h:40} while selectedTile=\"linear\" (aria-pressed=\"true\"), headName=\"linear\", literal=\"cubic-bezier(0, 0, 1, 1)\" — same instant, both schemes. Canon: OPTICAL-BENCH-COMPOSITIONS.md:45 Easing must close with \"no local picker\"; PROPORTION-AUDIT PR-06 REMOVE, \"One action/selection owner\". The component's own docstring (GradientEasingEditor.vue:8-12, easingCatalogue.ts:9-11) claims \"the strip selects, the picker authors\".",
+      "mechanism": "Producer boundary crossed at the seat: the seat suppressed readout and playback but not the preset rail, so half of its own declared division is unenforced.",
+      "reproduction": "Open /#/gradient, press the sliders glyph, read the disclosed stage: a 436x40 button aria-label=\"Easing preset\" with text \"Pick a curve\" sits below a strip whose `linear` tile is data-state=\"on\".",
+      "proposedCure": "Ask glass-ui for :presets=\"false\" on the P7 EasingPicker packet, matching :readout and :playback — do not CSS-hide a producer control (VISUAL-CONSTITUTION §4.2). One selection owner: the specimen strip."
+     },
+     {
+      "id": "D2-05",
+      "defect": "The tiles request shape=\"cell\" and render as circles, because glass-capsule (radius 9999px) is in the producer's BASE class string and cell does not override it — so the 9px labels overhang the disc by 6.56px. The seat then per-instance-overrides every geometric property of the recipe it just asked for.",
+      "severity": "MAJOR",
+      "evidence": "node_modules/@mkbabb/glass-ui/dist/chip-DFZQr6rV.js: base = \"glass-chip glass-capsule accent-tone inline-flex …\", cell = \"glass-chip--cell flex-col gap-1.5 px-2 py-2.5 text-micro\". Measured tile: border-radius 9999px, 45.23 x 43.80. Overhang geometry: label width 33.23px; label band at |dy|=17.90 from centre; capsule silhouette there = 26.67px; OVERHANG = 6.56px (3.28px per side). Overrides measured: display inline-flex->flex, gap 6px->2px, padding 8/10px->5/6/4px, label 11px(text-micro)->9px. Visible on `linear`, `in-out`, `smooth` in every capture.",
+      "mechanism": "Producer boundary crossed at the seat: a root-level recipe consumed and then nullified property-by-property per instance, on top of a producer variant whose radius token is unreachable.",
+      "reproduction": "Open /#/gradient and read getComputedStyle on any .specimen-tile: border-radius 9999px on a 45.23x43.80 box; compare the .tile-label rect (33.23px) against the capsule chord at the label's own vertical band (26.67px).",
+      "proposedCure": "glass-chip--cell must own its own corner radius rather than inheriting glass-capsule — relay to glass-ui on the standing BH/BI inbox. At the seat, delete the .specimen-tile geometry block entirely and consume the producer cell rhythm; if that scale is wrong for a specimen, request a producer size rung."
+     },
+     {
+      "id": "D2-06",
+      "defect": "Two off-ladder type sizes (9px, hardcoded), and three different semantic roles — interval identity, specimen name, exported value — rendered byte-identically in size, family, colour and weight 40px apart.",
+      "severity": "MAJOR",
+      "evidence": "Measured: .family-eyebrow and .tile-label font-size 9px (0.5625rem); the smallest resolving named rung is --text-micro 0.6875rem = 11px. Row measurements, same instant: `1 → 2` / `linear` / `cubic-bezier(0, 0, 1, 1)` all at 16.4px, Fira Code, rgb(112,89,66), weight 400. Canon: VISUAL-CONSTITUTION §4 \"This matrix is closed across all eighteen compositions\" (one named exception, P019); PROPORTION-AUDIT §5.13. Source admission GradientEasingEditor.vue:134-135: \"text-mono-SMALL: curve identifiers are case-sensitive; text-mono-caption would uppercase them\".",
+      "mechanism": "Token/role discipline: a type rung chosen for a text-transform side effect rather than by role, and two raw font-size literals introduced below the ladder's floor.",
+      "reproduction": "Open /#/gradient and read font-size on .family-eyebrow, .tile-label, .interval-head span, .interval-head .truncate and .readout-rail code.",
+      "proposedCure": "The specimen name takes the identity role from the closed matrix, not the value role; if mono-caption uppercases, add a producer text-transform:none variant on the caption rung rather than substituting a size. Move the 9px eyebrow/label to --text-micro; if 11px will not fit, that is evidence for D2-02, not licence for a new size."
+     },
+     {
+      "id": "D2-07",
+      "defect": "Specimen selection is effectively colour-only: pressed and unpressed tiles have byte-identical background and box-shadow, zero border, no outline and equal opacity in both schemes. The only non-colour deltas are a 0.50px stroke-width change on a 22px glyph and a weight step on 9px text.",
+      "severity": "MAJOR",
+      "evidence": "Measured, same page, light: identicalBg=true (both oklab(0.925647 0.009411 0.029177 / 0.83872)); identicalShadow=true (byte-identical 7-layer strings); border 0px both; outline none both; opacity 1 both; filter none both. Dark identical too (oklab(0.467325 0.012705 0.030851 / 0.911296) both). Deltas: glyph stroke oklab(…/0.65)->oklch(0.438102 0.074812 205), width 1.25px->1.75px; label rgb(91,70,51)->oklch(0.438102 0.074812 205), weight 400->600. Canon: VISUAL-CONSTITUTION §4.1 \"Selected … states are never color-only\"; §4.2 requires \"independent nonzero monochrome/forced-colors deltas\".",
+      "mechanism": "Producer boundary crossed at the seat: the Chip's data-state=\"on\" wash contributes no geometric delta here, and the seat delegates the whole selection signal to consumer ink.",
+      "reproduction": "Open /#/gradient and diff getComputedStyle backgroundColor + boxShadow between .specimen-tile[data-state=\"on\"] and any sibling tile — both strings are equal in light and in dark.",
+      "proposedCure": "Give selectable Chip a producer-owned geometric selected register (ring, fill or notch) so the pressed state survives monochrome and forced colours; stop using --motion-accent as the selection signal at the seat. (Forced-colours consequence is a HYPOTHESIS: WebKit ignores Playwright forcedColors, so that matrix is not evidence.)"
+     },
+     {
+      "id": "D2-08",
+      "defect": "RTL breaks twice: the interval identity renders `2 → 1` when the model says `1 → 2` (bidi reorder of a domain coordinate), and every family divider lands on the wrong edge because the rule uses physical border-left/padding-left — no rule at the css|sine boundary, a stray rule at the strip's outer left.",
+      "severity": "MAJOR",
+      "evidence": "(a) useSpecimenRows.ts:63 `label: `${i + 1} → ${i + 2}``; measured logical headLabelText=\"1 → 2\", rendered \"2 → 1\" in rtl-desktop/gradient.png and my clip DE-rtl-easing.png. Canon VISUAL-CONSTITUTION §5.2: \"CSS direction keywords, physical axes, code, hex, slug, ID | preserve the declared physical/domain meaning … inside an LTR-isolated value\". (b) EasingSpecimenStrip.vue:143-146 `border-left: 1px solid var(--card-edge); padding-left: 0.875rem`. Measured RTL rects, DOM order: css [962.5→1201.0] border-left 0px; sine [792.3→948.5] border-left 1px pad-left 14px; quad [622.1→778.3] 1px/14px; … steps [-277.1→-122.1] 1px/14px and leftmost with nothing beyond it. css renders to the RIGHT of sine, so sine's left rule separates it from quad, not from its predecessor.",
+      "mechanism": "Physical-property and bidi assumptions: an LTR writing direction baked into a separator rule and into a coordinate rendered as a bidi-sensitive string.",
+      "reproduction": "Open /#/gradient, run `document.documentElement.setAttribute(\"dir\",\"rtl\")`, wait ~1s. Read the head's first span (renders 2 → 1) and getComputedStyle borderLeftWidth/borderRightWidth on each .strip-family (borderLeft 1px, borderRight 0px, on the inline-END side).",
+      "proposedCure": "border-inline-start / padding-inline-start for the family rule; give the interval ordinal the LTR isolation the constitution already prescribes for code/hex/slug values — or stop rendering an ordinal pair as a bidi-sensitive string at all."
+     },
+     {
+      "id": "D2-09",
+      "defect": "A 27-item single-select gallery injects 27 tab stops (28 with its focusable port) into a 52-stop route while hiding 70.6% of itself on desktop and 79.9% on mobile — and the only affordance that made it navigable, the family filter, was deleted and replaced with an aria-hidden decorative eyebrow.",
+      "severity": "MAJOR",
+      "evidence": "Measured: desktop port clientWidth 436 vs scrollWidth 1482 -> 70.6% hidden; mobile (iPhone 14) 298 vs 1482 -> 79.9% hidden; 27 tiles; route tabbables = 52. EasingSpecimenStrip.vue:96 `<span class=\"family-eyebrow\" aria-hidden=\"true\">`; :136-137 records the deletion: \"the kf family filter's information architecture folded INTO the strip (compactness: no second control row)\". Canon: VISUAL-CONSTITUTION §5.2 names roving focus for horizontal rails (Home=first, End=last, activation separate from movement); PROPORTION-AUDIT §5.6 requires ADD-AFFORDANCE when the surviving action is otherwise undiscoverable.",
+      "mechanism": "Instrument compressed into the wrong housing: a catalogue sized for a 61.8% stage squeezed into a 436px/298px scroll port, with its navigation subtracted and nothing put back.",
+      "reproduction": "Open /#/gradient and read `.fading-scroll` clientWidth vs scrollWidth (436 vs 1482); repeat at iPhone 14 (298 vs 1482); count document.querySelectorAll('.specimen-tile') = 27 against the route's 52 visible tabbables.",
+      "proposedCure": "Roving tabindex over the tiles (one tab stop, arrows move, Home/End jump), and make the family eyebrows the navigation they already look like — jump controls, or a two-row grid showing all eight families. In D2-02's /easing chassis at 61.8% of 1440px the catalogue needs no scroller at all."
+     },
+     {
+      "id": "D2-10",
+      "defect": "Two focus registers inside one component, and an unnamed focusable region in the middle of its tab run: the buttons take the house --focus-ring-shadow while the FadingScroll port (tabIndex 0, no role, no accessible name) takes the UA default outline.",
+      "severity": "MAJOR",
+      "evidence": "Measured on focus: .interval-head / .specimen-tile / .rail-btn all outline \"none 3px\" + box-shadow \"color(srgb 0.665 0 0.2615 / 0.3) 0 0 0 2px, …\"; .fading-scroll outline \"auto 3px\", box-shadow \"none\". Port attributes measured: tabIndex 0, role null, aria-label null, overflow-x auto — the role=\"group\" aria-label=\"Easing curve specimens\" is on the inner .strip-row, not the focusable element. Component comment GradientEasingEditor.vue:220-221 claims \"the house focus register … never a bespoke outline\". Canon VISUAL-CONSTITUTION §4.1.",
+      "mechanism": "Producer boundary crossed at the seat: a producer scroll surface is focusable by default and neither named nor brought into the house focus register by the consumer.",
+      "reproduction": "Open /#/gradient and focus each of .interval-head, .specimen-tile, .rail-btn, .fading-scroll in turn, reading outlineStyle/outlineWidth and boxShadow; the port is the only one with an outline and no box-shadow, and has no role or aria-label.",
+      "proposedCure": "FadingScroll should accept and apply role=\"region\" + a required label and the house focus ring, or expose an opt-out for consumers that supply their own roving-focus rail — which D2-09's cure does, removing the port from the tab order entirely."
+     },
+     {
+      "id": "D2-11",
+      "defect": "A boolean UI state is painted in a data-derived colour: --motion-accent (the eased ramp midpoint) inks not only the specimen glyph but the copy-success tick and the tune-toggle ON state, so one boolean has twenty-seven different colours and none of them is the system's active/success register.",
+      "severity": "MAJOR",
+      "evidence": "GradientEasingEditor.vue:289-294 `.rail-btn--on { color: var(--motion-accent, …) }` and `.rail-tick { color: var(--motion-accent, …) }`; :115 publishes row.ink as --motion-accent. Measured with hover cleared: .rail-btn--on color = oklch(0.438102 0.074812 205). The token takes >=21 distinct values across the catalogue walk in a single row, e.g. linear oklch(0.438102 0.074812 205), ease-out-expo oklch(0.455510 0.179335 262.338959), ease-in-expo oklch(0.433560 0.120955 149.463577), ease-out-cubic oklch(0.446749 0.126493 250.011307), step-start oklch(0.456744 0.180000 265). Canon: VISUAL-CONSTITUTION §2 \"Seed tint is forbidden outside the ambient field, active accent, WatercolorDot/specimen…\"; PROPORTION-AUDIT §5.5.",
+      "mechanism": "Token/role discipline: a specimen datum promoted into the status/state colour channel, so a system signal becomes a function of user data.",
+      "reproduction": "Open /#/gradient, press the sliders glyph, move the pointer away, read getComputedStyle('.rail-btn--on').color; then press different specimen tiles and re-read — the ON colour changes with the curve.",
+      "proposedCure": "--motion-accent inks the specimen glyph and tile portrait only. The tune toggle's active state and the copy tick take the house active/success register — one page-wide colour, so the state is learnable."
+     },
+     {
+      "id": "D2-12",
+      "defect": "Two identical wells stacked 10px apart, each with its own rounded boundary, in a composition whose binding inventory is boundaries [] and dividers none — and in light the plate-to-well material step is 0.015 oklab lightness, below perception.",
+      "severity": "MINOR",
+      "evidence": "Measured backgrounds: light plate oklab(0.928273 0.005506 0.013193 / 0.664), readout-rail well oklab(0.913299 0.005463 0.013024), authoring well oklab(0.913299 0.005463 0.013024) — identical; dark plate oklab(0.395241 0.00968 0.016528 / 0.7536), both wells oklab(0.345296 0.010372 0.017546) — identical. Light plate->well delta L = 0.015. Canon: OPTICAL-BENCH-COMPOSITIONS.md:79 Easing boundaries [] reserve none dividers none; PROPORTION-AUDIT §5.4 \"Spacing plus material already expressing the same boundary makes the line duplicative.\"",
+      "mechanism": "Instrument compressed into the wrong housing: one editing surface split into two wells at the same tier because the accordion has no room to express one.",
+      "reproduction": "Open /#/gradient, press the sliders glyph, read backgroundColor on .readout-rail and on .easing-authoring .glass-card — equal strings in both schemes.",
+      "proposedCure": "One well: merge the literal rail and the authoring canvas into a single editing surface at a single tier and delete a boundary, rather than tuning the tone."
+     },
+     {
+      "id": "D2-13",
+      "defect": "The \"one literal\" export mints long-form beziers for the five CSS keyword easings, so the row names `linear` 40px above a rail that refuses to write `linear`.",
+      "severity": "MINOR",
+      "evidence": "easingCatalogue.ts:106-128 routes every tile through bezierLiteral(). Measured head-name vs rail-literal pairs: linear -> cubic-bezier(0, 0, 1, 1); ease -> cubic-bezier(0.25, 0.1, 0.25, 1); ease-in -> cubic-bezier(0.42, 0, 1, 1); ease-out -> cubic-bezier(0, 0, 0.58, 1); ease-in-out -> cubic-bezier(0.42, 0, 0.58, 1). Canon: VISUAL-CONSTITUTION §1 — the user \"leaves with an understood, edited, code-ready color artifact\". Rationale for the mint is at easingCatalogue.ts:38-45 (byte-identity with the picker).",
+      "mechanism": "Token/role discipline: an internal identity-matching concern paid for in the externally exported literal.",
+      "reproduction": "Open /#/gradient and compare `.interval-head .truncate` textContent with `.readout-rail code` textContent for each of the five css-family tiles.",
+      "proposedCure": "Mint two fields on SpecimenTile: an identity key (normalised bezier, unchanged) and a display/export literal that prefers the CSS keyword when one exists. The head names `linear` and the rail copies `linear`."
+     },
+     {
+      "id": "D2-14",
+      "defect": "The disclosure teleports and pays its full mount cost anyway: both v-show panels have no transition while the chevron animates, and every interval's complete EasingPicker is mounted on first paint and stays mounted when the row collapses.",
+      "severity": "MINOR",
+      "evidence": "GradientEasingEditor.vue:144 and :204 are v-show with no transition; :138 the chevron carries `transition-transform`. Measured on first paint, no interaction: authoringStage mounted = 1, authoringVisible = 0. After collapsing the row: {openRows: 0, mountedPickers: 1, visibleStages: 0}. Canon VISUAL-CONSTITUTION §6 \"Spatial continuity uses one producer-owned glass-ui spring register.\" The header comment defends the always-alive picker at :16-18, but EasingAuthoringStage is fully controlled (takes :value, emits) and holds no state.",
+      "mechanism": "Instrument compressed into the wrong housing: a disclosure invented to fit the accordion, which neither animates nor defers.",
+      "reproduction": "Open /#/gradient without interacting and count document.querySelectorAll('.easing-authoring') = 1 with zero visible; toggle the accordion head and observe the panel appear/disappear with no transition while the chevron rotates.",
+      "proposedCure": "Either the disclosure is real — v-if plus one named motion family from demo/styles/animations.css — or it is not a disclosure and the editor is always visible, which is what D2-02's /easing chassis wants."
+     },
+     {
+      "id": "D2-15",
+      "defect": "\"One ink per specimen\" is false by construction: fn(0.5) collides across every symmetric curve and returns a pure endpoint colour for the single-step curves, so the row's identity ink duplicates the endpoint dot 30px to its left.",
+      "severity": "MINOR",
+      "evidence": "useSpecimenRows.ts:1-9 claims \"one ink per specimen\". Measured: linear, ease-in-out, ease-in-out-expo, smooth-step-3 and steps(4, jump-end) all yield oklch(0.438102 0.074812 205) — five of the 24 reachable specimens share one ink. step-start -> oklch(0.456744 0.18 265), hue 265 = stop 2 whose dot is oklch(0.65 0.18 265); step-end -> oklch(0.432757 0.136109 145), hue 145 = stop 1 whose dot is oklch(0.75 0.15 145).",
+      "mechanism": "A derivation that does not derive: a single sample of a curve is not an identity of that curve.",
+      "reproduction": "Open /#/gradient and press linear, ease-in-out, smooth-step-3, steps, step-start, step-end in turn, reading getComputedStyle('.head-glyph path').stroke and the two .specimen-dot --dot-c values after each press.",
+      "proposedCure": "Derive the ink from something that actually distinguishes curves (e.g. the signed area between the curve and the diagonal), or drop the per-row ink and let the shared accent carry it — and in either case not from an unbounded evaluation (D2-01)."
      }
     ]
    }

@@ -213,6 +213,9 @@ return {
   slug: SLUG,
   area: AREA,
   loc: LOC,
+  // L-15.8: a wall-killed agent() returns null and is filtered above; the parent must never
+  // count a <3-seat child as run. This flag is the machine-checkable form of that law.
+  complete: challenges.length === 3,
   challengeVerdicts: challenges.map((c) => ({ axis: c.axis, verdict: c.verdict, strongest: c.strongestDefect, defectCount: (c.defects || []).length })),
   defects: allDefects,
   worstVerdict: allDefects.some((d) => d.severity === 'BLOCKER')

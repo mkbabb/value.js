@@ -1,0 +1,34 @@
+{
+ "area": "demo/picker",
+ "parallelism": 2,
+ "components": [
+  {
+   "file": "demo/picker/ColorPicker.vue",
+   "slug": "picker-colorpicker",
+   "area": "demo/picker",
+   "loc": 414,
+   "extra": "\n## Component-specific context\nThis is the flagship instrument of the whole product — the \"/\" route. CARRY-LEDGER wave **W48 (F2 picker instrument)** owns it: \"One atomic close; A137/A138 die; PR-01..03; pointer↔keyboard↔numeric↔AT parity; Blob 0px chassis\". Read `docs/tranches/V/reformation/waves/` for W48's spec if present, and judge whether that spec is still correct against today's tree."
+  },
+  {
+   "file": "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+   "slug": "picker-componentsliders",
+   "area": "demo/picker",
+   "loc": 395,
+   "extra": "\n## Component-specific context\nThis file is a **pinned consumer** in CARRY-LEDGER §D's glass BJ W4 hold, at SHA-256 `a61b5ed39703af205d6ba0f4923d32daeaaf55cf9c2e21e22030a01fa82ef327`. Verify that hash still matches (`shasum -a 256`) — a drift is a coordination-boundary finding. It also carries the reka-ui slider pointer-capture leak recovery (`pointercancel`/`lostpointercapture`) and the iOS Safari pointer-debug infrastructure. The glass v8 hold forbids ANY consumer edit here now — your spec must respect that: author the wave, mark it BLOCKED-ON-GLASS-V8, and state the exact release condition."
+  },
+  {
+   "file": "demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue",
+   "slug": "picker-spectrumcanvas",
+   "area": "demo/picker",
+   "loc": 272,
+   "extra": "\n## Component-specific context\nCanvas-based spectrum rendering. Prime suspects: per-frame redraw cost, devicePixelRatio handling, pointer maths at the edges, and the ungated-rAF epidemic. Measure the paint cost with a Chrome DevTools MCP trace against http://localhost:9000/ if it decides the verdict."
+  },
+  {
+   "file": "demo/picker/visual/HeroBlob.vue",
+   "slug": "picker-heroblob",
+   "area": "demo/picker",
+   "loc": 317,
+   "extra": "\n## Component-specific context\n**This is the highest-suspicion component in the repository.** Its eager WebGL blob boot is the named cause of the Q14 ESCALATION (LCP 5141ms / TBT 5988ms) that has ridden Q → T → U → V.W55 un-cured; CH-4 still reads \"p75 LCP ≤2.5s on the named matrix — the ~5s boot dies or V′ does not close\". CARRY-LEDGER W48 pins it against \"the `.26` before-frame reconstructed from tag `v-blob-b0-26-ref-w40` (HeroBlob.vue:206 + seat.css:10 at the tag)\" — `git show v-blob-b0-26-ref-w40:demo/...` to see it. W54 owns \"D-2 blob truthful lifecycle; arm-after-critical-paint 0px\". **Measure the actual boot cost yourself** with a Chrome DevTools MCP performance trace and report real LCP/TBT numbers. This is a chronic disease row; your wave spec must be born-RED against a measured number, not a promise."
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 {
  "runId": "wf_e28d617f-9eb",
  "workflow": "area-shell",
- "resultCount": 41,
+ "resultCount": 47,
  "results": [
   {
    "agentId": "aa0bb5ce54e8ce61c",
@@ -5262,6 +5262,792 @@
       "mechanism": "Owner edict 4 (glass-ui is the design system) and edict 5 (style at the root, never per-instance) violated in one attribute — and `border-none outline-none` is the precise per-instance override that produces D-3 and D-10. Owner edict 2 (no legacy code) violated by a copy of a known-dead error idiom that was corrected next door and left uncorrected here.",
       "reproduction": "NONE for the styling row (static, file:line). The dead-branch row is reproducible as D-1: no status-derived copy ever renders.",
       "proposedCure": "Replace the raw `<input>` with `<Input>` (or the twin's `SearchBar` + `:icon` composition) so boundary, focus ring and forced-colors behaviour come from the root, and delete the `catch (e: any)` substring-matching block outright rather than porting it — the typed `ApiProblem.status` path already exists."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a86647c20ae82b904",
+   "key": "v2:ec53057314cd1304bc3becd50ff73b5b5333372255bb20c524176425512135eb",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) for demo/shell/dock/menus/ProfileSection.vue",
+    "modelObserved": "Opus 5 (claude-opus-5[1m], 1M-context variant) — the tier this seat was explicitly spawned with; declaration honoured, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-profilesection/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1 — the live \"chrome\" surface probe in demo/color-session/useContrastSafeColor.ts:151-153 reads getComputedStyle(\".glass-dock\").backgroundColor, which glass-ui 7 leaves at rgba(0,0,0,0) because the band is painted on a child .dock-plate. The probe therefore returns undefined permanently and the static producer model in demo/color-session/ink.ts:118-122 serves — a model whose \"chrome\" case body is byte-identical to \"floating\", so ProfileSection's two-referent D6 apparatus (lines 22-31) is provably inert. The demo models the dock band at alpha 0.88 while the real painted plate measures alpha 0.4544 (glass-ui already publishes the correct --glass-bg-dock token at 0.52). Delivered contrast misses the 5.75 design target in both schemes: 5.365 light, 8.259 dark. Root cause is a boundary defect — value.js's demo owns a reverse-engineered replica of glass-ui's paint model.",
+    "negativeProof": "N/A — verdict is DEFECTIVE. (The one clean sub-claim: this component's transitive reach into @mkbabb/value.js is entirely through real published subpath keys — ink.ts:1-11 uses @mkbabb/value.js/color and @mkbabb/value.js/css, both present in package.json#exports; `grep -rn 'from \"@mkbabb/value.js\"' demo/ src/` returns zero bare-root imports and no demo file on this graph reaches src/ internals.)",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "The live \"chrome\" ink probe is permanently dead, collapsing ProfileSection's two ink referents into one, and the fallback static model misstates glass-ui's dock band by 0.4256 absolute alpha. The demo owns a reverse-engineered replica of the design system's paint model.",
+      "severity": "BLOCKER",
+      "evidence": "demo/color-session/useContrastSafeColor.ts:151-153 probes document.querySelector('.glass-dock') → getComputedStyle().backgroundColor. Measured live at localhost:9000 (Chromium 1440x900): dockBgRead = \"rgba(0, 0, 0, 0)\"; the band is painted by child .dock-plate = \"oklab(0.946496 0.00678277 0.0150976 / 0.808)\". Producer source node_modules/@mkbabb/glass-ui/dist/components/dock/styles/dock.css: `.dock-plate { position:absolute; inset:0; z-index:-1; background: color-mix(in oklab, var(--glass-bg-dock, var(--glass-bg-resting)), var(--glass-tint-source) var(--glass-tint-strength)); }`. alpha===0 → useContrastSafeColor.ts:217 returns undefined → static model demo/color-session/ink.ts:118-122 where `case \"floating\": case \"chrome\":` share ONE body. Dark-scheme live probe: --glass-bg-dock alpha 0.52, --glass-bg-floating alpha 0.88, real .dock-plate alpha 0.4544; ink.ts:31 RUNG_ALPHA.floating.dark = 0.88 → error 0.4256. Composited-L error (node against local dist): light MODEL 0.9397 vs REAL 0.8791 (+0.0606); dark MODEL 0.3251 vs REAL 0.3416 (-0.0165). Delivered contrast vs the 5.75 target (ink.ts:15-17, 4.5+1.25): light 5.365, dark 8.259.",
+      "mechanism": "wrong-owner / consumer models producer internals — value.js's demo maintains a hand-copy of glass-ui's material-ladder recipe (ink.ts RUNG_ALPHA/FLOATING_TINT_L/CARD_L) plus a DOM scraper for glass-ui's private class names and custom properties (useContrastSafeColor.ts TIER_BG_TOKEN/resolveLiveTint). glass-ui owns the paint, so glass-ui owns the composited lightness; the replica goes stale on every producer refactor, silently.",
+      "reproduction": "Dev server live at http://localhost:9000/#/. In the console: getComputedStyle(document.querySelector('.glass-dock')).backgroundColor → \"rgba(0, 0, 0, 0)\"; getComputedStyle(document.querySelector('.dock-plate')).backgroundColor → the actual painted band. Reproducing useContrastSafeColor's resolveCssColorAlpha on the first value yields alpha 0 → the resolver's undefined branch.",
+      "proposedCure": "Architectural transposition: glass-ui exports `resolveRungLightness(rung: GlassRung, ambientL: number): number` from @mkbabb/glass-ui/tokens — the package that paints the rung resolves the rung's composited lightness from its own element and its own token. Delete from the demo: ink.ts:24-36 (PRODUCER_TINTS, RUNG_ALPHA, FLOATING_TINT_L, WELL_FOREGROUND_FRACTION), ink.ts:93-127 (resolveSurfaceLightness), useContrastSafeColor.ts:50-54 (TIER_BG_TOKEN), :80-221 (the whole canvas/probe instrument), :234-251 (liveTintCache). ~200 demo lines become one producer call; useContrastSafeColor shrinks 376 → ~40 lines. File as mark M2 on the glass-ui BH relay alongside the existing M1 passive-DarkModeToggle ask."
+     },
+     {
+      "id": "L-2",
+      "defect": "Dock.vue feeds the already-resting-certified accent into a prop named `cssColorOpaque`, so ProfileSection certifies an already-certified colour a second time against a different surface. Two owners of one concept, composed in series, with the name lying about which is which.",
+      "severity": "BLOCKER",
+      "evidence": "demo/shell/dock/Dock.vue:34 `const cssColorOpaque = inject(CSS_COLOR_KEY)!` (the raw colour, available), :35 `const safeAccent = inject(SAFE_ACCENT_KEY)!` (= certifyAccentInk(raw, resting), useContrastSafeColor.ts:302-311), :220 `:css-color-opaque=\"safeAccent\"`. ProfileSection.vue:30-31 then applies chromeSafeCss/floatingSafeCss. Measured against the local dist (ambient L 0.62, light), certify(raw,chrome) vs certify(certify(raw,resting),chrome) over 5 probe colours: DIRECT 5.751/5.750/5.752/5.750/5.750 vs ACTUAL 7.262/7.262/7.262/7.262/7.269 — +26.3% over the 5.75 design target on every colour. Live confirmation of the short-circuit case: Login trigger computed color \"oklch(0.454991 0.15 30)\" is byte-identical to --accent-live \"oklch(45.499144080095% 0.15 30deg)\" — the ink painted on the dock band IS the resting-plate ink; the surface-specific certification never fires. Same defect reaches MobileMenuDropdown.vue:24 via Dock.vue:209.",
+      "mechanism": "wrong referent crossing a component boundary + duplicated ownership of \"certified ink\" — the prop's name asserts the raw opaque colour while the wiring supplies a derived, already-guarded value, so the guard runs twice against two different surfaces.",
+      "reproduction": "http://localhost:9000/#/ with the dock visible; in the console compare getComputedStyle(<Login button>).color against getComputedStyle(document.documentElement).getPropertyValue('--accent-live') — structurally equal, proving the chrome certification was a no-op on an input that was already resting-certified. Static path is unambiguous from Dock.vue:220 → ProfileSection.vue:30.",
+      "proposedCure": "Dock.vue:209,220 pass `cssColorOpaque`, not `safeAccent`. Better: ProfileSection stops taking the colour as a prop entirely and injects CSS_COLOR_KEY itself (it already injects SESSION_PORT_KEY, so the prop buys no decoupling). One raw referent in, exactly one certification per surface that actually paints."
+     },
+     {
+      "id": "L-3",
+      "defect": "demo/ui/ is nineteen directories of pure re-export alias over @mkbabb/glass-ui — a shadow shadcn namespace, a live dual path, and a root-barrel detour past thirteen dedicated glass-ui subpath exports.",
+      "severity": "MAJOR",
+      "evidence": "Every demo/ui/*/index.ts is a bare re-export, e.g. demo/ui/button/index.ts = `export { Button } from \"@mkbabb/glass-ui\";`, demo/ui/avatar/index.ts, demo/ui/dropdown-menu/index.ts (14 names). Measured: 48 demo files import through the shim, 79 import glass-ui directly (37 root-barrel + 42 subpath across 17 subpaths). Against node_modules/@mkbabb/glass-ui/package.json#exports, 13 shims have a matching subpath (badge button card collapsible dialog dropdown-menu label popover select separator slider switch tooltip) and 6 do not (alert avatar checkbox input radio-group skeleton). ProfileSection.vue speaks three dialects in one file: subpath at :6 and :8, shim→root-barrel at :7 and :12, shim→root-barrel-with-no-alternative at :13.",
+      "mechanism": "legacy alias layer / dual path — a migration-era shadcn namespace kept alive as pass-through indirection after glass-ui became the design system, violating the no-aliases and glass-ui-is-the-design-system edicts simultaneously.",
+      "reproduction": "`for d in demo/ui/*/; do cat \"$d/index.ts\"; done` — every file is a single re-export line with zero added behaviour. `node -e \"const e=require('./node_modules/@mkbabb/glass-ui/package.json').exports; e['./button']\"` confirms the bypassed subpath exists.",
+      "proposedCure": "Delete demo/ui/ whole; rewrite the 48 consumers to the producer's own specifiers. ProfileSection lines 7/12/13 become `import { Button } from \"@mkbabb/glass-ui/button\"`, `import { DropdownMenu, … } from \"@mkbabb/glass-ui/dropdown-menu\"`, `import { Avatar, AvatarImage } from \"@mkbabb/glass-ui\"`. File the six missing subpaths (avatar, alert, checkbox, input, radio-group, skeleton) as mark M3 on the glass-ui BH relay — six one-line exports-map additions close the last root-barrel reach."
+     },
+     {
+      "id": "L-4",
+      "defect": "Wrong direction of dependency: the shell imports a feature to learn who is logged in. Five demo/shell files reach into demo/palettes/usePalettePorts for a session-identity key whose implementation lives in demo/platform/auth.",
+      "severity": "MAJOR",
+      "evidence": "ProfileSection.vue:14 `import { SESSION_PORT_KEY } from \"../../../palettes/usePalettePorts\";`. demo/palettes/usePalettePorts.ts is 275 lines statically importing 15 palette composables (lines 4-18: usePaletteStore, useBrowsePalettes, useAdminUsers, useColorNameQueue, useSlugMigration, usePaletteActions, useFilteredList, useAdminAudit, useAdminFlagged, useAdminTags, useVersionHistory, useTagEdit). ProfileSection needs one Symbol() (:271) and one type. The identity implementation is imported by that same file from elsewhere — usePalettePorts.ts:5-7: useAdminAuth/useUserAuth/useSession from ../platform/auth/. Five shell files take the edge: Dock.vue:18, DockViewSelect.vue:8, layers/SlugEditLayer.vue:5, menus/ProfileSection.vue:14, menus/MobileMenuDropdown.vue:13.",
+      "mechanism": "wrong home for a shared concept — session identity is a platform service re-exported by a feature, so the chrome layer (shell) is forced to depend on a feature layer to reach the platform layer; layering runs shell → feature → platform instead of shell → platform.",
+      "reproduction": "`grep -rn \"SESSION_PORT_KEY\" demo/` — 5 shell consumers, provider and key both in demo/palettes/usePalettePorts.ts:242,271, while the underlying auth composables are in demo/platform/auth/.",
+      "proposedCure": "Move SESSION_PORT_KEY and the SessionPort type to demo/platform/auth/session-port.ts. usePalettePorts imports the key like every other consumer and provides it. Zero behaviour change; the edge inverts to shell → platform, and demo/palettes stops being on the shell's static module graph."
+     },
+     {
+      "id": "L-5",
+      "defect": "Every demo import-boundary lint rule globs directories that no longer exist, so the demo module lattice has zero structural enforcement — which is why L-4 passes CI clean.",
+      "severity": "MAJOR",
+      "evidence": "eslint.config.js carries four no-restricted-imports objects globbing demo/@/components/**, demo/@/lib/**, demo/@/composables/** and demo/color-picker/**. Measured: `for d in demo/@ demo/@/components demo/@/lib demo/@/composables; do [ -d \"$d\" ]; done` → GONE for all four (deleted by the W43/RF-15 restructure; the tree is now demo/{shell,palettes,color-session,platform,picker,workbenches,scenes,ui,shared,styles}). The one surviving object bans `@components/custom/palette-browser/**/*.vue` — `grep -c \"@components\" vite.config.ts` → 0 (the alias was killed; tsconfig.demo.json's single occurrence is a comment recording the removal). Confirmed: `npx eslint demo/shell/dock/menus/ProfileSection.vue demo/shell/dock/Dock.vue` → ESLINT-EXIT=0 with the shell→palettes edge present.",
+      "mechanism": "dead structural enforcement — the guardrails were written against a directory layout that a later restructure deleted, and nothing failed loudly when they stopped matching, so the boundaries they encoded silently ceased to exist.",
+      "reproduction": "`ls demo/@` → No such file or directory. `npx eslint demo/shell/dock/menus/ProfileSection.vue` → exit 0 despite the shell→feature import at line 14.",
+      "proposedCure": "Re-express the bans against the current tree as layer rules, not path blacklists: demo/shell/** may not import demo/{palettes,workbenches,scenes,picker}/**; demo/platform/** may import nothing above itself; demo/color-session/** may not import demo/color-picker/**. Four no-restricted-imports objects, each glob-matched to a directory that exists, so L-4 cannot silently recur."
+     },
+     {
+      "id": "L-6",
+      "defect": "ProfileSection.vue and MobileMenuDropdown.vue are two implementations of one menu — 88 identical lines — and they have already drifted: the admin-identity state renders gold on desktop and grey on mobile.",
+      "severity": "MAJOR",
+      "evidence": "difflib.SequenceMatcher over whitespace-stripped lines: ProfileSection 181 lines, MobileMenuDropdown 115 lines, 88 identical matched lines = 76.5% of the mobile file / 48.6% of the desktop file. Largest shared runs: 28 lines (ProfileSection:154-181 ≡ Mobile:88-115 — the @mbabb block, share row, the 24-command GitHub SVG path, and the identical 6-line V-W44 dark-mode comment), 15 lines (ProfileSection:71-85 ≡ Mobile:46-60), 9, 9, 7, 5. MobileMenuDropdown.vue:21-22 states the relationship: \"the desktop twin's cure, verbatim (ProfileSection.vue)\". Drift proof — same state, two designs: ProfileSection.vue:96 `class=\"slug-pill … gold-shimmer\" style=\"border-color: var(--color-gold); color: var(--color-gold)\"` vs MobileMenuDropdown.vue:67 `class=\"slug-pill … text-muted-foreground\" style=\"border-color: var(--muted-foreground); color: var(--muted-foreground)\"`.",
+      "mechanism": "dual implementation of one concept — a responsive breakpoint was resolved by copying the component rather than by extracting the shared content, so each copy accrues independent edits and the two paths diverge.",
+      "reproduction": "python3 difflib run over the two files (command and output pasted in the report); direct read of ProfileSection.vue:96 against MobileMenuDropdown.vue:67 shows the diverged admin pill.",
+      "proposedCure": "One DockAccountMenu.vue owning the DropdownMenuContent (slug pill, the four account rows, the @mbabb block, share, GitHub, dark-mode row); ProfileSection.vue and MobileMenuDropdown.vue become trigger wrappers. 181+115 lines become roughly 130+25+20, with one home for the admin-identity design."
+     },
+     {
+      "id": "L-7",
+      "defect": "The component constructs the ink instrument twice and registers two onMounted hooks that each increment a module-global epoch counter, invalidating a module-global tint cache shared by every ink consumer in the app — twice per ProfileSection mount.",
+      "severity": "MINOR",
+      "evidence": "ProfileSection.vue:28-29 calls useSafeAccentFn twice; each call runs useGlobalDark() + inject(INK_AMBIENT_KEY) + bumpProbeEpochOnMount() (useContrastSafeColor.ts:345-348). Line 43 calls useGlobalDark() a third time. useContrastSafeColor.ts:68 `const probeEpoch = ref(0)`, :77 `if (getCurrentInstance()) onMounted(() => probeEpoch.value++)`, :239 `const liveTintCache = new Map<InkSurface, TintCacheEntry>()`, :245 validity keyed on `hit.epoch === epoch`. Measured consumer census: 8 useSafeAccentFn call sites plus useContrastSafeColor, ConsoleRail.vue:133 and useViewAccents.ts:89 — every one writes the shared epoch. useGlobalDark itself is a createGlobalState singleton (node_modules/@mkbabb/glass-ui/dist/dark-z_P5QwqI.js: `var o, s = r(() => {…})`) so its repetition is free; the epoch bump is not.",
+      "mechanism": "unowned global mutable state — a cache-validity epoch with no owner that every consumer is required to write, so each mounting component forces a full getComputedStyle + canvas-readback re-probe of every cached surface for every other consumer.",
+      "reproduction": "NONE (static; hypothesis for the perf magnitude). The double registration is direct from ProfileSection.vue:28-29 → useContrastSafeColor.ts:348; the cache-invalidation consequence follows from useContrastSafeColor.ts:245.",
+      "proposedCure": "Dissolves entirely once L-1 lands — with the rung lightness coming from glass-ui there is no probe, no epoch and no cache. Until then: one useSafeAccentFn call in this component, and move the epoch bump to the boot writer (one owner) instead of every consumer."
+     },
+     {
+      "id": "L-8",
+      "defect": "--accent-live is a third home for the certified ink and desynchronises from the rendered ink across a scheme flip; the tint cache keys validity on a direct documentElement.classList read (the DOM effect) while the recompute is driven by isDark (the cause) — one concept, two scheme signals.",
+      "severity": "MINOR",
+      "evidence": "Live flip driven through ProfileSection's own \"Dark mode\" row (ProfileSection.vue:167 @click=\"toggleDark()\"), sampled at +0ms / +1 frame / +600ms: before dark=false ink=oklch(0.454991 0.15 30) --accent-live=oklch(45.499144080095% 0.15 30deg); nextFrame dark=true ink=oklab(0.454991 0.129904 0.075) --accent-live unchanged; settled(+600ms) dark=true ink=oklch(0.848306 0.0831763 30) --accent-live STILL oklch(45.499144080095% 0.15 30deg) — the light-mode value in a .dark document, ΔL 0.393. demo/styles/foundation.css:222 documents that --primary re-points onto --accent-live, so everything on that token paints the light ink for that window. Mechanism site: useContrastSafeColor.ts:242 `const darkClass = document.documentElement.classList.contains(\"dark\");`. MT-F009 CORRECTION: measured 21 useGlobalDark() call sites all resolving to one createGlobalState singleton, and exactly ONE direct classList reader; the two vueuse useDark stores named in the brief are retired — useMarkdownHighlighting.ts:68-80 and useMarkdownColors.ts:16-19 are comments recording their removal, and `grep -rn \"useDark\\b\" demo/` returns only those two comment lines.",
+      "mechanism": "duplicated ownership of a derived value (the component's own computed vs the boot writer's :root mirror) plus a split scheme signal (reactive cause vs DOM effect), so the two mirrors transit independently with no ordering guarantee.",
+      "reproduction": "http://localhost:9000/#/ — click @mbabb, click \"Dark mode\", and within ~600ms read getComputedStyle(<Login/Profile button>).color against getComputedStyle(document.documentElement).getPropertyValue('--accent-live'). They disagree by ΔL 0.393; they reconverge seconds later, so this is transient rather than permanent.",
+      "proposedCure": "One owner for the ink: the boot writer computes it and mirrors it; components read the token or the injected ref, never recompute it. Replace useContrastSafeColor.ts:242's classList read with the reactive isDark from the single useGlobalDark singleton so cause and effect cannot disagree. Re-scope MT-F009 to its single surviving instance."
+     },
+     {
+      "id": "L-9",
+      "defect": "tsconfig.demo.json#paths maps 8 value.js keys against a 7-key exports map: three targets do not exist on disk, two real exports are unmapped, and the whole block is redundant because TypeScript already resolves via the repo's own package.json self-reference. Two stale co-located claims and a second installed copy of the library compound it.",
+      "severity": "INFO",
+      "evidence": "package.json#exports publishes 7 keys (./color ./value ./css ./easing ./math ./transform ./quantize) with no \".\" root. tsconfig.demo.json maps 8 and its comment calls them \"a CLOSED 8-key set\". Absent targets: dist/index.d.ts (`ls dist/index.d.ts` → No such file), dist/subpaths/parsing.d.ts, dist/subpaths/units.d.ts (`ls dist/subpaths/` → color css easing math quantize transform value only). Unmapped-but-published: /css, /value. `npx tsc -p tsconfig.demo.json --noEmit --traceResolution` for @mkbabb/value.js/css from demo/color-session/ink.ts: \"Found 'package.json' at '/Users/mkbabb/Programming/value.js/package.json'. Entering conditional exports. Matched 'exports' condition 'types'. … successfully resolved to '…/dist/subpaths/css.d.ts'\" — self-reference, not paths. vite.config.ts:117-119 asserts glass-ui's dist imports value.js \"by the bare @mkbabb/value.js specifier\"; measured `grep -roh 'from \"@mkbabb/value.js[^\\\"]*\"' node_modules/@mkbabb/glass-ui/dist/*.js | sort | uniq -c` → 5 ×/color, 3 ×/css, 1 ×/easing, ZERO bare. node_modules/@mkbabb/value.js is a real directory (readlink → not a symlink) holding published 4.0.0; local dist/subpaths/css.d.ts vs the installed copy is DIVERGENT (12490 vs 10910 bytes) though exported symbol lists diff clean (dts-bundler _2 alias artifact).",
+      "mechanism": "stale configuration masquerading as a public-surface contract — the paths block and its comments encode a subpath set the exports map no longer has, and nothing fails because self-reference resolution silently does the real work.",
+      "reproduction": "`npx tsc -p tsconfig.demo.json --noEmit --traceResolution | grep -A6 \"Resolving module '@mkbabb/value.js/css'\"` shows the self-reference path; `ls dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts` → all No such file.",
+      "proposedCure": "Delete the @mkbabb/value.js* entries from tsconfig.demo.json#paths entirely — package.json#exports self-reference already resolves them and cannot drift from the exports map. Delete the falsified vite.config.ts prose about bare-specifier glass-ui imports. Either add \".\" to package.json#exports or stop naming a bare root anywhere. Drop the self-install of node_modules/@mkbabb/value.js so exactly one copy of the library exists in the tree."
+     },
+     {
+      "id": "L-10",
+      "defect": "The component is not a proof of the published API: its library reach is entirely transitive and legitimate, but four of its own imports are repo-shape-dependent and could not be written by any consumer outside this checkout.",
+      "severity": "INFO",
+      "evidence": "ProfileSection.vue imports @mkbabb/value.js zero times; its transitive reach is useContrastSafeColor → ink.ts:1-11 → @mkbabb/value.js/color and /css, both real exports keys. `grep -rn 'from \"@mkbabb/value.js\"' demo/ src/` → no bare-root imports; no src/ internal is reachable on this graph. But ProfileSection.vue:7,12,13 (../../../ui/*) and :14 (../../../palettes/usePalettePorts) resolve only because the demo shares the repo layout.",
+      "mechanism": "restatement of L-3 and L-4 in public-surface terms — recorded so the \"false proof of the public API\" question has an explicit answer.",
+      "reproduction": "NONE (static import trace; recorded as an explicit negative answer for src/ and positive for demo/).",
+      "proposedCure": "Covered by L-3 (delete demo/ui/, import glass-ui subpaths) and L-4 (move SESSION_PORT_KEY to demo/platform/auth). After both, every import in this file is either a bare published specifier or a same-layer relative path."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "aff4646a99908d54d",
+   "key": "v2:8b655273378841956fca7a9bec3c7301c4240dd9e58b59fc411a39dfa21ef6d1",
+   "result": {
+    "axis": "CHALLENGE-C — implementation defects in demo/shell/dock/menus/MobileMenuDropdown.vue (shell/dock, mobile overflow menu)",
+    "modelObserved": "Opus 5 (claude-opus-5[1m], 1M context) — matches the explicit Opus 5 spawn declaration; no inherited or undeclared seat.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "C-1: \"Regenerate slug\" (MobileMenuDropdown.vue:61) is a fire-and-forget async whose port method clears localStorage + the auth token BEFORE calling createSession(); on any API failure the promise rejects unhandled, the user's slug is destroyed (measured `slug after = null`), the menu simply closes, and nothing is surfaced to the user. Silent identity/data loss with a live reproduction.",
+    "negativeProof": "Not SOUND — but recorded negatives, each measured: (1) defineModel stale-read hazard is NOT present — the usePopupMutex setter is lossy for 180ms yet self-corrects, ⋮ opens in 276ms under a swap; (2) tap target is compliant — trigger rect [43,33] CSS px with a measured 44x44 ::after hit extension under `pointer: coarse` (`\"coarse\": true`), so WCAG 2.5.8 is met; (3) zero nameless buttons from this component — REPORT.json safari-mobile-light /#/ a11y.namelessButtons = 0, MT-F005's desktop button is ColorInput's send-btn (DEFECT-LEDGER.md:11682); (4) menu is correctly named — aria-labelledby resolves to the trigger; (5) slug-edit focus hand-off is clean — focus lands and STAYS on the slug input at t+100/400/900ms, no reka close-autofocus steal; (6) no rAF loop, listener, observer, timer, canvas or WebGL in the SFC — nothing to leak; useGlobalDark is a createGlobalState singleton so the second call site adds no watcher; (7) verbatimModuleSyntax compliant (no type-only imports); (8) zero pageErrors, zero horizontal overflow (menu overflowRight -82px at 390 wide).",
+    "defects": [
+     {
+      "id": "C-1",
+      "defect": "\"Regenerate slug\" is a fire-and-forget promise over a non-total port method that destroys the user's persisted identity before confirming, with no error surface anywhere.",
+      "severity": "BLOCKER",
+      "evidence": "demo/shell/dock/menus/MobileMenuDropdown.vue:61 `@click=\"pm.onRegenerateSlug()\"` (async, result discarded) -> demo/palettes/useSlugMigration.ts:102 bare `await deps.userRegenerate()` with no try -> demo/platform/auth/useUserAuth.ts:119-123 clears localStorage SLUG_KEY + token FIRST, then `await createSession()` (can reject; also throws by hand at :124). `grep -rn \"unhandledrejection|window.onerror\" demo/` -> 0 hits. Measured (probe/mmd-probe5.mjs, 390x844, seeded slug, API unreachable): `UNHANDLED REJECTIONS after 'Regenerate slug' = [\"value.js dev is MISCONFIGURED: ...\"]`; `pageErrors = [\"DevMisconfigError: ...\"]`; `slug after = null`; `menu still open? = false`; the only live-region text on the page is the dev-only misconfig banner.",
+      "mechanism": "fire-and-forget async in a template handler over a destructive-before-confirming, non-total port method; no rejection handler, no user-visible failure path",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe/mmd-probe5.mjs — seeds localStorage[\"palette-user-slug\"], taps [aria-label=\"Menu\"], clicks the \"Regenerate slug\" row, reads window.__unhandled and localStorage.",
+      "proposedCure": "Make the port total, not the row defensive: useUserAuth.regenerate() must register-then-swap (never clear persisted state until createSession() resolves — which is what its own comment already claims), and onRegenerateSlug must return a discriminated result the session port surfaces. A `.catch(console.warn)` at the call site would be exactly the masking fallback edict 2 forbids."
+     },
+     {
+      "id": "C-2",
+      "defect": "`as-child` on the GitHub row is dead against glass-ui 7.0.0 — the anchor stays nested inside a role=menuitem div, so the link is keyboard-inoperable (WCAG 2.1.1 Level A) and the row is visibly mis-laid-out.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:92 `<DropdownMenuItem ... as-child>`; node_modules/@mkbabb/glass-ui/dist/dropdown-menu-BlbnvMaZ.js:189-231 declares props {disabled,textValue,inset,class} — NO asChild — and hardcodes `as: \"div\"` (contrast DropdownMenuTrigger-ClIq8RJE.js which does forward asChild). Measured DOM (probe/mmd-probe3.mjs): `{\"tag\":\"DIV\",\"outerHTMLHead\":\"<div data-reka-collection-item=\\\"\\\" role=\\\"menuitem\\\" tabindex=\\\"-1\\\" data-slot=\\\"dropdown-menu-item\\\" class=\\\"...\\\"><a href=\\\"https://github.com/mkbabb/value.js\\\" ...\",\"childAnchor\":true,\"anchorTabIndex\":0}` — no as-child attribute survives. Keyboard vs pointer: `(b) focusedRow = \"GitHub\" | popupsOpened = 0 | urlChanged = false | menuStillOpen = false` versus `(b') tapActivation popups = 1`. Visible consequence (probe/mmd-probe2.mjs row census + probe/orphan-1-mobile-open.png): GitHub row rect [201,55] vs [201,44] for every other row — the display:block svg breaks onto its own line inside the inline anchor.",
+      "mechanism": "consumer uses a producer affordance the producer does not implement; the attribute is silently filtered and the failure is invisible at author time",
+      "reproduction": "node docs/.../probe/mmd-probe3.mjs (DOM shape + Enter-vs-tap activation) and node docs/.../probe/mmd-probe2.mjs (row geometry).",
+      "proposedCure": "Producer-side, per edict 4 + the standing glass-ui BH relay: glass-ui `DropdownMenuItem` gains the same `as`/`asChild` forwarding its sibling `DropdownMenuTrigger` already implements. Consumer-side `window.open` on @select would trade a Level-A keyboard failure for lost link semantics. The identical dead `as-child` at ProfileSection.vue:158 deletes in the same producer change."
+     },
+     {
+      "id": "C-3",
+      "defect": "The menu is CSS-hidden (`lg:hidden`) rather than conditionally rendered, so crossing the lg breakpoint while it is open leaves a portalled menu orphaned at the viewport corner and loses focus restoration.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:38 `lg:hidden` (and ProfileSection.vue:48 `hidden lg:flex`) — both components always mounted; Dock.vue:72 already owns `isDesktop = useMediaQuery(\"(min-width: 1024px)\")` and passes it to DockViewSelect/ActionBarToggle but not to these two (Dock.vue:207-225). Measured (probe/mmd-probe3.mjs, mmd-probe4.mjs): open at 390 wide then resize to 1440 -> `ORPHAN STATE = {\"menuRect\":[215,285,0,4],\"menuDataState\":\"open\",\"hiddenTriggerWrapper\":\"none\"}`, `triggerRect: [0,0]`, `menuVisible: \"visible\"`, `menuOpacity: \"1\"` — a 215x285 glass menu pinned at (0,4) anchored to a 0x0 display:none reference (screenshot probe/orphan-2-after-resize-1440.png). Escape then: `t+600ms: {\"menuPresent\":false,\"active\":\"BODY.relative\",\"isBody\":true}` — focus falls to document.body because .focus() on a display:none trigger is a no-op. WCAG 2.4.3 / 2.4.11.",
+      "mechanism": "responsive branching expressed as responsive painting; the portalled content is not subject to the trigger's display:none, and the mutex entry cannot unmount with its owner",
+      "reproduction": "node docs/.../probe/mmd-probe4.mjs — writes orphan-1-mobile-open.png and orphan-2-after-resize-1440.png and prints the post-Escape focus timeline.",
+      "proposedCure": "Hoist the branch to the one place that already knows it: `<MobileMenuDropdown v-if=\"!isDesktop\">` / `<ProfileSection v-if=\"isDesktop\">` in Dock.vue, deleting the `lg:hidden` / `hidden lg:flex` class pair from both roots; and release the mutex key when its owner unmounts (usePopupMutex.popupModel gains an onUnmounted release) so Dock.vue:85's shouldKeepOpen hold cannot latch on a dead popup. Halves the always-mounted menu surface as a side effect."
+     },
+     {
+      "id": "C-4",
+      "defect": "\"Dark mode\" is a boolean toggle rendered as a stateless command — role=menuitem with no aria-checked, state carried only by an aria-hidden glyph, and @select.prevent keeps the menu open so there is no close event either.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:101-111 — `<DropdownMenuItem ... @select.prevent @click=\"toggleDark()\">` with `<Moon v-if=\"isDark\" aria-hidden=\"true\" />` / `<Sun v-else aria-hidden=\"true\" />`. Measured (probe/mmd-probe1.mjs): `{\"role\":\"menuitem\",\"text\":\"Dark mode\",\"ariaChecked\":null,\"ariaPressed\":null,\"ariaLabel\":null,\"tabindex\":\"-1\",\"rect\":[201,44],\"tag\":\"DIV\"}`. WCAG 4.1.2 Name/Role/Value. The SFC's own comment at :102-107 reasons about why glass-ui's DarkModeToggle cannot nest here and then never supplies the state channel it would have provided.",
+      "mechanism": "toggle semantics carried entirely in a decorative, aria-hidden visual channel",
+      "reproduction": "node docs/.../probe/mmd-probe1.mjs — taps the ⋮ and dumps role/aria-checked/aria-pressed for every [role] node inside [role=menu].",
+      "proposedCure": "Use the primitive that already exists and already carries the name: glass-ui `DropdownMenuCheckboxItem` (dist/dropdown-menu-BlbnvMaZ.js:235, re-exported through demo/ui/dropdown-menu) with :model-value=\"isDark\", @select.prevent, @update:model-value=\"toggleDark()\" — stamps role=menuitemcheckbox + aria-checked and renders the producer's indicator. Edict 4 (existing component-type name) and edict 3 (no invented wrapper) both satisfied. Same fix at ProfileSection.vue:167-177."
+     },
+     {
+      "id": "C-5",
+      "defect": "The @mbabb identity block is a bare div — an ARIA-invalid owned child of role=\"menu\" — and the GitHub-profile link inside it is unreachable by keyboard.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:79-87 places a `<div class=\"flex items-center gap-2 px-2 py-1.5\">` containing `<a href=\"https://github.com/mkbabb\">` as a DIRECT child of [role=menu]; the menu role owns only menuitem/menuitemcheckbox/menuitemradio/group/separator. Measured (probe/mmd-probe2.mjs, menu opened with the keyboard): `ArrowDown x8 -> [\"Share color\",\"GitHub\",\"Dark mode\",\"Dark mode\",...]` (only the 4 menuitems), `Tab x4 -> [\"Dark mode\",\"Dark mode\",\"Dark mode\",\"Dark mode\"]` (reka preventDefaults Tab inside menu content). Row census: `{\"tag\":\"DIV\",\"role\":null,\"text\":\"@mbabbColor space picker\",\"rect\":[201,50],\"display\":\"flex\"}`.",
+      "mechanism": "natively-focusable content placed outside the menu's roving-tabindex set, inside a focus scope that suppresses Tab",
+      "reproduction": "node docs/.../probe/mmd-probe2.mjs — focuses the ⋮, presses Enter, then ArrowDown x8 and Tab x4, reporting document.activeElement each time.",
+      "proposedCure": "Either demote it to a `DropdownMenuLabel` (a permitted owned element — the slug pill at :46 already uses it) with the anchor reduced to text, or promote it to a real `DropdownMenuItem` wrapping the anchor once C-2's producer fix lands. Not both, and no new wrapper component."
+     },
+     {
+      "id": "C-6",
+      "defect": "Mobile/desktop divergence: the mobile branch drops two of the desktop menu's separators and replaces the admin identity's animated gold-shimmer pill with a flat grey one.",
+      "severity": "MINOR",
+      "evidence": "Measured logged-in mobile menu (probe/mmd-probe5.mjs): rows = [slug label, Copy slug 44, Switch account 44, Logout 44, Regenerate slug 44, separator, @mbabb 50, Share color 44, GitHub 55, separator, Dark mode 44], `separators: 2`. Desktop has a separator between Logout and Regenerate slug (ProfileSection.vue:86) and between the identity block and Share color (ProfileSection.vue:153); mobile has neither (visible in probe/orphan-1-mobile-open.png). Admin identity: MobileMenuDropdown.vue:67 = `slug-pill cursor-default text-muted-foreground` + `style=\"border-color: var(--muted-foreground); color: var(--muted-foreground)\"`; ProfileSection.vue:96 = `slug-pill ... gold-shimmer` + `var(--color-gold)`. `.gold-shimmer` is a real animated glass-ui utility (dist/styles/utilities/base-misc.css: gold gradient + background-clip:text + `animation: metal-shimmer-sweep var(--duration-shimmer) linear infinite` under prefers-reduced-motion: no-preference). Measured non-admin pill: `{\"cls\":\"slug-pill whitespace-nowrap\",\"animation\":\"none\"}`. Prior seat measured the fork at 73 of 90 distinct non-blank lines shared, GitHub SVG `d` byte-identical 619 chars (DEFECT-LEDGER.md:13417).",
+      "mechanism": "an 81%-identical copy-fork of the desktop menu that drifted; edict 6 (animations are never deleted, only moved or tokenized) violated on the mobile branch",
+      "reproduction": "node docs/.../probe/mmd-probe5.mjs for the separator census and the pill's computed animation; the admin-pill divergence is a direct code read of MobileMenuDropdown.vue:67 vs ProfileSection.vue:96. HYPOTHESIS (unreproduced, needs admin auth): the DESKTOP shimmer is also dead by cascade — the inline `color: var(--color-gold)` beats .gold-shimmer's `color: transparent`, so background-clip:text paints nothing while the animation runs.",
+      "proposedCure": "Fold the fork: once C-3 lands the v-if branch, one identity menu whose CONTENT is shared and whose only difference is the trigger (DockTrigger vs Button). The separator drift and the lost shimmer then cannot exist. This is a deletion of duplication, not a new wrapper (edict 3)."
+     },
+     {
+      "id": "C-7",
+      "defect": "The file imports the same design system by two different paths — some primitives direct from @mkbabb/glass-ui, others through the demo/ui one-line re-export shim.",
+      "severity": "MINOR",
+      "evidence": "MobileMenuDropdown.vue:6 `@mkbabb/glass-ui/dark` and :11 `@mkbabb/glass-ui/dock` (direct) versus :10 `../../../ui/dropdown-menu` and :12 `../../../ui/avatar` (shim). `cat demo/ui/dropdown-menu/index.ts` -> a single line: `export { DropdownMenu, DropdownMenuTrigger, ... } from \"@mkbabb/glass-ui\";`. Survey: 18 of 19 demo/ui barrels are single-line glass-ui re-exports (measured `for f in demo/ui/*/index.ts; do wc -l; grep -c '@mkbabb/glass-ui'; done`).",
+      "mechanism": "an alias path kept alive alongside the real one — a back-compat shim, inside a single file",
+      "reproduction": "cat demo/ui/dropdown-menu/index.ts; head -14 demo/shell/dock/menus/MobileMenuDropdown.vue",
+      "proposedCure": "Import from @mkbabb/glass-ui throughout and delete demo/ui/ — the sequence prior seats already filed. Edict 2 (no aliases, no dual paths)."
+     },
+     {
+      "id": "C-8",
+      "defect": "INFO — the defineModel(\"open\") <-> usePopupMutex round-trip is genuinely lossy (the named local stale-read hazard shape) but self-corrects through an undocumented glass-ui/reka handler interaction; recorded because it is load-bearing.",
+      "severity": "INFO",
+      "evidence": "MobileMenuDropdown.vue:32 `defineModel<boolean>(\"open\")` bound to reka's fully-controlled `<DropdownMenu v-model:open>`; the parent setter is usePopupMutex.popupModel(\"mobile-menu\") (Dock.vue:67) whose update() (usePopupMutex.ts:40-69) REFUSES the write for swapDelay=180ms when another popup is open. Measured (probe/mmd-probe5.mjs): `view-select open? = true` then `mobile menu opened after swap in ms = 276`. Rescue mechanism: glass-ui's trigger toggles on pointerdown and only calls preventDefault() `if (open)` (DropdownMenuTrigger-ClIq8RJE.js), so the refused write leaves the native click unsuppressed, reka 2.9.9's own onClick (DropdownMenuTrigger.js) fires a second onOpenToggle, and the mutex's clearSwapTimer() promotes pending to current immediately.",
+      "mechanism": "a controlled reka Root wired to a setter that may silently defer the write — the classic defineModel stale-read shape, here rescued by a coincidental double-toggle",
+      "reproduction": "node docs/.../probe/mmd-probe5.mjs (final section) — taps the view-select trigger, then taps [aria-label=\"Menu\"] and polls for [role=menu].",
+      "proposedCure": "No shallowRef cure needed. Document the dependency where it lives (usePopupMutex's refuse-and-defer contract) so a future change to either handler cannot silently break the ⋮ under a swap; the C-9 spec should assert open-under-swap."
+     },
+     {
+      "id": "C-9",
+      "defect": "Vacuous gate — the component has zero test coverage in either suite; the entire template can be deleted and every gate stays green.",
+      "severity": "MAJOR",
+      "evidence": "`grep -rn \"MobileMenuDropdown\" test e2e` -> no output. `grep -rn \"Dark mode|Share color|Regenerate slug\" test e2e` -> no output. `grep -rn \"dock-dropdown-trigger|MoreVertical\" e2e` -> no output. `ls test/*.test.ts | wc -l` -> 19; the only two naming shell/dock are test/status-lamp.test.ts:41 (imports the .ts helper) and test/picker-blob-config.test.ts:16 (reads a DIFFERENT .vue file as text). e2e/smoke/mobile/walk.spec.ts drives pane tabs and the color-space combobox and never opens the ⋮.",
+      "mechanism": "no unit mount and no e2e interaction for a component that owns login, logout, slug management, share and dark mode on every phone",
+      "reproduction": "The exact green-keeping mutation: replace the entire <template> of MobileMenuDropdown.vue with `<template><div class=\"lg:hidden\" /></template>`. `npm test` (19 files) and the full e2e smoke suite remain green while the mobile overflow menu vanishes.",
+      "proposedCure": "One mobile-viewport spec asserting the operable contract: every row reachable by ArrowDown, the dark-mode row exposing an aria-checked that flips, the GitHub row activating by ENTER (born-RED today — it is C-2's gate), and focus returning to the trigger on Escape (born-RED under C-3's resize case)."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a24135f602e6398ff",
+   "key": "v2:2f77b54b31f67ee0b5174ab970bf1629330d5ab54cdb05d7eac7a8a4ca831f44",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, direction of dependency, public surface) for demo/shell/dock/menus/MobileMenuDropdown.vue",
+    "modelObserved": "Opus 5 — exact model id claude-opus-5[1m] (1M-context variant). Declared at spawn, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1 — MobileMenuDropdown.vue:13 imports SESSION_PORT_KEY from demo/palettes/usePalettePorts.ts (the palettes feature's 275-line five-port provider). Measured runtime closure: 39 demo modules {shell 1, color-session 5, palettes 23, platform 8, ui 2}; 31 of the 39 (79%) exist solely to deliver one InjectionKey Symbol, including the entire palettes API layer and auth/transport stack the menu never touches. Direction is wrong (shell → feature; census: 5 shell→palettes edges, 0 palettes→shell) and the concern is misfiled — the identity implementations already live in demo/platform/auth/. Cure: move SessionPort + SESSION_PORT_KEY to a leaf demo/platform/session/port.ts with zero runtime deps; closure falls 39 → ~9 and four sibling shell components are cured by the same move.",
+    "negativeProof": "Verdict is DEFECTIVE, but four registry claims were NEGATED with positive evidence and are recorded as sound: (1) MT-F009 \"three parallel dark stores\" is CURED — 11 useGlobalDark call sites tree-wide, zero vueuse useDark, and the single classList.contains(\"dark\") at useContrastSafeColor.ts:242 is the tint cache's documented DOM-truth validity stamp, not a store. (2) D58.i double-toggle is NOT LIVE — measured darkBefore false → darkAfter true, exactly one flip per tap, menu stays open via @select.prevent. (3) MT-F005 does not touch this component — live mobile nameless-focusable-button census = 0; the trigger carries aria-label=\"Menu\", aria-haspopup=\"menu\", aria-expanded=\"false\", type=\"button\" (glass-ui DockTrigger uses inheritAttrs:false + $attrs spread, so the label lands on the real button). (4) The value.js public-surface axis is SOUND — 50 bare imports across demo/, all five specifiers present in package.json#exports (/color 25, /css 10, /math 6, /easing 5, /quantize 4), zero @src/ reaches outside the exempt assets/docs pages, zero dist/ paths; a real consumer of @mkbabb/value.js@4.0.0 could write every line verbatim. Also: no dual glass-ui instance despite mixed import paths — glass-ui.js, dock.js and dropdown-menu.js all import the same DropdownMenuTrigger-ClIq8RJE.js and dropdown-menu-BlbnvMaZ.js chunks; and production tree-shaking works (0 of 7 barrel-only symbols present in dist/gh-pages/assets), so L-2 is scoped to the dev loop.",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "A single InjectionKey Symbol imported from the palettes feature drags 31 of the component's 39-module runtime closure across a boundary the shell must not cross.",
+      "severity": "MAJOR",
+      "evidence": "demo/shell/dock/menus/MobileMenuDropdown.vue:13. Closure walk (probe/cycles.mjs, `import type` erased, 250 demo modules): MobileMenuDropdown.vue -> 39 modules {shell:1, color-session:5, palettes:23, platform:8, ui:2}; demo/palettes/usePalettePorts.ts -> 31 modules; demo/color-session/useContrastSafeColor.ts -> 5 modules. Dragged in but unused: demo/palettes/api/{admin-audit,admin-colors,admin-users,admin-palettes,colors,versions,palettes}.ts, demo/platform/transport/{client,api-problem}.ts, demo/platform/auth/{useAdminAuth,useUserAuth,useSession,sessions,sessionToken}.ts, +14 more. Cross-area census: 5 `shell -> palettes` edges (all SESSION_PORT_KEY), 0 `palettes -> shell`.",
+      "mechanism": "A contract token (InjectionKey<T> + its interface) was co-located with its PROVIDER instead of living in a dependency-free leaf, so importing a token means importing a construction. Compounded by the concern being filed under the wrong owner: identity/auth implementations already live in demo/platform/auth/.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe/cycles.mjs (prints the cross-area edge census and the single SCC); the closure sizes reproduce with the same walk seeded at MobileMenuDropdown.vue / usePalettePorts.ts / useContrastSafeColor.ts.",
+      "proposedCure": "Transpose, do not patch: create demo/platform/session/port.ts holding the SessionPort interface + SESSION_PORT_KEY as a LEAF module with zero runtime deps, and demo/platform/session/provide.ts holding PORT-1 of providePalettePorts, called by the composition root. palettes/ then consumes the key like any other consumer. shell -> palettes drops to 0; this component's closure falls 39 -> ~9; Dock.vue:18, DockViewSelect.vue:8, SlugEditLayer.vue:5 and ProfileSection.vue:14 are cured by the same move. Wire it standing with an eslint no-restricted-imports ban: demo/shell/** may import platform, color-session, shared — never palettes/picker/workbenches/scenes."
+     },
+     {
+      "id": "L-2",
+      "defect": "demo/ui/ is a 19-directory, 29-line pure re-export shim layer with zero implementation; this component reaches glass-ui through it at two lines while reaching glass-ui by published subpath at two others, and the shim route forces the 234,609-byte glass-ui root barrel onto the dev boot critical path.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:10 (`../../../ui/dropdown-menu`) and :12 (`../../../ui/avatar`) vs :6 (`@mkbabb/glass-ui/dark`) and :11 (`@mkbabb/glass-ui/dock`). `wc -l demo/ui/*/index.ts` = 29 total across 19 dirs; `find demo/ui -type f ! -name index.ts` = empty. demo/ui/alert/index.ts:1-9 self-documents as a converted shadcn shim kept so \"the two consumers ... import from this barrel unchanged\". Producer closure walk: glass-ui.js 66 modules/218.9 KB vs dropdown-menu.js 11 modules/23.5 KB (56 barrel-only modules). Live dev boot, private headless Chromium 390x844 at http://localhost:9000/#/: @mkbabb_glass-ui.js 234,609 B at startMs 15 (first glass chunk on the path); no @mkbabb_glass-ui_dropdown-menu.js entry exists in node_modules/.vite/deps because nothing imports that published subpath. Exports-map mapping: 13 of the 19 shims (badge, button, card, collapsible, dialog, dropdown-menu, label, popover, select, separator, slider, switch, tooltip) have a glass-ui subpath today; 6 (alert, avatar, checkbox, input, radio-group, skeleton) do not.",
+      "mechanism": "A shadcn-vue-era local implementation layer was emptied into re-exports rather than deleted, so consumers never had to be migrated — a back-compat alias layer (edict 2) masquerading as a design-system boundary (edict 4 says the design system is glass-ui, not demo/ui/). The aliases point at the root barrel, defeating the producer's per-component subpath surface.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe/probe-mobilemenu.mjs — the `glassChunks` block prints @mkbabb_glass-ui.js at 234,609 B, startMs 15. Static half: `wc -l demo/ui/*/index.ts` and `ls node_modules/.vite/deps | grep glass`.",
+      "proposedCure": "Delete demo/ui/ entirely; rewrite the tree's 87 relative ui/... import sites to `@mkbabb/glass-ui/<component>` for the 13 that have a subpath, and to an explicit, visible root-barrel import for the 6 that do not — so the debt is legible at the call site instead of hidden behind a directory pretending to be a design system. Book the producer ask on the standing BH/BI relay fond: glass-ui to publish ./avatar, ./alert, ./checkbox, ./input, ./radio-group, ./skeleton subpaths. Add a self-retiring eslint no-restricted-imports ban on the bare `@mkbabb/glass-ui` specifier with a six-name allow-list that shrinks to zero as the producer lands them. SCOPE HONESTLY: production tree-shaking already elides the barrel (0 of 7 barrel-only symbols in dist/gh-pages/assets) — the cost is dev-loop and legibility, not shipped bytes."
+     },
+     {
+      "id": "L-3",
+      "defect": "`as-child` on glass-ui's DropdownMenuItem is an undeclared prop and is silently ignored: the GitHub row renders a DIV[role=menuitem] wrapping a nested focusable anchor, leaving 73% of the row dead to touch and the link 100% unreachable by keyboard.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:92-99 writes `<DropdownMenuItem ... as-child>`; node_modules/@mkbabb/glass-ui/dist/components/dropdown-menu/DropdownMenuItem.vue.d.ts declares `DropdownMenuItemProps = { disabled?, textValue?, inset?, class? }` — no asChild. Live DOM, 390x844, menu open: GitHub row = {tag DIV, role menuitem, h 55.4, containsAnchor true, anchorDisplay block, anchorTabIndex 0}; the three sibling rows = {containsAnchor false, h 44}. Boxes: row 200.6x55.4 at (101, 223.75); live anchor 68.6x43.4 at (109, 229.75) = 26.8% of row area. Touch: tap at (239.6, 251.4) inside the row -> newPages 0, menu closed; tap at anchor centre -> newPages 1, https://github.com/mkbabb/value.js. Keyboard: ArrowDown roving walk = Login -> Share color -> GitHub -> Dark mode (focus never reaches the anchor); Enter on the focused GitHub row -> {urlChanged false, newPages 0, menuStillOpen false}. Byte-identical at ProfileSection.vue:158-165 (part of the 28-line identical run).",
+      "mechanism": "The demo codes against a BELIEVED producer API rather than the published one. Unknown attributes on a Vue component are legal fallthrough, so vue-tsc cannot flag it — the false belief type-checks green and renders almost-right. No @select handler was written because the author believed as-child had made the anchor the menuitem. Also WAI-ARIA 1.2 invalid: role=menuitem takes presentational children, not a focusable <a>.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe/probe-aschild.mjs (DOM shape + focus walk), probe-enter.mjs (Enter on the focused row), probe-tap.mjs (dead-zone vs anchor tap). Manual: open http://localhost:9000/#/ at 390x844, tap the ⋮ Menu, tap the GitHub row anywhere right of the word 'GitHub' — nothing opens.",
+      "proposedCure": "Make rows DATA, not markup (see the L-4 lattice): a row with kind:\"link\" renders as `<DropdownMenuItem @select=\"() => window.open(href, '_blank', 'noopener')\">` so the entire 200px row is live, Enter works, and the ARIA tree is valid with no nested interactive element — one change dissolves L-3 and L-7 together. In parallel relay to glass-ui on the BH fond: DropdownMenuItem should declare and forward `asChild` (reka-ui's MenuItem supports it) or reject it loudly. Until that lands, the `as-child` spelling must not appear in the demo at all."
+     },
+     {
+      "id": "L-4",
+      "defect": "MobileMenuDropdown and ProfileSection are a 78.7% byte-identical fork of one concept, and the responsive split is CSS-only so BOTH components mount, inject and run their live-ink probes at every viewport.",
+      "severity": "MAJOR",
+      "evidence": "difflib.SequenceMatcher over whitespace-normalised lines: ProfileSection 170 non-blank, MobileMenuDropdown 108 non-blank, 85 identical = 78.7% of MobileMenuDropdown; longest identical run 28 lines (ProfileSection[142] == Mobile[80]) = the entire @mbabb block (avatar + Share color + GitHub + separator + Dark mode); next runs 15 lines (slug pill), 9 lines (avatar/bio), 7 lines (import tail). Branch mechanism is `lg:hidden` (MobileMenuDropdown.vue:38) and `hidden lg:flex` (ProfileSection.vue:48,127). Live DOM census: at 390x844 [aria-label=\"Menu\"] inDom 1 / visible 1 and `nav .hidden.lg\\:flex` hosts inDom 2 / visible 0; at 1440x900 the Menu trigger is inDom 1 / visible 0 and the desktop hosts are 2 / 2. nav button counts: 12 inDom / 10 visible at 390; 20 / 17 at 1440. Dock.vue:67-69 keeps three usePopupMutex keys alive for two menus of which one is always invisible.",
+      "mechanism": "Two presentations of one concept were forked into two components instead of one model plus two views, and the viewport branch was expressed in CSS (display:none) rather than in the render tree, so neither branch is ever actually absent.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe/probe-branches.mjs (prints the inDom/visible matrix at both viewports). Fork ratio: python3 difflib over the two SFCs' non-blank stripped lines.",
+      "proposedCure": "One model, two views. demo/shell/dock/identity/useDockIdentityMenu.ts returns MenuRow[] = { id, icon, label, kind: \"command\"|\"link\", onSelect?, href? }, reading platform/session + platform/identity — ONE home for what the menu contains. demo/shell/dock/identity/DockIdentityMenu.vue takes { rows, variant: \"bar\" | \"overflow\" }: \"bar\" renders labelled Buttons + DockSeparators (today's desktop), \"overflow\" renders one DockTrigger + one DropdownMenu (today's mobile). Render it with v-if on a useMediaQuery breakpoint so exactly ONE branch mounts. Net: -1 module, -78 duplicated lines, -1 always-mounted subtree, and the fork can no longer diverge (L-5)."
+     },
+     {
+      "id": "L-5",
+      "defect": "The forked twins have DIVERGED on the admin pill, and the desktop half's gold-shimmer animation is cascade-dead: an inline style attribute overrides the producer class's `color: transparent`, so the background-clip:text gradient is painted under an opaque glyph.",
+      "severity": "MINOR",
+      "evidence": "ProfileSection.vue:96 `<span class=\"slug-pill ... gold-shimmer\" style=\"border-color: var(--color-gold); color: var(--color-gold)\">` vs MobileMenuDropdown.vue:67 `<span class=\"slug-pill ... text-muted-foreground\" style=\"border-color: var(--muted-foreground); color: var(--muted-foreground)\">`. `.gold-shimmer` is the producer's metal register at node_modules/@mkbabb/glass-ui/dist/styles/utilities/base-misc.css (250%-wide gold gradient, background-clip:text, color:transparent, animation metal-shimmer-sweep under prefers-reduced-motion:no-preference). Measured computed styles by reproducing all three markups verbatim in the live document: desktop pill color = oklch(0.751 0.147 84.2) (OPAQUE gold), backgroundClip text, animationName metal-shimmer-sweep — running and invisible; control (.gold-shimmer with no inline colour) color = rgba(0,0,0,0) — correct; mobile pill color = rgb(124,102,80), backgroundClip border-box, animationName none.",
+      "mechanism": "Per-instance inline :style overrides on a design-system class (edict 5 violation) — the style attribute outranks any non-!important author rule, so the class's load-bearing `color: transparent` never applies. The animation is not deleted but is rendered invisible (edict 6 in spirit). This is the identical pathology the same file documents ten lines later at ProfileSection.vue:103-110 for the login button's dead border — the lesson was written down and the neighbouring element was not fixed.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe/probe-gold.mjs — prints the three computed-style rows against the live cascade.",
+      "proposedCure": "Move the accent to the channels the producer class actually paints, at the root: keep `.gold-shimmer` and drop the inline `color`, setting only `border-color` inline (the class does not own borders). Then let the single DockIdentityMenu (L-4) render ONE admin pill for both variants, so the gold/muted divergence cannot recur. If a live-colour admin pill is wanted, ask glass-ui for a `.gold-shimmer` variant that accepts a caller-supplied ink token rather than fighting it from the call site."
+     },
+     {
+      "id": "L-6",
+      "defect": "The accent colour is certified twice: Dock.vue passes the already-resting-certified SAFE_ACCENT_KEY ink down a prop named `cssColorOpaque`, and the component re-certifies it against the floating rung — systematically over-muting the user's picked colour.",
+      "severity": "MAJOR",
+      "evidence": "useAtmosphereBoot.ts:91 provides SAFE_ACCENT_KEY = safeAccentCss (certifyAccentInk against the RESTING plate, useContrastSafeColor.ts). Dock.vue:35 injects it; Dock.vue:209 (and :220 for the twin) passes `:css-color-opaque=\"safeAccent\"`. MobileMenuDropdown.vue:23-24 then does `useSafeAccentFn(\"floating\")` + `safeCss(cssColorOpaque)`. The raw pick was one identifier away — Dock.vue:34 injects CSS_COLOR_KEY into the same scope and does not use it here. Measured drift by dynamic-importing demo/color-session/ink.ts in the live document (static rung model, ambient 0.62, light; L_resting 0.85, L_floating 0.924), contract single walk vs shipped double walk: oklch(0.75 0.15 30) L 47.52%->42.08% (-5.43pp); oklch(0.62 0.2 140) L 44.47%->39.17%, C 0.1432->0.1261 (-12%); oklch(0.55 0.18 250) L 45.80%->40.34%, C -12%; oklch(0.85 0.1 90) L 45.86%->40.39%; oklch(0.45 0.22 320) L 45.00%->43.14%; rgb(255 0 0) L 48.16%->42.42%, C 0.1976->0.1741; rgb(0 128 255) L 46.19%->40.68%. 7 of 7 picks differ, all darker and lower-chroma. The D6 contract both twins document (ProfileSection.vue:22-27) is 'certify the RAW pick against the surface it composites over'.",
+      "mechanism": "Ownership of 'which colour travels this prop' is unstated across three parties: the prop NAME claims raw, the WIRING supplies certified, the COMPONENT re-applies the guard. certifyAccentInk is a monotone walk away from the surface, so composing two walks can only over-correct — the direction is structural, not a function of the rung model I measured against.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe/probe-doublecert.mjs — prints the seven-row contract-vs-shipped table against the live ink module.",
+      "proposedCure": "Pick one owner, not both. Preferred transposition: the boot writer publishes a per-rung certified ink map (SAFE_ACCENT_RESTING_KEY / _FLOATING_KEY / _CHROME_KEY in demo/color-session/keys.ts), each rung certified exactly once at exactly one site; view components inject the rung they sit on and never hold the guard. Minimal alternative: rename the prop to `pickedColorOpaque` and change Dock.vue:209/220 to pass `cssColorOpaque`, restoring the documented D6 contract. Either way the prop's name and its value must agree."
+     },
+     {
+      "id": "L-7",
+      "defect": "The @mbabb identity block (avatar URL, handle, tagline) is hardcoded verbatim in both twins, and as raw markup inside role=\"menu\" its link is a 51.7x17 px target that never receives keyboard focus.",
+      "severity": "MINOR",
+      "evidence": "MobileMenuDropdown.vue:79-87 == ProfileSection.vue:144-152, a 9-line identical run carrying `src=\"https://avatars.githubusercontent.com/u/2848617?v=4\"`, `href=\"https://github.com/mkbabb\"`/@mbabb, and the tagline 'Color space picker & converter'. Measured live: the @mbabb anchor is 51.7 x 17 px (WCAG 2.5.8 minimum is 24x24) and does not appear in the menu's roving focus walk (ArrowDown: Login -> Share color -> GitHub -> Dark mode). A bare <div> and <a> are not permitted children of role=\"menu\" per WAI-ARIA 1.2.",
+      "mechanism": "Product identity constants were inlined into view templates rather than owned by one module, so the fork duplicated them; and a non-menuitem interactive element was placed inside a menu container, putting it outside the menu's focus management.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe/probe-mobilemenu.mjs — the `menu.links` array reports the @mbabb anchor at 51.7 x 17; probe-aschild.mjs prints the focus walk that omits it.",
+      "proposedCure": "One home: demo/platform/identity.ts exporting { handle, avatarUrl, tagline, repoUrl }, read by the single DockIdentityMenu. Render the block as a DropdownMenuLabel with NO interactive child, and make '@mbabb' a proper MenuRow of kind:\"link\" so it becomes a full-width, focusable, 44px menuitem like every other row."
+     },
+     {
+      "id": "L-8",
+      "defect": "The mobile menu — the only route to Login, Share color, GitHub and Dark mode on a phone — has zero coverage in every gate the repo runs, and the visual audit captures only its closed state.",
+      "severity": "MINOR",
+      "evidence": "`grep -rn 'aria-label=\"Menu\"\\|MobileMenu\\|mobile-menu' e2e/ test/` -> no output. `grep -rn MobileMenuDropdown demo/ e2e/ test/` (excluding .md) -> only demo/shell/dock/Dock.vue:11 and :207. docs/tranches/V/megatranche/audit/visual/REPORT.md per-capture table: safari-mobile-light /#/ text = 70 characters vs safari-desktop-light /#/ = 859, because the harness never opens the trigger.",
+      "mechanism": "Coverage follows the default render tree; a surface gated behind an interaction is invisible to a capture harness that does not interact, and no unit or e2e spec was ever written for it. L-3 (a dead link) and L-5 (a dead animation) both survived to HEAD for exactly this reason.",
+      "reproduction": "The two greps above, plus reading the REPORT.md per-capture table rows for safari-mobile-* /#/.",
+      "proposedCure": "Add one e2e spec in the existing mobile smoke project that opens the trigger and asserts the row inventory, each row's >=44px box, one-flip dark toggle, and that activating the GitHub row (by keyboard AND by tap anywhere in the row) opens the repo URL — i.e. a born-RED gate that fails today on L-3. Extend the visual harness's mobile matrix with an open-menu state capture (the states.mjs surface already exists)."
+     },
+     {
+      "id": "L-9",
+      "defect": "demo/shell/dock/index.ts and Dock.vue form the demo tree's only runtime import cycle; the barrel carries no content of its own.",
+      "severity": "MINOR",
+      "evidence": "Tarjan SCC over 250 demo modules with `import type` erased: exactly 1 SCC of size > 1, members demo/shell/dock/Dock.vue and demo/shell/dock/index.ts. index.ts re-exports GlassDock/DockLayerGroup/DockLayer from @mkbabb/glass-ui/dock (a second alias for a specifier that already works) plus `export { default as Dock } from \"./Dock.vue\"`; Dock.vue mounts MobileMenuDropdown. The subject component itself is clean of the cycle — it imports @mkbabb/glass-ui/dock directly at :11, never the barrel.",
+      "mechanism": "A barrel that re-exports both a producer subpath and a local component that itself imports through the barrel's own directory closes a cycle for zero benefit.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/probe/cycles.mjs — prints 'runtime cycles (SCC size > 1): 1' and both members.",
+      "proposedCure": "Delete demo/shell/dock/index.ts; App.vue imports ./dock/Dock.vue directly and every glass-ui dock primitive is imported by its own subpath at the point of use. Independently filed by a prior pass — corroborated here by measurement, not re-booked."
+     },
+     {
+      "id": "L-10",
+      "defect": "The demo's structural eslint boundary bans — the rules that would have caught L-1 — glob a directory tree that no longer exists, so they match approximately zero files.",
+      "severity": "INFO",
+      "evidence": "eslint.config.js file globs: demo/color-picker/**, demo/@/components/**, demo/@/lib/**, demo/@/composables/**. `ls -d demo/@` -> 'No such file or directory'. W43/RF-15 moved the demo to shell/ palettes/ color-session/ platform/ picker/ scenes/ ui/ workbenches/ shared/. Three of the four globs address a tree that was deleted; the bans they encode (features depend on shared never the reverse; the shared layer never reaches up into boot) are exactly the class of rule L-1 violates.",
+      "mechanism": "A structural guard was written against paths rather than against layers, and the paths moved without the guard following — the guard is present in the config and functionally dead.",
+      "reproduction": "`ls -d demo/@` and read eslint.config.js's last three config objects.",
+      "proposedCure": "Re-point the globs at the real tree and add the L-1 ban: demo/shell/** may not import demo/palettes|picker|workbenches|scenes; demo/platform/** and demo/color-session/** may not import demo/color-picker/** (app-root boot) or any feature. Independently filed by a prior pass — corroborated, not re-booked."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a513ce7a44a10bfe6",
+   "key": "v2:c37cf88974e8df6c626cf4bf50b76ee07fb3cce69e3d04ff21ff0d35a4c1bd5d",
+   "result": {
+    "axis": "CHALLENGE-C — implementation defects in demo/shell/dock/menus/ProfileSection.vue (shell/dock)",
+    "modelObserved": "Opus 5 (claude-opus-5[1m]) — the tier this seat was explicitly spawned with; declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-profilesection/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "C-1 — ProfileSection owns the dark-mode flip control, and pulling it leaves EVERY certified ink in the application one flip behind the scheme it is certified against, permanently until reload: measured `--accent-live` byte-identical across a light→dark runtime flip (oklch(47.118925176164% 0.188447570516) in both), then `oklch(95.832172477266% 0.021053120065)` — a near-white, chroma-dead ink — on a LIGHT app after flipping back. The whole D6/A11Y-F2 apparatus this file's own header invokes is defeated by the control 140 lines below it.",
+    "negativeProof": "N/A — verdict is DEFECTIVE. (Sound sub-areas recorded in the report's \"Negative proofs\" section so they are not re-probed: keyboard operability incl. Enter-activation of the dark row and Escape focus restoration to the trigger; the usePopupMutex 180ms swap Profile→@mbabb; all tap targets ≥24px (trigger 106.7×28, Login 86.5×28, @mbabb 76.6×28, menu rows 44 tall) with zero contribution to the visual REPORT's smallTapTargets/namelessButtons; no rAF/listener/observer/timer/async in the file; no ValueUnit wrapping; no parseCssColor; no defineModel stale-read (models are write-only into reka); `Avatar decorative` is correct Glass 7 union usage; verbatimModuleSyntax satisfied.)",
+    "defects": [
+     {
+      "id": "C-1",
+      "defect": "The runtime dark flip leaves every certified ink ONE FLIP BEHIND the scheme it is certified against, permanently until reload. ProfileSection's `Dark mode` row (ProfileSection.vue:167) is the flip control; its own triggerInk/menuInk and the app-wide `--accent-live` all carry the previous scheme's certification.",
+      "severity": "BLOCKER",
+      "evidence": "Measured, chromium 1440x900 against http://localhost:9000 (scratchpad/psec-probe-d.mjs, corroborated by probes a/b/c/f): light cold boot --accent-live = `oklch(47.118925176164% 0.188447570516 9.834deg)`; after runtime flip -> dark = `oklch(47.118925176164% 0.188447570516 …)` (byte-identical, i.e. the LIGHT ink on a dark app); after runtime flip -> light = `oklch(95.832172477266% 0.021053120065 …)` (the DARK, near-white, chroma-dead ink on a LIGHT app); dark COLD BOOT reference = `oklch(95.83% 0.0211 …)`. ProfileSection trigger ink over the same four states: 0.471189/0.854068/0.484064/0.958322 L. `--ink-ambient-l` = 0.7900 in every state, so the ambient is not the variable. Reproduced via mouse (probes a,c,d) and keyboard Enter (probe f step 4: darkBefore:false -> darkAfter:true, accentLive still 47.118925176164%). Mechanism anchor: demo/color-session/useContrastSafeColor.ts:239-251 (cache validity key `document.documentElement.classList.contains(\"dark\")` read at :242).",
+      "mechanism": "Cache-validity key read imperatively from the DOM at compute time while the DOM write happens later in the flush order: vueuse `useDark` writes the `.dark` class from a POST-flush watcher; every consuming `computed` is pulled by a PRE-flush render effect, so the read at :242 always sees the OUTGOING scheme, the stale entry validates, and it is re-stamped with the outgoing key. `probeEpoch` is only bumped onMounted, so no tracked dep ever changes again and nothing re-drives. The :230-232 comment's claim of self-correction 'on the next reactive recompute' is empirically false (still stale after a colour nudge, probe b B2/B3).",
+      "reproduction": "Boot http://localhost:9000/#/ in light, expand the dock, open the @mbabb menu, click `Dark mode`, press Escape, read `getComputedStyle(document.documentElement).getPropertyValue('--accent-live')`. Compare with the same read after a reload in dark. Repeat the flip twice more to see the one-behind alternation. Script: scratchpad/psec-probe-d.mjs.",
+      "proposedCure": "Architectural transposition, not a patch: Glass 7 already ships the instrument — `useGlobalDark().onFlipSettled(cb)` ('runs in ONE coalesced task AFTER each dark<->light flip's instant chrome paint', dist/composables/dark/useGlobalDark.d.ts). Register once, module-level, in useContrastSafeColor.ts: `useGlobalDark().onFlipSettled(() => probeEpoch.value++)`, and DELETE the darkClass key at :242 so the epoch is the sole validity truth. One change fixes all nine useSafeAccentFn call sites and removes MT-F009's fifth uncoordinated dark reader."
+     },
+     {
+      "id": "C-2",
+      "defect": "`variant=\"outline\"` (x2) and `variant=\"ghost\"` are DEAD PROPS under Glass 7 — the Button has no `variant` prop (its axes are emphasis/tone), so all three fall through as inert HTML attributes and the controls render as the default `data-emphasis=\"secondary\"` wash capsule. The accent Login/Profile trigger and the @mbabb WORDMARK render identically.",
+      "severity": "BLOCKER",
+      "evidence": "ProfileSection.vue:60, :112, :136. Glass 7 API: node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts:5-19 and the compiled props object in dist/button-Bu9F4uU6.js list emphasis/tone/size/iconOnly/loading/type/disabled/class/asChild/as — no `variant`. Measured DOM (scratchpad/psec-probe-a.mjs): the Login trigger carries `data-emphasis=\"secondary\"`, `class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover …\"` AND a literal `variant=\"outline\"` attribute; `document.querySelectorAll('[variant]').length` = 2. Visual: docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/picker.png shows Login and @mbabb as the same filled pill. Measured `border-top-width: 0px` on the Button in all four states, so the `borderColor: triggerInk` half of the :style at :63/:115 is inert (it IS live on .slug-pill — measured 1px, probe e).",
+      "mechanism": "Glass 7 adoption residue: an API that was renamed away (variant -> emphasis/tone) left the call sites untouched, and Vue fallthrough attributes make the dead prop invisible at runtime and at typecheck. The same class of defect as a silent fallback.",
+      "reproduction": "`npx vue-tsc -p tsconfig.demo.json --noEmit` exits 0 with no output (the hard CI gate does not see it). In the browser: `document.querySelector('[data-o18=\"profile-trigger\"]').getAttribute('variant')` -> \"outline\" and `.getAttribute('data-emphasis')` -> \"secondary\". Repo-wide: `grep -rn 'variant=\"' demo --include=\"*.vue\" | wc -l` -> 103.",
+      "proposedCure": "One mechanical repo-wide sweep to the Glass 7 axes (emphasis/tone), not 103 local patches: `emphasis=\"secondary\"` + certified ink for the two triggers, `emphasis=\"text\"` for the @mbabb wordmark so it stops painting a capsule; delete the now-fictional :103-110 comment (it reasons about the Glass-6 outline variant's inset-shadow border) and the dead `borderColor` channel at :63/:115."
+     },
+     {
+      "id": "C-3",
+      "defect": "`@click=\"pm.onRegenerateSlug()\"` — a destructive, un-confirmed floating promise. With the API unreachable it DESTROYS the user's slug (identity key to their published palettes), reports nothing, and leaves the UI showing an intact account.",
+      "severity": "MAJOR",
+      "evidence": "ProfileSection.vue:87. Measured (scratchpad/psec-probe-e.mjs — seed localStorage['palette-user-slug'], abort every off-origin request, click the row): `{\"slug\": null, \"dialogOpen\": false, \"liveRegions\": [\"off:92.0%\",\"off:88.8\",\"off:20.0\",\"off:82.7%\"], \"triggerStillThere\": true}` plus console `[Vue warn]: Unhandled error during execution of native event handler at <Primitive … role=\"menuitem\" …>`. Root ordering: demo/platform/auth/useUserAuth.ts:112-127 removes SLUG_KEY + clears the token BEFORE `createSession()`; demo/palettes/useSlugMigration.ts:101-103 awaits it with no try/catch on the zero-saved-palettes branch; useUserAuth.ts:118 deliberately does not null the slug ref ('avoids UI flash'), so the trigger still reads 'Profile'.",
+      "mechanism": "Unguarded async invocation from a template event expression (no await, no .catch, no pending state, no announcement) over a port that clears persisted state before the replacement is obtained — clear-then-create instead of create-then-swap.",
+      "reproduction": "node scratchpad/psec-probe-e.mjs: seed `localStorage['palette-user-slug']='audit-seat-c'`, `page.route(/^https?:\\/\\/(?!localhost)/, r => r.abort())`, load http://localhost:9000/#/, expand the dock, open the Profile menu, click `Regenerate slug`, then read localStorage — it is null and nothing was announced.",
+      "proposedCure": "Port: create-then-swap, never clear-then-create (the owning seat's fix, BLOCKER-class there). Component: route the zero-palettes branch through the migrate dialog `useSlugMigration` already owns (the >0-palettes branch already does — no new component, no new dir), and surface failure on an aria-live region. Destructive rows never fire as bare floating promises."
+     },
+     {
+      "id": "C-4",
+      "defect": "The Dark-mode row is a checkbox rendered as a plain command: `role=\"menuitem\"` with `aria-checked` null; the only state carrier is an aria-hidden glyph, so screen-reader users get an unknowable toggle.",
+      "severity": "MAJOR",
+      "evidence": "ProfileSection.vue:167-177. Measured rendered row (scratchpad/psec-probe-a.mjs step B): `{\"tag\":\"div\",\"role\":\"menuitem\",\"text\":\"Dark mode\",\"ariaChecked\":null,\"w\":200.6,\"h\":44}`. The Moon/Sun glyphs at :174-175 are correctly `aria-hidden=\"true\"`, so no accessible state exists at all.",
+      "mechanism": "Wrong primitive: a stateful toggle expressed with the stateless primitive, with the state pushed into decoration.",
+      "reproduction": "Open the @mbabb menu at http://localhost:9000/#/ and evaluate `document.querySelector('[role=\"menu\"] [role^=\"menuitem\"]:last-of-type').getAttribute('aria-checked')` -> null while the row is a live dark-mode toggle.",
+      "proposedCure": "Use `DropdownMenuCheckboxItem` — already exported by the very barrel imported at ProfileSection.vue:9-12 (demo/ui/dropdown-menu/index.ts) — `<DropdownMenuCheckboxItem :model-value=\"isDark\" @select.prevent @update:model-value=\"toggleDark()\">`, which renders reka's role=\"menuitemcheckbox\" + aria-checked. This also dissolves D58.i: value.js no longer needs Glass to ship a `passive` DarkModeToggle variant, so the outstanding W47 ask (mark M1) can be WITHDRAWN rather than folded."
+     },
+     {
+      "id": "C-5",
+      "defect": "The `chrome` live-tint probe behind this component's triggerInk is DEAD under Glass 7: it reads `.glass-dock`'s backgroundColor, which is fully transparent, so the guard silently degenerates to the static model — and the O-18 census's ground model omits the same painter, so guard and gate agree on a ground neither of them measures.",
+      "severity": "MAJOR",
+      "evidence": "useContrastSafeColor.ts:151-153 queries `.glass-dock` and reads getComputedStyle(...).backgroundColor. Measured in all four scheme states (scratchpad/psec-probe-c.mjs and -d.mjs): `.glass-dock` backgroundColor = `rgba(0, 0, 0, 0)`; the band is painted by the CHILD `.dock-plate` = `color(srgb 0.931227 0.845921 0.816039 / 0.5392)` (light) / `color(srgb 0.376885 0.293161 0.253837 / 0.5776)` (dark). alpha 0 -> resolveLiveTint returns undefined -> the static producer MODEL serves. Also measured: `plate.contains(loginButton)` === false and every ancestor of the trigger from `button` to `body` is `rgba(0, 0, 0, 0)`; the census (e2e/smoke/oracles/o18-contrast-census.spec.ts:142-172) composites ANCESTOR backgrounds over `oklch(--ink-ambient-l 0 0)`, and `--ink-ambient-l` is 0.7900 in BOTH schemes — so the census ground for every dock control is the same flat neutral grey in light and dark.",
+      "mechanism": "Selector-based DOM probe whose failure mode is a silent fallback: Glass 7 moved the band's paint from `.glass-dock` to the child `.dock-plate`, the probe resolved alpha=0, and `resolveLiveTint` returned undefined instead of erroring — exactly the failure the :56-66 epoch comment says the machinery exists to prevent.",
+      "reproduction": "At http://localhost:9000/#/ evaluate `getComputedStyle(document.querySelector('.glass-dock')).backgroundColor` -> \"rgba(0, 0, 0, 0)\" and `getComputedStyle(document.querySelector('.dock-plate')).backgroundColor` -> the real material; `document.querySelector('.dock-plate').contains(document.querySelector('[data-o18=\"profile-trigger\"]'))` -> false.",
+      "proposedCure": "Read the chrome referent off the element that actually paints (`.glass-dock .dock-plate`), or better: have glass-ui PUBLISH the band's composited tint as a token the consumer reads — the 'tiers publish effective lightness' stake D6 already declares, which ends selector coupling entirely. And make the probe fail loudly on alpha=0 instead of degenerating to the model: a silent fallback inside a contrast guard is a defect generator. The census's ground model must include the sibling plate for chrome-seated rows."
+     },
+     {
+      "id": "C-6",
+      "defect": "Vacuous gate: nothing tests this component. No unit test exists; the sole automated coverage is one contrast row that is scheme-COLD by construction (so C-1 is invisible) and censuses against a ground that omits the band painter (C-5).",
+      "severity": "MAJOR",
+      "evidence": "`grep -rln \"ProfileSection\" test/ demo/test/` -> nothing. Only e2e hit: e2e/smoke/oracles/o18-contrast-census.spec.ts:629-630 (`[data-o18=\"profile-trigger\"]`) + `.slug-pill`; the describe block uses `test.use({ colorScheme: scheme })` at :590-592, i.e. each scheme is booted COLD and the runtime flip this component owns is never exercised. Zero coverage of the Dark-mode, Logout, Regenerate slug, Switch account, Copy slug, Share color rows, the admin-pill branch, and the logged-out Login trigger (which carries the same ink and has no data-o18 hook).",
+      "mechanism": "The oracle measures a state the component can only be in at boot, so every defect that requires an interaction — including the one this component's own control causes — is out of the gate's reach.",
+      "reproduction": "Green-keeping mutations (each leaves `npx vue-tsc -p tsconfig.demo.json --noEmit`, vitest and the o18 census passing): (1) swap Moon and Sun at :174-175; (2) `@click=\"toggleDark()\"` -> `@click` at :167; (3) delete `borderColor: triggerInk` from :63/:115; (4) `variant=\"outline\"` -> `variant=\"banana\"`; (5) `useSafeAccentFn(\"chrome\")` -> `useSafeAccentFn(\"floating\")` at :28.",
+      "proposedCure": "Add a FLIP leg to the O-18 census (boot light, toggle at runtime through the shipped control, re-census both schemes and assert the certification EQUALS the cold-boot certification for that scheme) — that single oracle kills C-1's whole family, and it belongs in the census that already owns the ink contract. Plus a component-level test for the menu's semantics (menuitemcheckbox state, destructive-row confirmation, failure announcement)."
+     },
+     {
+      "id": "C-7",
+      "defect": "The @mbabb wordmark wears `text-foreground/70` — post-hoc alpha de-emphasis, the idiom this repo explicitly RETIRED in favour of the certified `--ink-muted` rung — and it is uncensused.",
+      "severity": "MINOR",
+      "evidence": "ProfileSection.vue:138. Measured raw ink: `oklab(0 0 0 / 0.7)` light, `oklab(0.999994 0.0000455677 0.0000200868 / 0.7)` dark (scratchpad/psec-probe-b.mjs). Doctrine: useContrastSafeColor.ts:317-319 — 'the plate-caption / parse-echo voice; post-hoc opacity de-emphasis is retired'; the O-18 census asserts caption/echo IDENTITY with `--ink-muted`. Previously booked at docs/tranches/T/audit/w3-ink-lane-record.md:125 and never landed.",
+      "mechanism": "A de-emphasis role expressed with an abolished mechanism (opacity multiplication on the ink) rather than the certified token, so its contrast is unguarded and unmeasured.",
+      "reproduction": "At http://localhost:9000/#/ evaluate `getComputedStyle([...document.querySelectorAll('.glass-dock button')].find(b=>b.textContent.trim()==='@mbabb')).color` -> `oklab(… / 0.7)` in both schemes.",
+      "proposedCure": "`color: var(--ink-muted)` (or the chrome-rung certified muted ink) and drop the alpha, joining the class the census already certifies by identity."
+     },
+     {
+      "id": "C-8",
+      "defect": "The avatar has no fallback and reaches a hard-coded third-party host: on network failure it renders a permanently empty 28x28 circle.",
+      "severity": "MINOR",
+      "evidence": "ProfileSection.vue:145-147. Measured with the image request aborted (scratchpad/psec-probe-e.mjs / -c.mjs): `{\"imgPresent\":true,\"imgComplete\":false,\"avatarBox\":{\"w\":28,\"h\":28}}` and the rendered subtree `<span class=\"glass-avatar w-7 h-7\" data-identity=\"decorative\"><span class=\"glass-avatar__identity\" aria-hidden=\"true\"><img role=\"img\" src=\"https://avatars…\">` — no fallback child. `AvatarFallback` IS exported by the barrel imported at :13 (demo/ui/avatar/index.ts) and unused. The absolute URL `https://avatars.githubusercontent.com/u/2848617?v=4` is duplicated at MobileMenuDropdown.vue:81.",
+      "mechanism": "An unhandled load-failure state for a remote asset: the component imports two of the three Avatar parts and omits the one that exists for exactly this path.",
+      "reproduction": "Route-abort `https://avatars.githubusercontent.com/**`, open the @mbabb menu: the avatar slot is an empty circle for the life of the session.",
+      "proposedCure": "Add `<AvatarFallback>` (already exported by the imported barrel) with the initials/glyph, and single-source the avatar URL as a constant consumed by both menus rather than a literal in two files."
+     },
+     {
+      "id": "C-9",
+      "defect": "The mobile twin has silently drifted from the 'verbatim' copy it claims to be: the same application state renders two different identities depending on viewport.",
+      "severity": "MINOR",
+      "evidence": "MobileMenuDropdown.vue:21-22 claims 'the desktop twin's cure, verbatim (ProfileSection.vue)'. Deltas: admin pill ProfileSection.vue:96 (`gold-shimmer`, `var(--color-gold)`) vs MobileMenuDropdown.vue:67 (`--muted-foreground`, no shimmer); separator before 'Regenerate slug' present at ProfileSection.vue:86, absent in the mobile twin; ink rungs chrome+floating (ProfileSection.vue:28-29) vs floating only (MobileMenuDropdown.vue:23).",
+      "mechanism": "Two ~90%-identical SFCs maintained by copy-paste with no shared source of truth, so every subsequent fix lands in one and drifts the other.",
+      "reproduction": "Diff demo/shell/dock/menus/ProfileSection.vue against demo/shell/dock/menus/MobileMenuDropdown.vue: identical row sets and identical state (`pm.userSlug` / `pm.isAdminAuthenticated` / share / dark) with the three deltas above.",
+      "proposedCure": "One row set, one component; express the desktop/mobile difference as the trigger and the ink rung (props), not as a second file. No new shared/ dir is needed — the menus dir is already the home."
+     },
+     {
+      "id": "C-10",
+      "defect": "Two import paths to one design system inside one file — the alias/dual-path the no-legacy edict forbids.",
+      "severity": "INFO",
+      "evidence": "ProfileSection.vue:6 `@mkbabb/glass-ui/dock` and :8 `@mkbabb/glass-ui/dark` (direct) vs :7 `../../../ui/button`, :9-12 `../../../ui/dropdown-menu`, :13 `../../../ui/avatar` — each a one-line re-export (`demo/ui/button/index.ts` is literally `export { Button } from \"@mkbabb/glass-ui\";`). Already booked as 'architecturally a pass-through shim' at docs/tranches/N/audit/lanes/E2.md:132.",
+      "mechanism": "A migration-era barrel that was never dissolved, so both the shim path and the direct path are live simultaneously.",
+      "reproduction": "NONE — static reading of the import block; the shim files are 1-line re-exports (verified by cat of every demo/ui/*/index.ts).",
+      "proposedCure": "Dissolve demo/ui/* and import from @mkbabb/glass-ui subpaths at every consumer — one sweep, then the directory is deleted (not kept as an alias)."
+     },
+     {
+      "id": "C-11",
+      "defect": "`inject(SESSION_PORT_KEY)!` fails as an undefined-property render crash rather than a named wiring error, and the component constructs two live-ink instruments, each registering a global-cache-invalidating mount bump.",
+      "severity": "INFO",
+      "evidence": "ProfileSection.vue:42 (`const pm = inject(SESSION_PORT_KEY)!`) and :28-29 (two `useSafeAccentFn` calls -> two `useGlobalDark()`, two `inject(INK_AMBIENT_KEY)`, two `bumpProbeEpochOnMount()` -> two onMounted `probeEpoch.value++`). Each bump invalidates the GLOBAL `liveTintCache` for every surface (useContrastSafeColor.ts:239-251). Call-site census: `grep -rn \"useSafeAccentFn(\" demo` -> 9 sites across 5 SFCs; `bumpProbeEpochOnMount` -> 7.",
+      "mechanism": "Non-null assertion on an injection substitutes a generic runtime TypeError for a diagnosable wiring failure; and per-instrument mount bumps make cache lifetime a function of unrelated components' mount order.",
+      "reproduction": "NONE (hypothesis for the crash path — no provider-less mount exists in the shipped tree). The double instrumentation is directly readable at :28-29.",
+      "proposedCure": "One `useSafeAccentFn` per component returning a rung-parameterised `safeCss(css, rung)`, so a component holds one instrument; and let the injection throw a named wiring error (the composable's own documented 'surfaced loudly' contract) instead of `!`."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "aba375fcc96cba692",
+   "key": "v2:0a84f4070f1cbbd2cc39a13581a9ce69372d4fa4a3191506b2fa3f72eaef0e30",
+   "result": {
+    "axis": "CHALLENGE-D — design (visual truth, state coverage, motion, design-system boundary, proportion/seat law)",
+    "modelObserved": "Opus 5 (claude-opus-5[1m], 1M context) — the model this seat was explicitly spawned with; declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/challenge-D-design.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D-01 — the menu has no width law: the slug string sets the popover width, putting 270.8 CSS px off-screen at the canon-bound 320px arm and 154.5 px off-screen at 200% zoom, with document.scrollWidth === clientWidth so the lost region is unreachable by any gesture.",
+    "negativeProof": "Not SOUND, but the sound half is recorded so the verdict is not an artefact of only hunting faults: reactive props destructure + defineModel + typed defineEmits are idiomatic Vue 3.5; all six imports are value imports so verbatimModuleSyntax is satisfied; 115 lines, no god module; the component authors ZERO motion (correct — surface motion is producer-owned) and reduced-motion is honoured end-to-end (measured: content transition collapses from `scale,translate,opacity,filter,display,overlay @0.35s` to `opacity @0.15s`); keyboard is correct (ArrowDown sets data-highlighted on \"Copy slug\"; Escape closes and restores focus to the exact opener — measured activeEl = BUTTON.dock-dropdown-trigger[aria-label=\"Menu\"], satisfying VISUAL-CONSTITUTION §5.1); the menu carries aria-labelledby → trigger and aria-orientation=\"vertical\"; the trigger exposes aria-expanded false→true, aria-haspopup=\"menu\", data-state closed→open; Avatar `decorative` works (rendered img alt=\"\" aria-hidden=\"true\"); six of seven rows are exactly 44.0px; the trigger is vertically centred in the dock plate to −0.05px and the plate insets are symmetric 14.1/14.1; forced-colors renders legibly (bg → rgb(255,255,255), pill ink rgb(112,89,66)); RTL mirrors correctly (trigger x 81.7, menu x 82.5). The root REPORT's horizontalOverflow=0 is also NOT contradicted — the document never scrolls, the menu overflows off it.",
+    "defects": [
+     {
+      "id": "D-01",
+      "defect": "The menu has no width law. `DropdownMenuContent class=\"min-w-menu\"` (line 43) is a MINIMUM only, and the slug pill (line 48) is `whitespace-nowrap` with no max-inline-size, no truncation and no overflow rule — so the user's slug string sets the popover width, which sets the viewport overflow.",
+      "severity": "BLOCKER",
+      "evidence": "demo/shell/dock/menus/MobileMenuDropdown.vue:43,47-50. Measured (frames/mmd-probe.json, mmd-probe2.json, WebKit 26.4): 390px logged-out → menu {x:92.5,w:214.6} correct; 390px 35-char slug → {x:0,w:349.5} = 89.6% of viewport, flush-left, align=\"end\" collision-defeated; 320px 35-char slug → 29.5px off-screen; 390px 62-char slug → w:590.8, 200.8px off-screen; 320px 62-char slug → 270.8px off-screen; 195x422 (390 @200% zoom) → 154.5px off-screen. docScrollW === docClientW in every case (390/390, 320/320) so the lost region is unreachable. Producer's vertical clamp DOES work (max-height 506.4px@390, 384px@320, overflow-y:auto) — there is no horizontal counterpart because the content, not the container, is at fault. Frame: frames/D-320-longslug-open.png.",
+      "mechanism": "unbounded intrinsic content width inside a container with a min- but no max- constraint; identity data of unbounded length treated as chrome",
+      "reproduction": "localStorage.setItem(\"palette-user-slug\",\"a-very-long-generated-slug-name-for-overflow-testing-1234567890\"); reload http://localhost:9000/#/ at 320x640 WebKit isMobile; tap `.dock-dropdown-trigger`. Or: node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe2.mjs → sections longSlug_390 / longSlug_320 / zoom200.",
+      "proposedCure": "Architectural transposition, not a local max-w: the slug is provenance data of unbounded length in fixed chrome, which is exactly glass-ui's `./chip` primitive's job (dist/components/chip/ ships today). Retire the `.slug-pill` recipe (foundation.css:585, whose own comment concedes it institutionalises per-instance overrides) in favour of producer `Chip` with a producer-owned max-inline-size + middle-ellipsis and the full slug as accessible name. The menu then has a width law by construction and no consumer can break it — and this same move closes D-04 (one admin tone) and D-14 (one override mechanism)."
+     },
+     {
+      "id": "D-02",
+      "defect": "`as-child` on `DropdownMenuItem` (line 92) is inert — the prop does not exist in the producer's contract — so the `<a>` becomes a `display:block` CHILD of the `role=\"menuitem\"` div rather than being it. 73.2% of the GitHub row's area is a dead zone that swallows the tap and dismisses the menu without navigating, and the icon/label break onto two lines.",
+      "severity": "BLOCKER",
+      "evidence": "demo/shell/dock/menus/MobileMenuDropdown.vue:92-99. Producer contract quoted: node_modules/@mkbabb/glass-ui/dist/components/dropdown-menu/DropdownMenuItem.vue.d.ts — `export interface DropdownMenuItemProps { disabled?; textValue?; inset?; class?; }` — no asChild. The attribute never reaches the DOM (measured rendered attrs: data-reka-collection-item, role=menuitem, tabindex=-1, data-slot=dropdown-menu-item, class — no as-child). Measured (frames/mmd-probe3.json): anchorIsItem:false, anchorParentIsItem:true; item {x:99.5,y:223.3,w:200.6,h:55.4}, anchor {x:107.5,y:229.3,w:68.6,h:43.4}, deadFractionOfRow:0.732; anchorDisplay:\"block\" with svg y=400.6 and text y=417 → sameLine:false; row 55.4px vs 44.0px for all six siblings; label x=15 vs x=37 for all six siblings. Behaviour: click at (itemRight−20, itemMidY) → {\"newPages\":0,\"menuStillOpen\":false,\"url\":\"http://localhost:9000/#/?space=lab&color=…\"} — menu closed, nothing happened.",
+      "mechanism": "consumer relies on an undeclared producer prop; silent no-op produces a false affordance and a nested interactive inside role=menuitem",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe3.mjs → sections asChild and githubRowClick. Manually: 390x844 WebKit, tap ⋮, tap the GitHub row 20px from its right edge — the menu dismisses and no navigation occurs.",
+      "proposedCure": "Stop making a menu row a link through a prop the producer does not publish. Either (a) BH/BI relay to glass-ui for a first-class DropdownMenuItem link arm (`href`, or a genuine asChild) and consume it, or (b) make it an ordinary DropdownMenuItem whose @select opens the URL, so the producer's own full-row hit target and row-height rhythm apply unmodified. ProfileSection.vue:158-165 carries identical markup, so one producer-side cure closes both sites."
+     },
+     {
+      "id": "D-03",
+      "defect": "Two copy verbs in the same list: `Share color` flips its icon+label to Check/\"Copied!\", `Copy slug` writes the clipboard and reports nothing. Both use `@select.prevent` to hold the menu open — one to show a result, one to show the user the unchanged row they just tapped.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:52-54 vs :88-90; the props type (:16-19) has `linkCopied` but no `slugCopied` — the feedback channel was never built. Handler: SlugEditLayer.vue:68-70 `void writeClipboard(pm.userSlug.value)` — promise discarded, so rejection is also silent. Measured with the clipboard stubbed (probe 5): tap \"Copy slug\" → clipboard [\"api\",\"amaranthine-quokka-northern-marches\"], menu open:true, menu text UNCHANGED, aria-live regions with content = only the Picker's four, all aria-live=\"off\". tap \"Share color\" → clipboard written AND menu text changes \"Share color\"→\"Copied!\".",
+      "mechanism": "per-verb ad-hoc feedback flag threaded as a prop instead of one owned copy-result affordance",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe5.mjs — stubs navigator.clipboard, taps Copy slug then Share color, diffs menu textContent.",
+      "proposedCure": "One copy-result affordance owned once and consumed by both rows and the desktop twin — a `useCopyFeedback()` seam in demo/platform/ returning {copy, lastCopied} keyed by verb, plus one aria-live=\"polite\" status inside the menu. Adding a second boolean prop beside `linkCopied` doubles the contrivance the first one already is."
+     },
+     {
+      "id": "D-04",
+      "defect": "One state (isAdminAuthenticated), two visual systems: mobile renders the admin pill in muted grey one tap deep inside the menu; desktop renders it in gold with an infinite shimmer on the dock band. And the desktop shimmer is itself dead — the inline `style` color beats `.gold-shimmer`'s `color: transparent`, so the clipped gradient is painted over and a 5s infinite animation produces zero visible pixels.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:66-68 `style=\"border-color: var(--muted-foreground); color: var(--muted-foreground)\"` vs ProfileSection.vue:96 `class=\"… gold-shimmer\" style=\"border-color: var(--color-gold); color: var(--color-gold)\"`. Producer recipe: node_modules/@mkbabb/glass-ui/dist/styles/utilities/base-misc.css — `.gold-shimmer { background: linear-gradient(…); background-clip: text; -webkit-background-clip: text; color: transparent; }`. Measured mobile 390px (frames/mmd-probe.json admin-light/admin-dark): pill.color rgb(112,89,66) / rgb(195,185,172). Measured desktop 1440x900 with admin token (probe 6): cls \"slug-pill cursor-default whitespace-nowrap gold-shimmer\", color \"oklch(0.751 0.147 84.199997)\" (the INLINE value, not transparent), backgroundImage the gold gradient, backgroundClip \"text\", animationName \"metal-shimmer-sweep\", animationDuration \"5s\". Frame: frames/D-390-forcedcolors-admin-open.png.",
+      "mechanism": "state treatment forked per responsive branch with no shared owner; inline-style specificity silently defeats a producer utility whose whole mechanism is `color: transparent`",
+      "reproduction": "localStorage.setItem(\"palette-admin-token\",\"t\"); reload /#/ — at 390x844 tap ⋮ (grey pill, no motion); at 1440x900 read the band pill (solid gold, invisible 5s animation). node frames/mmd-probe6.mjs reproduces the desktop computed style.",
+      "proposedCure": "One admin identity composition rendered identically on both branches: neutral ink plus an explicit scope word, not a metal — VISUAL-CONSTITUTION §7 says elevated authority is communicated by labeling and scope, not by a fourth visual system. Delete `gold-shimmer` from the pill (a dead animation) and delete the divergent --muted-foreground inline. Any distinguishing mark belongs in glass-ui as a Chip tone, not as an inline style on two SFCs."
+     },
+     {
+      "id": "D-05",
+      "defect": "The §4 type-role matrix is broken three ways inside one popover: (a) prose/help rendered in Fraunces italic 11px; (b) `font-display` on the menu content is cascade-dead; (c) iOS text-autosizing boosts the rows 14→21px while the pill and description are untouched, reordering the rungs so the least important rows are the largest type.",
+      "severity": "MAJOR",
+      "evidence": "(a) MobileMenuDropdown.vue:85 `<p class=\"text-micro italic text-muted-foreground leading-tight font-display\">` measures Fraunces / italic / 11px / rgb(112,89,66); VISUAL-CONSTITUTION.md:74 assigns prose/help → text-prose, Plus Jakarta Sans, and :78 declares the matrix closed with P019 the sole exception; `text-micro` is not a role in the matrix. Duplicated at ProfileSection.vue:150. (b) line 43 `class=\"min-w-menu font-display\"` — measured computed style of [role=menu] is Fira Code 16px; --font-display resolves correctly to '\"Fraunces\", \"Fraunces Fallback\", serif' and the utility DOES work on the <p> in (a), so it is cascade-dead, not a missing font. Same dead class at ProfileSection.vue:70 and :143. (c) Measured same URL, same 390px viewport, one variable (frames/mmd-probe2.json): isMobile true → menuitem 21px/lh 29.4; isMobile false → 14px/lh 19.6; .slug-pill 14px in BOTH; description 11px in BOTH; @mbabb 14px in BOTH. --type-small = clamp(0.875rem, 0.8rem + 0.25vw, 1.25rem) → 14px at 390 in both cases, so 21px is a 1.5x boost applied to the rows only.",
+      "mechanism": "role matrix applied by class name rather than verified by rendered computed style; a fluid clamp ladder left un-pinned against UA text autosizing",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe2.mjs → compare type_isMobile_true vs type_isMobile_false. Visual: frames/D-390-light-loggedin-open.png.",
+      "proposedCure": "(a)+(b) delete `font-display` from the content and give the description the `text-prose` role — the matrix already holds the right answer. (c) pin `text-size-adjust: 100%` at the app root in demo/styles/ so the fluid clamp ladder is the only size authority; the ladder was designed for this and the UA boost is fighting it. All three are root cures, not per-component ones."
+     },
+     {
+      "id": "D-06",
+      "defect": "The description text fails contrast on the real composited surface, and its contrast varies along its own line box because the menu is an 80.8%-alpha veil over the live Picker readout.",
+      "severity": "MAJOR",
+      "evidence": "Menu background measured `oklab(0.936408 0.005529 0.013284 / 0.808)` light, `oklab(0.37944 0.009899 0.01685 / 0.8944)` dark. Real-pixel sample of a rendered clip at DPR 1 (frames/mmd-probe4.json, band y 40-56, x 95-330 of a clip at y=290): darkest ink in the description line rgb(112,89,66); ground under/next to it rgb(233,193,194) (the Picker's pink bleeding through) → contrast 4.03:1; lightest ground in the same band rgb(241,226,220) → 5.21:1. Text is 11px non-bold; WCAG 1.4.3 requires 4.5:1. The same string is therefore compliant at some x offsets and non-compliant at others. Canon: VISUAL-CONSTITUTION.md:82 — 'Text, focus, boundaries and state meet their rendered contrast on the actual material tier; a token name is not evidence.' Token raise at foundation.css:739 is against --background, not against a translucent veil over a chromatic ground. Frames: D-390-light-loggedin-open.png shows the 92.0%/88.8 readout legible THROUGH the menu.",
+      "mechanism": "structural-glass surface tier chosen for a chrome menu whose backdrop is the app's own highest-contrast display type",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe4.mjs → section `pixels` (createImageBitmap + canvas sample of the live screenshot, WCAG relative-luminance contrast).",
+      "proposedCure": "A menu is not a window. VISUAL-CONSTITUTION §2 gives glass its blur only when it reveals live content usefully; here the reveal destroys the menu's own copy. Select an opaque/specimen-well surface tier for DropdownMenuContent at the producer root (surface=\"opaque\"/tier), for every menu in the app — the forced-colors arm already proves that render is legible. Not a per-instance bg- override."
+     },
+     {
+      "id": "D-07",
+      "defect": "No pending, disabled or error state exists anywhere in the component, though four of seven rows fire asynchronous, networked or irreversible work — and `Regenerate slug` closes the menu, destroying the only surface in the mobile UI that displays the slug it just changed.",
+      "severity": "MAJOR",
+      "evidence": "`grep -c \"disabled\\|aria-busy\\|pending\\|loading\" demo/shell/dock/menus/MobileMenuDropdown.vue` → 0. Async rows: :58 pm.userLogout() (network session delete), :61 pm.onRegenerateSlug() (network, irreversible), :52 → SlugEditLayer.vue:68-70 `void writeClipboard(...)` (promise discarded), :88 shareLink. `@select.prevent` appears at :52, :88, :101 only — NOT at :55/:58/:61, so Switch account / Logout / Regenerate slug all close the menu. The slug pill at :47-50 inside this menu is the only place the regenerated slug is displayed on mobile. Producer supports a `disabled` prop (DropdownMenuItem.vue.d.ts) — never used. Canon: PROPORTION-AUDIT PR-08 (ADD-AFFORDANCE, persistent entity status/recovery); VISUAL-CONSTITUTION.md:83.",
+      "mechanism": "identity mutations placed on fire-and-forget menu rows in a surface that dismisses itself on select",
+      "reproduction": "NONE for the failure render — I confirmed the ABSENCE of the mechanism by source census (grep count 0) and the dismissal by the missing @select.prevent, but did not exercise an offline/failing logout. The `Regenerate slug` dismissal is directly readable at :61 and reproducible by tapping it; the missing-state half is a hypothesis.",
+      "proposedCure": "Delete the state problem rather than style it: VISUAL-CONSTITUTION §7 already assigns identity, recovery-credential rotation and logout to the Account modal side Dialog opened from the Dock (W23's owned composition). Move Logout / Regenerate slug / Switch account behind that Dialog, leaving this menu with navigation-class rows only."
+     },
+     {
+      "id": "D-08",
+      "defect": "An authenticated admin on mobile has no way out: the admin branch renders one label pill and zero identity actions.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:65-69 — the `v-else-if=\"pm.isAdminAuthenticated.value\"` branch contains a single DropdownMenuLabel and nothing else. Measured menu contents in the admin arm (frames/mmd-probe.json → admin-light/admin-dark): items = [\"Share color\",\"GitHub\",\"Dark mode\"]. No Logout, no Login, no Switch account — all four identity actions present in the other two branches (:52-63, :71-73) are absent. Frame: frames/D-390-forcedcolors-admin-open.png. The dock's __admin_toggle__ row (DockViewSelect.vue:114) toggles admin MODE, not admin AUTHENTICATION.",
+      "mechanism": "a v-if branch written for display only, with the action set silently dropped",
+      "reproduction": "localStorage.setItem(\"palette-admin-token\",\"t\"); reload http://localhost:9000/#/ at 390x844 WebKit; tap ⋮ — three rows, none identity-related. node frames/mmd-probe.mjs cases admin-light/admin-dark.",
+      "proposedCure": "Same as D-07: the Account Dialog is the canon's owner of 'identity, recovery-credential rotation and logout when active' (§7). One surface, all three principals (user / admin / anonymous), one exit. Note the desktop twin (ProfileSection.vue:95-99, a bare span) is equally actionless — this is a shared hole, so a per-branch patch here would fork it further."
+     },
+     {
+      "id": "D-09",
+      "defect": "The trigger is the smallest operable target in the whole flow: a 42.7x33.3 hit box opening a menu whose rows are all exactly 44.0px, sitting 7.0px from its neighbour on a phone.",
+      "severity": "MAJOR",
+      "evidence": "Measured 390x844 (frames/mmd-probe.json → trigger; mmd-probe3.json → rhythm): trigger rect {w:42.7,h:33.3}, glyph 24x24, producer padding 4.68px 9.36px, minHeight \"auto\". Six of seven menu rows measure h:44.0 (the seventh is D-02's 55.4). Band gaps: Home→segmented 14.0px, segmented→⋮ 7.0px — a 2:1 asymmetry inside a 254.7px plate whose outer insets are symmetric 14.1/14.1. Canon: PROPORTION-AUDIT.md:72 (§5.7) 'Visual glyph size, operable target size and layout reservation are separate quantities. Accessibility floors do not require bloated visible chrome'; PR-12 (:56) TIGHTEN 'invisible/seat geometry preserves target floor while optics follow rung'. WCAG 2.5.8 AA (24px) passes; the 44px floor the component's own rows implement does not.",
+      "mechanism": "glyph height taken as seat height; the seat/optic separation the canon mandates is never applied to the trigger",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe3.mjs → section rhythm; and mmd-probe.mjs → trigger.rect in all six arms (identical 42.7x33.3).",
+      "proposedCure": "Producer relay, not a local min-h-11: `.dock-trigger` is glass-ui geometry, so DockTrigger should expose a 44px touch seat with the 24px optical glyph centred inside it — the same separation DockControl needs. A per-instance class here would fork the dock's one trigger rhythm."
+     },
+     {
+      "id": "D-10",
+      "defect": "PROPORTION-AUDIT PR-16 names this control explicitly and is half-unmet: the ellipsis has expanded state, but its accessible name is the generic 'Menu' rather than a purpose, and it carries no perceptible label in either scheme.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:40-42 `<DockTrigger for=\"dropdown\" aria-label=\"Menu\"><MoreVertical class=\"w-6 h-6\" /></DockTrigger>`. Measured identically in all six arms: ariaLabel \"Menu\", ariaExpanded \"false\"→\"true\", ariaHasPopup \"menu\", dataState closed→open; no text child, no visible label in light or dark. Canon quoted, PROPORTION-AUDIT.md:60 (PR-16): \"`…` keeps a named menu purpose plus expanded state or is removed; … labels remain perceptible in both schemes\". Desktop renders three NAMED text controls for the same functions: Profile (ProfileSection.vue:59-68), Login (:111-120), @mbabb (:135-141). Disambiguation: this is NOT MT-F005's site — MT-F005's one nameless button is ColorInput.vue's send-btn (≡ L-7 ≡ ColorInput-adj D-3, established by prior passes); the ⋮ HAS a name, it is just a widget noun and invisible.",
+      "mechanism": "a menu whose contents span four unrelated concerns cannot be truthfully named, so it was named after the widget type",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe.mjs → trigger.ariaLabel / ariaExpanded across all six arms.",
+      "proposedCure": "Name the purpose — but the real fix is subtraction first: after D-07 moves identity mutations to the Account Dialog, the residue is small enough that one honest label exists. Naming it today would be a label papering over a four-concern list, which PR-16's own §5.6 forbids ('subtraction precedes explanation')."
+     },
+     {
+      "id": "D-11",
+      "defect": "The boundary inventory diverges from the self-declared desktop twin in three places and in both directions: two separators the desktop has are missing, and one separator that survives fences a group of exactly one.",
+      "severity": "MAJOR",
+      "evidence": "MobileMenuDropdown.vue:22 self-documents the twinning ('the desktop twin's cure, verbatim (ProfileSection.vue)'). Measured block layout, logged-in, 390px (frames/mmd-probe.json → logged-in-light.menu.nonItemBlocks): label h39.4@76.5; menuitem 44@115.9 Copy slug; 44@159.9 Switch account; 44@203.9 Logout; 44@247.9 Regenerate slug; separator 1@295.9; div h49.8@300.9 @mbabb card (ends 350.7); menuitem 44@350.6 Share color; 55.4@394.6 GitHub; separator 1@454; 44@459 Dark mode. (1) desktop has a rule before Regenerate slug (ProfileSection.vue:86) — mobile has none, so the two most consequential rows are adjacent with no boundary. (2) desktop has a rule after the @mbabb card (ProfileSection.vue:153) — mobile measures a 0px boundary (card ends 350.7, Share starts 350.6). (3) the surviving separator at y=454 fences only Dark mode. Canon: PROPORTION-AUDIT.md:69 (§5.4) 'A divider is retained only when grouping would be ambiguous without it'; PR-05 (:49) terminal verb REMOVE.",
+      "mechanism": "grouping expressed as hand-placed separator elements in two forked files instead of as a property of a shared section model",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe.mjs → logged-in-light.menu.nonItemBlocks and .seps; compare against ProfileSection.vue:86 and :153.",
+      "proposedCure": "Derive both menus from one declarative section model (sections: {identity, actions, meta}) so the boundary set is a property of the grouping rather than of the file — which simultaneously deletes the 81%-identical fork (L-9/L-26) that made the divergence possible."
+     },
+     {
+      "id": "D-12",
+      "defect": "Three icon rungs in one seven-row list, and one of them is geometrically wrong: the theme glyph renders 16x24 despite `aspect-square`, making its row's icon column 10px taller than every sibling's and displacing its label 2px.",
+      "severity": "MINOR",
+      "evidence": "MobileMenuDropdown.vue:108-109 `<Moon v-if=\"isDark\" class=\"aspect-square w-4\" aria-hidden=\"true\" />` / `<Sun v-else …>`. Measured (frames/mmd-probe2.json → iconAlign): Copy slug / Switch account / Logout / Regenerate slug / Share color / GitHub all 14x14 with label x=37; Dark mode 16x24 with label x=39; trigger glyph 24x24. `w-4` sets width 16, the lucide SVG's intrinsic height=24 survives, and aspect-square does not win. Canon: PROPORTION-AUDIT.md:73 (§5.8) 'Real rendered relation wins over token intent … token presence alone cannot close a row.' Identical defect at ProfileSection.vue:174-175.",
+      "mechanism": "icon size set per call site with three different answers instead of once on the row composition",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe2.mjs → section iconAlign.",
+      "proposedCure": "One icon rung for menu rows, owned by the producer's DropdownMenuItem icon slot, not seven call sites with three answers."
+     },
+     {
+      "id": "D-13",
+      "defect": "Three import paths to one package inside one ten-line block, one of them a pure alias barrel that exists only to preserve a shadcn-shaped path.",
+      "severity": "MINOR",
+      "evidence": "MobileMenuDropdown.vue:6 `from \"@mkbabb/glass-ui/dark\"`, :10 `from \"../../../ui/dropdown-menu\"`, :11 `from \"@mkbabb/glass-ui/dock\"`, :12 `from \"../../../ui/avatar\"`. demo/ui/dropdown-menu/index.ts is ONE line: `export { DropdownMenu, DropdownMenuTrigger, … } from \"@mkbabb/glass-ui\";`. Census: 19 directories under demo/ui/, every index.ts a pure re-export of @mkbabb/glass-ui. Owner edicts 2 (no aliases / dual paths) and 4 (glass-ui is the design system). REFUTATION of a prior row: DEFECT-LEDGER:12278 attributes this menu's type/veil defects to 'the demo-local demo/ui/dropdown-menu primitive rather than the producer's menu tier' — the barrel re-exports the producer's tier verbatim, so the primitive IS the producer's; D-05 and D-06 are consumer-class and surface-tier defects, not primitive-substitution defects.",
+      "mechanism": "an alias barrel layer retained after the components it aliased were migrated into the producer",
+      "reproduction": "cat demo/ui/dropdown-menu/index.ts; for d in demo/ui/*/; do head -1 $d/index.ts; done",
+      "proposedCure": "Delete the demo/ui/* barrels and import from @mkbabb/glass-ui directly — one path per package. This is a tree-wide hygiene row, not a MobileMenuDropdown row; filed here because the file exhibits three paths in six lines."
+     },
+     {
+      "id": "D-14",
+      "defect": "`.slug-pill` institutionalises per-instance overrides (its own comment says so), and this single component uses two different override mechanisms for the same recipe seventeen lines apart.",
+      "severity": "MINOR",
+      "evidence": "foundation.css:583-587 — '.slug-pill … Consumers set color / border-color per-instance via :style.' MobileMenuDropdown.vue:47-50 uses a bound object `:style=\"{ color: menuInk, borderColor: menuInk }\"`; :67 uses a static string `style=\"border-color: var(--muted-foreground); color: var(--muted-foreground)\"`. Tree-wide the same recipe is driven five ways (injected value, static CSS var inline, Tailwind utilities, bare class) — already booked as a family row; what is new is two mechanisms inside one component for the same pill in two branches of one v-if. glass-ui ships ./chip (node_modules/@mkbabb/glass-ui/dist/components/chip/). Owner edict 5 (style at the root, never per-instance overrides).",
+      "mechanism": "a CSS recipe with no tone API, forcing every consumer to invent one",
+      "reproduction": "grep -n 'slug-pill' demo/shell/dock/menus/MobileMenuDropdown.vue demo/styles/foundation.css",
+      "proposedCure": "Same transposition as D-01: producer `Chip` with a `tone` prop. That closes D-01 (width law), D-04 (one admin tone) and D-14 (one mechanism) together — the argument for a transposition rather than three patches."
+     },
+     {
+      "id": "D-15",
+      "defect": "The @mbabb identity card is a plain div inside `role=\"menu\"` containing a tabindex=0 anchor, breaking the ARIA menu roving-focus contract; the link is simultaneously unreachable to a screen reader walking menuitems and a 51.7x17.2 target.",
+      "severity": "MINOR",
+      "evidence": "MobileMenuDropdown.vue:79-87. Measured (frames/mmd-probe4.json): identityBlock {role:null, tabIndex:-1, h:49.8, focusableChildren:1}; tabbables inside [role=menu] = [{A, tabIndex 0, \"@mbabb\"}, {A, tabIndex 0, \"GitHub\"}]; all seven menuitems measure tabindex=-1 (correct roving focus). The @mbabb anchor rect 51.7x17.2. Canon: VISUAL-CONSTITUTION.md:83 ('role, accessible name, state/value … are explicit') and §5.1 overlay focus contract.",
+      "mechanism": "attribution content placed inside a composite widget as free-form markup rather than as a labelled header",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe4.mjs → sections identityBlock and tabbables.",
+      "proposedCure": "The @mbabb card is attribution, not a menu command: promote it to a DropdownMenuLabel header with the decorative avatar aria-hidden and the link exposed as a real menuitem — or move provenance to the About route where §7 already assigns it. Do not leave a focusable island inside a roving-focus widget."
+     },
+     {
+      "id": "D-16",
+      "defect": "The 'certified ink' is certified twice against two different rungs, from a prop whose name asserts it is the raw opaque colour. The D6 rationale both twins quote ('each ink certifies against the surface it actually composites over') is structurally defeated, and in dark mode the live-colour identity renders at 11% of the picked chroma.",
+      "severity": "MINOR",
+      "evidence": "Dock.vue:35 `const safeAccent = inject(SAFE_ACCENT_KEY)!`; Dock.vue:209 `:css-color-opaque=\"safeAccent\"`. keys.ts:9 SAFE_ACCENT_KEY: InjectionKey<ComputedRef<string>>. useContrastSafeColor.ts:301-311 — safeAccentCss = certifyAccentInk(cssColorOpaque, surfaceLightnessNow(\"resting\", …)). MobileMenuDropdown.vue:16-24 declares the prop `cssColorOpaque` and computes safeCss(cssColorOpaque) against surface \"floating\" (useSafeAccentFn(\"floating\"), :23). So the composition is certifyAccentInk(certifyAccentInk(pick, resting), floating). Measured dark arm: picked accent oklch(0.470927 0.188343 9.834023) C=0.188; rendered pill AND --accent-live oklch(0.958322 0.021053 9.834023) C=0.021 → 11% of the picked chroma. Frame: frames/D-390-dark-loggedin-open.png shows an off-white capsule.",
+      "mechanism": "a pre-certified value passed into a certifier under a name that claims it is raw; monotone walks compose so the second certification can only move further from the pick",
+      "reproduction": "Mechanism: read Dock.vue:35,209 + useContrastSafeColor.ts:301-311 + MobileMenuDropdown.vue:16-24. Dark-chroma measurement: node frames/mmd-probe.mjs → logged-in-dark.menu.pill.color and .accentLive. The HARM of double-certification is a HYPOTHESIS — measured delta at the boot seed is ZERO (pill.color === --accent-live exactly), and I did not enumerate a pick for which resting requires a walk and floating does not.",
+      "proposedCure": "Stop passing a certified colour into a certifier: the component should receive the RAW cssColorOpaque (CSS_COLOR_KEY is already injected at Dock.vue:19) and certify once against the floating rung — which is exactly what the comment claims and what D6 requires. One certification, one rung, one honest name."
+     },
+     {
+      "id": "D-17",
+      "defect": "Producer relay (not a local defect): the menu's entry and exit transitions are both 0.35s, and the transition list includes `filter` on a backdrop-blurred surface.",
+      "severity": "INFO",
+      "evidence": "Measured on [role=menu]: transitionProperty 'scale, translate, opacity, filter, display, overlay', transitionDuration '0.35s' x6 — identical in both directions. VISUAL-CONSTITUTION.md:140 (§6): 'Color/opacity effects use the corresponding short effect curve; exit is shorter than entry.' Owner: glass-ui's .dropdown-menu__content. Recorded alongside the negative findings: the SFC authors zero motion (correct) and reduced-motion IS honoured (measured 0.35s six-property → 0.15s opacity).",
+      "mechanism": "producer-owned surface motion; consumer has no local lever that would not violate §6's 'no consumer counter-filter fights a producer reveal'",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe.mjs → menu.transProp/transDur in the default arm vs the logged-in-reduced arm.",
+      "proposedCure": "BH/BI relay ask to glass-ui (the standing fond): asymmetric exit curve on .dropdown-menu__content, and drop `filter` from the transition list on a backdrop-filtered surface. Never a local override."
+     },
+     {
+      "id": "D-18",
+      "defect": "Both dock menus mount at every viewport; the desktop identity chrome is fully constructed and hidden on every phone load and vice versa.",
+      "severity": "INFO",
+      "evidence": "Measured in the 390px DOM (frames/mmd-probe2.json → twinCensus): 3 dropdown triggers — the ⋮ (flex, 42.7x33.3) plus 'Profile' and '@mbabb' at 0x0 inside `hidden lg:flex` wrappers computing display:none. The lg: predicates are width-only (MobileMenuDropdown.vue:38, ProfileSection.vue:48,127) while the shell stamps data-layout on width AND aspect ratio — the tablet-portrait disagreement already booked at the Dock level.",
+      "mechanism": "responsive branching by CSS visibility over two forked component trees rather than by one composition with a compact mode",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/shell-dock-mobilemenudropdown/frames/mmd-probe2.mjs → section twinCensus.",
+      "proposedCure": "Filed as CORROBORATION of the existing L-9/L-26 identity (the 81%-identical menu fork, 87 of 108 non-blank lines shared) — NOT re-booked. Its cure is the single identity composition in §8 of the report, which is the same cure D-11 requires."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "aa7b9e42b9bc87eec",
+   "key": "v2:87842b9709ae00dfdb3421a17c9ff1aac2df76eb4435ab3e345688cb6409e0c2",
+   "result": {
+    "axis": "design",
+    "modelObserved": "Opus 5 (1M context) — exact model id `claude-opus-5[1m]`; declared at spawn, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/shell-dock-profilesection/challenge-D-design.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D-1 — the \"CERTIFIED ink\" the component's own header comment promises measures 3.43:1 on the shipped light frame (16.4px/700 = normal text, floor 4.5:1), because `useSafeAccentFn(\"chrome\")` models the dock band only while the glyph composites over the band AND the button's own `glass-wash` capsule. The identical two-alpha-layer failure was already diagnosed and cured for the `veil` surface in the same file's dependency (useContrastSafeColor.ts:154-169, \"probed live: 4.30:1 measured vs the 5.75 walked target\") and never migrated to the dock trigger.",
+    "negativeProof": "Not SOUND, but these attacks failed and are recorded: (1) horizontalOverflow = 0 on all 60 captures in REPORT.json incl. 390px and the 200%-zoom arm; (2) pageErrors = 0 (the only /#/ console error is HeroBlob's `WebGL: context lost`); (3) reduced motion IS respected — `.gold-shimmer`'s animation sits inside `@media (prefers-reduced-motion: no-preference)` and `.button { transition: none }` under reduce, verified in glass-ui's compiled CSS; (4) tap targets 28x86.5 / 28x76.6 clear WCAG 2.5.8's 24px AA floor and do not appear in the audit's smallTapTargets rows for /#/; (5) the \"Share color\" -> \"Copied!\" swap cannot reflow the panel (width 214.6 is governed by the 148.6 tagline + 28 avatar, not the row); (6) `:focus-visible` matches on both triggers in Chromium with the producer focus-ring box-shadow present — I refused to score a focus gap from WebKit because macOS Full Keyboard Access is off (the harness's own MT-F022 note); (7) verbatimModuleSyntax: every import in the file is a value import, no type-only import to mis-declare; (8) forced-colors does not make the admin state colour-only — the literal word \"admin\" survives the UA override.",
+    "defects": [
+     {
+      "id": "D-1",
+      "defect": "The certified accent ink on the Login/Profile dock trigger measures 3.43:1 rendered contrast in the light scheme (WCAG 1.4.3 floor 4.5:1 for 16.4px/700 normal text). Dark scheme fails on the neighbour: @mbabb measures 4.18:1.",
+      "severity": "BLOCKER",
+      "evidence": "Pixel measurement on docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/picker.png over the glyph band x768-834, y30-50 CSS: ink=(170,0,67) L=0.0895, ground=(200,167,172) L=0.4290 -> 3.43:1. The ink equals the live computed `color: oklch(0.470927 0.188343 9.834023)` exactly, so the sample is the glyph core. Dark shot: @mbabb ink=(212,205,202) on (112,88,80) -> 4.18:1. Button's own background measured `oklab(0.721325 0.00492 0.010865 / 0.6)`.",
+      "mechanism": "Missing composite layer in the ink referent. demo/color-session/useContrastSafeColor.ts:151-153 resolves the `chrome` rung from `.glass-dock`'s backgroundColor over the ambient — ONE alpha layer. The glyph composites over TWO: the dock band plus the Button's `glass-wash` capsule. The same two-layer divergence is documented and cured for `veil` at useContrastSafeColor.ts:154-206 and never migrated to the dock trigger. Violates VISUAL-CONSTITUTION.md §4.1 ('a token name is not evidence') and PROPORTION-AUDIT.md §5.8.",
+      "reproduction": "Load http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25) at 1440x900 light. Sample the 'Login' glyph pixels and the pill background behind them; contrast = 3.43:1. Equivalently: getComputedStyle on the button returns color oklch(0.470927 0.188343 9.834023) and backgroundColor oklab(0.721325 .00492 .010865 / 0.6) over a dock band measured (246,169,194).",
+      "proposedCure": "Delete the wash from under the accent ink rather than teaching the certifier about it: glass-ui 7's `emphasis=\"quiet\"` paints `background: transparent; box-shadow: none`, so the glyph composites on the one surface the `chrome` rung already models — the referent becomes true by construction and the control regains a real hover. If the wash must stay, add a `chrome-trigger` InkSurface probed off the MOUNTED button, the exact idiom `veil` already uses. System rule: an ink's referent is the mounted element's own painted stack, never a modelled tier."
+     },
+     {
+      "id": "D-2",
+      "defect": "The GitHub menu row renders as a broken two-line item — glyph on line 1, the word 'GitHub' on line 2, flush left instead of in the shared text column — in both schemes, desktop and mobile. It also nests a focusable <a href> inside [role=menuitem][tabindex=-1].",
+      "severity": "BLOCKER",
+      "evidence": "Rendered DOM: <div role=\"menuitem\" tabindex=\"-1\" class=\"dropdown-menu__item … gap-2\"><a href=… class=\"no-underline text-foreground\">…</a></div> — `as-child` (ProfileSection.vue:158) was not honoured. Computed: row display:flex gap:8px width 200.6; anchor display:block width 53.6 height 36.9. Row geometry (offsets within row): Share color icon 8/15 text 30/12.4 h44.0 | GitHub icon 8/6 text 8/21.9 h48.9 | Dark mode icon 8/10 text 32/12.4 h44.0. Mobile (iPhone 14): GitHub 55.4 vs 44.0 siblings. Visible in evidence-mbabb-menu-light.png and -dark.png.",
+      "mechanism": "glass-ui's DropdownMenuItem does not forward `as-child`, so the anchor stays a child of the item. As a shrink-to-fit block (53.6px) inside a 200.6px flex row it cannot hold a 14px glyph plus ' GitHub ' on one line, and wraps. Secondarily the anchor is focusable inside a roving-focus menu, so Tab can leave the menu's own order.",
+      "reproduction": "Open http://localhost:9000/#/ at 1440x900, click the @mbabb trigger. The GitHub row shows the octocat on one line and 'GitHub' beneath it, misaligned by 22-24px from the sibling text column, row 48.9px vs 44px.",
+      "proposedCure": "A link row IS a link: use the producer's supported `as=\"a\"` on the item so exactly one element carries role=menuitem, the href and the row layout. Retire the hand-rolled 700-byte octocat <path> (duplicated byte-for-byte at ProfileSection.vue:161 and MobileMenuDropdown.vue:95) in favour of one system-owned icon so the menu's icon family stops mixing solid and 2px-stroke marks."
+     },
+     {
+      "id": "D-3",
+      "defect": "`variant=\"outline\"` and `variant=\"ghost\"` are not glass-ui 7 API. They ship as literal invalid DOM attributes and do nothing; both controls resolve to the same emphasis, so an account ACTION and an author WORDMARK render as materially identical capsules.",
+      "severity": "MAJOR",
+      "evidence": "glass-ui 7.0.0 Button props (dist/button-Bu9F4uU6.js): emphasis|tone|size|iconOnly|loading|type|disabled|class|asChild|as — no `variant`. Emphasis vocabulary (components/button/styles.css): primary|secondary|quiet|text — no outline, no ghost. Rendered: <button data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"xs\" … variant=\"outline\">Login</button> and … variant=\"ghost\">@mbabb</button>. Measured identical backgroundColor oklab(0.721325 0.00492 0.010865 / 0.6), byte-identical 7-part box-shadow, border-radius 9999px on both.",
+      "mechanism": "Shadcn-era API addressed at a design system two majors on; the props fall through to $attrs. Both buttons therefore take the default emphasis=\"secondary\", so the design-system lever that distinguishes an action from a credit is never pulled. Violates owner edicts 4 and 5 and VISUAL-CONSTITUTION.md §3.8 ('Supporting fixtures do not compete … through equal size or equal shadow').",
+      "reproduction": "Inspect either dock trigger on http://localhost:9000/#/ — the `variant` attribute is present on the element and `data-emphasis` is `secondary` on both; computed backgroundColor and boxShadow strings are identical.",
+      "proposedCure": "Use `emphasis=\"quiet\"` for the wordmark (it already ships `background: transparent; box-shadow: none; color: var(--muted-foreground)` plus the hover this file hand-rolls as `hover:text-foreground hover:underline underline-offset-4`), and the dock's own trigger family for the account seat. One edit also closes D-10's dark 4.18:1 (demo raises --muted-foreground to the ink floor), D-15 and D-17."
+     },
+     {
+      "id": "D-4",
+      "defect": "The accent `border-color` binding is dead code, shipped three lines below the comment that announces the retirement of exactly this cascade-dead accent.",
+      "severity": "MAJOR",
+      "evidence": "ProfileSection.vue:63 and :115 bind `:style=\"{ color: triggerInk, borderColor: triggerInk }\"`. Live computed on the button: border-style: none, border-width: 0px, border-color: oklch(0.470927 0.188343 9.834023). Rendered attribute: style=\"… color: oklch(…); border-color: oklch(…)\". The P9-R4 (Q10) comment at :103-110 states the outline variant paints via inset shadows with `border: none 0px` and that the cure was to move the accent to 'the channels the variant ACTUALLY paints'.",
+      "mechanism": "A per-instance inline paint aimed at a channel the producer does not render. The diagnosis was correct and the patch re-introduced the defect it diagnosed — the process failure and the design failure are the same shape.",
+      "reproduction": "getComputedStyle(loginButton) on http://localhost:9000/#/ returns borderStyle 'none', borderWidth '0px' with a non-default borderColor.",
+      "proposedCure": "Delete `borderColor` from both bindings; better, delete both bindings when D-1's cure lands and the ink becomes a producer token on a quiet trigger instead of an inline per-instance paint (owner edict 5)."
+     },
+     {
+      "id": "D-5",
+      "defect": "The admin identity's gold shimmer is cascade-dead — the glyphs paint opaque gold over the text-clipped gradient — while the infinite `metal-shimmer-sweep` animation keeps running in the dock forever.",
+      "severity": "MAJOR",
+      "evidence": "ProfileSection.vue:96 sets style=\"border-color: var(--color-gold); color: var(--color-gold)\" on a .gold-shimmer span. glass-ui's .gold-shimmer (dist/styles/utilities/base-misc.css) is `background: linear-gradient(…); background-clip: text; color: transparent` + `animation: metal-shimmer-sweep var(--duration-shimmer) linear infinite`. Live probe (transient injection of both spellings, removed in the same evaluate): with inline color -> color = oklch(0.751 0.147 84.199997), animationName = metal-shimmer-sweep; without inline color -> color = rgba(0,0,0,0), animationName = metal-shimmer-sweep.",
+      "mechanism": "An inline style attribute beats any author-layer rule, so `color: var(--color-gold)` overrides the utility's `color: transparent` and the clipped gradient is hidden behind opaque glyphs. The animation is unaffected and keeps repainting a gradient nobody can see. Sibling consumers (DockViewSelect.vue:135, PaletteCard.vue:64) set no inline color and work. Violates PROPORTION-AUDIT.md §5.5 (no decoration without information).",
+      "reproduction": "In any page that loads the app stylesheet: render <span class=\"slug-pill gold-shimmer\" style=\"color: var(--color-gold)\">admin</span> next to <span class=\"slug-pill gold-shimmer\">admin</span> — the first computes color oklch(0.751 0.147 84.2) (opaque, shimmer invisible), the second rgba(0,0,0,0) (shimmer visible); both report animationName metal-shimmer-sweep.",
+      "proposedCure": "Drop the inline `color`, keep the gold on a class (`border-gold`, the PaletteCard idiom), and let the producer's one metal register own the ink — this removes the dead decoration, the wasted compositing and one per-instance override in a single edit."
+     },
+     {
+      "id": "D-6",
+      "defect": "The theme glyph renders 16 x 24 px — non-square and 71% taller than every sibling icon — because the `aspect-square` class written to prevent exactly that is inert.",
+      "severity": "MAJOR",
+      "evidence": "Measured inside the open menu: Share2 `w-3.5 h-3.5` = 14x14; octocat `w-3.5 h-3.5` = 14x14 (fill solid rgb(28,25,23)); Sun/Moon `aspect-square w-4` = 16 wide x 24 tall, computed aspect-ratio '1 / 1', cssWidth 16px, cssHeight 24px, attrW/attrH 24/24. Row offsets confirm the optical break: icon y = 10 vs 15 and 6 for siblings.",
+      "mechanism": "Lucide SVGs carry width=\"24\" height=\"24\" presentation attributes. `w-4` overrides the width to 16px; nothing overrides the height, so the height stays definite at 24px and `aspect-ratio` is discarded. Per-instance glyph sizing (9 sites in this file) instead of the producer's rung — glass-ui already owns it via `.button > svg:not([class*=\"size-\"]) { inline-size: var(--ui-glyph); block-size: var(--ui-glyph) }`. Violates PROPORTION-AUDIT.md §5.7 and owner edict 5.",
+      "reproduction": "Open the @mbabb menu at http://localhost:9000/#/ and read getBoundingClientRect on the three svgs: 14x14, 14x14, 16x24.",
+      "proposedCure": "Stop sizing glyphs per instance. Route every dock/menu icon through one `--ui-glyph` rung owned by the producer, and pick one icon family (all 2px-stroke outline) so a solid octocat never sits beside hairline marks."
+     },
+     {
+      "id": "D-7",
+      "defect": "Dark mode is a stateful toggle shipped as a stateless command: role=menuitem, aria-checked null, with the on/off truth carried only by an aria-hidden glyph — so the row is identical in both states to assistive tech.",
+      "severity": "MAJOR",
+      "evidence": "Measured on the live row: role 'menuitem', ariaChecked null. Rendered DOM shows <svg class=\"lucide lucide-sun … aspect-square w-4\" aria-hidden=\"true\"> plus the invariant text 'Dark mode'. demo/ui/dropdown-menu/index.ts re-exports `DropdownMenuCheckboxItem` from glass-ui; it is unused in the dock. ProfileSection.vue:167-177 and its verbatim twin MobileMenuDropdown.vue:101-111.",
+      "mechanism": "The W44 comment frames the gap as glass-ui's missing `passive` DarkModeToggle (mark M1). The design system already ships the right primitive — a checkbox menu item — so the component asked for the wrong thing and hand-rolled a command in the meantime. Violates VISUAL-CONSTITUTION.md §4.1 ('state/value … explicit', never colour-only).",
+      "reproduction": "Open the @mbabb menu, read the Dark mode row: getAttribute('role') === 'menuitem', getAttribute('aria-checked') === null, in both light and dark.",
+      "proposedCure": "Use `DropdownMenuCheckboxItem` with `:model-value=\"isDark\"`; the producer then owns the role, the checked state and the marker, and the decorative glyph question disappears. Withdraw mark M1's `passive` ask in favour of this."
+     },
+     {
+      "id": "D-8",
+      "defect": "Two copy actions in one menu with two different state designs — 'Share color' has a full success flourish, 'Copy slug' has no success state, no failure state, and leaves the menu open so the click appears to do nothing.",
+      "severity": "MAJOR",
+      "evidence": "ProfileSection.vue:154-157 swaps Share2->Check and 'Share color'->'Copied!' off `linkCopied` (App.vue:363, derived from linkCopyStatus === 'success'). ProfileSection.vue:77 emits copySlug -> Dock.vue:62 -> SlugEditLayer.vue:68-70: `function onCopySlug() { if (pm.userSlug.value) void writeClipboard(pm.userSlug.value); }` — the promise is explicitly discarded. Both rows carry @select.prevent, so neither closes the menu.",
+      "mechanism": "State design was applied per-row rather than per-verb. Clipboard denial, insecure context and an empty slug are all silent. Violates VISUAL-CONSTITUTION.md §5 ('a transient flourish … never carries the only truth') and PROPORTION-AUDIT.md PR-08.",
+      "reproduction": "Log in, open the Profile menu, click 'Copy slug' — no icon change, no text change, no toast, menu stays open. Click 'Share color' in the sibling menu — Check + 'Copied!'.",
+      "proposedCure": "One copy affordance with one result state, shared by both rows and by every other copy seat in the shell, with an explicit failure arm — not two hand-rolled treatments in one 60-line template."
+     },
+     {
+      "id": "D-9",
+      "defect": "'Regenerate slug' destroys the user's identity on a single click with no confirmation, no undo, no pending state and no result state — and is painted in the QUIETEST ink in the menu, below three reversible actions at normal weight.",
+      "severity": "MAJOR",
+      "evidence": "ProfileSection.vue:87-89: <DropdownMenuItem class=\"text-small gap-2 cursor-pointer text-muted-foreground\" @click=\"pm.onRegenerateSlug()\">. Rows above (Copy slug :77, Switch account :80, Logout :83) are all normal ink and all reversible. glass-ui exposes `tone=\"destructive\"` (components/button/styles.css) — unused.",
+      "mechanism": "Consequence and emphasis are inverted: de-emphasis was used as visual hierarchy for 'secondary' when the row is in fact the most destructive. Violates VISUAL-CONSTITUTION.md §7 (Admin: 'dangerous confirmation') and PROPORTION-AUDIT.md PR-11.",
+      "reproduction": "Log in, open the Profile menu, click 'Regenerate slug' — the slug changes immediately with no confirm dialog and no visible result.",
+      "proposedCure": "Move destructive verbs out of the flat row list into a confirmed sub-step using the design system's destructive tone, with a durable result state on the entity (the same instrument D-8 needs)."
+     },
+     {
+      "id": "D-10",
+      "defect": "The closed type matrix is broken in four places: control labels render Fira Code 700, and the dock band carries three families in ~190px with the heaviest label on the least-used control.",
+      "severity": "MAJOR",
+      "evidence": "Measured computed type in nav.dock-band: Home = Fraunces 16.4px/400; Tools = Plus Jakarta Sans 18.608px/400; Login = Fira Code 16.4px/700; @mbabb = Fira Code 16.4px/500. Menu tagline (ProfileSection.vue:150) = 11px Fraunces italic via `text-micro`. VISUAL-CONSTITUTION.md §4: control/label -> text-small, Plus Jakarta Sans, non-bold; text-mono-small (Fira Code) reserved for 'value, code, or provenance'; 'This matrix is closed across all eighteen compositions' with only P019's Picker pair exempt; `text-micro` is not a role in the matrix at all.",
+      "mechanism": "Four unilateral class choices (`text-mono-small font-bold` at :62 and :114, `text-micro` at :150) against a matrix the tranche declares closed. The rendered consequence is a hierarchy inversion — a mono bold 'Login' outweighs the route selector beside it.",
+      "reproduction": "getComputedStyle on the four dock controls at http://localhost:9000/#/ returns the families/weights above; visible in evidence-dock-light-3x.png.",
+      "proposedCure": "Control labels take `text-small`. If the dock wants a mono identity voice, amend §4 once with an argument rather than four class decisions in one file; help text takes `text-prose`."
+     },
+     {
+      "id": "D-11",
+      "defect": "`font-display` on DropdownMenuContent is a dead class at three sites; the producer's `--dropdown-menu-font` token owns the family, so the panel renders three type families at once.",
+      "severity": "MAJOR",
+      "evidence": "Live menu content: class = 'dropdown-menu-content dropdown-menu__content glass-reveal glass-floating min-w-menu font-display', computed fontFamily = \"Fira Code\", --dropdown-menu-font = '\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace'. glass-ui components/_shared/menu.css: `font-family: var(--dropdown-menu-font, inherit)`. Sites: ProfileSection.vue:70, :143, MobileMenuDropdown.vue:43. Rendered panel 215x223 carries Fira Code container/handle, Plus Jakarta rows, Fraunces italic tagline.",
+      "mechanism": "Consumer styled by class where a producer token exists (owner edict 5). The class loses and the intended display voice never appears.",
+      "reproduction": "Open the @mbabb menu and read getComputedStyle(menuContent).fontFamily — 'Fira Code', despite the font-display class on the same element.",
+      "proposedCure": "Set `--dropdown-menu-font` once at the shell root for every dock menu and delete the class from all three sites."
+     },
+     {
+      "id": "D-12",
+      "defect": "The avatar's failure state was never designed: with the image host unreachable the identity mark becomes a 28x28 fully transparent hole. The app's chrome also makes a third-party network request on every menu open.",
+      "severity": "MAJOR",
+      "evidence": "Probe with avatars.githubusercontent.com blocked, menu re-opened: img { complete: true, naturalWidth: 0, display: 'none' }; avatar box { w: 28, h: 28, backgroundColor: 'rgba(0, 0, 0, 0)', text: '' }; hasFallback: false. Screenshot evidence-avatar-offline.png. `AvatarFallback` is exported by glass-ui and re-exported at demo/ui/avatar/index.ts:1, unused. Sites: ProfileSection.vue:145-147, MobileMenuDropdown.vue:80-82.",
+      "mechanism": "An unhandled state — image error — in a component whose identity block depends on a hard-coded external URL (https://avatars.githubusercontent.com/u/2848617?v=4).",
+      "reproduction": "Block avatars.githubusercontent.com (devtools request blocking or an offline profile), reload http://localhost:9000/#/, open the @mbabb menu: an empty 28px gap sits where the avatar was, with the handle and tagline hanging off nothing.",
+      "proposedCure": "Add `AvatarFallback` (the design system already ships it) and inline the mark as a local asset so the dock's identity does not depend on a third-party host being reachable."
+     },
+     {
+      "id": "D-13",
+      "defect": "The desktop and mobile menus are two hand-maintained copies of one component, already drifted three measurable ways — and at 200% zoom a single device crosses the seam, losing the account affordance and the theme control from the band entirely.",
+      "severity": "MAJOR",
+      "evidence": "Duplicated verbatim between ProfileSection.vue and MobileMenuDropdown.vue: the 700-byte octocat <path> (:161 / :95), the avatar/handle/tagline block (:144-152 / :79-87), the Share row (:154-157 / :88-91), the Dark-mode row AND its six-line comment (:167-177 / :101-111). Drift: admin state = gold+shimmer pill in the band (:96) vs muted-foreground pill inside the menu (:67); a DropdownMenuSeparator precedes 'Regenerate slug' on desktop (:86) and is absent on mobile (:60->:61); logged-out is a band Button (:111) vs a menu row (:71). 200% arm: shots/zoom-200-desktop/picker.png (720 CSS px @2x) shows the dock as `Home v | Picker About | ...` with ProfileSection absent; STATES.json confirms the nodes are present-but-hidden (body text still contains 'Login  @mbabb').",
+      "mechanism": "`hidden lg:flex` (:48, :127) plus `lg:hidden` (twin :38) forks the component by breakpoint into two source files, so one state ('I am an administrator') has two identities. Violates VISUAL-CONSTITUTION.md §3.7 ('No desktop-tight/mobile-airy fork and no breakpoint pile') and §3.6.",
+      "reproduction": "Load http://localhost:9000/#/ at 1440x900 and again at 720x450 with deviceScaleFactor 2 (the 200% zoom arm) — the Login/@mbabb capsules are present in the first and absent in the second, replaced by the mobile twin's overflow menu. Compare the admin branch of the two files for the gold/muted divergence.",
+      "proposedCure": "One menu component with one content model and two presentations chosen by a container query. The twin, the drift and the 200%-zoom seam die together."
+     },
+     {
+      "id": "D-14",
+      "defect": "In RTL the author wordmark renders as `mbabb@` — the neutral `@` reorders to the end. The slug pill and the handle link have the same defect.",
+      "severity": "MAJOR",
+      "evidence": "docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop/picker.png, crop saved as evidence-rtl-wordmark.png: the dock reads `mbabb@ | Login | Tools | Home`. No dir=\"ltr\" or <bdi> on ProfileSection.vue:140 (wordmark), :75 (slug pill), :149 (handle link). VISUAL-CONSTITUTION.md §6.1: 'CSS strings, hex, slugs, IDs and provenance render in LTR-isolated spans inside RTL prose'; §5.2 last row repeats it for slugs/IDs.",
+      "mechanism": "Unisolated bidi-neutral characters in a direction-inheriting container. The mark is data, not prose, and was never wrapped.",
+      "reproduction": "document.documentElement.setAttribute('dir','rtl') on http://localhost:9000/#/ (the harness's post-load flip, states.mjs MT-F022 #1) — the wordmark reads 'mbabb@'.",
+      "proposedCure": "One <bdi>/dir=\"ltr\" primitive for every handle, slug, ID and provenance rendering in the shell — the constitution already legislates this species, so it belongs in the shared idiom, not three ad-hoc spans."
+     },
+     {
+      "id": "D-15",
+      "defect": "Each trigger paints a desaturated neutral slab inside its own chromatic capsule, and states its boundary three times: capsule ring, inner wash edge, and a DockSeparator on each side.",
+      "severity": "MAJOR",
+      "evidence": "Pixel scan of shots/safari-desktop-light/picker.png at y=40.5 CSS: band (246,169,194) chromatic; Login border box x757.7-844.2; wash slab x767.5-834.0 measured (200,167,172) near-neutral; separators at x=746.5 and x=854.0 (1px). ProfileSection.vue:49 and :123 emit the two DockSeparators. VISUAL-CONSTITUTION.md §2: 'One surface has one tier. An inner card is not automatically another pane of glass.' PROPORTION-AUDIT.md §5.4/PR-05: spacing plus material already expressing the boundary makes the line duplicative.",
+      "mechanism": "A page-primitive Button (neutral `glass-wash`) dropped into a chromatic dock band, inset ~10px from its own capsule, adds a second material tier and a second edge inside one control; the separators then add a third statement of the same boundary.",
+      "reproduction": "Sample any horizontal row through the dock band in the light capture between x=740 and x=940 CSS: BAND -> separator -> band -> GRAY slab -> band -> separator -> band -> GRAY slab.",
+      "proposedCure": "`emphasis=\"quiet\"` removes the wash and the inner boundary; the capsule ring plus the band's gap already separate the controls, so both DockSeparators go. One edit closes D-1, D-3, D-15 and D-16 together."
+     },
+     {
+      "id": "D-16",
+      "defect": "The two seats this component owns are 28px tall in a 32px band, and both of its separators are off-centre in their gaps — in opposite directions.",
+      "severity": "MAJOR",
+      "evidence": "Measured seat rects in nav.dock-band at 1440px: Home x496.3 w106.9 h32; Tools x626.2 w104.5 h32; Login x757.7 w86.5 h28; @mbabb x867.2 w76.6 h28. Separator positions from the pixel scan: x=746.5 (15.8px of air from Tools' right edge 730.7, 10.2px to Login's left edge 757.7) and x=854.0 (9.8px from Login's right edge 844.2, 12.2px to @mbabb's left edge 867.2).",
+      "mechanism": "`size=\"xs\"` (--control-h-xs) is a valid glass-ui size but the wrong rung for a dock seat, and the component's local `gap-1` nests inside the dock layer's own gap, so the hairlines land off-centre by 3-5px in opposite directions. Violates PROPORTION-AUDIT.md §1 (every element earns its scale and interval from its job) and §5.8.",
+      "reproduction": "getBoundingClientRect on the four dock controls at 1440x900 returns heights 32/32/28/28; pixel-scan the light capture for the two 1px separator columns at CSS x=746.5 and x=854.0.",
+      "proposedCure": "Adopt the dock's own trigger seat height so the band has one silhouette, and let the dock layer own ALL inter-seat spacing (delete the component-local gap) so any surviving hairline is centred by construction."
+     },
+     {
+      "id": "D-17",
+      "defect": "Two adjacent controls speak two different hover languages; the account action's entire hover feedback is 1.3px of scale.",
+      "severity": "MINOR",
+      "evidence": "Measured rest->hover with a real pointer (Chromium): Login color oklch(0.4712 …) -> unchanged, background unchanged, scale 1 -> 1.015, no underline. @mbabb color oklab(0 0 0 / 0.7) -> rgb(0,0,0), scale 1 -> 1.015, text-decoration none -> underline. 1.5% of an 86.5px pill = 1.3px.",
+      "mechanism": "The inline `color` (D-4) pins the Login ink so no hover rule can move it, and `emphasis=\"secondary\"` ships no hover background — only `quiet` does. The neighbour meanwhile gets a hand-rolled class hover.",
+      "reproduction": "Hover each dock trigger at http://localhost:9000/#/ and read getComputedStyle: Login's color and backgroundColor are identical at rest and on hover.",
+      "proposedCure": "Same as D-3: `emphasis=\"quiet\"` gives both controls the producer's one hover language (background + ink), and the inline paint disappears."
+     },
+     {
+      "id": "D-18",
+      "defect": "The file is four components wearing one name: two sibling roots owning account identity, a product action (Share color), an outbound vanity link, and the application's ONLY theme control — all gated behind `lg:`.",
+      "severity": "MINOR",
+      "evidence": "ProfileSection.vue:48 and :127 are two top-level roots, both `hidden lg:flex`. Jobs: account (:52-121), Share color (:154-157), GitHub link (:158-165), dark mode (:167-177). Repo-wide grep confirms toggleDark() is called from exactly two places — this file and its mobile twin.",
+      "mechanism": "Cohesion failure: a global system preference is discoverable only by opening a personal credit menu, and the one row a colour-picker user wants ('Share color') is filed under someone's name. Two roots also weld the account and author blocks to import order — the parent cannot place them independently. Violates owner edict 1.",
+      "reproduction": "Read the template: two root <div>s, four unrelated jobs; open the @mbabb menu to find the app's theme control as its last row.",
+      "proposedCure": "Three components — DockAccount, DockAuthor, and a DockThemeControl that is a first-class dock seat (its own DropdownMenuCheckboxItem or dock control) rather than the last row of a credit menu."
+     },
+     {
+      "id": "D-19",
+      "defect": "The same seat has two identities for tooling: the logged-in trigger carries a test hook, the logged-out trigger does not.",
+      "severity": "MINOR",
+      "evidence": "ProfileSection.vue:64 `data-o18=\"profile-trigger\"` on the logged-in Profile trigger; the logged-out Login trigger (:111-120) has no hook. All 60 captures in REPORT.json are the logged-out state.",
+      "mechanism": "The attribute was attached to a branch rather than to the seat, so any probe keyed on it silently measures nothing in the state most visitors are in.",
+      "reproduction": "querySelector('[data-o18=\"profile-trigger\"]') on http://localhost:9000/#/ returns null while a Login trigger is visibly present.",
+      "proposedCure": "When the two branches collapse into one seat (D-18's DockAccount), the hook belongs to the seat, not to a branch."
+     },
+     {
+      "id": "D-20",
+      "defect": "States never designed: loading/pending, error, disabled, long-slug truncation, the admin logout path, and the logged-in trigger showing the word 'Profile' instead of the user's identity.",
+      "severity": "INFO",
+      "evidence": "No pending or failure state on pm.userLogout() (:83), pm.onRegenerateSlug() (:87) or copySlug (:77) — glass-ui's Button ships an unused `loading` prop. `whitespace-nowrap` on every label including the slug pill (:73-75) with no truncation rule. The admin branch (:95-99) renders a static, cursor-default pill with no menu, so an admin without a userSlug has no logout affordance anywhere in the dock (usePalettePorts.ts:57 destructures only isAuthenticated and login from useAdminAuth). The logged-in trigger reads 'Profile' (:67) while the admin and logged-out states both put their identity ('admin', 'Login') in the band.",
+      "mechanism": "State coverage was designed for the happy path of one branch. A state that was never designed is a design defect.",
+      "reproduction": "NONE — hypothesis for the admin-logout and long-slug arms (they need an admin token / a long slug I did not mint); the loading/error/disabled gaps are read directly from the template and the ports.",
+      "proposedCure": "Enumerate the account seat's states once (empty, identified, admin, pending, failed, offline) and give each a designed treatment in one component, with the identity — not the word 'Profile' — in the band."
      }
     ]
    }

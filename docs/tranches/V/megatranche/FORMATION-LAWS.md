@@ -301,3 +301,13 @@ kill of 07-24). Binding on every session of this formation:
 7. **Walls are expected, not exceptional** — re-deploy is always `resumeFromRunId` with
    byte-identical args; completed seats replay from cache; a killed seat re-runs; NOTHING banked
    is ever re-run.
+8. **Completeness is validated, never trusted** (owner edict 2026-07-28: "NO incomplete work").
+   A workflow's own return is a CLAIM: wall-killed seats return null and can fold into a clean-
+   looking result — three band records claimed full completion while 45 component rows had nothing
+   banked (the palettes journal: 492 seats started, 38 returned). After EVERY workflow event and
+   at every session open, run `node docs/tranches/V/megatranche/workflows/validate-completeness.mjs`;
+   the truth is roster × axes vs disk ∪ harvest ∪ adjudicated, written to
+   `registry/COMPLETENESS-LEDGER.md`. Exit 1 = unowned incomplete work = a standing violation:
+   queue the exact resume in STATE.md §RESUME in the same turn. Every incomplete row must be
+   owned by an ACTIVE or QUEUED resume at all times; work is DONE only when its ledger row reads
+   ADJUDICATED or ON-DISK.

@@ -39,13 +39,19 @@ for (let i = 0; i < COMPONENTS.length; i += P) {
   results.push(...batch.filter(Boolean))
 }
 
+// L-15.8: `complete:false` children (wall-killed seats folded to null) and failed children
+// are NOT run. The old accounting counted them silently — three bands self-reported full
+// completion while 45 component rows had nothing banked. componentsRun must be earned.
+const done = results.filter((r) => !r.failed && r.complete !== false)
+const partial = results.filter((r) => !r.failed && r.complete === false)
 const flat = results.flatMap((r) => (r.defects || []).map((d) => ({ slug: r.slug, ...d })))
-log(`AREA ${AREA} complete: ${results.length}/${COMPONENTS.length} components · ${flat.length} defects · ${flat.filter((d) => d.severity === 'BLOCKER').length} blockers`)
+log(`AREA ${AREA}: ${done.length}/${COMPONENTS.length} complete · ${partial.length} INCOMPLETE (<3 seats) · ${flat.length} defects · ${flat.filter((d) => d.severity === 'BLOCKER').length} blockers`)
 
 return {
   area: AREA,
-  componentsRun: results.length,
+  componentsRun: done.length,
   componentsRequested: COMPONENTS.length,
+  incomplete: partial.map((r) => ({ slug: r.slug, worstVerdict: r.worstVerdict })),
   failures: results.filter((r) => r.failed).map((r) => ({ slug: r.slug, failed: r.failed })),
   blockers: flat.filter((d) => d.severity === 'BLOCKER'),
   majors: flat.filter((d) => d.severity === 'MAJOR'),
