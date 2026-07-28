@@ -1,561 +1,487 @@
-# CHALLENGE-L — library structure under `PaletteCardMenu.vue`
+# CHALLENGE-L — library structure under `PaletteCardMenu.vue` (PASS 2)
+
+> Pass 2. The prior seat's report is preserved verbatim at
+> `challenge-L-library.pass-1-2026-07-28.md` (written at HEAD `32b4040e`). This pass re-verifies its
+> five load-bearing claims with independently-authored commands, records one **refutation-by-measurement**
+> of a latent claim it left open, and adds six findings it did not reach — one of them a **BLOCKER
+> reproduced live in the browser**, which is now the strongest defect on this axis.
 
 ## Model receipt
 
-I observe myself to be **Opus 5** (`claude-opus-5[1m]`, 1M-context variant), matching the explicit
-declaration this seat was spawned with. Seat is DECLARED, not inherited. No defect on the receipt axis.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant. This
+matches the explicit declaration this seat was spawned with. The seat is **DECLARED, not inherited**;
+no defect on the receipt axis.
 
 ## Scope + substrate
 
 - Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`.
-- **HEAD is `32b4040e`, not the `c654824e` named in the commission.**
-  `git log --oneline -1` → `32b4040e docs(V·mega): r3 DELTA COMPLETE — 3 apotheoses merged in place;
-  scenes promoted from queue`. All file:line citations below are against `32b4040e`.
-- Subject: `demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue`, 228 lines.
+- **HEAD is `e79fcd43`, not the `c654824e` named in the commission** (and not pass-1's `32b4040e` —
+  the tree moved between passes):
+  ```
+  $ git log --oneline -1
+  e79fcd43 docs(V·mega): core band COMPLETE 21/21 validated — picker promoted into the freed slot; harvest 385/3,756/529
+  ```
+  Every file:line below is against `e79fcd43`. I re-read `PaletteCardMenu.vue` at this HEAD: still 228
+  lines, byte-identical to pass-1's citations.
+- Subject: `demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue`.
+- Dev server live at `http://localhost:9000` (HTTP 200), in the `misconfigured` availability state
+  (`VITE_API_URL` unset → the S.W0-1 honesty throw). All browser probes ran against it.
 
-**Verdict: DEFECTIVE.** One BLOCKER (a live dual export path where the shipping implementation is the
-legacy one and the 914-line contract implementation is test-only), four MAJORs, four MINORs.
-
----
-
-## 0. The import cone, traced to its home
-
-Every import in `PaletteCardMenu.vue:176-204`, resolved:
-
-| # | Specifier (`:line`) | Physical home | Crosses | Verdict |
-|---|---|---|---|---|
-| 1 | `vue` (`:176`) | `node_modules/vue` | — | clean |
-| 2 | `../../../types` (`:177`) | `demo/palettes/types.ts` | leaf → feature root, 3 levels, **no seam exists** | see L-6 |
-| 3 | `../../../utils` (`:178`) | `demo/palettes/utils.ts` | leaf → feature root, 3 levels, **no seam exists** | see L-6 |
-| 4 | `../../../../platform/transport/useApiClient` (`:179`) | `demo/platform/transport/useApiClient.ts` | **feature → platform**, 4 levels, **raw file, no barrel** | see L-6 |
-| 5 | `../../../../ui/dropdown-menu` (`:180-190`) | `demo/ui/dropdown-menu/index.ts` → `@mkbabb/glass-ui` **bare root** | feature → demo/ui alias layer → glass-ui | **L-4** |
-| 6 | `@lucide/vue` (`:191-204`) | devDependency | — | clean |
-
-`verbatimModuleSyntax` (edict 8): **compliant** — `:177` and `:178` are `import type`; `:176`, `:179`,
-`:180`, `:191` are all value imports. No violation.
-
-`@mkbabb/value.js` reach: **this component imports nothing from value.js, directly or through
-`demo/palettes/*`.** `demo/palettes/types.ts` is pure interfaces with zero imports;
-`demo/palettes/utils.ts` imports only `type { Palette } from "./types"`. Its only transitive reach into
-value.js is through glass-ui's own dist, which uses correct published subpaths:
-
-```
-$ grep -ho 'from"@mkbabb/value\.js[^"]*"' node_modules/@mkbabb/glass-ui/dist/*.js | sort -u
-from "@mkbabb/value.js/color"
-from "@mkbabb/value.js/css"
-from "@mkbabb/value.js/easing"
-```
-
-All three are live keys in `package.json#exports`. **No deep-path forgery of the public API on this
-component's edge.** The public-surface defect that does exist is one level up, at the tsconfig — L-5.
+**Verdict: DEFECTIVE.** Two BLOCKERs (one carried from pass-1 and re-verified, one new and
+browser-reproduced), six MAJORs, five MINORs. One pass-1 hypothesis **refuted** by measurement.
 
 ---
 
-## L-1 — BLOCKER — the five Export items ship the LEGACY serializers; the 914-line byte-exact contract set has zero production consumers
+## Part I — pass-1 re-verification (independent commands)
 
-`PaletteCardMenu.vue:107-130` renders the Export sub-menu — JSON, CSS Custom Properties, Tailwind
-Config, SVG Swatch, PNG Swatch. Those five items are the entire user-facing entry point to palette
-export. Traced, statically, end to end:
+I did not take pass-1 on trust. Each claim below was re-derived with a command I wrote myself.
 
-```
-PaletteCardMenu.vue:113   @select="() => $emit('action', 'exportJSON')"
-  → PaletteCard.vue:88    @action="handleMenuAction"
-  → PaletteCard.vue:307   exportJSON: () => emit("export", props.palette, "json")
-  → BrowsePane.vue:115    @export="(p, fmt) => onExport(p, fmt)"      (and PalettesPane.vue:96)
-  → BrowsePane.vue:324    const { onExport } = usePaletteExport()     (and PalettesPane.vue:211)
-  → usePaletteExport.ts:9 import { exportAsJSON, … } from "./export"  ← demo/palettes/export.ts
-```
-
-`demo/palettes/export.ts` (132 lines) is the legacy pre-contract implementation.
-`demo/palettes/export/` (12 files, **914 lines**) is the V.W51 byte-exact contract set whose byte
-authority is `docs/tranches/V/PALETTE-CONTRACT.md` Appendix W51.
-
-**The contract set has exactly one consumer in the entire repository, and it is a test:**
-
-```
-$ grep -rn "export/serializers\|export/json\|export/css\|export/tailwind\|export/svg\|export/png\
-|export/reload\|export/digest\|export/canonical" demo/ src/ test/ e2e/ | grep -v "^demo/palettes/export/"
-demo/test/export/byte-exact.test.ts:23:} from "../../palettes/export/serializers";
-```
-
-Zero production consumers. 914 lines of contract-conformant code ship in no bundle.
-
-The module admits the dual path in its own header — `demo/palettes/export/serializers.ts:5-9`:
-
-> "This module is intentionally NOT named `index.ts`: the sibling legacy `../export.ts` (the
-> pre-contract routed seat that W50 will replace) still resolves `./export`; the byte-exact set is
-> addressed by its explicit paths here so the two never collide."
-
-The two implementations are not near-variants; they are different schemas:
-
-| | shipping (`export.ts:13-24`) | contract (`export/json.ts:11-29`) |
+| pass-1 finding | my independent check | result |
 |---|---|---|
-| top-level keys | `{name, slug, colors}` | `{schema, source, displayName, contentDigest, colors, canonicalTags}` |
-| colour atom | `{css, position, name}` | `{id, name, oklch:{l,c,h,a}, css}` |
-| encoding | `JSON.stringify(v, null, 2)` | `canonicalizeJson` (RFC 8785) + trailing LF |
-| return | `{content: string\|Blob, filename, mime}` | `Uint8Array` |
+| **L-1** export dual path, contract set test-only | `grep -rn 'export/serializers\|export/png\|…' demo test e2e \| grep -v '^demo/palettes/export/'` → **one hit, `demo/test/export/byte-exact.test.ts:23`**. `grep -rn 'from "./export"'` → **one hit, `usePaletteExport.ts:9`** | **CONFIRMED** |
+| **L-2** the barrel-seam eslint boundary is dead | `npx eslint --print-config …/PaletteCardMenu.vue \| node -e '…rules["no-restricted-imports"]'` → `null`; `ls -d demo/@` → *No such file or directory* | **CONFIRMED** |
+| **L-4** `demo/ui/` is a 19-module pure alias layer | 19 dirs, 19 `index.ts`, no `.vue`; **18 of 19 re-export the glass-ui BARE ROOT**, `input/index.ts` alone uses a granular subpath (`@mkbabb/glass-ui/forms`). 48 demo files / 90 import sites reach the layer | **CONFIRMED + sharpened → see L-15** |
+| **L-5** tsconfig `paths` ↔ `exports` drift | `package.json#exports` = 7 keys `{color,value,css,easing,math,transform,quantize}`, **no `"."`**; `src/subpaths/` = the same 7 files; `tsconfig.demo.json` `paths` = 8 keys including `.`, `/parsing`, `/units`; `ls dist/index.d.ts dist/subpaths/parsing.d.ts` → both absent | **CONFIRMED** |
+| **L-9** the visual matrix contains zero evidence of this component | `REPORT.md` rows 120/135/150/165: `/#/palettes` bodyTextLength 237, `/#/browse` 280, in all four matrices; no `"Palette menu"` accessible name anywhere in the JSON | **CONFIRMED** |
 
-**Mechanism:** dual implementation of one concept with the seam left un-cut. `usePaletteExport.ts`
-is the routing seat and it still points at the retired module; W50 (the swap) never landed, so the
-contract lives only in a test that no shipping code path touches.
+### Refutation — pass-1's L-5 "types-from-npm / runtime-from-local" concern does not exist
 
-**Reproduction:** the grep above (zero non-test importers of `export/`) + the trace chain above.
-Both are static and complete — every link is a literal in the tree.
+pass-1 left the resolution question partly open. I closed it. There **is** an installed npm copy that
+could shadow the checkout:
 
-**Owner-edict violation:** #2, *no legacy code — no dual paths*. Verbatim.
+```
+$ node -e 'console.log(require("./node_modules/@mkbabb/value.js/package.json").version)'
+4.0.0
+```
 
-**Proposed cure (transposition, not patch):** delete `demo/palettes/export.ts` and
-`demo/palettes/usePaletteExport.ts` outright. Rename `export/serializers.ts` → `export/index.ts` (the
-comment's only stated reason for the odd name is the collision it is supposed to prevent, and the
-collision dies with the legacy file). Add `export/download.ts` holding the one browser-side effect
-(`Uint8Array` + `filenameFor` + `mimeFor` → object URL → anchor click) that the legacy
-`downloadExport` currently owns. The panes then reach `snapshotFromPalette(palette)` +
-`serialize[Format]` + `download` — pure functions plus one effect, with `demo/test/export/byte-exact.test.ts`
-suddenly covering the shipping path instead of a parallel one.
+But Node package **self-reference** wins, and it wins for both compile and runtime:
+
+```
+$ node --input-type=module -e "console.log(import.meta.resolve('@mkbabb/value.js/css'))"
+file:///Users/mkbabb/Programming/value.js/dist/subpaths/css.js
+```
+
+And the browser agrees — every value.js module the live app loads is the checkout's own `dist/`, with
+**no second instance**:
+
+```
+$ node probe-L2-value-instances.mjs        # network capture on /#/mix
+{
+  "<repo>/node_modules/.vite/deps/@mkbabb_glass-ui.js": 234309,
+  "<repo>/dist/subpaths/color.js": 4369,
+  "<repo>/dist/subpaths/css.js": 292786,
+  "<repo>/dist/subpaths/math.js": 8057,
+  "<repo>/dist/subpaths/easing.js": 33275
+}
+```
+
+Zero `node_modules/@mkbabb/value.js/**` URLs. **There is exactly one value.js instance in the page.**
+This is a *negative result that strengthens pass-1's cure*: deleting the whole `@mkbabb/value.js*`
+`paths` block from `tsconfig.demo.json` is provably safe, because self-reference — which cannot drift
+from the exports map, being *generated by* the exports map — already resolves correctly at both hops.
 
 ---
 
-## L-2 — MAJOR — the barrel-seam boundary this component's cluster claims to be governed by is DEAD; `no-restricted-imports` resolves to `null` on this file
+## Part II — new findings
 
-`demo/palettes/browser/index.ts:6-8` states the governance:
+### L-10 — BLOCKER — item visibility and handler existence are DISJOINT authorities; four enabled menu items do nothing. Reproduced live.
 
-> "External consumers reach the feature through THIS seam (or a sub-barrel it re-exports), never a raw
-> internal `.vue` file — the G-DEMO-3b boundary (**eslint.config.js**) enforces it standing."
+This is the deepest structural defect on this axis and pass-1 did not reach it.
 
-It does not.
-
-```
-$ npx eslint --print-config demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue \
-    | python3 -c "import json,sys; print('no-restricted-imports =', json.load(sys.stdin)['rules'].get('no-restricted-imports'))"
-no-restricted-imports = None
-```
-
-The rule is **not configured at all** for this file. Two independent reasons, both verifiable:
-
-1. **The file globs address a tree that no longer exists.** `eslint.config.js:232-238` scopes G-DEMO-3b
-   to `demo/@/components/**`, `demo/@/lib/**` (and `eslint.config.js:275-277` scopes G-DEMO-1/3a to
-   `demo/@/composables/**`).
-   ```
-   $ ls -d demo/@
-   ls: demo/@: No such file or directory
-   ```
-   W43 (RF-15) moved the tree to `demo/{palettes,platform,shell,scenes,shared,ui,color-session,picker,workbenches}/`.
-   Three of the four globs match zero files.
-2. **The banned pattern addresses a specifier alias that was killed.** The ban group is
-   `"@components/custom/palette-browser/**/*.vue"` (`eslint.config.js:246-251`, repeated `:294-298`).
-   `tsconfig.demo.json:33` records the kill: *"the demo `@…` path aliases were killed — every demo
-   import is relative to its physical home. No `@styles`/`@components`/… project alias survives."*
-   ```
-   $ grep -rn "@components" demo/ src/ vite.config.ts tsconfig*.json
-   demo/DESIGN.md:384: … consume Alert … from `@components/ui/alert` …
-   demo/palettes/browser/status/index.ts:5: … (@components/custom/dock/DockStatusLamp.vue) …
-   tsconfig.demo.json:33: … No `@styles`/`@components`/ …
-   ```
-   Three hits, all prose. **Zero import specifiers.** The pattern is unmatchable.
-
-**Mechanism:** the boundary was encoded against the *addressing scheme* (path aliases + a directory
-layout) rather than against the *module graph*. When W43 changed the addressing, the boundary silently
-evaporated while its documentation stayed authoritative-sounding. This is worse than having no rule:
-`browser/index.ts` and `card/index.ts` both spend paragraphs justifying a discipline (PI-6 named
-re-exports, the seam contract) that nothing checks, so a reviewer reads the prose as a guarantee.
-
-**Reproduction:** the `--print-config` command above. `null` is the whole proof.
-
-**Cure:** re-encode the boundary structurally, not lexically. Move to `eslint-plugin-boundaries` (or
-`import/no-restricted-paths`) keyed on *directory role* — `feature`, `platform`, `shell`, `ui`,
-`shared` — with the legal edge set declared once: `shell → feature → {platform, shared, ui} → lib`,
-never upward, never feature↔feature. A role-keyed rule survives a rename because it names roles, not
-paths. Then delete the three dead glob objects rather than repairing them: two of them (`demo/@/lib`,
-`demo/@/composables`) govern directories that were deleted in W43 and have no successor to point at.
-
----
-
-## L-3 — MAJOR — the action vocabulary has no home; `action: [action: string]` erases it at the seam, and a dead handler proves the erasure bites
-
-`PaletteCardMenu.vue:224-227`:
-
-```ts
-defineEmits<{
-    action: [action: string];
-    updateOpen: [value: boolean];
-}>();
-```
-
-The action names are string literals in the menu template (`:18`, `:31`, `:52`, `:66`, `:76`, `:86`,
-`:96`, `:113`, `:116`, `:119`, `:123`, `:126`, `:136`, `:146`, `:158`, `:166`), and independently a
-`Record<string, () => void>` key set in the consumer (`PaletteCard.vue:293-311`). Nothing types the
-correspondence.
-
-Producer set, extracted from the template — 17 names:
+`PaletteCardMenu` decides **which items exist** from `paletteKind` + `isOwned` + `isAdmin`
+(`:16, :28, :49, :64, :74, :84, :94, :134, :144, :153`). It knows nothing about whether anyone is
+listening. Each item emits an untyped string (`action: [action: string]`, `:225`), `PaletteCard`
+re-emits it as one of 17 optional Vue events (`:200-218`), and **each of the five `PaletteCard`
+consumers binds an arbitrary subset**:
 
 ```
-adminDelete delete editTags exportCSS exportJSON exportPNG exportSVG exportTailwind
-feature flag fork makePrivate makePublic publish rename save versions
+$ grep -rn '<PaletteCard\b' demo --include='*.vue'
+demo/workbenches/mix/MixSourceSelector.vue:264
+demo/workbenches/extract/ExtractWorkbench.vue:145
+demo/palettes/BrowsePane.vue:92
+demo/palettes/PalettesPane.vue:82
+demo/palettes/browser/admin/AdminUsersPanel.vue:140
 ```
 
-Consumer set, `PaletteCard.vue:293-311` — 18 keys: the 17 above **plus `copyAll`**.
+| consumer | palette kind rendered | listeners bound | menu items rendered | **live-but-dead items** |
+|---|---|---|---|---|
+| `BrowsePane.vue:92-117` | remote | 16 | 9–14 | 0 |
+| `PalettesPane.vue:82-97` | saved | 6 (`click delete publish rename edit-color export`) | 4 (+Export×5) | 0 |
+| `ExtractWorkbench.vue:145-155` | temporary (`__extracted__`) | 4 (`click save rename add-color`) | Save, Rename, Export×5 | **5** (the whole Export sub-menu) |
+| `AdminUsersPanel.vue:140-150` | remote, `is-admin`, **no `is-owned`** | 3 (`click feature admin-delete`) | Save, Remix, Versions, Export×5, Report, Admin×2 | **9** |
+| `MixSourceSelector.vue:264-267` | saved | **0** | Publish, Rename, Export, Delete | **4 (all of them)** |
 
+**Reproduction — live, scripted, deterministic.** `probe-L2-mix-deadmenu.mjs` in this directory seeds
+one saved palette into `localStorage["color-palettes"]`, reloads `/#/mix`, opens the Palettes source
+tab, opens the card menu, and clicks **Delete**. `probe-L2-mix-deadmenu-results.json`:
+
+```json
+{
+  "menuTriggers": 1,
+  "nesting": ["BUTTON[Palette menu]", "BUTTON[Select palette Probe Palette]"],
+  "menuItems": [
+    { "t": "Publish", "disabled": false },
+    { "t": "Rename",  "disabled": false },
+    { "t": "Export",  "disabled": false },
+    { "t": "Delete",  "disabled": false }
+  ],
+  "deleteVisible": 1,
+  "storeAfter": ["probe-palette"],
+  "cardStillThere": 1,
+  "pageErrors": []
+}
 ```
-$ grep -rn "copyAll" demo/ src/ e2e/ test/
-demo/palettes/browser/card/PaletteCard/PaletteCard.vue:294:        copyAll: () => void writeClipboard(props.palette.colors.map((c) => c.css).join(", ")),
-```
 
-One hit in the whole repository, and it is the handler itself. **`copyAll` has no producer.** It is a
-dead dispatch branch carrying a live `writeClipboard` call that can never fire from this menu.
-`vue-tsc` cannot see it, because `Record<string, () => void>` accepts any key and `action: [string]`
-emits any string. The failure this permits *has already happened*.
+Four enabled items. Delete clicked. **Store unchanged, card still present, no error, no feedback, no
+console warning.** Screenshot: `evidence/pass2-L-mix-source-menu.png`.
 
-**Mechanism:** unique semantic ownership violated — the action vocabulary is a real concept with two
-partial homes (a template's literals, a record's keys) and no canonical one.
+The same run also measured a **second, independent** structural consequence:
+`"nesting": ["BUTTON[Palette menu]", "BUTTON[Select palette Probe Palette]"]` — the menu trigger is a
+`<button>` **nested inside another `<button>`**. That is invalid HTML (the `button` content model
+forbids interactive descendants) and it happens because `PaletteCard` — a component carrying a
+17-action interactive menu — is being consumed as a decorative selectable thumbnail. The consumer is
+wrong to wrap it, but the *library* is wrong to offer no thumbnail-shaped surface to wrap.
 
-**Reproduction:** the grep above; plus, at the type level, adding `@click="$emit('action','frobnicate')"`
-to the menu typechecks clean today and no-ops at runtime via `PaletteCard.vue:313 if (!fn) return;` —
-a masking fallback that is itself edict-2 shaped.
+**Mechanism.** Unique semantic ownership, violated at the highest level: *"which actions this palette
+affords"* is one concept with **two independent authorities** — the menu's `v-if` ladder and each
+consumer's listener set — connected by a `string` that no type checks and a
+`Record<string, () => void>` whose miss path is a silent `if (!fn) return;` (`PaletteCard.vue:316`).
+pass-1's L-3 found the *type* erasure and the `copyAll` dead handler; this is the far larger
+consequence of the same erasure, in the opposite direction — dead *items*, not a dead handler, and it
+is user-visible.
 
-**Cure:** give the vocabulary one home next to the kind it discriminates —
+**Owner-edict violations:** #2 (`if (!fn) return;` is a masking fallback) and, by force, #1 — the
+17-emit optional bag is the god-interface that makes under-wiring invisible.
+
+**Proposed cure (transposition).** Invert the authority: the *consumer* declares its capability set;
+the menu renders the intersection. Concretely, one descriptor module —
 `demo/palettes/browser/card/PaletteCard/actions.ts`:
-```ts
-export const PALETTE_CARD_ACTIONS = [
-    "save","publish","makePublic","makePrivate","fork","rename","editTags","versions",
-    "exportJSON","exportCSS","exportTailwind","exportSVG","exportPNG",
-    "delete","flag","feature","adminDelete",
-] as const;
-export type PaletteCardAction = (typeof PALETTE_CARD_ACTIONS)[number];
-```
-Emit `action: [action: PaletteCardAction]`; type the consumer
-`Record<PaletteCardAction, () => void>`. That single change (a) makes `copyAll` a compile error,
-(b) makes `if (!fn) return;` unreachable and deletable, and (c) makes any future action addition a
-two-sided compile obligation. Better still, fold `exportJSON|exportCSS|…` into
-`{kind:"export"; format: ExportFormat}` so the export format union has exactly one home — the
-`ExportFormat` already declared at `demo/palettes/export/types.ts:8`. That kills a second duplicated
-vocabulary (`"json"|"css"|"tailwind"|"svg"|"png"` currently re-spelled at `PaletteCard.vue:307-311`,
-`usePaletteExport.ts:15-19`, and `export/types.ts:8`).
-
----
-
-## L-4 — MAJOR — `demo/ui/` is a 19-module pure-alias layer over glass-ui, and this component reaches it at the BARE ROOT when a published subpath exists
-
-`demo/ui/dropdown-menu/index.ts` is one line, in full:
 
 ```ts
-export { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, DropdownMenuRadioGroup, DropdownMenuItem, DropdownMenuCheckboxItem, DropdownMenuRadioItem, DropdownMenuShortcut, DropdownMenuSeparator, DropdownMenuLabel, DropdownMenuSub, DropdownMenuSubTrigger, DropdownMenuSubContent } from "@mkbabb/glass-ui";
+export interface PaletteAction {
+    id: PaletteCardAction;                 // the closed union (pass-1 L-3)
+    label: string; icon: Component;
+    kinds: readonly PaletteKind[];         // when the palette affords it
+    needsOwnership?: boolean; needsAdmin?: boolean; needsNetwork?: boolean;
+}
+export const PALETTE_ACTIONS: readonly PaletteAction[] = [ /* one row per action */ ];
 ```
 
-This is not a component and not a variant home. It is a **module alias** — the exact construct edict 2
-bans. And it is not one: every one of the 19 directories under `demo/ui/` is the same shape.
-
-```
-$ for d in demo/ui/*/; do echo "$(basename $d): $(ls $d | tr '\n' ' ')($(wc -l < $d/index.ts) lines)"; done
-alert(11)  avatar(1)  badge(1)  button(1)  card(1)  checkbox(1)  collapsible(1)  dialog(1)
-dropdown-menu(1)  input(1)  label(1)  popover(1)  radio-group(1)  select(1)  separator(1)
-skeleton(1)  slider(1)  switch(1)  tooltip(1)
-```
-
-Nineteen directories, nineteen `index.ts` files, no `.vue`, no `.css`, no variants. `alert/index.ts` is
-eleven lines only because ten are a comment explaining that it *used* to hold a real implementation.
-90 relative import sites across `demo/` reach this alias layer (`button` 22, `card` 12, `popover` 7,
-`badge` 7, `select` 6, `slider` 5, `tooltip`/`skeleton`/`input`/`dropdown-menu` 4 each, …).
-
-Separately, the alias re-exports from the **bare root** `@mkbabb/glass-ui`, although
-`@mkbabb/glass-ui/dropdown-menu` is a published key whose `.d.ts` exports exactly the fourteen names
-plus their prop/emit types (`node_modules/@mkbabb/glass-ui/dist/components/dropdown-menu/index.d.ts`).
-The root is a 42-line `export *` fan-out (`node_modules/@mkbabb/glass-ui/dist/index.d.ts`).
-
-Measured cost of the root reach for exactly the nine symbols this component uses:
-
-```
-$ npx esbuild <entry> --bundle --format=esm --minify --external:vue --external:reka-ui \
-    --external:@mkbabb/value.js --external:@mkbabb/keyframes.js --metafile=…
-root barrel  ("@mkbabb/glass-ui")               : 17794 bytes, 1793 modules
-subpath      ("@mkbabb/glass-ui/dropdown-menu") : 16825 bytes, 1736 modules
-delta        : +969 bytes (+5.8%), +57 modules
-```
-
-**I am stating this honestly: the measured bundle delta is ~1 kB, which is MINOR on its own.** The MAJOR
-is the alias layer, not the byte count. The byte count is included because `card/index.ts:2-4` and
-`browser/index.ts:16-18` spend nine lines of prose justifying named-over-star re-exports *precisely on
-tree-shake grounds* — and then the layer they protect reaches the widest possible specifier. The
-discipline is asserted at the seam the authors wrote and abandoned at the seam they inherited.
-
-**Mechanism:** an indirection layer with no content. It exists as sediment from the shadcn-vue era
-(`alert/index.ts:3-5` records the conversion) and was never removed after the last local
-implementation died.
-
-**Cure:** delete `demo/ui/` entirely; rewrite the 90 import sites to the glass-ui published subpaths
-(`@mkbabb/glass-ui/dropdown-menu`, `/button`, `/card`, …). This is a pure `sed`-shaped migration with
-no behaviour change, it removes 19 modules, it makes "glass-ui is the design system" structurally true
-rather than nominally true, and it deletes the last place a hand-rolled primitive could be smuggled
-back in under a familiar path. If a demo-local variant is ever genuinely needed, edict 4 says it goes
-*into glass-ui*, so the directory has no future tenant either.
+`PaletteCard` then takes **one** prop — `:actions="handlers"` typed
+`Partial<Record<PaletteCardAction, (p: Palette, …) => void>>` — and the menu renders
+`PALETTE_ACTIONS.filter(a => affords(a, kind, isOwned, isAdmin) && a.id in handlers)`. Seventeen
+optional events collapse to one object; a consumer that does not handle `delete` *cannot* render
+Delete; and `MixSourceSelector` — which wants a thumbnail, not an instrument — passes `{}` and gets
+no menu at all, which also dissolves the nested-`<button>`. This is a strictly smaller API and a
+strictly stronger guarantee.
 
 ---
 
-## L-5 — MAJOR — `tsconfig.demo.json` `paths` and `package.json` `exports` have drifted: 3 phantom keys pointing at files that do not exist, 2 live export keys undeclared
+### L-11 — MAJOR — `isOwned` is a domain predicate with no home; 1 of 5 consumers computes it, so the menu's four ownership gates mis-render in the other four
 
-The commission asks whether the demo speaks the published surface. On this component's own edge, yes
-(§0). One level up, the *declaration* of that surface is wrong in both directions.
-
-`package.json#exports` — 7 keys: `./color ./value ./css ./easing ./math ./transform ./quantize`.
-`src/subpaths/` — 7 files, exactly matching.
-
-`tsconfig.demo.json:41-49` — 8 keys, and they are a *different set*:
+Four of the menu's items gate on `isOwned` (`:49`, `:74`, `:84`, `:134`) and a fifth inverts it
+(`:144` Report). The predicate is computed in exactly one place in the whole repository, as a
+template expression:
 
 ```
-$ npx tsc --showConfig -p tsconfig.demo.json | python3 -c "import json,sys; print(json.load(sys.stdin)['compilerOptions']['paths'])"
-… "@mkbabb/value.js": ["./dist/index.d.ts"],
-   "@mkbabb/value.js/color":     ["./dist/subpaths/color.d.ts"],
-   "@mkbabb/value.js/parsing":   ["./dist/subpaths/parsing.d.ts"],
-   "@mkbabb/value.js/math":      ["./dist/subpaths/math.d.ts"],
-   "@mkbabb/value.js/easing":    ["./dist/subpaths/easing.d.ts"],
-   "@mkbabb/value.js/units":     ["./dist/subpaths/units.d.ts"],
-   "@mkbabb/value.js/transform": ["./dist/subpaths/transform.d.ts"],
-   "@mkbabb/value.js/quantize":  ["./dist/subpaths/quantize.d.ts"]
+$ grep -rn 'userSlug ===\|isOwned' demo --include='*.vue' --include='*.ts' | grep -v 'PaletteCardMenu\|isOwned?:'
+demo/palettes/BrowsePane.vue:99:   :is-owned="palette.userSlug === pm.userSlug.value"
+demo/palettes/browser/card/PaletteCard/PaletteCard.vue:87:   :is-owned="isOwned"
 ```
 
-Three of those eight targets **do not exist on disk**:
+One derivation site; one pass-through. `AdminUsersPanel.vue:140-150` renders **remote** palettes and
+passes `is-admin` but **not** `is-owned` — so an admin looking at *their own* palette in the users
+console gets `isOwned === undefined`, and the menu renders **Report** (`:144`, `!isOwned`) while
+hiding Rename, Edit Tags, visibility and Delete. The affordance set is wrong, and nothing detects it,
+because `isOwned?: boolean | undefined` (`:210`) makes omission legal.
 
-```
-$ ls dist/index.d.ts dist/subpaths/
-ls: dist/index.d.ts: No such file or directory
-color.d.ts  css.d.ts  easing.d.ts  math.d.ts  quantize.d.ts  transform.d.ts  value.d.ts
-```
+**Mechanism.** `getPaletteKind(palette)` lives in `demo/palettes/utils.ts:22` — the domain's home for
+"what kind of palette is this". Its sibling question, "is this palette mine", has no home at all; it
+was written inline once and thereafter travelled as an optional prop.
 
-No `index.d.ts`, no `parsing.*`, no `units.*`. And the two live keys `./value` and `./css` are absent
-from `paths` — `./css` is the demo's second-most-used subpath (10 import sites).
+**Reproduction:** static, complete — the two grep hits plus `AdminUsersPanel.vue:140-150`. The
+*behavioural* consequence (an admin seeing Report on their own palette) is labelled a **HYPOTHESIS**:
+verifying it needs an authenticated admin session with an owned palette, which the local stack cannot
+serve in the `misconfigured` state.
 
-The comment at `tsconfig.demo.json:37-40` asserts the opposite of all of this:
-
-> "The value.js published surface: the bare `.` root + the 7 subpath barrels, each → its `dist/*.d.ts`
-> … TS `paths` needs an explicit per-subpath entry — there is no `.../*` wildcard because the `exports`
-> map is a **CLOSED 8-key set**. Mirrors the `vite.config.ts` runtime self-alias **generated from the
-> same map**."
-
-The Vite alias set *is* generated from the map (`vite.config.ts:41-50`) and therefore has 7 anchored
-entries with the right names. The tsconfig set is hand-maintained, has 8 with the wrong names, and
-mirrors nothing.
-
-**Why this is not currently a red build:** TypeScript falls through to *self-reference* resolution when
-no `paths` pattern matches, and that path is correct —
-
-```
-$ npx tsc --noEmit --traceResolution -p tsconfig.demo.json | grep "@mkbabb/value.js/css"
-… Module name '@mkbabb/value.js/css' was successfully resolved to
-  '/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts' with Package ID '…@4.0.0'.
-```
-
-So `/css` and `/value` typecheck correctly *by accident*, through the mechanism the `paths` block was
-written to replace. And no demo file imports bare `@mkbabb/value.js` today
-(`grep -rn 'from "@mkbabb/value\.js"' demo/ src/` → no matches), so the phantom root entry is latent.
-
-**Mechanism:** a derived artefact (the TS `paths` mirror) was hand-copied instead of generated, then
-drifted when the exports map changed, and its comment was never re-read against the map. The Vite side
-solved exactly this problem by generating; the TS side did not.
-
-**The latent bite, labelled as a HYPOTHESIS (reproduction: NONE — no such import exists today):** the
-first demo file to write `import { … } from "@mkbabb/value.js"` will typecheck *green* against a
-`paths` entry pointing at a missing `dist/index.d.ts`… no — it will fail to typecheck, because the
-target file is absent; but it will fail with a resolution error rather than the honest
-`ERR_PACKAGE_PATH_NOT_EXPORTED` the runtime would give, and the fix will look like "build dist" rather
-than "there is no root export". `/parsing` and `/units` are worse: they name subpaths the package
-never published, so their presence in `paths` documents a public API that does not exist.
-
-**Cure:** generate the TS `paths` from `package.json#exports` the way `vite.config.ts:37-50` already
-does. `tsconfig.json` cannot run code, so the honest transposition is to *delete the whole
-`@mkbabb/value.js*` block* and rely on self-reference resolution, which the trace above proves is
-already doing the work correctly for `/css` and `/value` and is by construction incapable of drifting.
-That deletes 8 hand-maintained lines and 23 lines of now-false comment, and makes exactly one
-authority — the `exports` map — govern both compile and runtime.
+**Cure:** `demo/palettes/utils.ts` gains `export function isOwnedBy(p: Palette, userSlug: string | null): boolean`
+next to `getPaletteKind`. Better still, fold both into one call — `paletteAffordances(palette, viewer)`
+returning `{ kind, isOwned, isAdmin }` — so a consumer cannot supply one and forget the others. Under
+L-10's cure the question disappears entirely: ownership becomes a predicate the descriptor filter
+evaluates once, not a prop five call sites may each drop.
 
 ---
 
-## L-6 — MINOR — no seam at the palette feature root, an elaborate seam where there is no coupling
+### L-12 — MAJOR — the degraded-backend register has THREE homes, and the one pure resolver is dev-gated and filed under `shell/dock/`
 
-The seam discipline is inverted relative to where the coupling actually is.
+`PaletteCardMenu.vue:216-217` derives `apiOffline`, then hand-spells the annotation twice
+(`:35-39`, `:56-59`). That is the third independent implementation of one concept:
 
-- `demo/palettes/browser/index.ts` — 26 lines of prose + 6 named re-export groups, guarding six
-  component sub-clusters. `demo/palettes/browser/card/index.ts` — a further 6-symbol barrel with its
-  own PI-6 rationale.
-- `demo/palettes/` root — **21 files, 2958 lines, no `index.ts`.** It holds the feature's entire shared
-  vocabulary: `types.ts`, `utils.ts`, `constants.ts`, `export.ts`, `mix.ts`, and 13 `use*.ts`
-  composables.
-- `demo/platform/transport/` — 4 files, **no `index.ts`**.
+| # | home | derivation | painted register |
+|---|---|---|---|
+| 1 | `demo/shell/dock/status-lamp.ts:46-66` `resolveLampState()` — **pure, total, unit-tested** (`test/status-lamp.test.ts`) | `switch (availability)` | returns `{variant, role, label}`; label `"backend offline — saved locally"` |
+| 2 | `demo/palettes/browser/status/ApiOfflineChip.vue:36-37` | `availability.value === "unavailable"` | scoped CSS `.api-offline-chip { font-variant: small-caps; … }`, label `"backend offline — saved locally"` |
+| 3 | `PaletteCardMenu.vue:217` | `availability.value === "unavailable"` | inline `style="font-variant: small-caps"` + `class="ml-auto fira-code text-mono-caption opacity-55 tracking-wide"`, label `"offline"` |
 
-Measured coupling: **17 modules under `demo/palettes/` reach `types` by relative climb**
-(`grep -rn 'from "\(\.\./\)*types"' demo/palettes | wc -l` → 17); `utils` has 2. Neither has a seam.
-Meanwhile `PaletteCardMenu` — a leaf three directories deep — writes `../../../types`,
-`../../../utils`, and `../../../../platform/transport/useApiClient`.
+```
+$ grep -rn '=== "unavailable"' demo --include='*.ts' --include='*.vue'
+demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue:217
+demo/palettes/browser/status/ApiOfflineChip.vue:36
+```
 
-**Mechanism:** the barrel was applied to the *visible* surface (components, which look like an API) and
-not to the *load-bearing* one (the domain vocabulary, which everything actually imports). Combined with
-L-2 (nothing enforces either), the result is that the guarded surface is the one nobody crosses.
+(`status-lamp.ts` is the third derivation, spelled as a `case` rather than an `===`.)
 
-**Cure:** invert it. `demo/palettes/index.ts` exporting `{Palette, PaletteColor, PaletteVersion,
-PaletteKind, getPaletteKind, createSlug, …}` is the seam that 17 modules need;
-`demo/platform/transport/index.ts` exporting `{useApiClient, provideApiClient, type ApiClient,
-type ApiAvailability}` is the seam that turns edge #4 above from a raw-file reach into a platform-API
-reach. The component-level barrels can then thin out — `card/index.ts` exists to be reached from
-outside `card/`, and `PaletteCardMenu` is reached only by its sibling `PaletteCard.vue` (`:176`,
-`import PaletteCardMenu from "./PaletteCardMenu.vue"`), which is correct and needs no barrel.
+The resolver that *should* be the single home cannot be: `resolveLampState(availability, isDev)`
+returns `null` unconditionally when `!isDev` (`status-lamp.ts:52` — *"the lamp ships dark in
+production"*), and it lives under `demo/shell/dock/`, so a *feature* leaf reaching it would be a
+feature → shell edge. The pure, tested, canonical encoding of the concept is structurally unreachable
+from the two surfaces that need it in production.
 
-Also on this axis: `useApiClient.ts:22-23` writes `from "./client.js"` / `"./availability.js"`
-(extensioned) while `PaletteCardMenu.vue:177-190` writes extensionless. Two module-specifier
-conventions in one dependency chain; pick one.
+Note also the **ownership inversion** in home #2: `ApiOfflineChip` — a pure `platform/transport`
+affordance with zero palette content — lives at `demo/palettes/browser/status/`, inside the palettes
+feature, and is re-exported from the feature's public seam (`browser/index.ts:46`). Its own barrel
+comment records that its sibling already migrated *out* to the shell (`status/index.ts:3-5`,
+"DevMisconfigBanner DIED at T.W6 · W6-6 … re-homed as the dock status lamp"). Half the concept moved;
+half stayed; a third copy was then written in this menu.
 
----
+**Reproduction:** the grep above + the three cited files. Static and complete.
 
-## L-7 — MINOR — the availability latch is consulted ad hoc per item; there is no home for "which actions are network-bound"
-
-`PaletteCardMenu.vue:216-217` injects `availability` and derives `apiOffline`. It is applied to exactly
-**two** of the menu's items — Publish (`:30`) and the visibility flip (`:51`).
-
-Not gated, though every one of them issues a network call (`demo/palettes/api/palettes.ts`,
-`versions.ts`, `admin-palettes.ts`): `save`, `fork`, `rename`, `editTags`, `versions`, `delete`,
-`flag`, `feature`, `adminDelete`. Nine actions.
-
-**Mechanism:** "is this action network-bound" is a property of the action, but the action has no
-descriptor (see L-3) — so the property is re-decided by hand at each `<DropdownMenuItem>` and was
-decided nine times by omission.
-
-**Reproduction: NONE — labelled a HYPOTHESIS on the behavioural claim.** Verifying that e.g. `fork`
-actually fails while offline needs a live card, and §L-9 shows no card renders in any captured state.
-The *structural* claim — that only 2 of 11 network-bound items read the latch — is direct from the
-template and is not a hypothesis.
-
-**Cure:** the L-3 action descriptor carries it: `{ id, label, icon, requiresNetwork, visibleWhen }`.
-The template becomes one `v-for` over the visible descriptors, `:disabled="a.requiresNetwork &&
-apiOffline"` written once, and the K-INV5 small-caps annotation rendered once from a single
-`degradedNote(a)`. 228 lines of template collapse to roughly 30, and the offline policy stops being
-copy-paste.
+**Cure:** one home at the concept's own layer — `demo/platform/transport/degraded.ts`, exporting the
+un-gated resolver `describeAvailability(a): { role, short, long } | null` (`short: "offline"`,
+`long: "backend offline — saved locally"`). `status-lamp.ts` becomes `describeAvailability(a) && isDev
+? … : null` (the dev gate is the *dock's* policy, not the concept's). `ApiOfflineChip` moves to
+`demo/platform/transport/ApiOfflineChip.vue` and consumes it. This menu consumes `short` through the
+L-10 descriptor's `needsNetwork` row, rendered once. `font-variant: small-caps` becomes a glass-ui
+token, killing the inline `style=` (edict 5).
 
 ---
 
-## L-8 — MINOR — per-instance styling at scale; the item recipe is re-declared 11 times and two inline `style=` overrides carry it
+### L-13 — MINOR — the remote/local discriminator is spelled two ways inside this one file
 
-Edict 5 is "style at the shadcn/glass root component level, never per-instance overrides."
+Six items gate on `paletteKind` (`:16, :28, :49, :64, :74, :84, :134, :144, :153`). One does not:
 
-- `class="gap-2 cursor-pointer"` appears on **11 of the 11** `DropdownMenuItem`/`DropdownMenuSubTrigger`
-  elements in this file (`:17`, `:29`, `:50`, `:65`, `:75`, `:85`, `:95`, `:108`, `:135`, `:145`,
-  `:158`, `:164`). A class applied to 100% of instances of a component is that component's root
-  styling, misfiled.
-- `style="font-variant: small-caps"` — raw inline style, `:38` and `:58`. Not a token, not a class, not
-  overridable by theme.
-- The K-INV5 annotation recipe `class="ml-auto fira-code text-mono-caption opacity-55 tracking-wide"`
-  is spelled twice verbatim (`:37`, `:57`) with the inline style attached to each.
+```
+PaletteCardMenu.vue:94:  v-if="!palette.isLocal && (palette.versionCount ?? 0) > 1"
+```
 
-**Mechanism:** glass-ui's `DropdownMenuItem` root does not carry the icon-gap/pointer recipe, so every
-call site re-declares it; and the K-INV5 degraded-state annotation — a *design-system concept* with a
-named invariant — has no primitive, so it is hand-assembled per use.
+`getPaletteKind` (`demo/palettes/utils.ts:22`) is *defined* as `if (!palette.isLocal) return "remote"`,
+so `!palette.isLocal` and `paletteKind === "remote"` are the same predicate — written both ways, six
+lines apart, in a file whose entire job is to branch on that predicate. Any future refinement of
+`getPaletteKind` (a fourth kind, a server-side `isLocal` change) silently skips the Versions row.
 
-**Cure:** `gap-2 cursor-pointer` moves into glass-ui's `DropdownMenuItem` root (edict 4: it belongs
-upstream, and every other consumer in the constellation wants it too). The annotation becomes a
-glass-ui `DropdownMenuShortcut` variant — **that primitive already exists and is already exported**
-(`node_modules/@mkbabb/glass-ui/dist/components/dropdown-menu/index.d.ts`, `DropdownMenuShortcut`) and
-is precisely the "right-aligned muted trailing text" slot this file is hand-rolling with `ml-auto`.
-Reusing it satisfies edict 4's "reuse existing component-type names" exactly. `font-variant: small-caps`
-becomes a token in glass-ui's dropdown styles, not an inline attribute.
+**Reproduction:** static — `:94` vs `utils.ts:22-30`.
+
+**Cure:** `paletteKind === "remote" && (palette.versionCount ?? 0) > 1`. Under L-10 it becomes a
+`kinds: ["remote"]` field on the descriptor and the question cannot recur.
 
 ---
 
-## L-9 — INFO — the visual audit contains ZERO evidence about this component; all 60 captures rendered the empty/unreachable state
+### L-14 — MINOR — the visibility domain has arity 3 at the API and the type, arity 2 at every UI seam, with the narrowing performed by an ad-hoc expression in this leaf
 
-I read `docs/tranches/V/megatranche/audit/visual/REPORT.md`, the `REPORT.json` rows for `/#/palettes`
-and `/#/browse` across all four matrices, and the screenshots
-`shots/safari-desktop-light/browse.png` and `shots/safari-desktop-dark/palettes.png`.
+```
+api/src/modules/palette/model.ts:19   export const PALETTE_VISIBILITIES = ["public", "unlisted", "private"] as const;
+demo/palettes/types.ts:40             visibility?: "public" | "unlisted" | "private";
+PaletteCardMenu.vue:222               const isPublic = computed(() => palette.visibility !== "private");
+PaletteCard.vue:212                   setVisibility: [palette: Palette, visibility: "public" | "private"];
+```
 
-The screenshots show **"The commons is unreachable. / Failed to load palettes"** on Browse and
-**"· EMPTY PLATE · / No saved palettes yet."** on My Palettes. The JSON corroborates:
-`/#/palettes` `bodyTextLength: 237`, `/#/browse` `bodyTextLength: 280`, and neither route's
-`smallTapTargets` list contains the `"Palette menu"` accessible name that `PaletteCard.vue:98` sets
-on the menu trigger.
+Three states declared; the menu collapses them with `!== "private"`, so an `unlisted` palette is
+annotated **"public"** (`:59`) and offered **"Make private"** (`:55`) — the `unlisted` state is
+unnameable and unreachable from the UI, and the flip is a one-way trapdoor out of it. There is also a
+*fourth* spelling of the same fact on the wire: `Palette.published?: boolean`, documented at
+`types.ts:47-50` as *"true ⟺ visibility === 'public'"* — which **disagrees** with this menu's
+predicate exactly on `unlisted`. Its only consumer is a patch-merge (`useBrowsePalettes.ts:205`).
 
-**No `PaletteCard` — and therefore no `PaletteCardMenu` — exists in any of the 60 captures.**
+Mitigating (checked, and it is why this is MINOR not MAJOR): the demo's transport exposes only
+`publishPalette` / `unpublishPalette` (`demo/palettes/api/palettes.ts:112,129`), so no demo path can
+*produce* `unlisted` today.
 
-Two consequences worth recording for the formation:
+**Reproduction: NONE — labelled a HYPOTHESIS** on the mis-annotation, since no `unlisted` row can be
+produced through the demo. The *structural* claim (three declarations, two UI arities, four spellings)
+is direct from the four cited lines.
 
-1. Any statement of the form "PaletteCardMenu renders correctly per the visual matrix" is unfounded.
-   The matrix is silent on this component.
-2. The irony is load-bearing: the state the matrix *did* capture is API-offline, which is exactly the
-   state `PaletteCardMenu:36-39` and `:56-59` were built to annotate. The K-INV5 "offline" affordance
-   is unobserved in the one scenario that would exercise it, because when the API is down the browse
-   list renders an error panel instead of cards — so the per-item offline annotation is only ever
-   reachable on `/#/palettes` with pre-existing *local* palettes, a state no capture seeded.
+**Cure:** one declaration of the domain, in `demo/palettes/types.ts`, as
+`export type PaletteVisibility = "public" | "unlisted" | "private"`, with the UI predicate named once
+in `utils.ts` (`export const isPubliclyVisible = (p: Palette) => p.visibility === "public"`). Delete
+`published` from the demo type — a derived field that can disagree with its own source is a type-lie
+in the shape edict 2 bans. Either the UI gains the third state or the API stops offering it; the one
+outcome not available is the current one, where the type says three and the instrument says two.
 
-**Cure (evidence, not code):** the matrix needs a seeded fixture state — either a local-storage
-pre-seed of 2–3 saved palettes before capture, or an API-up matrix — otherwise the palette feature,
-which is ~84 files and the largest in `demo/`, is entirely unaudited visually.
+---
+
+### L-15 — MAJOR — the `demo/ui/` alias layer forces the glass-ui ROOT barrel: 234,309 bytes of a 660,096-byte glass-ui graph, on a route that already loads twelve granular subpath chunks
+
+pass-1 measured this with `esbuild` on a synthetic entry and got +969 bytes, honestly calling it
+MINOR. That measurement understates it, because it bundled one component in isolation. Measured
+instead **on the live app**, `probe-L2-glass-chunks.mjs` on `/#/palettes`
+(`probe-L2-glass-chunks-results.json`):
+
+```json
+{
+  "@mkbabb_glass-ui.js":               234309,     ← the ROOT barrel
+  "@mkbabb_glass-ui_aurora.js":        202667,
+  "@mkbabb_glass-ui_blob.js":          104669,
+  "@mkbabb_glass-ui_dock.js":           45241,
+  "@mkbabb_glass-ui_forms.js":          19719,
+  "@mkbabb_glass-ui_search.js":         16469,
+  "@mkbabb_glass-ui_tabs.js":           11259,
+  "@mkbabb_glass-ui_motion.js":          8322,
+  "@mkbabb_glass-ui_watercolor-dot.js":  5128,
+  "@mkbabb_glass-ui_dom.js":             4688,
+  "@mkbabb_glass-ui_color.js":           3084,
+  "@mkbabb_glass-ui_dark.js":            2464,
+  "@mkbabb_glass-ui_dialog.js":          2077,
+  "totalBytes": 660096
+}
+```
+
+Two facts land at once:
+
+1. **The root barrel is 35.5% of the whole glass-ui graph on this route** — and the demo pulls it
+   because `demo/ui/*/index.ts` re-exports from the bare `"@mkbabb/glass-ui"` specifier, 18 barrels
+   out of 19.
+2. **Twelve granular subpath chunks are in the same page.** The dual path is not theoretical or
+   source-only — it is *simultaneously live at runtime*. The same page reaches glass-ui both ways.
+
+And there is no `@mkbabb_glass-ui_dropdown-menu.js` chunk anywhere in the graph, although glass-ui
+publishes the key and it is **43× smaller** than the root:
+
+```
+$ ls -la node_modules/@mkbabb/glass-ui/dist/{glass-ui,dropdown-menu}.js
+25239  glass-ui.js
+  586  dropdown-menu.js
+$ cat node_modules/@mkbabb/glass-ui/dist/dropdown-menu.js   # exports all 14 names this file imports
+export { l as DropdownMenu, n as DropdownMenuCheckboxItem, i as DropdownMenuContent, … }
+```
+
+The surface is byte-for-byte the one `PaletteCardMenu.vue:180-190` asks for.
+
+**Mechanism.** The alias layer is shadcn-vue sediment; when the implementations were replaced by
+glass-ui re-exports, the *specifier* was not revisited, so 90 import sites inherited the widest
+possible reach. `input/index.ts` proves the granular idiom was known — it was simply applied once.
+
+**Cure (unchanged from pass-1, now with a real number behind it):** delete `demo/ui/` and rewrite the
+90 sites to glass-ui subpaths. `PaletteCardMenu.vue` becomes
+`import { … } from "@mkbabb/glass-ui/dropdown-menu"`. Nineteen modules disappear, edict 4 becomes
+structurally true, and the 234 kB root-barrel chunk leaves the graph.
+
+---
+
+### L-16 — MINOR — two module-specifier conventions and two barrel conventions in one dependency chain
+
+- `useApiClient.ts:22-23` writes `from "./client.js"` / `"./availability.js"` (extensioned);
+  `PaletteCardMenu.vue:177-190` writes extensionless. One chain, two conventions.
+- `demo/palettes/browser/card/index.ts` exports six components by name and **does not export
+  `PaletteCardMenu`** — correct, since its only consumer is its sibling. But
+  `demo/palettes/browser/status/index.ts` exports `ApiOfflineChip` whose only consumer is *also* an
+  internal sibling (`CurrentPaletteEditor.vue:193`, by raw relative import, bypassing the barrel it
+  is exported from). The barrel exists, is re-exported from the feature seam
+  (`browser/index.ts:46`), and is used by nobody, including its own neighbour.
+
+**Reproduction:** static; the four cited lines.
+
+**Cure:** one convention (extensionless, matching 90+% of the tree). Barrels only where a boundary is
+actually crossed — which, per pass-1's L-6, is the *feature root*, not the component clusters.
+
+---
+
+## Part III — carried findings
+
+pass-1's **L-1 / L-2 / L-3 / L-4 / L-5 / L-6 / L-7 / L-8 / L-9** all stand, re-verified where
+Part I says so. Two carry-forward notes:
+
+- **L-3 is upgraded in consequence, not in kind.** The untyped `action: string` is the same mechanism
+  that produces L-10; the closed-union cure pass-1 proposed is a *necessary but insufficient* half.
+  Typing the emit makes `copyAll` a compile error; it does **not** make an unwired `delete` one.
+  Only the handler-map inversion (L-10) does both.
+- **L-7 (only 2 of 11 network-bound items read the availability latch)** is now partly *reproduced*
+  rather than hypothesised: the Mix probe shows Publish and Delete rendered **enabled**
+  (`"disabled": false`) while the transport is in a degraded state — because `MixSourceSelector`'s
+  card is `saved`-kind, and the latch is applied only on the `saved`-Publish item (`:30`) and the
+  `remote`-owned visibility item (`:51`). The Delete/Rename items never consult it at all.
 
 ---
 
 ## Greenfield module lattice
 
-Stated concretely, as commissioned. Five roles, one legal direction of dependency, no exceptions:
+pass-1's five-role lattice is right and I adopt it. Two amendments this pass's findings force:
 
 ```
-shell/            router, dock, panes — the only role allowed to compose features
-  └── palettes/                                   ← feature; owns the palette DOMAIN
-        index.ts          Palette, PaletteColor, PaletteKind, getPaletteKind, createSlug
-        api/              endpoints (already correct — keep as is)
-        export/           index.ts = the byte-exact serializers + download effect (L-1)
-        browser/
-          card/
-            actions.ts    PaletteCardAction + descriptors (L-3, L-7)
-            PaletteCard.vue
-            PaletteCardMenu.vue   ← v-for over descriptors; no literals, no per-item policy
-  └── platform/                                   ← cross-feature infrastructure
-        transport/index.ts   useApiClient, ApiClient, ApiAvailability   (L-6)
-        auth/index.ts
-        storage/index.ts
+shell/            router, dock, panes — the only role that composes features
+  └── palettes/                                        ← feature; owns the palette DOMAIN
+        index.ts     Palette, PaletteColor, PaletteVisibility, PaletteKind,
+                     getPaletteKind, isOwnedBy, isPubliclyVisible, createSlug   (L-11, L-13, L-14)
+        api/         endpoints
+        export/      index.ts = byte-exact serializers + the one download effect (pass-1 L-1)
+        browser/card/
+          actions.ts     PALETTE_ACTIONS descriptors + PaletteCardAction union  (L-10)
+          PaletteCard.vue        props: palette, viewer, actions: Partial<Record<…>>
+          PaletteCardMenu.vue    v-for over PALETTE_ACTIONS ∩ actions — no literals,
+                                 no per-item policy, no ownership prop, ~30 template lines
+  └── platform/                                        ← cross-feature infrastructure
+        transport/index.ts   useApiClient, ApiClient, ApiAvailability,
+                             describeAvailability, ApiOfflineChip.vue           (L-12)
+        auth/index.ts · storage/index.ts
   └── shared/       role-free utilities
-  └── (no demo/ui/ — glass-ui subpaths are consumed directly)        (L-4)
+  └── (no demo/ui/ — glass-ui subpaths consumed directly)                       (L-15)
                     ↓
-@mkbabb/glass-ui/<subpath>            design system — primitives + variants live HERE
+@mkbabb/glass-ui/<subpath>        design system — primitives + variants live HERE
                     ↓
-@mkbabb/value.js/<exports-map-key>    library — reached ONLY through the exports map,
-                                      with tsconfig paths deleted in favour of
-                                      self-reference so one authority governs both
-                                      compile and runtime                (L-5)
+@mkbabb/value.js/<exports key>    library — self-reference resolution only;
+                                  tsconfig `paths` block deleted (pass-1 L-5, Part I)
 ```
 
-Edges, declared once and enforced by role (not by path glob, so a rename cannot kill them — L-2):
+**Amendment 1 — the descriptor is the keystone.** `actions.ts` is not one cure among many: it
+dissolves L-10 (the disjoint authorities), L-11 (`isOwned` as a droppable prop), L-13 (the second
+discriminator spelling), pass-1's L-3 (the erased vocabulary) and L-7 (per-item offline policy), and it
+collapses ~180 of this file's 228 lines. Nothing else in this report has that reach.
 
-| from | may import | must never import |
-|---|---|---|
-| `shell` | feature, platform, shared, glass-ui, value.js | — |
-| feature (`palettes`) | own subtree, platform, shared, glass-ui, value.js | `shell`, another feature |
-| `platform` | shared, value.js | any feature, `shell`, glass-ui |
-| `shared` | value.js | everything else |
-| `src/` (library) | nothing in `demo/` | glass-ui (already enforced, `eslint.config.js:206-218`) |
+**Amendment 2 — `PaletteCard` must stop being one component.** Five consumers want two different
+things: an *instrument* (Browse, Palettes, Admin) and a *thumbnail* (Mix source, Extract preview). The
+17-emit optional bag is what let one component pretend to be both, and the nested `<button>` and the
+four dead items are the receipt. The split is `PaletteCard` (takes `actions`) and
+`PaletteCardTile` (inert, no menu, no emits) sharing `PaletteColorStrip` + `PaletteCardMeta` — which
+already exist as separate files. No new abstraction is invented; an existing one is *stopped from
+overreaching*.
 
-The three changes that carry most of the value, in order: **(1)** delete `demo/palettes/export.ts` +
-`usePaletteExport.ts` and route the menu to `export/` — this is the BLOCKER and it is a deletion, not
-a build; **(2)** `actions.ts` — one descriptor list dissolves L-3, L-7, and ~180 of this file's 228
-template lines; **(3)** delete `demo/ui/` and re-encode the eslint boundary by role — this makes
-edicts 2 and 4 structurally true instead of documentary.
+**Order of value:**
+1. **L-10 + pass-1 L-3** — `actions.ts` and the handler-map inversion. Fixes a user-visible dead UI.
+2. **pass-1 L-1** — delete `demo/palettes/export.ts` + `usePaletteExport.ts`, route to `export/`. A
+   deletion, not a build, and it moves 914 lines of contract code from test-only to shipping.
+3. **L-15 + pass-1 L-2** — delete `demo/ui/`, re-encode the eslint boundary by role. Makes edicts 2
+   and 4 structural rather than documentary, and removes a 234 kB chunk.
 
 ---
 
-## Negative results (things this seat checked and did NOT find)
+## Negative results (checked this pass, not found)
 
-Recorded so the absence is evidence rather than silence:
+- **Two value.js instances in the page** — checked, **refuted** by network capture (Part I). One
+  instance, the checkout's `dist/`.
+- **Deep-path forgery of the value.js public API** — none, anywhere in `demo/`. Every one of the 50
+  import sites uses a live `exports` key: `color`×25, `css`×10, `math`×6, `easing`×5, `quantize`×4.
+  Zero bare-root imports; zero `src/` reaches.
+- **Raw `.vue` reaches into `palettes/browser/**` from outside the feature** — zero
+  (`grep -rn 'palettes/browser/[a-z]*/[A-Za-z]*\.vue' demo | grep -v '^demo/palettes/browser/'` → no
+  hits). The barrel discipline is *honoured in practice* even though pass-1 proved nothing enforces it.
+- **`verbatimModuleSyntax`** — clean; `:177`/`:178` are `import type`, all others are value imports.
+- **Vue 3.5 idioms** — `const { palette } = defineProps<…>()` (`:206`) is the reactive destructure; no
+  `defineModel`, so no stale-read hazard and no `shallowRef` obligation; no template refs, so no
+  `useTemplateRef` obligation.
+- **God module** — `PaletteCardMenu.vue` is not one (228 lines, 53 script, two `computed`s, no
+  business logic). Its defect is under-specification, not accumulation. `demo/palettes/utils.ts` (30
+  lines) and `types.ts` (pure interfaces) are likewise clean.
+- **`useHeightTransition` / `useHoverPopover` duplication** — one home each under
+  `demo/palettes/browser/card/composables/`; no second implementation.
+- **Page errors on the probed route** — `"pageErrors": []` in the Mix run; the only console output is
+  the deliberate S.W0-1 misconfiguration throw.
 
-- **`verbatimModuleSyntax`** — clean. Both type-only imports are `import type` (`:177`, `:178`).
-- **Vue 3.5 idioms (edict 7)** — `const { palette } = defineProps<…>()` (`:206`) is the reactive-props
-  destructure. No `defineModel` here, so no stale-read hazard, so no `shallowRef` obligation.
-  `useTemplateRef` not needed — no template refs.
-- **Deep-path forgery of the value.js public API** — none. This component and its entire
-  first-order cone import zero value.js symbols; the transitive reach through glass-ui uses published
-  subpath keys only (§0).
-- **The named historical suspects** — `ActionBarLayer`'s local `useLayerTransition`
-  (`demo/shell/dock/layers/ActionBarLayer.vue:63`) and the three parallel `useDark` stores
-  (`demo/scenes/about/markdown/composables/useMarkdownHighlighting.ts:76`) are both real and both
-  **outside this component's cone**; they belong to the `shell` and `scenes` seats, not this one.
-  `useHeightTransition` — checked for duplication, has exactly one home
-  (`demo/palettes/browser/card/composables/useHeightTransition.ts`), no second implementation.
-- **God module** — `PaletteCardMenu.vue` is not one: 228 lines, 53 of them script, one injected seam,
-  zero business logic beyond two `computed` predicates. Its defect is the opposite of a god module —
-  it is *under*-specified, holding a vocabulary that should be typed and a policy that should be data.
-  `demo/palettes/utils.ts` (30 lines, 3 exports) and `demo/palettes/types.ts` (pure interfaces) are
-  likewise clean.
-- **Console/page errors, horizontal overflow, dark-class, main-count** on `/#/palettes` and `/#/browse`
-  — all zero in all four matrices (`REPORT.md` per-capture table, rows 120-121, 135-136, 150-151,
-  165-166). Those clean rows describe the empty state only (L-9).
+---
+
+## Probes in this directory
+
+| file | what it establishes |
+|---|---|
+| `probe-L2-mix-deadmenu.mjs` / `-results.json` | L-10: four enabled dead menu items + the nested `<button>`, live |
+| `probe-L2-glass-chunks.mjs` / `-results.json` | L-15: the 234,309-byte root barrel inside a 660,096-byte graph, beside 12 subpath chunks |
+| `probe-L2-value-instances.mjs` / `-results.json` | Part I refutation: exactly one value.js instance, from the checkout's `dist/` |
+| `evidence/pass2-L-mix-source-menu.png` | the Mix source card carrying the instrument menu it has no handlers for |

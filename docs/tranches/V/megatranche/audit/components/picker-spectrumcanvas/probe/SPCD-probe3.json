@@ -1,0 +1,186 @@
+{
+  "spaceInvariance": [
+    {
+      "tag": "initial",
+      "space": "Lab",
+      "bg": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+      "aria": "Color spectrum, saturation 63%, lightness 100%",
+      "readout": "92.0%,88.8,20.0",
+      "dotLeftTop": [
+        "62.7886%",
+        "0%"
+      ]
+    },
+    {
+      "tag": "OKLCH",
+      "space": "OKLCh",
+      "bg": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+      "aria": "Color spectrum, saturation 63%, lightness 100%",
+      "readout": "95.8%,0.3,9.8deg",
+      "dotLeftTop": [
+        "62.7886%",
+        "0%"
+      ]
+    },
+    {
+      "tag": "HSL",
+      "space": "HSL",
+      "bg": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+      "aria": "Color spectrum, saturation 0%, lightness 100%",
+      "readout": "346deg,0%,100%",
+      "dotLeftTop": [
+        "5.55112e-14%",
+        "0%"
+      ]
+    },
+    {
+      "tag": "sRGB",
+      "err": "Error: page.evaluate: TypeError: Failed to execute 'getComputedStyle' on 'Window': parameter 1 is no"
+    },
+    {
+      "tag": "XYZ",
+      "err": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[aria-"
+    }
+  ],
+  "costPlate": {
+    "wall_ms": 6732,
+    "moves": 80,
+    "LayoutCount": 221,
+    "RecalcStyleCount": 1152,
+    "LayoutDuration_ms": 67.1,
+    "RecalcStyleDuration_ms": 1768.9,
+    "ScriptDuration_ms": 58.5
+  },
+  "costSlider": {
+    "wall_ms": 5477,
+    "moves": 80,
+    "LayoutCount": 151,
+    "RecalcStyleCount": 746,
+    "LayoutDuration_ms": 43.8,
+    "RecalcStyleDuration_ms": 1200.1,
+    "ScriptDuration_ms": 52.1
+  },
+  "costIdleMatched": {
+    "wall_ms": 6734,
+    "LayoutCount": 0,
+    "RecalcStyleCount": 344,
+    "RecalcStyleDuration_ms": 122.8,
+    "ScriptDuration_ms": 33.2
+  },
+  "cardChain": [
+    {
+      "tag": "DIV",
+      "cls": "spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] l",
+      "shadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px"
+    },
+    {
+      "tag": "FIGURE",
+      "cls": "m-0 min-w-0 w-full flex flex-col",
+      "shadow": "none"
+    },
+    {
+      "tag": "DIV",
+      "cls": "flex flex-col gap-3",
+      "shadow": "none"
+    },
+    {
+      "tag": "DIV",
+      "cls": "card-content z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] ",
+      "shadow": "none"
+    },
+    {
+      "tag": "DIV",
+      "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+      "shadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+    },
+    {
+      "tag": "DIV",
+      "cls": "pane-shell flex flex-col relative min-w-0 w-full mx-auto h-auto max-h-",
+      "shadow": "none"
+    },
+    {
+      "tag": "DIV",
+      "cls": "pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col",
+      "shadow": "none"
+    },
+    {
+      "tag": "DIV",
+      "cls": "pane-container pane-container--dual",
+      "shadow": "none"
+    }
+  ],
+  "matrices": {
+    "light": {
+      "bgImage": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "forcedAdjust": "auto",
+      "animation": "0.42s cubic-bezier(0.4, 0, 0.2, 1) 0.18s both field-paint-in-ad23e00d",
+      "dotBg": "lab(92 88.8 20)",
+      "dotBorder": "2px solid rgba(0, 0, 0, 0.8)",
+      "dotFilter": "url(\"#watercolor-filter-v-7\")",
+      "dotTransform": "matrix(1.00722, -0.000613604, -0.0198295, 1.0121, 0, 0)",
+      "dotTranslate": "-50% -50%",
+      "rect": {
+        "w": 469.1,
+        "h": 224
+      }
+    },
+    "dark": {
+      "bgImage": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "forcedAdjust": "auto",
+      "animation": "0.42s cubic-bezier(0.4, 0, 0.2, 1) 0.18s both field-paint-in-ad23e00d",
+      "dotBg": "lab(92 88.8 20)",
+      "dotBorder": "2px solid rgba(0, 0, 0, 0.8)",
+      "dotFilter": "url(\"#watercolor-filter-v-7\")",
+      "dotTransform": "matrix(1.00569, 0.00151627, -0.0143681, 1.01236, 0, 0)",
+      "dotTranslate": "-50% -50%",
+      "rect": {
+        "w": 469.1,
+        "h": 224
+      }
+    },
+    "forced-colors": {
+      "bgImage": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "forcedAdjust": "none",
+      "animation": "0.42s cubic-bezier(0.4, 0, 0.2, 1) 0.18s both field-paint-in-ad23e00d",
+      "dotBg": "lab(92 88.8 20)",
+      "dotBorder": "2px solid rgba(0, 0, 0, 0.8)",
+      "dotFilter": "url(\"#watercolor-filter-v-7\")",
+      "dotTransform": "matrix(1.00837, 0.00512918, -0.0184832, 1.0115, 0, 0)",
+      "dotTranslate": "-50% -50%",
+      "rect": {
+        "w": 469.1,
+        "h": 224
+      }
+    },
+    "reduced-motion": {
+      "bgImage": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+      "bgColor": "rgba(0, 0, 0, 0)",
+      "forcedAdjust": "auto",
+      "animation": "1e-05s",
+      "dotBg": "lab(92 88.8 20)",
+      "dotBorder": "2px solid rgba(0, 0, 0, 0.8)",
+      "dotFilter": "url(\"#watercolor-filter-v-7\")",
+      "dotTransform": "none",
+      "dotTranslate": "-50% -50%",
+      "rect": {
+        "w": 469.1,
+        "h": 224
+      }
+    }
+  },
+  "zoom200": {
+    "plate": {
+      "w": 732,
+      "h": 448,
+      "aspect": 1.634
+    },
+    "dot": {
+      "w": 56.5,
+      "h": 57.9
+    },
+    "docOverflowX": 0
+  }
+}

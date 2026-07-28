@@ -314,6 +314,13 @@ kill of 07-24). Binding on every session of this formation:
    queue the exact resume in STATE.md §RESUME in the same turn. Every incomplete row must be
    owned by an ACTIVE or QUEUED resume at all times; work is DONE only when its ledger row reads
    ADJUDICATED or ON-DISK.
+9. **The orchestrating shell never changes directory while workflows run, and workflow child
+   paths are ABSOLUTE.** Measured failure (2026-07-28): a nested `workflow({scriptPath})`
+   resolves a relative path against the HARNESS working directory, which the root shell's `cd`
+   mutates for every running band — one mid-run `cd` into the megatranche dir instantly killed
+   24 palettes children with a doubled path and would have done the same to every band's
+   subsequent chunk. Cure at root: `SCRIPT` constants in orchestrators are absolute
+   (`area-orchestrator.js` fixed 2026-07-28); root-shell commands use absolute paths.
 
 ## L-16 — Evidence modes never impersonate one another
 

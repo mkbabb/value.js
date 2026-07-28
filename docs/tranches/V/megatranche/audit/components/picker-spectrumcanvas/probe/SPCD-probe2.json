@@ -1,0 +1,96 @@
+{
+  "colorTruth": {
+    "dotDeclaredFill": "lab(92 88.8 20)",
+    "dotFillResolvedSrgb": [
+      255,
+      143,
+      200
+    ],
+    "hueEndpoint": "rgb(255, 0, 59)",
+    "s": 0.6279,
+    "v": 1,
+    "fieldSrgbUnderMarker": [
+      255,
+      95,
+      132
+    ],
+    "deltaRGB": [
+      0,
+      48,
+      68
+    ]
+  },
+  "spaceInvariance": [
+    {
+      "tag": "initial",
+      "spaceLabel": "Lab",
+      "bg": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+      "aria": "Color spectrum, saturation 63%, lightness 100%",
+      "readout": "92.0%,88.8,20.0"
+    },
+    {
+      "tag": "OKLCH",
+      "err": "Error: locator.click: Error: strict mode violation: locator('[aria-label=\"Select color space\"]') resolved to 2 elements:\n    1) <button dir="
+    },
+    {
+      "tag": "HSL",
+      "err": "Error: locator.click: Error: strict mode violation: locator('[aria-label=\"Select color space\"]') resolved to 2 elements:\n    1) <button dir="
+    },
+    {
+      "tag": "RGB",
+      "err": "Error: locator.click: Error: strict mode violation: locator('[aria-label=\"Select color space\"]') resolved to 2 elements:\n    1) <button dir="
+    }
+  ],
+  "idleCost3s": {
+    "LayoutCount": 0,
+    "RecalcStyleCount": 95,
+    "ScriptDuration_ms": 12.8
+  },
+  "dragCost": {
+    "moves": 120,
+    "LayoutCount": 347,
+    "RecalcStyleCount": 1765,
+    "LayoutDuration_ms": 103.3,
+    "RecalcStyleDuration_ms": 2837.4,
+    "ScriptDuration_ms": 87.2
+  },
+  "dotProps": {
+    "translate": "-50% -50%",
+    "transform": "matrix(1.00002, -0.0374613, 0.00888244, 1.0159, 0, 0)",
+    "pointerEvents": "none",
+    "boxShadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -2px 4px 0px inset, color(srgb 0.11 0.098 0.09 / 0.1) 0px 2px 6px 0px",
+    "border": "2px solid rgba(255, 255, 255, 0.9)",
+    "width": "28px",
+    "height": "28px",
+    "cardClass": "card-content z-1 flex flex-col w-full px-[clamp(0.75rem,4cqi,1.5rem)] pt-3 pb-[clamp(1rem,",
+    "cardShadow": "none"
+  },
+  "mobile390": {
+    "w": 327.38,
+    "h": 160,
+    "aspect": 2.046,
+    "hCss": "160px",
+    "touchAction": "none"
+  },
+  "mobile320": {
+    "w": 262,
+    "h": 113.59,
+    "aspect": 2.306,
+    "hCss": "113.594px",
+    "touchAction": "none"
+  },
+  "short900x500": {
+    "w": 469.06,
+    "h": 100,
+    "aspect": 4.691,
+    "hCss": "100px",
+    "touchAction": "none"
+  },
+  "justUnderLg1023": {
+    "w": 469.06,
+    "h": 160,
+    "aspect": 2.932,
+    "hCss": "160px",
+    "touchAction": "none"
+  }
+}

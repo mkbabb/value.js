@@ -1,496 +1,419 @@
-# CHALLENGE-D — `demo/workbenches/mix/MixResultDisplay.vue` — the design is wrong (run 2)
+# CHALLENGE-D — `demo/workbenches/mix/MixResultDisplay.vue` — the design is wrong (run 3)
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the tier this seat was spawned
-with. The declaration is explicit, not inherited.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the tier this seat was
+spawned with. The declaration is explicit, not inherited.
 
 ---
 
 ## 0. Verdict
 
-**DEFECTIVE.** A prior run of this seat is preserved verbatim at `challenge-D-design.r1-prior.md`
-(seventeen findings, D-1…D-17). This run re-derived the component independently in **WebKit** across
-**seven render contexts**, and it does three things to that record:
+**DEFECTIVE.** Two prior runs of this seat are preserved verbatim at `challenge-D-design.r1-prior.md`
+(D-1…D-17) and `challenge-D-design.r2-prior.md` (D-18…D-24 plus corrections C-1/C-2 and promotions
+P-1/P-2). This run took a deliberately different method — **it drove the component the way a user
+does**, end to end in a real browser, instead of injecting state through
+`__vueParentComponent.setupState` — and that single methodological change surfaced a defect neither
+prior run could see.
 
-1. **Corroborates** the prior's structural core with independent measurements in a second engine.
-2. **Corrects** the prior on two points — one of them load-bearing, because the prior's proposed cure
-   for its own D-3 provably would not work.
-3. **Adds seven findings** the prior did not have, and **promotes two** of the prior's hypotheses to
-   measured MAJORs.
+**Strongest defect (this run): D-25 — the result is delivered off-screen. On iPhone 14, at the moment
+the convergence completes, `0.00 px` of the 215.81 px result plate is inside the scroll viewport. On
+desktop the plate's bottom 28.5 px is clipped, which by its own box model is the action row: Copy,
+Save and Reset are sliced in half.** The user issues the pane's one verb, watches a 1.2 s narration,
+and the viewport does not change.
 
-**Strongest defect (this run): D-18 — the component's two-line `<style scoped>` block silently
-overrides the producer motion family on the same element by attribute specificity, so the plate's
-`vj-morph` arrival is a 116.0 px single-frame snap with no transform and no height morph.** This
-supersedes the prior's D-3 diagnosis and invalidates its cure.
+This run also **corrects run 2 on a load-bearing premise**: run 2 concluded the component is
+"unreachable in the shipped product and none of its design can be validated in-app," and moved to
+state injection on that basis. That is true of the *colors* branch only. **The palettes branch is
+fully live**, and every measurement in this document was taken through it — real clicks, real
+animation clock, real scroll container. State injection is precisely what hides D-25, D-26 and D-27,
+because an injected result never travels through the flow that fails.
 
-The component's own docblock (`MixResultDisplay.vue:9–18`) makes four claims — *"the announced
-destination"*, *"one surface, new content"*, *"the silhouette the pigment poured into is the
-silhouette the result wears"*, *"the swap rides `vj-morph` … the family law"*. **All four are false in
-the shipped render**, and this run measures each of them.
-
----
-
-## 1. What run 2 did differently
-
-| | run 1 (`.r1-prior.md`) | run 2 (this document) |
-|---|---|---|
-| Engine | Chromium | **WebKit** (matches the Safari audit matrix) |
-| Contexts | desktop light/dark | **7**: desktop L/D, mobile L/D (`hasTouch`), reduced-motion, forced-colors, 200 %-equivalent |
-| Ghost measurement | one 3-colour palette | single-colour **and** 12-colour palette; rAF-sampled every frame |
-| Contrast | computed by compositing arithmetic | **pixel-sampled** from the painted render (own minimal PNG decoder) |
-| Empty arms | reasoned; explicitly labelled `Reproduction: NONE` | **both reproduced and measured** |
-| Save | reasoned from the code path | **round-trip measured** (`savedCount 0→1`, plate diffed) |
-| Motion | inspected the family stylesheet | **read the live CSSOM and the computed cascade during `.vj-morph-enter-active`** |
-| Gradient | attacked on size ratio + RTL order | **interpolation space measured A/B/C at the midpoint** |
-
-Probe scripts (read-only; **no source file was modified by this seat**):
-`chD-mixresult-probe2.mjs` · `chD-probe3.mjs` · `chD-probe4.mjs` · `chD-probe5.mjs` · `chD-probe6.mjs`,
-with 60 captures in `chD-shots/`, under
-`/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/`.
-
-Populating state without touching source (for anyone re-running by hand in DevTools):
-
-```js
-let i = document.querySelector('.mix-plate, .dashed-well').__vueParentComponent;
-while (i && !Object.keys(i.setupState ?? {}).includes('mixResult')) i = i.parent;
-i.setupState.mixResult = { type: 'palette', colors: [/* … */] };
-i.setupState.animationPhase = 'done';   // or 'mixing' for the ghost
-```
+Net: 3 new findings (one BLOCKER), 1 correction to run 2, 3 promotions from argued-to-measured, and
+independent WebKit+Chromium corroboration of run 2's D-18, D-20 and run 1's D-1/D-5/D-11.
 
 ---
 
-## 2. Corroborated — the prior's core, re-measured in WebKit
+## 1. Method, and why it matters
 
-| Prior finding | Run-2 independent measurement | Status |
-|---|---|---|
-| **D-1** producer drops fallthrough attrs → the add-slot is dead | live DOM: `<span aria-hidden="true" … style="… pointer-events: none">` where `tag="button"` was passed; Playwright timed out 30 s on `button[aria-label="Add current color to the mix"]` | **CONFIRMED** |
-| **D-2** palette result carries no readable truth | 12 colours on screen → `plate.innerText === "RESULT"`; all 12 dots `aria-hidden="true"`, `pointer-events: none`, `title: null`; `liveRegions: 0` | **CONFIRMED** |
-| **D-5** three 28 px unlabeled seats | 28 × 28 in **all seven** contexts incl. `hasTouch: true` at 390 px; `aria-label: null` ×3 | **CONFIRMED + widened** |
-| **D-6** three label species in one pane | `RESULT` Fraunces 700 / 14.384 px / ls 0.3596 px · `.section-label` Fira Code 400 / ls 1.4384 px · `Selected` Fraunces 600 / 16.4 px | **CONFIRMED** |
-| **D-8** the ghost wears a shape the result never wears | 12-colour arrival announced by **one** 40 px dot and **zero** buttons | **CONFIRMED** |
-| **D-9** Copy exists twice, failure unhandled | `useClipboard.d.ts:3` union is 4-state; component maps `success` only; dock seat is the *named* one and the *silent* one | **CONFIRMED** |
-| **D-11** a `role="separator"` that paints nothing | `1 × 0` px, `data-orientation="horizontal"` vs `aria-orientation="vertical"`, `closest('.glass-dock') === null`, in all 7 contexts | **CONFIRMED** |
-| **D-14** `:key="i"` makes the TransitionGroup inert | source; sibling `MixSourceSelector.vue:78–98` builds a stable-key map for exactly this reason | **CONFIRMED** |
-| **D-16** the visual matrix never sees this component | `REPORT.md:123,138,153,168` measure a Mix pane with no plate | **CONFIRMED** |
-
-Two producer-source facts from run 1 that this run did **not** re-derive and adopts as-is, with
-credit: `touch-floor.css`'s explicit `:not(.dock-icon-button--compact)` carve-out (run-1 D-5), and
-`.section-label`'s `text-mono-caption` recipe with 20 consumers across 9 files (run-1 D-6). Both are
-load-bearing for the cures below.
-
----
-
-## 3. Corrections to the prior run
-
-### C-1 · load-bearing · run-1 D-3's mechanism and cure are wrong
-
-Run 1 diagnosed the dead height morph as *"`--vj-morph-collapse` and `--vj-morph-expanded` never set,
-so `animations.css:104–136`'s `max-height` arm resolves `none → none` and does nothing"*, and
-prescribed *"set the `--vj-morph-collapse/-expanded` the family already exposes"*.
-
-**That cure would have no effect.** The `max-height` arm is not merely unparameterised — it is not in
-the element's transition-property list at all. Measured while the plate carries
-`vj-morph-enter-active` (`chD-probe4.mjs`, WebKit):
-
-```
-classes            : mix-plate … bg-well mix-plate--ghost vj-morph-enter-active vj-morph-enter-to
-transitionProperty : opacity                              ← not "opacity, transform, max-height"
-transitionDuration : 0.2s
-transitionTiming   : cubic-bezier(0.4, 0, 0.2, 1)         ← --ease-standard, not --ease-decelerate
-transform          : none
-maxHeight          : none
-```
-
-See **D-18**. Setting `--vj-morph-collapse/-expanded` on an element whose `transition-property` is
-`opacity` changes nothing.
-
-### C-2 · run-1 D-4's contrast number
-
-Run 1 reported **2.21 : 1** from compositing arithmetic. Run 2 sampled the painted pixels
-(`chD-probe3.mjs`, darkest ink vs lightest background inside the label box — an **upper bound**):
-
-| state | darkest ink | lightest bg | contrast |
+| | run 1 | run 2 | **run 3 (this document)** |
 |---|---|---|---|
-| ghost (`opacity: .55`) | `rgb(164,127,122)` | `rgb(235,217,210)` | **≤ 2.61 : 1** |
-| settled | `rgb(112,89,66)` | `rgb(233,225,217)` | 5.08 : 1 |
+| Engine | Chromium | WebKit | **WebKit + Chromium** |
+| How state was reached | reasoned / injected | `setupState` injection via DevTools | **driven**: seed `localStorage` → Palettes tab → select 2 palettes → click Mix |
+| Capture | element captures | element captures ×60 | **full-page captures at the settle frame, before any scroll assist** |
+| Arms | 2 | 7 | 9 (desktop L/D, mobile L/D, RTL, reduced-motion, clipboard-denied, one-color-result, forced-colors/Chromium) + 1 NOT COVERED |
+| Clipboard failure | read from `.d.ts` | read from `.d.ts` | **reproduced** with a rejecting `navigator.clipboard` |
+| Forced colors | — | argued from the roster's construction (WebKit could not substitute) | **rendered** in Chromium `forcedColors: "active"` |
+| Convergence anchor | inferred from the producer's attr handling | inferred | **`document.querySelector("[data-mix-target]") === null` measured mid-mix** |
 
-The verdict is unchanged — the label computes to Fraunces **700 at 14.384 px**, below WCAG's
-large-text floor (18.66 px bold), so **4.5 : 1** is required and the ghost state fails — but the
-number of record should be the measured one. During the ghost phase this label is the *only* text in
-the plate.
+Harness (read-only, re-runnable, in-repo):
+`docs/tranches/V/megatranche/audit/components/wb-mix-resultdisplay/probe.mjs`
+→ `probe-results-webkit.json`, `probe-results-chromium.json`, `shots/` (36 frames).
+
+```
+node docs/tranches/V/megatranche/audit/components/wb-mix-resultdisplay/probe.mjs
+ENGINE=chromium ONLY=forced-colors node docs/…/probe.mjs
+```
+
+**No source file was modified by this seat.** All writes are confined to this component's audit
+directory.
 
 ---
 
-## 4. Promotions — two of the prior's hypotheses are now measured
+## 2. Correction to run 2
 
-### P-1 · run-1 D-13 · MINOR-hypothesis → **MAJOR-measured**
+### C-3 · load-bearing · The component **is** reachable in the shipped product
 
-Run 1 wrote: *"Reproduction: NONE — this is a hypothesis."* Both arms reproduce.
+Run 2 §9.0: *"Until then this component is unreachable in the shipped product and none of its design
+can be validated in-app."*
 
-**`{ type: "color" }` with no `css`** — `chD-shots/d-light-P6-emptycolor.png`:
+Half right, and the wrong half is load-bearing.
 
-```
-plate h = 90.7   dots = 0   value = null   buttons = 3   innerText = "RESULT"
-```
-
-A plate labelled `RESULT` with three operable buttons and no result. Pressing Copy calls `copy("")`,
-writes an empty string to the clipboard, and flashes `Copied!`.
-
-**`{ type: "palette", colors: [] }`** — `chD-shots/d-light-P7-emptypalette.png`:
+**Colors mode is dead** — confirmed. Both add paths (`MixSourceSelector.vue:164-176` add-slot and
+`:211-221` per-palette swatches) are `WatercolorDot tag="button"`, and glass-ui `7.0.0`'s
+`WatercolorDot` has no `tag` prop and is `inheritAttrs: false`. Measured on `/#/mix`:
 
 ```
-plate h = 130.7   dots = 0   grad = { bgImage: "none", h: 16 }   innerText = "RESULT"
+add-color buttons: 0
 ```
 
-A **16 px blank band** is reserved and painted where the strip would be — literal filler.
-`VISUAL-CONSTITUTION.md §7 · Mix`: *"No shadow palette filler appears when an operand is absent."*
-`§3` law 2: *"Empty secondary content occupies at most a narrow invitation tray … or disappears."*
+— and a full enumeration of the 31 visible buttons on the route contains no add affordance. With
+zero operands `canMix` is false, so colors-mode `startMix` can never fire.
 
-Note also that `MixResult` (`useMixingState.ts:32–36`) declares **both** payload fields optional, and
-the component's own `wellColor` computed (`MixResultDisplay.vue:36–40`) defends against absence twice
-with `?? "var(--muted-foreground)"` — the author anticipated the state in the ghost branch and did not
-design it in the settled branch. The guard at line 78 protects the specimen but not the actions or the
-strip; there is no `v-else` and no invalid arm anywhere in the file.
-
-### P-2 · run-1 D-10 · code-reasoned → **measured**
-
-`chD-probe6.mjs` — click the Save seat, diff the plate:
+**Palettes mode is live.** `MixSourceSelector.vue:246-268` renders a native
+`<button type="button" aria-pressed>` per palette — untouched by the P051 cut. Measured:
 
 ```
-before: {"h":158.7,"text":"RESULT | oklch(70% 0.18 25)","titles":[…],"live":0,"savedCount":0}
-after : {"h":158.7,"text":"RESULT | oklch(70% 0.18 25)","titles":[…],"live":0,"savedCount":1}
+select-palette buttons: 3
+Mix buttons: [{d:false,w:88},{d:false,w:0},{d:true→false,w:462}]
+plate@180ms : { cls: "mix-plate … mix-plate--ghost vj-morph-enter-active vj-morph-enter-to", op: "0.55" }
+plate@6s    : { cls: "mix-plate … bg-well", op: "1", text: "RESULT" }
 ```
 
-The palette **was** created and the plate is byte-identical: no pending, no success, no failure, no
-name. Aggravating: the dev console carries `value.js dev is MISCONFIGURED … every palette request will
-be blocked`, so in this very configuration a *failed* save would be equally invisible.
+Two saved palettes are all it takes, and `MixPane.onSave` (`MixPane.vue:38-47`) mints saved palettes
+from this very component — so an ordinary user reaches the palette branch on their second visit.
+
+**Why the correction matters.** Run 2's injection recipe writes `mixResult` and `animationPhase`
+directly. That skips `startMix`, skips the canvas clock, skips the `vj-morph` mount inside
+`MixPane`'s own `<Transition>`, and — decisively — skips the fact that the plate is **appended to
+the bottom of an inner scroll container**. An injected plate is measured wherever the inspector puts
+it. A driven plate lands where the layout puts it, which is off the fold. D-25, D-26 and D-27 below
+are all invisible to injection.
 
 ---
 
-## 5. New findings
+## 3. New findings
 
-### D-18 · MAJOR · The scoped `transition` shorthand defeats the `vj-morph` family on the same element
+### D-25 · **BLOCKER** · The result is delivered off-screen; on mobile, entirely
 
-**Evidence.** The two competing rules, read out of the live CSSOM (`chD-probe4.mjs`):
+`MixPane.vue:62` houses the pane body in a `Card … overflow-y-auto … h-full`. The result plate is
+the last child of the column inside it. `settleMix()` (`useMixingState.ts:104-106`) flips a phase and
+returns — nothing reveals the plate, moves focus, or announces it.
 
-```
-.vj-morph-enter-active      { transition: opacity var(--duration-fast) var(--ease-decelerate),
-                                          transform var(--spring-snappy-duration) var(--spring-snappy),
-                                          max-height var(--duration-normal) var(--ease-decelerate); }
-.mix-plate[data-v-0f138735] { transition: opacity var(--duration-fast) var(--ease-standard); }
-```
+Measured at the settle frame, **before any scroll assist**
+(`probe-results-webkit.json → settledAsDelivered.scroller`):
 
-Specificity `(0,2,0)` beats `(0,1,0)`, and the shorthand resets `transition-property` to `opacity`
-alone. Computed during the enter frame: `transitionProperty: "opacity"`, `transitionTimingFunction:
-cubic-bezier(0.4, 0, 0.2, 1)` (`--ease-standard`), `transform: none`, `maxHeight: none`.
-`MixResultDisplay.vue:152–154` is the whole cause.
+| arm | plate height | visible px | fully visible |
+|---|---:|---:|---|
+| desktop-light 1440×900 | 218.69 | **190.22** | **false** |
+| desktop-dark 1440×900 | 218.69 | **190.22** | **false** |
+| mobile-light iPhone 14 | 215.81 | **0.00** | **false** |
+| mobile-dark iPhone 14 | 215.81 | **0.00** | **false** |
+| rtl 1440×900 | 218.69 | 190.22 | false |
+| reduced-motion 1440×900 | 218.69 | 190.22 | false |
+| forced-colors (Chromium) 1440×900 | 218.70 | — | scroller clipped identically |
 
-**Mechanism.** `animations.css:59–62` states the family law verbatim: *"The family owns the CURVE +
-TOKEN pairing; a consuming site may parameterise only GEOMETRY through the `--vj-*` custom
-properties."* This component parameterises the **curve** (`--ease-standard` in place of
-`--ease-decelerate` / `--spring-snappy`) and the **property set** (drops `transform` and `max-height`)
-— the two things the law forbids — through a scoped rule that wins by attribute specificity. The
-`<Transition name="vj-morph">` at `MixPane.vue:111` is therefore decorative: it applies classes whose
-declarations never take effect on this element. No gate in the tranche can see this.
+Desktop arithmetic: plate `top 686.78`, `height 218.69` → `bottom 905.47`; scroller `bottom 877`
+→ **28.47 px clipped**. The plate's own box model is
+`16 pad + 20 label + 12 gap + 88 swatches + 12 gap + 16 strip + 12 gap + 28 actions + 16 pad = 220`,
+so the clipped band lands squarely on the action row: the row spans `862.78 → 890.78` and the fold
+is at `877`. **14.2 px of a 28 px control row is below the fold.**
 
-**Consequence, rAF-sampled** (`chD-probe5.mjs`, every frame for 2.5 s across a 12-colour swap,
-compressed to state changes):
+`shots/desktop-light-settled-as-delivered.png` shows exactly that — three half-glyphs at the pane's
+bottom edge. `shots/mobile-light-settled-as-delivered.png` shows no plate at all;
+`shots/mobile-light-settled.png` is the same moment after a manual `scrollIntoView`, for comparison.
 
-```
-[{"t":44,"h":102.7,"op":0.55,"dots":1,"btns":0},
- {"t":265,"h":218.7,"op":1,"dots":12,"btns":3}]
-minHeight: 102.7   maxHeight: 218.7
-```
+The scroller *is* scrollable (`scrollHeight 817` vs `clientHeight 772`), so the content exists — it
+is simply never revealed. This is not an overflow bug; it is a **missing reveal contract**.
 
-No intermediate height exists: **+116.0 px = 2.13× in one frame.** Single-colour arm, real flow:
-desktop 118.7 → 158.7 (**+40.0**), mobile 112.3 → 158.6 (**+46.3**).
+**Canon.** `VISUAL-CONSTITUTION.md §5.1`, row 7 — *"successful command that deliberately navigates to
+a new resource → focus: new resource H1 · scroll: top · announcement: focused resource identity
+followed by one durable operation result; transient celebration is silent."* The mix is exactly that
+command shape: a deliberate verb producing a new artifact. The plate satisfies none of the three
+columns. `§6` — *"A scene swap preserves the specimen and changes the surrounding instrument"* —
+presumes the swapped-in scene is *seen*.
 
-**Reproduction.** `chD-probe4.mjs`; or in DevTools, arm a mix and read
-`getComputedStyle($('.mix-plate')).transitionProperty` during the enter frame.
+**Reproduction.** `node docs/…/probe.mjs`; read `settledAsDelivered.scroller.plateVisiblePx`.
 
-**Cure (supersedes run-1 D-3's).** Delete `<style scoped>` whole. The ghost dimming belongs on the
-*specimen*, not the container (run-1 D-4 / run-2 C-2), and the family already owns the plate's
-arrival. Combined with run-1 D-8's cure — the ghost renders the result's own shape and count — the
-container never resizes, `mode="out-in"` becomes unnecessary, and there is no height to morph.
-
----
-
-### D-19 · MAJOR · The gradient strip depicts an interpolation the user did not choose, while the pane already owns the correct primitive
-
-**(a) The space is observable, and the component hard-wires the engine default.** Measured at the
-strip's midpoint with identical stops (`chD-probe3.mjs`, WebKit):
-
-```
-linear-gradient(to right, …)          → rgb(135,117,169)
-linear-gradient(in oklab to right, …) → rgb(135,117,169)   Δ = 0
-linear-gradient(in srgb  to right, …) → rgb(100,108,168)   Δ = 36
-```
-
-The computed `background-image` carries **no `in <space>` clause**, because
-`MixResultDisplay.vue:109–116` builds the declaration from `result.colors` alone.
-`MixPane.vue:113–118` passes only `result` and `ghost`: the component never receives `colorSpace` or
-`hueMethod`. Select `srgb`, `lch`, `hsl`, or hue method `longer`, and the swatch **stops** honour the
-selection while the continuum **between** them does not. For an instrument whose entire subject is
-the interpolation space, its only continuous depiction of the result is unconditional.
-
-**(b) The correct primitive is forty lines away.** `MixConfigBar.vue:23,111,133` already consumes
-`sampleInterpolationRamp` + `<PreviewRamp>` from `../../color-session/color-chips` — library-sampled
-ramps that *are* space- and hue-method-aware, with a `data-stops` oracle behind them (T-17). The
-result plate hand-rolled a CSS gradient inside the same pane that ships the honest one. Owner edict 4
-(*glass-ui / the design system is the source of primitives, reuse existing names*) and edict 3 (KISS —
-do not mint a second thing that already exists) both apply.
-
-This is an independent axis from run-1 D-7, which attacked the same element on size ratio (3.16× the
-data's inline extent) and RTL ordinal contradiction. All three arguments hold simultaneously and all
-three point at deletion.
+**Cure.** The settle edge must reveal, not merely un-ghost. The plate owns a completion contract:
+`scrollIntoView({ block: "nearest" })` on the transition's `@after-enter`, plus the one polite status
+run 1's D-2 and run 2's §9.2 already require. This is a *behavioural* addition, not a layout patch —
+lengthening the pane or shrinking the plate would only move the fold.
 
 ---
 
-### D-20 · MAJOR · The strip is outside both colour-surface rosters its neighbours are inside
+### D-26 · MAJOR · The convergence anchor does not exist; the narration lands on a hard-coded guess
 
-`demo/styles/foundation.css` maintains **one enumerated roster**, reused by
-`@media (forced-colors: active)` (≈ lines 683–698) and `@media print` (≈ lines 832–846), precisely so
-that *"the surfaces whose whole PURPOSE is to show a color … must survive WHCM's system-color
-substitution"*:
+`MixResultDisplay.vue:13-16` states the contract verbatim: *"a seeded WatercolorDot GHOST
+(`[data-mix-target]`, the anchor the canvas convergence lands on)"*, and l.69 plants the attribute.
+
+Measured **during the ghost phase of a live mix**:
 
 ```
-canvas, .spectrum-picker, .gamut-overlay, .atmosphere-canvas, [data-glass-field-canvas],
-.gradient-rail, .rail-handle, .readout-rail, .swatch-row > *, .generate-swatch,
-.shadow-swatch, .goo-blob-canvas, .watercolor-swatch, … , [data-color-surface]
+### GHOST target present: { target: false, targetTag: undefined, targetRect: null }
 ```
 
-The strip is an anonymous `<div>` with an inline `background`, **no class and no
-`data-color-surface`**, and it is a *sibling* of `.swatch-row`, not a child — so it matches neither
-selector. Its twelve neighbouring dots are covered twice over (`.swatch-row > *` **and**
-`.watercolor-swatch`); the strip is covered zero times. In high-contrast mode and in print the plate's
-dots keep their colour and the strip does not.
+The rendered node is `<span aria-hidden="true" class="shrink-0 w-10 h-10 watercolor-swatch"
+data-testid="watercolor-swatch" data-variant="ghost" style="…">` — no `data-mix-target`.
 
-**Mechanism.** The app maintains a *named* colour-surface register; this element was authored as
-anonymous inline style, so it fell out of a register it structurally belongs in. That is the general
-cost of hand-rolling a primitive (D-19b) rather than consuming one.
+**Mechanism** (`dist/watercolor-dot.js`, glass-ui 7.0.0): `inheritAttrs: !1`, and the setup forwards
+**only** `attrs.class` and `attrs.style` (`let n = h(), c = i(() => n.class), f = i(() => n.style)`).
+Every other consumer attribute is discarded — `data-mix-target`, `tag="div"`, `:title`.
 
-**Reproduction.** `grep -n "swatch-row > \*" demo/styles/foundation.css`; then inspect the strip — no
-class, no data attribute.
+**Consequence.** `mixStage.ts:121-123`:
+
+```ts
+const targetEl = root.querySelector<HTMLElement>("[data-mix-target]");
+const target = targetEl ? layoutCenter(targetEl, root)
+                        : { x: root.clientWidth / 2, y: root.scrollHeight * 0.7, r: 28 };
+```
+
+The convergence therefore aims at 70 % of the Card's scroll height — a hard-coded guess.
+`shots/desktop-light-ghost.png` shows it: the pigment drops are strewn across the **source cards** at
+y ≈ 490-660 while the dashed ghost well sits alone at y ≈ 1093. Combined with D-25, the narration
+travels to a point that is not the plate, and then the plate it never reached is off-screen.
+
+Run 1's D-1 identified the fallthrough mechanism and run 2 §9.0 named the anchor in its cure; neither
+measured the anchor's absence in flight or the resulting misaim. This promotes the finding from a
+source inference to a rendered fact, and escalates it: the docblock's central claim is false in the
+shipped build.
+
+**Cure.** The anchor is the *plate's* geometry, not the face's. P051 (`VISUAL-CONSTITUTION §4.2`,
+`OPTICAL-BENCH-COMPOSITIONS §5.3`) already rules that WatercolorDot owns "only its noninteractive
+organic face" and that named/operable sites use an enclosing geometric seat. One plate-owned element
+carries `data-mix-target` and the well geometry, with the face inside it — which also removes the
+attribute-forwarding dependency permanently. `collectStage` should then return `null` loudly rather
+than guessing (owner edict 2: no masking fallback).
 
 ---
 
-### D-21 · MAJOR · The result region carries zero provenance
+### D-27 · MAJOR · In forced colors the plate has no boundary at all
 
-**Evidence.** `plate.innerText` for a 12-colour result is the single word `RESULT`. Nothing in the
-DOM records how many operands were mixed, in which space, with which hue arc, or under which leftover
-strategy — and the operand rack above can be empty while the plate still shows a result
-(`chD-shots/d-light-P1F-full.png`).
+Chromium, `forcedColors: "active"` (`probe-results-chromium.json → settled.plate`):
 
-Three canon citations make this a named requirement, not a preference:
+```
+bg        : "rgb(255, 255, 255)"     ← forced to Canvas, identical to the pane behind it
+border    : "0px solid"
+boxShadow : "none"
+radius    : "12px"
+```
 
-- `VISUAL-CONSTITUTION.md §3.1` defines the Mix support region as *"result/**provenance** inspector"*.
-- `§7 · Mix`: *"Source mode, add/remove/reorder, method, unequal-palette strategy, **provenance** and
-  commit share the same control grammar."*
-- `OPTICAL-BENCH-COMPOSITIONS.md §3` closes Mix on *"modes, 2/3/12/unequal inputs/order/
-  **provenance**."*
+`MixResultDisplay.vue:55` gives the plate `bg-well` and nothing else — no edge, no elevation. Under
+WHCM the background is substituted to Canvas, and with zero border and zero shadow **the container
+ceases to exist**: `shots/forced-colors-settled.png` shows the label, the dots and the action glyphs
+floating directly on the pane. The palette source cards above keep their Card edge; the sibling
+`.dashed-well` (`demo/styles/utils.css:90-107`) would keep its `1.5px dashed var(--card-edge)`. The
+result plate keeps nothing.
 
-**Mechanism.** The component's props are `{ result, ghost }`. Provenance was never modelled as an
-input, so the plate cannot state it.
+This is the rendered half of run 2's D-20 that WebKit could not supply, and it extends it: run 2
+found the *strip* missing from `foundation.css`'s colour-surface roster; the *plate* is missing a
+boundary of any kind, which is a different and more serious loss because the plate is the region
+boundary.
 
-**Cure.** One `text-mono-small` line: `3 colours · OKLab · shorter` (`· discard` when the leftover
-strategy applies). It costs one row and it is the only thing that makes the result reproducible — and
-it is the same row that would carry D-19's honest ramp.
+Same capture also **confirms run 2's D-20 by render**: the 430×16 gradient strip is not painted at
+all in forced colors, and nothing is lost — which is itself the proof that it carries no information
+the swatch row does not (run 1 D-7, run 2 D-19/D-20).
+
+**Cure.** One token-anchored in-plate-fixture recipe shared with `.dashed-well` — the solid sibling
+of the dashed well — carrying `--radius-card`, `--card-edge` and `--shadow-cartoon-sm`. A real border
+survives WHCM; a background alone does not.
 
 ---
 
-### D-22 · MAJOR · The value readout is raw machine output that breaks mid-number
+## 4. Promotions — three prior findings, now measured
 
-**Evidence.** `chD-shots/d-light-P5-long.png` — the plate renders:
+### P-3 · copy failure is silent — reproduced
+
+Run 1 D-9 and run 2 read the four-state union out of `useClipboard.d.ts:3` and observed that
+`MixResultDisplay.vue:32` maps only `success`. Reproduced with a rejecting clipboard
+(`clipboard-denied` arm, `navigator.clipboard.writeText` → rejected promise):
 
 ```
-oklab(71.666666666667% -0.002284954
-563 0.014917814848)
+copy: { title: "Copy color", innerHtml: "<svg … lucide-copy …>", ariaPressed: null, plateHasLive: false }
 ```
 
-Measured: 54 characters; desktop `w = 362`, `h = 45.9` at `line-height 22.96` → **2 lines**; mobile
-`h = 58.8` at `19.6` → **3 lines**; `word-break: break-all`; `font-variant-numeric: normal`.
-`break-all` splits **inside a number**: `-0.002284954` / `563`.
+Byte-identical to idle — same title, same glyph. Compare the success arm on the same harness:
+`{ title: "Copied!", innerHtml: "<svg … lucide-check …>" }`. The user is told a copy succeeded by
+being told nothing. `pending` is equally unmapped, so a slow write shows no in-flight state and the
+button stays activatable.
 
-Run 1 raised `break-all` abstractly in its D-17; this is the rendered artifact plus the numbers.
+`VISUAL-CONSTITUTION §4.1`: *"Selected, failed, pending, withdrawn and disabled states are never
+color-only."* Here failure is not even colour — it is absence.
 
-**Mechanism.** `MixResultDisplay.vue:85` pairs `select-all break-all` with an unrounded serialisation.
-Both halves are forbidden by the tranche's own laws. `VISUAL-CONSTITUTION.md §4`: *"Live numbers use
-tabular figures and reserve their widest legal representation so value changes never reflow the
-settled chassis"* — measured `font-variant-numeric: normal`, and the line count changes 2 ↔ 3 with
-the payload, so the chassis reflows. `PALETTE-CONTRACT.md §3` fixes the project's canonical spelling
-at 3/6/3/6 decimals; the plate prints 12. Compare the Picker headline in the same viewport:
-`92.0%, 88.8, 20.0`.
+*Reproduction:* `ONLY=clipboard-denied node docs/…/probe.mjs`.
 
-**Cure.** Format at the plate: canonical fixed decimals, tabular figures, `overflow-wrap: anywhere`
-(never `break-all`), and reserve the widest legal representation so the plate does not reflow.
+### P-4 · the one-colour result — an *ordinary reachable* arm, not an injected one
+
+Run 2's P-1 injected `{ type: "palette", colors: [] }` and found a 16 px blank band. The adjacent
+arm reachable **without injection** is worse-looking and more likely: `MixPane.onSave`
+(`MixPane.vue:41-43`) mints a one-colour `"Mixed Color"` palette; two of those mix to a one-colour
+result. Seeded and driven:
+
+```
+dots  : 1
+strip : background: linear-gradient(to right, oklab(0.72 0 0))    ← a single stop
+plate : 170.69 px
+```
+
+`shots/one-color-palette-settled.png`: an orange palette mixed with a blue one yields a **grey dot
+above a 430×16 flat grey bar**. The "gradient preview" is a solid slab restating the single specimen
+12 px above it — 6 880 px² of paint against the specimen's 1 600 px², carrying nothing. And with no
+provenance line (run 2 D-21) the user cannot tell the achromatic OKLab midpoint from a bug.
+
+### P-5 · the dock seats, measured against the real dock on the same page
+
+Run 1 D-5 / run 2 corroborated 28×28 in every context. This run measured the **comparison**:
+
+| control | iPhone 14 (`pointer: coarse` = true) | desktop 1440 |
+|---|---:|---:|
+| plate Copy / Save / Reset | **28 × 28**; `--dock-control-size: (unset)`; `min-width: 0px`; `min-height: auto` | 28 × 28; `(unset)` |
+| the real dock's control, same page | **46.8 × 46.8**; `--dock-control-size: max(calc(2.5rem × 1.17), 2.75rem)` | 40 × 40; `max(calc(2.5rem × 1), 0px)` |
+
+The producer contract (`DockControl.vue.d.ts` header) is explicit: *"the HIT CELL stays the full
+`--dock-control-size` (≥44px on coarse via the density clamp) — hit box ≠ paint box."* Outside
+`.glass-dock` the variable is unset and the clamp cannot apply. glass-ui 7 even ships a guard for
+this exact misuse —
+
+```css
+.dock-icon-button--compact):not(:where(.glass-dock *)) {
+  min-block-size: var(--dock-touch-target, 2.75rem);
+  min-inline-size: var(--dock-touch-target, 2.75rem);
+}
+```
+
+— and it is **not firing**: measured computed `min-width: 0px`, `min-height: auto`, even though
+`--dock-touch-target` resolves to `2.75rem` on the element. The floor is lost in fact, not just in
+theory. `PROPORTION-AUDIT §5.7` / PR-12 unsatisfied.
+
+Same mechanism, `DockSeparator`: `.dock-separator { width: 1px; height: var(--dock-separator-height) }`
+where `--dock-separator-height: calc(var(--dock-h, var(--size-icon-btn)) * 0.5)` is declared **on
+`.glass-dock`**. Unset outside it → the `height` declaration is invalid at computed-value time →
+`auto` → **`0px`** on an empty block. Measured, both viewports:
+`{ w: 1, h: 0, cssH: "0px", margin: "0px 6px", sepH: "(unset)", role: "separator",
+data-orientation: "horizontal", aria-orientation: "vertical" }`. All that survives is the 12 px
+margin, which is the unexplained gap between Save and Reset in `shots/desktop-dark-settled.png`.
 
 ---
 
-### D-23 · MINOR · The plate is the only surface in the Mix pane off the radius token
+## 5. Corroborations — prior findings re-measured in this run
 
-Measured in all seven contexts:
-
-```
-{"plate":"12px","dashedWell":"16px","paneCard":"16px","tokenCard":"1rem"}
-```
-
-`MixResultDisplay.vue:55` uses `rounded-xl` (a raw Tailwind rung) where its sibling well
-(`MixSourceSelector.vue:116` → `.dashed-well`) and the pane Card both resolve `--radius-card: 1rem`.
-Two identical-tier grey wells stacked 40 px apart with a 4 px radius difference is exactly the
-incoherence the owner marked as `owner-marked/OM-4-easing-radius-incoherence.png`. Owner edict 5:
-style at the root, not per instance.
-
-**Cure.** `rounded-card`.
-
----
-
-### D-24 · INFO · The three preference arms are clear — recorded so they are not re-litigated
-
-| Arm | Result |
-|---|---|
-| `prefers-reduced-motion: reduce` | **PASS** — the global guard at `animations.css:183–191` neutralises every transition; `useMixingState.ts:13–15` documents the immediate-settle path and the state machine honours it |
-| `forced-colors: active` | **PASS for the specimen** — `.watercolor-swatch` and `.swatch-row > *` are both in the roster, so the dots keep their colour; the focus ring correctly falls back to a real `outline` (`2px solid`). **FAILS for the strip** — see D-20 |
-| 200 % zoom (720 px-equivalent) | **PASS** — rem-based throughout; plate 216.7 px, no clipping, no horizontal overflow |
-
-Honest limit: WebKit's `forcedColors: "active"` emulation changed the focus outline but did not
-visibly substitute system colours elsewhere in this page, so D-20's forced-colors half is argued from
-the roster's own construction rather than from a rendered high-contrast capture. The `@media print`
-half needs no such caveat — the roster omission is textual.
-
----
-
-## 6. Consolidated state-coverage matrix (run 2, 7 contexts)
-
-**Nine of nineteen states are unhandled.**
-
-| State | Handled? | Measured |
+| Prior | This run's independent measurement | Status |
 |---|---|---|
-| ghost / announced destination | partially | 102.7 px, 1 dot, 0 buttons; ≤ 2.61 : 1 (D-18, C-2) |
-| populated · single colour | partially | value unformatted, wraps 2–3 lines (D-22) |
-| populated · palette 2–12 | partially | no values, no names; 9 + 3 ragged wrap at 1440 |
-| populated · palette 0 | **no** | 130.7 px plate + 16 px blank strip band + 3 live buttons (P-1) |
-| populated · colour with no `css` | **no** | 90.7 px plate + 3 live buttons, Copy writes `""` (P-1) |
-| empty / no result | n/a | unmounted by `MixPane` — correct |
-| loading / pending | **no** | none; `useClipboard`'s `pending` unmapped |
-| error — mix failure | **no** | no arm in the file |
-| error — copy failure | **no** | `failure` + `onCopyError` both discarded |
-| error — save failure | **no** | `onSave` never inspects the port result (P-2) |
-| success — save | **no** | `savedCount 0→1`, plate byte-identical (P-2) |
-| success — copy | weak | 1500 ms icon + `title` swap, `liveRegions: 0` |
-| disabled | **no** | actions never disable; empty payloads keep them live (P-1) |
-| focused | producer-owned | box-shadow ring; WHCM restores a real outline |
-| hover / active / pressed | producer-owned | `glass-capsule-hover`, `data-press-armed` |
-| selected | n/a | no selection semantics — correct |
-| dragging | n/a | result order is not editable |
-| overflowing / truncated | **no** | 9 + 3 orphan wrap; value wraps 2 ↔ 3 lines (D-22) |
-| RTL | partially | row mirrors; value not LTR-isolated (run-1 D-17); strip contradicts the row's order (run-1 D-7) |
-| reduced-motion | **yes** | D-24 |
-| forced-colors | partially | dots pass, strip absent from the roster (D-20) |
-| print | partially | same roster gap (D-20) |
-| zoomed 200 % | **yes** | D-24 |
+| **run 2 D-18** — the scoped `transition` shorthand defeats `vj-morph` | Measured on the plate in **all 9 arms**, including while it carries `vj-morph-enter-active vj-morph-enter-to`: `transitionProperty: "opacity"`, `transitionDuration: "0.2s"`. Ghost `102.69 px` → settled `218.69 px` = **+116.00 px in one frame**. Single-colour arm: `102.69 → 170.69` = +68.00. | **CONFIRMED** in a second driven flow |
+| **run 2 D-20** — the strip is outside the colour-surface roster | Chromium WHCM render: the strip is **not painted**; the plate's dots are (they carry `.watercolor-swatch`) | **PROMOTED** from construction-argument to render |
+| **run 1 D-2 / run 2** — the palette result carries no readable truth | `plate.innerText === "RESULT"` in all 9 arms; 12 dots with `title: null` (consumer `:title` dropped) and producer-hardcoded `aria-hidden="true"` + `pointer-events: none`; `plateHasLive: false`; `value: null` | **CONFIRMED** |
+| **run 1 D-6 / run 2** — three label species in one pane | `RESULT` Fraunces / **italic** / 700 / 14.384 px / ls 0.3596 px (= 0.025 em) vs `.section-label` Fira Code / normal / 400 / 14.384 px / ls 1.4384 px (= 0.1 em), 4 px apart. Adds: `text-caption` itself sets `font-style: italic` and `font-weight: 400`, so the four-utility stack fights its own base; and `--type-tracking-caps` is **0.1 em**, making the uppercase label's tracking **4× too tight** | **CONFIRMED + widened** |
+| **run 1 D-11 / run 2** — a `role="separator"` painting nothing | `1 × 0 px`, contradictory orientations, in every arm — with the `--dock-separator-height` scope mechanism now named (P-5) | **CONFIRMED + mechanism** |
+| **run 2 C-2** — ghost contrast | Independent compositing arithmetic from the measured label `rgb(112,89,66)` and ground `oklab(0.913299 0.005463 0.013024)` = `rgb(233,225,217)`: settled **5.08 : 1**; ghost at `opacity .55` **2.13 – 2.57 : 1** across plausible backdrops. Agrees with run 2's pixel-sampled ≤ 2.61 : 1 upper bound; **run 2's measured number remains the number of record** | **CONFIRMED** |
+| **run 2 D-23** — off the radius token | plate `12px` vs `--radius-card: 1rem` (16 px), no border, no shadow | **CONFIRMED** |
+| **run 2 D-21** — zero provenance | `plate.innerText === "RESULT"`; props are `{ result, ghost }` only; `MixPane.vue:113-118` passes neither `colorSpace` nor `hueMethod` | **CONFIRMED** |
+| **run 1 D-16** — the visual matrix cannot see this component | `audit/visual/REPORT.md` rows 123/138/153/168 capture `/#/mix` with `mixResult === null`; the component appears in **0 of 60** pre-existing captures | **CONFIRMED** |
+| reduced motion | `ghost.plate.h === settled.plate.h === 218.69` at t = 170 ms — the machine settles immediately, no PRM-stranded state | **PASS** |
+| horizontal overflow | `docOverflowX === 0` in all 8 reachable arms, including RTL and both mobile schemes | **PASS** |
 
 ---
 
-## 7. Proportion and seat-law scorecard
+## 6. Coverage honesty
 
-| Law | Verdict |
+- **200 % zoom: NOT COVERED.** At the 720×450@2× arm the palette rack did not render
+  (`nPal: 0`), so the component could not be reached and no frame exists. Run 2 reports a PASS from
+  an injected plate; that result is about the plate's own rem-scaling, not about the driven flow,
+  and this run neither confirms nor contradicts it. It should be re-driven at a real 400 % in-app
+  browser zoom per `PROPORTION-AUDIT §2`, which is the canon's arm anyway.
+- **Keyboard focus: UNPROVEN.** WebKit did not reach the plate in 45 Tab stops
+  (`focus.inPlate: false`, landing on a 105×32 dock button). macOS ships Full Keyboard Access off by
+  default and `audit/visual/states.mjs:8-9` names this exact trap. No focus claim — positive or
+  negative — may be made from this run; it must be re-driven under Chromium.
+- **The colors branch** (`MixResultDisplay.vue:78-88`) could not be rendered (C-3), so run 1's D-17
+  RTL-isolation and `break-all` findings and run 2's D-22 value-formatting findings remain as
+  written by those runs; this run adds no new evidence there.
+
+---
+
+## 7. Where run 3 lands the seat law
+
+Additions to run 2 §7's scorecard, from this run's evidence only:
+
+| Law | Verdict from run 3 |
 |---|---|
-| `OPTICAL-BENCH-COMPOSITIONS.md §5` — Mix retained dividing line `none`; *"Any additional line … is a defect"* | **FAIL** (run-1 D-11) |
-| `PROPORTION-AUDIT.md` PR-05 — dividers/ornaments REMOVE | **FAIL** — separator + redundant strip |
-| PR-06 / PR-13 — one action owner, Copy 2→1 | **FAIL** — three copy paths (run-1 D-9 + `select-all`) |
-| PR-07 — no hover-only / unlabelled controls | **FAIL** — three `title`-only seats |
-| PR-08 — persistent pending/failure truth | **FAIL** — copy, save and mix all lack it (P-2) |
-| PR-12 — seat geometry preserves the target floor | **FAIL** — 28 × 28 on `hasTouch` |
-| `VISUAL-CONSTITUTION.md §4` — closed type matrix | **FAIL** — Fraunces-bold-uppercase control label |
-| §4.1 — rendered contrast on the actual tier | **FAIL** — ≤ 2.61 : 1 in the ghost state (C-2) |
-| §5 — a transient flourish never carries the only truth | **FAIL** — the copy confirmation is the only truth |
-| §6 — no full-slab remount hole | **FAIL** — 116 px single-frame snap (D-18) |
-| §6 — *"Spatial continuity uses one producer-owned glass-ui spring register"* | **FAIL** — the register is overridden by a scoped rule (D-18) |
-| §6.1 — CSS strings LTR-isolated | **FAIL by construction** (run-1 D-17) |
-| §7 Mix — provenance in the result region | **FAIL** (D-21) |
-| §7 Mix — no filler when an operand is absent | **FAIL** — 16 px blank band (P-1) |
-| Owner edict 1 — no god modules | **PASS** — 159 lines, one job |
-| Owner edict 2 — no legacy / masking fallback | **FAIL** — the `mixStage` geometric fallback (run-1 D-1) |
-| Owner edict 3 — KISS, no contrivance | **FAIL** — a hand-rolled ramp beside the real one (D-19b) |
-| Owner edict 4 — glass-ui is the design system | **FAIL** — dock primitives borrowed for look; `.section-label` bypassed |
-| Owner edict 5 — root-level styling | **FAIL** — `rounded-xl` per instance (D-23) |
-| Owner edict 6 — animations never deleted | **PASS in letter, FAIL in fact** — one is silently disabled (D-18) |
-| Owner edict 7 — idiomatic Vue 3.5 | **PASS** — reactive props destructure, no `defineModel` round-trip, so no stale-read hazard |
-| Owner edict 8 — `verbatimModuleSyntax` | **PASS** — `import type { MixResult }` (line 7) is the only type import |
+| `VISUAL-CONSTITUTION §5.1` row 7 — a completed deliberate command reveals, focuses and announces its new resource | **FAIL** — none of the three; mobile visibility `0.00 px` (D-25) |
+| `§3.1` Mix — *"its own `InstrumentChassis` composition"*, result region at 38.1966011 % | **FAIL** — the result is not a region of a chassis, it is a `div` appended to a scroller with no reveal or boundary contract (D-25, D-27) |
+| `§4.1` — *"Text, focus, boundaries and state meet their rendered contrast on the actual material tier; a token name is not evidence"* | **FAIL** — under WHCM the plate's boundary is not merely low-contrast, it is absent (D-27) |
+| `§4.1` — failed/pending states are explicit | **FAIL** — reproduced silent copy failure (P-3) |
+| `PROPORTION-AUDIT` PR-12 — seat geometry preserves the target floor | **FAIL** — 28 × 28 against the same page's 46.8 × 46.8 dock seat, producer guard not firing (P-5) |
+| `PROPORTION-AUDIT §5.5` — a mark is data, status, labelled action, drag affordance, focus register, **or removed** | **FAIL** — the strip is invisible in WHCM and a flat grey slab at N = 1, and nothing is lost either way (P-4, D-27) |
+| Owner edict 2 — no masking fallback | **FAIL** — `mixStage.ts:122-123` silently substitutes a geometric guess for the anchor it cannot find (D-26) |
 
 ---
 
 ## 8. What is sound — the negative proof
 
-The seat should say what survived a hostile second pass:
+Re-verified hostilely in this run, through the driven flow rather than by inspection:
 
-- **Reactive props destructure with a default** (lines 20–23) is the correct Vue 3.5 idiom; there is
-  no `defineModel` round-trip and therefore no stale-read hazard, so no `shallowRef` is warranted.
-- **`import type { MixResult }`** (line 7) is the only type-only import and is correctly marked —
-  `verbatimModuleSyntax` clean.
-- **The one-clock law holds.** The component owns no timer; the only timing it introduces is
-  `useClipboard`'s producer-owned `resetMs`. `useMixingState.ts:5–15` documents the discipline and
-  this file respects it.
-- **Motion family naming is disciplined** — `vj-morph` for the in-place swap, `vj-enter` for the
-  arriving swatches, no fourth name (the `animations.css:59` hard gate). The *names* are right; only
-  the scoped override defeats them.
-- **Reduced-motion and 200 % zoom are genuinely clean** (D-24), measured, not assumed.
-- **The specimen faces are correctly ornamental** — `aria-hidden`, non-interactive, inside the
-  forced-colors and print rosters. §4.2's face/seat law is respected for the dots (the strip is the
-  exception, D-20).
-- **The seed-continuity idea is genuinely good design thinking.** A ghost silhouette that the arriving
-  specimen fills is specific, memorable and right for this product. It is worth fixing rather than
-  deleting; D-18's and run-1 D-8's cures keep it and make it true.
+- **Reduced motion is genuinely clean.** At t = 170 ms under `reducedMotion: "reduce"` the plate is
+  already at its settled height (`218.69`), i.e. the completion event fires immediately and the phase
+  machine is never stranded mid-mix — exactly what `useMixingAnimation.ts:70-76` documents. Measured,
+  not assumed.
+- **Nothing bleeds.** `docOverflowX === 0` on all 8 reachable arms including RTL and both mobile
+  schemes, at plate widths 462 (desktop) and 324 (mobile).
+- **The one-clock law holds.** The component owns no timer; its only timing is `useClipboard`'s
+  producer-owned `resetMs: 1500`.
+- **Motion family naming is disciplined.** `vj-morph` for the in-place swap, `vj-enter` for the
+  arriving swatches, and `.swatch-row` (`demo/styles/utils.css:167-179`) is correctly *consumed* —
+  the utility names this component as one of its three sanctioned consumers rather than being
+  re-minted locally. The names are right; only run 2's D-18 scoped override defeats them.
+- **Vue 3.5 idiom and `verbatimModuleSyntax` are clean.** Reactive props destructure with a default
+  (l.20-23); `computed` over destructured props stays reactive; no `defineModel` round-trip and so no
+  stale-read hazard; `import type { MixResult }` (l.7) is the only type import and is marked.
+- **The AT hygiene that exists is correct.** The gradient strip is double-hidden
+  (`aria-hidden` + `role="presentation"`), and `aria-pressed` is correctly **absent** on three
+  controls that are commands rather than toggles (`ariaPressed: null` measured ×3).
+- **The seed-continuity idea remains good design.** A ghost silhouette the arriving specimen fills is
+  specific and right for this product. D-26's cure keeps the idea and makes it true for the first
+  time.
 
 ---
 
-## 9. The gestalt cure — three transpositions
+## 9. The gestalt cure — run 3's addition to run 2's three transpositions
 
-Twenty-four findings across both runs collapse into **three** architectural moves plus one upstream
-repair.
+Run 2's three moves stand. This run adds a fourth, and it is the one that must land first because
+without it the other three are unobservable to the user:
 
-**0 · Upstream (not this file).** `MixSourceSelector`'s add-slot must become a real named `<button>`
-seat with the `WatercolorDot` as its face (the §4.2 face-inside-seat law), and `[data-mix-target]`
-must live on markup the consumer owns, with `mixStage.collectStage` returning `null` — loudly —
-when the anchor is missing. Until then this component is unreachable in the shipped product and none
-of its design can be validated in-app. (run-1 D-1; corroborated.)
+**4 · The plate owns a completion contract, not just a phase.** The mix is a deliberate command that
+produces a new artifact, so `VISUAL-CONSTITUTION §5.1` row 7 governs the seam, not §6's scene-swap
+row. On settle the plate reveals itself (`scrollIntoView({ block: "nearest" })` from the transition's
+completion hook), announces itself once through a polite status that names the artifact
+(`"12-colour result · OKLab · shorter"` — the same provenance line run 2's D-21 requires, doing
+double duty), and only then un-ghosts. That single contract closes D-25, supplies the announcement
+half of run 1's D-2, and gives run 2's D-21 provenance line a second job so it earns its row.
 
-**1 · Make the ghost a reservation, not a stand-in.** Render the real result tree with a `data-ghost`
-attribute; the swatches become `variant="ghost"` faces of themselves. The container never resizes, the
-docblock's promise becomes literally true, `mode="out-in"` and the container `opacity` both become
-unnecessary, and `<style scoped>` can be deleted whole — which is the only thing that restores the
-producer motion family. → **D-18, run-1 D-3, D-4/C-2, D-8.**
-
-**2 · Make the plate a readout, not a picture.** One named region: a producer `.section-label`
-identity, a provenance line (`3 colours · OKLab · shorter`), one value per colour in `text-mono-small`
-at canonical fixed precision with tabular figures, an honest empty/failure arm, and the redundant
-strip deleted — or replaced by the pane's existing `<PreviewRamp>` fed the real space, at which point
-it stops being decoration and becomes the one thing the swatch row cannot say. → **D-19, D-20, D-21,
-D-22, P-1, run-1 D-2, D-6, D-7, D-12.**
-
-**3 · Give the action row one owner, real names, and real state.** Delete `MixPane.copyResult` and its
-`usePaneRouter.ts:222` entry; name the three seats; map `useClipboard`'s full four-state contract and
-call `invalidate()` on result change; give Save a durable, named result; drop the dock separator and
-drop `compact` — or better, replace the borrowed dock primitives with a named glass-ui action-row seat
-that owns its own ≥ 44 px hit cell. → **P-2, run-1 D-5, D-9, D-10, D-11.**
-
-The residue — D-23, run-1 D-14, D-15, D-17 — are one-line corrections that should ride whichever wave
-owns the above. Run-1 D-16 (the visual matrix cannot see this component) is a gate repair:
-`audit/visual/states.mjs` must drive Mix to `done` and capture the ghost and the settled plate in both
-schemes and both form factors, or no `π/DELTA` claim about this component may cite the matrix.
+It also constrains the D-26 cure: the plate-owned `[data-mix-target]` seat must be measured **after**
+the reveal, or the convergence will aim correctly at an element that is still below the fold.
 
 ---
 
 ## 10. Artifacts
 
-- Prior run, preserved verbatim: `challenge-D-design.r1-prior.md`
-- Element captures from run 1: `frames/plate-settled-palette-{light,dark}.png`
-- Run-2 captures and raw measurements (scratch, not in-repo):
-  `/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/`
-  — `chD-shots/` (60 element + full-page captures across 7 contexts), `chD-probe{2,3}.json`,
-  `chD-mixresult-probe2.mjs`, `chD-probe{3,4,5,6}.mjs`, `chD-png.mjs` (minimal PNG decoder used for
-  the contrast and gradient measurements).
+- Run 1, preserved verbatim: `challenge-D-design.r1-prior.md`
+- Run 2, preserved verbatim: `challenge-D-design.r2-prior.md`
+- Run 3 harness (in-repo, re-runnable): `probe.mjs`
+- Run 3 raw measurements: `probe-results-webkit.json` (9 arms), `probe-results-chromium.json`
+- Run 3 frames (36): `shots/` — notably
+  `desktop-light-settled-as-delivered.png` (action row sliced),
+  `mobile-light-settled-as-delivered.png` (no plate at all) vs `mobile-light-settled.png`,
+  `desktop-light-ghost.png` (drops converging on the fallback point),
+  `one-color-palette-settled.png` (flat grey "gradient"),
+  `forced-colors-settled.png` (no plate boundary, no strip).
+- Run 1 element captures: `frames/plate-settled-palette-{light,dark}.png`
 
-**No source file was modified by this seat.** All writes are confined to
-`docs/tranches/V/megatranche/audit/components/wb-mix-resultdisplay/`.
+**No source file was modified by this seat.**

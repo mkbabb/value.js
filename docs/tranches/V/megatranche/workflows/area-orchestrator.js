@@ -5,7 +5,11 @@ export const meta = {
   phases: [{ title: 'Components', detail: 'one nested workflow per component', model: 'opus' }],
 }
 
-const SCRIPT = 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'
+// ABSOLUTE by law: a relative child scriptPath resolves against the HARNESS working directory,
+// which the orchestrating shell's `cd` mutates mid-run — 24 palettes children failed instantly
+// with a doubled path when the root shell cd'd into the megatranche dir (2026-07-28). Never
+// relative here; never `cd` in the orchestrating shell.
+const SCRIPT = '/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/workflows/component-apotheosis.js'
 
 // `args` may arrive as a real object OR as a JSON-encoded string depending on how the
 // invocation serialised it. A silently-empty run is the worst outcome here (it reads as

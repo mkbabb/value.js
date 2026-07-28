@@ -1,0 +1,73 @@
+{
+  "cancel": {
+    "before": {
+      "readout": "92.0%,88.8,20.0",
+      "aria": "Color spectrum, saturation 63%, lightness 100%",
+      "dot": [
+        "62.7886%",
+        "0%"
+      ]
+    },
+    "afterDownAtA": {
+      "readout": "21.7%,8.0,0.6",
+      "aria": "Color spectrum, saturation 25%, lightness 25%",
+      "dot": [
+        "25%",
+        "75%"
+      ]
+    },
+    "afterCancel": {
+      "readout": "48.1%,68.9,26.2",
+      "aria": "Color spectrum, saturation 85%, lightness 85%",
+      "dot": [
+        "85%",
+        "15%"
+      ]
+    },
+    "note": "afterCancel equal to B => cancel COMMITS; equal to A => cancel REVERTS",
+    "BfractionExpected": {
+      "s": 0.85,
+      "v": 0.85
+    }
+  },
+  "keyboard": {
+    "tabIndexAttr": null,
+    "isFocusable": false,
+    "role": "img",
+    "hasKeydownAttr": false,
+    "innerFocusables": 0,
+    "figureParent": "FIGURE",
+    "figureCaption": "no",
+    "namedNumericAxes": [
+      "L channel",
+      "A channel",
+      "B channel",
+      "ALPHA channel"
+    ]
+  },
+  "rtl": {
+    "bg": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+    "dotInline": [
+      "62.7886%",
+      "0%"
+    ],
+    "dotCenterFractionFromPlateLeft": 1.5682,
+    "aria": "Color spectrum, saturation 63%, lightness 100%",
+    "dir": "rtl"
+  },
+  "touchGate": {
+    "before": "Color spectrum, saturation 63%, lightness 100%",
+    "afterFirstTap": "Color spectrum, saturation 63%, lightness 100%",
+    "gateClass": true,
+    "gateOutline": {
+      "outlineColor": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "outlineWidth": "3px",
+      "touchAction": "none"
+    },
+    "afterSecondTap": "Color spectrum, saturation 80%, lightness 80%",
+    "plateBox": {
+      "w": 327.4,
+      "h": 132.8
+    }
+  }
+}

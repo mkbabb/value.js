@@ -1,0 +1,40 @@
+{
+  "J0_menuOpen": {
+    "ariaExpanded": "false",
+    "dataState": "closed",
+    "menuCount": 1,
+    "itemCount": 4,
+    "disabledAttr": null
+  },
+  "J1_plainClick": {
+    "defaultPreventedAfterDispatch": true
+  },
+  "J1_after": {
+    "ariaExpanded": "false",
+    "dataState": "closed",
+    "menuCount": 1,
+    "itemCount": 4,
+    "disabledAttr": null
+  },
+  "J2_pinnedClick": {
+    "pinned": false
+  },
+  "J2_after": {
+    "ariaExpanded": "true",
+    "dataState": "open",
+    "menuCount": 2,
+    "itemCount": 9,
+    "disabledAttr": null
+  },
+  "J2_items": [
+    "Publish",
+    "Rename",
+    "Export",
+    "Delete",
+    "JSON",
+    "CSS Custom Properties",
+    "Tailwind Config",
+    "SVG Swatch",
+    "PNG Swatch"
+  ]
+}

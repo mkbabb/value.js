@@ -1,7 +1,7 @@
 {
  "runId": "wf_3c8798e8-23e",
  "workflow": "area-picker",
- "resultCount": 9,
+ "resultCount": 11,
  "results": [
   {
    "agentId": "ad0ab8507d85083f1",
@@ -1896,6 +1896,286 @@
       "mechanism": "gates test the pure formatter and the producer primitive, never the wiring that connects them to the component",
       "reproduction": "MUTATION A: delete the entire useSliderAnnouncements({...}) call at ComponentSliders.vue:230-235 — no thumb ever receives an aria-valuetext and the whole U-F27/BR-4 contract is unimplemented; all 7 unit tests still pass (they never touch a DOM node). MUTATION B: make meterText() at ComponentSliders.vue:158 return the empty string unconditionally — every meter in all 18 spaces renders blank and every announcement degrades to the bare channel name (D-3 generalised); the e2e still passes because the sliders still move. MUTATION C: delete the pointercancel/lostpointercapture handlers at useSliderTouchGates.ts:76-86 and their registrations at :91-92 — the entire iOS Safari pointer-capture leak recovery this file exists to carry is gone; both suites pass.",
       "proposedCure": "Three born-RED gates, each of which fails today: (1) a component test that mounts the console in hex and asserts every row's meter is non-empty (fails — D-3); (2) a Playwright case in a hasTouch:true DESKTOP context asserting the FIRST mouse click moves the value (fails — D-1; scratchpad/probe8.mjs is the ready-made harness); (3) a component test that switches space and asserts Object.keys(sliderWrapperEls.value) equals exactly the new space's channel set (fails — D-4)."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a9967c5562d012084",
+   "key": "v2:459ebd0d675ed180010f0b9bd1e4e2641c54b18d1df2a4b6321c59e4a388c8e8",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface)",
+    "modelObserved": "Opus 5 (claude-opus-5[1m]) — matches the explicit declaration this seat was spawned with; not inherited, not undeclared.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1: a complete second implementation of this component lives at demo/palettes/browser/search/MiniColorPicker.vue, and its hand-rolled HSV→hex math disagrees with the published @mkbabb/value.js on 295/10,830 sampled colors (2.72%) because it uses Math.round where src/color/operations.ts:324 uses the CSS-spec roundHalfEven. The demo exists to be the dogfood proof of the library; one of its two spectrum pickers bypasses the library entirely and returns different colors.",
+    "negativeProof": "Partial negatives proved, not asserted: (1) No deep-path import — `grep -rhn 'from \"@mkbabb/value.js[^\"]*\"' demo/` returns 49 imports across exactly 5 specifiers (/color 24, /css 10, /math 6, /easing 5, /quantize 4), every one a real key in package.json#exports; zero @src/*, zero ../../src/, zero dist/ reach-through. Live dev probe confirms only /dist/subpaths/{color,css,math}.js served for the picker route. (2) verbatimModuleSyntax clean — all 8 SpectrumCanvas.vue:36-43 imports are value imports; useSpectrumPlateStyle.ts:8,10 use inline `type`, :12 uses `import type`. (3) Vue 3.5 idiomatic — useTemplateRef at :56; injected App-owned ShallowRef via COLOR_MODEL_KEY removes the defineModel stale-read hazard by construction. (4) rAF is NOT ungated — scheduleSpectrumUpdate (:97-108) is a one-shot null-guarded coalescer, cancelled in stopDragging (:195-198) and onUnmounted (:217-224). (5) Animations moved not deleted — field-paint-in is scoped + PRM-gated (edict 6 permits), live-confirmed running as \"field-paint-in-ad23e00d\". (6) a11y mechanism correct — role=\"img\" + reactive aria-label (right for a 2D field, not role=\"slider\"); the visual audit's smallTapTargets rows for /#/ (8 desktop, 8 mobile) name slug buttons and channel spans, never the spectrum plate; 0 page errors, 0 horizontal overflow, 0 blank captures across all 4 Safari matrices.",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "A complete second implementation of SpectrumCanvas lives at demo/palettes/browser/search/MiniColorPicker.vue — same plate gradient, same pointer→(s,v) maths, same dot placement — and it hand-rolls HSV→RGB→hex (36 lines) instead of using the library, producing measurably different colors.",
+      "severity": "BLOCKER",
+      "evidence": "Plate: useSpectrumPlateStyle.ts:37-38 vs MiniColorPicker.vue:160-162 (identical two-gradient formula). Pointer maths: SpectrumCanvas.vue:117-121 (value.js clamp) vs MiniColorPicker.vue:138-139 (inline Math.max/min). Dot: useSpectrumPlateStyle.ts:60-61 vs MiniColorPicker.vue:19. Hand-rolled math: MiniColorPicker.vue:85-105 (HSV→hex), :110-125 (hex→HSV). MEASURED — `node scratchpad/dup.mjs` → `samples=10830 disagreements=295 (2.72%)`, e.g. h=14 s=1 v=1 → mini '#ff3c00' vs lib '#ff3b00'; h=8 s=.5 v=1 → mini '#ff9180' vs lib '#ff9080'. Live: imported at SearchFilterBar.vue:132, rendered :66.",
+      "mechanism": "Duplicate ownership of a concept the library owns. src/color/operations.ts:324 quantizes with roundHalfEven (CSS Color 4 spec); MiniColorPicker.vue:103 uses Math.round (half-up). The clone did not merely repeat the library, it repeated the one spec decision the library exists to own, and got it wrong.",
+      "reproduction": "node /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/dup.mjs — runs MiniColorPicker.vue:85-105 verbatim against hsv()+toRgba8({gamut:'clip'}) from dist/subpaths/color.js over a 361×6×5 grid.",
+      "proposedCure": "Delete MiniColorPicker's plate and color math; both 2D fields consume one glass-ui `useField2dPointer` primitive and one demo `plate.ts`. Interim: currentHex := pickerColorToHex(hsv(hue,sat,val,1)); the hex watcher := convertPickerColor(parsePickerColor(hex),'hsv') — 36 lines to 2, divergence zero by construction."
+     },
+     {
+      "id": "L-2",
+      "defect": "demo/color-session/picker-color.ts re-declares the library's internal SPACE_SCHEMA verbatim and hand-writes a 17-arm switch reimplementing the library's already-existing generic makeColor(). SpectrumCanvas.vue:127 (withChannel) sits directly on this duplicate.",
+      "severity": "BLOCKER",
+      "evidence": "Library: src/color/model.ts:56-74 (SPACE_SCHEMA: channels/hueIndex/css per space) and :136-142 (makeColor). Demo clone: picker-color.ts:52-70 (PICKER_CHANNELS), :92-95 (CSS_PICKER_SPACES), :123-144 (buildColor, 22-line 17-arm switch). MEASURED — `node scratchpad/tbl.mjs` → `spaces compared: 17 / channel-name lists IDENTICAL: 17/17 (49 channel names duplicated verbatim) / css-serializable flag match: 17/17 / hue-channel position match: 17/17 / mismatches: []`. Neither src/color/index.ts (41 lines, read whole) nor src/subpaths/color.ts exports SPACE_SCHEMA, SPACE_IDS, makeColor, or isAnyColor.",
+      "mechanism": "The public export map withholds the generic surface the library already implements. Publishing only 17 named per-space factories and no generic constructor or schema forces every consumer that addresses a channel by name — or builds a color from a runtime-chosen space — to re-derive the whole table and hand-write the dispatch. The duplication is a property of the API's shape, not of the demo author.",
+      "reproduction": "node /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/tbl.mjs — parses both tables out of src/color/model.ts and demo/color-session/picker-color.ts and diffs them.",
+      "proposedCure": "Publish the generic surface on @mkbabb/value.js/color: SPACE_SCHEMA, SPACE_IDS, makeColor, isAnyColor, plus a new src/color/channels.ts (~40 lines lifted verbatim from picker-color.ts) exporting channelRange/channelNumber/normalizedChannel/withChannel/withNormalizedChannel/withAlpha. Channel addressing over AnyColor has zero picker semantics — it belongs beside convertColor and mixColors. picker-color.ts then shrinks from 220 lines to ~35 (display strings only) and SpectrumCanvas.vue imports withChannel from the published subpath."
+     },
+     {
+      "id": "L-3",
+      "defect": "SpectrumCanvas's root-element styling is owned by a SIBLING component's unscoped <style> block: it applies .touch-gate-target / .touch-gate-active, both declared in ComponentSliders.vue. A third, conflicting declaration exists in ExtractControls.vue.",
+      "severity": "MAJOR",
+      "evidence": "Applied at SpectrumCanvas.vue:11-12. Declared at ComponentSliders.vue:253-274 (unscoped by design — its own comment at :244-246 names SpectrumCanvas as a consumer). Third site: ExtractControls.vue:140. LIVE probe against localhost:9000 — matched rules on .spectrum-picker include `{sel: '.touch-gate-target', css: 'outline: transparent solid 3px; outline-offset: 1px; transition: outline-color …'}` with computed outlineWidth '3px', outlineStyle 'solid'. foundation.css:577 records the inversion explicitly: '.touch-gate-* cluster colocated into ComponentSliders.vue's unscoped <style>'.",
+      "mechanism": "Wrong direction of dependency plus wrong altitude. A shared class vocabulary was pushed DOWN into a leaf SFC instead of UP into the shared stylesheet or the design system that owns the state machine. The edge is undeclared: if ComponentSliders is lazy-loaded, reordered or removed, SpectrumCanvas's touch-activation affordance vanishes with no type error, no test failure, no lint.",
+      "reproduction": "node scratchpad/probe.mjs — enumerates document.styleSheets rules matching .spectrum-picker and reads computed outline; the only source of the matched .touch-gate-target rule is ComponentSliders.vue's unscoped block.",
+      "proposedCure": "glass-ui owns useTouchGate and therefore owns the class contract. Move the .touch-gate-* rules into glass-ui's stylesheet and have useTouchGate() return the class binding (gate.classes.value) so no consumer ever spells the name. Three declaration sites collapse to zero at the consumer."
+     },
+     {
+      "id": "L-4",
+      "defect": "The component is named SpectrumCanvas and contains zero <canvas>. The name, an orphan <figure>, three dead --gamut-* tokens, and a docstring naming a deleted module are all unmaintained residue of a canvas overlay removed at a68ecdc1.",
+      "severity": "MAJOR",
+      "evidence": "LIVE: `canvasInsideSpectrum: 0` (the page's 2 canvases are goo-blob + aurora). `git show --stat a68ecdc1` deleted useGamutOverlay.ts (309 L), gamutOverlayPaint.ts (217 L), useGamutDetent.ts (115 L), SpectrumPlateCaption.vue (81 L), SpectrumDetentLabel.vue (57 L) and stripped 137 lines from the SFC; `git show a68ecdc1^:…/SpectrumCanvas.vue` shows three <canvas> elements and a caption. Residue: (a) the name + directory; (b) SpectrumCanvas.vue:3 <figure> with no figcaption; (c) spectrumLuma.ts:5-7 still cites 'useGamutOverlay' as a consumer — deleted; (d) `for t in --gamut-edge --gamut-hatch --gamut-edge-paper --gamut-hatch-paper; do grep -rn \"var($t\" demo/; done` → only --gamut-edge has a consumer, and it is REPURPOSED (ComponentSliders.vue:392, a slider thumb border); foundation.css:279 still reads 'The overlay canvas resolves all four'.",
+      "mechanism": "Nomenclature that outlived its referent — a fifth species of the legacy the owner edicts forbid, and worse than a shim: it costs on every read and nothing ever fails. It misled the audit brief for this very seat ('Canvas-based spectrum rendering… devicePixelRatio handling').",
+      "reproduction": "node scratchpad/probe.mjs (canvasInsideSpectrum: 0) + `git show --stat a68ecdc1 | grep -i gamut` + the four-token grep above.",
+      "proposedCure": "Rename to ColorField/ + ColorField.vue — it is a 2D color field; 'canvas' was never the concept, only once the technique. <figure> → <div>. Delete --gamut-hatch, --gamut-edge-paper, --gamut-hatch-paper; rename --gamut-edge to what it now means. Fix spectrumLuma.ts's header to name its two real consumers."
+     },
+     {
+      "id": "L-5",
+      "defect": "tsconfig.demo.json#paths advertises a value.js public surface that does not exist — 3 specifiers map to nonexistent .d.ts files while 2 real published subpaths are absent. A green typecheck certifies imports that cannot ship.",
+      "severity": "MAJOR",
+      "evidence": "`node -e '…compare…'` → PUBLISHED exports: /color /css /easing /math /quantize /transform /value (7 keys, NO root '.'). tsconfig.demo paths: @mkbabb/value.js, /color, /easing, /math, /parsing, /quantize, /transform, /units. IN tsconfig NOT published: `@mkbabb/value.js @mkbabb/value.js/parsing @mkbabb/value.js/units`. PUBLISHED missing from tsconfig: `@mkbabb/value.js/value @mkbabb/value.js/css`. Targets absent: `ls dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts` → all three 'No such file or directory'. tsconfig.demo.json:3-7 asserts it mirrors the published exports and :41 asserts 'the exports map is a CLOSED 8-key set' — it is a closed 7-key set and a different 7.",
+      "mechanism": "Two mirrors of one source of truth, one generated and one hand-maintained. vite.config.ts:28-29 generates its alias set FROM package.json#exports with the comment 'GENERATED (not hand-rolled) so the alias set can never drift from the exports map'. The tsconfig kept a hand-rolled copy and drifted five ways — the exact failure the vite comment was written to prevent, one file over. An import of `@mkbabb/value.js` bare would typecheck green against a nonexistent .d.ts and fail at runtime, because the vite alias set is generated from exports and would not alias it.",
+      "reproduction": "node -e \"pkg=require('./package.json').exports; ts=JSON.parse(require('fs').readFileSync('tsconfig.demo.json','utf8').replace(/^\\\\s*\\\\/\\\\/.*$/gm,'')).compilerOptions.paths; …set-diff…\" plus `ls dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts`.",
+      "proposedCure": "DELETE all eight @mkbabb/value.js* entries from tsconfig.demo.json#paths rather than fixing them. Proved safe and sufficient: @mkbabb/value.js/css has 10 live demo imports and NO paths entry, and `npx vue-tsc -p tsconfig.demo.json --noEmit` exits 0 — TypeScript self-name resolution already resolves bare specifiers through this package's own exports map. package.json#exports then becomes the single source of truth for both vite (already generated from it) and tsc, and the drift becomes structurally impossible."
+     },
+     {
+      "id": "L-6",
+      "defect": "Ownership cycle: usePointerDebug — a parent-level composable this component injects — hardcodes '.spectrum-picker', a class private to SpectrumCanvas.vue's scoped <style>.",
+      "severity": "MAJOR",
+      "evidence": "Down-edge: SpectrumCanvas.vue:41,52 inject POINTER_DEBUG_KEY from ../../composables/usePointerDebug. Up-edge: usePointerDebug.ts:117-122 — `document.querySelectorAll('.spectrum-picker, .slider-track, …')` and `document.querySelectorAll('.touch-gate-target, .spectrum-picker')`. The class is declared inside SpectrumCanvas.vue:230's `<style scoped>`. LIVE probe confirms the literal class survives scoping: classList contains 'spectrum-picker'.",
+      "mechanism": "The dependency graph has a cycle — SpectrumCanvas → usePointerDebug → SpectrumCanvas — and the up-edge works only by accident of Vue's scoping (which adds a data-v-* attribute without mangling the class name). Rename the class or restructure the element and forceReleaseAllPointers() silently stops covering the spectrum: the exact iOS pointer-capture leak recovery that composable exists for. No type error, no test, no lint — discovered only by an iOS user whose picker freezes.",
+      "reproduction": "grep -n 'spectrum-picker' demo/picker/composables/usePointerDebug.ts (two hits, :118 and :121) against SpectrumCanvas.vue:227-230 (`<style scoped>` … `.spectrum-picker {`).",
+      "proposedCure": "Invert the edge. usePointerDebug exposes registerSurface(el: HTMLElement); each component that owns a capture surface registers its own element (`onMounted(() => debug.registerSurface(spectrumRef.value!))`). The selector list is deleted, the composable knows nothing about any component, the dependency points one way."
+     },
+     {
+      "id": "L-7",
+      "defect": "useTouchGate is imported from the glass-ui ROOT BARREL one line after WatercolorDot is imported correctly from a subpath — and glass-ui publishes useTouchGate at ./dom, which the sibling ColorPicker.vue already uses.",
+      "severity": "MINOR",
+      "evidence": "SpectrumCanvas.vue:38 `from \"@mkbabb/glass-ui/watercolor-dot\"` (correct) vs :39 `from \"@mkbabb/glass-ui\"` (barrel). Subpath exists: node_modules/@mkbabb/glass-ui/dist/composables/dom/index.d.ts:2 re-exports ./useTouchGate; package.json#exports['./dom'] → ./dist/dom.js (4,179 bytes). Barrel statically imports 43 internal chunks — `node -e '…extract import specifiers from dist/glass-ui.js…'` → 46 specifiers incl. ./data-table, ./dialog, ./command, ./select, ./toast, ./configurator. Correct edge proven in-tree: ColorPicker.vue:124 uses @mkbabb/glass-ui/dom; HeroBlob.vue:34-39 uses /blob /color /dom /dark. Wrong in exactly 3 places, all for the same symbol: SpectrumCanvas.vue:39, useSpectrumPlateStyle.ts:12, useSliderTouchGates.ts:15.",
+      "mechanism": "Inconsistent import granularity for the same design system in the same file, two lines apart. Not a proven prod-bundle cost — glass-ui declares sideEffects:['*.css'] so the JS is tree-shakeable, and ColorPicker.vue:138 pulls the barrel anyway for writeClipboard — so I do not claim bytes. The defect is the edge: three imports of one symbol taking a path the codebase has already decided against.",
+      "reproduction": "grep -rn 'from \"@mkbabb/glass-ui\"' demo/picker/ (3 hits) vs grep -rn 'from \"@mkbabb/glass-ui/' demo/picker/ (11 hits, incl. ColorPicker.vue:124 useIdleReady from /dom).",
+      "proposedCure": "`import { useTouchGate } from \"@mkbabb/glass-ui/dom\";` in all three sites, then an ESLint no-restricted-imports rule banning bare '@mkbabb/glass-ui' in demo/ — enforceable the moment L-8 lands."
+     },
+     {
+      "id": "L-8",
+      "defect": "demo/ui/ is 19 files of one-line re-export shims over the glass-ui root barrel with zero local components — a pure alias layer, and every shim forces the root-barrel edge on its consumers.",
+      "severity": "MINOR",
+      "evidence": "`find demo/ui -type f | wc -l` → 19; `find demo/ui -type f ! -name index.ts` → none. Contents: demo/ui/popover/index.ts = `export { Popover, PopoverTrigger, PopoverContent } from \"@mkbabb/glass-ui\";` — one line. Same for button, slider, card, badge, avatar, checkbox, collapsible, dialog, dropdown-menu, input, label, radio-group, select, separator, skeleton, switch, tooltip; alert is 11 lines / 2 re-exports. Counter-proof in the subject: SpectrumCanvas.vue:38 imports WatercolorDot straight from @mkbabb/glass-ui/watercolor-dot with no shim. MiniColorPicker.vue:62-63 goes through ../../../ui/popover and ../../../ui/button.",
+      "mechanism": "Alias / dual path (owner edict 2) plus a demo-side design-system layer (owner edict 4). Two routes to the same components, one of them empty; and because all 19 shims import the root barrel, they propagate L-7 to every consumer.",
+      "reproduction": "for f in demo/ui/*/index.ts; do echo \"$f lines=$(grep -c . $f)\"; done — 18 of 19 report lines=1, all with a single @mkbabb/glass-ui reference.",
+      "proposedCure": "Delete demo/ui/ entirely; rewrite each consumer to the glass-ui subpath (the subject component already demonstrates the pattern). 19 files removed, one dual path closed, and the L-7 lint becomes enforceable."
+     },
+     {
+      "id": "L-9",
+      "defect": "Two writers own touch-action on the same element: glass-ui's useTouchGate writes el.style.touchAction imperatively while useSpectrumPlateStyle writes the same inline property declaratively — and the component ALSO expresses the same boolean as CSS classes.",
+      "severity": "MINOR",
+      "evidence": "glass-ui imperative writes, decompiled from dist/useTouchGate-B4mzQcHJ.js: `function y(e){ o.value=!0, e.style.touchAction='none', v(); }` (activate) and `function x(){ …, u &&= (u.style.touchAction='', null); }` (deactivate). Vue declarative write: useSpectrumPlateStyle.ts:41-44. Same element — SpectrumCanvas.vue:135 passes event.currentTarget, which is the :style-bound div. LIVE: inline style attribute reads `background: …; --spectrum-shadow: lab(92% 88.8 20); touch-action: none;`. Third mechanism for the same state: classes at SpectrumCanvas.vue:11-12.",
+      "mechanism": "Shared ownership of one DOM property with no protocol. Vue's style patcher diffs against its own previous value and is blind to glass-ui's writes; glass-ui is blind to Vue's. On my trace they converge (glass-ui writes synchronously, Vue restores on the next tick) — I could NOT produce a permanent divergence and explicitly label that a hypothesis. The confirmed defect is the dual ownership itself, converging by luck of ordering.",
+      "reproduction": "node scratchpad/probe.mjs reads the inline style attribute and computed touchAction on .spectrum-picker; the two writer sites are useSpectrumPlateStyle.ts:41-44 and the decompiled y()/x() in dist/useTouchGate-B4mzQcHJ.js.",
+      "proposedCure": "glass-ui owns the gate, so glass-ui owns touch-action. Give useTouchGate the inactive value it currently lacks — useTouchGate({ inactiveTouchAction: 'pan-y' }) — and delete touchAction from the style computed. One writer."
+     },
+     {
+      "id": "L-10",
+      "defect": "Two idioms for 'write a CSS color' inside one feature: the spectrum plate hand-writes an hsl() string template while its sibling composable builds every gradient stop through the library's serializer.",
+      "severity": "MINOR",
+      "evidence": "Hand-written: useSpectrumPlateStyle.ts:38 `linear-gradient(to right, #fff, hsl(${hue}deg, 100%, 50%))`. Library route, same feature: demo/color-session/useSliderGradients.ts:37 `const cssStr = serializePickerColor(step);` and :44, which resolve to value.js serializeCssColor via picker-color.ts:206-211. Third hand-written site: MiniColorPicker.vue:34.",
+      "mechanism": "@mkbabb/value.js/css publishes serializeCssColor and exists to own CSS color syntax. One composable in the picker dogfoods it; the other hand-writes the string. Trivial alone; as a pattern it is the same disease as L-1 and L-2 — the demo not consuming the library it exists to prove.",
+      "reproduction": "grep -rn 'hsl(\\${' demo/ → 2 hits (useSpectrumPlateStyle.ts:38, MiniColorPicker.vue:34); grep -n 'serializePickerColor' demo/color-session/useSliderGradients.ts → :5, :37, :44.",
+      "proposedCure": "Build the plate's hue endpoint through serializeCssColor (via serializePickerColor(hsl(hue,1,0.5))) so there is one idiom for CSS color emission across the feature — and one place to change when the plate moves to a wide-gamut hue ramp."
+     },
+     {
+      "id": "L-11",
+      "defect": "isTouchDevice is copied verbatim from glass-ui's internals under a comment claiming reuse, when useTouchGate already returns it on every gate the same file constructs.",
+      "severity": "MINOR",
+      "evidence": "useSliderTouchGates.ts:25-27: `// Touch gate check — reuse the same detection as spectrum` / `const isTouchDevice = typeof window !== \"undefined\" && \"ontouchstart\" in window;`. glass-ui's own line, decompiled from dist/useTouchGate-B4mzQcHJ.js: `l = typeof window < \"u\" && \"ontouchstart\" in window` — and it is returned as `isTouchDevice` (dist/composables/dom/useTouchGate.d.ts, TouchGateReturn). The same file constructs gates at :37 whose .isTouchDevice it ignores. SpectrumCanvas.vue:138 does it right (spectrumGate.isTouchDevice).",
+      "mechanism": "Documented-as-shared, actually-duplicated predicate. The comment asserts reuse; the code is a copy of a design-system internal. Two sources of truth for one capability check, and if glass-ui ever refines the detection (pointer: coarse, maxTouchPoints) the demo copy silently disagrees.",
+      "reproduction": "grep -n 'ontouchstart' demo/picker/controls/ComponentSliders/composables/useSliderTouchGates.ts node_modules/@mkbabb/glass-ui/dist/useTouchGate-B4mzQcHJ.js — the same expression in both.",
+      "proposedCure": "Delete the local const; read isTouchDevice off any constructed gate, as SpectrumCanvas already does."
+     },
+     {
+      "id": "L-12",
+      "defect": "The two sibling controls in demo/picker/controls/ decomposed the SAME three concerns at mirror-image seams — ComponentSliders lifted its gesture cluster and kept presentation inline; SpectrumCanvas lifted its presentation and kept ~95 lines of gesture inline. Neither concern has one home, and the plate's pure functions have zero unit coverage.",
+      "severity": "INFO",
+      "evidence": "ComponentSliders: gesture → composables/useSliderTouchGates.ts (133 L, takes debug as a param — testable); presentation inline. SpectrumCanvas: presentation → composables/useSpectrumPlateStyle.ts; gesture inline at SpectrumCanvas.vue:77-200 (~95 L: capture bookkeeping, rAF coalescer, gate wiring, debug). BOTH lift headers give the same reason — 'keeping the SFC under the 400-LoC cap' (useSliderTouchGates.ts:2-4, useSpectrumPlateStyle.ts:2-4). Coverage: `grep -rln 'spectrumLuma|useSpectrumPlateStyle' test/ demo/test/` → nothing; only e2e specs touch the spectrum. Hard-asserted injections with no fallback at SpectrumCanvas.vue:50,52 (`inject(...)!`) vs the defensive form at ColorSpaceSelector.vue:142 (`inject(COLOR_MODEL_KEY, null)`).",
+      "mechanism": "The seam was chosen by line count, not by concept — which is why the same three concerns landed on opposite sides of it in two sibling directories. Consequence: spectrumLuma() (a two-line pure function) and useSpectrumPlateStyle (a pure computed factory) are trivially unit-testable but are exercised only by full-browser e2e, and the gesture cluster cannot be mounted at all outside ColorPicker.",
+      "reproduction": "HYPOTHESIS (not reproduced): mounting SpectrumCanvas without providers throws `TypeError: Cannot destructure property 'model' of 'undefined'` at SpectrumCanvas.vue:45-50. I could not construct the repro without writing under test/, which this seat may not do. The decomposition asymmetry and the zero-coverage grep are confirmed.",
+      "proposedCure": "Split by concept, not by LoC. Gesture → glass-ui useField2dPointer (generic, shared by both spectrum pickers). Presentation → one demo plate.ts merging today's spectrumLuma.ts + useSpectrumPlateStyle.ts (they are one concept: the HSV plate's geometry and ink), as Vue-free pure functions that unit-test without a browser."
+     },
+     {
+      "id": "L-13",
+      "defect": "The accessible name announces HSV *value* as 'lightness', and the plate models a fixed sRGB/HSV field regardless of the color space the user selected.",
+      "severity": "INFO",
+      "evidence": "useSpectrumPlateStyle.ts:27: `Color spectrum, saturation ${sPct}%, lightness ${vPct}%` — dotPos.v is HSV value, not lightness. LIVE accessible name in the captured state: `\"ariaLabel\": \"Color spectrum, saturation 63%, lightness 100%\"`. The captured route state (visual/REPORT.json, /#/) is space=lab with Lab sliders, while the plate paints hsl(H,100%,50%) + a black overlay and round-trips every drag through withChannel(HSV,…) → setCurrentColor(hsv, selectedColorSpace) at SpectrumCanvas.vue:127-129.",
+      "mechanism": "Same class as L-4 — a module labelled for something other than what it owns. At v=1 the plate's top row runs white→saturated-hue; announcing that as 'lightness 100%' tells a screen-reader user the color is white, which it is not. Underneath, the component is an HSV instrument named and presented as *the* spectrum for a 17-space picker.",
+      "reproduction": "node scratchpad/probe.mjs reads el.getAttribute('aria-label') live → 'Color spectrum, saturation 63%, lightness 100%' while the page title is 'lab(92% 88.8 20 / 82.7%) — Color Picker'.",
+      "proposedCure": "Say 'value' in the label, and name the component for the field it actually is (ColorField, per L-4). If the plate should follow the selected space, that is a design decision to route through the D-axis seat — this seat records only that the label and the model disagree with the picker's own space."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a47c0981ae9651c69",
+   "key": "v2:b6fbeef4f20718a280f636358995c05e6a0b55c9cb0b9d755327edcdc2899af5",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) under demo/picker/visual/HeroBlob.vue",
+    "modelObserved": "Opus 5 (claude-opus-5[1m]) — the declared spawn tier; seat is not inherited or undeclared.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/picker-heroblob/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-1 — ColorPicker's `defineAsyncComponent` split of HeroBlob is defeated: `demo/color-picker/composables/boot/useAtmosphere.ts:36` imports two constants from the 103,031-byte `@mkbabb/glass-ui/blob` engine barrel instead of the 245-byte `@mkbabb/glass-ui/blob-config` subpath glass-ui 7.0.0 ships for exactly that purpose, so the whole metaball engine is fetched at 229 ms in the eager boot graph while the \"async\" SFC arrives at 3271 ms. The documented design intent (\"Loading it async splits the whole metaball graph out of the cold-load JS\") is measurably false.",
+    "negativeProof": "N/A — verdict is DEFECTIVE. (Suspects that were disproven and are recorded as negative proofs in the report: the three-parallel-useDark store family is fully cured — `grep -rn \"useGlobalDark\\|useDark\\b\" demo/` returns 11 glass-ui singleton sites and zero vueuse instances; HeroBlob's single value.js import `@mkbabb/value.js/math` is a real `package.json#exports` key, correctly aliased in vite.config.ts and mapped in tsconfig.demo.json, writable verbatim by a real consumer — no deep `src/` import exists in the file; dependency direction demo→glass-ui→value.js is correct, proven by `node_modules/@mkbabb/glass-ui/dist/color.js:3` importing `@mkbabb/value.js/color`; every producer method called (setMood/pulse/pause/resume) is in the declared `Blob.vue.d.ts` expose surface; `verbatimModuleSyntax` is clean on both type-only imports; Vue 3.5 idioms (useTemplateRef, shallowRef, onScopeDispose) are correct; decorative-a11y ownership (aria-hidden + pointer-events-none + omitted pressLabel) matches the producer's listener-free canvas contract.)",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "The async split is defeated — the 103 KB glass-ui blob engine barrel is in the eager boot graph because an eager boot composable imports two constants from it instead of from the 245-byte /blob-config subpath glass-ui 7.0.0 ships for that edge.",
+      "severity": "BLOCKER",
+      "evidence": "demo/color-picker/composables/boot/useAtmosphere.ts:36 `import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from \"@mkbabb/glass-ui/blob\";` · `wc -c` → dist/blob.js 103031 B vs dist/blob-config.js 245 B (whose 2-line body re-exports BLOB_CONFIG_DEFAULTS, BLOB_CONFIG_KEY, BLOB_HERO, LIGHTNESS_FLOOR_BRACKET, LIGHTNESS_FLOOR_DEFAULT, clampLightnessFloor) · measured request timeline: 202ms useAtmosphere.ts → 229ms @mkbabb_glass-ui_blob.js → 3271ms demo/picker/visual/HeroBlob.vue · intent falsified at demo/picker/ColorPicker.vue:150-157",
+      "mechanism": "barrel-import over-reach at an eager boundary: a boot module pulls a component barrel for two constants, so a downstream leaf's lazy boundary cannot hold",
+      "reproduction": "node <scratchpad>/blobgraph.mjs against the live dev server at http://localhost:9000 — prints the request timeline above. Independent confirmation: aborting requests matching /blob\\.js|components\\/blob/ blanks first paint entirely (fcp 0, lcp 0, canvases [], exactly 1 request blocked), which is impossible if the engine were genuinely deferred.",
+      "proposedCure": "useAtmosphere.ts and demo/scenes/blob/BlobPane.vue import from `@mkbabb/glass-ui/blob-config`; only HeroBlob.vue (which needs the component) may import `@mkbabb/glass-ui/blob`, and it takes BLOB_CONFIG_KEY from /blob-config too so the heavy edge has exactly one owner. Add a lint rule restricting `@mkbabb/glass-ui/blob` to HeroBlob.vue + demo/scenes/blob/**."
+     },
+     {
+      "id": "L-2",
+      "defect": "The component's central invariant — |ΔL(bead body, card plate)| ≥ INK_FLOOR (0.15) — is not achieved: measured 0.0174, i.e. 11.6% of the contract. The floor is applied to palette stops while the rendered bead is the shaded output, so it guarantees nothing about the quantity it names.",
+      "severity": "BLOCKER",
+      "evidence": "HeroBlob.vue:82-93 states the contract and sets INK_FLOOR=0.15; floorStops at :97-111 shifts palette-stop L only. Measured from docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/picker.png (1170×1992): bead-body disc mean OKLab L=0.8565 (n=593), plate annulus mean L=0.8392 (n=2016) → |ΔL|=0.0174, shortfall 0.1326. Point check: bead rgb(234,197,205) L=0.8574 vs plate rgb(239,204,200) L=0.8738 → 0.0164. Shading atoms that dominate the rendered pixel come in via `...appBlobConfig.surface` (HeroBlob.vue:170) from glass-ui presets-5myqNv59.js:39-60 (lit true, specStrength .16, rimStrength .32, iridescence .09, sssScale .1, coreGlow .06).",
+      "mechanism": "the guarantee is computed on a pre-shading quantity (palette stop L) that is not the quantity the user perceives (shaded body luminance) — a category error in where the invariant is enforced",
+      "reproduction": "python3 sRGB→OKLab sampler over the committed capture (bead disc r≤55 vs annulus 115≤d≤155 in 1152-space); or load http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25) and sample bead vs plate pixels.",
+      "proposedCure": "Delete floorStops and INK_FLOOR from the demo. Make the guarantee where the pixel is made: glass-ui already owns the vocabulary (clampLightnessFloor, LIGHTNESS_FLOOR_BRACKET [0.12,0.20], BlobColor.lightnessFloor, deriveBlobPalette({lightnessFloor})). Relay a `contrastAgainstL` option applied post-shading and have the demo pass resolveSurfaceLightnessLive(\"resting\", …) as the reference."
+     },
+     {
+      "id": "L-3",
+      "defect": "The ink floor never re-derives on dark-mode or ambient change — isDark and inkAmbient are read inside floorStops but neither is a watch source, so the ramp stays floored against a plate that no longer exists.",
+      "severity": "MAJOR",
+      "evidence": "HeroBlob.vue:99 reads isDark.value and :98 reads inkAmbient?.value; the only invocations of reseedHeroStops are watch(cssColorOpaqueFrame,…) at :132 and onActivated at :246-250. No watcher on isDark or inkAmbient exists in the file.",
+      "mechanism": "a derived value implemented as an imperative side effect, so its reactive dependencies are invisible to the scheduler",
+      "reproduction": "Load /#/ in light mode, do not touch the colour, toggle the dock's dark-mode switch: --saved-bg, the resting-plate tint, isDark and inkAmbient all change; heroStops does not. The stated invariant is void until the user next moves a slider.",
+      "proposedCure": "Make the ramp a `computed` over (cssColorOpaqueFrame, isDark, inkAmbient, appBlobConfig.color). That also deletes reseedHeroStops, the shallowRef, the try/catch, and the entire onActivated wake-gray branch, since a computed re-evaluates on wake by construction."
+     },
+     {
+      "id": "L-4",
+      "defect": "Three homes for one concept: the closed-form lightness-separation kernel is duplicated character-for-character between HeroBlob.floorStops and useAtmosphere.guaranteeSeamOffset (differing only in one constant and the container), with a third, semantically different floor in glass-ui. Both demo copies also falsify their own 'internal spread survives' claim.",
+      "severity": "MAJOR",
+      "evidence": "HeroBlob.vue:105-110 vs demo/color-picker/composables/boot/useAtmosphere.ts:~103-111 — identical `let dir = delta >= 0 ? 1 : -1; const need = FLOOR - Math.abs(delta); const headroom = dir === 1 ? 0.98 - meanL : meanL - 0.02; if (headroom < need) dir = -dir; const push = dir * (FLOOR - dir*delta);` then a per-stop `clamp(L + push, 0.02, 0.98)`. useAtmosphere.ts:67 names the copy: 'The same closed-form floor idiom the HeroBlob ink-floor uses'. Third home: glass-ui clampLightnessFloor (presets.d.ts). Stated demo law violated: demo/color-session/useContrastSafeColor.ts:33-35 'sourced ENTIRELY from the library … the demo carries NO norm/denorm color math'.",
+      "mechanism": "copy-paste of a pure numeric kernel across module boundaries instead of extracting it to the library that owns colour algebra",
+      "reproduction": "Spread falsification is pure arithmetic: stops [0.10,0.30,0.50,0.70] with push=+0.30 → [0.40,0.60,0.80,0.98] — the top stop clips, spread compresses 0.60→0.58, and the achieved mean ΔL falls below the nominal floor. No runtime needed.",
+      "proposedCure": "One primitive, one home: `separateLightness(stops: readonly OklchStop[], referenceL: number, floor: number): OklchStop[]` in src/color/, exported from @mkbabb/value.js/color (pure, DOM-free OKLab algebra, alongside mixColors/safeAccentColor/mapColorToGamut). glass-ui already imports @mkbabb/value.js/color, so the third copy collapses too."
+     },
+     {
+      "id": "L-5",
+      "defect": "Five producer seams shipped in glass-ui 7.0.0 were not adopted at the W44 whole-adopt; HeroBlob imports two symbols and hand-rolls replacements for the rest. Worse, the `lightnessFloor` booking is undischargeable as written because the producer knob is an absolute stop floor while INK_FLOOR is a bead↔plate separation — a false carry riding the ledger.",
+      "severity": "MAJOR",
+      "evidence": "node_modules/@mkbabb/glass-ui/dist/blob.js:1648 exports BLOB_HERO, LIGHTNESS_FLOOR_BRACKET, LIGHTNESS_FLOOR_DEFAULT, clampLightnessFloor; Blob.vue.d.ts:56-70 exposes nudge/settled/settledFrame/rendererStatus; constants.d.ts:43 'the park gate'. HeroBlob.vue:34 imports only {Blob, BLOB_CONFIG_KEY} and hand-rolls: wall-clock park :211-230 (booked at :207-210 against the 5.0.0 adopt — glass-ui is at 7.0.0), hero register :152-178 (booked PRODUCER at :148-149), INK_FLOOR/floorStops :93-111 (booked at :90-92). BLOB_HERO (presets-5myqNv59.js:73-87) vs HeroBlob.vue:160-177 diverge on 7 atoms: bodyRadius .22/.325, orbitRadius .30/.40, satelliteRadius .10/.09, eccentricity .04/.03, satelliteCount 4/3, smoothK .06/.05, fissionAmp 0/.6.",
+      "mechanism": "consumer-side reimplementation of producer seams outliving the adopt that was supposed to retire it; two objects named 'the hero register' with neither authoritative",
+      "reproduction": "grep the glass-ui 7.0.0 dist export line and Blob.vue.d.ts expose block against HeroBlob.vue's import at :34 — the shipped surface is a strict superset of what the demo consumes, and each hand-rolled block cites its own booking.",
+      "proposedCure": "heroConfig = computed(() => ({ ...BLOB_HERO, …only the atoms the picker genuinely overrides })); wall-clock park replaced by watch(() => blobRef.value?.settled, …); owner-ruled register deltas relayed upstream as a BLOB_HERO amendment via the standing BH/BI fond. Requires RULING-1 (re-specify or abrogate the bead↔plate floor) and RULING-2 (which register is canonical)."
+     },
+     {
+      "id": "L-6",
+      "defect": "Renderer health is entirely unhandled — the hero silently vanished in the shipped visual-audit capture with a lost WebGL context, and the demo consumes none of the producer's rendererStatus contract.",
+      "severity": "MAJOR",
+      "evidence": "docs/tranches/V/megatranche/audit/visual/REPORT.json row safari-desktop-light /#/: counts.canvas=1 (every other picker capture: 2), consoleErrors=['WebGL: context lost.'] (the only console error in all 60 captures), settleMs=18905 (every other capture 3277–3606). shots/safari-desktop-light/picker.png shows no bead. Producer contract: dist/composables/glass/webgpu/rendererStatus.d.ts (phase initializing|ready|error, engine, adapter, error?), exposed as a ref AND emitted by Blob. `grep -rn \"rendererStatus\\|renderer-status\" demo/` → no output.",
+      "mechanism": "the component assumes the GL context survives for the page lifetime; a lost context is a normal WebGL event and is observed on this exact route, with no fallback, no placeholder, and no telemetry",
+      "reproduction": "The committed capture is the reproduction. Synthetically: on /#/, canvas.getContext('webgl2').getExtension('WEBGL_lose_context').loseContext().",
+      "proposedCure": "Wire @renderer-status on <Blob>; on phase==='error' render the settledFrame still or a plate-toned placeholder (no layout change — the footprint is already reserved by --blob-fp) and surface the row to the debug rail. This consumes a shipped seam rather than adding a mechanism."
+     },
+     {
+      "id": "L-7",
+      "defect": "tsconfig.demo.json's path map diverges from package.json#exports — 3 phantom keys, 2 missing real keys — so the demo (including HeroBlob's transitive graph) typechecks @mkbabb/value.js/css against an npm-registry tarball while Vite runs the local build, and the two .d.ts files already differ.",
+      "severity": "MAJOR",
+      "evidence": "package.json#exports has 7 subpath keys and no '.'; tsconfig.demo.json maps '@mkbabb/value.js' (root), '/parsing', '/units' — `ls dist/subpaths/` shows parsing.d.ts and units.d.ts DO NOT EXIST — and omits '/css' and '/value'. HeroBlob.vue:42 → color-session/useContrastSafeColor.ts:14 → color-session/ink.ts:8-11 imports parseCssColor/serializeCssColor from '@mkbabb/value.js/css'. package-lock.json resolves @mkbabb/value.js 4.0.0 from https://registry.npmjs.org/. `diff -q node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts dist/subpaths/css.d.ts` → 'Files … differ' (10910 B vs 12490 B).",
+      "mechanism": "two hand-maintained descriptions of one published surface (TS paths vs the exports-derived Vite alias set) drifting apart, defeating the dist trust boundary the tsconfig header claims to establish",
+      "reproduction": "ls dist/subpaths/ (no parsing/units), diff the two css.d.ts files, and read tsconfig.demo.json's paths block against package.json#exports.",
+      "proposedCure": "Generate the tsconfig `paths` block from package.json#exports exactly as vite.config.ts already generates `valueJsSelfAlias`, or fail the typecheck when the two key sets differ. One source of truth for the published surface; both consumers derive from it."
+     },
+     {
+      "id": "L-8",
+      "defect": "The e2e fixture created specifically to end hand-duplicated blob constants has itself skewed: BEAD_RATIO 0.52 (bodyRadius 0.26) against the live bodyRadius 0.325, so the O-12 occlusion oracle probes a disc 20% smaller than the rendered bead and never tests the annulus that can actually reach the dock band.",
+      "severity": "MAJOR",
+      "evidence": "e2e/smoke/fixtures/blob-timing.ts:56-57 `/** Visible bead = 2·bodyRadius·fp (bodyRadius 0.26 — the HERO register). */ export const BEAD_RATIO = 0.52;` vs demo/picker/visual/HeroBlob.vue:163 `bodyRadius: 0.325,` and demo/picker/seat.css:10 'bodyRadius 0.325 via HeroBlob's'. Consumer: e2e/smoke/oracles/o12-blob-seat.spec.ts:113 `const r = (BEAD_RATIO / 2) * wrapper.width;` feeding probes at [cx,cy±r] and [cx±0.7r, cy−0.7r]. Fixture header declares its purpose as killing 'a three-file hand-sync waiting to skew'. The 0.26 value is the retired one pinned by tag v-blob-b0-26-ref-w40.",
+      "mechanism": "a constant restated in three files; two mirrors were updated, the third was not — the fixture's own stated failure mode, realized",
+      "reproduction": "True bead ratio is 2×0.325=0.65; the oracle uses 0.52. Every probe point lands ≥20% inside the true silhouette, so the outer annulus — the only part that can enter the chrome band — is unprobed and the oracle passes by construction, contradicting its own comment ('corners of the visible bead box').",
+      "proposedCure": "The fixture must not restate a component constant. Export the hero geometry once (BLOB_HERO after L-5, or a named export from a demo/picker constants module the SFC and the spec both import) and derive BEAD_RATIO from it, so the value cannot be typed twice."
+     },
+     {
+      "id": "L-9",
+      "defect": "Masking fallback on INK_AMBIENT_KEY — inject(…, null) plus `?? 0.5` — contradicting the key's own documented law and every sibling consumer, and silently substituting the exact mid-lightness the ink-on-tier design exists to abolish.",
+      "severity": "MINOR",
+      "evidence": "HeroBlob.vue:95 `const inkAmbient = inject(INK_AMBIENT_KEY, null);` and :98 `const ambient = inkAmbient?.value ?? 0.5;` vs demo/color-session/keys.ts:9-13 (the key's contract) and demo/color-session/useContrastSafeColor.ts:366 `const ambient = inject(INK_AMBIENT_KEY)!;` documented at :363 as 'a missing provider is a wiring defect, surfaced loudly'. The 0.5 guess is the mid-ambient referent retired at useContrastSafeColor.ts:24-31.",
+      "mechanism": "defensive default swallowing a wiring defect — owner edict 2 (no masking fallbacks)",
+      "reproduction": "Mount HeroBlob without the boot writer's provide (any standalone/test mount): the ink floor is computed against a plate lightness of 0.5 that exists nowhere in the app, with no error.",
+      "proposedCure": "inject(INK_AMBIENT_KEY)! like every sibling. Moot once L-2's cure lands and the demo stops computing a floor at all — which is the preferred sequencing."
+     },
+     {
+      "id": "L-10",
+      "defect": "HeroBlob is the only resolveSurfaceLightnessLive consumer that skips the documented bumpProbeEpochOnMount contract, and because its first probe fires during setup it can poison the module-level shared tint cache with a pre-mount value.",
+      "severity": "MINOR",
+      "evidence": "Contract at demo/color-session/useContrastSafeColor.ts:69-79 ('it must register the mount bump from its setup, or its first (possibly detached/pre-style) probe result caches until some OTHER consumer happens to bump the epoch'). `grep -rn \"bumpProbeEpochOnMount\" demo/` → ConsoleRail.vue:133, useViewAccents.ts:89, useContrastSafeColor.ts:300 and :348. HeroBlob.vue:99 calls resolveSurfaceLightnessLive and never bumps. Cache: useContrastSafeColor.ts:240-251 keys liveTintCache on (darkClass, epoch) at module scope.",
+      "mechanism": "a shared reactive instrument whose correctness depends on a per-caller ritual — an API that can be forgotten will be forgotten",
+      "reproduction": "HeroBlob's floorStops runs from watch(…, {immediate:true}) at :132, i.e. during setup before mount; the resulting tint is written into the module-level liveTintCache under the then-current epoch where later readers pick it up. demo/scenes/about/markdown/composables/useMarkdownColors.ts:44 has the same omission — a family, not a one-off.",
+      "proposedCure": "Replace the exported resolveSurfaceLightnessLive + bumpProbeEpochOnMount pair with one composable, useSurfaceLightness(surface): ComputedRef<number>, that registers the bump itself. The ritual becomes unforgettable because it no longer exists."
+     },
+     {
+      "id": "L-11",
+      "defect": "One-way :paused binding on a component that declares v-model:paused and emits update:paused — the producer's return channel is dropped, so the demo keeps a shadow pause state the engine cannot correct, voiding the producer's 'no parallel pause path' guarantee.",
+      "severity": "MINOR",
+      "evidence": "HeroBlob.vue:17 `:paused=\"blobPaused\"` with no @update:paused listener anywhere in the file, while HeroBlob.vue:249, :314-315 also drive the imperative resume()/pause() half. Producer contract at node_modules/@mkbabb/glass-ui/dist/components/blob/Blob.vue.d.ts:35-43 ('v-model:paused … wire its @update:paused to this v-model … The imperative pause()/resume() defineExpose handles bind the SAME renderer seam (no parallel pause path); the prop owns the default') and the declared emit \"update:paused\" at :69.",
+      "mechanism": "consumer refuses a two-way contract's return channel while also driving its imperative half — two writers, one seam, no reconciliation",
+      "reproduction": "Any producer-originated pause state change (a WCAG pause control wired to the Blob, or an engine self-park) emits update:paused, which HeroBlob discards; blobPaused then re-asserts the demo's stale opinion on its next write.",
+      "proposedCure": "v-model:paused=\"blobPaused\". One line; it makes the demo's state a mirror of the engine's rather than a competing opinion."
+     },
+     {
+      "id": "L-12",
+      "defect": "A string-literal contract spanning the feature→boot boundary (the 'blob-emerge' animation name) whose mismatch fails silently, plus a global keyframe living outside demo/styles/ in violation of the animations edict.",
+      "severity": "MINOR",
+      "evidence": "HeroBlob.vue:311-312 `if (e.animationName !== \"blob-emerge\") return;` against the keyframe defined at demo/color-picker/composables/boot/overture.css:167, which documents the hazard itself at :163-166 ('renaming … separately in HeroBlob.vue'). Placement: `grep -rl \"@keyframes\" demo/ | grep \"\\.css$\"` returns exactly two files — demo/color-picker/composables/boot/overture.css and demo/styles/animations.css — so overture.css is the sole global-keyframe definer outside demo/styles/.",
+      "mechanism": "an untyped string as the sole coupling between two modules in different layers, with a bare `return` as the failure mode",
+      "reproduction": "Rename the keyframe in either file and the T.W4.5-R2 backing-store re-measure stops firing with no error, no warning and no failing test — the guard just returns.",
+      "proposedCure": "Move the keyframe to demo/styles/animations.css (moved, never deleted — edict 6) and export `const BLOB_EMERGE = \"blob-emerge\"` from one TS module that both the CSS-adjacent code and the SFC import, so the string exists exactly once."
+     },
+     {
+      "id": "L-13",
+      "defect": "On both mobile matrices the blob canvas is the only element in the picker capture that extends past the right viewport edge, an invariant nothing owns or asserts.",
+      "severity": "MINOR",
+      "evidence": "docs/tranches/V/megatranche/audit/visual/REPORT.json, safari-mobile-light /#/ and safari-mobile-dark /#/: \"bleeding\": [\"canvas.goo-blob-canvas\"] with overflowX: 0. Definition at docs/tranches/V/megatranche/audit/visual/capture.mjs:107-111 — getBoundingClientRect().right > documentElement.clientWidth + 1. seat.css:2-6 legislates only the card-edge case ('only the transparent 1.6× canvas overscan crosses the card edge, clipped by .app-layout').",
+      "mechanism": "a 1.6× overscan canvas whose containment is specified against the card but never against the viewport, on the narrowest layout",
+      "reproduction": "Read the two mobile rows in REPORT.json; e2e/smoke/mobile/blob-presence-mobile.spec.ts:80 asserts canvas size against CANVAS_OVERSCAN * seatFootprintPx(paneWidth) and never checks the viewport edge, so nothing gates it.",
+      "proposedCure": "State the viewport-containment invariant explicitly in seat.css's law and assert it in the mobile presence spec, or clamp the overscan at the <lg rung. Currently cosmetic (the overscan is transparent) but unowned."
+     },
+     {
+      "id": "L-14",
+      "defect": "The imported component named `Blob` shadows the DOM `Blob` global inside this SFC, so InstanceType<typeof Blob> would silently degrade to the DOM file type if the import were ever renamed or removed.",
+      "severity": "INFO",
+      "evidence": "HeroBlob.vue:34 `import { Blob, BLOB_CONFIG_KEY } from \"@mkbabb/glass-ui/blob\";` and :58 `useTemplateRef<InstanceType<typeof Blob>>(\"blobRef\")`.",
+      "mechanism": "a producer component name colliding with a Web IDL global constructor",
+      "reproduction": "NONE — hypothesis about a latent failure mode; no current defect. Removing the import today would make `typeof Blob` resolve to the DOM constructor rather than erroring cleanly.",
+      "proposedCure": "Producer-side naming relay (BlobOrnament would be unambiguous) via the standing BH fond. No demo action required beyond awareness."
+     },
+     {
+      "id": "L-15",
+      "defect": "The chronic gate riding this component (Q14 / CH-4) is specified on LCP, but the measured defect is TBT and eager bytes — a wave born against CH-4 as written can close GREEN without curing anything.",
+      "severity": "INFO",
+      "evidence": "Measured Chromium / CPU 4× / dev server / 1440×900 / n=3 medians: with HeroBlob mounted FCP 1108ms, LCP 1108ms, TBT 1663ms, longest task 857ms; with the HeroBlob module request aborted (engine still downloaded) FCP 968ms, LCP 968ms, TBT 866ms, longest 728ms → Δ LCP +140ms, Δ TBT +797ms. Second independent run: LCP median 1056ms, TBT median 1450ms. CH-4 reads 'p75 LCP ≤2.5s on the named matrix — the ~5s boot dies or V′ does not close'; the Q14 figures were LCP 5141 / TBT 5988.",
+      "mechanism": "a gate quantity chosen from a historical symptom rather than from the component's actual cost profile",
+      "reproduction": "node <scratchpad>/blobperf.mjs (RUNS=3 CPU=4) against http://localhost:9000 — prints both arms. Caveat stated in the report: this is Chromium/dev/4×-CPU/desktop; the real-Safari signal is worse (settleMs 18905 on safari-desktop-light /#/ with the L-6 context loss), so the production Safari matrix must be re-measured before the bars are frozen.",
+      "proposedCure": "Re-specify the wave gates on the sick axis: HB-2 requires Δ(TBT with blob − without) ≤ 250 ms on a fixed rig (n≥5, median), and HB-1 requires no glass-ui_blob.js request before the HeroBlob module request. Keep an LCP watch, but do not let it stand as the closing gate."
      }
     ]
    }

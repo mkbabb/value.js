@@ -1,0 +1,62 @@
+{
+  "mix_cards": 8,
+  "mix_storeBefore": 8,
+  "mix_menuItems": [
+    "Publish",
+    "Rename",
+    "Export",
+    "Delete"
+  ],
+  "mix_afterDelete": {
+    "storeN": 8,
+    "cards": 8,
+    "feedback": null,
+    "dialog": null,
+    "menusInDom": 0
+  },
+  "mix_jsonItemPresent": 1,
+  "mix_downloads": [
+    "probe-palette-0.json"
+  ],
+  "mix_feedbackAfterExport": null,
+  "mix_renameItemPresent": 1,
+  "mix_renameInputAppeared": 1,
+  "mix_selectionToggledByMenuUse": [
+    {
+      "label": "Toggle action bar",
+      "pressed": "false"
+    },
+    {
+      "label": null,
+      "pressed": "false"
+    },
+    {
+      "label": null,
+      "pressed": "true"
+    },
+    {
+      "label": null,
+      "pressed": "false"
+    }
+  ],
+  "palettes_downloads_CONTROL": [
+    "probe-palette-0.json"
+  ],
+  "palettes_feedback_CONTROL": null,
+  "anchor_beforeScroll": {
+    "triggerTop": 587.6,
+    "menuTop": 628,
+    "delta": 40.4
+  },
+  "scrollAttempt": {
+    "before": 0,
+    "after": 320,
+    "moved": true
+  },
+  "anchor_afterScroll": {
+    "triggerTop": 267.6,
+    "menuTop": 308,
+    "delta": 40.4
+  },
+  "pageErrors": []
+}

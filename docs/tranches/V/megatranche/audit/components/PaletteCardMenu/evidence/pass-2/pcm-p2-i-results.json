@@ -1,0 +1,56 @@
+{
+  "cards": 2,
+  "cardLabels": [
+    "Palette: Zero Color Palette",
+    "Palette: Ampersand & <tag> \"quote\""
+  ],
+  "EMPTY_png": {
+    "reached": true,
+    "downloads": [],
+    "newWarnings": [
+      "warning: Export failed: Error: Failed to create PNG blob\n    at http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/export.ts:83:13"
+    ],
+    "body": null
+  },
+  "EMPTY_svg": {
+    "reached": true,
+    "downloads": [
+      "zero-color-palette.svg"
+    ],
+    "newWarnings": [],
+    "body": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"0\" height=\"110\" viewBox=\"0 0 0 110\">\n\n  <text x=\"0\" y=\"100\" text-anchor=\"middle\" font-family=\"system-ui, sans-serif\" font-size=\"14\" fill=\"#333\">Zero Color Palette</text>\n</svg>"
+  },
+  "EMPTY_json": {
+    "reached": true,
+    "downloads": [
+      "zero-color-palette.json"
+    ],
+    "newWarnings": [],
+    "body": "{\n  \"name\": \"Zero Color Palette\",\n  \"slug\": \"zero\",\n  \"colors\": []\n}"
+  },
+  "EMPTY_css": {
+    "reached": true,
+    "downloads": [
+      "zero-color-palette.css"
+    ],
+    "newWarnings": [],
+    "body": ":root {\n\n}\n"
+  },
+  "HOSTILE_svg": {
+    "reached": true,
+    "downloads": [
+      "ampersand-tag-quote.svg"
+    ],
+    "newWarnings": [],
+    "body": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"120\" height=\"110\" viewBox=\"0 0 120 110\">\n  <rect x=\"0\" y=\"0\" width=\"60\" height=\"80\" fill=\"#ff0055\" />\n  <rect x=\"60\" y=\"0\" width=\"60\" height=\"80\" fill=\"#00ddaa\" onload=\"alert(1)\" />\n  <text x=\"60\" y=\"100\" text-anchor=\"middle\" font-family=\"system-ui, sans-serif\" font-size=\"14\" fill=\"#333\">Ampersand & <tag> \"quote\"</text>\n</svg>"
+  },
+  "HOSTILE_png": {
+    "reached": true,
+    "downloads": [],
+    "newWarnings": [
+      "warning: Export failed: Error: Failed to load SVG for PNG conversion\n    at img.onerror (http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/export.ts:89:11)"
+    ],
+    "body": null
+  },
+  "pageErrors": []
+}

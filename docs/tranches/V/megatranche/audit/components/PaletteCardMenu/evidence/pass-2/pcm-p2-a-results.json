@@ -1,0 +1,158 @@
+{
+  "cardCount": 2,
+  "A0_beforeAnyInteraction": {
+    "inlineStyle": "--card-press-t: 0.0000; --flex-vel: 0.0000;",
+    "pressT": "0.0000",
+    "scale": "none",
+    "bodyPE": "auto",
+    "bodyInlinePE": "",
+    "bodyOverflow": "",
+    "ariaHidden": null
+  },
+  "triggerBox": {
+    "x": 1085,
+    "y": 518.46875,
+    "width": 36,
+    "height": 36
+  },
+  "A1_pointerDownOnTrigger": {
+    "inlineStyle": "--card-press-t: 0.8360; --flex-vel: 0.8360; scale: 1.0079 0.9592;",
+    "pressT": "0.8360",
+    "scale": "1.0079 0.9592",
+    "bodyPE": "auto",
+    "bodyInlinePE": "",
+    "bodyOverflow": "",
+    "ariaHidden": null
+  },
+  "A2_afterMouseUp_menuOpen": {
+    "inlineStyle": "--card-press-t: 0.0000; --flex-vel: 0.0000;",
+    "pressT": "0.0000",
+    "scale": "none",
+    "bodyPE": "none",
+    "bodyInlinePE": "none",
+    "bodyOverflow": "hidden",
+    "ariaHidden": "true"
+  },
+  "menuRoleCount": 1,
+  "AX_menuItems": [
+    {
+      "role": "menu",
+      "name": "Palette menu",
+      "disabled": null,
+      "haspopup": null,
+      "expanded": null
+    },
+    {
+      "role": "menuitem",
+      "name": "Publish",
+      "disabled": null,
+      "haspopup": null,
+      "expanded": null
+    },
+    {
+      "role": "menuitem",
+      "name": "Rename",
+      "disabled": null,
+      "haspopup": null,
+      "expanded": null
+    },
+    {
+      "role": "menuitem",
+      "name": "Export",
+      "disabled": null,
+      "haspopup": null,
+      "expanded": false
+    },
+    {
+      "role": "menuitem",
+      "name": "Delete",
+      "disabled": null,
+      "haspopup": null,
+      "expanded": null
+    }
+  ],
+  "items": [
+    {
+      "text": "Publish",
+      "ariaLabel": null,
+      "w": 178,
+      "h": 44,
+      "ariaDisabled": null,
+      "dataDisabled": null,
+      "pe": "auto",
+      "haspopup": null
+    },
+    {
+      "text": "Rename",
+      "ariaLabel": null,
+      "w": 178,
+      "h": 44,
+      "ariaDisabled": null,
+      "dataDisabled": null,
+      "pe": "auto",
+      "haspopup": null
+    },
+    {
+      "text": "Export",
+      "ariaLabel": null,
+      "w": 178,
+      "h": 44,
+      "ariaDisabled": null,
+      "dataDisabled": null,
+      "pe": "auto",
+      "haspopup": "menu"
+    },
+    {
+      "text": "Delete",
+      "ariaLabel": null,
+      "w": 178,
+      "h": 44,
+      "ariaDisabled": null,
+      "dataDisabled": null,
+      "pe": "auto",
+      "haspopup": null
+    }
+  ],
+  "A3_afterEscapeClose": {
+    "inlineStyle": "--card-press-t: 0.0000; --flex-vel: 0.0000;",
+    "pressT": "0.0000",
+    "scale": "none",
+    "bodyPE": "auto",
+    "bodyInlinePE": "",
+    "bodyOverflow": "",
+    "ariaHidden": null
+  },
+  "activeElementAfterEscape": {
+    "tag": "BUTTON",
+    "label": "Palette menu"
+  },
+  "A4_menuOpenAgain": {
+    "inlineStyle": "--card-press-t: 0.0000; --flex-vel: 0.0000;",
+    "pressT": "0.0000",
+    "scale": "none",
+    "bodyPE": "none",
+    "bodyInlinePE": "none",
+    "bodyOverflow": "hidden",
+    "ariaHidden": "true"
+  },
+  "A5_afterRenameItemClick": {
+    "inlineStyle": "--card-press-t: 0.0000; --flex-vel: 0.0000;",
+    "pressT": "0.0000",
+    "scale": "none",
+    "bodyPE": "auto",
+    "bodyInlinePE": "",
+    "bodyOverflow": "",
+    "ariaHidden": null
+  },
+  "renameInputPresent": 1,
+  "activeElementAfterRename": {
+    "tag": "BUTTON",
+    "type": "button",
+    "label": "Palette menu",
+    "placeholder": null
+  },
+  "consoleErrors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run de"
+  ],
+  "pageErrors": []
+}

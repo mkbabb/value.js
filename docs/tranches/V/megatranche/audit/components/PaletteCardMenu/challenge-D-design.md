@@ -1,902 +1,661 @@
-# CHALLENGE-D — PaletteCardMenu: the design is flawed
+# CHALLENGE-D — PaletteCardMenu: the design is flawed (PASS 2)
 
-Seat: CHALLENGE-D (design axis) · 2026-07-28
+Seat: CHALLENGE-D (design axis) · pass 2 · 2026-07-28
 Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
 Subject: `demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue` (228 lines, area `palettes`).
+
+The pass-1 report is preserved VERBATIM at `challenge-D-design.pass-1-2026-07-28.md`
+(25 findings, D-1…D-25). This pass **independently re-measured its two load-bearing claims**
+and then went after what it did not look at. Sixteen new defects, three of them at the top of
+the ladder. Pass-1's D-1…D-25 stand; they are not restated here except where this pass either
+corroborated them with a different instrument or sharpened them.
 
 ---
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context arm, the tier
-explicitly declared at spawn. The seat is declared, not inherited. **No defect on this axis.**
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context arm, the
+tier explicitly declared at spawn. The seat is declared, not inherited. **No defect on this axis.**
 
 ---
 
 ## Verdict
 
-**DEFECTIVE — 5 BLOCKER, 10 MAJOR, 10 MINOR/INFO.**
+**DEFECTIVE — pass 2 adds 3 BLOCKER, 6 MAJOR, 7 MINOR/INFO on top of pass 1's 25.**
 
-The premise holds, and the failure is not decorative. Three separate things are true at once:
+The premise holds harder than pass 1 stated it. Pass 1 argued the component *should not exist*
+(`VISUAL-CONSTITUTION.md:102` deletes the card action menu outright) and that two of its features
+do not work. Pass 2 found the thing that makes that argument physical:
 
-1. **The component should not exist.** `VISUAL-CONSTITUTION.md:102` says, in terms, that the palette
-   card body "owns no expand, inline rename, **action menu**, transient result or hover-only
-   swatch-action path," and that "rename/lifecycle/export actions and durable operation state live
-   in the selected inspector." This file *is* that forbidden action menu, and it hosts rename,
-   lifecycle and export.
-2. **Its two most consequential rows do not render as designed.** `Delete` is styled destructive and
-   renders in *exactly the same ink* as `Rename` — measured, in light, dark, mobile and
-   forced-colors. And the whole `Export` submenu **cannot be opened by touch at all** — measured on
-   an iPhone 14 context with a same-context control.
-3. **Most of its declared styling is inert.** Of the styling tokens the file writes, **15 render
-   nothing**, one renders the *opposite* of its name (italics), and one inline style is a
-   documented "register" that the compiled CSS makes a no-op. The file's own comments describe a
-   visual language — "the K-INV5 small-caps register" — that does not exist on screen.
+> **On a 390 px viewport the palette card renders its identity at exactly 0 px wide while this
+> component's trigger holds a fixed 54 px — 16.9 % of the row.** The card has no name on mobile.
+> The only surviving spelling of the palette's identity is this menu's own header, which clips it
+> to 56 % and offers no `title` to recover it.
 
-The single strongest defect is **D-3**: `@click.prevent` on the Export sub-trigger
-(`PaletteCardMenu.vue:108`) defeats the only path reka-ui offers a touch pointer to open a submenu,
-so JSON / CSS / Tailwind / SVG / PNG export is **unreachable on every touch device**. Desktop hides
-it because hover opens the submenu first.
+That is the whole indictment in one measurement: **a secondary action affordance was given
+immovable space inside the identity line, and the protagonist was the thing that yielded.**
+
+The strongest single new defect is **P2-1**. The second (**P2-2**) is a hard HTML content-model
+violation this component participates in at a call site nobody audited: on `/#/mix` the entire
+`PaletteCard` — menu trigger included — is nested inside a `<button aria-pressed>`.
 
 ---
 
 ## Method and probe log
 
-**Static.** Full read of the SFC and its parent `PaletteCard.vue`; `PaletteRenameInput.vue`;
-`demo/platform/transport/useApiClient.ts` and `availability.ts`; `demo/ui/dropdown-menu/index.ts`;
-`demo/styles/foundation.css`; the three canon documents (`VISUAL-CONSTITUTION.md`,
-`PROPORTION-AUDIT.md`, `PALETTE-CONTRACT.md`); the mega-tranche visual `REPORT.md` / `STATES.json`;
-the **compiled** glass-ui 7.0.0 distribution (`node_modules/@mkbabb/glass-ui/dist/**` — components,
-`glass-ui.css`, `styles/typography/semantic.css`, `styles/typography/utilities.css`); and
-`node_modules/reka-ui/dist/Menu/MenuItem.js` + `MenuSubTrigger.js`.
+**Static.** Full re-read of the SFC, `PaletteCard.vue`, `PaletteCardMeta.vue`,
+`demo/palettes/utils.ts`, `demo/palettes/usePaletteStore.ts`,
+`demo/platform/transport/availability.ts`, `demo/ui/dropdown-menu/index.ts`, the compiled
+glass-ui 7.0.0 CSS (`node_modules/@mkbabb/glass-ui/dist/glass-ui.css`), **all four `PaletteCard`
+call sites** (`PalettesPane.vue`, `BrowsePane.vue`, `ExtractWorkbench.vue`,
+`MixSourceSelector.vue`), and the three canon documents.
 
-**Live.** Playwright/Chromium against the running dev server `http://localhost:9000`, route
-`/#/palettes`, `localStorage["color-palettes"]` seeded with a saved palette
-(`versionCount:4`, `tier:"featured"`, 40-character name) plus a temporary palette. Matrices:
-1440×1000 light, 1440×1000 dark, 390×844 light, RTL (`dir="rtl"`), `forcedColors:"active"` +
-`reducedMotion:"reduce"`, 720×500 (zoom-equivalent), and an **iPhone 14 touch context**
-(`hasTouch:true, isMobile:true`) driven with real `tap()`.
+**Visual.** Read the mega-tranche Safari matrix shots for both routes this component lives on
+(`shots/safari-{desktop,mobile}-{light,dark}/{palettes,browse}.png`) and every pass-1 evidence
+capture.
 
-All numbers below are pasted tool output. Raw probe results and witnesses are tracked beside this
-report:
+**Live.** Chromium/Playwright against the running dev server `http://localhost:9000`, route
+`/#/palettes` with `localStorage["color-palettes"]` seeded as
+`{version:1,palettes:[…]}` (pass 1's probes used a bare array; the store's serializer at
+`usePaletteStore.ts:24-27` rejects anything without a numeric `version`, so this pass's seed is
+the one the app actually accepts). Matrices: 1440×1000 light, 1440×1000 dark (via the `dark`
+class, the same mechanism `visual/capture.mjs:67-74` uses), 390×844 touch, `/#/mix`, `/#/extract`.
+
+**Rendered-pixel contrast.** This pass did not compute contrast from tokens. It screenshots the
+live menu, decodes the PNG into a canvas in a second page, and samples real pixels
+(`probe-D8-pass2.mjs`).
 
 | artefact | contents |
 |---|---|
-| `probe-D-results.json` | 6-matrix geometry + computed-style dump of the open menu |
-| `probe-D2-results.json` | type/dead-class forensics, RTL physical-margin A/B, keyboard walk |
-| `probe-D3-results.json` | destructive-ink cascade A/B, material register, rename focus |
-| `probe-D4-results.json` | touch-tap submenu A/B (cancelable vs non-cancelable click) |
-| `probe-D5-results.json` | instrumented event tail, desktop mouse vs touch |
-| `evidence/desktop-light-menu-open.png` | the open menu, 1440×1000 light |
-| `evidence/desktop-dark-menu-open.png` | the open menu, 1440×1000 dark |
-| `evidence/mobile-light-submenu-open.png` | **the 390px submenu/parent collision** |
-| `evidence/forced-colors-menu-open.png` | forced-colors, destructive ink collapsed |
-| `evidence/touch-tap-export-subtrigger.png` | the submenu that will not open |
+| `probe-D6-pass2.mjs` / `-results.json` | icon gutter, group structure, typeahead, icon ARIA, header recovery, occlusion geometry, `/#/mix` nesting, `/#/extract` surface |
+| `probe-D7-pass2.mjs` / `-results.json` | tokens, submenu panel geometry, disabled-opacity compounding, mobile trigger |
+| `probe-D8-pass2.mjs` / `-results.json` | **rendered-pixel** contrast, light + dark |
+| `probe-D9-pass2.mjs` / `-results.json` | **the 390 px metadata-row allocation** |
+| `evidence/pass2-mobile-390-row.png` | **the card with no name** |
+| `evidence/pass2-light-degraded.png` | the degraded arm rendered, light |
+| `evidence/pass2-dark-degraded.png` | the degraded arm rendered, dark |
+| `evidence/pass2-desktop-submenu.png` | both panels open, desktop |
+| `evidence/pass2-mix-source.png` | `/#/mix` — the card inside a button |
 
 ---
 
-## Evidence gap this seat had to close first
+## The evidence gap, restated more sharply than pass 1 could
 
-The mega-tranche visual matrix **never opened this component**:
+Pass 1 recorded that the mega-tranche matrix never *opened* this menu. It is worse than that.
+Both routes the component lives on rendered **empty** in every one of the 60 captures:
 
 ```
-$ grep -c -i "dropdown\|palette menu" docs/tranches/V/megatranche/audit/visual/STATES.json
-0
+$ python3 - <<'PY'   # REPORT.json, /#/palettes and /#/browse, all four matrices
+safari-desktop-light /#/palettes  overflowX=0  buttons=25  nameless=1
+safari-mobile-light  /#/palettes  overflowX=0  buttons=12  nameless=0
+…
+PY
 ```
 
-`REPORT.md` reports 60 captures across 15 routes; every one of them photographed a *closed* trigger.
-Its `horizontalOverflow — 0` and `smallTapTargets` rows say nothing about this component. **Every
-finding below is first-observation.** (INFO · D-24.)
+and `shots/safari-mobile-light/palettes.png` reads **“No saved palettes yet.”** across the whole
+stage. So the matrix photographed **zero palette cards**, at any viewport, in any scheme. Every
+`smallTapTargets` / `horizontalOverflow` / `namelessButtons` column for these routes describes a
+page with no instance of this component on it. **Every finding in both passes is
+first-observation.** (INFO · P2-16.)
 
 ---
 
-## The findings
+## The new findings
 
-### D-1 · BLOCKER · The card action menu is constitutionally abrogated
+### P2-1 · BLOCKER · At 390 px the palette identity renders at 0 px while this menu's trigger holds a fixed 54 px
 
-`VISUAL-CONSTITUTION.md:102` (§5 Interaction grammar):
-
-> "A palette card is a bounded entity article… **The card body owns no expand, inline rename, action
-> menu, transient result or hover-only swatch-action path.** Full detail, rename/lifecycle/export
-> actions and durable operation state live in the selected inspector."
-
-`PROPORTION-AUDIT.md:77` (§5 law 12) is the same ruling from the proportion side:
-
-> "The Card/article root is a noninteractive container… **Its one native named
-> `<button type="button" aria-pressed>` child spans specimen/identity and alone owns activation.**"
-
-`PaletteCardMenu.vue` is a 16-item action menu mounted inside the card body
-(`PaletteCard.vue:83-106`), carrying rename (`:73`), lifecycle (`:15,:27,:48,:63,:133`), export
-(`:107-130`) and admin (`:153-170`). It is precisely the object both documents delete. The card also
-still carries `role="article"` + `@click` + `cursor-pointer` (`PaletteCard.vue:19-26`) instead of the
-mandated single `<button aria-pressed>`, so the menu is nested inside a clickable non-button and
-needs `@click.stop` at `PaletteCard.vue:82` to survive.
-
-**Mechanism.** The component predates the constitution and was never reconciled with it. This is not
-a defect *in* the design of the menu; it is a defect *of* having designed a menu.
-
-**Cure (gestalt, not patch).** The 16 rows are not homeless. The constitution names their
-destination: the **selected inspector**. Delete this file; move Save/Publish/visibility/Remix/Rename/
-Tags/Versions/Export/Delete/Report/Admin into the inspector's action region, where a durable
-operation state (D-5, PR-08) can actually be shown. The card keeps one `aria-pressed` seat.
-
----
-
-### D-2 · BLOCKER · `Delete` renders in exactly the same ink as `Rename` — the destructive class is inert
-
-`PaletteCardMenu.vue:135` and `:164` write `class="… text-destructive focus:text-destructive"`.
-Measured across every matrix (`probe-D-results.json`):
-
-```
---- desktop-light
-   Publish    color=rgb(28, 25, 23)
-   Rename     color=rgb(28, 25, 23)
-   Export     color=rgb(28, 25, 23)
-   Delete     color=rgb(28, 25, 23)      <-- identical
---- desktop-dark
-   Delete     color=rgb(233, 230, 226)   <-- identical to Publish/Rename/Export
---- forced-colors
-   Delete     color=rgb(0, 0, 0)         <-- identical
---- mobile-light
-   Delete     color=rgb(28, 25, 23)      <-- identical
-```
-
-**Mechanism, isolated by A/B in-page** (`probe-D3-results.json`):
+Measured on the live route, one seeded palette, `probe-D9-pass2-results.json`:
 
 ```json
-"deleteClassList": "interactive-item glass-menu-row gap-2 cursor-pointer text-destructive focus:text-destructive dropdown-menu__item",
-"colorWithProducerClass":    "rgb(28, 25, 23)",
-"colorWithoutProducerClass": "rgb(219, 36, 36)",
-"--destructive": "light-dark(hsl(0 72% 50%), hsl(0 80% 60%))"
-```
-
-glass-ui ships `.dropdown-menu__item{ … color:inherit; … }` (`glass-ui.css`). `.text-destructive`
-has identical specificity (0,1,0) and loses on source order. Removing `dropdown-menu__item` from the
-live node restores `rgb(219,36,36)` — the intended destructive red — proving the cascade collision.
-`focus:text-destructive` dies the same way (measured focused state, `probe-D2-results.json`
-`states.focused.color` = `rgb(28,25,23)`, unchanged).
-
-The same mechanism kills `text-muted-foreground` on the `Report` row (`:145`). So the menu's entire
-**severity ladder — destructive / neutral / de-emphasised — collapses to one ink.** The only thing
-distinguishing `Delete` from `Rename` is a 16 px trash glyph and the word.
-
-`VISUAL-CONSTITUTION.md §4.1`: *"Selected, failed, pending, withdrawn and disabled states are never
-color-only."* Here they are not even color: they are nothing.
-
-**Cure.** glass-ui `DropdownMenuItem` exposes `disabled`, `textValue`, `inset` — and no severity
-axis. The producer-side cure is a `variant?: "default" | "destructive"` on `DropdownMenuItem`
-(relay to the glass-ui BH inbox per the standing fond). The consumer-side cure is to stop writing
-colour utilities that the producer's `color:inherit` is guaranteed to eat.
-
----
-
-### D-3 · BLOCKER · The Export submenu cannot be opened by touch — all five formats unreachable on mobile
-
-`PaletteCardMenu.vue:108`:
-
-```html
-<DropdownMenuSubTrigger class="gap-2 cursor-pointer" @click.prevent>
-```
-
-`node_modules/reka-ui/dist/Menu/MenuSubTrigger.js:131-140`:
-
-```js
-onClick: async (event) => {
-    if (props.disabled || event.defaultPrevented) return;   // <-- early return
-    event.currentTarget?.focus();
-    if (!menuContext.open.value) menuContext.onOpenChange(true);
+"mobile-390": {
+  "rowWidth": 320,
+  "triggerWidth": 54,  "triggerHeight": 54,  "triggerShareOfRow": 16.9,
+  "nameRenderedWidth": 0,
+  "nameScrollWidth": 102,
+  "nameVisibleFraction": 0,
+  "rowChildren": [
+    { "tag": "svg",    "w": 16   },                        // drag handle
+    { "tag": "SPAN",   "w": 0,     "text": "Muted Terracotta a" },   // <-- the identity
+    { "tag": "DIV",    "w": 148.4, "text": "Featured" },
+    { "tag": "DIV",    "w": 32.9,  "text": "5" },
+    { "tag": "SPAN",   "w": 20.8,  "text": "4" },
+    { "tag": "BUTTON", "w": 54,    "text": "" }            // <-- this component's trigger
+  ]
 }
 ```
 
-Reka opens a submenu from three paths: `onPointermove` (hover), `onKeydown` (ArrowRight/Enter), and
-`onClick`. A touch pointer produces **no `pointermove`**, so `onClick` is its only path — and
-Vue's `.prevent` modifier sets `defaultPrevented` before reka's handler runs.
+`evidence/pass2-mobile-390-row.png` is the witness. The card row reads, in full:
 
-**Measured, iPhone 14 context, real `tap()`** (`probe-D4-results.json`):
+```
+⣿   🏅 Featured   5   ⏱4   ⋯
+```
+
+There is no name. The user cannot tell which palette the card is.
+
+**The allocation.** Of 320 px: ornamental status badge **148.4 px (46.4 %)**, colour count 32.9 px,
+version chip 20.8 px, drag handle 16 px, **this menu's trigger 54 px (16.9 %)**, palette identity
+**0 px (0 %)**. Every one of those five is `shrink-0` (`PaletteCard.vue:49, 64, 72, 101` and the
+`shrink-0` wrapper at `:82`); the name alone sits in the `min-w-0` flex arm at `:44`, so it is the
+sole element that absorbs compression — all of it.
+
+**Canon.** `VISUAL-CONSTITUTION.md §4` fixes palette identity at `--type-subheading`, Fraunces.
+`PROPORTION-AUDIT.md §5` law 2: *“A card has one protagonist, one identity line.”* Law 8: *“Real
+rendered relation wins over token intent.”* The rendered relation is 0 px.
+
+**Compounding.** The only surviving spelling of the identity at 390 px is this component's own
+header — measured `scrollW 319 / clientW 178` = **56 % shown**, with `title: null` (P2-10). So the
+name is destroyed in the row, truncated in the menu, and recoverable nowhere.
+
+**Reproduction.** `node docs/.../PaletteCardMenu/probe-D9-pass2.mjs` with the dev server up.
+
+**Cure (gestalt).** This is D-1's cure made concrete rather than a flex tweak. A card whose
+identity line must also host a 54 px action menu, a status badge and three chips has been asked to
+be an omnibus, which `VISUAL-CONSTITUTION.md:102` forbids in the same sentence that deletes this
+component. Move the actions to the selected inspector; the row then carries identity plus the
+`aria-pressed` seat and nothing competes with it.
+
+---
+
+### P2-2 · BLOCKER · On `/#/mix` the whole card — this menu's trigger included — is nested inside a `<button>`
+
+`demo/workbenches/mix/MixSourceSelector.vue:238-268`:
+
+```html
+<button
+    :aria-pressed="isPaletteSelected(palette.slug)"
+    :aria-label="`${…} palette ${palette.name}`"
+    @click="togglePalette(palette)"
+>
+    <PaletteCard :palette="palette" :css-color="''" />
+</button>
+```
+
+`PaletteCard` renders `PaletteCardMenu`, whose trigger is
+`<Button icon-only aria-label="Palette menu">` (`PaletteCard.vue:96-104`). Measured live on
+`/#/mix` (`probe-D6-pass2-results.json`):
 
 ```json
-"touchTap": {
-  "before":    { "subContentPresent": false, "ariaExpanded": "false" },
-  "afterTap1": { "subContentPresent": false, "ariaExpanded": "false", "dataState": "closed" },
-  "afterTap2": { "subContentPresent": false, "ariaExpanded": "false" },
-  "device": "iPhone 14", "hasTouch": true
+"mix": {
+  "nestedInteractiveInButton": 2,
+  "nestedSample": [
+    { "tag": "BUTTON", "label": "Palette menu",
+      "outerLabel": "Select palette Muted Terracotta and Deep Sea Foam Study" },
+    { "tag": "BUTTON", "label": "Palette menu", "outerLabel": "Select palette Temp" }
+  ],
+  "paletteCardsInsideButton": 2
 }
 ```
 
-**Same-context control** — a *non-cancelable* click, on which `preventDefault()` is a no-op so
-`defaultPrevented` stays `false`:
+Two independent violations:
+
+1. **HTML content model.** `button`'s content model is phrasing content *with no interactive
+   content descendant*. A `button` inside a `button` is invalid; activation behaviour, focus order
+   and event targeting are all unspecified territory.
+2. **ARIA presentational children.** `role="button"` is a role whose descendants are presentational
+   — a user agent is permitted to prune the entire subtree from the accessibility tree. The
+   “Palette menu” trigger is therefore *permitted to not exist* for assistive technology at this
+   call site, while remaining a visible 36–54 px affordance.
+
+And the menu is inert there regardless: `MixSourceSelector.vue:264-267` passes **no listeners at
+all**, so all seventeen of the menu's emitted actions terminate in nothing (P2-4).
+
+**Cure.** The canon already wrote it: `PROPORTION-AUDIT.md §5` law 12 — the card root is a
+noninteractive container whose *one* native named `<button aria-pressed>` child spans the
+specimen/identity region. Mix wrapped the card in the button instead of putting the button inside
+it, and the menu is the interactive content that makes the mistake illegal rather than merely
+untidy.
+
+---
+
+### P2-3 · MAJOR · The degraded-state annotation renders at 1.75 : 1 — the reason an action is unavailable is the least legible text on screen
+
+The K-INV5 register (the component's own comment at `:24-26`) exists to **name** the degraded
+state in-register rather than in a toast. Measured on the live menu with the disabled arm forced
+onto the real `Publish` row exactly as the SFC writes it, then sampled from **rendered pixels**
+(`probe-D8-pass2-results.json`, light):
+
+| element | sampled ink | contrast vs the composited menu surface `rgb(235,224,217)` |
+|---|---|---|
+| `Rename` (ordinary row) | `rgb(28,25,23)` | **13.49 : 1** |
+| `Delete` (destructive row) | `rgb(28,24,22)` | **13.59 : 1** |
+| menu header (the palette name) | `rgb(112,89,66)` | **5.07 : 1** |
+| **the `offline` annotation** | `rgb(176,171,168)` | **1.75 : 1** |
+
+Mechanism (`probe-D7-pass2-results.json`):
 
 ```json
-"cancelableControl": { "nonCancelableClick": { "subContentPresent": true, "ariaExpanded": "true" } }
+"tokens":     { "--opacity-disabled": "0.5" },
+"compounded": { "itemOpacityDisabled": "0.5", "annotationOpacity": "0.55",
+                "effectiveAlpha": 0.275, "annotationColor": "rgb(28, 25, 23)" }
 ```
 
-**Instrumented event tail** (`probe-D5-results.json`) shows the identical `click` tail in both
-pointer modes and the divergent outcome:
+glass-ui dims the whole disabled row — `.dropdown-menu__item[data-disabled]{opacity:var(--opacity-disabled)}`
+— and the consumer's `opacity-55` (`:37`, `:57`) then multiplies **inside** it. 0.5 × 0.55 =
+**0.275**. `evidence/pass2-light-degraded.png` is the witness: `⊘ Publish OFFLINE`, with the
+explanation visibly fainter than the disabled label it explains.
 
-| pointer | last `click` `defaultPrevented` | preceded by `pointermove` | submenu |
-|---|---|---|---|
-| desktop mouse | `true` | yes (hover already opened it) | **open** |
-| touch (iPhone 14) | `true` | **no** | **closed** |
+**This inverts the register's purpose.** The disabled verb is at 0.5; the reason is at 0.275 —
+the reason is **45 % dimmer than the thing it is explaining**, and at 1.75 : 1 it is below the
+3 : 1 large-text floor, let alone AA's 4.5 : 1. `VISUAL-CONSTITUTION.md §4.1`: *“Selected, failed,
+pending, withdrawn and disabled states are never color-only… state/value and associated
+error/status are explicit.”* An explicit status you cannot read is not explicit.
 
-So the desktop matrix *cannot see this defect* — hover masks it. Every touch user loses JSON, CSS
-Custom Properties, Tailwind Config, SVG Swatch and PNG Swatch: the whole W51 export surface.
-
-**Mechanism.** `@click.prevent` carries no handler and no comment. It is cargo — most likely copied
-to stop the card's `@click` from firing, a job `PaletteCard.vue:82`'s `@click.stop` wrapper already
-does.
-
-**Cure.** Delete the modifier. It buys nothing and costs the export surface.
+**Cure.** An availability reason is not a shortcut annotation. It belongs outside the dimmed row —
+or, per D-1, in the inspector where a durable operation state can carry it at full ink.
 
 ---
 
-### D-4 · BLOCKER · The `misconfigured` availability state is unhandled — the app tells the user the backend is broken while the menu offers the doomed action
+### P2-4 · MAJOR · At two of the four call sites the menu's emits reach no listener; Export is dead on `/#/extract` and every row is dead on `/#/mix`
 
-`PaletteCardMenu.vue:216-217`:
+The `Export` submenu has **no `v-if`** (`:107-130`): it renders for every `paletteKind`, at every
+call site. The four call sites:
 
-```ts
-const { availability } = useApiClient();
-const apiOffline = computed(() => availability.value === "unavailable");
-```
+| call site | listeners wired | Export wired? |
+|---|---|---|
+| `demo/palettes/PalettesPane.vue:82-97` | `click delete publish rename edit-color export` | yes |
+| `demo/palettes/BrowsePane.vue:92-119` | all 16 | yes |
+| `demo/workbenches/extract/ExtractWorkbench.vue:145-156` | `click save rename add-color` | **no** |
+| `demo/workbenches/mix/MixSourceSelector.vue:264-267` | **none** | **no** |
 
-`demo/platform/transport/availability.ts:40-45` declares **four** states:
+Extract's palette is `id: "__extracted__…"` → `getPaletteKind` returns `temporary`
+(`demo/palettes/utils.ts:20-30`), so its menu renders **Save · Rename · Export ▸ (5 rows)**.
+Five of its eight rows do nothing. Measured on the live route
+(`probe-D6-pass2-results.json` `extract.paletteMenus: 2`; `downloads: []`).
 
-```ts
-export type ApiAvailability = "unknown" | "available" | "unavailable" | "misconfigured";
-```
-
-and `availability.ts:29-35` states the design intent of the fourth in as many words:
-
-> "…enter a DISTINCT, designed `misconfigured` state that **fails LOUD (never the generic degraded
-> affordance)**."
-
-`apiOffline` tests one of the four. In `misconfigured` the backend is *definitively* unreachable and
-`apiOffline` is `false`, so `Publish` renders enabled, undecorated, and doomed.
-
-**This is the state the app was actually in during every capture in this report.** The status lamp
-in the top-right of `evidence/desktop-light-menu-open.png` reads
-`● DEV MISCONFIGURED — RUN 'NPM RUN DEV'` — the sibling consumer `DockStatusLamp` renders the loud
-state correctly, styled `--destructive` (`.dock-status-lamp[data-variant="misconfigured"]`). Ten
-pixels away, the menu renders as if everything were fine:
-
-```
-   Publish   disabled=false   (probe-D-results.json, desktop-light)
-```
-
-Two consumers of one latch; one honest, one not.
-
-**Cure.** The latch is a four-state enum; the affordance must be a four-arm match, not a boolean.
-`misconfigured` should read as its own annotation ("misconfigured"), not silence and not "offline".
+`PROPORTION-AUDIT.md §5` law 5: *“A small icon/mark is either data, status, labeled action, drag
+affordance, focus/selection register or removed.”* A labelled action that emits into the void is
+none of those. Pass 1's D-19 saw the *stringly-typed bus* as a typo hazard; the shipped
+consequence is larger — the bus is why a whole submenu can be rendered at a site that never
+subscribed to it, with no type error and no runtime signal.
 
 ---
 
-### D-5 · BLOCKER · The Export seat is a one-click fire-and-forget; `PALETTE-CONTRACT` mandates a two-step seat with durable operation state
+### P2-5 · MAJOR · The icon gutter established in the parent panel is abandoned in the child — a 24 px rhythm break inside one menu
 
-`PALETTE-CONTRACT.md:325` (Appendix W51, the byte-exact export authority):
+Measured with both panels open, desktop 1440 (`probe-D7-pass2-results.json` `submenu.items`):
 
-> "Only after the verified bytes are resident in memory does the same action seat expose **Download
-> FILENAME**; it is a fresh user activation, not an asynchronous continuation of Prepare."
+| panel | item | icon? | item left | text left | **text inset** | font-style |
+|---|---|---|---|---|---|---|
+| parent | Publish / Rename / Export / Delete | yes | 1017 | 1049 | **32 px** | normal |
+| sub | JSON / CSS Custom Properties / Tailwind Config / SVG Swatch / PNG Swatch | **no** | 1202 | 1210 | **8 px** | **italic** |
 
-and `:319`:
+The parent establishes a 32 px icon gutter (8 px padding + 16 px glyph + 8 px gap). The child
+drops it entirely and starts text at the bare 8 px padding. Two panels of one menu tree,
+disagreeing about where a line of text begins by **24 px**, while also disagreeing about
+font-style (P2-15). `evidence/pass2-desktop-submenu.png` and pass 1's
+`evidence/mobile-light-submenu-open.png` both show it.
 
-> "`state` is exactly `captured | ready | retryable-failure | terminal-failure | handoff-initiated`."
+`PROPORTION-AUDIT.md §5` law 8 — real rendered relation, not token intent — and law 2 (one
+anatomy per repeated species) are the governing rows. The five export rows are the *same species*
+as the eleven parent rows; nothing about them earns a different left edge.
 
-and `:174`: *"A serializer either yields the bytes below or a visible terminal/retryable operation
-state — never a partial download or `console.warn`-only result."*
+---
 
-What the component implements (`:113-128`) is five identical rows:
+### P2-6 · MAJOR · The divider budget is inverted: three separators spent, none before the irreversible action
+
+Measured group order, parent panel (`probe-D6-pass2-results.json` `parentOrder`) and both panels
+(`probe-D7-pass2-results.json` `submenu.separators`):
+
+```
+parent   label   "Muted Terracotta and Deep Se…"    y 618
+parent   ── separator ──                            y 654.1
+parent   menuitem Publish                           y 659.1
+parent   menuitem Rename                            y 703.1
+parent   ── separator ──                            y 751.1
+parent   sub-trigger Export ▸                       y 756.1
+parent   menuitem Delete                            y 800.1   <-- same group as Export
+sub      ── separator ──                            y 898     <-- text formats | image formats
+```
+
+Three separators are spent in this tree. Two divide the parent; **one is spent inside the submenu
+to separate `Tailwind Config` from `SVG Swatch`** — i.e. on a taxonomy (text formats vs image
+formats) with no consequence whatever. **Zero** separate `Delete` from the disclosure sub-trigger
+44 px above it.
+
+`PROPORTION-AUDIT.md §5` law 4: *“A divider is retained only when grouping would be ambiguous
+without it.”* The one place in this component where grouping is genuinely ambiguous — an
+irreversible destructive action abutting a harmless disclosure, in identical ink (pass 1's D-2,
+corroborated below at ΔRGB = 1) — is the one place the design declined to spend a line. Pass 1's
+D-14 saw the missing divider; it did not see that the same tree spent one on export file types.
+
+---
+
+### P2-7 · MAJOR · No `DropdownMenuGroup` anywhere; the `Admin` label is an orphan text node with no programmatic scope
+
+The producer exports it and the barrel re-exports it:
+
+```
+$ cat demo/ui/dropdown-menu/index.ts
+export { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuGroup, … } from "@mkbabb/glass-ui";
+
+$ grep -rn "DropdownMenuGroup" demo --include="*.vue"
+(no matches)
+```
+
+Measured DOM of the open menu (`probe-D6-pass2-results.json` `parentOrder`): the content's
+children are **flat** — `div.dropdown-menu__label`, `div[role=separator]`, `div[role=menuitem]` ×n.
+There is no `role="group"` and no `aria-labelledby` anywhere in the tree.
+
+The component declares three semantic groups by comment and by separator — lifecycle
+(`:15-102`), disclosure + destruction (`:107-150`), and **Admin** (`:153-170`) — and expresses none
+of them structurally. The `Admin` `DropdownMenuLabel` at `:155` therefore has no association with
+the two elevated-authority items beneath it: an AT walk announces a bare string, then two
+menuitems that claim no scope. `Delete (admin)` and the owner's own `Delete` are announced
+identically apart from a parenthetical.
+
+`VISUAL-CONSTITUTION.md §7` (About and Admin): *“Elevated authority is communicated by labeling and
+scope, not by a fourth visual system.”* Here the labeling exists and the **scope does not**.
+
+**Cure.** `<DropdownMenuGroup aria-labelledby>` around the admin arm — a primitive already
+exported, already re-exported, used zero times, and exactly the component-type name edict 4 asks
+consumers to reuse.
+
+---
+
+### P2-8 · MAJOR · The menu covers 41.6 % of the adjacent palette card
+
+Measured, desktop 1440, two-palette list (`probe-D6-pass2-results.json` `occlusion`):
+
+```json
+"menu":  { "x": 1010, "y": 611,   "w": 192, "h": 240.1 },
+"cards": [ { "label": "Palette: Muted Terracotta…", "x": 754, "y": 518.6, "w": 462, "h": 100 },
+           { "label": "Palette: Temp",              "x": 754, "y": 630.6, "w": 462, "h": 100 } ],
+"overlapPx": [ { "label": "…Terracotta…", "area": 1459,  "cardArea": 46200 },
+               { "label": "Palette: Temp", "area": 19200, "cardArea": 46200 } ]
+```
+
+19,200 / 46,200 = **41.6 %** of the *next* palette entity is occluded — a different bounded object
+than the one the menu belongs to. `align="end"` (`:7`) with the producer's default side/offset
+drops the panel straight down the list. On a two-item list that is the entire remainder; pass 1's
+mobile capture shows the same mechanism producing legible double text at 390 px (D-15).
+
+`VISUAL-CONSTITUTION.md §2`: *“One surface has one tier.”* A transient overlay belonging to entity
+A, rendered on top of 41.6 % of entity B, at a translucency that lets B's ink read through, breaks
+the entity boundary the Card tuple exists to draw. `PROPORTION-AUDIT.md §5` law 1 — a Card houses
+**one** bounded object — is the same ruling from the other side.
+
+---
+
+### P2-9 · MINOR · The five leading glyphs are not hidden from assistive technology — while the producer's own chevron is, and the sibling file gets it right
+
+Measured (`probe-D6-pass2-results.json` `iconsAria`):
+
+```json
+[ { "parentText": "Publish", "ariaHidden": null },
+  { "parentText": "Rename",  "ariaHidden": null },
+  { "parentText": "Export",  "ariaHidden": null },
+  { "parentText": "Export",  "ariaHidden": "true" },   <-- the producer's ChevronRight
+  { "parentText": "Delete",  "ariaHidden": null } ]
+```
+
+Every glyph the SFC writes (`:20, :28→Globe, :54, :68, :78, :88, :98, :109, :138, :159/:160, :167`)
+is a bare `<svg>` with no `aria-hidden`, no `role`, no title — decorative marks duplicating the
+adjacent label, left in the accessibility tree. The one glyph that *is* hidden is the sub-trigger
+chevron glass-ui emits.
+
+The correct idiom is fifteen lines away in the same folder:
 
 ```html
-<DropdownMenuItem class="cursor-pointer" @select="() => $emit('action', 'exportJSON')">JSON</DropdownMenuItem>
+<!-- PaletteCard.vue:103 -->
+<MoreHorizontal class="w-4 h-4 text-muted-foreground" aria-hidden="true" />
 ```
 
-No **Prepare**, no **Download FILENAME**, no `captured`/`ready`, no `retryable-failure`, no
-`terminal-failure`, no storage-recovery arm — and the menu closes the instant the row is chosen
-(`PaletteCard.vue:317`), so there is nowhere for an operation state to live. `PROPORTION-AUDIT.md`
-**PR-08** ("Pending/failure/export/recovery truth only transient" → **ADD-AFFORDANCE**, *"Persistent
-entity status/recovery"*) names this exact row and assigns it W23.
-
-**Cure.** Export is not a menu row. It is a seat with two activations and five persistent states —
-i.e. it belongs to the inspector D-1 already sends everything else to.
+`PROPORTION-AUDIT.md §5` law 5 requires every small mark to be data, status, a labelled action, a
+drag affordance, a focus register — or removed. A decorative duplicate that is none of those and
+is also not hidden is the one disposition the law does not offer.
 
 ---
 
-### D-6 · MAJOR · One trailing slot carries two orthogonal facts, and availability destroys the visibility readout
+### P2-10 · MINOR · The truncated menu header has no recovery path — while the card's own name span has one
 
-`PaletteCardMenu.vue:56-59`:
+Measured (`probe-D6-pass2-results.json` `header`):
+
+```json
+{ "text": "Muted Terracotta and Deep Sea Foam Study",
+  "title": null, "ariaLabel": null,
+  "scrollW": 319, "clientW": 178,
+  "color": "rgb(112, 89, 66)", "fontSize": "14.384px" }
+```
+
+56 % shown, `title: null`, `aria-label: null`. There is no hover, no tooltip, no expansion — the
+remaining 44 % of the name is unreachable from this panel. One file over, the card solves exactly
+this:
 
 ```html
-<span class="ml-auto fira-code text-mono-caption opacity-55 tracking-wide"
-      style="font-variant: small-caps"
->{{ apiOffline ? "offline" : isPublic ? "public" : "private" }}</span>
+<!-- PaletteCard.vue:57 -->
+:title="palette.name"
 ```
 
-The same pixel region means **current visibility** (`public`/`private`) on one adjacent row and
-**availability failure** (`offline`) on the row above it (`:35-39`). Worse: within this row the two
-facts are mutually exclusive, and availability wins. **The moment the backend goes down, the user
-loses the ability to read whether the palette is public** — exactly when they most need to know what
-state the thing is frozen in.
+Combined with P2-1 (the card's name is 0 px at mobile), the consequence is that on a phone the
+palette's full name is **not obtainable anywhere in the card's UI**.
 
-The two facts are independent. A row that is `private` and `offline` is a real state; the design has
-no way to say it.
-
-**Cure.** Availability is a property of the *action* (disabled + reason); visibility is a property of
-the *entity* (persistent state). They cannot share a slot.
+Sharpening pass 1's D-10 with a second axis: the header's rendered contrast is **5.07 : 1**
+(P2-3's table) against **13.49 : 1** for the ordinary action rows. The identity is not merely
+smaller than the actions beneath it — it is **2.66× less contrasty** than they are. It passes AA;
+it loses the hierarchy anyway.
 
 ---
 
-### D-7 · MAJOR · `DropdownMenuShortcut` is re-implemented three times, three different ways, and used zero times
-
-glass-ui 7.0.0 ships the primitive for exactly this slot
-(`dist/components/dropdown-menu/index.d.ts`), compiled to:
-
-```css
-.dropdown-menu__shortcut{font-size:var(--dropdown-text-secondary);letter-spacing:.1em;opacity:.6;margin-inline-start:auto}
-```
-
-The component hand-rolls it three times, and no two agree:
-
-| site | recipe |
-|---|---|
-| `:37` | `ml-auto fira-code text-mono-caption opacity-55 tracking-wide` + inline `font-variant: small-caps` |
-| `:57` | identical to `:37` |
-| `:101` | `ml-auto text-caption text-muted-foreground` |
-
-Repo-wide, `DropdownMenuShortcut` is exported by the barrel and consumed **zero** times:
-
-```
-$ grep -rn "DropdownMenuShortcut" demo/
-demo/ui/dropdown-menu/index.ts:1: export { … DropdownMenuShortcut … } from "@mkbabb/glass-ui";
-```
-
-Measured divergence from the primitive (`probeD6`, same page, same font):
-
-| property | consumer bundle | producer `.dropdown-menu__shortcut` |
-|---|---|---|
-| letter-spacing | **0.3596px** | 1.4384px |
-| opacity | **0.55** | 0.6 |
-| text-transform | uppercase | none |
-| rendered width of "offline" | 64.47px | 50.09px |
-
-Note the direction: `tracking-wide` (0.025em) is applied *on top of* `text-mono-caption`'s
-`--type-tracking-caps` (0.1em) and **reduces** tracking to a quarter of the caption register's own
-value. A class whose name says "wider" makes it 4× tighter.
-
-Owner edict 4 (*glass-ui is the design system; reuse existing component-type names*) and edict 5
-(*root-level styling, never per-instance overrides*) are both breached, in triplicate.
-
----
-
-### D-8 · MAJOR · `ml-auto` is a physical margin; the annotation lands wrong in RTL
-
-Three sites (`:37`, `:57`, `:101`) use `ml-auto` → `margin-left:auto`. glass-ui uses
-`margin-inline-start:auto`. Measured in a live `dir="rtl"` document with the exact markup, against
-the producer primitive as control (`probe-D2-results.json` `rtl`):
-
-```json
-{ "marginLeft": "17.4688px", "marginInlineStart": "0px",
-  "annX": 17.5, "annRight": 81.9, "lblX": 89.9, "rowW": 178,
-  "producerShortcut": { "marginInlineStart": "31.8438px", "annX": 0 } }
-```
-
-In RTL the consumer's annotation sits at x = 17.5 with 17.5 px of dead space beyond it and only the
-8 px flex gap separating it from the label — it reads as a suffix of the label, not as a trailing
-status. The producer's shortcut lands flush at x = 0, correctly at the row's inline end.
-
-`VISUAL-CONSTITUTION.md §5.2` is titled *Direction, axes, and reordering*; the RTL matrix exists in
-the mega-tranche shot set (`shots/rtl-desktop`, `shots/rtl-mobile`) but, per the gap above, never had
-this menu open in it.
-
----
-
-### D-9 · MAJOR · The one designed hand-off in the component — Rename — loses focus to the closing menu
-
-`PaletteCard.vue:290-292` states the intent:
-
-> "`rename` opens an inline input — keep the menu open visually until the input takes focus; all
-> other actions close the menu immediately."
-
-`PaletteRenameInput.vue:53-56` does its half correctly:
+### P2-11 · MINOR · The open-state API is deliberately un-`v-model`-able
 
 ```ts
-onMounted(() => { inputRef.value?.focus(); inputRef.value?.select(); });
+// PaletteCardMenu.vue:206-227
+const { palette } = defineProps<{ …; menuOpen: boolean; … }>();
+defineEmits<{ action: [action: string]; updateOpen: [value: boolean] }>();
 ```
 
-Measured on both activation paths (`probe-D2-results.json` `enterOnItem`, `probe-D3-results.json`
-`renameClick`):
-
-```json
-{ "menuStillOpen": false, "inputPresent": true, "inputFocused": false,
-  "activeElement": "BUTTON/Palette menu" }
+```html
+<!-- PaletteCard.vue:83-90 -->
+:menu-open="menuOpen" @update-open="menuOpen = $event"
 ```
 
-Both halves of the stated intent fail. The menu **does** close (reka's `handleSelect` calls
-`rootContext.onClose()` regardless of the consumer's bookkeeping — `MenuItem.js:44-46` — and
-`PaletteCard.vue:281` also sets `menuOpen=false` inside `startRenaming()`). And reka's
-`closeAutoFocus` then returns focus to the trigger **after** the input has mounted and focused
-itself, so the field the command just revealed is left unfocused with the caret nowhere.
-
-**Mechanism.** glass-ui's `DropdownMenuContent` exposes a cancellable `closeAutoFocus` emit
-(`DropdownMenuContent.vue.d.ts`) precisely for this hand-off. The component never listens to it. The
-stale comment at `PaletteCard.vue:290-292` describes a behaviour that the chosen event
-(`@click` rather than `@select` with `preventDefault`) cannot express.
-
-**Cure.** `@close-auto-focus.prevent` on the content when the pending command owns a focus target;
-or, per D-1, put rename in the inspector where a menu is not closing over it.
+The event is `updateOpen`, not `update:open`, so `v-model:open` is structurally impossible on this
+component — the one thing Vue's own two-way binding exists for, spelled just far enough off the
+convention to disable it. The idiomatic Vue 3.5 form is one line, `defineModel<boolean>("open")`,
+and it is what glass-ui's own `<Dialog v-model:open>` uses fifty lines away in
+`PalettesPane.vue:101`. Edict 7.
 
 ---
 
-### D-10 · MAJOR · Identity/action hierarchy is inverted; the palette name renders at 0.71× the mandated rung, truncated to 56 %
+### P2-12 · MINOR · `copyAll` is a missing affordance, not merely dead code
 
-`VISUAL-CONSTITUTION.md §4` type jurisdiction table:
+```
+$ grep -rn "copyAll" demo
+demo/palettes/browser/card/PaletteCard/PaletteCard.vue:294:  copyAll: () => void writeClipboard(props.palette.colors.map((c) => c.css).join(", ")),
+```
 
-| Semantic role | Exact glass-ui role | Family |
+The parent **implements** copy-all-colours and the menu never gives it a row. Pass 1 (D-19) read
+this as dead code inside a typo-swallowing lookup, which it also is. The design reading is worse:
+copying a palette's colours is the single most ordinary thing a person does with a palette in a
+colour tool, the handler is written and working, and the only path to it on a card is the
+hover-only swatch popover (`PaletteCard.vue:139-157`) that `VISUAL-CONSTITUTION.md:102` explicitly
+abrogates — *“no … hover-only swatch-action path.”*
+
+`PROPORTION-AUDIT.md` **PR-07** (*“Hover-only/unlabeled controls … ADD-AFFORDANCE / REMOVE”*) is
+the governing row: the hover path retires and the surviving action needs a named seat. Half of
+that has been built and never connected.
+
+---
+
+### P2-13 · MINOR · The version count is rendered twice, ~40 px apart, in two different registers
+
+`PaletteCardMeta.vue:26-33` renders `⏱ 4` in the card row (`text-micro`, `text-muted-foreground`,
+`title="4 versions"`). `PaletteCardMenu.vue:93-102` renders `Versions   4` in the menu
+(`text-caption text-muted-foreground`). Both are visible simultaneously in
+`evidence/desktop-light-menu-open.png` — the chip at the card row, the row in the panel below it.
+One datum, two renderings, two type registers, one of them a bare glyph with no name and one of
+them a labelled row.
+
+`PROPORTION-AUDIT.md §5` law 6: *“Subtraction precedes explanation.”*
+
+---
+
+### P2-14 · MINOR · The five export labels use three naming conventions and none of them names what you get
+
+| row | label | what `PALETTE-CONTRACT.md:213-229` says you receive |
 |---|---|---|
-| palette identity | `--type-subheading` | Fraunces |
+| `:113` | `JSON` | `<slug>--r<n>.json` |
+| `:116` | `CSS Custom Properties` | `<slug>--r<n>.css` |
+| `:119` | `Tailwind Config` | `<slug>--r<n>.tailwind.json` — **data, explicitly not a config file** |
+| `:123` | `SVG Swatch` | `<slug>--r<n>.svg` |
+| `:126` | `PNG Swatch` | `<slug>--r<n>.png` |
 
-Measured (`probe-D2-results.json`, 1440 px):
+Three conventions in five adjacent rows: bare format (`JSON`), format + medium
+(`CSS Custom Properties`), format + artifact (`Tailwind Config`, `SVG Swatch`). And
+`Tailwind Config` actively misdescribes its output — the contract at `:266` is emphatic:
+*“Tailwind export is data, not executable JavaScript… V emits no CommonJS/ESM function, comment,
+plugin, `require`, `eval` or configuration side effect.”* The row promises a config; the byte
+contract forbids one.
 
-| element | rendered |
-|---|---|
-| `--type-subheading` (mandated) | **20.352 px** |
-| menu header (the palette name) | **14.384 px**, Fraunces, weight 600, `rgb(112,89,66)` = `--muted-foreground` |
-| menu items | **16.4 px**, Fira Code, full-strength `--foreground` |
-
-The identity is **smaller than every action beneath it and rendered in the muted role** — the
-quietest element in a panel whose sole reason to have a header is to say which palette you are about
-to delete. Ratio to the constitutional rung: 14.384 / 20.352 = **0.707**.
-
-It is also destroyed:
-
-```json
-"label": { "text": "Muted Terracotta and Deep Sea Foam Study",
-           "scrollW": 319, "clientW": 178, "max-width": "180px" }
-```
-
-178 / 319 = **56 % of the name is shown**. In `evidence/desktop-light-menu-open.png` the header reads
-"Muted Terracotta an…" while the card behind it independently truncates to "Muted Terracot…" — the
-same datum, two different clips, neither complete.
-
-And `max-w-[180px]` (`:9`) never binds: the content box is 178 px (`w-48` = 192 px minus the
-producer's 2 × 6 px content padding and 2 × 8 px item padding). It is a dead magic number.
+The contract also fixes the filename exactly, and `:325` requires the seat to expose
+**`Download FILENAME`**. Five rows that name neither the extension nor the file are the opposite
+of that seat (pass 1's D-5).
 
 ---
 
-### D-11 · MAJOR · Four type-jurisdiction violations, one of which renders the export formats in italic
+### P2-15 · INFO · The two panels of one menu disagree on four registers at once
 
-`VISUAL-CONSTITUTION.md:75`: *"control or label, **including dropdown options** → `text-small`, Plus
-Jakarta Sans, non-bold."* The matrix is declared **closed** across all eighteen compositions.
+Measured (`probe-D7-pass2-results.json` `submenu.panels` and `.items`):
 
-| site | declared | rendered | verdict |
-|---|---|---|---|
-| `:7` `class="w-48 text-small"` | PJS `text-small` | **Fira Code** 16.4 px | mono for control copy — outside the matrix |
-| `:112` `class="text-caption"` on SubContent | smaller caption | 16.4 px **italic** Fira Code | see below |
-| `:9` `font-display font-bold` | Fraunces 700 | Fraunces **600** | `font-bold` inert |
-| `:155` `text-mono-caption uppercase tracking-wider` for "Admin" | — | mono uppercase caption | section heading in the mono/provenance role |
-
-The mono is a project-wide decision — `demo/styles/foundation.css:374`
-`--dropdown-menu-font: var(--font-mono)` — which is a root-level override in the right place. It is
-nonetheless the mechanism by which every dropdown in the app renders control copy in the family the
-constitution reserves for "value, code, or provenance". The menu reads as a terminal, not a menu
-(`evidence/desktop-light-menu-open.png`).
-
-The `text-caption` case is the sharp one. Source (`glass-ui/dist/styles/typography/semantic.css`):
-
-```css
-@utility text-caption { font-family: var(--font-text); font-size: var(--type-caption);
-                        line-height: var(--type-leading-caption); font-style: italic; font-weight: 400; }
-```
-
-`text-caption` is the producer's **italic** caption voice. Applied to `DropdownMenuSubContent`:
-
-- its `font-size` intent is **overridden** by `.dropdown-menu__item{font-size:var(--dropdown-text)}` —
-  measured sub-items are 16.4 px, identical to the parent menu;
-- its `font-style: italic` **inherits through** — measured `subContent.fontStyle: "italic"`,
-  `subItem.fontStyle: "italic"`.
-
-So the only rendered effect of a class chosen for size is obliqueness. See
-`evidence/mobile-light-submenu-open.png`: *JSON*, *CSS Custom Properties*, *Tailwind Config*,
-*SVG Swatch*, *PNG Swatch* all set in italic mono, while the parent menu is upright. Two type voices
-in one menu tree, neither intended.
-
-glass-ui already ships the correct utilities for this exact context and they are unused:
-`.text-dropdown{font-size:var(--dropdown-text)}` and `.text-dropdown-secondary{…}`.
-
----
-
-### D-12 · MAJOR · Hover and keyboard focus are the same background tint; there is no second channel and no way to tell them apart
-
-Measured (`probe-D2-results.json` `states`):
-
-```json
-"rest":    { "bg": "rgba(0, 0, 0, 0)",                        "outline": "none 3px …", "boxShadow": "none", "textDecoration": "none" },
-"focused": { "bg": "oklab(0.915626 0.00551148 0.0130686/0.52)","outline": "none 3px …", "boxShadow": "none", "textDecoration": "none" },
-"activeIsItem": true
-```
-
-The keyboard walk shows the same value for every row (`probe-D2-results.json` `keyboard`): one
-`data-highlighted` tint, no outline, no shadow, no decoration.
-
-`VISUAL-CONSTITUTION.md §4.1`: *"Focus remains visibly distinct from selection in both schemes,
-forced colors and reduced transparency."* Here **hover and focus are not merely indistinct — they are
-literally the same declaration**, and it is a background colour with no non-colour channel. In a menu
-whose last row deletes the palette irreversibly and whose destructive ink is already dead (D-2), the
-user has no visual answer to "where will Enter land".
-
----
-
-### D-13 · MAJOR · The availability latch guards 2 of ~9 doomed remote actions
-
-Every one of these emits an action that must reach the backend, and none reads `apiOffline`:
-
-| row | line | remote write? | gated? |
-|---|---|---|---|
-| Save (`remote` arm) | `:15-22` | yes | **no** |
-| Publish (`saved`) | `:27-40` | yes | yes |
-| Make public / private | `:48-60` | yes | yes |
-| Remix (fork) | `:63-70` | yes | **no** |
-| Edit Tags | `:83-90` | yes | **no** |
-| Versions | `:93-102` | yes | **no** |
-| Delete (remote+owned) | `:133-140` | yes | **no** |
-| Report (flag) | `:143-150` | yes | **no** |
-| Feature / Unfeature | `:158-162` | yes | **no** |
-| Delete (admin) | `:163-169` | yes | **no** |
-
-A degraded-state affordance applied to 2 of 10 doomed actions is worse than none: it teaches the user
-that an un-annotated row is safe, then fails eight of them silently.
-
----
-
-### D-14 · MAJOR · The destructive row is grouped with a disclosure, with no separator between them
-
-Measured group structure (`probe-D-results.json`, separator y-coordinates vs item rects):
-
-```
-label  (Muted Terracotta an…)     y 610
-── separator ──                    y 653.1
-Publish                            y 658.1
-Rename                             y 702.1
-── separator ──                    y 750.1
-Export  ▸                          y 755.1
-Delete                             y 799.1     <-- same group as Export, 44px below it
-```
-
-`PROPORTION-AUDIT.md §5` law 4: *"A divider is retained only when grouping would be ambiguous without
-it."* Here the ambiguity is maximal and the divider is absent: an irreversible destructive action is
-one 44 px row below a disclosure sub-trigger, in the same visual group, in identical ink (D-2), with
-no confirmation step anywhere in the menu (`PaletteCardMenu.vue:136` → `PaletteCard.vue:295` →
-`emit("delete")` — the menu itself offers no guard). On the fullest menu the `Delete (admin)` row
-sits below it too.
-
----
-
-### D-15 · MAJOR · At 390 px the Export submenu overlaps and obscures its own parent menu
-
-Measured (`probe-D-results.json`, `mobile-light` + `mobile-light-submenu`):
-
-```
-parent menu   x = 151.0 … 343.0   (w 192)
-sub-content   x =   0.0 … 210.9   (w 210.9)
-overlap                            59.9 px
-sub-content left edge                0 px from viewport edge
-```
-
-`evidence/mobile-light-submenu-open.png` is the witness: "CSS Custom Properties" and "Tailwind
-Config" render *on top of* the parent's palette name and "Publish" row, both legible through the
-translucent glass surface, producing overlapping double text. The submenu is clamped hard against
-x = 0 with zero inset.
-
-Two contributing design decisions: the parent is pinned to a fixed `w-48` (`:7`) while the submenu
-sizes to content (192 px vs 210.9 px — the two panels of one menu are different widths), and no
-`collisionPadding` / mobile disclosure alternative is chosen. `REPORT.md` reports
-`horizontalOverflow — 0` for `/#/palettes`; the menu was closed in every capture, so the matrix never
-saw this.
-
----
-
-### D-16 · MINOR · 15 declared styling tokens render nothing; a 16th renders the opposite of its name
-
-Every entry measured live on this page:
-
-| token | sites | measured | status |
-|---|---|---|---|
-| `cursor-pointer` | **17** | `cursor: default` on every item (producer sets `cursor:default`) | **inert ×17** |
-| `text-small` (`:7`) | 1 | items are `var(--dropdown-text)` = the identical clamp | **inert** |
-| `font-bold` (`:9`) | 1 | `font-weight: 600` (producer `.dropdown-menu__label`) | **inert** |
-| `max-w-[180px]` (`:9`) | 1 | `clientW` 178 < 180 → never binds | **inert** |
-| `text-destructive`, `focus:text-destructive` | 4 | same ink as neutral rows (D-2) | **inert** |
-| `text-muted-foreground` (`:145`) | 1 | same ink as neutral rows | **inert** |
-| `text-caption` (`:112`) | 1 | size overridden; only italics survive | **inverted** |
-| `style="font-variant: small-caps"` | 2 | see D-17 | **inert** |
-
-`--dropdown-text` and `--type-small` are literally the same clamp:
-
-```
-"--dropdown-text": "calc(clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem ) * 1)"
-"--type-small":         "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )"
-```
-
-A 228-line file whose declared visual intent is more than half inert is not a styled component; it is
-a component that has never been looked at while running.
-
----
-
-### D-17 · MINOR · The "K-INV5 small-caps register" the comments cite three times does not render
-
-`PaletteCardMenu.vue:24-26`, `:42-47` and `:39`/`:59` all invoke a "small-caps annotation" register.
-Measured A/B on the exact class bundle (`probeD6`, same page, same font):
-
-```json
-"withSmallCaps":    { "textTransform": "uppercase", "fontVariantCaps": "small-caps", "renderedWidth": 64.47 }
-"withoutSmallCaps": { "textTransform": "uppercase", "fontVariantCaps": "normal",     "renderedWidth": 64.47 }
-"identicalWidth": true
-```
-
-glass-ui's `@utility text-mono-caption` includes `text-transform: uppercase`
-(`styles/typography/utilities.css`). `font-variant: small-caps` only substitutes small capitals for
-**lowercase** glyphs; there are none left. The annotation renders as plain uppercase — **identical
-rendered width with and without the inline style**. The register described in three separate comment
-blocks, and used as the justification for hand-rolling `DropdownMenuShortcut` (D-7), is fiction.
-
-Two further breaches ride along: it is an **inline style** (edict 5, root-level styling), duplicated
-verbatim at `:39` and `:59`; and `fira-code` at `:37`/`:57` is redundant because `text-mono-caption`
-already sets `font-family: var(--font-mono)`.
-
----
-
-### D-18 · MINOR · Three shadow languages and two radii in one interaction
-
-Measured (`probe-D3-results.json` `material`):
-
-| surface | radius | shadow |
+| register | parent panel | sub panel |
 |---|---|---|
-| palette card | **16 px** (`--radius-card` 1rem) | 3-layer **hard offset** `-3px 3px 0`, `-5px 5px 0`, `-7px 7px 0` |
-| the menu it opens | **12 px** (`--radius-panel`) | soft glass stack `0 8px 32px -4px`, `0 8px 24px 0`, + 4 insets |
-| declared token | — | `--shadow-card: 8px 8px 0px 0px …` |
-| menu item | 8 px | concentric ideal = 12 − 6 = **6 px** |
+| width | **192 px** (`w-48`, `:7`) | **242 px** (content-sized) |
+| font-size | **16.4 px** | **14.384 px** |
+| font-style | normal | **italic** |
+| icon gutter (text inset) | **32 px** | **8 px** |
+| border-radius | 12 px | 12 px (the one agreement) |
 
-`demo/styles/foundation.css:359-368` states the project law in its own comment:
-
-> "…so `shadow-card` consumers and explicit `shadow-cartoon` consumers render **one cartoon
-> language — no fourth ad-hoc shadow recipe**."
-
-The menu is that fourth recipe. Optically the card is a pop-art paper cut-out with a hard black
-caster; the menu that springs from it is frosted iOS glass. They are witnessed together in
-`evidence/desktop-light-menu-open.png` and they do not belong to the same object.
-
-(The item-radius error and the panel radius are producer-owned — relay to glass-ui rather than
-patch locally.)
+Two of these are consequences of a single class chosen for a size it does not deliver —
+`class="text-caption"` on `DropdownMenuSubContent` (`:112`), whose `font-size` is overridden by
+`.dropdown-menu__item{font-size:var(--dropdown-text)}` while its `font-style: italic` inherits
+through (pass 1's D-11, corroborated: measured `fontStyle: "italic"` on all five sub-items). The
+width and gutter divergences are new. A submenu is the same menu; four simultaneous register
+breaks make it read as a different component.
 
 ---
 
-### D-19 · MINOR · A stringly-typed command bus between two files in the same folder, with one dead command
+### P2-16 · INFO · The `temporary` arm is a three-row menu with no way to discard the palette
 
-`PaletteCardMenu.vue:225`: `action: [action: string]`. `PaletteCard.vue:293-313` receives it into a
-`Record<string, () => void>` and silently drops unknown keys (`if (!fn) return;`). Consequences:
+Enumerating the `v-if`s for `paletteKind === "temporary"` (`:16, :28, :49, :64, :74, :84, :94, :134,
+:144, :153`): **Save** (`:15`), **Rename** (`:73`, because `paletteKind !== "remote"`),
+**Export ▸** (unconditional). Delete requires `saved || (remote && isOwned)` (`:134`) — false.
 
-- a typo in any of the 17 emitted literals compiles, ships, and no-ops;
-- `copyAll` exists in the parent map (`PaletteCard.vue:294`) with **zero producers**:
+So the ephemeral palettes — the Generate / Mix / Extract outputs, the ones most likely to be
+unwanted — are the only kind the menu cannot dismiss. And the trash glyph floating above the list
+in `evidence/desktop-light-menu-open.png` is not the missing affordance: it opens
+`PalettesPane.vue:101-118`'s *“Delete all saved palettes?”* dialog — a different scope entirely
+(all saved, never this temporary one). `PROPORTION-AUDIT.md` **PR-06** — *“Three adjacent action
+species… REMOVE. One action/selection owner.”* — is the governing row: two destructive owners at
+two scopes, and the scope the user is looking at has none.
+
+---
+
+## Independent corroboration of pass 1's load-bearing claims
+
+This seat re-measured the two findings pass 1 called shipping breakage, with a different
+instrument, on a correctly-seeded store.
+
+**D-2 (destructive ink is inert) — CONFIRMED at the pixel level.** Pass 1 used computed style.
+This pass sampled rendered pixels from a screenshot (`probe-D8-pass2-results.json`, light):
 
 ```
-$ grep -rn "copyAll" demo/
-demo/palettes/browser/card/PaletteCard/PaletteCard.vue:294: copyAll: () => …
+Rename ink  rgb(28, 25, 23)   contrast 13.49 : 1
+Delete ink  rgb(28, 24, 22)   contrast 13.59 : 1     ΔRGB = 1
 ```
 
-Dead code inside a lookup that also swallows typos. Edicts 2 (no legacy code) and 3 (KISS) both apply.
-The type exists to be written: a union of the 17 literals costs one line.
+One unit of blue, out of 255, separates the irreversible action from the reversible one. In dark
+the sampled delta is 11 — still far below any perceptual threshold at 16 px text.
+
+**D-4 (`misconfigured` unhandled) — CONFIRMED, and the app was in that state throughout.** The
+live console emits, verbatim (`probe-D6-pass2-results.json` `extract.consoleErrors[0]`):
+
+> `[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is
+> targeting the cross-origin production API … This is a dev-config error, NOT "backend offline".`
+
+`availability.ts:39-44` declares four states; `PaletteCardMenu.vue:217` tests one. Every capture in
+both passes shows `● DEV MISCONFIGURED` in the dock and an enabled, undecorated `Publish` in the
+menu ten pixels away.
+
+**D-10, D-11, D-15, D-24, D-25 — all corroborated** (header 14.384 px / `rgb(112,89,66)` /
+scrollW 319 vs clientW 178; sub-items italic at 14.384 px; the 390 px submenu collision; zero
+matrix coverage; item height 44 px, 4-row arm 240.1 px).
 
 ---
 
-### D-20 · MINOR · Two activation idioms in one menu — 11 `@click`, 5 `@select`
+## What is sound — the negative proof, re-verified
 
-The eleven main rows use `@click`; the five export rows use `@select`. glass-ui declares `select` as
-the contract, with a documented cancellation semantic:
-
-```ts
-export interface DropdownMenuItemEmits { /** Cancel this event to keep the menu open. */ select: [event: Event]; }
-```
-
-`@click` runs in parallel with reka's `handleSelect` and cannot cancel it — which is precisely why
-D-9's "keep the menu open" intent is unachievable on the rename row. One menu, two idioms, one of
-them outside the producer's contract.
-
----
-
-### D-21 · MINOR · Two verbs mean the same thing, one word means two things
-
-- **"Publish"** at `:33` (create a remote resource from a saved local palette) and **"Publish"** at
-  `:55` (flip an existing remote palette's visibility to public) are different operations behind one
-  word, both wearing the same `Globe` glyph.
-- On a `remote` palette the menu offers **Save** (`:15-22`, copy to local) *and* **Remix** (`:63-70`,
-  fork) — two adjacent copy verbs with no stated distinction.
-
-`PROPORTION-AUDIT.md` **PR-06** ("Three adjacent action species or duplicated selected fills" →
-**REMOVE**, *"One action/selection owner"*) is the governing row.
-
----
-
-### D-22 · MINOR · The Versions row gates on a different predicate than every sibling
-
-`:94`: `v-if="!palette.isLocal && (palette.versionCount ?? 0) > 1"`. Every other conditional in the
-file gates on `paletteKind`. `getPaletteKind` (`demo/palettes/utils.ts:22-31`) derives `remote`
-from exactly `!palette.isLocal`, so the two are equivalent today — which makes this a second,
-redundant encoding of the same fact that will drift the moment `getPaletteKind` gains a case.
+1. **The trigger's tap target is correct.** Measured 54 × 54 at 390 px and 36 × 36 at 1440
+   (`probe-D9-pass2-results.json`); the 44 px floor is met on touch, and the trigger appears in
+   **none** of `REPORT.json`'s `smallTapTargets` rows for `/#/palettes` or `/#/browse` in any of the
+   four matrices. Pass 1's D-25 measured 44 px menu items — also correct.
+2. **The trigger is named.** `aria-label="Palette menu"` (`PaletteCard.vue:100`); `namelessButtons`
+   for `/#/palettes` is 1 and it is not this control (the trigger carries the label; the unnamed
+   button is on the picker side, present identically on `/#/` where this component does not render).
+3. **Producer menu semantics are correct and consumed correctly** — `role="menu"`,
+   `role="menuitem"`, `role="separator"`, `aria-haspopup`, `aria-expanded` on the sub-trigger, the
+   `data-highlighted` roving walk. The component adds no ARIA of its own and breaks none.
+4. **Motion has no defect** (pass 1 measured it; nothing in this pass contradicts it): producer-owned,
+   collapses to `opacity`/0.15 s under `prefers-reduced-motion`, animates only composited properties,
+   declares no local keyframes — edict 6 clean.
+5. **`verbatimModuleSyntax` is clean** — `import type { Palette }` (`:177`),
+   `import type { PaletteKind }` (`:178`).
+6. **Not a god module** — 228 lines, one job, sub-components colocated (edict 1 clean).
+7. **The DI seam is right** — `useApiClient()` (`:216`) reads the latch through the injected client.
+   The predicate is wrong (D-4); the seam is not.
+8. **The degraded-state instinct is canon-aligned** — naming the reason in-register rather than by
+   toast is what `VISUAL-CONSTITUTION.md §4.1` asks for. It is applied to 2 of 10 doomed actions
+   (D-13), rendered in a register that does not exist (D-17), destroys a competing fact (D-6), and
+   at 1.75 : 1 cannot be read (P2-3) — but the instinct is right, and that matters for the cure.
 
 ---
 
-### D-23 · MINOR · `demo/ui/dropdown-menu/` is a pure re-export alias
-
-```ts
-export { DropdownMenu, …, DropdownMenuSubContent } from "@mkbabb/glass-ui";
-```
-
-One line, fourteen names, zero behaviour. `PaletteCardMenu.vue:180-190` imports through it rather
-than from `@mkbabb/glass-ui` directly. Edict 2 forbids aliases; edict 4 says primitives belong in
-glass-ui, not in `demo/ui/`. It is also the *only* thing standing between this consumer and the
-`DropdownMenuShortcut` it re-exports but never uses (D-7).
-
----
-
-### D-24 · INFO · The mega-tranche visual matrix has zero coverage of this component
-
-See the gap section above: 60 captures, 0 with the menu open; `STATES.json` contains no
-`dropdown`/menu row. The `smallTapTargets`, `namelessButtons` and `horizontalOverflow` columns for
-`/#/palettes` and `/#/browse` describe the closed trigger only.
-
----
-
-### D-25 · INFO · Density: the fullest menu is a 192 px column that scrolls
-
-Measured: item height **44 px**, content `padding: 6px`, `max-height: var(--overlay-max-block)` =
-600 px at 1000 px viewport height and **300 px at 500 px**. The fullest arm (`remote` + `isOwned` +
-`isAdmin` + versions) renders 10 items + 2 labels + 3 separators ≈ **543 px**. Below roughly a 640 px
-viewport height — a landscape phone, or a laptop at 150 % browser zoom — the menu scrolls internally
-in a 192 px-wide column, with `Delete` and `Delete (admin)` below the fold. The 720×500 probe
-confirms the clamp:
-
-```json
-"zoom200": { "contentStyles": { "max-height": "300px" }, "overflowsViewport": false }
-```
-
-(the 4-item `saved` arm fits; the 10-item arm cannot).
-
----
-
-## State coverage — the enumeration the seat asked for
-
-| state | handled? | evidence |
-|---|---|---|
-| empty (no applicable rows) | n/a — every arm renders ≥ 3 rows | source enumeration |
-| loading / in-flight | **NO** — menu closes on activation, no pending state | `PaletteCard.vue:317`; D-5 |
-| populated | yes | `probe-D-results.json` |
-| error / retryable / terminal | **NO** — contract mandates 5 states, 0 implemented | `PALETTE-CONTRACT.md:319`; D-5 |
-| disabled | partial — 2 of 10 doomed actions | D-13 |
-| focused | **color-only, identical to hover** | D-12 |
-| hovered | color-only, identical to focus | D-12 |
-| active / pressed | **none** — no `:active` treatment anywhere | measured: `boxShadow:none`, no transform |
-| selected | n/a (menu, not a listbox) | — |
-| dragging | n/a | — |
-| overflowing (10-item arm) | scrolls, destructive rows below fold | D-25 |
-| truncated (long name) | **YES, badly** — 56 % of the name shown | D-10 |
-| RTL | **broken** — physical `ml-auto` ×3 | D-8 |
-| reduced-motion | **OK** (producer): `transition-property` collapses `scale,translate,opacity,filter,display,overlay` → `opacity`, 0.35 s → 0.15 s | `probe-D-results.json` `forced-colors.contentStyles` |
-| forced-colors | **degraded** — severity ladder collapses to one ink | D-2; `evidence/forced-colors-menu-open.png` |
-| zoomed 200 % | menu fits at the 4-item arm; 10-item arm scrolls | D-25 |
-| touch | **BROKEN** — Export submenu unopenable | D-3 |
-| API `misconfigured` | **unhandled** | D-4 |
-| API `unknown` | renders optimistic (defensible) | source |
-
-Eight of nineteen states are unhandled, broken, or degraded. **Two of them (touch, `misconfigured`)
-are states in which the component's headline features simply do not work.**
-
----
-
-## Motion
-
-The component declares **no motion of its own** — correct under edict 6 (nothing was deleted here).
-All motion is producer-owned and, measured, well-behaved:
-
-| context | `transition-property` | duration |
-|---|---|---|
-| default | `scale, translate, opacity, filter, display, overlay` | 0.35 s |
-| `prefers-reduced-motion: reduce` | `opacity` | 0.15 s |
-
-No layout-forcing property is animated (`scale`/`translate` are composited; `width`/`height`/`top`
-are absent). `animation-name: none`, `animation-duration: 0s` in the default arm; `1e-05s` under
-reduce. **Motion is the one axis on which this component has no defect.**
-
----
-
-## Design-system boundary — summary
-
-| breach | edict | finding |
-|---|---|---|
-| `DropdownMenuShortcut` re-implemented ×3, used ×0 | 4 | D-7 |
-| inline `style="font-variant: small-caps"` ×2 | 5 | D-17 |
-| `cursor-pointer` ×17 / `text-small` / `text-caption` / `font-bold` / `max-w-[180px]` — per-instance overrides of producer roots, all inert | 5 | D-16 |
-| `demo/ui/dropdown-menu/` alias barrel | 2, 4 | D-23 |
-| `text-destructive` has no producer seam → severity cannot be expressed | 4 (relay) | D-2 |
-| `copyAll` dead branch; stringly-typed bus | 2, 3 | D-19 |
-| `@click.prevent` cargo | 3 | D-3 |
-
-`verbatimModuleSyntax` (edict 8) is **clean**: `import type { Palette }` (`:177`) and
-`import type { PaletteKind }` (`:178`) are both correct.
-Vue 3.5 idiom (edict 7) is **clean**: reactive props destructure at `:206`, `computed` where needed,
-no stale-`defineModel` hazard (no `defineModel` here). No god module (edict 1) — 228 lines, one job.
-
----
-
-## Proportion and seat law — the judgment
+## Proportion and seat law — pass-2 judgment
 
 | canon row | verdict |
 |---|---|
-| `VISUAL-CONSTITUTION.md:102` — card body owns no action menu | **VIOLATED in whole** (D-1) |
-| `VISUAL-CONSTITUTION.md:75` — dropdown options are `text-small` PJS non-bold | VIOLATED (D-11) |
-| `VISUAL-CONSTITUTION.md §4` — palette identity is `--type-subheading` | VIOLATED, 0.707× (D-10) |
-| `VISUAL-CONSTITUTION.md §4.1` — states never color-only | VIOLATED; here not even colour (D-2, D-12) |
-| `VISUAL-CONSTITUTION.md §4.1` — focus distinct from selection | VIOLATED (D-12) |
-| `VISUAL-CONSTITUTION.md §5.2` — direction/axes | VIOLATED in RTL (D-8) |
-| `PROPORTION-AUDIT.md §5` law 4 — dividers only where grouping is ambiguous | VIOLATED, inverted (D-14) |
-| `PROPORTION-AUDIT.md §5` law 8 — real rendered relation beats token intent | VIOLATED (D-16: 15 inert tokens) |
-| `PROPORTION-AUDIT.md §5` law 12 — card root noninteractive, one named button | VIOLATED (D-1) |
-| `PROPORTION-AUDIT.md` **PR-06** — one action owner | VIOLATED (D-21) |
-| `PROPORTION-AUDIT.md` **PR-08** — persistent operation state | VIOLATED (D-5) |
-| `PALETTE-CONTRACT.md:319, :325` — Prepare→Download, 5 durable states | VIOLATED (D-5) |
+| `VISUAL-CONSTITUTION.md:102` — card body owns no action menu / no hover-only swatch path | **VIOLATED in whole** (D-1; P2-12 shows the hover path is still the only copy route) |
+| `VISUAL-CONSTITUTION.md §4` — palette identity is `--type-subheading` | **VIOLATED to zero** — 0 px rendered at 390 px (P2-1) |
+| `VISUAL-CONSTITUTION.md §4.1` — state/status explicit | VIOLATED — status at 1.75 : 1 (P2-3) |
+| `VISUAL-CONSTITUTION.md §2` — one surface, one tier | VIOLATED — 41.6 % of the neighbouring entity occluded (P2-8) |
+| `VISUAL-CONSTITUTION.md §7` — elevated authority by labeling **and scope** | VIOLATED — no `role="group"` (P2-7) |
+| `PROPORTION-AUDIT.md §5` law 1 — a Card houses one bounded object | VIOLATED (P2-8) |
+| `PROPORTION-AUDIT.md §5` law 2 — one protagonist, one identity line | VIOLATED (P2-1) |
+| `PROPORTION-AUDIT.md §5` law 4 — dividers only where grouping is ambiguous | VIOLATED and **inverted** — the budget was spent on export file types (P2-6) |
+| `PROPORTION-AUDIT.md §5` law 5 — every small mark is data/status/named/removed | VIOLATED — 5 unhidden decorative glyphs (P2-9) |
+| `PROPORTION-AUDIT.md §5` law 8 — rendered relation beats token intent | VIOLATED (P2-1, P2-3, P2-5, P2-15) |
+| `PROPORTION-AUDIT.md §5` law 12 — card root noninteractive, one named button | **VIOLATED illegally** at `/#/mix` — card nested *inside* the button (P2-2) |
+| `PROPORTION-AUDIT.md` **PR-06** — one action owner | VIOLATED (P2-16) |
+| `PROPORTION-AUDIT.md` **PR-07** — hover-only paths retire, survivors get names | VIOLATED (P2-12) |
+| `PALETTE-CONTRACT.md:213-229, :266, :325` — exact filenames, Tailwind is data, `Download FILENAME` | VIOLATED (P2-14, D-5) |
 
 ---
 
-## What is actually sound (the negative proof)
+## The cure, as one move
 
-This is not a component with nothing right in it, and the seat should say so precisely:
+Pass 1's transposition is correct and this pass strengthens it rather than amending it:
 
-1. **Motion is correct and PRM-honest** — measured collapse to `opacity`/0.15 s under
-   `prefers-reduced-motion: reduce`; no layout-forcing property animated; no local keyframes added or
-   deleted.
-2. **`verbatimModuleSyntax` is clean** — both type imports are `import type` (`:177-178`).
-3. **Vue 3.5 idiom is clean** — reactive props destructure (`:206`), `computed` for both derived
-   flags, no `defineModel` stale-read hazard.
-4. **The DI seam is right** — `useApiClient()` (`:216`) reads the availability latch through the
-   provided client rather than a module singleton, exactly as `useApiClient.ts:9` intends. The bug is
-   the predicate (D-4), not the seam.
-5. **The degraded-state instinct is right** — annotating a disabled action with a named reason
-   in-register, rather than a toast, is the correct pattern (`VISUAL-CONSTITUTION.md §4.1`). It is
-   applied to too few actions (D-13), rendered in the wrong register (D-17) and destroys a competing
-   fact (D-6) — but the instinct is canon-aligned.
-6. **`aria-*` and roles are producer-correct** — measured `role="menuitem"`, `tabindex="-1"`,
-   `aria-haspopup="menu"`, `aria-expanded` on the sub-trigger; keyboard `ArrowDown` walks every row
-   with `data-highlighted` set (`probe-D2-results.json` `keyboard`). The trigger carries
-   `aria-label="Palette menu"` (`PaletteCard.vue:100`) and does **not** appear in `REPORT.md`'s
-   `namelessButtons` rows for `/#/palettes`.
-7. **The component is not a god module** — 228 lines, one responsibility, sub-components colocated.
+> *“Full detail, rename/lifecycle/export actions and durable operation state live in the selected
+> inspector.”* — `VISUAL-CONSTITUTION.md:102`
 
----
+**Delete `PaletteCardMenu.vue`. Move its seventeen actions into the selected inspector. Reduce the
+card to the single named `<button aria-pressed>` seat of `PROPORTION-AUDIT.md §5` law 12.**
 
-## The cure, as one move rather than twenty patches
+What pass 2 adds is the proof that the transposition is not stylistic. P2-1 shows the card row
+physically cannot hold identity + badges + chips + a 54 px menu at 390 px — the identity is what
+gets deleted, today, in production layout. P2-2 shows that one consumer already had to wrap the
+whole card in a button to get selection, which the menu's presence makes invalid HTML. P2-4 shows
+the menu is already rendering rows nobody subscribed to. The component is not a menu that needs
+fixing; it is an inspector that was built inside a 192 px transient overlay hanging off a card,
+and the card cannot afford it.
 
-Twenty of these findings are downstream of one architectural fact: **an entity's lifecycle,
-export and destruction were put inside a 192 px transient overlay hanging off a card.** A transient
-overlay cannot hold a durable operation state (D-5), cannot hold two orthogonal status facts (D-6),
-cannot hand focus to an inline editor it is closing over (D-9), cannot give an identity its
-constitutional rung in 178 px (D-10), and cannot afford a confirmation step before an irreversible
-delete (D-14).
+Two items should not wait for the move, in addition to pass 1's D-3 and D-2:
 
-The canon already wrote the transposition, and it is not "fix the menu":
-
-> "Full detail, rename/lifecycle/export actions and durable operation state live in the selected
-> inspector." — `VISUAL-CONSTITUTION.md:102`
-
-**Move the seventeen actions into the selected inspector; delete `PaletteCardMenu.vue`; reduce the
-card to the single `<button aria-pressed>` seat of `PROPORTION-AUDIT.md §5` law 12.** D-1, D-5, D-6,
-D-9, D-10, D-14, D-15, D-21 and D-25 dissolve rather than get patched. D-3, D-4, D-13, D-19 and D-20
-are logic that moves with the actions and is fixed in transit. D-2, D-7, D-8, D-11, D-16, D-17,
-D-18 and D-23 are design-system-boundary rows that outlive the move and want a glass-ui relay
-(a `variant="destructive"` seam on `DropdownMenuItem`, and consumers that stop writing utilities the
-producer's `color:inherit` will eat).
-
-Two of them, however, are shipping breakage that should not wait for the transposition:
-**D-3** (five export formats unreachable on touch — one deleted modifier) and **D-2** (the delete row
-is chromatically indistinguishable from rename).
+- **P2-2** — invalid nesting at `MixSourceSelector.vue:264`, an a11y-tree hazard reachable today.
+- **P2-3** — one `opacity-55` multiplying inside a `--opacity-disabled: 0.5` row, making the
+  availability reason unreadable at 1.75 : 1.
 
 ---
 
 *No source files were edited by this seat. Every artefact written lives under*
-`docs/tranches/V/megatranche/audit/components/PaletteCardMenu/`.
+`docs/tranches/V/megatranche/audit/components/PaletteCardMenu/`. *Pass 1's report is preserved
+verbatim at* `challenge-D-design.pass-1-2026-07-28.md`.
