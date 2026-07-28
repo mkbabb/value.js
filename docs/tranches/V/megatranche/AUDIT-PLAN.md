@@ -33,9 +33,10 @@ idiomatic parse-that usage, is a requirement** (M-9).
    concrete deliverables only (file:line, failing probe, reproduction, named defect row); registry
    stable only when two consecutive passes surface nothing new; auditors denied the favored
    success narrative.
-10. **No source edits land from this formation.** `src/ demo/ api/ test/ e2e/` untouched;
-    `docs/tranches/V/vnext/**` Codex-owned READ-ONLY; `scripts/dev/dev.sh` never touched
-    (its disposition is DR-24, decided by wave, not by hand).
+10. **Audit source posture, amended by M-15/M-17.** `docs/tranches/V/vnext/**` is Claude-owned and
+    frozen-as-inherited until ruled. Audit-blocking root-seam hotfixes may land only with a named
+    blocker, no compatibility path, and browser/test proof in the handoff. `scripts/dev/dev.sh`
+    remains untouched (its disposition is DR-24, decided by wave, not by hand).
 
 **Operations law (accreted across the session, all owner-issued).**
 - **≤4 concurrent workflows** — overrides any commissioned scale; honour scale sequentially.
@@ -74,7 +75,7 @@ Every seat still returns a **model receipt** (L-11); the census, not the script,
 | `registry/DISEASE-REGISTRY.md` | **33 disease rows, all terminal** (18 BUILD · 11 RETIRE · 4 FOLD) + 22 mechanism families, from the **complete 16/16 history audit** of tranches A..V | COMPLETE |
 | `registry/DEFECT-LEDGER.md` + `harvest/` | **287 challenger defects** (40 BLOCKER · 134 MAJOR) from 57 harvested seats — *accusations with evidence, NOT adjudicated* | AWAITING JURY |
 | V·π receiving audit | 9/9 seats; 6,451-row coverage ledger; 62.1% of the envelope corpus encrypted/unauditable; the U+2028 readline trap | COMPLETE |
-| `FORMATION-LAWS.md` | L-1..L-14, each derived from a measured failure in this repo's own history | STABLE |
+| `FORMATION-LAWS.md` | L-1..L-17, including evidence-mode and Goldilocks graph-cluster laws | STABLE |
 | Visual corpus | 60-shot route matrix (hash-corrected), 30-row state matrix (harness-corrected), owner-marked OM-1/OM-2, **first real-Safari witness** (`audit/visual/safari-real/`) | GROWING |
 | Probes | 15 standalone born-RED gates/hostile probes, incl. `r1-published-totality.mjs` (exit 1 today) | STABLE |
 | Coordination | I-17..I-20 rowed; O-7/O-8/O-9 sent (glass · keyframes · atlas); reciprocal hashes verified | CURRENT |
@@ -160,8 +161,11 @@ updated at every phase boundary; outbound packets at every cross-repo consequenc
   **prefix trap live in our tree today**: the spectrum slider range keeps `blur(7px) saturate(1.4)`
   over half its ramp — glass-owned, cured in 8.0.0, **do not patch locally**. 8.0.0 repins will be
   requested with a fresh census; until then no repin, no shim, no copied selector.
-- **keyframes V / atlas P**: no reply yet to O-8/O-9 (the parser exposure + the 4.0.1-vs-tuple
-  question). The question stands open; nothing is cut without their answer.
+- **keyframes V**: no reply yet to O-8. The parser exposure question remains open.
+- **atlas P pass 2 RECEIVED**: active sci/Atlas already use value 4 subpaths; pinned sci still uses
+  the value root. Value 4 deliberately has no `"."` export, so migrate the pinned consumer and do
+  not create a root shim. Full receipt:
+  `/Users/mkbabb/Programming/.p-totality/sci/atlas/docs/tranches/Q/coordination/ATLAS-TO-VALUE-2026-07-28-PASS2.md`.
 - **fourier-analysis**: quiet; its exposure is nil on the direct surface (`/easing` measured 0/172).
 - Our three outbound packets stand as sent; the trifold re-formation is internal posture and is not
   re-mailed (E13 covers consequences, not constitutions).
@@ -182,3 +186,26 @@ ESCALATE-TO-DISEASE), `TRUTH-TABLE.md` (half-baked · silent-drop · rejected ·
 re-authoring verdict). Output feeds Phase E (design tri-folds — Sol+Luna author, frontend-design
 plugin, Sol agglomerates) and Phase F (wave authoring consumes the registers WHOLE).
 Instrument: `workflows/excavation.js` · run `wf_a6f71311-4e5`.
+
+---
+
+## §6 — M-17/M-18 consumer + Goldilocks continuation
+
+Canonical ledger: `CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md`.
+
+1. Audit every value Admin route and exposed mutation, every keyframes scene, every Fourier page,
+   parse-that, and the bounded constellation. Label each claim BROWSER-LIVE, BROWSER-FIXTURE,
+   API-TEST, SOURCE, or BLOCKED.
+2. Apply only root-seam hotfixes required to make the audit witness honest; list them in the
+   hotfix ledger and verify them in the in-app Browser.
+3. Replace the incomplete current graph authority—resolver aliases, CSS, render/DI/route/state/API,
+   worker/asset, package/test-boundary, and Python edges—before regenerating content-addressed
+   receipts or believing degree/edge-cut counts.
+4. Partition work by SCC or feature/change-coupling cut. Two fresh GPT Sol xhigh critics assume
+   each cluster is wrong; a third GPT Sol xhigh arbiter refutes both and records one topology.
+5. Include external isomorphic tests and every bounded consumer cut in the cluster. Source-owned
+   `__tests__`, ceremonial one-file directories, repeated module-name basenames, convenience
+   barrels, god modules, and sand are explicit adjudication inputs.
+6. Fold results into W6/W7. Do not create a second graph program or more waves.
+7. Breaking cuts migrate the bounded constellation in one cut. No aliases, root shims, migration
+   layers, dual paths, or masking fallbacks.

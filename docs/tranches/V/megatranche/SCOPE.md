@@ -208,3 +208,42 @@ context. It does not authorize a second archaeology program or a new micro-wave 
 6. **Durability becomes content-addressed.** A workflow return is not a durable seat. A seat counts
    only when its declared canonical output exists on disk and its content/hash is recorded. The
    root materializes complete cached payloads before rerunning any missing seat.
+
+## M-17 — NAMED CONSUMERS + COMPLETE ADMIN/CRUD PROOF (owner, 2026-07-28)
+
+The M-16 frontend commission explicitly includes all five value Admin views, all exposed CRUD and
+moderation operations, all seven keyframes.js demo scenes, every fourier-analysis page, parse-that,
+and every other bounded named consumer. A page-frame receipt is not route health; source, test,
+browser-live, browser-fixture, and blocked evidence remain separate.
+
+Audit blockers receive narrow root-seam hotfixes so the audit can run. Every hotfix is named in the
+handoff, verified in the environment able to witness the defect, and distinguished from disposable
+witness infrastructure. No hotfix may introduce an alias, compatibility path, silent fallback, or
+local copy of a producer-owned cure.
+
+The canonical findings and operation matrix are
+`CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md`. They amend W0..W9; they do not open new waves.
+
+## M-18 — GOLDILOCKS MODULE/DAG + CONSTELLATION COMMISSION (owner, 2026-07-28)
+
+Library and frontend structure are audited as graphs, not file-count aesthetics. The measured value,
+keyframes, Fourier, parse-that, Glass, and sci/Atlas graphs are partitioned into dynamic feature/SCC
+clusters. Two fresh GPT Sol xhigh critics independently assume each cluster is wrong; a third GPT
+Sol xhigh arbiter attempts to disprove both and records the one target topology. Each node, edge,
+cycle, public export, test mirror, and bounded consumer cut receives a terminal keep/fold/move/prune
+disposition.
+
+Binding architecture rules:
+
+1. **Goldilocks grain.** Avoid god modules and sand. Split only across independently nameable
+   invariants/change coupling; flatten ceremonial one-file/forwarding directories.
+2. **Module-name deduplication.** A file inside module `x/` does not repeat `x` in its basename,
+   after the module boundary itself is proved.
+3. **External isomorphic tests.** Tests never live in source-owned `__tests__`; the test tree mirrors
+   source ownership outside source.
+4. **Worth is semantic.** Consumer count is evidence, never sufficient proof of value or vacuity.
+5. **Breaking cuts are welcome when proved.** All bounded consumers migrate in the same release;
+   no root shim, alias, migration layer, dual path, or masking fallback survives.
+6. **Cross-repo receipts are part of the cut.** Active Glass and sci/Atlas audits are consulted
+   before shared component/export changes. Value 4’s absent root export is deliberate and remains
+   absent; pinned legacy consumers migrate to the existing subpaths.

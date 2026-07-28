@@ -314,3 +314,65 @@ kill of 07-24). Binding on every session of this formation:
    queue the exact resume in STATE.md §RESUME in the same turn. Every incomplete row must be
    owned by an ACTIVE or QUEUED resume at all times; work is DONE only when its ledger row reads
    ADJUDICATED or ON-DISK.
+
+## L-16 — Evidence modes never impersonate one another
+
+**Evidence.** The 2026-07-28 consumer audit produced all of these in one pass:
+
+- a Fourier CRUD E2E that used the UI for upload and direct API requests for later mutations;
+- a populated Fourier Flagged panel that required a disposable database fixture because no public
+  flag writer exists;
+- value Admin empty states that were actually unauthenticated early returns;
+- keyframes path-style probes that were invalid for its hash router;
+- a value Admin Feature control that rendered and clicked but posted an invalid body and swallowed
+  the error.
+
+Treating any one of those as “frontend verified” would manufacture completion.
+
+**Law.** Every operation/route claim is labelled **BROWSER-LIVE**, **BROWSER-FIXTURE**,
+**API-TEST**, **SOURCE**, or **BLOCKED**. Only BROWSER-LIVE proves the frontend journey. A hotfix
+records its blocker, exact root-seam cure, proof, and durability. Disposable witness infrastructure
+is never product implementation and is removed at audit close.
+
+## L-17 — Architecture is adjudicated by graph cluster, at Goldilocks grain
+
+**Evidence.** The same audit measured:
+
+- four type-inclusive value demo clusters, including a runtime Dock barrel loop and a seven-node
+  Admin/provider inversion;
+- one runtime keyframes demo orbital cluster plus type clusters;
+- two runtime SCCs in parse-that despite 124 green tests;
+- 28 value API test files inside source-owned `__tests__`;
+- both extremes at once: 900/712/686-line leaves and scores of one-file/forwarding capsules;
+- a stale current-DAG identity pin that made the validator red while its graph input hashes stayed
+  unchanged;
+- an alias-aware rerun that changed keyframes demo internal edges from 245 to 399 and Fourier web
+  from 130 to 314, proving the content-addressed old instrument still omitted real topology.
+- a stock value demo receipt that first mixed four `demo/test/**` nodes into its 251-node count;
+  moving the newly authored test to root `test/demo/**` left a 250-node forensic count but the same
+  247-node product slice; and target-path manifests whose exact 103/67 leaf shapes were inventories,
+  not adjudicated topology.
+
+File count, line count, and consumer count each failed as a sufficient architectural criterion.
+
+**Law.** First make the graph authority complete for resolver aliases, CSS, render/DI/route/state/API,
+worker/asset, package/test-boundary, and Python edges. Then work proceeds in dynamic SCC/feature
+clusters. Two fresh GPT Sol xhigh critics independently
+assume the cluster is wrong; a third GPT Sol xhigh arbiter attempts to refute both and records one
+terminal topology. Each batch includes source nodes, public exports, external tests, and bounded
+consumer cuts. It closes only when every node/edge/cycle is disposed and the replacement ownership
+path is explicit. Graph layers classify product, test, support, generated, asset, and operation
+files separately; module-isomorphic tests do not imply one test file per source file.
+
+**Goldilocks tests.**
+
+- Split a file only when the split names an invariant and reduces measured change coupling or edge
+  pressure; line count alone cannot split it.
+- Retain a directory only when it contains at least two cohering implementation leaves or enforces
+  an independently meaningful public boundary.
+- A file inside module `x/` omits `x` from its basename after the module boundary is accepted.
+- Tests live outside source in an isomorphic ownership tree.
+- Barrels exist only at published capsule boundaries, never for same-directory convenience.
+- Delete only on semantic proof of vacuity/superfluity. Zero consumers alone is not proof.
+- Breaking cuts migrate the whole bounded constellation in one release. No aliases, root shims,
+  migration layers, dual paths, or masking fallbacks.

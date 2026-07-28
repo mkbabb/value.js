@@ -1,16 +1,25 @@
 # ACTIVE-SESSION AUDIT + RESUMPTION HANDOFF — 2026-07-28
 
-**Authority:** SCOPE M-16.
+**Authority:** SCOPE M-16..M-18.
 
-**Audited tree:** `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `d345cea1`.
+**Audited tree:** `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, observed HEAD
+`f6f7040a`.
 
 **Active Claude root:** `6614e90c-8bd6-434f-b017-5ad4277c6e5e` (3,381 records, 14.36 MB).
 
-**Posture:** audit/addendum only. This pass made no `src/`, `demo/`, `api/`, test, workflow,
-package, or script edits. Preserve the pre-existing dirty tree.
+**Posture:** audit/addendum plus two audit-blocking root-seam hotfixes. Preserve the pre-existing
+dirty tree. The hotfixes and their live proof are isolated in
+`CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md`; no API, package, workflow, script, or compatibility
+surface was added.
 
 This is the handoff the active Claude session reads before doing anything else. It is deliberately
 an execution spine, not another history volume.
+
+**Required continuation:** after this file, read
+`CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md`. It contains the complete value Admin/CRUD, keyframes,
+Fourier, parse-that, consumer-constellation, hotfix, and Goldilocks DAG amendment. Its coordination
+section banks both Atlas pass 2 and Glass’s sealed 112/112 outbound contract, while preserving the
+still-open O-series producer asks.
 
 ---
 
@@ -373,18 +382,25 @@ no CVA. What remains is a forwarding/tooling/vocabulary layer:
 Amend the existing C5/shadcn wave; do not create another census or dual path.
 
 1. Rewrite all 90 imports atomically.
-2. Use narrow Glass subpaths where published. Alert/avatar/checkbox/radio-group/skeleton presently
-   lack dedicated subpaths; those are producer gaps/root-import exceptions, not grounds for local
-   forwarding barrels.
+2. Apply the sealed Glass 112/112 symbol-level migration matrix from
+   `glass-ui/docs/tranches/BJ/coordination/valuejs-outbound-2026-07-28-dag-consumer-contract.md`.
+   The Glass runtime root disappears; no root-import exception or value-local Glass barrel survives.
+   `/dom` has no facade successor and is assigned symbol-by-symbol to its real owner.
 3. Delete all 19 barrels, `components.json`, dead `cn()`, `clsx`, and `tailwind-merge`.
 4. Keep `debounce`; it has seven consumers and merely shares the current file with `cn()`.
-5. Relay an `AcceptableValue` equivalent through Glass, then remove the four direct Reka imports.
+5. Remove the four direct Reka imports only after each type has a terminal Forms owner or honest
+   value-local owner; do not manufacture a generic relay shelf.
 6. Adjudicate every Button action by actual priority/tone. Never mechanically map
    `ghost|outline|secondary|destructive` to a new spelling.
 7. Repoint one boundary-lint regime at the real tree, including type imports and `.vue` files.
 
 Do not mistake Glass's inherited token names such as `--foreground` or `--primary` for local shadcn
 residue. Token renaming is a producer concern.
+
+The same Glass ruling preserves/regroups Carousel, DataTable, Deck, InstrumentChassis, Easing,
+Constellation, Fourier, and WatercolorSwatch; it does not authorize pass-1 blind deletion. It also
+does not close the older O-series producer asks for Button attributes, ConfirmDialog safety, Slider
+rail/stops, Configurator labelling, dark Card tone, or Skeleton tone.
 
 ---
 
@@ -425,8 +441,10 @@ Installed Glass 7 WatercolorDot always renders an aria-hidden, pointer-events-no
 `tag` prop, forwards only class/style, and renders no default slot. Click, focus, disabled, label,
 title, and glyph content are discarded. Typecheck does not catch the class.
 
-Prune the old proposal to make WatercolorDot polymorphic. It is paint-only. Add one native
-`ColorSwatchButton`/semantic seat whose visual child is WatercolorDot.
+Prune the old proposal to make WatercolorDot polymorphic. Glass’s terminal authored paint contract
+is `WatercolorSwatch` at `/watercolor-swatch`, still not a button. Add one native
+`ColorSwatchButton`/semantic seat whose visual child is WatercolorSwatch; delete the old path/name
+in the same consumer cut.
 
 ### 8.4 Extract
 
@@ -609,16 +627,16 @@ Keep the whole forthcoming tranche at nine mechanism waves, plus optional releas
 
 | wave | mechanism | closes |
 |---|---|---|
-| W0 | durable truth recovery | hydrate/hash 117 reports; rerun three censuses; correct validator/state |
-| W1 | production application boundary | app emitted and mounted in production; real boot-smoke |
-| W2 | semantic controls | six Watercolor impostors; typed action-bar contract; interaction/a11y proof |
-| W3 | one-route/one-scene shell | remove universal companions; H1/route identity; Gradient chassis pilot |
-| W4 | adversarial instruments | Mix canary; Blob/Atmosphere persistent stage; short-landscape reachability |
-| W5 | palette specimen/domain split | nested interaction, arbitrary N, quiet cards, Extract/Generate/Mix consumers |
-| W6 | shadcn + graph subtraction | 90 imports, 19 barrels, tooling/deps, four SCCs, provider scoping, lint |
-| W7 | library distillation | terminal library choices; consumer-safe exports; no duplicate cores |
+| W0 | durable truth recovery | hydrate/hash 117 reports; rerun censuses; replace incomplete graph authority before regenerating receipts; bank hotfix/witness modes |
+| W1 | production application boundary | app emitted and mounted in production across the named frontend consumers; real boot-smoke |
+| W2 | semantic controls | six WatercolorSwatch semantic seats; typed action-bar contract; Fourier accessible names; interaction/a11y proof |
+| W3 | one-route/one-scene shell | remove universal companions; all five Admin and seven keyframes scenes own H1/identity; Gradient chassis pilot |
+| W4 | adversarial instruments | Mix canary; Blob/Atmosphere; every Fourier page and keyframes scene; short-landscape reachability |
+| W5 | palette specimen/domain split | nested interaction, arbitrary N, authenticated public/Admin CRUD, quiet cards, workbench consumers |
+| W6 | shadcn + graph subtraction | 90 imports, 19 barrels, tooling/deps, all measured SCCs, provider scoping, real lint |
+| W7 | library distillation | Goldilocks cluster batches; external isomorphic tests; parse-that terminal choice; consumer-safe breaking exports |
 | W8 | design + motion canon | one DESIGN.md, copy abrogation, shadows/radii/type, driver/observer motion |
-| W9 optional | release/close | production/browser/Safari/consumer receipts; no unresolved state cells |
+| W9 optional | release/close | all 15 roots/six subpaths; production/browser/Safari/API/test receipts; no unresolved CRUD state |
 
 MT-F and disease IDs are carried into these waves; they are not used as new wave identities.
 
@@ -636,16 +654,19 @@ The next session should prefer these user-visible gates over proxy counts:
 6. last control reachable and live preview visible at 320×568, 390×844, and 720×450;
 7. Gradient + Mix prove chassis adoption before fleet expansion;
 8. all 90 forwarding imports removed atomically and all 19 barrels/tooling residue absent;
-9. four SCCs close and boundary lint targets the physical tree;
+9. every measured runtime/type SCC closes and boundary lint targets the physical tree;
 10. route, sub-pane, reduced-motion, keyboard, forced-colors, and RTL evidence are distinct cells;
 11. every wave demonstrates one real product journey in the in-app Browser;
 12. every claimed audit seat has an existing canonical output and recorded hash.
+13. every Admin/CRUD claim carries BROWSER-LIVE, BROWSER-FIXTURE, API-TEST, SOURCE, or BLOCKED.
+14. all bounded consumers migrate without value-root shim, aliases, or dual export paths.
 
 ---
 
 ## 14. Exact resume order
 
-1. Preserve the dirty tree and read this file plus `STATE.md`.
+1. Preserve the dirty tree and read this file, `CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md`, and
+   `STATE.md`.
 2. Harvest the five late component workflow journals.
 3. Hydrate and hash cached full report payloads.
 4. Amend the validator/orchestrator durability rule.
@@ -654,8 +675,10 @@ The next session should prefer these user-visible gates over proxy counts:
 7. Regenerate the completeness ledger and update STATE.
 8. Resume killed picker only if genuine payload gaps remain.
 9. Adjudicate only after durable completeness.
-10. Author at most the mechanism spine above.
-11. Begin execution; no further general archaeology pass.
+10. Replace the graph authority, then run adjudicated clusters G0–G7 and fold their terminal
+    dispositions into W6/W7.
+11. Author at most the mechanism spine above.
+12. Begin execution; no further general archaeology pass.
 
 **Model routing:** GPT Sol xhigh orchestrates and adjudicates. GPT Luna xhigh performs mechanical
 work. Luna was unavailable here; GPT Terra xhigh was used for the mechanical audit with that

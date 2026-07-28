@@ -3,11 +3,14 @@
 **Read this first in any new session.** It is the resume point. Everything below is on disk; nothing
 here depends on conversation context surviving.
 
-Last updated 2026-07-28 by the M-16 external audit. Tree observed: branch `tranche-u`, HEAD
-`d345cea1`. **This audit made no source, test, workflow, or script edits.** The pre-existing dirty
-tree belongs to the active Claude formation and includes a modified `scripts/dev/dev.sh`; preserve
-it and do not normalize it by hand. `docs/tranches/V/vnext/**` remains CLAUDE-OWNED,
-FROZEN-AS-INHERITED under M-15.
+Last updated 2026-07-28 by the M-16..M-18 external audit. Tree observed: branch `tranche-u`, HEAD
+`f6f7040a`. This audit made three value demo source edits for HF-5 and one keyframes demo source edit
+for HF-1; their exact blocker/cure/browser receipts are in
+`CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md`. It added one external value demo transport test for
+HF-5 and made no API, package, workflow, or script edits.
+The rest of the dirty tree belongs to the active Claude formation and includes a modified
+`scripts/dev/dev.sh`; preserve it and do not normalize it by hand.
+`docs/tranches/V/vnext/**` remains CLAUDE-OWNED, FROZEN-AS-INHERITED under M-15.
 
 ---
 
@@ -15,8 +18,8 @@ FROZEN-AS-INHERITED under M-15.
 
 | file | what it is | status |
 |---|---|---|
-| `SCOPE.md` | owner marks M-1..M-16; M-16 supersedes model names, makes execution-axis work primary, and adds content-addressed durability | STABLE |
-| `FORMATION-LAWS.md` | **L-1..L-15**, each derived from a measured failure; includes the tri-fold and session-durability laws | STABLE |
+| `SCOPE.md` | owner marks M-1..M-18; M-17 adds named consumer/Admin CRUD proof and M-18 adds the Goldilocks DAG/constellation commission | STABLE |
+| `FORMATION-LAWS.md` | **L-1..L-17**, including tri-fold, durability, evidence-mode, and graph-cluster laws | STABLE |
 | `registry/ROOT-FINDINGS.md` | **40 findings (MT-F001..MT-F040)**; MT-F038's `toFixed` count corrected by M-16 and the three late censuses marked honestly absent | GROWING |
 | `registry/DISEASE-REGISTRY.md` | **33 disease rows** (18 BUILD · 11 RETIRE · 4 FOLD) + 22 mechanism families — the anti-rename ledger; wave authoring's primary input | **COMPLETE** |
 | `registry/harvest/*.json` | **53 raw agent results** pulled from the workflow journals — complete, untruncated | REGENERABLE |
@@ -24,6 +27,7 @@ FROZEN-AS-INHERITED under M-15.
 | `audit/probes/*.mjs` | born-RED gates and hostile probes; each runnable standalone | STABLE |
 | `audit/visual/` | route + state capture matrices and owner witnesses **OM-1..OM-16**; OM-14/15/16 map to MT-F038/039/040 | GROWING |
 | `AUDIT-HANDOFF-2026-07-28.md` | M-16 active-session audit, in-app Browser findings, component/library dispositions, wave corrections, and exact resume order | **READ NEXT** |
+| `CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md` | complete value Admin/CRUD, keyframes, Fourier, parse-that, consumer, hotfix, DAG, and wave-amendment ledger | **READ AFTER HANDOFF** |
 | `workflows/harvest-journals.mjs` | **run after every workflow completion, before any re-deploy (L-13)** | STABLE |
 
 ## Rules that bind the next session
@@ -42,6 +46,10 @@ FROZEN-AS-INHERITED under M-15.
    FAILED run. Read the `<failures>` block and the journal before believing any workflow return.
 5. **Challenger ≠ finding.** The 287 ledger rows are accusations with evidence attached. The jury
    seats were the ones most often killed; nothing is adjudicated until a jury pass runs.
+6. **Evidence modes remain separate** (L-16). Browser-live, browser-fixture, API-test, source, and
+   blocked receipts never impersonate one another.
+7. **Goldilocks graph clusters are tri-fold** (L-17). Every source node/edge/cycle is adjudicated
+   with its external test mirror and bounded consumer cut; no count-only split or deletion.
 
 ## Workflow run IDs — resume, never restart
 
@@ -180,9 +188,10 @@ exists. Do not resume from that claim.
 
 ### Resume in this exact order
 
-1. Read `AUDIT-HANDOFF-2026-07-28.md` whole. Preserve the dirty worktree; do not reset, clean,
-   normalize, or bulk-add `docs/tranches/W/`, `docs/tranches/V/apotheosis/`, audit probes, or
-   `scripts/dev/dev.sh`.
+1. Read `AUDIT-HANDOFF-2026-07-28.md` and
+   `CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md` whole. Preserve the dirty worktree; do not reset,
+   clean, normalize, or bulk-add `docs/tranches/W/`, `docs/tranches/V/apotheosis/`, audit probes,
+   or `scripts/dev/dev.sh`.
 2. Harvest the late journals/results for
    `wf_22b7a7b7-97b` (palettes), `wf_66b1fcba-daa` (core),
    `wf_6edda4a1-192` (workbenches), `wf_dee4c83a-ec2` (scenes), and killed
@@ -199,7 +208,10 @@ exists. Do not resume from that claim.
 6. Rebuild `registry/COMPLETENESS-LEDGER.md` from the corrected invariant. Resume killed picker only
    after the four completed records have been reconciled. Do not adjudicate until 243/243 canonical
    reports and all three census documents are durable.
-7. Fold findings by mechanism into at most ten executable waves. Execution-axis proof now precedes
+7. Replace the incomplete graph authority (aliases, CSS, render/DI/route/state/API, worker/asset,
+   package/test-boundary, and Python truth), regenerate its receipts, then run G0..G7 with the
+   two-critic/one-arbiter protocol. Fold terminal results into W6/W7.
+8. Fold findings by mechanism into at most ten executable waves. Execution-axis proof now precedes
    further document archaeology.
 
 ### Frontend order after evidence recovery
@@ -221,7 +233,9 @@ exists. Do not resume from that claim.
 GPT Luna xhigh. Luna was unavailable to the M-16 audit; GPT Terra xhigh was used only as a declared
 temporary fallback. Historical Claude Fable/Opus receipts remain literal and are not rerun.
 
-**Environment:** the M-16 Browser audit used the live API-less Vite server at
-`http://localhost:9000`. Data-backed states remain unverified without the API. Real Safari and
-in-app Browser evidence are separate cells. The current dirty `scripts/dev/dev.sh` state is
-pre-existing and must be adjudicated, not overwritten.
+**Environment:** the first M-16 Browser pass used the API-less Vite server at
+`http://localhost:9000`. M-17 then used disposable live replica-set/API stacks for value and
+Fourier, plus the active keyframes demo, as recorded in the consumer audit. Disposable
+infrastructure is not product code. Real Safari and in-app Browser evidence remain separate cells.
+The current dirty `scripts/dev/dev.sh` state is pre-existing and must be adjudicated, not
+overwritten.
