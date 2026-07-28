@@ -1715,3 +1715,22 @@ rasterizes N×120px and goes BLANK past N≈136 while the N-invariant SVG path s
 at N=51 surfaces a raw zod string; zero number compaction repo-wide. **Four GLASS-FORWARD items**
 (relayed O-18a same-day): +N overflow chip/ChipGroup max-visible · priority-collapse meta row ·
 compact-number formatting atom · count-badge min-width variant.
+
+### MT-F039 census COMPLETE (2026-07-28, source-only)
+
+`audit/om-15-text/TEXT-CONTRIVANCE-AUDIT.md` — **68 hits: 27 precious/contrived · 27 duplicative
+· 14 explicit-mechanics** (9 dual-class). Disposition: 26 KILL · 31 REDUCE · 3 evaporate via
+label association · 8 KEEP. The marked string: `ExtractWorkbench.vue:165`. **The voice is a
+STRUCTURAL defect, not a writing one**: `demo/shared/ui/EmptyState.vue:90` makes the contrived
+eyebrow + mandatory WatercolorDot trio PROP DEFAULTS — all 11 consumers born with it, and in
+every one the eyebrow verbatim-restates the `message` beneath (`· roster clear ·` over "No
+users found."); `dots` is never passed false anywhere despite the escape hatch. Editing the 68
+strings without closing the defaults guarantees re-growth (Q6 proved it once). Reproducers: 14
+uncoupled visible-label/aria-label pairs; ActionButton's two-slot tooltip (three "Click to …");
+internal archival nomenclature (plate/minted/roster/ledger) crossed into user-facing strings
+incl. an aria-label; SEVEN inconsistent caption dialects, four re-declaring what glass's
+`text-mono-caption` already applies. **ShadowPalette**: paints the marked plate; exactly ONE
+live seat left (`ExtractWorkbench.vue:159` — R12 already evicted every other host); 16×56px
+discs wrapping to ~276px of skeleton that restates the 40px strip above it, stacked on an
+ImageDropZone that is already a complete empty state. Converges with the M-16 meta-audit §5.2
+verdict (delete if no honest seat remains) — the adjudication round rules the kill.
