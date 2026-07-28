@@ -1648,3 +1648,54 @@ overflow primitives (if any) are GLASS-FORWARD per the relay law.
 **Routing**: binds with MT-F036 (OM-11/OM-12 palette-card shadows + hover) at the palettes
 adjudication round — the PaletteCard unit brief carries OM-11/OM-12/OM-16 together; the N-law
 design is Phase E input.
+
+## MT-F041 — OWNER-MARKED: the gradient selector gains SUBTLE aurora dynamism
+
+**No screenshot; owner directive verbatim (2026-07-28):** *"let's plan to add a bit of dyannism to
+the gradient selector--it should become a SUBTLE aurora insofar as the gradient waves a bit."*
+
+**The mandate**: the gradient selector's ramp becomes gently alive — a subtle aurora-class wave,
+NOT a new animation species: the aurora motion vocabulary already exists glass-side (the
+atmosphere aurora is glass-owned and PRM-correct). Constraints that bind by standing law:
+tokenized motion (MT-F034), prefers-reduced-motion honored structurally, no ungated rAF
+(the PRM-RAF epidemic class), driver/observer semantics per the pending Movement-of-Momentum
+carve. If the wave mechanism belongs in the glass gradient/aurora primitive, it is a marked BJ
+ask. Routes to Phase E design (the gradient band) — a design-loop row, not a patch.
+
+## MT-F042 — OWNER-MARKED: watercolor-dot loupe as the generalized glass toggle indicator on the component selector
+
+**Witness**: `audit/visual/owner-marked/OM-17-component-selector-watercolor-loupe.png` (sha256
+`2268cb0f…2e91`), owner-captured 2026-07-28 16:12 ET. The vertical L/C/h/α component rail with
+the watercolor dot seated on "L". Owner's words: *"this color space component selector should
+default to the first selected component to have a water color dot, and we should generalize this
+to leverage the underlying glass-ui toggle interface, too, insofar as that watercolor dot is like
+a draggable loupe that grows slightly larger on grab/select, and then settles into place
+therein--and the water color dot should, like the revamped glass-ui tabs toggle, animate and
+bounce (deftly) into the chosen color component."*
+
+**Three arms**:
+1. **Default state** — first selected component carries the dot (demo-owned wiring).
+2. **GLASS-FORWARD (marked, relay owed)** — generalize onto the glass-ui toggle/tabs interface:
+   the watercolor dot as the toggle's INDICATOR species — draggable loupe semantics (grows
+   slightly on grab/select, settles into place), and the revamped-tabs animate-and-bounce
+   (deft, tokenized, PRM-honest) into the chosen value. This is a producer primitive ask,
+   per the owner's same-message law: "Communicate with glass-ui for all glass-ui component
+   changes, mark." NOTE: glass's terminal Watercolor contract is WatercolorSwatch (M-16 DAG
+   audit §8.3 — WatercolorDot is aria-hidden paint, never interactive); the ask is authored
+   against the toggle-indicator seat, not against making the dot itself a control.
+3. **Demo adoption** — ComponentSliders/selector consumes the generalized primitive; no local
+   reimplementation (masking-fallback ban).
+
+## MT-F043 — OWNER-MARKED: the card's shrunken/scrolled state carries too much margin and padding
+
+**Witness**: `audit/visual/owner-marked/OM-18-card-shrunken-state-margins.png` (sha256
+`f611bf45…59f4`), owner-captured 2026-07-28 16:15 ET. The "My Palettes · 5" card in its
+shrunken/scrolled header state: the condensed header retains near-full-height padding and a
+large empty band below the title. Owner's words: *"the shrunke/scrolled state of the cards is
+not quite right, has too much margin and padding."*
+
+**The cure direction**: the shrink state gets its own designed spacing register — the
+scroll-condensed header collapses its paddings proportionally (this is the same surface as
+PaneHeader's scroll-timeline shrink, MT-F023's component — the two rulings must land coherently).
+Ownership split pinned at adjudication: if the pad/margin scale lives in the glass card/chassis
+shrink variant, it is a MARKED BJ ask at root; the demo never per-instance-overrides it.

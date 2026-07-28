@@ -2,563 +2,643 @@
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]` (the 1M-context
-variant), matching the explicit declaration under which this seat was spawned. Not
-inherited, not undeclared.
+I observe myself to be **Opus 5**, exact model id `claude-opus-5[1m]` (the 1M-context
+variant) — the tier this seat was explicitly spawned with. Declared, not inherited.
+
+---
+
+## Provenance of this run
+
+This is an **independent second run** of the CHALLENGE-L seat on this component. A prior
+run's report existed at this path; I preserved it verbatim at
+`challenge-L-library.prior-run.md` (same directory) before writing this file, and I read
+it only **after** completing my own trace, so the convergence below is independent.
+
+Seven of my findings reproduce the prior run's (L-1/L-2/L-3/L-5/L-6/L-7/L-8 there ↔
+L-1/L-2/L-4/L-5/L-6/L-8/L-9 here) from different evidence. Five findings are **new to
+this run** and are marked **[NEW]**: the pasted e2e RED, the dropped `:title`, the exact
+`touch-floor.css` exclusion mechanism (which changes L-6's cure), the measured
+barrel-vs-subpath byte delta, and the `--dock-compact-control-padding` per-instance
+override precedent.
 
 ---
 
 ## Verdict
 
-**DEFECTIVE.** The premise holds, and harder than the brief implies. The component's
-single most load-bearing structural act — publishing the mix convergence's landing
-anchor as `data-mix-target` on a glass-ui `<WatercolorDot>` — **does not work and has
-never worked** under glass-ui 7.0.0. The attribute never reaches the DOM. The canvas's
-`querySelector` therefore always misses, always takes its invented-point fallback, and
-the pigment drops land **251 px** from the well they are documented to land in —
-visibly, on the *Mix button*.
+**DEFECTIVE.** The component's central library dependency — glass-ui 7.0.0's
+`WatercolorDot` — is consumed against a prop/attribute contract that does not exist.
+The consequence is not cosmetic: the `[data-mix-target]` anchor that this component's
+own docstring calls "the anchor the canvas convergence lands on" **is never rendered**,
+and the sibling that consumes it silently falls back to an invented coordinate. The
+feature's stated architecture is dead in HEAD, and the e2e gate that would have caught
+it fails one assertion earlier, so nothing reports it.
 
-That is not a rendering nit. It is the exact failure mode this seat exists to find: a
-cross-module contract routed through a stringly-typed HTML attribute across a
-third-party component boundary that discards attributes, with a masking fallback
-downstream that converts the break into plausible-looking motion, and a typecheck gate
-that is structurally blind to the whole class.
-
-Nine further structural defects follow, five of them sharing two mechanisms.
+Strongest defect: **L-1**.
 
 ---
 
 ## 1. The import trace
 
-`MixResultDisplay.vue` has five imports. Every one traced to its home:
+Every import in `MixResultDisplay.vue:1-7`, traced to its home and judged:
 
 | # | line | specifier | home | verdict |
-|---|------|-----------|------|---------|
-| 1 | :2 | `@lucide/vue` | devDependency `^1.16.0` | OK |
-| 2 | :3 | `@mkbabb/glass-ui/dock` | published subpath `./dock` | resolves; **wrong family** (L-6) |
-| 3 | :4 | `vue` — `computed`, `TransitionGroup` | peer | `TransitionGroup` import is dead (L-9) |
-| 4 | :5 | `@mkbabb/glass-ui` — `useClipboard` | **root barrel**; the symbol's real home is `./dom` | **dual path** (L-3) |
-| 5 | :6 | `@mkbabb/glass-ui/watercolor-dot` | published subpath | resolves; **API does not exist** (L-1, L-2) |
-| 6 | :7 | `./composables/useMixingState` — `type MixResult` | sibling composable | `import type` ✓ `verbatimModuleSyntax` satisfied |
+|---|---|---|---|---|
+| 1 | 2 | `@lucide/vue` → `Copy, Check, Save, RotateCcw` | devDependency `@lucide/vue@^1.16.0` | OK — value imports, correct form |
+| 2 | 3 | `@mkbabb/glass-ui/dock` → `DockControl, DockSeparator` | published subpath (`exports["./dock"]`) | resolves, but **dock-scoped primitives used outside a dock** — see L-6 |
+| 3 | 4 | `vue` → `computed, TransitionGroup` | peer | `TransitionGroup` import is redundant — see L-9 |
+| 4 | 5 | `@mkbabb/glass-ui` → `useClipboard` | **root barrel** | the same symbol is published on `./dom`; a sibling in this very feature already uses `/dom` — see L-8 |
+| 5 | 6 | `@mkbabb/glass-ui/watercolor-dot` → `WatercolorDot` | published subpath | resolves; **consumed against a non-existent contract** — L-1, L-2, L-3 |
+| 6 | 7 | `import type { MixResult }` from `./composables/useMixingState` | sibling composable | correct `import type` (`verbatimModuleSyntax` ✓); the *type* is defective — see L-5 |
 
-No edge crosses feature → shell, component → boot, or demo → `src/` internal. **The
-`@mkbabb/value.js` question is clean at this file**: the component imports the library
-not at all; its transitive reach (`useMixingState.ts:19`) is
-`import type { HueInterpolationMethod } from "@mkbabb/value.js/color"` — a *published*
-subpath (`package.json#exports["./color"]`), the exact specifier a real consumer would
-write. The demo-dogfood keystone holds here. The drift is one hop away and structural,
-not local (L-8).
+**No boundary is crossed the wrong way** in the feature→shell→boot sense: nothing here
+reaches into `shell/`, `platform/`, or `src/` internals. Zero `@src/*` imports; zero
+deep `dist/` paths.
+
+**`@mkbabb/value.js` is imported correctly** where the feature touches it at all. This
+component imports nothing from the library; its composable at
+`composables/useMixingState.ts:19` does:
+
+```ts
+import type { HueInterpolationMethod } from "@mkbabb/value.js/color";
+```
+
+`"./color"` is a real entry in `package.json#exports`, `src/subpaths/color.ts` re-exports
+`HueInterpolationMethod`, and `vite.config.ts:37-50` *generates* the demo's self-alias set
+from `package.json#exports` so it cannot drift. A real consumer could write this import.
+That half of the seam is sound. (The TypeScript half is not — L-8b.)
+
+Repo-wide check, run:
+
+```
+$ grep -rn 'from "@mkbabb/value.js"' demo/ src/ test/
+(no output)
+```
+
+Nothing imports the bare root specifier — which is fortunate, because
+`package.json` declares **no `"."` export and no `main`/`module`/`types`**:
+
+```
+$ python3 -c "import json;d=json.load(open('package.json'));print([d.get(k) for k in ['main','module','types']], list(d['exports']))"
+[None, None, None] ['./color', './value', './css', './easing', './math', './transform', './quantize']
+```
 
 ---
 
 ## 2. Defects
 
-### L-1 · BLOCKER — the convergence anchor never exists. `data-mix-target` is discarded by the primitive it is stamped on.
+### L-1 · BLOCKER — the convergence anchor is never rendered; the sibling animation silently converges on an invented point
 
-`MixResultDisplay.vue:69` stamps `data-mix-target` on a `<WatercolorDot>`. Its own
-docstring (`:14-16`) names this "the anchor the canvas convergence lands on".
-`mixStage.ts:121` reads it:
+**Defect.** `MixResultDisplay.vue:69` stamps `data-mix-target` on `<WatercolorDot>`.
+glass-ui 7.0.0's `WatercolorDot` declares `inheritAttrs: false` and re-applies **only**
+`attrs.class` and `attrs.style`. Every other fallthrough attribute is discarded. The
+anchor never reaches the DOM. `mixStage.ts:121` therefore always gets `null` from its
+`querySelector` and always takes the masking fallback at `:122-124`.
+
+**Producer evidence** — `node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js`:
+
+```js
+inheritAttrs: !1,
+__name: "WatercolorDot",
+props: { color:{}, variant:{default:"solid"}, animate:{...}, cycleDuration:{...}, range:{...}, seed:{default:""} },
+setup(e) { let t = e, n = h(), c = i(() => n.class), f = i(() => n.style), ...
+  return (t, n) => (d(), o("span", { "aria-hidden": "true", class: l([c.value, "watercolor-swatch", ...]),
+    "data-testid": "watercolor-swatch", "data-variant": e.variant,
+    style: u([f.value, { backgroundColor: ..., borderRadius: m(b), pointerEvents: "none", ... }]) }, [ ... ]))
+```
+
+Hard-coded `<span>`; `aria-hidden="true"`; `pointer-events: none`; only `class`/`style`
+survive; **no default slot**.
+
+**Consumer evidence** — `demo/workbenches/mix/MixAnimationCanvas/composables/mixStage.ts:121-124`:
 
 ```ts
 const targetEl = root.querySelector<HTMLElement>("[data-mix-target]");
 const target = targetEl
     ? layoutCenter(targetEl, root)
-    : { x: root.clientWidth / 2, y: root.scrollHeight * 0.7, r: 28 };   // :122-124
+    : { x: root.clientWidth / 2, y: root.scrollHeight * 0.7, r: 28 };
 ```
 
-glass-ui 7.0.0's `WatercolorDot` sets `inheritAttrs: false` and forwards **only**
-`$attrs.class` and `$attrs.style`. From the shipped bundle
-(`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js`, decompiled):
-
-```js
-inheritAttrs: !1,
-props: { color:{}, variant:{default:"solid"}, animate:{...}, cycleDuration:{...},
-         range:{...}, seed:{default:""} },
-setup(e) {
-  let t = e, n = useAttrs(), c = computed(() => n.class), f = computed(() => n.style);
-  ...
-  return () => (openBlock(), createElementBlock("span", {
-      "aria-hidden": "true",
-      class: normalizeClass([c.value, "watercolor-swatch", ...]),
-      "data-testid": "watercolor-swatch",
-      "data-variant": e.variant,
-      style: normalizeStyle([f.value, { ..., pointerEvents: "none", ... }])
-  }, ...))
-}
-```
-
-There is no `v-bind="$attrs"`. Every other fallthrough attribute and every listener is
-dropped on the floor.
-
-**Measured, live** (`localhost:9000/#/mix`, seeded localStorage, palettes mode, two
-palettes selected, Mix clicked; per-frame DOM sampling for 700 ms across both the first
-mix and a re-mix):
+**Reproduction (direct SFC mount — deterministic, no browser).** I mounted the real SFC
+with `@vue/test-utils` under a scratch vitest config (`@vitejs/plugin-vue`, jsdom) and
+asserted on the rendered DOM:
 
 ```
-"mix1": { "everTarget": false,
-          "first": [ {"t":30,"target":false,"plate":true,"ghostCls":true}, … ],
-          "last":  {"t":701,"target":false,"plate":true,"ghostCls":true} }
-"settled": { "plate": true, "target": false,
-             "dots": [ { "tag":"SPAN",
-                         "attrs":["data-v-292b9032","data-v-0f138735","aria-hidden",
-                                  "class","data-testid","data-variant","style"] }, ×3 ] }
-"mix2": { "everTarget": false, … }
+$ npx vitest run --config <scratch>/vitest.config.mts
+GHOST_HTML>>> <div class="mix-plate ... mix-plate--ghost"> ... <span data-v-292b9032 aria-hidden="true"
+  class="shrink-0 w-14 h-14 watercolor-swatch" data-testid="watercolor-swatch" data-variant="ghost"
+  style="border-radius: 28.93…%; pointer-events: none; --watercolor-color: oklch(70% 0.15 30); …"> … </span>
+ANCHOR_COUNT>>> 0
+✓ 2 tests  Duration 1.46s
 ```
 
-`[data-mix-target]` is **never in the document** — not for one frame, not at settle, not
-on re-mix. The plate *is* there (`plate: true`, `ghostCls: true`); only the anchor is
-gone.
+Props passed: `{ result: { type:"color", css:"oklch(70% 0.15 30)" }, ghost: true }`.
+`ANCHOR_COUNT` is `wrapper.findAll("[data-mix-target]").length`. **Zero.** Note the
+rendered attribute list: `data-v-*`, `aria-hidden`, `class`, `data-testid`,
+`data-variant`, `style` — `data-mix-target` is simply gone.
 
-Geometry of the resulting miss, measured in pane-local coordinates at t≈120 ms:
+**[NEW] The gate that should catch this is RED, and it fails one assertion earlier.**
+Two e2e specs assert the anchor (`e2e/smoke/views/mix.spec.ts:52`,
+`e2e/smoke/safari/mix-flow.spec.ts:40`). I ran the Chromium one against HEAD:
 
 ```
-rootClientWidth   510      rootScrollHeight  702
-fallbackPoint     { x: 255,  y: 491.4 }        ← mixStage.ts:124, always taken
-wellCenterLocal   { x:  61,  y: 650.5 }        ← where the well actually is
-missDistancePx    251
-mixBtnCenterLocal { x: 256,  y: 547.8 }
-distToMixBtnPx    56
+$ npx playwright test --project=smoke e2e/smoke/views/mix.spec.ts --reporter=line
+Running 1 test using 1 worker
+  1) [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget
+
+    Error: expect(locator).toBeVisible() failed
+    Locator: getByRole('main', { name: 'Color tool panes' }).getByRole('button', { name: 'Add current color to the mix' })
+    Expected: visible
+    Timeout: 8000ms
+    Error: element(s) not found
+
+      40 |         name: "Add current color to the mix",
+      41 |     });
+    > 42 |     await expect(addSlot).toBeVisible();
+  1 failed
 ```
 
-The screenshot confirms it visually: the purple convergence pool sits **on the "Mix"
-button**, 56 px from its centre, while the dashed ghost well waits untouched 251 px
-below-left. Reproduction script:
-`…/scratchpad/L-wbmixresult-probe.mjs` and `…/scratchpad/L-geom.mjs`.
+The mix flow is unreachable *before* the anchor assertion is ever evaluated, by the same
+`inheritAttrs` mechanism one component over (`MixSourceSelector.vue:164-174` sends
+`tag="button"`, `aria-label`, `:disabled`, `@click` and a `<Plus>` child to
+`WatercolorDot`; the live DOM at `http://localhost:9000/#/mix` is
+`<span aria-hidden="true" class="add-slot-ghost … watercolor-swatch" style="…; pointer-events: none; …">`
+— measured with WebKit/iPhone-14 via Playwright). So both anchor assertions are
+**vacuous**: they have never run against a rendered plate.
 
-Everything MixResultDisplay's docstring claims at `:10-18` — "the plate stands as the
-announced destination", "the anchor the canvas convergence lands on", "the silhouette
-the pigment poured into is the silhouette the result wears" — is **inert prose**. The
-one-clock machinery, the seeded-ghost/seeded-solid pairing, the `flush:"post"` timing
-note at `useMixingAnimation.ts:169-170`: all of it is scaffolding around a joint that
-was never connected.
+**Mechanism.** Cross-package identity handshake published as a DOM attribute on a
+third-party component whose fallthrough contract was assumed, not read — combined with a
+**masking fallback** in the consumer that manufactures a plausible wrong geometry instead
+of failing. Two independent edict-2 violations compounding.
 
-**Mechanism.** A cross-module port expressed as a *stringly-typed DOM attribute*,
-stamped on a **third-party** component whose attribute-forwarding policy the demo does
-not control and cannot typecheck. Compounded by a **masking fallback** at
-`mixStage.ts:122-124` that invents a plausible coordinate instead of failing — the
-break renders as *slightly-wrong motion* rather than as nothing, which is why it
-survived a shipped tranche.
+**Proposed cure (transposition, not patch).** Identity belongs to markup the component
+owns. The ghost branch already has a wrapper — `MixResultDisplay.vue:63`:
 
-**Cure (transposition, not patch).** Kill the DOM query. The anchor is a *typed port*:
+```html
+<div v-if="ghost" key="well" class="flex items-center gap-3">
+```
+
+Move `data-mix-target` onto that wrapper and size it to the dot so `layoutCenter`'s box
+is the well's box. **Then delete the fallback**: `collectStage` returns `null` when the
+anchor is absent, and `useMixingAnimation`'s PRM path already settles honestly on a null
+stage — a missing anchor becomes an instant, correct settle instead of a lie. The
+architectural version of the cure is L-3: stop using DOM attributes as the cross-sibling
+seam at all.
+
+---
+
+### L-2 · MAJOR — `tag` is not a prop of `WatercolorDot`; three dead call sites here, 21 repo-wide, and no gate sees any of them
+
+**Defect.** `MixResultDisplay.vue:67, 81, 101` pass `tag="div"`. glass-ui 7.0.0's
+`WatercolorDot` prop set is exactly `{ color, variant, animate, cycleDuration, range, seed }`
+(`node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts`).
+`tag` is not among them, so it degrades to a fallthrough attribute — which
+`inheritAttrs: false` then discards. It is a no-op in all three places.
+
+**Reproduction.** Same mount as L-1, second case (`type:"palette"`, two colors):
+
+```
+TAGATTR_COUNT>>> 1
+```
+
+Exactly one `[tag]` in the whole rendered tree — `<transition-group-stub tag="div">`,
+i.e. `TransitionGroup`'s *real* prop at `:94`. All three `WatercolorDot` `tag="div"`
+are gone.
+
+**Blast radius, measured:**
+
+```
+$ grep -rn -A6 "<WatercolorDot" demo/ | grep "tag=" | wc -l
+      21
+```
+
+`MixResultDisplay.vue:67,81,101` · `MixSourceSelector.vue:148,168,215` ·
+`GenerateControls.vue:203` · `ImageEyedropper.vue:30` · `ConsoleRail.vue:58` ·
+`ColorSpaceSelector.vue:82` · `Dock.vue:136,138,271` · `EmptyState.vue:45,46,47` ·
+`CurrentPaletteEditor.vue:62,64,98` · `SwatchHoverMenu.vue:17,32`.
+
+**Why it survived.** The W44 glass-7 adoption migrated the *dock* family and the
+*clipboard* primitive in this file and stopped there:
+
+```
+$ git show f2c8f565 -- demo/workbenches/mix/MixResultDisplay.vue
+-import { DockIconButton, DockSeparator } from "@mkbabb/glass-ui/dock";
++import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";
+-import { copyToClipboard } from "@mkbabb/glass-ui";
++import { useClipboard } from "@mkbabb/glass-ui";
+```
+
+13 insertions / 13 deletions — not one `WatercolorDot` line touched. The migration was
+driven by *removed exports* (which `vue-tsc` catches) and was blind to *removed props*
+(which it does not: `vue-tsc` does not error on unknown attrs passed to a component, it
+treats them as fallthrough).
+
+**Mechanism.** A producer breaking change absorbed silently because the gate is
+export-shaped and the break is prop-shaped.
+
+**Proposed cure.** Delete all three `tag="div"` here (they are decorative dots; a `<span>`
+is correct). Repo-wide, the seven `tag="button"` sites are the dangerous class and need a
+real `<button>` wrapping the decorative dot. The edict-4 gestalt cure is a glass-ui
+`WatercolorSwatchButton` primitive so the pattern has one home; relay to the glass-ui BH
+inbox with L-3 and L-6.
+
+---
+
+### L-3 · MAJOR **[NEW]** — the palette swatches' only descriptive text is also dropped
+
+**Defect.** `MixResultDisplay.vue:103` sets `:title="color.css"` on each palette swatch —
+the sole affordance telling a user which color a dot is. Same mechanism as L-1/L-2: it is
+a fallthrough attribute on `WatercolorDot`, discarded. Even had it survived, the
+primitive's inline `pointer-events: none` makes the hover that would surface a `title`
+impossible.
+
+**Reproduction.** Same mount, palette case:
+
+```
+TITLE_COUNT>>> 0        // wrapper.findAll(".swatch-row [title]").length
+```
+
+Rendered swatch, verbatim from the mount:
+
+```html
+<span aria-hidden="true" class="w-10 h-10 shrink-0 watercolor-swatch" data-testid="watercolor-swatch"
+      data-variant="solid" style="background-color: oklch(0.7 0.15 30); …; pointer-events: none; …">
+```
+
+`aria-hidden="true"` and no `title`: a palette mix result is **an unlabelled row of
+colored blobs with no text equivalent of any kind**. The single-color branch is fine
+(`:85-87` renders the CSS string as real text); the palette branch renders nothing
+readable. This is a data-loss defect in the component's primary output, not a polish item.
+
+**Mechanism.** Same as L-1 — semantics asserted on a primitive that discards them.
+
+**Proposed cure.** The palette branch should render the color's text next to (or under)
+its dot the way the single-color branch does, rather than hiding it in a `title` that a
+touch device could never surface anyway. Structurally this is the same cure as L-5:
+once `MixResult` is a real discriminated union, both branches can render through one
+`<ResultSwatch :color>` that owns "dot + its CSS text" once.
+
+---
+
+### L-4 · MAJOR — one concept, three implementations, inside one feature directory
+
+Three separate pieces of logic in this feature answer the *same two questions*, each with
+its own spelling.
+
+**(a) "What is this result's landing pigment?"**
+
+| site | code |
+|---|---|
+| `MixResultDisplay.vue:36-40` | `result.type === "color" ? result.css ?? "var(--muted-foreground)" : result.colors?.[0]?.css ?? "var(--muted-foreground)"` |
+| `useMixingAnimation.ts:75-82` | `res.type === "color" ? res.css ?? null : res.colors?.[0]?.css ?? null` |
+
+Identical predicate, different null sentinel. These two **must** agree — the animation's
+pool color and the well's ghost color are supposed to be the same pigment ("the
+silhouette the pigment poured into is the silhouette the result wears",
+`MixResultDisplay.vue:16-17`). Nothing enforces it; the agreement is a coincidence of two
+hand-copied expressions.
+
+**(b) "Serialize this result to clipboard text."**
+
+| site | primitive | feedback |
+|---|---|---|
+| `MixResultDisplay.vue:42-47` (`onCopy`) | `useClipboard({resetMs:1500})` from the **root barrel** | check-mark swap |
+| `MixPane.vue:49-55` (`copyResult`) | `writeClipboard` from the **root barrel** | none |
+
+Byte-identical serialization body:
 
 ```ts
-// demo/workbenches/mix/mixAnchors.ts   (new — one file, no new shared/ dir)
-export interface MixAnchors { well: Ref<HTMLElement | null>; }
-export const MIX_ANCHORS_KEY: InjectionKey<MixAnchors> = Symbol("mix-anchors");
+const text = result.type === "color" ? result.css ?? ""
+    : result.colors?.map((c) => c.css).join(", ") ?? "";
 ```
 
-`MixPane` provides; `MixResultDisplay` binds `useTemplateRef("well")` to a plain
-wrapper `<div>` **it owns** (never to the glass-ui dot — the dot is a paint, not an
-anchor); `useMixingAnimation` injects and hands `collectStage` a real element.
-`mixStage.collectStage` takes `target: HTMLElement` as a parameter and loses its
-`querySelector` and its invented-point branch entirely. When there is no anchor,
-`arm()` settles honestly — that path already exists at `useMixingAnimation.ts:148-154`
-and is the correct one. This also fixes `[data-mix-source]` (same disease, same file,
-`mixStage.ts:129`).
+Both are live. `MixPane.copyResult` is wired into the dock command palette at
+`demo/shell/usePaneRouter.ts:222` (`"Copy result"`), so a user can copy the same result
+through two code paths with two different confirmation semantics.
+
+**(c) `onSave`** at `MixPane.vue:41-46` re-derives the same union narrowing a third time.
+
+**Mechanism.** No unique semantic home for "a mix result". The type carries no behaviour,
+so behaviour scatters to every consumer.
+
+**Proposed cure.** `MixResult` becomes an object with the two derived properties on it —
+`landingCss` and `toText()` — computed once where the result is produced
+(`useMixingState.startMix`). The display renders; the pane commands; the animation reads.
+Zero re-derivation, and (a)'s agreement becomes structural. `MixResultDisplay` should
+then **emit `copy`** like it emits `save`/`reset`, instead of performing a clipboard
+side-effect: a component named `…Display` owning a platform write is the ownership
+inversion that produced (b).
 
 ---
 
-### L-2 · MAJOR — `tag` is a prop that does not exist. 21 call sites; the typecheck gate is blind to all of them.
+### L-5 · MAJOR — `MixResult` is a union that is not discriminated, so every consumer pays a masking fallback
 
-`MixResultDisplay.vue:67`, `:81`, `:101` pass `tag="div"` to `<WatercolorDot>`.
-`:103` passes `:title="color.css"`.
-
-glass-ui 7.0.0's `WatercolorDot` props are exactly
-`{ color, variant, animate, cycleDuration, range, seed }`
-(`dist/components/watercolor-dot/WatercolorDot.vue.d.ts`). Measured:
-
-```
-$ grep -c 'tag' node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js
-0
-$ grep -o 'o("[a-z]*"' node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js | sort | uniq -c
-   2 o("span"
-   1 o("svg"
-```
-
-Zero occurrences of the string `tag` in the entire shipped module. The root is always
-`<span>`. `title` is dropped with the rest of `$attrs` — and could not surface anyway,
-because the component hardcodes `pointerEvents: "none"` in its inline style. Live
-confirmation is in L-1's `settled.dots` payload: the rendered attribute set is
-`[data-v-*, aria-hidden, class, data-testid, data-variant, style]`. No `tag`. No
-`title`.
-
-Repo-wide census (AST-ish scan of `<WatercolorDot …>` openers in `demo/`):
-
-```
-WatercolorDot call sites passing a dead `tag` prop: 21
-  demo/workbenches/mix/MixSourceSelector.vue:146, :164, :211
-  demo/workbenches/mix/MixResultDisplay.vue:64, :79, :97
-  demo/workbenches/generate/GenerateControls.vue:199
-  demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue:26
-  demo/picker/controls/ComponentSliders/ConsoleRail.vue:57
-  demo/shell/dock/Dock.vue:136, :138, :271
-  demo/shared/ui/EmptyState.vue:45, :46, :47
-  demo/color-session/ColorSpaceSelector.vue:81
-  demo/palettes/browser/card/SwatchHoverMenu.vue:14, :29
-  demo/palettes/browser/card/CurrentPaletteEditor.vue:62, :64, :95
-```
-
-(`MixResultDisplay.vue:94`'s `tag="div"` is on `<TransitionGroup>` — that one is a real
-Vue built-in prop and is correct. It is also the reason the dead ones read as normal.)
-
-And the gate:
-
-```
-$ npx vue-tsc -p tsconfig.demo.json --noEmit ; echo EXIT=$?
-EXIT=0        (0 lines of output)
-```
-
-**Fully green.** Vue treats unknown component attributes as fallthrough attrs, so no
-compiler in this repo can distinguish "a prop that does something" from "a string
-appended to nothing". The demo has been writing against a `WatercolorDot` API that
-7.0.0 does not have, and every gate said yes.
-
-**Mechanism.** Consumer-side ownership of a producer-side render seam, with no
-compile-time contract. This is a **glass-ui-owned** repair under edict 4, not a demo
-patch.
-
-**Cure.** glass-ui restores the host seam its sibling primitives already publish:
-`DockControl` exposes `as` / `asChild` (reka `Primitive`) and `WatercolorDot` should
-too, plus `v-bind="$attrs"` on the root and `pointer-events` driven by whether an
-interactive host was requested. Relay to the glass-ui BH inbox (standing formation
-invariant). Until then the demo deletes 21 dead props rather than leaving them as
-false documentation. Note that L-1's cure removes MixResultDisplay's *need* for a host
-seam entirely — the anchor moves to a wrapper the demo owns.
-
----
-
-### L-3 · MAJOR — one concept, two implementations, two import paths, inside one feature directory.
-
-"Copy the mix result" exists twice:
-
-```
-MixResultDisplay.vue:31   const { status, copy } = useClipboard({ resetMs: 1500 });
-MixResultDisplay.vue:42-47 async function onCopy() {
-                             const text = result.type === "color"
-                                 ? result.css ?? ""
-                                 : result.colors?.map(c => c.css).join(", ") ?? "";
-                             await copy(text); }
-
-MixPane.vue:12            import { writeClipboard } from "@mkbabb/glass-ui";
-MixPane.vue:49-55         async function copyResult() {
-                             const text = mixResult.value.type === "color"
-                                 ? mixResult.value.css ?? ""
-                                 : mixResult.value.colors?.map(c => c.css).join(", ") ?? "";
-                             await writeClipboard(text); }
-MixPane.vue:57            defineExpose({ clearSelection, startMix, copyResult });
-```
-
-Both live. The second is reachable from the command palette:
-
-```
-demo/shell/usePaneRouter.ts:222
-  { key:"copy", icon:Copy, title:"Copy result", …, handler: () => paneRefs.mix.value?.copyResult?.() }
-```
-
-So the *same user intent* takes two code paths with two different feedback contracts:
-the in-plate button flips to a check for 1500 ms; the palette command gives nothing.
-The `MixResult → string` serialization is written twice, character-identical modulo the
-`.value`.
-
-Layered on top, an import-granularity split: `useClipboard` and `writeClipboard` both
-live in `dist/composables/dom/useClipboard.d.ts`, published at
-`@mkbabb/glass-ui/dom` — and the sibling file `useMixingAnimation.ts:41` already
-imports `useBreakpoint` from `@mkbabb/glass-ui/dom`. Same physical home, two specifiers,
-same directory.
-
-**Cure.** `mixResultToText(result: MixResult): string` lives beside the type;
-`useMixingState` owns *one* `useClipboard` and returns `{ copyStatus, copyResult }`;
-the plate renders `copyStatus`; `MixPane.defineExpose` re-exports the same function.
-One home per concept, one specifier (`@mkbabb/glass-ui/dom`).
-
----
-
-### L-4 · MAJOR — the primitive hands the component a named failure channel and the component throws it away.
-
-`MixResultDisplay.vue:46` — `await copy(text);` — discards the return value.
-glass-ui documents this return as the point of the primitive
-(`dist/composables/dom/useClipboard.d.ts`):
-
-> "Returns the discriminated result (`{ ok }` / `{ ok, reason }`) rather than a lossy
-> boolean" … "A failed copy always names its channel."
-
-`CopyResult = { ok: true } | { ok: false; reason: "clipboard-api" | "no-api" }`, and
-`UseClipboardOptions` also offers `onCopyError`. The component uses neither. `:32`
-reads `copied = status.value === "success"`, so `status === "failure"` renders
-**pixel-identical to idle** — the user sees the copy icon not change and cannot tell a
-failure from a mis-click. On Safari, where clipboard writes outside a user-gesture
-chain reject, this is the live case, not a theoretical one.
-
-**Mechanism.** Masking fallback (edict 2) — the library was upgraded to be
-failure-explicit and the consumer stayed failure-silent.
-
-**Cure.** `const res = await copy(text); if (!res.ok) …` with the plate's own
-three-state affordance (idle / copied / failed), or pass `onCopyError`. This is the
-`value.js` house idiom (`Result`-shaped, `mixStage.ts:106` already does
-`if (!result.ok) throw`) — the component is the odd one out in its own repo.
-
----
-
-### L-5 · MAJOR — `MixResult` is a union that is not discriminated, and every consumer pays for it.
+**Defect.** `composables/useMixingState.ts:30-36`:
 
 ```ts
-// useMixingState.ts:32-36
+export type MixResultType = "color" | "palette";
 export interface MixResult {
-    type: MixResultType;        // "color" | "palette"
+    type: MixResultType;
     css?: string;
     colors?: PaletteColor[];
 }
 ```
 
-The type permits `{ type:"color", colors:[…] }` and `{ type:"palette" }` — states the
-producer never emits (`:90`, `:97`) but the type cannot forbid. The tax, counted:
+A tagged discriminant with both payloads optional on one interface. TypeScript cannot
+narrow `type === "color"` to "`css` is present", so every read must re-check and
+substitute. Count in this file alone:
 
-| site | cost |
-|---|---|
-| `MixResultDisplay.vue:37-39` | `result.css ?? "var(--muted-foreground)"` and `result.colors?.[0]?.css ?? …` |
-| `MixResultDisplay.vue:44-45` | two more `??` in `onCopy` |
-| `MixResultDisplay.vue:78` | `v-if="result.type === 'color' && result.css"` — re-guard |
-| `MixResultDisplay.vue:91` | `v-if="result.type === 'palette' && result.colors"` — re-guard |
-| `MixPane.vue:41, :44, :52, :53` | four more |
-| `useMixingAnimation.ts:78, :81` | two more |
+- `:37-39` — `result.css ?? "var(--muted-foreground)"` **and** `result.colors?.[0]?.css ?? "var(--muted-foreground)"`
+- `:43-45` — `result.css ?? ""` **and** `result.colors?.map(…) ?? ""`
+- `:78` — `v-if="result.type === 'color' && result.css"` — the `&& result.css` is pure compensation
+- `:91` — `v-if="result.type === 'palette' && result.colors"` — likewise
 
-Ten `??`/`?.` masking operators and four re-guards to defend against states the machine
-cannot produce. `wellColor`'s `?? "var(--muted-foreground)"` (`:39`) will paint a grey
-dot for an impossible input — a fallback that hides a bug rather than surfacing one
-(edict 2).
+Plus `MixPane.vue:41,44,52,53` and `useMixingAnimation.ts:79,81`. Ten masking fallbacks
+across three files, all downstream of one type. Each `?? ""` is a silent
+copy-empty-string; each `?? "var(--muted-foreground)"` paints grey where a color failed.
 
-**Cure.**
+**Mechanism.** A union modelled as an optional-bag. Edict 2 forbids masking fallbacks;
+this type *manufactures* them.
+
+**Proposed cure.**
 
 ```ts
 export type MixResult =
-    | { kind: "color";   css: string }
-    | { kind: "palette"; colors: PaletteColor[] };
+    | { readonly type: "color";   readonly css: string }
+    | { readonly type: "palette"; readonly colors: readonly PaletteColor[] };
 ```
 
-`v-if="result.kind === 'color'"` narrows; every `??` and every re-guard deletes itself;
-`v-if="ghost"`'s sizing ternary (`:71`) reads the discriminant directly. Fourteen
-defensive constructs become zero.
+Every `??` above deletes itself, `v-if` conditions shorten to the discriminant, and the
+compiler starts enforcing what the ten fallbacks were guessing at.
 
 ---
 
-### L-6 · MAJOR — dock primitives in a plate with no dock: a 28×28 hit box where the primitive promises ≥44.
+### L-6 · MAJOR — dock-scoped primitives in a plate with no dock, and `compact` opts out of the one out-of-dock guarantee glass-ui ships
 
-`MixResultDisplay.vue:120-143` builds its action row from `DockControl compact` ×3 and
-`DockSeparator`, inside `.mix-plate` — a card fixture with no `.glass-dock` ancestor.
+**Defect.** `MixResultDisplay.vue:120-143` builds its action row from three
+`<DockControl compact>` plus `<DockSeparator>`, inside `.mix-plate` — a card fixture with
+no `.glass-dock` ancestor anywhere in `MixPane.vue`.
 
-`DockControl`'s own docstring states the contract it is being used outside of:
+Rendered markup (from the L-1 mount):
 
-> "the HIT CELL stays the full `--dock-control-size` (**≥44px on coarse** via the
-> density clamp) — hit box ≠ paint box"
-
-Measured inside the plate:
-
-```
-dockControlSizeToken : "(unset)"          ← --dock-control-size does not resolve here
-actionButtons        : [ {title:"Copy color",     ariaLabel:null, w:28, h:28},
-                         {title:"Save to palettes",ariaLabel:null, w:28, h:28},
-                         {title:"Reset",           ariaLabel:null, w:28, h:28} ]
-separators           : 1
+```html
+<button type="button" class="dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact"
+        style="--dock-press-t: 0.0000; --flex-vel: 0.0000;" data-press-armed="" title="Copy color"> …
 ```
 
-**28×28 px** — 40 % of the WCAG 2.5.8 / owner tap-target bar, because the density clamp
-lives on the dock root and there is no dock root. `DockSeparator` likewise resolves its
-axis through `useOptionalDockContext()` and silently defaults to horizontal. The
-primitives are *published* on `./dock` and they *render*, but their guarantees are
-dock-scoped and this is not a dock. (The mega-tranche visual audit reports
-`smallTapTargets: 8` on `/#/mix` in every matrix — those are the pane's other controls;
-these three are additional, because the audit never mixed anything, see L-10.)
+**[NEW] The precise mechanism — glass-ui *does* ship an out-of-dock touch floor, and
+`compact` is written as its exclusion.**
+`node_modules/@mkbabb/glass-ui/dist/components/dock/styles/controls/touch-floor.css`:
 
-**Cure.** glass-ui publishes `./button` — an icon register with no dock dependency.
-Either use it, or (edict 4, the better fix) glass-ui moves the ≥44 coarse clamp onto
-`DockControl` itself so the guarantee travels with the component rather than with its
-ancestor. Relay to the BH inbox with L-2.
+```css
+@media (pointer: coarse) {
+  .dock-icon-button:not(.dock-icon-button--compact):not(:where(.glass-dock *)) {
+    min-block-size: var(--dock-touch-target, 2.75rem);
+    min-inline-size: var(--dock-touch-target, 2.75rem);
+  }
+}
+```
+
+Read the selector: *non-compact*, *outside a dock* → 44 px floor. Inside a dock, the
+dock's own coarse block does it (`overflow.css`: `.glass-dock[data-size] { --size-icon-btn: var(--dock-touch-target) }`).
+**Compact + outside a dock is the one uncovered quadrant, and it is exactly what this
+component instantiates.** Geometry then falls to
+`controls/icon-button.css`:
+
+```css
+.dock-icon-button--compact { width: var(--dock-compact-control-size, auto);
+  height: var(--dock-compact-control-size, auto); min-width: var(--dock-compact-control-min-width, 0);
+  padding: var(--dock-compact-control-padding, 0.25rem); }
+```
+
+None of those tokens is defined anywhere in `demo/` or in glass-ui's
+`styles/tokens/sizing.css` (verified by grep), so: 20 px glyph (`w-5 h-5`) + 2 × 4 px
+padding = **28 × 28 px**, in every matrix, coarse or fine. That is 40 % of the 44 px bar.
+Corroborated by the live real-Safari measurement of the *same* primitive on the same
+route: the three compact `DockControl`s in `SlugEditLayer.vue` measure **23 × 23**
+(`REPORT.json`, `safari-mobile-light /#/mix` → `smallTapTargets`:
+`{"w":23,"h":23,"tag":"button","label":"Switch to slug"}` ×3), which is `w-3.5` (14 px)
++ 8 px padding — the identical arithmetic.
+
+**[NEW] The demo has already discovered this and papered it per-instance.**
+`demo/shell/dock/ActionBarToggle.vue:149-155`:
+
+```
+   rides the producer's OWN token hook (`--dock-compact-control-padding`, …
+    --dock-compact-control-padding: 0.5rem 0.75rem;
+```
+
+A per-instance token override to fix out-of-dock compact geometry — an edict-5 violation
+(style at the root component level, never per-instance) that exists *because* the
+primitive's guarantee does not travel with it.
+
+**Secondary.** These three buttons carry `title=` and **no `aria-label`** — the mount's
+rendered HTML shows `title="Copy color"`, `title="Save to palettes"`, `title="Reset"` and
+no accessible name. The demo's own dock-wide law, stated at `SlugEditLayer.vue:88-90`:
+
+> "native `title` retired dock-wide — icon-only controls carry aria-label (the UA tooltip
+> slab is a foreign register on the liquid-glass dock)."
+
+This component still uses the retired register. That is legacy code by edict 2 and a real
+a11y gap: an icon-only button named only by `title` is nameless to most AT.
+
+**Proposed cure.** glass-ui publishes `./button` with exactly the right primitive:
+
+```ts
+/** Square geometry for an accessibly named icon command. */
+iconOnly?: boolean;
+emphasis?: "primary" | "secondary" | "quiet" | "text";
+```
+
+Use `<Button icon-only emphasis="quiet" :aria-label>` for an in-plate action row and drop
+the dock import entirely — the dock family belongs to the dock. The producer-side half
+(edict 4, relay to the glass-ui BH inbox): either extend `touch-floor.css` to cover
+`--compact` outside a dock, or make `compact` an explicitly dock-only modifier that
+`DockControl` refuses outside `useOptionalDockContext()`. A guarantee that silently
+evaporates based on an ancestor is not a guarantee.
 
 ---
 
-### L-7 · MINOR — `demo/ui/` is a 19-barrel shadow namespace over glass-ui; both paths are alive inside this one feature.
+### L-7 · MAJOR — glass-ui hands back a named failure channel; the component discards it
 
+**Defect.** `useClipboard`'s published return is deliberately non-lossy
+(`composables/dom/useClipboard.d.ts`):
+
+```ts
+export type CopyResult = { ok: true } | { ok: false; reason: CopyFailureReason };
+copy: (text: string) => Promise<CopyResult>;
+onCopyError?: (reason: CopyFailureReason) => void;
 ```
-$ cat demo/ui/card/index.ts
-export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@mkbabb/glass-ui";
+
+The doc comment says why: *"returning a named failure … rather than a lossy boolean"*.
+`MixResultDisplay.vue:42-47`:
+
+```ts
+async function onCopy() {
+    const text = …;
+    await copy(text);          // return value dropped; no onCopyError
+}
 ```
 
-All nineteen `demo/ui/*` barrels are pure re-exports of glass-ui (alert, avatar, badge,
-button, card, checkbox, collapsible, dialog, dropdown-menu, input, label, popover,
-radio-group, select, separator, skeleton, slider, switch, tooltip). They are aliases —
-exactly the legacy shim edict 2 forbids and edict 3 calls contrivance.
+`status` only ever reaches `"success"` on success, so `copied` (`:32`) stays `false` on
+failure and the UI shows **nothing at all** — the button silently does not change. On a
+platform where `navigator.clipboard` is unavailable or the write is rejected (WebKit
+without a user-gesture-adjacent call, an insecure origin), the user gets no signal.
 
-The dual path is live *within this component's directory*:
-`MixPane.vue:3` → `import { Card } from "../../ui/card"` (shim → glass-ui **root**),
-`MixResultDisplay.vue:3` → `import { DockControl } from "@mkbabb/glass-ui/dock"`
-(subpath). Two spellings of the same design system, one feature, adjacent files.
+**Mechanism.** The producer moved from a lossy boolean to a discriminated result
+specifically so consumers could report failure; the consumer kept the fire-and-forget
+call shape from the retired `copyToClipboard` API. That is exactly the "no legacy
+call-site shape" the W44 commit message claims to have retired
+(*"No local adapter, no preserved boolean signature"*) — it retired the *symbol* but kept
+the *shape*.
 
-**Cure.** Delete `demo/ui/` wholesale; rewrite ~N imports to the glass-ui subpaths.
-The barrels carry no code — this is a mechanical rename with zero behavioural risk, and
-it collapses a whole namespace.
+**Reproduction.** NONE — hypothesis at the failure branch. The API misuse itself is
+confirmed by the signature above vs. `:46`; the user-visible consequence is inferred from
+`status` never leaving `"idle"`/`"failure"`, both of which render `copied === false`.
+
+**Proposed cure.** Once L-4's cure lands and the copy is a `@copy` emit, `MixPane` owns
+one clipboard path and can surface `{ ok: false, reason }` once, in one place, for both
+entry points (in-plate button + dock command).
 
 ---
 
-### L-8 · MINOR — `tsconfig.demo.json` `paths` has drifted from `package.json#exports`; the Vite half was made drift-proof and the TS half was not.
+### L-8 · MINOR — three spellings of one package, one of them the god-barrel; and the TS half of the value.js seam has drifted
 
-`vite.config.ts:39-49` **generates** its value.js self-alias set from
-`package.json#exports` precisely so it cannot drift, with a long comment saying so.
-`tsconfig.demo.json` was left hand-rolled, and has:
+**(a) [NEW, measured] glass-ui is imported at three different depths in one file.**
 
-| declared in tsconfig | in `exports`? | file exists? |
+```
+demo/workbenches/mix/MixResultDisplay.vue:3  @mkbabb/glass-ui/dock            (subpath)
+demo/workbenches/mix/MixResultDisplay.vue:5  @mkbabb/glass-ui                 (ROOT BARREL)
+demo/workbenches/mix/MixResultDisplay.vue:6  @mkbabb/glass-ui/watercolor-dot  (subpath)
+```
+
+`useClipboard` is published on `./dom` (`dist/dom.d.ts` → `export * from "./composables/dom"`),
+and the *sibling composable in this same feature* already uses it:
+`MixAnimationCanvas/composables/useMixingAnimation.ts:43` →
+`import { useBreakpoint } from "@mkbabb/glass-ui/dom"`. So the correct spelling is
+established in-tree and this file does not use it. Repo-wide the root barrel is imported
+37 times.
+
+Measured cost, so this is sized honestly rather than asserted:
+
+```
+$ printf 'import { useClipboard } from "@mkbabb/glass-ui";\nconsole.log(useClipboard);\n' > barrel.js
+$ printf 'import { useClipboard } from "@mkbabb/glass-ui/dom";\nconsole.log(useClipboard);\n' > subpath.js
+$ npx esbuild {barrel,subpath}.js --bundle --format=esm --external:vue --external:reka-ui --minify …
+barrel bytes:  1895
+subpath bytes: 1077
+```
+
+**+818 bytes minified, +76 %** for one symbol. glass-ui declares
+`"sideEffects": ["*.css"]`, so tree-shaking does most of the work — this is a **naming and
+consistency** defect first, a weight defect second. Sized as MINOR on the measurement,
+not talked up.
+
+**(b) `tsconfig.demo.json` `paths` has drifted from `package.json#exports`.**
+`vite.config.ts:37-50` *generates* the runtime alias set from `package.json#exports`
+precisely so it cannot drift, with a long comment saying so. The TypeScript half was left
+hand-rolled and rotted:
+
+| declared in `tsconfig.demo.json` | in `exports`? | file exists? |
 |---|---|---|
-| `@mkbabb/value.js` → `dist/index.d.ts` | **no** | **no** |
-| `@mkbabb/value.js/color` | yes | yes |
+| `@mkbabb/value.js` → `dist/index.d.ts` | **no** | **no** (`dist/index.d.ts` ABSENT) |
 | `@mkbabb/value.js/parsing` | **no** | **no** |
-| `@mkbabb/value.js/math` | yes | yes |
-| `@mkbabb/value.js/easing` | yes | yes |
 | `@mkbabb/value.js/units` | **no** | **no** |
-| `@mkbabb/value.js/transform` | yes | yes |
-| `@mkbabb/value.js/quantize` | yes | yes |
-| — | `./value` **missing from tsconfig** | yes |
-| — | `./css` **missing from tsconfig** (10 demo import sites) | yes |
+| `@mkbabb/value.js/color` | yes | yes |
+| `@mkbabb/value.js/math`, `/easing`, `/transform`, `/quantize` | yes | yes |
 
-```
-$ ls dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts
-ls: … No such file or directory   (×3)
-```
+and **omits** two real exports: `./css` and `./value`. Three phantom mappings (dead
+config = edict 2) and two blind spots — a demo file importing `@mkbabb/value.js/css`
+would run fine through Vite and resolve through a *different* path under `tsc`.
 
-The two *real* subpaths with no `paths` entry resolve anyway — traced:
-
-```
-======== Resolving module '@mkbabb/value.js/css' from '…/demo/color-session/picker-color.ts'
-'paths' option is specified, looking for a pattern to match … (no match)
-Found 'package.json' at '/Users/mkbabb/Programming/value.js/package.json'.
-Entering conditional exports.
-======== … successfully resolved to '…/dist/subpaths/css.d.ts' with Package ID '…@4.0.0'
-```
-
-TypeScript's **package self-reference** through the repo's own `exports` map already
-does the right thing. This component's chain crosses the boundary at
-`useMixingState.ts:19` (`/color`, mapped) and `useMixingState.ts:23` →
-`color-session/picker-color` → `@mkbabb/value.js/css` (unmapped, self-referenced).
-
-Three of eight entries point at files that do not exist; two published keys are absent;
-the map that Vite refuses to hand-maintain is hand-maintained here.
-
-**Cure.** Delete the `@mkbabb/value.js*` block from `tsconfig.demo.json` entirely. Self-
-reference resolution is *proved working* above, it reads the same `exports` map Vite
-generates from, and the drift surface goes to zero — the strictly better structural
-posture than mirroring the map twice.
+**Proposed cure.** Do to `tsconfig.demo.json` what `vite.config.ts` already does: generate
+`paths` from `package.json#exports` at config time (`tsconfig` cannot compute, so this is
+a tiny prebuild step writing `tsconfig.paths.generated.json` that both demo and vitest
+configs `extends`). One source of truth for the package's own surface, in both halves of
+the toolchain. Separately: pick the subpath spelling for glass-ui everywhere and let
+`demo/ui/*` — nineteen barrels that are pure `export … from "@mkbabb/glass-ui"`
+re-exports, including the one `MixPane.vue:3` uses for `Card` — die with it.
 
 ---
 
-### L-9 · MINOR — one Vue built-in imported, its sibling not.
+### L-9 · MINOR — one Vue built-in imported, its sibling not
 
-`:4` imports `TransitionGroup`; `:60` uses `<Transition>` with no import. Vue resolves
-both built-ins without any import, so `TransitionGroup` at `:4` is dead weight and the
-asymmetry is the tell that neither was a decision. Delete it.
-
----
-
-### L-10 · MAJOR — this component is currently unreachable for a first-time visitor, by the same mechanism as L-2.
-
-Not this file's defect, but it decides whether this file ships. `MixSourceSelector.vue:164-176`
-renders the "Add current color to the mix" affordance as
-`<WatercolorDot tag="button" @click="addCurrentColor" aria-label="…" :disabled="…">`.
-Per L-2, `WatercolorDot` drops `$attrs` **including listeners** and hardcodes
-`pointer-events: none`. Measured on a clean profile:
-
-```
-addSlot: { tagName: "SPAN",
-           pointerEvents: "none",
-           attrs: ["data-v-292b9032","data-v-a3e86846","aria-hidden","class",
-                   "data-testid","data-variant","style"] }
-```
-
-No `aria-label`, no listener, no `disabled`, not a button, `aria-hidden="true"`,
-pointer-events off. Playwright's real click times out:
-`<html lang="en" dir="ltr">…</html> intercepts pointer events`. Programmatic
-`.click()` ×2 → `sourcesAfterSelect: 0`, `mixBtnDisabled: true`.
-
-Consequence for **this** component: on a clean profile, Colors mode cannot accept a
-colour and Palettes mode is empty, so `canMix` never turns true, so `mixResult` stays
-`null`, so **`MixResultDisplay` never mounts.** That is why the 60-capture mega-tranche
-visual audit contains no row that exercises it — `/#/mix` reports `text: 186` desktop /
-`118` mobile with zero blank flags, all of it the selector and config bar. The result
-plate is un-audited because it is currently un-reachable.
-
-(I reached it only by seeding `localStorage["color-palettes"]` with two palettes via
-`addInitScript`, then using Palettes mode.)
+`MixResultDisplay.vue:4` — `import { computed, TransitionGroup } from "vue"`. The template
+uses **both** `<Transition>` (`:60`) and `<TransitionGroup>` (`:92`); only the latter is
+imported. Both are SFC-compiler built-ins resolved without an import — proven by the L-1
+mount, where `<Transition>` rendered as `<transition-stub>` with no import present. The
+`TransitionGroup` import is dead. Delete it; `import { computed } from "vue"` is the whole
+need.
 
 ---
 
 ## 3. The lattice I would build greenfield
 
-Today the mix feature is three concerns fused into one composable plus a DOM-attribute
-side channel:
-
-```
-useMixingState.ts (138 L)   ← selection state + colour math + phase machine + THE TYPES
-MixResultDisplay.vue        ← render + clipboard + DOM-attribute anchor + result serialization
-MixPane.vue                 ← orchestration + a SECOND clipboard + a SECOND serialization
-mixStage.ts                 ← geometry + querySelector into a tree it does not own
-```
-
-Not a god module by line count — a god module by *concept count*. `useMixingState` is
-the single home for four unrelated things, and the two things that genuinely need a
-shared vocabulary (the result shape, the anchor) are the two that have no home at all.
-
-Greenfield:
+Concretely, with no legacy. The mix feature has **four** real concepts and currently
+smears them across seven files.
 
 ```
 demo/workbenches/mix/
-├── mix.ts              PURE. `type MixResult` (discriminated, L-5) ·
-│                       `mixResultToText()` (L-3) · `runMix(inputs): MixResult`.
-│                       Zero Vue. Unit-testable without a DOM. Owns the vocabulary
-│                       three modules currently re-derive.
-├── mixAnchors.ts       The typed port (L-1): `MIX_ANCHORS_KEY: InjectionKey<{
-│                       well: Ref<HTMLElement|null>; sources: Ref<HTMLElement[]> }>`.
-│                       Replaces every `data-mix-*` attribute and every querySelector.
-├── useMixSelection.ts  Selection only: colors/palettes in, add/remove/clear.
-├── useMixPhase.ts      idle→mixing→done + the ONE clipboard (L-3/L-4), nothing else.
-├── MixPane.vue         Composition root. Provides the anchors. Exposes ONE copyResult.
-├── MixSourceSelector.vue   Stamps `sources` on the port; real `<button>` hosts.
-├── MixResultDisplay.vue    Pure presentation. Binds `useTemplateRef("well")` to a
-│                           wrapper IT owns; renders `copyStatus`; emits save/reset.
-│                           No clipboard logic, no serialization, no `??`.
-└── MixAnimationCanvas/     Injects the anchors. `collectStage(target: HTMLElement,
-                            sources: HTMLElement[], …)` — no DOM search, no invented
-                            fallback; missing anchor ⇒ settle honestly.
+├── mix-result.ts              ← THE MODEL. Owns the concept "a mix result".
+│     export type MixResult =
+│         | { readonly type: "color";   readonly css: string }
+│         | { readonly type: "palette"; readonly colors: readonly PaletteColor[] };
+│     export const landingCss = (r: MixResult) => …     // ONE definition (kills L-4a)
+│     export const resultText = (r: MixResult) => …     // ONE definition (kills L-4b)
+│
+├── useMix.ts                  ← THE MACHINE. selection + space/hue config + phase.
+│     Produces MixResult; owns no timers (the current one-clock law is right, keep it).
+│
+├── MixPane.vue                ← THE SEAT. Owns every side-effect: clipboard, save,
+│     the dock command surface. Provides the anchor element for the canvas.
+│
+├── MixResultPlate.vue         ← PURE PRESENTATION. props: { result, ghost };
+│     emits: { copy, save, reset }. No clipboard, no serialization, no `??`.
+│     Renders <ResultSwatch> for both branches — one home for "dot + its CSS text".
+│
+└── MixAnimationCanvas/        ← THE NARRATION. Unchanged in spirit.
 ```
 
-Four structural inversions, each removing a defect class rather than an instance:
+Two structural moves beyond file layout:
 
-1. **The anchor becomes a value, not a string.** `InjectionKey<Ref<HTMLElement|null>>`
-   is checked by `tsc`; `"[data-mix-target]"` is checked by nothing. L-1 becomes
-   uncompilable.
-2. **The result type becomes a discriminated union.** Fourteen defensive constructs
-   across three files delete themselves; the impossible states stop being
-   representable. L-5 becomes uncompilable.
-3. **The clipboard has one home.** One `useClipboard` in `useMixPhase`, one
-   `mixResultToText` in `mix.ts`; the plate and the command palette are two *views* of
-   one action, not two actions. L-3 and L-4 collapse into one correct path.
-4. **The design system has one address.** `demo/ui/` deleted (L-7); every glass-ui
-   symbol imported from its narrow subpath (`/dom`, `/button`, `/watercolor-dot`); the
-   `tsconfig.demo.json` value.js `paths` block deleted in favour of the self-reference
-   the compiler already performs (L-8).
+**1. Kill the DOM-attribute seam.** `[data-mix-target]` / `[data-mix-source]` are a
+cross-sibling contract expressed as a global `querySelector`, unenforced by any type and
+— as L-1 proves — silently satisfiable by an unrelated component's rendering decisions.
+Replace with an explicit registry: `MixPane` `provide()`s a `MixStage` handle
+(`registerTarget(el)`, `registerSource(el, css)`); the plate and the selector call it from
+`useTemplateRef`. Now the contract is typed, the anchor cannot vanish without a compile
+error, and `collectStage` has no fallback to mask anything with.
 
-Two items leave the repo entirely, as glass-ui work under edict 4: `WatercolorDot`
-needs an `as`/`asChild` seam and `v-bind="$attrs"` (L-2, L-10); `DockControl` needs its
-≥44 px coarse clamp to travel with the component rather than with a dock ancestor
-(L-6). Both belong in the glass-ui BH relay, not in a demo patch.
+**2. Decoration is never a control.** Every `WatercolorDot` in the tree is an
+`aria-hidden`, `pointer-events: none` `<span>` — that is *correct* for a pigment face and
+*fatal* when a call site pretends it is a button or an anchor. The rule: `WatercolorDot`
+is only ever a child of the element that carries the semantics. Interactivity, identity
+and naming live on a real `<button>`/`<div>` the consumer owns. That one rule kills L-1,
+L-2, L-3 and the seven `tag="button"` sites repo-wide simultaneously — and if
+dot-shaped buttons are wanted as a *thing*, that primitive belongs in glass-ui (edict 4),
+not in a `tag=` string the producer ignores.
+
+**3. Actions come from `./button`, not `./dock`.** An in-plate action row is not a dock.
+`<Button icon-only emphasis="quiet" :aria-label>` gets correct geometry, a real
+accessible name, and no dependence on an ancestor that does not exist.
 
 ---
 
 ## 4. Evidence index
 
-| artefact | path |
+| # | artefact |
 |---|---|
-| anchor + settle probe (L-1, L-2, L-6, L-10) | `/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/L-wbmixresult-probe.mjs` |
-| miss-geometry probe (L-1, L-6) | `…/scratchpad/L-geom.mjs` |
-| settled-plate screenshot (pool on the Mix button) | `…/scratchpad/L-mix-settled.png` |
-| clean-profile probe (L-10) | `…/scratchpad/probe-mix-target.mjs` |
-| demo typecheck, green (L-2) | `npx vue-tsc -p tsconfig.demo.json --noEmit` → `EXIT=0`, 0 lines |
-| TS resolution trace (L-8) | `npx tsc -p tsconfig.demo.json --noEmit --traceResolution` |
+| E1 | Direct SFC mount, `@vue/test-utils` + `@vitejs/plugin-vue` + jsdom. `ANCHOR_COUNT=0`, `TITLE_COUNT=0`, `TAGATTR_COUNT=1`. Scratch config + spec: `/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/Lprobe/` |
+| E2 | `npx playwright test --project=smoke e2e/smoke/views/mix.spec.ts` → **1 failed** at `:42`, `element(s) not found` for `Add current color to the mix` (pasted in L-1) |
+| E3 | Live WebKit/iPhone-14 DOM of the add-slot: `<span aria-hidden="true" class="add-slot-ghost … watercolor-swatch" style="…; pointer-events: none; …">` — probe `scratchpad/L-dump.mjs` against `http://localhost:9000/#/mix` |
+| E4 | `node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js` — `inheritAttrs: !1`, six props, hard-coded `<span>`, only `class`/`style` re-applied, no slot |
+| E5 | `node_modules/@mkbabb/glass-ui/dist/components/dock/styles/controls/touch-floor.css` — `.dock-icon-button:not(.dock-icon-button--compact):not(:where(.glass-dock *))` 44 px floor |
+| E6 | `node_modules/@mkbabb/glass-ui/dist/components/dock/styles/controls/icon-button.css` — `--compact` geometry: `padding: var(--dock-compact-control-padding, 0.25rem)`, tokens undefined repo-wide |
+| E7 | `REPORT.json` `safari-mobile-light /#/mix` → three 23×23 compact `DockControl`s; no `MixResultDisplay` row in any matrix (the audit never mixed anything — the component is uncaptured across all 60 shots, and `shots/*/mix.png` show the empty pane) |
+| E8 | esbuild bundle: root barrel 1895 B vs `/dom` subpath 1077 B, minified, `vue`+`reka-ui` external |
+| E9 | `git show f2c8f565 -- demo/workbenches/mix/MixResultDisplay.vue` — the W44 glass-7 adoption: 13+/13−, dock + clipboard only, no `WatercolorDot` line touched |
+| E10 | `tsconfig.demo.json` `compilerOptions.paths` vs `package.json#exports` vs `ls dist/` — 3 phantom, 2 missing, `dist/index.d.ts` absent |
 
-**No source edits were made. Nothing outside this directory was written.**
+Prior run of this seat preserved at
+`docs/tranches/V/megatranche/audit/components/wb-mix-resultdisplay/challenge-L-library.prior-run.md`.
+Related banked ledger entries (independent seats, same L-1 family):
+`docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md:4552, 5326, 5866, 20414`.

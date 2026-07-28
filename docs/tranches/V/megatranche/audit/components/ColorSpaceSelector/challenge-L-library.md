@@ -10,6 +10,16 @@ Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
 Subject: `demo/color-session/ColorSpaceSelector.vue` (311 lines).
 Dev server live at `http://localhost:9000` throughout; all browser probes read-only.
 
+> **SECOND PASS — 2026-07-28, HEAD `7775473b`** (docs-only commits since `c654824e`; no `src/`,
+> `demo/`, `test/` or `node_modules` file in this report's evidence set differs between the two).
+> A second Opus 5 seat re-ran this axis from a cold start without reading §1–§10 first, then
+> re-derived and independently **verified** the findings below before folding in what was new.
+> Independently reproduced: L-1 (screenshot + page text), L-2/L-3 (18-row DOM dump), L-4, L-5, L-7,
+> L-11, L-12, L-14. Independently verified against the sources: ARCHITECTURE.md:37 and its import
+> lattice; `provide(SAFE_ACCENT_KEY)` at exactly one app-boot site; the dead eslint globs; the
+> `WatercolorDot` prop list (no `tag`); the pipeline's **38**-key return. **One correction and four
+> new findings are in §11; nothing in §1–§10 was retracted.**
+
 ---
 
 ## Verdict
@@ -534,6 +544,223 @@ are files that already exist, correctly re-cut.
 
 ---
 
+## 11. Second pass (2026-07-28) — one correction, four new findings
+
+### 11.0 Correction to §2's stated mechanism for the empty guide
+
+§2 attributes the empty "Detailed Guide" to `AboutPane.vue:51 v-if="activeMarkdownModule"`. **That is
+correct** — I verified it (`sed -n '45,58p' demo/scenes/about/AboutPane.vue` shows the `v-if` on the
+`<Markdown>` element). I initially derived a different mechanism (an unguarded `await module()`) and
+was wrong about which one fires. But the wrong mechanism is a **real latent defect the cure must
+also close**:
+
+```ts
+// demo/scenes/about/markdown/Markdown.vue:58-61
+const loadDocs = async () => {
+    isLoading.value = true;
+    currentDoc.value = await module();     // ← no try/catch
+    isLoading.value = false;
+};
+```
+
+`module` is typed non-optional (`:45 module: DocModule`), so `Markdown` believes it can never be
+handed `undefined`; only `AboutPane`'s external `v-if` makes that true. If the guard is removed —
+and the §2 cure removes the *need* for it — a miss throws inside `onMounted`, `isLoading` never flips
+false, and the component renders a **permanent skeleton** instead of the designed
+`<Alert>"Oh snap…"</Alert>` failure path at `:19-30`, which becomes unreachable. The §2 cure must
+therefore land the total catalog *and* wrap `loadDocs`, or it trades a silent blank for a silent
+shimmer. **Reproduction: NONE — this is a hypothesis derived from the source; the live path is
+guarded today.**
+
+### 11.1 `L-16` · `CSS_PICKER_SPACES` is a byte-for-byte copy of a library-**private** constant, and the architecture authority forbids exactly this by name · **MAJOR**
+
+§3 and §4 treat `CSS_PICKER_SPACES` as a demo-local branch selector. It is not local. It is a
+**verbatim copy of a constant that lives inside the library and is deliberately not exported.**
+Three homes for one fact:
+
+```ts
+// src/css/types.ts:6-8 — the TYPE authority
+export type CssColorSpace =
+    | "rgb" | "hsl" | "hwb" | "lab" | "lch" | "oklab" | "oklch"
+    | "xyz" | "srgb-linear" | "display-p3" | "a98-rgb" | "prophoto-rgb" | "rec2020";
+```
+```ts
+// src/css/grammar.ts:161-164 — the VALUE authority, NOT exported, consumed at grammar.ts:290
+const CSS_COLOR_SPACES = new Set<CssColorSpace>([
+    "rgb", "hsl", "hwb", "lab", "lch", "oklab", "oklch", "xyz",
+    "srgb-linear", "display-p3", "a98-rgb", "prophoto-rgb", "rec2020",
+]);
+```
+```ts
+// demo/color-session/picker-color.ts:92-96 — the demo's copy, read by ColorSpaceSelector.vue:161
+export const CSS_PICKER_SPACES: ReadonlySet<SpaceId> = new Set<CssColorSpace>([
+    "rgb", "hsl", "hwb", "lab", "lch", "oklab", "oklch", "xyz",
+    "srgb-linear", "display-p3", "a98-rgb", "prophoto-rgb", "rec2020",
+]);
+```
+
+Identical members **and identical line-wrapping** — a copy-paste, not a coincidence. And
+`docs/tranches/V/ARCHITECTURE.md` states the governing principle verbatim, for a sibling table:
+
+> `/value` exposes one pure semantic predicate, `isLayoutTrackingUnit(unit: string): boolean`. …
+> **The table is private to value.js—consumers receive classification, not another list to copy.**
+
+The CSS-space table is the same shape of fact and receives the opposite treatment: private, with no
+classifier exported, so the consumer copied the list. `ColorSpaceSelector.vue:161` then branches its
+entire display policy (§3) on the copy.
+
+**The drift is invisible to the gate.** `scratchpad/exh/probe.ts` reproduces the shape with one new
+member added to the type and the Set literal left untouched:
+
+```
+$ npx tsc --noEmit --ignoreConfig --strict --target ES2022 --moduleResolution bundler \
+      --module ESNext scratchpad/exh/probe.ts
+tsc exit code: 0     (the missing member was NOT caught)
+```
+
+A `new Set<T>([...])` literal is checked for element *assignability*, never for *coverage*. So the
+day a fourteenth CSS space lands, `npm run typecheck` stays green, the demo's Set stays short, and
+`specimenFor` silently routes that space down the 4-digit branch forever. §3's five-home precision
+defect and §2's four-home catalog defect are both special cases of the same root: **the library owns
+these unions as types and hides them as values, so every consumer materialises its own copy.**
+
+**Cure.** Not "export `CSS_COLOR_SPACES`" — that ships the same list twice. The space descriptor
+proposed in §10's `space-catalog.ts` should be **library-side**, as a mapped type over `SpaceId`:
+
+```ts
+// src/color/registry.ts → exported from src/subpaths/color.ts
+export type SpaceDescriptor<S extends SpaceId> = Readonly<{
+    id: S; label: string; cssSerializable: boolean; channels: readonly ChannelDescriptor[];
+}>;
+export const SPACES: { readonly [S in SpaceId]: SpaceDescriptor<S> };
+```
+
+A **mapped type over `SpaceId` is exhaustiveness-checked** — precisely the property the `Set` literal
+lacks and the probe above proves it lacks. Adding a space then fails the *library* build until its
+descriptor exists, `grammar.ts:290` reads `SPACES[s].cssSerializable`, `PICKER_CHANNELS` and
+`PICKER_SPACE_NAMES` delete, and the demo's `space-catalog.ts` shrinks to the genuinely
+product-owned layer: the `hex` pseudo-space, the prose, and the doc loader. This strictly strengthens
+§2's and §10's cures; it does not replace them.
+
+### 11.2 `L-17` · the `demo/ui/` bundle question, closed by measurement · **MINOR (closes an open item in §5)**
+
+§5 states "I make **no bundle-size claim** … dev-graph transform cost is unmeasured, not zero." I
+measured both halves.
+
+Static reachable graph inside the producer's `dist/` (transitive `./`-relative closure + bare deps):
+
+```
+glass-ui.js        files=68  bytes=225743  bare=["@lucide/vue","@mkbabb/keyframes.js",
+                                                 "@mkbabb/value.js/color","@mkbabb/value.js/css",
+                                                 "reka-ui","vue"]
+select.js          files=11  bytes= 18628  bare=["@lucide/vue","reka-ui","vue"]
+watercolor-dot.js  files= 6  bytes=  9503  bare=["vue"]
+```
+
+12.1× more modules reachable through the root barrel. After a real bundle + shake, however:
+
+```
+$ npx esbuild via-barrel.js  --bundle --minify --format=esm --external:vue --external:reka-ui … → 14441 bytes
+$ npx esbuild via-subpath.js --bundle --minify --format=esm --external:vue --external:reka-ui … → 13397 bytes
+```
+
+**1,044 bytes — 7.8 %, not 12×.** `sideEffects: ["*.css"]` works. §5's refusal to claim a size defect
+was the right call and is now *proved* right rather than merely cautious. **L-4 stands entirely on
+structure, and structure alone is enough**, because the idiom census is worse than one file:
+
+```
+files importing via a demo/ui/* barrel   : 48
+sites importing bare "@mkbabb/glass-ui"  : 37
+sites importing "@mkbabb/glass-ui/<sub>" : 72   (across 17 distinct subpaths)
+```
+
+Three parallel idioms for one producer, and `ColorSpaceSelector.vue:109`/`:110` demonstrates two of
+them one line apart. No reader can infer the house rule from any file because there is no house rule.
+Deleting `demo/ui/` (19 files) collapses idiom 1 into idiom 3, which is already dominant at 72 sites.
+
+The production artifact could not corroborate either way: `dist/gh-pages/` currently emits **2 JS
+files totalling 16 KB** for the entire application (`ls dist/gh-pages/assets | sed 's/.*\.//' | sort | uniq -c`
+→ 2 js, 1 css, 59 font files), a separately-tracked broken/stale build — see L-19.
+
+### 11.3 `L-18` · the `paths` block in `tsconfig.demo.json` is redundant where right and dead where wrong — delete it, don't fix it · **MINOR (sharpens §9 L-14)**
+
+§9 L-14 correctly identifies the drift and prescribes "generate both, or drop the `paths` block".
+The trace settles which:
+
+```
+$ npx tsc -p tsconfig.demo.json --noEmit --traceResolution | sed -n '407,421p'
+======== Resolving module '@mkbabb/value.js/css' from '…/demo/color-session/picker-color.ts'. ========
+'paths' option is specified, looking for a pattern to match module name '@mkbabb/value.js/css'.
+Found 'package.json' at '/Users/mkbabb/Programming/value.js/package.json'.
+Entering conditional exports.   Matched 'exports' condition 'types'.
+Using 'exports' subpath './css' with target './dist/subpaths/css.d.ts'.
+File '/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts' exists - use it as a name resolution result.
+======== …successfully resolved to '…/dist/subpaths/css.d.ts' with Package ID '…@4.0.0'. ========
+```
+
+`/css` has **no `paths` entry at all** and resolves correctly anyway, through self-package `exports`.
+So the block is doing no work where it is right, and pointing at three nonexistent files where it is
+wrong (`dist/index.d.ts`, `dist/subpaths/parsing.d.ts`, `dist/subpaths/units.d.ts` — all verified
+absent). **Delete the `@mkbabb/value.js*` `paths` entries outright.** Self-name resolution through
+the real `exports` map cannot drift from the map by construction — which is the same argument
+`vite.config.ts:34-51` already makes for *generating* the Vite aliases. Applying that logic to the TS
+side means subtraction, not a second generator.
+
+**Latent trap, recorded because the fix removes it too.** The generated Vite alias set is
+`Object.entries(package.json#exports)`, and `exports` has **no `.` key** — so the seven aliases are
+all subpaths and a bare `@mkbabb/value.js` specifier is **not aliased**. It would resolve to
+`node_modules/@mkbabb/value.js`, a real self-install of the published 4.0.0 tarball whose `css.d.ts`
+*and* `css.js` differ from the local `dist/` (`diff -rq` → 2 files differ). Today this is inert —
+I scanned for it and found **zero** bare-root importers in `demo/`, `src/`, or either installed
+sibling's `dist/` (glass-ui's root entry imports `@mkbabb/value.js/color` and
+`@mkbabb/value.js/css`, both aliased). But the first bare-root import written anywhere in the demo
+silently loads a stale second copy of the library. **Reproduction: NONE — mechanism verified, the
+triggering import does not exist yet.**
+
+### 11.4 `L-19` · the harness cannot see any of this — states, not routes, and a 16 KB production build · **INFO (extends §Evidence-index note)**
+
+Two coverage facts, both measured:
+
+1. `docs/tranches/V/megatranche/audit/visual/REPORT.json` covers 15 routes and captures each **once**,
+   in its default state. Both hosts of this component render on `/#/` — verified against
+   `shots/safari-desktop-light/picker.png`, which shows the plate title *Lab* and the About sentence
+   *"About the color spaces, Lab"* side by side, **both correct**. The catalog-open state (§3, §4) and
+   any non-default space (§2) are never captured. A 60-capture matrix reporting
+   `blankOrNearBlank: 0` / `pageErrors: 0` / `consoleErrors: 1` is therefore fully consistent with a
+   false color-science card shipping on its very first route. **The gate this component needs is
+   state coverage, not route coverage.**
+2. `dist/gh-pages/` is not a usable production artifact: 2 JS files, 16 KB total, for an application
+   whose dev graph pulls katex, highlight.js, glass-ui and eleven lazy panes. Any structural claim
+   that depends on the shipped bundle — including §5's — is unverifiable until that build is fixed.
+   (This corroborates the `gh-pages` prod-preview carry already on the ledger; it is not a defect of
+   this component.)
+
+### 11.5 What the second pass could not fault
+
+Re-derived from a cold start and found **sound**, corroborating §1:
+
+- **Zero deep-`src/` reach anywhere in the demo.** `grep -rn '@src\|from "\(\.\./\)*src/' demo/` →
+  no output. The T.W1 demo-dogfood keystone holds tree-wide, not just here. The surviving `@src`
+  alias (`vite.config.ts:75`) is used only by `assets/docs/*.md` source-snippet embeds.
+- **The entire transitive library surface is two published subpaths**, `@mkbabb/value.js/color`
+  (`picker-color.ts:27`) and `@mkbabb/value.js/css` (`:34`), both present in `package.json#exports`
+  (`:22`, `:30`) and both resolving through the real `exports` map. A real npm consumer could write
+  both verbatim. **There is no false proof of the public API in this component's import graph.**
+- **`verbatimModuleSyntax`**: four `import type` statements across the closure
+  (`ColorSpaceSelector.vue:122`, `keys.ts:1,4,5`); `picker-color.ts`'s mixed imports use inline
+  `type` specifiers, which is legal. Edict 8 clean.
+- **None of the challenge's named historical suspects is present**: no local `useLayerTransition`
+  reimplementation, no `palettes/export.ts` reach, no third `useDark` store. This component's
+  duplication is entirely its own.
+
+The library-boundary discipline in this repo is real and enforced at the `exports`/`dist` seam. What
+it does **not** cover — and what every finding in this report reduces to — is that **value.js owns
+the color-space domain as *types* and withholds it as *values*, so the demo has materialised four
+catalogs, five precision rules and two space-sets to fill the gap.** That is the one defect. The
+other eighteen are its shadows.
+
+---
+
 ## Evidence index
 
 | Artefact | Location |
@@ -542,6 +769,12 @@ are files that already exist, correctly re-cut.
 | Display P3 selected — CIE RGB 1931 card, empty guide | `probe-display-p3-about.png` (this directory) |
 | Both hosts at rest (mega-tranche capture) | `docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/picker.png` |
 | Probe scripts (read-only, scratchpad) | `chL-css-probe.mjs`, `chL-css-probe2.mjs` |
+| **2nd pass** — catalog open, 12-digit truncation (independent capture) | scratchpad `open-catalog.png` |
+| **2nd pass** — Display P3 selected, CIE-RGB-1931 card (independent capture) | scratchpad `after-display-p3.png` |
+| **2nd pass** — exhaustiveness probe proving `tsc` cannot see Set drift | scratchpad `exh/probe.ts` (§11.1) |
+| **2nd pass** — shake measurement, barrel vs subpath | scratchpad `shake/out-{barrel,subpath}.js` (§11.2) |
+| **2nd pass** — demo-program resolution trace | scratchpad `trace.txt` (§11.3) |
+| **2nd pass** — probe drivers | scratchpad `repro.mjs`, `repro2.mjs` |
 
 Note on the mega-tranche visual audit: its 15-route matrix
 (`docs/tranches/V/megatranche/audit/visual/REPORT.md`) captures `/#/` — where **both** instances of
@@ -555,3 +788,31 @@ this component.
 Wrote only under `docs/tranches/V/megatranche/audit/components/ColorSpaceSelector/` (this file + 2
 PNGs). Scratchpad scripts under the session scratchpad. **No source edits.** No `src/`, `demo/`,
 `api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/**`, `scripts/dev/dev.sh`, or `INBOX.md` touched.
+
+**Second pass (2026-07-28):** edited only this file — the header receipt, §11, and the evidence
+index. All probes read-only; all artefacts in the session scratchpad. **No source edits, no new
+files in this directory.** The same write law was observed.
+
+---
+
+## Consolidated disposition
+
+| ID | Sev | Finding | Reproduced? |
+|---|---|---|---|
+| L-1 | **BLOCKER** | Space catalog has 4 homes (18/13/11/9); selecting any of 5 spaces renders another space's science under a correct title; 7 render an empty guide | **YES** ×2 seats, screenshots |
+| L-2 | MAJOR | Display precision has 5 homes, none authoritative; 16 of 18 specimen rows clipped; 3 precisions for one color on one screen | **YES** — DOM dump |
+| L-3 | MAJOR | Out-of-gamut, non-parseable CSS shipped as the user-facing specimen (`hsl(… -1295% …)`) | **YES** |
+| L-4 | MAJOR | `../ui/select` draws an edge `ARCHITECTURE.md:37` forbids by name; 2 producer idioms 1 line apart; 3 demo-wide | **YES** + census |
+| L-5 | MAJOR | Inverted edge — `color-session` injects an app-boot-only provider; all 3 eslint boundary rules match **zero** files | **YES** |
+| L-6 | MAJOR | "Switch space" has no home; conversion is a watcher side effect owned by one of two hosts | call graph (break = hypothesis) |
+| L-7 | MAJOR | 38-key god injection consumed at 1 key (2.6 %) | **YES** — counted |
+| L-16 | MAJOR | `CSS_PICKER_SPACES` copies a library-**private** constant; ARCHITECTURE forbids the shape verbatim; drift invisible to `tsc` | **YES** — `tsc` exit 0 |
+| L-8…L-15 | MINOR | dead `tag` prop · 18 clone dots · missing glass-ui variant · 3 shims in `color-model.ts` · 2 v-model idioms + 4 casts · redundant `cssColor` transport · `paths` drift · 3rd/4th space `<Select>` | measured |
+| L-17 | MINOR | Barrel bundle cost measured: **1,044 B (7.8 %)**, not 12× — §5's no-claim was right; L-4 stands on structure | **YES** |
+| L-18 | MINOR | The `paths` block is redundant-where-right, dead-where-wrong → delete it; latent stale-self-install trap behind the missing `.` alias | **YES** (trap: hypothesis) |
+| L-19 | INFO | Harness covers routes, not states; `dist/gh-pages` emits 16 KB JS total | **YES** |
+
+**Strongest defect: L-1**, with **L-16 as its root.** value.js owns the color-space domain as *types*
+and withholds it as *values*; the demo materialised four catalogs, five precision rules and two
+space-sets to fill the gap; the product states false color science on its first route with the type
+checker green.

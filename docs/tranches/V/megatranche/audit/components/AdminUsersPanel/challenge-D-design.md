@@ -1,4 +1,4 @@
-# CHALLENGE-D · `AdminUsersPanel.vue` — the design is wrong
+# CHALLENGE-D · `AdminUsersPanel.vue` — the design is wrong · **pass 3**
 
 ## Model receipt
 
@@ -7,639 +7,601 @@ explicit Opus 5 declaration. The seat is declared, not inherited.
 
 - Subject: `demo/palettes/browser/admin/AdminUsersPanel.vue` (391 lines), area `palettes`, route `#/admin/users`.
 - Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`; subject file clean at HEAD.
-- Run date **2026-07-27, pass 2**. Two earlier challenge-D passes are preserved beside this file as
-  `challenge-D-design.2026-07-24-prior.md` and `challenge-D-design.2026-07-27-pass1.md`. **This pass
-  re-derived every number from its own probes** (`probe-D3.mjs`, `probe-D3b.mjs`, `probe-D3c.mjs`,
-  `probe-D3d.mjs`, `probe-D3e.mjs`, `probe-D3f.mjs` → `probe-D3*.json`, frames in `frames-D3/`).
-  No repo source was touched; all API traffic is intercepted in-browser.
-- **Verdict: DEFECTIVE.** 4 BLOCKER · 14 MAJOR · 4 MINOR/INFO.
+- Run date **2026-07-28, pass 3**. Three earlier challenge-D passes are preserved beside this file:
+  `challenge-D-design.2026-07-24-prior.md`, `challenge-D-design.2026-07-27-pass1.md`, and
+  **`challenge-D-design.2026-07-27-pass2-prior.md`** — pass 2 is the substantive predecessor and its
+  22-finding register (D-1 … D-22) is **carried forward whole**, not restated.
+- **Verdict: DEFECTIVE.** Pass 2's 4 BLOCKER · 14 MAJOR · 4 MINOR/INFO **stand, all re-verified**,
+  plus **1 new BLOCKER · 8 new MAJOR · 1 new MINOR · 1 new INFO** below, and **one correction to a
+  pass-2 attribution**.
+- Probes: `probe-D4/probe-D4a-computed.mjs`, `-D4b-duplication-ring-trio.mjs`, `-D4c-forced-colors.mjs`,
+  `-D4d-a11y-name-two-engine.mjs`. Read-only against `http://localhost:9000`; no repo source touched;
+  the only writes are this file, its `-pass2-prior` copy, and `probe-D4/`.
 
-**The binding authority for this surface is `docs/tranches/V/OPTICAL-BENCH-COMPOSITIONS.md` rows 57
-and 82 plus its §5 type/inset matrices** — the artifact that decides Admin · Users' housing, boundary
-inventory, type mapping and row rhythm. Pass 1 did not cite it. Four of the findings below are
-violations that artifact names as defects *by name*.
-
----
-
-## 0 · What the mega-tranche captures actually show, and what they cannot
-
-`audit/visual/REPORT.md:128,143,158,173` records `/#/admin/users` at `text` **273 / 273 / 122 / 122**
-across `safari-desktop-light | safari-desktop-dark | safari-mobile-light | safari-mobile-dark`, with
-`overflowX 0`, `main 1`, `h1 0`, `pageErr 0`, `consoleErr 0`, `smallTapTargets 4`. Nine matrices —
-those four plus `forced-colors-desktop`, `reduced-motion-desktop`, `rtl-desktop`, `rtl-mobile`,
-`zoom-200-desktop` — and **every one is the zero-row state**: dock reads `Login`, panel reads
-`· ROSTER CLEAR · / No users found.`
-(`audit/visual/shots/safari-desktop-light/admin-users.png`, read.)
-
-The largest component in the palettes area has therefore never been photographed doing its job. That
-absence is itself the first design finding — and §0 of the pass-1 report made the same observation, so
-I treat it as established rather than new. I closed the gap with my own probes against the live dev
-server at `http://localhost:9000` (`frames-D3/`).
-
-**One honest correction to my own instrumentation.** My first focus probe (`probe-D3.json`
-`P5_focus_ring`) reported `changedPx: 0`; that was a settle artifact — the row carries
-`transition-colors` (line 80) and I screenshotted before it settled. Every focus number quoted below
-comes from `probe-D3b`/`probe-D3c`, which wait 400 ms. The conclusion did not change; the number did.
+**What this pass adds.** Pass 2 proved the panel lies about *scope* and *outcome*. Pass 3 proves it
+also **does not render the design it declares**: it addresses glass-ui 7's `Button` through a
+`variant` prop that **does not exist in that component's API**, so five of its stated visual
+decisions — including the one the file's own comment claims cured the destructive-beacon defect —
+are inert fallthrough HTML attributes. Everything pass 2 credited to `variant="ghost"` is produced by
+hand-rolled utility classes instead. That reframes the component from *unpolished* to *undelivered*.
 
 ---
 
-## BLOCKERS
+## 0 · Carried forward from pass 2 — re-verified, not re-litigated
 
-### D-1 · The confirmation of an irreversible bulk deletion understates its scope. Measured: 1 promised, 3 executed.
+Every pass-2 finding was re-checked against HEAD `c654824e`. The subject file is byte-identical to
+what pass 2 read (`git status` shows it clean), so all 22 stand. Their evidence lives in
+`challenge-D-design.2026-07-27-pass2-prior.md` and `probe-D3*.json` / `frames-D3/`.
 
-`emptyCount` derives from the `users` prop (`AdminUsersPanel.vue:241`); `AdminPane.vue:28` binds that
-prop to `pm.filteredAdminUsers` — the **search-filtered, sorted** list (`useAdminUsers.ts:29-34`). The
-dialog interpolates that filtered number (`AdminUsersPanel.vue:290-291`). The action it guards calls
-`pruneEmptyUsers(token)`, whose signature carries **no scope argument at all**
-(`demo/palettes/api/admin-users.ts:69-71` → `POST /admin/users/prune-empty`, no body).
+| pass-2 ID | claim | status in pass 3 |
+|---|---|---|
+| D-1 (BLOCKER) | prune confirmation understates scope; 1 promised, 3 executed | **STANDS** — mechanism re-read at `:241` + `AdminPane.vue:28`; **extended by D-25** |
+| D-2 (BLOCKER) | six mutations have no result channel; `return 0` ≡ "No empty users to prune" | **STANDS** — **extended by D-27** (a seventh path, a *read*, is worse: no `catch` at all) |
+| D-3 (BLOCKER) | disclosure focus ring 1.02–1.20:1, clipped by `overflow-hidden`, two engines | **STANDS** — **corroborated from a second direction by D-33** |
+| D-4 (BLOCKER) | RTL fabricates identifiers (`aaa-33empty-ghost-account-a`) | **STANDS** — my own `rtl-desktop` read reproduces the count-line arm (`users 0`) |
+| D-5 | boundary inventory exceeded 24:5 incl. terminal rule | **STANDS** — **extended by D-28** (the fork's cross-route consequence) |
+| D-6 | action controls in Fraunces italic | **STANDS** — independently re-measured: `Fraunces…serif`, `italic`, `14.384px` |
+| D-7 | disclosure 99.95 % pixel-identical closed vs open | **STANDS** — **extended by D-29** (its accessible name is the whole row) |
+| D-8 | PR-35 inset matrix violated at both arms, no responsive arm | **STANDS** |
+| D-9 | unauthenticated state undesigned; Refresh inert | **STANDS** — this is still the only state in all 60 captures |
+| D-10 | no columns; badge at 5 x-positions, spread 242.2 px | **STANDS** — **extended by D-30** (the toolbar has the same disease) |
+| D-11 | identity painted in `--accent-live`; shares chrome with the Dock authority badge | **STANDS** — **extended by D-26** (a second duplication, of the datum itself) |
+| D-12 | toolbar count 3.91:1 — the retired class the imported atom was certified to cure | **STANDS** — **extended by D-32** (the disabled control is worse: 2.88:1 dark) |
+| D-13 | reduced motion leaves colour-only pending; no `aria-busy`, no live region | **STANDS** — `STATES.json` `reduced-motion-desktop /#/admin/users` `rafPer1500ms: 0` confirms the freeze |
+| D-14 | skeleton promises a row anatomy this panel never renders | **STANDS** — **root cause named in D-28** |
+| D-15 | two irreversible actions, one glyph, 6 px apart; 11/14 sub-44 px at 390 | **STANDS** |
+| D-16 | result beat displaces both live controls 105 px | **STANDS** |
+| D-17 | expanded region imports the Browse/Library entity slip | **STANDS** |
+| D-18 | sort offers a key the row refuses to display | **STANDS** |
+| D-19 | empty plate wears the palette ghost trio in the picked colour | **STANDS** — re-measured: **two identical trios on one route**, `116×44` each, both `--watercolor-color: var(--accent-live)` |
+| D-20 | physical `mr-1` in a bidi-bearing row | **STANDS** |
+| D-21 | five producer primitives hand-rolled | **STANDS** — **and understated; see D-23** |
+| D-22 | encapsulation inverted; `defineExpose` of 5 | **STANDS** |
 
-Reproduced in one run (`probe-D3f.mjs`, roster of 5 with 3 empty, search = `aaaa-33`):
-
-```
-filtered:        { headerBadge: "5", toolbar: ["5 users","· 1 empty"],
-                   renderedRows: 1, renderedSlugs: ["empty-ghost-account-aaaa-33"] }
-filtered_dialog: "Prune 1 empty users? | This will permanently delete 1 user with 0 palettes
-                  and their sessions. This cannot be undone. | Cancel | Prune"
-prune_request:   { url: "/admin/users/prune-empty", postData: null }
-filtered_after:  { toolbar: ["2 users", "Pruned 3 users"], renderedSlugs: [] }
-```
-
-Frames `frames-D3/K-prune-filtered-dialog.png`, `frames-D3/L-prune-filtered-after.png`.
-
-The dialog promised one deletion; the system performed three. Compounding it, the client only ever
-holds 50 users (`listUsers(token, 50)`, `useAdminUsers.ts:59`), so even *unfiltered* the number in the
-dialog is a page count presented as a corpus count.
-
-Visible in the same frame: **"Prune 1 empty users?"** — line 290 carries no plural guard while line 291
-does. The grammar bug is not the finding; it is the tell that this string was never read on screen.
-
-Binding law: `OPTICAL-BENCH-COMPOSITIONS.md:57` — "W24. Companion rect `50%→0`; **actor, scope, status
-and irreversible effect remain visible**." `PROPORTION-AUDIT.md:55` PR-11 — "Admin rows obscure
-actor/scope/effect → ADD-AFFORDANCE … One review anatomy with authority/state/confirmation."
-
-**Cure (transposition, not patch).** A bulk irreversible action must confirm against the *server's*
-scope. The idiomatic shape is the two-phase review PR-11 already prescribes: the affordance resolves
-the candidate set, the dialog *names* the candidates, and the confirmed call carries those identities.
-Repointing `emptyCount` at the unfiltered array only swaps a wrong number for a differently wrong one,
-because that array is a 50-row page.
+One pass-2 line requires correction; it is D-23 below.
 
 ---
 
-### D-2 · Five of the six actions have no result channel. A 500 on a delete closes the dialog and changes nothing on screen.
+## NEW — BLOCKER
 
-`useAdminUsers.ts` swallows every mutation failure into `console.warn`: `onFeaturePalette` (96-98),
-`onAdminDeletePalette` (107-109), `onAdminDeleteUserPalette` (122-124), `onDeleteUserPalettes`
-(135-137), `onDeleteUser` (147-149), `onPruneEmpty` (195-198). Only prune has any UI result at all
-(`AdminUsersPanel.vue:301-309`), and `onPruneDone(count: number)` cannot express failure — `return 0`
-maps to the string **"No empty users to prune"**, so *the server refused* and *there was nothing to do*
-arrive at the same sentence.
+### D-23 · The component addresses glass-ui 7's `Button` through a prop that does not exist. Five declared visual decisions never shipped — including the one the file claims cured D-15.
 
-Reproduced with `DELETE /admin/users/:slug` fulfilled `500 application/problem+json`
-(`probe-D3.json` `P8_silent_delete_failure`):
+`node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts` — the whole prop surface:
+
+```ts
+export type ButtonEmphasis = "primary" | "secondary" | "quiet" | "text";
+export interface ButtonProps extends PrimitiveProps {
+    /** Visual priority. It does not change the command's semantics. */
+    emphasis?: ButtonEmphasis;
+    /** Semantic intent, orthogonal to emphasis. */
+    tone?: Tone;
+    size?: ButtonSize;
+    /** Square geometry for an accessibly named icon command. */
+    iconOnly?: boolean;
+    /** Marks an in-flight command and suppresses activation until it settles. */
+    loading?: boolean;
+    type?: …; disabled?: …; class?: …;
+}
+```
+
+There is **no `variant`**. `demo/ui/button/index.ts` is a single line —
+`export { Button } from "@mkbabb/glass-ui";` — so nothing adapts it. `Badge` *does* have `variant`
+(`Badge.vue.d.ts`), which is exactly how the mistake survives review: the two neighbours in the same
+row take different vocabularies.
+
+AdminUsersPanel passes `variant` at **five** sites: `:22`, `:33`, `:58`, `:114` (`"outline"`) and
+`:123` (`"ghost"`). Measured live DOM of the two toolbar buttons (`probe-D4a`, Chromium 1440×900):
 
 ```
-dialogText:     "Delete user? | This will permanently delete user zed and all associated data.
-                 This cannot be undone. | Cancel | Delete user"
-rowsBefore: 7   rowsAfter: 7      dialogStillOpen: false
-alertRoles: 0   anyErrorText: false
-toolbar:        ["6 users", "· 3 empty"]        # unchanged
-console:        ["[warning] Failed to delete user: Internal Server Error"]
+attrs: data-slot=button | data-emphasis=secondary | data-tone=neutral | data-size=sm |
+       data-press-armed= | type=button | disabled= |
+       class=button tap-squish focus-ring glass-wash glass-capsule h-7 px-2.5 cursor-pointer
+             font-display text-caption gap-1.5 |
+       variant=outline |                     ← dead fallthrough HTML attribute
+       style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;
+border: 0px rgb(28, 25, 23)                   ← there is no outline
 ```
 
-Frame `frames-D3/F-delete-500-desktop-light.png`. The operator pressed **Delete user**, the modal
-dismissed itself, and the only record that the deletion did not happen is in the developer console.
-`role="alert"` count is **0**.
+`variant=outline` lands on `<button>` as a literal attribute styling nothing, while the axes that
+actually paint read `emphasis=secondary`, `tone=neutral`. Measured `border-width: 0px` closes it:
+**the "outline" register the file declares is not on screen at any of the four sites.**
 
-This component already ratified the correct principle for the *load* path — its own comment at lines
-49-50 reads "error ≠ empty — a dead backend never costumes as an empty roster", and
-`EmptyState variant="error"` (51-62) implements it. The principle was applied once, to the cheapest
-path, and never carried to the five paths where the stakes are irreversible.
+Five consequences, each a design consequence:
 
-`VISUAL-CONSTITUTION.md:101` — "Persistent operation state stays with the entity/workspace. A transient
-flourish may celebrate success but **never carries the only truth**." `PROPORTION-AUDIT.md:52` PR-08 —
-"Pending/**failure**/export/recovery truth only transient → ADD-AFFORDANCE."
+1. **The documented cure for pass-2 D-15 is inert.** `AdminUsersPanel.vue:107–111` states the
+   W5-12/F-8 decision — *"the per-row destructive is quieted to ink-at-rest — red arrives on
+   hover/focus, never as 5 resting beacons down the list"* — and implements it as `variant="ghost"`
+   (`:123`). That prop does nothing. The quieting pass 2 measured (`rgb(213,208,200)` resting) comes
+   from the hand-rolled `text-muted-foreground hover:text-destructive hover:bg-destructive/10` in the
+   same class string. **Correction to pass 2's Verified-clean list:** the bullet *"the resting
+   destructive ink really was quieted (measured `rgb(213,208,200)` dark)"* is right about the pixels
+   and wrong about the mechanism. The pixels are an accident of a utility string; the declared
+   mechanism is dead. A reader maintaining this file will edit `variant` and see nothing change.
+   The glass-ui spelling is `emphasis="quiet" tone="destructive"`.
+2. **`iconOnly`** — *"Square geometry for an accessibly named icon command"* — is the exact producer
+   affordance for the bare-trash button at `:122–130`. Bypassed for `h-7 px-2`. This is the direct
+   cause of pass-2 D-15's `28×36` seat.
+3. **`loading`** — *"Marks an in-flight command and suppresses activation until it settles"* — is the
+   exact producer affordance for the prune/refresh pending state. Bypassed for a hand-rolled
+   `<Loader2 v-if="pruning" class="animate-spin"/>` plus a manual `:disabled` (`:26–28`,`:36`). This
+   is the direct cause of pass-2 D-13: the producer's `loading` would carry `aria-busy` and a
+   non-colour register; the hand-roll carries neither.
+4. **`tone`** exists and is orthogonal to emphasis, so `tone="destructive"` is the one-token
+   expression of the entire hand-rolled hover/focus destructive cluster at `:125`.
+5. Pass-2 D-21 counted five producer primitives left on the shelf. It is **six** — the sixth is the
+   producer's own Button axis system, which the file has been overriding for its whole life.
 
-**Cure.** The result channel must be one channel for all six actions, carrying three outcomes —
-*applied N* / *nothing to do* / *failed, with the machine reason* — in the error register already
-ratified at 51-62. `onPruneDone(count: number)` is the wrong signature for the whole family.
+**Scope, stated honestly.** This is systemic, not unique to this file:
+
+```
+$ grep -rn '<Button' -A2 demo | grep -c 'variant='
+51
+$ grep -rln '<Button' demo | wc -l
+22
+```
+
+51 dead `variant=` occurrences across 22 demo files; this component owns 5 of them. It remains a
+defect **of this component** — the seat under audit ships a visual design it did not render — and it
+is also evidence that a producer rename landed without a consumer cut.
+
+**Cure (transposition).** Delete every `variant` from the file and state intent on the real axes:
+toolbar `emphasis="quiet"`; row destructive `emphasis="quiet" tone="destructive" iconOnly`; prune
+`:loading="pruning"`. That single move also deletes the five per-instance class strings (D-24), the
+hand-rolled spinner (pass-2 D-13) and the hand-rolled destructive hover cluster. Then relay the
+51-site finding to the glass-ui BH inbox per the standing formation invariant — the consumer cut is
+producer-coordination work, not a local patch.
 
 ---
 
-### D-3 · The keyboard focus indicator of the primary disclosure renders at 1.02–1.20:1. Its ring is entirely clipped. Two engines, both schemes.
+## NEW — MAJOR
 
-The row declares `focus-visible:bg-accent/50 focus-visible:outline-none focus-visible:ring-2
-focus-visible:ring-ring` (line 82). Its wrapper declares `overflow-hidden` (line 68). A Tailwind `ring`
-is a `box-shadow` with **2 px outward spread**; the row's border box equals the wrapper's content box,
-so the entire ring falls in the clipped region.
+### D-24 · The per-instance geometry override is both forbidden and inert. `h-7` loses at 100 % of measured viewports.
 
-Measured by real `Tab` presses, 400 ms settle, pixel diff of the row's own clip
-(`probe-D3b.json`, `probe-D3c.json`, `probe-D3d.json`):
+`class="h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5"` at `:24`, `:35`, and
+`h-7 px-2 …` at `:116`, `:125` — five per-instance overrides of a root that carries a `size` axis,
+passed on the very same elements (`size="sm"`).
 
-| engine · scheme | `:focus-visible` | boxShadow present | changed-px bbox | max channel Δ (of 765) | **focus contrast** |
-|---|---|---|---|---:|---:|
-| WebKit · light | true | `rgb(28,25,23) 0 0 0 2px` | `11,12 → 470,67` | 27 | **1.034 : 1** |
-| WebKit · dark | true | `rgb(233,230,226) 0 0 0 2px` | `11,12 → 470,67` | 62 | **1.166 : 1** |
-| Chromium · light | true | `rgb(28,25,23) 0 0 0 2px` | `11,12 → 470,67` | 34 | **1.024 : 1** |
-| Chromium · dark | true | `rgb(233,230,226) 0 0 0 2px` | `11,12 → 470,67` | 72 | **1.202 : 1** |
+Owner edict 5: *"style at the shadcn/glass root component level, never per-instance overrides."*
 
-The clip rect started at `x=214, y=362`; the row's border box is `x=225 … 685, y=373.8 … 429.8`. The
-changed-pixel bounding box `11,12 → 470,67` maps to exactly `225,374 → 684,429` — **the row's interior
-and nothing else. The ring contributed zero pixels in all four combinations.**
+They do not even take effect. Measured (`probe-D4a`):
 
-Control, same page, same probe, same keystrokes — the sibling native `<button aria-label="Delete user
-mbabb">`: max channel Δ **177** (Chromium light) / **290** (Chromium dark), against the row's 34 / 72.
-The row's focus indicator is 5–8× weaker than the button's six pixels away.
+| viewport | control | declared | **measured** |
+|---|---|---|---|
+| 1440×900 | Prune empty | `h-7` = 28 px | **120 × 36** |
+| 1440×900 | Refresh | `h-7` = 28 px | **87 × 36** |
+| 390×844 | Prune empty | `h-7` = 28 px | **108 × 54** |
+| 390×844 | Refresh | `h-7` = 28 px | **80 × 54** |
 
-Frames `frames-D3/focus-webkit-light-before.png` and `-after.png` are visually indistinguishable
-(read). The mega-tranche `shots/keyboard-focus-desktop/adminusers.png` shows the same nothing.
+Zero for four. The file carries five dead geometry declarations that a maintainer will read as the
+contract. `cursor-pointer` repeated at four call sites is the same defect in miniature — cursor is a
+Button-root property.
 
-`VISUAL-CONSTITUTION.md:84` — "**Focus remains visibly distinct from selection in both schemes**,
-forced colors and reduced transparency." WCAG 2.4.11 requires ≥ 3:1 between focused and unfocused
-states of the indicator area; 1.024:1 is 34× short. **Two-engine reproduction satisfied per the seat's
-standing requirement; this is not the MT-F022 Full-Keyboard-Access delta — the row is focused and
-`:focus-visible` matches in both engines.**
+### D-25 · One status sentence counts two different populations.
 
-**Cure.** The indicator is invisible because the design made a `div` the button and then clipped it.
-`VISUAL-CONSTITUTION.md:102` states the anatomy: "One native `<button type="button">` **spans its
-specimen/identity region**." A native button over the identity region, sibling to the action cluster,
-gets the producer's focus register for free and has nothing to clip.
+`:8–13` composes the toolbar status from two spans:
+
+```html
+<span …>{{ totalUsers }} user…</span>   <!-- AdminPane.vue:33 → pm.adminUsers.length   UNFILTERED -->
+<span …>· {{ emptyCount }} empty</span> <!-- :241 → users.filter(…) over the prop  FILTERED   -->
+```
+
+`totalUsers` is bound to the **unfiltered** roster; `emptyCount` is computed over the **search-filtered**
+prop (`AdminPane.vue:28` → `pm.filteredAdminUsers`). Pass 2's own D-1 reproduction shows the result
+and reads past it:
+
+```
+filtered: { headerBadge: "5", toolbar: ["5 users","· 1 empty"], renderedRows: 1 }
+```
+
+*"5 users · 1 empty"* — where 5 is the whole roster and 1 is only within the single visible row.
+A middot joins two populations into one sentence. The operator's mental model of "how much of the
+roster is prunable" is assembled from a numerator and a denominator that do not belong to each other,
+and it is that numerator the confirmation dialog then quotes (pass-2 D-1).
+
+`PROPORTION-AUDIT.md §5.8` — *"Real rendered relation wins over token intent."* Here the rendered
+relation is a ratio, and it is false.
+
+**Cure:** both halves resolve from one received `RosterCounts { total, empty, visible, visibleEmpty }`
+supplied by the port. A status line may not compute half of itself from the presentation layer.
+
+### D-26 · The same datum renders twice, 125 px apart, in identical type.
+
+Measured (`probe-D4b`, every leaf node in `<main>` matching the count):
+
+```
+DIV.badge-atom        "0"        @ (345, 269)   "Fira Code" 16.4px
+SPAN.text-mono-small  "0 users"  @ (224, 394)   "Fira Code" 16.4px
+```
+
+Two nodes, same family, same size, same value, 125 px apart in a 512 px pane. Source — the identical
+expression, bound twice:
+
+```
+AdminPane.vue:122   return pm.loadingUsers.value ? null : pm.adminUsers.value.length   → header Badge
+AdminPane.vue:33    :total-users="pm.adminUsers.value.length"                          → AdminUsersPanel:8-10
+```
+
+`PROPORTION-AUDIT.md §5.6` — *"**Subtraction precedes explanation**."* One of the two is furniture.
+The header Badge is the route-level count and already exists; the toolbar line should carry only what
+the header cannot — the actionable `N empty` sub-count (and only after D-25 gives it a matching
+denominator). This is the third duplication on the surface, after pass-2 D-11 (identity chip ≡ Dock
+authority badge) and D-19 (roster ghost trio ≡ palette ghost trio).
+
+### D-27 · The nested palette read has no `catch` at all — worse than the six swallowed mutations, and it costumes as empty.
+
+Pass-2 D-2 censused six *mutation* paths swallowed into `console.warn`. There is a seventh path, a
+**read**, and it has no handler of any kind (`:352–365`):
+
+```ts
+    loadingUserPalettes.value = true;
+    try {
+        userPalettes.value = await pm.loadUserPalettes(slug);
+    } finally {
+        loadingUserPalettes.value = false;
+    }
+```
+
+No `catch`. On rejection `userPalettes` stays `[]`, `:138` renders
+`EmptyState eyebrow="· none pinned ·" message="No palettes."`, **and the rejection escapes
+`toggleUserExpand` as an unhandled promise rejection** — so this path does not even reach the
+`console.warn` floor the other six have.
+
+The consequence is not cosmetic. "Has no palettes" is precisely the predicate the Prune command
+deletes accounts on (`:241`). A user whose palette list failed to load renders identically to a user
+who has none, one click away from a bulk-delete affordance.
+
+And it violates the law this file wrote for itself, ten lines above (`:49–50`): *"error ≠ empty — a
+dead backend never costumes as an empty roster."* Applied to the outer list, never carried inward.
+
+**Reproduction:** expand any row while the api is unreachable → `· none pinned · / No palettes.`
+plus an unhandled rejection. (Pass 2's `probe-D3` interception harness reproduces it by fulfilling
+`GET /admin/users/:slug/palettes` with a 500.)
+
+### D-28 · The suite's shared row anatomy exists, this panel forks it, and the fork shifts the identity column 44 px between Admin routes.
+
+`AdminListItem.vue:11–22` is the shared review row:
+
+```html
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-md border border-card-edge min-w-0">
+  <div class="shrink-0 w-8 h-8 …"><slot name="swatch"/></div>      ← leading 32 px anchor
+  <div class="flex-1 min-w-0 overflow-hidden …"><slot name="content"/></div>
+  <div class="flex items-center gap-1.5 shrink-0"><slot name="actions"/></div>
+```
+
+`AdminUsersPanel.vue:68 + 80 + 91 + 106` is that markup re-typed inline across two divs, **minus the
+swatch column**. Measured consequence: an Admin·Names row starts its content at `px-3` + 32 +
+`gap-3` = **56 px** from the row edge; an Admin·Users row starts at **12 px**. Switching Admin tabs
+translates the identity column by **44 px**.
+
+`VISUAL-CONSTITUTION.md:218` — *"Admin is a five-route review suite — Users, Names, Audit, Flagged
+and Tags — using **one** review-row anatomy."*
+
+```
+$ grep -n "AdminListItem" demo/palettes/browser/admin/*.vue
+AdminNamesPanel.vue:44,71,94,116,128        ← the only consumer
+$ wc -l demo/palettes/browser/admin/*.vue | sort -n
+   24 AdminListItem.vue   …   152 AdminNamesPanel.vue   153 AdminFlaggedPanel.vue
+  391 AdminUsersPanel.vue      ← 2.56× the next largest sibling
+```
+
+A shared anatomy with one consumer and four forks, of which this is the largest. This is also the
+**root cause of pass-2 D-14** — the skeleton previews `AdminListItem` (its own comment says so,
+`AdminListSkeleton.vue:4`) because the skeleton was written against the anatomy the panel abandoned.
+One cure closes both: consume `AdminListItem`, and the loading shadow becomes truthful for free.
+Owner edicts 1 (no god modules) and 3 (KISS, no contrivance).
+
+### D-29 · The disclosure's accessible name is the entire row concatenated, and the count digit fuses onto the slug. Two engines.
+
+The row carries `role="button"` (`:85`) with **no `aria-label`**, so its name is computed from
+contents — and its contents include both commands. Reconstructing `:78–131`'s structure verbatim and
+reading the aria tree in **both** engines (`probe-D4d`):
+
+```
+=== chromium ===
+- button "ghost-empty-17333 Palettes Delete user ghost-empty-1733":
+  - text: ghost-empty-17333
+  - button "Palettes"
+  - button "Delete user ghost-empty-1733": x
+=== webkit ===
+- button "ghost-empty-17333 Palettes Delete user ghost-empty-1733":
+  - text: ghost-empty-17333
+  - button "Palettes"
+  - button "Delete user ghost-empty-1733": x
+```
+
+Byte-identical in both engines. Two defects in one name:
+
+1. **The disclosure announces as a 51-character sentence containing the word "Delete."** The control
+   that expands a row is named after the two irreversible commands inside it.
+2. **The palette count fuses onto the slug**: `ghost-empty-1733` + Badge `3` → `ghost-empty-17333`.
+   `:97–104` places two adjacent inline chips with no separating text node, so name computation
+   concatenates without a space. The row therefore *announces* an identifier that does not exist —
+   the same class of defect pass-2 D-4 proved for the RTL *visual* arm, now in the AT arm and in LTR.
+
+This is not the MT-F022 Full-Keyboard-Access delta: it is a name computation, reproduced in both
+engines from identical markup. It is also a design finding, not merely an a11y one — `WAI-ARIA 1.2
+§"Presentational Children"` lists `button` among the roles whose descendants are presentational, so
+nesting two named commands inside a `role="button"` is a structurally invalid composition regardless
+of any engine's current leniency.
+
+**Cure — the anatomy the canon already wrote.** `VISUAL-CONSTITUTION.md:102`: *"One native named
+`<button type="button">` spans its specimen/identity region"*, with actions as **separate named
+sibling controls**. A native button over slug + count, sibling to the action cluster, gets a clean
+name, gets the producer's focus register (closing pass-2 D-3), and deletes both the `@click.stop` at
+`:106` and the `target === currentTarget` guard at `:345` — two mechanisms that exist solely to
+contain the nesting.
+
+### D-30 · The toolbar has the same disease as the roster: a 176 px void between the status and the commands that change it, with the status outranking them in scale.
+
+Pass-2 D-10 proved the roster has no column grammar. The toolbar above it is built the same way.
+Measured (`probe-D4a`, `probe-D4b`):
+
+| viewport | status rect | first command x | **void between** |
+|---|---|---|---|
+| 1440×900 (pane 512 wide) | x 224 – 295 | 471 | **176 px — 34 % of the pane** |
+| 390×844 (rail 324 wide) | x 33 – 93 | 161 | **68 px — 21 % of the rail** |
+
+Mechanism: `<div class="flex-1" />` at `:14` — a default `justify` decision, not an earned relation.
+
+And the scale is inverted. Measured computed styles on the same row:
+
+```
+"0 users"        "Fira Code" 16.4px    rgb(112,89,66)
+"Prune empty"    Fraunces italic 14.384px
+"Refresh"        Fraunces italic 14.384px
+```
+
+The **passive readout is 14 % larger than the commands it describes**. `PROPORTION-AUDIT.md:5` —
+*"Every element earns its scale, interval, boundary and material from its job relative to the local
+protagonist."* The protagonist of an action bar is the actions.
+
+Note this compounds pass-2 D-16: the 105 px celebration displacement happens inside a rail that was
+already 34 % empty and had nowhere to put a third flex item.
+
+### D-31 · The empty arm is a 190 px block floating in a 515 px card, with 166 px of unowned space beneath it.
+
+Ink profile of the Users card, `shots/safari-desktop-light/admin-users.png`, x 410–1410, y 455–1500
+original px, reported in CSS px (DPR 2). Script and full output in Appendix A5.
+
+| band | y (css) | gap above |
+|---|---|---|
+| "Users" H1 | 256 – 286 | — |
+| description | 300 – 313 | 13 |
+| search field | 349 – 378 | 36 |
+| toolbar | 387 – 413 | 8 |
+| ghost trio | 467 – 510 | **54** |
+| `· ROSTER CLEAR ·` | 526 – 536 | 15 |
+| "No users found." | 560 – 580 | 24 |
+| card inner edge | 746 | **166** |
+
+**166 css px — 32 % of the card's 515 px block — of nothing below the last ink.** The empty block is
+neither centred (that needs 110/110) nor hugging (that needs the housing to collapse); it has simply
+fallen to the top third. The 54 px toolbar→mark gap is 4.5× the panel's own declared rhythm
+(`grid gap-3` = 12 px, `:2`) — `EmptyState`'s `py-8` leaking through an interval the panel never
+reconciled.
+
+`VISUAL-CONSTITUTION.md:186` — *"A true empty invitation **content-hugs** its text/action."*
+`PROPORTION-AUDIT.md:48` PR-04 — empty/equal housing → **REMOVE**.
+
+The same defect recurs at row scale: `:138`'s nested `EmptyState` renders the full page-level
+ceremony — `py-8` + a 44 px ghost trio + eyebrow + display line, ~130 px — inside a row expansion
+whose own padding is `py-3`, to say "No palettes." The `dots` prop that would shed it exists
+(`EmptyState.vue` props block) and is not passed at either site.
 
 ---
 
-### D-4 · RTL fabricates identifiers. `empty-ghost-account-aaaa-33` renders as `aaa-33empty-ghost-account-a`.
+## NEW — MINOR / INFO
 
-Tail-priority truncation (`AdminUsersPanel.vue:97-101`, `slugHead`/`slugTail` 246-252) splits one
-identifier into two sibling spans with no bidi isolation. Under `dir=rtl` the bidi algorithm reorders
-them. Measured (`probe-D3b.json` `rtl_long_slug`), **4 of 4 long slugs, `bdi` count `0` page-wide**:
+### D-32 (MINOR) · The disabled control is colour-only and measures 2.88:1 in dark — below even the 3:1 non-text floor.
+
+Pass-2 D-12 measured the *count line* at 3.91:1 and D-13 measured the *pending* state. Neither
+measured the **disabled paint**. Measured computed style, disabled Prune vs enabled Refresh on the
+same row (`probe-D4a`):
+
+| | color | background | opacity |
+|---|---|---|---|
+| Prune empty (disabled) | `rgb(28, 25, 23)` | `oklab(0.9156 0.0055 0.0131 / 0.52)` | **0.5** |
+| Refresh (enabled) | `rgb(28, 25, 23)` | `oklab(0.9156 0.0055 0.0131 / 0.52)` | 1 |
+
+Identical colour, identical background — **the only disabled channel is `opacity`.** Composited
+contrast sampled from the tracked captures (Appendix A5):
+
+| capture | disabled glyph / local bg | ratio | enabled ratio |
+|---|---|---|---|
+| `safari-desktop-light` | `#866A70` on `#EDC6CD` | **3.12 : 1** | 12.03 : 1 |
+| `safari-desktop-dark` | `#B09B9C` on `#6C4C4F` | **2.88 : 1** | 6.53 : 1 |
+| `zoom-200-desktop` | `#866A70` on `#EDC7CD` | **3.17 : 1** | 12.68 : 1 |
+
+`VISUAL-CONSTITUTION.md:83` — *"Selected, failed, pending, withdrawn and **disabled** states are never
+colour-only."* Dark at 2.88:1 is below the 3:1 non-text floor. There is also no reason given — the
+operator is not told *why* Prune is dead — and a `disabled` button leaves the tab order, so the
+reason is unreachable by keyboard. Together with pass-2 D-13 this means **disabled and pending are
+the same 50 %-opacity pill** under reduced motion.
+
+### D-33 (INFO) · Corroboration of pass-2 D-3 from a second direction: the ring is not merely clipped, it is also suppressed in forced colors.
+
+Pass-2 D-3 proved the focus ring contributes zero pixels because `overflow-hidden` (`:68`) clips a
+2 px outward box-shadow. A second, independent mechanism kills the same indicator. Measured
+(`probe-D4c`, Chromium, two arms, reconstructing `:82`'s exact class string):
 
 ```
-dom ["an-extremely-long-anonymous-visitor-slug-from-the-wild-2", "f9a-33"]
-    headLeft 1010.5  tailLeft 950.0   → rendered "f9a-33an-extremely-long-…-the-wild-2"
-dom ["empty-ghost-account-a", "aaa-33"] → rendered "aaa-33empty-ghost-account-a"
-dom ["empty-ghost-account-a", "aaa-77"] → rendered "aaa-77empty-ghost-account-a"
-dom ["empty-three-b",         "bbb-11"] → rendered "bbb-11empty-three-b"
+ring-2 ring-ring compiles to → boxShadow: "… rgb(28,25,23) 0px 0px 0px 2px …"   outline: "none 3px"
+
+forcedColors=none    boxShadow: "… rgb(28,25,23) 0px 0px 0px 2px …"   outline: "none 1px …"
+forcedColors=active  boxShadow: "none"                                outline: "solid 2px rgba(5,0,73,0.8)"
 ```
 
-Frame `frames-D3/rtl-long-slug.png` (read): the four pills read
-`aaa-33empty-ghost-account-a` · `aaa-77empty-ghost-account-a` · `bbb-11empty-three-b` ·
-`f9a-33…g-from-the-wild-2`. Every one is a string that does not exist. The delete confirmation quotes
-the *raw* `user.slug` (line 169, unsplit), so the row and its own confirmation dialog display two
-different identities for the same account. The count line inherits it: the same frame reads
-**"empty 3 · users 6"**.
+`:82` pairs `focus-visible:outline-none` with a ring that Tailwind 4 implements as **box-shadow**, and
+forced-colors mode forces `box-shadow: none`. So in forced colors the component's own focus treatment
+does not exist; what remains is Chromium's UA `:focus-visible` outline, which the design never
+specified. `VISUAL-CONSTITUTION.md:84` requires focus to be distinct in forced colors **by design**,
+not by browser rescue.
 
-Binding law, `VISUAL-CONSTITUTION.md:133`: "CSS direction keywords, physical axes, code, hex, **slug,
-ID** | preserve the declared physical/domain meaning | identical domain meaning **inside an
-LTR-isolated value** | … **no custom bidi reinterpretation**." And `:154`: "CSS strings, hex, **slugs,
-IDs and provenance** | render in **LTR-isolated spans** inside RTL prose." The two-span split *is* the
-custom bidi reinterpretation the constitution names and forbids, and the isolation it mandates is
-absent (`bdi: 0`).
-
-**Cure.** The mechanism is the wrong shape even in LTR. Head-elision with a protected tail is one CSS
-declaration on one LTR-isolated text node (`<bdi dir="ltr">` + `direction: rtl; text-overflow:
-ellipsis`), not two spans plus two string functions. Corroborating LTR artefact: at 390 the same pill
-renders `empty-ghost-acco… aaa-33` with a visible inter-token gap
-(`frames-D2/B-populated-mobile-light.png`, read) while at 1440 it renders `an-extremely-long…f9a-33`
-with none — **one identifier, two rendered grammars, viewport-dependent.**
+**Engine caveat, stated per MT-F022 discipline.** Measured in **Chromium only** — Playwright's
+`forcedColors` option is not honoured by WebKit. That is also why
+`shots/forced-colors-desktop/adminusers.png` is indistinguishable from an ordinary light capture and
+**must not be read as a forced-colors witness**: the forced-colors arm of this component is, in truth,
+**uncovered by the tracked matrix**. Graded INFO for that reason; pass-2 D-3 already carries the
+BLOCKER on two engines without needing this arm.
 
 ---
 
-## MAJORS
-
-### D-5 · The binding boundary inventory for Admin · Users is exceeded 24 : 5, including the terminal rule the artifact names as a defect by name.
-
-`OPTICAL-BENCH-COMPOSITIONS.md:82` decides this composition's lines exactly:
-
-> | Admin · Users | `n/a` | `n/a` | **one low-emphasis separator between adjacent review rows; none after the final row** | preserve row/actor/authority association in the dense review field |
-
-and `:84` — "Any additional line, … **terminal row rule**, caster stroke or corner rule **is a defect**."
-
-Measured (`probe-D3.json` `P2_boundary_census`, 6-row roster at 1440):
-
-```
-rowBoxes: 6
-perRow:   { t: "1px", r: "1px", b: "1px", l: "1px",
-            color: "oklab(0.216129 0.003491 0.005182 / 0.12)", radius: "6px" }
-horizontalRulesRendered: 12      verticalRulesRendered: 12
-adjacentSeparatorsPermitted: 5   leadingRuleRendered: true   terminalRuleRendered: true
-```
-
-Line 68 gives every row `rounded-md border border-card-edge` — a **full four-edge box**, not a
-separator. Twenty-four painted edges where five are permitted; a leading rule above row 1; a terminal
-rule below row 6. Frame `frames-D2/A-populated-desktop-light.png` shows six stacked boxes where the
-composition decided one dense field with hairlines between.
-
-Family note, not an excuse: `AdminListItem.vue:12` carries the same `rounded-md border border-card-edge`,
-so the cure belongs at the primitive and closes all five Admin routes at once.
-
-### D-6 · Every action control in the panel speaks in the display family — Fraunces italic — where the binding type matrix requires non-bold Plus Jakarta Sans.
-
-`OPTICAL-BENCH-COMPOSITIONS.md` §5 *Binding type matrix*: "The type relation is **exact** across
-`ALL18`: … **controls/labels → `text-small` + non-bold Plus Jakarta Sans**." `VISUAL-CONSTITUTION.md:75`
-repeats it. Measured computed style (`probe-D3.json` `P1_typography_light`):
-
-| control | source | family | size | style |
-|---|---|---|---|---|
-| `Prune empty` | line 24 `font-display text-caption` | **Fraunces** | 14.384 px | **italic** |
-| `Refresh` | line 35 `font-display text-caption` | **Fraunces** | 14.384 px | **italic** |
-| row `Palettes` | line 116 `font-display text-caption` | **Fraunces** | 14 px | normal |
-| `Retry` (error plate) | line 58 `font-display` | Fraunces | — | — |
-
-Four action controls in the display family. Visible in every frame: `Prune empty`, `Refresh` and
-`Palettes` render as serif italic lozenges. `text-caption` is additionally not a member of the closed
-role list (`VISUAL-CONSTITUTION.md:78`, "This matrix is **closed** across all eighteen compositions"),
-which names `text-display / --type-title / --type-subheading / text-heading / text-prose / text-small /
-text-mono-small | mono-caption`. `grep -rn "font-display" demo/palettes/browser/admin/*.vue | wc -l`
-→ **12** — the whole Admin suite speaks its actions in Fraunces.
-
-The consequence is not pedantic: Fraunces italic is the app's *argument* voice. Putting the two most
-destructive controls on the route in it makes them read as editorial captions, which is exactly the
-register a destructive action must not have.
-
-### D-7 · The disclosure has no visual state. Closed vs open, the same row is 99.95 % pixel-identical.
-
-Element-level screenshot of the *same* header row, closed then open (position-independent;
-`probe-D3c.json` `header_row_open_vs_closed`):
-
-```
-sameSize: true   dims [460,57,460,57]
-changedPx: 14  of  26220        (0.053 %)      maxChannelDelta: 56
-header_row_open_semantics: { ariaExpanded: "true", childElementCount: 2,
-  svgsInsideHeaderRow: 2, svgNames: ["…trash2… w-3 h-3 mr-1", "…trash2… w-3 h-3"],
-  computedBg: "rgba(0,0,0,0)", computedBorderBottom: "0px" }
-```
-
-Both SVGs inside the header row are trash icons. **There is no chevron, no rotation, no persistent
-open marker, no rule tying the expansion to the row that owns it, and the row's own background does not
-change.** `aria-expanded` flips for assistive tech; sighted users get 14 pixels, which is antialiasing.
-
-Aggravating, same probe (`accordion`): `firstRowSilentlyClosed: true`,
-`simultaneousOpenRowsMax: 1`, `ariaControlsPresent: false`. `expandedUserSlug` is a single ref (line
-236), so opening a second row silently closes the first — an accordion nobody declared, nothing signals,
-and no `aria-controls` links the control to its region.
-
-`PROPORTION-AUDIT.md:51` PR-07 — "**Hover-only**/unlabeled controls and invisible drag state →
-ADD-AFFORDANCE / REMOVE … every surviving action/drag seat has a **name/state**." `:70` §5.5 — a mark
-is "data, status, labeled action, drag affordance, focus/selection register or **removed**."
-
-### D-8 · The row rhythm violates the binding inset matrix at both arms, and does not respond to the arm at all.
-
-`OPTICAL-BENCH-COMPOSITIONS.md` §5 PR-35: "**Admin row block inset: `--spacing(4)` wide, `--spacing(3)`
-narrow/zoom. Action gap: `ADMIN5` `--spacing(2)`** … the five Admin members share the one dense-row
-rhythm." Measured (`probe-D3e.json`, `--spacing` resolves to `0.25rem` = 4 px):
-
-| quantity | required @1440 | required @390 | **measured @1440** | **measured @390** |
-|---|---|---|---|---|
-| row block inset | 16 px | 12 px | **10 px** | **10 px** |
-| action-cluster gap | 8 px | 8 px | **6 px** | **6 px** |
-
-Source: `px-3 py-2.5` (line 80) and `gap-1.5` (line 106). Wrong value at the wide arm, wrong value at
-the narrow arm, and **one constant where the matrix specifies two** — the row rhythm has no responsive
-arm at all. PR-35's forbidden-behaviour column: "No margin collapse, Card-padding variable/formula or
-**per-route substitute**."
-
-### D-9 · The unauthenticated state was never designed. It costumes as a clean roster, and Refresh is a dead control.
-
-With no admin token, `loadAdminUsers` returns at `useAdminUsers.ts:55-56` before any request. The panel
-falls to line 63 and renders the TRUE-EMPTY plate. Measured (`probe-D3f.json` `signed_out`):
-
-```
-plate: "· ROSTER CLEAR · | No users found."
-refreshDisabled: false   pruneDisabled: true
-adminRequestsBeforeRefresh: 10    adminRequestsAfterRefresh: 10    newRequests: []
-plateUnchanged: "· ROSTER CLEAR · | No users found."
-```
-
-**Clicking Refresh issued zero requests.** It is enabled, named, styled and inert. And the plate makes
-a positive factual claim about a corpus the app has never queried, in Fraunces display. This is the
-state in **all 60 mega-tranche captures** (`REPORT.md:128,143,158,173`), so the only picture anyone has
-ever had of this component is a picture of an undesigned state.
-
-`PROPORTION-AUDIT.md:70` §5.5 and `:71` §5.6 ("Subtraction precedes explanation"). **Cure:** signed-out
-is a route-guard species, not a roster species. The route should not mount a roster it cannot populate,
-and the panel should not own a third empty-shaped state.
-
-### D-10 · The roster has no columns. The one scannable quantity sits at five different x-positions.
-
-Measured left edges of the palette-count Badge across 6 rows at 1440 (`probe-D3.json` `P3_geometry_1440`):
-
-```
-badgeLefts: [313.5, 507.0, 535.5, 535.5, 293.3, 454.8]
-distinctBadgeLefts: 5      badgeLeftSpread: 242.2 px
-actionClusterLefts: [549.1, 645]      pillWidths: [68.5, 262, 290.5, 290.5, 48.3, 209.8]
-```
-
-Because the identity pill is `max-w-full` shrink-to-content (line 98), the badge that follows it
-(102-104) lands wherever the slug ends. Frame `frames-D2/A-populated-desktop-light.png`: `12 · 3 · 0 ·
-0 · 1 · 0` walking diagonally down the card. For a surface whose entire job is *who owns how many
-palettes*, the quantity costs a fresh saccade per row. The action cluster opens at two different x
-(549.1 vs 645) because `Palettes` appears and disappears with `v-if="user.paletteCount"` (line 112) —
-a 96 px hole opening and closing down the list.
-
-`PROPORTION-AUDIT.md:5` — "Every element earns its scale, interval, boundary and material from its job
-relative to the local protagonist"; `:73` §5.8 — "**Real rendered relation wins over token intent.**"
-
-### D-11 · Row identity is painted in a variable that carries no information about the row, in the same chrome as the Dock's authority badge.
-
-Lines 99 and 168: `:style="{ color: safeAccent, borderColor: safeAccent }"`. Measured
-(`probe-D3b.json` `identity_light` / `identity_dark`):
-
-```
-light: rosterPill color = oklch(0.470927 0.188343 9.834023)   ==  --accent-live
-       dockPill  color = oklch(0.751    0.147    84.2)         (the fixed gold "admin" badge)
-dark:  rosterPill color = oklch(0.958322 0.021053 9.834023)   ==  --accent-live
-       dockPill  color = oklch(0.784    0.143    86)
-both:  weight 700 · Fira Code 16.4px · 1px border · rounded-full · slugPillTotal 7 (6 roster + 1 dock)
-```
-
-Three defects in one mark:
-
-1. **It re-paints with the picked colour.** Every user's identity chip changes hue when the operator
-   moves the picker. Chroma 0.188 in light, 0.021 in dark — so the "identity" signal is loud in one
-   scheme and gone in the other.
-2. **It shares `.slug-pill` with the Dock's `admin` authority badge** — same class, same weight, same
-   radius, same border. `VISUAL-CONSTITUTION.md:218` — "**Elevated authority is communicated by
-   labeling and scope, not by a fourth visual system.**" Here user identity and elevated authority wear
-   one visual system, differing only in hue, and one of the two hues is not constant.
-3. **It wears operable chrome while being the only inert thing in the row.** `foundation.css:746`
-   groups `.slug-pill` with `[role="tab"]` for the operable-chrome border bump. In forced colors the
-   conflation completes — measured in Chromium with `forcedColors: "active"` (`probe-D3b.json`
-   `forced_colors`):
-
-   ```
-   rosterPill  : { color: rgb(0,0,0), bg: rgba(255,255,255,0), border: rgb(0,0,0) }
-   palettesBtn : { color: rgb(0,0,0), bg: rgba(255,255,255,0), border: rgb(0,0,0) }
-   ```
-
-   **Byte-identical computed style.** In forced colors the identity chip and the operable button are
-   indistinguishable.
-
-`VISUAL-CONSTITUTION.md:21` — "Seed tint is forbidden outside the ambient field, active accent,
-WatercolorDot/specimen, and pastel Palettes lanes"; `:23` — "every other navigation, route, pane,
-**Admin**, Account, action, and status label use **neutral ink**." `PROPORTION-AUDIT.md:74` §5.9 — "A
-renderer specimen is not an unlabeled button." The one element that looks interactive is the only one
-that is not, while the real disclosure (D-7) has no paint at all.
-
-### D-12 · The toolbar count ships the exact contrast defect that the shared empty-plate atom was certified to cure.
-
-`demo/shared/ui/EmptyState.vue`'s own style block records the cure:
-
-> "the STATIC `text-muted-foreground` composited **3.84:1** over the My Palettes plate in light
-> (< the 4.5:1 small-text floor). … the eyebrow/hint thread the certified de-emphasis rung
-> `--ink-muted`."
-
-`AdminUsersPanel.vue:8, 11, 17` still write `text-mono-small text-muted-foreground` — the retired class,
-on the same plate family, in a file that *imports the cured EmptyState on line 202*. Measured from the
-rendered crop (`probe-D3d.json` `count_line_contrast`, `frames-D3/count-line.png`):
-
-```
-declaredColor rgb(112,89,66) · 16.4px · weight 400
-darkest ink pixel rgb(112,89,66)   plate luminance @P90 → contrast 3.91 : 1
-```
-
-**3.91:1 against a 4.5:1 floor** for 16.4 px regular text. The component consumes the cure and
-reproduces the defect twelve lines above it.
-
-### D-13 · Under reduced motion the only pending signal is a 50 %-opacity dimming — a colour-only state.
-
-`animations.css:184-192` neutralises every animation app-wide under `prefers-reduced-motion: reduce`.
-Measured with `reducedMotion: "reduce"` and a 4 s roster (`probe-D3.json` `P9_reduced_motion`):
-
-```
-spinnerPresent: true   spinnerAnimationDuration: "0.00001s"   spinnerIterationCount: "1"
-refreshDisabled: true  refreshAriaBusy: null  refreshAriaDisabled: null  disabledOpacity: "0.5"
-liveRegionCount: 0
-```
-
-The `animate-spin` on `Loader2` (line 28) and `RefreshCw` (line 39) is frozen — correctly, per the
-guard — leaving the disabled dim as the sole indicator of in-flight work, with **no `aria-busy` and no
-polite live region**. `VISUAL-CONSTITUTION.md:83` — "Selected, failed, pending, withdrawn and disabled
-states are **never colour-only**. Role, accessible name, state/value and associated error/status are
-explicit." `PROPORTION-AUDIT.md:52` PR-08 bears.
-
-Related, same family: the loading region is `<div aria-label="Loading users">` with **no role** (line
-46) — measured `loadingRegionRole: null` (`probe-D3.json` `P7_skeleton`). `aria-label` on a generic
-element is not exposed; the label is dropped.
-
-### D-14 · The loading grammar promises a row anatomy this panel never renders.
-
-`AdminListSkeleton.vue:4` states it is "shaped as the **AdminListItem** row grammar (leading swatch +
-primary/secondary lines + trailing action lozenge)". AdminUsersPanel renders three of them (line 47)
-and then resolves to a different row. Measured (`probe-D3.json` `P7_skeleton` / `P7_resolved`):
-
-```
-skeleton: height 54 px · leading 32 px round swatch: true · 4 skeleton bars (two text lines)
-resolved: height 56 px · leading swatch: false           · 1 line (pill + badge)
-```
-
-The shadow shows an avatar and two lines of metadata; the truth is a pill and a number. The loading
-state is not a preview of this component — it is a preview of `AdminListItem`, which this component
-does not use.
-
-### D-15 · Two irreversible actions of different scope share one glyph six pixels apart; 11 of 14 controls at 390 are sub-44 px.
-
-The row cluster (106-131) is `🗑 Palettes` then a bare `🗑`, `gap-1.5` = 6 px measured. Both are
-`Trash2`. One deletes every palette the user owns; the other deletes the user and everything attached.
-The sole differentiator in the resting paint is the word **"Palettes"** — which names the *object*, not
-the *verb*: nothing on that button says *delete*. Measured at 390 (`probe-D3.json` `P6_targets_390`):
-
-```
-Palettes 82×36 · "Delete user …" 28×36 · row 322×56
-under24: 0    under44: 11    total: 14
-```
-
-`PROPORTION-AUDIT.md:50` PR-06 — "Three adjacent action species or duplicated selected fills →
-**REMOVE** … One action/selection owner." `:72` §5.7 — "Visual glyph size, operable target size and
-layout reservation are separate quantities"; PR-12 wants an invisible seat preserving the target floor
-while the glyph follows the rung. Here glyph *and* seat are both small: the 12 px glyph sits in a 28 px
-seat. Frame `frames-D2/A-populated-desktop-light.png` shows six resting trash glyphs down a six-row
-list plus three more inside the `Palettes` buttons — nine destructive glyphs on six rows.
-
-The W5-12/F-8 comment at 107-111 claims this family was cured. It cured the *colour* (resting ink
-measured `rgb(213,208,200)` dark, correctly quiet). It did not reduce the **count**.
-
-### D-16 · The result beat displaces both live controls 105 px on the pointer axis, and the toolbar is already ragged before it fires.
-
-`<Transition name="vj-celebrate">` wraps a text span (16-20) that is a **flex sibling** of the two
-action buttons inside `flex items-center gap-2 flex-wrap` (line 4). Measured at 390 before and after one
-successful prune (`probe-D3.json` `P6_toolbar_wrap_390` plus the pass-1 before/after pair, re-derived):
-
-```
-before: Prune empty (x 249.1, y 274.1)    Refresh (x 33, y 318.1)
-after:  Prune empty (x 249.1, y 379.1)    Refresh (x 33, y 423.1)     # both +105.0 px
-```
-
-The destructive button the operator just released moves 105 px down as the *acknowledgement* of the
-action. The same measurement exposes a defect present **before** any animation: at 390 `Prune empty` is
-right-aligned on line 1 and `Refresh` is orphaned alone at the left margin of line 2 (x 33 vs 249.1) —
-two sibling actions of the same species split across two lines and opposite ends of the card. Visible
-in `frames-D2/B-populated-mobile-light.png` (read). Nothing designed that; it is what
-`<div class="flex-1" />` (line 14) plus `flex-wrap` produces when the line runs out.
-
-Motion law, stated precisely so it is not over-claimed: the transition **is** tokenized
-(`animations.css:142-165`, `--duration-fast` / `--spring-bouncy`) and **is** neutralised under
-`prefers-reduced-motion` (`animations.css:184-192`). The 105 px reflow is not a transition, so the guard
-does not touch it — reduced-motion users get the displacement instantaneously instead of smoothly. The
-defect is the *layout participation*. Separately, `.vj-celebrate-enter-active` transitions
-**`max-height`** (`animations.css:146,153`) — a layout-forcing property; this component supplies neither
-`--vj-celebrate-collapse` nor `--vj-celebrate-expanded`, so the declaration resolves `none → none` and
-is inert here, but the family ships a layout-animating property to every consumer that does set them.
-
-Register defect on the same line: the celebration is `text-mono-small text-muted-foreground italic`
-(17); the count 40 px to its left is `text-mono-small text-muted-foreground` (8). A one-shot event and a
-persistent state speak in the same voice, distinguished by synthesised italics on Fira Code.
-
-### D-17 · The expanded region imports the Browse/Library entity slip — cartoon press register and in-card action menu — into the review field.
-
-`OPTICAL-BENCH-COMPOSITIONS.md:57` decides this composition's housing: "Full-width query/status tray
-followed by principal review rows; selected detail and dangerous confirmation open contextually … |
-filters; rows; row disclosure; confirmation. | **Structural review field; rows are bounded review
-entities, not nested glass Cards.**" §5: "Browse and Library use exactly one Card shell per rendered
-palette entity … **the other sixteen compositions have Card count `0`**."
-
-Lines 140-151 seat full `PaletteCard`s inside the row, with `is-admin` — which opens
-`PaletteCardMenu.vue:153-168`'s in-card `Delete (admin)` menu. Measured: `cardMenuButtons: 1`
-(`probe-D3e.json` `arm_1440_expanded`, `button[aria-haspopup]` inside the panel). `PaletteCard.vue:5-25`
-is a `role="article"` div with `cursor-pointer`, `@click`, `cartoon-surface` press choreography and a
-`cartoon-cast` cel shadow.
-
-`VISUAL-CONSTITUTION.md:102` — "A palette card is a bounded entity article, **not a clickable
-`role=article`** … **The card body owns no expand, inline rename, action menu, transient result or
-hover-only swatch-action path.**" Frame `frames-D2/D-expanded-desktop-dark.png` (read) shows exactly
-that: two cartoon-cast cards with `⋯` menus, nested pane Card → row box → `border-t` region →
-PaletteCard — **four painted boundaries around one palette** (`PROPORTION-AUDIT.md:48` PR-04, "nested
-housing → REMOVE").
-
-### D-18 · The sort offers a key the row refuses to display.
-
-`useAdminUsers.ts:36-46` sorts by `slug | newest (createdAt) | palettes`; `UserSortMenu` exposes all
-three (`AdminPane.vue:17-21`). The row renders slug and count only (91-105). Choosing "newest" produces
-an order the surface cannot justify — rows rearranged with no visible cause.
-`OPTICAL-BENCH-COMPOSITIONS.md:57` — "**actor, scope, status** and irreversible effect remain visible."
-`createdAt` and `status` are on the `User` model and are consumed by the sort; neither reaches the row.
+## Full state matrix (pass 2 + pass 3)
+
+| State | Handled? | Owner finding |
+|---|---|---|
+| empty (true) | wrong mark, wrong proportion | D-19, **D-31** |
+| empty (unauthorized) | **NO — costumes as a clean roster; Refresh inert** | D-9 |
+| loading | row-shaped, but previews a different component's anatomy | D-14, **D-28** |
+| loading (nested palettes) | present | `:135–137` |
+| error (roster) | correct — plain register, `role="alert"`, Retry | verified clean |
+| error (nested palettes) | **NO — unhandled rejection; costumes as empty** | **D-27** |
+| error (prune) | **NO — reports "No empty users to prune"** | D-2 |
+| error (5 other mutations) | **NO — `console.warn` only, `alertRoles: 0`** | D-2 |
+| populated | no column grammar; badge spread 242.2 px | D-10 |
+| disabled | opacity-only; 2.88:1 dark; no reason | **D-32** |
+| pending | colour-only under reduced motion; no `aria-busy` | D-13 |
+| focused | 1.02–1.20:1, ring clipped; also suppressed in forced colors | D-3, **D-33** |
+| hovered | the only sighted disclosure cue | D-7 |
+| active / pressed | **UNSTYLED** | D-7 |
+| selected / expanded | 99.95 % pixel-identical; undeclared accordion | D-7 |
+| dragging | n/a | — |
+| overflowing / truncated | two-span split; viewport-dependent grammar | D-4 |
+| RTL | fabricates identifiers; `bdi` count 0 | D-4, D-20 |
+| reduced-motion | motion halts (`rafPer1500ms: 0`) and takes the pending signal with it | D-13 |
+| forced-colors | identity ≡ operable byte-identical; own focus ring suppressed; **matrix arm uncovered** | D-11, **D-33** |
+| zoom 200 % | reflows, `overflowX 0`; the removal-target pane selector appears | verified clean / route context |
+| accessible name (row) | **whole row concatenated; count fuses to slug; two engines** | **D-29** |
 
 ---
 
-## MINOR / INFO
+## Verified-clean — pass 3 additions
 
-### D-19 (MINOR) · The "no users" plate wears the palette-identity ghost trio, painted with the live picked colour.
-Line 63 passes no `:dots="false"`, so `EmptyState` renders its three ghost `WatercolorDot`s on the
-Admin route. Measured (`probe-D3d.json` `empty_state_species`): `trioPresentOnAdminRoute: true`,
-`dotCount: 3`, `--watercolor-color: var(--accent-live)` = `oklch(47.09% 0.188 9.83)` in light,
-`aria-hidden: true`, eyebrow `· roster clear ·`. `VISUAL-CONSTITUTION.md:17` reserves the
-Watercolor/data tier for "swatches, active mark, pastel `Palettes` identity"; `:186` authorises the
-`EmptyPaletteMark` for the *palette* field's true-empty invitation. Admin's own paragraph (`:218`)
-authorises no ornament. Three chromatic ghost dots that depict nothing are decoration on a review
-suite — and "roster clear" editorialises a corpus state as a good outcome.
+Pass 2's clean list stands. Adding what pass 3 attacked and could not break:
 
-### D-20 (MINOR) · Physical-direction margin in a bidi-bearing row.
-Line 119 — `<Trash2 class="w-3 h-3 mr-1" />`. `mr-1` is physical; the surrounding layout is logical.
-Under RTL the gap lands on the wrong side of the glyph (`frames-D3/rtl-long-slug.png`).
+1. **`min-w-0` is not missing from the forked row.** D-28's fork drops `AdminListItem`'s `min-w-0`,
+   but `:68` carries `overflow-hidden`, which zeroes a grid item's automatic minimum size the same
+   way. No truncation regression. Corroborated by `overflowX 0` on all four `REPORT.md` admin/users
+   rows and all six `STATES.json` state rows.
+2. **`verbatimModuleSyntax` (edict 8) — clean.** `:199` `import type { Palette, User }` is the only
+   type-only import and is correct; `SAFE_ACCENT_KEY` / `ADMIN_PORT_KEY` are `InjectionKey` *values*.
+3. **Animations (edict 6) — clean.** `vj-celebrate` is one of the three sanctioned families
+   (`animations.css:56–80`); nothing deleted; global keyframes live in `demo/styles/animations.css`.
+   Its `max-height` leg resolves `none → none` here (no `--vj-celebrate-collapse/-expanded` set), so
+   no layout property animates — pass-2 D-16's 105 px displacement is layout participation, not the
+   transition.
+4. **The panel does not contribute to the tap-target defect count at mobile.** `smallTapTargets` is 4
+   on admin/users in *all four* matrices, and the panel's own controls measure 108×54 and 80×54 at
+   390 — the 4 belong to the dock/search chrome. (Pass-2 D-15's sub-44 census is about the *populated*
+   row cluster, a different set.)
+5. **No page or console errors.** `REPORT.md` §pageErrors 0; §consoleErrors lists only
+   `safari-desktop-light /#/` (WebGL context lost). admin/users appears in neither.
+6. **One `<main>`, no landmark defect.** `main = 1` on every admin/users row.
+7. **The icon-only delete has an accessible name.** §namelessButtons (18 total) contains no admin
+   route; `:126`'s `aria-label` works. (Its *host* row's name is the defect — D-29.)
 
-### D-21 (INFO) · The design system already ships five of the things this file hand-rolls; `demo/` consumes none of them.
-`@mkbabb/glass-ui@7.0.0` exports `./collapsible`, `./expandable-container`, `./data-table`, `./toast`,
-`./separator`, `./progress`, `./pulse`, `./status-dot`, `./sortable-list`, `./metric` (verified in
-`node_modules/@mkbabb/glass-ui/package.json`). Measured consumption in `demo/`:
+---
+
+## Where pass 3 leaves the component
+
+Pass 2 named four mechanisms. Pass 3 adds a fifth, and it sits underneath two of theirs:
+
+5. **The producer's API was never read.** D-23 is not one more styling nit — it is the reason
+   mechanism 3 ("the row anatomy was hand-rolled instead of consumed") exists at all. The file
+   reaches for `variant`, gets nothing, and back-fills with utility classes; that back-fill *is*
+   D-24's dead `h-7`, pass-2 D-13's hand-rolled spinner, pass-2 D-15's undersized icon seat, and
+   pass-2 D-6's `font-display text-caption`. Fixing `variant` → `emphasis`/`tone`/`iconOnly`/`loading`
+   removes the motive for four other findings simultaneously.
+
+And D-25 + D-26 sharpen mechanism 1: the panel does not merely compute claims at the wrong altitude,
+it computes the **two halves of one sentence at two different altitudes** and then renders one of
+them a second time, 125 px away, in the same type.
+
+**Ordered cure — five moves, not thirty-three findings:**
+
+1. Type the roster as a discriminated union and route every command — six mutations plus the one
+   read — through one `Result` channel with a **server-supplied** scope. Closes D-1, D-2, D-9, D-25,
+   **D-27**.
+2. Delete every `variant` from the file; state intent on `emphasis` / `tone` / `iconOnly` / `loading`.
+   Closes **D-23**, **D-24**, and removes the motive for D-6, D-13, D-15. Relay the 51-site systemic
+   finding to the glass-ui BH inbox.
+3. Compose the row from `AdminListItem`, with a native `<button>` over identity only and the action
+   cluster as its sibling. Closes D-3, D-5, D-7, D-14, **D-28**, **D-29**, and makes D-10's column
+   grammar expressible.
+4. Render identifiers as one LTR-isolated value (`<bdi dir="ltr">` + `direction: rtl; text-overflow:
+   ellipsis`). Closes D-4, D-20, and the fused-name half of **D-29**.
+5. Neutralise the Admin plate and let it hug: `dots=false`, ink identity chip, one count, one
+   denominator, and remove the 50 % companion the binding artifact already retired. Closes D-11,
+   D-19, **D-26**, **D-30**, **D-31**.
+
+**Strongest defect overall: pass-2 D-1** — an irreversible bulk deletion whose confirmation understated
+its scope 3× in a single reproduced run, with the captured request proving the client cannot scope it
+at all. That stands unchallenged.
+
+**Strongest defect new to pass 3: D-23.** The component has never rendered its own declared design.
+Five `variant` props are dead attributes; the comment at `:107–111` describes a cure that a reader
+can verify in the source and cannot verify on screen, because the mechanism it names does nothing.
+Every downstream hand-roll — the geometry, the spinner, the icon seat, the type family — is
+back-fill for an API call that silently failed at every one of its five sites.
+
+---
+
+## Appendix A — probes and raw output
+
+Scripts in `probe-D4/`. Read-only against the live dev server; no repo source, `INBOX.md`, or
+`vnext/` path was modified. The only writes from this seat are this file, the `-pass2-prior` copy,
+and `probe-D4/`.
+
+**A1 · `probe-D4a-computed.mjs`** — computed styles, DOM attributes and rects of the toolbar controls
+and the count, Chromium 1440×900 + 390×844. Output quoted at D-23, D-24, D-30, D-32.
+
+**A2 · `probe-D4b-duplication-ring-trio.mjs`** — duplicate-datum census, `ring-2` resolution,
+`empty-state-trio` species, live-region census, 390 rail geometry. Output quoted at D-26, D-30, D-33,
+and corroborating D-19:
 
 ```
-collapsible 0 · data-table 0 · toast 0 · expandable-container 0 · separator 0
-progress 0 · pulse 0 · sortable-list 0 · status-dot 0 · metric 0   (demo consumers)
+trio: [ {n:3, w:116, h:44, ariaHidden:"true", childColors:["… --watercolor-color: var(--accent-live) …" ×3]},
+        {n:3, w:116, h:44, …} ]          ← two identical trios, one route
+live: ["alert: dev misconfigured — run `npm run dev`",
+       "status: · roster clear ·No users found.",
+       "status: · empty plate ·No saved palettes yet.Add colors ab…"]
 ```
 
-This one file hand-rolls the disclosure (D-7), the review table (D-10), the one-shot result beat
-(D-16), the row separator (D-5) and the pending indicator (D-13) — five primitives the producer already
-owns. Owner edict 4 ("Glass-ui is the design system … Reuse existing component-type names").
+**A3 · `probe-D4c-forced-colors.mjs`** — two-arm Chromium `forcedColors: none | active` against `:82`'s
+exact class string. Output quoted at D-33.
 
-### D-22 (INFO) · Encapsulation inverted, plus two hygiene items.
-`defineExpose({ removeUserPalette, updatePaletteTier, clearUserPalettes, onPruneDone, userPalettes })`
-(line 389). `userPalettes` (237) is loaded, owned and mutated inside the leaf while the port drives it
-through three imperative mutators plus a completion callback (`useAdminUsers.ts:95,117,132,146`). Five
-exposed members is the largest imperative surface in the area; the expanded palettes belong to the port
-that already owns every other list on this route. Owner edict 1. The six confirm refs plus a
-callback-in-a-ref (255-261) reimplement an imperative modal driver inside a leaf.
-Hygiene: `setTimeout(…, 3000)` at line 308 is never cleared (two prunes inside 3 s truncate the first
-message; an unmount inside 3 s writes to a dead ref); line 186 imports `Transition` from `vue` —
-`grep -rl "<Transition" demo | wc -l` → **19**, `grep -rlE 'Transition[ ,}].*from "vue"' demo | wc -l`
-→ **1**. It is a compiler built-in. Owner edict 3.
+**A4 · `probe-D4d-a11y-name-two-engine.mjs`** — Chromium + WebKit `locator.ariaSnapshot()` over a
+verbatim reconstruction of `:78–131`. Output quoted at D-29.
 
----
+**A5 · Pillow measurements against the tracked PNGs** (no script retained; both loops are three lines
+and are transcribed here so the numbers are re-derivable).
 
-## Verified-clean — recorded so the negatives are not re-litigated
+Composited contrast — darkest glyph pixel vs modal background inside each label's rect, WCAG 2.x
+relative-luminance formula:
 
-- `import type { Palette, User }` is correct at line 199 (`verbatimModuleSyntax`, edict 8).
-- Reactive props destructure with a default is correct at 205-220 (Vue 3.5, edict 7).
-- The `target === currentTarget` guard at line 345 is load-bearing and correct.
-- The shift-click confirm bypass really was excised (311-314); the resting destructive ink really was
-  quieted (measured `rgb(213,208,200)` dark); the loading state really is row-shaped rather than a
-  centred spinner (46-48).
-- Motion is tokenized and reduced-motion-guarded (`animations.css:142-165, 184-192`).
-- **No horizontal overflow at any arm.** 390: `scrollW 390 = clientW 390`. 200 %-zoom equivalent
-  (720 CSS px stage): `horizontalOverflow: false`, `scrollW 720 = clientW 720`, both toolbar buttons on
-  one line at `y 246.5`, first row renders `mbabb 12 Palettes` (`probe-D3.json` `P11_zoom200`).
-- The header badge is correctly suppressed while loading (`AdminPane.vue:119-122`), and the toolbar
-  count is correctly suppressed too (`toolbarTextWhileLoading: []`) — A-3 holds.
-- `EmptyState variant="error"` on the load path is correct and carries `role="alert"`.
-- **The WebKit/Chromium keyboard-reachability delta (7/12 vs 2/12) is macOS Full Keyboard Access per
-  MT-F022 and is NOT counted as a defect.** Roving tabindex is the correct ARIA pattern. The one a11y
-  finding here (D-3) is reproduced in **both** engines and **both** schemes.
+```
+zoom200 'Prune empty' (disabled)  bg=(237,199,205) glyph=(134,106,112)  CR= 3.17
+zoom200 'Refresh'     (enabled)   bg=(237,215,207) glyph=( 28, 25, 23)  CR=12.68
+light   'Prune empty' (disabled)  bg=(237,198,205) glyph=(134,107,112)  CR= 3.12
+light   'Refresh'     (enabled)   bg=(237,207,209) glyph=( 28, 25, 23)  CR=12.03
+dark    'Prune empty' (disabled)  bg=(108, 76, 79) glyph=(176,155,156)  CR= 2.88
+dark    'Refresh'     (enabled)   bg=( 97, 74, 73) glyph=(233,230,226)  CR= 6.53
+```
 
-## Route context, not this file's code
+Ink profile — per-row count of pixels deviating > 28 L from the row median, Users card,
+`shots/safari-desktop-light/admin-users.png`, x 410–1410, y 455–1500 original px:
 
-Every capture and every probe frame still renders the `My Palettes` companion at 50 % beside the Admin
-route, against `OPTICAL-BENCH-COMPOSITIONS.md:50` ("V removes that companion, its right label, its
-mobile pane toggle, and its 50 % acreage"), `:57` ("Companion rect `50%→0`") and `PROPORTION-AUDIT.md:48`
-PR-04 ("Admin companion `50%→0`"). The row anatomy above is fighting for 640 px it should not have to.
-Owner: the route, not this component.
+```
+ink band css 256..286   (h=31)   "Users"
+ink band css 300..313   (h=14)   description            gap_above=13
+ink band css 349..378   (h=30)   search field           gap_above=36
+ink band css 387..413   (h=26)   toolbar                gap_above=8
+ink band css 467..510   (h=44)   ghost trio             gap_above=54
+ink band css 526..536   (h=11)   · ROSTER CLEAR ·       gap_above=15
+ink band css 560..580   (h=20)   No users found.        gap_above=24
+ink band css 746..750            card inner edge        gap_above=166   ← the void
+```
 
----
-
-## Where this leaves the component
-
-These are not twenty-two independent bugs. They fall into four mechanisms:
-
-1. **Truth is derived at the wrong altitude.** D-1, D-2, D-9, D-18 share one cause: the panel computes
-   claims from whatever array it was handed instead of receiving them, and the port hands it a
-   filtered 50-row page with no result channel. The confirmation lie and the silent-failure lie are the
-   same defect in different copy.
-2. **The binding composition was never read.** D-5, D-6, D-8, D-17 are four rows of
-   `OPTICAL-BENCH-COMPOSITIONS.md` — boundary inventory, type matrix, PR-35 inset matrix, housing
-   decision — violated on the surface the artifact names. Three of them the artifact calls a defect by
-   name. This is the finding that most needs saying: the component is not merely unpolished, it is
-   built against a decided composition it does not implement.
-3. **The row anatomy was hand-rolled instead of consumed.** D-3, D-7, D-10, D-11, D-13, D-14, D-15,
-   D-21 all follow from re-inventing a review row inside this file: a `div` as button with a clipped
-   focus ring, no open state, no column grammar, an inverted paint hierarchy, a skeleton of a different
-   component, duplicated destructive glyphs, and five producer primitives left on the shelf.
-4. **Text is composed by concatenation instead of by typed, isolated values.** D-4 and the
-   viewport-dependent ellipsis artefact both come from splitting one identifier into two spans and one
-   sentence into two spans, with zero bidi isolation on the page.
-
-The gestalt cure is to stop authoring a table here. Implement the decided Admin · Users composition:
-one structural review field with hairline separators and no terminal rule, one native named button over
-the identity region, counts and scopes received from the port, identifiers rendered as single
-LTR-isolated values, one result channel for all six actions, and the producer's `collapsible` /
-`data-table` / `toast` / `separator` where this file currently hand-rolls them. That subtracts roughly
-the whole toolbar, the whole confirm-state block, the slug-splitting pair and the per-row box — the
-direction `SUBTRACTION.md` and `PROPORTION-AUDIT.md` §6 both point.
-
-**Strongest single defect: D-1.** An irreversible bulk deletion whose confirmation understated its
-scope by 3× on the first attempt, reproduced independently in one run, with the captured request
-(`POST /admin/users/prune-empty`, `postData: null`) proving the client cannot scope it at all.
-
-**Second, and new to this pass: D-3.** The primary keyboard control on the surface has a focus
-indicator measuring 1.024–1.202:1 across two engines and two schemes, with its ring entirely clipped by
-`overflow-hidden` on line 68 — while a native button six pixels away, in the same probe, measures a max
-channel delta of 290.
-
----
-
-## Evidence index
-
-| artefact | what it holds |
-|---|---|
-| `probe-D3.mjs` / `.json` | typography, boundary census, 1440 geometry, 390 targets, skeleton→row, DELETE-500, reduced motion, RTL, 200 %-zoom arm |
-| `probe-D3b.mjs` / `.json` | two-engine focus diff (WebKit + Chromium × light + dark), identity paint both schemes, RTL long slugs, Chromium forced-colors |
-| `probe-D3c.mjs` / `.json` | focus contrast ratios, element-level closed-vs-open row paint, undeclared accordion |
-| `probe-D3d.mjs` / `.json` | Chromium focus contrast, composited count-line contrast, EmptyState species on the Admin route |
-| `probe-D3e.mjs` / `.json` | PR-35 inset/gap matrix at 1440 and 390, in-card menu census |
-| `probe-D3f.mjs` / `.json` | filtered-prune scope reproduction, signed-out roster + inert Refresh |
-| `frames-D3/` | 30 frames incl. `focus-webkit-*-before/after`, `rowpaint-closed/open`, `rtl-long-slug`, `K-prune-filtered-dialog`, `M-signed-out`, `forced-colors-chromium` |
+**A6 · Pass-2 evidence, unchanged and still authoritative:** `probe-D3*.mjs` / `.json`, `frames-D3/`,
+`frames-D2/` — filtered-prune scope reproduction, DELETE-500 silent failure, two-engine focus diff,
+RTL long slugs, PR-35 inset matrix, boundary census, forced-colors identity conflation.

@@ -1,5 +1,21 @@
 # CHALLENGE-L — library structure under `GradientVisualizer`
 
+> **ROUND 2 ADDENDUM — read `challenge-L-library-r2.md` alongside this file.**
+> A second independent Opus 5 seat re-ran this axis and found a **BLOCKER this report misses**:
+> one click on the `ease-in-back` easing tile, from the landing state of `/#/gradient`, throws
+> `color_progress_out_of_range` inside a Vue computed and — because the single `ErrorBoundary` sits
+> outside the whole pane grid — **erases the entire application** (verified live in WebKit; body
+> text 611 → 141). value.js ships three `ease-*-back` presets whose eased output leaves `[0,1]`
+> (`src/easing.ts:62-64`) and a `mixColors` that rejects progress outside `[0,1]`; the adapter
+> between them has no owner, so this tree implements it **three** times (r2 adds a third copy at
+> `easing/useSpecimenRows.ts:52`, beyond the two in L-5 below) and all three crash.
+> r2 also **corrects N-1** of this report: the *import* half of the published-surface question is
+> sound as stated, but `tsconfig.demo.json` `paths` has drifted **five rows** from
+> `package.json#exports` — three dead entries (one pointing at a non-existent `dist/index.d.ts`)
+> and two missing, including `@mkbabb/value.js/css`, the subpath this component depends on most.
+> This file is **not superseded** (E-3, addenda-not-patch); L-1..L-17 stand and r2 confirms six of
+> them independently.
+
 ## Model receipt
 
 I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context

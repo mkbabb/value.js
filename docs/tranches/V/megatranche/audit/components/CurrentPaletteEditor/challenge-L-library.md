@@ -1390,3 +1390,309 @@ directly: `shots/safari-desktop-light/palettes.png`. `REPORT.json` rows read: al
 
 **No source file was edited by this pass.** The only writes are this appended section and two probe
 scripts in the session scratchpad.
+
+---
+---
+
+# Fourth pass — converting the touch BLOCKER from inference to measurement, and widening L-16
+
+## Model receipt (pass 4)
+
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`, the 1M-context variant) — the model this seat
+was explicitly spawned with. Declared, not inherited.
+
+## Substrate (moved again)
+
+| | |
+|---|---|
+| HEAD **as observed** | `7775473b` — *`docs(V·megatranche): STATE — excavation folded COMPLETE (15/15 on disk), r3 delta row added`*. The brief said `c654824e`; pass 1 measured `041ca263`; pass 3 measured `5c13465d`. Four different trees across four passes. Anyone reconciling these reports must anchor on the stamp, not the brief. |
+| Method | This pass ran cold — the subject, the producer artefact and the demo graph were re-read from scratch before the prior text was opened. Convergence on L-1/L-3/L-12 was independent. |
+
+This pass adds **no new finding IDs**. It closes three evidentiary gaps in findings that are already
+filed, one of which is load-bearing for a BLOCKER, and it strengthens two others. Where I merely
+re-derived what is already above, I say so and move on rather than re-litigating it.
+
+---
+
+## L-12 · the touch BLOCKER now has a reproduction (it previously had only a mechanism)
+
+Pass 2's L-12 states the touch consequence as a deduction:
+
+> "`as-child` works by merging the trigger's props … onto the child vnode as **attrs** — which
+> `inheritAttrs: false` discards. So on a coarse-pointer device the saved-swatch popover cannot open
+> at all."
+
+The reasoning is correct, but it was never executed. Every probe pasted in passes 1–3 runs at
+1440×900 desktop, where `canHover` is `true` and `SwatchHoverMenu`'s `v-if="!canHover"` Popover
+branch **never mounts**. A BLOCKER whose entire user-visible consequence lives on the branch no
+probe entered is a hypothesis. Here it is measured.
+
+**Reproduction.** Playwright, **`devices["iPhone 13"]`** (coarse pointer ⇒ `canHover === false` ⇒ the
+Popover branch mounts), with `savedColors` seeded via `addInitScript` so `CurrentPaletteEditor`'s own
+`.swatch-row` renders rather than some other component's dots. `pointerdown` + `click` are dispatched
+**directly on the node**, which bypasses `pointer-events: none` and Playwright actionability
+entirely — so a failure here cannot be blamed on hit-testing:
+
+```js
+await ctx.addInitScript(() => {
+  localStorage.setItem("color-picker", JSON.stringify({
+    inputColor: "rgb(255 0 0)",
+    savedColors: ["rgb(255 0 0)", "rgb(0 128 255)", "rgb(0 200 120)"],
+  }));
+});
+// … goto /#/palettes, settle 6s, then, scoped to .swatch-row:
+el.dispatchEvent(new PointerEvent("pointerdown", { bubbles: true, cancelable: true }));
+el.dispatchEvent(new MouseEvent("click",         { bubbles: true, cancelable: true }));
+```
+
+```json
+{
+  "swatchRowFound": true,
+  "solidDots": 3,
+  "rootTag": "SPAN",
+  "ariaHidden": "true",
+  "ariaLabel": null,
+  "ariaExpanded": null,
+  "dataState": null,
+  "pointerEvents": "none",
+  "editCopyRemoveVisible": false,
+  "afterTap": { "editBtn": false, "copyBtn": false, "removeBtn": false }
+}
+```
+
+Three swatches present in the component's own row. `aria-expanded: null` and `data-state: null` are
+the decisive pair — those are reka-ui's own trigger attributes, and their absence proves the
+`as-child` merge reached the DOM with nothing. Tapping produces no `[aria-label^="Edit color"]`,
+no `Copy`, no `Remove`, before or after.
+
+**Confirmed: on every touch device, `<template #actions>` (`CurrentPaletteEditor.vue:44-55`) is
+unreachable. A user on a phone cannot edit, copy, or remove any colour in their current palette.**
+L-12's severity is correct; it now rests on a measurement rather than on a reading of reka-ui.
+
+The same probe re-confirms L-1 on the add slot with a stronger discriminator than pass 3's. The
+rendered vnode's own prop keys, read off `__vnode`, are:
+
+```json
+"vnodePropKeys": ["aria-hidden", "class", "data-testid", "data-variant", "style"]
+```
+
+**No `onClick` exists on the element at all** — so the failure is not `pointer-events`, not
+actionability, not a stale handler: there is no listener in the tree to fire. A synthetic click
+dispatched straight at the node leaves the swatch count at `7 → 7`. Independently,
+`waitForSelector('.add-slot-ghost')` at the default `state: 'visible'` **times out at 20 s**: the
+control is not merely inert, it does not satisfy Playwright's definition of a visible element.
+
+---
+
+## L-16 · the divergence is not only alpha — it is **colour space**, and there is a third home
+
+Pass 3 anchors L-16 on alpha. Alpha is the narrower axis. The same predicate fails on a far more
+common gesture, and there is a third implementation pass 3 does not list.
+
+**(a) `serializePickerColor` is space-preserving, so the string comparison is space-dependent.**
+`demo/color-session/picker-color.ts:206-211` serializes a colour *in its own space* whenever that
+space is one of the thirteen in `CSS_PICKER_SPACES` (`:92-95` — `rgb hsl hwb lab lch oklab oklch xyz
+srgb-linear display-p3 a98-rgb prophoto-rgb rec2020`). `savedColors` retain the space they were
+saved in; `cssColorOpaque` is minted in whatever space the picker is in *now*. Measured against the
+shipped artefact, not the source:
+
+```
+$ node scratchpad/id2.mjs     # imports ./dist/subpaths/{color,css}.js
+ONE physical colour (pure red), three picker spaces:
+  rgb  : rgb(255 0 0)
+  oklch: oklch(62.795536392143% 0.257683303805 29.233880279628deg)
+  hsl  : hsl(0deg 100% 50%)
+
+useSwatchActions.ts:63  savedColorStrings.indexOf(cssColorOpaque)
+  -> -1  (-1 == 'not present' == duplicate WILL be added)
+```
+
+Save a colour, change the picker's space, press add: the identical physical colour is added a second
+time. The picker exposes a space switcher as a primary control (`updateToColorSpace`,
+`useColorPipeline.ts:170-173`) and the boot capture shows it sitting in **Lab** — so this is the
+default gesture, not an edge. Alpha (pass 3) requires touching the α slider; **space divergence
+requires only using the space selector the product is built around.**
+
+**(b) There is a third home, and it disagrees on ordering rather than on membership.**
+
+| # | site | predicate | placement on a hit |
+|---|---|---|---|
+| 1 | `useSwatchActions.ts:63` | `savedColorStrings.indexOf(cssColorOpaque)` — opaque candidate, space-dependent | `reordered.push(...)` → **END** (`:66`) |
+| 2 | `usePaletteWiring.ts:85-89` | `serializePickerColor(c) === newStr` — alpha-bearing | `savedColors.unshift(...)` → **FRONT** (`:98`) |
+| 3 | `useColorPipeline.ts:215-217` | `toCSSColorString(c) === toCSSColorString(model.value.color)` | `savedColors.push(...)` → **END** (`:220`) |
+
+Home 2 is absent from pass 3's table, and it is the one the live click path actually reaches:
+`addCurrentColor` handles a *hit* itself (move to END) but delegates a *miss* to
+`emit("addColor")` → `emitAddColor` → `unshift` (FRONT). So **one button has two orderings**: adding
+a new colour prepends it, re-adding an existing one appends it. Neither site can know, because
+neither imports the other.
+
+**(c) The guard in home 3 tests a different colour than it inserts.** `useColorPipeline.ts:212-220`:
+
+```ts
+function onPaletteAddColor(cssColor: string) {
+    const savedColors = [...model.value.savedColors];
+    const currentStr = toCSSColorString(model.value.color);      // ← the MODEL colour
+    const alreadyExists = savedColors.some((c) => toCSSColorString(c) === currentStr);
+    if (alreadyExists) return;
+    savedColors.push(parseColor(cssColor));                      // ← the ARGUMENT
+```
+
+The parameter is ignored by the guard and is what gets pushed. Whenever a caller adds something
+other than the live picker colour the guard answers a question nobody asked. **Reproduction: NONE —
+this is a hypothesis**; the code defect is exact and the divergence condition is stated, but I did
+not drive a UI path into this fallback (it is the `catch` arm of `usePaletteWiring.ts:101-103`).
+
+**(d) The root cause is a public-surface gap, which strengthens L-15.** value.js exports no colour
+equality primitive at all:
+
+```
+$ grep -rn "export .*\(equal\|Equal\|sameColor\|compareColor\|colorsEqual\)" src/   → no matches
+$ grep -rn "export function \(deltaE\|distance\)" src/                              → no matches
+```
+
+The library owns colour semantics and publishes `convertColor`, `mixColors`, `toRgba8`,
+`mapColorToGamut` — but not the one predicate its own demo needs three times. Three consumers each
+invented a wrong one out of string comparison. That is the same mechanism L-15 names for the colour
+*model*, recurring for colour *identity*: **the concept has no published home, so it grew private
+ones that disagree.**
+
+---
+
+## L-4 · strengthened: `demo/ui/` is not merely redundant, it is actively forked
+
+Pass 1 establishes that all 19 barrels are pure aliases. The sharper fact is that the alias layer has
+already produced a **live dual path**. Programmatic scan of every `demo/**/*.{ts,vue}` import
+(excluding `demo/ui/` itself), collecting each symbol's specifier shape:
+
+```
+SYMBOLS REACHED BOTH WAYS: ['Dialog','DialogContent','DialogDescription',
+                            'DialogFooter','DialogHeader','DialogTitle']
+  Dialog: barrel x3  e.g. demo/palettes/browser/dialog/FlagReportDialog.vue
+          direct     demo/palettes/PalettesPane.vue           <- @mkbabb/glass-ui/dialog
+          direct     demo/palettes/browser/admin/AdminUsersPanel.vue <- @mkbabb/glass-ui/dialog
+
+total barrel import-symbol bindings: 189
+distinct glass-ui subpaths reached directly: 17
+```
+
+Six symbols, two specifiers, and **both forks are inside `demo/palettes/`** — one of them in
+`PalettesPane.vue`, this component's direct parent. Under edict 2 the alias layer was already
+condemned as a shim; this promotes it from "redundant indirection" to "a live second path", which is
+the thing the edict actually forbids. It also bounds the codemod: 189 bindings, mechanical.
+
+---
+
+## L-10 · strengthened: the orphaned export tree is 914 LoC and its 29 tests are GREEN
+
+Pass 1 proves the dual path and the resolution mechanism (`./export` hits the sibling *file* because
+`export/` has no `index.ts`). Two measurements finish it.
+
+**Zero runtime consumers**, confirmed by exclusion rather than by inspection:
+
+```
+$ grep -rn "palettes/export/\|\./export/\|\.\./export/" demo --include='*.ts' --include='*.vue' \
+    | grep -v "^demo/test/" | grep -v "^demo/palettes/export/"
+(no output)
+
+$ wc -l demo/palettes/export/*.ts | tail -1
+     914 total
+```
+
+**And the suite that certifies it is green**, which is what makes it a false proof rather than
+merely dead code:
+
+```
+$ npx vitest run demo/test/export/byte-exact.test.ts
+ ✓ demo/test/export/byte-exact.test.ts (29 tests) 7519ms
+ Test Files  1 passed (1) · Tests  29 passed (29)
+```
+
+The two formats are not variants. `export/json.ts` emits an RFC8785-canonicalised
+`value.palette-export/v1` document with `contentDigest`, positional ids, per-colour oklch and a
+trailing LF, against "Byte authority: Appendix W51 §3". `export.ts:13-23` emits
+`JSON.stringify({name, slug, colors:[{css,position,name}]}, null, 2)`. **Twenty-nine green tests
+certify bytes no user has ever received, while the bytes every user receives are untested and
+unbound by the W51 authority.**
+
+---
+
+## Negatives independently re-verified at `7775473b`
+
+Re-measured cold, not copied forward. All hold.
+
+- **The value.js boundary is clean.** `grep -rn 'from "@src' demo` → 0. `grep -rn 'from
+  "@mkbabb/value.js"' demo test src` → 0 (there is no `"."` key in `exports`, so the bare specifier
+  would fail for a real consumer too — nothing writes it). Within `demo/palettes/`, the only library
+  imports are `mix.ts:14` and `export/png.ts:11`, both `@mkbabb/value.js/color`. Every demo import of
+  the library is one a real consumer could write verbatim. **This is why L-15/L-16 are surface *gaps*
+  and not boundary violations: the demo consumes the published surface correctly; the surface is
+  missing members.**
+- **The "three parallel `useDark` stores" suspect named in the brief is cured.** All ten sites route
+  to `@mkbabb/glass-ui/dark` (`useMarkdownColors.ts:1`, `ConsoleRail.vue:92`, `HeroBlob.vue:39`,
+  `ProfileSection.vue:8`, `MobileMenuDropdown.vue:6`, `useContrastSafeColor.ts:9`, `App.vue:190`,
+  `useViewAccents.ts:43`, `useAtmosphere.ts:34`). No local fork survives. The brief's
+  `useMarkdownHighlighting.ts:76` pointer is stale.
+- **`verbatimModuleSyntax` clean** across the closure (`CurrentPaletteEditor.vue:190`,
+  `useSwatchActions.ts:2-3`, `SwatchHoverMenu.vue:60`).
+- **`ActionBarLayer`'s local `useLayerTransition`** (`demo/shell/dock/layers/ActionBarLayer.vue:63`)
+  is real but is **not** a fork — `:54` records that glass-ui 7 removed the standalone export. It is
+  outside this component's subtree; out of scope here, flagged for the `shell/` seat.
+- **Route-level capture is clean and that is the point.** All four Safari matrices report
+  `/#/palettes` at `overflowX 0`, `pageErr 0`, `consoleErr 0`, `main 1`. Per `REPORT.json` the eight
+  `smallTapTargets` belong to `PaletteSlugBar` (22×22 trio) and the picker's channel spans (12×24) —
+  none to this component, whose swatches are `w-11 h-11` = 44 px. **The visual audit records zero
+  defects here precisely because the broken controls are `aria-hidden` and `pointer-events: none`:
+  they are invisible to the probe that would have flagged them.** L-1 and L-12 are structurally
+  unreachable by that matrix, which is why they required DOM-level probing. Any future sweep wanting
+  to catch this class needs an oracle for *"an element with a click intent that resolves to no
+  listener"*, not for blankness or console noise.
+
+---
+
+## Pass-4 evidence appendix — commands run, verbatim
+
+```bash
+git rev-parse --short HEAD                                           # 7775473b
+
+# producer contract, from the shipped artefact
+node -e "s=require('fs').readFileSync('node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js','utf8');
+         for (const k of ['renderSlot','\$slots','slots.default','_ctx.\$slots']) console.log(k, s.includes(k))"
+                                                                     # all four false
+grep -o 'inheritAttrs:[^,]*' node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js   # inheritAttrs: !1
+
+# L-16(a) space divergence, against dist
+node scratchpad/id2.mjs                                              # output pasted above
+
+# L-16(b) the third home
+sed -n '75,104p' demo/color-picker/composables/usePaletteWiring.ts    # findIndex + unshift
+sed -n '60,74p'  demo/palettes/browser/card/composables/useSwatchActions.ts  # indexOf + push
+
+# L-16(d) the surface gap
+grep -rn "export .*\(equal\|Equal\|sameColor\|compareColor\|colorsEqual\)" src/   # 0
+grep -rn "export function \(deltaE\|distance\)" src/                             # 0
+
+# L-4 both-ways fork  (python: parse every import block in demo/, excluding demo/ui/)
+python3 - <<'PY'   # full script in scratchpad; result pasted above
+# … walks demo/**/*.{ts,vue}, classifies each imported symbol as barrel vs direct …
+PY
+
+# L-10
+grep -rn "palettes/export/\|\./export/\|\.\./export/" demo --include='*.ts' --include='*.vue' \
+  | grep -v "^demo/test/" | grep -v "^demo/palettes/export/"          # no output
+wc -l demo/palettes/export/*.ts | tail -1                             # 914 total
+npx vitest run demo/test/export/byte-exact.test.ts                    # 29 passed
+
+# negatives
+grep -rn 'from "@src' demo --include='*.ts' --include='*.vue'          # 0
+grep -rn 'from "@mkbabb/value\.js"' demo test src                      # 0
+grep -rn "useGlobalDark\|useDark" demo --include='*.ts' --include='*.vue'  # 10 sites, all glass-ui/dark
+```
+
+Live probes: 5 read-only Playwright runs against `http://localhost:9000` (2 desktop chromium,
+1 iPhone-13 profile with seeded `localStorage`, 2 discarded to selector/settle timing). The two that
+decide findings are pasted verbatim above. Images read: `shots/safari-desktop-light/palettes.png`.
+`REPORT.json` rows read: all four `/#/palettes` matrices.
+
+**No source file was edited by this pass.** The only writes are this appended section and four probe
+scripts in the session scratchpad. Nothing above `# Fourth pass` was altered.

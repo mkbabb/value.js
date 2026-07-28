@@ -1,0 +1,647 @@
+{
+ "desktopLight": {
+  "focusBefore": {
+   "active": "BODY.relative",
+   "label": null
+  },
+  "focusAfter": "DIV|Image preview area, tap to sample colors",
+  "geo": {
+   "overlay": {
+    "x": 235.5,
+    "y": 186.4,
+    "w": 510,
+    "h": 685.6
+   },
+   "overlayRole": null,
+   "overlayAriaModal": null,
+   "overlayAriaLabel": null,
+   "overlayTabindex": null,
+   "viewport": {
+    "x": 236.5,
+    "y": 243.4,
+    "w": 508,
+    "h": 627.6
+   },
+   "canvas": {
+    "x": 236.5,
+    "y": 303.1,
+    "w": 508,
+    "h": 508
+   },
+   "canvasAttrWH": [
+    64,
+    64
+   ],
+   "canvasWillChange": "transform",
+   "canvasImageRendering": "auto",
+   "canvasTransform": "matrix(7.9375, 0, 0, 7.9375, 0, 59.789063)",
+   "loupeBox": null,
+   "loupeCanvasAttrWH": null,
+   "loupeZIndex": null,
+   "loupeBorder": "null null",
+   "dpr": 2,
+   "innerH": 806,
+   "innerW": 1512,
+   "overlayExceedsViewport": false,
+   "controls": [
+    {
+     "title": "Close eyedropper",
+     "aria": null,
+     "w": 44,
+     "h": 44,
+     "text": ""
+    }
+   ],
+   "dots": [
+    {
+     "cls": "w-7 h-7 shrink-0 watercolor-swatch",
+     "ariaHidden": "true",
+     "tagAttr": null,
+     "tag": "SPAN"
+    },
+    {
+     "cls": "watercolor-filter-host",
+     "ariaHidden": "true",
+     "tagAttr": null,
+     "tag": "svg"
+    },
+    {
+     "cls": "watercolor-ghost-stroke",
+     "ariaHidden": "true",
+     "tagAttr": null,
+     "tag": "SPAN"
+    }
+   ],
+   "strayTagAttr": 0,
+   "strayTagAttrHTML": [],
+   "readout": "Tap to sample",
+   "loupeEmpty": "no-loupe-canvas",
+   "loupeCenter": null
+  },
+  "tabWalk": [
+   {
+    "tag": "SPAN",
+    "label": "Number of colors",
+    "inOverlay": false
+   },
+   {
+    "tag": "SPAN",
+    "label": "Chroma weight",
+    "inOverlay": false
+   },
+   {
+    "tag": "INPUT",
+    "label": "",
+    "inOverlay": false
+   },
+   {
+    "tag": "BODY",
+    "label": "dev misconfigured — run `npm r",
+    "inOverlay": false
+   },
+   {
+    "tag": "SPAN",
+    "label": "Number of colors",
+    "inOverlay": false
+   },
+   {
+    "tag": "SPAN",
+    "label": "Chroma weight",
+    "inOverlay": false
+   },
+   {
+    "tag": "INPUT",
+    "label": "",
+    "inOverlay": false
+   },
+   {
+    "tag": "BODY",
+    "label": "dev misconfigured — run `npm r",
+    "inOverlay": false
+   },
+   {
+    "tag": "SPAN",
+    "label": "Number of colors",
+    "inOverlay": false
+   },
+   {
+    "tag": "SPAN",
+    "label": "Chroma weight",
+    "inOverlay": false
+   },
+   {
+    "tag": "INPUT",
+    "label": "",
+    "inOverlay": false
+   },
+   {
+    "tag": "BODY",
+    "label": "dev misconfigured — run `npm r",
+    "inOverlay": false
+   }
+  ],
+  "firstTap": {
+   "loupePresent": true,
+   "nonAlphaPx": 0,
+   "total": 12100,
+   "readout": "lab(52.149527332% -9.447862249415 56.024088496729)"
+  },
+  "sampleAcc": {
+   "canvasRect": {
+    "x": 236.5,
+    "y": 303.1,
+    "w": 508,
+    "h": 508
+   },
+   "vpRect": {
+    "x": 236.5,
+    "y": 243.4,
+    "w": 508,
+    "h": 627.6
+   }
+  },
+  "samples": [
+   {
+    "ix": 16,
+    "iy": 16,
+    "want": "#ff0000",
+    "got": "lab(52.149527332% -9.447862249415 56.024088496729)"
+   },
+   {
+    "ix": 48,
+    "iy": 16,
+    "want": "#0080ff",
+    "got": "lab(52.149527332% -9.447862249415 56.024088496729)"
+   },
+   {
+    "ix": 16,
+    "iy": 48,
+    "want": "#112233",
+    "got": "lab(52.149527332% -9.447862249415 56.024088496729)"
+   },
+   {
+    "ix": 48,
+    "iy": 48,
+    "want": "#f0f00a",
+    "got": "lab(52.149527332% -9.447862249415 56.024088496729)"
+   },
+   {
+    "ix": 0,
+    "iy": 0,
+    "want": "#ff0000",
+    "got": "lab(52.149527332% -9.447862249415 56.024088496729)"
+   },
+   {
+    "ix": 63,
+    "iy": 63,
+    "want": "#f0f00a",
+    "got": "lab(52.149527332% -9.447862249415 56.024088496729)"
+   }
+  ],
+  "consoleErrs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh",
+   "PAGEERROR The object can not be found here."
+  ],
+  "pin": {
+   "beforePin": {
+    "x": 353.5,
+    "w": 275
+   },
+   "afterPin": {
+    "x": 353.5,
+    "w": 371,
+    "controls": [
+     "Close eyedropper"
+    ]
+   }
+  },
+  "escape": {
+   "afterEsc1": {
+    "overlay": false,
+    "pinnedBtns": 0
+   },
+   "afterEsc2": {
+    "overlay": false,
+    "active": "BODY|"
+   }
+  }
+ },
+ "desktopDark": {
+  "overlay": {
+   "x": 235.5,
+   "y": 186.4,
+   "w": 510,
+   "h": 685.6
+  },
+  "overlayRole": null,
+  "overlayAriaModal": null,
+  "overlayAriaLabel": null,
+  "overlayTabindex": null,
+  "viewport": {
+   "x": 236.5,
+   "y": 243.4,
+   "w": 508,
+   "h": 627.6
+  },
+  "canvas": {
+   "x": 236.5,
+   "y": 303.1,
+   "w": 508,
+   "h": 508
+  },
+  "canvasAttrWH": [
+   64,
+   64
+  ],
+  "canvasWillChange": "transform",
+  "canvasImageRendering": "auto",
+  "canvasTransform": "matrix(7.9375, 0, 0, 7.9375, 0, 59.789063)",
+  "loupeBox": {
+   "x": 545,
+   "y": 345,
+   "w": 110,
+   "h": 110
+  },
+  "loupeCanvasAttrWH": [
+   110,
+   110
+  ],
+  "loupeZIndex": "20",
+  "loupeBorder": "2px color(srgb 0.11 0.098 0.09 / 0.5)",
+  "dpr": 2,
+  "innerH": 806,
+  "innerW": 1512,
+  "overlayExceedsViewport": false,
+  "controls": [
+   {
+    "title": "Close eyedropper",
+    "aria": null,
+    "w": 40,
+    "h": 40,
+    "text": ""
+   }
+  ],
+  "dots": [
+   {
+    "cls": "shrink-0 transition-transform w-7 h-7 watercolor-swatch",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "SPAN"
+   },
+   {
+    "cls": "watercolor-filter-host",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "svg"
+   }
+  ],
+  "strayTagAttr": 0,
+  "strayTagAttrHTML": [],
+  "readout": "lab(41.757893526824% 52.848755506789 44.203615448013)",
+  "loupeEmpty": {
+   "nonAlphaPx": 0,
+   "totalPx": 12100
+  },
+  "loupeCenter": [
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "mobileDark": {
+  "overlay": {
+   "x": 17,
+   "y": 174,
+   "w": 356,
+   "h": 683.6
+  },
+  "overlayRole": null,
+  "overlayAriaModal": null,
+  "overlayAriaLabel": null,
+  "overlayTabindex": null,
+  "viewport": {
+   "x": 18,
+   "y": 235,
+   "w": 354,
+   "h": 621.6
+  },
+  "canvas": {
+   "x": 18,
+   "y": 368.8,
+   "w": 354,
+   "h": 354
+  },
+  "canvasAttrWH": [
+   64,
+   64
+  ],
+  "canvasWillChange": "transform",
+  "canvasImageRendering": "auto",
+  "canvasTransform": "matrix(5.53125, 0, 0, 5.53125, 0, 133.820313)",
+  "loupeBox": null,
+  "loupeCanvasAttrWH": null,
+  "loupeZIndex": null,
+  "loupeBorder": "null null",
+  "dpr": 3,
+  "innerH": 844,
+  "innerW": 390,
+  "overlayExceedsViewport": false,
+  "controls": [
+   {
+    "title": "Close eyedropper",
+    "aria": null,
+    "w": 48.4,
+    "h": 48.4,
+    "text": ""
+   }
+  ],
+  "dots": [
+   {
+    "cls": "w-7 h-7 shrink-0 watercolor-swatch",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "SPAN"
+   },
+   {
+    "cls": "watercolor-filter-host",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "svg"
+   },
+   {
+    "cls": "watercolor-ghost-stroke",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "SPAN"
+   }
+  ],
+  "strayTagAttr": 0,
+  "strayTagAttrHTML": [],
+  "readout": "Tap to sample",
+  "loupeEmpty": "no-loupe-canvas",
+  "loupeCenter": null,
+  "afterTap": {
+   "overlay": {
+    "x": 17,
+    "y": 174,
+    "w": 356,
+    "h": 683.6
+   },
+   "overlayRole": null,
+   "overlayAriaModal": null,
+   "overlayAriaLabel": null,
+   "overlayTabindex": null,
+   "viewport": {
+    "x": 18,
+    "y": 235,
+    "w": 354,
+    "h": 621.6
+   },
+   "canvas": {
+    "x": 18,
+    "y": 368.8,
+    "w": 354,
+    "h": 354
+   },
+   "canvasAttrWH": [
+    64,
+    64
+   ],
+   "canvasWillChange": "transform",
+   "canvasImageRendering": "auto",
+   "canvasTransform": "matrix(5.53125, 0, 0, 5.53125, 0, 133.820313)",
+   "loupeBox": {
+    "x": 140,
+    "y": 490.8,
+    "w": 110,
+    "h": 110
+   },
+   "loupeCanvasAttrWH": [
+    110,
+    110
+   ],
+   "loupeZIndex": "20",
+   "loupeBorder": "2px oklch(0.958322 0.08 129.83403)",
+   "dpr": 3,
+   "innerH": 844,
+   "innerW": 390,
+   "overlayExceedsViewport": false,
+   "controls": [
+    {
+     "title": "Close eyedropper",
+     "aria": null,
+     "w": 48.4,
+     "h": 48.4,
+     "text": ""
+    },
+    {
+     "title": "Add to palette",
+     "aria": null,
+     "w": 44,
+     "h": 44,
+     "text": ""
+    },
+    {
+     "title": "Apply as current color",
+     "aria": null,
+     "w": 44,
+     "h": 44,
+     "text": ""
+    }
+   ],
+   "dots": [
+    {
+     "cls": "shrink-0 transition-transform w-7 h-7 watercolor-swatch",
+     "ariaHidden": "true",
+     "tagAttr": null,
+     "tag": "SPAN"
+    },
+    {
+     "cls": "watercolor-filter-host",
+     "ariaHidden": "true",
+     "tagAttr": null,
+     "tag": "svg"
+    }
+   ],
+   "strayTagAttr": 0,
+   "strayTagAttrHTML": [],
+   "readout": "lab(52.149527332% -9.447862249415 56.024088496729)",
+   "loupeEmpty": {
+    "nonAlphaPx": 0,
+    "totalPx": 12100
+   },
+   "loupeCenter": [
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "tapped": {
+   "cx": 195,
+   "cy": 545.7890625
+  }
+ },
+ "forcedColors": {
+  "overlay": {
+   "x": 235.5,
+   "y": 186.4,
+   "w": 510,
+   "h": 685.6
+  },
+  "overlayRole": null,
+  "overlayAriaModal": null,
+  "overlayAriaLabel": null,
+  "overlayTabindex": null,
+  "viewport": {
+   "x": 236.5,
+   "y": 243.4,
+   "w": 508,
+   "h": 627.6
+  },
+  "canvas": {
+   "x": 236.5,
+   "y": 303.1,
+   "w": 508,
+   "h": 508
+  },
+  "canvasAttrWH": [
+   64,
+   64
+  ],
+  "canvasWillChange": "transform",
+  "canvasImageRendering": "auto",
+  "canvasTransform": "matrix(7.9375, 0, 0, 7.9375, 0, 59.789063)",
+  "loupeBox": {
+   "x": 545,
+   "y": 345,
+   "w": 110,
+   "h": 110
+  },
+  "loupeCanvasAttrWH": [
+   110,
+   110
+  ],
+  "loupeZIndex": "20",
+  "loupeBorder": "2px color(srgb 0.11 0.098 0.09 / 0.5)",
+  "dpr": 2,
+  "innerH": 806,
+  "innerW": 1512,
+  "overlayExceedsViewport": false,
+  "controls": [
+   {
+    "title": "Close eyedropper",
+    "aria": null,
+    "w": 40,
+    "h": 40,
+    "text": ""
+   }
+  ],
+  "dots": [
+   {
+    "cls": "shrink-0 transition-transform w-7 h-7 watercolor-swatch",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "SPAN"
+   },
+   {
+    "cls": "watercolor-filter-host",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "svg"
+   }
+  ],
+  "strayTagAttr": 0,
+  "strayTagAttrHTML": [],
+  "readout": "lab(41.757893526824% 52.848755506789 44.203615448013)",
+  "loupeEmpty": {
+   "nonAlphaPx": 0,
+   "totalPx": 12100
+  },
+  "loupeCenter": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "motion": {
+   "transition": "0.1s",
+   "prm": true,
+   "forced": true
+  }
+ },
+ "rtl": {
+  "overlay": {
+   "x": 766.5,
+   "y": 186.4,
+   "w": 510,
+   "h": 685.6
+  },
+  "overlayRole": null,
+  "overlayAriaModal": null,
+  "overlayAriaLabel": null,
+  "overlayTabindex": null,
+  "viewport": {
+   "x": 767.5,
+   "y": 243.4,
+   "w": 508,
+   "h": 627.6
+  },
+  "canvas": {
+   "x": 1211.5,
+   "y": 303.1,
+   "w": 508,
+   "h": 508
+  },
+  "canvasAttrWH": [
+   64,
+   64
+  ],
+  "canvasWillChange": "transform",
+  "canvasImageRendering": "auto",
+  "canvasTransform": "matrix(7.9375, 0, 0, 7.9375, 0, 59.789063)",
+  "loupeBox": null,
+  "loupeCanvasAttrWH": null,
+  "loupeZIndex": null,
+  "loupeBorder": "null null",
+  "dpr": 2,
+  "innerH": 806,
+  "innerW": 1512,
+  "overlayExceedsViewport": false,
+  "controls": [
+   {
+    "title": "Close eyedropper",
+    "aria": null,
+    "w": 40,
+    "h": 40,
+    "text": ""
+   }
+  ],
+  "dots": [
+   {
+    "cls": "w-7 h-7 shrink-0 watercolor-swatch",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "SPAN"
+   },
+   {
+    "cls": "watercolor-filter-host",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "svg"
+   },
+   {
+    "cls": "watercolor-ghost-stroke",
+    "ariaHidden": "true",
+    "tagAttr": null,
+    "tag": "SPAN"
+   }
+  ],
+  "strayTagAttr": 0,
+  "strayTagAttrHTML": [],
+  "readout": "Tap to sample",
+  "loupeEmpty": "no-loupe-canvas",
+  "loupeCenter": null
+ }
+}

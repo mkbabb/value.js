@@ -1,0 +1,10 @@
+{
+    "extends": "/Users/mkbabb/Programming/value.js/tsconfig.base.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "paths": {
+            "@mkbabb/value.js/parsing": ["./fake-parsing.d.ts"]
+        }
+    },
+    "include": ["probe-paths.ts", "fake-parsing.d.ts"]
+}

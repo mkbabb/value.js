@@ -1,0 +1,62 @@
+{
+  "log": [
+    {
+      "op": "add #ff0000",
+      "list": [
+        "#ff0000"
+      ],
+      "keys": [
+        0
+      ]
+    },
+    {
+      "op": "add #00ff00",
+      "list": [
+        "#ff0000",
+        "#00ff00"
+      ],
+      "keys": [
+        0,
+        1
+      ]
+    },
+    {
+      "op": "add #0000ff",
+      "list": [
+        "#ff0000",
+        "#00ff00",
+        "#0000ff"
+      ],
+      "keys": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "op": "removeColor(0)",
+      "list": [
+        "#00ff00",
+        "#0000ff"
+      ],
+      "keys": [
+        3,
+        4
+      ]
+    }
+  ],
+  "keysBefore": [
+    0,
+    1,
+    2
+  ],
+  "keysAfter": [
+    3,
+    4
+  ],
+  "B kept its key (patched in place)": false,
+  "C kept its key (patched in place)": false,
+  "verdict": "EVERY surviving chip is re-keyed => TransitionGroup unmounts + remounts all of them (full leave+enter churn). The mechanism is strictly WORSE than :key=\"i\", which patches survivors in place.",
+  "mapSizeAfter": 2,
+  "counterAfter": 5
+}

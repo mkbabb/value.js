@@ -1,0 +1,919 @@
+{
+  "desktop-light": {
+    "errs": [
+      "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+      "ResizeObserver loop completed with undelivered notifications."
+    ],
+    "rows": [
+      {
+        "label": "Harmony",
+        "labelRect": {
+          "x": 224,
+          "w": 82.14,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 318.14,
+          "w": 897.86,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Palette harmony",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Arrangement",
+        "labelRect": {
+          "x": 224,
+          "w": 129.06,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 365.06,
+          "w": 850.94,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Zone arrangement",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Medium",
+        "labelRect": {
+          "x": 224,
+          "w": 70.41,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 306.41,
+          "w": 909.59,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Painterly medium",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Motion",
+        "labelRect": {
+          "x": 224,
+          "w": 70.41,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 306.41,
+          "w": 909.59,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Motion register",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      }
+    ],
+    "acreage": {
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "cardRect": {
+        "x": 199,
+        "y": 163.02,
+        "w": 1042,
+        "h": 653.42
+      },
+      "cardShareOfViewport": 52.54,
+      "scrollClipped": {
+        "scrollH": 574,
+        "clientH": 574,
+        "hidden": 0
+      },
+      "canvasesInMain": 0,
+      "canvasesInPage": 1
+    },
+    "tap": [
+      {
+        "tag": "BUTTON",
+        "role": "combobox",
+        "name": "Palette harmony",
+        "w": 898,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "role": "combobox",
+        "name": "Zone arrangement",
+        "w": 851,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "role": "combobox",
+        "name": "Painterly medium",
+        "w": 910,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "role": "combobox",
+        "name": "Motion register",
+        "w": 910,
+        "h": 36
+      },
+      {
+        "tag": "SPAN",
+        "role": "slider",
+        "name": "Colour Energy",
+        "w": 12,
+        "h": 24
+      },
+      {
+        "tag": "SPAN",
+        "role": "slider",
+        "name": "Noise",
+        "w": 12,
+        "h": 24
+      },
+      {
+        "tag": "SPAN",
+        "role": "slider",
+        "name": "Zones",
+        "w": 12,
+        "h": 24
+      },
+      {
+        "tag": "BUTTON",
+        "role": null,
+        "name": "Copy JSON",
+        "w": 135,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "role": null,
+        "name": "Reset",
+        "w": 89,
+        "h": 36
+      }
+    ],
+    "open": {
+      "found": true,
+      "contentRect": {
+        "x": 318,
+        "y": 301,
+        "w": 899.86,
+        "h": 322.28
+      },
+      "overflowsViewportBottom": -276.72,
+      "scrollable": false,
+      "scrollH": 320,
+      "clientH": 320,
+      "items": [
+        {
+          "text": "Analogous",
+          "h": 51.69,
+          "w": 889.86,
+          "stripEls": 5,
+          "swatchEls": 10
+        },
+        {
+          "text": "Complementary",
+          "h": 51.69,
+          "w": 889.86,
+          "stripEls": 5,
+          "swatchEls": 8
+        },
+        {
+          "text": "Split Complementary",
+          "h": 51.69,
+          "w": 889.86,
+          "stripEls": 5,
+          "swatchEls": 8
+        },
+        {
+          "text": "Triad",
+          "h": 51.69,
+          "w": 889.86,
+          "stripEls": 5,
+          "swatchEls": 8
+        },
+        {
+          "text": "Tetradic",
+          "h": 51.69,
+          "w": 889.86,
+          "stripEls": 5,
+          "swatchEls": 8
+        },
+        {
+          "text": "Monochrome",
+          "h": 51.69,
+          "w": 889.86,
+          "stripEls": 5,
+          "swatchEls": 8
+        }
+      ],
+      "distinctBgs": [
+        "oklab(0.915631 0.00547 0.013051 / 0.52)",
+        "oklch(0.63 0.2316 323.402008)",
+        "oklch(0.7367 0.1847 354.356689)",
+        "oklch(0.8433 0.0858 25.311399)",
+        "oklch(0.95 0.0298 56.265999)",
+        "oklch(0.63 0.2316 0.682)",
+        "oklch(0.7367 0.1752 306.783386)",
+        "oklch(0.8433 0.0824 246.783401)",
+        "oklch(0.95 0.0717 180.682007)",
+        "oklch(0.63 0.1261 168.985992)",
+        "oklch(0.7367 0.1787 56.783401)",
+        "oklch(0.8433 0.1356 322.884705)"
+      ]
+    },
+    "focus": {
+      "active": "Palette harmony",
+      "outline": "none 3px rgb(28, 25, 23) off=0px",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px"
+    }
+  },
+  "desktop-dark": {
+    "errs": [
+      "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "rows": [
+      {
+        "label": "Harmony",
+        "labelRect": {
+          "x": 224,
+          "w": 82.14,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 318.14,
+          "w": 897.86,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(195, 185, 172)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Palette harmony",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Arrangement",
+        "labelRect": {
+          "x": 224,
+          "w": 129.06,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 365.06,
+          "w": 850.94,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(195, 185, 172)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Zone arrangement",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Medium",
+        "labelRect": {
+          "x": 224,
+          "w": 70.41,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 306.41,
+          "w": 909.59,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(195, 185, 172)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Painterly medium",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Motion",
+        "labelRect": {
+          "x": 224,
+          "w": 70.41,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 306.41,
+          "w": 909.59,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(195, 185, 172)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Motion register",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      }
+    ],
+    "acreage": {
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "cardRect": {
+        "x": 199,
+        "y": 163.02,
+        "w": 1042,
+        "h": 653.42
+      },
+      "cardShareOfViewport": 52.54,
+      "scrollClipped": {
+        "scrollH": 574,
+        "clientH": 574,
+        "hidden": 0
+      },
+      "canvasesInMain": 0,
+      "canvasesInPage": 1
+    }
+  },
+  "mobile": {
+    "errs": [
+      "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "rows": [
+      {
+        "label": "Harmony",
+        "labelRect": {
+          "x": 33,
+          "w": 70.11,
+          "h": 21
+        },
+        "trigRect": {
+          "x": 115.11,
+          "w": 241.89,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 14px/21px ls=1.4px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 21px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 21px style=italic weight=400",
+        "trigAriaLabel": "Palette harmony",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Arrangement",
+        "labelRect": {
+          "x": 33,
+          "w": 110.17,
+          "h": 21
+        },
+        "trigRect": {
+          "x": 155.17,
+          "w": 201.83,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 14px/21px ls=1.4px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 21px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 21px style=italic weight=400",
+        "trigAriaLabel": "Zone arrangement",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Medium",
+        "labelRect": {
+          "x": 33,
+          "w": 60.09,
+          "h": 21
+        },
+        "trigRect": {
+          "x": 105.09,
+          "w": 251.91,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 14px/21px ls=1.4px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 21px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 21px style=italic weight=400",
+        "trigAriaLabel": "Painterly medium",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Motion",
+        "labelRect": {
+          "x": 33,
+          "w": 60.09,
+          "h": 21
+        },
+        "trigRect": {
+          "x": 105.09,
+          "w": 251.91,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 14px/21px ls=1.4px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 21px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 21px style=italic weight=400",
+        "trigAriaLabel": "Motion register",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      }
+    ],
+    "acreage": {
+      "viewport": {
+        "w": 390,
+        "h": 664
+      },
+      "cardRect": {
+        "x": 16,
+        "y": 104,
+        "w": 358,
+        "h": 552
+      },
+      "cardShareOfViewport": 76.31,
+      "scrollClipped": {
+        "scrollH": 632,
+        "clientH": 456,
+        "hidden": 176
+      },
+      "canvasesInMain": 0,
+      "canvasesInPage": 1
+    },
+    "tap": [
+      {
+        "tag": "BUTTON",
+        "role": "combobox",
+        "name": "Palette harmony",
+        "w": 242,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "role": "combobox",
+        "name": "Zone arrangement",
+        "w": 202,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "role": "combobox",
+        "name": "Painterly medium",
+        "w": 252,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "role": "combobox",
+        "name": "Motion register",
+        "w": 252,
+        "h": 36
+      },
+      {
+        "tag": "SPAN",
+        "role": "slider",
+        "name": "Colour Energy",
+        "w": 12,
+        "h": 44
+      },
+      {
+        "tag": "SPAN",
+        "role": "slider",
+        "name": "Noise",
+        "w": 12,
+        "h": 44
+      },
+      {
+        "tag": "SPAN",
+        "role": "slider",
+        "name": "Zones",
+        "w": 12,
+        "h": 44
+      }
+    ]
+  },
+  "forced-colors": {
+    "errs": [
+      "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "rows": [
+      {
+        "label": "Harmony",
+        "labelRect": {
+          "x": 224,
+          "w": 82.14,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 318.14,
+          "w": 897.86,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Palette harmony",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Arrangement",
+        "labelRect": {
+          "x": 224,
+          "w": 129.06,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 365.06,
+          "w": 850.94,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Zone arrangement",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Medium",
+        "labelRect": {
+          "x": 224,
+          "w": 70.41,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 306.41,
+          "w": 909.59,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Painterly medium",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Motion",
+        "labelRect": {
+          "x": 224,
+          "w": 70.41,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 306.41,
+          "w": 909.59,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Motion register",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      }
+    ]
+  },
+  "rtl": {
+    "errs": [
+      "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "rows": [
+      {
+        "label": "Harmony",
+        "labelRect": {
+          "x": 1133.86,
+          "w": 82.14,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 224,
+          "w": 897.86,
+          "h": 36
+        },
+        "gapLabelToTrig": -992,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Palette harmony",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Arrangement",
+        "labelRect": {
+          "x": 1086.94,
+          "w": 129.06,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 224,
+          "w": 850.94,
+          "h": 36
+        },
+        "gapLabelToTrig": -992,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Zone arrangement",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Medium",
+        "labelRect": {
+          "x": 1145.59,
+          "w": 70.41,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 224,
+          "w": 909.59,
+          "h": 36
+        },
+        "gapLabelToTrig": -992,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Painterly medium",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Motion",
+        "labelRect": {
+          "x": 1145.59,
+          "w": 70.41,
+          "h": 24.58
+        },
+        "trigRect": {
+          "x": 224,
+          "w": 909.59,
+          "h": 36
+        },
+        "gapLabelToTrig": -992,
+        "labelFont": "\"Fira Code\" 16.4px/24.6px ls=1.64px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 16.4px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 16.4px style=italic weight=400",
+        "trigAriaLabel": "Motion register",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      }
+    ],
+    "overflowX": 0
+  },
+  "zoom-200": {
+    "errs": [
+      "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "rows": [
+      {
+        "label": "Harmony",
+        "labelRect": {
+          "x": 129,
+          "w": 73.13,
+          "h": 21.89
+        },
+        "trigRect": {
+          "x": 214.13,
+          "w": 376.88,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 14.6px/21.9px ls=1.46px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 14.6px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 14.6px style=italic weight=400",
+        "trigAriaLabel": "Palette harmony",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Arrangement",
+        "labelRect": {
+          "x": 129,
+          "w": 114.91,
+          "h": 21.89
+        },
+        "trigRect": {
+          "x": 255.91,
+          "w": 335.09,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 14.6px/21.9px ls=1.46px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 14.6px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 14.6px style=italic weight=400",
+        "trigAriaLabel": "Zone arrangement",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Medium",
+        "labelRect": {
+          "x": 129,
+          "w": 62.67,
+          "h": 21.89
+        },
+        "trigRect": {
+          "x": 203.67,
+          "w": 387.33,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 14.6px/21.9px ls=1.46px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 14.6px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 14.6px style=italic weight=400",
+        "trigAriaLabel": "Painterly medium",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      },
+      {
+        "label": "Motion",
+        "labelRect": {
+          "x": 129,
+          "w": 62.67,
+          "h": 21.89
+        },
+        "trigRect": {
+          "x": 203.67,
+          "w": 387.33,
+          "h": 36
+        },
+        "gapLabelToTrig": 12,
+        "labelFont": "\"Fira Code\" 14.6px/21.9px ls=1.46px tt=uppercase color=rgb(112, 89, 66)",
+        "labelHasFor": false,
+        "labelTag": "SPAN",
+        "trigFont": "\"Plus Jakarta Sans\" 14.6px style=italic",
+        "valueFont": "\"Plus Jakarta Sans\" 14.6px style=italic weight=400",
+        "trigAriaLabel": "Motion register",
+        "trigAriaLabelledby": null,
+        "trigId": null,
+        "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+        "trackingCaps": "0.1em",
+        "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+      }
+    ],
+    "acreage": {
+      "viewport": {
+        "w": 720,
+        "h": 450
+      },
+      "cardRect": {
+        "x": 104,
+        "y": 104,
+        "w": 512,
+        "h": 338
+      },
+      "cardShareOfViewport": 53.41,
+      "scrollClipped": {
+        "scrollH": 567,
+        "clientH": 259,
+        "hidden": 308
+      },
+      "canvasesInMain": 0,
+      "canvasesInPage": 1
+    },
+    "overflowX": 0
+  }
+}

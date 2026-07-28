@@ -1,630 +1,653 @@
-# CHALLENGE-C — AdminUsersPanel.vue · the implementation is defective
+# CHALLENGE-C — AdminUsersPanel.vue · the implementation is defective (r3)
 
 ## Model receipt
 
-I observe myself to be **Opus 5**, model ID `claude-opus-5[1m]` — the tier this seat was explicitly
-spawned with. Not inherited, not undeclared.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the tier this seat was
+explicitly spawned with ("You are powered by the model named Opus 5 (1M context)"). Declared, not
+inherited, not undeclared.
 
 **Subject** `demo/palettes/browser/admin/AdminUsersPanel.vue` (391 lines) · **Area** palettes ·
-**Route** `#/admin/users` · **Date** 2026-07-27 · **Tree HEAD** `7cae8bd0` (the parent named
-`c654824e`; `7cae8bd0` is the harvest-banking commit that landed on top of it — the subject file is
-byte-identical between the two, `git diff c654824e..HEAD -- demo/palettes/browser/admin/AdminUsersPanel.vue`
-is empty).
+**Route** `#/admin/users` · **Date** 2026-07-28 · **Tree HEAD** `4f78e57b` (the parent named
+`c654824e`; the subject file is byte-identical —
+`git diff c654824e..HEAD -- demo/palettes/browser/admin/AdminUsersPanel.vue` is empty).
 
-**This is a re-deploy after the wall interrupt.** The first C seat's report is preserved verbatim at
-`challenge-C-implementation.2026-07-27-prior.md` (C-1 … C-14). Nothing in it is retracted; §3 below
-records what I independently re-verified. **This document adds eight rows the first seat did not
-test — C-15 … C-22 — every one of them reproduced in BOTH chromium and webkit.**
+**This is the third C deployment.** Both prior reports stand unretracted:
+
+- `challenge-C-implementation.2026-07-27-prior.md` — rows **C-1 … C-14**
+- `challenge-C-implementation.2026-07-27-r2-prior.md` — rows **C-15 … C-22**
+
+I re-derived this component's defects **without reading either prior report until my own probes had
+run**, then reconciled. §3 is the reconciliation: seven of the standing rows now carry a second,
+independently-produced two-engine receipt from a different probe harness — including both BLOCKERs.
+§§4–7 are what neither prior seat tested: **three new rows C-23 … C-25**, plus **one evidence
+correction C-26** against a claim in the r2 report that my measurement does not support.
 
 ---
 
-## 1 · Method (and the environment finding the first seat paid for)
+## 1 · Method
 
-The first seat could not render a single user row on `:9000` and stood up a second dev server. That
-is avoidable, and recording the cheaper route matters for every seat that follows.
+The dev server on `:9000` short-circuits every API call before a request leaves the page —
+`detectDevMisconfig` (`demo/platform/transport/availability.ts:112-116`) trips on *loopback page +
+unset `VITE_API_URL` + cross-origin `BASE_URL`, so `loadAdminUsers` throws `DevMisconfigError` and no
+route interception can reach the panel. Verified live:
 
-`demo/platform/transport/client.ts:36-43`:
-
-```ts
-const DEFAULT_REMOTE_API_URL = "https://api.color.babb.dev";
-export const BASE_URL = import.meta.env.VITE_API_URL ?? DEFAULT_REMOTE_API_URL;
-initApiEnvironment(BASE_URL);
+```
+$ node probe/dbg.mjs                      # :9000, admin token seeded, routes mocked
+[warning] Failed to load users: DevMisconfigError: value.js dev is MISCONFIGURED …
+TEXT: Users 0 | Manage accounts and permissions. | 0 users | Prune empty | Refresh |
+      The roster is unreachable. | … | Retry
 ```
 
-`detectDevMisconfig` (`availability.ts:112-116`) trips the latch on *loopback page + unset
-`VITE_API_URL` + cross-origin BASE_URL*. Rewriting the **module source** in flight removes the third
-leg, so `:9000` renders fully with no second server:
+The r2 seat's cure — rewriting `transport/client.ts` in flight — works. I chose the other leg of the
+same latch instead, because it needs no source rewriting at all and keeps the probe honest about
+which bytes it exercised: a **private read-only vite** with the variable set,
+`VITE_API_URL=http://localhost:9124 npx vite --port 9124`, which also makes the API **same-origin**.
+That last property turned out to be load-bearing and is worth recording for every seat that follows:
 
-```js
-await page.route(/transport\/client\.ts/, async (r) => {
-    const res = await r.fetch();
-    let t = await res.text();
-    t = t.replace(/"https:\/\/api\.color\.babb\.dev"/g, '"http://localhost:9000"');
-    await r.fulfill({ status: 200, headers: { "content-type": "application/javascript" }, body: t });
-});
-```
+> **WebKit does not expose CORS preflights to Playwright's router.** With a cross-origin mock, every
+> non-simple admin verb (`DELETE`, `POST` with `Authorization`) fails in WebKit only —
+> `"Failed to delete user: Backend unreachable"`, zero rows removed — while Chromium passes. That is
+> a *probe artefact* that will manufacture a false engine-divergence finding. Receipt:
+> `probe/dbg2.mjs` run cross-origin (`API GET /admin/users` … then nothing; `rows: 2`) versus the
+> same script same-origin (`API DELETE /admin/users/crimson-owl-77`; `rows: 1`).
 
-(The technique is the D seat's, in `probe-D2d-prune-failure.mjs`; it is faster and more faithful than
-a parallel server, because it exercises the same served bundle the visual REPORT captured.)
-
-Probes written by this seat, all re-runnable, all two-engine:
+Playwright 1.60, chromium + webkit, viewport 1440×900. Probes, all re-runnable, all two-engine where
+the claim requires it:
 
 | probe | covers |
 |---|---|
-| `probe-C2-implementation.mjs` / `.json` | C-15 · C-16 · C-17 · C-18 · C-19 · C-20 |
-| `probe-C2b-controls.mjs` / `.json` | the **controls** — single-click, prune double-fire, re-expand |
-| `probe-C2c-window.mjs` / `.json` | the measured double-fire window + witness frames |
+| `probe/aup-probe.mjs` | R1 unauth · R2 nested error · R3 race · R4 prune failure · R5 blast radius · R7 structure |
+| `probe/aup-probe2.mjs` | F1 focus loss · F3 timer truncation · **F4 slug pill (C-24)** · F5 live regions + nested interactives |
+| `probe/aup-probe3.mjs` | G2 discarded total · **G3 AX tree on the loading container (C-26)** |
+| `probe/aup-probe4.mjs` | **H1 terminal spinner (C-23)** · H2 double-fire |
+| `probe/aup-probe5.mjs` | live-region census, loading state and post-action state |
+| `probe/dbg3.mjs` | the end-to-end wrong-owner delete receipt for C-1 |
 
-Frames under `frames-C2/`. Playwright chromium + webkit bundled with `@playwright/test ^1.60.0`,
-viewport 1440×900. No finding below depends on macOS Full Keyboard Access, so **MT-F022 absorbs none
-of them**.
+No finding below depends on macOS Full Keyboard Access; **MT-F022 absorbs none of them.**
 
 ---
 
 ## 2 · Verdict
 
-**DEFECTIVE.** Carrying the prior seat's two BLOCKERs and adding one more, plus five MAJORs, one
-MINOR and one INFO of my own.
-
-New rows only:
+**DEFECTIVE.** The two standing BLOCKERs (C-1, C-2) and the r2 BLOCKER (C-15) all reproduce at this
+HEAD from an independent harness. Three new MAJORs and one evidence correction.
 
 | id | severity | one line |
 |---|---|---|
-| **C-15** | **BLOCKER** | the destructive confirm button stays live ~160–290 ms after it fires — one human double-click = **two whole-collection prunes** |
-| **C-16** | MAJOR | user search is client-side over a hard-coded 50-row window; the server's `q` param is wired and never sent → an existing user reports **"No users found."** |
-| **C-17** | MAJOR | with no admin token the roster renders **"· roster clear · No users found."** and Refresh issues **zero** requests |
-| **C-18** | MAJOR | an open disclosure is never invalidated by Refresh — the admin refreshes and keeps reading pre-refresh palettes |
-| **C-19** | MAJOR | collapse-mid-flight: a fetch the operator **cancelled** later overwrites a settled, correct disclosure, with no loading state in between |
-| **C-20** | MINOR | `aria-label` on `role=generic` loading containers is discarded by both engines; what is announced is `Loading` ×3 |
-| **C-21** | MAJOR | a **failed** prune is reported as **"No empty users to prune"** (corroborates the D seat; adds a second path into the same string) |
-| **C-22** | INFO | `tier as "standard"\|"featured"\|"archived"` — an unchecked cast on a server-supplied string, twice |
+| **C-23** | MAJOR | a request that never answers leaves the prune control **terminally** spinning — `pruning` is cleared only by `onPruneDone`, and there is **no `AbortController` or timeout anywhere in `demo/`** |
+| **C-24** | MAJOR | the tail-priority slug pill splits the identifier into two block boxes: **selecting and copying a slug yields `azure-\nfox-01`** — and this is the measured root of the mangled accessible names both prior seats recorded as incidental |
+| **C-25** | MAJOR | the app ships a working `Idempotency-Key` replay store, uses it on **palette saves**, and withholds it from **every admin destructive verb** — the missing server-side half of C-15's double-fire, already built, three files away |
+| **C-26** | INFO · correction | r2's C-20 states the loading container's `aria-label` "is discarded by **both** engines". Chromium's real AX tree exposes it: `{"role":"generic","ignored":false,"name":"Loading users"}`. The row survives on its other two legs; the mechanism claim must not enter the ledger unqualified. |
 
-Carried from the prior seat, re-verified at this HEAD: **C-1** (expand race → wrong owner deleted),
-**C-2** (filtered count / global destruction), C-3, C-4, C-5, C-6, C-7, C-8, C-9, C-10, C-11, C-12,
-C-13, C-14.
-
-**Strongest defect in the component overall: C-1.** Strongest *new* defect: **C-15**.
+**Strongest defect in the component overall: C-1** (unchanged — it is the only row that writes wrong
+data to the server). **Strongest new row: C-25**, because it is the one finding whose cure is already
+written, tested and deployed in this repository and simply not called.
 
 ---
 
-## 3 · What I re-verified from the prior report (independently)
+## 3 · Independent re-verification of the standing rows
 
-| prior row | how I re-checked it | result |
-|---|---|---|
-| C-1 (expand race) | **C-19** reaches the same broken end-state by a *different* gesture (expand-A → collapse-A → expand-B). Independent corroboration of the mechanism. | **HOLDS** — and C-19 shows it is worse than filed |
-| C-3 (`res.total` discarded, no paging) | `grep -rn 'listUsers(' demo/` → the **only** call site is `useAdminUsers.ts:59` `listUsers(token, 50)`; `admin-users.ts:21-32` declares `offset` and `q` — both dead | **HOLDS**, and C-16 sharpens it |
-| C-4 (`catch → return []`) | `useAdminUsers.ts:156-161` unchanged | **HOLDS** |
-| C-12 (test truth) | `grep -c 'plugin-vue\|plugins' vitest.config.ts` → **0**; `grep -rn 'from ".*\.vue"' test/ demo/test/ \| wc -l` → **0**; `@vue/test-utils` importers → **0**; `AdminUsers\|prune` in unit tests → **0** | **HOLDS at HEAD** |
-| negative proof (tap targets / names) | `REPORT.json` route `/#/admin/users`: `namelessButtons 0`, `imgNoAlt 0`, `overflowX 0`, `consoleErrors []`, `pageErrors []`, `bodyTextLength 273`; the 4 `smallTapTargets` are `Switch to slug` 22×22, `Generate new slug` 22×22, `Cancel` 22×22, `input` 160×23 — **all dock, none in this file** | **HOLDS** |
+Produced before reading either prior report, from `probe/aup-probe*.mjs`. Every line is a fresh
+two-engine measurement, not a re-reading of the prior evidence.
+
+### C-1 (BLOCKER, expand race → wrong owner destroyed) — **HOLDS**, with a stronger end-to-end receipt
+
+`toggleUserExpand` (`:352-365`) awaits and assigns with no key check. Azure's palettes delayed
+1500 ms, crimson's 30 ms; click azure, then crimson 100 ms later:
+
+```
+== chromium R3 ==                                == webkit R3 == (byte-identical)
+  R3 t+0.4s crimson shows its own data: true | azure leaked: false
+  R3 t+2.4s expanded row = "crimson- owl-77 1 Palettes"
+  R3 t+2.4s AZURE rows visible under it: true | CRIMSON visible: false
+```
+
+The prior seats stopped at the mis-attributed render and reasoned the delete forward. I drove it
+(`probe/dbg3.mjs`) — opening the leaked card's menu inside **crimson's** region and confirming:
+
+```
+MENU: ["AZURE ONE\nSave\nRemix\nExport\nReport\nADMIN\nFeature\nDelete (admin)", …]
+CONFIRM DIALOG: "(none)"                                   ← no confirmation on this path at all
+CALLS: ["GET /admin/users",
+        "GET /admin/users/azure-fox-01/palettes",
+        "GET /admin/users/crimson-owl-77/palettes",
+        "DELETE /admin/palettes/azure-one-11aa"]
+BADGES: ["azure-fox-014Palettes","azure-fox-01","crimson-owl-77"]
+```
+
+After the delete only **one** row still carries `role=button` — azure's, still reading **4**. Crimson's
+row lost its interactive role because `useAdminUsers.ts:118-121` decremented `ownerSlug` =
+crimson from 1 → 0. One click destroyed azure's palette, left azure's count overstated, and zeroed
+crimson's count while crimson still owns a palette. The reasoned consequence is now a measured one.
+
+Rider worth recording: the palette-menu "Delete (admin)" fires with **no confirmation dialog**
+(`CONFIRM DIALOG: "(none)"`), while every destructive verb the panel itself owns is confirmed. The
+panel's own W5-12 §No-workaround doctrine is not enforced on the path it wires at `:150`.
+
+### C-2 (BLOCKER, filtered count / global destruction) — **HOLDS**, now with the execution receipt
+
+The prior seat measured the promise. I executed it (`probe/aup-probe.mjs R5`; two empty users, search
+filtered to one, server answers `{pruned: 2}`):
+
+```
+== chromium R5 ==                              == webkit R5 == (identical)
+  R5 dialog: "Prune 1 empty users? This will permanently delete 1 user with 0 palettes and
+              their sessions. This cannot be undone. Cancel Prune"
+  R5 request actually sent: ["POST /admin/users/prune-empty"]
+  R5 result banner: "Pruned 2 users"
+```
+
+The dialog promised one, the app destroyed two, **and the app printed the true number afterwards** —
+the contradiction is on screen, after the irreversible act. Server side confirmed unfiltered and
+unbounded: `api/src/modules/admin/service/users.ts:228-237`, `users.findEmptyUserSlugs()` → `deleteMany`
+inside a transaction that also `deleteByUserSlugs` the sessions.
+
+### C-3 / C-16 (total discarded, no paging, client-side search) — **HOLDS**
+
+`probe/aup-probe3.mjs G2`, server answers 50 rows with `total: 1372`:
+
+```
+  G2 panel header: "Users 50 |  | Manage accounts and permissions. |  | 50 users | · 17 empty"
+  G2 pagination controls in the panel: 0
+```
+
+Both the header badge (`AdminPane.vue:33`) and the toolbar (`:8-10`) assert 50 for a 1372-user
+corpus. `PaginationBar.vue` sits unused in this component's own directory while
+`AdminAuditPanel.vue:83` and `AdminFlaggedPanel.vue:126` both mount it.
+
+### C-4 (nested error costumes as empty) — **HOLDS**
+
+`probe/aup-probe.mjs R2`, `/admin/users/*/palettes` → 500:
+
+```
+== chromium R2 ==                                == webkit R2 == (identical)
+  R2 after 500: "· 2 empty | Palettes | · NONE PINNED · | No palettes. | …"
+  R2 shows 'No palettes.': true
+  R2 shows any error affordance: false
+```
+
+The file forbids exactly this at `:49-50` ("error ≠ empty — a dead backend never costumes as an empty
+roster") and honours it for the roster only. The operator's next act after "No palettes." is
+"Delete user" — safe on an empty user, catastrophic on one whose palettes merely failed to load.
+
+### C-17 (no token → clear-roster plate, dead Refresh) — **HOLDS**
+
+`probe/aup-probe.mjs R1`, no admin token:
+
+```
+  R1 text/head: "Users 0 |  | Manage accounts and permissions. |  | 0 users | Prune empty | Refresh"
+  R1 admin API calls on load: []
+  R1 shows 'No users found.': true
+  R1 shows any error/retry: false
+  R1 Refresh -> new admin API calls: 0 []
+  R1 text unchanged after Refresh: true
+```
+
+This is the state the shipped visual audit captured:
+`audit/visual/shots/safari-desktop-light/admin-users.png` — dock reads "Login", panel reads
+"0 users … · ROSTER CLEAR · … No users found." A control that can neither succeed nor fail is
+furniture.
+
+### C-7 (focus + un-announced receipt) — **HOLDS**, both halves re-measured
+
+Focus after a destructive confirm, `probe/aup-probe2.mjs F1`:
+
+```
+== chromium F1 ==                                == webkit F1 ==
+  focus before:        BUTTON "Delete user crimson-owl-77"      (identical)
+  focus in dialog:     BUTTON "Cancel"                          (identical)
+  focus AFTER confirm: BODY  {"isBody":true}                    (identical)
+  rows left: 1                                                  (identical)
+```
+
+Timer truncation, `probe/aup-probe2.mjs F3` (two prunes ~1.7 s apart; each banner is specified for
+3000 ms):
+
+```
+  F3 banner1 alive at +1816ms: true
+  F3 banner2 set at +2109ms: true
+  F3 banner alive 1303ms after banner2: true
+  F3 banner alive 2207ms after banner2: false      ← killed at t≈3.4s by banner1's orphan timer
+```
+
+Banner 2 died ≈1.9 s early. And the receipt is outside every live region — `probe/aup-probe5.mjs`,
+identical in both engines:
+
+```
+  AFTER prune failure: {"bannerText":"No empty users to prune",
+                        "bannerInLiveRegion":false, "liveRegionsNow":1}
+```
+
+### C-6 (`role=button` rows with focusable descendants) — **HOLDS**
+
+`probe/aup-probe2.mjs F5`, identical in both engines:
+
+```
+{"panelLiveRegions":0,"rowsWithNestedButtons":[2,2],"inertRowsInTabOrder":2}
+```
+
+Two rows, two real `<button>` descendants each. WAI-ARIA 1.2 gives `button` **Children Presentational:
+True**. One DOM, two engines — no Full-Keyboard-Access dependency.
+
+### C-15 (confirm outlives its own click) — **HOLDS**
+
+`probe/aup-probe4.mjs H2`, a single `dblclick` on the confirm footer:
+
+```
+== chromium H2 ==
+  H2 prune POSTs after ONE dblclick: ["POST /admin/users/prune-empty","POST /admin/users/prune-empty"]
+```
+
+Two corpus-wide prunes from one gesture, reproduced from a different harness than the r2 seat's.
+**C-25 below is the half of this defect that no seat has filed.**
+
+### C-21 (failed prune reported as success) — **HOLDS**
+
+`probe/aup-probe.mjs R4`, `POST /admin/users/prune-empty` → 500:
+
+```
+  R4 toolbar before: "Users 4 | …"        (roster shows "· 2 empty")
+  R4 dialog: "Prune 2 empty users? …"
+  [console.error] the server responded with a status of 500
+  R4 after a 500 the panel says: "No empty users to prune"
+  R4 still lists empty users: true
+```
+
+### C-5 (the A-3 count printed over the error plate) — **HOLDS**
+
+Incidentally captured while diagnosing the `:9000` latch (`probe/dbg.mjs`): the count span is gated
+on `!loading` only (`:8`), so the error arm renders beneath it —
+
+```
+TEXT: Users 0 | Manage accounts and permissions. | 0 users | Prune empty | Refresh |
+      The roster is unreachable. | …
+```
+
+"0 users" above "The roster is unreachable." is exactly the self-contradiction the comment at `:5-7`
+claims to have cured for the loading case and left open for the error case.
 
 ---
 
-## 4 · C-15 · BLOCKER — the confirm button survives its own click for ~160–290 ms
+## 4 · C-23 · MAJOR — a request that never answers leaves the prune control terminally spinning
 
 ### The code
 
-`AdminUsersPanel.vue:283-286`:
+`pruning` has exactly two writers: `true` at `AdminUsersPanel.vue:295` (inside the confirm action) and
+`false` at `:304`, the first line of `onPruneDone`. `onPruneDone` is called from exactly one place —
+`usePalettePorts.ts:121-124`:
 
 ```ts
-function onConfirm() {
-    confirmAction.value?.();     // fire
-    confirmOpen.value = false;   // then ask the dialog to close
+async function onPrune() {
+    const pruned = await admin.onPruneEmpty();          // ← if this never settles…
+    admin.adminUsersPanelRef.value?.onPruneDone(pruned); // ← …this never runs
 }
 ```
 
-`confirmOpen.value = false` is synchronous, but DOM removal is a `nextTick` away and the Glass 7
-Dialog plays a leave transition first. Nothing disables the button, nothing clears `confirmAction`,
-nothing guards re-entry. The button is therefore **still mounted, still hit-testable, still bound to
-the same closure** for the length of the exit animation.
-
-### The measurement (`probe-C2c-window.mjs`, both engines)
-
-Click the confirm button once, then poll `document.elementFromPoint(cx, cy)` every ~20 ms:
+So the button's enabled state is hostage to a promise with no deadline. And there is no deadline
+anywhere:
 
 ```
-chromium   t=  4ms dialog:true  live:true
-           …
-           t=249ms dialog:true  live:true
-           t=271ms dialog:true  live:true      ← LAST LIVE
-           t=294ms dialog:false live:false
-  lastLiveAtMs: 271   firstDeadAtMs: 294
-
-webkit     t=  4ms … t=159ms dialog:true live:true   ← LAST LIVE
-           t=181ms dialog:false live:false
-  lastLiveAtMs: 159   firstDeadAtMs: 181
+$ grep -rn "AbortController\|AbortSignal" demo/ | wc -l
+0
 ```
 
-`live` means: the element under the cursor closes to a `<button>` whose text matches `Prune` and
-which is not `disabled`.
+`fetchWithRateLimitRetry` (`demo/platform/transport/client.ts:67-92`) calls `fetch(input, init)` with
+no `signal`, inside a retry loop. The transport can wait forever, and two `finally`-cleared flags in
+this panel (`pruning`, `loadingUserPalettes` at `:359-364`) inherit that.
 
-### The reproduction — two destructions from one gesture
+### The reproduction (`probe/aup-probe4.mjs H1` — `prune-empty` accepted and never answered)
 
-`probe-C2b-controls.mjs`, two real mouse clicks 30 ms apart at the same point:
-
-```json
-"K2b_doubleClickPrune": {
-  "prunePosts": ["POST /admin/users/prune-empty", "POST /admin/users/prune-empty"],
-  "atSecondClick": { "dialogPresent": true,
-                     "elementUnderCursor": "button.button",
-                     "elementText": "Prune" },
-  "beat": "Pruned 2 users"
-}
+```
+== chromium H1 ==
+  H1 t+1000ms  prune button: {"disabled":true,"spinner":true}
+  H1 t+5000ms  prune button: {"disabled":true,"spinner":true}
+  H1 t+10000ms prune button: {"disabled":true,"spinner":true}
 ```
 
-Byte-identical in chromium and webkit. The same shape on the per-user delete
-(`probe-C2-implementation.json → N2_doubleConfirm`):
+Terminal. Only a reload recovers; there is no cancel affordance and no message. The identical shape
+exists on the disclosure: a hung `GET …/palettes` leaves `loadingUserPalettes` true and the two
+skeletons up forever, with `expandedUserSlug` pinned so the row cannot even be collapsed back to a
+clean state without a second click that the operator has no reason to try.
 
-```json
-"deleteRequests": ["DELETE /admin/users/alpha-keeper-0001",
-                   "DELETE /admin/users/alpha-keeper-0001"]
-```
+### Why it is a MAJOR and not a MINOR
 
-### The control (this is what makes it a finding and not a probe artefact)
+A hung request is the *normal* failure mode of the state this console is used in — a slow admin
+backend under a long transaction is precisely what `pruneEmptyUsers` provokes
+(`api/src/modules/admin/service/users.ts:233-236` runs `deleteByUserSlugs` + `deleteMany` inside one
+`withTransaction`). The operator sees a spinner that means "in progress" and has no way to learn that
+it means "abandoned". The panel's other failure surfaces at least resolve to *something*; this one
+resolves to nothing, forever.
 
-`probe-C2b-controls.json → K2a_singleClickDeleteUser`, both engines:
+### Cure
 
-```json
-{ "deletes": ["DELETE /admin/users/alpha-keeper-0001"] }
-```
-
-**One click → exactly one request.** The second request is caused by the second click landing on a
-button that should no longer exist.
-
-### Why this is a BLOCKER and not a nuisance
-
-`POST /admin/users/prune-empty` takes no scope (`demo/palettes/api/admin-users.ts:69`) and deletes
-every empty user the *server* finds. Firing it twice is not idempotent in effect: between the two
-POSTs, other traffic may have emptied further accounts, so the second call destroys a set the
-operator never saw, never described and never confirmed. A 30 ms double-click is not exotic — it is
-the default behaviour of an impatient click, a trackpad bounce, or an accessibility switch with
-repeat enabled, and this is the most destructive control in the application.
-
-The receipt hides it: **`beat: "Pruned 2 users"` — one message for two executions**, because
-`onPruneDone` is called twice and the second overwrites the first. It also arms two overlapping 3 s
-timers, so C-7's truncation is now reachable from a single gesture.
-
-### Cure (transposition, not a patch)
-
-Do not add `if (busy) return` to `onConfirm` — that leaves the button clickable and merely
-swallows the second event, which is a different lie. The confirm control must not be able to
-outlive its own activation. Two structural moves, both already idiomatic in this repo:
-
-1. `onConfirm` becomes `async` and the footer button binds `:disabled` to the pending state, so
-   the button is *visibly* inert the instant it fires (and stays inert while the action is in
-   flight — which the current code cannot express, because `confirmAction` returns `void`).
-2. `confirmAction.value = null` on fire, so a late event has nothing to invoke. Store it in a
-   `shallowRef` — a closure in a deep `ref` is a Vue-3.5 anti-idiom (edict 7) and this is the
-   right moment to fix it.
-
-Because every `showConfirm` caller is in this one file, the whole confirm engine (`:254-286`) is
-the natural extraction: it is 33 lines of state machine embedded in a roster panel, and it is
-duplicated in spirit across the admin directory. Hoisting it removes a concern from a 391-line SFC
-rather than adding to one (edict 1).
+The deadline belongs in the transport, once, not in this panel: give `fetchWithRateLimitRetry` an
+`AbortSignal.timeout(ms)` (composed with any caller signal), so every one of the ~30 API wrappers
+inherits a bounded wait and `ApiProblem`/`ApiUnavailableError` becomes reachable on a hang. The panel
+then stops hand-toggling `pruning` at two call sites and derives it from the port's in-flight state —
+which is the same move C-1's keyed-resource cure already requires, so the two collapse into one
+change. Adding a local `setTimeout` watchdog inside this component would be the contrivance (edict 3):
+a per-component timeout is a second, divergent authority on what "too long" means.
 
 ---
 
-## 5 · C-16 · MAJOR — search is a 50-row client-side filter, so an existing user reads "No users found."
+## 5 · C-24 · MAJOR — the tail-priority slug pill breaks the identifier: copying a slug yields `azure-\nfox-01`
 
 ### The code
 
-- `demo/palettes/api/admin-users.ts:21-32` — `listUsers(token, limit = 20, offset = 0, q?: string)`;
-  `q` is forwarded to the server as a query parameter.
-- `demo/palettes/useAdminUsers.ts:59` — **the only call site in the tree**:
-  ```ts
-  const res = await listUsers(token, 50);      // no offset, no q, ever
-  ```
-  ```
-  $ grep -rn 'listUsers(' demo/
-  demo/palettes/useAdminUsers.ts:59:            const res = await listUsers(token, 50);
-  demo/palettes/api/admin-users.ts:21:export function listUsers(
-  ```
-- `useAdminUsers.ts:29-34` — the search is a client-side `filter` over `adminUsers.value`, i.e. over
-  the 50 rows that happen to be on page one.
+`AdminUsersPanel.vue:97-101` splits the slug into two spans inside a flex container:
 
-### The reproduction (`probe-C2-implementation.mjs → N4_search`, both engines identical)
+```html
+<span class="slug-pill flex items-baseline min-w-0 max-w-full" :style="…" :title="user.slug"
+><span class="truncate min-w-0">{{ slugHead(user.slug) }}</span><span class="shrink-0">{{ slugTail(user.slug) }}</span></span>
+```
 
-Server holds **60** users; 10 of them (`zed-offpage-user-000x`) sort outside the first 50. Type
-`zed-offpage` into "Search users…":
+The author deliberately elided the whitespace between the tags — so the *source* is careful about not
+introducing a gap. But `display: flex` on the parent makes both children **block-level boxes**, and
+block boxes are line-breaking boundaries for `innerText`, for the selection/copy serializer, and for
+the accessible-name algorithm's text concatenation. The care taken in the markup is undone by the
+layout mode.
+
+### The measurement (`probe/aup-probe2.mjs F4`) — byte-identical in chromium and webkit
 
 ```json
-{ "serverTotal": 60, "serverReturned": 50, "offpageUsers": 10,
-  "listRequests": ["GET /admin/users?limit=50&offset=0"],
-  "qParamSent": false,
-  "requestsAfterTyping": 0,
-  "afterSearch": { "rows": 0, "emptyPlate": true, "countLine": "50 users" } }
+{ "pillTitle":         "azure-fox-01",
+  "pillInnerText":     "azure-\nfox-01",
+  "pillTextContent":   "azure-fox-01",
+  "selectionToString": "azure-\nfox-01\n",
+  "rowInnerText":      "azure-⏎fox-01⏎4⏎Palettes",
+  "childDisplays":     ["block","block"],
+  "pillDisplay":       "flex" }
 ```
 
-Witness `frames-C2/N4-webkit-search-false-negative.png` (and `-chromium-`). On one screen,
-simultaneously:
-
-```
-Users [50]                 ← header badge
-50 users                   ← toolbar count
-· ROSTER CLEAR ·
-No users found.            ← ten matching users exist on the server
-[Prune empty]  (disabled)  ← three empty users exist on the server
-```
-
-`requestsAfterTyping: 0` is the load-bearing number: typing in the search field of an admin console
-**issues no query at all**. The server's search capability is dead code the client declined to call.
+`selectionToString` is produced by selecting the pill's contents and reading `window.getSelection()`
+— i.e. it is what the clipboard receives.
 
 ### Consequence
 
-An admin looking up an account to delete is told the account does not exist. The correct operator
-response to "No users found." — conclude the user is already gone — is exactly wrong. And because
-`emptyCount` (`:241`) is derived from the same filtered list, the filter simultaneously *disables*
-the Prune button while empty users exist (visible in the frame), which is the inverse arm of the
-prior seat's C-2.
+1. **The identity token cannot be copied.** In an admin console the slug is the string you select and
+   paste into the next query, a support ticket, or a CLI. Here it arrives with an embedded newline.
+   The `title` attribute holds the correct string but is mouse-hover-only and not copyable.
+2. **It is the root of a defect both prior seats recorded as noise.** r2's C-15 witness prints
+   `"openRow": "beta-drifte r-0002 2 Palettes"` and the r1 report prints
+   `"beta-drifter-0002 2 Palettes"` with the same break; both treated the mangling as a probe
+   artefact of `innerText`. It is not an artefact — it is the rendered accessible name. A screen
+   reader announces the disclosure control as *"azure dash, fox zero one, four, Palettes, button"*:
+   the identifier as two words, plus the label of a control the row is not.
+3. It compounds the r1 seat's C-9 (an empty slug yields a destructive control named `"Delete user "`):
+   this component has two independent paths by which a user's identity fails to reach the operator.
 
 ### Cure
 
-The parameters already exist. Debounce `searchQuery` into `listUsers(token, limit, offset, q)` and
-consume `res.total` (prior C-3), mounting the `PaginationBar.vue` that already sits in this
-component's own directory unused. No new module, no new dir (edict 3). Deleting the client-side
-`filter` at `useAdminUsers.ts:32-34` is part of the cure, not a casualty of it — two search
-authorities for one concern is the defect.
+Keep one text node and let CSS do the tail-priority truncation. The idiomatic single-element form is
+`direction: rtl; unicode-bidi: plaintext; overflow: hidden; text-overflow: ellipsis` on one span —
+the head ellipsises, the tail survives, and the DOM keeps exactly one text node, so copy, `innerText`
+and the accessible name are all the real slug. The W5-12 / F-13 intent (two prune candidates must stay
+distinguishable on a phone) is fully preserved; what goes away is the two-box implementation of it.
+`slugHead` / `slugTail` (`:246-252`) delete with it, taking a `SLUG_TAIL = 6` magic constant out of the
+SFC.
 
 ---
 
-## 6 · C-17 · MAJOR — no admin token renders "· roster clear · No users found." and a Refresh that does nothing
+## 6 · C-25 · MAJOR — the shipped replay protection is used by palette saves and withheld from every admin destructive verb
 
-### The code
+### The finding
 
-`useAdminUsers.ts:54-57`:
+This repository already implements idempotent mutation, end to end.
+
+**Server** — a body-hash replay store mounted globally, so it covers `/admin/*`:
 
 ```ts
-async function loadAdminUsers() {
-    const token = getAdminToken();
-    if (!token) return;              // ← before loadingUsers, before usersLoadError
-    loadingUsers.value = true;
+// api/src/app.ts:69-73
+app.use("*", idempotency);          // after injectServices + resolveSession
+// api/src/platform/http/idempotency.ts:93-99
+const idempotencyKey = c.req.header("Idempotency-Key");
+if (!idempotencyKey || idempotencyKey.trim() === "") { await next(); return; }   // opt-in
 ```
 
-The early return never sets `usersLoadError`, never sets `loadingUsers`. Downstream, the panel's
-state ladder (`:46` loading → `:51` loadError → `:63` `users.length === 0`) falls through to the
-third arm, which is the *success-with-no-data* plate.
-
-### The reproduction (`probe-C2-implementation.json → N5_noToken`, both engines identical)
-
-```json
-{ "mainText": "Users 0 Manage accounts and permissions. 0 users Prune empty Refresh
-                · ROSTER CLEAR · No users found. …",
-  "rows": 0,
-  "hasUnreachable": false,
-  "hasSignIn": false,
-  "refreshDisabled": false,
-  "adminRequestsBefore": 10, "adminRequestsAfterRefresh": 10 }
-```
-
-`hasSignIn: false` — nothing on the page mentions authentication. `refreshDisabled: false` with
-`adminRequestsBefore === adminRequestsAfterRefresh` — the Refresh button is fully enabled and
-pressing it issues **zero** requests, forever, with no feedback of any kind. Witness
-`frames-C2/N5-{chromium,webkit}-no-token-roster-clear.png`.
-
-This is not an exotic state: it is what **every** unauthenticated visitor to `#/admin/users` sees,
-and it is what an authenticated admin sees the moment their token is cleared.
-
-### Cure
-
-Same discriminated union the prior seat prescribed for C-5, with `unauthenticated` as a member. The
-guard `if (!token) return` is the bug: a function that can fail three ways
-(*no credential* / *request failed* / *succeeded*) must not return `void` for two of them.
-`AdminPane.vue` already gates on `pm.isAdminAuthenticated` elsewhere; the panel's own arm should be
-a sign-in affordance, not the clear-roster plate.
-
----
-
-## 7 · C-18 · MAJOR — Refresh does not invalidate the open disclosure
-
-### The code
-
-`toggleUserExpand` (`:352-365`) is the **only** writer of `userPalettes`. Nothing watches the
-`users` prop; nothing watches `loading`. So `emit("refresh")` (`:37`) re-fetches the roster and
-leaves the expanded row's contents untouched.
-
-### The reproduction (`probe-C2-implementation.json → N3_staleAcrossRefresh`, both engines)
-
-Expand `alpha-keeper-0001` while the server serves generation 1; change the server to generation 2;
-press Refresh:
-
-```json
-{ "gen1Rendered": true,
-  "paletteFetches": ["GET /admin/users/alpha-keeper-0001/palettes"],     ← exactly one, ever
-  "afterRefresh": { "stillExpanded": true, "showsGen1": true, "showsGen2": false } }
-```
-
-### The control (`probe-C2b-controls.json → K3_reexpandControl`, both engines)
-
-```json
-{ "afterFirstExpand": "GEN-1",
-  "afterRefresh":     "GEN-1",
-  "afterCollapseReexpand": "GEN-2",
-  "paletteFetches": ["GET /admin/users/.../palettes", "GET /admin/users/.../palettes"] }
-```
-
-Collapsing and re-expanding **does** pull GEN-2. So the server's truth genuinely changed and the
-transport is healthy — Refresh simply does not reach the disclosure. This is staleness, not caching.
-
-The admin presses Refresh precisely when they suspect the screen is stale, and the one region they
-are actively reading is the one region the button does not touch.
-
-### Cure
-
-Falls out of the prior C-1 cure. Once the disclosure is a keyed resource
-(`useAdminUserPalettes(slugRef)`), invalidation is a `watch` on the roster's fetch generation, and
-"Refresh" means one thing on the whole pane instead of two things on two halves of it.
-
----
-
-## 8 · C-19 · MAJOR — a cancelled fetch overwrites a settled, correct disclosure
-
-This is the prior C-1's mechanism reached by a different gesture, with a strictly worse signature.
-
-### The code
-
-`AdminUsersPanel.vue:352-357` — the collapse arm returns early and **does not touch
-`loadingUserPalettes`**, and there is no cancellation of the in-flight request it is collapsing:
+**Transport** — both request helpers forward the header:
 
 ```ts
-if (expandedUserSlug.value === slug) {
-    expandedUserSlug.value = null;
-    userPalettes.value = [];
-    return;                       // in-flight fetch keeps its claim on userPalettes
+// demo/platform/transport/client.ts:112-114 (request) and :145-147 (adminRequest)
+if (init?.idempotencyKey) headers["Idempotency-Key"] = init.idempotencyKey;
+```
+
+**Callers** — and here is the defect:
+
+```
+$ grep -rn "idempotencyKey" demo/palettes/api/
+demo/palettes/api/palettes.ts:80:        idempotencyKey: crypto.randomUUID(),
+demo/palettes/api/palettes.ts:145:       idempotencyKey: crypto.randomUUID(),
+demo/palettes/api/palettes.ts:161:       idempotencyKey: crypto.randomUUID(),
+
+$ grep -rln idempotencyKey demo/palettes/api/admin-*.ts | wc -l
+0
+```
+
+**Saving a palette** — the most recoverable action in the application — is replay-protected. **Pruning
+every empty user in the corpus** is not:
+
+```ts
+// demo/palettes/api/admin-users.ts:69-71
+export function pruneEmptyUsers(token: string): Promise<{ pruned: number }> {
+    return adminRequest("/admin/users/prune-empty", token, { method: "POST" });
 }
 ```
 
-### The reproduction (`probe-C2-implementation.json → N6_collapseMidflight`, both engines identical)
+Nor is `deleteUser`, nor `deleteUserPalettes`, nor `deletePaletteAdmin`, nor `featurePalette`.
 
-alpha's palettes served with a 1500 ms delay, beta's with 40 ms. Expand alpha → wait 250 ms →
-**collapse alpha** → wait 100 ms → expand beta:
+### Why this is a finding on this component
 
-```json
-"midway":  { "openRow": "beta-drifte r-0002 2 Palettes",
-             "region":  "BETA-DRIFTER-0002-PALETTE 2 0" },     ← correct
-"settled": { "openRow": "beta-drifte r-0002 2 Palettes",
-             "region":  "ALPHA-KEEPER-0001-PALETTE 2 0" }      ← alpha's data, in beta's row
+C-15's measured double-fire —
+
+```
+  H2 prune POSTs after ONE dblclick: ["POST /admin/users/prune-empty","POST /admin/users/prune-empty"]
 ```
 
-### Why it is worse than C-1 as filed
+— reaches the server as **two genuinely distinct prunes**, not one request replayed. Between them,
+other traffic may have emptied further accounts, so the second POST destroys a set the operator never
+saw and never confirmed. With an `Idempotency-Key` the second POST would replay the first response and
+destroy nothing, and the panel's `"Pruned N"` receipt would stop being ambiguous. The defence exists,
+is mounted, is tested, and is declined by exactly the verbs that need it most.
 
-1. The operator **explicitly cancelled** alpha — they clicked it closed. The application then honours
-   the cancelled request over the current one.
-2. beta's disclosure had already **settled correctly** and was showing beta's palette with no
-   loading state. ~1.2 s later the content silently mutates under a stable UI. There is no skeleton,
-   no flicker, no signal that anything re-rendered — the prior C-1's version at least passed through
-   a loading state.
-3. `AdminUsersPanel.vue:150` then binds the admin delete on that mis-attributed card to
-   `user.slug` — beta — so the prior seat's measured wrong-owner destruction
-   (`DELETE /admin/palettes/alpha-p-1` issued from beta's row) is reachable from this gesture too.
+This is not merely "the client should be more careful": the asymmetry itself is the defect. One
+concern (mutation safety) has two contradictory implementations in the same `api/` directory —
+present in `palettes.ts`, absent in `admin-*.ts` — which is the shape edict 2 exists to prevent.
+
+### Rider (honest scope limit)
+
+The replay key is scoped `identity:method:path:key` where
+`identity = c.var.sessionToken ?? c.var.userSlug ?? "anon"`
+(`api/src/platform/http/idempotency.ts:108`). An admin request authenticated by `Authorization:
+Bearer` may resolve neither, collapsing to `"anon"` — correctness-preserving for replay (the key is a
+UUID) but it puts all admins in one bucket. Adding the admin identity to the scope key is part of the
+cure, not a reason to defer it. **I did not run the server**, so this rider is source-derived and
+labelled as such; the client-side half above is grep-exact.
 
 ### Cure
 
-The same `AbortController`-keyed resource as C-1. Note specifically that a sequence counter alone
-would **not** fix this variant cleanly: the collapse arm must also cancel, which a counter placed only
-on the fetch path forgets. Making the response for a non-current key unrepresentable is what closes
-both triggers at once.
+Two lines per admin mutation — `{ method: "POST", idempotencyKey: crypto.randomUUID() }` — using the
+mechanism, the helper and the header that already ship. Zero new modules, zero new directories
+(edict 3). It does not replace C-15's UI cure (the button must still not outlive its click); it makes
+the failure of that cure survivable, which is what a destructive console requires.
 
 ---
 
-## 9 · C-20 · MINOR — the loading containers' `aria-label` is discarded; the roster announces "Loading" three times
+## 7 · C-26 · INFO (evidence correction) — r2's C-20 mechanism claim is not supported in Chromium
 
-### The code
+r2's C-20 states (§9): *"A `<div>` with no `role` maps to ARIA `generic` … the accessible name is
+discarded"*, evidenced by
+`snapshotMentionsLoadingUsers: false` from Playwright's `ariaSnapshot`, and concluded **"discarded by
+both engines"**.
 
-`AdminUsersPanel.vue:46` and `:135`:
-
-```html
-<div v-if="loading" class="grid gap-3" aria-label="Loading users">
-    <AdminListSkeleton v-for="i in 3" :key="i" />
-```
-```html
-<div v-if="loadingUserPalettes" class="grid gap-2" aria-label="Loading palettes">
-    <AdminListSkeleton v-for="i in 2" :key="i" />
-```
-
-A `<div>` with no `role` maps to ARIA `generic`. **ARIA 1.2, §5.2.8.4 "Roles which cannot be named"**
-lists `generic` among the roles for which `aria-label` is *prohibited*; the accessible name is
-discarded.
-
-### The measurement (`probe-C2-implementation.json → N1_loadingAria`, both engines identical)
-
-DOM:
-
-```json
-[{ "tag": "div", "role": null, "ariaLabel": "Loading users",
-   "childRoles": ["status", "status", "status"] },
- { "tag": "div", "role": "status", "ariaLabel": "Loading", "childRoles": [] },  ×3 ]
-```
-
-Accessible tree (Playwright ARIA snapshot, chromium **and** webkit):
+`ariaSnapshot` is Playwright's own tree approximation, not the browser's accessibility tree. Querying
+Chromium's real tree over CDP (`probe/aup-probe3.mjs G3`, `Accessibility.getFullAXTree`) while the
+roster is loading:
 
 ```
-ariaSnapshotLoadingLines : ["  - status \"Loading\"",
-                            "  - status \"Loading\"",
-                            "  - status \"Loading\""]
-snapshotMentionsLoadingUsers : false
+  G3 DOM: {"present":true,"role":null,"ariaLive":null,"ariaBusy":null}
+  G3 Chromium AX nodes whose computed NAME is 'Loading users': 1
+     [{"role":"generic","ignored":false,"name":"Loading users"}]
+  G3 (AX tree has 134 nodes; 19 unignored generics)
 ```
 
-The author's name — the only string that would tell a screen-reader user *what* is loading — is
-absent from both engines' trees. What is announced instead is `AdminListSkeleton.vue:10-11`'s
-`role="status" aria-label="Loading"`, rendered three times by `v-for="i in 3"`: three identical live
-regions firing "Loading. Loading. Loading."
+Chromium computes and exposes the name on the unignored `generic` node. The name is **not** discarded
+there.
 
-Pair this with the prior seat's C-7 (the *result* of destroying users is announced **zero** times)
-and the panel's announcement budget is exactly inverted.
+**The row still stands**, on its other two legs, both of which I re-measured:
 
-### Cure
+1. ARIA 1.2 prohibits `aria-label` on `generic`, so what an AT does with this name is *undefined* and
+   engine-dependent — which is a defect in its own right, and is now demonstrated rather than
+   asserted (Chromium exposes it; Playwright's normalised view does not).
+2. The duplicate live regions are real and unqualified: `probe/aup-probe5.mjs`, identical in both
+   engines —
+   ```
+   LOADING-state live regions in main: [{"role":"status","label":"Loading"},
+                                        {"role":"status","label":"Loading"},
+                                        {"role":"status","label":"Loading"},
+                                        {"role":"status","label":null,"txt":"· EMPTY PLATE ·…"}]
+   ```
+   three identical `role="status"` regions (`AdminListSkeleton.vue:10-11` × `v-for="i in 3"`, `:47`)
+   announcing "Loading. Loading. Loading."
 
-`role="status"` belongs on the **container** (once), carrying the name; the repeated skeletons are
-decoration and should be `aria-hidden="true"` rather than three competing live regions. Since
-`AdminListSkeleton.vue` is consumed by five admin panels, moving the announcement off the atom and
-onto the container is one edit that corrects five surfaces (edict 1: fix at the shared atom, not per
-instance).
+The cure r2 prescribed is correct and unchanged: `role="status"` once on the container carrying the
+name, skeletons `aria-hidden="true"`. Only the stated mechanism needs correcting before it is
+adjudicated — a ledger row that says "both engines discard it" invites the wrong fix (add a role *and*
+keep three live regions) and will not survive a re-measurement.
 
 ---
 
-## 10 · C-21 · MAJOR — a failed prune is reported as "No empty users to prune"
-
-Filed independently by the **D seat** (`challenge-D-design.md`, probe `probe-D2d-prune-failure.mjs`,
-frame `frames-D2/G-prune-FAILED-desktop-light.png`). I re-file it on the implementation axis because
-its mechanism is a code defect, not a design one, and because I found a **second path into the same
-string** that the D seat did not record.
-
-`useAdminUsers.ts:186-199`:
-
-```ts
-async function onPruneEmpty(): Promise<number> {
-    const token = getAdminToken();
-    if (!token) return 0;                                   // ← PATH 2
-    try { … return result.pruned; }
-    catch (e: any) { console.warn(…); return 0; }           // ← PATH 1 (D seat's)
-}
-```
-
-`AdminUsersPanel.vue:303-309` maps `0` to `"No empty users to prune"`. So **three** distinct
-outcomes — *the server refused* / *the credential is gone* / *there was genuinely nothing to
-prune* — collapse into one reassuring sentence. D's measurement:
+## 8 · Test truth — re-measured, unchanged, with the new rows mapped
 
 ```
-[warn] Failed to prune empty users: Internal Server Error
-PRUNE-FAILURE: { "message": "No empty users to prune", … "anyErrorRole": false }
+$ grep -rn "prune\|Prune" e2e/ test/ | grep -v node_modules
+e2e/smoke/admin/fixtures/admin-populated.ts:17:  * Mutation verbs (POST feature, DELETE palette/flags, POST prune) answer a
+e2e/smoke/admin/fixtures/admin-populated.ts:160:  if (url.includes("/prune-empty")) return json(JSON.stringify({ pruned: 1 }));
+$ grep -rln "AdminUsers\|adminUsers" test/ | wc -l
+0
 ```
 
-with the toolbar simultaneously reading "· 2 empty". `onPruneDone(count: number)` is the signature
-defect: a `number` cannot express failure, so no downstream code can.
+The most destructive control in the application appears in the test tree exactly twice, both times as
+a **route-table entry**, never as an assertion. No unit test can mount this component at all
+(r1's C-12, re-verified: `vitest.config.ts` declares no `plugins`, so no `.vue` is transformable).
+
+| gate | asserts | mutation that stays GREEN |
+|---|---|---|
+| `a11y-authed-admin.spec.ts:63` (BR-9) | row has `role=button` / `tabindex` / `aria-expanded`; Enter flips it to `"true"` | replace `userPalettes.value = await pm.loadUserPalettes(slug)` with `userPalettes.value = []`, or with a hard-coded *other* slug. The spec never asserts the disclosure's **contents** — C-1 and C-4 live entirely outside its scope. |
+| `a11y-authed-admin.spec.ts` battery | no nameless / sub-24px control in `main` | every row in this report. It ran green on shipped code while C-6, C-7 and C-24 were live. |
+| `flows/user-status.spec.ts:14` | one DELETE reached the backend (`expect.poll(() => deleteCalled).toBe(true)`) | fire `confirmAction` twice (C-15) — still `true`; drop focus restoration (C-7) — still `true`; never close the dialog — still `true`. |
+| — | **C-23** | remove the `finally` from `toggleUserExpand` entirely; no spec ever observes a settled loading flag |
+| — | **C-24** | change `SLUG_TAIL` to any value, or drop the tail span; no spec asserts a slug's text integrity, only `getByText("azure-fox-01")` which matches on the *combined* text |
+| — | **C-25** | delete the three `idempotencyKey: crypto.randomUUID()` lines in `palettes.ts`; nothing asserts the header is sent |
+
+Rider, unchanged from my own reading: `e2e/smoke/admin/fixtures/admin-populated.ts:27` imports from
+`../../../../demo/@/lib/palette/types`, a path that does not exist (`ls demo/@/lib/palette/types.ts`
+→ *No such file or directory*; the live module is `demo/palettes/types.ts`). It is an `import type`,
+elided at runtime, so the fixture works — a dead reference only a typecheck over `e2e/` would catch.
 
 ---
 
-## 11 · C-22 · INFO — an unchecked cast on a server-supplied string, twice
+## 9 · Negative proof — what I attacked at this HEAD and could not break
 
-`AdminUsersPanel.vue:371-380`:
-
-```ts
-function updatePaletteTier(paletteSlug: string, tier: string) {
-    …
-    userPalettes.value[idx] = { ...existing, tier: tier as "standard" | "featured" | "archived" };
-```
-
-and the caller, `useAdminUsers.ts:92`, casts `result.tier` the same way. The parameter is typed
-`string` and then asserted into a three-member union with no validation. A server that returns any
-fourth tier value lands an off-union string in `Palette.tier`, which `PaletteCard` then branches on.
-INFO because today's server is constrained; recorded because a cast is the type system being told to
-stop looking, and this file has two of them on the same value.
-
----
-
-## 12 · Test truth — updated for the new rows
-
-Re-measured at this HEAD:
-
-```
-$ grep -c 'plugin-vue\|plugins' vitest.config.ts                  → 0
-$ grep -rn 'from ".*\.vue"' test/ demo/test/ | wc -l              → 0
-$ grep -rln '@vue/test-utils' test/ demo/test/ e2e/ | wc -l       → 0
-$ grep -rln 'AdminUsers\|prune' test/ demo/test/ | wc -l          → 0
-```
-
-`vitest.config.ts` declares no `plugins` key, so no `.vue` file is transformable under `npm test`;
-`@vue/test-utils` and `jsdom` are devDependencies with zero importers. **The prior seat's C-12 holds
-verbatim.**
-
-The only coverage is `e2e/smoke/admin/{admin-walk,admin-populated,a11y-authed-admin}.spec.ts` and
-`flows/user-status.spec.ts`. The mutations that keep them green, one per new row:
-
-| row | mutation that stays GREEN |
-|---|---|
-| C-15 | delete `confirmOpen.value = false` from `onConfirm` entirely and close the dialog on a 400 ms timer instead — every spec that asserts "one DELETE fires" still passes, because it fires |
-| C-16 | replace `useAdminUsers.ts:33` with `users = users.filter(() => true)` — search becomes a no-op; no spec asserts a filtered row count |
-| C-17 | change `if (!token) return` to `if (!token) { adminUsers.value = []; return; }` — identical rendering, no spec is unauthenticated |
-| C-18 | make `emit("refresh")` a no-op on the panel side; no spec presses Refresh with a row expanded |
-| C-19 | no spec expands a row twice, so *any* change to the collapse arm is invisible |
-| C-20 | delete both `aria-label`s; `a11y-authed-admin.spec.ts` asserts `nameless == []` over **buttons**, not containers |
-| C-21 | make `onPruneEmpty` `return 0` unconditionally — the prune POST still fires, which is all `user-status.spec.ts` checks |
-
-Seven of eight new rows are invisible to the entire gate. That is the same vacuous-gate finding the
-prior seat filed as C-12, now with seven more instances behind it.
+- **The visual REPORT charges this component nothing.** `audit/visual/REPORT.json`, route
+  `/#/admin/users`, all four matrices: `namelessButtons 0`, `imgNoAlt 0`, `overflowX 0`,
+  `pageErrors []`, `consoleErrors []`, `failedRequests []`. The four `smallTapTargets` are `input`
+  160×23, `Switch to slug` 22×22, `Generate new slug` 22×22, `Cancel` 22×22 — **all dock chrome, none
+  from this file**. The component's own icon-only control measures **28 × 36 px** and is named
+  (`probe/aup-probe.mjs R7`: `"deleteBtnBox":{"w":28,"h":36}`, `aria-label="Delete user <slug>"`).
+- **The BR-9 keyboard cure is genuinely correct.** `role`/`tabindex`/`aria-expanded` apply only when
+  `paletteCount > 0` (`:85-87`) so inert rows never enter the tab order — measured
+  `inertRowsInTabOrder: 2` for 2 non-empty rows out of 4 users — and the `e.target !== e.currentTarget`
+  guard (`:345`) genuinely prevents a nested button's Enter from toggling the row.
+- **The destructive dialog opens focus on Cancel, not on the destructive button**, in both engines
+  (`F1`: `focus in dialog: BUTTON "Cancel"`). That is the correct default and I could not make it
+  open on the destructive action.
+- **The roster's own error path is right** — `loadError` → `EmptyState variant="error"` with a real
+  Retry (`:51-62`), and `EmptyState.vue:17` carries `role="alert"`. C-4 is the *absence* of that
+  pattern one level down, not a defect in the pattern itself.
+- **`vj-celebrate` is a real, defined transition.** `demo/styles/animations.css:142-157` defines
+  `-enter-active`, `-leave-active`, `-enter-from`, `-leave-to`, plus the
+  `--vj-celebrate-x/-y/-scale` token contract. Edict 6 satisfied; the beat animates.
+- **The named local hazards have no site here.** Over the subject file: `defineModel` 0 · `ValueUnit`
+  0 · `parseCssColor` 0 · `requestAnimationFrame` 0 · `addEventListener` 0 · `Observer` 0 ·
+  `setInterval` 0 · WebGL 0 · reka-ui slider 0. No PRM-RAF instance, no oklch→HSV roundtrip, no
+  pointer capture to leak, nothing that wraps a possibly-already-wrapped value.
+- **`verbatimModuleSyntax` satisfied** — `:199` `import type { Palette, User }` is the only type-only
+  import and is correctly marked.
+- **No unbounded growth, no leaked handle beyond the known one.** `userPalettes` is replaced wholesale
+  (`:361`, `:368`, `:375`), never appended; `confirmAction` is overwritten per `showConfirm`; the
+  file's only scheduled work is the single `setTimeout` at `:308` (C-7).
+- **I could not produce concurrent `loadAdminUsers` calls** from the Refresh button — `:disabled="loading"`
+  holds.
 
 ---
 
-## 13 · Negative proof — what I attacked at this HEAD and could not break
+## 10 · Family grouping — the new rows against the standing mechanisms
 
-- **The visual REPORT charges this component nothing.** `REPORT.json`, route `/#/admin/users`,
-  safari-desktop-light and -dark: `namelessButtons 0`, `imgNoAlt 0`, `overflowX 0`,
-  `consoleErrors []`, `consoleWarnings []`, `pageErrors []`, `failedRequests []`,
-  `bodyTextLength 273`. The four `smallTapTargets` are `input` 160×23, `Switch to slug` 22×22,
-  `Generate new slug` 22×22, `Cancel` 22×22 — **all dock controls, none from this file**.
-- **The named local hazards have no site here.** `grep` over the subject file: `defineModel` 0 ·
-  `ValueUnit` 0 · `parseCssColor` 0 · `requestAnimationFrame` 0 · `addEventListener` 0 · `Observer`
-  0 · `setInterval` 0 · WebGL 0 · reka-ui slider 0. The PRM-RAF epidemic does not touch this
-  component; there is no oklch→HSV roundtrip and no pointer capture to leak.
-- **`verbatimModuleSyntax` is satisfied.** `:199` `import type { Palette, User }` is the sole
-  type-only import and is correctly marked. `import { Transition } from "vue"` at `:186` is a value
-  import of a built-in component — redundant (the compiler resolves `<Transition>` without it) but
-  not a violation.
-- **`vj-celebrate` is a real, defined transition, not a dead class name.** `grep -rn vj-celebrate demo/`
-  → 24 hits including `demo/styles/animations.css:142-165` (`-enter-active`, `-leave-active`,
-  `-enter-from`, `-leave-to`, `-enter-to`, `-leave-from`) and the token contract
-  `--vj-celebrate-x/-y/-scale/-collapse/-expanded`. Edict 6 is satisfied; the beat animates.
-- **No unbounded growth, no leaked handle.** `userPalettes` is replaced wholesale (`:361`, `:368`,
-  `:375`), never appended. `confirmAction` is overwritten per `showConfirm`. The file's only
-  scheduled work is the single `setTimeout` at `:308` (prior C-7).
-- **The keydown guard at `:344-350` is correct**, as the prior seat found. I add one measurement it
-  lacked: `e.repeat` is unguarded (`grep -rn '\.repeat' demo/` returns only `String.prototype.repeat`
-  hits in a test), so a held Enter would re-fire expand/collapse and a fetch per repeat. I did **not**
-  drive OS-level auto-repeat and therefore label this a **HYPOTHESIS**, not a finding.
-- **`emit("refresh")` is correctly gated** by `:disabled="loading"` — I could not produce concurrent
-  `loadAdminUsers` calls from the button.
-
----
-
-## 14 · Family grouping — the new rows fold into the two known mechanisms, plus one new one
+The r2 seat's three mechanisms absorb two of my three new rows, and C-24 exposes a fourth.
 
 **Mechanism A · a value is sourced from a different authority than the one that acts on it** —
-prior C-1, C-2, C-3; **new C-16** (search authority is the client's 50-row cache; the corpus is the
-server's), **new C-18** (the disclosure's authority is one gesture; the roster's is another),
-**new C-19** (the response's key is not the row's key).
-*Cure*: bind a value to its key, and take a destructive action's scope from its executor.
+C-1, C-2, C-3, C-16, C-18, C-19. *No new members.*
 
-**Mechanism B · failure, absence and emptiness are the same value** — prior C-4, C-5, C-8, C-9;
-**new C-17** (`if (!token) return` → the clear-roster plate), **new C-21**
-(`return 0` for three different outcomes). `void` and `0` are being used as error channels.
-*Cure*: a discriminated union at the composable boundary — `unauthenticated | loading | error |
-resolved` — so "count" and "empty" cannot be written in a state that has neither.
+**Mechanism B · failure, absence and emptiness are the same value** — C-4, C-5, C-8, C-9, C-17, C-21.
+*No new members.*
 
-**Mechanism C (new) · a control outlives its own activation** — **C-15**. The confirm button, the
-prune timer (`:308`, prior C-7) and the in-flight disclosure fetch (C-19) are three instances of the
-same shape: work that is started is never given a way to be *finished, cancelled, or made
-unrepeatable*. All three cures are the same move — make the thing that started the work own its
-termination (disable + null the closure; keep the timer handle; abort on key change).
+**Mechanism C · work is started with no way to be finished, cancelled or made unrepeatable** —
+C-15 (the live confirm button), C-7 (the un-owned timer), C-19 (the un-cancelled fetch); **new
+C-23** (the unbounded request whose only clearing path is its own success) and **new C-25** (the
+un-keyed destructive POST, i.e. the *server's* half of the same absence). C-25 is the sharpest
+instance because the termination mechanism is already built and simply not called.
+*Cure*: one transport-level `AbortSignal.timeout`, one `idempotencyKey` per admin mutation, one
+disable-on-fire, one owned timer handle. Four instances, four one-line applications of machinery that
+already exists in this repository.
+
+**Mechanism D (new) · a presentation transform destroys the datum it presents** — **C-24**. The
+tail-priority split is a layout decision that silently rewrites the identifier for the clipboard, for
+`innerText`, and for the accessibility tree. It is worth naming separately because it is invisible to
+every gate the project owns — the pixels are correct, the `textContent` is correct, and only the
+serialisations a machine reads are wrong. Both prior seats saw its output and read it as noise.
+*Cure*: perform visual truncation with CSS on one text node; never with DOM surgery on the string.
 
 ---
 
-## 15 · Owner-edict compliance (implementation axis)
+## 11 · Owner-edict compliance (new rows only; the standing table in r2 §15 is unchanged)
 
-| edict | finding |
+| edict | new finding |
 |---|---|
-| 1 · no god modules | 391 lines carrying seven concerns (toolbar, roster, disclosure, **confirm engine**, feedback timer, keyboard, slug formatting). C-15's cure extracts the confirm engine; C-1/C-18's extracts the disclosure. Both **remove** concerns. The panel also hand-rolls its row (`:78-132`) while `AdminListItem.vue` sits unused in the same directory — noted as corroboration of the adjudicated MT-AU1 scope, not filed anew. |
-| 2 · no legacy code | Clean. No shim, alias, dual path or masking fallback **in this file**. Note that `useAdminUsers.ts:186-199`'s `return 0` **is** a masking fallback (C-21) — one file out. |
-| 3 · KISS | Every cure above reuses something that already exists: `PaginationBar.vue` (C-16), `ActionFeedback.vue` (C-7), `AdminListSkeleton.vue` (C-20), `AdminListItem.vue`. No new shared dir is required by anything I found. |
-| 4 · glass-ui first | C-15 is a **consumer** defect, not a Glass 7 one — the Dialog's leave transition is correct behaviour; the panel is wrong to leave a live destructive closure inside it. The focus-restoration rider the prior seat routed to the BH relay (INBOX I-20) remains glass-owned. |
-| 5 · root-level styling | `:99` and `:168` set `color`/`borderColor` inline per instance on `.slug-pill`. Re-verified: `demo/styles/foundation.css:585-587` is `@apply text-mono-small font-bold px-2 py-0.5 rounded-full border;` — no colour at all, and `:584` says so in prose ("Consumers set `color` / `border-color` per-instance via :style"). The recipe *documents* the per-instance override rather than owning the token. Corroborates the adjudicated L-9; no new row. |
-| 6 · animations never deleted | Clean — `vj-celebrate` verified live (negative proof). |
-| 7 · idiomatic Vue 3.5 | Reactive props destructure at `:205-220` is correct; `defineModel` unused so its stale-read hazard does not arise. **New**: `confirmAction = ref<(() => void) \| null>(null)` (`:261`) stores a closure in a deep `ref` — should be `shallowRef` (folded into C-15's cure). The `defineExpose` imperative surface at `:389` is the adjudicated L-1/L-2 anti-idiom. |
-| 8 · `verbatimModuleSyntax` | Clean (negative proof). |
+| 1 · no god modules | C-23's cure **removes** the hand-toggled `pruning` flag from the SFC by deriving it from the port; C-24's cure deletes `slugHead`/`slugTail`/`SLUG_TAIL` (`:243-252`) from a 391-line file. Both shrink the component. |
+| 2 · no legacy code | **C-25 is an edict-2 finding in substance**: one concern (mutation replay safety) with two contradictory implementations in one directory — present in `api/palettes.ts`, absent in `api/admin-*.ts`. A dual path, even though neither half is a shim. |
+| 3 · KISS | Every new cure calls machinery that already ships: `AbortSignal.timeout` in the one transport helper, `idempotencyKey` in `RequestOptions`, CSS truncation on the existing `.slug-pill` recipe. No new dir, no new wrapper. |
+| 4 · glass-ui first | C-23 · C-24 · C-25 are all demo-side; none is a Glass 7 defect and none needs a BH relay. |
+| 5 · root-level styling | C-24's cure lands in `demo/styles/foundation.css:585-587`, where `.slug-pill` already lives (`@apply text-mono-small font-bold px-2 py-0.5 rounded-full border;`) — the truncation rule belongs on the recipe, not on each instance. Corroborates the standing L-9 note that this recipe documents its own per-instance colour override rather than owning a token. |
+| 6 · animations | untouched by all three new rows. |
+| 7 · idiomatic Vue 3.5 | C-23's cure replaces two hand-set boolean writes with port-derived state — the same direction as the standing L-1/L-2 note on the `defineExpose` imperative surface at `:389` (whose exported `userPalettes` ref, I confirm, has **zero** consumers: `grep -rn "\.userPalettes" demo/` finds only the definition and the expose). |
+| 8 · `verbatimModuleSyntax` | clean (negative proof). |
 
 ---
 
-## 16 · Reproduction index
+## 12 · Reproduction index
 
 ```bash
-# Dev server already live at :9000 — no second server needed (see §1).
-node docs/tranches/V/megatranche/audit/components/AdminUsersPanel/probe-C2-implementation.mjs  # C-15..C-20
-node docs/tranches/V/megatranche/audit/components/AdminUsersPanel/probe-C2b-controls.mjs       # the controls
-node docs/tranches/V/megatranche/audit/components/AdminUsersPanel/probe-C2c-window.mjs         # C-15 window + frames
+# One private, read-only dev server — same-origin API so WebKit can be routed (see §1).
+VITE_API_URL=http://localhost:9124 npx vite --port 9124 --strictPort &
 
-# prior seat's probes (require VITE_API_URL=http://localhost:9077 npx vite --port 9077)
-node .../probe-impl.mjs  .../probe-impl-c3.mjs  .../probe-impl-c3b.mjs
-node .../probe-impl-c8.mjs  .../probe-impl-c9.mjs  .../probe-impl-c9b.mjs  .../probe-impl-c10.mjs
+cd docs/tranches/V/megatranche/audit/components/AdminUsersPanel/probe
+node aup-probe.mjs  chromium R1   # C-17 unauth + dead Refresh      (and webkit)
+node aup-probe.mjs  chromium R2   # C-4  nested error costume
+node aup-probe.mjs  chromium R3   # C-1  the race
+node aup-probe.mjs  chromium R4   # C-21 failed prune reads success
+node aup-probe.mjs  chromium R5   # C-2  blast radius, executed
+node aup-probe2.mjs chromium F1   # C-7  focus → BODY               (and webkit)
+node aup-probe2.mjs chromium F3   # C-7  timer truncation, measured
+node aup-probe2.mjs chromium F4   # C-24 slug pill / clipboard      (and webkit)
+node aup-probe2.mjs chromium F5   # C-6  nested interactives, live regions
+node aup-probe3.mjs chromium G2   # C-3  total discarded (1372 → "50 users")
+node aup-probe3.mjs chromium G3   # C-26 real Chromium AX tree
+node aup-probe4.mjs chromium H1   # C-23 terminal spinner
+node aup-probe4.mjs chromium H2   # C-15 double-fire
+node aup-probe5.mjs chromium      # C-7/C-20 live-region census     (and webkit)
+node dbg3.mjs                     # C-1  end-to-end wrong-owner delete
 ```
 
-**Witness-tracking warning** (inherits the arbiter's G-8): `.gitignore:34` is `*.png`, so frames
-under `frames-C2/` need `git add -f` to enter the record. Every finding above is fully carried by
-its `.json` output, so none depends on an untracked image.
+Every probe drives the private server only; nothing in the repository is mutated and no shared dev
+server is touched. All findings are carried by pasted stdout — none depends on an untracked image
+(`.gitignore:34` is `*.png`).

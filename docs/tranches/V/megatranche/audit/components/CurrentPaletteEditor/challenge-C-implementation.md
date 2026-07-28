@@ -1,10 +1,10 @@
-# CHALLENGE-C — `CurrentPaletteEditor.vue` is improperly implemented
+# CHALLENGE-C — `CurrentPaletteEditor.vue` is improperly implemented (pass 3)
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]` (1M-context variant), the
-tier this seat was explicitly declared with. The declaration is honoured; this is not an inherited
-or undeclared seat.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant,
+the tier this seat was explicitly declared with. The declaration is honoured; this is not an
+inherited or undeclared seat.
 
 ---
 
@@ -14,788 +14,650 @@ or undeclared seat.
 |---|---|
 | Component | `demo/palettes/browser/card/CurrentPaletteEditor.vue` (312 lines, area `palettes`) |
 | Composables read | `card/composables/useSwatchActions.ts` (116), `useHoverPopover.ts` (67), `useLeaveTimer.ts` (17) |
-| Child read | `card/SwatchHoverMenu.vue` (93) |
-| Parent read | `demo/palettes/PalettesPane.vue:41-54` → `usePalettePorts.ts` → `usePaletteActions.ts` → `usePaletteStore.ts` |
-| Producer | `@mkbabb/glass-ui@7.0.0` (`node_modules/@mkbabb/glass-ui/package.json` → `7.0.0`) |
-| Repo | branch `tranche-u`, HEAD `c654824e` |
-| Live substrate | `http://localhost:9000` (dev server, real user path via the dock view-select) |
+| Child read | `card/SwatchHoverMenu.vue` (93), `browser/status/ApiOfflineChip.vue` |
+| Parent chain read | `PalettesPane.vue:41-54` → `usePalettePorts.ts` → `usePaletteActions.ts` → `usePaletteStore.ts`; `color-session/useColorPipeline.ts`, `useColorPersistence.ts` |
+| Producer | `@mkbabb/glass-ui@7.0.0` (`node_modules/@mkbabb/glass-ui/package.json`), `dist/watercolor-dot.{js,d.ts}` |
+| Repo | branch `tranche-u`. Task cited HEAD `c654824e`; the working HEAD is `7775473b`. Verified docs-only delta — `git log --stat c654824e..7775473b` touches no `demo/`, `src/`, `api/`, `test/` or `e2e/` file. |
+| Live substrate | `http://localhost:9000` (dev server) |
 
-**A prior pass of this seat is preserved at `challenge-C-implementation.2026-07-27-pass1.md`.**
-This report is an independent re-derivation: every number below was measured by me in this
-session, with the probe scripts kept in the session scratchpad
-(`…/scratchpad/cpe-probe{1,2,3,4,5,6,7,8,9}.mjs`) and their stdout pasted verbatim.
+**Prior passes of this seat are preserved** at `challenge-C-implementation.2026-07-27-pass1.md`
+and `challenge-C-implementation.2026-07-28-pass2-prior.md`. This is an **independent
+re-derivation**: I read the source before reading either prior, and every number below was
+measured by me in this session. My probe scripts and screenshots are kept beside this report at
+`probe/probe-{A,B,C,D,E}.mjs`, `probe/*.png` — re-runnable with `node <path>`, all read-only.
 
-Probe protocol for every run: fresh isolated Chromium context → `addInitScript` seeds
-`localStorage["color-picker"]` with three saved colours → `goto("/")` → dock view-select →
-`Palettes` → assert → measure. No source file was modified; the tree is unchanged apart from this
-report.
+A **convergence + delta table against the priors is at the end**; the short version is that the
+two BLOCKER families reproduce exactly, and this pass adds one new BLOCKER-adjacent phantom-class
+finding (C-5) that neither prior tested, plus a second destructive variant of the stale-latch bug
+and two measured identity/metadata losses.
 
 ---
 
 ## Verdict
 
-**DEFECTIVE — four BLOCKERs.**
+**DEFECTIVE — BLOCKER.**
 
-The component is not merely rough: **its interactive surface does not exist at runtime.** The
-add-current-colour control, every palette swatch, and the entire touch action path render as
-decorative `<span aria-hidden="true" style="pointer-events:none">` elements. The desktop
-hover-menu — the one remaining route to edit/copy/remove — is positioned by a **CSS class that is
-defined nowhere in the repository or in glass-ui**, so it lands off-screen at the bottom of
-`<body>`, transparent and invisible, while being `aria-hidden` with three focusable buttons inside
-it. And the duplicate-name `Update` affordance **irreversibly destroys a stored palette**: I
-reduced a persisted 3-colour palette to `colors: 0` through the shipped UI.
+The component does not work. Not "has rough edges" — **the two things it exists to do are inert
+in the shipped tree.** You cannot add a colour to the current palette; you cannot edit, copy or
+remove a colour already in it. The one path that still functions (type a name → Enter → save)
+carries a latched-state bug that **silently overwrites an unrelated stored palette and discards
+the name the user typed** — I did it through the shipped UI and diffed `localStorage`. Two of the
+component's own CSS class names resolve to **zero rules** in the live document, which is why the
+hover action menu renders off-screen and why three buttons have no hover, press or focus register
+at all.
 
-The one automated test that touches this component is **RED on HEAD** (I ran it), and **CI never
-runs Playwright at all** — so nothing in the gate stack can see any of this.
+Every CI gate is green. `vue-tsc` exits 0. There is no unit test. CI runs **no Playwright**, and
+the one e2e spec written for this exact flow is **RED on HEAD** — I ran it.
 
-| id | severity | one line |
-|---|---|---|
-| C-1 | BLOCKER | the add-current-colour control is not a control — `tag`/`aria-label`/`@click`/slot all silently dropped |
-| C-2 | BLOCKER | every swatch is `aria-hidden` + `pointer-events:none`; the touch action path is dead |
-| C-3 | BLOCKER | `.floating-panel` is a phantom class → the hover menu renders `position:static` at `y=900` in a 900px viewport |
-| C-4 | BLOCKER | `Update` writes `colors: []` over a stored palette — measured 3 → 0, no undo |
-| C-5 | MAJOR | stale `colorIndex` → committing an edit after a removal appends a phantom duplicate (measured) |
-| C-6 | MAJOR | `swatchKeys` defeat `TransitionGroup` identity: one removal remounts the whole remaining row |
-| C-7 | MAJOR | the component's own default name collides with an existing palette |
-| C-8 | MAJOR | the save button is nameless — the component's contribution to the visual REPORT's `namelessButtons` |
-| C-9 | MINOR | dead code: unreachable `:disabled`, unreachable null-guard, a fully dead `TooltipProvider` block |
-| C-10 | MINOR | two contradictory insert orders for one gesture (push-to-end vs unshift-to-front) + alpha-blind dedupe |
-| C-11 | MINOR | uncancelled leave timer, unused media-query subscription, no reposition on scroll |
-| C-12 | MINOR | 202 DOM mutation records in the swatch row for a drag that changed no saved colour |
-| C-13 | MINOR | `role="alert"` backend annunciator gated on palette emptiness → re-announced on every 0↔1 transition |
-| C-14 | INFO | no unit test; the one e2e spec is RED; CI runs no Playwright; `vue-tsc` exits 0 |
+| id | severity | one line | new this pass |
+|---|---|---|---|
+| C-1 | BLOCKER | the add-current-colour control is a decorative `<span>` — `tag`/`aria-label`/`@click`/default-slot all silently discarded | — (re-confirmed) |
+| C-2 | BLOCKER | every swatch is `aria-hidden` + `pointer-events:none`; keyboard AND touch action paths are dead | — (re-confirmed) |
+| C-3 | BLOCKER | latched `duplicateTarget` → `Update` overwrites a *differently named* palette and drops the typed name (measured store diff) | **new variant** |
+| C-4 | MAJOR | `.floating-panel` is a phantom class → hover menu renders `position:static` at `y=900` in a 900px viewport, transparent | — (re-confirmed) |
+| C-5 | MAJOR | **`.btn-interactive` is also a phantom class** — T.W5 `2f4623e5` deleted working hover/press/focus utilities in favour of a class that has never existed | **NEW** |
+| C-6 | MAJOR | 3 focusable buttons inside an `aria-hidden="true"` container (`axe` `aria-hidden-focus`) | — |
+| C-7 | MAJOR | the Save button has no accessible name; the repo's own e2e spec documents it in prose instead of failing on it | — |
+| C-8 | MAJOR | duplicate-name refusal is silent to AT — no live region, no focus move | — |
+| C-9 | MAJOR | `swatchKeys` are index-derived → every key re-mints on any removal or reorder; `TransitionGroup` identity destroyed | — |
+| C-10 | MAJOR | `colorsFromStrings` drops `PaletteColor.name` and `.weight`; the update path destroys extraction metadata | **new framing** |
+| C-11 | MINOR | `addCurrentColor` identity is a raw string compare — measured `indexOf === -1` for the *same* physical colour across a space change | **new measurement** |
+| C-12 | MINOR | `useLeaveTimer` has no `onScopeDispose` | — |
+| C-13 | MINOR | three action buttons still carry the exact per-site strays the file's own comment declares retired, incl. a suppressed focus ring | **new framing** |
+| C-14 | MINOR | redundant prop pair: `savedPaletteCount` is `savedPalettes.length`, both passed from one expression | — |
+| C-15 | INFO | needless + asymmetric `TransitionGroup` import; unused `css` parameter | — |
+| C-16 | BLOCKER (gate) | vacuous gate stack: 0 unit tests, `vue-tsc` blind by construction, CI runs no Playwright, `palette-save.spec.ts` RED and unobserved | — |
+
+---
+
+## Root mechanism — one producer contract, three findings
+
+`WatercolorDot` in `@mkbabb/glass-ui@7.0.0` is a **decorative primitive by producer design.**
+Its published type surface (`dist/components/watercolor-dot/WatercolorDot.vue.d.ts`) is exactly:
+
+```ts
+type __VLS_Props = { color: string; variant?: "solid" | "ghost"; animate?: boolean;
+                     cycleDuration?: number; range?: [number, number]; seed?: string };
+```
+
+No `tag`. No `as`/`asChild`. The slots parameter of its `DefineComponent` is `{}` — **no default
+slot**. The runtime (`dist/watercolor-dot.js`) declares `inheritAttrs: false`, re-applies **only**
+`attrs.class` and `attrs.style`, hard-codes `aria-hidden="true"` on a hard-coded `<span>`, writes
+`pointerEvents: "none"` into the inline style unconditionally, and renders children
+`[filterSvg, ghostStrokeSpan]` — there is **no `renderSlot` call anywhere in the component**.
+
+`CurrentPaletteEditor.vue:95-105` and `SwatchHoverMenu.vue:14-20,29-36` consume it as if it were
+an interactive polymorphic element. Of the eight things they pass, glass-ui 7 honours two
+(`color`, `class`).
+
+`vue-tsc` cannot see this: an unknown prop is a legal fall-through attr, `aria-label` is a legal
+attr, `@click` is a legal listener, and default-slot content against a `{}`-slots component is not
+an error. **The typecheck gate is structurally blind to the entire family.**
 
 ---
 
 ## BLOCKER C-1 — the primary action is not a control
 
-`CurrentPaletteEditor.vue:95-105` mounts the component's reason to exist:
+`CurrentPaletteEditor.vue:95-105` mounts the component's reason to exist as a `WatercolorDot` with
+`tag="button"`, `:aria-label`, `@click="addCurrentColor"` and a `<Plus>` child.
 
-```vue
-<WatercolorDot
-    :color="cssColorOpaque"
-    variant="ghost"
-    tag="button"
-    seed="add-current-slot"
-    class="add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer"
-    :aria-label="`Add current color ${cssColorOpaque} to palette`"
-    @click="addCurrentColor"
->
-    <Plus class="w-5 h-5 text-primary/60 pointer-events-none" aria-hidden="true" />
-</WatercolorDot>
+**Measured live** (`probe/probe-A.mjs`, `/#/palettes`, 1440×900, verbatim stdout):
+
+```json
+"addSlot": { "found": true, "tagName": "SPAN", "ariaLabel": null, "ariaHidden": "true",
+             "role": null, "tabIndex": -1, "pointerEvents": "none",
+             "hasPlusSvg": false, "innerSvgClasses": ["watercolor-filter-host"],
+             "rect": { "x": 767, "y": 347.65625, "width": 48, "height": 48 } },
+"addButtonByRole": 0,
+"anyElementWithAddLabel": [],
+"swatchCount": { "before": 7, "after": 7 },
+"bodyTextAfterClick": "… My Palettes … Start a new palette … No saved palettes yet. …"
 ```
 
-### What the producer actually is
+`SPAN`, not `BUTTON`. `aria-label` → `null`. `tabIndex: -1`. `pointer-events: none`. No `<Plus>`
+— visible in the shipped visual audit itself
+(`docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/palettes.png`: the add slot
+is a bare dashed blob with no `+` glyph). A forced click changes nothing: 7 → 7 swatches, body
+text unchanged.
 
-`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js` — the shipped glass-ui 7.0.0 component:
-
-```js
-E = e(c({
-  inheritAttrs: !1,
-  __name: "WatercolorDot",
-  props: { color:{}, variant:{default:"solid"}, animate:{...}, cycleDuration:{...}, range:{...}, seed:{default:""} },
-  setup(e) {
-    let t = e, n = h() /* useAttrs */, c = i(() => n.class), f = i(() => n.style);
-    …
-    return (t, n) => (d(), o("span", {
-        "aria-hidden": "true",
-        class: l([c.value, "watercolor-swatch", …]),
-        "data-testid": "watercolor-swatch",
-        "data-variant": e.variant,
-        style: u([f.value, { …, pointerEvents: "none", … }])
-    }, [ …svg filter…, e.variant === "ghost" ? … : a("", !0) ], 14, C));
-  }
-}), [["__scopeId","data-v-292b9032"]]);
-```
-
-Four facts follow mechanically:
-
-1. **There is no `tag` prop** — and no `as`/`asChild`. The element is hard-coded `"span"`.
-2. **`inheritAttrs: false`, and only `attrs.class` + `attrs.style` are re-applied.** `aria-label`,
-   `onClick`, `tabindex`, `data-*` — every other attr and listener is **discarded**.
-3. **`pointerEvents: "none"` is written into the inline style unconditionally.**
-4. **The render function contains no `<slot/>`.** The `<Plus>` child is discarded.
-
-So of the eight things the consumer passes, glass-ui 7 honours exactly two (`class`, `color`).
-
-### Measured on the live app
-
-Verbatim DOM dump of the well on `/#/palettes` (`cpe-probe3.mjs`):
+**The repository's own e2e proves it.** `e2e/smoke/flows/palette-save.spec.ts:34-37` targets
+exactly this control:
 
 ```
-dashed-well count: 1
-… <div class="swatch-row flex items-center gap-2.5 flex-wrap"><div>
-  <span data-v-292b9032 data-v-0ce6f2b0 aria-hidden="true"
-        class="add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch"
-        data-testid="watercolor-swatch" data-variant="ghost"
-        style="border-radius: 28.1208% …; pointer-events: none; --watercolor-color: lab(92% 88.8 20); …">
-    <svg class="watercolor-filter-host" aria-hidden="true" …>…</svg>
-    <span class="watercolor-ghost-stroke" aria-hidden="true" …></span>
-  </span> …
-
-elements labelled 'Add current color': []
-```
-
-`<span>`, not `<button>`. No `aria-label`. No `<Plus>`. `pointer-events: none`.
-
-Behavioural confirmation (`cpe-probe8.mjs`) — click it and hit-test it:
-
-```
-3 add-slot count: 1
-3 tooltip after hovering add slot: {"tooltips":0,"tooltipText":[]}
-4 savedColors length before/after clicking the add slot: 3 3
-5 elementFromPoint at the add slot centre: {"tag":"DIV","cls":""}
-```
-
-`elementFromPoint` at the dot's centre returns the bare wrapper `<div>` — the dot is not in the hit
-region at all. Clicking changes nothing. The screenshot (`scratchpad/cpe-pane.png`) shows the
-dashed silhouette with **no `+` glyph** in it, exactly as the render function predicts.
-
-**Reproduction:** open `http://localhost:9000/#/palettes` via the dock, click the dashed add slot,
-observe `localStorage["color-picker"].savedColors` unchanged. Or `document.querySelectorAll('[aria-label^="Add current color"]').length === 0`.
-
-**Blast radius beyond this seat.** `grep -rn -A6 "<WatercolorDot" demo | grep "tag="` returns six
-`tag="button"` sites — `SwatchHoverMenu.vue:17,32`, `CurrentPaletteEditor.vue:98`,
-`MixSourceSelector.vue:168,215`, `GenerateControls.vue:203`. Every one is a dead control by the
-same mechanism. The `tag="div"` sites are harmless (they were always decorative).
-
-**Cure (gestalt, not patch).** The producer's contract is *decorative pigment*, and that is the
-right contract — a watercolour blob is not a button. The consumer must stop pretending otherwise:
-the affordance is a real focusable control from the design system with the dot as its child —
-
-```vue
-<Button variant="ghost" icon-only class="add-slot-ghost …"
-        :aria-label="`Add current color ${cssColorOpaque} to palette`"
-        @click="addCurrentColor">
-    <WatercolorDot :color="cssColorOpaque" variant="ghost" seed="add-current-slot" class="w-11 h-11" />
-    <Plus class="w-5 h-5 text-primary/60" aria-hidden="true" />
-</Button>
-```
-
-and the `tag` prop — which names an API that does not exist — is deleted at all six sites. That is
-the no-legacy edict applied literally: a prop nobody implements is a shim for a version that is
-gone. If the fleet wants dot-shaped buttons as a first-class thing, that variant belongs in
-glass-ui (edict 4), not in a `tag=` string the producer ignores.
-
----
-
-## BLOCKER C-2 — every swatch is decorative; the touch action path is dead
-
-`SwatchHoverMenu.vue:13-21` (touch branch) and `:29-36` (hover branch) pass the same discarded
-props to the same producer:
-
-```vue
-<PopoverTrigger as-child>
-    <WatercolorDot :color="color" :variant="ghost ? 'ghost' : 'solid'" tag="button"
-                   :aria-label="`Color swatch ${color}`" :class="[sizeClass, 'shrink-0 cursor-pointer', …]" />
-</PopoverTrigger>
-```
-
-`as-child` merges the trigger's `id`/`aria-expanded`/`aria-haspopup`/`onClick` onto the child
-vnode; `inheritAttrs:false` then throws all of them away. Measured on an **iPhone 14 context**
-(`cpe-probe5.mjs`, `(hover:hover)` false → the Popover branch is the one that renders):
-
-```
-T (hover:hover) matches: false
-T well info: {
- "wrappers": 3,
- "firstWrapperHTML": "<div class=\"relative\"><!-- Touch: native Popover click toggle -->
-   <span aria-hidden=\"true\" class=\"w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch\"
-         data-testid=\"watercolor-swatch\" data-variant=\"solid\"
-         style=\"background-color: lab(50 20 -30); …; pointer-even…",
- "popoverTriggers": 0
-}
-T first swatch box: {"x":46,"y":298.578125,"width":44,"height":50}
-T after tap on swatch: {"popoverContent":0,"floatingPanel":0,"anyEditBtn":0}
-```
-
-`popoverTriggers: 0` — no `aria-haspopup`, no `aria-expanded`, no reka anchor attribute survives.
-A real `touchscreen.tap()` at the swatch centre opens nothing.
-
-`SwatchHoverMenu.vue:38-39` states the design intent in a comment:
-
-> *"hover-only panel is keyboard-inaccessible — hidden from AT. **The reka-ui Popover (touch path)
-> is the accessible route.**"*
-
-**The declared accessible route does not function.** On any touch device, the current-palette
-swatches have zero available actions — no edit, no copy, no remove — and combined with C-1 the
-whole swatch surface on mobile is a picture.
-
-### The accessibility tree of the whole editor
-
-`cpe-probe8.mjs`, aria snapshot of `.dashed-well` with three colours staged:
-
-```
-1 aria snapshot of .dashed-well:
-- text: Current Palette 3 colors
-- alert: "dev misconfigured — run `npm run dev`"
-- textbox "Palette 1"
-- button:
-  - img
-
-2 focusables inside .dashed-well: [{"tag":"INPUT","name":"Palette 1"},{"tag":"BUTTON","name":""}]
-```
-
-Three colours are on screen. **The accessibility tree contains none of them, and contains no way
-to add, edit, copy, or remove one.** Two focusable elements exist in the entire component: a
-textbox and one nameless button. This is not a missing-label defect; the interactive surface is
-absent.
-
-**Cure.** Same transposition as C-1 — the swatch is a `<button>` (or the glass-ui control atom)
-whose *child* is the decorative dot. That single change simultaneously restores the accessible
-name, the hit region, the Popover trigger wiring, and keyboard operability.
-
----
-
-## BLOCKER C-3 — `.floating-panel` is a phantom class: the hover menu renders off-screen
-
-`SwatchHoverMenu.vue:37-51` teleports the hover action panel to `<body>` and positions it with
-inline `top`/`left` computed in `useHoverPopover.ts:20-24`:
-
-```ts
-function positionPanel(swatchEl: Element, offsetY = -42) {
-    const rect = swatchEl.getBoundingClientRect();
-    style.top = `${rect.top + offsetY}px`;
-    style.left = `${rect.left + rect.width / 2}px`;
-}
-```
-
-Those coordinates only mean anything under `position: fixed|absolute`. The panel's only positioning
-hook is `class="floating-panel"`.
-
-**`.floating-panel` is defined nowhere.**
-
-```
-$ /usr/bin/grep -rn "floating-panel" demo src api test e2e
-demo/DESIGN.md:273:…(dialog, floating-panel, card-menu, shimmer) come from `@mkbabb/glass-ui/styles/animations.css`.
-demo/styles/animations.css:2: * Shared keyframes (dialog, floating-panel, card-menu, shimmer, etc.)
-demo/palettes/browser/card/composables/useHoverPopover.ts:7: * Shared hover-timer + floating-panel positioning pattern.
-demo/palettes/browser/card/SwatchHoverMenu.vue:42:                    class="floating-panel"
-```
-
-One consumer, three prose mentions, **zero rules** — in demo/ *and* in the producer
-(`grep -rc "floating-panel" node_modules/@mkbabb/glass-ui/dist/glass-ui.css` → `0`; the whole
-`dist/styles/*.css` set → no hits).
-
-Confirmed against the running document rather than the source tree (`cpe-probe1.mjs` walks every
-`CSSStyleSheet`, recursing into `@media`/`@supports`):
-
-```
-P1 .floating-panel CSS rules: { "hits": [], "rulesScanned": 986, "sheetsBlocked": 0, "sheets": 32 }
-```
-
-### The measured consequence
-
-`cpe-probe4.mjs`, three colours staged, hovering swatch 0 in a 1440×900 viewport:
-
-```
-C swatch wrapper rect: {"x":767,"y":347.640625,"width":48,"height":54.90625}
-C .floating-panel: {
- "parentIsBody": true,
- "inlineStyle": "top: 305.641px; left: 791px;",
- "position": "static",
- "top": "305.641px",
- "left": "791px",
- "zIndex": "auto",
- "background": "rgba(0, 0, 0, 0)",
- "boxShadow": "none",
- "rect": { "x": 0, "y": 900, "w": 1440, "h": 40 },
- "ariaHidden": "true",
- "buttons": ["Edit color lab(50% 20 -30)", "Copy color lab(50% 20 -30)", "Remove color lab(50% 20 -30) from palette"],
- "docScrollH": 940,
- "winH": 900
-}
-```
-
-Read that carefully:
-
-- `position: "static"` — the computed `top: 305.641px; left: 791px` are **inert**.
-- The panel lands at `y = 900` in a **900px viewport**: entirely below the fold. It should have
-  been at `y ≈ 306`, next to a swatch at `y ≈ 348`. It is **594px off-station**.
-- `w: 1440` — a full-viewport-width block, because a static `<div>` teleported to `<body>` fills
-  the body.
-- `background: rgba(0,0,0,0)`, `boxShadow: none`, `zIndex: auto` — no surface at all. It never had
-  a glass plate; the class that was supposed to supply one does not exist.
-- `docScrollH: 940` vs `winH: 900` — **the panel grows the document by 40px**, minting a spurious
-  scrollbar on a viewport-locked shell every time the pointer crosses a swatch.
-- `ariaHidden: "true"` with three focusable `<button>`s inside → the axe-core `aria-hidden-focus`
-  violation ("ARIA hidden element must not contain focusable elements"), landed at the very end of
-  the tab order.
-
-The screenshot `scratchpad/cpe-hover.png` is the visual proof: the pointer is on the first swatch,
-and **nothing appears anywhere near it**.
-
-So, folding C-1 → C-3 together: **the only surviving route to edit, copy or remove a staged colour
-is an invisible, transparent, aria-hidden strip 594px below the swatch it belongs to.** I could
-click it only because Playwright scrolls elements into view; a human cannot find it.
-
-The visual REPORT could not catch this — it never hovers. `REPORT.json` for
-`safari-desktop-light /#/palettes` records `overflowX: 0`, `consoleErrors: []`, `pageErrors: []`
-and a clean render, because the panel only exists during hover **and** the route was captured with
-an empty palette (`text: 237`, no swatch row, no save row).
-
-**Cure (architectural transposition).** Delete the hover branch and `useHoverPopover` +
-`useLeaveTimer` entirely. `SwatchHoverMenu` **already imports the reka-ui `Popover`** for the touch
-path; one `Popover` serves both pointer classes — floating-ui does the positioning (no manual
-`getBoundingClientRect`, no phantom class, no scroll drift), reka does focus management and
-`Escape`, and the panel is keyboard-operable and announced instead of `aria-hidden`. That removes
-~100 lines, three defects (C-3, C-11, and the C-2 dual-path split), and one owner-edict violation
-(a hand-rolled floating surface instead of the design-system primitive) in a single stroke.
-
----
-
-## BLOCKER C-4 — `Update` destroys a stored palette
-
-`CurrentPaletteEditor.vue:247-276`:
-
-```ts
-function saveCurrentPalette() {
-    if (savedColorStrings.length === 0) return;          // ← guarded
-    …
-    if (existing) { duplicateTarget.value = existing; return; }
-    …
-}
-
-function confirmUpdatePalette() {
-    const id = duplicateTarget.value?.id;
-    if (id == null) return;
-    emit("updated", id, colorsFromStrings(savedColorStrings));   // ← NOT guarded
-    …
-}
-```
-
-`duplicateTarget` is set once and **never invalidated** — not when the name changes, not when the
-colours change, not when the buffer empties. `confirmUpdatePalette` re-reads `savedColorStrings`
-at click time and has no emptiness guard, while its sibling `saveCurrentPalette` does.
-
-Downstream there is no guard either: `usePaletteActions.ts:79-82` →
-`usePaletteStore.ts:96-107` writes `palette.colors = patch.colors` into a `useStorage`-backed
-localStorage record. No undo, no history for a local palette.
-
-### Measured (`cpe-probe9.mjs`) — a persisted 3-colour palette reduced to 0
-
-```
-1 store after save: [{"name":"Keeper","colors":3}] | swatches now: 0
-2 swatches restored: 3
-2 banner: "Current Palette 3 colors dev misconfigured — run `npm run dev` \"Keeper\" already exists. Update Cancel"
-3 swatches after emptying: 0
-3 banner still present? "Start a new palette \"Keeper\" already exists. Update Cancel"
-4 Update visible: 1
-4 store AFTER Update with an empty buffer: [{"name":"Keeper","colors":0}]
-```
-
-Note line 3: the header has already flipped back to **"Start a new palette"** — the component
-itself knows the buffer is empty — while the stale banner beneath it still offers `Update`.
-Clicking it overwrites `Keeper` with `colors: []`.
-
-**Reproduction (pure UI):** save a palette named `X`; stage colours again; type `X` + Enter to
-raise the duplicate banner; remove the staged swatches; click `Update`. `X` is now empty, forever.
-
-### The same staleness also silently discards the typed name
-
-`cpe-probe5.mjs`:
-
-```
-S well text after default-name save: "… \"Palette 2\" already exists. Update Cancel"
-S well text after retyping a unique name (banner still there?): "… \"Palette 2\" already exists. Update Cancel"
-S Update button visible: 1
-S store after Update: [{"name":"Palette 2","n":3}]
-```
-
-The user typed `Totally different`, clicked the only live-looking affordance, and got `Palette 2`
-overwritten. The name they typed evaporated with no message.
-
-**Cure.** `duplicateTarget` is derived state pretending to be stored state. Replace the `ref` with
-a `computed` over `(currentPaletteName, savedPalettes)` — then it self-invalidates on every
-keystroke and can never outlive its premise — and let `confirmUpdatePalette` share the one
-precondition its sibling already enforces. Concretely, hoist the guard:
-
-```ts
-const trimmedName = computed(() => currentPaletteName.value.trim() || `Palette ${savedPaletteCount + 1}`);
-const duplicateTarget = computed(() =>
-    savedColorStrings.length === 0 ? null
-    : savedPalettes.find((p) => p.name.toLowerCase() === trimmedName.value.toLowerCase()) ?? null);
-```
-
-The `attempted` flag that decides whether to *show* the banner stays a `ref` — but the target
-itself must never be a snapshot.
-
----
-
-## MAJOR C-5 — a stale `colorIndex` appends a phantom colour
-
-`useSwatchActions.ts` mints an index-identified edit target and then re-indexes the array behind
-it — both in the same file, neither aware of the other:
-
-```ts
-function onCurrentSwatchEdit(css: string, index: number) {      // :76
-    emit("startEdit", { paletteId: CURRENT_PALETTE_ID, colorIndex: index, originalCss: css });
-}
-function onCurrentSwatchRemove(css: string, index: number) {    // :90
-    const updated = savedColorStrings.value.filter((_, i) => i !== index);
-    emit("apply", updated);                                     // every later index shifts down
-}
-```
-
-The consumer of that index is `usePaletteActions.ts:99-107`:
-
-```ts
-const oldCss = deps.savedColorStrings.value[colorIndex];   // undefined once the array shrank
-if (oldCss === newCss) return;                             // undefined !== newCss → falls through
-const updated = [...deps.savedColorStrings.value];
-updated[colorIndex] = newCss;                              // writes PAST the end → array grows
-```
-
-### Measured end-to-end on desktop (`cpe-probe7.mjs`)
-
-```
-0 savedColors: ["lab(50% 20 -30)","lab(70% -40 10)","lab(30% 5 60)"] swatches: 3
-1 after startEdit(2) — overlays: 1 savedColors: ["lab(50% 20 -30)","lab(70% -40 10)","lab(30% 5 60)"]
-2 remove label: Remove color lab(50% 20 -30) from palette
-3 after remove(0) — swatches: 2 savedColors: ["lab(70% -40 10)","lab(30% 5 60)"] overlays: 0
-4 after Enter-commit — swatches: 3 savedColors: ["lab(70% -40 10)","lab(30% 5 60)","lab(30% 5 60)"]
-4 count label: 3 colors
-```
-
-Start an edit on index 2, remove index 0, press `Enter` (the picker's global commit shortcut,
-`ColorPicker.vue:377` `window.addEventListener("keydown", handleKeydown)` → `:258 commitEdit()`) —
-and the palette gains a **duplicate third entry that no gesture asked for**, persisted to
-`localStorage`.
-
-Line 3 also records a second defect in the same trace: **`overlays: 0`.** `isSwatchEditing(2)` is
-now false for every rendered swatch, so the edit overlay — the only commit/cancel affordance at
-`≥1024px`, since `CurrentPaletteEditor.vue:58` is `hidden lg:flex` and the dock's mobile-edit layer
-is gated `!isDesktop` (`Dock.vue:73`) — **vanishes while the edit stays live.** The user is stuck
-in edit mode with no visible way out.
-
-**Cure.** Identify the edit target by *identity*, not by ordinal. The current palette is a list of
-CSS strings; the honest key is the value plus an occurrence ordinal, or a per-entry id minted where
-the buffer is minted (`useColorPipeline.savedColors`). Anything index-shaped must be resolved at
-the moment of mutation, not carried across mutations. Minimum viable hardening if the ordinal
-stays: `commitColorEdit` must bail when `colorIndex >= savedColorStrings.length`, and `startEdit`
-must be cleared by the same emit that re-indexes the array.
-
----
-
-## MAJOR C-6 — `swatchKeys` defeats the very identity it claims to provide
-
-`useSwatchActions.ts:42-59`:
-
-```ts
-let swatchKeyCounter = 0;
-const swatchKeyMap = new Map<string, number>();
-const swatchKeys = computed(() =>
-    savedColorStrings.value.map((color, i) => {
-        const mapKey = `${color}::${i}`;
-        if (!swatchKeyMap.has(mapKey)) swatchKeyMap.set(mapKey, swatchKeyCounter++);
-        return swatchKeyMap.get(mapKey)!;
-    }),
-);
-watch(savedColorStrings, () => {
-    const validKeys = new Set(savedColorStrings.value.map((c, i) => `${c}::${i}`));
-    for (const key of swatchKeyMap.keys()) if (!validKeys.has(key)) swatchKeyMap.delete(key);
-});
-```
-
-**Proof that the 18 lines are a no-op.** The map is a bijection `(color, index) → counter`, so the
-emitted key is an injective relabelling of the string `${color}::${i}`. `:key="swatchKeys[i] ?? i"`
-is therefore *behaviourally identical* to `:key="`${color}::${i}`"` — same equalities, same
-inequalities, same Vue diff. The counter, the Map, and the cleanup watcher buy nothing.
-
-They are also **strictly worse than the plain string**: the `pre`-flush watcher deletes every pair
-whose index moved *before* the computed re-runs, so a colour that returns to a previously-held slot
-gets a *fresh* counter — the machinery designed for stability actively manufactures instability.
-
-### Measured (`cpe-probe4.mjs`) — one removal remounts the whole row
-
-I tagged each swatch wrapper's DOM node with `dataset.probeTag` before removing index 0:
-
-```
-D remove button count: 1
-D wrappers after removing index 0: [
- { "probeTag": "(NEW NODE)", "label": "lab(70% -40 10)" },
- { "probeTag": "(NEW NODE)", "label": "lab(30% 5 60)" }
-]
-```
-
-Both survivors are **new DOM nodes**. Removing one colour from a 12-colour palette destroys and
-recreates 11 untouched swatches — each one re-mounting a `WatercolorDot` with a fresh `useId()`
-SVG `<filter>`/`feTurbulence` and playing a full `TransitionGroup` leave+enter on an element that
-did not change. Index keys (`:key="i"`) would at least preserve node identity; the "stable key"
-machinery is worse than the naïve fallback it shadows.
-
-**Cure.** Delete the Map, the counter and the watcher. If per-entry identity matters — and C-5 says
-it does — mint a real id in the buffer that owns the data (`useColorPipeline`), and key on that.
-Otherwise `:key="color + '::' + i"` is the same thing in one line. This is the no-contrivance edict
-in its purest form: 18 lines of ceremony implementing a string concatenation.
-
----
-
-## MAJOR C-7 — the component's own default name collides with an existing palette
-
-`CurrentPaletteEditor.vue:127-128, 249-259`: the placeholder and the fallback name are both
-`Palette ${savedPaletteCount + 1}`, and the duplicate check runs against the same list.
-`savedPaletteCount` is a *count*, not a high-water mark, so any prior palette whose name happens to
-be `Palette N` for `N ≤ count + 1` collides.
-
-Measured (`cpe-probe5.mjs`): save one palette explicitly named `Palette 2`, restage colours, press
-Enter on the empty field —
-
-```
-S placeholder on 2nd save (default name): "Palette 2"
-S well text after default-name save: "Current Palette 3 colors … \"Palette 2\" already exists. Update Cancel"
-```
-
-The component proposed a name, the user accepted it, and the component then refused it — with a
-banner naming a string the user never typed, whose only forward affordance (`Update`) is the
-data-destroying one from C-4.
-
-**Cure.** Derive the default from the existing names, not from the cardinality: pick the smallest
-`n` such that `Palette n` is unused (a single `while` over a `Set` of lowercased names), and compute
-it as a `computed` so the placeholder and the fallback can never disagree.
-
----
-
-## MAJOR C-8 — the save button has no accessible name
-
-`CurrentPaletteEditor.vue:134-142` — `icon-only`, a `<Check>` glyph, no `aria-label`, no text:
-
-```vue
-<Button variant="outline" icon-only class="h-8 w-8 rounded-full …"
-        :disabled="savedColorStrings.length === 0" @click="saveCurrentPalette">
-    <Check class="w-4 h-4 text-foreground" />
-</Button>
-```
-
-Measured with a colour staged (`cpe-probe4.mjs`, filter = visible buttons with no
-`aria-label`/`title`/text):
-
-```
-B nameless visible buttons: [
- { "w": 24, "h": 24, "cls": "send-btn btn-interactive", "inWell": false, … },
- { "w": 32, "h": 40, "cls": "button tap-squish focus-ring glass-wash glass-capsule … h-8 w-", "inWell": true,
-   "html": "<svg … viewBox=\"0 0 24 24 …" }
-]
-```
-
-`inWell: true` — this is **this component's contribution to the visual REPORT's
-`namelessButtons` tally**, and the reason the capture could not attribute it: `REPORT.json` records
-`namelessButtons: 1` for `safari-desktop-light /#/palettes`, but the capture visits the route with
-an **empty** palette, so the save row (`v-if="savedColorStrings.length > 0"`) never renders. The
-route's true count in the working state is 2. The e2e spec already documents the gap in prose
-(`e2e/smoke/flows/palette-save.spec.ts:39-41`: *"the icon-only Save button next to the Input lacks
-an aria-label"*) and routes around it instead of failing on it.
-
-**Cure.** `aria-label="Save current palette"`. The neighbouring swatch-action buttons at
-`:46,49,52` already do exactly this; the save button is the one that was missed.
-
----
-
-## MINOR findings
-
-### C-9 — dead code (three sites)
-
-1. `:disabled="savedColorStrings.length === 0"` (`:138`) sits **inside**
-   `v-if="savedColorStrings.length > 0"` (`:118`). The condition is unreachable.
-2. `if (id == null) return;` (`:271`). `savedPalettes` is typed `Palette[]` at the prop boundary
-   (`:201`), but its producer narrows it: `usePaletteStore.ts:51-55` filters
-   `(p): p is Palette & { id: string } => p.isLocal && p.id != null`. Widening the prop to
-   `Palette[]` **threw away the store's proof** and then re-checked it at runtime. Type the prop as
-   the store types it and the guard deletes itself.
-3. The entire `TooltipProvider`/`Tooltip`/`TooltipTrigger`/`TooltipContent` block (`:88-111`, 24
-   lines) is dead: measured `{"tooltips":0,"tooltipText":[]}` after a 900ms hover
-   (`cpe-probe8.mjs`), because the trigger's attrs go to a `pointer-events:none` span (C-1). It
-   also duplicates the `aria-label` it exists to substitute for.
-
-### C-10 — one gesture, two contradictory insert orders
-
-`useSwatchActions.ts:62-74` moves an already-present colour to the **end**
-(`reordered.push(...)` → `emit("apply")`), while the wiring that services a *new* colour,
-`usePaletteWiring.ts:84-100`, inserts at the **front** (`savedColors.unshift(parsed)`) and moves an
-existing one to the **front** too. So "add the current colour" appends or prepends depending on a
-branch the user cannot see, and the two dedupe implementations disagree about the resulting order.
-
-The dedupe is also string-identity: `savedColorStrings.value.indexOf(cssColorOpaque.value)`, where
-`cssColorOpaque = serializePickerColor(withAlpha(color, 1))` (`useColorPipeline.ts:104`) but
-`savedColorStrings = savedColors.map(serializePickerColor)` (`:166`) — **alpha-preserving**. A
-staged colour carrying alpha (which `commitColorEdit` can write, via
-`toCSSColorString(model.value.color)`) can never match the opaque probe, so the dedupe silently
-fails and the palette gains a visual duplicate.
-
-**Cure.** One insert policy, in one place. The component should emit intent (`addColor`) and let
-the buffer's owner apply the single ordering rule; the reorder branch in `addCurrentColor` is the
-duplicate that should go.
-
-### C-11 — timer, subscription, and positioning hygiene
-
-- `useLeaveTimer.ts` has **no `onScopeDispose`**. `onLeave()` schedules a 250ms callback that
-  survives unmount and then writes to a ref in a dead scope. One line
-  (`onScopeDispose(cancel)`) fixes it.
-- `useHoverPopover.ts:11-14` calls `useBreakpoint("(hover: hover)")` **unconditionally**, even when
-  the caller passes an explicit `canHover` — registering a `matchMedia` change listener whose value
-  is then discarded. (glass-ui's `useBreakpoint` *does* dispose correctly — verified in
-  `dist/dom.js`: `c() && u(a)` — so this is waste, not a leak.)
-- `positionPanel` writes **viewport** coordinates once, on `pointerenter`, with no `scroll`/`resize`
-  listener and no floating-ui anchoring. Even after `.floating-panel` is given a `position`, the
-  panel would drift off its swatch on the first scroll of the `overflow-y-auto` pane
-  (`PalettesPane.vue:2`). Subsumed by the C-3 cure (use the Popover).
-
-### C-12 — per-tick work in a row that did not change
-
-`cpe-probe6.mjs` — a `MutationObserver` on `.swatch-row` (attributes + childList + subtree) during
-a 40-step drag of the L slider, with three *unchanging* saved colours:
-
-```
-4 swatch-row DOM mutations during a 40-step slider drag: {"row":202,"addSlot":0}
-```
-
-**202 mutation records for a gesture that changed no saved colour** — ~5 per pointer move. The
-driver is `:color="cssColorOpaque"` on the add-slot dot (`:96`): glass-ui's `useWatercolorBlob`
-watches `color` and re-derives eight random border-radius percentages plus the `feTurbulence` seed
-on every change, so the ghost silhouette reshapes on every frame of every drag.
-
-Compounding it, `savedColorStrings` is `computed(() => model.value.savedColors.map(serializePickerColor))`
-over a `shallowRef` that is **replaced wholesale** on each colour mutation — so the array identity
-changes every tick, firing `useSwatchActions`'s cleanup `watch` (a fresh `Set` of N strings + a
-full Map scan) and re-running the `swatchKeys` map, per frame, for a list that did not change.
-
-**Cure.** Seed the add-slot from a coalesced source (the pipeline already exports
-`cssColorOpaqueFrame`, `useColorPipeline.ts:279`) or from a static seed, and let the C-6 cure delete
-the per-tick key machinery outright.
-
-### C-13 — an assertive backend annunciator gated on palette emptiness
-
-`CurrentPaletteEditor.vue:116`: `<ApiOfflineChip v-if="savedColorStrings.length > 0" …>`. The chip
-renders `role="alert"` (`ApiOfflineChip.vue:13`) — an *assertive* live region. Gating it on
-`savedColorStrings.length > 0` means it **mounts and re-announces every time the palette crosses
-0↔1 colours**, interrupting the screen reader with "backend offline — saved locally" as though the
-backend had just changed state, when the user merely added their first swatch. Backend health is
-not a function of buffer emptiness. It showed up in my aria snapshot as the *second* node in the
-component's entire accessible tree.
-
-**Cure.** Let the chip self-gate (it already does: `v-if="misconfigured"` / `v-else-if="offline"`)
-and drop the emptiness condition, or move it to the pane where backend state actually belongs.
-
----
-
-## C-14 — test truth: the gate cannot see any of this
-
-**Unit tests: none.** `test/` contains no component test at all —
-`grep -rl "mount(" test/` returns nothing; the 21 files there are library-level (parsing, colour
-math, transforms). Nothing imports `CurrentPaletteEditor`, `useSwatchActions`, `useHoverPopover`, or
-`useLeaveTimer`.
-
-**The one e2e spec is RED on HEAD.** `e2e/smoke/flows/palette-save.spec.ts:34-37` clicks
-`getByRole("button", { name: /Add current color .* to palette/ })` — the control C-1 proves does not
-exist. I ran it:
-
-```
-$ npx playwright test e2e/smoke/flows/palette-save.spec.ts --project=smoke --reporter=line
+$ npx playwright test e2e/smoke/flows/palette-save.spec.ts --project=smoke --reporter=line --workers=1
 Running 1 test using 1 worker
   1) [smoke] › e2e/smoke/flows/palette-save.spec.ts:20:1 › save current palette persists to localStorage 'color-palettes'
-    Test timeout of 30000ms exceeded.
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByRole('main', { name: 'Color tool panes' }).getByRole('button', { name: /Add current color .* to palette/ }).filter({ visible: true })
+     Test timeout of 30000ms exceeded.
+     Error: locator.click: Test timeout of 30000ms exceeded.
+     Call log:
+       - waiting for getByRole('main', { name: 'Color tool panes' }).getByRole('button', { name: /Add current color .* to palette/ }).filter({ visible: true })
+     > 37 |         .click();
   1 failed
 ```
 
-**CI never runs it.** `.github/workflows/` contains `ci.yml`, `deploy-pages.yml`, `release.yml`;
-`grep -n "playwright\|e2e" .github/workflows/*.yml` returns **nothing**. `ci.yml` runs `lint`,
-`vue-tsc` ×2, `build`, `npm test` (vitest), and a packed-surface check. A blocker-grade regression
-sits in a spec no gate executes.
+**Reproduction** — `node docs/tranches/V/megatranche/audit/components/CurrentPaletteEditor/probe/probe-A.mjs`,
+or the playwright command above.
 
-**The typecheck cannot see it either.** `tag="button"`, `:aria-label`, `@click` and a slot child
-passed to a component that declares none of them are all legal Vue attribute fallthrough:
+**Cure (transposition, not patch).** The interactive element owns semantics; the dot owns paint.
+Stop asking a decorative primitive to be a button:
 
+```vue
+<button type="button" class="add-slot-ghost relative …"
+        :aria-label="`Add current color ${cssColorOpaque} to palette`" @click="addCurrentColor">
+    <WatercolorDot :color="cssColorOpaque" variant="ghost" seed="add-current-slot" class="absolute inset-0" />
+    <Plus class="w-5 h-5 text-primary/60 relative" aria-hidden="true" />
+</button>
 ```
-$ npx vue-tsc -p tsconfig.demo.json --noEmit ; echo EXIT=$?
-EXIT=0
+
+No producer change is required — glass-ui's contract is already correct and explicitly documented
+in its own `.d.ts` prose. `tag="button"` should be deleted from every `WatercolorDot` site in the
+repo, not re-added to the producer.
+
+---
+
+## BLOCKER C-2 — every swatch is inert; edit/copy/remove unreachable by keyboard AND by touch
+
+`SwatchHoverMenu.vue:14-20` (the touch `PopoverTrigger as-child` path) and `:29-36` (the hover
+path) both render the swatch as a `WatercolorDot` with `tag="button"`, `:aria-label` and `@click`.
+
+**Measured live with a populated palette** (`probe/probe-B.mjs`, four seeded colours):
+
+```json
+"swatches": [
+  { "tag": "SPAN", "variant": "solid", "ariaHidden": "true", "ariaLabel": null,
+    "tabIndex": -1, "pointerEvents": "none", "hasChildSlotContent": 1 },   // ×4
+  { "tag": "SPAN", "variant": "ghost", "ariaHidden": "true", "ariaLabel": null,
+    "tabIndex": -1, "pointerEvents": "none", "hasChildSlotContent": 2 }
+]
 ```
 
-**The exact mutation that keeps the gates green.** Even if C-1 were fixed and the e2e spec went
-green again, it asserts only
+**Keyboard reachability inside `.dashed-well` — two stops, total** (`probe/probe-C.mjs`):
+
+```json
+"keyboard": [ { "tag": "INPUT", "name": "Palette 2" }, { "tag": "BUTTON", "name": "" } ]
+```
+
+Zero swatches, zero of the twelve swatch-action buttons, zero add-slot. A keyboard-only user can
+type a name and press a button with no name. That is the entire component.
+
+**Touch matrix** — 390×844, `hasTouch: true`, `isMobile: true`, so `useHoverPopover`'s `canHover`
+is `false` and the reka-ui `Popover` is the *only* route to the actions:
+
+```json
+"mobile": { "wellVisible": true, "text": "Current Palette\n3 colors\n…",
+            "beforeTapPopovers": 0, "afterTapPopovers": 0,
+            "swatchDom": { "tag": "SPAN", "ariaHidden": "true", "pointerEvents": "none", "w": 44, "h": 44 } }
+```
+
+Tapping opens nothing. `PopoverTrigger as-child` merges its trigger props into `WatercolorDot`'s
+attrs, which `inheritAttrs: false` discards, so the trigger never binds. **On touch there is no
+path at all to edit, copy or remove a colour from the current palette.**
+
+**Reproduction** — `node .../probe/probe-B.mjs` and `node .../probe/probe-C.mjs`.
+
+**Cure** — C-1's transposition applied to both renders in `SwatchHoverMenu.vue`, plus C-4's
+collapse of the two-path fork into one `Popover`.
+
+---
+
+## BLOCKER C-3 — latched `duplicateTarget` overwrites a differently-named palette and discards the typed name
+
+`CurrentPaletteEditor.vue:241` stores the collision as a `ref`; `:247-265` sets it; `:267-276`
+acts on it; `:144-167` renders the banner. **Nothing watches `currentPaletteName`.** The latch is
+cleared only by an explicit `Cancel` (`:163`) or a completed save/update.
+
+**Measured** (`probe/probe-C.mjs`) — store seeded with one palette
+`{ id: "seed-dup-id", name: "Dup", colors: ["#123456"] }`, current palette holding three colours:
+
+| step | observed |
+|---|---|
+| type `Dup`, press Enter | banner `"Dup" already exists.` + `Update` / `Cancel` |
+| `storeBeforeUpdate` | `[{ "id": "seed-dup-id", "name": "Dup", "colors": ["#123456"] }]` |
+| rename field to `Brand New Name` | `bannerStillShownAfterRename`: `… "Dup" already exists. Update Cancel` — **unchanged**; `updateBtnVisible: true` |
+| click `Update` | `storeAfterUpdate`: `[{ "id": "seed-dup-id", "name": "Dup", "colors": ["rgb(255 0 0)","rgb(0 255 0)","rgb(0 0 255)"] }]` |
+| editor after | `"Start a new palette"` — the current buffer is cleared too |
+
+The user asked to save a **new** palette called "Brand New Name". The application instead
+overwrote a **different** palette's contents, threw the typed name away, and emptied the source
+buffer. No confirmation, no undo. `usePaletteActions.ts:79-81` is
+`deps.updatePalette(id, { colors })` — a wholesale array replacement.
+
+(The pass-2 prior measured the *other* destructive outcome of the same latch — `Update` writing
+`colors: []` over a stored palette. Same mechanism, two distinct data-loss shapes. Both are real.)
+
+**Reproduction** — `node .../probe/probe-C.mjs`; see `probe/desktop-after-update.png`.
+
+**Cure.** `duplicateTarget` is derived state pretending to be stored state. Delete the `ref`:
 
 ```ts
-return stored.palettes?.length ?? 0;   // toBeGreaterThanOrEqual(1)
+const confirmingSave = ref(false);
+const duplicate = computed(() => {
+    if (!confirmingSave.value) return null;
+    const n = (currentPaletteName.value.trim() || `Palette ${savedPaletteCount + 1}`).toLowerCase();
+    return savedPalettes.find(p => p.name.toLowerCase() === n) ?? null;
+});
+watch(() => currentPaletteName.value, () => { confirmingSave.value = false; });
 ```
 
-so replacing `colorsFromStrings` (`CurrentPaletteEditor.vue:243-245`) with `() => []` — saving every
-palette **empty** — keeps it green, as does inverting `position: i` to `position: 0`, as does
-deleting the entire duplicate-name path, `confirmUpdatePalette`, and all three swatch actions. That
-is a vacuous gate: it proves a localStorage row appeared, not that the component works.
-
-**Minimum honest coverage.** Three component-level tests that would each fail on a defect above:
-(1) mount with `savedColorStrings: ["a","b"]` and assert two elements with role `button` and an
-accessible name matching `/Color swatch/` — fails on C-2; (2) raise the duplicate banner, empty the
-buffer, click `Update`, assert **no** `updated` emit — fails on C-4; (3) `startEdit(1)` then
-`remove(0)`, assert the pending target is cleared — fails on C-5.
+Staleness becomes structurally impossible rather than merely unlikely, and
+`confirmUpdatePalette` inherits every precondition (`length > 0`, name match, `id != null`) for
+free.
 
 ---
 
-## Owner-edict compliance
+## MAJOR C-4 — `.floating-panel` is a phantom class; the hover menu renders off-screen and unstyled
 
-| edict | verdict |
+`SwatchHoverMenu.vue:37-51` teleports the action panel to `body` with `class="floating-panel"` and
+an inline `top`/`left` computed once from `getBoundingClientRect()` (`useHoverPopover.ts:20-24`,
+called inside a `nextTick` at `:30`).
+
+**`.floating-panel` is defined nowhere** — not in `demo/styles/*.css`, not in
+`@mkbabb/glass-ui@7.0.0`. Verified by walking every rule of every `document.styleSheets` on the
+live page (`probe/probe-D.mjs`):
+
+```json
+"rulesFor": { "btn-interactive": { "count": 0, "sample": [] },
+              "floating-panel":  { "count": 0, "sample": [] },
+              "add-slot-ghost":  { "count": 1, "sample": [".add-slot-ghost[data-v-0ce6f2b0]"] },
+              "edit-overlay":    { "count": 1 }, "dashed-well": { "count": 1 } }
+```
+
+With no `position`, the inline `top`/`left` are inert. Measured while hovering the first swatch:
+
+```json
+"panel": { "position": "static", "display": "flex",
+           "rect": { "x": 0, "y": 900, "w": 1440, "h": 40 },
+           "docHeight": 940, "viewportH": 900, "inViewport": false }
+"floatingPanel": { "parentTag": "BODY", "zIndex": "auto",
+                   "background": "rgba(0, 0, 0, 0)", "boxShadow": "none",
+                   "inlineStyle": "top: 336.719px; left: 791px;" }
+"firstSwatchRect": { "x": 767, "y": 379, "w": 48, "h": 55 }
+```
+
+**Anchor drift Δx = 767 px, Δy = 521 px.** The panel is a transparent, shadowless, unlayered
+1440×40 full-bleed strip **below the fold** (`inViewport: false`).
+`probe/hover-panel-fullpage.png` shows the pencil / copy / trash icons naked in the bottom-left
+corner of the document, 900 px from the swatch that summoned them.
+
+Even with `position: fixed` restored the mechanism would still be wrong: the coordinates are
+computed once with no `scroll`/`resize` listener, and `left: rect.left + rect.width / 2` has no
+viewport clamp, so the panel would detach on the first scroll of `.pane-scroll-fade` and could
+overflow either edge.
+
+**Reproduction** — `node .../probe/probe-D.mjs`; `probe/hover-panel-fullpage.png`.
+
+**Cure (architectural).** Delete `useHoverPopover.ts`, `useLeaveTimer.ts`, the `Teleport` branch,
+the `floatingStyle` prop and the `canHover` fork entirely. Both pointer classes get the one
+glass-ui `Popover` already imported three lines above — it ships floating-ui positioning, the
+`glass-floating` surface, focus management and dismissal. `demo/DESIGN.md:99` already names
+popovers as a producer-owned CHROME rung. The two hand-rolled paths that "cannot drift"
+(`SwatchHoverMenu.vue:64-66`) have drifted into one working and one broken.
+
+---
+
+## MAJOR C-5 — `.btn-interactive` is *also* a phantom class: T.W5 deleted working motion and focus, and replaced it with nothing  ⟵ NEW
+
+`CurrentPaletteEditor.vue:68-74` states the intent in prose:
+
+> the per-site spatial strays (`transition-all` + `hover:scale-110`/`active:scale-95` on the dead
+> 150ms bare-utility default — F3) retire onto the producer's `btn-interactive` atom: the scale
+> leg rides `--transition-liquid-spatial` @ `--spring-smooth-duration` (inherited, never
+> re-implemented), press/hover magnitudes **+ the house focus register** come with it.
+
+**`.btn-interactive` does not exist.**
+
+```
+$ grep -rl "btn-interactive" node_modules/@mkbabb/glass-ui/
+(no output)
+$ grep -rn "btn-interactive" demo/styles/
+(no output)
+```
+
+Live stylesheet walk (`probe/probe-D.mjs`): `"btn-interactive": { "count": 0, "sample": [] }`.
+Eight `.vue` sites use the class; all eight get nothing. The only computed transition on
+`.add-slot-ghost` comes from glass-ui's own `.watercolor-swatch`:
+
+```json
+"addSlotComputed": { "transitionProperty": "transform, border-radius, filter, box-shadow",
+                     "transitionDuration": "0.2s, 0.6s, 0.2s, 0.2s",
+                     "transform": "none", "cursor": "pointer" }
+```
+
+Git archaeology identifies the exact regression. `git log -S"btn-interactive" -- demo/` yields
+`2f4623e5` (`feat(T.W5 · R5+R11)`), whose body reads:
+
+> CurrentPaletteEditor save/cancel/add-slot: `transition-all` + `hover:scale-110`/`active:scale-95`
+> per-site utilities → the producer `btn-interactive` atom (scale @ `--spring-smooth-duration` on
+> `--transition-liquid-spatial`; house hover/press magnitudes + focus register).
+
+So the commit **deleted working hover, press and focus behaviour** from `:75` (Save edit), `:78`
+(Cancel edit) and `:100` (the add slot) and moved it to a destination that was never built. Net
+today: those buttons have no hover scale, no press response, and **no focus ring** — the "house
+focus register" that "comes with it" measures `count: 0`.
+
+This is a standing-edict-6 violation (*animations are never deleted, only moved or tokenized*)
+executed as a move to nowhere, and it is the same `inv-N-7` "never-defined phantom class" failure
+that `demo/styles/utils.css:86` records having already been fixed once for `.dashed-well`. The
+repo has a name for this bug and shipped it again.
+
+**Reproduction** — `node .../probe/probe-D.mjs`; the two greps above; `git show 2f4623e5`.
+
+**Cure — one decision, not eight patches.** Either glass-ui ships `.btn-interactive` (in which
+case the consumer is already correct and this is a producer BH-inbox relay under the standing
+glass-ui relay edict), or the class is retired from all eight demo sites in favour of the
+utilities it displaced. What must not ship is a class name no stylesheet defines. The
+20-line "every template class resolves to ≥1 CSS rule" walk in `probe-D.mjs` kills C-4 and C-5
+as a **family**, permanently.
+
+---
+
+## MAJOR C-6 — three focusable buttons inside an `aria-hidden="true"` container
+
+`SwatchHoverMenu.vue:40-50` marks the Teleport panel `aria-hidden="true"` (its comment: *"hover-only
+panel is keyboard-inaccessible — hidden from AT"*) while hosting the `#actions` slot's three
+`<button>`s from `CurrentPaletteEditor.vue:46-54`. Measured (`probe/probe-B.mjs`):
+
+```json
+"floatingPanel": { "ariaHidden": "true", "buttonsInside": 3, "focusableInsideAriaHidden": 3 }
+```
+
+That is `axe-core` `aria-hidden-focus` (WCAG 4.1.2). Because the panel is teleported to `body`,
+the three controls sit at the very end of the document tab order: a keyboard user tabbing past
+the footer lands on three buttons the screen reader refuses to announce, acting on a swatch they
+cannot see or identify. The `aria-hidden` is a fig leaf over C-4's broken path, not a fix.
+
+**Cure** — subsumed by C-4. A real `Popover` needs neither the fig leaf nor a second render path.
+
+---
+
+## MAJOR C-7 — the Save button has no accessible name
+
+`CurrentPaletteEditor.vue:134-142` — `<Button variant="outline" icon-only …>` wrapping a bare
+`<Check class="w-4 h-4" />`. No `aria-label`, no `title`, no text. Every *other* icon-only button
+in this file has one (`:46`, `:49`, `:52`, `:75`, `:78`, `:101`). Measured — the only `<button>`
+inside `.dashed-well` once the save row renders (`probe/probe-C.mjs`):
+
+```json
+"editorButtons": [ { "name": "", "title": null, "rect": { "width": 32, "height": 40 } } ]
+```
+
+The repo already knows. `e2e/smoke/flows/palette-save.spec.ts:40-41`:
+
+> *"the icon-only Save button next to the Input lacks an aria-label; Enter-on-Input commits via
+> the `@keydown.enter` handler on the same field"*
+
+The spec routes **around** the defect instead of failing on it. This is the component's
+contribution to `audit/visual/REPORT.md:97` (`safari-desktop-light /#/palettes: 1` nameless
+button; the same row appears for `safari-desktop-dark` at `:104`).
+
+**Cure** — `aria-label="Save current palette"`. And treat the e2e comment as the smell it is: a
+spec that documents a defect in prose has stopped being a gate.
+
+---
+
+## MAJOR C-8 — the duplicate-name refusal is silent to assistive tech
+
+`CurrentPaletteEditor.vue:144-150`. Pressing Enter or Save with a colliding name produces no
+announcement: the message is a plain `<span>`, there is no `aria-live`/`role="status"` ancestor,
+and focus does not move. Measured (`probe/probe-C.mjs`):
+
+```json
+"dupBannerLive": { "found": true, "liveAncestor": null,
+                   "focusedAfterSave": "<input … placeholder=\"Palette 2\" type=\"text\" …" }
+```
+
+`liveAncestor: null` — the walk from the message up to `<body>` finds no live region. To a screen
+reader the save simply does nothing. (The single live region in the editor is `ApiOfflineChip`'s
+`role="alert"` — unrelated, and being permanently mounted whenever the palette is non-empty, an
+assertive-region anti-pattern in its own right.)
+
+**Cure** — wrap the confirmation row in `role="status"`, and move focus to `Update` when it
+appears. It is a decision point, not an aside.
+
+---
+
+## MAJOR C-9 — `swatchKeys` are index-derived, so every key re-mints on any mutation
+
+`useSwatchActions.ts:43-59`. The map key is `` `${color}::${i}` `` — **the index is inside the
+identity.** Faithful re-execution of exactly that code (deterministic, no browser):
+
+```
+$ node -e '<verbatim re-implementation of useSwatchActions.ts:43-59>'
+initial       ["#f00","#0f0","#00f","#ff0"] -> [ 0, 1, 2, 3 ]
+after remove0 ["#0f0","#00f","#ff0"]        -> [ 4, 5, 6 ]
+
+initial       ["#f00","#0f0","#00f"]        -> [ 0, 1, 2 ]
+after moveEnd ["#0f0","#00f","#f00"]        -> [ 3, 4, 5 ]
+
+after 200 churn cycles: map.size= 5  counter= 1000
+```
+
+Removing the *first* of four swatches changes **all three** surviving keys. The move-to-end
+reorder `addCurrentColor` performs (`useSwatchActions.ts:64-68`) changes **all three**. The
+`<TransitionGroup name="vj-enter">` at `:24-28` therefore never observes a *move* — it observes a
+total teardown and remount, so the `.swatch-row > *` FLIP transitions
+(`demo/styles/utils.css:173-177`) never play and every survivor replays the enter animation.
+
+Each remount also re-seeds glass-ui's `mulberry32` PRNG and mints a **fresh namespaced SVG
+`<filter>` with `feTurbulence numOctaves="5"`** — the most expensive thing on the row, rebuilt N
+times for a single-swatch edit, for nothing.
+
+The pre-flush prune at `:54-59` cannot save it: it deletes precisely the entries whose index moved,
+guaranteeing a fresh counter value on the next read.
+
+**Cure** — identity must not contain position. Mint an id at *insert* time on the model: give
+`ColorModel.savedColors` entries a `crypto.randomUUID()` where they are pushed
+(`useColorPipeline.ts:220`) and key the `v-for` on it. That deletes `swatchKeys`, the `Map`, the
+counter and the prune watcher — 17 lines of machinery replaced by the field that should have
+existed.
+
+---
+
+## MAJOR C-10 — `colorsFromStrings` drops `name` and `weight`; the update path destroys them
+
+`CurrentPaletteEditor.vue:243-245`:
+
+```ts
+function colorsFromStrings(colors: string[]): PaletteColor[] {
+    return colors.map((css, i) => ({ css, position: i }));
+}
+```
+
+`PaletteColor` (`demo/palettes/types.ts:1-11`) carries optional `name` and `weight`; the latter is
+documented there as *"the quantizer's population share for this swatch … `PaletteColorStrip` sizes
+its segments from it"*. `confirmUpdatePalette` (`:272`) feeds this projection straight into
+`usePaletteActions.ts:79-81` → `updatePalette(id, { colors })`, a wholesale array replacement.
+
+Updating an extracted palette therefore **erases every per-colour name and every extraction
+weight**, silently collapsing its strip to uniform segments. Measured in C-3's store diff: the
+target's entire `colors` array — metadata and all — was replaced.
+
+**Cure** — the current buffer is `string[]` and structurally cannot carry metadata. Either merge
+by position against the target's existing `colors` on update, or lift the current palette to
+`PaletteColor[]` end to end so the lossy projection disappears.
+
+---
+
+## MINOR C-11 — raw-string colour identity: the same colour fails to match across a space change  ⟵ new measurement
+
+`useSwatchActions.ts:63`: `savedColorStrings.value.indexOf(cssColorOpaque.value)`.
+`savedColorStrings` serializes each saved colour **in its own space**
+(`useColorPipeline.ts:166-168`); `cssColorOpaque` serializes the live colour in the **current**
+space (`useColorPipeline.ts:104`). Measured (`probe/probe-E.mjs` — saved reds in rgb, live colour
+seeded in oklch; physically the same pure red):
+
+```json
+{ "savedColorStrings": ["rgb(255 0 0)", "rgb(0 255 0)"],
+  "cssColorOpaque": "oklch(62.8% 0.2577 29.23deg)",
+  "indexOfResult": -1 }
+```
+
+So after any space switch, both the "already present → move to end" branch (`:64-68`) and the
+"already present → no-op" guard (`:70-72`) are unreachable; control falls through to
+`emit("addColor")`, which `useColorPipeline.ts:213-217` then silently swallows using a **different**
+predicate (`toCSSColorString`, canonical). Two identity functions answer one question, and the
+user-visible result of pressing add is "nothing happened, no explanation".
+
+**Cure** — one canonical identity, exported from the pipeline and used in both places.
+
+---
+
+## MINOR C-12 — `useLeaveTimer` leaks its pending timeout across unmount
+
+`useLeaveTimer.ts:1-17` — a closure-local `setTimeout` handle with `schedule`/`cancel` and **no
+`onScopeDispose`**. `useHoverPopover.ts:33-36` schedules a 250 ms close on `onLeave`; navigating
+away within that window fires the callback against a disposed scope.
+
+**Reproduction — NONE. This is a hypothesis by inspection**; I found no observable symptom (the
+callback writes a ref nobody reads). It is nonetheless an unowned timer in a composable that
+advertises itself as shared.
+
+**Cure** — `onScopeDispose(cancel)`, or delete the composable under C-4.
+
+---
+
+## MINOR C-13 — the three action buttons still carry the exact strays the file says were retired, including a suppressed focus ring
+
+`CurrentPaletteEditor.vue:46`, `:49`, `:52` — three byte-identical class strings:
+
+```
+p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors
+cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40
+```
+
+`active:scale-95` + `transition-colors` is precisely the "per-site spatial stray" the comment at
+`:68-74` declares retired; T.W5's retirement reached 3 of the 6 buttons in this file (and, per
+C-5, retired them to nowhere). Worse, `focus-visible:outline-none` **suppresses the root focus
+ring** and substitutes a bespoke one — the same regression this file's own S.W5-3 comment
+(`:121-124`) calls out by name as *"SUPPRESSED focus ring — an a11y regression"* when describing
+what was removed from the `Input`. Standing edict 5 (root-level styling, never per-instance
+overrides) violated three times in seven lines. Separately these are raw `<button>` elements
+while the design-system `Button` is imported and used 80 lines below.
+
+**Cure** — one `<Button variant="ghost" size="icon">` per action; the focus register comes from
+the root component; zero per-instance classes.
+
+---
+
+## MINOR C-14 — redundant prop pair
+
+`CurrentPaletteEditor.vue:196-202` declares both `savedPaletteCount: number` and
+`savedPalettes: Palette[]`. `PalettesPane.vue:44-45` passes both from the same expression:
+
+```vue
+:saved-palette-count="pm.savedPalettes.value.length"
+:saved-palettes="pm.savedPalettes.value"
+```
+
+Two props, one truth, an invariant nothing enforces. Edict 3 (KISS, no contrivance).
+**Cure** — delete `savedPaletteCount`; read `savedPalettes.length`.
+
+---
+
+## INFO C-15 — needless import, unused parameter
+
+`CurrentPaletteEditor.vue:172` imports `TransitionGroup` from `vue`. Built-in components are
+resolved by the SFC compiler, so the import is unnecessary — and asymmetric, since `Transition`
+(used at `:57`) is not imported. `verbatimModuleSyntax` itself is **satisfied**: `:190` correctly
+uses `import type` for `Palette`/`PaletteColor`, and no other type-only import exists.
+
+`useSwatchActions.ts:90` — `onCurrentSwatchRemove(css: string, index: number)` never reads `css`;
+the call site (`:52`) passes it anyway.
+
+---
+
+## BLOCKER C-16 (gate) — test truth: the gate stack is vacuous, and demonstrably so
+
+| gate | status at HEAD | why it cannot see C-1 … C-11 |
+|---|---|---|
+| `vitest` (`npm test`) | GREEN | `vitest.config.ts:21` includes only `test/**/*.ts` + `demo/test/**/*.ts`. `grep -rn "CurrentPaletteEditor\|swatchKeys\|duplicateTarget\|saveCurrentPalette\|useSwatchActions" demo/test test` → **0 hits**. No test of this component or any of its three composables exists. |
+| `vue-tsc -p tsconfig.demo.json --noEmit` | **exit 0, zero output** (I ran it at HEAD) | Unknown props (`tag`), extra attrs (`aria-label`) and listeners (`@click`) are legal fall-through by Vue's type contract; default-slot content against a `{}`-slots component is not an error. The whole C-1/C-2 family is invisible by construction. |
+| `.github/workflows/ci.yml` | GREEN | `grep -rn "playwright" .github/workflows/*.yml` → **no hits**. CI runs `lint`, `vue-tsc` ×2, `build`, `npm test`, then api `tsc` + `test`. **Playwright is never invoked.** |
+| `e2e/smoke/flows/palette-save.spec.ts` | **RED** | fails at `:37` on the C-1 blocker — and nothing runs it. |
+
+**The exact mutation that keeps every gate green is: the shipped code.** That is the definition of
+a vacuous gate. The tree is broken in precisely the flow a spec was written for; the spec is red;
+no gate reports it.
+
+**Cure.**
+1. Wire the existing Playwright smoke suite into `ci.yml` as a **hard** step. It already catches
+   C-1 today with zero new assertions.
+2. Add a mount-level vitest for this component asserting the three role queries the flow depends
+   on — `getByRole("button", { name: /Add current color/ })`,
+   `getByRole("button", { name: /Save current palette/ })`, and a per-swatch
+   `getByRole("button", { name: /Color swatch/ })`. Each fails on HEAD.
+3. Add the "every template class resolves to ≥1 CSS rule" walk from `probe-D.mjs` (20 lines).
+   It kills C-4 and C-5 as a family and would have caught `.dashed-well`'s `inv-N-7` ancestor.
+
+---
+
+## Checked and clean (the negative, proved)
+
+- **`defineModel` stale-read hazard** — absent. The component uses `defineProps` + `defineEmits`
+  and never `defineModel`; `currentPaletteName` is a plain local `ref` (`:240`). The Vue 3.5
+  reactive props destructure at `:196-202` and the two `toRef(() => …)` getters at `:234-235` are
+  correct and preserve reactivity into the composable.
+- **PRM-RAF epidemic** — no `requestAnimationFrame` in the component or any of its three
+  composables. `WatercolorDot` is mounted **without** `animate`, so glass-ui's `useRAFLoop` never
+  starts; when enabled it is `pauseWhenHidden: true, respectReducedMotion: true`
+  (`dist/watercolor-dot.js`).
+- **`ValueUnit` nesting accumulation** — the component never touches `ValueUnit`; it handles
+  pre-serialized CSS strings only.
+- **oklch→HSV hue drift / `stableHue`** — no hue math on this path.
+- **reka-ui slider pointer-capture leak** — no sliders.
+- **WebGL** — none in this subtree.
+- **`parseCssColor` crash class** — the component performs **no parsing**. Colours arrive as
+  strings and are interpolated into `aria-label` and `background-color` only; malformed input
+  degrades to an unpainted dot, never a throw. `savedColorStrings.length === 0`, a whitespace-only
+  name (`:249-250`, `.trim() || default`) and `id == null` (`:270-271`) are all guarded.
+  `/#/palettes` shows **0 pageErrors and 0 consoleErrors** across all four Safari matrices
+  (`audit/visual/REPORT.json`); the only console error in my probes is the environmental
+  `VITE_API_URL` dev-config notice.
+- **Horizontal overflow** — `REPORT.md:120,135,150,165`: `overflowX = 0` on `/#/palettes` in all
+  four matrices. The `flex-wrap` swatch row is correct.
+- **`verbatimModuleSyntax`** — satisfied (`:190`).
+- **`useBreakpoint` subscription** — glass-ui `dist/dom.js` registers `onScopeDispose`; not leaked.
+- **`useLeaveTimer.schedule` cancels before re-arming** (`:5`), so rapid hover in/out cannot stack
+  timers — only the unmount case (C-12) is unhandled.
+- **Mobile edit-commit is NOT a gap.** The `hidden lg:flex` on `.edit-overlay` (`:58`) looked like
+  a missing affordance below 1024 px, but `demo/shell/dock/Dock.vue:143-144` provides labelled
+  `Save edit` / `Cancel edit` DockControls on the same emits. Duplicated affordance, not a hole.
+- **The store layer is honest.** `usePaletteStore` is one lazy module singleton with a defensive
+  `serializer.read` (`try` / `JSON.parse` / version check) and a type-predicate narrowing of `id`.
+  All corruption in C-3/C-10 originates above it.
+- **`writeClipboard` is correctly `void`-ed** (`useSwatchActions.ts:87`); no unhandled rejection.
+
+---
+
+## Defect families (for the ledger)
+
+| family | findings | one cure |
+|---|---|---|
+| **F-a · producer-API drift, typecheck-invisible** | C-1, C-2 | the interactive element owns semantics, `WatercolorDot` owns paint; add role-query assertions so the class cannot recur silently. |
+| **F-b · phantom CSS class** | C-4, **C-5** | "every template class resolves to ≥1 rule" walk (20 lines, already written in `probe-D.mjs`). |
+| **F-c · latched state that outlives its premise** | C-3, C-11 | derive, do not latch. |
+| **F-d · lossy projection at a layer boundary** | C-9, C-10 | carry identity and metadata on the model; never re-derive from position or from a display string. |
+| **F-e · duplicated interaction paths** | C-2, C-4, C-6 | one `Popover`; delete `useHoverPopover` + `useLeaveTimer` + the `canHover` fork. |
+| **F-f · per-instance override of a root register** | C-13, C-5 | design-system `Button`; never `focus-visible:outline-none`. |
+
+## Convergence + delta against the prior passes
+
+| prior finding | this pass |
 |---|---|
-| 1 · no god modules | **PASS.** 312 / 116 / 67 / 17 lines across four cohesive files; the composable split is real. |
-| 2 · no legacy code, no dual paths | **FAIL.** `tag="button"` names a producer API that does not exist (C-1) — a shim for a version that is gone. `SwatchHoverMenu` ships two full render paths for one behaviour (C-2/C-3), and `addCurrentColor` duplicates `usePaletteWiring`'s dedupe with the opposite ordering (C-10). |
-| 3 · KISS, no contrivance | **FAIL.** 18 lines of Map/counter/watcher that provably equal one string concatenation, and are strictly worse than it (C-6). 24 dead tooltip lines (C-9). |
-| 4 · glass-ui is the design system | **FAIL.** A hand-rolled teleported floating panel positioned by manual `getBoundingClientRect` and a phantom class, standing next to the reka-ui `Popover` the same file already imports (C-3). |
-| 5 · root-level styling | **PASS with one qualifier.** The scoped block is layout-only and the S.W5-3 comment records the deliberate retirement of per-instance overrides; but `.floating-panel` has no root-level definition to inherit from — the styling is not *overridden* per-instance, it is *absent* (C-3). |
-| 6 · animations never deleted | **PASS.** `vj-enter` is consumed, not redefined; `.edit-overlay` only re-parameterises the family's own custom properties (`--vj-enter-x/y/scale`). |
-| 7 · idiomatic Vue 3.5 | **PARTIAL.** Reactive props destructure + `toRef(() => …)` at `:196-202,234-235` is correct, and there is no `defineModel` stale-read hazard here (`currentPaletteName` is a local `ref`). But no `useTemplateRef` is needed and none is used — fine — while `duplicateTarget` is snapshot state that should be `computed` (C-4), the anti-pattern the edict's spirit targets. |
-| 8 · `verbatimModuleSyntax` | **PASS.** `import type { Palette, PaletteColor }` (`:190`); `useSwatchActions.ts:2-3` `import type { Ref, ShallowRef }` / `import type { EditTarget }`. No mixed imports; `TransitionGroup` at `:172` is a value import of a value. |
+| pass-1/2 C-1 (add control inert) | **independently reproduced** with my own DOM dump + the playwright run |
+| pass-1/2 C-2 (swatches inert) | **independently reproduced**; extended with the measured 2-stop keyboard tab set and the 0-popover touch result |
+| pass-2 C-3 (`.floating-panel` phantom) | **independently reproduced**; extended with the Δx/Δy anchor drift and the full-page screenshot |
+| pass-2 C-4 (`Update` writes `colors: []`) | **same latch, second destructive shape measured** — a *non-empty* overwrite of a differently-named palette with the typed name discarded (my C-3) |
+| pass-2 C-6 (`swatchKeys`) | reproduced with the deterministic simulation + the `feTurbulence` remount cost |
+| pass-2 C-8 (nameless save) | reproduced |
+| pass-2 C-14 (vacuous gates) | reproduced; extended with the exact `ci.yml` grep and the verbatim RED playwright run |
+| — | **NEW C-5**: `.btn-interactive` is a second phantom class; `git show 2f4623e5` proves working motion + focus were deleted for it |
+| — | **NEW C-10 framing**: `colorsFromStrings` metadata destruction on the update path |
+| — | **NEW C-11 measurement**: `indexOf === -1` for the same physical colour across a space change |
+| pass-2 C-5 (stale `colorIndex` phantom duplicate), C-7 (default-name collision), C-9 (dead code), C-12 (202 mutation records), C-13 (`role=alert` re-announce) | **not re-tested this pass** — carried forward from the prior, which remains at `challenge-C-implementation.2026-07-28-pass2-prior.md`. I neither confirm nor dispute them here. |
 
----
+## Strongest single defect
 
-## What is sound (the negative proof)
-
-Not everything I suspected held up; these are checked and clean, and a future seat should not
-re-file them:
-
-- **The `hidden lg:flex` edit overlay is NOT a mobile dead-end.** `CurrentPaletteEditor.vue:58`
-  hides the Save/Cancel overlay below `1024px`, and `Dock.vue:73` computes
-  `mobileEditActive = !isDesktop && !!editTarget` with `isDesktop = useMediaQuery("(min-width: 1024px)")`,
-  raising a dock layer with `aria-label="Save edit"` / `"Cancel edit"` (`Dock.vue:143-144`). The two
-  breakpoints are exactly complementary. Measured: at 800px the dock control is present
-  (`Save edit affordances at 800px: [{"label":"Save edit","w":40}]`). The *orphaning* in C-5 is a
-  stale-index consequence, not a breakpoint gap.
-- **No `defineModel` stale-read hazard.** The component uses a plain local `ref` for the name field
-  and props-in/emits-out for everything else; the known `WritableComputedRef` round-trip class does
-  not apply.
-- **No `ValueUnit` nesting risk.** Nothing here wraps a possibly-wrapped value;
-  `colorsFromStrings` maps strings to `{ css, position }` records only.
-- **No ungated `requestAnimationFrame`.** No rAF in the component or any of its three composables.
-  glass-ui's `useWatercolorBlob` rAF loop is opt-in via `animate` (default `false`, and this
-  component never sets it) and is `pauseWhenHidden` + `respectReducedMotion` when enabled.
-- **No WebGL on this path**, no network I/O, no unguarded `await`: every action is a synchronous
-  emit. `writeClipboard` is correctly `void`-ed (`useSwatchActions.ts:87`).
-- **The composable's media-query subscription does dispose.** glass-ui `useBreakpoint`
-  (`dist/dom.js`) registers `onScopeDispose` — the listener is not leaked.
-- **`useLeaveTimer.schedule` cancels before re-arming**, so rapid hover in/out cannot stack timers
-  (only the unmount case, C-11, is unhandled).
-- **The store layer is honest.** `usePaletteStore` is a single lazy module singleton with a
-  defensive `serializer.read` (`try/JSON.parse/version check`), and `savedPalettes` narrows
-  `id` by type predicate. The corruption in C-4/C-5 originates entirely above it.
-- **Zero console errors, zero page errors** on `/#/palettes` in all four visual-audit matrices
-  (`REPORT.json`) and in every probe run of mine (the only console error is the dev-server
-  `VITE_API_URL` misconfiguration notice, which is environmental).
-- **No horizontal overflow** at rest (`overflowX: 0`, all four matrices). The 40px *vertical*
-  overflow in C-3 exists only while hovering, which the capture never does.
-
----
-
-## Recommended repair order
-
-1. **C-1 + C-2 together** — one transposition (real control wrapping a decorative dot) restores the
-   add action, the swatch actions, the accessible names, keyboard operability, and the Popover
-   trigger wiring. Delete `tag=` from all six `tag="button"` sites repo-wide.
-2. **C-3** — delete the hover branch, `useHoverPopover`, `useLeaveTimer` and the phantom class;
-   the already-imported reka-ui `Popover` serves both pointer classes. Kills C-11 with it.
-3. **C-4** — `duplicateTarget` becomes `computed`; `confirmUpdatePalette` inherits the emptiness
-   precondition.
-4. **C-5** — identity-keyed edit targets, and `commitColorEdit` bails on an out-of-range index.
-5. **C-6** — delete the key machinery.
-6. **C-7, C-8, C-9, C-10, C-12, C-13** — one-to-few-line repairs, each named above.
-7. **C-14** — three component tests that fail on C-2, C-4, C-5; then wire Playwright into `ci.yml`,
-   because `palette-save.spec.ts` has been red on a blocker that no gate reported.
+**C-1.** Measured, reproducible in one command, and it has already turned the repository's own
+`palette-save` smoke spec **red on HEAD** without anyone noticing, because CI runs no Playwright.
+It is the entire reason the component exists, and it does not work.

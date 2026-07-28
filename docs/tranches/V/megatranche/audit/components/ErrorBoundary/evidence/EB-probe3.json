@@ -1,0 +1,126 @@
+{
+  "contrast_light": {
+    "messageInk": [
+      28,
+      25,
+      23
+    ],
+    "messageBackdrop": [
+      242,
+      93,
+      163
+    ],
+    "messageContrast": 5.72,
+    "detailInk": [
+      86,
+      84,
+      83
+    ],
+    "detailBackdrop": [
+      242,
+      93,
+      163
+    ],
+    "detailContrast": 2.46,
+    "iconInk": [
+      219,
+      36,
+      36
+    ],
+    "iconBackdrop": [
+      242,
+      93,
+      163
+    ],
+    "iconContrast": 1.6,
+    "detailFontPx": 16.4,
+    "floorSmallText": 4.5,
+    "floorNonText": 3
+  },
+  "contrast_dark": {
+    "messageInk": [
+      233,
+      230,
+      226
+    ],
+    "messageBackdrop": [
+      242,
+      93,
+      163
+    ],
+    "messageContrast": 2.46,
+    "detailInk": [
+      221,
+      218,
+      216
+    ],
+    "detailBackdrop": [
+      242,
+      93,
+      163
+    ],
+    "detailContrast": 2.2,
+    "iconInk": [
+      235,
+      71,
+      71
+    ],
+    "iconBackdrop": [
+      242,
+      93,
+      163
+    ],
+    "iconContrast": 1.24,
+    "detailFontPx": 16.4,
+    "floorSmallText": 4.5,
+    "floorNonText": 3
+  },
+  "zoom200": {
+    "ebRect": {
+      "y": 104,
+      "h": 338,
+      "bottom": 442
+    },
+    "ebScrollH": 338,
+    "ebClientH": 338,
+    "overflowStyle": "visible",
+    "buttonBottom": 402,
+    "mainBottom": 442,
+    "winH": 450,
+    "docScrollH": 450,
+    "buttonBelowViewport": false,
+    "buttonBelowMain": false,
+    "pageCanScroll": false
+  },
+  "mobile": {
+    "switched": {
+      "hostFound": true,
+      "buttons": 2,
+      "clicked": "About"
+    },
+    "state": {
+      "boundary": true,
+      "rect": {
+        "x": 16,
+        "y": 104,
+        "w": 358,
+        "h": 732
+      },
+      "position": "static",
+      "text": "This panel hit an unexpected error.Importing a module script failed. Try again",
+      "winH": 844
+    },
+    "a11y": {
+      "role": "alert",
+      "ariaLive": "assertive",
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "tabindex": "-1",
+      "headingsInside": 0,
+      "isActive": true,
+      "tabbables": [
+        "button:Try again"
+      ]
+    }
+  }
+}

@@ -1,0 +1,441 @@
+{
+  "signature": "API fixtured via page.route; component + dev server real; server numbers are fixtures",
+  "chromium": {
+    "rowCount": 0,
+    "rosterRequest": [
+      {
+        "m": "GET",
+        "p": "/admin/users",
+        "body": null
+      }
+    ],
+    "ariaRow": "- button \"mbabb 12 Palettes Delete user mbabb\":\n  - text: mbabb 12\n  - button \"Palettes\":\n    - img\n    - text: Palettes\n  - button \"Delete user mbabb\"",
+    "slugPillText": {
+      "innerText": "admin",
+      "textContent": " admin ",
+      "childHTML": " admin "
+    },
+    "gapBetweenPillAndBadge": {
+      "kids": [
+        "SPAN:slug-pill flex items-bas",
+        "DIV:badge-atom inline-flex i"
+      ],
+      "nextSiblingType": 1,
+      "nextSiblingText": null
+    },
+    "counts": [
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "5",
+        "x": 345,
+        "y": 241,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "SPAN",
+        "cls": "text-mono-small text-muted-for",
+        "text": "5 users",
+        "x": 224,
+        "y": 366,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "12",
+        "x": 313,
+        "y": 424,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "3",
+        "x": 425,
+        "y": 494,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "0",
+        "x": 536,
+        "y": 564,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "0",
+        "x": 536,
+        "y": 634,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "0",
+        "x": 455,
+        "y": 704,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      }
+    ],
+    "toolbarButtons": [
+      {
+        "text": "Prune empty",
+        "w": 120.4,
+        "h": 36,
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5",
+        "variantAttr": "outline",
+        "emphasisAttr": "secondary",
+        "height": "36px",
+        "minHeight": "36px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "font": "Fraunces",
+        "fontStyle": "italic",
+        "fontSize": "14.384px",
+        "disabled": false
+      },
+      {
+        "text": "Refresh",
+        "w": 87.1,
+        "h": 36,
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5",
+        "variantAttr": "outline",
+        "emphasisAttr": "secondary",
+        "height": "36px",
+        "minHeight": "36px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "font": "Fraunces",
+        "fontStyle": "italic",
+        "fontSize": "14.384px",
+        "disabled": false
+      }
+    ],
+    "focus": {
+      "matchesFocusVisible": true,
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "outline": "none 1px",
+      "bg": "oklab(0.871135 0.0072692 0.0236415 / 0.5)",
+      "wrapperOverflow": "hidden",
+      "wrapperClass": "rounded-md border border-card-edge overflow-hidden"
+    },
+    "filteredToolbar": [
+      "5 users",
+      "· 1 empty"
+    ],
+    "filteredDialog": "Prune 1 empty users? | This will permanently delete 1 user with 0 palettes and their sessions. This cannot be undone. | Cancel | Prune",
+    "pruneRequests": [
+      {
+        "m": "POST",
+        "p": "/admin/users/prune-empty",
+        "body": null
+      }
+    ],
+    "afterBeat": [
+      "Pruned 3 users"
+    ],
+    "nested500": {
+      "unhandled": [],
+      "expandedText": "mbabb | 12 | Palettes | · NONE PINNED · | No palettes.",
+      "pageerrors": []
+    },
+    "rtl": {
+      "pills": [
+        {
+          "dom": [
+            "mbabb",
+            ""
+          ],
+          "lefts": [
+            1143.5,
+            1143.5
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        },
+        {
+          "dom": [
+            "ghost-empt",
+            "y-1733"
+          ],
+          "lefts": [
+            1093.1,
+            1032.5
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        },
+        {
+          "dom": [
+            "empty-ghost-account-a",
+            "aaa-33"
+          ],
+          "lefts": [
+            982,
+            921.5
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        },
+        {
+          "dom": [
+            "empty-ghost-account-a",
+            "aaa-77"
+          ],
+          "lefts": [
+            982,
+            921.5
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        },
+        {
+          "dom": [
+            "empty-three-b",
+            "bbb-11"
+          ],
+          "lefts": [
+            1062.8,
+            1002.2
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        }
+      ],
+      "bdiCount": 0,
+      "htmlDir": "rtl"
+    }
+  },
+  "webkit": {
+    "rowCount": 2,
+    "rosterRequest": [
+      {
+        "m": "GET",
+        "p": "/admin/users",
+        "body": null
+      }
+    ],
+    "ariaRow": "- button \"mbabb 12 Palettes Delete user mbabb\":\n  - text: mbabb 12\n  - button \"Palettes\":\n    - img\n    - text: Palettes\n  - button \"Delete user mbabb\"",
+    "slugPillText": {
+      "innerText": "admin",
+      "textContent": " admin ",
+      "childHTML": " admin "
+    },
+    "gapBetweenPillAndBadge": {
+      "kids": [
+        "SPAN:slug-pill flex items-bas",
+        "DIV:badge-atom inline-flex i"
+      ],
+      "nextSiblingType": 1,
+      "nextSiblingText": null
+    },
+    "counts": [
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "5",
+        "x": 345,
+        "y": 241,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "SPAN",
+        "cls": "text-mono-small text-muted-for",
+        "text": "5 users",
+        "x": 224,
+        "y": 366,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "12",
+        "x": 313,
+        "y": 424,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "3",
+        "x": 425,
+        "y": 494,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "0",
+        "x": 536,
+        "y": 564,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "0",
+        "x": 536,
+        "y": 634,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex items-c",
+        "text": "0",
+        "x": 455,
+        "y": 704,
+        "font": "\"Fira Code\"",
+        "size": "16.4px"
+      }
+    ],
+    "toolbarButtons": [
+      {
+        "text": "Prune empty",
+        "w": 120.4,
+        "h": 36,
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5",
+        "variantAttr": "outline",
+        "emphasisAttr": "secondary",
+        "height": "36px",
+        "minHeight": "36px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+        "font": "Fraunces",
+        "fontStyle": "italic",
+        "fontSize": "14.384px",
+        "disabled": false
+      },
+      {
+        "text": "Refresh",
+        "w": 87.1,
+        "h": 36,
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-7 px-2.5 cursor-pointer font-display text-caption gap-1.5",
+        "variantAttr": "outline",
+        "emphasisAttr": "secondary",
+        "height": "36px",
+        "minHeight": "36px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+        "font": "Fraunces",
+        "fontStyle": "italic",
+        "fontSize": "14.384px",
+        "disabled": false
+      }
+    ],
+    "focus": {
+      "matchesFocusVisible": true,
+      "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "outline": "none 3px",
+      "bg": "oklab(0.871139 0.007229 0.023625 / 0.5)",
+      "wrapperOverflow": "hidden",
+      "wrapperClass": "rounded-md border border-card-edge overflow-hidden"
+    },
+    "filteredToolbar": [
+      "5 users",
+      "· 1 empty"
+    ],
+    "filteredDialog": "Prune 1 empty users? | This will permanently delete 1 user with 0 palettes and their sessions. This cannot be undone. | Cancel | Prune",
+    "pruneRequests": [
+      {
+        "m": "POST",
+        "p": "/admin/users/prune-empty",
+        "body": null
+      }
+    ],
+    "afterBeat": [
+      "Pruned 3 users"
+    ],
+    "nested500": {
+      "unhandled": [],
+      "expandedText": "mbabb | 12 | Palettes | · NONE PINNED · | No palettes.",
+      "pageerrors": []
+    },
+    "rtl": {
+      "pills": [
+        {
+          "dom": [
+            "mbabb",
+            ""
+          ],
+          "lefts": [
+            1143.5,
+            1143.5
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        },
+        {
+          "dom": [
+            "ghost-empt",
+            "y-1733"
+          ],
+          "lefts": [
+            1093.1,
+            1032.5
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        },
+        {
+          "dom": [
+            "empty-ghost-account-a",
+            "aaa-33"
+          ],
+          "lefts": [
+            982,
+            921.5
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        },
+        {
+          "dom": [
+            "empty-ghost-account-a",
+            "aaa-77"
+          ],
+          "lefts": [
+            982,
+            921.5
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        },
+        {
+          "dom": [
+            "empty-three-b",
+            "bbb-11"
+          ],
+          "lefts": [
+            1062.8,
+            1002.2
+          ],
+          "dir": "rtl",
+          "display": "flex"
+        }
+      ],
+      "bdiCount": 0,
+      "htmlDir": "rtl"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "ghostCount": 1,
+  "ghostBox": {
+    "x": 767,
+    "y": 346.65625,
+    "width": 48,
+    "height": 48
+  },
+  "ghostAttrs": {
+    "tagName": "SPAN",
+    "ariaHidden": "true",
+    "ariaLabel": null,
+    "title": null,
+    "disabled": null,
+    "tabIndex": -1,
+    "computedPointerEvents": "none",
+    "childElementCount": 2,
+    "childTags": [
+      "svg.watercolor-filter-host",
+      "SPAN.watercolor-ghost-stroke"
+    ],
+    "hasPlusIcon": false,
+    "innerText": ""
+  },
+  "chipsAfterRealClick": 0,
+  "elementFromPointAtGhostCentre": "DIV .swatch-row flex items-center gap-2.5 fle",
+  "chipsAfterForcedDomClick": 0,
+  "ghostKeyboardReachableWithin80Tabs": false,
+  "mixButton": {
+    "count": 1,
+    "disabled": true
+  },
+  "sourceSelectorAxNames": {
+    "wellHTML": "<div data-v-a3e86846=\"\" class=\"dashed-well\"><!-- W5-7: the \"N colors\" counter died — it restated the visible chips (and read \"1 colors\" at one). --><span data-v-a3e86846=\"\" class=\"text-small font-display font-semibold text-muted-foreground\">Selected</span><div data-v-a3e86846=\"\" class=\"swatch-row flex items-center gap-2.5 flex-wrap\"><span data-v-292b9032=\"\" data-v-a3e86846=\"\" aria-hidden=\"true\" class=\"add-slot-ghost w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer hover:scale-110 active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:opacity-30 disabled:cursor-not-allowed disabled:pointer-events-none watercolor-swatch\" data-testid=\"watercolor-swatch\" data-variant=\"ghost\" style=\"border-radius: 76.8317% 21.2696% 56.3219% 54.5403% / 69.7219% 32.2797% 31.8947% 23.6254%; pointer-events: none; --watercolor-color: lab(92% 88.8 20); --watercolor-filter: url(#watercolor-filter-v-1-0); --watercolor-wobble: none;\"><svg data-v-292b9032=\"\" class=\"watercolor-filter-host\" aria-hidden=\"true\" focusable=\"false\"><defs data-v-292b9032=\"\"><filter data-v-292b9032=\"\" id=\"watercolor-filter-v-1-0\" x=\"-15%\" y=\"-15%\" width=\"130%\" height=\"130%\" c",
+    "interactiveDescendants": 0
+  }
+}

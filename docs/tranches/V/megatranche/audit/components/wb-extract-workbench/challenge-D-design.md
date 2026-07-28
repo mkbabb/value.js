@@ -1,730 +1,893 @@
-# CHALLENGE-D — `demo/workbenches/extract/ExtractWorkbench.vue`
+# CHALLENGE-D — `demo/workbenches/extract/ExtractWorkbench.vue` — pass 2
 
 ## Model receipt
 
-I observe myself to be **Opus 5** (`claude-opus-5[1m]`, 1M-context variant) — the tier this
-seat was explicitly spawned with. The declaration is present, not inherited.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context
+variant. That is the tier this seat was explicitly spawned with; the declaration is
+present in my seat, not inherited from a parent.
 
 ---
 
-## 0. Verdict
+## 0. Provenance of this pass
 
-**DEFECTIVE.** The premise holds. This component's design fails in three independent
-registers, and each failure is provable from a measurement rather than an opinion:
+A pass-1 CHALLENGE-D report already existed at this path (`2026-07-27 18:40`, 28
+findings). I did **not** clobber it: it is preserved verbatim at
+`docs/tranches/V/megatranche/audit/components/wb-extract-workbench/challenge-D-design.pass1-2026-07-27.md`.
 
-1. **It lies about the specimen.** The Extract route's declared protagonist — the source
-   image — is silently centre-cropped. A 400×1200 portrait renders **23.3 % visible**;
-   the palette below it names three colours that appear nowhere in the preview. Same
-   frame, reference desktop viewport.
-2. **Its central state transition does not exist.** The `isProcessing` skeleton — a
-   component built for exactly this seat, carrying `role="status"` / "Loading palette" —
-   **never paints**, not even during a 2.9-second CPU-throttled quantize. The user stares
-   at a placeholder reading *"feed it an image"* while their image is being processed.
-3. **It violates the tranche's own NORMATIVE laws by measured amounts** — the card-lock
-   law (twice), the ≤15 % empty-content ceiling (four viewports), the binding Extract
-   mobile order, and the type-role matrix (to three decimal places: 41.888 px = 41.888 px).
+This file is pass 2. It does three things:
 
-Nine of the twenty-four findings below carry a pasted measurement or a screenshot.
-Three are labelled HYPOTHESIS and carry no reproduction.
+1. **Independently re-measures** eight pass-1 findings from a cold browser session with
+   different tooling (Playwright MCP + PIL pixel sampling of the Safari PNGs, rather than
+   pass-1's `probe-D-*.mjs` scripts). Re-measurement is what turns a PLAUSIBLE finding
+   into a CONFIRMED one; a second independent instrument is worth more than a second
+   reading on the same one. Notably, pass 1's type-collision number (`41.888px = 41.888px`)
+   reproduced **exactly** under my instrument.
+2. **Adds eleven defects pass 1 did not report** — all in the camera, sampler-entry, and
+   failure registers, all provable from source coordinates or a measured number.
+3. **Converges on pass 1's gestalt independently.** Pass 1 concluded "this workbench
+   renders the absence of its output more emphatically than the output itself"; I arrived
+   at the same sentence from the canon side ("absent result collapses context") without
+   having read pass 1 first. Two seats, two instruments, one diagnosis — the finding is
+   not an artefact of one reading.
 
-### Evidence gap this seat closed first
-
-`docs/tranches/V/megatranche/audit/visual/states.mjs:18` —
-`const ROUTES = ["#/", "#/gradient", "#/browse", "#/blob", "#/admin/users"]`. **`#/extract`
-is not in it.** No zoom-200, zoom-400, reduced-motion, forced-colors, RTL or
-keyboard-focus capture has ever existed for this component. All such rows below are my
-own, from `probe-D-geometry.mjs`.
+Where a defect is pass-1's, I say so and give it pass-1's ID. New defects carry `D2-nn`.
 
 ---
 
-## 1. Probes run (all read-only against the live dev server, `http://localhost:9000`)
+## 1. Verdict
 
-| Script | What it decides | Output |
+**DEFECTIVE.** The premise holds, and it holds at the gestalt level rather than at the
+level of individual pixels. The single sentence that condemns this component is the
+tranche's own:
+
+> `VISUAL-CONSTITUTION.md:198` — "The image is the stage. The palette develops from it
+> into a compact specimen plate; **the undeveloped state remains contextual, not a giant
+> shadow placeholder.** Eyedropper and sampler have keyboard/numeric alternatives."
+
+The shipped component fails **both sentences of that paragraph**, measurably, on the
+default first frame every visitor sees. It also fails its own binding composition row:
+
+> `OPTICAL-BENCH-COMPOSITIONS.md:42` — "**Extract** | P122 `golden`: source/sampler
+> 61.8033989%; result controls 38.1966011%; **absent result collapses context**. | … |
+> Landmark-neutral chassis; image well is specimen, not Card."
+
+The component has no chassis, no golden ratio, and its absent result does not collapse
+context — it *manufactures* context, 97% the size of the stage, out of nothing.
+
+**Strongest defect: D2-01** — the undeveloped state is exactly the "giant shadow
+placeholder" the constitution names and forbids: 177.5 px of pure placeholder against a
+182.9 px image stage (**97.0%**), measured live at the reference desktop viewport.
+
+---
+
+## 2. Instruments used
+
+| Instrument | What it decided | Where |
 |---|---|---|
-| `probe-D-geometry.mjs` | 8 matrices × geometry/material/colour/naming | `probe-D-geometry.json`, `frames/` |
-| `probe-D-states.mjs` | k-sweep on the empty state; hover/focus registers | `probe-D-states.json`, `frames-states/` |
-| `probe-D-focus-transition.mjs` | WebKit **and** Chromium tab order; seat trace | `probe-D-focus-transition.json`, `frames-focus/` |
-| `probe-D-populated.mjs` | MutationObserver occupant trace; `disabled` audit | `probe-D-populated.json`, `frames-populated/` |
-| `probe-D-final.mjs` | 20× CPU-throttled quantize; crop measurement | `probe-D-final.json`, `frames-final/` |
-| `probe-D-type-crop.mjs` | portrait-crop demonstration; type-role sizes | `probe-D-type-crop.json`, `frames-crop/` |
-| `probe-D-cardlock.mjs` | DESIGN.md card-lock law, both arms | `probe-D-cardlock.json` |
+| Safari matrix PNGs, 4 matrices | how it actually looks, light+dark, desktop+mobile | `../../visual/shots/safari-*/extract.png` |
+| `../../visual/REPORT.json` | tap targets, nameless buttons, overflow, console | quoted below |
+| Playwright MCP → live dev server `:9000` | computed type rungs, rects, tab order, developed-state readout | pasted below |
+| PIL pixel sampling of the mobile PNGs | ghost-vs-plate luminance in both schemes | pasted below |
+| Source read | dead branches, dual camera paths, failure channel | file:line below |
+
+Browser probes were held to seven calls; the shared browser was then taken by a
+concurrent session, which is why two numbers below are arithmetic from measured
+constituents rather than one direct reading. Each is labelled.
 
 ---
 
-## 2. Visual truth
+## 3. Visual truth
 
-### D-1 · BLOCKER — `object-contain` is defeated; the source specimen is silently cropped
+### D2-01 · BLOCKER — the undeveloped plate is the "giant shadow placeholder" the constitution names and forbids
 
-`ImageDropZone.vue:41` — `<img class="w-full h-full object-contain rounded-xl">` — sits
-inside a `flex flex-col items-center justify-center overflow-hidden` root whose height cap
-arrives from the parent (`ExtractWorkbench.vue:20`, `max-h-[min(320px,40dvh)]`). The cap
-applies to the *container*; `height:100%` against an indefinite containing-block height
-resolves to `auto`, so the `<img>` takes its intrinsic aspect at the full 458 px width and
-the container clips it. `object-contain` has nothing left to contain.
-
-Measured, 400 × 1200 portrait, 1440 × 900 light (`probe-D-type-crop.json`):
+Live, viewport 1440×900, the Extract pane column measures 463 px wide:
 
 ```
- "imgBox":  { "y": -326.3, "h": 1374, "bottom": 1047.7 },
- "zoneBox": { "y":  200.7, "h":  320, "bottom":  520.7 },
- "objectFit": "contain",
- "croppedTopPx": 527, "croppedBottomPx": 527,
- "visibleFractionPct": 23.3
+dropZone (the stage)      : { w: 463.1, h: 182.9 }
+ShadowPalette (the ghost) : { w: 462.9, h: 153.0 }
+caption "· undeveloped plate — feed it an image ·" : { w: 462.1, h: 24.5 }
 ```
 
-527 px removed from the top, 527 px from the bottom, **23.3 % of the image visible**. With
-a square 2400 px image (`probe-D-final.json`) the same mechanism gives `img.h = 458` in a
-`320 px` box — 30 % cropped, `dropMaxH: "320px"` confirming the cap is live.
+Placeholder block = 153.0 + 24.5 = **177.5 px** against a **182.9 px** stage → the
+representation of *nothing* occupies **97.0%** of the height of the representation of
+*the thing itself*, and **82,165 px²** of a pane that has 463 px to work with.
 
-The consequence is not cosmetic. `frames-crop/portrait-crop.png` shows the six-band test
-image rendering as **yellow + green only**, with the extracted palette directly beneath it
-reading **purple, red, green, yellow, orange**. Three of the five swatches name colours the
-user cannot see. The quantizer reads the whole file; the preview shows the middle 23 %.
+Three independent canon rows break on that one number:
 
-`ImageDropZone.vue:3` states the contract this breaks: *"S.W5-6 · F4: **the specimen never
-lies** — no veil over the field."* It does not veil the field. It amputates it.
+- `VISUAL-CONSTITUTION.md:198` — "the undeveloped state remains contextual, **not a giant
+  shadow placeholder**".
+- `OPTICAL-BENCH-COMPOSITIONS.md:42` — "**absent result collapses context**".
+- `VISUAL-CONSTITUTION.md:34` (proportion law 8) — "One pane may have one full-strength
+  visual protagonist. **Supporting fixtures do not compete with it through equal size or
+  equal shadow.**" 97% *is* equal size; and the ghost carries `shadow-cartoon-sm`, which
+  measures as three stacked casters (D2-02) — equal shadow too.
 
-**Reproduction:** `node docs/tranches/V/megatranche/audit/components/wb-extract-workbench/probe-D-type-crop.mjs`
-then open `frames-crop/portrait-crop.png`.
+The mobile frames are worse, because the caption then wraps: in
+`safari-mobile-light/extract.png` the ghost plus its two-line caption run y≈1420→1940 of a
+1992 px frame — the last quarter of the scroll is an apology for an empty result.
 
-**Cure (gestalt, not patch):** the preview is a *stage*, not a flow child. Give the drop
-zone a definite block size (`aspect-ratio` or `h-[clamp()]` on the root, not a `max-h` on a
-content-sized box) so `object-contain` has a real box to fit into, and let the specimen
-letterbox against the well ground. Cropping the protagonist to preserve a layout rhythm is
-the wrong trade for a *colour extraction* instrument.
+The component's own comment (`ExtractWorkbench.vue:87–101`) defends the ghost because
+"`count` rides the k-slider LIVE, so k is legible before any image exists and the ghost
+re-segments under the slider". That defence concedes the defect: the job it names is
+*"make k legible"*, and k is already legible — it is printed as a live numeral at
+`ExtractControls.vue:15`, and the k rail directly above is a full-width bar whose
+segmentation carries the same information. An 82,165 px² second instrument exists to
+duplicate a 20 px label.
 
----
+**Reproduction:** `http://localhost:9000/#/extract`, cold load, 1440×900. No interaction
+required — this is the default frame. Numbers above are pasted `getBoundingClientRect()`
+output.
 
-### D-2 · BLOCKER — the loading state does not exist; the empty caption speaks during processing
+**Cure (transposition, not patch):** delete `ShadowPalette` from this seat and let the
+result region have **zero height until there is a result** — which is precisely what
+"absent result collapses context" instructs. The invitation already lives in the stage
+("Drop an image or click to browse", `ImageDropZone.vue:48–50`); it does not need a second
+voice. Live-k feedback moves onto the k rail, which is already a color-bearing track
+(`ExtractControls.vue:19–23`) and is the honest place for it: one instrument, one readout.
+`ShadowPalette.vue` then has **no seat at all** and dies with the row — its own header
+comment says "ONE seat: … Extract's k-threaded undeveloped plate".
 
-`ExtractWorkbench.vue:102-107` gates `PaletteCardSkeleton` behind
-`v-if="session.isProcessing.value"` inside a `<Transition name="vj-morph" mode="out-in">`.
-A `MutationObserver` + per-`rAF` occupant sampler run over the real route recorded, with
-Chrome CPU throttled 20× and a 2400 × 2400 source (`probe-D-final.json`):
+### D2-02 · MINOR — the placeholder wears a boundary and a caster, against the binding boundary inventory
 
-```
-OCCUPANT TRACE (CPU 20x throttled, 2400px image): [[0,"ghost"],[2894,"card"]]
-```
+`OPTICAL-BENCH-COMPOSITIONS.md:76` is binding and unambiguous:
 
-Two occupants in 2.9 seconds: `ghost`, then `card`. **`SKELETON` never appears.** The
-unthrottled Chromium and WebKit runs agree (`probe-D-focus-transition.json`: ghost through
-t≈210 ms, then the card).
-
-So for the entire compute window the seat holds the *undeveloped-plate ghost* and the
-caption at `ExtractWorkbench.vue:165`:
-
-> `· undeveloped plate — feed it an image ·`
-
-The instrument instructs the user to do the thing they have just done, for as long as the
-work takes. The `role="status"` / `aria-label="Loading palette"` announcement that
-`PaletteCardSkeleton` exists to make is never made either.
-
-The `mode="out-in"` gate is the mechanism: Vue holds the entering branch until the leaving
-branch's transition resolves, and by then `isProcessing` has already flipped back to
-`false`, so the branch that wins is the developed card. The design comment at
-`ExtractWorkbench.vue:92-99` asserts the opposite of what ships:
-
-> *"`isProcessing` swaps ghost → KNOWN-IMMINENT skeleton **IN PLACE** (same bones — a
-> material change, **not a layout jump** …); the developed card … lands in the same seat."*
-
-Three claims, three failures: the swap never happens, the bones are not the same
-(`ShadowPalette` strip = `gap-px` + `flex-1`; `PaletteCardSkeleton` strip = no gap +
-`width:100/count%` — the two files hand-duplicate a geometry the comment calls identical),
-and the seat is not stable (see D-3).
-
-**Cure:** `mode="out-in"` is the wrong family for a state machine whose intermediate state
-is short-lived. Either drop `mode` so the skeleton can cross-fade in, or — better —
-collapse `ShadowPalette` and `PaletteCardSkeleton` into **one** plate component with a
-`state: "empty" | "working" | "developed"` prop. The "same bones" promise then holds
-structurally instead of by hand-copy, and the loading register becomes reachable.
-
----
-
-### D-3 · BLOCKER — the NORMATIVE card-lock law is violated on both arms
-
-`demo/DESIGN.md`, *"### The card-lock law (NORMATIVE — R.W3 Lane A / A6, U31)"*:
-
-> *"a value change may never move the card: dragging any component slider from min to max
-> changes NO containing card rect (±0px)"* … *"a Fraunces-set number MUST declare
-> `tabular-nums`."*
-
-**Arm 1 — the empty state.** Dragging `k` from 5 to 16 (`probe-D-cardlock.json`):
-
-```
-empty-k5   pane {"x":199,"y":200.98,"w":512,"h":578.27}   ghost h=150
-empty-k16  pane {"x":199,"y":137.00,"w":512,"h":706.27}   ghost h=278
-```
-
-**Δh = +128.00 px, Δy = −63.98 px on the containing Card.** The law says ±0. The ghost's
-swatch row wraps at 6-per-row, so `k ≥ 7` adds a 64 px band each time. At `k ≥ 7` the empty
-placeholder (214 px) is *taller than the drop zone* (180 px).
-
-**Arm 2 — the populated readout.** `ExtractWorkbench.vue:122` is a Fraunces display-scale
-live numeric readout with no tabular figures:
-
-```
-img-k1   stat "100%oftheimage"  statRect.w=191.36  rightGroup.x=427.36  code.x=526.88 code.w=155.13
-img-k5   stat  "94%oftheimage"  statRect.w=169.48  rightGroup.x=405.48  code.x=505.00 code.w=177.00
-         fontFamily "Fraunces"  fontSize "41.888px"
-         fontVariantNumeric "normal"   fontFeatureSettings "normal"
-```
-
-**Δ = 21.88 px of horizontal jitter** on the eyebrow + colour readout, per value change.
-The readout's own width changes by 21.87 px, so the truncation point of the colour string
-moves with an unrelated statistic. `ExtractControls.vue:15` and `:78` both declare
-`tabular-nums`; the one Fraunces number — the exact case the law names — does not.
-
-**Cure:** `tabular-nums` on the stat (one class), and reserve the ghost's swatch band from
-a fixed row count rather than letting `k` reflow it — the instrument's *shape* is the
-information, not its row count.
-
----
-
-### D-4 · MAJOR — empty content is 3–5× over the binding ≤15 % ceiling
-
-`VISUAL-CONSTITUTION.md §3.2`:
-
-> *"Empty secondary content occupies at most a narrow invitation tray (≤15 % of the stage)
-> or disappears. It never receives half the viewport."*
-
-Ghost + `gap-2` + caption, as a fraction of the pane Card's block size:
-
-| Arm | ghost h | caption h | share of pane |
-|---|---:|---:|---:|
-| desktop 1440, k=5 | 150 | 21.58 | 179.58 / 578.27 = **31.1 %** |
-| desktop 1440, k=16 | 278 | 21.58 | 307.58 / 706.27 = **43.6 %** |
-| mobile 390 | 142 | 36.50 | 186.50 / 552 = **33.8 %** |
-| 400 % zoom (360 px) | 198 | 36.30 | 242.30 / 338 = **71.7 %** |
-
-By area at desktop k=5: 462 × 150 = 69 300 px² of a 512 × 578.27 = 296 074 px² pane =
-**23.4 %**, i.e. 83 % of the drop zone's own area. Source: `probe-D-geometry.json`,
-`probe-D-cardlock.json`.
-
-`PROPORTION-AUDIT.md` PR-04 names this family exactly: *"Empty/equal companion Cards and
-nested housing → **REMOVE**. Collapse absent support."*
-
----
-
-### D-5 · MAJOR — the binding Extract mobile order is inverted
-
-`VISUAL-CONSTITUTION.md §3.1`, Extract row: **"Mobile order | source, sampled result,
-controls"**. §3.6 repeats the shape: *"stage→inspector→action sequence."*
-
-Measured at mobile-light 390 (`probe-D-geometry.json`):
-
-```
-dropZone y=182  →  kRail y=378 (controls)  →  ghost y=469 (result)
-```
-
-Source, **controls**, result. `ExtractWorkbench.vue:64` places `<ExtractControls>` before
-the result `<Transition>` at line 102 in the same column, so the order is structural and
-identical on desktop. The pane leads with a dial before it has shown anything to dial.
-
----
-
-### D-6 · MAJOR — material-tier inversion: the empty placeholder is the heaviest object in the pane
-
-Measured computed styles (`probe-D-geometry.json`, desk-light):
-
-| Element | fill | edge | shadow |
+| Composition | P122 boundaries | P122 reserve | Retained non-P122 dividing line |
 |---|---|---|---|
-| drop zone (**the input protagonist**) | `oklab(0.4709 −0.081 0.097 / **0.05**)` | 2 px dashed, α 0.3 | *none* |
-| ghost (**empty output**) | `oklab(0.9133 0.0055 0.0130)` — **α 1.0** | solid `--card-edge` | **3 stacked cartoon layers** |
-| pane Card | α 0.664 | — | 1 |
+| Extract | `[]` | `none` | **none** |
 
-`VISUAL-CONSTITUTION.md §3.8`: *"One pane may have one full-strength visual protagonist.
-Supporting fixtures do not compete with it through equal size or equal shadow."* The
-fixture out-shadows the protagonist 3 : 0 and out-opaques it 20 : 1.
+Measured on the ghost (live computed style):
 
-This is also the mechanism behind the grey-block reading visible in every capture
-(`visual/shots/safari-desktop-light/extract.png`, `…/safari-mobile-light/extract.png`): the
-pane is **translucent** (α 0.664) and picks up the live aurora, so it reads warm pink; the
-ghost is **opaque** and shows only its own near-neutral token. A dead grey rectangle on a
-chromatic plate, in a chromatic-laboratory product.
+```
+border-color: oklab(0.216128 0.00350075 0.00518669 / 0.12)
+box-shadow  : oklab(...) -2px 2px 0 0, oklab(...) -3px 3px 0 0, oklab(...) -4px 4px 0 0
+```
 
-Compare the same frame's right-hand pane: `My Palettes` renders TRUE EMPTY as a
-**dashed, plate-tinted dot trio**. Two empty grammars, side by side, in one screenshot.
-`ShadowPalette.vue`'s own header concedes the rule — *"TRUE EMPTY speaks the EmptyState dot
-trio — N-3 re-aimed"* — and then Extract opts out.
+One retained boundary line plus a three-layer cartoon caster, on a surface that contains
+no object. `PROPORTION-AUDIT.md:49` PR-05 disposes of exactly this family: "Dividers,
+**caster shadows** and corner marks repeat a boundary → REMOVE / KEEP … every other
+divider/ornament is zero." Source: `ShadowPalette.vue:47`
+(`border border-card-edge … shadow-cartoon-sm`).
+
+**Cure:** subsumed by D2-01 — the surface goes away. If any ghost survives elsewhere, it
+takes material and interval only: no edge, no caster.
+
+### D2-03 · MAJOR — the value line uses two off-matrix type rungs, and one collides exactly with the pane identity
+
+`VISUAL-CONSTITUTION.md:68–78` publishes a **closed** seven-role type matrix; §4 states
+"This matrix is closed across all eighteen compositions", with P019's Picker pair the sole
+exception. Value/code/provenance is `text-mono-small` or `mono-caption`, Fira Code.
+
+`ExtractWorkbench.vue:122–128` renders the dominance statistic as:
+
+```html
+<span class="font-display text-display leading-none shrink-0">
+  {{ Math.round(session.dominantShare.value * 100) }}<span class="text-body font-normal plate-ink">% of the image</span>
+</span>
+```
+
+Live computed, developed state:
+
+```
+"60% of the image"   → font-size 41.888px, Fraunces, weight 400, font-variant-numeric: normal
+pane title "Extract" → font-size 41.888px, Fraunces, weight 400
+```
+
+Three defects in one line:
+
+1. **`text-display` on a value.** The matrix assigns `text-display` to "route H1 or major
+   argument". A derived percentage renders at **byte-identical** size and family to the
+   instrument's own identity — 41.888 px = 41.888 px. Card law 11
+   (`PROPORTION-AUDIT.md:76`): "A display-sized readout is not therefore a document
+   heading or live status." *(Pass-1 D-7 reached the same three-decimal identity through a
+   different probe; independently CONFIRMED here.)*
+2. **`text-body` is not in the matrix at all.** It resolves — it is a real glass-ui
+   utility (`node_modules/@mkbabb/glass-ui/dist/styles/typography/semantic.css`,
+   `@utility text-body`) — but it is not one of the seven sanctioned roles, and it appears
+   in only three demo files repo-wide (`grep -rln "text-body" demo/` → `demo/DESIGN.md`,
+   this file, `demo/scenes/about/ColorNutritionLabel.vue`). An off-matrix rung with two
+   consumers is not a system; it is a local invention. **New in pass 2.**
+3. **No tabular figures, no reserve.** `VISUAL-CONSTITUTION.md:78` — "**Live numbers use
+   tabular figures and reserve their widest legal representation so value changes never
+   reflow the settled chassis.**" Measured `font-variant-numeric: normal`; the number is
+   1–3 glyphs of proportional Fraunces with no reserved width, and the row's right-hand
+   group is pinned with `ml-auto` (`:129`), so every k change that walks the share from
+   `9` to `100` reflows the whole label line horizontally. **New in pass 2.**
+
+**Cure:** the line becomes the mandated pair — `text-mono-small` Fira value +
+`text-small` label — with `tabular-nums` and a three-glyph reserve. If the product truly
+wants a headline statistic here, it must arrive as a ratified paired-clamp exception the
+way P019 was ratified for Picker, not by borrowing the H1 rung.
+
+### D2-04 · MAJOR — the specimen readout is an unrounded 56-character float, and it is truncated at the shipped column width
+
+Live, developed state, the `<code>` element's own text:
+
+```
+oklch(53.1574088865% 0.129031386517 261.300836681396deg)     ← 56 chars
+scrollWidth: 565px @ font-size 16.4px Fira Code
+```
+
+Two faults, one nested in the other:
+
+1. **Precision.** Twelve significant figures of chroma is a debug dump, not a specimen. A
+   human reads `oklch(53.16% 0.129 261.3)` — 25 characters — and can retype it. The `deg`
+   suffix is legal CSS but is not the canonical `oklch()` hue serialization, so the string
+   is simultaneously over-precise and non-idiomatic.
+2. **Fit.** The shipped desktop column is 463 px (measured). The row is
+   `[percentage 172.5px] [gap 8] … ml-auto [ "dominant" ≈72px ] [gap 8] [code]`, leaving
+   ≈ **202 px** for a string that needs **565 px** → roughly **36% of the value is
+   visible**. *(Arithmetic from two measured constituents: `scrollWidth = 565` measured at
+   a 999 px column in the dev workspace; the 463 px column measured on the same page.
+   Pass-1 D-8 reports 31% from a direct reading — the two agree within the label-width
+   estimate, so this is CONFIRMED.)*
+
+The component knows (`ExtractWorkbench.vue:134–136`): "truncate may trim trailing digits
+at narrow widths; the full readout rides title + select-all (never a lying readout)". A
+`title` tooltip is unavailable on touch and is not a design answer; a value 2.8× its
+container is a formatting decision taken in the wrong place.
+
+**Cure:** round at the presentation boundary — the visible readout takes a fixed,
+reserved, widest-legal representation (per `VISUAL-CONSTITUTION.md:78`), and the
+full-precision string rides the Copy action. This is a serialization-precision argument,
+not a CSS `truncate`.
+
+### D2-05 · INFO — the dark treatment is *not* inverted (a pass-2 negative result)
+
+From the light frames I expected the ghost to vanish in dark. It does not. PIL sampling of
+the two mobile PNGs (identical crops, sRGB relative luminance, WCAG ratio):
+
+```
+light  ghost strip (199,192,185) vs plate (237,193,200)  → 1.12
+light  ghost body  (225,217,209) vs plate                → 1.15
+dark   ghost strip ( 88, 78, 71) vs plate (116, 79, 83)  → 1.15
+dark   ghost body  ( 71, 61, 53) vs plate                → 1.50
+```
+
+The `--skeleton-ink` recipe holds in both schemes and the dark arm is in fact *stronger*.
+The E1-R2 remediation recorded at `ShadowPalette.vue:96–104` did what it claims. Recorded
+so the mega-tranche does not chase a dark-mode ghost that is not there: the ghost's defect
+is **area** (D2-01), not scheme fidelity.
 
 ---
 
-### D-7 · MAJOR — type-role inversion, equal to three decimal places
+## 4. State coverage
 
-`PROPORTION-AUDIT.md §5.13`: *"route H1/major argument `text-display`; instrument identity
-`--type-title`; … value/code/provenance `text-mono-small`."*
-
-Measured (`probe-D-type-crop.json` + live eval):
-
-```
-pane identity  H3 "Extract"           fontSize 41.888px  Fraunces
-dominance stat    "33% of the image"  fontSize 41.888px  Fraunces
-```
-
-**Identical.** A derived support statistic (`ExtractWorkbench.vue:122`,
-`class="font-display text-display"`) is set at exactly the pane identity's rung, in the
-same family. §3.8's "do not compete … through equal size" is not approximately breached;
-it is breached to the pixel.
-
-`PROPORTION-AUDIT.md §5.11` also applies: *"A display-sized readout is not therefore a
-document heading or live status."*
-
----
-
-### D-8 · MAJOR — the dominant-colour readout shows 31 % of itself at the reference viewport
-
-`probe-D-type-crop.json`:
-
-```
-"readoutFull":     "oklch(56.686341050833% 0.147031011912 285.636092993966deg)"
-"readoutShownPx":  182      "readoutNeededPx": 585      "readoutTruncated": true
-```
-
-182 / 585 = **31.1 %**. What survives is `oklch(56.68634105…` — twelve significant digits
-of *lightness* — and what is cut is **chroma and hue**, i.e. the colour's entire identity.
-Visible in `frames-crop/portrait-crop.png` and `frames-final/final-populated.png`.
-
-`ExtractWorkbench.vue:134-136` pre-excuses this: *"truncate may trim trailing digits at
-narrow widths; the full readout rides title + select-all (never a lying readout)."* 1440 px
-is not a narrow width — it is the reference desktop arm — and a readout that hides the hue
-of the colour it names is not saved by a `title` attribute (invisible to touch, invisible
-to keyboard, invisible in a screenshot).
-
-Two causes compound: the serializer emits 12-digit precision for a *display* string, and
-the 41.888 px stat (D-7) eats the line before the readout gets any.
-
-**Cure:** display precision belongs to the display. Round to the house readout precision,
-and give the value its own line — it is the answer, not a footnote to a percentage.
-
----
-
-## 3. State coverage
-
-Enumerating every state this component can occupy, against what is actually handled:
+Every state this component can occupy, and whether it was designed:
 
 | State | Handled? | Evidence |
 |---|---|---|
-| empty | yes — but see D-4/D-6 | ghost + caption |
-| **loading / processing** | **NO — never renders** | D-2, occupant trace |
-| populated | yes | `frames-final/final-populated.png` |
-| **error (quantize)** | partial — see D-21 | `ExtractWorkbench.vue:80-85` |
-| **error (camera)** | **conflated into the quantize channel** | D-21 |
-| **camera awaiting permission** | **NO** — black `bg-stage` box, no state | `ExtractWorkbench.vue:239-241` |
-| camera active | yes | `ExtractWorkbench.vue:34-59` |
-| **disabled** | **1 of 6 controls** | D-12 |
-| focused | yes (Chromium); Safari skips the buttons | D-11 note |
-| hovered | yes | `probe-D-states.json` |
-| pressed | **on a no-op** | D-17 |
-| selected / dragging | n/a | — |
-| overflowing / truncated | **broken** | D-1, D-8, D-22 |
-| **RTL** | **NO — sliders direction-blind** | D-9 |
-| reduced-motion | **yes** — animations 19 → 6 | `probe-D-geometry.json` |
-| forced-colors | **untested by construction** | D-23 |
-| zoomed 200 % / 400 % | reflows, no overflow; D-4 worsens | `probe-D-geometry.json` |
-| **image loaded → cleared** | **UNREACHABLE** | D-13 |
+| empty (no image) | over-handled | D2-01 |
+| loading (`isProcessing`) | designed, effectively unreachable | pass-1 D-2; my drop→card path never showed it either |
+| populated | yes, with D2-03 / D2-04 defects | live measurement |
+| error — quantize | **color-only, unannounced, undismissable** | D2-06 |
+| error — camera | **wrong channel, raw exception text** | D2-06 |
+| error + stale result together | **never designed** | D2-07 |
+| camera active | **no exit** | D2-08 |
+| camera active + second press | **stream leak** | D2-09 |
+| camera viewfinder vs captured frame | **what you see is not what you get** | D2-23 |
+| image loaded → replace by click | **unreachable by construction** | D2-10 |
+| image loaded → clear / remove | **does not exist** | pass-1 D-13 (confirmed) |
+| sampling (eyedropper) | **pointer-only** | D2-11 (pass-1 D-11, confirmed) |
+| eyedropper open → background | **no dialog semantics, no focus trap / restore** | D2-12 |
+| disabled (processing / camera) | computed, then dropped by 5 of 6 controls | pass-1 D-12 (confirmed; see D2-08) |
+| focused | the drop zone loses focusability the moment it becomes useful | D2-11 |
+| hovered | a corner chip that can only ever say one of its two words | D2-10 |
+| pressed / active | none authored | — |
+| selected | n/a | — |
+| dragging (file over zone) | yes — `border-primary bg-primary/10 scale-[1.01]` | `ImageDropZone.vue:11–12` |
+| overflowing / truncated | truncates the primary value | D2-04 |
+| RTL | pass-1 D-9; **no capture exists** | D2-13 |
+| reduced-motion | global guard exists; **no capture exists for this route** | D2-13 |
+| forced-colors | pass-1 D-23; **no capture exists** | D2-13 |
+| zoom 200% | **no capture exists** | D2-13 |
 
-### D-9 · MAJOR — RTL is not honoured by either slider
+### D2-06 · MAJOR — the failure register is color-only, unannounced, undismissable, and prints raw exception text
 
-`probe-D-geometry.json`, `rtl-desk` vs `desk-light`, thumb offset from its track's start
-edge:
+`ExtractWorkbench.vue:79–85`:
 
-| Slider | LTR | RTL |
-|---|---:|---:|
-| Number of colors | 364.5 − 252 = **112.5** | 866.5 − 754 = **112.5** |
-| Chroma weight | 433.4 − 360.5 = **72.9** | 921.8 − 849 = **72.9** |
-
-Identical to the tenth of a pixel. The container mirrors (rail inset flips from left to
-right, the value label crosses the track) but the **fill and thumb do not**. In
-`frames/rtl-desk.png` the "5" readout sits at the far right while the crimson fill grows
-from the far left — the value and its own gauge point in opposite directions.
-
-### D-10 · MAJOR — 12 px slider thumbs, below WCAG 2.2 SC 2.5.8 in all four matrices
-
-Already in the audit's own data — `visual/REPORT.json`, every `/#/extract` row:
-
-```
-{"w": 12, "h": 24, "tag": "span", "label": "Number of colors"}
-{"w": 12, "h": 24, "tag": "span", "label": "Chroma weight"}     (desktop)
-{"w": 12, "h": 44, ...}                                          (mobile)
+```html
+<div v-if="session.quantizeError.value" class="text-mono-small text-destructive px-1">
+    {{ session.quantizeError.value }}
+</div>
 ```
 
-24 × 24 CSS px is the SC 2.5.8 minimum; the width is **half** it. Reproduced independently
-in `probe-D-geometry.json` at every arm including 200 % and 400 % zoom. Optically the thumb
-is a 12 × 24 bar on a 24-tall rail — it fills the groove exactly, so there is no visible
-handle affordance at all, only a colour break in the fill.
+- **Color-only.** No icon, no "Error" lead, no role. `VISUAL-CONSTITUTION.md:83` —
+  "Selected, **failed**, pending, withdrawn and disabled states **are never color-only**.
+  Role, accessible name, state/value and associated error/status are explicit." This line
+  is a red string and nothing else.
+- **Unannounced.** No `role="alert"`, no `aria-live`. A screen-reader user gets silence
+  where a sighted user gets red.
+- **Undismissable.** Nothing clears it but a subsequent successful quantize
+  (`useImageQuantize.ts:86` sets `error.value = null` only inside `runQuantize`). A camera
+  denial therefore parks a red line on the plate permanently for a user who never uploads.
+- **Raw exception text.** `ExtractWorkbench.vue:252` —
+  `session.quantizeError.value = \`Camera access denied: ${err}\`` — interpolating the
+  `DOMException` yields e.g. *"Camera access denied: NotAllowedError: Permission denied"*
+  in the interface.
+- **Wrong channel.** A camera-permission failure is written into `quantizeError` — a
+  computed whose getter reads the *worker* error and whose setter writes it
+  (`useExtractSession.ts:66–73`) — and is then rendered in the **result** column while the
+  failure occurred in the **image** column. Cause and report live in different places.
 
-`PROPORTION-AUDIT.md §5.7`: *"Visual glyph size, operable target size and layout reservation
-are separate quantities."* Here all three collapsed into one 12 px bar.
+*(Pass-1 D-26 flags the channel. The color-only, unannounced and undismissable arms are
+new in pass 2.)*
 
-### D-11 · MAJOR — the eyedropper is keyboard-unreachable, and its own label promises otherwise
+**Cure:** one status region per instrument carrying the three registers the canon names —
+pending (`role="status"`), failure (`role="alert"` + icon + human copy + a **Retry**
+action), idle (absent). Camera failures surface at the camera.
 
-Once an image loads, `ExtractWorkbench.vue:23` sets `:disable-click="!!previewDataUrl"`,
-which `ImageDropZone.vue:19` turns into `:tabindex="-1"`. Measured
-(`probe-D-populated.json`):
+### D2-07 · MAJOR — error and stale result render together, because the result is never invalidated (NEW)
+
+`useImageQuantize.ts:57–66`: on a worker `error` message, `error.value` is set and
+`isProcessing` cleared, but `palette.value` is left untouched. `extractedPalette` derives
+from `palette` (`useExtractSession.ts:75–99`), so it survives.
+
+Consequence: a k change that fails leaves the **previous** developed card fully rendered,
+labelled with the **previous** dominance percentage, under a red error line. The user is
+shown a complete, confident, wrong answer plus a complaint. The component insists
+"error ≠ empty stands" (`ShadowPalette.vue:44`) — but error-versus-**stale** was never
+considered.
+
+**Reproduction:** HYPOTHESIS — requires a worker failure I did not manufacture. The
+mechanism is a source read (`useImageQuantize.ts:57–66` against
+`useExtractSession.ts:75–99`); the rendering consequence is entailed by
+`ExtractWorkbench.vue:80` (`v-if` on error) and `:109` (`v-else-if` on `extractedPalette`)
+being **independent** conditions.
+
+**Cure:** result and failure are one union, not two flags — `palette` clears (or is
+explicitly marked stale, dimmed and labelled) the moment a run fails.
+
+### D2-08 · MAJOR — the camera is a one-way door: it can be opened but not closed (NEW)
+
+The viewfinder (`ExtractWorkbench.vue:34–59`) contains exactly **one** control: the
+Aperture capture chip. No Cancel, no X, no Escape handler.
+
+The exits from `cameraActive === true` are:
+
+- `captureFrame()` → `onFile()` → `stopCamera()` (`:265–279`) — i.e. **take a picture**;
+- dropping a file on the zone → `onFile()` → `stopCamera()`;
+- unmount (`onBeforeUnmount(stopCamera)`, `:281`) — i.e. **leave the route**.
+
+There is no "I opened this by mistake" path. Reset cannot help: it is
+`:disabled="disabled || !hasImage"` (`ExtractControls.vue:84`) and even when enabled it
+only restores k and chroma defaults (`useExtractSession.ts:180–184`) — it never touches
+the camera or the image. So a user who taps Camera has a live video feed of their room on
+screen, recording indicator lit, until they either photograph something or navigate away.
+
+Compounding it: the `disabled` value the workbench computes for exactly this case —
+`:disabled="session.isProcessing.value || cameraActive"` (`ExtractWorkbench.vue:70`) — is
+consumed by **one** of the six controls in `ExtractControls.vue` (Reset, line 84). Upload,
+Camera and both sliders ignore it. *(Pass-1 D-12 found the same drop; pass 2 confirms it
+by source read and adds this consequence.)*
+
+**Cure:** the camera becomes a **mode of the stage**, not a floating block: entering it
+swaps the stage content and the action region gains the pair the mode requires — `Cancel`
+and `Capture`; `Escape` cancels. That is the canon's "select → tune → commit" grammar
+(`VISUAL-CONSTITUTION.md:96`) applied to a mode rather than a value.
+
+### D2-09 · MAJOR — pressing Camera twice leaks the first MediaStream (NEW)
+
+`ExtractWorkbench.vue:239–255`:
+
+```ts
+async function startCamera() {
+    cameraActive.value = true;
+    cameraStream = await navigator.mediaDevices.getUserMedia({ … });   // ← overwrites
+    …
+}
+```
+
+`cameraStream` is overwritten without stopping the previous stream's tracks. Because the
+Camera button is never disabled while the camera is live (D2-08), a second press is always
+one click away. The orphaned stream's tracks are never stopped, so the camera indicator
+stays lit after `stopCamera()` runs — `stopCamera` only knows the last assignment
+(`:257–263`).
+
+**Reproduction:** HYPOTHESIS — needs a real camera-permission grant, which the headless
+probe cannot supply. The mechanism is unambiguous in source: an `await`-assigned mutable
+module-scope handle, no re-entry guard, no teardown on re-entry.
+
+**Cure:** falls out of D2-08's mode design — a mode cannot be entered while already
+active. Better still, delete the code entirely (D2-16).
+
+### D2-23 · MAJOR — the viewfinder is not the frame you capture (NEW)
+
+`ExtractWorkbench.vue:39–45` renders the live preview as:
+
+```html
+<video ref="videoRef" autoplay playsinline muted class="w-full max-h-[200px] object-cover" />
+```
+
+`captureFrame()` (`:265–272`) then captures the **entire** video frame:
+
+```ts
+canvas.width = video.videoWidth;   // 640 ideal
+canvas.height = video.videoHeight; // 480 ideal
+canvas.getContext("2d")!.drawImage(video, 0, 0);
+```
+
+`object-cover` with `max-h-[200px]` centre-crops the preview; the capture takes the full
+uncropped 4:3 frame. At the 463 px column the preview is 463×200 = 2.32 : 1 against a
+1.33 : 1 source, so roughly **43% of the captured image is never shown to the user before
+they capture it.** For a *color-extraction* instrument this is not cosmetic: the palette is
+quantized over pixels the viewfinder concealed, so the returned dominant color can come
+from a region the user never saw. Pass-1 D-1 found the same class of defect on the
+uploaded-image preview; this is its camera-side twin, and it is unreported.
+
+**Reproduction:** HYPOTHESIS for the rendered arm (no camera in the probe environment).
+The geometry is entailed by the two source coordinates above and is deterministic.
+
+**Cure:** `object-contain` on the viewfinder — the frame you see is the frame you get —
+or crop the capture to the displayed rect. The two must agree; which one wins is a product
+choice, but they cannot disagree.
+
+### D2-10 · MAJOR — the workbench collapses two different predicates into one, making two designed states unreachable (NEW)
+
+`ExtractWorkbench.vue:22–25` binds **both** of `ImageDropZone`'s inputs from one value:
+
+```html
+:preview="session.previewDataUrl.value"
+:disable-click="!!session.previewDataUrl.value"
+```
+
+`ImageDropZone` was written to distinguish them (`ImageDropZone.vue:20, 61`):
+
+```html
+:aria-label="preview ? (disableClick ? 'Image preview area, tap to sample colors'
+                                      : 'Replace image, click or drop a new image')
+                     : 'Upload image, click to browse or drop an image here'"
+…
+>{{ disableClick ? 'sample' : 'replace' }}</span>     <!-- v-if="preview" -->
+```
+
+Because the workbench makes `disableClick ≡ !!preview`, the branch `preview && !disableClick`
+is **arithmetically impossible**. Therefore:
+
+- the aria-label *"Replace image, click or drop a new image"* can never be announced;
+- the corner chip can never read *"replace"* — it is `v-if="preview"` and always resolves
+  to `"sample"`.
+
+Two authored states, dead on arrival. The user-visible consequence is worse than the dead
+code: **click-to-replace does not exist**. Once an image is loaded the only replace paths
+are drag-and-drop (`@drop` is not gated) or the Upload button — and drag-and-drop does not
+exist on touch.
+
+Live confirmation of the collapsed state:
 
 ```
-"dropTabindex": { "tabindex": "-1",
-                  "label": "Image preview area, tap to sample colors",
-                  "cursor": "crosshair" }
-
-TAB ORDER (image loaded, extract pane only):
-  span[Number of colors] → button[Upload image] → button[Open camera]
-  → span[Chroma weight] → button[Reset] → button[Palette menu]
+dropZone (developed) : tabindex "-1", cursor "crosshair",
+                       aria-label "Image preview area, tap to sample colors"
 ```
 
-The preview never receives focus. The keyboard activation handler
-(`ImageDropZone.vue:22`) is gated on `!disableClick`, so even a forced focus would not
-open the sampler. The element announces *"tap to sample colors"* to a screen-reader user
-who has no way to do so. `PROPORTION-AUDIT.md` PR-07 is the owning family:
-*"Hover-only/unlabeled controls … every surviving action/drag seat has a name/state."*
+**Cure:** two predicates, because there are two facts — `hasImage`, and
+`mode: "idle" | "sampling"`. Sampling becomes an explicit named mode (D2-11); with the
+mode off, the stage is click-to-replace and says so.
 
-Note (context, not attributed to this component): WebKit under macOS default settings skips
-`<button>` in Tab order entirely — `probe-D-focus-transition.json` shows Safari reaching
-only drop zone → k thumb → kC thumb. The design consequence that *is* attributable: **the
-camera capability has exactly one door** (an icon-only `<button>`), while upload has two
-(button + the focusable drop zone). The unique capability got the fragile entry.
+### D2-11 · BLOCKER — the sampler is pointer-only, and the constitution names this exact obligation
 
-### D-12 · MAJOR — `disabled` is computed, threaded, and then dropped by 5 of 6 controls
+`VISUAL-CONSTITUTION.md:198` — "**Eyedropper and sampler have keyboard/numeric
+alternatives.**" `VISUAL-CONSTITUTION.md:126` even specifies the keyboard law for this
+control ("image sampler coordinates … named x/y controls own Home=min and End=max;
+reticle, loupe and numeric value remain one model").
 
-`ExtractWorkbench.vue:70` computes `:disabled="session.isProcessing.value || cameraActive"`.
-Inside `ExtractControls.vue`, `:disabled` appears **once** — line 84, the Reset button. The
-k `Slider` (line 24), the kC `Slider` (line 67), Upload (line 40) and Camera (line 49) never
-receive it. Runtime confirmation (`probe-D-populated.json`):
+Shipped, the eyedropper's only entry is a native click on the drop-zone root:
 
-```
-DISABLED before: [... Reset: true, everything else: false]
-DISABLED after : [... Reset: false, everything else: false]
+```html
+<!-- ExtractWorkbench.vue:25 -->
+@click="session.previewDataUrl.value && (eyedropperActive = true)"
 ```
 
-During camera-active the k and kC dials remain live and drive a debounced re-quantize
-against a file that may not exist; during processing the user can re-enter the pipeline.
-A prop that six controls should honour and one does is worse than no prop — it reads as
-handled.
+and the moment a preview exists that root leaves the tab order and its keyboard handler is
+gated off:
 
-### D-13 · MAJOR — there is no way back to the empty state
+```html
+<!-- ImageDropZone.vue:19, 22 -->
+:tabindex="disableClick ? -1 : 0"
+@keydown.enter.space.prevent="!disableClick && openFilePicker()"
+```
 
-`useExtractSession.ts:180-184` — `onReset()` sets `colorCount = 5`, `chromaWeight = 0.5`,
-re-runs quantize. It does **not** clear `previewDataUrl` or `lastFile`. Nothing else does
-either. Once an image is in, the empty state is unreachable for the session, and the
-control labelled **Reset** (`RotateCcw`, `title="Reset"`) restores two dial values. Icon,
-name and behaviour disagree. `PROPORTION-AUDIT.md` PR-08 owns this
-(*"…recovery truth … ADD-AFFORDANCE"*).
+Measured live in the developed state: `tabIndex: -1`, `role="button"`,
+`aria-label="Image preview area, tap to sample colors"`. The element **announces itself as
+an operable button, instructs the user to tap it, and is unreachable and inert from the
+keyboard.** `PROPORTION-AUDIT.md:70` (card law 5) and `VISUAL-CONSTITUTION.md:83` both
+forbid this shape.
+
+*(Pass-1 D-11. Independently re-measured from a cold session; CONFIRMED.)*
+
+**Cure:** the sampler becomes a named control in the action region — a `DockControl`
+toggle "Sample colors" beside Upload/Camera — that switches the stage into sampling mode.
+The stage stays tabbable in every mode; the sampler exposes the two named numeric x/y axes
+§5.2 already specifies.
+
+### D2-12 · MINOR — the eyedropper overlay behaves as a modal but declares nothing (NEW)
+
+`ExtractWorkbench.vue:173–180` mounts `ImageEyedropper` with `v-if` as a **sibling inside
+the workbench root**; the overlay itself is `absolute inset-0 z-popover`
+(`ImageEyedropper.vue:8`). It therefore blankets the entire workbench — stage, controls
+**and** result plate — while being neither a dialog nor inert-adjacent:
+
+- no `role="dialog"`, no `aria-modal`;
+- no focus trap: the k slider, kC slider, Upload, Camera and Reset sit underneath it,
+  fully covered and **still in the tab order**;
+- no focus restoration on close — `@close="eyedropperActive = false"` and nothing more,
+  which is unfixable anyway because the opener has `tabindex="-1"` (D2-11).
+
+`VISUAL-CONSTITUTION.md:115` is explicit: "Dialog/Drawer/Popover open and close | producer
+initial-focus rule on open; **exact connected opener on close**, otherwise the nearest
+surviving owning action".
+
+**Reproduction:** HYPOTHESIS for the tab-order arm (the browser session was taken by a
+concurrent lock before I could Tab through it). The structural facts — `v-if` sibling,
+`absolute inset-0`, no `inert`, no `role` — are source-confirmed.
+
+**Cure:** if it is modal, declare modality and trap focus; if it is a mode of the stage —
+which it is — it occupies only the stage and leaves the controls live and uncovered.
+
+### D2-13 · INFO — five of this component's states have never been captured, by construction
+
+`../../visual/shots/` contains `forced-colors-desktop`, `reduced-motion-desktop`,
+`rtl-desktop`, `rtl-mobile`, `zoom-200-desktop`, `keyboard-focus-desktop` — each holding
+exactly five PNGs:
+
+```
+adminusers.png  blob.png  browse.png  gradient.png  picker.png
+```
+
+`#/extract` is in none of them; the route list in `../../visual/states.mjs` never included
+it. The mega-tranche therefore holds **zero** tracked evidence for this component under
+forced colors, reduced motion, RTL, 200% zoom or keyboard focus. Pass 1 opened this gap and
+filled parts of it with its own probes; it remains a hole in the tracked matrix, and any
+"no defect found" claim for those five states is unsupported.
 
 ---
 
-## 4. Motion
+## 5. Motion
 
-**This is the component's strongest register — record it as the negative proof.** Motion is
-tokenized, not ad hoc: `vj-enter` / `vj-morph` are the house families from
-`demo/styles/animations.css:83-139`, driven by `--duration-*` / `--spring-*` /
-`--ease-*`; `ImageDropZone.vue:17` uses `var(--duration-normal)` / `var(--ease-standard)`;
-the corner tag uses `var(--duration-fast)`. Reduced motion is honoured by the global guard
-(`animations.css:184-193`) and measured:
+The three-family register (`demo/styles/animations.css:55–150`) is real, tokenized, and
+carries a global `prefers-reduced-motion: reduce` guard at `:184`. This component keys
+`vj-enter` (camera viewfinder) and `vj-morph` (result plate) — both legal family names,
+no fourth name. Credit where due: **motion is the healthiest register in this component.**
+Two defects remain.
 
-```
-desk-light      anims = 19
-reduced-motion  anims =  6      (probe-D-geometry.json)
-```
+### D2-14 · MINOR — the morph has no height geometry, so the one thing it needs to morph, jumps (NEW)
 
-Two motion defects survive:
-
-### D-14 · MINOR — `vj-morph` transitions `max-height`, a layout-forcing property
-
-`animations.css:104-117` includes `max-height` in both `-enter-active` and `-leave-active`.
-This seat sets neither `--vj-morph-collapse` nor `--vj-morph-expanded`, so it animates
-`none → none` — no visible motion, but a layout-property transition declared on the
-critical result swap, plus `overflow:hidden` clipping during it. Dead cost on the hot path.
-
-### D-15 · MINOR — 34 perpetual animations on an idle, empty page
-
-`probe-D-states.json`, empty state, k swept:
+`vj-morph` supports a height morph through `--vj-morph-collapse` / `--vj-morph-expanded`
+(`animations.css:70–73, 122–135`). Repo-wide, exactly one site sets them:
 
 ```
-k=1  anims = 13      k=5  anims = 19/21      k=16  anims = 43
+$ grep -rn "vj-morph-collapse\|vj-morph-expanded" demo/
+demo/styles/animations.css:72,122,131,135
+demo/palettes/browser/card/PaletteCard/PaletteCard.vue:361,362
+$ grep -rn "vj-morph-" demo/workbenches/
+(no output)
 ```
 
-`ShadowPalette` runs `animate-pulse` on `count` segments + 2 meta blocks + `count`
-swatches — at k=16 that is **34 infinite animations** conveying nothing, forever, on a
-page where nothing is happening. `opacity` is compositor-cheap, so this is a *semantic*
-cost rather than a jank one: a pulsing skeleton is the universal sign for *loading*, and
-here it means *empty* — while the identically-boned `PaletteCardSkeleton` uses the same
-`--skeleton-ink` recipe in the same seat to mean *loading* (which, per D-2, never shows).
-One sign, two meanings, one seat.
+`ExtractWorkbench.vue:102` runs `<Transition name="vj-morph" mode="out-in">` over three
+keys of **unequal intrinsic height** — `shadow` (measured 153 px + 24.5 caption),
+`imminent` (the same bones, no caption), `extracted` (label row 66.7 px + card 211.1 px,
+measured at a 999 px column; taller at the shipped 463 px column). With no
+`--vj-morph-collapse/-expanded` set, the `max-height` arm resolves to `none`, so opacity
+and transform animate while the height **snaps**; `mode="out-in"` guarantees the snap is a
+two-phase collapse-then-grow rather than a crossfade.
+
+`VISUAL-CONSTITUTION.md:141` — "A scene swap preserves the specimen and changes the
+surrounding instrument. **No full-slab remount hole**, rAF-delayed blank, or dock
+collapse."
+
+Related: pass-1 D-14 flags `max-height` as a layout-forcing property. Both are true and
+they point the same way — the height should not be animated here at all, because the swap
+should not be a swap.
+
+**Cure:** with D2-01 applied there are only **two** states in this seat (absent → present)
+and the absent one has zero height; a single `vj-morph` on the card, with the plate's
+height content-driven, removes the hole. A re-quantize of an already-developed plate should
+**not** re-enter the loading key — the plate stays and is marked in-flight — which also
+removes the 300 ms debounce cycle (`useExtractSession.ts:159–162`) from every k and kC
+drag.
+
+### D2-15 · INFO — the ghost's animation budget is spent on nothing
+
+`ShadowPalette.vue:58–79` gives every segment, both meta blocks and every swatch its own
+`animate-pulse` with a staggered inline `animation-delay` — at k=5 that is 5 + 2 + 5 =
+**12 perpetually animating elements** depicting a palette that does not exist. Measured
+live: `.shadow-seg` → `animation-name: pulse`, `animation-duration: 2s`. Pass-1 D-15
+counted 34 perpetual animations on the idle empty page. The animation is correctly
+tokenized and correctly PRM-guarded; it is simply spent on a surface that should not exist
+(D2-01). Recorded so the cure is not mistaken for a motion deletion — owner edict 6
+("animations are never deleted, only moved or tokenized") is satisfied by removing the
+*host*, not the register.
 
 ---
 
-## 5. The design-system boundary
+## 6. The design-system boundary
 
-### D-16 · MAJOR — three simultaneous renderings of the same palette within 320 px
+### D2-16 · MAJOR — the camera is implemented twice, and the shipping copy is the hand-rolled one (NEW)
 
-In `frames-final/final-populated.png`, the same five extracted colours appear as:
+`useImageQuantize.ts` already exports a complete camera capability:
 
-1. the **k-rail gradient** (`ExtractControls.vue:22`, `background: gradient`) at y ≈ 549
-2. the **card colour strip** (`PaletteColorStrip`) at y ≈ 695
-3. the **card swatch row** (`PaletteCardSwatches`) at y ≈ 812
-
-Plus a fourth partial: the dominance readout names swatch #1 in text. The workbench's own
-comment (`ExtractWorkbench.vue:113-117`) celebrates killing *one* duplicate — *"The
-duplicate dominant dot died — the card's first swatch IS the dominant specimen"* — while
-three renderings of the whole palette remain. `PROPORTION-AUDIT.md` PR-05's mechanism
-(*"repeat a boundary → REMOVE"*) generalises here: repeating the *data* is the same error
-one level up.
-
-There is also a literal duplicate token: the k label reads `5` and the card meta reads `5`,
-120 px apart, both meaning the palette's cardinality.
-
-### D-17 · MAJOR — the result card is an operable ornament
-
-`ExtractWorkbench.vue:153` passes `@click="() => {}"` to `PaletteCard`. Measured on the
-live card (`probe-D-final.json`):
-
-```
-"cardRole": "article",  "cardCursor": "pointer"
+```ts
+async function quantizeFromCamera(k, chromaWeight): Promise<{ palette; stop }> {   // :115
+    const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment", … } });
+    …  // video → canvas → runQuantize → returns a `stop()` that kills the tracks
+}
+async function quantizeFromCanvas(canvas, k, chromaWeight) { … }                   // :110
 ```
 
-`PaletteCard.vue:20-26` gives its root `cursor-pointer`, `v-bind="press.handlers"` and
-`:style="press.pressStyle"` — the full cartoon press choreography — plus `@click`. In this
-seat the click does nothing. The card invites activation, animates the squash, and returns
-nothing.
-
-`PROPORTION-AUDIT.md §5.5`: *"Decorative controls and operable ornaments without names are
-forbidden."* §5.12 / `VISUAL-CONSTITUTION.md §3.1` go further: the palette Card root *"is a
-noninteractive container: it owns no activation, focus or selection state."*
-
-The no-op handler is the tell. Passing an empty function to neutralise a component's
-built-in behaviour means the reused component is the wrong one for this seat — Extract's
-result is a transient specimen, not a browsable library entity.
-
-### D-18 · MAJOR — the pane speaks two accent families at once
-
-Measured, desk-light (`probe-D-geometry.json`):
+Neither is used anywhere:
 
 ```
-dropBorder  oklab(0.470927 -0.080988 0.097088 / 0.3)   ← negative a: GREEN
-kRailBg     oklch(0.545141  0.218024  9.834023)        ← hue 9.8°:  CRIMSON
+$ grep -rn "quantizeFromCamera" --include="*.ts" --include="*.vue" demo/ test/ e2e/
+demo/workbenches/extract/composables/useImageQuantize.ts:4      (doc comment)
+demo/workbenches/extract/composables/useImageQuantize.ts:115    (definition)
+demo/workbenches/extract/composables/useImageQuantize.ts:159    (export)
+$ grep -rn "getUserMedia" --include="*.ts" --include="*.vue" demo/
+demo/workbenches/extract/ExtractWorkbench.vue:242
+demo/workbenches/extract/composables/useImageQuantize.ts:116
 ```
 
-`ImageDropZone.vue:14-15` pins the affordance edge to the static theme `--primary`
-(`border-primary/30 bg-primary/5`); its sibling `ExtractControls.vue:118-125` threads the
-**live picked colour** through `useSafeAccentFn`. One instrument, one 512 px card, two
-independent accent sources, ~140° apart. Visible in every capture as a lime-olive dashed
-rectangle above a crimson rail.
+So the view hand-rolls `getUserMedia`, a `<video>`, a `<canvas>`, a `toBlob`, a `File` and
+a stream teardown (`ExtractWorkbench.vue:239–281`) beside a composable that already does
+all of it and returns the very `stop()` handle whose absence causes D2-09. Two device
+paths, one dead — owner edict 2 (no dual paths) and edict 3 (KISS) — and the imperative
+device code sits in the presentational layer, which is exactly why its state machine
+(D2-08) was never designed and why its viewfinder disagrees with its capture (D2-23).
 
-### D-19 · MAJOR — dead design: the `split` layout has no consumer
+The shipping path is also the more expensive one: `captureFrame` encodes the frame to
+**PNG** (`canvas.toBlob(…, "image/png")`, `:274–277`), wraps it in a `File`, hands it to
+`onFile`, which `FileReader`s it to a **base64 data URL** (`useExtractSession.ts:166`),
+which `useImageQuantize` then `createImageBitmap`s back to pixels (`:19–25`). A canvas is
+encoded, base64'd and re-decoded to reach a function that accepts a canvas.
 
-`ExtractWorkbench.vue:204-209` documents `layout?: "column" | "split"` — *"`split` — the
-dialog's two columns."* Repo-wide:
+**Cure:** delete `startCamera` / `stopCamera` / `captureFrame` from the view; the session
+owns a `camera` sub-state built on `quantizeFromCamera`, and `quantizeFromCanvas` takes
+the captured frame directly.
 
-```
-$ grep -rn "ExtractWorkbench" demo/ e2e/ test/ | grep -v "^demo/workbenches/extract/"
-(nothing)
-$ grep -rn "ExtractWorkbench" demo/workbenches/extract/
-ExtractPane.vue:11:  <ExtractWorkbench  … layout="column"
-```
+### D2-17 · MAJOR — the result plate is an operable ornament, and the workbench feeds it a no-op to make it one
 
-One consumer, one value. The `split` branch occupies four template sites (lines 5-8, 13,
-18-21, 148), keeps the `PaletteCard` `aside` variant alive, and sustains a live
-`useBreakpoint("(min-width: 640px)")` matchMedia subscription (line 226) whose only reader
-is `layout === 'split' && isWide` — unreachable. The dialog it serves does not exist.
-
-Owner edict 2 (*no legacy code — no dual paths*) and edict 3 (*KISS, no contrivance*).
-
-### D-20 · MAJOR — `.plate-ink` is declared five times, against the repo's own cited rule
+`PaletteCard.vue:19, 22, 26`:
 
 ```
-$ grep -rn "^\.plate-ink" --include="*.vue" --include="*.css" demo/
+'group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer',
+role="article"
+@click="$emit('click')"
+```
+
+`cursor-pointer` is unconditional. `ExtractWorkbench.vue:154` supplies:
+
+```html
+@click="() => {}"
+```
+
+So the developed result renders with a pointer cursor across its whole surface, announces
+`role="article"`, and does **nothing** when clicked. `VISUAL-CONSTITUTION.md:102` names
+this exact anti-pattern: "A palette card is a bounded entity article, **not a clickable
+`role=article`**…". The same clause continues: "The card body owns **no expand, inline
+rename**, action menu, transient result or hover-only swatch-action path" — and
+`ExtractWorkbench.vue:151` passes `editable-name`, mounting inline rename in the card body.
+
+*(Pass-1 D-17 reached "operable ornament" independently; pass 2 adds the `() => {}`
+coordinate and the `editable-name` clause.)*
+
+**Cure:** the extract result is a **specimen**, not a library entity — it should not be
+`PaletteCard` at all. Naming belongs to the Save commit step, where a name has a
+consequence; the plate carries swatches, the dominance line and the action set.
+Producer-side, `PaletteCard`'s `cursor-pointer` must be conditional on a real click
+consumer.
+
+### D2-18 · MINOR — `.plate-ink` is copy-pasted into five scoped style blocks
+
+```
+$ grep -rn "plate-ink {" demo/ --include="*.vue"
 demo/workbenches/extract/ExtractWorkbench.vue:290
-demo/workbenches/extract/ImageDropZone.vue:109
 demo/workbenches/extract/ExtractControls.vue:148
+demo/workbenches/extract/ImageDropZone.vue:109
 demo/shared/ui/EmptyState.vue:102
 demo/color-picker/ErrorBoundary.vue:84
 ```
 
-The same one-line rule, `color: var(--ink-muted, var(--muted-foreground))`, five times
-across three feature areas — **three of the five inside this one workbench**.
-`demo/DESIGN.md:388` sets the boundary (*"No new global utility class for one consumer …
-The shared survivors … are true cross-feature recipes"*), and `ShadowPalette.vue`'s own
-header cites the rule by name as precedent: *"Lifted here from PaletteCardSkeleton's scoped
-block **the day it gained a second consumer** (DESIGN.md's global-utility rule)."* A
-five-consumer recipe is a cross-feature recipe. It belongs in `utils.css`.
+The same single declaration — `color: var(--ink-muted, var(--muted-foreground))` — five
+times, each with its own three-to-six-line justification comment. Owner edict 5 (style at
+the root, never per-instance) and edict 3 (KISS) point one way: this is a **token**, and a
+token belongs once in `demo/styles/`. Five copies means the next certified-ink change has
+five landing sites and four chances to drift. *(Pass-1 D-20; confirmed by independent
+grep.)*
 
-### D-21 · MINOR — per-instance overrides where inheritance is free
+### D2-19 · MAJOR — the mandated axis composition is not adopted; the axes have no label and no unit
 
-`ExtractControls.vue:42, 51, 86` — `:style="{ '--btn-hover-color': cssColor }"` on three
-sibling `<DockControl>`s. Custom properties inherit; one declaration on the row (or the
-component root) does the whole job. These are also the **only** three sites in `demo/`:
+`VISUAL-CONSTITUTION.md:104` is binding: "The domain-neutral axis composition sits over BI
+`Slider`: **label, unit, reserved live value, optional numeric entry**, focus/target
+behavior, and a color-bearing or neutral track chosen by semantics. Picker, Generate count,
+**Extract**, Gradient, Atmosphere and Blob adopt that one composition; feature waves own
+their domain arrangement, **not new slider mechanics**."
+
+Shipped (`ExtractControls.vue:14–35, 65–79`):
+
+- the k axis has **no label and no unit** — the only visible text is the numeral `5`; the
+  word "colors" exists solely inside `aria-label="Number of colors"`;
+- the kC axis's visible label is the string `kC`, with its meaning in a `title` tooltip;
+- new slider mechanics: an absolutely-positioned rail `div` painted behind the producer
+  Slider with `--slider-track-bg: transparent` and an inline `boxShadow` ring
+  (`:19–23, 32`), plus a second per-instance `--slider-track-bg: trackInk` on the kC
+  slider (`:75`) — per-instance overrides of a producer root, against owner edict 5.
+
+Measured thumbs, from `../../visual/REPORT.json` (`/#/extract`, all four matrices) and
+re-confirmed live:
 
 ```
-$ grep -rn "btn-hover-color" demo/
-(only ExtractControls.vue:42,51,86)
+{ "w": 12, "h": 24, "tag": "span", "label": "Number of colors" }
+{ "w": 12, "h": 24, "tag": "span", "label": "Chroma weight" }
+live: role="slider" thumbs → 13 × 24
 ```
 
-so every DockControl in the app tints its glyph to `--foreground` on hover except these
-three, which tint to the live pick. Owner edict 5 (*root-level styling, never per-instance
-overrides*) — and a divergent interaction language for one instrument.
+Below the 24 px floor on the inline axis in every matrix. *(Pass-1 D-10; confirmed.)*
 
-### D-22 · MINOR — dead scoped rule
+**Cure:** adopt the one composition — label + unit + reserved tabular value + numeric
+entry — and push the color-bearing track into the producer `Slider` as a variant, so no
+consumer paints a rail behind a transparent track.
 
-`ExtractControls.vue:140-142` declares `.touch-gate-target { border-radius: … }` in a
-`<style scoped>` block. The class is never emitted by this component; its real consumers
-are `demo/picker/controls/ComponentSliders/ComponentSliders.vue` and
-`SpectrumCanvas.vue`, which carry their own (unscoped) definitions. Vue scoping guarantees
-this rule can never match anything. It also lacks the `@reference` that its sibling files
-omit inconsistently (`ExtractControls.vue:137` has one; `ExtractWorkbench.vue` and
-`ImageDropZone.vue` do not).
+### D2-20 · MAJOR — the three primary actions are named by tooltip only
+
+`../../visual/REPORT.json`, `/#/extract`, all four matrices: `"namelessButtons": 3` — the
+highest count of any non-Blob route in the audit (Browse 0, Mix 1, Picker 1). My own
+tab-order probe names them:
+
+```
+{tag:"button", ti:null, label:"", title:"Upload image"}
+{tag:"button", ti:null, label:"", title:"Open camera"}
+{tag:"button", ti:null, label:"", title:"Reset"}
+```
+
+`title` does supply a last-resort accessible name, so this is not an AT blackout — but it
+is invisible to sighted users until hover, unavailable on touch, and it is the *only*
+naming for the workbench's three verbs (a fourth appears in the camera state,
+`ExtractWorkbench.vue:52`). `PROPORTION-AUDIT.md:51` PR-07: "**Hover-only/unlabeled
+controls** and invisible drag state → ADD-AFFORDANCE / REMOVE … every surviving
+action/drag seat has a name/state." *(Pass-1 D-28 recorded these as INFO; I rate them
+MAJOR because they are 3 of the component's 3 actions, not an incidental control.)*
+
+### D2-21 · MINOR — the `split` layout has no consumer, and its ratio contradicts the binding composition anyway
+
+```
+$ grep -rn "ExtractWorkbench" --include="*.vue" --include="*.ts" demo/
+demo/workbenches/extract/ExtractPane.vue:11,25           → layout="column"
+demo/workbenches/extract/composables/useExtractSession.ts:4,5 (comment)
+demo/shell/usePaneRouter.ts:72,85                        → ExtractPane
+$ grep -rn 'layout="split"' demo/
+(no output)
+```
+
+The only consumer passes `layout="column"`. Dead therefore: the grid branch (`:4–9`), the
+`sm:min-h-[280px]` arm (`:13`), the split drop-zone sizing (`:18–20`), the
+`useBreakpoint("(min-width: 640px)")` subscription and `isWide` (`:226`), and the
+`PaletteCard` `aside` layout (`:148`). Owner edict 2 (no dual paths), edict 3 (KISS).
+
+Pass-2 addition: even if it were reachable, `grid gap-4 sm:grid-cols-2` is a **50/50**
+split, while the binding composition (`OPTICAL-BENCH-COMPOSITIONS.md:42`) requires
+`golden` — source/sampler **61.8033989%**, result controls **38.1966011%**. The dead code
+is also wrong code. *(Pass-1 D-19 found the deadness; the ratio contradiction is new.)*
+
+### D2-22 · MINOR — mixed template-ref idiom in adjacent lines
+
+```ts
+const dropZoneRef = ref<InstanceType<typeof ImageDropZone> | null>(null);   // :222
+const videoRef = useTemplateRef<HTMLVideoElement>("videoRef");              // :223
+```
+
+Owner edict 7 names `useTemplateRef` as the Vue 3.5 idiom. Two consecutive lines, two
+idioms. *(Pass-1 D-27; confirmed.)* The file is otherwise clean on edict 8 —
+`import type { SpaceId }` at `:189` is correctly type-only, and no other type import
+exists.
 
 ---
 
-## 6. Remaining findings
+## 7. Proportion and seat law — judgment
 
-### D-23 · MINOR — forced-colors is untested by construction, and the ghost's whole payload is background-only
+| Law | Locus | Verdict |
+|---|---|---|
+| `OPTICAL-BENCH-COMPOSITIONS.md:42` — golden 61.8/38.2, absent result collapses | composition | **FAIL** — no chassis, no ratio, absent result expands (D2-01, D2-21) |
+| `OPTICAL-BENCH-COMPOSITIONS.md:76` — boundaries `[]`, reserve `none` | ghost edge + caster | **FAIL** (D2-02) |
+| `VISUAL-CONSTITUTION.md:198` — undeveloped stays contextual | the ghost | **FAIL** (D2-01) |
+| `VISUAL-CONSTITUTION.md:198` — sampler has a keyboard alternative | eyedropper | **FAIL** (D2-11) |
+| `VISUAL-CONSTITUTION.md:68–78` — closed type matrix | dominance line | **FAIL** twice (D2-03) |
+| `VISUAL-CONSTITUTION.md:78` — tabular figures + reserved width | dominance number | **FAIL** (D2-03) |
+| `VISUAL-CONSTITUTION.md:83` — failed state never color-only | error line | **FAIL** (D2-06) |
+| `VISUAL-CONSTITUTION.md:102` — palette card is not a clickable `role=article` | result plate | **FAIL** (D2-17) |
+| `VISUAL-CONSTITUTION.md:104` — one axis composition, no new slider mechanics | k / kC | **FAIL** (D2-19) |
+| `VISUAL-CONSTITUTION.md:115` — opener focus restored on overlay close | eyedropper | **FAIL** (D2-12) |
+| `VISUAL-CONSTITUTION.md:141` — no full-slab remount hole | result swap | **FAIL** (D2-14) |
+| `VISUAL-CONSTITUTION.md:144` — reduced motion resolves to final geometry | global guard | **PASS** (`animations.css:184`) |
+| `PROPORTION-AUDIT.md:34` law 8 — one protagonist, no equal-size fixture | ghost vs stage | **FAIL**, 97.0% (D2-01) |
+| `PROPORTION-AUDIT.md:70` law 5 — no operable ornament without a name | drop zone, result card | **FAIL** (D2-11, D2-17) |
+| `PROPORTION-AUDIT.md:72` law 7 — glyph / target / reservation are separate | slider thumbs 12×24 | **FAIL** (D2-19) |
+| `PROPORTION-AUDIT.md:73` law 8 — rendered relation beats token intent | — | applied throughout |
+| `PALETTE-CONTRACT.md` | no Extract-specific clause (`grep -i extract` → 0 hits) | n/a |
 
-`probe-D-geometry.json`, `forced-colors` matrix: every measured colour is unchanged from
-`desk-light` (`kRailBg` still `oklch(0.594 0.238 9.83)`, `segBg` unchanged). WebKit's
-Playwright `forcedColors` emulation does not apply UA overrides, so **that arm proves
-nothing** — I am recording it as inconclusive rather than green.
-
-What *is* provable statically: only three files in `demo/` contain a `forced-colors` query
-(`GradientStopEditor.vue`, `focus-ring.css`, `foundation.css`); none of this workbench's
-five files do. And the ghost's entire information content — `k` segmentation, meta blocks,
-swatch count — is carried by `background-color` alone (`ShadowPalette.vue:98-110`, with the
-`60 %` / `40 %` / `30 %` ladder expressed as `color-mix(… , transparent)`). Under a real
-forced-colors backdrop those collapse to one flat Canvas rectangle. The k-rail gradient has
-the same shape.
-
-**Reproduction:** NONE — this is a **HYPOTHESIS** pending a Chromium/Windows forced-colors
-run. Flagged so the mega-tranche can gate it rather than assume it.
-
-### D-24 · MINOR — the caption orphans its terminal ornament below 400 px
-
-`probe-D-geometry.json`: `captionLines = 2` at mobile-light (390) and at zoom-400 (360);
-`1` at 720 and 1440. Visible in `visual/shots/safari-mobile-light/extract.png`:
-
-```
-· UNDEVELOPED PLATE — FEED IT AN
-            IMAGE ·
-```
-
-A centred, `tracking-[0.18em]`, all-caps line breaking mid-phrase with the closing bullet
-stranded beside one word. Two of the four Safari matrices ship this.
-
-### D-25 · MINOR — the two sliders share no alignment and mirror each other's grammar
-
-`probe-D-geometry.json`, desk-light:
-
-| | left edge | right edge | track w |
-|---|---:|---:|---:|
-| drop zone / ghost / caption | 224 | 686 | 462 |
-| k rail | **252** | 686 | **434** |
-| kC wrap | **341** | **617** | **230.5** |
-
-Three different left edges in one instrument stack; the two sliders share neither edge. The
-value readouts are mirrored — `k`'s value sits **left** of its track
-(`ExtractControls.vue:15`), `kC`'s sits **right** (line 78). And the *coarser* control (k:
-16 integer steps) gets 434 px = 27 px/step while the *finer* one (kC: 0–1.5 by 0.1) gets
-230.5 px = 15 px/step. On mobile the kC track collapses to **80.5 px** — 5.4 px per step.
-Precision is allocated inversely to need.
-
-### D-26 · MINOR — camera errors ride the quantize channel, raw
-
-`ExtractWorkbench.vue:252` — `session.quantizeError.value = \`Camera access denied: ${err}\``
-interpolates a raw `Error` object into user-facing copy (the user reads
-"…: NotAllowedError: The request is not allowed by the user agent…") and routes a *camera*
-failure into the *quantizer's* destructive line (line 80-85), which sits above the result
-plate. There is no dismiss: `quantizeError` clears only when `runQuantize` next fires
-(`useImageQuantize.ts:86`), which requires a file the user does not have.
-
-Also unhandled: `startCamera` sets `cameraActive = true` **before** awaiting
-`getUserMedia` (lines 240-247), so an empty `bg-stage` black rectangle renders during the
-permission prompt with no label, no spinner and no state.
-
-### D-27 · MINOR — mixed template-ref idiom in adjacent lines
-
-```
-ExtractWorkbench.vue:222   const dropZoneRef = ref<InstanceType<typeof ImageDropZone> | null>(null);
-ExtractWorkbench.vue:223   const videoRef = useTemplateRef<HTMLVideoElement>("videoRef");
-```
-
-Owner edict 7 names `useTemplateRef` as the Vue 3.5 idiom. Two idioms, one line apart, in
-one component. (`verbatimModuleSyntax` — edict 8 — is clean: `import type { SpaceId }` at
-line 189 is the only type-only import and is correctly marked.)
-
-### D-28 · INFO — three icon buttons have no accessible name
-
-`visual/REPORT.json`, all four `/#/extract` rows: `"namelessButtons": 3` — the only route in
-the census with three. Identified live (`probe-D-geometry.json`, every matrix):
-
-```
-"nameless": ["Upload image","Open camera","Reset"]
-```
-
-`ExtractControls.vue:41, 50, 84` supply `title=` only. `title` is a last-resort fallback in
-accessible-name computation and is not announced by several AT configurations; the census
-harness (`capture.mjs:102-105`) counts only `aria-label` / `aria-labelledby` / text. A
-fourth appears in the camera state (`ExtractWorkbench.vue:52`, `title="Capture frame"`).
-Filed INFO because the fix is mechanical, but it is this route's signature census row.
+Owner edicts: **1** (no god modules) — pass; the file is 294 lines with real
+decomposition. **2** (no legacy/dual paths) — FAIL (D2-16, D2-21, D2-10). **3** (KISS) —
+FAIL (D2-16). **4** (glass-ui is the design system) — FAIL (D2-19 hand-rolled rail; D2-16
+device code in the view). **5** (root-level styling) — FAIL (D2-18, D2-19). **6**
+(animations never deleted) — pass, and the cure preserves the register (D2-15). **7**
+(Vue 3.5 idioms) — FAIL (D2-22). **8** (`verbatimModuleSyntax`) — pass.
 
 ---
 
-## 7. What is genuinely sound (the negative proof)
+## 8. What is genuinely sound — the negative proof
 
-So this report is not read as uniform condemnation, the following were tested and hold:
+Named so this report is not read as undifferentiated condemnation:
 
-- **Motion is tokenized end to end** and the global `prefers-reduced-motion` guard neutralises
-  it — measured 19 → 6 live animations. No component-local duration literals; no keyframes
-  deleted, only referenced.
-- **No horizontal overflow at any arm** — `overflowX = 0` at 1440, 720 (200 % zoom), 390 and
-  360 (400 % zoom), LTR and RTL (`probe-D-geometry.json`, 8/8 matrices).
-- **No page errors, no console errors** on `/#/extract` in any of the 4 census matrices
-  (`visual/REPORT.md` per-capture table) or in my 8 (the only console line is the
-  pre-existing dev `VITE_API_URL` notice, unrelated).
-- **The contrast work is real.** `--ink-muted` threads correctly (`oklch(0.4469…)` light /
-  `oklch(0.8894…)` dark), and the O-18 track-ink cure did move the sliders off the recorded
-  born-RED 1.88 : 1 / 1.85 : 1.
-- **`verbatimModuleSyntax` is clean**; props use the 3.5 reactive-destructure idiom;
-  emits are typed.
+- **The three-family motion register is honoured.** Both transitions key legal family
+  names (`vj-enter`, `vj-morph`); no fourth name; the global PRM guard at
+  `animations.css:184` neutralises all three. Verified by grep, not assumed.
+- **The dark treatment is correct.** Measured ghost-vs-plate ratios: light 1.12 / 1.15,
+  dark 1.15 / 1.50 — the `--skeleton-ink` recipe is scheme-true in both directions, and
+  the dark arm is stronger, not weaker. The E1-R2 remediation did what its comment claims
+  (D2-05).
+- **No layout is broken in the four Safari matrices.** `REPORT.json` `/#/extract`:
+  `overflowX: 0`, `bleeding: []`, `pageErrors: []`, `consoleErrors: []`, `main: 1`,
+  `imgNoAlt: 0` — in all four. Nothing here is a rendering failure; everything here is a
+  design decision.
+- **The session boundary is clean.** `useExtractSession` derives dominance from the
+  returned palette rather than re-quantizing (`useExtractSession.ts:114–149`), the worker
+  transfers an `ArrayBuffer`, and the debounce is torn down on unmount. The data
+  architecture is better than the interface built on top of it.
+- **`verbatimModuleSyntax` is honoured**, props use the 3.5 reactive-destructure idiom,
+  and every prop/emit carries a doc comment (`:204–216`).
 
 ---
 
-## 8. Ranked disposition
+## 9. Ranked disposition
 
-| ID | Severity | Family | Terminal verb |
-|---|---|---|---|
-| D-1 | BLOCKER | specimen fidelity | **REPLACE** — definite-height stage, not a capped flow child |
-| D-2 | BLOCKER | state machine | **REPLACE** — one plate component, three states; drop `mode="out-in"` |
-| D-3 | BLOCKER | card-lock (NORMATIVE) | **TIGHTEN** — `tabular-nums` + fixed ghost band |
-| D-4 | MAJOR | PR-04 empty housing | **REMOVE** — empty result collapses to an invitation line |
-| D-5 | MAJOR | binding composition | **TRANSPOSE** — result before controls |
-| D-6 | MAJOR | material tier | **TIGHTEN** — the empty plate loses opacity + cartoon shadow |
-| D-7 | MAJOR | type-role matrix | **TIGHTEN** — stat one golden rung below identity |
-| D-8 | MAJOR | readout truth | **TIGHTEN** — display precision + its own line |
-| D-9 | MAJOR | RTL | **ADD-AFFORDANCE** — `dir` through to the Slider primitive |
-| D-10 | MAJOR | SC 2.5.8 | **ENLARGE** — 24 px operable width, glyph unchanged (§5.7) |
-| D-11 | MAJOR | PR-07 affordance | **ADD-AFFORDANCE** — a named, focusable sampler control |
-| D-12 | MAJOR | disabled coverage | **TIGHTEN** — one prop, six consumers |
-| D-13 | MAJOR | PR-08 recovery | **ADD-AFFORDANCE** — a real clear/discard |
-| D-16 | MAJOR | data duplication | **REMOVE** — one palette rendering, not three |
-| D-17 | MAJOR | §5.5 ornament | **REMOVE** — non-interactive result card |
-| D-18 | MAJOR | accent coherence | **TIGHTEN** — one accent source per instrument |
-| D-19 | MAJOR | dead path (edicts 2/3) | **REMOVE** — `split`, `isWide`, `aside` |
-| D-20 | MAJOR | DESIGN.md:388 | **TRANSPOSE** — `.plate-ink` → `utils.css` |
-| D-14/15/21/22/24/25/26/27 | MINOR | — | as noted |
-| D-23 | MINOR (HYPOTHESIS) | forced-colors | **GATE** — needs a Chromium/WHCM arm |
-| D-28 | INFO | naming | **ADD-AFFORDANCE** — `aria-label` on 4 icon buttons |
+| # | ID | Severity | Defect | Cure family |
+|---|---|---|---|---|
+| 1 | D2-01 | BLOCKER | undeveloped placeholder = 97.0% of the stage; "absent result collapses context" inverted | delete the ghost seat; empty region has zero height |
+| 2 | D2-11 | BLOCKER | sampler is pointer-only; `role=button` + `tabindex=-1` + dead keydown | named sampling-mode control + numeric x/y axes |
+| 3 | D2-03 | MAJOR | value at the H1 rung (41.888 = 41.888), off-matrix `text-body`, no tabular reserve | mono value + small label, reserved width |
+| 4 | D2-04 | MAJOR | 56-char unrounded float specimen, ~36% visible at the shipped column | round at the presentation boundary; full precision on Copy |
+| 5 | D2-08 | MAJOR | camera has no cancel; `disabled` reaches 1 of 6 controls | camera as a stage mode with Cancel/Capture + Escape |
+| 6 | D2-16 | MAJOR | camera implemented twice; the used copy PNG-round-trips a canvas | consume `quantizeFromCamera` / `quantizeFromCanvas` |
+| 7 | D2-23 | MAJOR | viewfinder `object-cover` ≠ full-frame capture (~43% unseen) | one geometry for preview and capture |
+| 8 | D2-06 | MAJOR | failure is color-only, unannounced, undismissable, raw exception text | one status region: status / alert+icon+copy+Retry |
+| 9 | D2-17 | MAJOR | result plate is an operable ornament fed a `() => {}` | result is a specimen, not a library entity Card |
+| 10 | D2-19 | MAJOR | mandated axis composition not adopted; 12×24 thumbs; per-instance track overrides | adopt the one axis composition; producer variant |
+| 11 | D2-10 | MAJOR | one predicate drives two facts → 2 authored states unreachable, click-to-replace gone | split `hasImage` from `mode` |
+| 12 | D2-20 | MAJOR | 3 of 3 actions named by tooltip only | visible or `aria-label` names |
+| 13 | D2-07 | MAJOR | error + stale result render together | result and failure are one union |
+| 14 | D2-09 | MAJOR | second Camera press leaks a MediaStream | subsumed by D2-16 |
+| 15 | D2-02 | MINOR | placeholder carries a boundary + 3-layer caster against `[]` / `none` | subsumed by D2-01 |
+| 16 | D2-14 | MINOR | `vj-morph` over three unequal heights, no height geometry, `out-in` | two states, content-driven height |
+| 17 | D2-21 | MINOR | `split` layout dead, and 50/50 where the canon says golden | delete; adopt P122 if the split returns |
+| 18 | D2-18 | MINOR | `.plate-ink` declared 5× | one root utility/token |
+| 19 | D2-12 | MINOR | overlay is modal in behaviour, undeclared in semantics | declare modality or shrink to the stage |
+| 20 | D2-22 | MINOR | mixed `ref` / `useTemplateRef` in adjacent lines | `useTemplateRef` |
+| 21 | D2-15 | INFO | 12 perpetual animations depicting nothing | falls out of D2-01 |
+| 22 | D2-13 | INFO | 5 state matrices have never captured this route | add `#/extract` to `states.mjs` |
+| 23 | D2-05 | INFO | dark treatment is correct (negative result) | — |
 
-### The gestalt
+Pass-1 rows not re-litigated here and still standing: D-1 (uploaded-image crop), D-2
+(loading state unreachable), D-3 (card-lock), D-5 (mobile order), D-9 (RTL), D-16 (three
+renderings of one palette), D-18 (two accent families), D-23/24/25.
 
-The individual repairs above are real, but the shape of the defect is one thing said four
-ways: **this workbench renders the absence of its output more emphatically than the output
-itself, and more emphatically than its input.** The empty ghost is opaque where the pane is
-translucent, shadowed where the drop zone is flat, 23 % of the pane's area where the law
-allows 15 %, k-driven where the law says ±0 px, animated 34 ways where nothing is
-happening — and the source image it is waiting for gets cropped to 23 % when it finally
-arrives, while the loading moment between them was designed, built, and then made
-unreachable by the transition mode chosen to protect it.
+---
 
-The transposition is not a sequence of patches. It is a re-seating: **let the specimen be
-the protagonist.** Give the image a real stage with a definite box; let the result land in
-that stage's inspector; let *absence* be a one-line invitation rather than a full-material
-counterfeit of the answer; and collapse ghost/skeleton/card into the single three-state
-plate the code comments already believe exists.
+## 10. The gestalt
+
+Every defect above is a symptom of two design premises, and both are wrong.
+
+**Premise 1: the absence of a result is a thing to be depicted.** From it follow the ghost
+that rivals the stage (D2-01), the caption that apologises for it (D2-01), the boundary and
+caster that frame it (D2-02), the twelve animations that breathe it (D2-15), the three-key
+morph that swaps it (D2-14), and the second skeleton species built to hand off to it
+(`PaletteCardSkeleton`, whose bones are a near-duplicate of `ShadowPalette`'s). The canon's
+instruction — "absent result collapses context" — is not a styling preference; it is the
+antidote to exactly this cascade. Pass 1 reached the same conclusion from the empty-content
+ceiling; two instruments, one diagnosis.
+
+**Premise 2: the specimen is a button.** The image becomes a `role="button"` with
+`tabindex="-1"` (D2-11); the result becomes a `cursor-pointer` `role="article"` wired to a
+no-op (D2-17); and the actual verbs — upload, camera, reset, sample — are icon glyphs named
+by tooltip (D2-20) or have no control at all (sampling). The canon's rule is the antidote
+again (`PROPORTION-AUDIT.md:74`, card law 9): "A renderer specimen is not an unlabeled
+button." Extract has two specimens and has made buttons of both.
+
+Cure the two premises and roughly nineteen of the twenty-three rows above close as
+consequences rather than as patches.

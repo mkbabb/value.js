@@ -1,0 +1,26 @@
+{
+  "probe": "L-13 — package.json sideEffects:false eliminates the demo application entry",
+  "ran": "2026-07-28",
+  "repo": "/Users/mkbabb/Programming/value.js",
+  "head": "c654824e",
+  "toolchain": "repo-local node_modules/.bin/vite (^8.0.13, rolldown)",
+  "armA_sideEffectsFalse": [
+    { "file": "index-Dezn_h7o.js", "bytes": 698, "containsBoot": false }
+  ],
+  "armB_fieldAbsent": [
+    { "file": "index-e_Viud93.js", "bytes": 754, "containsBoot": true }
+  ],
+  "verdict": "CONFIRMED — the application entry is eliminated iff sideEffects:false is present",
+  "corroboration": {
+    "realBuild": "npx vite build --mode gh-pages --outDir <scratchpad>/ghp --emptyOutDir",
+    "realBuildEmittedJs": [
+      { "file": "index-Dezn_h7o.js", "bytes": 698, "note": "modulepreload polyfill ONLY — same content hash as armA" },
+      { "file": "quantize-worker-xMwe415C.js", "bytes": 11774, "note": "emitted from its own worker entry" }
+    ],
+    "realBuildEmittedCss": [
+      { "file": "glass-fonts-DH5GtBvs.css", "bytes": 132943, "note": "fonts only; no application CSS bundle" }
+    ],
+    "stalERepoDist": "dist/gh-pages/assets/index-Dezn_h7o.js — identical content hash; the standing state, not a one-off",
+    "sourceOfTruth": "package.json:20 \"sideEffects\": false ; demo/color-picker/index.html:205-213 inline <script type=\"module\"> entry"
+  }
+}

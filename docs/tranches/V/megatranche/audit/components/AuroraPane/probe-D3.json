@@ -1,0 +1,139 @@
+{
+  "desktop": {
+    "contentBg": "oklab(0.955861 0.009528 0.029646 / 0.7488)",
+    "contentBackdrop": "blur(11px) saturate(1.6)",
+    "contentOpacity": "1",
+    "optionBg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+    "optionRect": {
+      "w": 889.86,
+      "h": 51.69
+    },
+    "optionTextWidthShare": 8.29,
+    "chips": [
+      {
+        "w": 10.47,
+        "h": 16.39,
+        "bg": "oklch(0.63 0.2316 323.402008)"
+      },
+      {
+        "w": 10.47,
+        "h": 16.39,
+        "bg": "oklch(0.7367 0.1847 354.356689)"
+      },
+      {
+        "w": 10.47,
+        "h": 16.39,
+        "bg": "oklch(0.8433 0.0858 25.311399)"
+      },
+      {
+        "w": 10.47,
+        "h": 16.39,
+        "bg": "oklch(0.95 0.0298 56.265999)"
+      }
+    ],
+    "stripTotalW": 41.88,
+    "occludedBehind": [
+      {
+        "el": "aurora-row-label",
+        "text": "Arrangement",
+        "overlapPx2": 862
+      },
+      {
+        "el": "control-surface",
+        "text": "Scattered",
+        "overlapPx2": 30634
+      },
+      {
+        "el": "control-surface",
+        "text": "Smooth",
+        "overlapPx2": 32328
+      },
+      {
+        "el": "control-surface",
+        "text": "Drifting",
+        "overlapPx2": 32328
+      },
+      {
+        "el": "configurator-row",
+        "text": "Colour Energy0.760",
+        "overlapPx2": 53808
+      },
+      {
+        "el": "configurator-row",
+        "text": "Noise0.500",
+        "overlapPx2": 43915
+      }
+    ]
+  },
+  "mobile": {
+    "contentBg": "oklab(0.955861 0.009528 0.029646 / 0.7488)",
+    "contentBackdrop": "blur(11px) saturate(1.6)",
+    "contentOpacity": "1",
+    "optionBg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+    "optionRect": {
+      "w": 240.63,
+      "h": 62.3
+    },
+    "optionTextWidthShare": 39.27,
+    "chips": [
+      {
+        "w": 10.47,
+        "h": 21,
+        "bg": "oklch(0.63 0.2316 323.402008)"
+      },
+      {
+        "w": 10.47,
+        "h": 21,
+        "bg": "oklch(0.7367 0.1847 354.356689)"
+      },
+      {
+        "w": 10.47,
+        "h": 21,
+        "bg": "oklch(0.8433 0.0858 25.311399)"
+      },
+      {
+        "w": 10.47,
+        "h": 21,
+        "bg": "oklch(0.95 0.0298 56.265999)"
+      }
+    ],
+    "stripTotalW": 41.88,
+    "occludedBehind": [
+      {
+        "el": "aurora-row-label",
+        "text": "Arrangement",
+        "overlapPx2": 592
+      },
+      {
+        "el": "control-surface",
+        "text": "Scattered",
+        "overlapPx2": 7266
+      },
+      {
+        "el": "control-surface",
+        "text": "Smooth",
+        "overlapPx2": 8712
+      },
+      {
+        "el": "control-surface",
+        "text": "Drifting",
+        "overlapPx2": 8712
+      },
+      {
+        "el": "configurator-row",
+        "text": "Colour Energy0.760",
+        "overlapPx2": 17614
+      },
+      {
+        "el": "configurator-row",
+        "text": "Noise0.500",
+        "overlapPx2": 17614
+      },
+      {
+        "el": "configurator-row",
+        "text": "Zones6",
+        "overlapPx2": 3379
+      }
+    ]
+  }
+}

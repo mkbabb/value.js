@@ -1,0 +1,53 @@
+{
+ "console": [
+  "error: [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+ ],
+ "A_trigger": {
+  "outerHTMLhead": "<button data-v-ace91ae4=\"\" data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"md\" data-icon-only=\"true\" data-control-target=\"\" data-press-armed=\"\" type=\"button\" class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8\" id=\"reka-popove",
+  "attr_variant": "ghost",
+  "data_emphasis": "secondary",
+  "data_tone": "neutral",
+  "classList": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+  "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+  "backdropFilter": "none",
+  "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, col"
+ },
+ "B_openedFresh": {
+  "inputValue": "",
+  "placeholderShown": true,
+  "placeholder": "#hex, hsl(...)"
+ },
+ "C_clearButton": [
+  "newest",
+  "popular",
+  "most-forked",
+  "",
+  "featured"
+ ],
+ "D_typed": "rebeccapurple",
+ "D_afterReopen": "rebeccapurple",
+ "E_afterMiniOpen": {
+  "popperWrappers": 2,
+  "outerStillOpen": true,
+  "colorText": "rebeccapurple",
+  "svCanvasPresent": true
+ },
+ "E_dragTextValues": [
+  "#dbe2e8",
+  "#c8d4df",
+  "#b6c7d6",
+  "#a5bacd",
+  "#95adc4",
+  "#85a0bb",
+  "#7694b2",
+  "#6989a8",
+  "#5c7e9f",
+  "#4f7396",
+  "#44698d",
+  "#3a5f84"
+ ],
+ "E_afterDrag": {
+  "colorText": "#3a5f84",
+  "outerStillOpen": true
+ }
+}

@@ -1,0 +1,36 @@
+{
+  "destructiveCascade": {
+    "deleteClassList": "interactive-item glass-menu-row gap-2 cursor-pointer text-destructive focus:text-destructive dropdown-menu__item",
+    "hasDestructiveClass": true,
+    "colorWithProducerClass": "rgb(28, 25, 23)",
+    "colorWithoutProducerClass": "rgb(219, 36, 36)",
+    "--destructive": "light-dark(hsl(0 72% 50%), hsl(0 80% 60%))",
+    "--foreground": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+    "publishColor": "rgb(28, 25, 23)",
+    "sheetCount": 40
+  },
+  "availabilityState": {
+    "chipText": "/*! tailwindcss v4.3.0 | MIT License | https://tailwindcss.com */\n.dock-status-lamp[data-v-45530b34] {\n  position: absolute;\n  inset-inline-end: 0;\n  top: 50%;\n  translate: 0 -50%;\n  display: inline-flex;\n  align-items: center;\n  gap: 0.4rem;\n  pointer-events: none;\n  font-variant: small-caps;\n  letter-spacing: 0.06em;\n  font-size: var(--type-mono-caption, 0.6875rem);\n  line-height: 1;\n  padding: 0.3rem 0.55rem;\n  border-radius: var(--radius-pill, 9999px);\n  border: 1px solid var(--card-edge);\n  color: var(--foreground);\n@supports (color: color-mix(in lab, red, red)) {\n    color: color-mix(in oklab, var(--foreground) 72%, transparent);\n}\n  background: var(--background);\n@supports (color: color-mix(in lab, red, red)) {\n    background: color-mix(in oklab, var(--background) 55%, transparent);\n}\n  white-space: nowrap;\n}\n.lamp-label[data-v-45530b34] {\n  display: none;\n}\n@media (min-width: 1024px) {\n.lamp-label[data-v-45530b34] {\n    display: inline;\n}\n}\n.lamp-dot[data-v-45530b34] {\n  flex: none;\n  width: 0.4rem;\n  height: 0.4rem;\n  border-radius: var(--radius-pill, 9999px);\n  border: 1.5px solid currentColor;\n  background: transparent;\n}\n.dock-status-lamp[data-variant=\"misconfigured\"][data-v-45530b34] {\n  color: var(--destructive, oklch(0.58 0.19 25));\n  border-color: var(--destructive, oklch(0.58 0.19 25));\n@supports (color: color-mix(in lab, red, red)) {\n    border-color: color-mix(\n        in oklab,\n        var(--destructive, oklch(0.58 0.19 25)) 55%,\n        transparent\n    );\n}\n  background: var(--destructive, oklch(0.58 0.19 25));\n@supports (color: color-mix(in lab, red, red)) {\n    background: color-mix(\n        in oklab,\n        var(--destructive, oklch(0.58 0.19 25)) 12%,\n        transparent\n    );\n}\n}\n.dock-status-lamp[data-variant=\"misconfigured\"] .lamp-dot[data-v-45530b34] {\n  border: none;\n  background: currentColor;\n}\n@media (prefers-reduced-motion: no-preference) {\n@keyframes lamp-dot-pulse-45530b34 {\n0%,\n        100% {\n      opacity: 1;\n}\n50% {\n      opacity: 0.35;\n}\n}\n.lamp-dot[data-v-45530b34] {\n    animation: lamp-dot-pulse-45530b34 2.4s var(--ease-standard) infinite;\n}\n}"
+  },
+  "material": {
+    "contentRadius": "12px",
+    "contentPadding": "6px",
+    "itemRadius": "8px",
+    "concentricIdeal": 6,
+    "cardRadius": "16px",
+    "cardShadowKind": "hard-offset",
+    "cardShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(",
+    "menuShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inse"
+  },
+  "contrast": {
+    "labelColor": "rgb(112, 89, 66)",
+    "labelOpacity": "1",
+    "contentBg": "oklab(0.936403 0.00557132 0.0133027 / 0.808)"
+  },
+  "renameClick": {
+    "menuStillOpen": false,
+    "inputPresent": true,
+    "inputFocused": false,
+    "activeElement": "BUTTON/Palette menu"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "before": {
+    "scrollTop": 2000,
+    "firstH2": "Key Characteristics",
+    "bodyHeight": 6181
+  },
+  "triggerCount": 1,
+  "optionCount": 2,
+  "samples": [
+    {
+      "tMark": 120,
+      "scrollTop": 351,
+      "cardScrollHeight": 1396,
+      "skeletonCount": 3,
+      "skeletonRects": [
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 0,
+          "h": 16
+        },
+        {
+          "w": 0,
+          "h": 16
+        }
+      ],
+      "markdownPresent": false,
+      "bodyHeight": 0
+    },
+    {
+      "tMark": 400,
+      "scrollTop": 351,
+      "cardScrollHeight": 1396,
+      "skeletonCount": 3,
+      "skeletonRects": [
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 0,
+          "h": 16
+        },
+        {
+          "w": 0,
+          "h": 16
+        }
+      ],
+      "markdownPresent": false,
+      "bodyHeight": 0
+    },
+    {
+      "tMark": 900,
+      "scrollTop": 351,
+      "cardScrollHeight": 1396,
+      "skeletonCount": 3,
+      "skeletonRects": [
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 0,
+          "h": 16
+        },
+        {
+          "w": 0,
+          "h": 16
+        }
+      ],
+      "markdownPresent": false,
+      "bodyHeight": 0
+    },
+    {
+      "tMark": 1800,
+      "scrollTop": 351,
+      "cardScrollHeight": 1396,
+      "skeletonCount": 3,
+      "skeletonRects": [
+        {
+          "w": 48,
+          "h": 48
+        },
+        {
+          "w": 0,
+          "h": 16
+        },
+        {
+          "w": 0,
+          "h": 16
+        }
+      ],
+      "markdownPresent": false,
+      "bodyHeight": 0
+    }
+  ],
+  "after": {
+    "scrollTop": 351,
+    "firstH2": "Key Characteristics",
+    "bodyHeight": 5751
+  }
+}

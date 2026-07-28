@@ -52,7 +52,7 @@
    "slug": "wb-gradient-easingspecimenstrip",
    "area": "demo/workbenches",
    "loc": 216,
-   "extra": "\n## Component-specific context\nKNOWN VISUAL RESIDUAL, glass-owned. INBOX I-9 and D58: Glass 7.0.0 ships with Chip/Badge orphaned dist CSS, so THIS component's /toggle-chip to Chip site renders INCOMPLETE GLASS until glass fixes it (relayed as our mark M3; it is a glass BJ born-RED row, not ours). Look at the Safari captures for #/gradient and describe exactly what is visually wrong. Your disposition must be FOLD-banked on glass, NOT a local CSS patch \u2014 a local patch would be precisely the masking fallback the standing edict forbids (cf. MT-F014)."
+   "extra": "\n## Component-specific context\nKNOWN VISUAL RESIDUAL, glass-owned. INBOX I-9 and D58: Glass 7.0.0 ships with Chip/Badge orphaned dist CSS, so THIS component's /toggle-chip to Chip site renders INCOMPLETE GLASS until glass fixes it (relayed as our mark M3; it is a glass BJ born-RED row, not ours). Look at the Safari captures for #/gradient and describe exactly what is visually wrong. Your disposition must be FOLD-banked on glass, NOT a local CSS patch \u2014 a local patch would be precisely the masking fallback the standing edict forbids (cf. MT-F014). ALSO NEW OWNER MARK 2026-07-27 (MT-F030, witness audit/visual/owner-marked/OM-4-easing-radius-incoherence.png): the easing configurator mixes four unrelated corner radii (full-circle preset chips vs small-radius strip vs pill code row vs card) \u2014 'too rounded in some areas, not rounded enough in others'. This is OUR radius incoherence, distinct from the glass Chip residual; find every radius declaration in the easing corpus and judge the register."
   },
   {
    "file": "demo/workbenches/mix/MixConfigBar.vue",
@@ -84,7 +84,7 @@
    "slug": "wb-gradient-codeeditor",
    "area": "demo/workbenches",
    "loc": 117,
-   "extra": "\n## Component-specific context\nA CODE EDITOR for gradient CSS \u2014 i.e. it feeds user-typed CSS straight into the parser. MT-F001 is a live BLOCKER on that path: parseCssColor throws TypeError on oklch() rgb() hsl() lab() lch() color() oklab() and 'hsl(  )'. A user mid-typing produces exactly these. Reproduce live and report what the user sees."
+   "extra": "\n## Component-specific context\nA CODE EDITOR for gradient CSS \u2014 i.e. it feeds user-typed CSS straight into the parser. MT-F001 is a live BLOCKER on that path: parseCssColor throws TypeError on oklch() rgb() hsl() lab() lch() color() oklab() and 'hsl(  )'. A user mid-typing produces exactly these. Reproduce live and report what the user sees. ALSO NEW OWNER MARK 2026-07-27 (MT-F037, witness audit/visual/owner-marked/OM-13-easing-readout-not-glass-input.png): the cubic-bezier readout row is NOT a proper glass-ui rounded input component \u2014 hand-rolled rect where the glass input primitive belongs. Census the installed glass dist for the input/field component; if no variant fits an icon-trailing code row, that is a marked glass-forward ask, never a local restyle."
   },
   {
    "file": "demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",

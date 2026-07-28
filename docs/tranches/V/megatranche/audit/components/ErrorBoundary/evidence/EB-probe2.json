@@ -1,0 +1,188 @@
+{
+  "occlusion": {
+    "canvasStyle": {
+      "position": "absolute",
+      "zIndex": "auto",
+      "isolation": "auto",
+      "mixBlendMode": "normal"
+    },
+    "canvasRect": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900
+    },
+    "canvasDomIndexInLayout": 0,
+    "boundaryStyle": {
+      "position": "static",
+      "zIndex": "auto",
+      "isolation": "auto",
+      "mixBlendMode": "normal"
+    },
+    "mainStyle": {
+      "position": "static",
+      "zIndex": "auto",
+      "isolation": "auto",
+      "mixBlendMode": "normal"
+    },
+    "paneMainIsPositioned": "static",
+    "childStyles": {
+      "svg": {
+        "position": "static",
+        "zIndex": "auto",
+        "isolation": "auto",
+        "mixBlendMode": "normal"
+      },
+      "msg": {
+        "position": "static",
+        "zIndex": "auto",
+        "isolation": "auto",
+        "mixBlendMode": "normal"
+      },
+      "detail": {
+        "position": "static",
+        "zIndex": "auto",
+        "isolation": "auto",
+        "mixBlendMode": "normal"
+      },
+      "button": {
+        "position": "relative",
+        "zIndex": "auto",
+        "isolation": "auto",
+        "mixBlendMode": "normal"
+      }
+    },
+    "hitTest": {
+      "svg": "line.",
+      "msg": "p.font-display.text-heading",
+      "detail": "p.text-mono-small.plate-ink",
+      "button": "button.button.tap-squish"
+    }
+  },
+  "ltr": {
+    "btn": {
+      "x": 658,
+      "w": 123.9
+    },
+    "svg": {
+      "x": 670,
+      "w": 14
+    },
+    "marginLeft": "0px",
+    "marginRight": "6px",
+    "btnPadLeft": "12px",
+    "btnPadRight": "12px",
+    "dir": "ltr"
+  },
+  "rtl": {
+    "btn": {
+      "x": 658,
+      "w": 123.9
+    },
+    "svg": {
+      "x": 750,
+      "w": 14
+    },
+    "marginLeft": "0px",
+    "marginRight": "6px",
+    "btnPadLeft": "12px",
+    "btnPadRight": "12px",
+    "gapIconToLabelEdge": null,
+    "dir": "rtl"
+  },
+  "overflow": {
+    "before": {
+      "ebH": 804,
+      "contentH": 804,
+      "detailH": 22.9375
+    },
+    "after": {
+      "ebRectH": 804,
+      "ebScrollH": 804,
+      "ebClientH": 804,
+      "detailH": 252.3,
+      "buttonBottom": 685.9,
+      "mainBottom": 892,
+      "winH": 900,
+      "overflowStyle": "visible",
+      "contentExceedsBox": false,
+      "docScrollH": 900
+    }
+  },
+  "contrast": {
+    "detailInkRgb": [
+      86,
+      84,
+      83
+    ],
+    "messageInkRgb": [
+      28,
+      25,
+      23
+    ],
+    "auroraMeanRgb": [
+      0,
+      0,
+      0
+    ],
+    "detailContrastVsAurora": 2.79,
+    "messageContrastVsAurora": 1.2,
+    "samplePx": 17000
+  },
+  "brick": [
+    {
+      "route": "#/palettes",
+      "hash": "#/palettes",
+      "boundaryStillUp": true,
+      "paneContainer": false
+    },
+    {
+      "route": "#/browse",
+      "hash": "#/browse",
+      "boundaryStillUp": true,
+      "paneContainer": false
+    },
+    {
+      "route": "#/extract",
+      "hash": "#/extract",
+      "boundaryStillUp": true,
+      "paneContainer": false
+    },
+    {
+      "route": "#/mix",
+      "hash": "#/mix",
+      "boundaryStillUp": true,
+      "paneContainer": false
+    },
+    {
+      "route": "#/generate",
+      "hash": "#/generate",
+      "boundaryStillUp": true,
+      "paneContainer": false
+    },
+    {
+      "route": "#/gradient",
+      "hash": "#/gradient",
+      "boundaryStillUp": true,
+      "paneContainer": false
+    },
+    {
+      "route": "#/atmosphere",
+      "hash": "#/atmosphere",
+      "boundaryStillUp": true,
+      "paneContainer": false
+    },
+    {
+      "route": "#/blob",
+      "hash": "#/blob",
+      "boundaryStillUp": true,
+      "paneContainer": false
+    },
+    {
+      "route": "#/admin/users",
+      "hash": "#/admin/users",
+      "boundaryStillUp": true,
+      "paneContainer": false
+    }
+  ]
+}

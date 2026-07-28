@@ -126,7 +126,10 @@ for (const [band, runId] of Object.entries(BANDS)) {
   for (const slug of rosters[band]) {
     const dAxes = disk[slug] ?? new Set();
     const hAxes = harvest[slug]?.challenges ?? new Set();
-    const union = new Set([...dAxes, ...hAxes]);
+    // M-16 durability rule (AUDIT-HANDOFF §3): only an EXISTING canonical file counts.
+    // Run hydrate-reports.mjs BEFORE this validator so returned payloads are materialized;
+    // a harvest payload with no file after hydration is a defect, never coverage.
+    const union = dAxes;
     const missing = AXES.filter((a) => !union.has(a));
     let status;
     if (adjudicated.has(slug)) status = '**ADJUDICATED**';

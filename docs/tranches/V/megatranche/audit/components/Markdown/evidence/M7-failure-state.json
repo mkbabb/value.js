@@ -1,0 +1,13 @@
+{
+  "state": {
+    "aboutCardPresent": false,
+    "skeletonsPresent": 0,
+    "markdownWrapperPresent": false,
+    "alertPresent": false,
+    "alertText": null,
+    "ohSnapPresent": false
+  },
+  "errs": [
+    "CONSOLE [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+  ]
+}

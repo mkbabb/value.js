@@ -14,7 +14,7 @@
    "slug": "PaletteCard",
    "area": "palettes",
    "loc": 364,
-   "extra": "PaletteCard is a six-file component folder (PaletteCard, PaletteCardMenu, PaletteCardSwatches, PaletteCardMeta, PaletteRenameInput, ActionFeedback). Judge the DECOMPOSITION itself, not merely this file: is the split along real seams, or is it a god module distributed across six files? The owner's standing feedback forbids wrapper components and shared/ dirs that earn nothing (feedback_kiss_no_contrivance)."
+   "extra": "PaletteCard is a six-file component folder (PaletteCard, PaletteCardMenu, PaletteCardSwatches, PaletteCardMeta, PaletteRenameInput, ActionFeedback). Judge the DECOMPOSITION itself, not merely this file: is the split along real seams, or is it a god module distributed across six files? The owner's standing feedback forbids wrapper components and shared/ dirs that earn nothing (feedback_kiss_no_contrivance). ALSO NEW OWNER MARKS 2026-07-27 (MT-F036, witnesses audit/visual/owner-marked/OM-11-palette-card-shadow-artifacts.png + OM-12-...-closeup.png): the card trails a hard-edged faceted shadow slab (MT-F027's mechanism class) ORDERED FIXED at root, AND the interactive container ships NO hover state \u2014 the hover register is designed at the glass/card root; a missing glass variant becomes a marked BJ ask, never a local patch."
   },
   {
    "file": "demo/palettes/BrowsePane.vue",
@@ -136,7 +136,8 @@
    "file": "demo/palettes/browser/status/ApiOfflineChip.vue",
    "slug": "ApiOfflineChip",
    "area": "palettes",
-   "loc": 91
+   "loc": 91,
+   "extra": "NEW OWNER MARK 2026-07-27 (MT-F031, witness audit/visual/owner-marked/OM-5-dev-misconfigured-banner.png): the DEV MISCONFIGURED banner is ORDERED REMOVED \u2014 'this nonsense needs to be removed'. Determine whether this component or a sibling renders it; the surface dies (not restyled, not gated); a dev-environment diagnosis belongs in the console. Honest trigger note: the audit dev server runs npx vite API-less, plausibly the trigger condition \u2014 irrelevant to the ruling."
   },
   {
    "file": "demo/palettes/browser/search/TagEditPopover.vue",

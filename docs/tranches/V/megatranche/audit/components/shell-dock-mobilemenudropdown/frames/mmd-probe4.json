@@ -1,0 +1,83 @@
+{
+  "attrs": {
+    "githubItemAttrs": [
+      "data-reka-collection-item=",
+      "role=menuitem",
+      "tabindex=-1",
+      "data-slot=dropdown-menu-item",
+      "class=dropdown-menu__item interactive-item gla"
+    ],
+    "avatarHost": {
+      "hostTag": "SPAN",
+      "hostCls": "glass-avatar__identity",
+      "hostAttrs": [
+        "class",
+        "aria-hidden"
+      ],
+      "imgAlt": "",
+      "imgAria": "true",
+      "imgSrc": "https://avatars.githubusercontent.com/u/2848617?v=",
+      "imgRect": {
+        "w": 26,
+        "h": 26
+      }
+    },
+    "identityBlock": {
+      "cls": "flex items-center gap-2 px-2 py-1.5",
+      "role": null,
+      "tabIndex": -1,
+      "h": 49.8,
+      "focusableChildren": 1
+    },
+    "labelBlock": {
+      "role": null,
+      "cls": "dropdown-menu__label px-2 py-1.5",
+      "text": "amaranthine-quokka-northern-marches"
+    },
+    "menuAria": {
+      "ariaLabel": null,
+      "ariaLabelledby": "reka-dropdown-menu-trigger-v-3",
+      "ariaOrientation": "vertical"
+    },
+    "tabbables": [
+      {
+        "tag": "A",
+        "tabIndex": 0,
+        "text": "@mbabb"
+      },
+      {
+        "tag": "A",
+        "tabIndex": 0,
+        "text": "GitHub"
+      }
+    ]
+  },
+  "pixels": {
+    "size": [
+      390,
+      70
+    ],
+    "darkestInk": [
+      112,
+      89,
+      66
+    ],
+    "lightestGround": [
+      241,
+      226,
+      220
+    ],
+    "contrastInkVsLightestGround": 5.21,
+    "groundA": [
+      233,
+      193,
+      194
+    ],
+    "groundB": [
+      241,
+      224,
+      220
+    ],
+    "contrastInkVsGroundA": 4.03
+  }
+}

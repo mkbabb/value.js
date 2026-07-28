@@ -956,3 +956,453 @@ grep -rn "devicePixelRatio" demo --include="*.ts" --include="*.vue"   # 2 matche
 grep -rn 'getContext("2d"' demo --include="*.ts" --include="*.vue"    # 11 hand-rolled sites
 node -e 'console.log(Object.keys(require("./node_modules/@mkbabb/glass-ui/package.json").exports).length)'   # 74
 ```
+
+---
+---
+
+# ADDENDUM — CHALLENGE-L third pass (independent)
+
+## Model receipt (third pass)
+
+I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier this
+seat was explicitly spawned with. Declared, not inherited.
+
+Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
+
+This pass was run without reading passes 1–2 until after the evidence was collected. §A records
+where I independently landed on the same ground. **§B is the payload**: seven findings absent from
+both prior passes — including one (**L-21**) that *falsifies* the "What is sound" section both
+prior passes signed. Verified absent by keyword census over the pre-existing 958 lines:
+
+```
+$ for k in tsconfig aria-label vitest.config crossOrigin self-reference traceResolution \
+           image-rendering "dist/index.d.ts" toHex ARCHITECTURE; do
+    printf "%-20s %s\n" "$k" "$(grep -c -- "$k" challenge-L-library.md)"; done
+tsconfig             0
+aria-label           0
+vitest.config        0
+crossOrigin          0
+self-reference       0
+traceResolution      0
+image-rendering      0
+dist/index.d.ts      0
+toHex                0
+ARCHITECTURE         0
+```
+
+---
+
+## §A — independently reproduced (no new claim)
+
+Reached before reading passes 1–2, by the same evidence:
+
+- **L-8 / DisplayColorSpace ×4.** `color-model.ts:29` canonical; re-mints at `useImageSampler.ts:21`
+  (exported), `ExtractWorkbench.vue:202`, `ExtractPane.vue:30`. Confirmed.
+- **L-10 / dead boundary lint.** `eslint.config.js:235-238` + `:275-276` glob `demo/@/**`;
+  `ls -d demo/@` → *No such file or directory*; the three globs match 0, 0, 0 files. Confirmed.
+- **L-5 / triple decode.** `useImageQuantize.ts:19-26` (`createImageBitmap` + `OffscreenCanvas`)
+  vs `useImageSampler.ts:68-95` (`new Image()` + data URL + two `document.createElement("canvas")`),
+  over the base64 string minted at `useExtractSession.ts:29-36`. Confirmed.
+- **L-12 / raw `ResizeObserver`.** `useInertiaGesture.ts:353-360`, unbatched, calling a
+  `fitToViewport` that *assigns* `zoom`/`panX`/`panY` (`:163-166`) — so any resize discards the
+  user's zoom. glass-ui ships `useResizeObserver` with `threshold` + `rafBatch` whose docstring names
+  this exact case. Confirmed.
+- **L-3 / no DPR policy.** Confirmed, with the arithmetic pinned in §B (L-24).
+- **L-15 / zero visual coverage.** Confirmed by reading `shots/safari-desktop-light/extract.png`
+  (resting drop zone, "UNDEVELOPED PLATE") and `ls shots/zoom-200-desktop/` → `adminusers blob
+  browse gradient picker` — no `extract` in the 200 % matrix at all.
+- **L-1 / loupe first-paint.** I predicted it statically from the `v-if` ↔ synchronous-`drawLoupe`
+  seam; pass 1 measured it (0/12100). I did not re-measure — pass 1's number stands.
+
+---
+
+## §B — findings absent from passes 1 and 2
+
+### L-21 · BLOCKER (structural) — the demo's **type** resolution of the published surface has drifted off `package.json#exports`; three mappings point at files that do not exist and `/css` — used by this component — is not mapped at all
+
+Both prior passes close with *"What is sound: the published-surface discipline."* That verdict is
+correct on the **runtime** axis and **false on the type axis**.
+
+`package.json#exports` (`package.json:20-49`) is a closed 7-key set — `./color ./value ./css
+./easing ./math ./transform ./quantize`. There is deliberately **no `.` root key**
+(`vite.config.ts:203-205`: *"The seven literal package capabilities are the complete library graph;
+there is no root or compatibility entry"*).
+
+`tsconfig.demo.json:42-49` declares eight mappings. Measured against the tree:
+
+| tsconfig path (line) | target | target exists? | key in `exports`? |
+|---|---|---|---|
+| `@mkbabb/value.js` (`:42`) | `dist/index.d.ts` | **MISSING** | **no such key** |
+| `@mkbabb/value.js/color` (`:43`) | `dist/subpaths/color.d.ts` | EXISTS | yes |
+| `@mkbabb/value.js/parsing` (`:44`) | `dist/subpaths/parsing.d.ts` | **MISSING** | **no such key** |
+| `@mkbabb/value.js/math` (`:45`) | `dist/subpaths/math.d.ts` | EXISTS | yes |
+| `@mkbabb/value.js/easing` (`:46`) | `dist/subpaths/easing.d.ts` | EXISTS | yes |
+| `@mkbabb/value.js/units` (`:47`) | `dist/subpaths/units.d.ts` | **MISSING** | **no such key** |
+| `@mkbabb/value.js/transform` (`:48`) | `dist/subpaths/transform.d.ts` | EXISTS | yes |
+| `@mkbabb/value.js/quantize` (`:49`) | `dist/subpaths/quantize.d.ts` | EXISTS | yes |
+| **`/css` — NOT MAPPED** | — | — | yes — **used at `useImageSampler.ts:13`** |
+| **`/value` — NOT MAPPED** | — | — | yes |
+
+```
+$ for f in dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts \
+           dist/subpaths/value.d.ts dist/subpaths/css.d.ts; do
+    printf "%-34s %s\n" "$f" "$([ -e "$f" ] && echo EXISTS || echo MISSING)"; done
+dist/index.d.ts                    MISSING
+dist/subpaths/parsing.d.ts         MISSING
+dist/subpaths/units.d.ts           MISSING
+dist/subpaths/value.d.ts           EXISTS
+dist/subpaths/css.d.ts             EXISTS
+
+$ ls dist/subpaths/
+color.d.ts  color.js  css.d.ts  css.js  easing.d.ts  easing.js  math.d.ts  math.js
+quantize.d.ts  quantize.js  transform.d.ts  transform.js  value.d.ts  value.js
+```
+
+`tsconfig.demo.json:4` even carries a stale prose list — `@mkbabb/value.js/{color,parsing,math,
+easing,units,transform,quantize}` — naming two subpaths (`parsing`, `units`) that no longer exist and
+omitting the two that do (`css`, `value`).
+
+**The asymmetry is the defect.** The Vite alias set is *generated* from `package.json#exports`
+(`vite.config.ts:33-49`) and cannot drift — its comment is rightly proud of that. The tsconfig side
+was left hand-maintained and drifted anyway. So the two lines of this component's composable resolve
+by two different mechanisms:
+
+```
+$ npx tsc -p <probe extending tsconfig.demo.json, files:[useImageSampler.ts]> --noEmit --traceResolution
+Module name '@mkbabb/value.js/color', matched pattern '@mkbabb/value.js/color'.
+======== Module name '@mkbabb/value.js/color' was successfully resolved to
+         '/Users/mkbabb/Programming/value.js/dist/subpaths/color.d.ts'. ========
+======== Module name '@mkbabb/value.js/css' was successfully resolved to
+         '/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts'
+         with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'. ========
+```
+
+`useImageSampler.ts:12` resolves through an explicit `paths` entry; `:13` resolves through Node
+**self-reference** (the root `package.json` names the package and carries an `exports` map, so the
+package can import itself). Both land correctly *today* — but `/css` correctness is accidental:
+nothing in the demo config asserts it, and the config that was supposed to assert it forgot the key.
+
+There is also a hoisted second copy in the graph — `node_modules/@mkbabb/value.js@4.0.0`, pulled in
+as glass-ui's peer (`glass-ui/package.json` peerDependencies: `"@mkbabb/value.js": "^4.0.0"`) — whose
+`dist/subpaths/css.d.ts` is a **different file** from the repo's:
+
+```
+$ md5 -q dist/subpaths/css.d.ts node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts
+e0968b8d3b9a5ecabc7c8c1d01de9995
+4309648d15b521dc8281eab37ccc32a2
+```
+
+Self-reference currently wins over the hoisted copy, so no split-brain manifests. But the demo's
+type axis is one `paths` edit or one npm-hoist change away from typechecking against a published
+tarball while running the local build — and nothing in the repo would report it.
+
+**Cure (transposition — a deletion).** Delete the entire `@mkbabb/value.js*` `paths` block from
+`tsconfig.demo.json:42-49`. The `traceResolution` above is the proof it is unnecessary: an *unmapped*
+published subpath resolves exactly right, through `package.json#exports` — the same single source of
+truth the Vite alias is generated from. The type axis then becomes drift-proof *by construction*
+rather than by vigilance, and `dist/index.d.ts` / `/parsing` / `/units` stop being reachable at all,
+which is correct: they are not published.
+
+*Why BLOCKER:* the demo's charter is to dogfood the published surface. A demo whose runtime
+resolution is generated and whose type resolution is stale is not proving one surface — it is
+proving two things and reporting one number. Both prior passes certified this axis sound.
+
+---
+
+### L-22 · MAJOR — hex serialization has four demo homes because the published surface has none
+
+```
+$ grep -rn "export function.*[Hh]ex\|export const.*[Hh]ex" src/
+(no output)
+```
+
+value.js 4.0.0 **parses** hex — `parseCssColor("#ff0000")` succeeds, proven by
+`test/image-sampler-v4.test.ts:19` — but cannot **write** it: the same assertion shows
+`serializeCssColor` of that color emits `rgb(255 0 0)`. The surface is asymmetric: hex in, never out.
+
+Four independent mints of the same six characters follow:
+
+```
+$ grep -rn "padStart(2" demo src --include="*.ts" --include="*.vue"
+demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts:33
+demo/color-session/picker-color.ts:215
+demo/palettes/browser/search/MiniColorPicker.vue:103
+demo/palettes/export/bytes.ts:31
+```
+
+`useImageSampler.ts:32-35` (`formatHex`) exists *only* because `/color` has no `toHex`. This is the
+inverse of the usual ownership question: not "is the component doing the library's job", but "the
+library declines a job that is unambiguously its own, so four consumers each do it privately".
+
+Note this is upstream of pass 2's **L-9** (the byte→string→parser round-trip). L-9 correctly says the
+sampler should not route bytes through the CSS parser to get a color — but the sampler *also* has to
+produce a hex string for the UI (`sampledColor` feeds `WatercolorDot :color` at
+`ImageEyedropper.vue:20` and the swatch/emit path at `:213`, `:221`). Killing the round-trip does not
+kill `formatHex`; only a library `toHex` does.
+
+**Cure.** `/color` exports `toHex(color, { alpha?: boolean }): string` beside the existing `toRgba8`.
+All four mints die; `pickerColorToHex` (`picker-color.ts:213-217`) and its pass-through wrapper
+`colorToHexString` (`color-model.ts:61-65`) collapse with them.
+
+---
+
+### L-23 · MAJOR — the ARCHITECTURE declares a canonical library-display spelling; **all three** shipped notations disagree with it and with each other
+
+Pass 2's **L-17** established that the eyedropper and the picker spell the same color differently.
+Neither pass established the reference. It exists, and it is normative:
+
+`docs/tranches/V/ARCHITECTURE.md` §2, the 4.0 space contract table, `hsv` row:
+
+> no CSS spelling; numeric library display `hsv(hdeg s% v% / α%)` only
+
+and directly beneath the table:
+
+> Only the thirteen CSS-native rows carry a canonical `parseCssColor`→`serializeCssColor` round trip.
+> The `hsv`, `kelvin`, `ictcp` and `jzazbz` numeric library displays above are specification notation
+> only.
+
+So for `#ff0000` in `hsv` the specified rendering is **`hsv(0deg 100% 100%)`**. Shipped:
+
+| producer | output | matches spec? |
+|---|---|---|
+| eyedropper — `useImageSampler.ts:43` | `HSV 0 · 1 · 1` | no — no function form, no units, raw 0–1 channels |
+| space selector — `ColorSpaceSelector.vue:165` | `hsv · 0 · 1 · 1` | no |
+| ARCHITECTURE §2 | `hsv(0deg 100% 100%)` | — |
+
+Both demo notations also drop the `%`/`deg` units the spec requires, and both print channels in
+physical 0–1 coordinates where the spec's display form is percentage — so `HSV 0 · 1 · 1` is not
+merely differently-formatted, it is **differently-scaled** from the documented notation. And
+`test/image-sampler-v4.test.ts:26` freezes the eyedropper's version as the contract:
+
+```
+expect(sampler("hsv").formatInColorSpace("#ff0000")).toBe("HSV 0 · 1 · 1");
+```
+
+This sharpens pass 2's L-17 from "two demo modules disagree" to "**the specification names one
+spelling, nothing implements it, and a test canonizes a third**".
+
+**Cure (transposition).** The notation is defined by the *library's* own spec table, so the library
+should emit it: `/css` gains `serializeLibraryColor(color)` beside `serializeCssColor`, covering the
+four non-CSS spaces in the documented form. Both demo implementations then reduce to
+`CSS_PICKER_SPACES.has(s) ? serializeCssColor : serializeLibraryColor` — and that two-line function
+belongs once, in `color-session/`, not twice.
+
+---
+
+### L-24 · MAJOR — the DPR gap is arithmetic, not a policy omission, and the display canvas is *smoothed* while the sample is nearest-neighbour
+
+Pass 1's L-2/L-3 note the 110 → 106 resample and the missing DPR policy. Two additions.
+
+**(a) The loupe's resolution loss is fixed by construction at every DPR.** The backing store is the
+literal `110` typed into the template (`ImageEyedropper.vue:85`); the CSS box is
+`${LOUPE_SIZE}px` = `110px` (`:194-195`, `constants.ts:8`). backing ÷ CSS-box = 1.0 **regardless of
+`devicePixelRatio`**. So the magnifier renders at 1/`dpr` of device resolution: half on any Retina
+display, a third on a 3× phone — on the one surface whose entire purpose is per-pixel fidelity, and
+which deliberately sets `imageSmoothingEnabled = false` (`useLoupeCanvas.ts:40`) to show hard pixel
+edges that the browser then resamples away on presentation. No measurement is needed; two literals
+decide it.
+
+**(b) The *display* canvas has the opposite problem.** Measured live (`localhost:9000`, `#/extract`,
+64×64 synthetic upload, eyedropper opened):
+
+```
+canvasBacking: { w: 64, h: 64 },  transform: "translate(0px, 59.1836px) scale(7.9375)"
+```
+
+and:
+
+```
+$ grep -rn "image-rendering\|pixelated" demo --include="*.css" --include="*.vue"
+(no output)
+```
+
+The visible canvas carries the image at native resolution and is CSS-scaled 7.94× with default
+(smooth) filtering, while `sampleAt` (`useImageSampler.ts:111-119`) returns the *exact* nearest source
+pixel from the offscreen canvas. At any zoom above 1× the color the user sees under the crosshair is
+a bilinear blend of neighbours and the value they receive is a hard sample — they disagree at every
+edge in the image. One bitmap, two renderings, two filter policies, split across two composables with
+no shared filter contract.
+
+**Cure.** Size the loupe backing store `LOUPE_SIZE * dpr` with `ctx.scale(dpr, dpr)` — or mount it
+through glass-ui's `useCanvas2D`, whose `dprPolicy` already owns this
+(`node_modules/@mkbabb/glass-ui/dist/composables/glass/canvas2d/useCanvas2D.d.ts`). And give the
+display surface `image-rendering: pixelated` above 1× zoom so seen == sampled. Under L-5's cure the
+display canvas becomes an `<img>` and only the `image-rendering` decision survives.
+
+---
+
+### L-25 · MINOR — the DockControl label idiom forks by directory, and this component is on the wrong side
+
+Two idioms for one design-system component:
+
+```
+aria-label:  demo/shell/dock/Dock.vue:143,144,154 · ActionBarToggle.vue:90 · SlugEditLayer.vue:94,106,114
+title:       demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue:11,46,53
+             demo/workbenches/extract/ExtractControls.vue:41,50,85 · ExtractWorkbench.vue:52
+             demo/workbenches/mix/MixResultDisplay.vue:123,130,138 · gradient/GradientVisualizer.vue:254
+```
+
+`DockControl`'s declared prop surface
+(`node_modules/@mkbabb/glass-ui/dist/components/dock/DockControl.vue.d.ts`) has **neither** — both
+idioms ride `$attrs` fallthrough. I verified live that the attribute lands on the `<button>` element
+itself, not a wrapper, so these buttons are **not** truly nameless (`title` is the accname
+last-resort fallback). Pass 1's L-15 reads `namelessButtons: 3` as saying "nothing about this
+component". It says something: the probe
+(`docs/tranches/V/megatranche/audit/visual/capture.mjs:102-105` — `aria-label || aria-labelledby ||
+textContent`, `title` not consulted) counts exactly the title-only controls, and driven live those
+three are:
+
+```
+extractBtns: [ {t:"Upload image", a:null}, {t:"Open camera", a:null}, {t:"Reset", a:null} ]
+```
+
+Opening the eyedropper took the count **3 → 4** (adding `title="Close eyedropper"`); pinning renders
+`title="Add to palette"` + `title="Apply as current color"` and takes it to 6. The eyedropper is not
+outside that signal — it is the same idiom, and it *doubles* the row.
+
+`title` never reaches touch users and never reaches keyboard-only users; glass-ui ships `./tooltip`
+for the visible affordance. Edict 4: both the labelling and the tooltip surfaces of the design system
+are bypassed for a raw HTML attribute.
+
+**Cure.** One idiom — `aria-label` for the name, glass-ui `Tooltip` for hover text. Structurally, a
+required `label` prop on `DockControl` (a glass-ui change, relayed per the standing BH/BI fond) makes
+the fork unrepresentable.
+
+---
+
+### L-26 · MINOR — the demo lattice that *should* be enforced is written down; pass 1's L-10 can be cured mechanically from it
+
+Pass 1 correctly reports that every demo boundary rule is dead. The missing half is that the law it
+was meant to encode already exists in normative prose —
+`docs/tranches/V/ARCHITECTURE.md:56-62`:
+
+```
+app           → shell / color-session / feature / platform / shared
+shell         → color-session / platform / shared
+feature       → color-session / own descendants / platform / shared / published packages
+color-session → platform / shared / published packages
+platform      → shared / external packages
+shared        → external packages
+```
+
+> Cross-feature internal imports are forbidden **by construction**. `color-session` is the explicit
+> product domain shared by Picker, palettes, workbenches, shell and admin; it is not a generic
+> bucket. […] When two live consumers need another semantic object, it is promoted once; superficial
+> similarity does not earn a shared home.
+
+Nothing constructs it. Two consequences for this component specifically:
+
+1. Its own edge (`workbenches/extract/… → color-session/picker-color`) is *legal* under the lattice —
+   the direction is allowed. I confirm the whole chain is direction-clean (see the pass-1 lattice
+   trace; I re-walked every edge and found no feature→shell, feature→boot, or cross-feature reach).
+2. The **"promoted once"** clause is exactly the law that `DisplayColorSpace ×4` (L-8) breaks — and
+   the *mechanism* is a seam choice: `useImageSampler.ts:14-19` imports from
+   `color-session/picker-color` (the substrate) rather than `color-session/color-model` (the face,
+   whose header declares itself "the specimen/editing-target surface shared by the picker, palettes,
+   workbenches, shell and admin"). `color-model` re-exposes the same concepts under product names —
+   `CSS_NATIVE_SPACES` (`:58`), `toCSSColorString` (`:67`), `colorToHexString` (`:61`) — *and* owns
+   `DisplayColorSpace`. Reaching past the face put the canonical type out of view; the local mint
+   followed. `color-session` has no `index.ts`, so "the face" is a convention nothing can enforce.
+
+**Cure.** Delete the three dead lint objects — they are worse than absent, they read as coverage —
+and encode the lattice above as real zones over the physical tree: for each `demo/workbenches/<f>/**`,
+ban `demo/workbenches/!(<f>)/**`, `demo/shell/**`, `demo/color-picker/**`, `demo/picker/**`,
+`demo/scenes/**`; for `demo/color-session/**`, ban every feature tree. Six `no-restricted-imports`
+objects, mechanically derivable from the doc. Optionally add a `color-session/index.ts` face so the
+substrate reach is also nameable.
+
+---
+
+### L-27 · MINOR — two residues: a demo test in the library tree, and a guard for an unreachable state
+
+**(a)** `test/image-sampler-v4.test.ts:6` imports
+`../demo/workbenches/extract/ImageEyedropper/composables/useImageSampler`. `vitest.config.ts:26-30`
+states the convention in its own words — demo suites live under `demo/test/**`, and that glob exists
+*because* relocated demo suites were previously dropped silently. Nine other files break it
+identically (`gradient-parse`, `gradient-v4-consume`, `ink`, `mix-v4`, `preview-chips`,
+`slider-announcement`, `status-lamp`, `value-domain-clamp`, `view-accents`), so the defect is
+systemic — but this particular misplaced file is also the one that freezes the non-spec readout of
+L-23 as a contract, so it is not a neutral filing error.
+
+**(b)** `useImageSampler.ts:70` sets `img.crossOrigin = "anonymous"`. The prop's only producer is
+`session.previewDataUrl` (`ExtractWorkbench.vue:175`), always a `data:` URL from `readAsDataUrl`
+(`useExtractSession.ts:29-36, 166`). `crossOrigin` is meaningless on a `data:` URL. It guards a
+cross-origin case the contract makes unreachable — legacy defence under edict 2. Either
+`imageUrl: string` under-specifies a contract that really does admit remote URLs (in which case
+pass 1's L-4 error path becomes load-bearing), or the line dies with L-5's `File`-based rewrite.
+Both roads delete it.
+
+---
+
+## §C — third-pass verdict
+
+**DEFECTIVE** — unchanged in kind, sharpened in one place.
+
+Passes 1 and 2 both close with *"the published-surface discipline is what is sound."* On the runtime
+axis that holds and I re-verified it: every `@mkbabb/value.js` specifier in this chain is a literal
+`package.json#exports` key, aliased from a set *generated* from that map, with no `@src` or `dist/`
+reach anywhere. **L-21 withdraws the type half of that certification**: three `tsconfig.demo.json`
+mappings point at files that do not exist, two published subpaths have no mapping at all — including
+`/css`, which this component's composable imports on line 13 — and the one bare specifier that *is*
+mapped is not a published key. The demo is dogfooding two different surfaces and reporting one.
+
+**Strongest defect (third pass): L-21.** It is the only finding that contradicts a conclusion both
+prior passes signed, it sits on the repo's central structural claim, and its cure is a deletion whose
+sufficiency is already proved by the `traceResolution` output above — an *unmapped* subpath resolving
+exactly right through self-reference.
+
+The pass-1 strongest defect (**L-1**, the loupe blank on first paint and permanently blank on touch,
+measured 0/12100) remains the strongest *user-visible* defect and is not displaced.
+
+**Cumulative count across three passes: 27 findings** — L-1..L-16 (pass 1), L-17..L-20 (pass 2),
+L-21..L-27 (pass 3).
+
+---
+
+## Appendix — third-pass reproductions
+
+```bash
+# L-21 · exports vs tsconfig paths
+node -e 'console.log(Object.keys(require("./package.json").exports))'
+grep -n "@mkbabb/value.js" tsconfig.demo.json
+for f in dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts \
+         dist/subpaths/value.d.ts dist/subpaths/css.d.ts; do
+  printf "%-34s %s\n" "$f" "$([ -e "$f" ] && echo EXISTS || echo MISSING)"; done
+
+# L-21 · resolution trace (probe tsconfig lives outside the repo)
+cat > /tmp/tsconfig.probe.json <<'JSON'
+{ "extends": "/Users/mkbabb/Programming/value.js/tsconfig.demo.json",
+  "include": [],
+  "files": ["/Users/mkbabb/Programming/value.js/demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts"] }
+JSON
+npx tsc -p /tmp/tsconfig.probe.json --noEmit --traceResolution 2>&1 | grep -E "@mkbabb/value.js/(css|color)'"
+
+# L-21 · the hoisted second copy differs from the repo's dist
+md5 -q dist/subpaths/css.d.ts node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts
+node -e 'console.log(require("./node_modules/@mkbabb/glass-ui/package.json").peerDependencies["@mkbabb/value.js"])'
+
+# L-22 · the library has no hex writer; four demo mints
+grep -rn "export function.*[Hh]ex\|export const.*[Hh]ex" src/     # zero hits
+grep -rn "padStart(2" demo src --include="*.ts" --include="*.vue"
+
+# L-24 · no image-rendering policy anywhere in the demo
+grep -rn "image-rendering\|pixelated" demo --include="*.css" --include="*.vue"
+
+# L-25 · the label fork
+grep -rn "<DockControl" demo --include="*.vue" -A4 | grep -E "title=|aria-label="
+grep -n "namelessButtons" -A4 docs/tranches/V/megatranche/audit/visual/capture.mjs
+
+# L-25 · live (Playwright, http://localhost:9000/#/extract, in-page File synthesis)
+#   at rest              → 3 title-only DockControls, aria-label null on all three
+#   eyedropper open      → namelessButtons 3 → 4  ("Close eyedropper")
+#   eyedropper canvas    → backing 64×64, transform "translate(0px,59.1836px) scale(7.9375)"
+
+# L-26 · the lattice that is written but unenforced
+sed -n '54,64p' docs/tranches/V/ARCHITECTURE.md
+ls -d demo/@ ; for g in demo/@/composables demo/@/components demo/@/lib; do
+  echo -n "$g: "; find $g -type f 2>/dev/null | wc -l; done
+
+# L-27 · demo suites in the library test tree
+grep -rln '"\.\./demo/' test/
+sed -n '20,32p' vitest.config.ts
+```

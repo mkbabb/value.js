@@ -1,0 +1,305 @@
+{
+  "rhythm": {
+    "phi": {
+      "--phi-0": "0.382rem",
+      "--phi-1": "0.618rem",
+      "--phi-2": "1rem",
+      "--phi-3": "1.618rem",
+      "--phi-4": "2.618rem",
+      "--phi-5": ""
+    },
+    "paneH2": [
+      {
+        "tag": "H2",
+        "text": "Basic Information",
+        "fontSize": "20.351999px",
+        "lineHeight": "30.527998px",
+        "fontWeight": "600",
+        "family": "Fraunces",
+        "color": "rgb(28, 25, 23)"
+      },
+      {
+        "tag": "H2",
+        "text": "Components",
+        "fontSize": "20.351999px",
+        "lineHeight": "30.527998px",
+        "fontWeight": "600",
+        "family": "Fraunces",
+        "color": "rgb(28, 25, 23)"
+      },
+      {
+        "tag": "H2",
+        "text": "Key Properties",
+        "fontSize": "20.351999px",
+        "lineHeight": "30.527998px",
+        "fontWeight": "600",
+        "family": "Fraunces",
+        "color": "rgb(28, 25, 23)"
+      },
+      {
+        "tag": "H2",
+        "text": "Conversion Graph",
+        "fontSize": "20.351999px",
+        "lineHeight": "30.527998px",
+        "fontWeight": "600",
+        "family": "Fraunces",
+        "color": "rgb(28, 25, 23)"
+      },
+      {
+        "tag": "H2",
+        "text": "Usage",
+        "fontSize": "20.351999px",
+        "lineHeight": "30.527998px",
+        "fontWeight": "600",
+        "family": "Fraunces",
+        "color": "rgb(28, 25, 23)"
+      },
+      {
+        "tag": "H2",
+        "text": "Detailed Guide",
+        "fontSize": "32.928001px",
+        "lineHeight": "39.513599px",
+        "fontWeight": "700",
+        "family": "Fraunces",
+        "color": "rgb(28, 25, 23)"
+      }
+    ],
+    "mdH2First": {
+      "tag": "H2",
+      "text": "Key Characteristics",
+      "fontSize": "30px",
+      "lineHeight": "36px",
+      "fontWeight": "600",
+      "family": "Fraunces",
+      "color": "oklch(0.470927 0.188343 9.834023)"
+    },
+    "separatorCount": 11,
+    "separators": [
+      {
+        "tag": "DIV",
+        "cls": "separator",
+        "inMarkdown": false
+      },
+      {
+        "tag": "DIV",
+        "cls": "separator",
+        "inMarkdown": false
+      },
+      {
+        "tag": "DIV",
+        "cls": "separator",
+        "inMarkdown": false
+      },
+      {
+        "tag": "DIV",
+        "cls": "separator",
+        "inMarkdown": false
+      },
+      {
+        "tag": "DIV",
+        "cls": "separator",
+        "inMarkdown": false
+      },
+      {
+        "tag": "DIV",
+        "cls": "separator",
+        "inMarkdown": false
+      },
+      {
+        "tag": "DIV",
+        "cls": "separator",
+        "inMarkdown": false
+      },
+      {
+        "tag": "HR",
+        "cls": "",
+        "inMarkdown": true
+      },
+      {
+        "tag": "HR",
+        "cls": "",
+        "inMarkdown": true
+      },
+      {
+        "tag": "HR",
+        "cls": "",
+        "inMarkdown": true
+      },
+      {
+        "tag": "HR",
+        "cls": "",
+        "inMarkdown": true
+      }
+    ],
+    "katexDisplayBoxes": [
+      {
+        "padding": "9.888px 0px 9.888px 25.888px",
+        "overflowX": "auto",
+        "scrollW": 462,
+        "clientW": 462,
+        "overflowPx": 0
+      },
+      {
+        "padding": "9.888px 0px 9.888px 25.888px",
+        "overflowX": "auto",
+        "scrollW": 462,
+        "clientW": 462,
+        "overflowPx": 0
+      },
+      {
+        "padding": "9.888px 0px 9.888px 25.888px",
+        "overflowX": "auto",
+        "scrollW": 462,
+        "clientW": 462,
+        "overflowPx": 0
+      },
+      {
+        "padding": "9.888px 0px 9.888px 25.888px",
+        "overflowX": "auto",
+        "scrollW": 462,
+        "clientW": 462,
+        "overflowPx": 0
+      }
+    ],
+    "visibleEscapees": [
+      {
+        "tag": "path",
+        "over": 7480
+      },
+      {
+        "tag": "SPAN",
+        "over": 82
+      },
+      {
+        "tag": "SPAN",
+        "over": 9
+      },
+      {
+        "tag": "SPAN",
+        "over": 9
+      },
+      {
+        "tag": "SPAN",
+        "over": 9
+      },
+      {
+        "tag": "SPAN",
+        "over": 18
+      },
+      {
+        "tag": "SPAN",
+        "over": 56
+      },
+      {
+        "tag": "SPAN",
+        "over": 49
+      },
+      {
+        "tag": "SPAN",
+        "over": 56
+      },
+      {
+        "tag": "SPAN",
+        "over": 56
+      }
+    ],
+    "visibleEscapeeCount": 113
+  },
+  "nestedP": [
+    {
+      "parent": "LI.",
+      "marginBottom": "0px",
+      "text": "L* (Lightness):"
+    },
+    {
+      "parent": "LI.",
+      "marginBottom": "0px",
+      "text": "a* (Green-Red axis):"
+    },
+    {
+      "parent": "LI.",
+      "marginBottom": "0px",
+      "text": "b* (Blue-Yellow axis):"
+    }
+  ],
+  "dragLag": {
+    "before": "oklch(0.470927 0.188343 9.834023)",
+    "samples": [
+      {
+        "t": 60,
+        "color": "oklab(0.469796 0.183896 0.030712)"
+      },
+      {
+        "t": 121,
+        "color": "oklab(0.453345 0.159451 0.009527)"
+      },
+      {
+        "t": 181,
+        "color": "oklab(0.412292 0.09845 -0.043338)"
+      },
+      {
+        "t": 242,
+        "color": "oklab(0.353358 0.010881 -0.119228)"
+      },
+      {
+        "t": 303,
+        "color": "oklab(0.323048 -0.034158 -0.15826)"
+      },
+      {
+        "t": 367,
+        "color": "oklab(0.30789 -0.056681 -0.177779)"
+      },
+      {
+        "t": 427,
+        "color": "oklab(0.302094 -0.065293 -0.185243)"
+      },
+      {
+        "t": 491,
+        "color": "oklch(0.3 0.2 250)"
+      },
+      {
+        "t": 553,
+        "color": "oklch(0.3 0.2 250)"
+      },
+      {
+        "t": 616,
+        "color": "oklch(0.3 0.2 250)"
+      }
+    ],
+    "transition": "color 0.45s cubic-bezier(0.4, 0, 0.2, 1)"
+  },
+  "failureState": {
+    "markdownBodyPresent": false,
+    "skeletonCount": 0,
+    "skeletons": [],
+    "alertPresent": false,
+    "alertText": null,
+    "cardTailText": null
+  },
+  "failureErrors": [
+    "CONSOLE [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+  ],
+  "loadingGeometry": {
+    "skeletonCount": 3,
+    "skeletonHostHeight": 48,
+    "skeletonRects": [
+      {
+        "w": 48,
+        "h": 48
+      },
+      {
+        "w": 0,
+        "h": 16
+      },
+      {
+        "w": 0,
+        "h": 16
+      }
+    ],
+    "cardScrollHeight": 1419
+  },
+  "loadedGeometry": {
+    "bodyHeight": 6636,
+    "cardScrollHeight": 8023
+  }
+}

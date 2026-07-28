@@ -8,7 +8,14 @@ explicitly spawned with. Declared, not inherited.
 - Repo: `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`
 - Subject: `demo/workbenches/mix/MixSourceSelector.vue` (283 lines)
 - Axis: library structure — module boundaries, ownership, direction of dependency, public surface
-- Verdict: **DEFECTIVE** — 2 BLOCKER, 6 MAJOR, 3 MINOR, 1 INFO
+- Verdict: **DEFECTIVE** — 3 BLOCKER, 8 MAJOR, 3 MINOR, 1 INFO
+
+> **PASS 2 (Opus 5, second seating).** L-1..L-12 below are pass-1 findings; I re-derived L-1
+> independently from the published dist + a live DOM/hit-test probe and **confirm** them. Pass 2
+> adds **§P2** at the foot of this document: one new **BLOCKER** (L-13 — the production build emits
+> zero application JavaScript), four new MAJORs, one **correction** to L-9, and the decisive
+> corroboration pass 1 lacked — **I ran the repo's own e2e gate and it is RED.** Read §P2 with
+> L-1/L-3/L-4/L-6/L-9; it supplies measured numbers where pass 1 argued structurally.
 
 ---
 
@@ -614,3 +621,391 @@ in a producer where the concept is already at home.
   component. The 1 `namelessButton` appears on 6 desktop routes and 0 mobile routes ⇒ dock-level.
   **The probes are silent about L-1 precisely because the dead controls are not `<button>`s** — the
   matrix's blindness is itself corroboration.
+
+---
+---
+
+# §P2 — Pass 2 (Opus 5, second seating)
+
+Everything in this section is new evidence gathered in a second, independent seating. Where it
+touches a pass-1 finding I say so explicitly. No source file was edited; all probe artefacts were
+written to the session scratchpad, never into the repo tree.
+
+## P2-0 · Independent re-derivation of L-1 — CONFIRMED, and the repo's own gate is RED
+
+Pass 1 proved L-1 from the glass-ui source and a synthetic click. I re-derived it from the
+**published dist** (`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js` — `inheritAttrs: !1`,
+hardcoded `o("span", { "aria-hidden": "true", style: […, pointerEvents: "none"] })`, no
+`renderSlot`, props `{color, variant, animate, cycleDuration, range, seed}`) and from a live
+hit-test at the control's own centre:
+
+```
+add-slot rect:            x=1276.4 y=295.5 w=49.5 h=49.5
+elementFromPoint(centre): DIV.swatch-row …          ← the PARENT, not the control
+click at centre → [data-mix-source] count: 0 → 0
+"Mix" button .disabled:   true
+```
+
+**The new fact pass 1 did not have.** Pass 1's L-3 concluded that the gates are blind and CI is
+green. That is true of `vue-tsc` and `eslint` — and **false of the e2e suite, which encodes this
+exact contract and is failing today**:
+
+```
+$ npx playwright test e2e/smoke/views/mix.spec.ts --project=smoke --reporter=line --workers=1
+  1) [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate
+     Test timeout of 30000ms exceeded.
+     Error: expect(locator).toBeVisible() failed
+     Locator: getByRole('main', { name: 'Color tool panes' })
+              .getByRole('button', { name: 'Add current color to the mix' })
+     Expected: visible
+     Error: element(s) not found
+  1 failed
+```
+
+`e2e/smoke/safari/mix-flow.spec.ts:31-34` asserts the identical locator and fails identically by
+construction. So the correct statement of the gate defect is sharper than pass 1's: **the
+behavioural oracle L-3 proposes already exists, is already written, already fails — and is not
+gating.** The cure is therefore cheaper than pass 1 assumed (no new oracle to design) and the
+process defect is graver (a red suite is being carried). This should be the first thing the
+mega-tranche's mix wave asserts.
+
+---
+
+## L-13 · **BLOCKER (new)** — `package.json` `"sideEffects": false` deletes the entire demo application from the production build
+
+**The claim.** `demo/` and `src/` share one package manifest. `package.json:20` declares
+`"sideEffects": false` — correct and load-bearing for the published library, catastrophic for the
+application in the same tree. `vite build --mode gh-pages` emits **zero application JavaScript**.
+`MixSourceSelector.vue` is absent from the production bundle entirely.
+
+**Evidence 1 — reproduced into the scratchpad, repo tree untouched.**
+
+```
+$ npx vite build --mode gh-pages --outDir <scratchpad>/ghp --emptyOutDir
+  … ghp/assets/index-Dezn_h7o.js   0.69 kB │ gzip: 0.39 kB
+  ✓ built in 6.38s
+
+$ ls <scratchpad>/ghp/assets/*.js  <scratchpad>/ghp/assets/*.css
+  glass-fonts-DH5GtBvs.css     132943   ← fonts only
+  index-Dezn_h7o.js               698   ← the Vite modulepreload polyfill IIFE, nothing else
+  quantize-worker-xMwe415C.js   11774   ← a worker, emitted from its own entry
+```
+
+`cat index-Dezn_h7o.js` is the polyfill and nothing more. No `createApp`, no `App.vue`, no
+application CSS bundle. The built `index.html:205` points its module entry at that file. The repo's
+stale `dist/gh-pages/` carries the **same content hash** (`index-Dezn_h7o.js`), so this is the
+standing state, not a one-off. (This is the `§F` W44 carry the CARRY-LEDGER names as "the gh-pages
+prod-preview empty-mount" — here it is, with a cause.)
+
+**Evidence 2 — minimal A/B isolating the single variable.** Three files in the scratchpad, built
+with this repo's own Vite binary; the *only* difference between arms is the `sideEffects` field:
+
+```
+package.json { "sideEffects": false }  → dist/assets/index-Dezn_h7o.js  698 bytes
+                                          (polyfill only; boot() eliminated)
+package.json { }                       → dist/assets/index-e_Viud93.js  754 bytes
+                                          …;function e(){document.body.textContent=`MOUNTED-OK`}e();
+```
+
+The `sideEffects:false` arm emits an entry chunk whose **content hash is byte-identical to the real
+gh-pages build's** — the strongest available confirmation that the real entry chunk contains the
+polyfill and nothing else.
+
+**Mechanism.** One manifest owns two artifacts with contradictory requirements: a tree-shakeable ES
+library (for which `sideEffects: false` is correct and valuable) and an application whose entry is
+*pure side effect*. Rolldown reads the manifest, concludes every module in this package is
+side-effect-free, and eliminates the application entry — which, being an inline
+`<script type="module">` at `demo/color-picker/index.html:205-213` that exports nothing, is 100%
+dead code under that assumption.
+
+**Why this is the pass-2 headline.** It subsumes the whole component axis: every other finding in
+this document concerns how `MixSourceSelector.vue` behaves in the shipped app, and in the shipped
+production bundle **it does not exist**. L-1 makes the component inoperable in dev; L-13 makes it
+absent in prod.
+
+**Proposed cure — architectural transposition, not a flag edit.** The boundary is wrong, not the
+value. `demo/` becomes its own package in an npm workspace: `demo/package.json`, its own dependency
+set, no `sideEffects` field, and `@mkbabb/value.js` as a real `file:..` dependency. That one move
+also (a) makes the demo a *genuine external consumer* of the published surface — the dogfood proof
+the T.W1 keystone asserts and `vite.config.ts`'s `valueJsSelfAlias` currently simulates — and (b)
+deletes the entire drifted `tsconfig.demo.json` `paths` block (L-9 / L-17). Editing the field to
+`"sideEffects": ["demo/**"]` would also make the build pass and is exactly the masking patch
+standing edict 2 forbids: it leaves the application inside the library's manifest, and the next
+drift is guaranteed.
+
+---
+
+## L-14 · **MAJOR (new)** — the demo module-boundary lattice in `eslint.config.js` is dead code; **no** import rule applies to this file
+
+Pass 1 (L-4, L-6, L-8) argues several boundary crossings. None of them is enforced, and I measured
+why rather than reading it.
+
+```
+$ npx eslint --print-config demo/workbenches/mix/MixSourceSelector.vue | jq '.rules["no-restricted-imports"]'
+  null
+$ npx eslint --print-config src/value.ts | jq '.rules["no-restricted-imports"]'
+  [2, {"patterns":[{"group":["@mkbabb/glass-ui","@mkbabb/glass-ui/*"], "message":"inv-K-1: …"}]}]
+```
+
+The library invariant (inv-K-1) is **live**. Every demo invariant is **unset** for this file.
+The three named demo rules — G-DEMO-1, G-DEMO-3a, G-DEMO-3b, with extensive prose about the
+palette-browser barrel seam — are scoped to globs that match essentially nothing:
+
+```
+$ ls -d demo/@                                    → ls: demo/@: No such file or directory
+$ find demo/color-picker -name '*.vue' | wc -l    → 2
+$ find demo             -name '*.vue' | wc -l     → 88
+$ grep -rn "@components" demo/ tsconfig.demo.json
+  demo/DESIGN.md:384 · demo/palettes/browser/status/index.ts:5   (prose only)
+  tsconfig.demo.json:33  ← records the alias as KILLED at W43 (RF-15)
+```
+
+The globs are `demo/@/components/**`, `demo/@/lib/**`, `demo/@/composables/**` (a directory that
+does not exist) and `demo/color-picker/**` (2 of 88 `.vue` files); the banned specifier
+`@components/custom/palette-browser/**/*.vue` names an alias the demo deleted a tranche ago. So the
+seam law that `demo/palettes/browser/index.ts:6-8` advertises as *"the G-DEMO-3b boundary
+(eslint.config.js) enforces it standing"* is enforced for **zero** of its consumers, this file
+included.
+
+**Mechanism.** The lattice was keyed to a *physical* tree layout; W43 moved the tree and the config
+was never re-keyed. Prose survived; enforcement did not. That is precisely how pass 1's L-4 shim
+edge and L-6 cross-feature edge stayed alive through a hardened CI.
+
+**Proposed cure.** Re-key the lattice onto the tree that exists — the eight real demo areas
+(`color-session`, `palettes`, `picker`, `platform`, `scenes`, `shared`, `shell`, `workbenches`) —
+as *layer* bans rather than *alias* bans: a workbench may reach `../../palettes/{types,browser/*}`
+(declared seams) but not `../../palettes/use*` (feature internals); nothing outside `shell/` may
+reach `../color-picker/**` (app-root boot). Then add a CI assertion that **every `files:` glob
+matches ≥ 1 file**, so the next restructure fails the gate instead of silently disarming it.
+
+---
+
+## L-15 · **MAJOR (new)** — `strictTemplates` is off; turning it on fires **7** errors in this file, and I measured the cure's exact cost
+
+Pass 1's L-3 establishes that `vue-tsc` cannot see L-1. It is worth stating *why* and what the cure
+costs, because "turn on strictTemplates" is not free and should not be planned as if it were.
+
+```
+$ grep -rn "vueCompilerOptions\|strictTemplates" tsconfig*.json    → (no output)
+$ time npx vue-tsc -p tsconfig.demo.json --noEmit
+  21.2s total,  0 errors                                            ← GREEN today
+```
+
+Scratchpad probe extending `tsconfig.demo.json` with `vueCompilerOptions.strictTemplates: true`,
+`include` = this file only:
+
+```
+MixSourceSelector.vue(150,30) TS2353  'title'           not in WatercolorDot props
+MixSourceSelector.vue(171,25) TS2353  'aria-label'      not in WatercolorDot props
+MixSourceSelector.vue(173,26) TS2353  'onClick'         not in WatercolorDot props
+MixSourceSelector.vue(217,38) TS2353  'title'           not in WatercolorDot props
+MixSourceSelector.vue(220,38) TS2353  'onClick'         not in WatercolorDot props
+MixSourceSelector.vue(131,25) TS2353  'data-mix-source' not in HTMLAttributes & ReservedProps
+MixSourceSelector.vue(252,18) TS2353  'data-mix-source' not in ButtonHTMLAttributes & ReservedProps
+```
+
+Five of the seven **are** L-1, caught statically at zero runtime cost. Two are the price: vue-tsc's
+template checking has no JSX-style `data-*` carve-out, so the mix choreography's DOM protocol
+(L-18) must be declared. A second probe with the granular flags
+`{ checkUnknownProps: true, checkUnknownEvents: true }` produces the **identical** seven — the
+narrower switch buys nothing here and does **not** exempt `data-*`. Plan for it; do not discover it
+mid-wave.
+
+Note `tag="div"` / `tag="button"` (lines 148, 167, 215) is **not** flagged even under
+strictTemplates — it is absorbed by `AllowedComponentProps`. Type-checking narrows the hole; only
+pass 1's L-1 architectural cure closes it. The two must land together.
+
+**Proposed cure.** `"vueCompilerOptions": { "strictTemplates": true }` in `tsconfig.demo.json`
+(demo only — the library program has no templates), landed with (a) the L-1 seat repair and (b) one
+ambient `HTMLAttributes` augmentation declaring the three mix-stage data attributes, which L-18
+wants anyway.
+
+---
+
+## L-16 · **MAJOR (new)** — the measured cost of pass 1's L-4 and L-6 edges
+
+Pass 1 argued both structurally. Here are the numbers, computed as static module closures the way a
+bundler walks them.
+
+**L-4, the `demo/ui/collapsible` shim → glass-ui *root* barrel.** Closure over glass-ui's own
+`dist/`:
+
+```
+dist/glass-ui.js        (root ".")            66 modules   224,193 bytes
+dist/collapsible.js     ("./collapsible")      3 modules     7,407 bytes   ← 30.3× smaller
+dist/tabs.js            ("./tabs")            20 modules    50,466 bytes
+dist/watercolor-dot.js  ("./watercolor-dot")   6 modules     9,503 bytes
+```
+
+`MixSourceSelector.vue` reaches `SegmentedTabs` and `WatercolorDot` by subpath (lines 4, 7) and
+`Collapsible` through the root barrel (line 5) — a **30.3×** larger module graph for the one import
+that uses the shim. glass-ui declares `"sideEffects": ["*.css"]`, so the CSS carried by those 66
+modules is explicitly **not** prunable even where the JS is — which is the same tree-shake-honesty
+argument `demo/palettes/browser/index.ts` (PI-6 / T.W1 F7) already writes down for its own
+sub-barrels. The palettes feature learned this; `demo/ui/` never did.
+
+Repo-wide idiom census (my counts; pass 1's 48/79 measured a different grep shape — both show the
+split, mine counts import *sites* including `.ts`):
+
+```
+$ ls demo/ui | wc -l                                          → 19  (all pure re-export shims)
+$ grep -L "@mkbabb/glass-ui" demo/ui/*/index.ts                → (empty — none has content)
+$ grep -rn 'from "\.\./*.*ui/' demo --include=*.vue --include=*.ts | grep -v shared/ui | wc -l  → 90
+$ grep -rn "@mkbabb/glass-ui/" demo --include=*.vue --include=*.ts | wc -l                      → 85
+```
+
+Ninety sites through shims, eighty-five direct: two live paths to one design system.
+
+**Weakening note, stated honestly:** I could not measure *delivered* bytes for this edge, because
+the production build emits no application JS at all (L-13), and the live network probe was
+unavailable (a concurrent seat held the MCP browser). The 224 kB figure is an exact static-closure
+measurement; the delivered-bytes claim is a **hypothesis** pending L-13's cure.
+
+**L-6, the `LIBRARY_PORT_KEY` import.** Closure over the demo tree, resolving
+`.ts`/`.vue`/`index.ts`:
+
+```
+MixSourceSelector.vue  full closure                  96 local modules   387,167 bytes
+MixSourceSelector.vue  with usePalettePorts.ts cut   54 local modules   219,029 bytes
+                                              delta  42 modules         168,138 bytes
+```
+
+Importing **one `Symbol`** drags in 42 modules: `demo/palettes/api/{admin-audit,admin-colors,
+admin-palettes,admin-users,versions}.ts` and the SFCs `AdminUsersPanel.vue`, `AdminAuditPanel.vue`,
+`AdminNamesPanel.vue`, `AdminTagsPanel.vue`, `AdminFlaggedPanel.vue`, `AdminListItem.vue`,
+`PaginationBar.vue`, `PaletteSlugBar.vue`. `vue-router` enters this leaf's external set through
+this edge and no other. A public colour-mixing selector statically depends on the admin API client.
+
+Independent corroboration from the type layer: a tsconfig whose `include` names **exactly one
+file** builds a program in which **16 distinct `.vue` files** report strictTemplates errors — all
+of them admin/browse surfaces reached only through this import.
+
+`MixPane.vue:16` is a lazy `defineAsyncComponent` boundary (`demo/shell/usePaneRouter.ts:75`), so
+the pollution lands on a real code-split seam.
+
+**Structural addendum to pass 1's cure.** Pass 1 says "drop the inject, add a prop" — correct, and
+sufficient here. Make it *unrepeatable*: injection keys are data, not wiring. Move the five
+`InjectionKey` constants and the five port types out of `usePalettePorts.ts` into a
+dependency-free `demo/palettes/ports.keys.ts`; the provider imports them to `provide()`. A consumer
+that needs a key can then never reach the provider graph. `demo/color-session/keys.ts` already
+applies exactly this discipline to `CSS_COLOR_KEY` / `EDIT_TARGET_KEY` — the pattern is in-tree;
+palettes simply did not adopt it.
+
+---
+
+## L-17 · **CORRECTION to L-9** — the two value.js artifacts are **not** the same file; type-time and run-time resolve different content
+
+Pass 1's L-9 is right about the drift and concludes *"Same version today (4.0.0 / 4.0.0), so no
+live break."* That conclusion is too generous. Both artifacts claim `4.0.0`; their **contents
+differ**:
+
+```
+$ wc -c dist/subpaths/css.d.ts  node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts
+  12490  dist/subpaths/css.d.ts                                  ← what Vite serves (checkout build)
+  10910  node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts    ← what vue-tsc reads (npm tarball)
+```
+
+A **1,580-byte divergence** on a surface this component transitively depends on:
+`@mkbabb/value.js/css` is imported at `demo/color-session/picker-color.ts:34`,
+`generate-color.ts:34`, `view-accent.ts:9` and `ink.ts:11` — all four on
+`MixSourceSelector.vue`'s 96-module closure. The demo is typechecked against the published tarball
+and executed against the local build. A capability added to the checkout's `css` surface is a
+compile error in the demo until the tarball is republished; a capability *removed* from the
+checkout still typechecks. Same for `@mkbabb/value.js/value`.
+
+Provenance of the phantom copy, which pass 1 did not trace: `node_modules/@mkbabb/value.js` is a
+real directory, not a symlink, and value.js declares **no dependency on itself**. It arrives
+transitively — `node_modules/@mkbabb/keyframes.js@6.0.0` declares `"@mkbabb/value.js": "4.0.0"` as
+a hard dependency (glass-ui declares it as a peer). So the repo silently contains a second, pinned,
+immutable copy of its own published surface, and TS reaches it for exactly the two subpaths the
+hand-written `paths` block forgot.
+
+The severity should read **MAJOR**, not MINOR: it is a live dual-resolution of the package's own
+public surface, and it is the precise failure the "dist trust boundary" was built to prevent.
+Pass 1's cure (generate `paths` from `package.json#exports`) is right; L-13's workspace split makes
+it unnecessary, because a real `file:..` dependency needs no `paths` at all.
+
+---
+
+## L-18 · **MAJOR (new)** — the mix choreography is a stringly-typed DOM protocol spanning three modules and three specs
+
+`MixSourceSelector.vue` **writes** `data-mix-source` + `data-mix-color` (lines 131-132) and
+`data-mix-colors` — a `JSON.stringify`'d slice — (lines 252-255).
+`demo/workbenches/mix/MixAnimationCanvas/composables/mixStage.ts:126-129` **reads** them back with
+`root.querySelectorAll<HTMLElement>("[data-mix-source]")` and parses the JSON. Three e2e specs
+hard-code the same magic strings (`e2e/smoke/views/mix.spec.ts:45`,
+`e2e/smoke/safari/mix-flow.spec.ts:35`, `e2e/smoke/oracles/o15-dock-register.spec.ts:55`).
+
+Five modules share a contract that **no type, no test and no lint rule binds**. Rename an attribute
+in the writer and the animation silently stops lifting pigment; the typecheck stays green, the lint
+stays green, and only a full e2e run notices — the same suite already demonstrated to be red and
+ungated (P2-0).
+
+I am **not** proposing to replace the mechanism: reading real laid-out geometry off the DOM is the
+*correct* implementation for a convergence animation that must lift pigment from where the chips
+actually are, and `mixStage.ts` is right to do it. The defect is that the vocabulary is undeclared.
+
+**Cure.** One leaf module — `demo/workbenches/mix/mixStageAttrs.ts`, no new directory, no wrapper
+(edict 3) — exporting the three attribute names and the `data-mix-colors` payload type, imported by
+the writer, the reader, and the ambient `HTMLAttributes` augmentation that L-15's cure requires
+anyway. One file discharges both findings; the e2e specs import the same constants instead of
+retyping them.
+
+---
+
+## P2 · Additions to the greenfield lattice
+
+Pass 1's lattice stands. Pass 2 adds two layers above it and one law:
+
+```
+WORKSPACE ROOT (npm workspaces)
+  ├─ packages/value.js/   ← package.json owns "sideEffects": false. Library ONLY. (L-13)
+  │     src/  test/       ← test/ imports src/ only; the demo back-edge (L-8) dies here too
+  └─ demo/                ← its OWN package.json. No sideEffects field. Explicit main.ts entry.
+        depends on @mkbabb/value.js by file: — a GENUINE external consumer, so the
+        published surface is proven by construction and tsconfig `paths` ceases to exist (L-9/L-17)
+
+        …then pass 1's four demo layers, unchanged…
+
+LAW, enforced not asserted:
+  · eslint demo lattice re-keyed to the eight real areas + a CI check that every glob matches ≥1 file  (L-14)
+  · vueCompilerOptions.strictTemplates: true in tsconfig.demo.json                                     (L-15)
+  · injection keys live in dependency-free *.keys.ts leaves, never beside their provider              (L-16)
+  · the mix DOM protocol is a typed constant module, not a string convention                          (L-18)
+  · e2e/smoke/views/mix.spec.ts GATES — it already encodes the truth and is already red               (P2-0)
+```
+
+Four properties this buys, each making a finding **unrepresentable** rather than merely fixed:
+
+1. **`demo/` is its own package** — a library publishing hint can no longer reach the app build
+   (L-13), and the dogfood proof stops being simulated by a Vite alias (L-9/L-17).
+2. **Keys are leaves** — a consumer wanting an injection key cannot reach the admin console (L-16).
+3. **`demo/ui/` does not exist** — an import can only name a glass-ui subpath (L-4).
+4. **`strictTemplates` on + the lattice re-keyed** — a prop the design system does not publish is a
+   compile error, and a boundary crossing is a lint error (L-1, L-14, L-15).
+
+**Ordering.** L-13 first (nothing else reaches production until it lands), then L-1's seat repair
+with L-15's strictTemplates in the same wave (they must land together or the typecheck goes red on
+a defect that is still shipping), then L-14/L-16/L-18 as the standing-law wave, then pass 1's
+L-4/L-7/L-8/L-12 producer relays.
+
+## P2 · What I checked and did NOT find defective
+
+- **The value.js public surface is not violated by this component.** Independently re-confirmed:
+  `MixSourceSelector.vue` imports no `@mkbabb/value.js` specifier; the closure's only value.js
+  externals are `@mkbabb/value.js/color` and `/css`, both published subpaths, both reached by
+  `import type` where type-only. No `@src/*` and no deep `src/` path anywhere on the 96-module
+  closure.
+- **`verbatimModuleSyntax` is clean** (lines 10, 11 are `import type`). Re-verified.
+- **The three named historical suspects are not on this chain.** I computed the closure and searched
+  it: `demo/palettes/export.ts` / `usePaletteExport.ts` / `export/serializers` → absent;
+  `useLayerTransition` → absent; `useMarkdownHighlighting` / the `useDark` trio → absent. The
+  export dual path **is real** (`usePaletteExport.ts:9` imports `./export`; only
+  `demo/test/export/byte-exact.test.ts` imports `export/serializers`) but it belongs to another
+  component's report, and I do not claim it here.
+- **The `/#/mix` visual-matrix rows carry no fingerprint of this component.** `REPORT.json`,
+  `safari-desktop-light /#/mix`: `overflowX: 0`, `pageErrors: []`, `consoleErrors: []`, `main: 1`,
+  `button: 30`. The 8 `smallTapTargets` are the login capsule (22×22) and the picker channel rails
+  (12×24); the 1 `namelessButton` is dock-level. Pass 1's reading is correct and I confirm it —
+  **none of the 30 buttons is the add slot or a palette swatch, because those are `aria-hidden`
+  `<span>`s the scanner cannot see.** The matrix's silence is corroboration, not absolution.

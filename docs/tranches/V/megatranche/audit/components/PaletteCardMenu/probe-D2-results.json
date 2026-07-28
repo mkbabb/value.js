@@ -1,0 +1,317 @@
+{
+  "tokens": {
+    "rootFontSize": "16px",
+    "bodyFontSize": "18.608px",
+    "--dropdown-text": "calc(clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem ) * 1)",
+    "--dropdown-text-secondary": "calc(clamp( 0.75rem, 0.71rem + 0.21vw, 1rem ) * 1)",
+    "--dropdown-menu-font": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "--type-small": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+    "--type-caption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )",
+    "--type-subheading": "1.272rem",
+    "--radius-panel": "12px",
+    "--radius-card": "1rem",
+    "--shadow-card": "8px 8px 0px 0px color-mix(in srgb, light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) 80%, transparent)",
+    "classes": {
+      "text-small": {
+        "fontSize": "16.4px",
+        "fontFamily": "\"Plus Jakarta Sans\"",
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "letterSpacing": "normal",
+        "opacity": "1",
+        "fontVariantCaps": "normal",
+        "marginLeft": "0px",
+        "marginRight": "0px"
+      },
+      "text-caption": {
+        "fontSize": "14.384px",
+        "fontFamily": "\"Plus Jakarta Sans\"",
+        "fontWeight": "400",
+        "fontStyle": "italic",
+        "letterSpacing": "normal",
+        "opacity": "1",
+        "fontVariantCaps": "normal",
+        "marginLeft": "0px",
+        "marginRight": "0px"
+      },
+      "text-mono-caption": {
+        "fontSize": "14.384px",
+        "fontFamily": "\"Fira Code\"",
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "letterSpacing": "1.4384px",
+        "opacity": "1",
+        "fontVariantCaps": "normal",
+        "marginLeft": "0px",
+        "marginRight": "0px"
+      },
+      "text-mono-small": {
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "letterSpacing": "normal",
+        "opacity": "1",
+        "fontVariantCaps": "normal",
+        "marginLeft": "0px",
+        "marginRight": "0px"
+      },
+      "text-subheading": {
+        "fontSize": "20.352px",
+        "fontFamily": "\"Plus Jakarta Sans\"",
+        "fontWeight": "600",
+        "fontStyle": "normal",
+        "letterSpacing": "normal",
+        "opacity": "1",
+        "fontVariantCaps": "normal",
+        "marginLeft": "0px",
+        "marginRight": "0px"
+      },
+      "font-bold": {
+        "fontSize": "18.608px",
+        "fontFamily": "\"Plus Jakarta Sans\"",
+        "fontWeight": "700",
+        "fontStyle": "normal",
+        "letterSpacing": "normal",
+        "opacity": "1",
+        "fontVariantCaps": "normal",
+        "marginLeft": "0px",
+        "marginRight": "0px"
+      },
+      "opacity-55": {
+        "fontSize": "18.608px",
+        "fontFamily": "\"Plus Jakarta Sans\"",
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "letterSpacing": "normal",
+        "opacity": "0.55",
+        "fontVariantCaps": "normal",
+        "marginLeft": "0px",
+        "marginRight": "0px"
+      },
+      "tracking-wide": {
+        "fontSize": "18.608px",
+        "fontFamily": "\"Plus Jakarta Sans\"",
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "letterSpacing": "0.4652px",
+        "opacity": "1",
+        "fontVariantCaps": "normal",
+        "marginLeft": "0px",
+        "marginRight": "0px"
+      },
+      "ml-auto": {
+        "fontSize": "18.608px",
+        "fontFamily": "\"Plus Jakarta Sans\"",
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "letterSpacing": "normal",
+        "opacity": "1",
+        "fontVariantCaps": "normal",
+        "marginLeft": "auto",
+        "marginRight": "0px"
+      },
+      "fira-code text-mono-caption opacity-55 tracking-wide": {
+        "fontSize": "14.384px",
+        "fontFamily": "\"Fira Code\"",
+        "fontWeight": "400",
+        "fontStyle": "normal",
+        "letterSpacing": "0.3596px",
+        "opacity": "0.55",
+        "fontVariantCaps": "normal",
+        "marginLeft": "0px",
+        "marginRight": "0px"
+      }
+    }
+  },
+  "menuVsSub": {
+    "content": {
+      "fontSize": "16.4px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "fontStyle": "normal",
+      "fontWeight": "400",
+      "lineHeight": "22.96px",
+      "letterSpacing": "normal",
+      "color": "rgb(28, 25, 23)",
+      "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "borderRadius": "12px",
+      "paddingBlock": "6px",
+      "paddingInline": "6px",
+      "rect": {
+        "x": 1010,
+        "y": 610,
+        "width": 192,
+        "height": 240.140625,
+        "top": 610,
+        "right": 1202,
+        "bottom": 850.140625,
+        "left": 1010
+      }
+    },
+    "subContent": {
+      "fontSize": "14.384px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "fontStyle": "italic",
+      "fontWeight": "400",
+      "lineHeight": "18.6992px",
+      "letterSpacing": "normal",
+      "color": "rgb(28, 25, 23)",
+      "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+      "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "borderRadius": "12px",
+      "paddingBlock": "6px",
+      "paddingInline": "6px",
+      "rect": {
+        "x": 1195,
+        "y": 754,
+        "width": 241.953125,
+        "height": 243,
+        "top": 754,
+        "right": 1436.953125,
+        "bottom": 997,
+        "left": 1195
+      }
+    },
+    "mainItem": {
+      "text": "Publish",
+      "fontSize": "16.4px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "fontStyle": "normal",
+      "fontWeight": "400",
+      "lineHeight": "22.96px",
+      "letterSpacing": "normal",
+      "color": "rgb(28, 25, 23)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "boxShadow": "none",
+      "borderRadius": "8px",
+      "paddingBlock": "6px",
+      "paddingInline": "8px",
+      "h": 44
+    },
+    "subItem": {
+      "text": "JSON",
+      "fontSize": "16.4px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "fontStyle": "italic",
+      "fontWeight": "400",
+      "lineHeight": "21.32px",
+      "letterSpacing": "normal",
+      "color": "rgb(28, 25, 23)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "boxShadow": "none",
+      "borderRadius": "8px",
+      "paddingBlock": "6px",
+      "paddingInline": "8px",
+      "h": 44
+    },
+    "label": {
+      "fontSize": "14.384px",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+      "fontStyle": "normal",
+      "fontWeight": "600",
+      "lineHeight": "20.1376px",
+      "letterSpacing": "normal",
+      "color": "rgb(112, 89, 66)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "boxShadow": "none",
+      "borderRadius": "0px",
+      "paddingBlock": "6px",
+      "paddingInline": "8px"
+    },
+    "cardShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+    "cardRadius": "16px"
+  },
+  "states": {
+    "rest": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "outline": "none 3px rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "textDecoration": "none",
+      "highlighted": null
+    },
+    "focused": {
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "color": "rgb(28, 25, 23)",
+      "outline": "none 3px rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "textDecoration": "none",
+      "highlighted": null
+    },
+    "activeIsItem": true
+  },
+  "rtl": {
+    "marginLeft": "17.4688px",
+    "marginRight": "0px",
+    "marginInlineStart": "0px",
+    "marginInlineEnd": "17.4688px",
+    "annX": 17.5,
+    "annRight": 81.9,
+    "lblX": 89.9,
+    "rowW": 178,
+    "fontVariantCaps": "small-caps",
+    "fontFamily": "\"Fira Code\"",
+    "fontSize": "14.384px",
+    "opacity": "0.55",
+    "letterSpacing": "0.3596px",
+    "producerShortcut": {
+      "marginLeft": "0px",
+      "marginInlineStart": "31.8438px",
+      "annX": 0,
+      "letterSpacing": "1.4384px",
+      "opacity": "0.6",
+      "fontSize": "14.384px"
+    }
+  },
+  "keyboard": [
+    {
+      "text": "Publish",
+      "slot": "dropdown-menu-item",
+      "hl": true,
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "outline": "3px"
+    },
+    {
+      "text": "Rename",
+      "slot": "dropdown-menu-item",
+      "hl": true,
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "outline": "3px"
+    },
+    {
+      "text": "Export",
+      "slot": "dropdown-menu-sub-trigger",
+      "hl": true,
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "outline": "3px"
+    },
+    {
+      "text": "Delete",
+      "slot": "dropdown-menu-item",
+      "hl": true,
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "outline": "3px"
+    },
+    {
+      "text": "Delete",
+      "slot": "dropdown-menu-item",
+      "hl": true,
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "outline": "3px"
+    },
+    {
+      "text": "Delete",
+      "slot": "dropdown-menu-item",
+      "hl": true,
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "outline": "3px"
+    }
+  ],
+  "enterOnItem": {
+    "focusedBefore": "Rename",
+    "menuStillOpen": false,
+    "renameInputPresent": true,
+    "activeAfter": "BUTTON/Palette menu"
+  }
+}

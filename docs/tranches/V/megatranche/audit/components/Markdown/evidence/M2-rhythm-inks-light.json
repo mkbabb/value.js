@@ -1,0 +1,294 @@
+{
+  "rhythm": [
+    {
+      "pair": "H3→UL",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "UL→H3",
+      "declaredMB": "16px",
+      "declaredMT": "25.875px",
+      "renderedGap": 25.88,
+      "sumIfNoCollapse": 41.88,
+      "collapsed": true
+    },
+    {
+      "pair": "H3→P",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "P→HR",
+      "declaredMB": "16px",
+      "declaredMT": "41.875px",
+      "renderedGap": 41.88,
+      "sumIfNoCollapse": 57.88,
+      "collapsed": true
+    },
+    {
+      "pair": "HR→H2",
+      "declaredMB": "41.875px",
+      "declaredMT": "41.875px",
+      "renderedGap": 41.88,
+      "sumIfNoCollapse": 83.75,
+      "collapsed": true
+    },
+    {
+      "pair": "H2→OL",
+      "declaredMB": "16px",
+      "declaredMT": "0px",
+      "renderedGap": 16,
+      "sumIfNoCollapse": 16,
+      "collapsed": true
+    },
+    {
+      "pair": "OL→H3",
+      "declaredMB": "16px",
+      "declaredMT": "25.875px",
+      "renderedGap": 25.88,
+      "sumIfNoCollapse": 41.88,
+      "collapsed": true
+    },
+    {
+      "pair": "H3→UL",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "UL→H3",
+      "declaredMB": "16px",
+      "declaredMT": "25.875px",
+      "renderedGap": 25.88,
+      "sumIfNoCollapse": 41.88,
+      "collapsed": true
+    },
+    {
+      "pair": "H3→UL",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "UL→H3",
+      "declaredMB": "16px",
+      "declaredMT": "25.875px",
+      "renderedGap": 25.88,
+      "sumIfNoCollapse": 41.88,
+      "collapsed": true
+    },
+    {
+      "pair": "H3→UL",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "UL→P",
+      "declaredMB": "16px",
+      "declaredMT": "0px",
+      "renderedGap": 16,
+      "sumIfNoCollapse": 16,
+      "collapsed": true
+    },
+    {
+      "pair": "P→HR",
+      "declaredMB": "16px",
+      "declaredMT": "41.875px",
+      "renderedGap": 41.88,
+      "sumIfNoCollapse": 57.88,
+      "collapsed": true
+    },
+    {
+      "pair": "HR→H2",
+      "declaredMB": "41.875px",
+      "declaredMT": "41.875px",
+      "renderedGap": 41.88,
+      "sumIfNoCollapse": 83.75,
+      "collapsed": true
+    },
+    {
+      "pair": "H2→H3",
+      "declaredMB": "16px",
+      "declaredMT": "9.875px",
+      "renderedGap": 16,
+      "sumIfNoCollapse": 25.88,
+      "collapsed": true
+    },
+    {
+      "pair": "H3→OL",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "OL→H3",
+      "declaredMB": "16px",
+      "declaredMT": "25.875px",
+      "renderedGap": 25.88,
+      "sumIfNoCollapse": 41.88,
+      "collapsed": true
+    },
+    {
+      "pair": "H3→P",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "P→HR",
+      "declaredMB": "16px",
+      "declaredMT": "41.875px",
+      "renderedGap": 41.88,
+      "sumIfNoCollapse": 57.88,
+      "collapsed": true
+    },
+    {
+      "pair": "HR→H2",
+      "declaredMB": "41.875px",
+      "declaredMT": "41.875px",
+      "renderedGap": 41.88,
+      "sumIfNoCollapse": 83.75,
+      "collapsed": true
+    },
+    {
+      "pair": "H2→H3",
+      "declaredMB": "16px",
+      "declaredMT": "9.875px",
+      "renderedGap": 16,
+      "sumIfNoCollapse": 25.88,
+      "collapsed": true
+    },
+    {
+      "pair": "H3→P",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "P→DIV",
+      "declaredMB": "16px",
+      "declaredMT": "9.875px",
+      "renderedGap": 16,
+      "sumIfNoCollapse": 25.88,
+      "collapsed": true
+    },
+    {
+      "pair": "DIV→DIV",
+      "declaredMB": "9.875px",
+      "declaredMT": "9.875px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 19.75,
+      "collapsed": true
+    },
+    {
+      "pair": "DIV→P",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "P→H3",
+      "declaredMB": "16px",
+      "declaredMT": "25.875px",
+      "renderedGap": 25.88,
+      "sumIfNoCollapse": 41.88,
+      "collapsed": true
+    },
+    {
+      "pair": "H3→P",
+      "declaredMB": "9.875px",
+      "declaredMT": "0px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 9.88,
+      "collapsed": true
+    },
+    {
+      "pair": "P→DIV",
+      "declaredMB": "16px",
+      "declaredMT": "9.875px",
+      "renderedGap": 16,
+      "sumIfNoCollapse": 25.88,
+      "collapsed": true
+    },
+    {
+      "pair": "DIV→DIV",
+      "declaredMB": "9.875px",
+      "declaredMT": "9.875px",
+      "renderedGap": 9.88,
+      "sumIfNoCollapse": 19.75,
+      "collapsed": true
+    },
+    {
+      "pair": "DIV→HR",
+      "declaredMB": "9.875px",
+      "declaredMT": "41.875px",
+      "renderedGap": 41.88,
+      "sumIfNoCollapse": 51.75,
+      "collapsed": true
+    },
+    {
+      "pair": "HR→H2",
+      "declaredMB": "41.875px",
+      "declaredMT": "41.875px",
+      "renderedGap": 41.88,
+      "sumIfNoCollapse": 83.75,
+      "collapsed": true
+    },
+    {
+      "pair": "H2→OL",
+      "declaredMB": "16px",
+      "declaredMT": "0px",
+      "renderedGap": 16,
+      "sumIfNoCollapse": 16,
+      "collapsed": true
+    }
+  ],
+  "collapsedCount": 20,
+  "totalPairs": 33,
+  "inks": {
+    "pInk": "rgb(28, 25, 23)",
+    "h2Ink": "oklch(0.470927 0.188343 9.834023)",
+    "h3Ink": "oklab(0.373594 0.116019 0.021859)",
+    "markInk": "oklch(0.470927 0.188343 9.834023)"
+  },
+  "oklabChroma": {
+    "p": 0.0061,
+    "h2": 0.1887,
+    "h3": 0.1173,
+    "mark": 0.1887
+  },
+  "oklabL": {
+    "p": 0.2161,
+    "h2": 0.4718,
+    "h3": 0.3736,
+    "mark": 0.4718
+  },
+  "deltaEok": {
+    "h2 vs prose": 0.3153,
+    "h3 vs prose": 0.1938,
+    "mark vs prose": 0.3153,
+    "h2 vs h3": 0.1215
+  }
+}

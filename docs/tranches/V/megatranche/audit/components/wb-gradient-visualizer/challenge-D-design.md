@@ -1,695 +1,856 @@
-# CHALLENGE-D — `GradientVisualizer.vue` — the design is flawed
+# CHALLENGE-D — `GradientVisualizer.vue` — the design is flawed (PASS 2)
 
 ## Model receipt
 
-I observe myself to be **Opus 5 (`claude-opus-5[1m]`)** — the model this seat was spawned with an
-explicit declaration for. The seat is declared, not inherited.
+I observe myself to be **Opus 5 — exact model id `claude-opus-5[1m]`**. This seat was spawned with
+an explicit Opus 5 declaration and the served tier matches it. The seat is **declared, not
+inherited**; no undeclared-seat defect.
 
 | | |
 |---|---|
 | Subject | `demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue` (279 lines) |
 | Area | `demo/workbenches` |
-| Route | `/#/gradient` (sole mount, via `demo/workbenches/gradient/GradientPane.vue:25`) |
+| Route | `/#/gradient` — sole mount, via `demo/workbenches/gradient/GradientPane.vue:25` |
 | Repo / HEAD | `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, `c654824e` |
-| Verdict | **DEFECTIVE** — 2 BLOCKER, 10 MAJOR, 5 MINOR, 2 INFO |
-| Strongest defect | **D-1** — the panel headed `CSS` does not contain the component's CSS, and the Copy button emits a third, never-displayed string |
+| Verdict | **DEFECTIVE** — 2 BLOCKER, 13 MAJOR, 6 MINOR, 3 INFO |
+| Strongest defect | **D-1** — the panel headed `CSS` is not the gradient's CSS; the Easing region (the component's largest) is silently discarded by the only surface a user can read and copy |
 
-Evidence base: full read of the subject + `GradientPane.vue`, `GradientStopEditor.vue`,
-`GradientCodeEditor.vue`, `GradientEasingEditor.vue`, `useGradientModel.ts`, `useGradientCSS.ts`;
-the tranche's own Safari matrix (`audit/visual/REPORT.{md,json}`, `STATES.json`, 10 gradient
-captures read as images); and a live read-only Playwright session against the dev server at
-`http://localhost:9000` at 1440×900 and 390×844 (measurements pasted inline).
+**Pass note.** A prior CHALLENGE-D pass on this same component exists at HEAD. I preserved it
+verbatim at `challenge-D-design-pass-1.md` and this file **supersedes and subsumes it**. Pass-1 IDs
+`D-1…D-19` are kept stable for the ledger; pass-2-new rows are `E-1…E-8`. I independently
+re-verified pass-1's strongest claim (D-1) with my own probe and **confirmed it**; I explicitly mark
+the one pass-1 row I could not reach (D-5) as unverified-by-me. I also **correct** pass 1's
+negative result on Motion (§3 below) with a measurement it did not take.
+
+Evidence base for this pass: full read of the subject plus `GradientPane.vue`,
+`GradientStopEditor.vue`, `useGradientCSS.ts`, `usePaneRouter.ts`; the tranche's Safari matrix
+(`audit/visual/REPORT.{md,json}`) with the desktop-light, mobile-dark, forced-colors, zoom-200 and
+rtl-mobile `gradient.png` captures **read as images**; the binding canon
+(`VISUAL-CONSTITUTION.md`, `PROPORTION-AUDIT.md`); and three live read-only Playwright runs
+(Chromium + WebKit, 320/390/720/1440, `reducedMotion: reduce`) whose scripts are committed at
+`probes/challenge-D-design-probe.mjs`, `probes/challenge-D-states-probe.mjs`.
 
 ---
 
 ## 1. Visual truth first
 
-### 1.1 What the four Safari captures actually show
+### 1.1 The four Safari captures
 
-`shots/safari-desktop-{light,dark}/gradient.png`, `shots/safari-mobile-{light,dark}/gradient.png`.
+`REPORT.md:125,140,155,170` — `/#/gradient` is clean on every mechanical axis: `overflowX 0`,
+`main 1`, `pageErr 0`, `consoleErr 0`, `hasDarkClass` true in both dark matrices. Every visual
+defect below is a *composition* defect, not a crash. Two a11y rows are non-zero and both belong to
+this component: `smallTapTargets 6` and **`namelessButtons 1`** (`REPORT.md:100,107,111,113` — all
+four matrices, desktop **and** mobile).
 
-The component reads, top to bottom: a 40 px meniscus rail; a rule; **Interpolation**; a 3-up
-select row with a portrait colour slab bolted to its right; a Direction slider; a rule;
-**Easing** — a 519 px accordion carrying a ramp, a horizontally-scrolling curve catalogue and a
-code rail; a rule; **CSS** — a heading, a copy glyph and an 80 px code well.
+### 1.2 Desktop light (`shots/safari-desktop-light/gradient.png`)
 
-Three things are wrong before any state is exercised.
+The Interpolation band reads as four unrelated ideas in one rectangle: three uppercase Fira-Code
+labels over three pill triggers; a fourth label/value pair over a slider; and, hanging off the
+right edge, a portrait tile painting the *same left-to-right ramp already painted 90 px above it*.
+The eye has no reason to travel to the tile, because at the component's default state the tile
+carries no information the rail does not. The three `<hr>` rules cut the column into four slabs
+that the three `h3` headings had already separated — the boundary is stated twice, once by
+material and once by line.
 
-**(a) The protagonist is the smallest thing on the pane.** `VISUAL-CONSTITUTION.md §7 Gradient`:
-"The rounded meniscus rail and its preview dominate." Measured live at 1440×900:
+### 1.3 Mobile is a legibility failure (`shots/safari-mobile-dark/gradient.png`)
 
-```
-root (.flex.flex-col.gap-5)      462.0 × 1042.1
-  rail (.gradient-rail)          462.0 ×   40.0   ← the constitutional protagonist
-  hr                             462.0 ×    1.0
-  h3 "Interpolation"             462.0 ×   30.5
-  interpolation band             462.0 ×  128.5
-  hr                             462.0 ×    1.0
-  h3 "Easing"                    462.0 ×   30.5
-  easing block                   462.0 ×  519.0   ← the support
-  hr                             462.0 ×    1.0
-  CSS header row                 462.0 ×   30.5
-  code editor                    462.0 ×   80.0
-previewSharePct (rail + tile area / root area) = 6.40 %   (9.71 % at 390 px)
-```
+The three primary semantic selectors of the instrument render as **`Lin⌄  Ok⌄  Sh⌄`**. Not
+abbreviated — clipped mid-word. This is the whole point of the section and it is unreadable.
+Measured (§D-2, §E-1) the value box is 27 px against 41–48 px of ink at 390, and **4 px against
+41–48 px at 320**.
 
-The rail is **3.8 %** of the component's block extent. The easing inspector is **49.8 %**. The
-support is 13× the protagonist.
+### 1.4 The render tile is an ellipse of unowned eccentricity
 
-**(b) The two chromatic surfaces show the same picture.** At the shipped default
-(`type=linear, direction=90`) the rail paints `serializeRailRamp` — a 90° left-to-right ramp — and
-the render tile paints `coalescedCSS`, also a 90° left-to-right ramp. Both captures show the same
-green→blue left-to-right wash twice, once wide and once portrait. The tile earns its existence
-only under `radial` / `conic` / non-90°, which is precisely the state in which its geometry lies
-(§1.2).
+Measured aspect: **0.657** at 390, **0.747** at 1440, **0.776** at 720. Three viewports, three
+proportions, for one fixture — because its block size is emergent from `row-span-2` over two rows
+whose heights are set by *label line-boxes*. The source comment calls it "a square-ish surface"
+(`:215`). It has never been square. Consequence in §D-3.
 
-**(c) Typographic inversion.** "Interpolation" / "Easing" / "CSS" render in Fraunces at
-20.352 px in muted ink; the labels "TYPE / SPACE / HUE / DIRECTION" render in **uppercase Fira
-Code**, the same voice the CSS literal two sections below speaks; the *values* the user actually
-reads ("Linear", "OKLCh", "Shorter") are the quiet, unstyled text. The loudest ink on the band
-belongs to the four words that carry the least information.
+New in this pass: `evidence/challenge-D-chromium-1440-conic-tile.png` shows the conic case. In a
+96 × 128.55 portrait box the angular sweep's hard 100%→0% wrap seam is a knife edge across the
+tile, and the sweep's centre sits in a frame whose two axes disagree by 34 %. An instrument for
+radially-symmetric forms is housed in a rectangle whose eccentricity nobody chose.
 
-### 1.2 The mobile capture is a legibility failure
+### 1.5 Dark mode
 
-`shots/safari-mobile-light/gradient.png` — real WebKit, real mobile viewport. The three selects
-read **`Lin⌄`**, **`Ok⌄`**, **`Sh⌄`**. Not one of the component's three primary settings is
-readable. Reproduced live in a second engine at 390×844:
+`hasDarkClass` true in both dark matrices; no light-mode leak. But the dark pane reads as a muddy
+maroon-brown because the neutral glass is tinted by the pink ambient field behind it, and the three
+`h3` section headings are painted `text-muted-foreground` at the *largest* non-title size in the
+pane — simultaneously the biggest and the dimmest type on the surface. That is a hierarchy
+contradiction, not a token bug (§D-7).
 
-```
-gridTemplateColumns  →  "69.3281px 69.3359px 69.3359px"
-trigger "Linear"     →  scrollWidth 41 / clientWidth 27  → truncated
-trigger "OKLCh"      →  scrollWidth 48 / clientWidth 27  → truncated
-trigger "Shorter"    →  scrollWidth 48 / clientWidth 27  → truncated
-```
+### 1.6 Zoom 200 % — a genuine pass
 
-![measured at 390 px](../../../../../../.playwright-mcp/mobile390-band.png)
+`shots/zoom-200-desktop/gradient.png` plus my 720 px measurement: trigger value boxes are 108 px
+with 43–50 px of ink, `clipped 0`. The composition holds. **Negative result, recorded as such.**
 
-The comment at `GradientVisualizer.vue:159-161` records that the per-select *subtitle* rows were
-excised at W5-7 because "they truncated at every viewport". The cure was applied to the
-annotation. The value it annotated still truncates.
+### 1.7 RTL (`shots/rtl-mobile/gradient.png`) — a new defect
 
-### 1.3 The render tile is an ellipse of unowned eccentricity
+The Direction row's label/value pair mirrors (logical `justify-between`, `:228`) while the slider
+track does **not** (correct — `VISUAL-CONSTITUTION §5.2`: "numeric/scientific sign never mirrors";
+the orange fill stays physically left at 25 % for value 90/360 in both directions). The result is
+that in RTL the word `DIRECTION` sits above the track's **maximum** end and the live value `90°`
+sits above its **minimum** end. The annotation no longer annotates the thing it measures (§E-6).
 
-Measured, same element, two viewports:
+### 1.8 Forced colors — the capture is void, carried from pass 1
 
-```
-1440 × 900   tile 96.0 × 128.5   aspect 0.747
- 390 × 844   tile 80.0 × 121.9   aspect 0.656
-```
-
-Width is authored (`w-20 sm:w-24`, `:223`). Height is not authored anywhere — it is whatever
-`row-span-2` inherits from two rows sized by *other* content. The source comment at `:214-216`
-calls the result "a square-ish surface". 96 : 128.5 is 1 : 1.34.
-
-With `type=radial` the tile paints `radial-gradient(…)` with no shape keyword, i.e. CSS's
-`ellipse farthest-corner`, into a 0.747-aspect box — while the dropdown option that produced it
-reads, verbatim (`:55`), **"Center-outward circle"**:
-
-![type=radial at 1440](../../../../../../.playwright-mcp/radial-tile.png)
-
-A specimen surface whose geometry is grid residue cannot be "the honest surface for what
-Type + Direction DO" (`:150-156`). Its eccentricity is a function of the type scale and the
-viewport, not of the gradient.
-
-### 1.4 Dark mode
-
-`shots/safari-desktop-dark/gradient.png` is structurally identical; no scheme-specific defect is
-visible. The section headings' `--muted-foreground` holds in both. **This arm is clean** — the
-defects above are scheme-independent.
+`shots/forced-colors-desktop/gradient.png` is pixel-indistinguishable from
+`shots/safari-desktop-light/gradient.png`: same pink field, same pastel `Palettes` wordmark, same
+tile gradient. WebKit did not apply the emulation. **Forced-colors is therefore UNPROVEN for this
+component, not proven-good.** `GradientStopEditor.vue:353` carries a `@media (forced-colors:
+active)` block; `GradientVisualizer.vue` carries **zero**, for a component whose entire information
+payload is `background-image` (§D-15).
 
 ---
 
 ## 2. State coverage
 
-Every state this component can hold, and its disposition. A state that was never designed is a
-design defect.
+Enumerated exhaustively. `✗` = never designed.
 
-| State | Reachable | Designed | Evidence |
-|---|---|---|---|
-| **empty** (0 stops) | no — `removeStop` guards at ≤2 (`useGradientModel.ts:123`) | dead branches only: `colorAtPosition` throws (`:66`), `serializeRailRamp` has a 0-stop arm (`useGradientCSS.ts:268`) | unreachable + unstyled |
-| **1 stop** | only via `setStopsFromColors(["x"])` | Easing section correctly hidden by `v-if` (`:239`) | ✅ |
-| **populated** | default | ✅ | — |
-| **loading** | `pm.savedPalettes` is async | ✗ no pending state anywhere | D-17 |
-| **error — parse** | yes | ✅ `parseVerdict` → destructive border + `role="status"` (`GradientCodeEditor.vue:107-114`) | ✅ the one well-designed state |
-| **error — throw** | `easingFnOf` (`useGradientCSS.ts:128`), `colorAtPosition` (`:66,:77,:87`), `sampleCoalescedStops` (`:189,:207`) all `throw` inside computeds | ✗ no boundary, no fallback frame | D-17 (family) |
-| **error — copy fails** | `writeClipboard` rejects | ✗ no `try`, no state | **D-10** |
-| **error — seed with 0 palettes** | the shipped default (`"No saved palettes yet."` in all four captures) | ✗ silent `return` | **D-17** |
-| **disabled** | `type=radial` makes Direction inert | ✗ **fully enabled, focusable, labelled, live readout** | **D-4** |
-| **focused** | selects/slider/editor | ✅ producer rings; tile is `role="img"`, non-focusable | ✅ |
-| **hovered / active / pressed** | producer-owned | ✅ | — |
-| **selected** | `selectedStopId` | ✗ dangles after Reset (new ids minted, model not cleared) | D-16 |
-| **dragging** | stop editor's | out of seat | — |
-| **overflowing** | easing catalogue: `.strip-row` 1482.1 px inside a 436 px scroller | partly — a `fading-scroll` exists, 29 % visible | D-19 |
-| **truncated** | all three selects at 390 px | ✗ | **D-2** |
-| **RTL** | `shots/rtl-desktop/gradient.png` | band/tile mirror correctly; the CSS output surface carries no `dir="ltr"` isolation | D-15b (hypothesis) |
-| **reduced-motion** | `STATES.json` → `rafPer1500ms: 0` | ✅ nothing to break — this component authors zero motion | ✅ negative proof |
-| **forced-colors** | **never observed** — the capture is void | ✗ tile has no forced-colors arm; its declared twin does | **D-15** |
-| **zoom 200 %** | `shots/zoom-200-desktop/gradient.png`, `overflowX: 0` | ✅ reflows single-pane, selects legible | ✅ |
+| State | Handled? | Evidence |
+|---|---|---|
+| default / populated | ✓ | `:118-125` `resetGradient` seeds 2 stops, linear, 90°, oklch, shorter |
+| **empty (0 stops)** | **✗ — designed as a throw** | `:66` `throw new Error("A gradient must retain at least one stop")` |
+| **degenerate (unsorted / missing interval)** | **✗ — designed as a throw** | `:77`, `:87` throw inside a render-path pure function |
+| loading | n/a | no async surface |
+| **error (parse rejection)** | partial | `:100` `parseVerdict` is a bare string handed to a child; this component draws nothing |
+| **error (clipboard write fails)** | **✗** | `:127-129` `await writeClipboard(...)` — no `try`, no status, no confirmation |
+| **error (`seedFromPalette` no-op)** | **✗ — three silent paths** | `:111` `if (!pm) return`, `:112` `[0]?.`, `:113` `length >= 2` else nothing |
+| disabled | **✗** | `:232` Direction slider stays live for `radial`, where it controls nothing |
+| focused | **split register** | Select triggers: branded `box-shadow …/0.3 0 0 0 2px`, `outline: none`. Slider: UA `outline: 1px auto rgb(0,95,204)` |
+| hovered / active / pressed | ✓ (producer) | `dock-icon-button glass-capsule-hover`; rail handles own a scale ladder |
+| selected | ✓ (delegated) | `selectedStopId` `defineModel`, `:51` |
+| dragging | ✓ (child) | `GradientStopEditor` owns it |
+| **overflowing / truncated** | **✗ — the defect** | 320 px: value box 4 px vs 41 px ink |
+| **RTL** | partial | label/track mirroring mismatch (§1.7) |
+| reduced-motion | **regresses** | transitioning elements 49 → **250** (§3) |
+| **forced-colors** | **✗ / UNPROVEN** | 0 `forced-colors` rules in this file; tranche capture void |
+| zoom 200 % | ✓ | `clipped 0` at 720 px |
+| **type = radial** | **✗** | dead Direction control; ellipse-for-circle |
+| **type = conic** | **✗** | "Direction" silently means *start angle* (`useGradientCSS.ts:153-154`) |
+| **eased intervals** | **✗ — the BLOCKER** | tile 33 stops eased, editor 2 stops un-eased (§D-1) |
 
----
-
-## 3. Motion
-
-`GradientVisualizer.vue` authors **zero** transitions, animations or keyframes. Its subtree's 49
-animated declarations all come from children/producer and are tokenized
-(`--duration-fast` 0.12 s, `--duration-normal` 0.2 s, `--spring-snappy-duration` 0.44 s,
-`--ease-standard`). No animated property forces layout — the set is
-`box-shadow, transform, rotate, background-color, color, border-color`.
-`prefers-reduced-motion` is honoured at the page level (`STATES.json` reduced-motion row for
-`#/gradient`: `rafPer1500ms: 0`, versus 264–270 in every other matrix).
-
-**No motion defect. This is a genuine negative result.** The one observation worth recording is an
-omission: the render tile — the surface that changes most dramatically (linear → radial → conic) —
-has no transition at all, so the specimen snaps while every control around it eases. That is a
-gap in the same register, not a violation of it.
+Fifteen of twenty-two states are unhandled, mis-handled or unproven. **A state that was never
+designed is a design defect**, and this component's designed answer to three of them is an
+uncaught `throw`.
 
 ---
 
-## 4. Defects
+## 3. Motion — correcting pass 1
 
-Ordered by severity. IDs are stable for the ledger.
-
-### D-1 · BLOCKER · the panel headed `CSS` is not the CSS, and Copy emits a third string
-
-**Mechanism.** Three surfaces claim to represent one gradient and are fed by two different
-serializers plus one clipboard write:
+`GradientVisualizer.vue` authors zero transitions, animations or keyframes. Pass 1 concluded "no
+motion defect… `prefers-reduced-motion` is honoured at the page level" from `STATES.json`'s
+`rafPer1500ms: 0`. That measures **RAF loops**, not CSS. I measured the CSS.
 
 ```
-GradientVisualizer.vue:259   <GradientCodeEditor :model-value="simpleCSS" …/>     ← what the user READS
-GradientVisualizer.vue:224   :style="{ '--tile-render': coalescedCSS }"           ← what the user SEES
-GradientVisualizer.vue:128   await writeClipboard(coalescedCSS.value)             ← what the user GETS
+chromium 1440, no PRM      tile: transitionProperty "all"  duration "0s"
+                           transitioning elements in the visualizer subtree: 49
+
+chromium 1440, reducedMotion:"reduce"
+                           matchMedia("(prefers-reduced-motion: reduce)").matches = true
+                           tile: transitionProperty "opacity, color, background-color,
+                                                     border-color, box-shadow"
+                                 duration "0.1s"
+                           transitioning elements in the visualizer subtree: 250
 ```
 
-`useGradientCSS.ts:147-162` `serializeGradient` emits the raw stops with **easing not baked in**.
-`useGradientCSS.ts:281-305` `serializeCoalescedGradient` emits 32 eased sub-stops. They are
-equivalent only while every interval is `linear`.
+`demo/styles/animations.css:184-191` declares, for this exact media query,
+`transition-duration: 0.01ms !important` on `*, *::before, *::after`. The rendered value is
+**0.1 s** — 10 000× the intended value — and the element count goes **up** by 201. Under reduced
+motion this component has *more* transitioning surfaces than without it.
+`VISUAL-CONSTITUTION §6`: "Reduced motion resolves directly to the final geometry and stable
+chromatic state." It does not.
 
-**Reproduction** (live, 1440×900, `/#/gradient`):
+I could not identify the winning declaration (my CSSOM walk returned `hits: []`; no source file
+declares that property list under a reduce query). **The mechanism is a labelled hypothesis; the
+measurement is not.** The site is this component's surfaces; the cure is at the global root, not
+per-instance (edict 5). Filed as **E-5**.
 
-1. Open the Easing accordion (open by default) and click the `css → in-out` specimen tile.
-2. Read the three surfaces:
-
-```
-easing literal (.readout-rail code)  "cubic-bezier(0.42, 0, 0.58, 1)"
-
-editor text                          "linear-gradient(90deg,
-                                       oklch(0.75 0.15 145) 0%,
-                                       oklch(0.65 0.18 265) 100%)"     ← 2 stops, NO easing
-editorStopCount                      2
-
-tile computed background-image       33 stops
-tilePaintStopCount                   33
-sample @3.13 %                       oklch(0.749813 0.150056 145.225)  ← eased
-sample @3.13 % before the click      oklch(0.746875 0.150937 148.75)   ← un-eased
-```
-
-**Consequence.** The Easing section is the component's largest region — 519 px, 49.8 % of its
-height, a whole curve catalogue and a bezier authoring stage. Everything authored there is
-silently discarded by the panel labelled `CSS`. A user who selects the text they can see and
-pastes it ships a *linear* ramp. A user who presses Copy receives a 33-stop string they have never
-seen and cannot check. The instrument's own output contradicts its own preview.
-
-**Law.** `VISUAL-CONSTITUTION §5` — "select → tune → commit… Persistent operation state stays with
-the entity/workspace"; §7 Gradient — the code inspector is part of the instrument's argument, not
-a second opinion.
-
-**Cure (gestalt, not patch).** There is one gradient, so there is one serialization on screen. The
-editor shows the render truth. If the compact authored form is worth keeping it becomes a
-*named, visible* representation toggle inside the same well (`Compact ⇄ Expanded`, the producer's
-`SegmentedTabs`), and Copy copies exactly the bytes under the caret. Delete `simpleCSS` as a
-silent parallel path; a second serializer that no surface labels is a dual path (edict 2).
+Separately, the tile — the surface that changes most violently (linear → radial → conic) — has no
+transition in either state, so the specimen snaps while every control around it eases. A gap in the
+register, filed INFO.
 
 ---
 
-### D-2 · BLOCKER · at the canonical 390 px arm all three primary settings truncate to 3 characters
+## 4. The design-system boundary — a five-fold breach in one file
 
-**Mechanism.** `GradientVisualizer.vue:158` — `class="grid grid-cols-3 gap-3 min-w-0"`. A fixed
-3-up with no responsive step. The only responsive token in the whole band is on the tile
-(`w-20 sm:w-24`, `:223`) — the element that did not need one.
-
-**Reproduction.** 390×844, `/#/gradient`, measured:
+`@mkbabb/glass-ui@7.0.0` is installed and exports **74** subpaths, including:
 
 ```
-gridTemplateColumns   "69.3281px 69.3359px 69.3359px"
-Linear    scrollW 41 / clientW 27   truncated
-OKLCh     scrollW 48 / clientW 27   truncated
-Shorter   scrollW 48 / clientW 27   truncated
+$ node -e "…Object.keys(require('@mkbabb/glass-ui/package.json').exports)…"
+./label   ./labeled-field   ./number-field   ./select   ./separator   ./slider   ./tooltip
 ```
 
-Corroborated independently by the tranche's own WebKit capture
-`docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/gradient.png`, which renders
-`Lin⌄ Ok⌄ Sh⌄`.
+`GradientVisualizer.vue` uses **none** of them:
 
-**Law.** `VISUAL-CONSTITUTION §3.6` (mobile is one document-scrolling sequence, not a shrunken
-desktop) and `§3.7` (container-scaled spacing, "no desktop-tight/mobile-airy fork and no
-breakpoint pile"). 390 px is a named binding arm in `§3.2` and `PROPORTION-AUDIT §2`.
+| Need | What the file does | What glass-ui ships |
+|---|---|---|
+| select | `:9` `from "../../../ui/select"` (demo/ui shadcn) | `./select` |
+| slider | `:10` `from "../../../ui/slider"` (demo/ui shadcn) | `./slider` |
+| divider | `:148,240,251` raw `<hr class="border-border">` | `./separator` |
+| label + field couple | hand-rolled `<span class="section-label">` + control ×4 | `./label`, `./labeled-field` |
+| numeric entry for Direction | absent | `./number-field` |
 
-**Cure.** The band is a label/value list, not a 3-across. Below `sm` it stacks (or goes 2-up with
-Hue on its own row, since Hue is a *sub-option of Space* and is meaningless in non-polar spaces);
-the tile leaves the right rail and takes a full-width row under the band, where its aspect can be
-owned. The trigger wraps; the value never does.
+Owner edict 4 — "Glass-ui is the design system… **Reuse existing component-type names**".
+`VISUAL-CONSTITUTION §5` is more specific still: "The domain-neutral axis composition sits over
+**BI `Slider`**: label, unit, reserved live value, **optional numeric entry**… Picker, Generate
+count, Extract, **Gradient**, Atmosphere and Blob adopt that one composition."
+
+The breach is not theoretical — it is measurable in the focus register (§E-3) and in the missing
+value reservation (§E-2). Filed as **E-4**.
+
+Meanwhile the file *does* reach into glass-ui for the one thing it should not: `:13`
+`import { DockControl } from "@mkbabb/glass-ui/dock"` — the **dock's** control species, planted in
+a pane body, rendering live as `dock-icon-button glass-specular-track glass-capsule-hover
+dock-icon-button--compact`. `VISUAL-CONSTITUTION §2`: "One surface has one tier." §3 law 4: "The
+top dock owns a reserved band."
 
 ---
 
-### D-3 · MAJOR · the render tile's aspect ratio is unowned, so a "circle" renders as a viewport-dependent ellipse
+## 5. Proportion and seat law
 
-**Evidence.** `:223` — `class="gradient-render-tile row-span-2 w-20 sm:w-24 rounded-card border
-border-card-edge"`. Height is emergent from `row-span-2` over `grid-cols-[minmax(0,1fr)_auto]`
-rows sized by the select row and the direction row.
-
-```
-1440 × 900   96.0 × 128.5   aspect 0.747
- 390 × 844   80.0 × 121.9   aspect 0.656
-```
-
-With `type=radial` (live): tile paint head `radial-gradient(oklch(0.75 0.15 145) 0%, …` — no shape
-keyword, so CSS resolves `ellipse farthest-corner`. Screenshot `.playwright-mcp/radial-tile.png`.
-The option that mints this state is captioned "Center-outward circle" (`:55`).
-
-**Law.** `PROPORTION-AUDIT §5.8` — "Real rendered relation wins over token intent"; §5.9 — a
-renderer specimen is a designed object. A specimen whose proportions are grid residue is not a
-specimen.
-
-**Cure.** `aspect-ratio: 1` on the tile; the tile owns its own row rather than spanning two
-foreign ones. The type dropdown's promise ("circle") and the paint agree by construction.
+| Law | Verdict |
+|---|---|
+| `§3` law 8 — "One pane may have one full-strength protagonist. Supporting fixtures do not compete with it through equal size or **equal shadow**." | **VIOLATED.** Rail `box-shadow: color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px`. Tile: **byte-identical**. Tile block 128.55 px = **3.21×** the rail's 40 px; tile area 12 341 px² = **66.8 %** of the rail's 18 480 px². |
+| `§7 Gradient` — "The rounded meniscus rail and its preview dominate." | **VIOLATED.** See above and D-11 (preview share 6.40 % of component height; Easing 49.8 %). |
+| `§4.2` / `PR-05` — "only the five Admin lists retain a separator; **every other composition retains no divider**" | **VIOLATED, 3×.** `hrCount 3`, y = 260.7 / 480.8 / 769.3. |
+| `§4` type matrix ("closed across all eighteen compositions") | **VIOLATED, 10 sites.** 3 `h3` in Fraunces `text-subheading`; 4 `.section-label` in Fira Code; 3 `text-micro` outside the matrix entirely. |
+| `§4` — live numbers "reserve their widest legal representation so value changes never reflow" | **VIOLATED.** Readout ink 20.19 px → 40.38 px within one drag. |
+| `§3.1` — Gradient outer housing `InstrumentChassis`; "no nested stage Card" | **VIOLATED** (D-12: `grep -rn InstrumentChassis demo/` → 0 hits; `GradientPane.vue:21` wraps in `Card tier="resting"`). |
+| `§5.5` micro-UI — "operable ornaments without names are forbidden" | **VIOLATED.** The Copy CSS button is the route's only nameless button. |
+| `PROPORTION-AUDIT §1` — "Every element earns its scale, interval, boundary and material from its job relative to the local protagonist." | **VIOLATED.** The tile's scale is a residue of two label line-boxes. |
+| `PROPORTION-AUDIT §5.8` — "Real rendered relation wins over token intent… token presence alone cannot close a row." | **Instantiated twice**: `tabular-nums` present but width unreserved; `role="img"` present but the name never changes. |
+| `PR-13` — "specimen and action region both host Copy → total 2→1" | **VIOLATED at the Gradient site.** `usePaneRouter.ts:209` + `GradientVisualizer.vue:254`. |
+| `§3` law 3 — "Configuration panes show preview first, controls second" | Met (rail is first). |
+| `§3.6` mobile sequence | Met structurally; broken typographically (§1.3). |
 
 ---
 
-### D-4 · MAJOR · Direction stays live, focusable and labelled while it controls nothing
+## 6. Defects
 
-**Evidence.** `useGradientModel.ts:55` states it outright:
-`direction: number; // degrees (for linear); ignored for radial`.
-`useGradientCSS.ts:151-155` emits an angle only for `linear` (and `from …deg` for `conic`).
+### D-1 · BLOCKER · the panel headed `CSS` is not the gradient's CSS
 
-Measured live with `type=radial`:
+*(pass-1 row, independently re-verified by me this pass)*
+
+**Mechanism.** Three surfaces claim to represent one gradient; two serializers and one clipboard
+write feed them.
 
 ```
-thumb aria-disabled   null
-thumb data-disabled   false
-thumb tabindex        "0"
-thumb aria-valuenow   "90"
-container opacity     "1"
-visible readout       "90°"
-editor                "radial-gradient(oklch(0.75 0.15 145) 0%, oklch(0.65 0.18 265) 100%)"
-tile paint            "radial-gradient(oklch(0.75 0.15 145) 0%, …"        ← no angle, both
+:259  <GradientCodeEditor :model-value="simpleCSS" …/>   ← what the user READS
+:224  :style="{ '--tile-render': coalescedCSS }"          ← what the user SEES
+:128  await writeClipboard(coalescedCSS.value)            ← what the user GETS
 ```
 
-The slider is fully operable by pointer and keyboard, its label and value keep updating, and
-nothing downstream changes.
+`useGradientCSS.ts` `serializeGradient` emits the raw stops with easing **not** baked in;
+`serializeCoalescedGradient` emits 32 eased sub-stops (`COALESCE_RESOLUTION = 32`). They agree only
+while every interval is `linear`.
 
-**Law.** `VISUAL-CONSTITUTION §4.1` — "Selected, failed, pending, withdrawn and **disabled** states
-are never color-only. Role, accessible name, state/value … are explicit."
-`PROPORTION-AUDIT §5.5` — a control is data, status, labeled action, affordance, or removed.
+**My reproduction** (Chromium 1440×900, pasted output):
 
-**Cure.** Direction is not a permanent control with a dead branch; it is a property *of the type*.
-`linear` → `Angle`; `conic` → `From`; `radial` → the row is absent and the grid closes. One
-control whose identity follows the model, not a control with an undisclosed no-op.
+```
+BEFORE      easingLiterals ["cubic-bezier(0, 0, 1, 1)"]
+            tileStops 33   tileBgHead "…oklch(0.75 0.15 145) 0%, oklch(0.746875 0.150937 148.75) 3.13%…"
+            editorText "linear-gradient(90deg, oklch(0.75 0.15 145) 0%, oklch(0.65 0.18 265) 100%)"
+            editorStops 2
+
+click the `in-out` easing specimen →
+
+AFTER-EASE  easingLiterals ["cubic-bezier(0.42, 0, 0.58, 1)"]
+            tileStops 33   tileBgHead "…oklch(0.75 0.15 145) 0%, oklch(0.749813 0.150056 145.225) 3.13%…"
+            editorText "linear-gradient(90deg, oklch(0.75 0.15 145) 0%, oklch(0.65 0.18 265) 100%)"   ← BYTE-IDENTICAL
+            editorStops 2
+```
+
+The paint changed at 3.13 % (`0.746875 0.150937 148.75` → `0.749813 0.150056 145.225`). The panel
+labelled `CSS` did not change at all.
+
+**Consequence.** The Easing region is the component's largest (pass-1: 519 px, 49.8 % of component
+height, a curve catalogue plus a bezier authoring stage). Everything authored there is discarded by
+the only string a user can read. Select-and-paste ships a linear ramp; pressing Copy ships 33 stops
+the user has never seen and cannot verify.
+
+**Law.** `§5` "select → tune → commit"; `§7 Gradient` — the code inspector is part of the
+instrument's argument, not a second opinion.
+
+**Cure (gestalt).** One gradient, one serialization on screen. The editor shows the render truth.
+If the compact authored form is worth keeping it becomes a *named, visible* representation toggle
+in the same well (producer `SegmentedTabs`, `Compact ⇄ Expanded`) and Copy copies exactly the bytes
+under the caret. Delete `simpleCSS` as an unlabelled parallel path — a second serializer no surface
+names is a dual path (edict 2).
 
 ---
 
-### D-5 · MAJOR · "Reset" does not reset — the easing survives it
+### D-2 · BLOCKER · the three primary settings clip to unreadable at both named narrow arms
 
-**Mechanism.** `:118-125` `resetGradient()` restores stops, type, direction, space, hue and the
-verdict, but never touches `intervals`. `useGradientModel.ts:89-100` re-seeds intervals only when
-`stops.value.length` *changes*; `setStopsFromColors` with two colours leaves the length at 2, so
-the watcher never fires.
+**Mechanism.** `:158` `class="grid grid-cols-3 gap-3 min-w-0"` — a fixed 3-up with no responsive
+step, sharing its row with a fixed-width tile (`:223` `w-20 sm:w-24`, the one element that *did*
+get a responsive token). At 390 px the tile + gap take 92 px of a 324 px content box — **28.4 %** —
+leaving 69.3 px per trigger of which 27 px is text room.
 
-**Reproduction** (live): select `in-out` on the sole interval → press the Dock's **Reset** →
+**Measured** (`probes/challenge-D-states-probe.mjs`, pasted):
 
 ```
-before  easingLiteral "cubic-bezier(0.42, 0, 0.58, 1)"   tileStops 33
-after   easingLiteral "cubic-bezier(0.42, 0, 0.58, 1)"   tile @3.13 % = oklch(0.749813 …)  ← still eased
+webkit-390     Gradient type        value "Linear"   box 27  ink 41  clipped 14   triggerW 69.33
+               Interpolation space  value "OKLCh"    box 27  ink 48  clipped 21   triggerW 69.33
+               Hue interpolation    value "Shorter"  box 27  ink 48  clipped 21   triggerW 69.33
+
+chromium-320   Gradient type        value "Linear"   box  4  ink 41  clipped 37   triggerW 46
+               Interpolation space  value "OKLCh"    box  4  ink 48  clipped 44   triggerW 46
+               Hue interpolation    value "Shorter"  box  4  ink 48  clipped 44   triggerW 46
 ```
 
-**Cure.** `resetGradient` restores the *whole* model state through one path. The reason it does not
-today is that the interval array is kept in sync by a side-effect watcher on a derived quantity
-(`stops.length`) instead of being derived: `intervals` should be a function of the stop list, not a
-parallel array kept honest by a `watch`.
+At 320 px the value box is **four CSS pixels**. Corroborated by the tranche's own WebKit captures,
+which render `Lin⌄ Ok⌄ Sh⌄` (`shots/safari-mobile-{light,dark}/gradient.png`).
+
+**Aggravating detail.** `:159-161` records that the per-select *subtitle* rows were excised because
+"they truncated at every viewport". The cure was applied to the symptom's neighbour; the **value
+itself** still truncates.
+
+**Law.** 390 px **and 320 px** are named binding evidence arms — `VISUAL-CONSTITUTION §3.2`, §4
+("1440px, 390px, 320px, and actual 400%-zoom"); `PROPORTION-AUDIT §2`. `§3.7`: "no
+desktop-tight/mobile-airy fork and no breakpoint pile."
+
+**Cure.** The band is a label/value list, not a 3-across: it stacks below `sm` (glass-ui
+`LabeledField`). The tile leaves the right rail entirely (see D-3/D-14 — it should not be a grid
+sibling of the controls at all). The trigger may wrap; the value never may.
+
+---
+
+### D-3 · MAJOR · the render tile has no proportion of its own, so a "circle" renders as an ellipse
+
+**Evidence.** `:223` `class="gradient-render-tile row-span-2 w-20 sm:w-24 …"` inside
+`grid-cols-[minmax(0,1fr)_auto]` (`:157`). Inline size is a token; block size is emergent from two
+rows sized by label line-boxes.
+
+```
+tile w×h / aspect      1440: 96 × 128.55  → 0.747
+                        720: 96 × 123.73  → 0.776
+                        390: 80 × 121.84  → 0.657
+```
+
+`useGradientCSS.ts:151-154` emits `radial-gradient(<stops>)` with **no shape keyword**, so CSS
+resolves the initial value `farthest-corner ellipse`. In a 96 × 128.55 box the render is an ellipse
+of axis ratio 1 : 1.34 — while the Type option's own description, in this file, reads
+**"Center-outward circle"** (`:55`). Measured live with `type=radial`:
+`tileBg: "radial-gradient(oklch(0.75 0.15 145) 0% …"`. Conic evidence:
+`evidence/challenge-D-chromium-1440-conic-tile.png`.
+
+**Law.** `PROPORTION-AUDIT §1` — every element earns its scale from its job. `§8` — a visual claim
+needs a named geometry delta; here the geometry is unowned across three viewports.
+
+**Cure.** The render surface owns an explicit `aspect-ratio` (1/1 for radial/conic; the rail's own
+ratio for linear) and stops being a residue. Better: it stops being a right-rail fixture — D-14.
+
+---
+
+### D-4 · MAJOR · Direction stays live, focusable and labelled while controlling nothing
+
+**Mechanism.** `useGradientCSS.ts:151-154`:
+
+```ts
+if (model.type === "linear" && model.direction !== 180) parts.push(`${model.direction}deg`);
+else if (model.type === "conic")                        parts.push(`from ${model.direction}deg`);
+```
+
+`radial` never consumes `direction`. And for `conic` the value silently changes meaning from
+*direction* to *start angle* — one label, three semantics, one of them null.
+
+**Measured** with `type=radial`:
+
+```
+sliderDisabled { ariaDisabled: null, dataDisabled: null, tabIndex: 0,
+                 pointerEvents: "auto", opacity: "1" }
+tileBg         "radial-gradient(oklch(0.75 0.15 145) 0% …"     ← no angle anywhere
+```
+
+The user can drag 0 → 360 and change nothing, with no disabled affordance and no announcement.
+(`aria-valuetext` is also `null` and `aria-valuenow` is `"90"`, so the unit is never announced —
+`§5.2`: "announce label, value, **unit**".)
+
+**Law.** `§4.1` — "Selected, failed, pending, withdrawn and **disabled** states are never
+color-only. Role, accessible name, state/value… are explicit." Here the disabled state is not
+expressed *at all*, which is strictly worse than color-only.
+
+**Cure.** The control is type-conditional, not type-agnostic: `linear` → **Angle**; `conic` →
+**Start angle**; `radial` → the axis is replaced by the parameters radial actually has (shape,
+extent). A single "Direction" slider across all three types is the wrong model, not a slider that
+needs a disabled skin.
+
+---
+
+### D-5 · MAJOR · "Reset" does not reset — the easing survives it *(pass-1 row, NOT re-verified by me)*
+
+Pass 1 reports that Dock **Reset** leaves the interval literal at
+`cubic-bezier(0.42, 0, 0.58, 1)`. Reading `:118-125`, `resetGradient()` sets stops, type,
+direction, space, hue and `parseVerdict` and **never touches `intervals`**, which is consistent
+with the claim. My probe could not reach the Dock Reset control (`RESET NOT FOUND` — the Tools
+action set did not open under automation), so **for this pass D-5 is a code-supported hypothesis,
+not a reproduction I own.** Carried at pass-1's severity pending a live witness.
 
 ---
 
 ### D-6 · MAJOR · three `<hr>` where the binding composition says zero
 
-**Evidence.** `:148`, `:240`, `:251`. Measured live: three `462 × 1` rules at y = 260.7, 480.7,
-769.7.
+**Measured.** `hrCount: 3` inside `main` on `/#/gradient`, at y = 260.7 / 480.8 / 769.3 (1440),
+`borderTopColor rgb(198, 180, 159)`. Source: `:148`, `:240`, `:251`.
 
-`docs/tranches/V/OPTICAL-BENCH-COMPOSITIONS.md:78`, quoted verbatim:
+**Law.** `PROPORTION-AUDIT §4 PR-05`: "`OPTICAL-BENCH-COMPOSITIONS.md §5` is binding: every P122
+workbench uses boundaries `[]`/reserve `none`; only the five Admin fields retain one adjacent-row
+separator… **every other divider/ornament is zero**." `VISUAL-CONSTITUTION §4.2` restates it. `§5`
+card-law 4: "A divider is retained only when grouping would be ambiguous without it. Spacing plus
+material already expressing the same boundary makes the line duplicative." Each `<hr>` here is
+immediately followed by an `<h3>` that already declares the boundary. `PR-14` names this exact
+pathology on About and rules it `7→0`.
 
-```
-| Gradient | `[]` | `none` | none | meniscus, stop seats and code/action interval carry grouping |
-```
-
-Restated in `VISUAL-CONSTITUTION §4.2`: "The binding value.js inventory in
-`OPTICAL-BENCH-COMPOSITIONS.md §5` selects `[]` and `reserve="none"` for all eight P122
-workbenches… every other composition retains no divider." `PROPORTION-AUDIT` PR-05 is terminal
-**REMOVE**, and §5.4 is the reason: "A divider is retained only when grouping would be ambiguous
-without it."
-
-Each `<hr>` here is immediately followed by an `<h3>`. The heading already declares the boundary;
-the rule restates it in ink.
+**Cure.** Delete all three; section rhythm plus the heading own the grouping. If a boundary is ever
+genuinely needed it is `InstrumentChassis`'s typed boundary set, not a consumer `<hr>`.
 
 ---
 
 ### D-7 · MAJOR · section headings wear the palette-identity costume
 
-**Evidence.** `:149`, `:241`, `:253` — `class="font-display text-subheading text-muted-foreground"`.
-Computed on all three, live:
+**Measured** (all three, all viewports):
 
 ```
-font-family   Fraunces, "Fraunces Fallback", serif
-font-size     20.352px          (= --type-subheading, 1.272rem)
-font-weight   600
-color         rgb(112, 89, 66)  (--muted-foreground)
+"Interpolation" / "Easing" / "CSS"
+  fontFamily "Fraunces"   fontSize 20.352px   fontWeight 600
+  color rgb(112, 89, 66)  class "font-display text-subheading text-muted-foreground"
 ```
 
-`VISUAL-CONSTITUTION §4` (the closed matrix) assigns **section heading → `text-heading`**, which
-glass-ui defines (`dist/styles/typography/semantic.css`) as `font-family: var(--font-text)`
-(Plus Jakarta Sans) at `--type-heading: 1.618rem` = 25.888 px. `--type-subheading` is reserved for
-**palette identity**, and Fraunces for display/identity roles.
+Source `:149`, `:241`, `:253`.
 
-Two-axis deviation, both measured: wrong family, and one golden rung low (20.352 vs 25.888 px).
-`PROPORTION-AUDIT §5.13` repeats the same matrix; there is no exception for workbench sections
-(the sole exception in canon is P019's paired Picker scale).
+**Law.** `VISUAL-CONSTITUTION §4`: `section heading` → `text-heading` → **Plus Jakarta Sans**;
+`--type-subheading` → **Fraunces** is reserved for `palette identity`. "This matrix is closed
+across all eighteen compositions." `PROPORTION-AUDIT §5.13` restates: "Fraunces owns
+display/identity, Plus Jakarta Sans owns headings/prose/controls."
+
+**Second-order defect.** These are simultaneously the largest non-title type in the pane *and*
+painted in the de-emphasis role (`text-muted-foreground`). Big and dim at once is a hierarchy
+contradiction independent of the family.
+
+**Cure.** `text-heading`, Plus Jakarta Sans, full-strength ink; the de-emphasis comes from size and
+interval, not from muting a heading.
 
 ---
 
-### D-8 · MAJOR · control labels wear the value/code jurisdiction — uppercase Fira Code
+### D-8 · MAJOR · control labels wear the value/code jurisdiction
 
-**Evidence.** `:163`, `:180`, `:197`, `:229` — `class="section-label"`. The recipe is the producer's:
+**Measured** `.section-label` (`:163`, `:180`, `:197`, `:229`):
 
 ```
-node_modules/@mkbabb/glass-ui/dist/styles/typography/utilities.css
-  .section-label { @apply text-mono-caption; color: var(--muted-foreground); }
-  text-mono-caption { font-family: var(--font-mono); font-size: var(--type-caption);
-                      letter-spacing: var(--type-tracking-caps); text-transform: uppercase; }
+fontFamily "Fira Code"   fontSize 14.384px (1440) / 12.179px (390)
+fontWeight 400  letterSpacing 1.4384px  textTransform "uppercase"
 ```
 
-Computed on all four labels, live: `"Fira Code", …, monospace` · `14.384px` · `uppercase` ·
-`letter-spacing: 1.4384px`.
+**Law.** `§4`: "control or label, **including dropdown options** → `text-small` → Plus Jakarta
+Sans, non-bold". Fira Code is the closed matrix's `value, code, or provenance` family. `TYPE`,
+`SPACE`, `HUE`, `DIRECTION` are control labels rendered in the code family, uppercased and
+letterspaced — which is also why they are wider than they need to be in the band that has no width
+to spare (D-2).
 
-`VISUAL-CONSTITUTION §4`: **control or label → `text-small`, Plus Jakarta Sans, non-bold.**
-`text-mono-small`/`mono-caption` is licensed for *value, code, or provenance* — "or the already
-established `mono-caption` **where the content is a caption**". "Type", "Space", "Hue" and
-"Direction" are none of those things.
-
-The rendered consequence is the hierarchy inversion visible in §1.1(c): the labels are the loudest
-ink in the band and the values are the quietest.
-
-**Family** (same mechanism, one cure): `MixConfigBar.vue:98,121,145`;
-`GenerateControls.vue:221,255`; `SearchFilterBar.vue:20,32,48,63`;
-`AdminTagsPanel.vue:87`; `TagEditPopover.vue:8`; `MixSourceSelector.vue:183`.
+**Cure.** Root-level: `.section-label` is a shared recipe with 8+ demo consumers
+(`MixConfigBar`, `GenerateControls`, `MixSourceSelector`, `SearchFilterBar`, `AdminTagsPanel`,
+`TagEditPopover`, …), so the fix belongs at the glass-ui typography root — **never a per-instance
+override here** (edict 5). The consumer's job is to adopt `Label` / `LabeledField`.
 
 ---
 
-### D-9 · MAJOR · two Copy CSS actions on one route; the pane-local one is the route's only nameless button
+### D-9 · MAJOR · Copy CSS is the route's only nameless button, is a dock primitive in a pane body, and is the second seat for one command
 
-**Evidence.** The dock action set already owns it —
-`GradientPane.vue:13` `copyCSS: () => visualizerRef.value?.copyCSS?.()` — and the component plants
-a second at `:254`:
-
-```html
-<DockControl compact title="Copy CSS" @click="copyCSS">
-```
-
-Live enumeration of every visible button/`role=button` on `/#/gradient`:
+**(a) Namelessness — pinned to this file.** Using the audit's own predicate verbatim
+(`audit/visual/capture.mjs:102-105`: `aria-label || aria-labelledby || textContent`, `title` **not**
+counted), across five engine/viewport runs the page contains exactly one nameless visible button,
+every time:
 
 ```
-{ aria-label: "Reset" }
-{ aria-label: "Copy CSS" }                  ← dock action set
-{ aria-label: "Seed from palette" }
-{ aria-label: "Copy cubic-bezier(0.42, 0, 0.58, 1)" }   ← easing rail, named
-{ aria-label: null, title: "Copy CSS" }     ← this component, :254
+[{ cls: "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact",
+   title: "Copy CSS", inPane: true }]
+
+chromium-1440 · chromium-320 · chromium-prm-1440 · webkit-1440 · webkit-390  → all identical
 ```
 
-`REPORT.json` records `namelessButtons: 1` for `/#/gradient` in **all four** Safari matrices. The
-live probe identifies it uniquely:
+That is `GradientVisualizer.vue:254-256`, and it is the `namelessButtons: 1` row that
+`/#/gradient` carries in **all four** Safari matrices (`REPORT.md:100,107,111,113`) — including the
+two mobile matrices, where the Dock contributes zero and only two routes in the whole app are
+non-zero.
 
+**(b) Wrong species.** `:13` imports `DockControl` from `@mkbabb/glass-ui/dock`. `§2`: "One surface
+has one tier." §3 law 4: the dock owns a reserved band. A specular dock capsule floating in a
+content section is a tier collision, and it is why its only name channel is a `title` tooltip.
+
+**(c) Duplicate seat.** `usePaneRouter.ts:209` already registers, for `view === "gradient"`:
+
+```ts
+{ key: "copy", icon: Copy, title: "Copy CSS",
+  description: "Copy the gradient CSS to clipboard.",
+  handler: () => paneRefs.gradient.value?.copyCSS?.() }
 ```
-<button class="dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact"
-        title="Copy CSS">          rect { x:658, y:792, w:28, h:28 }
-```
 
-No `aria-label`, no text — the accessible name exists only as a `title` tooltip, which is invisible
-to touch and to keyboard users.
+Same icon, same string, same command, second seat — reached through this file's own
+`defineExpose({ resetGradient, copyCSS, seedFromPalette })` (`:131`). `PROPORTION-AUDIT §4 PR-13`:
+"Picker specimen and action region both host Copy → **REMOVE** → specimen 1→0; action 1→1; total
+2→1." Same family, different route.
 
-**Law.** `PROPORTION-AUDIT` PR-13 (specimen + action region both host Copy → total 2→1), PR-06
-(one action owner), §5.5 (labeled action or removed), §5.6 ("do not compensate for an unnecessary
-action with tooltip proliferation"); `VISUAL-CONSTITUTION §5` ("Commit uses one glass-ui action
-set").
-
-The sibling in the same subtree proves the house pattern:
-`GradientEasingEditor.vue` gives its copy `:aria-label="copiedRow === row.index ? 'Copied' :
-\`Copy ${row.css}\`"`.
-
-**Cure.** Delete `:254-256`. The Dock action set is the action region for this instrument, and it
-already carries a named Copy.
+**Cure.** Delete the in-body control. Copy lives once, in the action region, named
+(`§7 Picker`: "Copy lives once in the action region"). `§5.5`: "operable ornaments without names are
+forbidden."
 
 ---
 
-### D-10 · MAJOR · Copy has no confirmation and no failure state; the design system already ships one
+### D-10 · MAJOR · Copy has no confirmation and no failure state
 
-**Evidence.**
+`:127-129` — `async function copyCSS() { await writeClipboard(coalescedCSS.value); }`. No `try`, no
+returned status, no surface. A rejected clipboard permission, an insecure context, or a
+`NotAllowedError` produces an unhandled rejection and a UI identical to success. `§4.1`: "failed…
+states are never color-only." `PR-08`: "Pending/failure… truth only transient →
+**ADD-AFFORDANCE**."
 
-```
-GradientVisualizer.vue:127-129
-  async function copyCSS() { await writeClipboard(coalescedCSS.value); }
-```
-
-No `try`, no status, no tick, no announcement. A rejected clipboard write (permission, insecure
-context, Safari user-gesture loss across the `await`) is indistinguishable from success.
-
-Twelve files away, in the same component tree, the producer's confirmed variant is already in use:
-
-```
-GradientEasingEditor.vue:96-104
-  const { status: copyStatus, copy } = useClipboard({ resetMs: 1400 });
-  … <Check v-if="copiedRow === row.index" …/> <Copy v-else …/>
-```
-
-**Law.** `VISUAL-CONSTITUTION §4.1` (state is never implicit), `§5` ("A transient flourish may
-celebrate success but never carries the only truth" — here there is no truth at all);
-`PROPORTION-AUDIT` PR-08 ADD-AFFORDANCE. Owner edict 4 — glass-ui is the design system; this is a
-hand-roll past a primitive that exists.
+**Cure.** The action region owns one durable result region for the whole instrument; `copyCSS`
+returns a result the region renders. Not a toast, not a tooltip (`§5.6`: "Subtraction precedes
+explanation").
 
 ---
 
-### D-11 · MAJOR · protagonist inversion — the meniscus is 3.8 % of the component, the easing inspector 49.8 %
+### D-11 · MAJOR · protagonist inversion *(pass-1 row, corroborated with my own numbers)*
 
-**Evidence.** The measurement table in §1.1(a). Preview area 30,818 px² of 481,455 px² = **6.40 %**
-at 1440; **9.71 %** at 390.
-
-`OPTICAL-BENCH-COMPOSITIONS.md:44` is the binding row:
+Pass 1 measured the meniscus preview at 6.40 % of component height and the Easing inspector at
+49.8 %. My independent measurement of the competing pair:
 
 ```
-| **Gradient** | P122 `golden`: meniscus/preview 61.8033989%; stop/easing/code inspector 38.1966011%. | …
+rail (protagonist)  462 × 40      area 18 480 px²   box-shadow  …/0.06 0px 2px 8px 0px
+tile (support)       96 × 128.55  area 12 341 px²   box-shadow  …/0.06 0px 2px 8px 0px   ← identical
+tile block / rail block = 3.21 ×          tile area / rail area = 66.8 %
 ```
 
-Measured proportion is the inverse of the ratified one. `PROPORTION-AUDIT` PR-09 ("Gradient/Easing
-protagonist subordinated → **ENLARGE**… One 19–22 rem protagonist; support subordinate") sets the
-floor at 19 rem = 304 px; the rail is 40 px, **13 % of the floor**.
-`VISUAL-CONSTITUTION §3.8` — "One pane may have one full-strength visual protagonist."
-
-**Cure.** The preview is the stage, not a strip: rail + render become one preview region that
-holds the golden share, and the easing catalogue collapses into a disclosure inside the inspector
-rather than occupying half the instrument at rest.
+`§7 Gradient`: "The rounded meniscus rail and its preview dominate." `§3` law 8: supports "do not
+compete… through equal size or **equal shadow**." `PR-09`: "Gradient/Easing protagonist
+subordinated → **ENLARGE**." Open.
 
 ---
 
-### D-12 · MAJOR · the housing contract is unmet — `InstrumentChassis` has zero consumers
+### D-12 · MAJOR · the housing contract is unmet *(pass-1 row)*
 
-**Evidence.**
-
-```
-$ grep -rn "InstrumentChassis" demo/ | grep -v node_modules
-(no output)
-
-$ ls node_modules/@mkbabb/glass-ui/dist/ | grep -i chassis
-instrument-chassis.d.ts
-instrument-chassis.js
-```
-
-The producer ships the primitive. The consumer housed the instrument in a generic Card instead:
-`GradientPane.vue:20` `<Card tier="resting" class="pane-scroll-fade w-full overflow-y-auto …">`.
-
-`VISUAL-CONSTITUTION §3.1`, Gradient row: *Outer housing* = **`InstrumentChassis`; no nested stage
-Card.** §4.2: "`InstrumentChassis` region presence and divider presence are independent. P122
-accepts a unique typed boundary set drawn from `{stage-inspector, inspector-action}`."
-
-That typed boundary set is exactly the mechanism the three hand-rolled `<hr>`s (D-6) stand in for,
-and the golden split is exactly the proportion D-11 is missing. D-6, D-11 and D-12 are one
-disease: **the component composes a chassis by hand out of `<hr>` and `flex-col gap-5` instead of
-consuming the one the design system provides.** Owner edict 4, and edict 3 (contrivance).
+`grep -rn InstrumentChassis demo/` → 0 hits. `VISUAL-CONSTITUTION §3.1` binds Gradient to
+`InstrumentChassis` with "no nested stage Card"; `GradientPane.vue:21` wraps the whole thing in
+`Card tier="resting"` and `GradientVisualizer` emits a bare `flex flex-col gap-5` with no
+stage / inspector / action regions at all. The composition the canon specifies does not exist in
+code.
 
 ---
 
 ### D-13 · MINOR · a support fixture carries the protagonist's shadow
 
-`:278` `.gradient-render-tile { box-shadow: var(--shadow-sm); }` and
-`GradientStopEditor.vue:325` `.gradient-rail { box-shadow: var(--shadow-sm); }`. Computed live,
-byte-identical on both:
+Retained as a distinct ledger row from D-11 because the cure differs: `:277` `box-shadow:
+var(--shadow-sm)` on `.gradient-render-tile` is a consumer-authored shadow on a support fixture.
+`§2`: "Instrument veil… no drop shadow." `PR-05` includes "caster shadows" → **REMOVE**. The tile
+already has `border border-card-edge` + `rounded-card` (16 px) + an alpha-checker ground: four
+boundary devices on a 96 px fixture.
+
+---
+
+### D-14 · MINOR · at rest the tile is a redundant second specimen
+
+Measured at the component's default *and* `resetGradient()` state (`:118-125`: linear, 90°):
 
 ```
-box-shadow  color(srgb 0.11 0.098 0.09 / 0.06) 0px 2px 8px 0px
+tile background-image  "linear-gradient(90deg, oklch(0.75 0.15 145) 0%, oklch(0.746875 …"
 ```
 
-`VISUAL-CONSTITUTION §3.8` — "Supporting fixtures do not compete with it through equal size or
-**equal shadow**." `PROPORTION-AUDIT` PR-05 (caster shadows repeat a boundary → REMOVE).
+`useGradientCSS.ts:258-262` — the rail "ALWAYS paints" `linear-gradient(90deg, …)`, "at every
+type/direction". At the default the two surfaces are the same image. The tile earns its area only
+when `type ≠ linear` or `direction ∉ {90, 270}` — and it charges 28.4 % of the mobile control width
+for that option (D-2). `§3` law 2 / `PR-04`: absent (here: redundant) support collapses.
+
+**Cure — the gestalt transposition, and my recommended architecture.** The rail and the tile are
+two renderings of one gradient; the file's own comments admit the split (`:214-218` "the honest
+surface"; `useGradientCSS.ts:258-262` "the rail ALWAYS paints this… normalized to 90° for
+editing"). Collapse to **one specimen**: the meniscus rail *is* the render (type + direction
+applied), with the stop handles riding an explicit normalized axis track beneath it. Failing that,
+the render becomes a full-inline-width specimen band at the top of the Interpolation section, where
+it can own an `aspect-ratio` and where it costs the controls nothing. Either way the right-rail
+fixture dies and D-2, D-3, D-11, D-13 and D-14 close together.
 
 ---
 
-### D-14 · MINOR · in the default state the tile is a redundant second specimen
+### D-15 · MINOR · forced-colors is unhandled here and the tranche's capture is void
 
-At `type=linear, direction=90` the rail paints a 90° ramp and the tile paints the same 90° ramp.
-Visible in `shots/safari-desktop-light/gradient.png` and `shots/safari-mobile-light/gradient.png`
-as two green→blue left-to-right washes. `PROPORTION-AUDIT §5.1-5.2` — one bounded specimen per
-housing; additional equal-weight zones require a different composition.
-
-The tile's stated justification (`:150-156`: "the honest surface for what Type + Direction DO")
-holds only for the states in which its geometry is dishonest (D-3). Fixing D-3 makes D-14 the
-remaining question: whether the shipped default should show the same picture twice.
+Zero `@media (forced-colors: active)` rules in `GradientVisualizer.vue`, for a component whose
+entire payload is `background-image` and whose sibling `GradientStopEditor.vue:353` does carry one.
+And `shots/forced-colors-desktop/gradient.png` is indistinguishable from the plain light capture,
+so the emulation did not apply — **the state is unproven, not passing**.
 
 ---
 
-### D-15 · MINOR · forced-colors is unhandled here **and** the tranche's forced-colors capture is void
+### D-16 · MINOR · `defineModel("selectedStopId")` is a public two-way API with no consumer *(pass-1 row)*
 
-**(a) The capture is void.** `shots/forced-colors-desktop/gradient.png` is visually
-indistinguishable from `shots/safari-desktop-light/gradient.png` — full colour, glass, shadows.
-`STATES.json` records `"engine": "webkit"` for that row and `states.mjs:24` passes
-`forcedColors: "active"`, which WebKit does not honour. The forced-colors arm for this route
-**has never actually been observed**.
-
-**(b) The source is asymmetric.** `.gradient-render-tile` (`:271-278`) has no
-`@media (forced-colors: active)` arm; its declared twin — the rail's paint stack, which the
-comment at `:267-270` says shares "the rail's material contract, same shape" — does:
-`GradientStopEditor.vue:350-359`. The tile's entire content is a `background-image` and its
-edge/lift are `--card-edge` + `--shadow-sm`, both of which forced-colors overrides or strips.
-
-**(c) RTL isolation.** `GradientCodeEditor.vue:86-101` renders a `contenteditable` CSS literal
-with no `dir="ltr"` and no `unicode-bidi: isolate`. `VISUAL-CONSTITUTION §6.1`: "CSS strings, hex,
-slugs, IDs and provenance render in **LTR-isolated spans** inside RTL prose." The hazard is live on
-this pane — `shots/rtl-desktop/gradient.png` shows the pane description's trailing period jump to
-the head of the line (`.Build gradients with per-interval easing and CSS output`).
-
-**Status.** (a) and (b) and (c) are facts. The *rendered* forced-colors outcome is a
-**HYPOTHESIS** until a Chromium `forcedColors: active` run is added to `states.mjs`; the WebKit row
-cannot settle it.
+`:51` declares it; `GradientPane.vue:25` mounts `<GradientVisualizer ref="visualizerRef" />` with
+no `v-model:selected-stop-id`. A public reactive contract with zero callers is dead surface
+(edict 2/3).
 
 ---
 
-### D-16 · MINOR · `defineModel("selectedStopId")` is a public two-way API with no consumer
+### D-17 · MINOR · silent no-op paths and a hard-coded selection model
 
-`:51` declares `const selectedStopId = defineModel<string | null>("selectedStopId", { default: null })`.
-Its sole parent renders it unbound: `GradientPane.vue:25` `<GradientVisualizer ref="visualizerRef" />`.
-A local `ref` wearing a public prop/emit costume — owner edict 3 (KISS, no contrivance) — and it
-obliges every future parent to learn a stop-identity vocabulary it has no use for.
+`:110-116` `seedFromPalette()` — `if (!pm) return`; `savedPalettes.value[0]?.colors` (the **first**
+palette, hard-coded, never chosen by the user); `if (colors && colors.length >= 2)` else nothing.
+It is a *named dock action* (`usePaneRouter.ts:210`, "Seed gradient stops from a saved palette")
+that can do nothing three different ways with no status. `§4.1` + `PR-08`.
 
-Compounding: `resetGradient()` (`:118`) mints fresh stop ids through `setStopsFromColors` but never
-clears `selectedStopId`, so after a Reset the model holds an id that no stop owns.
-
-(This ID matches `G4d` in `audit/probes/wb-gradient-stopeditor/gate-structure.mjs:79`; it is
-recorded here because the *design* consequence — a fictitious public surface — is this seat's.)
+**Cure.** The command either has a subject (a chosen palette) or it is not offered. Absent a
+qualifying palette the action is disabled with a stated reason; success names which palette seeded.
 
 ---
 
-### D-17 · MINOR · silent no-op paths and a masking optional-chain
+### D-18 · INFO · four sibling `h3`s and no `h1` *(pass-1 row)*
+
+`REPORT.md` per-capture table: `h1 = 0` on every route. The route H1 is the shell's job per `§4.1`;
+this component contributes three `h3`s under `PaneHeader`'s `h3`, so the pane's heading tree is
+four flat siblings with no `h1` above them.
+
+---
+
+### D-19 · INFO · nested easing catalogue is a 1482 px scroller inside a 462 px column *(pass-1 row)*
+
+`§7 Easing`: "Catalogue and specimen strips support the curve rather than reducing it to a tiny
+nested widget."
+
+---
+
+### E-1 · MAJOR · the 320 px arm was never measured; it is 6× worse than 390
+
+Folded into D-2's evidence, retained as its own ledger row because it is a *new named-arm failure*:
+`box 4 / ink 41` at `chromium-320`, `triggerW 46`. `VISUAL-CONSTITUTION §3.2` and §4 name 320 px as
+a binding observation arm alongside 1440, 390 and actual 400 % zoom. No prior pass measured it.
+
+---
+
+### E-2 · MAJOR · the live value does not reserve its widest legal representation
+
+**Measured**, keyboard `Home` then `End` on the Direction slider:
 
 ```
-GradientVisualizer.vue:110-116
-  function seedFromPalette() {
-      if (!pm) return;
-      const colors = pm.savedPalettes.value[0]?.colors.map((c) => c.css);
-      if (colors && colors.length >= 2) { setStopsFromColors(colors); }
-  }
+1440   0°   left 557.81  right 578  w 20.19
+     360°   left 537.63  right 578  w 40.38     → left edge travels 20.18 px
+ 720   0°   w 17.98   → 360°  w 35.95
+ 390   0°   w 17.23   → 360°  w 34.47
+computed  fontVariantNumeric "tabular-nums"   minWidth "auto"
 ```
 
-The shipped default state of this route is "No saved palettes yet." (visible in all four Safari
-captures). Pressing the Dock's **Seed from palette** in that state does nothing and says nothing —
-no toast, no status, no disabled state on the action. `PROPORTION-AUDIT` PR-08.
+`:230` `<span class="text-mono-small … tabular-nums">{{ direction }}&deg;</span>` inside
+`justify-between` (`:228`). The right edge is pinned, so the *ink* jumps two digit-widths during a
+single continuous drag.
 
-```
-GradientPane.vue:12-14
-  reset: () => visualizerRef.value?.resetGradient?.(),
-```
+**Law.** `§4`: "Live numbers use tabular figures **and reserve their widest legal representation so
+value changes never reflow the settled chassis**." `PROPORTION-AUDIT §5.8`: "Real rendered relation
+wins over token intent… token presence alone cannot close a row" — `tabular-nums` is present and
+insufficient.
 
-The trailing `?.` guards a method `defineExpose` statically guarantees. A masking fallback —
-owner edict 2.
+**Cure.** The reserved-value slot is part of glass-ui's axis composition (`§5`: "label, unit,
+**reserved live value**, optional numeric entry"). Adopt it; do not hand-roll a `justify-between`
+row and hope.
 
 ---
 
-### D-18 · INFO · four sibling `h3`s and no `h1`
+### E-3 · MAJOR · two focus vocabularies inside one two-row band
 
-`PaneHeader.vue:21` renders the instrument identity as `<h3 class="pane-header-title font-display">`.
-GradientVisualizer adds three more `h3`s (`:149`, `:241`, `:253`) at the same level, so
-"Interpolation" / "Easing" / "CSS" are *siblings* of "Gradient" rather than its children.
-`REPORT.json` records `counts.h1: 0` on `/#/gradient` in all four matrices, against
-`VISUAL-CONSTITUTION §4.1` ("Each route has one H1"). The route-level `h1` is the shell's; the flat
-sibling outline is this component's choice of level.
+**Measured**, tabbing from the Type trigger (Chromium 1440):
+
+```
+Gradient type         outline "3px none rgb(28, 25, 23)"     boxShadow "color(srgb 0.6655 0.0001 0.2617 / 0.3) 0px 0px 0px 2px…"
+Interpolation space   idem
+Hue interpolation     idem
+Gradient direction    outline "1px auto rgb(0, 95, 204)"     boxShadow "none"          ← UA default blue
+```
+
+The three Selects consume the app's branded focus register; the Slider — 20 px below them, in the
+same band — falls back to the browser's native blue outline. `demo/styles/focus-ring.css` exists
+precisely as the single register ("…its forced-colors/prefers-contrast register — never a…"); the
+demo/ui Slider is outside it.
+
+**Law.** `§4.1`: "Focus remains visibly distinct from selection in both schemes, forced colors and
+reduced transparency" — a register the component only half-consumes cannot satisfy the
+forced-colors and reduced-transparency arms.
+
+**Cure.** Root: glass-ui `Slider` (E-4), which owns the register. Not a per-instance
+`focus-visible` patch here (edict 5).
 
 ---
 
-### D-19 · INFO · the nested easing catalogue is a 1482 px scroller inside a 462 px column
+### E-4 · MAJOR · five design-system boundary breaches in one 279-line file
 
-Measured live: `.strip-row` natural width **1482.1 px** inside `.fading-scroll--x.specimen-strip`
-whose `clientWidth` is **436 px** — 29 % visible, inside the Card's `overflow-x-hidden`. It is
-reported as `bleeding` / `clipped` on **every one of the ten** gradient captures in `REPORT.json`
-and `STATES.json`. Owned by `wb-gradient-easingeditor`; recorded here because GradientVisualizer is
-the composer that seats a 3.4×-oversize horizontal scroller as its largest region (D-11).
+See §4. `Select` and `Slider` come from `demo/ui/` while `@mkbabb/glass-ui@7.0.0` ships `./select`
+and `./slider`; the divider is a raw `<hr>` while `./separator` exists; the label/field couple is
+hand-rolled four times while `./label` and `./labeled-field` exist; Direction has no numeric entry
+while `./number-field` exists and `§5` calls it out by name. Owner edict 4 +
+`VISUAL-CONSTITUTION §5` ("sits over BI `Slider`"). E-2 and E-3 are the *measured consequences* of
+this one breach — which is why the cure is a transposition, not four patches.
 
 ---
 
-## 5. Mechanism families
+### E-5 · MAJOR · reduced motion makes it worse, and the global guard does not reach these surfaces
 
-| Family | Members | One cure |
+Full measurement in §3: 49 → **250** transitioning elements in the visualizer subtree under
+`prefers-reduced-motion: reduce`; the render tile acquires
+`transition: opacity, color, background-color, border-color, box-shadow 0.1s` where
+`demo/styles/animations.css:184-191` declares `transition-duration: 0.01ms !important` for the same
+media query. `§6`: "Reduced motion resolves directly to the final geometry and stable chromatic
+state."
+
+The mechanism is a **labelled hypothesis** (my CSSOM walk found no matching declaration; no source
+file declares that property list under a reduce query). The measurement is reproducible. The site
+is this component; the jurisdiction is the global root.
+
+---
+
+### E-6 · MINOR · RTL — the Direction annotation no longer annotates its axis
+
+`shots/rtl-mobile/gradient.png`: `DIRECTION` sits at the physical right, `90°` at the physical
+left, while the slider fill remains at the physical-left 25 % (correct per `§5.2`, "numeric/
+scientific sign never mirrors"). The label therefore captions the maximum end of the track and the
+live value captions the minimum end. Cause: `:228` uses a logical `justify-between` row over a
+physically-anchored track.
+
+**Cure.** The axis composition binds label, unit and value to the track's own start/end, which is
+exactly what a producer-owned Slider composition does (E-4).
+
+*Adjacent, not mine, filed to those seats:* in the same capture `GradientEasingEditor`'s interval
+label renders `2 → 1` instead of `1 → 2` (ordinal digits reordered by bidi — `§5.2` "preserve
+explicit ordinal identity"), and `PaneHeader`'s description renders `.Build gradients with…` with
+the terminal period moved to the front (`§6.1`: strings "render in LTR-isolated spans inside RTL
+prose").
+
+---
+
+### E-7 · MINOR · the render tile's accessible name is a constant across every state it exists to communicate
+
+**Measured**, three probes, one string:
+
+```
+type = linear   aria-label "Gradient render with type and direction applied"
+type = radial   aria-label "Gradient render with type and direction applied"
+type = conic    aria-label "Gradient render with type and direction applied"
+```
+
+`:222`. The tile is `role="img"` with no child content, so this label *is* its entire non-visual
+content — for the one surface whose declared job (`:214-215`) is showing "what Type + Direction
+DO". A non-visual user gets zero information across 3 types × 361 angles.
+
+**Law.** `§4.1`: "Role, **accessible name, state/value**… are explicit."
+
+**Cure.** The name is derived: `Gradient preview — conic, start angle 90 degrees, 2 stops`. The
+same derivation feeds the slider's missing `aria-valuetext` (D-4).
+
+---
+
+### E-8 · MINOR · `text-micro` is not a role in the closed type matrix
+
+`:172`, `:189`, `:206` — `<span class="text-micro text-muted-foreground">` on the three SelectItem
+description slots. `§4`'s matrix is closed and contains no `text-micro` rung; dropdown options are
+explicitly `control or label, including dropdown options → text-small → Plus Jakarta Sans,
+non-bold`. Three sites, one recipe, root-level cure.
+
+---
+
+### INFO · Safari's Tab order is not a component defect, but the component has no fallback
+
+Under WebKit the tab sequence from the Type trigger was
+`Gradient type → Gradient direction → …`, **skipping** Interpolation space and Hue interpolation.
+This is macOS/WebKit's default "Tab highlights only text fields and lists" behaviour affecting all
+`<button>`s app-wide — **not** this component's defect, and I record it as such rather than
+manufacture a finding. The component-level observation that survives: these three values have no
+keyboard or numeric equivalent other than the Select, so wherever the platform makes buttons
+non-tabbable the entire Interpolation band becomes inoperable. `§5`: "every spatial action has a
+keyboard/numeric equivalent."
+
+---
+
+## 7. Mechanism families
+
+| Family | Rows | One cure |
 |---|---|---|
-| **Two truths for one artifact** | D-1, D-5, D-14 | one model → one serialization → one surface; derive, never mirror |
-| **Hand-rolled chassis** | D-6, D-11, D-12, D-13 | consume glass-ui `InstrumentChassis` with `boundaries=[]`, `golden` split |
-| **Type jurisdiction drift** | D-7, D-8, D-18 | apply `VISUAL-CONSTITUTION §4` verbatim; `section-label` is not a control-label recipe |
-| **States never designed** | D-4, D-10, D-17, D-15 | every branch that can no-op gets an explicit disabled/absent/failed rendering |
-| **Duplicate action owners** | D-9, D-10 | the Dock action set is the sole action region |
-| **Desktop composition transplanted to mobile** | D-2, D-3 | the band stacks; the specimen owns its aspect |
+| **F1 · two serializers, one gradient** | D-1 | one on-screen serialization; delete the unlabelled parallel path |
+| **F2 · the right-rail render tile** | D-2, D-3, D-11, D-13, D-14, E-1, E-7 | the tile stops being a grid sibling of the controls; one specimen, aspect owned, name derived |
+| **F3 · demo/ui instead of glass-ui** | E-2, E-3, E-4, D-8, E-8 | adopt `./select`, `./slider`, `./separator`, `./label`, `./labeled-field`, `./number-field`; fix the recipes at the producer root |
+| **F4 · consumer-authored boundaries** | D-6, D-13 | delete every `<hr>` and the fixture shadow; `InstrumentChassis` typed boundaries only |
+| **F5 · closed type matrix violated** | D-7, D-8, E-8 | `text-heading`/Plus Jakarta for headings; `text-small` for labels and options |
+| **F6 · one command, two seats / no name / no result** | D-9, D-10 | Copy lives once, in the action region, named, with a durable result |
+| **F7 · states that were never drawn** | D-4, D-5, D-15, D-17, E-5, E-6 | type-conditional axis; complete reset; forced-colors register; disabled-with-reason; reduced-motion at the root |
+| **F8 · dead public surface** | D-16 | delete |
 
 ---
 
-## 6. What is genuinely sound
+## 8. What is genuinely sound — the negative proof
 
-Recorded so the ledger is not one-sided:
+Positive evidence, not absence of looking:
 
-- **The parse-failure state is well designed** — `parseVerdict` drives a destructive border plus a
-  `role="status"` Fira verdict, the user's text is never rewritten under the caret, and the apply
-  is atomic (`GradientCodeEditor.vue:34-40`, `useGradientModel.ts:151-168`). This is the model the
-  copy/seed states should follow.
-- **`verbatimModuleSyntax` is clean** — every type-only import at `:22, :25, :26, :28` is
-  `import type`; edict 8 satisfied.
-- **Reduced motion is honoured** and no property that forces layout is animated (§3).
-- **200 % zoom reflows correctly** — `STATES.json` `zoom-200-desktop /#/gradient`: `overflowX: 0`,
-  single-pane, selects legible (`shots/zoom-200-desktop/gradient.png`).
-- **Dark mode is structurally identical** to light; no scheme-specific defect found.
-- **The tile is correctly non-interactive** — `role="img"` with a real `aria-label` (`:221-222`),
-  not an unlabelled button (`PROPORTION-AUDIT §5.9`).
-- **Zero page errors, zero console errors, zero horizontal overflow** on `/#/gradient` across all
-  four Safari matrices (`REPORT.json`).
+- **No crashes, no overflow, no landmark faults.** `REPORT.md:125,140,155,170` — `/#/gradient` is
+  `overflowX 0`, `main 1`, `pageErr 0`, `consoleErr 0`, `hasDarkClass` true in both dark matrices,
+  across all four Safari matrices. App-wide: `blankOrNearBlank 0`, `pageErrors 0`,
+  `horizontalOverflow 0`, `darkClassMissing 0`, `mainCountNotOne 0`.
+- **The tile is honest about *which* function it paints.** Three live probes returned three
+  genuinely different background strings — `linear-gradient(90deg, …)`,
+  `radial-gradient(oklch(…) 0% …)`, `conic-gradient(from 90deg, …)` — so `coalescedCSS` really does
+  reach the paint. The defect is its frame and its label, not a stale binding.
+- **200 % zoom passes.** At 720 px CSS width the trigger value boxes are 108 px with 43–50 px of
+  ink, `clipped 0`; `shots/zoom-200-desktop/gradient.png` shows an intact composition.
+- **The three Selects carry explicit accessible names.** `aria-label="Gradient type" |
+  "Interpolation space" | "Hue interpolation"` (`:165,182,199`) — measured present in every run.
+  The route's single nameless button is the Copy control, and only that.
+- **The one sampling law is real.** `colorAtPosition` (`:64-88`) feeds the add-ghost, the minted
+  stop colour and the tile from the same easing resolver — the W5-11 "invisible added stop" defect
+  is genuinely cured; the eased-add path is correct.
+- **The component authors zero motion of its own**, so it introduces no untokenized animation and
+  animates no layout-forcing property. Every one of the 49 baseline transitions in its subtree is
+  producer/child-owned and tokenized (`--duration-fast` 0.12 s, `--duration-normal` 0.2 s,
+  `--spring-snappy-duration` 0.44 s). The reduced-motion regression (E-5) is a global-guard defect
+  measured *at* this component, not authored *by* it.
+- **`verbatimModuleSyntax` is clean.** Every type-only import uses `import type` (`:22, :25, :26,
+  :28`); no mixed import.
+- **Vue 3.5 idiom is largely correct**: `defineModel` for selection, reactive props destructure and
+  `useTemplateRef` in the sibling editor, no god module (four focused files plus composables).
 
 ---
 
-## 7. Reproduction index
+## 9. Reproduction index
 
-| ID | Command / action | Result |
+| ID | Command / step | Observed |
 |---|---|---|
-| D-1 | `/#/gradient` → click `css → in-out` tile → read editor text vs tile `background-image` | 2 stops un-eased vs 33 stops eased |
-| D-2 | viewport 390×844 → measure `SelectValue` scroll/client widths | 41/27, 48/27, 48/27 |
-| D-3 | measure tile rect at 1440 and 390 | 0.747 vs 0.656 aspect |
-| D-4 | set `type=radial` → inspect the direction thumb | `tabindex="0"`, `aria-disabled` null, output has no angle |
-| D-5 | set easing `in-out` → Dock **Reset** → read `.readout-rail code` | still `cubic-bezier(0.42, 0, 0.58, 1)` |
-| D-6 | `document.querySelectorAll('hr')` within the component root | 3 |
-| D-7 | `getComputedStyle(h3)` | Fraunces / 20.352 px |
-| D-8 | `getComputedStyle('.section-label')` | Fira Code / uppercase / 14.384 px |
-| D-9 | enumerate visible buttons on the route | two "Copy CSS", one nameless |
-| D-11 | measure root + rail + tile rects | 6.40 % preview share |
+| D-1 | navigate `/#/gradient`, click the `in-out` easing specimen, diff tile paint vs editor text | tile @3.13 % `0.746875 0.150937 148.75` → `0.749813 0.150056 145.225`; editor text byte-identical, `editorStops 2` |
+| D-2 / E-1 | `node probes/challenge-D-states-probe.mjs` | 390: box 27 / ink 41–48. **320: box 4 / ink 41–48, triggerW 46** |
+| D-3 | `node probes/challenge-D-design-probe.mjs` | 96×128.55 (0.747) / 96×123.73 (0.776) / 80×121.84 (0.657); `radial-gradient(` with no shape keyword |
+| D-4 | same probe, `type=radial` branch | `ariaDisabled null, dataDisabled null, tabIndex 0, pointerEvents auto, opacity 1`; output carries no angle; `aria-valuetext null` |
+| D-5 | Dock **Tools → Reset** after choosing `in-out` | **NOT REACHED** (`RESET NOT FOUND`); code-supported hypothesis only |
+| D-6 | `document.querySelectorAll('main hr')` | 3, at y 260.7 / 480.8 / 769.3 |
+| D-7 | `getComputedStyle(h3)` ×3 | Fraunces 20.352 px / 600, `rgb(112,89,66)` |
+| D-8 | `getComputedStyle('.section-label')` | Fira Code 14.384 px, letterSpacing 1.4384 px, uppercase |
+| D-9 | audit predicate `capture.mjs:102-105` over `button,[role=button]`, 5 runs | exactly 1 nameless, always `title="Copy CSS"`, `inPane true`; `usePaneRouter.ts:209` is the second seat |
+| D-11 | measure rail + tile rects and shadows | 462×40 vs 96×128.55; box-shadow strings byte-identical; 3.21× block, 66.8 % area |
 | D-12 | `grep -rn InstrumentChassis demo/` | 0 hits |
-| D-15 | diff `forced-colors-desktop/gradient.png` against `safari-desktop-light/gradient.png` | indistinguishable → capture void |
+| D-14 | read tile `background-image` at default | `linear-gradient(90deg, oklch(0.75 0.15 145) 0% …` = the rail's own always-90° ramp |
+| D-15 | diff `forced-colors-desktop/gradient.png` vs `safari-desktop-light/gradient.png` | indistinguishable → capture void; 0 `forced-colors` rules in this file |
+| E-2 | focus slider, `Home` then `End`, measure the readout rect | 20.19 px → 40.38 px, right edge pinned at 578 |
+| E-3 | tab through the band, read `outline` + `boxShadow` | branded ring on Selects; `outline: 1px auto rgb(0,95,204)` on the Slider |
+| E-4 | `Object.keys(require('@mkbabb/glass-ui/package.json').exports)` | 74 subpaths incl. `./select ./slider ./separator ./label ./labeled-field ./number-field`; file imports none |
+| E-5 | same probe with `reducedMotion:"reduce"` | 49 → 250 transitioning elements; tile `0.1s` vs guard's `0.01ms !important` |
+| E-6 | read `shots/rtl-mobile/gradient.png` | `DIRECTION` right, `90°` left, fill physically left |
+| E-7 | read tile `aria-label` at linear / radial / conic | one identical string, three states |
+| E-8 | read `:172,:189,:206` against `VISUAL-CONSTITUTION §4` | `text-micro` absent from the closed matrix |
 
-Artifacts produced by this seat (read-only browser session):
-`/Users/mkbabb/Programming/value.js/.playwright-mcp/radial-tile.png`,
-`/Users/mkbabb/Programming/value.js/.playwright-mcp/mobile390-band.png`.
+---
 
-No source file was modified by this seat.
+## 10. Disposition
+
+**DEFECTIVE.** The component is competently *built* — the sampling law is right, the type system is
+clean, the motion it authors is none and therefore harmless. It is *designed* wrong in one specific,
+compounding way: **it decided that a gradient needs three surfaces.** An editing rail that
+normalizes away the very parameters the section is about; a right-rail tile that restores them in a
+frame whose proportion nobody chose and that costs the controls their legibility; and a code panel
+fed by a second serializer that silently drops half the instrument's authoring. Every other row —
+the dividers, the two Copy seats, the Fraunces headings, the unreserved readout, the dead Direction
+slider — is a symptom of the same refusal to decide what the one specimen is.
+
+The gestalt cure is subtraction: **one gradient, one specimen, one serialization.** The rail becomes
+the render; the tile dies and returns its 28 % of the mobile width; the CSS panel shows the bytes
+Copy writes; the controls become a producer-owned label/value/axis composition inside an
+`InstrumentChassis` with no `<hr>` in it. That single transposition closes D-1, D-2, D-3, D-6,
+D-11, D-13, D-14, E-1, E-2, E-3, E-4 and E-7 at once.

@@ -1,662 +1,604 @@
-# CHALLENGE-C — `demo/workbenches/extract/ExtractWorkbench.vue` — implementation
+# CHALLENGE-C — `demo/workbenches/extract/ExtractWorkbench.vue` — implementation (r2)
 
 ## Model receipt
 
-I observe myself to be **Opus 5** (`claude-opus-5[1m]`, 1M-context variant), the tier this seat was
-explicitly spawned with. Declared, not inherited.
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`, the 1M-context variant) — the tier this seat
+was spawned with an explicit declaration for. Declared, matched, not inherited.
 
 - **Axis:** implementation (premise: the component is improperly implemented)
 - **Subject:** `/Users/mkbabb/Programming/value.js/demo/workbenches/extract/ExtractWorkbench.vue` (293 lines)
-- **Blast radius read:** `composables/useExtractSession.ts` (223), `composables/useImageQuantize.ts` (161),
-  `ImageDropZone.vue` (113), `ExtractControls.vue` (151), `ExtractPane.vue` (37), `quantize-worker.ts` (44),
-  `ImageEyedropper/ImageEyedropper.vue` + `composables/useImageSampler.ts`, `src/quantize.ts` (139)
-- **Repo state:** branch `tranche-u`, HEAD `7cae8bd0` (the prompt cited `c654824e`; the tree has
-  advanced 5 commits — none touch `demo/workbenches/extract/**`, verified below)
-- **Probes:** live dev server `http://localhost:9000` (Playwright, read-only), the mega-tranche visual
-  audit `REPORT.json`, `npx tsx` against `src/quantize.ts`
+- **Blast radius read in full:** `composables/useExtractSession.ts` (223), `composables/useImageQuantize.ts` (161),
+  `quantize-worker.ts` (44), `ImageDropZone.vue` (113), `ExtractControls.vue` (151), `ExtractPane.vue` (37),
+  `ImageEyedropper/ImageEyedropper.vue` (298), `src/quantize.ts`, `demo/palettes/usePaletteStore.ts`,
+  `e2e/smoke/walk.spec.ts`, `e2e/smoke/oracles/o9-shadow-palette.spec.ts`, `e2e/smoke/fixtures/env-noise.ts`,
+  `test/v4-quantize.test.ts`, `docs/.../visual/capture.mjs`
+- **Repo state:** branch `tranche-u`, HEAD `7775473b` at execution (the brief pinned `c654824e`; the tree
+  has advanced — all intervening commits are `docs(...)`, none touch `demo/workbenches/extract/**`)
+- **Pass:** r2. A pass-1 report (2026-07-27, HEAD `7cae8bd0`) existed at this path; it is preserved
+  verbatim at `challenge-C-implementation.pass1-2026-07-27.md` and is **superseded, not discarded** —
+  its 21 findings are carried below with their original ids and an explicit verification status.
 
-**Verdict: DEFECTIVE.** 21 findings, 2 BLOCKER, 8 MAJOR. The two blockers are both *proven live*, not
-inferred: the instrument renders one image while reporting the palette of a different one, and the
-camera hardware stays powered after the component unmounts.
-
----
-
-## Provenance of the HEAD discrepancy
-
-```
-$ git rev-parse HEAD
-7cae8bd0ba3daa96650e37a9b7efbb4bed89b1fb
-$ git log --oneline -5
-7cae8bd0 docs(V·megatranche): bank the wall-interrupted challenge harvest ...
-041ca263 docs(V·megatranche): fold Phase D ...
-6085965e docs(V·megatranche): fold adjudication r2 ...
-9bcd5d91 docs(V·mail): row O-11..O-15 + O-10a ...
-c0078d96 docs(V·megatranche): durability checkpoint ...
-```
-All five are `docs(...)`. No source drift under `demo/workbenches/extract/`; the findings below hold
-at `c654824e` as well.
+**Verdict: DEFECTIVE.** 28 findings, 2 BLOCKER, 11 MAJOR. This pass adds **7 new findings** and issues
+**2 corrections** against pass-1 (one of which overturns a pass-1 *negative* result — a class of image
+this component reports as "no image was ever fed").
 
 ---
 
-## C-1 · BLOCKER · The instrument lies: preview and palette can describe different images
+## What r2 did
 
-**Mechanism.** `useExtractSession.onFile` (`composables/useExtractSession.ts:164-168`) runs two
-independent async paths with no request token and no sequencing:
+Not a re-read. Every claim below is either (a) independently re-measured against the live dev server
+or the library, or (b) explicitly marked as carried from pass-1 with the basis stated.
 
-```ts
-async function onFile(file: File) {
-    lastFile.value = file;                          // synchronous
-    previewDataUrl.value = await readAsDataUrl(file); // resolves in FILE-SIZE order
-    runQuantize();                                   // re-reads lastFile.value AFTER the await
-}
+Probes run this pass (headless Chromium, Playwright, read-only against the repo; scripts in the
+session scratchpad):
+
+| probe | establishes |
+|---|---|
+| `probe-extract.mjs` | CDP `Accessibility.getFullAXTree` accnames · live-region census · **C-5 re-repro** |
+| `probe-extract-2.mjs` | decode/`getImageData` instrumentation · focusability · **C-2 re-repro** · per-k-step cost |
+| `probe-extract-3.mjs` | worker traffic, happy path (small image) |
+| `probe-extract-4.mjs` | worker timeline, 3000×2000 (happy path, 502 ms end-to-end) |
+| `probe-extract-5.mjs` | **C-22 repro** — result column wedged on the skeleton, DOM outline |
+| `probe-slider.mjs` | computed styles of the k rail / kC track / range (**C-23**) |
+| `tie.ts` (`npx tsx`) | **C-8 re-derivation** against `src/quantize.ts` directly |
+
+```
+$ git log --oneline -1
+7775473b docs(V·megatranche): STATE — excavation folded COMPLETE (15/15 on disk), r3 delta row added
 ```
 
-`lastFile` is written synchronously in call order; `previewDataUrl` is written in *FileReader
-completion* order, which is size-ordered, not call-ordered. Nothing reconciles the two. A second file
-dropped before the first `readAsDataUrl` settles causes the later-resolving (larger, *earlier*) read
-to overwrite the preview with the stale image, while `runQuantize()` — reading `lastFile.value` at
-await-resume time — quantizes the newer one, twice.
+### Verification ledger against pass-1
 
-**Reproduction (run, output pasted).** Two `drop` events in one tick on `/#/extract`: A = 2400×1800
-all-red noise PNG (11,537,022 B), B = 8×8 solid `#0000ff` PNG (107 B).
-
-```json
-{
-  "fileSizes": { "A": 11537022, "B": 107 },
-  "previewIsA_bigRed": true,
-  "previewDataUrlLength": 15382718,
-  "dominantReadout": ["oklch(45.201371817442% 0.313214388634 264.05202261637deg)"],
-  "verdict": "DESYNC: preview=A(red), palette=B(blue)"
-}
-```
-
-Hue `264.05°` is image **B** (blue). The rendered `<img alt="Uploaded image">` carries a 15,382,718-char
-data URL — image **A** (red). The component displays a red photograph and states, in its own words,
-that *"% of the image"* is blue.
-
-This is the worst possible failure for a colour instrument: it is not an error, it is a *confident
-wrong answer*. `ExtractWorkbench.vue:22` binds the preview and `ExtractWorkbench.vue:118-143` binds the
-readout; both trust that the session is internally coherent. It is not.
-
-**Cure (transposition, not patch).** The session needs a monotonic request token. `onFile` becomes a
-single ordered pipeline: increment `requestId`, capture it, and gate *both* the preview write and the
-quantize dispatch on `requestId === myId`. Better still — and this kills C-7 with it — stop routing
-the preview through a `FileReader` data URL at all: `URL.createObjectURL(file)` is synchronous, so the
-preview write happens in the same tick as `lastFile` and the desync window closes by construction
-(revoke in `onBeforeUnmount` / on replacement).
+| pass-1 id | r2 status |
+|---|---|
+| C-1 preview≠palette desync | **CARRIED — re-verification ATTEMPTED, BLOCKED.** Two probe runs failed at `waitForSelector("main input[type=file]")` after 60 s; the dev server was under concurrent load from sibling seats (a `networkidle` goto also timed out at 30 s in the same window). Pass-1's pasted JSON stands unchallenged; the mechanism (`useExtractSession.ts:164-168`, an `await` between the `lastFile` write and the `runQuantize` read) is plain in source. |
+| C-2 camera leak | **RE-REPRODUCED INDEPENDENTLY** (different method: real `getUserMedia` behind a latency wrapper, not a stubbed stream). Output pasted below. |
+| C-5 malformed image | **RE-REPRODUCED**, and extended — see C-25 (a *second*, unguarded intake path). |
+| C-6 keyboard-unreachable eyedropper | **RE-MEASURED** (focusable-set enumeration). Extended (dead label branch) + **CORRECTION-B** on the stated mechanism. |
+| C-7 memory/bandwidth | **RE-MEASURED** at a different granularity: cost *per k-slider step*, not just per load. |
+| C-8 dominance ≠ first swatch | **RE-DERIVED** from `src/quantize.ts` directly via `npx tsx`. Output pasted. |
+| C-9 vacuous gate | **RE-CONFIRMED** by grep; sharpened (the e2e fixture already listens on `pageerror`). |
+| C-10 no live region | **RE-MEASURED** (`aria-live` 0, `aria-busy` 0). **CORRECTED in part** — see C-22. |
+| C-11 names/tap targets | **RE-MEASURED**; **CORRECTION-A** on "nameless". |
+| C-12b/c dead paths | **RE-CONFIRMED** by grep; C-12c extended into C-23 with computed styles. |
+| C-13, C-14, C-15, C-17, C-18, C-19, C-20, C-21 | **CARRIED — confirmed by source inspection** this pass; C-13 and C-20 extended. |
+| C-3, C-4, C-12a, C-16 | **CARRIED** on pass-1's evidence; not re-run (camera double-open, viewfinder close, dead `split` layout, no-op click). Each is a direct source read I re-walked and agree with. |
 
 ---
 
-## C-2 · BLOCKER · Camera hardware stays live after the component unmounts
+# NEW FINDINGS (r2)
 
-**Mechanism.** `ExtractWorkbench.vue:239-263`:
+## C-22 · MAJOR · NEW · `isProcessing` is a latch — no timeout, no cancellation, no way out (and it *corrects* C-10)
 
-```ts
-async function startCamera() {
-    cameraActive.value = true;
-    cameraStream = await navigator.mediaDevices.getUserMedia({...});  // ← assignment AFTER the await
-    ...
-}
-function stopCamera() {
-    if (cameraStream) { cameraStream.getTracks().forEach(t => t.stop()); cameraStream = null; }
-    cameraActive.value = false;
-}
-onBeforeUnmount(stopCamera);
+`isProcessing` is set `true` at `useImageQuantize.ts:87` and cleared **only** by a worker reply
+(`:65`) or `onerror` (`:71`). There is no timeout, no abort, no request identity. If a reply is slow
+or never comes, the result plate sits on `PaletteCardSkeleton` indefinitely — and every other control
+that could rescue the user is unaffected, because the `disabled` prop reaches only Reset (C-13ext).
+
+**Reproduced (probe 5).** 4 s after a *successful* decode of a 3000×2000 PNG — one decode, zero
+unhandled rejections, zero page errors — the result column is:
+
+```
+=== decodes (should be exactly 1 for the load) === [ { "ms": 23.2, "w": 3000, "h": 2000 } ]
+=== unhandled === []          === errors === []
+=== result column DOM ===
+"colText": "5 kC 0.5"
+div.skeleton-ink-register.rounded-card.border.border-card-edge
+  div.flex.h-10.w-full
+    div.skeleton.h-full.rounded-none  ×5
+  div.px-3.pb-3.flex.flex-wrap
+    div.skeleton.w-12.h-12.sm:w-14    ×5
 ```
 
-`onBeforeUnmount(stopCamera)` can only stop a stream that has already been assigned. If the component
-unmounts while the permission prompt is open, `cameraStream` is still `null` at teardown; the
-`getUserMedia` promise then resolves into a **dead component's closure** and the tracks are never
-stopped. There is no `AbortController`, no unmounted flag, no post-await guard.
+**Correction to pass-1 C-10.** C-10 asserts `"skeletonAppearedAtMs": "NEVER"` and concludes the
+`Transition mode="out-in"` branch "does not render". That is true only on the *fast* path. It renders
+whenever the worker loses the race — and then nothing takes it away. The accurate statement is:
+**the skeleton's visibility is a race with no resolution in either direction** — invisible when the
+worker is fast (C-10's measurement), permanent when it is slow (this measurement). Both halves are
+the same missing mechanism: no state machine, only two booleans and a transition.
 
-**Reproduction (run, output pasted).** `getUserMedia` stubbed to return a stream whose track records
-`stop()` — the stub controls *only the timing*, the component code path is untouched. Click
-"Open camera" on `/#/extract`, route away (`location.hash = '#/picker'`), *then* resolve the permission:
+Honesty about the trigger: the dev server was contended during this run, so the worker's *module
+fetch* was slow (the identical load completes in **502 ms** warm — probe 4 timeline: `post` at
+t=437 ms carrying 24,000,000 bytes, `worker-message result n=5` at t=502 ms). The environment caused
+the delay; the **defect** is that a delay of any origin has no recovery path — no timeout, no retry
+affordance, no error, no cancel.
 
-```json
-{
-  "workbenchUnmounted": true,
-  "tracks": [ { "id": "S1", "stopped": false } ],
-  "verdict": "LEAKED — camera track never stopped"
-}
-```
-
-In a real browser this is the camera indicator staying lit on a page the user has navigated away from,
-with no UI anywhere to turn it off. It survives every in-app navigation; only closing the tab clears it.
-
-**Cure.** The camera is a *resource with a lifetime*, not a pair of functions. Extract a
-`useCameraStream()` composable that owns an `AbortController` + a `disposed` flag, guards the
-post-await assignment (`if (disposed) { stream.getTracks().forEach(t => t.stop()); return; }`), and
-registers its own `onScopeDispose`. Two consumers already want it — this workbench and the dead
-`quantizeFromCamera` in `useImageQuantize.ts:115-146`, which is a *third* uncalled implementation of
-the same thing (see C-12b).
+**Cure.** An in-flight record `{id, startedAt}` with `isProcessing = computed(() => inflight !== null)`,
+a timeout settling the request as a typed failure (`quantize_worker_timeout`), and worker re-creation
+on a settled failure — which also fixes pass-1 C-13's dead-worker-never-replaced half.
 
 ---
 
-## C-3 · MAJOR · A second camera open orphans the first stream
+## C-23 · MAJOR · NEW · Both sliders paint their range in the same ink as their track: the instrument cannot show its value
 
-`ExtractControls.vue:49-55` never disables the camera control. `ExtractWorkbench.vue:70` computes
-`:disabled="session.isProcessing.value || cameraActive"` — but `ExtractControls` forwards `disabled`
-**only** to the Reset button (`ExtractControls.vue:84`). Upload and Camera stay live. A second click
-re-enters `startCamera` and overwrites `cameraStream`, orphaning the first stream's tracks forever.
+Pass-1's C-12c found that `kSliderGradient`'s `"var(--muted)"` fallback never renders. That is the
+smaller half. The measured cause and its consequence:
 
-**Reproduction (run, output pasted).** Click "Open camera" twice, 300 ms apart:
+`ExtractControls.vue:22` sets a shorthand and one of its own longhands in a single style object:
 
-```json
-{
-  "cameraButtonStateAfterOpen": [ { "disabled": false, "ariaDisabled": null } ],
-  "tracks": [ { "id": "S1", "stopped": false }, { "id": "S2", "stopped": false } ],
-  "videoCount": 1
-}
+```
+:style="{ background: gradient, backgroundColor: trackInk, boxShadow: `inset 0 0 0 1.5px ${trackInk}` }"
 ```
 
-Two live streams, one `<video>`, zero stops. **Cure:** the same `useCameraStream()` — a resource
-composable is idempotent on `start()` by construction.
+Computed result on the live page (probe 6, `[data-o18="extract-k-rail"]`, at rest):
+
+```
+"kRailStyleAttr": "background-image: ; background-position-x: ; background-size: ; … background-color: oklch(0.545406 0.21813 9.83402); box-shadow: … inset;"
+"kRail":          { "bg": "oklch(0.545406 0.21813 9.83402)", "bgImg": "none", "w": 434, "h": 24 }
+```
+
+The shorthand expanded to **empty** longhands; the longhand won. So the 434 px rail is one solid slab
+of the certified accent at every value of k, with no fill/empty distinction at all. The kC slider has
+the mirror defect — a transparent range over a track painted the same ink:
+
+```
+"kcTrack": { "cls": "slider-track",                   "bg": "oklch(0.545406 0.21813 9.83402)", "w": 230 }
+"kcRange": { "cls": "slider-range glass-liquid-fill", "bg": "rgba(0, 0, 0, 0)",                "w":  77 }
+```
+
+Confirmed visually in the two Safari captures I read —
+`shots/safari-desktop-light/extract.png` and `shots/safari-mobile-dark/extract.png`: both sliders
+render as a full-width solid bar with a hairline thumb, so **k=5 of 16 looks like maximum**. On the
+route whose only two primary controls these are, and whose thumbs are 12 px wide (C-11), the value is
+communicated by a 12 px marker and nothing else.
+
+The O-18 graphics leg (`e2e/smoke/oracles/o18-contrast-census.spec.ts:1080-1134`) certifies
+*track vs ground*. Nothing certifies *range vs track*. That is why a slider with an invisible fill
+passes its own contrast gate.
+
+**Cure.** One longhand pair (`backgroundImage: gradient` + `backgroundColor: trackInk`), and a range
+material that is a certified step off the track — resolved at the glass-ui `Slider` root, not with a
+per-instance `--slider-track-bg` pin (edict 5).
 
 ---
 
-## C-4 · MAJOR · The viewfinder cannot be closed
+## C-24 · MAJOR · NEW · A *successful* extraction can render as "no image was ever fed" — and this overturns a pass-1 negative
 
-`ExtractWorkbench.vue:34-59`: the camera block's only control is `DockControl title="Capture frame"`.
-There is no cancel, no X, no Escape handler, no backdrop dismiss.
+`src/quantize.ts:57` skips every pixel with `alpha < 10`; when none survive, `quantizePixels` returns
+`{ ok: true, value: [] }` — intended, and asserted as such in `test/v4-quantize.test.ts:53-59`.
+`useExtractSession.ts:75-77` then maps `length === 0 → null`, which drops the plate into the `v-else`
+ghost branch (`ExtractWorkbench.vue:158-167`).
 
-**Reproduction (run, output pasted)** — enumerating every button inside the `<video>` container:
+**Measured (probe 2)** with a fully transparent 64×64 PNG:
 
-```json
-{ "viewfinderControls": [ [ "Capture frame" ] ], "videoCount": 1 }
+```
+=== fully transparent PNG (quantizer returns ok:[] ) ===
+{ "bodyText": "Extract Pull palettes from any image. SAMPLE 6 kC 0.5 My Palettes …", "unhandled": [] }
 ```
 
-A user who opens the camera by accident has exactly two escapes: take a photo they do not want, or
-leave the route — and leaving the route mid-permission is C-2. Compounding it, the drop zone stays
-click-live behind the viewfinder, so a click there opens the *eyedropper* over the camera rather than
-dismissing it. **Cure:** a `title="Close camera"` `DockControl` beside the shutter, `@click="stopCamera"`,
-plus a `keydown.escape` — the exact affordance `ImageEyedropper.vue:227-235` already ships for its own
-overlay. The pattern exists in the sibling; the camera simply did not get it.
+No error, no card, and the pane reverts to its pre-image copy — *"· undeveloped plate — feed it an
+image ·"* — while the drop zone (note the `SAMPLE` corner tag in the same text) is displaying the
+image the user just supplied. The user fed the instrument something real and the instrument replies
+that it received nothing.
+
+**This is a correction.** Pass-1's negative-results section records: *"Empty palette / zero-alpha
+image — `src/quantize.ts:65` returns `{ ok: true, value: [] }`; `extractedPalette` maps empty → `null`
+→ the shadow branch. **Correct.**"* The data flow is correct; the *presentation* is not. `null`
+(nothing supplied) and `[]` (supplied, yielded nothing) are different facts and the plate has only one
+state for both. Real inputs land here: a transparent PNG, an all-alpha-0 sprite sheet, a screenshot
+region exported with transparency.
+
+**Cure.** Carry the distinction to the plate: `extractedPalette` keeps `[]` as `[]`, and the result
+branch gains a third register ("no opaque pixels in this image") — the plate's own species grammar
+already separates *error* from *empty*; this is the missing third case.
 
 ---
 
-## C-5 · MAJOR · Malformed image ⇒ unhandled rejection, no error shown, workbench wedged
+## C-25 · MINOR · NEW · The drop zone's two intake paths disagree, so a text file can be installed as the specimen
 
-**Mechanism.** `useExtractSession.runQuantize` (`composables/useExtractSession.ts:153-157`) calls
-`quantizeFromFile(...)` and discards the returned promise — no `await`, no `.catch()`. `quantizeFromFile`
-(`composables/useImageQuantize.ts:105-108`) `await`s `imageFileToPixels`, whose `createImageBitmap`
-rejects on any undecodable byte stream. The rejection escapes to the window. Worse, the throw happens
-*before* `runQuantize()` sets `isProcessing = true` and `error.value = null` (`useImageQuantize.ts:86-87`),
-so no state changes at all: no spinner, no error line, no signal.
+`ImageDropZone.vue` validates on one path and not the other:
 
-**Reproduction (run, output pasted).** Drop a `.png` whose bytes are `[1..8]` (a real class: a truncated
-download, a renamed file, an HEIC Safari refuses):
+- `:94-100` `onDrop` — `if (file?.type.startsWith("image/")) emit("file", file)`
+- `:87-92` `onFileSelected` — emits **whatever the picker returns**, unconditionally. `accept="image/*"`
+  (`:30`) is a filter hint the user can defeat in every OS file dialog.
 
-```json
-{
-  "unhandledRejections": ["The source image could not be decoded."],
-  "hasPreviewImg": true,
-  "imgNaturalW": 0,
-  "imgComplete": true,
-  "imgSrcPrefix": "data:image/png;base64,AQIDBAUGBwg=",
-  "errorLineText": [],
-  "mainText": "Extract Pull palettes from any image. SAMPLE 5 kC 0.5 · UNDEVELOPED PLATE — FEED IT AN IMAGE · ..."
-}
+Measured (probe 1), a `text/plain` file through the picker path:
+
+```
+{ "unhandled": [ "The source image could not be decoded." ],
+  "bodyText": "… SAMPLE 5 kC 0.5 · UNDEVELOPED PLATE — FEED IT AN IMAGE · …",
+  "imgSrcPrefix": "data:text/plain;base64,dGhpcyBpcyBub3QgY" }
 ```
 
-Browser console (`browser_console_messages level=error`):
-```
-[ERROR] The source image could not be decoded.
-```
+`<img alt="Uploaded image" src="data:text/plain;base64,…">` — a text file installed as the photographic
+specimen, because `previewDataUrl` is written before anything validates
+(`useExtractSession.ts:164-168`). This is pass-1's C-5 with a second door into it: C-5's repro used a
+correctly-typed corrupt `.png` (I re-reproduced that too — same `InvalidStateError`, second entry in
+the same run), so **both** intake paths reach the crash, and the unguarded one also poisons the preview
+with a non-image MIME type.
 
-Three defects in one: (a) a page-level console error the visual audit's clean `consoleErrors: []` for
-`/#/extract` never caught, because no capture ever fed the component a file; (b) `errorLineText: []` —
-the `v-if="session.quantizeError.value"` line at `ExtractWorkbench.vue:80-85` stays empty, so the user
-gets *silence*; (c) the workbench is now **wedged**: `previewDataUrl` is set to the undecodable data
-URL, so `:disable-click="!!session.previewDataUrl.value"` (`ExtractWorkbench.vue:23`) flips the drop zone
-into sample mode. Clicking it mounts `ImageEyedropper` over a zero-dimension image, where
-`onMounted(() => { loadAndFit(); ... })` (`ImageEyedropper.vue:237-240`) also discards its promise and
-`sampler.loadImage`'s `img.onerror = reject` (`useImageSampler.ts:74`) fires a **second** unhandled
-rejection — behind a blank overlay with no error, exitable only by Escape. There is no path back to the
-file picker except the Upload button, and no way to clear the broken image at all (C-20).
-
-**Cure.** `quantizeFromFile` should return a `Result`, not throw — the codebase already runs on
-`Result<T, Issue>` (`src/quantize.ts:22`, `serializeCssColor` at `useExtractSession.ts:55`). Make decode
-failure a first-class `QuantizeIssue` variant (`quantize_image_undecodable`) that flows into the
-existing `quantizeError` channel, and gate the preview write on a successful decode so the zone never
-enters sample mode over a corpse.
+**Cure.** One `acceptFile(file): Result<File, IntakeIssue>` used by both handlers; the preview write
+moves onto the ok branch of the decode, not ahead of it.
 
 ---
 
-## C-6 · MAJOR · The eyedropper is unreachable by keyboard (WCAG 2.1.1 · 2.4.3)
+## C-26 · MINOR · NEW · Raw error codes are the user-facing copy
 
-**Mechanism.** `ExtractWorkbench.vue:23-25` is the whole trigger:
-
-```html
-:disable-click="!!session.previewDataUrl.value"
-@click="session.previewDataUrl.value && (eyedropperActive = true)"
-```
-
-`disableClick` drives `ImageDropZone.vue:19` `:tabindex="disableClick ? -1 : 0"` and gates
-`ImageDropZone.vue:22` `@keydown.enter.space.prevent="!disableClick && openFilePicker()"`. So the moment
-an image loads, the zone leaves the tab order *and* its keydown handler no-ops — while keeping
-`role="button"` and the label *"Image preview area, tap to sample colors"*. The workbench's only
-activation binding is a `click` listener. A keyboard user is told there is a button, and it does nothing.
-
-**Reproduction (run, output pasted).** Load a valid 2×1 PNG, then Enter + Space, then a mouse click:
-
-```json
-{
-  "zoneTabindex": "-1",
-  "zoneRole": "button",
-  "zoneLabel": "Image preview area, tap to sample colors",
-  "overlayBefore": "closed",
-  "afterKeyboardEnterSpace": "closed",
-  "afterMouseClick": "OPEN",
-  "focusWhenOverlayOpen": "DIV|Image preview area, tap to sample colors"
-}
-```
-
-`focusWhenOverlayOpen` is the fourth defect in the row: when the overlay *does* open, focus stays on
-the `tabindex="-1"` div behind it. No focus move, no trap, no `role="dialog"`/`aria-modal`, and on
-`@close` (`ExtractWorkbench.vue:177`) no restoration. Colour sampling — the workbench's headline
-capability per the T20 comment — is pointer-only.
-
-**Cure.** Stop overloading one element with two mutually-exclusive roles. The zone is a *drop target*;
-sampling is an *action*. Give the preview state its own real `DockControl` ("Sample colours from image"),
-keep the zone at `tabindex="0"` for replace-by-keyboard, and let `ImageEyedropper` own focus on mount +
-restore on close (it already owns Escape at `ImageEyedropper.vue:227`).
+`quantize-worker.ts:27-31` posts `result.error.code` verbatim; `ExtractWorkbench.vue:84` renders
+`{{ session.quantizeError.value }}` verbatim. The destructive line therefore reads
+`quantize_invalid_dimensions`, `quantize_pixel_length_mismatch`, or `quantize_invalid_option`.
+Same shape at `useExtractSession.ts:58`: `Palette color serialization failed: ${serialized.error.code}`.
+The typed-issue union is the right boundary; what is missing is the message map at the presentation
+edge, which is the *only* place a `code` should become prose.
 
 ---
 
-## C-7 · MAJOR · 45.8 MB allocated and 22.9 MB transferred to read 10,500 of 6,000,000 pixels
+## C-27 · MINOR · NEW · `.plate-ink` is copy-pasted five times, three of them in this family (edict 5)
 
-**Mechanism.** `useImageQuantize.ts:18-26` decodes at native resolution, rasterises to a full-size
-`OffscreenCanvas`, and reads it all back **on the main thread**; `useImageQuantize.ts:93` then copies the
-entire buffer *again* before transferring it. Meanwhile `src/quantize.ts:41,52` sub-samples with
-`targetPixels = 10_000` — everything else is decoded, copied, copied again, posted, reconstructed, and
-skipped.
-
-**Measured (run, output pasted)** — the exact `imageFileToPixels` body replayed on a 3000×2000 JPEG:
-
-```json
-{
-  "decode_createImageBitmap_ms": 8.6,
-  "fullSizeCanvas_drawImage_ms": 0.1,
-  "getImageData_mainthread_ms": 13.8,
-  "bufferSlice_copy_ms": 1.8,
-  "total_mainthread_ms": 24.3,
-  "bytesAllocated_MB": 45.8,
-  "bytesTransferredToWorker_MB": 22.9,
-  "pixelsInImage": 6000000,
-  "pixelsQuantizerActuallyReads": 10500,
-  "wastedFraction": 0.99825
-}
+```
+$ grep -rln "^\.plate-ink" demo
+demo/workbenches/extract/ExtractWorkbench.vue      (:290)
+demo/workbenches/extract/ImageDropZone.vue         (:109)
+demo/workbenches/extract/ExtractControls.vue       (:148)
+demo/shared/ui/EmptyState.vue
+demo/color-picker/ErrorBoundary.vue
 ```
 
-**99.825 % of the bytes are never read.** Scale to a 12 MP phone photo (4032×3024, the actual input for
-a camera-capable tool): 48.7 MB `ImageData` + 48.7 MB `slice(0)` = **97 MB transient**, on the platform
-the repo's own memory record (`MEMORY.md`: iOS Safari stack limits, WebGL context loss) says is the
-fragile one. Add C-1's measurement: `previewDataUrlLength: 15382718` — the base64 data URL is
-**15.4 MB of retained string** for an 11.5 MB file (4/3 inflation), held for the session and re-decoded
-a second time by the eyedropper.
-
-`createImageBitmap` takes `resizeWidth`/`resizeHeight` and does the downscale in the decoder, off-thread.
-The whole main-thread readback is avoidable.
-
-**Cure.**
-```ts
-const bitmap = await createImageBitmap(file, { resizeWidth: 200, resizeHeight: 150, resizeQuality: "low" });
-```
-sized to `sqrt(targetPixels)` — then the canvas is 200×150, `getImageData` is 120 KB, and the `slice(0)`
-disappears entirely (transfer `imageData.data.buffer` directly; the `ImageData` is discarded on the very
-next line, so detaching it costs nothing). Same for the preview: `URL.createObjectURL` is O(1) and drops
-15.4 MB.
+Five identical `color: var(--ink-muted, var(--muted-foreground))` scoped rules — each carrying its own
+copy of the same nine-line E1-R1 justification comment — and no shared definition anywhere in
+`demo/styles/`. Owner edict 5 puts styling at the root, not per instance; a token this well-reasoned
+(it is floor-clamped against the live resting plate) is exactly the kind that must exist once.
 
 ---
 
-## C-8 · MAJOR · The dominance readout can name a colour that is not the card's first swatch
+## C-28 · MINOR · NEW · Reset is disabled at rest, so a k moved before any image can never be restored
 
-`ExtractWorkbench.vue:113-117` states the invariant in its own comment:
+`ExtractControls.vue:84` — `:disabled="disabled || !hasImage"`. Measured at rest:
 
-> *"The duplicate dominant dot died — the card's first swatch IS the dominant specimen."*
-
-It is false. `src/quantize.ts:128` orders the palette by `output.sort((a, b) => b.population - a.population)`
-— a stable sort, so ties keep *insertion* order. `useExtractSession.ts:121-142` orders by a *different*
-rule: strict `>` on population **plus a chroma tiebreak**. The two disagree on every population tie.
-
-**Proof — library derivation (`npx tsx`, output pasted):**
 ```
-$ npx tsx scratchpad/tie.ts   # quantizePixels([#ff0000, #0000ff], 2, 1, { k: 5, chromaWeight: 0.5 })
-returned order (index -> chroma, hue, population):
-0 [0.6279553639214313,0.2576833038053608,29.233880279627897] pop= 1   ← colors[0] = RED  (C 0.258)
-1 [0.4520137181744238,0.3132143886344849,264.05202261636987] pop= 1   ← RED is first swatch
+=== Reset control at rest (no image) ===  { "found": true, "disabled": true, "ariaDisabled": "true" }
 ```
 
-**Proof — live readout for that same image (run, output pasted):**
-```json
-{ "dominant": ["oklch(45.201371817442% 0.313214388634 264.05202261637deg)"], "pctLine": "50% of the image" }
-```
+But k **is** live before any image exists — a certified behaviour, asserted by
+`o9-shadow-palette.spec.ts:148-159` (the ghost re-segments under the k slider) and stated in the
+component's own comment (`ExtractWorkbench.vue:91-93`, *"k is legible before any image exists"*).
+So: drag k to 16 on a fresh pane, and the only control named for restoring it is disabled. The gate
+is on `hasImage`; the state it would reset is not.
 
-`colors[0]` is the red cluster (hue 29.2°); the readout names the blue one (hue 264.05°, the
-higher-chroma tiebreak winner). The card's first swatch is red, the line above it reads blue, and
-nothing links the readout to any swatch. **Cure:** delete the 22-line `dominant` loop. `quantizePixels`
-already guarantees max-population-first, so `dominant = presented.value[0] ?? null` is the whole
-function, is *by construction* the first swatch, and restores the stated invariant. (If a chroma
-tiebreak is genuinely wanted, it belongs in `src/quantize.ts`'s sort where the card's ordering also
-sees it — one ordering, one truth.)
+This is the other half of pass-1's C-20 (which covers "Reset does not clear the image"). Together:
+the control refuses to touch what its name implies and is refused permission to touch what it does.
 
 ---
 
-## C-9 · MAJOR · Vacuous gate: no test in the repo ever feeds this component an image
+# CORRECTIONS to pass-1
+
+## CORRECTION-A — to C-11: the three buttons are *weakly* named, not nameless
+
+Pass-1 states `DockControl` "forwards no `aria-label`" and reports 3 nameless buttons. The count is
+real (`REPORT.md:98,105,110,112` — `/#/extract: 3` in all four matrices, the highest of any route),
+but "nameless" is the audit probe's rule, not the platform's. `capture.mjs:102-105` counts a button as
+nameless when it lacks `aria-label` / `aria-labelledby` / text content — it does not consult `title`.
+
+Measured against the real accessibility tree (CDP `Accessibility.getFullAXTree`, probe 1):
 
 ```
-$ grep -rn "setInputFiles\|DataTransfer\|input\[type=.file" e2e/ test/
-(no output)
+{ "role": "button", "name": "Upload image", "src": [ "attribute=Upload image" ] }
+{ "role": "button", "name": "Open camera",  "src": [ "attribute=Open camera"  ] }
+{ "role": "button", "name": "Reset",        "src": [ "attribute=Reset"        ] }
 ```
 
-Nothing — unit or e2e — ever supplies a file. The extract-adjacent coverage that exists:
+They **have** computed names, sourced from `title` — the last-resort accname source. So the accurate
+finding is sharper than pass-1's and more useful for the cure: *the four DockControls this component
+owns (Upload `ExtractControls.vue:41`, Camera `:50`, Reset `:86`, Capture `ExtractWorkbench.vue:52`)
+name themselves through the weakest available mechanism — invisible to touch, unreliable in VoiceOver
+— and the repo's two gates disagree about it*: `walk.spec.ts:79-82`
+(`getByRole("button", { name: /Upload image/i })`) passes because Playwright resolves `title`, while
+the visual audit flags the same buttons. A defect that one gate certifies and another condemns will
+not be fixed by either.
 
-| gate | what it asserts | reaches the developed path? |
-|---|---|---|
-| `test/image-sampler-v4.test.ts` (3 its) | `useImageSampler.formatInColorSpace` string projection | no — different file, no image |
-| `e2e/.../o9-shadow-palette.spec.ts:125` | the **empty** plate: ghost aria-hidden, caption text, k-slider re-segments | no — never loads an image |
-| `e2e/.../o18-contrast-census.spec.ts:1080` | slider **track contrast** ≥3:1 | no |
-| `e2e/.../o7-card-census`, `o10d`, `o11` | heading/card census strings | no |
-| `e2e/smoke/walk.spec.ts:74` | the "Extract" heading is visible | no |
+The tap-target half of C-11 re-measures exactly as pass-1 reported — independently confirmed live:
 
-There is **no** test of `ExtractWorkbench.vue`, `useExtractSession.ts`, or `useImageQuantize.ts`.
+```
+"thumbs": [ { "label": "Number of colors", "w": 12, "h": 24, "value": "5" },
+            { "label": "Chroma weight",    "w": 12, "h": 24, "value": "0.5" } ]
+```
+
+12 px against WCAG 2.5.8's 24 × 24 minimum, on both primary controls, in Chromium and in all four
+Safari matrices (`REPORT.json`, `/#/extract`, `a11y.smallTapTargets`).
+
+## CORRECTION-B — to C-6: the `@keydown.enter.space` chain is **correct**; do not "fix" it
+
+Pass-1 says the zone's keydown handler "no-ops". It does — but because of `!disableClick &&`
+(`ImageDropZone.vue:22`), *not* because of the modifier chain. The chain is a known Vue-2 trap and it
+does not apply here. Compiled and runtime-checked this pass:
+
+```
+$ node -e "…@vue/compiler-dom.compile('<div @keydown.enter.space.prevent=\"go()\">')"
+onKeydown: _withKeys(_withModifiers($event => (go()), ["prevent"]), ["enter","space"])
+
+node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js:1811
+    if (modifiers.some((k) => k === eventKey || keyNames[k] === eventKey)) { return fn(event); }
+```
+
+`.some` is an OR, and `keyNames.space === " "`, so Enter **and** Space both activate. Recorded so a
+future seat does not spend the fix budget here.
+
+---
+
+# CARRIED FINDINGS — re-verified this pass
+
+## C-2 (BLOCKER) · Camera hardware stays live after unmount — **re-reproduced by a different method**
+
+Pass-1 stubbed `getUserMedia` to control timing. I used the **real** `getUserMedia` (Chromium fake
+device) behind a 1.5 s latency wrapper — a permission prompt a human actually reads — clicked
+**Open camera**, and left the view 200 ms later:
+
+```
+=== camera race — stream state after leaving the view mid-prompt ===
+{ "streams": [ [ { "kind": "video", "readyState": "live", "enabled": true } ] ], "route": "#/palettes" }
+```
+
+`readyState: "live"` on a route that no longer renders a viewfinder. Mechanism unchanged from pass-1
+(`ExtractWorkbench.vue:239-255` assigns `cameraStream` *after* the await; `:257-263` can only stop what
+was assigned; `:281` is the only teardown). Note the second door into the same leak, which pass-1 did
+not name: `onFile` calls `stopCamera()` at `:235` — if a file is dropped while the prompt is open,
+`cameraStream` is still `null`, the stop is a no-op, and the arriving stream is orphaned with
+`cameraActive` already `false`, so the `if (videoRef.value)` guard at `:250` silently discards it.
+
+## C-5 (MAJOR) · Malformed image ⇒ unhandled rejection, silence — **re-reproduced, both intake paths**
+
+```
+=== page errors ===
+[ "InvalidStateError: The source image could not be decoded.",
+  "InvalidStateError: The source image could not be decoded." ]
+```
+
+One from the picker path (a `text/plain` file, C-25), one from the *type-guarded* drop path (a file
+correctly typed `image/png` with corrupt bytes). In both, `session.quantizeError` stays `null`,
+`isProcessing` stays `false`, and the plate reads *"· UNDEVELOPED PLATE — FEED IT AN IMAGE ·"*. The
+chain is unchanged: `ExtractWorkbench.vue:234-237` (an `async` handler whose rejection is nobody's) →
+`useExtractSession.ts:153-157` (promise discarded, no `.catch`) → `useImageQuantize.ts:105-108 → :18-26`
+(`createImageBitmap` unguarded).
+
+Rider (hypothesis, not measured): iPhone photos are HEIC and Chromium/Firefox do not decode HEIC, so
+the component's headline promise — *"Pull palettes from any image"* — takes this exact silent path
+for the most common image a user owns, in every non-Safari browser.
+
+## C-6 (MAJOR) · The sampler is keyboard-unreachable — **re-measured**, plus a dead label branch
+
+```
+=== drop zone with preview loaded ===
+{ "ariaLabel": "Image preview area, tap to sample colors",
+  "tabindex": "-1",
+  "focusableInMain": [ "Number of colors", "Upload image", "Open camera", "Chroma weight", "Reset", "input" ] }
+```
+
+The zone is absent from the focusable set and no other control opens the eyedropper, while it still
+announces as a **button** named *"Image preview area, tap to sample colors"* — a named, roled control
+that cannot be reached or operated.
+
+**Extension.** `ExtractWorkbench.vue:22-23` binds `:preview` and `:disable-click` to the *same*
+expression, so `preview && !disableClick` is identically false at the only call site (grep:
+`ImageDropZone` is imported by `ExtractWorkbench.vue` alone). That makes the
+`'Replace image, click or drop a new image'` aria-label branch (`ImageDropZone.vue:20`) and the
+`'replace'` corner tag (`:61`) unreachable copy — dead code in the accessibility layer, which is the
+worst place to keep it: it describes a capability the component does not have.
+
+## C-7 (MAJOR) · Decode cost — **re-measured per k-step, which is the worse number**
+
+Pass-1 measured the per-load cost (45.8 MB allocated, 22.9 MB transferred, 99.825 % unread). The
+sharper measurement is that **the whole cost repeats on every parameter change**, because nothing
+caches pixels: `useExtractSession.ts:153-157` always calls `quantizeFromFile`, which always calls
+`imageFileToPixels`. One ArrowRight on the k slider, 3000×2000 image already loaded:
+
+```
+=== ONE k-slider step (5 -> 6): work re-run ===
+{ "decodes":      [ { "ms": 11.9, "w": 3000, "h": 2000 } ],
+  "getImageData": [ { "ms": 13.4, "bytes": 24000000 } ] }
+```
+
+A full re-decode plus a 24 MB main-thread readback plus a second 24 MB copy (`useImageQuantize.ts:93`)
+— for a parameter that changes nothing about the pixels, at 300 ms debounce granularity
+(`useExtractSession.ts:159-162`). The worker sub-samples to ~10 000 points regardless
+(`src/quantize.ts:51`; stride 24 for this image).
+
+## C-8 (MAJOR) · The dominance readout contradicts the card's first swatch — **re-derived from the library**
+
+`ExtractWorkbench.vue:113-117` asserts the invariant in its own comment: *"the card's first swatch IS
+the dominant specimen."* `src/quantize.ts:128` orders by `b.population - a.population` (stable → ties
+keep insertion order); `useExtractSession.ts:121-142` orders by strict `>` **plus a chroma tiebreak**.
+Two orderings, one claim of identity. Derived directly against the library this pass:
+
+```
+$ npx tsx scratchpad/tie.ts     # quantizePixels([#ff0000, #0000ff], 2, 1, { k: 5, chromaWeight: 0.5 })
+quantizePixels order (what PaletteCard renders, index 0 = first swatch):
+ [0] pop=1 L=0.6280 C=0.2577 H=29.23
+ [1] pop=1 L=0.4520 C=0.3132 H=264.05
+
+useExtractSession `dominant` picks: C=0.3132 H=264.05
+card's first swatch is:             C=0.2577 H=29.23
+AGREE? false
+```
+
+The line above the card names blue; the first swatch of the card is red. **Cure (unchanged from
+pass-1, and it is the right one):** delete the 22-line loop —
+`dominant = presented.value[0] ?? null` — because `quantizePixels` already guarantees
+max-population-first, which restores the stated invariant by construction.
+
+## C-9 (MAJOR) · Vacuous gate — **re-confirmed and sharpened**
+
+```
+$ grep -rln "ExtractWorkbench\|useExtractSession\|ImageDropZone\|useImageQuantize\|quantize-worker" demo test e2e
+demo/workbenches/extract/{ExtractWorkbench,ExtractPane}.vue
+demo/workbenches/extract/composables/{useExtractSession,useImageQuantize}.ts
+demo/palettes/usePaletteStore.ts
+e2e/smoke/walk.spec.ts
+```
+
+No test file — `test/`, `demo/test/`, `e2e/` — mounts or imports any of them. All existing coverage is
+rest-state: `walk.spec.ts:74-83` (heading + a button named `/Upload image/i`),
+`o9-shadow-palette.spec.ts:125-165` (ghost, pulse, PRM-static, k-driven segment count), and the
+`o7`/`o10d`/`o11`/`o18` census oracles.
 
 **The mutation that keeps every gate green:** replace the body of `useExtractSession.onFile` with
-`{ lastFile.value = file; }` — delete the preview read and the quantize dispatch entirely. Also delete
-`startCamera`/`stopCamera`/`captureFrame` and the entire `ImageEyedropper` mount
-(`ExtractWorkbench.vue:172-180`). Every existing test still passes: the O-9 oracle only visits the
-never-fed empty state, and the census oracles only count headings and cards. **The component's whole
-reason to exist is untested**, which is precisely why C-1, C-5, and C-8 shipped.
+`async () => {}`. No image loads, no preview, no quantize, no palette, no dominance readout; the camera
+and the eyedropper both become unreachable (both are gated on `previewDataUrl`) — and every gate above
+still passes, because every one of them asserts the *pre-image* state.
 
-**Cure.** One component test that drives a synthetic `File` through `useExtractSession` with an injected
-`workerFactory` — the seam is already built and documented at `useImageQuantize.ts:35-41` ("*tests + a
-Safari-worker fallback can swap a fake/pooled factory*") and has **zero** callers. The affordance was
-designed and then never used.
+**Sharpening.** `setupEnvNoise` (`e2e/smoke/fixtures/env-noise.ts`) installs its filter on `console`
+**and** `pageerror`, and `walk.spec.ts` asserts `expect(consoleErrors).toEqual([])`. So the walk gate
+*would* have caught C-5's `InvalidStateError`. The machinery is built; nothing ever walks the path
+that fires it. That is the precise definition of a vacuous gate — not missing assertions, missing
+traversal.
 
----
+**Cure.** `useImageQuantize.ts:35-41` already ships the seam — an injectable `workerFactory`,
+documented *"tests + a Safari-worker fallback can swap a fake/pooled factory"* — with **zero** callers.
+A `demo/test/extract/` vitest suite driving synthetic `File`s through `useExtractSession` (malformed,
+transparent, overlapping k changes, unmount-during-quantize) needs no new infrastructure, plus one e2e
+that `setInputFiles` a fixture PNG and asserts the developed card.
 
-## C-10 · MAJOR · Async results are announced to nobody
+## C-10 (MAJOR) · No live region — **re-measured**, and see C-22 for the correction
 
-**Measured on `/#/extract` (run, output pasted):**
-```json
-{ "live": [] }   // [aria-live], [role="status"], [role="alert"] inside <main> — none
+```
+=== live regions in the extract pane ===
+{ "ariaLive": [], "roleStatus": [ "· empty plate ·No saved palettes yet.Add" ], "ariaBusy": 0 }
 ```
 
-- The error line (`ExtractWorkbench.vue:80-85`) has no `role="alert"`, no `aria-live`. Errors are silent.
-- The result branch (`ExtractWorkbench.vue:108-157`) has no live region. An extraction completing —
-  the entire point — is silent.
-- The **one** announcing element, `PaletteCardSkeleton` (`role="status" aria-label="Loading palette"`),
-  is unreachable in practice. Measured end-to-end on a 6 MP drop:
+Zero `aria-live`, zero `aria-busy` in `<main>`; the one `role="status"` belongs to My Palettes, a
+different component. The error line (`ExtractWorkbench.vue:80-85`) — which the component's own comment
+calls "an explicit destructive line… its own explicit register (error ≠ empty)" (`:79`, `:100-101`) —
+appears and disappears in silence.
 
-```json
-{ "skeletonAppearedAtMs": "NEVER", "cardAppearedAtMs": 250 }
-```
+Scoping so this does not collide with a standing ruling: `o9-shadow-palette.spec.ts:133-142` RULES
+that the rest-state ghost must be `aria-hidden` and must **not** be `role="status"` ("R7 … the caption
+carries the text for AT"). That ruling governs the *ghost*. It says nothing about the error line or
+about `aria-busy` during processing, which are different registers by the component's own design
+language.
 
-`Transition mode="out-in"` (`ExtractWorkbench.vue:102`) requires the shadow plate's leave transition to
-finish before the skeleton may enter; the worker returns first, so the branch is superseded before it
-ever mounts. The elaborate 15-line comment at `ExtractWorkbench.vue:87-101` describes a state that does
-not render. A screen-reader user drops an image and receives **no feedback of any kind**.
+## C-13 (MINOR) · No request token — **carried**, and the *generator* named
 
-**Cure.** A single polite live region on the result column that speaks the outcome
-(`"5 colours extracted, dominant oklch(...) at 50%"`), and `role="alert"` on the error line. The
-skeleton's `role="status"` is the wrong carrier — it announces the *wait*, not the *answer*, and it is
-racing a transition it cannot win.
+Unchanged mechanism (`useImageQuantize.ts:51-52, 89-98`: one `pendingResolve`/`pendingReject` pair,
+overwritten per call, cleared on the first reply; `:69-75` leaves a dead worker installed after
+`onerror`). Reproduction: **NONE** — hypothesis for the visible symptom; the orphaned promise and the
+dead worker are unconditional in source.
 
----
+**Extension pass-1 missed.** Pass-1's C-3 notes that Upload and Camera ignore `disabled`. The list is
+longer, and it matters here: `ExtractWorkbench.vue:70` passes
+`:disabled="session.isProcessing.value || cameraActive"`, and `ExtractControls.vue` consumes it at
+**exactly one** site — `:84`, Reset. The k slider (`:24-34`), the kC slider (`:68-77`), Upload
+(`:40-44`) and Camera (`:49-55`) all ignore it. The two *sliders* being live during processing is
+precisely what lets a user queue the overlapping requests that C-13 mishandles: a prop named
+`disabled`, bound at the call site as if it gated the control surface, gating one of five controls.
 
-## C-11 · MAJOR · This component contributes the entire nameless-button count of its route, in all four Safari matrices
+## C-14 / C-15 / C-17 / C-18 / C-19 / C-20 / C-21 · carried, confirmed by source inspection
 
-`docs/tranches/V/megatranche/audit/visual/REPORT.md:98,105,110,112` — `/#/extract: 3`, in every matrix.
-`/#/extract` is the highest-scoring route in the repo; every other route scores 0 or 1.
+- **C-14** `isProcessing` is set *after* the decode (`useImageQuantize.ts:87` vs `:106`) — the skeleton
+  is absent during the one phase that blocks the main thread, and present only for the fast worker
+  phase. The 15-line comment at `ExtractWorkbench.vue:87-101` describes the wrong interval.
+- **C-15** `ExtractWorkbench.vue:252` files a camera fault into the quantizer's error ref via the
+  writable computed at `useExtractSession.ts:66-73`. Deterministic consequence pass-1 did not state:
+  `startCamera` never clears it, so denying the camera once and then granting it leaves the stale
+  *"Camera access denied: …"* line standing **under a live viewfinder** until an unrelated extraction
+  clears it (`useImageQuantize.ts:86`). Every failure mode is also labelled "denied" (`NotFoundError`,
+  `NotReadableError`, insecure-context `TypeError`), and `${err}` on a non-`Error` throw renders
+  `[object Object]`.
+- **C-17** `ref<InstanceType<typeof ImageDropZone>>` (`:222`) beside `useTemplateRef` (`:223`) — two
+  idioms, adjacent lines (edict 7).
+- **C-18** `await new Promise(requestAnimationFrame)` (`:249`) — rAF as a DOM-flush primitive; it does
+  not fire in a hidden or occluded tab, so backgrounding during the permission prompt strands a live
+  stream with no viewfinder (compounding C-2). `await nextTick()` is the primitive this wants.
+- **C-19** `canvas.getContext("2d")!` and `resolve(b!)` in `captureFrame` (`:272`, `:275`); a `null`
+  blob makes `new File([null], …)` the 4 bytes `"null"`, which lands on the C-5 path. Hypothesis.
+- **C-20** `onReset` (`useExtractSession.ts:180-184`) restores k and kC and nothing else — image,
+  palette and a user-renamed `paletteName` all survive it. See C-28 for the other half.
+- **C-21** `new Date().toISOString()` inside a computed (`useExtractSession.ts:95-96`): every recompute
+  re-mints "creation" time and hands `PaletteCard` a fresh identity. (`usePaletteStore.createPalette`
+  mints its own at `:83`, so these are written and immediately discarded.)
 
-**Attributed live (run, output pasted):**
-```json
-{ "namelessCount": 3, "nameless": [
-  { "title": "Upload image", "cls": "dock-icon-button ...", "rect": { "w": 40, "h": 40 } },
-  { "title": "Open camera",  "cls": "dock-icon-button ...", "rect": { "w": 40, "h": 40 } },
-  { "title": "Reset",        "cls": "dock-icon-button ...", "rect": { "w": 40, "h": 40 } } ] }
-```
+## C-1 / C-3 / C-4 / C-12 / C-16 · carried on pass-1's evidence
 
-All three are `ExtractControls.vue:40,49,83`. `DockControl` (glass-ui `dist/dock.js:1121`) exposes no
-label prop and forwards no `aria-label`; the only name source is `title`, which is the *last-resort*
-accname fallback, is not surfaced on touch at all, and is inconsistently exposed by VoiceOver.
-
-**Tap targets, same route, same report** (`REPORT.json`, `smallTapTargets`), two of six are this
-component's, confirmed live:
-```json
-{ "thumbs": [
-  { "label": "Number of colors", "tag": "span", "w": 12, "h": 24, "now": "5" },
-  { "label": "Chroma weight",    "tag": "span", "w": 12, "h": 24, "now": "0.5" } ] }
-```
-**12 px wide** against WCAG 2.5.8's 24×24 minimum — a hard AA failure on the two primary controls, on a
-route whose visual capture (`shots/safari-mobile-light/extract.png`, read) shows them as the dominant
-mobile interaction surface.
-
-**Cure.** Per owner edict 4 the fix is *in glass-ui*, not here: `DockControl` should take a `label` prop
-and emit `aria-label` (keeping `title` for the mouse tooltip) — one change fixes 18 nameless buttons
-across 7 routes. The slider thumb width belongs to the demo `Slider` root
-(`demo/ui/slider`, edict 5: root-level, never per-instance).
-
----
-
-## C-12 · MAJOR · Dead dual paths (owner edict 2: no legacy code, no dual paths)
-
-**(a) `layout: "split"` is unreachable.** Enumerated:
-```
-$ grep -rn "ExtractWorkbench" demo/ | grep -v ExtractWorkbench.vue:
-demo/workbenches/extract/ExtractPane.vue:11:            <ExtractWorkbench
-demo/workbenches/extract/ExtractPane.vue:25:import ExtractWorkbench from "./ExtractWorkbench.vue";
-```
-Exactly one call site, and it passes `layout="column"` (`ExtractPane.vue:13`). The `"split"` branch is
-dead in **four** template expressions (`ExtractWorkbench.vue:4-8, 13, 17-21, 148`), and it is the sole
-consumer of `useBreakpoint("(min-width: 640px)")` (`ExtractWorkbench.vue:226`) — a live `matchMedia`
-listener registered on every mount to feed a condition that can never be true. The composable's own
-docblock (`useExtractSession.ts:5`) still claims *"both shells now consume this session"*; the second
-shell no longer exists.
-
-**(b) `quantizeFromCanvas` and `quantizeFromCamera` have zero callers.** `useImageQuantize.ts:110-146`
-— 37 lines including a *third*, independent `getUserMedia` implementation with its own video element,
-its own dimension-wait, and its own `stop()`. `grep` finds no consumer. It is the camera lifecycle
-C-2/C-3 needed, written and then abandoned in a module the workbench imports.
-
-**(c) `kSliderGradient`'s `"var(--muted)"` fallback never renders** (`useExtractSession.ts:103`).
-`ExtractControls.vue:22` applies `{ background: gradient, backgroundColor: trackInk, ... }` — the later
-`backgroundColor` always overrides the colour the shorthand set, so pre-image the fallback string is
-inert. A masking fallback that masks nothing.
-
-**Cure.** Delete `"split"`, `isWide`, the `useBreakpoint` call, `quantizeFromCanvas`,
-`quantizeFromCamera`, and the `"var(--muted)"` string. Correct the stale docblock. ~60 lines of a
-294-line component serve paths that cannot execute.
+Re-walked in source and agreed with; not re-run this pass. C-1's re-verification was attempted and
+blocked (see the ledger). C-12b re-confirmed by grep — `quantizeFromCanvas`, `quantizeFromCamera` and
+`canvasToPixels` have **zero** callers, and `quantizeFromCamera` (`useImageQuantize.ts:115-146`) is a
+second, divergent camera implementation living in the very module the workbench imports.
 
 ---
 
-## C-13 · MINOR · In-flight quantizes are neither cancelled nor tokenised
+## Defect table (r2)
 
-`useImageQuantize.ts:89-98` stores a single `pendingResolve`/`pendingReject` pair. A second
-`runQuantize` before the first reply overwrites both: the earlier promise **never settles**, and the
-first worker reply then resolves the *second* caller with the *first* palette and sets
-`isProcessing = false` (`useImageQuantize.ts:65`) while run #2 is still in the worker — the skeleton
-drops early and a stale palette renders until #2 lands. The worker is also never re-created after
-`onerror` (`useImageQuantize.ts:69-75` sets `error` but leaves the dead worker installed), so a single
-worker crash bricks every subsequent extraction for the session.
-
-*Reproduction: NONE — hypothesis by code path. Overlap needs a quantize exceeding the 300 ms debounce
-(`useExtractSession.ts:159-162`); on the desktop probe the full cycle measured 250 ms, so I could not
-force it. The dropped-promise and dead-worker mechanisms are unconditional and visible in the source.*
-
-**Cure.** A per-request id on the postMessage payload, echoed by the worker
-(`quantize-worker.ts:20`), with replies whose id ≠ current discarded — the same token that cures C-1,
-applied one layer down.
-
----
-
-## C-14 · MINOR · `isProcessing` is false during the decode window
-
-`quantizeFromFile` (`useImageQuantize.ts:105-108`) `await`s `imageFileToPixels` **before**
-`runQuantize` sets `isProcessing = true` (`useImageQuantize.ts:87`). Measured cost of that blind window
-on a 6 MP file: **24.3 ms** main-thread on this machine (C-7 table), multiples of that on mobile Safari
-for a 12 MP capture. Nothing renders during it, and if the decode throws, nothing ever renders (C-5).
-**Cure:** set `isProcessing` at the top of `quantizeFromFile`, in a `try/finally`.
-
----
-
-## C-15 · MINOR · Camera failures are written into the quantize error channel
-
-`ExtractWorkbench.vue:252`:
-```ts
-session.quantizeError.value = `Camera access denied: ${err}`;
-```
-Three problems. (i) `quantizeError` is a *writable computed* whose setter writes `workerError`
-(`useExtractSession.ts:66-73`) — a camera fault is filed as a quantizer fault, and the next successful
-quantize silently erases it (`useImageQuantize.ts:86`). (ii) The component reaches through the session
-object to mutate composable-owned state instead of calling an action — the encapsulation the session
-exists to provide, bypassed at the one place it matters. (iii) A raw `DOMException` is
-template-interpolated, so the user reads *"Camera access denied: NotAllowedError: Permission denied"*.
-There is also no dismiss: a denial with no subsequent upload leaves the line up forever.
-**Cure:** a separate `cameraError` ref with its own line, and a `session.setCameraError()` action;
-map the three real `getUserMedia` rejection names to human sentences.
+| id | sev | defect | evidence | pass |
+|---|---|---|---|---|
+| C-1 | BLOCKER | preview ≠ palette: the readout describes a different image | pass-1 live repro (re-verify blocked) | 1 |
+| C-2 | BLOCKER | camera stays `live` after unmount | **r2 re-repro**, real `getUserMedia` | 1·2 |
+| C-3 | MAJOR | second camera open orphans the first stream | pass-1 repro | 1 |
+| C-4 | MAJOR | viewfinder has no close affordance | pass-1 enumeration | 1 |
+| C-5 | MAJOR | malformed image ⇒ unhandled rejection, silence | **r2 re-repro** ×2 paths | 1·2 |
+| C-6 | MAJOR | sampler keyboard-unreachable; dead label branch | **r2 re-measure** | 1·2 |
+| C-7 | MAJOR | full re-decode + 24 MB readback **per k step** | **r2 measure** | 1·2 |
+| C-8 | MAJOR | dominance readout ≠ card's first swatch | **r2 `tsx` derivation** | 1·2 |
+| C-9 | MAJOR | vacuous gate — no test ever feeds an image | grep + fixture read | 1·2 |
+| C-10 | MAJOR | no live region for errors or results | **r2 measure** | 1·2 |
+| C-11 | MAJOR | weakest-source names ×4; 12 px thumbs ×2 | **r2 CDP accname** (CORRECTION-A) | 1·2 |
+| C-12 | MAJOR | dead `split` layout, dead camera/canvas APIs, dead fallback | grep | 1 |
+| **C-22** | **MAJOR** | **`isProcessing` latch: no timeout/cancel/recovery** | **r2 repro, DOM pasted** | **2** |
+| **C-23** | **MAJOR** | **range == track ink: the slider cannot show its value** | **r2 computed styles + 2 shots** | **2** |
+| **C-24** | **MAJOR** | **transparent image = success rendered as "no image"** | **r2 measure (overturns a pass-1 negative)** | **2** |
+| C-13 | MINOR | no request token; orphaned promise; dead worker kept | source (hypothesis) | 1·2 |
+| C-14 | MINOR | `isProcessing` false during the decode window | source + r2 timing | 1 |
+| C-15 | MINOR | camera faults filed as quantize faults; never cleared | source | 1·2 |
+| C-16 | MINOR | `@click="() => {}"` under `cursor-pointer` | `:152` | 1 |
+| C-17 | MINOR | `ref` vs `useTemplateRef` on adjacent lines | `:222`/`:223` | 1 |
+| C-18 | MINOR | raw rAF as a DOM wait | `:249` | 1 |
+| C-19 | MINOR | `getContext("2d")!` / `resolve(b!)` | `:272`,`:275` (hypothesis) | 1 |
+| C-20 | MINOR | Reset does not clear; empty state unreachable after load | `:180-184` | 1 |
+| C-21 | INFO | timestamps minted inside a computed | `:95-96` | 1 |
+| **C-25** | **MINOR** | **picker intake path has no type guard; text file as specimen** | **r2 repro** | **2** |
+| **C-26** | **MINOR** | **raw error codes are the user-facing copy** | **source** | **2** |
+| **C-27** | **MINOR** | **`.plate-ink` copy-pasted ×5 (×3 here)** | **grep** | **2** |
+| **C-28** | **MINOR** | **Reset disabled at rest → k unresettable pre-image** | **r2 measure** | **2** |
 
 ---
 
-## C-16 · MINOR · `@click="() => {}"` — a lying affordance
+## Negative results (r2 additions — recorded so no seat re-walks them)
 
-`ExtractWorkbench.vue:152` binds an explicit no-op to `PaletteCard`'s `click` emit. The card's root
-(`PaletteCard/PaletteCard.vue:19`) unconditionally carries `cursor-pointer` and the `cartoon-surface`
-press choreography, so the result card advertises hover, press-squash and a pointer cursor while doing
-nothing. **Cure:** `PaletteCard` should derive `cursor-pointer` from whether a `click` listener is
-attached, or take an `interactive` prop — a root-level fix (edict 5), not a per-instance override here.
+Pass-1's negative list stands, **except** the zero-alpha entry, which C-24 overturns. New this pass:
 
----
+- **`@keydown.enter.space` modifier chain** — correct in Vue 3 (compiler + `withKeys` source pasted at
+  CORRECTION-B). This is a Vue-2 trap; it does not apply.
+- **`useBreakpoint` cleanup** — `node_modules/@mkbabb/glass-ui/dist/dom.js:38-53` removes its
+  `matchMedia` listener on scope dispose. No leak (the *call* is dead — C-12a — but it does not leak).
+- **`verbatimModuleSyntax` (edict 8)** — every type-only import in the six files is `import type`:
+  `ExtractWorkbench.vue:189`, `useExtractSession.ts:14,18`, `useImageQuantize.ts:9,10`,
+  `quantize-worker.ts:7`, `ExtractPane.vue:28`. Clean.
+- **Worker termination / debounce cleanup / eyedropper listener + sampler dispose** —
+  `useImageQuantize.ts:148-151`, `useExtractSession.ts:194-196`, `ImageEyedropper.vue:242-245`. Clean.
+- **The three named repo hazards do not apply here** — no `ValueUnit` wrapping, no `defineModel`, no
+  oklch→HSV round trip in this tree. `dominant`'s chroma read (`useExtractSession.ts:130-136`) takes
+  `channels[1]` of a `Color<"oklch">` (`src/quantize.ts:11-13`), which is genuinely chroma, and it
+  handles `"none"`. (The *ordering* is still wrong — C-8 — but not for a channel-indexing reason.)
+- **Route-level visual health** — `REPORT.json` `/#/extract`, all four Safari matrices:
+  `overflowX: 0`, `pageErrors: []`, `consoleErrors: []`, `main: 1`. Clean — and note *why* the
+  `pageErrors: []` is uninformative: no capture ever hands the component a file (C-9).
 
-## C-17 · MINOR · Vue 3.5 idiom violated inside a single file (owner edict 7)
+## Not a finding — routed to Challenge-B
 
-```ts
-const dropZoneRef = ref<InstanceType<typeof ImageDropZone> | null>(null);   // :222
-const videoRef = useTemplateRef<HTMLVideoElement>("videoRef");              // :223
-```
-Two adjacent template refs, two different idioms. `useTemplateRef` is the 3.5 form and is used
-correctly one line below, and correctly in `ImageDropZone.vue:78`. **Cure:**
-`useTemplateRef<InstanceType<typeof ImageDropZone>>("dropZoneRef")`.
-
-*(`verbatimModuleSyntax`, edict 8: **PASS** — `SpaceId` at `:189` and `QuantizedColor`/`QuantizeOptions`
-in both composables are all `import type`. No violation found.)*
-
----
-
-## C-18 · MINOR · `await new Promise(requestAnimationFrame)` as a DOM-settle wait
-
-`ExtractWorkbench.vue:249`. Three faults: it is a raw ungated rAF in a repo carrying a documented
-PRM-RAF epidemic; it is never cancelled, so on unmount it resolves into a dead closure (compounding
-C-2); and rAF is **suspended in background tabs** — backgrounding the tab during the permission prompt
-means `videoRef.value.srcObject = cameraStream` (`:250`) never runs, leaving the camera live behind a
-permanently black viewfinder that C-4 gives no way to close. **Cure:** `await nextTick()` — the
-guaranteed, cancel-safe DOM-flush primitive, which is what the line actually wants.
+Probe 3: `k = 5` requested returned **4** swatches (the quantizer's `dedupeThreshold` merges near
+neighbours), while the k label kept reading 5 and the skeleton had already drawn 5 bones. The
+instrument promises k and delivers ≤ k with no notation. That is a specification question, not an
+implementation bug.
 
 ---
 
-## C-19 · MINOR · `captureFrame` trusts three things that can be null
+## The gestalt (r2)
 
-`ExtractWorkbench.vue:265-279`: `canvas.getContext("2d")!` (non-null assertion — returns `null` under
-memory pressure or a context-limit, exactly the mobile-Safari condition C-7 manufactures), and
-`canvas.toBlob((b) => resolve(b!))` — a `null` blob makes `new File([null], ...)` stringify to the
-4 bytes `"null"`, which then takes the C-5 path: unhandled rejection, no error, wedged workbench. There
-is also no re-entrancy guard on the shutter. *Reproduction: NONE — hypothesis.* **Cure:** narrow both,
-and route a null result to the same `Result` error channel C-5 proposes.
+Pass-1's reading is right and I would not improve on it: **every blocker is an `await` with no
+identity attached to it.** `onFile` awaits a FileReader and acts on state that may have moved (C-1);
+`startCamera` awaits a permission and assigns into a component that may be gone (C-2, C-3);
+`runQuantize` awaits a decode and resolves a promise that may belong to someone else (C-13);
+`quantizeFromFile` awaits a decode that may throw into nobody's hands (C-5). One cure — a session-owned
+monotonic request token that every async continuation must still hold, invalidated by scope disposal —
+kills C-1, C-2, C-3, C-13 and half of C-5.
 
----
+What r2 adds is the **second** axis, which is not about `await` at all: **the component has no vocabulary
+for its own outcomes.** Processing is a boolean with no timeout (C-22), so a slow reply is
+indistinguishable from a hung one and neither has an exit. An empty result is indistinguishable from no
+input (C-24). A camera fault is indistinguishable from a quantizer fault (C-15). A raw error code is
+indistinguishable from a message (C-26). And the two controls that carry the whole parameter space paint
+their value in the same ink as their ground (C-23), so even the *inputs* have no readable state.
 
-## C-20 · MINOR · Reset does not reset; a loaded image can never be removed
-
-`useExtractSession.onReset` (`:180-184`) restores `colorCount = 5` and `chromaWeight = 0.5` and
-re-quantizes — it never clears `previewDataUrl`, `lastFile`, or the palette. The control is a
-`RotateCcw` icon named "Reset" (`ExtractControls.vue:83-90`), which reads as "clear". Combined with
-`:disable-click` (C-6), there is **no path anywhere in the workbench that returns it to the empty
-state** — the ShadowPalette / "undeveloped plate" surface is reachable exactly once per mount, on first
-paint. **Cure:** `onReset` clears the session (image, palette, k, kC) and the control is renamed
-"Clear image"; if a params-only reset is also wanted it is a second, separately-named control.
-
----
-
-## C-21 · INFO · `extractedPalette` mints timestamps inside a computed
-
-`useExtractSession.ts:95-96` calls `new Date().toISOString()` for `createdAt` **and** `updatedAt` inside
-the computed body, with `paletteName.value` as a dependency (`:92`). Renaming the palette therefore
-re-mints its creation date, and every recompute hands `PaletteCard` a fresh object identity.
-**Cure:** stamp `createdAt` once when the palette is produced, not on every read.
-
----
-
-## Negative results (checked, clean — recorded so the next seat need not re-walk them)
-
-- **`verbatimModuleSyntax`** — every type-only import in all six files is `import type`. Clean.
-- **`ValueUnit` nesting accumulation** — no `new ValueUnit(...)` anywhere in the extract tree; the
-  palette rides `Color<"oklch">` + `serializeCssColor`. Not applicable.
-- **`defineModel` stale-read hazard** — no `defineModel` in the tree; sliders are
-  `:model-value` + `@update:model-value` (`ExtractControls.vue:29-33, 70-76`), the correct one-way form.
-- **oklch→HSV hue drift / `stableHue`** — the extract path never round-trips through HSV; hue comes
-  straight from `convertColor(oklab → oklch)` (`src/quantize.ts:111`). Not applicable.
-- **reka-ui pointer-capture leak** — no `pointercancel`/`lostpointercapture` handling is needed here;
-  the sliders are the shared `demo/ui/slider` root, whose recovery is that component's concern.
-- **`useBreakpoint` listener cleanup** — glass-ui `dist/dom.js:46-49` removes its `matchMedia` listener
-  on scope dispose. Clean (the *call* is dead — C-12a — but it does not leak).
-- **Worker termination** — `useImageQuantize.ts:148-151` terminates on unmount. Clean.
-- **Debounce timer cleanup** — `useExtractSession.ts:194-196` clears on unmount. Clean.
-- **`chromaWeight = 0` boundary** — `buildOptions` (`useImageQuantize.ts:102-103`) distinguishes `0`
-  from `undefined` correctly, and `v && $emit(...)` (`ExtractControls.vue:76`) tests the *array*, not
-  the value, so `[0]` passes. Clean — this is the exact spot a falsy-check bug usually lives.
-- **`k` domain** — slider `min=1 max=16 step=1` (`ExtractControls.vue:26-28`) sits inside
-  `src/quantize.ts:44`'s `k ∈ [1, 64]` integer guard. Clean.
-- **Empty palette / zero-alpha image** — `src/quantize.ts:65` returns `{ ok: true, value: [] }`;
-  `extractedPalette` (`useExtractSession.ts:77`) maps empty → `null` → the shadow branch. Correct.
-- **`position` divide-by-zero at length 1** — `i / Math.max(1, len - 1)` (`useExtractSession.ts:87`).
-  Guarded.
-- **`parseCssColor` crash class** — the workbench itself never parses; the one live `parseCssColor` in
-  the blast radius (`useImageSampler.ts:58`) is fed a self-generated `#rrggbb` and is covered by
-  `test/image-sampler-v4.test.ts`. Not this component's exposure.
-- **Horizontal overflow / dark-class / main-count** — `REPORT.json` `/#/extract`: `overflowX: 0`,
-  `hasDarkClass` correct per matrix, `main: 1`, `pageErrors: []`, in all four Safari matrices. Clean.
-
----
-
-## Defect table
-
-| id | severity | defect | evidence |
-|---|---|---|---|
-| C-1 | BLOCKER | preview ≠ palette: the readout describes a different image | live repro, JSON pasted |
-| C-2 | BLOCKER | camera stream leaks when unmount races the permission prompt | live repro, `stopped: false` |
-| C-3 | MAJOR | second camera open orphans the first stream | live repro, 2 tracks unstopped |
-| C-4 | MAJOR | viewfinder has no close affordance | live enumeration |
-| C-5 | MAJOR | malformed image ⇒ unhandled rejection, no error, wedged | live repro + console error |
-| C-6 | MAJOR | eyedropper keyboard-unreachable; focus never enters overlay | live repro |
-| C-7 | MAJOR | 45.8 MB / 22.9 MB moved to read 0.175 % of it | measured |
-| C-8 | MAJOR | dominance readout contradicts the card's first swatch | tsx derivation + live readout |
-| C-9 | MAJOR | vacuous gate — no test ever feeds an image | `grep` (empty) |
-| C-10 | MAJOR | no live region; the only announcer never renders | measured `live: []`, `NEVER` |
-| C-11 | MAJOR | 3 title-only button names + 2× 12 px slider thumbs | REPORT.json + live |
-| C-12 | MAJOR | dead `"split"` layout, dead camera/canvas APIs, dead fallback | `grep` enumeration |
-| C-13 | MINOR | no request token; dropped promise; dead worker never replaced | code path (hypothesis) |
-| C-14 | MINOR | `isProcessing` false during the 24.3 ms decode window | measured |
-| C-15 | MINOR | camera errors filed as quantize errors; raw DOMException in UI | `:252` |
-| C-16 | MINOR | `@click="() => {}"` under `cursor-pointer` + press choreography | `:152` |
-| C-17 | MINOR | `ref` vs `useTemplateRef` on adjacent lines | `:222` / `:223` |
-| C-18 | MINOR | raw rAF as a DOM wait; suspended in background tabs | `:249` |
-| C-19 | MINOR | `getContext("2d")!` and `resolve(b!)` in `captureFrame` | `:272,275` (hypothesis) |
-| C-20 | MINOR | Reset does not clear; the empty state is unreachable after load | `:180-184` |
-| C-21 | INFO | timestamps minted inside a computed | `:95-96` |
-
-## The gestalt
-
-Every blocker here has one shape: **an `await` with no identity attached to it.** `onFile` awaits a
-FileReader and then acts on state that may have moved (C-1). `startCamera` awaits a permission and then
-assigns into a component that may be gone (C-2, C-3). `runQuantize` awaits a decode and then resolves a
-promise that may belong to someone else (C-13). `quantizeFromFile` awaits a decode that may throw into
-nobody's hands (C-5). The component reaches for async four times and never once asks *"is this still
-the request I started?"*
-
-The idiomatic cure is not four guards. It is one: **the session owns a monotonically increasing request
-token, and every async continuation — preview write, quantize dispatch, worker reply, camera assignment
-— is gated on still holding it, with the scope's disposal invalidating all of them.** That single
-transposition kills C-1, C-2, C-3, C-13, and half of C-5, and it turns the camera into a resource with
-a lifetime rather than two functions that hope. Everything else on this list is downstream of a
-component that was written as if `await` were free.
+Both axes are the same absence at different altitudes: the instrument keeps its state in loose booleans
+and refs and hopes they stay coherent. The transposition is one type —
+`type ExtractState = { kind: "empty" } | { kind: "decoding", id } | { kind: "quantizing", id, since } |
+{ kind: "developed", palette } | { kind: "barren" } | { kind: "failed", issue }` — owned by the session,
+switched on once in the template. Every finding in the MAJOR band above is a state this union has a name
+for and the current code does not.

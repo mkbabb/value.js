@@ -1,0 +1,847 @@
+[
+  {
+    "name": "EB1-caught-desktop-1440-light",
+    "width": 1440,
+    "height": 900,
+    "colorScheme": "light",
+    "state": {
+      "boundaryPresent": true,
+      "boundaryRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "boundaryText": "This panel hit an unexpected error.Importing a module script failed. Try again",
+      "boundaryHTML": "<svg data-v-97dc6261=\"\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line></svg><p data-v-97dc6261=\"\" class=\"font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug\">This panel hit an unexpected error.</p><p data-v-97dc6261=\"\" class=\"text-mono-small plate-ink max-w-[46ch] break-words\">Importing a module script failed.</p><button data-v-97dc6261=\"\" data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"sm\" data-press-armed=\"\" type=\"button\" class=\"button tap-squish focus-ring glass-wash",
+      "boundaryStyle": {
+        "display": "flex",
+        "overflow": "visible",
+        "height": "804px",
+        "min-height": "0px",
+        "padding": "40px 24px",
+        "gap": "12px",
+        "align-items": "center",
+        "justify-content": "center"
+      },
+      "childCount": 4,
+      "children": [
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80",
+          "text": "",
+          "rect": {
+            "x": 706,
+            "y": 408.7,
+            "w": 28,
+            "h": 28
+          },
+          "style": {
+            "display": "block",
+            "color": "oklab(0.574276 0.191659 0.099706 / 0.8)",
+            "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+            "font-size": "18.608px",
+            "font-weight": "400",
+            "line-height": "27.911999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug",
+          "text": "This panel hit an unexpected error.",
+          "rect": {
+            "x": 497.6,
+            "y": 448.7,
+            "w": 444.9,
+            "h": 35.6
+          },
+          "style": {
+            "display": "block",
+            "color": "rgb(28, 25, 23)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "25.888px",
+            "font-weight": "700",
+            "line-height": "35.596001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "text-mono-small plate-ink max-w-[46ch] break-words",
+          "text": "Importing a module script failed.",
+          "rect": {
+            "x": 553.5,
+            "y": 496.3,
+            "w": 333,
+            "h": 22.9
+          },
+          "style": {
+            "display": "block",
+            "color": "oklch(0.446872 0.003862 34.629978)",
+            "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "font-size": "16.4px",
+            "font-weight": "400",
+            "line-height": "22.959999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "button",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-1",
+          "text": "Try again",
+          "rect": {
+            "x": 658,
+            "y": 535.3,
+            "w": 123.9,
+            "h": 36
+          },
+          "style": {
+            "display": "flex",
+            "color": "rgb(28, 25, 23)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "16.4px",
+            "font-weight": "500",
+            "line-height": "18.040001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "paneContainerPresent": false,
+      "pickerPresent": false,
+      "mainRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "mainStyle": {
+        "height": "804px",
+        "min-height": "0px",
+        "overflow": "visible",
+        "display": "flex"
+      },
+      "h1Count": 0,
+      "headingCount": 0,
+      "activeElement": {
+        "tag": "div",
+        "cls": "vj-error-boundary flex flex-col items-center justify-center ",
+        "outline": "auto 3px rgb(28, 25, 23)",
+        "boxShadow": "none"
+      },
+      "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+      "foreground": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+      "destructive": "light-dark(hsl(0 72% 50%), hsl(0 80% 60%))",
+      "docWidth": 1440,
+      "winWidth": 1440,
+      "docHeight": 900,
+      "winHeight": 900
+    },
+    "post": null,
+    "errs": []
+  },
+  {
+    "name": "EB2-caught-desktop-1440-dark",
+    "width": 1440,
+    "height": 900,
+    "colorScheme": "dark",
+    "state": {
+      "boundaryPresent": true,
+      "boundaryRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "boundaryText": "This panel hit an unexpected error.Importing a module script failed. Try again",
+      "boundaryHTML": "<svg data-v-97dc6261=\"\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line></svg><p data-v-97dc6261=\"\" class=\"font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug\">This panel hit an unexpected error.</p><p data-v-97dc6261=\"\" class=\"text-mono-small plate-ink max-w-[46ch] break-words\">Importing a module script failed.</p><button data-v-97dc6261=\"\" data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"sm\" data-press-armed=\"\" type=\"button\" class=\"button tap-squish focus-ring glass-wash",
+      "boundaryStyle": {
+        "display": "flex",
+        "overflow": "visible",
+        "height": "804px",
+        "min-height": "0px",
+        "padding": "40px 24px",
+        "gap": "12px",
+        "align-items": "center",
+        "justify-content": "center"
+      },
+      "childCount": 4,
+      "children": [
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80",
+          "text": "",
+          "rect": {
+            "x": 706,
+            "y": 408.7,
+            "w": 28,
+            "h": 28
+          },
+          "style": {
+            "display": "block",
+            "color": "oklab(0.633291 0.181478 0.084362 / 0.8)",
+            "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+            "font-size": "18.608px",
+            "font-weight": "400",
+            "line-height": "27.911999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug",
+          "text": "This panel hit an unexpected error.",
+          "rect": {
+            "x": 497.6,
+            "y": 448.7,
+            "w": 444.9,
+            "h": 35.6
+          },
+          "style": {
+            "display": "block",
+            "color": "rgb(233, 230, 226)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "25.888px",
+            "font-weight": "700",
+            "line-height": "35.596001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "text-mono-small plate-ink max-w-[46ch] break-words",
+          "text": "Importing a module script failed.",
+          "rect": {
+            "x": 553.5,
+            "y": 496.3,
+            "w": 333,
+            "h": 22.9
+          },
+          "style": {
+            "display": "block",
+            "color": "oklch(0.8894 0.003822 41.868439)",
+            "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "font-size": "16.4px",
+            "font-weight": "400",
+            "line-height": "22.959999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "button",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-1",
+          "text": "Try again",
+          "rect": {
+            "x": 658,
+            "y": 535.3,
+            "w": 123.9,
+            "h": 36
+          },
+          "style": {
+            "display": "flex",
+            "color": "rgb(233, 230, 226)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "16.4px",
+            "font-weight": "500",
+            "line-height": "18.040001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "paneContainerPresent": false,
+      "pickerPresent": false,
+      "mainRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "mainStyle": {
+        "height": "804px",
+        "min-height": "0px",
+        "overflow": "visible",
+        "display": "flex"
+      },
+      "h1Count": 0,
+      "headingCount": 0,
+      "activeElement": {
+        "tag": "div",
+        "cls": "vj-error-boundary flex flex-col items-center justify-center ",
+        "outline": "auto 3px rgb(233, 230, 226)",
+        "boxShadow": "none"
+      },
+      "inkMuted": "oklch(88.939954106575% 0.003821851545 41.86844006185deg)",
+      "foreground": "hsl(30 14% 90%)",
+      "destructive": "hsl(0 80% 60%)",
+      "docWidth": 1440,
+      "winWidth": 1440,
+      "docHeight": 900,
+      "winHeight": 900
+    },
+    "post": null,
+    "errs": []
+  },
+  {
+    "name": "EB3-caught-mobile-390-light",
+    "width": 390,
+    "height": 844,
+    "colorScheme": "light",
+    "state": {
+      "boundaryPresent": false,
+      "boundaryRect": null,
+      "boundaryText": null,
+      "boundaryHTML": null,
+      "boundaryStyle": null,
+      "childCount": 0,
+      "children": null,
+      "paneContainerPresent": true,
+      "pickerPresent": true,
+      "mainRect": {
+        "x": 16,
+        "y": 104,
+        "w": 358,
+        "h": 732
+      },
+      "mainStyle": {
+        "height": "731.984375px",
+        "min-height": "0px",
+        "overflow": "visible",
+        "display": "flex"
+      },
+      "h1Count": 0,
+      "headingCount": 1,
+      "activeElement": {
+        "tag": "body",
+        "cls": "relative",
+        "outline": "none 3px rgb(28, 25, 23)",
+        "boxShadow": "none"
+      },
+      "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+      "foreground": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+      "destructive": "light-dark(hsl(0 72% 50%), hsl(0 80% 60%))",
+      "docWidth": 390,
+      "winWidth": 390,
+      "docHeight": 844,
+      "winHeight": 844
+    },
+    "post": null,
+    "errs": []
+  },
+  {
+    "name": "EB4-caught-rtl-desktop-light",
+    "width": 1440,
+    "height": 900,
+    "colorScheme": "light",
+    "state": {
+      "boundaryPresent": true,
+      "boundaryRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "boundaryText": "This panel hit an unexpected error.Importing a module script failed. Try again",
+      "boundaryHTML": "<svg data-v-97dc6261=\"\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line></svg><p data-v-97dc6261=\"\" class=\"font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug\">This panel hit an unexpected error.</p><p data-v-97dc6261=\"\" class=\"text-mono-small plate-ink max-w-[46ch] break-words\">Importing a module script failed.</p><button data-v-97dc6261=\"\" data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"sm\" data-press-armed=\"\" type=\"button\" class=\"button tap-squish focus-ring glass-wash",
+      "boundaryStyle": {
+        "display": "flex",
+        "overflow": "visible",
+        "height": "804px",
+        "min-height": "0px",
+        "padding": "40px 24px",
+        "gap": "12px",
+        "align-items": "center",
+        "justify-content": "center"
+      },
+      "childCount": 4,
+      "children": [
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80",
+          "text": "",
+          "rect": {
+            "x": 706,
+            "y": 408.7,
+            "w": 28,
+            "h": 28
+          },
+          "style": {
+            "display": "block",
+            "color": "oklab(0.574276 0.191659 0.099706 / 0.8)",
+            "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+            "font-size": "18.608px",
+            "font-weight": "400",
+            "line-height": "27.911999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug",
+          "text": "This panel hit an unexpected error.",
+          "rect": {
+            "x": 497.6,
+            "y": 448.7,
+            "w": 444.9,
+            "h": 35.6
+          },
+          "style": {
+            "display": "block",
+            "color": "rgb(28, 25, 23)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "25.888px",
+            "font-weight": "700",
+            "line-height": "35.596001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "text-mono-small plate-ink max-w-[46ch] break-words",
+          "text": "Importing a module script failed.",
+          "rect": {
+            "x": 553.5,
+            "y": 496.3,
+            "w": 333,
+            "h": 22.9
+          },
+          "style": {
+            "display": "block",
+            "color": "oklch(0.446872 0.003862 34.629978)",
+            "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "font-size": "16.4px",
+            "font-weight": "400",
+            "line-height": "22.959999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "button",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-1",
+          "text": "Try again",
+          "rect": {
+            "x": 658,
+            "y": 535.3,
+            "w": 123.9,
+            "h": 36
+          },
+          "style": {
+            "display": "flex",
+            "color": "rgb(28, 25, 23)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "16.4px",
+            "font-weight": "500",
+            "line-height": "18.040001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "paneContainerPresent": false,
+      "pickerPresent": false,
+      "mainRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "mainStyle": {
+        "height": "804px",
+        "min-height": "0px",
+        "overflow": "visible",
+        "display": "flex"
+      },
+      "h1Count": 0,
+      "headingCount": 0,
+      "activeElement": {
+        "tag": "div",
+        "cls": "vj-error-boundary flex flex-col items-center justify-center ",
+        "outline": "auto 3px rgb(28, 25, 23)",
+        "boxShadow": "none"
+      },
+      "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+      "foreground": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+      "destructive": "light-dark(hsl(0 72% 50%), hsl(0 80% 60%))",
+      "docWidth": 1440,
+      "winWidth": 1440,
+      "docHeight": 900,
+      "winHeight": 900
+    },
+    "post": {
+      "dir": "rtl",
+      "buttonBox": {
+        "x": 658.03125,
+        "y": 535.25,
+        "width": 123.9375,
+        "height": 36
+      },
+      "iconBox": {
+        "x": 749.96875,
+        "y": 546.25,
+        "width": 14,
+        "height": 14
+      },
+      "iconLeftOfLabel": false
+    },
+    "errs": []
+  },
+  {
+    "name": "EB5-recovery-desktop-light",
+    "width": 1440,
+    "height": 900,
+    "colorScheme": "light",
+    "state": {
+      "boundaryPresent": true,
+      "boundaryRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "boundaryText": "This panel hit an unexpected error.Importing a module script failed. Try again",
+      "boundaryHTML": "<svg data-v-97dc6261=\"\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line></svg><p data-v-97dc6261=\"\" class=\"font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug\">This panel hit an unexpected error.</p><p data-v-97dc6261=\"\" class=\"text-mono-small plate-ink max-w-[46ch] break-words\">Importing a module script failed.</p><button data-v-97dc6261=\"\" data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"sm\" data-press-armed=\"\" type=\"button\" class=\"button tap-squish focus-ring glass-wash",
+      "boundaryStyle": {
+        "display": "flex",
+        "overflow": "visible",
+        "height": "804px",
+        "min-height": "0px",
+        "padding": "40px 24px",
+        "gap": "12px",
+        "align-items": "center",
+        "justify-content": "center"
+      },
+      "childCount": 4,
+      "children": [
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80",
+          "text": "",
+          "rect": {
+            "x": 706,
+            "y": 408.7,
+            "w": 28,
+            "h": 28
+          },
+          "style": {
+            "display": "block",
+            "color": "oklab(0.574276 0.191659 0.099706 / 0.8)",
+            "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+            "font-size": "18.608px",
+            "font-weight": "400",
+            "line-height": "27.911999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug",
+          "text": "This panel hit an unexpected error.",
+          "rect": {
+            "x": 497.6,
+            "y": 448.7,
+            "w": 444.9,
+            "h": 35.6
+          },
+          "style": {
+            "display": "block",
+            "color": "rgb(28, 25, 23)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "25.888px",
+            "font-weight": "700",
+            "line-height": "35.596001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "text-mono-small plate-ink max-w-[46ch] break-words",
+          "text": "Importing a module script failed.",
+          "rect": {
+            "x": 553.5,
+            "y": 496.3,
+            "w": 333,
+            "h": 22.9
+          },
+          "style": {
+            "display": "block",
+            "color": "oklch(0.446872 0.003862 34.629978)",
+            "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "font-size": "16.4px",
+            "font-weight": "400",
+            "line-height": "22.959999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "button",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-1",
+          "text": "Try again",
+          "rect": {
+            "x": 658,
+            "y": 535.3,
+            "w": 123.9,
+            "h": 36
+          },
+          "style": {
+            "display": "flex",
+            "color": "rgb(28, 25, 23)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "16.4px",
+            "font-weight": "500",
+            "line-height": "18.040001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "paneContainerPresent": false,
+      "pickerPresent": false,
+      "mainRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "mainStyle": {
+        "height": "804px",
+        "min-height": "0px",
+        "overflow": "visible",
+        "display": "flex"
+      },
+      "h1Count": 0,
+      "headingCount": 0,
+      "activeElement": {
+        "tag": "div",
+        "cls": "vj-error-boundary flex flex-col items-center justify-center ",
+        "outline": "auto 3px rgb(28, 25, 23)",
+        "boxShadow": "none"
+      },
+      "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+      "foreground": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+      "destructive": "light-dark(hsl(0 72% 50%), hsl(0 80% 60%))",
+      "docWidth": 1440,
+      "winWidth": 1440,
+      "docHeight": 900,
+      "winHeight": 900
+    },
+    "post": {
+      "beforeBoundary": true,
+      "afterRetryBoundary": true,
+      "afterRetryActive": {
+        "tag": "div",
+        "cls": "vj-error-boundary flex flex-col items-center justify-center ",
+        "outline": "auto 3px rgb(28, 25, 23)",
+        "boxShadow": "none"
+      },
+      "afterRouteHash": "#/gradient",
+      "afterRouteBoundary": true,
+      "afterRoutePaneContainer": false,
+      "afterRouteText": "This panel hit an unexpected error.Importing a module script failed. Try again"
+    },
+    "errs": []
+  },
+  {
+    "name": "EB6-caught-zoom200-desktop-light",
+    "width": 720,
+    "height": 450,
+    "colorScheme": "light",
+    "state": {
+      "boundaryPresent": false,
+      "boundaryRect": null,
+      "boundaryText": null,
+      "boundaryHTML": null,
+      "boundaryStyle": null,
+      "childCount": 0,
+      "children": null,
+      "paneContainerPresent": true,
+      "pickerPresent": true,
+      "mainRect": {
+        "x": 16,
+        "y": 104,
+        "w": 688,
+        "h": 338
+      },
+      "mainStyle": {
+        "height": "338px",
+        "min-height": "0px",
+        "overflow": "visible",
+        "display": "flex"
+      },
+      "h1Count": 0,
+      "headingCount": 1,
+      "activeElement": {
+        "tag": "body",
+        "cls": "relative",
+        "outline": "none 3px rgb(28, 25, 23)",
+        "boxShadow": "none"
+      },
+      "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+      "foreground": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+      "destructive": "light-dark(hsl(0 72% 50%), hsl(0 80% 60%))",
+      "docWidth": 720,
+      "winWidth": 720,
+      "docHeight": 450,
+      "winHeight": 450
+    },
+    "post": null,
+    "errs": []
+  },
+  {
+    "name": "EB7-caught-forced-colors-desktop",
+    "width": 1440,
+    "height": 900,
+    "colorScheme": "light",
+    "state": {
+      "boundaryPresent": true,
+      "boundaryRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "boundaryText": "This panel hit an unexpected error.Importing a module script failed. Try again",
+      "boundaryHTML": "<svg data-v-97dc6261=\"\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"></line><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"></line></svg><p data-v-97dc6261=\"\" class=\"font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug\">This panel hit an unexpected error.</p><p data-v-97dc6261=\"\" class=\"text-mono-small plate-ink max-w-[46ch] break-words\">Importing a module script failed.</p><button data-v-97dc6261=\"\" data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"sm\" data-press-armed=\"\" type=\"button\" class=\"button tap-squish focus-ring glass-wash",
+      "boundaryStyle": {
+        "display": "flex",
+        "overflow": "visible",
+        "height": "804px",
+        "min-height": "0px",
+        "padding": "40px 24px",
+        "gap": "12px",
+        "align-items": "center",
+        "justify-content": "center"
+      },
+      "childCount": 4,
+      "children": [
+        {
+          "tag": "svg",
+          "cls": "lucide lucide-circle-alert-icon lucide-circle-alert w-7 h-7 text-destructive/80",
+          "text": "",
+          "rect": {
+            "x": 706,
+            "y": 408.7,
+            "w": 28,
+            "h": 28
+          },
+          "style": {
+            "display": "block",
+            "color": "oklab(0.574276 0.191659 0.099706 / 0.8)",
+            "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+            "font-size": "18.608px",
+            "font-weight": "400",
+            "line-height": "27.911999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "font-display text-heading text-foreground max-w-[28ch] text-balance leading-snug",
+          "text": "This panel hit an unexpected error.",
+          "rect": {
+            "x": 497.6,
+            "y": 448.7,
+            "w": 444.9,
+            "h": 35.6
+          },
+          "style": {
+            "display": "block",
+            "color": "rgb(28, 25, 23)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "25.888px",
+            "font-weight": "700",
+            "line-height": "35.596001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "p",
+          "cls": "text-mono-small plate-ink max-w-[46ch] break-words",
+          "text": "Importing a module script failed.",
+          "rect": {
+            "x": 553.5,
+            "y": 496.3,
+            "w": 333,
+            "h": 22.9
+          },
+          "style": {
+            "display": "block",
+            "color": "oklch(0.492722 0.003862 34.629978)",
+            "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+            "font-size": "16.4px",
+            "font-weight": "400",
+            "line-height": "22.959999px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "tag": "button",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-1",
+          "text": "Try again",
+          "rect": {
+            "x": 657,
+            "y": 535.3,
+            "w": 125.9,
+            "h": 36
+          },
+          "style": {
+            "display": "flex",
+            "color": "rgb(28, 25, 23)",
+            "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+            "font-size": "16.4px",
+            "font-weight": "500",
+            "line-height": "18.040001px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "paneContainerPresent": false,
+      "pickerPresent": false,
+      "mainRect": {
+        "x": 16,
+        "y": 88,
+        "w": 1408,
+        "h": 804
+      },
+      "mainStyle": {
+        "height": "804px",
+        "min-height": "0px",
+        "overflow": "visible",
+        "display": "flex"
+      },
+      "h1Count": 0,
+      "headingCount": 0,
+      "activeElement": {
+        "tag": "div",
+        "cls": "vj-error-boundary flex flex-col items-center justify-center ",
+        "outline": "auto 3px rgb(28, 25, 23)",
+        "boxShadow": "none"
+      },
+      "inkMuted": "oklch(49.27224168876% 0.003861589952 34.629978305623deg)",
+      "foreground": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+      "destructive": "light-dark(hsl(0 72% 50%), hsl(0 80% 60%))",
+      "docWidth": 1440,
+      "winWidth": 1440,
+      "docHeight": 900,
+      "winHeight": 900
+    },
+    "post": null,
+    "errs": []
+  }
+]

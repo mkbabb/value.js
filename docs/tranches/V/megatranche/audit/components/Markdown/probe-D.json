@@ -1,0 +1,708 @@
+{
+  "roleTokens": {
+    "text-display": {
+      "fontFamily": "Fraunces",
+      "fontSize": "41.888px",
+      "lineHeight": "43.982403px",
+      "fontWeight": "400"
+    },
+    "text-title": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "32.928001px",
+      "lineHeight": "39.513599px",
+      "fontWeight": "700"
+    },
+    "text-heading": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "25.888px",
+      "lineHeight": "31.065601px",
+      "fontWeight": "700"
+    },
+    "text-prose": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "20.671999px",
+      "lineHeight": "33.447296px",
+      "fontWeight": "400"
+    },
+    "text-small": {
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "16.4px",
+      "lineHeight": "22.959999px",
+      "fontWeight": "400"
+    },
+    "text-mono-small": {
+      "fontFamily": "Fira Code",
+      "fontSize": "16.4px",
+      "lineHeight": "22.959999px",
+      "fontWeight": "400"
+    }
+  },
+  "desktopLight": {
+    "wrapperStyleAttr": "--md-color-h2: oklch(47.092665778393% 0.188342548603 9.83402284231deg); --md-color-h3: color-mix(in oklab, oklch(47.092665778393% 0.188342548603 9.83402284231deg) 61.8%, var(--foreground)); --md-color-accent: oklch(47.092665778393% 0.188342548603 9.83402284231deg);",
+    "bodyMaxInlineSize": "100%",
+    "bodyWidthPx": 462,
+    "chPx": 9.342,
+    "bodyCh": 49.5,
+    "cardWidthPx": 512,
+    "p": {
+      "tag": "P",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "16px",
+      "lineHeight": "28px",
+      "fontWeight": "400",
+      "color": "rgb(28, 25, 23)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "marginTop": "0px",
+      "marginBottom": "16px",
+      "paddingLeft": "0px",
+      "width": 462,
+      "contentVisibility": "auto",
+      "containIntrinsicSize": "auto 200px",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "h2": {
+      "tag": "H2",
+      "fontFamily": "Fraunces",
+      "fontSize": "30px",
+      "lineHeight": "36px",
+      "fontWeight": "600",
+      "color": "oklch(0.470927 0.188343 9.834023)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "marginTop": "41.875px",
+      "marginBottom": "16px",
+      "paddingLeft": "0px",
+      "width": 462,
+      "contentVisibility": "auto",
+      "containIntrinsicSize": "auto 200px",
+      "transitionProperty": "color",
+      "transitionDuration": "0.45s"
+    },
+    "h3": {
+      "tag": "H3",
+      "fontFamily": "Fraunces",
+      "fontSize": "24px",
+      "lineHeight": "32px",
+      "fontWeight": "600",
+      "color": "oklab(0.373594 0.116019 0.021859)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "marginTop": "0px",
+      "marginBottom": "9.875px",
+      "paddingLeft": "0px",
+      "width": 462,
+      "contentVisibility": "visible",
+      "containIntrinsicSize": "none",
+      "transitionProperty": "color",
+      "transitionDuration": "0.45s"
+    },
+    "li": {
+      "tag": "LI",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "16px",
+      "lineHeight": "28px",
+      "fontWeight": "400",
+      "color": "rgb(28, 25, 23)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "marginTop": "0px",
+      "marginBottom": "6.109375px",
+      "paddingLeft": "0px",
+      "width": 420.1,
+      "contentVisibility": "visible",
+      "containIntrinsicSize": "none",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "code": {
+      "tag": "CODE",
+      "fontFamily": "Fira Code",
+      "fontSize": "12px",
+      "lineHeight": "16px",
+      "fontWeight": "400",
+      "color": "oklch(0.470927 0.188343 9.834023)",
+      "bg": "oklab(0.913299 0.005463 0.013024)",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "paddingLeft": "4px",
+      "width": 22.8,
+      "contentVisibility": "visible",
+      "containIntrinsicSize": "none",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "mark": {
+      "tag": "MARK",
+      "fontFamily": "Plus Jakarta Sans",
+      "fontSize": "16px",
+      "lineHeight": "28px",
+      "fontWeight": "600",
+      "color": "oklch(0.470927 0.188343 9.834023)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "marginTop": "0px",
+      "marginBottom": "0px",
+      "paddingLeft": "0px",
+      "width": 29.9,
+      "contentVisibility": "visible",
+      "containIntrinsicSize": "none",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "a": null,
+    "headings": [
+      {
+        "tag": "H3",
+        "text": "Attributes",
+        "fontSize": "24px",
+        "color": "oklab(0.373594 0.116019 0.021859)",
+        "marginTop": "0px",
+        "marginBottom": "9.875px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H3",
+        "text": "Historical Context",
+        "fontSize": "24px",
+        "color": "oklab(0.373594 0.116019 0.021859)",
+        "marginTop": "25.875px",
+        "marginBottom": "9.875px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H2",
+        "text": "Key Characteristics",
+        "fontSize": "30px",
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "marginTop": "41.875px",
+        "marginBottom": "16px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H3",
+        "text": "Advantages",
+        "fontSize": "24px",
+        "color": "oklab(0.373594 0.116019 0.021859)",
+        "marginTop": "25.875px",
+        "marginBottom": "9.875px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H3",
+        "text": "Disadvantages",
+        "fontSize": "24px",
+        "color": "oklab(0.373594 0.116019 0.021859)",
+        "marginTop": "25.875px",
+        "marginBottom": "9.875px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H3",
+        "text": "White Points",
+        "fontSize": "24px",
+        "color": "oklab(0.373594 0.116019 0.021859)",
+        "marginTop": "25.875px",
+        "marginBottom": "9.875px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H2",
+        "text": "Color Model",
+        "fontSize": "30px",
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "marginTop": "41.875px",
+        "marginBottom": "16px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H3",
+        "text": "Components",
+        "fontSize": "24px",
+        "color": "oklab(0.373594 0.116019 0.021859)",
+        "marginTop": "9.875px",
+        "marginBottom": "9.875px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H3",
+        "text": "Representation",
+        "fontSize": "24px",
+        "color": "oklab(0.373594 0.116019 0.021859)",
+        "marginTop": "25.875px",
+        "marginBottom": "9.875px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H2",
+        "text": "Color Conversions",
+        "fontSize": "30px",
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "marginTop": "41.875px",
+        "marginBottom": "16px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H3",
+        "text": "XYZ to Lab",
+        "fontSize": "24px",
+        "color": "oklab(0.373594 0.116019 0.021859)",
+        "marginTop": "9.875px",
+        "marginBottom": "9.875px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H3",
+        "text": "Lab to XYZ",
+        "fontSize": "24px",
+        "color": "oklab(0.373594 0.116019 0.021859)",
+        "marginTop": "25.875px",
+        "marginBottom": "9.875px",
+        "family": "Fraunces"
+      },
+      {
+        "tag": "H2",
+        "text": "Applications",
+        "fontSize": "30px",
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "marginTop": "41.875px",
+        "marginBottom": "16px",
+        "family": "Fraunces"
+      }
+    ],
+    "nestedPCount": 3,
+    "nestedHCount": 0,
+    "hrs": [
+      {
+        "opacity": "0.3",
+        "borderTopColor": "oklch(0.470927 0.188343 9.834023)",
+        "borderTopWidth": "1px",
+        "marginTop": "41.875px"
+      },
+      {
+        "opacity": "0.3",
+        "borderTopColor": "oklch(0.470927 0.188343 9.834023)",
+        "borderTopWidth": "1px",
+        "marginTop": "41.875px"
+      },
+      {
+        "opacity": "0.3",
+        "borderTopColor": "oklch(0.470927 0.188343 9.834023)",
+        "borderTopWidth": "1px",
+        "marginTop": "41.875px"
+      },
+      {
+        "opacity": "0.3",
+        "borderTopColor": "oklch(0.470927 0.188343 9.834023)",
+        "borderTopWidth": "1px",
+        "marginTop": "41.875px"
+      }
+    ],
+    "directChildren": 34,
+    "cvAuto": 33,
+    "species": {
+      "LI>code": {
+        "n": 6,
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "bg": "oklab(0.913299 0.005463 0.013024)",
+        "paddingLeft": "4px",
+        "paddingTop": "2px",
+        "fontSize": "12px",
+        "borderRadius": "4px"
+      },
+      "STRONG>code": {
+        "n": 3,
+        "color": "rgb(28, 25, 23)",
+        "bg": "oklab(0.913299 0.005463 0.013024)",
+        "paddingLeft": "0px",
+        "paddingTop": "0px",
+        "fontSize": "12px",
+        "borderRadius": "4px"
+      },
+      "P>code": {
+        "n": 5,
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "bg": "oklab(0.913299 0.005463 0.013024)",
+        "paddingLeft": "4px",
+        "paddingTop": "2px",
+        "fontSize": "12px",
+        "borderRadius": "4px"
+      }
+    },
+    "scrollHeightBefore": 8023,
+    "markCount": 9,
+    "docLandmarks": {
+      "h1OnPage": 0,
+      "mainOnPage": 1
+    }
+  },
+  "scrollTruth": [
+    {
+      "top": 0,
+      "scrollHeight": 8023
+    },
+    {
+      "top": 694,
+      "scrollHeight": 7925
+    },
+    {
+      "top": 1388,
+      "scrollHeight": 7464
+    },
+    {
+      "top": 2082,
+      "scrollHeight": 7059
+    },
+    {
+      "top": 2776,
+      "scrollHeight": 6313
+    },
+    {
+      "top": 3470,
+      "scrollHeight": 5462
+    },
+    {
+      "top": 4134,
+      "scrollHeight": 5076
+    },
+    {
+      "top": 4304,
+      "scrollHeight": 5076
+    },
+    {
+      "top": 4304,
+      "scrollHeight": 5076
+    },
+    {
+      "top": 4304,
+      "scrollHeight": 5076
+    },
+    {
+      "top": 4304,
+      "scrollHeight": 5076
+    },
+    {
+      "top": 4304,
+      "scrollHeight": 5076
+    },
+    {
+      "top": 4304,
+      "scrollHeight": 5076
+    },
+    {
+      "top": 0,
+      "scrollHeight": 5076,
+      "note": "back-to-top"
+    }
+  ],
+  "measureSweep": [
+    {
+      "vw": 1440,
+      "bodyPx": 462,
+      "cardPx": 512,
+      "ch": 49.5
+    },
+    {
+      "vw": 1920,
+      "bodyPx": 462,
+      "cardPx": 512,
+      "ch": 49.5
+    },
+    {
+      "vw": 2560,
+      "bodyPx": 462,
+      "cardPx": 512,
+      "ch": 49.5
+    },
+    {
+      "vw": 3440,
+      "bodyPx": 462,
+      "cardPx": 512,
+      "ch": 49.5
+    }
+  ],
+  "desktopDark": {
+    "plate": {
+      "sel": "glass-resting card rounded-card text-car",
+      "bg": "oklab(0.395241 0.00968 0.016528 / 0.7536)"
+    },
+    "h2": "oklch(0.958322 0.021053 9.834023)",
+    "h3": "oklab(0.94567 0.013714 0.004409)",
+    "p": "rgb(233, 230, 226)",
+    "codeColor": "oklch(0.958322 0.021053 9.834023)",
+    "codeBg": "oklab(0.345296 0.010372 0.017546)",
+    "markColor": "oklch(0.958322 0.021053 9.834023)",
+    "hrColor": "oklch(0.958322 0.021053 9.834023)",
+    "hrOpacity": "0.3",
+    "wrapperStyleAttr": "--md-color-h2: oklch(95.832172477266% 0.021053120065 9.83402284231deg); --md-color-h3: color-mix(in oklab, oklch(95.832172477266% 0.021053120065 9.83402284231deg) 61.8%, var(--foreground)); --md-color-accent: oklch(95.832172477266% 0.021053120065 9.83402284231deg);"
+  },
+  "mobile": {
+    "reachedWithoutInteraction": false,
+    "steps": [
+      "Save edit",
+      "Cancel edit",
+      "Switch to slug",
+      "Generate new slug",
+      "Cancel",
+      "Select view",
+      "Toggle action bar",
+      "Picker",
+      "About",
+      "Menu",
+      "Login",
+      "@mbabb",
+      "Select color space",
+      "l channel",
+      "a channel",
+      "b channel",
+      "alpha channel"
+    ],
+    "reachedAfterClick": true,
+    "measure": {
+      "bodyPx": 332,
+      "chPx": 9.342,
+      "bodyCh": 35.5,
+      "cardOverflowX": "hidden",
+      "cardRight": 374,
+      "katexDisplay": [
+        {
+          "outerOverflowX": "auto",
+          "outerScrollW": 332,
+          "outerClientW": 332,
+          "innerScrollW": 306,
+          "innerClientW": 306,
+          "innerRight": 361,
+          "cardRight": 374,
+          "clippedPx": -13,
+          "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\beg"
+        },
+        {
+          "outerOverflowX": "auto",
+          "outerScrollW": 778,
+          "outerClientW": 332,
+          "innerScrollW": 752,
+          "innerClientW": 306,
+          "innerRight": 361,
+          "cardRight": 374,
+          "clippedPx": -13,
+          "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(Y"
+        },
+        {
+          "outerOverflowX": "auto",
+          "outerScrollW": 431,
+          "outerClientW": 332,
+          "innerScrollW": 405,
+          "innerClientW": 306,
+          "innerRight": 361,
+          "cardRight": 374,
+          "clippedPx": -13,
+          "text": "fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y ="
+        },
+        {
+          "outerOverflowX": "auto",
+          "outerScrollW": 505,
+          "outerClientW": 332,
+          "innerScrollW": 479,
+          "innerClientW": 306,
+          "innerRight": 361,
+          "cardRight": 374,
+          "clippedPx": -13,
+          "text": "X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X "
+        }
+      ],
+      "escapees": [
+        {
+          "tag": "math",
+          "cls": "",
+          "right": 375,
+          "over": 1
+        },
+        {
+          "tag": "semantics",
+          "cls": "",
+          "right": 375,
+          "over": 1
+        },
+        {
+          "tag": "mrow",
+          "cls": "",
+          "right": 375,
+          "over": 1
+        },
+        {
+          "tag": "mtext",
+          "cls": "",
+          "right": 375,
+          "over": 1
+        },
+        {
+          "tag": "math",
+          "cls": "",
+          "right": 395,
+          "over": 21
+        },
+        {
+          "tag": "semantics",
+          "cls": "",
+          "right": 395,
+          "over": 21
+        },
+        {
+          "tag": "mrow",
+          "cls": "",
+          "right": 395,
+          "over": 21
+        },
+        {
+          "tag": "mrow",
+          "cls": "",
+          "right": 395,
+          "over": 21
+        },
+        {
+          "tag": "mtable",
+          "cls": "",
+          "right": 395,
+          "over": 21
+        },
+        {
+          "tag": "mtr",
+          "cls": "",
+          "right": 395,
+          "over": 21
+        },
+        {
+          "tag": "mtd",
+          "cls": "",
+          "right": 395,
+          "over": 21
+        },
+        {
+          "tag": "mtr",
+          "cls": "",
+          "right": 395,
+          "over": 21
+        }
+      ],
+      "escapeeCount": 404,
+      "codeFontSize": "12px",
+      "pFontSize": "16px"
+    }
+  },
+  "reduce": {
+    "h2": {
+      "color": "oklch(0.470927 0.188343 9.834023)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderTopColor": "rgb(198, 180, 159)",
+      "borderLeftColor": "rgb(198, 180, 159)",
+      "opacity": "1",
+      "fontWeight": "600",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "p": {
+      "color": "rgb(28, 25, 23)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderTopColor": "rgb(198, 180, 159)",
+      "borderLeftColor": "rgb(198, 180, 159)",
+      "opacity": "1",
+      "fontWeight": "400",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "code": {
+      "color": "oklch(0.470927 0.188343 9.834023)",
+      "bg": "oklab(0.913299 0.005463 0.013024)",
+      "borderTopColor": "rgb(198, 180, 159)",
+      "borderLeftColor": "rgb(198, 180, 159)",
+      "opacity": "1",
+      "fontWeight": "400",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "mark": {
+      "color": "oklch(0.470927 0.188343 9.834023)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderTopColor": "rgb(198, 180, 159)",
+      "borderLeftColor": "rgb(198, 180, 159)",
+      "opacity": "1",
+      "fontWeight": "600",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "hr": {
+      "color": "rgb(28, 25, 23)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderTopColor": "oklch(0.470927 0.188343 9.834023)",
+      "borderLeftColor": "oklch(0.470927 0.188343 9.834023)",
+      "opacity": "0.3",
+      "fontWeight": "400",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "pre": null,
+    "forcedActive": false,
+    "reduceActive": true,
+    "skeletonPresent": false
+  },
+  "forced": {
+    "h2": {
+      "color": "oklch(0.519287 0.207684 9.834023)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderTopColor": "rgb(198, 180, 159)",
+      "borderLeftColor": "rgb(198, 180, 159)",
+      "opacity": "1",
+      "fontWeight": "600",
+      "transitionProperty": "color",
+      "transitionDuration": "0.45s"
+    },
+    "p": {
+      "color": "rgb(28, 25, 23)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderTopColor": "rgb(198, 180, 159)",
+      "borderLeftColor": "rgb(198, 180, 159)",
+      "opacity": "1",
+      "fontWeight": "400",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "code": {
+      "color": "oklch(0.519287 0.207684 9.834023)",
+      "bg": "oklab(0.913299 0.005463 0.013024)",
+      "borderTopColor": "rgb(198, 180, 159)",
+      "borderLeftColor": "rgb(198, 180, 159)",
+      "opacity": "1",
+      "fontWeight": "400",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "mark": {
+      "color": "oklch(0.519287 0.207684 9.834023)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderTopColor": "rgb(198, 180, 159)",
+      "borderLeftColor": "rgb(198, 180, 159)",
+      "opacity": "1",
+      "fontWeight": "600",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "hr": {
+      "color": "rgb(28, 25, 23)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "borderTopColor": "oklch(0.519287 0.207684 9.834023)",
+      "borderLeftColor": "oklch(0.519287 0.207684 9.834023)",
+      "opacity": "0.3",
+      "fontWeight": "400",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "pre": null,
+    "forcedActive": true,
+    "reduceActive": false,
+    "skeletonPresent": false
+  },
+  "zoom200": {
+    "bodyPx": 700,
+    "ch": 37.5,
+    "h2Size": "30px",
+    "codeSize": "12px",
+    "docOverflowX": 0,
+    "worstCardOverflowPx": 15073
+  }
+}
