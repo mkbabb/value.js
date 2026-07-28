@@ -1579,3 +1579,66 @@ band; the two marks likely share one cure cut.
 
 **Routing**: binds at the workbenches ADJUDICATION round with OM-4 (the running band's prompts
 are cached; the easing units' r3 briefs carry OM-4 + OM-13 together).
+
+## MT-F038 — OWNER-MARKED: raw float precision in displayed color values; a generalized pretty-formatting facility is MANDATED
+
+**Witness**: `audit/visual/owner-marked/OM-14-value-formatting-decimals.png` (sha256
+`306c7196…4037`), owner-captured 2026-07-28 11:49 ET. The RGB card renders
+`rgb(154.029889788152 …` — twelve decimals, ellipsis-truncated mid-value. Owner's words:
+*"Another consistent problem is value formatting in many views--for example, we should never
+display values with so many decimal places. We should have a generalized facility for displaying
+color values 'pretty' like this with a variable, depending on context, number of decimals,
+sometimes with no decimals, etc. Audit for all instances of this across all contexts."*
+
+**Root emitter, already traced**: `src/css/grammar.ts:283-285` — serialization's
+`format = (value) => Number(value.toFixed(12)).toString()`. Precision-preserving by design for
+round-trip fidelity, but consumed RAW by display contexts; the display/fidelity split does not
+exist anywhere. 32 scattered `toFixed` sites with precisions 0/1/2/3/4/12 and NO shared policy;
+the picker readout (`readoutReservation.ts`, `ComponentSliders.vue` `toFixed(d)`) carries the
+only partial context-aware facility.
+
+**The mandate**: ONE generalized facility — context-keyed precision (per-channel-type policy;
+CSS Color 4 / CSSOM serialization norms as the baseline), display precision distinct from
+copy/export fidelity, subsuming every scattered site. Census running (source-only per owner
+constraint — no browser): `audit/om-14-formatting/FORMAT-AUDIT.md`.
+
+**Routing**: the facility is a src/-adjacent design (library owns canonical formatting; demo
+contexts own precision selection) — Phase E/F wave input; the census report pins the exact split.
+
+## MT-F039 — OWNER-MARKED: contrived/duplicative explicit text is ABROGATED; the ShadowPalette plate is ugly and too large
+
+**Witness**: `audit/visual/owner-marked/OM-15-text-contrivance-shadow-palette.png` (sha256
+`f4fcbef9…2d1b`), owner-captured 2026-07-27 20:08 ET. The extract plate's empty state: a large
+greyed skeleton grid captioned `· UNDEVELOPED PLATE — FEED IT AN IMAGE`. Owner's words: *"text
+items like this are to be totally abrogated--audit for all areas of duplicative, explicit, text
+contrivance. And that shadow palette is ugly and too large."*
+
+**Two ordered arms**:
+1. **Text contrivance abrogation** — the precious-metaphor caption class (and its ALL-CAPS
+   letter-spaced idiom family), duplicative copy, and explicit UI-mechanics narration die across
+   the whole demo. Census running: `audit/om-15-text/TEXT-CONTRIVANCE-AUDIT.md`. Extends the
+   excavation CONTRIVANCE-REGISTER (M-14 clause: contrivance rooted out of the library gestalt)
+   from structure into COPY.
+2. **The skeleton plate** — marked ugly and too large; the census pins the owning component
+   (ShadowPalette.vue vs the extract empty state), its size drivers, and all consumers.
+
+**Routing**: copy abrogation is a demo-owned sweep wave (born-RED against the census table);
+the plate redesign joins the Phase E design loop.
+
+## MT-F040 — OWNER-MARKED: palette items must handle an arbitrary number of colors, tags, and counts DEFTLY
+
+**Witness**: `audit/visual/owner-marked/OM-16-palette-item-arbitrary-n.png` (sha256
+`010df7d8…04e6`), owner-captured 2026-07-27 20:08 ET. The "Deep Ocean" card: 3 color bands,
+count chip, fork/history counts, three tags, overflow menu — a layout with no visible law for
+N beyond a handful. Owner's words: *"we should plan to handle an arbitrary number of palette
+colors, tags, etc, deftly within these palette items."*
+
+**The mandate**: every palette-item surface (card swatch bands, tag rows, count chips, name,
+and every other variable-N renderer in the palette family) gets an explicit arbitrary-N law —
+overflow idioms, wrap/truncate policy, stable card height — grounded in the data layer's actual
+bounds. Census running: `audit/om-16-palette-scalability/SCALABILITY-AUDIT.md`; glass-owned
+overflow primitives (if any) are GLASS-FORWARD per the relay law.
+
+**Routing**: binds with MT-F036 (OM-11/OM-12 palette-card shadows + hover) at the palettes
+adjudication round — the PaletteCard unit brief carries OM-11/OM-12/OM-16 together; the N-law
+design is Phase E input.
