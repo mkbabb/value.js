@@ -3,7 +3,7 @@ import { useAdminAuth } from "../platform/auth/useAdminAuth";
 import {
     listUsers,
     impersonateUser,
-    featurePalette,
+    setPaletteFeatured,
     deletePaletteAdmin,
     deleteUser,
     deleteUserPalettes,
@@ -83,7 +83,11 @@ export function useAdminUsers(deps: {
         const token = getAdminToken();
         if (!token) return;
         try {
-            const result = await featurePalette(token, palette.slug);
+            const result = await setPaletteFeatured(
+                token,
+                palette.slug,
+                palette.tier !== "featured",
+            );
             const idx = deps.remotePalettes.value.findIndex((p) => p.slug === palette.slug);
             const existing = deps.remotePalettes.value[idx];
             if (idx !== -1 && existing) {
@@ -161,17 +165,6 @@ export function useAdminUsers(deps: {
         }
     }
 
-    /** Slug-only feature toggle (does not mutate local lists). */
-    async function featurePaletteBySlug(slug: string): Promise<void> {
-        const token = getAdminToken();
-        if (!token) return;
-        try {
-            await featurePalette(token, slug);
-        } catch (e: any) {
-            console.warn("Failed to feature palette:", e?.message);
-        }
-    }
-
     /** Slug-only delete (does not mutate local lists). */
     async function deletePaletteAdminBySlug(slug: string): Promise<void> {
         const token = getAdminToken();
@@ -215,7 +208,6 @@ export function useAdminUsers(deps: {
         onDeleteUser,
         onPruneEmpty,
         loadUserPalettes,
-        featurePaletteBySlug,
         deletePaletteAdminBySlug,
     };
 }

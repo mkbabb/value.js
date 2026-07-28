@@ -18,12 +18,14 @@ import { adminRequest } from "../../platform/transport/client";
 
 // ---- Single-palette moderation ---------------------------------------------
 
-export function featurePalette(
+export function setPaletteFeatured(
     token: string,
     slug: string,
+    featured: boolean,
 ): Promise<{ slug: string; tier: string }> {
     return adminRequest(`/admin/palettes/${encodeURIComponent(slug)}/feature`, token, {
         method: "POST",
+        body: JSON.stringify({ featured }),
     });
 }
 

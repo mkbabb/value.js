@@ -42,7 +42,7 @@ export {
 export { getTags } from "./colors";
 
 export {
-    featurePalette,
+    setPaletteFeatured,
     deletePaletteAdmin,
     getFlaggedPalettes,
     dismissFlags,
