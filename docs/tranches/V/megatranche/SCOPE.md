@@ -179,3 +179,32 @@ Consequences, binding immediately:
    (editing them would cache-bust the running bands); their practical effect — audit seats do not
    WRITE vnext — is exactly the frozen-as-inherited posture, so the text is conservative, not wrong.
    Scripts update at their next natural prompt change.
+
+## M-16 — SESSION REFRESH + MODEL ROUTING SUPERSESSION (owner, 2026-07-28)
+
+This commission audits the active Claude session itself, its proposed frontend structure, and the
+last 100+ tranche/session records so that the same session can resume from refreshed, durable
+context. It does not authorize a second archaeology program or a new micro-wave constellation.
+
+1. **Model names are superseded prospectively.** GPT Sol xhigh replaces Fable for orchestration,
+   design synthesis, and adjudication. GPT Luna xhigh replaces Opus for mechanical/extraction work.
+   Historical receipts retain the model that actually produced them; cached seats are not renamed
+   or rerun.
+2. **Availability must be reported honestly.** This audit environment exposed GPT Sol and GPT Terra,
+   but no GPT Luna. Its mechanical seats therefore ran on GPT Terra xhigh as an explicitly temporary
+   audit fallback. Terra is not Luna and must never be relabeled as Luna. New work after this audit
+   either obtains Luna or records the exact approved substitute before dispatch.
+3. **The tri-fold shape survives the rename.** Sol and Luna author independently; a final Sol seat
+   attempts to refute both and agglomerates one choosy apotheosis. Frontend design invokes the
+   frontend-design skill and supplies in-app Browser evidence.
+4. **Execution-axis priority.** The document axis is saturated. Existing findings are folded by
+   mechanism into at most ten executable waves; 193-wave pageantry, proof-shaped tooling with no
+   runner, repeated censuses, and proxy count-to-zero gates are presumed contrivance.
+5. **Frontend apotheosis.** One route owns one scene, one H1, and one protagonist. Universal
+   companion panes, page-Card housing by default, shadcn forwarding/tooling residue, ornamental
+   empty-state narration, and interaction attached to paint-only WatercolorDot are all in scope for
+   removal. InstrumentChassis adoption is proved on Gradient and the adversarial Mix canary before
+   any fleet rollout.
+6. **Durability becomes content-addressed.** A workflow return is not a durable seat. A seat counts
+   only when its declared canonical output exists on disk and its content/hash is recorded. The
+   root materializes complete cached payloads before rerunning any missing seat.

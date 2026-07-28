@@ -1593,14 +1593,18 @@ sometimes with no decimals, etc. Audit for all instances of this across all cont
 **Root emitter, already traced**: `src/css/grammar.ts:283-285` — serialization's
 `format = (value) => Number(value.toFixed(12)).toString()`. Precision-preserving by design for
 round-trip fidelity, but consumed RAW by display contexts; the display/fidelity split does not
-exist anywhere. 32 scattered `toFixed` sites with precisions 0/1/2/3/4/12 and NO shared policy;
+exist anywhere. There are **31 runtime `toFixed(...)` calls** under `src/` + `demo/`; the prior
+32-count included the prose comment at `demo/palettes/export/canonical.ts:14`. Runtime distribution:
+precision 0×2, 1×5, 2×8, 3×8, 4×4, 12×1, variable `d`×2, variable `decimals`×1. There is NO shared
+policy;
 the picker readout (`readoutReservation.ts`, `ComponentSliders.vue` `toFixed(d)`) carries the
 only partial context-aware facility.
 
 **The mandate**: ONE generalized facility — context-keyed precision (per-channel-type policy;
 CSS Color 4 / CSSOM serialization norms as the baseline), display precision distinct from
-copy/export fidelity, subsuming every scattered site. Census running (source-only per owner
-constraint — no browser): `audit/om-14-formatting/FORMAT-AUDIT.md`.
+copy/export fidelity, subsuming every scattered site. The commissioned source-only census
+`audit/om-14-formatting/FORMAT-AUDIT.md` **did not land before the session wall**; it remains a
+required resumption artifact, not completed work.
 
 **Routing**: the facility is a src/-adjacent design (library owns canonical formatting; demo
 contexts own precision selection) — Phase E/F wave input; the census report pins the exact split.
@@ -1616,7 +1620,8 @@ contrivance. And that shadow palette is ugly and too large."*
 **Two ordered arms**:
 1. **Text contrivance abrogation** — the precious-metaphor caption class (and its ALL-CAPS
    letter-spaced idiom family), duplicative copy, and explicit UI-mechanics narration die across
-   the whole demo. Census running: `audit/om-15-text/TEXT-CONTRIVANCE-AUDIT.md`. Extends the
+   the whole demo. The commissioned `audit/om-15-text/TEXT-CONTRIVANCE-AUDIT.md` **did not land
+   before the session wall**. Extends the
    excavation CONTRIVANCE-REGISTER (M-14 clause: contrivance rooted out of the library gestalt)
    from structure into COPY.
 2. **The skeleton plate** — marked ugly and too large; the census pins the owning component
@@ -1636,7 +1641,8 @@ colors, tags, etc, deftly within these palette items."*
 **The mandate**: every palette-item surface (card swatch bands, tag rows, count chips, name,
 and every other variable-N renderer in the palette family) gets an explicit arbitrary-N law —
 overflow idioms, wrap/truncate policy, stable card height — grounded in the data layer's actual
-bounds. Census running: `audit/om-16-palette-scalability/SCALABILITY-AUDIT.md`; glass-owned
+bounds. The commissioned `audit/om-16-palette-scalability/SCALABILITY-AUDIT.md` **did not land
+before the session wall**; glass-owned
 overflow primitives (if any) are GLASS-FORWARD per the relay law.
 
 **Routing**: binds with MT-F036 (OM-11/OM-12 palette-card shadows + hover) at the palettes

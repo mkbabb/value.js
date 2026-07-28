@@ -43,22 +43,22 @@ idiomatic parse-that usage, is a requirement** (M-9).
   rows are banked is re-run ("do not re-do work that's been done already").
 - E13 mail law: every session opens with the coordination sweep; mail is ROWED, never remembered.
 
-**The model law — CURRENT (M-12, 2026-07-27), supersedes M-11.**
-> "Leverage Fable for all orchestration tasks. All work of complexity and design, or novelty, is to
-> be done in the following tri-fold manner: two instances, one Fable, one Opus 5, shall complete a
-> given task; thereupon a Fable instance will adjudicate and agglomerate those results, with a
-> serious amount of sagacity and incredulity, into an apotheosis. All workflows must leverage both
-> Fable and Opus, but Fable should be used only for the toughest of tasks alongside a corresponding
-> Opus agent for novelty and implementation."
+**The model law — CURRENT (M-16, 2026-07-28), supersedes M-12 prospectively.**
+
+GPT Sol xhigh replaces Fable for orchestration, design synthesis, and adjudication. GPT Luna xhigh
+replaces Opus for mechanical/extraction work. Historical receipts remain literal and cached work is
+never renamed or rerun. Luna was unavailable to the 2026-07-28 external audit; its mechanical seat
+used GPT Terra xhigh as a declared temporary fallback, not as a relabeled Luna result. New work may
+not silently inherit that fallback.
 
 Operationalized:
 ```
-ORCHESTRATION            → Fable (the session root; workflow scripts are its instrument)
-MECHANICAL / EXTRACTION  → Opus, solo                      (census, harvest, verification re-runs)
-CHALLENGE SEATS (D/L/C)  → Opus, solo                      (novelty + implementation hunting)
+ORCHESTRATION            → GPT Sol xhigh
+MECHANICAL / EXTRACTION  → GPT Luna xhigh                  (or an explicitly recorded approved fallback)
+CHALLENGE SEATS (D/L/C)  → GPT Luna xhigh
 TOUGHEST WORK            → TRI-FOLD:
-  worker-F (fable)  ─┐   independent, blind to each other
-  worker-O (opus)   ─┴─→ arbiter-F (fable): sagacity + incredulity → ONE apotheosis
+  worker-S (Sol)    ─┐   independent, blind to each other
+  worker-L (Luna)   ─┴─→ arbiter-S (Sol): refutation first → ONE choosy apotheosis
                          (adjudication, design synthesis, wave authoring, parser candidates,
                           convergent-design passes)
 ```
@@ -172,13 +172,13 @@ updated at every phase boundary; outbound packets at every cross-repo consequenc
 
 The last ~106 tranches (value 23 · keyframes 22 · fourier 14 · parse-that 4 · glass 43) and 42
 top-level session logs (~9GB with agent transcripts; owner-voice extraction only) are PHYSICALLY
-unearthed — memory recall is not evidence. Opus banausic seats (owner-message extraction per corpus,
+unearthed — memory recall is not evidence. Luna banausic seats (owner-message extraction per corpus,
 per-tranche truth tables, shadcn/library census, design-canon census, vnext standing, glass-forward
-compliance) → Fable AGGREGATED adjudication passes, batched: `EXHORTATION-CENSUS.md` (the
+compliance) → Sol AGGREGATED adjudication passes, batched: `EXHORTATION-CENSUS.md` (the
 "how many more ecoute-moi's" answer: every repeated exhortation → ENCODED-DURABLY / RE-EXHORT /
 ESCALATE-TO-DISEASE), `TRUTH-TABLE.md` (half-baked · silent-drop · rejected · kept registers),
 `CONTRIVANCE-REGISTER.md` (addenda + library gestalt; the shadcn-abrogation skeleton),
 `DESIGN-CANON-BRIEF.md` (GOLDEN GLASS · BREATH OF LIFE · MOVEMENT OF MOMENTUM; the design-MD
-re-authoring verdict). Output feeds Phase E (design tri-folds — Fable+Opus author, frontend-design
-plugin, Fable agglomerates) and Phase F (wave authoring consumes the registers WHOLE).
+re-authoring verdict). Output feeds Phase E (design tri-folds — Sol+Luna author, frontend-design
+plugin, Sol agglomerates) and Phase F (wave authoring consumes the registers WHOLE).
 Instrument: `workflows/excavation.js` · run `wf_a6f71311-4e5`.

@@ -263,16 +263,19 @@ findings, whereas two bands at 40% yield challengers with no jury.
 
 ## L-14 — The tri-fold law: hard work is done twice and believed once
 
-**Evidence.** Owner constitution M-12 (2026-07-27). And this formation's own record argues for it:
+**Evidence.** Owner constitutions M-12 (2026-07-27) and M-16 (2026-07-28). This formation's own
+record argues for the independent shape:
 the root manufactured seven false findings this session and caught them only by *independent
 re-derivation* (MT-F006, MT-F019, MT-F021, the four of MT-F022); the history audit's strongest
 convergence evidence was *independent rediscovery* of the same eight chronics by seats that could
 not see each other. Independence is the only verifier this repository's history shows working.
 
-**Law.** Orchestration is Fable (the session root). Mechanical and challenge work is Opus, solo.
+**Law.** Prospectively, orchestration is GPT Sol xhigh. Mechanical and challenge work is GPT Luna
+xhigh; if Luna is unavailable, work stops or the exact owner-approved substitute is recorded before
+dispatch—no model is relabeled. Historical Fable/Opus receipts remain literal.
 The toughest work — adjudication, design synthesis, parser candidates, wave authoring — runs
-**tri-fold**: worker-F (Fable) and worker-O (Opus) execute the same brief blind to each other;
-arbiter-F (Fable) agglomerates with sagacity and incredulity into one apotheosis. The arbiter is
+**tri-fold**: worker-S (Sol) and worker-L (Luna) execute the same brief blind to each other;
+arbiter-S (Sol) agglomerates with sagacity and incredulity into one apotheosis. The arbiter is
 not a merger: it must attempt to refute both workers before it may adopt either, and its output
 records where the workers disagreed and which side won, with the evidence that decided it.
 
