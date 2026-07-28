@@ -1,7 +1,7 @@
 {
  "runId": "wf_e231d455-de2",
  "workflow": "wf_e231d455-de2",
- "resultCount": 8,
+ "resultCount": 9,
  "results": [
   {
    "agentId": "a30dc2c82e210ddfc",
@@ -2057,6 +2057,79 @@
     },
     "dissent": "1. AGAINST THE CHALLENGER (D-axis), preserved and binding on the arbiter: two of the four fresh BLOCKER-adjacent mechanisms were measured in an environment structurally incapable of seeing the defect they describe, which is L-12's exact disease. D-29 read a hand-built 'verbatim reconstruction' of :78-131 in a bare page, which cannot carry the Tailwind cascade that gives `.slug-pill` `display: flex`; its children therefore stayed inline, the accname concatenated without a space, and the seat reported a FUSION (`ghost-empty-17333`) that does not occur on the shipped component. On the real component, in both engines, the opposite happens — a SPLIT (`ghost-empt y-1733`) — and the true defect is worse than the filed one. D-27 asserted 'no catch at all', an unhandled promise rejection, and a path that 'does not even reach the console.warn floor', all three refuted by reading usePalettePorts.ts:199 → useAdminUsers.ts:153-162 and then by measuring `unhandled: []` / `pageerrors: []` under a 500 in both engines. Both rows survive rescoped. The lesson I want recorded at formation scale, not at row scale: a reconstruction is not the component, and a seat that reconstructs markup to measure a computed-style-dependent property has built a witness that cannot see its subject.\\n\\n2. AGAINST THE HEADLINE EVIDENCE OF D-1, and therefore against how it is likely to be quoted: 'Measured: 1 promised, 3 executed' is not a measurement of the system. probe-D3f.mjs:37 fulfils the prune POST with a hand-authored `{\\\"pruned\\\":3}`; the '3' is the fixture author's number and the 'Pruned 3 users' beat is the client echoing it back. My own run reproduces the same shape and the same ambiguity. The DEFECT is confirmed — on the filtered-count source path, on my first-hand `body: null` observation, and on the server source that enumerates the whole collection — but the headline sentence attributes to observation what came from a fixture, and if it enters the registry unqualified it will be re-quoted as proof of a deletion nobody watched happen.\\n\\n3. AGAINST L-19 BEING A SEPARATE ROW: L-19 and D-1 are one defect wearing two axis-names, and L-5's anti-rename rule exists precisely because renaming is the mechanism by which a chronic survives. I have merged them. If the arbiter carries them separately, the docket will report two BLOCKERs where the tree has one, and the second will look 'newly discovered' at the next pass.\\n\\n4. UNRESOLVED MEASUREMENT DISAGREEMENT, recorded not adjudicated: D-24's 390 x 844 heights. The challenger reports 108 x 54 and 80 x 54; I measure 107.9 x 36 and 79.7 x 36 in BOTH engines, with computed `min-height: 36px`. The widths agree to a tenth, so the divergence is height-specific and I could not recover their configuration. Neither side's number changes the verdict (`h-7` = 28 px obtains at zero of four measured cells), and I decline to overwrite their cell with mine.\\n\\n5. AGAINST MY OWN NEAR-MISS, recorded so it is not repeated: my first pass at G-11 ran `grep -rn 'InstanceType<typeof' demo/palettes/` without `--include='*.ts'` and got 6, against the r2 arbiter's 2. The four extra are SFCs holding refs to their own children — ordinary Vue, not the layer inversion. Had I published 6 I would have manufactured a widening of a real row, which is MT-F019/MT-F021's shape exactly. The `.ts` scoping is load-bearing and is written into the gate command with a note forbidding its removal.\\n\\n6. PRESERVED FROM THE r3 C SEAT AND ENDORSED: C-26 corrects r2's own C-20 by re-instrumenting (Playwright's `ariaSnapshot` is not the browser's accessibility tree; Chromium computes and exposes the name r2 said 'both engines discard'). A formation that only rewards new findings will not get corrections like this one, and this docket would have been worse without it.\\n\\n7. AGAINST DECLARING THIS COMPONENT ADJUDICATED: I have ruled 26 rows, but the r3 C corpus's standing rows (C-1 wrong-owner expand race, C-2, C-3/C-16, C-4, C-5, C-6, C-7, C-15, C-17, C-21) are re-verified by that seat and are NOT re-derived by me — my brief was the delta. Two of them (C-1's wrong-owner delete, C-15's double-fire) are BLOCKER-grade and interact directly with C-25's cure. If MT-AU2 is written from my verdicts alone, those rows must ride in the same seam or the wave will re-open the same file a third time.",
     "addendumClause": "ADDENDUM MT-AU2/§1 · AdminUsersPanel r3-delta adjudication, worker-O (Opus 5, `claude-opus-5[1m]`), 2026-07-28, tree at `7775473b`. Twenty-six accusations from the r3/r4 delta corpus were re-derived against the current tree before any was accepted: **19 CONFIRMED · 5 RESCOPED · 1 GLASS-OWNED · 0 straight REFUTED at row level, with two named mechanisms refuted inside surviving rows.** The four carried design BLOCKERs stand — D-1 (a prune dialog that names a search-filtered count from a 50-row page while the client sends `body: null` and the server enumerates the whole collection; confirmed on three independent legs, two of them measured first-hand in both engines this session), D-2 (five of six mutations swallowed into `console.warn`, with `return 0` mapping a refusal onto the success-family string 'No empty users to prune'), D-3 (a `ring-2` box-shadow with 2 px outward spread on a row whose border box IS its `overflow-hidden` parent's content box, with `outline: none` — measured identically in chromium and webkit, so the indicator cannot paint by construction), and D-4 (two blockified flex items reversing an identifier under `dir=rtl`, `bdi` count 0 — mechanism corrected from 'the bidi algorithm' to flex main-axis reversal, which matters because the wrong diagnosis invites a `unicode-bidi` fix that will not work). L-1's r2 severity ruling **STANDS** (MAJOR, not BLOCKER; the BLOCKER remains auth-costumed-as-empty-roster), strengthened but not overturned by L-24's four `madge`-measured cycles, which I reproduced byte-identically and which prove the row is unpoliceable today: madge is not a dependency, `import/no-cycle` is absent, and `import type` under verbatimModuleSyntax erases the edge so `vue-tsc` is structurally blind. Recorded so it is never re-discovered: `npx vue-tsc -p tsconfig.demo.json --noEmit` still exits 0 over all 51 dead `variant=` props (51 opening tags in 22 files by an opening-tag census, against 2 tags demo-wide using the real `emphasis` axis, with the DOM discriminator `variant=\\\"outline\\\"` + `data-emphasis=\\\"secondary\\\"` measured live in both engines) — the W44 hard CI typecheck may never be cited as that class's gate. Two of the delta's own mechanisms did not survive contact with the shipped component and are retired with rationale rather than carried: D-29's 'the count fuses onto the slug' is a reconstruction artefact (the real component splits the SLUG instead — `ghost-empty-1733` announces as `ghost-empt y-1733` while the sibling delete button announces it unsplit, so a row and the control inside it name one account two ways, in LTR, with no RTL needed), and D-27's 'no catch at all / unhandled promise rejection' is refuted by `usePalettePorts.ts:199 → useAdminUsers.ts:153-162` and by `unhandled: []` / `pageerrors: []` measured under an injected 500 in both engines — what survives is that a failed nested read renders as `· none pinned · / No palettes.`, which is the BLOCKER's own disease applied to the exact predicate Prune deletes accounts on. One evidence-standing correction is entered against the strongest row in the docket: D-1's headline '1 promised, 3 executed' is a fixture, not an observation (`probe-D3f.mjs:37` fulfils the POST with `{\\\"pruned\\\":3}`), and the row is confirmed without it. Four riders are GLASS-OWNED and leave by the standing BH relay with the masking-fallback ban binding — the Button attribute allowlist, the disabled paint (opacity 0.5 is the producer's only disabled channel; colour and background are byte-identical to enabled, measured), the `xs`/36 px height rung, and the `Chip` primitive that would retire `.slug-pill`'s self-mandated per-instance `:style`. Two formation-scale facts are recorded rather than assumed: MT-AU1's gate G-9 is now DISCHARGED (13 `challenge-D` references in `registry/harvest/area-palettes.json`, and this delta is the adjudication it demanded), while G-8 remains RED at component scale — 14 PNGs are tracked repo-wide and **zero** witness this component, so every visual claim in this docket still fails L-7 until force-added. This seat's own probes are banked, with their signature stated in their first ten lines, at `docs/tranches/V/megatranche/audit/components/AdminUsersPanel/probe-O-r3/`."
+   }
+  },
+  {
+   "agentId": "a745624fe1324854e",
+   "key": "v2:0f0a460015feb4295d1be33482dc21d3e4287c2288ce5a857e947834e8f705ed",
+   "result": {
+    "modelObserved": "claude-fable-5 (Fable 5) — observed by this seat from its own runtime/system prompt, not inherited from the spawn label",
+    "slug": "admin-users-panel-r3-delta-arbiter-F",
+    "confirmed": 29,
+    "refuted": 0,
+    "rescoped": 12,
+    "unverifiable": 0,
+    "glassOwned": 2,
+    "disagreements": [
+     {
+      "id": "D-27 mechanism/label (Δ-8 ≡ C-4)",
+      "workerF": "CONFIRMED — silently restated the true mechanism (the composable catch) while keeping the filed row's label",
+      "workerO": "RESCOPED — filed mechanism ('no catch at all', unhandled rejection, misses the warn floor) REFUTED; the failed-read-costumed-as-empty half survives",
+      "ruling": "RESCOPED (O wins)",
+      "why": "Arbiter re-read useAdminUsers.ts:153-162: the catch exists one module down and returns []; a transport failure cannot reject the awaited promise. The r2 label law (refuted load-bearing claims => RESCOPED) binds; F's silent correction is recorded as a laundering hazard in §3-DISSENT."
+     },
+     {
+      "id": "L-21 console re-home",
+      "workerF": "RESCOPED — structure note only, no gate, rides the port-split bank ('a move nobody specced')",
+      "workerO": "CONFIRMED — in-wave move of the console to demo/palettes/admin/, gated on the barrel",
+      "ruling": "CONFIRMED in-wave (O wins) — gate G-22",
+      "why": "'Nobody specced' is false (the accusation and O's wave spec it), and the arbiter's own madge run reproduced 4 cycles amplified through the browser/admin barrel — the re-home is load-bearing for the acyclic cure (G-21), not churn."
+     },
+     {
+      "id": "L-22 cure direction (props-only leaf vs narrow-port inject)",
+      "workerF": "props-only leaf per r2 G-7 (zero inject; G-17 mounts with props alone)",
+      "workerO": "narrow AdminUsersPort injected; 6 props + 7 emits + expose bridge all die; converge with the 3 inject-only siblings",
+      "ruling": "O wins — narrow port; r2 G-7's inject arm AMENDED by addendum (keys-module symbols only)",
+      "why": "L-22's defect is two conventions; convergence-on-port is the strictly larger deletion, converges 4/5 siblings, and cures r2 L-2 at its root (the defect was port WIDTH, never injection). F's position preserved in §3-DISSENT; AdminNamesPanel residual bound to the port-split bank."
+     },
+     {
+      "id": "D-1 cure / api edit scope",
+      "workerF": "demo-only honesty copy; true-count cure BANKED as MT-AU2-API (no api/ edits in-wave)",
+      "workerO": "one additive api/ edit in-wave: pruneEmptyUsers(token, slugs) carries the identities it destroys",
+      "ruling": "O wins — the slugs edit lands in-wave; G-10 upgraded to 'the dialog numeral equals what the request carries'",
+      "why": "F's own dissent pre-concedes the ruling; structure beats gate — once the request must carry the slugs, a fabricated count has no source to read (unrepresentable, not policed). Edit is additive; no-body form remains until cutover."
+     },
+     {
+      "id": "Wave identity",
+      "workerF": "MT-AU1 — same identity, extended, never renamed",
+      "workerO": "new wave MT-AU2, order-independent, whichever lands second rebases",
+      "ruling": "F wins — ONE wave, MT-AU1 delta-unified; O's gates folded in as G-21..G-26 + two amendments",
+      "why": "Two waves overlapping on the same two files with mutual rebase obligations is churn by construction, and renaming is exactly the chronic-survival mechanism the anti-rename rule kills."
+     },
+     {
+      "id": "Δ-3/C-15 severity",
+      "workerF": "BLOCKER, with a recorded note it is the least consequential of the six (near-idempotent second prune; second DELETE 404s)",
+      "workerO": "not re-derived (dissent #7); its C-25 interaction asserted as BLOCKER-grade",
+      "ruling": "BLOCKER sustained",
+      "why": "The C-25 compound decides it (arbiter-verified: 0 admin wrappers carry an idempotency key while the server mounts the store globally) — the double-click's two POSTs are two GENUINELY DISTINCT corpus prunes; the second destroys a set the operator never saw. F's MAJOR ground preserved in §3-DISSENT."
+     },
+     {
+      "id": "D-1 headline evidence ('1 promised, 3 executed')",
+      "workerF": "presented the probe cells as measured, both engines",
+      "workerO": "fixture echo — probe-D3f.mjs fulfils the prune POST with hand-authored {pruned:3}",
+      "ruling": "O wins — headline DOWNGRADED to illustrative; the row stands on three other legs",
+      "why": "Arbiter read probe-D3f.mjs:36-38 directly: route.fulfill(...{ pruned: 3 }). The '3' is the fixture author's number; body:null + the filtered-count source + the server's whole-collection enumeration carry the CONFIRMED verdict without it."
+     },
+     {
+      "id": "D-24 390×844 heights (challenger 54px vs O 36px)",
+      "workerF": "(rescoped into r2 L-11; no measurement of its own)",
+      "workerO": "36px at both viewports, both engines, min-height:36px winning; challenger's 54 unrecoverable",
+      "ruling": "O's 36px binds; challenger's 54 preserved un-overwritten in §3-DISSENT",
+      "why": "Only reproducible cell; widths agree to a tenth so the divergence is height-specific; no verdict turns on it (h-7 = 28px obtains at zero measured cells either way — the override is inert AND forbidden)."
+     }
+    ],
+    "apotheosisPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/AdminUsersPanel.md",
+    "headline": "AdminUsersPanel r3 tri-fold apotheosized: 29 confirmed (6 fresh BLOCKERs join L-5 — scope-fabricating prune, resultless mutations, double-fire confirm, wrong-owner race, zero-pixel focus ring, RTL-fabricated identifiers), 12 rescoped, 2 glass-owned; 8 disagreements ruled (6 O / 1 F / 1 sustained); ONE delta-unified MT-AU1 wave with 17 born-RED gates, the r2 record standing whole; arbiter independently reproduced madge's 4 cycles and probe-D3f's fixture-authored 'pruned:3'."
    }
   }
  ]

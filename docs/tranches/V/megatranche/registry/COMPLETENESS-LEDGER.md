@@ -87,7 +87,7 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | component | disk axes | harvest axes | status |
 |---|---|---|---|
 | App | CDL | CDL | **ADJUDICATED** |
-| ColorSpaceSelector | L | L | **ADJUDICATED** |
+| ColorSpaceSelector | CDL | CDL | **ADJUDICATED** |
 | PaneHeader | — | — | **NOT-STARTED** |
 | EmptyState | — | — | **NOT-STARTED** |
 | ErrorBoundary | — | — | **NOT-STARTED** |
@@ -131,10 +131,11 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | `wf_a6f71311-4e5` | completed | 15 | 14 |
 | `wf_a6f87133-522` | completed | 15 | 15 |
 | `wf_c88c8125-52c` | completed | 8 | **NOT HARVESTED** |
+| `wf_e231d455-de2` | completed | 9 | 9 |
 
 ## VERDICT
 
-**48 incomplete component rows.** 40 covered by an ACTIVE resume · 8 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
+**48 incomplete component rows.** 45 covered by an ACTIVE resume · 3 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
 
 A run record saying "completed" does not clear a row — only banked axes do. Bands re-open until every roster row is ADJUDICATED or ON-DISK.
 
@@ -178,11 +179,11 @@ A run record saying "completed" does not clear a row — only banked axes do. Ba
 - core / **ErrorBoundary** — missing D/L/C (`wf_66b1fcba-daa` · killed) — ACTIVE resume
 - core / **PreviewStrip** — missing D/L/C (`wf_66b1fcba-daa` · killed) — ACTIVE resume
 - core / **PreviewRamp** — missing D/L/C (`wf_66b1fcba-daa` · killed) — ACTIVE resume
-- scenes / **ColorNutritionLabel** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
-- scenes / **AuroraPane** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
-- scenes / **BlobPane** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
-- scenes / **AboutPane** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
-- scenes / **Katex** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — QUEUED resume
+- scenes / **ColorNutritionLabel** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — ACTIVE resume
+- scenes / **AuroraPane** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — ACTIVE resume
+- scenes / **BlobPane** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — ACTIVE resume
+- scenes / **AboutPane** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — ACTIVE resume
+- scenes / **Katex** — missing D/L/C (`wf_dee4c83a-ec2` · killed) — ACTIVE resume
 - picker / **picker-componentsliders** — missing C (`wf_3c8798e8-23e` · killed) — QUEUED resume
 - picker / **picker-spectrumcanvas** — missing D/L/C (`wf_3c8798e8-23e` · killed) — QUEUED resume
 - picker / **picker-heroblob** — missing D/L/C (`wf_3c8798e8-23e` · killed) — QUEUED resume
