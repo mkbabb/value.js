@@ -5,7 +5,7 @@ from the workflow journals. **This file exists so that a session limit, a compac
 truncated notification cannot lose work that was already paid for.** Never re-run a seat whose
 rows are already here.
 
-**4054 defects** from completed challenger seats: BLOCKER 573 · MAJOR 1904 · MINOR 1198 · INFO 379
+**4146 defects** from completed challenger seats: BLOCKER 583 · MAJOR 1946 · MINOR 1232 · INFO 385
 
 > Status: these are **challenger** outputs. A defect here has NOT been adjudicated by a jury —
 > the jury seats were the ones most often killed by the rate wall. Treat every row as an
@@ -4850,6 +4850,24 @@ Unguarded readers in the subject file: ComponentSliders.vue:131 `return normaliz
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-16 · CHALLENGE-C
+
+**Defect.** CROSS-REF, upstream of this component: a `none`-channel deep link blanks the entire application. `?color=oklch(none none none)` renders an empty body with an uncaught `color_missing_channel`.
+
+**Mechanism.** CSS Color 4 makes `none` a first-class channel value, so this is a valid shareable URL. The pipeline's HSV derivation assumes numeric channels and has no guard at the one place it runs before the app can render.
+
+**Evidence.**
+
+```
+Measured (probe/probe8.mjs section A) against the live dev server: `oklch(none none none)` → {"spectrum":false,"label":null,"dot":null,"bodyLen":0} errors ["PAGEERROR: color_missing_channel"]; `oklch(50% none none)` → bodyLen 0; `hsl(none none none)` → bodyLen 0. Crash site: demo/color-session/useColorPipeline.ts:75 `const initHsv = convertPickerColor(model.value.color, "hsv")`, unguarded at composable setup; valueOrThrow (picker-color.ts:104-107) rethrows the library's err code. Boot is not at fault: resolveHydratedBootModel (demo/color-picker/composables/boot/hydrate.ts:96-129) try/catches correctly, but parsePickerColor SUCCEEDS on `none` channels and the same-space convertPickerColor is an identity, so the model reaches the pipeline intact.
+```
+
+**Reproduction.** Open http://localhost:9000/#/?space=oklch&color=oklch(none%20none%20none) — white screen. Scripted: node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/probe8.mjs section A.
+
+**Proposed cure.** NOT this component's to fix — relay to the color-session seat. The pipeline's `initHsv` and the `HSVCurrentColor` computed (useColorPipeline.ts:75, :106-109) need the same powerless-colour tolerance the rest of useColorParsing already has: substitute the stableHue/last-known channel rather than throwing. Reported here because it is a live shipping crash of exactly the class the seat brief names, and because the plate is its nearest downstream (see C-15).
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/picker/ColorPic` · C-1 · CHALLENGE-C
 
 **Defect.** The hero readout renders `contenteditable="true"` on a span whose children Vue owns and patches (`.fig-int`/`.fig-frac`). Any user edit replaces those nodes; every later patch writes into detached nodes and silently no-ops, so the cell is permanently orphaned from the vdom and displays a value that is not the color.
@@ -4922,6 +4940,24 @@ ColorPicker.vue:282-289; `parseColor` -> `parsePickerColor` throws at demo/color
 
 ---
 
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-1 · CHALLENGE-C
+
+**Defect.** floorStops() applies its OKLab-L push AFTER deriveBlobPalette has centred the ramp on the seed L and gamut-mapped it. The seed's L is where its chroma lives; the post-hoc shift moves the ramp off that L without re-deriving, so the ink floor is paid for with 68% of the picked chroma. The hero bead is never the picked colour.
+
+**Mechanism.** post-hoc mutation of an already-gamut-mapped derivation instead of parameterising the derivation
+
+**Evidence.**
+
+```
+demo/picker/visual/HeroBlob.vue:97-111 + :117-130. LIVE stops read from the running app (probe C3, .goo-blob-wrapper.__vueParentComponent.props.config.color.paletteStops): ["#c384a6","#c3a4ab","#c4bbbb","#c4bbb9"] → OKLCh L 0.6872/C 0.0890, L 0.7482/C 0.0375, L 0.7994/C 0.0102, L 0.7989/C 0.0106; maxC 0.0890. Seed at that moment lab(92% 88.8 20) = L 0.9583 C 0.2725 → 32.7% chroma retained. Offline byte-exact reproduction: shipped path → maxC 0.0879 (#c384a6 #c3a3ab #c4bbbb #c4bbb9); deriveBlobPalette(css,{bodyLightness:0.65}) → maxC 0.2725 (#f60bb2 #ff6198 #ff8e93 #ffb19e) at a LOWER body L (0.65 vs 0.6875). bodyLightness is shipped: node_modules/@mkbabb/glass-ui/dist/composables/color/index.d.ts:122-131. Corroborated by docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-dark/picker.png (near-white cream bead for a hot-pink pick).
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-heroblob/probe-C3-stops-and-realloss.mjs (section `stops.before`), plus: node --input-type=module -e "import {cssToOklch,deriveBlobPalette,oklchStopToHex} from '@mkbabb/glass-ui/color'; const s=cssToOklch('lab(92% 88.8 20)'); const a=deriveBlobPalette('lab(92% 88.8 20)',{stopCount:4,harmony:'analogous',chromaCeiling:Math.max(0.16,s.C)}); const b=deriveBlobPalette('lab(92% 88.8 20)',{stopCount:4,harmony:'analogous',bodyLightness:0.65}); console.log(Math.max(...a.map(x=>x.C)), Math.max(...b.map(x=>x.C)))" → 0.0879 0.2725
+
+**Proposed cure.** Delete floorStops and INK_FLOOR. Compute the target body lightness from the live plate (plateL ± ink floor) and pass it as deriveBlobPalette's shipped `bodyLightness`, with `lightnessFloor: clampLightnessFloor()` (also shipped, presets.d.ts). The ink floor becomes an INPUT to a gamut-correct derivation instead of a post-hoc mutilation of one. This single transposition also dissolves C-2 and C-13.
+
+---
+
 ### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-01 · CHALLENGE-D
 
 **Defect.** The `contenteditable` numeric headline is an unguarded write path with no commit, cancel, clamp, or error semantics. Display, AT announcement, URL and document title disagree after a single keystroke, and the card-lock the whole reservation system exists to hold breaks mid-typing.
@@ -4991,6 +5027,114 @@ Live at 1440x900: .pane-container.pane-container--dual is display:grid with grid
 **Reproduction.** At 1440x900 on /, read getComputedStyle(document.querySelector('.pane-container')).gridTemplateColumns → "512px 512px", and getComputedStyle(el).boxShadow for both [data-slot=card] elements wider than 300px → identical strings.
 
 **Proposed cure.** Retire About as Picker's companion per §3.1 (it is a trailing route, not an inspector) and transpose the picker to the producer InstrumentChassis with its exact golden stage/inspector ratio. If an inspector is genuinely absent, §3.1 is explicit that it "leaves no filler" — the stage takes the full width rather than being halved by a peer document. D-11 (the duplicated ColorSpaceSelector) dies with this.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-01 · CHALLENGE-D
+
+**Defect.** The plate is invariant under the colour-space selection — the flagship instrument of a colour-space laboratory paints the same hard-coded sRGB HSV field in Lab, OKLCh and HSL. Its only reactive input is the HSV hue; s and v are axes of a space the user did not select and, in Lab/OKLCh/XYZ, cannot select.
+
+**Mechanism.** A CSS linear-gradient can only express sRGB HSV, so the field's parameterisation is frozen at authoring time and cannot be a function of the selected space. Every downstream row (D-11 gamut, D-18 dead black area, D-05 no edge, D-14 background-size animation) descends from this one choice.
+
+**Evidence.**
+
+```
+probe/SPCD-probe3.json .spaceInvariance — computed background-image is BYTE-IDENTICAL across all three spaces: `linear-gradient(to top, rgb(0,0,0), rgba(0,0,0,0)), linear-gradient(to right, rgb(255,255,255), rgb(255,0,59))`; dot left/top identical at 62.7886%/0%; aria-label identical; only the readout changes (92.0%,88.8,20.0 → 95.8%,0.3,9.8deg). Source: useSpectrumPlateStyle.ts:36-39. Canon: VISUAL-CONSTITUTION.md:5 ("chromatic laboratory… one dominant instrument"), :42 (Picker protagonist = "optical color stage"), :182 ("The optical stage dominates").
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/SPCD-probe3.mjs against a live http://localhost:9000 — section 1 switches the space selector and diffs getComputedStyle(.spectrum-picker).backgroundImage. Manually: open /#/, note the plate, switch Lab→OKLCh in the space selector, observe zero change.
+
+**Proposed cure.** Make the file's own name true. Replace the gradient div with a stage that paints a projection of the SELECTED space (two of its axes at the third's current value, gamut-mapped) — one canvas or paint worklet, one projection function per space, owned by one composable. The dot's (s,v) model becomes (axis1, axis2) of the selected space, which simultaneously supplies D-04's two named numeric axes, gives D-11's overlay a real gamut boundary to draw, gives D-05 a surface that can own an edge, and stops D-18's black wedge. This single transposition closes D-01, D-04, D-05, D-09, D-10, D-11, D-14, D-18 and makes D-06/D-07 trivial.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-02 · CHALLENGE-D
+
+**Defect.** Under RTL the marker renders 267 px outside the instrument. `.spectrum-dot { position: absolute }` loses a silent specificity tie to the glass-ui producer's `.watercolor-swatch{position:relative}`, so the marker is an in-flow flex item whose left/top are offsets from its static position — x=0 in LTR (correct by coincidence), x=width−28 in RTL.
+
+**Mechanism.** Per-instance override of a design-system producer root (owner edict 5) that silently loses a cascade tie, leaving the marker positioned by flex static-position accident rather than by the component.
+
+**Evidence.**
+
+```
+probe/SPCD-probe4.json .rtl → dotCenterFractionFromPlateLeft = 1.5682, i.e. 0.5682 × 469.06 px = 266.5 px beyond the plate's right edge. probe/SPCD-probe5.mjs output → getComputedStyle('.spectrum-dot').position === "relative", getComputedStyle(plate).display === "flex". Arithmetic check: (469.06−28)/469.06 + 0.6279 = 1.568, matching to four decimals. Source: SpectrumCanvas.vue:260 vs glass-ui.css `.watercolor-swatch[data-v-292b9032]{…position:relative}` — both specificity (0,2,0), producer wins on source order.
+```
+
+**Reproduction.** node .../probe/SPCD-probe4.mjs (section 3), or on the live /#/ route run document.documentElement.setAttribute("dir","rtl") and observe the marker fly out of the plate onto the About pane.
+
+**Proposed cure.** Stop styling the producer root from the consumer. The marker's positioning belongs to the stage: place it with the stage's own absolutely-positioned seat element (which also gives D-09 its "named enclosing geometric seat" and D-10 a place to clip), and move it with translate/transform (D-07) rather than left/top. If WatercolorDot must be laid out by consumers, the positioning contract belongs in glass-ui as a prop, not as a consumer override.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-03 · CHALLENGE-D
+
+**Defect.** `pointercancel` commits the aborted gesture instead of reverting it. handleSpectrumCancel, handleSpectrumUp and onLostPointerCapture all call the same stopDragging(), which FLUSHES pendingCoords. No pre-gesture colour is stored anywhere, so a revert is structurally impossible.
+
+**Mechanism.** Three semantically distinct terminations (completed / aborted by platform / capture stolen) collapsed into one handler, with no latched pre-gesture state to restore to.
+
+**Evidence.**
+
+```
+probe/SPCD-probe4.json .cancel — before: saturation 63%/lightness 100% (readout 92.0%,88.8,20.0); pointerdown at (25%,75%): 25%/25% (21.7%,8.0,0.6); drag to (85%,15%) then dispatch pointercancel: **85%/85% (48.1%,68.9,26.2)**. Source: SpectrumCanvas.vue:182-185 (cancel) and :187-200 (stopDragging flushes pendingCoords at :191-194). Canon: VISUAL-CONSTITUTION §5 "Tuning is continuous and interruptible."
+```
+
+**Reproduction.** node .../probe/SPCD-probe4.mjs (section 1). On iOS the live path is a system edge-swipe or scroll takeover mid-drag, which silently rewrites the user's colour.
+
+**Proposed cure.** Latch the colour at pointerdown into a ref. pointerup commits; pointercancel and lostpointercapture restore the latch and drop pendingCoords without flushing. Three lines and one ref, and it makes the §5 select→tune→commit grammar true rather than asserted.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-04 · CHALLENGE-D
+
+**Defect.** Zero keyboard coordinate, and the constitution's two named numeric axes do not exist anywhere in the product. The plate is a non-focusable role="img"; the only named axes on the route are the SELECTED SPACE's channels (L/A/B/ALPHA), which in Lab or OKLCh are not the plate's s and v.
+
+**Mechanism.** role="img" was chosen deliberately (SpectrumCanvas.vue:4-5 documents the reasoning) as a correct statement of what the element is NOT (a linear slider) that never resolves what it IS. §5.2 already gives the answer the component declined to implement.
+
+**Evidence.**
+
+```
+probe/SPCD-probe4.json .keyboard → tabIndexAttr null, isFocusable false, role "img", innerFocusables 0, namedNumericAxes ["L channel","A channel","B channel","ALPHA channel"]. Source: SpectrumCanvas.vue:6-9. Canon: VISUAL-CONSTITUTION §5.2 Spectrum row — "expose two named numeric axes using the same Slider law; pointer canvas is not the sole keyboard control; Home/End apply to the focused axis; both controls and canvas update one coordinate model"; §5 — "every spatial action has a keyboard/numeric equivalent."
+```
+
+**Reproduction.** node .../probe/SPCD-probe4.mjs (section 2). Manually: Tab through the picker on /#/ — the 2D field never receives focus; no key changes s or v.
+
+**Proposed cure.** Falls out of D-01's cure for free: once the stage plots two axes of the selected space, those two axes are already rendered as named glass-ui Sliders in the channel rail. Bind the stage and the two sliders to one coordinate model (§5.2's "both controls and canvas update one coordinate model"), give the stage a roving focusable seat with arrow/Home/End delegating to the focused axis, and drop role="img".
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-1 · CHALLENGE-D
+
+**Defect.** The ornament is achromatic and has no figure-ground separation from its own plate: rendered ΔL(bead, plate) = 0.0168 OKLab vs the 0.15 INK_FLOOR the code claims to enforce; rendered bead chroma is 16% (light) / 1.7% (dark) of the picked chroma.
+
+**Mechanism.** Open-loop photometric correction: the floor is computed against a MODELLED plate lightness and applied to the renderer's INPUT palette, never compared to the renderer's OUTPUT. Compounded by the derivation choice — `node -e "import('@mkbabb/glass-ui/color')"` gives deriveBlobPalette('lab(92% 88.8 20)',{stopCount:4,harmony:'analogous',chromaCeiling:0.2725}) -> L{0.8683,0.9283,0.9800,0.9800} C{0.0879,0.0388,0.0097,0.0099}, meanL 0.9392 meanC 0.0366, hex #ffbde0 #ffdde5 #fff6f6 #fff6f4 — two of four stops are white. floorStops then computes push=-0.2377 (flip branch: headroom 0.041 < need 0.062) yielding L{0.630,0.690,0.742,0.742} — yet the rendered bead measures L 0.848, i.e. the lit/Fresnel/SSS shader relights the body straight back to plate lightness and discards the correction entirely.
+
+**Evidence.**
+
+```
+demo/picker/visual/HeroBlob.vue:73-78,93,97-111,117-130. Measured OKLab over composited pixels — live Chromium 1440 light: bead L 0.8347 C 0.0446, plate L 0.8515 C 0.0695, |ΔL| 0.0168, contrast 1.00:1. docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/picker.png: bead L 0.8494 C 0.0461, plate L 0.8649 C 0.0465, |ΔL| 0.0156. shots/safari-desktop-dark/picker.png: bead C 0.0047 (achromatic white pearl). Seed lab(92% 88.8 20) = OKLCH(0.9583, C 0.2724, H 9.8). Owner mark: audit/visual/owner-marked/OM-6-blob-vibrancy.png.
+```
+
+**Reproduction.** 1) node --input-type=module -e "const m=await import('@mkbabb/glass-ui/color'); const s=m.cssToOklch('lab(92% 88.8 20)'); console.log(JSON.stringify(m.deriveBlobPalette('lab(92% 88.8 20)',{stopCount:4,harmony:'analogous',chromaCeiling:Math.max(0.16,s.C)})))" 2) open http://localhost:9000/#/?space=lab&color=lab(92%25+88.8+20+/+82.7%25), screenshot the .hero-blob-anchor clip, convert to OKLab, compare the inner-0.75 body disc against a plate ring at 1.9-2.6 body radii clipped inside the card.
+
+**Proposed cure.** Delete INK_FLOOR, floorStops and the chromaCeiling knob outright. Compute ONE number — bodyLightness = plateL ± 0.15, sign by headroom — and hand it to the producer's shipped seam (glass-ui/dist/composables/color/index.d.ts:118-126: "the body stop (t=0) anchors at exactly this L ... without moving the seed hue/chroma"). Proven: adding bodyLightness:0.70 lifts meanC 0.0366 -> 0.1405 with the body stop at C 0.242 = 89% of the seed. Then CLOSE THE LOOP: gate on the producer's exposed `settledFrame` sampled body pixels, never on the input stops. The palette-shaping policy leaves the consumer entirely.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-2 · CHALLENGE-D
+
+**Defect.** A parked blob still costs the picker route ~64% of its frame rate, permanently — violating VISUAL-CONSTITUTION §6 "Paused, parked and offscreen mean no animation work"; and it doubles the route's TBT.
+
+**Mechanism.** The producer's `paused` seam freezes the visible delta (frame SHA-1 identical from t=8111ms through t=18577ms) but does not suspend the per-frame work; and the consumer never gates the mount on intersection or on the producer's `settled` quiescence read, so an ornament nobody is looking at holds full frame budget.
+
+**Evidence.**
+
+```
+Own self-rescheduling rAF chain, 20s, no screenshot perturbation, only difference = route-level abort of .../demo/picker/visual/HeroBlob.vue. CPU 1x: idle fps t>=10s 40.1 (mounted) vs 112.8 (blocked); TBT 468ms vs 0ms; long tasks [158,170][1921,518] vs [159,166]. CPU 4x: fps 33.6 vs 112.3; TBT 981 vs 373; 3-rep TBT median 661 vs 318 ms. The t>=10s window is entirely post-park (park completes 7.0-8.1s, proven by frozen frame hashes).
+```
+
+**Reproduction.** scratchpad/HBD-probe3.mjs: TAG=x CPU=1 node HBD-probe3.mjs vs TAG=y CPU=1 BLOCK=1 node HBD-probe3.mjs (BLOCK aborts only URLs matching /HeroBlob/i). Compare fpsBySec for t>=10 and tbt.
+
+**Proposed cure.** Stop owning a park in the consumer at all (see D-10) and make the mount conditional: IntersectionObserver + producer `settled`, so a parked or offscreen ornament costs zero. The remaining half — that the producer's park freezes output without suspending work — is a glass-ui BH/BI relay row (GAP-L5 finally cashed), not a demo patch. No consumer shader/engine fork.
 
 ---
 
@@ -8262,6 +8406,24 @@ MixSourceSelector.vue:164-175; glass-ui 7 WatercolorDot props = {color,variant,a
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-1 · CHALLENGE-C
+
+**Defect.** The `disabled` prop is honoured on exactly one of five interactive controls (Reset, line 84). Upload (:40), Camera (:49), the k Slider (:24) and the kC Slider (:68) silently discard it, even though glass-ui 7.0.0 declares `disabled?: boolean` on both DockControl and Slider. The parent explicitly passes `:disabled="session.isProcessing.value || cameraActive"` (ExtractWorkbench.vue:70). The consequence is a live-camera resource/privacy leak.
+
+**Mechanism.** prop-contract non-propagation: a declared `disabled` contract bound at one leaf instead of at the boundary, combined with a single-slot mutable `let cameraStream: MediaStream | null` (ExtractWorkbench.vue:228) that startCamera (:239-255) overwrites unconditionally, so stopCamera (:257) and onBeforeUnmount (:281) can only ever stop the LAST stream.
+
+**Evidence.**
+
+```
+demo/workbenches/extract/ExtractControls.vue:84 is the sole read of `disabled`. API exists and was unused: node_modules/@mkbabb/glass-ui/dist/components/slider/types.d.ts:9 `disabled?: boolean;`. Measured with a real MediaStream (canvas.captureStream, track.stop instrumented) against localhost:9000: [{"t":"before","camDisabled":false,"gum":0,"stops":0,"videos":0,"live":[]},{"t":"after-1st-click","camDisabled":false,"gum":1,"stops":0,"videos":1,"live":["live"]},{"t":"after-2nd-click","camDisabled":false,"gum":2,"stops":0,"videos":1,"live":["live","live"]},{"t":"after-3rd-click","camDisabled":false,"gum":3,"stops":0,"videos":1,"live":["live","live","live"]}] — uploadDisabled false and both sliders aria-disabled null at every step.
+```
+
+**Reproduction.** node scratchpad/probe3.mjs — headless WebKit, http://localhost:9000/#/extract, navigator.mediaDevices.getUserMedia stubbed to a real canvas.captureStream(5) with track.stop() counted; click the button with title="Open camera" three times, 600ms apart. Yields gum:3 / stops:0 / three tracks readyState "live". Second, worse path measured in probe2 (non-MediaStream fake so `srcObject=` throws after getUserMedia resolves): gum:1, stops:0, videos:0 — a live camera track with the viewfinder CLOSED; any post-acquisition failure reproduces this on real hardware.
+
+**Proposed cure.** Bind the contract at the boundary, not the leaves: forward `:disabled="disabled"` to Upload, Camera and both Sliders (Reset keeps its extra clause per C-3), or give the controls row fieldset-disabled semantics so the prop can never be partially honoured again. Independently make acquisition a state transition rather than an accumulation: startCamera() calls stopCamera() at its head and stops the stream in its own catch, so `cameraStream` can never be orphaned. NOTE: privacy defect — recommend an out-of-band owner unpin for this ~4-line diff rather than holding it behind Glass 8.
+
+---
+
 ### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-1 · CHALLENGE-C
 
 **Defect.** Pressing any `back`-family specimen tile — or dragging a picker control point outside y∈[0,1] — throws and destroys the whole Gradient pane. 3 of 27 catalogue tiles are a live crash in the default app state.
@@ -10119,6 +10281,24 @@ node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js — `inheritAttrs: !1, __na
 **Reproduction.** 1. `npm run dev:web-only` (server already live at :9000). 2. `node scratchpad/probe3.mjs` — navigates WebKit to http://localhost:9000/#/mix, evaluates `document.querySelectorAll('[aria-label="Add current color to the mix"]').length` → 0, and dumps the .dashed-well outerHTML showing a `<span ... pointer-events: none>` where MixSourceSelector.vue:168 authored `tag="button"`. 3. `node scratchpad/probe.mjs` — clicking `button:has-text("Mix")` times out with `element is not enabled`; `document.querySelector('.mix-plate')` → null. Corroborated deterministically by prior run r2's jsdom @vue/test-utils SFC mount: ANCHOR_COUNT=0, TITLE_COUNT=0, TAGATTR_COUNT=1.
 
 **Proposed cure.** Two ends, no shim. (1) glass-ui (BH/BI relay, the standing fond): give WatercolorDot the Primitive posture the rest of the library already uses — DockControl ships `as`/`asChild`/`class` and no inheritAttrs:false. Add `as?: string | Component` + `asChild?: boolean`, drop `inheritAttrs: false`, make the hardcoded aria-hidden conditional on a non-interactive host. Reuse the existing component-type name (edict 4); do NOT mint a WatercolorSwatchButton. (2) value.js: delete all 21 `tag=`; where the dot must be interactive or identified, wrap it in the real element and put aria-label/@click/disabled/data-mix-target THERE — the correct idiom is already in the same file at MixSourceSelector.vue:127-133, which puts data-mix-source on a plain <div> wrapper and works. (3) Delete the mixStage.ts:122-124 fallback: collectStage returns null when the anchor is absent and useMixingAnimation's PRM path already settles honestly on a null stage. Architectural version (endorsing r2): retire the [data-*] querySelector seam entirely for a provide()d MixStage registry (registerTarget(el)/registerSource(el,css)) so the contract is typed and the anchor cannot vanish without a compile error. No back-compat 
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-11 · CHALLENGE-L
+
+**Defect.** Both `<DockSeparator />` instances render at height 0 and paint nothing — a `.glass-dock`-scoped chrome primitive consumed on a card plate where its geometry token does not exist.
+
+**Mechanism.** F1 — chrome primitive off its scope: a custom property with no fallback is invalid-at-computed-value-time outside its authoring scope, so `height` falls to initial `auto` = 0. Feature tree importing shell-chrome vocabulary.
+
+**Evidence.**
+
+```
+demo/workbenches/extract/ExtractControls.vue:57 and :81. Producer CSS: `.dock-separator { width:1px; height:var(--dock-separator-height); … }` and the ONLY authoring site `.glass-dock { --dock-separator-height: calc(var(--dock-h, var(--size-icon-btn)) * 0.5); … }` (node_modules/@mkbabb/glass-ui/dist/). Live WebKit 1440x900 /#/extract controls-row children: [{"tag":"button","w":40,"h":40},{"tag":"button","w":40,"h":40},{"tag":"div","cls":"dock-separator","w":1,"h":0},{"tag":"div","w":276,"h":24},{"tag":"div","cls":"dock-separator","w":1,"h":0},{"tag":"button","w":40,"h":40,"opacity":"0.5"}]. Screenshot docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/extract.png shows no divider marks in the row.
+```
+
+**Reproduction.** node scratchpad/chalL-wbextract-probe3.mjs against http://localhost:9000/#/extract — enumerates the controls-row children and their computed geometry; both `.dock-separator` divs report h:0. Also visible directly in shots/safari-desktop-light/extract.png.
+
+**Proposed cure.** Producer (Glass 8): `.dock-separator { height: var(--dock-separator-height, 1.5rem) }` — a primitive must be self-contained. Structural alternative needing no producer change: plate-seated bars use glass-ui's plain `Separator` (already re-exported), and `DockSeparator` stays reserved for `.glass-dock` descendants. Audit every `--dock-*` read for a missing fallback.
 
 ---
 
@@ -23265,6 +23445,132 @@ Complete test surface (grep -rln over test/ and e2e/ for channel-meter|channel-s
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-1 · CHALLENGE-C
+
+**Defect.** No pointerId guard: a foreign pointer both steers and terminates the drag. `handleSpectrumMove` predicates only on `isDragging.value`; `handleSpectrumUp`/`handleSpectrumCancel` call `stopDragging()` unconditionally. `capturedPointerId` is tracked but only ever used for releasePointerCapture.
+
+**Mechanism.** Loose parallel pointer state with no ownership invariant — a boolean stands in for pointer identity on a surface that carries `touch-gate-target` and a useTouchGate, i.e. an explicitly multi-touch control.
+
+**Evidence.**
+
+```
+demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue:159-166, :177-185 (capturedPointerId declared :78, set :149, read only at :84). Measured (probe/probe5.mjs section P2): {"afterP1":{"left":"10%","top":"10%"},"afterP2Move":{"left":"90%","top":"90%"},"afterP1Continues":{"left":"90%","top":"90%"}}
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/probe5.mjs against http://localhost:9000/ — dispatch pointerdown pid=1 at (10%,10%), then pointermove pid=2 at (90%,90%): the dot follows pointer 2. Then pointerup pid=2: pointer 1's subsequent pointermove to (50%,50%) is ignored. On a phone: rest a thumb on the plate while picking and the picker dies under your finger.
+
+**Proposed cure.** Collapse `isDragging` + `capturedPointerId` + `capturedElement` into ONE `activePointer: { id: number; el: HTMLElement } | null`. Every handler opens `if (activePointer?.id !== event.pointerId) return;`; `isDragging` becomes `activePointer !== null` and ceases to exist as separate state. Three variables to one — the bug becomes unrepresentable rather than guarded.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-2 · CHALLENGE-C
+
+**Defect.** No button discipline. A right-mouse press picks a colour and takes a pointer capture; if the pointerup is swallowed (context menu dismissed elsewhere) `isDragging` stays true and every buttonless hover over the plate rewrites the colour.
+
+**Mechanism.** The handler treats any pointerdown as a drag start and has no liveness re-check, so recovery depends entirely on a pointerup/pointercancel/lostpointercapture arriving — exactly the event class this repo already knows gets lost (usePointerDebug.forceReleaseAllPointers()'s brute-force recovery walker at usePointerDebug.ts:112+ begins its selector list with `.spectrum-picker`).
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:132-157 (handleSpectrumDown — no button/isPrimary check), :159-166 (no `event.buttons === 0` self-heal). `grep -n "event.button\|isPrimary\|\.buttons" SpectrumCanvas.vue` → no output. Measured (probe/probe6.mjs): real `page.mouse.down({button:"right"})` at 15%/85% changed the label from "saturation 63%, lightness 100%" to "saturation 15%, lightness 85%". Stuck-drag variant: {"afterRightPress":"…20%,80%","afterHover1":"…80%,20%","afterHover2":"…35%,40%"} with buttons:0.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/probe6.mjs — section A uses a real right mouse button and the colour changes; section A' withholds the pointerup and two buttonless hovers each repaint the colour.
+
+**Proposed cure.** `handleSpectrumDown` opens with `if (!event.isPrimary || event.button !== 0) return;`. `handleSpectrumMove` opens with `if (event.buttons === 0) { stopDragging(); return; }` — a standing self-heal so no lost-event class can leave the plate live. The rule, not the patch: the plate accepts exactly one primary left-button pointer and re-checks its own liveness every move.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-3 · CHALLENGE-C
+
+**Defect.** The documented dot-persistence invariant is false. The comment at :58-60 promises the raw coords "persist after mouseup so the dot stays where the user placed it"; measured, they persist for 300 ms and are then wiped by the URL round-trip, and the dot visibly teleports with no user input.
+
+**Mechanism.** Write-origin is being decided by a single-shot boolean rather than by identity. The sentinel is spent by the spectrum's own write, so the URL echo 300ms later reads as external and clears rawS/rawV. Invisible where the roundtrip is lossless (probe P1, default space: 25%/25% held for 1424ms) and glaring where it is lossy.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:58-75 (boolean sentinel `spectrumIsSource` consumed by one watch) vs demo/color-session/useColorUrl.ts:51-64 (model→URL debounce 300ms) and :72-74 (route.query.color watch → applyUrlToModel → updateModel, with no guard against its own echo). Measured (probe/probe5.mjs section P3, Kelvin space, one pick at s=20%/v=80%, sampled every 100ms with no further input): t=109ms left=20% top=20%; t=209ms left=20% top=20%; t=310ms left=51.1529% top=0%; unchanged thereafter.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/probe5.mjs section P3. Ruled out the other debounced writers: useColorPersistence.ts:94-99 is 200ms and writes localStorage not the model; updateColorComponentDebounced is 500ms and off-path. useColorUrl's 300ms is the only external model writer at that latency.
+
+**Proposed cure.** Delete the boolean. Origin is an identity question, and the pipeline already answers it correctly for stableHue with a reference sentinel (useColorPipeline.ts:57 `lastWrittenModel`, checked at :81). Give the plate the same discipline: store the exact model reference it produced and clear the raw coords iff `model.value !== myLastWrite`. A reference cannot be spent twice, swallowed by a batched flush, or stranded by a throw — which also kills the un-reproduced same-tick batching hazard where a spectrum write and an external write collapse into one watch invocation.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-4 · CHALLENGE-C
+
+**Defect.** The plate writes an HSV pick blindly through `model.value.selectedColorSpace` with no representability check. In the selectable Kelvin space the map is degenerate — the bottom 60% of the plate collapses to a single value — and each pick burns 2–3 ms of synchronous main thread.
+
+**Mechanism.** The component assumes every display space can round-trip a 2-D (s,v) family. Kelvin is a 1-D blackbody locus, and xyzToKelvin's raw-XYZ distance metric never normalises luminance, so dim colours all snap to the 1000 K floor. The plate keeps rendering the dot where the user clicked, so the control lies about what it did.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:127-129. Kelvin is one-channel (src/color/model.ts:20,66) and selectable (color-model.ts:73-76 spreads PICKER_SPACE_NAMES; ColorSpaceSelector.vue:150 iterates all of it). Measured live (probe/probe6.mjs section C): three picks down the s=50% column at v=50%/30%/10% all read `["1000.0"]` while the dot sits at 50%/50%, 50%/70%, 50%/90%. Sweep (probe/kmap.ts): v=0.6 row and below are 1000 K across all s; 441 sample positions → 135 distinct outputs. Cost (probe/probe4.mjs): pointerdown sync cost default space [0.4,0,0,0.1,0,0] ms vs Kelvin [2,2,3,2.3,1.9,2.1] ms. Isolated (probe/kbench.ts): hsv→kelvin 4.269 ms/op vs hsv→oklch 0.0014 ms/op (~3000×), because xyzToKelvin (src/color/anchors.ts:317-329) is a 39,001-iteration linear search. Rendered proof: probe/kelvin-plate-after-bottom-pick.png — indicator parked in the near-black bottom with a bright-orange fill.
+```
+
+**Reproduction.** Open http://localhost:9000/, switch the space Select to Kelvin, click at s=50% down the v axis three times; the kelvin readout stays 1000.0 while the dot follows the cursor. Scripted: node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/probe6.mjs (section C) and probe4.mjs.
+
+**Proposed cure.** Two seams. (i) Component-owned: the plate is an HSV s×v instrument — it should write HSV and let the pipeline's display projection handle the selected space; where the selected space cannot round-trip s×v it must present as unavailable, not as a working control that silently discards 60% of its own surface. (ii) Library relay to the src seat: replace xyzToKelvin's 39,001-step scan with a monotone ternary search (~15 evaluations) over a luminance-normalised objective — the un-normalised metric is precisely what drags dim colours to the floor.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-5 · CHALLENGE-C
+
+**Defect.** The dot's border regime is hue-blind. `spectrumLuma(s,v) = v*(1 - s*0.5)` replaces the plate's hue-dependent luminance term with the constant 0.5, so a white border is chosen on bright yellow/green/cyan fields — measured 1.07:1, against WCAG 1.4.11's 3:1 for a UI-component boundary.
+
+**Mechanism.** The plate composite is exactly out = v · mix(white, hue, s); mix(white,hue,s)'s luminance ranges from 0.072 (blue) to 0.928 (yellow). One hue-independent constant cannot serve both ends of that range, so the flip predicate is simply wrong across the yellow-through-cyan arc.
+
+**Evidence.**
+
+```
+demo/picker/controls/spectrumLuma.ts:20-25 (SPECTRUM_LUMA_FLIP = 0.5, `v * (1 - s * 0.5)`), consumed at useSpectrumPlateStyle.ts:53-57. The 2px border is the dot's only boundary against the field (SpectrumCanvas.vue:263). Computed against the exact composite (probe/luma.mjs): h=60 s=1 v=1 → modelLight false → white border on trueLum 0.928 → contrast 1.07 FAIL; h=120 s=1 v=1 → 1.37 FAIL; h=180 s=1 v=1 → 1.25 FAIL; 9/30 sampled (h,s,v) fail. Live (probe/probe7.mjs): yellow top-right pick → dotBorder "rgba(255,255,255,0.9)", dotBg "rgb(250,250,5)"; blue top-right pick → identical white border. Rendered: probe/yellow-corner-dot-border.png (indicator all but invisible) vs probe/blue-corner-dot-border.png (crisp).
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/luma.mjs prints the contrast table; node .../probe/probe7.mjs drives http://localhost:9000/#/?space=hsl&color=hsl(60%20100%25%2050%25), picks the top-right corner and reads the computed border colour.
+
+**Proposed cure.** `spectrumLuma` already receives everything it needs except the hue — pass it and compute the real thing: `v * relLum(mix(white, hslHue(h), s))`, arithmetic the library already ships. Keep the docblock's "one function, one threshold" law; fix the function so the law is worth obeying. Better still, flip on measured contrast rather than a luminance threshold so the predicate answers the question the border is actually asking. Since the dot is a glass-ui WatercolorDot, the cured regime belongs in the producer as a variant/prop (edict 4), not as a deeper consumer override.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-6 · CHALLENGE-C
+
+**Defect.** Zero keyboard operability on a 2-D picker, exposed to assistive technology as a static image, with continuously changing name and no live region.
+
+**Mechanism.** role="img" declares static graphical content, so the element's live name updates (useSpectrumPlateStyle.ts:24-28) are announced to nobody, and the control is absent from the keyboard model entirely. The usual mitigation — equivalent function via the sliders — fails here because the sliders expose the SELECTED DISPLAY SPACE's channels (measured on /: L, A, B, ALPHA), not s and v.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:6-22 (role="img" with five pointer handlers bound to the same element). Measured (probe/probe1.mjs): role "img", tabIndex -1, hasTabindexAttr false, ariaLive null, closestFocusable false, figureHasCaption false, inTabOrder false among 28 focusables. Measured (probe/probe8.mjs): 40 Tab presses cycle the page twice and never reach the plate; after clicking the plate `document.activeElement` is BODY.relative; four arrow presses leave the label at "saturation 21%, lightness 55%" unchanged.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/probe8.mjs sections B and C against http://localhost:9000/.
+
+**Proposed cure.** Adopt the settled 2-D-picker pattern: tabindex="0" plus role="application" (or two coupled role="slider" children), Arrow/Shift+Arrow/Home/End/PageUp/PageDown on both axes, move focus to the plate on pointerdown, and expose the live position through aria-valuetext on the coupled sliders — which ARE announced — instead of a mutating role="img" name.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-7 · CHALLENGE-C
+
+**Defect.** Vacuous gates. The only spec that drives the plate asserts nothing about what it produces; a single-token mutation that inverts the vertical axis keeps the entire suite green. No unit test for the plate's maths or its luma regime exists.
+
+**Mechanism.** The spec measures liveness ("did anything change?") and dresses it as correctness (file docblock line 7: "wall-clock evidence that the topology REACTIVITY-B verified is INSTANT"). Every mutation below changes the product and still makes the readout diverge.
+
+**Evidence.**
+
+```
+e2e/smoke/reactivity-instant.spec.ts:41-135 asserts only that the readout text diverges from baseline within 2000ms and that the median wall-clock is ≤50ms — never which colour resulted. e2e/smoke/a11y-modality-support.spec.ts:91-119,300-303 certifies forced-color-adjust:none and the presence of a role="img" named /Color spectrum/ — i.e. it locks in the C-6 defect as the expected shape. e2e/smoke/perf/drag-frame-budget.spec.ts:33-70 (the §6.2 p50≤20ms / 0 long-tasks oracle) drives the L-channel SLIDER, not the plate. `grep -rln "spectrumLuma\|useSpectrumPlateStyle\|spectrumFieldIsLight" test/ demo/test/ e2e/` → NONE.
+```
+
+**Reproduction.** Named mutations, each one token in SpectrumCanvas.vue:110-130, all GREEN: (a) `const v = clamp(y / rect.height, 0, 1)` at :121 — the picker is vertically inverted; (b) swap s and v at :127 — axes transposed; (c) delete both clamps at :117-118; (d) delete rawS/rawV and the whole watch at :61-75; (e) delete the rAF throttle at :97-108; (f) make spectrumLuma return 0.5 unconditionally.
+
+**Proposed cure.** Three born-RED oracles. (i) Extract the pure `plateCoords(rect, clientX, clientY) → {s,v}` that does not currently exist because the arithmetic is welded between a DOM read and a model write, then table-drive corners, out-of-bounds, zero-width rect and NaN in vitest. (ii) A vitest unit over spectrumLuma/spectrumFieldIsLight asserting ≥3:1 measured contrast across the (h,s,v) grid in probe/luma.mjs — born RED at 9/30 today. (iii) Extend the §6.2 frame oracle with a spectrum-drag case so C-9's number has a gate.
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/picker/ColorPic` · C-5 · CHALLENGE-C
 
 **Defect.** The Cmd+K handler tests global modifier STATE (`keys.cmd?.value && keys.k?.value`) rather than the event, so any key pressed while Cmd and K are physically held is preventDefault'd and re-toggles the dropdown. There is also no `e.repeat` guard.
@@ -23352,6 +23658,114 @@ test/picker-blob-config.test.ts:12 reads the file; its only two assertions about
 **Reproduction.** Exact mutations that keep the suite green: (a) delete `handleKeydown` and both window.addEventListener/removeEventListener lines; (b) delete the entire `onComponentInput` hex branch (ColorPicker.vue:225-229); (c) replace `parseAndSetColor(newVal)` in the inputColor watcher (ColorPicker.vue:360) with a no-op; (d) delete both onUnmounted debounce cancels; (e) invert `isEditing` (ColorPicker.vue:273). Each passes, because the two assertions look only for `<HeroBlob @click=` and count `writeClipboard(`.
 
 **Proposed cure.** Mount the component (@vue/test-utils with a provided COLOR_MODEL_KEY stub) and assert behaviour: readout-model agreement after a manual edit followed by an independent color change; cross-channel commit independence; listener removal on deactivate; a throwing `originalCss` leaving the edit machine consistent. Delete the two regex assertions.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-2 · CHALLENGE-C
+
+**Defect.** The ink floor never re-derives on a scheme flip. floorStops reads isDark.value and inkAmbient.value from inside a WATCH CALLBACK whose only tracked source is cssColorOpaqueFrame, so a dark<->light toggle (or ambient drift) cannot re-run the derive — the component keeps whichever answer it computed first.
+
+**Mechanism.** reactive referent sampled inside a non-reactive callback — reactivity that cannot fire
+
+**Evidence.**
+
+```
+HeroBlob.vue:98-99 (reads) inside the callback of HeroBlob.vue:132 `watch(cssColorOpaqueFrame, (css) => reseedHeroStops(css), { immediate: true })`. Probe C3: "stopsUnchangedAcrossFlip": true — before and afterFlip are byte-identical ["#c384a6","#c3a4ab","#c4bbbb","#c4bbb9"]; only afterColourChange moves (["#ac5987","#d26082","#eb7378","#f3937a"]). Probe C2 measured the resting plate composited OKLab L: light 0.8079, dark 0.3511; with pickL 0.7862 the light decision is {delta -0.0217, pushes true} and the dark decision is {delta 0.4351, pushes false} — the two schemes demand different ramps. Residual |ΔL| after a dark→light flip = 0.0217, i.e. 7× below the 0.15 ink floor the F-4 cure (HeroBlob.vue:81-93) exists to guarantee.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-heroblob/probe-C3-stops-and-realloss.mjs and probe-C2-gl-loss-and-inkfloor.mjs
+
+**Proposed cure.** Make heroStops a computed over (cssColorOpaqueFrame, isDark, inkAmbient) — or, after C-1's cure, let the floor be an argument to the derive and the derive be the computed. The referent must be tracked, not sampled.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-3 · CHALLENGE-C
+
+**Defect.** The hero ornament's mount is transitively gated on ANOTHER canvas's WebGL success: b4 ← b2 ← auroraArrived ← !contextLost on the ATMOSPHERE canvas. A context loss before b2 latches deletes the hero blob for the whole session, and there is no context-loss handling anywhere in the blob chain — no honest terminal, no rendererStatus subscription, no recovery.
+
+**Mechanism.** cross-surface mount coupling + a WebGL consumer with no loss/restore path
+
+**Evidence.**
+
+```
+Chain read-confirmed: demo/color-picker/composables/boot/useAtmosphere.ts:321-324 (auroraArrived = (mode==='css' || isArmed) && !contextLost) → demo/color-picker/App.vue:296 → demo/color-picker/composables/boot/useOverture.ts:106-118 (b2 latch-once) → :152-156 (b4) → demo/picker/ColorPicker.vue:94 (v-if="blobReady && ornamentOpen"). `grep -o "webglcontextlost|webglcontextrestored|context lost|isContextLost" node_modules/@mkbabb/glass-ui/dist/blob.js` → NO OUTPUT (zero hits in the shipped producer bundle). `grep -rn "webglcontextlost" demo/` → only useAtmosphere.ts:298,301 (the sibling surface HAS the honest terminal, :283-310). Observed instance, REPORT.json /#/: safari-desktop-light settle 18905 canvas 1 consoleErrors ["WebGL: context lost."] vs the other three matrices settle ~3300 canvas 2 consoleErrors []. shots/safari-desktop-light/picker.png shows NO bead. The producer renders its canvas unconditionally (blob.js: D("canvas",{class:"goo-blob-canvas"}) with no v-if), so canvas 2→1 means the whole subtree never mounted.
+```
+
+**Reproduction.** PARTIAL — the observed failure is the recorded Safari capture (REPORT.json /#/ safari-desktop-light + shots/safari-desktop-light/picker.png). I could NOT force it in Chromium: probe-C2 (synthetic webglcontextlost @400ms), probe-C3 (WEBGL_lose_context.loseContext @400/900ms), probe-C4 (getContext patched pre-boot, loss @500/1000/3000ms) all left b2 latching normally (overture:b2@1360..1502) and the blob mounted (canvasCount 2). C4's ctxLog shows the app's first webgl2 context is created at ~126-175ms on a canvas with empty className, so the atmosphere key never matched. The source chain is confirmed by read; the Safari trigger is not yet pinned.
+
+**Proposed cure.** Two independent moves: (a) gate b4 on paint-completion rather than the field's GPU arrival — b3Complete ∧ dockLanded already satisfies the beat DAG's stated order, so the ornament stops depending on an unrelated GPU surface; (b) give the blob the atmosphere's honest terminal by subscribing the producer's SHIPPED `rendererStatus` expose, and on a non-ok status keep the .hero-blob-anchor::before contact shadow as the seated ornament instead of nothing.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-4 · CHALLENGE-C
+
+**Defect.** The blob engine mount is 100% of the picker route's measured Total Blocking Time — a single indivisible 397ms main-thread task. Separately, the standing Q14 escalation number (LCP 5141ms) does not reproduce on this matrix: LCP measures 264ms.
+
+**Mechanism.** one indivisible WebGL2 context + shader-compile init task on the main thread; deferral relocates it but cannot remove it
+
+**Evidence.**
+
+```
+Probe C1 (Chromium 1440x900 DPR2, warm dev server, unthrottled): fcpMs 264, lcpMs 264, cls 0.0193, longTaskCount 2, longTaskTotalMs 531, longestTaskMs 397, tbtAfterFcpMs 347, top5Tasks [{startMs:2321,durMs:397},{startMs:84,durMs:134}], overtureMarks b0@7 b1@175 b3@595 b2@1296 b4@2308. TBT 347 === 397-50 EXACTLY — the blob mount is the entire contributor. Probe C4 ctxLog independently timestamps the blob's own context: ('webgl2','goo-blob-canvas',2410,True), inside that task. Backing store healthy: blobBacking 360x360, blobCss 180.2x180.2, dpr 2, ratio 0.999 (O-12·5 floor is 0.6).
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-heroblob/probe-C1-boot.mjs
+
+**Proposed cure.** Re-state the chronic row instead of inheriting it. The eager-boot framing is stale — the chunk IS deferred (ColorPicker.vue:157-158 defineAsyncComponent + useIdleReady) and the mount IS beat-gated past the field's arrival. The honest born-RED gate is `longestTask(blob mount) <= 150ms` OR `TBT <= 100ms on /#/`, measured with probe-C1-boot.mjs, and it is a PRODUCER row (shader precompile / armAsync chunking, the L20 eager-config/lazy-engine split), not a demo placement row. Any wave spec born-RED against '5141ms' is born against a number nobody can currently measure.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-5 · CHALLENGE-C
+
+**Defect.** The shared e2e fixture's bead ratio drifted: BEAD_RATIO = 0.52 (bodyRadius 0.26) while the HERO register ships bodyRadius 0.325 (ratio 0.65). O-12's occlusion probes therefore sample a circle 20% short in radius and never touch the bead's real arc — the exact thing the oracle exists to prove.
+
+**Mechanism.** a hand-synced constant in a fixture that claims to be the single source of truth
+
+**Evidence.**
+
+```
+e2e/smoke/fixtures/blob-timing.ts:56-57 `/** Visible bead = 2·bodyRadius·fp (bodyRadius 0.26 — the HERO register). */ export const BEAD_RATIO = 0.52;` vs demo/picker/visual/HeroBlob.vue:163 `bodyRadius: 0.325`. test/picker-blob-config.test.ts:26 WAS updated to 0.325; the e2e fixture was not. Sole consumer e2e/smoke/oracles/o12-blob-seat.spec.ts:113 `const r = (BEAD_RATIO / 2) * wrapper.width;` = 0.26·w. At the measured seat (fp = 112.6px; probe C6 blobBox 180x180 = 1.6·fp) the probes sample r = 29.3px around a bead of true radius 36.6px — 20% short in radius, 36% short in area. Retired value named by the tag `v-blob-b0-26-ref-w40`. The fixture's own header (:2-6) advertises itself as the cure for 'a three-file hand-sync waiting to skew'.
+```
+
+**Reproduction.** grep -n 'BEAD_RATIO' e2e/smoke/fixtures/blob-timing.ts e2e/smoke/oracles/o12-blob-seat.spec.ts; grep -n 'bodyRadius' demo/picker/visual/HeroBlob.vue
+
+**Proposed cure.** Derive BEAD_RATIO from the same authority the unit test asserts (2·bodyRadius), or better: have the oracle read the rendered bead extent rather than re-encode a config literal in a second place. A constant that must be hand-synced with a component literal is the defect, not its current value.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-6 · CHALLENGE-C
+
+**Defect.** The component's only unit test is a regex over the raw .vue text. One template attribute edit deletes the entire HERO register, the ink floor, the fission arming and the quality rung while every assertion stays green. floorStops — the function with two separate defects above — has no test of any kind.
+
+**Mechanism.** source-text assertions standing in for behavioural assertions — a vacuous gate
+
+**Evidence.**
+
+```
+test/picker-blob-config.test.ts:1-53 — readFileSync of demo/picker/visual/HeroBlob.vue, then string assertions (bodyRadius: 0.325, orbitRadius: 0.4, satelliteRadius: 0.09, eccentricity: 0.03, aria-hidden, no @click, no writeClipboard). EXACT green-keeping mutation: change HeroBlob.vue:15 `:config="heroConfig"` to `:config="appBlobConfig"`. The heroConfig computed (:152-178) becomes dead code, its literals stay in the file, all four toMatch assertions still pass — and the blob reverts to BLOB_CONFIG_DEFAULTS (stock warm-cream meatball, fissionAmp 0, full quality on phones). Zero tests fail. Weaker equivalents: delete floorStops + INK_FLOOR outright, set INK_FLOOR to 0, invert the dir flip, drop the onActivated re-seed.
+```
+
+**Reproduction.** Apply the diff `- :config="heroConfig"` / `+ :config="appBlobConfig"` to demo/picker/visual/HeroBlob.vue:15 and run `npx vitest run test/picker-blob-config.test.ts` — it passes.
+
+**Proposed cure.** Retire the regex file. Mount HeroBlob in a component test with a stub Blob and assert the CONFIG OBJECT it emits (geometry tuple, surface.fissionAmp, quality at both viewport rungs, and the derived paletteStops for a known seed against known plate lightnesses in both schemes). That single test kills the vacuity and covers C-1, C-2, C-8 and C-13 by construction.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-7 · CHALLENGE-C
+
+**Defect.** Oracle O-12·3 asserts the parked bead visibly answers a hover within 400ms. HeroBlob wires no hover beat and renders no pointer host, so the mechanism cannot fire — measured 0 GL draw calls across a 2s sustained sweep over the bead.
+
+**Mechanism.** an oracle asserting a behaviour the component does not implement; likely green off background drift through the transparent 1.6× overscan canvas
+
+**Evidence.**
+
+```
+e2e/smoke/oracles/o12-blob-seat.spec.ts:139-160 (and the set header :33-36 'the wake+curious demo beat'). HeroBlob.vue:46-52 lists only scrub/save/idle; pressLabel is omitted so the producer's hit layer is not rendered (blob.js: `f.value ? button : …`); the root is pointer-events-none (:10). Probe C6 after the full park latency: {"parkedBaseline":0, "blobBox":{x:565,y:114,w:180,h:180}, "drawsDuringSweep":0, "hitTest":{tag:"DIV",cls:"title-row w-full min-w-0"}, "rootPointerEvents":{anchor:"none",wrapper:"none",canvas:"none",hitLayer:false}, "drawsAfterColourChange":53}. The instrument is sound — the demo's own wake path produces 53 draws.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-heroblob/probe-C6-hover-wake.mjs
+
+**Proposed cure.** Decide the intent first. If the hover beat is wanted, wire it (the producer already exposes setMood and a hit layer behind pressLabel) — but that reintroduces a pointer host the V.W20 semantics test forbids, so it is an owner ruling, not a fix. If it is not wanted, delete O-12·3; it is measuring the plate and atmosphere behind an alpha canvas, not the bead. Either way the current state is a gate that cannot fail for the reason it claims.
 
 ---
 
@@ -23496,6 +23910,312 @@ demo/picker/ColorPicker.vue:247 (const keys = useMagicKeys()), :263-266 (if (key
 **Reproduction.** Read demo/picker/ColorPicker.vue:247,263-266,377 — the handler has no event.target / activeElement check and no document-scope guard. Reproduction of the re-toggle: hold Cmd+K and press any third key; the predicate is still true and the popover toggles again.
 
 **Proposed cure.** Either give the shortcut a named, visible home (a labelled affordance on the selector trigger, or a command palette that owns the binding) and scope the listener to the instrument root with an editable-target guard, or delete it. Subtraction precedes explanation: an undiscoverable command is not part of the grammar.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-05 · CHALLENGE-D
+
+**Defect.** The instrument has no boundary of its own, and in every colour scheme part of it dissolves into the card. No border, no ring, at-rest box-shadow fully transparent; the plate's own content supplies #fff and #000 at its extremes so its edge can never be self-evident.
+
+**Mechanism.** foundation.css:678-698 correctly grants .spectrum-picker tier-1 forced-color-adjust:none so the colour content survives WHCM, but the policy preserves the CONTENT and never gave the SURFACE an edge, so the worst case is white-on-white. More fundamentally the plate has no material tier assignment at all, hence no boundary vocabulary.
+
+**Evidence.**
+
+```
+probe/SPCD-pixels.json — WCAG 2.2 SC 1.4.11 non-text contrast, interior 6px inside vs card 6px outside: LIGHT top-left 1.538 ✗, top-right 2.688 ✗, left-mid 2.464 ✗; DARK top-right 1.498 ✗, left-mid 1.642 ✗, bottom-left 3.065 marginal; FORCED-COLORS top-left **1.091** ✗ (invisible against Canvas white — see probe/SPCD-forced-colors.png). At-rest computed boxShadow "rgba(0, 0, 0, 0) 0px 0px 0px 0px" (probe/SPCD-probe1.json). Canon: VISUAL-CONSTITUTION §2 "One surface has one tier" — the plate is assigned no tier in the material table.
+```
+
+**Reproduction.** node .../probe/SPCD-pixels.mjs — samples the rendered PNG 6px inside/outside each corner in light, dark and forced-colors contexts and computes WCAG relative-luminance ratios.
+
+**Proposed cure.** Assign the stage a tier in §2's material table (it is a chromatic specimen stage, a species the table currently lacks) and give that tier one boundary token that is independent of the field's content — a 1px inset ring from --card-edge plus a forced-colors `outline: 1px solid CanvasText`. Root-level, in the tier, not per-instance.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-06 · CHALLENGE-D
+
+**Defect.** Two symmetric [0,1] axes receive anisotropic, viewport-height-dependent pointer resolution ranging 2.05:1 to 4.69:1, with a 64px discontinuous jump at the lg breakpoint. Five height declarations for one box: h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none.
+
+**Mechanism.** The block size is bound to viewport HEIGHT (dvh) while the inline size follows the card, so the instrument's shape — and therefore the precision available on each of two semantically identical axes — is an uncontrolled function of window aspect.
+
+**Evidence.**
+
+```
+Measured plate geometry (probe/SPCD-probe1.json, probe/SPCD-probe2.json): 1440×900 → 469.06×224, aspect 2.094; 1023×900 → 469.06×160, aspect 2.932; 390×844 → 327.38×160, 2.046; 320×568 → 262×113.59, 2.306; **900×500 → 469.06×100, aspect 4.691**; iPhone 13 → 327.4×132.8, 2.465. Pointer mapping is linear on both axes (SpectrumCanvas.vue:120-121), so 1 CSS px = 0.213% of s but 1.000% of v at 900×500. Source: SpectrumCanvas.vue:11. Canon: VISUAL-CONSTITUTION §3 law 7 — "Spacing is container-scaled from glass-ui tokens. No desktop-tight/mobile-airy fork and no breakpoint pile."
+```
+
+**Reproduction.** node .../probe/SPCD-probe2.mjs — resizes to 1440×900, 390×844, 320×568, 900×500, 1023×900 and records getBoundingClientRect on .spectrum-picker.
+
+**Proposed cure.** One container-scaled arm with a declared ratio. For two symmetric axes that is `aspect-ratio: 1`; if the design wants asymmetry it must be one of the constitution's golden rungs with a stated reason, not a dvh. Delete the min-h/max-h/lg: pile — five declarations become one.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-07 · CHALLENGE-D
+
+**Defect.** 20.6 ms of style recalculation per committed pointer move against a 16.7 ms frame budget, plus 2.76 layouts per move where idle is 0. Two of the three causes are authored in this component: a per-frame write of the INHERITED custom property --spectrum-shadow (whose only consumer is a hover-only decoration), and moving the marker with layout-inducing left/top percentages on an element carrying an SVG feDisplacementMap.
+
+**Mechanism.** An inherited custom property write invalidates the whole subtree's computed style every frame; left/top are layout-inducing where translate/transform are not. The producer went to real trouble to keep this element compositor-only and the consumer reintroduces per-frame layout on it.
+
+**Evidence.**
+
+```
+CDP Performance.getMetrics, Chromium 1440×900, 80 synthetic moves (probe/SPCD-probe3.json): plate drag 6732ms wall → LayoutCount 221, RecalcStyleCount 1152, RecalcStyleDuration 1768.9ms, LayoutDuration 67.1ms. Channel-slider drag (identical session update) 5477ms → 151 / 746 / 1200.1ms / 43.8ms. Wall-matched idle 6734ms → LayoutCount **0**, 344, 122.8ms. Net of idle: 1646ms ÷ 80 moves = 20.6 ms/move; plate is 1.49× the slider's per-move cost. Sources: useSpectrumPlateStyle.ts:40 (--spectrum-shadow), :60-61 (left/top), consumed only by SpectrumCanvas.vue:236. Producer warning: useWatercolorBlob.d.ts documents that per-frame writes under the SVG filter force filter-graph re-rasterisation and flash Safari, which is why the producer's own liveness rides a compositor transform.
+```
+
+**Reproduction.** node .../probe/SPCD-probe3.mjs — section 2 runs an 80-move drag on the plate, an 80-move drag on a channel slider, and a wall-matched idle control, reading Performance.getMetrics deltas around each.
+
+**Proposed cure.** Delete --spectrum-shadow together with D-16's hover shadow (it exists only to feed it). Move the marker with the independent `translate` property composed against the producer's wobble — the same mechanism Tailwind already emits — so the marker never touches layout. Both changes are subtractions.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-08 · CHALLENGE-D
+
+**Defect.** Three of the four .spectrum-dot declarations are per-instance overrides of a glass-ui producer root, and two of them provably never take effect: position:absolute loses a specificity tie (→ D-02), box-shadow:var(--shadow-sm) loses the same tie and never paints, and &:hover{transform:none} targets a pseudo-class that can never match because pointer-events is none.
+
+**Mechanism.** Four attempts to style a design-system producer from outside: one works, two lose silent (0,2,0) specificity ties, one targets an unreachable pseudo-class, one is a redundant duplicate — and nothing in the build or the tests can tell the design that three of them vanished.
+
+**Evidence.**
+
+```
+Measured computed style on the live marker (probe/SPCD-probe1.json, probe/SPCD-probe2.json): position "relative" (not absolute, SpectrumCanvas.vue:260); boxShadow is the producer's three shadows only — `inset 0 0 6px…, inset 0 -2px 4px…, 0 2px 6px…` — with no --shadow-sm (SpectrumCanvas.vue:264 dead); pointerEvents "none" (producer inline + consumer class) so SpectrumCanvas.vue:268-270 is unreachable. Additionally useSpectrumPlateStyle.ts:62 sets backgroundColor which WatercolorDot overwrites with an identical value in its own normalizeStyle merge, and SpectrumCanvas.vue:28's pointer-events-none duplicates the producer's inline pointerEvents. Owner edicts 5 and 2.
+```
+
+**Reproduction.** node .../probe/SPCD-probe5.mjs (position) and .../probe/SPCD-probe1.mjs (box-shadow, pointer-events). Compare against the four declarations at SpectrumCanvas.vue:259-270.
+
+**Proposed cure.** Delete all four. The marker's geometry belongs to the stage's own seat element (D-02/D-09); any styling WatercolorDot genuinely needs to expose becomes a glass-ui prop or variant, per owner edict 4 — variants belong in glass-ui, not in the consumer.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-09 · CHALLENGE-D
+
+**Defect.** The marker defeats the WatercolorDot species. A 2px ink border is drawn on the producer's seeded organic silhouette, and the producer's feDisplacementMap then wobbles that ring, so at scale the mark reads as a hand-drawn black rounded square rather than a watercolour face.
+
+**Mechanism.** A per-instance border on a producer face substitutes an outline for a silhouette; the filter that was designed to bleed an organic edge now shakes a rectangle.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:263 `border: 2px solid var(--dot-border, var(--background))`; measured computed border "2px solid rgba(0, 0, 0, 0.8)" over a seeded borderRadius of "15.954% 83.45% 19.1765% 33.1628% / 38.1292% 35.2683% 41.781% 37.9911%" with filter url("#watercolor-filter-v-7") (probe/SPCD-probe1.json). Visual: probe/SPCD-zoom200.png. Canon: VISUAL-CONSTITUTION §4.2 — "V abrogates a selection outline and interactive host on WatercolorDot… no ring/shadow/pseudo-element crosses the seeded edge"; OPTICAL-BENCH-COMPOSITIONS.md:108 (P051) names **Spectrum** as one of the execution sites. §1 calls the WatercolorDot species "the second signature" of the product.
+```
+
+**Reproduction.** Open /#/ at 200% zoom, or read probe/SPCD-zoom200.png. Read the computed border and border-radius via probe/SPCD-probe1.mjs.
+
+**Proposed cure.** Execute P051 at the Spectrum site: the face carries colour only; the ring moves to a named enclosing geometric seat that owns position, contrast regime and (with D-04) focus. That is the same seat D-02 and D-10 need.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-10 · CHALLENGE-D
+
+**Defect.** The marker's black/white ink regime is computed from the field, but the marker is half off the field at exactly the coordinates users reach most. At v=1 the top 14px overhangs the card; at v=0 the bottom overhangs the channel rail; same at s=0 and s=1; a quarter at each corner. overflow is visible and no collision space is reserved on either axis.
+
+**Mechanism.** spectrumFieldIsLight(s,v) is a correct single-source predicate whose DOMAIN assumption — that the 28px marker sits over the field — is violated on all four edges. Pure white, pure black, zero saturation and full saturation are precisely the coordinates a colour picker's users aim for.
+
+**Evidence.**
+
+```
+probe/SPCD-probe1.json → dotEscape.top = 14.1 px at v=1, plateOverflow "visible" (SpectrumCanvas.vue:234). At the dark-mode boot state the ring is chosen black (border "2px solid rgba(0,0,0,0.8)", because the field beneath the lower half is light) against a card measured at rgb(122,77,101) → contrast 1.7:1 for the overhanging half; see probe/SPCD-dark.png. Regime source: useSpectrumPlateStyle.ts:53 via spectrumLuma.ts:33. Canon: PROPORTION-AUDIT §5 card law 3 — "footprints may reserve collision space only on the axis where collision exists."
+```
+
+**Reproduction.** node .../probe/SPCD-probe1.mjs reports dotEscape at the boot state (v=1). Drag to any edge on /#/ in dark mode and observe the overhanging half of the ring vanish into the card.
+
+**Proposed cure.** Keep the marker inside its stage: inset the reachable domain by the marker radius, or clip the stage and let the marker's seat (D-09) carry a two-tone ring whose ink is a function of what is actually beneath each arc. Either is a design decision; the component currently has made neither.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-11 · CHALLENGE-D
+
+**Defect.** Out-of-gamut is a fully designed, tokenised, twice-recalibrated state, rostered in both the forced-colors and print policies — and it has no implementation. Meanwhile the state is live on first paint: the marker's fill and the field beneath it disagree by Δ(0,+48,+68) in sRGB at the marker's own coordinate, silently.
+
+**Mechanism.** The designed affordance was specified, tokenised and wired into two @media policies, and the component that would draw it was never built — so the instrument displays a colour it cannot paint, at the exact pixel where it claims to be painting it, with no indication.
+
+**Evidence.**
+
+```
+Canon claims a live consumer: spectrumLuma.ts:5-6 ("the gamut overlay's contour/hatch ink regime (`useGamutOverlay`)"); foundation.css:291-298 defines --gamut-edge/--gamut-hatch/--gamut-edge-paper/--gamut-hatch-paper with a documented recalibration history at :283-291; foundation.css:682 and :831 roster `.gamut-overlay` for forced-colors and print; demo/DESIGN.md:336 calls it "the truth-line overlay's whole vocabulary". Implementation: `grep -rn "gamut-overlay\|useGamutOverlay\|GamutOverlay" demo/ src/` returns exactly 2 hits — one prose comment and one CSS roster entry. plate.querySelectorAll("canvas").length = 0. Live trigger measured (probe/SPCD-probe2.json .colorTruth): marker fill lab(92 88.8 20) → sRGB [255,143,200]; field beneath at s=0.6279, v=1 → [255,95,132]; Δ = [0,+48,+68]. Visible in probe/SPCD-light.png and unmissable in probe/SPCD-zoom200.png.
+```
+
+**Reproduction.** node .../probe/SPCD-probe2.mjs (section 1) resolves the marker's declared fill through a 1×1 canvas and computes the field colour from the plate's own gradient stops at the marker's (s,v). The grep above is the absence proof.
+
+**Proposed cure.** Build it, on the stage D-01 introduces. The tokens are already recalibrated against a measured luma-delta floor and already rostered for forced-colors and print; the shared spectrumLuma predicate that flips its ink already exists and already has two other consumers. This is the one row where the design is finished and only the implementation is missing.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-12 · CHALLENGE-D
+
+**Defect.** The accessible name is factually wrong, contradicts the visible headline, names channels that do not exist in the selected space, and is never announced by any AT — while being recomputed on every frame of a drag.
+
+**Mechanism.** An accessibility mechanism that produces no accessibility: a per-frame computed string on a static img, carrying the wrong channel names for the wrong colour space.
+
+**Evidence.**
+
+```
+Measured (probe/SPCD-probe1.json, probe/SPCD-probe3.json): aria-label "Color spectrum, saturation 63%, lightness 100%" while the headline reads "92.0%, 88.8, 20.0" in Lab. HSV *value* is called "lightness" (useSpectrumPlateStyle.ts:24-28); at s=63%,v=100% the colour is lab(92 88.8 20), a vivid pink, whereas "lightness 100%" names white. Neither "saturation" nor "lightness" is a Lab or OKLCh channel. Host is a non-focusable role="img" with no live region, so an aria-label mutation is announced by no AT. Canon: VISUAL-CONSTITUTION §4.1 ("Role, accessible name, state/value… are explicit") and §7 Picker ("the operable slider exposes the identical channel name/value/unit through aria-valuetext").
+```
+
+**Reproduction.** node .../probe/SPCD-probe3.mjs section 1 — reads the aria-label and the headline side by side while switching spaces; the label is invariant while the headline changes.
+
+**Proposed cure.** Delete the label with role="img". D-04's two named numeric axes carry name/value/unit through aria-valuetext on real sliders, which is what §7 specifies, and D-01's cure makes those channel names true for the selected space.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-13 · CHALLENGE-D
+
+**Defect.** The touch gate silently swallows the user's first tap on every touch device. Its entire expression is a 3px 50%-alpha outline authored in a sibling component's intentionally-unscoped style block; nothing names it, nothing announces it, and role="img" makes it imperceptible to AT.
+
+**Mechanism.** An interaction mode with no name, no announcement and no owner: its behaviour is here, its only visual state is in a sibling SFC, and its accessibility is precluded by the host role.
+
+**Evidence.**
+
+```
+probe/SPCD-probe4.json .touchGate on iPhone 13 — first tap at (20%,80%): aria-label UNCHANGED, touch-gate-active true, outlineColor "color(srgb 0.11 0.098 0.09 / 0.5)", outlineWidth "3px"; second tap at (80%,20%): saturation 80%, lightness 80% (now it commits). The rule lives at ComponentSliders.vue:253-263, whose own comment at :244-247 states "the block is intentionally UNSCOPED so the cascade reaches consumers outside this SFC's data-v-* attribute scope." Five cascade owners total for this component's states: SpectrumCanvas.vue scoped, ComponentSliders.vue unscoped, foundation.css:678-698, foundation.css:820-841, animations.css:184-192 (plus usePointerDebug.ts:118,121 selecting it at runtime). Canon: SUBTRACTION.md:28 — "duplicated/global spectrum-range and pane-shell style ownership → one W21 axis/spectrum owner…; no second cascade owner."
+```
+
+**Reproduction.** node .../probe/SPCD-probe4.mjs (section 4) — mobile context, two taps, reading aria-label and the gate class/outline between them.
+
+**Proposed cure.** Either the gate is a real mode — then it gets a name, an announced state and its style in the stage that owns it — or it dies with D-04's cure, since a focusable stage with keyboard axes no longer needs a tap-to-arm heuristic to coexist with page scroll (touch-action can be resolved from focus instead). Execute SUBTRACTION.md:28: one spectrum style owner.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-3 · CHALLENGE-D
+
+**Defect.** Ambient motion terminates at 7.0-8.1s measured (5.3s by construction) against the constitution's 5s ceiling, AND no pause control is exposed — both branches of the §6 disjunction fail; WCAG 2.2.2 gap with a shipped producer cure sitting unused.
+
+**Mechanism.** Wall-clock idle timer sized to clear one 5.2s FISSION_BEAT_MS rather than to meet the 5s motion law; the two requirements were never reconciled. Every KeepAlive return re-arms the full cycle (onActivated at :246-250 calls noteBlobActivity() AND resume(); 14 consecutive distinct frame hashes over 4s after an in-app /#/ -> /#/browse -> /#/ swap on the same document).
+
+**Evidence.**
+
+```
+HeroBlob.vue:211-212 BLOB_IDLE_MS=2000 + SLEEPY_POSE_MS=3300 = 5300ms, clock started by the `immediate:true` watch at :279. Rendered witness (SHA-1 of the clipped anchor, 1/s, untouched page): last changing frame t=7000ms, first frozen frame t=8111ms, identical through t=18577ms. VISUAL-CONSTITUTION.md §6. HeroBlob.vue:17 binds :paused one-way; producer doc Blob.vue.d.ts:36-43 — "Declarative WCAG 2.2.2 pause seam ... the EXACT shape <DockBackgroundToggle> wears — wire its @update:paused to this v-model"; DockBackgroundToggle ships in glass-ui/dist/dock.js.
+```
+
+**Reproduction.** scratchpad/HBD-probe2.mjs — screenshot the .hero-blob-anchor clip once per second from t=4.5s and hash; the hash stabilises at t=8111ms. Route-swap arm in HBD-probe5.mjs.
+
+**Proposed cure.** Take BOTH branches, not one. (a) Retire the wall-clock timers for the producer's `settled` quiescence read so the park is tight and quiescence-driven, restoring termination well under 5s; (b) wire `v-model:paused` to the shipped DockBackgroundToggle so a persistent, keyboard-operable, announced, remembered still control exists for all users. Both are producer seams already on disk.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-4 · CHALLENGE-D
+
+**Defect.** The W6-4 "ramp ceiling tracks the picked C" mechanism is a measured no-op for exactly the class of colour its comment cites, and Math.max(0.16, seed.C) at :124 is dead arithmetic carrying a false justification.
+
+**Mechanism.** deriveBlobPalette is L-driven: stops climb toward the 0.98 lightness clamp and the gamut map strips chroma on the way up, so chromaCeiling is not the binding constraint for light seeds. The consumer turned a ceiling knob when the binding lever is bodyLightness/lightnessSpread.
+
+**Evidence.**
+
+```
+HeroBlob.vue:73-78 claims "the flat 0.16 ceiling literally cannot show the advertised ink — a C 0.23 pick now derives a C 0.23 ramp". Measured: lab(92% 88.8 20) seedC 0.272 -> mean derived C 0.0366 at ceiling 0.16 AND 0.0366 at ceiling 0.2725 (delta 0.0000). oklch(0.6 0.2 250): 0.1382 -> 0.1490 (+7.8%, best case of four seeds). #2b6cb0 and oklch(0.45 0.15 140): byte-identical ramps. No seed derives anything near "a C 0.23 ramp" (max mean C 0.149).
+```
+
+**Reproduction.** node --input-type=module -e "const m=await import('@mkbabb/glass-ui/color'); for (const css of ['lab(92% 88.8 20)','oklch(0.6 0.2 250)','#2b6cb0','oklch(0.45 0.15 140)']) { const s=m.cssToOklch(css); const mc=x=>(x.reduce((a,y)=>a+y.C,0)/x.length).toFixed(4); console.log(css, mc(m.deriveBlobPalette(css,{stopCount:4,harmony:'analogous',chromaCeiling:0.16})), mc(m.deriveBlobPalette(css,{stopCount:4,harmony:'analogous',chromaCeiling:Math.max(0.16,s.C)}))) }"
+
+**Proposed cure.** Dies with D-1's transposition: chromaCeiling and its Math.max go away entirely when bodyLightness anchors the body stop. Do not 'fix' the ceiling — remove the knob and the comment together (edict 2: live code carrying a false justification is legacy).
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-6 · CHALLENGE-D
+
+**Defect.** The error and absent states were never designed: no errorComponent/onError on the async import and no subscription to the producer's rendererStatus, so a lost WebGL context leaves an empty seat with 93.12px of padding and 73.12px of min-height still reserved for nothing.
+
+**Mechanism.** The ornament's presence is treated as unconditional; the producer's status channel that exists to make it conditional is unheard, so every failure mode degrades to a silent hole rather than to a designed state.
+
+**Evidence.**
+
+```
+demo/picker/ColorPicker.vue:157 defineAsyncComponent(() => import("./visual/HeroBlob.vue")) — no errorComponent, no loadingComponent, no onError. HeroBlob.vue has no @rendererStatus listener. Producer ships RendererStatus{phase:"initializing"|"ready"|"error", engine:"webgpu"|"webgl2"|"canvas2d"|"css", adapter, error?} (rendererStatus.d.ts:1-8) emitted at Blob.vue.d.ts:68 and exposed as a ref. LIVE CONSEQUENCE on record: REPORT.json safari-desktop-light /#/ — canvas count 1 (vs 2 in all three sibling matrices), consoleErrors ["WebGL: context lost."], settleMs 18905 (vs 3515 dark); shots/safari-desktop-light/picker.png shows a blank card corner. PROPORTION-AUDIT PR-15 forbids exactly this: "Buffer-only alpha, empty canvas, card reserve ... do not satisfy it".
+```
+
+**Reproduction.** docs/tranches/V/megatranche/audit/visual/REPORT.json, results[] where matrix=="safari-desktop-light" && route=="/#/": counts.canvas=1, consoleErrors=["WebGL: context lost."], settleMs=18905.
+
+**Proposed cure.** Bind @rendererStatus and design the seat for its three phases. The honest composition is the one the constitution already names (§6: "The CSS ground is the honest first frame. Aurora/Blob enhance it after paint without geometry change"): a static CSS specimen occupies the seat from frame zero and the WebGL bead replaces it on phase==='ready', reverting on 'error'. That single change also supplies the loading state, kills the chunk-failure hole, and gives PR-15 something composited to point at.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-7 · CHALLENGE-D
+
+**Defect.** One ornament is described by five different sizes and none of them is its painted mass; its canvas box escapes the card on all four sides and escapes the viewport at 390.
+
+**Mechanism.** The producer's 1.6x canvas overscan was never reconciled with the seat's layout footprint, and the two hand-written reservations (0.76*fp padding, 0.76*fp-0.75rem min-height) were sized from the footprint rather than from the painted body. PR-03: "Blob reserves more than its painted mass".
+
+**Evidence.**
+
+```
+Live measurement (scratchpad/HBD-geo.json), 1440: canvas 180.19x180.19 at (564.59,113.72,right 744.78) vs card (199,147.5,right 711) — 33.78px overhang on every side at z-index 20; layout footprint --blob-fp 112.63 (seat.css:43); padding reservation 93.12px (seat.css:88); min-height reservation 73.12px (seat.css:89); rendered painted body diameter 75.09px. At 390: canvasOverViewportRight = +17.59px — reproducing REPORT.json's "bleeding":["canvas.goo-blob-canvas"] in BOTH mobile matrices. Footprint = 112/358 = 31.3% of the card width; padding = 93.12/327.38 = 28.4% of the title row.
+```
+
+**Reproduction.** scratchpad/HBD-probe5.mjs — evaluates getBoundingClientRect for .hero-blob-anchor, canvas.goo-blob-canvas, .pane-shell and .title-row at 1440/390/720@2x and reports canvas.right - documentElement.clientWidth.
+
+**Proposed cure.** Collapse five numbers to one. Let the footprint token BE the painted body diameter and have the producer's overscan resolve inside it (a producer row: the overscan should not be a consumer-visible box). Then the reservation is arithmetic on the same token instead of a hand-tuned 0.76 factor, and overflow is impossible by construction rather than by an ancestor's overflow:hidden.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-8 · CHALLENGE-D
+
+**Defect.** The Blob-derived vertical minimum the constitution says must not exist is still in the sheet and binds at 390 and at 200% zoom; PR-03's centre-ward displacement is unimplemented; and the constitution's own G token is not wired anywhere in the live picker.
+
+**Mechanism.** The ornament dictates the type layout instead of being seated by it; and the producer token that the law's inequality is defined against (P122's --instrument-title-gap) was never consumed, so the law has no live referent.
+
+**Evidence.**
+
+```
+seat.css:89 min-height: calc(0.76*var(--blob-fp) - 0.75rem) -> 73.12px. VISUAL-CONSTITUTION §7: "no Blob-derived minimum block size enters it"; PROPORTION-AUDIT §2: "Both vertical reservations must die". Binding table (live): 1440 title-row h 84.97 (not binding); 720@2x h 73.11 = min-height 73.12 with label ink only 59.77 tall -> 13.3px of pure ornament reservation; 390 h 73.11 (binding). Label-bottom -> headline-top gap: 70.42px at 1440, 78.72px at 200% zoom, vs the §3.2 ceiling I_after <= phi*G ~= 14.87px. seat.css:47 --blob-seat: 0px and anchor.x/y == card.x/y (flush corner) vs PR-03's "one title-gap toward chassis center". A live walk of every element found --instrument-title-gap defined on ZERO nodes.
+```
+
+**Reproduction.** scratchpad/HBD-probe5.mjs (titleRowMinHeight, titleRowRect, labToNumGap at the three arms) and scratchpad/HBD-gap.mjs (walks document.querySelectorAll('*') reading --instrument-title-gap; returns []).
+
+**Proposed cure.** Delete both seat.css reservations and let the ornament be positioned against the settled header band rather than reserving space inside it — the ornament is absolutely positioned already, so it contributes no flow height and the reservation is purely manual. Wire --instrument-title-gap from P122 so G exists, then the I_after inequality becomes measurable instead of notional. NOTE, so the wave does not over-charge: at 1440 the 70.42px void is NOT the blob's — its owner there is the readout box (122.4px tall around a 67px number), PR-01's second named cause.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-9 · CHALLENGE-D
+
+**Defect.** The emerge pose and the engine arm are sequenced backwards, and the repair for that inversion uses a pause seam as a resize API and lands a 537ms long task.
+
+**Mechanism.** The engine arms inside a container that is actively lying about its box, so it presizes from a transformed gBCR (measured historically at dpr2: 126x126 backing for a 180.2px box) and the idle park freezes the low-res frame; the consumer then repairs the consequence instead of removing the cause.
+
+**Evidence.**
+
+```
+overture.css:167-178 animates .hero-blob-anchor from scale(0.35) AFTER HeroBlob mounts; HeroBlob.vue:297-316 onEmergeEnd fires pause();resume() to force a backing-store re-measure, conceding "resume() re-measures via idempotent resize() on the was-suspended path". defineExpose offers nudge,setMood,pulse,currentMood,pause,resume,settled,settledFrame,rendererStatus — there is no resize. Cost: at CPU 4x the blob arm shows a 537ms long task at t=3802ms; the reduced-motion arm (where the pose is no-preference-wrapped so onEmergeEnd never fires) shows no late long task at all — [154,799][1222,405][1627,55][1858,482][2353,67], all <=2.4s.
+```
+
+**Reproduction.** scratchpad/HBD-probe3.mjs at CPU=4 vs scratchpad/HBD-probe4-prm.mjs at CPU=4; compare longTasks. ATTRIBUTION OF THE 537ms TASK IS A STRONGLY-SUPPORTED INFERENCE (one-arm correlation), not a direct trace — labelled as such in the report.
+
+**Proposed cure.** Invert the order: animate an EMPTY settled seat and arm the engine at the pose's end, not before it. That single inversion deletes onEmergeEnd, the animationName filter, the park guard, the pause/resume pair and its 30-line comment; it moves GL init out of the critical band; and it is verbatim what CARRY-LEDGER W54 already asks for — "D-2 blob truthful lifecycle; arm-after-critical-paint 0px".
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-10 · CHALLENGE-D
+
+**Defect.** Two idle state machines race, and three consumer mechanisms self-documented as interims pending producer seams are now two major versions stale — the seams shipped.
+
+**Mechanism.** Interim mechanisms with no expiry check; the booked replacement conditions were met at 5.0.0 and 7.0.0 respectively and nothing swept them. Two idle machines (2000ms consumer vs 6000ms producer) now drive the same mood surface with different constants.
+
+**Evidence.**
+
+```
+Producer glass-ui@7.0.0: constants.d.ts IDLE_SLEEP_MS = 6000 ("Idle timeout after which the blob drifts to sleepy") and REST_EPS = 0.001 ("the at-rest epsilon ... the park gate"); Blob.vue.d.ts:63-64 exposes settled and settledFrame; types.d.ts:121-129 ships BlobColor.lightnessFloor "Bounded to [0.12, 0.20] OKLab L ... default 0.15". Consumer: HeroBlob.vue:211-212 re-implements idle at 2000ms + 3300ms with two setTimeouts and a manual setMood('sleepy'), plus a cross-file constant contract into e2e/smoke/fixtures/blob-timing.ts; :93 hardcodes INK_FLOOR = 0.15. The file names both: :206-210 "the demo INTERIM; the producer settled/park-from-quiescence seam (GAP-L5, booked at the 5.0.0 adopt)"; :90-92 "The producer F9.R1 lightnessFloor knob replaces this at the W7 adopt (BOOKED)".
+```
+
+**Reproduction.** node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version" -> 7.0.0; grep -n 'IDLE_SLEEP_MS\|REST_EPS' node_modules/@mkbabb/glass-ui/dist/components/blob/constants.d.ts; grep -n 'settled\|lightnessFloor' node_modules/@mkbabb/glass-ui/dist/components/blob/*.d.ts
+
+**Proposed cure.** Sweep all three interims in one cut: delete BLOB_IDLE_MS/SLEEPY_POSE_MS/idleTimer/poseTimer/noteBlobActivity for the producer's settled read; delete INK_FLOOR/floorStops for lightnessFloor+bodyLightness; delete the e2e blob-timing.ts constant mirror with them. Edict 2 (no legacy, no dual paths) and edict 4 (glass-ui is the design system) both bite here, and the deletion is roughly half the file.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-11 · CHALLENGE-D
+
+**Defect.** forced-colors is undesigned: every glass surface correctly flattens to the user's palette while the WebGL bead keeps full colour, becoming the single most chromatic and highest-weight object on an otherwise monochrome page.
+
+**Mechanism.** Canvas content is exempt from forced-colors by spec, so an ornament that opts into WebGL opts out of the user's palette; nothing in the seat suppresses or flattens it for users who chose a reduced-complexity, high-contrast mode.
+
+**Evidence.**
+
+```
+grep -rn 'forced-colors' demo/picker/ demo/color-picker/composables/boot/ -> no matches. Captured live in Chromium with forcedColors:'active' (scratchpad/HBD-forced-colors-full.png): card, dock, sliders and inputs all flatten to white with 1px black borders; the bead renders its full pink 3-D shading unchanged. NOTE: the tracked shots/forced-colors-desktop/picker.png is NOT a valid witness — WebKit ignores the flag, which is why that capture still shows full glass.
+```
+
+**Reproduction.** scratchpad/HBD-fc.mjs — chromium.launch(); newContext({forcedColors:'active'}); goto /#/?space=lab&color=...; screenshot.
+
+**Proposed cure.** @media (forced-colors: active) suppresses the ornament and its contact shadow entirely, in glass-ui at the Blob root (root-level styling, edict 5) rather than per-instance in demo seat.css. Pairs naturally with D-6's CSS-ground specimen: in forced colors the ground specimen is what remains, which is exactly correct.
 
 ---
 
@@ -35978,6 +36698,78 @@ MixConfigBar.vue:98, :121, :145. LIVE: [{"text":"Color space","htmlFor":"","cont
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-2 · CHALLENGE-C
+
+**Defect.** An undecodable image uploaded through the control's own Upload button produces an unhandled promise rejection and a real page error with ZERO user-facing feedback, and leaves three UI surfaces contradicting each other.
+
+**Mechanism.** unguarded async: useExtractSession.ts:167 calls runQuantize() fire-and-forget with no .catch; runQuantize (:153-157) discards the promise; useImageQuantize.ts:106 awaits imageFileToPixels(file), which throws inside createImageBitmap BEFORE runQuantize (:80-99) ever sets isProcessing/error — so quantizeError (useExtractSession.ts:66) stays null and the v-if destructive line at ExtractWorkbench.vue:80-85 never renders. previewDataUrl is set before the decode is known good (useExtractSession.ts:166).
+
+**Evidence.**
+
+```
+Repro output: {"unhandled":["Cannot decode the data in the argument to createImageBitmap"],"errorLineVisible":false,"errorText":null,"resetDisabled":false,"skeletonEls":["shadow-palette skeleton-ink-register …"],"ghost":true,"caption":1} and pageErrors: ["PAGEERR InvalidStateError: Cannot decode the data in the argument to createImageBitmap"]. A .txt file reproduces identically and additionally plants <img alt="Uploaded image" src="data:text/plain;base64,dGhpcyB…" naturalWidth=0>. The mega-tranche visual REPORT.json records pageErrors:0 for /#/extract because it never uploaded a file — this class is invisible to that audit.
+```
+
+**Reproduction.** node scratchpad/probe6.mjs — headless WebKit at http://localhost:9000/#/extract; setInputFiles({name:"corrupt.png", mimeType:"image/png", buffer: Buffer.concat([Buffer.from([0x89,0x50,0x4e,0x47,0x0d,0x0a,0x1a,0x0a]), Buffer.alloc(40,0)])}). This truncated-but-correctly-typed PNG passes BOTH accept="image/*" (ImageDropZone.vue:30) and the drop-path guard file?.type.startsWith("image/") (ImageDropZone.vue:97), so no filter rejects it.
+
+**Proposed cure.** Make the decode a typed outcome rather than an exception — quantizeFromFile returns the Result shape the session already speaks (presentedPalette is already {ok:true}|{ok:false,error}), so a decode failure lands in workerError and the existing destructive line renders for free. Set previewDataUrl only AFTER a successful decode; that one reordering also removes the broken <img> and the lying hasImage.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-3 · CHALLENGE-C
+
+**Defect.** The Reset control's enablement gate `disabled || !hasImage` (line 84) is wrong in both directions: dead exactly when the user needs it, and live when there is nothing to reset.
+
+**Mechanism.** wrong predicate: onReset (useExtractSession.ts:180-184) resets k and chromaWeight and only CONDITIONALLY re-quantizes (`if (lastFile.value)`), so its precondition is parameter-dirtiness, not image-presence. The gate asks a different question than the action answers.
+
+**Evidence.**
+
+```
+False-negative measured: {"focused":true,"before":"5","k":"16","labelText":"16","resetDisabled":true} — eleven ArrowRight presses move k from 5 to 16 with no image loaded, the ShadowPalette ghost re-segments to 16, and the only control that restores k=5/kC=0.5 is disabled. The live-k-without-an-image behaviour is CERTIFIED, not accidental: e2e/smoke/oracles/o9-shadow-palette.spec.ts:147-158 drives the k slider with no image and asserts 5→6→5 segments; ExtractWorkbench.vue:92-95 documents it. False-positive measured in C-2's run: an undecodable file sets previewDataUrl → hasImage true → resetDisabled:false.
+```
+
+**Reproduction.** node scratchpad/probe3.mjs section C — navigate to http://localhost:9000/#/extract with no image, focus the slider named "Number of colors", press ArrowRight 11 times, then read the disabled state of the button with title="Reset". Returns k=16 with resetDisabled:true.
+
+**Proposed cure.** Gate on dirtiness of exactly what Reset resets: expose `canReset` from useExtractSession (k !== 5 || chromaWeight !== 0.5) so the default constants live in ONE place instead of being duplicated across useExtractSession.ts:44,45,181,182 and the consumer. The `hasImage` prop then has no consumer and is deleted — the contract shrinks rather than gaining a second clause.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-4 · CHALLENGE-C
+
+**Defect.** A dead `.touch-gate-target` rule in the component's own <style scoped> block matches no element and never can; it is the fossil of the touch-gate inflation mechanism that would have widened the component's measured 12.0 CSS px drag handle. A sibling file still documents ExtractControls as a consumer of that mechanism — a false cross-file claim.
+
+**Mechanism.** dead legacy shim — CSS for a mechanism that was never wired in this component, left behind when the touch-gate idiom was homed in the picker tree; the missing inflation leaves a 12px-wide drag handle on coarse pointers where a mis-grab lands on .slider-range/.slider-track and JUMPS the value instead of starting a drag.
+
+**Evidence.**
+
+```
+demo/workbenches/extract/ExtractControls.vue:139-142 declares `.touch-gate-target { border-radius: var(--radius-pill); }`; grep shows the class is applied to no element in this template (only hits repo-wide are the picker's ComponentSliders.vue:58, SpectrumCanvas.vue:11, usePointerDebug.ts:121 — plus the rule itself). Being <style scoped> it compiles to `.touch-gate-target[data-v-…]` and can never match. ComponentSliders.vue:244 still reads "the ExtractControls … touch-gate-target uses" — false. Measured hit geometry (mobile, pointer:coarse, elementFromPoint sweep from thumb centre): {"boxW":12,"boxH":44,"hitW":12,"neighborAtMinus12":"SPAN.slider-range","neighborAtPlus12":"SPAN.slider-track"}; thumbCS {"w":"12px","h":"44px","before":"\"\""} — the ::before does not widen it. REPORT.json /#/extract lists both thumbs on all four matrices (desktop 12x24, mobile 12x44) = 2 of the 6 small tap targets per capture. The sibling picker sliders DO get a 44px coarse extension (ComponentSliders.vue:336+, @media (pointer: coarse) .channel-slider::before).
+```
+
+**Reproduction.** node scratchpad/probe2.mjs section A — headless WebKit, 390x844 isMobile/hasTouch, http://localhost:9000/#/extract; sweep document.elementFromPoint horizontally from the thumb centre. HONEST CAVEAT, also measured: WCAG 2.5.8 AA is NOT failed — the 24px-circle spacing-exception test against every other target's bounding box returns "viol": [] (nearest neighbours are 44x44 DockControls at >=68px). File as ergonomics + dead code, never as an AA violation.
+
+**Proposed cure.** Delete the dead rule and the false claim at ComponentSliders.vue:244. The 12px width is glass-ui's `.slider-thumb` geometry, so the real cure is a coarse-pointer width/hit rung in glass-ui's slider — NOT a fourth copy of the touch-gate idiom in a consumer (edicts #3/#4). Relay to the glass-ui BJ inbox; this is the one finding whose fix is genuinely gated on Glass 8.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-5 · CHALLENGE-C
+
+**Defect.** Two <label> elements with no `for` and no wrapped control (lines 15 and 66) label nothing; the visible label text "kC" is absent from the accessible name "Chroma weight", and the k row markes up the live VALUE as a <label>.
+
+**Mechanism.** semantic misuse — a <label> element used as a visual readout/abbreviation, producing an orphan form-association and a Label-in-Name mismatch.
+
+**Evidence.**
+
+```
+Measured live: "labels": [{"text":"5","htmlFor":null,"id":"","title":null},{"text":"kC","htmlFor":null,"id":"","title":"Chroma weight"}]. Playwright ARIA snapshot of the component shows them as bare text nodes, unassociated: `- text: "5"` / `- slider "Number of colors"` / `- text: kC` / `- slider "Chroma weight"` / `- text: "0.5"`.
+```
+
+**Reproduction.** node scratchpad/probe1.mjs + probe4.mjs against http://localhost:9000/#/extract; read every <label> inside the extract controls root and take locator.ariaSnapshot(). WCAG 2.5.3 consequence: a voice-control user saying "click kC" cannot reach the slider, because the accessible name is "Chroma weight" and does not contain the visible text.
+
+**Proposed cure.** They are not labels — they are a readout and an abbreviation. Make the k readout and the 0.5 readout (:78) `<span aria-hidden="true">` (the slider already announces aria-valuenow, measured "5"), and fold the abbreviation into the name so the visible text is contained in it: aria-label="kC — chroma weight". One tag change and one string; no new element, no wrapper.
+
+---
+
 ### `CHALLENGE-C — implementation defect hunt, round 3 (independe` · R3-3 · CHALLENGE-C
 
 **Defect.** `el.setPointerCapture(e.pointerId)` is called unguarded on the handle's pointerdown — the pane's only drag path. The call is specified to throw (NotFoundError / InvalidStateError); the throw lands in Vue's callWithErrorHandling and the app ErrorBoundary unmounts the whole pane, destroying every stop, position, easing curve and setting. `lostpointercapture` has no handler anywhere in the subtree.
@@ -43270,6 +44062,150 @@ Five independent builders: demo/workbenches/mix/MixResultDisplay.vue:112 `linear
 **Reproduction.** `grep -rn 'linear-gradient' demo/ --include='*.vue' --include='*.ts'` enumerates the five sites. The invalid-CSS case is a HYPOTHESIS for the running app (the component cannot render at all per F-1) but is provable in isolation: `linear-gradient(to right, red)` with a single stop is rejected by the CSS parser — one stop is below the grammar's `<color-stop-list>` minimum of two.
 
 **Proposed cure.** One home. PreviewRamp is already the component-type name (edict 4: reuse, do not mint). Widen it to accept `colors: readonly string[]` and add the full-width `strip` size this plate wants, then mount it at all four call sites and delete the three inline builders. The positioned-stop form in useGradientCSS.rampGradient stays where it is — it obeys a genuinely different law (eased sub-stop sampling) and is correctly isolated.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · B-1 · CHALLENGE-L
+
+**Defect.** The convergence animation reads its pigment inputs out of the rendered DOM as a JSON string written by a sibling component, guarded by a silent catch, plus a second invented-geometry fallback. Both components already share `useMixingState`, which owns `selectedColors`/`selectedPalettes` as reactive arrays. Corrects pass A's Negatives §2, which certified mixStage.ts 'exemplary dogfooding'.
+
+**Mechanism.** Wrong direction of dependency — a composable reaching into another component's rendered markup for DATA that the shared state module already owns, with the resulting fragility suppressed by an empty catch. (Pass-A family D: inverted ownership.) DOM measurement is legitimate for geometry; color is not a DOM fact.
+
+**Evidence.**
+
+```
+demo/workbenches/mix/MixSourceSelector.vue:253 `:data-mix-colors="...JSON.stringify(palette.colors.slice(0,4).map((c) => c.css))..."` → demo/workbenches/mix/MixAnimationCanvas/composables/mixStage.ts:140 `const many = JSON.parse(el.dataset.mixColors ?? "[]") as string[];`; masking fallback 1 at mixStage.ts:150-152 `catch { /* unstamped source — skip */ }`; masking fallback 2 at mixStage.ts:122-124 (missing [data-mix-target] → invented `root.clientWidth/2, root.scrollHeight*0.7, r:28`). State already owned at useMixingState.ts:42-43; props already flowing at MixPane.vue:66-72. Pass-A coverage check: `grep -n "data-mix\|JSON.parse\|catch" challenge-L-library-pass-a.md` → zero relevant hits.
+```
+
+**Reproduction.** Mechanism: read the two files at c654824e, file:line as cited — the coupling, the catch and the invented-coordinates fallback are direct source reads, not hypotheses. End-to-end UI trigger: NONE — I did not find an affordance that writes a JSON-breaking string into PaletteColor.css, so the ingest half is a labelled HYPOTHESIS.
+
+**Proposed cure.** Transpose the collector to take pigment as an argument and measure only geometry: `collectStage(canvas, sources: readonly {el: HTMLElement; css: string}[], pool, space, hue): Stage`. MixAnimationCanvas assembles `sources` from useMixingState's own arrays paired with a useTemplateRef-registered element list. Keep data-mix-source/-target as geometry-only markers; delete dataset.mixColor(s), the JSON.stringify, the JSON.parse, the catch{} and the invented-coordinates fallback. A missing target becomes a loud programming error, not a guess.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · B-4 · CHALLENGE-L
+
+**Defect.** `PickerColorIn<S>` is a lossy demo re-derivation of the library's own exported `Color<S>`, and it forces six casts — two of them `as unknown as` — sitting exactly on the values returned by `mixColors`/`convertColor`. SEVERITY DISSENT: pass A filed this as INFO (F-15); the cast census makes it MAJOR.
+
+**Mechanism.** A demo-side rename of a library type that is structurally weaker than the original — `Extract<AnyColor,{space:S}>` over an unresolved generic S is a deferred conditional the checker cannot reduce, while `Color<S>` is direct — so assignability fails and the code must double-cast to bridge back to the type it was derived from. An alias shim wearing domain vocabulary; the type-safety hole lands precisely at the library boundary the dogfood exists to validate.
+
+**Evidence.**
+
+```
+demo/color-session/picker-color.ts:36-37 `export type PickerSpace = SpaceId; export type PickerColorIn<S extends SpaceId> = Extract<AnyColor, { readonly space: S }>;` vs dist/subpaths/color.d.ts:5-7 `export declare type AnyColor = { [S in SpaceId]: Color<S> }[SpaceId];` and src/subpaths/color.ts:7 which already exports `Color`. Forced casts: demo/palettes/mix.ts:37 (`as unknown as`), demo/color-session/picker-color.ts:116 (`as unknown as`), mixStage.ts:107, picker-color.ts:175, picker-color.ts:192, demo/color-session/color-chips/sample.ts:82. Alias appears 67× across demo/. Density: `grep -rnE ':[[:space:]]*any\b|<any>|as any' src --include='*.ts' | wc -l` → 0; same over demo/ → 52.
+```
+
+**Reproduction.** The six cast sites above at HEAD c654824e, file:line. Two are `as unknown as`, TypeScript's explicit statement that the types are unrelated. If mixColors' return shape changed, mix.ts:37 and picker-color.ts:116 would compile clean.
+
+**Proposed cure.** Delete PickerColor / PickerSpace / PickerColorIn. The tree speaks SpaceId, AnyColor, Color<S> — the library's own names. All six casts delete with them; none is load-bearing.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-12 · CHALLENGE-L
+
+**Defect.** The hand-rolled absolutely-positioned k-rail div is provably redundant: the glass-ui spectrum track already has identical geometry and already accepts the gradient. The component blanks the real track to reveal its copy — and that produced a dead code path in the composable.
+
+**Mechanism.** F2 — producer seam bypassed then reimplemented. `--slider-track-bg` feeds a `background` SHORTHAND, so layered `linear-gradient(...), <color>` is expressible today (ComponentSliders.vue:197-199 already does it for the alpha checker). Only the inset ring is a genuine gap; the rail was built for that one box-shadow.
+
+**Evidence.**
+
+```
+ExtractControls.vue:19-23 (rail div) + :32 (`'--slider-track-bg': 'transparent'`). Producer: `[data-variant=spectrum] .slider-track{height:calc(var(--slider-thumb-size,1rem)*1.5);background:var(--slider-track-bg,var(--secondary))}` and `.slider-track{border-radius:var(--radius-pill);overflow:hidden}`. Live transposition experiment: {"before":{"trackH":24,"trackBg":"none","trackRadius":"9999px","trackOverflow":"hidden","railH":24},"after":{"trackH":24,"trackBg":"linear-gradient(to right, rgb(225,29,72) 0%, rgb(245,158,11) 50%, rgb(14,165,233) 100%)","rendersGradient":true}}. Dead path: useExtractSession.ts:103 returns "var(--muted)" pre-image, unconditionally overwritten — measured inline attr `background-image: ; … background-color: oklch(0.545141 0.218024 9.834023);` with computedBackgroundImage "none". Twin copy at GenerateControls.vue:292-307.
+```
+
+**Reproduction.** node scratchpad/chalL-wbextract-probe3.mjs — reads .slider-track height/radius/overflow vs the rail div, then sets `--slider-track-bg` to a gradient on the live slider and confirms `rendersGradient: true` at identical 24px/9999px/hidden geometry.
+
+**Proposed cure.** Producer (Glass 8): add `--slider-track-ring` + `--slider-track-ring-w` to the spectrum track (`box-shadow: inset 0 0 0 var(--slider-track-ring-w,0) var(--slider-track-ring,transparent)`). Consumer then collapses to one element: `<Slider variant="spectrum" :style="{'--slider-track-bg': gradient ?? trackInk, '--slider-track-ring': trackInk, '--slider-track-ring-w':'1.5px'}" />`. Deletes the rail div, the `transparent` blanking, useExtractSession.ts:103, and the GenerateControls twin. Strictly smaller than r1's proposed trackFill/trackRing prop pair — one token, no new props.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-13 · CHALLENGE-L
+
+**Defect.** `.plate-ink` is copy-pasted byte-identically into five scoped stylesheets — a design token with no module — and its `var(--ink-muted, var(--muted-foreground))` fallback is a masking fallback for boot failure.
+
+**Mechanism.** F3 — one concept, N homes. No module owns the utility, so every consumer re-declares it; edict 5 (root-level styling) and edict 1 (unique semantic ownership) both violated. The `, var(--muted-foreground))` arm is edict-2 masking fallback: it silently substitutes the statically-authored token measured at 2.82–3.08:1 over the live plate — the exact regression .plate-ink exists to prevent.
+
+**Evidence.**
+
+```
+`grep -rn "^\.plate-ink" demo -A2`: ExtractControls.vue:148, ExtractWorkbench.vue:290, ImageDropZone.vue:109, shared/ui/EmptyState.vue:102, color-picker/ErrorBoundary.vue:104 — all five `color: var(--ink-muted, var(--muted-foreground));`. Three of the five are in the SAME directory (Vue scoped CSS cannot cross a component boundary). Provider: useAtmosphereBoot.ts:103 `document.documentElement.style.setProperty("--ink-muted", css)`. Measured live at rest: inkMuted = "oklch(44.687157993053% 0.003861589952 34.629978305623deg)" — the fallback arm never paints in the shipped path.
+```
+
+**Reproduction.** grep -rn "^\.plate-ink" demo -A2 --include='*.vue' --include='*.css' → five identical blocks. Live token read confirms the fallback is never the paint.
+
+**Proposed cure.** One Tailwind v4 `@utility plate-ink` in demo/styles/foundation.css (the file ExtractControls already `@reference`s at :137), reading `--ink-muted` with NO fallback; delete all five scoped blocks. Boot absence then fails loudly instead of degrading silently.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-14 · CHALLENGE-L
+
+**Defect.** `cssColorOpaque` has two parallel delivery mechanisms — provide/inject and a drilled `cssColor` prop. ExtractWorkbench runs BOTH: it injects at :218 then prop-drills the injected value back down at :69 and :149.
+
+**Mechanism.** F3 — dual path for one value (edict 2). Costs three stacked degenerates for a single string: inject(...,undefined) → `?? ''` → `cssColor ? … : "var(--ink-muted)"` (ExtractControls:124). Project memory records the intended pattern as inject-only, so the prop leg is legacy.
+
+**Evidence.**
+
+```
+`grep -rln "inject(CSS_COLOR_KEY" demo` → 9 files (GradientPane, MixPane, GeneratePane, ExtractWorkbench, ColorNutritionLabel, Dock, BrowsePane, PalettesPane, AdminPane). `grep -rn "cssColor\??: string" demo --include='*.vue'` → 3 prop declarations: ExtractControls.vue:108, Markdown.vue:46, PaletteCard.vue:186. `grep -rn "css-color=" demo --include='*.vue' | wc -l` → 9 drill bindings. ExtractWorkbench.vue:218 `inject(CSS_COLOR_KEY, undefined)` then :69 `:css-color="cssColorOpaque ?? ''"` and :149 same. Vestigial site: MixSourceSelector.vue:266 passes the literal `:css-color="''"`.
+```
+
+**Reproduction.** grep -rln "inject(CSS_COLOR_KEY" demo (9) vs grep -rn "css-color=" demo (9 bindings, 3 prop decls); read ExtractWorkbench.vue:218 alongside :69.
+
+**Proposed cure.** Delete the prop leg. ExtractControls calls `inject(CSS_COLOR_KEY)` itself — it is already inside the provider subtree (it injects implicitly today via useSafeAccentFn → inject(INK_AMBIENT_KEY)). One mechanism, one degenerate, and ExtractWorkbench stops relaying a value it does not consume.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-6 · CHALLENGE-L
+
+**Defect.** WCAG floor constants have four homes, three in the same directory — and the numbers are in the wrong repo entirely: the library ships `safeAccentColor(…{minimumRatio})` and exports no answer for what the ratio should be.
+
+**Mechanism.** F3 — one concept, N homes; plus wrong-repo ownership. WCAG 2.2 SC 1.4.3 (4.5:1 text) and SC 1.4.11 (3:1 non-text) are SPEC constants. The function that eats them lives in the library; the answers were invented four times in the consumer.
+
+**Evidence.**
+
+```
+demo/color-session/ink.ts:15 TEXT_CONTRAST_FLOOR=4.5, :16 GRAPHICS_CONTRAST_FLOOR=3; demo/color-session/view-accent.ts:13 GRAPHICS_CONTRAST_FLOOR=3 (identically named duplicate in a sibling file); demo/color-session/palettes-ramp.ts:83 RAMP_TEXT_CONTRAST_FLOOR=4.5, :88 RAMP_LARGE_TEXT_CONTRAST_FLOOR=3 (renamed copies). ExtractControls.vue:101 imports the ink.ts one with no way to know it is choosing. Library side: src/subpaths/color.ts exports `safeAccentColor`; src/color/operations.ts:210-213 requires `options.minimumRatio` and validates it; no WCAG constant is exported anywhere in src/.
+```
+
+**Reproduction.** grep -rn "TEXT_CONTRAST_FLOOR\s*=\|GRAPHICS_CONTRAST_FLOOR\s*=\|CERTIFY_HEADROOM\s*=" demo src --include='*.ts' → six declarations across three demo files, zero in src/.
+
+**Proposed cure.** `@mkbabb/value.js/color` exports a frozen `WCAG = { text: 4.5, largeText: 3, graphics: 3 }`; all four demo declarations delete. CERTIFY_HEADROOM (1.25) stays in the demo — it is product policy, not spec. NOTE: this is a pure src/ library change and is the ONE finding here NOT blocked by the Glass pin.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-1 · CHALLENGE-L
+
+**Defect.** `demo/ui/` is 19 directories of pure re-export barrels with zero implementation — a preserved shadcn-era migration shim. ExtractControls imports the same package by two different routes on adjacent lines.
+
+**Mechanism.** F3 — alias shim kept alive to avoid rewriting consumers, exactly the edict-2 prohibition (no aliases, migration shims, dual paths, back-compat). Also edict 4: glass-ui is the design system; demo/ui/ should not exist.
+
+**Evidence.**
+
+```
+`find demo/ui -type f | wc -l` → 19; `find demo/ui -type f -not -name index.ts` → no output. demo/ui/slider/index.ts in its entirety: `export { Slider } from "@mkbabb/glass-ui";`. demo/ui/alert/index.ts's own doc-block states it was converted from a local reimplementation at B.W2 and the barrel kept so "the two consumers … import from this barrel unchanged". Subject file: line 98 `import { DockControl, DockSeparator } from "@mkbabb/glass-ui/dock";` vs line 99 `import { Slider } from "../../ui/slider";`.
+```
+
+**Reproduction.** find demo/ui -type f -not -name index.ts (empty) and cat demo/ui/slider/index.ts (one line); read ExtractControls.vue:98-99.
+
+**Proposed cure.** Delete demo/ui/ entirely; rewrite the ~19 import sites to bare `@mkbabb/glass-ui`. Mechanical, and it removes 19 modules from the graph plus the last pretence that the demo owns a UI layer.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-3 · CHALLENGE-L
+
+**Defect.** The `disabled` prop names a whole-component contract and governs exactly one of five controls; the parent's intent ("camera is running, stand down") is ignored by the camera button, and startCamera then overwrites cameraStream without stopping the prior stream.
+
+**Mechanism.** F4 — a prop name that overstates its scope; the API contract and the implementation disagree, and the disagreement lets a second getUserMedia land while the first stream is still live.
+
+**Evidence.**
+
+```
+ExtractControls.vue:110 declares `disabled`; it is referenced exactly once, at :84 `:disabled="disabled || !hasImage"` on Reset. Upload (:40-46) and Camera (:49-55) carry no `:disabled`. Parent passes `:disabled="session.isProcessing.value || cameraActive"` at ExtractWorkbench.vue:70. ExtractWorkbench.startCamera :239-255 assigns `cameraStream = await navigator.mediaDevices.getUserMedia({...})` with no prior stopCamera().
+```
+
+**Reproduction.** Read ExtractControls.vue:84 (sole reference) against ExtractWorkbench.vue:70 (the parent's intent) and :239-255 (the unguarded reassignment). Carried from r1; re-verified by grep at this HEAD.
+
+**Proposed cure.** Either honour `disabled` across the whole cluster (Upload/Camera/both Sliders) or rename it to what it actually governs (`resetDisabled`). Independently, startCamera must call stopCamera() before requesting a new stream.
 
 ---
 
@@ -52788,6 +53724,114 @@ ComponentSliders.vue:138 `watch(currentColorSpace, () => { activeComponent.value
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-8 · CHALLENGE-C
+
+**Defect.** The accessible name misnames the channel: the plate announces HSV *value* as "lightness".
+
+**Mechanism.** HSV value and HSL lightness are different quantities; the one channel name a screen-reader user receives is the wrong one, and it is quantitatively wrong by ~48 points at full saturation.
+
+**Evidence.**
+
+```
+useSpectrumPlateStyle.ts:24-28 emits `Color spectrum, saturation ${sPct}%, lightness ${vPct}%` for the v channel; PICKER_CHANNELS.hsv is [h,s,v] (picker-color.ts:56). Measured live (probe/probe7.mjs): the plate announces "saturation 98%, lightness 98%" for rgb(250,250,5), whose actual HSL lightness is 50%.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/probe7.mjs — read the emitted label alongside dotBg.
+
+**Proposed cure.** Announce "brightness" (or "value"), matching the space the plate actually edits, and keep the name consistent with whatever the coupled sliders announce once C-6's keyboard model lands.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-9 · CHALLENGE-C
+
+**Defect.** The spectrum drag costs materially more per frame than the L-slider drag that the repo's §6.2 oracle gates, and the spectrum path has no gate at all. `getBoundingClientRect()` is called inside the rAF callback every frame after the previous frame mutated the dot's inline style — a forced synchronous layout per frame.
+
+**Mechanism.** The plate drives the full app-wide colour fan-out per frame (that part is ColorPicker/atmosphere territory) and adds a forced layout of its own. The §6.2 oracle exercises the slider path only, so the more expensive path is unmeasured.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:114 (rect read inside the rAF callback). Quieter session (probe/probe3.mjs, in-page PointerEvent dispatch at rAF cadence, no protocol RTT): IDLE p50 17.1ms → SPECTRUM-DRAG p50 45.0ms, longTasks [50,52]. Loaded session, both paths back to back at identical cadence (probe/probe9.mjs): IDLE p50 50.4 / longOver50 0; SLIDER-DRAG p50 58.3 / longOver50 30; SPECTRUM-DRAG p50 66.6 / longOver50 44. Marginal over same-session idle: slider +7.9ms, spectrum +16.2ms. The component's own arithmetic is not the cost (probe/probe4.mjs: 0–0.4ms synchronous per pointerdown in the default space).
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/probe9.mjs against http://localhost:9000/. CAVEAT stated plainly: dev-server (unbundled) on a contended host with three other mega-tranche seats running, so the absolute numbers are NOT comparable to the built-bundle §6.2 gate. The within-session slider-vs-spectrum comparison is the controlled result.
+
+**Proposed cure.** Read the plate rect once at pointerdown and invalidate it on resize/scroll (a ResizeObserver already fits the component's lifecycle) instead of per frame; then add a spectrum-drag case to e2e/smoke/perf/drag-frame-budget.spec.ts so the number is defended rather than merely observed.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-10 · CHALLENGE-C
+
+**Defect.** The indicator leaves the control it indicates: at the plate's edges half the dot hangs outside, at the corners three-quarters.
+
+**Mechanism.** A centre-translated absolute indicator on a non-clipping container with no inset compensation at the domain boundaries.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:234 `overflow: visible`; :28 `-translate-x-1/2 -translate-y-1/2` on a 28px dot; useSpectrumPlateStyle.ts:60-61 positions it at `left: 100*s%` / `top: 100*(1-v)%`. Visible in the SHIPPED capture docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/picker.png (the dot floats above the plate's top edge onto the card) and in probe/yellow-corner-dot-border.png. Measured dot 29.6x28.8 CSS px (probe/probe1.mjs).
+```
+
+**Reproduction.** Open http://localhost:9000/ and pick any corner; or read docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/picker.png at HEAD.
+
+**Proposed cure.** Inset the dot's travel by half its size (`calc(…% ± 0.875rem)` clamped) or clip to the plate's border-radius. Compounded with C-5 this matters: at the yellow top edge a 1.07:1 border that is also 50% outside the plate is no indicator at all.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-11 · CHALLENGE-C
+
+**Defect.** This component's touch-gate affordance is defined in a sibling SFC's intentionally-unscoped <style> block, not in itself or in a shared stylesheet.
+
+**Mechanism.** A deliberate cross-SFC global leaking out of a scoped-style file. The spectrum's activation outline silently disappears if ComponentSliders is unmounted, code-split, or converted to scoped styles.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:11-12 applies `touch-gate-target` and `touch-gate-active`; neither is defined in the file. They are defined at demo/picker/controls/ComponentSliders/ComponentSliders.vue:238-268, whose own comment names this component as a consumer: "(ComponentSliders, SpectrumCanvas, plus the ExtractControls/PointerDebug touch-gate-target uses) — the block is intentionally UNSCOPED so the cascade reaches consumers outside this SFC's data-v-* attribute scope."
+```
+
+**Reproduction.** grep -n "touch-gate-target" demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue (use site) then grep -rn "^.touch-gate-target" demo/ (definition site, in ComponentSliders.vue only).
+
+**Proposed cure.** A shared affordance belongs in demo/styles/ under edict 5 — or, since useTouchGate is a glass-ui primitive, in glass-ui beside it under edict 4. ComponentSliders is under the glass-v8 pin (CARRY-LEDGER §D, SHA-256 a61b5ed3…), so the cure must land in demo/styles/ or as a producer letter, never as an edit there.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-12 · CHALLENGE-C
+
+**Defect.** The touch gate deactivates mid-gesture on drags longer than 3 s, and two owners write the same inline `touch-action` property.
+
+**Mechanism.** (a) The activation timer measures time since the last pointerdown, not time since the last interaction, so a sustained drag times out under the finger. (b) Vue's patchStyle only re-applies values that changed between binding objects, so an imperative clobber can survive a re-render whose computed value did not change.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:144-146 calls `spectrumGate.resetTimer()` ONLY on pointerdown, never on move. The gate's deactivate delay defaults to 3000ms (`l(a = 3e3)` in node_modules/@mkbabb/glass-ui/dist/useTouchGate-B4mzQcHJ.js), whose `x()` flips isActive false and clears the outline. Separately, that module's `y()`/`x()` write `el.style.touchAction` imperatively while useSpectrumPlateStyle.ts:41-43 writes touchAction reactively through Vue's :style on the same element.
+```
+
+**Reproduction.** (a) By read of the two files — a >3s touch drag drops `touch-gate-active` and re-arms the gate for the next press. (b) NOT REPRODUCED — isTouchDevice is false on the desktop harness. Labelled a HYPOTHESIS.
+
+**Proposed cure.** Call `resetTimer()` from the move path (or `suppressDeactivate(true)` for the drag's duration) so the gate measures interaction, not press age. For the dual writer: give `touch-action` exactly one owner — either the gate owns it imperatively and it leaves `spectrumStyle`, or the computed owns it and the gate is told not to write. Never both.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-13 · CHALLENGE-C
+
+**Defect.** Consumer-side override of a glass-ui component's chrome: the WatercolorDot's border and box-shadow are restyled from the consumer's scoped block.
+
+**Mechanism.** Edicts 4 and 5: variants/primitives belong in glass-ui and styling belongs at the root component level, not as per-instance consumer overrides. This is also the seam where the C-5 contrast regime currently lives, so curing C-5 in place would deepen the violation.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:259-270 (`.spectrum-dot { border: 2px solid var(--dot-border, var(--background)); box-shadow: var(--shadow-sm); }`) applied to the injected <WatercolorDot> at :23-30.
+```
+
+**Reproduction.** Read SpectrumCanvas.vue:23-30 against :259-270; the border regime value arrives as an inline `--dot-border` from useSpectrumPlateStyle.ts:63.
+
+**Proposed cure.** Promote the indicator-dot treatment to a glass-ui WatercolorDot variant (the producer already owns the component and its internal filter), passing the contrast regime as a prop. Cure C-5 there in the same motion rather than in the consumer.
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/picker/ColorPic` · C-10 · CHALLENGE-C
 
 **Defect.** `@update` on ColorComponentDisplay is a dead binding: the child declares the event and never emits it, while the parent binds a live handler to it.
@@ -52911,6 +53955,114 @@ Measured live: {"headings":["H3: 50.0 % , 20.2 , 30.0"]} — the only heading in
 **Reproduction.** Open http://localhost:9000/#/ and evaluate `[...document.querySelectorAll('h1,h2,h3,h4,h5,h6')].map(h=>h.tagName+': '+h.innerText)` — a single H3 containing the number tuple.
 
 **Proposed cure.** Land W47 §Work-3's 'one stable shell <main>+H1' and demote the readout to a non-heading element; the contenteditable roles die with C-1's cure.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-8 · CHALLENGE-C
+
+**Defect.** `chromaCeiling: Math.max(0.16, seed.C)` is inert — a cap set above the derivation's natural output. The comment asserting 'a C 0.23 pick now derives a C 0.23 ramp' is false.
+
+**Mechanism.** a knob that can only lower a value being used in the hope of raising it
+
+**Evidence.**
+
+```
+HeroBlob.vue:73-77 (the claim) and :124 (the code). The producer's doc is explicit that it is a cap: node_modules/@mkbabb/glass-ui/dist/composables/color/index.d.ts:99-110 'each stop's chroma is clamped to AT MOST this value'. Measured, same seed: with chromaCeiling 0.2725 → maxC 0.2725; with the option omitted → maxC 0.2725, byte-identical stops (#f60bb2 #ff6198 #ff8e93 #ffb19e). In the shipped path the derive returns maxC 0.0879 against a ceiling of 0.2725 — the ceiling is never reached, let alone binding.
+```
+
+**Reproduction.** node --input-type=module -e "import {deriveBlobPalette} from '@mkbabb/glass-ui/color'; const o={stopCount:4,harmony:'analogous',bodyLightness:0.65}; const a=deriveBlobPalette('lab(92% 88.8 20)',{...o,chromaCeiling:0.2725}); const b=deriveBlobPalette('lab(92% 88.8 20)',o); console.log(JSON.stringify(a)===JSON.stringify(b))" → true
+
+**Proposed cure.** Delete the option and its comment. The knob that actually governs the observed problem is bodyLightness (C-1).
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-9 · CHALLENGE-C
+
+**Defect.** Five shipped glass-ui 7.0.0 primitives are reimplemented locally or ignored, while the comments still describe them as BOOKED/GAP-L5 for a future adopt. Edict 4 (glass-ui is the design system).
+
+**Mechanism.** stale BOOKED notes outliving the adopt that satisfied them; local reimplementation of shipped design-system primitives
+
+**Evidence.**
+
+```
+glass-ui 7.0.0 (node -e "require('./node_modules/@mkbabb/glass-ui/package.json').version" → 7.0.0) exports: LIGHTNESS_FLOOR_DEFAULT=0.15 / LIGHTNESS_FLOOR_BRACKET=[0.12,0.20] / clampLightnessFloor (dist/components/blob/presets.d.ts) vs HeroBlob.vue:93 local `const INK_FLOOR = 0.15` and :90-92 'replaces this at the W7 adopt (BOOKED)'; BlobColor.lightnessFloor + DeriveBlobPaletteOptions.lightnessFloor — never passed; BLOB_HERO: BlobConfig (presets.d.ts) vs the hand-inlined register at :160-177 and :148-149 'the exported HERO preset stay PRODUCER'; `settled`/`settledFrame` (blob.js expose block) vs the wall-clock setTimeout park at :211-226 and :206-210 'the producer settled/park-from-quiescence seam (GAP-L5, booked at the 5.0.0 adopt)'; `rendererStatus` (blob.js expose block) — ignored (see C-3).
+```
+
+**Reproduction.** cat node_modules/@mkbabb/glass-ui/dist/components/blob/presets.d.ts; node -e "const s=require('fs').readFileSync('node_modules/@mkbabb/glass-ui/dist/blob.js','utf8'); console.log(s.slice(s.indexOf('settled: p.settled')-200, s.indexOf('settled: p.settled')+120))"
+
+**Proposed cure.** Consume BLOB_HERO as the base of heroConfig and overlay only the demo's own deltas; replace the wall-clock park trigger with the `settled` quiescence read (the interim the comment itself says retires on this exact adopt); pass lightnessFloor: clampLightnessFloor() into the derive; subscribe rendererStatus. Then delete the stale BOOKED prose — a comment that misstates the dependency graph is a maintenance hazard in its own right.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-10 · CHALLENGE-C
+
+**Defect.** Two masking fallbacks (edict 2: no masking fallbacks). A bare catch{} swallows every parser throw on the picker's hot path, and inject(INK_AMBIENT_KEY, null) ?? 0.5 silently fabricates an ambient the app's own law says must fail loudly.
+
+**Mechanism.** local recovery re-added at a boundary the library deliberately made throwing; a divergent silent default against a stated loud-fail law
+
+**Evidence.**
+
+```
+HeroBlob.vue:127-129 `catch { /* A transient un-parseable colour string leaves the last good ramp. */ }`. The producer's contract at node_modules/@mkbabb/glass-ui/dist/composables/color/index.d.ts:57-59 is explicit: 'Invalid, contextual, and non-opaque inputs throw one GlassColorError carrying the parser diagnostics… No catch-to-default recovery occurs at this boundary.' HeroBlob re-introduces exactly the recovery the producer refused — and this repo has a live parseCssColor crash class on record, so a real parser regression on this path would be invisible. Second: HeroBlob.vue:95 `inject(INK_AMBIENT_KEY, null)` + :98 `inkAmbient?.value ?? 0.5`, against demo/color-session/useContrastSafeColor.ts:347 `const ambient = inject(INK_AMBIENT_KEY)!` with the docblock at :342-343 'a missing provider is a wiring defect, surfaced loudly'. The provider does exist today (useAtmosphereBoot.ts:92), so #2 is latent, not live.
+```
+
+**Reproduction.** NONE for the live effect (the provider is wired and the parser currently holds) — this is a source-confirmed contract divergence, not an observed failure. Cited lines are exact.
+
+**Proposed cure.** Drop the catch and let the throw surface (the model layer already guarantees an opaque, parseable cssColorOpaqueFrame — if it does not, that is the bug worth seeing). Use inject(INK_AMBIENT_KEY)! to match the app's single stated law for this key.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-11 · CHALLENGE-C
+
+**Defect.** The colour string is parsed twice on every rAF-coalesced frame: cssToOklch(css) purely to read seed.C, then deriveBlobPalette(css, …) which parses the same string again — although the API accepts the already-parsed OklchStop.
+
+**Mechanism.** a parsed value discarded and re-parsed because the string, not the stop, is threaded through
+
+**Evidence.**
+
+```
+HeroBlob.vue:119 `const seed = cssToOklch(css);` and :121-125 `deriveBlobPalette(css, { … chromaCeiling: Math.max(0.16, seed.C) })`. Signature: node_modules/@mkbabb/glass-ui/dist/composables/color/index.d.ts:145 `deriveBlobPalette(seed: string | OklchStop, options?)`. HeroBlob.vue:77-78 describes this path as running once per frame under a 60×/s scrub.
+```
+
+**Reproduction.** NONE measured in isolation (the whole derive is inside the 397ms-free steady-state path; I did not isolate the parse cost). Source-confirmed double parse.
+
+**Proposed cure.** Pass `seed` instead of `css`. After C-1's cure the Math.max(0.16, seed.C) expression disappears entirely and the single parse becomes the only one.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-12 · CHALLENGE-C
+
+**Defect.** HeroBlob consumes resolveSurfaceLightnessLive without calling bumpProbeEpochOnMount(), which the export's own docblock declares mandatory — and it fires its first probe from an { immediate: true } watch during setup, precisely the detached pre-style instant the docblock warns about.
+
+**Mechanism.** a documented consumer contract skipped; correctness held up by an accident of which tier is probed
+
+**Evidence.**
+
+```
+demo/color-session/useContrastSafeColor.ts:72-77: 'a component that folds resolveSurfaceLightnessLive into its OWN computed … is a live-instrument consumer like any other — it must register the mount bump from its setup, or its first (possibly detached/pre-style) probe result caches until some OTHER consumer happens to bump the epoch.' HeroBlob.vue:42 imports only resolveSurfaceLightnessLive; there is no bumpProbeEpochOnMount call in the file. First probe fires from HeroBlob.vue:132 { immediate: true } → :99. It survives today only because the 'resting' tier probes an element it appends to document.body rather than querying a mounted node, and because the cache is keyed on (darkClass, epoch) so another consumer's bump eventually heals it (useContrastSafeColor.ts:237-247).
+```
+
+**Reproduction.** NONE — the accident holds today. grep -n 'bumpProbeEpochOnMount' demo/picker/visual/HeroBlob.vue returns nothing; grep -n 'resolveSurfaceLightnessLive' returns line 42.
+
+**Proposed cure.** Call bumpProbeEpochOnMount() from setup, as ConsoleRail.vue does — or, after C-2's cure, read the referent from a computed, which tracks probeEpoch by construction and makes the bump the only remaining requirement.
+
+---
+
+### `CHALLENGE-C — implementation defects in demo/picker/visual/H` · C-13 · CHALLENGE-C
+
+**Defect.** floorStops's direction-flip branch never re-checks headroom on the flipped side (which needs MORE travel, not less) and clamps silently when it runs out; and on the positive side the flip condition reduces to the constant plateL > 0.83, so on any light-scheme plate a light ramp is always inverted to a dark one rather than nudged.
+
+**Mechanism.** an ad-hoc two-branch solver with an untested second branch and a silent clamp
+
+**Evidence.**
+
+```
+HeroBlob.vue:105-110. Same-side push needs INK_FLOOR - |delta|; the flipped push needs INK_FLOOR + |delta| — the code tests headroom for the ORIGINAL dir at :107, flips at :108, and never re-tests, then clamp(…, 0.02, 0.98) at :110 truncates with no signal. Algebra of the positive-side flip: 0.98 - meanL < 0.15 - (meanL - plateL) ⟺ plateL > 0.83 — meanL cancels. Measured light resting plate: 0.8079 (probe C2, composited over a 0.5 ambient) and ≈0.908 back-solved from the live push of -0.1808 (raw meanL 0.9392 → live outMean 0.7584, probe C3). This is the proximate cause of C-1's observed light-mode result: a near-white pick renders mid-mauve.
+```
+
+**Reproduction.** node --input-type=module -e "const F=0.15,c=(v,a,b)=>Math.min(Math.max(v,a),b); for(const plateL of [0.80,0.83,0.86,0.908]){const meanL=0.9392,d=meanL-plateL;let dir=d>=0?1:-1;const need=F-Math.abs(d),hr=dir===1?0.98-meanL:meanL-0.02;const flip=hr<need;if(flip)dir=-dir;console.log('plateL',plateL,'delta',d.toFixed(4),'flip',flip,'push',(dir*(F-dir*d)).toFixed(4));}" → flips for every plateL > 0.83, push -0.24 at plateL 0.83+
+
+**Proposed cure.** Fold this away with C-1 — pinning bodyLightness inside deriveBlobPalette makes the 'which side, how far, is there room' question disappear entirely, because the derivation gamut-maps at the lightness you asked for. Do not patch the branch; delete the solver.
 
 ---
 
@@ -53055,6 +54207,150 @@ demo/color-session/useColorPipeline.ts:117-123 builds colorComponents from PICKE
 **Reproduction.** Read demo/color-session/useColorPipeline.ts:117-123 (no alpha in colorComponents) alongside demo/picker/display/ColorComponentDisplay/readoutReservation.ts:94-97 (alpha injected into READOUT_CH); then view safari-desktop-light/picker.png where the rail shows α 82.7% and the headline shows three cells.
 
 **Proposed cure.** One source of truth for the shown-channel set: the headline projects exactly the channels the rail exposes, with alpha present iff it is not 1 (per §4). Delete the unreachable alpha entry from READOUT_CH — or, better, delete the whole table with D-02.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-14 · CHALLENGE-D
+
+**Defect.** The entry animation is not tokenised and animates a paint-bound property. 420ms duration and 180ms delay are magic numbers three lines below a sibling transition that correctly uses var(--duration-normal); the keyframe animates background-size 120%→100% on a 469×224 two-gradient surface.
+
+**Mechanism.** A third, unnamed motion species — a background-size settle — that is neither the producer spring register nor a colour/opacity effect curve, and that re-rasterises both gradients every frame for 420ms.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:243-257; measured computed animation "0.42s cubic-bezier(0.4, 0, 0.2, 1) 0.18s both field-paint-in-ad23e00d" (probe/SPCD-probe1.json) against the same rule's transition at :233 using var(--duration-normal) (measured 0.3s). Canon: owner edict 6 (animations are moved or tokenised, never deleted — this one has been neither); VISUAL-CONSTITUTION §6 ("Color/opacity effects use the corresponding short effect curve").
+```
+
+**Reproduction.** Read the computed animation via probe/SPCD-probe1.mjs; compare with the tokenised transition on the same selector.
+
+**Proposed cure.** Keep the beat, tokenise it: --duration-slow / --duration-normal plus a named delay token, and drop the background-size arm so only opacity animates (compositor-only). If the gradients-settling gesture is wanted, D-01's stage can crossfade two painted frames instead of re-rasterising a background.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-15 · CHALLENGE-D
+
+**Defect.** A <figure> is used as a flex box: no figcaption, one child, and m-0 immediately cancels the UA margin that is the element's one behavioural difference from a div.
+
+**Mechanism.** Semantic costume: the element's meaning (self-contained, optionally captioned, referenced from the main flow) is unused, and it inserts an extra node between the plate and its real layout parent.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:3 `<figure class="m-0 min-w-0 w-full flex flex-col">`; measured figureHasCaption false, figureParent "FIGURE", single child with role="img" (probe/SPCD-probe1.json, probe/SPCD-probe4.json .keyboard). Owner edict 3 (KISS, no contrivance).
+```
+
+**Reproduction.** probe/SPCD-probe1.mjs reports figureTag and figureHasCaption.
+
+**Proposed cure.** Delete the wrapper. The stage is the element; its layout classes belong on it.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-16 · CHALLENGE-D
+
+**Defect.** The hover affordance is a second cartoon shadow of identical geometry nested inside the Card's own, tinted with the live specimen colour, visible only to mouse users — and it is the sole consumer of the per-frame custom-property write measured in D-07.
+
+**Mechanism.** A decoration that duplicates a boundary the parent already draws, using a forbidden tint source, reachable by one input modality, paid for with a per-frame subtree style invalidation.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:235-237 adds `8px 8px 0px 0px color-mix(in srgb, var(--spectrum-shadow, transparent) 50%, black)` on hover; the enclosing .glass-resting.card already casts `color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px` (measured, probe/SPCD-probe3.json .cardChain). Canon, four clauses: PROPORTION-AUDIT PR-05 ("caster shadows… repeat a boundary" → REMOVE); VISUAL-CONSTITUTION §3 law 8 (fixtures must not compete "through equal size or equal shadow"); §2 material table ("Instrument veil… no drop shadow"); §2 ("Seed tint is forbidden outside the ambient field, active accent, WatercolorDot/specimen, and pastel Palettes lanes"). Also PR-07 (hover-only affordances). The fallback is wrong too: color-mix(in srgb, transparent 50%, black) resolves to 50% black, not to nothing.
+```
+
+**Reproduction.** probe/SPCD-probe3.mjs .cardChain walks the ancestor chain reporting each box-shadow; probe/SPCD-probe1.mjs reports the plate's at-rest shadow and its transition.
+
+**Proposed cure.** Delete the rule and --spectrum-shadow with it. That also removes ~⅓ of D-07's measured per-move cost. If the stage needs a rest/hover distinction it belongs in the tier D-05 assigns, not as a seed-tinted caster.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-17 · CHALLENGE-D
+
+**Defect.** Eleven debug.* calls plus a Math.random() sampler evaluated on every pointermove ship in production, against a canon row that dispositions exactly this for deletion.
+
+**Mechanism.** Development instrumentation that became a hard dependency of the component (non-null inject) and a per-event cost, with a scheduled deletion that has not executed.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:133,140,153,154,163-164,169,178,183,188,189 (grep -c "debug\." → 11), with `if (debug.state.enabled && Math.random() < 0.03)` at :163 evaluated per pointermove, and a hard `inject(POINTER_DEBUG_KEY)!` at :52. Canon: SUBTRACTION.md:29 — "production PointerDebugOverlay, public debug=1, provider and **Spectrum**/Slider injected logging branches → browser devtools and ordinary focused interaction tests; **no product-panel successor**", deletion wave W20. Still on disk at HEAD c654824e.
+```
+
+**Reproduction.** grep -n 'debug\.' demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue
+
+**Proposed cure.** Execute SUBTRACTION.md:29 at this site: remove the eleven calls, the inject and the RNG. Pointer diagnosis moves to browser devtools and to focused interaction tests, per the disposition's stated replacement.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-18 · CHALLENGE-D
+
+**Defect.** 12.15% of the product's dominant instrument is a hue-independent black wedge carrying no discriminable chroma, identical in light, dark and forced-colors — and in dark mode that wedge abuts the card at 3.07:1, so it reads as a hole.
+
+**Mechanism.** A direct consequence of the HSV S×V parameterisation (D-01): as v→0 every hue collapses to the same pixels. A perceptual parameterisation spends its area on distinguishable colours. The identical value across schemes is the finding's other half — the plate does nothing at all for dark mode.
+
+**Evidence.**
+
+```
+probe/SPCD-pixels.json — 11,470 samples on a 3px grid inside the plate: fraction with max(R,G,B) < 32 is **0.1215**, byte-identical across light, dark and forced-colors. Dark-mode bottom-left edge contrast 3.065 (probe/SPCD-pixels.json .dark). Canon: PROPORTION-AUDIT §1 — "Every element earns its scale, interval, boundary and material from its job relative to the local protagonist."
+```
+
+**Reproduction.** node .../probe/SPCD-pixels.mjs — decodes the element capture in-page and counts near-black pixels over the plate rect in each scheme.
+
+**Proposed cure.** Subsumed by D-01: a selected-space projection (e.g. OKLCh L×C at fixed H) distributes area over perceptually distinct colours and has no degenerate wedge. If HSV is ever retained deliberately, the wedge must be an argued proportion, not a side effect.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-12 · CHALLENGE-D
+
+**Defect.** The seat positions the ornament with physical properties in a chrome/layout role the constitution assigns to logical direction.
+
+**Mechanism.** Two physical properties that currently agree; the composition survives RTL only by that coincidence. Fixing either one alone puts the identity label under the bead.
+
+**Evidence.**
+
+```
+seat.css:52-53 `top: var(--blob-seat); right: var(--blob-seat);` and seat.css:88 `padding-right: calc(0.76*var(--blob-fp) + 0.5rem)`. VISUAL-CONSTITUTION §6.1: "chrome, navigation and layout — logical inline/block direction follows the document". Witness: shots/rtl-desktop/picker-postload.png — the whole scene mirrors, the bead does not, so the ornament becomes the LEADING element of the header band instead of its terminal one.
+```
+
+**Reproduction.** docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop/picker-postload.png (states.mjs applies dir=rtl post-load per MT-F022 #1).
+
+**Proposed cure.** inset-inline-end / padding-inline-end, changed together in one edit, and re-judged as a composition: decide deliberately whether the ornament is the band's leading or terminal element in RTL rather than inheriting whichever the physical property happens to give.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-14 · CHALLENGE-D
+
+**Defect.** A bare catch swallows every error class on the component's only source of colour truth, behind a comment that is factually wrong about what throws.
+
+**Mechanism.** An undiscriminating catch makes 'stale ramp' indistinguishable from 'correct ramp'; a producer regression in cssToOklch or deriveBlobPalette would degrade the hero silently and permanently with no console trace.
+
+**Evidence.**
+
+```
+HeroBlob.vue:118 `const seed = cssToOklch(css); // throws iff un-parseable` and :127-129 `catch { /* A transient un-parseable colour string leaves the last good ramp. */ }`. Proven false: node --input-type=module -e "const m=await import('@mkbabb/glass-ui/color'); m.cssToOklch('lab(92% 88.8 20 / 82.7%)')" -> GlassColorError: cssToOklch: color_non_opaque { code:'color_non_opaque', alpha:0.827 }.
+```
+
+**Reproduction.** The node one-liner above. (The current wiring is safe — cssColorOpaque is withAlpha(color,1) at demo/color-session/useColorPipeline.ts:104 — so this is a latent trap plus a wrong comment, not a live break.)
+
+**Proposed cure.** Discriminate: let the derivation run without a guard and let the boundary that owns colour parsing report failure through the same rendererStatus/diagnostics channel D-6 introduces. If a stale-ramp fallback is genuinely wanted, it must be an explicit, observable state, not an empty catch block.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-15 · CHALLENGE-D
+
+**Defect.** Render quality is forked on a media-query breakpoint inside a seat whose own law forbids band arms and whose geometry is container-scaled.
+
+**Mechanism.** Two scaling authorities in one component — the footprint is container-relative (22cqi) while the render budget is viewport-relative (min-width:1024px) — so a 512px pane on a 1440 desktop and a 358px card on a 390 phone get different quality for near-identical rendered sizes (footprint 112.63 vs 112.00).
+
+**Evidence.**
+
+```
+HeroBlob.vue:177 `quality: isLgViewport.value ? appBlobConfig.quality : "half"` via useBreakpoint("(min-width: 1024px)") at :71. seat.css:14 declares "ONE cqi FORMULA at every viewport (no band arms)". VISUAL-CONSTITUTION §3.7: "No desktop-tight/mobile-airy fork and no breakpoint pile."
+```
+
+**Reproduction.** scratchpad/HBD-geo.json: anchor.w 112.63 at 1440 and 112.00 at 390 — same painted size, different quality rung.
+
+**Proposed cure.** Derive the quality rung from the same container measure the footprint uses (or from the producer's own DPR/fill-rate budget), so one authority scales the ornament. If a device-class signal is genuinely needed it belongs in the producer's budget resolver, not in a consumer media query.
 
 ---
 
@@ -61218,6 +62514,96 @@ Measured live: {"disabled":true,"ariaDisabled":null,"opacity":"0.5","describedby
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-6 · CHALLENGE-C
+
+**Defect.** All three DockControls rely on `title` as their sole accessible name, giving no tooltip at all on touch; /#/extract is the single largest contributor to the application's nameless-button census.
+
+**Mechanism.** last-resort naming — HTML-AAM resolves `title` as the terminal fallback, so AT is served, but `title` renders no tooltip on touch and the repo's own probe definition (capture.mjs:104 accepts only aria-label/aria-labelledby/textContent) counts these as nameless.
+
+**Evidence.**
+
+```
+Measured: [{"title":"Upload image","ariaLabel":null,"text":"","w":40,"h":40},{"title":"Open camera","ariaLabel":null,"text":""},{"title":"Reset","ariaLabel":null,"text":"","disabled":true}]. REPORT.md: /#/extract is the ONLY route with namelessButtons=3 in all four matrices and the only route above 1 on mobile; summing the census (desktop-light 9 + desktop-dark 9 + mobile-light 4 + mobile-dark 4 = 26 instances) extract contributes 12 of 26 = 46%, all three from this file. House inconsistency: the shell dock names properly (Dock.vue:143,144,154 aria-label; SlugEditLayer.vue:94,106,114) while the workbenches use title. The three Lucide <svg>s are also exposed as unnamed `img` nodes inside the buttons (ARIA snapshot `- img` x3); the sibling ImageDropZone.vue:60 correctly sets aria-hidden="true".
+```
+
+**Reproduction.** node scratchpad/probe4.mjs — locator.ariaSnapshot() on the extract controls root at http://localhost:9000/#/extract returns `button "Upload image"`, `button "Open camera"`, `button "Reset" [disabled]`, each containing an unnamed `img`. So AT IS served; the residual defect is sighted-touch discoverability plus the exposed icon nodes.
+
+**Proposed cure.** aria-label + title on each control (title kept for the desktop tooltip, aria-label as the authoritative name) and aria-hidden="true" on the three Lucide icons — adopting the shell dock's existing convention rather than inventing a third one.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-7 · CHALLENGE-C
+
+**Defect.** The header comment's claim that the rail's inset hairline gives "a certified identity edge independent of its gradient content in every state" is false in the undeveloped state: the ring is painted in the same colour as the fill.
+
+**Mechanism.** a documented invariant contradicted by its own implementation — one token used for two layers that are supposed to separate from each other.
+
+**Evidence.**
+
+```
+Lines 6-11 make the claim; line 22 sets `backgroundColor: trackInk` and `boxShadow: inset 0 0 0 1.5px ${trackInk}` — the same token twice. Measured live pre-image: "bgColor": "oklch(0.545141 0.218024 9.834023)", "boxShadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset", "bgImage": "none". Identical colour = 1.0:1 ring-to-fill = zero visible edge.
+```
+
+**Reproduction.** node scratchpad/probe1.mjs — getComputedStyle on [data-o18="extract-k-rail"] at http://localhost:9000/#/extract with no image loaded; compare backgroundColor to the boxShadow colour.
+
+**Proposed cure.** Either narrow the comment to the developed state, or make the ring an actual edge: the ring's job is separation from the PLATE, so the ring should carry the certified ink and the fill should carry the de-emphasis rung — two tokens for two layers.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-8 · CHALLENGE-C
+
+**Defect.** The `gradient` prop's empty-state value is entirely inert — a dead binding the producer mistypes and the consumer silently discards.
+
+**Mechanism.** shorthand/longhand collision in a style-binding object literal, masking a producer-side contract violation: the shorthand's colour channel is unconditionally clobbered by the following longhand, so the wrong-typed value can never be observed.
+
+**Evidence.**
+
+```
+useExtractSession.ts:103 returns the string "var(--muted)" — a COLOUR — from a computed named kSliderGradient, for a prop declared `gradient: string` (ExtractControls.vue:107). Line 22 feeds it to the `background` shorthand and then overwrites the colour channel with `backgroundColor: trackInk` on the very next object key. Measured pre-image: "bgImage": "none".
+```
+
+**Reproduction.** node scratchpad/probe1.mjs — getComputedStyle(document.querySelector('[data-o18="extract-k-rail"]')).backgroundImage at http://localhost:9000/#/extract with no image returns "none", proving the gradient prop contributed nothing.
+
+**Proposed cure.** Type the contract honestly — `gradient: string | null`, null when undeveloped — and use the explicit `backgroundImage` longhand instead of the `background` shorthand, so the two layers stop fighting over one property and the null case becomes a real branch instead of a swallowed one.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-9 · CHALLENGE-C
+
+**Defect.** Three byte-identical per-instance `--btn-hover-color` style pins on siblings inside one flex row (owner edict #5: root-level styling, never per-instance overrides) — and the pin carries the RAW picked colour, bypassing the certification contract the same file establishes for the track.
+
+**Mechanism.** per-instance override of an inherited custom property, triplicated; plus a certification bypass on the sibling controls of the very element being certified.
+
+**Evidence.**
+
+```
+ExtractControls.vue:42, :51, :86 all carry `:style="{ '--btn-hover-color': cssColor }"` on three siblings inside the row opened at :39. `--btn-hover-color` is an inherited custom property, so one binding on the row container yields an identical cascade. Meanwhile lines 113-125 establish at length that the track material must be contract ink certified at GRAPHICS_CONTRAST_FLOOR (=3, ink.ts:16), and trackInk (:123) implements it — but the three hover pins use the uncertified `cssColor`.
+```
+
+**Reproduction.** Static: demo/workbenches/extract/ExtractControls.vue:42,51,86 vs :39 and :123-125. Per-frame patch-count cost during a live colour drag is UNMEASURED and labelled a hypothesis in the report (C-11.3).
+
+**Proposed cure.** Hoist the custom property to the row container and certify it in one place: `:style="{ '--btn-hover-color': trackInk }"` once at line 39. Three bindings collapse to one and the hover ink joins the contract instead of evading it.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-10 · CHALLENGE-C
+
+**Defect.** Zero unit tests reference this component; the two e2e specs that touch its rendered tree would stay green under six distinct mutations, including the exact mutation that is C-1.
+
+**Mechanism.** vacuous gate — the specs assert paint and one slider's segment count, never the component's prop contract, so the contract can be deleted without turning anything red.
+
+**Evidence.**
+
+```
+grep -rn "ExtractControls" test/ e2e/ returns only two prose mentions in unrelated files. Coverage is limited to e2e/smoke/oracles/o9-shadow-palette.spec.ts:152-158 (getByRole slider "Number of colors", keyboard, ghost segment count) and e2e/smoke/oracles/o18-contrast-census.spec.ts:1106-1134 (colour samples of [data-o18="extract-kc"] .slider-track and [data-o18="extract-k-rail"]).
+```
+
+**Reproduction.** Mutations that keep BOTH specs green: (a) delete `:disabled` from line 84 entirely — nothing asserts Reset's disabled state, which is precisely why C-1 shipped; (b) delete the @click handlers emitting 'upload' and 'camera' — no spec activates either button; (c) delete the whole .touch-gate-target block — already dead; (d) replace the kC @update:model-value handler with a no-op — o18 measures the track's colour, o9 drives only the k slider; (e) change :max="16" to :max="99" — no bound is asserted; (f) drop boxShadow from line 22 — o18 samples backgroundColor, not the ring. Only removing aria-label="Number of colors" or renaming either data-o18 hook breaks anything.
+
+**Proposed cure.** One @vue/test-utils spec asserting the CONTRACT rather than the paint: that `disabled` reaches every control (C-1), that Reset's gate follows dirtiness not hasImage (C-3), and that each button exposes an aria-label (C-6). Three assertions kill six of the mutations above, and test/ is not covered by the BJ W4 pin so it can land immediately.
+
+---
+
 ### `CHALLENGE-C — implementation defect hunt: demo/workbenches/g` · C-6 · CHALLENGE-C
 
 **Defect.** The specimen rows and the open interval's ramp recompute on `type` and `direction` changes, neither of which can affect either — the whole per-row derivation (49-sample glyph, colour parse+mix, 27-tile scan, WCAG floor walk) re-runs on every direction-slider tick.
@@ -65512,6 +66898,168 @@ demo/workbenches/mix/MixResultDisplay.vue:4 `import { computed, TransitionGroup 
 
 ---
 
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · B-2 · CHALLENGE-L
+
+**Defect.** `demo/palettes/mix.ts` has exactly one importer in the whole tree, and it lives in a different feature — so the wrong-home half of the defect survives pass A's F-1 cure, which explicitly leaves `mixPalettes` in demo/palettes/.
+
+**Mechanism.** Homing error surviving a partial cure — the workbench that owns the concept 'mix' reaches sideways into a data domain to borrow its own orchestration. demo/palettes/ should own palette identity, persistence and transport only; the LIBRARY_PORT_KEY seam is the correct and sufficient edge.
+
+**Evidence.**
+
+```
+`grep -rn 'palettes/mix"' demo --include='*.ts' --include='*.vue' | grep -v workbenches/mix/` → no output. Sole importer: demo/workbenches/mix/composables/useMixingState.ts:24. Pass A F-1's cure text: "demo/palettes/mix.ts shrinks to what is genuinely demo-shaped: mixPalettes."
+```
+
+**Reproduction.** The consumer-enumeration grep above, run from repo root at c654824e — zero external consumers.
+
+**Proposed cure.** After F-1 promotes mixColorSequence into src/color/operations.ts, move `mixPalettes` + `LeftoverStrategy` to demo/workbenches/mix/composables/mixPalettes.ts and DELETE demo/palettes/mix.ts (no re-export). Result: library owns the math, the workbench owns the orchestration, the palettes domain owns the data — zero cross-feature edge for the mix algorithm.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · B-3 · CHALLENGE-L
+
+**Defect.** `INTERPOLATION_SPACES` was moved to its neutral home but the vacated path was never closed — the gradient tree still re-exports it verbatim, giving one binding two import paths. Narrows pass A's Negatives §4, which certified the module 'correctly homed… the cure already applied'.
+
+**Mechanism.** Pure-alias re-export — the identical mechanism as F-13's demo/ui/, one file smaller and blessed by a comment, which makes it deliberate rather than accidental. Edict 2 forbids aliases; a re-export that adds nothing is one.
+
+**Evidence.**
+
+```
+demo/workbenches/gradient/composables/useGradientInterpolation.ts:17 `export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "../../../color-session/color-space-meta";` — a pure pass-through. Consumer of the neutral path: demo/workbenches/mix/MixConfigBar.vue:18. The re-export is documented as deliberate at demo/color-session/color-space-meta.ts:8. Same file line 7 still cites `@lib/`, an alias killed at W43/RF-15.
+```
+
+**Reproduction.** `grep -rn color-space-meta demo --include='*.ts' --include='*.vue'` → exactly two hits: the re-export at useGradientInterpolation.ts:17 and the real import at MixConfigBar.vue:18.
+
+**Proposed cure.** Delete useGradientInterpolation.ts:17; the gradient tree imports ../../../color-session/color-space-meta directly, as Mix already does. Fix the stale @lib/ citation. Land alongside pass A's F-5 (type the array over a derived InterpolationSpace, or better ship the interpolable-space set from @mkbabb/value.js/color so the demo cannot silently lag the library).
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · B-5 · CHALLENGE-L
+
+**Defect.** The eslint relaxation that blinds the repo to dead imports and untyped shell handles is justified by a rationale that is false at HEAD — new evidence for pass A's F-16, and it makes the cure far cheaper than pass A assumed.
+
+**Mechanism.** A gate weakened to accommodate debt that has since been paid down elsewhere; the relaxation now shields only the demo-side casts it was never argued for (the Ref<any> shell handles of F-9 and the PickerColorIn bridges of B-4).
+
+**Evidence.**
+
+```
+eslint.config.js:8-9 states: "`@typescript-eslint/no-explicit-any` — codebase has ~hundreds of intentional `any` usages (parser combinators, dynamic CSS values)." Measured: `grep -rnE ':[[:space:]]*any\b|<any>|as any' src --include='*.ts' | wc -l` → 0 (the parser lives in src/ and has ZERO any); same over demo/ → 52. Confirmed blindness: `npx eslint demo/workbenches/mix/ -f json` → 8 files linted, all 0 errors 0 warnings, while `grep -c computed demo/workbenches/mix/MixPane.vue` → 1 (the unused import at MixPane.vue:2). `grep -n noUnused tsconfig.base.json` → no match, so noUnusedLocals was never set either.
+```
+
+**Reproduction.** The two greps and the eslint JSON run above, at c654824e.
+
+**Proposed cure.** Re-enable @typescript-eslint/no-explicit-any and no-unused-vars ({ args: "after-used", varsIgnorePattern: "^_" }) — zero fallout in src/ today, bounded 52-site fallout in demo/, not the 'hundreds' the config claims. Set noUnusedLocals + noUnusedParameters in tsconfig.base.json. Then fix MixPane.vue:2 → `import { inject } from "vue";`.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-5 · CHALLENGE-L
+
+**Defect.** CORRECTION of r1 plus a residual: the audit's `namelessButtons` predicate ignores accname step 2I (title), manufacturing false positives on 18 rows across 7 routes; the real residual is that `DockControl` ships no naming contract, so the repo's convention partitions by directory (12 aria-label under demo/shell/ vs 17 title under demo/workbenches/).
+
+**Mechanism.** F5 — instrument error (the audit measures the wrong predicate), compounded by F4/absent producer contract (a convention that partitions by feature directory rather than semantics is what a missing contract looks like).
+
+**Evidence.**
+
+```
+Audit predicate at docs/tranches/V/megatranche/audit/visual/capture.mjs:102-105 filters on `!(aria-label || aria-labelledby || textContent.trim())` — never consults title. Measured real accname (Playwright locator.ariaSnapshot(), WebKit, /#/extract): `- button "Upload image":` `- button "Open camera":` `- button "Reset" [disabled]:` — "button lines with no quoted name: 0 / 7". The three flagged elements ARE this component's controls (scope id data-v-bfbc09b0) and each names correctly from title. Producer: node_modules/@mkbabb/glass-ui/dist/components/dock/DockControl.vue.d.ts prop set is `shape | compact | active | type | disabled | as | asChild | class` — no label, no aria-label. REPORT.md:88-105 lists 18 nameless rows.
+```
+
+**Reproduction.** node scratchpad/chalL-wbextract-probe.mjs → aria snapshot shows all buttons named; node scratchpad/chalL-wbextract-probe2.mjs → the audit predicate flags exactly the three DockControls with title set and aria-label null.
+
+**Proposed cure.** (a) Fix capture.mjs:102-105 to compute a real accname (Playwright exposes ariaSnapshot) before any seat acts on `namelessButtons` — otherwise the mega-tranche chases phantom a11y work. (b) Glass 8: `DockControl` requires `label: string` when `shape="icon"`, stamped as aria-label, making an unnamed icon button a type error — fixes all 17 workbench call sites at once.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-8 · CHALLENGE-L
+
+**Defect.** `tsconfig.demo.json` `paths` has desynchronised from `package.json#exports`: three declared entries resolve to nothing, two live subpaths are absent — including `/css`, the one this component's trackInk transitively depends on — and the comment asserts a key count that is wrong.
+
+**Mechanism.** F4 — two configs describing one truth, one generated and one hand-maintained. vite.config.ts:37-50 GENERATES its alias set from the exports map explicitly so it "can never drift"; the tsconfig hand-maintains the same truth and has drifted. Not a live break (r1 traced self-exports resolution catching /css) — a config block that no longer proves anything, i.e. a false proof of the public API surface.
+
+**Evidence.**
+
+```
+package.json exports = 7 keys, no root: ./color ./value ./css ./easing ./math ./transform ./quantize. tsconfig.demo.json:42-49 declares 8, comment at :40 calls it "a CLOSED 8-key set". `ls dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts` → all three "No such file or directory". `import.meta.resolve`: FAIL @mkbabb/value.js → ERR_PACKAGE_PATH_NOT_EXPORTED; FAIL /parsing → ERR_PACKAGE_PATH_NOT_EXPORTED; FAIL /units → ERR_PACKAGE_PATH_NOT_EXPORTED. `/css` and `/value` resolve fine but have no paths entry; ink.ts:11-13 imports `@mkbabb/value.js/css`.
+```
+
+**Reproduction.** node --input-type=module -e "for (const s of ['@mkbabb/value.js','@mkbabb/value.js/css','@mkbabb/value.js/value','@mkbabb/value.js/parsing','@mkbabb/value.js/units','@mkbabb/value.js/color']) { try { console.log('OK  ', s, '->', import.meta.resolve(s)); } catch (e) { console.log('FAIL', s, '->', e.code); } }" — pasted output in the report.
+
+**Proposed cure.** Delete the seven value.js `paths` entries — self-`exports` resolution already works and is the honest mechanism — or generate them from package.json#exports the way vite.config.ts already does. One source of truth.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-9 · CHALLENGE-L
+
+**Defect.** The dogfood alias silently substitutes the working tree into glass-ui's and keyframes' own value.js dependency, and the comment justifying it is factually false at HEAD.
+
+**Mechanism.** F4 — a comment that no longer describes reality. The Vite aliases are repo-wide anchored regexes on the bare specifiers, so glass-ui's and keyframes' own internal value.js imports are rewritten to this checkout's dist/ too. The demo runs glass-ui 7.0.0 against an unreleased value.js.
+
+**Evidence.**
+
+```
+vite.config.ts:25 says "A package does not install itself, so these exact aliases point the seven public specifiers at this checkout's freshly-built published surface." It does install itself transitively: package-lock.json:1291 glass-ui peer `@mkbabb/value.js: ^4.0.0`, :1330 keyframes.js hard pin `4.0.0`, :1336-1338 `node_modules/@mkbabb/value.js` resolved from the registry tarball. `node -e "require('./node_modules/@mkbabb/value.js/package.json').version"` → 4.0.0. `ls node_modules/@mkbabb/` → glass-ui keyframes.js value.js.
+```
+
+**Reproduction.** grep -n "@mkbabb/value.js" package-lock.json | head -8 and node -e "require('./node_modules/@mkbabb/value.js/package.json').version" → 4.0.0 is installed, contradicting the comment.
+
+**Proposed cure.** Defensible as a dogfood choice — but document it truthfully. Rewrite vite.config.ts:25 to state that the alias deliberately overrides the transitively-installed 4.0.0 for glass-ui and keyframes too, or scope the alias to demo-authored modules only so producer packages resolve their own pinned dependency.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-10 · CHALLENGE-L
+
+**Defect.** Both slider thumbs render 12 x 24 CSS px against WCAG 2.2 SC 2.5.8 (AA) 24 x 24 minimum — producer arithmetic, surfaced through this component.
+
+**Mechanism.** F2 — producer default is wrong and the consumer cannot fix it without a per-instance override of a root-level design decision (edict 5), repeated at every slider in the repo.
+
+**Evidence.**
+
+```
+Live WebKit /#/extract: [{"label":"Number of colors","w":12,"h":24,"cssWidth":"12px","thumbSizeToken":"1rem","pass2_5_8":false},{"label":"Chroma weight","w":12,"h":24,"cssWidth":"12px","thumbSizeToken":"1rem","pass2_5_8":false}]. Producer: `[data-variant=spectrum] .slider-thumb{width:calc(var(--slider-thumb-size,1rem) * .75); …}`. REPORT.json smallTapTargets for safari-desktop-light /#/extract contains exactly {"w":12,"h":24,"tag":"span","label":"Number of colors"} and {"w":12,"h":24,"tag":"span","label":"Chroma weight"}, in all four matrices.
+```
+
+**Reproduction.** node scratchpad/chalL-wbextract-probe2.mjs → the SC 2.5.8 check block; cross-check REPORT.json results[].probe.a11y.smallTapTargets for /#/extract.
+
+**Proposed cure.** Glass 8: default `--slider-thumb-size: 2rem` so `size * .75` = 24px, satisfying SC 2.5.8 with no consumer override anywhere.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-7 · CHALLENGE-L
+
+**Defect.** Dead scoped CSS shipped in the subject file: `.touch-gate-target` is compiled with this component's scope id and matches zero elements on the live route.
+
+**Mechanism.** F1 — a fragment copied across a component boundary where the mechanism does not travel. Same failure shape as L-11, expressed in CSS rather than tokens: the scoped compile makes it structurally unable to match.
+
+**Evidence.**
+
+```
+ExtractControls.vue:139-142 declares `.touch-gate-target { border-radius: var(--radius-pill); }`; the class appears nowhere in the component's template. Live: {"rootScopeAttrs":["data-v-bfbc09b0","data-v-ce26fe94"],"touchGateTargetsInDoc":0,"touchGateTargetsInExtract":0,"touchGateRuleSelectors":[".touch-gate-target",".touch-gate-target:has(.slider-track)",".touch-gate-target.touch-gate-active",".touch-gate-target[data-v-bfbc09b0]"]}. The idiom's real home is ComponentSliders.vue:243-262, whose block is deliberately UNSCOPED and whose doc-block explains why.
+```
+
+**Reproduction.** node scratchpad/chalL-wbextract-probe.mjs → the `.touch-gate-target reachability` block enumerates live rules and match counts; `.touch-gate-target[data-v-bfbc09b0]` is present in the stylesheet with 0 matches.
+
+**Proposed cure.** Delete lines 139-142. If the extract sliders genuinely need the touch gate, adopt the ComponentSliders mechanism whole (unscoped block + the class on the wrapper), not the styling fragment alone.
+
+---
+
+### `CHALLENGE-L — library structure (module boundaries, ownershi` · L-15 · CHALLENGE-L
+
+**Defect.** Per-instance icon sizing duplicates the producer's root-level token: `class="w-5 h-5 transition-colors"` on all three glyphs re-states glass-ui's own default and silently opts them out of `--dock-icon-glyph` retuning.
+
+**Mechanism.** F2 — producer seam bypassed. Edict 5 violation: styling at the instance rather than the root, hard-coding a value the design system already owns as a retunable token.
+
+**Evidence.**
+
+```
+ExtractControls.vue:45, :54, :89 each `class="w-5 h-5 transition-colors"`. Producer: `.dock-icon-button > svg { width: var(--dock-icon-glyph, 1.25rem); height: var(--dock-icon-glyph, 1.25rem); }` (dist/components/dock/styles/controls/icon-button.css) — 1.25rem = 20px = exactly w-5/h-5. Tailwind utilities land in @layer utilities and win over @layer components, so the demo's duplicate is what paints. `.dock-icon-button` already declares `transition: … color var(--dock-motion-fast) …` and the glyph inherits it through currentColor, so `transition-colors` is redundant too. `grep -rn 'class="w-5 h-5' demo --include='*.vue' | wc -l` → 13 sites.
+```
+
+**Reproduction.** Read ExtractControls.vue:45/54/89 against the quoted icon-button.css rule; both compute 20px, so the override is pure duplication. Cascade-layer ordering (utilities > components) makes the demo copy authoritative.
+
+**Proposed cure.** Delete the classes. If a workbench wants larger glyphs than the dock, set `--dock-icon-glyph` once at the control-bar root — one declaration governing the cluster instead of three per-instance overrides.
+
+---
+
 ### `CHALLENGE-L — library structure / module boundaries / owners` · L-9 · CHALLENGE-L
 
 **Defect.** The pixel path re-enters the library through the CSS PARSER to obtain numbers it already holds: bytes → hand-rolled hex string → parseCssColor → convert. `rgb()` is published on ./color for exactly this input.
@@ -68736,6 +70284,60 @@ ComponentSliders.vue:238 opens `<style>` with no `scoped`; the comment at :244-2
 
 ---
 
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-14 · CHALLENGE-C
+
+**Defect.** The component is named SpectrumCanvas and contains no canvas — the name has already misdirected audit effort.
+
+**Mechanism.** A stale name outliving its implementation; the codebase itself already calls the thing "the plate" (spectrumLuma.ts:5, useSpectrumPlateStyle.ts:1, SpectrumCanvas.vue:202).
+
+**Evidence.**
+
+```
+Measured: `document.querySelector('.spectrum-picker').querySelectorAll('canvas').length` → 0 (probe/probe1.mjs, field `canvasChildren`). The rendering is two stacked CSS gradients at useSpectrumPlateStyle.ts:36-39. This very seat's brief specifies "Canvas-based spectrum rendering… per-frame redraw cost, devicePixelRatio handling" as prime suspects that have no referent.
+```
+
+**Reproduction.** node docs/tranches/V/megatranche/audit/components/picker-spectrumcanvas/probe/probe1.mjs — read `canvasChildren: 0`.
+
+**Proposed cure.** Rename directory, file and component to SpectrumPlate, matching the vocabulary every comment in the cluster already uses. Fold the rename into the same wave that consolidates the single-tenant composables/ dir (CONTRIVANCE-REGISTER L-D9, census C-02) so the tree moves once.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-15 · CHALLENGE-C
+
+**Defect.** `dotPos` calls the throwing accessor `channelNumber` unguarded, where every sibling call site in the pipeline wraps it in try/catch precisely because powerless (`none`-channel) colours exist.
+
+**Mechanism.** CSS Color 4 `none` channels reach the model as non-numeric values; this computed assumes numbers where the rest of the codebase assumes they may be absent.
+
+**Evidence.**
+
+```
+SpectrumCanvas.vue:205-210 calls `channelNumber(HSVCurrentColor.value, "s")` / `"v"`; picker-color.ts:152-158 throws PickerColorError(`Missing ${space}.${key}`) when the channel is not a number. Guarded siblings: useColorPipeline.ts:88-95, useColorParsing.ts:39-46 (comment: "Powerless colors have no numeric hue"), useColorParsing.ts:76-83.
+```
+
+**Reproduction.** NONE — HYPOTHESIS. The upstream crash in C-16 fires first (the app never mounts), so the spectrum cannot be observed throwing today. If C-16 is cured by admitting `none` channels rather than rejecting them, dotPos becomes the next crash site.
+
+**Proposed cure.** Make dotPos total: fall back to the last known good (s,v) — which rawS/rawV already are — when the channel is powerless, matching the pipeline's own "retain the last deliberate value" convention rather than throwing inside a render-path computed.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/picker/cont` · C-17 · CHALLENGE-C
+
+**Defect.** Two small truth defects: a reactive ref nothing reactive consumes, and a docblock whose coherence claim names a composable that no longer exists.
+
+**Mechanism.** (a) Reactivity where a plain binding suffices — harmless in cost, but it is the kind of ambient noise that hides real state. (b) A shared-regime docblock that has outlived two of its three named consumers, so the coherence guarantee it asserts is currently unenforced by anything but convention.
+
+**Evidence.**
+
+```
+(a) SpectrumCanvas.vue:55 `const isDragging = ref(false)`; `grep -n "isDragging" SpectrumCanvas.vue` → 55, 151, 153, 160, 172, 188, 199 — all inside <script setup>, and 153/188 are only the debug gauge label string. Never read in the template. (b) spectrumLuma.ts:6 names `useGamutOverlay` as one of three consumers making the "one function, one threshold — instrument coherence" claim true; `grep -rn "useGamutOverlay" demo/ src/` → one hit, that comment. The only surviving reference is the CSS selector `.gamut-overlay` at demo/styles/foundation.css:682.
+```
+
+**Reproduction.** The two greps above, run at HEAD.
+
+**Proposed cure.** (a) Moot once C-1's cure lands: isDragging collapses into `activePointer !== null`. (b) Correct the docblock to the surviving consumers, or restore the missing ones — the claim "share the function, never copy the constant" is right and should be made true again rather than quietly false. Cross-referenced, not re-litigated: SpectrumCanvas/composables/ is a registered single-tenant contrivance (CONTRIVANCE-REGISTER L-D9, census C-02, disposition CONSOLIDATE).
+
+---
+
 ### `CHALLENGE-C — implementation defects in demo/picker/ColorPic` · C-17 · CHALLENGE-C
 
 **Defect.** `any` in the template erases the only place `selectedColorSpace` could be checked against `DisplayColorSpace`, under an otherwise strict config.
@@ -68787,6 +70389,42 @@ docs/tranches/V/megatranche/audit/visual/REPORT.json, safari-desktop-light `/`: 
 **Reproduction.** NONE — this is explicitly a HYPOTHESIS. It needs a repeat capture with HMR quiesced to separate GL loss from the [vite] module failure.
 
 **Proposed cure.** Re-capture the '/' route on a production build (no HMR) x2 matrices before attributing anything to the blob; if GL loss persists, escalate to the glass-ui producer with the trace rather than patching the demo.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-16 · CHALLENGE-D
+
+**Defect.** heroConfig reallocates four nested objects per coalesced colour frame, inside the 12ms drag budget its own sibling comment invokes as the reason to avoid iteration.
+
+**Mechanism.** The config object is rebuilt whole to change one array, so the producer re-reads an entirely new object graph each frame.
+
+**Evidence.**
+
+```
+HeroBlob.vue:152-178 — the computed spreads appBlobConfig plus fresh `geometry`, `surface` and `color` objects on every heroStops write, i.e. once per rAF-coalesced colour frame during a scrub. HeroBlob.vue:84-87 invokes "the 12ms drag headroom (PI-3 — this runs in the exact rAF-coalesced fan-out drag-frame-budget measures; an iterative solve here is forbidden)".
+```
+
+**Reproduction.** NONE — this is a hypothesis about allocation cost; no per-frame allocation measurement was taken. Structural read only.
+
+**Proposed cure.** Falls out of D-1: once the palette policy moves to the producer via bodyLightness, heroStops disappears and the hero register becomes a static object built once, with only the seed colour flowing per frame.
+
+---
+
+### `CHALLENGE-D — design (visual truth, state coverage, motion, ` · D-17 · CHALLENGE-D
+
+**Defect.** The file is a tranche ledger wearing a component's clothes: 317 lines, ~180 of them comment, six machines, three self-declared interims whose replacements have shipped.
+
+**Mechanism.** Every cure in the component's history was added beside the previous one with its provenance narrated in place; nothing was ever removed when its condition expired.
+
+**Evidence.**
+
+```
+wc -l demo/picker/visual/HeroBlob.vue = 317. Six machines: ramp derivation (:117-132), ink floor (:93-111), config overlay (:152-178), idle/park timers (:211-230), mood bindings (:252-295), emerge re-measure (:297-316), plus the KeepAlive wake (:246-250). Cross-references to W6-4, T-49c, boot-B, §0.3, PI-3, GAP-L5, D8, WR-2, S.W3, T.W4.5 R2, BD.W-GOOBLOB-MERCURY-COLONY.
+```
+
+**Reproduction.** NONE — qualitative reading, offered as an observation rather than a measured defect.
+
+**Proposed cure.** Not a god module in the edict-1 sense (it is one component), but the accumulated-interim shape is what edict 1 exists to prevent. The cures in D-1/D-2/D-3/D-9/D-10 delete roughly half the file; what should come out the other side is ~120 lines that say what the ornament is FOR rather than narrating what it has survived.
 
 ---
 
@@ -71758,6 +73396,24 @@ MixConfigBar.vue:101, :124, :148 (`<SelectValue />`, no placeholder); INTERPOLAT
 **Reproduction.** NONE — HYPOTHESIS on reachability: colorSpace is a ref local to useMixingState written only by this Select, so no live path reaches the complement today. The type hole is factual; it goes live the moment mix state is lifted, URL-persisted, or shared with the picker's 17-space catalog.
 
 **Proposed cure.** Close it structurally with C-11's membership check (narrow to the offered vocabulary at the seam), or add an explicit placeholder if the wider union is ever legitimate.
+
+---
+
+### `CHALLENGE-C — implementation defect hunt on demo/workbenches` · C-11 · CHALLENGE-C
+
+**Defect.** Three labelled HYPOTHESES with no reproduction: (1) the two `v[0]!` non-null assertions at lines 33 and 76 mask a `number[] | undefined` contract behind a truthiness guard that an empty array passes; (2) trackInk reaches parseCssColor via certifyAccentInk, and parseOklch handles !parsed.ok but not a THROW — the repo's live R1 crash class; (3) trackInk recomputes and five inline-style bindings patch per rAF-coalesced colour-drag frame.
+
+**Mechanism.** (1) type-assertion masking of an optional contract; (2) an unguarded throw path through a known-crashy parser; (3) unmeasured per-frame recompute.
+
+**Evidence.**
+
+```
+(1) ExtractControls.vue:33 `(v: number[] | undefined) => v && $emit('update:k', v[0]!)` and :76 likewise — `[]` is truthy, so v[0]! would emit undefined into colorCount.value and quantizeFromFile(file, undefined). (2) ExtractControls.vue:123 → useContrastSafeColor.ts:353 safeCss → ink.ts:130 certifyAccentInk → ink.ts:39 parseOklch → parseCssColor; the !ok branch is handled, a throw is not. (3) cssColor is the rAF-coalesced live pick; resolveLiveTintCached (useContrastSafeColor.ts:240) caches the getComputedStyle+canvas probe by (surface, darkClass, epoch) so that part is amortised, but certifyAccentInk's gamut/floor walk is not.
+```
+
+**Reproduction.** NONE for all three. (1) I could not make the live reka-ui slider emit []. (2) cssColor here is app-serialized, so I could not drive a malformed string into parseCssColor from this component. (3) UNMEASURED — I chose not to spend a browser trace on it because C-9's hoist reduces the patch count 3→1 regardless of the measurement.
+
+**Proposed cure.** (1) Replace both `v && … v[0]!` with `if (v?.length)` — same behaviour, zero assertions, edict #2 satisfied. (2) Belongs to the parser band, not this component; note the coupling so the V·π parser hardening covers ink.ts:39's call site. (3) Subsumed by C-9's hoist.
 
 ---
 
