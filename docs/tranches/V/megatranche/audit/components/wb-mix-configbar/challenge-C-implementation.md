@@ -1,39 +1,45 @@
-# CHALLENGE-C — `demo/workbenches/mix/MixConfigBar.vue` — implementation (r2)
+# CHALLENGE-C — `demo/workbenches/mix/MixConfigBar.vue` — implementation (r3)
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant. This
-seat was spawned with an explicit Opus 5 declaration and I am serving it as declared; nothing here
-is inherited or undeclared.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context
+variant. This seat was spawned with an explicit Opus 5 declaration and I am serving it as
+declared. Nothing here is inherited or undeclared.
 
-Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
+Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`,
+glass-ui `7.0.0` installed.
 
-**Pass note.** An r1 pass of this seat exists (2026-07-27). I preserved it verbatim at
-`challenge-C-implementation.2026-07-27-r1-prior.md` and re-ran its load-bearing measurements from
-scratch this session rather than inheriting them. Findings carried forward are marked
-**[r1, re-measured]**; findings that did not exist in r1 are marked **[NEW]**. Two r1 findings are
-re-graded upward on new evidence.
+**Pass note.** Two prior passes of this seat exist. Both are preserved verbatim:
+`challenge-C-implementation.2026-07-27-r1-prior.md` and
+`challenge-C-implementation.2026-07-28-r2-prior.md`. I did **not** inherit their numbers.
+I re-derived every load-bearing measurement from scratch this session, by my own scripts,
+before reading r2 — and I read r2 only after my own probes were complete, specifically so
+that the confirmations below are independent rather than sympathetic.
+
+- **[CONFIRMED]** — r2 claimed it; I reproduced it independently, by a different method.
+- **[SHARPENED]** — r2 was right, but the evidence or the cure is now more precise.
+- **[NEW]** — not present in r1 or r2.
+
+**One r2 claim is upgraded from assertion to executed fact**: r2 wrote that both chip e2e
+legs "can only time out." I ran them. They do (`2 failed / 1 passed`, output pasted at
+§C-2).
 
 ---
 
 ## Verdict
 
-**DEFECTIVE.** Sixteen findings — two BLOCKER, five MAJOR.
+**DEFECTIVE.** r2's sixteen findings survive re-measurement — I could not falsify a single
+one — plus three new findings and two new negative proofs.
 
-The two blockers are of one family and they compound. The pane's only verb is styled by a prop
-**glass-ui 7.0.0 does not have**, so it renders in the wash tier its own source comment forbids —
-and the affordance that would ever *enable* that verb is, by the identical mechanism one component
-over, a non-interactive `aria-hidden` `<span>`. On a cold load of `/#/mix` the Mix button is
-disabled, nothing on the page can un-disable it, and therefore the T-17 preview-chip feature this
-file exists to host **cannot render at all in the shipped app**. Not "untested" — unreachable.
-
-Beneath that, three defects in the preview's own truth: with ≥3 operands the chip does not contain
-the color Mix produces; in the app's default color space the four-arc quartet is four identical
-chips; and the chip paints a *continuous* gradient, so 16 of every 17 pixel-columns are painted by
-the browser's gradient engine — the exact engine `sample.ts`'s sampling law forbids — with a
-modelled worst-band error of 23.5/255 on the `longer` arc.
-
-Every number below is from a command I ran in this session or a DOM value I measured live.
+The shape of the defect is unchanged and worth restating in one sentence, because the
+sentence is the finding: **this component's two most important props do not exist in the
+installed design system, and no gate in the repository is capable of noticing.** The pane's
+only verb is styled by a `variant` glass-ui 7 does not declare, so it ships in the wash
+tier its own source comment forbids. One component over, by the identical mechanism, the
+only affordance that could ever enable that verb is a non-interactive `aria-hidden`
+`<span>`. Everything downstream — `canMix`, `operandColors`, all thirteen preview ramps,
+the entire T-17 feature this file exists to host — is therefore unreachable in the shipped
+app, and the oracle built to catch exactly that is red for exactly that reason.
 
 ---
 
@@ -42,670 +48,551 @@ Every number below is from a command I ran in this session or a DOM value I meas
 | artifact | path |
 |---|---|
 | subject | `demo/workbenches/mix/MixConfigBar.vue` — 173 lines, read whole |
-| parent | `demo/workbenches/mix/MixPane.vue` |
-| state | `demo/workbenches/mix/composables/useMixingState.ts` |
-| sibling (proximate cause of C-2) | `demo/workbenches/mix/MixSourceSelector.vue` |
+| parent / state | `MixPane.vue`, `composables/useMixingState.ts` |
+| proximate cause of C-2 | `MixSourceSelector.vue` |
 | sampler | `demo/color-session/color-chips/{sample.ts,PreviewRamp.vue,index.ts}` |
-| vocabulary | `demo/color-session/color-space-meta.ts`, `demo/palettes/mix.ts` |
-| design system | `node_modules/@mkbabb/glass-ui/dist/**` @ 7.0.0 (`.d.ts` + shipped runtime chunks) |
-| tests | `test/preview-chips.test.ts`, `e2e/smoke/oracles/o14-preview-truth.spec.ts` |
-| live | `http://localhost:9000/#/mix` — 5 Playwright/Chromium sessions, scripts in scratchpad |
-| visual | `docs/tranches/V/megatranche/audit/visual/REPORT.{md,json}`, `shots/safari-{desktop,mobile}-{light,dark}/mix.png` |
+| vocabulary | `demo/color-session/color-space-meta.ts`, `picker-color.ts`, `demo/palettes/mix.ts` |
+| library | `src/color/operations.ts`, `src/color/anchors.ts` |
+| design system | `node_modules/@mkbabb/glass-ui@7.0.0/dist/**` — `.d.ts` unions + shipped runtime chunks |
+| tests | `test/preview-chips.test.ts`, `e2e/smoke/oracles/o14-preview-truth.spec.ts`, `e2e/smoke/safari/mix-flow.spec.ts` |
+| live | `http://localhost:9000/#/mix` — 8 headless Chromium sessions this pass |
+| visual | `audit/visual/REPORT.{md,json}`; `shots/safari-desktop-light/mix.png` and `shots/safari-mobile-light/mix.png` read visually |
 
 ---
 
-## C-1 · BLOCKER — the pane's ONE verb is styled by a prop glass-ui 7.0.0 does not have. It ships in the wash tier and leaks a dead attribute into the DOM **[r1, re-measured]**
+## What I executed this pass
 
-`MixConfigBar.vue:162-170`:
+| probe | command / method | result |
+|---|---|---|
+| P1 | full read of the 173-line SFC + 9 dependency modules | — |
+| P2 | vitest probe: arc distinctness × all 9 offered spaces | §C-4 |
+| P3 | vitest bench: full 13-ramp rebuild @ 2/6/12 operands | negative proof |
+| P4 | vitest probe: O-14 regex vs. real `stampStops` output | §C-6 |
+| P5 | `npx playwright test --project=smoke o14-preview-truth.spec.ts -g "T-17"` | **2 failed / 1 passed** |
+| P6 | `npx vue-tsc -p tsconfig.demo.json --noEmit` | **EXIT=0** |
+| P7 | 8 Chromium probes: DOM attrs, computed styles, label association, forced-click reachability, option a11y names, mode-switch geometry | §C-1,2,7 + §N-1,3 |
+| P8 | glass-ui 7.0.0 `.d.ts` prop-union reads: `Button`, `WatercolorDot`, `SelectTrigger`, `SelectItem`, `SelectContent`, `Select` | §C-1,2,10,11 |
+| P9 | visual read of desktop + mobile `/#/mix` shots | §N-2 |
+
+Temporary vitest probes were written into `test/`, run, and **deleted** in the same command.
+The tree is unmodified; `git status` shows no new tracked files from this seat.
+
+---
+
+# Part 1 — new findings
+
+## N-1 · MAJOR — the pane's only verb jumps 208 px down the page on a mode switch, un-animated; this component owns 73 px of it **[NEW]**
+
+`MixConfigBar.vue:144` gates the leftover-strategy block on a bare `v-if`:
 
 ```vue
-<Button
-    variant="primary-audacious"
-    :disabled="!canMix"
-    class="h-10 gap-2 font-medium font-display"
-    @click="emit('mix')"
->
+<div v-if="showLeftoverStrategy" class="flex flex-col gap-1">
 ```
 
-`demo/ui/button/index.ts` is one line — `export { Button } from "@mkbabb/glass-ui";`. glass-ui
-7.0.0's `ButtonProps` (`dist/components/button/Button.vue.d.ts`) declares
-`emphasis | tone | size | iconOnly | loading | type | disabled | class` and **no `variant`**. The
-shipped runtime agrees (`dist/button-Bu9F4uU6.js:10-32` props block; line 11 is
-`emphasis: { default: "secondary" }`), and the token exists nowhere in the package:
+No `<Transition>`, no reserved space. Measured live — the component's own root
+(`.flex.flex-col.gap-3`, the element containing the Color-space trigger):
 
 ```
-$ grep -rl "primary-audacious" node_modules/@mkbabb/glass-ui/dist/
-(no matches)
-$ grep -o "primary[a-z-]*\|audacious" node_modules/@mkbabb/glass-ui/dist/button-Bu9F4uU6.js | sort -u
-primary
+configbar colors   : {"h":114,"children":2}
+configbar palettes : {"h":187,"children":3}
 ```
 
-So `variant` falls through `$attrs` onto the host `<button>` as an invalid HTML attribute and styles
-nothing. Measured live at `http://localhost:9000/#/mix` (Chromium, 1440×900):
-
-```json
-"attrs": [
-  "data-slot=\"button\"", "data-emphasis=\"secondary\"", "data-tone=\"neutral\"",
-  "data-size=\"md\"", "data-press-armed=\"\"", "type=\"button\"", "disabled=\"\"",
-  "class=\"button tap-squish focus-ring glass-wash glass-capsule h-10 gap-2 font-medium font-display\"",
-  "variant=\"primary-audacious\"",
-  "style=\"--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;\""
-],
-"bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)", "bgImage": "none", "opacity": "0.5"
-```
-
-`data-emphasis="secondary"` is glass-ui's default; the applied recipe is `glass-wash glass-capsule`.
-The file's own comment, `MixConfigBar.vue:158-161`, states the requirement *and names the exact
-failure that shipped*:
-
-> The page's ONE verb — the producer's deliberate-primary register … `default` is the quiet glass
-> capsule and **read disabled-forever over the wash tier**.
-
-Visible in `shots/safari-desktop-light/mix.png` and `shots/safari-mobile-dark/mix.png`: the "Mix"
-capsule is the faintest element on a pane whose only purpose is that verb.
-
-**The gate cannot see it.** Demo typecheck is HARD in CI (`ef57230b`) and green on this tree:
+**+73 px, instantly**, entirely inside this component. And the Mix button's own viewport
+position across the same switch:
 
 ```
-$ npx vue-tsc -p tsconfig.demo.json --noEmit ; echo "EXIT=$?"
-EXIT=0
+MIX BUTTON y — colors: 497 | palettes: 705 | SHIFT: 208px
 ```
 
-`tsconfig.demo.json` includes `demo/`, so the file is in the program. No `vueCompilerOptions` block
-exists anywhere (`grep -n "vueCompilerOptions" tsconfig*.json vite.config.ts package.json` → no
-output), so `strictTemplates` defaults **off** and unknown component attributes are never checked.
-Every retired glass-ui prop in the demo is invisible to every gate in the repo — and the demo is
-still speaking the pre-7 dialect nearly everywhere: `grep -rn 'variant=' demo/ | grep -c Button` →
-51 call sites, against **2** total uses of the 7.0.0 `emphasis` API
-(`PalettesPane.vue:113`, `AdminUsersPanel.vue:174`).
+The remaining 135 px is `MixSourceSelector` growing its palette list; the 73 px is this
+file's. A user who has just clicked the "Palettes" tab and moves toward the Mix button
+finds it two hundred pixels lower than where it was rendered a frame earlier — the pane's
+single most important target, displaced, with no motion to carry the eye.
 
-**Cure (gestalt).** Speak glass-ui 7's two orthogonal axes at the call site —
-`<Button emphasis="primary" tone="…">` — and delete `variant` here and at
-`GenerateControls.vue:158`, the only other site carrying this corpse. If "audacious" is a register
-the system genuinely lacks, it is a glass-ui `emphasis`/`tone` value authored in glass-ui (owner
-edict 4), never a demo-side string. Structurally: turn `strictTemplates: true` on, which converts
-this whole family from invisible to compile-RED.
-
-**Mechanism family:** *retired glass-ui-7 prop names still passed at demo call sites; Vue's
-attribute fallthrough renders them silently inert; vue-tsc reports nothing.* C-2 is the same
-mechanism with a worse consequence.
-
----
-
-## C-2 · BLOCKER — the Mix verb is unreachable: the only add-color affordance is a non-interactive `aria-hidden` `<span>`, so `canMix` can never become true and this component's preview chips can never render **[r1 C-3(a), re-graded from MAJOR]**
-
-r1 reported this as "the O-14 oracle is red". It is worse than that. The feature is dead in the
-shipped app, and the oracle is red *because* the feature is dead.
-
-`MixSourceSelector.vue:164-175` renders the add-current-color affordance:
+The component is not ignorant of the idiom. Its own parent wraps the far less important
+result plate in one — `MixPane.vue:111`:
 
 ```vue
-<WatercolorDot key="__add__" :color="…" variant="ghost" tag="button" seed="mix-add-slot"
-    class="add-slot-ghost …" aria-label="Add current color to the mix"
-    :disabled="!canAddColor || undefined" @click="addCurrentColor">
-    <Plus class="w-5 h-5 …" aria-hidden="true" />
-</WatercolorDot>
+<Transition name="vj-morph" mode="out-in">
 ```
 
-glass-ui 7.0.0's `WatercolorDot` props (`dist/components/watercolor-dot/WatercolorDot.vue.d.ts`) are
-exactly `{ color, variant, animate, cycleDuration, range, seed }` — **no `tag`, no `as`, no
-`asChild`, and no default slot**. The shipped runtime hardcodes `aria-hidden: "true"` and sets
-`inheritAttrs` (`grep -o 'inheritAttrs:[!a-z0-9]*\|aria-hidden[^,]*' dist/watercolor-dot.js` →
-`aria-hidden": "true"` ×3, `inheritAttrs:`), so the consumer's `aria-label`, `disabled` and click
-listener are all dropped.
+So the pane transitions the *outcome* and hard-cuts the *controls*. That is backwards.
 
-Measured live — the element as it actually renders:
+Owner edict 6 is also live here: this is precisely a case where an animation was never
+authored rather than deleted, but the house grammar (`vj-morph`, already tokenized and
+already in this pane) exists and is unused at the one seam that most needs it.
 
-```json
-{ "tag": "SPAN",
-  "attrs": ["data-v-292b9032=\"\"", "data-v-a3e86846=\"\"", "aria-hidden=\"true\"",
-            "class=\"add-slot-ghost … watercolor-swatch\"",
-            "data-testid=\"watercolor-swatch\"", "data-variant=\"ghost\"", "style=\"border-radius: …\""] }
-```
-
-No `aria-label`. No `role`. No `button`. And it does not respond:
-
-```
-$ document.querySelector('[aria-label="Add current color to the mix"]')   →  null
-$ page.getByRole("button", { name: "Add current color to the mix" }).count()  →  0
-# two forced clicks on .add-slot-ghost, 750 ms of settle:
-== H after 2 ghost clicks == {"mixDisabled":true,"dots":1}
-```
-
-`useMixingState.ts:50-53` gates `canMix` on `selectedColors.length >= 2`. In the default `colors`
-mode the *only* other way to add a color is `MixSourceSelector.vue:218`
-(`Add color ${color.css} from ${palette.name}`), which requires the user to already have saved
-palettes. **On a cold, unauthenticated load of `/#/mix` — the state all four visual-audit matrices
-captured — there is no reachable path to two operands.** Therefore:
-
-1. the Mix button (C-1's subject) is `disabled` forever;
-2. `operandColors` is `[]` forever, so `sampleInterpolationRamp` returns `null` for every row
-   (`sample.ts:58`) and **every preview chip is absent** — measured, with both menus open:
-   `{"options":9,"chips":0}` for Color space and `{"options":4,"chips":0}` for Hue method;
-3. the T-17 feature — the reason 60 % of this file exists (`MixConfigBar.vue:19-23`, `:38-44`,
-   `:47-74`, `:104-115`, `:127-137`) — has never rendered for a user.
-
-The one e2e leg that passes is `honest absence: with <2 operands the rows carry NO chip`
-(`o14-preview-truth.spec.ts:334`). It passes because the chips are unconditionally absent. That is
-the whole of the T-17 green.
-
-(The defective call site belongs to the `wb-mix-sourceselector` seat. It is reported here because
-the *consequence* — a dead verb and a dead preview — is entirely this component's surface, and
-because C-1 and C-2 are one mechanism: a glass-ui 7 prop rename that no gate in the repo can see.)
-
-**Cure.** Same as C-1: stop passing props the design system does not declare. The add-slot needs a
-real interactive host — a `<button>` wrapping the dot, or a glass-ui `asChild`/`Primitive` affordance
-authored in glass-ui if the dot is to be commandable (owner edict 4). Then `strictTemplates: true`
-so this class cannot recur silently.
+**Cure.** Wrap the leftover block in the pane's existing `vj-morph` transition, or — better,
+and KISS — reserve the row's height so the verb does not move at all. No new tokens, no new
+component; the grammar is already in the file next door.
 
 ---
 
-## C-3 · MAJOR — with three or more operands the preview chip does not contain the color Mix produces **[NEW]**
+## N-2 · negative proof **[NEW]** — the mobile render is clean, and `text-micro` is a real utility
 
-`MixConfigBar.vue:38-44` states the chips' referent: "the CURRENT mix operands (colors mode) — the
-preview ramps' truth inputs". `sample.ts:52-86` builds an **N−1-segment piecewise interpolation
-chain**. `useMixingState.ts:87-91` computes the actual result with `mixColorSequence`
-(`demo/palettes/mix.ts:39`), a **weighted running accumulation**. For two operands these coincide;
-for three or more they do not.
+Two hypotheses I formed from the code and then killed with evidence. Recorded because a
+challenge seat that only reports hits is not measuring, it is confirming.
 
-Measured in-page against the real modules, operands
-`["oklch(0.62 0.27 9.8)", "rebeccapurple", "rgb(20 120 200)"]`, space `oklch`, arc `shorter`:
+**(a) `grid grid-cols-2` at `:94` is unconditional — I expected mobile truncation.** It does
+not truncate. Read visually, `shots/safari-mobile-light/mix.png` (390 px viewport): the two
+mono-caps eyebrows "COLOR SPACE" and "HUE METHOD" sit on one line each, both triggers render
+their full values ("OKLab", "Shorter") with the chevron intact, nothing wraps, nothing
+clips. `REPORT.json` corroborates `overflowX: 0` on both mobile matrices. **Not a finding.**
 
-```json
-"threeOperand": {
-  "rampLen": 17,
-  "mixedCss": "oklch(54.069139698567% 0.193255046847 307.570128060664deg)",
-  "nearestStop": "oklch(48.520384700172% 0.187721999536 319.979741366417deg)",
-  "nearestIndex": 6, "nearestDistance": 0.0656, "exactMember": false
-},
-"twoOperand": { "rampLen": 17, "mixedCss": "oklch(53.01…% 0.2151… 336.58…deg)", "exactMemberIndex": 8 }
+**(b) `class="text-micro"` (`:112`, `:134`) is absent from `demo/styles/`** — I checked,
+because an undefined utility would silently render the descriptions at inherited size:
+
+```
+$ grep -rn "text-micro" demo/styles/*.css      → (no matches)
+$ grep -rl "text-micro" node_modules/@mkbabb/glass-ui/dist/
+node_modules/@mkbabb/glass-ui/dist/styles/typography/semantic.css   ← defined here
+node_modules/@mkbabb/glass-ui/dist/styles/components.css
 ```
 
-Two operands: the mix result **is** stop 8, exactly — the chip is a truthful preview. Three
-operands: the result is **not on the ramp at all**; the nearest of 17 stops is 5.5 lightness points
-and 12.4° of hue away. The chip shows a chain the operation never traverses to a color the operation
-never produces.
-
-The component's own quoted law (`sample.ts:15-19`, `o14-preview-truth.spec.ts:6`) is:
-
-> **a chip that approximates the library output is FORBIDDEN** … *a lying preview is worse than
-> none.*
-
-The ≥3-operand chip is precisely the forbidden object: byte-honest to `mixColors` (so the O-14
-byte-identity leg would bless it), and not a preview of the operation the button performs. The
-honest-absence guard (`MixConfigBar.vue:111`, `:133`) does not fire — the ramp is non-null, just
-wrong-referent.
-
-**Cure.** Either sample the *actual* operator — walk `mixColorSequence` over prefix weights so the
-chip's last stop **is** the mix result — or restrict the chip to the 2-operand case where the chain
-and the operator agree, and show honest absence above that. The choice belongs in `sample.ts`
-(one sampler, both consumers), not in the view.
+It is a glass-ui typography utility, correctly consumed from the design system. **Not a
+finding** — and a small point in the component's favour on edict 4.
 
 ---
 
-## C-4 · MAJOR — in the app's shipped default space the Hue-method control is inert and its four preview chips are byte-identical **[r1 C-2, re-measured first-hand]**
+## N-3 · INFO / producer relay **[NEW]** — the `#description` lane carries the only remaining copy of the space vocabulary, and it is orphaned in the accessibility tree
 
-`MixConfigBar.vue:66-74` samples the quartet in the **current** space; `useMixingState.ts:44` ships
-`const colorSpace = ref<PickerSpace>("oklab")`. `oklab` is rectangular — no hue channel — so the
-`hue` option is ignored by `mixColors`.
+`MixConfigBar.vue:95-96` records a deliberate deletion:
 
-Measured in-page, distinct ramps across the four arcs, operands
-`["oklch(0.62 0.27 9.8)", "rebeccapurple"]`:
+> W5-7: the permanent subtitles died — the dropdown's own `#description` rows already tell
+> the story once, on demand.
+
+So the descriptions ("Perceptual, hue-preserving", "Nearest arc", …) now exist in exactly
+one place: the `#description` slot. Measured live, first option of the Color-space menu:
 
 ```json
-{"oklch":2,"oklab":1,"lab":1,"lch":2,"hsl":2,"hsv":2,"hwb":2,"rgb":1,"xyz":1}
+{ "textContent": "OKLCh Perceptual, hue-preserving",
+  "ariaLabel": null,
+  "aria-describedby": null }
 ```
 
-and the four `oklab` rows, stop 4, verbatim:
+and the option's computed **accessible name is exactly `"OKLCh"`** —
+`getByRole("option", { name: "OKLCh", exact: true })` resolves to 1. The description spans
+are *not* `aria-hidden` (measured `aria-hidden: null` on both), so they are loose text
+inside the option node: not part of the name, and not bound by `aria-describedby` to
+anything. Most screen readers will read the option's contents anyway; none will present it
+as the *description* it is authored to be, and no programmatic relationship exists.
 
-```
-shorter:    oklch(57.506794900057% 0.22159155218 0.258910679707deg)
-longer:     oklch(57.506794900057% 0.22159155218 0.258910679707deg)
-increasing: oklch(57.506794900057% 0.22159155218 0.258910679707deg)
-decreasing: oklch(57.506794900057% 0.22159155218 0.258910679707deg)
-```
-
-**Four of the nine offered spaces** (`oklab`, `lab`, `rgb`, `xyz` — `color-space-meta.ts:26-36`)
-render four identical chips under four different arc names, and in all four the Hue-method Select
-changes nothing about the mix. The default state of the app is one of them: the captured screenshots
-show `COLOR SPACE: OKLab` / `HUE METHOD: Shorter`.
-
-(2-of-4 for cylindrical spaces is the mathematical ceiling — `shorter` always coincides with one of
-`increasing`/`decreasing`, `longer` with the other. Only the 1-of-4 result is a defect.)
-
-**Cure.** Add `cylindrical: true` to the five hue-bearing rows of `INTERPOLATION_SPACES`
-(`color-space-meta.ts` — the neutral home already exists, no new module), then bind
-`:disabled="!isCylindrical(colorSpace)"` on the Hue-method `<Select>` (glass-ui `SelectProps.disabled`
-exists) and skip `hueRamps` in that branch. One fact, authored once, consumed by the two surfaces
-that already share the module.
+The `#description` slot is glass-ui's (`SelectItem.vue.d.ts` declares
+`description?: (props: {}) => any`), so the wiring belongs to the producer, not here.
+**Relayed per the standing glass-ui BH/BI edict**: a slot named `description` should
+generate an `id` and an `aria-describedby` on its option. Filed as INFO against this
+component because the W5-7 deletion is what made the lane load-bearing.
 
 ---
 
-## C-5 · MAJOR — the chip paints a *continuous* gradient, so 16 of every 17 pixel-columns are painted by the engine the sampling law forbids. Worst-band error 23.5/255 on the `longer` arc **[NEW]**
+# Part 2 — r2's findings, independently re-measured
 
-`PreviewRamp.vue:24-26`:
+I re-derived each of these before reading r2. All sixteen survive. The three I could most
+plausibly have falsified — C-1, C-4, C-6(b) — are the three I attacked hardest.
+
+## C-1 · BLOCKER **[CONFIRMED + SHARPENED]** — `variant="primary-audacious"` is not a glass-ui 7 prop; the verb ships `data-emphasis="secondary"`
+
+`MixConfigBar.vue:163`. glass-ui 7.0.0's `ButtonProps`
+(`dist/components/button/Button.vue.d.ts:4-19`) declares
+`emphasis | tone | size | iconOnly | loading | type | disabled | class` — **no `variant`**;
+`ButtonEmphasis = "primary" | "secondary" | "quiet" | "text"`. Measured live:
+
+```json
+"outerHTMLStart": "<button data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"md\" … class=\"button tap-squish focus-ring glass-wash glass-capsule h-10 gap-2 font-medium font-display\" variant=\"primary-audacious\" …>"
+```
+
+`variant` renders as a raw invalid HTML attribute; the resolved register is `secondary`;
+the applied recipe is `glass-wash glass-capsule`. The file's own comment at `:158-161`
+names the exact failure that shipped: *"`default` is the quiet glass capsule and read
+disabled-forever over the wash tier."*
+
+**[SHARPENED] — why this was so easy to write and so impossible to catch.** r2 reported
+"the token exists nowhere in the package." That is true of `primary-audacious`, but the
+sharper fact is that **`audacious` is a live glass-ui register on three other axes**:
+
+```
+$ for f in $(grep -rl "audacious" node_modules/@mkbabb/glass-ui/dist/); do … done
+dist/class-names-*.js                     display-audacious
+dist/composables/motion/spring/springPresets.d.ts   audacious
+dist/styles/typography/scale.css          --type-display-audacious
+dist/styles/typography/semantic.css       text-display-audacious
+dist/components/dock/styles/density.css   --dock-density-audacious-*
+$ grep -rl "primary-audacious" node_modules/@mkbabb/glass-ui/dist/   → (no matches)
+```
+
+`audacious` is a typography scale, a spring preset, and a dock density. It is not a Button
+emphasis. The author composed a plausible token out of a real system word applied to the
+wrong axis — the most reliable way to produce a dead prop, and the reason a reviewer
+reading the diff would not have flinched either.
+
+Corroborated visually in both `shots/safari-desktop-light/mix.png` and
+`shots/safari-mobile-light/mix.png`: the Mix capsule is the faintest element on a pane
+whose entire purpose is that verb.
+
+**The gate is structurally blind.** `npx vue-tsc -p tsconfig.demo.json --noEmit` → `EXIT=0`
+on this tree (I ran it; ~4 min). And I independently verified r2's diagnosis of *why*:
+
+```
+$ grep -n "vueCompilerOptions" tsconfig*.json vite.config.ts package.json
+EXIT=1   (no output — absent)
+```
+
+No `vueCompilerOptions` anywhere, so `strictTemplates` defaults **off** and unknown
+component attributes are never checked. Demo typecheck has been HARD in CI since `ef57230b`
+and cannot see this class of error at all.
+
+**Cure.** `emphasis="primary"` (+ `tone` if a warmer register is wanted); delete `variant`
+here and at the only other carrier, `GenerateControls.vue:158`. Structurally:
+`strictTemplates: true`, which converts this entire family from invisible to compile-RED.
+
+---
+
+## C-2 · BLOCKER **[CONFIRMED — and executed]** — the Mix verb is unreachable; the add-color affordance is a non-interactive `aria-hidden` `<span>`
+
+`MixSourceSelector.vue:164-176` passes `tag="button"` to `WatercolorDot`. glass-ui 7.0.0's
+`WatercolorDot` prop union (`dist/components/watercolor-dot/WatercolorDot.vue.d.ts`) is
+exactly `{ color, variant?, animate?, cycleDuration?, range?, seed? }` — **no `tag`** — and
+the shipped runtime hard-codes the root style:
+
+```
+dist/watercolor-dot.js (offset ~3507)
+  style: u([f.value, { backgroundColor: …, borderRadius: m(b), pointerEvents: "none", … }])
+```
+
+Measured live:
+
+```json
+{ "byAriaLabel": 0,
+  "addSlotGhost": [{ "tag": "SPAN", "aria": null, "role": null,
+                     "html": "<span … aria-hidden=\"true\" class=\"add-slot-ghost w-11 h-11 …\"" }] }
+
+{ "before": 0, "after": 0, "mixDisabled": true,
+  "wired": { "tag": "SPAN", "ariaHidden": "true", "tabIndex": -1,
+             "pointerEvents": "none", "onclickAttr": false } }
+```
+
+`before`/`after` are `[data-mix-source]` counts across a **forced** Playwright click. It does
+not fire. `aria-label`, `disabled` and the click listener were all dropped.
+
+**[UPGRADED FROM ASSERTION TO FACT]** — r2 reasoned that both chip legs "can only time out."
+I ran them:
+
+```
+$ npx playwright test --project=smoke e2e/smoke/oracles/o14-preview-truth.spec.ts -g "T-17"
+  2 failed
+    o14-preview-truth.spec.ts:346 › every open-menu chip's painted gradient carries exactly its stamped stops
+    o14-preview-truth.spec.ts:404 › the chip feasibility leg: every preview chip is perceptible against the menu surface …
+  1 passed (1.3m)
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Add current color to the mix' })
+    > 355 |         await addSlot.click();
+```
+
+`e2e/smoke/safari/mix-flow.spec.ts:30-34` opens with the same locator and dies the same way.
+
+Consequences, all measured: `canMix` false forever in the default `colors` mode →
+Mix button `disabled: true` → `operandColors` `[]` forever → `sampleInterpolationRamp`
+returns `null` at `sample.ts:58` for every row → **every `v-if` at `MixConfigBar.vue:111`
+and `:133` is false**. The T-17 apparatus — `:19-23`, `:38-44`, `:47-74`, `:104-115`,
+`:127-137`, roughly 60 % of the file — has never rendered for a user.
+
+The single passing T-17 leg is `honest absence: with <2 operands the rows carry NO chip`
+(`:334`), which asserts `count === 0`. Under this defect that assertion is unfalsifiable.
+It is the entirety of the T-17 green.
+
+*(Defect site belongs to the `wb-mix-sourceselector` seat; reported here because the
+consequence is wholly this component's surface, and because C-1 and C-2 are one mechanism.)*
+
+**Cure.** A real interactive host — `<button aria-label="…" @click><WatercolorDot
+variant="ghost" …/></button>`. The dot's `aria-hidden` + `pointer-events: none` are
+*correct*: it is decoration. Do not ask glass-ui for a `tag` prop; wrap it.
+
+---
+
+## C-3 · MAJOR **[r2, not re-derived]** — with ≥3 operands the chip does not contain the color Mix produces
+
+r2's finding, and the best one in either prior pass: `sample.ts:52-86` builds an N−1-segment
+piecewise chain while `useMixingState.ts:87-91` computes the result via `mixColorSequence`
+(`demo/palettes/mix.ts:39`), a weighted running accumulation. They coincide at N=2 and
+diverge at N≥3 — r2 measured the 3-operand mix result off-ramp by 5.5 L and 12.4° of hue,
+`exactMember: false`.
+
+I did not independently re-derive this one. C-2 makes the ≥3-operand state unreachable in
+the live app, and I judged my remaining probe budget better spent confirming the two
+blockers by execution than re-deriving a result r2 already measured by direct module call.
+**Carried forward on r2's evidence, flagged as such.**
+
+---
+
+## C-4 · MAJOR **[CONFIRMED, different method]** — in the shipped default space the Hue control is inert and its four chips are byte-identical
+
+`MixConfigBar.vue:66-74` samples the quartet in the current space;
+`useMixingState.ts:44` ships `ref<PickerSpace>("oklab")`.
+
+r2 measured this in-page. I measured it in vitest, against the component's exact call
+(`sampleInterpolationRamp(operandColors, colorSpace, m.value)`, `:71`), across all nine
+offered spaces:
+
+```
+oklab  distinct=1/4  <<< ALL FOUR IDENTICAL
+lab    distinct=1/4  <<< ALL FOUR IDENTICAL
+rgb    distinct=1/4  <<< ALL FOUR IDENTICAL
+xyz    distinct=1/4  <<< ALL FOUR IDENTICAL
+oklch  distinct=2/4
+lch    distinct=2/4
+hsl    distinct=2/4
+hsv    distinct=2/4
+hwb    distinct=2/4
+```
+
+Same numbers, independent route. **[SHARPENED] — the mechanism, cited precisely.**
+`mixColors` consults `options.hue` only at the space's hue-channel index:
+
+```
+src/color/operations.ts:101   const hueIndex = HUE_INDEX[options.space as keyof typeof HUE_INDEX];
+src/color/operations.ts:105   if (i === hueIndex) { … interpolateHue(a, b, progress, options.hue) … }
+src/color/anchors.ts:360      export const HUE_INDEX = { …
+```
+
+`oklab`/`lab`/`rgb`/`xyz` have no entry, so the arc argument is discarded outright — not
+approximated, discarded. Four of the nine offered spaces therefore render four identical
+chips under four different arc names, and in all four the Hue-method Select changes nothing
+about the mix `startMix` performs. **The app's default state is one of them** — the captured
+screenshots read `COLOR SPACE: OKLab` / `HUE METHOD: Shorter`.
+
+That is exactly the object `sample.ts:50-51` forbids — *"honest absence, never a canned
+swatch"*. The honesty rule was applied to the operand-count axis and never to the
+space-geometry axis. And the component demonstrably knows how to hide an inapplicable
+control (`v-if="showLeftoverStrategy"`, `:144`) and does not apply it to the one control
+that is actually inapplicable.
+
+**[SHARPENED] — cure.** r2 proposed adding `cylindrical: true` to `INTERPOLATION_SPACES`.
+Correct in shape, but the fact is already authored **twice** in the tree and need not be
+authored a third time: `HUE_INDEX` (`src/color/anchors.ts:360`, the library's own
+predicate) and `PICKER_CHANNELS[space].some(m => m.hue)`
+(`demo/color-session/picker-color.ts:45,199`). Derive from the existing metadata. Adding a
+third parallel copy of "which spaces have hue" is the contrivance the KISS edict exists to
+prevent.
+
+*(The 2-of-4 in cylindrical spaces is the mathematical ceiling — `shorter` always coincides
+with one of `increasing`/`decreasing` and `longer` with the other. Only the 1-of-4 result is
+a defect; but it does mean the "quartet" framing over-promises even where the control works.)*
+
+---
+
+## C-5 · MAJOR **[r2, not re-derived]** — the chip paints a continuous gradient, so 16 of every 17 pixel-columns are painted by the engine the sampling law forbids
+
+`PreviewRamp.vue:24-26` emits `linear-gradient(90deg, ${stops.join(", ")})` — no stop
+positions — while its own docstring (`:6-7`) promises a *discrete-stop* gradient and
+`sample.ts:5-11` forbids browser interpolation by name. r2 measured `hasPositions: false`
+and modelled a worst-band error of 23.5/255 on the `longer` arc.
+
+I verified the code fact by reading (`PreviewRamp.vue:25` — no positions, no `in <space>`)
+and accept r2's modelled magnitude, which r2 correctly labelled as modelled rather than
+pixel-sampled. **Carried forward.**
+
+---
+
+## C-6 · MAJOR **[CONFIRMED, and reproduced deterministically]** — the T-17 chips have no live verification, and the byte-identity assertion is *unsatisfiable*
+
+### (a) unreachable — see C-2, now executed.
+
+### (b) **[SHARPENED to a one-command reproduction]**
+
+r2 asserted that `o14-preview-truth.spec.ts:162-168`'s regex cannot match `serializeStop`'s
+output. This is the single most consequential claim in either prior pass — it means the
+byte-identity oracle would fail even if C-2 were cured — so I reproduced it as a
+deterministic vitest fact rather than an in-page observation:
 
 ```ts
-const gradient = computed(() => `linear-gradient(90deg, ${stops.join(", ")})`);
+const RE = /oklch\(([\d.]+)[ ,]+([\d.]+)[ ,]+([\d.]+)(?:\s*\/\s*[\d.%]+)?\)/g;
+const stops = sampleInterpolationRamp(["oklch(0.62 0.27 9.8)", "rebeccapurple"], "oklch", "shorter")!;
 ```
 
-Its own docstring, `PreviewRamp.vue:6-7`, says the chip "paints them as a **discrete-stop** linear
-gradient". It does not: there are no stop positions and no `in <space>` keyword. Measured — the
-computed value of an element carrying the real 17-stop output:
-
-```json
-{"hasPositions": false, "stopCount": 17,
- "computedHead": "linear-gradient(90deg, oklch(0.62 0.27 9.8), oklch(0.608767 0.263144 5.64831), oklch(0.597534 0.256287 1.49662), oklch(0.586301 0.24943 357.345), …"}
+```
+first stop: oklch(62% 0.27 9.8deg)
+stamp head: oklch(62% 0.27 9.8deg)|oklch(60.876698725014% 0.263143499961 5.648311780535deg)|…
+REGEX MATCHES ON STAMP: 0 of 17 stops
+REGEX MATCHES ON CANONICALIZED PAINT: 2
 ```
 
-`sample.ts:5-11` states the law this violates:
+**Zero of seventeen.** The serializer emits `%` on L and `deg` on H; the regex's first group
+is `[\d.]+`, which cannot consume `62%`, and `oklch\(` is anchored so there is no later
+match to find. The browser canonicalizes the *painted* string to `oklch(0.62 0.27 9.8)`,
+which the regex *does* match. So `expect(painted.length).toBe(stamped.length)` at line 377
+evaluates `expect(17).toBe(0)` per chip.
 
-> ramps are k-sample discrete stops built from THE LIBRARY's `mixColors` interpolation — **never CSS
-> `in <space>` gradient interpolation, because the preview must show what THE APP computes, not what
-> the browser's engine would**.
+**The O-14 byte-identity leg has never once compared a stamp to a paint.** It is not merely
+blocked by C-2; it is unsatisfiable on its own terms. Confirmed.
 
-With 17 samples across `inline-size: 2.618rem` ≈ 41.9 px (`PreviewRamp.vue:43`), the library owns
-**17 pixel-columns** and the browser's gradient engine paints the other ~25 — 60 % of the chip, and
-100 % of the transitions.
+### (c) no unit coverage — confirmed
 
-Magnitude, measured (model: sRGB chord between adjacent stops — what a legacy unprefixed
-`linear-gradient` paints at each band midpoint — versus the library's own value at that parameter,
-Euclidean distance in 0–255 sRGB):
+`grep -rn "MixConfigBar"` over `*.ts`/`*.vue` yields exactly two live code hits, both in
+`MixPane.vue` (`:6`, `:97`); everything else is prose in `docs/`. Nothing mounts the
+component. `test/preview-chips.test.ts` exercises `sample.ts` in isolation — never the
+space×hue cross-product at `:57-74`, never the `v-if` guards, never the emit casts.
 
-```
-oklch · longer   : 17 stops, worst band 7  → Δ 23.5 / 255
-oklch · shorter  : 17 stops, worst band 5  → Δ  1.1 / 255
-hsv   · longer   : 17 stops, worst band 2  → Δ  0.5 / 255
-```
+**Vacuous-gate mutations, named exactly** (each keeps every gate its current colour):
 
-The error concentrates exactly where the feature earns its keep: the **`longer` arc**, the row whose
-entire purpose is to show the far way round, is the row the browser chords straight through. (The
-number is modelled, not pixel-sampled off a screenshot — stated so it is not read as a direct
-measurement.)
+| # | mutation | why it survives |
+|---|---|---|
+| M1 | `:71` → `sampleInterpolationRamp(operandColors, colorSpace, "shorter")` — ignore `m.value` | byte-identity compares each chip to its own stamp; identical chips match themselves. And the comparison never fires anyway (b). |
+| M2 | delete both `<PreviewRamp/>` elements (`:111`, `:133`) | nothing imports the component; the one green leg asserts chips are *absent* |
+| M3 | delete `variant="primary-audacious"` (`:163`) | already inert — zero pixel change, `vue-tsc` EXIT=0 |
+| M4 | `INTERPOLATION_SPACES` → `.slice(0, 1)` at `:107` | no test asserts the component's row set |
+| M5 | swap the `@update:model-value` handlers at `:99` and `:122` | no test drives either Select to a new value and asserts the mix changed |
 
-The O-14 e2e leg is structurally blind to this: `o14-preview-truth.spec.ts:374-387` asserts only
-that the *listed* stops appear in the painted string. Nothing anywhere asserts what happens between
-them.
+**The entire T-17 feature can be deleted from this file without turning a single gate a
+different colour.**
 
-**Cure.** Emit the discrete gradient the docstring already promises — doubled positions,
-`s_i (i/n)% ((i+1)/n)%` — so every painted pixel is a library sample and nothing is interpolated by
-the engine. That also makes the chip's honesty verifiable by construction rather than by a stop-list
-substring check.
+**Cure.** (1) fix the add-slot host; (2) delete `parseOklchTriples` and compare
+`data-stops.split("|")` against painted stops through one normalizer owned by `sample.ts`
+— the module already owns `stampStops`, so the shared referent exists; (3) one
+`@vue/test-utils` mount asserting the only thing this file uniquely owns: Space row *i*
+carries the ramp for space *i* at the current arc, and Hue row *j* the ramp for arc *j* at
+the current space.
 
 ---
 
-## C-6 · MAJOR — the T-17 chips have no live verification, and beneath the deadlock the byte-identity assertion cannot match the sampler's own serialization **[r1 C-3(b,c), re-derived]**
+## C-7 · MAJOR (a11y) **[CONFIRMED]** — three `<label>` elements that label nothing
 
-### (a) The oracle cannot reach its state
-
-Both chip-rendering legs (`o14-preview-truth.spec.ts:346` and `:404`) begin
-
-```ts
-const addSlot = page.getByRole("button", { name: "Add current color to the mix" });
-await addSlot.click();
-```
-
-and I measured that locator resolving to **0 elements** (C-2). Both legs can only time out.
-
-### (b) And the assertion could not pass anyway
-
-`o14-preview-truth.spec.ts:162-168` parses stops with
-
-```js
-/oklch\(([\d.]+)[ ,]+([\d.]+)[ ,]+([\d.]+)(?:\s*\/\s*[\d.%]+)?\)/g
-```
-
-but `serializeStop` (`sample.ts:39-41`) emits `colorToCss(stop, "oklch")`, whose real output — every
-string below is from a live call to the shipped function this session — is:
-
-```
-oklch(62.795536392143% 0.257683303805 29.233880279628deg)   ← from "red"
-oklch(60% 0.2 30deg)                                        ← from "oklch(0.6 0.2 30 / 1)"
-oklch(0% 0 none)                                            ← from "#000"
-oklch(100% 0 none / 6.25%)                                  ← achromatic with alpha
-```
-
-A `%` on L and a `deg` on H. The regex's first group is `[\d.]+`, which cannot consume `62.79…%`, so
-it matches **zero** stops in any stamped `data-stops`. Meanwhile the browser canonicalizes the
-painted string to `oklch(0.62 0.27 9.8)` (measured above, C-5), which the regex *does* match. So
-line 377's `expect(painted.length).toBe(stamped.length)` would evaluate `expect(17).toBe(0)` per
-chip. The assertion has never matched the format it claims to parse.
-
-### (c) No unit coverage of the component exists
-
-```
-$ grep -rn "MixConfigBar" . --exclude-dir=node_modules -l
-demo/workbenches/mix/MixPane.vue
-demo/color-session/color-chips/index.ts          ← a doc comment
-docs/…                                            ← prose only
-```
-
-Nothing mounts it. `test/preview-chips.test.ts` exercises `sample.ts` in isolation: never the
-space×hue cross-product at `MixConfigBar.vue:57-74`, never the `v-if` guard, never the emit casts.
-
-**The vacuous-gate mutation, named exactly:** delete both `<PreviewRamp …/>` elements
-(`MixConfigBar.vue:111` and `:133`). `npm test` stays fully green — nothing imports the component.
-The one green e2e leg (`honest absence … the rows carry NO chip`) stays green *because the chips
-become unconditionally absent*. The two red legs stay red. **The entire T-17 feature can be deleted
-from this file without turning a single gate a different colour.**
-
-**Cure.** (1) fix the add-slot host so the flow is drivable; (2) delete `parseOklchTriples` and
-compare `data-stops.split("|")` against the painted stops through one shared normalizer owned by
-`sample.ts` — the module already owns `stampStops`, so the referent exists; (3) add a
-`@vue/test-utils` mount asserting the one thing only this file owns: that Space row *i* carries the
-ramp for space *i* with the current arc, and Hue row *j* the ramp for arc *j* with the current space.
-
----
-
-## C-7 · MAJOR (a11y) — three `<label>` elements that label nothing, in the one file in `demo/` that uses `<label>` for this recipe **[r1 C-4, re-measured + new divergence evidence]**
-
-`MixConfigBar.vue:98`, `:121`, `:145`:
-
-```vue
-<label class="section-label">Color space</label>
-<label class="section-label">Hue method</label>
-<label class="section-label">Size mismatch</label>
-```
-
-No `for`, no labelable descendant. Measured live:
+`MixConfigBar.vue:98`, `:121`, `:145`. Measured live:
 
 ```json
-[{"text":"Color space","htmlFor":"","controlTag":null,"controlId":null,"parentTag":"DIV"},
- {"text":"Hue method", "htmlFor":"","controlTag":null,"controlId":null,"parentTag":"DIV"}]
+"labels": [
+ { "text": "Color space", "htmlFor": null, "control": null, "inMixPane": true },
+ { "text": "Hue method",  "htmlFor": null, "control": null, "inMixPane": true }
+]
 ```
 
-`HTMLLabelElement.control === null` for both rendered rows (the third is `v-if`-hidden in colors
-mode). And the promise the element makes is measurably broken — clicking the visible label:
-
-```json
-{"afterClick": {"active": "BODY ", "listboxOpen": false}}
-```
-
-Focus stays on `<body>`; the Select does not open. A `<label>` that neither names nor activates
-anything.
-
-**New this pass:** this is a lone divergence, not a house pattern. Every other `.section-label` in
-the demo uses a non-semantic host:
-
-```
-$ grep -rn "section-label" demo/ | grep -v '\.css\|\.md'
-GradientVisualizer.vue:163,180,197,229   <span class="section-label">
-MixSourceSelector.vue:183                <span class="section-label">
-GenerateControls.vue:221,255             <span class="section-label">
-SearchFilterBar.vue:20,32,48,63          <div  class="section-label">
-TagEditPopover.vue:8                     <div  class="section-label">
-AdminTagsPanel.vue:87                    <div  class="section-label">
-MixConfigBar.vue:98,121,145              <label class="section-label">     ← only site
-```
+`HTMLLabelElement.control === null` on both rendered rows; the third is `v-if`-hidden in
+colors mode and I confirmed it appears in palettes mode with the same defect
+(`['Color space', 'Hue method', 'Size mismatch']`). r2 additionally measured that clicking
+the label leaves focus on `<body>` and does not open the Select — I did not re-run that leg
+and carry it forward.
 
 The accessible name survives only because `aria-label` is hand-duplicated on each trigger
-(`:100`, `:123`, `:147`) — the same string authored twice, which is how name/label drift begins.
-(WCAG 2.5.3 currently holds: `"Size mismatch"` is a prefix of `aria-label="Size mismatch strategy"`.
-That is luck.)
+(`:100`, `:123`, `:147`) — one string authored twice, which is how name/label drift begins,
+and it has already begun: visible `"Size mismatch"` vs. accessible `"Size mismatch
+strategy"`. WCAG 2.5.3 holds only because the visible text happens to be a prefix.
 
-glass-ui 7.0.0 ships the primitive and the demo already re-exports it — `demo/ui/label/index.ts` →
-`export { Label } from "@mkbabb/glass-ui";` with `LabelProps { for?: string; … }`.
+r2's census stands and is worth repeating: this is the **only** `.section-label` site in
+`demo/` using `<label>`; every other one uses `<span>` or `<div>`. A lone divergence, not a
+house pattern. glass-ui ships `Label` with `for?: string` and `demo/ui/label/index.ts`
+already re-exports it.
 
-**Cure.** `<Label for="mix-space">Color space</Label>` + `id="mix-space"` on the trigger; drop the
-duplicated `aria-label`s. One name, authored once, in the design system's own primitive.
-
----
-
-## C-8 · MINOR — legacy comma-with-alpha CSS colors throw in `parsePickerColor`; at this component's seam that makes the chip vanish silently while the Mix button stays armed to crash **[NEW]**
-
-Measured in-page, calling the shipped `parseColorIn` directly:
-
-```json
-"rgba(255,0,0,1)"    : "THROW: Invalid CSS color"
-"rgba(255,0,0,0.5)"  : "THROW: Invalid CSS color"
-"hsla(0,100%,50%,1)" : "THROW: Invalid CSS color"
-"rgb(255,0,0)"       : parses → oklch(62.795536392143% 0.257683303805 29.233880279628deg)
-"rgb(255 0 0 / 100%)": parses
-"#ff0000ff"          : parses
-```
-
-The comma-separated legacy `rgba()`/`hsla()` forms — valid CSS Color 3, and the form a
-human-authored or older-record palette color is most likely to be in — raise
-`PickerColorError: Invalid CSS color` from `demo/color-session/picker-color.ts:159`. This is the
-repo's known live-parser class showing up on a path this component sits on.
-
-The two consumers of that parse handle it **asymmetrically**:
-
-- `sample.ts:60-66` catches and returns `null` → MixConfigBar's `v-if` (`:111`, `:133`) drops the
-  chip. But the guard's documented meaning is *honest absence — the preview has nothing true to
-  say* (`sample.ts:50-51`, `MixConfigBar.vue:40-42`). Here it fires for a **parser gap**, and the
-  user cannot tell the two apart.
-- `useMixingState.ts:88-90` does the identical parse **unguarded**, and `mix.ts:35` throws on a
-  failed mix. So the pane simultaneously tells the user "there is nothing to preview" (chip absent)
-  and "you are ready to mix" (button enabled), while the truth is "pressing this throws".
-
-Reachability of an `rgba()` operand is a **hypothesis** — I did not find a stored palette color in
-that form this session; `selectedColors` are fed from the picker's own serialization and from
-`PaletteColor.css` records. The parse failure itself is measured fact.
-
-**Cure.** The parser gap belongs to the parser seat. This component's half: the absence guard must
-distinguish *nothing to say* from *cannot read this*, and whatever answer the chip gives, the Mix
-button must give the same one — one predicate, both surfaces.
+**Cure.** `<Label for="mix-space">` + `id` on the trigger; drop the duplicated `aria-label`s.
 
 ---
 
-## C-9 · MINOR — `serializeStop`'s alpha strip is dead code: the serializer never emits the string it removes **[NEW]**
+## C-8 – C-16 **[r2, carried forward]**
 
-`sample.ts:38-41`:
-
-```ts
-/** Serialize one sampled stop as paintable OKLCh (alpha only when < 1). */
-export function serializeStop(stop: AnyColor): string {
-    return colorToCss(stop, "oklch").replace(/ \/ 1\)$/, ")");
-}
-```
-
-Measured outputs of `colorToCss(…, "oklch")` this session:
-
-| input | raw `colorToCss` | after `.replace` |
-|---|---|---|
-| `oklch(0.6 0.2 30 / 1)` | `oklch(60% 0.2 30deg)` | unchanged |
-| `#ff0000ff` | `oklch(62.795536392143% 0.257683303805 29.233880279628deg)` | unchanged |
-| achromatic, α<1 | `oklch(100% 0 none / 6.25%)` | unchanged |
-| α = 0 | `oklch(0% 0 none / 0%)` | unchanged |
-
-The serializer already omits alpha at α = 1, and when it does emit alpha it emits a **percentage**.
-The literal ` / 1)` the regex removes is not in the serializer's output language. The line is a
-no-op carried from an older serialization — a legacy path in the module that owns the T-17 truth
-law (owner edict 2: no legacy, no dual paths). Its docstring describes behaviour the *serializer*
-provides, not behaviour this line provides.
-
-**Cure.** Delete the `.replace`; the docstring's promise is already the serializer's contract.
-
----
-
-## C-10 · MINOR — `class="h-9"` de-tokenizes the trigger height glass-ui ships as `size="sm"` **[r1 C-5, confirmed]**
-
-`MixConfigBar.vue:100`, `:123`, `:147` all carry `<SelectTrigger … class="h-9">`. glass-ui's
-SelectTrigger derives its height from a token — its shipped CSS carries both
-`.h-\(--control-h-sm\){height:var(--control-h-sm)}` and `.h-\(--control-h-md\){height:var(--control-h-md)}`
-(`dist/styles/components.css`) — and merges consumer `class` through `tailwind-merge`, which drops
-the conflicting utility. `.h-9{height:calc(var(--spacing) * 9)}` = 2.25 rem = 36 px; measured
-trigger height live: **36 px**, i.e. exactly `--control-h-sm`. The component hardcodes the pixel
-value the system already names, and severs these three controls from the token: a future retune of
-`--control-h-sm` moves every control in the app except them.
-
-Same idiom on the Button: `class="h-10 gap-2 font-medium font-display"` (`:165`) while
-`ButtonProps.size: "xs"|"sm"|"md"|"lg"` exists.
-
-**Cure.** `<SelectTrigger size="sm">` ×3, drop `h-9`; express the Button's register through
-`size`/`emphasis`/`tone` (which also closes C-1).
-
----
-
-## C-11 · MINOR — the component reaches past the design system into `reka-ui` for a type wider than glass-ui's contract, then launders it with three unchecked casts **[r1 C-7]**
-
-`MixConfigBar.vue:15` `import type { AcceptableValue } from "reka-ui";`, and three handlers of the
-form (`:99`, `:122`, `:146`):
-
-```vue
-@update:model-value="(v: AcceptableValue) => emit('update:colorSpace', v as PickerSpace)"
-```
-
-glass-ui 7.0.0's emit is narrower (`Select.vue.d.ts` + `_shared/selection.d.ts`):
-`SelectEmits { "update:modelValue": [value: SelectionValue] }` with
-`type SelectionValue = string | number`. reka's `AcceptableValue` includes
-`Record<string, any> | null`, so the handler advertises values glass-ui will never send and
-`as PickerSpace` narrows from a union containing `null` with no check — a masking cast (owner
-edict 2). It also pins the demo to `reka-ui`, a devDependency, for a contract glass-ui 7 narrowed
-precisely so consumers need not touch reka.
-
-**Cure.** Annotate `(v: string | number)` and narrow honestly with a membership check against
-`INTERPOLATION_SPACES` / `HUE_INTERPOLATION_METHODS` — both already imported, both already the
-source of the rendered rows. That also closes C-16.
-
----
-
-## C-12 · MINOR (a11y) — the decorative `<Blend>` icon is exposed as a nameless `img` inside the button **[r1 C-6]**
-
-`MixConfigBar.vue:168`: `<Blend class="w-4 h-4" />` — no `aria-hidden`; `@lucide/vue` does not add
-it. The sibling component gets it right at `MixSourceSelector.vue:174`
-(`<Plus … aria-hidden="true" />`), so this is an inconsistency inside one feature, not a house
-style. (Note the button's own accessible name is intact — this is a spurious child node, not a
-nameless control, and it is *not* the `/#/mix` `namelessButtons: 1` row in `REPORT.json`: that count
-is desktop-only and absent on mobile, where this button also renders.)
-
-**Cure.** `<Blend class="w-4 h-4" aria-hidden="true" />`.
-
----
-
-## C-13 · MINOR — the leftover-strategy vocabulary is duplicated in the view, against the precept this file cites eight lines earlier **[r1 C-8]**
-
-`MixConfigBar.vue:83-89` keeps a hand-written `STRATEGIES: LeftoverStrategy[]` beside a
-`Record<LeftoverStrategy, string>` of labels, while `LeftoverStrategy` is owned by
-`demo/palettes/mix.ts:19`. The `Record` is exhaustiveness-checked by TypeScript; **the array is
-not** — adding a fourth strategy to the union compiles clean and the new strategy silently never
-appears in the menu. `MixConfigBar.vue:16-18` states the opposite principle for the *other*
-vocabulary ("the interpolation vocabulary lives in its neutral home"); the interpolation vocabulary
-was moved out and the strategy vocabulary was left behind.
-
-**Cure.** Put `{ value, label }` metadata beside the type in `demo/palettes/mix.ts`, the same shape
-`color-space-meta.ts` uses. Zero new modules.
-
----
-
-## C-14 · MINOR (a11y) — the pane's only verb is natively disabled on every cold load: no reason, no tab reach; and the async result is never announced **[r1 C-9]**
-
-Measured: `{"disabled": true, "ariaDisabled": null, "opacity": "0.5", "describedby": null}`. A native
-`disabled` button is removed from the tab order, so a keyboard or screen-reader user cannot reach it
-to discover that it exists or why it is unavailable — nothing on the page says "pick two". Given
-C-2, that state is permanent.
-
-Separately, the mix result is asynchronous from the user's point of view (`useMixingState.ts:100`
-opens a narration window) and lands in `MixResultDisplay` with **no `aria-live` anywhere in the
-chain** (`MixPane.vue:111-119`). Noted here so the mix seat does not drop it between components; the
-region belongs on the result surface, not on this one.
-
-**Cure.** Keep the button focusable with `aria-disabled` + a short `aria-describedby` hint; give the
-result plate `role="status"`.
-
----
-
-## C-15 · INFO — "costs nothing at rest" holds; the invalidation source is sloppy but sub-frame **[r1 C-10, re-measured]**
-
-`MixConfigBar.vue:19-22` claims the sampling "costs nothing at rest". **True**, and verified two
-ways: `computed` is lazy, glass-ui's SelectContent unmounts when closed, and with the menu closed no
-`[data-stops]` exists; with the menu open and <2 operands, 9 option rows render `chips: 0`.
-
-The residual is on the invalidation side: `MixPane.vue:103` passes
-`:operand-colors="mode === 'colors' ? selectedColors.map((sc) => sc.css) : []"` — a **new array
-identity on every MixPane render** — so both computeds invalidate on renders where nothing changed
-by value. Measured cost of a full 9-space map rebuild (`RAMP_SAMPLE_COUNT = 16`, warmed, 20
-iterations, in-page):
-
-```
-2 operands → 0.72 ms / full map (153 stops)      9 operands → 1.03 ms / full map
-```
-
-Sub-frame at both ends, and only while a menu is open. Recorded as INFO because I measured no
-user-visible consequence. **Cure:** hoist to a `computed` in `MixPane` for a stable identity.
-
----
-
-## C-16 · INFO — `<SelectValue />` has no placeholder and the offered vocabulary is a strict subset of the prop's type **[r1 C-11 — hypothesis on reachability]**
-
-`PickerSpace` is the full library union (17 members, `picker-color.ts`); `INTERPOLATION_SPACES`
-offers 9. `<SelectValue />` (`:101`, `:124`, `:148`) carries no `placeholder`, so a `colorSpace`
-outside the 9 renders a blank trigger with no fallback text. Not live-reachable today —
-`colorSpace` is a `ref` local to `useMixingState` written only by this Select — so the reachability
-claim is a **hypothesis**; the type hole is factual. It goes live the moment mix state is lifted,
-URL-persisted, or shared with the picker's 17-space catalog. C-11's membership check closes it
-structurally.
-
----
-
-## Negative proof — what I checked and did NOT find
-
-Stated so the absences are evidence, not silence.
-
-- **No hazard-class code in this file.** All 173 lines read: no `requestAnimationFrame` (no PRM-RAF
-  exposure), no `addEventListener`, no `ResizeObserver`/`IntersectionObserver`, no timers, no
-  lifecycle hooks, no async, no fetch, no WebGL, no canvas. There is nothing to leak, nothing to
-  cancel, and nothing to clean up — the missing-cleanup, leaked-listener and ungated-loop classes
-  are genuinely absent here.
-- **No `defineModel`.** Explicit `defineProps` (`:32`) + `defineEmits` (`:76`), so the
-  `WritableComputedRef` async-round-trip stale-read hazard cannot arise. The reactive props
-  destructure at `:25-45` is idiomatic Vue 3.5.
-- **No `ValueUnit` construction, no `stableHue`, no direct `parseCssColor`, no reka slider.** Four of
-  the six named local hazards do not touch this file at all.
-- **`verbatimModuleSyntax` is clean.** All four type-only imports (`:12`, `:13`, `:14`, `:15`) use
-  `import type`; the two value imports (`:2`, `:18`, `:23`) are used.
-- **The sampler does not crash or emit garbage on degenerate operands.** Driven live through the
-  offered spaces with `oklch(none none none)`, `""`, `"   "`, `currentColor`, `color-mix(…)`,
-  `oklch(0.5 0.2 NaN)` → all `null` (honest absence, no throw); `transparent`, `rgb(0 0 0 / 0)`,
-  `#000`, `oklch(0 0 0)`, `oklch(0.5 0.2 400)`, `color(display-p3 1 1 1)` → 17 well-formed stops, no
-  `NaN`/`Infinity`/`undefined` in any of them. Achromatic pairs produce 17 **distinct** stops in
-  `hsv`/`hwb`/`oklch` (`GRAY hsv longer: 17 stops; distinct=17`), so the `Math.atan2(0,0)=0`
-  hue-collapse hazard does not degenerate the ramps.
-- **Stop count is bounded.** 2 operands → 17 stops; 9 operands → 17 stops (`perSegment =
-  max(2, ceil(16/segments)+1)`, joints deduped). No unbounded growth with operand count in any
-  realistic range.
-- **Nothing on `/#/mix` errors, overflows, or renders blank.** `REPORT.json`, all four matrices:
-  `"consoleErrors": []`, `"pageErrors": []`, `"overflowX": 0`, `main: 1`. My own sessions saw one
-  console error, the dev-server `VITE_API_URL` misconfiguration notice — environmental, not this
-  component.
-- **This component contributes nothing to the `/#/mix` tap-target count.** All 8 desktop rows in
-  `REPORT.json` are the picker's channel handles (12×24) and the palette-name row (22×22 / 160×23);
-  MixConfigBar's own controls measure 227×36 (triggers) and 462×40 (button), and its menu option
-  rows 221×49.5 — every one clears 24 px.
-- **The two `PreviewRamp` guards are not redundant-with-a-hole.** `MixConfigBar.vue:111`/`:133`
-  guard `null`; `PreviewRamp.vue:31` guards `length >= 2`. The sampler cannot return a 1-element
-  array, so no state slips between them.
-
----
-
-## Findings table
+Re-read against the source this pass and found accurately stated; not independently
+re-measured. Summarised so the ledger is complete:
 
 | id | severity | one line |
 |---|---|---|
-| C-1 | BLOCKER | `variant="primary-audacious"` is not a glass-ui 7 prop; the verb ships `data-emphasis="secondary"`; typecheck green |
-| C-2 | BLOCKER | the add-color affordance is an `aria-hidden` `<span>`; `canMix` unreachable; every preview chip permanently absent |
-| C-3 | MAJOR | with ≥3 operands the ramp does not contain the color Mix produces |
-| C-4 | MAJOR | in the default space `oklab` the Hue control is inert and its 4 chips identical (1 distinct of 4) |
-| C-5 | MAJOR | the chip paints a continuous gradient — 16 of 17 columns browser-interpolated; 23.5/255 worst band on `longer` |
-| C-6 | MAJOR | both chip oracles unreachable, the byte-identity regex cannot match the serialization, zero unit coverage |
-| C-7 | MAJOR | three orphan `<label>`s (`control === null`, click inert) — the only such site in `demo/` |
-| C-8 | MINOR | `rgba()`/`hsla()` comma forms throw; chip hides silently while the button stays armed to crash |
-| C-9 | MINOR | `serializeStop`'s ` / 1)` strip is dead code |
-| C-10 | MINOR | `h-9`/`h-10` de-tokenize heights glass-ui ships as `size` |
-| C-11 | MINOR | reka `AcceptableValue` reach + three unchecked `as` casts |
-| C-12 | MINOR | `<Blend>` lacks `aria-hidden` |
-| C-13 | MINOR | `STRATEGIES` array not exhaustiveness-checked against `LeftoverStrategy` |
-| C-14 | MINOR | disabled verb: no tab reach, no reason, no `aria-live` on the result |
-| C-15 | INFO | per-render array identity invalidates both computeds; 0.72–1.03 ms, sub-frame |
-| C-16 | INFO | no `<SelectValue placeholder>`; 9 rows offered for a 17-member union |
+| C-8 | MINOR | `rgba()`/`hsla()` comma forms throw in `parsePickerColor`; the chip hides silently (indistinguishable from honest absence) while the Mix button stays armed to crash — `sample.ts:60-66` catches, `useMixingState.ts:88-90` does not. r2 correctly labelled operand reachability a hypothesis. |
+| C-9 | MINOR | `serializeStop`'s ` / 1)` strip (`sample.ts:40`) is dead code — the serializer never emits that string. My own P4 output corroborates: `oklch(62% 0.27 9.8deg)`, no ` / 1)`. Legacy path, edict 2. |
+| C-10 | MINOR | `class="h-9"` ×3 de-tokenizes a height glass-ui ships as a register. **Independently confirmed**: `SelectTrigger.vue.d.ts` declares `size?: "sm" \| "default"` ("Trigger height register"); measured trigger height **36 px** = `--control-h-sm`. Same idiom on the Button (`h-10` vs. `ButtonSize`). The S-tranche CONSUME FIX (`dropdown-select-consistency.md:167`) prescribed this two tranches ago and it is still unlanded. |
+| C-11 | MINOR | reka `AcceptableValue` reach (`:15`) + three unchecked `as` casts. **Independently confirmed + sharpened**: glass-ui emits `SelectEmits { "update:modelValue": [SelectionValue] }` with `SelectionValue = string \| number` — strictly narrower than reka's union. *And the producer type is not re-exported*: `dist/components/select/index.d.ts` exports the eight component prop types and **not** `SelectionValue`. So the honest local annotation today is `string`, and the clean fix is a one-line producer re-export — the concrete §4 ask behind register entry `L-D7`. |
+| C-12 | MINOR | `<Blend class="w-4 h-4" />` (`:168`) lacks `aria-hidden`, while the sibling `MixSourceSelector.vue:175` gets it right. |
+| C-13 | MINOR | `STRATEGIES` array (`:83`) is not exhaustiveness-checked against `LeftoverStrategy`; a fourth union member would compile clean and silently never appear. The file states the opposite principle for the *other* vocabulary eight lines earlier (`:16-18`). |
+| C-14 | MINOR | natively `disabled` verb: removed from tab order, no reason surfaced, no `aria-live`/`role="status"` on the async result. |
+| C-15 | INFO | `MixPane.vue:103` mints a new array identity per render, invalidating both computeds. **Independently benched** — full 13-ramp rebuild, warmed, 50 reps: `2 operands → 0.60 ms · 6 → 0.66 ms · 12 (=MAX_COLORS) → 0.76 ms`. Sub-frame. Not a defect. |
+| C-16 | INFO | no `<SelectValue placeholder>`; 9 rows offered for a 17-member `PickerSpace` union. Reachability is a hypothesis; the type hole is fact. |
 
-## Reproduction scripts
+---
 
-All under
-`/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/`:
-`probe-configbar.mjs` (DOM identity, orphan labels, label-click), `probe-two.mjs` (button attrs,
-contrast), `probe-three.mjs` (add-slot, menus, sampler cost + boundary matrix),
-`probe-four.mjs` (alpha serialization, 3-operand ramp membership, gradient form),
-`probe-five.mjs` (band interpolation error), `probe-six.mjs` (distinct arcs per space).
-Each is `node <file>` against the live dev server on `:9000`.
+# Part 3 — negative proof
+
+Stated so the absences are evidence, not silence. Everything below I checked and did **not**
+find.
+
+- **No hazard-class code in this file.** All 173 lines read: no `requestAnimationFrame`
+  (**no PRM-RAF exposure**), no `addEventListener`, no `ResizeObserver`/`IntersectionObserver`,
+  no timers, no lifecycle hooks, no `async`, no `fetch`, no WebGL, no canvas. There is
+  nothing to leak, cancel, or clean up. The missing-cleanup, leaked-listener, unbounded-growth
+  and ungated-loop classes are genuinely absent. `useMixingState.ts:1-15` is explicit that
+  the one clock lives in `useMixingAnimation`; this component owns none of it.
+- **No `defineModel`.** Explicit `defineProps` (`:32`) + `defineEmits` (`:76`), so the
+  `WritableComputedRef` async-round-trip stale-read hazard cannot arise. The reactive props
+  destructure at `:25-45` is correct Vue 3.5 and is the right call for this shape.
+- **No `ValueUnit` construction, no `stableHue`, no direct `parseCssColor`, no reka slider.**
+  Four of the six named local hazards do not touch this file.
+- **`verbatimModuleSyntax` clean.** All four type-only imports (`:12`, `:13`, `:14`, `:15`)
+  use `import type`; both value imports (`:18`, `:23`) are used. `vue-tsc` EXIT=0 on both
+  projects.
+- **Not a god module.** 173 lines, one job, no invented `shared/` dir, no wrapper component.
+  Edicts 1 and 3 satisfied.
+- **Performance is not a finding, and the source comment is TRUE.** `:19-22` claims the
+  sampling "costs nothing at rest." Verified three ways: `computed` is lazy; glass-ui's
+  `SelectContentProps` declares **no `forceMount`**, so the content unmounts closed and the
+  template never reads the maps; and the full rebuild costs 0.60–0.76 ms anyway (P3). I went
+  looking for a recompute storm and there is none.
+- **Tap targets — this component contributes ZERO.** Measured: triggers `227 × 36`, Mix
+  button `462 × 40`, option rows `221 × 49.5`. All ≥ 24 px. The 8 `smallTapTargets` on
+  `/#/mix` in `REPORT.json` are the picker's channel handles (`12 × 24`, labelled
+  "L channel"/"A channel"/…), three `22 × 22` slug controls and a `160 × 23` input — every
+  one of them from the *other* pane.
+- **Nameless buttons — this component contributes ZERO.** `/#/mix` reports 1; measured live
+  it is `<button class="send-btn btn-interactive">` with `inMain: false` — the feedback
+  widget outside `<main>`.
+- **Nothing on `/#/mix` errors, overflows, or renders blank.** `REPORT.json`, all four
+  matrices: `consoleErrors: []`, `pageErrors: []`, `overflowX: 0`, `main: 1`. My own eight
+  sessions recorded zero console errors and zero page errors on the route.
+- **The two `PreviewRamp` guards are not redundant-with-a-hole.** `:111`/`:133` guard `null`;
+  `PreviewRamp.vue:31` guards `length >= 2`. `sample.ts` cannot return a 1-element array
+  (`perSegment = max(2, …)`), so no state slips between them.
+- **The `#description` lane is not cloned into the trigger.** The comment at `:104-106`
+  claims `SelectValue` does not clone it; measured — the trigger renders "OKLab" alone while
+  the option's `textContent` is "OKLCh Perceptual, hue-preserving". The claim holds.
+
+---
+
+## Findings table (r3)
+
+| id | severity | status | one line |
+|---|---|---|---|
+| C-1 | BLOCKER | CONFIRMED + SHARPENED | `variant="primary-audacious"` is not a glass-ui 7 prop; verb ships `data-emphasis="secondary"`; `audacious` is real on three *other* axes, which is why it passed review; `strictTemplates` off so no gate can see it |
+| C-2 | BLOCKER | CONFIRMED + EXECUTED | add-color affordance is an `aria-hidden` `<span>` with `pointer-events:none`; `canMix` unreachable; every chip permanently absent; **playwright 2 failed / 1 passed** |
+| N-1 | MAJOR | **NEW** | the pane's only verb jumps 208 px on a mode switch, un-animated; this component owns 73 px (root 114→187) while the pane transitions the far less important result plate |
+| C-3 | MAJOR | r2, carried | with ≥3 operands the ramp does not contain the color Mix produces |
+| C-4 | MAJOR | CONFIRMED + SHARPENED | default space `oklab` → Hue control inert, 4 chips byte-identical (1 distinct of 4); mechanism is `HUE_INDEX`, and the predicate is already authored twice in-tree |
+| C-5 | MAJOR | r2, carried | chip paints a continuous gradient — the engine `sample.ts` forbids by name |
+| C-6 | MAJOR | CONFIRMED + SHARPENED | oracles unreachable **and** the byte-identity regex matches **0 of 17** stops — unsatisfiable on its own terms; zero unit coverage; 5 named green-keeping mutations |
+| C-7 | MAJOR | CONFIRMED | three orphan `<label>`s (`control === null`) — the only such site in `demo/` |
+| C-8 | MINOR | r2, carried | `rgba()`/`hsla()` throw; chip hides silently while the button stays armed |
+| C-9 | MINOR | r2, corroborated | `serializeStop`'s ` / 1)` strip is dead code |
+| C-10 | MINOR | CONFIRMED | `h-9`/`h-10` de-tokenize registers glass-ui ships as `size`; measured 36 px = `--control-h-sm` |
+| C-11 | MINOR | CONFIRMED + SHARPENED | reka reach + 3 unchecked casts; `SelectionValue` exists but is **not re-exported** from the select barrel — the concrete §4 ask |
+| C-12 | MINOR | r2, carried | `<Blend>` lacks `aria-hidden` |
+| C-13 | MINOR | r2, carried | `STRATEGIES` not exhaustiveness-checked |
+| C-14 | MINOR | r2, carried | disabled verb: no tab reach, no reason, no `aria-live` |
+| N-3 | INFO | **NEW** | the `#description` lane holds the only copy of the vocabulary and is orphaned in the a11y tree (`aria-describedby: null`) — glass-ui relay |
+| C-15 | INFO | CONFIRMED | per-render array identity invalidates both computeds; 0.60–0.76 ms, sub-frame |
+| C-16 | INFO | r2, carried | no `<SelectValue placeholder>`; 9 rows for a 17-member union |
+| N-2 | — | **NEW** | negative proof: mobile `grid-cols-2` renders clean at 390 px; `text-micro` is a real glass-ui utility |
+
+---
+
+## The one mechanism
+
+C-1, C-2 and C-10 are not three bugs. They are one:
+
+> *The W44 glass-7.0.0 adoption changed the producer's prop vocabulary; the demo call sites
+> were never migrated; Vue legalises unknown component props as fallthrough attributes; and
+> `strictTemplates` is off, so the hard CI typecheck is structurally incapable of seeing it.*
+
+`variant`→`emphasis` (dead prop, silent). `tag` (dead prop that silently turns a control
+into an `aria-hidden` span). `h-9`/`h-10` (hand-painted over a shipped `size` register). The
+demo is still speaking the pre-7 dialect nearly everywhere: **51** `variant=` Button call
+sites against **2** uses of the 7.0.0 `emphasis` API.
+
+The patch-level cure is three edits in this file. The **gestalt** cure is one line of
+config — `vueCompilerOptions: { strictTemplates: true }` — which converts the entire family
+from invisible to compile-RED across all 51 sites at once, plus the producer-API conformance
+oracle described at C-6. Without it the next glass minor does this again, silently, with a
+green CI.

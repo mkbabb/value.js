@@ -1,0 +1,122 @@
+{
+  "n": 4,
+  "rhythm": {
+    "prevTag": "P",
+    "nextTag": "DIV",
+    "gapAbove": 93,
+    "gapBelow": 120.6
+  },
+  "axis": {
+    "padL": 25.888,
+    "padR": 0,
+    "contentCenter": 1102.94,
+    "columnCenter": 1090,
+    "displacement": 12.94
+  },
+  "overflow": [
+    {
+      "scrollW": 350,
+      "clientW": 350,
+      "hiddenPx": 0,
+      "hiddenPct": 0,
+      "scrollbarPx": 0
+    },
+    {
+      "scrollW": 778,
+      "clientW": 350,
+      "hiddenPx": 428,
+      "hiddenPct": 55,
+      "scrollbarPx": 0
+    },
+    {
+      "scrollW": 350,
+      "clientW": 350,
+      "hiddenPx": 0,
+      "hiddenPct": 0,
+      "scrollbarPx": 0
+    },
+    {
+      "scrollW": 350,
+      "clientW": 350,
+      "hiddenPx": 0,
+      "hiddenPct": 0,
+      "scrollbarPx": 0
+    }
+  ],
+  "inline": [
+    {
+      "text": "L∗=0 (black) to 100 (diffuse white",
+      "katexH": 101.5,
+      "parentLineHeight": 28,
+      "exceedsLineBoxBy": 73.5,
+      "wrapperH": 112
+    },
+    {
+      "text": "a∗<0 (green) to a∗>0 (red)a^* < 0 ",
+      "katexH": 45.5,
+      "parentLineHeight": 28,
+      "exceedsLineBoxBy": 17.5,
+      "wrapperH": 56
+    },
+    {
+      "text": "b∗<0 (blue) to b∗>0 (yellow)b^* < ",
+      "katexH": 45.5,
+      "parentLineHeight": 28,
+      "exceedsLineBoxBy": 17.5,
+      "wrapperH": 56
+    },
+    {
+      "text": "ϵ=21624389\\epsilon = \\tfrac{216}{2",
+      "katexH": 45.5,
+      "parentLineHeight": 28,
+      "exceedsLineBoxBy": 17.5,
+      "wrapperH": 56
+    },
+    {
+      "text": "κ=2438927\\kappa = \\tfrac{24389}{27",
+      "katexH": 45.5,
+      "parentLineHeight": 28,
+      "exceedsLineBoxBy": 17.5,
+      "wrapperH": 56
+    }
+  ],
+  "mathDirection": "ltr",
+  "mathUnicodeBidi": "normal",
+  "mathTextAlign": "left",
+  "htmlDir": "ltr",
+  "cv": [
+    {
+      "contentVisibility": "auto",
+      "containIntrinsicSize": "auto 200px",
+      "realH": 219.69
+    },
+    {
+      "contentVisibility": "auto",
+      "containIntrinsicSize": "auto 200px",
+      "realH": 196.45
+    },
+    {
+      "contentVisibility": "auto",
+      "containIntrinsicSize": "auto 200px",
+      "realH": 439.53
+    },
+    {
+      "contentVisibility": "auto",
+      "containIntrinsicSize": "auto 200px",
+      "realH": 439.53
+    }
+  ],
+  "mq": {
+    "forcedColors": false,
+    "reducedMotion": false,
+    "contrast": false
+  },
+  "fracLine": {
+    "borderBottomWidth": "0.75px",
+    "borderBottomColor": "rgb(28, 25, 23)",
+    "borderBottomStyle": "solid",
+    "height": 2
+  },
+  "svgCount": 1,
+  "svgPathFill": "rgb(28, 25, 23)"
+}

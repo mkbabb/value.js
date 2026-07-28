@@ -1,7 +1,7 @@
 {
  "runId": "wf_3c8798e8-23e",
  "workflow": "area-picker",
- "resultCount": 8,
+ "resultCount": 9,
  "results": [
   {
    "agentId": "ad0ab8507d85083f1",
@@ -1747,6 +1747,155 @@
       "mechanism": "an add-only identity map behind a render that is keyed — the re-key re-mounts the rows but nothing re-keys the map that indexes them",
       "reproduction": "NONE — I could not reproduce it in-session. Hash-only navigation does not re-route the picker space: an 11-space `location.hash` sweep (scratchpad/CSD-probe5.mjs) left the labels at R/G/B/ALPHA throughout. Confirming this requires driving the ColorSpaceSelector widget. LABELLED A HYPOTHESIS; not a finding until that probe runs.",
       "proposedCure": "Discharge first: drive ColorSpaceSelector across >=3 spaces and assert `Object.keys(sliderWrapperEls.value).length === 4`. If confirmed, the cure is to drop the `if (el)` guard and delete the key on the null call, so the map's lifetime matches the rows'."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "ab9bc2d0857180bfe",
+   "key": "v2:632c64e8352467206332ab94324717861ee672f1cfc72eda5adf1b34cd4b7d76",
+   "result": {
+    "axis": "CHALLENGE-C — assume the implementation is defective; find the bug (subject: demo/picker/controls/ComponentSliders/ComponentSliders.vue)",
+    "modelObserved": "Opus 5 (claude-opus-5[1m], 1M-context variant) — declared at spawn, not inherited",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/picker-componentsliders/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D-1 — on every touch-CAPABLE device (Windows touchscreen laptops, touch Chromebooks, Chrome touch emulation), the FIRST MOUSE click on every channel slider is silently swallowed. useSliderTouchGates.ts:57-68 installs a capture-phase pointerdown that calls e.stopPropagation() unconditionally, gated only on gate.isTouchDevice — a construction-time capability sniff (\"ontouchstart\" in window, glass-ui useTouchGate-B4mzQcHJ.js:20) — and never reads e.pointerType. Measured in two Playwright contexts differing ONLY by hasTouch, same 1440x900 viewport, same mouse gesture: plain desktop first click drives R 200 -> 36 (firstClickWorked true); touch-capable desktop first click 200 -> 200 (firstClickWorked false), second click 200 -> 36.",
+    "negativeProof": "N/A — verdict is DEFECTIVE. Recorded for completeness, three hypotheses I FALSIFIED so no later seat re-files them: (1) coarse-pointer ::before overhang causing wrong-channel taps — FALSIFIED: at 390x844, gapPx 6, strip height 44, ::before blockSize 44px, and elementFromPoint at all three inter-row midpoints and at 2/6/10px above row 0 returned div.channel-rows, never a neighbouring strip; (2) the gate-active outline computing fully transparent (oklab(0 0 0 / 0)) — FALSIFIED as a transition:outline-color t=0 read artifact; the same color-mix inline on a child of the same element computed color(srgb 0.11 0.098 0.09 / 0.5), and the untransitioned .touch-gate-active .slider-track box-shadow read the same 0.5 alpha; (3) the unscoped style block leaving .touch-gate-* undefined on routes that never mount this component — FALSIFIED in dev: on /#/extract (liveTargets 0) a synthetic .touch-gate-target still computed outlineWidth 3px / outlineStyle solid / transition outline-color. Also verified NO PIN DRIFT: shasum -a 256 of the subject file is exactly a61b5ed39703af205d6ba0f4923d32daeaaf55cf9c2e21e22030a01fa82ef327, matching CARRY-LEDGER.md:67.",
+    "defects": [
+     {
+      "id": "D-1",
+      "defect": "The channel-slider touch gate swallows the first pointerdown for ALL pointer types on any touch-capable device, because it gates on a device capability sniff instead of the event's own pointerType. The first mouse click on every channel slider does nothing, with no feedback.",
+      "severity": "BLOCKER",
+      "evidence": "demo/picker/controls/ComponentSliders/composables/useSliderTouchGates.ts:57-68 — `if (!gate.isTouchDevice) return; if (!gate.isActive.value) { e.stopPropagation(); gate.handleTouchStart(el, e.clientY); }` — e.pointerType is never read. gate.isTouchDevice comes from node_modules/@mkbabb/glass-ui/dist/useTouchGate-B4mzQcHJ.js:20 `l = typeof window < \"u\" && \"ontouchstart\" in window`. MEASURED (scratchpad/probe8.mjs, two contexts, identical 1440x900 viewport and identical mouse gesture at 15% of the R track): plainDesktop {ontouchstart:false, maxTouchPoints:0} before [\"200\",\"80\",\"40\",\"100%\"] afterClick1 [\"36\",\"80\",\"40\",\"100%\"] firstClickWorked:true — touchCapableDesktop {ontouchstart:true, maxTouchPoints:1} before [\"200\",\"80\",\"40\",\"100%\"] afterClick1 [\"200\",\"80\",\"40\",\"100%\"] afterClick2 [\"36\",\"80\",\"40\",\"100%\"] firstClickWorked:false secondClickWorked:true.",
+      "mechanism": "device-capability sniff used as a per-event modality test; unconditional capture-phase stopPropagation",
+      "reproduction": "node scratchpad/probe8.mjs against http://localhost:9000 — launch two Chromium contexts at 1440x900, one with hasTouch:false and one with hasTouch:true, navigate to /#/?space=rgb&color=rgb(200%2080%2040), mouse.down()+mouse.up() at 15% of the first .slider-track, read the .channel-meter texts. Without touch the R meter goes 200->36 on click 1; with touch it stays 200 until click 2.",
+      "proposedCure": "The gate's predicate is per-EVENT, not per-DEVICE. Delete the construction-time isTouchDevice sniff from the consumer entirely and gate on `e.pointerType === \"touch\"` inside the handler — the exact field Pointer Events provides for this question. That also deletes the second, independent copy of the sniff this component carries (useSliderTouchGates.ts:27-28, consumed as spectrumGateIsTouchDevice at ComponentSliders.vue:203): one predicate, one place. The real transposition is upstream — glass-ui's useTouchGate should take the event, not the device, making this a producer RELAY rather than a demo-side condition."
+     },
+     {
+      "id": "D-2",
+      "defect": "A `none` component — a first-class CSS Color 4 value this repo's own parser returns — is unguarded end-to-end. In-session it throws from the component's private ramp feed and PERMANENTLY WEDGES the console (meters frozen, all subsequent colour edits and space changes silently ignored, no user-visible error). On a cold load it either replaces the picker pane with an error boundary or blanks the whole app.",
+      "severity": "BLOCKER",
+      "evidence": "Unguarded readers in the subject file: ComponentSliders.vue:131 `return normalizedChannel(model.value.color, component)` and :180-183 `channelNumber(HSVCurrentColor.value, \"s\"|\"v\")`; channelNumber throws on a non-numeric channel at picker-color.ts:152-158. WARM PATH (scratchpad/probe2.mjs) captured stack: `PickerColorError: Missing oklch.h at channelNumber (demo/color-session/picker-color.ts:198:39) at demo/color-session/useSliderGradients.ts:46:18 at Array.map at ComputedRefImpl.fn (useSliderGradients.ts:45:60) at refreshComputed at job at flushPostFlushCbs`. PERMANENT WEDGE (probe3.mjs): pre [\"60.0%\",\"0.1\",\"30.0deg\",\"100.0%\"] / duringErrs [\"Missing oklch.h\"] / afterOrdinaryEdit to oklch(80% 0.2 200) STILL [\"60.0%\",\"0.1\",\"30.0deg\",\"100.0%\"] with afterErrs [] / afterSpaceChange to rgb STILL [\"60.0%\",\"0.1\",\"30.0deg\",\"100.0%\"]. COLD PATH (probe7.mjs): rgb(255 0 0) control = 4 strips/1 console/1 spectrum; rgb(255 0 0 / none) = 0/0/0, main innerText \"This panel hit an unexpected error. color_missing_alpha Try again\"; rgb(none 0 0) and oklch(50% 0.1 none) = 0/0/0, `[Vue warn]: Unhandled error during execution of setup function at <App>` + `pageerror: color_missing_channel at valueOrThrow (picker-color.ts:154:8) at convertPickerColor (:162:9) at useColorPipeline (useColorPipeline.ts:57:18) at setup (App.vue:77:20)`, main innerText EMPTY.",
+      "mechanism": "partial function (channelNumber throws on \"none\") called from a render/derive path with no total-read alternative",
+      "reproduction": "node scratchpad/probe3.mjs — load /#/?space=oklch&color=oklch(60%25%200.15%2030), then set location.hash to #/?space=oklch&color=oklch(50%25%200.1%20none): pageerror 'Missing oklch.h' fires and every subsequent hash-driven colour edit and space change is ignored while the meters stay frozen. node scratchpad/probe7.mjs — cold-load /#/?space=rgb&color=rgb(none%200%200) and observe 0 .channel-strip, 0 .sliders-console, 0 .spectrum-picker and an empty main.",
+      "proposedCure": "`none` is not an error, it is a value with a defined meaning (missing/powerless component). The gestalt cure is a TOTAL read: give channelNumber a sibling returning `number | \"none\"`, and let each consumer decide its own rendering — the ramp applies the powerless substitution rule, the meter inks an em-dash, the thumb parks at the space's neutral, aria-valuetext says \"Hue none\". Not a try/catch and not `?? 0`: a total function. The throwing accessor survives only where a number is genuinely required, and the picker's render path stops calling it."
+     },
+     {
+      "id": "D-3",
+      "defect": "In hex mode all four channel meters render EMPTY and every slider's aria-valuetext loses its value, leaving screen-reader users with only the raw 16-digit aria-valuenow — precisely the failure the U-F27/BR-4 announcement gate exists to prevent. Root cause is a duplicated computed: the component re-derives the row list locally WITHOUT the hex guard the pipeline's own copy has.",
+      "severity": "MAJOR",
+      "evidence": "MEASURED on a clean load of /#/?space=hex&color=%23ff8800 (probe3.mjs): hexMeters [\"\",\"\",\"\",\"\"]; per-thumb (probe.mjs): R channel/valuetext \"Red\"/valuenow \"1\"/meter \"\"; G channel/\"Green\"/\"0.5333333333333333\"/\"\"; B channel/\"Blue\"/\"0\"/\"\"; ALPHA channel/\"Alpha\"/\"1\"/\"\". Screenshot at scratchpad/hex-console.png shows the blank meter column. MECHANISM: ComponentSliders.vue:120-125 builds componentEntries from PICKER_CHANNELS[currentColorSpace] where resolveColorSpace(\"hex\")===\"rgb\" (color-model.ts:32-34), so 4 rows render; but the meter source short-circuits in hex to a single {hex:...} cell (useSliderGradients.ts:63-68), so meterText's lookup at ComponentSliders.vue:160 misses r/g/b and its alpha fallback is explicitly disabled for hex at :162 — every row returns \"\" at :167. The pipeline ALREADY publishes the correct guarded version of this computed at useColorPipeline.ts:117-122 (colorComponents), which the component injects around but does not use.",
+      "mechanism": "duplicated derivation with divergent guards — two paths to one fact, the live one is the broken one",
+      "reproduction": "node scratchpad/probe3.mjs — cold-load http://localhost:9000/#/?space=hex&color=%23ff8800, read [...document.querySelectorAll('.channel-meter')].map(m=>m.textContent) => [\"\",\"\",\"\",\"\"], and read aria-valuetext on the four [role=slider] thumbs => \"Red\",\"Green\",\"Blue\",\"Alpha\" (no values).",
+      "proposedCure": "Delete the local componentEntries and consume the pipeline's colorComponents. Hex then renders no channel rows at all — the honest thing, since hex has no channels, it has a string — and the console shows the single hex cell the pipeline already models. The guard divergence is removed by removing the second guard, not by adding a third."
+     },
+     {
+      "id": "D-4",
+      "defect": "The slider-wrapper element map is never pruned. The template's function ref discards Vue's unmount (null) call and no key is ever deleted, so every channel key with no counterpart in the newly selected space keeps pointing at a DETACHED element forever — and both consumers keep iterating them, re-attaching five listeners each on every space change and writing aria-valuetext into dead nodes on every colour edit.",
+      "severity": "MAJOR",
+      "evidence": "ComponentSliders.vue:56 — `:ref=\"(el: any) => { if (el) sliderWrapperEls[component] = el as HTMLElement }\"` (the null branch is discarded; nothing ever deletes a key). Consumers iterate the whole map: useSliderTouchGates.ts:53 (Object.entries -> 5 addEventListener each) and useSliderAnnouncements.ts:37 (querySelector + setAttribute). MEASURED PROOF OF RETENTION (probe2.mjs): hold references to the four lab wrappers, change space to rgb in-session — A_before [{L channel, \"Lightness 50.0%\", connected true},{A channel,\"a axis 20.0\",true},{B channel,\"b axis 10.0\",true},{ALPHA,\"Alpha 100.0%\",true}] -> A_afterSpaceChange [{L channel, valuetext REWRITTEN to \"Lightness\", connected FALSE},{A channel, REWRITTEN to \"a axis\", connected FALSE},{B channel,\"b axis 10.0\",false},{ALPHA,\"Alpha 100.0%\",false}]. A setAttribute onto a node with isConnected===false is only possible if the map still holds it. b and alpha were NOT rewritten because rgb re-populates those keys and overwrites the entry — the predicted key-collision behaviour, which confirms rather than contradicts the mechanism. BOUND: the union of channel keys across the 17 spaces in picker-color.ts:52-70 plus alpha is 21 (r,g,b,h,s,l,v,w,c,x,y,z,kelvin,i,ct,cp,jz,az,bz,a,alpha), so up to 20 detached reka-Slider subtrees are retained, each with 5 listener closures capturing el, gate and the whole debug object.",
+      "mechanism": "DOM mirrored into a hand-managed map with an add-only write path; Vue's unmount signal thrown away",
+      "reproduction": "node scratchpad/probe2.mjs — on /#/?space=lab&color=lab(50%25%2020%2010) stash [...document.querySelectorAll('.touch-gate-target')] and their thumbs on globalThis, set location.hash to #/?space=rgb&color=rgb(10%2020%2030), wait, then re-read: the L and A entries report isConnected false yet their aria-valuetext has been rewritten by useSliderAnnouncements.apply().",
+      "proposedCure": "The map is a cache of something Vue already knows. Stop mirroring the DOM: give the v-for row its own small child component that owns its wrapper element and registers/unregisters its own touch gate in onMounted/onUnmounted, so Vue's lifecycle IS the pruning mechanism. (The patch — a delete in the ref's null branch — is strictly inferior; the per-row component also dissolves D-10 and D-11.)"
+     },
+     {
+      "id": "D-5",
+      "defect": "Changing the colour space destroys keyboard focus: the focused slider thumb is unmounted by a container-level :key bump and focus falls to <body>, teleporting a keyboard user to the top of the document.",
+      "severity": "MAJOR",
+      "evidence": "MEASURED (probe.mjs): focusAcrossSpaceChange {focusedBefore: \"R channel\", focusedAfter: \"BODY\"}. MECHANISM: ComponentSliders.vue:47 `:key=\"animationKey\"` on the .channel-rows container, bumped by the watcher at :143, remounts the entire row block; nothing restores focus. The re-key is also over-broad — alpha exists in every space and is remounted purely because the container above it is keyed, while the per-row `:key=\"component\"` at :52 already re-keys the rows that genuinely change.",
+      "mechanism": "container-level remount for an animation effect, with no focus restoration",
+      "reproduction": "node scratchpad/probe.mjs — on /#/?space=rgb&color=rgb(200%2080%2040) focus the first [role=slider], read document.activeElement's aria-label (\"R channel\"), set location.hash to #/?space=lch&color=lch(60%25%2050%2030), wait 1.8s, re-read document.activeElement => BODY.",
+      "proposedCure": "The chassis-persistence law the file's own comment states (lines 20-24) is right and the implementation contradicts it. Un-key the container and let the row v-for key do the re-keying, then restore focus onto the row at the same index after the patch. The stagger the container key was really buying is re-fired with an animationKey-driven CSS custom property instead of a remount — the animation is moved, never deleted (edict 6)."
+     },
+     {
+      "id": "D-6",
+      "defect": "The accessible NAME of every channel slider is the ambiguous raw channel key in shouting caps — \"L channel\", \"A channel\", \"B channel\", \"ALPHA channel\" — while the correct, space-disambiguated human names exist in a sibling module and are used only for aria-valuetext.",
+      "severity": "MAJOR",
+      "evidence": "ComponentSliders.vue:66 — the aria-label is the template literal `${component.toUpperCase()} channel`. Measured names (probe.mjs, and independently in the mega-tranche visual audit REPORT.json a11y rows for route /#/): \"L channel\", \"A channel\", \"B channel\", \"ALPHA channel\". The sibling docblock at sliderAnnouncement.ts:11-19 argues this exact case against itself — \"The channel key alone is ambiguous — `b` is Blue in rgb, Blackness in hwb, and the b* axis in lab/oklab; `l` is Lightness in hsl but the L* axis in lab\" — and supplies channelLabel(space, component), which ComponentSliders uses ONLY through useSliderAnnouncements for aria-valuetext, never for the name.",
+      "mechanism": "two voices for one fact, with the authoritative surface (the accessible name announced on focus and on every arrow key) carrying the wrong one",
+      "reproduction": "node scratchpad/probe.mjs against /#/?space=lab&color=lab(92%25%2088.8%2020%20%2F%2082.70%25) — read aria-label on each .channel-strip [role=slider]; also visible verbatim in docs/tranches/V/megatranche/audit/visual/REPORT.json under results[route=/#/].probe.a11y.smallTapTargets.",
+      "proposedCure": "Set the aria-label from channelLabel(currentColorSpace, component) — one function, already written, already unit-tested, already imported into this directory. Drop the \" channel\" suffix (redundant with role=slider) and the toUpperCase (assistive tech commonly spells all-caps tokens letter by letter, so \"ALPHA channel\" can be read A-L-P-H-A)."
+     },
+     {
+      "id": "D-7",
+      "defect": "The component's private derived state — the channel ramp gradients — lives in the shared color-session pipeline god-object rather than in the component, so its throw is not contained to the console and instead wedges the entire picker (the blast radius of D-2's warm path).",
+      "severity": "MAJOR",
+      "evidence": "Complete consumer sets by grep over demo/ excluding useSliderGradients.ts and useColorPipeline.ts: `componentsSlidersStyle` has EXACTLY ONE consumer — ComponentSliders.vue:111,194. `currentColorRanges` has EXACTLY ONE — its colocated ConsoleRail.vue:75,114. `currentColorComponentsFormatted` has two (ColorPicker.vue:49,205 and ComponentSliders.vue:110,160,234), and its hex branch exists only to serve a display component (the mechanism of D-3). The throw in D-2's warm path is at useSliderGradients.ts:46 inside a ComputedRefImpl.fn — i.e. inside the pipeline's reactive graph, which is why one bad channel freezes the whole picker rather than one component.",
+      "mechanism": "component-private cache hoisted into an injected god-object, coupling its failure modes to the whole session",
+      "reproduction": "grep -rn \"componentsSlidersStyle|currentColorComponentsFormatted|currentColorRanges\" demo/ --include='*.vue' --include='*.ts' | grep -v \"useSliderGradients.ts|useColorPipeline.ts\" — 9 hits, of which componentsSlidersStyle appears only under ComponentSliders/ and currentColorRanges only under ConsoleRail.vue.",
+      "proposedCure": "Move computeSliderGradients and currentColorRanges into ComponentSliders/composables/useChannelRamps.ts, deriving from the injected model. The pipeline keeps currentColorComponentsFormatted (two genuine consumers). The blast radius of a ramp bug then ends at the console — which is the point of encapsulation, and would have turned D-2's warm path from an app-wide freeze into one component rendering a fallback."
+     },
+     {
+      "id": "D-8",
+      "defect": "The coarse-pointer touch-target extension is media-gated on `pointer: coarse` — the PRIMARY input mechanism — rather than `any-pointer: coarse`, so hybrid devices (fine primary + touchscreen) get no 44px hit extension while the JS gate is armed against them.",
+      "severity": "MINOR",
+      "evidence": "ComponentSliders.vue:345 `@media (pointer: coarse)`. Media Queries Level 4 defines `pointer` as reporting the pointing device \"that is the primary input mechanism\" and `any-pointer` as reporting any available input mechanism. The file's own comment at :342-344 sells the choice as a virtue — \"Gated on `pointer: coarse` (the input device), never viewport width\" — but the device is not what `pointer` reports; the primary device is. Measured presence of the pseudo (probe.mjs): desktop beforeH \"auto\"/content \"none\"; 390x844 coarse beforeH \"44px\"/content '\"\"'.",
+      "mechanism": "wrong media feature for the question being asked (capability vs primacy) — the CSS gate and the JS gate disagree about which devices are touchable",
+      "reproduction": "NONE for the hybrid case — labelled HYPOTHESIS. Chromium's touch emulation couples the two features (probe.mjs/probe8.mjs measured pointerCoarse:true AND anyPointerCoarse:true under hasTouch:true), so the divergence could not be isolated in this harness. The spec reading is not a hypothesis; only the device-class consequence is.",
+      "proposedCure": "Use `@media (any-pointer: coarse)` — one word, and the CSS gate then agrees with the JS gate about which devices are touchable. Under D-1's cure both predicates become per-event and this collapses into a non-question."
+     },
+     {
+      "id": "D-9",
+      "defect": "The channel thumbs are 12 CSS px wide (12x24 desktop, 12x44 coarse), and this component supplies exactly half of route /#/'s small-tap-target count in every one of the four Safari audit matrices.",
+      "severity": "MINOR",
+      "evidence": "MEASURED (probe.mjs): thumbW 12 / thumbH 24 at 1440x900; thumbW 12 / thumbH 44 at 390x844. INDEPENDENTLY in docs/tranches/V/megatranche/audit/visual/REPORT.json, route /#/, matrix safari-mobile-light: {\"w\":12,\"h\":44,\"tag\":\"span\",\"label\":\"L channel\"},{...\"A channel\"},{...\"B channel\"},{...\"ALPHA channel\"}; safari-desktop-light reports the same four at 12x24. REPORT.md counts 8 smallTapTargets on /#/ in each of the four matrices — four of the eight are this component's thumbs in all four, i.e. 16 of the 60-capture tally. HONEST SCOPING: WCAG 2.5.8's spacing exception IS met — measured row pitch 43.5px (stripTop 604.33 -> 647.83), well clear of the 24px undisturbed circle, and the track itself is click-operable. So this is an ergonomics finding, not a certain SC failure.",
+      "mechanism": "producer primitive's thumb geometry too small for a precision instrument; the coarse-pointer cure extends height only, never width",
+      "reproduction": "node scratchpad/probe.mjs — read getBoundingClientRect() on each .channel-strip [role=slider] at 1440x900 (12x24) and at 390x844 with hasTouch (12x44). Cross-check the same four rows in docs/tranches/V/megatranche/audit/visual/REPORT.json at results[route=/#/].probe.a11y.smallTapTargets.",
+      "proposedCure": "The thumb width is the glass-ui Slider primitive's, not the demo's — the cure is a producer RELAY, not a consumer override (edict 5 forbids per-instance overrides of the design system). Book a >=24px hit box into the same v8 packet as the track-background rename, alongside the aria-valuetext prop-through relay."
+     },
+     {
+      "id": "D-10",
+      "defect": "ConsoleRail is handed a freshly allocated array on every parent render, so it patches on every reactive tick of a drag despite a channel list that is constant within a space; and the array it is built from carries a dead payload cast to `unknown`.",
+      "severity": "MINOR",
+      "evidence": "ComponentSliders.vue:34 `:components=\"componentEntries.map(([c]) => c)\"` — new array identity every render pass. ConsoleRail is not cheap to patch: it recomputes restInk through a live surface probe (ConsoleRail.vue:130-140, resolveSurfaceLightnessLive) and activeInk through contrastInkFor (:147-149). The source computed's second tuple member is built and cast to unknown at ComponentSliders.vue:122-124 and never read — the only destructure is `v-for=\"[component] in componentEntries\"` at :51, so the `as [string, unknown]` casts erase ChannelMeta for a value nothing consumes.",
+      "mechanism": "unstable prop identity from an inline .map() in the template plus a dead payload retained through a widening cast",
+      "reproduction": "NONE measured (static read of ComponentSliders.vue:34,51,120-125 and ConsoleRail.vue:103-111,130-149) — labelled HYPOTHESIS as to the patch cost; the identity instability and the dead payload are certain from the source.",
+      "proposedCure": "Make componentEntries a computed<string[]> of keys only — which is what both consumers actually want — so the identity is stable across renders and the cast disappears with the dead payload. Under D-3's cure it becomes the pipeline's colorComponents and this dissolves entirely."
+     },
+     {
+      "id": "D-11",
+      "defect": "sliderValue(), meterText() and sliderVars() are plain functions invoked from the template, so they re-run for every row on every render pass; sliderVars rebuilds an 11-stop gradient string per channel per pass even though the stops are already memoised upstream.",
+      "severity": "MINOR",
+      "evidence": "ComponentSliders.vue:127 (sliderValue), :158 (meterText), :193-207 (sliderVars, whose body joins the stop list into a linear-gradient string on every call). The stops themselves are already memoised by the watcher at useSliderGradients.ts:49-61 — only the join is repeated, and only because the joined form was never memoised. Four joins x eleven stops per drag tick.",
+      "mechanism": "work that is a function of the colour space recomputed as a function of the frame",
+      "reproduction": "NONE measured — labelled HYPOTHESIS as to the magnitude; the per-render invocation is certain from the template (function calls in the render expressions at :72, :73, :85).",
+      "proposedCure": "One computed map component -> styleObject, rebuilt when the ramps or the thumb ink change. Under D-4's per-row-component cure each row owns its own computed and this is free."
+     },
+     {
+      "id": "D-12",
+      "defect": "Two separate watchers subscribe to the same source (currentColorSpace) to perform two assignments — two subscriptions and two scheduler entries for one event.",
+      "severity": "MINOR",
+      "evidence": "ComponentSliders.vue:138 `watch(currentColorSpace, () => { activeComponent.value = null; });` and ComponentSliders.vue:143 `watch(currentColorSpace, () => { animationKey.value++; });`",
+      "mechanism": "KISS violation — one event, two subscriptions",
+      "reproduction": "NONE needed — static, both lines are five apart in the same file.",
+      "proposedCure": "Collapse to one watcher with one callback performing both assignments."
+     },
+     {
+      "id": "D-13",
+      "defect": "`aria-live=\"off\"` on the meter span is a no-op: `off` is already the computed default for any element not inside a live region, so the attribute asserts nothing and suppresses nothing.",
+      "severity": "INFO",
+      "evidence": "ComponentSliders.vue:84 — `<span class=\"channel-meter fira-code\" aria-live=\"off\">`.",
+      "mechanism": "dead code in the accessibility surface, reading as a deliberate suppression the platform never required",
+      "reproduction": "NONE needed — static.",
+      "proposedCure": "Delete the attribute. If the intent was to document that the meter deliberately does not announce (because aria-valuetext carries that job), say so in a comment, not in a no-op attribute."
+     },
+     {
+      "id": "D-14",
+      "defect": "The SFC's <style> block is unscoped and is the SOLE definition site of .touch-gate-target / .touch-gate-active, which SpectrumCanvas and ExtractControls also consume — plus it exports five component-private class names into the global cascade.",
+      "severity": "INFO",
+      "evidence": "ComponentSliders.vue:238 opens `<style>` with no `scoped`; the comment at :244-252 justifies it for .touch-gate-*. Global leakage also covers .sliders-console (:283), .channel-meter (:309), .channel-rows (:328), .channel-strip (:331), .channel-slider (:346,:363,:375). ExtractControls.vue:135-142 re-declares .touch-gate-target SCOPED with only a border-radius — the activation outline rules exist nowhere but here. FALSIFIED AS A LIVE DEFECT (probe4.mjs): on /#/extract, which has liveTargets 0, a synthetic .touch-gate-target still computed outlineWidth \"3px\", outlineStyle \"solid\", transition \"outline-color\" — the dev server injects every SFC's styles.",
+      "mechanism": "cross-component style dependency with an implicit load-order contract",
+      "reproduction": "NONE for the production case — labelled HYPOTHESIS with a named test: build the gh-pages target and re-run probe4.mjs against the emitted chunks to see whether the .touch-gate-* rules survive route code-splitting on /#/extract. In dev the coupling is benign.",
+      "proposedCure": "Move the shared .touch-gate-* base rules to demo/styles/ where shared cascade belongs, scope the rest of the block to this SFC, and leave only the deliberately-unscoped reka-internal selectors (which the v8 hold is separately retiring)."
+     },
+     {
+      "id": "D-15",
+      "defect": "The component's gates are vacuous: nothing mounts ComponentSliders.vue and nothing exercises useSliderTouchGates.ts or useSliderAnnouncements.ts, so D-1 and D-4 have zero coverage by construction, and three named mutations that would destroy the component's stated contracts keep both suites green.",
+      "severity": "MAJOR",
+      "evidence": "Complete test surface (grep -rln over test/ and e2e/ for channel-meter|channel-slider|sliders-console|ComponentSliders|useSliderTouchGates|useSliderAnnouncements): exactly two files — test/slider-announcement.test.ts and e2e/smoke/a11y-slider-operation.spec.ts. The unit suite imports only the two pure functions from sliderAnnouncement.ts. Run: `npx vitest run test/slider-announcement.test.ts` => ' ✓ test/slider-announcement.test.ts (7 tests) 2ms / Test Files 1 passed (1) / Tests 7 passed (7)'. The e2e (e2e/smoke/a11y-slider-operation.spec.ts) asserts only that aria-valuenow moves under Home/End/ArrowLeft — it never reads aria-valuetext, never visits hex, never reads a meter, never changes space.",
+      "mechanism": "gates test the pure formatter and the producer primitive, never the wiring that connects them to the component",
+      "reproduction": "MUTATION A: delete the entire useSliderAnnouncements({...}) call at ComponentSliders.vue:230-235 — no thumb ever receives an aria-valuetext and the whole U-F27/BR-4 contract is unimplemented; all 7 unit tests still pass (they never touch a DOM node). MUTATION B: make meterText() at ComponentSliders.vue:158 return the empty string unconditionally — every meter in all 18 spaces renders blank and every announcement degrades to the bare channel name (D-3 generalised); the e2e still passes because the sliders still move. MUTATION C: delete the pointercancel/lostpointercapture handlers at useSliderTouchGates.ts:76-86 and their registrations at :91-92 — the entire iOS Safari pointer-capture leak recovery this file exists to carry is gone; both suites pass.",
+      "proposedCure": "Three born-RED gates, each of which fails today: (1) a component test that mounts the console in hex and asserts every row's meter is non-empty (fails — D-3); (2) a Playwright case in a hasTouch:true DESKTOP context asserting the FIRST mouse click moves the value (fails — D-1; scratchpad/probe8.mjs is the ready-made harness); (3) a component test that switches space and asserts Object.keys(sliderWrapperEls.value) equals exactly the new space's channel set (fails — D-4)."
      }
     ]
    }

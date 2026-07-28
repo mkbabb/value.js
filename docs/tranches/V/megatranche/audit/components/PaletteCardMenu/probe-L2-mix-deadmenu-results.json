@@ -1,0 +1,33 @@
+{
+  "palettesButtons": 1,
+  "afterTab": "dev misconfigured — run `npm run dev` Lab 92.0 % , 88.8 , 20.0 L a b α 92.0% 88.8 20.0 82.7% Mix Mix colors and palettes together. Colors Palettes Probe Palette 3 COLOR SPACE OKLab HUE METHOD Shorter SIZE MISMATCH Discard extras Mix",
+  "menuTriggers": 1,
+  "nesting": [
+    "BUTTON[Palette menu]",
+    "BUTTON[Select palette Probe Palette]"
+  ],
+  "menuItems": [
+    {
+      "t": "Publish",
+      "disabled": false
+    },
+    {
+      "t": "Rename",
+      "disabled": false
+    },
+    {
+      "t": "Export",
+      "disabled": false
+    },
+    {
+      "t": "Delete",
+      "disabled": false
+    }
+  ],
+  "deleteVisible": 1,
+  "storeAfter": [
+    "probe-palette"
+  ],
+  "cardStillThere": 1,
+  "pageErrors": []
+}

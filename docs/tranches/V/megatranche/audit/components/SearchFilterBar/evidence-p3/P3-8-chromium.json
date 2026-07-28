@@ -1,0 +1,224 @@
+{
+ "light": {
+  "walk": [
+   {
+    "tag": "button",
+    "role": "radio",
+    "cls": "radio-group__item.shrink-0",
+    "name": "",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(251, 250, 248)",
+    "boxShadow": "none",
+    "paintsAnyRing": false,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "cls": "block.h-7",
+    "name": "Open color picker, current",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(28, 25, 23)",
+    "boxShadow": "oklab(0.366683 0.0933588 0.0281848 / 0.310611) -1.06115px 1.06115px 0p",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "cls": "field-control.glass-defined",
+    "name": "Search by CSS color",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(28, 25, 23)",
+    "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "cls": "absolute.right-1",
+    "name": "Search",
+    "outlineStyle": "auto",
+    "outlineWidth": "1px",
+    "outlineColor": "rgb(61, 92, 129)",
+    "boxShadow": "none",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "cls": "radio-group__item.shrink-0",
+    "name": "",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(251, 250, 248)",
+    "boxShadow": "none",
+    "paintsAnyRing": false,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "cls": "radio-group__item.shrink-0",
+    "name": "",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(251, 250, 248)",
+    "boxShadow": "none",
+    "paintsAnyRing": false,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "cls": "block.h-7",
+    "name": "Open color picker, current",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(28, 25, 23)",
+    "boxShadow": "oklab(0.364452 0.0913876 0.0280993 / 0.310846) -1.08462px 1.08462px 0p",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "cls": "field-control.glass-defined",
+    "name": "Search by CSS color",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(28, 25, 23)",
+    "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   }
+  ],
+  "stillOpenAfter8Tabs": true,
+  "afterEscape": {
+   "open": false,
+   "focusIsTrigger": true,
+   "focusTag": "button"
+  },
+  "afterOutside": {
+   "open": false,
+   "focusIsTrigger": false,
+   "focusTag": "body"
+  }
+ },
+ "dark": {
+  "walk": [
+   {
+    "tag": "button",
+    "role": "radio",
+    "cls": "radio-group__item.shrink-0",
+    "name": "",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(11, 10, 9)",
+    "boxShadow": "none",
+    "paintsAnyRing": false,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "cls": "block.h-7",
+    "name": "Open color picker, current",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(233, 230, 226)",
+    "boxShadow": "oklab(0.496212 0.0138378 0.0216155 / 0.405379) -1.31724px 1.31724px 0p",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "cls": "field-control.glass-defined",
+    "name": "Search by CSS color",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(233, 230, 226)",
+    "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "cls": "absolute.right-1",
+    "name": "Search",
+    "outlineStyle": "auto",
+    "outlineWidth": "1px",
+    "outlineColor": "rgb(185, 189, 192)",
+    "boxShadow": "none",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "cls": "radio-group__item.shrink-0",
+    "name": "",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(11, 10, 9)",
+    "boxShadow": "none",
+    "paintsAnyRing": false,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "cls": "radio-group__item.shrink-0",
+    "name": "",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(11, 10, 9)",
+    "boxShadow": "none",
+    "paintsAnyRing": false,
+    "insidePopover": true
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "cls": "block.h-7",
+    "name": "Open color picker, current",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(233, 230, 226)",
+    "boxShadow": "oklab(0.442817 0.0130399 0.0236976 / 0.422528) -1.5316px 1.5316px 0px ",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "cls": "field-control.glass-defined",
+    "name": "Search by CSS color",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(233, 230, 226)",
+    "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(sr",
+    "paintsAnyRing": true,
+    "insidePopover": true
+   }
+  ],
+  "stillOpenAfter8Tabs": true,
+  "afterEscape": {
+   "open": false,
+   "focusIsTrigger": true,
+   "focusTag": "button"
+  },
+  "afterOutside": {
+   "open": false,
+   "focusIsTrigger": false,
+   "focusTag": "body"
+  }
+ }
+}

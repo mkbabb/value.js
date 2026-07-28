@@ -1,0 +1,100 @@
+{
+ "mobile-390": {
+  "found": true,
+  "rowWidth": 320,
+  "triggerWidth": 54,
+  "triggerHeight": 54,
+  "triggerShareOfRow": 16.9,
+  "nameRenderedWidth": 0,
+  "nameScrollWidth": 102,
+  "nameText": "Muted Terracotta and Deep Sea Foam Study",
+  "nameVisibleFraction": 0,
+  "rowChildren": [
+   {
+    "tag": "svg",
+    "cls": "[object",
+    "w": 16,
+    "text": ""
+   },
+   {
+    "tag": "SPAN",
+    "cls": "font-display",
+    "w": 0,
+    "text": "Muted Terracotta a"
+   },
+   {
+    "tag": "DIV",
+    "cls": "badge-atom",
+    "w": 148.4,
+    "text": "Featured"
+   },
+   {
+    "tag": "DIV",
+    "cls": "badge-atom",
+    "w": 32.9,
+    "text": "5"
+   },
+   {
+    "tag": "SPAN",
+    "cls": "flex",
+    "w": 20.8,
+    "text": "4"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "button",
+    "w": 54,
+    "text": ""
+   }
+  ]
+ },
+ "desktop-1440": {
+  "found": true,
+  "rowWidth": 458,
+  "triggerWidth": 36,
+  "triggerHeight": 36,
+  "triggerShareOfRow": 7.9,
+  "nameRenderedWidth": 172.4,
+  "nameScrollWidth": 172,
+  "nameText": "Muted Terracotta and Deep Sea Foam Study",
+  "nameVisibleFraction": 100.2,
+  "rowChildren": [
+   {
+    "tag": "svg",
+    "cls": "[object",
+    "w": 16,
+    "text": ""
+   },
+   {
+    "tag": "SPAN",
+    "cls": "font-display",
+    "w": 172.4,
+    "text": "Muted Terracotta a"
+   },
+   {
+    "tag": "DIV",
+    "cls": "badge-atom",
+    "w": 118.8,
+    "text": "Featured"
+   },
+   {
+    "tag": "DIV",
+    "cls": "badge-atom",
+    "w": 30.1,
+    "text": "5"
+   },
+   {
+    "tag": "SPAN",
+    "cls": "flex",
+    "w": 20.8,
+    "text": "4"
+   },
+   {
+    "tag": "BUTTON",
+    "cls": "button",
+    "w": 36,
+    "text": ""
+   }
+  ]
+ }
+}

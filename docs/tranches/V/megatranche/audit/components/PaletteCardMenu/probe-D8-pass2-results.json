@@ -1,0 +1,128 @@
+{
+ "light": {
+  "boxes": {
+   "menuW": 192,
+   "menuH": 240.1,
+   "label": {
+    "x": 7,
+    "y": 7,
+    "w": 178,
+    "h": 32.1
+   },
+   "annotation": {
+    "x": 112.5,
+    "y": 60.1,
+    "w": 64.5,
+    "h": 20.1
+   },
+   "rename": {
+    "x": 7,
+    "y": 92.1,
+    "w": 178,
+    "h": 44
+   },
+   "del": {
+    "x": 7,
+    "y": 189.1,
+    "w": 178,
+    "h": 44
+   }
+  },
+  "sampled": {
+   "dpr": 1,
+   "surface": [
+    235,
+    224,
+    217
+   ],
+   "headerInk": [
+    112,
+    89,
+    66
+   ],
+   "headerContrast": 5.07,
+   "annotationInk": [
+    176,
+    171,
+    168
+   ],
+   "annotationContrast": 1.75,
+   "renameInk": [
+    28,
+    25,
+    23
+   ],
+   "renameContrast": 13.49,
+   "deleteInk": [
+    28,
+    24,
+    22
+   ],
+   "deleteContrast": 13.59,
+   "deleteVsRenameDeltaE_approx": 1
+  }
+ },
+ "dark": {
+  "boxes": {
+   "menuW": 192,
+   "menuH": 240.1,
+   "label": {
+    "x": 7,
+    "y": 7,
+    "w": 178,
+    "h": 32.1
+   },
+   "annotation": {
+    "x": 112.5,
+    "y": 60.1,
+    "w": 64.5,
+    "h": 20.1
+   },
+   "rename": {
+    "x": 7,
+    "y": 92.1,
+    "w": 178,
+    "h": 44
+   },
+   "del": {
+    "x": 7,
+    "y": 189.1,
+    "w": 178,
+    "h": 44
+   }
+  },
+  "sampled": {
+   "dpr": 1,
+   "surface": [
+    195,
+    185,
+    172
+   ],
+   "headerInk": [
+    77,
+    67,
+    60
+   ],
+   "headerContrast": 4.97,
+   "annotationInk": [
+    75,
+    64,
+    57
+   ],
+   "annotationContrast": 5.19,
+   "renameInk": [
+    74,
+    63,
+    55
+   ],
+   "renameContrast": 5.28,
+   "deleteInk": [
+    81,
+    69,
+    61
+   ],
+   "deleteContrast": 4.79,
+   "deleteVsRenameDeltaE_approx": 11
+  }
+ }
+}

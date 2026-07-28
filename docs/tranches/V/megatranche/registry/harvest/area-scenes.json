@@ -1,7 +1,7 @@
 {
  "runId": "wf_dee4c83a-ec2",
  "workflow": "area-scenes",
- "resultCount": 36,
+ "resultCount": 40,
  "results": [
   {
    "agentId": "a02050869f6d854fa",
@@ -5601,6 +5601,539 @@
       "mechanism": "Inherited from the shared Slider primitive, NOT BlobPane-specific — the Picker channels fail identically in the same capture, so this is a design-system-level row, not this component's seat.",
       "reproduction": "Read docs/tranches/V/megatranche/audit/visual/shots/rtl-desktop/blob.png and compare the config-console thumb positions against the declared min/max/value triples in BlobPane.vue:58-61.",
       "proposedCure": "Route to the shared Slider primitive owner; VISUAL-CONSTITUTION.md §5.2 already rules the key semantics ('numeric/scientific sign never mirrors') but the rendered track geometry must follow the document direction per §6.1."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a82262f1e373e1f1b",
+   "key": "v2:e6af180f0485ee2e26c84bf7277cf5c53efb6c5689efe889eb85741c817b1c45",
+   "result": {
+    "axis": "CHALLENGE-C — implementation defect hunt on demo/scenes/blob/BlobPane.vue (+ its sole child ConfigSliderPane.vue), branch tranche-u @ c654824e",
+    "modelObserved": "Opus 5 (claude-opus-5[1m], 1M-context variant) — the model this seat was explicitly spawned with; declared, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/BlobPane/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "BPC-1 — nine of ten sliders on /#/blob do not reach the render. Driving each atom to a domain extreme from a fresh page load, membrane.smoothK moves 5110 px of the 32,761-px blob canvas while Warp, Noise Amp, Body Radius, Orbit Radius, Satellites, Core Glow, Iridescence, Hue Range and Attraction each move <=8 px — inside the 0-1 px noise floor measured 400 ms earlier on the same canvas. The working control proves the harness and the renderer's repaint path are sound, so the nine nulls are the defect: a 31-slider tuning console that does not tune.",
+    "defects": [
+     {
+      "id": "BPC-1",
+      "defect": "Nine of ten BlobPane sliders produce no change in the only rendered <Blob>; four Geometry atoms are discarded by literal, and the rest never reach the shader even after a forced wake.",
+      "severity": "BLOCKER",
+      "evidence": "node scratchpad/BPC-probe11.mjs (fresh page load per case, 181x181 canvas = 32761 px, threshold max-channel delta > 20):\nlabel          noisePx changePx atom\nSmooth K             1     5110   membrane.smoothK 0.05 -> 0.45\nWarp                 0        5   membrane.warpAmp 0.35 -> 1.0\nNoise Amp            1        8   membrane.noiseAmp 0.038 -> 0.10\nBody Radius          1        6   geometry.bodyRadius 0.22 -> 0.08\nOrbit Radius         1        6   geometry.orbitRadius 0.17 -> 0.48\nSatellites           1        5   geometry.satelliteCount 3 -> 0\nCore Glow            1        7   surface.coreGlow 0.06 -> 1.0\nIridescence          1        5   surface.iridescence 0.09 -> 1.0\nHue Range            1        6   color.hueRange 5 -> 60\nAttraction           1        7   interaction.pointerAttraction 0.35 -> -1.0\nSource root: demo/picker/visual/HeroBlob.vue:154-171 — `geometry: { ...appBlobConfig.geometry, bodyRadius: 0.325, orbitRadius: 0.4, satelliteRadius: 0.09, eccentricity: 0.03 }`. demo/picker/visual/HeroBlob.vue:13 is the sole `<Blob` in demo/.",
+      "mechanism": "The consumer overlays the injected config: four geometry atoms are replaced with hard-coded literals, and geometry/surface/color are re-spread into PLAIN snapshot objects inside a computed while membrane/satellites/interaction pass through as the live reactive proxy — so the pane writes to a config the engine does not read.",
+      "reproduction": "node /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/BPC-probe11.mjs against http://localhost:9000 ; also BPC-probe5.mjs (bodyRadius full sweep 0.08<->0.45 = 2 changed px vs a 27-px noise floor, all four frames captured by t=2.73s, well inside the live window).",
+      "proposedCure": "glass-ui already exports the hero register as BLOB_HERO (node_modules/@mkbabb/glass-ui/dist/components/blob/presets.d.ts:16, reachable from @mkbabb/glass-ui/blob) and HeroBlob hand-rolls a DIFFERENT overlay instead. Seed the app config from BLOB_HERO, render `:config=\"appBlobConfig\"` unoverlaid, and make any hero deviation a named producer preset the pane can SELECT. Then every slider is by construction the value the engine reads — and edicts 2 and 4 are discharged with it."
+     },
+     {
+      "id": "BPC-2",
+      "defect": "The renderer parks 5.3 s after arrival and a blob-config write is not an activity source, so the live-tuning pane drives a frozen canvas.",
+      "severity": "BLOCKER",
+      "evidence": "md5 -q of three .goo-blob-canvas captures taken while moving Satellites 3->0->4 at t=9.60s / 11.72s / 13.85s are byte-identical: 7b1795bd8ba912fb2e0aba26fd29c173 (x3); a colour change at t=15.50s repaints. Frame sweep (BPC-probe10.mjs): t=1.17s diffPx=9, t=2.32s diffPx=2, t=2.53s..3.50s diffPx=0. Source: demo/picker/visual/HeroBlob.vue:211-226 BLOB_IDLE_MS=2000 + SLEEPY_POSE_MS=3300; noteBlobActivity() called only from HeroBlob.vue:266 (colour watch), :290 (saved-colours watch), :246 (onActivated).",
+      "mechanism": "The idle-park gate's activity set omits the very surface it gates — config mutation is not registered as activity, so the only wake source is a colour change, the one input BlobPane does not own.",
+      "reproduction": "node scratchpad/BPC-probe3.mjs then `md5 -q BPC3-P0-parked.png BPC3-P1-sat0-PARKED.png BPC3-P2-sat4-PARKED.png` in the scratchpad.",
+      "proposedCure": "Make the pane an activity source: one `watch(() => appBlobConfig, noteBlobActivity, { deep: true })` in HeroBlob. The durable form is the producer's `settled`/park-from-quiescence seam already booked as GAP-L5 at HeroBlob.vue:200-210; the demo half is one line."
+     },
+     {
+      "id": "BPC-3",
+      "defect": "Deep-linking /#/blob on a phone renders the picker, never the Blob pane.",
+      "severity": "MAJOR",
+      "evidence": "node scratchpad/BPC-probe6.mjs — mobile-390 {\"hash\":\"#/blob…\",\"paneSliders\":0,\"textLen\":68} vs desktop-1440 {\"hash\":\"#/blob…\",\"paneSliders\":31,\"textLen\":750}. Corroborated by docs/tranches/V/megatranche/audit/visual/REPORT.md:157 (mobile text 69 vs desktop 713; tap targets 8 vs 39) and shots/safari-mobile-light/blob.png, which shows the segmented control on \"Picker\". Source: demo/shell/viewSchema.ts:179-186 omits defaultPaneIndex; demo/shell/useViewManager.ts:65 resolves `defaultPaneIndex ?? 0`.",
+      "mechanism": "The blob view is a content-first dual view (left: color-picker, right: blob) but omits the schema field that names its mobile default, so the route falls through to the left slot.",
+      "reproduction": "node scratchpad/BPC-probe6.mjs (iPhone 13 device descriptor vs 1440x900, same URL http://localhost:9000/#/blob).",
+      "proposedCure": "Add `defaultPaneIndex: 1` to the blob entry — the schema's own doc at viewSchema.ts:88-96 says content-first dual views name it, and palettes (line 122) / mix (line 150) with the identical shape both do. Better: make the field REQUIRED whenever `left` is not the view's own name, so the type system enumerates the content-first views instead of a comment."
+     },
+     {
+      "id": "BPC-4",
+      "defect": "The pane's compile-time guard silently DELETES every optional numeric atom, making a real tunable unaddressable — the opposite of what its 30-line comment claims.",
+      "severity": "MAJOR",
+      "evidence": "npx tsc --noEmit --ignoreConfig --strict --target es2022 --module esnext --moduleResolution bundler --skipLibCheck scratchpad/BPC-guard.ts →\nBPC-guard.ts(55,5): error TS2322: Type '\"color.lightnessFloor\"' is not assignable to type 'NumericAtomPath'.\nLine 55 is \"color.lightnessFloor\" — BlobColor.lightnessFloor?: number, bracketed [0.12,0.20] by LIGHTNESS_FLOOR_BRACKET, shipped default 0.15. Guard source: BlobPane.vue:19-48.",
+      "mechanism": "The conditional tests `BlobConfig[A][K] extends number` on the PRE-`-?` indexed access; for an optional member that is `number | undefined`, which fails the check and maps to never. `-?` strips the modifier on the mapped result's keys, not on what the check sees.",
+      "reproduction": "The tsc command above against /private/tmp/.../scratchpad/BPC-guard.ts (the guard reproduced verbatim against the shipped BlobConfig).",
+      "proposedCure": "`NonNullable<BlobConfig[A][K]> extends number` (or map over `Required<BlobConfig[A]>`), and delete the comment that documents behaviour the code does not have."
+     },
+     {
+      "id": "BPC-5",
+      "defect": "The guard is bypassable by construction — a raw object literal in SECTIONS skips it — and the bypass renders a TypeError that kills the whole pane.",
+      "severity": "MAJOR",
+      "evidence": "In the same tsc run, these three entries inside a SliderSection[] produced ZERO errors (only line 55 errored): { key: \"geometry.bodyRadiuz\" … }, { key: \"surface.lit\" … }, { key: \"totally.made.up\" … }. Shape source: ConfigSliderPane.vue:28 `key: string`. Crash path: ConfigSliderPane.vue:57-64 readPath returns undefined → :84-86 fmt → Number.isInteger(undefined) is false → undefined.toFixed(3) TypeError; writePath :66-73 mirrors it with 'Cannot set properties of undefined'.",
+      "mechanism": "SliderDef.key is `string`, so the NumericAtomPath constraint only binds at the `s()` call site and nowhere in the type the array is declared as. The double cast at BlobPane.vue:124/126 (`(cfg as unknown) as Record<string, unknown>`) is what threw the type away in the first place.",
+      "reproduction": "The tsc command in BPC-4 — the bypass entries compile clean. The crash itself: NONE (all 31 shipped keys resolve) — labelled a coupled consequence, not an observed failure.",
+      "proposedCure": "Make ConfigSliderPane generic over its config: `defineProps<{ config: T; sections: SliderSection<T>[]; defaults: T }>()` with `SliderDef<T>.key: NumericAtomPath<T>`. The guard then lives once, applies to AuroraPane for free, cannot be bypassed by a literal, and both double casts plus the 30-line comment disappear."
+     },
+     {
+      "id": "BPC-6",
+      "defect": "31 slider thumbs measure 12 x 24 CSS px — half the WCAG 2.2 SC 2.5.8 minimum width — and this pane is the whole of /#/blob's tap-target outlier.",
+      "severity": "MAJOR",
+      "evidence": "node scratchpad/BPC-probe1.mjs: 'TOTAL operable: 60 | sliders: 35 | pane sliders: 31'; 'SMALL(<24px): 42 | inside .config-console: 31'; every pane row prints `w=12 h=24`. docs/tranches/V/megatranche/audit/visual/REPORT.md:41 records safari-desktop-light /#/blob: 39 small tap targets against 4-8 on every other route (39 = 31 pane + 8 shell baseline). Cure gate: ConfigSliderPane.vue:218-230 `@media (pointer: coarse)` extends block-size only.",
+      "mechanism": "The hit-area extension is gated on pointer type (WCAG 2.5.8 has no such exemption) and extends only the block axis, so the 12 px inline width is never addressed on any device.",
+      "reproduction": "node scratchpad/BPC-probe1.mjs against http://localhost:9000/#/blob at 1440x900.",
+      "proposedCure": "Root-level in glass-ui's slider recipe (edict 5): a ::before hit area of at least 24 px on BOTH axes, unconditional on pointer type, with the visual thumb left at 12 px. One token in the design system rather than 31 rows in the demo."
+     },
+     {
+      "id": "BPC-7",
+      "defect": "Four sliders share two accessible names — 'Noise Freq' x2 and 'Noise Speed' x2 — making name-based targeting ambiguous.",
+      "severity": "MAJOR",
+      "evidence": "node scratchpad/BPC-probe1.mjs: 'DUP pane slider names: [[\"Noise Freq\",2],[\"Noise Speed\",2]]' with distinct domains (membrane.noiseFreq max=10 vs color.colorNoiseFreq max=8; membrane.noiseSpeed max=0.5 vs color.colorNoiseSpeed max=0.3). Authored at BlobPane.vue:71-72 and 83-84. Demonstrated harm — it aborted a probe run: \"locator.focus: Error: strict mode violation: getByRole('slider', { name: 'Speed' }) resolved to 3 elements\" (two aria-label=\"Noise Speed\" plus aria-label=\"Speed\").",
+      "mechanism": "The visible label is used verbatim as the accessible name with no section qualifier, so two different atoms in different sections present as the same control to AT and to voice control.",
+      "reproduction": "node scratchpad/BPC-probe1.mjs; or the original BPC-probe11.mjs including a [\"Speed\",…] case, which throws the strict-mode violation quoted above.",
+      "proposedCure": "Section-qualify the accessible name in ConfigSliderPane — `aria-label = ${section.title} ${def.label}` — one line that also disambiguates 'Speed' (tempo) from 'Noise Speed' and fixes AuroraPane at the same time."
+     },
+     {
+      "id": "BPC-8",
+      "defect": "BlobPane ships a 'Stretch' slider over exactly the domain the producer measured as having zero effect and explicitly declared retired from the demo.",
+      "severity": "MAJOR",
+      "evidence": "node_modules/@mkbabb/glass-ui/dist/components/blob/types.d.ts:186-204 on BlobInteraction.stretch: \"a live readback measured 0% body-aspect change between stretch=0 and stretch=1.5 … Kept … but DEMOTED — the demo no longer surfaces it as a top-level slider\". BlobPane.vue:104: s(\"interaction.stretch\", \"Stretch\", 0.0, 1.5, 0.05).",
+      "mechanism": "A consumer stale against a producer ruling: the pane's header block claims to track upstream abrogations, but this one was not applied.",
+      "reproduction": "Read node_modules/@mkbabb/glass-ui/dist/components/blob/types.d.ts:186-204 against demo/scenes/blob/BlobPane.vue:104.",
+      "proposedCure": "Delete the row. Dead controls are the abrogation-silencer the pane's own comment says the ledger forbids — the rule must run in both directions."
+     },
+     {
+      "id": "BPC-9",
+      "defect": "VACUOUS GATE — BlobPane has no test of any kind, and the one blob-related unit test pins the very literals that cause BPC-1.",
+      "severity": "MAJOR",
+      "evidence": "`grep -rn \"#/blob\" e2e/` → no matches. The only ConfigSliderPane specs are e2e/smoke/oracles/o18-contrast-census.spec.ts:929 and :1164, both `page.goto(\"/#/atmosphere\")`. test/picker-blob-config.test.ts:26-30 asserts expect(radii).toEqual([0.325]) and /orbitRadius:\\s*0\\.4,/, /satelliteRadius:\\s*0\\.09,/, /eccentricity:\\s*0\\.03,/ — i.e. it defends the overrides.",
+      "mechanism": "No test navigates the route the component lives on, so the component's contract (a slider changes the blob) is unasserted; the only related test is a source-regex that locks in the defect.",
+      "reproduction": "grep -rn \"#/blob\" e2e/ (empty) and read test/picker-blob-config.test.ts.",
+      "proposedCure": "Green-keeping mutation to prove the vacuity: replace SECTIONS with [] — v-if=\"sections.length > 0\" (ConfigSliderPane.vue:119,163) hides the console and the action bar, and vitest + playwright stay fully green. Cure: one e2e oracle that navigates /#/blob, captures .goo-blob-canvas, drives each slider to a domain extreme and asserts a pixel delta above the measured noise floor. It is born-RED at 9 of 10 today — which is the point."
+     },
+     {
+      "id": "BPC-10",
+      "defect": "Reset and Copy JSON are both silent — no announcement, no focus management, and the clipboard result is discarded so a failed copy is invisible.",
+      "severity": "MINOR",
+      "evidence": "node scratchpad/BPC-probe2.mjs: 'aria-live regions: [\"off:92.0%\",\"off:88.8\",\"off:20.0\",\"off:82.7%\"]' — all four belong to the picker and are aria-live=\"off\"; .config-console has none, while Reset rewrites all 31 values (values before reset: 0.45,4,… / after: 0.22,3,…). ConfigSliderPane.vue:88-90 `await writeClipboard(...)` drops the return; node_modules/@mkbabb/glass-ui/dist/useClipboard-D36OTaeT.js:3-15 never throws and returns { ok:false, reason:\"no-api\" } when navigator.clipboard?.writeText is absent.",
+      "mechanism": "A destructive bulk action and an async action both complete with zero programmatic or visual feedback; the composable's result type exists precisely to prevent this and is thrown away.",
+      "reproduction": "node scratchpad/BPC-probe2.mjs (Reset + Copy JSON clicked, aria-live census printed). Insecure-origin case is reachable via the repo's own LAN testing path (vite.config.ts server.host: true).",
+      "proposedCure": "Consume glass-ui's useClipboard (same file, lines 16-51) for its `status` ref and `onCopyError` hook and drive the button's own state; add one polite live region for the reset. Root-level, no demo-local toast."
+     },
+     {
+      "id": "BPC-11",
+      "defect": "resetDefaults overwrites color.paletteStops — the exact live feed the pane's header comment cites as its reason for omitting that slider.",
+      "severity": "MINOR",
+      "evidence": "ConfigSliderPane.vue:92-94 `Object.assign(config, structuredClone(defaults))` replaces config.color wholesale, restoring the baked [\"#b5947f\",\"#d4b27d\",\"#dad6b1\"] (node_modules/@mkbabb/glass-ui/dist/presets-5myqNv59.js). The re-derive watch at demo/color-picker/composables/boot/useAtmosphere.ts:388-401 is keyed on atmosphereColor and does not re-fire on reset. Claim being falsified: BlobPane.vue:8-9.",
+      "mechanism": "A whole-atom Object.assign restores a derived, externally-owned field alongside the user-tunable ones; the derivation is event-driven and never re-runs.",
+      "reproduction": "NONE as a user-visible symptom — latent because HeroBlob.vue:169 shadows paletteStops with its own heroStops, which independently means the useAtmosphere derive (running on every colour change; atmosphereColor is the uncoalesced cssColorOpaque per useAtmosphereBoot.ts:128) is consumed only as a mount seed. Labelled a hypothesis at the symptom level, a certainty at the code level.",
+      "proposedCure": "Reset only the keys the pane declares (walk SECTIONS' dot-paths) rather than Object.assign-ing the whole config — the pane already knows exactly which atoms it owns."
+     },
+     {
+      "id": "BPC-12",
+      "defect": "Eight numeric atoms and four enum/boolean atoms are unreachable from the pane, and one of the gaps forced a hard-coded literal in a sibling component.",
+      "severity": "MINOR",
+      "evidence": "31 of 39 numeric BlobConfig atoms exposed; absent: morphT (\"The sole flat↔dressed surface axis\", types.d.ts:214-219), surface.fissionAmp, surface.shadowSoftness, surface.iridHue, surface.iridSpeed, surface.sssPower, color.lightnessFloor (unreachable per BPC-4), geometry.canvasSize. Enum/bool absent: surface.lit, surface.shadow, membrane.merge, quality — ConfigSliderPane's default slot exists for exactly this (ConfigSliderPane.vue:12-14, used by AuroraPane) and BlobPane passes nothing. Cost: demo/picker/visual/HeroBlob.vue:161 `const HERO_FISSION_AMP = 0.6` with a 20-line comment explaining the shipped default of 0 left the fission branch dead.",
+      "mechanism": "An incomplete tuning surface pushes the missing knobs into magic numbers in consumers.",
+      "reproduction": "scratchpad/BPC-guard.ts section (4) typechecks 7 of the 8 unexposed numeric paths as valid NumericAtomPath members (only color.lightnessFloor errors, per BPC-4).",
+      "proposedCure": "Add the missing numeric rows and use ConfigSliderPane's existing default slot for the enum/boolean atoms exactly as AuroraPane does — then HERO_FISSION_AMP can stop being a literal."
+     }
+    ],
+    "negativeProof": "N/A — verdict is DEFECTIVE. Recorded as BPC-13 in the report for the axes that ARE sound, so they are not re-litigated: (1) range/default coherence is clean — all 31 sliders' [min,max] bracket their shipped BLOB_CONFIG_DEFAULTS value, and measured aria-valuemin/max/now for all 31 match the source exactly (no clamp-on-mount, no silent write); (2) Reset restores exactly the defaults (before/after value strings captured) with zero errors; (3) zero page errors and zero console errors from this route, matching REPORT.md:127/142 pageErr 0 / consoleErr 0 across all four Safari matrices; (4) performance is fine — 40 keyboard steps on one slider = 672 ms wall, 0 long tasks, 4 DOM mutations per step, so the 31-row single-component render is not a hot spot; (5) keyboard/ARIA basics are right — every pane slider is tabindex=\"0\", role=\"slider\", aria-orientation=\"horizontal\" with correct value attributes; (6) no ungated rAF / PRM defect in this component, and per the seat brief useMetaballRenderer's reduced-motion single-frame path is verified upstream — nothing manufactured; (7) none of the repo's named local hazards apply — no defineModel, no ValueUnit wrapping, no oklch→HSV roundtrip, no pointer-capture handling, no WebGL boot (the pane holds no model of its own); (8) verbatimModuleSyntax is correct (import type at lines 13 and 15); (9) the guard's positive half genuinely works — routed through s(), both a typo and a boolean atom fail typecheck (both @ts-expect-error markers fired, no unused-directive errors)."
+   }
+  },
+  {
+   "agentId": "a12888e54881adc02",
+   "key": "v2:0e6b793eed9eb2329bb1ace8011555b530d548d4bd8f2396138ca97c58bae085",
+   "result": {
+    "axis": "CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) for demo/scenes/about/katex/Katex.vue",
+    "modelObserved": "Opus 5 (claude-opus-5[1m]) — explicitly declared at spawn, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/Katex/challenge-L-library.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "L-5 — the repo already owns the correct idiom for this exact problem (plugins/vite-source-export.ts: \"pre-formatted with Prettier and pre-highlighted with highlight.js at build time … No runtime formatting or highlighting libraries are needed\") and applies it to code, then ships a 588 kB runtime KaTeX typesetter on the default route to render 64 compile-time-constant LaTeX literals. Two mechanisms for one concept (\"render rich content into a doc page\") — a dual path at architectural altitude, with the wrong branch carrying the weight. All 64 expressions render server-side clean (measured: 0 failures under throwOnError:true), so the build-time branch is trivially available. Taken with L-1, the cure deletes the component, the assets/→demo/ cycle, the barrel, the 64 un-gated call sites, Markdown.vue:286-306, and 588 kB of client JS.",
+    "negativeProof": "Recorded in the report's \"Negative proof\" section, verified individually: (1) published-surface integrity is CLEAN — zero @mkbabb/value.js imports, zero @src, zero dist/ paths in Katex.vue and all 11 doc pages; the 7-subpath exports map (package.json:20-48) is untouched, so no false proof of the public API exists here. (2) Dependency placement CLEAN — katex + @types/katex are devDependencies (package.json:90,104), files excludes dist/gh-pages, and the library build (vite.config.ts:167-239) has no HTML entry and never sees demo/. (3) verbatimModuleSyntax (edict 8) compliant — both imports are value imports, no type-only import exists to mis-mark. (4) Vue 3.5 idioms (edict 7) correct — useTemplateRef (line 27) + reactive props destructure (lines 22-25); no defineModel round-trip so no shallowRef requirement. (5) Edict 6 N/A — no keyframes defined or deleted. (6) Edict 1 CLEAN — 49 lines, one responsibility, not a god module. (7) The named historical suspect \"three parallel useDark stores\" is already cured on this path — useMarkdownHighlighting.ts:76-80 documents S.W4-8 collapsing it to glass-ui useGlobalDark; the KaTeX path holds no theme state. ActionBarLayer/usePaletteExport suspects are unreachable from this graph. (8) Content itself is correct — all 64 LaTeX strings render clean: `node expr-check.mjs` → \"expressions: 64 | failing under throwOnError:true = 0\". (9) Lazy-loading boundaries genuinely work — at 390px the About pane never mounts and ZERO KaTeX assets are requested (probe: dispCount 0, no katex sheet in document.styleSheets), so the L-5 cost is a desktop-landing-route cost, not unconditional.",
+    "defects": [
+     {
+      "id": "L-1",
+      "defect": "Dependency direction inverted and cyclic: content (assets/docs/*.md) imports the application (demo/scenes/about/katex/), while the application imports back into content. Eleven doc pages take a hard dependency on the internal folder layout of one scene.",
+      "severity": "MAJOR",
+      "evidence": "assets/docs/rgb.md:2 `import { Katex } from \"../../demo/scenes/about/katex\";` (identical line 2 in all 11 of hex/hsl/hsv/hwb/kelvin/lab/lch/oklab/oklch/rgb/xyz.md) ⟷ demo/scenes/about/AboutPane.vue:82-92 `rgb: () => import(\"../../../assets/docs/rgb.md\")`. Barrel at demo/scenes/about/katex/index.ts:1. `grep -rn \"@src\\|?source\" assets/` → no output, proving this is the ONLY cross-boundary import assets/ makes.",
+      "mechanism": "boundary-inversion / directory-level module cycle; unenforced boundary (nothing prevents assets/docs from importing any demo internal tomorrow)",
+      "reproduction": "grep -n '^import' assets/docs/*.md ; grep -n 'assets/docs' demo/scenes/about/AboutPane.vue",
+      "proposedCure": "Content must have zero imports. Move to `content/docs/*.md` as pure markdown with $…$/$$…$$ math; a single build-time plugin (plugins/vite-docs.ts, folding in today's sourceExportPlugin) compiles math and code at build time. The edge disappears by construction rather than being policed."
+     },
+     {
+      "id": "L-2",
+      "defect": "The component's entire public surface — 64 call sites — is invisible to every static gate: typecheck, lint, and Tailwind source scan. Its props contract is verified nowhere.",
+      "severity": "MAJOR",
+      "evidence": "`npx vue-tsc -p tsconfig.demo.json --noEmit --listFiles | grep -c \"assets/docs\"` → 0, out of `| wc -l` → 929 program files. tsconfig.demo.json:57 `\"include\": [\"demo/\", \"src/vite-env.d.ts\"]`. eslint.config.js ignores array contains `\"**/*.md\"`. Doc SFCs are `<script setup>` with no lang=\"ts\" (assets/docs/rgb.md:1). demo/styles/foundation.css:91-92 @source directives cover neither assets/. Props declared at Katex.vue:22-25.",
+      "mechanism": "public surface outside every program boundary — a component with no enforceable contract",
+      "reproduction": "npx vue-tsc -p tsconfig.demo.json --noEmit --listFiles | grep -c 'assets/docs'   # → 0",
+      "proposedCure": "Under the build-time transposition this dissolves: $$…$$ is content, so there are no props to check. If runtime rendering is retained: add \"assets/docs/**/*.md\" to tsconfig.demo.json include, add lang=\"ts\" to the 11 doc script blocks, and narrow the eslint **/*.md ignore to exclude assets/docs/."
+     },
+     {
+      "id": "L-3",
+      "defect": "Katex.vue owns none of its own box model. class=\"inline-block\" is hardcoded on the root regardless of displayMode (which defaults true), and the block/scroll correction lives in a sibling component's scoped stylesheet keyed on a direct-child relationship. Any instance not a direct child of .markdown-body overflows unclipped and unscrollable.",
+      "severity": "MAJOR",
+      "evidence": "Katex.vue:2 `<div class=\"inline-block\" ref=\"katexElement\">`; Katex.vue:22 `displayMode = true` default; Markdown.vue:301-306 `> div.inline-block:has(> .katex-display) { display:block; @apply overflow-x-auto; … }`; Markdown.vue:286-289 owns inline spacing. Live WebKit measurement at 1440x900 on http://localhost:9000/#/ : {\"before\":{\"display\":\"block\",\"overflowX\":\"auto\",\"sw\":462,\"cw\":462},\"inP\":{\"display\":\"inline-block\",\"overflowX\":\"visible\"},\"outside\":{\"display\":\"inline-block\",\"overflowX\":\"visible\",\"hostW\":300,\"boxW\":557}} — 557px box in a 300px host, 257px unclipped overflow.",
+      "mechanism": "unique-semantic-ownership violation: layout semantics of a prop implemented in a foreign module; the AB-1 dead-CSS failure class localised to one call pattern and left latent everywhere else",
+      "reproduction": "scratchpad/latent-probe.mjs — relocate a live display-mode instance (a) into a <p> inside .markdown-body, (b) into a 300px host outside it; read getComputedStyle + scrollWidth. Output pasted in report §L-3.",
+      "proposedCure": "The component owns its own display: `<div :class=\"displayMode ? 'katex-block' : 'katex-inline'\">` with `.katex-block { display:block; overflow-x:auto }` in its own <style scoped>; delete Markdown.vue:286-306. Under the build-time cure the transform emits a semantic <figure class=\"math-display\"> that owns its overflow and no :has() reach exists at all."
+     },
+     {
+      "id": "L-4",
+      "defect": "A Tailwind utility class is used as a load-bearing structural contract between two modules. Markdown.vue selects on `div.inline-block` — an implementation detail of Katex.vue's root. Renaming that class silently kills the layout correction with no error, warning, or test failure.",
+      "severity": "MAJOR",
+      "evidence": "Markdown.vue:287,288,301 select `div.inline-block`; Katex.vue:2 is the sole producer. Live class-swap measurement: after `classList.remove('inline-block'); classList.add('katex-host')` and re-parenting as a direct child of .markdown-body → {\"display\":\"block\",\"overflowX\":\"visible\"} — the overflow-x:auto correction is dead.",
+      "mechanism": "utility-class-as-API; no semantic hook (no data-katex, no component-owned class) — the exact AB-1 silent-CSS-death mechanism re-expressed one layer up",
+      "reproduction": "scratchpad/latent-probe.mjs step 3; output `\"classSwapped\": {\"display\":\"block\",\"overflowX\":\"visible\"}`",
+      "proposedCure": "Same cure as L-3: the component emits and styles its own semantic class. No foreign stylesheet may key on another component's utility classes."
+     },
+     {
+      "id": "L-5",
+      "defect": "A 588 kB runtime math typesetter ships on the default route to render 64 compile-time-constant string literals, while the same repository already implements build-time rich-content rendering for code and states explicitly that no runtime library is needed. Two mechanisms, one concept.",
+      "severity": "MAJOR",
+      "evidence": "plugins/vite-source-export.ts:14-21 \"pre-formatted with Prettier and pre-highlighted with highlight.js at build time … No runtime formatting or highlighting libraries are needed.\" vs Katex.vue:7,31 runtime katex.render. Network census on /#/ (WebKit, networkidle): 8 KaTeX requests — index.ts, Katex.vue, katex.js, katex.min.css, KaTeX_Main-Regular/Math-Italic/Size4/Size3.woff2. `du -sh node_modules/katex/dist/katex.mjs` → 588K; katex.min.css → 24K; fonts → 1.1M. katex declares no sideEffects and exports[\".\"] is a monolith — nothing is tree-shakeable. demo/shell/viewSchema.ts:107 makes About the DEFAULT right pane of \"/#/\". All 64 expressions render server-side clean: `node expr-check.mjs` → \"expressions: 64 | failing under throwOnError:true = 0\".",
+      "mechanism": "dual path (edict 2) at architectural altitude — the runtime branch of a concept the repo already solved at build time",
+      "reproduction": "node scratchpad/net-probe.mjs (network census); node scratchpad/expr-check.mjs (64/64 render server-side); du -sh node_modules/katex/dist/*",
+      "proposedCure": "Fold math into the existing build-time content transform: markdown-it + markdown-it-katex inside one plugins/vite-docs.ts that also absorbs sourceExportPlugin's ?source half. Client cost drops from 588 kB JS + 24 kB CSS + fonts to 24 kB CSS + ~90 kB woff2. Deletes Katex.vue, its barrel, the assets/→demo/ edge, Markdown.vue:286-306, the 64 un-gated call sites, and throwOnError:false — using only mechanisms already present in the repo."
+     },
+     {
+      "id": "L-6",
+      "defect": "Zero unit tests, zero e2e assertions, and zero visual-audit coverage on a component with a documented history of catastrophic silent CSS regression.",
+      "severity": "MAJOR",
+      "evidence": "`grep -rn \"katex\\|Katex\" test/ e2e/` → no output. docs/tranches/V/megatranche/audit/visual/REPORT.md captures 15 routes; About is not a route (demo/shell/viewSchema.ts:104-112 — it is the right pane of \"/#/\") and the formulas sit below the fold. I read shots/safari-desktop-light/picker.png: the About card renders down to \"Key Properties\"; no KaTeX output appears in any of the 60 captures. Katex.vue:8-19 documents the prior regression: 231 dead rules, duplicate visible MathML layer, 6400px stretchy brace.",
+      "mechanism": "no gate can observe the component's rendered truth; the AB-1 class of failure was invisible to CI then and remains invisible now",
+      "reproduction": "grep -rn 'katex\\|Katex' test/ e2e/  → empty; read docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/picker.png",
+      "proposedCure": "Under the build-time cure the output is a static build artefact and can be snapshot-asserted in vitest for pennies. Retaining runtime rendering requires at minimum a state capture that scrolls the About pane to the math region and adds it to the visual matrix."
+     },
+     {
+      "id": "L-7",
+      "defect": "Imperative render with an incomplete dependency list: renderKatex reads both expression and displayMode but only expression is watched, so a displayMode change re-renders nothing.",
+      "severity": "MINOR",
+      "evidence": "Katex.vue:33 reads displayMode inside renderKatex; Katex.vue:48 `watch(() => expression, renderKatex);` — displayMode absent from the watch source. Katex.vue:46 onMounted(renderKatex).",
+      "mechanism": "hand-maintained DOM mirror of props rather than a derivation — mirrors drift",
+      "reproduction": "NONE — labelled a hypothesis at the behavioural level. Statically certain (single-getter watch source) but all 64 call sites pass a literal displayMode, so no live path exercises it.",
+      "proposedCure": "Make it declarative: `const html = computed(() => katex.renderToString(expression, { displayMode, output: \"htmlAndMathml\", throwOnError: true }))` + v-html. Deletes the template ref, onMounted, the watch, and the masking fallback in one stroke; file drops from 49 to ~15 lines."
+     },
+     {
+      "id": "L-8",
+      "defect": "throwOnError:false is a masking fallback (edict 2) sitting exactly where every real gate is absent — a LaTeX typo renders as red inline text on the landing route with nothing to catch it.",
+      "severity": "MINOR",
+      "evidence": "Katex.vue:36 `throwOnError: false`. Combined with L-2 (0/929 typecheck coverage of the 64 call sites) and L-6 (0 tests). Honest negative: it currently masks nothing — `node expr-check.mjs` → 0/64 expressions fail under throwOnError:true.",
+      "mechanism": "masking fallback substituting for absent gates",
+      "reproduction": "node scratchpad/expr-check.mjs → \"expressions: 64 | failing under throwOnError:true = 0\"",
+      "proposedCure": "throwOnError:true. At build time this fails the build (the correct outcome); at runtime it fails loudly. Either is better than silent red text."
+     },
+     {
+      "id": "L-9",
+      "defect": "A dedicated directory plus a one-line barrel module for a single 49-line component, existing only so the doc pages can write a directory specifier — i.e. it exists to service L-1.",
+      "severity": "MINOR",
+      "evidence": "`cat demo/scenes/about/katex/index.ts` → `export { default as Katex } from \"./Katex.vue\";` (1 line, 1 export, 0 encapsulation). Contrast demo/scenes/about/markdown/index.ts which at least carries DocModule/DocItem types; contrast demo/shared/ui/ (EmptyState.vue, PaneHeader.vue) which are flat files with no per-component folder.",
+      "mechanism": "contrivance (edict 3, KISS) — a module boundary with nothing behind it",
+      "reproduction": "cat demo/scenes/about/katex/index.ts ; ls demo/shared/ui/",
+      "proposedCure": "Delete the folder and barrel. Under the build-time cure the component is gone entirely; if retained, it becomes a flat demo/shared/ui/Katex.vue — it is provably not About-specific since its only consumers live outside demo/scenes/."
+     },
+     {
+      "id": "L-10",
+      "defect": "vite.config.ts documents a rationale that is factually false at HEAD, and it is the only written justification for assets/ being permitted to import anything.",
+      "severity": "MINOR",
+      "evidence": "vite.config.ts:70-73 claims \"`@src` SURVIVES for the EXEMPT `assets/docs/*.md` reference pages, which embed live source snippets via `@src/…?source`\". `grep -rn \"@src\\|?source\" assets/` → no output. Repo-wide `grep -rn \"@src\"` (excluding node_modules and docs/) hits only vite.config.ts, tsconfig.demo.json, vitest.config.ts and 5 files under test/. The alias at vite.config.ts:74 is dead for the app build.",
+      "mechanism": "stale load-bearing documentation — the comment misdescribes the tree and shelters L-1's surviving edge",
+      "reproduction": "grep -rn '@src\\|?source' assets/   # → no output",
+      "proposedCure": "Delete the assets/docs clause from the comment and scope the @src alias to the vitest program only. With the false half removed, L-1's edge stands undefended and must be cured on its merits."
+     },
+     {
+      "id": "L-11",
+      "defect": "`npm run gh-pages` at HEAD emits a 0.69 kB application bundle containing only Vite's modulepreload polyfill, alongside 59 KaTeX font files totalling 1.1 MB and no KaTeX stylesheet at all — 1.1 MB of orphan fonts in a non-functional artefact.",
+      "severity": "BLOCKER",
+      "evidence": "`npx vite build --mode gh-pages --outDir <scratch>/ghp --emptyOutDir` → \"✓ built in 4.40s\"; `ls <scratch>/ghp/assets | wc -l` → 63, of which 59 are KaTeX_*; non-font files are favicon-BpOvZXpk.svg, glass-fonts-DH5GtBvs.css, index-Dezn_h7o.js (0.69 kB), quantize-worker-*.js. `cat assets/index-Dezn_h7o.js` → modulepreload polyfill only, zero app code, zero katex JS, zero katex CSS. Identical result with deferGlassFonts() removed (ghp3: 62 files, 59 KaTeX, index still 0.69 kB). The checked-in dist/gh-pages (2026-07-27 18:46) has the identical 698-byte index-Dezn_h7o.js. shots/LIVE-color.babb.dev.png shows the deployed site rendering correctly → this is a regression at HEAD.",
+      "mechanism": "module-graph collapse at render time while the CSS asset graph still emits url() targets — cause UNIDENTIFIED. I formed and FALSIFIED the obvious hypothesis (package.json:19 \"sideEffects\": false applied to a demo graph with no demo/package.json, entry = demo/color-picker/index.html:205-213 inline module script whose whole body is pure side effect): forcing rolldownOptions.treeshake={moduleSideEffects:true} did NOT resurrect the bundle (ghp2 still 0.69 kB).",
+      "reproduction": "npx vite build --mode gh-pages --outDir /tmp/ghp --emptyOutDir ; ls /tmp/ghp/assets | wc -l ; cat /tmp/ghp/assets/index-*.js   (reproduced 3x from cold)",
+      "proposedCure": "Attribution stated plainly: this is the known W44 §F gh-pages empty-mount carry, independently reproduced, and NOT caused by Katex.vue. What is attributable is that anchoring the 1.1 MB KaTeX font corpus to a leaf scene component's side-effect CSS import is what makes it survive a build that drops everything else. The build-time transposition (L-5) removes the runtime engine and lets the ~90 kB of actually-used woff2 be emitted from demo/styles/ where the typography law lives. The empty-mount root cause needs a dedicated bisect seat."
+     },
+     {
+      "id": "L-12",
+      "defect": "Two dead path references found while tracing this component's CSS path, both W43 (RF-15) fallout from the demo/@/ → demo/ move.",
+      "severity": "INFO",
+      "evidence": "(1) plugins/vite-defer-glass-fonts.ts:73 guards `id.includes(\"demo/@/styles/style.css\")`; `ls -d demo/@` → \"No such file or directory\"; `grep -rn \"__GLASS_FONTS_DEFERRED__\" demo/` → demo/styles/foundation.css:75. The transform can never fire — the marker is neither stripped in build nor replaced in dev, so the plugin's entire stated deferral purpose is dead (its renderStart emit half still runs, hence the 132 kB glass-fonts-*.css). (2) demo/styles/foundation.css:91 `@source \"../../color-picker/**/*.{vue,ts,html}\"`; `ls -d demo/styles/../../color-picker` → \"No such file or directory\" (should be ../color-picker). Harmless only because line 92 @source \"../**\" covers the same tree.",
+      "mechanism": "stale relative paths surviving a directory move because no gate validates plugin id guards or @source targets",
+      "reproduction": "ls -d demo/@ ; grep -rn '__GLASS_FONTS_DEFERRED__' demo/ ; ls -d demo/styles/../../color-picker",
+      "proposedCure": "Fix both prefixes (demo/@/styles/style.css → demo/styles/foundation.css; ../../color-picker → ../color-picker). Structurally: plugin id guards should match against a resolved module id exported from one place rather than a hand-written substring, so a directory move breaks the build instead of silently disabling a plugin."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "aa78815d22d5abf9c",
+   "key": "v2:c3d1d0173b694e4c4aee791a0154d5d2490302abb7ccdb12acc16879cf9ba546",
+   "result": {
+    "axis": "design (CHALLENGE-D) — visual truth, state coverage, motion, design-system boundary, proportion/seat law",
+    "modelObserved": "Opus 5 — exact model ID `claude-opus-5[1m]` (1M-context variant). The seat was spawned with an explicit Opus 5 declaration and the served tier matches it; declaration present, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/Katex/challenge-D-design.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "D-2 — display math is horizontally clipped with ZERO affordance of any kind: on mobile 390 three of four formulas in the Lab guide are cut, the worst hiding 446px (57.3%) of the equation; at 200% zoom 428px (55.0%); on desktop 1440 in both schemes 316px (40.6%). Measured `scrollbarWidthReserved: 0`, `maskImage:\"none\"`, `backgroundImage:\"none\"`, `boxShadow:\"none\"`, `::before/::after content:\"none\"` — the reader sees `a* = 500 [` and a card edge with no signal that more exists, on the route's thesis content, in the default configuration.",
+    "negativeProof": "Six attacks landed on nothing and I withdrew them rather than manufacture findings. (1) MOTION: the component animates nothing — no `transition`, no `@keyframes`, no rAF, no layout-forcing animated property; `prefers-reduced-motion` is vacuously satisfied and edict 6 is clean. (2) SUB-PIXEL FRACTION BARS: I predicted the `\\frac` rule would vanish at DPR 1; it does not — `border-bottom-width` computes `1px` at DPR 1 and `0.5px` at DPR 2, one device pixel in both (evidence/p4b.json). Hypothesis withdrawn. (3) FORCED-COLORS: `matchMedia(\"(forced-colors: active)\")` resolves true under WebKit emulation but WebKit performs no colour substitution — `.frac-line` border and the stretchy-svg `fill` both stay `rgb(28,25,23)` (evidence/p2-forced.json). The arm is untestable in this harness; I make no claim. (4) MATH INK CONTRAST: math inherits exactly the prose colour in both schemes (`rgb(28,25,23)` light / `rgb(233,230,226)` dark) — no worse than the prose beside it. (5) MathML A11Y LAYER: `output:\"htmlAndMathml\"` is the correct WebKit choice, the HTML layer correctly carries `aria-hidden=\"true\"`, and the `Katex.vue:34-40` rationale is accurate — the defect is the copy payload, not the AT layer. (6) EDICTS 1/7/8: 49 lines and one job (no god module); `useTemplateRef` + reactive props destructure present; all three imports are value imports so `verbatimModuleSyntax` is satisfied. Also confirmed the card never overflows the document (`overflowX: 0` in every REPORT.md capture and in my probes) — which is precisely why no automated overflow check ever found D-2: the loss is contained inside the port.",
+    "defects": [
+     {
+      "id": "D-1",
+      "defect": "RTL mirrors scientific notation — subscripts and superscripts swap sides, destroying the meaning of every formula. `L*` renders as `*L`, `Y_n` as `_nY`, `a*/500` as `*a/500`, and the \\begin{cases} brace points the wrong way.",
+      "severity": "BLOCKER",
+      "evidence": "demo/scenes/about/katex/Katex.vue:2 emits a bare <div> with no `dir` and no `unicode-bidi`; katex.render is called with no direction option (Katex.vue:31-42). KaTeX's own CSS never sets direction: `grep -o \"direction:[a-z]*\" node_modules/katex/dist/katex.min.css | sort | uniq -c` -> `1 direction:column / 1 direction:row` (both flex-direction). Measured under dir=rtl: `direction: rtl`, `textAlign: right`, and the layout is genuinely recomputed — widest block scrollWidth 778 -> 752px (evidence/p2-rtl.json). Frame: frames/D-rtl-1440.png.",
+      "mechanism": "root element supplies none of its own design properties — direction inherited from the document with no LTR isolation",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe2.mjs (arm p2-rtl); or on http://localhost:9000/#/ run document.documentElement.setAttribute(\"dir\",\"rtl\") and scroll the About pane to the Lab formulas.",
+      "proposedCure": "The component root owns its own direction: `dir=\"ltr\"` + `unicode-bidi: isolate` on the root it already renders, in the component that knows it is emitting math — not a consumer override. VISUAL-CONSTITUTION §5.2 (\"numeric/scientific sign never mirrors\") and §6.1 (LTR-isolated spans inside RTL prose) already legislate this for every weaker member of the class."
+     },
+     {
+      "id": "D-2",
+      "defect": "Display math is horizontally clipped with zero scroll affordance; up to 57.3% of a formula is unsignalled and, for keyboard users, unreachable.",
+      "severity": "BLOCKER",
+      "evidence": "Measured hidden = scrollWidth - clientWidth (evidence/p2-*.json): desktop 1440 light+dark 316px of 778 = 40.6%; 200% zoom 428px of 778 = 55.0%; mobile 390 446px of 778 = 57.3%, plus 173px (34.3%) and 99px (23.0%) on two more blocks. Affordance inventory on an overflowing port (evidence/p5.json): scrollbarWidthReserved 0, maskImage \"none\", backgroundImage \"none\", boxShadow \"none\", ::before/::after content \"none\". Frames: frames/D-mobile-390.png (`a* = 500 [` then card edge), frames/D-zoom200-1440.png, frames/D-desktop-{light,dark}-1440.png.",
+      "mechanism": "the overflowing state was handled mechanically (overflow-x:auto) and never designed — no edge signal, no keyboard port, no responsive strategy",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe2.mjs; or open http://localhost:9000/#/ at 390x844 and scroll the About card to the 'Lab to XYZ' section.",
+      "proposedCure": "Replace the hand-rolled `@apply overflow-x-auto` (Markdown.vue:303) with glass-ui's producer-owned `<FadingScroll axis=\"x\">` as the display-math root, rendered by Katex.vue itself. This cures D-2, D-8 and D-11 in one move and is already the in-repo idiom (EasingSpecimenStrip.vue:84)."
+     },
+     {
+      "id": "D-3",
+      "defect": "The math introduces a fourth and fifth type family and a rogue 1.21x scale rung outside the closed type matrix.",
+      "severity": "MAJOR",
+      "evidence": "Measured computed style (evidence/light-1440.json): `.katex` = `KaTeX_Main, \"Times New Roman\", serif` at 19.360001px / line-height 23.232002px, inside a 16px/28px Plus Jakarta Sans prose column that also carries 12px Fira Code inline code. 19.360001/16 = 1.21 exactly, from the vendored shorthand `.katex{font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2}`. 20 @font-face rules install; 5 faces actually load (KaTeX_Main-Regular, KaTeX_Math-Italic, KaTeX_Size3, KaTeX_Size4 per document.fonts status). VISUAL-CONSTITUTION.md §4: the matrix \"is closed across all eighteen compositions... P019's pair is the sole exception\"; PROPORTION-AUDIT.md §5.13 names only Fraunces/Plus Jakarta Sans/Fira Code. 1.21x is on neither the glass-ui golden ladder nor the phi ladder (0.382/0.618/1/1.618/2.618rem, foundation.css:458-462).",
+      "mechanism": "type voice and scale owned by a vendored third-party stylesheet rather than by a token",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe1.mjs — read `rows[].katexFont/katexFontSize` and `inlineSample.parentFontSize`.",
+      "proposedCure": "Give math a named row in VISUAL-CONSTITUTION §4 and pin it: either math is a SPECIMEN sharing the code fence's jurisdiction (well tone, text-mono-small metric, one named math face) or it is prose-with-symbols (\\text{} runs re-mapped to Plus Jakarta Sans, symbol face at an adjacent golden rung). Either way the size comes from a token, not from a vendored `font:` shorthand that also silently resets weight/style/variant/leading."
+     },
+     {
+      "id": "D-4",
+      "defect": "Selecting and copying a formula yields per-glyph, three-way-duplicated garbage; find-in-page matches every numeral up to 3x per formula.",
+      "severity": "MAJOR",
+      "evidence": "evidence/p5.json — window.getSelection().toString() over one display block returns `f\\n(\\nt\\n)\\n=\\n{\\nt\\n3\\nt\\n>\\nϵ...` (every glyph on its own line, then the whole thing again). textContent is a three-way concatenation of the MathML text + the raw LaTeX `<annotation>` + the HTML-layer text; `duplicated: true`. The clean payload exists as annotationText = `f(t) = \\begin{cases} \\sqrt[3]{t} & t > \\epsilon \\\\ \\frac{\\kappa\\, t + 16}{116} & \\text{otherwise} \\end{cases}` and is exactly what the reader does not get. Cause: output:\"htmlAndMathml\" (Katex.vue:41) plus katex.min.css hiding the MathML with `clip-path: inset(50%)`, which removes it from view but not from selection.",
+      "mechanism": "the copy/select/find state was never designed — no decision made about which of three text representations is the payload",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe5.mjs; or select any formula on http://localhost:9000/#/ and paste.",
+      "proposedCure": "Make the copy payload a decision at the root: mark the redundant layers `user-select: none` and let the `<annotation>` LaTeX be the selectable text, or drop to output:\"html\" and carry accessibility on one authored aria-label. On a page whose purpose is handing the reader formulas, copy is a first-class state."
+     },
+     {
+      "id": "D-5",
+      "defect": "The error state is an un-overridable inline `#cc0000` that fails WCAG contrast in dark by 2.1x, is colour-only, and has no role, name or visible message.",
+      "severity": "MAJOR",
+      "evidence": "node_modules/katex/dist/katex.mjs:170-172 defaults errorColor `#cc0000`; line 16552 writes it as `node.setAttribute(\"style\", \"color:\" + options.errorColor)` — an inline style no app stylesheet can override. Reproduced with the component's exact options (evidence/probe3-error.mjs): `<span class=\"katex-error\" title=\"ParseError: ...\" style=\"color:#cc0000\">\\frac{1}{</span>`, role/aria: (none). Measured contrast (evidence/p4b.json): #cc0000 vs the About Card dark ground rgb(53,42,34) = 2.37:1 — fails AA 4.5 and even large-text 3.0; light 5.45:1. The app already owns a certified scheme-adapted `--destructive`: rgb(219,36,36) light / rgb(235,71,71) dark. VISUAL-CONSTITUTION §4.1: failed states are \"never color-only. Role, accessible name, state/value and associated error/status are explicit.\"",
+      "mechanism": "failure appearance owned by the vendored library, producing a second uncertified error red alongside --destructive (the same parallel-species defect already cured for --muted vs --well at Markdown.vue:229-232)",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe3-error.mjs — the mechanism is reproduced exactly. The state is presently LATENT: all 64 expressions in assets/docs/*.md currently parse, so no user-visible instance exists at HEAD.",
+      "proposedCure": "The component owns its failure arm: `throwOnError: true` inside a try/catch, rendering the app's own named error affordance (role, accessible name, human message, `--destructive`) instead of a vendored red LaTeX source dump. This simultaneously retires the edict-2 masking fallback."
+     },
+     {
+      "id": "D-6",
+      "defect": "Chromatic hierarchy is inverted — the conversion formulas are the least-emphasised ink on a page whose subject is colour, while inline code chips get the live accent.",
+      "severity": "MAJOR",
+      "evidence": "Measured, one column, three species (evidence/light-1440.json, dark-1440.json): prose rgb(28,25,23) light / rgb(233,230,226) dark; MATH identical to prose in both; inline `code` oklch(0.470927 0.188343 9.834023) light / oklch(0.958322 0.021053 9.834023) dark (the live accent, Markdown.vue:252); h2/h3 recoloured to --md-color-h2/-h3 from the live specimen (Markdown.vue:163,168). PROPORTION-AUDIT §1: \"Every element earns its scale, interval, boundary and material from its job relative to the local protagonist.\" The formulas ARE the protagonist of the Conversion sections and are the only content that never participates in the live chromatic system.",
+      "mechanism": "material/colour tier owned by nobody — the block inherits --foreground by default rather than being assigned a species",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe1.mjs — compare `rows[].katexColor` against `inlineCodeColor` and `proseColor`. Visible in frames/D-desktop-light-1440.png (pink 'Lab to XYZ' heading, accent-coloured code, plain-ink formulas).",
+      "proposedCure": "Declare math a specimen and seat it on the rung-2 well tone (`bg-well`) that the code fences and TOC already share (Markdown.vue:236,241,388), so the block is materially distinguished instead of relying on an ad-hoc indent — one decision at the root rather than an absent one."
+     },
+     {
+      "id": "D-7",
+      "defect": "Vertical rhythm around a display block is off the phi ladder in both directions AND inverts Gestalt proximity — two formulas in the same derivation sit 29.6% further apart than a formula and the prose introducing it.",
+      "severity": "MAJOR",
+      "evidence": "Measured rendered INK gaps via Range.getClientRects (evidence/p2-base.json): prose paragraph -> formula = 46.49px; formula -> next formula = 60.25px. The phi ladder is 6.112/9.888/16/25.888/41.888px (foundation.css:458-462) — neither value is a rung. The gaps are the accidental sum of four independent owners: the preceding <p>'s `margin-bottom: var(--phi-2)`; the wrapper's `margin-block: var(--phi-1)` and `padding: var(--phi-1) 0 var(--phi-1) var(--phi-3)` (Markdown.vue:304-305); and the vendored `.katex-display{margin:1em 0}`. At 200% zoom the gaps grow to 93.0 / 120.6px and the inversion persists.",
+      "mechanism": "four independent margin/padding owners for one gap, therefore no owner",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe2.mjs — read the `rhythm` object (`gapAbove`, `gapBelow`).",
+      "proposedCure": "One owner for block rhythm: neutralise the vendored `.katex-display` margin at the component root and let the phi ladder alone set the interval, with the intra-derivation gap deliberately TIGHTER than the prose->math gap so proximity reads correctly."
+     },
+     {
+      "id": "D-8",
+      "defect": "The horizontal scroll port is unreachable by keyboard and carries no role, no accessible name and no tabindex — the hidden 316-446px of equation cannot be reached without a pointer.",
+      "severity": "MAJOR",
+      "evidence": "evidence/p5.json: `overflowingPorts: 2, portsWithTabindex: 0, portsWithRole: 0, portsWithAriaLabel: 0`. There is no focusable descendant either — the entire `.katex-html` layer carries `aria-hidden=\"true\"` (evidence/light-1440.json) and the block has no interactive children. VISUAL-CONSTITUTION §5: \"every spatial action has a keyboard/numeric equivalent\"; §4.1 requires explicit role/name/state.",
+      "mechanism": "same root cause as D-2/D-10/D-11 — the scroll port is a bare div created by a consumer stylesheet rather than a designed, named region",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe5.mjs; or Tab through the About pane on http://localhost:9000/#/ — focus never enters a formula.",
+      "proposedCure": "The `<FadingScroll axis=\"x\">` root from D-10 with `tabindex=\"0\"`, `role=\"group\"` and an aria-label naming the formula, so the region is a real named scrollable landmark reachable by keyboard."
+     },
+     {
+      "id": "D-9",
+      "defect": "Inline math ruptures the paragraph line box at 200% zoom and on mobile — a 112px-tall inline-block inside a 28px-leaded paragraph, with the formula broken at an arbitrary point.",
+      "severity": "MAJOR",
+      "evidence": "Measured against the 28px prose line-height (evidence/p2-zoom200.json, p2-mobile390.json): at 200% zoom the first inline formula's `.katex` box is 101.5px tall — exceedsLineBoxBy +73.5px, wrapper grows to 112px; three more at 45.5px (+17.5). On mobile 390 the same formula is 50.75px (+22.75), wrapper 56px. At desktop 1440 all five are 22.75px (-5.25, fits). Cause: Katex.vue:2 makes the root `inline-block`, an atomic inline box whose internal content wraps with no relation-break logic. VISUAL-CONSTITUTION §3.7: \"Spacing is container-scaled from glass-ui tokens. No desktop-tight/mobile-airy fork\" — the rhythm here does not scale, it collapses.",
+      "mechanism": "root display hard-coded regardless of mode, so an inline formula is an atomic block rather than inline text",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe2.mjs (arms p2-zoom200, p2-mobile390) — read `inline[].exceedsLineBoxBy`.",
+      "proposedCure": "Inline math renders as a `<span>` sharing the surrounding line-height with a \\text{}-aware break policy. Additionally, `L^* = 0 \\text{ (black) to } 100 \\text{ (diffuse white)}` is a SENTENCE typeset as an equation — which is why it is 3.6x the line height. The component's design never forced that content-shape decision on the author."
+     },
+     {
+      "id": "D-10",
+      "defect": "glass-ui already ships the exact primitive (FadingScroll) and this repo already uses it for the identical problem; the math scroll port hand-rolls `overflow-x-auto` instead.",
+      "severity": "MAJOR",
+      "evidence": "`cat node_modules/@mkbabb/glass-ui/dist/fading-scroll.d.ts` -> `export * from \"./components/fading-scroll\";` (glass-ui 7.0.0). In-repo precedent for a horizontally overflowing strip inside a pane: demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue:13 `import { FadingScroll } from \"@mkbabb/glass-ui/fading-scroll\";` and :84 `<FadingScroll axis=\"x\" class=\"specimen-strip\">`. The math port instead hand-rolls `@apply overflow-x-auto` at demo/scenes/about/markdown/Markdown.vue:303, producing the zero-affordance state of D-2 and the unreachable port of D-8. Owner edict 4 / feedback_glass_ui_first_class.md.",
+      "mechanism": "design-system boundary crossed — a producer primitive that is in the dependency and already imported elsewhere in the same repo was bypassed",
+      "reproduction": "grep -rn \"FadingScroll\" demo/ shows exactly one consumer (EasingSpecimenStrip.vue) and zero in the About/markdown path; the affordance inventory in evidence/p5.json shows what the hand-rolled port lacks.",
+      "proposedCure": "`<FadingScroll axis=\"x\">` becomes the display-math root, rendered by Katex.vue because it is the component that knows `displayMode` is true. Cures D-2, D-8 and D-11 together and deletes Markdown.vue:286-306."
+     },
+     {
+      "id": "D-11",
+      "defect": "The root ignores the one prop the component takes; 100% of its display-mode design lives in a different component's `:has()` selector, keyed on a Tailwind utility class used as a structural contract.",
+      "severity": "MAJOR",
+      "evidence": "Katex.vue:2 hard-codes `class=\"inline-block\"` for BOTH modes while Katex.vue:22-25 takes `displayMode` and passes it only to katex.render. Markdown.vue:301-306 therefore reaches back in to undo it: `> div.inline-block:has(> .katex-display) { display: block; @apply overflow-x-auto; padding: var(--phi-1) 0 var(--phi-1) var(--phi-3); margin-block: var(--phi-1); }`. Measured (evidence/p5.json, `orphanRoot`) — the same node cloned outside `.markdown-body`: display \"inline-block\", overflowX \"visible\", padding \"0px\", margin \"0px\", width 256.52 inside an 800px host. No scroll port, no rhythm, no indent, shrink-wrapped to ink width. Owner edict 5: style at the root, never per-instance overrides — here the root has no style and the instance context supplies all of it.",
+      "mechanism": "the component's rendered result is a function of where it is mounted rather than of its own props",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe5.mjs — the `orphanRoot` block clones a display wrapper out of `.markdown-body` and measures it.",
+      "proposedCure": "The root reflects the prop: `<FadingScroll axis=\"x\" dir=\"ltr\" tabindex=\"0\" role=\"group\">` when displayMode, `<span dir=\"ltr\">` when not. Markdown.vue:286-306 (21 lines of compensation) then deletes, and the Tailwind-class-as-structural-contract goes with it."
+     },
+     {
+      "id": "D-12",
+      "defect": "A display formula scrolled to via the browser's own anchor behaviour lands entirely behind the sticky pane header — 190.4% of the ink is above the header's bottom edge.",
+      "severity": "MINOR",
+      "evidence": "Measured live (evidence/probe6.mjs) after `wrapper.scrollIntoView({block:\"start\"})`: headingScrollMarginTop \"80px\" vs mathScrollMarginTop \"0px\"; pane-header height 136.59px, bottom edge y=240.59; formula ink y=129.98..188.06, ink height 58.08px; occluded 110.61px = 190.4% of the ink. Cause: Markdown.vue:121 grants `scroll-m-20` to `> h1..h6` only; the math wrapper gets nothing. PaneHeader.vue:11 is `sticky top-0 z-header` with a mask that dissolves only its last 14px, so the formula sits ghosted UNDER the header — visible at the top of frames/D-desktop-light-1440.png and in frames/D-header-occlusion-light-1440.png. Note the heading's own 80px is also short of the 136.59px header, so this is a family defect; math is the only member with 0.",
+      "mechanism": "scroll-margin owned per-element-type rather than by the pane that owns the sticky header",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe6.mjs",
+      "proposedCure": "One `scroll-margin-block-start` token owned by the pane (derived from the actual header height), applied to every scroll target in the pane including the math block — not a per-element-type utility that only headings happen to carry."
+     },
+     {
+      "id": "D-13",
+      "defect": "The display block's centring axis is displaced 12.94px from the prose axis at every viewport, and adjacent formulas in one derivation sit on two different axes once one of them overflows.",
+      "severity": "MINOR",
+      "evidence": "Measured (evidence/p2-*.json, `axis`): the wrapper carries `padding-left: 25.888px` (--phi-3, Markdown.vue:304) and `padding-right: 0`, so the content-box centre is 12.94px right of the column centre — constant at 1440, 200% zoom and mobile 390, i.e. 12.94/332 = 3.9% of the mobile measure. Compounding: `.katex-display{text-align:center}` only applies while the formula fits, so the two overflowing blocks go left-flush instead. Visible in frames/D-mobile-390.png where `f_y = ...` starts at a different x than the `where ε = ...` prose.",
+      "mechanism": "an asymmetric indent applied to centred content — two conflicting alignment intentions on one box",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe2.mjs — read the `axis` object at each arm.",
+      "proposedCure": "Pick one axis and hold it in both the fits and overflows cases: if display math is centred the indent must be symmetric; if it is indented it must be left-aligned. Today it is both, inconsistently."
+     },
+     {
+      "id": "D-14",
+      "defect": "`content-visibility: auto` reserves 200px for display blocks that measure 76-110px, giving a lying scrollbar and a shifting scroll position in the About card.",
+      "severity": "MINOR",
+      "evidence": "Markdown.vue:106-108 applies `content-visibility: auto; contain-intrinsic-size: auto 200px` to every non-first child of `.markdown-body`, including each display-math wrapper (measured `contentVisibility: \"auto\"`, `containIntrinsicSize: \"auto 200px\"` — evidence/p2-base.json `cv`). Real heights on the Lab route: 109.83 / 98.20 / 91.58 / 76.23px (evidence/light-1440.json `rows[].wrapperH`). Over-reservation is 90.17-123.77px per block, ~360px total across four blocks inside a card that is itself the scroll container.",
+      "mechanism": "a generic placeholder size applied to a species whose real height is knowable and much smaller",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/Katex/evidence/probe1.mjs — compare `rows[].wrapperH` against `containIntrinsicSize` in probe2's `cv`.",
+      "proposedCure": "Once the display block is a real bounded species with a known height, drop `content-visibility` from the math wrapper entirely — or give it a per-species intrinsic size that matches the measured 76-110px range instead of a generic 200px."
+     },
+     {
+      "id": "D-15",
+      "defect": "`displayMode` is declared as a reactive prop and is not — the watch source omits it, so a dynamically bound displayMode yields a silently stale render.",
+      "severity": "MINOR",
+      "evidence": "Katex.vue:48 `watch(() => expression, renderKatex);` — the source is `expression` alone. Because props are reactively destructured (Katex.vue:22), `displayMode` IS read reactively inside renderKatex, but nothing re-invokes renderKatex when only displayMode changes. Related: the prop defaults to `true` (Katex.vue:22), inverting the HTML boolean-attribute idiom — 27 of the 64 call sites across assets/docs/*.md must write `:display-mode=\"false\"` and no site can write the natural `<Katex inline>`.",
+      "mechanism": "imperative render with an incomplete dependency list",
+      "reproduction": "NONE — this is a hypothesis-free but LATENT contract defect: all 64 call sites in assets/docs/*.md pass a literal displayMode, so no current instance exhibits it. Verified by `grep -o ':display-mode=\"false\"' assets/docs/*.md | wc -l` -> 27 and `grep -o \"<Katex \" assets/docs/*.md | wc -l` -> 64.",
+      "proposedCure": "`watch([() => expression, () => displayMode], renderKatex)` or `watchEffect`. If the root becomes mode-dependent per D-11, the prop must be reactive by construction anyway."
+     },
+     {
+      "id": "D-16",
+      "defect": "The component has zero visual coverage in the tranche's own audit — 0 of 80 captures contain a single rendered formula, including the RTL matrix that was built to catch exactly the D-1 class of defect.",
+      "severity": "MAJOR",
+      "evidence": "`grep -c \"katex\\|about\" docs/tranches/V/megatranche/audit/visual/REPORT.json` -> `0`. About is not a route — it is Picker's right pane (demo/shell/viewSchema.ts:105-113, `picker: { left: \"color-picker\", right: \"about\" }`). On desktop the About card renders but the 'Detailed Guide' markdown is below the fold and no capture scrolls; on mobile /#/ shows pane-index 0 (the Picker), which is why REPORT.md:149 records 70 text nodes for safari-mobile-light /#/ against 859 on desktop (REPORT.md:119). The five supplementary matrices each capture picker.png at the same scroll position. I read safari-desktop-light/picker.png, forced-colors-desktop/picker.png and rtl-desktop/picker.png directly: none contains a formula.",
+      "mechanism": "the visual matrix enumerates routes, not pane states, so all right-pane content (About, Palettes, Mix, Blob) is structurally uncapturable",
+      "reproduction": "grep -c \"katex\\|about\" docs/tranches/V/megatranche/audit/visual/REPORT.json ; ls docs/tranches/V/megatranche/audit/visual/shots/*/ (15 route names, no 'about'); then read shots/safari-desktop-light/picker.png.",
+      "proposedCure": "The visual matrix must capture pane states: a route with a right pane needs at least one below-the-fold capture, and mobile needs the pane-index-1 arm. Both BLOCKERs in this report were invisible to the audit designed to find them."
+     },
+     {
+      "id": "D-17",
+      "defect": "The tranche canon has no jurisdiction for mathematics at all — no type row, no material tier, no measure exemption, no overflow policy, no direction rule — for the single largest content species on the About route.",
+      "severity": "INFO",
+      "evidence": "VISUAL-CONSTITUTION.md §4: \"About prose has `max-inline-size: 66ch`; ONLY the named `Conversion paths` ordered graph and fenced code specimens may escape that prose measure.\" Display mathematics is none of those three. §3.1/§7 describe About as \"typographic product argument... supporting examples content-hug\" and never mention math. There are 64 instances across 11 documents (`grep -o \"<Katex \" assets/docs/*.md | wc -l` -> 64). Measured today `max-inline-size` on `.markdown-body` is `100%` and on `p` is `none` (evidence/light-1440.json), so the 66ch law is not implemented and the conflict is dormant.",
+      "mechanism": "a governing document that closes its type matrix and its measure-exemption list without enumerating an existing major content species",
+      "reproduction": "NONE — this is a canon gap, not a runtime defect. It becomes a live contradiction the moment W18 lands the 66ch measure, at which point every display formula is an unowned exception.",
+      "proposedCure": "Add a math row to VISUAL-CONSTITUTION §4's type matrix and a math clause to §7's About paragraph, in the same pass that lands the 66ch measure. This is a formation input, not an implementation task — and it must be decided before D-3's cure can be executed."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a2322df665096ef35",
+   "key": "v2:32f76eac5192f3bbb20cda79f4941d43ba4a3e04c41e2973180868a73713fa2c",
+   "result": {
+    "axis": "CHALLENGE-C — implementation defect hunt on demo/scenes/about/katex/Katex.vue (49 lines, area scenes)",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M-context variant). Seat spawned with an explicit Opus 5 declaration; not inherited, not undeclared.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/Katex/challenge-C-implementation.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "K-1 — On WebKit (the repo's declared S-22 Safari-truth engine) the `<annotation encoding=\"application/x-tex\">` node that KaTeX's `output: \"htmlAndMathml\"` emits computes `display: block` (Chromium's UA MathML stylesheet gives it `display: none`; WebKit's does not), so the RAW LATEX SOURCE lands inside the accessible name of every one of the 64 formulas in the corpus. Measured `ariaSnapshot` in real WebKit: `- math: \"f ( t ) = { t 3 t > ϵ κ t + 16 116 otherwise f(t) = \\begin{cases} \\sqrt[3]{t} & t > \\epsilon \\\\ \\frac{\\kappa\\, t + 16}{116} & \\text{otherwise} \\end{cases}\"` versus Chromium's clean `- math: \"f ( t ) = { t 3 t > ϵ κ t + 16 116 otherwise\"`. A VoiceOver user hears each formula, then hears it again as raw TeX. The component's own comment at Katex.vue:34-40 claims the MathML layer exists FOR the accessibility tree and even names \"WebKit's MathML-Core is the least mature, an S-22 (Safari-truth) risk\" — the risk was named and shipped unmeasured. Cure validated live in WebKit: `.katex-mathml annotation { display: none }` removes the raw-TeX tail from the accessible name.",
+    "negativeProof": "Not a SOUND verdict, but the following were checked and PROVEN CLEAN so a later seat does not re-spend the probes: (1) no leaked listeners/observers/rAF/timers — the component registers none and `katex.render` is synchronous DOM construction, so the constellation PRM-RAF epidemic does not touch this file; (2) none of the five known local hazards are present — no `defineModel` (so no async-round-trip stale read), no oklch→HSV roundtrip, no `ValueUnit` wrapping, no reka-ui pointer capture, no WebGL; the one console error in audit/visual/REPORT.md (`safari-desktop-light /#/: WebGL: context lost.`) belongs to the blob, not this component; (3) no XSS — katex `trust` defaults false, `\\href`/`\\url`/`\\htmlClass`/`\\htmlId` are refused, and the expressions are repo-authored statics; (4) the vendor stylesheet imported at Katex.vue:20 leaks exactly ONE global rule — measured 383 selectors, 382 anchored on `.katex*`, the sole outlier being `body{counter-reset:katexEqnNo mmlEqnNo}`; the generic class names in the file (`base`, `root`, `inner`, `overlay`, `accent`, `tag`, `strut`, `newline`, `size1..11`) are all descendant-scoped and cannot collide, so the AB-1 script-side-import decision is correct and is NOT a finding; (5) the stylesheet is live — `getComputedStyle(\".katex .mord\").fontFamily` → `KaTeX_Main, \"Times New Roman\", serif`, `.katex-mathml` is `position:absolute` at 1x1px, `.katex-html` carries `aria-hidden=\"true\"`; (6) the `<li>` half of the invalid-nesting finding is fine — `li` accepts flow content and the serialize→reparse round-trip preserves `li > div` (`reparsed_divInLi: 1`); (7) empty expression is safe — `katex.renderToString(\"\")` returns a valid 258-byte span; (8) Vue 3.5 idioms are correct — `useTemplateRef` at :27, reactive props destructure with default at :22, and `verbatimModuleSyntax` is satisfied (all three imports are value imports, no type-only import exists to mark); (9) edicts 1 (no god module), 2-aliases, 3 (KISS/no new shared dir), 4 (no glass-ui bypass) and 6 (no animation deleted — the component declares none) are clean.",
+    "defects": [
+     {
+      "id": "K-1",
+      "defect": "`output: \"htmlAndMathml\"` (Katex.vue:41) puts KaTeX's raw-LaTeX `<annotation>` into the accessible name on WebKit, so all 64 formulas are announced twice — once as math, once as raw TeX source. Chromium hides the annotation via its UA MathML stylesheet; WebKit does not.",
+      "severity": "BLOCKER",
+      "evidence": "demo/scenes/about/katex/Katex.vue:41 `output: \"htmlAndMathml\"`. probes/KTX-probe7.mjs against the live dev server, both engines:\nwebkit → {\"annotationDisplay\": \"block\", \"annotationVisible\": false, \"mathDisplay\": \"block\"}; ariaSnapshot: \"- math: \\\"f ( t ) = { t 3 t > ϵ κ t + 16 116 otherwise f(t) = \\\\begin{cases} \\\\sqrt[3]{t} & t > \\\\epsilon \\\\\\\\ \\\\frac{\\\\kappa\\\\, t + 16}{116} & \\\\text{otherwise} \\\\end{cases}\\\"\"; aria contains raw TeX: true\nchromium → {\"annotationDisplay\": \"none\"}; ariaSnapshot: \"- math: \\\"f ( t ) = { t 3 t > ϵ κ t + 16 116 otherwise\\\"\"; aria contains raw TeX: false\nCorpus scope: `grep -o \"<Katex\" assets/docs/*.md | wc -l` → 64 across 11 documents. The component's own comment at Katex.vue:34-40 asserts the MathML layer is there \"for the accessibility tree\" and names the WebKit/S-22 risk.",
+      "mechanism": "A vendor option chosen for accessibility whose accessibility behaviour was never measured on the declared target engine. The component trusts a third-party stylesheet to hide a node that the third-party stylesheet does not hide, and the hidden-but-exposed (`clip`/1x1px) pattern is exactly the pattern that keeps a node in the a11y tree.",
+      "reproduction": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/Katex/probes/KTX-probe7.mjs   (dev server live on http://localhost:9000; navigates /#/, scrolls the first display formula into view, takes locator.ariaSnapshot() in webkit then chromium)",
+      "proposedCure": "One rule beside the existing global stylesheet import (Katex.vue:20) or in demo/styles/: `.katex-mathml annotation { display: none; }`. VALIDATED LIVE in real WebKit via probes/KTX-cure.mjs + page.addStyleTag — BEFORE: `- math: \"... otherwise f(t) = \\begin{cases} \\sqrt[3]{t} ...\"`; AFTER: `- math: \"f ( t ) = { t 3 t > ϵ κ t + 16 116 otherwise\"`; `still contains raw TeX: false`."
+     },
+     {
+      "id": "K-2",
+      "defect": "The display-mode root is a horizontal scroll container with `tabindex = -1`, no role and no accessible name; 19 of the 37 display formulas overflow it at the mobile pane width and 8 still overflow at the 1440 desktop pane width, so measured content is unreachable by keyboard on WebKit. WCAG 2.1.1 (Level A).",
+      "severity": "MAJOR",
+      "evidence": "Katex.vue:2 `<div class=\"inline-block\" ref=\"katexElement\">`; Markdown.vue:301-306 `> div.inline-block:has(> .katex-display) { display: block; @apply overflow-x-auto; }`.\nReal WebKit, 1440x900, after scrollIntoView (probes/KTX-probe5.mjs webkit):\n  {\"expr\":\"L^* = 116\\\\, f\\\\!\\\\left(\\\\frac{Y}{Y_n}\\\\right\",\"sw\":778,\"cw\":462,\"hidden\":316,\"tabIndex\":-1}\n  {\"expr\":\"X = X_n \\\\cdot f^{-1}(f_x), \\\\quad Y = Y_n\",\"sw\":505,\"cw\":462,\"hidden\":43,\"tabIndex\":-1}\n  webkit katex scroller reachable by Tab (90 presses): false\nSame probe, chromium: `chromium TAB reached the katex scroller at press 17 / reachable: true` (Chrome's keyboard-focusable-scrollers supplies the missing affordance; WebKit does not).\nCorpus (probes/KTX-corpus.mjs, all 64 expressions rendered in a real browser at the measured container widths): 332px → 37 display formulas, 19 overflowing, max 290px hidden (lab.md/xyz.md `L^* = 116 f(Y/Y_n) - 16`); 440px → 9 overflowing, max 338px; 462px → 8 overflowing, max 316px. Live mobile confirmation (probes/KTX-probe4.mjs, 390x844): rootScrollW 622 / rootClientW 332 / maxScrollLeft 290 — exact match to the harness prediction. Visual: evidence/E1-mobile-390-formula-clipped.png shows the Lab row sheared mid-bracket at `a* = 500 [`.\nMeasurement trap recorded: naive probes read scrollWidth == clientWidth == 462 (zero overflow) because `content-visibility: auto` (Markdown.vue:106-109) skips layout off-screen; any future gate must scrollIntoView first.",
+      "mechanism": "The component owns the element but not the decision: `displayMode` is a prop of Katex.vue while the display/overflow behaviour is written in Markdown.vue's scoped stylesheet keyed off KaTeX's internal class names. Nobody owns the a11y contract of the resulting scroll box, and the team was saved on Chrome by an implicit browser affordance that Safari lacks.",
+      "reproduction": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/Katex/probes/KTX-probe5.mjs webkit  (then `chromium` for the divergence); node .../probes/KTX-corpus.mjs for the corpus sweep; node .../probes/KTX-probe4.mjs for the live 390px geometry.",
+      "proposedCure": "Let the component own its own box: render `<component :is=\"displayMode ? 'div' : 'span'\" :class=\"displayMode ? 'block overflow-x-auto' : 'inline-block'\" :tabindex=\"displayMode ? 0 : undefined\" :role=\"displayMode ? 'group' : undefined\" :aria-label=\"displayMode ? 'Formula' : undefined\">` and delete Markdown.vue:286-306. PARTIALLY VALIDATED in real WebKit (probes/KTX-cure.mjs): with tabindex=\"0\" injected the scroller is reached at Tab press 10 (was unreachable in 90). Honest caveat — ArrowRight after focus left scrollLeft at 0→0 in headless WebKit, so the arrow-key-scroll half needs a real-Safari confirmation or an explicit keydown handler; the reachability half is proven."
+     },
+     {
+      "id": "K-3",
+      "defect": "`watch(() => expression, renderKatex)` (Katex.vue:48) tracks one of the two props `renderKatex` consumes. Changing `displayMode` never re-renders — the reactive contract is broken by a hand-maintained dependency list.",
+      "severity": "MAJOR",
+      "evidence": "Katex.vue:31-32 reads BOTH `expression` and `displayMode`; Katex.vue:48 watches only `expression`. Mounted repro (probes/KTX-repro.test.ts, case R1) PASSES its bug-asserting expectations: mount with displayMode:true → markup contains `katex-display`; setProps({displayMode:false}); two ticks; markup STILL contains `katex-display`. Vitest output: `✓ KTX repro > R1 — displayMode prop change does NOT re-render (watch only sees \\`expression\\`) 13ms`.",
+      "mechanism": "Manual dependency tracking in place of derivation. `onMounted(fn)` + a partial `watch` is a hand-rolled `computed` that a human must keep in sync with the function body; it is wrong the moment a third render input is added.",
+      "reproduction": "npx vitest run --config /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/Katex/probes/KTX-vitest.config.ts   (runs probes/KTX-repro.test.ts; R1 is the case). Live reachability stated honestly: all 64 call sites pass a literal, so no consumer currently flips displayMode — the broken contract is confirmed, the live trigger is absent.",
+      "proposedCure": "Replace the imperative render with `const html = computed(() => katex.renderToString(expression, { displayMode, ... }))` + `v-html`. A computed tracks both props by construction; the watcher, the onMounted hook and the template ref all disappear."
+     },
+     {
+      "id": "K-4",
+      "defect": "The root element is unconditionally `<div>` (Katex.vue:2) even in inline mode, so 8 of the 27 inline call sites put a `<div>` inside a `<p>` — an invalid HTML content model that only survives because Vue builds the tree with createElement. Serializing and re-parsing splits one sentence into four sibling blocks.",
+      "severity": "MAJOR",
+      "evidence": "Katex.vue:2 `<div class=\"inline-block\" ref=\"katexElement\"></div>`. HTML Living Standard §4.4.1: the content model of `p` is phrasing content; `div` is flow content.\nLive DOM, lab.md at 1440 (probes/KTX-probe1.mjs): {\"divInsideP\": 2, \"divInsideLi\": 3}, sample `<p>where <div class=\"inline-block\"><span class=\"katex\">…`.\nSerialize→reparse proof (probes/KTX-reparse.mjs): {\"liveTag\":\"P\",\"liveChildDivs\":2,\"reparsed_p_count\":2,\"reparsed_first_p_html\":\"<p>where </p>\",\"reparsed_body_children\":\"P,DIV,DIV,P\",\"reparsed_divInP\":0,\"li\":{\"reparsed_divInLi\":1,\"liveDivInLi\":1}} — the sentence \"where ε = 216/24389 and κ = 24389/27.\" becomes four sibling blocks.\nCorpus classification of the 27 `:display-mode=\"false\"` sites: 19 inside list items (indented continuation lines) and 8 inside paragraphs — hex.md:62, hsl.md:75 (×2), kelvin.md:65, hwb.md:77 (×2), lab.md:74 (×2). Markdown.vue:286-289 itself declares both `p div.inline-block` and `li div.inline-block`, i.e. the authors knew both shapes occur.",
+      "mechanism": "The component knows whether it is inline and refuses to use that knowledge for the one decision it determines — the element type. It then pays twice: a hardcoded `inline-block` utility at :2 and a `:has()` override in another file.",
+      "reproduction": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/Katex/probes/KTX-reparse.mjs  (dev server on :9000 — reads the live `<p>`, round-trips it through DOMParser); node .../probes/KTX-probe1.mjs for the divInsideP/divInsideLi census.",
+      "proposedCure": "Render `<span>` when `!displayMode` (folded into the K-2 cure). `span > span.katex` is valid phrasing content, and the `p div.inline-block:has(> .katex)` patch at Markdown.vue:286-289 dies with it."
+     },
+     {
+      "id": "K-5",
+      "defect": "`throwOnError: false` (Katex.vue:33) is a masking fallback: a malformed expression renders as red raw LaTeX with ZERO console signal — and there is no test, no typecheck and no visual capture behind it, so a one-character typo in any of the 11 documents ships silently.",
+      "severity": "MAJOR",
+      "evidence": "KaTeX contract at node_modules/katex/dist/katex.js:17865-17873 — on ParseError with throwOnError false it returns `span.katex-error` styled `color:#cc0000` carrying the raw source, and logs nothing.\nMounted repro (probes/KTX-repro.test.ts R3, PASSES): `R3 html: <span class=\"katex-error\" title=\"ParseError: KaTeX parse error: Unexpected end of input in a macro argument, expected '}' at end of input: \\frac{1}\" style=\"color:#cc0000\">\\frac{1}</span>` / `R3 console.error calls: 0 warn: 0`.\nGates behind it, all measured: `grep -rniI katex test/ demo/test/ e2e/` → exit 1, no output. `vue-tsc -p tsconfig.demo.json --noEmit --listFilesOnly | grep -c \"assets/docs\"` → 0 (while `| grep -c \"katex/Katex.vue\"` → 1); tsconfig.demo.json:57 is `\"include\": [\"demo/\", \"src/vite-env.d.ts\"]`. audit/visual/REPORT.md enumerates 15 routes with no /#/about — About is the home route's default right pane (viewSchema.ts:107 `right: \"about\"`) and every home capture (shots/safari-desktop-light/picker.png, read) stops at the nutrition label, far above the first formula.",
+      "mechanism": "An error policy delegated entirely to one vendor flag, with every downstream gate that could have caught the resulting silence absent. Edict 2 (no masking fallbacks) with no compensating observability.",
+      "reproduction": "npx vitest run --config .../probes/KTX-vitest.config.ts  (case R3); plus the three greps above, each reproduced verbatim in the report.",
+      "proposedCure": "Two moves. (a) Make the failure observable: `throwOnError: import.meta.env.DEV` so a bad expression is a hard dev failure, with a console.error in production. (b) Close the gate: a vitest suite that extracts every `<Katex expression=\"…\">` from assets/docs/*.md, renderToStrings each, and fails on any `katex-error` — the 64 expressions are static, so this turns the whole class into a build-time error. The extractor already exists in probes/KTX-corpus.mjs."
+     },
+     {
+      "id": "K-6",
+      "defect": "Non-`ParseError` throws (TypeError on a non-string expression, RangeError on deeply nested input) bypass `throwOnError: false` entirely, and they escape AFTER `katex.render` has already done `baseNode.textContent = \"\"` — so the element is left permanently blank and the throw lands in `onMounted` / the watcher callback.",
+      "severity": "MAJOR",
+      "evidence": "node_modules/katex/dist/katex.js:17827-17831 — `render = function (expression, baseNode, options) { baseNode.textContent = \"\"; const node = renderToDomTree(...).toNode(); baseNode.appendChild(node); }` (wipe first). :17865-17867 — `renderError` re-throws when `options.throwOnError || !(error instanceof ParseError)`.\nnode probe: `typo \\frac{1} => OK len 196 [katex-error span]` / `deep nesting 20000 => THREW RangeError : Maximum call stack size exceeded` / `undefined expr => THREW TypeError : KaTeX can only parse string typed expression`.\nThrough the component (probes/KTX-repro.test.ts R4/R5 — the failing rows ARE the finding):\n  R4 `TypeError: KaTeX can only parse string typed expression` ❯ renderKatex demo/scenes/about/katex/Katex.vue:31:15 ❯ callWithAsyncErrorHandling ❯ hook.__weh.hook.__weh (escapes onMounted)\n  R5 `RangeError: Maximum call stack size exceeded` preceded by `[Vue warn]: Unhandled error during execution of watcher callback` (escapes the watch)\nVue also emits `[Vue warn]: Invalid prop: type check failed for prop \"expression\"` and then calls katex.render with the value anyway.",
+      "mechanism": "The component delegated its whole error policy to a flag whose contract it never read. `throwOnError: false` does not mean \"never throws\"; it means \"swallows exactly one error class\". Combined with the vendor's wipe-before-parse ordering, a throw is strictly worse than no render at all.",
+      "reproduction": "npx vitest run --config .../probes/KTX-vitest.config.ts  (cases R4 and R5 — they FAIL, and their stack traces are the evidence). Reachability stated honestly: the RangeError half is a HYPOTHESIS for the current corpus (needs pathological input the 11 static docs do not contain); the TypeError half is one authoring slip away and is caught by no gate (see K-5).",
+      "proposedCure": "Guard the boundary (`typeof expression === \"string\"`) and move the render into a `computed` using `renderToString`, which is pure — a throw then leaves the previous DOM intact instead of wiping first, and a `try` around a pure function is natural where a try around a DOM-mutating side effect is not."
+     },
+     {
+      "id": "K-7",
+      "defect": "The component has zero tests. Deleting the entire body of `renderKatex` — so all 64 formulas render as empty divs — keeps `npm test`, `npm run typecheck`, `npm run lint` and the Safari visual matrix green. Vacuous gate.",
+      "severity": "MAJOR",
+      "evidence": "`grep -rniI \"katex\" test/ demo/test/ e2e/` → exit 1, no output. vitest.config.ts:21 `include: [\"test/**/*.ts\", \"demo/test/**/*.ts\"]` — neither tree mentions the component. e2e/smoke/ (19 specs + admin/mobile/safari/oracles/flows/views/perf subdirs) never opens the About guide; the only About references are e2e/smoke/oracles/o11-header-gates.spec.ts:19 and :133, which measure header collision, not content. audit/visual/REPORT.md has no /#/about row and the home captures stop above the first formula.",
+      "mechanism": "The component sits in the blind spot of every static gate at once: DEFECT-LEDGER:4099's reachability probe calls Katex.vue one of exactly two unreachable .vue files in the demo graph; the typecheck program sees the definition but none of the 64 uses; and the visual matrix never scrolls to it. Nothing can observe the difference between working and gutted.",
+      "reproduction": "THE EXACT MUTATION: delete Katex.vue:29-44 (the body of `renderKatex`, leaving the const and the hooks) so the component renders an empty `<div>`. `npm test` passes (nothing mounts it), `npm run typecheck` passes (`katexElement` is still referenced by the template so there is no unused-local), `npm run lint` passes, the visual matrix passes. All 64 formulas silently vanish from the product. (Not executed — this seat may not edit demo/; the greps above prove no test exists that could observe it.)",
+      "proposedCure": "The corpus test from K-5 doubles as the coverage cure: extract all 64 `<Katex expression=\"…\">` from assets/docs/*.md, renderToString each, assert no `katex-error` and assert non-empty output. It goes RED under the mutation above. Add one e2e assertion that the About guide contains at least one `.katex-display` after the pane opens."
+     },
+     {
+      "id": "K-8",
+      "defect": "The component hardcodes `class=\"inline-block\"` on its root and then has that decision overridden from a different component's scoped stylesheet by a `:has()` selector keyed on KaTeX's internal class names — the boolean that decides the layout is a prop of Katex.vue while the layout lives in Markdown.vue.",
+      "severity": "MINOR",
+      "evidence": "Katex.vue:2 `class=\"inline-block\"`; Markdown.vue:301-306 `> div.inline-block:has(> .katex-display) { display: block; @apply overflow-x-auto; padding: … }` and Markdown.vue:286-289 `p div.inline-block:has(> .katex), li div.inline-block:has(> .katex) { @apply mx-1 }`. Markdown.vue:291-300 is a 10-line post-mortem of the FIRST time this coupling broke (`:has(> .katex)` was a direct-child test that never matched a display block, so the overflow-x scroll container was dead and wide formulas clipped at the card edge with content loss). Live confirmation of the three-module chain: probes/KTX-probe3.mjs shows the inline roots computing `display: inline-block` and the display roots computing `display: block; overflow-x: auto`.",
+      "mechanism": "Split ownership of one `if`. Three modules (Katex.vue's prop, Markdown.vue's selector, KaTeX's DOM shape) must agree for one layout decision, so any of the three changing silently breaks it — which is exactly what the AB-1 post-mortem records happening once already.",
+      "reproduction": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/Katex/probes/KTX-probe3.mjs  (prints computed display/overflowX for inline and display roots at 1440/1024/390).",
+      "proposedCure": "Fold into the K-2/K-4 cure: the component branches its own element type and classes on `displayMode`, and Markdown.vue:286-306 (21 lines of `:has()` patching plus its post-mortem comment) is deleted. One file, one decision — edicts 3 and 5 both satisfied."
+     },
+     {
+      "id": "K-9",
+      "defect": "The error surface is theme-blind and unreachable by the design system: KaTeX's default `errorColor` `#cc0000` is emitted as an INLINE `style=\"color:#cc0000\"`, which no stylesheet can override without `!important` and which ignores the light/dark token ladder entirely.",
+      "severity": "MINOR",
+      "evidence": "probes/KTX-repro.test.ts R3 output: `<span class=\"katex-error\" title=\"ParseError: …\" style=\"color:#cc0000\">\\frac{1}</span>`. Katex.vue:31-42 passes no `errorColor`, so KaTeX's default applies. The repo's own F7/AB-3 rulings (recorded in the Markdown component record) established that error and content ink must speak the certified token family for the surface it sits on.",
+      "mechanism": "A vendor default accepted without review for a surface the design system owns. The inline style is the strongest specificity in CSS short of !important, so the token system structurally cannot reach it.",
+      "reproduction": "npx vitest run --config .../probes/KTX-vitest.config.ts  (case R3 prints the emitted markup including the inline style). NOTE: this is currently latent — no expression in the 11 documents fails to parse today, so the red ink is not on screen; it is one typo away and K-5 shows nothing would catch it.",
+      "proposedCure": "Pass `errorColor` from a token (`errorColor: \"var(--destructive)\"` is accepted by KaTeX since it is written straight into the inline style), or — better, once K-5's dev-throw lands — the error surface stops existing in production entirely and the point is moot."
+     },
+     {
+      "id": "K-10",
+      "defect": "`output: \"htmlAndMathml\"` costs +37% elements and +20% bytes across the corpus, and 272 KB of KaTeX JS plus a 23.8 KB stylesheet are pulled onto the HOME route's critical path because About is the default right pane, not a lazy detour.",
+      "severity": "INFO",
+      "evidence": "Measured over all 64 extracted expressions: `htmlAndMathml bytes: 309812  elements: 8271` vs `html-only bytes: 257876  elements: 6037` → `+51936 bytes (20.1%), +2234 elements (37.0%)`. Per formula (probes/KTX-repro.test.ts R6, the widest lab row): `R6 total elements: 235 mathml subtree: 49 html layer: 186`. Asset weight: `ls -la node_modules/katex/dist/` → katex.min.js 272537 B, katex.min.css 23827 B; `du -sh node_modules/katex/dist/fonts` → 1.1M / 60 files / 20 .woff2. Live at 1440 (probes/KTX-probe3.mjs `katex net:` line) the first paint of /#/ requests `node_modules/.vite/deps/katex.js` and `node_modules/katex/dist/katex.min.css`; `document.fonts` shows `KaTeX_Main loading`, `KaTeX_Math loading`, 18 others `unloaded`. Route confirmation: demo/shell/viewSchema.ts:107 `right: \"about\"`.",
+      "mechanism": "An accessibility-motivated double render (justified) landing on a route budget that was never told about it. The 186-of-235 aria-hidden HTML layer exists purely for pixels; the font subsetting works, the JS payload does not.",
+      "reproduction": "node -e (the renderToString corpus diff, pasted in the report); node .../probes/KTX-probe3.mjs for the live network + font-status evidence; `ls -la node_modules/katex/dist/katex.min.*` and `du -sh node_modules/katex/dist/fonts`.",
+      "proposedCure": "Do NOT drop MathML — that trades K-1 for something worse. Instead defer the component itself: the formulas are all below the fold on first paint (every home capture in audit/visual/shots/ stops above them), so `defineAsyncComponent` on the Katex barrel plus an IntersectionObserver-gated mount keeps 272 KB off the home critical path. Record the 8271-element DOM cost in the route budget either way."
+     },
+     {
+      "id": "K-11",
+      "defect": "The leaf-component global stylesheet import at Katex.vue:20 leaks exactly one unscoped rule into the app — `body{counter-reset:katexEqnNo mmlEqnNo}`. Audited because a 231-rule vendor stylesheet imported from a leaf is a collision surface; it is otherwise clean.",
+      "severity": "INFO",
+      "evidence": "node scan of node_modules/katex/dist/katex.min.css: `total selectors: 383` / `NOT anchored on .katex*: 1` / `[\"body\"]`; `grep -o \"body{[^}]*}\" node_modules/katex/dist/katex.min.css` → `body{position:relative}` (that one is inside a `.katex .accent .accent-body` context) and `body{counter-reset:katexEqnNo mmlEqnNo}`. The 141 class names in the file include generic tokens (`base`, `root`, `inner`, `overlay`, `accent`, `tag`, `strut`, `newline`, `size1`…`size11`, `hbox`, `vbox`, `rule`, `fix`) but every one of them is descendant-scoped under `.katex*`.",
+      "mechanism": "Vendor CSS colocated with its vendor JS. The AB-1 decision at Katex.vue:8-20 to move the import script-side (out of a `<style scoped>` block whose data-v suffixing killed all 231 rules) is correct and load-bearing.",
+      "reproduction": "node -e 'const css=require(\"fs\").readFileSync(\"node_modules/katex/dist/katex.min.css\",\"utf8\"); …' — the selector-anchoring scan pasted in the report; plus `grep -o \"body{[^}]*}\" node_modules/katex/dist/katex.min.css`.",
+      "proposedCure": "No change required — recorded as a NEGATIVE result so a later seat does not re-open the AB-1 import as a suspected leak. The `counter-reset` names have no other consumer in the app."
+     },
+     {
+      "id": "K-12",
+      "defect": "The component is unreachable from the demo module graph AND its 64 call sites are outside the typecheck program — the structural blind spot that let K-3, K-5, K-6 and K-7 all survive.",
+      "severity": "INFO",
+      "evidence": "`vue-tsc -p tsconfig.demo.json --noEmit --listFilesOnly | grep -c \"katex/Katex.vue\"` → 1; `| grep -c \"assets/docs\"` → 0. tsconfig.demo.json:57 `\"include\": [\"demo/\", \"src/vite-env.d.ts\"]`; the 64 uses live at assets/docs/*.md (repo root, outside demo/) and vue-tsc does not check .md SFCs regardless. `grep -rn 'from \"./katex\"' demo` → exit 1 (zero demo importers). DEFECT-LEDGER.md:4099 records the independent reachability probe: exactly two unreachable .vue files in the demo graph, one of them demo/scenes/about/katex/Katex.vue. excavation/CONTRIVANCE-REGISTER.md:128 (C-10) already rules the barrel KEEP because the 11 markdown consumers are real.",
+      "mechanism": "Content living outside every source tree, importing back into a scene's private subdirectory. Reachability analysis calls it dead, the typecheck sees a definition with no use, and only Vite ever resolves the edge — so no static gate can observe the component's behaviour at all.",
+      "reproduction": "timeout 300 npx vue-tsc -p tsconfig.demo.json --noEmit --listFilesOnly | grep -c \"assets/docs\"   → 0   (and `| grep -c \"katex/Katex.vue\"` → 1)",
+      "proposedCure": "The C-10 KEEP ruling stands but should carry a rider: KEEP does not mean UNGATED. Either move assets/docs/ → demo/scenes/about/docs/ (already the proposed cure at DEFECT-LEDGER:24185, which would put the call sites inside the typecheck include) or land the K-5 corpus test, which gates the 64 uses regardless of where they live."
      }
     ]
    }

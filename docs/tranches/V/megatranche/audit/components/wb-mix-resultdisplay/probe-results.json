@@ -1,0 +1,34 @@
+[
+ {
+  "id": "desktop-light-color",
+  "engine": "webkit",
+  "ctxOpts": [
+   "viewport",
+   "deviceScaleFactor"
+  ],
+  "opts": {
+   "scheme": "light",
+   "focus": true
+  },
+  "ghostProbe": {
+   "present": false
+  },
+  "doneProbe": {
+   "present": false
+  },
+  "copyProbe": null,
+  "focusProbe": {
+   "el": "body",
+   "title": null,
+   "inPlate": false,
+   "outline": "none 3px rgb(28, 25, 23)",
+   "boxShadow": "none",
+   "w": 1440,
+   "h": 900
+  },
+  "errs": [
+   "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+   "mix-click:TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting"
+  ]
+ }
+]

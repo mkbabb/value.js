@@ -94,7 +94,7 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | PreviewStrip | CDL | CDL | ON-DISK |
 | PreviewRamp | CDL | CDL | ON-DISK |
 
-## scenes · `wf_dee4c83a-ec2` · record: completed · 3/7 claimed, failures: []
+## scenes · `wf_dee4c83a-ec2` · record: completed · 7/7 claimed, failures: []
 
 | component | disk axes | harvest axes | status |
 |---|---|---|---|
@@ -102,16 +102,16 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | ConfigSliderPane | CDL | CDL | **ADJUDICATED** |
 | ColorNutritionLabel | CDL | CDL | ON-DISK |
 | AuroraPane | CDL | CDL | ON-DISK |
-| BlobPane | DL | DL | **PARTIAL — missing C** |
+| BlobPane | CDL | CDL | ON-DISK |
 | AboutPane | CDL | CDL | ON-DISK |
-| Katex | — | — | **NOT-STARTED** |
+| Katex | CDL | CDL | ON-DISK |
 
 ## picker · `wf_3c8798e8-23e` · record: killed · —
 
 | component | disk axes | harvest axes | status |
 |---|---|---|---|
 | picker-colorpicker | CDL | CDL | **ADJUDICATED** |
-| picker-componentsliders | DL | DL | **PARTIAL — missing C** |
+| picker-componentsliders | CDL | CDL | ON-DISK |
 | picker-spectrumcanvas | — | — | **NOT-STARTED** |
 | picker-heroblob | — | — | **NOT-STARTED** |
 
@@ -135,7 +135,7 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 
 ## VERDICT
 
-**38 incomplete component rows.** 38 covered by an ACTIVE resume · 0 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
+**35 incomplete component rows.** 35 covered by an ACTIVE resume · 0 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
 
 A run record saying "completed" does not clear a row — only banked axes do. Bands re-open until every roster row is ADJUDICATED or ON-DISK.
 
@@ -172,8 +172,5 @@ A run record saying "completed" does not clear a row — only banked axes do. Ba
 - palettes / **PaginationBar** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **AdminListSkeleton** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **AdminListItem** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- scenes / **BlobPane** — missing C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
-- scenes / **Katex** — missing D/L/C (`wf_dee4c83a-ec2` · completed) — ACTIVE resume
-- picker / **picker-componentsliders** — missing C (`wf_3c8798e8-23e` · killed) — ACTIVE resume
 - picker / **picker-spectrumcanvas** — missing D/L/C (`wf_3c8798e8-23e` · killed) — ACTIVE resume
 - picker / **picker-heroblob** — missing D/L/C (`wf_3c8798e8-23e` · killed) — ACTIVE resume

@@ -1,13 +1,16 @@
 # CHALLENGE-D — `demo/workbenches/mix/MixConfigBar.vue` — the design is flawed
 
-**Round 2** · 2026-07-28 · repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`
+**Round 3** · 2026-07-28 · repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`
 
-Round 1 of this seat (2026-07-27) is preserved verbatim at
-`challenge-D-design.2026-07-27-r1-prior.md`. This round is not a re-issue. It **confirms** r1's two
-BLOCKERs with independent evidence, **corrects** one r1 finding whose evidence was misattributed,
-**discharges** r1's largest open unknown by actually measuring it, **escalates** one r1 finding with
-a runnable reproduction that proves more than r1 claimed, and **adds six defects r1 did not find**.
-Where r1 stands, I say so and do not re-litigate it.
+Round 1 (2026-07-27) is preserved at `challenge-D-design.2026-07-27-r1-prior.md`.
+Round 2 (2026-07-28) is preserved at `challenge-D-design.2026-07-28-r2-prior.md`.
+
+This round does not re-litigate either. It brings one instrument neither prior round used —
+**direct pixel decoding of the shipped Safari captures** (a from-scratch PNG inflate/unfilter in
+`node:zlib`, so no composite estimate stands between me and what the user saw) — plus a
+**coarse-pointer typography probe** that r2's height-only measurement did not reach. Both produce
+numbers the prior rounds could not have produced, and one of them **inverts** a conclusion r1
+reached by canvas compositing.
 
 ## Model receipt
 
@@ -18,22 +21,23 @@ seat was explicitly spawned with. The seat is declared, not inherited.
 
 ## Verdict
 
-**DEFECTIVE.** Two BLOCKERs, six MAJORs, three MINORs, one INFO.
+**DEFECTIVE.** Two BLOCKERs, five MAJORs, three MINORs.
 
-Round 1 named the mechanism correctly: *"this component was written against a glass-ui that no
-longer exists, and its comments are more confident than its code."* Round 2 confirms that and
-sharpens it into a second, independent mechanism that r1 did not isolate:
+r1 named the mechanism (*"written against a glass-ui that no longer exists"*). r2 named the second
+(*"models the dependency that does not matter and hides its information in the slot that
+disappears"*). Round 3 names the third, and it is the one that produces every rendered defect in
+the four shipped frames:
 
-> **The bar models the one dependency that does not matter and refuses the one that does, and it
-> places every piece of information it owns in the only slot that cannot survive the gesture that
-> reveals it.**
+> **This component overrides the producer's box while leaving the producer's contents, and it
+> overrides only the box. Everything inside the bar scales — type, control height register,
+> touch floor — and the bar's own geometry is frozen at four hard-coded numbers. The result is a
+> control whose padding has been eliminated by arithmetic rather than by decision, inside a rhythm
+> that is identical at 320px and 1440px.**
 
-`showLeftoverStrategy` proves the component knows how to gate a dependent control. It gates
-`mode → strategy`. It does not gate `space → hue-relevance`, which is the dependency that makes half
-its primary row a no-op in the shipped default state. And the preview ramp — the entire justification
-for ~40% of the file — is deliberately placed in the one slot the component's own comment identifies
-as un-clonable to the trigger, so it exists only mid-gesture and has, in the shipped build, never
-rendered at all.
+The single number that carries the seat: on a phone, the Select's line box is **31.5px inside an
+18px content box**. The producer's 8px vertical padding is not reduced — it is *entirely consumed*,
+and the only vertical breathing room left in the shipped mobile frame is the font's own
+half-leading.
 
 ---
 
@@ -41,499 +45,516 @@ rendered at all.
 
 | Instrument | What it produced |
 |---|---|
-| Safari capture matrix | `visual/shots/safari-{desktop,mobile}-{light,dark}/mix.png` — read, all four |
-| `REPORT.json` probe payloads | the actual `smallTapTargets` / `namelessButtons` element lists for `/#/mix` (r1 read only the counts in `REPORT.md`) |
-| Pixel first-ink scan of the light PNG | the 13.0px label/value left-edge rag (§ Visual truth) |
-| 6 scripted Chromium runs vs `localhost:9000/#/mix` | computed styles, rects, resolved tokens; **coarse-pointer (iPhone 13) emulation**; `forcedColors: active` **with focus applied**; `reducedMotion: reduce`; `dir=rtl`; 320 / 390 / 720 / 1440; open-menu geometry; operand-add click test |
-| `node dist/subpaths/color.js` | hue-arc distinctness per space — pasted output below |
-| glass-ui 7.0.0 dist | `Button.vue.d.ts`, `button-Bu9F4uU6.js`, `components/button/styles.css`, `SelectTrigger.vue.d.ts`, `SelectItem.vue.d.ts`, `select-BcBAyLXA.js`, `styles/tokens/sizing.css`, `styles/tokens/light-dark.css`, `styles/typography/utilities.css` |
+| **PNG pixel decode** (`node:zlib` inflate + PNG unfilter, written this session) | true rendered RGB at named CSS coordinates in `safari-{desktop,mobile}-{light,dark}/mix.png`; capsule edge positions; peak-ink search inside glyph rects |
+| WebKit (Playwright 1.60, the repo's own) vs `http://[::1]:9000/#/mix` | 1440×900, 390×844 `isMobile+hasTouch` (real `pointer: coarse`), 320×700 — computed type, line-height, padding, resolved `--ui-scale`/`--control-floor`, box-shadow/border inventory, rects |
+| Source read | `MixConfigBar.vue`, `MixPane.vue`, `useMixingState.ts`, `color-space-meta.ts`, `picker-color.ts`, `color-model.ts`, `ColorSpaceSelector.vue`, `demo/styles/utils.css`, `demo/ui/select/index.ts` |
+| glass-ui 7.0.0 dist | `styles/typography/utilities.css` (`.section-label`), `SelectTrigger.vue.d.ts`, rendered class list of the live trigger |
 | Canon | `VISUAL-CONSTITUTION.md`, `PROPORTION-AUDIT.md`, `PALETTE-CONTRACT.md` |
+| Capture matrix | `visual/REPORT.md`, `visual/shots/**` — including confirming that **no state matrix contains a `/#/mix` row** (`ls` of all six `shots/{forced-colors,keyboard-focus,reduced-motion,rtl-desktop,rtl-mobile,zoom-200}-*` returns only `adminusers, blob, browse, gradient, picker`) |
 
-Probe scripts and raw JSON live in the session scratchpad (`MCB-probe3..8.mjs`, `probe-out.json`).
-No file under `src/`, `demo/`, `api/`, `test/`, `e2e/`, `docs/tranches/V/vnext/`,
-`scripts/dev/dev.sh` or any `INBOX.md` was modified. One stray probe file was briefly written to the
-repo root during exploration and deleted in the same minute; `git status` confirms it is gone.
+Probe scripts are in the session scratchpad (`mcb-r3.mjs`, `mcb-r3b.mjs`, `mcb-r3c.mjs`,
+`png-scan.mjs`, `png-ink.mjs`, `png-mobile.mjs`). **No file outside
+`docs/tranches/V/megatranche/audit/components/wb-mix-configbar/` was written or modified.**
+
+Screenshot coordinate convention: `safari-desktop-*` is 2880×1800 device px for a 1440×900 CSS
+viewport (DPR 2); `safari-mobile-*` is 1170×1992 for 390×664 CSS (DPR 3). All CSS coordinates below
+are converted at those factors.
 
 ---
 
-## Visual truth — one thing r1's contrast table did not name
+## Visual truth — read the mobile frames, then read the desktop ones
 
-r1 measured the contrast collapse correctly and I do not repeat it. What the four captures also show,
-and r1 did not measure, is that **the label and the value it labels do not share a left edge.**
+### The mobile capsules are visibly crushed, and the crush is arithmetic
 
-First-ink scan of `safari-desktop-light/mix.png` (device px ÷ 2 = CSS px):
-
-```
-label   "COLOR SPACE" first ink : CSS x = 755.0
-value   "OKLab"       first ink : CSS x = 768.0     ->  13.0 CSS px rag
-capsule left edges (trigger, button)                :  754.0 / 753.5   (flush within 0.5px)
-```
-
-The label aligns to the capsule's **outer geometry**; the value aligns to the capsule's **inner text
-inset** (`px-3`). The two capsules are optically flush to within half a pixel — the only misaligned
-element in the stack is the text that names the thing. Nothing in the component establishes the
-relation: the `<label>` is a sibling in `flex flex-col gap-1`, inheriting the column edge while its
-control indents its own content by a producer padding it cannot see.
-
-Read the crop and it is plain — a bar of three capsules whose captions float 13px to the left of
-everything they describe:
+`safari-mobile-light/mix.png`, vertical luminance scan at device `x=300` (CSS `x=100`, through the
+`OKLab` glyph run):
 
 ```
-COLOR SPACE            HUE METHOD                 <- x = 755
-[  OKLab          v ]  [  Shorter        v ]      <- x = 768 (ink) / 754 (capsule)
-[            (o) Mix                      ]       <- x = 753.5
+device y=1355  rgb(251,230,233)   capsule top specular edge   -> CSS y = 451.7
+device y=1358  rgb(246,218,220)   capsule interior
+device y=1397  rgb(102,90,89)     value ink begins            -> CSS y = 465.7
+device y=1429  rgb(249,219,222)   value ink ends
+device y=1454  rgb(233,207,209)   capsule bottom edge begins
+device y=1460  rgb(239,185,201)   pane                        -> CSS y = 486.7
 ```
+
+Capsule height = `(1459 − 1355) / 3` = **34.7 CSS px**, i.e. the `h-9` 36px box less its
+antialiased edges. Now the computed truth behind that box, measured under real
+`pointer: coarse` (`isMobile: true, hasTouch: true` — WebKit resolves `--ui-scale: 1.5`,
+`--control-floor: 2.75rem`):
+
+```json
+"trigger": { "h": 36, "height": "36px", "minBlockSize": "auto", "contentBoxH": 34,
+             "fontSize": "21px", "lineHeight": "31.5px",
+             "padBlock": "8px/8px", "padInline": "12px/12px" }
+"button":  { "h": 60, "minBlockSize": "60px", "fontSize": "21px", "iconW": 16 }
+```
+
+Border-box arithmetic: `36 − 2(border) − 16(padding) = 18px` content box, holding a **31.5px** line
+box. The line box overflows its content box by **13.5px**, so the producer's declared `8px/8px`
+vertical padding is not reduced to a smaller number — **it is fully consumed and inert**. The same
+arithmetic at desktop: `24.6px` line box in an `18px` content box → **6.6px** overflow, producer
+padding effectively `4.7px`.
+
+This is what the mobile capture shows: `OKLab` and `Shorter` sit in capsules with no visible
+padding, while the `Mix` button beside them — which honours the same producer register through
+`min-block-size: 60px` — is 60px tall with a 16px glyph floating in it. **Two control species in
+one 173-line bar, 24px apart in height, on a surface where the producer intended a 6px difference
+(54 vs 60).**
+
+### The rhythm is frozen while everything inside it scales
+
+Measured on the component's own nodes at four viewports:
+
+| | 320 | 390 (coarse) | 1440 |
+|---|---:|---:|---:|
+| `--ui-scale` | 1 | **1.5** | 1 |
+| label size (`--type-caption`) | 12.032px | 12.179px | 14.384px |
+| trigger value size (`--type-small`) | 16.4px → | **21px** | 16.4px |
+| Mix button height | 40px | **60px** | 40px |
+| **bar `gap-3`** | **12px** | **12px** | **12px** |
+| **grid `gap-2`** | **8px** | **8px** | **8px** |
+| **cell `gap-1`** | **4px** | **4px** | **4px** |
+| **trigger height (`h-9`)** | **36px** | **36px** | **36px** |
+
+Every quantity the producer owns responds. Every quantity this file hard-codes does not. At 390
+coarse the label→control gap is 4px while the control is 36px and its type is 21px; the
+control→verb gap is 12px while the verb is 60px.
+
+`VISUAL-CONSTITUTION.md §3.7`: *"Spacing is container-scaled from glass-ui tokens. No
+desktop-tight/mobile-airy fork and no breakpoint pile."* There is no fork and no breakpoint pile
+here — there is no scaling at all.
+
+### Dark is not a treatment; it is the same alpha over a different ground — and it inverts the hierarchy
+
+Pixel truth from the two desktop captures (real Safari RGB; the `Mix` "enabled" row is derived from
+the shipped disabled pixels by the exact `opacity: 0.5` algebra `plate_enabled = 2·plate_disabled −
+ground`, which reproduces r1's independently-composited `1.20:1` to three digits and so validates
+the method):
+
+| boundary contrast vs its own local ground | light | dark |
+|---|---:|---:|
+| Select capsule (`rgb(246,219,220)` / `rgb(76,52,52)`) | **1.278 : 1** | **1.581 : 1** |
+| `Mix` capsule, shipped disabled (`rgb(237,198,205)` / `rgb(108,75,79)`) | 1.095 : 1 | 1.060 : 1 |
+| `Mix` capsule, **enabled** (derived) | **1.197 : 1** | **1.123 : 1** |
+| **support ÷ protagonist** | **1.07×** | **1.41×** |
+
+r1 measured the light arm and called the verb "the least visually present object on the pane." The
+new fact is the **dark column**: the dark scheme *strengthens the dropdown's boundary* (1.278 →
+1.581) and *weakens the verb's* (1.197 → 1.123). Whatever dark-mode work exists in the material
+stack, it acts on the support and not on the protagonist, and it widens the inversion from 7% to
+41%.
+
+### And the label that names each control fails its contrast floor in both schemes — worse in dark
+
+Peak-ink search (the single darkest/lightest pixel inside each glyph rect — the most generous
+possible read; mean ink is lower):
+
+| | ink | ground | ratio |
+|---|---|---|---:|
+| `COLOR SPACE` caption, light | `rgb(101,84,66)` @CSS(757.5,429.5) | `rgb(240,187,202)` | **4.367 : 1** |
+| `COLOR SPACE` caption, **dark** | `rgb(195,185,172)` @CSS(758.5,429) | `rgb(119,76,85)` | **3.681 : 1** |
+| `OKLab` value, light | `rgb(28,25,23)` | `rgb(249,219,222)` | 13.504 : 1 |
+| `OKLab` value, dark | `rgb(233,230,226)` | `rgb(77,53,53)` | 8.998 : 1 |
+
+At 14.384px / weight 400 this is normal text: WCAG 1.4.3 floor is 4.5:1. **Both schemes fail, and
+dark fails by 18%.** r1 reported `4.00:1` for the light arm from a canvas composite and did not
+measure dark at all; the pixel value is 4.367 (r1's estimate was pessimistic on the ground, right
+on the verdict).
+
+The second reading of that table is the hierarchy: within one two-line cell, the **choice** renders
+at 13.5:1 and the **word naming the choice** renders at 4.37:1 — a 3.1× separation. r1 observed
+(by ink width) that the label dominates the value. Both are true and that is the defect: the label
+wins on area, tracking and case; the value wins on contrast by 3×. The two marks are matched by
+opposing means, so no hierarchy settles. That is not a tuning problem, it is the absence of a
+decision.
 
 ---
 
 ## Findings
 
-### D-1 · BLOCKER · CONFIRMS r1 D-1 — `variant="primary-audacious"` is a dead attribute
+### R3-1 · BLOCKER · NEW MECHANISM — `h-9` does not shrink the control, it deletes the producer's padding
 
-I re-derived this independently rather than inheriting it, and add two pieces r1 did not have:
+`MixConfigBar.vue:100`, `:123`, `:147` each append `class="h-9"` to a `SelectTrigger`. The rendered
+class attribute (live DOM, this session) shows the collision inside a single string:
 
-- the **runtime default**, from the shipped bundle `dist/button-Bu9F4uU6.js`:
-  `emphasis: { default: "secondary" }` — so the fall-through does not merely fail to apply a
-  register, it silently selects the *quiet* one;
-- the **producer branch that is therefore never entered** —
-  `components/button/styles.css`: `.button[data-emphasis="primary"]` is the only rule that supplies
-  the deep-blur tinted plate and `font-weight: 650`.
-
-Live DOM, 1440×900 and iPhone 13, both this session:
-
-```json
-"attrs": { "data-emphasis": "secondary", "data-size": "md",
-           "variant": "primary-audacious",     // inert HTML attribute, styled by nothing
-           "class": "button ... glass-wash glass-capsule h-10 gap-2 font-medium font-display" }
+```
+control-surface glass-control-edge … flex w-full items-center justify-between
+rounded-pill px-3 py-2 text-dropdown … transition-control … h-9
+                    ^^^^                                        ^^^^
+                    producer padding                            consumer height
 ```
 
-`grep -rl "primary-audacious" node_modules/@mkbabb/glass-ui/` → no matches. r1's family analysis
-(106 `variant=` sites vs 2 `emphasis=` sites; the identical dead prop at `GenerateControls.vue:158`)
-stands and is not repeated here.
+`py-2` is the producer's. `h-9` is the consumer's, merged last. They describe the same box and only
+one can be true.
 
-**Status: r1's finding, confirmed, evidence strengthened. Cure unchanged from r1.**
+| arm | line box | content box (`36 − 2 − 16`) | overflow | producer padding surviving |
+|---|---:|---:|---:|---:|
+| desktop 1440 | 24.6px | 18px | 6.6px | 4.7px of 8px (59%) |
+| **mobile coarse** | **31.5px** | **18px** | **13.5px** | **1.25px of 8px (16%)** |
+
+r2 filed this row as "36px vs a 54px coarse contract" — a token breach. The mechanism is worse than
+a token breach: `SelectTrigger` exposes `size?: "sm" | "default"`
+(`glass-ui/dist/components/select/SelectTrigger.vue.d.ts`), which selects a **height register that
+the padding was designed against**. `h-9` is not a smaller register; it is a height assertion
+against a padding the consumer cannot see, and at `--ui-scale: 1.5` the assertion wins by 13.5px.
+
+The measured secondary consequences, all in the shipped mobile frame:
+
+- **34.7 CSS px** measured tap height (PNG edge scan above) against the producer's own
+  `--touch-target: 2.75rem` = 44px, which `pointer: coarse` had already installed as
+  `--control-floor`. The producer solved the floor; the consumer un-solved it.
+- **24px height disparity** between the bar's two control species (36 vs 60) where the producer
+  intended 6px.
+- The chevron stays `h-4 w-4` = **16px** at both 1440 and 390-coarse while its sibling type goes
+  16.4px → 21px: glyph/label ratio **0.98 → 0.76**.
+
+**Reproduction.** `webkit.launch()` → `newContext({viewport:{width:390,height:844}, isMobile:true,
+hasTouch:true, deviceScaleFactor:3})` → `/#/mix` → read `getComputedStyle` of
+`[data-slot=select-trigger]`: `{height:"36px", lineHeight:"31.5px", paddingBlockStart:"8px",
+clientHeight:34}`. Cross-checked against `safari-mobile-light/mix.png` device rows 1355–1459.
+
+**Cure.** Delete `h-9` from all three triggers and `h-10 gap-2` from the Button. If a shorter
+register is genuinely wanted, `size="sm"` — which carries its own padding — is the producer's
+answer. `PROPORTION-AUDIT.md §5.7` already separates glyph size, target size and reservation; this
+file re-fuses them.
 
 ---
 
-### D-2 · BLOCKER · ESCALATES r1 D-4 — `Hue method` is inert by default, *and the quartet is never four in any state*
+### R3-2 · BLOCKER · NEW ARM — the dark scheme inverts protagonist and support, and the caption fails contrast in both
 
-r1 established, correctly and by construction, that `options.hue` is unread for the four
-acylindrical spaces and that the default is one of them. r1 explicitly labelled the four-identical-
-chips consequence as *"confirmed by construction from the code path, not by a rendered frame."*
+The two tables in *Visual truth* are the finding. Stated as claims:
 
-I ran it. Red→green operands, 8 samples per ramp, all four methods, all nine offered spaces:
+1. `VISUAL-CONSTITUTION.md §3.8` — *"One pane may have one full-strength visual protagonist.
+   Supporting fixtures do not compete with it through equal size or equal shadow."* Measured, the
+   support does not compete — **it wins**, by 1.07× in light and **1.41× in dark**. The page's one
+   verb (`MixConfigBar.vue:158-170`, the file's own comment) is the least-bounded object in its own
+   bar in both schemes.
+2. `VISUAL-CONSTITUTION.md §4.1` — *"Text, focus, boundaries and state meet their rendered contrast
+   on the actual material tier; a token name is not evidence."* The `section-label` caption renders
+   **4.367:1 light / 3.681:1 dark** at 14.384px/400 against a 4.5:1 floor, peak-ink.
+3. Both capsule boundaries — 1.278/1.581 for the Select, 1.197/1.123 for the verb — are below
+   WCAG 1.4.11's 3:1 non-text floor. The Select's edge is a `1px solid …/0.14` hairline plus four
+   1px inset bevels (measured `boxShadow`); the button's is a `oklab(… / 0.52)` wash. Neither is a
+   designed contrast value: both are alpha over whatever the ambient seed happens to paint behind
+   them.
 
-```
-$ node -e "import('./dist/subpaths/color.js').then(({rgb,convertColor,mixColors})=>{ ... })"
-oklab  distinct ramps = 1/4  identical-to-"shorter": shorter,longer,increasing,decreasing
-lab    distinct ramps = 1/4  identical-to-"shorter": shorter,longer,increasing,decreasing
-rgb    distinct ramps = 1/4  identical-to-"shorter": shorter,longer,increasing,decreasing
-xyz    distinct ramps = 1/4  identical-to-"shorter": shorter,longer,increasing,decreasing
-oklch  distinct ramps = 2/4  identical-to-"shorter": shorter,increasing
-lch    distinct ramps = 2/4  identical-to-"shorter": shorter,increasing
-hsl    distinct ramps = 2/4  identical-to-"shorter": shorter,increasing
-hsv    distinct ramps = 2/4  identical-to-"shorter": shorter,increasing
-hwb    distinct ramps = 2/4  identical-to-"shorter": shorter,increasing
-```
+The mechanism behind (3) deserves naming because it is a *design* choice and not a token bug: the
+trigger's computed `background-color` is `rgba(0,0,0,0)` and its `backdrop-filter` is `none`. Its
+entire visible boundary is a 14%-alpha hairline and a 1px bevel. **The legibility of every control
+in this bar is a function of the ambient aurora behind it**, which the user changes by picking a
+color. A seed whose wash lands near the hairline's own value erases the control. No frame in the
+capture matrix exercises a second seed, so I label the erasure a **hypothesis**; the alpha-only
+construction that permits it is measured fact.
 
-The escalation is the bottom five rows. **Even where hue interpolation genuinely applies, four
-options produce only two outcomes.** For a two-operand mix there are exactly two arcs; `{shorter,
-longer}` and `{increasing, decreasing}` are the same two directions named twice. The comment at
-`MixConfigBar.vue:127-128` — *"the four-arc quartet, drawn with the user's own colors"* — is false in
-**every** reachable state of the application, not only in the acylindrical ones.
+**Reproduction (the measured parts).** `node png-scan.mjs` / `node png-ink.mjs` over
+`visual/shots/safari-desktop-{light,dark}/mix.png`; outputs pasted verbatim above.
 
-So the defect is larger than r1 stated: it is not "one control is inert in one default", it is **an
-over-enumerated vocabulary presented as flat and orthogonal when it is conditional and partly
-synonymous**, given equal geometry, equal material and equal weight to the control that actually
-decides the mix.
-
-The redundancy is *visible by design*: the preview chips added to make the choice legible would
-render as duplicate swatches, side by side, four rows deep. The preview does its job — it exposes
-that two of the four rows say nothing — and the design shipped the redundancy anyway.
-
-**Cure.** r1's `hueApplies = colorSpace in HUE_INDEX` gate is right and I adopt it. Add: the surviving
-vocabulary is **two arcs**, not four. `increasing`/`decreasing` are library-level synonyms of
-`shorter`/`longer` for a two-operand mix and have no business being separate rows in a UI. Then every
-chip pair shown is genuinely different, which is the only reason to show chips.
+**Cure.** Emphasis must survive as a *material* delta, not an alpha delta: the producer's
+`emphasis="primary"` branch (`components/button/styles.css .button[data-emphasis="primary"]`) is
+the register that exists for exactly this and is currently unreachable (r1/r2 D-1 — the dead
+`variant="primary-audacious"`). The caption failure is not local either: `.section-label` is a
+**producer** recipe (`glass-ui/dist/styles/typography/utilities.css` — `@apply text-mono-caption;
+color: var(--muted-foreground)`) consumed by 7 demo files; the fix is a producer ask against
+`--muted-foreground` on the resting tier in both schemes, not a class in this file (edict 5).
 
 ---
 
-### D-3 · MAJOR · CORRECTS r1 D-10 — the 36px triggers are a *producer-contract* breach, and r1's evidence for it was the wrong elements
+### R3-3 · MAJOR · NEW — the route ships two color-space selectors, from three vocabularies, in two orders, under two names
 
-r1 filed the 36px triggers as MINOR and cited `REPORT.md`'s `smallTapTargets` counts for `/#/mix`
-(4 mobile, 8 desktop) as the evidence. **Those counts are not this component.** I read the probe
-payload in `REPORT.json` rather than the summary in `REPORT.md`:
+Both are visible in the same frame. Read `safari-desktop-light/mix.png`: the left plate's title
+reads **`Lab`**; the right plate's first control reads **`OKLab`**. Two color-space controls, two
+different values, on one screen, with nothing stating that they mean different things.
 
-```json
-"smallTapTargets": [
- {"w":160,"h":23,"tag":"input","label":""},
- {"w":22,"h":22,"tag":"button","label":"Switch to slug"},
- {"w":22,"h":22,"tag":"button","label":"Generate new slug"},
- {"w":22,"h":22,"tag":"button","label":"Cancel"},
- {"w":12,"h":24,"tag":"span","label":"L channel"},
- {"w":12,"h":24,"tag":"span","label":"A channel"},
- {"w":12,"h":24,"tag":"span","label":"B channel"},
- {"w":12,"h":24,"tag":"span","label":"ALPHA channel"} ]
-```
-
-Eight picker channel spans and slug controls. Zero MixConfigBar elements. The capture harness's
-threshold never flagged a 36px trigger at all.
-
-The finding survives — with better evidence and a higher severity — because the real breach is
-against the **producer's own coarse-pointer contract**, which no capture matrix tests.
-`glass-ui/dist/styles/tokens/sizing.css` + `tokens/light-dark.css`:
-
-```css
---control-h-sm: max(calc(2.25rem * var(--ui-scale)), var(--control-floor));
---control-h-md: max(calc(2.5rem  * var(--ui-scale)), var(--control-floor));
-
-@media (pointer: coarse) {
-  :root { --ui-scale: var(--ui-coarse-scale, 1.5);
-          --control-floor: var(--touch-target, 2.75rem); }
-}
-```
-
-Measured under iPhone 13 emulation (`pointer: coarse`; resolved `--ui-scale: 1.5`,
-`--control-floor: 2.75rem`):
-
-| Control | Producer contract | Rendered | Cause |
-|---|---|---|---|
-| Select trigger ×3 | `max(54px, 44px)` = **54px** | **36px** (`height:36px`, `min-block-size:auto`) | `class="h-9"` at `:100`, `:123`, `:147` |
-| Mix button | `max(60px, 44px)` = **60px** | 60px | `min-block-size` beats `height` — `h-10` is inert-but-noisy |
-| Mix button icon gap | `calc(0.375rem × 1.5)` = **9px** | **8px** | `gap-2` freezes it off the scale |
-
-**Every Select in this bar is 18px shorter than the design system's coarse-pointer height and 8px
-below the 44px touch floor the producer guarantees — and it is below that floor *because* the
-consumer hard-coded a number over a token that had already solved it.** `SelectTrigger` exposes
-`size?: "sm" | "default"` (`SelectTrigger.vue.d.ts`); the register existed and was overridden.
-
-`PROPORTION-AUDIT.md §5.7`: *"Visual glyph size, operable target size and layout reservation are
-separate quantities. Accessibility floors do not require bloated visible chrome."* The producer had
-separated them. The override collapses them again.
-
-**Severity: MINOR → MAJOR.** **Cure.** Delete all four class strings; `size="sm"` on the triggers if
-a smaller register is genuinely wanted, and nothing at all on the Button.
-
----
-
-### D-4 · MAJOR · DISCHARGES r1 D-9 — the six unobserved state matrices, now observed
-
-r1's D-9 was *"whether that state survives is currently unknown — which is the finding."* The
-capture-matrix gap is real and remains a harness finding, but the *design* question it left open is
-now answered. I drove all of it live.
-
-| State | Method | Result |
+| | left plate | this bar |
 |---|---|---|
-| **RTL** | `document.documentElement.dir = "rtl"` at 1440 | **PASS.** Grid computes `direction: rtl`; Mix button x 754 → 224; trigger x 989 → 459; label `text-align: start`. No physical-direction leak, nothing to fix. |
-| **Reduced motion** | `reducedMotion: "reduce"` | **PASS.** Producer `.button` carries `@media (prefers-reduced-motion: reduce) { transition: none }` (`components/button/styles.css`); the component adds no motion of its own. |
-| **Forced colors — focus** | `forcedColors: "active"` **with `.focus()` applied** | **PASS.** Trigger computes `outline: solid 2px rgba(5,0,73,0.8)` (vs `outline: none` + a crimson box-shadow ring in normal mode). The producer swaps ring → outline correctly. r1 flagged this as the concrete risk; it is not one. |
-| **Forced colors — emphasis/disabled** | same run | **FAIL** — see D-9 below. |
-| **200% zoom** (720px CSS width arm) | viewport 720×450 | **PASS** for layout: no truncation, no overflow. |
-| **Truncation** | longest value `Decreasing` forced through the trigger at 320 / 390 / 720 / 1440 | **PASS.** `scrollWidth == clientWidth` at every width. |
+| component | `ColorSpaceSelector.vue` (311 lines) | hand-rolled `Select`, `MixConfigBar.vue:99-117` |
+| vocabulary | `DISPLAY_COLOR_SPACE_NAMES` (`color-model.ts:75` = `PICKER_SPACE_NAMES` + `hex`) — **18 entries** | `INTERPOLATION_SPACES` (`color-space-meta.ts:26`) — **9 entries** |
+| order | `rgb, hsl, hsv, hwb, lab, lch, oklab, oklch, xyz, kelvin, …` | `oklch, oklab, lab, lch, hsl, hsv, hwb, rgb, xyz` |
+| accessible name | `"Select color space"` | `"Color space"` |
+| trigger register | `variant="ghost" size="default"` | `h-9` |
+| specimen | `WatercolorDot` + live per-space conversion per row | none at rest; a ramp chip in `#description` that has never rendered (r2 D-5b) |
 
-Four of r1's six unknowns resolve clean. One resolves to a real but narrower defect (D-9). The sixth
-— keyboard focus — resolves to D-5's much worse fact: there is nothing to focus.
+`VISUAL-CONSTITUTION.md §4.2` registers **one** `ColorSpaceSelector` species and legislates it in
+detail (listbox semantics, producer indicator gutter, no local pill/halo, WatercolorDot face delta
+`0`). This second selector is not that species, is not in the register, and its nine label strings
+are a hand-maintained duplicate of nine strings that already exist in `PICKER_SPACE_NAMES`. They
+agree today; nothing holds them.
+
+`PROPORTION-AUDIT.md` PR-06 (*"one action/selection owner across Generate and owner/Admin/Mix
+tabs"*) and owner edict 4 (*"Reuse existing component-type names"*) both land here.
+
+**Reproduction.** `safari-desktop-light/mix.png` and `safari-desktop-dark/mix.png` — left plate
+`Lab`, right plate `OKLab`, same frame. Source: `ColorSpaceSelector.vue:118-120,148` vs
+`MixConfigBar.vue:18,107`.
+
+**Cure.** One selector species. If Mix genuinely restricts the offer to nine interpolable spaces,
+that is a *filter on the one vocabulary* (`INTERPOLATION_SPACES` becomes a `SpaceId[]` allow-list
+plus the shared `PICKER_SPACE_NAMES` label lookup), not a second table of strings, a second order,
+and a second component.
 
 ---
 
-### D-5 · MAJOR · EXTENDS r1 D-2/D-3 — the in-flight state was never designed, and the preview apparatus has never once rendered
+### R3-4 · MAJOR · NEW — geometry inverts importance, and explanation density inverts with it
 
-r1 established that `canMix` is permanently false in Colors mode because the add-slot renders as an
-`aria-hidden` span (the glass-ui 7 `WatercolorDot` `tag="button"` abrogation,
-`VISUAL-CONSTITUTION.md §4.2` / `MixSourceSelector.vue:166-173` — that element is
-MixSourceSelector's, correctly attributed there). I re-verified by **clicking it**, twice, forced:
+Two independent inversions, same root: the third control was added as a sibling of the grid rather
+than a member of it, and with a different data shape.
 
-```json
-"addSlot": { "tag": "SPAN", "ariaLabel": null, "html": "<span ... aria-hidden=\"true\" class=\"add-slot-ghost ..." }
-"state":   { "operandChips": 0, "mixDisabled": true, "mixOpacity": "0.5" }
+**Geometry.** `MixConfigBar.vue:94` puts the two always-present primary controls in
+`grid grid-cols-2`; `:144` puts the conditional, palettes-only `Size mismatch` control *outside*
+that grid, so it inherits the bar's full width. Measured at 1440: grid columns
+`227px 227px`, bar width `462px`. The tertiary, mode-conditional control therefore renders at
+**2.03×** the width of the controls that decide every mix.
+
+`PROPORTION-AUDIT.md §1`: *"Every element earns its scale, interval, boundary and material from its
+job relative to the local protagonist."* This one earns 2× for being an afterthought.
+
+**Explanation.** The two controls whose vocabulary is self-evident to a color audience each carry a
+per-row `#description` *and* a preview-ramp apparatus (`:104-114`, `:127-137`). The one control
+whose vocabulary is genuinely opaque — `Discard extras` / `Repeat to pad` / `Distribute`, three
+strings naming a behaviour that is invisible until after the mix has run and cannot be previewed —
+carries **no description, no chip, and no help of any kind** (`:151-153`). The bar spends ~40% of
+its source explaining `OKLab` and zero bytes explaining what "Distribute" distributes.
+
+The copy compounds it: two entries are verb+object (`Discard extras`, `Repeat to pad`) and one is a
+bare verb (`Distribute`). Three options, two grammars.
+
+**Reproduction.** Structural + measured container: `barRect.width = 462`, `gridTemplateColumns:
+"227px 227px"` at 1440×900 (probe output above). The palettes-mode frame itself is **not captured**
+— the probe profile has no saved palettes, so the third row does not mount. Labelled: measured for
+the container, structural for the row.
+
+**Cure.** The third field joins the grid as a third cell (or the grid becomes an auto-flow field
+row), and the strategy vocabulary moves into `color-space-meta.ts`'s shape —
+`{value, label, description}` — so all three fields are one species with one explanation lane.
+
+---
+
+### R3-5 · MAJOR · NEW — the props model makes contradictory states representable
+
+```ts
+// MixConfigBar.vue:32-45
+showLeftoverStrategy: boolean;
+operandColors?: string[];
 ```
 
-Three consequences r1 did not draw, all of which belong to *this* component's design:
-
-**(a) The in-flight register does not exist.** `MixPane` owns `animationPhase` and hands it to the
-canvas (`MixPane.vue:68`) and to nothing else. glass-ui's Button ships `loading` — *"Marks an
-in-flight command and suppresses activation until it settles"* — plus
-`.button[data-loading] { cursor: progress }`. Neither is used. The state machine has a re-entry guard
-(`useMixingState.ts:83`), so during the convergence window **the button accepts a click and does
-nothing, with no cursor change, no busy state and no announcement.** A control that swallows an
-activation silently is a designed dead end, not a guard.
-
-**(b) ~40% of the file is apparatus for a preview that has never rendered.** Lines 19-23, 47-74,
-104-114 and 127-137 exist to sample and paint ramp chips. Measured with both menus open on the live
-route: `chippedOptions: 0`, `distinctStops: 0`. The `operandColors.length < 2` branch is the only
-reachable state, so `sampleInterpolationRamp` returns `null` every time (`sample.ts:58`) and no chip
-has ever painted in the shipped app. r1 correctly praised the honest-absence law; the fuller truth is
-that honest absence is currently the component's *entire* behaviour.
-
-**(c) The one verb carries no reason and cannot be focused.** Measured:
-`{"disabledAttr": true, "tabIndex": 0, "ariaDescribedby": null, "ariaDisabled": null,
-"focusReceived": false}`. Native `disabled` refuses focus, so the verb is outside the tab order, and
-`aria-describedby` is null, so nothing anywhere states the precondition. r1's D-3 cure (durable
-blocked-reason text wired via `aria-describedby`) is right; add `aria-disabled` + focusability so the
-reason is reachable, and `:loading` so the in-flight window has a face.
-
-*Not exercised:* the palettes-mode path, whose selector is a native `<button>`
-(`MixSourceSelector.vue:246`) and probably does reach `canMix`. The probe profile had no saved
-palettes. **Labelled untested, not passing.**
-
----
-
-### D-6 · MAJOR · NEW · The bar's information exists only mid-gesture — and the menu that reveals it occludes the verb and hides 2 of 9 options
-
-`MixConfigBar.vue:104-106`, the component's own comment:
-
-> *"T-17: chip leading, description after (F7 — the producer `#description` lane, **the one slot
-> reka's `SelectValue` does NOT clone into the trigger**)."*
-
-The component states, in writing, that it chose the one slot which cannot survive selection. At rest
-the bar therefore says exactly two words — `OKLab`, `Shorter` — and shows no color at all. In a
-chromatic laboratory (`VISUAL-CONSTITUTION.md §1`: *"one dominant instrument, one clear specimen"*),
-the interpolation-space chooser's specimen is the ramp, and the ramp is visible only while a menu is
-open on top of everything else.
-
-What that menu does when opened, measured at 1440×900:
-
-```json
-"panel": { "rect": {"y":489,"h":384,"bottom":873}, "maxHeight":"384px",
-           "overflowY":"hidden", "scrollable": false },
-"optionCount": 9, "lastOptionBottomBeyondPanel": 93.3,
-"panelOverlapsMixButton": true, "viewportH": 900
+```ts
+// MixPane.vue:101,103 — both derived from the same fact
+:show-leftover-strategy="mode === 'palettes'"
+:operand-colors="mode === 'colors' ? selectedColors.map((sc) => sc.css) : []"
 ```
 
-- Nine options × 52.4px rows = 471px of content in a 384px panel. **The last 93.3px — RGB and XYZ,
-  2 of 9 spaces — sit outside the visible panel**, reachable only through a hover-activated scroll
-  chevron (visible at the panel foot in the captured frame).
-- The panel **overlays the Mix button** (`panelOverlapsMixButton: true`). Choosing the parameter
-  hides the verb that consumes it.
-- The panel is width-locked to the 227px trigger, so every option is a forced two-line stack, and the
-  option row (52.4px) is **taller than its own trigger** (36px) — a direct product of D-3's `h-9`.
+One domain fact — `mode` — is passed twice, in two lossy encodings, and the component receives no
+way to check them against each other. `{showLeftoverStrategy: true, operandColors: ["red","blue"]}`
+is type-valid, constructible, and meaningless: it asks the bar to render palette-mismatch strategy
+*and* colour-operand preview ramps simultaneously. Nothing in the component or its types forbids it.
 
-**Cure.** Promote the ramp from `#description` to the trigger: a `SelectValue` that renders the
-selected space's live `PreviewRamp` beside its name makes the setting legible **at rest**, makes the
-per-row description redundant, collapses the two-line option rows back to one line, and brings the
-nine-option panel under one screen without a scroll chevron. That is a glass-ui
-`SelectValue`/`SelectTrigger` content-slot ask filed at the producer (edict 4), not a local
-re-implementation.
+The naming makes this worse rather than incidental: `showLeftoverStrategy` is a *presentation
+instruction*, not a domain fact. The component is therefore forbidden from owning its own
+conditional logic (it cannot ask "am I in palettes mode?"), while simultaneously being handed the
+other half of that same fact through a data prop.
 
----
+Compare `MixConfigBar.vue:36` with the file's own comment at `:41-43` — *"Palettes mode passes []
+by the same restraint"* — which documents the coupling in prose precisely because the type system
+was not asked to express it.
 
-### D-7 · MAJOR · NEW · The bar fuses *tune* and *commit*, so the canonical Mix sequence is structurally unreachable
+**Reproduction.** Type-level: `<MixConfigBar :show-leftover-strategy="true"
+:operand-colors="['red','blue']" … />` typechecks. Runtime consequence not reachable from the
+shipped `MixPane` (one call site, correctly derived) — **labelled a contract defect, not a live
+bug.**
 
-`VISUAL-CONSTITUTION.md §3.1`, Mix row, mobile-order column:
-
-> **Mix** | ordered N-operand convergence trough | result/provenance inspector; absent operands
-> occupy no filler | **operand rack, result, controls** | its own `InstrumentChassis` composition
-
-Measured DOM order inside the pane scroller:
-
-```json
-"domOrder": ["H3.pane-header-title", "DIV.pane-header-desc-wrap",
-             "DIV.flex flex-col gap-3",   // MixSourceSelector — the rack
-             "DIV.flex flex-col gap-3"]   // MixConfigBar — controls + commit
-// the result plate (MixPane.vue:111-119) renders AFTER these, when it exists
-```
-
-Rendered order is **rack → controls+commit → result**. The canon says **rack → result → controls**.
-On mobile that means pressing `Mix` pushes the answer below the fold, underneath the button that
-produced it.
-
-The bar **cannot be reordered into compliance**, because it is one node containing both the tuning
-group and the action region. `§3.1` treats those as distinct chassis regions (*"stage, inspector,
-action region"*) and `§5` sets `select → tune → commit` with *"Commit uses one glass-ui action set."*
-A single `flex flex-col gap-3` that terminates in a Button cannot be placed in an action region
-without dragging two Selects along with it.
-
-This is the structural finding r1's gestalt gestured at ("`MixConfigBar` shrinks to … a declaration
-of which fields exist … and one `emphasis="primary"` verb") but did not name as a canon breach with
-a measured witness. It is also the finding that unblocks three others at once: the action region owns
-emphasis (D-1), owns loading and precondition state (D-5), and owns order (this one).
+**Cure.** One discriminated prop: `mode: "colors" | "palettes"` plus `operandColors: string[]`,
+with the leftover row keyed off `mode === "palettes"` inside the component. Illegal states stop
+being representable and the presentation instruction disappears from the API.
 
 ---
 
-### D-8 · MAJOR · EXTENDS r1 D-5/D-8 — the type matrix has a third breach, and one visible label already disagrees with its own control
+### R3-6 · MAJOR · NEW — three vocabularies in one 173-line file, in two shapes, with one home
 
-r1 established the two-directional type-jurisdiction inversion (mono-caption labels, Fraunces verb)
-and the three inert `<label>`s. Both stand. Two additions:
-
-**(a) `text-micro` is not in the closed matrix.** The description spans (`:112`, `:134`) use
-`text-micro` = `--type-micro: 0.6875rem` — a **fixed, non-fluid 11px**. `VISUAL-CONSTITUTION.md §4`
-enumerates seven roles and declares *"This matrix is closed across all eighteen compositions"*; its
-floor is `text-small`, itself `clamp(0.875rem, …)`. `text-micro` is below the matrix and outside the
-fluid scale, so at the canon's 200%-zoom arm it is the one text in the bar that does not participate.
-
-**(b) The visible label and the announced name have already drifted.** r1 noted the labels label
-nothing (`htmlFor: null`, `label.control === null` — I re-measured, same result). The sharper fact is
-in the third row:
-
-```
-MixConfigBar.vue:145   <label class="section-label">Size mismatch</label>
-MixConfigBar.vue:147   <SelectTrigger aria-label="Size mismatch strategy" ...>
-```
-
-Two independent strings for one control, with nothing coupling them — and they **already say
-different things in the shipped file**. That is what an unlinked dual-labelling mechanism produces
-given time, and it has produced it. It also means clicking the visible label does nothing, because a
-`<label>` with no control is inert text wearing a label's semantics.
-
-r1's cure — a glass-ui labelled-field composition wiring `label[for]` ↔ trigger `id` once at the root
-— is exactly right, and I note the primitive already exists in the producer:
-`glass-ui/dist/components/labeled-field/`.
-
----
-
-### D-9 · MINOR · NEW · Under forced colors, the primary action and its secondary siblings become the same object
-
-Measured with `forcedColors: "active"` at 1440×900:
-
-| | background | border-top | box-shadow | opacity |
-|---|---|---|---|---|
-| Mix button | `rgb(255,255,255)` | `1px rgb(0,0,0)` | `none` | **0.5** |
-| Select trigger | `rgba(255,255,255,0)` | `1px rgba(5,0,73,0.8)` | `none` | 1 |
-
-Forced colors strips the glass fill, the specular inset and the capsule shadow, as it must. What is
-left to distinguish the page's one verb from a settings dropdown is a 1px outline — the same 1px
-outline. And the disabled state rides entirely on `opacity: 0.5`, which forced-colors does **not**
-normalise, so in a high-contrast profile the verb is a faded outline carrying no semantic mark.
-
-`VISUAL-CONSTITUTION.md §4.1`: *"Text, focus, boundaries and state meet their rendered contrast on
-the actual material tier; a token name is not evidence."* Emphasis expressed only through glass
-material leaves no forced-colors residue. This narrows r1's D-9 speculation to the one place the risk
-was real.
-
----
-
-### D-10 · MINOR · REFINES r1 D-7 — the reflow, measured on the component's own root
-
-r1 measured the verb's page-relative jump (`+124.5px` at 390). Measured on the bar's own root, which
-isolates this component's contribution from the pane's:
-
-| viewport | colors mode | palettes mode | Δ |
+| vocabulary | shape | home | description lane |
 |---|---|---|---|
-| 1440×900 | 113.58px | 187.16px | **+73.58px** |
-| iPhone 13 | 130.25px | 200.50px | **+70.25px** |
+| `INTERPOLATION_SPACES` | `{value, label, description}[]` | `color-session/color-space-meta.ts` (shared, 2 consumers) | yes |
+| `HUE_INTERPOLATION_METHODS` | `{value, label, description}[]` | same shared module | yes |
+| `STRATEGIES` + `strategyLabels` | `LeftoverStrategy[]` **plus** a parallel `Record<LeftoverStrategy,string>` | **inline, `MixConfigBar.vue:83-89`** | no |
 
-`v-if` at `:144` with no transition, while the sibling result plate got a full
-`<Transition name="vj-morph" mode="out-in">` (`MixPane.vue:111`). One pane, two motion grammars —
-r1's framing, confirmed with the component-local number. Not a `prefers-reduced-motion` violation
-(there is nothing to reduce, and the producer handles the button's transitions); the defect is that a
-state change of the *action region* was never given continuity at all, while a decorative sibling was.
+The first two were deliberately lifted into a neutral shared home — the file documents the move at
+`:16-17` (*"the interpolation vocabulary lives in its neutral @lib/ home … no more cross-feature
+reach"*). The third was written the old way, in the same file, below that comment.
 
----
+The parallel-array form is also the strictly weaker one: `strategyLabels` is a
+`Record<LeftoverStrategy, string>` and is exhaustiveness-checked by the compiler; `STRATEGIES` is a
+hand-written `LeftoverStrategy[]` and is not. Adding a fourth member to
+`LeftoverStrategy` (`demo/palettes/mix.ts:19`) breaks the build at `strategyLabels` and **silently
+omits the option** from `STRATEGIES`. One vocabulary, two declarations, only one of them enforced.
 
-### D-11 · MINOR · NEW · The producer's `#description` slot ships layout but no typography, so five consumers re-mint the same recipe eight times
+**Reproduction.** Add `"interleave"` to `demo/palettes/mix.ts:19`. `tsc` errors on
+`strategyLabels` (missing key). `STRATEGIES` compiles unchanged and the option never renders.
+(Type-level reasoning from the two declarations; not executed — **labelled a hypothesis with a
+mechanical derivation**, since the edit is forbidden to this seat.)
 
-r1 correctly cleared `#description` as a real producer slot. It is — and it is *unstyled*.
-`glass-ui/dist/select-BcBAyLXA.js` renders `<div class="flex flex-col gap-0.5 min-w-0">` around the
-default and `description` slots: layout only, no type. So every consumer supplies the same class
-string by hand:
-
-```
-$ grep -rn 'class="text-micro text-muted-foreground"' --include='*.vue' demo/ | wc -l
-8
-$ grep -rln "template #description" --include='*.vue' demo/
-demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue
-demo/workbenches/mix/MixConfigBar.vue
-demo/workbenches/generate/GenerateControls.vue
-demo/scenes/atmosphere/AuroraPane.vue
-demo/color-session/ColorSpaceSelector.vue
-```
-
-`MixConfigBar.vue:112` and `:134` are two of the eight. Owner edict 5: this is five consumers styling
-one producer slot. Cure is one glass-ui default (or a `select-item-description` utility) filed as a
-producer ask; five local deletions follow. It is also the mechanism behind D-8(a) — `text-micro`
-entered the app through a gap in the producer, not through a decision here.
+**Cure.** `LEFTOVER_STRATEGIES: {value, label, description}[]` in `palettes/mix.ts` beside the type,
+consumed by `v-for` exactly like the other two. One declaration, one shape, one home, and the third
+field gains the description lane it is missing (R3-4).
 
 ---
 
-### D-12 · INFO · NEW · 43.2% dead acreage below the bar in the default state
+### R3-7 · MINOR · NEW — the `colorSpace` contract admits 17 values and the component can render 9
 
-Measured at 1440×900, default route state:
+`MixConfigBar.vue:34` types the prop `colorSpace: PickerSpace`. `picker-color.ts:35` defines
+`export type PickerSpace = SpaceId`, and `PICKER_CHANNELS` (`:52-69`, `satisfies Record<SpaceId,
+…>`) enumerates **17** members: the 9 offered plus `kelvin`, `srgb-linear`, `display-p3`,
+`a98-rgb`, `prophoto-rgb`, `rec2020`, `ictcp`, `jzazbz`.
 
-```
-.pane-scroll-fade : y = 148.0, height = 684.8, bottom = 832.8   (scrollHeight == clientHeight, no scroll)
-MixConfigBar root : y = 423.7, height = 113.6, bottom = 537.2
-empty below       : 832.8 − 537.2 = 295.6px  =  43.2% of the stage
-```
+For those 8, no `SelectItem` matches the model value. `<SelectValue />` at `:101` carries no
+`placeholder`, so the trigger renders as an empty capsule with a chevron and no text — a state the
+component has no design for.
 
-`VISUAL-CONSTITUTION.md §3.2`: *"Empty secondary content occupies at most a narrow invitation tray
-(≤15% of the stage) or disappears."* Both desktop captures show it plainly — the right pane is
-roughly half empty glass.
+Not reachable in the shipped app: `useMixingState.ts:44` holds `colorSpace` as a private
+`ref<PickerSpace>("oklab")` that only this bar writes. So the type is 89% wider than the
+vocabulary, and the safety is accidental rather than expressed.
 
-**Attribution:** owned by `MixPane`'s composition (`MixPane.vue:60-121` uses a plain
-`Card tier="resting"` where `§3.1` prescribes *"its own `InstrumentChassis` composition"*) and caused
-by the absent result plate, itself a consequence of D-5. Recorded as context for this component's
-terminal position in that column, not as its defect.
+**Reproduction.** `<MixConfigBar :color-space="'display-p3'" … />` typechecks and renders an empty
+trigger. **Not reachable through the shipped route** — labelled a contract defect.
+
+**Cure.** `colorSpace: InterpolationSpace` where `InterpolationSpace = (typeof
+INTERPOLATION_SPACES)[number]["value"]`. Then the offer set *is* the type, and the empty-trigger
+state stops existing rather than being avoided.
+
+---
+
+### R3-8 · MINOR · NEW — the two Selects that share a row do not share a keyboard or announcement identity with their labels, and the third disagrees with itself
+
+r1/r2 established that all three `<label>`s are orphans (`htmlFor: null`, `label.control === null`)
+and that row 3's visible text (`Size mismatch`, `:145`) differs from its announced name
+(`Size mismatch strategy`, `:147`). Both re-measured this round; both stand.
+
+The addition is what the pixel data says about the *consequence*: because the accessible name comes
+from `aria-label` and the visible caption is inert decoration, the caption is under no pressure to
+be legible — and it is not (R3-2: 4.367/3.681). The two failures are one failure. A caption wired
+as a real `<label>` would be load-bearing for pointer users (click-to-focus) and for AT, and its
+contrast would be a correctness property rather than a styling preference.
+
+**Reproduction.** `document.querySelector("label.section-label").control` → `null`, all three, all
+four viewports (probe output above). Click on `COLOR SPACE` at CSS (760,430) → no focus change.
+
+**Cure.** The producer already ships the primitive: `glass-ui/dist/components/labeled-field/`. One
+composition, one `id`/`for` pair, one string.
+
+---
+
+### R3-9 · MINOR · NEW — the bar's empty state is its populated state
+
+Enumerating the states this component can actually be in, and what distinguishes them:
+
+| state | reachable | visually distinct? |
+|---|---|---|
+| 0 operands (**shipped default**) | yes | verb at `opacity: 0.5`; both Selects fully live |
+| 1 operand | yes | identical to 0 |
+| ≥2 operands | yes (palettes mode only — colors mode's add-slot is `aria-hidden`, r1/r2) | verb at `opacity: 1`; Δ = 1.095 → 1.197 boundary contrast |
+| in-flight (`animationPhase === "mixing"`) | yes | **nothing** — `animationPhase` is passed to the canvas only (`MixPane.vue:68`); the verb keeps `cursor: pointer`, accepts the click, and `useMixingState.ts:83` silently discards it |
+| error | **not representable** | `startMix` cannot fail; `mixPalettes`/`mixColorSequence` throw into no handler |
+| leftover row shown | yes (palettes) | +73.6px reflow, no transition (r2 D-10) |
+
+The row that matters for *design* rather than a11y: **in the shipped default state, the two
+parameter controls are fully operable while the thing they parameterise does not exist.** The user
+can tune the interpolation space and hue arc of a mix with zero operands, and nothing in the bar
+says so. `VISUAL-CONSTITUTION.md §5` sets the global grammar as `select → tune → commit`; this bar
+offers `tune` unconditionally, before `select` has happened, and the only signal that `select` is
+outstanding is a 0.5 opacity on a control that already has 1.1:1 boundary contrast.
+
+That is why the four shipped frames are indistinguishable from a working bar: **there is no empty
+state.** The component renders its full furniture and greys one word.
+
+**Reproduction.** `/#/mix`, fresh session, all four capture matrices: both Selects are
+`aria-expanded="false"`, not `disabled`, and open on click; `canMix` is false. Measured
+`{disabledAttr: true, opacity: "0.5"}` on the verb only.
+
+**Cure.** The precondition belongs *in the bar*, once: either the parameter fields are inert until
+there are operands (state follows the domain), or the verb carries a durable named reason wired
+through `aria-describedby` (r1's D-3 cure) and the bar's empty state is designed as an empty state
+rather than as a full one with one dimmed word. The in-flight row is free once the verb moves to
+the chassis action region (r2 D-7): glass-ui's Button already ships `loading`.
 
 ---
 
 ## What is genuinely sound — the negative proof
 
-r1's negative-proof list holds and I re-verified it. New entries from this round:
+r1's and r2's negative-proof lists hold; I re-verified the ones this round's instruments could
+reach and add three entries neither prior round proved.
 
 | Claim | Evidence |
 |---|---|
-| **RTL is clean** | `dir="rtl"`: grid `direction: rtl`; Mix button x 754 → 224; trigger x 989 → 459; label `text-align: start`. Nothing to fix. |
-| **Focus survives forced colors** | trigger computes `outline: solid 2px rgba(5,0,73,0.8)` under `forcedColors: active` with focus applied. r1's named risk is not real. |
-| **Reduced motion is correct** | producer `.button` carries `@media (prefers-reduced-motion: reduce) { transition: none }`; the component adds no motion of its own |
-| **No truncation at any width** | `scrollWidth == clientWidth` for the longest value (`Decreasing`) at 320 / 390 / 720 / 1440 |
-| **The report's `namelessButtons: 1` on `/#/mix` is NOT this component** | measured: the sole nameless button is `button.send-btn` from an unrelated widget |
-| **The report's `smallTapTargets` on `/#/mix` are NOT this component** | `REPORT.json` probe payload — picker channel spans (12×24) and slug controls (22×22). See D-3. |
-| **No route errors** | `REPORT.json` `/#/mix`: `consoleErrors: []`, `pageErrors: []`, `failedRequests: []` in all four Safari matrices |
-| **No horizontal overflow** | `REPORT.md` per-capture table: `/#/mix` `overflowX = 0`, all four matrices |
-| **No local design-system fork** | `demo/ui/select/index.ts` and `demo/ui/button/index.ts` are pure re-exports of `@mkbabb/glass-ui` — edict 4's letter is honoured |
-| **`verbatimModuleSyntax` clean** | all four type-only imports use `import type` (`:12`–`:15`) |
-| **Idiomatic Vue 3.5** | reactive props destructure with default (`:25-45`); prop-in/emit-out, so no `defineModel` stale-read hazard; no template refs warranted |
-| **No god module, no legacy shims** | 173 lines, one job, no local color math; no aliases, dual paths or back-compat branches |
+| **The "costs nothing at rest" claim in the file's own comment (`:19-23`) is TRUE** | `spaceRamps`/`hueRamps` are `computed` (lazy); their **only** template readers are inside `SelectContent` (`:111`, `:133`), which reka unmounts when closed. No reader → no evaluation. The 13 `sampleInterpolationRamp` calls happen on open, not on mount. Verified by code path, and consistent with r2's measured `chippedOptions: 0`. |
+| **No local design-system fork** | `demo/ui/select/index.ts` is one line: a pure re-export of eight names from `@mkbabb/glass-ui`. Edict 4's letter is honoured; only its spirit is broken (R3-3). |
+| **The producer's truncation is intact** | the trigger carries `[&>span]:line-clamp-1` from the producer class list; `scrollWidth === clientWidth` for the longest value at 320 / 390 / 1440 (`121/121`, `156/156`, `225/225`). No overflow at any width — r2's result, re-measured in WebKit. |
+| **No horizontal overflow, no console/page errors on `/#/mix`** | `REPORT.md` per-capture table: `overflowX = 0`, `pageErr = 0`, `consoleErr = 0`, all four matrices. |
+| **The mobile capture's button honours the coarse register** | `min-block-size: 60px` beats `h-10`'s `height: 40px`; measured `h: 60` at 390-coarse. The Button is the one control in the bar the producer still owns — which is exactly why it is the one that scales. |
+| **`verbatimModuleSyntax` clean; idiomatic Vue 3.5; no god module; no legacy shim** | `:12-15` all `import type`; reactive props destructure with default at `:25-45`; prop-in/emit-out so no `defineModel` stale-read hazard; 173 lines, one job, no local color math, no aliases or dual paths. |
+| **RTL, reduced motion, forced-colors focus** | r2 measured all three PASS; not re-run this round (parsimony) and not disputed. |
 
 ---
 
 ## Canon conformance
 
+Rows marked **(r2)** or **(r1)** are prior findings I re-verified and do not re-argue.
+
 | Authority | Clause | Status |
 |---|---|---|
-| `VISUAL-CONSTITUTION.md §3.1` | Mix mobile order `rack, result, controls` | **FAIL** — D-7 |
-| `VISUAL-CONSTITUTION.md §3.2` | empty ≤15% of stage | **FAIL** — D-12 (MixPane-owned) |
-| `VISUAL-CONSTITUTION.md §3.8` | one full-strength protagonist; support does not compete | **FAIL** — D-1 |
-| `VISUAL-CONSTITUTION.md §4` | closed type matrix | **FAIL** — D-8 |
-| `VISUAL-CONSTITUTION.md §4.1` | states never color-only; explicit role/name/state | **FAIL** — D-5, D-8, D-9 |
-| `VISUAL-CONSTITUTION.md §4.1` | focus distinct in both schemes + forced colors | **PASS** — D-4 |
-| `VISUAL-CONSTITUTION.md §5` | `select → tune → commit`; one glass-ui action set | **FAIL** — D-7 |
-| `VISUAL-CONSTITUTION.md §6` | scene swap preserves continuity | **FAIL** — D-10 |
-| `VISUAL-CONSTITUTION.md §6.1` | logical direction follows document | **PASS** — D-4 |
-| `VISUAL-CONSTITUTION.md §8` | π/DELTA — every visual claim has a tracked frame pair | **FAIL** (harness) — no `/#/mix` row in any of the six state matrices; r1 D-9 stands as a harness finding even though its design unknowns are now discharged |
-| `PROPORTION-AUDIT.md §5.5` | small marks are data/status/labeled-action or removed | **FAIL** — D-2 |
-| `PROPORTION-AUDIT.md §5.7` | glyph size ≠ target size ≠ reservation | **FAIL** — D-3 |
-| `PROPORTION-AUDIT.md §5.8` | rendered relation wins over token intent | **FAIL** — D-1 |
-| `PROPORTION-AUDIT.md` PR-06 | one action/selection owner incl. Mix | **FAIL** — D-7 |
-| `PROPORTION-AUDIT.md` PR-07 | no unlabeled controls; every seat has a name/state | **FAIL** — D-5, D-8 |
-| `PROPORTION-AUDIT.md` PR-08 | pending/failure truth not merely transient | **FAIL** — D-5(a) |
-| Owner edicts 1, 2, 3, 6, 7, 8 | god modules / legacy / KISS / animations / Vue 3.5 / `import type` | **PASS** |
-| Owner edict 4 | glass-ui is the design system | **FAIL** — D-1 (invented variant), D-5 (`loading` ignored), D-6/D-11 (producer asks unfiled) |
-| Owner edict 5 | root-level styling, never per-instance | **FAIL** — D-3, D-8, D-11 |
+| `VISUAL-CONSTITUTION.md §3.7` | spacing is container-scaled from glass-ui tokens | **FAIL** — R3-1, and the frozen-rhythm table |
+| `VISUAL-CONSTITUTION.md §3.8` | one full-strength protagonist; support does not compete | **FAIL** — R3-2 (support wins by 1.41× in dark) |
+| `VISUAL-CONSTITUTION.md §4` | closed type matrix; control/label = `text-small`, Plus Jakarta Sans, non-bold | **FAIL** — caption renders Fira Code `--type-caption` 14.384px (one rung below the matrix floor of 16.4px) (r1); `text-micro` outside the matrix (r2) |
+| `VISUAL-CONSTITUTION.md §4.1` | rendered contrast on the actual material tier; a token name is not evidence | **FAIL** — R3-2 |
+| `VISUAL-CONSTITUTION.md §4.1` | states never color-only; explicit role/name/state | **FAIL** — R3-8, R3-9 |
+| `VISUAL-CONSTITUTION.md §4.2` | one registered `ColorSpaceSelector` species | **FAIL** — R3-3 |
+| `VISUAL-CONSTITUTION.md §5` | `select → tune → commit`; one glass-ui action set | **FAIL** — R3-9 (tune precedes select); (r2 D-7) |
+| `VISUAL-CONSTITUTION.md §3.1` | Mix mobile order `rack, result, controls` | **FAIL** (r2 D-7) |
+| `VISUAL-CONSTITUTION.md §3.2` | empty ≤15% of stage | **FAIL** (r2 D-12, MixPane-owned) |
+| `VISUAL-CONSTITUTION.md §6` | scene swap preserves continuity | **FAIL** (r2 D-10) |
+| `VISUAL-CONSTITUTION.md §8` | π/DELTA — every visual claim has a tracked frame pair | **FAIL (harness)** — confirmed by `ls`: none of the six state matrices contains a `/#/mix` row |
+| `PROPORTION-AUDIT.md §1` | every element earns its scale from its job | **FAIL** — R3-4 (tertiary control at 2.03× the primaries) |
+| `PROPORTION-AUDIT.md §5.7` | glyph size ≠ target size ≠ reservation | **FAIL** — R3-1 (re-fused: 34.7px measured target under a 44px producer floor) |
+| `PROPORTION-AUDIT.md §5.8` | rendered relation wins over token intent | **FAIL** — R3-1, R3-2 |
+| `PROPORTION-AUDIT.md` PR-06 | one action/selection owner incl. Mix | **FAIL** — R3-3 |
+| `PROPORTION-AUDIT.md` PR-07 | every seat has a name/state | **FAIL** — R3-8 |
+| `PROPORTION-AUDIT.md` PR-08 | pending/failure truth not merely transient | **FAIL** — R3-9 (in-flight row) |
+| `PROPORTION-AUDIT.md` PR-12 | touch padding preserves target floor while optics follow the rung | **FAIL** — R3-1 (inverted: optics follow nothing, floor breached) |
+| Owner edict 1 (no god modules) | | **PASS** |
+| Owner edict 2 (no legacy) | | **PASS** |
+| Owner edict 3 (KISS, no contrivance) | | **FAIL** — R3-6 (a third vocabulary shape invented beside two shared ones) |
+| Owner edict 4 (glass-ui is the design system; reuse component-type names) | | **FAIL** — R3-3 (a second color-space selector), plus r1/r2 D-1 |
+| Owner edict 5 (root-level styling, never per-instance) | | **FAIL** — R3-1 (`h-9` ×3, `h-10 gap-2` ×1 over a producer register that already resolved them) |
+| Owner edicts 6, 7, 8 (animations / Vue 3.5 / `import type`) | | **PASS** |
 
 ---
 
-## Gestalt — what round 2 changes about the cure
+## Gestalt — the transposition, after three rounds
 
-Round 1's transposition is correct and I adopt it: **the method region becomes one labelled-field
-composition owned by glass-ui**, and `MixConfigBar` shrinks to a declaration of which fields exist
-and one `emphasis="primary"` verb.
+r1 asked for a labelled-field composition. r2 asked to split the node by job and move the verb to
+the chassis action region. Both are right and I adopt both without restating them.
 
-Round 2 adds two things that r1's cure does not reach, both of which are structural rather than
-cosmetic:
+Round 3 adds the precondition that makes either of them stick:
 
-1. **Split the node by job.** The verb does not belong in a config bar at all. Moving it to the
-   chassis action region — where `§5`'s single glass-ui action set already lives beside the result's
-   `Save`/`Copy` — is one move that makes emphasis (D-1), loading and precondition state (D-5), and
-   the canonical `rack → result → controls` order (D-7) *expressible* instead of impossible. Three
-   patches collapse into one transposition.
-2. **Reduce the vocabulary before styling it.** The hue row is conditional on
-   `HUE_INDEX[colorSpace]` **and** carries two arcs, not four (D-2). The ramp is promoted from the
-   `#description` lane to the trigger (D-6), which makes the setting legible when it is *set* rather
-   than only while it is being chosen — and, as a side effect, returns the nine-space menu to one
-   screen. Two producer asks (a `SelectValue` content slot; typography for the `SelectItem`
-   `#description` lane that five consumers currently re-mint by hand) go to glass-ui rather than into
-   this file.
+**Stop asserting geometry.** Every rendered defect this round measured — the crushed mobile
+capsule, the 24px height split between the bar's own two controls, the frozen rhythm, the
+tertiary control at 2× width, the 16px chevron beside 21px type — is one habit: this file states
+box dimensions (`h-9` ×3, `h-10`, `gap-2`, `gap-1`, `gap-3`, `grid-cols-2`, `w-4 h-4`) in a system
+whose producer already resolves all of them from `--ui-scale` and a control register. Delete the
+assertions and the producer's answers arrive: 54px triggers with their padding intact, a 60px verb
+6px taller than its siblings rather than 24px, and a rhythm that responds to the container.
 
-The single sentence that carries the whole seat: **this bar spends its geometry on a control that
-does nothing, and hides the one thing it knows in the only place that disappears when you use it.**
+Then the two structural moves have somewhere to land. In order:
+
+1. **Delete every hard-coded dimension** (R3-1). This is the cheapest change in the file and it
+   fixes the only defects a user can see on a phone.
+2. **One color-space species, one vocabulary, one order** (R3-3) — Mix filters the registered
+   selector's offer set; it does not mint a second selector with a second table of strings.
+3. **One field shape for all three fields** (R3-4, R3-6), which restores the missing description
+   lane on the one control that actually needed it.
+4. **`mode`, not `showLeftoverStrategy`** (R3-5) — the presentation instruction leaves the API and
+   the contradictory state stops being representable.
+5. Then r2's split: the verb moves to the chassis action region, taking emphasis, loading and
+   precondition state with it, and the bar becomes what its name claims — a config bar.
+
+The sentence that carries this seat: **the producer had already solved this component's geometry,
+and the component spent seven class strings un-solving it — which is why, on a phone, the words
+sit against the edge of the box that was supposed to hold them.**

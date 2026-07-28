@@ -1,7 +1,7 @@
 {
  "runId": "wf_22b7a7b7-97b",
  "workflow": "area-palettes",
- "resultCount": 70,
+ "resultCount": 71,
  "results": [
   {
    "agentId": "a014cb72c5bd972db",
@@ -9612,6 +9612,245 @@
     ],
     "strongestDefect": "D-2 — the login form cannot submit. `@submit.prevent` is bound to glass-ui 7's `SearchBar`, which is `inheritAttrs: false` and spreads every non-`class` attr onto its inner `<input type=\"search\">` while the `tag=\"form\"` root receives only `class` and `data-surface`. An `<input>` never fires `submit`, so the `<form>` has no submit listener and nothing prevents the default action. Prior runs proved the cause but could only argue the consequence from the HTML spec, because jsdom threw on `requestSubmit`; this run reproduced it in WebKit against the live app with a two-arm probe: listener-on-FORM gives `handlerRuns: 1` and zero navigations, listener-on-INPUT gives `handlerRuns: \"gone (page navigated)\"`, a URL mutated to `http://localhost:9000/?#/palettes?...` (the `?` being the native GET-submission signature), 3 recorded main-frame navigations, and the DOM destroyed. PLAUSIBLE → CONFIRMED: pressing Enter reloads the SPA and discards the typed credential, and there is no path by which `onSlugSwitch` ever runs.",
     "negativeProof": "Verdict is DEFECTIVE, so this field records the two would-be findings this run KILLED by measurement — both are traps I walked into from a code read, and both would have shipped as confident false positives. (1) N-1 — the `vj-morph` swap does NOT jump. `<Transition mode=\"out-in\">` at :4 swaps a pill branch against a Login-button branch of visibly different size, which normally produces a collapse-and-grow; measured in the live cascade (probes/psb-probe.mjs) both branch roots are h=36.00 (pill 28.94, login 32.94 inside them) and `branchDeltaPx = 0.00` — the `min-h-9` on the bar root absorbs both. Bar height is stable across the swap. (2) N-2 — `focus-visible:outline-none` does NOT kill the forced-colors focus outline. Specificity reasoning predicts a defect: Tailwind's `.focus-visible\\:outline-none:focus-visible` is (0,2,0) and foundation.css:700-721's WHCM affordance is a zero-specificity `:where(a[href], button, [role=\"button\"], …):focus-visible { outline: 2px solid Highlight }` at (0,1,0), so the component should win and blank the outline — and since `ring-*` is a box-shadow, which does not paint in forced colors, focus would vanish entirely. Measured instead in Chromium `forcedColors: \"active\"` (probes/psb-probe2.mjs): dots, login and menurow all report `outline: \"solid 2px rgba(5, 0, 73, 0.8)\"` with `boxShadow: \"none\"` — the root rule wins on all three species, because it is UNLAYERED and unlayered declarations beat every `@layer` regardless of specificity, while `outline-none` lives in `@layer utilities`. Not a defect, and genuinely good foundation design: it holds against consumers that opt out by hand. Also verified sound and not filed: `prefers-reduced-motion` is neutralized globally at demo/styles/animations.css:184-193 (`transition-duration: 0.01ms !important` on `*`), satisfying VISUAL-CONSTITUTION.md:144; the `active:scale-*` presses animate `transform`, which is compositor-only and forces no layout (their real defect is D-10, that `transition-property` omits `transform` so the scale never animates at all — an ad-hoc-motion finding, not a layout-thrash one); and the audit's horizontalOverflow is 0 on every `/palettes` capture, to which this component contributes nothing because it renders nothing."
+   }
+  },
+  {
+   "agentId": "a2516605d72a5ad8a",
+   "key": "v2:ab8f1db119f54aa9800a57fc444b4afc2c438c728bff438de0c17cee8d8857d1",
+   "result": {
+    "axis": "CHALLENGE-D — design (visual truth, state coverage, motion, design-system boundary, proportion/seat law) for demo/palettes/browser/search/SearchFilterBar.vue — PASS 3",
+    "modelObserved": "Opus 5 — exact model id `claude-opus-5[1m]` (1M-context arm). Seat declared at spawn, not inherited.",
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/challenge-D-design.md",
+    "verdict": "DEFECTIVE",
+    "strongestDefect": "P3-B2 — at mobile (390x664) and at 200% zoom (720x450@2) the filter menu renders 29% / 45.4% of its body ABOVE the viewport with `overflow-y: visible` and no scroll container anywhere in the ancestor chain (`scrollHeight === clientHeight` in 7/7 matrices), so `Sort` — the first control in the menu — cannot be reached at all. Measured `dialog.y = -154` (mobile) and `-227.5` (zoom-200); frames at shots-p3/P3-tall-mobile-open.png and shots-p3/P3-tall-zoom200-open.png show \"Most Forked\" as the topmost visible row.",
+    "negativeProof": "Verdict is DEFECTIVE, so this records the nine axes I attacked and could NOT break, with the evidence that proves each negative — so no downstream seat re-litigates them. (1) RENDERED text contrast is sound: pixel-measured at 4x DPR via screenshot->canvas readback, both schemes — section label 5.67/5.05, option text 13.69/7.85, Search pill 5.78/7.42, Clear-all 10.85/8.75, placeholder 5.60/6.02, field value 14.91/9.37. Every ink role clears AA at its size. (2) REDUCED MOTION is honoured — this OVERTURNS pass 1's D-16: under `reducedMotion:reduce` a 77-rule blanket rewrites the surface; the popover's `scale` and `translate` are REMOVED leaving `opacity 0.15s allow-discrete`, `.filter-option` -> 0.1s, `animation: 0.00001s`. No geometry animates. (3) The component's own motion IS tokenized: `var(--duration-fast) var(--ease-standard)` at :246, and bare Tailwind `transition-*` inherits house tokens via foundation.css `@theme` `--default-transition-duration/-timing-function`; nothing layout-forcing is animated; edict 6 met. (4) Radio options DO have accessible names via the wrapping <label> — the computed AT tree reads `radio \"Newest\"`, `\"Most Popular\"`, `\"Most Forked\"`, `\"All\"`, `\"Featured\"`; the defect is duplication and unnamed GROUPS, not nameless items. (5) MY OWN CLAIM WITHDRAWN: a WebKit tab walk suggested focus escapes the open popover after 3 stops; Chromium — authoritative per the repo's own rule at audit/visual/states.mjs:6-9 (macOS ships Full Keyboard Access OFF) — shows `stillOpenAfter8Tabs: true` and a cycling walk radio->swatch->input->Search->radio->radio->swatch->input. All species reachable. (6) `Escape` restores focus to the exact opener in WebKit and Chromium, both schemes (`focusIsTrigger: true`, `aria-expanded -> \"false\"`). (7) NO hit-target overlap — my own hypothesis falsified: the 44x44 radio boxes overflow their 30.94px rows but do not collide (`markerOverlap: -12.93px` desktop / `-9.59px` mobile) and a 1px-step elementFromPoint sweep returned `mismatchCount: 0` in every matrix; 44x44 around an 18x18 mark is exactly PROPORTION-AUDIT §5 law 7. (8) `.focus-ring` and `.scrollbar-thin` are NOT dead classes — a walk over every loaded stylesheet rule found 2 and 6 matching selectors respectively. (9) No horizontal overflow in any of 7 matrices (`docHorizontalOverflow: 0`) and no component-attributable console noise (the only error is the dev server's own VITE_API_URL misconfiguration warning).",
+    "defects": [
+     {
+      "id": "P3-B1",
+      "defect": "The entire Tags filter section is inert: it calls a retired shadcn/radix-era Checkbox API against glass-ui 7, so ticking a tag paints checked and changes nothing.",
+      "severity": "BLOCKER",
+      "evidence": "node_modules/@mkbabb/glass-ui/dist/components/checkbox/Checkbox.vue.d.ts declares `modelValue?: CheckedState|null` and emits ONLY `update:modelValue`. demo/palettes/browser/search/SearchFilterBar.vue:51-55 passes `:checked` and `@update:checked`. Neither exists. `toggleTag` (:197) is never called and the `update:selectedTags` emit declared at :156 has no live caller.",
+      "mechanism": "Pre-glass-7 component API called against a glass-ui 7 contract. Vue fallthrough fails silently: the undeclared prop lands as a raw DOM attribute and the undeclared emit never fires; with `modelValue` absent the producer runs uncontrolled, so the box paints checked while the product holds no such state.",
+      "reproduction": "Static: read Checkbox.vue.d.ts against SearchFilterBar.vue:51-55. Live: node docs/tranches/V/megatranche/audit/components/SearchFilterBar/probe-P3-3-truth.mjs (the section is absent in this environment, so the static proof is the load-bearing one).",
+      "proposedCure": "Transpose onto glass-ui `DropdownMenuCheckboxItem` with `v-model` on one owned selectedTags model; the local toggleTag array-splice helper disappears with it. No shim, no dual path."
+     },
+     {
+      "id": "P3-B2",
+      "defect": "The menu has no scroll container anywhere in its chain, and at mobile and 200% zoom it overflows the TOP of the viewport, making the Sort section unreachable.",
+      "severity": "BLOCKER",
+      "evidence": "evidence-p3/P3-2-states.json, tallest reachable state, 7 matrices: desktop 1440x900 dialog {y:381,h:521.06} bottomOverflow +2.06; mobile 390x664 {y:-154,h:530.41} topOverflow 154px (29%); zoom-200 720x450 {y:-227.5,h:501.64} topOverflow 227.5px (45.4%). `overflowY: \"visible\"` and `scrollHeight === clientHeight` in all 7. The only `overflow-y:auto` in the component is the tag list at :49 (`max-h-28`).",
+      "mechanism": "An overlay whose height is data- and state-dependent was authored with no containment strategy; containment was applied to the one region that needed it least. Reka flips the menu upward when it will not fit below, and nothing constrains the flip or scrolls the content.",
+      "reproduction": "node docs/tranches/V/megatranche/audit/components/SearchFilterBar/probe-P3-2-states.mjs; frames shots-p3/P3-tall-mobile-open.png and shots-p3/P3-tall-zoom200-open.png. Manually: /#/browse on an iPhone-sized viewport, open the ⋮ menu — the top visible row is 'Most Forked'.",
+      "proposedCure": "Transpose onto `DropdownMenuContent`, which inherits the producer's collision/max-height/scroll behaviour, plus an explicit `max-h-[min(70svh,32rem)] overflow-y-auto`; delete the local `max-h-28` scroller. Separately split Sort out of the filter drawer — activeFilterCount (:189-195) already excludes it."
+     },
+     {
+      "id": "P3-B3",
+      "defect": "The active-filter count badge is clipped to an illegible olive crescent — 49.3% of its area painted away, digit entirely absent — and the count never reaches the accessible name either.",
+      "severity": "BLOCKER",
+      "evidence": "Trigger measures 32.48 x 40.60 despite `icon-only` (documented in Button.vue.d.ts as 'Square geometry for an accessibly named icon command') because `class=\"relative h-8 w-8\"` (:5) won on width and lost to `data-size=md` on height. `contain: paint` on the trigger in 7/7 matrices; badge overhang 4.1px top and 4.1px right (`-right-1 -top-1`, :9). Hit test 3 cardinal points, 7/7 matrices: centre true, top false, right false. Pixel census at DPR 4: surviving gold bbox 46x45 device px = 11.5 x 11.25 CSS px of a nominal 16.2 x 16.2 chip = 49.3% lost. AT tree of the trigger is exactly `- button \"Filters\" [expanded]: - img` — `aria-label` overrides the inner textContent \"1\".",
+      "mechanism": "A hand-positioned overhanging badge inside a producer root that declares paint containment; `contain: paint` clips to the padding box and the capsule radius bevels the remainder. The non-square icon-only geometry is what puts the overhang inside the bevel.",
+      "reproduction": "node .../probe-P3-4-pixels.mjs; see shots-p3/P3-px-light-badge.png and P3-px-dark-badge.png. Manually: /#/browse, open ⋮, select the Featured tier, press Escape and look at the trigger.",
+      "proposedCure": "Use the producer `Badge` atom as a sibling of the trigger, outside the contain:paint root, and put the count in the name (`aria-label=\"Filters, 2 active\"`). Stop overriding `h-8 w-8` so `iconOnly` can keep its square. Never hand-position an overhang inside a producer root."
+     },
+     {
+      "id": "P3-B4",
+      "defect": "The field labelled 'Search by CSS color' with placeholder '#hex, hsl(...)' accepts exactly one syntax and silently searches a different colour for everything else, with no error state anywhere — and even a valid hex leaves the swatch wrong.",
+      "severity": "BLOCKER",
+      "evidence": "SearchFilterBar.vue:218 `const hex = text.startsWith(\"#\") && /^#[0-9a-f]{6}$/i.test(text) ? text : pickerHex.value;`. Six inputs driven live (evidence-p3/P3-3-truth.json -> substitution): `hsl(200 50% 50%)`, `rebeccapurple`, `oklch(0.7 0.15 30)`, `#abc`, `not-a-color` and `#FF0000` all left the swatch label at 'current color #4488cc', badge '1', zero `[role=alert]`, `aria-invalid: null`. `parseColorIn` — the library's own parser, which handles all six — is imported at :145 and used at :206.",
+      "mechanism": "A regex gate placed in front of the product's own competence, failing CLOSED to a silent substitution instead of OPEN to the parser. With no error state and no representation of the applied colour, the substitution is undetectable from the UI.",
+      "reproduction": "node .../probe-P3-3-truth.mjs. Manually: /#/browse, open ⋮, type `hsl(200 50% 50%)` in Find-by-Color, click Search — the badge increments and the wall filters, on #4488cc.",
+      "proposedCure": "Delete the regex gate at :218; pass the trimmed text to `parseColorIn` in a try/catch and render the two real states — parsed: the swatch and a removable applied-filter chip both take that colour; unparsed: a named error on the field with `aria-invalid`. This also makes the currently-unreachable `searching` register meaningful."
+     },
+     {
+      "id": "P3-M1",
+      "defect": "The menu is painted on TWO different grounds: 29.4% of its height hangs off the bottom of the card it was drawn over, so its own background steps by ΔRGB 71.6 partway down — with the seam falling across FIND BY COLOR, the one section whose job is to show a colour truthfully.",
+      "severity": "MAJOR",
+      "evidence": "evidence-p3/P3-5-rails.json: Browse card `bottom 747.84`; popover `y 380 -> bottom 901.06`; 153.22px (29.4%) hangs below the card. Popover material `background-color: oklab(0.936408 0.005529 0.013284 / 0.808)`, `backdrop-filter: blur(11px) saturate(1.6)`. Pixel readback of the menu's own body at 4x: top band rgb(241,224,220), mid rgb(241,223,220), bottom rgb(199,183,179) — ΔRGB(top,bottom)=71.6, luminance ratio 1.47:1; ΔRGB(top,mid)=1.0, so it is a STEP, not a gradient.",
+      "mechanism": "A translucent chrome material (glass-floating) was used as the page for a seven-control form, and the form is taller than the plate it was anchored over. The effective ground therefore changes where the plate ends — a defect no alpha value can fix. VISUAL-CONSTITUTION §2 also gives the specimen tier an 'opaque/quiet neutral stage'; the colour swatch has none.",
+      "reproduction": "node .../probe-P3-5-rails.mjs; the seam is directly visible in shots-p3/P3-px-light-popover.png as a pink band behind FIND BY COLOR / Clear all filters against the cream behind SORT.",
+      "proposedCure": "Make the menu fit (P3-B2's cure) so it stops overhanging its plate; and give the colour specimen an opaque neutral well of its own — a colour cannot be read on a saturate(1.6) backdrop over a live chromatic aurora."
+     },
+     {
+      "id": "P3-M2",
+      "defect": "Seven distinct left rails share one 206px column — the section heading is 8px left of the marker column it heads and 56px left of the text it heads.",
+      "severity": "MAJOR",
+      "evidence": "evidence-p3/P3-5-rails.json, measured by range geometry to 0.01px: 449.75 (.filter-section box AND both ends of every divider) / 456.75 (radio 44x44 hit box, breaking 5px OUT of its own section) / 461.75 (.section-label ink, swatch, Clear button box) / 469.75 (radio visible ink) / 485.20 (Clear-all text ink) / 495.75 (colour input, and the text of 'All') / 517.75 (the text of Newest/Most Popular/Most Forked/Featured). Spread 68.0px = 33% of the content box. Option text begins 85.0px (35.4%) into a 240px menu; residual label measure 126.0px.",
+      "mechanism": "Two nested padding systems (producer 16px, which the inert `p-0` failed to remove, plus local `.filter-section` 12px at :238) and a per-row `padding: 0.25rem 0.5rem` at :241 that insets the option ink but not its hover chip. Nothing in the file establishes a shared rail because the producer menu that would have owned one was not used.",
+      "reproduction": "node .../probe-P3-5-rails.mjs; visible in shots-p3/P3-px-light-popover.png.",
+      "proposedCure": "Transpose onto DropdownMenuLabel + DropdownMenuRadioItem: the producer owns one marker lane and one text rail for label and items alike, and the local scoped CSS (`.filter-section`, `.filter-option`) is deleted entirely."
+     },
+     {
+      "id": "P3-M3",
+      "defect": "Proximity is inverted: sibling options sit 4.33x further from each other than from their own section heading, so five options read as five separate things.",
+      "severity": "MAJOR",
+      "evidence": "evidence-p3/P3-5-rails.json: row height 30.94px; gap between sibling options 26.00px; gap from section label to its first option 6.00px; ratio 4.33. Source measured: `getComputedStyle('[role=radiogroup]').gap === \"26px\"`, `className === \"radio-group\"` — glass-ui's FORM radio default, never overridden.",
+      "mechanism": "Category error: a form-field stack gap sized for labelled settings rows was imported into a 240px MENU. The producer's menu rhythm lives on DropdownMenuRadioItem, which the sibling UserSortMenu.vue:20-33 uses. This is also the direct cause of a large share of P3-B2's overflow.",
+      "reproduction": "Playwright evaluate on /#/browse with the popover open: getComputedStyle(document.querySelector('[role=radiogroup]')).gap -> '26px'; then read the .filter-option rects. Frame: shots-p3/P3-px-light-popover.png.",
+      "proposedCure": "Use DropdownMenuRadioItem/DropdownMenuCheckboxItem for both lists so the rhythm comes from the producer and neither list carries a local gap."
+     },
+     {
+      "id": "P3-M4",
+      "defect": "'All' and 'Featured' — two options of the same radio group — do not share a left edge; the labels rag by exactly 22px.",
+      "severity": "MAJOR",
+      "evidence": "evidence-p3/P3-5-rails.json optionTextInk: 'All' 495.75, 'Featured' 517.75. 'All' (SearchFilterBar.vue:34-37) has no icon; 'Featured' (:38-42) carries <Award class=\"h-3.5 w-3.5\">. The row is a bare flex with `gap: 0.5rem`, so omitting the glyph collapses its 14px lane plus the 8px gap.",
+      "mechanism": "A conditionally-present icon in an unreserved lane. Nothing holds the column when the optional element is absent.",
+      "reproduction": "node .../probe-P3-5-rails.mjs; visibly stair-stepped in shots-p3/P3-px-light-popover.png.",
+      "proposedCure": "DropdownMenuRadioItem owns the icon/marker lane, so an item without a glyph cannot rag. If any local layout survives, reserve the lane explicitly rather than letting flex collapse it."
+     },
+     {
+      "id": "P3-M5",
+      "defect": "Three horizontal dividers render (four when the Tags section is present) inside a popover on a route whose binding boundary inventory is `none` — and their rendered contrast is 1.57:1 light / 1.40:1 dark, so they are simultaneously forbidden and invisible.",
+      "severity": "MAJOR",
+      "evidence": "SearchFilterBar.vue:17 `class=\"flex flex-col divide-y divide-border\"`. evidence-p3/P3-2-states.json: three children carry `border-bottom-width: 1px`, `paintedDividers: 3` in all 7 matrices (Tailwind v4 writes border-BOTTOM on :not(:last-child) — a border-top-only read misses them). docs/tranches/V/OPTICAL-BENCH-COMPOSITIONS.md:69-90 binding table: `| Browse | n/a | n/a | none | ... |`, and line 90 'Any additional line ... is a defect.' Pixel contrast at 4x (evidence-p3/P3-4-pixels.json): light ink rgb(198,180,159) on ground rgb(241,223,220) = 1.57:1; dark ink rgb(101,87,73) on ground rgb(79,65,59) = 1.40:1. Geometry 449.75 -> 655.75: reaching neither the popover edge nor the content rail.",
+      "mechanism": "A boundary drawn where interval and material were meant to express the grouping — and drawn so faintly it cannot express it either. The grouping job is actually being (badly) done by the 26px gap of P3-M3.",
+      "reproduction": "node .../probe-P3-2-states.mjs (read `dividers`/`paintedDividers`) and node .../probe-P3-4-pixels.mjs (read `divider.contrast`); visible in shots-p3/P3-px-light-popover.png.",
+      "proposedCure": "Delete `divide-y divide-border`. Fix the rhythm (P3-M3) so interval carries the grouping; if the DropdownMenu transposition is taken, boundaries become an explicit DropdownMenuSeparator decision and the binding answer for Browse is zero."
+     },
+     {
+      "id": "P3-M6",
+      "defect": "The colour swatch casts a cartoon shadow down-and-LEFT while every card in the app casts down-and-RIGHT — two light sources in one frame — and it is the only shadowed object inside a glass popover.",
+      "severity": "MAJOR",
+      "evidence": "evidence-p3/P3-2-states.json -> light: live Browse Card `box-shadow: color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px`; `--shadow-cartoon`/`--shadow-card` = `8px 8px 0 0`. The swatch (`shadow-cartoon-sm`, :76) resolves to `-2px 2px`, `-3px 3px`, `-4px 4px`. Both are visible in one screenshot (shots-p3/P3-tall-mobile-open.png). In dark the stamp is a light tint at 26-46% alpha on a dark ground and is invisible (shots-p3/P3-desktop-dark-open.png).",
+      "mechanism": "A paper-grammar caster token stamped on a control seated on floating glass. VISUAL-CONSTITUTION §2 gives the instrument-veil tier 'no drop shadow'; §3 law 8 forbids supporting fixtures competing through equal shadow. The token family itself is directionally inconsistent (`--shadow-cartoon` right-down vs `--shadow-cartoon-sm` left-down) — a producer row this consumer inherited by choosing the -sm token.",
+      "reproduction": "node .../probe-P3-2-states.mjs, read `light.swatchShadow` vs `light.cardShadow`; the crescent lower-LEFT of the blue circle and the slab lower-RIGHT of the Browse card are both in shots-p3/P3-tall-mobile-open.png.",
+      "proposedCure": "Delete the cartoon caster from the swatch — no shadow on a control seated on glass. Relay the `--shadow-cartoon` vs `--shadow-cartoon-sm` direction fork to the glass-ui BH inbox as a producer row."
+     },
+     {
+      "id": "P3-M7",
+      "defect": "Three producer parts are hand-rolled here, one of them by transcribing the producer's own class string, in a directory where a 58-line sibling already does the same job with the producer family.",
+      "severity": "MAJOR",
+      "evidence": "(a) Popover+RadioGroup+Checkbox as a menu = 125 template lines, vs glass-ui's DropdownMenu/RadioGroup/RadioItem/CheckboxItem/Label/Separator, all 14 already re-exported in demo/ui/dropdown-menu/index.ts. (b) The count chip at :7-12 uses `bg-primary text-primary-foreground rounded-full text-micro font-bold`; glass-ui's Badge declares `VARIANT.default = \"bg-primary text-primary-foreground\"` in dist/components/badge/index.d.ts — the identical string. (c) The inline Search commit + Loader2 spinner + four `disabled:` classes at :97-104 re-implement Button's declared `loading?: boolean` ('Marks an in-flight command and suppresses activation until it settles') and `disabled`. Counter-example: UserSortMenu.vue, same folder, 58 lines, DropdownMenu family.",
+      "mechanism": "A hand-rolled clone of a producer family, hosting five jobs behind one anonymous ⋮ entry point. Owner edict 4 (glass-ui is the design system) and edict 5 (style at the root, never per-instance) fail at the same coordinate; every geometry, rhythm and semantics defect in this ledger is downstream of it.",
+      "reproduction": "Read demo/palettes/browser/search/SearchFilterBar.vue against UserSortMenu.vue in the same directory, and against node_modules/@mkbabb/glass-ui/dist/components/badge/index.d.ts and .../button/Button.vue.d.ts.",
+      "proposedCure": "Transpose onto DropdownMenu + DropdownMenuLabel + DropdownMenuRadioGroup/RadioItem + DropdownMenuCheckboxItem exactly as UserSortMenu.vue does; use producer Badge and Button :loading; the file lands near 90-110 lines with zero scoped CSS."
+     },
+     {
+      "id": "P3-M8",
+      "defect": "The accessibility tree announces every option TWICE, exposes four nameless images, and gives both radio groups no name at all — the visual grouping exists only in pixels.",
+      "severity": "MAJOR",
+      "evidence": "Computed AT tree (probe-P3-7-aria.mjs, WebKit): `- dialog \"Filters\": - text: Sort - radiogroup: - radio \"Newest\" [checked] - img - text: Newest - radio \"Most Popular\" - img - text: Most Popular ...`. Five options -> ten utterances. Four `img` nodes with no name (the lucide SVGs at :24 and :40 carry no aria-hidden). Both radiogroups unnamed (:21, :33 pass no aria-label; the .section-label divs at :20/:32/:48/:63 carry no id). probe-P3-6-close.json: `headings: 0`, `role=group: 0`, `sectionLabelTags: [\"div#-\",\"div#-\",\"div#-\"]`.",
+      "mechanism": "Wrapping a `[role=radio]` button in a <label> whose text is a SIBLING of the control: the label names the radio AND remains a separate text node. Section headings are unassociated <div>s, so no group can point at them.",
+      "reproduction": "node .../probe-P3-7-aria.mjs and read the snapshot.",
+      "proposedCure": "DropdownMenuLabel names the group and DropdownMenuRadioItem puts the text inside the item, producing the correct tree by construction; add `aria-hidden=\"true\"` to the glyphs as UserSortMenu.vue:12 already does."
+     },
+     {
+      "id": "P3-M9",
+      "defect": "Closing the popover by clicking outside drops focus to <body> instead of the opener — cross-engine, both schemes.",
+      "severity": "MAJOR",
+      "evidence": "evidence-p3/P3-6-close.json (WebKit) and P3-8-chromium.json (Chromium light and dark): Escape -> `focusIsTrigger: true`, `aria-expanded -> \"false\"` in all three; click-outside -> `focusIsTrigger: false, focusTag: \"body\"` in all three. VISUAL-CONSTITUTION.md §5.1, Dialog/Drawer/Popover row: 'exact connected opener on close, otherwise the nearest surviving owning action.'",
+      "mechanism": "Half the producer close contract is wired: the Escape path restores, the dismiss path does not. Choosing a bare Popover left the consumer owning a contract it did not implement.",
+      "reproduction": "node .../probe-P3-6-close.mjs and node .../probe-P3-8-chromium.mjs. Manually: open the ⋮ menu, click empty page, press Tab — focus restarts at the top of the document.",
+      "proposedCure": "DropdownMenu owns close/restore on both paths. If the Popover is kept for any reason, wire the dismiss path to return focus to the connected opener explicitly."
+     },
+     {
+      "id": "P3-M10",
+      "defect": "`variant=\"ghost\"` is not a glass-ui 7 prop, so both Buttons paint at the producer default emphasis — making `Clear all filters`, a reset, the visually dominant object in the menu. Two more calls (`p-0`, `h-8 w-8`) are equally inert.",
+      "severity": "MAJOR",
+      "evidence": "Button.vue.d.ts declares `emphasis: \"primary\"|\"secondary\"|\"quiet\"|\"text\"` — there is no `variant`. Live DOM (evidence-p3/P3-3-truth.json -> apiLeak): trigger `data-emphasis=secondary data-size=md data-icon-only=true ... variant=ghost`; Clear-all `data-emphasis=secondary data-size=sm ... variant=ghost`. `variant=\"ghost\"` sits on both as an invalid HTML attribute — the fallthrough proof. PopoverContent authored `class=\"w-60 p-0\"` (:16) computes `padding: 20.352px 16px`. Trigger authored `h-8 w-8` renders 32.48 x 40.60.",
+      "mechanism": "Pre-glass-7 idioms survived the 7.0.0 adoption as silent no-ops because Vue fallthrough never warns. The design defect and the legacy-code defect are one: the surface looks styled while nothing was applied. Because `p-0` lost, the local 12px section padding is ADDITIVE to the producer's 16px — 23.3% of the menu's width is padding.",
+      "reproduction": "Playwright: read `[...document.querySelector('button[aria-label=\"Filters\"]').attributes]` and `getComputedStyle(popoverContent).padding` on /#/browse; or run vue-tsc with strict template checking, which would surface undeclared props as errors.",
+      "proposedCure": "Pass only declared axes — `emphasis=\"quiet\" size=\"xs\" iconOnly`. Delete `variant`, `p-0` and `h-8 w-8` outright, no shims. Enable strict template type-checking on demo/ so an undeclared prop is a compile error rather than a silent DOM attribute."
+     },
+     {
+      "id": "P3-M11",
+      "defect": "A failed tag catalogue and an empty one render identically — as nothing. There is no loading, empty, error or retry state for an entire filter dimension.",
+      "severity": "MAJOR",
+      "evidence": "demo/palettes/useTagEdit.ts:40-49 `try { allTags.value = await getTags(); loaded.value = true } catch { /* silent — tag catalog is best-effort */ }`; SearchFilterBar.vue:47 `v-if=\"availableTags.length > 0\"`. Observed: the Tags section is absent in all ten matrices I captured, with nothing anywhere indicating a filter dimension failed to load. The `loading` ref is exposed by useTagEdit and consumed nowhere in this component. VISUAL-CONSTITUTION §4.1: 'Selected, failed, pending, withdrawn and disabled states are never color-only ... error/status are explicit.'",
+      "mechanism": "A best-effort fetch with an empty catch, consumed by a v-if on array length. The three distinct states (loading / empty / failed) collapse into one rendered outcome: absence.",
+      "reproduction": "node .../probe-P3-1-register.mjs against the dev server (whose VITE_API_URL points at the production API, so getTags() never resolves) — `tags: null`, no section, no message. Read useTagEdit.ts:46-48.",
+      "proposedCure": "Surface `loading` and an `error` from useTagEdit and render three explicit states in the section: a skeleton while loading, named empty copy when the catalogue is genuinely empty, and a named failure with a retry when it errored."
+     },
+     {
+      "id": "P3-M12",
+      "defect": "Applying, changing or clearing a filter changes the wall with no announced result count and no status region anywhere.",
+      "severity": "MAJOR",
+      "evidence": "evidence-p3/P3-1-register.json `dialog.liveRegions: 0`; P3-6-close.json `structure.liveRegions: 0`. No `aria-busy` on the trigger. VISUAL-CONSTITUTION.md §5.1, row 'in-route filter, tab, selection, or pagination' -> 'changed result count/state through the owning status region'.",
+      "mechanism": "The component emits filter changes upward and owns no status surface; the consumer provides none either. Combined with the clipped badge (P3-B3), the user's only route to learning what is filtering the wall is to reopen the drawer and read five controls.",
+      "reproduction": "On /#/browse after applying a filter: `document.querySelectorAll('[aria-live],[role=status],[role=alert]').length` inside the popover -> 0.",
+      "proposedCure": "One polite status region owned by the Browse workspace announcing the changed result count and the active filter set on every filter mutation, paired with visible removable applied-filter chips beneath the SearchBar."
+     },
+     {
+      "id": "P3-M13",
+      "defect": "In forced colors the colour swatch loses the only thing it communicates: its author background is replaced with Canvas, so 'Find by Color' renders as a blank white circle.",
+      "severity": "MAJOR",
+      "evidence": "The swatch's entire content is `:style=\"{ backgroundColor: pickerHex }\"` (SearchFilterBar.vue:77). Chromium (WebKit does not truly emulate forced-colors): `chromium-light` -> `getComputedStyle(swatch).backgroundColor === \"rgb(68, 136, 204)\"`; `chromium-forced-colors` -> `\"rgb(255, 255, 255)\"`, with `forced-color-adjust: auto`. evidence-p3/P3-3-truth.json.",
+      "mechanism": "A value conveyed by background-color alone. Forced colors substitutes author backgrounds by design, so the control's whole payload is erased; the hex survives only in the aria-label, which a sighted HCM user never hears.",
+      "reproduction": "node .../probe-P3-3-truth.mjs (the Chromium forced-colors arm), or open /#/browse in Chromium with forced-colors emulation active and open the ⋮ menu.",
+      "proposedCure": "Render the hex as text beside the colour face and seat the face in a named geometric button, per VISUAL-CONSTITUTION §4.2's WatercolorDot ruling — so the value survives forced colors, monochrome and reduced transparency."
+     },
+     {
+      "id": "P3-M14",
+      "defect": "Five of the seven controls in the menu — both radio groups — paint no visible focus state at all, in either scheme; and four different focus vocabularies share one 240px surface, including the browser's default outline on a hand-rolled button.",
+      "severity": "MAJOR",
+      "evidence": "evidence-p3/P3-8-chromium.json, Chromium (authoritative per audit/visual/states.mjs:6-9), light AND dark: `button[role=radio].radio-group__item` -> `outlineStyle: \"none\"`, `boxShadow: \"none\"`, `paintsAnyRing: false`. The hand-rolled Search pill (`button.absolute.right-1`, :97) -> `outline: auto 1px rgb(185,189,192)` — the user-agent default, a register that exists nowhere else in this app. The input -> producer ring `0 0 0 2px`. The hand-rolled swatch -> only its resting cartoon caster. VISUAL-CONSTITUTION §4.1: 'Focus remains visibly distinct from selection in both schemes, forced colors and reduced transparency.'",
+      "mechanism": "Six control species assembled from three sources (producer atoms, a hand-rolled swatch button at :75, a hand-rolled Search button at :97) with no single focus owner. The Search button carries no `focus-ring` class and falls back to the UA ring; the radio's missing register is a producer defect on glass-ui's form RadioGroup.",
+      "reproduction": "node .../probe-P3-8-chromium.mjs — walks Tab in Chromium in both schemes and records outline/boxShadow per stop. Manually: open the ⋮ menu in Chrome, press Tab once, look at the Sort radio.",
+      "proposedCure": "One producer focus register per seat: transpose the option rows onto DropdownMenu*Item and replace the two hand-rolled buttons with glass-ui Button so `focus-ring` is inherited. Relay the RadioGroup item's missing focus register to the glass-ui BH inbox as a producer row."
+     },
+     {
+      "id": "P3-m1",
+      "defect": "The designed loading state can never paint: the spinner, the disabled binding and four disabled: utility classes are dead code.",
+      "severity": "MINOR",
+      "evidence": "`applyColorSearch` (SearchFilterBar.vue:213-225) is `async` but contains no `await`; `searching.value = true`, the body runs synchronously and `finally` sets it false inside one tick. Live: 30 requestAnimationFrame frames with a MutationObserver on the dialog -> `{\"sawSpinner\": 0, \"sawDisabled\": 0, \"frames\": 30, \"buttonHTML\": \"<span>Search</span>\"}` (evidence-p3/P3-3-truth.json -> spinnerWatch).",
+      "mechanism": "A local synchronous flag standing in for an asynchronous operation that lives in the parent. The work that actually is async — the wall refetch — has no affordance in this component at all.",
+      "reproduction": "node .../probe-P3-3-truth.mjs; read `spinnerWatch`.",
+      "proposedCure": "Bind glass-ui Button's declared `loading` prop to the parent's real in-flight flag, or delete the register honestly. Do not keep a state that cannot occur."
+     },
+     {
+      "id": "P3-m2",
+      "defect": "Type roles outside the closed matrix (text-micro at 11px, one of them bold) and a token consumed for the opposite of its name (`--font-serif` used to obtain the sans control voice).",
+      "severity": "MINOR",
+      "evidence": "Measured: `.section-label` -> Fira Code 14.384px uppercase tracking 1.4384px (text-mono-caption); count badge (:9 `text-micro font-bold`) -> 11px bold; inline Search commit (:99 `text-micro`) -> 11px against neighbours at 16.4px. VISUAL-CONSTITUTION.md §4 declares the matrix 'closed across all eighteen compositions' with no text-micro rung and control copy non-bold; mono-caption is reserved for value/code/provenance. SearchFilterBar.vue:243 `font-family: var(--font-serif)` measures Plus Jakarta Sans, working only through the alias that demo/styles/foundation.css:95-102 documents as deliberate and fragile.",
+      "mechanism": "Local type decisions written outside the closed matrix, plus a dependency on an alias whose name asserts the opposite family. `.section-label` is a producer utility, so that row is a repo-wide mechanism family with this component as one site; the badge and Search pill are authored here.",
+      "reproduction": "Playwright evaluate on /#/browse with the popover open: getComputedStyle('.section-label').fontFamily -> 'Fira Code'; getComputedStyle(searchPill).fontSize -> '11px'; getComputedStyle('.filter-option').fontFamily -> 'Plus Jakarta Sans'.",
+      "proposedCure": "Use DropdownMenuLabel with the matrix's section-heading role for group labels; give the badge and the commit action matrix rungs (Badge size + text-small); write the type role directly instead of `var(--font-serif)`. The `.section-label` -> section-heading mapping needs a canon ruling, since the substitution is repo-wide."
+     },
+     {
+      "id": "P3-m3",
+      "defect": "Three unrelated vertical spacings (6 / 8 / 12px) share one 240px surface with no ladder relation, and the last row breaks the section padding it sits in.",
+      "severity": "MINOR",
+      "evidence": "evidence-p3/P3-2-states.json -> rhythm: three `.filter-section` children at `12px/12px/12px/12px` then the Clear-all row at `8px/12px/8px/12px`. Label->group gap 6.00px (SearchFilterBar.vue:239 `margin-bottom: 0.375rem`).",
+      "mechanism": "Hand-authored spacing per region with no shared scale; `py-2` on the Clear row (:110) versus `padding: 0.75rem` on the sections (:238).",
+      "reproduction": "node .../probe-P3-2-states.mjs; read `rhythm`.",
+      "proposedCure": "Delete the local spacing entirely with the DropdownMenu transposition — the producer menu owns item padding and label spacing on one ladder."
+     },
+     {
+      "id": "P3-m4",
+      "defect": "The colour row's control column has three heights, and the swatch is 1.93x shorter than the field beside it at mobile — a mismatch that widens as the screen narrows.",
+      "severity": "MINOR",
+      "evidence": "evidence-p3/P3-5-rails.json and P3-1-register.json: desktop swatch 28 / input 36 / Clear 36; mobile swatch 28 / input 54. Optical centres 796.72 vs 797.72 (1.0px apart).",
+      "mechanism": "A fixed `h-7 w-7` swatch (:76) beside a producer field whose `size=\"sm\"` scales with the viewport. Nothing ties the two.",
+      "reproduction": "node .../probe-P3-1-register.mjs; compare `colourRow.swatch.h` and `colourRow.input.h` across the desktop and mobile matrices. Visible in shots-p3/P3-tall-mobile-open.png.",
+      "proposedCure": "Seat the colour face inside a producer control of the same size axis as the field (Button size=\"sm\" hosting the face), so both scale on one ladder."
+     },
+     {
+      "id": "P3-m5",
+      "defect": "The colour field cannot display the value its own placeholder advertises: 84px of usable measure, and the 64px reserve is 11.41px larger than the button it reserves for.",
+      "severity": "MINOR",
+      "evidence": "evidence-p3/P3-1-register.json: input w 148px, `padding-right: 64px` (`pr-16`, SearchFilterBar.vue:94); the Search pill measures 52.59px wide -> `reservedMinusActual: 11.41`. The placeholder renders as `#hex, …`.",
+      "mechanism": "A magic-number reserve tied to the literal string 'Search', in a field narrowed by the popover's 240px width and 28px of nested padding. Any relabelling silently underlaps the text.",
+      "reproduction": "node .../probe-P3-1-register.mjs; read `colourRow.inputPadRight`, `colourRow.searchPill.w`, `colourRow.reservedMinusActual`. Visible in every open-popover frame as '#hex, …'.",
+      "proposedCure": "Put the commit action outside the field as a sibling Button rather than overlaying it, so the field gets its full measure and no magic reserve exists."
+     },
+     {
+      "id": "P3-m6",
+      "defect": "The trigger glyph is exposed to assistive technology as a nameless image, while the identical glyph in the sibling component in the same directory is aria-hidden.",
+      "severity": "MINOR",
+      "evidence": "SearchFilterBar.vue:6 `<EllipsisVertical class=\"h-4 w-4 text-muted-foreground\" />` — no aria-hidden; AT tree of the trigger is `- button \"Filters\" [expanded]: - img`. UserSortMenu.vue:12 `<EllipsisVertical class=\"w-4 h-4 text-muted-foreground\" aria-hidden=\"true\" />`.",
+      "mechanism": "No shared convention for decorative glyphs; two files in one directory disagree.",
+      "reproduction": "node .../probe-P3-7-aria.mjs and read the trigger snapshot; diff the two source lines.",
+      "proposedCure": "aria-hidden=\"true\" on every decorative glyph, enforced by the transposition onto producer menu items which own their own icon slots."
+     },
+     {
+      "id": "P3-i1",
+      "defect": "The standing Safari visual matrix has never photographed this component's body — every open-state frame in this audit is new.",
+      "severity": "INFO",
+      "evidence": "docs/tranches/V/megatranche/audit/visual/REPORT.json: all four `/#/browse` rows report `probe.counts.dialog: 0`, and `probe.a11y.smallTapTargets` lists only PaletteSlugBar controls ('Switch to slug', 'Generate new slug', 'Cancel'). 107 of the component's 125 template lines are behind the closed popover.",
+      "mechanism": "The standing capture script does not open overlays, so any component living inside a popover, dropdown or dialog is structurally invisible to it.",
+      "reproduction": "node -e reading REPORT.json and filtering results for '/#/browse'; inspect `probe.counts.dialog`.",
+      "proposedCure": "Add an overlay-open pass to audit/visual/states.mjs so every popover/dropdown/dialog-hosted component is photographed in its open state in all four matrices; until then, treat 'the visual matrix is green for Browse' as 'green with this menu closed'."
+     }
+    ]
    }
   }
  ]

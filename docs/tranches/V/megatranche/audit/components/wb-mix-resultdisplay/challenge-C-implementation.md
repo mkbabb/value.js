@@ -1,500 +1,486 @@
-# CHALLENGE-C (r2) — `demo/workbenches/mix/MixResultDisplay.vue` — implementation is defective
+# CHALLENGE-C (r3) — `demo/workbenches/mix/MixResultDisplay.vue` — implementation is defective
 
 ## Model receipt
 
 I observe myself to be **Opus 5 — exact model id `claude-opus-5[1m]` (1M context)** — the model this
-seat was explicitly spawned with. Declared, not inherited, not undeclared.
+seat was explicitly spawned with. Declared, not inherited.
 
 ---
 
-## Verdict: **DEFECTIVE** — 1 BLOCKER, 8 MAJOR, 3 MINOR, 3 INFO
+## Verdict: **DEFECTIVE** — 1 BLOCKER, 11 MAJOR, 4 MINOR, 4 INFO
 
-An r1 pass of this seat exists; it is preserved verbatim at
-`challenge-C-implementation.r1-prior.md`. This r2 was run **without reading r1 until every probe had
-already been executed and every finding written down**, on a *different apparatus*, precisely so that
-agreement would mean something. It does mean something: r1's BLOCKER and its six MAJORs reproduce
-under an independent harness. Below, each r1 finding is marked **CONFIRMED-INDEPENDENTLY** with my
-own pasted output; three findings are **NEW**; one is **CORRECTED** (r1 named the wrong mechanism for
-a real symptom, and the correction changes the cure); and one candidate BLOCKER is **DISPROVED** and
-recorded so no downstream seat files it.
+Two prior passes of this seat exist, preserved verbatim at `challenge-C-implementation.r1-prior.md`
+and `challenge-C-implementation.r2-prior.md`. **I ran every probe and wrote every finding before
+opening either.** I discovered the priors only when the write refused an unread file — which is the
+best possible accident for a third pass, because it means the overlap below is a third independent
+witness and the disagreements are real disagreements.
 
-The headline is unchanged and now doubly measured: **`data-mix-target` at
-`MixResultDisplay.vue:69` does not exist in the shipped DOM.** glass-ui 7.0.0's `WatercolorDot`
-declares `inheritAttrs: false` and forwards only `class` and `style`; every other attribute the
-consumer writes is discarded. The whole documented purpose of this component — *"the anchor the
-canvas convergence lands on"* (`MixResultDisplay.vue:14`) — is not wired to anything.
+The result: r2's BLOCKER and every one of its MAJORs reproduce under my apparatus. I add **six new
+defects**, and I **correct r2's own correction** of r1 — with pasted output — on a point where r2
+overreached and, in overreaching, prescribed a cure that would ship a bug.
+
+Headline unchanged, now on a third witness: **`data-mix-target` at `MixResultDisplay.vue:69` does not
+exist in the shipped DOM.** What r3 adds to it is that **fixing the attribute is not sufficient** —
+N-1 below measures a second, independent 239 ms failure on the same anchor, on every re-mix, which
+survives the obvious fix.
 
 ---
 
-## Apparatus (and why it differs from r1)
+## Substrate and apparatus
 
-r1 mounted the SFC in isolation via `createApp(mod.default).mount(host)` through Vite's `/@fs/`
-graph. **I drove the real application**: the live dev server at `http://localhost:9000`, the real
-router at `/#/mix`, the real `MixPane` → `MixResultDisplay` tree, the real
-`MixAnimationCanvas`/`useMixingAnimation` clock, the real stylesheet cascade and the real pane
-`Card` ancestor. States that a user cannot reach today (see D-1's corollary) were forced by reaching
-into the live `MixPane` instance's `setupState` — the component's own reactive source, not a stub:
+- Branch `tranche-u`. **HEAD drift from the work order:** the order names `c654824e`;
+  `git rev-parse HEAD` → `f36f780c5938390b8dc93cd87920418e82cdd81a`. `MixResultDisplay.vue` is
+  untouched between them (last edit `f2c8f565`, the Glass 7.0.0 adoption), so every finding holds at
+  both.
+- Read whole: the SFC, `MixPane.vue`, `MixSourceSelector.vue`, `composables/useMixingState.ts`,
+  `MixAnimationCanvas/composables/{useMixingAnimation,mixStage}.ts`, the glass-ui 7.0.0 dist for
+  `WatercolorDot` / `DockControl` / `useClipboard`, both e2e specs, `o7-card-census.spec.ts`, and the
+  visual REPORT + `shots/safari-desktop-light/mix.png`.
+- Apparatus: 9 Playwright scripts against the live dev server, **Chromium and WebKit**, desktop
+  1440×900 and mobile 390×844 (`hasTouch`, `isMobile`, dpr 3). Unreachable states (see D-1's
+  corollary) were forced through the live `MixPane` instance's own `setupState` — its real reactive
+  source, no stubs. Scripts: `scratchpad/WBMRD-probe{1..9}.mjs`; screenshots `WBMRD-plate-*.png`.
+- Independently of r2 I hit the same headless-rAF trap it discloses, and worked around it the same
+  way (driving `startMix` and sampling across real frames rather than trusting one window). r2's
+  *Disproved* section is correct and I second it: **the phase machine does not strand.**
+
+---
+
+## The governing mechanism (three passes agree)
+
+Glass 7's `WatercolorDot` is `inheritAttrs: false` and forwards **only** `class` and `style`:
 
 ```js
-const app = document.querySelector("#app").__vue_app__;   // walk to the MixPane instance
-window.__mix.setupState.addColor("oklch(0.7 0.15 30)", "probe");
-window.__mix.setupState.startMix();                        // real startMix, real phase machine
+// node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js
+E = e(c({ inheritAttrs: !1, __name: "WatercolorDot",
+  props: { color, variant, animate, cycleDuration, range, seed },
+  setup(e) { let t = e, n = h() /* useAttrs */, c = i(() => n.class), f = i(() => n.style); …
+    return (t, n) => (d(), o("span", { "aria-hidden": "true", class: l([c.value, …]),
+      "data-testid": "watercolor-swatch", "data-variant": e.variant,
+      style: u([f.value, { …, pointerEvents: "none", … }]) }, [ … ]));
 ```
 
-Probe scripts: `scratchpad/wbmix-probe{2,3,4,5,6,7,8,9,10,11}.mjs`. Every block below is pasted tool
-output, a `file:line`, or a measured number.
-
-**One apparatus hazard, disclosed up front** — see *Disproved* at the end: headless Chromium
-throttles `requestAnimationFrame` to **1 frame per ~1960 ms** on this page. Any measurement of the
-mix choreography must force paints or it will manufacture a false "the phase machine is stranded"
-BLOCKER. I nearly filed one.
+No `mergeProps($attrs)`, no `tag` prop, no `renderSlot`, root hardcoded `aria-hidden="true"` and
+`pointer-events: none`. `MixResultDisplay` still calls it in the Glass-5 shape. Note the contrast one
+file over: `MixSourceSelector.vue:127-132` stamps `data-mix-source` on the **wrapper div** and works;
+`MixResultDisplay.vue:69` stamps the **component** and does not. That one-word difference is the
+blocker.
 
 ---
 
-## D-1 · BLOCKER — the convergence anchor `data-mix-target` never reaches the DOM
+# NEW IN r3
 
-**CONFIRMED-INDEPENDENTLY.**
+## N-1 · MAJOR · **NEW** — the anchor arrives **239 ms late on every re-mix**, and the obvious D-1 fix does not cure it
 
-`MixResultDisplay.vue:64-73` writes `data-mix-target` on a `<WatercolorDot>`.
-`mixStage.ts:121` reads it: `root.querySelector<HTMLElement>("[data-mix-target]")`.
+This is r3's most consequential finding, because it invalidates the cure both priors reach for.
 
-Driven through the real pane — sampled inside the ghost window and again after settle:
+`useMixingAnimation.ts:169-183` watches phase at `flush:"post"` with this comment:
+
+> *"flush:'post' — the ghost well ([data-mix-target]) mounts in the same reactive flush that opens the
+> mixing window; measure after the DOM patch."*
+
+Measured on a **re-mix** (`done` → `mixing` — the second and every subsequent mix in a session),
+sampling every `requestAnimationFrame` from the `startMix()` call:
 
 ```
-=== GHOST WINDOW t+120ms ===
-{ "plateExists": true,
-  "plateClass": "mix-plate … mix-plate--ghost vj-morph-enter-from vj-morph-enter-active",
-  "mixTargetCount": 0 }
-
-=== SETTLED ===
-{ "mixTargetCount": 0,
-  "swatches": [ { "tag": "span", "variant": "ghost", "ariaHidden": "true",
-                  "hasMixTarget": false, "title": null,
-                  "attrs": ["data-v-292b9032","data-v-0f138735","aria-hidden",
-                            "class","data-testid","data-variant","style"] } ] }
+=== (e) RE-MIX: when does the ghost well enter the DOM after startMix()? ===
+[ { t:   3, ghostClass: true, innerFirstChildIsWell: false,
+    innerCls: "flex flex-col gap-3 vj-morph-leave-from vj-morph-leave-active" },
+  { t: 239, ghostClass: true, innerFirstChildIsWell: true,
+    innerCls: "flex items-center gap-3 vj-morph-enter-from vj-morph-enter-active" } ]
 ```
 
-Seven attributes survive. `data-mix-target` is not among them, and neither is anything else the
-consumer wrote. The mechanism is in the shipped bundle,
-`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js` — `inheritAttrs: !1`, and the render function
-reads `useAttrs()` for exactly two keys:
+At **t = 3 ms** — when `collectStage` runs — the plate's inner node is the *content* branch playing
+its **leave**. The ghost well, which is the anchor's host, enters at **t = 239 ms**.
 
-```js
-setup(e) { let t = e, n = h(), c = i(() => n.class), f = i(() => n.style), …
-  return (t, n) => (d(), o("span", { "aria-hidden": "true", class: l([c.value, …]),
-      "data-testid": "watercolor-swatch", "data-variant": e.variant, style: u([f.value, …]) }, …
+The cause is structural and one line up: `MixResultDisplay.vue:60` is
+`<Transition name="vj-morph" mode="out-in">`. `out-in` **serialises** leave-then-enter by
+construction, so on any `ghost` false→true flip the destination provably does not exist in the DOM at
+`flush:"post"`. The docstring's claim is false, and it is false for a reason no amount of attribute
+plumbing removes. `MIX_ARRIVE_MS` is 700 ms: the drops are a third of the way across before the
+target element exists at all.
+
+**Why this matters to D-1.** Both priors cure D-1 by getting the attribute onto something —
+r1/my-own-first-instinct via the wrapper `div`, r2 via a `useTemplateRef` handed to the composable.
+**Neither survives this measurement**, because both still resolve the anchor from inside the `out-in`
+swap: the wrapper `div` *is* the branch that mounts at t=239, and a `useTemplateRef` on the dot is
+`null` for the same 239 ms. The anchor's real defect is not *how* it is addressed but *where it
+lives*.
+
+**Cure.** The announced destination must be **persistent** — outside the branch that hides it. Hoist
+the well container out of the `<Transition>` so both phases render into one stable box (that is also
+what the component's own words demand: *"the plate stands as the announced destination"*, line 12-14
+— a destination that unmounts for 239 ms is not announced), and stamp the anchor there. This
+subsumes D-1's attribute fix and is the same move that fixes r2's D-10′ remount.
+
+**Reproduction.** `node …/scratchpad/WBMRD-probe5.mjs`, section `(e)`.
+
+---
+
+## N-2 · quantification of D-1 — the miss is unbounded and worst on mobile
+
+r2 measured the guessed landing point but not the error. I measured both, re-implementing
+`mixStage.ts`'s `layoutCenter` in page context and comparing the fallback against the real well:
+
+| viewport | operand chips | fallback used | real well | **miss** |
+|---|---:|---|---|---:|
+| 1440×900 | 2 | (720, 630) | (797, 634) | **77 px** |
+| 1440×900 | 8 | (720, 630) | (797, 699) | **103 px** |
+| 390×844 | 8 | (195, 590.8) | (76, 692) | **156 px** |
+
+The well's radius is 28 px. On mobile the pool lands **156 px** from the plate — 119 px of it in x,
+**30 % of the viewport width**. The error is unbounded by construction: `root.scrollHeight * 0.7` is a
+fixed fraction while the plate's true y moves with chip count and palette rows.
+(`WBMRD-probe7.mjs`, `WBMRD-probe8.mjs`.)
+
+---
+
+## N-3 · MAJOR · **NEW** — Reset destroys focus; r2's "focus order is clean" negative is incomplete
+
+r2 records focus as a proved negative: *"Focus order is clean — measured focusables: [Copy, Save,
+Reset], all tabIndex 0, DOM order = visual order."* That measures **static order**. It does not
+measure **focus management**, and the component fails there. Measured — focus Reset, press Enter:
+
+```
+=== focus before reset === Reset
+=== focus AFTER reset  === { "tag": "BODY", "title": null, "isBody": true, "plateStillThere": false }
 ```
 
-No `mergeProps($attrs)` anywhere. Source confirms it is deliberate:
-`/Users/mkbabb/Programming/glass-ui/src/components/watercolor-dot/WatercolorDot.vue:6` —
-`defineOptions({ inheritAttrs: false });`.
+`emit('reset')` → `MixPane.reset()` nulls `mixResult` → the `v-if` at `MixPane.vue:113` unmounts the
+subtree containing the focused button → focus falls to `<body>`. A keyboard user is dumped to the top
+of the document, silently (there is no live region to say what happened — D-4). WCAG 2.4.3.
 
-**Consequence, at `mixStage.ts:122-124`:**
+**Cure.** The control that destroys a region owns where focus goes next: `MixPane`'s `reset` handler
+moves focus to the Mix button, the control that re-creates the plate.
+
+**Reproduction.** `node …/scratchpad/WBMRD-probe4.mjs`, focus section.
+
+---
+
+## N-4 · **CORRECTS r2's D-10′** — `vj-enter` *does* fire, on a path r2 did not exercise, and it animates the **wrong dot**
+
+r2 corrected r1 by measuring **zero** `vj-*` class mutations on any swatch and concluding: *"Fixing
+`:key` alone resurrects nothing."* The first half is right for the path r2 drove (the ghost→done
+flip, where `mode="out-in"` remounts the group and `TransitionGroup` does not animate an initial
+render without `appear`). **The conclusion is too strong**, and the overreach is load-bearing,
+because r2's prescribed cure — add `appear` and/or stop the remount — is precisely what unmasks the
+index-key bug it retracted.
+
+Measured with a `MutationObserver` over `document.body` on the **settled-plate `colors` change**
+path (plate already inked, `colors` array replaced, no ghost flip):
+
+```
+=== vj-* class mutations on swatches during a SETTLED-plate colors change ===
+[ { bg: "oklch(0.65 0.13 160)", cls: "vj-enter-enter-active vj-enter-enter-to" },
+  { bg: "oklch(0.65 0.13 160)", cls: "vj-enter-enter-active vj-enter-enter-to" } ]
+```
+
+The group animates. And it animates the **wrong element**: the colour that entered was blue at slot
+0; the dot that got the enter classes is the one wearing `oklch(0.65 0.13 160)` — an *unchanged*
+colour that merely shifted slots. Isolated cleanly by prepending to a two-colour result:
+
+```
+=== (d) PREPEND — which node carries the enter class? ===
+[ { i: 0, bg: "rgb(0, 0, 255)",  entering: false, cls: "" },          ← the NEW colour
+  { i: 1, bg: "rgb(255, 0, 0)",  entering: false, cls: "" },
+  { i: 2, bg: "rgb(0, 255, 0)",  entering: true,
+          cls: "vj-enter-enter-active vj-enter-enter-to" } ]          ← an OLD colour
+```
+
+That is exactly r1's index-key mechanism (`MixResultDisplay.vue:99`), alive and measured.
+
+**The honest synthesis, which neither prior states:** there are **two** defects stacked on the same
+row, each masking the other. r2's remount kills the animation on the shipping path; the index key
+mis-attributes it on every other path. Fix either alone and you ship a bug — fix the remount (r2's
+cure, and N-1's) and the group starts animating the wrong dot on every re-mix. **They must be fixed
+together.**
+
+**Reproduction.** `node …/scratchpad/WBMRD-probe9.mjs` (observer) and `WBMRD-probe5.mjs` §(d).
+
+---
+
+## N-5 · MAJOR · **NEW** — index-derived seeds re-shape *every* silhouette on any reorder, breaking the component's own stated law
+
+`MixResultDisplay.vue:104` derives the shape `seed` from the slot index
+(`:seed="i === 0 ? 'mix-result' : \`mix-result-${i}\`"`), and `WatercolorDot` hashes
+`color + seed`. So a dot's silhouette is a function of *where it sits*, not *what it is*. Measured —
+palette `[red, green]` → `[blue, red, green]`:
+
+```
+=== (d2) seeds/silhouettes before vs after prepend ===
+before: ["63.3195% 69.2579% 73.6518% 53.4382% / …", "66.5203% 21.7646% 75.1577% 48.9561% / …"]
+after:  ["71.7642% 59.0639% 39.7337% 53.6442% / …", "50.7344% 43.0638% 34.6464% 57.2503% / …",
+         "66.2816% 21.6820% 35.1419% 40.4919% / …"]
+```
+
+Red and green are both still on the plate and **both wear entirely new shapes**. This contradicts the
+docstring's own law, lines 16-17: *"the silhouette the pigment poured into is the silhouette the
+result wears."* It is true only for slot 0.
+
+**Cure (shared with N-4).** Key and seed from colour identity, not slot:
+`:key="color.css + '@' + color.position"`, `:seed="i === 0 ? 'mix-result' : color.css"`. A dot then
+keeps its silhouette across re-mixes and TransitionGroup's FLIP tracks the real moves.
+
+---
+
+## N-6 · deepens D-11 · **CI runs no Playwright at all**
+
+r2 established both e2e specs are RED. It did not establish whether anything runs them. Nothing does:
+
+```
+$ grep -rln playwright .github/
+(no matches)
+$ ls .github/workflows/
+ci.yml  deploy-pages.yml  release.yml
+```
+
+So the gate is not merely failing — it is **not executed**. The vacuous-mutation argument is
+therefore stronger than r2 states: the mutant is behaviourally indistinguishable not just from the
+shipped state but from *any* state, because no automated observer ever looks.
+
+---
+
+## N-7 · **NEW** — a third gate names this component and silently skips it
+
+`e2e/smoke/oracles/o7-card-census.spec.ts:181` registers `mixPlate: fixture(".mix-plate")` — and line
+299 is:
 
 ```ts
-const target = targetEl ? layoutCenter(targetEl, root)
-                        : { x: root.clientWidth / 2, y: root.scrollHeight * 0.7, r: 28 };
+if (!fx) continue; // conditionally-mounted fixture absent here
 ```
 
-The fallback is *silent*. The drops converge on a fraction of the scroll height, not on the well.
-Measured on the live pane at the moment of arming: canvas `styleH: "681px"`, `w: 510`, so the
-guessed landing point is `(255, 477)` in a 681 px-tall stage, while the actual plate sits wherever
-the flow put it. Everything the docstring promises — *"the silhouette the pigment poured into is the
-silhouette the result wears"* — is narration over a hard-coded guess.
-
-**Corollary, and it is worse than the anchor.** The same drop kills the *only* way to reach this
-component. `MixSourceSelector.vue:164-176` writes `tag="button"`, `aria-label`, `:disabled` and
-`@click` on a `<WatercolorDot>` and puts a `<Plus>` in its default slot. Measured live:
-
-```
-=== .add-slot-ghost (MixSourceSelector) ===
-{ "tag": "span",
-  "attrs": ["data-v-292b9032","data-v-a3e86846","aria-hidden","class","data-testid",
-            "data-variant","style"],
-  "pointerEvents": "none" }
-```
-
-A `<span>`, `aria-hidden="true"`, `pointer-events: none`, no click handler, no accessible name — and
-`WatercolorDot`'s render function contains no `renderSlot`, so the `<Plus>` glyph never renders
-either. `getByRole("button", { name: "Add current color to the mix" })` → **count 0**. In colours
-mode there is no other add affordance; the "From palettes" swatches at
-`MixSourceSelector.vue:211-221` are the same dead pattern. **`/#/mix` cannot produce a mix at all
-today.** That break belongs to the source-selector seat; it is recorded here because it is the same
-root mechanism and because it is why every gate over this component is unreachable (D-11).
-
-**Cure — architectural, not a patch.** Do not chase the attribute with a wrapper `<div
-data-mix-target>` (that is contrivance, edict #3, and it re-breaks the moment the dot's box changes).
-The handshake is a *component contract*, so make it one: glass-ui's `WatercolorDot` must expose the
-anchor as a first-class API — `v-bind="$attrs"` on the root plus a documented `as`/`tag` prop and a
-`<slot/>`, relayed to the glass-ui BH inbox as a standing fond (owner edict, mail law). Until glass
-ships it, the *honest* local form is a `useTemplateRef` on the dot's root element handed to the
-animation composable directly, so the anchor is a typed reference rather than a stringly-typed
-`querySelector` that fails open. A `querySelector` handshake that silently degrades to a guess is the
-defect *class*; the missing attribute is only this instance of it.
+The plate cannot mount in that run (D-1's corollary: the add-slot is inert), so the census skips it
+every time, in both schemes, without a word. r2's grep (`"MixResultDisplay\|mix-result"`) could not
+find this — the file says `.mix-plate`. Three gates now name this component; **all three are
+vacuous**, by three different mechanisms: RED-before-reaching-the-assertion (`views/mix.spec.ts`),
+never-executed (CI), and skip-if-absent (`o7`).
 
 ---
 
-## D-15 · MAJOR · **NEW** — `<DockSeparator />` renders **1 px × 0 px**: an invisible element that still speaks to AT
+## N-8 · sharpens D-6 from a code-read to a measurement — the confirmation *lies*
 
-`MixResultDisplay.vue:135` places `<DockSeparator />` between Save and Reset. Measured on the live
-settled plate:
+r2 files the stale copy confirmation by reading that `invalidate()` is never destructured. I measured
+the lie end-to-end, including the clipboard's actual contents:
 
 ```
-{ "sepExists": true,
-  "sepRect": { "w": 1, "h": 0 },
-  "sepHeightComputed": "0px",
-  "sepVarResolved": "",
-  "sepBg": "color(srgb 0.11 0.098 0.09 / 0.15) …",
-  "sepRole": "separator" }
+=== copy-confirm right after click ===
+{ "title": "Copied!", "icon": "lucide lucide-check-icon lucide-check w-5 h-5" }
+
+=== copy-confirm AFTER result swapped (invalidate() never called) ===
+{ "title": "Copied!", "icon": "lucide lucide-check-icon lucide-check w-5 h-5",
+  "shownCss": "oklch(0.2 0.05 90)", "clipboardHolds": "oklch(0.6 0.12 200)" }
 ```
 
-Mechanism: `glass-ui/dist/components/dock/styles/layer-group.css` —
-
-```css
-.dock-separator { @apply flex-shrink-0; width: 1px; height: var(--dock-separator-height);
-                  margin: 0 0.375rem; background: var(--surface-tint-15); }
-```
-
-and `--dock-separator-height` is minted **only on `.glass-dock`**
-(`dist/components/dock/styles/shell.css`: `--dock-separator-height: calc(var(--dock-h, var(--size-icon-btn)) * 0.5)`).
-The result plate is a `Card`, not a dock, so the custom property is unset, `height` computes to
-`0px`, and the element paints nothing. The screenshot confirms it: the gap between Save and Reset in
-`scratchpad/wbmix-palette-settled.png` is pure margin, no rule.
-
-So the row ships a **dead visual with a live semantic**: `role="separator"` is exposed to assistive
-technology announcing a division that sighted users cannot see, and the intended grouping (destructive
-Reset held apart from Copy/Save) is communicated by 12 px of whitespace alone.
-
-This is edict #4 in the negative direction: a *dock* primitive deployed outside a dock. Its styling
-contract is `.glass-dock`-scoped by construction — the same reason `DockControl compact`'s sizing
-tokens fall back to `auto` here (D-12).
-
-**Cure.** Either the separator belongs to the design system at a level that does not require a dock
-ancestor — file it to glass-ui as `Separator`, the existing component-type name (`dist/separator.d.ts`
-already exists), reused rather than re-minted — or the plate's action row drops the separator and
-expresses the grouping with layout (a `gap` step or a flex spacer) that owes nothing to an absent
-token. Do not paper over it with a per-instance `--dock-separator-height` on the plate: that is the
-per-instance override edict #5 forbids, and it would make a card silently claim to be a dock.
+The plate displays `oklch(0.2 0.05 90)` under a green check reading "Copied!" while the clipboard
+holds a **different colour**. This is not a missing confirmation; it is a false affirmative about a
+value the user is about to paste. Severity holds at MAJOR but the character changes: silence would be
+better than this. (`WBMRD-probe6.mjs`.)
 
 ---
 
-## D-16 · MAJOR · **NEW** — an empty palette result makes the gradient strip paint the **previous** result's colours
+## N-9 · sharpens D-12 — 28 px confirmed under a genuinely coarse pointer
 
-This *sharpens r1's D-8 into a different and worse defect*. r1 mounted the plate fresh with
-`colors: []` and measured `computedBgImage: "none"` — a blank. In the real pane the plate is **not**
-freshly mounted (`MixPane.vue:111-119` keeps `MixResultDisplay` alive while `mixResult` is truthy),
-so the strip already holds a valid gradient when the empty result arrives.
-
-`MixResultDisplay.vue:109-116` builds the strip through an inline `:style` binding:
+Measured in **WebKit** at 390×844 with touch, where the density clamp is supposed to apply:
 
 ```
-background: `linear-gradient(to right, ${result.colors.map(c => c.css).join(', ')})`
+{ "pointerCoarse": true,
+  "buttons": [ { title: "Copy color", w: 28, h: 28 },
+               { title: "Save to palettes", w: 28, h: 28 },
+               { title: "Reset", w: 28, h: 28 } ] }
 ```
 
-With `colors: []` that string is `linear-gradient(to right, )` — invalid. **CSSOM rejects an invalid
-assignment and leaves the previous value in place.** Measured on both shipping engines:
-
-```
---- chromium ---  { "zero": { "inline": "", "computed": "none" },
-                    "staleAfterInvalid": "linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255))" }
---- webkit   ---  { "zero": { "inline": "", "computed": "none" },
-                    "staleAfterInvalid": "linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255))" }
-```
-
-And live, in the app, driving a 3-colour result and then an empty one:
-
-```
-3-colour palette:        { "rowChildren": 3,
-                           "stripComputed": "linear-gradient(to right, rgb(255,0,0), rgb(0,255,0), rgb(0,0,255))" }
-EMPTY palette (after 3): { "rowChildren": 0,
-                           "stripComputed": "linear-gradient(to right, rgb(255,0,0), rgb(0,255,0), rgb(0,0,255))" }
-```
-
-The swatch dots correctly vanish; **the gradient strip keeps painting red→green→blue for a result
-that contains no colours.** The plate is not blank — it *lies*. A blank state is a hole; a stale
-state is a false statement, and the user's next act (Copy → `""`, which `useClipboard` reports as
-*success*; Save → an empty palette persisted via `MixPane.vue:44-46`) is taken against a strip that
-still shows three colours.
-
-Reachability is r1's, and it holds: `mix.ts:123` `if (resultLength === 0) return []` fires whenever
-the shortest selected palette is empty under the default `discard` strategy
-(`useMixingState.ts:46`), and `useMixingState.ts:97` assigns `{ type: "palette", colors: [] }`
-unconditionally.
-
-*Checked and NOT a defect:* a **one**-colour result. I assumed `linear-gradient(to right, red)` was
-invalid (< 2 stops) and it is not — both engines accept it:
-`"one": { "computed": "linear-gradient(to right, rgb(255, 0, 0))" }`, Chromium and WebKit alike. r1's
-parenthetical calling it "degenerate, cosmetic" is right; my prior hypothesis was wrong and is
-retracted here rather than shipped.
-
-**Cure.** The strip must not be a string concatenation whose failure mode is *retain the last truth*.
-Two moves, both structural: (a) make the empty case unrepresentable — r1's D-9 discriminated union
-(`colors: readonly [PaletteColor, ...PaletteColor[]]`) means `startMix` must decide at the one site
-that knows what an empty mix *means*; and (b) while the type is still loose, gate the strip on
-`result.colors.length > 1` rather than on the truthiness of an array, so an invalid declaration is
-never assigned. `v-if="result.colors"` is truthy for `[]` — that guard is wrong twice, and this is the
-second, sharper way it is wrong.
+`matchMedia("(pointer: coarse)")` is **true** and the controls are still 28 px, so `DockControl`'s
+docstring guarantee — *"the HIT CELL stays the full `--dock-control-size` (≥44px on coarse via the
+density clamp)"* — is not merely unmet on desktop; the clamp does not reach `compact` outside a dock
+at all. Same absent-token family as D-15. Still above the repo's own 24 px bar
+(`capture.mjs:98`) and WCAG 2.5.8; below 2.5.5 and the 44 pt platform floor — on a destructive
+control (Reset) with no undo.
 
 ---
 
-## D-10′ · MAJOR (r1 had MINOR) · **CORRECTED MECHANISM** — the `vj-enter` TransitionGroup never fires a single class
+# CONFIRMED INDEPENDENTLY (r2's ledger, third witness)
 
-r1 attributes the dead stagger to `:key="i"` (index keys → Vue patches in place). The symptom is real;
-the mechanism is not the key, and the difference changes the cure.
+Each of these I measured before reading r2. Restated compactly with **my** output.
 
-I armed a `MutationObserver` over `document.body` filtering `class` mutations, then ran the **real**
-ghost→done flip with a 3-colour palette result and forced paints throughout:
+**D-1 · BLOCKER — `data-mix-target` never reaches the DOM.**
 
 ```
-total vj-* class mutations: 24
-on watercolor swatches anywhere: []
+=== T+50ms GHOST WINDOW ===
+{ "phase": "mixing", "dataMixTargetCount": 0,
+  "plateGhostClass": "mix-plate … mix-plate--ghost vj-morph-enter-active vj-morph-enter-to",
+  "plateHTML": "…<span aria-hidden=\"true\" class=\"shrink-0 w-14 h-14 watercolor-swatch\"
+                data-testid=\"watercolor-swatch\" data-variant=\"ghost\" style=\"…\">…" }
 ```
 
-**Zero.** Not one `vj-enter-*` class ever lands on a `WatercolorDot` — anywhere on the page, in the
-plate or out of it. The 24 mutations are all `vj-morph-*` on the plate/content divs, plus
-`vj-enter-*` on `MixSourceSelector`'s chip `div`s (whose TransitionGroup lives *across* updates, so
-its transitions do work).
+`mixStage.ts:121-124` then takes the silent fallback for every mix that ships. Quantified in N-2;
+re-cured in N-1.
 
-The operative cause is at `MixResultDisplay.vue:60` and `:76`:
+**Corollary — the flow is unreachable.** `MixSourceSelector.vue:164-176` passes `tag="button"`,
+`aria-label`, `@click` and a `<Plus>` slot to `WatercolorDot`. Measured: it renders
+`<span aria-hidden="true" class="add-slot-ghost … " style="…; pointer-events: none; …">`, and
+`anyAriaLabelAdd: 0`. Not a button, not focusable, not clickable, no glyph. This is why
+`shots/safari-desktop-light/mix.png` shows an empty "Selected" well with one dashed slot and a
+disabled Mix button — **the plate appears in none of the 60 visual captures**, so the REPORT's
+`/#/mix` rows are a coverage gap, not a clean bill.
 
-```html
-<Transition name="vj-morph" mode="out-in">
-  <div v-if="ghost"  key="well"    …>
-  <div v-else        key="content" …>   <!-- hosts the TransitionGroup -->
-```
-
-Every ghost→live flip **unmounts and remounts** the `key="content"` branch, so the `<TransitionGroup>`
-and all its children are always an *initial render* — and `TransitionGroup` does not animate on
-initial render without `appear`, which is not set (`:92-96`). The shipping flow has no other path:
-`MixPane.vue:111` keeps the component mounted across a re-mix, `ghost` flips true then false, and the
-group is born again each time. Fixing `:key` alone resurrects nothing.
-
-Two collaterals follow:
-
-* The shared `.swatch-row` recipe at `demo/styles/utils.css:174-179` — advertised in its own comment
-  as *"shared by the three swatch TransitionGroups (CurrentPaletteEditor, MixSourceSelector,
-  MixResultDisplay)"* — is **inert for this consumer**. A three-consumer utility that is dead in one
-  of the three is a false claim in the design record.
-* `.swatch-row > .vj-enter-leave-active { position: absolute }` (`utils.css:177-179`) assumes a
-  positioned row. Measured: `"swatchRowPosition": "static"`. If the leave transition ever *did* fire
-  here, a leaving dot would resolve against the nearest positioned ancestor — the pane `Card`
-  (`MixPane.vue:62`, `class="relative …"`) — and fly to the card's top-left corner. **Two defects are
-  masking each other**: the recipe is broken *and* unreachable. Filed as D-17 (MINOR, latent).
-
-**Cure.** Decide what the swatch row's arrival *is*. If the dots should stagger in as the plate inks,
-the honest form is `appear` on the TransitionGroup (the family's entrance is exactly what
-`vj-enter` names) plus a colour-identity key so a re-mix animates the *changed* dots — not the index,
-which couples a dot's silhouette seed (`:104`) to its slot rather than to what it is. If the plate's
-`vj-morph` is meant to be the *only* motion (one surface, new content — the family law the docstring
-cites at `:17`), then the `name="vj-enter"` and the `swatch-row` class must be **deleted**, and the
-utility's comment corrected to two consumers. What must not survive is the present state: a named
-animation, a shared recipe, and a positioning rule that all point at motion that never happens.
-(Edict #6 is not violated by deleting an animation that provably never plays — it is violated by the
-*record* claiming it does.)
-
----
-
-## D-17 · MINOR · **NEW** — `.swatch-row` leave rule has no positioned ancestor
-
-Detail and evidence in D-10′ above: `utils.css:177-179` absolutely-positions the leaving dot;
-measured `.swatch-row` computed `position: static`; the nearest positioned ancestor is the pane
-`Card`. Latent only because D-10′ prevents the class from ever being applied here. **Cure:**
-`position: relative` on `.swatch-row` in the shared recipe (it is the recipe's own precondition, so it
-belongs in the recipe — not per-instance, edict #5), fixed together with D-10′ or the rule deleted
-with it.
-
----
-
-## Findings confirmed independently from r1 (same conclusion, my own apparatus)
-
-These are r1's; I reproduced each on the router-driven pane before reading r1. They are restated
-compactly with my measurements so the ledger carries two independent witnesses.
-
-**D-2 · MAJOR — dead `tag` props, dropped `:title`; palette results are unreadable.**
-`tag="div"` at `:67`, `:81`, `:101` is not a `WatercolorDot` prop
-(`dist/components/watercolor-dot/WatercolorDot.vue.d.ts` declares exactly
-`color | variant | animate | cycleDuration | range | seed`) and is dropped; `:title="color.css"` at
-`:103` is dropped. Measured, palette result: `"dots": [{ "title": null }, { "title": null },
-{ "title": null }]`, and the plate's entire accessible text is `"innerText": "RESULT"` — the dots are
-hard-coded `aria-hidden="true"` by the component, the gradient is `aria-hidden` at `:114`, and the
-`title` that was the only remaining textual affordance never lands. **A palette mix result carries no
-readable value by any means** — confirmed visually in `scratchpad/wbmix-palette-settled.png`: three
-dots, one gradient bar, three unlabelled icons, no text.
-
-**D-3 · MAJOR — the scoped `.mix-plate` transition deletes two thirds of `vj-morph`.**
-Measured in the live cascade, sampled the instant the class lands:
+**D-2 · MAJOR — dead props; a palette result has no readable value.**
+Measured: `dotTagNames: ["SPAN","SPAN","SPAN"]` (`tag="div"` at :67/:81/:100 is not a prop);
+`dotTitles: [null,null,null]` (`:title` at :103 dropped — and moot regardless, the dot is
+`pointer-events: none`). AT-visible text of a 3-colour palette result, walking text nodes and
+excluding `aria-hidden` subtrees:
 
 ```
-"snapshotsDuringEnter": [ { "cls": "vj-morph-enter-from vj-morph-enter-active",
-                            "property": "opacity", "duration": "0.2s" }, … ],
-"family":               { "property": "opacity, transform, max-height",
-                          "duration": "0.2s, 0.44s, 0.3s" }
+{ "atVisibleText": ["Result"], "buttonNames": ["Copy color","Save to palettes","Reset"],
+  "ariaHiddenChildren": 7 }
 ```
 
-`.mix-plate[data-v-…]` (0,2,0) beats `.vj-morph-enter-active` (0,1,0), and the `transition`
-*shorthand* at `:153` resets `transition-property` to `opacity`. The 0.44 s `--spring-snappy`
-transform and the 0.3 s height morph are gone on this element. Edicts #5 and #6 both.
+Note the internal contradiction r3 adds: the **single-colour** branch *does* expose its CSS string
+(:85-87). Same component, two contradictory contracts. Screenshot `WBMRD-plate-palette.png`: five
+dots, a gradient bar, three unlabelled icons, no text.
 
-**D-4 · MAJOR — async result silent to AT; three buttons named only by `title`.** Measured:
-
-```
-"btns": [ { "w":28,"h":28,"title":"Copy color","ariaLabel":null,"text":"","type":"button" },
-          { "w":28,"h":28,"title":"Save to palettes","ariaLabel":null,"text":"" },
-          { "w":28,"h":28,"title":"Reset","ariaLabel":null,"text":"" } ],
-"liveRegions": 0, "role=status|alert": 0
-```
-
-The repo's own harness rule (`audit/visual/capture.mjs:102-105`) counts a button nameless without
-`aria-label`/`aria-labelledby`/text, so this component contributes **3** the moment a result renders.
-That rule's calibration is visible in `REPORT.md`: `/#/extract` = 3 nameless (matching
-`ExtractControls.vue`'s three title-only `DockControl`s) and `/#/gradient` = 1 (matching
-`GradientVisualizer.vue:254`). `/#/mix` reads 1 today only because the capture never triggers a mix —
-`REPORT.json`'s mix row attributes all 8 small targets and the 1 nameless button to the dock
-(`"Switch to slug"`, `"Generate new slug"`, `"Cancel"`, the four channel spans). **This component is
-an audit blind spot, not a clean row.** The repo's own convention is `aria-label`
-(`demo/shell/dock/Dock.vue:143-154`, `MixSourceSelector.vue:171/251`); the workbenches deviate.
-
-**D-5 · MAJOR — clipboard failure is completely silent.** Reproduced by replacing
-`navigator.clipboard.writeText` with a `NotAllowedError` rejection — the exact shape of the
-non-secure-context / denied-permission path the repo hits over LAN http (`vite.config.ts`
-`server.host: true`):
+**D-3 · MAJOR — the scoped `.mix-plate` shorthand deletes two thirds of `vj-morph`.** Confirmed:
 
 ```
-[console.warning] [useClipboard] clipboard writeText rejected: NotAllowedError: denied
-{ "before": { "title": "Copy color" },
-  "after":  { "title": "Copy color", "plateText": "RESULT", "liveRegions": 0, "role": 0 } }
+=== r2 D-3 · transition channels on .mix-plate ===
+{ "plate":          { "prop": "opacity",                       "dur": "0.2s" },
+  "vjMorphFamily":  { "prop": "opacity, transform, max-height","dur": "0.2s, 0.44s, 0.3s" } }
 ```
 
-Nothing visible changes. `:32` collapses a four-state machine to `status === "success"`, and the
-shipped `useClipboard` arms its reset timer *only* on the success branch, so `failure` never clears.
+The `transition` *shorthand* at :153 resets `transition-property`; scoped `.mix-plate[data-v-…]`
+outranks `.vj-morph-enter-active`. The 0.44 s transform and 0.3 s height channels are gone on this
+element. Edicts 5 and 6.
 
-**D-6 · MAJOR — stale copy confirmation.** `invalidate()` is returned by `useClipboard` and never
-destructured at `:31`; a re-mix changes `result` while the check mark still affirms the old value.
+**D-4 · MAJOR — async result silent to AT; buttons named only by `title`.** Measured live regions in
+the entire document: the dock status lamp (`role=alert`) plus four `aria-live="off"` channel meters —
+**nothing in or near the plate**. The result arrives ~900 ms after activation
+(`MIX_CONVERGE_MS`) and is announced to nobody; the copy confirmation is a `title` swap, which no
+screen reader announces. Three buttons, `aria-label: null`, text `""`. By the repo's own rule
+(`capture.mjs:102-105`) this component contributes 3 nameless buttons the moment a result renders —
+latent in REPORT only because the capture can never mix.
 
-**D-7 · MAJOR — two divergent copy implementations for one action.**
-`MixResultDisplay.vue:42-47` (glass-7 `useClipboard`, with confirmation) and `MixPane.vue:49-55`
-(raw `writeClipboard`, no confirmation) duplicate the same derivation verbatim.
-`demo/shell/usePaneRouter.ts:222` routes the dock's "Copy result" command to the *second* one, so
-copying from the dock never flips the plate's icon. Edict #2 (no dual paths).
-
-**D-8 · MAJOR — empty palette result renders live actions over nothing.** Confirmed; superseded in
-sharpness by D-16.
-
-**D-9 · MINOR — `MixResult` permits blank states.** `useMixingState.ts:32-36` is a non-discriminated
-interface with `css?`/`colors?`; measured `{ type: "color" }` with no `css` → `"dots": []`,
-`"innerText": "RESULT"`, three live buttons. It is what forces the four masking `??` fallbacks at
-`:37-39` and `:44-45`.
-
-**D-11 · MAJOR (test truth) — the gate is vacuous.** No unit test mounts this component
-(`grep -rln "MixResultDisplay\|mix-result" test demo e2e` → only the two source files and
-`demo/styles/utils.css`). `npx vue-tsc -p tsconfig.demo.json --noEmit` → clean, exit 0: Vue models
-unknown component attributes as fallthrough, so "forwarded into a black hole" has no diagnostic. And
-the two e2e specs that *do* assert the anchor die earlier — run on this tree at HEAD:
+**D-5 · MAJOR — clipboard failure completely silent.** `copy()` never throws; it resolves
+`{ok:false, reason}` and parks `status="failure"` (dist `useClipboard-D36OTaeT.js`). `:32` reads only
+`success`; `:42-47` discards the `CopyResult`; `onCopyError` unset. Measured with
+`navigator.clipboard` removed — the non-secure-context path the repo hits over LAN http
+(`vite.config.ts` `server.host: true`, reason `"no-api"`):
 
 ```
-$ npx playwright test e2e/smoke/views/mix.spec.ts --project=smoke --reporter=line
+=== copy button BEFORE (no clipboard API) === <button … title="Copy color" …><svg … lucide-copy …>
+=== copy button AFTER  (no clipboard API) === <button … title="Copy color" …><svg … lucide-copy …>
+=== changed? === IDENTICAL — zero feedback on failure
+```
+
+And the dist arms its reset timer on the success branch only, so `failure` is sticky forever.
+
+**D-6 · MAJOR — stale confirmation.** Sharpened to a measured false affirmative in N-8.
+
+**D-7 · MAJOR — two divergent copy implementations.** `MixResultDisplay.vue:43-46` and
+`MixPane.vue:51-53` are the same expression character for character; the plate uses `useClipboard`
+(confirmation), the pane's `copyResult` — exposed at `MixPane.vue:57` and routed from the dock — uses
+`writeClipboard` (none). Edict 2.
+
+**D-8 / D-16 · MAJOR — an empty palette result paints the *previous* result's gradient.** Confirmed,
+and confirmed on both engines independently of r2. `:91` guards truthiness, not length, so `[]` is
+truthy and `:112` assigns `linear-gradient(to right, )` — invalid; the CSSOM rejects the assignment
+and **keeps the prior declaration**:
+
+```
+=== (a) STALE GRADIENT on empty palette ===
+{ "afterStyle":    "background: linear-gradient(to right, rgb(255,0,0), rgb(0,255,0), rgb(0,0,255));",
+  "afterComputed": "linear-gradient(to right, rgb(255,0,0), rgb(0,255,0), rgb(0,0,255))",
+  "dotsLeft": 0, "plateText": "Result" }
+
+=== (c2) WebKit: is a ONE-stop linear-gradient valid? ===
+{ "oneStopAccepted": "linear-gradient(to right, oklch(0.7 0.15 30))",
+  "zeroStopLeaves":  "linear-gradient(to right, oklch(0.7 0.15 30))" }
+```
+
+Zero swatches, full three-colour bar — see `WBMRD-plate-stale-gradient.png`. Sibling site, same
+truthiness bug: `MixPane.vue:44` persists an **empty palette** via `pm.createPalette("Mixed Palette", [])`.
+I also confirm r2's retraction: a one-stop gradient is accepted by both engines (though it remains
+invalid per CSS Images 3 `<color-stop-list>`, so it survives on leniency, not on spec).
+
+**D-9 · MINOR — `MixResult` permits blank states.** `useMixingState.ts:32-36` is non-discriminated
+(`css?` / `colors?`). Measured `{type:"color"}` with no `css` → `{ plateText: "Result", dots: 0,
+buttons: 3 }`: three live controls over nothing, and Copy writes `""` and reports success.
+
+**D-11 · MAJOR (test truth) — vacuous gate.** Ran it:
+
+```
+$ npx playwright test e2e/smoke/views/mix.spec.ts --reporter=line
   1) [smoke] › e2e/smoke/views/mix.spec.ts:28:1 › mix flow: convergence lands at the result plate within budget
     Error: expect(locator).toBeVisible() failed
     Locator: getByRole('main', …).getByRole('button', { name: 'Add current color to the mix' })
-    Expected: visible
-    Timeout: 8000ms
     Error: element(s) not found
       > 42 |     await expect(addSlot).toBeVisible();
   1 failed
 ```
 
-Line 42, not line 52 — **`e2e/smoke/views/mix.spec.ts:52`'s `[data-mix-target]` assertion has never
-been evaluated**, nor has `e2e/smoke/safari/mix-flow.spec.ts:40`'s. The vacuous mutation is exact:
-*delete `data-mix-target` from `MixResultDisplay.vue:69`.* Typecheck stays green (verified), the unit
-suite stays green (there is none), and both e2e specs fail identically because they already fail
-earlier — the mutant is **behaviourally indistinguishable from what ships**.
+Dies at line **42**, so `views/mix.spec.ts:52`'s and `safari/mix-flow.spec.ts:40`'s `[data-mix-target]`
+assertions have never been evaluated. No unit test exists
+(`find test -name '*.ts' | xargs grep -l MixResult` → empty). Deepened by N-6 (CI runs none of it) and
+N-7 (a third gate skips silently).
+
+**D-15 · MAJOR — `<DockSeparator/>` is 1 × 0 px yet exposes `role="separator"`.** Confirmed exactly:
+
+```
+=== r2 D-15 · DockSeparator ===
+{ "found": true, "tag": "DIV", "cls": "dock-separator", "role": "separator",
+  "w": 1, "h": 0, "cssH": "0px", "cssW": "1px", "varH": "",
+  "bg": "color(srgb 0.11 0.098 0.09 / 0.15)" }
+```
+
+`--dock-separator-height` resolves to `""` — it is minted on `.glass-dock` only, and the plate is a
+`Card`. A dead visual with a live semantic: AT hears a division sighted users cannot see, and the
+intended grouping (destructive Reset held apart) is carried by margin alone. Edict 4.
+
+**D-17 · MINOR — `.swatch-row` leave rule has no positioned ancestor.** Confirmed:
+
+```
+=== r2 D-17 · .swatch-row position ===
+{ "position": "static", "nearestPositionedAncestor": "DIV.glass-resting.card" }
+```
+
+`utils.css:177-179` absolutely-positions a leaving dot; it would resolve against the pane `Card` and
+fly to its corner. **N-4 upgrades this from latent to live-on-fix**: the moment the group animates
+(which r2's own D-10′ cure causes), the leave rule is reachable.
+
+**D-12 / D-13 / D-14 · INFO.** 28 px targets (sharpened in N-9); `useClipboard({resetMs: 1500})` at
+:31 restates the library default (`i.resetMs ?? 1500` in the dist); `TransitionGroup` imported at :4
+while `Transition` at :60 is left to auto-resolution — both auto-resolve, so the import is dead and
+the file contradicts itself. Plus r2's observation that `:123`'s `"Copy color"` is the wrong label in
+palette mode, where `:44-45` copies N colours.
 
 ---
 
-## INFO
+## Checks that came back clean (negatives, proved)
 
-* **D-12 — tap targets 28 × 28.** Measured on all three controls. `DockControl compact` resolves to
-  `width/height: var(--dock-compact-control-size, auto)` + `padding: 0.25rem`
-  (`dist/components/dock/styles/controls/icon-button.css`) with a `1.25rem` forced glyph → 28 px,
-  because `--dock-compact-control-size` is a `.glass-dock` token that is unset outside a dock (the
-  same absent-token family as D-15). Passes the harness's 24 px bar and WCAG 2.5.8; below 2.5.5's
-  44 px. Not filed as a defect at the stated bar.
-* **D-13 — redundant config.** `useClipboard({ resetMs: 1500 })` at `:31` restates the library
-  default (`i.resetMs ?? 1500` in the dist).
-* **D-14 — inconsistent built-in import.** `:4` imports `TransitionGroup` from `vue` while
-  `Transition` (`:60`) is left to auto-resolution; both auto-resolve in `<script setup>`.
-* **The copy button's label is wrong in palette mode.** `:123` reads `"Copy color"` while `:44-45`
-  copies a comma-joined list of N colours. Cosmetic, but it is the label a screen-reader user would
-  hear if D-4 were fixed by promoting `title` to `aria-label` — fix them together.
-
----
-
-## Disproved — recorded so no downstream seat files it
-
-**Candidate BLOCKER: "the phase machine strands in `mixing`; the plate never inks in."**
-Observed, and it looked airtight — the plate held `mix-plate--ghost` and `plateText: "RESULT"` with
-zero action buttons for the full sample window:
-
-```
-t+126ms  {"phase":"mixing","ghostClass":true,"plateText":"RESULT"}
-…
-t+4004ms {"phase":"mixing","ghostClass":true,"plateText":"RESULT"}
-```
-
-It is a **harness artifact**. Measured rAF liveness on this page under headless Chromium:
-
-```
-rAF liveness: {"frames":1,"ms":1960}
-```
-
-One frame per ~2 s. `useMixingAnimation`'s clock rides glass-ui's `useRAFLoop`, so `elapsed` never
-crossed `MIX_CONVERGE_MS = 900` within the window. Forcing paints (screenshot/`getImageData` per
-tick) settles it normally:
-
-```
-sample {"phase":"mixing","inkedSamples":0}
-sample {"phase":"mixing","inkedSamples":19}   ← the canvas is genuinely painting the pool
-sample {"phase":"done","inkedSamples":0}      ← settled, canvas cleared
-```
-
-`arm()` is also proved to have run past its guards in the real pane (`canvas.style.height = "681px"`,
-`canvas.width = 510`), and every early-return path in `useMixingAnimation.ts:116-158` calls
-`onSettled()`, so the phase machine cannot strand by construction. **No product defect. Do not file.**
-
-Also disproved: my own hypothesis that a single-stop `linear-gradient` is invalid CSS — both engines
-accept it (D-16).
-
----
-
-## Checks that came back clean (the negatives, proved)
-
-* **`verbatimModuleSyntax`** — compliant. `:7` is `import type { MixResult }`; every other import is
-  a used value.
-* **Vue 3.5 idiom** — reactive props destructure with a default at `:20-23` is correct; `result` is
-  read inside `computed` (`:36-40`) and inside the async handler (`:42-47`), so the compiler emits
-  `props.result` and the read is fresh at call time, not captured. No stale-read.
-* **No `defineModel`** — the `WritableComputedRef` async-round-trip hazard does not apply; the
-  component is props-down/emits-up (`:25-28`).
-* **No timers, no listeners, no observers, no rAF owned here.** `useClipboard` registers
-  `onScopeDispose(() => { alive = false; seq++; clearTimeout(…) })` in the shipped dist, so the
-  1500 ms reset timer cannot outlive the scope. Zero PRM-RAF exposure. The feature's one rAF lives in
-  `useMixingAnimation.ts:88-114` with `pauseWhenHidden`, an explicit `onBeforeUnmount` stop (`:187`),
-  and a PRM fast-path that *completes* rather than pauses (`:120-125`) — correct, and the reasoning
-  in its docstring is sound.
-* **No `ValueUnit` wrapping, no oklch→HSV roundtrip, no `parseCssColor`** in this component; it
-  consumes pre-formatted CSS strings. The `var(--muted-foreground)` fallback at `:37`/`:39` reaches
-  `WatercolorDot` only as a background/custom-property value and a hash input — no parser is invoked,
-  so the live `parseCssColor` crash class does not touch this file. (It is upstream, at
-  `mixStage.ts:99-100`.)
-* **No WebGL.** `WatercolorDot` is a CSS/SVG primitive by design; the mix canvas is 2D.
-* **No god module** — 159 lines, one job, one export.
-* **Focus order is clean** — measured `focusables: [Copy, Save, Reset]`, all `tabIndex: 0`, DOM order
-  = visual order, no positive tabindex, no focus trap.
-* **`/#/mix` route health** (`REPORT.md:123,138,153,168`): 0 page errors, 0 console errors, 0
-  horizontal overflow, exactly 1 `main` across all four Safari matrices. The plate contributes
-  nothing to those numbers because `v-if="mixResult"` keeps it out of every capture — recorded as a
-  **coverage gap in the visual audit**, not as evidence of health. The only console error I saw on
-  the live pane was the dev-config `VITE_API_URL` warning, unrelated to this component.
+- **`verbatimModuleSyntax`** — compliant. `:7` is `import type { MixResult }`; all other imports are
+  used values.
+- **Vue 3.5 idiom** — reactive props destructure with default at `:20-23` compiles to `__props.result`
+  accesses, so reads inside `computed` (:36-40) and the async handler (:42-47) are fresh. **No stale
+  read.**
+- **No `defineModel`** — the `WritableComputedRef` async-round-trip hazard has no site; the component
+  is props-down / emits-up (:25-28).
+- **No timers, listeners, observers or rAF owned here.** `useClipboard` registers `onScopeDispose`
+  in the dist, so its 1500 ms timer cannot outlive the scope. **Zero PRM-RAF exposure.** The feature's
+  one rAF is `useMixingAnimation.ts:88-114` via glass-ui `useRAFLoop` with `pauseWhenHidden: true`,
+  an explicit `onBeforeUnmount` stop (:187), and a PRM fast-path that *completes* rather than pauses
+  (:120-125) — correct, and its docstring reasoning is sound.
+- **No `ValueUnit` wrapping, no oklch→HSV roundtrip, no `parseCssColor`.** The component consumes
+  pre-formatted CSS strings; the `var(--muted-foreground)` fallback (:37/:39) reaches `WatercolorDot`
+  only as a background / custom-property value and a hash input. Probed `{type:"color"}` with the
+  `var()` fallback: no page error, no console error. The live `parseCssColor` crash class does not
+  touch this file (it is upstream at `mixStage.ts:99-100`).
+- **No WebGL.** `WatercolorDot` is CSS/SVG by design; the mix canvas is 2D.
+- **No god module** — 158 lines, one job, one export.
+- **The phase machine does not strand** — r2's *Disproved* section; I hit the same headless-rAF
+  artifact and reach the same conclusion. Every early-return in `useMixingAnimation.ts:116-158` calls
+  `onSettled()`, so stranding is impossible by construction. **Do not file.**
+- **`/#/mix` route health** (`REPORT.md:123,138,153,168`): 0 page errors, 0 console errors, 0
+  horizontal overflow, exactly 1 `main` across all four Safari matrices — but the plate contributes
+  nothing to those numbers, because it never renders in any capture. A coverage gap, not health. The
+  only console error I ever saw on the live pane was the dev-config `VITE_API_URL` notice.
 
 ---
 
@@ -502,24 +488,47 @@ accept it (D-16).
 
 | # | severity | status | defect |
 |---|---|---|---|
-| D-1 | **BLOCKER** | confirmed | `data-mix-target` dropped by glass-7 `inheritAttrs:false`; convergence lands on a silent hard-coded guess (`mixStage.ts:124`). Corollary: the same drop kills `MixSourceSelector`'s add-slot, so the mix flow is unreachable end-to-end |
-| D-2 | MAJOR | confirmed | three dead `tag="div"` + dropped `:title`; a palette result has **no** readable value (`innerText: "RESULT"`) |
-| D-3 | MAJOR | confirmed | scoped `.mix-plate` shorthand overrides `.vj-morph-enter-active`, deleting the transform + max-height channels (edicts 5 & 6) |
-| D-4 | MAJOR | confirmed | no `aria-live` on an async result; 3 buttons named only by `title` (3 nameless by the repo's own rule; latent in REPORT because the capture never mixes) |
-| D-5 | MAJOR | confirmed | clipboard `failure` never rendered, never reset, no `onCopyError` — silent no-op on LAN-http mobile |
-| D-6 | MAJOR | confirmed | copy confirmation stale across a re-mix; `invalidate()` exists, never called |
-| D-7 | MAJOR | confirmed | two divergent copy implementations for one action; the dock routes to the one with no feedback (edict 2) |
-| **D-15** | MAJOR | **NEW** | `<DockSeparator/>` measures 1 × **0** px — invisible, yet exposes `role="separator"`; a dock primitive outside a dock (edict 4) |
-| **D-16** | MAJOR | **NEW** | empty palette result → invalid `linear-gradient(to right, )` → CSSOM retains the **previous** result's gradient; the strip paints colours that are not in the result (both engines) |
-| **D-10′** | MAJOR | **CORRECTED** | the `vj-enter` TransitionGroup fires **zero** classes — cause is the `mode="out-in"` remount + no `appear`, not the index key; the shared `.swatch-row` recipe is inert for 1 of its 3 claimed consumers |
-| D-8 | MAJOR | confirmed | empty palette result renders live Copy/Save over nothing; reachable via `mix.ts:123` |
-| D-9 | MINOR | confirmed | `MixResult` permits blank states; four masking `??` fallbacks are the symptom |
-| **D-17** | MINOR | **NEW** | `.swatch-row > .vj-enter-leave-active { position: absolute }` with a `static` row — a leaving dot would fly to the pane `Card`'s corner; latent behind D-10′ |
-| D-11 | MAJOR | confirmed | vacuous gate: 0 unit tests, both e2e specs RED at an earlier line (run + pasted), typecheck structurally blind; the vacuous mutation *is* the shipped state |
-| D-12/13/14 | INFO | confirmed | 28 px targets (absent dock token) · redundant `resetMs` · inconsistent built-in import |
+| D-1 | **BLOCKER** | confirmed ×3 | `data-mix-target` dropped by glass-7 `inheritAttrs:false`; convergence lands on a silent guess (`mixStage.ts:124`). Miss measured 77 / 103 / **156 px** (N-2). Corollary: the same drop kills the add-slot, so `/#/mix` cannot mix at all |
+| **N-1** | MAJOR | **NEW** | on a re-mix the anchor's host enters the DOM **239 ms** after `startMix()` (`mode="out-in"` vs `flush:"post"`); **both priors' cures for D-1 fail this test** |
+| D-2 | MAJOR | confirmed | dead `tag`, dropped `:title`; a palette result's entire AT text is `"Result"` — while the colour branch does expose its value |
+| D-3 | MAJOR | confirmed | scoped `.mix-plate` shorthand overrides `.vj-morph-enter-active`; transform + max-height channels deleted (edicts 5 & 6) |
+| D-4 | MAJOR | confirmed | no `aria-live` on an async result; 3 buttons named only by `title` |
+| D-5 | MAJOR | confirmed | clipboard `failure` never rendered, never reset — silent no-op on LAN-http mobile |
+| D-6 | MAJOR | confirmed | copy confirmation **lies**: check mark + "Copied!" over a value the clipboard does not hold (N-8) |
+| D-7 | MAJOR | confirmed | two divergent copy implementations; the dock routes to the one with no feedback (edict 2) |
+| D-8/16 | MAJOR | confirmed | empty palette → invalid `linear-gradient(to right, )` → CSSOM retains the **previous** gradient; both engines |
+| D-15 | MAJOR | confirmed | `<DockSeparator/>` measures 1 × **0** px yet exposes `role="separator"` — a dock primitive outside a dock (edict 4) |
+| **N-3** | MAJOR | **NEW** | Reset unmounts the focused button → `activeElement === body`; r2's "focus order is clean" measured order, not management |
+| **N-4** | MAJOR | **CORRECTS r2** | `vj-enter` *does* fire on the settled-plate path and animates the **wrong dot**; r2's remount and r1's index key are two stacked defects, each masking the other — fixing either alone ships a bug |
+| **N-5** | MAJOR | **NEW** | index-derived seeds re-shape **every** silhouette on any reorder, contradicting the docstring's own "one shape" law (:16-17) |
+| D-11 | MAJOR | confirmed | vacuous gate: 0 unit tests; both e2e specs RED at an earlier line; **CI runs no Playwright at all** (N-6); a third gate skips silently (N-7) |
+| D-9 | MINOR | confirmed | `MixResult` permits blank states; the four masking `??` fallbacks are the symptom |
+| D-17 | MINOR | confirmed | `.swatch-row > .vj-enter-leave-active { position: absolute }` over a `static` row — **live the moment N-4 is fixed** |
+| D-12/13/14 | INFO | confirmed | 28 px targets under a *genuinely coarse* pointer (N-9) · redundant `resetMs` · inconsistent built-in import · `"Copy color"` mislabels the palette case |
 
-**The one sentence:** a dependency major bump changed an attribute-forwarding contract that no gate in
-this repository can observe, and the component's single most important line has been decorative ever
-since — and the three findings this pass adds are all the same shape, a *declared* thing (an anchor, a
-separator, an animation, a gradient) that the runtime silently declines to honour while the source,
-the comments and the design record all go on asserting it.
+---
+
+## Family grouping (mechanisms, for the cure)
+
+- **F-A · a declared thing the runtime silently declines to honour.** D-1, D-2, D-15, D-8/16, D-3 —
+  an anchor, a `tag`, a separator, a gradient, a transition. Every one is *asserted* in source,
+  comments and the design record while the runtime drops it, and **not one of them raises a
+  diagnostic**: `vue-tsc` models unknown component attributes as fallthrough, invalid CSS assignments
+  are no-ops, absent custom properties compute to nothing. This is the defect *class*; the missing
+  attribute is one instance.
+- **F-B · anchoring inside the thing that hides it.** N-1 — and it is why F-A's obvious fixes fail.
+- **F-C · truthiness where length was meant.** D-8/16 (strip), D-9, `MixPane.vue:44` (persists an
+  empty palette).
+- **F-D · state the composable models and the component refuses to render.** D-5 (`failure`),
+  D-6 (`invalidate`) — the primitive is strictly richer than the boolean projected off it.
+- **F-E · identity by slot index.** N-4, N-5 — keys and seeds bound to position rather than to what a
+  thing is.
+- **F-F · the result is a live region that never says so.** D-4, N-3, and the `title`-only
+  confirmation.
+- **F-G · gates that cannot fail.** D-11 + N-6 + N-7 — three named gates, three different ways of
+  observing nothing.
+
+**The one sentence, r3's version:** a dependency major bump silently voided an attribute-forwarding
+contract that nothing in this repository can observe, and two audit passes then converged on cures
+that would not have worked — because the component's central anchor is not merely mis-addressed, it
+is *absent from the DOM for 239 ms of every re-mix by the design of the transition that wraps it*.
