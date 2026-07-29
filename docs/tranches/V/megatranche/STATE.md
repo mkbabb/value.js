@@ -124,8 +124,18 @@ ledger and update this table in the same fold.
 - **The prefix trap is a live glass-owned defect in our picker today** (spectrum range keeps
   `blur(7px) saturate(1.4)`, hard seam) — cured in glass 8.0.0, NO local patch, adjudicators must
   not re-book it as ours.
-- Dev server runs API-LESS via `npx vite --port 9000` (mongo down; `dev.sh` untouched per DR-24) —
-  data-backed states don't render; UNVERIFIABLE-HERE is the honest verdict for those arms.
+- ~~Dev server runs API-LESS via `npx vite --port 9000`~~ **SUPERSEDED 2026-07-28 (owner order):**
+  the env is now the FULL LOCAL STACK via `npm run dev` (`scripts/dev/dev.sh up` — *run*, never
+  edited, per the standing NEVER-touch row): disposable docker Mongo single-node rs0 :27017 +
+  Hono API :3000 (`ALLOWED_ORIGINS=http://localhost:9000`) + Vite :9000 with
+  `VITE_API_URL=http://localhost:3000`; value.js + glass-ui watch-builds keep dist fresh
+  (mechanism-C). Verified: `/palettes` 200 with `access-control-allow-origin: http://localhost:9000`.
+  The dev Mongo is DISPOSABLE — the local ledger starts EMPTY; production data is not mirrored.
+  Consequences: data-backed states now RENDER locally (UNVERIFIABLE-HERE for API-gated arms is
+  retired going forward; banked verdicts stand as records of their era); the MT-F031
+  "DEV MISCONFIGURED" banner's trigger condition is absent in this env — the banner surface
+  itself remains ORDERED REMOVED regardless. Stack detached via nohup
+  (log: `.dev/logs/dev-up-2026-07-28.log`); teardown = `scripts/dev/dev.sh down`.
 
 ## What remains
 
