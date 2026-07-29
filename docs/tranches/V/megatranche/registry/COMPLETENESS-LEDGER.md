@@ -21,7 +21,7 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | shell-paneslot | CDL | CDL | ON-DISK |
 | shell-panesegmentedcontrol | CDL | CDL | ON-DISK |
 
-## demo-workbenches · `wf_6edda4a1-192` · record: completed · 16/19 claimed, failures: []
+## demo-workbenches · `wf_6edda4a1-192` · record: completed · 14/19 claimed, failures: []
 
 | component | disk axes | harvest axes | status |
 |---|---|---|---|
@@ -45,7 +45,7 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | wb-mix-animationcanvas | CDL | CD | ON-DISK |
 | wb-gradient-pane | — | — | **NOT-STARTED** |
 
-## palettes · `wf_22b7a7b7-97b` · record: completed · 8/32 claimed, failures: []
+## palettes · `wf_22b7a7b7-97b` · record: completed · 23/32 claimed, failures: []
 
 | component | disk axes | harvest axes | status |
 |---|---|---|---|
@@ -65,14 +65,14 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | AdminTagsPanel | CDL | CDL | ON-DISK |
 | PaletteCardSkeleton | CDL | CDL | ON-DISK |
 | AdminAuditPanel | CDL | CDL | ON-DISK |
-| ShadowPalette | — | — | **NOT-STARTED** |
-| FlagReportDialog | — | — | **NOT-STARTED** |
-| MigratePalettesDialog | — | — | **NOT-STARTED** |
-| PaletteCardSwatches | — | — | **NOT-STARTED** |
-| SwatchHoverMenu | — | — | **NOT-STARTED** |
-| ApiOfflineChip | — | — | **NOT-STARTED** |
-| TagEditPopover | — | — | **NOT-STARTED** |
-| PaletteColorStrip | — | — | **NOT-STARTED** |
+| ShadowPalette | CDL | CDL | ON-DISK |
+| FlagReportDialog | CDL | CDL | ON-DISK |
+| MigratePalettesDialog | CDL | CDL | ON-DISK |
+| PaletteCardSwatches | CDL | CDL | ON-DISK |
+| SwatchHoverMenu | CDL | CDL | ON-DISK |
+| ApiOfflineChip | CDL | CDL | ON-DISK |
+| TagEditPopover | CL | CL | **PARTIAL — missing D** |
+| PaletteColorStrip | CDL | CDL | ON-DISK |
 | PaletteRenameInput | — | — | **NOT-STARTED** |
 | PaletteCardMeta | — | — | **NOT-STARTED** |
 | ActionFeedback | — | — | **NOT-STARTED** |
@@ -135,19 +135,12 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 
 ## VERDICT
 
-**17 incomplete component rows.** 17 covered by an ACTIVE resume · 0 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
+**10 incomplete component rows.** 10 covered by an ACTIVE resume · 0 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
 
 A run record saying "completed" does not clear a row — only banked axes do. Bands re-open until every roster row is ADJUDICATED or ON-DISK.
 
 - demo-workbenches / **wb-gradient-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
-- palettes / **ShadowPalette** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **FlagReportDialog** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **MigratePalettesDialog** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **PaletteCardSwatches** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **SwatchHoverMenu** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **ApiOfflineChip** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **TagEditPopover** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **PaletteColorStrip** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
+- palettes / **TagEditPopover** — missing D (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **PaletteRenameInput** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **PaletteCardMeta** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **ActionFeedback** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
