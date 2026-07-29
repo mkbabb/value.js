@@ -1,0 +1,84 @@
+{
+  "E0_mixState": {
+    "cards": 5,
+    "nestedButtons": 5,
+    "triggers": 5,
+    "pressedStates": [
+      "false",
+      "false",
+      "true",
+      "false",
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "storeN": 5
+  },
+  "E1_selectionOnMenuOpen": {
+    "pressedBefore": [
+      "false",
+      "false",
+      "true",
+      "false",
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "pressedAfterOpen": [
+      "false",
+      "false",
+      "true",
+      "false",
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "menus": 1,
+    "items": [
+      "Publish",
+      "Rename",
+      "Export",
+      "Delete"
+    ]
+  },
+  "E2_deleteOnMix": {
+    "storeBefore": 5,
+    "storeAfter": 5,
+    "cards": 5,
+    "menus": 0,
+    "pressedAfterDelete": [
+      "false",
+      "false",
+      "true",
+      "false",
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "consoleSinceStart": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+      "No available adapters.",
+      "[.WebGL-0x13c0065b600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "[.WebGL-0x13c0065b600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    ]
+  },
+  "E3_deleteOnPalettes_CONTROL": {
+    "storeBefore": 5,
+    "storeAfter": 4,
+    "cards": 4,
+    "confirmDialogs": 0
+  },
+  "errs": []
+}

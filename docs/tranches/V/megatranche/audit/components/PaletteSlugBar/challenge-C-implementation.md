@@ -1,382 +1,649 @@
-# CHALLENGE-C — PaletteSlugBar.vue · implementation is defective (pass 3)
+# CHALLENGE-C — `PaletteSlugBar.vue` · the implementation is defective (pass 4)
 
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant. That
-is the tier this seat was **explicitly declared** with at spawn; I did not inherit it and did not
-infer it from ambient context. Declared seat, receipt logged.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant.
+That is the tier this seat was **explicitly declared** with at spawn. It is not inherited and not
+inferred from ambient context: the declaration was in the seat brief, and the id above is the one I
+observe myself running as. Declared seat, receipt logged.
 
 ---
 
 ## Standing of this document
 
-Third independent pass on this axis. Both predecessors are preserved verbatim:
+Fourth independent pass on this axis. All three predecessors are preserved verbatim:
 
 - `challenge-C-implementation.run-1.md` — pass 1, findings **C-1..C-19**
-- `challenge-C-implementation.run-2.md` — pass 2, findings **C-1..C-25** (re-derivation + 6 new)
+- `challenge-C-implementation.run-2.md` — pass 2, **C-1..C-25** (re-derivation + 6 new)
+- `challenge-C-implementation.run-3.md` — pass 3, **C-1..C-29** (+ a correction to C-9)
 
-Nothing from either is discarded. **This pass was run blind**: I read the SFC, its composables, its
-vendor dependencies, the API slug generator, the visual REPORT and the screenshots, and built my own
-harness *before* opening either predecessor. I opened them only at write-up time, to place my results.
+This pass was run **blind**: I read the SFC, its vendor dependencies' *compiled source*, the auth
+composables it feeds, the visual REPORT/REPORT.json, the screenshots, and built my own jsdom +
+Chromium harnesses **before** opening any predecessor. I opened them only at write-up time to place
+my results and avoid re-numbering.
 
-What this pass contributes:
+What pass 4 contributes:
 
-1. **Independent re-derivation of 13 prior findings by different instruments** (blind convergence).
-2. **One CORRECTION to a prior measurement** — C-9's repo-wide census was understated by 2.5× and
-   missed 3 of the 5 dead values. Corrected below.
-3. **Four new findings** — C-26..C-29.
-4. **Three new negative proofs** — including a full 268,435,456-slug enumeration against the API's
-   real word lists, which *bounds* C-5 and kills the obvious over-claim.
+1. **Eleven prior findings re-derived by instruments the earlier passes did not use** — including
+   the first end-to-end *live* repro of the silent-login-failure consequence, driven through the
+   real app with network + console + DOM capture.
+2. **Eight new findings — C-30..C-37** — two of them security-shaped and reproduced, and one a
+   **correction to the shared visual REPORT** that other component seats are reading.
+3. **Six negative proofs**, four of which kill obvious-looking hypotheses (dead utility classes,
+   ReDoS, hidden-focusable dock trap, shipped dead bytes).
+4. **A working harness.** Pass 3's "reproducible, committed" harness does not run — see C-35. The
+   pass-4 replacement resolves its probe relative to itself and is verified green from the repo path.
 
-Subject: `demo/palettes/browser/slug/PaletteSlugBar.vue` (243 lines).
-Repo state at audit: branch `tranche-u`, HEAD `f36f780c` (moved from the c654824e in the brief;
-the subject file is byte-identical at both — last touched by `f2c8f565`).
+Subject: `demo/palettes/browser/slug/PaletteSlugBar.vue`, 243 lines.
+Repo state at audit: branch `tranche-u`, `git rev-parse HEAD` → `e9cf0aa4037ccce45e83ff34d800bda11ba7f635`
+(moved past the brief's `c654824e`; the subject file is untouched between them —
+`git log --oneline -- <file>` last touches it at `f2c8f565`, the glass-ui 7.0.0 adoption).
+
+**Verdict: DEFECTIVE.** The component cannot perform its single function in a browser, and the
+error channel it was built to own terminates in a `null` ref inside the app that shipped without it.
 
 ---
 
-## Blind convergence — what pass 3 re-derived, and with what
+## 0 · How to reproduce everything in this document
 
-Every row below was found from source *before* reading run-1/run-2, and each is confirmed. Blind
-agreement across three seats with different instruments is the strongest form of corroboration this
-program can produce for a finding that has no failing test.
+```
+# jsdom harness — 18 probes, mounts the REAL SFC against the REAL glass-ui 7
+$ npx vitest run --config docs/tranches/V/megatranche/audit/components/PaletteSlugBar/probes/c4-vitest.config.ts
+ ✓ tranches/V/megatranche/audit/components/PaletteSlugBar/probes/c4-slugbar.probe.test.ts (18 tests) 162ms
+ Test Files  1 passed (1)
+      Tests  18 passed (18)
 
-| prior finding | pass-3 instrument | pass-3 receipt |
+# live Chromium probes (dev server must be up on :9000)
+$ node docs/tranches/V/megatranche/audit/components/PaletteSlugBar/probes/c4-live.mjs        # utility-class + token census
+$ node docs/tranches/V/megatranche/audit/components/PaletteSlugBar/probes/c4-live-login.mjs  # the silent-failure repro
+$ node docs/tranches/V/megatranche/audit/components/PaletteSlugBar/probes/c4-tap.mjs         # tap-target + ink measurement
+```
+
+No source file was edited by this seat. Every probe is read-only against the tree.
+
+---
+
+## 1 · Blind convergence — what pass 4 re-derived, and with what
+
+Each row was derived from source or measurement **before** the predecessors were opened. Different
+instrument, same result. For a component with zero tests, independent triangulation across four
+seats is the strongest corroboration this program can produce.
+
+| prior | pass-4 instrument | pass-4 receipt |
 |---|---|---|
-| C-2 submit binds to `<input>` | vendor source read of `dist/search.js` + jsdom dispatch on **both** nodes | `0` handler calls on `<form>` submit, `1` on `<input>`-targeted submit |
-| C-2 consequence (native nav) | jsdom's navigation stand-in | `Not implemented: HTMLFormElement.prototype.requestSubmit` on the submit-button click |
-| C-1 orphan | repo-wide grep + `git log -S` + REPORT.json string census + screenshot read | `95993197` deleted `PaletteControlsBar.vue`, the only `<PaletteSlugBar>` site; 0/60 captures contain its aria-labels |
-| C-3 focus never lands | CSS source arithmetic on `.vj-morph-leave-active` | leave rides `--duration-fast`; `nextTick` inside `setTimeout(50)` resolves in the same microtask, ~200 ms early |
-| C-4 in-flight state unrenderable | jsdom mount with a **forever-pending** parent handler | `spinner nodes while parent pending: 0`, `form still mounted: false` |
-| C-5 admin catch-all | 6-case parameterised emission probe | 6/6 near-miss inputs emit `isAdmin=true` |
-| C-6 input has no name | rendered-markup dump | `<input type="search" placeholder="enter slug..." class="input-bar-field">` — no `aria-label`, no label |
-| C-7 error not announced | rendered-markup dump | `aria-live: undefined  role: undefined` |
-| C-8 pill unreachable | focusable-node census on the mounted default mode | `focusable nodes: ['BUTTON:Account menu']` — the pill is a bare `SPAN`, `tabindex: undefined` |
-| C-9 dead `variant` prop | `.d.ts` contract + rendered DOM | `variant="ghost"` present as a junk attribute beside `data-emphasis="secondary"` |
-| C-10 22 px tap target | class arithmetic + the glass-ui coarse-pointer rule it opts out of | `p-1`(4)+`w-3.5`(14)+4 = **22 px**; `[data-control-target]{min-block-size:2.75rem}` never applies |
-| C-11 timer across unmount | fake-timer count around `unmount()` | `pending timers at unmount: 1 · after unmount: 1 · fired on advance` |
-| C-12 dead public surface | prop-warning capture + emit census | `[Vue warn]: Missing required prop: "hasSavedPalettes"`; `emitted after mount: []` |
-| C-14 stale error | full user-path replay (submit own slug → press Cancel) | error **still rendered in default mode**: `"Already signed in as this slug."` |
-| C-18 vacuous gates | re-run both gates | `vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT=0, 0 diagnostics**; `eslint <file>` → **0 problems** |
+| **C-2** `@submit` binds to the `<input>` | read of the shipped vendor bundle `node_modules/@mkbabb/glass-ui/dist/search.js` **plus** paired jsdom dispatch | `SearchBar` is `inheritAttrs:!1`; `o = computed(() => { const {class:_, ...t} = useAttrs(); return t })` is spread onto the **`<input>`** via `mergeProps`, never onto the root `tag`. Emission count: `after form submit: 0 · after input-targeted submit: 1` |
+| **C-2** consequence (native nav) | jsdom's navigation stand-in fires on the real submit button | `Error: Not implemented: HTMLFormElement.prototype.requestSubmit` on every `type="submit"` click — the browser's own submit algorithm runs, unprevented |
+| **C-1** orphan | four independent instruments (below) | zero value-position importers; zero live-DOM markers; zero of 60 real-Safari captures; the e2e suite's own docstring says so |
+| **C-1** consequence (silent failure) | **live end-to-end repro in Chromium against the running app** | after a failed slug login: `bodyInnerTextHits: []`, `slug: null`, `fieldValue: ""`, `activeElement: BODY`, **zero console output** — the failure is invisible in every channel |
+| **C-5** admin catch-all | 11-case parameterised routing table through the mounted SFC | `"test-user" → ["test-user", true]`, `"-a-b-c-" → ["-a-b-c-", true]` — any non-4-word input is an admin token |
+| **C-6** input has no name | rendered-attribute census | `INPUT ATTRS: {"type":"search","placeholder":"enter slug...","class":"input-bar-field","value":""}` — `HAS aria-label: false` |
+| **C-7** error not announced | live-region census on the mounted default mode | the error `<p>` carries no `role`, no `aria-live`; `liveRegions` on the live route never contains a login message |
+| **C-8** pill unreachable | focusable-node census | `focusable: ["BUTTON:Account menu"]` · `pill tag: SPAN tabIndex: -1 role: null` |
+| **C-9** dead `variant` prop | vendor `.d.ts` contract + rendered DOM | `ButtonProps` = `{emphasis,tone,size,iconOnly,loading,type,disabled,class}` + `PrimitiveProps{asChild,as}`; **no `variant`**. DOM: `data-emphasis="secondary" … variant="ghost"` side by side |
+| **C-10** 22 px tap target | **measured against the live cascade**, not arithmetic | `menu: {w: 22, h: 22}` — and the mechanism, below |
+| **C-11** timer across unmount | fake-timer count around `unmount()` | `pending after click: 1 · after unmount: 1 · fired on advance` |
+| **C-14** stale error | full replay: submit own slug → Cancel | default mode still renders `<p …>Already signed in as this slug.</p>` |
+| **C-18** vacuous gates | both gates re-run at this HEAD | `npx vue-tsc -p tsconfig.demo.json --noEmit` → **EXIT=0** · `npx eslint demo/palettes/browser/slug/PaletteSlugBar.vue` → **EXIT=0** |
 
-Harness (reproducible, committed): `probes/c3-slugbar.probe.test.ts` + `probes/c3-vitest.config.ts`.
+### 1.1 · C-1's orphanhood, proven four ways
+
+**(a) Static — zero value-position importers.**
+
+```
+$ grep -rn "PaletteSlugBar" demo/ test/ e2e/ src/ | grep -v node_modules
+demo/palettes/useSlugMigration.ts:6:import type { PaletteSlugBar } from "./browser/slug";
+demo/palettes/browser/index.ts:44:export { PaletteSlugBar } from "./slug";
+demo/palettes/browser/slug/index.ts:3:export { default as PaletteSlugBar } from "./PaletteSlugBar.vue";
+```
+
+The single consumer is `import **type**`. Under `verbatimModuleSyntax` that is fully erased. The
+re-exporting barrel `demo/palettes/browser/index.ts` has **no importers at all** (`grep -rn 'palettes/browser"' demo/` → 0 hits;
+every real consumer reaches `./browser/card` directly). There is no `<PaletteSlugBar` tag anywhere
+in the tree.
+
+**(b) Live DOM.** `probes/c4-live.mjs` against `http://localhost:9000/#/palettes`:
+
+```json
+"slugBarMarkers": {
+  "signInWithSlug": false, "cancelSlugEdit": false, "accountMenu": false,
+  "switchToSlug": true, "pills": 0
+}
+```
+
+Its three authored `aria-label`s are absent. The label that *is* present — `"Switch to slug"` —
+belongs to `demo/shell/dock/layers/SlugEditLayer.vue:93`, the live replacement.
+
+**(c) The 60-capture visual matrix.** A census over `visual/REPORT.json`:
+
+```
+Sign in with slug -> false
+Cancel slug edit  -> false
+Account menu      -> false
+SlugEditLayer labels present: true true
+```
+
+**(d) The repo's own record.** `e2e/smoke/flows/login-register.spec.ts:5-8`:
+
+> *"The SlugBar live-app surface is only inside the PaletteDialog (currently unused by the App.vue
+> shell post-D.W3 Lane A restructure), so the canonical login-register exercise on the smoke level
+> is the cold-boot auto-registration path…"*
+
+The orphaning was **known and written down at tranche D/E**, and the test suite was routed around
+the dead surface rather than the surface being deleted or re-mounted. `git log -S'PaletteSlugBar'`
+shows `95993197` (`T.W0 · lane t-legacy-sweep`, whose own subject line is *"the dead named set +
+CC-6 orphan removed, code grep-zero"*) deleting the last mounting site. That sweep's stated law was
+verify-dead-first; it deleted the *caller* and left the *callee*.
+
+### 1.2 · C-1's live consequence, reproduced end-to-end
+
+This is the part no prior pass drove through the real application. `useSlugMigration.ts:84-87` is
+the **only** error-reporting path for slug login in the shipped app:
+
+```ts
+const status = e instanceof ApiProblem ? e.status : undefined;
+if (status === 409) slugBarRef.value?.setError("Already signed in as this slug.");
+else if (status === 404) slugBarRef.value?.setError("Slug not found.");
+else if (status === 429) slugBarRef.value?.setError("Too many attempts.");
+else slugBarRef.value?.setError((e instanceof Error ? e.message : "") || "Login failed");
+```
+
+`slugBarRef` (`useSlugMigration.ts:30`) is `ref<InstanceType<typeof PaletteSlugBar> | null>(null)`.
+`grep -rn "slugBarRef" demo/` returns **six** hits, all inside that one file — four reads, the
+declaration and the return. **Nothing ever assigns it**, because the component it points at is
+never mounted. The four `?.` operators turn every login error into a no-op, silently.
+
+`probes/c4-live-login.mjs` drives the shipped `SlugEditLayer` form in Chromium (the field is
+natively value-set + `input`-dispatched, because the collapsed dock face occludes real clicks —
+see C-34), calls `form.requestSubmit()`, and waits 4 s:
+
+```
+DRIVEN: {"hasForm":true,"value":"zzzz-yyyy-xxxx-wwww"} submitBtnDisabled: false
+AFTER: {
+ "url": "http://localhost:9000/#/palettes?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+ "slug": null,
+ "admin": null,
+ "bodyInnerTextHits": [],
+ "bodyInnerTextLen": 274,
+ "liveRegions": ["dev misconfigured — run `npm run dev`", "92.0%", "88.8", "20.0", "82.7%",
+                 "· empty plate ·No saved palettes yet.Add colors above, then save the set."],
+ "fieldValue": "",
+ "activeElement": "BODY:"
+}
+CONSOLE(last 15): [ … no message about the login attempt … ]
+```
+
+The login failed. `bodyInnerTextHits: []` — **no text matching `/not found|failed|error|already|too
+many|invalid/i` appears anywhere in the rendered page.** The credential was wiped from the field.
+Focus fell to `BODY`. No live region announced anything. No console line was emitted.
+`localStorage` is unchanged.
+
+And the failure is structurally unreportable even by the *live* surface: `SlugEditLayer.vue:54`
+calls `pm.onSlugSwitch(...)` **without `await`**, and `useSlugMigration.onSlugSwitch` catches its own
+rejection internally — so `SlugEditLayer`'s own `catch` at line 57 can never run either. Both error
+channels are dead: one because its sink is unmounted, the other because the promise it would need
+never rejects.
+
+---
+
+## 2 · New findings — C-30 … C-37
+
+### C-30 · MAJOR (NEW, security-shaped) — the `ADMIN_TOKEN=` disambiguator is stripped and then ignored, and a four-word admin token is POSTed as a public user slug
+
+`normalizeTokenInput` (`PaletteSlugBar.vue:188-196`) exists for exactly one reason: to let an
+operator paste the line straight out of `.env`. `api/.env.example:2` is literally
+`ADMIN_TOKEN=change-me-to-a-secure-random-string`. The function strips the `ADMIN_TOKEN=` prefix and
+surrounding quotes — and then line 205 throws the information away:
+
+```ts
+const normalized = normalizeTokenInput(raw).toLowerCase();
+const isAdmin = !looksLikeSlug(normalized);   // ← shape, not the explicit label
+```
+
+Classification is **purely shape-based**. The one unambiguous signal the user gave — *"this is an
+admin token"* — is discarded before the decision. Measured routing table
+(`probes/c4-slugbar.probe.test.ts` → `P4-3`, emitted `switchSlug` payloads):
+
+| input | emitted `[value, isAdmin]` | routed to |
+|---|---|---|
+| `aaa-bbb-ccc-ddd` | `["aaa-bbb-ccc-ddd", false]` | user login — correct |
+| **`ADMIN_TOKEN=correct-horse-battery-staple`** | **`["correct-horse-battery-staple", false]`** | **user login — WRONG** |
+| **`ADMIN_TOKEN="correct-horse-battery-staple"`** | **`["correct-horse-battery-staple", false]`** | **user login — WRONG** |
+| `ADMIN_TOKEN=change-me-to-a-secure-random-string` | `["change-me-to-a-secure-random-string", true]` | admin — correct |
+| `ADMIN_TOKEN=S3cret!` | `["S3cret!", true]` | admin — correct |
+| `test-user` | `["test-user", true]` | admin — wrong (C-5/C-24) |
+| `-a-b-c-` | `["-a-b-c-", true]` | admin — wrong (C-5) |
+
+Consequences, in order of severity:
+
+1. **The secret leaves the machine as a slug.** `isAdmin === false` routes to
+   `useUserAuth.login(value)` → `loginWithSlug` → `POST /sessions/login {"slug":"<the admin token>"}`
+   (`demo/platform/auth/sessions.ts:18-25`). That endpoint is **unauthenticated** — it is the public
+   login route. The admin token is transmitted in a request body to a public endpoint, where it
+   lands in access logs, proxy logs and any request-body telemetry, under a field named `slug`.
+2. **Admin login is unreachable for an entire token class.** Any `ADMIN_TOKEN` matching
+   `/^[a-z]+-[a-z]+-[a-z]+-[a-z]+$/` — i.e. the canonical four-word passphrase form, which is
+   exactly the shape a "secure random string" generator that emits words produces — can *never* be
+   used to log in as admin, no matter how it is typed. The user sees `"Slug not found."` at best,
+   and (per §1.2) nothing at all in the shipped app.
+3. **It is not confined to the orphan.** `demo/shell/dock/layers/SlugEditLayer.vue:25-54` carries a
+   byte-identical `looksLikeSlug` / `normalizeTokenInput` / classification block. This defect is
+   **live on `/#/palettes` today**.
+
+Reproduction: the `P4-3` rows above, plus `demo/platform/auth/sessions.ts:18-25` for the wire shape.
+
+Cure (gestalt, not patch): the disambiguator must *decide*, not merely clean up. A prefixed input is
+an admin token by declaration; an unprefixed input is a slug **only if it matches the generator's
+alphabet**, and anything else is a rejection with a message — never a silent reclassification. The
+right home for that decision is one exported predicate in the auth layer
+(`demo/platform/auth/`), consumed by the single surviving slug surface, so the two copies collapse
+to one and the shape heuristic stops being a security boundary.
+
+---
+
+### C-31 · MAJOR (NEW) — the credential field is a bare `<input type="search">` with no input-hygiene attributes at all
+
+Measured attribute census of the shipped input (`P4-1`, and confirmed on the **live** twin by
+`c4-live.mjs`):
+
+```
+INPUT ATTRS: {"type":"search","placeholder":"enter slug...","class":"input-bar-field","value":""}
+HAS name: false            HAS autocomplete: false     HAS autocapitalize: false
+HAS autocorrect: false     HAS spellcheck: false       HAS inputmode: false
+HAS aria-label: false      HAS aria-describedby: false
+```
+
+Live, from `c4-live.mjs` on `/#/palettes` (this is `SlugEditLayer`'s field — same defect, shipping):
+
+```json
+{"type":"text","placeholder":"enter slug or token...","name":null,"autocomplete":null,
+ "autocapitalize":null,"spellcheck":null,"ariaLabel":null,"w":160,"h":23}
+```
+
+Neither the consumer nor `SearchBar` supplies any of them — the vendor's compiled render function
+(`dist/search.js`) emits exactly `ref, type:"search", …attrs, value, placeholder, class, onInput`.
+
+Four distinct consequences:
+
+1. **`type="search"` is the wrong control for a credential.** User agents treat search fields as
+   *search history*: Safari and Chrome persist submitted/typed search values and offer them as
+   suggestions on subsequent visits. Every admin token typed here is retained by the browser and
+   re-offered — on shared machines, to the next person. `autocomplete="off"` is absent, so nothing
+   opts out.
+2. **iOS capitalizes the first character.** The default `autocapitalize` for a text/search field is
+   `sentences`. The slug branch survives (`normalized` is `.toLowerCase()`d), but the **admin branch
+   emits `normalizeTokenInput(raw)` un-lowercased** (line 213), so `Sometoken` is sent where
+   `sometoken` was meant. Admin login fails on mobile with the generic failure text, and per §1.2
+   with no text at all. *(Labelled: the mechanism is source-proven; the iOS keystroke behaviour
+   itself is a UA default, not reproduced on a device in this pass.)*
+3. **`spellcheck` defaults on**, so the token is handed to the platform spellchecker (a network
+   service on some configurations).
+4. **No accessible name and no `aria-describedby`** — the placeholder is the only label, and it
+   disappears the instant the user types. A screen-reader user who tabs back to a half-filled field
+   hears the value with no indication of what it is for, and never hears the error `<p>` (C-7).
+
+Cure: this field is not a search box. It is a credential field, and the design system already has
+the right primitive (`glass-ui` `Input` / `FormFieldProps{name,required}`) — reaching for
+`SearchBar` because it looked like the right *shape* is the contrivance. The replacement carries
+`name`, `autocomplete="off"`, `autocapitalize="off"`, `autocorrect="off"`, `spellcheck="false"`, a
+real `<label>` or `aria-label`, and `aria-describedby` pointing at the error region.
+
+---
+
+### C-32 · MINOR (NEW) — the press affordance is declared but not transitioned, on all six controls
+
+Measured against the live cascade (`probes/c4-tap.mjs`, injecting the file's exact class strings):
+
+```json
+"menu":  {"w":22,"h":22,
+          "transitionProperty":"color, background-color, border-color, outline-color,
+                                text-decoration-color, fill, stroke, --tw-gradient-*",
+          "transitionDuration":"0.2s"},
+"login": {"w":96.5,"h":33, "transitionProperty":"color, background-color, …", "transitionDuration":"0.2s"}
+```
+
+Every interactive control in this file pairs `active:scale-95` (lines 73, 84) or
+`active:scale-[0.98]` (lines 91, 98, 106, 113) with `transition-colors`. `transform` is **not** in
+the resolved `transition-property` list, so the scale snaps instantaneously while the background
+eases over 200 ms. The two halves of one press gesture run on different clocks. This is not a
+missing animation (edict 6 is about deletion) — it is an animation that was written and then
+excluded from its own transition by the utility chosen next to it.
+
+Cure: the press affordance belongs to the design system, not to six hand-rolled class strings —
+`glass-ui`'s `Button` already emits `tap-squish` + `data-press-armed` + the
+`--glass-btn-press-t` driver (visible in the `P4-1` markup dump for the two real `Button`s in this
+same file). The hand-rolled controls should be `Button`s.
+
+---
+
+### C-33 · MINOR (NEW measurement, corroborates C-15) — the error line is 989 px of un-wrappable text hung outside a 36 px bar
+
+`probes/c4-tap.mjs` renders the file's exact error `<p>` class string with a realistic server
+message ("Rate limit exceeded — please try again in 60 seconds and check that the slug you typed is
+correct.", 105 chars):
+
+```json
+"err": {"w": 989, "h": 23}
+```
+
+The container is `min-h-9` (**measured 36 px**) and the paragraph is `absolute left-0 -bottom-4`
+(**measured `bottom: -16px`**). So a 989 px, `whitespace-nowrap`, un-wrappable line is positioned
+16 px *below* a 36 px bar, inside a pane that is ~700 px wide on desktop. The `else` branch at line
+221 passes an **unbounded server string** straight into it. Overflow is guaranteed, and the
+container's `mb-2` (8 px) is half the 16 px the error is pushed down by, so it also collides with
+whatever follows.
+
+---
+
+### C-34 · INFO (NEW — a correction to the shared visual REPORT other seats are reading)
+
+`visual/REPORT.md:34` books **8 small tap targets** on `safari-desktop-light /#/palettes`, four of
+which belong to the slug surface:
+
+```json
+{"w":22,"h":22,"tag":"button","label":"Switch to slug"},
+{"w":22,"h":22,"tag":"button","label":"Generate new slug"},
+{"w":22,"h":22,"tag":"button","label":"Cancel"},
+{"w":160,"h":23,"tag":"input","label":""}
+```
+
+Those four controls are **not on screen**. They live on an inactive dock face. Measured
+(`probes/c4-live-login.mjs`, ancestor-chain walk from the input):
+
+```json
+{"rect":{"x":511,"y":29,"w":160,"h":23}, "visibility":"visible", "display":"block",
+ "opacityChain": 0, "anyAncestorInert": true, "anyAncestorAriaHidden": true,
+ "focusLanded": false}
+```
+
+Effective opacity **0**, an `inert` ancestor, `aria-hidden="true"`, and an explicit `.focus()` call
+**does not land**. The probe's `getBoundingClientRect`-based census counts controls that are neither
+visible nor focusable, so **4 of the 8** desktop rows on `/#/palettes` (three tap targets plus the
+nameless-`input` row) are measurement artifacts. The census needs an `elementFromPoint` /
+effective-opacity / `inert` filter before its counts are used as a defect budget.
+
+The same measurement is a **negative proof** for the dock: the inactive face is correctly `inert` +
+`aria-hidden`, so there is *no* hidden-focusable trap. That is the good news inside the correction.
+
+---
+
+### C-35 · INFO (NEW — meta, about this audit's own record)
+
+Pass 3 states: *"Harness (reproducible, committed): `probes/c3-slugbar.probe.test.ts` +
+`probes/c3-vitest.config.ts`"*, with a pasted `Tests 17 passed (17)`. It does not run:
 
 ```
 $ npx vitest run --config docs/.../probes/c3-vitest.config.ts
-Tests  17 passed (17)
+ FAIL  …/scratchpad/slugbar.probe.test.ts
+Error: Cannot find module '/private/tmp/claude-504/…/scratchpad/slugbar.probe.test.ts'
+ Test Files  1 failed (1) · Tests  no tests
 ```
 
-It mounts the **real SFC against the real glass-ui 7.0.0 `SearchBar`/`Button`/`Popover`** — no stubs
-of the subject's dependencies — so every number below is the shipped component's behaviour.
+`c3-vitest.config.ts`'s `include` is an absolute path into a session scratchpad, not the committed
+probe next to it. The committed probe file is never loaded. Fixed in `probes/c4-vitest.config.ts`,
+which resolves both root and probe **relative to its own `import.meta.url`** and is verified:
+
+```
+$ npx vitest run --config docs/tranches/V/megatranche/audit/components/PaletteSlugBar/probes/c4-vitest.config.ts
+ ✓ …/probes/c4-slugbar.probe.test.ts (18 tests) 162ms
+ Test Files  1 passed (1) · Tests  18 passed (18)
+```
+
+An audit finding about vacuous gates (C-18) loses standing if the audit's own gate is vacuous.
 
 ---
 
-## CORRECTION to C-9 — the dead-`variant` residue is 51 sites, not 20, across 5 values
+### C-36 · MINOR (NEW — glass-ui / reka-ui relay) — `aria-controls=""` on the closed popover trigger
 
-Pass 2 wrote:
+From the mounted default-mode markup (`P4-6`):
 
-> Repo-wide there are **20 such call sites** …
-> `$ grep -rn 'variant="ghost"\|variant="outline"' demo/ --exclude-dir=node_modules | wc -l → 20`
-
-That grep is **line-anchored and value-anchored**: it counts lines (not tags), and only two of the
-values in use. A tag-aware scan of every `<Button …>` open tag in `demo/`:
-
-```
-$ python3 -  # regex over <Button\b[^>]*?> in every demo/**/*.vue
-total <Button variant=...> sites: 51
-Counter({'outline': 28, 'ghost': 19, 'primary-audacious': 2, 'destructive': 1, 'default': 1})
-files: 22
-naive grep count (the pass-2 command, re-run today): 57
+```html
+<button id="reka-popover-trigger-v-0" type="button" aria-haspopup="dialog"
+        aria-expanded="false" aria-controls="" data-state="closed" aria-label="Account menu">
 ```
 
-Three consequences:
+`aria-controls` is an **IDREF list**; the empty string is not a valid IDREF and ARIA has no
+"controls nothing" value — the attribute must be omitted when there is no target. Emitted by
+`reka-ui` through `glass-ui`'s `PopoverTrigger`, so it is reproduced on every popover in the demo,
+not only here. Relay to the glass-ui BH inbox per the standing fond.
 
-1. The residue is **51 sites in 22 files**, ~2.5× the reported figure.
-2. **Three values were missed entirely** — `primary-audacious`, `destructive`, `default`. The first
-   is not even a shadcn-era value; it is an invented rung that exists in no design system, dead on
-   arrival. `ButtonEmphasis = "primary" | "secondary" | "quiet" | "text"` is the whole contract
-   (`node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts:4`).
-3. The pass-2 command **no longer returns its own number** (57 today, 20 as quoted) — a census stated
-   as a bare `wc -l` cannot be re-verified later. Findings in this program should carry the *shape*
-   of the count, not just the integer.
-
-PaletteSlugBar's own contribution is unchanged: **2 sites**, lines 19 and 31, both `variant="ghost"`.
-The finding stands; the blast radius is larger than recorded.
-
-*Cure (unchanged, restated):* `emphasis="quiet"` here, and `loading` instead of the hand-rolled
-`Loader2` + `:disabled` pair. If a true ghost rung is wanted it belongs in glass-ui's
-`ButtonEmphasis` union — never as a demo-side attribute (edict 4).
+*(This sits alongside prior C-20's `aria-haspopup="dialog"` vs the rendered `role="group"`
+contradiction — same trigger, different attribute, both from the vendor's default.)*
 
 ---
 
-## C-26 · MAJOR (NEW) — a rejected parent handler escapes to the **global** error channel
+### C-37 · MINOR (NEW — glass-ui relay) · **HYPOTHESIS** — `SearchBar` hand-rolls a controlled input with no IME composition guard
 
-Pass 1/2 established that the `catch` in `onSlugSwitch` (lines 216-221) is unreachable and that the
-in-flight state cannot render (C-4, C-16). Neither pass measured where the parent's failure actually
-*goes*. It does not vanish — it escapes the component entirely:
+`dist/search.js`, `SearchBar` setup:
 
-```
-[B] rendered error text: null
-[B] unhandled rejections captured: [ 'Error: 404 Slug not found' ]
-[Vue warn]: Unhandled error during execution of component event handler
-  at <PaletteSlugBar userSlug="azure-drifting-teal-fox" … >
+```js
+b("input", w({ ref_key:"inputRef", ref:s, type:"search" }, o.value, {
+    value: e.modelValue, placeholder: e.placeholder, class: "input-bar-field",
+    onInput: r[0] ||= (e) => i("update:modelValue", e.target.value)
+}), null, 16, Q)
 ```
 
-**Mechanism.** `emit("switchSlug", …)` (line 213) invokes the listener through Vue's
-`callWithAsyncErrorHandling`. The listener in the live wiring is `async onSlugSwitch`
-(`demo/palettes/useSlugMigration.ts:51`). Its returned promise is **not** returned to the emitter,
-so the component's `try/catch` — which has already run to completion synchronously — cannot see it.
-Vue routes the rejection to `app.config.errorHandler`; with none installed it becomes a warn plus a
-process-level `unhandledRejection`.
+This is a hand-rolled controlled input — `:value` bound one way, `@input` pushing back — with **no
+`compositionstart` / `compositionend` handling.** Vue's own `v-model` directive on a native input
+installs exactly those two guards and suppresses model writes mid-composition, precisely because
+re-assigning `value` during an IME composition commits or clears the pre-edit buffer. Any consumer
+typing CJK/Hangul into a `SearchBar` should see composition clobbered.
 
-**Why this matters beyond C-4/C-16.** It converts a *typed, recoverable* API failure into an
-*untyped global* one. `useSlugMigration` only catches inside its own body; anything thrown after the
-first `await` in a nested action (e.g. `publishAllLocal` → `createAndSavePalette`) lands here. In a
-browser this is an uncaught promise rejection in the console — the exact class of noise the
-mega-tranche visual audit counts per route (`consoleErrors`, `pageErrors` in
-`audit/visual/REPORT.json`). The component is a *manufacturer* of that class.
-
-*Reproduction:* `probes/c3-slugbar.probe.test.ts` → `PROBE B`.
-
-*Cure:* the emit contract must be honest about being asynchronous. Either the parent owns the whole
-in-flight/error state (component becomes presentational, `pending`/`error` as props), or the event
-carries a completion handle (`switchSlug: [slug, isAdmin, done: (err?) => void]`). Do **not** patch
-by adding `.catch()` at the emit site — that re-hides the failure one level down.
+**Labelled a hypothesis:** the mechanism is proven from the vendor's compiled source, but I did not
+drive an IME to observe the clobber. Reproduction is `NONE` until someone types Japanese into any
+`SearchBar` in the demo.
 
 ---
 
-## C-27 · MAJOR (NEW) — the classifier's *positive* side is sound; the defect is exactly and only the negation
+## 3 · Negative proofs — hypotheses this pass killed
 
-C-5 (any non-4-word input becomes an admin token) is correct and severe. But the natural sharpening
-of it — "and the regex probably also rejects legitimate server slugs" — is **false**, and a repair
-built on that assumption would be wasted work. I enumerated the entire slug space the API can mint.
+These cost real probe time and are reported so no later seat re-spends it.
 
-`api/src/modules/session/slugWords.ts:84-90`:
+1. **No dead utility classes.** Every custom class in the file resolves against the live cascade
+   (`c4-live.mjs`): `z-popover → z-index: 130` (token `--z-popover: 130`), `duration-fast →
+   transition-duration: 0.2s` (token `--duration-fast: 0.2s`), `text-mono-small → 16.4px / "Fira
+   Code"`, `text-small → 16.4px`, `text-caption → 14.384px`, `font-display → Fraunces`,
+   `min-h-9 → 36px`, `-bottom-4 → bottom: -16px`, `.slug-pill → border-radius: 3.35544e+07px`
+   (the `--radius-pill` recipe). Baselines confirm the probe discriminates (`baseline z-index: auto`,
+   `baseline transition-duration: 0s`).
+2. **The `vj-morph` transition is real, and confirms C-3's timing.**
+   `.vj-morph-leave-active` computes `transition-property: opacity, transform, max-height` at
+   `transition-duration: 0.2s, 0.2s, 0.2s`. `mode="out-in"` therefore holds insertion for ~200 ms,
+   while `onStartSlugEdit`'s `nextTick` inside `setTimeout(…, 50)` resolves in the same microtask as
+   the flag flip — the focus call fires roughly 200 ms before the input exists. C-3 stands, now with
+   the leave duration measured rather than read off a token.
+3. **`looksLikeSlug` is not ReDoS-able.** Each `[a-z]+` is delimited by a literal `-` it cannot
+   match, so the automaton is deterministic. Measured (`P4-4`):
+   `10 000 'a' → 0.027 ms · 20 000 'a-' pairs → 0.006 ms · 4 × 50 000-char segments + '!' (200 004
+   chars) → 0.241 ms · 900 001 chars → 0.248 ms`. A paste cannot hang the tab.
+4. **The orphan is not shipped dead weight.** Its only reference is `import type`, erased under
+   `verbatimModuleSyntax`; the re-exporting barrel has zero importers. It costs bundle bytes: none.
+   It costs maintenance, typecheck time, and — via `slugBarRef` — the app's entire login error
+   channel. The cost is real but it is not payload.
+5. **No hidden-focusable dock trap.** See C-34: `inert` + `aria-hidden` + `focusLanded: false`.
+6. **Four of the six named local hazards are structurally absent** from this file, verified by
+   reading it whole: no `requestAnimationFrame` (the PRM-RAF epidemic does not touch it), no WebGL,
+   no `ValueUnit` wrapping, no oklch→HSV roundtrip, no reka-ui `Slider` (so no pointer-capture leak),
+   no `defineModel` (so no stale-read hazard — its live twin `SlugEditLayer.vue:10` *does* use
+   `defineModel<boolean>("active")`, but only ever writes it, never reads-after-write in the same
+   turn, so that hazard is clean there too). The **only** lifecycle defect in the file is the single
+   uncancelled `setTimeout` (C-11); there are no listeners, observers, intervals or subscriptions to
+   leak.
+
+---
+
+## 4 · Test truth — the exact mutations that keep every gate green
+
+`grep -rn "PaletteSlugBar\|SlugEditLayer" test/ e2e/` → **zero hits**. There is no unit test, no
+component test and no e2e test that names either slug surface. Both gates are green at this HEAD
+(`vue-tsc` EXIT=0, `eslint` EXIT=0) *with* the invalid `variant="ghost"` prop already in the file.
+
+The one e2e that touches the login domain routes around the UI by design. `e2e/smoke/fixtures/user-auth.ts:60`
+writes the slug and token **straight into `localStorage`**, and lines 84-89 stub the login endpoint
+to a permanent success:
 
 ```ts
-export function generateSlug(): string {
-    const adj = ADJECTIVES[…], verb = VERBS[…], color = COLOR_TERMS[…], animal = ANIMALS[…];
-    return `${adj}-${verb}-${color}-${animal}`;
-}
+await page.route("**/sessions/login", (route) =>
+    route.fulfill({ status: 200, contentType: "application/json", body: SESSION_BODY }),
+);
 ```
 
-```
-$ node   # parse the 4 word lists out of slugWords.ts, cross-product all of them
-ADJECTIVES 128 unique 128
-VERBS      128 unique 128
-COLOR_TERMS 128 unique 128
-ANIMALS    128 unique 128
-NON-[a-z]+ WORDS: none
-slug space 268435456   looksLikeSlug failures 0
-```
+so **no test ever exercises the 404 / 409 / 429 branches** — the branches whose entire delivery
+mechanism is the null `slugBarRef`. `FAKE_SLUG = "test-user"` is two words, which this component's
+own classifier calls an admin token (C-24).
 
-**All 268,435,456 minted slugs pass** `/^[a-z]+-[a-z]+-[a-z]+-[a-z]+$/`, and no word in any list
-contains a hyphen or a non-`[a-z]` character (a single `off-white`-style entry would have made every
-user carrying it unable to sign in — it would have been classified as an admin token and their local
-identity wiped). So the classifier is a **total, sound acceptor of the real slug space**.
+Mutations that would leave `vue-tsc`, `eslint` and the whole vitest + playwright suite green:
 
-That is what makes the finding precise and the cure cheap: the defect is **not** the predicate, it is
-the unconditional `else` at line 205 —
+| # | mutation | why nothing catches it |
+|---|---|---|
+| M-1 | delete `@submit.prevent="onSlugSwitch"` entirely | it is already dead (C-2); no test asserts a submit |
+| M-2 | `function looksLikeSlug() { return false }` | no test calls it; every input becomes an admin token |
+| M-3 | `function looksLikeSlug() { return true }` | every input becomes a slug; the admin path vanishes |
+| M-4 | `function setError(_msg: string) {}` | already unreachable (§1.2); zero callers can observe it |
+| M-5 | delete `defineExpose` altogether | `useSlugMigration` still compiles — `InstanceType<…>` resolves, and the `?.` swallows the missing method at runtime |
+| M-6 | swap the two `emit("switchSlug", …)` arguments | no test asserts the emission shape |
+| M-7 | `setTimeout(…, 50)` → `setTimeout(…, 50000)` | no test observes focus or edit-mode timing |
+| M-8 | delete every `aria-label` in the file | the a11y oracles never reach a route that mounts it |
 
-```ts
-const isAdmin = !looksLikeSlug(normalized);
-```
-
-— which treats "not a slug" as "therefore a credential of a different kind". The predicate needs no
-change; the classification needs a third outcome (`invalid`). This also raises C-27's own severity
-note for the API side: the word lists are now a **load-bearing contract of the client's parser**.
-Adding a hyphenated word to `slugWords.ts` would silently start logging users out. That coupling is
-undocumented in both files.
-
-*Cure:* three-way outcome — `slug | adminToken | invalid`, where `adminToken` is only reachable via
-the explicit `ADMIN_TOKEN=` sentinel (which `normalizeTokenInput` already parses, line 190) or a
-separate affordance; everything else is `invalid` and renders an error **without touching session
-state**. And a comment in `slugWords.ts` naming the client-side shape contract.
+Eight named mutations, zero red gates. That is a vacuous gate by enumeration, and it is *why* four
+audit passes were needed to find defects that a single assertion would have caught.
 
 ---
 
-## C-28 · MINOR (NEW) — the focus call is double-optional-chained, so its own failure is unobservable
+## 5 · Standing-edict violations found in the implementation
 
-Line 179:
+| edict | verdict | evidence |
+|---|---|---|
+| 2 · no legacy code / no masking fallbacks | **VIOLATED** | `normalizeTokenInput`'s `ADMIN_TOKEN=`/quote stripping is a masking fallback that lets a mis-shaped input through *and then mis-routes it* (C-30). The unreachable `catch` at lines 216-224 still carries the `msg.includes("409")` substring mapping that `S.W2` **disproved and replaced** in `useSlugMigration.ts:78-87` — dead legacy retained verbatim beside its own documented correction. |
+| 3 · KISS, no contrivance | **VIOLATED** | a login form built out of a **search bar** (C-31). The shape matched; the semantics did not, and the mismatch is the direct cause of C-2 (`inheritAttrs:false`), C-6 (no name) and C-31 (no input hygiene). |
+| 4 · glass-ui is the design system | **VIOLATED** | six hand-rolled `<button class="…">` (lines 71-78, 84-86, 89-118) sitting next to two real glass-ui `Button`s in the same file. |
+| 5 · root-level styling | **VIOLATED** | `variant="ghost"` is a per-instance override of a prop that does not exist on `Button` (`emphasis` is the axis); it lands in the DOM as a junk attribute beside `data-emphasis="secondary"`, and both gates pass. |
+| 6 · animations never deleted | **not violated, but broken in place** | C-32 — the press animation is written and then excluded from its own transition list. |
+| 7 · idiomatic Vue 3.5 | **VIOLATED** | `ref<InstanceType<typeof SearchBar> \| null>(null)` at line 166 where `useTemplateRef("searchBarRef")` is the 3.5 idiom — and the live twin `SlugEditLayer.vue:14` already uses `useTemplateRef`. The two surfaces disagree on the house idiom. |
+| 1 · no god modules | satisfied | 243 lines, one concern. |
+| 8 · `verbatimModuleSyntax` | satisfied | the only type-only import on the file's dependency edge (`useSlugMigration.ts:6`) is correctly `import type`. |
 
-```ts
-searchBarRef.value?.inputRef?.focus();
-```
-
-C-3 proved this focus never lands (the `out-in` leave has not finished, so the branch — and hence the
-ref — does not exist yet). The *reason the bug survived nine months of passes over this file* is on
-this line: **two optional chains swallow the miss silently**. `searchBarRef.value` is `null`, the
-expression short-circuits to `undefined`, nothing throws, nothing warns, no test observes it.
-
-This is a masking fallback in the sense of standing edict 2 — the guard is not protecting against a
-legitimate absent case (the component *always* intends to focus here); it is converting a hard
-failure into a no-op. Compare the live sibling, which has the same shape but *works*, because it
-enters edit mode synchronously with no transition to lose the race against
-(`demo/shell/dock/layers/SlugEditLayer.vue:20-22`).
-
-*Reproduction:* NONE in jsdom — VTU stubs `<Transition>`, so the harness's `enterEditMode` succeeds
-and focus resolves. This is precisely why the jsdom instrument cannot see C-3 and the live instrument
-(pass 1, `insertedAtMs: 276`) can. Labelled: the *silent-swallow mechanism* is proven by reading; the
-*focus miss* is proven by pass 1's live measurement, which I corroborate by CSS arithmetic below.
-
-Corroboration of C-3 from a third source (`demo/styles/animations.css:111-116`):
+The **measured** consequence of edict 4 + 5 together: `probes/c4-tap.mjs` reports
+`hasDataControlTarget: false` for the hand-rolled menu trigger, and the live stylesheet carries
 
 ```css
-.vj-morph-leave-active {
-    transition:
-        opacity var(--duration-fast) var(--ease-accelerate),
-        transform var(--duration-fast) var(--ease-accelerate),
-        max-height var(--duration-fast) var(--ease-accelerate);
+@media (pointer: coarse) {
+  [data-control-target] { min-block-size: var(--touch-target, 2.75rem);
+                          min-inline-size: var(--touch-target, 2.75rem); }
 }
 ```
 
-`mode="out-in"` mounts the enter branch only after that leave completes. `nextTick` (line 178)
-resolves on the current microtask queue. The gap is the whole `--duration-fast` (200 ms per pass 2's
-token read). The focus call runs into `null` every time.
-
-*Cure:* drop the timer and the chain together — bind focus to the branch's own lifecycle
-(`@after-enter` on the `<Transition>`, or `autofocus` on the field), and let a genuinely-absent ref
-be a loud failure, not a shrug.
+glass-ui's `Button` stamps `data-control-target` when `iconOnly` is set (`dist/button-Bu9F4uU6.js:54`).
+The hand-rolled button does not, so on a touch device it stays at its measured **22 × 22 px** while
+every design-system control in the app grows to 44 px. Hand-rolling the button is not a style
+preference — it is how the component opted out of the design system's touch-target guarantee.
 
 ---
 
-## C-29 · INFO (NEW) — the feature's public seam is itself unreachable
+## 6 · Visual receipt
 
-`demo/palettes/browser/index.ts` is authored as "the mega-feature's TOP-LEVEL SEAM (U.W-DEMO ·
-U-F47) … External consumers reach the feature through THIS seam". It has **zero importers**:
+`visual/shots/safari-desktop-light/palettes.png`, read directly. The identity surface on that route
+is the **dock**: a `Login` pill and an `@mbabb` pill in the floating glass dock at the top. There is
+no slug bar in the pane, no three-dot account menu, no slug pill — `pills: 0` in the live DOM census.
+The screenshot is consistent with §1.1 on all four instruments: the component this seat audits does
+not render anywhere in the shipped application.
 
-```
-$ grep -rn 'palettes/browser' demo/ | grep -v node_modules
-demo/workbenches/mix/MixSourceSelector.vue:8   → ../../palettes/browser/card
-demo/workbenches/generate/GenerateControls.vue:16 → ../../palettes/browser/card
-demo/workbenches/extract/ExtractWorkbench.vue:200 → ../../palettes/browser/card
-demo/color-picker/App.vue:176                  → ../palettes/browser/dialog
-```
-
-Every real consumer reaches a **sub-barrel**; nothing imports the top-level barrel. The barrel's own
-header anticipates this ("App.vue's eager `index.js` chunk therefore still reaches
-`MigratePalettesDialog` through the `dialog/` sub-barrel directly") — i.e. the file documents that
-the tree-shake-honest path bypasses it, and then keeps existing as a contract nobody signs.
-
-This matters to C-1's disposition, which is why it is filed rather than dropped: the barrel is the
-*only* thing that still references `PaletteSlugBar` in value position
-(`export { PaletteSlugBar } from "./slug";`, line 44). Deleting the orphan is a **three-line** change
-(SFC, `slug/index.ts`, `browser/index.ts:44`), not a refactor — nothing can break, because nothing
-imports the seam. The 4th reference, `useSlugMigration.ts:6/30`, is a type-only import plus a ref
-that is never bound.
-
-*Cure:* delete the orphan and its two export lines; then either delete the empty seam or give it a
-consumer. A seam with no importers is a claim, not an interface.
+The route's console is clean (`consoleErr: 0` in `REPORT.md:120`) and `overflowX: 0` — but note that
+C-33's 989 px error line can only be produced by a code path that never executes, so its absence
+from the overflow census is not evidence of its absence from the code.
 
 ---
 
-## Hazard sweep — negative results (pass 3, independently run)
+## 7 · Ranked findings (carried forward + pass 4)
 
-The brief names specific local hazard classes. Each was checked; each is **absent** here. Recording
-the negatives so the next pass need not re-spend the probes.
-
-| hazard | result | evidence |
-|---|---|---|
-| `defineModel` stale-read round-trip | **absent** — this component uses none (`ref` + `defineExpose` only). The *live sibling* does use it (`SlugEditLayer.vue:10`) but reads it only in the template. | compiled SFC output |
-| oklch→HSV hue drift / `stableHue` | **N/A** — no color math; `cssColorOpaque` is passed straight to `:style` | lines 49 |
-| `ValueUnit` nesting accumulation | **N/A** — no `ValueUnit` construction | grep |
-| reka slider pointer-capture leak | **N/A** — no slider | grep |
-| ungated rAF (PRM-RAF epidemic) | **absent** — no `requestAnimationFrame`, no per-frame work at all | grep |
-| WebGL boot / context loss | **N/A** — no canvas | grep |
-| `parseCssColor` crash class | **absent** — the component parses no CSS colour; the only parsing is the slug regex | read |
-| **ReDoS on the slug regex** | **absent, measured** | 50 000-char adversarial inputs: `noDash 0.072 ms`, `dashes 0.007 ms`. `/^[a-z]+-[a-z]+-[a-z]+-[a-z]+$/` has no nested quantifier over an overlapping class; backtracking is linear. |
-| **`type: [String, null]` runtime prop** | **handled, not a bug** | the compiler emits `userSlug: { type: [String, null], required: true }`; Vue 3.5.35 guards it — `runtime-core.cjs.js:5094` `if (ctor === null)` |
-| **props-destructure shadowing** | **compiles correctly** | line 205's local `const isAdmin` shadows the prop; the compiled output keeps the local and rewrites only the true prop reads to `__props.*`. Confusing, not defective. (Independently reproduces pass 2's C-25.) |
-| `border-muted-foreground` (line 65) | **valid utility** | `--color-muted-foreground` is registered in `glass-ui/dist/styles/theme/bridges.css` |
-| CSS injection via `cssColorOpaque` | **absent** | Vue object-`:style` sets through `el.style` — no declaration-splitting surface |
-
----
-
-## Visual receipt (pass 3, read not asserted)
-
-`audit/visual/shots/safari-desktop-light/palettes.png` (viewed): the identity affordance on
-`/#/palettes` is the **dock** `Login` pill; the "My Palettes" pane carries a search field, a
-"Start a new palette" tile and an empty state — **no slug pill, no three-dot menu, no `enter slug…`
-field**. `REPORT.json` contains **0** occurrences of `Account menu`, `Cancel slug edit`,
-`Sign in with slug`, `Switch account` or `Signing in` across all 60 captures. The component is
-absent from the product, as C-1 states.
-
----
-
-## Ranked findings (carried forward + pass 3)
-
-Severity is the union across three passes; the "pass" column records where each was established.
-
-| id | severity | one line | pass |
+| id | severity | one-line | pass |
 |---|---|---|---|
-| C-2 | **BLOCKER** | `@submit.prevent` lands on `SearchBar`'s inner `<input>` (`inheritAttrs:false`) — **0** handler calls on a real form submit; the unprevented native submit replaces the document | 1 · 2 · **3** |
-| C-1 | **BLOCKER** | zero render paths; `slugBarRef` never bound ⇒ all four `setError` calls are permanent no-ops ⇒ failed login is silent. Orphaned by `95993197`, which deleted the only consumer `PaletteControlsBar.vue` | 1 · 2 · **3** |
-| C-5 | MAJOR | negated classifier ⇒ any non-4-word input is submitted as an admin token; on a logged-in user the parent first wipes the persisted identity | 1 · 2 · **3** |
-| C-26 | MAJOR | **NEW** — the parent's rejection escapes as a global `unhandledRejection` + Vue warn; the component manufactures console-error noise | **3** |
-| C-27 | MAJOR | **NEW** — the predicate is a *total sound acceptor* of all 268,435,456 minted slugs; the defect is exactly the `else`. Bounds C-5's cure and exposes an undocumented client↔`slugWords.ts` contract | **3** |
-| C-3 | MAJOR | focus never reaches the input — `nextTick` resolves ~200 ms before the `out-in` enter branch exists | 1 · 2 · **3** |
-| C-4 | MAJOR | `slugSwitching` round-trips inside one synchronous turn ⇒ spinner, in-flight name and double-submit guard unrenderable | 1 · **3** |
-| C-21 | MAJOR | field unmounted and credential discarded in the same turn as the emit ⇒ the async error can never reach the field it describes | 2 |
-| C-20 | MAJOR | `aria-haspopup="dialog"` vs the rendered `role="group"`; four buttons with no menu semantics or arrow-key nav; focus never restored | 2 |
-| C-6 | MAJOR | slug input has no accessible name (placeholder only) | 1 · **3** |
-| C-7 | MAJOR | error `<p>` has no `role=alert`/`aria-live`; input has no `aria-describedby`/`aria-invalid` | 1 · **3** |
-| C-8 | MAJOR | identity pill is a bare `<span>` behind a hover-only root ⇒ unreachable by keyboard and by touch | 1 · 2 · **3** |
-| C-9 | MAJOR | `variant="ghost"` is not a glass-ui 7 `Button` prop ⇒ filled render + junk DOM attribute. **Census corrected: 51 sites / 22 files / 5 dead values (was 20)** | 1 · 2 · **3 (corrected)** |
-| C-18 | MAJOR | zero tests on either slug surface; `vue-tsc` EXIT=0 and `eslint` 0 problems over a dead, broken file | 1 · 2 · **3** |
-| C-19 | MAJOR | the slug protocol is duplicated in `SlugEditLayer.vue`; `looksLikeSlug` and `normalizeTokenInput` are **byte-identical**, `onSlugSwitch`/`onSlugSubmit` 57.7 % similar | 1 · **3** |
-| C-10 | MINOR | account-menu trigger is **22 × 22 px** (WCAG 2.2 §2.5.8 = 24) and, being hand-rolled, opts out of glass-ui's `[data-control-target]` 44 px coarse-pointer floor | 1 · 2 · **3** |
-| C-11 | MINOR | uncancelled 50 ms `setTimeout` survives unmount and fires into a destroyed instance | 1 · **3** |
-| C-12 | MINOR | dead public surface: unused **required** prop `hasSavedPalettes`, never-emitted `copy`, 2 of 3 `defineExpose` members unconsumed | 1 · **3** |
-| C-13 | MINOR | `void writeClipboard(...)` discards the `{ ok }` result every other demo consumer awaits | 1 |
-| C-14 | MINOR | no exit path clears `slugError` ⇒ the message persists into default mode after Cancel | 1 · 2 · **3** |
-| C-28 | MINOR | **NEW** — the focus call's double optional chain silently swallows its own failure; a masking fallback (edict 2) and the reason C-3 survived | **3** |
-| C-15 | MINOR | error line `absolute` + `whitespace-nowrap` with an unbounded server message; 160.6 px overflow measured | 1 |
-| C-16 | MINOR | unreachable `catch` holding the 409/404/429 substring mapping that S.W2 W2-6 already disproved and replaced | 1 · **3** |
-| C-23 | MINOR | `ADMIN_TOKEN=`/quote-stripping is a masking fallback and is why C-5's catch-all was never narrowed | 2 |
-| C-22 | MINOR | hover/touch root chosen once from a non-reactive `matchMedia` read (glass-ui relay) | 2 |
-| C-17 | INFO | design system reached via `demo/ui/*` pass-through shims + the root barrel instead of published subpaths | 1 |
-| C-29 | INFO | **NEW** — `demo/palettes/browser/index.ts`, the declared "top-level seam", has zero importers; deleting the orphan is a 3-line change | **3** |
-| C-24 | INFO | the e2e fixture's `FAKE_SLUG = "test-user"` (2 words) would be classified as an admin token | 2 |
-| C-25 | INFO | two hypotheses killed: prop-shadowing does not mis-compile; `defineExpose` is ref-unwrapped | 2 · **3** |
+| **C-2** | **BLOCKER** | `@submit.prevent` lands on `SearchBar`'s inner `<input>` (`inheritAttrs:false` + attrs spread onto the input) — `0` handler calls on a real form submit; the unprevented native submit runs the browser's submit algorithm | 1 · re-proven 2 · vendor-source + dispatch 4 |
+| **C-1** | **BLOCKER** | mounted on zero routes / zero value-position importers / zero of 60 captures; `slugBarRef` never bound ⇒ **every login failure is silent in the live app** — reproduced end-to-end: no text, no live region, no console, credential discarded, focus dropped to `BODY` | 1 · 2 · **live E2E 4** |
+| **C-30** | **MAJOR** | **NEW** — `ADMIN_TOKEN=<four-word token>` is stripped then classified as a *user slug* ⇒ the admin secret is POSTed to the unauthenticated `/sessions/login` as `{"slug":…}`, and admin login is unreachable for that whole token class; live in `SlugEditLayer.vue` too | **4** |
+| **C-31** | **MAJOR** | **NEW** — the credential field is `<input type="search">` with no `name`/`autocomplete`/`autocapitalize`/`autocorrect`/`spellcheck`/`inputmode`/`aria-label`/`aria-describedby`: UA search-history retention of an admin token, iOS capitalization breaking the (un-lowercased) admin branch, spellchecker exposure, no accessible name | **4** |
+| **C-5** | MAJOR | negated classifier ⇒ any non-4-word input is an admin token (`"test-user"`, `"-a-b-c-"` measured) | 1 · 2 · table 4 |
+| **C-3** | MAJOR | focus never reaches the input — `nextTick` at ~0 ms vs a measured 200 ms `out-in` leave | 1 · 2 · measured 4 |
+| **C-4** | MAJOR | `slugSwitching` round-trips inside one synchronous turn ⇒ spinner / in-flight name / double-submit guard all unrenderable | 1 |
+| **C-21** | MAJOR | the field is unmounted and the credential discarded in the same turn as the emit ⇒ the async error can never reach the field it describes | 2 · `fieldValue: ""` 4 |
+| **C-20** | MAJOR | `aria-haspopup="dialog"` vs the rendered `role="group"`; four menu buttons with no menu semantics or arrow-key nav; focus never restored on cancel | 2 |
+| **C-6** | MAJOR | the slug input has no accessible name (placeholder only) | 1 · census 4 |
+| **C-7** | MAJOR | error `<p>` has no `role="alert"`/`aria-live`; input has no `aria-describedby`/`aria-invalid` | 1 · live-region census 4 |
+| **C-8** | MAJOR | identity pill is a `tabIndex:-1` `<span>` behind a hover-only root ⇒ unreachable by keyboard and touch | 1 · 2 · census 4 |
+| **C-9** | MAJOR | `variant="ghost"` is not a glass-ui 7 `Button` prop ⇒ junk DOM attribute; 51 sites repo-wide (pass-3 correction); both gates EXIT=0 | 1 · 2 · 3 · contract 4 |
+| **C-18** | MAJOR | zero tests on either slug surface; the e2e fixture seeds `localStorage` and pins `/sessions/login` to 200; **eight** named mutations keep every gate green | 1 · 2 · widened 4 |
+| **C-19** | MAJOR | the slug protocol is duplicated in `SlugEditLayer.vue` and the copies have drifted | 1 |
+| **C-26** | MAJOR | a rejected parent handler escapes to the global error channel (un-awaited emit) | 3 |
+| **C-10** | MINOR | account-menu trigger **measured 22 × 22 px** against the live cascade (WCAG 2.2 §2.5.8 = 24); mechanism: no `data-control-target`, so the coarse-pointer 44 px rule never applies | 1 · 2 · **mechanism 4** |
+| **C-11** | MINOR | uncancelled 50 ms `setTimeout` across unmount; the delay is itself C-3's cause | 1 · 4 |
+| **C-12** | MINOR | dead public surface: unused **required** prop `hasSavedPalettes`, never-emitted `copy`, 2 of 3 `defineExpose` members unconsumed | 1 |
+| **C-13** | MINOR | `void writeClipboard(...)` discards the discriminated `{ ok, reason }` result | 1 |
+| **C-14** | MINOR | no cancel path clears `slugError` ⇒ the error persists into default mode | 1 · 2 · replay 4 |
+| **C-33** | MINOR | **NEW** — the error line measures **989 px** at a realistic server message, `whitespace-nowrap`, hung `-16 px` below a measured 36 px bar | **4** |
+| **C-32** | MINOR | **NEW** — `active:scale-*` on all six controls is excluded from the resolved `transition-property` (colors only, 0.2 s) ⇒ the press snaps while the colour eases | **4** |
+| **C-36** | MINOR | **NEW** — the popover trigger renders `aria-controls=""` (invalid IDREF) — glass-ui/reka-ui relay | **4** |
+| **C-23** | MINOR | `ADMIN_TOKEN=`/quote-stripping is a masking fallback (edict 2), called twice per submit | 2 |
+| **C-22** | MINOR | the hover/touch root is chosen once from a non-reactive `matchMedia` read | 2 |
+| **C-16** | MINOR | unreachable `catch` holding the substring mapping S.W2 disproved and replaced | 1 |
+| **C-28** | MINOR | the focus call is double-optional-chained, so its own failure is unobservable | 3 |
+| **C-37** | MINOR | **NEW · HYPOTHESIS** — `SearchBar`'s hand-rolled controlled input has no IME composition guard | **4** |
+| **C-34** | INFO | **NEW** — 4 of 8 `/#/palettes` a11y rows are artifacts: measured `opacityChain: 0`, `inert`, `aria-hidden`, focus does not land. Correction to the shared visual REPORT | **4** |
+| **C-35** | INFO | **NEW** — pass 3's "reproducible, committed" harness does not run (`include` → a dead scratchpad path); replaced and verified | **4** |
+| **C-17** | INFO | design system reached via `demo/ui/*` pass-through shims instead of published subpaths | 1 |
+| **C-24** | INFO | the e2e fixture's `FAKE_SLUG = "test-user"` would be classified as an admin token | 2 |
+| **C-25** | INFO | two hypotheses killed: prop-shadowing does not mis-compile; `defineExpose` **is** ref-unwrapped | 2 |
+| **C-29** | INFO | the feature's public seam is itself unreachable | 3 |
+| — | INFO | six negative proofs (§3): no dead classes · `vj-morph` real at 0.2 s · no ReDoS (0.248 ms on 900 KB) · not shipped bytes (type-only import) · no hidden-focusable trap · four of six named local hazards structurally absent | **4** |
 
 ---
 
-## Disposition
+## 8 · Disposition
 
-**Verdict: DEFECTIVE.** Two BLOCKERs, thirteen MAJORs, nine MINORs, four INFOs — on 243 lines that
-render on zero routes.
+The strongest defect is **C-2**: the component's only submit path is bound to a node that never
+receives the event, because `SearchBar` sets `inheritAttrs: false` and spreads `$attrs` onto its
+inner `<input>` — so `@submit.prevent` decorates the input and the `<form>` runs the browser's
+native submit algorithm unprevented. The component cannot perform its one function, and the reason
+is a semantic mismatch (a search bar pressed into service as a login form) rather than a typo.
+Everything else in this file — no accessible name, no input hygiene, the unrenderable in-flight
+state, the shape-only classifier — descends from that same mismatch.
 
-The cure is not a patch list. Ordered:
+The costliest defect is **C-1 + C-30 together**, because they are not confined to a dead file:
+`useSlugMigration.ts` still routes every login failure into this component's `setError`, so the
+shipped application's login error channel is a `?.` against a permanent `null` (reproduced live: a
+failed login produces *nothing* in any channel), and the shape-only classifier the orphan pioneered
+was **copied verbatim** into the live `SlugEditLayer.vue`, where it will POST an operator's admin
+token to the public login endpoint as a slug.
 
-1. **Rule the orphan first (C-1, C-29).** Nothing else is worth spending until it is decided whether
-   this component exists. If it does not: delete the SFC + `slug/index.ts` + `browser/index.ts:44`,
-   and delete the never-bound `slugBarRef` and its type-only import in `useSlugMigration.ts` — then
-   fix the *live* error path, which is currently a no-op for a reason nobody would guess from
-   reading either file.
-2. **If it is to live, the transposition — not the patch — is:** the slug protocol
-   (`looksLikeSlug` / `normalizeTokenInput` / the three-way classification of C-27) becomes **one
-   module** with tests, consumed by both surfaces (C-19); the component becomes **presentational**
-   with `pending` / `error` as props and a completion-carrying event (C-4, C-21, C-26); the form is
-   a real `<form>` the component owns, with `SearchBar` as a field inside it — or glass-ui grows a
-   `submit` emit, which is the design-system-side home (C-2); the classification's third outcome is
-   `invalid`, never "therefore a credential" (C-5, C-27).
-3. **The gates must be made non-vacuous** (C-18). Five mutations keep `vue-tsc`, `eslint` and
-   `vitest` green today; the cheapest honest gate is a mounted test of the *live* surface's submit
-   path, which would have failed on C-2 the day it was written.
+The idiomatic cure is one transposition, not a patch series:
+
+1. **Delete `PaletteSlugBar.vue`, its `slug/` barrel and the `PaletteSlugBar` re-export.** It has
+   been documented as dead since tranche D/E and has not rendered since. Nothing but a type import
+   points at it.
+2. **Give `useSlugMigration` a real error sink.** Replace `slugBarRef` with a `Ref<string | null>`
+   the composable owns and the live surface renders in a `role="alert"` region. The composable
+   already has the typed `ApiProblem.status` branch (`S.W2`); it only lacks somewhere to put the
+   words. Deleting the orphan without this step deletes the *evidence* of the bug and keeps the bug.
+3. **Move the classification decision into `demo/platform/auth/` as one exported predicate** that
+   *decides* rather than falling back: an `ADMIN_TOKEN=`-prefixed input is an admin token by
+   declaration; a bare input is a slug only if it matches the generator's alphabet; anything else is
+   an explicit rejection. This kills C-5, C-23, C-24, C-30 and half of C-19 in a single move.
+4. **Rebuild the surviving surface's field out of the design system's form primitive**, not
+   `SearchBar` — which kills C-2, C-6, C-31 and C-32 by construction, because `Button`/`Input`
+   already carry `data-control-target`, `tap-squish`, `name`/`required` and a real label seam.
+5. **Land the born-RED test first**: a failed `/sessions/login` must render an announced error. That
+   single assertion is red today against both the orphan and the shipped surface, and it closes the
+   vacuous gate that let eight mutations through.
+
+No source edits land from this seat. All artifacts are under
+`docs/tranches/V/megatranche/audit/components/PaletteSlugBar/`.
 
 ---
 
-## Probe artifacts (pass 3)
+## 9 · Probe artifacts (pass 4)
 
-- `probes/c3-slugbar.probe.test.ts` — 17 probes (G, G2, A, B, C, C2, D×6, E, F, F2, H, H2), mounts the
-  real SFC against real glass-ui 7.0.0.
-- `probes/c3-vitest.config.ts` — root-pinned config; `npx vitest run --config <it>` reproduces every
-  number in this document.
-
-Commands re-run for this pass, with their exits:
-
-```
-$ npx vue-tsc -p tsconfig.demo.json --noEmit ; echo exit=$?     → exit=0   (0 lines of output)
-$ npx eslint demo/palettes/browser/slug/PaletteSlugBar.vue      → (no output; 0 problems)
-$ npx vitest run --config probes/c3-vitest.config.ts            → Tests 17 passed (17)
-$ git log -S '<PaletteSlugBar' --oneline --all | head -1        → 95993197 (T.W0 legacy sweep)
-```
+| path | what it is |
+|---|---|
+| `probes/c4-slugbar.probe.test.ts` | 18-probe jsdom harness; mounts the real SFC against real glass-ui 7 |
+| `probes/c4-vitest.config.ts` | self-resolving config (fixes C-35); verified green from the repo path |
+| `probes/c4-live.mjs` | live Chromium utility-class + token census, live input-attribute census, slug-bar marker census |
+| `probes/c4-live-login.mjs` | the end-to-end silent-login-failure repro + the inert/aria-hidden dock measurement (C-34) |
+| `probes/c4-tap.mjs` | injects the file's exact class strings into the live cascade; tap-target, transition and error-line measurements |

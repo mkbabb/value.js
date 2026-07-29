@@ -1,0 +1,52 @@
+{
+  "clobber": {
+    "typed": "oklch(0.72 0.14 244)",
+    "afterOpen": "oklch(0.72 0.14 244)",
+    "afterHue": "oklch(0.72 0.14 244)",
+    "clobberedOnOpen": false,
+    "clobberedOnHue": false
+  },
+  "miniPickerAT": {
+    "dialogCount": 2,
+    "svCanvas": {
+      "tag": "DIV",
+      "role": null,
+      "tabIndex": -1,
+      "ariaLabel": null,
+      "ariaValueNow": null,
+      "ariaValueText": null,
+      "w": 174,
+      "h": 112
+    },
+    "hueStrip": null,
+    "focusables": [
+      {
+        "tag": "BUTTON",
+        "name": "Search",
+        "w": 52.6,
+        "h": 36
+      }
+    ],
+    "innerRect": {
+      "x": 461.5,
+      "y": 609,
+      "w": 208,
+      "h": 218.7,
+      "bottom": 827.7
+    },
+    "outerRect": {
+      "x": 432.5,
+      "y": 430,
+      "w": 240,
+      "h": 468.1,
+      "bottom": 898.1
+    },
+    "nested": true
+  },
+  "forcedSwatchBox": {
+    "x": 461.5,
+    "y": 831.71875,
+    "width": 28,
+    "height": 28
+  }
+}

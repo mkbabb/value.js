@@ -1,0 +1,321 @@
+{
+  "A4_firaCodeCascade": {
+    "computed": [
+      {
+        "cls": "fira-code",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "fontFeatureSettings": "\"calt\", \"liga\"",
+        "fontSize": "18.608px",
+        "textTransform": "none",
+        "letterSpacing": "normal"
+      },
+      {
+        "cls": "text-mono-caption",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "fontFeatureSettings": "normal",
+        "fontSize": "14.384px",
+        "textTransform": "uppercase",
+        "letterSpacing": "1.4384px"
+      },
+      {
+        "cls": "fira-code text-mono-caption",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "fontFeatureSettings": "\"calt\", \"liga\"",
+        "fontSize": "14.384px",
+        "textTransform": "uppercase",
+        "letterSpacing": "1.4384px"
+      }
+    ],
+    "rules": [
+      {
+        "layer": "(unlayered)",
+        "sel": ".fira-code",
+        "css": "font-family: var(--font-mono);"
+      },
+      {
+        "layer": "@layer utilities",
+        "sel": ".fira-code",
+        "css": "font-family: var(--font-mono); font-feature-settings: \"liga\", \"calt\";"
+      }
+    ]
+  },
+  "A1_triggerAttrs": {
+    "tag": "BUTTON",
+    "attrs": {
+      "data-v-f5b813f2": "",
+      "data-slot": "dropdown-menu-trigger",
+      "data-emphasis": "secondary",
+      "data-tone": "neutral",
+      "data-size": "sm",
+      "data-icon-only": "true",
+      "data-control-target": "",
+      "data-press-armed": "",
+      "type": "button",
+      "class": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger shrink-0",
+      "id": "reka-dropdown-menu-trigger-v-1-2",
+      "aria-haspopup": "menu",
+      "aria-expanded": "true",
+      "data-state": "open",
+      "variant": "ghost",
+      "aria-label": "Palette menu",
+      "style": "--glass-btn-press-t: 0.0000; --flex-vel: 0.0000; --mouse-x: 50.00%; --mouse-y: 49.99%;",
+      "aria-controls": "reka-dropdown-menu-content-v-1-8"
+    },
+    "w": 36,
+    "h": 36
+  },
+  "A2_duplicateNames": [
+    [
+      "Palette menu",
+      6
+    ],
+    [
+      "Palettes",
+      2
+    ]
+  ],
+  "A8_menuShape": {
+    "menuRect": {
+      "w": 192,
+      "h": 240
+    },
+    "menuAttrs": {
+      "role": "menu",
+      "ariaLabel": null,
+      "ariaLabelledby": "reka-dropdown-menu-trigger-v-1-2"
+    },
+    "firstChildIsLabel": "Probe Palette 0",
+    "children": [
+      {
+        "role": null,
+        "text": "Probe Palette 0",
+        "h": 32,
+        "w": 178
+      },
+      {
+        "role": "separator",
+        "text": "",
+        "h": 1,
+        "w": 186
+      },
+      {
+        "role": "menuitem",
+        "text": "Publish",
+        "h": 44,
+        "w": 178
+      },
+      {
+        "role": "menuitem",
+        "text": "Rename",
+        "h": 44,
+        "w": 178
+      },
+      {
+        "role": "separator",
+        "text": "",
+        "h": 1,
+        "w": 186
+      },
+      {
+        "role": "menuitem",
+        "text": "Export",
+        "h": 44,
+        "w": 178
+      },
+      {
+        "role": "menuitem",
+        "text": "Delete",
+        "h": 44,
+        "w": 178
+      }
+    ]
+  },
+  "A3_menuAXSubtree": [
+    {
+      "d": 0,
+      "role": "menu",
+      "name": "Palette menu",
+      "ignored": false
+    },
+    {
+      "d": 1,
+      "role": "generic",
+      "name": "",
+      "ignored": false
+    },
+    {
+      "d": 2,
+      "role": "StaticText",
+      "name": "Probe Palette 0",
+      "ignored": false
+    },
+    {
+      "d": 3,
+      "role": "InlineTextBox",
+      "name": "Probe Palette 0",
+      "ignored": false
+    },
+    {
+      "d": 1,
+      "role": "separator",
+      "name": "",
+      "ignored": false
+    },
+    {
+      "d": 1,
+      "role": "menuitem",
+      "name": "Publish",
+      "ignored": false
+    },
+    {
+      "d": 2,
+      "role": "image",
+      "name": "",
+      "ignored": false
+    },
+    {
+      "d": 2,
+      "role": "StaticText",
+      "name": "Publish",
+      "ignored": false
+    },
+    {
+      "d": 3,
+      "role": "InlineTextBox",
+      "name": "Publish",
+      "ignored": false
+    },
+    {
+      "d": 1,
+      "role": "menuitem",
+      "name": "Rename",
+      "ignored": false
+    },
+    {
+      "d": 2,
+      "role": "image",
+      "name": "",
+      "ignored": false
+    },
+    {
+      "d": 2,
+      "role": "StaticText",
+      "name": "Rename",
+      "ignored": false
+    },
+    {
+      "d": 3,
+      "role": "InlineTextBox",
+      "name": "Rename",
+      "ignored": false
+    },
+    {
+      "d": 1,
+      "role": "separator",
+      "name": "",
+      "ignored": false
+    },
+    {
+      "d": 1,
+      "role": "menuitem",
+      "name": "Export",
+      "ignored": false
+    },
+    {
+      "d": 2,
+      "role": "image",
+      "name": "",
+      "ignored": false
+    },
+    {
+      "d": 2,
+      "role": "StaticText",
+      "name": "Export",
+      "ignored": false
+    },
+    {
+      "d": 3,
+      "role": "InlineTextBox",
+      "name": "Export",
+      "ignored": false
+    },
+    {
+      "d": 1,
+      "role": "menuitem",
+      "name": "Delete",
+      "ignored": false
+    },
+    {
+      "d": 2,
+      "role": "image",
+      "name": "",
+      "ignored": false
+    },
+    {
+      "d": 2,
+      "role": "StaticText",
+      "name": "Delete",
+      "ignored": false
+    },
+    {
+      "d": 3,
+      "role": "InlineTextBox",
+      "name": "Delete",
+      "ignored": false
+    }
+  ],
+  "A3_paletteNameReachable": true,
+  "A1_triggerAX": [
+    {
+      "role": "menu",
+      "name": "Palette menu",
+      "ignored": false,
+      "props": [
+        "focusable=true",
+        "focused=true",
+        "orientation=\"vertical\"",
+        "labelledby=undefined"
+      ]
+    }
+  ],
+  "A1_triggerAXCount": 1,
+  "A6_clickOnSubTrigger": {
+    "menusBefore": 1,
+    "menusAfter": 1,
+    "ariaExpanded": "false",
+    "dataState": "closed",
+    "dataHighlighted": "",
+    "focusMovedToSubTrigger": true,
+    "activeElement": "DIV:Export"
+  },
+  "A5_keyboardWalk": [
+    "Publish",
+    "Rename",
+    "Export"
+  ],
+  "A5_afterEnterOnExport": {
+    "menus": 2,
+    "items": [
+      "Publish",
+      "Rename",
+      "Export",
+      "Delete",
+      "JSON",
+      "CSS Custom Properties",
+      "Tailwind Config",
+      "SVG Swatch",
+      "PNG Swatch"
+    ],
+    "activeElement": "menuitem:JSON",
+    "activeIsMenuContent": false
+  },
+  "A5_afterArrowDownInSub": {
+    "activeElement": "CSS Custom Properties",
+    "role": "menuitem"
+  },
+  "A7_cardExpandLeak": {
+    "expandedBefore": 0,
+    "expandedAfter": 0
+  },
+  "pageErrors": []
+}

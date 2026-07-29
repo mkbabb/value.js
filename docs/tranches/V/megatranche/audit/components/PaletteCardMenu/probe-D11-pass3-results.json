@@ -1,0 +1,591 @@
+{
+  "light": {
+    "mediaCheck": {
+      "darkClass": false,
+      "prefersReducedTransparency": false,
+      "prefersContrastMore": false,
+      "forcedColors": false,
+      "prefersColorScheme": "light"
+    },
+    "boxes": {
+      "menuW": 192,
+      "menuH": 240.1,
+      "surfaceStyles": {
+        "background": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+        "backdropFilter": "blur(11px) saturate(1.6)",
+        "opacity": "1",
+        "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px ",
+        "borderColor": "rgb(198, 180, 159)"
+      },
+      "annotationStyles": {
+        "opacity": "0.55",
+        "parentOpacity": "0.5",
+        "color": "rgb(28, 25, 23)",
+        "effectiveAlpha": 0.275
+      },
+      "label": {
+        "x": 7,
+        "y": 7,
+        "w": 178,
+        "h": 32.1
+      },
+      "annotation": {
+        "x": 112.5,
+        "y": 60.1,
+        "w": 64.5,
+        "h": 20.1
+      },
+      "rename": {
+        "x": 7,
+        "y": 92.1,
+        "w": 178,
+        "h": 44
+      },
+      "del": {
+        "x": 7,
+        "y": 189.1,
+        "w": 178,
+        "h": 44
+      }
+    },
+    "sampled": {
+      "label": {
+        "ink": [
+          112,
+          89,
+          66
+        ],
+        "surface": [
+          243,
+          228,
+          219
+        ],
+        "surfaceShare": 0.22,
+        "contrast": 5.3
+      },
+      "annotation": {
+        "ink": [
+          184,
+          171,
+          164
+        ],
+        "surface": [
+          244,
+          228,
+          219
+        ],
+        "surfaceShare": 0.646,
+        "contrast": 1.81
+      },
+      "rename": {
+        "ink": [
+          28,
+          25,
+          23
+        ],
+        "surface": [
+          244,
+          228,
+          219
+        ],
+        "surfaceShare": 0.784,
+        "contrast": 14.13
+      },
+      "del": {
+        "ink": [
+          28,
+          24,
+          22
+        ],
+        "surface": [
+          244,
+          228,
+          219
+        ],
+        "surfaceShare": 0.479,
+        "contrast": 14.24
+      },
+      "dpr": 1,
+      "deleteVsRenameDelta": 1
+    }
+  },
+  "dark": {
+    "mediaCheck": {
+      "darkClass": true,
+      "prefersReducedTransparency": false,
+      "prefersContrastMore": false,
+      "forcedColors": false,
+      "prefersColorScheme": "dark"
+    },
+    "boxes": {
+      "menuW": 192,
+      "menuH": 240.1,
+      "surfaceStyles": {
+        "background": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+        "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+        "opacity": "1",
+        "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.4) 0px 1px 0px ",
+        "borderColor": "rgb(101, 87, 73)"
+      },
+      "annotationStyles": {
+        "opacity": "0.55",
+        "parentOpacity": "0.5",
+        "color": "rgb(233, 230, 226)",
+        "effectiveAlpha": 0.275
+      },
+      "label": {
+        "x": 7,
+        "y": 7,
+        "w": 178,
+        "h": 32.1
+      },
+      "annotation": {
+        "x": 112.5,
+        "y": 60.1,
+        "w": 64.5,
+        "h": 20.1
+      },
+      "rename": {
+        "x": 7,
+        "y": 92.1,
+        "w": 178,
+        "h": 44
+      },
+      "del": {
+        "x": 7,
+        "y": 189.1,
+        "w": 178,
+        "h": 44
+      }
+    },
+    "sampled": {
+      "label": {
+        "ink": [
+          195,
+          185,
+          172
+        ],
+        "surface": [
+          75,
+          64,
+          56
+        ],
+        "surfaceShare": 0.195,
+        "contrast": 5.2
+      },
+      "annotation": {
+        "ink": [
+          122,
+          113,
+          106
+        ],
+        "surface": [
+          81,
+          69,
+          61
+        ],
+        "surfaceShare": 0.667,
+        "contrast": 1.94
+      },
+      "rename": {
+        "ink": [
+          233,
+          230,
+          226
+        ],
+        "surface": [
+          81,
+          69,
+          61
+        ],
+        "surfaceShare": 0.906,
+        "contrast": 7.44
+      },
+      "del": {
+        "ink": [
+          233,
+          230,
+          226
+        ],
+        "surface": [
+          81,
+          69,
+          61
+        ],
+        "surfaceShare": 0.898,
+        "contrast": 7.44
+      },
+      "dpr": 1,
+      "deleteVsRenameDelta": 0
+    }
+  },
+  "contrast-more": {
+    "mediaCheck": {
+      "darkClass": false,
+      "prefersReducedTransparency": false,
+      "prefersContrastMore": true,
+      "forcedColors": false,
+      "prefersColorScheme": "light"
+    },
+    "boxes": {
+      "menuW": 192,
+      "menuH": 240.1,
+      "surfaceStyles": {
+        "background": "oklab(0.943013 0.00559032 0.0133772 / 0.9808)",
+        "backdropFilter": "blur(1.1px) saturate(1.6)",
+        "opacity": "1",
+        "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px ",
+        "borderColor": "oklab(0.385617 0.00280125 0.00468762)"
+      },
+      "annotationStyles": {
+        "opacity": "0.55",
+        "parentOpacity": "0.5",
+        "color": "rgb(28, 25, 23)",
+        "effectiveAlpha": 0.275
+      },
+      "label": {
+        "x": 7,
+        "y": 7,
+        "w": 178,
+        "h": 32.1
+      },
+      "annotation": {
+        "x": 112.5,
+        "y": 60.1,
+        "w": 64.5,
+        "h": 20.1
+      },
+      "rename": {
+        "x": 7,
+        "y": 92.1,
+        "w": 178,
+        "h": 44
+      },
+      "del": {
+        "x": 7,
+        "y": 189.1,
+        "w": 178,
+        "h": 44
+      }
+    },
+    "sampled": {
+      "label": {
+        "ink": [
+          112,
+          89,
+          66
+        ],
+        "surface": [
+          243,
+          234,
+          226
+        ],
+        "surfaceShare": 0.462,
+        "contrast": 5.53
+      },
+      "annotation": {
+        "ink": [
+          183,
+          176,
+          170
+        ],
+        "surface": [
+          243,
+          235,
+          226
+        ],
+        "surfaceShare": 0.667,
+        "contrast": 1.81
+      },
+      "rename": {
+        "ink": [
+          28,
+          25,
+          23
+        ],
+        "surface": [
+          243,
+          235,
+          226
+        ],
+        "surfaceShare": 0.926,
+        "contrast": 14.82
+      },
+      "del": {
+        "ink": [
+          28,
+          24,
+          22
+        ],
+        "surface": [
+          243,
+          235,
+          226
+        ],
+        "surfaceShare": 0.927,
+        "contrast": 14.93
+      },
+      "dpr": 1,
+      "deleteVsRenameDelta": 1
+    }
+  },
+  "reduced-transparency": {
+    "mediaCheck": {
+      "darkClass": false,
+      "prefersReducedTransparency": true,
+      "prefersContrastMore": false,
+      "forcedColors": false,
+      "prefersColorScheme": "light"
+    },
+    "boxes": {
+      "menuW": 192,
+      "menuH": 240.1,
+      "surfaceStyles": {
+        "background": "rgb(253, 245, 236)",
+        "backdropFilter": "none",
+        "opacity": "1",
+        "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px ",
+        "borderColor": "rgb(198, 180, 159)"
+      },
+      "annotationStyles": {
+        "opacity": "0.55",
+        "parentOpacity": "0.5",
+        "color": "rgb(28, 25, 23)",
+        "effectiveAlpha": 0.275
+      },
+      "label": {
+        "x": 7,
+        "y": 7,
+        "w": 178,
+        "h": 32.1
+      },
+      "annotation": {
+        "x": 112.5,
+        "y": 60.1,
+        "w": 64.5,
+        "h": 20.1
+      },
+      "rename": {
+        "x": 7,
+        "y": 92.1,
+        "w": 178,
+        "h": 44
+      },
+      "del": {
+        "x": 7,
+        "y": 189.1,
+        "w": 178,
+        "h": 44
+      }
+    },
+    "sampled": {
+      "label": {
+        "ink": [
+          112,
+          89,
+          66
+        ],
+        "surface": [
+          253,
+          245,
+          236
+        ],
+        "surfaceShare": 0.814,
+        "contrast": 6.08
+      },
+      "annotation": {
+        "ink": [
+          191,
+          184,
+          177
+        ],
+        "surface": [
+          253,
+          245,
+          236
+        ],
+        "surfaceShare": 0.667,
+        "contrast": 1.82
+      },
+      "rename": {
+        "ink": [
+          28,
+          25,
+          23
+        ],
+        "surface": [
+          253,
+          245,
+          236
+        ],
+        "surfaceShare": 0.926,
+        "contrast": 16.2
+      },
+      "del": {
+        "ink": [
+          28,
+          24,
+          22
+        ],
+        "surface": [
+          253,
+          245,
+          236
+        ],
+        "surfaceShare": 0.927,
+        "contrast": 16.32
+      },
+      "dpr": 1,
+      "deleteVsRenameDelta": 1
+    }
+  },
+  "forced-colors": {
+    "mediaCheck": {
+      "darkClass": false,
+      "prefersReducedTransparency": false,
+      "prefersContrastMore": false,
+      "forcedColors": true,
+      "prefersColorScheme": "light"
+    },
+    "boxes": {
+      "menuW": 192,
+      "menuH": 240.1,
+      "surfaceStyles": {
+        "background": "rgb(255, 255, 255)",
+        "backdropFilter": "blur(0px) saturate(1.6)",
+        "opacity": "1",
+        "boxShadow": "none",
+        "borderColor": "rgb(0, 0, 0)"
+      },
+      "annotationStyles": {
+        "opacity": "0.55",
+        "parentOpacity": "0.5",
+        "color": "rgb(0, 0, 0)",
+        "effectiveAlpha": 0.275
+      },
+      "label": {
+        "x": 7,
+        "y": 7,
+        "w": 178,
+        "h": 32.1
+      },
+      "annotation": {
+        "x": 112.5,
+        "y": 60.1,
+        "w": 64.5,
+        "h": 20.1
+      },
+      "rename": {
+        "x": 7,
+        "y": 92.1,
+        "w": 178,
+        "h": 44
+      },
+      "del": {
+        "x": 7,
+        "y": 189.1,
+        "w": 178,
+        "h": 44
+      }
+    },
+    "sampled": {
+      "label": {
+        "ink": [
+          0,
+          0,
+          0
+        ],
+        "surface": [
+          255,
+          255,
+          255
+        ],
+        "surfaceShare": 0.814,
+        "contrast": 21
+      },
+      "annotation": {
+        "ink": [
+          185,
+          185,
+          185
+        ],
+        "surface": [
+          255,
+          255,
+          255
+        ],
+        "surfaceShare": 0.667,
+        "contrast": 1.96
+      },
+      "rename": {
+        "ink": [
+          0,
+          0,
+          0
+        ],
+        "surface": [
+          255,
+          255,
+          255
+        ],
+        "surfaceShare": 0.926,
+        "contrast": 21
+      },
+      "del": {
+        "ink": [
+          0,
+          0,
+          0
+        ],
+        "surface": [
+          255,
+          255,
+          255
+        ],
+        "surfaceShare": 0.927,
+        "contrast": 21
+      },
+      "dpr": 1,
+      "deleteVsRenameDelta": 0
+    }
+  },
+  "scrollLock": {
+    "before": {
+      "bodyOverflow": "visible",
+      "bodyPointerEvents": "auto",
+      "docScrollHeight": 700,
+      "docClientHeight": 700,
+      "docScrollable": false,
+      "windowScrollMoved": 0,
+      "innerScrollers": [
+        {
+          "cls": "glass-resting card rounded-card text-card-fo",
+          "sh": 1566,
+          "ch": 586,
+          "top": 0
+        }
+      ]
+    },
+    "after": {
+      "bodyOverflow": "hidden",
+      "bodyPointerEvents": "none",
+      "docScrollHeight": 700,
+      "docClientHeight": 700,
+      "docScrollable": false,
+      "windowScrollMoved": 0,
+      "innerScrollers": [
+        {
+          "cls": "glass-resting card rounded-card text-card-fo",
+          "sh": 1566,
+          "ch": 586,
+          "top": 0
+        }
+      ]
+    },
+    "wheel": {
+      "windowDelta": 0,
+      "listDelta": 300,
+      "listFound": true
+    }
+  }
+}

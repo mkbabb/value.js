@@ -1,0 +1,69 @@
+{
+  "engine": "chromium",
+  "steps": {
+    "cssom": {
+      "cartoonRules": [],
+      "hoverCartoon": [],
+      "p0Rules": [],
+      "pxOverlay": [],
+      "h8": []
+    },
+    "trigger": {
+      "classAttr": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+      "rect": {
+        "w": 32,
+        "h": 40
+      },
+      "height": "40px",
+      "minHeight": "40px",
+      "blockSize": "40px",
+      "paddingBlock": "0px",
+      "paddingInline": "0px"
+    },
+    "swatchHover": {
+      "restShadow": {
+        "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -4px 4px 0px 0px",
+        "transition": "box-shadow"
+      },
+      "hoverShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -4px 4px 0px 0px",
+      "identical": true
+    },
+    "input": {
+      "textOverflow": "ellipsis",
+      "whiteSpace": "nowrap",
+      "overflow": "clip",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "paddingRight": "64px",
+      "width": 148
+    },
+    "panelPad": {
+      "className": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-60 p-",
+      "padding": "20.352px 16px",
+      "width": "240px",
+      "maxHeight": "none",
+      "overflowY": "visible"
+    },
+    "churn": {
+      "ariaLabelMutations": 41,
+      "distinctNames": 41,
+      "sample": [
+        "Open color picker, current color #020e19",
+        "Open color picker, current color #010b13",
+        "Open color picker, current color #00080e"
+      ],
+      "pointerMovesIssued": 41
+    },
+    "overlap": {
+      "outer": {
+        "t": 381,
+        "b": 849.3
+      },
+      "mini": {
+        "t": 560,
+        "b": 778.7
+      },
+      "overlapArea": 45487,
+      "fieldCovered": false
+    }
+  }
+}

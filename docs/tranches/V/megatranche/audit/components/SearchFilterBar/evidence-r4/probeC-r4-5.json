@@ -1,0 +1,70 @@
+{
+  "rows": [
+    {
+      "value": "#fff",
+      "chars": 4,
+      "textPx": 35.4,
+      "contentPx": 66,
+      "fits": true,
+      "scrollWidth": 146,
+      "clientWidth": 146,
+      "fontSize": "14.384px",
+      "paddingLeft": "16px",
+      "paddingRight": "64px"
+    },
+    {
+      "value": "#ff0000",
+      "chars": 7,
+      "textPx": 61.9,
+      "contentPx": 66,
+      "fits": true,
+      "scrollWidth": 146,
+      "clientWidth": 146,
+      "fontSize": "14.384px",
+      "paddingLeft": "16px",
+      "paddingRight": "64px"
+    },
+    {
+      "value": "#4488cc",
+      "chars": 7,
+      "textPx": 61.9,
+      "contentPx": 66,
+      "fits": true,
+      "scrollWidth": 146,
+      "clientWidth": 146,
+      "fontSize": "14.384px",
+      "paddingLeft": "16px",
+      "paddingRight": "64px"
+    },
+    {
+      "value": "hsl(210 50% 50%)",
+      "chars": 16,
+      "textPx": 141.6,
+      "contentPx": 66,
+      "fits": false,
+      "scrollWidth": 222,
+      "clientWidth": 146,
+      "fontSize": "14.384px",
+      "paddingLeft": "16px",
+      "paddingRight": "64px"
+    },
+    {
+      "value": "rebeccapurple",
+      "chars": 13,
+      "textPx": 115,
+      "contentPx": 66,
+      "fits": false,
+      "scrollWidth": 195,
+      "clientWidth": 146,
+      "fontSize": "14.384px",
+      "paddingLeft": "16px",
+      "paddingRight": "64px"
+    }
+  ],
+  "placeholderFits": {
+    "placeholder": "#hex, hsl(...)",
+    "textPx": 123.9,
+    "contentPx": 66,
+    "fits": false
+  }
+}

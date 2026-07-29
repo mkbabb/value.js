@@ -21,7 +21,7 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | shell-paneslot | CDL | CDL | ON-DISK |
 | shell-panesegmentedcontrol | CDL | CDL | ON-DISK |
 
-## demo-workbenches · `wf_6edda4a1-192` · record: completed · 19/19 claimed, failures: []
+## demo-workbenches · `wf_6edda4a1-192` · record: completed · 16/19 claimed, failures: []
 
 | component | disk axes | harvest axes | status |
 |---|---|---|---|
@@ -35,17 +35,17 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | wb-gradient-easingspecimenstrip | CDL | CDL | ON-DISK |
 | wb-mix-configbar | CDL | CDL | ON-DISK |
 | wb-mix-resultdisplay | CDL | CDL | ON-DISK |
-| wb-extract-controls | CDL | CL | ON-DISK |
-| wb-mix-pane | L | L | **PARTIAL — missing D/C** |
-| wb-gradient-codeeditor | — | — | **NOT-STARTED** |
-| wb-gradient-easingauthoringstage | — | — | **NOT-STARTED** |
-| wb-extract-imagedropzone | — | — | **NOT-STARTED** |
-| wb-generate-pane | — | — | **NOT-STARTED** |
+| wb-extract-controls | CDL | CDL | ON-DISK |
+| wb-mix-pane | CDL | CDL | ON-DISK |
+| wb-gradient-codeeditor | CDL | CDL | ON-DISK |
+| wb-gradient-easingauthoringstage | CDL | CDL | ON-DISK |
+| wb-extract-imagedropzone | CDL | CDL | ON-DISK |
+| wb-generate-pane | CDL | CDL | ON-DISK |
 | wb-extract-pane | — | — | **NOT-STARTED** |
 | wb-mix-animationcanvas | — | — | **NOT-STARTED** |
 | wb-gradient-pane | — | — | **NOT-STARTED** |
 
-## palettes · `wf_22b7a7b7-97b` · record: completed · 8/32 claimed, failures: [{"slug":"VersionHistoryDrawer","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"MiniColorPicker","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"AdminFlaggedPanel","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"AdminNamesPanel","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"AdminPane","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"AdminTagsPanel","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"PaletteCardSkeleton","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"AdminAuditPanel","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"ShadowPalette","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"FlagReportDialog","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"MigratePalettesDialog","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"PaletteCardSwatches","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"SwatchHoverMenu","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"ApiOfflineChip","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"TagEditPopover","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"PaletteColorStrip","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"PaletteRenameInput","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"PaletteCardMeta","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"ActionFeedback","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"UserSortMenu","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"PaletteCardGrid","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"PaginationBar","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"AdminListSkeleton","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"},{"slug":"AdminListItem","failed":"Error: workflow({scriptPath: 'docs/tranches/V/megatranche/workflows/component-apotheosis.js'}): Workflow script file not found: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/docs/tranches/V/megatranche/workflows/component-apotheosis.js"}]
+## palettes · `wf_22b7a7b7-97b` · record: completed · 8/32 claimed, failures: []
 
 | component | disk axes | harvest axes | status |
 |---|---|---|---|
@@ -135,15 +135,10 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 
 ## VERDICT
 
-**32 incomplete component rows.** 32 covered by an ACTIVE resume · 0 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
+**27 incomplete component rows.** 27 covered by an ACTIVE resume · 0 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
 
 A run record saying "completed" does not clear a row — only banked axes do. Bands re-open until every roster row is ADJUDICATED or ON-DISK.
 
-- demo-workbenches / **wb-mix-pane** — missing D/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
-- demo-workbenches / **wb-gradient-codeeditor** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
-- demo-workbenches / **wb-gradient-easingauthoringstage** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
-- demo-workbenches / **wb-extract-imagedropzone** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
-- demo-workbenches / **wb-generate-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
 - demo-workbenches / **wb-extract-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
 - demo-workbenches / **wb-mix-animationcanvas** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
 - demo-workbenches / **wb-gradient-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume

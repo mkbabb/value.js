@@ -1,0 +1,274 @@
+{
+  "webkit": {
+    "trigger": {
+      "outerHTML": "<button data-v-ace91ae4=\"\" data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"md\" data-icon-only=\"true\" data-control-target=\"\" data-press-armed=\"\" type=\"button\" class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8\" id=\"reka-popove",
+      "attrs": [
+        "data-v-ace91ae4=",
+        "data-slot=button",
+        "data-emphasis=secondary",
+        "data-tone=neutral",
+        "data-size=md",
+        "data-icon-only=true",
+        "data-control-target=",
+        "data-press-armed=",
+        "type=button",
+        "class=button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+        "id=reka-popover-trigger-v-1-0",
+        "aria-haspopup=dialog",
+        "aria-expanded=false",
+        "aria-controls=",
+        "data-state=closed",
+        "variant=ghost",
+        "aria-label=Filters",
+        "style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;"
+      ],
+      "contain": "paint",
+      "overflow": "visible",
+      "clipPath": "none",
+      "isolation": "auto",
+      "width": "32px",
+      "height": "40px",
+      "minHeight": "40px",
+      "minWidth": "0px"
+    },
+    "badge": {
+      "text": "1",
+      "rect": {
+        "x": 660.67,
+        "y": 381.98,
+        "w": 16,
+        "h": 16,
+        "top": 381.98,
+        "right": 676.67,
+        "bottom": 397.98,
+        "left": 660.67
+      },
+      "triggerRect": {
+        "x": 640.67,
+        "y": 385.98,
+        "w": 32,
+        "h": 40,
+        "top": 385.98,
+        "right": 672.67,
+        "bottom": 425.98,
+        "left": 640.67
+      },
+      "triggerContain": "paint",
+      "triggerOverflow": "visible",
+      "clipChain": [
+        {
+          "tag": "BUTTON",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-ho",
+          "contain": "paint",
+          "overflow": "visible",
+          "clipPath": "none",
+          "filter": "none",
+          "transform": "none",
+          "rect": {
+            "x": 640.67,
+            "y": 385.98,
+            "w": 32,
+            "h": 40,
+            "top": 385.98,
+            "right": 672.67,
+            "bottom": 425.98,
+            "left": 640.67
+          }
+        },
+        {
+          "tag": "DIV",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+          "contain": "content",
+          "overflow": "hidden auto",
+          "clipPath": "none",
+          "filter": "none",
+          "transform": "none",
+          "rect": {
+            "x": 199,
+            "y": 282.33,
+            "w": 512,
+            "h": 515.5,
+            "top": 282.33,
+            "right": 711,
+            "bottom": 797.83,
+            "left": 199
+          }
+        },
+        {
+          "tag": "DIV",
+          "cls": "app-layout",
+          "contain": "none",
+          "overflow": "hidden",
+          "clipPath": "none",
+          "filter": "none",
+          "transform": "none",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 1000,
+            "top": 0,
+            "right": 1440,
+            "bottom": 1000,
+            "left": 0
+          }
+        }
+      ]
+    },
+    "faceUnderTab": {
+      "active": {
+        "tag": "BUTTON",
+        "role": "radio"
+      },
+      "matchesFocusVisible": true,
+      "itemBoxShadow": "none",
+      "itemOutline": "3px none",
+      "faceFound": true,
+      "faceBoxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px",
+      "faceOutline": "3px none rgb(251, 250, 248)",
+      "faceHasRing": true,
+      "focusRingShadowToken": "0 0 0 2px color-mix(in srgb, oklch(47.092665778393% 0.188342548603 9.83402284231deg) 30%, transparent), 0 0 8px color-mix(in srgb, oklch(47.092665778393% 0.188342548603 9.83402284231deg) 15%, transparent)"
+    },
+    "faceUnderArrow": {
+      "matchesFocusVisible": true,
+      "faceBoxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px",
+      "faceHasRing": true
+    }
+  },
+  "chromium": {
+    "trigger": {
+      "outerHTML": "<button data-v-ace91ae4=\"\" data-slot=\"button\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"md\" data-icon-only=\"true\" data-control-target=\"\" data-press-armed=\"\" type=\"button\" class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8\" id=\"reka-popove",
+      "attrs": [
+        "data-v-ace91ae4=",
+        "data-slot=button",
+        "data-emphasis=secondary",
+        "data-tone=neutral",
+        "data-size=md",
+        "data-icon-only=true",
+        "data-control-target=",
+        "data-press-armed=",
+        "type=button",
+        "class=button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+        "id=reka-popover-trigger-v-1-0",
+        "aria-haspopup=dialog",
+        "aria-expanded=false",
+        "aria-controls=",
+        "data-state=closed",
+        "variant=ghost",
+        "aria-label=Filters",
+        "style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;"
+      ],
+      "contain": "paint",
+      "overflow": "visible",
+      "clipPath": "none",
+      "isolation": "auto",
+      "width": "32px",
+      "height": "40px",
+      "minHeight": "40px",
+      "minWidth": "0px"
+    },
+    "badge": {
+      "text": "1",
+      "rect": {
+        "x": 661,
+        "y": 382.36,
+        "w": 16,
+        "h": 16,
+        "top": 382.36,
+        "right": 677,
+        "bottom": 398.36,
+        "left": 661
+      },
+      "triggerRect": {
+        "x": 641,
+        "y": 386.36,
+        "w": 32,
+        "h": 40,
+        "top": 386.36,
+        "right": 673,
+        "bottom": 426.36,
+        "left": 641
+      },
+      "triggerContain": "paint",
+      "triggerOverflow": "visible",
+      "clipChain": [
+        {
+          "tag": "BUTTON",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-ho",
+          "contain": "paint",
+          "overflow": "visible",
+          "clipPath": "none",
+          "filter": "none",
+          "transform": "none",
+          "rect": {
+            "x": 641,
+            "y": 386.36,
+            "w": 32,
+            "h": 40,
+            "top": 386.36,
+            "right": 673,
+            "bottom": 426.36,
+            "left": 641
+          }
+        },
+        {
+          "tag": "DIV",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+          "contain": "content",
+          "overflow": "hidden auto",
+          "clipPath": "none",
+          "filter": "none",
+          "transform": "none",
+          "rect": {
+            "x": 199,
+            "y": 282.67,
+            "w": 512,
+            "h": 514.7,
+            "top": 282.67,
+            "right": 711,
+            "bottom": 797.38,
+            "left": 199
+          }
+        },
+        {
+          "tag": "DIV",
+          "cls": "app-layout",
+          "contain": "none",
+          "overflow": "hidden",
+          "clipPath": "none",
+          "filter": "none",
+          "transform": "none",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 1000,
+            "top": 0,
+            "right": 1440,
+            "bottom": 1000,
+            "left": 0
+          }
+        }
+      ]
+    },
+    "faceUnderTab": {
+      "active": {
+        "tag": "BUTTON",
+        "role": "radio"
+      },
+      "matchesFocusVisible": true,
+      "itemBoxShadow": "none",
+      "itemOutline": "3px none",
+      "faceFound": true,
+      "faceBoxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+      "faceOutline": "3px none rgb(251, 250, 248)",
+      "faceHasRing": true,
+      "focusRingShadowToken": "0 0 0 2px color-mix(in srgb, oklch(47.118925176164% 0.188447570516 9.83402284231deg) 30%, transparent), 0 0 8px color-mix(in srgb, oklch(47.118925176164% 0.188447570516 9.83402284231deg) 15%, transparent)"
+    },
+    "faceUnderArrow": {
+      "matchesFocusVisible": true,
+      "faceBoxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+      "faceHasRing": true
+    }
+  }
+}

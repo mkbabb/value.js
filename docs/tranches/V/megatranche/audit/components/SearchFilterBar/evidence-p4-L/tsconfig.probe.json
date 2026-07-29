@@ -1,0 +1,4 @@
+{
+    "extends": "/Users/mkbabb/Programming/value.js/tsconfig.demo.json",
+    "include": ["probe.vue", "/Users/mkbabb/Programming/value.js/src/vite-env.d.ts"]
+}

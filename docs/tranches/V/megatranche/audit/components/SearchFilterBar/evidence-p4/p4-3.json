@@ -1,0 +1,278 @@
+{
+  "tagsRepro": {
+    "before": {
+      "checkedStates": [
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "checkboxOuterHTML": "<button data-v-ace91ae4=\"\" data-slot=\"checkbox\" class=\"checkbox control-surface glass-control-edge focus-ring tap-squish shrink-0\" checked=\"false\" role=\"checkbox\" type=\"button\" aria-checked=\"false\" aria-required=\"false\" data-state=\"unchecked\"><span class=\"checkbox__seat\" aria-hidden=\"true\"></span><!----><!--v-if--></button>",
+      "badge": null
+    },
+    "afterLabelClick": {
+      "checkedStates": [
+        "true",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "badge": null
+    },
+    "afterDirectClick": {
+      "checkedStates": [
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "badge": null
+    },
+    "afterSpace": {
+      "checkedStates": [
+        "false",
+        "true",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "badge": null
+    }
+  },
+  "atTree": "webkit: no CDP a11y tree — see probe-P4-4 (chromium)",
+  "hoverBoxes": [
+    {
+      "text": "Newest",
+      "w": 121.42,
+      "parentW": 182,
+      "fillsParent": false,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "flex-start"
+    },
+    {
+      "text": "Most Popular",
+      "w": 165.44,
+      "parentW": 182,
+      "fillsParent": false,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "flex-start"
+    },
+    {
+      "text": "Most Forked",
+      "w": 159.69,
+      "parentW": 182,
+      "fillsParent": false,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "flex-start"
+    },
+    {
+      "text": "All",
+      "w": 61.14,
+      "parentW": 182,
+      "fillsParent": false,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "flex-start"
+    },
+    {
+      "text": "Featured",
+      "w": 132.92,
+      "parentW": 182,
+      "fillsParent": false,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "flex-start"
+    },
+    {
+      "text": "pastel",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "neon",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "earth",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "monochrome",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "retro",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "vaporwave",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "muted",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "high-contrast",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "duotone",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "sunset",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "forest",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    },
+    {
+      "text": "oceanic",
+      "w": 182,
+      "parentW": 182,
+      "fillsParent": true,
+      "display": "flex",
+      "flexDir": "column",
+      "alignItems": "normal"
+    }
+  ],
+  "rtlBadge": {
+    "dir": "rtl",
+    "trigger": {
+      "x": 767.5,
+      "y": 335.66,
+      "w": 32,
+      "h": 40,
+      "left": 767.5,
+      "right": 799.5,
+      "top": 335.66
+    },
+    "badge": {
+      "x": 787.5,
+      "y": 331.66,
+      "w": 16,
+      "h": 16,
+      "left": 787.5,
+      "right": 803.5,
+      "top": 331.66
+    },
+    "field": {
+      "x": 754,
+      "y": 337.66,
+      "w": 462,
+      "h": 36,
+      "left": 754,
+      "right": 1216,
+      "top": 337.66
+    },
+    "badgeOutsideTriggerInlineEnd": false,
+    "badgeOverlapsFieldInterior": true,
+    "triggerOverflowsFieldBlock": {
+      "top": 2,
+      "bottom": 2
+    }
+  },
+  "badgeTwoDigit": {
+    "oneDigit": {
+      "w": 16,
+      "h": 16,
+      "scrollW": 16
+    },
+    "twoDigit": {
+      "w": 16,
+      "h": 16,
+      "scrollW": 16
+    },
+    "overflows": false
+  }
+}

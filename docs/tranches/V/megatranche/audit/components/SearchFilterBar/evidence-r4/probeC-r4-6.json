@@ -1,0 +1,26 @@
+{
+  "engine": "chromium",
+  "steps": {
+    "opened": true,
+    "focusDuringDrag": {
+      "tag": "DIV",
+      "aria": null,
+      "role": "dialog",
+      "cls": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-"
+    },
+    "reopened": true,
+    "canvasStillPresent": 1,
+    "stuckDrag": {
+      "beforeTouch": "Open color picker, current color #7e93a4",
+      "midTouch": "Open color picker, current color #9badbb",
+      "afterCancel": "Open color picker, current color #9badbb",
+      "afterHoverOnly": "Open color picker, current color #000509",
+      "dragStuckAfterCancel": true
+    },
+    "control": {
+      "base": "Open color picker, current color #a7b7c4",
+      "after": "Open color picker, current color #a7b7c4",
+      "changed": false
+    }
+  }
+}

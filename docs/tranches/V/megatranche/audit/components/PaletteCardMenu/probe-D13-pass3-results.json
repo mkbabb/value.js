@@ -1,0 +1,750 @@
+{
+  "black": {
+    "geom": {
+      "menu": {
+        "x": 1010,
+        "y": 610.3,
+        "w": 192,
+        "h": 240.1
+      },
+      "labelBox": {
+        "x": 7,
+        "y": 7,
+        "w": 178,
+        "h": 32.1
+      },
+      "labelColor": "rgb(112, 89, 66)",
+      "labelFontSize": "14.384px",
+      "cards": [
+        {
+          "label": "Palette: Muted Terracotta and Deep Sea Foam Study",
+          "y": 518.1,
+          "bottom": 618.1
+        },
+        {
+          "label": "Palette: Neighbour",
+          "y": 630.1,
+          "bottom": 730.1
+        }
+      ]
+    },
+    "headerInk": [
+      112,
+      89,
+      66
+    ],
+    "headerBandRows": [
+      {
+        "cssY": 8,
+        "bg": [
+          233,
+          221,
+          213
+        ],
+        "contrastVsHeaderInk": 4.93
+      },
+      {
+        "cssY": 10,
+        "bg": [
+          232,
+          220,
+          211
+        ],
+        "contrastVsHeaderInk": 4.88
+      },
+      {
+        "cssY": 12,
+        "bg": [
+          230,
+          218,
+          210
+        ],
+        "contrastVsHeaderInk": 4.79
+      },
+      {
+        "cssY": 14,
+        "bg": [
+          228,
+          216,
+          208
+        ],
+        "contrastVsHeaderInk": 4.7
+      },
+      {
+        "cssY": 16,
+        "bg": [
+          226,
+          214,
+          206
+        ],
+        "contrastVsHeaderInk": 4.61
+      },
+      {
+        "cssY": 18,
+        "bg": [
+          223,
+          211,
+          203
+        ],
+        "contrastVsHeaderInk": 4.48
+      },
+      {
+        "cssY": 20,
+        "bg": [
+          220,
+          209,
+          201
+        ],
+        "contrastVsHeaderInk": 4.38
+      },
+      {
+        "cssY": 22,
+        "bg": [
+          112,
+          89,
+          66
+        ],
+        "contrastVsHeaderInk": 1
+      },
+      {
+        "cssY": 24,
+        "bg": [
+          214,
+          204,
+          197
+        ],
+        "contrastVsHeaderInk": 4.16
+      },
+      {
+        "cssY": 26,
+        "bg": [
+          212,
+          201,
+          194
+        ],
+        "contrastVsHeaderInk": 4.05
+      },
+      {
+        "cssY": 28,
+        "bg": [
+          209,
+          199,
+          192
+        ],
+        "contrastVsHeaderInk": 3.95
+      },
+      {
+        "cssY": 30,
+        "bg": [
+          206,
+          196,
+          190
+        ],
+        "contrastVsHeaderInk": 3.84
+      },
+      {
+        "cssY": 32,
+        "bg": [
+          204,
+          194,
+          188
+        ],
+        "contrastVsHeaderInk": 3.76
+      },
+      {
+        "cssY": 34,
+        "bg": [
+          202,
+          193,
+          186
+        ],
+        "contrastVsHeaderInk": 3.71
+      },
+      {
+        "cssY": 36,
+        "bg": [
+          200,
+          191,
+          185
+        ],
+        "contrastVsHeaderInk": 3.63
+      },
+      {
+        "cssY": 38,
+        "bg": [
+          199,
+          190,
+          184
+        ],
+        "contrastVsHeaderInk": 3.59
+      }
+    ],
+    "headerBandMinContrast": 1,
+    "headerBandMaxContrast": 4.93,
+    "allRowsSample": [
+      {
+        "cssY": 0,
+        "bg": [
+          209,
+          202,
+          195
+        ],
+        "contrastVsHeaderInk": 4.05
+      },
+      {
+        "cssY": 12,
+        "bg": [
+          230,
+          218,
+          210
+        ],
+        "contrastVsHeaderInk": 4.79
+      },
+      {
+        "cssY": 24,
+        "bg": [
+          214,
+          204,
+          197
+        ],
+        "contrastVsHeaderInk": 4.16
+      },
+      {
+        "cssY": 36,
+        "bg": [
+          200,
+          191,
+          185
+        ],
+        "contrastVsHeaderInk": 3.63
+      },
+      {
+        "cssY": 48,
+        "bg": [
+          199,
+          191,
+          184
+        ],
+        "contrastVsHeaderInk": 3.62
+      },
+      {
+        "cssY": 60,
+        "bg": [
+          213,
+          204,
+          197
+        ],
+        "contrastVsHeaderInk": 4.15
+      },
+      {
+        "cssY": 72,
+        "bg": [
+          232,
+          222,
+          213
+        ],
+        "contrastVsHeaderInk": 4.96
+      },
+      {
+        "cssY": 84,
+        "bg": [
+          240,
+          229,
+          221
+        ],
+        "contrastVsHeaderInk": 5.3
+      },
+      {
+        "cssY": 96,
+        "bg": [
+          241,
+          230,
+          222
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 108,
+        "bg": [
+          241,
+          230,
+          221
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 120,
+        "bg": [
+          242,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.32
+      },
+      {
+        "cssY": 132,
+        "bg": [
+          243,
+          228,
+          220
+        ],
+        "contrastVsHeaderInk": 5.3
+      },
+      {
+        "cssY": 144,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 156,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 168,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 180,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 192,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 204,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 216,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 228,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 240,
+        "bg": [
+          198,
+          180,
+          159
+        ],
+        "contrastVsHeaderInk": 3.26
+      }
+    ]
+  },
+  "white": {
+    "geom": {
+      "menu": {
+        "x": 1010,
+        "y": 610.3,
+        "w": 192,
+        "h": 240.1
+      },
+      "labelBox": {
+        "x": 7,
+        "y": 7,
+        "w": 178,
+        "h": 32.1
+      },
+      "labelColor": "rgb(112, 89, 66)",
+      "labelFontSize": "14.384px",
+      "cards": [
+        {
+          "label": "Palette: Muted Terracotta and Deep Sea Foam Study",
+          "y": 518.1,
+          "bottom": 618.1
+        },
+        {
+          "label": "Palette: Neighbour",
+          "y": 630.1,
+          "bottom": 730.1
+        }
+      ]
+    },
+    "headerInk": [
+      112,
+      89,
+      66
+    ],
+    "headerBandRows": [
+      {
+        "cssY": 8,
+        "bg": [
+          237,
+          225,
+          216
+        ],
+        "contrastVsHeaderInk": 5.12
+      },
+      {
+        "cssY": 10,
+        "bg": [
+          237,
+          225,
+          217
+        ],
+        "contrastVsHeaderInk": 5.12
+      },
+      {
+        "cssY": 12,
+        "bg": [
+          238,
+          226,
+          217
+        ],
+        "contrastVsHeaderInk": 5.17
+      },
+      {
+        "cssY": 14,
+        "bg": [
+          238,
+          226,
+          218
+        ],
+        "contrastVsHeaderInk": 5.17
+      },
+      {
+        "cssY": 16,
+        "bg": [
+          239,
+          227,
+          218
+        ],
+        "contrastVsHeaderInk": 5.22
+      },
+      {
+        "cssY": 18,
+        "bg": [
+          239,
+          227,
+          220
+        ],
+        "contrastVsHeaderInk": 5.22
+      },
+      {
+        "cssY": 20,
+        "bg": [
+          240,
+          228,
+          221
+        ],
+        "contrastVsHeaderInk": 5.27
+      },
+      {
+        "cssY": 22,
+        "bg": [
+          240,
+          229,
+          222
+        ],
+        "contrastVsHeaderInk": 5.31
+      },
+      {
+        "cssY": 24,
+        "bg": [
+          241,
+          230,
+          223
+        ],
+        "contrastVsHeaderInk": 5.36
+      },
+      {
+        "cssY": 26,
+        "bg": [
+          242,
+          231,
+          224
+        ],
+        "contrastVsHeaderInk": 5.41
+      },
+      {
+        "cssY": 28,
+        "bg": [
+          242,
+          232,
+          225
+        ],
+        "contrastVsHeaderInk": 5.45
+      },
+      {
+        "cssY": 30,
+        "bg": [
+          242,
+          233,
+          226
+        ],
+        "contrastVsHeaderInk": 5.48
+      },
+      {
+        "cssY": 32,
+        "bg": [
+          243,
+          234,
+          227
+        ],
+        "contrastVsHeaderInk": 5.53
+      },
+      {
+        "cssY": 34,
+        "bg": [
+          243,
+          234,
+          228
+        ],
+        "contrastVsHeaderInk": 5.54
+      },
+      {
+        "cssY": 36,
+        "bg": [
+          243,
+          235,
+          228
+        ],
+        "contrastVsHeaderInk": 5.57
+      },
+      {
+        "cssY": 38,
+        "bg": [
+          244,
+          235,
+          229
+        ],
+        "contrastVsHeaderInk": 5.59
+      }
+    ],
+    "headerBandMinContrast": 5.12,
+    "headerBandMaxContrast": 5.59,
+    "allRowsSample": [
+      {
+        "cssY": 0,
+        "bg": [
+          209,
+          202,
+          195
+        ],
+        "contrastVsHeaderInk": 4.05
+      },
+      {
+        "cssY": 12,
+        "bg": [
+          238,
+          226,
+          217
+        ],
+        "contrastVsHeaderInk": 5.17
+      },
+      {
+        "cssY": 24,
+        "bg": [
+          241,
+          230,
+          223
+        ],
+        "contrastVsHeaderInk": 5.36
+      },
+      {
+        "cssY": 36,
+        "bg": [
+          243,
+          235,
+          228
+        ],
+        "contrastVsHeaderInk": 5.57
+      },
+      {
+        "cssY": 48,
+        "bg": [
+          244,
+          235,
+          229
+        ],
+        "contrastVsHeaderInk": 5.59
+      },
+      {
+        "cssY": 60,
+        "bg": [
+          243,
+          234,
+          227
+        ],
+        "contrastVsHeaderInk": 5.53
+      },
+      {
+        "cssY": 72,
+        "bg": [
+          241,
+          231,
+          223
+        ],
+        "contrastVsHeaderInk": 5.39
+      },
+      {
+        "cssY": 84,
+        "bg": [
+          241,
+          230,
+          222
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 96,
+        "bg": [
+          241,
+          230,
+          222
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 108,
+        "bg": [
+          241,
+          230,
+          221
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 120,
+        "bg": [
+          242,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.32
+      },
+      {
+        "cssY": 132,
+        "bg": [
+          243,
+          228,
+          220
+        ],
+        "contrastVsHeaderInk": 5.3
+      },
+      {
+        "cssY": 144,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 156,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 168,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 180,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 192,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 204,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 216,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 228,
+        "bg": [
+          244,
+          229,
+          220
+        ],
+        "contrastVsHeaderInk": 5.35
+      },
+      {
+        "cssY": 240,
+        "bg": [
+          198,
+          180,
+          159
+        ],
+        "contrastVsHeaderInk": 3.26
+      }
+    ]
+  }
+}

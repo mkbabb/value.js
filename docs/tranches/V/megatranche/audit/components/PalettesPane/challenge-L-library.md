@@ -4,51 +4,67 @@
 
 I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context Opus 5
 variant. This matches the explicit declaration under which this seat was spawned. The seat is
-declared, not inherited.
+declared, not inherited. (Passes 1 and 2 recorded the same receipt.)
 
-## Amendment notice — pass 2
+## Amendment notice — pass 3
 
-This file was first written by an earlier Opus-5 seat at HEAD `32b4040e`. **This is a second
-Opus-5 pass.** I re-verified the prior pass's findings and carried every one forward — its
-browser-measured reorder reproduction (L-1) and module-closure walk (L-3) are evidence I
-could not cheaply re-derive (the shared Playwright browser was held by another seat this
-run) and are preserved verbatim in substance.
+This file was written by an Opus-5 seat at HEAD `32b4040e` (pass 1) and amended by a second
+Opus-5 seat at HEAD `e79fcd43` (pass 2). **This is a third Opus-5 pass.** Nothing from either
+prior pass is deleted.
 
-Pass 2 adds **six findings pass 1 missed** (L-11 … L-16) and issues **one correction to
-pass 1's negative proof**: pass 1 certified the demo → `@mkbabb/value.js` edge as clean *by
-construction*. The runtime half of that claim holds. The **type** half does not —
-`tsconfig.demo.json` is hand-written, has drifted from the export map, and declares three
-specifiers that exist neither in `package.json#exports` nor on disk (L-11). Pass 2 also
-finds that the cure pass 1 proposed for its own BLOCKER L-1 is an edict-4 violation, because
-the design system already ships the primitive (L-13).
+Pass 3 independently **re-verified the three load-bearing pass-2 claims** (L-11 phantom
+tsconfig keys, L-12 dist-has-no-external-imports, L-13 glass-ui ships `SortableList`) — all
+three confirmed, commands pasted at L-23. It then **seeded the saved-palette surface and drove
+it**, which neither prior pass nor the visual matrix ever did, and that produced:
+
+- **two corrections to pass 2** — its closing negative proof ("no library-structure defect is
+  visible in the render") is **withdrawn**: the render was never exercised with data (L-22),
+  and once it is, a defect is visible in both dark matrices and measurable in tokens (L-18);
+- **a second, independent reorder-corruption mechanism** that survives every cure proposed for
+  L-1, promoted to BLOCKER (L-17);
+- three further findings (L-19, L-20, L-21).
+
+Pass 3 also **corrects pass 2's L-11 in the opposite direction**: pass 2 found three *phantom*
+keys in `tsconfig.demo.json`. It missed that a **real, 10-site subpath (`./css`) is absent**
+from the same block (L-21).
 
 ## Substrate
 
 - Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`.
-- **HEAD at pass 2 is `e79fcd43`** (`docs(V·mega): core band COMPLETE 21/21 validated …`).
-  The work order states `c654824e`; pass 1 recorded `32b4040e`. The tree has now moved twice
-  under this workflow. Pass-1 citations were against `32b4040e`; pass-2 citations are against
-  `e79fcd43`. I re-checked every pass-1 line citation I carry forward and all still resolve.
+- **HEAD at pass 3 is `9268f054`** (`docs(V·mega): picker band COMPLETE 12/12 validated …`).
+  The work order states `c654824e`; pass 1 recorded `32b4040e`; pass 2 recorded `e79fcd43`.
+  The tree has moved three times under this workflow. I re-checked every pass-1 and pass-2 line
+  citation I rely on and all still resolve at `9268f054`.
 - Subject: `demo/palettes/PalettesPane.vue`, 212 lines, area `palettes`.
 
 ## Verdict
 
-**DEFECTIVE.** Two BLOCKERs, nine MAJORs, four MINORs, one INFO.
+**DEFECTIVE.** Three BLOCKERs, twelve MAJORs, six MINORs, one INFO.
 
-The strongest finding is unchanged from pass 1: **the one piece of behaviour this component
-owns outright (drag-to-reorder) is structurally miswired and deterministically persists a
-corrupted order**, reproduced 3/3. Pass 2 sharpens its cure — the fix is not to move the
-hand-rolled `useSortable` wiring down into the grid, it is to delete it for
-`@mkbabb/glass-ui/sortable-list`, which glass-ui 7.0.0 already publishes (L-13).
+The strongest finding remains **drag-to-reorder**, and pass 3 makes it worse than pass 1
+recorded. There are **two independent corruption mechanisms**, both reproduced live against
+`localhost:9000` this run:
 
-The second is that **the palette export the app ships and the palette export the test suite
-proves are different implementations that disagree by construction** (L-2).
+1. **L-1** — the vueuse `onUpdate`/`onEnd` race over a dereferenced computed. Seeded `A,B,C`,
+   dragged 0→2, persisted `C,B,A`; correct is `B,C,A`.
+2. **L-17 (new, BLOCKER)** — with a search filter active, a drag rewrites the order of palettes
+   the user **cannot see and did not touch**. Seeded `A,B,C,D,E`, filtered to `B,D,E`, dragged
+   one slot; persisted `D,B,E,A,C` — `A` and `C` flung from positions 1 and 3 to the tail.
+   This one is structural, not a race: `reorderPalettes` completes a *partial* ordering by
+   appending the remainder, and the pane hands it a *filtered projection*. **It survives every
+   cure proposed for L-1**, including `SortableList` (L-13), because the defect is in what the
+   list is, not in how the drag is bound.
 
-Pass 2's headline addition: **the library's public surface is smaller than the repo believes
-it is.** `package.json#exports` has no `"."` key at all — the library cannot be imported by
-its own bare name — while `tsconfig.demo.json` declares that name plus two more phantom
-subpaths, and `demo/shared/utils.ts` asserts in prose that a root barrel exists "for external
-consumers." It does not (L-11).
+The second BLOCKER is unchanged: **the palette export the app ships and the palette export the
+test suite proves are different implementations that disagree by construction** (L-2).
+
+Pass 3's headline addition: **an owner-RULED behaviour is measurably dead in dark scheme.**
+Q5/T-43 ruled that the "Palettes" letterforms wear a ramp. Measured on `:root` at
+`localhost:9000`: in light the three stops carry chroma `0.188 / 0.188 / 0.125`; in dark they
+carry `0.0337 / 0.0211 / 0.0231` at `L=95.83%` — sRGB `(255,234,252) (255,236,238)
+(255,237,228)`, a near-white monochrome. Visible in both dark screenshots. The structural cause
+is exactly the three-home token split L-7 describes: producer, recipe and alias live in three
+modules, so **no module is in a position to assert that the ramp is still a ramp** (L-18).
 
 ---
 
@@ -812,23 +828,419 @@ in this component's vocabulary.
 
 ---
 
-# Negative proof — what is genuinely SOUND here (amended)
+# Findings — pass 3 (new)
+
+Every pass-3 reproduction was run this session against the live dev server at
+`http://localhost:9000` at HEAD `9268f054`, with `localStorage["color-palettes"]` seeded by
+`page.addInitScript` before navigation. No source file was modified.
+
+## L-17 — BLOCKER — reordering under an active filter rewrites palettes the user cannot see
+
+**This is a second, independent corruption mechanism.** L-1 is a race between two event handlers.
+L-17 is a type error in the domain: **the pane hands a projection to a function whose contract
+requires the source.**
+
+**Where:** `PalettesPane.vue:190-194` computes `ids` from `pm.filteredSaved.value` — the
+*search-filtered* list — and passes it to `pm.reorderPalettes(ids)`. That function
+(`usePaletteStore.ts:153-166`) is a **total** reordering primitive:
+
+```ts
+function reorderPalettes(orderedIds: string[]): void {
+    const map = new Map(store.value.palettes.map((p) => [p.id, p]));
+    const reordered: Palette[] = [];
+    for (const id of orderedIds) { const p = map.get(id); if (p) reordered.push(p); }
+    // Append any palettes not in the ordered list …
+    for (const p of store.value.palettes) {
+        if (p.id == null || !orderedIds.includes(p.id)) reordered.push(p);
+    }
+    store.value.palettes = reordered;
+}
+```
+
+The `// Append any palettes not in the ordered list` loop is correct for its stated contract —
+`orderedIds` is meant to be the *whole* library. Under a filter it is not, so every non-matching
+palette is silently relocated to the tail.
+
+### Reproduction (measured, live, this session)
+
+`scratchpad/live3.mjs` — headless Chromium, dev server at `localhost:9000`, five seeded local
+palettes `A(alpha) B(beta) C(gamma) D(delta) E(epsilon)`. Type `e` into
+`input[placeholder="Search your palettes..."]` (matches beta / delta / epsilon), then drag the
+first visible card down one slot.
+
+```
+{
+ "seedOrder": ["A(alpha)","B(beta)","C(gamma)","D(delta)","E(epsilon)"],
+ "filter": "\"e\"",
+ "visibleNames": ["beta1","delta1","epsilon1"],
+ "afterDragWithinFilter": ["D","B","E","A","C"],
+ "intended":               ["A","D","B","C","E"]
+}
+```
+
+`alpha` and `gamma` were **not visible, not touched, and not addressable** by the gesture. They
+moved from positions 1 and 3 to positions 4 and 5, and the result was written to `localStorage`.
+
+The drag was driven by invoking the live `Sortable` instance's own `options.onUpdate` then
+`options.onEnd` with a same-list `{oldIndex:0,newIndex:1}` event — i.e. sortablejs's real
+dispatch sequence, read off the instance the app itself constructed
+(`grid[Object.keys(grid).find(k => k.startsWith("Sortable"))]`), not a stub. The same probe
+confirms vueuse's default handler is live alongside the custom one, which is L-1's premise:
+
+```
+"hasDefaultOnUpdate": true,   "hasOnEnd": true,   "handle": ".drag-handle",   "cards": 3
+```
+
+### Why it survives the cures already proposed
+
+- **L-1's cure** (bind correctly, override `onUpdate`) fixes the index arithmetic. It does not
+  change *which list* is reordered.
+- **L-13's cure** (`<SortableList>` from glass-ui) replaces the drag implementation. The
+  `@reorder` payload is still the ids of the *rendered* items, which under a filter is still a
+  subset.
+- Only moving the operation into the store, expressed over the source, closes it.
+
+### Proposed cure
+
+`reorderPalettes(ids: string[])` is the wrong primitive to expose at all — it makes every caller
+responsible for supplying a total ordering, and there is no type that says so. Replace it with a
+**relative** move the store can always satisfy from the source list:
+
+```ts
+movePalette(id: string, before: string | null): void   // splice within store.palettes
+```
+
+The view supplies two identities from the gesture; the store performs one splice on the array it
+owns. A projection can express "put A before C" correctly even when B is filtered out, which
+`reorderPalettes` structurally cannot. This is the same transposition L-1's cure needs, and it
+subsumes it — which is the argument for doing it once, in the store, rather than twice in two
+panes.
+
+---
+
+## L-18 — MAJOR — the owner-ruled letterform ramp is measurably dead in dark scheme
+
+**Where:** the ramp spans three modules and no one of them owns the invariant.
+
+| Role | Module | What it does |
+|---|---|---|
+| producer | `demo/color-picker/composables/boot/useViewAccents.ts:163` | writes `--palettes-ramp-title-{0,1,2}` on `:root` |
+| recipe | `demo/styles/utils.css:184-201` | `.palettes-ramp-text` reads `--palettes-ramp-{0,1,2}` |
+| **alias** | `PalettesPane.vue:171-175` | inline `:style` mapping `title-N` → `N` |
+
+Q5 was RULED (owner-verbatim, `palettes-ramp.ts:2-4`): *"Only palettes should be rainbow — the
+letterforms dropdown and the title."* `PalettesPane.vue:3-9` records T-43 owner-CONFIRMS.
+
+### Measurement (live, this session — `scratchpad/ramp.mjs`)
+
+Headless Chromium, two contexts differing only in `colorScheme`, `/#/palettes`, 2.5 s settle,
+reading the resolved custom properties off `:root` and off the `.palettes-ramp-text` element,
+then resolving each through a canvas 2D context:
+
+```
+LIGHT  dark=false
+  oklch(47.118925176164%  0.188447570516  329.834deg)   rgb(144, 32,140)
+  oklch(47.118925176164%  0.188447570516    9.834deg)   rgb(170,  0, 67)
+  oklch(47.118925176164%  0.124864700704   49.834deg)   rgb(144, 65,  0)
+
+DARK   dark=true
+  oklch(95.832172477266%  0.033662079591  329.834deg)   rgb(255,234,252)
+  oklch(95.832172477266%  0.021053120065    9.834deg)   rgb(255,236,238)
+  oklch(95.832172477266%  0.023120217659   49.834deg)   rgb(255,237,228)
+```
+
+- Chroma collapses **5.6× / 8.9× / 5.4×** between schemes.
+- In dark the three stops span **ΔR = 0, ΔG = 3, ΔB = 24** out of 255. That is not a ramp; it is
+  near-white with a faint tint.
+
+**Corroborated visually.** I read four screenshots. In
+`shots/safari-desktop-light/palettes.png` the word "Palettes" is plainly a magenta→red→amber
+gradient distinct from the ink of "My". In **both**
+`shots/safari-desktop-dark/palettes.png` and `shots/safari-mobile-dark/palettes.png`, "My" and
+"Palettes" render as **the same cream** — the ruled behaviour is absent, in both dark matrices,
+at both viewports.
+
+### Mechanism, and why it is a library-structure defect
+
+`palettes-ramp.ts:30-37` documents the *previous* failure — three near-identical **near-blacks**
+— and claims cure (2): *"the near-black wreck cannot recur (it holds the pick's C at the cusp
+instead of the old constant-C-then-project collapse)."* The measurement shows the identical
+collapse recurring at the **white** end: the feasibility-aware walk correctly chooses "toward
+white" against a dark card, runs to `L = 0.958`, and the OKLCH gamut cusp permits almost no
+chroma there. The walk is scheme-aware. It is not **spread**-aware.
+
+The structural point for this seat: there is **no module that could enforce a chroma-spread
+floor**, because the concept is split three ways — the walk is in `boot/`, the gradient is in
+`styles/utils.css`, and the binding between them is an inline `:style` object in a **feature
+pane**. A cross-cutting invariant ("these three stops must remain perceptibly distinct") has no
+home, so nothing asserts it and no test can.
+
+- **Reproduction:** `scratchpad/ramp.mjs`, output pasted above; plus the three screenshots named.
+- **Proposed cure:** fold the alias into the recipe (L-7's cure — a `.palettes-ramp-text--title`
+  modifier reading `--palettes-ramp-title-*`), which leaves **two** homes; then give the resolver
+  a spread obligation it can actually discharge: certify the triple, not each stop
+  independently — after the per-stop WCAG walk, if `max(ΔC)` across the three falls below a
+  floor, spread hue and trade lightness back toward the cusp until it does not. Both the walk and
+  the floor then live in `palettes-ramp.ts`, which is the one module that knows what a ramp is.
+
+---
+
+## L-19 — MINOR — `no-unused-vars` is disabled repo-wide, so L-8's class is ungated at a HARD gate
+
+L-8 reports three dead imports at `PalettesPane.vue:128`. Pass 3 establishes **why they shipped**.
+
+```
+$ npx eslint demo/palettes/PalettesPane.vue
+exit=0                                   # clean
+
+$ grep -n "unused" eslint.config.js
+71:            "@typescript-eslint/no-unused-vars": "off",
+81:            "no-unused-vars": "off",
+118:            "no-unused-vars": "off",
+153:            "vue/no-unused-vars": "off",
+154:            "vue/no-unused-components": "off",
+182:            "vue/no-unused-properties": "off",
+185:            "@typescript-eslint/no-unused-vars": "off",
+186:            "no-unused-vars": "off",
+```
+
+Every unused-symbol rule — TS, core, and Vue — is off in every block. CI runs
+`eslint . --max-warnings=0` as a **hard** step, and it cannot see this class at all.
+
+Demo-wide census of dead `vue` named imports (import line present, zero uses in the rest of the
+file):
+
+```
+demo/*.vue with dead `vue` imports: 4 files, 6 dead symbols
+  demo/palettes/PalettesPane.vue                      ['watch', 'onMounted', 'nextTick']
+  demo/palettes/browser/card/CurrentPaletteEditor.vue ['TransitionGroup']
+  demo/palettes/browser/admin/AdminUsersPanel.vue     ['Transition']
+  demo/workbenches/mix/MixPane.vue                    ['computed']
+```
+
+**This component is the worst offender in the demo — 3 of the 6.** Its two closest collaborators
+hold two more.
+
+`eslint.config.js:10` gives the rationale: *"many destructure-and-discard patterns."* That is a
+reason to configure `argsIgnorePattern` / `varsIgnorePattern` / `ignoreRestSiblings`, not to
+disable the rule. As configured, the demo tree accumulates dead imports with a green gate.
+
+- **Reproduction:** the two commands above.
+- **Proposed cure:** `"@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_",
+  varsIgnorePattern: "^_", ignoreRestSiblings: true }]`. Six deletions clear the tree.
+
+---
+
+## L-20 — MINOR — the library port publishes raw refs, so the template writes into another module's state
+
+`PalettesPane.vue:164` injects `LIBRARY_PORT_KEY`. The port is a plain object of refs
+(`usePalettePorts.ts:138-154`), so nothing unwraps in the template and every read spells `.value`:
+
+```
+template .value occurrences: 16
+port members touched in template: expandedId, filteredSaved, onCurrentPaletteSaved,
+  onCurrentPaletteUpdated, onDelete, onDeleteAllSaved, onEditColor, onRenameSaved,
+  savedPalettes, searchQuery, showDeleteAllConfirm, toggleExpand
+direct writes to port state:
+  pm.showDeleteAllConfirm.value = true      (:69)
+  pm.showDeleteAllConfirm.value = false     (:113)
+```
+
+Sixteen `.value` in a 125-line template is noise; the two **writes** are the defect. Markup in a
+feature pane assigns into a ref owned by `usePaletteActions`
+(`usePaletteActions.ts:26` `const showDeleteAllConfirm = ref(false)`), reached through two module
+boundaries. The port exposes the *state* where it should expose the *operation* — the module
+already owns `onDeleteAllSaved()`, which closes the dialog itself
+(`usePaletteActions.ts:130`), so the open/close pair is the only member that leaks.
+
+- **Reproduction:** the counts above, from the template block of `PalettesPane.vue`.
+- **Proposed cure:** the port publishes `confirmDeleteAll()` / `dismissDeleteAll()` and a
+  `deleteAllOpen` **readonly** computed. Separately, `provide()` the ports through `reactive()`
+  (or return getters) so consumers read `pm.savedPalettes.length`, not
+  `pm.savedPalettes.value.length` — 16 `.value` disappear and the ports become a surface rather
+  than an internals dump. This is the same shape as L-3's "declare the port interfaces
+  structurally" cure and should land with it.
+
+---
+
+## L-21 — MAJOR — `tsconfig.demo.json` also *omits* a real subpath; the `paths` block is authoritative for nothing
+
+**This corrects pass 2's L-11 in the opposite direction.** Pass 2 found three keys declared that
+do not exist. Pass 3 finds a key that exists, is used 10 times, and is **not declared**.
+
+Full `paths` block, comments stripped:
+
+```
+$ python3 -c "…json.loads(strip_comments(open('tsconfig.demo.json').read()))…"
+{
+ "vue": ["./node_modules/vue"],
+ "@vue/*": ["./node_modules/@vue/*"],
+ "@mkbabb/value.js":          ["./dist/index.d.ts"],        ← phantom (no "." export, no file)
+ "@mkbabb/value.js/color":    ["./dist/subpaths/color.d.ts"],
+ "@mkbabb/value.js/parsing":  ["./dist/subpaths/parsing.d.ts"],   ← phantom
+ "@mkbabb/value.js/math":     ["./dist/subpaths/math.d.ts"],
+ "@mkbabb/value.js/easing":   ["./dist/subpaths/easing.d.ts"],
+ "@mkbabb/value.js/units":    ["./dist/subpaths/units.d.ts"],     ← phantom
+ "@mkbabb/value.js/transform":["./dist/subpaths/transform.d.ts"],
+ "@mkbabb/value.js/quantize": ["./dist/subpaths/quantize.d.ts"]
+}
+```
+
+`@mkbabb/value.js/css` is absent — yet:
+
+```
+$ grep -rc '@mkbabb/value.js/css' demo/     →  10 import sites
+   e.g. demo/workbenches/gradient/composables/gradientParse.ts:21
+        import { parseCssColor, parseCssScalar } from "@mkbabb/value.js/css";
+```
+
+So the block declares 3 specifiers that resolve to nothing and omits 1 that 10 files depend on.
+It is **neither sound nor complete**. Independently confirmed: `package.json#exports` has exactly
+seven keys and no `"."`, and there are no `main` / `module` / `types` fields —
+
+```
+$ node -e "p=require('./package.json'); console.log(Object.keys(p.exports)); console.log(p.main,p.module,p.types)"
+[ './color', './value', './css', './easing', './math', './transform', './quantize' ]
+undefined undefined undefined
+```
+
+**Why the omission does not currently break the build, and why that is worse.** The `./css`
+imports typecheck only because a self-link happens to exist:
+
+```
+$ ls node_modules/@mkbabb/
+glass-ui   keyframes.js   value.js          ← the package is linked into its own node_modules
+```
+
+TypeScript falls through the missing `paths` key to ordinary node resolution and finds the real
+package. So the `paths` block is **load-bearing for nothing**: the entries that work are
+redundant with node resolution, and the entries that are wrong are silently unused. It survives
+review because it never fails — which is exactly how it drifted to 3 phantom + 1 missing without
+anyone noticing.
+
+- **Reproduction:** the four commands above, at HEAD `9268f054`.
+- **Proposed cure:** delete the four `@mkbabb/value.js*` `paths` entries outright. Node
+  resolution against the self-link already resolves all seven published subpaths through the real
+  export map — which makes the demo's type resolution *identical to an external consumer's*,
+  which is the whole point of the dogfood. That is strictly better than pass 2's "generate the
+  block from `exports`": the most reliable generated config is no config. (Pass 2's L-11 items 1
+  and 3 — the missing `"."` export and the false prose in `demo/shared/utils.ts:19` — stand
+  unchanged and still need a decision.)
+
+---
+
+## L-22 — MAJOR — the visual matrix never seeds a palette, so this component's real surface is uncaptured; pass 2's negative render proof is withdrawn
+
+Pass 2 closed with: *"No library-structure defect is visible in the render."* That conclusion was
+drawn from captures of an **empty** pane.
+
+```
+$ grep -n "palette\|localStorage\|color-palettes" docs/tranches/V/megatranche/audit/visual/states.mjs
+(no matches)
+```
+
+No seeding anywhere in `capture.mjs` or `states.mjs`. The measured consequence, from
+`REPORT.json`, all four `/#/palettes` rows:
+
+```
+safari-desktop-light  bodyTextLength 237   safari-mobile-light  bodyTextLength 169
+safari-desktop-dark   bodyTextLength 237   safari-mobile-dark   bodyTextLength 169
+```
+
+237 characters is the empty state. Both light shots and both dark shots show **"· EMPTY PLATE ·
+/ No saved palettes yet."** So across **60 captures + 30 state probes**, the following were never
+rendered even once:
+
+`PaletteCard` · `PaletteCardMenu` · `PaletteCardMeta` · `PaletteCardSwatches` ·
+`PaletteRenameInput` · `ActionFeedback` · `PaletteColorStrip` · `SwatchHoverMenu` ·
+the populated `PaletteCardGrid` · the drag handle · the export menu · the delete-all
+`Dialog` · the header count `Badge` and its `sr-only` companion (both gated on
+`savedPalettes.length > 0`, `:20` / `:25`).
+
+That is the entire reason this component exists. The audit's `/#/palettes` rows report
+`pageErrors 0, consoleErrors 0, overflowX 0` — true, and true of a nearly empty card.
+
+Pass 3 seeded three to five palettes and drove the surface. The first two things it found were
+a BLOCKER (L-17) and a MAJOR visible in two of the four captured matrices (L-18). The empty-state
+capture is not weak evidence; it is **evidence about a different page**.
+
+- **Reproduction:** the grep above; the four `bodyTextLength` values from `REPORT.json`; the four
+  screenshots.
+- **Proposed cure:** the capture harness gains a seeded matrix. One `page.addInitScript` writing
+  `localStorage["color-palettes"]` before navigation — the exact three lines pass 3 used — turns
+  60 captures of an empty plate into coverage of the component under audit. Until then, no
+  `/#/palettes` row in `REPORT.md` may be cited as evidence that this component renders
+  correctly.
+
+---
+
+## L-23 — INFO — pass-2 claims independently re-verified at HEAD `9268f054`
+
+Recorded so a fourth pass need not re-run them.
+
+```
+L-13  glass-ui ships the sortable primitive — CONFIRMED
+  $ node -e "console.log(require('./node_modules/@mkbabb/glass-ui/package.json').exports['./sortable-list'])"
+  { types: './dist/sortable-list.d.ts', import: './dist/sortable-list.js' }
+  $ ls node_modules/@mkbabb/glass-ui/dist/sortable-list.js   → present
+
+L-12  dist imports nothing external — CONFIRMED
+  $ grep -ohE 'from *"[^"]+"' dist/subpaths/*.js dist/*.js | sort -u
+  from "../anchors-C_wdoOYd.js"   from "../operations-CB_1wGy4.js"   from "../result-CZJK1CwL.js"
+
+L-11  three phantom tsconfig keys — CONFIRMED (and extended by L-21)
+  exports keys = 7, no "."; dist/index.d.ts, dist/subpaths/parsing.d.ts,
+  dist/subpaths/units.d.ts all absent.
+```
+
+**L-6 strengthened with a byte measurement.** glass-ui 7.0.0 publishes **74** export keys,
+including `./card`, `./button`, `./badge` — the exact three `PalettesPane.vue:129-131` takes
+through `demo/ui/` shims that re-export the **root barrel**. Static transitive closure of each
+published entry, walked over `node_modules/@mkbabb/glass-ui/dist/`:
+
+```
+.          {"files":66,"kib":"218.9"}      ← what ../ui/card, ../ui/button, ../ui/badge reach
+./card     {"files":10,"kib":"18.5"}
+./button   {"files":11,"kib":"16.8"}
+./badge    {"files": 3,"kib": "5.7"}
+./dialog   {"files":11,"kib":"23.1"}       ← what :148 already does correctly
+./search   {"files":22,"kib":"60.0"}       ← what :149 already does correctly
+```
+
+218.9 KiB of eager graph for what three granular subpaths deliver in 41.0 KiB. Route census
+demo-wide: **87** import statements go through `demo/ui/` shims, **129** address glass-ui
+directly. Both conventions are live, and this file uses both.
+
+---
+
+# Negative proof — what is genuinely SOUND here (amended twice)
 
 The challenge's headline hypothesis is that the demo imports the library through paths a real
 consumer could not write. **At runtime, it does not.** Positive evidence:
 
-1. **Every value.js import in `demo/` is a bare published subpath specifier.** Exhaustive census —
-   all 49 sites, no exceptions:
+1. **Every value.js import in `demo/` is a bare published subpath specifier.** Exhaustive census,
+   re-run at pass 3 (HEAD `9268f054`; the tree has grown one `/color` site since pass 1) — all 50
+   sites, no exceptions:
    ```
-   $ grep -rhn 'from ".*value\.js.*"' --include=*.vue --include=*.ts demo/ | sed 's/.*from //' | sort | uniq -c
-     24 "@mkbabb/value.js/color";
-     10 "@mkbabb/value.js/css";
-      6 "@mkbabb/value.js/math";
-      5 "@mkbabb/value.js/easing";
-      4 "@mkbabb/value.js/quantize";
+   $ grep -rho '@mkbabb/value\.js[a-z/]*' demo/ | sort | uniq -c
+     25 @mkbabb/value.js/color
+     10 @mkbabb/value.js/css
+      6 @mkbabb/value.js/math
+      5 @mkbabb/value.js/easing
+      4 @mkbabb/value.js/quantize
+
+   $ grep -rn '@src/\|from "\.\./\.\./src/\|value\.js/src' demo/
+   (no matches)
+
+   $ grep -rn '@mkbabb/value\.js"' demo/
+   demo/shared/utils.ts:16    ← prose in a comment, not an import (and the claim is false — L-11)
    ```
    Zero `../../src/…`, zero `@src/…`, zero `dist/…`, zero root-barrel imports. Every one of these
-   five specifiers **is** in `package.json#exports`. A real consumer could write all 49.
+   five specifiers **is** in `package.json#exports`. A real consumer could write all 50.
+   **⚠ Pass-3 nuance (L-21): one of the five — `./css`, 10 sites — is not declared in
+   `tsconfig.demo.json`'s `paths`. It typechecks only because the package is self-linked into
+   its own `node_modules`. The imports are legitimate; the config that is supposed to certify
+   them is not the thing certifying them.**
 2. **The Vite alias set cannot drift from the export map**, because it is *generated from it*.
    `vite.config.ts:37-50` reads this repo's own `package.json#exports` at config time and derives
    one anchored-regex alias per subpath. The anchoring is deliberate and load-bearing — the
@@ -910,9 +1322,11 @@ vigilance:
    `PalettesPane`'s closure drops from 97 modules to roughly its own card subtree plus `session`.
 2. **The shell reads `platform/auth` directly** → `SESSION_PORT`'s seven-member pass-through
    deletes; identity is read where it lives.
-3. **The store is the sole owner of order, and the grid is `<SortableList>`** → L-1 cannot recur
-   (no view holds a list to splice, so the vueuse ref/non-ref branch is unreachable) and L-13
-   closes, taking `sortablejs` and `@types/sortablejs` out of the tree.
+3. **The store is the sole owner of order, exposing `movePalette(id, before)`, and the grid is
+   `<SortableList>`** → L-1 cannot recur (no view holds a list to splice, so the vueuse
+   ref/non-ref branch is unreachable), **L-17 cannot recur** (no caller ever supplies a total
+   ordering, so a filtered projection can no longer imply one), and L-13 closes, taking
+   `sortablejs` and `@types/sortablejs` out of the tree.
 4. **`export/index.ts` is the barrel** → `./export` resolves to the contract set, `export.ts` has
    no name to occupy, and L-2 and L-4 both close by deletion rather than migration.
 5. **Ports declared as interfaces, not `ReturnType<typeof …>`** → the port contract becomes
@@ -927,11 +1341,22 @@ vigilance:
 `const session = useColorSession()`. No props, no emits, no injects of aggregate ports, no refs
 into children, no `as any`, no inline token aliasing — and one import convention.
 
-**Ordering note for whoever executes.** **L-3 first** (extract `keys.ts`): mechanical, no behaviour
-change, and it unblocks the closure reduction that makes everything else cheap to verify.
-**L-11 and L-12 next**: both are manifest/config edits measured in lines, and L-11 in particular
-should land before anyone writes a new library import, because the config currently invites an
-import that cannot resolve. L-1/L-13 and L-2 are independent of those and of each other.
+**Ordering note for whoever executes (revised at pass 3).**
+
+0. **L-22 first, and it is nearly free** — three lines in the capture harness. Until the matrix
+   seeds a palette, no gate in this program can observe whether any of the rest actually landed.
+   Every other item here is verified by a probe that only exists in a scratchpad.
+1. **L-17 + L-1 together, via the store** — the single `movePalette(id, before)` transposition
+   closes both, and L-17 is silent user-data destruction that is live right now.
+2. **L-3** (extract `keys.ts`): mechanical, no behaviour change, and it unblocks the closure
+   reduction that makes everything else cheap to verify.
+3. **L-11 / L-21 / L-12 / L-19**: manifest, tsconfig and lint-config edits measured in lines.
+   L-21's cure (delete the four value.js `paths` entries) is a four-line deletion and makes the
+   demo's type resolution identical to an external consumer's. L-19 is one rule re-enabled plus
+   six deletions.
+4. **L-13**, **L-2**, **L-18** are independent of the above and of each other. L-18 should be
+   scheduled deliberately rather than folded into L-7 — L-7 is a placement fix and will make the
+   dark-scheme collapse *tidier* without making it *stop*.
 
 ---
 
@@ -939,8 +1364,12 @@ import that cannot resolve. L-1/L-13 and L-2 are independent of those and of eac
 
 | ID | Pass | Severity | Defect | Anchor |
 |---|---|---|---|---|
-| L-1 | 1 | **BLOCKER** | Drag-to-reorder persists a corrupted order (fwd) / silently drops it (back) — dereferenced computed passed to `useSortable`, `onEnd` not overriding `onUpdate`, computed cache mutated in place | `PalettesPane.vue:180-197` |
+| L-1 | 1 | **BLOCKER** | Drag-to-reorder persists a corrupted order (fwd) / silently drops it (back) — dereferenced computed passed to `useSortable`, `onEnd` not overriding `onUpdate`, computed cache mutated in place. Re-reproduced at pass 3: seeded `A,B,C`, drag 0→2, persisted `C,B,A` | `PalettesPane.vue:180-197` |
+| L-17 | **3** | **BLOCKER** | **Second, independent mechanism.** A drag under an active search filter rewrites palettes the user cannot see: `reorderPalettes` is a *total* primitive fed a *filtered projection*, so non-matching palettes are appended to the tail. Seeded `A..E`, filtered to `B,D,E`, dragged one slot → persisted `D,B,E,A,C`. **Survives L-1's and L-13's cures** | `PalettesPane.vue:190-194`; `usePaletteStore.ts:153-166` |
 | L-2 | 1 | **BLOCKER** | Dual export impls; app ships `export.ts`, 78 assertions test `export/` — they disagree in prefix, index base, colour spelling, and (pass 2) in domain model | `export.ts` ∥ `export/`; `usePaletteExport.ts:9` |
+| L-18 | **3** | MAJOR | The owner-RULED (Q5/T-43) letterform ramp is measurably dead in dark: chroma collapses 5.4–8.9×, three stops span ΔB=24/ΔG=3/ΔR=0 at L=95.8%. Visible in both dark shots. Producer / recipe / alias live in three modules, so no module can assert the spread invariant | `useViewAccents.ts:163`; `utils.css:184-201`; `PalettesPane.vue:171-175`; `palettes-ramp.ts:30-37` |
+| L-21 | **3** | MAJOR | `tsconfig.demo.json` `paths` **omits** `@mkbabb/value.js/css` (10 live sites) while declaring 3 phantom keys; it resolves only via a self-link, so the block is authoritative for nothing. **Corrects pass 2's L-11 in the opposite direction** | `tsconfig.demo.json`; `node_modules/@mkbabb/value.js` |
+| L-22 | **3** | MAJOR | The visual matrix never seeds a palette (`bodyTextLength` 237/169 = the empty state in all 4 rows), so 12 components incl. the card, grid, drag handle, export menu and delete-all dialog are uncaptured across 60 shots + 30 states. **Withdraws pass 2's negative render proof** | `visual/states.mjs`; `visual/REPORT.json` `/#/palettes` rows |
 | L-3 | 1+2 | MAJOR | palettes ⇄ shell cycle from co-locating InjectionKeys with the provider; 97-module closure, 18 admin, on the eager boot path; shell reaches through palettes for `platform/auth` | `usePalettePorts.ts:5-7,19,271-275`; `Dock.vue:18` |
 | L-4 | 1 | MAJOR | Three slugifiers; filename disagrees with the slug inside the file it names | `utils.ts:3`, `export.ts:9`, `canonical.ts:50` |
 | L-5 | 1 | MAJOR | `cardRefs` imperative feedback registry duplicated, keyed by `id` here and `slug` in BrowsePane; both leak | `PalettesPane.vue:177,84,205` |
@@ -954,18 +1383,39 @@ import that cannot resolve. L-1/L-13 and L-2 are independent of those and of eac
 | L-8 | 1 | MINOR | `watch` / `onMounted` / `nextTick` imported, 0 uses | `PalettesPane.vue:128` |
 | L-9 | 1 | MINOR | Dead `@composables/…` alias cited as live in 6 files | `PalettesPane.vue:6` + 5 |
 | L-16 | **2** | MINOR | `Palette` has three homes and none is the library; `src/` has zero palette code while `package.json:16` advertises the keyword | `demo/palettes/types.ts`; `api/src/modules/palette`; `export/types.ts`; `src/` |
+| L-19 | **3** | MINOR | `no-unused-vars` is `off` in every eslint block (8 sites), so the HARD `--max-warnings=0` CI gate cannot see dead imports at all. This component holds 3 of the demo's 6 | `eslint.config.js:71,81,118,153,154,182,185,186` |
+| L-20 | **3** | MINOR | The library port publishes raw refs: 16 `.value` in a 125-line template, and the template **writes** `pm.showDeleteAllConfirm.value` across two module boundaries | `PalettesPane.vue:69,113`; `usePalettePorts.ts:138-154` |
 | L-10 | 1 | INFO | `./value` and `./transform` published with 0 demo dogfood sites | `package.json#exports` |
+| L-23 | **3** | INFO | Pass-2 claims L-11 / L-12 / L-13 independently re-verified at HEAD `9268f054`; L-6 strengthened with a byte measurement (root barrel 218.9 KiB / 66 files vs `./card`+`./button`+`./badge` = 41.0 KiB / 24 files; 87 shim-routed vs 129 direct imports demo-wide) | see L-23 |
 
-**Reproduction artefacts:** `scratchpad/reorder-probe.mjs`, `scratchpad/reorder-probe2.mjs`
-(L-1, headless Chromium vs `localhost:9000`, pass 1); `scratchpad/closure.mjs` (L-3, module-graph
-walker, pass 1). All pass-2 findings reproduce from the shell commands pasted inline — no artefact
-needed. **No source file was modified by either seat.**
+**Reproduction artefacts.** Pass 1: `scratchpad/reorder-probe.mjs`, `scratchpad/reorder-probe2.mjs`
+(L-1), `scratchpad/closure.mjs` (L-3). Pass 3: `scratchpad/probe.mjs` (L-1 mechanism, isolated
+against the real `moveArrayElement`), `scratchpad/live.mjs` (L-1 live, `A,B,C` → `C,B,A`),
+`scratchpad/live3.mjs` (L-17 live, filtered drag), `scratchpad/ramp.mjs` (L-18 token
+measurement). All other findings reproduce from the shell commands pasted inline.
+**No source file was modified by any of the three seats.**
 
-**Visual evidence checked (pass 2):**
-`docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/palettes.png` read directly.
-The route renders correctly — no blank, no horizontal overflow, `main`=1, 0 page errors, 0 console
-errors across all four Safari matrices (`REPORT.md` per-capture table, `/#/palettes` rows). The
-`namelessButtons: 1` on desktop light/dark with `0` on mobile tracks the left picker pane, not this
-component — `PalettesPane`'s only icon-only button carries `aria-label="Delete all saved palettes"`
-(`:68`). **No library-structure defect is visible in the render**, which is exactly why this seat
-exists: every finding above is invisible to the eye and to the visual matrix both.
+**Visual evidence checked (pass 3) — and pass 2's conclusion withdrawn.**
+Four screenshots read directly:
+`shots/safari-desktop-light/palettes.png`, `shots/safari-desktop-dark/palettes.png`,
+`shots/safari-mobile-dark/palettes.png` (pass 2 read the first only).
+
+Pass 2 wrote: *"No library-structure defect is visible in the render."* **That is withdrawn.**
+Two things were wrong with it. First, all four captures are of an **empty** pane — 237 / 169
+characters of body text, "· EMPTY PLATE · / No saved palettes yet." — so the render being
+certified is not this component's render (L-22). Second, a defect **is** visible in the frames
+that were captured: in both dark matrices the ramped "Palettes" letterforms render as the same
+cream as "My", the ruled rainbow absent, which the token measurement in L-18 confirms as a
+5.4–8.9× chroma collapse rather than a rendering artefact.
+
+What does still stand from pass 2's reading: `overflowX 0`, `main`=1, 0 page errors and 0 console
+errors on all four `/#/palettes` rows, and the `namelessButtons: 1` on desktop tracking the left
+picker pane rather than this component (`PalettesPane`'s only icon-only button carries
+`aria-label="Delete all saved palettes"`, `:68`). Also standing: `h1` = **0** on this route in all
+four matrices — `demo/shared/ui/PaneHeader.vue:31` hardcodes `<h3>` and its prop surface is
+`{ description?: string }` with no level, so no pane can own its own heading rank. That is a
+public-surface gap in a shared component, recorded here for whichever seat owns `PaneHeader`.
+
+The honest summary is the opposite of pass 2's: **most findings here are invisible to the eye, but
+not all — and the ones that are visible were missed because the matrix photographed an empty
+page.** Fix L-22 first.
