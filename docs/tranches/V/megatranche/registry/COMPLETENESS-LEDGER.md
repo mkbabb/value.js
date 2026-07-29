@@ -41,8 +41,8 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | wb-gradient-easingauthoringstage | CDL | CDL | ON-DISK |
 | wb-extract-imagedropzone | CDL | CDL | ON-DISK |
 | wb-generate-pane | CDL | CDL | ON-DISK |
-| wb-extract-pane | — | — | **NOT-STARTED** |
-| wb-mix-animationcanvas | — | — | **NOT-STARTED** |
+| wb-extract-pane | CDL | DL | ON-DISK |
+| wb-mix-animationcanvas | CDL | CD | ON-DISK |
 | wb-gradient-pane | — | — | **NOT-STARTED** |
 
 ## palettes · `wf_22b7a7b7-97b` · record: completed · 8/32 claimed, failures: []
@@ -57,14 +57,14 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 | PaletteSlugBar | CDL | CDL | ON-DISK |
 | PaletteCardMenu | CDL | CDL | ON-DISK |
 | PalettesPane | CDL | CDL | ON-DISK |
-| VersionHistoryDrawer | — | — | **NOT-STARTED** |
-| MiniColorPicker | — | — | **NOT-STARTED** |
-| AdminFlaggedPanel | — | — | **NOT-STARTED** |
-| AdminNamesPanel | — | — | **NOT-STARTED** |
-| AdminPane | — | — | **NOT-STARTED** |
-| AdminTagsPanel | — | — | **NOT-STARTED** |
-| PaletteCardSkeleton | — | — | **NOT-STARTED** |
-| AdminAuditPanel | — | — | **NOT-STARTED** |
+| VersionHistoryDrawer | CDL | CDL | ON-DISK |
+| MiniColorPicker | CDL | CDL | ON-DISK |
+| AdminFlaggedPanel | CDL | CDL | ON-DISK |
+| AdminNamesPanel | CDL | CDL | ON-DISK |
+| AdminPane | CDL | CDL | ON-DISK |
+| AdminTagsPanel | CDL | CDL | ON-DISK |
+| PaletteCardSkeleton | CDL | CDL | ON-DISK |
+| AdminAuditPanel | CDL | CDL | ON-DISK |
 | ShadowPalette | — | — | **NOT-STARTED** |
 | FlagReportDialog | — | — | **NOT-STARTED** |
 | MigratePalettesDialog | — | — | **NOT-STARTED** |
@@ -135,21 +135,11 @@ Status meanings: **ADJUDICATED** apotheosis exists (superset of challenges) · *
 
 ## VERDICT
 
-**27 incomplete component rows.** 27 covered by an ACTIVE resume · 0 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
+**17 incomplete component rows.** 17 covered by an ACTIVE resume · 0 covered by a QUEUED resume (STATE.md §RESUME, cap-4 sequencing) · **0 UNCOVERED** (violations).
 
 A run record saying "completed" does not clear a row — only banked axes do. Bands re-open until every roster row is ADJUDICATED or ON-DISK.
 
-- demo-workbenches / **wb-extract-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
-- demo-workbenches / **wb-mix-animationcanvas** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
 - demo-workbenches / **wb-gradient-pane** — missing D/L/C (`wf_6edda4a1-192` · completed) — ACTIVE resume
-- palettes / **VersionHistoryDrawer** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **MiniColorPicker** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **AdminFlaggedPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **AdminNamesPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **AdminPane** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **AdminTagsPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **PaletteCardSkeleton** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
-- palettes / **AdminAuditPanel** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **ShadowPalette** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **FlagReportDialog** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
 - palettes / **MigratePalettesDialog** — missing D/L/C (`wf_22b7a7b7-97b` · completed) — ACTIVE resume
