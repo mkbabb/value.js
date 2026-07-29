@@ -58,8 +58,8 @@ repeating banked work or blocking independent source changes.
 3. Repair the workflow wrapper so a child error or short
    `componentsRun/componentsRequested` result makes the outer run partial or
    failed and populates `failures`.
-4. Complete the 45 `PENDING-DEEP` Glass tranche rows, newest-to-oldest,
-   recording only changed or surviving dispositions.
+4. Treat the 107/107 closed tranche archaeology as input. Reopen a row only
+   when newer source evidence changes its disposition or receiver.
 5. Fold session roots by user task. Stop rereading a root once its instruction,
    close claim, and terminal disposition have a durable receiver.
 
@@ -232,7 +232,7 @@ formation must not duplicate or reorder them.
 | remainder of day 0 | preserve V·C1; receive and verify Glass 8 if published | fill only the 49 missing axes; adjudicate complete corpora |
 | day 1, if Glass 8 is published and V·C2 closes | execute V·C2, then begin V·C3 with the compact canon and Gradient pilot | deep-disposition newest Glass and sci tranche rows; repair wrapper propagation |
 | day 1, if Glass 8 remains unpublished | no frontend source bypass; continue parser and formation work | deep-disposition newest Glass and sci tranche rows; repair wrapper propagation |
-| day 2 | close V·C3 through Mix command proof; execute V·C4 | continue the 45-row Glass archaeology and parser lane without duplicating ownership |
+| day 2 | close V·C3 through Mix command proof; execute V·C4 | finish the 15-row Glass archaeology and continue the parser lane without duplicating ownership |
 | day 2+ | execute V·C5 and V·C6 | finish historical rows, terminal carries, and constellation receipts |
 
 If Glass 8 remains unpublished, V·C2 stays blocked and parser/formation work

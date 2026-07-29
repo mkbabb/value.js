@@ -9,11 +9,12 @@ denominator is 109 directories across the seven named repository roots below.
 Two sci-report directories are ignored screenshot/empty artefacts rather than
 tranches, leaving 107 actual tranche directories.
 
-The 62 `DEEP` rows were read by the implementation-truth seats and folded into
-[`TRUTH-TABLE.md`](./TRUTH-TABLE.md). The 45 `PENDING-DEEP` Glass rows entered
-the owner-voice and compliance censuses, without a per-tranche
-promise-versus-source disposition. No claim of a completed 100-tranche audit
-may cite this ledger until those 45 rows become `DEEP`.
+The first 62 `DEEP` rows were read by the implementation-truth seats and folded
+into [`TRUTH-TABLE.md`](./TRUTH-TABLE.md). Three fresh 15-row Glass passes close
+the corrected denominator at 107/107 actual tranches. Across the 45 Glass rows,
+the result is 21 `LANDED`, 14 `HALF-LANDED`, seven `HISTORICAL-ONLY`, two
+`DROPPED`, and one `ACTIVE`. `ACTIVE` is reserved for BK's observed live
+execution boundary; it is a disposition, not a completion claim.
 
 `/Users/mkbabb/Programming/atlas` has no tranche directories. The active
 p/totality Atlas receiver is a separate current-consumer checkout and is
@@ -25,13 +26,13 @@ denominator.
 | repository | physical directories | actual tranches | DEEP | PENDING-DEEP | NON-TRANCHE |
 |---|---:|---:|---:|---:|---:|
 | value.js | 23 | 23 | 23 | 0 | 0 |
-| glass-ui | 45 | 45 | 0 | 45 | 0 |
+| glass-ui | 45 | 45 | 45 | 0 | 0 |
 | keyframes.js | 22 | 22 | 22 | 0 | 0 |
 | fourier-analysis | 13 | 13 | 13 | 0 | 0 |
 | parse-that | 4 | 4 | 4 | 0 | 0 |
 | sci-report | 2 | 0 | 0 | 0 | 2 |
 | atlas | 0 | 0 | 0 | 0 | 0 |
-| **total** | **109** | **107** | **62** | **45** | **2** |
+| **total** | **109** | **107** | **107** | **0** | **2** |
 
 ## Physical directory ledger
 
@@ -66,51 +67,51 @@ tracked plan, progress record, close, or tranche commit.
 | 21 | value.js | `docs/tranches/U` | DEEP | truth table, value N–W seat |
 | 22 | value.js | `docs/tranches/V` | DEEP | truth table, value N–W seat |
 | 23 | value.js | `docs/tranches/W` | DEEP | truth table, value N–W seat |
-| 24 | glass-ui | `docs/tranches/AB` | PENDING-DEEP | owner-voice/compliance sample only |
-| 25 | glass-ui | `docs/tranches/AB+1` | PENDING-DEEP | owner-voice/compliance sample only |
-| 26 | glass-ui | `docs/tranches/AB+2` | PENDING-DEEP | owner-voice/compliance sample only |
-| 27 | glass-ui | `docs/tranches/AM` | PENDING-DEEP | owner-voice/compliance sample only |
-| 28 | glass-ui | `docs/tranches/AN` | PENDING-DEEP | owner-voice/compliance sample only |
-| 29 | glass-ui | `docs/tranches/AO` | PENDING-DEEP | owner-voice/compliance sample only |
-| 30 | glass-ui | `docs/tranches/AP` | PENDING-DEEP | owner-voice/compliance sample only |
-| 31 | glass-ui | `docs/tranches/AQ` | PENDING-DEEP | owner-voice/compliance sample only |
-| 32 | glass-ui | `docs/tranches/AR` | PENDING-DEEP | owner-voice/compliance sample only |
-| 33 | glass-ui | `docs/tranches/AS` | PENDING-DEEP | owner-voice/compliance sample only |
-| 34 | glass-ui | `docs/tranches/AT` | PENDING-DEEP | owner-voice/compliance sample only |
-| 35 | glass-ui | `docs/tranches/AU` | PENDING-DEEP | owner-voice/compliance sample only |
-| 36 | glass-ui | `docs/tranches/AV` | PENDING-DEEP | owner-voice/compliance sample only |
-| 37 | glass-ui | `docs/tranches/AW` | PENDING-DEEP | owner-voice/compliance sample only |
-| 38 | glass-ui | `docs/tranches/AX` | PENDING-DEEP | owner-voice/compliance sample only |
-| 39 | glass-ui | `docs/tranches/AY` | PENDING-DEEP | owner-voice/compliance sample only |
-| 40 | glass-ui | `docs/tranches/AZ` | PENDING-DEEP | owner-voice/compliance sample only |
-| 41 | glass-ui | `docs/tranches/BA` | PENDING-DEEP | owner-voice/compliance sample only |
-| 42 | glass-ui | `docs/tranches/BB` | PENDING-DEEP | owner-voice/compliance sample only |
-| 43 | glass-ui | `docs/tranches/BC` | PENDING-DEEP | owner-voice/compliance sample only |
-| 44 | glass-ui | `docs/tranches/BD` | PENDING-DEEP | owner-voice/compliance sample only |
-| 45 | glass-ui | `docs/tranches/BE` | PENDING-DEEP | owner-voice/compliance sample only |
-| 46 | glass-ui | `docs/tranches/BF` | PENDING-DEEP | owner-voice/compliance sample only |
-| 47 | glass-ui | `docs/tranches/BG` | PENDING-DEEP | owner-voice/compliance sample only |
-| 48 | glass-ui | `docs/tranches/BH` | PENDING-DEEP | owner-voice/compliance sample only |
-| 49 | glass-ui | `docs/tranches/BI` | PENDING-DEEP | owner-voice/compliance sample only |
-| 50 | glass-ui | `docs/tranches/BJ` | PENDING-DEEP | owner-voice/compliance sample only |
-| 51 | glass-ui | `docs/tranches/BK` | PENDING-DEEP | owner-voice/compliance sample only |
-| 52 | glass-ui | `docs/tranches/C` | PENDING-DEEP | owner-voice/compliance sample only |
-| 53 | glass-ui | `docs/tranches/D` | PENDING-DEEP | owner-voice/compliance sample only |
-| 54 | glass-ui | `docs/tranches/D-II` | PENDING-DEEP | owner-voice/compliance sample only |
-| 55 | glass-ui | `docs/tranches/E` | PENDING-DEEP | owner-voice/compliance sample only |
-| 56 | glass-ui | `docs/tranches/F` | PENDING-DEEP | owner-voice/compliance sample only |
-| 57 | glass-ui | `docs/tranches/H` | PENDING-DEEP | owner-voice/compliance sample only |
-| 58 | glass-ui | `docs/tranches/I` | PENDING-DEEP | owner-voice/compliance sample only |
-| 59 | glass-ui | `docs/tranches/IOS27-MICRO` | PENDING-DEEP | owner-voice/compliance sample only |
-| 60 | glass-ui | `docs/tranches/J` | PENDING-DEEP | owner-voice/compliance sample only |
-| 61 | glass-ui | `docs/tranches/K` | PENDING-DEEP | owner-voice/compliance sample only |
-| 62 | glass-ui | `docs/tranches/L` | PENDING-DEEP | owner-voice/compliance sample only |
-| 63 | glass-ui | `docs/tranches/M` | PENDING-DEEP | owner-voice/compliance sample only |
-| 64 | glass-ui | `docs/tranches/N` | PENDING-DEEP | owner-voice/compliance sample only |
-| 65 | glass-ui | `docs/tranches/O` | PENDING-DEEP | owner-voice/compliance sample only |
-| 66 | glass-ui | `docs/tranches/P` | PENDING-DEEP | owner-voice/compliance sample only |
-| 67 | glass-ui | `docs/tranches/Q` | PENDING-DEEP | owner-voice/compliance sample only |
-| 68 | glass-ui | `docs/tranches/V` | PENDING-DEEP | owner-voice/compliance sample only |
+| 24 | glass-ui | `docs/tranches/AB` | DEEP | middle Glass batch: HISTORICAL-ONLY |
+| 25 | glass-ui | `docs/tranches/AB+1` | DEEP | middle Glass batch: HISTORICAL-ONLY |
+| 26 | glass-ui | `docs/tranches/AB+2` | DEEP | middle Glass batch: HISTORICAL-ONLY |
+| 27 | glass-ui | `docs/tranches/AM` | DEEP | middle Glass batch: LANDED |
+| 28 | glass-ui | `docs/tranches/AN` | DEEP | middle Glass batch: LANDED |
+| 29 | glass-ui | `docs/tranches/AO` | DEEP | middle Glass batch: LANDED |
+| 30 | glass-ui | `docs/tranches/AP` | DEEP | middle Glass batch: HALF-LANDED |
+| 31 | glass-ui | `docs/tranches/AQ` | DEEP | middle Glass batch: LANDED |
+| 32 | glass-ui | `docs/tranches/AR` | DEEP | middle Glass batch: HALF-LANDED |
+| 33 | glass-ui | `docs/tranches/AS` | DEEP | middle Glass batch: HALF-LANDED |
+| 34 | glass-ui | `docs/tranches/AT` | DEEP | middle Glass batch: DROPPED |
+| 35 | glass-ui | `docs/tranches/AU` | DEEP | middle Glass batch: LANDED |
+| 36 | glass-ui | `docs/tranches/AV` | DEEP | middle Glass batch: HALF-LANDED |
+| 37 | glass-ui | `docs/tranches/AW` | DEEP | late Glass batch: HALF-LANDED |
+| 38 | glass-ui | `docs/tranches/AX` | DEEP | late Glass batch: HALF-LANDED |
+| 39 | glass-ui | `docs/tranches/AY` | DEEP | late Glass batch: LANDED |
+| 40 | glass-ui | `docs/tranches/AZ` | DEEP | late Glass batch: LANDED |
+| 41 | glass-ui | `docs/tranches/BA` | DEEP | late Glass batch: LANDED |
+| 42 | glass-ui | `docs/tranches/BB` | DEEP | late Glass batch: HALF-LANDED |
+| 43 | glass-ui | `docs/tranches/BC` | DEEP | late Glass batch: LANDED |
+| 44 | glass-ui | `docs/tranches/BD` | DEEP | late Glass batch: LANDED |
+| 45 | glass-ui | `docs/tranches/BE` | DEEP | late Glass batch: HALF-LANDED |
+| 46 | glass-ui | `docs/tranches/BF` | DEEP | late Glass batch: DROPPED |
+| 47 | glass-ui | `docs/tranches/BG` | DEEP | late Glass batch: HALF-LANDED |
+| 48 | glass-ui | `docs/tranches/BH` | DEEP | late Glass batch: LANDED |
+| 49 | glass-ui | `docs/tranches/BI` | DEEP | late Glass batch: HALF-LANDED |
+| 50 | glass-ui | `docs/tranches/BJ` | DEEP | late Glass batch: HALF-LANDED |
+| 51 | glass-ui | `docs/tranches/BK` | DEEP | late Glass batch: ACTIVE |
+| 52 | glass-ui | `docs/tranches/C` | DEEP | early Glass batch: LANDED |
+| 53 | glass-ui | `docs/tranches/D` | DEEP | early Glass batch: LANDED |
+| 54 | glass-ui | `docs/tranches/D-II` | DEEP | early Glass batch: HISTORICAL-ONLY |
+| 55 | glass-ui | `docs/tranches/E` | DEEP | early Glass batch: LANDED |
+| 56 | glass-ui | `docs/tranches/F` | DEEP | early Glass batch: LANDED |
+| 57 | glass-ui | `docs/tranches/H` | DEEP | early Glass batch: LANDED |
+| 58 | glass-ui | `docs/tranches/I` | DEEP | early Glass batch: HALF-LANDED |
+| 59 | glass-ui | `docs/tranches/IOS27-MICRO` | DEEP | early Glass batch: HALF-LANDED |
+| 60 | glass-ui | `docs/tranches/J` | DEEP | early Glass batch: LANDED |
+| 61 | glass-ui | `docs/tranches/K` | DEEP | early Glass batch: HISTORICAL-ONLY |
+| 62 | glass-ui | `docs/tranches/L` | DEEP | early Glass batch: LANDED |
+| 63 | glass-ui | `docs/tranches/M` | DEEP | early Glass batch: LANDED |
+| 64 | glass-ui | `docs/tranches/N` | DEEP | early Glass batch: LANDED |
+| 65 | glass-ui | `docs/tranches/O` | DEEP | early Glass batch: LANDED |
+| 66 | glass-ui | `docs/tranches/P` | DEEP | early Glass batch: HALF-LANDED |
+| 67 | glass-ui | `docs/tranches/Q` | DEEP | middle Glass batch: HISTORICAL-ONLY |
+| 68 | glass-ui | `docs/tranches/V` | DEEP | middle Glass batch: HISTORICAL-ONLY |
 | 69 | keyframes.js | `docs/tranches/A` | DEEP | truth table, keyframes seat |
 | 70 | keyframes.js | `docs/tranches/B` | DEEP | truth table, keyframes seat |
 | 71 | keyframes.js | `docs/tranches/C` | DEEP | truth table, keyframes seat |
@@ -155,12 +156,13 @@ tracked plan, progress record, close, or tranche commit.
 
 ## Completion criterion
 
-This ledger closes when each of the 45 `PENDING-DEEP` rows carries:
+This ledger is closed. Every actual tranche row carries:
 
 1. its promised work and close claim;
 2. current source or consumer evidence;
-3. `LANDED`, `HALF-LANDED`, `REJECTED`, `DROPPED`, or `HISTORICAL-ONLY`;
+3. `LANDED`, `HALF-LANDED`, `REJECTED`, `DROPPED`, `HISTORICAL-ONLY`, or a
+   bounded `ACTIVE` state;
 4. any surviving carry by mechanism and receiver.
 
-The pass must update rows in place. It must retain both the 109 physical
-directory count and the corrected 107-tranche denominator.
+The ledger retains both the 109 physical-directory count and the corrected
+107-tranche denominator.

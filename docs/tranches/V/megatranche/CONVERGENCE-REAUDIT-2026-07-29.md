@@ -60,10 +60,16 @@ or other independent source work.
 
 The initial physical-directory denominator is 109. Independent inspection
 found that sci-report F contains only ignored screenshots and O is empty;
-neither is a tranche. The corrected tranche denominator is 107. Sixty-two
-tranches have tranche-grained dispositions and Glass's 45 remain open. The row
-ledger is
+neither is a tranche. The corrected tranche denominator is 107, and all 107
+actual tranches now have tranche-grained dispositions. The row ledger is
 [`excavation/CONSTELLATION-TRANCHE-COVERAGE-2026-07-29.md`](./excavation/CONSTELLATION-TRANCHE-COVERAGE-2026-07-29.md).
+The new Glass dispositions and citations are in
+[`excavation/GLASS-TRANCHE-DEEP-BATCH-EARLY-2026-07-29.md`](./excavation/GLASS-TRANCHE-DEEP-BATCH-EARLY-2026-07-29.md),
+[`excavation/GLASS-TRANCHE-DEEP-BATCH-MIDDLE-2026-07-29.md`](./excavation/GLASS-TRANCHE-DEEP-BATCH-MIDDLE-2026-07-29.md),
+and
+[`excavation/GLASS-TRANCHE-DEEP-BATCH-LATE-2026-07-29.md`](./excavation/GLASS-TRANCHE-DEEP-BATCH-LATE-2026-07-29.md).
+Their aggregate Glass result is 21 `LANDED`, 14 `HALF-LANDED`, seven
+`HISTORICAL-ONLY`, two `DROPPED`, and one `ACTIVE` current tranche, BK.
 
 The exact-cwd session census found 689 Codex artifacts and 3,504 recursive
 Claude artifacts. The durable handoff manifest deeply preserves three roots,
