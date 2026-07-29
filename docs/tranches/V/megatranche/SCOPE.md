@@ -247,3 +247,20 @@ Binding architecture rules:
 6. **Cross-repo receipts are part of the cut.** Active Glass and sci/Atlas audits are consulted
    before shared component/export changes. Value 4’s absent root export is deliberate and remains
    absent; pinned legacy consumers migrate to the existing subpaths.
+
+## M-19 — GLASS EXECUTION HERALDED (owner, 2026-07-29)
+
+Verbatim: *"Mark and herald: glass-ui is to begin tranche execution. All items glass-ui items
+should be relayed to that in-flight agent accordingly."*
+
+Consequences, binding immediately:
+1. The glass BJ tranche is EXECUTING. Every value.js glass-forward item — ruled, census-grade, or
+   early-notice — is relayed and indexed in **O-19**, the execution-herald manifest (22 open asks
+   + 6 glass-owned rows + banked-inbound acknowledgment + 2 early notices). The relay-receipt
+   law is thereby discharged as of the herald; NEW glass-forward items from the still-running
+   bands relay at their fold, same-day, as addenda to O-19.
+2. Our waves that consume glass deliverables (W6 migration cut per the sealed 112/112 contract;
+   the BLOCKED-ON-GLASS-V8 consumer holds; retirement riders keyed to B-1/B-6) now track a LIVE
+   producer — their release conditions are re-checkable against glass's execution, not a future.
+3. Glass remains coordinate-only for our seats: not one byte of glass-ui is edited from this
+   formation; all shapes flow by packet.
