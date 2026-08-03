@@ -154,23 +154,37 @@ Each row: GOAL → HORIZON CRITERION (the long-running convergence test) → ACC
       completeness-toolchain re-labels · 3 axes re-run as workflow challenges + reduced-motion
       quarantine sweep · API 0/9 re-measure at HEAD · Glass-8 trigger re-derivation vs I-21
       (TIME-SENSITIVE, TR#79) · 7e28 worktree census · checksum re-issues · M2 restatement.
-- [ ] Apply `IN-FLIGHT-AUDIT-2026-07-29.md §6` closed rulings to the registers (no re-queue;
-      RD-6 off the queue entirely; OC-2 remains the one undispositioned prior item).
-- [ ] Graph authority replacement (before any source execution) — L-17 tri-fold clusters; the
-      L-1-vs-dependency-chain conflict resolved explicitly (formation blocker 4).
+- [x] 2026-08-03: §6 closed rulings applied; **M-22 ratifications** under delegated judgment
+      (letter X · D-2 consumer-side · parser fresh root `parse-that-css-totality-p2` · M2
+      restatement vs 1,636,680 µs · checksum law F-7). **M-23** (choosy Fable) and **M-24**
+      (Claude Code fully owns all tranche items; **Codex FIRED**, re-engagement owner-option
+      only) marked in SCOPE. OC-2 remains the one undispositioned prior item.
+- [x] 2026-08-03: mechanism-cut ledger TERMINAL (formation blocker 3) —
+      `registry/CARRY-CUT-LEDGER.md`, 117 original-IDs, all BUILD/FOLD/RETIRE/BLOCKED-ON/
+      VERIFIED, zero silent drops.
+- [x] 2026-08-03: formation blocker 5 RESOLVED (M-22 ¶1: **tranche letter = X**, A..W occupied
+      on disk). Twelve wave files authored at `docs/tranches/X/waves/W0..W11.md` (250 gates,
+      228 born-RED).
+- [x] 2026-08-03: **TRANCHE X SPECIFIED** (`14d83356`) — the L-20 conformance loop closed at SIX
+      passes (`docs/tranches/X/CONFORMANCE-2026-08-03.md`: pass 6 fable-served, 12/12 CONFORMANT,
+      0 defects; R-E 12/12 with descriptive invocation abolished; 117/117 ledger ids ∅ both
+      directions; 0 cycles; 0 one-directional hazard edges). Rulings R-A/R-B/R-E minted and
+      applied tranche-wide; pass-3 Opus-served receipt corrected in-file. Status fields stay
+      `planned`; graph authority (X-W0) and Glass-8 trigger (X-W0.j → X.W4.g) now live INSIDE
+      the tranche. **Execution awaits the owner's begin-word.**
+- [ ] keyframes.js sub-session formation — **census fan-out RUNNING** (`wf_92c8fc9d-011`:
+      3 Opus lanes → fresh-Fable agglomeration → `formation/keyframes/CENSUS-2026-08-03.md`);
+      then D/L/C bands → wave specs (the admission requirement).
+- [ ] fourier-analysis sub-session formation — **census fan-out RUNNING** (same run: 3 Opus
+      lanes incl. the CRUD/provenance seam table → `formation/fourier/CENSUS-2026-08-03.md`);
+      then the shared-provenance API contract + wave specs (the admission requirement).
 - [ ] Adjudication of the 264-axis corpus in bounded Goldilocks batches until two dry passes
-      (formation blocker 2: only 10 of 14 apotheoses map to validator slugs).
-- [ ] Mechanism-cut ledger: machine-checkable original-ID → BUILD/FOLD/RETIRE/BLOCKED-ON
-      (formation blocker 3).
+      (formation blocker 2: only 14 apotheoses exist; most axes challenged-but-unadjudicated).
 - [ ] Parser lane: verify the pause state per §9 (SHA `ced23440…`, builder `0732ebc2…`, residue
       `de1d62ff…`, v12 target ABSENT), then open the FRESH writer root and begin the
-      surviving-hypothesis prototype (owner begin-order 2026-08-03).
-- [ ] keyframes.js sub-session formation (roster census → D/L/C bands → quartet law).
-- [ ] fourier-analysis sub-session formation (frontend census + CRUD-provenance union design).
-- [ ] Formation blocker 5: **owner pins an unused tranche letter** (`W` is taken by the history
-      corpus) — the sole owner dependency for wave authoring; then canonical per-wave files
-      under `docs/precepts/instructions/tranche/WAVE_SPEC.md`, validated per L-20.
-- [ ] Glass 8 trigger receipt (formation blocker 6; installed remains 7.0.0).
+      surviving-hypothesis prototype (owner begin-order 2026-08-03; Claude-owned per M-24).
+- [ ] Glass 8 trigger receipt (formation blocker 6; installed remains 7.0.0; the census event
+      is owned by X-W0.j, measured FAIL 0/4 at authoring).
 - [ ] The design-and-iteration prompt: owner's message truncated before its text — standing design
       tri-fold law governs until the exact text arrives.
 
