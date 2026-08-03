@@ -167,6 +167,7 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_76f092b7-f4b` | completed | 16 | 16 |
 | `wf_83265e1d-a99` | completed | 15 | 15 |
 | `wf_88ec28d9-949` | completed | 3 | 3 |
+| `wf_92c8fc9d-011` | completed | 8 | 8 |
 | `wf_9bd0ecd0-037` | completed | 15 | 15 |
 | `wf_a6f71311-4e5` | completed — HARVEST-DISPOSITION: STATE.md — "PHASE X excavation (M-14) · 15/15 ON DISK" | 15 | 14 of 15 (accounted) |
 | `wf_a6f87133-522` | completed | 15 | 15 |
