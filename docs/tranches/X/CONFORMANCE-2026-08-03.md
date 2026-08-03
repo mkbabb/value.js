@@ -680,3 +680,164 @@ defects · 6/6 third-pass defects + the adopted W1 observation fixed on the meri
 R-B intact (receiving surface + alias unchanged) · R-E 11/12 (W8's descriptive invocation the sole
 residual) · 117/117 ledger ids, ∅ set-difference both directions · 0 cycles · 0 one-directional
 edges remaining · denominator law clean.*
+
+---
+
+# FIFTH PASS — post-repair re-adjudication, 2026-08-03
+
+**Served model: `claude-fable-5`** — declared and stated per the receipts law (M-23).
+**Seat**: fresh Fable conformance adjudicator (L-20), fifth pass. **Inputs read whole**:
+`WAVE_SPEC.md` · `CARRY-CUT-LEDGER.md` §0/§1/§2 · all twelve `waves/W{0..11}.md` at their
+post-repair bytes (`git diff`: W0 13:20 and W8 13:18 modified since the fourth pass — the two
+repair diffs read line-by-line; the other ten untouched) · the landed
+`audit/codex-provenance/motion-quarantine.md` at `9812f951`, read whole. Passes one–four are dated
+evidence, not rewritten. All verification read-only; docs-only write (this file). Rulings **R-A**,
+**R-B**, **R-E** (as sharpened: gates state commands with literal paths; descriptive invocation is
+the abolished prose exemption) applied as given, not re-litigated.
+
+**Verdict roster**: **10 CONFORMANT** (W0, W1, W2, W3, W4, W5, W7, W8, W9, W11) · **2 DEFECTIVE**
+(W6, W10) · **2 numbered defects**. **NOT tranche-ready.**
+
+## (a) Fourth-pass defects — repair audit
+
+| fourth-pass defect | status |
+|---|---|
+| W0-D1 X-W0.e's axis-file write surface unbounded | **FIXED on the merits — the re-point option, executed whole.** HG-11's stamps now land in `audit/codex-provenance/motion-quarantine.md` (`W0.md:277-280`), keyed `<axis file>:<line>`, coverage checkable by set-difference against `HYDRATION-LEDGER.md`'s 46 rows; the 46 canonical axes take an explicit `read, no write` bounds row (`:98`) plus an "equally immutable" Do-NOT-touch clause, the quarantine record takes `modify-append` (`:97`), the three-slugs glob is narrowed to r2 artefacts with "no canonical `challenge-*.md` byte is rewritten" (`:96`), and §Disjointness' e-line matches (`:112`). The **C-02 rationale is stated**, three times (bounds, unit .e, HG-11): receipts literal, corrections live in separate dated artifacts — which is exactly what the record is. The dated born-RED is preserved and an honest **CURED-IN-PART** block cites `9812f951`; the new falsifier arm makes the forbidden write itself a failure ("a stamp written into an axis file instead fails the C-02 write-ban and is not a pass"). Verified against the record itself: it exists, is tracked at `9812f951` (32,260 B), and carries **exactly what HG-11 binds to** — 46 files swept (§6), 34 assertions ruled across 16 files at 14 TRUE · 15 FALSE · 5 UNPROVEN (§3/§6, per-row `file`+`line` columns), §7.1–§7.5 disposing of all 46 with checkable arithmetic (30 vacuous + 16 = 46, summed in the record), both guards enumerated as served bytes with sha256s (§1), four re-runnable probes (§8). Not cosmetic — the gate is mechanically executable today. |
+| W8-D1 G-7 invokes the graph oracle by description | **FIXED, exactly as prescribed** — G-7 now states the command (`node docs/tranches/V/megatranche/workflows/graph-v3.mjs`), runs it before and after X.W8.c with both outputs banked under `W8-witness/`, and the falsifier re-runs "the same command" (`W8.md:276-280`); File Bounds gains `graph-v3.mjs | execute, no write (G-7's SCC oracle over demo/**; X-W0 authors the bytes)` (`:97`) — W10's idiom, both halves, and the ownership attribution consistent with W0's `create` row. |
+
+**Two of two fixed on the merits; neither cosmetic. No new defect was introduced by either repair**
+— hunted specifically: no orphaned gate or unit assumes axis-file writes (HG-10 tracks r2 artefacts
+only; commit 4's contents match the re-pointed unit), and a twelve-file sweep finds **zero** sibling
+citations of X-W0.e's old stamp-into-axis-files mechanism. The one intra-corpus tension the
+re-point sharpened is W6's stale absence claims — an observation, below, not a defect.
+
+## (b) Tranche-level mechanical checks, re-run fresh
+
+**R-E coverage, including descriptive invocations.** Every gate's probe text in all twelve files was
+read for scripts run without a literal path — not only extracted paths. Bounded and clean: W0 ×4
+(incl. the repaired HG-8/HG-11 surfaces), W1 ×5, W2 ×2, W4 ×2 (`navprobe.mjs` + the created specs),
+W5 ×5, W6 9-create + 12-execute, W8 ×1 (the repaired G-7), W9 ×5, W10 ×1, W11 ×3; W3/W7 invoke no
+script outside their own bounded specs. Inline `node -e`/grep/sed one-liners carry their own bytes
+and are admissible; `npx playwright test` over bounded or sibling-owned suites is the corpus's
+ratified harness convention (W4/W7/W10/W11, unchanged through four passes). **One descriptive
+invocation survives: W6 c3** — booked below. No universal exemption claim exists anywhere; W6's and
+W9's inclusion claims re-verified (W6's is falsified only by its own c3).
+
+**Ordering reciprocity + cycles.** Graph unchanged and closed: W0→W1→{W2, W3, W4}; W4→W5→W6→W7→W8;
+W3→W7; W9 free after W0 with three §4a carve-sequences (ARCHITECTURE.md/X-W8 ·
+ConsoleRail.vue/X-W4 · eslint.config.js/X-W4+X-W8), declared from **all** ends; {W5..W9}→W10→W11.
+`X.W4.g`'s four sibling paths carry the no-other-wave-open rule at both W4 sites. **0 cycles; 0
+one-directional hazard edges.** Benign residuals unchanged from prior passes (W5→W7 transitively
+closed through W6; W7's "Feeds: X-W10" the weaker verb on a reciprocated edge; W3's Opens-after
+X-W1 unlisted in W1's Blocks — the non-hazard direction, downstream self-gates).
+
+**117-row set-difference.** Machine-checked this pass: the ledger carries exactly 117 `| CC-` rows
+and 117 distinct CC-ids; the twelve wave files carry 117 distinct CC-ids; sorted set-difference
+**∅ in both directions**. Every §1.M bank row resolves to X-W0.j (census) → `X.W4.g` (receiving
+surface) → W11 §4 (terminal accounting); R-B intact, alias stated once.
+
+**Denominator law.** All nine `264/264` occurrences across the twelve files are the ban or the
+split law itself (W0 HG-6/scope/archaeology/HG-7's pasted output, W1 §10, W9 §10) — none gates.
+`ls scripts/**/proof-*.mjs` → 0; every mention is the structural ban. Clean.
+
+**R-A.** `Status: planned` **12/12** (grep). Sole VERIFIED-stamp site = X-W11 (its R-A block +
+commit 8); W0/W1/W2/W4/W5/W6/W7/W10 close to IMPLEMENTED with the parenthetical, W3/W8/W9 silent —
+admissible. HG-16's probe re-run: `grep -L 'COMPLETABLE' waves/W*.md` → empty. **12/12 clean.**
+
+## (c) Defects — misses of prior passes on unchanged bytes; neither introduced by the repairs
+
+### W6 — Instruments and temporal scenes · **DEFECT (1)**
+
+1. **Gate c3 runs a script it does not name (R-E).** The command cell reads "`npx vite-node` mint
+   chain against the tree (never the long-running server — GRADSTOP-A §7)" (`W6.md:208`).
+   `vite-node` executes a **file** — it has no eval mode — and c3 names none: no §4 create row, no
+   `execute, no write` row carries the id c3, and unit .c's Files list holds only product modules
+   and the two vitest files (whose gates are c2/c4, invoked as `vitest`, not `vite-node`). This is
+   the descriptive invocation R-E abolishes — the exact W8 G-7 shape the fourth pass called "the
+   finding" — and it is condemned by **W6's own §4 Bounds law** ("each carry their own row above…
+   with the invoking gate id named; no invocation is exempted by prose"): c3's invocation appears on
+   no row. It evaded four passes because no path is written, which is the blind spot R-E exists to
+   close. **Fix**: one edit — either add `c3` to an existing evidence probe's execute row and name
+   that path in the command cell (if the mint chain re-runs `…/evidence/parse-probe.ts`'s mint leg),
+   or create `docs/tranches/X/gates/gate-literal-dialect.mjs` with a `create (c3)` row and put that
+   literal path in the cell, matching the wave's own nine-instrument idiom.
+
+### W10 — Canonical design and motion · **DEFECT (1)**
+
+1. **§2 COMPLETABLE's universal — "Its file bounds intersect no other X wave's bounds" — is false
+   on at least five paths, and the same file's own §4 contradicts it.** Measured intersections:
+   `demo/palettes/browser/card/PaletteCard/PaletteCard.vue` (W10 §4 ↔ **X-W7** `modify-carve`,
+   `W7.md:98` — the parenthetical even claims the file as W10-owned while assigning "palette panes"
+   to W7); `demo/styles/animations.css` (↔ **X-W5** `modify-carve`, `W5.md:104`);
+   `demo/styles/foundation.css` (↔ X-W5, `W5.md:103`); `demo/shell/PaneSegmentedControl.vue`
+   (↔ X-W5 `delete`, `W5.md:100` — W10's **own §4 row note** states "X-W5 holds `delete` on this
+   file", falsifying the sentence from inside); `VISUAL-CONSTITUTION.md` +
+   `OPTICAL-BENCH-COMPOSITIONS.md` (↔ X-W5.e's E1/E2 strike, `W5.md:110,112`). All five are
+   rendered safe by sequencing (W10 opens after W5..W9 close), so no §4a hazard exists — but the
+   sentence is a falsifiable universal that is false as written, the identical class the second
+   pass booked at W9-D2, and a reader trusting COMPLETABLE could schedule W10 concurrent with a
+   reopened predecessor remediation. **Fix**: restate the sentence truthfully — "its bounds
+   intersect only closed predecessors' surfaces (X-W5 ×4, X-W7 ×1), inherited after their closes;
+   no concurrently-open wave shares a write path" — and add one §4a Cross-wave line naming the five
+   paths with their holders.
+
+## Observations (not booked)
+
+- **The W0 re-point sharpened W6's staleness into an intra-corpus contradiction, in the benign
+  direction.** `W6.md:239` and `:335` (H2) still assert `motion-quarantine.md` "**does not exist**
+  (verified 2026-08-03)" while `W0.md:279` records it tracked at `9812f951` — two sibling files,
+  one date stamp, P and ¬P. Both were true when measured (the record landed 12:23; W6's 13:03 edit
+  was the R-E repair, which did not touch H2). H2 stays honestly born-RED on its citation legs, the
+  D-19 re-measure-at-open duty governs, and the falsifier is unaffected. One dated-addendum line in
+  W6 would dissolve the contradiction; not required for coherence.
+- **`9812f951` also tracked the 61 r2/evidence files**, so W0 HG-10's tracking leg and HG-1's
+  megatranche-33 component are stale-benign (megatranche untracked now **0**; docs/ total
+  1858 → 1825). HG-10's ledger leg stays RED (the hydration ledger still carries the 46
+  REPORT-AUTHORED rows), so the gate remains born-RED overall; `census-open.txt` records the delta
+  at open. This also moots the residual "who tracks the r2 trees" ambiguity between X-W0.a's census
+  and X-W0.e's "git-tracks" wording — both are discharged-by-sibling; ¶Disjointness' "only unit
+  that changes tracked/untracked state" sentence could be tightened by one clause, at leisure.
+- **`W4.md:293`'s anchor `W0.md:327` drifted again** (now `:331` — the repair added rows above
+  HG-18). Third drift of the same cite; the line-anchor law handles it at open, but the next W4
+  edit should convert it to a section anchor (HG-18), which cannot drift.
+- **W10 G-6 may open GREEN**: X-W7's G11 (CC-069) cures the same `cartoon-cast` mechanism on the
+  same card before W10 opens. W10's own predecessor-discharge idiom (the PaneSegmentedControl/Ad-18
+  row note) should extend to G-6 — retire-with-measurement, j4-style. Related: the landed
+  quarantine record's §1 proves Guard 2's `*:not([data-allow-motion])` does **not** reach
+  pseudo-elements while Guard 1's `*::before/*::after` does — load-bearing input to W10.d's
+  deletion of `animations.css:184`/`:202` that the L-18 quartet should read before that unit runs.
+
+## Tranche-level read, fifth pass
+
+The two repairs are clean, minimal, and verified against the surfaces they cite — the round
+introduced nothing. Both booked defects are prior-pass misses on unchanged bytes, one in each of
+the two files whose earlier defects lived elsewhere. The corpus's structural checks — ownership,
+ordering, denominators, stamping, the bank's trigger-fire path — are all clean for the third
+consecutive pass; what remains is one unnamed script path and one false sentence.
+
+**Superlatives (L-18 runs both ways).** The W0 re-point is the model repair of the program: it took
+the option the fourth pass's observation recommended, stated the C-02 rationale at every surface it
+touched, kept the dated born-RED intact beside an honest CURED-IN-PART with the commit hash, and
+authored a falsifier that makes the forbidden write itself the failure. The record it binds to is
+the rare gate target that is *stronger* than its gate — per-assertion rulings with probes, a
+cascade finding (the guards' pseudo-element asymmetry) no wave had asked for, and §7 arithmetic
+that makes coverage checkable by addition. W8's G-7 repair is the two-sided idiom executed without
+a wasted word. And the sibling lane's `9812f951` discharged HG-10's tracking leg and H2's existence
+leg while the passes argued about their bounds — the second time this program's owed work landed
+from outside it.
+
+**Tranche-ready: NO — two single-edit fixes short.** Neither defect requires re-planning,
+re-measurement, or ledger motion: W6-D1 is one named path (plus, at most, one create row), W10-D1
+is one restated sentence plus one §4a line. When those two land, a sixth pass that re-verifies only
+those two edits against this pass's checks would be the pass that stamps the tranche **SPECIFIED**
+— every structural check is already green, and nothing else is open.
+
+---
+
+*Fifth-pass adjudication complete 2026-08-03. 12 files · 10 CONFORMANT · 2 DEFECTIVE · 2 numbered
+defects (both prior-pass misses on unchanged bytes) · 2/2 fourth-pass defects fixed on the merits ·
+0 defects introduced by the repairs · 0 sibling citations of the old X-W0.e mechanism ·
+motion-quarantine.md verified real, tracked at `9812f951`, and carrying exactly what HG-11 binds ·
+R-A 12/12 · R-B intact · R-E 11/12 (W6 c3 the sole descriptive invocation) · 117/117 ledger ids,
+∅ set-difference both directions (machine-checked) · 0 cycles · 0 one-directional hazard edges ·
+denominator law clean.*
