@@ -1,0 +1,243 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-SUBJECT-P1-REGISTRY-2026-07-29.json
+  original-mtime: 2026-07-29T18:37:47
+  original-sha256: b3929ebf6f0718c24d5c27cd9c2a14f41dd1067d0f25221250021fa9ca6c657b
+  original-bytes: 17396
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schema": "value-full-subject-pass/v1",
+  "pass": "P1",
+  "date": "2026-07-29",
+  "subject": "value.js",
+  "modelRoute": "GPT Sol xhigh",
+  "mode": "formation-only",
+  "predecessorRegistrySha256": null,
+  "candidatePacketSha256": "aa6840601388258246677c1c619deeadd763d5dbddb56f9feb92b2b803961840",
+  "familyDenominatorPath": "FULL-FAMILY-DENOMINATOR-2026-07-29.json",
+  "familyDenominatorSha256": "1d6df52abdd89dcc2e56b0aaaca6cc7d4a516eb5e8493dd4547adeebd070dd85",
+  "familyCount": 18,
+  "specializedEvidenceIsNotAPass": true,
+  "families": [
+    {
+      "familyId": "V.F0",
+      "research": "Reconciled committed e01d0065, read-only live tranche-u dirty truth, 111-session ledger, 88-SFC/264-axis corpus and all accepted cross-repo receipts.",
+      "synthesis": "Keep one immutable evidence cut and separate historical intent, formation truth and future execution evidence.",
+      "prototype": "Reuse typed DAG and strict boundary prototype only as evidence; no product source.",
+      "critique": "Prior packet falsely promoted three specialized studies into the full-pass prerequisite.",
+      "agglomeration": "Supersede admission status while retaining every evidence coordinate and wave specification.",
+      "disposition": "FOLD",
+      "waveAction": "V.F0 binds the full-family pass chain and keeps stale status prose non-authoritative.",
+      "openDelta": "P2 must independently challenge all 18 rows against this exact registry.",
+      "evidence": ["VALUE-FORMATION-PACKET", "TYPED-DAGS", "SESSION-ROOT-DEEP-BATCH", "root DAG adjudication"]
+    },
+    {
+      "familyId": "V.L1",
+      "research": "Re-read parser boundary, Keyframes workloads, P2 surface evidence and P-B1 root verification.",
+      "synthesis": "Value owns one scannerless lossless CSS grammar over parse-that Result/span/recovery primitives.",
+      "prototype": "Reuse isolated Value boundary types and parse-that candidate evidence; no competing runtime.",
+      "critique": "No release, Value+jsonParser exact-SHA receipt, formal 10x lower-bound proof or rebind exists.",
+      "agglomeration": "Preserve the wave contract and its exact candidate-to-release order as blocked execution.",
+      "disposition": "KEEP",
+      "waveAction": "V.L1 authors grammar only after the unpublished candidate coordinate is authorized.",
+      "openDelta": "BLOCKED-ON parse-that B convergence, two consumers, proof, audits, release and Value rebind.",
+      "evidence": ["PARSER-B-PB1-ROOT-VERIFICATION", "KEYFRAMES-VALUE-SURFACE", "P2 Sol agglomeration"]
+    },
+    {
+      "familyId": "V.L2",
+      "research": "Reconciled existing serializeCssValue/serializeKeyframeSelector, Keyframes emitters and P2 serializer rulings.",
+      "synthesis": "Split parsed shorthand inverse from semantic ordered-longhand projection with explicit refusal and formatting ownership.",
+      "prototype": "Reuse opaque parser-provenanced unknown and canonical inverse boundary types.",
+      "critique": "Public raw constructors, throwing emitters and ambiguous shorthand/options serialization would create dual truth.",
+      "agglomeration": "Fold grounded internal serializers into one public failure-explicit inverse family.",
+      "disposition": "FOLD",
+      "waveAction": "V.L2 binds inverse vectors and prunes throwing/raw passthrough paths.",
+      "openDelta": "Record shapes remain born-RED-derived during execution.",
+      "evidence": ["KEYFRAMES-VALUE-SURFACE", "VALUE-P2-SOL-AGGLOMERATION", "value-boundary contract"]
+    },
+    {
+      "familyId": "V.L3",
+      "research": "Separated standards-derived explicit CSS stops from Keyframes callable easing sampling policy.",
+      "synthesis": "Value validates authored stops; Keyframes owns sampling density, error, maxStops, thrown and nonfinite receipts.",
+      "prototype": "Reuse explicit-stop Result shape; adaptive provenance machinery is absent.",
+      "critique": "Moving callable sampling would overgrow Value and contaminate the CSS-free named-easing tier.",
+      "agglomeration": "Move only typed validation/construction into Value.",
+      "disposition": "MOVE",
+      "waveAction": "V.L3 implements explicit-stop vectors and canonical inverse after V.L1-L2.",
+      "openDelta": "Keyframes sampling receipt remains a consumer gate.",
+      "evidence": ["VALUE-P2-SOL-AGGLOMERATION", "KEYFRAMES VALUE-CONTRACT-BATCH-03"]
+    },
+    {
+      "familyId": "V.L5",
+      "research": "Reconciled path scanner census, heavy Keyframes consumers, geometry laws and transform import weight.",
+      "synthesis": "Create cohesive /path for SVG grammar+typed geometry; retain /transform as zero-parsing numeric leaf.",
+      "prototype": "Reuse the single total typed-only PathGeometry prototype and compile-RED string constructor.",
+      "critique": "String constructors, dual parser paths, phantom subpath segments and parse-that reach from /transform are forbidden.",
+      "agglomeration": "Split path grammar/geometry from numeric transform and order this family before CSS motion.",
+      "disposition": "SPLIT",
+      "waveAction": "V.L5 forms /path and narrows /transform after the same parser successor gate as V.L1.",
+      "openDelta": "BLOCKED-ON parse release/rebind; execution must prove finite work and nonfinite sampling.",
+      "evidence": ["VALUE-P2-SOL-AGGLOMERATION", "KEYFRAMES parse boundary batches", "value-boundary contract"]
+    },
+    {
+      "familyId": "V.L4",
+      "research": "Reconciled CSS transform/motion placement, Webref/WPT denominator and path dependency.",
+      "synthesis": "Place CSS transform list, matrices, offset motion and CSS path wrapper on /css using typed /path data.",
+      "prototype": "Spec-only beyond reused boundary types; full shapes must derive from Webref/WPT.",
+      "critique": "Raw OffsetPath strings, numerical invertCssMatrix exports and ordering L4 before L5 fail ownership and graph laws.",
+      "agglomeration": "Move/fold CSS semantics to /css and depend explicitly on V.L5.",
+      "disposition": "MOVE",
+      "waveAction": "V.L4 executes after V.L5 and binds package-weight falsifiers.",
+      "openDelta": "Execution derives all axis/var/calc records from the frozen denominator.",
+      "evidence": ["VALUE-P2-SOL-AGGLOMERATION", "CONSTELLATION-GRAPH-SOL-AUDIT"]
+    },
+    {
+      "familyId": "V.L6",
+      "research": "Reconciled the exact 49-site census, Keyframes tier boundaries and open Atlas MorphSVG receiver.",
+      "synthesis": "Keyframes deletes local CSS/path grammars and emitters only after packed Value surfaces exist.",
+      "prototype": "No Value product prototype; consumer migration remains Keyframes-owned.",
+      "critique": "A claim that Keyframes can migrate is not adoption, deletion or immutable-pack evidence.",
+      "agglomeration": "Keep the consumer edge open through W2, W3 and W10.",
+      "disposition": "MOVE",
+      "waveAction": "V.L6 records adoption; Keyframes W2 owns edits, W3 pack/tier proof and W10 Atlas close.",
+      "openDelta": "BLOCKED-ON exact W2 deletion and W3 immutable pack SHA; W10 remains an open receiver.",
+      "evidence": ["KEYFRAMES-VALUE-SURFACE", "PARSE-THAT-BOUNDARY-BATCH-01", "PARSE-THAT-BOUNDARY-BATCH-02"]
+    },
+    {
+      "familyId": "V.A1",
+      "research": "Reconciled D9-D13, absorbed vnext contract and live detail/history/fork/provenance bypasses.",
+      "synthesis": "One default-deny object policy covers private/public, owner/non-owner/Admin, lifecycle, moderation and immutable release.",
+      "prototype": "Reuse the 14-row policy matrix; no product route code.",
+      "critique": "Unlisted Value policy, route-local bypass and status-specific leakage conflict with current authority.",
+      "agglomeration": "Fold historical predicates into centralized policy and prune unlisted.",
+      "disposition": "FOLD",
+      "waveAction": "V.A1 authors policy checks before membership or routes.",
+      "openDelta": "Execution must prove hidden-existence behavior and explicit Admin policy.",
+      "evidence": ["API-POLICY-V-API-01", "vnext api-contract source", "POST-U-AUDIT"]
+    },
+    {
+      "familyId": "V.A2",
+      "research": "Reconciled global-hash defects, six storage semantic IDs and Fourier F-L1 R1/R2 falsifications.",
+      "synthesis": "Palette-local numeric revision membership is mandatory; LOCAL-SNAPSHOT remains baseline and payload dedup is optional.",
+      "prototype": "Reuse storage measurements only as falsified evidence; no architecture selection.",
+      "critique": "F-L1 R2 mixes compression levels, merges metadata/index gzip, lacks four read mutants, skips warmups and discards samples.",
+      "agglomeration": "Prune global membership, keep local snapshot and block complex storage choices.",
+      "disposition": "SPLIT",
+      "waveAction": "V.A2 separates membership/author/ancestry from optional byte payload after corrected R2 admission.",
+      "openDelta": "BLOCKED-ON same-level F-L1 R2 rerun and fresh Sol close.",
+      "evidence": ["API-POLICY-V-API-01", "FOURIER-FL1-R2-SOL-FALSIFICATION"]
+    },
+    {
+      "familyId": "V.A3",
+      "research": "Reconciled live routes with absorbed vnext revision identities and hostile P3 rejection.",
+      "synthesis": "Numeric revision routes, 201 fork/revert, strong If-Match, process-local idempotency and conditional database CAS are canonical.",
+      "prototype": "Reuse route-policy contract types; P3 invented version-hash routes are negative evidence.",
+      "critique": "Global hash reads/reverts, 200 revert, missing idempotency and stored public forkCount are authority violations.",
+      "agglomeration": "Fold valid transaction invariants into V.A3 and prune invented route identities.",
+      "disposition": "FOLD",
+      "waveAction": "V.A3 wires canonical routes only after V.A1-A2.",
+      "openDelta": "Execution must cover replay, collision byte equality, redacted unavailable hops and matchedCount.",
+      "evidence": ["API-POLICY-V-API-01", "vnext api-contract source", "P3 hostile Sol terminal"]
+    },
+    {
+      "familyId": "V.U1",
+      "research": "Re-read fourteen route jobs, H1/focus/scroll defects and app boot topology.",
+      "synthesis": "One mounted application and persistent main host one scene with a named protagonist and truthful heading per route.",
+      "prototype": "Reuse Browser route inventory and π manifest; no UI source mutation.",
+      "critique": "Stub parallel routing, zero-H1 scenes and remount-based focus/scroll behavior erase route identity.",
+      "agglomeration": "Fold stub routing into scene data and split route-local loading from global boot.",
+      "disposition": "SPLIT",
+      "waveAction": "V.U1 binds boot, route identity, H1 and focus/scroll RED cells.",
+      "openDelta": "Execution requires immutable Glass candidate pack for development and complete Browser proof later.",
+      "evidence": ["COMPONENT-WORKFLOW-MATRIX", "RESEARCH-PASSES-AND-BROWSER-AUDIT", "PI-DELTA-MANIFEST"]
+    },
+    {
+      "familyId": "V.U2",
+      "research": "Re-read GenericActionBar D/L/C evidence, genuine Luna replacement and desktop/mobile no-op witness.",
+      "synthesis": "Delete generic action/ref dispatch; seat Generate, Gradient and Mix commands locally with no replacement registry.",
+      "prototype": "Reuse action-seat prototype and 390x844 reset falsifier.",
+      "critique": "Mix shell descriptors are masked or inert; generic Clear and first-palette Seed have no proven job.",
+      "agglomeration": "Prune generic bridge, keep ColorPicker ActionBarLayer and route-local commands.",
+      "disposition": "PRUNE",
+      "waveAction": "V.U2 performs the exact deletion cut and durable desktop/mobile acceptance.",
+      "openDelta": "Execution must replace the text-only reset witness with durable before/after evidence.",
+      "evidence": ["GenericActionBar Sol/Luna/Sol artifacts", "RESEARCH-PASSES-AND-BROWSER-AUDIT"]
+    },
+    {
+      "familyId": "V.U3",
+      "research": "Re-read all picker/workbench component workflows and responsive/accessibility/browser states.",
+      "synthesis": "Preserve route-specific instruments and one interaction owner while deleting debug/decorative surfaces.",
+      "prototype": "Reuse component probes and sampled browser frames; no changed UI makes rerun necessary in formation.",
+      "critique": "Pointer-only controls, hidden short-landscape actions, decorative motion and minimum-color removal caps violate causal state legibility.",
+      "agglomeration": "Prune PointerDebug and MIN_COLORS/canRemoveColor; keep semantic local instruments.",
+      "disposition": "PRUNE",
+      "waveAction": "V.U3 closes its 32 owned workflows and five open rows during execution.",
+      "openDelta": "Born-RED/browser cells remain open execution work, not formation gaps.",
+      "evidence": ["COMPONENT-WORKFLOW-MATRIX", "RESEARCH-PASSES-AND-BROWSER-AUDIT", "component adjudications"]
+    },
+    {
+      "familyId": "V.U4",
+      "research": "Re-read palette/Admin/shared/content workflows, API policy and all loading/empty/error/offline/auth evidence.",
+      "synthesis": "Separate factual specimen rendering, policy-aware actions and lived backend/auth states under route-local protagonists.",
+      "prototype": "Reuse 88-row ownership matrix and route-state browser evidence.",
+      "critique": "Offline routes presenting authoritative emptiness, route-local Admin bypass and aggregate Card semantics obscure truth.",
+      "agglomeration": "Split state representations and prune aggregate semantics after migration.",
+      "disposition": "SPLIT",
+      "waveAction": "V.U4 owns 38 workflows and nine open rows after V.A3 and V.U1-U2.",
+      "openDelta": "Execution supplies authenticated CRUD and Admin Browser evidence against the canonical API.",
+      "evidence": ["COMPONENT-WORKFLOW-MATRIX", "API-POLICY-V-API-01", "RESEARCH-PASSES-AND-BROWSER-AUDIT"]
+    },
+    {
+      "familyId": "V.H1",
+      "research": "Reconciled source/dist/demo imports, barrels, shadcn tooling, manifest/lock and producer readiness.",
+      "synthesis": "Use direct published Glass entries only; Glass is demo devDependency and Keyframes has no Value runtime edge.",
+      "prototype": "Reuse import DAG and producer artifact probe; no package mutation.",
+      "critique": "A single glass-ui.js mtime, raw-source aliases, forwarding barrels and copied CSS can hide incomplete artifacts.",
+      "agglomeration": "Prune compatibility/tooling residue and split readiness into complete artifact-set checks.",
+      "disposition": "PRUNE",
+      "waveAction": "V.H1 removes 19 barrels, shadcn/style/alias paths and phantom Keyframes manifest/lock entries.",
+      "openDelta": "Execution needs exact before/after census and packed tarball proof.",
+      "evidence": ["TYPED-DAGS", "PRODUCER-ARTIFACT-BOUNDARY", "package census"]
+    },
+    {
+      "familyId": "V.G1",
+      "research": "Re-read π manifest, browser matrices and Glass/Keyframes immutable-artifact rulings.",
+      "synthesis": "One packed proof joins complete published Glass, packed Value, consumer tiers and full route/component state evidence.",
+      "prototype": "Reuse formation browser captures only as born-RED evidence; no execution credit.",
+      "critique": "Candidate Glass or PNG byte identity cannot close final proof; missing fonts/definitions/CSS and environment coordinates fail closed.",
+      "agglomeration": "Keep semantic state plus measured geometry/pixel tolerance gates and immutable artifact identities.",
+      "disposition": "KEEP",
+      "waveAction": "V.G1 executes only after all product waves and published immutable Glass 8.",
+      "openDelta": "BLOCKED-ON Glass 8 complete publish, Keyframes W3 pack and implemented Value pack/browser matrix.",
+      "evidence": ["PI-DELTA-MANIFEST", "PRODUCER-ARTIFACT-BOUNDARY", "CONSTELLATION-GRAPH-SOL-AUDIT"]
+    },
+    {
+      "familyId": "V.Q1",
+      "research": "Re-read the first clean execution-audit contract against formation evidence boundaries.",
+      "synthesis": "Q1 must start from a clean implemented coordinate and rebuild all source/package/API/browser evidence.",
+      "prototype": "Spec-only; formation audits and captures do not transfer.",
+      "critique": "Calling prior formation checks execution evidence would repeat the same category error as the pass defect.",
+      "agglomeration": "Keep Q1 as a future independent implemented-product audit.",
+      "disposition": "KEEP",
+      "waveAction": "V.Q1 begins only after V.G1.",
+      "openDelta": "Entire audit remains future execution work.",
+      "evidence": ["VALUE-FORMATION-PACKET V.Q1", "PI-DELTA-MANIFEST"]
+    },
+    {
+      "familyId": "V.Q2",
+      "research": "Re-read hostile clean-audit independence, environment and artifact requirements.",
+      "synthesis": "Q2 must use a later clean checkout and fresh falsifiers after Q1 absorption.",
+      "prototype": "Spec-only; no Q1 artifact can be treated as transferred proof.",
+      "critique": "Parallel or inherited Q2 cannot test Q1 absorption and is not consecutive.",
+      "agglomeration": "Keep Q2 dependency-ordered after Q1 and reopened fixes.",
+      "disposition": "KEEP",
+      "waveAction": "V.Q2 independently repeats full gates and authors release handoff.",
+      "openDelta": "Entire audit remains future execution work.",
+      "evidence": ["VALUE-FORMATION-PACKET V.Q2", "PI-DELTA-MANIFEST"]
+    }
+  ]
+}

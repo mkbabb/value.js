@@ -1,0 +1,166 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/VALIDATOR-RAW.json
+  original-mtime: 2026-08-01T20:33:11
+  original-sha256: e099ea40a71cb90f948da6de4407089011e9d837d875dc9df9e30613ea15de6e
+  original-bytes: 4133
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schemaVersion": 3,
+  "validator": "V-MSK-V3-INDEPENDENT-JOIN-VALIDATOR",
+  "ok": true,
+  "failures": [],
+  "sourceRootIdentity": "49d4692e83462ebe11bd1bbf96b1f27e54a97834dc22a115ef1820a2345a5f23",
+  "inspectedFiles": [
+    {
+      "path": "SOURCE-SNAPSHOT.json",
+      "sha256": "cf812c05539c6fd0b0975870fa24c173936401cad0dd7b6d1953ebc6c70618b4",
+      "bytes": 4398524,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "PAGE-INVENTORY.json",
+      "sha256": "d00edb047e1d38da64bd83e74ff62e3aa1ac7d3a6b3fff3e9021a4c3b9dfa3aa",
+      "bytes": 75684,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "COMPONENT-INVENTORY.json",
+      "sha256": "9061128872ed32b6b03646d06592734b731b4f08860f2b3674cfef1fb06a9232",
+      "bytes": 179807,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "MOUNT-GRAPH.json",
+      "sha256": "4597ddcc4d9ca15040684197f7b9e389d2f4bf8cc6335f415436f439f346d0c0",
+      "bytes": 644122,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "STATE-REGISTRY.json",
+      "sha256": "588bc82387d2ffa89fa9b3f3f821b864df271646383297740ae60a7f26f5472f",
+      "bytes": 3100241,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "DESIGN-BRIEFS.json",
+      "sha256": "8f555260b94508f0f42ac737cfc4416babf98365d760ebad28e6d2417c1790e7",
+      "bytes": 713516,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "KRONECKER-REGISTRY.json",
+      "sha256": "ffd9b4a14e69be644826a8bd5bbe072f33a7ebbfd2363a170f49a54eef076e0d",
+      "bytes": 4285839,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "EQUIVALENCE.json",
+      "sha256": "3bde71acd37db6c145f3e52ec851caaad9d7ac260d6d7cc7cc8d30deb9d94ae3",
+      "bytes": 1052133,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "GENERATION-VALIDATION.json",
+      "sha256": "ab4d8938d600e5b1b850f8a6b4151cc1fb1f0adea1265a781a0be1f95c035d5b",
+      "bytes": 1741,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "raw/SOURCE-READ-RAW.json",
+      "sha256": "0487b2e76054e12471bb641ac5379208ccea6552ec3b7a5945419b932e93548a",
+      "bytes": 66870,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "raw/ROUTE-PARSE-RAW.json",
+      "sha256": "09b13fd8d86d76817062c1cf8eb3e38386b761096198e2ba7aa64434cec437ae",
+      "bytes": 8215,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "raw/COMPONENT-PARSE-RAW.json",
+      "sha256": "9dfaeb5b5551e5d558449105ed895a4b7adb55b82e774a63cb6c8309d2e6331a",
+      "bytes": 60147,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "raw/MOUNT-PARSE-RAW.json",
+      "sha256": "51fa8202710fbd8022a2948f62856e5f2e282cbb6f1ad0c3d0074a23f3e71a8f",
+      "bytes": 613951,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "raw/STATE-ORIGINS-RAW.json",
+      "sha256": "f669eef3e904d0d161c402f448ed2d0f2b0e93c63df3e901988a44dbd0bac39b",
+      "bytes": 48097,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "raw/DESIGN-INPUTS-RAW.json",
+      "sha256": "3ed23ab6962d7703fa33824b9046b313e05beb65dfdd96bfe8ba74f7ace795b4",
+      "bytes": 34539,
+      "mode": "0644",
+      "nlink": 1
+    },
+    {
+      "path": "raw/KRONECKER-FACTORS-RAW.json",
+      "sha256": "8e9e1560fa498b6fcddacb5da772a34fd23c3b7767e1508709fb4e25560230f0",
+      "bytes": 4486911,
+      "mode": "0644",
+      "nlink": 1
+    }
+  ],
+  "counts": {
+    "routes": 14,
+    "wildcard": 1,
+    "pageSubjects": 69,
+    "components": 88,
+    "mounted": 86,
+    "harness": 2,
+    "declarationEdges": 115,
+    "staticMountEdges": 126,
+    "dynamicMountEdges": 11,
+    "routeInstances": 1272,
+    "stateRecords": 157,
+    "designBriefs": 157,
+    "kroneckerBlocks": 2590,
+    "equivalenceClasses": 2590
+  },
+  "denominator": {
+    "platforms": {
+      "IOS_MOBILE_SAFARI": "1609605648",
+      "INSTALLED_DESKTOP_SAFARI": "1609605648"
+    },
+    "total": "3219211296"
+  },
+  "credit": {
+    "iosSafari": 0,
+    "desktopSafari": 0,
+    "browser": 0,
+    "api": 0,
+    "package": 0,
+    "product": 0,
+    "parser": 0,
+    "release": 0,
+    "execution": 0
+  }
+}

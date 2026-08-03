@@ -1,0 +1,1122 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/SOURCE-READ-RAW.json
+  original-mtime: 2026-08-01T20:21:19
+  original-sha256: 0487b2e76054e12471bb641ac5379208ccea6552ec3b7a5945419b932e93548a
+  original-bytes: 66870
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schemaVersion": 3,
+  "receiptId": "V-MSK-V3-SOURCE-READ-RAW-01",
+  "result": "PASS",
+  "sourceReadCount": 1,
+  "sourceRootIdentity": "49d4692e83462ebe11bd1bbf96b1f27e54a97834dc22a115ef1820a2345a5f23",
+  "liveRootIdentity": "e639df849d10219d01b7486aac40e99536ba607ce847a989247e6e85eec02649",
+  "authenticatedEntry": {
+    "path": "demo/color-picker/index.html",
+    "sha256": "c8d073bda8d6dee378c7f05e6b9365364ddf742563f0650225ad2aaaf2935a0d"
+  },
+  "sourceCounts": {
+    "files": 310,
+    "bytes": 2341009,
+    "liveFiles": 307,
+    "vueSfc": 88,
+    "vueDeclarationEdges": 115,
+    "visualBarrelDeclarations": 25,
+    "identicalLocalLive": 306,
+    "knownLiveHarnessSupersessions": 1,
+    "isolatedFormationInputs": 3,
+    "unresolvedDrift": 0
+  },
+  "localLiveDeltas": [
+    {
+      "path": "docs/tranches/V/megatranche/formation/COMPONENT-WORKFLOW-MATRIX-2026-07-29.md",
+      "localSha256": "3efc8638b765f0cb7bef019ff3d3b6a2f47664b1f66b6b9c6ff3fb9dd301c6a9",
+      "liveSha256": null,
+      "disposition": "ISOLATED_FORMATION_INPUT"
+    },
+    {
+      "path": "docs/tranches/V/megatranche/formation/NON-PARSER-FRONTEND-SPEC-CLOSURE-2026-07-30.md",
+      "localSha256": "a911162502a5a32cb512c00af266004e1d5d3f56ed2a963256b75caa3ee6c883",
+      "liveSha256": null,
+      "disposition": "ISOLATED_FORMATION_INPUT"
+    },
+    {
+      "path": "docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-KRONECKER-AUDIT-PLAN-2026-08-01.md",
+      "localSha256": "18f8ac83045496e6553d10d21e5cea26d2da43304952d4c67940aecb2e7a72ef",
+      "liveSha256": null,
+      "disposition": "ISOLATED_FORMATION_INPUT"
+    },
+    {
+      "path": "scripts/dev/dev.sh",
+      "localSha256": "b96a2e70e892720a9cc69804b3a7f9bf3c07088388883832a6380f91622a2775",
+      "liveSha256": "22521ed1cb087c43c3a9930acac360ae9ea8d085645e9b156901b0c637c12a03",
+      "disposition": "KNOWN_LIVE_HARNESS_SUPERSESSION_RETAIN_BOTH"
+    }
+  ],
+  "manifestLines": [
+    "59227880535065a59a7c70803b252b2892201d5a4ecbe0ded91012539d5bfe1f\t38214\t0644\t1\tdemo/DESIGN.md",
+    "dbac47fae6b86bec4ad18ffaea52b12f981c9108ea6b12cacd5ec7579f1318fb\t21424\t0644\t1\tdemo/color-picker/App.vue",
+    "45e5d83b836102259673aade5953465f13bf7d7fa8b3d652d0fdec7db9736e20\t3627\t0644\t1\tdemo/color-picker/ErrorBoundary.vue",
+    "3b568a5ae0fc385c9e78d81f87c1b3b2fac49e259ee898fac9047632f223f479\t4106\t0644\t1\tdemo/color-picker/color-picker-favicon.png",
+    "e97f88b28e083fcb96a0804124170672e7e8d5b11b7802368e3dad9cb13b597d\t4681\t0644\t1\tdemo/color-picker/composables/boot/atmosphere-calibration.ts",
+    "8c3ed409d6cdf4cee4b048380b9763c4bbfd24b330e2d3677c8747c8e751ccf5\t7428\t0644\t1\tdemo/color-picker/composables/boot/ground.ts",
+    "473d15a7543b42bbf94dc7b5948eeab31bb11f3139d2a170bf8505b373e7f9fe\t5574\t0644\t1\tdemo/color-picker/composables/boot/hydrate.ts",
+    "a0d5e8816e72e3c219e8a50caed1969d3d34dfd324b38f2d00b197d842bf7457\t9489\t0644\t1\tdemo/color-picker/composables/boot/overture.css",
+    "cbcf3898cd93427f55d987ad46a03266c34deb7cbc946dca83f3fbd62e9d708d\t20663\t0644\t1\tdemo/color-picker/composables/boot/useAtmosphere.ts",
+    "0334dcbfe235998de34b3d19e91980568967ca7618f6701eef79e0fd7cdf5119\t6833\t0644\t1\tdemo/color-picker/composables/boot/useAtmosphereBoot.ts",
+    "87f738d89a4862285e34096103996465e0541d2f1bdaa5dd5b5357e41365c06e\t4154\t0644\t1\tdemo/color-picker/composables/boot/useDockArrival.ts",
+    "737b99d5948bc04f9e9101ace30c9c23df6f9ae339ea33d0039af4cc8ea05c86\t11432\t0644\t1\tdemo/color-picker/composables/boot/useOverture.ts",
+    "919ebf35c56c9a7699f40d18e1b8596e0da228c80670be56a4a795ce7477b486\t8753\t0644\t1\tdemo/color-picker/composables/boot/useViewAccents.ts",
+    "8607c46374f32e6c4f6c93cdf577d31dfb007af05efe40ff0222c6f8fe8728c1\t2074\t0644\t1\tdemo/color-picker/composables/boot/view-accents.ts",
+    "7bd9035279357adf26049a5b8e9a0ddd32d73d596b08fda0d061924441c4a30e\t3771\t0644\t1\tdemo/color-picker/composables/useDevicePixelSnap.ts",
+    "bd50755627ccda6f11d656ff206c2966f2a1ad69e9fb96c66c3c3de55e64e952\t7242\t0644\t1\tdemo/color-picker/composables/usePaletteWiring.ts",
+    "d83785ac1ff17feae1cb3b2ef664ce9b8a5c328ae0745745ef1d3154604447da\t6582\t0644\t1\tdemo/color-picker/cube.png",
+    "e7fc345cfedf0de3b45c3aad830e05c7b7f9a0ac62d2745d8c2ee39bb53608b8\t1128\t0644\t1\tdemo/color-picker/favicon.svg",
+    "c8d073bda8d6dee378c7f05e6b9365364ddf742563f0650225ad2aaaf2935a0d\t13165\t0644\t1\tdemo/color-picker/index.html",
+    "b090d3a79c46bbdde9a6c1f27993ee68cdbdbdaf60907446b7c8082d4784bf5b\t168\t0644\t1\tdemo/color-picker/main.ts",
+    "ce2501812ba1c1455f3fe1f17efcbbae6c14137fe03f3ef897b62f50645f8330\t15\t0644\t1\tdemo/color-picker/public/CNAME",
+    "9bc436482bf60be9ced6ba12b1fbeba5c6577ebd64e5b8177819d9cb0b5eeeb0\t3379\t0644\t1\tdemo/color-picker/public/_headers",
+    "1e0d114a72921799f06413d3673a80c316fa77d8d344df6de7c8659302ece2dc\t71568\t0644\t1\tdemo/color-picker/public/fonts/fraunces-latin-ext-italic.woff2",
+    "f120089b9440f3e35a980a2137347b1851ad46ee4b8ad5c63b6c07e053fa40e2\t59540\t0644\t1\tdemo/color-picker/public/fonts/fraunces-latin-ext-normal.woff2",
+    "4af9c759c8059b53923b4b50ba377ba51029876e1af1ea757efb07bc67d97896\t81704\t0644\t1\tdemo/color-picker/public/fonts/fraunces-latin-italic.woff2",
+    "ad74cd7c27c9d440f573d4b516fe53e3fc42cba402ac4d9532fed325fbc73952\t67512\t0644\t1\tdemo/color-picker/public/fonts/fraunces-latin-normal.woff2",
+    "ab4149c167406fc55636b1f9b226510c03879dd269000c16078b38973cc71e75\t68\t0644\t1\tdemo/color-picker/public/robots.txt",
+    "2aaa2282b397722cf8cf1e5696412c8a00d3dea6148b615c1206fc152de66aa0\t2349\t0644\t1\tdemo/color-picker/router/index.ts",
+    "d80ccfa29a20bdcb35be8edfc7aebb76141f09fc1e5cc8a5618ccb95b32e980a\t3688\t0644\t1\tdemo/color-picker/router/useDocumentTitle.ts",
+    "f2f4a74cbf76888ff5d7f4d53762c72a6280eebc18fe1d4b930b3a27a910d6bb\t470\t0644\t1\tdemo/color-picker/vite.d.ts",
+    "b87191d0076648a2ded482d4bd3dd2b67a634faed18bf792bb2b57e29c9aac5f\t14677\t0644\t1\tdemo/color-session/ColorSpaceSelector.vue",
+    "9574ce9923d229bc652541b1239eadbdcbcdae6fd42651d26b5779072d5f5143\t1763\t0644\t1\tdemo/color-session/color-chips/PreviewRamp.vue",
+    "570051e191c25a95e1965b4199350b09f41c91cd760f2af3e713c5f6b86c2821\t2615\t0644\t1\tdemo/color-session/color-chips/PreviewStrip.vue",
+    "e53895923d00eca1ee821e342e04d1bbbb6a56b9326363d73e3a60cefec7fac9\t1520\t0644\t1\tdemo/color-session/color-chips/index.ts",
+    "ee0f5cf2e3aa7020615e96d1cc1e8c5fae38f72105a19d558bda3e512b3b552a\t3721\t0644\t1\tdemo/color-session/color-chips/sample.ts",
+    "588d079908becd8d0c12dbba4e620a83216de83be392a7936271eae7aa59d1ed\t2332\t0644\t1\tdemo/color-session/color-model.ts",
+    "ce1e72d60afe1f1d1630cb438edf1762230909c277bb73dc632abaa07252c73b\t1554\t0644\t1\tdemo/color-session/color-names.ts",
+    "511ce64559a52c89a088155b68e07dc15d193f4255f11f26f0cae7d5e194a8a6\t1980\t0644\t1\tdemo/color-session/color-space-meta.ts",
+    "58afd984bc4a861d527630cdeb6c87927f26f61f8268cfe6c7f8474b6a50999b\t1092\t0644\t1\tdemo/color-session/color-utils.ts",
+    "91cd243fa01a31f5d07bab1b96b9e71ada361699d459233f64d6eb46ae82b0f3\t13820\t0644\t1\tdemo/color-session/colorSpaceInfo.ts",
+    "beb109de85ad22e68bb8160309abb8ae34324b7b9aa5eb7a04f1285904487c84\t9099\t0644\t1\tdemo/color-session/generate-color.ts",
+    "b313fb89d375367f3d5c8b72d09add16086d5e072763ab0a6c85f6b8139e453b\t5757\t0644\t1\tdemo/color-session/ink.ts",
+    "e06de1db1c18623ded08416b8c429e05c948187d5b401f5ffdd5ef3f9292bcda\t1474\t0644\t1\tdemo/color-session/keys.ts",
+    "dc7bf953601446629f60ac3052eade5b669267c4b71293a6a1c4bb3d4e23a8a2\t6857\t0644\t1\tdemo/color-session/palettes-ramp.ts",
+    "199f129642ebd73b45fc90c045888e26dd2b136d6a84a20ed3f1efd5a8ab5eeb\t8402\t0644\t1\tdemo/color-session/picker-color.ts",
+    "b66b74cf91b1991f0870aeffe10fa582e4d4913cff9a469bcde70d89a2fb6df0\t346\t0644\t1\tdemo/color-session/prng.ts",
+    "a658fb17f0eece3c2dc519d615e99d080f74f7d2401ce9097800173db413a50b\t2787\t0644\t1\tdemo/color-session/useAtmosphereFrameCoalesce.ts",
+    "831465b4fb4a3df56b711b1b207dbffd1a026f9bb3e227bda351f11909abb65a\t2632\t0644\t1\tdemo/color-session/useColorNameResolution.ts",
+    "102a180e92825221e364113e6ee1c442811fcbbc862a6c95489b72df7578d09d\t5081\t0644\t1\tdemo/color-session/useColorParsing.ts",
+    "06bd3b7f61a3cbb43ff9a712d185a0834112914e4bce9c0b6c84aeb24d43aeff\t4925\t0644\t1\tdemo/color-session/useColorPersistence.ts",
+    "c4b72b694c63472e03d2dc76be969d5c593537aa6c6f8e40077497247c6237df\t13214\t0644\t1\tdemo/color-session/useColorPipeline.ts",
+    "27d8f851a016af54bd85418a4a68065b85982085297332eaa07936db73cb6060\t3019\t0644\t1\tdemo/color-session/useColorUrl.ts",
+    "ca734160f460925f10b0174fc70fa8219c51044a58136a335a2e67b134c43ce8\t15672\t0644\t1\tdemo/color-session/useContrastSafeColor.ts",
+    "ef72ee8bdfc962019a637bcb34de65dfa582dca558b3a599a404f06c425902cb\t3367\t0644\t1\tdemo/color-session/useCustomColorNames.ts",
+    "44b24fe481216045b5afef9b961fc972c1600ff312fd90ca1a80f70fad32fbb4\t3727\t0644\t1\tdemo/color-session/useSliderGradients.ts",
+    "a7ead66128a8c688c1a4befa603bb5765ed616ea461648b68194c50220c10736\t2608\t0644\t1\tdemo/color-session/valueDomain.ts",
+    "42e48f8802619f4f9bf9f253c846564ba70c4748c1d6eac5bda6e41c51b42da4\t1617\t0644\t1\tdemo/color-session/view-accent.ts",
+    "c840ec6fca15a4fd629693b4ae910afe85b65368af87541bcf2f555a97a062ce\t14606\t0644\t1\tdemo/palettes/BrowsePane.vue",
+    "6521426680895595f91801efde819c2247bafd77980e617aa8d9b580e9b6bb71\t10044\t0644\t1\tdemo/palettes/PalettesPane.vue",
+    "cad0113d2be118a4f78d231b500623e7d47cf5514af85f34e5728732efa2bd9b\t5402\t0644\t1\tdemo/palettes/admin/AdminPane.vue",
+    "63835e05fadbf7f05e072aeef63cef7794ab3f11941486a6a7ce0fb017aad05f\t1192\t0644\t1\tdemo/palettes/api/admin-audit.ts",
+    "52e2e4e64117fd0d7acca9fbecd2422c493043bcc4094af2fd005483dbb992e6\t2451\t0644\t1\tdemo/palettes/api/admin-colors.ts",
+    "21b100c6dc85a6c761f36d4cd76b0b493c1a783527099e40eee0fbbcc87e5562\t1816\t0644\t1\tdemo/palettes/api/admin-palettes.ts",
+    "123edb04b7a0328e7b57efacb77e3bb51d1d5415b705fc1fb4ebd78a39ad01d7\t2281\t0644\t1\tdemo/palettes/api/admin-users.ts",
+    "d1810f59eab9517d48eea2f93eeaaa339b70c21361a8e489f5ce8c748335e73d\t504\t0644\t1\tdemo/palettes/api/colors.ts",
+    "d3bafa892edd3a6c98d34349e2d00b7420b26ed3d2ca26d0bed5cf4efce0447a\t2001\t0644\t1\tdemo/palettes/api/index.ts",
+    "5f0b4130660374f833fccc25e25dda05bbaabfa63024bff3987a4dbc46e2a35c\t6310\t0644\t1\tdemo/palettes/api/palettes.ts",
+    "4e53c1cce530258c87127376dbfd920fd27ed38044473630a416c99199f3f1c0\t1575\t0644\t1\tdemo/palettes/api/versions.ts",
+    "f28b96cb9a9f84823516dffd07034f81ad7ad8076b67ecaf4e4f1ea21fb1259d\t4989\t0644\t1\tdemo/palettes/browser/admin/AdminAuditPanel.vue",
+    "907d7ee340c684fc267de928e751d45a1ede8c97065a584786e7f127bd2e4725\t6946\t0644\t1\tdemo/palettes/browser/admin/AdminFlaggedPanel.vue",
+    "a15213314633bee79679f923988feaeb3e387d683106d574f03089b2b99e2c7a\t1253\t0644\t1\tdemo/palettes/browser/admin/AdminListItem.vue",
+    "be2b810a2edbdc8e6f52a2787905bcc08921a1f4422daa00f90e2d2314910db4\t1164\t0644\t1\tdemo/palettes/browser/admin/AdminListSkeleton.vue",
+    "7cd3ddee4fd4eebb6c09724d703f7b3c203d9c0cea17647ec405b5c1ae2acd7a\t7547\t0644\t1\tdemo/palettes/browser/admin/AdminNamesPanel.vue",
+    "fcd07904d64a4a7a8f34ebb517d73a0629032433bf8e8dfcdbf0a3d7f871752d\t5433\t0644\t1\tdemo/palettes/browser/admin/AdminTagsPanel.vue",
+    "05b9b49a074deca53e70b262678bb2a96fd4b99bd9d4ad88486347b701b7097d\t16510\t0644\t1\tdemo/palettes/browser/admin/AdminUsersPanel.vue",
+    "3006c9b99288b591c70272dada3b587fb5b30a88ef8bf775b67ea8e78b73322c\t1211\t0644\t1\tdemo/palettes/browser/admin/PaginationBar.vue",
+    "e6f3ff3e5f88cad472692bda1295cdf52fea7010861671c131153119af4b56c1\t450\t0644\t1\tdemo/palettes/browser/admin/index.ts",
+    "abc92623296c36a6a28517781be6ceddf9edf1914d0e8cf29b8903b531f3fb76\t13778\t0644\t1\tdemo/palettes/browser/card/CurrentPaletteEditor.vue",
+    "9b5cbe86976967d366a7386980f4eb94fd5d1795a160fd2a87c098b9393dbdd2\t1713\t0644\t1\tdemo/palettes/browser/card/PaletteCard/ActionFeedback.vue",
+    "94d218f385b563d5bfbfff9ad1f80b92c9b2142ed2d2a30da3bcfdaf353f49ec\t15569\t0644\t1\tdemo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+    "c0af63cb880f24f8c7b20e0808e6ba17ab4242cbcd90a4db5f43411d63251616\t9210\t0644\t1\tdemo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue",
+    "95dd9725de21b2c00e3a2c46f08606abd2afa1a5426d5fbd970b60971cb13c16\t2421\t0644\t1\tdemo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+    "f07d8ead460991ea34c941d9136b0b17749c73affc36e04a4587b3276940489a\t4396\t0644\t1\tdemo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+    "97483747a1c97e35531288a267a874b54627fd83a742b4c27eb3a58b203e849b\t2209\t0644\t1\tdemo/palettes/browser/card/PaletteCard/PaletteRenameInput.vue",
+    "e4ee08d80c1a2c23742f7fddc236c23aba3d5271d41fdd4a4f7a81856e4d7107\t1890\t0644\t1\tdemo/palettes/browser/card/PaletteCardGrid.vue",
+    "00bfb73fc578db2cf3b6b02dbbbec378e90bebdbd3fe7d2aebab96a62b23b4d0\t5902\t0644\t1\tdemo/palettes/browser/card/PaletteCardSkeleton.vue",
+    "d714167b537e87d3751a17ad27ac5969051e2d6b7c4861b97df826f90eed883d\t2358\t0644\t1\tdemo/palettes/browser/card/PaletteColorStrip.vue",
+    "46d86c5bb070cad660897ed57bf5cbbe606b10c53533a2e73784c3aeaff7be17\t5801\t0644\t1\tdemo/palettes/browser/card/ShadowPalette.vue",
+    "a9399beec7aa99a7b54c61b4bc54bcf78fcd6e5602c6c1843430764659244cea\t3218\t0644\t1\tdemo/palettes/browser/card/SwatchHoverMenu.vue",
+    "1a3a5724c4121dfdec2af645da501948f0418c4652555d5e6ce96f8f2d7513e7\t3325\t0644\t1\tdemo/palettes/browser/card/composables/useHeightTransition.ts",
+    "0a9af4242d5d7491e8262d165ddc3b79effaf7929bcdc4b77fa5c36068df845b\t1993\t0644\t1\tdemo/palettes/browser/card/composables/useHoverPopover.ts",
+    "71ffdf3cea28273d90cdcb5ae24cc594d36337f91c327ed17f78389888f0d374\t378\t0644\t1\tdemo/palettes/browser/card/composables/useLeaveTimer.ts",
+    "de9a5e08eb714f9c1f69c2e11f09e19fd08ee7b2c36a635351972560a43d1d44\t4061\t0644\t1\tdemo/palettes/browser/card/composables/useSwatchActions.ts",
+    "cec5d2e50911a87bddaf4908478ffd93a97849fcf7965a402d90b04ca82aa456\t687\t0644\t1\tdemo/palettes/browser/card/index.ts",
+    "e8c30bc0f4627fddf7d1ebcd3cc34b8f121134bb8e6f4fa19363519e34a2da3b\t638\t0644\t1\tdemo/palettes/browser/dateFormat.ts",
+    "4e90c7911dedb7a85a5db67742f70c322dae4c2baed64e20151bb4b767e2946a\t3488\t0644\t1\tdemo/palettes/browser/dialog/FlagReportDialog.vue",
+    "8e9e8f264a963496e432db9d3c69405deedd51454691b4866c18e07197a0f762\t3160\t0644\t1\tdemo/palettes/browser/dialog/MigratePalettesDialog.vue",
+    "2b55ec282f702e03fb27065ab2762df942da0e87822cabd29c368b4d0e88384b\t6373\t0644\t1\tdemo/palettes/browser/dialog/VersionHistoryDrawer.vue",
+    "3def72217d61e108701ab4bb5dd2a596f462d321694ceecc3277e879c2da5a27\t4297\t0644\t1\tdemo/palettes/browser/dialog/composables/useDialogBrowseActions.ts",
+    "09b5be9174e50171890a31809c04588a22fdaa0b81103afa1a0ab2452fae09e4\t771\t0644\t1\tdemo/palettes/browser/dialog/index.ts",
+    "c6566b80eb3ba6f6928b2e371224c299744f1bac83e65a3a42f5fe4761df5e66\t1619\t0644\t1\tdemo/palettes/browser/index.ts",
+    "f9f59e5846026065630b0e1bf027b27f89919696df9df88f1b0c9f0f1907ca88\t6049\t0644\t1\tdemo/palettes/browser/search/MiniColorPicker.vue",
+    "c7e1ce515e78c0697ce121b9bfe6f6917eb03a474ee7f48b77324d8caee18620\t10658\t0644\t1\tdemo/palettes/browser/search/SearchFilterBar.vue",
+    "961debf279365c91455ee1724521dbd699c76b40837b29d4d902851f38623cdc\t3404\t0644\t1\tdemo/palettes/browser/search/TagEditPopover.vue",
+    "de6cc257db85223fea80f45823f6df07af08b7bfc8d2e7f44bee3e92bfa1cf9a\t2111\t0644\t1\tdemo/palettes/browser/search/UserSortMenu.vue",
+    "24a6cddede0fdb88b3e8b93de1c1501c3089a0dadcffcd99c91e32cd4c275b13\t305\t0644\t1\tdemo/palettes/browser/search/index.ts",
+    "18eba009fac4a924cd97cf5039a4ef957c44f258af54479a302cfd0eb26c2c25\t9981\t0644\t1\tdemo/palettes/browser/slug/PaletteSlugBar.vue",
+    "df5dbcf8c359971f4f1efdadd8c80b37e5f5b9cc16066ded44496995cfd27722\t173\t0644\t1\tdemo/palettes/browser/slug/index.ts",
+    "d8000f7c42d0d026ef6d4eac38ffd9b471a324d33158b76eaceefa8c652e137d\t3097\t0644\t1\tdemo/palettes/browser/status/ApiOfflineChip.vue",
+    "c951811dcc42e583c9e0a14e777d611f746f22e3ede556b39c9c31e6f1b2d87c\t533\t0644\t1\tdemo/palettes/browser/status/index.ts",
+    "5067fbe5a0394ee47ed2b000bcbd28ea19d61c8121b5139852ebd0e8bb76ab82\t385\t0644\t1\tdemo/palettes/constants.ts",
+    "19a5099356edd46fe1fddd47af8fc1ffb4e8a3182c828b6279fd6b244d3aaba6\t4184\t0644\t1\tdemo/palettes/export.ts",
+    "03e7c8797da287c4014f826fdd95b2ba8731958b65b17eaead072703c4d6ab1b\t1374\t0644\t1\tdemo/palettes/export/bytes.ts",
+    "4e56e702bcaf216382d18a00554f5ffc9e3521350b5fe6d0593d73a9cba66cf8\t3475\t0644\t1\tdemo/palettes/export/canonical.ts",
+    "5646f58900d7fc3dda863c8b73779ea94bf3ba7027d5bfcdb85793ce63c74d4a\t732\t0644\t1\tdemo/palettes/export/css.ts",
+    "e720a02595d8b5c64cc4b080554bc220293355a15aa10993ca982deaa430f751\t2775\t0644\t1\tdemo/palettes/export/digest.ts",
+    "a45514feb0d7eb0c879879c055859284b1b9e01deda0a908cf9d4dc0e2276a8d\t1216\t0644\t1\tdemo/palettes/export/json.ts",
+    "7a438dc8455bbdc8483d0141e3811667e17f6a56aac518580884bb32af2d1b34\t8185\t0644\t1\tdemo/palettes/export/png.ts",
+    "5b4d28f121b74195c21cee79094eeb1191366f94410aae472c53f4b86a6a7fd5\t9511\t0644\t1\tdemo/palettes/export/reload.ts",
+    "558622a39d2647a2e58c7e72cf7d5d341bc0f122553d46d34cd78109b8d5c312\t1805\t0644\t1\tdemo/palettes/export/rfc8785.ts",
+    "91f79ea39c9641f60c15b705c6b3e691e6d3151f8910c7874560b327acb36747\t1404\t0644\t1\tdemo/palettes/export/serializers.ts",
+    "c2d9787e68dfc62c0ae2c7ea261f77cedfde508616d743a2741b4fefbb9eef58\t1261\t0644\t1\tdemo/palettes/export/svg.ts",
+    "9dc36a65c42085d7d9172f990c2a72e7fa5e4b8fce17e07643bea550ce0d11c3\t943\t0644\t1\tdemo/palettes/export/tailwind.ts",
+    "a9a001d21a9a343c3064e713ac2e7bf99c4db4083796ec4ae2a097ff0acedfd4\t2186\t0644\t1\tdemo/palettes/export/types.ts",
+    "9efca706138cfc4c362f156c82f3b2ab39e22351028d867f59c03354313a6ccc\t4603\t0644\t1\tdemo/palettes/mix.ts",
+    "af414918e645c761bd08aba11b45b8733fa9405b8c64424e053e3062465b9f8c\t3893\t0644\t1\tdemo/palettes/types.ts",
+    "bd2836515e7718377ea69bbdb7b9a70113b85e015779db196e4c9fdd8908ebbb\t3109\t0644\t1\tdemo/palettes/useAdminAudit.ts",
+    "be147170c6563233db7b9fce14e63f8f5454638e0987bd722e3bb9f1283e55b0\t4491\t0644\t1\tdemo/palettes/useAdminFlagged.ts",
+    "60292d456310b3d79800f2807cbd7443affa30fe0de2bc1693bedbba75432c91\t3500\t0644\t1\tdemo/palettes/useAdminTags.ts",
+    "921b93eedc37429c343ab15c8160336ee6f5c3ac12efa628e6865f162f8e3397\t7371\t0644\t1\tdemo/palettes/useAdminUsers.ts",
+    "7510305e9e993291369a928df9c32b7ab0262d234a0b3c4fbfa064ca915b4744\t9320\t0644\t1\tdemo/palettes/useBrowsePalettes.ts",
+    "81ab3392546aa0631e808c88c383f99763012ebbc494269365bc0342d2434dbe\t4219\t0644\t1\tdemo/palettes/useColorNameQueue.ts",
+    "92bb6c232b316c62ff6d8d6e4e6d5d79df90b0a2832f1bdb0da359f280e0ab73\t412\t0644\t1\tdemo/palettes/useFilteredList.ts",
+    "e783bc41a8c1723f980a9c5e9c2ea534cba039de2768f663676b21b0cdae71f1\t6180\t0644\t1\tdemo/palettes/usePaletteActions.ts",
+    "4b4260b7c0f3094e8c2ca60bd04993c78a56879e0ba55a4c3f544d1581cbdcc5\t879\t0644\t1\tdemo/palettes/usePaletteExport.ts",
+    "6e081d05420cd2da8e9aa3f4b3d1a276cebd2ec5d3cd4360a4e76a01e8c1ac42\t11367\t0644\t1\tdemo/palettes/usePalettePorts.ts",
+    "ae8e25081d3e4861f00c269ef15dea7e971824f5723798de5e0b2f80e6661111\t6678\t0644\t1\tdemo/palettes/usePaletteStore.ts",
+    "f5931900ad27df8b9aa0d10c8b05dae6a2f2ee03d300ca988379e73fc1975ff7\t4572\t0644\t1\tdemo/palettes/useSlugMigration.ts",
+    "486c1143cc869083111a603585312800f70936d808aad48e6947aeca8c5eb483\t2441\t0644\t1\tdemo/palettes/useTagEdit.ts",
+    "afe38451fea81380c5d0337e6949146b50f9ade0e863a7737780885a2b3ed474\t3780\t0644\t1\tdemo/palettes/useVersionHistory.ts",
+    "e7b0be0e376e039b2f9ebcb71563dad8871f34967b07e859c3ea5ae792b384be\t961\t0644\t1\tdemo/palettes/utils.ts",
+    "b207f7f7184e3081e911c809a13f1ba9c446253ec7cea8eddd405ec742e623e9\t17694\t0644\t1\tdemo/picker/ColorPicker.vue",
+    "4587b36a1f51e52e1734db70516c95bb1ac12fb30d0265d0e5d7587bc53beed2\t6221\t0644\t1\tdemo/picker/composables/useHeaderCondense.ts",
+    "a1ad5b7c4a5f3a72dcf99d7035f6df3fb440715e8ac48d708ecb1e9246db23aa\t10803\t0644\t1\tdemo/picker/composables/usePointerDebug.ts",
+    "a61b5ed39703af205d6ba0f4923d32daeaaf55cf9c2e21e22030a01fa82ef327\t18598\t0644\t1\tdemo/picker/controls/ComponentSliders/ComponentSliders.vue",
+    "a37d644bfda320772782c72ccb67e8433a04a691ad9101f36467abcfd5b6e279\t15071\t0644\t1\tdemo/picker/controls/ComponentSliders/ConsoleRail.vue",
+    "00ab93f2e24b9552f278ce8039ef1d6e8f7cb84c75059f28a715f5b805be0dbc\t2915\t0644\t1\tdemo/picker/controls/ComponentSliders/composables/sliderAnnouncement.ts",
+    "439582aea2f1d4947c20cb0492221c45d2347e8cd75931179a18649f05d22344\t2332\t0644\t1\tdemo/picker/controls/ComponentSliders/composables/useSliderAnnouncements.ts",
+    "4a7aa8c0efe95c99599626d1ade6b8fa12fe6d499afbc64a6cc7723c6567d8a1\t5728\t0644\t1\tdemo/picker/controls/ComponentSliders/composables/useSliderTouchGates.ts",
+    "c4af2158e042c15a14aa231e93d746b2dffd547c274f4fbb136822378114c081\t8779\t0644\t1\tdemo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue",
+    "1be905fa2567b8f29b11c1d70e9ab3c8940e1476562eae0a8c27449fcfb15048\t2707\t0644\t1\tdemo/picker/controls/SpectrumCanvas/composables/useSpectrumPlateStyle.ts",
+    "73bbff1c72cbf6b954a5801e5abc628be47a30265bf58c6643733f3378ec5693\t1548\t0644\t1\tdemo/picker/controls/spectrumLuma.ts",
+    "4e14149252a20e6c140c06ed284fb60a0186c0b7e8801d718dbf1a6728b24466\t9118\t0644\t1\tdemo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue",
+    "c8f7b22e24530656108102ccb3b3833a15cc1cf6d72eb08d22ffc9fe498f31d3\t9588\t0644\t1\tdemo/picker/display/ColorComponentDisplay/readoutReservation.ts",
+    "01366de8541022fd17ae19f4794ca11cf15473c137a41b2aa947b36177cafc55\t7110\t0644\t1\tdemo/picker/header.css",
+    "e780b4a5f399f23facd16c1951e0ee05bf497ec1ca9b1d298c895b5d91038cf8\t377\t0644\t1\tdemo/picker/index.ts",
+    "b4f636ac75cceb520e11d4d072894463860a1dacd647c29195d5711ad19d93a8\t4671\t0644\t1\tdemo/picker/seat.css",
+    "61b8aaee894e344df847a113e7960abd5fb0f9a5ee8c9f1182c60386edfb6b3f\t3145\t0644\t1\tdemo/picker/visual/DebugEventLog.vue",
+    "2fe3ca189808df54efa0fc9007e970dd59876c38664001908a66081c0dd1b740\t16407\t0644\t1\tdemo/picker/visual/HeroBlob.vue",
+    "5529d0384c46234b0e1c09cb1f81a99f12deb6f6d3ee9ba08ae4d6cfa9c56a27\t7590\t0644\t1\tdemo/picker/visual/PointerDebugOverlay.vue",
+    "12d5a78a4578d552c69436296abffdfc9aee69dfebaec8fed0ec56aedfcd094a\t3484\t0644\t1\tdemo/platform/auth/sessionToken.ts",
+    "9612dbf07d9600f3fbbf2bc0a6ad2f5e2c35da07391e15bf2f21224485acd1d8\t882\t0644\t1\tdemo/platform/auth/sessions.ts",
+    "c83f4c87e265f30ce3e48a5ad7febef144a6987f6959b648d158b97202da19db\t1589\t0644\t1\tdemo/platform/auth/useAdminAuth.ts",
+    "c6fb865ebc6fc94415f468fb0a0445e830afbfb4df827d7a15b1526585210c79\t1989\t0644\t1\tdemo/platform/auth/useSession.ts",
+    "25c7489c337c7f08272333336ce4566cd3d954af39039d3d60264de193b49f5e\t4734\t0644\t1\tdemo/platform/auth/useUserAuth.ts",
+    "5c46201e6cec4a5de2d0256268f35275b59ca905e6d0b5e5ae61f8235c2f8b57\t674\t0644\t1\tdemo/platform/storage/useSafeStorage.ts",
+    "cf9143388cd36cbe26b86f6ef5960c68bfeef34cc23a6e8b958e86024187e497\t2489\t0644\t1\tdemo/platform/transport/api-problem.ts",
+    "be89a4ede238afced3e24216b25a4dab036aff94ec332e4fe4fcbc8114d80969\t8558\t0644\t1\tdemo/platform/transport/availability.ts",
+    "53eff87cb6d783dafa7c28b5a8272c2ca9c95deaedace14e045ce5edb32d007d\t6006\t0644\t1\tdemo/platform/transport/client.ts",
+    "93912f8f4fe5e4060ec7d955444d65bfb024a0e55743ece4a0051363de818443\t2589\t0644\t1\tdemo/platform/transport/useApiClient.ts",
+    "e4ae64e6a5b1e30082cde67d7313cdc7be2da01b0357aab62b517933d8d58b2d\t10709\t0644\t1\tdemo/scenes/ConfigSliderPane.vue",
+    "77a101f76bf986b9cf0458c180d471b8d171103ee0794a2ae75b5c13610dfc8f\t4814\t0644\t1\tdemo/scenes/about/AboutPane.vue",
+    "80642a673162d26f54e261ae86cd9804d3568f68dafc47d261c5a4ed2b173391\t10283\t0644\t1\tdemo/scenes/about/ColorNutritionLabel.vue",
+    "38199249172b351ee799baebb0784a7d0112ec02202beb82204974da7765a179\t2203\t0644\t1\tdemo/scenes/about/katex/Katex.vue",
+    "d9b885d53612234f7f0432956512a35bc0d8214b5be22e1967915bb827411ed0\t48\t0644\t1\tdemo/scenes/about/katex/index.ts",
+    "f5a9183e6645dd81c202c53a92df98393ee3e48c06c90934eaecec2408c10a1d\t12555\t0644\t1\tdemo/scenes/about/markdown/Markdown.vue",
+    "fcd680e8f10947b75dd09d4e8191b21221c1dc87f86fc66ed5771befd41694c0\t3881\t0644\t1\tdemo/scenes/about/markdown/composables/useMarkdownColors.ts",
+    "8b66fb3ca99f79d675a66c175685548a272342518385c0d10ed080f0e5552f55\t3594\t0644\t1\tdemo/scenes/about/markdown/composables/useMarkdownHighlighting.ts",
+    "d6f31f9f93fd42fa2c89e8a89e1e50feb9d949f1cee4e4530d83bccd42488551\t201\t0644\t1\tdemo/scenes/about/markdown/index.ts",
+    "41331877c182eb031b3a12493324b720fd56d87da98d9707b4c7f41a3218ed64\t8330\t0644\t1\tdemo/scenes/atmosphere/AuroraPane.vue",
+    "52d6fc287268794f735535e5de119217f9b16e9bd789ca5bd2b0a7c7313c1e7e\t4371\t0644\t1\tdemo/scenes/atmosphere/aurora-atoms.ts",
+    "1c26c7ca3361cb3d9030ff78ee9a1ba67edb0183a517f7876583783aed2c22a5\t1784\t0644\t1\tdemo/scenes/atmosphere/aurora-harmony-stops.ts",
+    "9d5f72dc17cdad1dd5d0203017128c4927ee59824b4bf6cba3966cfd923b8af7\t5680\t0644\t1\tdemo/scenes/blob/BlobPane.vue",
+    "08018dde4f74fdb38fb9ed1c557376294f49ece48fab7500679a4f407ed6d4c5\t5304\t0644\t1\tdemo/shared/ui/EmptyState.vue",
+    "40fdb6efe9be40e4617385cf368fa6f67e60176624fd59cb90a7256f3974f606\t10347\t0644\t1\tdemo/shared/ui/PaneHeader.vue",
+    "6ebf145305687a2ec225060f2550013573ad176de1ff92612a629cdd1bee8ba3\t1509\t0644\t1\tdemo/shared/utils.ts",
+    "6c20370d0596e2c6d686df9a2c2215c4eb266a5f8ce90b9231f672f240f589ce\t1750\t0644\t1\tdemo/shell/PaneSegmentedControl.vue",
+    "096d68de2693f63506e75c63bc037bf5dc3e41d51cf3d4ddff6dd746601eadf8\t5261\t0644\t1\tdemo/shell/PaneSlot.vue",
+    "6dee5ed09bdb43501b050b22646f421bcc07bebff8e1a4ed63f150886c89e3bc\t6523\t0644\t1\tdemo/shell/dock/ActionBarToggle.vue",
+    "792c465f9424cec466b354a638b2f94c2a61e247cc1196c9609992627eae7858\t4398\t0644\t1\tdemo/shell/dock/ActionButton.vue",
+    "bb73802a79a4b57857969d0d05a1cb57bbcfae65326b33f5204784621e3b3df8\t2791\t0644\t1\tdemo/shell/dock/ActionToolbar.vue",
+    "e800a80e5e75b9e8e54a36e337f0206c1694b3ee29b4f227bff505728fcabcc1\t14257\t0644\t1\tdemo/shell/dock/ColorInput.vue",
+    "232219b3bc8a622a2735a61a0832d6c48d9a9f7e3a232781fa0e63cd3ad0c707\t20603\t0644\t1\tdemo/shell/dock/Dock.vue",
+    "9ef91add55fd912b2af5a5de1983e429c26fbe488604117abcd9bc94f7c8c6f5\t4229\t0644\t1\tdemo/shell/dock/DockStatusLamp.vue",
+    "24517d3e495bdbac429ae1057a29e86215d37c0242b9c9893c6a56ebfab97be0\t7805\t0644\t1\tdemo/shell/dock/DockViewSelect.vue",
+    "416468fdccb96ab6195e53834968129f020b3244cef981cebcf64d41ef1c82be\t1871\t0644\t1\tdemo/shell/dock/ParseEchoReadout.vue",
+    "2823ed57be20befeae211447c1e5f9b9c95cc6b9cac6ee4652f1ecc8374ddb84\t2788\t0644\t1\tdemo/shell/dock/composables/useDockAdminMode.ts",
+    "07a7c99680baabb42c755b81d04df78fb337b67bd3015033f4910623e36e8e3f\t2645\t0644\t1\tdemo/shell/dock/composables/usePopupMutex.ts",
+    "b82ac9b564aa2e661ee2e859a3706c3b1b4b5fbfa27e2cbab5b9b9237c67549e\t230\t0644\t1\tdemo/shell/dock/index.ts",
+    "33a67c06df15225ffdfb0d1d98f9ff23321db7ac332d0ba330c472a22861349c\t6094\t0644\t1\tdemo/shell/dock/layers/ActionBarLayer.vue",
+    "3f7a43b76dd1a14d57c6b1d1a2bfdbbb18833a55412791d347ebf5ec5e9aa42c\t947\t0644\t1\tdemo/shell/dock/layers/GenericActionBar.vue",
+    "997ba1e641e4b7fdff22e054443068fd2241930ad3a965498d570af8000f1972\t3947\t0644\t1\tdemo/shell/dock/layers/SlugEditLayer.vue",
+    "cf98e476f2d2a63d511dcf8207fdbd8dc488abe37e4a3e2a00cd3d253455e69d\t6672\t0644\t1\tdemo/shell/dock/menus/MobileMenuDropdown.vue",
+    "94875900d32cae415e59635e835acf56b56bc328c0c95b2e6a08996701066232\t9898\t0644\t1\tdemo/shell/dock/menus/ProfileSection.vue",
+    "7973f476046731ab4c7a0feb3115e253ffd0835146e97325294c1cd0f5b998ca\t2901\t0644\t1\tdemo/shell/dock/status-lamp.ts",
+    "5c9a6bffa6e4262f0c693a9537598bddbbe77188a56770c613811ebe295fb7bf\t9559\t0644\t1\tdemo/shell/usePaneRouter.ts",
+    "60944ab42a90b357c02c684d84c71bf6d500bd4acefabfe46b1389ca0db8260c\t3483\t0644\t1\tdemo/shell/useViewManager.ts",
+    "7492a80a91b641625bf9eb587ddc8e49e1243d944a264b6499afb05b1784703b\t6716\t0644\t1\tdemo/shell/viewSchema.ts",
+    "a64eb64fc847b1f1feffe49fd8b211f2aa335f43ceeac8bb626095e89968444b\t12821\t0644\t1\tdemo/styles/animations.css",
+    "cf8af954242f78b2048073b729c37ad2532776a3bf19bfce17f4f84d90640535\t1911\t0644\t1\tdemo/styles/focus-ring.css",
+    "118dbe9c7fd1ff58c36b8b4fae7aecf78c96da41325ac11e3eecfaa294f33478\t46269\t0644\t1\tdemo/styles/foundation.css",
+    "fa68aa9a4d8ff614555a64e3733e3736fb21df9d2baa7fe481ed761e073afb06\t4011\t0644\t1\tdemo/styles/hljs.css",
+    "a3eed0573edaaa4900fb0fddfab23418aa855a6292876f124ac51dc197ee7d63\t10651\t0644\t1\tdemo/styles/shell.css",
+    "cfb441836ab92c3212341285a1d2ce85d776a1a383379b25cfe2f10b67f2eb2a\t10122\t0644\t1\tdemo/styles/utils.css",
+    "62027db100d57b324a5c6ce71b9cd1123383b44f86d47c715a8cd21c1ddf15eb\t20692\t0644\t1\tdemo/test/export/byte-exact.test.ts",
+    "6dadca7e10e1d03b2dbd9e0dd2c894c00bcc2c22e18a3827f3b10d2972096f03\t8548\t0644\t1\tdemo/test/glass/aurora-bracket.test.ts",
+    "17035fd701f65e92e699fdda2f99c2ba8c9a1401ad30092f7bf0c94200770bd0\t2118\t0644\t1\tdemo/test/glass/aurora-motion.test.ts",
+    "d28e0ca92e0f3f61ed6b94e2bc9e28798744845f712a18a66a76e6912b42ff03\t641\t0644\t1\tdemo/ui/alert/index.ts",
+    "e824d8c28123af5ddd08a706ee3d27619774004e9fbe6a7b1c336853e3403016\t72\t0644\t1\tdemo/ui/avatar/index.ts",
+    "3037cee518d8fb12dca2560045ee58fbff7247e61979b862746e0a99276f7e29\t77\t0644\t1\tdemo/ui/badge/index.ts",
+    "2488eb7bfdfd27f69605ea6e8994ddabbea78feaca620f12f0fc7e1aa806eb66\t43\t0644\t1\tdemo/ui/button/index.ts",
+    "070ff369e509f2d371a42dd3f03b235746eb3b0f99ed332880326e6745ff9661\t106\t0644\t1\tdemo/ui/card/index.ts",
+    "313f07f43ff4334d2c62f34960e22308ff4fd7a6514ccc92d1f90b0e606835cf\t45\t0644\t1\tdemo/ui/checkbox/index.ts",
+    "6e243ae126da20d45a31e17ec887deda813c0d867e07991617ed93ee0a51c419\t88\t0644\t1\tdemo/ui/collapsible/index.ts",
+    "2bf1affe9dbd16482771f428c3bcca354f29523d881ebabd2d3c493b2ebe491e\t146\t0644\t1\tdemo/ui/dialog/index.ts",
+    "8478ca76c7ba75ac01dd7778342e791de3ec2e933f479a8cfb1c29c0d26eb488\t330\t0644\t1\tdemo/ui/dropdown-menu/index.ts",
+    "4b624e2d4f66b8019a4edb4313ee24996ec0f36498ec98f9d3e6e0a234973ddb\t48\t0644\t1\tdemo/ui/input/index.ts",
+    "cc5aedb87016ef3a3276d3cd7dec6ebe4674d66e1b8d9fb326a23053b011aad7\t42\t0644\t1\tdemo/ui/label/index.ts",
+    "052b4272c35b92da5f6d1ebe3badf39b81e1841814331b208e8c8b7fe8ce3db9\t76\t0644\t1\tdemo/ui/popover/index.ts",
+    "df37627bc08b2df7e282b5fa85f61e399be981291795c883e2dc3cc5d997bf65\t63\t0644\t1\tdemo/ui/radio-group/index.ts",
+    "85bbea67e7a05ae907b8dbac513a76674c60abb2d61de32c38bb7d54ac37eec6\t141\t0644\t1\tdemo/ui/select/index.ts",
+    "329bf35df8c7168aea44d39a316521877b849112a16a0802b978b1ba32d09e0c\t46\t0644\t1\tdemo/ui/separator/index.ts",
+    "1e457071c3ded4b6bfe755fb0e53f826482f1102c9def21b8b51e855440f3849\t45\t0644\t1\tdemo/ui/skeleton/index.ts",
+    "519a52f94963eff6421bd49db16616e5834dfa0c09bde405dca55d7ba9b2955f\t43\t0644\t1\tdemo/ui/slider/index.ts",
+    "eb0b011db57a494b144f5e57f9bdd449e421d91081bedc5a6a2585bf20fe5a2a\t43\t0644\t1\tdemo/ui/switch/index.ts",
+    "1fb0db6d17c116d0f1867c4884d68c9387d06e22be9553ecb60f41a7393a9d9c\t93\t0644\t1\tdemo/ui/tooltip/index.ts",
+    "71aa0a65873c367ae3ae393283d4e81bcfc9cbb57b6f232eec9f930264d46c28\t6559\t0644\t1\tdemo/workbenches/extract/ExtractControls.vue",
+    "4a1dc96e50692c85d34dcad785ba3e18acb87abbd2446a06f96d149ae27f4ade\t1352\t0644\t1\tdemo/workbenches/extract/ExtractPane.vue",
+    "d718ae30ab051246bd7da477c8c8d89758ddcd0680f52cdc5c4fd654ebc95efe\t12704\t0644\t1\tdemo/workbenches/extract/ExtractWorkbench.vue",
+    "4547827a9375078c90f61066f99620e15747de1007314c7ad53e4b0c0fb6a00d\t4388\t0644\t1\tdemo/workbenches/extract/ImageDropZone.vue",
+    "67b7df00c8ed177166c113e3e32a6c98ba59ff9699c98fab53cbdaa052d67a1c\t9932\t0644\t1\tdemo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+    "a74985aa3a3b304df13cb4c088e107a78332eb3320f3764384c7081c857596bf\t4905\t0644\t1\tdemo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts",
+    "2d7518537b06034b4b3c3a6d41d98063b51a9529805d226c150ae46c29d2f006\t12879\t0644\t1\tdemo/workbenches/extract/ImageEyedropper/composables/useInertiaGesture.ts",
+    "2d76a2cc42d56bb65bfee1a8fdcfe5cdbf66e4ab8b4aca753b07e33955c5cc10\t2320\t0644\t1\tdemo/workbenches/extract/ImageEyedropper/composables/useLoupeCanvas.ts",
+    "9e36e848d2a293d29fdfa9fdf0502343ad2348f9533c37226ed99b755acfe59f\t324\t0644\t1\tdemo/workbenches/extract/ImageEyedropper/constants.ts",
+    "eac1cb810c5cf5a3f2cf93bfa3e7ddf7cabf7e7250af5dbb29f106fb379c5829\t7434\t0644\t1\tdemo/workbenches/extract/composables/useExtractSession.ts",
+    "14e8b27b92b2be367334340038da2cd56c23f0a63f508634131416af7359c87d\t6085\t0644\t1\tdemo/workbenches/extract/composables/useImageQuantize.ts",
+    "842760ab7d954850fd068b0ac7d1a5e838d683672c15db670b089c9d880ab012\t1400\t0644\t1\tdemo/workbenches/extract/quantize-worker.ts",
+    "4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6\t14486\t0644\t1\tdemo/workbenches/generate/GenerateControls.vue",
+    "009c71a208ae2c4e16c41fc650c7ef531ff431803c3b8fd35d8f4e1e8a7afbc7\t1476\t0644\t1\tdemo/workbenches/generate/GeneratePane.vue",
+    "d79223157278286db195b85c75f683e9cf61b3ce54e418eaabbe25b884930802\t1345\t0644\t1\tdemo/workbenches/generate/composables/useColorGeneration.ts",
+    "193b938edb082f1c62fc623788d61d0f717ca56ff4851ab025e8ee84f6169880\t1142\t0644\t1\tdemo/workbenches/gradient/GradientPane.vue",
+    "9919c631fc54784b291384f1c07f6546b7a6a7e709de67de378915894616944b\t4256\t0644\t1\tdemo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue",
+    "59a3c2db2179192fa383a56523738d8bd58ebd53001f90ca1fe5bd3725a79c0d\t12449\t0644\t1\tdemo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+    "e229987aa4babb5354010d02309c06bff6b74db7a0b3b85d11be0c6b164a2194\t17314\t0644\t1\tdemo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue",
+    "7684f93f1dc6840686bef82e6ab6fdd4f64f1b9a62ef77cf5ea4e4a5357a5786\t11464\t0644\t1\tdemo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+    "a5aba0bc9f523cfb17c95ccaab0d33848a3de2093479cfec00c2c74193f24aba\t4472\t0644\t1\tdemo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",
+    "1d8bbcca4130190715b85a96572e868092dc5157bb0a816a99fd2145751198d5\t8003\t0644\t1\tdemo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue",
+    "892b3de8917251960b414aee80975c7cd36305b2e05ee997bb041c54dc5e10fa\t9045\t0644\t1\tdemo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts",
+    "6e057fa1b2188eb0c8b9c118c7d760efccb79a5a9b5c3e1b477c12dbef954a6a\t2646\t0644\t1\tdemo/workbenches/gradient/GradientVisualizer/easing/useSpecimenRows.ts",
+    "28b991ef1a055d1a994f239b9d91bf55647d8e70628d4a55548d4baedb120a91\t10737\t0644\t1\tdemo/workbenches/gradient/composables/gradientParse.ts",
+    "f6adddd68f9c3d46886657a239c7b944c8f49fdb255e9562317f45e1299fc07a\t11981\t0644\t1\tdemo/workbenches/gradient/composables/useGradientCSS.ts",
+    "9a24dd8a374264048c537b594895cf6a11031cde31662a711c172d6655dd9cb1\t2011\t0644\t1\tdemo/workbenches/gradient/composables/useGradientInterpolation.ts",
+    "fc32b993f79d248c980a4012d66d3355f42f202c8cf43ae08db0d0adc6011578\t6490\t0644\t1\tdemo/workbenches/gradient/composables/useGradientModel.ts",
+    "c35286dfe7ab77a766ba21aeb889e17be7950c1bb4e2385b524319e2dd7e3e06\t1189\t0644\t1\tdemo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue",
+    "854e7f831270f2259184a4d54decde778a70837822c425e29f6967b2fe8f5c2f\t9385\t0644\t1\tdemo/workbenches/mix/MixAnimationCanvas/composables/mixStage.ts",
+    "39baf65bfe2cfc537b5998683ef8d0d65ac395cc7a5717e09183ef96d05f89e1\t7683\t0644\t1\tdemo/workbenches/mix/MixAnimationCanvas/composables/useMixingAnimation.ts",
+    "cceda8035c5f0da677d5bb0b625c0eb5cb6faa1c86bd3aaa96a26562c03d0365\t7418\t0644\t1\tdemo/workbenches/mix/MixConfigBar.vue",
+    "e59d74fef292472aacede86635e7edcac5b043c9f8986c299d308546bc9b7d3b\t4774\t0644\t1\tdemo/workbenches/mix/MixPane.vue",
+    "ca014bb6234da6145d69799670c0ea30e8b0a6bb36eec960a69eeae1d7faa12f\t6243\t0644\t1\tdemo/workbenches/mix/MixResultDisplay.vue",
+    "4506ac0f8e17406fc0e8bed953dcaeec11230367c8d22bfae08df981bb12064b\t13469\t0644\t1\tdemo/workbenches/mix/MixSourceSelector.vue",
+    "11be74c58439f7d9a12466e4858d9b513eb7f77791c0f0b9bd3e84bd978217a2\t4877\t0644\t1\tdemo/workbenches/mix/composables/useMixingState.ts",
+    "77c7ad1d108e4a6acfd38d518565f9df0d170caebaa0e0bc1ee445c5d10f978c\t1073\t0644\t1\tdocs/instructions/README.md",
+    "3efc8638b765f0cb7bef019ff3d3b6a2f47664b1f66b6b9c6ff3fb9dd301c6a9\t19982\t0644\t1\tdocs/tranches/V/megatranche/formation/COMPONENT-WORKFLOW-MATRIX-2026-07-29.md",
+    "a911162502a5a32cb512c00af266004e1d5d3f56ed2a963256b75caa3ee6c883\t25198\t0644\t1\tdocs/tranches/V/megatranche/formation/NON-PARSER-FRONTEND-SPEC-CLOSURE-2026-07-30.md",
+    "18f8ac83045496e6553d10d21e5cea26d2da43304952d4c67940aecb2e7a72ef\t34851\t0644\t1\tdocs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-KRONECKER-AUDIT-PLAN-2026-08-01.md",
+    "26e03976bb05d94ba5602b9fd7c0e8ac44a75a63fbd0a05419dc6ff9c4dbc5de\t309241\t0644\t1\tpackage-lock.json",
+    "5be878cd1806a003438ce0645d2c6338e027ff72ad075c107fa3e1aa08ebe544\t3770\t0644\t1\tpackage.json",
+    "380cc0262b90e4b871f4566f783066e031d58b507045759d71ce597cb22bb677\t6668\t0644\t1\tplugins/vite-source-export.ts",
+    "b96a2e70e892720a9cc69804b3a7f9bf3c07088388883832a6380f91622a2775\t18749\t0755\t1\tscripts/dev/dev.sh",
+    "342e2c08adbebda075a60ae84d3c3d1b6a2be77d0e043ddf123f765f779faf0a\t16563\t0644\t1\tsrc/color/anchors.ts",
+    "f6d0487ad901c744a58d8b4123aec77a31c7d5a60327af2140165b11bdbf7b70\t614\t0644\t1\tsrc/color/index.ts",
+    "b5dc6194d4c58a72c4faee51adf3eab3bbc5bba798874ea9914031d9881512f0\t6385\t0644\t1\tsrc/color/model.ts",
+    "9d08df115172fd65affef63a566eb13ef76d5603c23bd52c17d96a57cdb4b8ed\t14010\t0644\t1\tsrc/color/operations.ts",
+    "40f8e379b8f3242b0f3c68efa7d52ebc3adf8d6dc7f8edc9231fa115e68d6b69\t22182\t0644\t1\tsrc/css/grammar.ts",
+    "c09d076ed779fedee1840c59900e0f34e5cba36c32c126ced864a849a3acf90c\t1310\t0644\t1\tsrc/css/index.ts",
+    "ca26754d97a4d06e0131bde72bf31f8e4bfd011a40dbd3787484420054222a39\t3920\t0644\t1\tsrc/css/named-colors.ts",
+    "882317b69427bc6e23199e615941a13c5ce367064ef475eef03f075f821d2ec7\t42910\t0644\t1\tsrc/css/stylesheet.ts",
+    "c60edbe6705973b055ca128d5fa636b10184f44ce877f1eb348da89bd9d03ca7\t3967\t0644\t1\tsrc/css/syntax.ts",
+    "8e3be9dcf79437a7214ec2c013be4dadedab3d2ddea5a57e3eb1a50793ab53a1\t6044\t0644\t1\tsrc/css/timeline.ts",
+    "109327ce94fdcc37d57677e23e3c0bd0c8dfde399ace2998a87e2442d9338fe2\t5879\t0644\t1\tsrc/css/types.ts",
+    "5fdc0e9160f7b3db99e74da9f89bc4a76e4672d2b255ed6a2ef87d9bee99bc87\t7121\t0644\t1\tsrc/easing.ts",
+    "92dcfc40e378f1bd9697db9adbc756670b4a6ccb6759e964e44870951961cbd6\t4784\t0644\t1\tsrc/foundation/math.ts",
+    "93e1b4bd65a7531e0df7fde9bb4aa07930517d289f1be8d3912df561f5ebdb39\t278\t0644\t1\tsrc/foundation/result.ts",
+    "3421d7f34f13e9a44c3052107c21e040c0d604c26f758b457aa0210822104dc8\t5931\t0644\t1\tsrc/quantize.ts",
+    "4ea184191026a6c47d2c1e7dc49e37cf7bc848e91876d3be3a2f0e7ca124a266\t538\t0644\t1\tsrc/subpaths/color.ts",
+    "f4dade4353200fa86be0f7ba5c116eb8605cf6719a8c45b87ecb35204c154ae4\t1233\t0644\t1\tsrc/subpaths/css.ts",
+    "beefba647db53db6dcd0f63c8e4687ba2192f4c67bf1183aef8321dc31f36a6c\t438\t0644\t1\tsrc/subpaths/easing.ts",
+    "a31a39f874e94dfe0a2d887175102638e876e295c141514371143ee749894264\t365\t0644\t1\tsrc/subpaths/math.ts",
+    "c626f9ac06797a59b9de60d263f2719110244f8fd8d901e6f3a524b00004f81b\t144\t0644\t1\tsrc/subpaths/quantize.ts",
+    "b21d2de735470a4d44ef64274abceba847b7ac4f2c6d5cf24ee37535496cf8d9\t667\t0644\t1\tsrc/subpaths/transform.ts",
+    "67feafb877a1d9e481557a1aa668e3e9b7279a88200cfdd0fe61fe309615ab07\t120\t0644\t1\tsrc/subpaths/value.ts",
+    "3da7b62b2ecb71a33b1a4f7000c4c8f9757750b9d2a5000edf749ce9843fdb8d\t21808\t0644\t1\tsrc/transform/decompose.ts",
+    "71327e18cc32d472d8e8fc9c5fbee502fb2a1452844e428a6efb232511a64a4a\t21726\t0644\t1\tsrc/transform/path.ts",
+    "73604f966c307d4424ee051277f4d8ae8e038aa7ba114d1a4502aaed7f3dfba1\t1009\t0644\t1\tsrc/value.ts",
+    "03f2e0e648f979b67e81e768dd46c594ed21f78614524acc484fd3b989d69376\t195\t0644\t1\tsrc/vite-env.d.ts",
+    "10342b6fce51bd2a39f3f3b32512ec16f46149140d009f1404aea3c6aa6a83f5\t3665\t0644\t1\ttsconfig.demo.json",
+    "b9e47288c278cebffe3ca35697eb0712905ce26e995e8d51050fca18b92e7c4c\t723\t0644\t1\ttsconfig.json",
+    "6a6082bc05fdfc3ce7e02879908d3519056fb25ede75559d95fd4707c78a500f\t1279\t0644\t1\ttsconfig.lib.json",
+    "4afbc168284ab781bc21c7a1c5dac59a0c8227dc5ac30d82b2acf59ee741d2f2\t14402\t0644\t1\tvite.config.ts"
+  ],
+  "declarations": [
+    {
+      "path": "demo/color-picker/App.vue",
+      "line": 177,
+      "text": "import PaneSlot from \"../shell/PaneSlot.vue\";"
+    },
+    {
+      "path": "demo/color-picker/App.vue",
+      "line": 180,
+      "text": "import ErrorBoundary from \"./ErrorBoundary.vue\";"
+    },
+    {
+      "path": "demo/color-picker/main.ts",
+      "line": 2,
+      "text": "import App from \"./App.vue\";"
+    },
+    {
+      "path": "demo/color-session/color-chips/index.ts",
+      "line": 25,
+      "text": "export { default as PreviewRamp } from \"./PreviewRamp.vue\";"
+    },
+    {
+      "path": "demo/color-session/color-chips/index.ts",
+      "line": 26,
+      "text": "export { default as PreviewStrip } from \"./PreviewStrip.vue\";"
+    },
+    {
+      "path": "demo/palettes/BrowsePane.vue",
+      "line": 189,
+      "text": "import EmptyState from \"../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "path": "demo/palettes/BrowsePane.vue",
+      "line": 196,
+      "text": "import PaneHeader from \"../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "path": "demo/palettes/PalettesPane.vue",
+      "line": 150,
+      "text": "import PaneHeader from \"../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "path": "demo/palettes/admin/AdminPane.vue",
+      "line": 88,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "line": 100,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "line": 101,
+      "text": "import AdminListSkeleton from \"./AdminListSkeleton.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "line": 102,
+      "text": "import PaginationBar from \"./PaginationBar.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "line": 142,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "line": 143,
+      "text": "import AdminListSkeleton from \"./AdminListSkeleton.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "line": 144,
+      "text": "import PaginationBar from \"./PaginationBar.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "line": 128,
+      "text": "import AdminListItem from \"./AdminListItem.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "line": 129,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "line": 130,
+      "text": "import AdminListSkeleton from \"./AdminListSkeleton.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+      "line": 118,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+      "line": 202,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+      "line": 203,
+      "text": "import AdminListSkeleton from \"./AdminListSkeleton.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 3,
+      "text": "export { default as AdminUsersPanel } from \"./AdminUsersPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 4,
+      "text": "export { default as AdminNamesPanel } from \"./AdminNamesPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 5,
+      "text": "export { default as AdminAuditPanel } from \"./AdminAuditPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 6,
+      "text": "export { default as AdminFlaggedPanel } from \"./AdminFlaggedPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 7,
+      "text": "export { default as AdminTagsPanel } from \"./AdminTagsPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+      "line": 192,
+      "text": "import SwatchHoverMenu from \"./SwatchHoverMenu.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+      "line": 193,
+      "text": "import ApiOfflineChip from \"../status/ApiOfflineChip.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 175,
+      "text": "import PaletteColorStrip from \"../PaletteColorStrip.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 176,
+      "text": "import PaletteCardMenu from \"./PaletteCardMenu.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 177,
+      "text": "import PaletteCardMeta from \"./PaletteCardMeta.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 178,
+      "text": "import PaletteCardSwatches from \"./PaletteCardSwatches.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 179,
+      "text": "import PaletteRenameInput from \"./PaletteRenameInput.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 180,
+      "text": "import ActionFeedback from \"./ActionFeedback.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+      "line": 73,
+      "text": "import SwatchHoverMenu from \"../SwatchHoverMenu.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/PaletteCardGrid.vue",
+      "line": 36,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 4,
+      "text": "export { default as PaletteCard } from \"./PaletteCard/PaletteCard.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 5,
+      "text": "export { default as PaletteCardGrid } from \"./PaletteCardGrid.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 6,
+      "text": "export { default as PaletteCardSkeleton } from \"./PaletteCardSkeleton.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 7,
+      "text": "export { default as ShadowPalette } from \"./ShadowPalette.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 8,
+      "text": "export { default as PaletteColorStrip } from \"./PaletteColorStrip.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 9,
+      "text": "export { default as CurrentPaletteEditor } from \"./CurrentPaletteEditor.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/dialog/index.ts",
+      "line": 6,
+      "text": "export { default as FlagReportDialog } from \"./FlagReportDialog.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/dialog/index.ts",
+      "line": 7,
+      "text": "export { default as VersionHistoryDrawer } from \"./VersionHistoryDrawer.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/dialog/index.ts",
+      "line": 8,
+      "text": "export { default as MigratePalettesDialog } from \"./MigratePalettesDialog.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/search/SearchFilterBar.vue",
+      "line": 132,
+      "text": "import MiniColorPicker from \"./MiniColorPicker.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/search/index.ts",
+      "line": 3,
+      "text": "export { default as SearchFilterBar } from \"./SearchFilterBar.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/search/index.ts",
+      "line": 4,
+      "text": "export { default as UserSortMenu } from \"./UserSortMenu.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/search/index.ts",
+      "line": 5,
+      "text": "export { default as TagEditPopover } from \"./TagEditPopover.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/slug/index.ts",
+      "line": 3,
+      "text": "export { default as PaletteSlugBar } from \"./PaletteSlugBar.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/status/index.ts",
+      "line": 7,
+      "text": "export { default as ApiOfflineChip } from \"./ApiOfflineChip.vue\";"
+    },
+    {
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 109,
+      "text": "import ColorSpaceSelector from \"../color-session/ColorSpaceSelector.vue\";"
+    },
+    {
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 110,
+      "text": "import ColorComponentDisplay from \"./display/ColorComponentDisplay/ColorComponentDisplay.vue\";"
+    },
+    {
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 139,
+      "text": "import SpectrumCanvas from \"./controls/SpectrumCanvas/SpectrumCanvas.vue\";"
+    },
+    {
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 140,
+      "text": "import ComponentSliders from \"./controls/ComponentSliders/ComponentSliders.vue\";"
+    },
+    {
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 141,
+      "text": "import PointerDebugOverlay from \"./visual/PointerDebugOverlay.vue\";"
+    },
+    {
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 157,
+      "text": "const HeroBlob = defineAsyncComponent(() => import(\"./visual/HeroBlob.vue\"));"
+    },
+    {
+      "path": "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+      "line": 104,
+      "text": "import ConsoleRail from \"./ConsoleRail.vue\";"
+    },
+    {
+      "path": "demo/picker/index.ts",
+      "line": 5,
+      "text": "export { default as ColorPicker } from \"./ColorPicker.vue\";"
+    },
+    {
+      "path": "demo/picker/visual/PointerDebugOverlay.vue",
+      "line": 70,
+      "text": "import DebugEventLog from \"./DebugEventLog.vue\";"
+    },
+    {
+      "path": "demo/scenes/ConfigSliderPane.vue",
+      "line": 22,
+      "text": "import PaneHeader from \"../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "path": "demo/scenes/about/AboutPane.vue",
+      "line": 65,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "path": "demo/scenes/about/AboutPane.vue",
+      "line": 66,
+      "text": "import ColorNutritionLabel from \"./ColorNutritionLabel.vue\";"
+    },
+    {
+      "path": "demo/scenes/about/AboutPane.vue",
+      "line": 69,
+      "text": "import ColorSpaceSelector from \"../../color-session/ColorSpaceSelector.vue\";"
+    },
+    {
+      "path": "demo/scenes/about/katex/index.ts",
+      "line": 1,
+      "text": "export { default as Katex } from \"./Katex.vue\";"
+    },
+    {
+      "path": "demo/scenes/about/markdown/index.ts",
+      "line": 1,
+      "text": "export { default as Markdown } from \"./Markdown.vue\";"
+    },
+    {
+      "path": "demo/scenes/atmosphere/AuroraPane.vue",
+      "line": 33,
+      "text": "import ConfigSliderPane from \"../ConfigSliderPane.vue\";"
+    },
+    {
+      "path": "demo/scenes/atmosphere/AuroraPane.vue",
+      "line": 34,
+      "text": "import type { SliderSection } from \"../ConfigSliderPane.vue\";"
+    },
+    {
+      "path": "demo/scenes/blob/BlobPane.vue",
+      "line": 14,
+      "text": "import ConfigSliderPane from \"../ConfigSliderPane.vue\";"
+    },
+    {
+      "path": "demo/scenes/blob/BlobPane.vue",
+      "line": 15,
+      "text": "import type { SliderSection } from \"../ConfigSliderPane.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/ActionToolbar.vue",
+      "line": 68,
+      "text": "import ActionButton from \"./ActionButton.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/ColorInput.vue",
+      "line": 131,
+      "text": "import ParseEchoReadout from \"./ParseEchoReadout.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 7,
+      "text": "import ActionBarToggle from \"./ActionBarToggle.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 8,
+      "text": "import ActionBarLayer from \"./layers/ActionBarLayer.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 9,
+      "text": "import GenericActionBar from \"./layers/GenericActionBar.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 10,
+      "text": "import SlugEditLayer from \"./layers/SlugEditLayer.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 11,
+      "text": "import MobileMenuDropdown from \"./menus/MobileMenuDropdown.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 12,
+      "text": "import ProfileSection from \"./menus/ProfileSection.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 13,
+      "text": "import DockViewSelect from \"./DockViewSelect.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 14,
+      "text": "import DockStatusLamp from \"./DockStatusLamp.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 15,
+      "text": "import PaneSegmentedControl from \"../PaneSegmentedControl.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/index.ts",
+      "line": 5,
+      "text": "export { default as Dock } from \"./Dock.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/layers/ActionBarLayer.vue",
+      "line": 6,
+      "text": "import ActionToolbar from \"../ActionToolbar.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/layers/ActionBarLayer.vue",
+      "line": 7,
+      "text": "import ColorInput from \"../ColorInput.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/layers/GenericActionBar.vue",
+      "line": 3,
+      "text": "import ActionButton from \"../ActionButton.vue\";"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 69,
+      "text": "const AboutPane = defineAsyncComponent(() => import(\"../scenes/about/AboutPane.vue\"));"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 70,
+      "text": "const PalettesPane = defineAsyncComponent(() => import(\"../palettes/PalettesPane.vue\"));"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 71,
+      "text": "const BrowsePane = defineAsyncComponent(() => import(\"../palettes/BrowsePane.vue\"));"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 72,
+      "text": "const ExtractPane = defineAsyncComponent(() => import(\"../workbenches/extract/ExtractPane.vue\"));"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 73,
+      "text": "const GeneratePane = defineAsyncComponent(() => import(\"../workbenches/generate/GeneratePane.vue\"));"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 74,
+      "text": "const GradientPane = defineAsyncComponent(() => import(\"../workbenches/gradient/GradientPane.vue\"));"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 75,
+      "text": "const MixPane = defineAsyncComponent(() => import(\"../workbenches/mix/MixPane.vue\"));"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 76,
+      "text": "const AdminPane = defineAsyncComponent(() => import(\"../palettes/admin/AdminPane.vue\"));"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 77,
+      "text": "const AuroraPane = defineAsyncComponent(() => import(\"../scenes/atmosphere/AuroraPane.vue\"));"
+    },
+    {
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 78,
+      "text": "const BlobPane = defineAsyncComponent(() => import(\"../scenes/blob/BlobPane.vue\"));"
+    },
+    {
+      "path": "demo/workbenches/extract/ExtractPane.vue",
+      "line": 25,
+      "text": "import ExtractWorkbench from \"./ExtractWorkbench.vue\";"
+    },
+    {
+      "path": "demo/workbenches/extract/ExtractPane.vue",
+      "line": 26,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "path": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "line": 193,
+      "text": "import ImageDropZone from \"./ImageDropZone.vue\";"
+    },
+    {
+      "path": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "line": 194,
+      "text": "import ExtractControls from \"./ExtractControls.vue\";"
+    },
+    {
+      "path": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "line": 195,
+      "text": "import ImageEyedropper from \"./ImageEyedropper/ImageEyedropper.vue\";"
+    },
+    {
+      "path": "demo/workbenches/generate/GeneratePane.vue",
+      "line": 4,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "path": "demo/workbenches/generate/GeneratePane.vue",
+      "line": 5,
+      "text": "import GenerateControls from \"./GenerateControls.vue\";"
+    },
+    {
+      "path": "demo/workbenches/gradient/GradientPane.vue",
+      "line": 4,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "path": "demo/workbenches/gradient/GradientPane.vue",
+      "line": 5,
+      "text": "import GradientVisualizer from \"./GradientVisualizer/GradientVisualizer.vue\";"
+    },
+    {
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+      "line": 32,
+      "text": "import EasingAuthoringStage from \"./easing/EasingAuthoringStage.vue\";"
+    },
+    {
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+      "line": 33,
+      "text": "import EasingSpecimenStrip from \"./easing/EasingSpecimenStrip.vue\";"
+    },
+    {
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "line": 14,
+      "text": "import GradientStopEditor from \"./GradientStopEditor.vue\";"
+    },
+    {
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "line": 15,
+      "text": "import GradientCodeEditor from \"./GradientCodeEditor.vue\";"
+    },
+    {
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "line": 16,
+      "text": "import GradientEasingEditor from \"./GradientEasingEditor.vue\";"
+    },
+    {
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 4,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 5,
+      "text": "import MixSourceSelector from \"./MixSourceSelector.vue\";"
+    },
+    {
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 6,
+      "text": "import MixConfigBar from \"./MixConfigBar.vue\";"
+    },
+    {
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 7,
+      "text": "import MixResultDisplay from \"./MixResultDisplay.vue\";"
+    },
+    {
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 8,
+      "text": "import MixAnimationCanvas from \"./MixAnimationCanvas/MixAnimationCanvas.vue\";"
+    },
+    {
+      "path": "demo/workbenches/mix/MixSourceSelector.vue",
+      "line": 9,
+      "text": "import EmptyState from \"../../shared/ui/EmptyState.vue\";"
+    }
+  ],
+  "barrelDeclarations": [
+    {
+      "path": "demo/color-session/color-chips/index.ts",
+      "line": 25,
+      "text": "export { default as PreviewRamp } from \"./PreviewRamp.vue\";"
+    },
+    {
+      "path": "demo/color-session/color-chips/index.ts",
+      "line": 26,
+      "text": "export { default as PreviewStrip } from \"./PreviewStrip.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 3,
+      "text": "export { default as AdminUsersPanel } from \"./AdminUsersPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 4,
+      "text": "export { default as AdminNamesPanel } from \"./AdminNamesPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 5,
+      "text": "export { default as AdminAuditPanel } from \"./AdminAuditPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 6,
+      "text": "export { default as AdminFlaggedPanel } from \"./AdminFlaggedPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 7,
+      "text": "export { default as AdminTagsPanel } from \"./AdminTagsPanel.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 4,
+      "text": "export { default as PaletteCard } from \"./PaletteCard/PaletteCard.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 5,
+      "text": "export { default as PaletteCardGrid } from \"./PaletteCardGrid.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 6,
+      "text": "export { default as PaletteCardSkeleton } from \"./PaletteCardSkeleton.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 7,
+      "text": "export { default as ShadowPalette } from \"./ShadowPalette.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 8,
+      "text": "export { default as PaletteColorStrip } from \"./PaletteColorStrip.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 9,
+      "text": "export { default as CurrentPaletteEditor } from \"./CurrentPaletteEditor.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/dialog/index.ts",
+      "line": 6,
+      "text": "export { default as FlagReportDialog } from \"./FlagReportDialog.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/dialog/index.ts",
+      "line": 7,
+      "text": "export { default as VersionHistoryDrawer } from \"./VersionHistoryDrawer.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/dialog/index.ts",
+      "line": 8,
+      "text": "export { default as MigratePalettesDialog } from \"./MigratePalettesDialog.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/search/index.ts",
+      "line": 3,
+      "text": "export { default as SearchFilterBar } from \"./SearchFilterBar.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/search/index.ts",
+      "line": 4,
+      "text": "export { default as UserSortMenu } from \"./UserSortMenu.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/search/index.ts",
+      "line": 5,
+      "text": "export { default as TagEditPopover } from \"./TagEditPopover.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/slug/index.ts",
+      "line": 3,
+      "text": "export { default as PaletteSlugBar } from \"./PaletteSlugBar.vue\";"
+    },
+    {
+      "path": "demo/palettes/browser/status/index.ts",
+      "line": 7,
+      "text": "export { default as ApiOfflineChip } from \"./ApiOfflineChip.vue\";"
+    },
+    {
+      "path": "demo/picker/index.ts",
+      "line": 5,
+      "text": "export { default as ColorPicker } from \"./ColorPicker.vue\";"
+    },
+    {
+      "path": "demo/scenes/about/katex/index.ts",
+      "line": 1,
+      "text": "export { default as Katex } from \"./Katex.vue\";"
+    },
+    {
+      "path": "demo/scenes/about/markdown/index.ts",
+      "line": 1,
+      "text": "export { default as Markdown } from \"./Markdown.vue\";"
+    },
+    {
+      "path": "demo/shell/dock/index.ts",
+      "line": 5,
+      "text": "export { default as Dock } from \"./Dock.vue\";"
+    }
+  ],
+  "rootChecksumReplay": {
+    "passed": 6,
+    "total": 6,
+    "rows": [
+      {
+        "expected": "a5f9843b3ebecc298987f492f92b7873a38be2337be9f9b63342755cf5547ad4",
+        "path": "docs/tranches/V/megatranche/CONSTELLATION-RESURRECTION-HANDOFF-2026-07-31.md",
+        "actual": "a5f9843b3ebecc298987f492f92b7873a38be2337be9f9b63342755cf5547ad4",
+        "pass": true
+      },
+      {
+        "expected": "2b7de379ab2fa67bead172be88438fbce02b85db8332506f623bb94f8ee09434",
+        "path": "docs/tranches/V/megatranche/PARSER-RESURRECTION-HANDOFF-2026-07-31.md",
+        "actual": "2b7de379ab2fa67bead172be88438fbce02b85db8332506f623bb94f8ee09434",
+        "pass": true
+      },
+      {
+        "expected": "a7f8d7a05f2d36b9a5070c7ad6f54745409734b9fc65d49fcbf03c6014d06202",
+        "path": "docs/tranches/V/megatranche/RESURRECTION-HANDOFF-MANIFEST-2026-07-31.json",
+        "actual": "a7f8d7a05f2d36b9a5070c7ad6f54745409734b9fc65d49fcbf03c6014d06202",
+        "pass": true
+      },
+      {
+        "expected": "4775251edb3dd95023be32602482861b53972fbb0af9cc1610dd22394eefaffc",
+        "path": "docs/tranches/V/apotheosis/pi/HANDOFF.md",
+        "actual": "4775251edb3dd95023be32602482861b53972fbb0af9cc1610dd22394eefaffc",
+        "pass": true
+      },
+      {
+        "expected": "2ab310b45b9289b53f5e1993ef870a0ae80cdd12c2856628fa523df85bf3ae5e",
+        "path": "docs/tranches/V/megatranche/formation/CROSS-REPO-MOBILE-SAFARI-KRONECKER-AUDIT-LAW-2026-08-01.md",
+        "actual": "2ab310b45b9289b53f5e1993ef870a0ae80cdd12c2856628fa523df85bf3ae5e",
+        "pass": true
+      },
+      {
+        "expected": "988d539431168a6cabbbc8a97a12da3c62a1c113032b84b58eecfbe5f9d03d3d",
+        "path": "/Users/mkbabb/Programming/parse-that-css-totality/docs/tranches/B/PARSER-RESURRECTION-HANDOFF-2026-07-31.md",
+        "actual": "988d539431168a6cabbbc8a97a12da3c62a1c113032b84b58eecfbe5f9d03d3d",
+        "pass": true
+      }
+    ]
+  },
+  "v1": "IMMUTABLE_FIRST_RED_ZERO_CREDIT",
+  "v2": "IMMUTABLE_AUTHORITY_DRIFT_RED_ZERO_CREDIT",
+  "executionCredit": 0
+}

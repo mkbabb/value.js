@@ -1,0 +1,85 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/GENERATION-VALIDATION.json
+  original-mtime: 2026-08-01T20:31:35
+  original-sha256: ab4d8938d600e5b1b850f8a6b4151cc1fb1f0adea1265a781a0be1f95c035d5b
+  original-bytes: 1741
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schemaVersion": 3,
+  "sourceRootIdentity": "49d4692e83462ebe11bd1bbf96b1f27e54a97834dc22a115ef1820a2345a5f23",
+  "ok": true,
+  "failures": [],
+  "assertions": {
+    "workflows88": true,
+    "workflowBijection": true,
+    "routes14": true,
+    "wildcard1": true,
+    "barrels25": true,
+    "declarations115": true,
+    "oneDispositionPerSfc": true,
+    "mountedPlusHarness88": true,
+    "harnessExports": true,
+    "stateCoverage": true,
+    "designCoverage": true,
+    "uniqueSignatures": true,
+    "kroneckerCoverage": true,
+    "equivalenceNoReduction": true,
+    "zeroCredit": true,
+    "snapshotReadOnce": true
+  },
+  "generatedCounts": {
+    "pageInventory": {
+      "namedRoutes": 14,
+      "wildcardRules": 1,
+      "physicalPageLikes": 33,
+      "inlineLayers": 21,
+      "totalSubjects": 69
+    },
+    "componentInventory": {
+      "physicalSfc": 88,
+      "mounted": 86,
+      "harness": 2,
+      "visualBarrelDeclarations": 25
+    },
+    "mountGraph": {
+      "declarationEdges": 115,
+      "staticMountEdges": 126,
+      "dynamicMountEdges": 11,
+      "routeInstances": 1272,
+      "reachableSfc": 86,
+      "harnessSfc": 2
+    },
+    "stateRegistry": {
+      "componentRecords": 88,
+      "pageAndLayerRecords": 69,
+      "totalRecords": 157,
+      "statesPerRecord": 54
+    },
+    "designBriefs": {
+      "componentBriefs": 88,
+      "routeBriefs": 14,
+      "wildcardBriefs": 1,
+      "pageLikeBriefs": 33,
+      "inlineLayerBriefs": 21,
+      "totalBriefs": 157
+    },
+    "kroneckerBlocks": 2590,
+    "equivalenceClasses": 2590
+  },
+  "credit": {
+    "iosSafari": 0,
+    "desktopSafari": 0,
+    "browser": 0,
+    "api": 0,
+    "package": 0,
+    "product": 0,
+    "parser": 0,
+    "release": 0,
+    "execution": 0
+  }
+}

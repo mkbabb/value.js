@@ -1,0 +1,915 @@
+{
+ "runId": "wf_30a8e858-e9a",
+ "workflow": "wf_30a8e858-e9a",
+ "resultCount": 3,
+ "results": [
+  {
+   "agentId": "a1e4662057a2e9b2b",
+   "key": "v2:3d90c01a404296322aac53a2c9c4e2122ac629881714871d81df493bb26b5b70",
+   "result": {
+    "files": [
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/VALUE-FORMATION-PACKET-2026-07-29.md",
+      "sha256": "d07b6ddc5cf0d673b37d696c8e940fec974227a129d2f614f89f7b305ffb14e6",
+      "bytes": 63572,
+      "mtime": "2026-08-02T05:26:10-0400",
+      "gist": "Value megatranche formation packet — FORMATION ADMITTED / ORDERED EXECUTION NOT STARTED; forms the Value-owned library, demo, frontend, API, palette and bounded-consumer work; P1 DELETE/PRUNE, P2 AMEND, P3 REJECT/FOLD terminals."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-C4-OWNER-INTAKE-AND-C5-SOURCE-RULING-2026-08-02.md",
+      "sha256": "3f481c933d973282a770da6d3ad621ed73626546750a0cf164bd8f990bcbc919",
+      "bytes": 10826,
+      "mtime": "2026-08-02T00:18:42-0400",
+      "gist": "CSS DREI C4 owner intake + C5 source ruling — C4 SOURCE_REVIEW_RED/AMEND/AUTHORITY NONE; one fresh source-only coordinate authorized but unsent, execution forbidden."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-C5-OWNER-INTAKE-AND-C6-SOURCE-RULING-2026-08-02.md",
+      "sha256": "b88784b5f8931d4c473831bf9e9acaaf9fc6082f1474f960f830de2c93033173",
+      "bytes": 9399,
+      "mtime": "2026-08-02T00:43:37-0400",
+      "gist": "CSS DREI C5 owner intake + C6 source ruling — C5 PARTIAL_MATERIALIZATION_RED / SOURCE INCOMPLETE; C6 fresh non-overlapping source-only coordinate authorized but unsent."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-C6-OWNER-INTAKE-AND-C7-SOURCE-RULING-2026-08-02.md",
+      "sha256": "bb7b7a99c7924957dabfade4e3dc02b3ea00326efb84469078800d7d3fec67d3",
+      "bytes": 13891,
+      "mtime": "2026-08-02T01:05:50-0400",
+      "gist": "CSS DREI C6 owner intake + C7 source ruling — C6 SOURCE_REVIEW_RED / STRUCTURAL PROOF FALSE; C7 authorized-but-unsent; banks tranche-development evidence only."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-C7-ABSENT-ROOT-OWNER-INTAKE-2026-08-02.md",
+      "sha256": "66f6a30565219d657d92e8e61f3425d2f8f4f1e34d0b4f2950f5d4485df027e8",
+      "bytes": 6293,
+      "mtime": "2026-08-02T01:20:26-0400",
+      "gist": "CSS DREI C7 absent-root owner intake — C7 AUTHORIZED_BUT_NOT_MATERIALIZED / ROOT_ABSENT / SAFE SOURCE STOP; C8 not authorized, all new source coordinates withheld."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-2026-08-02.md",
+      "sha256": "4a025f3e42b2d8260c6fc487c425b98ab28a892ac7841260f9cb5c9006723d38",
+      "bytes": 15695,
+      "mtime": "2026-08-02T01:29:32-0400",
+      "gist": "CSS DREI paper design contract v1 — PAPER_CANDIDATE / Reviews A+B open / source writer blocked; decomposes the monolithic C4–C6 source design into eight independently falsifiable interfaces."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-MANIFEST-2026-08-02.json",
+      "sha256": "1e9632aa93b0f2b6b481c811c2f560568cbc5cd2c5f88304637c06244039b804",
+      "bytes": 32382,
+      "mtime": "2026-08-02T01:27:32-0400",
+      "gist": "JSON manifest for paper design contract v1 (schema value.css.drei.paper-design-contract/v1) — PAPER_CANDIDATE_REVIEW_REQUIRED, authority NONE, C7 root ABSENT, defines the interface-hash canonicalization law."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V10-2026-08-02.md",
+      "sha256": "f3d5fcd0c0b856a9e5832d9bc4227bb6589ab0e08a0d2cf63adb8d12b5111656",
+      "bytes": 11451,
+      "mtime": "2026-08-02T05:41:08-0400",
+      "gist": "CSS DREI paper/source architecture v10 — SOURCE_IMPLEMENTED_UNEXECUTED_PAPER_RED_PENDING_A10_B10; materializes exact source module bytes inside the manifest without writing or executing them."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V10-MANIFEST-2026-08-02.json",
+      "sha256": "71be78ab75334631839fd0a6f9f1c0ba060049e18fdb0cc03595edf0ada3f783",
+      "bytes": 65695825,
+      "mtime": "2026-08-02T05:41:08-0400",
+      "gist": "LARGE, unread"
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V11-2026-08-02.md",
+      "sha256": "abf2c70c9cd87fd0caecb1071bc7365fb6d655d3f1eaa65a48aaf0014018e2dd",
+      "bytes": 7996,
+      "mtime": "2026-08-02T06:13:25-0400",
+      "gist": "CSS DREI paper/source architecture v11 — SOURCE_IMPLEMENTED_UNEXECUTED_PAPER_RED_PENDING_A11_B11; freezes v10 terminal and readies v11 for two fresh static reviews (not dispatched)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V11-MANIFEST-2026-08-02.json",
+      "sha256": "e53ab2a1b3e75917b881da275d9c481656bf693b03e0dbd9338e13dc6be26b15",
+      "bytes": 67631782,
+      "mtime": "2026-08-02T06:13:25-0400",
+      "gist": "LARGE, unread"
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V2-2026-08-02.md",
+      "sha256": "1d0080f0a9f761f84c25f2479155788e25f80ff2468de4c60ebcdab8920d2130",
+      "bytes": 14170,
+      "mtime": "2026-08-02T01:48:19-0400",
+      "gist": "CSS DREI paper design contract v2 — PAPER_V2_CANDIDATE requiring reviews A2/B2; resolves terminal Review-A and Review-B findings together as a new immutable candidate beside v1."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V2-MANIFEST-2026-08-02.json",
+      "sha256": "0bbe6d22f6c3fbdbfd60a52646a6e7f06fb4082686752fb5f80a3240251f8dcf",
+      "bytes": 39344,
+      "mtime": "2026-08-02T01:45:53-0400",
+      "gist": "JSON manifest for paper design contract v2 — status PAPER_V2_CANDIDATE_A2_B2_REQUIRED, authority NONE; binds v1 paper/manifest and Review A/B intake hashes as predecessors."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V3-2026-08-02.md",
+      "sha256": "253a4fcc951ecaa4d2b974b656bfc637260d40497e24617f5ccab451a36bab7d",
+      "bytes": 15160,
+      "mtime": "2026-08-02T02:05:11-0400",
+      "gist": "CSS DREI paper design contract v3 — PAPER_V3_CANDIDATE requiring reviews A3/B3; resolves the terminal A2/B2 findings while v1/v2 stay frozen AMEND/RED chronology."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V3-MANIFEST-2026-08-02.json",
+      "sha256": "248a548eaaa8cbfe8a1c71b66d420b120d6b6ecc66dcf79accebb49b5985a913",
+      "bytes": 51121,
+      "mtime": "2026-08-02T02:01:36-0400",
+      "gist": "JSON manifest for paper design contract v3 — PAPER_V3_CANDIDATE_A3_B3_REQUIRED, authority NONE; binds v2 paper/manifest plus A2 review hashes."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V4-2026-08-02.md",
+      "sha256": "23e99e65c71a5a33850ba8a0996d4d1ec30f789fd263d086123b8a3542f4603b",
+      "bytes": 17135,
+      "mtime": "2026-08-02T02:58:47-0400",
+      "gist": "CSS DREI paper design contract v4 — PAPER_V4_READY_FOR_FRESH_REVIEWS; A4/B4 pending and undispatched, C8 unauthorized; resolves the v3 A3/B3 findings together."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V4-MANIFEST-2026-08-02.json",
+      "sha256": "10f02f3b59ec70cad85a6327d043ce3a4a010d6a9e9e87be9f637dfc4dd3c04c",
+      "bytes": 81167,
+      "mtime": "2026-08-02T02:58:26-0400",
+      "gist": "JSON manifest for paper design contract v4 — PAPER_V4_READY_FOR_FRESH_REVIEWS; records A3 verdict SOURCE_GRAIN_BOUND_DIRECTION, B3 verdict ANSWER_KEY_EXPOSURE, and resurrection handoff hashes."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V5-2026-08-02.md",
+      "sha256": "780c8a122cd74a87c67ce09ebc98ff78935868fab4feb6c21d80297c53acade4",
+      "bytes": 13834,
+      "mtime": "2026-08-02T03:27:49-0400",
+      "gist": "CSS DREI paper design contract v5 — PAPER_V5_CANDIDATE_RED_PENDING_FRESH_REVIEWS; resolves v4 A4/B4 in one fresh pair, cannot self-promote to READY."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V5-MANIFEST-2026-08-02.json",
+      "sha256": "81a67717305ac837362949fb273ef28dbcf9995dde6e381ebe5aa7385d0ca71a",
+      "bytes": 545075,
+      "mtime": "2026-08-02T03:25:12-0400",
+      "gist": "JSON manifest for paper design contract v5 — records A4 falsifier SHARED_PRIMITIVE_RFC6901_UNOWNED and B4 falsifier CONTROL_REGISTRY_LABEL_ONLY, retrospectiveCredit 0, plus the ownership map."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V6-2026-08-02.md",
+      "sha256": "64836576d00e9dde8cb1c998f094390f7d9de240a484ae90244ea3595417b3ab",
+      "bytes": 24619,
+      "mtime": "2026-08-02T03:59:48-0400",
+      "gist": "CSS DREI paper design contract v6 — PAPER_V6_CANDIDATE_RED_PENDING_FRESH_REVIEWS; fresh successor resolving the v5 A5/B5 contract defects, claiming no producer/parser/control credit."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V6-MANIFEST-2026-08-02.json",
+      "sha256": "a5a39f60f502b57d7d01217a6ecdfea90565bc6d9024fa7a233ac20a96c38abe",
+      "bytes": 2683437,
+      "mtime": "2026-08-02T04:02:41-0400",
+      "gist": "JSON manifest for paper design contract v6 (schemaVersion 6) — PAPER_V6_CANDIDATE_RED_PENDING_FRESH_REVIEWS; pins the v6 paper path/bytes/sha/mode and the v5 predecessor."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V7-2026-08-02.md",
+      "sha256": "f29afb45da62a100f435917e9799af286dc9ac584add67a66859729d637a3c93",
+      "bytes": 9180,
+      "mtime": "2026-08-02T04:16:00-0400",
+      "gist": "CSS DREI paper design contract v7 — PAPER_V7_STRUCTURAL_CANDIDATE_RED_PENDING_FRESH_REVIEWS; materializes a reconstructible control design over the frozen v6 pair, all credits zero."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V7-MANIFEST-2026-08-02.json",
+      "sha256": "9b4e7031333550d5a02a9dc2f25651f8ecddc24ac91df2e108c58478dc4dd7a7",
+      "bytes": 30297364,
+      "mtime": "2026-08-02T04:26:32-0400",
+      "gist": "LARGE, unread"
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V8-2026-08-02.md",
+      "sha256": "46870cb30dafd05a63a966bd16a02525860d8883b87a2256c872a88586311592",
+      "bytes": 7603,
+      "mtime": "2026-08-02T04:42:15-0400",
+      "gist": "CSS DREI paper design contract v8 — PAPER_V8_STRUCTURAL_CANDIDATE_RED_PENDING_FRESH_REVIEWS; defines a reconstructible shared baseline plus proposed harness source, none of it landed."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V8-MANIFEST-2026-08-02.json",
+      "sha256": "2f13ac398821d3fe31529cef55431b2895babeb6236644fc53170869be2a8f6a",
+      "bytes": 36454133,
+      "mtime": "2026-08-02T04:57:26-0400",
+      "gist": "LARGE, unread"
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V9-2026-08-02.md",
+      "sha256": "272ee4cdf2e64062461f4a115a4dfd7b715b4bfec2cc561f149c29668e08496e",
+      "bytes": 10654,
+      "mtime": "2026-08-02T05:12:40-0400",
+      "gist": "CSS DREI paper design contract v9 — PAPER_V9_RED_PENDING_TWO_FRESH_REVIEWS; fresh successor to terminal v8 that replaces the audit architecture without executing parser, CSS runtime, or package."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-DESIGN-CONTRACT-V9-MANIFEST-2026-08-02.json",
+      "sha256": "99f3952b4c906c9e1b1c6bef96028ad69f5a12a3dc99f4ebea70dafc60542949",
+      "bytes": 37527796,
+      "mtime": "2026-08-02T05:12:40-0400",
+      "gist": "LARGE, unread"
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-REVIEW-A-OWNER-INTAKE-2026-08-02.md",
+      "sha256": "2c9462909cbb81cf043a4ba1e8e7e3a4e2fad1e2087e59b363b519bc2046b07e",
+      "bytes": 8478,
+      "mtime": "2026-08-02T01:38:07-0400",
+      "gist": "Paper v1 Review A owner intake — verdict AMEND/RED; paper v1 immutable and NON-ADMISSIBLE, Review B still running, v2 blocked and C8/source/execution closed."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-REVIEW-B-OWNER-INTAKE-2026-08-02.md",
+      "sha256": "6de6f495efca185181d8def8a736a56a15f56ece07fb0b7ba1dbd5d0003a30f5",
+      "bytes": 10982,
+      "mtime": "2026-08-02T01:40:29-0400",
+      "gist": "Paper v1 Review B owner intake — verdict AMEND/RED; with A durably intaken, one paper-v2 amendment may resolve A and B atomically; C8/source/execution remain closed."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-V2-REVIEW-A2-OWNER-INTAKE-2026-08-02.md",
+      "sha256": "6e299660cfc1fd26b5453014eb856611501959f47d42780d520b84d62a25619f",
+      "bytes": 8043,
+      "mtime": "2026-08-02T01:53:53-0400",
+      "gist": "Paper v2 Review A2 owner intake — AMEND/RED; v2 immutable NON-ADMISSIBLE, B2 running, paper v3 blocked."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-V2-REVIEW-B2-OWNER-INTAKE-2026-08-02.md",
+      "sha256": "12356ecacd94d8560ef4e3bf309958e4253b109730a88216ffb243d8fe259048",
+      "bytes": 7359,
+      "mtime": "2026-08-02T01:57:55-0400",
+      "gist": "Paper v2 Review B2 owner intake — AMEND/RED; with A2 intaken, one paper-v3 amendment may resolve A2+B2 atomically; C8/source/execution closed."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-V3-REVIEW-A3-OWNER-INTAKE-2026-08-02.md",
+      "sha256": "8165833532cc52d11d66ff37867846decfeb708bded11f60d7c61b7a5d2724a2",
+      "bytes": 6875,
+      "mtime": "2026-08-02T02:12:57-0400",
+      "gist": "Paper v3 Review A3 owner intake — AMEND/RED, first falsifier SOURCE_GRAIN_BOUND_DIRECTION; all credit lines zero, v3 paper/manifest frozen."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-V3-REVIEW-B3-OWNER-INTAKE-2026-08-02.md",
+      "sha256": "6513b430f77dad0b9a487076d29eb60fed84558b79559b0d043021125bd26867",
+      "bytes": 9372,
+      "mtime": "2026-08-02T02:14:20-0400",
+      "gist": "Paper v3 Review B3 owner intake — AMEND/RED, first falsifier ANSWER_KEY_EXPOSURE; all credit zero, v3 paper/manifest frozen."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-PAPER-V4-REVIEWS-A4-B4-OWNER-INTAKE-AND-V5-RULING-2026-08-02.md",
+      "sha256": "99faa80691bf160f4206308d1ee7dc6d86cf8d6dc495bbc87fbb86f77e529ba6",
+      "bytes": 4853,
+      "mtime": "2026-08-02T03:12:53-0400",
+      "gist": "Paper v4 A4/B4 owner intake and v5 ruling — v4 AMEND/RED (A4 SHARED_PRIMITIVE_RFC6901_UNOWNED, B4 CONTROL_REGISTRY_LABEL_ONLY); authorizes exactly one fresh paper-only v5 pair beside frozen v4."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-V11-TWO-REVIEW-OWNER-INTAKE-2026-08-02.md",
+      "sha256": "aa891714b3b6bb3386afda45201b203ac5aa1f2ef028466f303831197e992767",
+      "bytes": 7558,
+      "mtime": "2026-08-02T06:45:53-0400",
+      "gist": "CSS DREI v11 two-review owner intake — AMEND/RED; Review A falsifier COLOCATED_PRODUCTION_SELF_ORACLE, Review B falsifier RAW_V8_FOLLOWING_BYTES_HASH_DRIFT; authority NONE and every credit class zero."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/formation/FORMATION-CLEAN-AUDIT-1-2026-07-29.md",
+      "sha256": "eea9ee13c9fdf79ed8b31be2e9c6850ba62e09a96cb64cc036975cbc0b90d5fd",
+      "bytes": 6323,
+      "mtime": "2026-07-29T17:36:29-0400",
+      "gist": "Formation clean audit 1 (authority and graph) — verdict CLEAN FOR FORMATION; run from isolated detached worktree e01d0065 against the read-only live tranche-u tree, formation artifacts only."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/formation/FORMATION-CLEAN-AUDIT-2-2026-07-29.md",
+      "sha256": "4638420279de8155df1757aeea3cc2b48836bf1795c9926da732246d8aac584e",
+      "bytes": 6016,
+      "mtime": "2026-07-29T17:42:03-0400",
+      "gist": "Formation clean audit 2 (hostile contradiction pass) — CLEAN FOR FORMATION; independent of audit 1's findings, uses different falsifiers incl. cross-document route/status/precondition comparison."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/formation/NON-PARSER-HOSTILE-REVIEW-A-2026-07-30.md",
+      "sha256": "addc98e525eb67ce8350eaf1fb837f94960cd04a9e2df599e723c2e033aac052",
+      "bytes": 5097,
+      "mtime": "2026-07-30T14:42:36-0400",
+      "gist": "Non-parser hostile review A (denominator, bijection, source truth) — CLEAN AFTER ONE PRE-SEAL AMENDMENT; binds the frontend/library-API closures, workflow matrix, API policy and typed-DAG hashes."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/formation/NON-PARSER-HOSTILE-REVIEW-B-2026-07-30.md",
+      "sha256": "214f032198c8aef0a7d87792f80822ca847f1a9ff7aaf819202aac7854f0fdd6",
+      "bytes": 4790,
+      "mtime": "2026-07-30T14:42:36-0400",
+      "gist": "Non-parser hostile review B (false credit and forbidden-edge replay) — CLEAN; orthogonal to review A, challenges evidence strength, authority and graph polarity; zero execution/product credit."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/CROSS-SESSION-DEPENDENCY-AMEND-INTAKE-2026-07-30.md",
+      "sha256": "29303183bf1ecc2afcf87f0246ccf5c91ff9b3ca8f5ed5f94a645447d9787456",
+      "bytes": 4275,
+      "mtime": "2026-07-30T20:13:24-0400",
+      "gist": "Cross-session dependency AMEND intake — INTAKEN AS DEPENDENCY CHRONOLOGY; NO CELL OR CREDIT WIDENING; pins prior non-parser/parser-law matrix and formation-status hashes plus read-only external inputs."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/FORMATION-CLEAN-A-DISPATCH-2026-07-29.md",
+      "sha256": "b3c5198ca8d8c3ad1bf52d3e832124983d333d366ef16f40fe3045953cf01dc3",
+      "bytes": 4260,
+      "mtime": "2026-07-29T19:29:43-0400",
+      "gist": "Formation Clean A dispatch — fresh GPT Sol xhigh, repository-read-only formation audit writing only to a parent-created isolated output dir; lists the exact post-P3 corpus hashes to bind."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/FORMATION-CLEAN-A-REPLACEMENT-DISPATCH-2026-07-29.md",
+      "sha256": "088584824bd049abe3033a2a78292dfae1292012f80572460b3348ab7c965518",
+      "bytes": 6662,
+      "mtime": "2026-07-29T20:11:22-0400",
+      "gist": "Replacement Clean A dispatch — issued because the first Clean A returned AMEND on finding CA-01 (packet and Keyframes surface had not absorbed P3's complete consumer census)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/FORMATION-CLEAN-B-DISPATCH-2026-07-29.md",
+      "sha256": "ef4aeb2782fef855542946ac7c745932d0cbe10e09accad973ad8056e5e778cb",
+      "bytes": 7465,
+      "mtime": "2026-07-29T20:38:19-0400",
+      "gist": "Formation Clean B dispatch — genuinely later hostile audit (fresh GPT Sol xhigh, frontend-design skill required) that may begin only after replacement Clean A is immutable, owner-intaken and root-absorbed."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/FULL-SUBJECT-P2-LUNA-DISPATCH-2026-07-29.md",
+      "sha256": "c675a73b4107971e0392be5b93ba9ef964d3f9b396d19f795018ef8c0353d205",
+      "bytes": 2395,
+      "mtime": "2026-07-29T18:38:02-0400",
+      "gist": "Full-subject P2 true-Luna dispatch packet — GPT Luna xhigh, repository-read-only formation critique bound to the full-family denominator and P1 registry/Sol artifacts."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/FULL-SUBJECT-P3-SOL-DISPATCH-2026-07-29.md",
+      "sha256": "55a6405d6e5a5dfdab93e0915bab8410c1478e80364895ba00de9286454e84c1",
+      "bytes": 2936,
+      "mtime": "2026-07-29T18:55:11-0400",
+      "gist": "Full-subject P3 fresh hostile Sol dispatch — repository-read-only formation adjudication binding the true-Luna P2 registry by exact path and sha256."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/KEYFRAMES-VALUE-SURFACE-2026-07-29.md",
+      "sha256": "f9a98d7df6addf6e0d61d2adfad7340e667f503486668da0403f1861c3965b96",
+      "bytes": 16421,
+      "mtime": "2026-07-29T20:03:50-0400",
+      "gist": "Keyframes consumer truth — Value surface and disposition delta; P2 AGGLOMERATED AMEND with placement and narrow operation names frozen; reconciled census of 49 @mkbabb/value.js/css imports across 47 files."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/NON-PARSER-CONVERGENCE-OWNER-RECEIPT-2026-07-30.md",
+      "sha256": "973799e4967aba0ffdb30745e97f6094edb5aecbdd2692b0eddfb3e2b98c408d",
+      "bytes": 3765,
+      "mtime": "2026-07-30T14:46:14-0400",
+      "gist": "Non-parser convergence owner receipt — SAFE-BOUNDARY COMPLETE, formation/specification only, execution authorization false; lists exact input and output hashes for the matrices and closures."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/PRODUCER-ARTIFACT-BOUNDARY-2026-07-29.md",
+      "sha256": "91b9a0cee734e42229fe35d67f03c8c00b3a88552cac8b3b463cc38382d15c0e",
+      "bytes": 3463,
+      "mtime": "2026-07-29T17:34:04-0400",
+      "gist": "Producer artifact boundary (Value receiver) — FORMATION AUTHORITY with no producer/product source edit; records accepted Glass facts at coordinate 77540ffd incl. the isolated first vite build --watch emission."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/coordination/RESURRECTION-DEPENDENCY-SAFE-BOUNDARY-2026-08-01.md",
+      "sha256": "0cc044228f902c0f7c95c817643aff655240c0afce4c184c6bf53d596d8f76ab",
+      "bytes": 6875,
+      "mtime": "2026-08-01T13:02:56-0400",
+      "gist": "Value resurrection dependency safe boundary — DEPENDENCY CHRONOLOGY ONLY, Value coordinates and credit unchanged; binds the live resurrection handoff/manifest/checksums tuple by sha256."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/API-POLICY-V-API-01-2026-07-29.md",
+      "sha256": "46a88fa27beb1487365cc05aa0195b7651c483c1b66b4891b9931f39b7b8538a",
+      "bytes": 22147,
+      "mtime": "2026-07-29T17:36:53-0400",
+      "gist": "V-API-01 palette access policy and per-object release membership — FORMATION-ONLY, API/persistence source unchanged; fixes the single visibility model (private|public) and lifecycle (active|trashed)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/COMPONENT-WORKFLOW-MATRIX-2026-07-29.md",
+      "sha256": "3efc8638b765f0cb7bef019ff3d3b6a2f47664b1f66b6b9c6ff3fb9dd301c6a9",
+      "bytes": 19982,
+      "mtime": "2026-07-30T14:45:28-0400",
+      "gist": "Value 88-SFC component workflow matrix — FORMATION-ONLY; physical denominator 88 SFCs vs live ledger 72/88 rows and 218/264 hash-banked D/L/C axes (16 incomplete rows, 46 unbanked axes)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/FORMATION-AUTHORITY-STATUS-2026-07-29.md",
+      "sha256": "713ae753738af09985f9e5d63e96182b953c4cc62dd8daff1815b1f8e0dae1ea",
+      "bytes": 64871,
+      "mtime": "2026-07-30T20:12:29-0400",
+      "gist": "Value formation authority status (current, last amended 2026-07-30) — FORMATION ADMITTED / ROOT REBIND R2 COMPLETE / ORDERED EXECUTION NOT STARTED; R2 is the sole current root-binding authority."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/FORMATION-AUTHORITY-STATUS-R1-SUPERSEDED-2026-07-29.md",
+      "sha256": "6be15f28a66392a061711ea4563e20d2940f7470205a3a583e12f570dc4434f9",
+      "bytes": 7766,
+      "mtime": "2026-07-29T21:25:35-0400",
+      "gist": "Superseded R1 formation authority status — binding correction after root's hostile DAG adjudication found the packet §6 miscounted three specialized slices as three full-subject passes; pre-absorption packet preserved byte-for-byte."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/FORMATION-AUTHORITY-STATUS-R2-AMEND-SUPERSEDED-2026-07-29.md",
+      "sha256": "bece159ef6dfc87468b86e64915ef58e1fe66215710f58bae13ce7098ee93628",
+      "bytes": 3331,
+      "mtime": "2026-07-29T21:39:28-0400",
+      "gist": "Superseded R2-AMEND formation authority status — ROOT REBIND AMEND ACTIVE, admission not closed; the prior rebind passed its validator but a fresh hostile root audit found real false-greens."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/NON-PARSER-FRONTEND-SPEC-CLOSURE-2026-07-30.md",
+      "sha256": "a911162502a5a32cb512c00af266004e1d5d3f56ed2a963256b75caa3ee6c883",
+      "bytes": 25198,
+      "mtime": "2026-07-30T14:42:25-0400",
+      "gist": "Non-parser frontend specification closure — FORMATION SPECIFICATION COMPLETE / PRODUCT EXECUTION CLOSED over 88 Vue SFCs, 264 D/L/C axes, 14 route identities and their future in-app Browser receipts (88/88 identities specified)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/NON-PARSER-LATER-AGGLOMERATION-2026-07-30.md",
+      "sha256": "d30cd8ce6c48b2c5a0fb364f07460602167c030371a3bc1325884585e3682e39",
+      "bytes": 7638,
+      "mtime": "2026-07-30T14:43:37-0400",
+      "gist": "Non-parser later agglomeration — CLEAN FORMATION-SPECIFICATION AGGLOMERATION, execution authorization false and product/API/Browser/package/release credit zero; binds the final bytes of both orthogonal hostile reviews."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/NON-PARSER-LIBRARY-API-DAG-CLOSURE-2026-07-30.md",
+      "sha256": "d51e0d3056ec4b3bdebc1bad2119d453de291189dadfce8e9dd2e2bcc5ae8eff",
+      "bytes": 20243,
+      "mtime": "2026-07-30T14:40:02-0400",
+      "gist": "Non-parser library, API and typed-DAG specification closure — closes eight library offering specs, nine API policy operation classes and the parser-independent graph/package/test contract; implements none."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/PI-DELTA-MANIFEST-2026-07-29.json",
+      "sha256": "7db1a144b038203417e405b9180041baedc0fb6229dcab3cf7a326aeff20487e",
+      "bytes": 2495,
+      "mtime": "2026-07-29T17:40:26-0400",
+      "gist": "PI delta manifest (schemaVersion 1, formation-admitted) — V.G1/V.Q1/V.Q2 must copy it byte-for-byte into each browser receipt and fill every null environment coordinate (browser, OS, font manifest, glass/parse-that/keyframes tarball hashes) before evaluation."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/RESEARCH-PASSES-AND-BROWSER-AUDIT-2026-07-29.md",
+      "sha256": "df91b6c383e6f2d37c9a69b7b62d70fac04f0e22febdef9c3ec0bc0ae9e00fd5",
+      "bytes": 11050,
+      "mtime": "2026-07-29T17:40:26-0400",
+      "gist": "Value research passes and browser reconnaissance — P1 DELETE/PRUNE, P2 AMEND, P3 REJECT/FOLD complete; browser evidence is reconnaissance not an execution audit; cadence Sol research → true-Luna hostile synthesis → Sol prototype → Sol critique."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/TYPED-DAGS-AND-DISPOSITIONS-2026-07-29.md",
+      "sha256": "5736d6da2451a3b558952736038b5d2b382ede79aadecbf3709491d6edd2a6cd",
+      "bytes": 17897,
+      "mtime": "2026-07-29T17:38:46-0400",
+      "gist": "Value typed DAGs and terminal dispositions — formation evidence at clean e01d0065 with live-dirty differences flagged; defines the NodeKind/EdgeKind grammar and insists counts never substitute for reachability."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-KRONECKER-AUDIT-PLAN-2026-08-01.md",
+      "sha256": "18f8ac83045496e6553d10d21e5cea26d2da43304952d4c67940aecb2e7a72ef",
+      "bytes": 34851,
+      "mtime": "2026-08-01T14:41:45-0400",
+      "gist": "Value Mobile Safari Kronecker audit plan — SOURCE-ONLY OWNER MARK / PLAN COMPLETE / INVENTORY + SAFARI EXECUTION RED; parser remains PAUSED, non-parser matrix 11/11 spec-complete, parser-law matrix 14/34."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-SOURCE-CLOSURE-V3-OWNER-INTAKE-2026-08-01.md",
+      "sha256": "0a81da8ccbf6a36cbc91b3ebe174d3e8e92d8803e195fcc9527b63dba8ab4065",
+      "bytes": 12782,
+      "mtime": "2026-08-01T20:45:10-0400",
+      "gist": "Mobile/Safari source-closure v3 owner intake — AMEND / FALSE-GREEN / SOURCE-ONLY RED; the mechanically self-consistent v3 candidate failed independent review on PAGE→STATE→Kronecker coverage, freezing the root before reviews/verdict/seal."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-SOURCE-CLOSURE-V4-OWNER-INTAKE-AND-V5-SOURCE-RULING-2026-08-02.md",
+      "sha256": "26e3bbc50a14f06a2b2cfcd1e692f99efce3489ddc3ff68914ce3f44ab2e9921",
+      "bytes": 10162,
+      "mtime": "2026-08-02T14:01:59-0400",
+      "gist": "Mobile/Safari source-closure v4 owner intake and v5 ruling — v4 AMEND / SOURCE-ONLY RED, v5 fresh non-overlapping source-only coordinate authorized; v4 root frozen, same-root repair/reseal forbidden."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "ae6f73efad30c99d6",
+   "key": "v2:e328d2f6d0a6de40ad39e1b8e53418206459e54da21fb2f5a9cf6f4b361e72c4",
+   "result": {
+    "files": [
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-SOURCE-CLOSURE-V5-HOSTILE-ORDER-OWNER-CORRECTION-2026-08-02.md",
+      "sha256": "b9febba9ee253299b5917005b1f882974c9858007d1391015fad4576bb50c485",
+      "bytes": 6522,
+      "mtime": "2026-08-02T14:33:53Z",
+      "gist": "Additive owner correction reordering the v5 source findings. Terminal AMEND / SOURCE-ONLY RED; governing first falsifier rebound to DISCONNECTED_PRODUCTION_CONTROLS. Prunes MEMBER_IDENTITY_NOT_LENGTH_FRAMED as governing first RED (keeps length framing only as non-authoritative future hardening). Re-pins the frozen v5 root: exactly 2 files, 530,529 bytes, census identity 3356b6b3...; predecessor v5 ruling 26e3bbc5.... Grants no source/Browser/Safari/Simulator/API/Docker/package/parser/release/rebind/admission credit."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-44-CONTROL-REGISTRY-OWNER-DECISION-2026-08-02.json",
+      "sha256": "7994587aacd548c724be75e3b3756f21bfa6e326e4856cd50675c8c73c280e5e",
+      "bytes": 41990,
+      "mtime": "2026-08-02T21:24:05Z",
+      "gist": "schema value.mobile-safari.v7.owner-control-registry-decision.v1. Decision OPTION_A_DEFINE_NEW_EXACT_44_ROW_SEMANTIC_REGISTRY; registry VALUE-MOBILE-SAFARI-V7-CONTROL-REGISTRY-R1 with exact 44 controls CT-001..CT-044, tupleOrdinal ordering, FRESH_OWNER_DEFINED_SEMANTIC_LAW. All 54 v5 controls become HISTORICAL_ONLY (falseJoinCount 0, prior map HOLD preserved). Capture and source still forbidden pending root intake; all authority NONE, credit 0."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-OWNER-RELEASE-2026-08-02.json",
+      "sha256": "32da65a2a831d4d335f3a23664ca33ef5f78709662826117dc8da8bed0dc7bf3",
+      "bytes": 26173,
+      "mtime": "2026-08-02T21:40:24Z",
+      "gist": "schema value.mobile-safari.v7.quiescent-capture-owner-release.v1. Authorizes ONE root-owned pre-authoring quiescent capture at an exact ABSENT coordinate (/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-v7-quiescent-governing-capture/outputs) with 7 named files in strict write order, checksums last; v7 source remains FORBIDDEN. Binds the 44-control registry (retentionDenominator 1892, admittedRetentions 0), root intake and integration audit hashes. All credit 0."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-R2-CURRENT-TUPLE-REBIND-2026-08-02.json",
+      "sha256": "695358c08b33d6826abf3e82ea8d0605db9d2338cce97da1f613965b46583882",
+      "bytes": 8660,
+      "mtime": "2026-08-02T22:24:04Z",
+      "gist": "schema ...quiescent-capture-r2-current-tuple-rebind.v1. Rebinds capture R2 to the CURRENT stable root tuple (HANDOFF / PLAN / MATRIX / CHECKSUMS with fresh SHAs, checksum replay 48/48) because the predecessor R2 ruling pinned a stale root checksum, making it SUPERSEDED_NONCONSUMABLE (immutable chronology only). Capture R2 constructible once; v7 source FORBIDDEN; all authority NONE, credit 0."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-R2-OWNER-RULING-2026-08-02.json",
+      "sha256": "ea5eed7a6f43c8c61ed32a3f0c4f4487afa43043c48e83c39ae7b2addbbf033a",
+      "bytes": 12484,
+      "mtime": "2026-08-02T21:54:04Z",
+      "gist": "schema ...quiescent-capture-r2-owner-ruling.v1. Authorizes one fresh non-overlapping capture R2 coordinate; R1 repair FORBIDDEN. Freezes terminal R1 as MECHANICS_RED: 1 retained file capture-value-mobile-v7.mjs (18,133 bytes), first RED BIGINT_NUMBER_MODE_MASK_TYPEERROR at source lines 89-90 — `stat.mode & 0o7777` must be `stat.mode & 0o7777n`; exit 1, 0/345 members read (0/310 source, 0/35 governing). v7 source FORBIDDEN, credit 0."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-SOURCE-ONLY-OWNER-DECISION-2026-08-02.md",
+      "sha256": "e1522725a855a1f413bea7a62e4bfc2c6897668f4b6f26d3a22d69c404325486",
+      "bytes": 11474,
+      "mtime": "2026-08-02T20:32:50Z",
+      "gist": "Owner decision Option A: authorize one fresh non-overlapping v7 source-only coordinate, precondition ROOT-OWNED QUIESCENT GOVERNING CAPTURE REQUIRED BEFORE ANY V7 BYTE. Records the final pass-provenance boundary (60 ordered phase cells = 30 AUTHENTICATED_COMPLETE / 25 STALE_UNAUTHENTICATED / 5 ABSENT; Value 15/15 historical but 0/15 currently eligible, 0/12 current-eligible subject passes, 5 null cross-repo owner slots) and the frozen terminal v6 intake (SOURCE_REVIEW_RED / ROOT_COORDINATE_DRIFT, 5 files / 605,719 bytes). Notes the 6/6 checksum replay only succeeded when rerun from the repo root. Authority NONE."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-NON-PARSER-CONVERGENCE-MATRIX-2026-07-30.md",
+      "sha256": "717bf1e36e11fb9b702dc95b26be82c26bffce48c9c8a78c8a7cc3bb614435c5",
+      "bytes": 7588,
+      "mtime": "2026-07-30T20:12:00Z",
+      "gist": "Overlay matrix for every Value frontend/library/API/DAG facet independent of parser release. 11/11 cells NP01–NP11 SATISFIED = 100% FORMATION SPECIFICATION, EXECUTION CLOSED, 0 open specification cells. Sub-denominators contrast spec vs banked truth: components 88/88 spec vs 72/88 evidence; D/L/C axes 264/264 vs 218/264; 14 routes with 0 new product receipts; 8 library offerings; 9 API policy classes; 13 typed DAG planes; 2 hostile reviews; 1 later agglomeration. Retains 1,717/1,653 Webref raw/active and 1,503/1,439 property/function/type denominators. Explicitly does not advance the parser-law matrix (14/34 = 41.18%)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-PARSER-LAW-CONVERGENCE-MATRIX-2026-07-30.md",
+      "sha256": "244c448a90059002be1194e6a512191c96881a9413ceb021f3b8fe7b62b504a7",
+      "bytes": 30242,
+      "mtime": "2026-07-30T20:12:10Z",
+      "gist": "Value-facing reconciliation of the constellation parser performance-law amendment (binds amendment 1317ab01..., input loop 920a618a..., parse-that commit ef20a98 on codex/css-totality-combinators-20260729). Opens PL-3X / PL-2X / PL-BE as formation-only families replacing the historical 10x law; exact arithmetic uses T_M2 = 1,870,633 us and T_native = 311,883 us with budget B(k)=T_M2/k and headroom H(k)=B(k)-T_native. FORMATION-ONLY, Value execution closed; the direction is non-reversible (parser work cannot satisfy a Value wave or grant credit)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/CLEAN-A-ABSORPTION-MANIFEST-2026-07-29.json",
+      "sha256": "fa2c4959937338465abc7609f4e631c77b01112035f2497ce5bad0cf1caa312e",
+      "bytes": 2294,
+      "mtime": "2026-07-29T20:05:09Z",
+      "gist": "schema value-clean-a-absorption/v1. Machine manifest for finding CA-01 (Clean A verdict AMEND): pins Clean A report/validation/receipt SHAs, asserts P3 registry 00fd0b79... unamended, and records the post-absorption packet 359262b6... + Keyframes surface f9a98d7d.... Consumer census: 53 total /css references across 51 files = 49 direct imports (47 files) + 2 import.meta.resolve probes + 2 bench HTML import-map keys (4 non-import literals). Acceptance requires terminal disposition for all 53 and zero compatibility-barrel/raw-source/deep-import escape."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/CLEAN-A-AUTHORIZED-COORDINATE-RULING-2026-07-29.md",
+      "sha256": "d31238f7785aa9bf83971c0d92ea213e57590612de1c1103b9a30ff0345d5494",
+      "bytes": 2045,
+      "mtime": "2026-07-29T19:57:20Z",
+      "gist": "Ruling KEEP AUTHORIZED 124/171 TUPLE; DO NOT CHASE LIVE ROOT. Clean A must audit the post-P3-rebind coordinate (124 nodes / 171 edges, M01–M21 rejected, binds final P3 registry 00fd0b79...) even though live root advanced to 126/173 from Fourier A2 + Keyframes formation (other-lane coordination only). Binds the 53-reference/51-file consumer contradiction as a post-P3 V.L6 consumer-surface absorption defect rather than a P3-registry defect."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/CLEAN-A-CA01-ABSORPTION-RECEIPT-2026-07-29.md",
+      "sha256": "6521250dc250a7ea45a3b06fba48a1193404fd16ebe23ae9a1ec7e2bf6c7a2b6",
+      "bytes": 4643,
+      "mtime": "2026-07-29T20:07:27Z",
+      "gist": "Owner absorption receipt: AMEND ACCEPTED AND ABSORBED; REPLACEMENT CLEAN A REQUIRED; execution credit 0. Verifies the three immutable Clean A files, accepts CA-01, confirms P3 registry 00fd0b79... sound and unchanged. Smallest absorption = exactly two formation documents changed (packet aa684060...→359262b6..., surface 94057b63...→f9a98d7d...). Post-absorption contract fixes the 53 = 49 + 2 + 2 reference decomposition and requires terminal classification for V.L6 Born RED."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FORMATION-CLEAN-A-REPLACEMENT-OWNER-INTAKE-2026-07-29.md",
+      "sha256": "56afeefd065edc26b7f4da75d7723f57a4f56faced41b95a432f80e3f8b82bc4",
+      "bytes": 4697,
+      "mtime": "2026-07-29T20:33:32Z",
+      "gist": "Owner intake of the replacement Clean A (served GPT Sol xhigh): ACCEPT CLEAN, all credit 0. Owner read/rehashed exactly three files at the isolated output coordinate, confirmed schema value-formation-clean-a-replacement-validation/v1, verdict CLEAN, 0 findings, ok:true, exact input/output identities, and Clean B state BLOCKED_PENDING_OWNER_INTAKE_AND_ROOT_ABSORPTION. Binds the post-CA01 subject set (replacement dispatch, packet 359262b6, surface f9a98d7d, manifest fa2c4959, validator 838c01c1, CA-01 receipt 6521250d)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FORMATION-CLEAN-A-ROOT-REBIND-2026-07-29.md",
+      "sha256": "c714359be1ac31da3f138620e796c1b2267c79dd48d5f5c1d35bde2976c2a3f2",
+      "bytes": 1840,
+      "mtime": "2026-07-29T20:36:58Z",
+      "gist": "Root rebind receipt: REPLACEMENT CLEAN A SATISFIED; CLEAN B BLOCKED; execution credit 0. Root accepted owner intake 56afeefd... and bound V.form.cleanA to the CLEAN report/validation/receipt triple, satisfied only from inputs V.form.P3 + V.form.packet-post-CA01. The first Clean A AMEND is preserved separately as V.form.cleanA-first-amend (superseded, non-satisfying edge only). Post-intake root tuple validates green at 130 nodes / 177 edges with M01–M21 rejected."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FORMATION-CLEAN-B-OWNER-INTAKE-2026-07-29.md",
+      "sha256": "0c57bbb5dcb32f21278c26dc37a53558812b495d74d0b6cbaaffea79931eeed6",
+      "bytes": 6084,
+      "mtime": "2026-07-29T21:07:44Z",
+      "gist": "Owner intake of Clean B (served GPT Sol xhigh): ACCEPT CLEAN; execution/visual/product/release/admission credit 0. Confirms exactly three regular files, no symlinks, schema value-formation-clean-b-validation/v1, verdict CLEAN, ok:true, findingCount 0, selfAdmission false, ownerRootIntakeRequired true. Clean B binds the exact genuinely-later post-Clean-A root tuple (graph JSON ba960351..., Markdown 11637970..., validator 6f9358a4..., validation 2e535dfa...) plus dispatch, replacement Clean A, final P3, post-CA01 authority, family denominator and residual receivers."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-FAMILY-DENOMINATOR-2026-07-29.json",
+      "sha256": "1d6df52abdd89dcc2e56b0aaaca6cc7d4a516eb5e8493dd4547adeebd070dd85",
+      "bytes": 5186,
+      "mtime": "2026-07-29T18:37:26Z",
+      "gist": "schema value-full-family-denominator/v1 — the canonical 18-family denominator for the full-subject P1→P2→P3 chain. Defines the 10 requiredPassFields (familyId, research, synthesis, prototype, critique, agglomeration, disposition, waveAction, openDelta, evidence) and the 5 allowedDispositions (KEEP, FOLD, MOVE, SPLIT, PRUNE). Families V.F0 (authority archaeology / evidence identity), V.L1 (sole CSS grammar and recovery), V.L2 (canonical CSS inverses), V.L3... each with a prose denominator. Referenced everywhere by hash 1d6df52a..."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-SUBJECT-P1-REGISTRY-2026-07-29.json",
+      "sha256": "b3929ebf6f0718c24d5c27cd9c2a14f41dd1067d0f25221250021fa9ca6c657b",
+      "bytes": 17396,
+      "mtime": "2026-07-29T18:37:47Z",
+      "gist": "schema value-full-subject-pass/v1, pass P1, model route GPT Sol xhigh, predecessor null, specializedEvidenceIsNotAPass true. All 18 families carried through research → synthesis → prototype → critique → agglomeration → disposition → waveAction → openDelta → evidence. Sample dispositions: V.F0 FOLD (binds the full-family pass chain, stale status prose non-authoritative), V.L1 KEEP (grammar only after the unpublished parse-that candidate is authorized), V.L2 FOLD/SPLIT of parsed-shorthand inverse vs semantic ordered-longhand projection."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-SUBJECT-P1-SOL-2026-07-29.md",
+      "sha256": "c92f40faa27e8b0e1dea88f4c41d438631e14de1e08fe8eeabf9d4a0e81d589d",
+      "bytes": 2798,
+      "mtime": "2026-07-29T18:38:02Z",
+      "gist": "P1 narrative report (GPT Sol xhigh, formation-only, complete and immutable). Explains the method — the full 18-family execution-wave denominator instead of specialized topics, five stages per family — and points at the machine-bound registry b3929ebf... + denominator 1d6df52a.... States the evidence-reuse law: specialized studies (GenericActionBar/shell-ref bridge → V.U2/V.U3, CSS/path/transform → V.L1–V.L6, API policy → V.A1–V.A3) are inputs to their owning family rows only; formation reopened because pass coverage was mislabeled, not falsified."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-SUBJECT-P2-INTAKE-2026-07-29.md",
+      "sha256": "b94d0687e374386f4d2e84a50c3a04c7ad996fa28386d42d37e235cc38e29bc6",
+      "bytes": 3293,
+      "mtime": "2026-07-29T18:55:11Z",
+      "gist": "Owner intake accepting P2 (GPT Luna xhigh) as the second full-subject pass. Binds P1 registry b3929ebf... and denominator 1d6df52a...; fail-closed validator reproduced 18/18 unique denominator-exact family IDs, all required fields non-empty, dispositions in the allowed set, no repository write. Substantive deltas: V.L2 FOLD→SPLIT, V.U3 PRUNE→SPLIT, V.H1 PRUNE→SPLIT, V.F0 FOLD held; the other 14 dispositions independently reproduced."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-SUBJECT-P3-FINAL-OWNER-INTAKE-2026-07-29.md",
+      "sha256": "a08857a2d0a9f65fccdb5d66b72f638967324db8a959aa22729ffb78cb1d7af0",
+      "bytes": 5048,
+      "mtime": "2026-07-29T19:39:46Z",
+      "gist": "Final owner re-intake: ACCEPT THE EVIDENCE-IDENTITY-RESEALED P3 TRIPLE (registry 00fd0b79..., report ddf1af06..., receipt 5a3245e9...), resealed together after root invalidated the raced first intake; inherits no approval from the invalidated intake or superseded report/receipt pairs. Binds exact P2 predecessor 82a8b33e..., 18-family denominator 1d6df52a..., candidate packet aa684060..., and P2 owner intake b94d0687...; owner reran the fail-closed validator green."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-SUBJECT-P3-INTAKE-2026-07-29.md",
+      "sha256": "7b5522ea06a830b1cf624b4aa9006b27f384d3df69cc9f710df26f3698dafda6",
+      "bytes": 4941,
+      "mtime": "2026-07-29T19:29:43Z",
+      "gist": "The FIRST (later invalidated as raced) owner intake accepting P3 as the third full-subject pass. Binds the stale triple eebb52f5... / bc662b1c... / f90d7b72..., exact P2 registry 82a8b33e... and denominator 1d6df52a...; validator reproduced 18/18 unique family IDs and all field/disposition constraints. Contains the terminal family disposition table (V.F0 FOLD, V.L1 KEEP, V.L2 SPLIT, ...). Superseded by FULL-SUBJECT-P3-INTAKE-INVALIDATION and the final re-intake."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-SUBJECT-P3-INTAKE-INVALIDATION-2026-07-29.md",
+      "sha256": "a6aecec332c9bea64b0e9fd3d0c6500fb4ccee74817dde76fdfdb94a5bc25679",
+      "bytes": 1913,
+      "mtime": "2026-07-29T19:35:49Z",
+      "gist": "Raced-intake invalidation: PRUNE FROM CLOSING AUTHORITY; PRESERVE AS RACE EVIDENCE. Root proved by mtime that intake 7b5522ea... was written before the final P3 seal, so it cannot be closing evidence despite its accurate 18-family validation; the follow-up correction receipt d342d0c7... is likewise withdrawn. Names the deeper identity defects to fix in the reseal: orphan validator hashes 9ca0680b/cf7e06 must be replaced by the observed validator b016b4ee..., mutable status evidence 8bcdc0... removed, and registry/report/receipt sealed together and rehashed."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-SUBJECT-P3-POST-INTAKE-CORRECTION-2026-07-29.md",
+      "sha256": "d342d0c711693490f2cfe9dcc9494de4187a87e116250c8602f6bf7aa59ecff5",
+      "bytes": 1874,
+      "mtime": "2026-07-29T19:34:54Z",
+      "gist": "Post-intake report correction (itself later withdrawn by the invalidation receipt): one stale sentence in FULL-SUBJECT-P3-SOL.md contradicted the historical-observation boundary and was removed, producing report 875681c8... / receipt de720ea3... with registry eebb52f5... unchanged. Records the read-only root boundary after P3 + Keyframes restart + Fourier R2a reseal (DAG JSON cbe9c581..., MD d1d72132..., validator b016b4ee...) revalidated at 124 nodes / 171 edges, exit 0, M01–M21 rejected."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-SUBJECT-P3-ROOT-REBIND-2026-07-29.md",
+      "sha256": "bc5b4b127390000bd0312f8a0c0f05d84dd215a5b2a5bda16f81bdc66fc5d2e3",
+      "bytes": 1547,
+      "mtime": "2026-07-29T19:42:08Z",
+      "gist": "Root rebind receipt: P3 SATISFIED; CLEAN A RED AND RESUMED. Root accepted final re-intake a08857a2... and rebound V.form.P3 to registry 00fd0b79... with P2 predecessor 82a8b33e... and denominator 1d6df52a...; post-rebind tuple verified at 124 nodes / 171 edges, M01–M21 rejected. Root confirmed the isolated Clean-A output directory was empty before resuming Sol xhigh task 019fb037-71d8-7d01-8839-38b4575daa30 against the exact post-rebind bytes; no stale artifact survived. Clean B blocked; zero credit."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/VALUE-FORMATION-FULL-SUBJECT-ADMISSION-RECEIPT-2026-07-29.md",
+      "sha256": "4aac44577b95459dcfe977161549289a6ad1e13b33c9f4f5abef4bebcf619a2a",
+      "bytes": 6892,
+      "mtime": "2026-07-29T21:11:48Z",
+      "gist": "Owner ruling FORMATION ADMITTED — ORDERED EXECUTION NOT STARTED, all credit 0. A rebind not a rewrite: the post-CA01 packet 359262b6... becomes the repository's current Value formation authority, deriving admission from the genuine P1→P2→P3 chain, replacement Clean A after CA-01 absorption, and the genuinely later Clean B — no longer from the three specialized slices or the two pre-XR-23 clean audits. Lists the complete admission chain with every registry/report/receipt/intake hash; each of the three registries carries all 18 families in exact order."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/VALUE-FORMATION-ROOT-REBIND-R2-OWNER-VERIFICATION-2026-07-29.md",
+      "sha256": "7865862a0dcee19f2609bae1adcb981d93e8241cc5f48f1786abfd55e8f0a6cb",
+      "bytes": 4588,
+      "mtime": "2026-07-29T21:39:17Z",
+      "gist": "Owner verification of root rebind R2: ACCEPT R2 CLEAN, all credit 0. Owner independently rehashed the full R2 coordinate (receipt 0c151de9..., binding manifest a27d72a4..., graph JSON b4d46ec1..., MD f77870b0..., validator 9073d0f7..., validation f2cc76f1...) — all matched, JSON parses, git diff --check clean. Manifest schema value.formation-admission-binding.v1 owns the denominator, the covered-node order P1→P2→P3→Clean A→Clean B→admission, Clean B's ordered tuple, admission evidence 4aac4457..., and typed credit fields. First rebind receipt e5ccabd0... is historical only."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/VALUE-PACKET-CANDIDATE-EVIDENCE-CORRECTION-2026-07-29.md",
+      "sha256": "4afa88ef3e545ffab0d7fba5ca4a99573f2a00600d0ba1d0d3691b24b7a7ff97",
+      "bytes": 2963,
+      "mtime": "2026-07-29T21:50:42Z",
+      "gist": "Formation truth correction: PRUNE ROOT NODE AND EDGE for V.form.packet-candidate; NO REOPEN, no execution effect. Exposes a false-green — the claimed immutable candidate packet aa684060... is not resolvable anywhere in the isolated megatranche tree (the path holds post-CA01 packet 359262b6...), and the prior validator passed only because it rehashed state=satisfied references while this node is state=superseded. Corrects owner wording: aa684060... is a historical hash claim recorded by pass/dispatch/absorption/race documents, not byte-bound evidence."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/validate-clean-a-absorption.mjs",
+      "sha256": "838c01c1f6137289b31b009daa0cdc6039ecace712133372903119b66a3c603b",
+      "bytes": 3492,
+      "mtime": "2026-07-29T20:05:09Z",
+      "gist": "Node ESM fail-closed validator for the CA-01 absorption (usage: validate-clean-a-absorption.mjs <manifest.json> <packet.md> <surface.md>). Reads the three files, sha256s them, and asserts schema value-clean-a-absorption/v1, finding CA-01, cleanAVerdict AMEND, p3.registryAmended === false, executionCredit === 0, cleanBState === BLOCKED, and the consumer census invariants (totalReferences 53, totalFiles 51, ...). Collects failures rather than throwing on the first."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/validate-full-subject.mjs",
+      "sha256": "26993d7f6dbde46c136b4e1f5905140375fbb3e90c6783d4a9e01395e28a2ea6",
+      "bytes": 3574,
+      "mtime": "2026-07-29T18:39:48Z",
+      "gist": "Node ESM validator binding a full-subject pass to the family denominator (usage: node validate-full-subject.mjs <denominator.json> <pass.json> [predecessor-sha|NONE]). Computes sha256 over both files and checks family-ID set equality against the denominator, duplicates, missing/extra IDs, presence and non-emptiness of every requiredPassField, and membership of each disposition in allowedDispositions — the validator referenced by the P1/P2/P3 owner intakes."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v2/README.md",
+      "sha256": "51753857a7fda3ccf71a5eb2147d54b888d197368d3c2ef988fb06f55de02286",
+      "bytes": 1765,
+      "mtime": "2026-08-01T20:17:23Z",
+      "gist": "v2 source-closure root README (V.MSK1–V.MSK5 source formation only, authority none, candidate until checksum-last seal and owner release). Authorized after v1 stopped at its first material RED: v1's snapshot tool addressed a nonexistent repository-root index.html, so v2 authenticates the actual entry demo/color-picker/index.html first. Describes the closure contents — 14 named routes + 1 wildcard, 88 physical SFC workflows, 25 visual barrel declarations, per-SFC mounted-or-harness disposition, D1/D2 design passes, factorized iOS/desktop Safari denominators with singleton equivalence classes, two independent readings and one adjudication, checksums.sha256 written last. All counters zero."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v2/tools/freeze-source-snapshot.mjs",
+      "sha256": "bc55444924964bedd54f5f1fb3d0eef59105502daa4db140d3c309abd0493c20",
+      "bytes": 11422,
+      "mtime": "2026-08-01T20:18:10Z",
+      "gist": "v2 snapshot freezer. Hard-pins REPO to /Users/mkbabb/.codex/worktrees/7e28/value.js (throws repo-coordinate on mismatch), LIVE_REPO to /Users/mkbabb/Programming/value.js, and ENTRY to demo/color-picker/index.html (the v1 defect fixed). Codepoint-ordered directory walk that throws on symlinks (source-symlink) and non-regular files (source-special); records bytes, sha256, mode (mode & 0o7777) and nlink per input, emitting 2-space JSON with trailing newline."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/COMPONENT-INVENTORY.json",
+      "sha256": "9061128872ed32b6b03646d06592734b731b4f08860f2b3674cfef1fb06a9232",
+      "bytes": 179807,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "schemaVersion 3, sourceRootIdentity 49d4692e.... Counts: physicalSfc 88, mounted 86, harness 2, visualBarrelDeclarations 25. Enumerates each of the 25 barrel declarations with exportName, barrelPath, targetPath, line and verbatim sourceText (e.g. PreviewRamp/PreviewStrip from demo/color-session/color-chips/index.ts lines 25-26; AdminAuditPanel/AdminFlaggedPanel from demo/palettes/browser/admin/index.ts lines 5-6), followed by the full 88-workflow inventory."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/DESIGN-BRIEFS.json",
+      "sha256": "8f555260b94508f0f42ac737cfc4416babf98365d760ebad28e6d2417c1790e7",
+      "bytes": 713516,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "schemaVersion 3; frontendDesignSkill used with passes D1_SUBJECT_SPECIFIC_BRIEF and D2_DISJOINT_CRITIQUE, renderedApproval false. Global direction: 'a precision color instrument for authoring, comparing, publishing, and governing measured color', signature 'measured-chroma specimen plus watercolor channel/provenance markers', typography Fraunces / Plus Jakarta Sans / Fira Code, explicit refusal of generic dashboard stats, ornamental cards, gratuitous gradients and unowned motion. Counts: 88 component + 14 route + 1 wildcard + 33 page-like + 21 inline-layer = 157 briefs, each with briefId, subjectId, sourcePath, sourceSha256 and routeOwners."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/EQUIVALENCE.json",
+      "sha256": "3bde71acd37db6c145f3e52ec851caaad9d7ac260d6d7cc7cc8d30deb9d94ae3",
+      "bytes": 1052133,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "schemaVersion 3, denominatorVersion V-MSK-V3-PRELIMINARY-1. rawBlockCount = effectiveBlockCount = 2590; rawCellCount = effectiveCellCount = \"3219211296\"; reductionsApplied 0. Every class EQ-000001... is a singleton {K-00000n} with reductionApplied false, the reason 'singleton class preserves route, instance, state, accessibility, motion, performance, and platform distinctions', and a hostileWitness stating that adding a second member without identical axes and source proof must fail validation."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/GENERATION-VALIDATION.json",
+      "sha256": "ab4d8938d600e5b1b850f8a6b4151cc1fb1f0adea1265a781a0be1f95c035d5b",
+      "bytes": 1741,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "Generator self-validation, ok:true with empty failures. 16 assertions all true: workflows88, workflowBijection, routes14, wildcard1, barrels25, declarations115, oneDispositionPerSfc, mountedPlusHarness88, harnessExports, stateCoverage, designCoverage, uniqueSignatures, kroneckerCoverage, equivalenceNoReduction, zeroCredit, snapshotReadOnce. generatedCounts echo pages (14 routes / 1 wildcard / 33 page-likes / 21 inline layers / 69 subjects), components (88/86/2/25) and mount graph (115 declaration, 126 static, 11 dynamic edges, 1272 route instances, 86 reachable SFC, 2 harness)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/KRONECKER-REGISTRY.json",
+      "sha256": "ffd9b4a14e69be644826a8bd5bbe072f33a7ebbfd2363a170f49a54eef076e0d",
+      "bytes": 4285839,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "schemaVersion 3, denominatorVersion V-MSK-V3-PRELIMINARY-1, status ALL_CELLS_UNEXECUTED_RED. executionSubjects 1295; platformTotals IOS_MOBILE_SAFARI and INSTALLED_DESKTOP_SAFARI each \"1609605648\"; preliminaryTotalCells \"3219211296\". Each block (K-000001...) carries subjectId INST-xxxxx, sourceSubjectId VC-xxx, instanceKind, routeName, platform and the factor axes R (source-root identity), O, P (route), C (instance), D (3 devices), V (6 viewport/orientation), L (6 locale/appearance incl. RTL, dark, dynamic-type-large, high-contrast), I 17, X 14, N 8, A..."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/MOUNT-GRAPH.json",
+      "sha256": "4597ddcc4d9ca15040684197f7b9e389d2f4bf8cc6335f415436f439f346d0c0",
+      "bytes": 644122,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "schemaVersion 3. Counts: declarationEdges 115, staticMountEdges 126, dynamicMountEdges 11, routeInstances 1272, reachableSfc 86, harnessSfc 2. declarationEdges are DECL-001... rows with path, line and verbatim import/export text (App.vue:177 PaneSlot, App.vue:180 ErrorBoundary, main.ts:2 App, color-chips/index.ts:25-26 PreviewRamp/PreviewStrip, BrowsePane.vue:189 EmptyState, ...), followed by the static/dynamic mount edges and route-instance expansion."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/PAGE-INVENTORY.json",
+      "sha256": "d00edb047e1d38da64bd83e74ff62e3aa1ac7d3a6b3fff3e9021a4c3b9dfa3aa",
+      "bytes": 75684,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "schemaVersion 3. Counts: 14 namedRoutes, 1 wildcardRule, 33 physicalPageLikes, 21 inlineLayers, 69 totalSubjects. Each ROUTE-nn row records name, path, job, primaryWorkflow, requiredStates, formationDisposition, routerSource/routerLine (demo/color-picker/router/index.ts), mountOwner (App.vue via demo/shell/usePaneRouter.ts), mountPredicate, a paneConfig with left/right panes and sourceBlockSha256, and the enumerated routeInstanceIds — e.g. ROUTE-01 picker '/' owning VC-038 with VC-040/042/059/064 children, KEEP scene / PRUNE debug VC-043/045."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/README.md",
+      "sha256": "a930ae57021c3da90e83258d70f45818e2a2be8dd9558b60736eee3009d8532d",
+      "bytes": 1103,
+      "mtime": "2026-08-01T20:21:13Z",
+      "gist": "v3 root README (V.MSK1–V.MSK5, authority none pending owner release). Records why v1 and v2 are immutable first-RED evidence — v1 addressed a nonexistent root entry, v2 failed closed when its bound durability coordinate changed between preflight and snapshot — and states that v3 authenticates demo/color-picker/index.html plus the owner-guaranteed B9-AMEND durability tuple before a single source read. All derived inventories consume SOURCE-SNAPSHOT.json once, raw receipts precede aggregates, everything joins 1:1, checksums last. Clean result would be SOURCE_CLOSURE_ONLY / authority NONE / ownerReleaseRequired true."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/SOURCE-SNAPSHOT.json",
+      "sha256": "cf812c05539c6fd0b0975870fa24c173936401cad0dd7b6d1953ebc6c70618b4",
+      "bytes": 4398524,
+      "mtime": "2026-08-01T20:21:19Z",
+      "gist": "The single frozen source domain for v3 (and the outer input pinned by v4/v5). schemaVersion 3, frozenDate 2026-08-01, sourceReadCount 1, primaryCoordinate ISOLATED_WORKTREE_E01D0065, liveCoordinateRole READ_ONLY_EVIDENCE_TREE, sourceRootIdentity 49d4692e..., liveRootIdentity e639df84..., authenticatedEntry demo/color-picker/index.html c8d073bd.... Embeds worktree head e01d0065fa6c7c80282280566af2b9a4add809bf, detached-HEAD porcelain status, and the full per-file entries array with path/content/sha256 for all 310 members (2,341,009 bytes)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/STATE-REGISTRY.json",
+      "sha256": "588bc82387d2ffa89fa9b3f3f821b864df271646383297740ae60a7f26f5472f",
+      "bytes": 3100241,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "schemaVersion 3; serviceWorkerSourceRegistrations empty. Counts: 88 componentRecords + 69 page/layer records = 157 totalRecords at 54 statesPerRecord. Each record carries subjectId, subjectKind, sourcePath, sourceSha256 and an origins object (api/store/di/worker/serviceWorker/auth/admin booleans plus importedSourcePaths) — e.g. VC-001 demo/color-picker/App.vue is api/store/di/admin true, worker/serviceWorker/auth false, importing the boot composables, color-session model/keys/pipeline/url, transport client, shell PaneSlot/dock/usePaneRouter/useViewManager."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/VALIDATION.json",
+      "sha256": "e099ea40a71cb90f948da6de4407089011e9d837d875dc9df9e30613ea15de6e",
+      "bytes": 4133,
+      "mtime": "2026-08-01T20:33:11Z",
+      "gist": "Output of V-MSK-V3-INDEPENDENT-JOIN-VALIDATOR: ok true, failures empty, sourceRootIdentity 49d4692e.... inspectedFiles lists every artifact with path, sha256, bytes, mode 0644 and nlink 1 (SOURCE-SNAPSHOT 4,398,524; PAGE-INVENTORY 75,684; COMPONENT-INVENTORY 179,807; MOUNT-GRAPH 644,122; STATE-REGISTRY 3,100,241; DESIGN-BRIEFS ...). Byte-identical to raw/VALIDATOR-RAW.json (same sha256 e099ea40...)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/COMPONENT-PARSE-RAW.json",
+      "sha256": "9dfaeb5b5551e5d558449105ed895a4b7adb55b82e774a63cb6c8309d2e6331a",
+      "bytes": 60147,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "Raw pre-aggregate component parse receipt. Per-workflow rows VC-001..VC-088 with sourcePath, a one-line job, historicalEvidence tag (ADJ / BANK) and formationDirection naming the owning family and disposition — e.g. VC-001 App.vue 'Route shell; the chosen color is protagonist' → V.U1 SPLIT route scenes / KEEP composition root; VC-002 ErrorBoundary 'Make a failed scene recoverable' → V.U1 KEEP only if it catches app/route-owned failures; VC-003 ColorSpaceSelector → V.U3 KEEP semantic control, PRUNE decorative chrome."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/DESIGN-INPUTS-RAW.json",
+      "sha256": "3ed23ab6962d7703fa33824b9046b313e05beb65dfdd96bfe8ba74f7ace795b4",
+      "bytes": 34539,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "Raw design-input receipt feeding DESIGN-BRIEFS.json. Per workflow: workflowId, sourcePath, job, extracted user-visible copy strings, glassImports, and direction. Examples: VC-001 App.vue copy ['Application navigation','Color tool panes'] with glass imports @mkbabb/glass-ui, /dark, /dom; VC-002 ErrorBoundary no copy or glass imports; VC-003 ColorSpaceSelector copy ['Select color space'] with @mkbabb/glass-ui/watercolor-dot."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/KRONECKER-FACTORS-RAW.json",
+      "sha256": "8e9e1560fa498b6fcddacb5da772a34fd23c3b7767e1508709fb4e25560230f0",
+      "bytes": 4486911,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "Largest artifact in the half (4.49 MB). Raw Kronecker factor receipt enumerating the 1,295 execution subjects before block assembly: each INST-xxxxx row gives sourceSubjectId (VC-xxx), instanceKind (MOUNTED_INSTANCE) and routeName — e.g. INST-00001→VC-001, INST-00002→VC-061, INST-00003→VC-067, INST-00004→VC-065, INST-00005→VC-059, INST-00006/7→VC-058 (repeat instances of one SFC), all on route picker — followed by the per-axis factor tables."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/MOUNT-PARSE-RAW.json",
+      "sha256": "51fa8202710fbd8022a2948f62856e5f2e282cbb6f1ad0c3d0074a23f3e71a8f",
+      "bytes": 613951,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "Raw mount parse receipt. staticMountEdges MOUNT-001... each with kind STATIC_TEMPLATE, parent/child paths, tag, occurrence, line, predicate (ALWAYS_WHEN_PARENT_MOUNTED), the verbatim attribute block, cardinality (ONE_PER_PARENT_INSTANCE) and teleportTarget — e.g. MOUNT-001 App.vue→demo/shell/dock/Dock.vue at line 35 carrying :link-copied/:edit-target/:action-bar/:generic-action-bar and @share-link/@commit-edit/@cancel-edit handlers; MOUNT-002 App.vue→ErrorBoundary.vue."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/ROUTE-PARSE-RAW.json",
+      "sha256": "09b13fd8d86d76817062c1cf8eb3e38386b761096198e2ba7aa64434cec437ae",
+      "bytes": 8215,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "Raw router parse receipt: the 14 named routes with path, name and declaring line in demo/color-picker/router/index.ts — / picker (22), /palettes (23), /browse (24), /extract (25), /mix (26), /generate (27), /gradient (28), ... plus the wildcard rule. This is the source-of-truth input for PAGE-INVENTORY.json's route rows."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/SOURCE-READ-RAW.json",
+      "sha256": "0487b2e76054e12471bb641ac5379208ccea6552ec3b7a5945419b932e93548a",
+      "bytes": 66870,
+      "mtime": "2026-08-01T20:21:19Z",
+      "gist": "Receipt V-MSK-V3-SOURCE-READ-RAW-01, result PASS, sourceReadCount 1. sourceCounts: 310 files / 2,341,009 bytes local, 307 live, 88 vueSfc, 115 vueDeclarationEdges, 25 visualBarrelDeclarations, 306 identicalLocalLive, 1 knownLiveHarnessSupersession, 3 isolatedFormationInputs, unresolvedDrift 0. localLiveDeltas classify each divergence — the isolated formation inputs are the COMPONENT-WORKFLOW-MATRIX and NON-PARSER spec docs present locally with liveSha256 null."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/STATE-ORIGINS-RAW.json",
+      "sha256": "f669eef3e904d0d161c402f448ed2d0f2b0e93c63df3e901988a44dbd0bac39b",
+      "bytes": 48097,
+      "mtime": "2026-08-01T20:31:35Z",
+      "gist": "Raw state-origin receipt feeding STATE-REGISTRY.json: per workflowId/sourcePath an origins object with api/store/di/worker/serviceWorker/auth/admin booleans and the full importedSourcePaths list. VC-001 App.vue is api/store/di/admin true with 19 imports (boot hydrate/atmosphere/dock-arrival/overture, useDevicePixelSnap, usePaletteWiring, color-session model/keys/pipeline/url/custom-names, palettes browser dialog, picker index, platform transport useApiClient, shell PaneSlot/dock/usePaneRouter/useViewManager)."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/VALIDATOR-RAW.json",
+      "sha256": "e099ea40a71cb90f948da6de4407089011e9d837d875dc9df9e30613ea15de6e",
+      "bytes": 4133,
+      "mtime": "2026-08-01T20:33:11Z",
+      "gist": "Raw validator receipt — byte-identical to VALIDATION.json (identical sha256 e099ea40... and 4,133 bytes). V-MSK-V3-INDEPENDENT-JOIN-VALIDATOR, ok true, no failures, sourceRootIdentity 49d4692e..., with the same inspectedFiles table (path / sha256 / bytes / mode 0644 / nlink 1) for every v3 artifact."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/tools/freeze-source-snapshot.mjs",
+      "sha256": "f280cea40f604b73b0c07276bdf38c3df3b707104b6730f58e2810bced94da50",
+      "bytes": 10591,
+      "mtime": "2026-08-01T20:21:13Z",
+      "gist": "v3 snapshot freezer — terser rewrite of the v2 tool. Pins REPO to the 7e28 worktree (throws repo:<path> otherwise), LIVE to /Users/mkbabb/Programming/value.js, ENTRY to demo/color-picker/index.html. Same codepoint sort, symlink/special rejection, sha256 + 4-digit octal mode helpers, 2-space JSON emitter; walks the closed source domain plus an explicit `supporting` list and writes SOURCE-SNAPSHOT.json and raw/SOURCE-READ-RAW.json."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/tools/generate-source-closure.mjs",
+      "sha256": "a4067cdb4f50265e941c35d5abd7e2acd9f0a787d86a59396ee1b6aa5f76eedf",
+      "bytes": 46105,
+      "mtime": "2026-08-01T20:31:08Z",
+      "gist": "The v3 derivation generator (46 KB, supports --dry-run). Enforces the snapshot-read-once law up front (throws snapshot-read-law unless snapshotReads === 1 && snapshot.sourceReadCount === 1), then derives everything from the frozen bytes: builds content/sha maps, filters demo/**/*.vue SFC paths, resolves relative specifiers against .ts/.vue/index.ts candidates, extracts <template> regions and line offsets, and emits the raw receipts plus PAGE-INVENTORY, COMPONENT-INVENTORY, MOUNT-GRAPH, STATE-REGISTRY, DESIGN-BRIEFS, KRONECKER-REGISTRY, EQUIVALENCE and GENERATION-VALIDATION."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/tools/validate-source-closure.mjs",
+      "sha256": "811d96ee9a87a294795c9374942f2f30b28752b9a7b8bd6e5fe47a2da732f755",
+      "bytes": 12050,
+      "mtime": "2026-08-01T20:33:02Z",
+      "gist": "Independent v3 join validator producing VALIDATION.json / VALIDATOR-RAW.json. Reads all nine artifacts, requires every one to carry the same sourceRootIdentity, then runs named checks: snapshot-read-once, source-coordinate === 49d4692e..., entry-coordinate (demo/color-picker/index.html + c8d073bd...), authority-join, root-replay 6/6, snapshot-denominators (88 SFC / 115 declaration edges / 25 barrels), routes (14 unique names and paths), wildcard path /:pathMatch(.*)* redirect /, and page-like bijection across counts and arrays. Accumulates failures instead of throwing."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v4-source/SOURCE-READY.md",
+      "sha256": "407450d70e9d7207ad3a369963bc246cd06d8127f9d52a4c8132b874a936ef99",
+      "bytes": 9286,
+      "mtime": "2026-08-02T03:41:59Z",
+      "gist": "v4 source-only boundary receipt: SOURCE_ARCHITECTURE_AUTHORED / STATIC_OWNER_REVIEW_REQUIRED / AUTHORITY NONE. Exactly two inert documents, no child directory; the JS was never run, parsed, imported or used to generate a registry. Pins the frozen v3 owner intake 0a81da8c... (terminal negative evidence), MSK plan 18f8ac83..., cross-repo Safari law 2ab310b4..., v3 snapshot cf812c05... as the single product-byte domain (310 files / 2,341,009 bytes) and entry c8d073bd.... Folds the v3 falsifier: v3's candidate claimed 14 routes + wildcard, 33 page roles, 21 layers, 88 workflows, 1,272 instance seeds, 2 harnesses, 1,295 execution subjects, 2,590 blocks."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v4-source/preflight-value-mobile-v4.mjs",
+      "sha256": "8b345aa5cca0ca0125bebc6809515c579dc10b8d13f22be4f895c9377e3e34fa",
+      "bytes": 49846,
+      "mtime": "2026-08-02T03:41:59Z",
+      "gist": "The inert v4 source architecture (authored, never executed — the header says so explicitly; every Safari/Browser/API/package/product/release/execution credit is 0). VERSION VALUE_MOBILE_SAFARI_SOURCE_CLOSURE_V4_SOURCE_2026_08_02; REPO = the 7e28 worktree, LIVE = /Users/mkbabb/Programming/value.js. PINNED_INPUTS is a deep-frozen array binding V3_OWNER_INTAKE (12,782 bytes), VALUE_MSK_PLAN (34,851), CROSS_REPO_SAFARI_LAW (19,252) etc. by path + sha256 + bytes + mode + nlink. Accepts no caller summaries/callbacks/booleans/counts; the audit-only mutation registry is unreachable from validateProduction()."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v5-source/SOURCE-READY.md",
+      "sha256": "c176fe28af0df1302b576b4c6b2c5d75db9e1bbdd3b05dfdcbb0d8f15677f89d",
+      "bytes": 6371,
+      "mtime": "2026-08-02T14:17:57Z",
+      "gist": "v5 source-only boundary receipt: SOURCE_ARCHITECTURE_AUTHORED / STATIC_OWNER_REVIEW_REQUIRED / AUTHORITY NONE. Fresh non-overlapping root of exactly two files; source never run, imported, parsed or syntax-checked. Requires two independent byte-zero static reviews plus a fresh adjudication; first material RED freezes the root with no same-root repair. Binds v4 intake + v5 ruling 26e3bbc5..., the Pass-A packet (AUDIT/FINDINGS/OWNER-ROUTING/checksums), v3 snapshot cf812c05... and root 49d4692e..., parser pause handoff ced23440.... Embeds an exact codepoint-ordered declaration of all 310 members with membership root 24a64eea... and rehashes every consumed member before derivation."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v5-source/preflight-value-mobile-v5.mjs",
+      "sha256": "33bf743458517b53f469d35684c994e6d0a449b002a59c32a53929fdb53d8421",
+      "bytes": 524158,
+      "mtime": "2026-08-02T14:17:57Z",
+      "gist": "The 524 KB inert v5 source architecture (VERSION VALUE_MOBILE_SAFARI_SOURCE_CLOSURE_V5_SOURCE_2026_08_02). Same never-executed header contract as v4, extended: it embeds a separately verified six-member binary-byte authority and reauthenticates all 310 snapshot members from decoded bytes before any derivation — the bulk of the file is that embedded member table. Bound as the frozen v5 source by the hostile-order correction and the v7 control map; its first governing RED was later ruled to be DISCONNECTED_PRODUCTION_CONTROLS."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure/README.md",
+      "sha256": "f5863ade7c9e1374535371838364a1619a1d496f2d00cf4d7826782caad30524",
+      "bytes": 2574,
+      "mtime": "2026-08-01T20:07:15Z",
+      "gist": "The original (v1) source-closure README, dated 2026-08-01, authority none. Defines the five closed source units: V.MSK1 fourteen named routes + wildcard + page-like ownership; V.MSK2 88 physical SFC workflows, declaration edges, structural mounts, 25 visual barrels, mounted-or-harness disposition; V.MSK3 lifecycle/data/auth/network/a11y/motion/DI/store/API/worker/service-worker applicability with typed causal N/A; V.MSK4 D1 brief + D2 critique per subject under Golden Glass / Breath of Life / Movement of Momentum; V.MSK5 factorized iOS + desktop Safari blocks with singleton classes and no reductions. Sequential Sol → Luna → Sol adjudication; every cell UNEXECUTED_RED; parser work paused."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure/tools/freeze-source-snapshot.mjs",
+      "sha256": "aacf024229638486cc79f1caf946ab3d2b89d4c39f27e593197004d8b6967569",
+      "bytes": 9188,
+      "mtime": "2026-08-01T20:07:15Z",
+      "gist": "The v1 snapshot freezer — the tool whose defect (addressing a nonexistent repository-root index.html; note there is no ENTRY constant here, unlike v2/v3) made v1 stop at its first material RED. Pins EXPECTED_REPO to the 7e28 worktree and LIVE_REPO to /Users/mkbabb/Programming/value.js, walks the source domain in codepoint order, throws source-symlink / source-special on non-regular nodes, and records sha256 plus 4-digit octal mode per file."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-v7-control-map/CONTROL-MAP.json",
+      "sha256": "25f9545ac62f914ef2188f8260ab56f53835e74d2a3a3e7683772fa28cd39f45",
+      "bytes": 57602,
+      "mtime": "2026-08-02T20:54:42Z",
+      "gist": "schema value.mobile-safari.v7-control-map.v1; status TERMINAL_HOLD_SEMANTIC_BIJECTION_NOT_CLOSED, decision HOLD, authority NONE. Binds owner law e1522725... and the frozen v5/v6 inputs. denominatorLaw: 54 v5 controls vs 44 v6 controls, of which only 14 are semantically consumed and 30 unconsumed; 39/54 v5 rows remain HISTORICAL_ONLY; target v7 denominator 44 with nonowner-retention formula 44*(44-1) = 1,892 expected and 0 admitted; mappingClosed false. firstBlocker CONTROL_SEMANTIC_BIJECTION_ABSENT lists the unconsumed CT-005, CT-006, ... IDs."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-v7-control-map/RECEIPT.md",
+      "sha256": "3c00fa4dd2a4f60ab277a020a0b974fe2e6aa2455b78abe0242fb5521fba2223",
+      "bytes": 3549,
+      "mtime": "2026-08-02T20:54:42Z",
+      "gist": "Owner HOLD receipt for the v7 control map: TERMINAL HOLD / CONTROL_SEMANTIC_BIJECTION_ABSENT, authority NONE, additive tranche source law only (no capture, no v7 coordinate, no validator run, zero credit). Explains that CONTROL-MAP.json enumerates all 54 v5 controls exactly once using only CARRY|MERGED_INTO|SUPERSEDED|HISTORICAL_ONLY and all 44 v6 IDs exactly once. Concrete fanout conflicts: v5 MSK-C15 harness completeness vs v6 props/events/slots/defaults/harness-promotion; MSK-C21 D1 specificity vs six v6 D1/copy/responsive/a11y/motion predicates; MSK-C24 named-axis membership vs omission/duplicate/dimension-drift."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-v7-control-map/checksums.sha256",
+      "sha256": "d784658d2c1cb4c6f13cf82373975d3462f6a17eacadb7eb6ed400fd2c9c4767",
+      "bytes": 160,
+      "mtime": "2026-08-02T20:55:45Z",
+      "gist": "Two-row seal written last for the v7 control-map packet: 25f9545a... CONTROL-MAP.json and 3c00fa4d... RECEIPT.md. Both rows replay against the sibling files in this directory; this file's own hash is the checksumsSha256 pinned by the 44-control registry owner decision."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/prototypes/value-boundary/README.md",
+      "sha256": "c736facd1405b2852529771fb7089996ad2b5f5f21c55dd02cb48ff21960efa0",
+      "bytes": 997,
+      "mtime": "2026-07-29T17:23:23Z",
+      "gist": "ISOLATED FORMATION PROTOTYPE — NEVER PRODUCT SOURCE. Models two Value boundary families: the open CSS/path/transform ownership + failure-explicit inverse contracts, and root-agglomerated palette policy with per-object release-membership constraints. Has no parser, serializer, scanner, persistence, package export, build entry, raw-source alias or compatibility path. P2 agglomerated it as AMEND — placement and a narrow grounded operation set frozen, illustrative record shapes quarantined. contract.ts demonstrates constraints, not frozen signatures."
+     },
+     {
+      "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/prototypes/value-boundary/contract.ts",
+      "sha256": "f943d9f74b1266155606e57819d1b5d25070377c404e4ed2d0e897299a4f13d2",
+      "bytes": 7735,
+      "mtime": "2026-07-29T17:34:49Z",
+      "gist": "The prototype's TypeScript constraint sketch (explicitly not product source, must not enter package exports or builds). Declares a branded opaque SourceSpan (unique symbol) because parsed-node/source-map projection is still open, a ValueIssue with deliberately unstable code/span/message, and a Result<T,E=ValueIssue> discriminated union where ok:true carries readonly recovery diagnostics and ok:false carries a non-empty [E, ...E[]] tuple. Also brands opaque stylesheet items and records the terminal typed-only total PathGeometry constructor with a compile-RED string constructor."
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a9505259083036d04",
+   "key": "v2:c4d06ebad2269c211a3c83b29bc7c11a37c92f6da60f00b26a274903d484e244",
+   "result": {
+    "censusPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/formation/codex-worktree-7e28/CENSUS.md",
+    "adopted": 90,
+    "left": 36,
+    "collisionRuling": "The repo-of-record variant (5661 B, sha256 1450204…, \"Producer artifact boundary — Glass, Value, and Keyframes\") GOVERNS. The 7e28 worktree variant (3463 B, sha256 91b9a0c…, \"Value Receiver\") is derivative by its own testimony — its header names the record path as \"Upstream durable evidence\" — and under M-21 §2 its Codex-authored forward bindings (V.H1/V.G1 receiver split, Glass-8 candidate-pack language) are audit subjects, not standing authority. It is preserved as coordination/PRODUCER-ARTIFACT-BOUNDARY-2026-07-29.WORKTREE-VARIANT.md (copy sha256 b56b064…) with the ruling paragraph in its provenance header; nothing unique to it binds until re-ruled by a live formation."
+   }
+  }
+ ]
+}

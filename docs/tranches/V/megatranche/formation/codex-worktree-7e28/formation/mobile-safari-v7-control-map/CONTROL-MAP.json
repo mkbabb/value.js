@@ -1,0 +1,1830 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-v7-control-map/CONTROL-MAP.json
+  original-mtime: 2026-08-02T20:54:42
+  original-sha256: 25f9545ac62f914ef2188f8260ab56f53835e74d2a3a3e7683772fa28cd39f45
+  original-bytes: 57602
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schema": "value.mobile-safari.v7-control-map.v1",
+  "date": "2026-08-02",
+  "status": "TERMINAL_HOLD_SEMANTIC_BIJECTION_NOT_CLOSED",
+  "authority": "NONE",
+  "decision": "HOLD",
+  "ownerLaw": {
+    "path": "docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-SOURCE-ONLY-OWNER-DECISION-2026-08-02.md",
+    "sha256": "e1522725a855a1f413bea7a62e4bfc2c6897668f4b6f26d3a22d69c404325486",
+    "bytes": 11474,
+    "mode": "0644",
+    "nlink": 1
+  },
+  "frozenInputs": {
+    "v5OrderCorrectionSha256": "b9febba9ee253299b5917005b1f882974c9858007d1391015fad4576bb50c485",
+    "v5SourceSha256": "33bf743458517b53f469d35684c994e6d0a449b002a59c32a53929fdb53d8421",
+    "v5SourceReadySha256": "c176fe28af0df1302b576b4c6b2c5d75db9e1bbdd3b05dfdcbb0d8f15677f89d",
+    "v5CensusSha256": "3356b6b3f7682e9bb54d1f8e50240edf93209cd08c9d809875f71d6272a555cb",
+    "v6OwnerIntakeSha256": "c6e8e458fbb81bf54201b5b527951b39284e4556867ece2b193a32b27768320f",
+    "v6RegistrySha256": "8b338c4e163714e68a484881d19838296893029386d6e88d63ee70a3e7028160",
+    "v6AuditorSha256": "465e1f9de10b025a4e721db59e12077de7c0af9e3c9e4bc393c50ad19d296ae8",
+    "passProvenanceMatrixSha256": "7f69d258e242ee4976342dfb65b4e62c01dc2ae2764ee5111b45d28f5a2aef50"
+  },
+  "denominatorLaw": {
+    "v5Controls": 54,
+    "v5DispositionRows": 54,
+    "v5UniqueControlIds": 54,
+    "v6Controls": 44,
+    "v6ConsumptionRows": 44,
+    "v6UniqueControlIds": 44,
+    "v6SemanticallyConsumed": 14,
+    "v6SemanticallyUnconsumed": 30,
+    "v5HistoricalOnly": 39,
+    "targetV7ControlDenominator": 44,
+    "nonownerRetentionFormula": "44*(44-1)",
+    "expectedOrderedNonownerRetentions": 1892,
+    "admittedOrderedNonownerRetentions": 0,
+    "mappingClosed": false
+  },
+  "firstBlocker": {
+    "id": "CONTROL_SEMANTIC_BIJECTION_ABSENT",
+    "explanation": "The one-time v5 disposition law cannot cover all 44 distinct v6 predicates without splitting broad v5 controls or inventing unrelated semantic joins.",
+    "unconsumedV6ControlIds": [
+      "CT-005",
+      "CT-006",
+      "CT-007",
+      "CT-008",
+      "CT-009",
+      "CT-010",
+      "CT-011",
+      "CT-012",
+      "CT-013",
+      "CT-015",
+      "CT-016",
+      "CT-017",
+      "CT-018",
+      "CT-020",
+      "CT-021",
+      "CT-022",
+      "CT-026",
+      "CT-028",
+      "CT-030",
+      "CT-031",
+      "CT-032",
+      "CT-033",
+      "CT-034",
+      "CT-036",
+      "CT-038",
+      "CT-039",
+      "CT-040",
+      "CT-041",
+      "CT-043",
+      "CT-044"
+    ],
+    "fanoutExamples": [
+      {
+        "v5ControlId": "MSK-C15",
+        "candidateV6ControlIds": [
+          "CT-006",
+          "CT-007",
+          "CT-008",
+          "CT-009",
+          "CT-030"
+        ]
+      },
+      {
+        "v5ControlId": "MSK-C21",
+        "candidateV6ControlIds": [
+          "CT-036",
+          "CT-037",
+          "CT-038",
+          "CT-039",
+          "CT-040",
+          "CT-041"
+        ]
+      },
+      {
+        "v5ControlId": "MSK-C24",
+        "candidateV6ControlIds": [
+          "CT-031",
+          "CT-032",
+          "CT-033"
+        ]
+      },
+      {
+        "v5ControlId": "MSK-C13",
+        "candidateV6ControlIds": [
+          "CT-015",
+          "CT-016",
+          "CT-017",
+          "CT-021",
+          "CT-022"
+        ]
+      }
+    ],
+    "v6WithoutUniqueV5Predecessor": [
+      "CT-006",
+      "CT-008",
+      "CT-009",
+      "CT-010",
+      "CT-011",
+      "CT-012",
+      "CT-016",
+      "CT-017",
+      "CT-020",
+      "CT-022",
+      "CT-028",
+      "CT-032",
+      "CT-033",
+      "CT-034",
+      "CT-036",
+      "CT-038",
+      "CT-039",
+      "CT-040",
+      "CT-041",
+      "CT-043",
+      "CT-044"
+    ]
+  },
+  "v5Dispositions": [
+    {
+      "v5ControlId": "MSK-C01",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_INPUT_PINS",
+      "v5Family": "input/membership",
+      "v5Mutation": "replace one pinned byte hash",
+      "v5ExpectedCode": "MSK_INPUT_PIN_MISMATCH",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-043"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C02",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-002",
+      "v5LeafId": "LEAF_SOURCE_MEMBERSHIP",
+      "v5Family": "input/membership",
+      "v5Mutation": "omit one snapshot entry",
+      "v5ExpectedCode": "MSK_SOURCE_MEMBER_MISSING",
+      "v6Mutation": "source-member-omission",
+      "v6Predicate": "source-member-omission",
+      "semanticJoin": {
+        "artifactClass": "SOURCE_MEMBERSHIP",
+        "fieldClass": "member-row",
+        "operationClass": "DELETE",
+        "owningPredicateClass": "source-member-omission",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C03",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_SNAPSHOT_IDENTITY",
+      "v5Family": "snapshot",
+      "v5Mutation": "change one entry byte without root rehash",
+      "v5ExpectedCode": "MSK_SNAPSHOT_IDENTITY_MISMATCH",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-043"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C04",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-025",
+      "v5LeafId": "LEAF_ROUTE_MEMBERSHIP",
+      "v5Family": "route",
+      "v5Mutation": "omit one named route",
+      "v5ExpectedCode": "MSK_ROUTE_MEMBERSHIP",
+      "v6Mutation": "route-omission",
+      "v6Predicate": "route-omission",
+      "semanticJoin": {
+        "artifactClass": "ROUTE",
+        "fieldClass": "route-row",
+        "operationClass": "DELETE",
+        "owningPredicateClass": "route-omission",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C05",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-027",
+      "v5LeafId": "LEAF_WILDCARD_MEMBERSHIP",
+      "v5Family": "wildcard",
+      "v5Mutation": "replace wildcard redirect target",
+      "v5ExpectedCode": "MSK_WILDCARD_MEMBERSHIP",
+      "v6Mutation": "wildcard-omission",
+      "v6Predicate": "wildcard-omission",
+      "semanticJoin": {
+        "artifactClass": "ROUTE",
+        "fieldClass": "wildcard-row",
+        "operationClass": "DELETE",
+        "owningPredicateClass": "wildcard-omission",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C06",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-004",
+      "v5LeafId": "LEAF_WORKFLOW_MEMBERSHIP",
+      "v5Family": "workflow",
+      "v5Mutation": "duplicate VC-088 and omit VC-087",
+      "v5ExpectedCode": "MSK_WORKFLOW_BIJECTION",
+      "v6Mutation": "component-duplicate-id",
+      "v6Predicate": "component-duplicate-id",
+      "semanticJoin": {
+        "artifactClass": "COMPONENT_MEMBERSHIP",
+        "fieldClass": "component-id",
+        "operationClass": "DUPLICATE",
+        "owningPredicateClass": "component-duplicate-id",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C07",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_PAGE_ROLE_MEMBERSHIP",
+      "v5Family": "page",
+      "v5Mutation": "orphan one PAGE-LIKE role",
+      "v5ExpectedCode": "MSK_PAGE_STATE_EXECUTION_JOIN",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-013",
+          "CT-025",
+          "CT-029"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C08",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-029",
+      "v5LeafId": "LEAF_LAYER_MEMBERSHIP",
+      "v5Family": "layer",
+      "v5Mutation": "borrow owner workflow state for one layer",
+      "v5ExpectedCode": "MSK_LAYER_OWNS_STATE",
+      "v6Mutation": "layer-omission",
+      "v6Predicate": "layer-omission",
+      "semanticJoin": {
+        "artifactClass": "LAYER",
+        "fieldClass": "layer-row",
+        "operationClass": "DELETE",
+        "owningPredicateClass": "layer-omission",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C09",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_ADMIN_COVERAGE",
+      "v5Family": "admin",
+      "v5Mutation": "drop non-admin direct-link state",
+      "v5ExpectedCode": "MSK_ADMIN_STATE_MISSING",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-026",
+          "CT-034",
+          "CT-035"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C10",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_STATIC_EDGE_CENSUS",
+      "v5Family": "static",
+      "v5Mutation": "drop one static mount occurrence",
+      "v5ExpectedCode": "MSK_STATIC_EDGE_MISSING",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-015",
+          "CT-016",
+          "CT-018",
+          "CT-021",
+          "CT-022"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C11",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-023",
+      "v5LeafId": "LEAF_DYNAMIC_EDGE_RESOLUTION",
+      "v5Family": "dynamic",
+      "v5Mutation": "leave one dynamic :is unresolved",
+      "v5ExpectedCode": "MSK_DYNAMIC_SITE_UNRESOLVED",
+      "v6Mutation": "dynamic-expression-erasure",
+      "v6Predicate": "dynamic-expression-erasure",
+      "semanticJoin": {
+        "artifactClass": "DYNAMIC_MOUNT",
+        "fieldClass": "expression",
+        "operationClass": "DELETE",
+        "owningPredicateClass": "dynamic-expression-erasure",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C12",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-024",
+      "v5LeafId": "LEAF_TELEPORT_TARGET",
+      "v5Family": "teleport",
+      "v5Mutation": "erase one teleport target",
+      "v5ExpectedCode": "MSK_TELEPORT_TARGET_MISSING",
+      "v6Mutation": "teleport-target-erasure",
+      "v6Predicate": "teleport-target-erasure",
+      "semanticJoin": {
+        "artifactClass": "TELEPORT",
+        "fieldClass": "target",
+        "operationClass": "DELETE",
+        "owningPredicateClass": "teleport-target-erasure",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C13",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_INSTANCE_PROVENANCE",
+      "v5Family": "provenance",
+      "v5Mutation": "erase viaEdgeId on one instance",
+      "v5ExpectedCode": "MSK_INSTANCE_PROVENANCE",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-015",
+          "CT-016",
+          "CT-017",
+          "CT-021",
+          "CT-022"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C14",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-014",
+      "v5LeafId": "LEAF_INSTANCE_UNIQUENESS",
+      "v5Family": "duplicate",
+      "v5Mutation": "replace derived key with ordinal id",
+      "v5ExpectedCode": "MSK_INSTANCE_IDENTITY_COLLISION",
+      "v6Mutation": "mount-duplicate-id",
+      "v6Predicate": "mount-duplicate-id",
+      "semanticJoin": {
+        "artifactClass": "MOUNT_MEMBERSHIP",
+        "fieldClass": "mount-id",
+        "operationClass": "DUPLICATE",
+        "owningPredicateClass": "mount-duplicate-id",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C15",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_HARNESS_CONTRACT",
+      "v5Family": "harness",
+      "v5Mutation": "replace VC-036 variants with placeholder",
+      "v5ExpectedCode": "MSK_HARNESS_CONTRACT_INCOMPLETE",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-006",
+          "CT-007",
+          "CT-008",
+          "CT-009",
+          "CT-030"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C16",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_BARREL_BIJECTION",
+      "v5Family": "barrel",
+      "v5Mutation": "omit one barrel declaration disposition",
+      "v5ExpectedCode": "MSK_BARREL_BIJECTION",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-004",
+          "CT-005",
+          "CT-012"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C17",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_STATE_MEMBERSHIP",
+      "v5Family": "state",
+      "v5Mutation": "omit one role-axis decision",
+      "v5ExpectedCode": "MSK_STATE_DECISION_MISSING",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-013",
+          "CT-034"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C18",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-035",
+      "v5LeafId": "LEAF_NA_EVIDENCE",
+      "v5Family": "false-N-A",
+      "v5Mutation": "mark clickable PaginationBar interaction N/A",
+      "v5ExpectedCode": "MSK_FALSE_NA",
+      "v6Mutation": "applicability-na-forge",
+      "v6Predicate": "applicability-na-forge",
+      "semanticJoin": {
+        "artifactClass": "APPLICABILITY",
+        "fieldClass": "n-a-disposition",
+        "operationClass": "FORGE",
+        "owningPredicateClass": "applicability-na-forge",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C19",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-019",
+      "v5LeafId": "LEAF_INTERACTION_PARSE",
+      "v5Family": "interaction",
+      "v5Mutation": "erase one click action-semantic id",
+      "v5ExpectedCode": "MSK_INTERACTION_UNBOUND",
+      "v6Mutation": "mount-event-erasure",
+      "v6Predicate": "mount-event-erasure",
+      "semanticJoin": {
+        "artifactClass": "MOUNT_SEMANTICS",
+        "fieldClass": "event",
+        "operationClass": "DELETE",
+        "owningPredicateClass": "mount-event-erasure",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C20",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_LAYER_STATE_OWNERSHIP",
+      "v5Family": "layer-borrow",
+      "v5Mutation": "substitute parent state id",
+      "v5ExpectedCode": "MSK_LAYER_STATE_BORROW",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-017",
+          "CT-021",
+          "CT-029"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C21",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-037",
+      "v5LeafId": "LEAF_D1_SPECIFICITY",
+      "v5Family": "D1",
+      "v5Mutation": "replace protagonist with generic dashboard",
+      "v5ExpectedCode": "MSK_D1_GENERIC",
+      "v6Mutation": "d1-generic-default",
+      "v6Predicate": "d1-generic-default",
+      "semanticJoin": {
+        "artifactClass": "DESIGN_D1",
+        "fieldClass": "subject-specific-brief",
+        "operationClass": "GENERIC_REPLACEMENT",
+        "owningPredicateClass": "d1-generic-default",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C22",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_D2_INDEPENDENCE",
+      "v5Family": "D1/D2 independence",
+      "v5Mutation": "reuse D1 task/root for D2",
+      "v5ExpectedCode": "MSK_D2_NOT_INDEPENDENT",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-036",
+          "CT-037"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C23",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-042",
+      "v5LeafId": "LEAF_PERFORMANCE_CONTRACT",
+      "v5Family": "performance",
+      "v5Mutation": "replace named unit/tool with count",
+      "v5ExpectedCode": "MSK_PERFORMANCE_UNMEASURABLE",
+      "v6Mutation": "performance-contract-erasure",
+      "v6Predicate": "performance-contract-erasure",
+      "semanticJoin": {
+        "artifactClass": "PERFORMANCE",
+        "fieldClass": "performance-contract",
+        "operationClass": "DELETE",
+        "owningPredicateClass": "performance-contract-erasure",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-C24",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_NAMED_AXIS_MEMBERSHIP",
+      "v5Family": "count-only axes",
+      "v5Mutation": "retain counts but rename one axis id",
+      "v5ExpectedCode": "MSK_AXIS_MEMBERSHIP",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-031",
+          "CT-032",
+          "CT-033"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C25",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_EXECUTION_SUBJECT_COVERAGE",
+      "v5Family": "missing execution subject",
+      "v5Mutation": "remove ROUTE-01 block while preserving arithmetic",
+      "v5ExpectedCode": "MSK_EXECUTION_SUBJECT_MISSING",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-013",
+          "CT-014",
+          "CT-017",
+          "CT-025"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C26",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_SAFARI_CREDIT",
+      "v5Family": "fake Safari",
+      "v5Mutation": "label emulation as real Safari",
+      "v5ExpectedCode": "MSK_FAKE_SAFARI",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [],
+        "unresolvedReason": "V6_HAS_NO_FAKE_SAFARI_CREDIT_PREDICATE"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C27",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_EQUIVALENCE_MEMBERSHIP",
+      "v5Family": "equivalence omissions",
+      "v5Mutation": "omit one member from an equivalence class",
+      "v5ExpectedCode": "MSK_EQUIVALENCE_OMISSION",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [],
+        "unresolvedReason": "V6_HAS_NO_EQUIVALENCE_MEMBERSHIP_PREDICATE"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C28",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_EQUIVALENCE_WITNESS",
+      "v5Family": "equivalence erasure",
+      "v5Mutation": "erase route or platform distinction without proof",
+      "v5ExpectedCode": "MSK_EQUIVALENCE_ERASURE",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [],
+        "unresolvedReason": "V6_HAS_NO_EQUIVALENCE_WITNESS_PREDICATE"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C29",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_STRUCTURAL_PARITY",
+      "v5Family": "structural mismatch",
+      "v5Mutation": "change source schema without declaration update",
+      "v5ExpectedCode": "MSK_STRUCTURAL_MISMATCH",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-043"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C30",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_CONTROL_MEMBERSHIP",
+      "v5Family": "control omission",
+      "v5Mutation": "remove MSK-C18",
+      "v5ExpectedCode": "MSK_CONTROL_MISSING",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-044"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C31",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_CONTROL_UNIQUENESS",
+      "v5Family": "control duplication",
+      "v5Mutation": "duplicate one control id",
+      "v5ExpectedCode": "MSK_CONTROL_DUPLICATE",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-044"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C32",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_CHECKSUM_MEMBERSHIP",
+      "v5Family": "checksum membership",
+      "v5Mutation": "omit one sealed regular file",
+      "v5ExpectedCode": "MSK_CHECKSUM_MEMBER_MISSING",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [],
+        "unresolvedReason": "V6_HAS_NO_CHECKSUM_MEMBERSHIP_PREDICATE"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C33",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_CHECKSUM_ORDER",
+      "v5Family": "checksum order",
+      "v5Mutation": "swap two codepoint-ordered checksum rows",
+      "v5ExpectedCode": "MSK_CHECKSUM_ORDER",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [],
+        "unresolvedReason": "V6_HAS_NO_CHECKSUM_ORDER_PREDICATE"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C34",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_POST_WRITE_FENCE",
+      "v5Family": "post-write",
+      "v5Mutation": "write a file after checksum",
+      "v5ExpectedCode": "MSK_POST_CHECKSUM_WRITE",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [],
+        "unresolvedReason": "V6_HAS_NO_POST_WRITE_FENCE_PREDICATE"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C35",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_ZERO_CREDIT",
+      "v5Family": "credit",
+      "v5Mutation": "toggle Safari credit before execution",
+      "v5ExpectedCode": "MSK_CREDIT_WIDENING",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [],
+        "unresolvedReason": "V6_HAS_NO_ZERO_CREDIT_PREDICATE"
+      }
+    },
+    {
+      "v5ControlId": "MSK-C36",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_IMPORT_ALLOWLIST",
+      "v5Family": "forbidden import",
+      "v5Mutation": "add child_process or network import",
+      "v5ExpectedCode": "MSK_FORBIDDEN_IMPORT",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [],
+        "unresolvedReason": "V6_HAS_NO_IMPORT_ALLOWLIST_PREDICATE"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M01",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-001",
+      "v5LeafId": "LEAF_MEMBER_CONTENT_SHA",
+      "v5Family": "member-content",
+      "v5Mutation": "/entries/0/content append one byte without metadata change",
+      "v5ExpectedCode": "MSK_MEMBER_SHA256",
+      "v6Mutation": "source-member-byte-drift",
+      "v6Predicate": "source-member-byte-drift",
+      "semanticJoin": {
+        "artifactClass": "SOURCE_MEMBER",
+        "fieldClass": "decoded-bytes+sha256",
+        "operationClass": "BYTE_DRIFT",
+        "owningPredicateClass": "source-member-byte-drift",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-M02",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_MEMBER_DECLARED_SHA",
+      "v5Family": "stored-sha",
+      "v5Mutation": "/entries/0/sha256 replace one nibble",
+      "v5ExpectedCode": "MSK_MEMBER_DECLARATION_MISMATCH",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-005"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M03",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_MEMBER_DECLARED_BYTES",
+      "v5Family": "stored-bytes",
+      "v5Mutation": "/entries/0/bytes increment one",
+      "v5ExpectedCode": "MSK_MEMBER_DECLARATION_MISMATCH",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-005"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M04",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_MEMBER_PATH_SET",
+      "v5Family": "path-replacement",
+      "v5Mutation": "/entries/0/path replace at constant count",
+      "v5ExpectedCode": "MSK_SOURCE_MEMBER_REPLACED",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-002",
+          "CT-003",
+          "CT-004"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M05",
+      "disposition": "MERGED_INTO",
+      "targetV6ControlId": "CT-002",
+      "v5LeafId": "LEAF_MEMBER_MISSING",
+      "v5Family": "missing-member",
+      "v5Mutation": "/entries delete index 0",
+      "v5ExpectedCode": "MSK_SOURCE_MEMBER_MISSING",
+      "v6Mutation": "source-member-omission",
+      "v6Predicate": "source-member-omission",
+      "semanticJoin": {
+        "artifactClass": "SOURCE_MEMBERSHIP",
+        "fieldClass": "member-row",
+        "operationClass": "DELETE",
+        "owningPredicateClass": "source-member-omission",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-M06",
+      "disposition": "CARRY",
+      "targetV6ControlId": "CT-003",
+      "v5LeafId": "LEAF_MEMBER_EXTRA",
+      "v5Family": "extra-member",
+      "v5Mutation": "/entries append closed-schema alien",
+      "v5ExpectedCode": "MSK_SOURCE_MEMBER_EXTRA",
+      "v6Mutation": "source-member-extra",
+      "v6Predicate": "source-member-extra",
+      "semanticJoin": {
+        "artifactClass": "SOURCE_MEMBERSHIP",
+        "fieldClass": "member-row",
+        "operationClass": "INSERT",
+        "owningPredicateClass": "source-member-extra",
+        "exactness": "EXACT_OR_OWNER_MERGE",
+        "ambiguityCandidates": [],
+        "unresolvedReason": null
+      }
+    },
+    {
+      "v5ControlId": "MSK-M07",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_MEMBER_DUPLICATE",
+      "v5Family": "duplicate-member",
+      "v5Mutation": "/entries copy index 0 over index 1",
+      "v5ExpectedCode": "MSK_SOURCE_MEMBER_DUPLICATE",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-002",
+          "CT-003",
+          "CT-004"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M08",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_MEMBER_ORDER",
+      "v5Family": "reordered-member",
+      "v5Mutation": "/entries swap indices 0 and 1",
+      "v5ExpectedCode": "MSK_SOURCE_MEMBER_REORDERED",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-002",
+          "CT-003",
+          "CT-043"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M09",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_UTF8_CANONICAL",
+      "v5Family": "invalid-utf8",
+      "v5Mutation": "/entries first utf8 content replace scalar with lone surrogate",
+      "v5ExpectedCode": "MSK_MEMBER_UTF8_CANONICAL",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-005"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M10",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_BASE64_CANONICAL",
+      "v5Family": "invalid-base64",
+      "v5Mutation": "embedded binary base64 replace one character with percent",
+      "v5ExpectedCode": "MSK_BINARY_BASE64_INVALID",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-005"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M11",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_UTF8_BYTE_LENGTH",
+      "v5Family": "unicode-char-count",
+      "v5Mutation": "/entries UTF-8 bytes replace with JavaScript string length",
+      "v5ExpectedCode": "MSK_MEMBER_DECLARATION_MISMATCH",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-005"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M12",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_BINARY_NONEMPTY",
+      "v5Family": "empty-binary",
+      "v5Mutation": "embedded binary base64 replace with empty",
+      "v5ExpectedCode": "MSK_BINARY_BYTES_MISSING",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-005"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M13",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_BINARY_LENGTH",
+      "v5Family": "malformed-binary",
+      "v5Mutation": "embedded binary base64 truncate four characters",
+      "v5ExpectedCode": "MSK_MEMBER_BYTE_LENGTH",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-005"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M14",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_BINARY_PATH_JOIN",
+      "v5Family": "swapped-binary",
+      "v5Mutation": "swap two embedded binary payloads",
+      "v5ExpectedCode": "MSK_MEMBER_BYTE_LENGTH",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-005"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M15",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_AUTHENTICATED_ENTRY_BYTES",
+      "v5Family": "entry-content",
+      "v5Mutation": "/entries index.html content change with stored digest",
+      "v5ExpectedCode": "MSK_MEMBER_SHA256",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-005"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M16",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_BYTE_DERIVED_ROOT",
+      "v5Family": "derived-root",
+      "v5Mutation": "replace one recomputed member identity after validation",
+      "v5ExpectedCode": "MSK_SNAPSHOT_IDENTITY_MISMATCH",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-043"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M17",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_DERIVED_VIEW_ONLY",
+      "v5Family": "raw-row-bypass",
+      "v5Mutation": "downstream route parser receives raw snapshot row",
+      "v5ExpectedCode": "MSK_RAW_SNAPSHOT_BYPASS",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-012",
+          "CT-016",
+          "CT-043"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    },
+    {
+      "v5ControlId": "MSK-M18",
+      "disposition": "HISTORICAL_ONLY",
+      "targetV6ControlId": null,
+      "v5LeafId": "LEAF_MEMBER_CLOSED_SCHEMA",
+      "v5Family": "unknown-member-field",
+      "v5Mutation": "/entries/0 add expectedOutcome",
+      "v5ExpectedCode": "MSK_MEMBER_ROW_SCHEMA",
+      "v6Mutation": null,
+      "v6Predicate": null,
+      "semanticJoin": {
+        "artifactClass": null,
+        "fieldClass": null,
+        "operationClass": null,
+        "owningPredicateClass": null,
+        "exactness": "UNRESOLVED",
+        "ambiguityCandidates": [
+          "CT-001",
+          "CT-004",
+          "CT-043"
+        ],
+        "unresolvedReason": "ONE_V5_CONTROL_FANS_TO_MULTIPLE_DISTINCT_V6_PREDICATES"
+      }
+    }
+  ],
+  "v6Consumption": [
+    {
+      "v6ControlId": "CT-001",
+      "mutation": "source-member-byte-drift",
+      "predicate": "source-member-byte-drift",
+      "sourceV5ControlIds": [
+        "MSK-M01"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-002",
+      "mutation": "source-member-omission",
+      "predicate": "source-member-omission",
+      "sourceV5ControlIds": [
+        "MSK-C02",
+        "MSK-M05"
+      ],
+      "semanticConsumptionStatus": "MERGED_EXACT_SOURCE_GROUP",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-003",
+      "mutation": "source-member-extra",
+      "predicate": "source-member-extra",
+      "sourceV5ControlIds": [
+        "MSK-M06"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-004",
+      "mutation": "component-duplicate-id",
+      "predicate": "component-duplicate-id",
+      "sourceV5ControlIds": [
+        "MSK-C06"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-005",
+      "mutation": "component-source-hash-drift",
+      "predicate": "component-source-hash-drift",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-006",
+      "mutation": "component-props-erasure",
+      "predicate": "component-props-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-007",
+      "mutation": "component-events-erasure",
+      "predicate": "component-events-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-008",
+      "mutation": "component-slots-erasure",
+      "predicate": "component-slots-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-009",
+      "mutation": "component-defaults-erasure",
+      "predicate": "component-defaults-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-010",
+      "mutation": "component-copy-erasure",
+      "predicate": "component-copy-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-011",
+      "mutation": "component-container-erasure",
+      "predicate": "component-container-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-012",
+      "mutation": "component-api-owner-erasure",
+      "predicate": "component-api-owner-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-013",
+      "mutation": "component-state-erasure",
+      "predicate": "component-state-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-014",
+      "mutation": "mount-duplicate-id",
+      "predicate": "mount-duplicate-id",
+      "sourceV5ControlIds": [
+        "MSK-C14"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-015",
+      "mutation": "mount-source-hash-drift",
+      "predicate": "mount-source-hash-drift",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-016",
+      "mutation": "mount-source-evidence-drift",
+      "predicate": "mount-source-evidence-drift",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-017",
+      "mutation": "mount-owner-erasure",
+      "predicate": "mount-owner-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-018",
+      "mutation": "mount-attribute-erasure",
+      "predicate": "mount-attribute-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-019",
+      "mutation": "mount-event-erasure",
+      "predicate": "mount-event-erasure",
+      "sourceV5ControlIds": [
+        "MSK-C19"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-020",
+      "mutation": "mount-slot-erasure",
+      "predicate": "mount-slot-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-021",
+      "mutation": "mount-predicate-erasure",
+      "predicate": "mount-predicate-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-022",
+      "mutation": "mount-loop-erasure",
+      "predicate": "mount-loop-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-023",
+      "mutation": "dynamic-expression-erasure",
+      "predicate": "dynamic-expression-erasure",
+      "sourceV5ControlIds": [
+        "MSK-C11"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-024",
+      "mutation": "teleport-target-erasure",
+      "predicate": "teleport-target-erasure",
+      "sourceV5ControlIds": [
+        "MSK-C12"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-025",
+      "mutation": "route-omission",
+      "predicate": "route-omission",
+      "sourceV5ControlIds": [
+        "MSK-C04"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-026",
+      "mutation": "admin-route-reclassification",
+      "predicate": "admin-route-reclassification",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-027",
+      "mutation": "wildcard-omission",
+      "predicate": "wildcard-omission",
+      "sourceV5ControlIds": [
+        "MSK-C05"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-028",
+      "mutation": "pane-omission",
+      "predicate": "pane-omission",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-029",
+      "mutation": "layer-omission",
+      "predicate": "layer-omission",
+      "sourceV5ControlIds": [
+        "MSK-C08"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-030",
+      "mutation": "harness-only-promotion",
+      "predicate": "harness-only-promotion",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-031",
+      "mutation": "axis-omission",
+      "predicate": "axis-omission",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-032",
+      "mutation": "axis-duplicate",
+      "predicate": "axis-duplicate",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-033",
+      "mutation": "axis-dimension-drift",
+      "predicate": "axis-dimension-drift",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-034",
+      "mutation": "applicability-promotion",
+      "predicate": "applicability-promotion",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-035",
+      "mutation": "applicability-na-forge",
+      "predicate": "applicability-na-forge",
+      "sourceV5ControlIds": [
+        "MSK-C18"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-036",
+      "mutation": "d1-erasure",
+      "predicate": "d1-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-037",
+      "mutation": "d1-generic-default",
+      "predicate": "d1-generic-default",
+      "sourceV5ControlIds": [
+        "MSK-C21"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-038",
+      "mutation": "copy-contract-erasure",
+      "predicate": "copy-contract-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-039",
+      "mutation": "responsive-contract-erasure",
+      "predicate": "responsive-contract-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-040",
+      "mutation": "accessibility-contract-erasure",
+      "predicate": "accessibility-contract-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-041",
+      "mutation": "motion-owner-erasure",
+      "predicate": "motion-owner-erasure",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-042",
+      "mutation": "performance-contract-erasure",
+      "predicate": "performance-contract-erasure",
+      "sourceV5ControlIds": [
+        "MSK-C23"
+      ],
+      "semanticConsumptionStatus": "UNIQUE",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-043",
+      "mutation": "report-declaration-drift",
+      "predicate": "report-declaration-drift",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    },
+    {
+      "v6ControlId": "CT-044",
+      "mutation": "unknown-control",
+      "predicate": "unknown-control",
+      "sourceV5ControlIds": [],
+      "semanticConsumptionStatus": "UNCONSUMED",
+      "ownerExpected": "REJECT_OWN_REASON_ONLY",
+      "nonownerExpected": "RETAIN_OWNER",
+      "executed": false
+    }
+  ],
+  "credit": {
+    "source": 0,
+    "execution": 0,
+    "product": 0,
+    "browser": 0,
+    "safari": 0,
+    "api": 0,
+    "docker": 0,
+    "package": 0,
+    "release": 0,
+    "rebind": 0,
+    "admission": 0,
+    "authority": 0
+  },
+  "nextBoundary": "SEPARATE_OWNER_LAW_MUST_DEFINE_A_NEW_44_ROW_SEMANTIC_REGISTRY_OR_RETAIN_ALL_54; CAPTURE_AND_V7_REMAIN_FORBIDDEN"
+}

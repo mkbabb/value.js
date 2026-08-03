@@ -1,0 +1,307 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-R2-OWNER-RULING-2026-08-02.json
+  original-mtime: 2026-08-02T21:54:04
+  original-sha256: ea5eed7a6f43c8c61ed32a3f0c4f4487afa43043c48e83c39ae7b2addbbf033a
+  original-bytes: 12484
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schema": "value.mobile-safari.v7.quiescent-capture-r2-owner-ruling.v1",
+  "date": "2026-08-02",
+  "decision": "AUTHORIZE_ONE_FRESH_NON_OVERLAPPING_CAPTURE_R2_COORDINATE",
+  "status": "CAPTURE_R2_ONLY_AUTHORIZED_V7_SOURCE_REMAINS_FORBIDDEN",
+  "authority": {
+    "captureR2Construction": "AUTHORIZED_ONCE_AT_EXACT_ABSENT_ROOT",
+    "captureR1Repair": "FORBIDDEN",
+    "v7Source": "FORBIDDEN",
+    "product": "NONE",
+    "parser": "NONE",
+    "browser": "NONE",
+    "safari": "NONE",
+    "simulator": "NONE",
+    "api": "NONE",
+    "docker": "NONE",
+    "package": "NONE",
+    "release": "NONE",
+    "rebind": "NONE",
+    "admission": "NONE",
+    "credit": 0
+  },
+  "predecessorCaptureRelease": {
+    "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-OWNER-RELEASE-2026-08-02.json",
+    "sha256": "32da65a2a831d4d335f3a23664ca33ef5f78709662826117dc8da8bed0dc7bf3",
+    "byteLength": 26173,
+    "mode": "0644",
+    "nlink": 1,
+    "disposition": "KEEP_ALL_SOURCE_MEMBERSHIP_IDENTITY_WRITER_STOP_AND_ZERO_CREDIT_LAWS_EXCEPT_EXPLICIT_R2_AMENDMENTS"
+  },
+  "terminalR1": {
+    "root": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-v7-quiescent-governing-capture/outputs",
+    "disposition": "FROZEN_TERMINAL_MECHANICS_RED_NO_REPAIR_RETRY_CLEANUP_OR_RESEAL",
+    "exactCensus": {
+      "regularFiles": 1,
+      "childDirectories": 0,
+      "symlinks": 0,
+      "specialNodes": 0,
+      "totalBytes": 18133,
+      "canonicalCensusIdentity": "0ecbe66bd3633fa6afc1d75d841bc119fa29d68c06b420a794774ce695cbf01a"
+    },
+    "retainedFile": {
+      "basename": "capture-value-mobile-v7.mjs",
+      "absolutePath": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-v7-quiescent-governing-capture/outputs/capture-value-mobile-v7.mjs",
+      "byteLength": 18133,
+      "mode": "0644",
+      "nlink": 1,
+      "sha256": "2b7d03a1ccfba0f412964de5fd137316cf9c4280c33eec1623ac785116bb6315"
+    },
+    "firstRed": {
+      "code": "BIGINT_NUMBER_MODE_MASK_TYPEERROR",
+      "sourceLines": "89-90",
+      "firstPreflightLine": 318,
+      "ownerReleaseReadLine": 320,
+      "expression": "stat.mode & 0o7777",
+      "requiredReplacement": "stat.mode & 0o7777n",
+      "invocationExit": 1,
+      "membersRead": "0/345",
+      "sourceMembersRead": "0/310",
+      "governingMembersRead": "0/35",
+      "readPasses": "0/2",
+      "derivedArtifacts": "0/6",
+      "v7SourceBytes": 0
+    }
+  },
+  "rootTerminalIntake": {
+    "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/VALUE-V7-QUIESCENT-CAPTURE-TERMINAL-MECHANICS-RED-INTAKE-2026-08-02.md",
+    "sha256": "932318ae0d553df0301e0b9491268eb0bc7edad8316e4fd7ba4f6b7af2e02225"
+  },
+  "rootIntegrationAudit": {
+    "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/VALUE-V7-QUIESCENT-CAPTURE-TERMINAL-INTEGRATION-AUDIT-2026-08-02.md",
+    "sha256": "af7ade431e6b25f97b0dd4f12bbf85ef9562bc7d98a181a1a72faaf4d529ade8"
+  },
+  "currentRootChecksumBoundary": {
+    "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-AUDIT-PAUSE-CHECKSUMS-2026-08-02.sha256",
+    "sha256": "797dc887e17d587c00e0837cb6ed72fabf9ae912c3d0fb2bf5b03ff0ad86013e",
+    "rows": "41/41"
+  },
+  "captureR2Coordinate": {
+    "root": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-v7-quiescent-governing-capture-r2/outputs",
+    "stateAtRuling": "ABSENT",
+    "soleWriterRole": "CONSTELLATION_ROOT_CAPTURE_OWNER_DISTINCT_FROM_R1_AUTHOR_AND_FUTURE_V7_SOURCE_AUTHOR",
+    "exactFilesInWriteOrder": [
+      "capture-value-mobile-v7-r2.mjs",
+      "CAPABILITY-RECEIPT.json",
+      "SOURCE-MEMBERS.json",
+      "GOVERNING-MEMBERS.json",
+      "RAW-CAPTURE-RECEIPT.json",
+      "CAPTURE-MANIFEST.json",
+      "RECEIPT.md",
+      "checksums.sha256"
+    ],
+    "exactRegularFileCount": 8,
+    "childDirectoryCount": 0,
+    "symlinkCount": 0,
+    "specialNodeCount": 0,
+    "mode": "0644",
+    "nlink": 1,
+    "checksumsWrittenLast": true,
+    "postChecksumWritesAllowed": false
+  },
+  "retainedPreWriteCapabilityLaw": {
+    "order": "AFTER_PROGRAM_FILE_EXISTS_AND_BEFORE_ANY_SOURCE_GOVERNING_GIT_OR_AGGREGATE_READ",
+    "retainedArtifact": "CAPABILITY-RECEIPT.json",
+    "receiptWrittenBefore": [
+      "SOURCE-MEMBERS.json",
+      "GOVERNING-MEMBERS.json",
+      "RAW-CAPTURE-RECEIPT.json",
+      "CAPTURE-MANIFEST.json",
+      "RECEIPT.md",
+      "checksums.sha256"
+    ],
+    "exactChecks": [
+      {
+        "checkId": "CAP-R2-STAT-01",
+        "operation": "lstatSync(programPath,{bigint:true})",
+        "assertion": "typeof mode size nlink uid gid ino dev mtimeNs ctimeNs birthtimeNs are bigint where supplied by Node"
+      },
+      {
+        "checkId": "CAP-R2-STAT-02",
+        "operation": "mode = (stat.mode & 0o7777n).toString(8).padStart(4,'0')",
+        "assertion": "program mode equals 0644 and no Number operand or conversion is used"
+      },
+      {
+        "checkId": "CAP-R2-STAT-03",
+        "operation": "nlink = stat.nlink.toString(10); byteLength = stat.size.toString(10)",
+        "assertion": "nlink equals 1 and byte length equals BigInt(readFileSync(programPath).byteLength)"
+      },
+      {
+        "checkId": "CAP-R2-STAT-04",
+        "operation": "synthetic mode probes over 0o100644n 0o100755n and 0o040755n",
+        "assertion": "masked modes are 0644 0755 and 0755 without mixed numeric types"
+      },
+      {
+        "checkId": "CAP-R2-STAT-05",
+        "operation": "JSON serialization probe over the closed receipt projection",
+        "assertion": "all BigInts are deliberately rendered as canonical decimal strings and no raw BigInt reaches JSON.stringify"
+      },
+      {
+        "checkId": "CAP-R2-STAT-06",
+        "operation": "program identity read before and after all five checks",
+        "assertion": "path kind mode nlink byteLength and SHA-256 remain exact"
+      }
+    ],
+    "receiptRequiredFields": [
+      "schema",
+      "checkOrder",
+      "runtimeVersion",
+      "runtimeExecutablePath",
+      "runtimeExecutableSha256",
+      "command",
+      "argv",
+      "cwd",
+      "environmentAllowlist",
+      "programBefore",
+      "programAfter",
+      "syntheticModeObservations",
+      "checkResults",
+      "firstFailure",
+      "writesBeforeReceipt",
+      "rootCensusBeforeReceipt",
+      "rootCensusAfterReceipt"
+    ],
+    "receiptRequirements": {
+      "schema": "value.mobile-safari.v7.capture-r2-capability-receipt.v1",
+      "checkOrder": [
+        "CAP-R2-STAT-01",
+        "CAP-R2-STAT-02",
+        "CAP-R2-STAT-03",
+        "CAP-R2-STAT-04",
+        "CAP-R2-STAT-05",
+        "CAP-R2-STAT-06"
+      ],
+      "allChecksMustPass": true,
+      "writesBeforeReceipt": [
+        "capture-value-mobile-v7-r2.mjs"
+      ],
+      "firstDerivedWriteMustBe": "CAPABILITY-RECEIPT.json",
+      "callerSuppliedResultsAllowed": false,
+      "fabricatedOrConstantResults": "TERMINAL_RED",
+      "missingReceiptAfterPassedCheck": "TERMINAL_RED"
+    }
+  },
+  "bigIntStatLaw": {
+    "requiredLstatOption": {
+      "bigint": true
+    },
+    "modeMaskLiteral": "0o7777n",
+    "allStatArithmetic": "BIGINT_ONLY",
+    "serialization": "CANONICAL_DECIMAL_STRINGS_OR_EXACT_PADDED_MODE_STRING",
+    "byteLengthComparison": "stat.size === BigInt(buffer.byteLength)",
+    "nlinkComparison": "stat.nlink === 1n",
+    "forbidden": [
+      "stat.mode & 0o7777",
+      "Number(stat.mode)",
+      "Number(stat.size)",
+      "Number(stat.nlink)",
+      "unary plus over stat fields",
+      "mixed BigInt/Number arithmetic or comparison",
+      "raw BigInt passed to JSON.stringify",
+      "mode nlink or size inferred from caller metadata"
+    ],
+    "appliesTo": "EVERY_SOURCE_GOVERNING_OUTPUT_RUNTIME_AND_REPOSITORY_STAT"
+  },
+  "governingRosterR2": {
+    "derivation": "READ_THE_EXACT_35_MEMBER_ROSTER_FROM_PREDECESSOR_RELEASE_THEN_APPLY_THIS_CLOSED_DELTA",
+    "predecessorMemberCount": 35,
+    "replacements": [
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-AUDIT-PAUSE-CHECKSUMS-2026-08-02.sha256",
+        "oldSha256": "c468ab99a3cf37a58515026b927f957645282a3a0f7cd1ca5f3f0eed44a98f16",
+        "newSha256": "797dc887e17d587c00e0837cb6ed72fabf9ae912c3d0fb2bf5b03ff0ad86013e"
+      }
+    ],
+    "additions": [
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-OWNER-RELEASE-2026-08-02.json",
+        "sha256": "32da65a2a831d4d335f3a23664ca33ef5f78709662826117dc8da8bed0dc7bf3"
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-v7-quiescent-governing-capture/outputs/capture-value-mobile-v7.mjs",
+        "sha256": "2b7d03a1ccfba0f412964de5fd137316cf9c4280c33eec1623ac785116bb6315"
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/VALUE-V7-QUIESCENT-CAPTURE-TERMINAL-MECHANICS-RED-INTAKE-2026-08-02.md",
+        "sha256": "932318ae0d553df0301e0b9491268eb0bc7edad8316e4fd7ba4f6b7af2e02225"
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/VALUE-V7-QUIESCENT-CAPTURE-TERMINAL-INTEGRATION-AUDIT-2026-08-02.md",
+        "sha256": "af7ade431e6b25f97b0dd4f12bbf85ef9562bc7d98a181a1a72faaf4d529ade8"
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-R2-OWNER-RULING-2026-08-02.json",
+        "sha256": "ROOT_MUST_SUPPLY_THE_EXTERNALLY_COMPUTED_EXACT_SHA_AFTER_THIS_RULING_IS_FROZEN"
+      }
+    ],
+    "removals": [],
+    "exactR2MemberCount": 40,
+    "ordering": "CODEPOINT_ABSOLUTE_PATH_ORDER",
+    "missingExtraDuplicateReorderedReplacedOrUnresolvedSelfPin": "TERMINAL_RED",
+    "selfPinResolution": "ROOT_INTAKE_MUST_SUPPLY_THIS_FILE_EXACT_EXTERNALLY_COMPUTED_SHA TO THE_CAPTURE_WRITER; THE_FROZEN_RULING_FILE_IS_NOT_REWRITTEN"
+  },
+  "sourceAndIdentityLaw": {
+    "sourceMembers": "EXACT_310_PATH_ROSTER_FROM_PREDECESSOR_RELEASE",
+    "sourceReads": 2,
+    "governingMembers": 40,
+    "governingReads": 2,
+    "payload": "STRICT_CANONICAL_BASE64_OF_ALL_SOURCE_MEMBER_BYTES",
+    "byteLengthAndSha": "DERIVED_FROM_DECODED_BYTES",
+    "identities": "UNCHANGED_DOMAIN_SEPARATED_U64BE_LENGTH_FRAMED_MEMBER_AND_ROOT_LAWS_FROM_PREDECESSOR",
+    "repositoryFacts": "UNCHANGED_TWO_ROOT_READ_ONLY_GIT_IDENTITY_AND_STATUS_LAW",
+    "passEquality": "SOURCE_ROOT_GOVERNING_ROOT_REPOSITORY_FACTS_AND_PROGRAM_IDENTITY_MUST_MATCH",
+    "directCallerSummaries": false
+  },
+  "writerAndStopLaw": {
+    "allowedWrites": "ONLY_THE_EIGHT_EXACT_R2_FILES_AT_THE_ABSENT_R2_ROOT",
+    "forbiddenWrites": "EVERY_OTHER_PATH",
+    "productOrExternalExecutionAllowed": false,
+    "firstRedFreeze": true,
+    "noSameRootRepair": true,
+    "noRetry": true,
+    "noCleanup": true,
+    "noReseal": true,
+    "stopConditions": [
+      "R2 root or parent residue exists before the first write",
+      "program author or runner is not the authorized root capture owner",
+      "any capability check fails or CAPABILITY-RECEIPT is not the first derived write",
+      "any Number/BigInt mixing or stat-field narrowing exists or is observed",
+      "the governing roster does not resolve to exactly 40 unique rows",
+      "the source roster does not resolve to exactly 310 unique rows",
+      "any source governing repository or program identity differs across passes",
+      "any original predecessor stop condition occurs",
+      "any output count name kind mode nlink checksum order or post-write law fails"
+    ]
+  },
+  "nextBoundary": {
+    "captureR2MayBeCreatedByThisRuling": true,
+    "v7SourceMayBeCreatedByThisRuling": false,
+    "afterR2": "ROOT_MUST_INDEPENDENTLY_INTAKE_R2_CLEAN_OR_FIRST_RED_THEN_REQUEST_A_SEPARATE_DECISION",
+    "noAutomaticSuccessor": true
+  },
+  "unchangedDenominators": {
+    "registrySpecification": "44/44",
+    "controlsExecuted": "0/44",
+    "orderedNonownerRetentions": "0/1892",
+    "acceptedMobileSafariSourceClosure": "0/5",
+    "currentEligibleSubjectPasses": "0/12",
+    "independentD2": "0/887",
+    "crossRepositoryOwnerSlots": "0/5",
+    "parserLawChronology": "14/34_PAUSED",
+    "kroneckerDenominator": "OPEN",
+    "appleDenominator": "OPEN",
+    "allCredits": 0
+  },
+  "ownerReleaseRequiredAfterCaptureR2": true
+}

@@ -1,0 +1,65 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/CLEAN-A-ABSORPTION-MANIFEST-2026-07-29.json
+  original-mtime: 2026-07-29T20:05:09
+  original-sha256: fa2c4959937338465abc7609f4e631c77b01112035f2497ce5bad0cf1caa312e
+  original-bytes: 2294
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schema": "value-clean-a-absorption/v1",
+  "date": "2026-07-29",
+  "subject": "value.js",
+  "mode": "formation-only",
+  "finding": "CA-01",
+  "cleanAVerdict": "AMEND",
+  "cleanA": {
+    "reportSha256": "c90203db8cd7b539721d318f69ad6c58f7ac8ea0da86a9d5ddf6a2bc99c35b76",
+    "validationSha256": "0e63126722aaa039d02520a0131fd11632db33bc93f07128886b28cab2f60598",
+    "receiptSha256": "c858f9545460fb3ae161cf069b1205d27cfa5f40664e01c2c134315b4399739e"
+  },
+  "p3": {
+    "registrySha256": "00fd0b7957cad35643addf31b8c990eb83515414841c6bc9f2452b16672216dc",
+    "registryAmended": false
+  },
+  "historicalPassCoverage": {
+    "familyDenominatorSha256": "1d6df52abdd89dcc2e56b0aaaca6cc7d4a516eb5e8493dd4547adeebd070dd85",
+    "preAbsorptionPacketSha256": "aa6840601388258246677c1c619deeadd763d5dbddb56f9feb92b2b803961840",
+    "preAbsorptionSurfaceSha256": "94057b63ee10d68ee51eba1df4a79082c7758f79a4862abf378b159ee4c612ee",
+    "preservedAsHistoricalEvidence": true
+  },
+  "postAbsorption": {
+    "packet": {
+      "path": "docs/tranches/V/megatranche/VALUE-FORMATION-PACKET-2026-07-29.md",
+      "sha256": "359262b6bc5ffd7285e0305499d31b4dfc44b592207b772823d932a4d3c6017b"
+    },
+    "keyframesSurface": {
+      "path": "docs/tranches/V/megatranche/coordination/KEYFRAMES-VALUE-SURFACE-2026-07-29.md",
+      "sha256": "f9a98d7df6addf6e0d61d2adfad7340e667f503486668da0403f1861c3965b96"
+    },
+    "consumerCensus": {
+      "totalReferences": 53,
+      "totalFiles": 51,
+      "directImports": 49,
+      "directImportFiles": 47,
+      "importMetaResolveLiterals": 2,
+      "benchHtmlImportMapKeys": 2,
+      "nonImportLiterals": 4
+    }
+  },
+  "acceptance": [
+    "Terminal disposition for all 53 references across all 51 files.",
+    "Explicit classification of both import.meta.resolve probes and both bench HTML import-map keys.",
+    "Zero compatibility-barrel, raw-source, or deep-import escape.",
+    "Local serializer, scanner, and grammar deletion receipt.",
+    "Packed public-subpath tests and a distinct W3 immutable tier pack.",
+    "A still-distinct W10 integrated pack and Atlas receiver."
+  ],
+  "rootGraphState": "PENDING_POST_ABSORPTION_RESEAL",
+  "replacementCleanAState": "BLOCKED_PENDING_ROOT_RESEAL_AND_FRESH_DISPATCH",
+  "cleanBState": "BLOCKED",
+  "executionCredit": 0
+}

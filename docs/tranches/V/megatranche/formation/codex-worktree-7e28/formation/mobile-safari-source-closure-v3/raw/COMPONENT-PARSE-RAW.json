@@ -1,0 +1,1592 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/COMPONENT-PARSE-RAW.json
+  original-mtime: 2026-08-01T20:31:35
+  original-sha256: 9dfaeb5b5551e5d558449105ed895a4b7adb55b82e774a63cb6c8309d2e6331a
+  original-bytes: 60147
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schemaVersion": 3,
+  "sourceRootIdentity": "49d4692e83462ebe11bd1bbf96b1f27e54a97834dc22a115ef1820a2345a5f23",
+  "workflows": [
+    {
+      "workflowId": "VC-001",
+      "sourcePath": "demo/color-picker/App.vue",
+      "job": "Route shell; the chosen color is protagonist",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U1 shell boundaries; SPLIT route scenes, KEEP composition root"
+    },
+    {
+      "workflowId": "VC-002",
+      "sourcePath": "demo/color-picker/ErrorBoundary.vue",
+      "job": "Make a failed scene recoverable",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U1; KEEP only if it catches app/route-owned failures"
+    },
+    {
+      "workflowId": "VC-003",
+      "sourcePath": "demo/color-session/ColorSpaceSelector.vue",
+      "job": "Change the mathematical interpretation of color",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U3; KEEP semantic control, PRUNE decorative selector chrome"
+    },
+    {
+      "workflowId": "VC-004",
+      "sourcePath": "demo/color-session/color-chips/PreviewRamp.vue",
+      "job": "Show ordered tonal change",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; KEEP measured ramp, FOLD duplicate chip paint"
+    },
+    {
+      "workflowId": "VC-005",
+      "sourcePath": "demo/color-session/color-chips/PreviewStrip.vue",
+      "job": "Compare compact color samples",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; KEEP comparison, prove forced-colors text equivalent"
+    },
+    {
+      "workflowId": "VC-006",
+      "sourcePath": "demo/palettes/BrowsePane.vue",
+      "job": "Discover public palettes",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); SPLIT offline/error from empty"
+    },
+    {
+      "workflowId": "VC-007",
+      "sourcePath": "demo/palettes/PalettesPane.vue",
+      "job": "Manage the viewer’s palettes",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); central policy, explicit auth/offline"
+    },
+    {
+      "workflowId": "VC-008",
+      "sourcePath": "demo/palettes/admin/AdminPane.vue",
+      "job": "Seat privileged palette operations",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); gate before rendering data state"
+    },
+    {
+      "workflowId": "VC-009",
+      "sourcePath": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "job": "Review immutable moderation evidence",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); KEEP audit chronology, hide unauthorized existence"
+    },
+    {
+      "workflowId": "VC-010",
+      "sourcePath": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "job": "Triage reported palettes",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); KEEP action provenance, explicit queue states"
+    },
+    {
+      "workflowId": "VC-011",
+      "sourcePath": "demo/palettes/browser/admin/AdminListItem.vue",
+      "job": "Present one actionable admin record",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U4; independent full workflow required"
+    },
+    {
+      "workflowId": "VC-012",
+      "sourcePath": "demo/palettes/browser/admin/AdminListSkeleton.vue",
+      "job": "Preserve admin-list geometry during load",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U4; prove useful, reduced-motion safe, or PRUNE"
+    },
+    {
+      "workflowId": "VC-013",
+      "sourcePath": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "job": "Adjudicate proposed names",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); KEEP queue semantics, explicit refusal"
+    },
+    {
+      "workflowId": "VC-014",
+      "sourcePath": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+      "job": "Adjudicate palette tags",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); KEEP taxonomy work, policy-gate"
+    },
+    {
+      "workflowId": "VC-015",
+      "sourcePath": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+      "job": "Administer users",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U4 (V.A1 dependency); fix auth/offline-as-empty"
+    },
+    {
+      "workflowId": "VC-016",
+      "sourcePath": "demo/palettes/browser/admin/PaginationBar.vue",
+      "job": "Navigate an admin result window",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U4; prove pagination against actual collection semantics"
+    },
+    {
+      "workflowId": "VC-017",
+      "sourcePath": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+      "job": "Edit the current palette’s identity/content",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); KEEP local ownership, prevent policy bypass"
+    },
+    {
+      "workflowId": "VC-018",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue",
+      "job": "Report one card action outcome",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U4; merge with owned action if redundant"
+    },
+    {
+      "workflowId": "VC-019",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "job": "Make one palette legible and actionable",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; KEEP specimen hierarchy, reduce generic card chrome"
+    },
+    {
+      "workflowId": "VC-020",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue",
+      "job": "Expose policy-valid palette commands",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); FILTER actions through policy"
+    },
+    {
+      "workflowId": "VC-021",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+      "job": "State authorship/status without stealing focus",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U4; prove every metadata field"
+    },
+    {
+      "workflowId": "VC-022",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+      "job": "Show the palette itself as card protagonist",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; KEEP measured chroma, forced-colors equivalent"
+    },
+    {
+      "workflowId": "VC-023",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteRenameInput.vue",
+      "job": "Rename one owned palette",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U4 (V.A1 dependency); local validation and refusal"
+    },
+    {
+      "workflowId": "VC-024",
+      "sourcePath": "demo/palettes/browser/card/PaletteCardGrid.vue",
+      "job": "Lay out a browsable palette collection",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U4; own responsive density and collection states"
+    },
+    {
+      "workflowId": "VC-025",
+      "sourcePath": "demo/palettes/browser/card/PaletteCardSkeleton.vue",
+      "job": "Preserve palette-card geometry while loading",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; KEEP only with distinct loading semantics"
+    },
+    {
+      "workflowId": "VC-026",
+      "sourcePath": "demo/palettes/browser/card/PaletteColorStrip.vue",
+      "job": "Compactly expose a palette’s color order",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; KEEP chroma signature, accessible fallback"
+    },
+    {
+      "workflowId": "VC-027",
+      "sourcePath": "demo/palettes/browser/card/ShadowPalette.vue",
+      "job": "Preview a pending palette transformation",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; KEEP only as labeled provisional state"
+    },
+    {
+      "workflowId": "VC-028",
+      "sourcePath": "demo/palettes/browser/card/SwatchHoverMenu.vue",
+      "job": "Act on a specific swatch",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; keyboard/touch parity, popup ownership"
+    },
+    {
+      "workflowId": "VC-029",
+      "sourcePath": "demo/palettes/browser/dialog/FlagReportDialog.vue",
+      "job": "Submit a moderated report",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); explicit auth/error/success"
+    },
+    {
+      "workflowId": "VC-030",
+      "sourcePath": "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+      "job": "Explain and execute palette migration",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A2 dependency); one migration path, no compatibility fork"
+    },
+    {
+      "workflowId": "VC-031",
+      "sourcePath": "demo/palettes/browser/dialog/VersionHistoryDrawer.vue",
+      "job": "Inspect and recover local palette releases",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A2/A3 dependency); rename/version semantics to local releases"
+    },
+    {
+      "workflowId": "VC-032",
+      "sourcePath": "demo/palettes/browser/search/MiniColorPicker.vue",
+      "job": "Add color as a search constraint",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; KEEP only search-scoped controls"
+    },
+    {
+      "workflowId": "VC-033",
+      "sourcePath": "demo/palettes/browser/search/SearchFilterBar.vue",
+      "job": "Express palette query and filters",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; SPLIT query state from decorative container"
+    },
+    {
+      "workflowId": "VC-034",
+      "sourcePath": "demo/palettes/browser/search/TagEditPopover.vue",
+      "job": "Edit palette tags in context",
+      "historicalEvidence": "OPEN(D)",
+      "formationDirection": "V.U4; D axis remains open, L/C hash-banked"
+    },
+    {
+      "workflowId": "VC-035",
+      "sourcePath": "demo/palettes/browser/search/UserSortMenu.vue",
+      "job": "Select a meaningful collection ordering",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U4; PRUNE options without server semantics"
+    },
+    {
+      "workflowId": "VC-036",
+      "sourcePath": "demo/palettes/browser/slug/PaletteSlugBar.vue",
+      "job": "Show/edit the palette’s durable address",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4 (V.A1 dependency); policy-safe direct-link behavior"
+    },
+    {
+      "workflowId": "VC-037",
+      "sourcePath": "demo/palettes/browser/status/ApiOfflineChip.vue",
+      "job": "Name service unavailability",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; KEEP as status, never substitute for route error body"
+    },
+    {
+      "workflowId": "VC-038",
+      "sourcePath": "demo/picker/ColorPicker.vue",
+      "job": "Author a color",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U2; KEEP protagonist and local `ActionBarLayer`, dissolve shell/action leakage; V.U3 owns picker descendants"
+    },
+    {
+      "workflowId": "VC-039",
+      "sourcePath": "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+      "job": "Numerically manipulate color components",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; KEEP typed controls and direction semantics"
+    },
+    {
+      "workflowId": "VC-040",
+      "sourcePath": "demo/picker/controls/ComponentSliders/ConsoleRail.vue",
+      "job": "Expose diagnostic component values",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U3; dev-only proof or PRUNE"
+    },
+    {
+      "workflowId": "VC-041",
+      "sourcePath": "demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue",
+      "job": "Directly manipulate color in a plane",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; keyboard alternative and paint/interaction split"
+    },
+    {
+      "workflowId": "VC-042",
+      "sourcePath": "demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue",
+      "job": "Read exact component values",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U3; own numeric hierarchy, no duplicate readout"
+    },
+    {
+      "workflowId": "VC-043",
+      "sourcePath": "demo/picker/visual/DebugEventLog.vue",
+      "job": "Inspect interaction events during development",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U3; dev boundary or PRUNE from product"
+    },
+    {
+      "workflowId": "VC-044",
+      "sourcePath": "demo/picker/visual/HeroBlob.vue",
+      "job": "Embody the authored color",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; KEEP subject-specific animation with reduced-motion final"
+    },
+    {
+      "workflowId": "VC-045",
+      "sourcePath": "demo/picker/visual/PointerDebugOverlay.vue",
+      "job": "Inspect pointer geometry during development",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U3; dev boundary or PRUNE from product"
+    },
+    {
+      "workflowId": "VC-046",
+      "sourcePath": "demo/scenes/ConfigSliderPane.vue",
+      "job": "Configure one generative scene",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U3; KEEP controls subordinate to output"
+    },
+    {
+      "workflowId": "VC-047",
+      "sourcePath": "demo/scenes/about/AboutPane.vue",
+      "job": "Explain Value’s model and provenance",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; KEEP narrative hierarchy, remove ornamental cards"
+    },
+    {
+      "workflowId": "VC-048",
+      "sourcePath": "demo/scenes/about/ColorNutritionLabel.vue",
+      "job": "Make a color’s measured properties scannable",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; KEEP distinctive measured-chroma signature"
+    },
+    {
+      "workflowId": "VC-049",
+      "sourcePath": "demo/scenes/about/katex/Katex.vue",
+      "job": "Render mathematical notation",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; isolate renderer, failure text fallback"
+    },
+    {
+      "workflowId": "VC-050",
+      "sourcePath": "demo/scenes/about/markdown/Markdown.vue",
+      "job": "Render trusted product narrative",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U4; keep bounded syntax and accessible headings"
+    },
+    {
+      "workflowId": "VC-051",
+      "sourcePath": "demo/scenes/atmosphere/AuroraPane.vue",
+      "job": "Generate an atmospheric color field",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; fix RTL action clipping and motion ownership"
+    },
+    {
+      "workflowId": "VC-052",
+      "sourcePath": "demo/scenes/blob/BlobPane.vue",
+      "job": "Generate an animated color blob",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; reconcile 200–550ms overlaps and infinite pulse"
+    },
+    {
+      "workflowId": "VC-053",
+      "sourcePath": "demo/shared/ui/EmptyState.vue",
+      "job": "Explain a genuinely empty collection",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; SPLIT from offline/auth/error"
+    },
+    {
+      "workflowId": "VC-054",
+      "sourcePath": "demo/shared/ui/PaneHeader.vue",
+      "job": "Name the pane job and local actions",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U4; semantic heading contract consumed by all routes"
+    },
+    {
+      "workflowId": "VC-055",
+      "sourcePath": "demo/shell/PaneSegmentedControl.vue",
+      "job": "Switch sibling panes in constrained space",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U1; MOVE to true consumer home if shell-only name duplicates child"
+    },
+    {
+      "workflowId": "VC-056",
+      "sourcePath": "demo/shell/PaneSlot.vue",
+      "job": "Seat a route pane without owning its commands",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U1; PRUNE ref dispatch and forward-only exposes"
+    },
+    {
+      "workflowId": "VC-057",
+      "sourcePath": "demo/shell/dock/ActionBarToggle.vue",
+      "job": "Open the dock’s route-local action layer",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U2; reassess after GenericActionBar deletion"
+    },
+    {
+      "workflowId": "VC-058",
+      "sourcePath": "demo/shell/dock/ActionButton.vue",
+      "job": "Invoke one ColorPicker-local dock action",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U2; independently KEEP/challenge; GenericActionBar deletion gives no closure credit"
+    },
+    {
+      "workflowId": "VC-059",
+      "sourcePath": "demo/shell/dock/ActionToolbar.vue",
+      "job": "Seat ColorPicker-local commands",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U2; independent open workflow; preserve through ActionBarLayer pending its own result"
+    },
+    {
+      "workflowId": "VC-060",
+      "sourcePath": "demo/shell/dock/ColorInput.vue",
+      "job": "Parse and commit textual color input",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U2 (V.L1 dependency); KEEP failure-explicit typed boundary"
+    },
+    {
+      "workflowId": "VC-061",
+      "sourcePath": "demo/shell/dock/Dock.vue",
+      "job": "Provide persistent navigation/status/input chrome",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U2; SPLIT paint from route command ownership"
+    },
+    {
+      "workflowId": "VC-062",
+      "sourcePath": "demo/shell/dock/DockStatusLamp.vue",
+      "job": "Report current system/session status",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U2; remove infinite pulse when status is stable or reduced"
+    },
+    {
+      "workflowId": "VC-063",
+      "sourcePath": "demo/shell/dock/DockViewSelect.vue",
+      "job": "Navigate primary Value views",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U2; semantic nav, complete fourteen-route authority"
+    },
+    {
+      "workflowId": "VC-064",
+      "sourcePath": "demo/shell/dock/ParseEchoReadout.vue",
+      "job": "Show parsed input interpretation",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U2 (V.L1 dependency); prove user value or dev-only/PRUNE"
+    },
+    {
+      "workflowId": "VC-065",
+      "sourcePath": "demo/shell/dock/layers/ActionBarLayer.vue",
+      "job": "Seat ColorPicker-owned dock commands",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U2; KEEP ColorPicker-local layer; fold only proven forward-only relay"
+    },
+    {
+      "workflowId": "VC-066",
+      "sourcePath": "demo/shell/dock/layers/GenericActionBar.vue",
+      "job": "Silent shell-to-pane command proxy",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U2 terminal DELETE; no replacement registry/renderer"
+    },
+    {
+      "workflowId": "VC-067",
+      "sourcePath": "demo/shell/dock/layers/SlugEditLayer.vue",
+      "job": "Edit the current palette slug",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U2 (V.A1 dependency); route-local ownership and refusal"
+    },
+    {
+      "workflowId": "VC-068",
+      "sourcePath": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+      "job": "Expose navigation/session actions on mobile",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U2; restore focus to trigger on Escape"
+    },
+    {
+      "workflowId": "VC-069",
+      "sourcePath": "demo/shell/dock/menus/ProfileSection.vue",
+      "job": "Expose authenticated identity actions",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U2 (V.A1 dependency); explicit anonymous/offline/error states"
+    },
+    {
+      "workflowId": "VC-070",
+      "sourcePath": "demo/workbenches/extract/ExtractControls.vue",
+      "job": "Configure palette extraction",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; controls subordinate to source image/result"
+    },
+    {
+      "workflowId": "VC-071",
+      "sourcePath": "demo/workbenches/extract/ExtractPane.vue",
+      "job": "Seat extraction workflow",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; route-local states and commands"
+    },
+    {
+      "workflowId": "VC-072",
+      "sourcePath": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "job": "Coordinate image-to-palette extraction",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; KEEP state owner, split renderer leaves"
+    },
+    {
+      "workflowId": "VC-073",
+      "sourcePath": "demo/workbenches/extract/ImageDropZone.vue",
+      "job": "Acquire an image",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; keyboard/paste/drop/error parity"
+    },
+    {
+      "workflowId": "VC-074",
+      "sourcePath": "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+      "job": "Sample color from an image",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; pointer/keyboard geometry and cleanup"
+    },
+    {
+      "workflowId": "VC-075",
+      "sourcePath": "demo/workbenches/generate/GenerateControls.vue",
+      "job": "Configure palette generation",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U3; KEEP meaningful generator dimensions"
+    },
+    {
+      "workflowId": "VC-076",
+      "sourcePath": "demo/workbenches/generate/GeneratePane.vue",
+      "job": "Generate and save a palette",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; local seats survive; V.U2 owns only generic relay deletion"
+    },
+    {
+      "workflowId": "VC-077",
+      "sourcePath": "demo/workbenches/gradient/GradientPane.vue",
+      "job": "Author a gradient",
+      "historicalEvidence": "OPEN(DLC)",
+      "formationDirection": "V.U3; add local Reset; DELETE implicit first-palette Seed"
+    },
+    {
+      "workflowId": "VC-078",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue",
+      "job": "Edit canonical gradient text",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3 + V.L1/L2; parse/refusal/inverse proof"
+    },
+    {
+      "workflowId": "VC-079",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+      "job": "Author gradient easing",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3 + V.L3; no Keyframes sampling-policy absorption"
+    },
+    {
+      "workflowId": "VC-080",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue",
+      "job": "Author ordered gradient stops",
+      "historicalEvidence": "ADJ",
+      "formationDirection": "V.U3; named buttons, focus, forced-colors distinction"
+    },
+    {
+      "workflowId": "VC-081",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "job": "Make the gradient the route protagonist",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; measured-chroma signature, local command surface"
+    },
+    {
+      "workflowId": "VC-082",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",
+      "job": "Shape an easing curve",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3 + V.L3; typed curve state, sampled animation frames"
+    },
+    {
+      "workflowId": "VC-083",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue",
+      "job": "Compare easing behavior",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3 + V.L3; reduced-motion static comparison"
+    },
+    {
+      "workflowId": "VC-084",
+      "sourcePath": "demo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue",
+      "job": "Show temporal color mixing",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; KEEP animation only with timing/cleanup proof"
+    },
+    {
+      "workflowId": "VC-085",
+      "sourcePath": "demo/workbenches/mix/MixConfigBar.vue",
+      "job": "Configure a mix",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; fold decorative bar into meaningful control group"
+    },
+    {
+      "workflowId": "VC-086",
+      "sourcePath": "demo/workbenches/mix/MixPane.vue",
+      "job": "Mix selected palette colors",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; local Mix survives; DELETE `copyResult`, `clearSelection`, `MIN_COLORS`, and `canRemoveColor`; removal reaches zero"
+    },
+    {
+      "workflowId": "VC-087",
+      "sourcePath": "demo/workbenches/mix/MixResultDisplay.vue",
+      "job": "Present the mixed color/result",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; local result Copy/Reset survive; result is protagonist"
+    },
+    {
+      "workflowId": "VC-088",
+      "sourcePath": "demo/workbenches/mix/MixSourceSelector.vue",
+      "job": "Select mix inputs",
+      "historicalEvidence": "BANK",
+      "formationDirection": "V.U3; enforce selection meaning and empty guidance"
+    }
+  ],
+  "barrelDeclarations": [
+    {
+      "exportName": "PreviewRamp",
+      "barrelPath": "demo/color-session/color-chips/index.ts",
+      "targetPath": "demo/color-session/color-chips/PreviewRamp.vue",
+      "line": 25,
+      "sourceText": "export { default as PreviewRamp } from \"./PreviewRamp.vue\""
+    },
+    {
+      "exportName": "PreviewStrip",
+      "barrelPath": "demo/color-session/color-chips/index.ts",
+      "targetPath": "demo/color-session/color-chips/PreviewStrip.vue",
+      "line": 26,
+      "sourceText": "export { default as PreviewStrip } from \"./PreviewStrip.vue\""
+    },
+    {
+      "exportName": "AdminAuditPanel",
+      "barrelPath": "demo/palettes/browser/admin/index.ts",
+      "targetPath": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "line": 5,
+      "sourceText": "export { default as AdminAuditPanel } from \"./AdminAuditPanel.vue\""
+    },
+    {
+      "exportName": "AdminFlaggedPanel",
+      "barrelPath": "demo/palettes/browser/admin/index.ts",
+      "targetPath": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "line": 6,
+      "sourceText": "export { default as AdminFlaggedPanel } from \"./AdminFlaggedPanel.vue\""
+    },
+    {
+      "exportName": "AdminNamesPanel",
+      "barrelPath": "demo/palettes/browser/admin/index.ts",
+      "targetPath": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "line": 4,
+      "sourceText": "export { default as AdminNamesPanel } from \"./AdminNamesPanel.vue\""
+    },
+    {
+      "exportName": "AdminTagsPanel",
+      "barrelPath": "demo/palettes/browser/admin/index.ts",
+      "targetPath": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+      "line": 7,
+      "sourceText": "export { default as AdminTagsPanel } from \"./AdminTagsPanel.vue\""
+    },
+    {
+      "exportName": "AdminUsersPanel",
+      "barrelPath": "demo/palettes/browser/admin/index.ts",
+      "targetPath": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+      "line": 3,
+      "sourceText": "export { default as AdminUsersPanel } from \"./AdminUsersPanel.vue\""
+    },
+    {
+      "exportName": "CurrentPaletteEditor",
+      "barrelPath": "demo/palettes/browser/card/index.ts",
+      "targetPath": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+      "line": 9,
+      "sourceText": "export { default as CurrentPaletteEditor } from \"./CurrentPaletteEditor.vue\""
+    },
+    {
+      "exportName": "PaletteCard",
+      "barrelPath": "demo/palettes/browser/card/index.ts",
+      "targetPath": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 4,
+      "sourceText": "export { default as PaletteCard } from \"./PaletteCard/PaletteCard.vue\""
+    },
+    {
+      "exportName": "PaletteCardGrid",
+      "barrelPath": "demo/palettes/browser/card/index.ts",
+      "targetPath": "demo/palettes/browser/card/PaletteCardGrid.vue",
+      "line": 5,
+      "sourceText": "export { default as PaletteCardGrid } from \"./PaletteCardGrid.vue\""
+    },
+    {
+      "exportName": "PaletteCardSkeleton",
+      "barrelPath": "demo/palettes/browser/card/index.ts",
+      "targetPath": "demo/palettes/browser/card/PaletteCardSkeleton.vue",
+      "line": 6,
+      "sourceText": "export { default as PaletteCardSkeleton } from \"./PaletteCardSkeleton.vue\""
+    },
+    {
+      "exportName": "PaletteColorStrip",
+      "barrelPath": "demo/palettes/browser/card/index.ts",
+      "targetPath": "demo/palettes/browser/card/PaletteColorStrip.vue",
+      "line": 8,
+      "sourceText": "export { default as PaletteColorStrip } from \"./PaletteColorStrip.vue\""
+    },
+    {
+      "exportName": "ShadowPalette",
+      "barrelPath": "demo/palettes/browser/card/index.ts",
+      "targetPath": "demo/palettes/browser/card/ShadowPalette.vue",
+      "line": 7,
+      "sourceText": "export { default as ShadowPalette } from \"./ShadowPalette.vue\""
+    },
+    {
+      "exportName": "FlagReportDialog",
+      "barrelPath": "demo/palettes/browser/dialog/index.ts",
+      "targetPath": "demo/palettes/browser/dialog/FlagReportDialog.vue",
+      "line": 6,
+      "sourceText": "export { default as FlagReportDialog } from \"./FlagReportDialog.vue\""
+    },
+    {
+      "exportName": "MigratePalettesDialog",
+      "barrelPath": "demo/palettes/browser/dialog/index.ts",
+      "targetPath": "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+      "line": 8,
+      "sourceText": "export { default as MigratePalettesDialog } from \"./MigratePalettesDialog.vue\""
+    },
+    {
+      "exportName": "VersionHistoryDrawer",
+      "barrelPath": "demo/palettes/browser/dialog/index.ts",
+      "targetPath": "demo/palettes/browser/dialog/VersionHistoryDrawer.vue",
+      "line": 7,
+      "sourceText": "export { default as VersionHistoryDrawer } from \"./VersionHistoryDrawer.vue\""
+    },
+    {
+      "exportName": "SearchFilterBar",
+      "barrelPath": "demo/palettes/browser/search/index.ts",
+      "targetPath": "demo/palettes/browser/search/SearchFilterBar.vue",
+      "line": 3,
+      "sourceText": "export { default as SearchFilterBar } from \"./SearchFilterBar.vue\""
+    },
+    {
+      "exportName": "TagEditPopover",
+      "barrelPath": "demo/palettes/browser/search/index.ts",
+      "targetPath": "demo/palettes/browser/search/TagEditPopover.vue",
+      "line": 5,
+      "sourceText": "export { default as TagEditPopover } from \"./TagEditPopover.vue\""
+    },
+    {
+      "exportName": "UserSortMenu",
+      "barrelPath": "demo/palettes/browser/search/index.ts",
+      "targetPath": "demo/palettes/browser/search/UserSortMenu.vue",
+      "line": 4,
+      "sourceText": "export { default as UserSortMenu } from \"./UserSortMenu.vue\""
+    },
+    {
+      "exportName": "PaletteSlugBar",
+      "barrelPath": "demo/palettes/browser/slug/index.ts",
+      "targetPath": "demo/palettes/browser/slug/PaletteSlugBar.vue",
+      "line": 3,
+      "sourceText": "export { default as PaletteSlugBar } from \"./PaletteSlugBar.vue\""
+    },
+    {
+      "exportName": "ApiOfflineChip",
+      "barrelPath": "demo/palettes/browser/status/index.ts",
+      "targetPath": "demo/palettes/browser/status/ApiOfflineChip.vue",
+      "line": 7,
+      "sourceText": "export { default as ApiOfflineChip } from \"./ApiOfflineChip.vue\""
+    },
+    {
+      "exportName": "ColorPicker",
+      "barrelPath": "demo/picker/index.ts",
+      "targetPath": "demo/picker/ColorPicker.vue",
+      "line": 5,
+      "sourceText": "export { default as ColorPicker } from \"./ColorPicker.vue\""
+    },
+    {
+      "exportName": "Katex",
+      "barrelPath": "demo/scenes/about/katex/index.ts",
+      "targetPath": "demo/scenes/about/katex/Katex.vue",
+      "line": 1,
+      "sourceText": "export { default as Katex } from \"./Katex.vue\""
+    },
+    {
+      "exportName": "Markdown",
+      "barrelPath": "demo/scenes/about/markdown/index.ts",
+      "targetPath": "demo/scenes/about/markdown/Markdown.vue",
+      "line": 1,
+      "sourceText": "export { default as Markdown } from \"./Markdown.vue\""
+    },
+    {
+      "exportName": "Dock",
+      "barrelPath": "demo/shell/dock/index.ts",
+      "targetPath": "demo/shell/dock/Dock.vue",
+      "line": 5,
+      "sourceText": "export { default as Dock } from \"./Dock.vue\""
+    }
+  ],
+  "declarationEdges": [
+    {
+      "declarationId": "DECL-001",
+      "path": "demo/color-picker/App.vue",
+      "line": 177,
+      "text": "import PaneSlot from \"../shell/PaneSlot.vue\";"
+    },
+    {
+      "declarationId": "DECL-002",
+      "path": "demo/color-picker/App.vue",
+      "line": 180,
+      "text": "import ErrorBoundary from \"./ErrorBoundary.vue\";"
+    },
+    {
+      "declarationId": "DECL-003",
+      "path": "demo/color-picker/main.ts",
+      "line": 2,
+      "text": "import App from \"./App.vue\";"
+    },
+    {
+      "declarationId": "DECL-004",
+      "path": "demo/color-session/color-chips/index.ts",
+      "line": 25,
+      "text": "export { default as PreviewRamp } from \"./PreviewRamp.vue\";"
+    },
+    {
+      "declarationId": "DECL-005",
+      "path": "demo/color-session/color-chips/index.ts",
+      "line": 26,
+      "text": "export { default as PreviewStrip } from \"./PreviewStrip.vue\";"
+    },
+    {
+      "declarationId": "DECL-006",
+      "path": "demo/palettes/BrowsePane.vue",
+      "line": 189,
+      "text": "import EmptyState from \"../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "declarationId": "DECL-007",
+      "path": "demo/palettes/BrowsePane.vue",
+      "line": 196,
+      "text": "import PaneHeader from \"../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "declarationId": "DECL-008",
+      "path": "demo/palettes/PalettesPane.vue",
+      "line": 150,
+      "text": "import PaneHeader from \"../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "declarationId": "DECL-009",
+      "path": "demo/palettes/admin/AdminPane.vue",
+      "line": 88,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "declarationId": "DECL-010",
+      "path": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "line": 100,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "declarationId": "DECL-011",
+      "path": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "line": 101,
+      "text": "import AdminListSkeleton from \"./AdminListSkeleton.vue\";"
+    },
+    {
+      "declarationId": "DECL-012",
+      "path": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "line": 102,
+      "text": "import PaginationBar from \"./PaginationBar.vue\";"
+    },
+    {
+      "declarationId": "DECL-013",
+      "path": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "line": 142,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "declarationId": "DECL-014",
+      "path": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "line": 143,
+      "text": "import AdminListSkeleton from \"./AdminListSkeleton.vue\";"
+    },
+    {
+      "declarationId": "DECL-015",
+      "path": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "line": 144,
+      "text": "import PaginationBar from \"./PaginationBar.vue\";"
+    },
+    {
+      "declarationId": "DECL-016",
+      "path": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "line": 128,
+      "text": "import AdminListItem from \"./AdminListItem.vue\";"
+    },
+    {
+      "declarationId": "DECL-017",
+      "path": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "line": 129,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "declarationId": "DECL-018",
+      "path": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "line": 130,
+      "text": "import AdminListSkeleton from \"./AdminListSkeleton.vue\";"
+    },
+    {
+      "declarationId": "DECL-019",
+      "path": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+      "line": 118,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "declarationId": "DECL-020",
+      "path": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+      "line": 202,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "declarationId": "DECL-021",
+      "path": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+      "line": 203,
+      "text": "import AdminListSkeleton from \"./AdminListSkeleton.vue\";"
+    },
+    {
+      "declarationId": "DECL-022",
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 3,
+      "text": "export { default as AdminUsersPanel } from \"./AdminUsersPanel.vue\";"
+    },
+    {
+      "declarationId": "DECL-023",
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 4,
+      "text": "export { default as AdminNamesPanel } from \"./AdminNamesPanel.vue\";"
+    },
+    {
+      "declarationId": "DECL-024",
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 5,
+      "text": "export { default as AdminAuditPanel } from \"./AdminAuditPanel.vue\";"
+    },
+    {
+      "declarationId": "DECL-025",
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 6,
+      "text": "export { default as AdminFlaggedPanel } from \"./AdminFlaggedPanel.vue\";"
+    },
+    {
+      "declarationId": "DECL-026",
+      "path": "demo/palettes/browser/admin/index.ts",
+      "line": 7,
+      "text": "export { default as AdminTagsPanel } from \"./AdminTagsPanel.vue\";"
+    },
+    {
+      "declarationId": "DECL-027",
+      "path": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+      "line": 192,
+      "text": "import SwatchHoverMenu from \"./SwatchHoverMenu.vue\";"
+    },
+    {
+      "declarationId": "DECL-028",
+      "path": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+      "line": 193,
+      "text": "import ApiOfflineChip from \"../status/ApiOfflineChip.vue\";"
+    },
+    {
+      "declarationId": "DECL-029",
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 175,
+      "text": "import PaletteColorStrip from \"../PaletteColorStrip.vue\";"
+    },
+    {
+      "declarationId": "DECL-030",
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 176,
+      "text": "import PaletteCardMenu from \"./PaletteCardMenu.vue\";"
+    },
+    {
+      "declarationId": "DECL-031",
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 177,
+      "text": "import PaletteCardMeta from \"./PaletteCardMeta.vue\";"
+    },
+    {
+      "declarationId": "DECL-032",
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 178,
+      "text": "import PaletteCardSwatches from \"./PaletteCardSwatches.vue\";"
+    },
+    {
+      "declarationId": "DECL-033",
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 179,
+      "text": "import PaletteRenameInput from \"./PaletteRenameInput.vue\";"
+    },
+    {
+      "declarationId": "DECL-034",
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "line": 180,
+      "text": "import ActionFeedback from \"./ActionFeedback.vue\";"
+    },
+    {
+      "declarationId": "DECL-035",
+      "path": "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+      "line": 73,
+      "text": "import SwatchHoverMenu from \"../SwatchHoverMenu.vue\";"
+    },
+    {
+      "declarationId": "DECL-036",
+      "path": "demo/palettes/browser/card/PaletteCardGrid.vue",
+      "line": 36,
+      "text": "import EmptyState from \"../../../shared/ui/EmptyState.vue\";"
+    },
+    {
+      "declarationId": "DECL-037",
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 4,
+      "text": "export { default as PaletteCard } from \"./PaletteCard/PaletteCard.vue\";"
+    },
+    {
+      "declarationId": "DECL-038",
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 5,
+      "text": "export { default as PaletteCardGrid } from \"./PaletteCardGrid.vue\";"
+    },
+    {
+      "declarationId": "DECL-039",
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 6,
+      "text": "export { default as PaletteCardSkeleton } from \"./PaletteCardSkeleton.vue\";"
+    },
+    {
+      "declarationId": "DECL-040",
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 7,
+      "text": "export { default as ShadowPalette } from \"./ShadowPalette.vue\";"
+    },
+    {
+      "declarationId": "DECL-041",
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 8,
+      "text": "export { default as PaletteColorStrip } from \"./PaletteColorStrip.vue\";"
+    },
+    {
+      "declarationId": "DECL-042",
+      "path": "demo/palettes/browser/card/index.ts",
+      "line": 9,
+      "text": "export { default as CurrentPaletteEditor } from \"./CurrentPaletteEditor.vue\";"
+    },
+    {
+      "declarationId": "DECL-043",
+      "path": "demo/palettes/browser/dialog/index.ts",
+      "line": 6,
+      "text": "export { default as FlagReportDialog } from \"./FlagReportDialog.vue\";"
+    },
+    {
+      "declarationId": "DECL-044",
+      "path": "demo/palettes/browser/dialog/index.ts",
+      "line": 7,
+      "text": "export { default as VersionHistoryDrawer } from \"./VersionHistoryDrawer.vue\";"
+    },
+    {
+      "declarationId": "DECL-045",
+      "path": "demo/palettes/browser/dialog/index.ts",
+      "line": 8,
+      "text": "export { default as MigratePalettesDialog } from \"./MigratePalettesDialog.vue\";"
+    },
+    {
+      "declarationId": "DECL-046",
+      "path": "demo/palettes/browser/search/SearchFilterBar.vue",
+      "line": 132,
+      "text": "import MiniColorPicker from \"./MiniColorPicker.vue\";"
+    },
+    {
+      "declarationId": "DECL-047",
+      "path": "demo/palettes/browser/search/index.ts",
+      "line": 3,
+      "text": "export { default as SearchFilterBar } from \"./SearchFilterBar.vue\";"
+    },
+    {
+      "declarationId": "DECL-048",
+      "path": "demo/palettes/browser/search/index.ts",
+      "line": 4,
+      "text": "export { default as UserSortMenu } from \"./UserSortMenu.vue\";"
+    },
+    {
+      "declarationId": "DECL-049",
+      "path": "demo/palettes/browser/search/index.ts",
+      "line": 5,
+      "text": "export { default as TagEditPopover } from \"./TagEditPopover.vue\";"
+    },
+    {
+      "declarationId": "DECL-050",
+      "path": "demo/palettes/browser/slug/index.ts",
+      "line": 3,
+      "text": "export { default as PaletteSlugBar } from \"./PaletteSlugBar.vue\";"
+    },
+    {
+      "declarationId": "DECL-051",
+      "path": "demo/palettes/browser/status/index.ts",
+      "line": 7,
+      "text": "export { default as ApiOfflineChip } from \"./ApiOfflineChip.vue\";"
+    },
+    {
+      "declarationId": "DECL-052",
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 109,
+      "text": "import ColorSpaceSelector from \"../color-session/ColorSpaceSelector.vue\";"
+    },
+    {
+      "declarationId": "DECL-053",
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 110,
+      "text": "import ColorComponentDisplay from \"./display/ColorComponentDisplay/ColorComponentDisplay.vue\";"
+    },
+    {
+      "declarationId": "DECL-054",
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 139,
+      "text": "import SpectrumCanvas from \"./controls/SpectrumCanvas/SpectrumCanvas.vue\";"
+    },
+    {
+      "declarationId": "DECL-055",
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 140,
+      "text": "import ComponentSliders from \"./controls/ComponentSliders/ComponentSliders.vue\";"
+    },
+    {
+      "declarationId": "DECL-056",
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 141,
+      "text": "import PointerDebugOverlay from \"./visual/PointerDebugOverlay.vue\";"
+    },
+    {
+      "declarationId": "DECL-057",
+      "path": "demo/picker/ColorPicker.vue",
+      "line": 157,
+      "text": "const HeroBlob = defineAsyncComponent(() => import(\"./visual/HeroBlob.vue\"));"
+    },
+    {
+      "declarationId": "DECL-058",
+      "path": "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+      "line": 104,
+      "text": "import ConsoleRail from \"./ConsoleRail.vue\";"
+    },
+    {
+      "declarationId": "DECL-059",
+      "path": "demo/picker/index.ts",
+      "line": 5,
+      "text": "export { default as ColorPicker } from \"./ColorPicker.vue\";"
+    },
+    {
+      "declarationId": "DECL-060",
+      "path": "demo/picker/visual/PointerDebugOverlay.vue",
+      "line": 70,
+      "text": "import DebugEventLog from \"./DebugEventLog.vue\";"
+    },
+    {
+      "declarationId": "DECL-061",
+      "path": "demo/scenes/ConfigSliderPane.vue",
+      "line": 22,
+      "text": "import PaneHeader from \"../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "declarationId": "DECL-062",
+      "path": "demo/scenes/about/AboutPane.vue",
+      "line": 65,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "declarationId": "DECL-063",
+      "path": "demo/scenes/about/AboutPane.vue",
+      "line": 66,
+      "text": "import ColorNutritionLabel from \"./ColorNutritionLabel.vue\";"
+    },
+    {
+      "declarationId": "DECL-064",
+      "path": "demo/scenes/about/AboutPane.vue",
+      "line": 69,
+      "text": "import ColorSpaceSelector from \"../../color-session/ColorSpaceSelector.vue\";"
+    },
+    {
+      "declarationId": "DECL-065",
+      "path": "demo/scenes/about/katex/index.ts",
+      "line": 1,
+      "text": "export { default as Katex } from \"./Katex.vue\";"
+    },
+    {
+      "declarationId": "DECL-066",
+      "path": "demo/scenes/about/markdown/index.ts",
+      "line": 1,
+      "text": "export { default as Markdown } from \"./Markdown.vue\";"
+    },
+    {
+      "declarationId": "DECL-067",
+      "path": "demo/scenes/atmosphere/AuroraPane.vue",
+      "line": 33,
+      "text": "import ConfigSliderPane from \"../ConfigSliderPane.vue\";"
+    },
+    {
+      "declarationId": "DECL-068",
+      "path": "demo/scenes/atmosphere/AuroraPane.vue",
+      "line": 34,
+      "text": "import type { SliderSection } from \"../ConfigSliderPane.vue\";"
+    },
+    {
+      "declarationId": "DECL-069",
+      "path": "demo/scenes/blob/BlobPane.vue",
+      "line": 14,
+      "text": "import ConfigSliderPane from \"../ConfigSliderPane.vue\";"
+    },
+    {
+      "declarationId": "DECL-070",
+      "path": "demo/scenes/blob/BlobPane.vue",
+      "line": 15,
+      "text": "import type { SliderSection } from \"../ConfigSliderPane.vue\";"
+    },
+    {
+      "declarationId": "DECL-071",
+      "path": "demo/shell/dock/ActionToolbar.vue",
+      "line": 68,
+      "text": "import ActionButton from \"./ActionButton.vue\";"
+    },
+    {
+      "declarationId": "DECL-072",
+      "path": "demo/shell/dock/ColorInput.vue",
+      "line": 131,
+      "text": "import ParseEchoReadout from \"./ParseEchoReadout.vue\";"
+    },
+    {
+      "declarationId": "DECL-073",
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 7,
+      "text": "import ActionBarToggle from \"./ActionBarToggle.vue\";"
+    },
+    {
+      "declarationId": "DECL-074",
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 8,
+      "text": "import ActionBarLayer from \"./layers/ActionBarLayer.vue\";"
+    },
+    {
+      "declarationId": "DECL-075",
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 9,
+      "text": "import GenericActionBar from \"./layers/GenericActionBar.vue\";"
+    },
+    {
+      "declarationId": "DECL-076",
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 10,
+      "text": "import SlugEditLayer from \"./layers/SlugEditLayer.vue\";"
+    },
+    {
+      "declarationId": "DECL-077",
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 11,
+      "text": "import MobileMenuDropdown from \"./menus/MobileMenuDropdown.vue\";"
+    },
+    {
+      "declarationId": "DECL-078",
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 12,
+      "text": "import ProfileSection from \"./menus/ProfileSection.vue\";"
+    },
+    {
+      "declarationId": "DECL-079",
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 13,
+      "text": "import DockViewSelect from \"./DockViewSelect.vue\";"
+    },
+    {
+      "declarationId": "DECL-080",
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 14,
+      "text": "import DockStatusLamp from \"./DockStatusLamp.vue\";"
+    },
+    {
+      "declarationId": "DECL-081",
+      "path": "demo/shell/dock/Dock.vue",
+      "line": 15,
+      "text": "import PaneSegmentedControl from \"../PaneSegmentedControl.vue\";"
+    },
+    {
+      "declarationId": "DECL-082",
+      "path": "demo/shell/dock/index.ts",
+      "line": 5,
+      "text": "export { default as Dock } from \"./Dock.vue\";"
+    },
+    {
+      "declarationId": "DECL-083",
+      "path": "demo/shell/dock/layers/ActionBarLayer.vue",
+      "line": 6,
+      "text": "import ActionToolbar from \"../ActionToolbar.vue\";"
+    },
+    {
+      "declarationId": "DECL-084",
+      "path": "demo/shell/dock/layers/ActionBarLayer.vue",
+      "line": 7,
+      "text": "import ColorInput from \"../ColorInput.vue\";"
+    },
+    {
+      "declarationId": "DECL-085",
+      "path": "demo/shell/dock/layers/GenericActionBar.vue",
+      "line": 3,
+      "text": "import ActionButton from \"../ActionButton.vue\";"
+    },
+    {
+      "declarationId": "DECL-086",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 69,
+      "text": "const AboutPane = defineAsyncComponent(() => import(\"../scenes/about/AboutPane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-087",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 70,
+      "text": "const PalettesPane = defineAsyncComponent(() => import(\"../palettes/PalettesPane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-088",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 71,
+      "text": "const BrowsePane = defineAsyncComponent(() => import(\"../palettes/BrowsePane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-089",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 72,
+      "text": "const ExtractPane = defineAsyncComponent(() => import(\"../workbenches/extract/ExtractPane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-090",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 73,
+      "text": "const GeneratePane = defineAsyncComponent(() => import(\"../workbenches/generate/GeneratePane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-091",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 74,
+      "text": "const GradientPane = defineAsyncComponent(() => import(\"../workbenches/gradient/GradientPane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-092",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 75,
+      "text": "const MixPane = defineAsyncComponent(() => import(\"../workbenches/mix/MixPane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-093",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 76,
+      "text": "const AdminPane = defineAsyncComponent(() => import(\"../palettes/admin/AdminPane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-094",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 77,
+      "text": "const AuroraPane = defineAsyncComponent(() => import(\"../scenes/atmosphere/AuroraPane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-095",
+      "path": "demo/shell/usePaneRouter.ts",
+      "line": 78,
+      "text": "const BlobPane = defineAsyncComponent(() => import(\"../scenes/blob/BlobPane.vue\"));"
+    },
+    {
+      "declarationId": "DECL-096",
+      "path": "demo/workbenches/extract/ExtractPane.vue",
+      "line": 25,
+      "text": "import ExtractWorkbench from \"./ExtractWorkbench.vue\";"
+    },
+    {
+      "declarationId": "DECL-097",
+      "path": "demo/workbenches/extract/ExtractPane.vue",
+      "line": 26,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "declarationId": "DECL-098",
+      "path": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "line": 193,
+      "text": "import ImageDropZone from \"./ImageDropZone.vue\";"
+    },
+    {
+      "declarationId": "DECL-099",
+      "path": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "line": 194,
+      "text": "import ExtractControls from \"./ExtractControls.vue\";"
+    },
+    {
+      "declarationId": "DECL-100",
+      "path": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "line": 195,
+      "text": "import ImageEyedropper from \"./ImageEyedropper/ImageEyedropper.vue\";"
+    },
+    {
+      "declarationId": "DECL-101",
+      "path": "demo/workbenches/generate/GeneratePane.vue",
+      "line": 4,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "declarationId": "DECL-102",
+      "path": "demo/workbenches/generate/GeneratePane.vue",
+      "line": 5,
+      "text": "import GenerateControls from \"./GenerateControls.vue\";"
+    },
+    {
+      "declarationId": "DECL-103",
+      "path": "demo/workbenches/gradient/GradientPane.vue",
+      "line": 4,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "declarationId": "DECL-104",
+      "path": "demo/workbenches/gradient/GradientPane.vue",
+      "line": 5,
+      "text": "import GradientVisualizer from \"./GradientVisualizer/GradientVisualizer.vue\";"
+    },
+    {
+      "declarationId": "DECL-105",
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+      "line": 32,
+      "text": "import EasingAuthoringStage from \"./easing/EasingAuthoringStage.vue\";"
+    },
+    {
+      "declarationId": "DECL-106",
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+      "line": 33,
+      "text": "import EasingSpecimenStrip from \"./easing/EasingSpecimenStrip.vue\";"
+    },
+    {
+      "declarationId": "DECL-107",
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "line": 14,
+      "text": "import GradientStopEditor from \"./GradientStopEditor.vue\";"
+    },
+    {
+      "declarationId": "DECL-108",
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "line": 15,
+      "text": "import GradientCodeEditor from \"./GradientCodeEditor.vue\";"
+    },
+    {
+      "declarationId": "DECL-109",
+      "path": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "line": 16,
+      "text": "import GradientEasingEditor from \"./GradientEasingEditor.vue\";"
+    },
+    {
+      "declarationId": "DECL-110",
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 4,
+      "text": "import PaneHeader from \"../../shared/ui/PaneHeader.vue\";"
+    },
+    {
+      "declarationId": "DECL-111",
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 5,
+      "text": "import MixSourceSelector from \"./MixSourceSelector.vue\";"
+    },
+    {
+      "declarationId": "DECL-112",
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 6,
+      "text": "import MixConfigBar from \"./MixConfigBar.vue\";"
+    },
+    {
+      "declarationId": "DECL-113",
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 7,
+      "text": "import MixResultDisplay from \"./MixResultDisplay.vue\";"
+    },
+    {
+      "declarationId": "DECL-114",
+      "path": "demo/workbenches/mix/MixPane.vue",
+      "line": 8,
+      "text": "import MixAnimationCanvas from \"./MixAnimationCanvas/MixAnimationCanvas.vue\";"
+    },
+    {
+      "declarationId": "DECL-115",
+      "path": "demo/workbenches/mix/MixSourceSelector.vue",
+      "line": 9,
+      "text": "import EmptyState from \"../../shared/ui/EmptyState.vue\";"
+    }
+  ],
+  "sfcPaths": [
+    "demo/color-picker/App.vue",
+    "demo/color-picker/ErrorBoundary.vue",
+    "demo/color-session/ColorSpaceSelector.vue",
+    "demo/color-session/color-chips/PreviewRamp.vue",
+    "demo/color-session/color-chips/PreviewStrip.vue",
+    "demo/palettes/BrowsePane.vue",
+    "demo/palettes/PalettesPane.vue",
+    "demo/palettes/admin/AdminPane.vue",
+    "demo/palettes/browser/admin/AdminAuditPanel.vue",
+    "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+    "demo/palettes/browser/admin/AdminListItem.vue",
+    "demo/palettes/browser/admin/AdminListSkeleton.vue",
+    "demo/palettes/browser/admin/AdminNamesPanel.vue",
+    "demo/palettes/browser/admin/AdminTagsPanel.vue",
+    "demo/palettes/browser/admin/AdminUsersPanel.vue",
+    "demo/palettes/browser/admin/PaginationBar.vue",
+    "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+    "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue",
+    "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+    "demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue",
+    "demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+    "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+    "demo/palettes/browser/card/PaletteCard/PaletteRenameInput.vue",
+    "demo/palettes/browser/card/PaletteCardGrid.vue",
+    "demo/palettes/browser/card/PaletteCardSkeleton.vue",
+    "demo/palettes/browser/card/PaletteColorStrip.vue",
+    "demo/palettes/browser/card/ShadowPalette.vue",
+    "demo/palettes/browser/card/SwatchHoverMenu.vue",
+    "demo/palettes/browser/dialog/FlagReportDialog.vue",
+    "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+    "demo/palettes/browser/dialog/VersionHistoryDrawer.vue",
+    "demo/palettes/browser/search/MiniColorPicker.vue",
+    "demo/palettes/browser/search/SearchFilterBar.vue",
+    "demo/palettes/browser/search/TagEditPopover.vue",
+    "demo/palettes/browser/search/UserSortMenu.vue",
+    "demo/palettes/browser/slug/PaletteSlugBar.vue",
+    "demo/palettes/browser/status/ApiOfflineChip.vue",
+    "demo/picker/ColorPicker.vue",
+    "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+    "demo/picker/controls/ComponentSliders/ConsoleRail.vue",
+    "demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue",
+    "demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue",
+    "demo/picker/visual/DebugEventLog.vue",
+    "demo/picker/visual/HeroBlob.vue",
+    "demo/picker/visual/PointerDebugOverlay.vue",
+    "demo/scenes/ConfigSliderPane.vue",
+    "demo/scenes/about/AboutPane.vue",
+    "demo/scenes/about/ColorNutritionLabel.vue",
+    "demo/scenes/about/katex/Katex.vue",
+    "demo/scenes/about/markdown/Markdown.vue",
+    "demo/scenes/atmosphere/AuroraPane.vue",
+    "demo/scenes/blob/BlobPane.vue",
+    "demo/shared/ui/EmptyState.vue",
+    "demo/shared/ui/PaneHeader.vue",
+    "demo/shell/PaneSegmentedControl.vue",
+    "demo/shell/PaneSlot.vue",
+    "demo/shell/dock/ActionBarToggle.vue",
+    "demo/shell/dock/ActionButton.vue",
+    "demo/shell/dock/ActionToolbar.vue",
+    "demo/shell/dock/ColorInput.vue",
+    "demo/shell/dock/Dock.vue",
+    "demo/shell/dock/DockStatusLamp.vue",
+    "demo/shell/dock/DockViewSelect.vue",
+    "demo/shell/dock/ParseEchoReadout.vue",
+    "demo/shell/dock/layers/ActionBarLayer.vue",
+    "demo/shell/dock/layers/GenericActionBar.vue",
+    "demo/shell/dock/layers/SlugEditLayer.vue",
+    "demo/shell/dock/menus/MobileMenuDropdown.vue",
+    "demo/shell/dock/menus/ProfileSection.vue",
+    "demo/workbenches/extract/ExtractControls.vue",
+    "demo/workbenches/extract/ExtractPane.vue",
+    "demo/workbenches/extract/ExtractWorkbench.vue",
+    "demo/workbenches/extract/ImageDropZone.vue",
+    "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+    "demo/workbenches/generate/GenerateControls.vue",
+    "demo/workbenches/generate/GeneratePane.vue",
+    "demo/workbenches/gradient/GradientPane.vue",
+    "demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue",
+    "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+    "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue",
+    "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+    "demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",
+    "demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue",
+    "demo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue",
+    "demo/workbenches/mix/MixConfigBar.vue",
+    "demo/workbenches/mix/MixPane.vue",
+    "demo/workbenches/mix/MixResultDisplay.vue",
+    "demo/workbenches/mix/MixSourceSelector.vue"
+  ]
+}
