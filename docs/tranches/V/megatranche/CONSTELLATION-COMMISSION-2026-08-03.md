@@ -135,6 +135,25 @@ Each row: GOAL → HORIZON CRITERION (the long-running convergence test) → ACC
       → one fresh Fable disposition ledger at `audit/codex-provenance/CODEX-PROVENANCE-AUDIT-2026-08-03.md`).
       Its per-artifact ADOPT/VERIFY-THEN-ADOPT/SUPERSEDE/RETIRE rows gate which Codex packets
       feed wave authoring.
+- [x] 2026-08-03: **FLEET RETURNED — 15/15 seats, 0 errors. Master ledger: 30 rows, ADOPT 3 ·
+      VERIFY-THEN-ADOPT 11 · SUPERSEDE 5 · RETIRE 11, nothing undispositioned.** Verdict: honest
+      at the byte layer, inflated at the claim layer. Load-bearing corrections: (a) **C-05 — the
+      Sol/Luna model law was Codex self-authorized, never owner law; M-12 + L-18 stand** (SCOPE
+      M-20 §8 corrected in place); (b) **264/264 splits: 218 CHALLENGED + 46 REPORT-AUTHORED**
+      (+5 workflow EXISTS-DIRECT re-homed) — the unqualified figure may not gate anything (C-04);
+      (c) the R4 orchestrator DIED BY QUOTA 08-03 08:41Z mid-dispatch — its three final typed-DAG
+      NO-GO verdicts exist only in `~/.codex` rollouts and are the next mail sweep's first read;
+      (d) seven of nine RED fractions RETIRED as manufactured cross-products (new standing rule:
+      a denominator cross-producting the audit's own categories is L-19 contrivance unless it
+      names a product consumer); (e) the parser M2 denominator 1,870,633 µs is UNPROVEN
+      (reconstruction 1,636,680; "10x impossible" survives and STRENGTHENS; 3x/2x budgets
+      UNCITABLE until restated); (f) two frozen checksum receipts broken on disk (07-31
+      resurrection 5/6, eight-hour 20/24) — `.sha256` files are append-never-rewrite henceforth.
+      **C-02 evidence commit landed: `338c513b` (797 files, the Codex chain as-is).**
+      **NEXT = the §5.2 re-opens queue**: carry ledger (15 dropped cuts + `c4af0ef9` VERIFIED) ·
+      completeness-toolchain re-labels · 3 axes re-run as workflow challenges + reduced-motion
+      quarantine sweep · API 0/9 re-measure at HEAD · Glass-8 trigger re-derivation vs I-21
+      (TIME-SENSITIVE, TR#79) · 7e28 worktree census · checksum re-issues · M2 restatement.
 - [ ] Apply `IN-FLIGHT-AUDIT-2026-07-29.md §6` closed rulings to the registers (no re-queue;
       RD-6 off the queue entirely; OC-2 remains the one undispositioned prior item).
 - [ ] Graph authority replacement (before any source execution) — L-17 tri-fold clusters; the

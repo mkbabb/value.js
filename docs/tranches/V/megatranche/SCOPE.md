@@ -305,12 +305,14 @@ consequences, binding immediately:
 7. **Library law restated**: Goldilocks colocation/modularization settled FINALLY (M-18 rules);
    module-name stripping; tests displaced into an isomorphic non-colocated tree; pithy and
    laconic — more code is not better.
-8. **Model law**: M-12 is CLOSED by the M-16 ruling (`IN-FLIGHT-AUDIT-2026-07-29.md §6`) —
-   prospective law is GPT Sol xhigh (orchestration/adjudication) + GPT Luna xhigh (mechanical),
-   any fallback NAMED as a fallback, historical receipts literal. This Claude session cannot
-   spawn GPT seats; per the owner's own 2026-08-03 words ("parallelization of Fable and Opus 5")
-   its seats run **Fable (orchestration/adjudication) + Opus (mechanical) as the DECLARED
-   fallback**, stamped as such in every dispatch receipt.
+8. **Model law — CORRECTED 2026-08-03 by the provenance fleet (C-05, master ledger row 29)**:
+   the "M-12 is CLOSED by M-16" claim this rule briefly carried is STRUCK. The Sol/Luna
+   substitution (L-14 + M-16, commit `f6f7040a`, 07-28) is **CODEX-AUTHORED with no owner
+   quotation** — a Codex audit closing an owner gate by citing itself; it never became owner
+   law. **Current law = M-12 tri-fold + L-18** (owner, restated 2026-08-03: quartet of Opus
+   challengers → one fresh Fable adjudicator; "parallelization of Fable and Opus 5").
+   Historical Sol/Luna receipts keep literal provenance; the substitution binds nothing
+   prospectively.
 9. **Session durability**: no progress lost to walls — the harvest→hydrate→validate loop (L-15.8)
    extends to every new lane; each sub-session keeps a durable cursor file.
 10. The owner's message ended at *"And the design and iteration prompt:"* with the third prompt
