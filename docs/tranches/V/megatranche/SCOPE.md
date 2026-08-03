@@ -461,3 +461,26 @@ marks were)."*
    sub-tranche wave; every census sketch id maps to a full spec or a terminal kill; cross-repo
    edges declared from both ends; each sub-tranche closes its own L-20 loop; **X-whole is
    SPECIFIED only when all four sub-tranches are.**
+
+## M-27 — THE PARITY LAW: THE VALUE.JS TREATMENT FOR ALL FOUR REPOS (owner, 2026-08-03)
+
+Verbatim: *"Essentially all that we do for one repo we should do for the others: value.js,
+keyframes.js, fourier-analysis, and parse-that. Look to't."*
+
+1. **The value.js treatment is the TEMPLATE**, applied per-repo and Goldilocks-scaled to each
+   repo's surface: per-component/per-module **D/L/C challenge saturation** (hash-banked, the
+   L-15.8 completeness law extended per repo) → **tri-fold adjudication** into per-component
+   apotheoses → **visual audit** of every demo surface (Safari mobile+desktop, probe-parsimony)
+   → full **wave specs** with born-RED gates → per-sub-tranche **L-20 conformance loop** →
+   SPECIFIED. Historical excavation and mail-ledger surfaces reach parity through the census
+   docs-lanes (done) + the wave items that create per-repo INBOX/CLAUDE.md at execution
+   (F.W0, KF.W1) — no new ceremony beyond that.
+2. **Sequencing:** spec authoring proceeds NOW from census + intake CARRY (M-25); saturation
+   runs in parallel as formation sub-sessions; each sub-tranche folds its adjudicated
+   apotheosis routings in a REFINEMENT pass before its final L-20 stamp — the specs may not
+   close ignorant of their own repo's adjudicated defect corpus.
+3. **The parity map lives in COHESION.md §1a** — treatment × repo, every cell statused; a cell
+   marked absent without a QUEUED/RUNNING sub-session is a cohesion defect (§3).
+4. Scale note: kf ≈ 58 demo components + 14 library zones; fourier ≈ its census roster;
+   parse-that = library modules only (no demo). Concurrency stays under the ≤4-workflow law —
+   parity sub-sessions QUEUE, never crowd.
