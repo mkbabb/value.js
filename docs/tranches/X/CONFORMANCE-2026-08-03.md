@@ -304,3 +304,233 @@ re-planning a wave.
 defects · 9/9 first-pass defects fixed on the merits · R-A applied 11/12 · R-C/R-D applied 12/12 ·
 R-B applied 5/6 (X-W4 omitted, and it is the receiving file) · 117/117 ledger rows reachable ·
 2 one-directional ordering edges remain.*
+
+---
+
+# THIRD PASS — post-repair re-adjudication, 2026-08-03
+
+**Seat**: fresh Fable conformance adjudicator (L-20), third pass. **Inputs read whole**:
+`WAVE_SPEC.md` · `CARRY-CUT-LEDGER.md` §0/§1/§2 · all twelve `waves/W{0..11}.md` at their
+post-repair bytes (`git status`: W0, W1, W4, W5, W9 modified since the second pass; W2, W3, W6, W7,
+W8, W10, W11 untouched). Passes one and two above are dated evidence and are not rewritten. All
+verification read-only; docs-only write (this file). Rulings **R-A** (stamping site), **R-B**
+(X.W4.g receiving surface + alias) and **R-E** (bounds idiom = W10's, tranche-wide) applied as
+given, not re-litigated.
+
+**Verdict roster**: **7 CONFORMANT** (W0, W1, W3, W5, W7, W9, W10) · **5 DEFECTIVE**
+(W2, W4, W6, W8, W11) · **6 numbered defects**. **NOT tranche-ready.**
+
+## (a) Second-pass defects — repair audit
+
+| second-pass defect | status |
+|---|---|
+| W0-D1 universal bounds claim falsified by HG-8 | **FIXED on the merits** — the universal sentence is **deleted** (§4 now ends at the table) and `workflows/hydrate-reports.mjs` carries `execute, no write (HG-8's clean-worktree replay + X-W0.c's ledger regeneration)` (`W0.md:85`). Every W0 gate-invoked script now has a row: `validate-completeness.mjs` (modify-carve) · `hydrate-reports.mjs` · `graph-v3.mjs` (create) · `validate-constellation-dag.mjs` (modify-carve) |
+| W1-D1 commit 8 stamps VERIFIED | **FIXED** — commit 8 reads "four-verb status advanced to IMPLEMENTED (VERIFIED is stamped only at X-W11's release close)" (`W1.md:363`) and the L-18 rider now closes "…the wave is ACCEPTED and CC-029..CC-034 report terminal…; VERIFIED is stamped only at X-W11's release close (R-A)" (`:406`) — ACCEPTED and VERIFIED separated, not conflated |
+| W4-D1 R-B's receiving surface does not exist | **FIXED, and it is the round's principal repair** — `### X.W4.g The Glass-8 atomic cut` exists (`W4.md:277-328`) with the full WAVE_SPEC quartet, the **CLOSED unless X-W0.j's census returns PASS** preamble, the four trigger conditions verbatim, a **second File Bounds table** of 13 trigger-gated rows (incl. `WatercolorSwatch.vue` create and `a11y-swatch-seat.spec.ts`), a §4a sequencing bullet, four sub-gates G1–G4 held **out** of §6's 16 with their own falsifiers, commit 7, artefact 9, and X-W0 added to §10 Depends-on. §10a's disclaiming sentence is replaced by "**This wave owns the receiving surface** (R-B) … The bank is no longer an unresolved pointer." Arithmetic re-checked: 16 gates = 5+3+4+4, 13 RED = 4+2+4+3; 13 bounds rows = 4 impostor SFCs + 7 importers + 2 new files = the 11 imports the mechanism deletes |
+| W4-D2 ConsoleRail one-directional | **FIXED** — `W4.md:196-197` reciprocates X-W9.h with the line and range cited |
+| W5-D1 X-W2 edge unreciprocated | **FIXED, and over-delivers** — X-W2 in Opens-after (`W5.md:6`), §10 Depends-on (`:342-344`) and a §4a Cross-wave block (`:135-141`); the `e2e/**` glob is **narrowed to six named spec paths** and W2's seven are enumerated to prove file-disjointness. The narrowing is the substantive half: the glob was the hidden conflict |
+| W9-D1 `eslint.config.js` held by two concurrent units | **FIXED at the root** — both rule objects are folded into `X-W9.f`, which "is the sole writer" (`W9.md:101`, `:132-137`); `.a`/`.b` drive G5/G10 by explicit `npx eslint --rule` with no config edit, and `.f` re-runs them config-resident as a scope check. The §4a intra-wave paragraph states the sibling-worktree hazard by name |
+| W9-D2 order-independence claim omits a third file | **FIXED** — State reads "except on three shared files" with all three named (`W9.md:6-8`); a third §4a Cross-wave block enumerates X-W4's, X-W8's and this wave's region-disjoint carves (`:147-157`) |
+
+**Seven of seven fixed on the merits. No repair is cosmetic, and three (W4's unit .g, W5's glob
+narrowing, W9's fold-to-one-writer) cure the disease rather than the citation.**
+
+## (b) R-A, R-B, R-E — application audit
+
+**R-A (stamping site). CLEAN, 12/12.** Status FIELD = `planned` in all twelve. Exactly **one** wave
+stamps VERIFIED and it is X-W11, at the release close: `W11.md:22-28` states the rule
+("no wave stamps VERIFIED at its own close") and commit 8 carries `IMPLEMENTED→VERIFIED stamps`
+with "the per-wave verb stamps this close alone may set (R-A)". W0/W1/W5/W6/W7 close to IMPLEMENTED
+with the R-A parenthetical; W2 and W10 state the law in prose; W3/W4/W8/W9 are silent (no stamp
+claimed) — admissible. **ACCEPTED ≠ VERIFIED**: no L-18 rider anywhere equates them; W1 and W11
+say so explicitly, and W11's rider is the sharpest ("makes X-W11 **IMPLEMENTED** — and, on the
+G7/G8/G9 receipts, lets this close stamp **VERIFIED** — but never ACCEPTED").
+
+**R-B (receiving surface + alias). CLEAN.** `X.W4.g` resolves every sibling reference: W0 (§Scope 10,
+§Blocked rows, §3a, X-W0.j, HG-18, commit 9, §Blocks, §Archaeology — 9 sites), W6 (H3, §Blocked ×2),
+W7 (§2), W8 (Do-NOT-touch ×2, §Receiving surface), W11 (§Dispositions). The alias is stated **once**,
+in W4 §10a (`:509-512`): the sibling spelling `X-W4.g` denotes `X.W4.g`, "a search alias, never a
+rename — `X.W4.<x>` is the WAVE_SPEC §5 form and is authoritative, exactly as X-W0.i governs the
+middot (L-5). No sibling file is re-glyphed." Exactly the ruling, executed without touching five
+files.
+
+**R-E (bounds idiom). APPLIED IN 5 OF 12 — the five repaired files only.** W0, W1, W4, W5, W9 all
+carry `execute, no write` rows naming the invoking gate, and W9 writes the rule into its own §4
+("Every script a gate invokes carries its own row above … no invocation is exempted by prose").
+W3, W7 and W10 pass by inspection (W10 is the ratified idiom; W3 and W7 invoke no script outside
+their own bounded specs). **W2, W6 and W11 do not** — the repair round never opened them. See
+W6-D1, W11-D1, W2-D1.
+
+## (c)–(g) Surviving and newly-found defects
+
+### W2 — Boot boundary · **DEFECT (1)**
+
+The falsifiable byte prediction and the honest demotion of the carried Q14 numbers stand.
+
+1. **`e2e/smoke/perf/serve-built.mjs` is invoked by G3/G4 and carries no bounds row (R-E).** G3's
+   and G4's born-RED pilots were run "against a built bundle at `http://localhost:8091`
+   (`e2e/smoke/perf/serve-built.mjs`)" and the canonical N≥20 run re-uses that origin; §4 bounds
+   four other `e2e/smoke/perf/*` paths but not this one, and Do-NOT-touch does not cover it.
+   **Fix**: one row — `e2e/smoke/perf/serve-built.mjs` | `execute, no write (G3's and G4's
+   built-bundle origin, re-run unmodified)`.
+
+### W4 — Semantic controls · **DEFECTS (2)**
+
+The new unit .g is well-built — closed-unless-PASS, four conditions verbatim, gates held out of the
+open count, one atomic commit. Both defects are seams it and W9's repair opened.
+
+1. **`X.W4.g`'s trigger-gated bounds share four paths with X-W5/X-W6/X-W7/X-W8 and §4a declares no
+   cross-wave sequencing for g.** §4a's g-bullet sequences g against `a/b/c/d` only ("never runs
+   concurrently with a/b/c/d… if the census fires **mid-wave**"), and the §4a Cross-wave bullets
+   cover `App.vue` (X-W5) and `ConsoleRail.vue` (X-W9) — both open-partition paths. But g holds
+   `MixSourceSelector.vue` (X-W5 `modify-carve` `W5.md:105`, X-W6 `modify` `W6.md:78`, X-W7 `modify`
+   `W7.md:125`), `ColorSpaceSelector.vue` (X-W6 `W6.md:65`, X-W7 `W7.md:122`), `EmptyState.vue`
+   (X-W7 `modify-carve` `W7.md:123`) and `Dock.vue` (X-W5, X-W8). The census can PASS at any time
+   after X-W0 — that is the whole point of a trigger-gated unit — so g may open while X-W5, X-W6,
+   X-W7 or X-W8 is open, writing four of their paths. WAVE_SPEC §4a ("No two parallel waves may
+   write the same path") and "No hidden cross-wave write conflicts" both bite, and the receiver was
+   authored precisely so the cut would not be ownerless. **Fix**: one §4a Cross-wave line —
+   "`X.W4.g` additionally holds `MixSourceSelector.vue` (X-W5/X-W6/X-W7), `ColorSpaceSelector.vue`
+   (X-W6/X-W7), `EmptyState.vue` (X-W7) and `Dock.vue` (X-W5/X-W8); on a census PASS the
+   orchestrator lands g on clean main with **no other X wave open**, which is what W0 §3a's
+   'a PASS is a re-plan event' already requires" — and one matching sentence in §4's trigger-gated
+   preamble.
+2. **The `eslint.config.js` cross-wave sequencing is one-directional.** `W9.md:147-157` declares
+   that X-W4 (.d), X-W8 (.b/.e) and X-W9.f all write `eslint.config.js` and that "X-W9.f sequences
+   after both X-W4 and X-W8 close". W4 holds the file `modify` (`W4.md:148`, unit .d's
+   `no-explicit-any`) and its §4a Cross-wave block does not name it. A W4 writer reading W4 alone
+   has no notice — the identical shape as W4-D2, which this round was told to close reciprocally.
+   **Fix**: one §4a Cross-wave line — "`eslint.config.js` is also written by X-W8 (.b/.e) and
+   X-W9.f; this wave writes only the action-path `no-explicit-any` object, and the three waves never
+   run concurrently on it (W9 §4a)."
+
+### W6 — Instruments and temporal scenes · **DEFECT (1)**
+
+The nine new instruments are bounded, the gate roster is internally consistent, and H1's
+new-artefact falsifier stands.
+
+1. **§4's "Bounds law" is the prose-argued exemption R-E abolishes.** `W6.md:105`: "The instruments
+   invoked read-only — `…/probes/wb-gradient-stopeditor/gate-{axis,gesture,seat,structure}.mjs` and
+   `…/components/wb-gradient-stopeditor/evidence/*` (all verified present today) — **take no bounds
+   row**, because a gate that reads them writes nothing." R-E ratifies W10's idiom instead: every
+   gate-invoked script gets a row, read-only ones marked `execute, no write` with the invoking gate
+   named, "no prose-argued exemptions. One rule, mechanical." Ten distinct instruments are invoked
+   by fifteen gates with no row: `gate-axis.mjs` (a3, a4) · `gate-gesture.mjs` (a5, a6, a7) ·
+   `gate-seat.mjs` (b1, b2, b4) · `gate-structure.mjs` (c1) · `evidence/parse-probe.ts` (a1) ·
+   `WBGSE-O-r3-crossdrag-forcedcolors.mjs` (a2) · `WBGSE-O-r3-gestures.mjs` (a7) · `evidence/p3.mjs`
+   (a8) · `p4.mjs` (a9) · `p2.mjs` (a10) · `WBGSE-D-probe4.mjs` (a11) · `WBGSE-D-probe2.mjs` (a12).
+   This was the second pass's superlative; R-E supersedes it. **Fix**: delete the exemption sentence
+   and add the rows, each `execute, no write` with its gate id — the first clause of the Bounds law
+   ("every script a gate invokes is bounded above") then becomes true as written, and the §3a
+   halt-on-edit rule survives unchanged as its second clause.
+
+### W8 — Shadcn and graph subtraction · **DEFECT (1)**
+
+Census-before-bounds, the tw-animate-css receipt and the null-DELTA justification are untouched and
+still exemplary; the W6 reciprocity repair from the second pass holds.
+
+1. **The `eslint.config.js` cross-wave sequencing is one-directional (the W4-D2 twin).** W8 holds
+   the file `modify-carve` (`W8.md:79`) and writes it in **two** units — `.b` (the six dead
+   `demo/@/**` globs, G-6's docs-tree ignore, the `no-restricted-imports` ban) and `.e` (the CC-082
+   `max-lines` ratchet, "after X.W8.b"). §Disjointness' Cross-wave block names X-W6's five paths and
+   `ARCHITECTURE.md` (X-W9, "reciprocated here") but not this file, even though W9 declares the
+   three-way sequencing against it and W11 holds it in Do-NOT-touch by name. **Fix**: one
+   §Disjointness Cross-wave line — "`eslint.config.js` is also written by X-W4 (.d) and X-W9.f;
+   this wave's two carves are the `demo/@/**` globs + docs ignore (.b) and the `max-lines` ratchet
+   (.e); the three waves never run concurrently on it (W9 §4a)."
+
+### W11 — Release and verified close · **DEFECT (1)**
+
+R-A's ratification text is authored here and is the tranche's clearest statement of it; the
+consumes-never-absorbs triumvirate and the X-W8 G-6 lint attribution both survive the round intact.
+
+1. **Three gate-invoked scripts carry no bounds row (R-E).** (i) `scripts/ci/verify-packed-surface.mjs`
+   — G3's probe — appears only in **Do NOT touch**, attributed to its *owner* (X-W9), never to its
+   *invoker*; (ii) `docs/tranches/V/megatranche/workflows/safari-real-matrix.js` — G8's probe, named
+   by path at `W11.md:289` — is swept under the `docs/tranches/V/megatranche/workflows/**`
+   Do-NOT-touch glob whose stated reason is the X-W8 lint cure, so the G8 invocation is nowhere
+   dispositioned; (iii) `scripts/ci/boot-smoke.mjs` — G5's probe, named only as "X-W1's restored
+   boot-smoke" — has **no** bounds disposition at all, in either table. R-E's rule is the table, not
+   the prose or the owner attribution. **Fix**: three rows — `scripts/ci/verify-packed-surface.mjs`
+   | `execute, no write (G3's packed-surface probe; X-W9 owns the bytes)` ·
+   `docs/tranches/V/megatranche/workflows/safari-real-matrix.js` | `execute, no write (G8's
+   real-Safari matrix)` · `scripts/ci/boot-smoke.mjs` | `execute, no write (G5's both-mode boot
+   witness; X-W1 authors it)` — and keep the Do-NOT-touch entries as the write-side statement.
+
+## Tranche-level read, third pass
+
+**R-E coverage, mechanically checked.** Every `node`/`npx`-invoked script path across the twelve
+files was extracted and matched against the twelve bounds tables. Bounded and correct: W0 ×4,
+W1 ×5 (incl. the new `verify-packed-surface.mjs` row), W2 ×1 of 2, W4 ×1, W5 ×4, W9 ×5, W10 ×1.
+Unbounded: W2 ×1, W6 ×10, W11 ×3. No **universal exemption claim** survives in W0 (deleted) or W9
+(inverted into an inclusion claim that holds); **one survives, in W6 §4** (W6-D1). No wave invokes
+a `scripts/**/proof-*.mjs`.
+
+**Ordering reciprocity.** Graph: W0→W1→{W2, W3, W4}; W4→W5→W6→{W7, W8}; W3→W7→W8; W9 free after W0
+with three declared carves; {W5..W9}→W10→W11. **No cycles.** Every Blocks claim now has its
+Opens-after/Depends-on twin except three, and only one is a hazard:
+- **`eslint.config.js`** — declared in W9 only; the shared-write hazard is real because W9 is
+  order-independent of W2..W8. **Booked: W4-D2, W8-D1.**
+- **`X.W4.g`'s four sibling-owned paths** — declared nowhere. **Booked: W4-D1.**
+- **W1 `Blocks: X-W5`** is unreciprocated *and contradicted* — `W5.md:345` reads "No dependency on
+  … X-W1's gates". Not booked: the files are write-disjoint, W1 closes before W5 transitively
+  (W5←W4←W1), and W5's reading is the defensible one (D1's budget oracle is a node script, so W5 is
+  decidable without CI, exactly W9's "soft-couples" shape). **Observation**: W1's Blocks cell should
+  be softened to the W9 wording, or W5's §10 should say "soft" rather than "no dependency" — one
+  line, either end. W5→W7 remains unreciprocated in text but transitively closed through W6; still
+  not booked.
+
+**117-row reachability (W11 G1). COMPLETE, and the trigger-fire path is now intact.** The ledger
+carries exactly 117 `CC-` rows; a set-difference against every CC-id occurring in the twelve wave
+files returns **∅ in both directions** — 117/117 owned, zero phantom ids. The four rows the first
+pass found unowned (CC-011, CC-109, CC-116, CC-117) are authored at X-W0.i / X-W0.j and transposed
+at W11 §Dispositions. The 11 BLOCKED-ON rows carry their §1.M conditions verbatim and now route to a
+unit that **exists**: on PASS, X-W0.j fires `X.W4.g`, which lands CC-044 + CC-003 + CC-105/106/113/
+114/115 and W6's CC-058 limb as one commit; on FAIL, g stays shut and W11's release table transposes
+the FAIL. The gap that made the second pass NOT-ready is closed — what remains on that path is
+W4-D1's missing cross-wave sequencing, not a missing owner.
+
+**Denominator law: still clean.** No unqualified `264/264`; no `proof-*.mjs` authored; W0 HG-6/HG-7
+bind the tranche; W8's C-16 census, W7's N-fixtures, W9's G28 restatement against 1,636,680 µs and
+W11's "the test denominator may rise, never fall" all survive the round.
+
+**No new defect introduced by the repairs, with one exception.** W0, W1, W5 and W9's repairs are
+clean and self-contained. W4's repair is the exception in a benign direction: authoring `X.W4.g`
+was correct and ordered, and it created the cross-wave surface W4-D1 books — the unit had to exist
+before its bounds could collide with anything. W9's repair likewise created the half-edge W4-D2 and
+W8-D1 book. Both are the cost of moving from "no owner" to "an owner", and both are single-line
+fixes.
+
+**Superlatives (L-18 runs both ways).** W4's `X.W4.g` is the round's principal act: a unit authored
+to be *closed*, whose gates are deliberately excluded from its wave's count, whose FAIL branch is
+recorded as a result rather than a deferral, and whose alias problem was solved by one sentence
+rather than five renames — CC-011's disease named, and then not repeated inside its own cure.
+W5's repair narrowed a glob instead of adding a sentence, killing the conflict rather than
+declaring it. W9 folded two writers into one rather than sequencing them, which is the stronger of
+the two fixes it was offered. W0 deleted its false universal instead of narrowing it.
+
+**Tranche-ready: NO — but the blockers are gone.** Neither second-pass blocker survives: the
+receiving surface exists, and no two concurrent units share a write path inside any wave. All six
+remaining defects are **single-edit, single-section** fixes: three are R-E bounds rows in files the
+repair round never opened (W2, W6, W11 — 14 rows total), two are one-line §4a reciprocity
+statements (W4, W8), and one is a one-line cross-wave sequencing statement for `X.W4.g` (W4). None
+requires re-planning a wave, re-measuring a baseline, or moving a ledger row.
+
+---
+
+*Third-pass adjudication complete 2026-08-03. 12 files · 7 CONFORMANT · 5 DEFECTIVE · 6 numbered
+defects · 7/7 second-pass defects fixed on the merits · R-A applied 12/12 · R-B applied 6/6 (the
+receiving surface exists; the alias is stated once) · R-E applied 5/12 (W2, W6, W11 unrepaired) ·
+117/117 ledger rows reachable with the trigger-fire path intact · 2 one-directional edges remain
+(`eslint.config.js`, `X.W4.g`'s four sibling paths) · 0 cycles.*
+
+## Receipt correction — third-pass seat model (scribe, 2026-08-03)
+
+The §THIRD PASS header reads "fresh Fable conformance adjudicator"; the harness receipt records
+the seat served by **`claude-opus-5`** (workflow `wf_5f5140a6-4a0`, agent `a6cc90b6319ffe48c`,
+233,147 tokens): the reconform seat declared no model and inherited the session model as it stood
+at workflow launch. Per the receipts law (M-12/M-23: a seat counts as the model that produced it;
+no relabeling), the third pass stands as an **Opus-adjudicated** pass — its findings are admissible
+as an L-18-grade challenge and its verdict is ADOPTED, but the M-23 adjudication tier was not met
+by declaration. The fourth pass declares `fable` explicitly and states its served model in its own
+header. The pass text above is dated evidence and is not rewritten.

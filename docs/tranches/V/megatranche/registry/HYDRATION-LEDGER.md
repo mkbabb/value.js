@@ -10,7 +10,7 @@ NOT challenge coverage. UNWITNESSED-DIRECT = an exact current-roster canonical r
 with no returned payload and no closure-manifest authorship; its only provenance is that the
 file is there. Neither status may be counted as a witnessed seat return.
 
-Totals: 232 original · 51 payload-less (46 report-authored · 5 unwitnessed-direct) · 0 hydrated · 0 unparseable payloads · 232 payload paths.
+Totals: 235 original · 51 payload-less (46 report-authored · 5 unwitnessed-direct) · 0 hydrated · 0 unparseable payloads · 235 payload paths.
 
 OM-14/15/16 are outside this component-challenge hydration ledger. Their current completion
 state is tracked in STATE.md and their own audit directories, never inferred from this table.
@@ -20,6 +20,7 @@ state is tracked in STATE.md and their own audit directories, never inferred fro
 | audit/components/AboutPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `7520ee298cad43ba88504fcf10f9fc47ab107aa46760ea491eca1b14374a16ed` | area-scenes.json | 1 |
 | audit/components/AboutPane/challenge-D-design.md | EXISTS-ORIGINAL | `de860c8e6114d29488948bf1a59eb36ba8681c84f7353a555b1933ae3109c663` | area-scenes.json | 1 |
 | audit/components/AboutPane/challenge-L-library.md | EXISTS-ORIGINAL | `3383b6d5271994d24e934256a279eba40cd915137a7c56ce644e3da4c935fc08` | area-scenes.json | 1 |
+| audit/components/ActionFeedback/challenge-L-library-r2.md | EXISTS-ORIGINAL | `75a027c456c4929ff42faf6b1c4a4b2e4da9906bcef398d1ff88f800f3d313ef` | wf_1a4c8a8c-557.json | 1 |
 | audit/components/AdminAuditPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `aa55fd3c7e9ddd8baf622b9c85fb868330d92f373aba65f03ca6df7480da0c2a` | area-palettes.json | 1 |
 | audit/components/AdminAuditPanel/challenge-D-design.md | EXISTS-ORIGINAL | `bced760d46d97359909ff82113a6ca465708a971311561fe2d6ebfab3af6e855` | area-palettes.json | 1 |
 | audit/components/AdminAuditPanel/challenge-L-library.md | EXISTS-ORIGINAL | `55dec9b6b590279213612f97fa7d961a2f38eb57cd51360f51863c12d8a62695` | area-palettes.json | 1 |
@@ -134,12 +135,14 @@ state is tracked in STATE.md and their own audit directories, never inferred fro
 | audit/components/picker-colorpicker/challenge-C-implementation.md | EXISTS-ORIGINAL | `0f464762dfc8b8fc2cabaf37af6ea6c4d987ab716959f7d34a0659c8e24ac223` | area-picker.json | 1 |
 | audit/components/picker-colorpicker/challenge-D-design.md | EXISTS-ORIGINAL | `1b166f0157a4c334a184d199c9f6b00d70078bce09b4c55f17283fca8848aaaa` | area-picker.json | 1 |
 | audit/components/picker-colorpicker/challenge-L-library.md | EXISTS-ORIGINAL | `81bad4700382eef336e832d10ff6bf1990f3c1c6c0ed5dd1d7fce5157fa4377e` | area-picker.json | 1 |
+| audit/components/picker-componentsliders-consolerail/challenge-D-design-r2.md | EXISTS-ORIGINAL | `ec6edbfebd42a4f585078879abb020e7f65d64aaba36d5505f87db9dd40744cb` | wf_1a4c8a8c-557.json | 1 |
 | audit/components/picker-componentsliders/challenge-C-implementation.md | EXISTS-ORIGINAL | `fb20c9e966229796b766741dc393c23852f756bdfcb62a88d1245e5c8badd071` | area-picker.json | 1 |
 | audit/components/picker-componentsliders/challenge-D-design.md | EXISTS-ORIGINAL | `37230f595d79d9cd475dee98ac35d31c732735e7f9df3c2877138e2ea7c78720` | area-picker.json | 1 |
 | audit/components/picker-componentsliders/challenge-L-library.md | EXISTS-ORIGINAL | `6622a44893ecbfa79bb98d3d3da330aec091cb5891d8a53badfa4a32cc0058a8` | area-picker.json | 1 |
 | audit/components/picker-heroblob/challenge-C-implementation.md | EXISTS-ORIGINAL | `04b7d7059c129b6febdb75878f56239f2d6b4837c8d48c6247f21f9f9c52fd48` | area-picker.json | 1 |
 | audit/components/picker-heroblob/challenge-D-design.md | EXISTS-ORIGINAL | `f2911ec90b2d40b35f3b1461bdf1c59cc03fbb1097887b83c9b24a9906f731ed` | area-picker.json | 1 |
 | audit/components/picker-heroblob/challenge-L-library.md | EXISTS-ORIGINAL | `d8655b58966e3ba3e46fe8415bb975a5f095a61e73553d1a1d4676419b10320d` | area-picker.json | 1 |
+| audit/components/picker-pointerdebugoverlay/challenge-D-design-r2.md | EXISTS-ORIGINAL | `0f034f57e85269dde15c85b646b918e7c872038f6c967257ca3f37fefd141c73` | wf_1a4c8a8c-557.json | 1 |
 | audit/components/picker-spectrumcanvas/challenge-C-implementation.md | EXISTS-ORIGINAL | `0318e27c00ec7fa9771507b51cb5efca4120e12c745a4b62c3fe4ee52bfb40a5` | area-picker.json | 1 |
 | audit/components/picker-spectrumcanvas/challenge-D-design.md | EXISTS-ORIGINAL | `dac259a892bd3d96ea0743d8c71cd32328a9ee82254690180d8488218a3302d3` | area-picker.json | 1 |
 | audit/components/picker-spectrumcanvas/challenge-L-library.md | EXISTS-ORIGINAL | `eab6d1016a453ddd801f9a6bcd2ef5628da8ca45eb8436fca6fe323ace7ea56e` | area-picker.json | 1 |
