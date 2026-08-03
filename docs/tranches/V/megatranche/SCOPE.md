@@ -316,3 +316,23 @@ consequences, binding immediately:
 10. The owner's message ended at *"And the design and iteration prompt:"* with the third prompt
     absent — the standing design tri-fold law (two blind authors → Fable agglomerator, DesignSync
     for frontend) governs until the exact text arrives.
+
+## M-21 — CODEX PROVENANCE MARKED; CLAUDE DRIVES (owner, 2026-08-03)
+
+Verbatim: *"Mark that this work was done by a series of Codex instances. Deploy a fleet to audit
+those logs, chat sessions, etc. You are fully driving the auditing, tranche development, now."*
+
+Binding consequences:
+1. **Provenance.** The 2026-07-29..08-03 interim corpus — the supersession chain
+   (`IN-FLIGHT-*`, `MECHANISM-CUT-FORMATION-MAP`, `CONVERGENCE-*`, the `PARSER-*` trio, the
+   RESURRECTION/PAUSE handoffs, the `CONSTELLATION-*` packets), the `STATE.md` rewrite, the 46
+   report-authored axes that closed 264/264, the RED matrices (0/44 · 0/9 · 0/60 · 14/34), the
+   validator/tooling upgrades, and the 07-29 commits — is **CODEX-AUTHORED** (their rule-0
+   Sol/Luna law was theirs). Receipts stay literal; provenance is never renamed.
+2. **Their claims are now AUDIT SUBJECTS, not standing authority.** Every Codex packet becomes
+   input evidence pending the provenance fleet's per-artifact terminal disposition
+   (ADOPT / VERIFY-THEN-ADOPT / SUPERSEDE / RETIRE). This extends M-15 (vnext abrogation) to
+   the whole program surface.
+3. **Claude — this session — FULLY DRIVES auditing and tranche development henceforward.**
+   The fleet audit of the Codex logs/chat sessions is commissioned
+   (`audit/codex-provenance/`); its ledger feeds wave authoring directly.

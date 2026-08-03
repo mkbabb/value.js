@@ -128,6 +128,13 @@ Each row: GOAL → HORIZON CRITERION (the long-running convergence test) → ACC
       card-condense reversal window closes at TR#79's cut** — owner decision row below.
 - [x] 2026-08-03: owner mid-turn edict sworn as **L-18 (quartet challenge) / L-19
       (anti-contrivance presumption) / L-20 (waves validate against precepts)**.
+- [x] 2026-08-03: **M-21 marked** — the interim corpus is CODEX-AUTHORED; its claims are audit
+      subjects, not standing authority; Claude fully drives auditing + tranche development.
+      **Provenance fleet DEPLOYED**: run `wf_83265e1d-a99` (6 Opus sweep lanes: sessions ·
+      axes-quality · parser-verify · red-matrices · supersession · tooling → adversarial verify
+      → one fresh Fable disposition ledger at `audit/codex-provenance/CODEX-PROVENANCE-AUDIT-2026-08-03.md`).
+      Its per-artifact ADOPT/VERIFY-THEN-ADOPT/SUPERSEDE/RETIRE rows gate which Codex packets
+      feed wave authoring.
 - [ ] Apply `IN-FLIGHT-AUDIT-2026-07-29.md §6` closed rulings to the registers (no re-queue;
       RD-6 off the queue entirely; OC-2 remains the one undispositioned prior item).
 - [ ] Graph authority replacement (before any source execution) — L-17 tri-fold clusters; the
