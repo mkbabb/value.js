@@ -1,0 +1,77 @@
+{
+  "schema": "value.formation-admission-binding.v1",
+  "date": "2026-07-29",
+  "mode": "tranche-development-only",
+  "denominator": {
+    "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-FAMILY-DENOMINATOR-2026-07-29.json",
+    "sha256": "1d6df52abdd89dcc2e56b0aaaca6cc7d4a516eb5e8493dd4547adeebd070dd85",
+    "familyCount": 18
+  },
+  "coveredNodes": [
+    "V.form.P1",
+    "V.form.P2",
+    "V.form.P3",
+    "V.form.cleanA",
+    "V.form.cleanB",
+    "V.form.admission"
+  ],
+  "nodes": {
+    "V.form.cleanB": {
+      "evidenceRefs": [
+        {
+          "path": "/Users/mkbabb/Documents/Codex/2026-07-29/value-formation-clean-b-sol/outputs/VALUE-FORMATION-CLEAN-B.md",
+          "sha256": "3fceb394307213009384ef260ef5b4efc8b0d885fa79563cd060b1cf7eb4cac7",
+          "subjectCoordinate": "Value-Clean-B:CLEAN;genuinely-later-than-replacement-Clean-A;wrong-coordinate-Browser-excluded;zero-execution-credit"
+        },
+        {
+          "path": "/Users/mkbabb/Documents/Codex/2026-07-29/value-formation-clean-b-sol/outputs/CLEAN-B-VALIDATION.json",
+          "sha256": "23b4175820a09283ca1d15e3ecf9ad2500c579bc0b0488eacfaefa37c102d77a",
+          "subjectCoordinate": "Value-Clean-B:CLEAN-validation;18/18;53/51;88/264;130/177/M01-M21"
+        },
+        {
+          "path": "/Users/mkbabb/Documents/Codex/2026-07-29/value-formation-clean-b-sol/outputs/RECEIPT.md",
+          "sha256": "bbb27015531b4f07438ed4d501c4c1b57d119af46d7751e2bd7f5699901e8b6b",
+          "subjectCoordinate": "Value-Clean-B:exact-three-file-seal;self-admission-false"
+        },
+        {
+          "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FORMATION-CLEAN-B-OWNER-INTAKE-2026-07-29.md",
+          "sha256": "0c57bbb5dcb32f21278c26dc37a53558812b495d74d0b6cbaaffea79931eeed6",
+          "subjectCoordinate": "Value-Clean-B:owner-intake;root-second-critic-PASS;zero-product-visual-release-execution-credit"
+        }
+      ],
+      "predecessorEvidenceSha256": "2a3d42f98e7618aba3caffba032d18f36fe48f51b75eeaeded022e413ba5a031",
+      "coverageManifestSha256": "1d6df52abdd89dcc2e56b0aaaca6cc7d4a516eb5e8493dd4547adeebd070dd85",
+      "requiredSatisfiedInputs": ["V.form.cleanA"],
+      "credit": {
+        "formationAuditEvidence": true,
+        "formationAdmission": false,
+        "execution": false,
+        "product": false,
+        "visual": false,
+        "release": false,
+        "constellationClose": false
+      }
+    },
+    "V.form.admission": {
+      "evidenceRefs": [
+        {
+          "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/VALUE-FORMATION-FULL-SUBJECT-ADMISSION-RECEIPT-2026-07-29.md",
+          "sha256": "4aac44577b95459dcfe977161549289a6ad1e13b33c9f4f5abef4bebcf619a2a",
+          "subjectCoordinate": "Value:full-subject-formation-admitted;ordered-execution-not-started;zero-product-visual-release-execution-credit"
+        }
+      ],
+      "predecessorEvidenceSha256": "3fceb394307213009384ef260ef5b4efc8b0d885fa79563cd060b1cf7eb4cac7",
+      "coverageManifestSha256": "1d6df52abdd89dcc2e56b0aaaca6cc7d4a516eb5e8493dd4547adeebd070dd85",
+      "requiredSatisfiedInputs": ["V.form.cleanB"],
+      "credit": {
+        "formationAuditEvidence": true,
+        "formationAdmission": true,
+        "execution": false,
+        "product": false,
+        "visual": false,
+        "release": false,
+        "constellationClose": false
+      }
+    }
+  }
+}

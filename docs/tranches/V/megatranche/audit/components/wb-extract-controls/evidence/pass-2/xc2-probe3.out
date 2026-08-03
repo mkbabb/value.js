@@ -1,0 +1,172 @@
+fixtures: 1x1 = 69 bytes; 3000x2000 = 40704 bytes
+
+=== 1x1 IMAGE (k=5 clusters, 1 pixel) ===
+{
+ "posts": [
+  {
+   "t": 2983,
+   "opts": {
+    "k": 5,
+    "chromaWeight": 0.5
+   },
+   "bytes": 4
+  }
+ ],
+ "unhandledRejections": [],
+ "errorLine": [],
+ "railGradient": "linear-gradient(to right, oklch(0.572927 0.219128 25.9901) 50%)",
+ "swatchCount": 8,
+ "ghostVisible": false,
+ "resetDisabled": [
+  false
+ ]
+}
+
+=== BIG IMAGE 3000x2000 ===
+{
+ "posts": [
+  {
+   "t": 4527,
+   "opts": {
+    "k": 5,
+    "chromaWeight": 0.5
+   },
+   "bytes": 24000000
+  }
+ ],
+ "mainThreadMsFromChangeToWorkerPost": 40,
+ "dataUrlChars": 54294,
+ "imgNatural": [
+  3000,
+  2000
+ ],
+ "unhandled": []
+}
+
+=== HEAP (bytes) ===
+{
+ "before": 47400000,
+ "after": 47400000,
+ "deltaMB": 0
+}
+
+=== DURING BIG QUANTIZE — controls live? ===
+[
+ {
+  "dt": 9,
+  "posts": 0,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 135,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 261,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 386,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 511,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 638,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 765,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 891,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 1017,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 1142,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 1268,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 1393,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ },
+ {
+  "dt": 1519,
+  "posts": 1,
+  "skeleton": false,
+  "sliderAriaDisabled": "false,false",
+  "uploadDisabled": "false"
+ }
+]
+
+=== k DRIVEN DURING PROCESSING — worker posts ===
+{
+ "posts": [
+  {
+   "t": 8115,
+   "opts": {
+    "k": 5,
+    "chromaWeight": 0.5
+   },
+   "bytes": 24000000
+  },
+  {
+   "t": 8531,
+   "opts": {
+    "k": 9,
+    "chromaWeight": 0.5
+   },
+   "bytes": 24000000
+  }
+ ],
+ "unhandled": []
+}
+
+pageErrors: []
+consoleErrors: ["[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"]

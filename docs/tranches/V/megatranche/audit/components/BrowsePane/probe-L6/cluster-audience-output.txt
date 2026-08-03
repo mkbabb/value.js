@@ -1,0 +1,16 @@
+=== imports resolving to a browser/<cluster> barrel ===
+demo/workbenches/mix/MixSourceSelector.vue  ->  card   [PaletteCard, PaletteColorStrip]
+demo/workbenches/generate/GenerateControls.vue  ->  card   [PaletteColorStrip]
+demo/workbenches/extract/ExtractWorkbench.vue  ->  card   [PaletteCard, PaletteCardSkeleton, ShadowPalette]
+demo/color-picker/App.vue  ->  dialog   [MigratePalettesDialog]
+demo/palettes/BrowsePane.vue  ->  card   [PaletteCard, PaletteCardGrid, PaletteCardSkeleton]
+demo/palettes/BrowsePane.vue  ->  search   [SearchFilterBar, TagEditPopover]
+demo/palettes/BrowsePane.vue  ->  dialog   [VersionHistoryDrawer, FlagReportDialog]
+demo/palettes/BrowsePane.vue  ->  dialog   [useDialogBrowseActions]
+demo/palettes/admin/AdminPane.vue  ->  admin   [AdminUsersPanel, AdminNamesPanel, AdminAuditPanel, AdminFlaggedPanel, AdminTagsPanel]
+demo/palettes/admin/AdminPane.vue  ->  search   [UserSortMenu]
+demo/palettes/useAdminUsers.ts  ->  admin   [AdminUsersPanel]
+demo/palettes/useSlugMigration.ts  ->  slug   [PaletteSlugBar]
+demo/palettes/PalettesPane.vue  ->  card   [CurrentPaletteEditor, PaletteCard, PaletteCardGrid]
+
+=== imports resolving to the TOP-LEVEL browser seam ===

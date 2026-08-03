@@ -1,0 +1,803 @@
+{
+  "d-light": {
+    "stageStyleAttr": "--vb-ratio: 1.2;",
+    "vbRatioVar": "1.2",
+    "rects": {
+      "stage": {
+        "x": 237,
+        "y": 746.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "picker": {
+        "x": 237,
+        "y": 746.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "card": {
+        "x": 237,
+        "y": 746.25,
+        "w": 436,
+        "h": 226
+      },
+      "svg": {
+        "x": 250,
+        "y": 759.25,
+        "w": 410,
+        "h": 200
+      }
+    },
+    "pickerCS": {
+      "grid-template-columns": "436px",
+      "gap": "16px"
+    },
+    "cardCS": {
+      "background-color": "oklab(0.913295 0.00550478 0.0130424)",
+      "border-color": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "border-width": "1px",
+      "box-shadow": "none",
+      "backdrop-filter": "none",
+      "border-radius": "16px",
+      "padding": "12px"
+    },
+    "svgCS": {
+      "inline-size": "410px",
+      "block-size": "200px",
+      "aspect-ratio": "1 / 1",
+      "margin-inline-start": "0px",
+      "margin-inline-end": "0px",
+      "transition-property": "all",
+      "width": "410px",
+      "height": "200px",
+      "container-type": "normal"
+    },
+    "letterbox": {
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "vbRatio_h_over_w": 1.2,
+      "elementBox": {
+        "w": 410,
+        "h": 200
+      },
+      "drawnInk": {
+        "w": 166.67,
+        "h": 200
+      },
+      "deadPx": 48667,
+      "deadPct": 59.3,
+      "role": "group",
+      "inlineStyle": "aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px); margin-inline: auto;"
+    },
+    "census": {
+      "svg[role='img']": 0,
+      "svg[role='group']": 1,
+      ".glass-card": 1,
+      "picker": 1,
+      "readout": 0,
+      "stagesInDoc": 1,
+      "pickersInDoc": 1
+    },
+    "gutterRight": 13,
+    "gutterLeft": 13,
+    "docOverflowX": 0,
+    "cqAncestor": [
+      {
+        "tag": "DIV.pane-wrapper pane-wrapper--left w-full m",
+        "containerType": "inline-size",
+        "w": 512
+      }
+    ]
+  },
+  "d-dark": {
+    "stageStyleAttr": "--vb-ratio: 1.2;",
+    "vbRatioVar": "1.2",
+    "rects": {
+      "stage": {
+        "x": 237,
+        "y": 746.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "picker": {
+        "x": 237,
+        "y": 746.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "card": {
+        "x": 237,
+        "y": 746.25,
+        "w": 436,
+        "h": 226
+      },
+      "svg": {
+        "x": 250,
+        "y": 759.25,
+        "w": 410,
+        "h": 200
+      }
+    },
+    "pickerCS": {
+      "grid-template-columns": "436px",
+      "gap": "16px"
+    },
+    "cardCS": {
+      "background-color": "oklab(0.345295 0.0103877 0.0175526)",
+      "border-color": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+      "border-width": "1px",
+      "box-shadow": "none",
+      "backdrop-filter": "none",
+      "border-radius": "16px",
+      "padding": "12px"
+    },
+    "svgCS": {
+      "inline-size": "410px",
+      "block-size": "200px",
+      "aspect-ratio": "1 / 1",
+      "margin-inline-start": "0px",
+      "margin-inline-end": "0px",
+      "transition-property": "all",
+      "width": "410px",
+      "height": "200px",
+      "container-type": "normal"
+    },
+    "letterbox": {
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "vbRatio_h_over_w": 1.2,
+      "elementBox": {
+        "w": 410,
+        "h": 200
+      },
+      "drawnInk": {
+        "w": 166.67,
+        "h": 200
+      },
+      "deadPx": 48667,
+      "deadPct": 59.3,
+      "role": "group",
+      "inlineStyle": "aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px); margin-inline: auto;"
+    },
+    "census": {
+      "svg[role='img']": 0,
+      "svg[role='group']": 1,
+      ".glass-card": 1,
+      "picker": 1,
+      "readout": 0,
+      "stagesInDoc": 1,
+      "pickersInDoc": 1
+    },
+    "gutterRight": 13,
+    "gutterLeft": 13,
+    "docOverflowX": 0,
+    "cqAncestor": [
+      {
+        "tag": "DIV.pane-wrapper pane-wrapper--left w-full m",
+        "containerType": "inline-size",
+        "w": 512
+      }
+    ]
+  },
+  "m-light": {
+    "stageStyleAttr": "--vb-ratio: 1.2;",
+    "vbRatioVar": "1.2",
+    "rects": {
+      "stage": {
+        "x": 46,
+        "y": 714.47,
+        "w": 298,
+        "h": 308.25
+      },
+      "picker": {
+        "x": 46,
+        "y": 714.47,
+        "w": 298,
+        "h": 308.25
+      },
+      "card": {
+        "x": 46,
+        "y": 714.47,
+        "w": 298,
+        "h": 226
+      },
+      "svg": {
+        "x": 59,
+        "y": 727.47,
+        "w": 272,
+        "h": 200
+      }
+    },
+    "pickerCS": {
+      "grid-template-columns": "298px",
+      "gap": "16px"
+    },
+    "cardCS": {
+      "background-color": "oklab(0.913295 0.00550478 0.0130424)",
+      "border-color": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "border-width": "1px",
+      "box-shadow": "none",
+      "backdrop-filter": "none",
+      "border-radius": "16px",
+      "padding": "12px"
+    },
+    "svgCS": {
+      "inline-size": "272px",
+      "block-size": "200px",
+      "aspect-ratio": "1 / 1",
+      "margin-inline-start": "0px",
+      "margin-inline-end": "0px",
+      "transition-property": "all",
+      "width": "272px",
+      "height": "200px",
+      "container-type": "normal"
+    },
+    "letterbox": {
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "vbRatio_h_over_w": 1.2,
+      "elementBox": {
+        "w": 272,
+        "h": 200
+      },
+      "drawnInk": {
+        "w": 166.67,
+        "h": 200
+      },
+      "deadPx": 21067,
+      "deadPct": 38.7,
+      "role": "group",
+      "inlineStyle": "aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px); margin-inline: auto;"
+    },
+    "census": {
+      "svg[role='img']": 0,
+      "svg[role='group']": 1,
+      ".glass-card": 1,
+      "picker": 1,
+      "readout": 0,
+      "stagesInDoc": 1,
+      "pickersInDoc": 1
+    },
+    "gutterRight": 13,
+    "gutterLeft": 13,
+    "docOverflowX": 0,
+    "cqAncestor": [
+      {
+        "tag": "DIV.pane-wrapper pane-wrapper--left pane-slo",
+        "containerType": "inline-size",
+        "w": 358
+      }
+    ]
+  },
+  "m-dark": {
+    "stageStyleAttr": "--vb-ratio: 1.2;",
+    "vbRatioVar": "1.2",
+    "rects": {
+      "stage": {
+        "x": 46,
+        "y": 714.47,
+        "w": 298,
+        "h": 308.25
+      },
+      "picker": {
+        "x": 46,
+        "y": 714.47,
+        "w": 298,
+        "h": 308.25
+      },
+      "card": {
+        "x": 46,
+        "y": 714.47,
+        "w": 298,
+        "h": 226
+      },
+      "svg": {
+        "x": 59,
+        "y": 727.47,
+        "w": 272,
+        "h": 200
+      }
+    },
+    "pickerCS": {
+      "grid-template-columns": "298px",
+      "gap": "16px"
+    },
+    "cardCS": {
+      "background-color": "oklab(0.345295 0.0103877 0.0175526)",
+      "border-color": "oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+      "border-width": "1px",
+      "box-shadow": "none",
+      "backdrop-filter": "none",
+      "border-radius": "16px",
+      "padding": "12px"
+    },
+    "svgCS": {
+      "inline-size": "272px",
+      "block-size": "200px",
+      "aspect-ratio": "1 / 1",
+      "margin-inline-start": "0px",
+      "margin-inline-end": "0px",
+      "transition-property": "all",
+      "width": "272px",
+      "height": "200px",
+      "container-type": "normal"
+    },
+    "letterbox": {
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "vbRatio_h_over_w": 1.2,
+      "elementBox": {
+        "w": 272,
+        "h": 200
+      },
+      "drawnInk": {
+        "w": 166.67,
+        "h": 200
+      },
+      "deadPx": 21067,
+      "deadPct": 38.7,
+      "role": "group",
+      "inlineStyle": "aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px); margin-inline: auto;"
+    },
+    "census": {
+      "svg[role='img']": 0,
+      "svg[role='group']": 1,
+      ".glass-card": 1,
+      "picker": 1,
+      "readout": 0,
+      "stagesInDoc": 1,
+      "pickersInDoc": 1
+    },
+    "gutterRight": 13,
+    "gutterLeft": 13,
+    "docOverflowX": 0,
+    "cqAncestor": [
+      {
+        "tag": "DIV.pane-wrapper pane-wrapper--left pane-slo",
+        "containerType": "inline-size",
+        "w": 358
+      }
+    ]
+  },
+  "w320": {
+    "stageStyleAttr": "--vb-ratio: 1.2;",
+    "vbRatioVar": "1.2",
+    "rects": {
+      "stage": {
+        "x": 46,
+        "y": 729.73,
+        "w": 228,
+        "h": 308.05
+      },
+      "picker": {
+        "x": 46,
+        "y": 729.73,
+        "w": 228,
+        "h": 308.05
+      },
+      "card": {
+        "x": 46,
+        "y": 729.73,
+        "w": 228,
+        "h": 226
+      },
+      "svg": {
+        "x": 59,
+        "y": 742.73,
+        "w": 202,
+        "h": 200
+      }
+    },
+    "pickerCS": {
+      "grid-template-columns": "228px",
+      "gap": "16px"
+    },
+    "cardCS": {
+      "background-color": "oklab(0.913295 0.00550478 0.0130424)",
+      "border-color": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "border-width": "1px",
+      "box-shadow": "none",
+      "backdrop-filter": "none",
+      "border-radius": "16px",
+      "padding": "12px"
+    },
+    "svgCS": {
+      "inline-size": "202px",
+      "block-size": "200px",
+      "aspect-ratio": "1 / 1",
+      "margin-inline-start": "0px",
+      "margin-inline-end": "0px",
+      "transition-property": "all",
+      "width": "202px",
+      "height": "200px",
+      "container-type": "normal"
+    },
+    "letterbox": {
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "vbRatio_h_over_w": 1.2,
+      "elementBox": {
+        "w": 202,
+        "h": 200
+      },
+      "drawnInk": {
+        "w": 166.67,
+        "h": 200
+      },
+      "deadPx": 7067,
+      "deadPct": 17.5,
+      "role": "group",
+      "inlineStyle": "aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px); margin-inline: auto;"
+    },
+    "census": {
+      "svg[role='img']": 0,
+      "svg[role='group']": 1,
+      ".glass-card": 1,
+      "picker": 1,
+      "readout": 0,
+      "stagesInDoc": 1,
+      "pickersInDoc": 1
+    },
+    "gutterRight": 13,
+    "gutterLeft": 13,
+    "docOverflowX": 0,
+    "cqAncestor": [
+      {
+        "tag": "DIV.pane-wrapper pane-wrapper--left pane-slo",
+        "containerType": "inline-size",
+        "w": 288
+      }
+    ]
+  },
+  "zoom200": {
+    "stageStyleAttr": "--vb-ratio: 1.2;",
+    "vbRatioVar": "1.2",
+    "rects": {
+      "stage": {
+        "x": 142,
+        "y": 299.19,
+        "w": 436,
+        "h": 309.31
+      },
+      "picker": {
+        "x": 142,
+        "y": 299.19,
+        "w": 436,
+        "h": 309.31
+      },
+      "card": {
+        "x": 142,
+        "y": 299.19,
+        "w": 436,
+        "h": 226
+      },
+      "svg": {
+        "x": 155,
+        "y": 312.19,
+        "w": 410,
+        "h": 200
+      }
+    },
+    "pickerCS": {
+      "grid-template-columns": "436px",
+      "gap": "16px"
+    },
+    "cardCS": {
+      "background-color": "oklab(0.913295 0.00550478 0.0130424)",
+      "border-color": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "border-width": "1px",
+      "box-shadow": "none",
+      "backdrop-filter": "none",
+      "border-radius": "16px",
+      "padding": "12px"
+    },
+    "svgCS": {
+      "inline-size": "410px",
+      "block-size": "200px",
+      "aspect-ratio": "1 / 1",
+      "margin-inline-start": "0px",
+      "margin-inline-end": "0px",
+      "transition-property": "all",
+      "width": "410px",
+      "height": "200px",
+      "container-type": "normal"
+    },
+    "letterbox": {
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "vbRatio_h_over_w": 1.2,
+      "elementBox": {
+        "w": 410,
+        "h": 200
+      },
+      "drawnInk": {
+        "w": 166.67,
+        "h": 200
+      },
+      "deadPx": 48667,
+      "deadPct": 59.3,
+      "role": "group",
+      "inlineStyle": "aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px); margin-inline: auto;"
+    },
+    "census": {
+      "svg[role='img']": 0,
+      "svg[role='group']": 1,
+      ".glass-card": 1,
+      "picker": 1,
+      "readout": 0,
+      "stagesInDoc": 1,
+      "pickersInDoc": 1
+    },
+    "gutterRight": 13,
+    "gutterLeft": 13,
+    "docOverflowX": 0,
+    "cqAncestor": [
+      {
+        "tag": "DIV.pane-wrapper pane-wrapper--left pane-slo",
+        "containerType": "inline-size",
+        "w": 512
+      }
+    ]
+  },
+  "forced-colors": {
+    "stageStyleAttr": "--vb-ratio: 1.2;",
+    "vbRatioVar": "1.2",
+    "rects": {
+      "stage": {
+        "x": 237,
+        "y": 750.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "picker": {
+        "x": 237,
+        "y": 750.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "card": {
+        "x": 237,
+        "y": 750.25,
+        "w": 436,
+        "h": 226
+      },
+      "svg": {
+        "x": 250,
+        "y": 763.25,
+        "w": 410,
+        "h": 200
+      }
+    },
+    "pickerCS": {
+      "grid-template-columns": "436px",
+      "gap": "16px"
+    },
+    "cardCS": {
+      "background-color": "rgb(255, 255, 255)",
+      "border-color": "rgb(0, 0, 0)",
+      "border-width": "1px",
+      "box-shadow": "none",
+      "backdrop-filter": "none",
+      "border-radius": "16px",
+      "padding": "12px"
+    },
+    "svgCS": {
+      "inline-size": "410px",
+      "block-size": "200px",
+      "aspect-ratio": "1 / 1",
+      "margin-inline-start": "0px",
+      "margin-inline-end": "0px",
+      "transition-property": "all",
+      "width": "410px",
+      "height": "200px",
+      "container-type": "normal"
+    },
+    "letterbox": {
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "vbRatio_h_over_w": 1.2,
+      "elementBox": {
+        "w": 410,
+        "h": 200
+      },
+      "drawnInk": {
+        "w": 166.67,
+        "h": 200
+      },
+      "deadPx": 48667,
+      "deadPct": 59.3,
+      "role": "group",
+      "inlineStyle": "aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px); margin-inline: auto;"
+    },
+    "census": {
+      "svg[role='img']": 0,
+      "svg[role='group']": 1,
+      ".glass-card": 1,
+      "picker": 1,
+      "readout": 0,
+      "stagesInDoc": 1,
+      "pickersInDoc": 1
+    },
+    "gutterRight": 13,
+    "gutterLeft": 13,
+    "docOverflowX": 0,
+    "cqAncestor": [
+      {
+        "tag": "DIV.pane-wrapper pane-wrapper--left w-full m",
+        "containerType": "inline-size",
+        "w": 512
+      }
+    ]
+  },
+  "reduced-motion": {
+    "stageStyleAttr": "--vb-ratio: 1.2;",
+    "vbRatioVar": "1.2",
+    "rects": {
+      "stage": {
+        "x": 237,
+        "y": 746.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "picker": {
+        "x": 237,
+        "y": 746.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "card": {
+        "x": 237,
+        "y": 746.25,
+        "w": 436,
+        "h": 226
+      },
+      "svg": {
+        "x": 250,
+        "y": 759.25,
+        "w": 410,
+        "h": 200
+      }
+    },
+    "pickerCS": {
+      "grid-template-columns": "436px",
+      "gap": "16px"
+    },
+    "cardCS": {
+      "background-color": "oklab(0.913295 0.00550478 0.0130424)",
+      "border-color": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "border-width": "1px",
+      "box-shadow": "none",
+      "backdrop-filter": "none",
+      "border-radius": "16px",
+      "padding": "12px"
+    },
+    "svgCS": {
+      "inline-size": "410px",
+      "block-size": "200px",
+      "aspect-ratio": "1 / 1",
+      "margin-inline-start": "0px",
+      "margin-inline-end": "0px",
+      "transition-property": "opacity, color, background-color, border-color, box-shadow",
+      "width": "410px",
+      "height": "200px",
+      "container-type": "normal"
+    },
+    "letterbox": {
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "vbRatio_h_over_w": 1.2,
+      "elementBox": {
+        "w": 410,
+        "h": 200
+      },
+      "drawnInk": {
+        "w": 166.67,
+        "h": 200
+      },
+      "deadPx": 48667,
+      "deadPct": 59.3,
+      "role": "group",
+      "inlineStyle": "aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px); margin-inline: auto;"
+    },
+    "census": {
+      "svg[role='img']": 0,
+      "svg[role='group']": 1,
+      ".glass-card": 1,
+      "picker": 1,
+      "readout": 0,
+      "stagesInDoc": 1,
+      "pickersInDoc": 1
+    },
+    "gutterRight": 13,
+    "gutterLeft": 13,
+    "docOverflowX": 0,
+    "cqAncestor": [
+      {
+        "tag": "DIV.pane-wrapper pane-wrapper--left w-full m",
+        "containerType": "inline-size",
+        "w": 512
+      }
+    ]
+  },
+  "rtl": {
+    "stageStyleAttr": "--vb-ratio: 1.2;",
+    "vbRatioVar": "1.2",
+    "rects": {
+      "stage": {
+        "x": 767,
+        "y": 746.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "picker": {
+        "x": 767,
+        "y": 746.25,
+        "w": 436,
+        "h": 311.58
+      },
+      "card": {
+        "x": 767,
+        "y": 746.25,
+        "w": 436,
+        "h": 226
+      },
+      "svg": {
+        "x": 780,
+        "y": 759.25,
+        "w": 410,
+        "h": 200
+      }
+    },
+    "pickerCS": {
+      "grid-template-columns": "436px",
+      "gap": "16px"
+    },
+    "cardCS": {
+      "background-color": "oklab(0.913295 0.00550478 0.0130424)",
+      "border-color": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "border-width": "1px",
+      "box-shadow": "none",
+      "backdrop-filter": "none",
+      "border-radius": "16px",
+      "padding": "12px"
+    },
+    "svgCS": {
+      "inline-size": "410px",
+      "block-size": "200px",
+      "aspect-ratio": "1 / 1",
+      "margin-inline-start": "0px",
+      "margin-inline-end": "0px",
+      "transition-property": "all",
+      "width": "410px",
+      "height": "200px",
+      "container-type": "normal"
+    },
+    "letterbox": {
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "vbRatio_h_over_w": 1.2,
+      "elementBox": {
+        "w": 410,
+        "h": 200
+      },
+      "drawnInk": {
+        "w": 166.67,
+        "h": 200
+      },
+      "deadPx": 48667,
+      "deadPct": 59.3,
+      "role": "group",
+      "inlineStyle": "aspect-ratio: 1 / 1; block-size: clamp(200px, 38cqi, 320px); margin-inline: auto;"
+    },
+    "census": {
+      "svg[role='img']": 0,
+      "svg[role='group']": 1,
+      ".glass-card": 1,
+      "picker": 1,
+      "readout": 0,
+      "stagesInDoc": 1,
+      "pickersInDoc": 1
+    },
+    "gutterRight": 13,
+    "gutterLeft": 13,
+    "docOverflowX": 0,
+    "cqAncestor": [
+      {
+        "tag": "DIV.pane-wrapper pane-wrapper--left w-full m",
+        "containerType": "inline-size",
+        "w": 512
+      }
+    ]
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "m-light": {
+    "measure": {
+      "present": true,
+      "viewport": {
+        "w": 390,
+        "h": 664
+      },
+      "dialog": {
+        "x": 3,
+        "y": 195.67,
+        "w": 384,
+        "h": 272.56
+      },
+      "sideMargin": 3,
+      "overflowsViewportBottom": -195.77,
+      "overflowX": 0,
+      "buttons": [
+        {
+          "text": "Publish, then regenerate",
+          "w": 334,
+          "h": 60,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "21px",
+          "tapTargetOk": true
+        },
+        {
+          "text": "Just regenerate",
+          "w": 334,
+          "h": 60,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "21px",
+          "tapTargetOk": true
+        },
+        {
+          "text": "Close",
+          "w": 16,
+          "h": 16,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "16px",
+          "tapTargetOk": false
+        }
+      ],
+      "descLines": 2
+    }
+  },
+  "m-dark": {
+    "measure": {
+      "present": true,
+      "viewport": {
+        "w": 390,
+        "h": 664
+      },
+      "dialog": {
+        "x": 3,
+        "y": 195.67,
+        "w": 384,
+        "h": 272.56
+      },
+      "sideMargin": 3,
+      "overflowsViewportBottom": -195.77,
+      "overflowX": 0,
+      "buttons": [
+        {
+          "text": "Publish, then regenerate",
+          "w": 334,
+          "h": 60,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "21px",
+          "tapTargetOk": true
+        },
+        {
+          "text": "Just regenerate",
+          "w": 334,
+          "h": 60,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "21px",
+          "tapTargetOk": true
+        },
+        {
+          "text": "Close",
+          "w": 16,
+          "h": 16,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "16px",
+          "tapTargetOk": false
+        }
+      ],
+      "descLines": 2
+    }
+  },
+  "narrow-320": {
+    "measure": {
+      "present": true,
+      "viewport": {
+        "w": 320,
+        "h": 640
+      },
+      "dialog": {
+        "x": 0,
+        "y": 174,
+        "w": 320,
+        "h": 292.16
+      },
+      "sideMargin": 0,
+      "overflowsViewportBottom": -173.84,
+      "overflowX": 0,
+      "buttons": [
+        {
+          "text": "Publish, then regenerate",
+          "w": 270,
+          "h": 60,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "21px",
+          "tapTargetOk": true
+        },
+        {
+          "text": "Just regenerate",
+          "w": 270,
+          "h": 60,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "21px",
+          "tapTargetOk": true
+        },
+        {
+          "text": "Close",
+          "w": 16,
+          "h": 16,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "16px",
+          "tapTargetOk": false
+        }
+      ],
+      "descLines": 3
+    }
+  },
+  "zoom-200": {
+    "measure": {
+      "present": true,
+      "viewport": {
+        "w": 720,
+        "h": 450
+      },
+      "dialog": {
+        "x": 168,
+        "y": 108,
+        "w": 384,
+        "h": 234.22
+      },
+      "sideMargin": 168,
+      "overflowsViewportBottom": -107.78,
+      "overflowX": 0,
+      "buttons": [
+        {
+          "text": "Publish, then regenerate",
+          "w": 339.01,
+          "h": 40.6,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "14.6px",
+          "tapTargetOk": true
+        },
+        {
+          "text": "Just regenerate",
+          "w": 334,
+          "h": 40,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "14.6px",
+          "tapTargetOk": true
+        },
+        {
+          "text": "Close",
+          "w": 16,
+          "h": 16,
+          "wraps": false,
+          "overflows": false,
+          "fontSize": "16.664px",
+          "tapTargetOk": false
+        }
+      ],
+      "descLines": 2
+    }
+  }
+}

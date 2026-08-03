@@ -1,0 +1,10 @@
+{
+  "typed": "oklch(0.72 0.31 145)",
+  "afterOpen": "oklch(0.72 0.31 145)",
+  "afterOneTap": "#567695",
+  "clobbered": true,
+  "gamut": {
+    "hex": "#567695",
+    "canExpressP3": null
+  }
+}

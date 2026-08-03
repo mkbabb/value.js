@@ -1,0 +1,55 @@
+{
+  "area": "demo/frontend-omissions",
+  "parallelism": 2,
+  "components": [
+    {
+      "file": "demo/picker/controls/ComponentSliders/ConsoleRail.vue",
+      "slug": "picker-componentsliders-consolerail",
+      "area": "demo/picker",
+      "loc": 329,
+      "extra": "\n## Omission correction\nThis SFC was folded into the ComponentSliders parent during the first roster census, but the owner law says every component gets its own D/L/C workflow. Challenge ConsoleRail independently. Reconcile, without treating as substitutes, the parent reports at audit/components/picker-componentsliders/challenge-{D-design,L-library,C-implementation}.md and the terminal ColorSpaceSelector/layout-gestalt findings that cite this file."
+    },
+    {
+      "file": "demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue",
+      "slug": "picker-colorcomponentdisplay",
+      "area": "demo/picker",
+      "loc": 214,
+      "extra": "\n## Omission correction\nThis SFC was folded into ColorPicker during the first roster census, but it requires its own D/L/C workflow. Reconcile the independent result with audit/components/picker-colorpicker/challenge-{D-design,L-library,C-implementation}.md and registry/adjudicated/ColorPicker.md, which already carries the editable-readout defect. Do not double-book an identical root mechanism."
+    },
+    {
+      "file": "demo/picker/visual/DebugEventLog.vue",
+      "slug": "picker-debugeventlog",
+      "area": "demo/picker",
+      "loc": 136,
+      "extra": "\n## Omission correction\nThis nested SFC was missed by the first roster. Audit it independently on D/L/C, including whether product-shipped pointer-debug UI should survive at all. Its only parent is PointerDebugOverlay.vue; fold identical mechanisms, but return this file's own terminal disposition."
+    },
+    {
+      "file": "demo/picker/visual/PointerDebugOverlay.vue",
+      "slug": "picker-pointerdebugoverlay",
+      "area": "demo/picker",
+      "loc": 286,
+      "extra": "\n## Omission correction\nThis SFC was folded into ColorPicker during the first roster census, but requires its own D/L/C workflow. Reconcile with audit/components/picker-colorpicker/challenge-{D-design,L-library,C-implementation}.md and registry/adjudicated/ColorPicker.md. Explicitly rule on the clipboard recovery branch as legitimate error/offline recovery rather than misclassifying every fallback as a compatibility shim."
+    },
+    {
+      "file": "demo/shell/dock/ActionToolbar.vue",
+      "slug": "shell-dock-actiontoolbar",
+      "area": "demo/shell",
+      "loc": 92,
+      "extra": "\n## Omission correction\nThis SFC was folded into ActionBarLayer during the first roster census. Challenge it independently and reconcile with audit/components/shell-dock-actionbarlayer/challenge-{D-design,L-library,C-implementation}.md and shell-dock-actionbutton reports. Rule whether this special toolbar survives the typed action-contract cut or folds into one generic owner."
+    },
+    {
+      "file": "demo/shell/dock/ParseEchoReadout.vue",
+      "slug": "shell-dock-parseechoreadout",
+      "area": "demo/shell",
+      "loc": 49,
+      "extra": "\n## Omission correction\nThis SFC was folded into ColorInput during the first roster census. Challenge it independently and reconcile with audit/components/shell-dock-colorinput/challenge-{D-design,L-library,C-implementation}.md. Judge the parse echo and gamut verdict as one display job, including accessible announcement behavior and catalog ownership."
+    },
+    {
+      "file": "demo/shell/dock/layers/GenericActionBar.vue",
+      "slug": "shell-dock-genericactionbar",
+      "area": "demo/shell",
+      "loc": 32,
+      "extra": "\n## Omission correction\nThis SFC was folded into Dock during the first roster census. Challenge it independently and reconcile with audit/components/shell-dock-dock/challenge-{D-design,L-library,C-implementation}.md and ActionBarLayer/ActionButton reports. It is a prime fold candidate under the typed route-action contract; do not preserve it merely to satisfy the roster."
+    }
+  ]
+}

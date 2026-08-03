@@ -1,0 +1,6 @@
+{
+  "root_barrel_bytes": 20333,
+  "subpath_bytes": 20337,
+  "delta": 4,
+  "note": "ENTRY=root|sub npx vite build --config vite.barrel.ts, run from the repo root with SP set to this directory"
+}

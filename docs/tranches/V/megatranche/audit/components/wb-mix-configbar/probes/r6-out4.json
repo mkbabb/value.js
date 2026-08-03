@@ -1,0 +1,110 @@
+{
+ "light": {
+  "info": {
+   "opacity": "0.5",
+   "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+   "bw": "0px",
+   "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px",
+   "rect": {
+    "x": 754,
+    "y": 497.234375,
+    "w": 462,
+    "h": 40
+   }
+  },
+  "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/img/verb-enabled-light.png",
+  "hov": {
+   "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+   "scale": "1",
+   "transform": "none",
+   "shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px"
+  },
+  "fileH": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/img/verb-enabled-hover-light.png"
+ },
+ "dark": {
+  "info": {
+   "opacity": "0.5",
+   "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+   "bw": "0px",
+   "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px",
+   "rect": {
+    "x": 754,
+    "y": 497.234375,
+    "w": 462,
+    "h": 40
+   }
+  },
+  "file": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/img/verb-enabled-dark.png",
+  "hov": {
+   "bg": "oklab(0.414855 0.00942762 0.0161359 / 0.6304)",
+   "scale": "1",
+   "transform": "none",
+   "shadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px"
+  },
+  "fileH": "/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/img/verb-enabled-hover-dark.png"
+ },
+ "coarse": {
+  "fit": {
+   "font": "21px \"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "fieldW": 158,
+   "pad": "12px/12px",
+   "chevron": 16,
+   "spanW": 72.28125,
+   "spanMaxAvail": 110,
+   "widths": [
+    {
+     "w": "Shorter",
+     "px": 72.3
+    },
+    {
+     "w": "Longer",
+     "px": 68.6
+    },
+    {
+     "w": "Increasing",
+     "px": 101.7
+    },
+    {
+     "w": "Decreasing",
+     "px": 111.5
+    },
+    {
+     "w": "Linear sRGB",
+     "px": 126.2
+    },
+    {
+     "w": "Display P3",
+     "px": 105.3
+    },
+    {
+     "w": "Discard extras",
+     "px": 140.8
+    }
+   ],
+   "spanStyles": {
+    "overflow": "hidden",
+    "textOverflow": "clip",
+    "whiteSpace": "normal",
+    "display": "flow-root",
+    "webkitLineClamp": "1"
+   }
+  },
+  "taps": [
+   {
+    "n": "Color space",
+    "w": 158,
+    "h": 36
+   },
+   {
+    "n": "Hue method",
+    "w": 158,
+    "h": 36
+   },
+   {
+    "n": "Mix verb",
+    "w": 324,
+    "h": 60
+   }
+  ]
+ }
+}

@@ -1,0 +1,1788 @@
+{
+  "desktopLight": {
+    "paneRect": {
+      "x": 729,
+      "y": 103,
+      "w": 512,
+      "h": 774
+    },
+    "paneBg": "oklab(0.928273 0.005506 0.013193 / 0.664)",
+    "headingTag": "H3",
+    "headingText": "My Palettes12 (12 saved)",
+    "title": {
+      "font-size": "41.888px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "400",
+      "rect": {
+        "x": 820.49,
+        "y": 116.16,
+        "w": 146.68,
+        "h": 51.65
+      }
+    },
+    "badge": {
+      "text": "12",
+      "rect": {
+        "x": 975.17,
+        "y": 139.08,
+        "w": 38.94,
+        "h": 26.02
+      }
+    },
+    "plate": null,
+    "grid": {
+      "rect": {
+        "x": 754,
+        "y": 423.89,
+        "w": 462,
+        "h": 1332
+      },
+      "role": "list",
+      "gridTemplateColumns": "462px",
+      "minHeight": "120px",
+      "childRoles": [
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article"
+      ],
+      "listitemCount": 0
+    },
+    "cardCount": 12,
+    "cards": [
+      {
+        "label": "Palette: Autumnal Ridgeline Chromatic Study Number Seventeen Revised Extended Edition For Print And Screen X",
+        "rect": {
+          "x": 754,
+          "y": 423.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "Autumnal Ridgeline Chromatic Study Numbe",
+        "nameRect": {
+          "x": 792,
+          "y": 478.63,
+          "w": 327.91,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 328,
+          "clientW": 328,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 425.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 1,
+        "segWidths": [
+          458
+        ]
+      },
+      {
+        "label": "Palette: Fifty",
+        "rect": {
+          "x": 754,
+          "y": 535.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "Fifty",
+        "nameRect": {
+          "x": 792,
+          "y": 590.63,
+          "w": 44.92,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 45,
+          "clientW": 45,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 537.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 50,
+        "segWidths": [
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16
+        ]
+      },
+      {
+        "label": "Palette: 🎨 Ünïcødé — عرض الألوان ✨",
+        "rect": {
+          "x": 754,
+          "y": 647.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "🎨 Ünïcødé — عرض الألوان ✨",
+        "nameRect": {
+          "x": 792,
+          "y": 702.63,
+          "w": 236.77,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 237,
+          "clientW": 237,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 649.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 5,
+        "segWidths": [
+          91.59,
+          91.59,
+          91.59,
+          91.59,
+          91.59
+        ]
+      },
+      {
+        "label": "Palette: One",
+        "rect": {
+          "x": 754,
+          "y": 759.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "One",
+        "nameRect": {
+          "x": 792,
+          "y": 814.63,
+          "w": 39.47,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 39,
+          "clientW": 39,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 761.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 1,
+        "segWidths": [
+          458
+        ]
+      },
+      {
+        "label": "Palette: Sunset Ridge 1",
+        "rect": {
+          "x": 754,
+          "y": 871.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "Sunset Ridge 1",
+        "nameRect": {
+          "x": 792,
+          "y": 926.63,
+          "w": 139.14,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 139,
+          "clientW": 139,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 873.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 3,
+        "segWidths": [
+          152.66,
+          152.66,
+          152.66
+        ]
+      },
+      {
+        "label": "Palette: Moss & Bone 2",
+        "rect": {
+          "x": 754,
+          "y": 983.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "Moss & Bone 2",
+        "nameRect": {
+          "x": 792,
+          "y": 1038.63,
+          "w": 140.11,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 140,
+          "clientW": 140,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 985.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 4,
+        "segWidths": [
+          114.5,
+          114.5,
+          114.5,
+          114.5
+        ]
+      }
+    ],
+    "cardHeights": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "trash": {
+      "rect": {
+        "x": 1188,
+        "y": 383.89,
+        "w": 28,
+        "h": 28
+      },
+      "variantAttr": "ghost",
+      "background-color": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "color": "rgb(91, 70, 51)",
+      "cursor": "pointer",
+      "border-radius": "9999px"
+    },
+    "search": {
+      "rect": {
+        "x": 789,
+        "y": 215.48,
+        "w": 414,
+        "h": 24.58
+      },
+      "name": "Search your palettes...",
+      "ariaLabel": null,
+      "labelledby": null
+    },
+    "scrollers": [
+      {
+        "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+        "scrollH": 1668,
+        "clientH": 772
+      }
+    ],
+    "focusables": [
+      {
+        "tag": "INPUT",
+        "name": "Search your palettes...",
+        "w": 414,
+        "h": 24.58
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Delete all saved palettes",
+        "w": 28,
+        "h": 28
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      }
+    ],
+    "docOverflow": 0,
+    "h1Count": 0
+  },
+  "tabWalk": [
+    {
+      "tag": "SPAN",
+      "name": "l component value",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 220,
+        "y": 314,
+        "w": 115,
+        "h": 61
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "a component value",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 396,
+        "y": 314,
+        "w": 115,
+        "h": 61
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "b component value",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 547,
+        "y": 314,
+        "w": 115,
+        "h": 61
+      },
+      "inPane": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "l channel",
+      "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 238,
+        "y": 646,
+        "w": 24,
+        "h": 24
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "L channel",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 576,
+        "y": 641,
+        "w": 12,
+        "h": 24
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "A channel",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 555,
+        "y": 685,
+        "w": 12,
+        "h": 24
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "B channel",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 465,
+        "y": 728,
+        "w": 12,
+        "h": 24
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "ALPHA channel",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 546,
+        "y": 772,
+        "w": 12,
+        "h": 24
+      },
+      "inPane": false
+    },
+    {
+      "tag": "INPUT",
+      "name": "Search your palettes...",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "rect": {
+        "x": 789,
+        "y": 215,
+        "w": 414,
+        "h": 25
+      },
+      "inPane": true
+    },
+    {
+      "tag": "BODY"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Toggle action bar",
+      "outline": "3px none color(srgb 0 0 0 / 0.8)",
+      "boxShadow": "oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px",
+      "rect": {
+        "x": 633,
+        "y": 24,
+        "w": 105,
+        "h": 32
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "l component value",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 220,
+        "y": 314,
+        "w": 115,
+        "h": 61
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "a component value",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 396,
+        "y": 314,
+        "w": 115,
+        "h": 61
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "b component value",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 547,
+        "y": 314,
+        "w": 115,
+        "h": 61
+      },
+      "inPane": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "l channel",
+      "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 238,
+        "y": 646,
+        "w": 24,
+        "h": 24
+      },
+      "inPane": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "L channel",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.66",
+      "rect": {
+        "x": 576,
+        "y": 641,
+        "w": 12,
+        "h": 24
+      },
+      "inPane": false
+    }
+  ],
+  "searchFocusRing": {
+    "input": {
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none"
+    },
+    "wrapper": {
+      "cls": "input-bar search-seated",
+      "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) ",
+      "outline": "3px none rgb(28, 25, 23)"
+    }
+  },
+  "dialog": {
+    "onOpen": {
+      "activeTag": "BUTTON",
+      "activeName": "Cancel",
+      "dialogRole": "dialog",
+      "dialogLabelledby": "reka-dialog-title-v-1-26",
+      "dialogDescribedby": "reka-dialog-description-v-1-27",
+      "hasCloseButton": false,
+      "buttons": [
+        {
+          "text": "Cancel",
+          "x": 756,
+          "w": 62,
+          "bg": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "text": "Delete all",
+          "x": 825,
+          "w": 126,
+          "bg": "rgb(219, 36, 36)"
+        }
+      ],
+      "descr": "This will permanently delete 12 palettes from local storage. This cannot be undone."
+    },
+    "afterEscape": {
+      "tag": "BUTTON",
+      "name": "Delete all saved palettes"
+    },
+    "afterConfirm": {
+      "activeTag": "BODY",
+      "activeName": "→lab(92% 88.8 20 / 82.7%)PalettesToolsPi",
+      "isBody": true,
+      "openerStillInDom": false,
+      "cardsLeft": 0,
+      "liveRegions": [
+        "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+      ]
+    }
+  },
+  "emptyLibrary": {
+    "paneRect": {
+      "x": 729,
+      "y": 148,
+      "w": 512,
+      "h": 684.73
+    },
+    "paneBg": "oklab(0.928273 0.005506 0.013193 / 0.664)",
+    "headingTag": "H3",
+    "headingText": "My Palettes",
+    "title": {
+      "font-size": "41.888px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "400",
+      "rect": {
+        "x": 820.49,
+        "y": 161.16,
+        "w": 146.68,
+        "h": 51.65
+      }
+    },
+    "badge": null,
+    "plate": null,
+    "grid": {
+      "rect": {
+        "x": 754,
+        "y": 427.77,
+        "w": 462,
+        "h": 218.08
+      },
+      "role": "list",
+      "gridTemplateColumns": "462px",
+      "minHeight": "120px",
+      "childRoles": [
+        "status"
+      ],
+      "listitemCount": 0
+    },
+    "cardCount": 0,
+    "cards": [],
+    "cardHeights": [],
+    "emptyState": {
+      "role": "status",
+      "ariaLive": null,
+      "lines": [
+        {
+          "text": "· empty plate ·",
+          "font-size": "14.384px",
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)"
+        },
+        {
+          "text": "No saved palettes yet.",
+          "font-size": "25.888px",
+          "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+          "font-weight": "700",
+          "color": "rgb(28, 25, 23)"
+        },
+        {
+          "text": "Add colors above, then save the set.",
+          "font-size": "16.4px",
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)"
+        }
+      ]
+    },
+    "trash": null,
+    "search": {
+      "rect": {
+        "x": 789,
+        "y": 259.36,
+        "w": 414,
+        "h": 24.58
+      },
+      "name": "Search your palettes...",
+      "ariaLabel": null,
+      "labelledby": null
+    },
+    "scrollers": [],
+    "focusables": [
+      {
+        "tag": "INPUT",
+        "name": "Search your palettes...",
+        "w": 414,
+        "h": 24.58
+      }
+    ],
+    "docOverflow": 0,
+    "h1Count": 0
+  },
+  "desktopDark": {
+    "paneRect": {
+      "x": 729,
+      "y": 103,
+      "w": 512,
+      "h": 774
+    },
+    "paneBg": "oklab(0.395241 0.00968 0.016528 / 0.7536)",
+    "headingTag": "H3",
+    "headingText": "My Palettes12 (12 saved)",
+    "title": {
+      "font-size": "41.888px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "400",
+      "rect": {
+        "x": 820.49,
+        "y": 116.16,
+        "w": 146.68,
+        "h": 51.65
+      }
+    },
+    "badge": {
+      "text": "12",
+      "rect": {
+        "x": 975.17,
+        "y": 139.08,
+        "w": 38.94,
+        "h": 26.02
+      }
+    },
+    "plate": null,
+    "grid": {
+      "rect": {
+        "x": 754,
+        "y": 423.89,
+        "w": 462,
+        "h": 1332
+      },
+      "role": "list",
+      "gridTemplateColumns": "462px",
+      "minHeight": "120px",
+      "childRoles": [
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article"
+      ],
+      "listitemCount": 0
+    },
+    "cardCount": 12,
+    "cards": [
+      {
+        "label": "Palette: Autumnal Ridgeline Chromatic Study Number Seventeen Revised Extended Edition For Print And Screen X",
+        "rect": {
+          "x": 754,
+          "y": 423.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "Autumnal Ridgeline Chromatic Study Numbe",
+        "nameRect": {
+          "x": 792,
+          "y": 478.63,
+          "w": 327.91,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 328,
+          "clientW": 328,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 425.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 1,
+        "segWidths": [
+          458
+        ]
+      },
+      {
+        "label": "Palette: Fifty",
+        "rect": {
+          "x": 754,
+          "y": 535.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "Fifty",
+        "nameRect": {
+          "x": 792,
+          "y": 590.63,
+          "w": 44.92,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 45,
+          "clientW": 45,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 537.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 50,
+        "segWidths": [
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16,
+          9.16
+        ]
+      },
+      {
+        "label": "Palette: 🎨 Ünïcødé — عرض الألوان ✨",
+        "rect": {
+          "x": 754,
+          "y": 647.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "🎨 Ünïcødé — عرض الألوان ✨",
+        "nameRect": {
+          "x": 792,
+          "y": 702.63,
+          "w": 236.77,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 237,
+          "clientW": 237,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 649.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 5,
+        "segWidths": [
+          91.59,
+          91.59,
+          91.59,
+          91.59,
+          91.59
+        ]
+      },
+      {
+        "label": "Palette: One",
+        "rect": {
+          "x": 754,
+          "y": 759.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "One",
+        "nameRect": {
+          "x": 792,
+          "y": 814.63,
+          "w": 39.47,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 39,
+          "clientW": 39,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 761.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 1,
+        "segWidths": [
+          458
+        ]
+      },
+      {
+        "label": "Palette: Sunset Ridge 1",
+        "rect": {
+          "x": 754,
+          "y": 871.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "Sunset Ridge 1",
+        "nameRect": {
+          "x": 792,
+          "y": 926.63,
+          "w": 139.14,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 139,
+          "clientW": 139,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 873.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 3,
+        "segWidths": [
+          152.66,
+          152.66,
+          152.66
+        ]
+      },
+      {
+        "label": "Palette: Moss & Bone 2",
+        "rect": {
+          "x": 754,
+          "y": 983.89,
+          "w": 462,
+          "h": 100
+        },
+        "name": "Moss & Bone 2",
+        "nameRect": {
+          "x": 792,
+          "y": 1038.63,
+          "w": 140.11,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 140,
+          "clientW": 140,
+          "clamp": "1"
+        },
+        "stripRect": {
+          "x": 756,
+          "y": 985.89,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 4,
+        "segWidths": [
+          114.5,
+          114.5,
+          114.5,
+          114.5
+        ]
+      }
+    ],
+    "cardHeights": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "trash": {
+      "rect": {
+        "x": 1188,
+        "y": 383.89,
+        "w": 28,
+        "h": 28
+      },
+      "variantAttr": "ghost",
+      "background-color": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+      "color": "rgb(213, 208, 200)",
+      "cursor": "pointer",
+      "border-radius": "9999px"
+    },
+    "search": {
+      "rect": {
+        "x": 789,
+        "y": 215.48,
+        "w": 414,
+        "h": 24.58
+      },
+      "name": "Search your palettes...",
+      "ariaLabel": null,
+      "labelledby": null
+    },
+    "scrollers": [
+      {
+        "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+        "scrollH": 1668,
+        "clientH": 772
+      }
+    ],
+    "focusables": [
+      {
+        "tag": "INPUT",
+        "name": "Search your palettes...",
+        "w": 414,
+        "h": 24.58
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Delete all saved palettes",
+        "w": 28,
+        "h": 28
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 36,
+        "h": 36
+      }
+    ],
+    "docOverflow": 0,
+    "h1Count": 0
+  },
+  "material": {
+    "pane": {
+      "bg": "oklab(0.395241 0.00968 0.016528 / 0.7536)",
+      "border": "oklab(0.925202 0.002342 0.005724 / 0.04)",
+      "borderStyle": "solid",
+      "shadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+      "backdrop": "none"
+    },
+    "plate": null,
+    "card": {
+      "bg": "oklab(0.345296 0.010372 0.017546)",
+      "border": "oklab(0.925202 0.002342 0.005724 / 0.12)",
+      "borderStyle": "solid",
+      "shadow": "oklab(0.34 0.01136 0.027766 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) ",
+      "backdrop": "none"
+    },
+    "search": {
+      "bg": "oklab(0.345296 0.010372 0.017546)",
+      "border": "oklab(0.925202 0.002342 0.005724 / 0.12)",
+      "borderStyle": "solid",
+      "shadow": "oklab(0.34 0.01136 0.027766 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) ",
+      "backdrop": "none"
+    }
+  },
+  "mobileLight": {
+    "paneRect": {
+      "x": 16,
+      "y": 104,
+      "w": 358,
+      "h": 731.98
+    },
+    "paneBg": "oklab(0.928273 0.005506 0.013193 / 0.664)",
+    "headingTag": "H3",
+    "headingText": "My Palettes12 (12 saved)",
+    "title": {
+      "font-size": "25.888px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "400",
+      "rect": {
+        "x": 74.74,
+        "y": 118.62,
+        "w": 92.25,
+        "h": 31.92
+      }
+    },
+    "badge": {
+      "text": "12",
+      "rect": {
+        "x": 174.98,
+        "y": 121.92,
+        "w": 45.08,
+        "h": 31.09
+      }
+    },
+    "plate": null,
+    "grid": {
+      "rect": {
+        "x": 33,
+        "y": 435.59,
+        "w": 324,
+        "h": 1562.06
+      },
+      "role": "list",
+      "gridTemplateColumns": "324px",
+      "minHeight": "120px",
+      "childRoles": [
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article",
+        "article"
+      ],
+      "listitemCount": 0
+    },
+    "cardCount": 12,
+    "cards": [
+      {
+        "label": "Palette: Autumnal Ridgeline Chromatic Study Number Seventeen Revised Extended Edition For Print And Screen X",
+        "rect": {
+          "x": 33,
+          "y": 435.59,
+          "w": 324,
+          "h": 125.03
+        },
+        "name": "Autumnal Ridgeline Chromatic Study Numbe",
+        "nameRect": {
+          "x": 71,
+          "y": 487.59,
+          "w": 169.06,
+          "h": 61.03
+        },
+        "nameOverflow": {
+          "scrollW": 169,
+          "clientW": 169,
+          "clamp": "2"
+        },
+        "stripRect": {
+          "x": 35,
+          "y": 437.59,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 1,
+        "segWidths": [
+          320
+        ]
+      },
+      {
+        "label": "Palette: Fifty",
+        "rect": {
+          "x": 33,
+          "y": 572.63,
+          "w": 324,
+          "h": 118
+        },
+        "name": "Fifty",
+        "nameRect": {
+          "x": 71,
+          "y": 636.36,
+          "w": 44.92,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 45,
+          "clientW": 45,
+          "clamp": "2"
+        },
+        "stripRect": {
+          "x": 35,
+          "y": 574.63,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 50,
+        "segWidths": [
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39,
+          6.39
+        ]
+      },
+      {
+        "label": "Palette: 🎨 Ünïcødé — عرض الألوان ✨",
+        "rect": {
+          "x": 33,
+          "y": 702.63,
+          "w": 324,
+          "h": 125.03
+        },
+        "name": "🎨 Ünïcødé — عرض الألوان ✨",
+        "nameRect": {
+          "x": 71,
+          "y": 754.63,
+          "w": 169.06,
+          "h": 61.03
+        },
+        "nameOverflow": {
+          "scrollW": 169,
+          "clientW": 169,
+          "clamp": "2"
+        },
+        "stripRect": {
+          "x": 35,
+          "y": 704.63,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 5,
+        "segWidths": [
+          64,
+          64,
+          64,
+          64,
+          64
+        ]
+      },
+      {
+        "label": "Palette: One",
+        "rect": {
+          "x": 33,
+          "y": 839.66,
+          "w": 324,
+          "h": 118
+        },
+        "name": "One",
+        "nameRect": {
+          "x": 71,
+          "y": 903.39,
+          "w": 39.47,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 39,
+          "clientW": 39,
+          "clamp": "2"
+        },
+        "stripRect": {
+          "x": 35,
+          "y": 841.66,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 1,
+        "segWidths": [
+          320
+        ]
+      },
+      {
+        "label": "Palette: Sunset Ridge 1",
+        "rect": {
+          "x": 33,
+          "y": 969.66,
+          "w": 324,
+          "h": 118
+        },
+        "name": "Sunset Ridge 1",
+        "nameRect": {
+          "x": 71,
+          "y": 1033.39,
+          "w": 139.14,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 139,
+          "clientW": 139,
+          "clamp": "2"
+        },
+        "stripRect": {
+          "x": 35,
+          "y": 971.66,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 3,
+        "segWidths": [
+          106.66,
+          106.66,
+          106.66
+        ]
+      },
+      {
+        "label": "Palette: Moss & Bone 2",
+        "rect": {
+          "x": 33,
+          "y": 1099.66,
+          "w": 324,
+          "h": 118
+        },
+        "name": "Moss & Bone 2",
+        "nameRect": {
+          "x": 71,
+          "y": 1163.39,
+          "w": 140.11,
+          "h": 30.52
+        },
+        "nameOverflow": {
+          "scrollW": 140,
+          "clientW": 140,
+          "clamp": "2"
+        },
+        "stripRect": {
+          "x": 35,
+          "y": 1101.66,
+          "w": 0,
+          "h": 0
+        },
+        "segCount": 4,
+        "segWidths": [
+          80,
+          80,
+          80,
+          80
+        ]
+      }
+    ],
+    "cardHeights": [
+      125.03,
+      118,
+      125.03,
+      118,
+      118,
+      118,
+      118,
+      118,
+      118,
+      118,
+      118,
+      118
+    ],
+    "trash": {
+      "rect": {
+        "x": 313,
+        "y": 379.59,
+        "w": 44,
+        "h": 44
+      },
+      "variantAttr": "ghost",
+      "background-color": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "color": "rgb(91, 70, 51)",
+      "cursor": "pointer",
+      "border-radius": "9999px"
+    },
+    "search": {
+      "rect": {
+        "x": 75.5,
+        "y": 206.08,
+        "w": 268,
+        "h": 31.5
+      },
+      "name": "Search your palettes...",
+      "ariaLabel": null,
+      "labelledby": null
+    },
+    "scrollers": [
+      {
+        "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+        "scrollH": 1909,
+        "clientH": 730
+      }
+    ],
+    "focusables": [
+      {
+        "tag": "INPUT",
+        "name": "Search your palettes...",
+        "w": 268,
+        "h": 31.5
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Delete all saved palettes",
+        "w": 44,
+        "h": 44
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      },
+      {
+        "tag": "BUTTON",
+        "name": "Palette menu",
+        "w": 54,
+        "h": 54
+      }
+    ],
+    "docOverflow": 0,
+    "h1Count": 0
+  },
+  "mobileEmpty": {
+    "paneRect": {
+      "x": 16,
+      "y": 229.48,
+      "w": 358,
+      "h": 481.16
+    },
+    "paneBg": "oklab(0.928273 0.005506 0.013193 / 0.664)",
+    "headingTag": "H3",
+    "headingText": "My Palettes",
+    "title": {
+      "font-size": "25.888px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "400",
+      "rect": {
+        "x": 74.74,
+        "y": 244.1,
+        "w": 92.25,
+        "h": 31.92
+      }
+    },
+    "badge": null,
+    "plate": null,
+    "grid": {
+      "rect": {
+        "x": 33,
+        "y": 482.22,
+        "w": 324,
+        "h": 211.42
+      },
+      "role": "list",
+      "gridTemplateColumns": "324px",
+      "minHeight": "120px",
+      "childRoles": [
+        "status"
+      ],
+      "listitemCount": 0
+    },
+    "cardCount": 0,
+    "cards": [],
+    "cardHeights": [],
+    "emptyState": {
+      "role": "status",
+      "ariaLive": null,
+      "lines": [
+        {
+          "text": "· empty plate ·",
+          "font-size": "12.179px",
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)"
+        },
+        {
+          "text": "No saved palettes yet.",
+          "font-size": "25.888px",
+          "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+          "font-weight": "700",
+          "color": "rgb(28, 25, 23)"
+        },
+        {
+          "text": "Add colors above, then save the set.",
+          "font-size": "14px",
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)"
+        }
+      ]
+    },
+    "trash": null,
+    "search": {
+      "rect": {
+        "x": 68.5,
+        "y": 322.45,
+        "w": 275,
+        "h": 22
+      },
+      "name": "Search your palettes...",
+      "ariaLabel": null,
+      "labelledby": null
+    },
+    "scrollers": [],
+    "focusables": [
+      {
+        "tag": "INPUT",
+        "name": "Search your palettes...",
+        "w": 275,
+        "h": 22
+      }
+    ],
+    "docOverflow": 0,
+    "h1Count": 0
+  },
+  "reducedMotion": {
+    "card": {
+      "transition": "opacity 0.1s, color 0.1s, background-color 0.1s, border-color 0.1s, box-shadow 0.1s",
+      "animation": "0.00001s"
+    },
+    "cast": {
+      "transition": "opacity 0.1s, color 0.1s, background-color 0.1s, border-color 0.1s, box-shadow 0.1s",
+      "animation": "0.00001s"
+    },
+    "pane": {
+      "transition": "opacity 0.1s, color 0.1s, background-color 0.1s, border-color 0.1s, box-shadow 0.1s",
+      "animation": "0.00001s"
+    }
+  }
+}

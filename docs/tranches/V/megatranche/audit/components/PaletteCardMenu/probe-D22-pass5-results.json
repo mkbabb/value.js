@@ -1,0 +1,126 @@
+{
+  "I_clipSignal": {
+    "signal": {
+      "offsetWidth": 192,
+      "clientWidth": 190,
+      "scrollbarGutterPx": 2,
+      "offsetHeight": 135,
+      "clientHeight": 133,
+      "scrollHeight": 235,
+      "scrollTop": 0,
+      "overflowY": "auto",
+      "scrollbarWidth": "auto",
+      "scrollbarColor": "auto",
+      "maskImage": "none",
+      "webkitMaskImage": "none",
+      "hasScrollButtons": 0,
+      "classList": "dropdown-menu-content dropdown-menu__content glass-reveal glass-floating w-48 text-small",
+      "ariaHints": {
+        "hasAriaSetsize": false,
+        "role": "menu"
+      },
+      "rowsBefore": [
+        {
+          "text": "Publish",
+          "insidePanel": true
+        },
+        {
+          "text": "Rename",
+          "insidePanel": true
+        },
+        {
+          "text": "Export",
+          "insidePanel": false
+        },
+        {
+          "text": "Delete",
+          "insidePanel": false
+        }
+      ]
+    },
+    "afterWheel": {
+      "scrollTop": 102,
+      "rows": [
+        {
+          "text": "Publish",
+          "insidePanel": false
+        },
+        {
+          "text": "Rename",
+          "insidePanel": false
+        },
+        {
+          "text": "Export",
+          "insidePanel": true
+        },
+        {
+          "text": "Delete",
+          "insidePanel": true
+        }
+      ]
+    },
+    "afterKeys": {
+      "focusedText": "Delete",
+      "scrollTop": 96,
+      "focusedInsidePanel": true
+    }
+  },
+  "J_identity": {
+    "100": {
+      "rootFontSize": "16px",
+      "panelW": 192,
+      "cardName": {
+        "full": "Muted Terracotta and Deep Sea Foam Study",
+        "fontFamily": "Fraunces",
+        "fontSize": "20.352px",
+        "fontWeight": "500",
+        "renderedW": 327.9,
+        "scrollW": 328,
+        "clientW": 328,
+        "maxWidth": "none",
+        "shownPct": 100,
+        "clippedPx": 0
+      },
+      "menuHeader": {
+        "full": "Muted Terracotta and Deep Sea Foam Study",
+        "fontFamily": "Fraunces",
+        "fontSize": "14.384px",
+        "fontWeight": "600",
+        "renderedW": 178,
+        "scrollW": 319,
+        "clientW": 178,
+        "maxWidth": "180px",
+        "shownPct": 55.8,
+        "clippedPx": 141
+      }
+    },
+    "200": {
+      "rootFontSize": "32px",
+      "panelW": 384,
+      "cardName": {
+        "full": "Muted Terracotta and Deep Sea Foam Study",
+        "fontFamily": "Fraunces",
+        "fontSize": "40.704px",
+        "fontWeight": "500",
+        "renderedW": 440,
+        "scrollW": 440,
+        "clientW": 440,
+        "maxWidth": "none",
+        "shownPct": 100,
+        "clippedPx": 0
+      },
+      "menuHeader": {
+        "full": "Muted Terracotta and Deep Sea Foam Study",
+        "fontFamily": "Fraunces",
+        "fontSize": "25.744px",
+        "fontWeight": "600",
+        "renderedW": 180,
+        "scrollW": 569,
+        "clientW": 180,
+        "maxWidth": "180px",
+        "shownPct": 31.6,
+        "clippedPx": 389
+      }
+    }
+  }
+}

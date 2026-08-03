@@ -1,0 +1,88 @@
+=== ALL cross-area edges in demo/ ===
+  48 palettes -> ui
+  28 workbenches -> color-session
+  22 palettes -> platform
+  19 picker -> color-session
+  17 workbenches -> palettes
+  17 color-picker -> color-session
+  14 workbenches -> ui
+  14 scenes -> color-session
+  14 shell -> color-session
+  14 palettes -> color-session
+  11 scenes -> ui
+  10 shell -> ui
+  10 palettes -> shared
+   8 color-picker -> shell
+   6 workbenches -> shared
+   5 picker -> ui
+   5 shell -> palettes
+   5 color-session -> shared
+   3 test -> scenes
+   3 shell -> platform
+   3 color-picker -> styles
+   2 scenes -> styles
+   2 scenes -> shared
+   2 color-session -> platform
+   2 color-picker -> picker
+   2 color-picker -> palettes
+   1 scenes -> color-picker
+   1 test -> color-picker
+   1 test -> palettes
+   1 picker -> color-picker
+   1 picker -> shell
+   1 picker -> palettes
+   1 shell -> picker
+   1 color-session -> ui
+   1 color-picker -> platform
+   1 color-picker -> shared
+   1 color-picker -> scenes
+   1 color-picker -> ui
+   1 palettes -> shell
+
+=== VIOLATIONS of ARCHITECTURE.md:50-56 ===
+
+17x  feature(workbenches) -> feature(palettes)
+      demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue:27  <-  ../../../palettes/usePalettePorts
+      demo/workbenches/mix/composables/useMixingState.ts:20  <-  ../../../palettes/types
+      demo/workbenches/mix/composables/useMixingState.ts:21  <-  ../../../palettes/mix
+      demo/workbenches/mix/MixConfigBar.vue:14  <-  ../../palettes/mix
+      demo/workbenches/mix/MixSourceSelector.vue:6  <-  ../../palettes/usePalettePorts
+      demo/workbenches/mix/MixSourceSelector.vue:8  <-  ../../palettes/browser/card
+      demo/workbenches/mix/MixSourceSelector.vue:10  <-  ../../palettes/types
+      demo/workbenches/mix/MixPane.vue:10  <-  ../../palettes/usePalettePorts
+      demo/workbenches/mix/MixPane.vue:13  <-  ../../palettes/types
+      demo/workbenches/generate/GenerateControls.vue:16  <-  ../../palettes/browser/card
+      demo/workbenches/generate/GenerateControls.vue:21  <-  ../../palettes/types
+      demo/workbenches/generate/GeneratePane.vue:6  <-  ../../palettes/usePalettePorts
+      demo/workbenches/generate/GeneratePane.vue:8  <-  ../../palettes/types
+      demo/workbenches/extract/ExtractWorkbench.vue:200  <-  ../../palettes/browser/card
+      demo/workbenches/extract/composables/useExtractSession.ts:17  <-  ../../../palettes/usePaletteStore
+      demo/workbenches/extract/composables/useExtractSession.ts:18  <-  ../../../palettes/types
+      demo/workbenches/extract/ExtractPane.vue:27  <-  ../../palettes/usePalettePorts
+
+5x  shell(shell) -> feature(palettes)
+      demo/shell/dock/DockViewSelect.vue:8  <-  ../../palettes/usePalettePorts
+      demo/shell/dock/layers/SlugEditLayer.vue:5  <-  ../../../palettes/usePalettePorts
+      demo/shell/dock/Dock.vue:18  <-  ../../palettes/usePalettePorts
+      demo/shell/dock/menus/ProfileSection.vue:14  <-  ../../../palettes/usePalettePorts
+      demo/shell/dock/menus/MobileMenuDropdown.vue:13  <-  ../../../palettes/usePalettePorts
+
+1x  feature(scenes) -> app(color-picker)
+      demo/scenes/atmosphere/aurora-harmony-stops.ts:23  <-  ../../color-picker/composables/boot/atmosphere-calibration
+
+1x  feature(picker) -> app(color-picker)
+      demo/picker/ColorPicker.vue:129  <-  ../color-picker/composables/boot/useOverture
+
+1x  feature(picker) -> shell(shell)
+      demo/picker/ColorPicker.vue:130  <-  ../shell/useViewManager
+
+1x  feature(picker) -> feature(palettes)
+      demo/picker/ColorPicker.vue:131  <-  ../palettes/usePalettePorts
+
+1x  shell(shell) -> feature(picker)
+      demo/shell/usePaneRouter.ts:21  <-  ../picker
+
+1x  feature(palettes) -> shell(shell)
+      demo/palettes/usePalettePorts.ts:19  <-  ../shell/useViewManager
+
+TOTAL VIOLATIONS: 28

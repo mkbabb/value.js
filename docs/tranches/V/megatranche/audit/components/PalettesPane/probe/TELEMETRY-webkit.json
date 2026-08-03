@@ -1,0 +1,1930 @@
+[
+ {
+  "matrix": "desktop-light-populated",
+  "engine": "webkit",
+  "pageErrors": [],
+  "dir": "ltr",
+  "dark": false,
+  "scrollWidthOverflow": 0,
+  "h1Count": 0,
+  "mainCount": 1,
+  "headingOutline": [
+   "H3:92.0\n%\n,\n88.8\n,\n20.0",
+   "H3:My Palettes12 (12 saved)"
+  ],
+  "ramp": {
+   "--palettes-ramp-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-2": "oklch(45.756101011818% 0.121253229714 49.83402284231deg)",
+   "--palettes-ramp-title-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-title-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-title-2": "oklch(47.092665778393% 0.124795113552 49.83402284231deg)"
+  },
+  "rampRgb": {
+   "--palettes-ramp-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-2": [
+    139,
+    62,
+    0
+   ],
+   "--palettes-ramp-title-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-title-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-title-2": [
+    144,
+    65,
+    0
+   ]
+  },
+  "rampedTextStyle": {
+   "color": "rgba(0, 0, 0, 0)",
+   "background-image": "linear-gradient(90deg, oklch(0.470927 0.188343 329.834015), oklch(0.470927 0.188343 9.834023), oklch(0.470927 0.124795 49.834023))",
+   "-webkit-text-fill-color": "rgba(0, 0, 0, 0)",
+   "background-clip": "text"
+  },
+  "rampedRect": {
+   "x": 820.5,
+   "y": 116.2,
+   "w": 146.7,
+   "h": 51.6
+  },
+  "titleStyle": {
+   "font-size": "41.888px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "font-weight": "400",
+   "line-height": "43.982403px",
+   "color": "rgb(28, 25, 23)"
+  },
+  "titleRect": {
+   "x": 754,
+   "y": 120,
+   "w": 462,
+   "h": 45.1
+  },
+  "badgeRect": {
+   "x": 975.2,
+   "y": 139.1,
+   "w": 38.9,
+   "h": 26
+  },
+  "badgeStyle": {
+   "margin-left": "8px",
+   "margin-right": "0px",
+   "margin-inline-start": "8px",
+   "font-size": "16.4px"
+  },
+  "paneRects": [
+   {
+    "x": 199,
+    "y": 102.9,
+    "w": 512,
+    "h": 774
+   },
+   {
+    "x": 729,
+    "y": 103,
+    "w": 512,
+    "h": 774
+   }
+  ],
+  "paneClassNames": [
+   "pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center",
+   "pane-wrapper pane-wrapper--right w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+  ],
+  "trashRect": {
+   "x": 1188,
+   "y": 384.9,
+   "w": 28,
+   "h": 28
+  },
+  "trashStyle": {
+   "color": "rgb(91, 70, 51)",
+   "background-color": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+   "cursor": "pointer",
+   "width": "28px",
+   "height": "28px"
+  },
+  "searchRect": {
+   "x": 789.5,
+   "y": 215.5,
+   "w": 413,
+   "h": 24.6
+  },
+  "gridRect": {
+   "x": 754,
+   "y": 424.9,
+   "w": 462,
+   "h": 1332
+  },
+  "gridStyle": {
+   "grid-template-columns": "462px",
+   "min-height": "120px",
+   "gap": "12px"
+  },
+  "emptyRect": null,
+  "emptyText": null,
+  "cardCount": 12,
+  "cardRects": [
+   {
+    "x": 754,
+    "y": 424.9,
+    "w": 462,
+    "h": 100
+   },
+   {
+    "x": 754,
+    "y": 536.9,
+    "w": 462,
+    "h": 100
+   },
+   {
+    "x": 754,
+    "y": 648.9,
+    "w": 462,
+    "h": 100
+   }
+  ],
+  "dragHandleCount": 12,
+  "dragHandleRects": [
+   {
+    "x": 768,
+    "y": 486.9,
+    "w": 16,
+    "h": 16
+   },
+   {
+    "x": 768,
+    "y": 598.9,
+    "w": 16,
+    "h": 16
+   }
+  ],
+  "focusables": [
+   {
+    "tag": "input",
+    "name": "Search your palettes...",
+    "w": 413,
+    "h": 25
+   },
+   {
+    "tag": "button",
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   }
+  ],
+  "smallTargets": [
+   {
+    "name": "",
+    "w": 413,
+    "h": 25
+   },
+   {
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   }
+  ]
+ },
+ {
+  "matrix": "desktop-dark-populated",
+  "engine": "webkit",
+  "pageErrors": [],
+  "dir": "ltr",
+  "dark": true,
+  "scrollWidthOverflow": 0,
+  "h1Count": 0,
+  "mainCount": 1,
+  "headingOutline": [
+   "H3:92.0\n%\n,\n88.8\n,\n20.0",
+   "H3:My Palettes12 (12 saved)"
+  ],
+  "ramp": {
+   "--palettes-ramp-0": "oklch(95.832172477266% 0.033662079591 329.83402284231deg)",
+   "--palettes-ramp-1": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+   "--palettes-ramp-2": "oklch(95.832172477266% 0.023120217659 49.83402284231deg)",
+   "--palettes-ramp-title-0": "oklch(95.832172477266% 0.033662079591 329.83402284231deg)",
+   "--palettes-ramp-title-1": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+   "--palettes-ramp-title-2": "oklch(95.832172477266% 0.023120217659 49.83402284231deg)"
+  },
+  "rampRgb": {
+   "--palettes-ramp-0": [
+    255,
+    234,
+    252
+   ],
+   "--palettes-ramp-1": [
+    255,
+    236,
+    238
+   ],
+   "--palettes-ramp-2": [
+    255,
+    237,
+    228
+   ],
+   "--palettes-ramp-title-0": [
+    255,
+    234,
+    252
+   ],
+   "--palettes-ramp-title-1": [
+    255,
+    236,
+    238
+   ],
+   "--palettes-ramp-title-2": [
+    255,
+    237,
+    228
+   ]
+  },
+  "rampedTextStyle": {
+   "color": "rgba(0, 0, 0, 0)",
+   "background-image": "linear-gradient(90deg, oklch(0.958322 0.033662 329.834015), oklch(0.958322 0.021053 9.834023), oklch(0.958322 0.02312 49.834023))",
+   "-webkit-text-fill-color": "rgba(0, 0, 0, 0)",
+   "background-clip": "text"
+  },
+  "rampedRect": {
+   "x": 820.5,
+   "y": 116.2,
+   "w": 146.7,
+   "h": 51.6
+  },
+  "titleStyle": {
+   "font-size": "41.888px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "font-weight": "400",
+   "line-height": "43.982403px",
+   "color": "rgb(233, 230, 226)"
+  },
+  "titleRect": {
+   "x": 754,
+   "y": 120,
+   "w": 462,
+   "h": 45.1
+  },
+  "badgeRect": {
+   "x": 975.2,
+   "y": 139.1,
+   "w": 38.9,
+   "h": 26
+  },
+  "badgeStyle": {
+   "margin-left": "8px",
+   "margin-right": "0px",
+   "margin-inline-start": "8px",
+   "font-size": "16.4px"
+  },
+  "paneRects": [
+   {
+    "x": 199,
+    "y": 102.9,
+    "w": 512,
+    "h": 774
+   },
+   {
+    "x": 729,
+    "y": 103,
+    "w": 512,
+    "h": 774
+   }
+  ],
+  "paneClassNames": [
+   "pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center",
+   "pane-wrapper pane-wrapper--right w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+  ],
+  "trashRect": {
+   "x": 1188,
+   "y": 384.9,
+   "w": 28,
+   "h": 28
+  },
+  "trashStyle": {
+   "color": "rgb(213, 208, 200)",
+   "background-color": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+   "cursor": "pointer",
+   "width": "28px",
+   "height": "28px"
+  },
+  "searchRect": {
+   "x": 789.5,
+   "y": 215.5,
+   "w": 413,
+   "h": 24.6
+  },
+  "gridRect": {
+   "x": 754,
+   "y": 424.9,
+   "w": 462,
+   "h": 1332
+  },
+  "gridStyle": {
+   "grid-template-columns": "462px",
+   "min-height": "120px",
+   "gap": "12px"
+  },
+  "emptyRect": null,
+  "emptyText": null,
+  "cardCount": 12,
+  "cardRects": [
+   {
+    "x": 754,
+    "y": 424.9,
+    "w": 462,
+    "h": 100
+   },
+   {
+    "x": 754,
+    "y": 536.9,
+    "w": 462,
+    "h": 100
+   },
+   {
+    "x": 754,
+    "y": 648.9,
+    "w": 462,
+    "h": 100
+   }
+  ],
+  "dragHandleCount": 12,
+  "dragHandleRects": [
+   {
+    "x": 768,
+    "y": 486.9,
+    "w": 16,
+    "h": 16
+   },
+   {
+    "x": 768,
+    "y": 598.9,
+    "w": 16,
+    "h": 16
+   }
+  ],
+  "focusables": [
+   {
+    "tag": "input",
+    "name": "Search your palettes...",
+    "w": 413,
+    "h": 25
+   },
+   {
+    "tag": "button",
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   }
+  ],
+  "smallTargets": [
+   {
+    "name": "",
+    "w": 413,
+    "h": 25
+   },
+   {
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   }
+  ]
+ },
+ {
+  "matrix": "desktop-dark-empty",
+  "engine": "webkit",
+  "pageErrors": [],
+  "dir": "ltr",
+  "dark": true,
+  "scrollWidthOverflow": 0,
+  "h1Count": 0,
+  "mainCount": 1,
+  "headingOutline": [
+   "H3:92.0\n%\n,\n88.8\n,\n20.0",
+   "H3:My Palettes"
+  ],
+  "ramp": {
+   "--palettes-ramp-0": "oklch(95.832172477266% 0.033662079591 329.83402284231deg)",
+   "--palettes-ramp-1": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+   "--palettes-ramp-2": "oklch(95.832172477266% 0.023120217659 49.83402284231deg)",
+   "--palettes-ramp-title-0": "oklch(95.832172477266% 0.033662079591 329.83402284231deg)",
+   "--palettes-ramp-title-1": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+   "--palettes-ramp-title-2": "oklch(95.832172477266% 0.023120217659 49.83402284231deg)"
+  },
+  "rampRgb": {
+   "--palettes-ramp-0": [
+    255,
+    234,
+    252
+   ],
+   "--palettes-ramp-1": [
+    255,
+    236,
+    238
+   ],
+   "--palettes-ramp-2": [
+    255,
+    237,
+    228
+   ],
+   "--palettes-ramp-title-0": [
+    255,
+    234,
+    252
+   ],
+   "--palettes-ramp-title-1": [
+    255,
+    236,
+    238
+   ],
+   "--palettes-ramp-title-2": [
+    255,
+    237,
+    228
+   ]
+  },
+  "rampedTextStyle": {
+   "color": "rgba(0, 0, 0, 0)",
+   "background-image": "linear-gradient(90deg, oklch(0.958322 0.033662 329.834015), oklch(0.958322 0.021053 9.834023), oklch(0.958322 0.02312 49.834023))",
+   "-webkit-text-fill-color": "rgba(0, 0, 0, 0)",
+   "background-clip": "text"
+  },
+  "rampedRect": {
+   "x": 820.5,
+   "y": 160.7,
+   "w": 146.7,
+   "h": 51.6
+  },
+  "titleStyle": {
+   "font-size": "41.888px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "font-weight": "400",
+   "line-height": "43.982403px",
+   "color": "rgb(233, 230, 226)"
+  },
+  "titleRect": {
+   "x": 754,
+   "y": 164.5,
+   "w": 462,
+   "h": 44
+  },
+  "badgeRect": null,
+  "badgeStyle": null,
+  "paneRects": [
+   {
+    "x": 199,
+    "y": 147.5,
+    "w": 512,
+    "h": 684.7
+   },
+   {
+    "x": 729,
+    "y": 147.5,
+    "w": 512,
+    "h": 684.7
+   }
+  ],
+  "paneClassNames": [
+   "pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center",
+   "pane-wrapper pane-wrapper--right w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+  ],
+  "trashRect": null,
+  "trashStyle": null,
+  "searchRect": {
+   "x": 789.5,
+   "y": 258.9,
+   "w": 413,
+   "h": 24.6
+  },
+  "gridRect": {
+   "x": 754,
+   "y": 428.3,
+   "w": 462,
+   "h": 218.1
+  },
+  "gridStyle": {
+   "grid-template-columns": "462px",
+   "min-height": "120px",
+   "gap": "12px"
+  },
+  "emptyRect": {
+   "x": 754,
+   "y": 428.3,
+   "w": 462,
+   "h": 218.1
+  },
+  "emptyText": "· EMPTY PLATE · |  | No saved palettes yet. |  | Add colors above, then save the set.",
+  "cardCount": 1,
+  "cardRects": [
+   {
+    "x": 754,
+    "y": 428.3,
+    "w": 462,
+    "h": 218.1
+   }
+  ],
+  "dragHandleCount": 0,
+  "dragHandleRects": [],
+  "focusables": [
+   {
+    "tag": "input",
+    "name": "Search your palettes...",
+    "w": 413,
+    "h": 25
+   }
+  ],
+  "smallTargets": [
+   {
+    "name": "",
+    "w": 413,
+    "h": 25
+   }
+  ]
+ },
+ {
+  "matrix": "desktop-light-search-nomatch",
+  "engine": "webkit",
+  "pageErrors": [],
+  "dir": "ltr",
+  "dark": false,
+  "scrollWidthOverflow": 0,
+  "h1Count": 0,
+  "mainCount": 1,
+  "headingOutline": [
+   "H3:92.0\n%\n,\n88.8\n,\n20.0",
+   "H3:My Palettes12 (12 saved)"
+  ],
+  "ramp": {
+   "--palettes-ramp-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-2": "oklch(45.756101011818% 0.121253229714 49.83402284231deg)",
+   "--palettes-ramp-title-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-title-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-title-2": "oklch(47.092665778393% 0.124795113552 49.83402284231deg)"
+  },
+  "rampRgb": {
+   "--palettes-ramp-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-2": [
+    139,
+    62,
+    0
+   ],
+   "--palettes-ramp-title-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-title-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-title-2": [
+    144,
+    65,
+    0
+   ]
+  },
+  "rampedTextStyle": {
+   "color": "rgba(0, 0, 0, 0)",
+   "background-image": "linear-gradient(90deg, oklch(0.470927 0.188343 329.834015), oklch(0.470927 0.188343 9.834023), oklch(0.470927 0.124795 49.834023))",
+   "-webkit-text-fill-color": "rgba(0, 0, 0, 0)",
+   "background-clip": "text"
+  },
+  "rampedRect": {
+   "x": 820.5,
+   "y": 160.7,
+   "w": 146.7,
+   "h": 51.6
+  },
+  "titleStyle": {
+   "font-size": "41.888px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "font-weight": "400",
+   "line-height": "43.982403px",
+   "color": "rgb(28, 25, 23)"
+  },
+  "titleRect": {
+   "x": 754,
+   "y": 164.5,
+   "w": 462,
+   "h": 45.1
+  },
+  "badgeRect": {
+   "x": 975.2,
+   "y": 183.6,
+   "w": 38.9,
+   "h": 26
+  },
+  "badgeStyle": {
+   "margin-left": "8px",
+   "margin-right": "0px",
+   "margin-inline-start": "8px",
+   "font-size": "16.4px"
+  },
+  "paneRects": [
+   {
+    "x": 199,
+    "y": 147.5,
+    "w": 512,
+    "h": 684.7
+   },
+   {
+    "x": 729,
+    "y": 147.5,
+    "w": 512,
+    "h": 684.7
+   }
+  ],
+  "paneClassNames": [
+   "pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center",
+   "pane-wrapper pane-wrapper--right w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+  ],
+  "trashRect": {
+   "x": 1188,
+   "y": 429.4,
+   "w": 28,
+   "h": 28
+  },
+  "trashStyle": {
+   "color": "rgb(91, 70, 51)",
+   "background-color": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+   "cursor": "pointer",
+   "width": "28px",
+   "height": "28px"
+  },
+  "searchRect": {
+   "x": 789.5,
+   "y": 260,
+   "w": 413,
+   "h": 24.6
+  },
+  "gridRect": {
+   "x": 754,
+   "y": 469.4,
+   "w": 462,
+   "h": 218.1
+  },
+  "gridStyle": {
+   "grid-template-columns": "462px",
+   "min-height": "120px",
+   "gap": "12px"
+  },
+  "emptyRect": {
+   "x": 754,
+   "y": 469.4,
+   "w": 462,
+   "h": 218.1
+  },
+  "emptyText": "· EMPTY PLATE · |  | No saved palettes yet. |  | Add colors above, then save the set.",
+  "cardCount": 1,
+  "cardRects": [
+   {
+    "x": 754,
+    "y": 469.4,
+    "w": 462,
+    "h": 218.1
+   }
+  ],
+  "dragHandleCount": 0,
+  "dragHandleRects": [],
+  "focusables": [
+   {
+    "tag": "input",
+    "name": "Search your palettes...",
+    "w": 413,
+    "h": 25
+   },
+   {
+    "tag": "button",
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   }
+  ],
+  "smallTargets": [
+   {
+    "name": "",
+    "w": 413,
+    "h": 25
+   },
+   {
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   }
+  ]
+ },
+ {
+  "matrix": "mobile-light-populated",
+  "engine": "webkit",
+  "pageErrors": [],
+  "dir": "ltr",
+  "dark": false,
+  "scrollWidthOverflow": 0,
+  "h1Count": 0,
+  "mainCount": 1,
+  "headingOutline": [
+   "H3:My Palettes12 (12 saved)"
+  ],
+  "ramp": {
+   "--palettes-ramp-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-2": "oklch(45.756101011818% 0.121253229714 49.83402284231deg)",
+   "--palettes-ramp-title-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-title-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-title-2": "oklch(47.092665778393% 0.124795113552 49.83402284231deg)"
+  },
+  "rampRgb": {
+   "--palettes-ramp-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-2": [
+    139,
+    62,
+    0
+   ],
+   "--palettes-ramp-title-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-title-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-title-2": [
+    144,
+    65,
+    0
+   ]
+  },
+  "rampedTextStyle": {
+   "color": "rgba(0, 0, 0, 0)",
+   "background-image": "linear-gradient(90deg, oklch(0.470927 0.188343 329.834015), oklch(0.470927 0.188343 9.834023), oklch(0.470927 0.124795 49.834023))",
+   "-webkit-text-fill-color": "rgba(0, 0, 0, 0)",
+   "background-clip": "text"
+  },
+  "rampedRect": {
+   "x": 74.7,
+   "y": 118.6,
+   "w": 92.3,
+   "h": 31.9
+  },
+  "titleStyle": {
+   "font-size": "25.888px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "font-weight": "400",
+   "line-height": "27.1824px",
+   "color": "rgb(28, 25, 23)"
+  },
+  "titleRect": {
+   "x": 33,
+   "y": 121,
+   "w": 324,
+   "h": 32
+  },
+  "badgeRect": {
+   "x": 175,
+   "y": 121.9,
+   "w": 45.1,
+   "h": 31.1
+  },
+  "badgeStyle": {
+   "margin-left": "8px",
+   "margin-right": "0px",
+   "margin-inline-start": "8px",
+   "font-size": "21px"
+  },
+  "paneRects": [
+   {
+    "x": 16,
+    "y": 104,
+    "w": 358,
+    "h": 552
+   }
+  ],
+  "paneClassNames": [
+   "pane-wrapper pane-wrapper--left pane-slot-mobile w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch"
+  ],
+  "trashRect": {
+   "x": 313,
+   "y": 379.3,
+   "w": 44,
+   "h": 44
+  },
+  "trashStyle": {
+   "color": "rgb(91, 70, 51)",
+   "background-color": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+   "cursor": "pointer",
+   "width": "44px",
+   "height": "44px"
+  },
+  "searchRect": {
+   "x": 75.3,
+   "y": 206.1,
+   "w": 268.3,
+   "h": 31.5
+  },
+  "gridRect": {
+   "x": 33,
+   "y": 435.3,
+   "w": 324,
+   "h": 1569.1
+  },
+  "gridStyle": {
+   "grid-template-columns": "324px",
+   "min-height": "120px",
+   "gap": "12px"
+  },
+  "emptyRect": null,
+  "emptyText": null,
+  "cardCount": 12,
+  "cardRects": [
+   {
+    "x": 33,
+    "y": 435.3,
+    "w": 324,
+    "h": 118
+   },
+   {
+    "x": 33,
+    "y": 565.3,
+    "w": 324,
+    "h": 125
+   },
+   {
+    "x": 33,
+    "y": 702.3,
+    "w": 324,
+    "h": 118
+   }
+  ],
+  "dragHandleCount": 12,
+  "dragHandleRects": [
+   {
+    "x": 47,
+    "y": 506.3,
+    "w": 16,
+    "h": 16
+   },
+   {
+    "x": 47,
+    "y": 639.8,
+    "w": 16,
+    "h": 16
+   }
+  ],
+  "focusables": [
+   {
+    "tag": "input",
+    "name": "Search your palettes...",
+    "w": 268,
+    "h": 32
+   },
+   {
+    "tag": "button",
+    "name": "Delete all saved palettes",
+    "w": 44,
+    "h": 44
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 54,
+    "h": 54
+   }
+  ],
+  "smallTargets": [
+   {
+    "name": "",
+    "w": 268,
+    "h": 32
+   }
+  ]
+ },
+ {
+  "matrix": "rtl-desktop-populated",
+  "engine": "webkit",
+  "pageErrors": [],
+  "dir": "rtl",
+  "dark": false,
+  "scrollWidthOverflow": 0,
+  "h1Count": 0,
+  "mainCount": 1,
+  "headingOutline": [
+   "H3:92.0\n%\n,\n88.8\n,\n20.0",
+   "H3:My Palettes12 (12 saved)"
+  ],
+  "ramp": {
+   "--palettes-ramp-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-2": "oklch(45.756101011818% 0.121253229714 49.83402284231deg)",
+   "--palettes-ramp-title-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-title-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-title-2": "oklch(47.092665778393% 0.124795113552 49.83402284231deg)"
+  },
+  "rampRgb": {
+   "--palettes-ramp-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-2": [
+    139,
+    62,
+    0
+   ],
+   "--palettes-ramp-title-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-title-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-title-2": [
+    144,
+    65,
+    0
+   ]
+  },
+  "rampedTextStyle": {
+   "color": "rgba(0, 0, 0, 0)",
+   "background-image": "linear-gradient(90deg, oklch(0.470927 0.188343 329.834015), oklch(0.470927 0.188343 9.834023), oklch(0.470927 0.124795 49.834023))",
+   "-webkit-text-fill-color": "rgba(0, 0, 0, 0)",
+   "background-clip": "text"
+  },
+  "rampedRect": {
+   "x": 539.3,
+   "y": 116.2,
+   "w": 146.7,
+   "h": 51.6
+  },
+  "titleStyle": {
+   "font-size": "41.888px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "font-weight": "400",
+   "line-height": "43.982403px",
+   "color": "rgb(28, 25, 23)"
+  },
+  "titleRect": {
+   "x": 224,
+   "y": 120,
+   "w": 462,
+   "h": 45.1
+  },
+  "badgeRect": {
+   "x": 433.9,
+   "y": 139.1,
+   "w": 38.9,
+   "h": 26
+  },
+  "badgeStyle": {
+   "margin-left": "8px",
+   "margin-right": "0px",
+   "margin-inline-start": "0px",
+   "font-size": "16.4px"
+  },
+  "paneRects": [
+   {
+    "x": 729,
+    "y": 102.9,
+    "w": 512,
+    "h": 774
+   },
+   {
+    "x": 199,
+    "y": 103,
+    "w": 512,
+    "h": 774
+   }
+  ],
+  "paneClassNames": [
+   "pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center",
+   "pane-wrapper pane-wrapper--right w-full min-w-0 min-h-0 h-full transition-opacity duration-200"
+  ],
+  "trashRect": {
+   "x": 224,
+   "y": 384.9,
+   "w": 28,
+   "h": 28
+  },
+  "trashStyle": {
+   "color": "rgb(91, 70, 51)",
+   "background-color": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+   "cursor": "pointer",
+   "width": "28px",
+   "height": "28px"
+  },
+  "searchRect": {
+   "x": 237.5,
+   "y": 215.5,
+   "w": 413,
+   "h": 24.6
+  },
+  "gridRect": {
+   "x": 224,
+   "y": 424.9,
+   "w": 462,
+   "h": 1332
+  },
+  "gridStyle": {
+   "grid-template-columns": "462px",
+   "min-height": "120px",
+   "gap": "12px"
+  },
+  "emptyRect": null,
+  "emptyText": null,
+  "cardCount": 12,
+  "cardRects": [
+   {
+    "x": 224,
+    "y": 424.9,
+    "w": 462,
+    "h": 100
+   },
+   {
+    "x": 224,
+    "y": 536.9,
+    "w": 462,
+    "h": 100
+   },
+   {
+    "x": 224,
+    "y": 648.9,
+    "w": 462,
+    "h": 100
+   }
+  ],
+  "dragHandleCount": 12,
+  "dragHandleRects": [
+   {
+    "x": 656,
+    "y": 486.9,
+    "w": 16,
+    "h": 16
+   },
+   {
+    "x": 656,
+    "y": 598.9,
+    "w": 16,
+    "h": 16
+   }
+  ],
+  "focusables": [
+   {
+    "tag": "input",
+    "name": "Search your palettes...",
+    "w": 413,
+    "h": 25
+   },
+   {
+    "tag": "button",
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   }
+  ],
+  "smallTargets": [
+   {
+    "name": "",
+    "w": 413,
+    "h": 25
+   },
+   {
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   }
+  ]
+ },
+ {
+  "matrix": "zoom200-desktop-populated",
+  "engine": "webkit",
+  "pageErrors": [],
+  "dir": "ltr",
+  "dark": false,
+  "scrollWidthOverflow": 0,
+  "h1Count": 0,
+  "mainCount": 1,
+  "headingOutline": [
+   "H3:My Palettes12 (12 saved)"
+  ],
+  "ramp": {
+   "--palettes-ramp-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-2": "oklch(45.756101011818% 0.121253229714 49.83402284231deg)",
+   "--palettes-ramp-title-0": "oklch(47.092665778393% 0.188342548603 329.83402284231deg)",
+   "--palettes-ramp-title-1": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+   "--palettes-ramp-title-2": "oklch(47.092665778393% 0.124795113552 49.83402284231deg)"
+  },
+  "rampRgb": {
+   "--palettes-ramp-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-2": [
+    139,
+    62,
+    0
+   ],
+   "--palettes-ramp-title-0": [
+    144,
+    32,
+    140
+   ],
+   "--palettes-ramp-title-1": [
+    170,
+    0,
+    67
+   ],
+   "--palettes-ramp-title-2": [
+    144,
+    65,
+    0
+   ]
+  },
+  "rampedTextStyle": {
+   "color": "rgba(0, 0, 0, 0)",
+   "background-image": "linear-gradient(90deg, oklch(0.470927 0.188343 329.834015), oklch(0.470927 0.188343 9.834023), oklch(0.470927 0.124795 49.834023))",
+   "-webkit-text-fill-color": "rgba(0, 0, 0, 0)",
+   "background-clip": "text"
+  },
+  "rampedRect": {
+   "x": 178.3,
+   "y": 118.2,
+   "w": 108.9,
+   "h": 37.9
+  },
+  "titleStyle": {
+   "font-size": "30.719999px",
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "font-weight": "400",
+   "line-height": "32.255997px",
+   "color": "rgb(28, 25, 23)"
+  },
+  "titleRect": {
+   "x": 129,
+   "y": 121,
+   "w": 462,
+   "h": 34.8
+  },
+  "badgeRect": {
+   "x": 295.2,
+   "y": 131.7,
+   "w": 37.1,
+   "h": 24
+  },
+  "badgeStyle": {
+   "margin-left": "8px",
+   "margin-right": "0px",
+   "margin-inline-start": "8px",
+   "font-size": "14.6px"
+  },
+  "paneRects": [
+   {
+    "x": 104,
+    "y": 104,
+    "w": 512,
+    "h": 338
+   }
+  ],
+  "paneClassNames": [
+   "pane-wrapper pane-wrapper--left pane-slot-mobile w-full max-w-md sm:max-w-lg mx-auto min-w-0 min-h-0 h-full flex flex-col items-center justify-center self-stretch"
+  ],
+  "trashRect": {
+   "x": 563,
+   "y": 370.3,
+   "w": 28,
+   "h": 28
+  },
+  "trashStyle": {
+   "color": "rgb(91, 70, 51)",
+   "background-color": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+   "cursor": "pointer",
+   "width": "28px",
+   "height": "28px"
+  },
+  "searchRect": {
+   "x": 164.5,
+   "y": 205.5,
+   "w": 413,
+   "h": 22
+  },
+  "gridRect": {
+   "x": 129,
+   "y": 410.3,
+   "w": 462,
+   "h": 1332
+  },
+  "gridStyle": {
+   "grid-template-columns": "462px",
+   "min-height": "120px",
+   "gap": "12px"
+  },
+  "emptyRect": null,
+  "emptyText": null,
+  "cardCount": 12,
+  "cardRects": [
+   {
+    "x": 129,
+    "y": 410.3,
+    "w": 462,
+    "h": 100
+   },
+   {
+    "x": 129,
+    "y": 522.3,
+    "w": 462,
+    "h": 100
+   },
+   {
+    "x": 129,
+    "y": 634.3,
+    "w": 462,
+    "h": 100
+   }
+  ],
+  "dragHandleCount": 12,
+  "dragHandleRects": [
+   {
+    "x": 143,
+    "y": 472.3,
+    "w": 16,
+    "h": 16
+   },
+   {
+    "x": 143,
+    "y": 584.3,
+    "w": 16,
+    "h": 16
+   }
+  ],
+  "focusables": [
+   {
+    "tag": "input",
+    "name": "Search your palettes...",
+    "w": 413,
+    "h": 22
+   },
+   {
+    "tag": "button",
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "tag": "button",
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   }
+  ],
+  "smallTargets": [
+   {
+    "name": "",
+    "w": 413,
+    "h": 22
+   },
+   {
+    "name": "Delete all saved palettes",
+    "w": 28,
+    "h": 28
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   },
+   {
+    "name": "Palette menu",
+    "w": 36,
+    "h": 36
+   }
+  ]
+ }
+]

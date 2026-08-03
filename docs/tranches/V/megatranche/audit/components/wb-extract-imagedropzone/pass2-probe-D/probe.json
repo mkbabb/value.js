@@ -1,0 +1,270 @@
+{
+  "A_empty_desktop": {
+    "zone": {
+      "x": 224,
+      "y": 298.7,
+      "w": 462,
+      "h": 180
+    },
+    "ariaLabel": "Upload image, click to browse or drop an image here",
+    "tabindex": "0",
+    "focused": false,
+    "zoneStyles": {
+      "borderRadius": "12px",
+      "borderColor": "oklab(0.470927 -0.080988 0.097088 / 0.3)",
+      "borderStyle": "dashed",
+      "borderWidth": "2px",
+      "background": "oklab(0.470927 -0.080988 0.097088 / 0.05)",
+      "outline": "3px none rgb(28, 25, 23)",
+      "outlineOffset": "0px",
+      "boxShadow": "none",
+      "transitionProperty": "all",
+      "transitionDuration": "0.3s",
+      "overflow": "hidden",
+      "minHeight": "180px",
+      "maxHeight": "320px",
+      "cursor": "pointer",
+      "transform": "none"
+    },
+    "img": null,
+    "cornerTag": null
+  },
+  "A_focused": {
+    "isActive": true,
+    "outline": "3px auto rgb(28, 25, 23)",
+    "outlineWidth": "3px",
+    "outlineStyle": "auto",
+    "outlineColor": "rgb(28, 25, 23)",
+    "boxShadow": "none",
+    "borderColor": "oklab(0.470927 -0.080988 0.097088 / 0.3)"
+  },
+  "A_drag": [
+    {
+      "at": "after dragover on zone",
+      "cls": "rest"
+    },
+    {
+      "at": "after dragleave from CHILD (bubbles)",
+      "cls": "rest"
+    }
+  ],
+  "B_tall_desktop": {
+    "zone": {
+      "x": 224,
+      "y": 200.7,
+      "w": 462,
+      "h": 320
+    },
+    "ariaLabel": "Image preview area, tap to sample colors",
+    "tabindex": "-1",
+    "focused": true,
+    "zoneStyles": {
+      "borderRadius": "12px",
+      "borderColor": "rgba(0, 0, 0, 0)",
+      "borderStyle": "dashed",
+      "borderWidth": "2px",
+      "background": "oklab(0.470927 -0.080988 0.097088 / 0.05)",
+      "outline": "3px auto rgb(28, 25, 23)",
+      "outlineOffset": "0px",
+      "boxShadow": "none",
+      "transitionProperty": "all",
+      "transitionDuration": "0.3s",
+      "overflow": "hidden",
+      "minHeight": "180px",
+      "maxHeight": "320px",
+      "cursor": "crosshair",
+      "transform": "none"
+    },
+    "img": {
+      "rect": {
+        "x": 226,
+        "y": -708,
+        "w": 458,
+        "h": 2137.3
+      },
+      "natural": {
+        "w": 300,
+        "h": 1400
+      },
+      "cs": {
+        "objectFit": "contain",
+        "borderRadius": "12px",
+        "height": "2137.328125px",
+        "width": "458px"
+      }
+    },
+    "cornerTag": {
+      "text": "sample",
+      "cs": {
+        "opacity": "1",
+        "left": "371.34375px",
+        "right": "6px",
+        "inset": "284.4375px 6px 6px 371.34375px"
+      }
+    }
+  },
+  "B_tall_hovered_tag": {
+    "text": "sample",
+    "cs": {
+      "opacity": "1",
+      "left": "371.34375px",
+      "right": "6px",
+      "inset": "284.4375px 6px 6px 371.34375px"
+    }
+  },
+  "C_wide_desktop": {
+    "zone": {
+      "x": 224,
+      "y": 269.7,
+      "w": 462,
+      "h": 180
+    },
+    "ariaLabel": "Image preview area, tap to sample colors",
+    "tabindex": "-1",
+    "focused": true,
+    "zoneStyles": {
+      "borderRadius": "12px",
+      "borderColor": "oklab(0.470927 -0.080988 0.097088 / 0.5)",
+      "borderStyle": "dashed",
+      "borderWidth": "2px",
+      "background": "oklab(0.470927 -0.080988 0.097088 / 0.05)",
+      "outline": "3px auto rgb(28, 25, 23)",
+      "outlineOffset": "0px",
+      "boxShadow": "none",
+      "transitionProperty": "all",
+      "transitionDuration": "0.3s",
+      "overflow": "hidden",
+      "minHeight": "180px",
+      "maxHeight": "320px",
+      "cursor": "crosshair",
+      "transform": "none"
+    },
+    "img": {
+      "rect": {
+        "x": 226,
+        "y": 331,
+        "w": 458,
+        "h": 57.3
+      },
+      "natural": {
+        "w": 1600,
+        "h": 200
+      },
+      "cs": {
+        "objectFit": "contain",
+        "borderRadius": "12px",
+        "height": "57.25px",
+        "width": "458px"
+      }
+    },
+    "cornerTag": {
+      "text": "sample",
+      "cs": {
+        "opacity": "1",
+        "left": "371.34375px",
+        "right": "6px",
+        "inset": "144.4375px 6px 6px 371.34375px"
+      }
+    }
+  },
+  "D_empty_mobile": {
+    "zone": {
+      "x": 33,
+      "y": 182,
+      "w": 327,
+      "h": 180
+    },
+    "ariaLabel": "Upload image, click to browse or drop an image here",
+    "tabindex": "0",
+    "focused": false,
+    "zoneStyles": {
+      "borderRadius": "12px",
+      "borderColor": "oklab(0.958322 -0.051245 0.061432 / 0.3)",
+      "borderStyle": "dashed",
+      "borderWidth": "2px",
+      "background": "oklab(0.958322 -0.051245 0.061432 / 0.05)",
+      "outline": "3px none rgb(233, 230, 226)",
+      "outlineOffset": "0px",
+      "boxShadow": "none",
+      "transitionProperty": "all",
+      "transitionDuration": "0.3s",
+      "overflow": "hidden",
+      "minHeight": "180px",
+      "maxHeight": "264px",
+      "cursor": "pointer",
+      "transform": "none"
+    },
+    "img": null,
+    "cornerTag": null
+  },
+  "D_tall_mobile": {
+    "zone": {
+      "x": 33,
+      "y": 182,
+      "w": 327,
+      "h": 264
+    },
+    "ariaLabel": "Image preview area, tap to sample colors",
+    "tabindex": "-1",
+    "focused": false,
+    "zoneStyles": {
+      "borderRadius": "12px",
+      "borderColor": "rgba(0, 0, 0, 0)",
+      "borderStyle": "dashed",
+      "borderWidth": "2px",
+      "background": "oklab(0.958322 -0.051245 0.061432 / 0.05)",
+      "outline": "3px none rgb(233, 230, 226)",
+      "outlineOffset": "0px",
+      "boxShadow": "none",
+      "transitionProperty": "all",
+      "transitionDuration": "0.3s",
+      "overflow": "hidden",
+      "minHeight": "180px",
+      "maxHeight": "264px",
+      "cursor": "crosshair",
+      "transform": "none"
+    },
+    "img": {
+      "rect": {
+        "x": 35,
+        "y": -439.7,
+        "w": 323,
+        "h": 1507.3
+      },
+      "natural": {
+        "w": 300,
+        "h": 1400
+      },
+      "cs": {
+        "objectFit": "contain",
+        "borderRadius": "12px",
+        "height": "1507.328125px",
+        "width": "323px"
+      }
+    },
+    "cornerTag": {
+      "text": "sample",
+      "cs": {
+        "opacity": "0",
+        "left": "246.84375px",
+        "right": "6px",
+        "inset": "231.75px 6px 6px 246.84375px"
+      }
+    }
+  },
+  "E_forcedcolors_rest": {
+    "borderColor": "oklab(0.519287 -0.089304 0.107057 / 0.3)",
+    "background": "oklab(0.519287 -0.089304 0.107057 / 0.05)",
+    "borderStyle": "dashed"
+  },
+  "E_forcedcolors_dragging": {
+    "borderColor": "oklab(0.519287 -0.089304 0.107057 / 0.3)",
+    "background": "oklab(0.519287 -0.089304 0.107057 / 0.05)"
+  },
+  "F_rtl": {
+    "dir": "rtl",
+    "tagText": "sample",
+    "distFromZoneLeft": 373.3,
+    "distFromZoneRight": 8
+  }
+}

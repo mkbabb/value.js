@@ -1,0 +1,61 @@
+
+=== disabled census through the processing window (state changes only) ===
+[
+ {
+  "skeleton": true,
+  "upload": false,
+  "camera": false,
+  "reset": false,
+  "kAriaDisabled": "ABSENT",
+  "kcAriaDisabled": "ABSENT",
+  "kThumbTabindex": "0",
+  "posts": 0
+ },
+ {
+  "skeleton": false,
+  "upload": false,
+  "camera": false,
+  "reset": false,
+  "kAriaDisabled": "ABSENT",
+  "kcAriaDisabled": "ABSENT",
+  "kThumbTabindex": "0",
+  "posts": 1
+ }
+]
+
+=== skeleton seen at all? ===
+true
+
+=== was ANY of upload/camera/kSlider/kcSlider ever disabled? ===
+{
+ "upload": false,
+ "camera": false,
+ "k": false,
+ "kc": false,
+ "reset": false
+}
+
+=== k moved during/after processing — worker dispatches ===
+[
+ {
+  "t": 7860,
+  "k": 10,
+  "cw": 0.5
+ }
+]
+
+=== ArrowLeft then Reset within the debounce window — dispatches ===
+[
+ {
+  "t": 9165.000000000002,
+  "k": 5,
+  "cw": 0.5
+ },
+ {
+  "t": 9307,
+  "k": 5,
+  "cw": 0.5
+ }
+]
+
+pageErrors []

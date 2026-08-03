@@ -1,0 +1,392 @@
+
+=== kC KEYBOARD STEPS ===
+[
+ {
+  "now": "0.6",
+  "vt": null,
+  "shown": "0.6"
+ },
+ {
+  "now": "0.7",
+  "vt": null,
+  "shown": "0.7"
+ },
+ {
+  "now": "0.8",
+  "vt": null,
+  "shown": "0.8"
+ },
+ {
+  "now": "0.9",
+  "vt": null,
+  "shown": "0.9"
+ },
+ {
+  "now": "1",
+  "vt": null,
+  "shown": "1.0"
+ },
+ {
+  "now": "1.1",
+  "vt": null,
+  "shown": "1.1"
+ },
+ {
+  "now": "1.2",
+  "vt": null,
+  "shown": "1.2"
+ },
+ {
+  "now": "1.3",
+  "vt": null,
+  "shown": "1.3"
+ },
+ {
+  "now": "1.4",
+  "vt": null,
+  "shown": "1.4"
+ },
+ {
+  "now": "1.5",
+  "vt": null,
+  "shown": "1.5"
+ },
+ {
+  "now": "1.5",
+  "vt": null,
+  "shown": "1.5"
+ }
+]
+
+=== kC READOUT BOX at max ===
+{
+ "text": "1.5",
+ "clientW": 20,
+ "scrollW": 20,
+ "clipped": false,
+ "cls": "fira-code text-micro plate-ink tabular-nums w-5"
+}
+
+=== SLIDER ROOT vs THUMB (aria on roleless generic) ===
+[
+ {
+  "tag": "SPAN",
+  "role": null,
+  "implicitRole": "generic",
+  "ariaLabel": "Number of colors",
+  "ariaDisabled": "false",
+  "ariaOrientation": null,
+  "cls": "glass-slider relative w-full",
+  "thumbLabels": [
+   "Number of colors"
+  ]
+ },
+ {
+  "tag": "SPAN",
+  "role": null,
+  "implicitRole": "generic",
+  "ariaLabel": "Chroma weight",
+  "ariaDisabled": "false",
+  "ariaOrientation": null,
+  "cls": "glass-slider flex-1",
+  "thumbLabels": [
+   "Chroma weight"
+  ]
+ }
+]
+
+=== AFTER UPLOAD — worker posts ===
+{
+ "posts": [
+  {
+   "t": 4117,
+   "opts": {
+    "k": 5,
+    "chromaWeight": 0.4
+   }
+  }
+ ],
+ "swatches": "linear-gradient(to right, oklch(0.572927 0.219128 25.990139) 0%, oklch(0.5766 0.172908 254",
+ "resetDisabled": [
+  false
+ ]
+}
+
+=== RACE — Reset while the k debounce is armed ===
+{
+ "posts": [
+  {
+   "t": 5795,
+   "opts": {
+    "k": 5,
+    "chromaWeight": 0.5
+   }
+  },
+  {
+   "t": 5991,
+   "opts": {
+    "k": 5,
+    "chromaWeight": 0.5
+   }
+  }
+ ],
+ "trace": [
+  {
+   "t": 5874,
+   "posts": 1,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 5942,
+   "posts": 1,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6013,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6102,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6165,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6243,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6305,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6368,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6430,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6492,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6554,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  },
+  {
+   "t": 6616,
+   "posts": 2,
+   "k": "5",
+   "processing": false
+  }
+ ]
+}
+
+=== RACE 2 — upload while the k debounce is armed ===
+[
+ {
+  "t": 6675,
+  "opts": {
+   "k": 6,
+   "chromaWeight": 0.5
+  }
+ },
+ {
+  "t": 6962,
+  "opts": {
+   "k": 6,
+   "chromaWeight": 0.5
+  }
+ }
+]
+
+=== CONTROL — 8 rapid ArrowRight (debounce should coalesce to 1) ===
+[
+ {
+  "t": 8215,
+  "opts": {
+   "k": 14,
+   "chromaWeight": 0.5
+  }
+ }
+]
+
+=== DURING PROCESSING — disabled propagation ===
+[
+ {
+  "processing": false,
+  "sliderAriaDisabled": [
+   "false",
+   "false"
+  ],
+  "sliderDataDisabled": [
+   false,
+   false
+  ],
+  "btns": [
+   [
+    "Upload image",
+    false
+   ],
+   [
+    "Open camera",
+    false
+   ],
+   [
+    "Reset",
+    false
+   ]
+  ]
+ },
+ {
+  "processing": false,
+  "sliderAriaDisabled": [
+   "false",
+   "false"
+  ],
+  "sliderDataDisabled": [
+   false,
+   false
+  ],
+  "btns": [
+   [
+    "Upload image",
+    false
+   ],
+   [
+    "Open camera",
+    false
+   ],
+   [
+    "Reset",
+    true
+   ]
+  ]
+ },
+ {
+  "processing": false,
+  "sliderAriaDisabled": [
+   "false",
+   "false"
+  ],
+  "sliderDataDisabled": [
+   false,
+   false
+  ],
+  "btns": [
+   [
+    "Upload image",
+    false
+   ],
+   [
+    "Open camera",
+    false
+   ],
+   [
+    "Reset",
+    false
+   ]
+  ]
+ },
+ {
+  "processing": false,
+  "sliderAriaDisabled": [
+   "false",
+   "false"
+  ],
+  "sliderDataDisabled": [
+   false,
+   false
+  ],
+  "btns": [
+   [
+    "Upload image",
+    false
+   ],
+   [
+    "Open camera",
+    false
+   ],
+   [
+    "Reset",
+    false
+   ]
+  ]
+ },
+ {
+  "processing": false,
+  "sliderAriaDisabled": [
+   "false",
+   "false"
+  ],
+  "sliderDataDisabled": [
+   false,
+   false
+  ],
+  "btns": [
+   [
+    "Upload image",
+    false
+   ],
+   [
+    "Open camera",
+    false
+   ],
+   [
+    "Reset",
+    false
+   ]
+  ]
+ },
+ {
+  "processing": false,
+  "sliderAriaDisabled": [
+   "false",
+   "false"
+  ],
+  "sliderDataDisabled": [
+   false,
+   false
+  ],
+  "btns": [
+   [
+    "Upload image",
+    false
+   ],
+   [
+    "Open camera",
+    false
+   ],
+   [
+    "Reset",
+    false
+   ]
+  ]
+ }
+]
+
+pageErrors: []

@@ -1,0 +1,252 @@
+{
+  "deadAxis": [
+    {
+      "text": "Publish, then switch",
+      "attrs": [
+        "data-slot=\"button\"",
+        "data-emphasis=\"secondary\"",
+        "data-tone=\"neutral\"",
+        "data-size=\"md\"",
+        "data-press-armed=\"\"",
+        "type=\"button\"",
+        "class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover cursor-pointer font-display justify-start gap-2 rounded-full\"",
+        "variant=\"default\"",
+        "style=\"--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;\""
+      ],
+      "emphasisAttr": "secondary",
+      "bg": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+      "color": "rgb(0, 0, 0)",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "backdropFilter": "none",
+      "opacity": "1",
+      "fontFamily": "Fraunces",
+      "fontSize": "16.4px",
+      "fontWeight": "500",
+      "borderRadius": "340282346638528859811704183484516925440px",
+      "padding": "0px 16px 0px 16px",
+      "width": 334,
+      "height": 40,
+      "classList": [
+        "button",
+        "tap-squish",
+        "focus-ring",
+        "glass-wash",
+        "glass-capsule",
+        "glass-capsule-hover",
+        "cursor-pointer",
+        "font-display",
+        "justify-start",
+        "gap-2",
+        "rounded-full"
+      ]
+    },
+    {
+      "text": "Transfer to new account",
+      "attrs": [
+        "data-slot=\"button\"",
+        "data-emphasis=\"secondary\"",
+        "data-tone=\"neutral\"",
+        "data-size=\"md\"",
+        "data-press-armed=\"\"",
+        "type=\"button\"",
+        "class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover cursor-pointer font-display justify-start gap-2 rounded-full\"",
+        "variant=\"outline\"",
+        "style=\"--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;\""
+      ],
+      "emphasisAttr": "secondary",
+      "bg": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+      "color": "rgb(0, 0, 0)",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "backdropFilter": "none",
+      "opacity": "1",
+      "fontFamily": "Fraunces",
+      "fontSize": "16.4px",
+      "fontWeight": "500",
+      "borderRadius": "340282346638528859811704183484516925440px",
+      "padding": "0px 16px 0px 16px",
+      "width": 334,
+      "height": 40,
+      "classList": [
+        "button",
+        "tap-squish",
+        "focus-ring",
+        "glass-wash",
+        "glass-capsule",
+        "glass-capsule-hover",
+        "cursor-pointer",
+        "font-display",
+        "justify-start",
+        "gap-2",
+        "rounded-full"
+      ]
+    },
+    {
+      "text": "Just switch",
+      "attrs": [
+        "data-slot=\"button\"",
+        "data-emphasis=\"secondary\"",
+        "data-tone=\"neutral\"",
+        "data-size=\"md\"",
+        "data-press-armed=\"\"",
+        "type=\"button\"",
+        "class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover cursor-pointer font-display justify-start gap-2 text-muted-foreground rounded-full\"",
+        "variant=\"ghost\"",
+        "style=\"--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;\""
+      ],
+      "emphasisAttr": "secondary",
+      "bg": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+      "color": "rgb(0, 0, 0)",
+      "border": "0px none rgb(0, 0, 0)",
+      "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+      "backdropFilter": "none",
+      "opacity": "1",
+      "fontFamily": "Fraunces",
+      "fontSize": "16.4px",
+      "fontWeight": "500",
+      "borderRadius": "340282346638528859811704183484516925440px",
+      "padding": "0px 16px 0px 16px",
+      "width": 334,
+      "height": 40,
+      "classList": [
+        "button",
+        "tap-squish",
+        "focus-ring",
+        "glass-wash",
+        "glass-capsule",
+        "glass-capsule-hover",
+        "cursor-pointer",
+        "font-display",
+        "justify-start",
+        "gap-2",
+        "text-muted-foreground",
+        "rounded-full"
+      ]
+    },
+    {
+      "text": "Close",
+      "attrs": [
+        "type=\"button\"",
+        "class=\"focus-ring absolute right-(--overlay-pad-inline) top-(--overlay-pad-block) rounded-sm opacity-70 transition-opacity hover:opacity-100 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground\""
+      ],
+      "emphasisAttr": null,
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "border": "0px solid rgb(198, 180, 159)",
+      "boxShadow": "none",
+      "backdropFilter": "none",
+      "opacity": "0.7",
+      "fontFamily": "\"Plus Jakarta Sans\"",
+      "fontSize": "18.608px",
+      "fontWeight": "400",
+      "borderRadius": "4px",
+      "padding": "0px 0px 0px 0px",
+      "width": 16,
+      "height": 16,
+      "classList": [
+        "focus-ring",
+        "absolute",
+        "right-(--overlay-pad-inline)",
+        "top-(--overlay-pad-block)",
+        "rounded-sm",
+        "opacity-70",
+        "transition-opacity",
+        "hover:opacity-100",
+        "disabled:pointer-events-none",
+        "data-[state=open]:bg-accent",
+        "data-[state=open]:text-muted-foreground"
+      ]
+    }
+  ],
+  "pillRects": [
+    {
+      "x": 553,
+      "y": 426.234375,
+      "width": 334,
+      "height": 40
+    },
+    {
+      "x": 553,
+      "y": 474.234375,
+      "width": 334,
+      "height": 40
+    },
+    {
+      "x": 553,
+      "y": 522.234375,
+      "width": 334,
+      "height": 40
+    },
+    {
+      "x": 871,
+      "y": 338.015625,
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "compositedContrast": {
+    "dialogBackground": "oklab(0.903539 0.015313 0.014228 / 0.705088)",
+    "dialogBackdropFilter": "blur(11px) saturate(1.6)",
+    "dialogOpacity": "1",
+    "scrimBackground": null,
+    "scrimBackdrop": null
+  },
+  "afterScrimClick": {
+    "dialogPresent": false,
+    "active": "BODY",
+    "slug": "quiet-amber-river-fox"
+  },
+  "reducedMotionMidReveal": {
+    "present": true,
+    "animationName": "none",
+    "animationDuration": "0.00001s",
+    "transitionProperty": "opacity",
+    "transitionDuration": "0.15s",
+    "transform": "none",
+    "opacity": "0.970865",
+    "scale": "none",
+    "translate": "none",
+    "anims": [
+      {
+        "name": "opacity",
+        "dur": 150,
+        "playState": "running"
+      }
+    ]
+  },
+  "rightAfterCommit": {
+    "dialogPresent": true,
+    "anyBusy": 0,
+    "anyProgress": 1,
+    "liveRegionText": [
+      "92.0%",
+      "88.8",
+      "20.0",
+      "82.7%"
+    ],
+    "overlayPresent": false
+  },
+  "fourSecondsAfterCommit": {
+    "anyProgress": 1,
+    "liveRegionText": [
+      "92.0%",
+      "88.8",
+      "20.0",
+      "82.7%"
+    ],
+    "slug": null
+  },
+  "networkAfterCommit": [
+    "GET http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/platform/transport/api-pr",
+    "GET http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/index.ts",
+    "GET http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/palettes.ts",
+    "GET http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/versions.ts",
+    "GET http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/colors.ts",
+    "GET http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/admin-palett",
+    "GET http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/admin-users.",
+    "GET http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/admin-colors",
+    "GET http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/admin-audit.",
+    "POST http://localhost:3000/palettes"
+  ]
+}

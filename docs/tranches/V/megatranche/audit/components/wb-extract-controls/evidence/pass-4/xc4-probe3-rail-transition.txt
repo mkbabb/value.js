@@ -1,0 +1,70 @@
+
+=== all sliders on /#/extract ===
+[
+ {
+  "label": "Number of colors",
+  "valuenow": "5",
+  "inExtractControls": true,
+  "hostCls": "glass-slider.relative.w-full"
+ },
+ {
+  "label": "Chroma weight",
+  "valuenow": "0.5",
+  "inExtractControls": true,
+  "hostCls": "glass-slider.flex-1"
+ }
+]
+
+=== k RAIL — resolved transition + inline style ===
+{
+ "transitionProperty": "all",
+ "transitionDuration": "0s",
+ "transitionTimingFunction": "ease",
+ "classList": [
+  "absolute",
+  "inset-0",
+  "rounded-full",
+  "overflow-hidden",
+  "h-6"
+ ],
+ "inlineStyleAttr": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.834023); box-shadow: oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset;",
+ "backgroundColor": "oklch(0.545141 0.218024 9.834023)",
+ "backgroundImage": "none",
+ "boxShadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset"
+}
+
+=== matching rules that set a transition on the rail ===
+[]
+
+=== live-colour driver ===
+{
+ "found": false,
+ "labels": [
+  "Number of colors",
+  "Chroma weight"
+ ]
+}
+
+=== k RAIL — painted vs declared during a live colour drive ===
+{
+ "frames": 151,
+ "distinctPainted": 1,
+ "distinctDeclaredInline": 1,
+ "framesPaintedDiffersFromDeclared": 0,
+ "sampleLag": [],
+ "firstFrame": {
+  "t": 3516,
+  "bg": "oklch(0.545141 0.218024 9.834023)",
+  "shadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset",
+  "inline": "oklch(0.545141 0.218024 9.834023)"
+ },
+ "lastFrame": {
+  "t": 6016,
+  "bg": "oklch(0.545141 0.218024 9.834023)",
+  "shadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset",
+  "inline": "oklch(0.545141 0.218024 9.834023)"
+ }
+}
+
+=== pageErrors ===
+[]

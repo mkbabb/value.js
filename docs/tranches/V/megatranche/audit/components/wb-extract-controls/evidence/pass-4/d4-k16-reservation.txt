@@ -1,0 +1,14 @@
+=== k driven to max ===
+{
+ "text": "16",
+ "ariaValueNow": "16",
+ "ariaValueText": null,
+ "boxWidth": "20px",
+ "clientW": 20,
+ "scrollW": 20,
+ "measuredInkWidth": 19.74,
+ "headroomPx": 0.26,
+ "headroomPct": 1.3,
+ "overflows": false,
+ "fontResolved": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace"
+}

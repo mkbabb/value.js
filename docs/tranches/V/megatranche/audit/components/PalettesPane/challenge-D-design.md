@@ -3,690 +3,596 @@
 ## Model receipt
 
 I observe myself to be **Opus 5 (1M context)**, exact model id `claude-opus-5[1m]`. This seat was
-spawned with an explicit Opus 5 declaration and the served tier matches it. This is a declared
-seat, not an inherited one.
+spawned with an explicit Opus 5 declaration and the served tier matches it. This is a declared seat,
+not an inherited one.
 
-> **Pass 3.** Supersedes the 2026-07-28 18:27 pass, preserved verbatim at
-> `challenge-D-design.pass-2-prior.md`. I did **not** read pass 2 before measuring: I re-derived
-> the component from the tree and the live app first, then read pass 2 to reconcile. That order is
-> what makes §1 an independent replication rather than a paraphrase.
+> **Pass 5.** Supersedes the 2026-07-28 22:09 pass, preserved verbatim at
+> `challenge-D-design.pass-4-prior.md` (which carries passes 1–3 through its own chain).
 >
-> This pass does three things: (1) **independently replicates** pass 2's load-bearing BLOCKERs from
-> a cold start and records where the numbers agree to the byte; (2) **refutes one of pass 2's
-> negative proofs** with a measurement it did not take; (3) lands **eight findings pass 2 does not
-> contain**, three of which are BLOCKER-class because they are named, verbatim prohibitions in the
-> binding canon.
+> I measured cold. I read the component, `PaletteCard`, `PaletteCardGrid`, `PaletteColorStrip`,
+> `CurrentPaletteEditor`, `EmptyState`, `PaneHeader`, the ramp resolver and its writer, and the three
+> canon documents; I looked at the four tracked Safari captures; then I drove the live app at `:9000`
+> with **six** new Playwright harnesses against a *pathological* seed (the contract's exact extremes:
+> a 100-scalar name, a 1-colour palette, a 50-colour palette, a bidi/emoji name) before opening
+> pass 4.
+>
+> Pass 4 and its predecessors are strong. I do not re-argue their thirty-seven findings. This pass:
+>
+> 1. lands **fourteen findings no prior pass contains**, five of them BLOCKER/MAJOR at the top of the
+>    queue;
+> 2. **corrects one of pass 4's negative proofs** with a measurement (RTL ordinal mirroring);
+> 3. closes the last two state-coverage gaps pass 4 declared open — **keyboard-focus** (a full 34-stop
+>    tab walk in a UA whose default tab set includes buttons) and **reduced motion** — and reports one
+>    of my own hypotheses **refuted**;
+> 4. supplies the first **composited-pixel** measurements of this route: real screen colours sampled
+>    out of real screenshots, in both schemes, which is what `PROPORTION-AUDIT.md:73` demands
+>    ("Real rendered relation wins over token intent").
 
-Subject: `demo/palettes/PalettesPane.vue`, 212 lines. Repository `tranche-u`; the file is unchanged
-since `c654824e` (HEAD advanced to `9268f054` mid-session on unrelated docs).
+Subject: `demo/palettes/PalettesPane.vue`, 212 lines, unchanged at `c654824e`.
+Evidence root: `docs/tranches/V/megatranche/audit/components/PalettesPane/probe-p5/`.
 
 ---
 
 ## 0. Verdict
 
-**DEFECTIVE.** Twenty-eight findings survive verification: ten BLOCKER, thirteen MAJOR, five MINOR.
+**DEFECTIVE.**
 
-Pass 2's headline holds and is now **replicated by an independent seat**: the first drag-to-reorder
-of every session permutes the entire library, deterministically, `P1,P2,P3,P4,P5 → P3,P4,P2,P5,P1`,
-3/3 fresh WebKit contexts. Two seats, two probe harnesses, byte-identical output.
+Pass 4's architectural diagnosis — *a route composed as a `Card`* — stands and I do not disturb it.
+But three passes have now audited the ramp, the plate and the strip while treating each one's
+**mechanism** as correct and only its tuning as wrong. Measured cold, the mechanisms themselves are
+wrong:
 
-But the finding I would put in front of the owner first is not that one, because that one is a
-*mechanism* fault with a known cure. It is this:
+> **The pane's one sanctioned identity mark cannot render the artifact the owner ruled.**
+> `demo/color-session/palettes-ramp.ts:80` is `export const PALETTES_RAMP_SHIFTS = [-40, 0, 40]` and
+> its own comment at `:50` calls it *"a 3-stop **ANALOGOUS** fan of the LIVE accent."* Measured live,
+> the mark is an **80.0° arc** — 22.2% of the hue circle, entirely inside magenta→red→ochre, with no
+> green, cyan or blue reachable at any seed. `VISUAL-CONSTITUTION.md:23` names the species
+> *"pastel-rainbow identity"*; the owner ruling is quoted verbatim inside the component at
+> `PalettesPane.vue:3-4` — *"T-43 owner-CONFIRMS: 'Palettes' should be rainbow."* An analogous fan is
+> the definitional opposite of a rainbow. Passes 1–4 all measured this fan and all read it as the
+> right shape wrongly lit.
 
-> **The pane tells the user, in its own words, that they own nothing — while its own header, four
-> centimetres above, says they own six.** Type a query that matches nothing and `/#/palettes`
-> renders `My Palettes ⟨6⟩` over the words *"No saved palettes yet. / Add colors above, then save
-> the set."* The advice is not merely unhelpful; it is **wrong** — adding colours will not reveal
-> the six palettes, clearing the filter will. And the one control still on screen is an unlabelled
-> 28px trash circle whose scope is all six invisible palettes.
->
-> The same screen renders for **corrupt storage**. `usePaletteStore.ts:26-31` catches a `JSON.parse`
-> failure and returns `defaultStore`, so an unreadable library is presented as an empty one. The
-> constitution forbids that arm by name — *"It is never rendered as an empty library, silent reset,
-> migration choice, overlay, or companion pane"* (`VISUAL-CONSTITUTION.md §7`). Measured: with
-> `localStorage["color-palettes"] = "{{{not json"`, the pane paints the empty invitation and no
-> recovery article exists.
+And the reason the pane *looks* the way it does is not shadow inventory. It is that its three
+constitutionally distinct materials composite to **the same screen pixel**:
 
-Three distinct truths — *empty library*, *filter matched nothing*, *your library is unreadable* —
-are collapsed onto one screen with one wrong sentence on it. That is a design fault of the first
-order: the component has one empty state where the domain has three, and the two it does not have
-are the two where the user stands to lose data.
-
-Behind everything sits the architectural fault pass 2 identified and I confirm: **`PalettesPane` is
-a route composed as a `Card`.** `VISUAL-CONSTITUTION.md §3.1` gives *Library / My Palettes* an owner
-workspace chassis, a field at 64–66.7%, a selected inspector at 33.3–36%, and — verbatim — *"the
-field/lane/empty/inspector have none"* (no Card). What ships is `<Card tier="resting">` at
-`PalettesPane.vue:2` wrapping the whole route in a measured **50.00 / 50.00** split with the Picker
-in the inspector's slot.
+> Sampled out of real screenshots (`probe-p5/TELEMETRY-composite.json`): in light, the SearchBar,
+> the `Start a new palette` plate and a saved PaletteCard are all **`rgb(233,225,217)`** — byte
+> identical. In dark, all three are **`rgb(66,55,47)`**. `VISUAL-CONSTITUTION.md:11-19` assigns them
+> different tiers and rules *"One surface has one tier."* Rendered, there is one tier for all three.
 
 ---
 
-## 1. Independent replication of pass 2 — what a second seat measured cold
+## 1. New findings
 
-Every row below was produced by my own harness
-(`scratchpad/palpane-D/probe{,2,3,4,5}.mjs`, WebKit, `deviceScaleFactor: 2`, live
-`http://localhost:9000`) before I opened pass 2.
+### P5-1 · BLOCKER — the `Palettes` identity is an analogous fan; a rainbow is unreachable by construction
 
-| Pass-2 claim | My independent measurement | Verdict |
+**Source.** `demo/color-session/palettes-ramp.ts`:
+
+```
+50  * a 3-stop ANALOGOUS fan of the LIVE accent, derived, alive to the pick
+75  * The 3-stop analogous fan (the Q4 record's own form, ruled in at Q5). ±40°
+76  * is the house analogous step (the S.W7-4 view fan's own interval) — wide
+80  export const PALETTES_RAMP_SHIFTS = [-40, 0, 40] as const;
+```
+
+**Measured live** (`probe-p5/TELEMETRY-chromium.json.ramp`, Chromium 1440×900 light, the resolved
+`background-image` of `.palettes-ramp-text`):
+
+```
+linear-gradient(90deg,
+  oklch(0.471189 0.188448 329.834),
+  oklch(0.471189 0.188448   9.834),
+  oklch(0.471189 0.124865  49.834))
+```
+
+| property | measured | law |
 |---|---|---|
-| D-1 first drag permutes library → `P3,P4,P2,P5,P1` | `TEST1 run1/2/3: before=P1,P2,P3,P4,P5 after=P3,P4,P2,P5,P1` — 3/3 | **CONFIRMED, byte-identical** |
-| D-1 drags 2..n are correct | `drag#2: →P4,P2,P3,P5,P1 OK · drag#3: →P2,P3,P4,P5,P1 OK` | **CONFIRMED** |
-| D-1 mechanism = surviving `defaultOptions.onUpdate` | `dist/useSortable.js:11-26` spread order, read directly | **CONFIRMED** (source pasted §3) |
-| D-1b filtered reorder rewrites hidden palettes | 40-palette run, filter `palette 1` (11 visible): head `probe-0…probe-7` → `probe-9, probe-0, probe-10…probe-15` | **CONFIRMED, larger blast radius** |
-| D-2 dark ramp collapse "6.44×" | computed tokens: light C̄ 0.1673 → dark C̄ 0.0260 = **6.44×** | **CONFIRMED to 3 s.f.** |
-| D-3 exact 50/50, Card-as-page | `pane-container--dual` w=1042; two `.pane-wrapper` at **512.0 / 512.0** → shares `[50, 50]` | **CONFIRMED** |
-| D-4 pointer-only `role="article"`, no seat | 6 `role="article"`, **0** `[aria-pressed]`, `cursor: pointer` on root | **CONFIRMED** |
-| D-5 no-results paints the empty invitation | `emptyStatus: "· EMPTY PLATE · \| No saved palettes yet. \| Add colors above…"` with `storedCount: 6` | **CONFIRMED** |
-| D-9 handle unfocusable | `dragHandles: 6`, `dragHandleTabbable: 0` | **CONFIRMED** |
-| D-17 three dead imports | `watch` 0 uses · `onMounted` 0 · `nextTick` 0 after line 128 | **CONFIRMED** |
-| D-21 two import idioms | `../ui/card` barrel (`:129-131`) vs `@mkbabb/glass-ui/dialog` (`:141-149`) | **CONFIRMED** |
-| §12.2 *"RTL mirrors correctly"* | **REFUTED in detail** — see D-28 | **REFUTED** |
+| hue arc, first→last | **80.0°** = 22.2% of the circle, one warm sector | `VISUAL-CONSTITUTION.md:23` "pastel-**rainbow** identity"; `PalettesPane.vue:3-4` "should be rainbow" |
+| lightness | **L 47.1%** on all three stops, at C 0.188 | `VISUAL-CONSTITUTION.md:17` "**pastel** `Palettes` identity" — L 47% at C 0.19 is a saturated mid-tone |
+| chroma agreement | stop 2 C **0.124865** vs stops 0/1 C **0.188448** — **−33.7%** | the fan is not iso-chromatic; the word reads bright magenta fading to muddy ochre |
 
-Nothing in pass 2 that I re-measured failed to replicate except negative-proof item 2.
+The chroma disagreement is visible without instruments: in
+`docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/palettes.png` and in
+`probe-p5/webkit-desktop-light-pathological.png`, the trailing letterforms of *Palettes* go dirty
+while the leading ones are vivid.
 
----
+**Why this outranks D-2.** D-2 (three passes) says the fan is chromatically dead in dark. P5-1 says
+that even where it is fully alive it is the wrong species. Curing D-2 yields a *saturated 80°
+analogous fan* — still not a rainbow. The mechanism is categorically incapable of the ruled artifact
+at any seed, any scheme, any lightness. Pass 1 explicitly assumed otherwise
+(`challenge-D-design.pass-1-prior.md:234`: *"the word reads as pastel rainbow, which is the whole
+point of the coordinate"*). `grep -ci "PALETTES_RAMP_SHIFTS"` over all four prior passes → `0`.
 
-## 2. Visual truth — the two states the tracked matrix never captured
-
-`audit/visual/REPORT.md` captures `/#/palettes` in four matrices and **all four are the empty
-store**. The route has never been photographed populated, filtered, or at 40 items. That is itself
-a coverage defect (§19), and it is why three of my findings are new: they only exist once the pane
-has content.
-
-### 2.1 Populated, desktop light (`scratchpad/palpane-D/A-populated-1440.png`, 6 palettes)
-
-Read the image and the pane's compositional argument falls apart in reading order:
-
-1. `My Palettes ⟨6⟩` — display-1 Fraunces with the chromatic *Palettes*. Correct and handsome.
-2. Search field.
-3. *Start a new palette* — a 462 × 130px dashed tray containing one heading and **one 48px dashed
-   ghost swatch at the far left**. Roughly **82% of the tray is empty.** The invitation's own
-   affordance occupies an eighth of the box drawn around it.
-4. **A single unlabelled 28px trash circle, floating alone, right-aligned, in its own band.** Not a
-   toolbar — a toolbar of one. Comment `:56-61` records why: the `{n} palettes` line beside it was
-   deleted because *"it existed only to left-balance this button"*. The balance was removed and the
-   button was kept. What remains is an orphan.
-5. Six palette cards, each a full-bleed 5-band saturated strip over a name row.
-
-Items 3 and 4 are the failure. The reading path from *create a palette* to *your palettes* is
-interrupted by the pane's single most destructive control, which has no visible name, no visible
-scope, and no visible neighbour. `PROPORTION-AUDIT.md §5.5`: *"A small icon/mark is either data,
-status, labeled action, drag affordance, focus/selection register or removed."*
-
-At six cards the strips stack into a barcode: six equal-height, equal-width, full-bleed rainbow
-bands at 12px pitch. Every card shouts at the same volume, so the field has no texture and no
-scanning entry point. `VISUAL-CONSTITUTION.md §7` asks for *"matte specimen slips inside a glass
-workspace"*; what renders is six equally-loud chromatic banners.
-
-### 2.2 The filtered-empty state (`scratchpad/palpane-D/light-nomatch.png`)
-
-The screenshot is the finding. Header badge `6`. Search field `zzzzz-no-match`. Body: *"No saved
-palettes yet."* Hint: *"Add colors above, then save the set."* Trash circle still present.
-
-Measured simultaneously:
-
-```
-{ "emptyStatus": "· EMPTY PLATE · |  | No saved palettes yet. |  | Add colors above, then save the set.",
-  "deleteAllStillPresent": true,
-  "cardsRendered": 0,
-  "storedCount": 6 }
-```
-
-### 2.3 Dark mode
-
-Both tracked dark captures show *Palettes* as **white with a blush**. Sampling the shipped Safari
-PNG (`safari-desktop-dark/palettes.png`), glyph-core pixels by horizontal third:
-
-```
-stop0 rgb(255,235,246)  OKLCH L=0.959 C=0.0257 H=343.3
-stop1 rgb(255,236,239)  OKLCH L=0.960 C=0.0206 H=  7.9
-stop2 rgb(255,237,233)  OKLCH L=0.959 C=0.0205 H= 34.7
-```
-
-versus light: `C = 0.182 / 0.187 / 0.152`. See §4.
-
-### 2.4 40 palettes (`scratchpad/palpane-D/F-40.png`)
-
-```
-{ "cards": 40, "gridCols": "462px", "gridH": 4468, "paneScrollH": 4805 }
-```
-
-A **4468px single column inside a 774px viewport** — 5.8× overflow — with no grouping, no density
-control, no pagination, no virtualization, and one row per palette at 462 × 108px carrying one name
-and five colour bands. `PaletteCardGrid.vue:4` hardcodes `grid-cols-1`; the only escape is the
-`gridClass` per-instance override prop, which PalettesPane does not pass. See D-30.
+**Cure.** The identity is a *hue traversal*, not an analogous fan. Replace `[-40, 0, 40]` with an
+ordered hue set that actually crosses the circle (or ≥5 stops over ≥180°), add a chroma floor and an
+inter-stop iso-chroma constraint, and certify against the **plate** rather than by walking ink
+lightness — which is also D-2's cure, and the two must land together or the identity is only
+half-repaired. Do not merely widen ±40: a 3-stop `background-clip: text` gradient across a 9-glyph
+word cannot carry a spectrum; the mark needs per-stop hue placement.
 
 ---
 
-## 3. BLOCKER D-1 (replicated) — the first drag of every session permutes the library
+### P5-2 · BLOCKER — three constitutional tiers composite to one rendered material
+
+**Method.** Screenshot the live route, decode the PNG, sample named coordinates, convert to OKLCH.
+Harness `probe-p5/harness5.mjs`; data `probe-p5/TELEMETRY-composite.json`; images
+`probe-p5/chromium-{light,dark}-composite.png`. This is `PROPORTION-AUDIT.md:73`'s protocol
+("Real rendered relation wins over token intent"), applied to this route for the first time.
+
+| sample | light `rgb` | light OKLCH | dark `rgb` | dark OKLCH |
+|---|---|---|---|---|
+| pane plate (`Card tier="resting"`) | 241,211,201 | L 0.8892 · C **0.0364** · H 39.3 | 120,101,92 | L 0.5224 · C 0.0282 · H 46.8 |
+| `.search-seated` SearchBar | **233,225,217** | L 0.9138 · C 0.0139 · H 67.7 | **66,55,47** | L 0.346 · C 0.0207 · H 58 |
+| `.dashed-well` (CurrentPaletteEditor) | **233,225,217** | L 0.9138 · C 0.0139 · H 67.7 | **66,55,47** | L 0.346 · C 0.0207 · H 58 |
+| `PaletteCard` body | **233,225,217** | L 0.9138 · C 0.0139 · H 67.7 | **66,55,47** | L 0.346 · C 0.0207 · H 58 |
+| strip segment 0 (requested `oklch(0.72 0.16 0)`) | 242,117,160 | L 0.7195 · C 0.1591 · H 0.2 | identical | identical |
+
+A filter **control**, an authoring **plate** and a saved **specimen slip** are the same pixel, in both
+schemes. `VISUAL-CONSTITUTION.md:11-19` gives them different tiers — *Instrument veil* for controls
+genuinely over live colour, *Specimen well* for "image, curve, palette or code artifact" — and rules
+verbatim: **"One surface has one tier."**
+
+**Mechanism, in source.** `demo/styles/utils.css:132-137`:
 
 ```
-TEST1 run1: before=P1,P2,P3,P4,P5  after=P3,P4,P2,P5,P1   intended=P2,P3,P1,P4,P5  *** WRONG ***
-TEST1 run2: before=P1,P2,P3,P4,P5  after=P3,P4,P2,P5,P1   intended=P2,P3,P1,P4,P5  *** WRONG ***
-TEST1 run3: before=P1,P2,P3,P4,P5  after=P3,P4,P2,P5,P1   intended=P2,P3,P1,P4,P5  *** WRONG ***
-TEST2 drag#1: P1,P2,P3,P4,P5  ->  P3,P4,P2,P5,P1
-TEST2 drag#2: P3,P4,P2,P5,P1  ->  P4,P2,P3,P5,P1        (correct)
-TEST2 drag#3: P4,P2,P3,P5,P1  ->  P2,P3,P4,P5,P1        (correct)
+.search-seated {
+    background: var(--well-bg);
 ```
 
-`scratchpad/palpane-D/probe4.mjs`, three fresh WebKit contexts, real mouse drags at 16 steps.
+The search field is painted with the **specimen-well token**. `PaletteCard.vue:19` carries
+`bg-well`. `CurrentPaletteEditor.vue:3` is `.dashed-well`. Everything on this pane is a well.
 
-The mechanism, from `node_modules/@vueuse/integrations/dist/useSortable.js:11-26`, pasted:
-
-```js
-function useSortable(el, list, options = {}) {
-	const { document = defaultDocument, watchElement = false, ...resetOptions } = options;
-	const defaultOptions = { onUpdate: (e) => {
-		moveArrayElement(list, e.oldIndex, e.newIndex, e);
-	} };
-	…
-		sortable = new Sortable(target, { ...defaultOptions, ...resetOptions });
-```
-
-`PalettesPane.vue:183-197` passes `onEnd` and never `onUpdate`, so `defaultOptions.onUpdate`
-**survives the spread** and fires first, against `list` = `pm.filteredSaved.value` — a plain array
-captured once at setup (`:183`). `moveArrayElement` also calls `removeNode(e.item)` +
-`insertNodeAt(...)` (`:64-82`), i.e. it physically re-parents a DOM node that Vue's `v-for` owns.
-
-So one gesture runs two competing reorder authorities: one mutates the real DOM and a detached
-array snapshot, the other mutates the store. That is a **dual path** in the exact sense owner
-edict 2 forbids, and the visible defect is its interference pattern.
-
-**Design cure (not a patch).** Delete SortableJS from this component. `VISUAL-CONSTITUTION.md §5.2`
-already specifies reorder as a *model* verb — *vertical list/review reorder*: Space grabs, Up/Down
-move ordinal, Space drops, Escape cancels, *"every move announces item and `position of total`"*.
-A named `<button>` emitting `move(id, delta)` against **the store's own order** satisfies §5.2,
-kills D-1, D-1b, D-9 and D-25 in one cut, and removes a dependency.
+What is left to tell them apart: border `1px solid` / `1px dashed` / `2px solid`, and cast offset
+`-2px 2px` / none / `-3px 3px`. At reading distance that is nothing, which is exactly what the
+tracked capture shows — the light desktop pane reads as four stacked beige slabs
+(`shots/safari-desktop-light/palettes.png`).
 
 ---
 
-## 4. BLOCKER D-2 (replicated) — the pastel identity is chromatically dead in dark
+### P5-3 · MAJOR — the pane is chromatic and its children are neutral, so each child punches a grey hole through the plate; and the elevation relation sign-flips between schemes
 
-### Law
+Same samples. The pane plate carries **C 0.0364** at H 39.3; its children carry **C 0.0139** at
+H 67.7. The children are **62% less chromatic than their own host**, at **ΔH 28.4°**.
 
-`VISUAL-CONSTITUTION.md §2`: *"The pastel-rainbow identity has exactly two textual coordinates …
-**Both coordinates render in light and dark**."* `palettes-ramp.ts` promises the same:
-*"in dark both land on the pastel band."*
+Mechanism (`probe-p5/TELEMETRY-chromium-4.json.normal.pane`): the pane is
+`background-color: oklab(0.928268 0.00554796 0.0132111 / 0.664)` with **`backdrop-filter: none`**.
+At 66.4% alpha and no blur it *inherits the ambient's chroma unfiltered*; the children are opaque and
+do not. Two consequences:
 
-### Measured — live computed root tokens, WebKit 1440, both schemes
-
-```
-light   --palettes-ramp-title-0  oklch(47.093% 0.188343 329.834deg)
-        --palettes-ramp-title-1  oklch(47.093% 0.188343   9.834deg)
-        --palettes-ramp-title-2  oklch(47.093% 0.124795  49.834deg)     C̄ = 0.1673
-
-dark    --palettes-ramp-title-0  oklch(95.832% 0.033662 329.834deg)
-        --palettes-ramp-title-1  oklch(95.832% 0.021053   9.834deg)
-        --palettes-ramp-title-2  oklch(95.832% 0.023120  49.834deg)     C̄ = 0.0260
-```
-
-**6.44× chroma collapse.** All three dark stops share L to eleven decimal places. Mean C 0.0260 at
-L 0.958 sits at or below the chroma just-noticeable-difference; the shipped Safari pixels agree
-(§2.3, C 0.0206–0.0257 measured off the PNG). The hue fan survives *numerically* — 329.8° / 9.8° /
-49.8° — and is annihilated *perceptually*.
-
-### Why this is a design fault, not an arithmetic one
-
-The ramp's identity is **hue**. The certifier's only lever is **L**
-(`palettes-ramp.ts` → `certifyAccentInk` → `walkToFloor`, *"riding the hue's gamut cusp and
-choosing its direction by reach"*). On a dark plate the feasible direction is *lighter*; the walk
-therefore drives all three stops to L≈0.958, and at L≈0.958 the sRGB cusp chroma for any hue is
-≈0.02–0.03. **The guard cannot fail to destroy the thing it is guarding.** Contrast-first
-certification of a hue-carrying identity is a category error committed at design time, not a
-mis-tuned constant.
-
-The per-site floor split makes it worse, not better: the title uses the 3:1 large-text carve-out
-and the dock entry uses 4.5:1, yet in dark `--palettes-ramp-title-*` and `--palettes-ramp-*` resolve
-to **identical strings** — the split buys exactly zero differentiation in dark.
-
-### Cure
-
-Certify on an axis the identity does not live on. Hold hue and chroma; satisfy the floor by
-compositing the letterforms against a **local plate** the ramp owns, rather than by bleaching the
-ink. Failing that, the honest design answer is that the dark coordinate is a *saturated* fan on a
-dark plate — dark-scheme identity ink is normally more chromatic, not less — which means the walk
-direction must be chosen by **chroma preservation**, with L free only inside a chroma floor.
+1. **`VISUAL-CONSTITUTION.md:21`** — *"Seed tint is forbidden outside the ambient field, active
+   accent, WatercolorDot/specimen, and pastel Palettes lanes."* The structural glass plate is
+   measurably carrying C 0.0364 of seed tint at H 39.3. It is none of the four permitted lanes.
+2. **Elevation inverts between schemes.** Light: the slip is **+0.0246 L above** its host. Dark: the
+   slip is **−0.1764 L below** its host. The same component reads raised in one scheme and recessed
+   in the other. `VISUAL-CONSTITUTION.md:21`: *"Dark chrome uses the restrained neutral pole"* — a
+   restrained pole is a translation, not a sign flip.
 
 ---
 
-## 5. BLOCKER D-23 — *new* — one search model behind two differently-scoped fields
+### P5-4 · MAJOR — the specimen well does not scale with the specimen: 1 and 50 colours receive identical area, and 50 renders as a continuous rail
 
-Two panes each present a search field with a scope-declaring placeholder:
+`probe-p5/TELEMETRY-chromium.json.strip`, pathological seed, 1440×900:
 
-- `PalettesPane.vue:33-37` — `v-model="pm.searchQuery.value"`, `placeholder="Search your palettes..."`
-- `BrowsePane.vue:11-13` — `v-model="pm.searchQuery.value"`, `placeholder="Search the commons..."`
+| palette | colours | card | strip | segment width | **area per colour** |
+|---|---|---|---|---|---|
+| `One` | 1 | 462 × 100 | 458 × 40 | 458 px | **18,320 px²** |
+| `Sunset Ridge 1` | 3 | 462 × 100 | 458 × 40 | 152.66 px | 6,106 px² |
+| `Zephyr` | 5 | 462 × 100 | 458 × 40 | 91.59 px | 3,664 px² |
+| `Fifty` | **50** | 462 × 100 | 458 × 40 | **9.16 px** | **366 px²** |
 
-There is exactly one `searchQuery` (`usePalettePorts.ts:54`), and it feeds **four** consumers:
+`PALETTE-CONTRACT.md:126` fixes the domain: *"A palette's content is exactly **1–50**
+`CanonicalNamedColor` atoms."* Both ends of that closed domain are in the table. The allocation never
+changes: **card height invariant at 100 px, strip invariant at 458 × 40**, across a **50.05×** collapse
+in per-colour area. There is no gutter, no stroke, no wrap, no second row, no count-adaptive height,
+no `+N more`. Zoom does not help — at 200% the minimum segment is **9.15625 px**
+(`TELEMETRY-chromium.json.zoom200`); mobile is worse at **6.39 px**
+(`TELEMETRY-webkit.json.mobileLight`).
+
+**The photographed consequence is worse than illegibility.** In
+`probe-p5/webkit-desktop-light-pathological.png` the `Fifty` card renders as a **smooth spectrum
+bar** — 50 abutting 9 px slivers with no separator read as one continuous gradient.
+`VISUAL-CONSTITUTION.md:7` reserves that exact form: *"the **spectral meniscus**: a continuous
+liquid-color rail reserved for genuinely chromatic **continuous** domains—Picker and Gradient."* The
+Library entity slip manufactures the product's signature continuous rail out of discrete data,
+one route away from the two instruments that own it. (For this seed the adjacent-hue step is 7.2°,
+giving ΔE_ok ≈ `2 · 0.16 · sin(3.6°)` = **0.0201** — at the OKLab just-noticeable threshold. The
+*geometry* is the finding; this ΔE is that geometry illustrated on my seed.)
+
+**Sub-defect, in source — the component declares a legibility floor and declines to apply it.**
+`demo/palettes/browser/card/PaletteColorStrip.vue`:
 
 ```
-usePalettePorts.ts:54   const searchQuery = ref("");
-usePalettePorts.ts:65   const browse     = useBrowsePalettes({ searchQuery });
-usePalettePorts.ts:68   const admin      = useAdminUsers({ searchQuery, … });
-usePalettePorts.ts:69   const colorQueue = useColorNameQueue({ searchQuery });
-usePalettePorts.ts:112  const filteredSaved = useFilteredList(savedPalettes, searchQuery, …)
+47  /** The 8% legibility floor for weighted segments. */
+48  const WEIGHT_FLOOR = 0.08;
+…
+64      Math.max(Math.max(w, 0) / total, WEIGHT_FLOOR),      ← weighted branch: 8%
+…
+70      return colors.map(() => Math.max(100 / n, 0.5));     ← ordinary branch: 0.5%
 ```
 
-### Reproduction (live, 6 seeded palettes, both schemes)
-
-Type `commons-query-xyz` into Browse's *"Search the commons…"*, navigate to `/#/palettes`:
-
-```
-{ "myPalettesFieldValue": "commons-query-xyz",
-  "cardsRendered": 0,
-  "emptyStatus": "· EMPTY PLATE · | No saved palettes yet. | Add colors above, then save the set." }
-```
-
-A query the user typed about the public commons silently hides their entire private library, and
-the pane reports the library as empty. The comment at `PalettesPane.vue:28-32` asserts the opposite
-— *"the twin placeholder … is scoped — this one owns YOUR list"* — and is false at the model level.
-
-`VISUAL-CONSTITUTION.md §7`: *"Search/filter chrome is one family."* One *family* of chrome; four
-scopes sharing one *value* is the opposite reading. A placeholder is a scope contract; two contracts
-over one variable is a designed lie.
-
-**Cure.** Scope belongs to the surface that declares it. `useFilteredList` already takes its query
-as a parameter — give the Library its own `libraryQuery` in the Library port and let Browse keep
-`commonsQuery`. The shared ref buys nothing: no screen shows both fields at once.
+Two floors for one visual channel, **16× apart**, in one file. And the `0.5` guard is **unreachable**:
+`n ≤ 50` by contract ⟹ `100/n ≥ 2` always. It is a masking fallback for an input the domain forbids —
+owner edict 2.
 
 ---
 
-## 6. BLOCKER D-24 — *new* — corrupt storage is rendered as an empty library
+### P5-5 · MAJOR — inside the specimen slip, the metadata outweighs the specimen 1.40 : 1
 
-### Law, verbatim
+Measured interior (`TELEMETRY-chromium.json.strip` + card rect): card 462 × 100 with a 2 px border ⟹
+interior 458 × 96. The strip takes **458 × 40 = 18,320 px²**; the metadata row (grip, name, count
+badge, `…` menu) takes **458 × 56 = 25,648 px²**.
 
-`VISUAL-CONSTITUTION.md §7`: *"Unsupported/corrupt palette storage replaces the Library body inside
-its existing main with one content-hug recovery article: diagnosis, preservation/export, then
-separately confirmed reset. W15 owns detection/export/reset semantics and W22 owns the visible
-composition. **It is never rendered as an empty library, silent reset, migration choice, overlay, or
-companion pane.**"*
+**Specimen 41.7% · metadata 58.3% · ratio 1.40 : 1.**
 
-### Mechanism
+`PROPORTION-AUDIT.md:67` (Card law 5.2): *"A card has one protagonist, one identity line, and at most
+one persistent action/status region."* Rendered, the identity line *is* the protagonist.
+`VISUAL-CONSTITUTION.md:5`: *"Each screen therefore has one dominant instrument, **one clear
+specimen**."* On the route whose entire purpose is saved colour, the colour is the minority of its own
+card.
 
-`usePaletteStore.ts:23-33`:
+---
 
-```ts
-read(raw: string): PaletteStore {
-    try {
-        const parsed = JSON.parse(raw);
-        if (!parsed || typeof parsed.version !== "number") { return defaultStore; }
-        return parsed;
-    } catch { return defaultStore; }
+### P5-6 · MAJOR — the primary destructive path guarantees focus loss, and the only thing announced afterwards is the wrong sentence
+
+Reproduced end to end (`probe-p5/harness.mjs` → `TELEMETRY-webkit.json.dialog`), 12 palettes:
+
+```
+onOpen      → activeName "Cancel"  ·  dialogRole "dialog"  ·  labelledby/describedby present
+afterEscape → BUTTON "Delete all saved palettes"          ← correct
+afterConfirm→ activeTag "BODY"  ·  isBody true
+              openerStillInDom  false
+              cardsLeft         0
+              liveRegions       ["· empty plate ·No saved palettes yet.Add colors above, then save the set."]
+```
+
+Escape is right. **The success path is not.** `PalettesPane.vue:62` wraps the opener in
+`v-if="pm.savedPalettes.value.length > 0"`, so confirming the command *deletes the control that
+opened the dialog* — focus loss is the **guaranteed** outcome of the primary path, not an edge case.
+`VISUAL-CONSTITUTION.md:115`: *"Dialog/Drawer/Popover open and close | producer initial-focus rule on
+open; **exact connected opener on close, otherwise the nearest surviving owning action**."* There is
+no nearest surviving owning action; there is `document.body`.
+
+Compounding it: the pane's one live region is the permanent `role="status"` empty plate
+(`EmptyState.vue:28`, `role="status"` with `aria-live` unset ⟹ implicit polite + atomic). After
+destroying twelve palettes, the sentence it announces is **"Add colors above, then save the set."**
+`VISUAL-CONSTITUTION.md:114` requires the changed result count/state through the owning status
+region. The owning status region congratulates the user on a fresh start.
+
+---
+
+### P5-7 · MAJOR — the focus indicator measures 1.76 : 1 against the plate it is drawn on
+
+Every focusable in the pane computes `outline-style: none` — all fourteen stops in
+`TELEMETRY-chromium.json.tabWalkChromium`. The sole focus channel in normal rendering is a
+box-shadow (`TELEMETRY-chromium-3.json.focusRingNormal`):
+
+```
+color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px,
+color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px
+```
+
+Composited over the plate it is drawn on (`TELEMETRY-chromium-4.json.contrast`, canvas-composited,
+WCAG relative-luminance formula):
+
+```
+plate rgb(233,225,217)  ·  ring composite rgb(213,157,171)  ·  contrast 1.76 : 1
+```
+
+WCAG 2.2 SC 1.4.11 requires **3 : 1** for a focus indicator against adjacent colours. 1.76 fails by
+41%. And `VISUAL-CONSTITUTION.md:82` states the obligation in exactly these terms: *"Text, focus,
+boundaries and state meet their rendered contrast **on the actual material tier**; a token name is not
+evidence."* Measured on the actual material tier: 1.76.
+
+The ring is producer-owned; the *composite* is this pane's, because the plate is this pane's — and
+P5-2 shows that plate is the one material the pane uses for everything.
+
+---
+
+### P5-8 · MAJOR — under forced colors, colour survives exactly where it is decoration and dies exactly where it is data
+
+This extends pass 4's N-1 with the counter-evidence that turns it from a bug into a principle.
+`forcedColors: "active"`, Chromium 1440×900 (`TELEMETRY-chromium-4.json.forced`,
+`chromium-fc-survival.png`, `chromium-fc-focus-menu.png`):
+
+| element | job | forced-colors result |
+|---|---|---|
+| `.atmosphere-canvas` | decoration | `linear-gradient(135deg, rgb(200,70,215) 0%, rgb(255,113,177) 33%, rgb(255,182,175) 67%, rgb(255,234,220) 100%)` — **full chroma, untouched** |
+| `.dashed-well` ghost swatch | decoration | `color(srgb 1.51088 0.562414 0.782924 / 0.12)` — **survives**, visible as a pink dashed square |
+| `PaletteColorStrip` segment | **the data** | `rgb(255,255,255)`, `border-width: 0px` |
+| `PaletteCard` / pane / trash | chrome | `rgb(255,255,255)` + `1–2px solid rgb(0,0,0)` |
+
+Because the segment's border width is **0**, fifty adjacent white rectangles merge: the **count** is
+lost as well as the hue. And the strip is `aria-hidden="true" role="presentation"`
+(`PaletteColorStrip.vue:3-4`), so there is no second channel.
+
+`chromium-fc-focus-menu.png` is the picture: a full-saturation brand gradient filling the screen,
+one pink authoring swatch, and four palette cards containing nothing but a name and a numeral. The
+product's atmosphere is preserved at 100%; the user's palettes are erased.
+
+---
+
+### P5-9 · MINOR — the card has one state out of eight, and the hover choreography its own comment documents does not fire
+
+`TELEMETRY-chromium-3.json`, real mouse move, `(hover: hover)` = true, `(pointer: fine)` = true,
+`matchesHover: true`:
+
+| state | transform | box-shadow | border-color | background | scale |
+|---|---|---|---|---|---|
+| rest | `none` | `-3px 3px 0, -5px 5px 0, -7px 7px 0` | `oklab(0.216… / 0.12)` | `oklab(0.913295…)` | `none` |
+| **hover** | `none` | **identical** | **identical** | **identical** | `none` |
+| active | `none` | identical | — | — | `1.0094 0.9515` |
+
+Hover changes **nothing**. `PaletteCard.vue:10-18` documents the opposite:
+
+```
+// the producer CARTOON REGISTER — the `cartoon-surface` atom owns the
+// hover/press choreography (translate/scale on --ease-cartoon-punch @
+// --duration-normal, shadow bezier md→lg, :active squash, 2px border)
+```
+
+Half of that is measurably absent. On a 462 × 100 target whose *entire body* is the click surface
+(D-4), the only hover feedback a pointer user receives is `cursor: pointer`. Enumerated against the
+brief's state list, the card handles: hovered ✗ · focused ✗ (no seat, D-4) · selected ✗ (no
+`aria-pressed`, D-4) · disabled ✗ · dragging ~ (`opacity-30` only) · loading ✗ (`PaletteCardSkeleton`
+exists and is used by `BrowsePane.vue:130`, never here) · error ✗ · **pressed ✓** — one state out of
+eight, and it is the one the user least needs.
+
+---
+
+### P5-10 · MINOR — `.pane-scroll-fade` fades nothing; the library is hard-cropped mid-card behind a 2 px scrollbar
+
+`TELEMETRY-chromium-6.json.containment`, 12 palettes at 1440×900:
+
+```
+mask: "none"       contain: "content"      overflowY: "auto"
+scrollH 1668  ·  clientH 772  ·  hiddenPx 896   (53.7% of the library below the fold)
+croppedCard: { index: 4, visiblePx: 5, ofPx: 100 }
+scrollbarWidth: 2
+```
+
+The recipe (`demo/shared/ui/PaneHeader.vue:54-57`) is:
+
+```css
+.pane-scroll-fade {
+    contain: layout style paint;
+    scroll-timeline: --pane-scroll block;
 }
 ```
 
-Two masking fallbacks: a `catch` that swallows unparseable bytes, and a shape guard that swallows a
-wrong-schema store. Both return `{version:1, palettes:[]}` — indistinguishable, downstream, from a
-user who has saved nothing. `PalettesPane.vue` has no branch for either; there is no recovery arm
-anywhere in the file's 212 lines.
+No gradient, no mask, no fade — the class is named for an affordance it does not provide, on **nine
+sibling panes** (`PaneHeader.vue:43-47` enumerates them). The rendered result is a **5 px sliver** of
+the fifth palette card hard-clipped at the pane's bottom edge, which reads as a rasterization artifact
+rather than as "more below", behind a 2 px scrollbar that is not a usable drag target.
 
-### Reproduction (live, both schemes)
+---
+
+### P5-11 · MINOR — twelve consecutive tab stops all named `"Palette menu"`
+
+Full 34-stop document tab walk in Chromium (`TELEMETRY-chromium.json.tabWalkChromium` — a UA whose
+default tab set includes buttons, which WebKit's does not; that is why pass 2's WebKit walk was
+shorter):
 
 ```
-localStorage["color-palettes"] = "{{{not json";  reload
-→ { "rawStillCorrupt": "{{{not json",
-    "emptyStatus": "· EMPTY PLATE · | No saved palettes yet. | Add colors above, then save the set." }
+13 INPUT  "Search your palettes..."   414×25
+14 BUTTON "Delete all saved palettes"  28×28      ← first destructive stop
+15…26 BUTTON "Palette menu"            36×36  ×12  ← twelve identical names
+27 BODY
 ```
 
-The bytes survive on disk (good — nothing was destroyed), but the user is told their library is
-empty and invited to start saving over the top of it. The first successful save writes
-`{version:1,palettes:[one]}` and the original bytes are gone.
-
-This is simultaneously an owner-edict-2 violation (*no masking fallbacks*) and the loss of the one
-§7 composition that exists specifically to prevent data loss.
-
-**Cure.** `read()` returns a discriminated `{ok:true,store} | {ok:false,reason:"unparseable"|"schema"}`
-and keeps the raw bytes. `PalettesPane` renders the §7 recovery article — diagnosis, *download raw
-backup*, then separately-confirmed reset — in place of the field. `EmptyState` already carries the
-`variant="error"` register (`EmptyState.vue:16-27`) this arm needs; it is simply never reached from
-this pane.
+Pass 2 recorded the sequence; the **ambiguity** is the defect. `VISUAL-CONSTITUTION.md:83`: *"Role,
+accessible name, state/value and associated error/status are explicit."* A keyboard user at stop 21
+cannot know which palette they are about to act on — and `Delete` lives inside that menu
+(`TELEMETRY-chromium-6.json.menuPopover.items: ["Publish","Rename","Export","Delete"]`, and per
+pass 4's N-3 that Delete is unconfirmed).
 
 ---
 
-## 7. BLOCKER D-5 (replicated) + MAJOR D-25 — *new* — the destructive control's scope is invisible
+### P5-12 · MINOR — the consumer restates the recipe's own fallback, and the restated colour is not the colour that ships
 
-D-5 is replicated in §2.2. The new half is the trash button's scope.
-
-`PalettesPane.vue:62-73` gates the delete-all row on `pm.savedPalettes.value.length > 0` — the
-**unfiltered** store — while the grid below renders `pm.filteredSaved` (`:83`). Measured:
+`PalettesPane.vue:167-175` aliases the title tokens with literal fallbacks; `demo/styles/utils.css:195-197`
+declares the identical literals. The comment claims:
 
 ```
-{ "deleteAllStillPresent": true, "cardsRendered": 0, "storedCount": 6 }
+169  //  `--palettes-ramp-*` slots. The fallbacks
+170  //  mirror utils.css so there is no pre-first-resolve flash
 ```
 
-So the screen shows zero palettes, the words *"No saved palettes yet."*, and one control whose
-`aria-label` is *"Delete all saved palettes"* and whose effect is to delete six palettes the user
-cannot see. The confirmation dialog does name the number — *"This will permanently delete 6
-palettes"* (`:107-109`) — which is the only thing standing between this and silent destruction, and
-it contradicts the body copy on the screen behind it.
+They do mirror utils.css. Neither mirrors what the resolver stamps:
 
-`VISUAL-CONSTITUTION.md §4.1`: *"Selected, failed, pending, withdrawn and disabled states are never
-color-only. Role, accessible name, state/value and associated error/status are explicit."* The
-destructive action's *scope* is the state here, and it is not merely non-explicit — it is
-contradicted by the surrounding copy.
+| stop | declared fallback | measured live token | Δ |
+|---|---|---|---|
+| 0 | `oklch(0.632 0.214 333.5)` | `oklch(0.471189 0.188448 329.834)` | ΔL **0.161** · ΔC 0.026 · ΔH 3.7° |
+| 1 | `oklch(0.632 0.214 13.5)` | `oklch(0.471189 0.188448 9.834)` | ΔL **0.161** · ΔC 0.026 · ΔH 3.7° |
+| 2 | `oklch(0.632 0.214 53.5)` | `oklch(0.471189 0.124865 49.834)` | ΔL **0.161** · ΔC **0.089 (−41.6%)** |
 
-**Cure.** Bind the destructive verb to the visible set, or name the divergence: *Delete all 6* when
-unfiltered, *Delete 2 matching* when filtered, disabled when the visible set is empty. The deeper
-cure is D-3's: lifecycle verbs belong to the selected inspector, not to a floating chip.
+Mirroring the wrong source does not remove a flash — it guarantees that if the flash ever occurs it is
+a 16-lightness-point jump, not a no-op. Separately, restating a recipe's root-level default at the
+call site is owner edict 5 (root-level styling, never per-instance).
+*(Whether the flash is observable is a **hypothesis** — the writer watch is `immediate: true`,
+`demo/color-picker/composables/boot/useViewAccents.ts:167`. The colour disagreement is measured, not
+hypothesised.)*
 
 ---
 
-## 8. BLOCKER D-27 — *new* — the empty Library takes half the stage; the law caps it at 15%
-
-### Law
-
-`VISUAL-CONSTITUTION.md §3` law 2: *"Empty secondary content occupies at most a narrow invitation
-tray (≤15% of the stage) or disappears. **It never receives half the viewport.**"*
-`PROPORTION-AUDIT.md` PR-04 gives the family the terminal verb **REMOVE**: *"Empty/equal companion
-Cards and nested housing."*
-
-### Measured (live, empty store, 1440×900, both schemes — identical)
+### P5-13 · MINOR — the header count and the grid's emptiness are bound to two different truths, fifteen lines apart
 
 ```
-stage  .pane-container--dual   w = 1042.0
-       .pane-wrapper--left     w = 512.0   x = 199
-       .pane-wrapper--right    w = 512.0   x = 729       → shares [50.00, 50.00]
-
-pane   512.0 × 684.7   top 147.5  bottom 832.2
-ink ends at y = 662.3  →  dead tail 169.9px  =  24.8% of the pane
-empty invitation block                       =  218.1px
+PalettesPane.vue:20  v-if="pm.savedPalettes.value.length > 0"     ← badge
+PalettesPane.vue:62  v-if="pm.savedPalettes.value.length > 0"     ← delete-all row
+PalettesPane.vue:77  :empty="pm.filteredSaved.value.length === 0" ← grid
 ```
 
-An empty Library receives **exactly 50.00%** of the stage — the literal words of the prohibition —
-and inside that half, a quarter of the pane's height is unpainted tail below the last ink. Neither
-number is near the law: 50.00% against a ≤15% cap is 3.3× over.
-
-The ratio is also neither of the two §3 law 1 permits (*"exactly `golden` 61.8033989% /
-38.1966011% or `preview-dominant` 66.6666667% / 33.3333333%"*). 512 / 1440 = 35.56%; the golden
-inspector would be 550.0px. The scene is 38px short of a ratio it was not trying to hit.
-
-**Cure.** The empty Library is an invitation, not a plate: content-hug it (`VISUAL-CONSTITUTION.md
-§7`: *"A true empty invitation content-hugs its text/action"*) and let the protagonist expand. This
-is inseparable from D-3 — a Library that owns its route cannot be 50% of a Picker's scene.
-
----
-
-## 9. MAJOR D-26 — *new* — the palette entity has no `Card` shell
-
-`VISUAL-CONSTITUTION.md §3.1`, Library row: *"**every rendered bounded palette entity slip has
-exactly one Card shell**, and the field/lane/empty/inspector have none."* §3.1 then fixes the tuple:
-`size="sm", material="content", tier="quiet", surface="opaque", shadow=false, grain=false,
-specular="off"`.
-
-Measured, the polarity is **exactly inverted**:
-
-- the field/empty/lane **does** have a Card — `PalettesPane.vue:2`, `<Card tier="resting">`;
-- the entity **does not** — `PaletteCard.vue:14-27` is a hand-rolled
-  `<div class="group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer" role="article">`.
-
-`shadow=false / specular="off"` is not merely unset — it is contradicted: `cartoon-surface` is a
-decoration atom whose own comment (`PaletteCard.vue:11-19`) describes *"translate/scale on
---ease-cartoon-punch … shadow bezier md→lg, :active squash, 2px border"* plus a lagging
-`.cartoon-cast` child. §7's prohibition is verbatim: *"not cartoon casters stacked within casters."*
-Measured, three cast shadows per card inside a card that is itself cast.
-
-This is the design-system boundary edict (4) failing in the harder direction: not a `demo/ui/` fork,
-but a *bypass* — a producer primitive with a ratified tuple, replaced in-place by a utility-class
-recipe that cannot express the tuple. `demo/ui/{card,button,badge}/index.ts` are clean one-line
-re-exports; the fork is at the consumption site.
-
----
-
-## 10. MAJOR D-30 — *new* — the field has no design at scale
-
-Measured at 40 palettes (§2.4): 4468px of single column in a 774px viewport; `gridCols: "462px"`;
-40 DOM cards, no virtualization; `paneScrollH 4805`.
-
-Three separate design absences compound:
-
-1. **No density.** One palette = 108px of vertical, of which ~55px is a colour strip and ~53px is a
-   name row that consumes 462px of width to render ~20 characters. A library is a *scanning*
-   surface; this is a reading surface.
-2. **No grouping.** §3.1 requires four non-interchangeable owner states (Device Draft, Workspace,
-   Published, Trash). With none of them, 40 items are one undifferentiated run.
-3. **No column response.** `PaletteCardGrid.vue:4` hardcodes `grid-cols-1`; the shared grid's only
-   escape is a `gridClass` per-instance override prop (`:5`, `:43`) — i.e. the producer's answer to
-   "more than one column" is *let the consumer override my root*, which is edict 5 inverted into an
-   API.
-
-At 462px wide a 2-up grid is not available, and at 40 items a flat list is not usable. Neither
-decision was made; both were inherited from the 0-item and 6-item cases.
-
----
-
-## 11. MAJOR D-15 (replicated) — the motion register is three raw literals
-
-`PalettesPane.vue:183-197` is the component's only motion:
-
-```ts
-useSortable(sortableEl, pm.filteredSaved.value, {
-    handle: ".drag-handle",
-    animation: 150,
-    ghostClass: "opacity-30",
-```
-
-- `animation: 150` — a bare millisecond integer. `VISUAL-CONSTITUTION.md §6`: *"Spatial continuity
-  uses one producer-owned glass-ui spring register."* Not a token, not a rung, not the register.
-- `ghostClass: "opacity-30"` — the drag *state* is a Tailwind utility name passed as a JS string.
-  The whole drag register (`PROPORTION-AUDIT.md` PR-07, *"invisible drag state"* →
-  **ADD-AFFORDANCE**) is a 30%-alpha ghost and nothing else: no lift, no drop target, no ordinal
-  announcement.
-- **No reduced-motion branch.** `grep -rn "prefers-reduced-motion\|motion-reduce" demo/palettes/`
-  returns exactly two files, neither of them this one (`ShadowPalette.vue:25`,
-  `ApiOfflineChip.vue:81`). §6: *"Reduced motion resolves directly to the final geometry."*
-
-I measured that the *card's own CSS* does honour PRM (`transition: … 0.1s` under
-`reducedMotion: "reduce"`), so the producer's register is PRM-correct — which isolates the defect to
-this component's hand-passed options. I could not catch SortableJS's inline FLIP transition inside
-my sampling window during a PRM drag, so *"the FLIP animates under PRM"* is recorded as a
-**hypothesis**; the un-tokenized literal and the absent branch are confirmed at source.
-
----
-
-## 12. MINOR D-28 — *new* — the count badge's gap is a physical margin (refutes pass 2 §12.2)
-
-Pass 2's negative proof item 2 states *"RTL mirrors correctly … No LTR leakage."* The pane's
-*layout* does mirror. Its header rhythm does not.
-
-`PalettesPane.vue:22` — `class="text-mono-small ml-2"`. Computed: `marginLeft: 8px`,
-`marginRight: 0px`. Measured rendered geometry (`probe5.mjs`):
+Measured with 12 stored and query `zzzzzz` (`TELEMETRY-chromium.json.filterZero`):
 
 ```
-LTR   title-block 754.0…967.2   badge 975.2…1004.6   gap title→badge =  8.0px
-RTL   title-block 472.8…686.0   badge 443.3… 472.8   gap title→badge =  0.0px
+headingText        "My Palettes12 (12 saved)"
+cards              0
+trashStillOffered  true
+liveRegions        [{ role:"status", text:"· empty plate ·No saved palettes yet.Add colors above, then save the set." }]
 ```
 
-In RTL the badge is **flush** against the title block and the 8px lands on its far side, in dead
-space. The designed 8px separation between a count and the noun it counts becomes 0px purely by
-flipping `dir`. `VISUAL-CONSTITUTION.md §6.1`: *"chrome, navigation and layout — logical
-inline/block direction follows the document."* `ml-2` → `ms-2` is the mechanical fix; the design
-point is that the one asymmetric spacing decision in the header was authored physically.
-
-Related, recorded honestly as **INFO**: under `dir="rtl"` the heading reorders to read *"Palettes
-My"* (measured: the ramp span at 539.3…686.0 sits to the **right** of *My* at 472.8…539.3), so §2's
-coordinate *"the `Palettes` substring in the Library heading `My Palettes`"* no longer describes
-what renders. The app ships no i18n, so this is a state-coverage gap rather than a shipping break.
+So on a screen that states *"No saved palettes yet."*, the **only** control offered is one that
+permanently deletes twelve palettes. D-5 named the copy and D-25 named the invisible scope; the
+**two-source binding** is the mechanism, and both sources are in this file.
 
 ---
 
-## 13. MINOR D-29 — *new* — the pane cannot honour a ratio law from its own file
+### P5-14 · MAJOR — correction to pass 4: the colour strip **does** mirror under RTL, and the export contract does not
 
-`PalettesPane.vue:2` — `class="… w-full mx-auto …"`. `mx-auto` is inert on a `w-full` child; there
-is no free inline space to distribute. Measured, the real width authority is the shell wrapper:
-`pane-wrapper … max-w-md sm:max-w-lg` caps the pane at **512px at every viewport** — identical at
-1440 (35.56% of viewport) and at 720 (71.11%).
+`challenge-D-design.pass-4-prior.md:142` records as negative proof: *"colour strips preserve ordinal
+identity per `VISUAL-CONSTITUTION.md:153`."* Measured (`TELEMETRY-chromium.json.rtl`, `dir="rtl"`,
+Chromium 1440×900, `chromium-rtl-pathological.png`):
 
-So the component carries a centring utility that does nothing, while the ratio the constitution
-assigns it is decided two levels up in a file it does not own. Any cure for D-3 / D-27 must move
-that authority, not restyle this line. Small, but it is exactly the contrivance edict 3 names — a
-utility that reads as intent and expresses none.
+```
+stripFlexDir     "row"          ← under dir=rtl, row lays children right-to-left
+stripX           226            strip spans 226 → 684 (458 px)
+stripFirstSegX   675            ← segment 0 sits at the strip's RIGHT edge
+```
 
----
+In LTR segment 0 is at the left edge. **The palette's ordinal 1 changes sides with document
+direction.** Meanwhile the export contract writes ordinals left-to-right unconditionally —
+`PALETTE-CONTRACT.md` Appendix W51 §6: `"  <rect x=\"" + dec(i) + "\" …"` for `i = 0..N-1`; §7 PNG:
+span `[floor(i·1200/N), floor((i+1)·1200/N))`. So an RTL user's on-screen card and the SVG/PNG they
+export from it **disagree about which end is first**, and because the strip is
+`aria-hidden="true" role="presentation"` there is no channel that resolves the ambiguity.
 
-## 14. Carried-forward findings from pass 2
-
-Verified by reading, not re-measured; kept in the ledger with pass 2's evidence:
-
-| ID | Severity | Defect |
-|---|---|---|
-| D-4 | BLOCKER | pointer-only `role="article"`, no focusable seat, no hover state (I measured `aria-pressed` count = 0) |
-| D-6 | BLOCKER | export failure is `console.warn`-only — `PALETTE-CONTRACT.md` Appendix W51 forbids it verbatim |
-| D-7 | BLOCKER | no operation state: publish has no pending arm; the result reaches the user only as a transient card flourish via `cardRefs[id].showFeedback()` (`:199-209`) |
-| D-8 | MAJOR | glass with no blur; five shadow recipes, two opposed light directions |
-| D-9 | MAJOR | unnamed unfocusable handle; no §5.2 keyboard reorder grammar (measured: 6 handles, 0 tabbable) |
-| D-10 | MAJOR | fixed-height inner scroller at every viewport |
-| D-11 | MAJOR | no owner-state selector — §3.1's four states collapsed to one (absent from all 212 lines) |
-| D-12 | MAJOR | route has zero H1; Library identity is an `<h3>` |
-| D-13 | MAJOR | search field has no accessible name |
-| D-14 | MAJOR | `.search-seated` per-instance override of an axis glass-ui already exposes |
-| D-16 | MAJOR | delete-all band 94% empty; first destructive tab stop |
-| D-18 | MINOR | pre-3.5 template refs (`ref()` + string `ref=`, not `useTemplateRef`), two `any` escapes (`:84`, `:181`), unpruned `cardRefs` |
-| D-19 | MINOR | badge/title optical centres differ by 9.6px |
-| D-20 | MINOR | dashed ghost outline casting a physical shadow |
-| D-22 | MINOR | empty-state copy lands two of three roles outside §4's closed matrix — I measured the sizes: eyebrow Fira Code **14.384px**, display line Fraunces 25.888px, **hint Fira Code 16.400px**. The lowest-priority line is set 2.0px *larger* than the eyebrow and in the machine voice, so the empty plate's type hierarchy is inverted as well as off-matrix |
-
-One structural note on D-4: `PaletteCardGrid.vue:3` declares `role="list"` and its children are
-`role="article"` (measured: `gridChildren: ["article" × 6]`) plus, in the empty case, a
-`role="status"` (`gridChildren: ["status"]`). A `role="list"` whose children are not `listitem` is
-structurally invalid, and the empty state puts a live region inside a list.
+The constitution rules the sibling species the other way. `VISUAL-CONSTITUTION.md:127`, Gradient stop
+position: *"identical; **explicit gradient coordinates do not mirror with prose**."* An ordered
+chromatic sequence is one species; the Library strip and the Gradient rail must not disagree about
+whether it mirrors.
 
 ---
 
-## 15. Negative proof — what I attacked and could not break
+## 2. Negative proof — what I attacked in this pass and could not break
 
-1. **No horizontal overflow.** `scrollWidth − clientWidth = 0` at 1440, 720 and under `dir=rtl`,
-   with 6 and with 40 palettes, and with an 88-character palette name. Matches `REPORT.md`
-   (`overflowX: 0`, all four matrices).
-2. **The count-badge accessible name is correct.** `aria-hidden` Badge + `sr-only` companion
-   (`:19-25`) yields the heading name *"My Palettes (6 saved)"*, not *"My Palettes6"*. Measured
-   `h3.textContent = "My Palettes6 (6 saved)"` with the badge `aria-hidden`; the comment's claim
-   holds.
-3. **Long names truncate, they do not break layout.** An 88-character name renders *"A palette with
-   an extremely long…"* at 1440 and 720 with no reflow.
-4. **The delete-all row mirrors correctly.** `justify-end` is logical: the button moves from the
-   pane's inline-end at x 1188 (LTR) to x 224 (RTL). No physical-direction leak there.
-5. **Producer PRM is honoured where the producer owns it.** Under `reducedMotion: "reduce"` the card
-   and its cast both compute `transition: … 0.1s`. The PRM defect (D-15) is this component's
-   hand-passed Sortable options, not the design system.
-6. **The `EmptyState` mark is §7-compliant.** Exactly three `WatercolorDot`s plus dashes,
-   `aria-hidden="true"`, static (`EmptyState.vue:38-49`).
-7. **`demo/ui/` is not forked.** `card`, `button`, `badge` are one-line glass-ui re-exports. The
-   design-system defect (D-26) is a bypass at the consumption site, not a local reimplementation.
-8. **Reorder persists.** Store order survives reload once the probe stops re-seeding on navigation.
-   Pass 2's retraction of the "lost on reload" claim is correct; I did not reproduce the loss either.
-9. **Zero page errors, zero component console errors** on `/#/palettes` in every run. The only
-   console error is the dev `VITE_API_URL` banner, which is environment, not component.
-10. **Corrupt bytes are not destroyed on read.** After `{{{not json` + reload, `localStorage` still
-    holds the original string. D-24 is a *presentation* and *overwrite-risk* defect, not an
-    immediate data-loss one.
-
----
-
-## 16. Ranked disposition — the full ledger
-
-| ID | Sev | Defect | Site | Status |
-|---|---|---|---|---|
-| D-1 | BLOCKER | first drag of every session permutes the whole library | `PalettesPane.vue:183-197` | replicated 3/3 |
-| D-1b | BLOCKER | reorder under a filter rewrites hidden palettes | ibid + `usePaletteStore.ts:163-165` | replicated @40 |
-| D-2 | BLOCKER | pastel identity chromatically dead in dark, 6.44× | `palettes-ramp.ts`, `:171-175` | replicated |
-| D-3 | BLOCKER | exact 50/50, Picker in the inspector slot, Card-as-page | `PalettesPane.vue:2` | replicated |
-| D-4 | BLOCKER | pointer-only `role="article"`, 0 focusable seats | `:82-97` | replicated (0 `aria-pressed`) |
-| D-5 | BLOCKER | no-results paints the empty-library invitation | `:75-81` | replicated |
-| D-6 | BLOCKER | export failure `console.warn`-only (forbidden verbatim) | `usePaletteExport.ts:22` | carried |
-| D-7 | BLOCKER | no operation state; publish result is a transient flourish | `:199-209` | carried |
-| **D-23** | **BLOCKER** | **one `searchQuery` behind two scope-declaring fields; cross-route leak** | `:34` + `usePalettePorts.ts:54` | **new** |
-| **D-24** | **BLOCKER** | **corrupt storage rendered as an empty library (masking `catch`)** | `usePaletteStore.ts:23-33` | **new** |
-| **D-27** | **BLOCKER** | **empty Library takes 50.00% of the stage; law caps at ≤15%** | `PalettesPane.vue:2` | **new** |
-| D-8 | MAJOR | glass with no blur; 5 shadow species, 2 light directions | `:2` | carried |
-| D-9 | MAJOR | unnamed unfocusable handle; no §5.2 keyboard reorder | `:184` | replicated |
-| D-10 | MAJOR | fixed-height inner scroller at every viewport | `:2` | carried |
-| D-11 | MAJOR | no owner-state selector; four §3.1 states collapsed to one | whole file | carried |
-| D-12 | MAJOR | zero H1; identity is an `<h3>` | `PaneHeader.vue:28` | carried |
-| D-13 | MAJOR | search field has no accessible name | `:33-37` | carried |
-| D-14 | MAJOR | `.search-seated` overrides an axis the producer exposes | `:35` | carried |
-| D-15 | MAJOR | `animation: 150` + `ghostClass` string; no token, no PRM branch | `:185-186` | replicated |
-| D-16 | MAJOR | delete-all: 94%-empty band, first destructive tab stop | `:62-73` | carried |
-| **D-25** | **MAJOR** | **delete-all scope = whole store while visible scope = filtered (0 of 6)** | `:62` vs `:83` | **new** |
-| **D-26** | **MAJOR** | **palette entity has no `Card` shell; §3.1 tuple unimplementable** | `PaletteCard.vue:14-27` | **new** |
-| **D-30** | **MAJOR** | **no design at scale: 4468px single column, no density/grouping/columns** | `PaletteCardGrid.vue:4` | **new** |
-| D-17 | MINOR | three dead imports (`watch`, `onMounted`, `nextTick`) | `:128` | replicated |
-| D-18 | MINOR | pre-3.5 refs, two `any`, unpruned `cardRefs` | `:84,177-181` | carried |
-| D-19 | MINOR | badge/title optical centres differ by 9.6px | `:19-24` | carried |
-| D-20 | MINOR | dashed ghost outline casting a physical shadow | `CurrentPaletteEditor` | carried |
-| D-21 | MINOR | two import idioms for one design system | `:129-149` | replicated |
-| D-22 | MINOR | empty-state type off-matrix **and inverted** (hint 16.4px > eyebrow 14.4px) | `:78-80` | replicated + measured |
-| **D-28** | **MINOR** | **`ml-2` physical margin: title→badge gap 8.0px LTR, 0.0px RTL** | `:22` | **new, refutes pass-2 §12.2** |
-| **D-29** | **MINOR** | **`mx-auto` inert on `w-full`; the ratio authority is two levels up** | `:2` | **new** |
+1. **Forced-colors focus is fine — my own hypothesis refuted.** I predicted that
+   `outline-style: none` on every control (P5-7) would leave focus invisible in HCM, where box-shadow
+   is not painted. Measured (`TELEMETRY-chromium-3.json.fcFocus`): the UA restores
+   `outline: 2px solid rgba(5,0,73,0.8)` at `outline-offset: 2px` on the trash, the menu **and** the
+   input. Photographed at `chromium-fc-focus-menu.png`. `VISUAL-CONSTITUTION.md:84` holds. Recorded
+   as a refutation, not softened.
+2. **The ramp identity survives forced-colors.** `color: rgb(0,0,0)`, `background-image: none`;
+   *"My Palettes"* fully legible in `chromium-fc-focus-menu.png` at a different seed and viewport
+   from pass 4's capture. Pass 4's negative proof #2 independently replicated.
+3. **The card menu popover is not clipped by the pane's containment.** Despite
+   `contain: layout style paint` on the pane root, reka-ui portals the menu:
+   `insidePane: false`, `portalParent: "BODY.relative"`, `overflowsPaneBottom: -70`,
+   `overflowsPaneRight: -39`. Popover overflow is a non-issue on this route.
+4. **The strip's colour fidelity is exact.** Requested `oklch(0.72 0.16 0)` renders as
+   `rgb(242,117,160)` = OKLCH **L 0.7195 · C 0.1591 · H 0.2** — three decimal places of agreement.
+   Whatever else is wrong with the strip, it does not lie about the colour it is given.
+5. **200% zoom is clean with the pathological seed.** 720×450 @ 2×: `docOverflow: 0`, pane
+   512×338, all 12 cards present, first card 462 px. Pass 4's §2.2 replicated at the contract
+   extremes.
+6. **Escape restores focus to the exact opener** (`afterEscape: BUTTON "Delete all saved palettes"`).
+   P5-6 is specific to the success path.
+7. **Reduced motion is honoured** (`TELEMETRY-webkit.json.reducedMotion`): card, `.cartoon-cast` and
+   the pane all resolve to `transition: opacity 0.1s, color 0.1s, background-color 0.1s,
+   border-color 0.1s, box-shadow 0.1s` and `animation: 0.00001s`. The gap pass 4 left open closes
+   green.
+8. **Long names truncate without breaking layout, at every viewport.** A 100-scalar name (the
+   `PALETTE-CONTRACT.md:139` `displayName` ceiling) clamps to 1 line at 1440 and 2 at 390 with
+   `scrollWidth === clientWidth` on every card and no reflow. Replicates passes 2–3.
+9. **No overflow, no page errors.** `docOverflow: 0` in every matrix measured — 1440 / 720 / 390,
+   light and dark, LTR and RTL, forced-colors, reduced-motion, empty and 12 pathological palettes.
+10. **`h1Count: 0` and heading `H3`** replicate D-12 exactly; **`listitemCount: 0` under `role="list"`
+    with 12 `role="article"` children** replicates the pass-1/2 semantics finding. Neither is re-argued.
 
 ---
 
-## 17. The one-paragraph gestalt cure
+## 3. Evidence base
 
-Every BLOCKER except D-2 dissolves in the same transposition, and it is the one the canon already
-wrote down. **Stop composing the Library as a Card and compose it as the Library.** Give
-`/#/palettes` the owner workspace chassis §3.1 names: an owner-state selector (Draft / Workspace /
-Published / Trash) across the top, the palette field at 64–66.7%, and a **selected inspector** at
-33.3–36%. The inspector then absorbs, by construction, every job that is currently mis-seated —
-rename, export, publish, delete, expand, pending/failure/durable operation state (D-6, D-7, D-16,
-D-25) — and the card collapses back to what §5 says it is: a bounded entity slip with exactly one
-named `<button aria-pressed>` seat (D-4) inside exactly one `Card` shell carrying the ratified quiet
-tuple (D-26). Reorder becomes a model verb on the store's own ordinal, keyboard-first, and
-SortableJS leaves the tree (D-1, D-1b, D-9, D-15). The three empty truths separate into three
-compositions — *invitation* (content-hugging, ≤15%, D-27), *no matches* (query echoed, clear
-affordance, D-5), *recovery* (diagnosis → export → confirmed reset, D-24) — and the field's query
-becomes the field's own (D-23). D-2 alone is orthogonal and needs its own ruling: certify the
-identity ramp on an axis its identity does not live on, or accept that a contrast-first walk will
-always bleach a hue-carrying mark to white on a dark plate.
+All under `docs/tranches/V/megatranche/audit/components/PalettesPane/probe-p5/`.
 
----
-
-## 18. Corrections to the superseded pass
-
-- **Refuted: `§12` negative proof 2, "RTL mirrors correctly … No LTR leakage."** The layout mirrors;
-  the header's count-badge gap does not. Measured 8.0px LTR → 0.0px RTL, computed
-  `marginLeft: 8px / marginRight: 0px` at `:22`. Filed as D-28. Pass 2's other RTL observations
-  (pane x, `justify-end` row) I independently reproduce and they are correct — the leak is one
-  utility class, not the composition.
-- **Refined: `§12` negative proof 5, "No design-system fork … nothing hand-rolled in `demo/ui/`."**
-  True as stated and I confirm it, but it reads as absolution and should not. The design-system
-  defect is a *bypass at the consumption site*: the entity §3.1 requires to be a `Card` is a
-  utility-class `div` (D-26). A clean barrel does not mean a clean boundary.
-- **Extended: D-1b.** Pass 2 demonstrated the filtered-reorder rewrite at 5 palettes / 2 visible. At
-  40 palettes / 11 visible, one drag moved twenty-nine unseen palettes: store head
-  `probe-0…probe-7` → `probe-9, probe-0, probe-10, probe-11, probe-12, probe-13, probe-14,
-  probe-15`. The blast radius is the whole library, not the filter's neighbourhood.
-- **Extended: D-22.** Pass 2 records the role-matrix breach. The measured sizes make it a hierarchy
-  inversion as well: the empty plate's *hint* renders at 16.400px and its *eyebrow* at 14.384px, so
-  the lowest-priority line is the largest small-text on the plate, and it is in the machine voice.
-- **Endorsed: pass 2's own retraction** of "reorder is lost on reload." I did not reproduce the loss
-  either; the seed-on-navigation artifact explanation is correct.
-
----
-
-## 19. Evidence base
-
-| Source | Supplied |
+| Artifact | Supplies |
 |---|---|
-| `audit/visual/shots/safari-{desktop,mobile}-{light,dark}/palettes.png` | the four tracked captures, read as images; OKLab pixel sampling of the dark title |
-| `audit/visual/REPORT.md` `/#/palettes` rows | 0 page errors, 0 console errors, `overflowX 0`, 8 small tap targets desktop / 4 mobile, 1 nameless button |
-| `scratchpad/palpane-D/probe.mjs` | state matrix: empty / populated / no-match / cross-pane leak / corrupt storage, both schemes |
-| `scratchpad/palpane-D/probe2.mjs` | stage geometry, PRM, RTL, forced-colors, 720px, 40 palettes, filtered-drag mutation |
-| `scratchpad/palpane-D/probe3.mjs` | empty-state dead tail, wrapper shares, PRM computed transitions, RTL span geometry |
-| `scratchpad/palpane-D/probe4.mjs` | the D-1 replication: 3 fresh contexts + 3 consecutive drags |
-| `scratchpad/palpane-D/probe5.mjs` | LTR/RTL badge gap decomposition |
-| `node_modules/@vueuse/integrations/dist/useSortable.js:11-26,64-82` | the surviving-`onUpdate` mechanism, source pasted |
-| `PROPORTION-AUDIT.md`, `VISUAL-CONSTITUTION.md`, `PALETTE-CONTRACT.md` | binding law, quoted verbatim per finding |
+| `harness.mjs` → `TELEMETRY-webkit.json` | 8-state WebKit sweep on the pathological seed; the delete-all focus/announcement reproduction; mobile + empty-state typography; reduced motion |
+| `harness2.mjs` → `TELEMETRY-chromium.json` | 34-stop tab walk; strip geometry table; the live ramp gradient; light-mode material; hover/active; filter-to-zero; forced-colors; 200% zoom; RTL |
+| `harness3.mjs` → `TELEMETRY-chromium-3.json` | forced-colors focus (refutation); hover-capability truth; normal-mode focus-ring spec; drag ghost; scroll-fade mask |
+| `harness4.mjs` → `TELEMETRY-chromium-4.json` | forced-colors survival table (data vs decoration); focus-ring composite contrast 1.76 |
+| `harness5.mjs` → `TELEMETRY-composite.json` | **composited screen pixels** sampled from real screenshots, light + dark, converted to OKLCH |
+| `harness6.mjs` → `TELEMETRY-chromium-6.json` | containment, crop geometry, hidden-px, scrollbar width, portaled popover |
+| `webkit-desktop-light-pathological.png` | the 50-colour card rendering as a continuous rail; the 1-colour card at the same size; the orphan trash |
+| `chromium-fc-focus-menu.png` · `chromium-fc-survival.png` | P5-8's inversion, photographed; the surviving UA focus outline |
+| `chromium-{light,dark}-composite.png` | the sampled frames behind P5-2/P5-3 |
+| `chromium-desktop-light-filter-zero.png` · `chromium-card-menu-open.png` · `chromium-pane-scrolled-bottom.png` · `chromium-rtl-pathological.png` · `chromium-zoom200-pathological.png` · `webkit-*-pathological.png` | the remaining state frames |
+| `demo/color-session/palettes-ramp.ts:50,75-76,80` | `PALETTES_RAMP_SHIFTS = [-40, 0, 40]`, "3-stop ANALOGOUS fan"; P5-1 |
+| `demo/palettes/browser/card/PaletteColorStrip.vue:47-48,64,70` | the two legibility floors; P5-4 |
+| `demo/styles/utils.css:132-137,195-197` | `.search-seated { background: var(--well-bg) }`; the duplicated ramp fallbacks; P5-2, P5-12 |
+| `demo/shared/ui/PaneHeader.vue:43-57` | the `.pane-scroll-fade` recipe; P5-10 |
+| `VISUAL-CONSTITUTION.md`, `PROPORTION-AUDIT.md`, `PALETTE-CONTRACT.md` | binding law, quoted per finding |
 
-**State coverage gap (INFO).** `/#/palettes` has **no** capture in the `forced-colors-desktop`,
-`zoom-200-desktop`, `rtl-desktop`, `rtl-mobile`, `reduced-motion-desktop` or `keyboard-focus-desktop`
-matrices — those directories carry only `picker`, `browse`, `gradient`, `blob`, `adminusers`. Six of
-the states this challenge is required to interrogate have never been photographed for this route. I
-drove them live instead; I record the matrix gap because a state nobody has looked at is a state
-nobody has designed. One consequence I could not settle: the ramp relies on `color: transparent` +
-`background-clip: text` (computed under `forcedColors: "active"`: `color rgba(0,0,0,0)`,
-`backgroundClip: text`), and WebKit does not implement forced-colors, so whether the identity
-survives a real Windows High Contrast UA is **untested** — recorded as a hypothesis, not a finding.
+**Environment note.** Every run emits the dev `VITE_API_URL` banner. It blocks *server* palette calls
+only; every finding above exercises the local `localStorage` path (`usePaletteStore.ts:6`, key
+`color-palettes`), which is what `isLocal: true` palettes use.
 
-**Environment note.** Every run emits `[value.js] value.js dev is MISCONFIGURED: … no VITE_API_URL`.
-This blocks *server* palette calls only. Every measured finding above exercises the local
-`localStorage` path (`usePaletteStore.ts:6`, key `color-palettes`), which is unaffected. D-7's
-publish arm is reported from source, not from a blocked request.
+**Seed note.** My seed is deliberately pathological — the contract's exact extremes (1 colour, 50
+colours, a 100-scalar name, a bidi + emoji name) plus eight ordinary palettes. Prior passes used 6,
+8, 12 and 40 ordinary palettes. Where numbers agree across seeds (pane 512 px, card 100 px, ramp
+tokens, `h1Count: 0`) the replication is noted; where they differ, the difference is the finding.
+
+---
+
+## 4. Carried forward, not re-argued
+
+Read `challenge-D-design.pass-4-prior.md` and its chain for the full argument on each. Ranked as pass 4
+left them:
+
+**BLOCKER** — D-1 / D-1b reorder permutes and rewrites hidden palettes · D-2 pastel identity
+chromatically dead in dark (**now subordinate to P5-1**: curing D-2 yields a saturated 80° analogous
+fan, still not a rainbow) · D-3 exact 50/50, Card-as-page · D-4 pointer-only `role="article"`, zero
+focusable seats · D-5 no-results paints the empty-library invitation · D-6 export failure is
+`console.warn`-only · D-7 no operation state · D-23 one search model, two scopes · D-24 corrupt
+storage rendered as an empty library.
+
+**MAJOR** — N-1 forced-colors specimen loss (**now P5-8, with its counter-evidence**) · N-2
+`variant="ghost"` is a dead Glass-5 prop · N-3 single delete unguarded while delete-all is guarded ·
+N-4 42% / 60% chrome band · D-8 glass with no blur, five shadow recipes · D-9 unnamed unfocusable
+16 px handle · D-10 fixed-height inner scroller (**P5-10 measures its crop**) · D-11 no owner-state
+selector · D-12 zero H1 · D-13 search field has no accessible name · D-14 `.search-seated`
+per-instance override (**P5-2 measures what it costs**) · D-15 `animation: 150` literal · D-16
+delete-all band 94% empty · D-25 destructive scope invisible · D-26 palette entity has no `Card`
+shell · D-27 empty Library takes half the stage · D-30 no design at scale (**P5-4 supplies the
+number**).
+
+**MINOR** — N-5 mobile FAB-silhouette trash · N-6 badge/title 0.81 on mobile · N-7 RTL badge before
+the noun · D-17 three dead imports · D-18 pre-3.5 refs, two `any` · D-19 badge/title optical centres ·
+D-20 dashed ghost casting a physical shadow · D-21 two import idioms · D-22 empty-state type hierarchy
+inverted (**measured on mobile this pass: the empty-state message and the pane identity are both
+Fraunces 25.888 px, and the message is weight 700 against the identity's 400 — the message
+outranks the route**) · D-28 physical badge margin · D-29 inert `mx-auto`.
+
+---
+
+## 5. The single gestalt cure
+
+Pass 4's transposition is correct and I adopt it: **the pane is a field wearing the costume of a
+card**, and it must become the owner workspace chassis `VISUAL-CONSTITUTION.md:45` already specifies —
+field at 64–66.7%, a real selected inspector at 33.3–36%, the `Card` demoted onto the entity slip with
+the ruled quiet-opaque-`sm` tuple and one named `<button aria-pressed>` seat.
+
+Pass 5 adds that the transposition is **necessary but not sufficient**, because four of this pass's
+findings are not shadows of the Card-as-page error. They are separate mechanisms that would survive
+the move intact:
+
+1. **The identity mechanism is the wrong species (P5-1).** An analogous ±40° fan cannot be a rainbow
+   in any chassis. Replace the fan with an ordered hue traversal under a chroma floor and an
+   iso-chroma constraint, certified against the plate; land it together with D-2's cure or the mark is
+   half-repaired.
+2. **The material vocabulary has collapsed to one word (P5-2, P5-3).** Before any layout moves,
+   `--well-bg` must stop being the answer to three different questions. The control tier needs its own
+   fill; the specimen tier needs a stage that is *neutral by construction* rather than neutral by
+   accident of opacity; and the pane must decide once whether the workspace is chromatic — if it is,
+   its children stop being neutral holes; if it is not, it stops carrying seed tint.
+3. **The specimen well needs a representation law across its declared domain (P5-4, P5-5).** 1–50 is
+   a contract, not an edge case. The slip's block allocation must respond to `colors.length` — a
+   count-adaptive height or a wrapping grid with a real per-segment floor (the file's own 8%, applied
+   to both branches, with the unreachable 0.5% guard deleted) — and the specimen must outweigh its own
+   metadata, not the reverse.
+4. **The destructive flow needs a survivor (P5-6) and the field needs one truth (P5-13).** The
+   inspector the transposition introduces is the natural home for both: it is the surviving owning
+   action focus returns to, and it is the one place where "how many exist" and "how many match" can be
+   stated without two `v-if`s fifteen lines apart contradicting each other. The status region then
+   announces the count that changed, not the invitation.
+
+One architectural move, plus four mechanism replacements. Fifty-one findings are their shadow.

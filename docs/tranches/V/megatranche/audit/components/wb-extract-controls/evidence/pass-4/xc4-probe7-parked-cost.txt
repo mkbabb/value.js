@@ -1,0 +1,51 @@
+
+=== developed payload (chars in the rail's style attribute) ===
+752
+
+=== park state ===
+{
+ "inDocument": false,
+ "isConnected": false
+}
+
+=== sliders available on /#/ ===
+[
+ {
+  "i": 0,
+  "label": "L channel",
+  "now": "0.92"
+ },
+ {
+  "i": 1,
+  "label": "A channel",
+  "now": "0.8552000000000001"
+ },
+ {
+  "i": 2,
+  "label": "B channel",
+  "now": "0.58"
+ },
+ {
+  "i": 3,
+  "label": "ALPHA channel",
+  "now": "0.8270000000000001"
+ }
+]
+
+=== PARKED + DETACHED cost while the user drives the colour on ANOTHER route ===
+{
+ "windowMs": 9699,
+ "styleAttrMutations": 225,
+ "ALL_while_detached": true,
+ "anyWhileConnected": 0,
+ "distinctStyleValues": 75,
+ "rendersImplied": 75,
+ "writesPerSecond": 23.2,
+ "charsRewrittenPerSecond": 17435,
+ "distinctGradientValues": 1,
+ "distinctBackgroundColorValues": 1,
+ "VERDICT_gradient": "the 634-char gradient NEVER changed across every write — re-serialised for free on every tick"
+}
+
+=== pageErrors ===
+[]

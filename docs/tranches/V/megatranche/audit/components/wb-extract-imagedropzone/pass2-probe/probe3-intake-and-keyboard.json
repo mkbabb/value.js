@@ -1,0 +1,37 @@
+{
+  "before": {
+    "tabindex": "0",
+    "aria": "Upload image, click to browse or drop an image here"
+  },
+  "afterTxt": {
+    "tabindex": "-1",
+    "aria": "Image preview area, tap to sample colors",
+    "cornerTag": "sample",
+    "imgSrcPrefix": "data:text/plain;base64,ZGVmaW5pdGVseSBub",
+    "imgNaturalWidth": 0,
+    "destructiveText": []
+  },
+  "afterPng": {
+    "tabindex": "-1",
+    "aria": "Image preview area, tap to sample colors",
+    "cornerTag": "sample",
+    "imgNaturalWidth": 8
+  },
+  "focusProbe": {
+    "activeIsZone": true,
+    "activeTag": "DIV",
+    "activeLabel": "Image preview area, tap to sample colors"
+  },
+  "afterEnter": {
+    "dialogCount": 0,
+    "eyedropperCanvas": false
+  },
+  "afterClick": {
+    "dialogCount": 0,
+    "eyedropperCanvas": true
+  },
+  "pageErrors": [
+    "InvalidStateError: The source image could not be decoded.",
+    "InvalidStateError: The source image could not be decoded."
+  ]
+}

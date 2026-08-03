@@ -1,0 +1,219 @@
+[
+  {
+    "name": "a-no-interaction",
+    "before": {
+      "text": "→|Browse|Tools|Login|@mbabb",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19241,
+      "expandedAttr": null
+    },
+    "after": {
+      "text": "→|Browse|Tools|Login|@mbabb",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19241,
+      "expandedAttr": null
+    },
+    "settled": {
+      "text": "→|Browse|Tools|Login|@mbabb",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19241,
+      "expandedAttr": null
+    },
+    "errs": []
+  },
+  {
+    "name": "b-click-blank-pane",
+    "before": {
+      "text": "→|Browse|Tools|Login|@mbabb",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19241,
+      "expandedAttr": null
+    },
+    "after": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "settled": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "errs": []
+  },
+  {
+    "name": "c-click-search-input",
+    "before": {
+      "text": "→|Browse|Tools|Login|@mbabb",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19241,
+      "expandedAttr": null
+    },
+    "after": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "settled": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "errs": []
+  },
+  {
+    "name": "d-click-filters-trigger",
+    "before": {
+      "text": "→|Browse|Tools|Login|@mbabb",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19241,
+      "expandedAttr": null
+    },
+    "after": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "settled": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "errs": []
+  },
+  {
+    "name": "e-filters-open-then-escape",
+    "before": {
+      "text": "→|Browse|Tools|Login|@mbabb",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19241,
+      "expandedAttr": null
+    },
+    "after": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "settled": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "errs": []
+  },
+  {
+    "name": "f-palette-card-menu",
+    "before": {
+      "text": "→|Browse|Tools|Login|@mbabb",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19241,
+      "expandedAttr": null
+    },
+    "after": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "settled": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19264,
+      "expandedAttr": null
+    },
+    "errs": []
+  },
+  {
+    "name": "g-hover-dock-then-filters",
+    "before": {
+      "text": "→|Browse|Tools|Login|@mbabb",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19241,
+      "expandedAttr": null
+    },
+    "after": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19302,
+      "expandedAttr": null
+    },
+    "settled": {
+      "text": "",
+      "rect": {
+        "w": 1408,
+        "h": 72
+      },
+      "innerHTMLLen": 19302,
+      "expandedAttr": null
+    },
+    "errs": []
+  }
+]

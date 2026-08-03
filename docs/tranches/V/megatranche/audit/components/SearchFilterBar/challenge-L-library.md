@@ -1,33 +1,34 @@
 # CHALLENGE-L — library structure · `demo/palettes/browser/search/SearchFilterBar.vue`
 
-## PASS 4 (2026-07-28) — read this header first
+## PASS 5 (2026-07-29) — read this header first
 
-Three CHALLENGE-L seats preceded me on this axis. **I overwrote none.** All three are preserved verbatim:
+Four CHALLENGE-L seats preceded me on this axis. **I overwrote none.** All four are preserved
+verbatim:
 
-    challenge-L-library-pass1-c654824e.md   (42 745 B · 12-row ledger · HEAD c654824e · had a browser)
+    challenge-L-library-pass1-c654824e.md   (42 745 B · 12-row ledger · HEAD c654824e · browser)
     challenge-L-library-pass2-80fc5c40.md   (31 870 B ·  8-row ledger · HEAD 80fc5c40 · no browser)
-    challenge-L-library-pass3-f36f780c.md   (25 006 B ·  6-row ledger · HEAD f36f780c · had a browser)
+    challenge-L-library-pass3-f36f780c.md   (25 006 B ·  6-row ledger · HEAD f36f780c · browser)
+    challenge-L-library-pass4-9268f054.md   (25 059 B ·  4-row ledger · HEAD 9268f054 · browser)
 
-This is the **fourth pass**. I re-derived the axis independently before reading any predecessor,
-then reconciled. What survives that reconciliation is short, and it is deliberately short:
+This is the **fifth pass**. I derived the axis independently from the source before reading any
+predecessor, then reconciled. My independent derivation **re-found** passes 1–4's core almost
+row-for-row — the `demo/ui/` shim, the `:checked` Checkbox miswiring, the `/^#[0-9a-f]{6}$/i`
+gate, the client/server colour-filter duplication, the hand-rolled HSV engine, the
+`tsconfig.demo.json` `paths` drift, the inert G-DEMO eslint boundaries. That convergence is itself
+evidence: five independent derivations agree, so **the confirmed core is not an artifact of any one
+seat's reading**. I record my re-verification in §6 and add nothing to those rows.
 
-1. **one correction that changes the wave** (§2, P4-1) — pass 1 concluded, in print, that
-   `vue-tsc` *structurally cannot* see the defect family it discovered, and proposed a glass-ui
-   change or a new eslint rule as the only closures. **That conclusion is wrong.** The blindness is
-   one unset compiler option in this repo. Flipping it catches every member of the family. I have
-   the reproduction.
-2. **two new findings** (§3) — a dead "public seam", and a design-system primitive that exists but
-   is not published.
-3. **one scoping measurement** (§4) the wave that acts on P4-1 needs before it starts.
-4. **independent re-verification** (§5) of the confirmed core, and one thing I looked for and did
-   not find.
+What is below is only what is **new**: four findings, all of them *missing-or-ignored public
+surface* — the half of the challenge-L brief ("wrong public surface") the prior passes measured the
+consequences of without naming the cause.
 
-For the import trace, `demo/ui/`, the inert `:checked` Checkbox, `variant` not being a `ButtonProps`
-key, the `/^#[0-9a-f]{6}$/i` gate and its live wrong-color search, the dead
-`colorL/colorA/colorB` client params, `useDialogBrowseActions`' filter handlers, the
-`tsconfig.demo.json` `paths` drift, the 32×40 icon button, the dead G-DEMO eslint boundaries, the
-HSV↔hex divergence, and the defeated focus ring — **read passes 1, 2 and 3.** I re-verified every
-one of them at `9268f054` and have nothing to add or correct beyond what is below.
+The headline: **the published `@mkbabb/value.js` surface cannot write a hex colour.** Pass 2
+measured that the demo's two colour engines disagree on 12–27 % of the HSV grid and listed four
+homes for "→ hex". None of the four passes observed that the library — a CSS colour library whose
+own parser accepts `#rrggbb` — publishes no function that emits one. That single missing export is
+why the fork exists, why glass-ui (a *downstream consumer*) carries `oklchStopToHex`, and why the
+cure passes 1 and 2 propose ("delete both conversions, route through the library") is currently
+**not writable** without a `toString(16)` at the call site.
 
 ## Model receipt
 
@@ -36,198 +37,273 @@ seat was spawned with. Declared, not inherited. No seat defect.
 
 ## Substrate
 
-- **HEAD at this pass: `9268f054`** (`docs(V·mega): picker band COMPLETE 12/12 validated …`) — not
-  the `c654824e` in my work order, nor `80fc5c40`, nor `f36f780c`. The branch has now advanced three
-  times under this axis. The subject file is byte-identical across all four substrates; every line
-  number cited by all four passes still resolves.
-- **I had a browser.** The Playwright MCP profile was held by a concurrent seat
-  (`Browser is already in use for …/mcp-chrome-83447af`), so I drove Chromium directly through the
-  repo's own `playwright` dependency against the live dev server on `:9000`.
-- Dev server `:9000` is live; the commons API is unreachable from it (same condition passes 1 and 3
-  hit). Anything needing populated tag data is labelled accordingly.
+- **HEAD at this pass: `d19da6d3`** (`docs(V·mega): 3:30am wall harvested — 233/243 axes banked …`).
+  Not the `c654824e` in my work order; the branch has advanced four times under this axis. The
+  subject file is byte-identical across all five substrates and every line number cited by all five
+  passes still resolves.
+- No browser probe was needed for any pass-5 finding: all four are decided by the published
+  artifacts (`package.json#exports`, `dist/`, `node_modules/@mkbabb/glass-ui/dist/styles/`) and by
+  executing the shipped library directly under Node. I ran the library, not the app.
+- Every command below was run from `/Users/mkbabb/Programming/value.js` and its output is pasted
+  unedited.
 
-**Verdict: DEFECTIVE.** Confirming all three predecessors. One correction, two new findings, one
-scoping measurement.
+**Verdict: DEFECTIVE.** Confirming all four predecessors; four new findings, one of which
+(LP5-1) is a precondition for the cure passes 1 and 2 already prescribed.
 
 ---
 
-## §1 · Ledger — pass 4 only
+## §1 · Ledger — pass 5 only
 
-| id | sev | defect | status vs passes 1–3 |
+| id | sev | defect | status vs passes 1–4 |
 |---|---|---|---|
-| P4-1 | **MAJOR** | **CORRECTION** — the typecheck gate's blindness is `vueCompilerOptions.strictTemplates` being unset, not a Vue limitation. With the flag, `vue-tsc` reports **11 errors** on this component alone — including both of pass 1's BLOCKER/L-1 bindings. Pass 1's stated closures (a glass-ui `inheritAttrs` change; a new eslint rule) are unnecessary | **contradicts pass 1 §L-2's closing paragraph and §L-1's "the gate does not see it" rationale** |
-| P4-2 | MINOR | **NEW** — `demo/palettes/browser/index.ts`, which declares itself "the mega-feature's TOP-LEVEL SEAM … the stable public API", has **zero consumers**. Every real reach goes to a sub-barrel | neither pass 1 (cites it only as context for the dead lint rule) nor pass 2 (counts barrels, proposes collapsing *onto* this one) established it is dead |
-| P4-3 | MINOR | **NEW** — glass-ui ships the menu-row recipe `SearchFilterBar` hand-rolls (`_shared/menuRowClass.d.ts`) but does **not** export it. The fork is forced, not chosen | no pass mentions `menuRowClass` |
-| P4-4 | INFO | **SCOPING** — of the 11 strict-template errors, **6 are real API drift and 5 are type-noise that works at runtime.** Verified against `forwardedAttrs` and the live DOM. A wave that flips the flag needs this split up front | new |
+| LP5-1 | **MAJOR** | **NEW** — the published surface has **no hex writer**. `serializeCssColor` emits 8 notations and omits hex; `grep "toString(16)" src/` returns **0**. The library parses `#4488cc` and cannot print it. This is the *cause* of pass 1's L-6 / pass 2's LP2-4 fork and of glass-ui carrying `oklchStopToHex` | no pass names the missing export; `serializeCssColor` appears in **zero** of the four |
+| LP5-2 | MINOR | **NEW** — `colorToHexString` (`color-model.ts:61`) is a zero-value pass-through alias over `pickerColorToHex` (`picker-color.ts:213`) with **5 consumers to the implementation's 1**, carrying a doc comment that misstates the contract. A live legacy alias — owner edict 2 | no pass mentions `colorToHexString` |
+| LP5-3 | MINOR | **NEW** — the subject's `.filter-option` is a **byte-identical, lossy re-declaration** of glass-ui's published `.interactive-item`. The published recipe is imported (`foundation.css:56`) and used **zero** times in demo code. Three spellings of one hover rule exist and **two of them render different colours** (`in srgb` vs Tailwind-4's `in oklab`) | no pass mentions `.interactive-item`; refines LP3-1's dead focus ring by naming the recipe that carries it |
+| LP5-4 | INFO | **NEW mechanism** — `color-utils.ts` is a **partial facade**: 3 of `picker-color.ts`'s 20 exports, and it omits precisely `pickerColorToHex`. The subject imports the facade at `:145`; its child needed hex; the facade did not carry it; the child re-rolled it. Refines LP2-5 — the spine's defect is not "no barrel", it is a facade that silently omits | LP2-5 counts barrels; no pass reads the facade's contents |
 
 ---
 
-## §2 · P4-1 · MAJOR · CORRECTION — the gate is blind by configuration, not by construction
+## §2 · LP5-1 · MAJOR · NEW — the published surface cannot write a hex colour
 
-### What pass 1 concluded
+### The claim
 
-`challenge-L-library-pass1-c654824e.md:146-149`:
+`@mkbabb/value.js` is described in its own `package.json` as *"Immutable, failure-explicit CSS
+color, value, easing, transform, math, and quantization capabilities."* Its parser accepts hex. Its
+serializer cannot emit hex. There is no hex writer anywhere in `src/`.
 
-> **The gate does not see it.** `npx vue-tsc -p tsconfig.demo.json --noEmit` → `EXIT=0`. Vue's
-> component typing admits unknown attributes as fallthrough and unknown `on*` handlers as native
-> listeners, so a prop/emit rename in the design system passes the demo typecheck silently.
+### Evidence — the serializer's complete switch
 
-and `:227-229`:
+`src/css/grammar.ts:289-311`, the whole of `serializeCssColor`:
 
-> **And close the gate**: glass-ui should declare its SFC props under
-> `defineOptions({ inheritAttrs: false })` where a prop rename is semantic, or the demo's eslint
-> should carry a `vue/no-undef-properties`-class rule for glass-ui components — because vue-tsc
-> exits 0 on all 51 of these today.
-
-Both proposed closures are cross-repo or new-machinery. Both are unnecessary.
-
-### What is actually true
-
-`vue-tsc` admits unknown props and handlers **only because `vueCompilerOptions.strictTemplates` is
-unset**, and its default is `false`.
-
-```
-$ grep -rn "vueCompilerOptions\|strictTemplates" tsconfig*.json vite.config.ts
-(no matches; exit 1)
-
-$ cat tsconfig.base.json
-{ "compilerOptions": { "target": "ES2022", … "strict": true, "verbatimModuleSyntax": true,
-    "noUncheckedIndexedAccess": true, "exactOptionalPropertyTypes": true, … } }
+```ts
+export function serializeCssColor(color: CssColor): Result<string, ColorIssue> {
+    …
+    switch (color.space) {
+        case "rgb":   return ok(`rgb(${format(a)} ${format(b)} ${format(c)}${alpha})`);
+        case "hsl":   return ok(`hsl(…)`);
+        case "hwb":   return ok(`hwb(…)`);
+        case "lab":   return ok(`lab(…)`);
+        case "lch":   return ok(`lch(…)`);
+        case "oklab": return ok(`oklab(…)`);
+        case "oklch": return ok(`oklch(…)`);
+        case "xyz":   return ok(`color(xyz …)`);
+        default:      return ok(`color(${color.space} …)`);
+    }
+}
 ```
 
-Every TypeScript strictness dial in this repo is at maximum. The **Vue** dial — the only one that
-governs template↔component-API agreement — was never turned on.
+Eight notations. No hex branch. It takes **no options argument** — there is no `{ format: "hex" }`
+seam to add one through at the call site.
+
+### Evidence — no hex writer anywhere in the library
+
+```
+$ grep -rn "toString(16)" src/
+$ echo "exit=$?"
+exit=1
+```
+
+Zero hits across the entire published library. `toRgba8` stops at bytes:
+
+```
+$ node --input-type=module -e "
+import { serializeCssColor } from './dist/subpaths/css.js';
+import { convertColor, hsv, toRgba8 } from './dist/subpaths/color.js';
+const c = hsv(210, 0.6666666666666669, 0.8);
+const rgb = convertColor(c.value, 'rgb');
+console.log('serialize ->', JSON.stringify(serializeCssColor(rgb.value)));
+console.log('toRgba8   ->', JSON.stringify(toRgba8(c.value, {gamut:'clip'})));
+"
+serialize -> {"ok":true,"value":"rgb(68 136 204)"}
+toRgba8   -> {"ok":true,"value":[68,136,204,255]}
+```
+
+`rgb(68 136 204)` **is** `#4488cc`. The library holds the right bytes and declines to print the
+notation its own parser accepts:
+
+```
+$ node --input-type=module -e "
+import { parseCssColor } from './dist/subpaths/css.js';
+import { convertColor } from './dist/subpaths/color.js';
+const p = parseCssColor('#4488cc');
+console.log('parse #4488cc ok:', p.ok, JSON.stringify(p.value.channels));
+console.log('hsv:', JSON.stringify(convertColor(p.value,'hsv').value.channels));
+"
+parse #4488cc ok: true [68,136,204]
+hsv: [210,0.6666666666666669,0.8]
+```
+
+Round-trip closed in both directions **except the last line**. That last line — `value.toString(16)
+.padStart(2,"0")` — is the entire delta, and the library makes every consumer write it.
+
+### Evidence — five consumers wrote it, four differently
+
+```
+$ grep -rn "padStart(2, \"0\")" demo/ src/
+demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts:33:    const hex = (v: number) => v.toString(16).padStart(2, "0");
+demo/color-session/picker-color.ts:215:    const hex = (value: number) => value.toString(16).padStart(2, "0");
+demo/palettes/browser/search/MiniColorPicker.vue:103:    const toHex = (c: number) => Math.round(c * 255).toString(16).padStart(2, "0");
+demo/palettes/export/bytes.ts:31:    for (const b of bytes) out += b.toString(16).padStart(2, "0");
+```
+
+Plus a fifth, in a *downstream package*:
+
+```
+$ grep -B1 "oklchStopToHex" node_modules/@mkbabb/glass-ui/dist/composables/color/index.d.ts
+/** OKLCh stop → `#rrggbb` gamma hex through value.js `toRgba8`. */
+export declare function oklchStopToHex(s: OklchStop): string;
+```
+
+**The design system carries a colour-library capability because the colour library declined to
+publish it.** glass-ui's own doc comment names the seam it had to bridge — *"through value.js
+`toRgba8`"* — i.e. it took the bytes and wrote the missing line itself. That is a direction-of-
+dependency defect: `inv-K-1` fixes the topology as glass-ui → value.js, and here the *capability*
+flows the wrong way along that edge — the consumer owns a concept the producer should.
+
+### Why this is the root, not a sibling, of the confirmed fork
+
+Pass 1's L-6 and pass 2's LP2-4 prescribe the same cure: delete `MiniColorPicker`'s two conversions
+and route `currentHex` through the library. **That cure is currently not writable.** Compose it and
+the last hop has no library call to make:
+
+```ts
+// the prescribed cure, written out:
+const currentHex = computed(() =>
+    pickerColorToHex(convertPickerColor(hsv(hue.value, sat.value, val.value), "rgb")),
+);           // ^^^^^^^^^^^^^^^^ demo-owned, because the library has no equivalent
+```
+
+`pickerColorToHex` is `demo/color-session/picker-color.ts:213` — a demo module. So the "converge on
+the library" cure converges on the **demo's** hex writer, not the library's, and the concept keeps a
+demo home. Pass 2's LP2-3 (the `toRgba8` achromatic-asymmetry defect) is a defect *in* that same
+last hop and is currently unfixable in one place for the same reason: there is no one place.
+
+`Math.round(c*255)` (half-up, `MiniColorPicker.vue:103`) vs the library's banker's rounding is one
+of pass 2's two measured divergence causes. A published writer makes that a library decision taken
+once, not a per-consumer accident taken four times.
 
 ### Reproduction
 
-Baseline, the shipped gate:
-
 ```
-$ npx vue-tsc -p tsconfig.demo.json --noEmit
-(no output — 0 errors)
+$ grep -rn "toString(16)" src/ ; echo "exit=$?"     # → exit=1, zero hits
+$ node -e "const p=require('./package.json'); console.log(Object.keys(p.exports).join(' '))"
+./color ./value ./css ./easing ./math ./transform ./quantize
 ```
+Then read `src/css/grammar.ts:289-311` — the switch has no hex arm and the function has no options
+parameter.
 
-The same program, same substrate, one option added:
+### Cure — architectural, not a patch
 
-```
-$ cat > /tmp/tsconfig.strict.json <<'EOF'
-{ "extends": "/Users/mkbabb/Programming/value.js/tsconfig.demo.json",
-  "vueCompilerOptions": { "strictTemplates": true },
-  "include": ["/Users/mkbabb/Programming/value.js/demo/palettes/browser/search/SearchFilterBar.vue",
-              "/Users/mkbabb/Programming/value.js/src/vite-env.d.ts"] }
-EOF
-$ npx vue-tsc -p /tmp/tsconfig.strict.json --noEmit
-demo/palettes/browser/search/MiniColorPicker.vue(48,21): error TS2353: … 'variant' does not exist in type
-  '{ readonly emphasis?: ButtonEmphasis; readonly tone?: …; readonly size?: ButtonSize;
-     readonly iconOnly?: boolean; … 5 more …; readonly as?: string | Component; } & VNodeProps & …'
-demo/palettes/browser/search/MiniColorPicker.vue(51,22): error TS2353: … 'onClick' does not exist …
-demo/palettes/browser/search/SearchFilterBar.vue(5,25):   error TS2353: … 'variant' does not exist …
-demo/palettes/browser/search/SearchFilterBar.vue(52,38): error TS2353: … 'checked' does not exist in type
-  '{ readonly modelValue?: CheckedState | null; readonly defaultValue?: CheckedState; … }'
-demo/palettes/browser/search/SearchFilterBar.vue(53,38): error TS2353: … ''onUpdate:checked'' does not exist …
-demo/palettes/browser/search/SearchFilterBar.vue(89,46): error TS2322: Type 'string | number' is not
-  assignable to type 'string'.
-demo/palettes/browser/search/SearchFilterBar.vue(93,37): error TS2353: … ''aria-label'' does not exist …
-demo/palettes/browser/search/SearchFilterBar.vue(95,38): error TS2353: … 'onKeydown' does not exist …
-demo/palettes/browser/search/SearchFilterBar.vue(112,29): error TS2353: … 'variant' does not exist …
-demo/palettes/browser/search/SearchFilterBar.vue(115,30): error TS2353: … 'onClick' does not exist …
+Publish the writer from the library, in `src/css/grammar.ts` beside its parser:
+
+```ts
+export function serializeCssColor(
+    color: CssColor,
+    options?: { readonly format?: "functional" | "hex" },
+): Result<string, ColorIssue>
 ```
 
-**11 errors on this component alone.** Lines 52 and 53 are pass 1's L-1 — the inert Checkbox — named
-by the compiler, at the exact character column, with the correct expected type. Lines 5, 112 and
-MiniColorPicker 48 are pass 1's L-2, the `variant` family. Line 89 is a real type hole nobody had
-recorded (`Input` emits `string | number`; `colorText` is `Ref<string>`).
+with the `hex` arm routed through the existing `toRgba8(color, { gamut: "clip" })` so gamut policy
+and rounding policy are decided **once**, inside the failure-explicit boundary, and returned as a
+`Result` like everything else. Then, in order:
 
-I verified the probe harness genuinely type-checks the template's host file rather than silently
-including nothing: a planted script-block error **was** reported —
+1. `demo/color-session/picker-color.ts:213` `pickerColorToHex` → one library call.
+2. `MiniColorPicker.vue:85-105` and `:110-125` → deleted; pass 1's L-6 cure becomes writable.
+3. `useImageSampler.ts:33` → deleted.
+4. glass-ui's `oklchStopToHex` → one library call; the capability returns to the producer side of
+   the `inv-K-1` edge. (Relay to the glass-ui BH inbox — standing formation invariant.)
+5. Pass 2's LP2-3 becomes a single-site fix.
 
-```
-probe.vue(6,7): error TS2322: Type 'string' is not assignable to type 'number'.
-```
-
-— while, in that same file and same run, a planted `:bogusPropXyz="1"` on `<Checkbox>` under the
-default configuration was **not**. Script is checked; templates are waved through. That asymmetry is
-the whole defect.
-
-### Why this changes the wave
-
-Pass 1 ranked its own BLOCKER (L-1, the dead tags filter) first and treated the gate as an open
-research question requiring a glass-ui change. The correct ordering is the reverse of what that
-implies: **flip `strictTemplates` first**, because doing so converts the entire family — pass 1's
-L-1 and L-2, both Checkbox consumers, all 51 `variant` sites, and every future design-system prop
-rename — from "invisible, found by audit" into "red at the gate, found by CI." It is one line in
-`tsconfig.demo.json`, it needs no glass-ui coordination, it needs no new lint rule, and it is the
-only cure on this axis that is *self-enforcing*.
-
-Independently measured scale of what the flag would catch, repo-wide:
-
-```
-$ python3 - <<'PY'
-import re, pathlib
-hits=0; files=set()
-for p in pathlib.Path('demo').rglob('*.vue'):
-    s=p.read_text(encoding='utf8', errors='ignore')
-    for m in re.finditer(r'<Button\b[^>]*?>', s, re.S):
-        if 'variant=' in m.group(0): hits+=1; files.add(str(p))
-print("Button tags carrying a dead `variant` prop:", hits, "across", len(files), "files")
-PY
-Button tags carrying a dead `variant` prop: 51 across 22 files
-```
-
-My **51** agrees exactly with pass 1's **51**. My file count is 22 against pass 1's 20 — my regex
-scopes to `<Button …>` tags specifically, pass 1's tabulation appears to enumerate by component; the
-site count, which is the number that matters for the wave, is identical from two independent
-methods. Recorded so nobody reads the file-count delta as a contradiction.
-
-**Recommended born-RED gate for the wave:**
-`vueCompilerOptions.strictTemplates: true` in `tsconfig.demo.json`; `npm run typecheck` must be
-green with it. That gate is falsifiable, needs no sampling policy, and cannot be satisfied by a
-comment.
+`demo/palettes/export/bytes.ts:31` is **not** in this set — it hexes a SHA digest, not a colour.
+Correctly separate.
 
 ---
 
-## §3 · New findings
+## §3 · LP5-2 · MINOR · NEW — a zero-value alias with five consumers
 
-### P4-2 · MINOR · NEW — the declared "top-level seam" has zero consumers
+`demo/color-session/color-model.ts:60-65`:
 
-`demo/palettes/browser/index.ts` is 46 lines, of which 18 are a docblock asserting a boundary law:
-
-> *"palette-browser — the mega-feature's TOP-LEVEL SEAM (U.W-DEMO · U-F47). The stable public API of
-> the palette-browser feature: a single barrel that re-exports the six sub-feature faces … External
-> consumers reach the feature through THIS seam (or a sub-barrel it re-exports), never a raw
-> internal `.vue` file — the G-DEMO-3b boundary (eslint.config.js) enforces it standing."*
-
-```
-$ grep -rn '"./browser"\|palettes/browser"' demo/
-(no matches)
+```ts
+/** Convert a normalized rgb color (components in [0,1]) to a hex string. */
+export function colorToHexString(
+    color: PickerColor,
+): string {
+    return pickerColorToHex(color);
+}
 ```
 
-**Nothing imports it.** Every real consumer reaches a sub-barrel directly:
+The body is the call. The wrapper adds nothing — no narrowing, no defaulting, no error handling.
+It is an alias, and owner edict 2 bans aliases.
+
+**The doc comment is false.** `pickerColorToHex` (`picker-color.ts:213-217`) takes `AnyColor` in any
+space and projects through `toRgba8(color, { gamut: "clip" })`; it does not take "a normalized rgb
+color (components in [0,1])". A reader of `color-model.ts` is told the wrong contract.
+
+**The alias won.** Measured consumer counts:
 
 ```
-$ grep -rn 'browser/search"' demo/
-demo/palettes/BrowsePane.vue:190:import { SearchFilterBar, TagEditPopover } from "./browser/search";
-demo/palettes/admin/AdminPane.vue:86:import { UserSortMenu } from "../browser/search";
+$ grep -rn "colorToHexString" demo/ | grep -v "color-model.ts:6"
+demo/color-session/ColorSpaceSelector.vue:119 / :156
+demo/color-session/useColorUrl.ts:6 / :56
+demo/color-session/useColorNameResolution.ts:12 / :44
+demo/color-session/useSliderGradients.ts:12 / :66
+demo/color-session/useColorPipeline.ts:19 / :177
+
+$ grep -rn "pickerColorToHex" demo/ | grep -v "picker-color.ts:213"
+demo/color-session/color-model.ts:13
+demo/color-session/color-model.ts:64
 ```
 
-The file's own docblock concedes the pattern in its last sentence — *"App.vue's eager `index.js`
-chunk therefore still reaches `MigratePalettesDialog` through the `dialog/` sub-barrel directly"* —
-and then calls the unused parent "the public contract" anyway. A seam nobody crosses is not a seam.
-It is a module whose entire content is a claim about other modules' behaviour, and the claim is
-false.
+**5 consumers reach the alias; 1 reaches the implementation, and that 1 is the alias itself.** The
+real home is unreachable in practice — which is exactly the shape that makes a fresh author (see
+`MiniColorPicker.vue:103`) conclude no such function exists.
 
-**This materially redirects pass 2's cure.** Pass 2 (`…pass2-80fc5c40.md:344`) proposes *"collapse
-the leaf's seven barrels to the one at `browser/index.ts`"* — i.e. collapse onto the dead one, and
-rewrite the two live call sites to route through a file that currently has no reason to exist.
-Given the measurement, the honest options are: (a) delete `browser/index.ts` and let the sub-barrels
-be the surface they already are, or (b) keep it and make the two consumers actually use it — but
-(b) only earns its keep once G-DEMO-3b can fire, and it cannot (pass 1's L-11: three of four globs
-name `demo/@/**`, a tree deleted at W43; I re-confirmed `ls demo/@` → *No such file or directory*).
-I recommend (a). It is the option that removes a module instead of adding an obligation.
+**Cure.** Delete `colorToHexString`; point its five consumers at `pickerColorToHex`; after LP5-1
+lands, point them at the library and delete `pickerColorToHex` too. One concept, one home, the home
+being the package that owns colour.
 
-### P4-3 · MINOR · NEW — glass-ui owns the menu-row recipe but does not publish it
+---
 
-`SearchFilterBar.vue:240-248` hand-rolls a menu-row:
+## §4 · LP5-3 · MINOR · NEW — the published interaction recipe, ignored, then forked three ways
+
+### The published primitive
+
+`demo/styles/foundation.css:56` imports glass-ui's full Tailwind-source style surface:
+
+```
+$ grep -n "glass-ui/styles" demo/styles/foundation.css
+56:@import "@mkbabb/glass-ui/styles";
+57:@import "@mkbabb/glass-ui/styles.css";
+```
+
+That surface publishes `.interactive-item`
+(`node_modules/@mkbabb/glass-ui/dist/styles/utilities/base.css`, `@layer components`), reproduced
+here in full:
+
+```css
+.interactive-item { scale: 1; border-radius: var(--radius-lg); user-select: none;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+              color …, border-color …, box-shadow …, scale var(--transition-liquid-spatial); }
+.interactive-item:hover { background-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+.interactive-item:focus-visible { outline: none; box-shadow: var(--focus-ring-shadow); }
+.interactive-item:active { scale: var(--scale-press-sm); }
+.interactive-item:disabled, .interactive-item[data-disabled] {
+  pointer-events: none; opacity: var(--opacity-disabled); cursor: not-allowed; }
+```
+
+### It is used zero times
+
+```
+$ grep -rn "interactive-item" demo/
+demo/DESIGN.md:238:`.interactive-item`, `.tap-squish` — the scale leg reads `--transition-liquid-spatial`),
+```
+
+One hit, in prose, in the demo's own design document. **No component in `demo/` uses it.** The
+demo documents the primitive and then does not consume it.
+
+### The subject forks it, byte-identically on hover and lossily everywhere else
+
+`SearchFilterBar.vue:240-248`:
 
 ```css
 .filter-option {
@@ -241,195 +317,209 @@ I recommend (a). It is the option that removes a module instead of adding an obl
 .filter-option:hover { background-color: color-mix(in srgb, var(--accent) 50%, transparent); }
 ```
 
-glass-ui already has this primitive:
+The hover declaration is **character-for-character** glass-ui's. The rest is a strict subset that
+drops the three legs that matter for interaction:
 
-```
-$ cat node_modules/@mkbabb/glass-ui/dist/components/_shared/menuRowClass.d.ts
-export type MenuRowIndicator = "none" | "start";
-export declare function menuRowClass(indicator?: MenuRowIndicator): string;
-
-$ grep -rn "menuRowClass" node_modules/@mkbabb/glass-ui/dist/index.d.ts
-(no matches)
-```
-
-It lives under `_shared/` and is reachable only through internal chunk imports (`forms.js` imports
-`./menuRowClass-Nh7CtMON.js`). It is not on the public barrel and not on any of glass-ui's 70
-published subpaths. **The demo cannot consume it.** So this component's fork of the recipe is not a
-choice against the design system — it is the only move available, and edict 4 has no compliant path
-here.
-
-Same class, same file, one line up: `SearchFilterBar.vue:239` writes
-`.filter-section > .section-label { margin-bottom: 0.375rem }` — a per-instance override of a
-glass-ui typography recipe that `demo/DESIGN.md` §Type lists among the system's named utilities
-(edict 5).
-
-**Relay (standing BH/BI fond).** This is a glass-ui-level change and belongs in the active glass-ui
-inbox, not in `demo/`: publish `menuRowClass` (or a `MenuRow` primitive) on a real subpath, and give
-`.section-label` a spacing token so consumers stop reaching for margin overrides. Until it ships,
-the demo's fork should be recorded as *blocked-upstream*, not filed as a demo defect to fix locally
-— fixing it locally would mint exactly the parallel implementation edict 4 exists to prevent.
-
----
-
-## §4 · P4-4 · Scoping — which 6 of the 11 strict-template errors are real
-
-A wave that flips `strictTemplates` will meet 11 errors on this component. They are not equivalent,
-and treating them as such will either produce needless churn or hide the real ones. I resolved each
-against glass-ui's compiled source and the live DOM.
-
-**REAL — the binding does not work (6):**
-
-| line | binding | why it is dead |
+| leg | glass `.interactive-item` | subject `.filter-option` |
 |---|---|---|
-| `SFB:52` | `:checked` | `CheckboxProps` has no `checked`; the setup forwards **props** (`{class, ...t}`) into reka's root, so an attribute never enters the forward |
-| `SFB:53` | `@update:checked` | compiled Checkbox: `emits: ["update:modelValue"]` — nothing ever emits `update:checked` |
-| `SFB:5` | `variant="ghost"` | no `variant` in `ButtonProps`; measured live below |
-| `SFB:112` | `variant="ghost"` | ditto |
-| `MCP:48` | `variant="outline"` | ditto |
-| `SFB:89` | `v-model="colorText"` | `Input` emits `string \| number` into a `Ref<string>` — a real type hole, benign at `type="text"` |
+| hover tint | `color-mix(in srgb, var(--accent) 50%, transparent)` | **identical** |
+| focus ring | `:focus-visible { box-shadow: var(--focus-ring-shadow) }` | **absent** |
+| press feedback | `:active { scale: var(--scale-press-sm) }` | **absent** |
+| disabled | `[data-disabled] { pointer-events:none; … }` | **absent** |
+| radius | `--radius-lg` | `--radius-md` (silently forked) |
 
-**NOISE — the binding works at runtime (5):** `SFB:93` `aria-label` and `SFB:95` `@keydown.enter`
-on `<Input>`; `SFB:115` `@click` and `MCP:51` `@click` on `<Button>`; (`MCP:51` counted once).
+Every row in this component's Sort, Tier and Tags lists is a `<label class="filter-option">`
+(`:22, :34, :38, :50`). None of them can show a focus ring. This is the same failure class pass 3
+recorded at LP3-1 for the sibling swatch, from the opposite direction: **LP3-1 is a ring defeated by
+a competing `box-shadow`; LP5-3 is a ring that was never declared** — because the recipe that
+declares it was re-typed by hand with that leg omitted.
 
-The Input case is decided by glass-ui's own attr forwarding —
-`dist/field-control.css_…-CeLay9Tk.js`:
+### And a third spelling that renders a different colour
 
-```js
-forwardedAttrs: e(() => { let { "aria-invalid": e, ...t } = i; return t; })
+`TagEditPopover.vue:24` writes the same recipe as a Tailwind utility:
+
+```html
+class="flex items-center gap-2 rounded-md px-2 py-1 text-small cursor-pointer hover:bg-accent/50 transition-colors"
 ```
 
-Every attribute except `aria-invalid` is spread onto the rendered `<input>`. Confirmed live: the
-field's `aria-label` reached the DOM —
+Tailwind 4 compiles the `/50` opacity modifier in **oklab**, not srgb:
 
-```json
-"input": { "al": "Search by CSS color",
-           "cls": "field-control glass-defined w-full pr-16 font-mono truncate",
-           "ph": "#hex, hsl(...)" }
+```
+$ grep -o "color-mix(in oklab, [^)]*)" node_modules/tailwindcss/dist/lib.js | head -1
+color-mix(in oklab, ${e} ${r}, transparent)
 ```
 
-The Button case is decided by the absence of `inheritAttrs: false` in `dist/button-Bu9F4uU6.js`, so
-`@click` binds by fallthrough.
+So one hover recipe has three spellings in this repo, and two of them mix in different spaces and
+therefore paint different colours for the same token:
 
-These five are the price of the flag: they will need declared props upstream or an attrs-typing
-accommodation, and they must not be "fixed" by deleting working bindings.
+| site | computed hover fill |
+|---|---|
+| glass-ui `.interactive-item` (published, unused) | `color-mix(in srgb, var(--accent) 50%, transparent)` |
+| `SearchFilterBar.vue:248` `.filter-option` | `color-mix(in srgb, var(--accent) 50%, transparent)` |
+| `TagEditPopover.vue:24` `hover:bg-accent/50` | `color-mix(in oklab, var(--accent) 50%, transparent)` |
 
-**Live confirmation of the `variant` family, this pass, this substrate** (headless Chromium,
-`/#/browse`, `document.querySelector('button[aria-label="Filters"]')`):
+Two sibling popovers in the same cluster, one filter-row recipe, two different fills. Owner edicts
+4 (glass-ui is the design system) and 5 (style at the root component level, never per-instance).
 
-```json
-"attrs": [ "data-slot=\"button\"", "data-emphasis=\"secondary\"", "data-tone=\"neutral\"",
-           "data-size=\"md\"", "data-icon-only=\"true\"", …,
-           "class=\"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8\"",
-           "variant=\"ghost\"", "aria-label=\"Filters\"" ],
-"rect": { "w": 32, "h": 40 }
-```
+### Cure
 
-`variant="ghost"` sits on the element as inert markup, ordered after Vue's bound attributes —
-the signature of fallthrough. `data-emphasis="secondary"` is the glass-ui default, and `secondary`
-is exactly the branch that applies the capsule wash:
-
-```js
-g = r(() => p.tone === "neutral" && (p.emphasis === "primary" || p.emphasis === "secondary")),
-x = r(() => e("button tap-squish focus-ring", g.value && "glass-wash glass-capsule", …))
-```
-
-The 32×40 geometry independently reproduces pass 1's measurement at a new substrate. And it is
-visible without a probe: in
-`docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/browse.png` the `⋮` trigger
-renders as a solid raised pill on the search field — the opposite of ghost — while the twin
-Palettes pane beside it carries no filter affordance at all.
+Delete `.filter-option` and `hover:bg-accent/50`; put `class="interactive-item"` on the rows and
+keep only what is genuinely local (the serif voice, the `--type-small` rung, the padding). If the
+`--radius-md` rung is wanted for menu rows, that is a **glass-ui** change — a `size` leg on the
+published recipe — not a demo re-declaration. (Pass 4's P4-3 found glass-ui also ships an unexported
+`_shared/menuRowClass`; that is the TS-side twin of this. Both land in the same glass-ui relay.)
 
 ---
 
-## §5 · Negative proof — what pass 4 independently re-verified as sound
+## §5 · LP5-4 · INFO · NEW mechanism — the partial facade is why the fork happened
 
-Each derived before reading any predecessor.
+Pass 2's LP2-5 records that `color-session/` has **no barrel** while the leaf has seven. That is
+true and it is not the operative defect. The operative defect is that the module the palettes area
+*does* import behaves like a barrel and is a lossy one.
 
-1. **The published-surface contract holds at runtime.** The demo consumes value.js only through
-   `package.json#exports` subpaths. `grep -rn 'from "@mkbabb/value.js"' demo/` → **0** bare-root
-   imports (there is no `.` key in the exports map, so a bare-root import would be
-   `ERR_PACKAGE_PATH_NOT_EXPORTED` for a real consumer). The Vite self-alias set is *generated* from
-   the exports map (`vite.config.ts:37-50`), so it cannot drift. The subject reaches the library only
-   transitively via `color-session/color-utils.ts:1` → `@mkbabb/value.js/color`. **No import on this
-   path is one a real consumer could not write.** (Pass 1's L-10 correctly records that the *TypeScript*
-   `paths` block has drifted — 3 phantom keys, 2 omissions; I re-confirmed `ls dist/index.d.ts`,
-   `dist/subpaths/parsing.d.ts`, `dist/subpaths/units.d.ts` all → *No such file*. Latent, not live.)
-2. **glass-ui's own value.js consumption is clean.** `grep -o '"@mkbabb/value\.js[a-z/]*"'
-   node_modules/@mkbabb/glass-ui/dist/*.js` → `@mkbabb/value.js/color` ×5, `/css` ×3, `/easing` ×1.
-   Real subpaths only; no deep reach; no bare root.
-3. **`palettes → color-session` is a correct downward edge**, re-confirmed independently (16 edges
-   from `palettes/`, zero returning). Pass 3's per-area census stands.
-4. **`verbatimModuleSyntax` holds.** `SearchFilterBar.vue:144` is the file's only type-only import
-   and is written `import type` (edict 8 ✓).
-5. **Idiomatic Vue 3.5.** Reactive props destructure at `:147`; `useTemplateRef` in the child at
-   `MiniColorPicker.vue:82-83` (edict 7 ✓ on the surface this axis can see).
-6. **The cluster barrel is correctly shaped** — named re-exports only (PI-6), `MiniColorPicker`
-   deliberately unexported.
-7. **What I looked for and did not find:** a second `useDark`-class store, an `ActionBarLayer`-style
-   local re-implementation of a removed composable, or a `demo/palettes/export.ts` ↔
-   `usePaletteExport.ts` dual path reachable from this component. `SearchFilterBar` touches none of
-   the named historical suspects. Its duplication is elsewhere and is already on the ledger
-   (MiniColorPicker's colour math; the client/server colour filter).
+`demo/color-session/color-utils.ts` — its complete export list:
 
----
+```
+$ grep -n "^export" demo/color-session/color-utils.ts
+11:export function parseColorIn<S extends PickerSpace>(source: string, space: S): PickerColorIn<S>
+16:export function colorToRgb255(color: AnyColor): readonly [number, number, number]
+23:export function colorToCss(color: AnyColor, outputSpace?: PickerSpace): string
 
-## §6 · Where pass 4 lands the axis
+$ grep -c "^export" demo/color-session/picker-color.ts
+20
+```
 
-Three passes established that this component's concepts each have two homes, and that the
-boundaries meant to prevent that are inert. Pass 1 then reached the conclusion that closed the
-question the wrong way: that the type gate *cannot* see design-system API drift, and that closing it
-requires changing glass-ui or inventing a lint rule.
+Three functions, all of them thin wrappers over `picker-color.ts`, which itself has twenty exports.
+`color-utils` is the face the rest of the demo sees — six areas reach it:
 
-It can see it. It has always been able to see it. One option, unset since the demo program was
-split, is the difference between a fleet of prop renames being invisible and being red. That is the
-single highest-leverage line available on this axis, and it costs nothing but the six real errors it
-surfaces on this file and their siblings across 22 others.
+```
+$ grep -rn "color-session/color-utils" demo/ | sed 's/:.*//' | sort -u
+demo/palettes/browser/search/SearchFilterBar.vue
+demo/palettes/mix.ts
+demo/workbenches/gradient/composables/useGradientCSS.ts
+demo/workbenches/gradient/composables/useGradientInterpolation.ts
+demo/workbenches/mix/MixAnimationCanvas/composables/mixStage.ts
+demo/workbenches/mix/composables/useMixingState.ts
+```
 
-The structural lesson generalises past this repo: **every strictness dial in this project is at
-maximum except the one that governs the boundary the project actually crosses most often** — the
-boundary between a consumer's template and a design system's component API. The library-structure
-disease here is not that the demo reaches wrong; it is that the reach was never checked.
+**It omits `pickerColorToHex`.** So the causal chain behind the confirmed L-6 fork is mechanical,
+not careless:
 
-Priority order for the wave, folding all four passes:
+1. `SearchFilterBar.vue:145` imports `parseColorIn` from `color-utils` — the area's colour face.
+2. `MiniColorPicker.vue`, its own child, needs hex.
+3. `color-utils` has `colorToRgb255` and `colorToCss` — bytes and functional notation — and no hex.
+4. The one hex writer in the demo lives two modules deeper, behind an alias (LP5-2), reachable only
+   by a path the neighbourhood does not use.
+5. The child wrote `toHex` at `MiniColorPicker.vue:103`.
 
-1. **P4-1** — flip `strictTemplates`; it is the gate under items 2 and 3 and it makes them
-   non-recurring,
-2. pass 1 **L-1** (inert tags filter — the flag names it at `:52-53`),
-3. pass 1 **L-5** / pass 3 §4 (silently wrong colour search — wrong answers with a success signal),
-4. pass 3 **LP3-1** (ringless control — keyboard users get nothing, and the cure is written twice
-   already),
-5. pass 1 **L-2** (51 sites / 22 files — mechanical once the gate is red),
-6. pass 1 **L-4** / pass 2 **LP2-3** (colour-filter topology; the library's byte projection),
-7. re-homing — pass 3 **LP3-2** (`UserSortMenu`), pass 1 **L-9** (`demo/ui/`), **P4-2** (delete the
-   dead seam, do not collapse onto it),
-8. **P4-3** relayed to glass-ui, not fixed locally,
-9. the eslint boundaries last — but *before* the re-homing lands, or nothing will hold it.
+A three-function facade in front of a twenty-function module is worse than no facade: no facade
+makes the author read the real module; a partial facade tells them the capability is absent.
+
+**Cure.** `color-utils.ts` should not exist as a separate module. Merge its three functions into
+`picker-color.ts` (they are already only wrappers over it), give the area one honest barrel, and
+after LP5-1 lands most of what survives is a re-export of `@mkbabb/value.js/{color,css}` and can be
+deleted with its consumers pointed at the package.
 
 ---
 
-## Appendix — pass 4 probes
+## §6 · Independent re-verification of the confirmed core
 
-| purpose | invocation | key result |
-|---|---|---|
-| Baseline gate (§2) | `npx vue-tsc -p tsconfig.demo.json --noEmit` | 0 errors |
-| Strict-template gate (§2, §4) | `npx vue-tsc -p /tmp/tsconfig.strict.json --noEmit` | **11 errors**, listed verbatim in §2 |
-| Harness validity — script checked, template not (§2) | planted `TS2322` + planted `:bogusPropXyz` in one probe SFC | script error reported; template error not |
-| `variant` scale (§2) | inline `python3` over `demo/**/*.vue` | **51 sites / 22 files**; agrees with pass 1's 51 |
-| Live DOM of the trigger (§4) | headless Chromium, `/#/browse` | `variant="ghost"` inert; `data-emphasis="secondary"`; `glass-wash glass-capsule`; rect 32×40 |
-| Live DOM of the popover interior (§4) | same run, trigger clicked | `aria-label` reached the `<input>`; sections `Sort · Tier · Find by Color`; **0 checkboxes** (commons unreachable → `availableTags` empty → the Tags section is `v-if`'d out, `SFB:47`) |
-| Checkbox provider API (§4) | `dist/components/checkbox/Checkbox.vue.d.ts` + compiled `glass-ui.js` | no `checked` prop; `emits: ["update:modelValue"]`; setup forwards props, not attrs |
-| Input attr forwarding (§4) | `dist/field-control…-CeLay9Tk.js` | forwards all attrs except `aria-invalid` → `aria-label`/`@keydown` are noise, not defects |
-| Dead seam (§3 P4-2) | `grep -rn '"./browser"\|palettes/browser"' demo/` | zero consumers |
-| Unpublished primitive (§3 P4-3) | `cat _shared/menuRowClass.d.ts`; `grep menuRowClass dist/index.d.ts` | exists; not exported |
+I derived these before reading passes 1–4 and re-measured each at `d19da6d3`. **Nothing to add or
+correct** — recorded so the fifth agreement is on the record.
 
-Durable artifacts are preserved in-tree beside this report at
-`docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p4-L/`:
+| prior row | my independent measurement at `d19da6d3` |
+|---|---|
+| L-1 / LP2-1 · Checkbox miswired | `SearchFilterBar.vue:52-53` and `TagEditPopover.vue:28-29` both write `:checked` / `@update:checked`; glass-ui 7's `Checkbox.vue.d.ts` declares `modelValue`. **2 of 2** demo consumers wrong. **CONFIRMED** |
+| L-5 / LP3-5 · the hex-only gate | `SearchFilterBar.vue:218`. Ran the library against the shapes the gate discards: `hsl(120 100% 50%)`→`0.866440,-0.233888,0.179498`; `#f00`→`0.627955,0.224863,0.125846`; `rebeccapurple`→`0.440272,0.088177,-0.133864`; `oklch(0.7 0.1 30)`→`0.700000,0.086603,0.050000`; `color(display-p3 1 0 0)`→`0.648574,0.262042,0.145002`; `not-a-color`→`PARSE-FAIL css_syntax`; `""`→`PARSE-FAIL css_syntax`. Five valid colours silently replaced by `pickerHex`; two genuine failures indistinguishable from them. **CONFIRMED** |
+| L-3 · client/server colour-filter duplication | `BrowsePane.vue:344-348` (`Math.hypot`, `radius = 0.15`) vs `api/src/modules/palette/service/crud-list.ts:159-180` (`Math.sqrt(dL²+da²+db²)`, `query.colorRadius ?? 0.15`). Same predicate, same default, two homes. `ListPalettesOptions.colorL/colorA/colorB/colorRadius` exist at `demo/palettes/api/palettes.ts:27-30` and are set at `:50-53`; `grep -rn "colorRadius" demo/` returns **only those two lines** — zero callers. `currentFilterOpts()` (`useBrowsePalettes.ts:52-61`) emits `sort`/`q`/`tier`/`tags` and never colour. **CONFIRMED** |
+| L-4 · filter ownership scattered | `sortMode`/`tierFilter`/`selectedTags` in `useBrowsePalettes.ts:30,40,41`; the handlers in `browser/dialog/composables/useDialogBrowseActions.ts:87-100`; `colorSearchParams` pane-local at `BrowsePane.vue:336`; `colorSearchActive` component-local at `SearchFilterBar.vue:171`. One concept, four owners; colour is the only filter with **two** local homes and no store home. **CONFIRMED** |
+| L-6 / LP2-4 · two colour engines | `MiniColorPicker.vue:85-105` (HSV→hex) and `:110-125` (hex→HSV). Library equivalence measured: `hsv(210, 0.6666666666666669, 0.8)` → `convertColor(…,'rgb')` → `rgb(68 136 204)` = `#4488cc`; `parseCssColor('#4488cc')` → `convertColor(…,'hsv')` → `[210, 0.6666666666666669, 0.8]`. Byte-exact round trip both directions. **CONFIRMED** — and see §2 for why the prescribed cure does not currently compile |
+| L-9 / LP2-7 · `demo/ui/` | 19 directories, every `index.ts` a pure re-export. 18 route through the **root** `@mkbabb/glass-ui` barrel; `demo/ui/input` alone routes through `@mkbabb/glass-ui/forms` — while glass-ui publishes 49 component subpaths (`./button`, `./popover`, `./label`, …). Measured spread: **79** demo files import glass-ui directly, **48** import through the shim, **24 do both**. `DESIGN.md:384` documents the shim's purpose as "ergonomics". The subject takes 5 of its 5 UI symbols through it. **CONFIRMED** |
+| L-10 · `tsconfig.demo.json` `paths` drift | The config's own header calls the map "a CLOSED 8-key set". Resolved each key with the TS API under the real program: `@mkbabb/value.js` → **UNRESOLVED** (`dist/index.d.ts` does not exist); `/parsing` → **UNRESOLVED**; `/units` → **UNRESOLVED**. Meanwhile `/css` and `/value` — both real `exports` keys, both on this component's own chain — carry **no** `paths` entry and resolve only by TypeScript's package self-reference (`→ /Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts`). 3 phantom keys, 2 silent omissions, and the `exports` map itself has 7 keys and no `.` root. **CONFIRMED** |
+| L-11 · G-DEMO boundaries inert | `npx eslint --print-config demo/palettes/browser/search/SearchFilterBar.vue` → `no-restricted-imports: undefined`. `demo/@` does not exist (`ls -d demo/@` → No such file or directory); `@components/` survives in exactly 2 places repo-wide, both of them prose comments. The subject's own barrel header (`search/index.ts:1`) advertises a "hardened public surface"; **zero** import guards are in force on the entire `demo/palettes/` tree. **CONFIRMED** |
+| pass 1's suspect sweep | `demo/palettes/export.ts` (shipping, reached via `usePaletteExport.ts:9`) vs `demo/palettes/export/serializers.ts` — the latter's own header states *"the sibling legacy `../export.ts` … still resolves `./export`"*, and `grep` shows its only consumer is `demo/test/export/byte-exact.test.ts:23`. A byte-exact contract stack that ships to nothing. **Live, and out of the subject's chain** — one hop up at `BrowsePane.vue:198`. Pass 1 homed it to the `CurrentPaletteEditor`/`PaletteCard` seats; I concur |
 
-    GATE-REPRO.md               both gate runs, re-executed at HEAD 9268f054, output verbatim
-    tsconfig.strict.json        the one-option delta — copy it into tsconfig.demo.json to close the gate
-    tsconfig.probe.json         the harness-validity program
-    harness-validity-probe.vue  planted script error (reported) + planted template error (not reported)
-    P4-dom-probe.mjs            the live Chromium DOM probe used in §4
+---
 
-**No source edits were made by this seat.** The only files written are this report, its
-`evidence-p4-L/` artifacts, and the preservation copy `challenge-L-library-pass3-f36f780c.md`.
+## §7 · The greenfield lattice
+
+Asked concretely, with no legacy. The single organising rule: **each concept has exactly one home,
+and that home is the lowest package that can hold it.**
+
+```
+@mkbabb/value.js                    (the published library — owns colour)
+  src/color/          spaces · conversion · gamut · Result
+  src/color/metric.ts NEW  oklabDistance(a, b)      ← the one home for colour proximity
+  src/css/grammar.ts  parse ⟷ serialize, serialize gains { format: "hex" }   ← LP5-1
+  exports: ./color ./css …           (+ the `.` root the map still lacks)
+
+@mkbabb/glass-ui                    (the design system — owns interaction)
+  .interactive-item                  the menu-row recipe, consumed not re-typed   ← LP5-3
+  ./checkbox ./radio-group ./popover reached DIRECTLY, no demo alias layer        ← L-9
+  MiniColorPicker → a glass-ui primitive (SV canvas + hue strip is design-system
+                    furniture, not palette-feature furniture); its colour maths
+                    is three library calls after LP5-1                            ← L-6
+
+demo/
+  color/                             ONE module, merged from picker-color +
+                                     color-utils + color-model; no partial facade,
+                                     no pass-through aliases                       ← LP5-2 · LP5-4
+  palettes/
+    api/palettes.ts                  ListPalettesOptions — already carries
+                                     colorL/A/B/Radius, unchanged
+    browseQuery.ts            NEW    the ONE browse-query model:
+                                       { sort, q, tier, tags, color: Result<OklabTarget> }
+                                     colour parsed by the library, kept as a Result,
+                                     never regex-gated                             ← L-5
+    useBrowsePalettes.ts             currentFilterOpts() emits ALL FIVE filters;
+                                     colour goes on the wire like every sibling;
+                                     paging and colour can no longer disagree      ← L-3 · L-4
+    browser/search/
+      SearchFilterBar.vue            a controlled view over browseQuery.
+                                     Zero local filter state. Zero colour maths.
+                                     Zero scoped interaction CSS.
+
+demo/ui/                             DELETED (19 files, 20 lines, 0 behaviour)     ← L-9
+```
+
+Three deletions carry most of the value and none of them needs a new abstraction: `demo/ui/`,
+`color-utils.ts` + `colorToHexString`, and `.filter-option`. Two additions are genuinely new
+capability and both belong upstream: `serializeCssColor(…, { format: "hex" })` and
+`oklabDistance`. The component that remains is ~60 lines of template over a props/emits pair, which
+is what a filter bar should be.
+
+---
+
+## §8 · Negative proof — what I looked for and did not find
+
+Recorded so the seat's negatives are real, not silent.
+
+- **`verbatimModuleSyntax` (edict 8) — clean.** The subject has exactly one type-only import and it
+  is correct: `SearchFilterBar.vue:144` `import type { Tag } from "../../types"`. Every other import
+  is a value import. `MiniColorPicker.vue` has no type-only imports. No violation.
+- **No deep-`src/` reach.** The subject's chain reaches `@mkbabb/value.js/color` and
+  `@mkbabb/value.js/css` only, both through the published `exports` map. `grep -rn "@src/" demo/`
+  finds nothing on this path. The T.W1 demo-dogfood keystone holds here: a real consumer could write
+  every specifier this chain uses. The public-surface defect is one of **omission** (§2), not of
+  boundary violation.
+- **No dual value.js instance.** glass-ui's `dist/` imports value.js only by subpath
+  (`@mkbabb/value.js/color`, `/css`, `/easing` — never the bare root), and the Vite self-alias set
+  is generated from the same `exports` map, so the subject's glass-ui components and the subject's
+  own colour calls resolve to one build. `tsconfig.demo.json`'s header describes a bare-specifier
+  alias that the generator cannot produce — stale prose, not a live defect.
+- **`.section-label` and `.scrollbar-thin` are consumed correctly.** Both are glass-ui-published
+  (`dist/styles/typography/utilities.css`, `dist/styles/utilities/base.css`) and the subject uses
+  them by name at `:20/:32/:48/:63` and `:49`. The design-system consumption is not uniformly bad —
+  which sharpens LP5-3: the component knows how to consume published utilities and declined to for
+  the one that carries the focus ring.
+- **Named suspect `ActionBarLayer` / `useLayerTransition`** — not on this chain; concur with pass 1.
+- **Named suspect: three parallel `useDark` stores** — present at
+  `demo/scenes/about/markdown/composables/useMarkdownHighlighting.ts:76`, and this component touches
+  no dark-mode store. Out of chain; concur with pass 1.
+- **The visual audit shows nothing new for this component.** `/#/browse` is captured with the
+  popover closed in all four matrices (`REPORT.json`: `overflowX 0`, `pageErrors 0`, `main 1`, the
+  four `smallTapTargets` all belonging to `PaletteSlugBar` and the glass `SearchBar`, none to the
+  subject). The route's only console line is `Failed to load remote palettes: SyntaxError`, and the
+  screenshot shows the error plate — the commons is unreachable from the capture host, so the wall
+  and the tag section never render. Pass 3's LP3-3 already established that this matrix structurally
+  cannot see the component; I confirm and add nothing.

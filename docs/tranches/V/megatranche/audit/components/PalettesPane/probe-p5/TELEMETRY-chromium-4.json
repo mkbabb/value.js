@@ -1,0 +1,156 @@
+{
+  "forced": {
+    "rootBgImage": "none",
+    "rootBg": "rgba(255, 255, 255, 0)",
+    "bodyBgImage": "none",
+    "groundSeed": "",
+    "ambientLayer": {
+      "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+      "bgImage": "linear-gradient(135deg, rgb(200, 70, 215) 0%, rgb(255, 113, 177) 33%, rgb(255, 182, 175) 67%, rgb(255, 234, 220) 100%)"
+    },
+    "dashedWell": {
+      "tag": ".dashed-well (CurrentPaletteEditor)",
+      "bg": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "border": "1px dashed rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 462,
+        "h": 114
+      }
+    },
+    "dashedWellSwatch": {
+      "tag": "dashed-well first swatch child",
+      "bg": "color(srgb 1.51088 0.562414 0.782924 / 0.12)",
+      "bgImage": "none",
+      "border": "0px solid rgb(198, 180, 159)",
+      "color": "rgb(28, 25, 23)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 48,
+        "h": 48
+      }
+    },
+    "stripSegment": {
+      "tag": "PaletteColorStrip segment 0",
+      "bg": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "border": "0px solid rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 92,
+        "h": 40
+      }
+    },
+    "card": {
+      "tag": "PaletteCard",
+      "bg": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "border": "2px solid rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 462,
+        "h": 100
+      }
+    },
+    "pane": {
+      "tag": "pane Card",
+      "bg": "rgb(255, 255, 255)",
+      "bgImage": "none",
+      "border": "1px solid rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 512,
+        "h": 687
+      }
+    }
+  },
+  "normal": {
+    "rootBgImage": "none",
+    "rootBg": "rgba(0, 0, 0, 0)",
+    "bodyBgImage": "linear-gradient(135deg, rgb(200, 70, 215) 0%, rgb(255, 113, 177) 33%, rgb(255, 182, 175) 67%, rgb(255, 234, 220) 100%)",
+    "groundSeed": "",
+    "ambientLayer": {
+      "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+      "bgImage": "linear-gradient(135deg, rgb(200, 70, 215) 0%, rgb(255, 113, 177) 33%, rgb(255, 182, 175) 67%, rgb(255, 234, 220) 100%)"
+    },
+    "dashedWell": {
+      "tag": ".dashed-well (CurrentPaletteEditor)",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "bgImage": "none",
+      "border": "1px dashed oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "color": "rgb(28, 25, 23)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 462,
+        "h": 114
+      }
+    },
+    "dashedWellSwatch": {
+      "tag": "dashed-well first swatch child",
+      "bg": "color(srgb 1.51088 0.562414 0.782924 / 0.12)",
+      "bgImage": "none",
+      "border": "0px solid rgb(198, 180, 159)",
+      "color": "rgb(28, 25, 23)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 48,
+        "h": 48
+      }
+    },
+    "stripSegment": {
+      "tag": "PaletteColorStrip segment 0",
+      "bg": "oklch(0.72 0.16 0)",
+      "bgImage": "none",
+      "border": "0px solid rgb(198, 180, 159)",
+      "color": "rgb(28, 25, 23)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 92,
+        "h": 40
+      }
+    },
+    "card": {
+      "tag": "PaletteCard",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "bgImage": "none",
+      "border": "2px solid oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "color": "rgb(28, 25, 23)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 462,
+        "h": 100
+      }
+    },
+    "pane": {
+      "tag": "pane Card",
+      "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+      "bgImage": "none",
+      "border": "1px solid oklab(0.216128 0.00350075 0.00518669 / 0.04)",
+      "color": "rgb(28, 25, 23)",
+      "fill": "rgb(0, 0, 0)",
+      "rect": {
+        "w": 512,
+        "h": 685
+      }
+    }
+  },
+  "contrast": {
+    "ringSpec": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0p",
+    "plateRGB": [
+      233,
+      225,
+      217
+    ],
+    "ringRGB": [
+      213,
+      157,
+      171
+    ],
+    "contrastRingVsPlate": 1.76
+  }
+}

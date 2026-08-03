@@ -1,0 +1,110 @@
+{
+  "reservation_at_k5": {
+    "k": {
+      "text": "5",
+      "inkW": 10.092,
+      "boxW": 20,
+      "inkL": 233.91,
+      "inkR": 244,
+      "boxL": 224,
+      "boxR": 244,
+      "overflowPx": -9.908,
+      "font": "\"Fira Code\"",
+      "size": "16.4px",
+      "scrollW": 20,
+      "clientW": 20
+    },
+    "kc": {
+      "text": "0.5",
+      "inkW": 20.308,
+      "boxW": 20,
+      "inkL": 597,
+      "inkR": 617.31,
+      "boxL": 597,
+      "boxR": 617,
+      "overflowPx": 0.308,
+      "font": "\"Fira Code\"",
+      "size": "11px",
+      "scrollW": 20,
+      "clientW": 20
+    }
+  },
+  "reservation_at_kmax": {
+    "k": {
+      "text": "16",
+      "inkW": 20.185,
+      "boxW": 20,
+      "inkL": 224,
+      "inkR": 244.18,
+      "boxL": 224,
+      "boxR": 244,
+      "overflowPx": 0.185,
+      "font": "\"Fira Code\"",
+      "size": "16.4px",
+      "scrollW": 20,
+      "clientW": 20
+    },
+    "kc": {
+      "text": "0.5",
+      "inkW": 20.308,
+      "boxW": 20,
+      "inkL": 597,
+      "inkR": 617.31,
+      "boxL": 597,
+      "boxR": 617,
+      "overflowPx": 0.308,
+      "font": "\"Fira Code\"",
+      "size": "11px",
+      "scrollW": 20,
+      "clientW": 20
+    }
+  },
+  "reservation_kc_at_max": {
+    "text": "1.5",
+    "inkW": 20.308,
+    "boxW": 20,
+    "inkL": 597,
+    "inkR": 617.31,
+    "boxL": 597,
+    "boxR": 617,
+    "overflowPx": 0.308,
+    "font": "\"Fira Code\"",
+    "size": "11px",
+    "scrollW": 20,
+    "clientW": 20
+  },
+  "focus_shippedTrack": {
+    "tag": "shipped: accent-painted rail behind a transparent track",
+    "ring": [
+      190,
+      0,
+      76
+    ],
+    "adjacentTrack": [
+      206,
+      0,
+      83
+    ],
+    "contrast_ringVsAdjacent": 1.138,
+    "changedPx": 213,
+    "scanned": 841,
+    "maxChannelDelta": 133
+  },
+  "focus_producerDefaultTrack": {
+    "tag": "counterfactual: producer default neutral track",
+    "ring": [
+      210,
+      149,
+      166
+    ],
+    "adjacentTrack": [
+      237,
+      230,
+      222
+    ],
+    "contrast_ringVsAdjacent": 1.976,
+    "changedPx": 266,
+    "scanned": 841,
+    "maxChannelDelta": 152
+  }
+}

@@ -1,0 +1,61 @@
+
+=== plate referent ===
+{
+ "plateCss": "oklab(0.928273 0.005506 0.013193 / 0.664)",
+ "plateRGB": [
+  225,
+  177,
+  220
+ ]
+}
+
+=== BEFORE — the two elements' transition declarations ===
+{
+ "k_rail": {
+  "transitionProperty": "all",
+  "transitionDuration": "0s",
+  "backgroundColor": "oklch(0.545141 0.218024 9.834023)"
+ },
+ "kC_track": {
+  "transitionProperty": "background, border-color",
+  "transitionDuration": "0.2s, 0.2s",
+  "backgroundColor": "oklch(0.545141 0.218024 9.834023)"
+ }
+}
+
+=== DESYNC + INTERMEDIATE CERTIFICATION ===
+{
+ "frames": 82,
+ "distinctRailValues": 1,
+ "distinctTrackValues": 1,
+ "RAIL_snapped": true,
+ "TRACK_interpolated": false,
+ "framesWhereRailAndTrackDisagree": 0,
+ "desyncWindowMs": 0,
+ "GRAPHICS_FLOOR": 3,
+ "MIN_track_contrast_over_the_interpolation": 3.074,
+ "MIN_rail_contrast": 3.074,
+ "track_frames_below_floor": 0,
+ "endpointContrasts": {
+  "first": {
+   "dt": 7,
+   "rail": "oklch(0.545141 0.218024 9.834023)",
+   "track": "oklch(0.545141 0.218024 9.834023)",
+   "railC": 3.074,
+   "trackC": 3.074
+  },
+  "last": {
+   "dt": 1389,
+   "rail": "oklch(0.545141 0.218024 9.834023)",
+   "track": "oklch(0.545141 0.218024 9.834023)",
+   "railC": 3.074,
+   "trackC": 3.074
+  }
+ },
+ "trackTrajectorySample": [
+  "oklch(0.545141 0.218024 9.834023)"
+ ]
+}
+
+=== pageErrors ===
+[]

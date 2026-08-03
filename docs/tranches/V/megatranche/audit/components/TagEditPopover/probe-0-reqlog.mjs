@@ -1,0 +1,10 @@
+import { webkit } from "playwright";
+const b = await webkit.launch();
+const ctx = await b.newContext({viewport:{width:1280,height:800}});
+const p = await ctx.newPage();
+const reqs=[];
+p.on("request", r => reqs.push(r.method()+" "+r.url()));
+await p.goto("http://192.168.1.166:9000/#/browse", {waitUntil:"load"});
+await p.waitForTimeout(4000);
+console.log(reqs.filter(u=>!/\.(js|css|ts|vue|woff2?|png|svg|json\?)/.test(u)).slice(0,40).join("\n"));
+await b.close();

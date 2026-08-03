@@ -1,520 +1,500 @@
-# CHALLENGE-C — `demo/workbenches/extract/ExtractControls.vue` — implementation
+# CHALLENGE-C — `demo/workbenches/extract/ExtractControls.vue` — implementation (pass 4)
 
 ## Model receipt
 
 I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, matching the
-explicit declaration this seat was spawned with. Seat is declared, not inherited.
+explicit declaration this seat was spawned with. The seat is **declared, not inherited**.
 
 ---
 
-## Pin verification (component-specific context)
+## Pin verification
 
 ```
 $ shasum -a 256 demo/workbenches/extract/ExtractControls.vue
 71aa0a65873c367ae3ae393283d4e81bcfc9cbb57b6f232eec9f930264d46c28  demo/workbenches/extract/ExtractControls.vue
+$ wc -l demo/workbenches/extract/ExtractControls.vue
+     151 demo/workbenches/extract/ExtractControls.vue
 ```
 
-**MATCHES** the BJ W4 hold pin `71aa0a65873c367ae3ae393283d4e81bcfc9cbb57b6f232eec9f930264d46c28`.
-The file is unmodified since `f2c8f565` (`feat(v-w44)!: adopt @mkbabb/glass-ui 7.0.0 …`).
-Consumer edits are FORBIDDEN until Glass 8. **No source edits land from this seat.** The blocked
-wave with its exact release condition is authored in §*Blocked wave* below.
+**MATCHES** the glass BJ W4 hold pin byte-for-byte. Consumer edits are FORBIDDEN until Glass 8.
+**No source edits land from this seat.** Every artefact I wrote lives under
+`docs/tranches/V/megatranche/audit/components/wb-extract-controls/`.
+
+## Relationship to passes 1–3
+
+All three prior passes are preserved verbatim and **carried forward whole**; nothing below retracts
+anything above.
+
+| pass | file | status |
+|---|---|---|
+| 1 | `challenge-C-implementation.pass-1-2026-07-28-prior.md` | superseded by 2/3, C-1..C-11 not retracted |
+| 2 | `challenge-C-implementation.pass-2-2026-07-28-prior.md` | C2-1..C2-13 stand |
+| 3 | `challenge-C-implementation.pass-3-2026-07-29-prior.md` | XC-1..XC-13 stand |
+
+Pass 4 is **strictly additive and strictly new**. I deliberately did not re-litigate the `inset`
+ring (XC-1), the unbound `disabled` (XC-2/C-1), the camera leak (XC-3/C2-1), the debounce double
+dispatch (XC-7/C2-3), the orphan labels (XC-9/C-5), or the nameless DockControls (XC-4/C-6). This
+pass went after the **runtime lifecycle and the CSSOM write path** — surfaces no prior pass
+instrumented — and it found the component doing measurable work for pixels that do not exist, and
+a degenerate branch that paints nothing at all.
+
+Four findings are new: **XC4-1, XC4-2, XC4-3, XC4-4**. Two hypotheses I raised were **disproved by
+my own measurement** and are recorded as negatives (§*Disproved*), because a challenge seat that
+only reports its hits is not measuring, it is arguing.
 
 ## Verdict
 
-**DEFECTIVE.** Eleven findings, one BLOCKER. The component's central contract — its `disabled`
-prop — is honoured on **one of five** interactive controls, and the consequence is a reproducible
-**live-MediaStream leak**: three clicks on the Camera control acquire three camera streams and stop
-zero of them. Secondary: an undecodable image produces an unhandled rejection + page error with
-**no user-facing error at all** and three UI surfaces that contradict each other; the Reset gate is
-wrong in both directions; and the file carries a dead `.touch-gate-target` CSS rule that is the
-fossil of the mechanism that would have inflated its measured **12.0 CSS px** drag handle.
+**DEFECTIVE.** One BLOCKER, two MAJOR, one MINOR new this pass, on top of thirty-seven prior findings.
 
-## What I ran
-
-Four headless-WebKit probes against the live dev server at `http://localhost:9000`
-(scripts in the session scratchpad; all output pasted inline below), plus static reads of the
-component, `ExtractWorkbench.vue`, `ExtractPane.vue`, `useExtractSession.ts`, `useImageQuantize.ts`,
-`useContrastSafeColor.ts`, `ink.ts`, the glass-ui 7.0.0 `DockControl`/`Slider` type surfaces, the
-two e2e specs that touch this tree, and the mega-tranche visual `REPORT.json`.
+The governing observation of pass 3 was that this file's comments are a specification its code does
+not implement. Pass 4's is narrower and, I think, sharper: **this component has no idea when it is
+being looked at.** It cannot tell the developed state from the empty one when it decides what to
+paint, it cannot tell a live pick from no pick without painting nothing, and it cannot tell that it
+has been unmounted from the document — it keeps re-serialising 17 KB of CSS per second into an
+element that `isConnected === false`.
 
 ---
 
-## C-1 · BLOCKER — `disabled` is bound to 1 of 5 controls; the camera leaks live MediaStreams
+## XC4-1 · MAJOR — the KeepAlive-parked component keeps re-rendering while **detached from the document**: 225 CSSOM writes, 100% of them for pixels that do not exist
 
-**Defect.** `ExtractControls.vue:84` is the *only* site in the file that reads the `disabled` prop:
+**NEW this pass.** Pass 2's C2-1 discovered that the pane is `KeepAlive`-cached (and used it to prove
+the camera leak). Nobody asked what the *cached* component does with the rest of its life.
 
-```
-83:            <DockControl
-84:                :disabled="disabled || !hasImage"
-```
+**The mechanism.** `demo/shell/PaneSlot.vue:120` wraps the pane in `<KeepAlive :max="max">`. Vue 3's
+`KeepAlive` parks a deactivated subtree by moving it into a **detached storage container** — it does
+*not* pause the component's render effect. `ExtractControls.vue:123-125` declares
 
-The Upload control (`:40`), the Camera control (`:49`), the k `Slider` (`:24`) and the kC `Slider`
-(`:68`) never receive it. The APIs exist and were not used — glass-ui 7.0.0 declares
-`disabled?: boolean` on both:
-
-- `node_modules/@mkbabb/glass-ui/dist/components/slider/types.d.ts:9` → `disabled?: boolean;`
-- `node_modules/@mkbabb/glass-ui/dist/components/dock/DockControl.vue.d.ts` → `disabled?: boolean`
-
-`ExtractWorkbench.vue:70` passes `:disabled="session.isProcessing.value || cameraActive"` — the
-parent's intent is explicit and is silently discarded for four of the five controls.
-
-**Reproduction** (real `MediaStream` via `canvas.captureStream()`, `track.stop` instrumented):
-
-```
-=== CAMERA (real MediaStream) ===
-[
- { "t": "before",          "camDisabled": false, "gum": 0, "stops": 0, "videos": 0, "live": [] },
- { "t": "after-1st-click", "camDisabled": false, "gum": 1, "stops": 0, "videos": 1, "live": ["live"] },
- { "t": "after-2nd-click", "camDisabled": false, "gum": 2, "stops": 0, "videos": 1, "live": ["live","live"] },
- { "t": "after-3rd-click", "camDisabled": false, "gum": 3, "stops": 0, "videos": 1, "live": ["live","live","live"] }
-]
+```js
+const trackInk = computed(() =>
+    cssColor ? safeCss(cssColor, GRAPHICS_CONTRAST_FLOOR) : "var(--ink-muted)",
+);
 ```
 
-`uploadDisabled: false` and both sliders `aria-disabled: null` at every step.
+`safeCss` (`demo/color-session/useContrastSafeColor.ts:355-361`) reads `ambient.value` and
+`isDark.value` inside the computed, so `trackInk` is a subscriber to **the application's hottest
+signal** — the live colour. Signal moves → computed invalidates → the parked component re-renders →
+`patchStyle` writes to a node that is not in the document.
 
-**Mechanism.** `ExtractWorkbench.vue:228` holds `let cameraStream: MediaStream | null` — a *single*
-slot. `startCamera()` (`:239-255`) assigns into it unconditionally. Click 2 overwrites the
-reference to stream 1; `stopCamera()` (`:257`) and `onBeforeUnmount(stopCamera)` (`:281`) can only
-ever stop the last one. Streams 1 and 2 stay `readyState: "live"` with no reference and no UI —
-**the device camera indicator stays lit until page unload.** Only one `<video>` exists, so nothing
-on screen tells the user two extra captures are running.
-
-There is a second, worse path in the same function. `startCamera` sets `cameraActive.value = true`
-*before* awaiting, and its `catch` sets it back to `false` — but never stops an
-already-resolved stream. In my first probe run (a non-`MediaStream` fake, so `srcObject = …` threw
-after `getUserMedia` resolved) I measured `gum: 1, stops: 0, videos: 0` — **a live camera track
-with the viewfinder closed.** Any post-acquisition failure reproduces this on real hardware.
-
-**Proposed cure (gestalt, not patch).** The prop is a *contract*, so bind it once at the boundary
-rather than five times at the leaves: give the controls row `<fieldset :disabled="disabled">`
-semantics — or, staying in the component vocabulary, forward `:disabled="disabled"` to Upload,
-Camera and both `Slider`s (Reset keeps its extra `|| !hasImage`, see C-3). Independently, the
-single-slot `cameraStream` in `ExtractWorkbench` should be replaced by an idempotent
-`startCamera()` that calls `stopCamera()` first and stops the stream in its own `catch`, so
-acquisition is a state transition rather than an accumulation.
-
-**Escalation note.** This is a privacy defect (camera stays live), not an aesthetic one. It is
-listed under the blocked wave but flagged for an out-of-band owner ruling — see §*Blocked wave*.
-
----
-
-## C-2 · MAJOR — an undecodable image throws a page error with ZERO user feedback
-
-**Defect.** The Upload control ExtractControls owns (`:40-46` → `ExtractWorkbench.openFilePicker` →
-`ImageDropZone`'s `<input type="file">`) leads to an error path that surfaces nothing.
-
-**Reproduction** — a *truncated but correctly typed* `image/png` (8-byte PNG magic + 40 zero bytes).
-This passes `accept="image/*"` (`ImageDropZone.vue:30`) **and** the drop-path guard
-`file?.type.startsWith("image/")` (`ImageDropZone.vue:97`), so no filter rejects it:
+**Reproduction — `evidence/pass-4/xc4-probe7-parked-cost.mjs`, output `xc4-probe7-parked-cost.txt`.**
+Develop the plate (synthetic 22-colour PNG, k driven to 16), pin the rail node, install a
+`MutationObserver` on its `style` attribute, navigate to `/#/`, then drive the picker's L/A/B channel
+sliders — i.e. the user is working on a completely different route:
 
 ```
+=== park state ===
+{ "inDocument": false, "isConnected": false }
+
+=== PARKED + DETACHED cost while the user drives the colour on ANOTHER route ===
 {
- "unhandled": ["Cannot decode the data in the argument to createImageBitmap"],
- "errorLineVisible": false,
- "errorText": null,
- "resetDisabled": false,
- "skeletonEls": ["shadow-palette skeleton-ink-register rounded-card border bor"],
- "ghost": true,
- "caption": 1
+ "windowMs": 9699,
+ "styleAttrMutations": 225,
+ "ALL_while_detached": true,
+ "anyWhileConnected": 0,
+ "distinctStyleValues": 75,
+ "rendersImplied": 75,
+ "writesPerSecond": 23.2,
+ "charsRewrittenPerSecond": 17435
 }
-pageErrors: ["PAGEERR InvalidStateError: Cannot decode the data in the argument to createImageBitmap"]
 ```
 
-A plain `.txt` reproduces identically, and additionally plants
-`<img alt="Uploaded image" src="data:text/plain;base64,dGhpcyB…" naturalWidth=0>` in the drop zone.
+**225 style-attribute mutations. `anyWhileConnected: 0`. Every single write landed on a detached
+node.** 75 distinct values over 9.7 s = **7.7 re-renders per second, off-screen, indefinitely.**
 
-**Three surfaces disagree after the failure:** the plate still says
-`· undeveloped plate — feed it an image ·`; the drop zone shows a broken preview; and Reset —
-gated on `hasImage` — is **enabled**, asserting an image exists.
+Independently reproduced earlier in the pass with a different driver and a different route order
+(`evidence/pass-4/xc4-probe1-parked-recompute.mjs` → `xc4-probe1-parked-recompute.txt`):
 
-**Mechanism.** `useExtractSession.ts:167` calls `runQuantize()` fire-and-forget with no `.catch`;
-`runQuantize` (`:153-157`) calls `quantizeFromFile(...)` and discards the promise.
-`useImageQuantize.ts:106` awaits `imageFileToPixels(file)`, which throws in `createImageBitmap`
-**before** `runQuantize` (`:80-99`) ever sets `isProcessing`/`error` — so the session's
-`quantizeError` computed (`useExtractSession.ts:66`) stays `null` and the `v-if` destructive line at
-`ExtractWorkbench.vue:80-85` never renders. Note the mega-tranche visual audit reports
-`pageErrors: 0` for `/#/extract` — it never uploaded a file, so this class is invisible to it.
+```
+=== AFTER route change to /#/ — is the rail still in the document? ===
+{ "railStillInDocument": false, "isConnected": false, "railInDomQuery": false }
 
-**Proposed cure.** Make the decode a *typed outcome*, not an exception: have `quantizeFromFile`
-return the existing `Result` shape the session already speaks (`presentedPalette` is
-`{ok:true}|{ok:false,error}`), so a decode failure lands in `workerError` and the destructive line
-renders for free. `previewDataUrl` must be set **after** a successful decode, not before — that
-single reordering also fixes the broken `<img>` and the lying `hasImage`.
+=== PARKED-RAIL style mutations while OFF the extract route ===
+{ "totalMutations": 144, "anyWhileDetached": 144, "distinctStyles": 48 }
+```
+
+144 of 144. Same conclusion, twice, from two independent harnesses.
+
+**The cost.** Pass 2's C2-2 measured `trackInk` at **1.30 ms per evaluation**. At the 7.7 re-renders/s
+measured here, that is **≈10 ms of main-thread work per second of colour interaction — burned by a
+component the user cannot see, on a route they are not on.** Stated as a bound, not a claim: I
+measured the *rate* (7.7/s, 17,435 chars/s of CSSOM serialisation); the 1.30 ms per-evaluation figure
+is pass 2's and I did not re-measure it.
+
+**Failure scenario.** Visit `/#/extract` once — the app's own default landing flow reaches it in one
+dock click. Return to the picker and drag a channel slider. From then until page unload, every frame
+of every colour gesture also certifies an OKLab-guarded ink and re-serialises 752 characters of CSS
+into a `<div>` in a detached storage container. Visit all nine `KeepAlive :max` panes and the
+application accumulates nine such subscribers. Nothing frees them; `KeepAlive` is doing exactly its
+job.
+
+**Mechanism.** The certification is subscribed to a global signal but scoped to a local surface.
+There is no activation predicate anywhere in the chain: `useSafeAccentFn` has no notion of visibility,
+`trackInk` has no notion of visibility, and `KeepAlive` deliberately preserves reactivity.
+
+**Proposed cure — architectural, not a patch.** Activation is a *pane-host* fact, and `PaneSlot`
+already owns it — it is the only thing that knows which pane is live (`liveKey`, `PaneSlot.vue:100`).
+The transposition is for the host to `provide()` an `isActive` ref and for the ink instrument to
+gate on it, so *every* parked plate stops certifying, not just this one:
+
+```js
+// useContrastSafeColor.ts — one gate, all consumers
+const active = inject(PANE_ACTIVE_KEY, shallowRef(true));
+function safeCss(css, floor) {
+    if (!active.value) return lastCertified;   // parked: hold the last certified value
+    …
+}
+```
+
+This is the right cure rather than `onDeactivated`-flag-per-component precisely because it is
+*one* place: the defect is not that ExtractControls forgot a hook, it is that the ink instrument has
+no concept of an audience. A per-component `onActivated`/`onDeactivated` pair would fix this file and
+leave the other eight panes to rediscover it.
 
 ---
 
-## C-3 · MAJOR — the Reset gate is wrong in both directions
+## XC4-2 · MAJOR — the invariant paint and the variant paint share one style object, and Vue's `patchStyle` does not diff: the 634-char gradient is re-serialised on every tick
 
-**Defect.** `:disabled="disabled || !hasImage"` (`:84`).
+**NEW this pass.**
 
-*False-negative.* k and kC are live with **no** image — this is a certified behaviour, not an
-accident: `e2e/smoke/oracles/o9-shadow-palette.spec.ts:147-158` drives the k slider with no image
-and asserts the ghost re-segments 5→6→5, and `ExtractWorkbench.vue:92-95` documents it (`count`
-rides the k-slider LIVE… the ghost re-segments under the slider). Measured:
+`ExtractControls.vue:22` puts three things in one object:
 
-```
-=== KEYBOARD + k=16 LABEL ===
-{"focused":true,"before":"5","k":"16","labelText":"16","labelW":20,
- "labelScrollW":20,"clipped":false,"resetDisabled":true}
+```html
+:style="{ background: gradient, backgroundColor: trackInk, boxShadow: `inset 0 0 0 1.5px ${trackInk}` }"
 ```
 
-Eleven ArrowRight presses move k from 5 to 16; the ghost re-segments to 16; **the only control that
-restores k=5 / kC=0.5 is disabled.** The user cannot undo a live, visible parameter change.
+`gradient` is the **quantizer's output** — it changes at most once per 300 ms debounced worker round
+trip, and in practice once per image. `trackInk` is **the live colour signal** — it changes at frame
+rate. They are bound as one unit.
 
-*False-positive.* Per C-2, an undecodable file sets `previewDataUrl` → `hasImage` true →
-`resetDisabled: false` with nothing to reset.
+**Vue does not diff style objects.** `node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.js:445`:
 
-**Mechanism.** `hasImage` is the wrong predicate. `onReset` (`useExtractSession.ts:180-184`) resets
-**k and kC** and only *conditionally* re-quantizes (`if (lastFile.value)`). The composable already
-knows the truth; the gate asks a different question.
+```js
+function patchStyle(el, prev, next) {
+  …
+  for (const key in next) {
+    …
+    const value = next[key];
+    if (value != null) {
+      if (!shouldPreserveTextareaResizeStyle(el, key, …)) {
+        setStyle(style, key, value);          // ← unconditional
+      }
+    } …
+  }
+```
 
-**Proposed cure.** Gate on dirtiness of what Reset actually resets:
-`:disabled="disabled || (k === 5 && chromaWeight === 0.5)"` — computed in the session as
-`canReset`, so the default constants live in one place instead of being duplicated between
-`useExtractSession.ts:44,45,181,182` and any consumer. `hasImage` then has no consumer and the prop
-is deleted.
+`prev[key]` is consulted only inside `shouldPreserveTextareaResizeStyle`, a `<textarea>`-only special
+case. **Every key in the new object is written to the CSSOM on every patch, changed or not.**
+
+**Measured payload — `evidence/pass-4/xc4-probe6-parked-developed.mjs`, developed at k=16:**
+
+```
+=== developed rail — payload size ===
+{ "k": "16", "gradientLen": 634, "inlineAttrLen": 752 }
+```
+
+**Measured write ratio — `xc4-probe7-parked-cost.txt`:** `225 styleAttrMutations / 75
+distinctStyleValues` = **exactly 3.0 writes per render**, and the style object has exactly three keys.
+The ratio is the proof: all three are written every time, including the 634-character
+`linear-gradient(...)` that did not change.
+
+Aggregate: **17,435 characters of CSS text re-serialised per second** (`charsRewrittenPerSecond`),
+of which ~84% is a gradient string being rewritten to its own current value.
+
+**Failure scenario.** A user with a developed 16-colour plate drags the hue. Every frame, the browser
+re-parses a 634-character gradient — sixteen `oklch()` colour parses per frame — to arrive at the
+value it already had. This is the same k-means output being re-lexed 23 times a second.
+
+**Mechanism.** Two paint channels with lifetimes three orders of magnitude apart are welded into one
+reactive unit by an object literal. The `:style` object is the coupling.
+
+**Proposed cure — split the lifetimes, which the markup already wants.** The rail is already a
+dedicated element whose *only* job is to carry the gradient (pass 2's C2-9 notes it is a hand-rolled
+`.slider-track`). Give the two channels two bindings so the hot one cannot drag the cold one:
+
+```html
+<div class="… rail-gradient" :style="{ background: gradient }" />
+<div class="… rail-ink"      :style="{ backgroundColor: trackInk, boxShadow: … }" />
+```
+
+— or, better and simpler, hand `trackInk` to CSS as a custom property (`:style="{ '--rail-ink':
+trackInk }"`) and let the stylesheet consume it, so the changing value is one short token write and
+the gradient stays where it belongs. Under edict 5 (root-level styling) the custom-property form is
+the idiomatic one, and it composes with XC-10's hoist of `--btn-hover-color`.
 
 ---
 
-## C-4 · MAJOR — dead `.touch-gate-target` rule; the 12px drag handle it was meant to inflate
+## XC4-3 · BLOCKER — `trackInk`'s degenerate is an **unguarded** `var(--ink-muted)`, and `--ink-muted` has no CSS declaration anywhere: in the no-pick state the rail paints **nothing** — no fill, no ring
 
-**Defect.** `ExtractControls.vue:139-142`:
+**NEW this pass.** This is the strongest defect I found, and it is four characters away from the
+`inset` keyword pass 3 named — on the same line's value chain, in the branch pass 3 did not exercise.
 
-```
-139:/* Touch gate styling for extract sliders */
-140:.touch-gate-target {
-141:    border-radius: var(--radius-pill);
-142:}
-```
+**The code.** `ExtractControls.vue:123-125`:
 
-The class is applied to **no element in this template**. Grep across the repo — the only occurrence
-in this file is the rule itself:
-
-```
-$ grep -rn "touch-gate-target" demo/ node_modules/@mkbabb/glass-ui/dist/
-demo/workbenches/extract/ExtractControls.vue:140:.touch-gate-target {
-demo/picker/composables/usePointerDebug.ts:121:            ".touch-gate-target, .spectrum-picker",
-demo/picker/controls/ComponentSliders/ComponentSliders.vue:58:  'touch-gate-target flex-1 min-w-0',
-demo/picker/controls/ComponentSliders/ComponentSliders.vue:244:  * touch-gate-target uses) — the block is intentionally UNSCOPED so the
-demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue:11:  '… relative touch-gate-target',
+```js
+const trackInk = computed(() =>
+    cssColor ? safeCss(cssColor, GRAPHICS_CONTRAST_FLOOR) : "var(--ink-muted)",
+);
 ```
 
-The block is `<style scoped>`, so it compiles to `.touch-gate-target[data-v-…]` and can never match
-even if some ancestor added the class. It is the fossil of the picker's touch-gate idiom
-(`ComponentSliders.vue:253-273` + `composables/useSliderTouchGates.ts`) — and that file's own
-comment at `:244` still names *"the ExtractControls … touch-gate-target uses"*, a cross-file claim
-that is **false**.
+The comment two lines above (`:116-117`) calls this "**the degenerate fallback** when no live pick
+threads." It is not a fallback. It is a bare token reference.
 
-**Measured consequence** (mobile, `pointer: coarse`, `elementFromPoint` sweep from the thumb centre):
+**`--ink-muted` has no CSS declaration in the repository.** Its sole definition site is a JavaScript
+stamp inside a watcher:
 
 ```
-=== THUMB HIT WIDTH (mobile/coarse) ===
-{"boxW":12,"boxH":44,"hitW":12,"neighborAtMinus12":"SPAN.slider-range",
- "neighborAtPlus12":"SPAN.slider-track"}
-thumbCS: {"w":"12px","h":"44px","minW":"auto","before":"\"\"","cls":"slider-thumb glass-specular-track"}
+$ grep -rn -- "--ink-muted:" demo src
+$                                        ← no output: zero CSS declarations
+
+$ grep -rn 'setProperty("--ink-muted"' demo src
+demo/color-picker/composables/boot/useAtmosphereBoot.ts:103:            document.documentElement.style.setProperty("--ink-muted", css);
 ```
 
-glass-ui's coarse treatment grows the thumb's **height** to 44px and leaves its **width** at 12px;
-the `::before` pseudo does not widen the hit region. At ±12px from centre you land on
-`.slider-range`/`.slider-track`, so a mis-grab **jumps the value** rather than starting a drag. The
-sibling picker sliders get an explicit 44px coarse hit extension (`ComponentSliders.vue:336+`,
-`@media (pointer: coarse) { .channel-slider::before { … } }`); the extract sliders get neither that
-nor the dead rule they nominally declare.
+So before `useAtmosphereBoot`'s watcher runs — or in any tree that does not mount it — `var(--ink-muted)`
+is a **guaranteed-invalid** substitution. Per CSS Custom Properties §3, that makes the declaration
+*invalid at computed-value time*: the property computes to `unset`, which for the non-inherited
+`background-color` is `initial` = **transparent**, and for `box-shadow` is **none**.
 
-The mega-tranche audit counts both thumbs on all four matrices —
-`REPORT.json` `/#/extract`: desktop `{"w":12,"h":24,…"Number of colors"}`,
-`{"w":12,"h":24,…"Chroma weight"}`; mobile `{"w":12,"h":44,…}` ×2. That is **2 of the 6**
-small-tap-targets on every extract capture, i.e. this component's exact contribution to that metric.
+**Reproduction — `evidence/pass-4/xc4-probe5-killshot.mjs`, output `xc4-probe5-killshot.txt`.** A
+side-by-side A/B in the live cascade: two elements under a host with `--ink-muted: initial` (the
+guaranteed-invalid state), one painted with the declarations line 22 emits *as written*, one with the
+fallback form this same file uses at line 149:
 
-**Honest caveat — this is NOT a WCAG 2.5.8 AA failure.** I ran the spacing-exception test
-(24 CSS px diameter circle centred on each undersized target vs every other target's bounding box)
-on the mobile capture and got **zero intersections** (`"viol": []`; nearest neighbours are the 44×44
-DockControls at ≥68px). It is an ergonomics defect and a dead-code defect, not an AA violation, and
-must not be filed as one.
+```
+=== B · `--ink-muted` — definition sites and the degenerate's paint ===
+{
+ "inlineStampOnRoot": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+ "DEGENERATE_AS_WRITTEN_line124": {
+   "backgroundColor": "rgba(0, 0, 0, 0)",
+   "boxShadow": "none"
+ },
+ "WITH_FALLBACK_as_line149_writes_it": {
+   "backgroundColor": "rgb(124, 102, 80)",
+   "boxShadow": "rgb(124, 102, 80) 0px 0px 0px 1.5px inset"
+ },
+ "VERDICT": "RAIL PAINTS NOTHING — no fill, no ring"
+}
+```
 
-**Edicts violated:** #2 (no legacy code — a shim for a mechanism that was never wired here) and
-#3 (KISS — a rule that claims a capability the component does not have).
+**The file contradicts itself, nine lines apart.** `:149`, in this component's own `<style>` block:
 
-**Proposed cure.** Delete the dead rule and the false claim in `ComponentSliders.vue:244`. The
-12px-wide handle is **glass-ui's** `.slider-thumb` geometry, so the real cure is a coarse-pointer
-width/hit rung in glass-ui's slider — not a fourth copy of the touch-gate idiom in a consumer
-(edict #4). Relay to the glass-ui BJ inbox; see §*Blocked wave*.
+```css
+.plate-ink { color: var(--ink-muted, var(--muted-foreground)); }
+```
+
+Guarded. And so is every other consumer in the repository — `ExtractWorkbench.vue:291`,
+`ImageDropZone.vue:110`, `ConfigSliderPane.vue:202,205`, `ColorComponentDisplay.vue:200,205,211`,
+`PaneHeader.vue:123`, `EmptyState.vue:103`, `ColorSpaceSelector.vue:309`. **Ten guarded sites; line
+124 is the outlier**, and it is the only one of them that carries a *graphics* obligation rather than
+a text one.
+
+**Failure scenario.** The degenerate branch is the *no-live-pick* path, which is precisely the boot
+window and precisely the state a first-time visitor sees. In that window the rail is not
+de-emphasised — it is **absent**: no fill, no certified hairline, a 24 px transparent hole where the
+k control's track should be, with a 12 px thumb floating in it. This is the born-RED blank class the
+W44 close cured elsewhere in this tree, reintroduced through an unguarded token.
+
+**Honest scope.** In the snapshot I probed, a live pick *was* threading, so the degenerate was not
+taken (`evidence/pass-4/xc4-probe5-killshot.txt` §B-reachability:
+`railInlineMentionsInkMuted: false`). What is **measured fact** is (a) the branch exists in the
+source, (b) `--ink-muted` has zero CSS declarations, and (c) the declarations that branch emits paint
+nothing when the token is unstamped. What I did **not** capture is a live frame in which all three
+coincide. I therefore file the *mechanism* as CONFIRMED and the *field occurrence* as unreproduced.
+
+**Proposed cure.** The gestalt cure is not to add a fallback to the template string — it is that
+**a raw CSS token has no business being a value in a certified-ink computation.** `trackInk`'s two
+branches return incommensurable things: branch one returns a *resolved colour* certified against a
+measured surface; branch two returns a *deferred token reference* certified against nothing. The
+degenerate belongs in `ink.ts` beside `GRAPHICS_CONTRAST_FLOOR`, as a resolved constant the guard
+can actually certify:
+
+```ts
+// ink.ts — the degenerate is a colour, not a promise of one
+export const MUTED_INK_DEGENERATE = "…";   // certified, resolvable, testable
+```
+
+The one-line stopgap, if the wave must be minimal, is `var(--ink-muted, var(--muted-foreground))` —
+matching line 149 and the ten other sites. But that only makes this file consistent with itself; it
+leaves a token reference inside a value the O-18 census believes it has certified.
 
 ---
 
-## C-5 · MAJOR — two orphan `<label>` elements; the visible label is not in the accessible name
+## XC4-4 · MINOR — one control row, two paint machineries: the kC track eases its certified ink over 200 ms, the k rail snaps
 
-**Defect.** `:15` and `:66` are `<label>` elements with no `for` and no wrapped control:
+**NEW this pass.**
 
-```
-15:            <label class="text-mono-small plate-ink … w-5 text-right">{{ k }}</label>
-66:            <label class="fira-code text-micro plate-ink …" title="Chroma weight">kC</label>
-```
+Both sliders are handed the **same** `trackInk` value — the k rail via an inline `background-color`
+(`:22`), the kC track via the `--slider-track-bg` custom property (`:75`). They do not respond to a
+change of it the same way.
 
-Measured live:
-
-```
-"labels": [
- { "text": "5",  "htmlFor": null, "id": "", "title": null },
- { "text": "kC", "htmlFor": null, "id": "", "title": "Chroma weight" }
-]
-```
-
-Playwright ARIA snapshot of the component — the labels are bare text nodes, associated with nothing:
+**Measured — `evidence/pass-4/xc4-probe4-asymmetry.mjs`, output `xc4-probe4-asymmetry.txt`:**
 
 ```
-- text: "5"
-- slider "Number of colors"
-- button "Upload image": - img
-- button "Open camera":  - img
-- separator
-- text: kC
-- slider "Chroma weight"
-- text: "0.5"
-- separator
-- button "Reset" [disabled]: - img
+=== BEFORE — the two elements' transition declarations ===
+{
+ "k_rail":   { "transitionProperty": "all",                       "transitionDuration": "0s" },
+ "kC_track": { "transitionProperty": "background, border-color",  "transitionDuration": "0.2s, 0.2s" }
+}
 ```
 
-**Consequences.** (a) The visible label `kC` is absent from the accessible name `Chroma weight` —
-**WCAG 2.5.3 Label in Name**: a voice-control user saying "click kC" cannot reach the slider.
-(b) On the k row the element marked up as a `<label>` is the live **value**, not a name — a `<label>`
-whose text changes on every drag frame. (c) `title="Chroma weight"` on a non-interactive `<label>`
-is hover-only and duplicates the slider's own name.
+The kC track's transition comes from glass-ui's own recipe
+(`glass-ui/dist/glass-ui.css`, `.slider-track`: `transition: background var(--duration-fast)
+var(--ease-standard), border-color …`). The k rail is a bare `<div>` — its `transition-property: all`
+is the CSS **initial value**, not a rule; I verified no stylesheet grants it a transition:
 
-**Proposed cure.** They are not labels — they are a readout and an abbreviation. Make the k readout
-`<span aria-hidden="true">` (the slider already announces its value; `aria-valuenow` measured `"5"`)
-and fold the abbreviation into the name so the visible text is contained in it:
-`aria-label="kC — chroma weight"`. Same for the `0.5` readout at `:78`. No new element, no new
-wrapper — one tag change and one string.
+```
+=== matching rules that set a transition on the rail ===
+[]
+```
+
+(`xc4-probe3-rail-transition.txt` — every `document.styleSheets` rule that sets a transition and
+matches the rail: none.)
+
+**Consequence.** On any change to the live pick, the k rail's fill and ring jump instantly while the
+kC track's fill eases for 200 ms. Two members of one cluster, carrying one ink, moving at different
+speeds — the visual signature of two different components, which is exactly the impression pass 2's
+C2-9 diagnosed structurally (a hand-rolled rail beside a real `.slider-track`). Here it is measurable
+in the time domain.
+
+**Labelled HYPOTHESIS — the uncertified intermediate.** `trackInk` is certified for its *endpoint*:
+`safeCss` walks the colour until it clears the 3:1 graphics floor against the resting plate. A CSS
+`transition` paints the sRGB interpolation between the previous endpoint and the new one, and
+**contrast is not convex along an sRGB interpolation** — two colours both ≥3:1 against a ground can
+have intermediates below it. If so, the kC track paints under-floor ink for up to 200 ms on every
+colour change, invisible to the O-18 census (which samples a settled state). **I could not reproduce
+this.** `/#/extract` has exactly two sliders and both are this component's own
+(`xc4-probe3-rail-transition.txt` §"all sliders on /#/extract"), and the `?color=` URL contract did
+not re-drive the live pick from that route (`xc4-probe4-asymmetry.txt`:
+`distinctRailValues: 1`). The desync is **proved by declaration**; the uncertified-intermediate
+consequence is **a hypothesis with no reproduction**, and I mark it so.
+
+**Proposed cure.** Whichever way the cluster is meant to read, it should read *one* way. Since the
+rail is a reimplementation of the thing the kC slider gets for free (C2-9), the cure is the same
+transposition: retire the hand-rolled rail in favour of the k `Slider`'s own
+`--slider-track-bg`, and the transition question resolves itself because there is only one track
+recipe left. That is a Glass-8-adjacent change and belongs in the blocked wave beside XC3-9.
 
 ---
 
-## C-6 · MINOR — `title` is the sole accessible name on all three buttons
+## Disproved — hypotheses I raised and my own measurement killed
 
-**Measured.** All three `DockControl`s render with `ariaLabel: null`, `text: ""`, `title` only:
+A challenge seat that reports only its hits is arguing, not measuring. These were live theories,
+probed, and refuted.
 
-```
-{"title":"Upload image","ariaLabel":null,"text":"","disabled":false,"w":40,"h":40}
-{"title":"Open camera", "ariaLabel":null,"text":"","disabled":false,"w":40,"h":40}
-{"title":"Reset",       "ariaLabel":null,"text":"","disabled":true, "w":40,"h":40}
-```
-
-`DockControl` does not set `inheritAttrs: false` (verified in `dist/dock.js`; its sibling
-`DockTrigger` does), so `title` reaches the native `<button>` and the HTML-AAM last-resort naming
-step resolves it — the ARIA snapshot above confirms the names **are** exposed. So the visual
-audit's `namelessButtons: 3` is strict-probe accounting
-(`capture.mjs:104` accepts only `aria-label || aria-labelledby || textContent`), **not** an AT
-blackout. The residual real defect: `title` renders **no tooltip on touch**, so on the two mobile
-matrices these are three unlabelled icons to a sighted touch user.
-
-**Scale, measured from `REPORT.md`:** `/#/extract` is the only route with `namelessButtons: 3` in
-**all four** matrices, and the only route above 1 on mobile. Summing the census
-(desktop-light 9 + desktop-dark 9 + mobile-light 4 + mobile-dark 4 = 26 instances), extract
-contributes **12 of 26 = 46%** of the whole application's nameless-button surface, all three from
-this file.
-
-**House inconsistency, evidenced.** The shell dock names its controls properly —
-`demo/shell/dock/Dock.vue:143,144,154` (`aria-label="Save edit"` / `"Cancel edit"` / `"Back"`),
-`demo/shell/dock/layers/SlugEditLayer.vue:94,106,114`. The workbenches use `title`. Two conventions,
-one app.
-
-**Also:** the three Lucide `<svg>`s are exposed as `img` nodes inside the buttons (`- img` in the
-snapshot above) and carry no name. The sibling `ImageDropZone.vue:60` gets this right with
-`aria-hidden="true"`.
-
-**Proposed cure.** `aria-label` + `title` on each control (`title` kept for the desktop tooltip,
-`aria-label` as the authoritative name), and `aria-hidden="true"` on the three icons — matching the
-shell dock convention rather than inventing a third one.
-
----
-
-## C-7 · MINOR — the rail's "certified identity edge in every state" is invisible pre-image
-
-**Defect.** Lines 6-11 claim the inset hairline gives *"a certified identity edge independent of its
-gradient content **in every state**"*. Line 22 paints the ring in the **same colour as the fill**:
-
-```
-22:  :style="{ background: gradient, backgroundColor: trackInk, boxShadow: `inset 0 0 0 1.5px ${trackInk}` }"
-```
-
-Measured live, undeveloped state:
-
-```
-"cs": { "bgImage": "none",
-        "bgColor":   "oklch(0.545141 0.218024 9.834023)",
-        "boxShadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset" }
-```
-
-Identical colour → 1.0:1 ring-to-fill → zero visible edge. The claim holds only once a gradient
-develops. A documented invariant that is false in the component's *default* state is a defect in
-the record, not just in the pixels.
-
-**Proposed cure.** Either narrow the comment to the developed state, or make the ring an actual
-edge — the ring's job is separation from the *plate*, so it should be the certified ink and the
-**fill** should be the de-emphasis rung, not the same token twice.
-
----
-
-## C-8 · MINOR — the `gradient` prop's empty-state value is a dead binding
-
-`useExtractSession.ts:103` returns the string `"var(--muted)"` — a **colour** — from a computed
-named `kSliderGradient`, for a prop declared `gradient: string` (`:107`). Line 22 feeds it to the
-`background` shorthand and then overwrites the colour channel with `backgroundColor: trackInk` on
-the very next object key. Measured pre-image: `bgImage: "none"`. **The entire empty-state value of
-`gradient` is inert** — the producer violates the prop's contract and the consumer silently
-discards it, so neither side can ever notice.
-
-**Proposed cure.** Type the contract honestly: `gradient: string | null`, `null` when undeveloped,
-and drop the `background` shorthand for the explicit `backgroundImage` — then the two layers stop
-fighting over one property and the null case is a real branch instead of a swallowed one.
-
----
-
-## C-9 · MINOR — three per-instance `--btn-hover-color` pins on siblings (edict #5)
-
-Lines 42, 51 and 86 carry the byte-identical `:style="{ '--btn-hover-color': cssColor }"` on three
-siblings inside the one flex row opened at `:39`. `--btn-hover-color` is an inherited custom
-property: **one** binding on the row container produces an identical cascade with a third of the
-patches. This is the "root-level styling, never per-instance overrides" edict, violated three times
-in fifty lines.
-
-Second-order: this pin carries the **raw** `cssColor`, not the certified `trackInk`. Lines 113-125
-go to considerable length to establish that the track material must be contract ink certified at
-`GRAPHICS_CONTRAST_FLOOR` — and then the hover ink on the three buttons beside it bypasses that
-contract entirely.
-
-**Proposed cure.** Hoist the custom property to the row container and certify it:
-`:style="{ '--btn-hover-color': trackInk }"` once at `:39`.
-
----
-
-## C-10 · MINOR (vacuous gate) — zero tests; the mutations that stay green
-
-**No unit test references this component.** `grep -rn "ExtractControls" test/ e2e/` returns only two
-prose mentions in unrelated files. Two e2e specs touch the rendered tree:
-
-- `e2e/smoke/oracles/o9-shadow-palette.spec.ts:152-158` — `getByRole("slider", {name:"Number of
-  colors"})`, focus, ArrowRight/ArrowLeft, asserts the ghost segment count.
-- `e2e/smoke/oracles/o18-contrast-census.spec.ts:1106-1134` — samples the **colour** of
-  `[data-o18="extract-kc"] .slider-track` and `[data-o18="extract-k-rail"]`.
-
-**Mutations that keep both specs green** (the vacuous-gate proof):
-
-| # | mutation | why it survives |
-|---|---|---|
-| a | delete `:disabled` from `:84` entirely | nothing asserts Reset's disabled state — this is C-1's exact defect, already green |
-| b | delete `@click="$emit('upload')"` and `@click="$emit('camera')"` | no spec activates either button |
-| c | delete the whole `.touch-gate-target` block | already dead (C-4) |
-| d | replace the kC `@update:model-value` handler with a no-op | o18 measures the track's *colour*, o9 drives only the k slider |
-| e | change `:max="16"` to `:max="99"` | no bound is asserted |
-| f | drop `boxShadow` from `:22` | o18 samples `backgroundColor`, not the ring |
-
-Only removing `aria-label="Number of colors"` or renaming either `data-o18` hook breaks anything.
-
-**Proposed cure.** One `@vue/test-utils` spec asserting the *contract*, not the paint: that
-`disabled` reaches every control (C-1), that Reset's gate follows dirtiness not `hasImage` (C-3),
-and that each button exposes an `aria-label` (C-6). Three assertions kill six of the mutations above.
-
----
-
-## C-11 · INFO — hypotheses (labelled; NO reproduction)
-
-1. **`v[0]!` masking, `:33` and `:76`.** Both handlers type `v` as `number[] | undefined`, guard with
-   truthiness (`v &&` — an empty array is truthy), then non-null-assert `v[0]!`. If reka-ui ever
-   emitted `[]`, `$emit('update:k', undefined)` would reach `colorCount.value` and
-   `quantizeFromFile(file, undefined, …)`. **I could not produce `[]` from the live slider.**
-   HYPOTHESIS. The assertions are still an edict-#2-adjacent masking idiom; `if (v?.length)` costs
-   nothing and removes both `!`.
-2. **`parseCssColor` crash class.** `trackInk` (`:123`) → `safeCss` → `certifyAccentInk`
-   (`ink.ts:130`) → `parseOklch` (`ink.ts:39`) → `parseCssColor`. `parseOklch` handles
-   `!parsed.ok` but not a **throw** — and the repo's record carries a live
-   `parseCssColor("oklch()")` shipping crash (R1). `cssColor` here is app-serialized, so I could not
-   reach it from this component. HYPOTHESIS.
-3. **Per-frame recompute.** `cssColor` is the rAF-coalesced live pick, so during a colour drag
-   `trackInk` recomputes and five inline-style bindings patch per frame (rail ×3 properties + three
-   `--btn-hover-color` pins + one `--slider-track-bg`). `resolveLiveTintCached`
-   (`useContrastSafeColor.ts:240`) caches the `getComputedStyle`+canvas probe by
-   `(surface, darkClass, epoch)`, so the expensive part is amortised, but `certifyAccentInk`'s
-   gamut/floor walk is not. **UNMEASURED.** HYPOTHESIS — C-9's hoist would cut the patch count 3→1
-   regardless.
-
----
-
-## Local hazards — checked, negative
-
-Recording the negatives so the next seat does not re-run them:
-
-| hazard | result |
-|---|---|
-| `defineModel()` stale-read round-trip | **absent.** The component uses explicit `defineProps`/`defineEmits` with `:model-value="[k]"`; the parent writes a plain `ref` synchronously (`useExtractSession.ts:171`). No async round-trip, no stale read. Correct by construction. |
-| oklch→HSV hue drift / `stableHue` | not applicable — no hue round-trip here. |
-| `ValueUnit` nesting accumulation | not applicable — no `ValueUnit` construction in this tree. |
-| reka-ui pointer-capture leak | not reachable from this file; no `pointercancel`/`lostpointercapture` handlers are needed because the component adds no pointer handling of its own. |
-| ungated `requestAnimationFrame` (PRM-RAF) | **none in this component.** One `await new Promise(requestAnimationFrame)` in `ExtractWorkbench.vue:249` — a single-shot await, not a loop. |
-| WebGL context loss / eager boot | not applicable — no WebGL in this tree. `REPORT.md` shows the only `WebGL: context lost` on `/#/`, not `/#/extract`. |
-| the `absolute inset-0` rail blocking slider hit-testing | **negative, measured.** Rail box `{x:252,y:495,w:434,h:24}` is byte-identical to the `.glass-slider` root box `{x:252,y:495,w:434,h:24}` — the slider covers it exactly, and being later in DOM order with `position: relative` it wins hit-testing. No dead zone. |
-| k label clipping at k=16 | **negative, measured.** `labelW: 20, labelScrollW: 20, clipped: false`. |
-| keyboard operability | **works.** `focused: true`, ArrowRight ×11 → `aria-valuenow: "16"`; `tabindex="0"` on both thumbs. |
-| `verbatimModuleSyntax` (edict #8) | **clean.** All six imports at `:96-101` are value imports; none is type-only. |
-| god module (edict #1) | **clean.** 152 lines, one concern. |
-| animations deleted (edict #6) | **clean.** No keyframes removed; none defined here. |
-
----
-
-## Edict scorecard
-
-| # | edict | verdict |
-|---|---|---|
-| 1 | no god modules | PASS |
-| 2 | no legacy code | **FAIL** — C-4 (dead `.touch-gate-target` shim), C-11.1 (`!` masking) |
-| 3 | KISS, no contrivance | **FAIL** — C-4 (a rule claiming a capability that isn't wired) |
-| 4 | glass-ui is the design system | PASS in the consumer; the 12px coarse thumb width (C-4) is a **glass-ui** gap, correctly *not* patched here |
-| 5 | root-level styling | **FAIL** — C-9 (three per-instance `--btn-hover-color` pins) |
-| 6 | animations never deleted | PASS |
-| 7 | idiomatic Vue 3.5 | PASS — reactive props destructure (`:103`), correct avoidance of `defineModel` |
-| 8 | `verbatimModuleSyntax` | PASS |
-
----
-
-## Blocked wave — `W·XC-EXTRACT-CONTROLS`
-
-The component is PINNED in the glass BJ W4 hold at
-`71aa0a65873c367ae3ae393283d4e81bcfc9cbb57b6f232eec9f930264d46c28` (hash verified above). Consumer
-edits are FORBIDDEN until Glass 8. This wave is authored, not executed.
-
-**Release condition (exact).** All three must hold:
-
-1. `@mkbabb/glass-ui` **8.0.0** is adopted in `package.json` and the BJ W4 pin on
-   `demo/workbenches/extract/ExtractControls.vue` is released by the glass-ui BJ owner; **and**
-2. glass-ui 8 ships a coarse-pointer **width** rung on `.slider-thumb` (currently 12×44 on
-   `pointer: coarse`; the sibling `.channel-slider::before` 44px extension is a consumer-side
-   workaround this wave must not copy — edicts #3/#4); **and**
-3. the C-4 relay is acknowledged in the glass-ui BJ inbox per the standing BH/BI relay edict.
-
-**Wave contents, in landing order** (D-numbers reserved, none applied):
-
-| step | finding | scope | depends on release condition |
+| # | hypothesis | why I raised it | measurement that killed it |
 |---|---|---|---|
-| XC-1 | C-1 | forward `disabled` to Upload/Camera/both Sliders; idempotent `startCamera` in `ExtractWorkbench` | 1 only |
-| XC-2 | C-2 | `Result`-typed decode; set `previewDataUrl` after decode | 1 only (composable, not the pinned file) |
-| XC-3 | C-3 | `canReset` dirtiness gate in the session; delete `hasImage` | 1 only |
-| XC-4 | C-5, C-6 | `aria-label` + `aria-hidden` on icons; readouts become `aria-hidden` spans | 1 only |
-| XC-5 | C-9, C-7, C-8 | hoist `--btn-hover-color` to the row + certify; ring/fill separation; `gradient: string \| null` | 1 only |
-| XC-6 | C-4 | delete the dead rule + the false claim in `ComponentSliders.vue:244` | 1 only |
-| XC-7 | C-4 (geometry) | consume glass-ui 8's coarse thumb width | **1 + 2 + 3** |
-| XC-8 | C-10 | contract spec killing mutations (a)–(f) | none — `test/` is not pinned, may land now |
+| D-1 | the k rail's `transition-property: all` animates its certified fill and ring, restarted at frame rate so the paint never settles | `getComputedStyle` reported `transition-property: all` on the rail (`xc4-probe2`) | `transition-duration: 0s` — `all` is the CSS **initial value**, and a full `document.styleSheets` sweep found **zero** rules granting the rail a transition (`xc4-probe3-rail-transition.txt`). The rail does not transition. **Refuted.** |
+| D-2 | the parked component is *idle*-hot — it burns main thread continuously after the route is visited | XC4-1's 23 writes/s looked like a free-running loop | 6 s of idle observation, **visible** and **parked**: `mutations: 0` in both (`xc4-probe6-parked-developed.txt`). The component is **signal**-hot, not idle-hot. XC4-1 is narrowed accordingly and stated only for windows where the colour signal moves. **Refuted as stated; the corrected form is XC4-1.** |
+| D-3 | `import { Slider } from "../../ui/slider"` is a legacy alias / dual path (edict 2) while `DockControl` comes straight from `@mkbabb/glass-ui/dock` in the same file | `demo/ui/slider/index.ts` is literally one line: `export { Slider } from "@mkbabb/glass-ui";` | It is the **repo-wide idiom**, not this file's deviation: 5 consumers go through the barrel (`GradientVisualizer`, `GenerateControls`, `ExtractControls`, `ConfigSliderPane`, `ComponentSliders`), **0** import `Slider` directly, and `demo/ui/` holds 19 such barrels. Consistent house style. **Not a defect.** Pass 3's edict-4 PASS was right. |
 
-**Out-of-band escalation.** **C-1 is a privacy defect** — the device camera stays live, with the
-indicator lit, after the viewfinder closes or after any post-acquisition failure. Recommend the
-owner rule an out-of-band consumer unpin for **XC-1 alone** (a ~4-line diff: four `:disabled`
-forwards plus a `stopCamera()` at the head of `startCamera`) rather than holding it behind Glass 8.
-XC-8 can land immediately and would have caught it.
+---
+
+## Test truth — three killing mutations no prior pass names
+
+Pass 1's C-10, pass 2's C2-13 and pass 3's XC-5 each supply mutation tables; these three are
+disjoint from all of them and target the **value contract** rather than the paint.
+
+| # | mutation to `ExtractControls.vue` | why every gate stays green |
+|---|---|---|
+| **j** | `:max="16"` → `:max="8"` on the k slider (`:29`) | The only e2e that touches k is `o9-shadow-palette.spec.ts:147-158`, which presses `ArrowRight` once (5→6) and `ArrowLeft` once (6→5). Nothing anywhere asserts the ceiling. The quantizer's k domain is silently halved. |
+| **k** | `:step="0.1"` → `:step="0.5"` on the kC slider (`:73`) | **The kC slider has no test of any kind.** `grep -rn "Chroma weight" e2e test` returns only this file. `o18-contrast-census.spec.ts:1106` samples `[data-o18="extract-kc"] .slider-track`'s *colour* and never its value. Chroma weighting drops from 16 settings to 4, unobserved. |
+| **l** | delete `aria-label="Chroma weight"` (`:69`) | The repo's own nameless-control probe is `visual/capture.mjs:102`: `document.querySelectorAll('button,[role="button"]')`. **`[role="slider"]` is not in the selector.** The thumb becomes genuinely nameless and the audit that reports `/#/extract` as the application's worst route for accessible names cannot see it. |
+
+Mutation **l** is the indictment worth carrying: `/#/extract` contributes 3 of the application's 18
+`namelessButtons` and **2 of its 6 `smallTapTargets`** — and the two tap-target rows are this
+component's slider thumbs, by name:
+
+```json
+{ "w": 12, "h": 24, "tag": "span", "label": "Number of colors" },
+{ "w": 12, "h": 24, "tag": "span", "label": "Chroma weight" }
+```
+
+(`visual/REPORT.json`, `safari-desktop-light` and `-dark`; `{"w":12,"h":44}` on both mobile matrices.)
+The probe that measures their *size* has no counterpart that measures their *name*.
+
+---
+
+## Local hazards — checked this pass, NEGATIVE
+
+Only hazards I tested myself this pass; passes 1–3 have their own negative tables and I do not repeat
+theirs.
+
+| hazard | result | evidence |
+|---|---|---|
+| the mount-epoch trap the ink composable itself warns about (`useContrastSafeColor.ts:69-78`: a consumer folding the live probe into its OWN computed "must register the mount bump from its setup, or its first probe result caches") — `trackInk` is exactly that shape | **NEGATIVE.** `useSafeAccentFn` calls `bumpProbeEpochOnMount()` in its own setup (`useContrastSafeColor.ts:347`), so the consumer inherits it transitively. The documented trap does not apply. | `useContrastSafeColor.ts:345-348` |
+| `trackInk` fails to re-drive on a theme flip (a computed reading DOM without a reactive dep) | **NEGATIVE.** `safeCss` reads `isDark.value`, `ambient.value` and — through `resolveLiveTintCached` — `probeEpoch.value` during evaluation, so all three are tracked. | `useContrastSafeColor.ts:245-249, 355-361` |
+| the rail steals pointer events from the slider (an `absolute inset-0` sibling under a `relative` control) | **NEGATIVE.** `.glass-slider` is `position: relative` and later in DOM order, and its `.slider-track` is `height: calc(var(--slider-thumb-size,1rem) * 1.5)` = 24 px = the rail's `h-6`. The slider covers the rail exactly; no dead zone. | `glass-ui.css` `.glass-slider[data-variant=spectrum] .slider-track`; `ExtractControls.vue:18-34` |
+| the spectrum track's `--slider-track-bg` override is inert (variant hard-sets its own background) | **NEGATIVE.** `.glass-slider[data-variant=spectrum] .slider-track { background: var(--slider-track-bg, var(--secondary)) }` — the override is the documented input and it lands. Measured live: `trackBgVar: "oklch(54.51…% 0.218… 9.834…deg)"`, `paintedBg` identical. | `xc4-probe2-transition-floor.txt` §0 |
+| page/console errors on the route | **NEGATIVE.** `pageErrors: []` across all seven probes; `REPORT.json` `/#/extract` shows `consoleErrors: []`, `pageErrors: []`, `overflowX: 0` in all four matrices. | every `evidence/pass-4/*.txt` |
+| `verbatimModuleSyntax` violation (edict 8) | **NEGATIVE.** All six imports are value imports — `computed`, three icons, two glass-ui components, `Slider`, `useSafeAccentFn`, `GRAPHICS_CONTRAST_FLOOR`. No type-only import is miswritten, and none is needed. | `ExtractControls.vue:96-101` |
+
+---
+
+## Edict scorecard (pass-4 deltas only)
+
+| # | edict | pass-4 verdict |
+|---|---|---|
+| 2 | no legacy code | **PASS on the import path** — D-3 refuted; the `demo/ui/` barrel is the repo idiom (5 consumers, 0 direct). Pass 3's XC-11 concern about the dead `var(--muted)` degenerate stands and is *compounded* by XC4-3: the file has two unguarded token strings in value position. |
+| 5 | root-level styling | **FAIL, additionally** — XC4-2: the ink is pushed through an inline `:style` object per render when a custom property consumed by the stylesheet would write one short token. |
+| 7 | idiomatic Vue 3.5 | **PARTIAL** — reactive props destructure is correct, `defineModel` is correctly avoided (pass 3). But the component has no activation awareness inside a `KeepAlive` host (XC4-1), which in Vue 3 is a required consideration, not an optional one. |
+
+---
+
+## Blocked wave — `W·XC4-EXTRACT-CONTROLS` (extends `W·XC3-EXTRACT-CONTROLS`)
+
+The subject is PINNED at SHA-256 `71aa0a65873c367ae3ae393283d4e81bcfc9cbb57b6f232eec9f930264d46c28`
+(verified above). **No source edits land from this formation.**
+
+### Exact release condition
+
+Identical to pass 3's, restated so this wave is self-contained. The wave opens when **all four** hold:
+
+1. `@mkbabb/glass-ui@8.0.0` is published and the value.js dependency range admits it;
+2. the glass **BJ W4 hold** is lifted by its owner (the pin is BJ's, not this tranche's);
+3. `shasum -a 256 demo/workbenches/extract/ExtractControls.vue` **still equals**
+   `71aa0a65873c367ae3ae393283d4e81bcfc9cbb57b6f232eec9f930264d46c28` at wave open — any drift means
+   the file changed under the hold and the wave **re-audits before it executes**;
+4. XC4-0 (below) is GREEN — the gate lands *before* the cure, so XC4-3 is born-RED, not born-asserted.
+
+### Steps
+
+| # | cures | change | pinned-file edits | blocked by |
+|---|---|---|---|---|
+| **XC4-0** | XC4-3 | o18 extract graphics leg: assert the rail paints a non-transparent fill **and** a non-`none` box-shadow with `--ink-muted` forced guaranteed-invalid (`--ink-muted: initial` on an ancestor). Born-RED today — verified by `xc4-probe5-killshot.mjs`. | **none** — `e2e/` is unpinned | **nothing — lands now** |
+| **XC4-1s** | XC4-1 | `PANE_ACTIVE_KEY` provided by `PaneSlot`; `useSafeAccentFn` holds its last certified value while parked | **none** — `PaneSlot.vue` + `useContrastSafeColor.ts` are unpinned | **nothing — lands now**, and it cures all nine panes, not this one |
+| **XC4-2s** | XC4-2 | split the rail's `:style` — gradient on its own binding, ink as a custom property consumed by the stylesheet | 1 line | pin only |
+| **XC4-3s** | XC4-3 | `MUTED_INK_DEGENERATE` resolved constant in `ink.ts`; `trackInk`'s degenerate returns a colour, not a token reference | 1 line here + 1 export | pin only |
+| **XC4-4s** | XC4-4 | retire the hand-rolled rail for the k `Slider`'s own `--slider-track-bg` (folds C2-9) | rail markup | **requires Glass 8** (the spectrum track recipe is glass-ui's) |
+| **XC4-5s** | mutations j/k/l | e2e: k-ceiling assertion, a kC value walk, and extend `visual/capture.mjs`'s nameless selector to `[role="slider"],[role="switch"]` | **none** | **nothing — lands now** |
+
+**Scheduling note.** XC4-0, XC4-1s and XC4-5s need nothing from glass-ui and nothing from the pin.
+XC4-1s in particular is the highest-leverage unblocked change in this whole three-pass record: it is
+a change to two unpinned files that removes off-screen certification work from **every** KeepAlive'd
+pane in the application, and it lands today.
+
+**Relay to glass-ui BJ (standing formation invariant).** Adding to pass 3's relay: the
+`.slider-track` `transition: background` recipe interacts badly with a consumer that drives
+`--slider-track-bg` from a frame-rate signal (XC4-4) — glass-ui should either document that
+`--slider-track-bg` is a settled-value input, or exempt it from the transition. No consumer can fix
+this from outside.
 
 ---
 
 ## Strongest defect
 
-**C-1.** The `disabled` prop is bound to one of five controls, and the measured consequence is
-three live camera MediaStreams acquired and zero stopped (`gum: 3, stops: 0, live:
-["live","live","live"]`) with a single `<video>` on screen — the device camera stays capturing,
-unreferenced and unstoppable, until page unload.
+**XC4-3.** `trackInk`'s degenerate branch — the one the file's own comment calls "the degenerate
+fallback when no live pick threads" — returns the bare string `var(--ink-muted)`. That token has
+**zero CSS declarations in the repository**; its only definition is a JavaScript `setProperty` inside
+a boot watcher (`useAtmosphereBoot.ts:103`). When it is unstamped, both declarations the rail emits
+from it are invalid at computed-value time, and the measured result is:
+
+```
+"DEGENERATE_AS_WRITTEN_line124": { "backgroundColor": "rgba(0, 0, 0, 0)", "boxShadow": "none" }
+"WITH_FALLBACK_as_line149_writes_it": { "backgroundColor": "rgb(124, 102, 80)", "boxShadow": "rgb(124, 102, 80) 0px 0px 0px 1.5px inset" }
+"VERDICT": "RAIL PAINTS NOTHING — no fill, no ring"
+```
+
+The same file guards the same token correctly nine lines later, and so do ten other consumers across
+the demo. The fallback that exists to guarantee the component is visible when nothing else is
+available is the one path on which it becomes invisible — and the cure is not a fallback but the
+recognition that a deferred token reference cannot be a value in a computation whose entire purpose
+is to return a *certified* colour.

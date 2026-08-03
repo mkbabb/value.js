@@ -1,517 +1,558 @@
 # CHALLENGE-L — library structure under `demo/workbenches/mix/MixPane.vue`
 
-> **This file is the consolidated CHALLENGE-L record (pass B).**
-> A prior CHALLENGE-L seat ran this component at HEAD `32b4040e` and produced 17 findings.
-> That report is **preserved verbatim, byte-identical**, at
-> `docs/tranches/V/megatranche/audit/components/wb-mix-pane/challenge-L-library-pass-a.md`
-> (sha1 `7e422be6…`, 39 471 bytes, committed at `37ee17dd`). Nothing in it was altered or discarded.
-> This file carries pass B: an **independent** re-audit at `c654824e` under standing edict E-1
-> (twice-audit), recording only what pass A did not have — new findings, one severity dissent, two
-> corrections to pass-A negatives, one census correction, and the confirmations I re-derived
-> myself. Read pass A first for F-1…F-17 in full; read this for the delta and the merged index.
+> **This file is the consolidated CHALLENGE-L record (pass E).**
+> Four prior CHALLENGE-L seats ran this component. All four are **preserved verbatim,
+> byte-identical**:
+> - pass A — `challenge-L-library-pass-a.md` (sha1 `7e422be6…`, 39 471 B; F-1…F-17)
+> - pass B — `challenge-L-library-pass-b.md` (sha1 `aee5d9d2…`, 30 860 B; B-1…B-5)
+> - pass C — `challenge-L-library-pass-c.md` (sha1 `e5ae388e…`, 28 306 B; C-1…C-6)
+> - pass D — `challenge-L-library-pass-d.md` (sha1 `0bf28a3e…`, 28 727 B; D-1…D-6)
+>   — copied from this file's prior contents at pass E open (`diff -q` → byte-identical);
+>   nothing altered or discarded.
+>
+> This file carries **pass E**: an independent fifth audit at `c654824e` under standing edict E-1,
+> recording only what A, B, C and D did not have. Pass E contributes **one new MAJOR that no prior
+> pass touched and that is the mechanical root cause of five already-filed findings**, **one
+> severity upgrade of pass A's F-17 from INFO to MAJOR by direct measurement of a mechanism F-17
+> did not name**, **two new MINORs**, one census extension, and **one withdrawn upgrade** recorded
+> with the prior-pass evidence that killed it.
+>
+> Read pass A for F-1…F-17, B for B-1…B-5, C for C-1…C-6, D for D-1…D-6, this file for E-1…E-5 and
+> the merged index.
 
 ## Model receipt
 
 I observe myself to be **Opus 5 (1M context)** — exact model id `claude-opus-5[1m]`, the tier
-explicitly declared at spawn. The seat is declared, not inherited.
+explicitly declared at this seat's spawn. The declaration is explicit, not inherited.
 
 ## Scope + method
 
-Subject: `demo/workbenches/mix/MixPane.vue` (58 script lines + 66 template lines = 124), and the
-module lattice beneath it. Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`,
-**HEAD `c654824e`** as named in the brief. Pass A read at `32b4040e`; I re-verified every pass-A
-line number I cite against `c654824e` and found no drift in the mix subtree.
+Subject: `demo/workbenches/mix/MixPane.vue` (124 lines incl. trailing newline) and the module
+lattice beneath it. Repository `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD
+`c654824e`.
 
-Method, deliberately not a re-run of pass A's: full import-closure trace of MixPane's 12 imports to
-their homes; an independent 8 300-line `tsc --traceResolution` capture of the demo program; a
-consumer-enumeration census of every module MixPane's closure touches; a `demo/ui` barrel census
-with importer cross-tabulation; static chunk-graph measurement of the glass-ui root barrel; an
-`any`-density census of `src/` vs `demo/`; eslint run over the subject subtree with JSON output; and
-the mega-tranche visual-audit rows plus `shots/safari-desktop-light/mix.png` read directly. **No
-source was edited. No file outside `…/wb-mix-pane/` was written.**
+Method, chosen to be disjoint from all four priors. A and B read the **source**; C read the
+**rendered DOM**; D read the **live Vue component instances**. Pass E read the **enforcement
+layer and the module graph as a graph** — I asked, of every structural rule the repo believes it
+has, *does this rule currently match any file?*, and, of every import edge in MixPane's closure,
+*what does this edge cost?* Two throwaway closure walkers (preserved, see Method note) measured
+the demo-source and built-`dist` graphs. That is the one angle none of A–D took, and it is the
+angle that finds why four passes of findings could accumulate without a gate objecting once.
 
-I began from the premise that the lattice is wrong and tried to break each hypothesis. Two of my own
-hypotheses failed and are recorded as negatives (N-B1, N-B2).
+**No source was edited. No file outside `…/wb-mix-pane/` was written.**
 
 ---
 
 ## Verdict
 
-**DEFECTIVE** — concurring with pass A on the disposition, and adding five findings it did not have,
-of which one is MAJOR and one is a direct correction of a pass-A "sound" certification.
+**DEFECTIVE.** Pass C's C-1 remains the ceiling and pass E does not displace it — a feature with no
+working entry point outranks everything here.
 
-The single most important thing pass B adds: **pass A certified `mixStage.ts` as "exemplary
-dogfooding" (pass A, Negatives §2). It is not.** Its library *imports* are exemplary — that half of
-the certification holds. But its *inbound data boundary* is the worst in the feature: the animation
-reads its pigments out of the DOM as a JSON string written by a sibling component, behind a silent
-`catch`. Pass A searched the file for library imports and found them clean; it did not audit the
-direction of the file's own dependencies. That is finding **B-1** below.
-
----
-
-## Pass B findings — the delta
-
-### B-1 · MAJOR · NEW — and a correction to pass A's Negatives §2
-
-**The convergence animation takes its pigment inputs out of the DOM as a JSON string, guarded by a
-silent `catch` that can drop an entire palette from the animation while the math still includes it.**
-
-`MixSourceSelector.vue:252–255` serialises palette colors into an HTML attribute:
-
-```html
-:data-mix-source="isPaletteSelected(palette.slug) ? '' : undefined"
-:data-mix-colors="isPaletteSelected(palette.slug)
-    ? JSON.stringify(palette.colors.slice(0, 4).map((c) => c.css))
-    : undefined"
-```
-
-`mixStage.ts:126–153` reads them back out of the rendered markup:
-
-```ts
-const one = el.dataset.mixColor;
-if (one) { origins.push({ ...at, css: one }); continue; }
-try {
-    const many = JSON.parse(el.dataset.mixColors ?? "[]") as string[];
-    many.forEach((css, i) => { … });
-} catch {
-    /* unstamped source — skip */
-}
-```
-
-`useMixingState` already owns `selectedColors` and `selectedPalettes` as reactive arrays
-(`useMixingState.ts:42–43`), and `MixPane.vue:66–72` already hands the canvas `mixResult`,
-`colorSpace` and `hueMethod` as props. The pigments are the **one** input that detours through
-`innerHTML`, gets `JSON.stringify`'d on every render and `JSON.parse`'d on every mix. DOM
-measurement is legitimate for **geometry** — `layoutCenter` at `mixStage.ts:121` reads positions,
-and positions genuinely are a DOM fact. Color is not a DOM fact; it is state both modules already
-share.
-
-Two masking fallbacks ride along, both forbidden by standing edict 2 and neither counted in pass A's
-F-3 tally (F-3 enumerates eleven guards in `MixPane.vue` and `MixResultDisplay.vue`; these two are in
-`mixStage.ts` and are a different mechanism — not optionality, but I/O failure suppression):
-
-- `mixStage.ts:150–152` — `catch {}` swallows a malformed `data-mix-colors` and **silently drops that
-  palette's entire drop set** from the convergence. No warning, no phase change. The mix result still
-  includes the palette; the animation no longer shows it.
-- `mixStage.ts:122–124` — a missing `[data-mix-target]` falls back to invented coordinates
-  (`root.clientWidth / 2`, `root.scrollHeight * 0.7`, `r: 28`) rather than returning `null`. The
-  drops land on a guessed point with nothing there.
-
-**Failure scenario.** Rename the attribute, change the `.slice(0, 4)` cap, or let any palette color
-string break the attribute round-trip: that palette vanishes from the convergence while
-`mixPalettes` still folds it into the result. The animation asserts a set of inputs that is not the
-set that was mixed, and no diagnostic is emitted at any layer. The `catch` makes the failure
-structurally undetectable — there is no test that can observe it and no console line that reports it.
-
-**Reproduction.** Mechanism: the two files above at `c654824e`, file:line. End-to-end UI: **NONE** —
-I did not find a UI affordance that writes a JSON-breaking string into `PaletteColor.css`, so the
-ingest half is a **hypothesis**; the coupling, the `catch`, and the invented-geometry fallback are
-read directly from source and are not hypotheses.
-
-**Mechanism family.** Family D (inverted ownership) in pass A's taxonomy: a composable reaching into
-another component's rendered output for data, rather than both reading the state module that already
-owns it. Wrong direction of dependency, with the resulting fragility papered over.
-
-**Cure (transposition).** Change the collector's signature so pigment arrives as an argument and only
-geometry is measured:
-
-```ts
-export function collectStage(
-    canvas: HTMLCanvasElement,
-    sources: readonly { el: HTMLElement; css: string }[],   // pigment + its element, from state
-    pool: { css: string; el: HTMLElement },
-    space: SpaceId,
-    hue: HueInterpolationMethod,
-): Stage        // never null-by-fallback; null only when the canvas has no parent
-```
-
-`MixAnimationCanvas` assembles `sources` from `useMixingState`'s own arrays paired with a
-`useTemplateRef`-registered element list. `data-mix-source` / `data-mix-target` survive as
-**geometry-only** marker attributes; `dataset.mixColor`, `dataset.mixColors`, the `JSON.stringify`,
-the `JSON.parse`, the `catch {}` and the invented-coordinates fallback all delete. A missing target
-becomes a programming error that fails loudly, not a guess.
-
-**Correction to pass A.** Pass A, Negatives §2 reads: *"`mixStage.ts` is exemplary dogfooding… This
-is what the rest of the tree should look like."* The **import** claim is true and I re-verified it
-(`mixStage.ts:15–17` pulls `lerp`/`clamp` from `/math`, three easings from `/easing`, `mixColors`
-from `/color`; no hand-rolled curve, no local lerp). The **certification** is too broad: pass A
-searched the file for what it imports and did not audit what it reaches for. Pass A's report contains
-zero occurrences of `data-mix`, `JSON.parse` or `catch`
-(`grep -n "data-mix\|JSON.parse\|catch" challenge-L-library-pass-a.md` → no hits outside a
-`mixStage`-adjacent mention of the `space` type at line 165). The negative should be narrowed to:
-*"mixStage's library consumption is exemplary; its inbound data boundary is B-1."*
+Pass E's own strongest contribution is **E-1**, and it is a different *kind* of finding from the
+prior 29: every one of those describes a structure that is wrong. E-1 describes why nothing
+*noticed*. The three `no-restricted-imports` guards that `eslint.config.js` installs to keep the
+demo module graph acyclic and correctly-directed — `G-DEMO-1`, `G-DEMO-3a`, `G-DEMO-3b`, each
+carrying a paragraph of commentary asserting it is "wired STANDING so a future feature edit cannot
+silently re-invert the demo module graph" — are aimed at `demo/@/**`, a directory the W43 `RF-15`
+alias kill deleted. **They match zero files.** The one surviving glob bans a specifier prefix
+(`@components/…`) that the same refactor retired. The demo has had no mechanical direction
+enforcement since W43, and F-9 / C-3 / D-1 / F-17 / F-13 / E-2 are what grew in that gap.
 
 ---
 
-### B-2 · MINOR · NEW — `demo/palettes/mix.ts` has exactly one consumer, and it lives in another feature
+# Pass E findings — the delta
 
-Pass A's F-1 correctly identifies `mixColorSequence` as a library capability homed in the demo, and
-its cure — promote to `src/color/operations.ts` with a weighted circular mean — is right and better
-argued than anything I would have written. Its cure then leaves the remainder in place:
-*"`demo/palettes/mix.ts` shrinks to what is genuinely demo-shaped: `mixPalettes`."* That leaves the
-second half of the homing error standing.
+## E-1 · MAJOR · NEW — the demo's three architectural ESLint guards match **zero files**; the module graph has been mechanically unenforced since W43
 
-```
-$ grep -rn 'palettes/mix"' demo --include='*.ts' --include='*.vue' | grep -v workbenches/mix/
-(no output)
-```
+No prior pass touched this (`grep -n "G-DEMO\|demo/@" challenge-L-library-pass-{a,b,c}.md
+challenge-L-library.md` → **no output**). Passes B and D both examined `eslint.config.js` — B-5
+filed its *relaxation rationale* as false at HEAD, F-16 filed it as "structurally blind" for unused
+vars. Both read the rule **values**. Neither read the file **globs**.
 
-The module has **exactly one importer in the entire tree** —
-`demo/workbenches/mix/composables/useMixingState.ts:24` — and it is in a *different feature*. So
-after F-1's promotion, `demo/palettes/` would still own the mix workbench's only remaining algorithm,
-and the workbench that owns the concept "mix" would still reach sideways into a data domain to
-borrow it. `demo/palettes/` should own palette identity, persistence and transport; the
-`LIBRARY_PORT_KEY` seam `MixPane.vue:16` uses is the correct and sufficient edge between them.
+**The guards.** `eslint.config.js` installs three demo bans, each with extensive commentary:
 
-**Evidence:** the enumeration above; `useMixingState.ts:24`.
-**Reproduction:** the grep, at `c654824e`.
-**Cure:** `mixPalettes` and `LeftoverStrategy` move to
-`demo/workbenches/mix/composables/mixPalettes.ts`. `demo/palettes/mix.ts` is deleted, not re-exported.
-Combined with F-1 this leaves zero cross-feature edge for the mix algorithm: the library owns the
-math, the workbench owns the orchestration, the palettes domain owns the data.
+```js
+// G-DEMO-3b — reach palette-browser through its barrel seam, never a raw .vue file
+files: ["demo/color-picker/**/*.ts", "demo/color-picker/**/*.vue",
+        "demo/@/components/**/*.ts", "demo/@/components/**/*.vue",
+        "demo/@/lib/**/*.ts", "demo/@/lib/**/*.vue"]
 
----
-
-### B-3 · MINOR · NEW — and a partial correction to pass A's Negatives §4
-
-**`INTERPOLATION_SPACES` is correctly homed *and* still reachable by its old path.** Pass A,
-Negatives §4 certifies `color-space-meta.ts` sound because S.W5-6 · F16 moved it out of the gradient
-tree to a neutral home — *"That is the exact cure this report proposes elsewhere, already applied."*
-The move happened; the old path was never closed:
-
-```ts
-// demo/workbenches/gradient/composables/useGradientInterpolation.ts:17
-export { INTERPOLATION_SPACES, HUE_INTERPOLATION_METHODS } from "../../../color-session/color-space-meta";
+// G-DEMO-1 + G-DEMO-3a — the shared composables layer is a CLEAN LOWER LAYER;
+//   never reach UP into app-root boot, never into a feature's internal composables
+files: ["demo/@/composables/**/*.ts", "demo/@/composables/**/*.vue"]
 ```
 
-One binding, two import paths. `MixConfigBar.vue:18` takes the neutral one; the gradient tree keeps
-its own. `color-space-meta.ts:8` documents the pass-through openly (*"the gradient composable
-re-exports for its own tree"*), which makes it deliberate rather than accidental — and deliberate is
-worse: it is the same pure-alias mechanism as F-13's `demo/ui/`, one file smaller, blessed by a
-comment. Edict 2 forbids aliases; a re-export that adds nothing is one.
-
-Two smaller residues in the same file: `color-space-meta.ts:7` still cites `@lib/`, an alias killed
-at W43/RF-15, and the metadata array is typed `InterpolationSpaceMeta[]` — see pass A's F-5, which I
-concur with and which B-3's cure should land alongside.
-
-**Cure:** delete `useGradientInterpolation.ts:17`; the gradient tree imports
-`../../../color-session/color-space-meta` directly, as Mix already does. Fix the stale `@lib/`
-reference. Pass A's Negatives §4 should be narrowed to: *"correctly homed; the vacated path survives
-as a re-export alias — B-3."*
-
----
-
-### B-4 · SEVERITY DISSENT · pass A's F-15 is INFO; the evidence makes it MAJOR
-
-Pass A files `PickerSpace`/`PickerColorIn<S>` as **INFO** with the note "→ double casts". The double
-casts are not a stylistic consequence; they are **structurally forced**, and they sit on the exact
-line where the library's guarantee is supposed to arrive.
-
-`demo/color-session/picker-color.ts:36–37`:
-
-```ts
-export type PickerSpace = SpaceId;
-export type PickerColorIn<S extends SpaceId> = Extract<AnyColor, { readonly space: S }>;
-```
-
-The library already exports `Color` (`src/subpaths/color.ts:7`), and `AnyColor` is built from it —
-`dist/subpaths/color.d.ts:5–7`:
-
-```ts
-export declare type AnyColor = { [S in SpaceId]: Color<S> }[SpaceId];
-```
-
-So `PickerColorIn<S>` re-derives, as a **deferred conditional type**, a type the library hands over
-**directly** as `Color<S>`. `Extract<…>` over an unresolved generic `S` cannot be reduced by the
-checker, so it is not assignable from `Color<S>` — which is why the code has to launder it. Full
-census at `c654824e`:
-
-| site | cast |
-|---|---|
-| `demo/palettes/mix.ts:37` | `result.value **as unknown as** PickerColorIn<S>` |
-| `demo/color-session/picker-color.ts:116` | `valueOrThrow(convertColor(color, space)) **as unknown as** PickerColorIn<S>` |
-| `demo/workbenches/mix/MixAnimationCanvas/composables/mixStage.ts:107` | `result.value as PickerColorIn<typeof space>` |
-| `demo/color-session/picker-color.ts:175` | `… as PickerColorIn<S>` |
-| `demo/color-session/picker-color.ts:192` | `… as PickerColorIn<S>` |
-| `demo/color-session/color-chips/sample.ts:82` | `result.value as PickerColorIn<typeof space>` |
-
-Six sites. **Two are `as unknown as`** — TypeScript's explicit statement that the two types are not
-even related — and both sit on the return value of `mixColors`/`convertColor`, i.e. precisely the
-library boundary. `mixColors<S extends SpaceId>(…): Result<Color<S>, ColorIssue>`
-(`dist/subpaths/color.d.ts:71`) is a fully-typed generic contract, and the demo discards it at the
-moment of consumption. Two of those six (`mix.ts:37`, `mixStage.ts:107`) are inside MixPane's own
-closure. The alias appears 67 times across `demo/`.
-
-Density context, which also feeds B-5:
+**The measurement.**
 
 ```
-$ grep -rnE ':[[:space:]]*any\b|<any>|as any' demo --include='*.ts' --include='*.vue' | wc -l
-      52
-$ grep -rnE ':[[:space:]]*any\b|<any>|as any' src  --include='*.ts' | wc -l
+$ ls -d demo/@
+ls: demo/@: No such file or directory
+
+$ find demo -path 'demo/@/composables/*' | wc -l
+       0
+$ find demo -path 'demo/@/components/*' -o -path 'demo/@/lib/*' | wc -l
        0
 ```
 
-**Why MAJOR, not INFO.** An unused alias would be INFO. An alias that (a) is strictly weaker than the
-type it renames, (b) forces two `as unknown as` casts to bridge back to that type, and (c) places
-both of them on the library's own return values, is a type-safety hole at the boundary the whole
-dogfood exists to validate. If `mixColors`' return shape changed tomorrow, `mix.ts:37` and
-`picker-color.ts:116` would compile clean.
+`demo/@/` does not exist. `tsconfig.demo.json` states why, in its own words:
 
-**Cure** (unchanged from pass A, only the severity moves): delete all three aliases; the tree speaks
-`SpaceId`, `AnyColor`, `Color<S>`. All six casts delete with them — none is load-bearing; each exists
-solely to bridge the alias back to the type it was derived from.
+> W43 (RF-15): the demo `@…` path aliases were killed — every demo import is relative to its
+> physical home. No `@styles`/`@components`/`@utils`/`@lib`/`@composables`/`@assets` project alias
+> survives.
+
+The guards were not re-aimed when the tree moved.
+
+**The one glob that still matches live files is disarmed too.** `demo/color-picker/**/*.{ts,vue}`
+exists — but the pattern it bans is `@components/custom/palette-browser/**/*.vue`, an alias
+specifier the same RF-15 retired:
+
+```
+$ grep -rn "@components/" --include='*.ts' --include='*.vue' demo/
+demo/palettes/browser/status/index.ts:5:// (@components/custom/dock/DockStatusLamp.vue); the S.W0-1 …
+```
+
+One hit, inside a comment. Nothing in the demo can violate that pattern because nothing in the demo
+can write that specifier.
+
+**Control — the guard that still works.** `inv-K-1` (`files: ["src/**/*.ts"]`, ban
+`@mkbabb/glass-ui*`) targets a live glob and a live specifier, and is genuinely load-bearing. So
+this is not "ESLint is off"; it is precisely and only the **demo-layering** guards that died, and
+they died silently because a config object with a non-matching `files` glob is not an error in flat
+config — it is a no-op.
+
+**Failure scenario — and it has already happened, five times.** With no direction enforcement:
+- `demo/workbenches/mix/` acquired a value import of the composition root's provider module (E-2),
+- the shell acquired an `any`-typed imperative reach *into* a feature (F-9 / C-3 / D-1),
+- a 19-module alias layer onto the design system persisted uncontested (F-13),
+- `test/` acquired an import of `demo/` (F-14),
+- `demo/palettes/mix.ts` ended up with zero consumers in its own directory and two in another
+  feature (B-2 / D-5).
+
+Every one of those is an edge a live layer ban would have refused at author time. The config
+asserts, in prose, that this cannot happen. It has been unable to object since W43.
+
+**Reproduction** — the `ls`, two `find`s and the `grep` above, verbatim, at `c654824e`.
+
+**Cure — re-aim at the lattice that actually exists.** The post-RF-15 demo layers, read off the
+tree:
+
+```
+demo/platform/       transport · auth · storage          leaf
+demo/color-session/  the colour spine (keys.ts is leaf)  may import platform
+demo/palettes/       palette domain (+ ports.ts, E-2)    may import platform, color-session
+demo/workbenches/    features                            may import palettes, color-session, shared
+demo/shell/          router · dock · action bar          may import workbenches (registry only)
+demo/color-picker/   boot / App.vue                      composition root; nobody imports it
+```
+
+Three `no-restricted-imports` objects encode the whole thing:
+
+1. `files: ["demo/platform/**", "demo/color-session/**"]` — ban `**/shell/**`, `**/workbenches/**`,
+   `**/color-picker/**`.
+2. `files: ["demo/palettes/**"]` — ban `**/shell/**`, `**/workbenches/**`, `**/color-picker/**`.
+3. `files: ["demo/workbenches/**", "demo/shared/**"]` — ban `**/color-picker/**`.
+
+One object per file region, never two — flat config resolves `no-restricted-imports` last-match-wins
+with no array merge, which the existing config already documents at length and which is exactly why
+`G-DEMO-1`/`3a`/`3b` were fused into single objects in the first place. That reasoning was sound;
+only the globs rotted.
+
+**Note on the alias-kill lesson.** RF-15 was a good refactor — pass D's N-D3 re-confirms the demo's
+value.js consumption is structurally clean, and killing the `@…` aliases is why. The defect is that
+a tree move invalidated the guards protecting the tree, and no gate reports a zero-match ESLint
+glob. If a single mechanical follow-up lands from this whole audit, it should be a check that every
+`files:` glob in `eslint.config.js` matches ≥ 1 file.
 
 ---
 
-### B-5 · MINOR · NEW EVIDENCE for pass A's F-16 — the lint relaxation's stated rationale is false at HEAD
+## E-2 · MAJOR · **UPGRADES pass A's F-17 from INFO to MAJOR** — the injection *key* is co-homed with the god provider, so importing a `Symbol` drags 34.2% of MixPane's static closure
 
-Pass A's F-16 establishes that no gate in the repo can see a dead import in a `.vue` file, and lists
-the five scopes where unused-vars is disabled. I confirm all of it independently:
+F-17 filed this as INFO and framed it as **API granularity**: *"a pane that saves a palette should
+depend on saving a palette, not on the whole local-library surface."* That is correct and it is not
+what this is. F-17 measured the *port object* (19 members, 1 used). Pass E measured the **module
+graph**, which F-17 did not look at, and the mechanism there is different and worse.
+
+**The mechanism.** `demo/palettes/usePalettePorts.ts:271-275` declares the five injection keys —
+plain `Symbol`s — **inside the same module as `providePalettePorts()`**, whose lines 4-18 statically
+import fifteen composables. `MixPane.vue:10` and `MixSourceSelector.vue:6` each write a **value**
+import to obtain one of those Symbols:
+
+```ts
+import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
+```
+
+A value import pulls the module's entire static closure. The key cannot be reached without the
+provider.
+
+**The measurement.** Demo-source static-import closure, `import type` edges excluded (so every byte
+is a byte the dev server and bundler must actually fetch), dynamic `import()` excluded:
 
 ```
-$ npx eslint demo/workbenches/mix/ -f json | …
-files linted: 8 — every one 0 errors, 0 warnings
-$ grep -c "computed" demo/workbenches/mix/MixPane.vue
-1                       # the import at line 2; never used
-$ grep -n "noUnused" tsconfig.base.json
-(no match)              # noUnusedLocals was never set either
+MixPane full closure      : 81 modules 313693 bytes
+MixPane WITHOUT ports edge: 52 modules 206276 bytes
+reachable ONLY via ports  : 29 modules 107417 bytes 34.2%
 ```
 
-What pass B adds is that the **justification for the relaxation no longer describes this repository**.
-`eslint.config.js:8–9`:
+**34.2% of a colour-mixing workbench's static closure exists to obtain one `Symbol`.** Enumerated,
+those 29 modules are the admin console, the auth stack and the HTTP transport:
 
-> `@typescript-eslint/no-explicit-any` — codebase has ~hundreds of intentional `any` usages
-> (parser combinators, dynamic CSS values). Tightening is a separate epic.
+```
+demo/palettes/api/admin-audit.ts       demo/platform/auth/sessionToken.ts
+demo/palettes/api/admin-colors.ts      demo/platform/auth/sessions.ts
+demo/palettes/api/admin-palettes.ts    demo/platform/auth/useAdminAuth.ts
+demo/palettes/api/admin-users.ts       demo/platform/auth/useSession.ts
+demo/palettes/api/versions.ts          demo/platform/auth/useUserAuth.ts
+demo/palettes/useAdminUsers.ts         demo/platform/transport/client.ts
+demo/palettes/useColorNameQueue.ts     demo/platform/storage/useSafeStorage.ts
+demo/palettes/useSlugMigration.ts      demo/platform/transport/api-problem.ts
+demo/palettes/useAdminFlagged.ts       … (+11)
+```
 
-The parser combinators live in `src/`, and **`src/` contains zero `any`** (census above). All 52 are
-in `demo/`, and they are not parser combinators — they are the shell's `Ref<any>` handles (pass A's
-F-9), the `PickerColorIn` bridges (B-4), and worker casts. The relaxation was written for debt that
-has since been paid off in the library, and now shields only the demo-side debt it was never
-argued for. That converts F-16's cure from "re-enable with `varsIgnorePattern`" into something
-cheaper than pass A assumed: the rule can be re-enabled for `src/` at **zero** fallout today, and the
-demo-side fallout is a bounded 52 sites, not "hundreds".
+**The cure already exists in this repo, twelve directories away, and nobody has noticed.**
+`demo/color-session/keys.ts` is the same concept done correctly — six injection keys, `import type`
+only, and:
+
+```
+demo/color-session/keys.ts     1 modules  1474 bytes
+```
+
+One module. 1,474 bytes. `MixPane.vue:11` imports `CSS_COLOR_KEY` from it and pays nothing.
+`demo/palettes/` simply never received the same treatment, and the asymmetry is invisible at every
+gate because both imports look identical at the call site.
+
+**Why MAJOR and not INFO.** F-17's framing is an ergonomics complaint — a wide port is ugly. This is
+a hard dependency-direction violation with a number on it: `demo/workbenches/mix/` cannot be
+compiled, unit-tested, chunk-split, or extracted without `demo/platform/auth/` and
+`demo/palettes/api/admin-*`. Pass B measured (B, line 406) that MixPane's *lazy chunk* adds zero
+bytes because these modules are already eager via `App.vue` — that is true and it is the reason this
+is MAJOR rather than BLOCKER, but it is also the trap: the cost is invisible in the bundle precisely
+*because* the composition root already pays it, so the graph can keep degrading with no bundle
+signal.
+
+**Reproduction:**
+`node /private/tmp/claude-504/…/scratchpad/demograph.mjs demo/workbenches/mix/MixPane.vue demo/palettes/usePalettePorts.ts demo/color-session/keys.ts`
+→ `81/313693`, `31/108763`, `1/1474`; plus the ban-one-edge variant printed above.
+
+**Cure — transposition, not patch.** `demo/palettes/ports.ts`: the five port **interfaces** stated
+explicitly, plus the five `InjectionKey` constants. Zero value imports. `usePalettePorts.ts` then
+does `import type { LibraryPort, … } from "./ports"` and `satisfies LibraryPort` on each assembled
+object. Under `verbatimModuleSyntax: true` (`tsconfig.base.json:8`) the type edge erases completely,
+so `ports.ts` is a true leaf and consumers pay 1 module instead of 31.
+
+This also fixes something F-17 wanted but could not get: `LibraryPort` stops being a
+`ReturnType<typeof providePalettePorts>` shadow of whatever the provider happens to return and
+becomes a **stated contract**. Once the contract is written down, F-17's granularity split (a narrow
+`createPalette`-shaped port) is a one-line interface change instead of a refactor. And with E-1's
+layer bans live, the edge that produced this could not have been written.
 
 ---
 
-## Independent confirmations (pass B re-derived these; no dissent)
+## E-3 · MINOR · NEW — one injection key, two contradictory contracts, four files apart; one of them is dead masking
 
-**C-1 · F-6 / F-7 — two resolution mechanisms, confirmed from different importers.** My own
-`tsc -p tsconfig.demo.json --noEmit --traceResolution` capture:
+Not in any prior index (`grep -n "pm?\.\|inject(LIBRARY_PORT_KEY)"` across A–D → no output).
 
-```
-======== Resolving module '@mkbabb/value.js/color' from '…/demo/color-session/picker-color.ts'. ========
-'paths' option is specified, looking for a pattern to match module name '@mkbabb/value.js/color'.
-Module name '@mkbabb/value.js/color', matched pattern '@mkbabb/value.js/color'.
-Trying substitution './dist/subpaths/color.d.ts', candidate module location: './dist/subpaths/color.d.ts'.
-File '…/dist/subpaths/color.d.ts' exists - use it as a name resolution result.
+**The two contracts.**
 
-======== Resolving module '@mkbabb/value.js/css' from '…/demo/color-session/picker-color.ts'. ========
-Found 'package.json' at '…/package.json'.
-Entering conditional exports.
-Matched 'exports' condition 'types'.
-Using 'exports' subpath './css' with target './dist/subpaths/css.d.ts'.
+`MixPane.vue:16` — asserted present:
+```ts
+const pm = inject(LIBRARY_PORT_KEY)!;
 ```
 
-Confirmed exactly as F-7 states. My cross-tabulation of the two maps, independently built:
-
-| specifier | in `exports`? | in `paths`? | target exists? | demo uses |
-|---|---|---|---|---|
-| `@mkbabb/value.js` (bare) | no | yes → `./dist/index.d.ts` | **no** | 0 |
-| `…/parsing` | no | yes | **no** | 0 |
-| `…/units` | no | yes | **no** | 0 |
-| `…/color` | yes | yes | yes | 25 |
-| `…/math` | yes | yes | yes | 6 |
-| `…/easing` | yes | yes | yes | 5 |
-| `…/quantize` | yes | yes | yes | 4 |
-| `…/transform` | yes | yes | yes | 0 |
-| `…/css` | yes | **no** | yes | 10 |
-| `…/value` | yes | **no** | yes | 0 |
-
-```
-$ ls dist/index*   → no matches      $ ls src/index.ts → No such file or directory
+`MixSourceSelector.vue:33-34` — masked absent:
+```ts
+const pm = inject(LIBRARY_PORT_KEY);
+const savedPalettes = computed(() => pm?.savedPalettes.value ?? []);
 ```
 
-One item pass B adds to F-6: the dead bare entry's **stated justification is also dead**.
-`tsconfig.demo.json`'s header claims *"glass-ui's published `dist/` imports the value.js core by the
-bare `@mkbabb/value.js` specifier"*. Over my full 8 300-line trace,
-`grep -n "Resolving module '@mkbabb/value.js' from"` returns **zero hits** — glass-ui 7.0.0 speaks
-subpaths. The comment documents a world two majors gone, and it is the only argument on record for
-keeping the phantom entry.
+Same key. Same feature directory. Sibling components, one the parent of the other.
 
-I also independently reach F-6's cure and state it more strongly: **delete the whole
-`@mkbabb/value.js*` block from `paths`.** `/css` already proves self-reference through the genuine
-`exports` map works with zero configuration. With `paths` gone there is one authority, the dogfood
-stops being simulated, and the three phantom subpaths become compile errors instead of standing
-permissions. Today, deleting `"./color"` from `package.json#exports` leaves the demo typechecking
-green while the generated Vite alias (`vite.config.ts:37–48`) silently disappears and the dev server
-404s on boot — the gate cannot see the break it exists to guard.
-
-**C-2 · F-8 — the undeclared frozen install, confirmed with the diff quantified.**
-`node_modules/@mkbabb/value.js` is a real 4.0.0 tarball (not a symlink; `readlink` empty), hoisted as
-glass-ui's peer, absent from this package's own `dependencies`. Of its seven subpath `.d.ts` files,
-**six are byte-identical to the local build and `css.d.ts` differs**: 382 local lines vs 350
-installed, the delta being an entire duplicated `Alpha_2`/`Channel_2`/`ChannelsBySpace_2`/`Color_2`/
-`SpaceId_2` shadow-type family in the local build that the published one does not have. The demo
-program never reads the installed copy today (C-1's trace shows every specifier landing on the local
-`dist/`), so F-8 is latent rather than live — but it is one `paths` deletion away from becoming the
-resolution target, which makes fixing F-8 a **precondition** of C-1's cure, not an independent item.
-Sequencing note for the mega-tranche: rebuild-and-align `dist/` before deleting `paths`.
-
-**C-3 · F-13 — `demo/ui/` census, confirmed with one correction.** Pass A says twenty barrels; there
-are **nineteen**:
+**The provider settles it.** There is exactly one:
 
 ```
-$ ls -d demo/ui/*/ | wc -l
-      19
-$ ls -p demo/ui/ | grep -v /          # loose files at demo/ui root
-(none)
+$ grep -rn "providePalettePorts" --include='*.ts' --include='*.vue' demo/
+demo/color-picker/composables/usePaletteWiring.ts:60:    const ports = providePalettePorts({
 ```
 
-alert, avatar, badge, button, card, checkbox, collapsible, dialog, dropdown-menu, input, label,
-popover, radio-group, select, separator, skeleton, slider, switch, tooltip. Every one is a single
-`index.ts` containing only re-exports; not one contains a component file. Pass A's importer numbers I
-confirm **exactly**: 48 files import a barrel, 24 import both a barrel and glass-ui directly.
-Eighteen of the nineteen re-export from the glass-ui **root**; only `input` uses a subpath
-(`/forms`), so the alias layer is internally inconsistent as pass A notes. Inside MixPane's own
-feature there are three idioms in 334 lines: `MixPane.vue:3` (barrel), `MixPane.vue:12` (root,
-direct), `MixSourceSelector.vue:4,7` / `MixResultDisplay.vue:3,6` (subpath, direct).
+`usePaletteWiring` is invoked from `App.vue`, above every pane in the tree. `LIBRARY_PORT_KEY` is
+therefore **unconditionally provided** whenever either component can mount. `MixPane`'s `!` states
+the truth; `MixSourceSelector`'s `pm?.` + `?? []` is a **dead masking fallback** — edict 2's exact
+prohibition, and the same species as the `?.()` masks pass A filed as F-9 and pass D confirmed
+lethal in D-1.
 
-**C-4 · F-9 — the `Ref<any>` shell channel, confirmed.** `usePaneRouter.ts:106–110` types all three
-pane handles `Ref<any>`; `:220–222` dispatch through `paneRefs.mix.value?.clearSelection?.()` etc.
-The `?.` **after the method name** is the tell — the shell cannot know the method exists. Verified
-consequence: renaming `copyResult` at `MixPane.vue:49,57` leaves `npx eslint demo/shell/usePaneRouter.ts`
-at 0 errors 0 warnings and `vue-tsc` green, with the dock's Copy control silently dead. I concur with
-F-9's severity and its provide/inject cure, and note it is also the structural reason F-2's second
-clipboard implementation exists: `writeClipboard` is there because the imperative channel could not
-reach `MixResultDisplay`'s `useClipboard` scope.
+**Failure scenario.** If the provider ever *did* go missing — a pane mounted outside `App`, a future
+test harness, a storybook-style isolation — the two components produce different symptoms for one
+cause: `MixPane` throws at line 43 (`pm.createPalette`), `MixSourceSelector` renders an empty
+palette list and reports nothing. Divergent failure modes for identical missing state is strictly
+worse than either failing consistently.
+
+**Cure.** One contract: `inject(LIBRARY_PORT_KEY)!` in both, matching the provider's actual
+guarantee, and delete the `?? []`. Falls out for free while landing E-2's `ports.ts`, which is the
+natural moment to state the contract once and stop re-deciding it per file.
 
 ---
 
-## Negatives — pass B's own, including two failed hypotheses
+## E-4 · MINOR · NEW — MixPane is a courier for a dependency its child already knows how to inject
 
-Pass A's eight negatives stand except §2 (corrected by B-1) and §4 (narrowed by B-3). Pass B adds:
+Not in any prior index (`grep -n "CSS_COLOR_KEY\|prop-drill\|courier"` across A–D → no output).
 
-**N-B1 · The glass-ui root-barrel bundle-cost claim is DISPROVEN for this route.** F-13 asserts the
-barrels "cost bundle granularity". I tried to measure it and the measurement refutes it *here*:
+`MixPane.vue:15` injects `CSS_COLOR_KEY`. Its **only** use is passing it straight down:
+
+```ts
+const cssColorOpaque = inject(CSS_COLOR_KEY)!;      // :15  — sole declaration
+```
+```html
+:css-color-opaque="cssColorOpaque"                  <!-- :84 — sole use -->
+```
+
+The receiving child injects a *different* key on its own account four lines into its setup
+(`MixSourceSelector.vue:33`), so it is plainly capable of injecting this one. Two mechanisms for
+dependency acquisition inside a single parent/child pair.
+
+The prop version also **weakens the contract**: `MixPane` has `ComputedRef<string>` guaranteed
+present (`inject(…)!`), but hands it over as `cssColorOpaque?: string`
+(`MixSourceSelector.vue:21`), which forces a guard the injection would not need:
+
+```ts
+function addCurrentColor() {
+    if (cssColorOpaque) { emit("addColor", cssColorOpaque, "picker"); }   // :69-73
+}
+```
+
+A required dependency became optional in transit, and the optionality is then handled by silently
+doing nothing — the same masking shape as E-3, arrived at from the other direction.
+
+Project law, from memory of record: *"`cssColorOpaque` injected via `CSS_COLOR_KEY` (not
+prop-drilled)."* MixPane is the exception.
+
+**Cure.** `MixSourceSelector` injects `CSS_COLOR_KEY` directly. The prop, its optional type, the
+`if` guard, and `MixPane.vue:15` all delete. MixPane's script drops to a single inject
+(`LIBRARY_PORT_KEY`, itself deletable under F-17's granularity cure) plus the composable call.
+
+---
+
+## E-5 · CENSUS EXTENSION to pass D's D-2 — the missing affordance behind the two algebras, counted
+
+D-2 established the root cause: two incompatible failure shapes across two subpaths, and two unwrap
+adapters eight lines apart in `picker-color.ts`. Pass E adds the fleet census and a second,
+independent reason the adapters proliferate.
+
+**The census.**
 
 ```
-$ grep -oE 'from ?"\.[^"]*"' node_modules/@mkbabb/glass-ui/dist/glass-ui.js | sort -u | wc -l
-      43                                   # root barrel → 43 static chunk edges
-$ cat node_modules/@mkbabb/glass-ui/dist/card.js
-import { … } from "./card-Bk96VI2R.js";    # ./card subpath → 1 chunk, 5 299 bytes
+$ grep -rn 'if (!.*\.ok) throw new Error' --include='*.ts' --include='*.vue' demo/ | wc -l
+      18
 ```
 
-43 edges versus 1 for the same `Card` — but `demo/color-picker/App.vue` and
-`demo/picker/ColorPicker.vue`, both **eager** and both in the boot graph, already import the glass-ui
-root barrel. So `MixPane`'s lazy chunk (`usePaneRouter.ts:75`, `defineAsyncComponent`) adds **zero
-marginal bytes** on `/#/mix`. F-13 stands in full as a *structure* defect — 19 modules whose only
-function is to give the design system a second name — but the granularity clause should not be cited
-as a cost on this route. It would become a real cost only after the eager root-barrel imports are
-themselves removed.
+Eleven in non-test source, seven in `demo/test/export/byte-exact.test.ts`. **Four wrap `mixColors`
+specifically**, each with a bespoke message and no shared taxonomy:
 
-**N-B2 · The "typecheck reads a different value.js than the runtime" hypothesis is DISPROVEN.** Given
-F-8's frozen install and the missing `/css` `paths` entry, I predicted vue-tsc would read the
-published tarball's `css.d.ts` (350 lines) while Vite served the local build (382 lines) — a live
-type/runtime split on `picker-color.ts`. The trace in C-1 refutes it: `/css` self-references through
-the local `package.json#exports` and lands on the **local** `dist/subpaths/css.d.ts`. Both halves read
-the same file. The split is latent (C-2), not live. Recorded so the absence is evidence.
+```
+demo/palettes/mix.ts:36                                     `Color mix failed: ${result.error.code}`
+demo/workbenches/gradient/…/useGradientInterpolation.ts:37  `Gradient color mix failed: …`
+demo/workbenches/mix/MixAnimationCanvas/…/mixStage.ts:106   `Pigment mix failed: …`
+demo/color-session/ink.ts:153                               `Muted ink mix failed: …`
+```
 
-**N-B3 · No `src/` internal is reachable from MixPane's closure.** Re-verified independently of pass
-A's §1: `grep -rn 'from "@mkbabb/value\.js"' demo/` → 0 hits; the demo's entire library vocabulary is
-`/color` ×25, `/css` ×10, `/math` ×6, `/easing` ×5, `/quantize` ×4. Every specifier in MixPane's
-closure is one a real consumer could write. The T.W1 dogfood keystone holds at the specifier level;
-the defect (C-1) is one layer down in resolution.
+**Two of the four are on MixPane's own chain** — `demo/palettes/mix.ts` via `useMixingState.ts:21`,
+and `mixStage.ts` via `MixAnimationCanvas`. So the single act of pressing "Mix" traverses two
+independently hand-rolled unwrap adapters for one library call.
 
-**N-B4 · `verbatimModuleSyntax` is clean across the subtree.** Eleven type-only imports checked in
-the eight files of MixPane's closure; all use `import type`. Zero violations.
+**The second cause, complementary to D-2's.** Even with one algebra, the published surface offers no
+way to *consume* it. `src/foundation/result.ts` is six lines:
 
-**N-B5 · The `/#/mix` render is correct, read directly.** I opened
-`docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/mix.png`. The pane composes
-correctly at idle: Colors/Palettes segmented tabs, the "Selected" well showing its dashed ghost drop
-target, Color Space / Hue Method reading OKLab / Shorter, the leftover-strategy select correctly
-absent in Colors mode (`MixPane.vue:88`), and a correctly-disabled Mix button at zero selection. All
-four Safari matrices report `overflowX 0`, `main 1`, `pageErr 0`, `consoleErr 0`, `darkClassMissing 0`
-for `/#/mix` (`REPORT.md:123,138,153,168`). I concur with pass A's attribution of the tap-target and
-nameless-button counts to the dock and the left-hand picker rather than to MixPane.
+```ts
+export type Result<T, E> = { readonly ok: true; readonly value: T }
+                         | { readonly ok: false; readonly error: E };
+export const ok  = <T>(value: T): Result<T, never> => ({ ok: true, value });
+export const err = <E>(error: E): Result<never, E> => ({ ok: false, error });
+```
+
+`src/subpaths/color.ts:1-13` re-exports `Result` as a **type only**. Neither `ok` nor `err` nor any
+combinator (`unwrap`, `unwrapOr`, `expect`, `mapResult`) reaches any of the seven published subpaths
+— verified by reading `src/subpaths/color.ts` in full. The package's headline property is
+*failure-explicit* (`package.json:5`) and it ships nothing with which to be explicit about failure.
+Eighteen adapters is the predictable result, and the eighteen live in the one consumer the
+maintainer controls; an external consumer writes the nineteenth.
+
+**Cure — additive to D-2's.** After D-2 unifies the algebra, publish from every `Result`-returning
+subpath:
+
+```ts
+export function unwrap<T, E extends { readonly code: string }>(r: Result<T, E>, context: string): T;
+```
+
+Eighteen bespoke adapters collapse to eighteen call sites of one function with one message shape and
+one place to change the taxonomy. This enlarges the *library* rather than the consumer, which is the
+correct direction whenever N consumers each re-derive the same adapter — and here N is measurable.
+
+---
+
+## Negatives — pass E's own
+
+### N-E1 · **WITHDRAWN UPGRADE** — I re-measured the glass-ui root-barrel cost intending to raise F-13 to MAJOR, and pass B had already disproved the severity
+
+Independently, before reading the priors, I measured `demo/ui/`:
+
+```
+$ for d in demo/ui/*/; do … done      → 19 directories, each ONE index.ts, each a single-line
+                                        re-export from the glass-ui ROOT barrel
+$ node .../closure.mjs
+glass-ui.js       66 files  224193 bytes      ← what `demo/ui/card` reaches
+card.js           10 files   18979 bytes      ← what `@mkbabb/glass-ui/card` reaches
+select.js         11 files   18628 bytes
+collapsible.js     3 files    7407 bytes
+```
+
+and confirmed glass-ui publishes **68** subpath exports including every name the alias layer covers,
+and that the *same feature folder* straddles both paths — `MixResultDisplay.vue:3,6` and
+`MixSourceSelector.vue:4,7` import `/dock`, `/watercolor-dot`, `/tabs` correctly by subpath, while
+`MixPane.vue:3`, `MixConfigBar.vue:9,10` and `MixSourceSelector.vue:5` go through the alias to the
+root barrel.
+
+**Pass C measured the identical 66 / 224,193 figure** (pass C, line 367) and **pass B measured the
+downstream consequence and found it null** (pass B, lines 398-406): the root barrel carries 43
+static chunk edges and MixPane's lazy chunk *"adds zero"*, because the composition root already
+loads it. My upgrade would have double-counted a cost pass B had already shown is not paid at the
+bundle. **F-13 stays MINOR. The upgrade is withdrawn.**
+
+**What survives, and it is worth one paragraph.** Neither B nor C connected `demo/ui/` to the repo's
+own written ruling on exactly this pattern. `demo/shared/utils.ts:12-18`:
+
+> `debounce` was the last symbol holding 7 demo files on the BARE `@mkbabb/value.js` specifier — the
+> full-barrel import that drags the scroll-timeline grammar chunk (~36 KiB gz) into the eager graph
+> for a 40-line timer utility.
+
+That ruling was executed against value.js and it worked — the demo now writes zero bare
+`@mkbabb/value.js` specifiers (verified: `grep -rn '@mkbabb/value\.js' demo/ | grep -v 'value\.js/'`
+→ one hit, the comment itself). It was never applied to glass-ui, which is the larger barrel: 37
+demo files still import `@mkbabb/glass-ui` root against 15 `/dock`, 11 `/watercolor-dot`, 9 `/dark`,
+9 `/aurora`. F-13's cure (delete `demo/ui/`, 19 modules of zero behaviour) is therefore not a
+judgement call — it is the *already-ratified* policy applied to the one package it skipped.
+
+### N-E2 · The `gh-pages` production artifact contains no application code — **recorded as an environment observation, deliberately not reproduced**
+
+`dist/gh-pages/assets/` holds four non-font files; `index-Dezn_h7o.js` is 698 bytes and contains
+only Vite's modulepreload-polyfill IIFE — no Vue runtime, no component chunk, no CSS bundle.
+`index.html` references that file and nothing else.
+
+**Not filed as a finding.** Three `vite build` processes were running concurrently during this audit
+(`ps aux | grep -c "[v]ite build"` → 3) and the artifact's mtime (`Jul 29 10:23`) falls inside this
+session's window, so it may be a mid-flight write by a concurrent seat. I deliberately did **not**
+run `npm run gh-pages` to reproduce: it writes `dist/`, and every other seat in this formation
+resolves `@mkbabb/value.js/*` through that directory — reproducing would have corrupted their
+evidence. Recorded because it matches the `CARRY-LEDGER §F` W44 carry ("the gh-pages prod-preview
+empty-mount = the first deep-audit probe"); **whoever owns the build lane should reproduce it in
+isolation.**
+
+This follows pass D's N-D1 discipline directly: a measured absence proves nothing until its cause is
+ruled out, and here I could not rule it out without damaging the run.
+
+### N-E3 · MixPane's own module hygiene is clean, and the live route is clean — the axis is bounded
+
+Positive evidence, recorded so the defect list is not mistaken for a verdict on the file itself:
+
+- **`verbatimModuleSyntax` (edict 8): fully satisfied.** `MixPane.vue:13`
+  (`import type { PaletteColor }`), `useMixingState.ts:19,20,23`, `MixAnimationCanvas.vue:3,4,6`,
+  `MixConfigBar.vue:12,13,14,15`, `MixResultDisplay.vue:7`, `MixSourceSelector.vue:10,11` — every
+  type-only import in the cone is `import type`. Zero violations.
+- **No deep-path reach into `src/`.** `grep -rn 'from "@src' demo/` → 0 (third confirmation, after
+  pass B and pass D's N-D3). Every value.js import in MixPane's closure is one a real npm consumer
+  could write — the T.W1 demo-dogfood keystone holds.
+- **The live route is clean.** `docs/tranches/V/megatranche/audit/visual/REPORT.md:123,138,153,168` —
+  `/#/mix` across all four Safari matrices: **0** page errors, **0** console errors, **0** horizontal
+  overflow, `main` count exactly **1**, `darkClassMissing` **0**. (`smallTapTargets: 8` desktop / `4`
+  mobile is an a11y-axis row; noted and passed on.)
+- **The screenshot renders correctly.** `shots/safari-desktop-light/mix.png` read directly: header,
+  `SegmentedTabs`, the empty "Selected" dashed well, both selects (OKLab / Shorter), the correctly
+  disabled Mix button. `MixConfigBar`'s preview ramps are absent, which is **correct** —
+  `MixPane.vue:103` passes `operand-colors` as `[]` with no selection, exactly as the T.W6 comment
+  at lines 92-96 states.
+
+**Nothing in the visual evidence contradicts any finding across five passes, and nothing in it adds
+one.** These defects are invisible at runtime by construction — which, with E-1, is the whole
+explanation for how they accumulated through eight closed V′ units.
 
 ---
 
 ## The greenfield lattice — merged
 
-Pass A's lattice (pass A, §"What the greenfield lattice looks like") is correct and I adopt it. Pass
-B amends three lines:
+Pass A's lattice as amended by B, C and D is correct and pass E adopts it whole. Pass E amends two
+lines and adds one law.
 
-**`@mkbabb/value.js/color`** — owns all color mathematics and all color type names.
-`mixColorSequence` is promoted here with a weighted **circular** mean for hue and a `Result` return
-(pass A F-1, unchanged — the strongest cure in either pass). `Color<S>`, `SpaceId`, `AnyColor` are the
-only color type names in the constellation; the six `PickerColorIn` casts delete (B-4). The set of
-interpolable spaces ships from here, so the demo cannot silently lag the library (F-5 + B-3).
+**`demo/palettes/`** — amended: **`ports.ts` is a leaf** holding the five port *interfaces* and the
+five `InjectionKey`s, with zero value imports; `usePalettePorts.ts` imports the types and
+`satisfies` them (E-2). The existing `demo/color-session/keys.ts` is the in-repo proof this shape
+works and costs 1,474 bytes.
 
-**`demo/color-session/`** — owns the session: current color, parse/serialize round-trip, persistence,
-URL sync. Defines **no alias of a library type** (B-4) and re-exports nothing to other features
-(B-3). Exactly one place where `Result` becomes an exception, if one is kept at all (F-4).
+**`eslint.config.js`** — amended: **three layer bans aimed at globs that match live files** (E-1),
+plus a check that no `files:` glob in the config matches zero files. Without this the lattice is a
+document; with it, the lattice is a gate.
 
-**`demo/workbenches/mix/`** — owns the mix end to end:
-
-```
-mix/
-  MixPane.vue                      — composition + layout only
-  MixSourceSelector.vue            — selection UI; stamps geometry markers, never pigment (B-1)
-  MixConfigBar.vue                 — space / hue / strategy UI
-  MixResultDisplay.vue             — the result plate
-  MixAnimationCanvas/
-    MixAnimationCanvas.vue         — assembles {el, css} pigment sources from state (B-1)
-    composables/useMixingAnimation.ts  — the ONE clock; correct today, unchanged
-    composables/mixStage.ts        — geometry + draw; pigment arrives as an argument (B-1)
-  composables/
-    useMixingState.ts              — state machine + the feature's single clipboard scope (F-2)
-    mixPalettes.ts                 — relocated from demo/palettes/mix.ts (B-2)
-    resultToText.ts                — one serializer, one home (F-2)
-```
-
-`demo/palettes/` reverts to palette identity, persistence and transport, reached only through
-`LIBRARY_PORT_KEY` — the seam `MixPane.vue:16` already uses correctly.
-
-Cross-cutting, unchanged from pass A and re-derived here: **one module-resolution authority** (delete
-the `paths` block, after C-2's rebuild), and **actions flow up, not commands down**
-(`providePaneActions()` replaces `defineExpose` + `Ref<any>` + `?.()`, which also removes the reason
-F-2's second clipboard exists).
+**New cross-cutting law pass E adds — *a structural rule that matches no file is worse than no rule,
+because it reads as coverage.*** The demo carries three such rules, each with a paragraph of prose
+asserting a guarantee it has not been able to provide since W43. Five of the twenty-nine findings in
+this merged index are edges those rules were written to refuse. The rule that makes structural
+linting trustworthy: **a guard must fail when you delete its subject, not fall silent.** Concretely —
+assert the match count, or scope the ban by *specifier* (which survives tree moves) rather than by
+*file glob* (which does not). `inv-K-1` does the latter and is the only demo-adjacent guard still
+working.
 
 ---
 
-## Merged findings index — pass A (F-*) + pass B (B-*)
+## Merged findings index — pass A (F-*) + B (B-*) + C (C-*) + D (D-*) + E (E-*)
 
 | id | sev | family | finding | anchor | pass |
 |---|---|---|---|---|---|
-| F-1 | MAJOR | A | N-ary mix is order-dependent — measured 120° hue divergence | `demo/palettes/mix.ts:39` | A |
+| **C-1** | BLOCKER | D | `WatercolorDot` prop contract is fiction at glass-ui 7.0.0; both colors-mode add paths dead | `MixSourceSelector.vue:166,215` | C |
+| F-1 | MAJOR | A | N-ary mix order-dependent — measured 120° hue divergence | `demo/palettes/mix.ts:39` | A |
 | F-2 | MAJOR | B | Two clipboard impls + two serializers, divergent UX | `MixPane.vue:49` / `MixResultDisplay.vue:42` | A |
 | F-3 | MAJOR | B | `MixResult` not a discriminated union → 11 masking guards | `useMixingState.ts:32` | A |
 | F-4 | MAJOR | A | `Result` erased by throwing adapter; no failure surface | `picker-color.ts:104` | A |
-| **B-1** | **MAJOR** | **D** | **Pigment travels through the DOM as JSON + silent `catch`; corrects pass-A Negatives §2** | **`mixStage.ts:140,150`** | **B** |
-| F-6 | MAJOR | C | `paths` forked from `exports`; 3 dead keys, 2 missing | `tsconfig.demo.json` | A (C-1) |
-| F-7 | MAJOR | C | Two resolution mechanisms in one file | `picker-color.ts:1,28` | A (C-1) |
-| F-8 | MAJOR | C | Undeclared frozen `value.js@4.0.0`; `css.d.ts` differs 382 vs 350 lines | `node_modules/@mkbabb/value.js` | A (C-2) |
-| F-9 | MAJOR | D | Shell→feature `Ref<any>` + `?.()` masks | `usePaneRouter.ts:107,220` | A (C-4) |
-| F-14 | MAJOR | D | `test/` imports `demo/`; `test/` in no tsconfig program | `test/mix-v4.test.ts:3` | A |
-| **B-4** | **MAJOR** | **B** | **`PickerColorIn<S>` forces 6 casts, 2 `as unknown as`, on library returns — dissent: pass A filed INFO** | **`picker-color.ts:36`** | **B** |
+| D-2 | MAJOR | A | Library publishes TWO incompatible failure algebras (`.error` vs `.diagnostics`) — root cause under F-4 | `src/css/types.ts:26` / `picker-color.ts:104,113` | D |
+| **E-5** | **MAJOR** | **A** | **D-2 censused: 18 hand-rolled unwrap adapters in demo, 4 wrapping `mixColors`, 2 on MixPane's chain; `ok`/`err`/no combinator reach ANY published subpath** | **`src/foundation/result.ts` / `src/subpaths/color.ts:1`** | **E** |
+| B-1 | MAJOR | D | Pigment travels through the DOM as JSON + silent `catch` | `mixStage.ts:140,150` | B |
+| C-2 | MAJOR | D | `[data-mix-target]` never exists → B-1's invented-geometry fallback is the ONLY branch taken | `MixResultDisplay.vue:68` / `mixStage.ts:121` | C |
+| F-6 | MAJOR | C | `paths` forked from `exports`; 3 dead keys, 2 missing | `tsconfig.demo.json:42` | A (B·C-1, C·N-C1, D·N-D3, E re-derived) |
+| F-7 | MAJOR | C | Two resolution mechanisms in one file | `picker-color.ts:1,28` | A (B·C-1, D·N-D3) |
+| F-8 | MAJOR | C | Undeclared frozen `value.js@4.0.0`; `css.d.ts` differs from checkout (10,910 vs 12,490 B) | `node_modules/@mkbabb/value.js` | A (B·C-2, E re-measured) |
+| F-9 | MAJOR | D | Shell→feature `Ref<any>` + `?.()` masks | `usePaneRouter.ts:107,220` | A (B·C-4) |
+| C-3 | MAJOR | D | F-9's channel never bound in the mobile layout — CONFIRMED by D-1 | `App.vue:83,319,331` | C (D-1) |
+| D-1 | MAJOR | D | C-3 closed by direct instance read: mobile `mixPaneRef` = null, all 3 dock actions rendered; desktop = live | live `App.setupState` | D |
+| **E-1** | **MAJOR** | **D** | **The 3 demo architectural ESLint guards (G-DEMO-1/3a/3b) target `demo/@/**`, deleted at W43 — 0 files matched; the surviving glob bans a retired specifier. No mechanical direction enforcement since W43 — the enabler under F-9/C-3/D-1/F-17/F-13/F-14** | **`eslint.config.js` (G-DEMO objects)** | **E** |
+| F-14 | MAJOR | D | `test/` imports `demo/`; `test/` in no tsconfig program | `test/mix-v4.test.ts:3` | A (D-5) |
+| B-4 | MAJOR | B | `PickerColorIn<S>` forces 6 casts, 2 `as unknown as`, on library returns | `picker-color.ts:36` | B |
+| **E-2** | **MAJOR** | **D** | **F-17 upgraded INFO→MAJOR by measurement: the injection Symbol is co-homed with the god provider — 29 modules / 107,417 B / 34.2% of MixPane's static closure reachable ONLY via that edge (admin API + auth + transport). In-repo cure precedent: `demo/color-session/keys.ts` = 1 module / 1,474 B** | **`usePalettePorts.ts:272` / `MixPane.vue:10`** | **E** |
 | F-5 | MINOR | A | Space type 17-wide, UI offers 9 | `useMixingState.ts:44` | A |
-| F-10 | MINOR | D | Child defines parent's scroll host, unscoped | `PaneHeader.vue:40` | A |
+| F-10 | MINOR | D | Child defines parent's scroll host, unscoped | `PaneHeader.vue:40` | A (D-6) |
 | F-11 | MINOR | B | `export/` (11 modules) test-only; `export.ts` is live | `demo/palettes/export*` | A |
-| F-12 | MINOR | D | 4× duplicated pane chrome, 3 drifted variants | `MixPane.vue:61` | A |
-| F-13 | MINOR | D | `demo/ui/` = **19** (not 20) pure aliases; 48 importers, 24 straddle | `demo/ui/card/index.ts` | A (C-3) |
-| F-16 | MINOR | D | Dead `computed` import; lint structurally blind | `MixPane.vue:2` | A (B-5) |
-| **B-2** | **MINOR** | **A** | **`demo/palettes/mix.ts` has 1 consumer, in another feature — wrong home survives F-1's cure** | **`useMixingState.ts:24`** | **B** |
-| **B-3** | **MINOR** | **B** | **`INTERPOLATION_SPACES` re-exported by the vacated path; narrows pass-A Negatives §4** | **`useGradientInterpolation.ts:17`** | **B** |
-| **B-5** | **MINOR** | **D** | **Lint relaxation's rationale false at HEAD: `src/` has 0 `any`, `demo/` has 52** | **`eslint.config.js:8`** | **B** |
-| F-15 | — | B | superseded by B-4 (severity INFO → MAJOR) | `picker-color.ts:35` | A→B |
-| F-17 | INFO | D | 19-member port injected for one member | `MixPane.vue:16` | A |
+| F-12 | MINOR | D | Duplicated pane chrome | `MixPane.vue:61` | A (D-6, E re-derived: 6 `Card tier="resting"` sites) |
+| D-6 | MINOR | D | F-12 re-censused: 4 independently-duplicated layers; MixPane's outer wrapper inert | `MixPane.vue:61-62` | D |
+| F-13 | MINOR | D | `demo/ui/` = 19 pure aliases onto the glass-ui ROOT barrel; 48 importers, 24 straddle | `demo/ui/card/index.ts` | A (B·C-3, C-6, E·N-E1) |
+| F-16 | MINOR | D | Dead `computed` import; lint AND `noUnusedLocals` both structurally blind | `MixPane.vue:2` | A (B-5, E re-derived) |
+| B-2 | MINOR | A | `demo/palettes/mix.ts` consumed from another feature | `useMixingState.ts:24` | B (D-5) |
+| D-5 | MINOR | A | B-2 re-censused: 3 importers (2 demo + 1 test), ZERO in `demo/palettes/` | `demo/palettes/mix.ts` | D |
+| B-3 | MINOR | B | `INTERPOLATION_SPACES` re-exported by the vacated path | `useGradientInterpolation.ts:17` | B |
+| B-5 | MINOR | D | Lint relaxation's rationale false at HEAD | `eslint.config.js:8` | B |
+| C-4 | MINOR | D | Three parallel homes for demo tests (10 / 1 / 3) | `vitest.config.ts:20` | C |
+| C-5 | MINOR | D | `test/dist/` workaround outlives the deleted directory | `vitest.config.ts:25` | C |
+| D-3 | MINOR | D | `MixConfigBar` type-imports `reka-ui` directly, bypassing glass-ui; 4 sites fleet-wide | `MixConfigBar.vue:15` | D (E re-derived) |
+| D-4 | MINOR | A | `PaletteMixOptions.weights` dead surface kept alive by its own test; `weight`/`weights` name two concepts | `demo/palettes/mix.ts:25` | D |
+| **E-3** | **MINOR** | **D** | **One injection key, two contradictory contracts 4 files apart: `inject(…)!` vs `inject(…)` + `pm?.` + `?? []`. Provider proven unconditional at App root → the `?.` is dead masking (edict 2)** | **`MixPane.vue:16` / `MixSourceSelector.vue:33-34`** | **E** |
+| **E-4** | **MINOR** | **D** | **MixPane is a courier for `CSS_COLOR_KEY` — sole use is prop pass-through, to a child that already injects a different key itself; required→optional in transit, guarded by silence** | **`MixPane.vue:15,84` / `MixSourceSelector.vue:21,69`** | **E** |
+| F-15 | — | B | superseded by B-4 (INFO → MAJOR) | `picker-color.ts:35` | A→B |
+| F-17 | — | D | superseded by E-2 (INFO → MAJOR) | `MixPane.vue:16` | A→E |
 
-**Totals: 21 live findings — 11 MAJOR, 8 MINOR, 1 INFO, 1 superseded.** Pass B contributes 5 (1
-MAJOR, 4 MINOR), one severity dissent, two corrections to pass-A negatives, one census correction,
-and two disproven hypotheses of its own.
+**Totals: 33 live findings — 1 BLOCKER, 17 MAJOR, 15 MINOR, 2 superseded.** Pass E contributes 4 new
+(2 MAJOR, 2 MINOR), one severity upgrade with a new mechanism (F-17 → E-2, INFO → MAJOR), one census
+extension (D-2 → E-5, MAJOR), and one **withdrawn** upgrade recorded in full with the prior-pass
+evidence that killed it (N-E1, F-13 stays MINOR).
 
-**Strongest defect overall (both passes): F-1** — a measured, user-visible wrong answer (120° of hue
-from click order) whose root cause is a homing error. Pass B does not displace it.
+**Strongest defect overall (all five passes): C-1** — unchanged. A feature with no working entry
+point outranks everything structural.
 
-**Strongest defect pass B adds: B-1** — the animation's pigment inputs travel through the DOM as a
-JSON string behind a silent `catch`, in the one file pass A certified as exemplary.
+**Strongest defect pass E contributes: E-1.** It is the only finding in thirty-three that is about
+the **enforcement layer** rather than the structure, and it is the mechanical reason the other
+thirty-two could accumulate. Three `no-restricted-imports` guards, each carrying prose asserting the
+demo module graph "cannot silently re-invert", have matched zero files since W43 deleted `demo/@/`.
+Five of the filed findings are edges those guards were written to refuse. Every other finding across
+five passes says *this is wrong*; E-1 says *and nothing was watching*.

@@ -1,0 +1,477 @@
+##### DESKTOP-1440-light #####
+{
+ "kRailDiv": {
+  "w": 434,
+  "h": 24,
+  "x": 252,
+  "y": 494.66
+ },
+ "kRailStyle": {
+  "backgroundImage": "none",
+  "backgroundColor": "oklch(0.545141 0.218024 9.834023)",
+  "boxShadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset",
+  "height": "24px"
+ },
+ "sliders": [
+  {
+   "ariaLabel": "Number of colors",
+   "size": "md",
+   "variant": "spectrum",
+   "disabledAttr": null,
+   "trackRect": {
+    "w": 434,
+    "h": 24,
+    "x": 252,
+    "y": 494.66
+   },
+   "thumbRect": {
+    "w": 12,
+    "h": 24,
+    "x": 364.53,
+    "y": 494.66
+   },
+   "trackBgImage": "none",
+   "trackBgColor": "rgba(0, 0, 0, 0)",
+   "thumbSizeVar": "1rem",
+   "trackHeightVar": "1.25rem"
+  },
+  {
+   "ariaLabel": "Chroma weight",
+   "size": "md",
+   "variant": "spectrum",
+   "disabledAttr": null,
+   "trackRect": {
+    "w": 230.45,
+    "h": 24,
+    "x": 360.55,
+    "y": 538.66
+   },
+   "thumbRect": {
+    "w": 12,
+    "h": 24,
+    "x": 433.36,
+    "y": 538.66
+   },
+   "trackBgImage": "none",
+   "trackBgColor": "oklch(0.545141 0.218024 9.834023)",
+   "thumbSizeVar": "1rem",
+   "trackHeightVar": "1.25rem"
+  }
+ ],
+ "rowSeparators": [
+  {
+   "cls": "dock-separator",
+   "role": "separator",
+   "ariaOrientation": "vertical",
+   "rect": {
+    "w": 1,
+    "h": 0,
+    "x": 326,
+    "y": 550.66
+   },
+   "bg": "color(srgb 0.11 0.098 0.09 / 0.15)",
+   "bgImage": "none",
+   "borderL": "0px / rgb(198, 180, 159)",
+   "opacity": "1",
+   "display": "block"
+  },
+  {
+   "cls": "dock-separator",
+   "role": "separator",
+   "ariaOrientation": "vertical",
+   "rect": {
+    "w": 1,
+    "h": 0,
+    "x": 631,
+    "y": 550.66
+   },
+   "bg": "color(srgb 0.11 0.098 0.09 / 0.15)",
+   "bgImage": "none",
+   "borderL": "0px / rgb(198, 180, 159)",
+   "opacity": "1",
+   "display": "block"
+  }
+ ],
+ "rowButtons": [
+  {
+   "title": "Upload image",
+   "ariaLabel": null,
+   "ariaLabelledby": null,
+   "text": "",
+   "disabled": false,
+   "rect": {
+    "w": 40,
+    "h": 40,
+    "x": 224,
+    "y": 530.66
+   }
+  },
+  {
+   "title": "Open camera",
+   "ariaLabel": null,
+   "ariaLabelledby": null,
+   "text": "",
+   "disabled": false,
+   "rect": {
+    "w": 40,
+    "h": 40,
+    "x": 272,
+    "y": 530.66
+   }
+  },
+  {
+   "title": "Reset",
+   "ariaLabel": null,
+   "ariaLabelledby": null,
+   "text": "",
+   "disabled": true,
+   "rect": {
+    "w": 40,
+    "h": 40,
+    "x": 646,
+    "y": 530.66
+   }
+  }
+ ],
+ "kcLabelColor": "oklch(0.446872 0.003862 34.629978)",
+ "kcLabelRect": {
+  "w": 13.55,
+  "h": 13.75,
+  "x": 341,
+  "y": 543.78
+ },
+ "kcReadoutRect": {
+  "w": 230.45,
+  "h": 24,
+  "x": 360.55,
+  "y": 538.66
+ },
+ "kcReadoutStyle": {
+  "textAlign": "start",
+  "width": "230.453125px",
+  "overflow": "visible",
+  "scrollW": 230,
+  "clientW": 230
+ },
+ "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+ "touchGateApplied": 0
+}
+
+##### MOBILE-390-dark #####
+{
+ "kRailDiv": {
+  "w": 296,
+  "h": 24,
+  "x": 61,
+  "y": 459.28
+ },
+ "kRailStyle": {
+  "backgroundImage": "none",
+  "backgroundColor": "oklch(0.958322 0.021053 9.834023)",
+  "boxShadow": "oklch(0.958322 0.021053 9.834023) 0px 0px 0px 1.5px inset",
+  "height": "24px"
+ },
+ "sliders": [
+  {
+   "ariaLabel": "Number of colors",
+   "size": "md",
+   "variant": "spectrum",
+   "disabledAttr": null,
+   "trackRect": {
+    "w": 296,
+    "h": 24,
+    "x": 61,
+    "y": 459.28
+   },
+   "thumbRect": {
+    "w": 12,
+    "h": 44,
+    "x": 136.72,
+    "y": 449.28
+   },
+   "trackBgImage": "none",
+   "trackBgColor": "rgba(0, 0, 0, 0)",
+   "thumbSizeVar": "1rem",
+   "trackHeightVar": "1.25rem"
+  },
+  {
+   "ariaLabel": "Chroma weight",
+   "size": "md",
+   "variant": "spectrum",
+   "disabledAttr": null,
+   "trackRect": {
+    "w": 80.45,
+    "h": 24,
+    "x": 177.55,
+    "y": 505.28
+   },
+   "thumbRect": {
+    "w": 12,
+    "h": 44,
+    "x": 200.36,
+    "y": 495.28
+   },
+   "trackBgImage": "none",
+   "trackBgColor": "oklch(0.958322 0.021053 9.834023)",
+   "thumbSizeVar": "1rem",
+   "trackHeightVar": "1.25rem"
+  }
+ ],
+ "rowSeparators": [
+  {
+   "cls": "dock-separator",
+   "role": "separator",
+   "ariaOrientation": "vertical",
+   "rect": {
+    "w": 1,
+    "h": 0,
+    "x": 143,
+    "y": 517.28
+   },
+   "bg": "color(srgb 0.978992 0.964807 0.950623 / 0.15)",
+   "bgImage": "none",
+   "borderL": "0px / rgb(101, 87, 73)",
+   "opacity": "1",
+   "display": "block"
+  },
+  {
+   "cls": "dock-separator",
+   "role": "separator",
+   "ariaOrientation": "vertical",
+   "rect": {
+    "w": 1,
+    "h": 0,
+    "x": 298,
+    "y": 517.28
+   },
+   "bg": "color(srgb 0.978992 0.964807 0.950623 / 0.15)",
+   "bgImage": "none",
+   "borderL": "0px / rgb(101, 87, 73)",
+   "opacity": "1",
+   "display": "block"
+  }
+ ],
+ "rowButtons": [
+  {
+   "title": "Upload image",
+   "ariaLabel": null,
+   "ariaLabelledby": null,
+   "text": "",
+   "disabled": false,
+   "rect": {
+    "w": 44,
+    "h": 44,
+    "x": 33,
+    "y": 495.28
+   }
+  },
+  {
+   "title": "Open camera",
+   "ariaLabel": null,
+   "ariaLabelledby": null,
+   "text": "",
+   "disabled": false,
+   "rect": {
+    "w": 44,
+    "h": 44,
+    "x": 85,
+    "y": 495.28
+   }
+  },
+  {
+   "title": "Reset",
+   "ariaLabel": null,
+   "ariaLabelledby": null,
+   "text": "",
+   "disabled": true,
+   "rect": {
+    "w": 44,
+    "h": 44,
+    "x": 313,
+    "y": 495.28
+   }
+  }
+ ],
+ "kcLabelColor": "oklch(0.8894 0.003822 41.868439)",
+ "kcLabelRect": {
+  "w": 13.55,
+  "h": 13.75,
+  "x": 158,
+  "y": 510.41
+ },
+ "kcReadoutRect": {
+  "w": 80.45,
+  "h": 44,
+  "x": 177.55,
+  "y": 495.28
+ },
+ "kcReadoutStyle": {
+  "textAlign": "start",
+  "width": "80.453125px",
+  "overflow": "visible",
+  "scrollW": 80,
+  "clientW": 80
+ },
+ "inkMuted": "oklch(88.939954106575% 0.003821851545 41.86844006185deg)",
+ "touchGateApplied": 0
+}
+
+##### DESKTOP-forced-colors #####
+{
+ "kRailDiv": {
+  "w": 434,
+  "h": 24,
+  "x": 252,
+  "y": 494.64
+ },
+ "kRailStyle": {
+  "backgroundImage": "none",
+  "backgroundColor": "oklch(0.594176 0.237635 9.834023)",
+  "boxShadow": "oklch(0.594176 0.237635 9.834023) 0px 0px 0px 1.5px inset",
+  "height": "24px"
+ },
+ "sliders": [
+  {
+   "ariaLabel": "Number of colors",
+   "size": "md",
+   "variant": "spectrum",
+   "disabledAttr": null,
+   "trackRect": {
+    "w": 434,
+    "h": 24,
+    "x": 252,
+    "y": 494.64
+   },
+   "thumbRect": {
+    "w": 12,
+    "h": 24,
+    "x": 364.53,
+    "y": 494.64
+   },
+   "trackBgImage": "none",
+   "trackBgColor": "rgba(0, 0, 0, 0)",
+   "thumbSizeVar": "1rem",
+   "trackHeightVar": "1.25rem"
+  },
+  {
+   "ariaLabel": "Chroma weight",
+   "size": "md",
+   "variant": "spectrum",
+   "disabledAttr": null,
+   "trackRect": {
+    "w": 230.45,
+    "h": 24,
+    "x": 360.55,
+    "y": 538.64
+   },
+   "thumbRect": {
+    "w": 12,
+    "h": 24,
+    "x": 433.36,
+    "y": 538.64
+   },
+   "trackBgImage": "none",
+   "trackBgColor": "oklch(0.594176 0.237635 9.834023)",
+   "thumbSizeVar": "1rem",
+   "trackHeightVar": "1.25rem"
+  }
+ ],
+ "rowSeparators": [
+  {
+   "cls": "dock-separator",
+   "role": "separator",
+   "ariaOrientation": "vertical",
+   "rect": {
+    "w": 1,
+    "h": 0,
+    "x": 326,
+    "y": 550.64
+   },
+   "bg": "color(srgb 0.11 0.098 0.09 / 0.15)",
+   "bgImage": "none",
+   "borderL": "0px / rgb(198, 180, 159)",
+   "opacity": "1",
+   "display": "block"
+  },
+  {
+   "cls": "dock-separator",
+   "role": "separator",
+   "ariaOrientation": "vertical",
+   "rect": {
+    "w": 1,
+    "h": 0,
+    "x": 631,
+    "y": 550.64
+   },
+   "bg": "color(srgb 0.11 0.098 0.09 / 0.15)",
+   "bgImage": "none",
+   "borderL": "0px / rgb(198, 180, 159)",
+   "opacity": "1",
+   "display": "block"
+  }
+ ],
+ "rowButtons": [
+  {
+   "title": "Upload image",
+   "ariaLabel": null,
+   "ariaLabelledby": null,
+   "text": "",
+   "disabled": false,
+   "rect": {
+    "w": 40,
+    "h": 40,
+    "x": 224,
+    "y": 530.64
+   }
+  },
+  {
+   "title": "Open camera",
+   "ariaLabel": null,
+   "ariaLabelledby": null,
+   "text": "",
+   "disabled": false,
+   "rect": {
+    "w": 40,
+    "h": 40,
+    "x": 272,
+    "y": 530.64
+   }
+  },
+  {
+   "title": "Reset",
+   "ariaLabel": null,
+   "ariaLabelledby": null,
+   "text": "",
+   "disabled": true,
+   "rect": {
+    "w": 40,
+    "h": 40,
+    "x": 646,
+    "y": 530.64
+   }
+  }
+ ],
+ "kcLabelColor": "oklch(0.492722 0.003862 34.629978)",
+ "kcLabelRect": {
+  "w": 13.55,
+  "h": 13.75,
+  "x": 341,
+  "y": 543.77
+ },
+ "kcReadoutRect": {
+  "w": 230.45,
+  "h": 24,
+  "x": 360.55,
+  "y": 538.64
+ },
+ "kcReadoutStyle": {
+  "textAlign": "start",
+  "width": "230.453125px",
+  "overflow": "visible",
+  "scrollW": 230,
+  "clientW": 230
+ },
+ "inkMuted": "oklch(49.27224168876% 0.003861589952 34.629978305623deg)",
+ "touchGateApplied": 0
+}
+

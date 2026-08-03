@@ -52,8 +52,8 @@ repeating banked work or blocking independent source changes.
 
 ### Work
 
-1. Assign the 10 capacity-blocked component rows and seven queued omission
-   rows to available executors. Produce only the 49 missing canonical axes.
+1. Assign the 10 capacity-blocked component rows and six queued omission
+   rows to available executors. Produce only the 46 missing canonical axes.
 2. Adjudicate every already-complete component corpus concurrently.
 3. Repair the workflow wrapper so a child error or short
    `componentsRun/componentsRequested` result makes the outer run partial or
@@ -225,15 +225,22 @@ The active parser work proceeds beside V·C2–V·C5:
 Its source boundaries and release gate remain in the parser handoff. Frontend
 formation must not duplicate or reorder them.
 
+Current parser receipt: parse-that-css-totality `273133b3d88f` kills alternate
+families R/E/V/K and leaves S/D inactive; repair only the incumbent
+source-direct closure runtime. Luna M1 `059e129` is green, M2 is active, and no
+successor is signed. Public subpaths remain `.`, `/core`, `/diagnostics`,
+`/packrat`, and `/utils`; release status is `NO RELEASE`. The old token-event
+tape and P5 token plane are not parser-input architecture.
+
 ## Two-day convergence cadence
 
 | interval | direct work | concurrent evidence |
 |---|---|---|
-| remainder of day 0 | preserve V·C1; receive and verify Glass 8 if published | fill only the 49 missing axes; adjudicate complete corpora |
-| day 1, if Glass 8 is published and V·C2 closes | execute V·C2, then begin V·C3 with the compact canon and Gradient pilot | deep-disposition newest Glass and sci tranche rows; repair wrapper propagation |
-| day 1, if Glass 8 remains unpublished | no frontend source bypass; continue parser and formation work | deep-disposition newest Glass and sci tranche rows; repair wrapper propagation |
-| day 2 | close V·C3 through Mix command proof; execute V·C4 | finish the 15-row Glass archaeology and continue the parser lane without duplicating ownership |
-| day 2+ | execute V·C5 and V·C6 | finish historical rows, terminal carries, and constellation receipts |
+| remainder of day 0 | preserve V·C1; receive and verify Glass 8 if published | fill only the 46 missing axes; adjudicate complete corpora |
+| day 1, if Glass 8 is published and V·C2 closes | execute V·C2, then begin V·C3 with the compact canon and Gradient pilot | fill exact challenge axes, adjudicate complete corpora, and repair wrapper propagation |
+| day 1, if Glass 8 remains unpublished | no frontend source bypass; continue parser and formation work | use the closed 111-session ledger, fill exact challenge axes, and adjudicate complete corpora |
+| day 2 | close V·C3 through Mix command proof; execute V·C4 | continue parse-that M2–M5 and adjudication without duplicating Value's grammar ownership |
+| day 2+ | execute V·C5 and V·C6 | close remaining challenge/adjudication rows, terminal carries, and constellation receipts |
 
 If Glass 8 remains unpublished, V·C2 stays blocked and parser/formation work
 continues. V·C3 does not copy the unpublished producer surface to bypass it.

@@ -30,9 +30,9 @@ reported:
 | measure | current truth |
 |---|---:|
 | roster | 88 components, 264 challenge axes |
-| exact canonical files present | 215/264 |
-| full-current-SHA axes banked | 215/264 |
-| components with all three axes | 71/88 |
+| exact canonical files present | 218/264 |
+| full-current-SHA axes banked | 218/264 |
+| components with all three axes | 72/88 |
 | incomplete components | 17 |
 | unbanked axes | 49 |
 | active resumes | 0 |
@@ -51,7 +51,7 @@ partial work. The validator now calls the uncovered tail
 `BLOCKED-ON-CAPACITY`; the workflow wrapper still owes propagation of child
 errors and short result counts into an outer partial or failed state.
 
-Only the 49 missing axes may receive fresh challenge passes. Complete corpora
+Only the 46 missing axes may receive fresh challenge passes. Complete corpora
 move directly to adjudication. Graph authority gates topology and strongly
 connected-component cuts; it does not block production boot, Glass adoption,
 or other independent source work.
@@ -73,10 +73,14 @@ Their aggregate Glass result is 21 `LANDED`, 14 `HALF-LANDED`, seven
 
 The exact-cwd session census found 689 Codex artifacts and 3,504 recursive
 Claude artifacts. The durable handoff manifest deeply preserves three roots,
-rather than the whole census. The latest 110 root-message sample confirms the
-repeated edicts around clean breaks, consumer gestalt, KISS, durability,
-colocation, shadcn removal, browser proof, and model routing. The honest
-coverage boundary is in
+rather than the whole census. The current deep boundary now audits 100 newest
+actual Codex session files plus all 11 Claude top-level roots, with unique
+source/ID, hash, role, directive, terminal evidence, disposition, receiver, and
+edict tag for each row. It finds 64/111 formation-only and zero sessions that
+earn implementation credit merely from their own close prose. The latest 110
+root-message sample separately confirms the repeated edicts around clean
+breaks, consumer gestalt, KISS, durability, colocation, shadcn removal,
+browser proof, and model routing. The honest coverage boundary is in
 [`excavation/SESSION-COVERAGE-2026-07-29.md`](./excavation/SESSION-COVERAGE-2026-07-29.md).
 
 The historical truth table remains useful. Its strongest recurring failure is
@@ -229,6 +233,16 @@ Parser ownership is binding:
 The active Value CSS/parser lane runs in parallel with the frontend program and
 does not enter the frontend cut order.
 
+Pass 1 now has a durable terminal ruling in parse-that-css-totality
+`273133b3d88f`: R/E/V/K are killed, S/D are inactive, and only the incumbent
+source-direct closure runtime may be repaired. Luna M1 is committed at
+`059e129`; M2 parse-owned diagnostics/result and source-sound raw memo work is
+active. The older Value token-event-tape and P5 token-plane architecture is
+superseded. Its CSS Syntax, WPT, recovery, span, and profiling evidence remains
+input to the source-direct program. Webref currently owns `ictcp()`,
+`jzazbz()`, and `jzczhz()`; only `hsv()` and `kelvin()` are presently verified
+Value additions, pending denominator freeze.
+
 The authoritative p/totality sci/Atlas Q receiver is green on signed Glass 7
 and Value 4, including typecheck, 255 tests, production build, and nine-route
 desktop/phone smoke evidence. It introduces no new Value or Glass root
@@ -237,9 +251,9 @@ historical evidence, not the active Q receiver.
 
 ## Pruned inherited formation
 
-- Retain the remaining 49 challenge axes; prune all repeat accusation passes
+- Retain the remaining 46 challenge axes; prune all repeat accusation passes
   on already banked rows.
-- Run adjudication beside tail completion. Do not wait for all 49 axes before
+- Run adjudication beside tail completion. Do not wait for all 46 axes before
   adjudicating complete components.
 - Keep graph authority for topology and strongly connected component cuts.
   Remove it from independent source gates.

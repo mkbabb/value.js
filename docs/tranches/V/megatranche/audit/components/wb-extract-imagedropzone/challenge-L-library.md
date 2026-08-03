@@ -1,687 +1,636 @@
 # CHALLENGE-L — library structure · `demo/workbenches/extract/ImageDropZone.vue`
 
+**Pass 2 · 2026-07-28.** Pass 1 (same seat/axis, 19:20 today) is archived verbatim at
+`challenge-L-library.pass1-2026-07-28-prior.md`. This file is authoritative. Pass-1 findings are
+carried forward by ID with an explicit disposition; three findings are NEW (L-11, L-12, L-13) and
+two pass-1 findings are UPGRADED on measured evidence this pass produced.
+
 ## Model receipt
 
-I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant,
-declared explicitly at spawn. The seat is declared, not inherited.
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context variant.
+The seat was declared explicitly at spawn; it is not inherited. Axis: **CHALLENGE-L — library
+structure** (module boundaries, ownership, dependency direction, public surface).
 
-- **Axis**: CHALLENGE-L — library structure (module boundaries, ownership, dependency direction,
-  public surface).
-- **Subject**: `demo/workbenches/extract/ImageDropZone.vue` — 113 lines (`wc -l`), area
-  `demo/workbenches`.
+- **Subject**: `demo/workbenches/extract/ImageDropZone.vue` — 113 lines, area `demo/workbenches`.
 - **Repo/HEAD**: `/Users/mkbabb/Programming/value.js`, branch `tranche-u`, HEAD `c654824e`.
-- **Verdict**: **DEFECTIVE** — 6 MAJOR (L-1…L-6), 3 MINOR (L-7…L-9), 1 INFO (L-10).
-- **Write scope honoured**: this file is the only artefact written under
-  `docs/tranches/V/megatranche/audit/components/wb-extract-imagedropzone/`. No source edited.
+- **Write scope honoured**: everything written this pass lives under
+  `docs/tranches/V/megatranche/audit/components/wb-extract-imagedropzone/`
+  (this file, the pass-1 archive, `pass2-probe/`). **No source edited.**
+
+---
+
+## Verdict
+
+**DEFECTIVE.** 1 BLOCKER · 8 MAJOR · 3 MINOR · 1 INFO.
+
+The component is 113 lines with two import edges, both legal, and zero deep-path reaches into
+`src/`. Every defect on this axis is about what it *does not* declare: a capability it owns but
+cannot deliver (intake), a material it re-mints by hand (the well), a token seam it duplicates five
+times (`.plate-ink`), and a contract it carries through attribute fallthrough instead of an emit —
+which is why the pane's sampling affordance has **no keyboard path at all**, measured this pass.
+
+| ID | Severity | Disposition | One line |
+|---|---|---|---|
+| **L-13** | **BLOCKER** | **NEW (upgrade of L-8)** | The sample intent rides an undeclared native `click`; there is no keyboard twin — measured: Enter → nothing, pointer → eyedropper |
+| **L-12** | MAJOR | **NEW (promoted from L-4's bullet, now measured)** | Two intake paths, one MIME guard: a `.txt` through the picker reaches `<img src="data:text/plain…">` + 2 unhandled `InvalidStateError`, no user-visible error |
+| **L-11** | MAJOR | **NEW** | The plate material is hand-minted from `--primary` @ 5/10/30% α — a parallel mint of the certified rung-2 WELL, whose home (`.dashed-well`, `--well-bg`, `--card-edge`) already exists with two consumers |
+| L-1 | MAJOR | CONFIRMED | `.plate-ink` is a 5-consumer cross-feature recipe living as 5 scoped twins; 0 declarations in `demo/styles/` |
+| L-2 | MAJOR | CONFIRMED + measured | `var(--ink-muted, var(--muted-foreground))` is a masking fallback; `--ink-muted` is stamped live, so the second arm never fires |
+| L-3 | MAJOR | CONFIRMED | Inverted ownership: the file-dialog lives in the leaf; the parent reaches in through `defineExpose` + a template ref |
+| L-4 | MAJOR | CONFIRMED | Hand-rolled drag/file mechanics that installed `@vueuse/core@14.3.0` already owns |
+| L-5 | MAJOR | CONFIRMED + measured | `disableClick` is a phantom degree of freedom; two rendered branches are unreachable |
+| L-6 | MAJOR | CONFIRMED + measured | The only inline-`:style` motion override in the demo; half of it is provably inert |
+| L-7 | MINOR | CARRIED (adjacent file) | `useExtractSession` hand-rolls a debounce beside the demo's ONE debounce |
+| L-8 | — | **SUPERSEDED by L-13** | (was MINOR: three outward channels, the load-bearing one undeclared) |
+| L-9 | MINOR | CARRIED | `tsconfig.demo.json` `paths` drift |
+| L-10 | INFO | CONFIRMED | glass-ui 7.0.0 ships no drop-zone primitive; demo-local residence is correct |
+| **L-14** | MINOR | **NEW** | The consumer holds this component with the pre-3.5 `ref<InstanceType<typeof …>>` idiom in the same file that uses `useTemplateRef` |
 
 ---
 
 ## 0 · The import closure, traced
 
 ```
-$ grep -n "^import\|from \"" demo/workbenches/extract/ImageDropZone.vue
+$ grep -n "^import" demo/workbenches/extract/ImageDropZone.vue
 66:import { ref, useTemplateRef } from "vue";
 67:import { ImagePlus } from "@lucide/vue";
 ```
 
-Two edges. Both legal. **Everything interesting about this component's library structure is in what
-it does *not* import** — the substrate it consumes through the global CSS namespace with no declared
-edge at all, and the capabilities it re-implements that already have a home.
+Two edges. Both legal. Both **correct**:
 
-The declared surface is only a third of the truth. The component's *real* dependency set is:
+- `@lucide/vue@^1.16.0` is the single icon source in the tree — 11/11 workbench files import from it,
+  0 from `lucide-vue-next`. No dual icon path.
+- No `@src/` reach. `grep -rn "@src/" demo/ | grep -v assets/docs` → **empty**. The T.W1 dogfood
+  posture holds: the demo never touches library internals.
+
+**The published-surface question, answered.** `ImageDropZone` imports nothing from
+`@mkbabb/value.js`. The feature around it does, and does it correctly — every specifier is a bare
+published subpath a real consumer could write, and every type-only import is `import type`
+(`verbatimModuleSyntax` satisfied):
+
+```
+$ grep -rn "@mkbabb/value.js" demo/workbenches/extract/
+ExtractPane.vue:28:                      import type { SpaceId } from "@mkbabb/value.js/color";
+quantize-worker.ts:6:                    import { quantizePixels } from "@mkbabb/value.js/quantize";
+quantize-worker.ts:7:                    import type { QuantizeOptions, QuantizedColor } from "@mkbabb/value.js/quantize";
+ExtractWorkbench.vue:189:                import type { SpaceId } from "@mkbabb/value.js/color";
+ImageEyedropper/composables/useImageSampler.ts:12: import type { SpaceId } from "@mkbabb/value.js/color";
+ImageEyedropper/composables/useImageSampler.ts:13: import { parseCssColor } from "@mkbabb/value.js/css";
+composables/useExtractSession.ts:14:     import type { QuantizedColor } from "@mkbabb/value.js/quantize";
+composables/useExtractSession.ts:15:     import { serializeCssColor } from "@mkbabb/value.js/css";
+composables/useImageQuantize.ts:9:       import type { QuantizedColor, QuantizeOptions } from "@mkbabb/value.js/quantize";
+```
+
+`/color`, `/css`, `/quantize` are all in `package.json#exports` (7 subpaths, no root `.`). **No false
+proof of the public API in this component's cone.**
+
+### The undeclared dependency set
+
+The declared surface is a third of the truth. The component's *real* dependency set:
 
 | dependency | how it is reached | declared? |
 |---|---|---|
-| `vue` (`ref`, `useTemplateRef`) | `import` | ✅ |
-| `@lucide/vue` (`ImagePlus`) | `import` | ✅ |
-| `rounded-panel`, `text-mono-small`, `text-mono-caption` | glass-ui `dist/styles` utilities, global | ❌ implicit |
-| `--duration-normal`, `--duration-fast`, `--ease-standard` | glass-ui `dist/styles/tokens/scheme-motion.css` + `scheme-spring.css` | ❌ implicit |
-| `--ink-muted` | **written at runtime** by `demo/color-picker/composables/boot/useAtmosphereBoot.ts:103` | ❌ implicit |
-| `vj-morph` transition family | `demo/styles/animations.css:70,104` | ❌ implicit |
-| `--default-transition-duration/-timing-function` | `demo/styles/foundation.css:128-129` | ❌ implicit (and **contradicted**, see L-6) |
+| `vue`, `@lucide/vue` | `import` | ✅ |
+| `rounded-panel`, `text-mono-small`, `text-mono-caption` | glass-ui `dist/styles` utilities, global | ❌ implicit — correct producer, fine |
+| `--duration-normal`/`--duration-fast`/`--ease-standard` | glass-ui motion tokens | ❌ implicit (and **contradicted** — L-6) |
+| `--ink-muted` | **written at runtime** by `demo/color-picker/composables/boot/useAtmosphereBoot.ts:103` | ❌ implicit — a `demo/workbenches` leaf → `demo/color-picker/…/boot` edge |
+| `vj-morph` family | `demo/styles/animations.css` | ❌ implicit — global keyframes, correct home |
+| `--default-transition-duration/-timing-function` | `demo/styles/foundation.css:128-129` | ❌ implicit and **overridden** (L-6) |
+| `--primary` @ post-hoc α | shadcn/glass token, reached raw | ❌ implicit and **wrong family** (L-11) |
 
-The `--ink-muted` row is the load-bearing one: a leaf presentational component in
-`demo/workbenches/` has a hard runtime dependency on `demo/color-picker/composables/boot/` — a
-**component → boot** edge, the exact direction the seat names as suspect — carried entirely by an
-untyped global custom-property name. That coupling is architecturally *intended* (a token seam is
-the right shape), but the seam has no single home, no contract, and — worse — a fallback that
-silently substitutes a value the component's own comment declares uncertified (L-1, L-2).
+The `--ink-muted` row is a **feature → boot** edge carried by an untyped global custom-property name.
+The seam shape is right (a token seam is the correct coupling); it has no single home and a masking
+fallback (L-1, L-2).
 
 ---
 
-## Findings
+## NEW findings
 
-### L-1 · MAJOR — `.plate-ink` is a 5-consumer cross-feature recipe living as 5 scoped twins
+### L-13 · BLOCKER — the sample intent rides an undeclared native `click`, so it has no keyboard twin; the eyedropper is keyboard-unreachable
 
-The rule is byte-identical in five files across **three different feature areas**:
+This is the structural defect of the component, and it ships.
 
-```
-$ for f in demo/color-picker/ErrorBoundary.vue demo/shared/ui/EmptyState.vue \
-      demo/workbenches/extract/ExtractControls.vue demo/workbenches/extract/ExtractWorkbench.vue \
-      demo/workbenches/extract/ImageDropZone.vue; do echo "--- $f"; grep -A2 "^\.plate-ink" "$f"; done
---- demo/color-picker/ErrorBoundary.vue
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
---- demo/shared/ui/EmptyState.vue
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
---- demo/workbenches/extract/ExtractControls.vue
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
---- demo/workbenches/extract/ExtractWorkbench.vue
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
---- demo/workbenches/extract/ImageDropZone.vue
-.plate-ink {
-    color: var(--ink-muted, var(--muted-foreground));
-}
-
-$ grep -rn "plate-ink" demo/styles/*.css
-(no output)
-```
-
-The subject's copy is `ImageDropZone.vue:109-111`, consumed at `:46` and `:58`.
-
-This is not a judgement call — the house has **written the law down twice** and both statements
-convict:
-
-> `demo/DESIGN.md:388` — *"**No new global utility class for one consumer** — colocate to the
-> component's `<style scoped>` … The shared survivors (`.slug-pill`, `.app-layout`,
-> `.pane-container`, `.underline-tabs`) are true cross-feature recipes; each carries a comment
-> justifying its global residence."*
-
-> `demo/styles/utils.css` (`.swatch-row` block) — *"A shared recipe (**3 consumers**) per
-> DESIGN.md's global-utility rule."*
->
-> `demo/styles/utils.css` (`.palettes-ramp-text` block) — *"The ONE recipe for the exactly-TWO
-> consume sites … **never a scoped twin (the S.W7-7 lesson)**."*
-
-`.plate-ink` has **five** consumers spanning `demo/color-picker/`, `demo/shared/ui/`, and
-`demo/workbenches/extract/`. By the project's own arithmetic it crossed the threshold for
-`demo/styles/utils.css` residence long ago and is precisely the "scoped twin" the S.W7-7 lesson
-names. `demo/styles/utils.css` already hosts `.gold-shimmer-icon` with a comment recording exactly
-this consolidation ("*lifted here because its consumers span components … scoped copies were
-byte-identical twins*"). `.plate-ink` is the same species, un-lifted.
-
-- **Mechanism**: a concept (the certified de-emphasis ink rung) with no unique home; five files each
-  re-declare it because Vue's `<style scoped>` gives each an isolated namespace, which makes the
-  duplication invisible to every gate.
-- **Reproduction**: the `grep` above (5 identical rules) + the empty `grep` over `demo/styles/*.css`.
-- **Cure**: one rule in `demo/styles/utils.css` with the justifying comment (the existing five
-  comments collapse into one), delete all five `<style scoped>` blocks. For `ImageDropZone.vue`
-  specifically the *entire* `<style>` element disappears — the file becomes a style-free SFC, 113 →
-  ~101 lines.
-
----
-
-### L-2 · MAJOR — the `var(--ink-muted, var(--muted-foreground))` fallback is a masking fallback, and the masked value is measurably different
-
-Owner edict 2 prohibits masking fallbacks outright. This one is not decorative — I measured both
-sides on the live app:
-
-```
-$ node scratchpad/probe-utils.mjs      # playwright, http://localhost:9000/#/extract
-{
-  "inkMuted":         "oklch(44.712054906087% 0.003861589952 34.629978305623deg)",
-  "mutedForeground":  "light-dark(hsl(30 22% 40%), hsl(34 14% 62%))"
-}
-```
-
-Two different colours. And the component's own comment states that the fallback value is the one
-that **failed**:
-
-> `ImageDropZone.vue:104-108` — *"the drop-zone caption family … threads the certified de-emphasis
-> rung (`--ink-muted` — boot-stamped, floor-clamped against the live resting plate; D6) instead of
-> the STATIC `text-muted-foreground` **that failed the text floor over the live-ambient plate in
-> light**."*
-
-So the fallback's stated job is to restore, on any failure of the boot writer, the exact value the
-remediation was written to eliminate. A fallback whose fallback path is a known contrast failure is
-not a safety net — it is the defect wearing a seatbelt.
-
-- **Mechanism**: a cross-boundary token seam (`useAtmosphereBoot.ts:103` writes → 8 demo files read)
-  with no declared contract, closed with a `var()` second argument instead of a guaranteed initial
-  value.
-- **Reproduction**: the measured divergence above is fact. That a user ever *sees* the fallback
-  requires `useAtmosphereBoot` to not have run or to have thrown — **HYPOTHESIS**, not reproduced;
-  I did not exercise a boot-failure path.
-- **Cure**: `@property --ink-muted { syntax: "<color>"; inherits: true; initial-value: … }` (or a
-  plain `:root { --ink-muted: … }` seed in `demo/styles/foundation.css`) declared **once**, next to
-  the L-1 consolidated rule. Then `.plate-ink { color: var(--ink-muted); }` — one argument, no
-  masking, and the pre-boot value is a *declared* certified constant rather than a silent
-  substitution of a rejected token.
-
----
-
-### L-3 · MAJOR — inverted ownership: the file-dialog capability lives in the leaf, and the parent reaches in to pull it
-
-Three modules currently share one capability:
-
-```
-ImageDropZone.vue:78    const fileInputRef = useTemplateRef<HTMLInputElement>("fileInputRef");
-ImageDropZone.vue:81-83 function openFilePicker() { fileInputRef.value?.click(); }
-ImageDropZone.vue:85    defineExpose({ openFilePicker });
-
-ExtractWorkbench.vue:222 const dropZoneRef = ref<InstanceType<typeof ImageDropZone> | null>(null);
-ExtractWorkbench.vue:230 function openFilePicker() { dropZoneRef.value?.openFilePicker(); }
-ExtractWorkbench.vue:74  @upload="openFilePicker"          ← from ExtractControls
-```
-
-The dependency runs **downward and imperatively**: `ExtractControls` (a sibling, in the other grid
-column) emits `upload` → `ExtractWorkbench` → reaches *into* `ImageDropZone`'s instance → clicks a
-hidden `<input>`. The workbench must know that its presentational child owns a DOM handle.
-
-The correct owner already exists and already does this job. `useExtractSession` owns the whole
-intake pipeline:
-
-```
-useExtractSession.ts:29-36   function readAsDataUrl(file: File): Promise<string> { … }
-useExtractSession.ts:164-168 async function onFile(file) { lastFile.value = file;
-                                 previewDataUrl.value = await readAsDataUrl(file); runQuantize(); }
-```
-
-The session holds `lastFile`, `previewDataUrl`, and `onFile`. It is missing exactly one thing —
-*how the file arrives* — and that one thing is what the leaf component was made to smuggle.
-
-- **Mechanism**: capability placed at the wrong altitude, forcing an `expose`/`InstanceType` back
-  channel across two hops to reunite it with its state.
-- **Reproduction**: the four line-refs above; `ImageDropZone` has exactly one consumer
-  (`grep -rn "ImageDropZone" demo src e2e test` → `ExtractWorkbench.vue:15,193,222` only), so the
-  `defineExpose` surface exists solely to serve this one back channel.
-- **Cure** (see also L-4): `useFileDialog()` inside `useExtractSession`, returned as
-  `session.openPicker`. `ExtractControls`'s `@upload` and the drop zone's own click both call it.
-  **Deleted**: `defineExpose` (`:85`), `openFilePicker` (`:81-83`), `fileInputRef` (`:78`), the
-  `<input type="file">` (`:27-33`), `onFileSelected` (`:87-92`), `ExtractWorkbench.vue:222` and
-  `:230-232`, and the `ref`-vs-`useTemplateRef` idiom split at `ExtractWorkbench.vue:222/223`
-  (edict 7) dies as a side effect.
-
----
-
-### L-4 · MAJOR — hand-rolled drag/file mechanics that `@vueuse/core` already owns, in a project that already depends on it
-
-`@vueuse/core@14.3.0` is a direct dependency (`package.json` devDependencies) with **six** existing
-demo consumers:
-
-```
-$ grep -rn "@vueuse/core" demo/
-demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue:12
-demo/picker/ColorPicker.vue:123
-demo/shell/dock/Dock.vue:16
-demo/color-session/useColorPersistence.ts:2
-demo/color-picker/composables/boot/useAtmosphere.ts:23
-demo/palettes/usePaletteStore.ts:1
-```
-
-It ships both halves of what this component re-implements:
-
-```
-node_modules/@vueuse/core/dist/index.d.ts:1932
-  declare function useDropZone(target, options?: UseDropZoneOptions | …): UseDropZoneReturn;
-    // UseDropZoneOptions: { dataTypes, checkValidity, onDrop, onEnter, onLeave, onOver,
-    //                       multiple, preventDefaultForUnhandled }
-    // UseDropZoneReturn:  { files: ShallowRef<File[]|null>, isOverDropZone: ShallowRef<boolean> }
-
-node_modules/@vueuse/core/dist/index.d.ts:2626
-  declare function useFileDialog(options?: UseFileDialogOptions): UseFileDialogReturn;
-    // UseFileDialogOptions: { multiple, accept, capture, reset, directory, initialFiles, input }
-    // UseFileDialogReturn:  { files, open, reset, onChange, onCancel }
-```
-
-Against that, `ImageDropZone.vue:78-100` is 23 lines of script re-deriving `isOverDropZone`
-(`dragging`), `accept` (`:30`), the type filter (`:97` `file?.type.startsWith("image/")` ≈
-`dataTypes`), `reset` (`:91` `input.value = ""`), and `open` (`:82`) — and it re-derives them
-*worse*:
-
-- **`dataTypes` is enforced on one path only.** `:30` `accept="image/*"` is an advisory filter on the
-  picker path; `:97` guards the drop path. But `accept` is not enforcement — a user who switches the
-  native picker to "All Files" and selects a `.pdf` reaches `:90 emit("file", file)` with no type
-  check whatsoever. The drop path rejects it; the picker path admits it. Two paths, one concept,
-  divergent behaviour. *(Independently observed by the sibling seat at
-  `wb-extract-controls/challenge-C-implementation.md:104-108`.)*
-- **`dragging` flickers on child-element traversal.** `:23-24` sets `dragging` from a raw
-  `dragover`/`dragleave` pair on the root. Per the HTML drag-and-drop model, moving the pointer from
-  the root onto a descendant (`<img>` at `:37`, `<div>` at `:46`) fires `dragleave` on the root with
-  `relatedTarget` = the child; the handler unconditionally sets `dragging = false`, dropping the
-  `border-primary bg-primary/10 scale-[1.01]` affordance mid-drag. `useDropZone` exists because of
-  this exact bug and solves it with an enter/leave counter.
-  **HYPOTHESIS** — mechanism is spec-derived, not reproduced live (I did not simulate a native drag
-  over the preview child; drag synthesis is an expensive probe and the finding stands on the
-  ownership argument regardless).
-
-- **Mechanism**: second implementation of a concept whose home is an installed, already-consumed
-  dependency.
-- **Reproduction**: the two `d.ts` signatures + the six existing `@vueuse/core` demo consumers +
-  the two divergent validation sites.
-- **Cure**: `useDropZone(rootRef, { dataTypes: ['image/*'], multiple: false, onDrop })` +
-  `useFileDialog({ accept: 'image/*', multiple: false, reset: true })` (the latter hoisted to
-  `useExtractSession` per L-3). The component's `<script setup>` drops from 36 lines to ~8 and the
-  two-path validation collapses to one `dataTypes` declaration.
-
----
-
-### L-5 · MAJOR — wrong public surface: two props encode one state, and the extra prop makes two rendered branches unreachable
-
-```
-ImageDropZone.vue:69-72
-defineProps<{
-    preview: string | null;
-    disableClick?: boolean;
-}>();
-```
-
-Single call site, and it derives one prop from the other:
-
-```
-ExtractWorkbench.vue:22-23
-    :preview="session.previewDataUrl.value"
-    :disable-click="!!session.previewDataUrl.value"
-```
-
-`grep -rn "ImageDropZone" demo src e2e test` returns `ExtractWorkbench.vue:15,193,222` and nothing
-else — there is no second call site that could ever pass a different combination. The prop surface
-declares 4 states; exactly 2 are reachable (`preview=null, disableClick=false` and
-`preview=<url>, disableClick=true`).
-
-The dead half is not abstract — it is shipped, rendered markup that no user can reach:
-
-- `:20` the `'Replace image, click or drop a new image'` aria-label branch requires
-  `preview && !disableClick`. Unreachable.
-- `:61` the `'replace'` corner tag requires the same. Unreachable — the tag can only ever read
-  `sample`. *(Corroborated independently at
-  `wb-extract-workbench/challenge-C-implementation.pass2-2026-07-28.md:372-373`.)*
-- `:10` `preview && disableClick ? 'cursor-crosshair' : 'cursor-pointer'` — the `&&` is redundant;
-  `preview` alone decides.
-
-Meanwhile the `disableClick` name lies about its own effect: it also drives `:19`
-`:tabindex="disableClick ? -1 : 0"`, silently evicting the drop zone from the tab order the moment
-an image loads. That is a keyboard-reachability consequence hidden behind a prop named for a mouse
-concern — a naming defect that only exists because the prop is a phantom degree of freedom in the
-first place.
-
-- **Mechanism**: a prop minted to express a *mode* that is already a total function of an existing
-  prop; the redundancy then licenses branches that can never fire.
-- **Reproduction**: the single call site above + the grep proving it is the only one.
-- **Cure**: delete `disableClick`. The component's public surface becomes
-  `props: { preview: string | null }`, `emits: { file: [File], sample: [] }` (see L-8). Every
-  `disableClick` read becomes `preview`. The two unreachable branches are deleted, not preserved —
-  they are not a feature awaiting a caller, they are residue.
-
----
-
-### L-6 · MAJOR — per-instance inline transition overrides, in a project whose root already declares the same values, in the only file in the repo that does this
-
-```
-ImageDropZone.vue:17  :style="{ transitionDuration: 'var(--duration-normal)',
-                                transitionTimingFunction: 'var(--ease-standard)' }"
-ImageDropZone.vue:59  :style="{ transitionDuration: 'var(--duration-fast)' }"
-```
-
-This is the **only** file in `demo/` + `src/` using the idiom:
-
-```
-$ grep -rn "transitionDuration\|transitionTimingFunction\|transition-duration:\s*var(--duration\|transition-timing-function:\s*var(--ease" demo/ src/
-demo/workbenches/extract/ImageDropZone.vue:17
-demo/workbenches/extract/ImageDropZone.vue:59
-demo/styles/foundation.css:128:    --default-transition-duration:         var(--duration-fast);
-demo/styles/foundation.css:129:    --default-transition-timing-function:  var(--ease-standard);
-```
-
-The last two hits are the root declaration that makes both inline bindings unnecessary, and its
-comment states the intent in terms:
-
-> `demo/styles/foundation.css:120-127` — *"Alias it at the `@theme` ROOT to the house motion tokens
-> so every un-tuned `transition` utility speaks the app's fast duration + standard ease by
-> construction — **no per-callsite modifier**."*
-
-Measured on the live app — this is the decisive evidence:
-
-```
-$ node scratchpad/probe-defaults.mjs   # playwright, http://localhost:9000/#/extract
-{
-  "bare_transition_all":     { "dur": "0.2s", "ease": "cubic-bezier(0.4, 0, 0.2, 1)" },
-  "bare_transition_opacity": { "dur": "0.2s", "ease": "cubic-bezier(0.4, 0, 0.2, 1)" },
-  "with_duration_normal":    { "dur": "0.3s", "ease": "cubic-bezier(0.4, 0, 0.2, 1)" },
-  "with_ease_standard":      { "dur": "0.2s", "ease": "cubic-bezier(0.4, 0, 0.2, 1)" },
-  "rootDefaults":            { "d": "0.2s",   "e": "cubic-bezier(0.4, 0, 0.2, 1)" }
-}
-
-$ node scratchpad/probe-utils.mjs      # the live drop zone element
-"dropZone": {
-  "transitionDuration": "0.3s",
-  "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
-  "inlineStyle": "transition-duration: var(--duration-normal); transition-timing-function: var(--ease-standard);"
-}
-```
-
-Three inline declarations. All three are provably removable:
-
-| site | inline declaration | computed | root default / utility gives | verdict |
-|---|---|---|---|---|
-| `:17` | `transitionDuration: var(--duration-normal)` | `0.3s` | `class="duration-normal"` → `0.3s` | **replaceable by one class token** |
-| `:17` | `transitionTimingFunction: var(--ease-standard)` | `cubic-bezier(.4,0,.2,1)` | root default already `cubic-bezier(.4,0,.2,1)` | **dead — pure no-op** |
-| `:59` | `transitionDuration: var(--duration-fast)` | `0.2s` | bare `transition-opacity` already `0.2s` | **dead — pure no-op** |
-
-`demo/shell/dock/ActionToolbar.vue:9` already ships `duration-normal` as a class in production,
-proving the utility compiles in this Tailwind configuration.
-
-- **Mechanism**: a per-instance styling override where the design system already supplies the value
-  at the root — owner edict 5, and the exact anti-pattern `foundation.css` was written to abolish.
-- **Reproduction**: the two pasted probe outputs.
-- **Cure**: `:17` → append `duration-normal` to the existing `:class` array; delete the `:style`
-  binding entirely. `:59` → delete the `:style` binding entirely, no replacement. Net: two Vue
-  bindings and three CSS declarations removed, zero visual change (measured identical).
-
----
-
-### L-7 · MINOR — `useExtractSession` hand-rolls a debounce beside "the demo's ONE debounce"
-
-One hop under the subject, `demo/workbenches/extract/composables/useExtractSession.ts` grows its own
-timer:
-
-```
-useExtractSession.ts:49      let debounceTimer: ReturnType<typeof setTimeout> | null = null;
-useExtractSession.ts:159-162 function debouncedReQuantize() {
-                                 if (debounceTimer) clearTimeout(debounceTimer);
-                                 debounceTimer = setTimeout(runQuantize, 300); }
-useExtractSession.ts:194-196 onBeforeUnmount(() => { if (debounceTimer) clearTimeout(debounceTimer); });
-```
-
-`demo/shared/utils.ts:23` is the declared home, with a comment that could not be more explicit:
-
-> *"**The demo's ONE debounce** (T.W6.5 Lane M · row 12 — the root-barrel shed) … one pending timer,
-> last-args-win, `.cancel()` drops a pending invocation."*
-
-It has seven consumers and `useExtractSession` is not among them:
-
-```
-$ grep -rn "from \".*shared/utils\"" demo/
-demo/color-picker/composables/boot/useAtmosphere.ts:33
-demo/color-session/useColorNameResolution.ts:2
-demo/color-session/useColorParsing.ts:2
-demo/color-session/useColorPersistence.ts:3
-demo/color-session/useColorPipeline.ts:2
-demo/color-session/useColorUrl.ts:8
-demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue:3
-```
-
-The hand-rolled version reimplements the shared one's semantics exactly (trailing edge, one pending
-timer, last-args-win) plus a manual `onBeforeUnmount` that `.cancel()` already serves.
-
-- **Mechanism**: dual path — a second implementation of a concept with a named, documented,
-  seven-consumer home.
-- **Reproduction**: the two greps above.
-- **Cure**: `const reQuantize = debounce(runQuantize, 300)` from `../../../shared/utils`;
-  `onBeforeUnmount(reQuantize.cancel)`. Four lines and one module-scope `let` die.
-
----
-
-### L-8 · MINOR — three outward channels for one component; the load-bearing one is undeclared
-
-`ImageDropZone` talks to its parent through **three** distinct mechanisms:
+`ImageDropZone` talks to its parent through **three** channels, and the load-bearing one is
+undeclared:
 
 1. `defineEmits<{ file: [file: File] }>()` (`:74-76`) — declared.
-2. `defineExpose({ openFilePicker })` (`:85`) — declared, and wrong (L-3).
-3. **A native `click` riding attribute fallthrough** — undeclared.
-
-Channel 3 is not incidental; it is how the eyedropper opens:
+2. `defineExpose({ openFilePicker })` (`:85`) — declared, and inverted (L-3).
+3. **A native `click` riding attribute fallthrough** — *undeclared*. It is how the eyedropper opens:
 
 ```
 ExtractWorkbench.vue:25   @click="session.previewDataUrl.value && (eyedropperActive = true)"
 ImageDropZone.vue:21      @click="!disableClick && openFilePicker()"
+ImageDropZone.vue:22      @keydown.enter.space.prevent="!disableClick && openFilePicker()"
 ```
 
-Both listeners bind to the same root `<div>` (Vue merges the fallthrough `onClick` with the
-component's own). The two are mutually exclusive by construction — because `disableClick === !!preview`
-(L-5), exactly one fires per state — which means **the component's click state machine is split
-across two files**, with the switch living in a prop the child does not name after what it does.
-Nothing in `ImageDropZone`'s declared API says "I emit a sampling intent"; a reader of the SFC
-cannot know the eyedropper exists.
+Both listeners bind the same root `<div>` (single root, no `inheritAttrs: false`, so Vue merges the
+fallthrough `onClick`). The child's keyboard handler `:22` mirrors **only the child's own branch**.
+The parent's branch has no keyboard mirror, because *the parent cannot write one* — there is no
+event to listen for. An undeclared contract cannot carry its keyboard equivalent.
 
-- **Mechanism**: an implicit contract carried by attribute fallthrough instead of an explicit emit.
-- **Reproduction**: the two line-refs; the behaviour is directly readable from Vue's attrs-merge
-  semantics for a single-root component with no `inheritAttrs: false`.
-- **Cure**: declare it. `emits: { file: [File], sample: [] }`; `:21` becomes
-  `@click="preview ? emit('sample') : openPicker()"`; `ExtractWorkbench.vue:25` becomes
-  `@sample="eyedropperActive = true"`. One root, one declared surface, no fallthrough dependence.
+The consequence compounds with `:19` `:tabindex="disableClick ? -1 : 0"` and `disableClick ===
+!!preview` (L-5): the moment a specimen loads, the element leaves the tab order **and** the only
+remaining intent on it is the one with no keyboard path.
+
+**MEASURED** (`pass2-probe/idz-probe3.mjs`, chromium 1440×900, live dev server, output at
+`pass2-probe/probe3-intake-and-keyboard.json`):
+
+```json
+"before":     { "tabindex": "0",  "aria": "Upload image, click to browse or drop an image here" },
+"afterPng":   { "tabindex": "-1", "aria": "Image preview area, tap to sample colors",
+                "cornerTag": "sample", "imgNaturalWidth": 8 },
+"focusProbe": { "activeIsZone": true, "activeLabel": "Image preview area, tap to sample colors" },
+"afterEnter": { "dialogCount": 0, "eyedropperCanvas": false },
+"afterClick": { "dialogCount": 0, "eyedropperCanvas": true  }
+```
+
+Read it in order: after a real PNG loads, `tabindex` is `-1` (so a Tab-key user never arrives); even
+after a *programmatic* `.focus()` succeeds, **Enter does nothing** (`eyedropperCanvas: false`); a
+pointer click **opens the eyedropper** (`eyedropperCanvas: true`). And `@keydown.enter.space.prevent`
+fires `preventDefault()` unconditionally, so in the specimen state the element actively swallows
+Enter/Space while offering no action.
+
+The eyedropper is the pane's only image-sampling affordance (`ExtractControls` emits only
+`upload`/`camera`/`reset`). **Keyboard-only users cannot sample a color from an image.** WCAG 2.1.1
+Keyboard (Level A) failure on a shipped route. `role="button"` + `tabindex="-1"` + no key handler is
+also an ARIA lie: it announces as a button and cannot be operated as one.
+
+- **Mechanism**: an implicit contract carried by attribute fallthrough instead of a declared emit;
+  the child owns the keyboard mirror for the branches it knows about, and cannot own one for the
+  branch it does not.
+- **Reproduction**: `node docs/tranches/V/megatranche/audit/components/wb-extract-imagedropzone/pass2-probe/idz-probe3.mjs <tmpdir>` against
+  `http://localhost:9000/#/extract`. Deterministic — ran twice, identical output.
+- **Cure**: declare the intent. `emits: { file: [File], sample: [] }`; `:21` →
+  `@click="preview ? emit('sample') : openPicker()"`, `:22` → the same expression; `tabindex` becomes
+  a constant `0`; `ExtractWorkbench.vue:25` → `@sample="eyedropperActive = true"`. One root, one
+  declared surface, one keyboard path per intent. **Better still — the cure L-13 shares with L-5:
+  split the two roles into two components** (see the lattice), and the multiplex disappears rather
+  than being renamed.
 
 ---
 
-### L-9 · MINOR — `tsconfig.demo.json` `paths` has drifted from `package.json#exports`, and is dead weight regardless
+### L-12 · MAJOR — one intake concept, two entry paths, one guard; the unguarded path fails silently with an unhandled rejection
 
-The seat asks whether the demo consumes `@mkbabb/value.js` through the published surface. For
-`ImageDropZone` the answer is trivially yes-by-vacuity (it imports nothing from the library — see
-Negative proofs). For the *area* it is yes in substance but the config that is supposed to guarantee
-it is stale in four ways.
-
-| key | in `package.json#exports`? | in `src/subpaths/`? | in `tsconfig.demo.json#paths`? |
-|---|---|---|---|
-| `./color` | ✅ | ✅ | ✅ |
-| `./value` | ✅ | ✅ | ❌ **missing** |
-| `./css` | ✅ | ✅ | ❌ **missing** (10 demo consumers) |
-| `./easing` | ✅ | ✅ | ✅ |
-| `./math` | ✅ | ✅ | ✅ |
-| `./transform` | ✅ | ✅ | ✅ |
-| `./quantize` | ✅ | ✅ | ✅ |
-| `./parsing` | ❌ | ❌ | ✅ **dead entry** |
-| `./units` | ❌ | ❌ | ✅ **dead entry** |
-| `.` (bare) | ❌ (no `"."` key) | — | ✅ → `./dist/index.d.ts` |
+`ImageDropZone` guards the *drop* path and not the *picker* path:
 
 ```
-$ ls dist/
-anchors-C_wdoOYd.js  gh-pages  operations-CB_1wGy4.js  result-CZJK1CwL.js  subpaths
+ImageDropZone.vue:87-92   function onFileSelected(e) { … if (file) emit("file", file); … }   // NO type check
+ImageDropZone.vue:94-100  function onDrop(e) { … if (file?.type.startsWith("image/")) emit("file", file); }
 ```
 
-`dist/index.d.ts` **does not exist** — the bare-specifier `paths` entry targets a missing file. The
-surrounding comment also miscounts: it says *"the demo speaks only the 8 public keys"* and *"a CLOSED
-8-key set"*; the map has **7**.
+`:30 accept="image/*"` is an advisory picker filter, not enforcement — every desktop file dialog lets
+the user switch to "All Files". The declared emit says `file: [File]`; the drop path guarantees an
+image, the picker path guarantees nothing, and **no downstream owner re-guards**:
+`useExtractSession.ts:164-168` calls `readAsDataUrl(file)` then `runQuantize()`, and
+`useImageQuantize.ts` calls `createImageBitmap(file)` unguarded.
 
-The measured good news is that none of this currently breaks, because TypeScript resolves the demo's
-value.js imports by **package self-reference through the repo's own `exports` map**, not through
-`paths` at all:
+**MEASURED** — selecting a `.txt` through the picker (`pass2-probe/probe3-intake-and-keyboard.json`):
 
-```
-$ npx tsc -p tsconfig.demo.json --noEmit --traceResolution 2>&1 | sed -n '407,421p'
-======== Resolving module '@mkbabb/value.js/css' from '…/demo/color-session/picker-color.ts'. ========
-Explicitly specified module resolution kind: 'Bundler'.
-'paths' option is specified, looking for a pattern to match module name '@mkbabb/value.js/css'.
-File '…/demo/color-session/package.json' does not exist.
-File '…/demo/package.json' does not exist.
-Found 'package.json' at '…/value.js/package.json'.
-Entering conditional exports.
-Matched 'exports' condition 'types'.
-Using 'exports' subpath './css' with target './dist/subpaths/css.d.ts'.
-File '…/dist/subpaths/css.d.ts' exists - use it as a name resolution result.
-Resolved under condition 'types'.
-Exiting conditional exports.
-======== Module name '@mkbabb/value.js/css' was successfully resolved to
-         '…/value.js/dist/subpaths/css.d.ts' with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'. ========
+```json
+"afterTxt": {
+  "imgSrcPrefix":     "data:text/plain;base64,ZGVmaW5pdGVseSBub",
+  "imgNaturalWidth":  0,
+  "destructiveText":  [],
+  "aria":             "Image preview area, tap to sample colors",
+  "cornerTag":        "sample"
+},
+"pageErrors": ["InvalidStateError: The source image could not be decoded.",
+               "InvalidStateError: The source image could not be decoded."]
 ```
 
-`./css` has no `paths` entry, and it resolves correctly anyway — through the exports map, to the
-same `dist/subpaths/css.d.ts` the five *present* `paths` entries hard-code. **The entire `paths`
-block for `@mkbabb/value.js` is redundant with the mechanism that is actually doing the work**, and
-carries two dead names and one dangling file target as interest.
+A `text/plain` data URL is bound to `<img src>`; the zone flips to its specimen state and announces
+"Image preview area, tap to sample colors"; `destructiveText: []` — `ExtractWorkbench.vue:79`'s
+"error ≠ empty: an explicit destructive line" never fires; and two unhandled `InvalidStateError`
+rejections reach `window.onerror`. The component's own header comment — *"the specimen never lies"*
+(`ImageDropZone.vue:3`) — is falsified by its own unguarded path.
 
-That redundancy is not free — it is a *second* declaration of the published surface that can drift
-from the first, and it already has. Owner edict 2 names exactly this shape: dual paths and legacy
-config that outlived their mechanism.
-
-One live trap sits behind it, worth recording as a **HYPOTHESIS** (not reproduced): a stray import of
-`@mkbabb/value.js/parsing` or `/units` matches a `paths` pattern that points at a nonexistent `.d.ts`
-before falling through to the exports map, which has no such key. The failure mode is a
-resolution error rather than a silent wrong resolve, so the risk is confusion, not corruption.
-
-- **Mechanism**: the published surface declared twice — once normatively in `package.json#exports`
-  (which Vite also generates its alias set from, `vite.config.ts:38-49`), once by hand in
-  `tsconfig.demo.json` — with no gate binding them.
-- **Reproduction**: the table (all three columns verified by `ls`/`node -e`), the `ls dist/`, and the
-  pasted `--traceResolution` block.
-- **Cure**: delete the seven-to-nine `@mkbabb/value.js*` entries from `tsconfig.demo.json#paths`
-  outright and let self-reference through `exports` be the single source of truth — the same
-  single-source discipline `vite.config.ts:38-49` already applies on the runtime side ("*GENERATED
-  (not hand-rolled) so the alias set can never drift from the exports map*"). Keep the `vue`/`@vue/*`
-  dedupe entries. Fix the stale "8 public keys" prose to 7.
+- **Mechanism**: split ownership of one invariant ("what may become a specimen"). The guard is a
+  property of the *concept*, and it lives on one of the concept's two entrances.
+- **Reproduction**: `page.setInputFiles('input[type="file"]', 'not-an-image.txt')` on `/#/extract`;
+  full script at `pass2-probe/idz-probe3.mjs`.
+- **Cure**: the guard is not this component's job at all — it belongs to the intake owner.
+  `useDropZone(root, { dataTypes: ['image/*'], multiple: false })` +
+  `useFileDialog({ accept: 'image/*', multiple: false, reset: true })` declare it **once**, and the
+  session returns a typed failure for a decode error instead of discarding the promise. One
+  declaration, both entrances, one error register.
 
 ---
 
-### L-10 · INFO — glass-ui has no drop-zone primitive, and it would be contrivance to file one today
+### L-11 · MAJOR — the plate material is a parallel mint: `--primary` @ post-hoc alpha, where the certified rung-2 WELL already has a home and two consumers
 
-Owner edict 4 makes glass-ui the home for design-system primitives. A file drop zone is, in the
-abstract, exactly that. But glass-ui 7.0.0 does not ship one:
+The repo has a written material ladder and a minted global recipe for exactly this affordance:
 
 ```
-$ node -e "const d=require('./node_modules/@mkbabb/glass-ui/package.json'); \
-           console.log(d.version); console.log(Object.keys(d.exports).length)"
-7.0.0
-73
+demo/DESIGN.md:98   | 2 · WELL | an opaque tone-step of the plate, NO backdrop-blur … the ONE
+                      `--well-bg` token … consumed as `bg-well`/`var(--well-bg)`; dashed edge /
+                      `--shadow-cartoon-sm` where the affordance calls for it |
+                      `.dashed-well` · PaletteCard (+skeleton) · the gradient plate + stop chip ·
+                      VersionHistoryDrawer rows · the mix result plate · markdown interiors |
 
-$ head -5 node_modules/@mkbabb/glass-ui/dist/forms.d.ts
-export * from "./components/input";
-export * from "./components/textarea";
-export * from "./components/combobox";
-export { useUserInvalidAria, … } from "./composables/dom/useUserInvalidAria";
-export type { ControlSize } from "./components/_shared";
+demo/styles/utils.css:85-105  /* Dashed inset well — the recessed container that collects an
+                                 in-progress set of colors … a dashed-bordered, faintly-recessed
+                                 column */
+                              .dashed-well { border: 1.5px dashed var(--card-edge);
+                                             border-radius: var(--radius-card);
+                                             background: var(--well-bg);
+                                             box-shadow: var(--shadow-cartoon-sm); }
 ```
 
-`./forms` is input / textarea / combobox. No `file-field`, no `drop-zone`, and no near-miss whose
-component-type name should be reused.
+`.dashed-well` has two consumers (`MixSourceSelector.vue:116`, `CurrentPaletteEditor.vue:3`).
+`ImageDropZone` — a dashed-edged, recessed, in-plate fixture, i.e. the textbook rung-2 WELL — is
+**not in DESIGN.md:98's consumer list** and does not wear the recipe. It re-mints the material by
+hand from a third token family:
 
-With **one** consumer in the whole demo, minting a producer primitive now would be the exact
-contrivance edict 3 prohibits. The correct disposition is: **leave it where it is**, and record the
-ask so that the *second* consumer — not the first — triggers the glass-ui letter. Should any repair
-in this family touch the component's rendered surface, the standing BH/BI relay edict applies (every
-component/glass-ui-level change is relayed to the active glass-ui BH inbox).
+```
+ImageDropZone.vue:8,12,14,15
+  'rounded-panel border-2 border-dashed …'
+  dragging ? 'border-primary bg-primary/10 scale-[1.01]'
+           : preview ? 'border-transparent hover:border-primary/50 bg-primary/5'
+                     : 'border-primary/30 bg-primary/5 hover:border-primary/50 hover:bg-primary/10'
+```
 
-- **Severity**: INFO — a booked trigger condition, not a present defect.
+**MEASURED A/B on the live route** (`pass2-probe/probe2-token-ab.json`, `/#/extract`, light):
+
+| | `ImageDropZone` (measured) | `.dashed-well` (measured, same page) |
+|---|---|---|
+| fill | `oklab(0.471189 −0.081033 0.097141 / 0.05)` — `--primary` @ 5 % | `oklab(0.913295 0.005505 0.013042)` — `--well-bg`, opaque tone-step |
+| edge | `2px dashed` `--primary` @ 30 % | `1px dashed` `--card-edge` (12 % foreground, neutral) |
+| radius | `12px` (`--radius-panel`) | `16px` (`--radius-card`) |
+| stamp | `none` | `--shadow-cartoon-sm` (3-layer cartoon caster) |
+
+Two dashed wells, two radii, two edge mints, two fills, one of them with no cartoon stamp — in a
+tree whose foundation says the ladder bridges exist *"so no consumer ever re-mints a well alpha or a
+raw black/white stage by hand again (the T-CM-4 parallel-mint pathology, closed at the token)"*
+(`demo/styles/foundation.css:141-145`).
+
+**And the hue is off-axis.** Measured on the same page:
+
+```
+--primary      = oklch(0.471189 0.126502 129.834)   ← hue 129.8°, green
+--accent-live  = oklch(0.471189 0.188448   9.834)   ← hue   9.8°, the pane's live crimson
+```
+
+Every certified affordance in the pane rides `--accent-live` (boot-stamped, contrast-guarded —
+`useAtmosphereBoot.ts:93-97`); the ladder rides the neutral `--well-bg`/`--card-edge` family.
+`ImageDropZone` rides a **third** family, 120° of hue away from the sliders directly beneath it
+(visible in `audit/visual/shots/safari-desktop-light/extract.png` — grey-green dashed frame above
+crimson rails).
+
+Proof it is a species of one — `bg-primary/<α>` as a *surface fill* exists in exactly one file:
+
+```
+$ grep -rn "bg-primary\b\|border-primary\b" demo/ | grep -v megatranche
+ImageDropZone.vue:12,14,15                 ← the only α-fills
+Markdown.vue:346   @apply bg-well border-l-4 border-primary rounded-r-2xl;   ← the CORRECT idiom
+SearchFilterBar.vue:9   bg-primary  (opaque count badge)
+VersionHistoryDrawer.vue:31   bg-primary  (opaque 4px rail)
+```
+
+`Markdown.vue:346` is the in-repo precedent one file away: **ladder fill + solid accent edge**, never
+a post-hoc alpha wash. The component itself already killed one post-hoc alpha for exactly this reason
+(`ImageDropZone.vue:44-45`: *"the `/50` post-hoc alpha dies — the muted token is already the
+de-emphasis rung"*) — and kept five more on `primary`.
+
+- **Mechanism**: a concept with a certified home (rung-2 WELL material) re-implemented locally
+  because the affordance's *geometry* is bespoke; geometry and material were not separated.
+- **Reproduction**: `node …/pass2-probe/idz-probe2.mjs` against `/#/extract` (computed styles pasted
+  above); `grep -rn "bg-primary\b" demo/` for the enumeration.
+- **Cure**: separate them. Material comes from the ladder — `bg-well`, `border-card-edge`
+  (`shadow-cartoon-sm` if the affordance wants the chip stamp), and `--radius-card` to match the
+  recipe's own radius. Geometry stays local (`min-h`, centering, `overflow-hidden`). The *droppable*
+  and *drag-over* states are exactly what an accent edge is for — but the live, certified
+  `--accent-live` (or the `safeCss` seam `ExtractControls.vue:124` already threads through this very
+  pane), not raw `--primary` at 30 %. This is a three-class change, not a new abstraction.
 
 ---
 
-## Negative proofs — what I checked and found SOUND
+### L-14 · MINOR — the consumer holds this component with the pre-3.5 idiom, in the same file that uses `useTemplateRef`
 
-These are stated because a challenge seat that reports only hits is not evidence.
+```
+ExtractWorkbench.vue:222  const dropZoneRef = ref<InstanceType<typeof ImageDropZone> | null>(null);
+ExtractWorkbench.vue:223  const videoRef = useTemplateRef<HTMLVideoElement>("videoRef");
+```
 
-1. **No deep import into the library.** `ImageDropZone.vue` imports `vue` and `@lucide/vue`, full
-   stop (pasted at §0). There is no `@mkbabb/value.js/*`, no `@src/*`, no `../../../src/` reach. A
-   real external consumer could write this file's import block verbatim.
-2. **The area's library imports are all through the published export map.** All 29
-   `@mkbabb/value.js` specifiers under `demo/workbenches/` name a real `exports` key
-   (`/color` ×25, `/css` ×10, `/math` ×6, `/easing` ×5, `/quantize` ×4, repo-wide in `demo/`); zero
-   bare-root imports survive (`grep -rn '"@mkbabb/value.js"' demo/` → no output). The T.W1
-   demo-dogfood keystone holds in substance; only its *config* has drifted (L-9).
-3. **`verbatimModuleSyntax` is satisfied.** Both imports are value imports (`ref`,
-   `useTemplateRef`, the `ImagePlus` component). No type-only import exists to be mis-declared.
-4. **No second file-intake implementation exists.** `<input type="file">` at `:29` is the only one
-   in the demo, and `FileReader`/`readAsDataURL` appear only in `useExtractSession.ts:31,34`:
-   ```
-   $ grep -rn 'type="file"\|dataTransfer\|@drop\|dragover' demo/
-   demo/workbenches/extract/ImageDropZone.vue:23,25,29,96   ← all four hits, one file
-   $ grep -rn "FileReader\|readAsDataURL\|createObjectURL" demo/ src/
-   demo/workbenches/extract/composables/useExtractSession.ts:31,34
-   demo/palettes/export.ts:88,126   ← unrelated (SVG/PNG export blobs)
-   ```
-   The L-4 finding is *under*-implementation against an available library, **not** duplication
-   across the demo. That distinction matters for the cure.
-5. **Not a god module.** 113 lines, three functions, one concept. It does not accrete.
-6. **Its physical home is correct — do not hoist it.** One consumer
-   (`ExtractWorkbench.vue:15,193,222`). Moving it to `demo/shared/ui/` alongside `EmptyState.vue` and
-   `PaneHeader.vue` would be a speculative shared-directory promotion — edict 3 forbids it and
-   `DESIGN.md:388` states the same rule for CSS. `demo/workbenches/extract/` is where it belongs
-   until a second consumer exists.
-7. **The `@lucide/vue` barrel import is the house idiom and has no alternative.** 47 of 47 demo
-   import sites use the bare barrel, and the package ships no `exports` map at all
-   (`Object.keys(exports)` → `[]`, v1.17.0), so per-icon subpaths do not exist to be preferred.
-8. **The component renders correctly and errors nowhere.** `REPORT.json` for `/#/extract` across all
-   four matrices: `pageErrors: []`, `consoleErrors: []`, `overflowX: 0`, `imgNoAlt: 0`. The drop zone
-   carries an accessible name (it is not among the 3 `namelessButtons`) and its `role="button"` is
-   asserted green by `e2e/smoke/walk.spec.ts:78-81`. I read
-   `shots/safari-desktop-light/extract.png` and `shots/safari-mobile-dark/extract.png`: the dashed
-   plate, `ImagePlus` glyph and mono prompt render correctly and legibly in both schemes at both
-   sizes. **No visual defect on this axis.**
+Two template-ref idioms, one file, adjacent lines. Edict 7 names `useTemplateRef` as the Vue 3.5
+idiom. This is a direct consequence of this component's exposed surface: the ref only exists to
+reach `defineExpose` (L-3). Killing L-3 kills the ref and the idiom split with it.
+
+- **Mechanism**: an imperative child surface forces the consumer to hold an instance, and instance
+  refs invite the legacy spelling.
+- **Reproduction**: the two line-refs.
+- **Cure**: falls out of L-3's cure — no instance ref, nothing to spell.
+
+---
+
+## Carried-forward findings (pass 1), with this pass's additional evidence
+
+### L-1 · MAJOR — CONFIRMED. `.plate-ink` is a 5-consumer recipe living as 5 scoped twins
+
+```
+$ grep -rn "plate-ink" demo/ | grep -v megatranche
+ImageDropZone.vue:46,58   :109 .plate-ink { color: var(--ink-muted, var(--muted-foreground)); }
+ExtractWorkbench.vue:125,131,138,163   :290 (byte-identical rule)
+ExtractControls.vue:15,66,78           :148 (byte-identical rule)
+EmptyState.vue:23,55,61                :102 (byte-identical rule)
+ErrorBoundary.vue:27                   :84  (byte-identical rule)
+$ grep -rn "plate-ink" demo/styles/
+(no output)
+```
+
+Five identical declarations, four files across **three** areas (`workbenches/extract`, `shared/ui`,
+`color-picker`), zero global declarations. The repo's own rule is the inverse of what is on the
+ground — `demo/DESIGN.md:388`: *"**No new global utility class for one consumer** … The shared
+survivors … are true cross-feature recipes; each carries a comment justifying its global residence."*
+`demo/styles/utils.css` already hosts precisely this species with a stated 3-consumer threshold
+(`utils.css:172` *"A shared recipe (3 consumers) per DESIGN.md's global-utility rule"*).
+
+- **Cure**: one declaration in `demo/styles/utils.css` with the justifying comment; delete five
+  `<style scoped>` blocks. `ImageDropZone`'s `<style>` block disappears entirely.
+
+### L-2 · MAJOR — CONFIRMED, now measured. The fallback arm is dead, and the spelling is dual
+
+`var(--ink-muted, var(--muted-foreground))` appears at `ImageDropZone.vue:110`,
+`ExtractWorkbench.vue:291`, `ExtractControls.vue:149`, `EmptyState.vue:102`, `ErrorBoundary.vue:84`,
+`ConfigSliderPane.vue:202,205`, `ColorComponentDisplay.vue:200,205,211` — while
+`ParseEchoReadout.vue:38,44` writes the **bare** `var(--ink-muted)`. Two spellings of one token
+reference; they cannot both be right.
+
+**MEASURED** (`pass2-probe/probe1-computed-style.json`, live `/#/extract`):
+
+```
+--ink-muted                       = oklch(44.712054906087% 0.003861589952 34.629978305623deg)
+.plate-ink computed color         = oklch(0.447121 0.00386159 34.63)      ← the stamped value
+--muted-foreground                = light-dark(hsl(30 22% 40%), hsl(34 14% 62%))   ← never used
+```
+
+The token is stamped (`useAtmosphereBoot.ts:100-106`, `watch(..., { immediate: true })`) and the
+fallback arm never resolves at runtime. It is a masking fallback for a boot failure — and the value
+it would substitute is the *uncertified static* one the component's own comment (`:104-108`) says
+failed the text floor. Edict 2: no masking fallbacks.
+
+- **Cure**: bare `var(--ink-muted)` in the single global declaration (L-1). If the pre-stamp frame is
+  a real concern, stamp the token in CSS at `:root` as its own initial value — one home, no fork.
+
+### L-3 · MAJOR — CONFIRMED. Inverted ownership: the file dialog lives in the leaf and the parent reaches in
+
+```
+ImageDropZone.vue:27-33   <input ref="fileInputRef" type="file" accept="image/*" class="hidden" … />
+ImageDropZone.vue:81-85   function openFilePicker() { fileInputRef.value?.click(); }
+                          defineExpose({ openFilePicker });
+ExtractWorkbench.vue:230  function openFilePicker() { dropZoneRef.value?.openFilePicker(); }
+ExtractWorkbench.vue:74   <ExtractControls … @upload="openFilePicker" />
+```
+
+The capability has **two** triggers — the zone's own click and `ExtractControls`' upload button — and
+lives in neither's parent. The second trigger travels sibling → parent → template ref → child method.
+Direction of dependency is inverted: a leaf presentational component owns a capability two peers
+consume.
+
+- **Cure**: the intake capability moves up to the owner (see the lattice). `defineExpose` dies, the
+  hidden `<input>` dies, `dropZoneRef` dies (and L-14 with it).
+
+### L-4 · MAJOR — CONFIRMED. Hand-rolled mechanics an installed dependency already owns
+
+`@vueuse/core@14.3.0` is installed and consumed six times in `demo/`, and ships both halves:
+
+```
+node_modules/@vueuse/core/dist/index.d.ts:1932  declare function useDropZone(target, options?)
+  // UseDropZoneOptions: { dataTypes, checkValidity, onDrop, onEnter, onLeave, onOver, multiple, … }
+node_modules/@vueuse/core/dist/index.d.ts:2626  declare function useFileDialog(options?)
+  // UseFileDialogReturn: { files, open, reset, onChange, onCancel }
+```
+
+`ImageDropZone.vue:78-100` re-derives `isOverDropZone` (`dragging`), `dataTypes` (`:97`, on one path
+only — L-12), `reset` (`:91`), and `open` (`:82`), worse. `useFileDialog().open` is *exactly* the API
+`ExtractControls` needs, callable from a composable with no template ref and no `defineExpose` — it
+dissolves L-3 and L-14 as a side effect. This is not a new abstraction (edict 3): it is consuming an
+already-installed, already-used dependency.
+
+- **HYPOTHESIS (pass 1, not reproduced, still unreproduced)**: `@dragover`/`@dragleave` on the root
+  (`:23-24`) should flicker when the pointer crosses onto a descendant (`<img>` `:37`, placeholder
+  `:46`), because `dragleave` fires on the root with `relatedTarget` = child and the handler
+  unconditionally clears `dragging`. `useDropZone` carries an enter/leave counter for this exact
+  reason. Labelled a hypothesis: native drag synthesis is an expensive probe and the ownership
+  argument stands without it.
+
+### L-5 · MAJOR — CONFIRMED, now measured. `disableClick` is a phantom degree of freedom
+
+The single call site derives one prop from the other:
+
+```
+ExtractWorkbench.vue:22-23   :preview="session.previewDataUrl.value"
+                             :disable-click="!!session.previewDataUrl.value"
+```
+
+`grep -rn "ImageDropZone" demo src e2e test` → `ExtractWorkbench.vue:15,193,222` and nothing else.
+`preview !== null ⟺ disableClick === true`; 4 declared states, 2 reachable. **Measured** — after both
+a `.txt` and a `.png`, `aria` was `"Image preview area, tap to sample colors"` and `cornerTag` was
+`"sample"`; the `'Replace image, click or drop a new image'` label (`:20`) and the `'replace'` tag
+(`:61`) never appeared. Shipped, unreachable markup. `:10`'s `preview && disableClick` is likewise
+redundant.
+
+The prop also silently drives `:19 tabindex` — a keyboard-reachability decision hidden behind a
+mouse-named prop. That is the seed of L-13.
+
+- **Cure**: delete `disableClick` — or, better, delete the multiplex (lattice below).
+
+### L-6 · MAJOR — CONFIRMED, now measured. The only inline-`:style` motion override in the demo, half of it inert
+
+```
+$ grep -rn "transitionDuration:" demo/
+demo/workbenches/extract/ImageDropZone.vue:17
+demo/workbenches/extract/ImageDropZone.vue:59
+```
+
+2 of 2 occurrences tree-wide, both in this file. Every sibling writes motion either as a scoped
+`transition:` rule (`GradientEasingEditor.vue:223`) or lets the root default apply. The root
+*already* declares the pairing, and says so:
+
+```
+demo/styles/foundation.css:121-129
+  /* Alias it at the `@theme` ROOT to the house motion tokens so every un-tuned `transition`
+     utility speaks the app's fast duration + standard ease by construction —
+     no per-callsite modifier. */
+  --default-transition-duration:        var(--duration-fast);
+  --default-transition-timing-function: var(--ease-standard);
+```
+
+**MEASURED** (`pass2-probe/probe1-computed-style.json` + `probe2-token-ab.json`):
+
+```
+--default-transition-duration = 0.2s     --duration-normal = 0.3s
+zone computed transition-duration        = 0.3s                      ← the override lands
+zone computed transition-timing-function = cubic-bezier(0.4, 0, 0.2, 1)
+--ease-standard                          = cubic-bezier(0.4, 0, 0.2, 1)   ← IDENTICAL
+```
+
+So the timing-function half of the only inline style in the demo is **provably a no-op** — it
+restates the value the root already supplies. The duration half is a real 0.2 s → 0.3 s deviation
+that appears nowhere in DESIGN.md's *"§ Bespoke literals (KEEP, not migrated)"* table
+(`demo/DESIGN.md:258-266`, which enumerates `ImageEyedropper`, `ActionButton`,
+`PointerDebugOverlay`, `PaletteCard`, `useHeightTransition` — **not** `ImageDropZone`): an unbooked
+deviation. And because it is an inline `style` attribute it outranks every class the parent passes
+(`ExtractWorkbench.vue:17-21` already passes a `:class`), so the material cannot be retimed from
+outside — edict 5, per-instance override.
+
+- **Cure**: delete both `:style` bindings. If 0.3 s is deliberate, it is one line in the (now single,
+  per L-1) scoped block — `transition: all var(--duration-normal) var(--ease-standard);` — plus a
+  row in DESIGN.md's bespoke table. If it is not deliberate, the root default is already correct.
+
+### L-7 · MINOR — CARRIED. `useExtractSession` hand-rolls a debounce (adjacent file, in this component's cone via the intake it feeds)
+
+`useExtractSession.ts:158-162` — a raw `setTimeout`/`clearTimeout` pair plus an `onBeforeUnmount`
+teardown, beside a codebase that has one debounce home. Out of this SFC, in the feature.
+
+### L-9 · MINOR — CARRIED. `tsconfig.demo.json` `paths` drift (pass 1 evidence stands)
+
+### L-10 · INFO — CONFIRMED. glass-ui has no drop-zone primitive; demo-local residence is correct
+
+```
+$ grep -rli "dropzone\|drop-zone\|dragover" node_modules/@mkbabb/glass-ui/dist/
+(no output)
+```
+
+glass-ui@7.0.0 exports 70+ subpaths, none of them a file/drop primitive. Edict 4 is satisfied by the
+component living in `demo/workbenches/extract/` rather than `demo/ui/` — this is a feature-local
+component with exactly one consumer, and filing a glass-ui primitive for a single consumer would be
+contrivance (edict 3). **The material, however, must still come from the ladder (L-11).** Residence
+correct; substrate wrong.
 
 ---
 
 ## Greenfield lattice — what I would build today
 
-Stated concretely, as the seat demands, without hedging. The transposition is a *net deletion*.
+The extract feature's real concepts are: **intake** (a File arrives, from a picker or a drop, and
+must be an image), **the specimen** (a decoded, previewable image), **quantization** (pixels →
+palette), and **sampling** (a point on the specimen → a color). Today, intake is smeared across a
+leaf component, its parent, and a sibling; and the specimen and the empty state share one component
+with a boolean multiplex.
 
 ```
 demo/workbenches/extract/
-├── composables/
-│   ├── useImageIntake.ts        NEW ─ the single home for "a File arrives"
-│   │     useFileDialog({ accept:'image/*', multiple:false, reset:true })
-│   │     useDropZone(target, { dataTypes:['image/*'], multiple:false })
-│   │     exposes → { openPicker(), bindDropZone(el), file: ShallowRef<File|null>,
-│   │                 isOver: ShallowRef<boolean> }
-│   │     ONE accept declaration; ONE validation; ONE drag-state counter.
-│   ├── useExtractSession.ts     ─ consumes useImageIntake; keeps quantize
-│   │                              orchestration; debounce ← shared/utils
-│   ├── useImageQuantize.ts      ─ unchanged
-│   └── quantize-worker.ts       ─ unchanged
-├── ImageDropZone.vue            ─ PURE VIEW. props { preview: string|null }.
-│                                  emits { file:[File], sample:[] }.
-│                                  no <input>, no defineExpose, no <style>,
-│                                  no inline :style, no dragging ref.
-├── ExtractControls.vue          ─ emits upload → session.openPicker()
-└── ExtractWorkbench.vue         ─ pure composition; no InstanceType<> ref,
-                                   no openFilePicker(), one template-ref idiom
-
-demo/styles/utils.css            ─ + .plate-ink (the ONE rule, 5 twins deleted)
-demo/styles/foundation.css       ─ + :root { --ink-muted: <certified seed> }
-                                     (kills the masking fallback at the source)
-tsconfig.demo.json               ─ − the whole @mkbabb/value.js paths block;
-                                     package.json#exports is the ONE surface
+  ExtractPane.vue              pane shell — Card + PaneHeader        [unchanged]
+  ExtractWorkbench.vue         orchestrator; owns intake + specimen lifecycle
+  composables/
+    useImageIntake.ts          NEW — THE ONE HOME for intake.
+                                 useFileDialog({ accept:'image/*', multiple:false, reset:true })
+                               + useDropZone(target, { dataTypes:['image/*'], multiple:false })
+                               returns { open, isOver, onFile, error }
+                               ONE MIME declaration; both entrances; typed decode failure
+    useExtractSession.ts       session state (k, chroma, palette, dominant); consumes intake
+    useImageQuantize.ts        worker transport                       [unchanged]
+  ImageDropZone.vue            EMPTY STATE ONLY — a drop target + a real <button>.
+                               props: { isOver: boolean }   emits: { file: [File] }
+                               always tabbable; no hidden <input>; no defineExpose
+  ImagePreview.vue             SPECIMEN ONLY — <img> + a real <button> "Sample colors".
+                               props: { src: string }       emits: { sample: [] }
+                               keyboard path by construction (it IS a button)
+  ImageEyedropper/…            the sampler                           [unchanged]
 ```
 
-**The three laws this lattice restores**
+The transposition is one idea: **two states are two components, and one capability has one home.**
 
-1. *Unique semantic ownership.* "A file arrives" lives in `useImageIntake` — once. "The certified
-   de-emphasis ink" lives in `utils.css` — once. "The published surface" lives in
-   `package.json#exports` — once. Today each of the three has two-to-five homes.
-2. *Dependency flows one way.* View → composable → library. No parent reaches into a child's
-   instance; no `defineExpose` survives; no capability is smuggled downward to be pulled back up.
-3. *Every dependency is declared.* The `--ink-muted` seam gets a declared root value instead of a
-   masking fallback; the eyedropper intent gets a declared emit instead of attribute fallthrough;
-   the transition timing gets a root default instead of a per-instance escalation.
+What falls out for free, without a single compensating abstraction:
 
-**Measured cost of the transposition — it is negative.** Deleted, with nothing added but two
-`@vueuse/core` imports and one CSS rule that already exists five times:
+- L-13 dies — `sample` is a `<button>`, so Enter/Space work because the platform makes them work.
+  No `role="button"`, no `tabindex` juggling, no fallthrough contract.
+- L-12 dies — `dataTypes: ['image/*']` is declared once and covers both entrances.
+- L-5 dies — there is no `disableClick`, because there is no multiplex; no unreachable branch exists
+  to be shipped.
+- L-3 + L-14 die — `ExtractControls`' `@upload` calls `intake.open()` directly; no template ref,
+  no `defineExpose`, no `InstanceType<typeof …>`.
+- L-4 dies — `dragging` becomes `useDropZone`'s `isOverDropZone`, with the enter/leave counter.
+- The `<Transition name="vj-morph" mode="out-in">` at `:36` stays, and gets *better*: it now morphs
+  between two components with distinct identities rather than between two branches of one — which is
+  what `mode="out-in"` was written for. **No animation is deleted** (edict 6).
+- L-11's cure lands cleanly, because material and geometry are finally separate: both new components
+  wear `bg-well` + `border-card-edge` + `--radius-card`, and the drag-over state paints the certified
+  `--accent-live` on the edge only.
+- L-1 + L-2 die at the tree level, not per-file: one `.plate-ink` in `demo/styles/utils.css`,
+  spelled `var(--ink-muted)` bare.
 
-| deletion | lines |
-|---|---|
-| 5 × `.plate-ink` scoped blocks (net of one consolidated rule) | ~28 |
-| `<input>` + `openFilePicker` + `defineExpose` + `onFileSelected` + `fileInputRef` | ~18 |
-| `dragging` ref + raw `dragover`/`dragleave`/`onDrop` handlers | ~10 |
-| `disableClick` prop + 2 unreachable branches + the redundant `&&` | ~6 |
-| 2 inline `:style` bindings (3 declarations, all measured dead-or-replaceable) | 2 |
-| `ExtractWorkbench` `dropZoneRef` + `openFilePicker` + `InstanceType<>` | ~5 |
-| `useExtractSession` hand-rolled debounce (net of `debounce()` call) | ~4 |
-| `tsconfig.demo.json` `@mkbabb/value.js` `paths` entries | 9 |
-| **total** | **~82 lines removed** |
+**Blast radius of the cure**: the only external assertion on this component is
+`e2e/smoke/walk.spec.ts:78-81` — `getByRole("button", { name: /Upload image/i })` — which survives
+any cure keeping an "Upload image…" accessible name on the empty state, and is *strengthened* by the
+empty state becoming a real `<button>`.
 
-`ImageDropZone.vue` itself goes 113 → ~55 lines and becomes a component that does exactly one thing:
-render a plate that shows either a prompt or a specimen, and say when something happened.
+---
+
+## Negative proofs — checked, and SOUND
+
+1. **No deep-path reach into the library.** `grep -rn "@src/" demo/ | grep -v assets/docs` → empty.
+   `ImageDropZone` imports nothing from `@mkbabb/value.js`; the feature imports it only through the
+   published bare subpaths `/color`, `/css`, `/quantize`, all present in `package.json#exports`.
+   A real consumer could write every specifier in this cone. **No false proof of the public API.**
+2. **`verbatimModuleSyntax` satisfied** across the cone — every type-only import is `import type`,
+   including the split at `quantize-worker.ts:6-7`.
+3. **No second drop-zone implementation.** `grep -rn 'type="file"' demo/` → 1 site;
+   `grep -rn "dataTransfer" demo/` → 1 site; `grep -rn "@drop\|dragover" demo/` → 1 site. All this
+   file. The *concept* is duplicated against `@vueuse/core` (L-4), not against another demo module.
+4. **Icon source is uniform** — `@lucide/vue` in 11/11 workbench files, 0 `lucide-vue-next`. No dual
+   path.
+5. **`demo/ui/card` is a pure re-export barrel** (`export { Card, … } from "@mkbabb/glass-ui";`), the
+   idiom DESIGN.md sanctions — not a fork. This component's shell crosses no boundary.
+6. **Component → shell / component → boot**: the only boot edge is the `--ink-muted` token seam,
+   which is a token seam by design. No JS import from `demo/workbenches/` into `demo/shell/` or
+   `demo/color-picker/composables/boot/`.
+7. **`defineExpose` is not per se un-idiomatic here** — 15 demo components use it. What is wrong is
+   *this* use: sibling→parent→child imperative reach for a capability (L-3), not the mechanism.
+8. **Visual-audit rows are clean for this component.** `/#/extract` across all four Safari matrices:
+   `overflowX: 0`, `pageErrors: 0`, `consoleErrors: 0`, `imgNoAlt: 0`. The 6 `smallTapTargets` are
+   the slug bar (3 × 22 × 22 buttons), the slug input, and the two slider thumbs — none is this
+   component (measured 462 × 180 at 1440 px). The 3 `namelessButtons` are not this component: its
+   `aria-label` resolves in every state (measured). Screenshot
+   `audit/visual/shots/safari-desktop-light/extract.png` read: the zone renders as intended
+   structurally — the defect it *does* show is L-11's off-axis grey-green frame above crimson rails.
+9. **Named historical suspects — out of this component's import cone.** `demo/palettes/export.ts` +
+   `usePaletteExport.ts` + `demo/palettes/export/{json,bytes,rfc8785,canonical,svg,css,png,tailwind}.ts`
+   all still exist (`find demo -path "*export*" -name "*.ts"`), and the three-`useDark` note is still
+   live at `useMarkdownColors.ts:16` / `useMarkdownHighlighting.ts:76`. Neither is reachable from
+   `ImageDropZone`; I did not trace them and make no claim about their current state.
+   `ActionBarLayer`'s `useLayerTransition` reimplementation: not traced, out of cone.
 
 ---
 
 ## Strongest defect
 
-**L-3 + L-4 together — the file-intake capability is homeless.** It is currently split across a leaf
-presentational component (`defineExpose`), its grandparent (`InstanceType<>` ref), a sibling
-(`@upload` emit), and a composable that owns everything about the file *except how it arrives* — while
-an installed, already-consumed dependency (`@vueuse/core@14.3.0`, 6 existing demo consumers) ships
-both halves of the capability with the correctness properties the hand-roll lacks (single-point
-`dataTypes` enforcement; counter-based drag state). This is the defect that *generates* the others:
-`disableClick` (L-5) exists to tell the leaf when its smuggled click means something else; the
-fallthrough `@click` (L-8) exists because the leaf has no vocabulary for the intent it is actually
-signalling. Fix the ownership and three findings dissolve with it.
+**The intake-and-intent capability is homeless — L-3 · L-4 · L-12 · L-13 · L-14 are one mechanism,
+not five findings.** The capability ("a File becomes a specimen; a specimen can be sampled") is
+split across a leaf SFC that owns the hidden `<input>`, a parent that reaches into it through a
+template ref, a sibling that emits `upload` into that reach, and an undeclared native `click` that
+carries the sampling intent back out. Because no single module owns it, the MIME guard exists on one
+of two entrances (**L-12: a `.txt` reaches `<img src="data:text/plain…">` with two unhandled
+`InvalidStateError`s and no user-visible error**) and the sampling intent has no keyboard twin
+(**L-13: measured — programmatic focus + Enter opens nothing; a pointer click opens the eyedropper;
+and `tabindex` is `-1` so a keyboard user never arrives**). Both are shipped on `/#/extract` today.
 
-## Verdict
+The cure is not five patches. It is the transposition above: **two states → two components; one
+capability → one composable (`useImageIntake`, built on `useFileDialog` + `useDropZone`, both already
+installed).** The component's `<script setup>` drops from 36 lines to a props/emits pair, its
+`<style>` block disappears into the one global `.plate-ink`, its material joins the ladder, and every
+finding on this axis except L-9 dies with it.
 
-**DEFECTIVE.** Six MAJOR (L-1 · L-2 · L-3 · L-4 · L-5 · L-6), three MINOR (L-7 · L-8 · L-9), one
-INFO (L-10). Not one of them is a bug in what the component *does* — it
-renders correctly, errors nowhere, and passes its e2e oracle. Every one is a defect in *where the
-things it does are kept*. That is precisely the axis, and the file is guilty on it.
+---
+
+## Commands run this pass
+
+```
+grep -rn "ImageDropZone" demo src e2e test docs/tranches/V
+grep -rn "plate-ink" demo/ ; grep -rn "plate-ink" demo/styles/
+grep -rn "ink-muted" demo/ ; grep -rn "transitionDuration:" demo/
+grep -rn "dashed-well|border-dashed|bg-well" demo/
+grep -rn "bg-primary\b|border-primary\b" demo/
+grep -rn 'type="file"|dataTransfer|@drop|dragover' demo/
+grep -rn "@src/" demo/ | grep -v assets/docs        → empty
+grep -rn "@mkbabb/value.js" demo/workbenches/extract/
+grep -rli "dropzone|drop-zone|dragover" node_modules/@mkbabb/glass-ui/dist/   → empty
+grep -n "declare function useDropZone|useFileDialog" node_modules/@vueuse/core/dist/index.d.ts
+node .../pass2-probe/idz-probe.mjs    → pass2-probe/probe1-computed-style.json
+node .../pass2-probe/idz-probe2.mjs   → pass2-probe/probe2-token-ab.json
+node .../pass2-probe/idz-probe3.mjs   → pass2-probe/probe3-intake-and-keyboard.json   (ran 2×, identical)
+```
+
+Evidence index (all under this component's audit directory):
+`pass2-probe/idz-probe{,2,3}.mjs` · `pass2-probe/probe1-computed-style.json` ·
+`pass2-probe/probe2-token-ab.json` · `pass2-probe/probe3-intake-and-keyboard.json` ·
+`challenge-L-library.pass1-2026-07-28-prior.md` · pass-1's `evidence/`.

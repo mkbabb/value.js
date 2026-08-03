@@ -1,0 +1,114 @@
+{
+  "D1_spaceBifurcation": [
+    {
+      "spaceAtMsAfterD": 150,
+      "focusedByTypeahead": {
+        "role": "menuitem",
+        "text": "Delete",
+        "highlighted": true
+      },
+      "storeLenBefore": 6,
+      "storeLenAfter": 5,
+      "destroyed": [
+        "Probe Palette 0"
+      ],
+      "menusAfter": 0,
+      "dialogs": 0
+    },
+    {
+      "spaceAtMsAfterD": 500,
+      "focusedByTypeahead": {
+        "role": "menuitem",
+        "text": "Delete",
+        "highlighted": true
+      },
+      "storeLenBefore": 6,
+      "storeLenAfter": 5,
+      "destroyed": [
+        "Probe Palette 0"
+      ],
+      "menusAfter": 0,
+      "dialogs": 0
+    },
+    {
+      "spaceAtMsAfterD": 900,
+      "focusedByTypeahead": {
+        "role": "menuitem",
+        "text": "Delete",
+        "highlighted": true
+      },
+      "storeLenBefore": 6,
+      "storeLenAfter": 5,
+      "destroyed": [
+        "Probe Palette 0"
+      ],
+      "menusAfter": 0,
+      "dialogs": 0
+    },
+    {
+      "spaceAtMsAfterD": 1100,
+      "focusedByTypeahead": {
+        "role": "menuitem",
+        "text": "Delete",
+        "highlighted": true
+      },
+      "storeLenBefore": 6,
+      "storeLenAfter": 5,
+      "destroyed": [
+        "Probe Palette 0"
+      ],
+      "menusAfter": 0,
+      "dialogs": 0
+    },
+    {
+      "spaceAtMsAfterD": 1600,
+      "focusedByTypeahead": {
+        "role": "menuitem",
+        "text": "Delete",
+        "highlighted": true
+      },
+      "storeLenBefore": 6,
+      "storeLenAfter": 5,
+      "destroyed": [
+        "Probe Palette 0"
+      ],
+      "menusAfter": 0,
+      "dialogs": 0
+    }
+  ],
+  "D2_instanceCensus": {
+    "totals": [
+      {
+        "n": 1,
+        "totalVueInstances": 742
+      },
+      {
+        "n": 5,
+        "totalVueInstances": 890
+      },
+      {
+        "n": 25,
+        "totalVueInstances": 1630
+      }
+    ],
+    "perCardDelta_totalInstances": 37,
+    "perCardDelta_byComponent": {
+      "PaletteCardMenu": 1,
+      "DropdownMenu": 1,
+      "DropdownMenuRoot": 1,
+      "MenuRoot": 1,
+      "PopperRoot": 1,
+      "DropdownMenuTrigger": 2,
+      "MenuAnchor": 1,
+      "PopperAnchor": 1,
+      "DropdownMenuContent": 2,
+      "DropdownMenuPortal": 1,
+      "MenuContent": 1,
+      "CollectionSlot": 0,
+      "Primitive": 3,
+      "PrimitiveSlot": 2,
+      "Button": 1
+    }
+  },
+  "pageErrors": []
+}

@@ -1,0 +1,107 @@
+{
+ "one-color-palette": {
+  "plateH": 171,
+  "plateW": 462,
+  "rowKids": 1,
+  "rowW": 430,
+  "rowH": 40,
+  "gradW": 430,
+  "gradH": 16,
+  "gradImage": "linear-gradient(to right, oklch(0.6 0.2 30))",
+  "gradInlineStyle": "background: linear-gradient(to right, oklch(0.6 0.2 30));",
+  "docOverflowX": 0,
+  "cardOverflow": 0
+ },
+ "empty-palette": {
+  "plateH": 131,
+  "plateW": 462,
+  "rowKids": 0,
+  "rowW": 430,
+  "rowH": 0,
+  "gradW": 430,
+  "gradH": 16,
+  "gradImage": "none",
+  "gradInlineStyle": null,
+  "docOverflowX": 0,
+  "cardOverflow": 0
+ },
+ "24-colors-desktop": {
+  "plateH": 267,
+  "plateW": 462,
+  "rowKids": 24,
+  "rowW": 430,
+  "rowH": 136,
+  "gradW": 430,
+  "gradH": 16,
+  "gradImage": "linear-gradient(to right, oklch(0.7 0.15 0), oklch(0.7 0.15 15), oklch(0.7 0.15 30), oklch(0.7 0.15 45), oklch(0.7 0.15 60), oklch(0.7 0.15 75), oklch(0.7 0.15 90), oklch(0.7 0.15 105), oklch(0.7 0.15 120), oklch(0.7 0.15 135), oklch(0.7 0.15 150), oklch(0.7 0.15 165), oklch(0.7 0.15 180), oklch(0.7 0.15 195), oklch(0.7 0.15 210), oklch(0.7 0.15 225), oklch(0.7 0.15 240), oklch(0.7 0.15 255), oklch(0.7 0.15 270), oklch(0.7 0.15 285), oklch(0.7 0.15 300), oklch(0.7 0.15 315), oklch(0.7 0.15 330), oklch(0.7 0.15 345))",
+  "gradInlineStyle": "background: linear-gradient(to right, oklch(0.7 0.15 0), oklch(0.7 0.15 15), oklch(0.7 0.15 30), oklch(0.7 0.15 45), oklch(0.7 0.15 60), oklch(0.7 0.15 75), oklch(0.7 0.15 90), oklch(0.7 0.15 105), oklch(0.7 0.15 120), oklch(0.7 0.15 135), oklch(0.7 0.15 150), oklch(0.7 0.15 165), oklch(0.7 0.15 180), oklch(0.7 0.15 195), oklch(0.7 0.15 210), oklch(0.7 0.15 225), oklch(0.7 0.15 240), oklch(0.7 0.15 255), oklch(0.7 0.15 270), oklch(0.7 0.15 285), oklch(0.7 0.15 300), oklch(0.7 0.15 315), oklch(0.7 0.15 330), oklch(0.7 0.15 345));",
+  "docOverflowX": 0,
+  "cardOverflow": 0
+ },
+ "50-colors-desktop": {
+  "plateH": 411,
+  "plateW": 462,
+  "rowKids": 50,
+  "rowW": 430,
+  "rowH": 280,
+  "gradW": 430,
+  "gradH": 16,
+  "gradImage": "linear-gradient(to right, oklch(0.7 0.15 0), oklch(0.7 0.15 7), oklch(0.7 0.15 14), oklch(0.7 0.15 21), oklch(0.7 0.15 28), oklch(0.7 0.15 35), oklch(0.7 0.15 42), oklch(0.7 0.15 49), oklch(0.7 0.15 56), oklch(0.7 0.15 63), oklch(0.7 0.15 70), oklch(0.7 0.15 77), oklch(0.7 0.15 84), oklch(0.7 0.15 91), oklch(0.7 0.15 98), oklch(0.7 0.15 105), oklch(0.7 0.15 112), oklch(0.7 0.15 119), oklch(0.7 0.15 126), oklch(0.7 0.15 133), oklch(0.7 0.15 140), oklch(0.7 0.15 147), oklch(0.7 0.15 154), oklch(0.7 0.15 161), oklch(0.7 0.15 168), oklch(0.7 0.15 175), oklch(0.7 0.15 182), oklch(0.7 0.15 189), oklch(0.7 0.15 196), oklch(0.7 0.15 203), oklch(0.7 0.15 210), oklch(0.7 0.15 217), oklch(0.7 0.15 224), oklch(0.7 0.15 231), oklch(0.7 0.15 238), oklch(0.7 0.15 245), oklch(0.7 0.15 252), oklch(0.7 0.15 259), oklch(0.7 0.15 266), oklch(0.7 0.15 273), oklch(0.7 0.15 280), oklch(0.7 0.15 287), oklch(0.7 0.15 294), oklch(0.7 0.15 301), oklch(0.7 0.15 308), oklch(0.7 0.15 315), oklch(0.7 0.15 322), oklch(0.7 0.15 329), oklch(0.7 0.15 336), oklch(0.7 0.15 343))",
+  "gradInlineStyle": "background: linear-gradient(to right, oklch(0.7 0.15 0), oklch(0.7 0.15 7), oklch(0.7 0.15 14), oklch(0.7 0.15 21), oklch(0.7 0.15 28), oklch(0.7 0.15 35), oklch(0.7 0.15 42), oklch(0.7 0.15 49), oklch(0.7 0.15 56), oklch(0.7 0.15 63), oklch(0.7 0.15 70), oklch(0.7 0.15 77), oklch(0.7 0.15 84), oklch(0.7 0.15 91), oklch(0.7 0.15 98), oklch(0.7 0.15 105), oklch(0.7 0.15 112), oklch(0.7 0.15 119), oklch(0.7 0.15 126), oklch(0.7 0.15 133), oklch(0.7 0.15 140), oklch(0.7 0.15 147), oklch(0.7 0.15 154), oklch(0.7 0.15 161), oklch(0.7 0.15 168), oklch(0.7 0.15 175), oklch(0.7 0.15 182), oklch(0.7 0.15 189), oklch(0.7 0.15 196), oklch(0.7 0.15 203), oklch(0.7 0.15 210), oklch(0.7 0.15 217), oklch(0.7 0.15 224), oklch(0.7 0.15 231), oklch(0.7 0.15 238), oklch(0.7 0.15 245), oklch(0.7 0.15 252), oklch(0.7 0.15 259), oklch(0.7 0.15 266), oklch(0.7 0.15 273), oklch(0.7 0.15 280), oklch(0.7 0.15 287), oklch(0.7 0.15 294), oklch(0.7 0.15 301), oklch(0.7 0.15 308), oklch(0.7 0.15 315), oklch(0.7 0.15 322), oklch(0.7 0.15 329), oklch(0.7 0.15 336), oklch(0.7 0.15 343));",
+  "docOverflowX": 0,
+  "cardOverflow": 60
+ },
+ "long-css-320": {
+  "plateH": 168,
+  "plateW": 254,
+  "rowKids": 1,
+  "rowW": 222,
+  "rowH": 40,
+  "gradW": 222,
+  "gradH": 16,
+  "gradImage": "linear-gradient(to right, oklch(0.6 0.2 30))",
+  "gradInlineStyle": "background: linear-gradient(to right, oklch(0.6 0.2 30));",
+  "docOverflowX": 0,
+  "cardOverflow": 0
+ },
+ "longString320": {
+  "plate": {
+   "w": 254,
+   "h": 178
+  },
+  "code": {
+   "w": 154,
+   "h": 78,
+   "lines": 4,
+   "wordBreak": "break-all"
+  },
+  "btns": [
+   {
+    "w": 28,
+    "h": 28
+   },
+   {
+    "w": 28,
+    "h": 28
+   },
+   {
+    "w": 28,
+    "h": 28
+   }
+  ],
+  "docOverflowX": 0
+ },
+ "50-colors-320": {
+  "plateH": 744,
+  "plateW": 254,
+  "rowKids": 50,
+  "rowW": 222,
+  "rowH": 616,
+  "gradW": 222,
+  "gradH": 16,
+  "gradImage": "linear-gradient(to right, oklch(0.7 0.15 0), oklch(0.7 0.15 7), oklch(0.7 0.15 14), oklch(0.7 0.15 21), oklch(0.7 0.15 28), oklch(0.7 0.15 35), oklch(0.7 0.15 42), oklch(0.7 0.15 49), oklch(0.7 0.15 56), oklch(0.7 0.15 63), oklch(0.7 0.15 70), oklch(0.7 0.15 77), oklch(0.7 0.15 84), oklch(0.7 0.15 91), oklch(0.7 0.15 98), oklch(0.7 0.15 105), oklch(0.7 0.15 112), oklch(0.7 0.15 119), oklch(0.7 0.15 126), oklch(0.7 0.15 133), oklch(0.7 0.15 140), oklch(0.7 0.15 147), oklch(0.7 0.15 154), oklch(0.7 0.15 161), oklch(0.7 0.15 168), oklch(0.7 0.15 175), oklch(0.7 0.15 182), oklch(0.7 0.15 189), oklch(0.7 0.15 196), oklch(0.7 0.15 203), oklch(0.7 0.15 210), oklch(0.7 0.15 217), oklch(0.7 0.15 224), oklch(0.7 0.15 231), oklch(0.7 0.15 238), oklch(0.7 0.15 245), oklch(0.7 0.15 252), oklch(0.7 0.15 259), oklch(0.7 0.15 266), oklch(0.7 0.15 273), oklch(0.7 0.15 280), oklch(0.7 0.15 287), oklch(0.7 0.15 294), oklch(0.7 0.15 301), oklch(0.7 0.15 308), oklch(0.7 0.15 315), oklch(0.7 0.15 322), oklch(0.7 0.15 329), oklch(0.7 0.15 336), oklch(0.7 0.15 343))",
+  "gradInlineStyle": "background: linear-gradient(to right, oklch(0.7 0.15 0), oklch(0.7 0.15 7), oklch(0.7 0.15 14), oklch(0.7 0.15 21), oklch(0.7 0.15 28), oklch(0.7 0.15 35), oklch(0.7 0.15 42), oklch(0.7 0.15 49), oklch(0.7 0.15 56), oklch(0.7 0.15 63), oklch(0.7 0.15 70), oklch(0.7 0.15 77), oklch(0.7 0.15 84), oklch(0.7 0.15 91), oklch(0.7 0.15 98), oklch(0.7 0.15 105), oklch(0.7 0.15 112), oklch(0.7 0.15 119), oklch(0.7 0.15 126), oklch(0.7 0.15 133), oklch(0.7 0.15 140), oklch(0.7 0.15 147), oklch(0.7 0.15 154), oklch(0.7 0.15 161), oklch(0.7 0.15 168), oklch(0.7 0.15 175), oklch(0.7 0.15 182), oklch(0.7 0.15 189), oklch(0.7 0.15 196), oklch(0.7 0.15 203), oklch(0.7 0.15 210), oklch(0.7 0.15 217), oklch(0.7 0.15 224), oklch(0.7 0.15 231), oklch(0.7 0.15 238), oklch(0.7 0.15 245), oklch(0.7 0.15 252), oklch(0.7 0.15 259), oklch(0.7 0.15 266), oklch(0.7 0.15 273), oklch(0.7 0.15 280), oklch(0.7 0.15 287), oklch(0.7 0.15 294), oklch(0.7 0.15 301), oklch(0.7 0.15 308), oklch(0.7 0.15 315), oklch(0.7 0.15 322), oklch(0.7 0.15 329), oklch(0.7 0.15 336), oklch(0.7 0.15 343));",
+  "docOverflowX": 0,
+  "cardOverflow": 543
+ }
+}

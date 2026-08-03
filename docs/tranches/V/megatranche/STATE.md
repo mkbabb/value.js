@@ -3,6 +3,18 @@
 **Read this first in any new session.** It is the resume point. Everything below is on disk; nothing
 here depends on conversation context surviving.
 
+> **CURRENT SUPERSESSION — 2026-07-29 13:49 EDT.** The exact resume authority is
+> `CONVERGENCE-RESUME-HANDOFF-2026-07-29.md`; independent findings are
+> `CONVERGENCE-REAUDIT-2026-07-29.md`. The former in-flight handoff, audit, and mechanism map remain
+> dated evidence. Snapshot: branch `tranche-u`, source boot commit `c4af0ef9`; the canonical
+> frontend ceiling is **88 components / 264 axes**. Fresh hydrate plus full-current-SHA validation:
+> **72/88 complete, 218/264 exact files present and hash-banked, 16 incomplete rows / 46 axes**;
+> zero active, 10 capacity-blocked and uncovered, six queued omissions. The initial directory
+> census is 109; two sci-report rows are ignored artefacts, so tranche archaeology is 107/107 deep
+> with zero rows pending. Earlier 81/243, 233/243,
+> presence-as-banked, 15-apotheosis, “80% wave-authored,” and live-resume statements below are
+> historical and must not drive a resume.
+
 Last updated 2026-07-28 by the M-16..M-18 external audit. Tree observed: branch `tranche-u`, HEAD
 `f6f7040a`. This audit made three value demo source edits for HF-5 and one keyframes demo source edit
 for HF-1; their exact blocker/cure/browser receipts are in
@@ -22,11 +34,20 @@ The rest of the dirty tree belongs to the active Claude formation and includes a
 | `FORMATION-LAWS.md` | **L-1..L-17**, including tri-fold, durability, evidence-mode, and graph-cluster laws | STABLE |
 | `registry/ROOT-FINDINGS.md` | **43 findings (MT-F001..MT-F043)**; the three OM censuses are COMPLETE 2026-07-28 late (`audit/om-14-formatting/` · `om-15-text/` · `om-16-palette-scalability/`, census-complete notes appended per finding); M-16's toFixed figure confirmed-and-refined (30 lines/31 calls) | GROWING |
 | `registry/DISEASE-REGISTRY.md` | **33 disease rows** (18 BUILD · 11 RETIRE · 4 FOLD) + 22 mechanism families — the anti-rename ledger; wave authoring's primary input | **COMPLETE** |
-| `registry/harvest/*.json` | **53 raw agent results** pulled from the workflow journals — complete, untruncated | REGENERABLE |
-| `registry/DEFECT-LEDGER.md` | **2,329 challenger accusations** (334 BLOCKER · 1,112 MAJOR · 680 MINOR · 203 INFO), severity-ordered; not jury findings | REGENERABLE |
+| `registry/harvest/*.json` | **572 raw agent results** pulled from the workflow journals | REGENERABLE |
+| `registry/DEFECT-LEDGER.md` | **6,033 challenger accusations** (875 BLOCKER · 2,820 MAJOR · 1,747 MINOR · 591 INFO), severity-ordered; not jury findings | REGENERABLE |
 | `audit/probes/*.mjs` | born-RED gates and hostile probes; each runnable standalone | STABLE |
 | `audit/visual/` | route + state capture matrices and owner witnesses **OM-1..OM-16**; OM-14/15/16 map to MT-F038/039/040 | GROWING |
-| `AUDIT-HANDOFF-2026-07-28.md` | M-16 active-session audit, in-app Browser findings, component/library dispositions, wave corrections, and exact resume order | **READ NEXT** |
+| `CONVERGENCE-RESUME-HANDOFF-2026-07-29.md` | current source plan, exact criteria, ownership, and constellation boundary | **READ NEXT** |
+| `CONVERGENCE-REAUDIT-2026-07-29.md` | independent source, session, tranche, browser, parser, and peer-repository findings | CURRENT |
+| `excavation/CONSTELLATION-TRANCHE-COVERAGE-2026-07-29.md` | 109-row directory ledger; 107 actual tranches, 107 deep, zero pending | CURRENT |
+| `excavation/SESSION-COVERAGE-2026-07-29.md` | located, sampled, and deep session-artifact coverage boundary | CURRENT |
+| `IN-FLIGHT-RESUME-HANDOFF-2026-07-29.md` | quota-era resume cursor, retained for evidence | SUPERSEDED |
+| `IN-FLIGHT-AUDIT-2026-07-29.md` | prior independent audit, retained for evidence | SUPERSEDED |
+| `MECHANISM-CUT-FORMATION-MAP-2026-07-29.md` | provisional ten-cut map; pruned by the convergence re-audit | SUPERSEDED |
+| `WAVE-ADDENDUM-2026-07-29.md` | tombstone for the rejected precepts-complete claim | SUPERSEDED |
+| `workflows/args/frontend-omissions.json` | seven missed Vue SFCs, each queued for its own D/L/C workflow | CURRENT |
+| `AUDIT-HANDOFF-2026-07-28.md` | M-16 active-session audit, retained as dated evidence; its resume arithmetic is superseded | HISTORICAL |
 | `CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md` | complete value Admin/CRUD, keyframes, Fourier, parse-that, consumer, hotfix, DAG, and wave-amendment ledger | **READ AFTER HANDOFF** |
 | `workflows/harvest-journals.mjs` | **run after every workflow completion, before any re-deploy (L-13)** | STABLE |
 
@@ -44,7 +65,7 @@ The rest of the dirty tree belongs to the active Claude formation and includes a
    cache. Run IDs are in the table below.
 4. **A summary is not a result.** `componentsRun: N` with every row `NO_JURY` / `defectCount: 0` is a
    FAILED run. Read the `<failures>` block and the journal before believing any workflow return.
-5. **Challenger ≠ finding.** The 287 ledger rows are accusations with evidence attached. The jury
+5. **Challenger ≠ finding.** The 6,033 ledger rows are accusations with evidence attached. The jury
    seats were the ones most often killed; nothing is adjudicated until a jury pass runs.
 6. **Evidence modes remain separate** (L-16). Browser-live, browser-fixture, API-test, source, and
    blocked receipts never impersonate one another.
@@ -71,8 +92,8 @@ The rest of the dirty tree belongs to the active Claude formation and includes a
 | **PHASE D safari-real matrix** | `wf_060ffe39-0fd` | **3/3** | **COMPLETE.** `audit/visual/safari-real/MATRIX-SAFARI.md` (564 lines; 21 route cells + 15 state cells; 30 name↔sha pairings verified, 0 absent). **THREE INVERSIONS**: keyboard-focus #/gradient (webkit sat on `body`, real Safari reaches a ring-bearing stop — **RESOLVES MT-F022 #3: no keyboard defect bookable from webkit rows**) · keyboard-focus #/ (TRUE→FALSE but NOT like-for-like — different 12th stop; OPEN in both cells) · rtl #/ katex half (RTL stays UNCLAIMED-not-broken). Four divergences DECLINED as inversions with reasons (incl. webkit disagreeing with ITSELF on #/blob canvas count). Real findings: #/blob right-pane does not mount at 390 while #/mix does (webkit-corroborated); the "694 clipped" = ONE unscrollable overhanging card (MT-F022-class false signal caught in-seat). **Morph arm NOT-DRIVEN, honestly**: hidden-window rAF ~1Hz → zero genuine morph frames; glass-S0 NOT closed; the two S0-signature `.ips` attributed AWAY from real Safari (Playwright's WebContent under VSCode coalition); frame stack corroborates STYLE-RESOLUTION crash class. Route matrix: 0 horizontal overflow on 21 cells; h1==0 everywhere re-confirmed; Safari accepted 3440 verbatim (display is the constraint). 11 declared blind spots incl. the widened window-snapshot failure and the pointer-actions driver hang (standing instruction recorded). **O-16 SENT** (consolidated r1+r2 arms + S0 corroboration + the forced-colors BLOCKER returned to US as demo-owned) |
 | **TRIFOLD chassis fitness** | `wf_88ec28d9-949` | **3/3** | **COMPLETE — ADOPT-WITH-ASKS, unanimous 3/3** (owner challenge "overfit garbage or worth extraction?"). Apotheosis `registry/adjudicated/chassis-fitness.md`. **The root's evidence-pack census was FALSE and both blind workers caught it (L-10 on the root's own numbers): §5 correction record — sci-report 14 hits ALL docs (glass pin 6.0.0, zero `.instrument-*`); fourier consumption IMPOSSIBLE (^4.0.0 dist has no chassis dir); speedtest's 12 files consume the 4.0.1 ANCESTOR (zero prop/slot overlap); true 7.0.0 population N=1 (producer's own demo story) — value.js = the FIRST production consumer anywhere.** Ruling re-grounded on knob test + bespoke-delta COLLAPSE (independently-written bespoke converges near-byte-identical; genuine delta = exactly G-1/G-2/G-3/G-5+G-8) + ask-shape + MT-F014 drift law. Owner's instinct HALF-VINDICATED: the 4.0.1 ancestor WAS textbook overfit (`ping\|download\|upload\|jitter` in a design-system union); 7.0.0 is its wholesale cure. Worker-F's circular canon-fit STRUCK (fr constants entered canon FROM dist bytes one day after glass shipped them; band law: canon-fit is not fitness evidence); worker-O's blocking-gate-on-layout-gestalt REFUTED (that doc always said "zero consumers" — the false census lived only in the root's workflow brief). Consequences: 18-route table STANDS (Browse/Library bind preview-dominant); V·L1..V·L4 proceed after MT-APP-1; **O-10 AMENDMENT RELAY SENT** (`glass-ui/.../valuejs-outbound-2026-07-27-o10-amendment-census-g7-g9.md`: G-7→load-bearing · NEW G-9 proportion tokens · census rider; INBOX row pending the O-11..O-15 packet seat's append — row it after); **canon petitions P-1/P-2 AWAIT OWNER**; worker-F's HYBRID successor clause preserved if glass refuses G-1/G-2 in the 8.0.0 cycle. Dissent preserved §7 (N=1 extraction history, twice) |
 | area shell (12 comp) | `wf_e28d617f-9eb` | **12/12 comp TRUE** | **COMPLETE 2026-07-28 ~10:47, validated.** Its 3rd deploy was still RUNNING when the earlier "completed" record was read (the record was a stale artifact of a wall-killed deploy — records lie in BOTH directions); the completion notification landed, re-harvest banked all 36 axes (journal 204 started / 53 results across all deploys). All 12 components ADJUDICATED or ON-DISK in the COMPLETENESS-LEDGER. 2.14M subagent tokens, 36/36 seats, 0 errors on the final deploy |
-| area workbenches (19) | `wf_6edda4a1-192` | **18/19 on disk** | **RE-RESUMED 2026-07-29 ~00:15 (ACTIVE, 7th deploy)** — the 6th deploy hit the 3:30am wall (15 seats); disk truth unchanged: ONLY **wb-gradient-pane (0/3)** remains. Byte-identical resume, args verified object-equal to run record |
-| area palettes (32) | `wf_22b7a7b7-97b` | **23/32 on disk** | **RE-RESUMED 2026-07-29 ~00:15 (ACTIVE, 6th deploy)** — 5th deploy banked 15 MORE components (8→23) incl. AdminUsersPanel r4 (filtered-scope prune lie, 500→"No empty users" false-success, signed-out costumed as roster-clear, RTL slug fabrication), ShadowPalette, ApiOfflineChip, FlagReport/MigratePalettes dialogs; the 3:30am wall killed 25 seats. Remaining 9: TagEditPopover (D only) + PaletteRenameInput/PaletteCardMeta/ActionFeedback/UserSortMenu/PaletteCardGrid/PaginationBar/AdminListSkeleton/AdminListItem (0/3). Harvest cumulative: 538 results · 5,726 defects · 826 BLOCKER |
+| area workbenches (19) | `wf_6edda4a1-192` | **18/19 on disk** | **BLOCKED-ON-CAPACITY** — terminal wrapper says completed while the result is 11/19 and child logs contain 20 weekly-limit plus one session-limit error. `wb-gradient-pane` remains 0/3. No worker is alive |
+| area palettes (32) | `wf_22b7a7b7-97b` | **23/32 on disk** | **BLOCKED-ON-CAPACITY** — terminal wrapper says completed while the result is 6/32 and child logs contain 70 weekly-limit plus four session-limit errors. TagEditPopover lacks D; eight other rows remain 0/3. No worker is alive |
 
 Area orchestrator script: `workflows/area-orchestrator.js`; per-component script:
 `workflows/component-apotheosis.js`. Rosters with per-component evidence: `workflows/args/*.json`.
@@ -86,12 +107,12 @@ non-throwing child as run. Both scripts are FIXED at root (child returns `comple
 challenges.length===3`; parent counts only complete children and returns an `incomplete` list) —
 accounting-only edits, no agent prompt touched, so cache keys are unchanged.
 
-**M-16 correction:** `validate-completeness.mjs` and the generated ledger are not presently
-authoritative. They predate late writes and accept returned/harvested payloads without requiring the
-declared canonical output file. Direct roster-to-file truth is **126/243 reports, 117 absent,
-41 incomplete components**. Before the validator is trusted again, require output existence and a
-recorded content hash; hydrate complete cached payloads to their declared paths; then regenerate the
-ledger and update this table in the same fold.
+**2026-07-29 13:49 EDT correction:** `validate-completeness.mjs` enforces the 88-SFC roster, exact
+canonical filenames, hydration-ledger presence, and current SHA-256 equality. A fresh
+harvest→hydrate→validate cycle reports **72/88 complete, 218/264 exact files present and
+hash-banked, 46 unbanked axes, 16 incomplete component rows; zero ACTIVE, 10
+BLOCKED-ON-CAPACITY/uncovered, seven QUEUED**. The terminal workflow wrapper still owes child-error
+and short-result propagation; the validator no longer converts those records into live coverage.
 
 ## The findings that matter most so far
 
@@ -99,9 +120,9 @@ ledger and update this table in the same fold.
   of every major CSS colour function. 324 throws / 1548 calls, **one** distinct failure mode, all
   from a single `!` at `src/css/grammar.ts:181`. 4 of 9 public `parse*` entry points affected.
   Gate: `audit/probes/r1-published-totality.mjs` (exit 1 today). Relayed to glass + keyframes + atlas.
-- **MT-F012 (BLOCKER)** — the gh-pages build emits a bundle with no application in it; a stock-Vite
-  minimal repro produced a SHA-256-identical broken chunk. Cure: move the 8 inline lines from
-  `demo/color-picker/index.html:205-213` into `main.ts`.
+- **MT-F012 (CLOSED `c4af0ef9`)** — the gh-pages build emitted a 698-byte bundle with no
+  application. The external `main.ts` entry now transforms 2,831 modules and emits a 526 KB
+  application entry; typecheck and built direct/hash browser routes pass.
 - **MT-F023 (MAJOR)** — the blunt `animation-duration: 0.01ms !important` PRM guard is structurally
   incapable of reaching a scroll-driven animation. glass-ui already solves this correctly (all 10 of
   their `animation-timeline` decls sit inside `no-preference`); we adopt their idiom.
@@ -139,17 +160,16 @@ ledger and update this table in the same fold.
 
 ## What remains
 
-- **Restore durable component evidence first:** materialize and hash the 117 missing canonical
-  reports from cached payloads where possible; rerun only seats whose full payload is genuinely
-  absent. Do not adjudicate on a workflow return.
-- **Re-run the three failed owner-mark censuses:** OM-14 formatting, OM-15 copy contrivance, OM-16
-  arbitrary-N palette behavior. None produced its declared file before the wall.
-- **Execute rather than re-audit:** production boot, six inert WatercolorDot controls, the atomic
-  shadcn-residue deletion, route/scene composition, palette specimen split, and real browser gates.
-- **Author no more than ten mechanism waves.** Fold into the existing disease spine; do not revive
-  vnext's 193-wave/proof-tool shape or create component-named micro-waves.
-- Re-author one canonical `demo/DESIGN.md` only after the three named canon rulings; fold and
-  tombstone superseded design satellites in the same wave.
+- Assign the 10 capacity-blocked rows and six queued omissions; produce only the 46 missing
+  canonical axes. Do not re-pay hash-banked work.
+- Adjudicate complete corpora while the missing axes run.
+- Reach both **88/88 components and 264/264 current-hash axes** before claiming challenge
+  saturation.
+- Use graph authority for topology and strongly connected-component changes; do not block
+  independent source work on it.
+- Resume the five frontend cuts plus release in `CONVERGENCE-RESUME-HANDOFF-2026-07-29.md`.
+- Keep product state honest: production boot is complete; the remaining frontend/library cuts are
+  specified and either blocked or not started.
 
 ## The history audit's own verdict on itself (read before trusting any of it)
 
@@ -187,7 +207,10 @@ document axis is saturated, the execution axis is not. **Any claim that this for
 
 ---
 
-## §RESUME — SESSION-WALL RECIPE (M-16 checkpoint 2026-07-28)
+## §RESUME — HISTORICAL M-16 RECIPE (SUPERSEDED 2026-07-29)
+
+**Do not execute the recipe below.** Its 126/243 baseline and failed-census claims are dated
+evidence. The sole current recipe is `CONVERGENCE-RESUME-HANDOFF-2026-07-29.md`.
 
 The active Claude root is
 `/Users/mkbabb/.claude/projects/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e.jsonl`
@@ -196,7 +219,7 @@ after commit `d345cea1`. The last substantive message registered OM-14/15/16 as 
 claimed three censuses were running. All three agents failed; none of the declared census files
 exists. Do not resume from that claim.
 
-### Resume in this exact order
+### Historical recipe retained for provenance only
 
 1. Read `AUDIT-HANDOFF-2026-07-28.md` and
    `CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md` whole. Preserve the dirty worktree; do not reset,

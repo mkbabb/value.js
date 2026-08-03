@@ -1,0 +1,199 @@
+{
+  "mobile-light": {
+    "reach": {
+      "viewport": {
+        "w": 390,
+        "h": 664
+      },
+      "swatchRect": {
+        "x": 133,
+        "y": 681.4,
+        "w": 28,
+        "h": 28,
+        "bottom": 709.4
+      },
+      "dialogRect": {
+        "y": 297.3,
+        "h": 459.4,
+        "bottom": 756.7
+      },
+      "swatchBelowFoldPx": 45.4,
+      "dialogBelowFoldPx": 92.7,
+      "docScrollable": false,
+      "scrollersBetween": []
+    },
+    "forced": {
+      "rendered": true,
+      "miniRect": {
+        "x": 133,
+        "y": 440.7,
+        "w": 208,
+        "h": 236.7,
+        "bottom": 677.4
+      },
+      "miniBelowFoldPx": 13.4,
+      "miniAboveFoldPx": -440.7,
+      "touchActionCanvas": "auto",
+      "touchActionRail": "auto",
+      "railH": 12,
+      "dialogCount": 2
+    }
+  },
+  "mobile-dark": {
+    "reach": {
+      "viewport": {
+        "w": 390,
+        "h": 664
+      },
+      "swatchRect": {
+        "x": 133,
+        "y": 681.4,
+        "w": 28,
+        "h": 28,
+        "bottom": 709.4
+      },
+      "dialogRect": {
+        "y": 297.3,
+        "h": 459.4,
+        "bottom": 756.7
+      },
+      "swatchBelowFoldPx": 45.4,
+      "dialogBelowFoldPx": 92.7,
+      "docScrollable": false,
+      "scrollersBetween": []
+    },
+    "forced": {
+      "rendered": true,
+      "miniRect": {
+        "x": 133,
+        "y": 440.7,
+        "w": 208,
+        "h": 236.7,
+        "bottom": 677.4
+      },
+      "miniBelowFoldPx": 13.4,
+      "miniAboveFoldPx": -440.7,
+      "touchActionCanvas": "auto",
+      "touchActionRail": "auto",
+      "railH": 12,
+      "dialogCount": 2
+    }
+  },
+  "zoom-200": {
+    "reach": {
+      "viewport": {
+        "w": 720,
+        "h": 450
+      },
+      "swatchRect": {
+        "x": 366.5,
+        "y": 620.8,
+        "w": 28,
+        "h": 28,
+        "bottom": 648.8
+      },
+      "dialogRect": {
+        "y": 238.5,
+        "h": 448.6,
+        "bottom": 687.1
+      },
+      "swatchBelowFoldPx": 198.8,
+      "dialogBelowFoldPx": 237.1,
+      "docScrollable": false,
+      "scrollersBetween": []
+    },
+    "forced": {
+      "rendered": true,
+      "miniRect": {
+        "x": 366.5,
+        "y": 398,
+        "w": 208,
+        "h": 218.7,
+        "bottom": 616.7
+      },
+      "miniBelowFoldPx": 166.7,
+      "miniAboveFoldPx": -398,
+      "touchActionCanvas": "auto",
+      "touchActionRail": "auto",
+      "railH": 12,
+      "dialogCount": 2
+    }
+  },
+  "desktop-deep": {
+    "type": {
+      "readout": {
+        "fontSize": "14.384px",
+        "fontStyle": "italic",
+        "fontWeight": "400",
+        "fontFamily": "\"Fira Code\"",
+        "lineHeight": "18.6992px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "searchBtn": {
+        "fontSize": "11px",
+        "fontStyle": "normal",
+        "fontWeight": "500",
+        "fontFamily": "\"Plus Jakarta Sans\"",
+        "lineHeight": "13.75px",
+        "color": "rgb(0, 0, 0)"
+      },
+      "searchBtnRole": null,
+      "searchBtnAttrs": [
+        "data-v-edf7dca1=",
+        "data-slot=button",
+        "data-emphasis=secondary",
+        "data-tone=neutral",
+        "data-size=sm",
+        "data-press-armed=",
+        "type=button",
+        "class=button tap-squish focus-ring glass-wash glass-capsule ",
+        "variant=outline",
+        "style=--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;"
+      ],
+      "dialogClassList": [
+        "popover-content",
+        "z-popover",
+        "glass-floating",
+        "[--overlay-pad-inline:1rem]",
+        "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+        "px-(--overlay-pad-inline)",
+        "py-(--overlay-pad-block)",
+        "glass-reveal",
+        "w-52",
+        "p-2.5"
+      ],
+      "dialogPadding": "20.351999px 16px",
+      "dialogWidth": "208px",
+      "spacingToken": "0.25rem"
+    },
+    "whiteCorner": {
+      "hex": "#4488cc",
+      "thumbFill": "rgb(68, 136, 204)",
+      "thumbBorder": "rgb(255, 255, 255)",
+      "thumbLeft": "66.666667%",
+      "thumbTop": "20%",
+      "hiddenPct": 0
+    },
+    "stuckDrag": {
+      "beforeHover": "#406080",
+      "afterHover": "#18a2e7",
+      "mutatedByHoverAlone": true
+    }
+  },
+  "rtl-desktop": {
+    "rtl": {
+      "rendered": true,
+      "readoutDirAttr": null,
+      "readoutComputedDir": "rtl",
+      "readoutUnicodeBidi": "normal",
+      "readoutText": "#4488cc",
+      "canvasBg": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(0, 128, 255))",
+      "railBg": "linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(",
+      "thumbLeft": "66.666667%",
+      "dlg": {
+        "x": 770,
+        "w": 208
+      }
+    }
+  }
+}

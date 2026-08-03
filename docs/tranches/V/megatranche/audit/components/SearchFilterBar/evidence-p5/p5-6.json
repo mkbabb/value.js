@@ -1,0 +1,79 @@
+{
+  "focusAfterEscape": "BUTTON:Filters",
+  "focusAfterOutsideClick": "BODY:→BrowseToolsBrowsePalettes L",
+  "focusAfterTriggerToggle": "BUTTON:Filters",
+  "zoom200": {
+    "viewport": {
+      "w": 720,
+      "h": 450
+    },
+    "popover": {
+      "top": 238,
+      "bottom": 849.05,
+      "h": 611.05
+    },
+    "visibleBlockPx": 212,
+    "visibleFraction": 0.347,
+    "offscreenBelowPx": 399.05,
+    "popoverScrollable": false,
+    "popoverMaxHeight": "none",
+    "docScrollHeight": 450,
+    "docClientHeight": 450,
+    "docScrollable": false,
+    "colourFieldTop": 779.7,
+    "colourFieldOffscreen": true,
+    "clearRowPresent": false
+  },
+  "zoom200AfterScroll": {
+    "scrollY": 0,
+    "top": -253,
+    "bottom": 358.05,
+    "stillOffscreen": -91.95
+  },
+  "longTag": {
+    "rows": [
+      {
+        "t": "pastel",
+        "h": 30.97,
+        "w": 182,
+        "lines": 2,
+        "whiteSpace": "normal",
+        "textOverflow": "clip",
+        "overflowWrap": "normal"
+      },
+      {
+        "t": "neon",
+        "h": 30.97,
+        "w": 182,
+        "lines": 2,
+        "whiteSpace": "normal",
+        "textOverflow": "clip",
+        "overflowWrap": "normal"
+      },
+      {
+        "t": "high-contrast-accessible-ui",
+        "h": 53.94,
+        "w": 182,
+        "lines": 2,
+        "whiteSpace": "normal",
+        "textOverflow": "clip",
+        "overflowWrap": "normal"
+      },
+      {
+        "t": "warm",
+        "h": 30.97,
+        "w": 182,
+        "lines": 2,
+        "whiteSpace": "normal",
+        "textOverflow": "clip",
+        "overflowWrap": "normal"
+      }
+    ],
+    "scroller": {
+      "clientH": 112,
+      "scrollH": 159,
+      "visibleFraction": 0.704,
+      "scrollbarWidth": "thin"
+    }
+  }
+}

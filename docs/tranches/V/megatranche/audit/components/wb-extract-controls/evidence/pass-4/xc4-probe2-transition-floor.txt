@@ -1,0 +1,81 @@
+
+=== kC track — transition + declared track-bg ===
+{
+ "transitionProperty": "background, border-color",
+ "transitionDuration": "0.2s, 0.2s",
+ "trackBgVar": "oklch(54.514108368918% 0.21802388831 9.83402284231deg)",
+ "paintedBg": "oklch(0.545141 0.218024 9.834023)",
+ "railTransition": "all"
+}
+
+=== plate referent (first opaque painted ancestor) ===
+{
+ "chain": [
+  {
+   "tag": "div",
+   "cls": "glass-resting.card",
+   "bg": "oklab(0.928273 0.005506 0.013193 / 0.664)",
+   "alpha": 0.663
+  }
+ ],
+ "chosenPlate": "oklab(0.928273 0.005506 0.013193 / 0.664)"
+}
+
+=== driven control ===
+{
+ "focused": "Number of colors",
+ "valuenow": "5"
+}
+
+=== kC TRACK — painted vs certified, during a live colour drive ===
+{
+ "samples": 182,
+ "distinctPainted": 1,
+ "distinctTargets": 1,
+ "framesWherePaintedNotEqualTarget": 182,
+ "MIN_painted_contrast_vs_plate": 4.9,
+ "MAX_painted_contrast_vs_plate": 4.9,
+ "MIN_target_contrast_vs_plate": 4.9,
+ "GRAPHICS_FLOOR": 3,
+ "samplesBelowFloor": 0,
+ "worstFive": [
+  {
+   "t": 3515,
+   "painted": "oklch(0.545141 0.218024 9.834023)",
+   "target": "oklch(54.514108368918% 0.21802388831 9.83402284231deg)",
+   "contrastVsPlate": 4.9,
+   "targetContrast": 4.9
+  },
+  {
+   "t": 3531,
+   "painted": "oklch(0.545141 0.218024 9.834023)",
+   "target": "oklch(54.514108368918% 0.21802388831 9.83402284231deg)",
+   "contrastVsPlate": 4.9,
+   "targetContrast": 4.9
+  },
+  {
+   "t": 3555,
+   "painted": "oklch(0.545141 0.218024 9.834023)",
+   "target": "oklch(54.514108368918% 0.21802388831 9.83402284231deg)",
+   "contrastVsPlate": 4.9,
+   "targetContrast": 4.9
+  },
+  {
+   "t": 3564,
+   "painted": "oklch(0.545141 0.218024 9.834023)",
+   "target": "oklch(54.514108368918% 0.21802388831 9.83402284231deg)",
+   "contrastVsPlate": 4.9,
+   "targetContrast": 4.9
+  },
+  {
+   "t": 3581,
+   "painted": "oklch(0.545141 0.218024 9.834023)",
+   "target": "oklch(54.514108368918% 0.21802388831 9.83402284231deg)",
+   "contrastVsPlate": 4.9,
+   "targetContrast": 4.9
+  }
+ ]
+}
+
+=== pageErrors ===
+[]

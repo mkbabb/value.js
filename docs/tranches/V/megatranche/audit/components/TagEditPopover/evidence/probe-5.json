@@ -1,0 +1,96 @@
+{
+  "samples": [
+    {
+      "t": 4492,
+      "transform": "matrix(1, 0, 0, 1, 0, -496.5)",
+      "rect": {
+        "x": -1.7,
+        "y": -493.7,
+        "w": 211.4,
+        "h": 226.6
+      },
+      "opacity": "0.310441",
+      "visibility": "visible",
+      "innerTransform": "none",
+      "dataState": "open",
+      "text": "TAGS pastel MOOD TEMPERATURE muted-earthen-autumnal MOOD SATURATION monochrome STRUCTURE duotone STRUCTURE ACCESSIBILITY"
+    },
+    {
+      "t": 4504,
+      "transform": "matrix(1, 0, 0, 1, 0, -496.5)",
+      "rect": {
+        "x": -1.6,
+        "y": -493.8,
+        "w": 211.3,
+        "h": 227.7
+      },
+      "opacity": "0.390195",
+      "visibility": "visible",
+      "innerTransform": "none",
+      "dataState": "open",
+      "text": "TAGS pastel MOOD TEMPERATURE muted-earthen-autumnal MOOD SATURATION monochrome STRUCTURE duotone STRUCTURE ACCESSIBILITY"
+    },
+    {
+      "t": 4529,
+      "transform": "matrix(1, 0, 0, 1, 0, -496.5)",
+      "rect": {
+        "x": -1.4,
+        "y": -494.2,
+        "w": 210.9,
+        "h": 230
+      },
+      "opacity": "0.51873",
+      "visibility": "visible",
+      "innerTransform": "none",
+      "dataState": "open",
+      "text": "TAGS pastel MOOD TEMPERATURE muted-earthen-autumnal MOOD SATURATION monochrome STRUCTURE duotone STRUCTURE ACCESSIBILITY"
+    },
+    {
+      "t": 4818,
+      "transform": "matrix(1, 0, 0, 1, 0, -496.5)",
+      "rect": {
+        "x": 0,
+        "y": -497,
+        "w": 208,
+        "h": 248.3
+      },
+      "opacity": "1",
+      "visibility": "visible",
+      "innerTransform": "none",
+      "dataState": "open",
+      "text": "TAGS pastel MOOD TEMPERATURE muted-earthen-autumnal MOOD SATURATION monochrome STRUCTURE duotone STRUCTURE ACCESSIBILITY"
+    }
+  ],
+  "events": [
+    {
+      "t": 4047,
+      "type": "focusScope.autoFocusOnMount",
+      "target": "DIV.",
+      "defaultPrevented": false
+    },
+    {
+      "t": 4489,
+      "type": "focusScope.autoFocusOnMount",
+      "target": "DIV.",
+      "defaultPrevented": false
+    },
+    {
+      "t": 4810,
+      "type": "focusScope.autoFocusOnUnmount",
+      "target": "DIV.",
+      "defaultPrevented": false
+    },
+    {
+      "t": 4844,
+      "type": "dismissableLayer.focusOutside",
+      "target": "BUTTON.button tap-squish focus-ring glass-wash glass-caps",
+      "defaultPrevented": false
+    },
+    {
+      "t": 4855,
+      "type": "focusScope.autoFocusOnUnmount",
+      "target": "DIV.",
+      "defaultPrevented": false
+    }
+  ]
+}

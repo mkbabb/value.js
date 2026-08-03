@@ -1,0 +1,7 @@
+{
+  "readoutFontStyleRules": [],
+  "readoutClass": "fira-code text-caption flex-1 truncate text-muted-foreground",
+  "dialogPaddingRules": [],
+  "dialogPaddingComputed": "20.351999px 16px",
+  "railHeightRules": []
+}

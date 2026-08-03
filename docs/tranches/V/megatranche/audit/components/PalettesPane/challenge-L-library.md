@@ -4,7 +4,769 @@
 
 I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context Opus 5
 variant. This matches the explicit declaration under which this seat was spawned. The seat is
-declared, not inherited. (Passes 1 and 2 recorded the same receipt.)
+declared, not inherited. (Passes 1–4 recorded the same receipt.)
+
+---
+
+## Amendment notice — pass 5
+
+**This is a fifth Opus-5 pass.** Pass 4's file is preserved verbatim at
+`challenge-L-library.pass-4-prior.md`. Nothing from any prior pass is deleted; everything below
+the pass-4 notice is carried forward unchanged and re-verified where I rely on it.
+
+- Work order HEAD: `c654824e`. **Actual HEAD at pass 5: `d19da6d3`**
+  (`docs(V·mega): 3:30am wall harvested — 233/243 axes banked …`). The tree has now moved four
+  times under this workflow (`32b4040e` → `e79fcd43` → `9268f054` → `d19da6d3`). Every prior line
+  citation I rely on was re-resolved at `d19da6d3`; all still resolve. Commands pasted at P5-9.
+
+Pass 5 opened the axis at the **export seat** and at the **component boundary**, the two places
+passes 1–4 touched but did not exhaust. Passes 1–4 proved the export dual path and its CSS byte
+divergence (L-2), the three name→identifier homes (L-4), the port-key co-location cost (L-3), the
+19 `demo/ui/` shims (L-6), the dead eslint globs (P4-4) and the stale `.d.ts` type gate (P4-1).
+Pass 5 adds eight findings that none of those four passes recorded:
+
+- **P5-1 (BLOCKER, promotes L-2).** The byte contract does not merely *differ* from the shipping
+  exporter — it **names and forbids the exact construct the shipping exporter uses**. Quoted
+  verbatim from the authority: *"never a partial download or `console.warn`-only result."*
+  `usePaletteExport.ts:21-23` is a `console.warn`-only result. L-2 was "two implementations
+  disagree"; it is now "the shipped seat violates a named prohibition of the same authority."
+- **P5-2 (MAJOR, extends L-2).** The divergence is **5-of-5 formats, not CSS-only**. Tailwind
+  ships `.tailwind.ts` / `text/typescript` against a contract that fixes
+  `.tailwind.json` / `application/json;charset=utf-8`; SVG ships a `<text>` element with a
+  `font-family` against a contract that forbids text rendering and fonts outright.
+- **P5-3 (MAJOR, new).** Three vocabularies for one closed union, bridged by a hand-written
+  5-line table — while the union itself already exists and is imported by nothing in the app.
+- **P5-4 (MAJOR, new).** `CurrentPaletteEditor.vue` — whose sole consumer is `PalettesPane.vue` —
+  lives inside the **remote-browse** mega-feature and is named in its public seam. `browser/` has
+  become a god *directory*.
+- **P5-5 (MINOR, new, measured live).** `card/index.ts`'s PI-6 tree-shake claim is **false in dev
+  and unverifiable in prod**: two SFCs this pane never renders, and both their scoped
+  stylesheets, are fetched on `/#/palettes`.
+- **P5-6 (MINOR, new).** The class on this pane's **root element** is defined inside a
+  **descendant's** unscoped `<style>`. Nine panes depend on a global side effect emitted by a
+  child SFC.
+- **P5-7 (INFO, new; bounds P4-3).** The repo's own production build emits **no application
+  chunk** — 698 bytes of modulepreload polyfill and zero `modulepreload` links. That is *why*
+  pass 4 had to hand-drive esbuild to measure tree-shaking, and it is why P5-5 cannot be closed
+  in prod at this HEAD.
+- **P5-8 (re-verification, strengthens P4-4).** P4-4's dead-lint finding confirmed with a sharper
+  instrument — `eslint --print-config` on the subject file itself — plus a **third** independent
+  cause P4-4 did not name.
+
+Pass 5 also **re-affirms pass 2's negative proof on the published-surface axis** with fresh
+commands, and adds the resolution evidence that makes it a proof rather than an absence
+(P5-10).
+
+---
+
+## Verdict (pass 5)
+
+**DEFECTIVE.** Five BLOCKERs, sixteen MAJORs, eight MINORs, three INFOs (cumulative
+passes 1–5).
+
+The pass-5 headline: **the export seat is not a divergence, it is a contract violation with the
+violated clause written down.** `docs/tranches/V/PALETTE-CONTRACT.md:174` closes the W51 preamble
+with a sentence that reads like it was written after looking at `usePaletteExport.ts`:
+
+> "A serializer either yields the bytes below or a visible terminal/retryable operation state —
+> never a partial download or `console.warn`-only result."
+
+The seat `PalettesPane.vue:211` mounts does exactly the forbidden thing, on a `switch` with no
+`default`, behind a parameter typed `string` instead of the closed union that already exists two
+directories away. Four independent structural failures stacked into fourteen lines, all of them
+downstream of the one root cause passes 1–4 already named: **there are two export
+implementations and the certified one is wired to a test.**
+
+The second pass-5 theme is **misplaced ownership that no gate can see**: the local pane's editor
+lives in the remote feature (P5-4); the pane's own root class lives in its child (P5-6); the
+card barrel's tree-shake promise is unkept (P5-5). Each is invisible to tsc, invisible to eslint
+(P5-8), and invisible to the test suite. They persist for exactly the reason P4-4 identified —
+the demo's module-lattice lint globs a directory tree that was deleted.
+
+---
+
+# Findings — pass 5
+
+## P5-1 — BLOCKER — the export failure path is the exact construct the byte authority names and forbids
+
+**Where:** `demo/palettes/usePaletteExport.ts:11-27`, reached from `PalettesPane.vue:211`
+(`const { onExport } = usePaletteExport();`) and bound to the card at `PalettesPane.vue:96`
+(`@export="(p, fmt) => onExport(p, fmt)"`).
+
+```ts
+export function usePaletteExport() {
+    async function onExport(palette: Palette, format: string) {
+        try {
+            switch (format) {
+                case "json": downloadExport(exportAsJSON(palette)); break;
+                case "css": downloadExport(exportAsCSSCustomProperties(palette)); break;
+                case "tailwind": downloadExport(exportAsTailwindConfig(palette)); break;
+                case "svg": downloadExport(exportAsSVG(palette)); break;
+                case "png": downloadExport(await exportAsPNG(palette)); break;
+            }
+        } catch (e) {
+            console.warn("Export failed:", e);
+        }
+    }
+    return { onExport };
+}
+```
+
+**The violated clause, verbatim** — `docs/tranches/V/PALETTE-CONTRACT.md:174`, the closing
+sentence of the W51 preamble, which `:165-171` declares to be *"W51's sole byte authority"* and
+*"VERBATIM … DO NOT prose-compress"*:
+
+> "A serializer either yields the bytes below or a visible terminal/retryable operation state—never
+> a partial download or `console.warn`-only result."
+
+Two distinct failures satisfy that prohibition here:
+
+1. **The `catch` is a `console.warn`-only result.** `exportAsPNG` rejects on `img.onerror`
+   (`export.ts:113-116`) — reachable whenever the 1×1-canvas SVG round-trip fails to rasterise,
+   which includes any colour string the `<img>` decoder rejects inside the inline SVG. The user
+   clicks *Export → PNG*, nothing downloads, and the only trace is a console line they will never
+   open. No toast, no dialog, no card feedback.
+2. **The `switch` has no `default`.** An unrecognised `format` falls through every case, exits the
+   `try` normally, and returns `undefined`. That is not even a `console.warn`-only result — it is
+   a **silent total no-op with no diagnostic of any kind**. It is reachable by construction: see
+   P5-3, where `format` is typed `string` and produced by a hand-written translation table.
+
+**The pane already owns the correct channel and does not use it.** Fourteen lines above the export
+wiring, `PalettesPane.vue:199-209` routes the *publish* result through the card's exposed
+feedback surface:
+
+```ts
+async function onPublish(palette: Palette) {
+    const result = await pm.onPublish(palette);
+    …
+    const card = cardRefs[id];
+    if (card) card.showFeedback(result.message, result.success ? "success" : "error");
+}
+```
+
+`showFeedback` is a real `defineExpose` on `PaletteCard.vue:244`. Publish gets a visible terminal
+state; export — governed by a contract that *requires* one — gets a console line.
+
+- **Severity:** BLOCKER. This is a quoted-spec violation at the seat this component owns, on the
+  user-facing failure path, with the correct mechanism already present in the same file.
+- **Mechanism:** the shipping exporter predates the contract (L-2). It was never re-fitted to the
+  contract's operation-state requirement because the contract was satisfied by the *other*
+  implementation, which the app does not call.
+- **Reproduction:** `http://localhost:9000/#/palettes`, save a palette, card menu →
+  *Export → PNG*, with a colour the inline-SVG decoder rejects. Nothing downloads; DevTools
+  console shows `Export failed: Error: Failed to load SVG for PNG conversion`; the UI is unchanged.
+  (Mechanism confirmed from source; the specific decoder-rejecting colour was not enumerated this
+  pass — that half is a hypothesis. The `default`-less `switch` needs no such qualifier: it is a
+  total no-op for any input outside the five literals, unconditionally.)
+- **Cure:** `onExport` returns a discriminated `ExportOutcome`
+  (`{ ok: true } | { ok: false; reason: … }`); the pane routes it into the same `showFeedback`
+  seat as publish. Close the format union (P5-3) so the missing `default` becomes a `never`
+  exhaustiveness error rather than a silent branch. This lands with the L-2 cure, not after it —
+  the certified `export/` tree is the one that should carry `useExport`.
+
+---
+
+## P5-2 — MAJOR — the shipped/certified divergence is 5-of-5 formats; two more are quotable against the authority
+
+Pass 2's L-2 tabulated the **CSS** divergence (token prefix / index base / colour spelling). At
+pass 5 the same comparison over the remaining four formats shows every one of them differs, and
+two differ against clauses quotable verbatim.
+
+**Tailwind** — `docs/tranches/V/PALETTE-CONTRACT.md` Appendix W51 §2, verbatim:
+
+> "Extensions are JSON `.json`, CSS `.css`, Tailwind `.tailwind.json`, SVG `.svg`, and PNG
+> `.png`. … MIME/extension pairs are exact: … `application/json;charset=utf-8`/`.tailwind.json` …"
+
+| | shipped (`export.ts:39-59`) | contract (`export/canonical.ts:74-88`) |
+|---|---|---|
+| extension | `.tailwind.ts` (`:57`) | `.tailwind.json` (`:77`) |
+| MIME | `text/typescript` (`:58`) | `application/json;charset=utf-8` (`:85`) |
+| body | a TypeScript module — `// Tailwind config for "…"\nexport default {…}` (`:55`) | RFC-8785 canonical JSON + one LF |
+
+The shipped artefact is not a malformed instance of the contract's format; it is a **different
+media type**. A consumer pipeline that accepts `.tailwind.json` cannot read it at all.
+
+**SVG** — Appendix W51 §6, as quoted in the certified implementation's own header
+(`demo/palettes/export/svg.ts:2-6`):
+
+> "No XML declaration, **no text rendering, font**, external reference, CSS, metadata, script,
+> event attribute, animation, filter, image, foreignObject or embedded data URL."
+
+`export.ts:74`, the shipping SVG:
+
+```ts
+`  <text x="${width / 2}" y="${swatchH + 20}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#333">${palette.name}</text>`,
+```
+
+A `<text>` element with a `font-family` — two of the named prohibitions in one line, plus
+`fill="#333"`, a non-canonical colour spelling, and `${palette.name}` interpolated **unescaped**
+into XML (the certified path routes every such value through `xmlEscape`, `svg.ts:16`). A palette
+named `A & B` produces malformed XML from the shipping exporter and valid XML from the certified
+one.
+
+**JSON / PNG** differ in the same direction (raw `c.css` strings and a `slugify(name)` filename
+vs canonical fixed-point `oklch()` and `<slug>--w<rev>`), already covered by L-2/L-4.
+
+- **Severity:** MAJOR (the BLOCKER weight sits on P5-1 and L-2; this bounds their blast radius).
+- **Mechanism:** identical to L-2 — a pre-contract implementation left on the shipping route.
+- **Reproduction:** save a palette named `A & B`; card menu → *Export → SVG*. The downloaded file
+  contains a raw `&` inside `<text>`; opening it in any XML parser errors.
+- **Cure:** the L-2 cure. No partial fix is coherent — patching `.tailwind.ts` → `.tailwind.json`
+  on the legacy path would produce a *third* artefact conforming to neither implementation.
+
+---
+
+## P5-3 — MAJOR — three vocabularies for one closed union, bridged by a hand-written table, while the union already exists unused
+
+The export format crosses four module boundaries and is spelled differently at three of them.
+
+```
+demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue:113-126
+    $emit('action', 'exportJSON')      ← vocabulary 1: action verbs
+    $emit('action', 'exportCSS') … 'exportTailwind' … 'exportSVG' … 'exportPNG'
+
+demo/palettes/browser/card/PaletteCard/PaletteCard.vue:308-312
+    exportJSON:     () => emit("export", props.palette, "json"),      ← the translation table
+    exportCSS:      () => emit("export", props.palette, "css"),
+    exportTailwind: () => emit("export", props.palette, "tailwind"),
+    exportSVG:      () => emit("export", props.palette, "svg"),
+    exportPNG:      () => emit("export", props.palette, "png"),
+
+demo/palettes/usePaletteExport.ts:12
+    async function onExport(palette: Palette, format: string)         ← vocabulary 2, UNTYPED
+
+demo/palettes/export/types.ts:8
+    export type ExportFormat = "json" | "css" | "tailwind" | "svg" | "png";
+                                                        ← vocabulary 3: the closed union,
+                                                          imported by nothing in the app
+```
+
+```console
+$ grep -rn --include='*.ts' --include='*.vue' 'ExportFormat' demo/ | grep -v 'demo/palettes/export/' | grep -v demo/test
+(no output)
+```
+
+The union that would delete the translation table and close the parameter **already exists, is
+already correct, and is already the contract's own spelling** (`export/types.ts:8`, byte authority
+Appendix W51 §1). It is unreachable from the app only because it sits in the tree the app does not
+import (L-2).
+
+`format: string` is the type-lie that makes P5-1's missing `default` unrepresentable in the type
+system: a typo in `PaletteCard.vue:308-312` compiles, propagates, matches no case, and exports
+nothing, silently.
+
+- **Severity:** MAJOR.
+- **Mechanism:** the same dual-tree root cause. Vocabulary 1 exists because the dropdown emits a
+  single `action` string for *all* card actions (delete/publish/rename/export…); vocabulary 2
+  exists because the legacy exporter predates the union; vocabulary 3 is the contract's.
+- **Reproduction:** change `exportSVG: () => emit("export", props.palette, "svg")` to `"SVG"` in
+  `PaletteCard.vue:311`. `npx vue-tsc -p tsconfig.demo.json --noEmit` passes; `npx eslint` passes;
+  the menu item becomes a silent no-op. (Not executed — `demo/` is read-only to this seat. The
+  compile-time half is certain from `format: string`; the runtime half follows from the
+  `default`-less `switch`.)
+- **Cure:** `PaletteCardMenu` emits `ExportFormat` on a dedicated `export` event; delete
+  `PaletteCard.vue:308-312`; `onExport(palette, format: ExportFormat)`. One vocabulary, three
+  boundaries, zero translation.
+
+---
+
+## P5-4 — MAJOR — the local pane's editor lives inside the remote-browse mega-feature and is published in its seam
+
+`CurrentPaletteEditor.vue` (13.8 KB) — the editor for the user's **unsaved working palette**, the
+single largest child `PalettesPane` renders (`PalettesPane.vue:41-54`) — lives at:
+
+```
+demo/palettes/browser/card/CurrentPaletteEditor.vue
+```
+
+and is re-exported from the browse feature's declared public API, `browser/index.ts:24`, whose
+header (`:1-8`) states:
+
+> "palette-browser — the mega-feature's TOP-LEVEL SEAM (U.W-DEMO · U-F47). The stable public API
+> of the palette-browser feature … External consumers reach the feature through THIS seam."
+
+Its only consumer anywhere in the repo is the **local library** pane:
+
+```console
+$ grep -rn 'CurrentPaletteEditor' demo/ | grep -v 'browser/card/CurrentPaletteEditor.vue:'
+demo/palettes/PalettesPane.vue:41       <CurrentPaletteEditor
+demo/palettes/PalettesPane.vue:137          CurrentPaletteEditor,
+demo/palettes/browser/index.ts:24           CurrentPaletteEditor,
+demo/palettes/browser/card/index.ts:9   export { default as CurrentPaletteEditor } from "./CurrentPaletteEditor.vue";
+```
+
+There is no reading under which the editor of an unsaved local draft is part of the *remote
+community browse* feature's public API. What has actually happened is that `browser/` absorbed
+every palette component that is not a top-level pane. Its `card/` sub-barrel now holds three
+distinct populations:
+
+| population | members | true owner |
+|---|---|---|
+| genuinely shared card primitives | `PaletteCard/`, `PaletteColorStrip`, `SwatchHoverMenu`, `PaletteCardGrid` | a peer `palettes/card/` — used by **both** panes and by 3 workbenches (`MixSourceSelector.vue:8`, `GenerateControls.vue:16`, `ExtractWorkbench.vue:200`) |
+| local-library-only | `CurrentPaletteEditor` | `palettes/library/` |
+| browse-only | `PaletteCardSkeleton`, `ShadowPalette` | `palettes/browse/` (and see P5-5) |
+
+This is the same failure as a god module, one level up: a **god directory**. The seam is honest
+about being a public API; it is dishonest about *whose*.
+
+- **Severity:** MAJOR. It is the reason `PalettesPane` — the local pane — must import from a
+  directory named `browser`, which is exactly the "reaching across a boundary" this axis exists to
+  find; and it is why P5-5's over-fetch has anything to over-fetch.
+- **Mechanism:** U-F47 created the seam around the *then*-largest feature and subsequent
+  components were filed by shape (a card) rather than by owner (which pane needs it).
+- **Reproduction:** structural; the grep above is the whole proof.
+- **Cure:** three peers under `demo/palettes/` — `card/` (shared primitives, owned by neither),
+  `library/` (LibraryPane + CurrentPaletteEditor), `browse/` (BrowsePane + skeleton + shadow).
+  `browser/` as a name disappears; nothing named `browser` is imported by the local pane.
+
+---
+
+## P5-5 — MINOR — the card barrel's tree-shake claim is false in dev and unverifiable in prod
+
+`demo/palettes/browser/card/index.ts:2-3` makes a specific engineering claim:
+
+> "NAMED re-exports only (PI-6: never a star re-export — SFC scoped `<style>` is a side-effecting
+> import; **named re-exports let the bundler tree-shake unused members per consumer** — so
+> reaching the seam for one symbol does not pull every sibling SFC's style into the consumer's
+> chunk)."
+
+`PalettesPane` renders neither `PaletteCardSkeleton` nor `ShadowPalette`. Measured live
+(Playwright network log, `http://localhost:9000/#/palettes`, after a hard reload):
+
+```
+260. [GET] .../demo/palettes/browser/card/PaletteCardSkeleton.vue                            => [200] OK
+280. [GET] .../demo/palettes/browser/card/PaletteCardSkeleton.vue?vue&type=style&…&lang.css  => [200] OK
+261. [GET] .../demo/palettes/browser/card/ShadowPalette.vue                                  => [200] OK
+269. [GET] .../demo/palettes/browser/card/ShadowPalette.vue?vue&type=style&…&lang.css        => [200] OK
+```
+
+Both modules **and both scoped stylesheets** — the precise thing the comment says named
+re-exports prevent. The premise is right (a scoped `<style>` is a side effect) but the conclusion
+does not follow: named re-exports control *binding* reachability, not *module* side-effect
+reachability. Rollup retains a module whose graph contains a side effect regardless of whether any
+of its bindings are used, unless `moduleSideEffects` says otherwise — and nothing in this repo
+sets it.
+
+Dev is settled by the log above. **Prod cannot be checked at this HEAD** — see P5-7 — so the PI-6
+claim currently rests on assertion in the one environment where it might have been true.
+
+- **Severity:** MINOR (correctness of a documented invariant, plus dev-loop cost; the shipped cost
+  is unmeasured).
+- **Mechanism:** a barrel that aggregates SFCs with scoped styles cannot be side-effect-free.
+- **Reproduction:** the pasted log. Repeat: navigate to `/#/palettes`, hard reload, filter the
+  network panel on `browser/card`.
+- **Cure:** P5-4's split removes the shared/browse-only mixing that makes the barrel over-broad;
+  after it, `library/` imports `card/` (all of which it uses) and never sees the browse-only pair.
+  If a barrel over a side-effecting SFC set is still wanted, `"sideEffects"` must be declared in
+  `package.json` and the claim re-measured against a real production build.
+
+---
+
+## P5-6 — MINOR — the class on this pane's root element is defined inside a descendant's unscoped `<style>`
+
+`PalettesPane.vue:2` puts `pane-scroll-fade` on the pane's **root** `<Card>`:
+
+```html
+<Card tier="resting" class="pane-scroll-fade w-full mx-auto overflow-y-auto …">
+```
+
+The rule that gives it meaning lives in an **unscoped** `<style>` block inside
+`demo/shared/ui/PaneHeader.vue` — a component the pane renders as a *child*
+(`PalettesPane.vue:10`):
+
+```css
+/* demo/shared/ui/PaneHeader.vue:54-57 */
+.pane-scroll-fade {
+    contain: layout style paint;
+    scroll-timeline: --pane-scroll block;
+}
+```
+
+Nine sibling panes carry the class:
+
+```console
+$ grep -rn 'pane-scroll-fade' demo/ --include='*.vue' --include='*.css'
+demo/palettes/PalettesPane.vue:2            demo/palettes/BrowsePane.vue:2
+demo/palettes/admin/AdminPane.vue:2         demo/scenes/about/AboutPane.vue:4
+demo/scenes/ConfigSliderPane.vue:106        demo/workbenches/gradient/GradientPane.vue:20
+demo/workbenches/mix/MixPane.vue:62         demo/workbenches/generate/GeneratePane.vue:31
+demo/workbenches/extract/ExtractPane.vue:5
+demo/shared/ui/PaneHeader.vue:54            ← the sole definition
+demo/styles/foundation.css:578              ← a comment recording the move
+```
+
+All nine depend on a **global side effect emitted by a descendant SFC**. The named
+scroll-timeline `--pane-scroll` is the producer for `PaneHeader`'s own veil/shrink animations
+(`PaneHeader.vue:158-176`), so the coupling is currently self-consistent — but the *definition*
+of a class applied to nine components' roots is not the child's to own. The file itself records
+the reasoning (`PaneHeader.vue:41-52`): the block "must be UNSCOPED to reach those consumers" and
+is colocated "because PaneHeader owns the only consumers of `--pane-scroll`". The first clause is
+the tell: the moment a rule must be unscoped to reach its consumers, it is global, and colocation
+stops being colocation.
+
+Standing law (edict 6) already assigns the home: *"Global keyframes live in `demo/styles/`."* The
+same reasoning covers a global class.
+
+- **Severity:** MINOR (no live defect; a latent one — deleting or lazily-loading `PaneHeader`
+  silently removes scroll containment and the timeline from nine unrelated panes).
+- **Mechanism:** a D.W4-era colocation pass moved a global rule out of `styles/style.css` into the
+  component that consumes its *variable*, conflating "who reads the token" with "who owns the
+  class".
+- **Reproduction:** structural; the grep is the proof.
+- **Cure:** `.pane-scroll-fade` → `demo/styles/foundation.css` (where `:578` already documents its
+  absence). `PaneHeader.vue` keeps only its `scoped` block. Zero behaviour change.
+
+---
+
+## P5-7 — INFO — the repo's own production build emits no application chunk; this bounds P4-3 and blocks P5-5
+
+```console
+$ ls dist/gh-pages/assets/*.js | wc -l
+       2
+$ ls -la dist/gh-pages/assets/index-Dezn_h7o.js
+-rw-r--r--  1 mkbabb  staff  698 Jul 29 10:23 dist/gh-pages/assets/index-Dezn_h7o.js
+$ grep -c modulepreload dist/gh-pages/index.html
+0
+$ grep -n '<script' dist/gh-pages/index.html
+159:        <script>
+205:        <script type="module" crossorigin src="./assets/index-Dezn_h7o.js"></script>
+```
+
+The single module script the built page loads is 698 bytes whose entire content is Vite's
+modulepreload-polyfill IIFE. No app code, no `modulepreload` links, one unrelated worker chunk.
+This is the carried **gh-pages prod-preview empty-mount** (CARRY-LEDGER §F, named as the first
+deep-audit probe) — out of this seat's axis and owned elsewhere.
+
+Recorded here because it has two consequences *on* this axis:
+
+1. It explains P4-3's methodology. Pass 4 measured glass-ui's shipped delta at 969 bytes by
+   hand-driving esbuild; it had to, because the repo's own production build produces nothing to
+   measure.
+2. It blocks P5-5. The card barrel's tree-shake claim is a claim about production bundling, and
+   production bundling emits no bundle at this HEAD.
+
+Any finding in this component's neighbourhood that turns on chunking, tree-shaking or code-split
+boundaries is **unverifiable in prod until the empty-mount is cured** — pass 5 states that
+limitation rather than reporting dev numbers as if they were shipped ones.
+
+---
+
+## P5-8 — re-verification, strengthens P4-4 — the demo's module-lattice lint is dead, and there is a third cause
+
+P4-4 established that G-DEMO-1 / G-DEMO-3a / G-DEMO-3b glob a tree W43 deleted. Pass 5 confirms
+it with a sharper instrument — ESLint's own resolved configuration for the subject file — and
+adds a third independent cause.
+
+**Instrument 1 — the subject file is subject to no import restriction at all:**
+
+```console
+$ npx eslint --print-config demo/palettes/PalettesPane.vue \
+    | node -e "…console.log(c.rules['no-restricted-imports'])"
+no-restricted-imports = undefined
+```
+
+Same result for `demo/palettes/browser/card/PaletteCardGrid.vue` and
+`demo/workbenches/mix/MixSourceSelector.vue` (a cross-feature consumer of `palettes/browser/card`,
+precisely the edge G-DEMO-3b exists to police): `undefined`.
+
+**Instrument 2 — the one glob that still matches real files gets an unfireable rule:**
+
+```console
+$ npx eslint --print-config demo/color-picker/App.vue | …
+[2,{"patterns":[{"group":["@components/custom/palette-browser/**/*.vue"],
+   "message":"G-DEMO-3b: reach palette-browser through its barrel seam, never a raw .vue file."}]}]
+```
+
+The rule is active on 16 files. Its pattern can never match anything. Three independent reasons,
+any one sufficient:
+
+1. **The file globs point at a deleted tree** (P4-4's finding, re-verified):
+   ```console
+   $ ls -d 'demo/@'
+   ls: demo/@: No such file or directory
+   $ find 'demo/@' -type f 2>/dev/null | wc -l
+          0
+   ```
+   `demo/@/components/**`, `demo/@/lib/**`, `demo/@/composables/**` match zero files.
+   `demo/palettes/**` is in **no** glob.
+2. **The patterns use an alias W43 killed:**
+   ```console
+   $ grep -rn '"@components|@components/' vite.config.ts vitest.config.ts tsconfig*.json
+   (no output)
+   $ grep -rn 'from "@components' demo/ | wc -l
+          0
+   ```
+   No alias definition anywhere, zero usages. A `no-restricted-imports` `group` matches the
+   *written specifier*; no specifier in the repo is written that way.
+3. **The directory named does not exist** (new at pass 5):
+   ```console
+   $ find . -type d -name 'palette-browser' -not -path './node_modules/*'
+   (no output)
+   ```
+   The feature is `demo/palettes/browser/`. Even had the alias survived, `palette-browser` names
+   nothing.
+
+**Why this is the keystone of the whole axis.** Every finding in passes 1–5 — the dual export tree
+(L-2), the `demo/ui` shim half-migration (L-6), the shell→feature edge (L-3), the `browser/` god
+directory (P5-4), the local pane importing from `browser/` — is exactly the class of defect these
+three rules were written to make impossible, and every one of them landed in a region the rules do
+not cover, under a CI gate the repo runs **hard**. The lint is not weak; it is aimed at coordinates
+that no longer exist.
+
+Compounding, and re-verified at pass 5 (this is L-19's mechanism, restated with the resolved
+config rather than the source):
+
+```console
+$ npx eslint --print-config demo/palettes/PalettesPane.vue | … '@typescript-eslint/no-unused-vars'
+[0]
+$ grep -n 'noUnusedLocals|noUnusedParameters|strict' tsconfig.base.json
+7:        "strict": true,
+```
+
+Unused-vars is **off** for this region (`eslint.config.js:185-186`) and `noUnusedLocals` is unset,
+which is why `PalettesPane.vue:128`'s three dead `vue` imports (`watch`, `onMounted`, `nextTick` —
+0 occurrences after line 154, verified per identifier at pass 5) survive a `--max-warnings=0` gate.
+
+- **Severity:** MAJOR (carried at P4-4's severity; pass 5 adds cause 3 and the resolved-config
+  instrument).
+- **Cure:** re-anchor to the tree that exists —
+  `files: ["demo/palettes/**","demo/workbenches/**","demo/scenes/**","demo/picker/**","demo/shell/**"]`,
+  `group: ["**/palettes/browser/**/*.vue","**/palettes/admin/**"]` — and add the edge this axis
+  found missing: `demo/shell/**` may import `palettes/ports/keys` and nothing else from
+  `palettes/**` (L-3, L-5). Then re-enable `@typescript-eslint/no-unused-vars` with
+  `argsIgnorePattern: "^_"`, which is what the "destructure-and-discard" rationale at
+  `eslint.config.js:10` actually calls for.
+
+---
+
+## P5-9 — re-verification of the prior claims pass 5 relies on, at HEAD `d19da6d3`
+
+Every load-bearing prior claim that pass 5 builds on, re-run this pass. All confirmed.
+
+**L-2 — the dual export path, disjoint consumer sets:**
+```console
+$ grep -rn --include='*.ts' --include='*.vue' 'from "\./export"|palettes/export"' demo/ test/ e2e/
+demo/palettes/usePaletteExport.ts:9:} from "./export";
+
+$ grep -rn --include='*.ts' --include='*.vue' 'export/serializers|export/png|export/svg|export/json|export/css|export/tailwind|export/reload|export/digest|export/canonical' demo/ test/ e2e/
+demo/test/export/byte-exact.test.ts:23:} from "../../palettes/export/serializers";
+
+$ wc -l demo/palettes/export/*.ts demo/palettes/export.ts demo/test/export/*.ts
+     869 total (export/, 12 modules)     132 export.ts     453 byte-exact.test.ts
+```
+Confirmed live — `/#/palettes` fetches `export.ts` (request 266) and zero `export/` modules. The
+dual path is still documented as deliberate at `export/serializers.ts:6-9`.
+
+**L-3 — the port-key co-location, now with a live network measurement rather than a static
+closure.** On `/#/palettes` — an **unauthenticated, non-admin** route — the browser fetches the
+entire admin console's composables and API surface:
+```
+158. useAdminUsers.ts    163. useAdminAudit.ts   164. useAdminFlagged.ts   165. useAdminTags.ts
+238. api/admin-palettes.ts  239. api/admin-users.ts  240. api/admin-colors.ts  241. api/admin-audit.ts
+```
+Static runtime-graph walk (type-only imports excluded, 60-line resolver, scratchpad):
+
+| entry | runtime modules | of which `demo/palettes` |
+|---|---:|---:|
+| `demo/palettes/PalettesPane.vue` | 68 | 44 |
+| `demo/palettes/usePalettePorts.ts` | 31 | 23 |
+| `demo/shell/dock/Dock.vue` | 65 | **23** |
+
+`Dock.vue` needs one `Symbol` (`SESSION_PORT_KEY`) and pays 23 palettes modules for it. Five shell
+files import from `demo/palettes/` (`Dock.vue:18`, `DockViewSelect.vue:8`, `SlugEditLayer.vue:5`,
+`ProfileSection.vue:14`, `MobileMenuDropdown.vue:13`) while `usePalettePorts.ts:19` imports
+`type { ViewId }` back from `../shell/useViewManager` — type-only, so erased, so no *runtime*
+cycle, but a declared type-level cycle over a 23-module one-way runtime tax.
+
+**L-6 — 19 shims, half-migrated, both idioms in the subject file:**
+```console
+$ for d in demo/ui/*/; do echo "$(basename $d) lines=$(wc -l < $d/index.ts)"; done
+alert 11 · avatar 1 · badge 1 · button 1 · card 1 · checkbox 1 · collapsible 1 · dialog 1
+dropdown-menu 1 · input 1 · label 1 · popover 1 · radio-group 1 · select 1 · separator 1
+skeleton 1 · slider 1 · switch 1 · tooltip 1
+$ cat demo/ui/card/index.ts
+export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@mkbabb/glass-ui";
+$ grep -rn 'ui/(card|button|badge|…)"' demo/ | wc -l   →  92
+$ grep -rn 'from "@mkbabb/glass-ui'      demo/ | wc -l   → 119
+```
+`PalettesPane.vue:129-131` uses the shim; `:148-149` uses the direct subpath. Eleven shim modules
+are fetched on `/#/palettes` purely to forward a name. glass-ui installed version confirmed
+`7.0.0`, matching `package.json#dependencies ^7.0.0`.
+
+**L-4 — three name→identifier homes**, re-confirmed at `utils.ts:3`, `export.ts:9`,
+`export/canonical.ts:52-72` (the last stating the invariant the codebase already knows: *"The
+prefix already satisfies the token grammar; no slugifier exists."*).
+
+**L-8/L-19 — three dead `vue` imports** at `PalettesPane.vue:128`, 0 occurrences in `:154-212`,
+`eslint` exit 0.
+
+**L-13 — the `$el` reach.** `PalettesPane.vue:180-181` still reaches
+`(sortableGridRef.value as any)?.$el`; `PaletteCardGrid.vue` still has **no** `defineExpose`
+(`grep -n defineExpose` → no match); and its template still carries the load-bearing comment
+(`:7-11`) constraining its own root-node shape *because the parent reads `$el`*. Pass 5 adds only
+the observation that the constraint is written into the **child**: an editor who moves that
+comment one line up silently breaks drag-to-reorder, and no gate in the repo says so.
+
+---
+
+## P5-10 — the negative proof, re-affirmed with resolution evidence
+
+The axis brief's headline hypothesis — *"a demo import a real consumer could not write, and
+therefore a false proof of the public API"* — is **false at the specifier level**. Pass 2 asserted
+this; pass 5 re-runs it and adds the mechanism that makes it structural rather than incidental.
+
+```console
+$ grep -rn --include='*.ts' --include='*.vue' 'from "[^"]*\.\./src/' demo/
+(no output)
+```
+
+Zero deep reaches into `src/` from anywhere in `demo/`. Every library import is a published
+subpath, and every one appears in `package.json#exports`:
+
+```console
+$ grep -rn 'from "@mkbabb/value\.js' demo/ | awk -F'-> ' '{print $2}' | sort | uniq -c
+  24 "@mkbabb/value.js/color";     10 "@mkbabb/value.js/css";      6 "@mkbabb/value.js/math";
+   5 "@mkbabb/value.js/easing";     4 "@mkbabb/value.js/quantize";
+```
+
+`exports` declares `./color ./value ./css ./easing ./math ./transform ./quantize`, each backed by
+a real `src/subpaths/*.ts`. **This cannot drift**, and that is the structural part:
+`vite.config.ts:36-47` *generates* the self-alias set by reading `package.json#exports` at config
+time — `:28`, verbatim: *"GENERATED (not hand-rolled) so the alias set can never drift from the
+exports map: add or rename a subpath in `package.json#exports` and the alias follows."* It is
+built in **array** form specifically because string aliases are prefix rewrites that would mangle
+`/math` (`:30-35`, `:59-66`), and each alias resolves to `conditions.import` — the **published**
+`dist/subpaths/*.js`, not source.
+
+The package deliberately has **no root export** and no `main`/`module`/`types`:
+```console
+$ node -e "…" → main: undefined | module: undefined | types: undefined | exports has ".": false
+$ node -e "require.resolve('@mkbabb/value.js')" → resolve error: ERR_PACKAGE_PATH_NOT_EXPORTED
+```
+and `README.md:15-21` documents subpath-only consumption, matching exactly. Coherent, not broken.
+
+`PalettesPane.vue` imports nothing from the library directly — correct: it is a list/CRUD surface
+over a localStorage store, and colour maths does not belong in it. The library enters its closure
+only through `../color-session/*` and `./mix.ts` (`mix.ts:10-14` — `mixColors`, `AnyColor`,
+`HueInterpolationMethod` from `@mkbabb/value.js/color`, a clean published-subpath edge).
+
+**The qualification that keeps this from being an unconditional negative** is pass 4's P4-1, which
+stands: the *specifiers* are honest, but `@mkbabb/value.js/css` type-checks against the installed
+4.0.0 tarball's `.d.ts` while Vite executes the local build. The published **surface** is sound;
+the **gate over it** is not. Pass 5 changes nothing about that finding and does not weaken it.
+
+Also sound, and preserved by every cure proposed across five passes:
+`usePaletteStore.ts:20-45`'s lazy module-singleton (one localStorage binding, SSR- and
+Safari-private-browsing-safe); the `K-PALID` id-honesty work (`types.ts:16-27`,
+`usePaletteActions.ts:34-38`) that made `Palette.id` honestly optional instead of a type-lie; the
+`save-P0` local-first inversion (`usePaletteActions.ts:66-76`) that stopped a network call
+destroying a save; and `PalettesPane.vue:16-25`'s treatment of the count badge (`aria-hidden` plus
+an `sr-only` companion), which is exactly right.
+
+---
+
+## Pass-5 deltas to the greenfield lattice
+
+The lattice proposed by passes 1–4 (below, unchanged) is correct and pass 5 adopts it. Four
+amendments follow from the new findings:
+
+1. **`palettes/card/` becomes a first-class peer** of `library/`, `browse/` and `admin/` — shared
+   card primitives owned by neither pane, with `CurrentPaletteEditor` moved into `library/` and
+   the skeleton/shadow pair into `browse/`. The name `browser` disappears. (P5-4; it also removes
+   P5-5's over-fetch surface by construction.)
+2. **`export/useExport.ts` returns an `ExportOutcome`**, routed by the pane into the card's
+   existing `showFeedback` seat, and the dispatch is keyed on `ExportFormat` so the missing
+   `default` becomes a `never` exhaustiveness error. `usePaletteExport.ts` and `export.ts` both
+   delete. (P5-1, P5-3.)
+3. **`PaletteCardMenu` emits `ExportFormat`** on a dedicated event; `PaletteCard.vue:308-312`
+   deletes. One vocabulary across all four boundaries. (P5-3.)
+4. **`.pane-scroll-fade` moves to `demo/styles/foundation.css`**, where `:578` already documents
+   its absence; `PaneHeader.vue` keeps only its `scoped` block. (P5-6.)
+
+And one process amendment: **re-anchor the lint before, not after, the restructure** (P5-8).
+Every defect this axis found across five passes landed in a region the module-lattice lint was
+believed to be guarding. A restructure landed under a lint aimed at deleted coordinates will
+decay back to this state; a restructure landed under a lint aimed at the real tree cannot.
+
+---
+
+## Pass-5 finding index
+
+| id | severity | one line | primary evidence |
+|---|---|---|---|
+| P5-1 | **BLOCKER** | the export failure path is the `console.warn`-only result the byte authority names and forbids; plus a `default`-less `switch` that is a silent total no-op | `usePaletteExport.ts:11-27`; `PALETTE-CONTRACT.md:174` (verbatim); `PalettesPane.vue:199-209` vs `:211` |
+| P5-2 | MAJOR | shipped/certified divergence is 5-of-5 formats: Tailwind is a different **media type**; SVG emits `<text font-family>` + unescaped XML against a clause forbidding both | `export.ts:39-59,74` vs `canonical.ts:74-88`, `svg.ts:2-6,15-19`; Appendix W51 §2/§6 |
+| P5-3 | MAJOR | three vocabularies for one closed union, bridged by a hand-written 5-line table; the union already exists, imported by nothing | `PaletteCardMenu.vue:113-126`; `PaletteCard.vue:308-312`; `usePaletteExport.ts:12`; `export/types.ts:8` |
+| P5-4 | MAJOR | the local pane's editor lives in the remote-browse feature and is published in its seam; `browser/` is a god directory | `browser/card/CurrentPaletteEditor.vue`; `browser/index.ts:1-8,24`; sole-consumer grep |
+| P5-5 | MINOR | the card barrel's PI-6 tree-shake claim is false in dev, unverifiable in prod | live reqs 260/261/269/280; `card/index.ts:2-3` |
+| P5-6 | MINOR | the pane's **root** class is defined in a **descendant's** unscoped `<style>`; 9 panes depend on it | `PalettesPane.vue:2`; `PaneHeader.vue:41-57`; `foundation.css:578` |
+| P5-7 | INFO | the production build emits no app chunk (698 B polyfill, 0 modulepreload links) — bounds P4-3, blocks P5-5 | `dist/gh-pages/assets/index-*.js`; `index.html:205` |
+| P5-8 | MAJOR (carried) | the module-lattice lint is dead — three independent causes, the third new; `--print-config` on the subject returns `undefined` | `eslint --print-config` ×3; `ls demo/@`; `find -name palette-browser` |
+| P5-9 | — | re-verification of L-2/L-3/L-4/L-6/L-8/L-13 at `d19da6d3` | commands pasted in-section |
+| P5-10 | — | negative proof re-affirmed with the generated-alias mechanism; qualified only by P4-1 | `vite.config.ts:28,36-47`; `ERR_PACKAGE_PATH_NOT_EXPORTED`; `README.md:15-21` |
+
+**Visual-axis attribution (pass 5).** `REPORT.json` rows for `/#/palettes`, all four matrices:
+`pageErrors 0`, `consoleErrors 0`, `overflowX 0`, `main 1`, no blank/near-blank. The
+`namelessButtons: 1` (desktop only) and every `smallTapTargets` entry — `Switch to slug` /
+`Generate new slug` / `Cancel` at 22×22, the L/a/b/α channel spans at 12×24, an unlabelled 160×23
+input — originate in `PaletteSlugBar`, the picker sliders and the dock. **None is rendered by
+`PalettesPane.vue`.** The screenshot `shots/safari-desktop-light/palettes.png` renders the pane
+correctly (header ramp, search, empty-plate state) in all four matrices. Nothing on the visual
+axis is attributable to this component at this HEAD; the pass-3 dark-ramp finding (L-18) concerns
+the token layer, not the pane's markup, and is unchanged.
+
+---
+---
+
+*Everything below this line is pass 4's file, carried forward verbatim.*
+
+---
+---
+
+# CHALLENGE-L — PalettesPane: library structure
+
+## Model receipt
+
+I observe myself to be **Opus 5** — exact model id `claude-opus-5[1m]`, the 1M-context Opus 5
+variant. This matches the explicit declaration under which this seat was spawned. The seat is
+declared, not inherited. (Passes 1, 2 and 3 recorded the same receipt.)
+
+## Amendment notice — pass 4
+
+**This is a fourth Opus-5 pass.** Pass 3's file is preserved verbatim at
+`challenge-L-library.pass-3-prior.md`. Nothing from any prior pass is deleted.
+
+Pass 4 changed method rather than repeating one. Where passes 1–3 measured the **static** import
+closure and **on-disk** artefact sizes, pass 4 measured (a) the **live Vite dev-server module
+graph** — the actual byte stream the browser fetches for this pane's lazy chunk — (b) **production
+bundle output** with the repo's own esbuild, and (c) **TypeScript's actual resolution decisions**
+via `tsc --traceResolution`. Three of those measurements change prior conclusions:
+
+- **P4-1 (BLOCKER, corrects L-21 and its cure).** Passes 2 and 3 assert twice — line 1108 and
+  line 1241 — that `@mkbabb/value.js` is *"self-linked into its own `node_modules`"*. **It is
+  not a symlink.** It is a real, installed **4.0.0 tarball, 10 days older than the local build**.
+  So `/css` — the one subpath with no `paths` entry — type-checks against a *stale published
+  artifact* while Vite executes the *local* one. L-21's proposed cure (delete all four
+  `@mkbabb/value.js*` `paths` entries) would extend that split from **one subpath to all seven**.
+  It is an anti-cure and must not be executed as written.
+- **P4-2 (measurement, sharpens L-3).** L-3's cost was stated as a 97-module static closure.
+  Measured live: removing the key co-location eliminates **27 modules / 262,662 served bytes**
+  from the pane's chunk. L-3 now carries a served-byte number, not an estimate.
+- **P4-3 (scoping correction, bounds L-6 and L-23).** L-23 measured the glass-ui root barrel at
+  218.9 KiB on disk. Measured through a production bundler the shipped delta is **969 bytes** —
+  glass-ui tree-shakes correctly. L-6's cure stands on *second-naming-authority* grounds; it must
+  **not** be escalated on bundle size. The same correction applies to the `@mkbabb/value.js/css`
+  god-barrel: tree-shaking recovers 25,762 of 38,540 B.
+- **P4-4 (new, MAJOR).** The three eslint rules that are supposed to enforce the demo module
+  lattice — G-DEMO-1, G-DEMO-3a, G-DEMO-3b — **glob a directory tree that W43 deleted**. Zero
+  files match. No rule globs `demo/palettes/**` at all. This is the mechanism by which twenty-odd
+  findings coexist under a HARD `--max-warnings=0` gate.
+- **P4-5 (new, INFO).** Two module-specifier dialects in one program.
+
+Pass 4 also re-verified, at this HEAD, every pass-1..3 claim it relies on: the seven-key
+`exports` map with no root, the 19 `demo/ui/` shims, the dual export path, the `reorderPalettes`
+partial-order completion behind L-17, and the root-barrel importer set. All confirmed; commands
+pasted at P4-6.
 
 ## Amendment notice — pass 3
 
@@ -39,7 +801,17 @@ from the same block (L-21).
 
 ## Verdict
 
-**DEFECTIVE.** Three BLOCKERs, twelve MAJORs, six MINORs, one INFO.
+**DEFECTIVE.** Four BLOCKERs, fourteen MAJORs, six MINORs, two INFOs (pass-4 counts).
+
+Pass 4's addition to the headline: **the demo's type gate does not check the library surface this
+pane runs on.** `@mkbabb/value.js/css` — reached from this pane's closure via
+`demo/color-session/{picker-color,ink,color-utils}.ts` — resolves under `vue-tsc` to
+`node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts` (published 4.0.0, 350 lines, Jul 17) and
+under Vite to `dist/subpaths/css.js` (local build, 382-line `.d.ts`, Jul 27). Two artefacts, ten
+days apart, one of them type-checked and the other executed. No semantic break has landed in that
+window — the public export names still match — but the gate is structurally incapable of catching
+one when it does. That is a *false proof of the public API*, which is precisely what this axis
+exists to find (P4-1).
 
 The strongest finding remains **drag-to-reorder**, and pass 3 makes it worse than pass 1
 recorded. There are **two independent corruption mechanisms**, both reproduced live against
@@ -1213,6 +1985,337 @@ directly. Both conventions are live, and this file uses both.
 
 ---
 
+# Findings — pass 4 (new)
+
+Method note. Passes 1–3 walked the *static* import closure and measured *on-disk* artefacts. Pass 4
+adds three instruments:
+
+1. **Live dev-server graph walk** — fetch `http://localhost:9000/@fs/…/PalettesPane.vue` and follow
+   Vite's own transformed `import` specifiers transitively. This is the byte stream the browser
+   actually pulls for the lazy pane chunk (`usePaneRouter.ts:70` — `defineAsyncComponent`), so the
+   chunk boundary is real, not inferred.
+2. **Production bundling** with the repo's own `node_modules/.bin/esbuild`
+   (`--bundle --format=esm --minify`, vue/reka/value.js external) to separate *dev-graph* cost from
+   *shipped* cost.
+3. **`tsc --traceResolution`** against a byte-replica of `tsconfig.demo.json`'s
+   `moduleResolution`/`baseUrl`/`paths`, to read TypeScript's actual decisions instead of predicting
+   them.
+
+Baseline, measured this run:
+
+```
+LIVE dev-server module graph rooted at PalettesPane.vue
+ modules: 164  bytes: 4933061
+  demo/*        : 79 modules   788699 B
+  glass-ui      :  8 modules   293136 B
+  value.js dist :  5 modules   429115 B
+  prebundled dep: 76 modules  3456218 B
+```
+
+---
+
+## P4-1 — BLOCKER — `node_modules/@mkbabb/value.js` is **not** a self-link; the demo type-checks `/css` against a stale published tarball while Vite runs the local build. **L-21's cure is an anti-cure.**
+
+**The claim being corrected.** Pass 3 wrote (line 1108): *"The `./css` imports typecheck only
+because a self-link happens to exist … `ls node_modules/@mkbabb/` → the package is linked into its
+own node_modules"*, and repeated it in the negative proof (line 1241). L-21's cure is built on it:
+*"delete the four `@mkbabb/value.js*` `paths` entries outright. Node resolution against the
+self-link already resolves all seven published subpaths through the real export map — which makes
+the demo's type resolution identical to an external consumer's."*
+
+**It is not a link.**
+
+```
+$ test -L node_modules/@mkbabb/value.js && echo SYMLINK || echo "NOT A SYMLINK — real directory"
+NOT A SYMLINK — real directory
+
+$ python3 -c "import os; p='node_modules/@mkbabb/value.js'; print('islink:', os.path.islink(p)); print('realpath:', os.path.realpath(p))"
+islink: False
+realpath: /Users/mkbabb/Programming/value.js/node_modules/@mkbabb/value.js
+```
+
+It is an ordinary installed copy of the **published 4.0.0 tarball** (`name @mkbabb/value.js`,
+`version 4.0.0`, with its own `LICENSE`/`README.md`), pulled in transitively — `@mkbabb/glass-ui`
+and `@mkbabb/keyframes.js` both depend on `@mkbabb/value.js` (their `dist/` imports
+`/color`, `/css`, `/easing` and `/css`, `/easing`, `/math` respectively). It is **not** this
+checkout.
+
+**What TypeScript actually does.** Replaying `tsconfig.demo.json`'s exact
+`moduleResolution: "bundler"` + `baseUrl` + `paths`:
+
+```
+$ tsc -p <byte-replica of tsconfig.demo paths> --traceResolution
+
+======== Module name '@mkbabb/value.js/css' was successfully resolved to
+  '/Users/mkbabb/Programming/value.js/node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts'
+  with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'. ========
+
+======== Module name '@mkbabb/value.js/color' was successfully resolved to
+  '/Users/mkbabb/Programming/value.js/dist/subpaths/color.d.ts'. ========
+```
+
+`/color` has a `paths` entry → the **local build**. `/css` has none → fall-through to node
+resolution → the **installed tarball**. Vite aliases *both* to the local build
+(`vite.config.ts:41-49`, generated from `package.json#exports`, which does contain `./css`).
+
+**And the two artefacts have already diverged:**
+
+```
+$ ls -la dist/subpaths/css.d.ts node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts
+Jul 27 11:52  dist/subpaths/css.d.ts
+Jul 17 21:10  node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts
+
+$ wc -c node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts dist/subpaths/css.d.ts
+10910   node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts
+12490   dist/subpaths/css.d.ts
+
+$ wc -l  …
+350 / 382 lines
+```
+
+Of the seven published `.d.ts` files, **`css.d.ts` is the only one that differs** — and it is
+exactly the one subpath with no `paths` entry. The other six are byte-identical, which is why
+nothing has broken: they are checked against the local build via `paths`, so no drift is possible.
+
+**Honest bound on today's damage.** The 32-line / 1,580-byte delta is emit-alias noise —
+`Alpha_2`, `Channel_2`, `ChannelsBySpace_2`, `Color_2`, `SpaceId_2`. The public export-name sets
+are identical:
+
+```
+$ diff <(names in installed css.d.ts) <(names in local css.d.ts)
+(no output — same public names)
+```
+
+So **no semantic break has shipped**. The defect is the mechanism, not a present symptom: any
+change to `src/css/**` lands in `dist/` where Vite executes it and never reaches `node_modules/`
+where `vue-tsc` reads it, so `npm run typecheck` — a HARD CI step (`package.json:scripts.typecheck`)
+— is blind to the `/css` surface by construction. The dogfood keystone
+`tsconfig.demo.json`'s header claims (*"the `dist/*.d.ts` trust boundary"*) holds for six subpaths
+and is false for the seventh.
+
+**Why L-21's cure makes it worse.** Deleting all four `@mkbabb/value.js*` `paths` entries removes
+the only thing pinning `/color`, `/math`, `/easing`, `/quantize`, `/transform` to the local build.
+All seven then resolve to the installed 4.0.0 tarball while Vite continues to execute the local
+`dist/`. That converts a one-subpath split into a **whole-surface split**, and it silently freezes
+the demo's type view at whatever version npm last installed. L-21's *diagnosis* is right and its
+*prescription* is inverted.
+
+- **Reproduction:** the five commands above, verbatim, from the repo root. Replica tsconfig at
+  `scratchpad/res/tsconfig.json`, probe at `scratchpad/res/probe.ts`.
+- **Proposed cure (supersedes L-21's).** Generate the `paths` block from `package.json#exports` at
+  config-load time, exactly as `vite.config.ts:41-49` already does for the Vite alias — one
+  manifest, two projections, drift impossible by construction. `tsconfig.json` does not execute
+  code, so the practical form is a tiny `scripts/sync-tsconfig-paths.mjs` run in `pretypecheck`
+  (which already exists and already runs `npm run build`) that rewrites the block and fails if it
+  changed — a generated file that is checked in and gated, not hand-maintained. That kills the three
+  phantom keys (L-11) and the one missing key (L-21) in the same stroke and cannot regress.
+  Pass 2's L-11 items 1 and 3 (the absent `"."` export; the false prose at
+  `demo/shared/utils.ts:16`) still need an owner decision and are untouched by this.
+
+---
+
+## P4-2 — MAJOR (sharpens L-3) — the key co-location costs **27 modules / 262,662 served bytes**, measured live
+
+L-3 established the disease (InjectionKeys co-located with the provider) and priced it as a
+97-module *static* closure. Measured against the running dev server, blocking exactly one edge —
+`PalettesPane.vue:134`'s import of `./usePalettePorts` — and nothing else:
+
+```
+$ node scratchpad/devgraph3.mjs
+FULL      : 164 modules, 4933061 bytes
+WITHOUT usePalettePorts (keys moved to a leaf module): 137 modules, 4670399 bytes
+DELTA: 27 modules, 262662 bytes eliminated
+```
+
+The demo-source half of that delta, itemised (`scratchpad/devgraph2.mjs`, live transformed bytes):
+
+| module | bytes |
+|---|---:|
+| `demo/palettes/useBrowsePalettes.ts` | 25,594 |
+| `demo/palettes/useAdminUsers.ts` | 20,777 |
+| `demo/palettes/useColorNameQueue.ts` | 12,321 |
+| `demo/palettes/useSlugMigration.ts` | 11,976 |
+| `demo/palettes/useAdminFlagged.ts` | 11,668 |
+| `demo/palettes/useAdminTags.ts` | 9,700 |
+| `demo/palettes/useVersionHistory.ts` | 9,299 |
+| `demo/palettes/useAdminAudit.ts` | 8,221 |
+| `demo/palettes/useTagEdit.ts` | 6,172 |
+| `demo/palettes/api/admin-colors.ts` | 6,069 |
+| `demo/palettes/api/admin-users.ts` | 5,512 |
+| `demo/platform/auth/useAdminAuth.ts` | 4,548 |
+| `demo/palettes/api/admin-palettes.ts` | 4,237 |
+| `demo/palettes/api/versions.ts` | 3,693 |
+| `demo/palettes/api/admin-audit.ts` | 2,996 |
+| `demo/palettes/api/colors.ts` | 1,114 |
+| **16 modules** | **143,897** |
+
+The pane renders a search field, a card grid and a delete dialog. It fetches the entire admin
+console, the remote-browse surface, version history, tag editing and slug migration **to read two
+`Symbol()` values**. ESM has no partial evaluation; a module is all-or-nothing.
+
+This also settles a question passes 1–3 left open: the pane *is* `defineAsyncComponent`-lazy
+(`usePaneRouter.ts:70`), so this is a genuinely isolated chunk and the 27 modules are not
+double-counted against app boot. (L-3's separate finding — that `Dock.vue:18` puts
+`SESSION_PORT_KEY` on the **eager** boot path — is orthogonal and stands.)
+
+Nothing about L-3's cure changes; it now has a number. `demo/color-session/keys.ts` remains the
+in-repo proof that the leaf-keys form works: this same file imports `CSS_COLOR_KEY` from it
+(`PalettesPane.vue:135`) and pays nothing.
+
+- **Reproduction:** `node scratchpad/devgraph2.mjs`, `node scratchpad/devgraph3.mjs`, against the
+  dev server already running on :9000. Read-only; no navigation, no interaction.
+
+---
+
+## P4-3 — INFO (scoping correction to L-6 / L-23, and to the `/css` barrel argument) — the barrel drags are **dev-graph and latency**, not shipped bytes
+
+L-23 measured the glass-ui root barrel at *"218.9 KiB / 66 files vs `./card`+`./button`+`./badge` =
+41.0 KiB / 24 files"*. That is a **disk** measurement of the module graph. It reads like a shipping
+blocker and it is not one. Bundled the way the demo actually ships:
+
+```
+$ esbuild c.js --bundle --format=esm --minify --external:vue --external:reka-ui …
+c  26540 bytes   ← Card + Button + Badge from "@mkbabb/glass-ui"          (root barrel)
+d  25571 bytes   ← the same three from "./card", "./button", "./badge"    (narrow subpaths)
+```
+
+**969 bytes.** glass-ui declares `sideEffects: ["*.css"]`, so Rollup/esbuild shake the barrel
+correctly. The same correction applies to `@mkbabb/value.js/css`, which
+`demo/color-session/ink.ts:8-11` consumes for 2 of its 19 runtime exports:
+
+```
+a  12778 bytes   ← parseCssColor + serializeCssColor only
+b  38540 bytes   ← the whole css subpath
+```
+
+Tree-shaking recovers **25,762 B**. On disk `dist/subpaths/css.js` is 43,973 B and pulls
+`anchors-C_wdoOYd.js` (12,472 B) + `result-CZJK1CwL.js` (100 B).
+
+**What this does and does not change.** L-6 stands unchanged as a *structure* finding — 19 pure
+re-export shims are a second naming authority for every design-system component, and
+`PalettesPane.vue` proves it by using both dialects in one import block (`:129-131` shim vs
+`:148-149` direct). Delete `demo/ui/` because there must be one name per concept, not because it
+costs bytes. Likewise, splitting the `css` subpath into `css/color` + `css/stylesheet` is an
+elegance and dev-latency argument. **Do not escalate either on bundle size; the measurement above
+is the reason.**
+
+Where the drag *is* real is the unbundled dev server, which is what `localhost:9000` serves and
+what the visual matrix measured: `@mkbabb_glass-ui.js` alone is **234,285 B** of this pane's
+293,136 B glass-ui footprint. Eleven modules in the pane's graph reach the root barrel — the seven
+`demo/ui/*` shims plus four direct reaches that bypass their own shims:
+
+```
+$ node scratchpad/devgraph4.mjs
+ROOT-BARREL importers (@mkbabb/glass-ui):
+    /demo/palettes/browser/card/PaletteCard/PaletteCard.vue
+    /demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue
+    /demo/palettes/browser/card/composables/useSwatchActions.ts
+    /demo/palettes/usePaletteActions.ts
+    /demo/ui/{badge,button,card,dropdown-menu,popover,skeleton,tooltip}/index.ts
+```
+
+`demo/ui/input/index.ts` already does it correctly (`@mkbabb/glass-ui/forms`), so the narrow form
+is a known idiom that was never propagated.
+
+---
+
+## P4-4 — MAJOR — the demo's three module-lattice eslint rules glob a tree that W43 deleted; `demo/palettes/**` has **zero** structural enforcement
+
+`eslint.config.js` carries three boundary rules whose comments describe them as the standing
+guarantee for the demo module graph — G-DEMO-3b: *"the palette-browser mega-feature is reached
+through its BARREL SEAM … never a raw internal `.vue` file"*; G-DEMO-1/3a: *"wired STANDING so a
+future feature edit cannot silently re-invert the demo module graph."*
+
+Every glob and every pattern addresses the pre-W43 tree. W43 (RF-15 §b, commit `bc06a0cd`) deleted
+it:
+
+```
+$ ls -d demo/@
+ls: demo/@: No such file or directory
+
+$ grep -rn "@components/custom" --include='*.ts' --include='*.vue' demo/
+demo/palettes/browser/status/index.ts:5:// (@components/custom/dock/DockStatusLamp.vue); the S.W0-1 honesty contract …
+                                                    ↑ the sole hit is inside a COMMENT
+```
+
+Rule by rule:
+
+| rule | file glob | files matched | banned pattern | imports matched |
+|---|---|---:|---|---:|
+| G-DEMO-3b | `demo/@/components/**`, `demo/@/lib/**` | **0** | `@components/custom/palette-browser/**/*.vue` | **0** |
+| G-DEMO-3b | `demo/color-picker/**` | 16 | same | **0** |
+| G-DEMO-1 | `demo/@/composables/**` | **0** | `**/color-picker/**` | **0** |
+| G-DEMO-3a | `demo/@/composables/**` | **0** | `@components/custom/*/composables/**` | **0** |
+
+**No rule globs `demo/palettes/**`.** The subject and its whole feature tree sit outside structural
+enforcement entirely:
+
+```
+$ npx eslint demo/palettes/PalettesPane.vue demo/palettes/usePalettePorts.ts demo/palettes/usePaletteExport.ts
+(no output — clean)
+```
+
+That is the mechanism by which L-1 through L-23 coexist under a CI gate that runs
+`eslint . --max-warnings=0` as a HARD step. This is the boundary-layer twin of L-19 (which found
+`no-unused-vars` disabled at the hygiene layer): between them, neither dead imports nor inverted
+module edges are detectable, and the gate is green in both cases.
+
+The deeper defect is that **a lint rule whose glob matches nothing cannot fail.** It passed review
+in W43 for the same reason it passes CI now: silence is indistinguishable from compliance.
+
+- **Reproduction:** the four commands above.
+- **Proposed cure.** (i) Re-aim all three rules at the post-W43 physical tree, and add the edges
+  this audit found: `demo/palettes/**` may not import `demo/shell/**` (L-3's `ViewId` edge);
+  nothing outside the composition root may import the port *provider* (P4-2); no file may import
+  `demo/ui/**` once L-6's cure lands. (ii) Add a one-line assertion — in `eslint.config.js` itself
+  or a `pretest` script — that **every** `files:` glob in the config matches ≥1 file, failing
+  otherwise. A dead glob is then a build error rather than a silent pass, which is the only
+  structural fix; re-aiming the rules without it just resets the clock until the next rename.
+
+---
+
+## P4-5 — INFO — two module-specifier dialects in one program
+
+```
+$ grep -rhoE 'from "\.[^"]*"' --include='*.ts' --include='*.vue' demo/ | grep -c  '\.js"'   →   4
+$ grep -rhoE 'from "\.[^"]*"' --include='*.ts' --include='*.vue' demo/ | grep -vc '\.js"'   → 676
+```
+
+All four extension-ful specifiers are in `demo/platform/transport/` — `client.ts:27,34` and
+`useApiClient.ts:19,20` — and both files are in this pane's runtime closure. Under
+`moduleResolution: "bundler"` the `.js`→`.ts` mapping resolves, so nothing breaks; this is a
+consistency defect, not a correctness one. Normalise to extensionless, which is the demo's
+99.4 % convention.
+
+---
+
+## P4-6 — INFO — pass-1..3 claims re-verified at this HEAD
+
+Re-run this pass, all confirmed:
+
+| claim | pass | verification |
+|---|---|---|
+| `exports` has 7 keys, no `"."` | 2 (L-11) | `node --input-type=module … import.meta.resolve('@mkbabb/value.js')` → `ERR_PACKAGE_PATH_NOT_EXPORTED`; `/css` and `/color` both `OK` |
+| `dist/index.d.ts`, `subpaths/parsing.d.ts`, `subpaths/units.d.ts` do not exist | 2 (L-11) | `ls dist/subpaths/` → color, css, easing, math, quantize, transform, value; `ls dist/index.d.ts` → *No such file* |
+| `demo/ui/` is 19 pure re-export shims | 1 (L-6) | full `cat` of all 19 `index.ts` — every one a bare `export { … } from "@mkbabb/glass-ui…"` |
+| dual export path; `./export` resolves to the legacy file | 1 (L-2) | `grep -rnE 'from "(\.\./)*\.?/?export(/[a-z0-9]+)?"' demo/ test/ e2e/ src/` → exactly 2 hits: the test on `export/serializers`, `usePaletteExport.ts:9` on `./export`; no `export/index.ts` exists |
+| the byte-exact set is 12 modules | 1 (L-2) | `wc -c demo/palettes/export/*.ts` → **34,867 B** total, 0 app consumers |
+| `reorderPalettes` completes a partial order by appending | 3 (L-17) | `usePaletteStore.ts:161-165` — `for (const p of store.value.palettes) if (p.id == null || !orderedIds.includes(p.id)) reordered.push(p)`. Mechanism confirmed by reading; the live drag was **not** re-run this pass (the shared Playwright browser was held by another seat: `Error: Browser is already in use for … mcp-chrome-83447af`). Pass 3's live reproduction stands. |
+| vueuse's default `onUpdate` survives an `onEnd`-only options object | 1 (L-1) | `node_modules/@vueuse/integrations/dist/useSortable.js:11-16` — `defaultOptions = { onUpdate }`, then `new Sortable(target, { ...defaultOptions, ...resetOptions })`; `moveArrayElement` at `:77-91` opens with `removeNode(e.item); insertNodeAt(e.from, e.item, from)` — raw DOM surgery on a Vue-managed subtree |
+| glass-ui ships narrow `./card` `./button` `./badge` subpaths | 2 (L-6) | `package.json#exports` of glass-ui — 74 subpaths incl. all three; `dist/card.js` 217 B, `button.js` 71 B, `badge.js` 92 B vs `glass-ui.js` 25,239 B of re-export statements over 66 chunks |
+
+**Pass-4 reproduction artefacts** (session-local scratchpad, not repo state; every command is
+pasted inline above and rerunnable from the repo root):
+`scratchpad/graph3.out` (static closure, runtime vs type-inclusive) ·
+`scratchpad/devgraph2.mjs` (live graph + subsystem census) ·
+`scratchpad/devgraph3.mjs` (the P4-2 counterfactual) ·
+`scratchpad/devgraph4.mjs` (root-barrel importers, value.js dist entries) ·
+`scratchpad/bundletest/` (P4-3 esbuild a/b/c/d) ·
+`scratchpad/res/{probe.ts,tsconfig.json}` (P4-1 traceResolution replica).
+**No source file was modified by this seat.**
+
+---
+
 # Negative proof — what is genuinely SOUND here (amended twice)
 
 The challenge's headline hypothesis is that the demo imports the library through paths a real
@@ -1241,6 +2344,13 @@ consumer could not write. **At runtime, it does not.** Positive evidence:
    `tsconfig.demo.json`'s `paths`. It typechecks only because the package is self-linked into
    its own `node_modules`. The imports are legitimate; the config that is supposed to certify
    them is not the thing certifying them.**
+   **⛔ Pass-4 correction (P4-1): "self-linked" is FALSE. `test -L node_modules/@mkbabb/value.js`
+   → not a symlink; it is a real installed **4.0.0 tarball** pulled in transitively by glass-ui
+   and keyframes.js. `tsc --traceResolution` shows `/css` resolving to
+   `node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0` (Jul 17, 350 lines) while Vite
+   executes `dist/subpaths/css.js` (Jul 27 build). The demo type-checks one artefact and runs
+   another. The statement "the imports are legitimate" still stands — a real consumer could write
+   all 50 specifiers — but "it typechecks against the real package" does not.**
 2. **The Vite alias set cannot drift from the export map**, because it is *generated from it*.
    `vite.config.ts:37-50` reads this repo's own `package.json#exports` at config time and derives
    one anchored-regex alias per subpath. The anchoring is deliberate and load-bearing — the
@@ -1358,6 +2468,42 @@ into children, no `as any`, no inline token aliasing — and one import conventi
    scheduled deliberately rather than folded into L-7 — L-7 is a placement fix and will make the
    dark-scheme collapse *tidier* without making it *stop*.
 
+## Pass-4 addenda to the lattice
+
+The four strata above are right and pass 4 does not restate them. Three amendments:
+
+**(a) One manifest, two projections — and step 3 of the ordering note must change.**
+`package.json#exports` is the single authority for the published surface. `vite.config.ts:41-49`
+already derives its alias set from it and therefore cannot drift; `tsconfig.demo.json`'s `paths`
+is a hand-written third copy and has drifted by three phantom keys (L-11) *and* one missing key
+(L-21) *and* silently repoints one subpath at a different artefact (P4-1).
+
+> **⛔ Correction to ordering step 3.** It reads: *"L-21's cure (delete the four value.js `paths`
+> entries) is a four-line deletion and makes the demo's type resolution identical to an external
+> consumer's."* Per P4-1 that is false — `node_modules/@mkbabb/value.js` is an installed tarball,
+> not a self-link, so the deletion makes all seven subpaths resolve to a **stale published copy**
+> while Vite runs the local build. **Do not execute L-21 as written.** Generate the block from
+> `exports` instead (a `pretypecheck` sync script that rewrites and diff-fails), which closes
+> L-11, L-21 and P4-1 in one stroke and cannot regress.
+
+**(b) Keys are leaves, and the invariant is mechanical.** L-3's `keys.ts` extraction is the right
+shape; P4-2 prices it at 27 modules / 262,662 served bytes for this pane alone. The lattice should
+state the rule so it generalises past `palettes/`: **a module that declares an `InjectionKey` may
+have type-only imports and nothing else.** That single sentence is checkable by lint and is what
+`demo/color-session/keys.ts` already satisfies. Split the provider by port on the same principle,
+so `provideAdminPort()` is `import()`ed by the admin route rather than statically linked into every
+consumer of every other port.
+
+**(c) The lattice needs a gate, or it is prose.** P4-4 is the reason this component can hold
+twenty-odd structural findings and still pass `eslint . --max-warnings=0`: the three rules that
+encode the demo's module lattice glob a directory tree that no longer exists, and the feature this
+audit is about is covered by none of them. Whatever lattice is adopted, the executing wave must
+(i) re-aim those rules at the physical tree and add the edges found here — `palettes → shell`
+banned, provider-import restricted to the composition root, `demo/ui/**` banned once it is
+deleted — and (ii) assert that **every `files:` glob in `eslint.config.js` matches at least one
+file**, failing the build otherwise. Without (ii) the next rename silently disarms the lattice
+again, exactly as W43 did, and nothing will report it.
+
 ---
 
 # Summary table
@@ -1385,7 +2531,13 @@ into children, no `as any`, no inline token aliasing — and one import conventi
 | L-16 | **2** | MINOR | `Palette` has three homes and none is the library; `src/` has zero palette code while `package.json:16` advertises the keyword | `demo/palettes/types.ts`; `api/src/modules/palette`; `export/types.ts`; `src/` |
 | L-19 | **3** | MINOR | `no-unused-vars` is `off` in every eslint block (8 sites), so the HARD `--max-warnings=0` CI gate cannot see dead imports at all. This component holds 3 of the demo's 6 | `eslint.config.js:71,81,118,153,154,182,185,186` |
 | L-20 | **3** | MINOR | The library port publishes raw refs: 16 `.value` in a 125-line template, and the template **writes** `pm.showDeleteAllConfirm.value` across two module boundaries | `PalettesPane.vue:69,113`; `usePalettePorts.ts:138-154` |
+| **P4-1** | **4** | **BLOCKER** | `node_modules/@mkbabb/value.js` is **not** a self-link — it is a real installed 4.0.0 tarball. `/css` (no `paths` entry) type-checks against it (Jul 17, 350 lines, 10,910 B) while Vite executes the local build (Jul 27, 382 lines, 12,490 B): the demo's HARD typecheck is blind to the `/css` surface. **Corrects L-21's diagnosis and inverts its cure** — deleting the four `paths` entries would extend the split from 1 subpath to all 7 | `tsconfig.demo.json:41-48`; `node_modules/@mkbabb/value.js/`; `dist/subpaths/css.d.ts` |
+| **P4-4** | **4** | MAJOR | G-DEMO-1 / G-DEMO-3a / G-DEMO-3b glob `demo/@/**`, a tree W43 deleted → **0 files, 0 imports matched**; no rule globs `demo/palettes/**`. `npx eslint` on the subject + provider + export composable is silent. The boundary-layer twin of L-19 | `eslint.config.js:220-256,257-300`; `ls -d demo/@` |
+| **P4-2** | **4** | MAJOR | Live measurement of L-3: blocking the single `./usePalettePorts` edge removes **27 modules / 262,662 served bytes** from the pane's lazy chunk, 16 of them (143,897 B) the admin console + browse + versions + tags + slug migration. Sharpens L-3's static 97-module estimate | `PalettesPane.vue:134`; `usePalettePorts.ts:251-255` |
 | L-10 | 1 | INFO | `./value` and `./transform` published with 0 demo dogfood sites | `package.json#exports` |
+| **P4-3** | **4** | INFO | **Scoping correction to L-6 / L-23.** Production esbuild: root barrel vs narrow subpaths for Card+Button+Badge = **969 B** delta; whole `css` subpath vs 2 symbols = 38,540 vs 12,778 B. Both barrels tree-shake. L-6's cure stands on naming authority; **do not escalate on bytes** | `scratchpad/bundletest/`; glass-ui `sideEffects: ["*.css"]` |
+| **P4-5** | **4** | INFO | 4 extension-ful (`./x.js`) vs 676 extensionless relative specifiers; all four in `demo/platform/transport/`, both files in this pane's closure | `client.ts:27,34`; `useApiClient.ts:19,20` |
+| **P4-6** | **4** | INFO | Eight pass-1..3 claims independently re-verified at this HEAD (exports map, phantom `dist` files, 19 shims, dual export path, 34,867 B unwired serializer set, `reorderPalettes` partial-order completion, vueuse `onUpdate` survival, glass-ui narrow subpaths) | see P4-6 |
 | L-23 | **3** | INFO | Pass-2 claims L-11 / L-12 / L-13 independently re-verified at HEAD `9268f054`; L-6 strengthened with a byte measurement (root barrel 218.9 KiB / 66 files vs `./card`+`./button`+`./badge` = 41.0 KiB / 24 files; 87 shim-routed vs 129 direct imports demo-wide) | see L-23 |
 
 **Reproduction artefacts.** Pass 1: `scratchpad/reorder-probe.mjs`, `scratchpad/reorder-probe2.mjs`

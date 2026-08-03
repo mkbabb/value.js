@@ -1,0 +1,93 @@
+{
+  "overlayRect": {
+    "x": 761,
+    "y": 391.2,
+    "w": 141.1,
+    "h": 106
+  },
+  "overlayBg": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+  "overlayBackdrop": "blur(11px) saturate(1.6)",
+  "overlayShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(",
+  "overlayZ": "10",
+  "wellRect": {
+    "w": 462,
+    "h": 163.9
+  },
+  "occluded": [
+    {
+      "what": "SPAN.w-11 h-11 sm:w-12 sm:h",
+      "bg": "color(srgb -0.227923 0.354",
+      "rect": {
+        "x": 767,
+        "y": 397.2,
+        "w": 48,
+        "h": 48
+      },
+      "pctCoveredByOverlay": 100
+    },
+    {
+      "what": "SPAN.w-11 h-11 sm:w-12 sm:h",
+      "bg": "lab(43.8 -32.5 42.5)",
+      "rect": {
+        "x": 825,
+        "y": 397.2,
+        "w": 48,
+        "h": 48
+      },
+      "pctCoveredByOverlay": 100
+    },
+    {
+      "what": "SPAN.w-11 h-11 sm:w-12 sm:h",
+      "bg": "lab(57.5 5 5)",
+      "rect": {
+        "x": 883,
+        "y": 397.2,
+        "w": 48,
+        "h": 48
+      },
+      "pctCoveredByOverlay": 39.8
+    },
+    {
+      "what": "Palette 1",
+      "bg": "rgb(243, 236, 226)",
+      "rect": {
+        "x": 767,
+        "y": 464.1,
+        "w": 396,
+        "h": 36
+      },
+      "pctCoveredByOverlay": 31.4
+    }
+  ],
+  "notOccluded": [
+    "4 colors",
+    "SPAN.w-11 h-11 sm:w-12 sm:h",
+    "SPAN.add-slot-ghost btn-int",
+    "BUTTON.button tap-squish focu"
+  ],
+  "checkGlyphs": [
+    {
+      "cls": "lucide lucide-check-icon lucide-check w-5 h-5",
+      "size": "20×20",
+      "x": 799.5,
+      "y": 462.2,
+      "inOverlay": true,
+      "ownerAriaLabel": "Save edit",
+      "ownerVisibleText": "",
+      "ownerBox": "36×36",
+      "iconColor": "oklch(0.361256 0.114318 139.18)"
+    },
+    {
+      "cls": "lucide lucide-check-icon lucide-check w-4 h-4 text-foreground",
+      "size": "16×16",
+      "x": 1179,
+      "y": 474.1,
+      "inOverlay": false,
+      "ownerAriaLabel": null,
+      "ownerVisibleText": "",
+      "ownerBox": "32×40",
+      "iconColor": "rgb(28, 25, 23)"
+    }
+  ],
+  "checkGlyphSeparationPx": 379.5
+}

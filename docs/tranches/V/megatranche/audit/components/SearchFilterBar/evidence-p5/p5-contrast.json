@@ -1,0 +1,482 @@
+[
+  {
+    "file": "p5-3-light-crop-label.png",
+    "px": 3822,
+    "ground": [
+      241,
+      230,
+      222
+    ],
+    "groundShare": 0.94,
+    "ink": [
+      101,
+      84,
+      66
+    ],
+    "inkShare": 0.011,
+    "contrast": 5.9,
+    "distinctColours": 93,
+    "scheme": "light",
+    "part": "label"
+  },
+  {
+    "file": "p5-3-light-crop-option.png",
+    "px": 3630,
+    "ground": [
+      240,
+      229,
+      221
+    ],
+    "groundShare": 0.253,
+    "ink": [
+      28,
+      25,
+      23
+    ],
+    "inkShare": 0.037,
+    "contrast": 14.12,
+    "distinctColours": 329,
+    "scheme": "light",
+    "part": "option"
+  },
+  {
+    "file": "p5-3-light-crop-input.png",
+    "px": 5328,
+    "ground": [
+      243,
+      236,
+      226
+    ],
+    "groundShare": 0.549,
+    "ink": [
+      230,
+      223,
+      213
+    ],
+    "inkShare": 0.021,
+    "contrast": 1.13,
+    "distinctColours": 321,
+    "scheme": "light",
+    "part": "input"
+  },
+  {
+    "file": "p5-3-light-crop-btn.png",
+    "px": 1248,
+    "ground": [
+      244,
+      240,
+      233
+    ],
+    "groundShare": 0.703,
+    "ink": [
+      112,
+      89,
+      66
+    ],
+    "inkShare": 0.017,
+    "contrast": 5.78,
+    "distinctColours": 121,
+    "scheme": "light",
+    "part": "btn"
+  },
+  {
+    "file": "p5-3-light-crop-swatch.png",
+    "px": 784,
+    "ground": [
+      68,
+      136,
+      204
+    ],
+    "groundShare": 0.519,
+    "ink": [
+      241,
+      230,
+      222
+    ],
+    "inkShare": 0.04,
+    "contrast": 3.03,
+    "distinctColours": 154,
+    "scheme": "light",
+    "part": "swatch"
+  },
+  {
+    "file": "p5-3-light-crop-trigger.png",
+    "px": 1280,
+    "ground": [
+      233,
+      226,
+      217
+    ],
+    "groundShare": 0.548,
+    "ink": [
+      239,
+      185,
+      204
+    ],
+    "inkShare": 0.01,
+    "contrast": 1.31,
+    "distinctColours": 209,
+    "scheme": "light",
+    "part": "trigger"
+  },
+  {
+    "file": "p5-3-dark-crop-label.png",
+    "px": 3822,
+    "ground": [
+      74,
+      63,
+      55
+    ],
+    "groundShare": 0.941,
+    "ink": [
+      195,
+      185,
+      172
+    ],
+    "inkShare": 0.011,
+    "contrast": 5.28,
+    "distinctColours": 92,
+    "scheme": "dark",
+    "part": "label"
+  },
+  {
+    "file": "p5-3-dark-crop-option.png",
+    "px": 3630,
+    "ground": [
+      74,
+      64,
+      56
+    ],
+    "groundShare": 0.413,
+    "ink": [
+      233,
+      230,
+      226
+    ],
+    "inkShare": 0.037,
+    "contrast": 8.11,
+    "distinctColours": 305,
+    "scheme": "dark",
+    "part": "option"
+  },
+  {
+    "file": "p5-3-dark-crop-input.png",
+    "px": 5328,
+    "ground": [
+      63,
+      55,
+      49
+    ],
+    "groundShare": 0.547,
+    "ink": [
+      139,
+      135,
+      131
+    ],
+    "inkShare": 0.021,
+    "contrast": 3.27,
+    "distinctColours": 358,
+    "scheme": "dark",
+    "part": "input"
+  },
+  {
+    "file": "p5-3-dark-crop-btn.png",
+    "px": 1248,
+    "ground": [
+      47,
+      41,
+      37
+    ],
+    "groundShare": 0.71,
+    "ink": [
+      195,
+      185,
+      172
+    ],
+    "inkShare": 0.017,
+    "contrast": 7.41,
+    "distinctColours": 129,
+    "scheme": "dark",
+    "part": "btn"
+  },
+  {
+    "file": "p5-3-dark-crop-swatch.png",
+    "px": 784,
+    "ground": [
+      68,
+      136,
+      204
+    ],
+    "groundShare": 0.513,
+    "ink": [
+      68,
+      55,
+      42
+    ],
+    "inkShare": 0.022,
+    "contrast": 3.09,
+    "distinctColours": 141,
+    "scheme": "dark",
+    "part": "swatch"
+  },
+  {
+    "file": "p5-3-dark-crop-trigger.png",
+    "px": 1280,
+    "ground": [
+      77,
+      66,
+      59
+    ],
+    "groundShare": 0.639,
+    "ink": [
+      120,
+      81,
+      95
+    ],
+    "inkShare": 0.025,
+    "contrast": 1.46,
+    "distinctColours": 202,
+    "scheme": "dark",
+    "part": "trigger"
+  },
+  {
+    "file": "p5-3-mobile-crop-label.png",
+    "px": 29484,
+    "ground": [
+      240,
+      230,
+      223
+    ],
+    "groundShare": 0.962,
+    "ink": [
+      101,
+      84,
+      66
+    ],
+    "inkShare": 0.022,
+    "contrast": 5.89,
+    "distinctColours": 141,
+    "scheme": "mobile",
+    "part": "label"
+  },
+  {
+    "file": "p5-3-mobile-crop-option.png",
+    "px": 27216,
+    "ground": [
+      240,
+      230,
+      223
+    ],
+    "groundShare": 0.779,
+    "ink": [
+      28,
+      25,
+      23
+    ],
+    "inkShare": 0.051,
+    "contrast": 14.23,
+    "distinctColours": 448,
+    "scheme": "mobile",
+    "part": "option"
+  },
+  {
+    "file": "p5-3-mobile-crop-input.png",
+    "px": 71928,
+    "ground": [
+      243,
+      236,
+      226
+    ],
+    "groundShare": 0.656,
+    "ink": [
+      112,
+      89,
+      66
+    ],
+    "inkShare": 0.01,
+    "contrast": 5.6,
+    "distinctColours": 531,
+    "scheme": "mobile",
+    "part": "input"
+  },
+  {
+    "file": "p5-3-mobile-crop-btn.png",
+    "px": 11232,
+    "ground": [
+      244,
+      240,
+      233
+    ],
+    "groundShare": 0.776,
+    "ink": [
+      112,
+      89,
+      66
+    ],
+    "inkShare": 0.065,
+    "contrast": 5.78,
+    "distinctColours": 182,
+    "scheme": "mobile",
+    "part": "btn"
+  },
+  {
+    "file": "p5-3-mobile-crop-swatch.png",
+    "px": 7056,
+    "ground": [
+      68,
+      136,
+      204
+    ],
+    "groundShare": 0.557,
+    "ink": [
+      240,
+      230,
+      223
+    ],
+    "inkShare": 0.076,
+    "contrast": 3.03,
+    "distinctColours": 434,
+    "scheme": "mobile",
+    "part": "swatch"
+  },
+  {
+    "file": "p5-3-mobile-crop-trigger.png",
+    "px": 17424,
+    "ground": [
+      233,
+      226,
+      217
+    ],
+    "groundShare": 0.592,
+    "ink": [
+      227,
+      219,
+      211
+    ],
+    "inkShare": 0.011,
+    "contrast": 1.07,
+    "distinctColours": 539,
+    "scheme": "mobile",
+    "part": "trigger"
+  },
+  {
+    "file": "p5-3-forced-crop-label.png",
+    "px": 3822,
+    "ground": [
+      255,
+      255,
+      255
+    ],
+    "groundShare": 0.94,
+    "ink": [
+      0,
+      0,
+      0
+    ],
+    "inkShare": 0.011,
+    "contrast": 21.0,
+    "distinctColours": 91,
+    "scheme": "forced",
+    "part": "label"
+  },
+  {
+    "file": "p5-3-forced-crop-option.png",
+    "px": 3630,
+    "ground": [
+      255,
+      255,
+      255
+    ],
+    "groundShare": 0.742,
+    "ink": [
+      0,
+      0,
+      0
+    ],
+    "inkShare": 0.037,
+    "contrast": 21.0,
+    "distinctColours": 310,
+    "scheme": "forced",
+    "part": "option"
+  },
+  {
+    "file": "p5-3-forced-crop-input.png",
+    "px": 5328,
+    "ground": [
+      255,
+      255,
+      255
+    ],
+    "groundShare": 0.831,
+    "ink": [
+      0,
+      0,
+      0
+    ],
+    "inkShare": 0.046,
+    "contrast": 21.0,
+    "distinctColours": 249,
+    "scheme": "forced",
+    "part": "input"
+  },
+  {
+    "file": "p5-3-forced-crop-btn.png",
+    "px": 1248,
+    "ground": [
+      255,
+      255,
+      255
+    ],
+    "groundShare": 0.819,
+    "ink": [
+      0,
+      0,
+      0
+    ],
+    "inkShare": 0.017,
+    "contrast": 21.0,
+    "distinctColours": 99,
+    "scheme": "forced",
+    "part": "btn"
+  },
+  {
+    "file": "p5-3-forced-crop-swatch.png",
+    "px": 784,
+    "ground": [
+      255,
+      255,
+      255
+    ],
+    "groundShare": 0.668,
+    "ink": [
+      0,
+      0,
+      0
+    ],
+    "inkShare": 0.096,
+    "contrast": 21.0,
+    "distinctColours": 104,
+    "scheme": "forced",
+    "part": "swatch"
+  },
+  {
+    "file": "p5-3-forced-crop-trigger.png",
+    "px": 1280,
+    "ground": [
+      255,
+      255,
+      255
+    ],
+    "groundShare": 0.804,
+    "ink": [
+      0,
+      0,
+      0
+    ],
+    "inkShare": 0.016,
+    "contrast": 21.0,
+    "distinctColours": 141,
+    "scheme": "forced",
+    "part": "trigger"
+  }
+]

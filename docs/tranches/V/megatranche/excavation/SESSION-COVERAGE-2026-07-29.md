@@ -20,6 +20,8 @@ as a full session adjudication.
 | Latest Claude workflow records | 19 | terminal state and failure modes inspected | DEEP |
 | Handoff manifest root rollouts | 3 | 181 canonical prompt events, 180 unique prompt bodies, 2,861 agent messages; source and archive hashes matched | DEEP |
 | Most recent root-message theme sample | 110 roots | lexical recurrence counted across ten governing themes | SAMPLED |
+| Frozen newest Codex session files | 100 | exactly S001–S100 with unique paths/IDs, full SHA-256, role, directive, terminal evidence, disposition, receiver, and tag | DEEP |
+| All Claude value.js top-level roots | 11 | exactly H101–H111 with the same audit columns | DEEP |
 
 The durable three-root archive is
 [`HANDOFF-MANIFEST.json`](../../apotheosis/pi/formation/session-audit/HANDOFF-MANIFEST.json).
@@ -65,11 +67,15 @@ The latest 110 roots yielded these literal theme counts:
 These counts corroborate the governing concerns. They do not disposition each
 session.
 
-## Remaining session archaeology
+## Closed 111-session boundary
 
-The next pass works newest-to-oldest and records only a new or changed ruling.
-Its unit is a user-root task, with descendant agents folded beneath that root.
-Each row must name:
+The frozen boundary is
+[`SESSION-ROOT-DEEP-BATCH-2026-07-29.md`](./SESSION-ROOT-DEEP-BATCH-2026-07-29.md):
+100 newest actual Codex session files plus all 11 Claude top-level roots.
+Prompt events are recurrence evidence, not session rows. New sessions append
+only when they postdate the frozen cutoff or change a receiver.
+
+Each future row must still name:
 
 1. the user's instruction and any repeated edict;
 2. the session's claimed close;

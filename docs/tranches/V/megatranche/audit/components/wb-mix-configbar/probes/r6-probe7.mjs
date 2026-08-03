@@ -1,0 +1,42 @@
+import { chromium } from "playwright";
+const ORIGIN="http://localhost:9000/#/mix";
+const OUT="/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/img";
+const b=await chromium.launch();
+const ctx=await b.newContext({viewport:{width:1440,height:900}});
+const page=await ctx.newPage();
+await page.goto(ORIGIN,{waitUntil:"load"});
+await page.waitForTimeout(2500);
+const info=await page.evaluate(()=>{
+  const t=[...document.querySelectorAll('button[role="combobox"]')].find(b=>b.getAttribute('aria-label')==='Color space');
+  const v=[...document.querySelectorAll('button')].find(b=>(b.textContent||'').trim()==='Mix'&&b.closest('main'));
+  v.removeAttribute('disabled'); v.disabled=false;
+  const r=v.getBoundingClientRect(), tr=t.getBoundingClientRect();
+  return {trigCls:t.className, verbCls:v.className, verb:{x:r.x,y:r.y,w:r.width,h:r.height}, trig:{x:tr.x,y:tr.y,w:tr.width,h:tr.height}};
+});
+await page.waitForTimeout(800);
+const clipV={x:info.verb.x-6,y:info.verb.y-6,width:info.verb.w+12,height:info.verb.h+12};
+await page.screenshot({path:`${OUT}/d-rest.png`,clip:clipV});
+await page.mouse.move(info.verb.x+info.verb.w/2, info.verb.y+info.verb.h/2);
+await page.waitForTimeout(600);
+const hoverState=await page.evaluate(()=>{const v=[...document.querySelectorAll('button')].find(b=>(b.textContent||'').trim()==='Mix'&&b.closest('main'));return {isHover:v.matches(':hover'), bg:getComputedStyle(v).backgroundColor, scale:getComputedStyle(v).scale};});
+await page.screenshot({path:`${OUT}/d-hover.png`,clip:clipV});
+await page.mouse.down(); await page.waitForTimeout(250);
+const pressState=await page.evaluate(()=>{const v=[...document.querySelectorAll('button')].find(b=>(b.textContent||'').trim()==='Mix'&&b.closest('main'));return {isActive:v.matches(':active'), scale:getComputedStyle(v).scale, pressT:v.style.getPropertyValue('--glass-btn-press-t'), transform:getComputedStyle(v).transform};});
+await page.screenshot({path:`${OUT}/d-press.png`,clip:clipV});
+await page.mouse.up();
+await page.mouse.move(10,10); await page.waitForTimeout(400);
+// focus under forced colors
+await page.emulateMedia({forcedColors:"active"});
+await page.waitForTimeout(400);
+const fc=await page.evaluate(()=>{
+  const t=[...document.querySelectorAll('button[role="combobox"]')].find(b=>b.getAttribute('aria-label')==='Color space');
+  const v=[...document.querySelectorAll('button')].find(b=>(b.textContent||'').trim()==='Mix'&&b.closest('main'));
+  v.focus();
+  const cv=getComputedStyle(v);
+  const rv={outline:cv.outline, off:cv.outlineOffset, shadow:cv.boxShadow, fv:v.matches(':focus-visible')};
+  t.focus();
+  const ct=getComputedStyle(t);
+  return {verb:rv, trig:{outline:ct.outline, off:ct.outlineOffset, shadow:ct.boxShadow, fv:t.matches(':focus-visible'), cls:t.className}};
+});
+console.log(JSON.stringify({info, hoverState, pressState, fc},null,1));
+await b.close();

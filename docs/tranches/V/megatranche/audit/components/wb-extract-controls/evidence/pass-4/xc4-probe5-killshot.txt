@@ -1,0 +1,45 @@
+
+=== B · `--ink-muted` — definition sites and the degenerate's paint ===
+{
+ "inlineStampOnRoot": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+ "computedOnRoot": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+ "DEGENERATE_AS_WRITTEN_line124": {
+  "backgroundColor": "rgba(0, 0, 0, 0)",
+  "boxShadow": "none"
+ },
+ "WITH_FALLBACK_as_line149_writes_it": {
+  "backgroundColor": "rgb(124, 102, 80)",
+  "boxShadow": "rgb(124, 102, 80) 0px 0px 0px 1.5px inset"
+ },
+ "VERDICT": "RAIL PAINTS NOTHING — no fill, no ring"
+}
+
+=== B · degenerate reachability — is a live pick threading? ===
+{
+ "railInlineMentionsInkMuted": false,
+ "railBackgroundColorInline": "oklch(0.545141 0.218024 9.834023)",
+ "note": "a live pick threads => degenerate not taken in this snapshot; the branch exists for the no-provider / pre-boot window"
+}
+
+=== A · DEVELOPED rail at k=16 — what one style object carries ===
+{
+ "k": "16",
+ "gradientStops": 15,
+ "gradientStringLength": 634,
+ "gradientHead": "linear-gradient(to right, oklch(0.808459 0.240099 142.11937) 0%, oklch(0.689464 0.142229 253.140717) 7%, oklch(0.458338 0.180969 28.407532) 14%, oklch",
+ "inlineStyleAttrLength": 752,
+ "backgroundColor": "oklch(0.545141 0.218024 9.834023)",
+ "boxShadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset"
+}
+
+=== A · CSSOM writes on the rail per trackInk change ===
+{
+ "setPropertyCalls": 0,
+ "styleAttributeMutations": 0,
+ "byProperty": {},
+ "meanStyleAttrLength": 0,
+ "note": "Vue patchStyle writes EVERY key in the style object on every patch (runtime-dom.cjs.js:445) — `background` (the gradient) is re-serialised even though `gradient` did not change"
+}
+
+=== pageErrors ===
+[]

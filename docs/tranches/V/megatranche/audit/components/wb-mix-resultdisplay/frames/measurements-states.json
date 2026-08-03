@@ -1,0 +1,97 @@
+{
+ "anchor": {
+  "rootTag": "DIV.app-layout",
+  "rootClientW": 1440,
+  "rootScrollH": 900,
+  "rootClientH": 900,
+  "fallback": {
+   "x": 720,
+   "y": 630
+  },
+  "actual": {
+   "x": 798,
+   "y": 636
+  },
+  "dx": 78,
+  "dy": 6,
+  "dist": 78,
+  "targetsInDom": 0
+ },
+ "contrast": {
+  "plateBg": [
+   233,
+   225,
+   217
+  ],
+  "labelFg": [
+   112,
+   89,
+   66
+  ],
+  "codeFg": [
+   28,
+   25,
+   23
+  ],
+  "behind": [
+   255,
+   255,
+   255
+  ],
+  "labelRatio": 5.08,
+  "codeRatio": 13.52,
+  "ghostLabelRatio": 2.13,
+  "ghostLabelFg": [
+   176,
+   164,
+   151
+  ],
+  "ghostBg": [
+   243,
+   239,
+   234
+  ]
+ },
+ "clipboard": {
+  "before": "Copy color",
+  "after": "Copied!",
+  "reset": "Copy color"
+ },
+ "tgroup": {
+  "firstMountVjClasses": [],
+  "reMixVjClasses": [],
+  "count": 0
+ },
+ "forcedColors": {
+  "plateBg": "oklab(0.913299 0.005463 0.013024)",
+  "dotBg": "oklab(0.73 0.013018 0.016818)",
+  "sep": "color(srgb 0.11 0.098 0.09 / 0.15) h=0"
+ },
+ "rtl": {
+  "dir": "rtl",
+  "codeBidi": "normal/rtl",
+  "codeRect": {
+   "x": 240,
+   "w": 362
+  },
+  "dotRect": {
+   "x": 614,
+   "w": 56
+  },
+  "firstBtn": {
+   "x": 642,
+   "w": 28
+  },
+  "plateRect": {
+   "x": 224,
+   "w": 462
+  },
+  "textAlign": "start"
+ },
+ "zoom200": null,
+ "reducedMotion": {
+  "settleMs": 17,
+  "ghostFrames": 0,
+  "plateTransitionDur": "0.1s"
+ }
+}

@@ -1,0 +1,40 @@
+{
+  "menuItems": [
+    "Save",
+    "Make private public",
+    "Remix",
+    "Rename",
+    "Edit Tags",
+    "Export",
+    "Delete"
+  ],
+  "editTagsCount": 1,
+  "tagsRequests": [
+    "http://localhost:3000/colors/tags"
+  ],
+  "dom": {
+    "popperWrappers": 0,
+    "radixWrappers": 0,
+    "dialogs": 0,
+    "popoverContent": 0,
+    "anyPopover": 0,
+    "sectionLabels": [],
+    "checkboxes": 0,
+    "labels": 0,
+    "bodyChildren": [
+      "DIV.",
+      "DIV.app-layout",
+      "SPAN.",
+      "DIV.",
+      "DIV.",
+      "DIV."
+    ],
+    "teleports": 5,
+    "textHasTags": false,
+    "innerTextTail": "Browse\n\nDiscover palettes from the community.\n\nSpecimen 1\n5\nwarm\n3\nSpecimen 2\n5\n3\nSpecimen 3\n5\n3\nMy Palettes\n\nSave, organize, and share your colors.\n\nStart a new palette\n\n· EMPTY PLATE ·\n\nNo saved palettes yet.\n\nAdd colors above, then save the set."
+  },
+  "logs": [
+    "debug: [vite] connecting...",
+    "debug: [vite] connected."
+  ]
+}

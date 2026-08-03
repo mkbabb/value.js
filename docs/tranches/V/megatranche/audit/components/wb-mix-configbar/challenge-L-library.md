@@ -12,732 +12,658 @@ this seat was explicitly spawned with. Declared, not inherited.
 
 ---
 
-## §00 · Provenance — this is ROUND 3; rounds 1 and 2 are preserved intact, nothing lost
+## §00 · Provenance — this is ROUND 6; rounds 1–5 preserved intact, nothing lost
 
-| round | date | report | status |
-|---|---|---|---|
-| 1 | 2026-07-27 19:21 | `challenge-L-library-round-1.md` | **verbatim, untouched** |
-| 2 | 2026-07-28 11:34 | `challenge-L-library-round-2.md` | **verbatim, copied before this write** |
-| **3** | **2026-07-28 (this)** | `challenge-L-library.md` | supersedes as the head; carries 1 + 2 whole |
+| round | report | status |
+|---|---|---|
+| 1 | `challenge-L-library-round-1.md` | **verbatim, untouched** |
+| 2 | `challenge-L-library-round-2.md` | **verbatim, untouched** |
+| 3 | `challenge-L-library-round-3.md` | **verbatim, untouched** |
+| 4 | `challenge-L-library-round-4.md` | **verbatim, untouched** |
+| 5 | `challenge-L-library-round-5.md` | **verbatim, copied from the head before this write** |
+| **6** | `challenge-L-library.md` (this) | supersedes as the head; carries 1 + 2 + 3 + 4 + 5 whole |
 
-Round 1's nine findings (**L-1** … **L-9**) and round 2's seven (**L2-1** … **L2-7**) — 2 BLOCKER,
-9 MAJOR, 3 MINOR, 1 INFO — **stand in full**. I re-verified both BLOCKERs at the producer
-declaration level this run and found them not merely intact but **sharper than either round stated**
-(§2). I contradict nothing. I correct one line of round 2's negative proof (§7) and extend three of
-its findings with facts neither round carried.
+**All thirty-two prior findings stand.** I traced the import cone and ran every measurement below
+before opening any prior round, then reconciled. I retract nothing of theirs. I do **correct one
+piece of carried evidence** (§4) — with receipts, and the correction makes the finding underneath it
+sharper, not weaker.
 
-**This round adds six findings and two sharpenings.** Round-3 items are numbered `L3-n` so all three
-records remain collision-free.
+**Tally note, recorded rather than smoothed over.** Counting r5's own §5 carry table by severity I get
+**3 BLOCKER · 19 MAJOR · 8 MINOR · 2 INFO = 32**; round 5's header states 18 MAJOR / 31 total. The
+discrepancy is one MAJOR row and I have not adjudicated which; I flag it so the next round does not
+inherit an arithmetic drift silently. Round-6 items are numbered `R6-n`.
+
+**Discipline note.** My independent pass produced eleven candidates. **Seven were already held** and
+are not re-reported — the dead `variant` prop (r2 **L2-1**; I reproduced the live DOM and added the
+`vue-tsc` EXIT=0 receipt, which r5 also added), the `demo/ui/` alias layer (r1 **L-4** / r3 **L3-8**),
+the `reka-ui` reach and unexported `SelectionValue` (r1 **L-6**), the dead eslint globs (r3 **L3-1** —
+I re-derived `demo/@/{components,lib,composables}` → 0 files independently), the two-homes
+interpolation split (r1 **L-2** / r4 **R4-1/R4-2**; my 3-operand divergence numbers reproduce r4's
+line-for-line), the non-exhaustive vocabulary arrays (r1 **L-7** / r2 **L2-5** / r5 **R5-2**), and the
+`h-9`/`h-10` per-instance costume (r5 **R5-3**). **One I filed and then killed myself** (§7.1).
+**Four survived as genuinely new**, and all four come from looking at the two artifacts no prior round
+opened: `package-lock.json` and the *installed contents* of `node_modules/@mkbabb/`.
 
 | new | severity | one line |
 |---|---|---|
-| **L3-1** | **MAJOR** | The demo's module-graph lint (**G-DEMO-1 / 3a / 3b**) is **dead config** — every glob names `demo/@/**`, which W43 deleted. `no-restricted-imports` resolves to `null` for this component and the entire post-W43 demo tree. **This is the mechanism under rounds 1+2's whole through-line.** |
-| **L3-2** | **MAJOR** | glass-ui 7.0.0 **explicitly retired** the polymorphic `tag` API and names its successor `as` — in a doc comment. r1 L-1 is a consumer stranded on a retired API, not an unknown prop. And the demo has the two props **exactly backwards**: `variant` is real on `WatercolorDot` and absent on `Button`. |
-| **L3-3** | **MAJOR** | `.section-label` has **four** element spellings across 7 files (not two, L2-6), and this component's duplicated accessible name has **already drifted**: `:145` "Size mismatch" vs `:147` `aria-label="Size mismatch strategy"`. |
-| **L3-4** | MINOR | `.section-subtitle` is dead CSS (0 consumers) and `demo/DESIGN.md:58` still documents it as live in "the gradient / mix / generate control bars" — the three bars `MixConfigBar.vue:95-96` records stripping. |
-| **L3-5** | MINOR | `demo/color-session/` is a god directory: 23 files / **3093 lines**, with **two** homes for "per-space metadata". Round 2's lattice adds to it without questioning it. |
-| **L3-6** | MINOR | Three hand-rolled `props+emits` v-model pairs where `defineModel` is live in 13 demo files including the immediate sibling. **Partially contests round 2 §10.3.** |
-| **L3-7** | INFO | `mixColors` re-converts **both** endpoints on every stop — 442 conversions per full ramp recompute where 26 suffice (measured, 0.222 ms). This is the *shape* argument that makes L2-3's `sampleColorRamp` a library obligation, not a demo convenience. |
-| **L3-8** | MINOR | 2 of r1 L-4's 19 alias barrels have **zero** consumers — and the dead one is `demo/ui/label`, precisely the primitive L2-6/L3-3 need. |
+| **R6-1** | **MAJOR** | The cross-repo resolution posture three config files document at length (**mechanism-C**: a `file:` symlink to `../glass-ui` kept fresh by sibling `build:watch`) **is not the one installed**. `node_modules/@mkbabb/glass-ui` is a **registry tarball in a real directory** (`test -L` → false; lock says `resolved: https://registry.npmjs.org/…`), and `../glass-ui` **has no `dist/` at all**. Zero mentions of the install's actual shape across rounds 1–5. |
+| **R6-2** | **MAJOR** | `server.fs.allow` grants the dev server **the entire parent directory of the repository**, justified by a `@font-face` `url("../fonts/…woff2")` walk out of the package. glass-ui 7.0.0 **inlines its fonts as `data:font/woff2;base64`** — `grep -c '\.\./fonts'` across all **20** shipped CSS files → **0 in every one**. The comment names inlining as its own retirement condition; the condition is met and the widening survives. |
+| **R6-3** | **MAJOR** | `npm test` has **no build hook** where `npm run typecheck` has `pretypecheck`. `test/preview-chips.test.ts` — the O-14 oracle that certifies *this component's* preview chips — binds `@mkbabb/value.js/{color,css}` by package self-reference into `dist/`, which is **gitignored and untracked** (`git ls-files dist` → **0**). And `vitest.config.ts` justifies its `exclude` filter by *"the repo-hygiene gates live in `test/dist/`"* — **`test/dist/` does not exist.** Second dead-config instance after r3 L3-1, in a second gate file. |
+| **R6-4** | **MAJOR** | **Correction + the defect underneath it.** r2 L2-2 / r5 §5 record that `@mkbabb/value.js/css` "resolve[s] by a *different* mechanism (the `node_modules` symlink)". Measured: it is **not a symlink**, and it does **not** resolve through `node_modules` — both `tsc --traceResolution` and `import.meta.resolve` land on the **local `dist/`** by package self-reference. There are not two resolution paths. **But** R5-1's cycle has *materialised*: npm peer-auto-installed a **registry copy of value.js into value.js's own `node_modules`**, and that copy has **already diverged** from what this tree builds — `css.d.ts` **382 vs 350 lines**, `css.js` differing at char 141 — under an immutable `4.0.0`. |
 
-**Verdict: DEFECTIVE.** Cumulative across three rounds: **2 BLOCKER · 12 MAJOR · 7 MINOR · 2 INFO.**
-Strongest defect this round: **L3-1**.
+**Verdict: DEFECTIVE.** Cumulative across six rounds: **3 BLOCKER · 23 MAJOR · 8 MINOR · 2 INFO.**
+Strongest defect this round: **R6-4**, because it converts R5-1 from a payload-hygiene argument into
+physical evidence sitting in this checkout's `node_modules`.
 
 ---
 
-## §0 · The import lattice, third pass
+## §0 · Independent re-derivation of the import cone
 
-| # | line | specifier | home | round-3 verdict |
+Traced before reading any prior round. Sixth independent observation; the boundaries agree.
+
+| # | line | specifier | resolves to | verdict |
 |---|---|---|---|---|
-| 1 | 2 | `vue` | peer, deduped `vite.config.ts:88-95` | SOUND |
-| 2 | 3–9 | `../../ui/select` | 1-line alias → `@mkbabb/glass-ui` | r1 **L-4**, + **L3-8** |
-| 3 | 10 | `../../ui/button` | 1-line alias → `@mkbabb/glass-ui` | r1 **L-4**, + **L3-8** |
-| 4 | 11 | `@lucide/vue` (`Blend`) | devDep `^1.16.0` | SOUND |
-| 5 | 12 | `@mkbabb/value.js/color` | **published subpath, real `exports` key** | SOUND (code); r2 **L2-2** at the config |
-| 6 | 13 | `../../color-session/picker-color` | demo rename of `SpaceId` | r2 **L2-4**; + **L3-5** on its directory |
-| 7 | 14 | `../../palettes/mix` | **sibling FEATURE tree** | r1 **L-2**, sharpened §6 |
-| 8 | 15 | `reka-ui` (`AcceptableValue`) | glass-ui's private dep | r1 **L-6** |
-| 9 | 18 | `../../color-session/color-space-meta` | canonical vocabulary | SOUND here; r2 **L2-5** on shape |
-| 10 | 23 | `../../color-session/color-chips` | single-consumer module | r1 **L-3** context; **L3-7** |
+| 1 | 2 | `vue` | peer | SOUND |
+| 2 | 3–9 | `../../ui/select` | `demo/ui/select/index.ts` — **1 line**, re-exports `@mkbabb/glass-ui` | r1 **L-4** · r3 **L3-8** |
+| 3 | 10 | `../../ui/button` | `demo/ui/button/index.ts` — **1 line** | r1 **L-4** · r3 **L3-8** |
+| 4 | 11 | `@lucide/vue` (`Blend`) | devDep | SOUND |
+| 5 | 12 | `@mkbabb/value.js/color` (type) | real `exports` key → local `dist/subpaths/color.d.ts` | **SOUND** (code) · r2 **L2-2** (config) · **R6-4** (install) |
+| 6 | 13 | `../../color-session/picker-color` (type) | domain module | r2 **L2-4** · r5 **R5-2** |
+| 7 | 14 | `../../palettes/mix` (type) | sibling **feature** tree | r1 **L-2** · r4 **R4-3/R4-4** |
+| 8 | 15 | `reka-ui` (type) | glass-ui's own private dep | r1 **L-6** |
+| 9 | 18 | `../../color-session/color-space-meta` | the F16 neutral home | r1 **L-5** · r2 **L2-5** · r5 **R5-2** |
+| 10 | 23 | `../../color-session/color-chips` | domain module | r1 **L-3** · r4 **R4-1/R4-2** |
 
-Ten edges. **One** is correct-and-unqualified (the `@mkbabb/value.js/color` import at line 12).
-Re-confirmed this run against the real node resolver:
+Ten edges, one unqualified — the same ratio five prior rounds reached independently. No `@src/*`
+reach, no `demo/ → src/` internal edge, no feature → shell edge.
 
-```
-$ node --input-type=module -e "…await import.meta.resolve(s)…"
-FAIL @mkbabb/value.js         -> ERR_PACKAGE_PATH_NOT_EXPORTED
-OK   @mkbabb/value.js/color   -> file:///Users/mkbabb/Programming/value.js/dist/subpaths/color.js
-FAIL @mkbabb/value.js/parsing -> ERR_PACKAGE_PATH_NOT_EXPORTED
-FAIL @mkbabb/value.js/units   -> ERR_PACKAGE_PATH_NOT_EXPORTED
-OK   @mkbabb/value.js/css     -> file:///Users/mkbabb/Programming/value.js/dist/subpaths/css.js
-```
-
-Independent confirmation of round 2's L2-2 from a separate invocation. `HueInterpolationMethod` is
-exported at `src/subpaths/color.ts:8`. A real consumer could write line 12 verbatim.
+**Rounds 1–5 asked what each edge points at. Round 6 asks what is actually on disk at the other end.**
+Three of the four edges that leave this repository — `@mkbabb/value.js/color`, `@mkbabb/glass-ui`, and
+(transitively) `reka-ui` — resolve into an installed tree whose *shape* contradicts the shape three
+config files spend forty lines of comment describing. That is the thread this round pulls.
 
 ---
 
-## §1 · L3-1 — MAJOR · the demo's module-graph enforcement is dead config, and it is the mechanism under both prior rounds
+## §1 · R6-1 — MAJOR · the documented cross-repo resolution posture is not the one installed
 
-Rounds 1 and 2 closed on the same sentence — *"there is more than one home for one concept"* —
-listed at seven boundaries. Neither asked **why the graph was free to drift**. It is because the
-enforcement was pointed at a directory that no longer exists.
+### 1a — what the config says
 
-`eslint.config.js` carries three named structural invariants:
+Three separate comment blocks, all load-bearing, all describing one mechanism:
 
-- **G-DEMO-1** — the shared color layer must never import app-root boot (`eslint.config.js:283-287`)
-- **G-DEMO-3a** — the shared layer must not import feature internals (`:288-292`)
-- **G-DEMO-3b** — palette-browser through its barrel seam only (`:293-300`, and `:241-254`)
+`vite.config.ts:86-96` —
+> *"Cross-repo resolution (N.W1.C / mechanism-C …): bare `@mkbabb/glass-ui` specifiers resolve through
+> the sibling's `exports` map **via the `file:` symlink** in `node_modules`. … During co-development
+> the dist is kept fresh by `build:watch` (`dev.sh SIBLING_WATCH_BUILDS=(../glass-ui)`); there is no
+> mid-edit source consumption at any hop."*
 
-Every one is scoped to globs W43 (RF-15) deleted:
+`tsconfig.demo.json:20-26` — the same posture, cited as the reason the demo typecheck needs no
+foreign-error filter (*"glass-ui's declaration files are skip-checked … the demo typecheck sees ZERO
+foreign errors"*).
 
-```js
-// eslint.config.js:232-239
-files: ["demo/color-picker/**/*.ts", "demo/color-picker/**/*.vue",
-        "demo/@/components/**/*.ts", "demo/@/components/**/*.vue",
-        "demo/@/lib/**/*.ts",        "demo/@/lib/**/*.vue"],
-// eslint.config.js:274-277
-files: ["demo/@/composables/**/*.ts", "demo/@/composables/**/*.vue"],
+`vite.config.ts:98-137` — `server.fs.allow` widened *"because the `@font-face` refs … walk OUT of the
+package into glass-ui's repo-root `fonts/` directory"* — a walk that only exists **through a
+symlink**. (That half is R6-2.)
+
+### 1b — what is installed
+
+```
+$ for p in node_modules/@mkbabb/glass-ui node_modules/@mkbabb/value.js node_modules/@mkbabb/keyframes.js; do
+    if [ -L "$p" ]; then echo "$p = SYMLINK -> $(readlink $p)"; else echo "$p = REAL DIRECTORY"; fi; done
+node_modules/@mkbabb/glass-ui    = REAL DIRECTORY
+node_modules/@mkbabb/value.js    = REAL DIRECTORY
+node_modules/@mkbabb/keyframes.js = REAL DIRECTORY
 ```
 
 ```
-$ ls -d demo/@
-ls: demo/@: No such file or directory
-
-$ grep -rn 'from "@components\|from "@composables\|from "@lib' demo/ | wc -l
-0
+$ node -e "const l=require('./package-lock.json'); … "
+node_modules/@mkbabb/glass-ui     {"version":"7.0.0","resolved":"https://registry.npmjs.org/@mkbabb/glass-ui/-/glass-ui-7.0.0.tgz","integrity":"sha512-iK2DaPNbnEOkcI6…"}
+node_modules/@mkbabb/keyframes.js {"version":"6.0.0","resolved":"https://registry.npmjs.org/@mkbabb/keyframes.js/…"}
 ```
 
-The banned **patterns** are equally dead — `@components/custom/*/composables/**` and
-`@components/custom/palette-browser/**/*.vue` name an alias `vite.config.ts:71-73` records killing
-("W43 (RF-15) killed the demo `@…` path aliases").
+Registry tarballs. Not symlinks. `package.json` declares `"@mkbabb/glass-ui": "^7.0.0"` — a **registry
+range**, never a `file:` spec. There is no `file:` anywhere in the manifest.
 
-### Reproduction — the subject file has zero import governance
-
-```
-$ npx eslint --print-config demo/workbenches/mix/MixConfigBar.vue \
-    | python3 -c "import json,sys; print('no-restricted-imports =', json.dumps(json.load(sys.stdin)['rules'].get('no-restricted-imports')))"
-no-restricted-imports = null
-```
-
-And across the tree that matters to this component:
+### 1c — and the sibling has nothing to watch
 
 ```
-demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue    null
-demo/color-session/color-chips/sample.ts                               null
-demo/palettes/mix.ts                                                   null
-src/color/operations.ts                                                [2, {"patterns":[{"group":["@mkbabb/glass-ui","@mkbabb/glass-ui/*"], …
-```
+$ ls -d ../glass-ui ../keyframes.js
+../glass-ui
+../keyframes.js
 
-**Only `src/**` retains a live rule** (inv-K-1, the acyclic-topology ban). The entire post-W43 demo —
-`workbenches/`, `color-session/`, `palettes/`, `shell/`, `platform/`, `shared/`, `scenes/` — has **no
-enforced dependency direction of any kind**.
-
-### Why this is the round-3 headline
-
-Every ownership finding in rounds 1 and 2 is a *symptom* whose *cause* is this. With the guard rails
-deleted:
-
-- r1 **L-2** — `workbenches/mix` → `palettes` (feature → sibling feature). Nothing forbids it.
-- r1 **L-3** — a second copy of the Select pair in `workbenches/gradient`. Nothing forbids it.
-- r1 **L-5** — a three-hop re-export chain whose stated purpose is *"keep their import path"*.
-  Nothing forbids it.
-- r1 **L-6** — a demo edge to `reka-ui`, glass-ui's private dependency. Nothing forbids it.
-- **L2-3** — three chain samplers, two of them inside `workbenches/mix/`. Nothing forbids it.
-
-And the T.W1 demo-dogfood keystone — the invariant that the demo consumes value.js only through the
-published subpaths — is currently held **by discipline alone**:
-
-```
-$ grep -rn 'from "@src\|from "../../../src/' demo/ | wc -l
-0
-```
-
-Zero today. Nothing structural keeps it zero. Round 2's §0 correctly measured that no demo module
-reaches into `src/`; what neither round measured is that **nothing prevents the next one from doing
-so.** Combined with L2-2 (the `paths` map does not mirror `exports`), the keystone's *only* two
-guardrails are one dead lint block and one drifted hand-written config.
-
-**Repro:** the three commands above.
-
-**Cure — re-aim the invariants at the tree that exists, and write the one that was never written.**
-
-```js
-// 1 — the dogfood keystone, made structural (this rule has never existed)
-{ files: ["demo/**/*.{ts,vue}"], rules: { "no-restricted-imports": ["error", { patterns: [
-    { group: ["@src", "@src/*", "**/../src/**"],
-      message: "T.W1 keystone: the demo consumes value.js ONLY through @mkbabb/value.js/* — never src/." },
-    { group: ["reka-ui"],
-      message: "r1 L-6: reka-ui is glass-ui's private dependency; type against glass-ui's own surface." },
-]}]}},
-// 2 — G-DEMO-1, re-homed: lower layers stay lower
-{ files: ["demo/color-session/**", "demo/shared/**", "demo/platform/**"],
-  rules: { …ban "../workbenches/**", "../scenes/**", "../shell/**", "../palettes/**"… }},
-// 3 — G-DEMO-3a, re-homed: sibling-workbench isolation
-{ files: ["demo/workbenches/*/**"], rules: { …ban other workbenches' internals… }},
-// 4 — G-DEMO-3b, re-homed: demo/palettes/browser reached through its barrel
-{ files: ["demo/**/*.{ts,vue}"], rules: { …ban "**/palettes/browser/**/*.vue"… }},
-```
-
-Rule 2 alone would have made r1 L-2 a build error. Rule 3 would have made r1 L-3's divergence
-visible. Rule 1 would make L2-2's phantom keys unwritable. **This is one config file, and it turns
-seven of the sixteen prior findings from "fixed" into "unrepresentable".**
-
----
-
-## §2 · L3-2 — MAJOR · glass-ui 7.0.0 *retired* the polymorphic API by name; and the demo has `variant` and `tag` exactly backwards
-
-Both prior BLOCKERs re-verified this run at the producer declaration level. Both hold. Both are
-sharper than stated.
-
-### 2a — `Button` has no `variant` (r2 L2-1 — CONFIRMED)
-
-```
-$ python3 -c "import json;print(json.load(open('node_modules/@mkbabb/glass-ui/package.json'))['version'])"
+$ node -e "console.log(require('../glass-ui/package.json').version)"
 7.0.0
 
-$ head -20 node_modules/@mkbabb/glass-ui/dist/components/button/Button.vue.d.ts
-export type ButtonEmphasis = "primary" | "secondary" | "quiet" | "text";
-export type ButtonSize = Extract<Size, "xs" | "sm" | "md" | "lg">;
-export interface ButtonProps extends PrimitiveProps {
-    /** Visual priority. It does not change the command's semantics. */
-    emphasis?: ButtonEmphasis;
-    /** Semantic intent, orthogonal to emphasis. */
-    tone?: Tone;
-    size?: ButtonSize; iconOnly?: boolean; loading?: boolean;
-    type?: …; disabled?: …; class?: …;
-}
+$ ls -la ../glass-ui/dist/index.d.ts ../glass-ui/dist/components/button/Button.vue.d.ts
+ls: ../glass-ui/dist/index.d.ts: No such file or directory
+ls: ../glass-ui/dist/components/button/Button.vue.d.ts: No such file or directory
 ```
 
-No `variant`. `MixConfigBar.vue:163` passes `variant="primary-audacious"`. Round 2's live-DOM
-evidence (`data-emphasis="secondary"`, the string landing as a raw fallthrough attribute) stands
-unchallenged.
+The sibling checkout exists and **has never been built in this working tree**. So the documented loop
+is inoperative on both ends at once: no symlink to resolve through, nothing built to watch, and a
+registry pin a sibling build could not reach even if there were.
 
-### 2b — `WatercolorDot` has no `tag` (r1 L-1 — CONFIRMED)
+### 1d — why this matters to this component, and what it does *not* mean
+
+It would be easy to over-read this. I checked the tempting version and it is false: the installed
+tarball is **not** stale relative to the producer's source. glass-ui's source has already completed
+the migration r2 L2-1 condemns —
 
 ```
-$ sed -n '23,60p' node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts
-color: string;  variant?: "solid" | "ghost";  animate?: boolean;
-cycleDuration?: number;  range?: [number, number];  seed?: string;
+$ grep -n "emphasis\|variant" ../glass-ui/src/components/button/Button.vue | head
+20:    emphasis?: ButtonEmphasis;
+21:    /** Semantic intent, orthogonal to emphasis. */
+35:    emphasis: "secondary",
+49:        (props.emphasis === "primary" || props.emphasis === "secondary"),
+88:        :data-emphasis="emphasis"
+
+$ grep -c "primary-audacious" ../glass-ui/src/components/button/{Button.vue,index.ts,styles.css}
+0  0  0
 ```
 
-Six props. No `tag`. `MixSourceSelector.vue:168` and `:215` both pass `tag="button"`.
+So **L2-1 is confirmed as a purely consumer-side un-migrated adoption**: the producer retired
+`variant` in source *and* in the shipped 7.0.0, the demo never followed, and nothing at the boundary
+noticed. That is a useful sharpening — it means the r2 L2-1 / r5 R5-3 cure needs **no** glass-ui work
+on Button at all; the only standing BH item on this component's surface is r1 L-6's `SelectionValue`
+export.
 
-### 2c — the sharpening neither round carried: `tag` was *retired by name*, and its successor is documented
+The defect R6-1 names is narrower and structural: **three config files justify their contents by a
+mechanism this checkout does not use.** `tsconfig.demo.json` argues the demo typecheck is safe
+*because* of dist-resolution-through-a-symlink; `vite.config.ts` argues `dedupe` is what "MAKES
+dist-resolution single-instance"; `vite.config.ts` argues `server.fs.allow` must reach the repo's
+parent *because* of a symlinked font walk. The first two conclusions happen to hold anyway (a registry
+tarball is dist-resolution too, and more strongly). The third does not, and it is R6-2. The tranche
+record for W44 — *"Glass 7.0.0 ADOPTED WHOLE"* — rests on a posture description that no longer
+matches the tree.
 
-`node_modules/@mkbabb/glass-ui/dist/components/_shared/primitive.d.ts`:
+- **Mechanism.** A resolution posture was reasoned about carefully once (N.W1.C), written into three
+  comment blocks as the *reason* for three unrelated settings, and then the install changed underneath
+  the prose. Comments that justify settings are contracts; nothing checks them.
+- **Reproduction.** The four commands above, all in this checkout.
+- **Cure.** Decide the posture and make it checkable. If sibling co-development is real, declare
+  `"@mkbabb/glass-ui": "file:../glass-ui"` and let the lockfile say so — then the comments become
+  true and `build:watch` becomes meaningful. If it is not (and the evidence is that it is not: a
+  registry pin, an unbuilt sibling), delete the symlink prose, delete `siblingFsAllowTransient`
+  (R6-2), and keep the honest one-line statement: *glass-ui resolves from its published tarball.*
+  Either way the settings must cite the posture the lockfile records, and a CI assertion on
+  `lock.packages["node_modules/@mkbabb/glass-ui"].resolved` makes that a gate rather than a paragraph.
+
+---
+
+## §2 · R6-2 — MAJOR · the dev server is granted the repository's entire parent directory on a justification that is measurably obsolete
+
+`vite.config.ts:139` and `:287`:
 
 ```ts
-:2   export type AsTag = string;
-:7   export interface PrimitiveProps {
-:9       asChild?: boolean;
-:11      /** Element or Vue component to render when `asChild` is false. */
-:11      as?: AsTag | Component;
-     }
-:19  /** Forward ordinary host attributes without reviving a retired polymorphic API. */
-     export declare function fixedHostAttrs(attrs: Readonly<Record<string, unknown>>): Record<string, unknown>;
+const siblingFsAllowTransient = [path.resolve(import.meta.dirname, "..")];
+…
+server: { host: true, fs: { allow: siblingFsAllowTransient } },
 ```
 
-glass-ui 7.0.0 does not merely *lack* `tag` — it **names the retirement in its own doc comment** and
-ships `as` as the replacement, plus a helper (`fixedHostAttrs`) whose entire stated purpose is to
-forward host attributes *without* reviving the API the demo is still writing. The producer
-documented the migration; the consumer never read it. 26 `tag="…"` sites survive in `demo/**/*.vue`.
+`server.fs.allow` replaces Vite's default (the project root) with **`/Users/mkbabb/Programming`** — the
+parent of the repository, containing every sibling checkout on this machine. Combined with
+`server.host: true` (`:286`, for LAN device testing), the dev server serves that subtree to the local
+network.
 
-### 2d — the inversion that makes this a *taxonomy* failure, not a typo
+The stated justification, `vite.config.ts:107-117`:
 
-| primitive | has `variant`? | has `tag`? | what the demo passes |
-|---|---|---|---|
-| `Button` | **NO** (`emphasis`/`tone`) | no (`as`) | `variant="primary-audacious"` ✗ |
-| `WatercolorDot` | **YES** (`"solid" \| "ghost"`) | **NO** | `tag="button"` ✗ |
-| `SelectTrigger` | **YES** (`"default" \| "ghost"`) | — | `variant` — ✓ (r2 §1) |
+> *"The Tailwind-source `./styles` surface ships `@font-face` declarations whose
+> `url("../fonts/fira-code/...woff2")` refs resolve RELATIVE to the symlinked `dist/styles/` — they
+> walk OUT of the package into glass-ui's repo-root `fonts/` directory. That walk is why
+> `server.fs.allow` must reach glass-ui's parent… **Retiring it entirely requires glass-ui to inline
+> the fonts as data URLs in the compiled surface**, or the demo to drop the Tailwind-source `./styles`
+> import…"*
 
-The demo passes `variant` to the one primitive that dropped it and `tag` to one that never had it,
-while the primitive that *does* take `variant` is used correctly. This is not two typos. It is a
-consumer whose model of the design system's prop taxonomy is stale in **both** directions
-simultaneously — which is exactly why round 2's cure move 1 ("audit the whole consumer surface
-against the 7.0.0 `.d.ts` set") is the right shape and must be **mechanised**, not spot-fixed:
-a human reading 55 call sites will not reliably notice that `variant` is right on one component and
-wrong on another.
+**glass-ui 7.0.0 has inlined the fonts.** Measured against the installed surface —
+`exports["./styles"]` → `./dist/styles/index.css`:
 
-**Repro:** the three `.d.ts` reads above; `grep -rn 'tag="' demo/ --include="*.vue" | wc -l` → 26.
+```
+$ grep -c '\.\./fonts' node_modules/@mkbabb/glass-ui/dist/styles/*.css
+accessibility.css:0   animations.css:0   components.css:0   draw-in.css:0   fonts.css:0
+glass-refract.css:0   glass-specular-track.css:0   glass.css:0   index.css:0   paper.css:0
+scroll-choreography.css:0   scroll-chrome.css:0   scroll-driven.css:0   theme.css:0
+tokens.css:0   transitions.css:0   typography.css:0   utilities.css:0
+view-transition.css:0   viz-reveal.css:0
 
-**Cure — unchanged from round 2's three moves, with the first now specified.** Generate the
-allowlist: for each `@mkbabb/glass-ui` component used in `demo/`, read its `.vue.d.ts` prop
-interface and emit an eslint rule. Every `<C p=…>` where `p ∉ Props(C)` is an error. glass-ui
-already ships the declarations; this is a build-time script, not a judgement call. Then migrate:
-`tag="button"` → `as="button"` (the producer's own successor), `variant="outline"` →
-`emphasis="secondary"`, `ghost` → `emphasis="quiet"`, `destructive` → `tone="danger"`.
-`primary-audacious` has no 7.0.0 home — **relay to the glass-ui BH inbox** (standing fond).
+$ grep -o 'url("data:font/woff2' node_modules/@mkbabb/glass-ui/dist/styles/fonts.css | wc -l
+       4
+
+$ ls -d node_modules/@mkbabb/glass-ui/fonts
+ls: node_modules/@mkbabb/glass-ui/fonts: No such file or directory
+```
+
+**Zero** `../fonts` references across all twenty shipped stylesheets; **four** `@font-face` blocks
+carrying base64 `data:font/woff2` payloads; and no `fonts/` directory in the package for a walk to
+land in even if one existed. The retirement condition the comment names as sufficient is satisfied by
+the installed producer, and the widening it justifies is still in the config.
+
+This is R6-1's most concrete consequence: a setting whose premise was *"the symlinked package walks
+out into a sibling repo"* survives an install where the package is a self-contained tarball with
+inlined assets. It is not a hypothetical exposure — it is a live dev server (`:9000`, confirmed
+responding `200` this session) serving `/Users/mkbabb/Programming` to the LAN.
+
+- **Mechanism.** A transient workaround was named `…Transient`, justified by a producer gap, and
+  outlived the gap because nothing re-checks a workaround's premise when the producer ships the fix.
+- **Reproduction.** The three commands above; `vite.config.ts:139,287` for the setting; the
+  producer's own `exports["./styles"]` for the surface under test.
+- **Cure.** Delete `siblingFsAllowTransient` and the `fs.allow` override; Vite's default root-scoped
+  allowlist is correct for a tarball install. Verify by booting the dev server and loading `/#/mix` —
+  the four inlined faces need no filesystem escape. If a future `file:` posture (R6-1) reintroduces
+  the walk, reintroduce the narrowest allowlist entry that covers it — the sibling's `fonts/`
+  directory, not the parent of every project on the disk.
 
 ---
 
-## §3 · L3-3 — MAJOR · `.section-label` has four spellings, and this component's duplicated name has already drifted
+## §3 · R6-3 — MAJOR · the oracle that certifies this component's preview chips binds to an untracked build artifact no gate refreshes, and its config cites a directory that does not exist
 
-Round 2's L2-6 found two spellings (`<label>` here, `<span>` at the twin) and correctly noted
-`label.control === null`. The census is wider and one consequence has already fired.
-
-### 3a — four element spellings, seven files
+### 3a — the asymmetry
 
 ```
-$ grep -rn "section-label" demo/ --include="*.vue"
-GradientVisualizer.vue:163,180,197,229   <span  class="section-label">
-MixConfigBar.vue:98,121,145              <label class="section-label">
-MixSourceSelector.vue:183                <span  class="section-label">
-GenerateControls.vue:221,255             <span  class="section-label">
-SearchFilterBar.vue:20,32,48,63          <div   class="section-label">
-TagEditPopover.vue:8                     <div   class="section-label">
-AdminTagsPanel.vue:87                    <div   class="section-label">
+$ node -e "const s=require('./package.json').scripts; for(const k in s) console.log(k.padEnd(16),'=',s[k])"
+predev:web-only  = npm run build
+prepare          = rm -rf dist && npm run build
+pretypecheck     = npm run build
+typecheck        = vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit
+test             = vitest run          ← no pretest
 ```
 
-`<label>` (3) · `<span>` (7) · `<div>` (6). One design-system concept, three host elements, chosen
-per-site. The root cause is a **public-surface** defect in glass-ui, and round 2 half-recorded it
-while marking it sound (§10.4: *"`.section-label` itself is correctly glass-ui-owned … That part is
-sound; only the element is wrong."*). The *class* is owned; the **atom is not**:
+Three commands protect themselves with a build. `test` does not.
+
+### 3b — what the test program binds to
+
+`vitest.config.ts` declares exactly one alias, `@src`. Nothing maps `@mkbabb/value.js/*`. So the
+vitest program resolves those specifiers the way Node does — and Node's `PACKAGE_SELF_RESOLVE` runs
+before the `node_modules` walk, so a package with `name` + `exports` resolves its own name to itself:
 
 ```
-node_modules/@mkbabb/glass-ui/dist/styles/typography/utilities.css
-  @layer components { … .section-label { @apply text-mono-caption; color: var(--muted-foreground); } … }
+$ node --input-type=module -e "for (const s of ['@mkbabb/value.js/color','@mkbabb/value.js/css','@mkbabb/glass-ui']) console.log(s.padEnd(24),'->',import.meta.resolve(s))"
+@mkbabb/value.js/color   -> file:///Users/mkbabb/Programming/value.js/dist/subpaths/color.js
+@mkbabb/value.js/css     -> file:///Users/mkbabb/Programming/value.js/dist/subpaths/css.js
+@mkbabb/glass-ui         -> file:///Users/mkbabb/Programming/value.js/node_modules/@mkbabb/glass-ui/dist/glass-ui.js
 ```
 
-glass-ui ships the paint and no component. With no component there is no home for the element choice
-or the label association, so sixteen call sites each invent one. Shipping a styling recipe without
-its atom **guarantees** divergence — that is the structural finding, and it is not "sound".
-
-### 3b — the drift has already happened, inside this component
-
-```vue
-:145            <label class="section-label">Size mismatch</label>
-:147            <SelectTrigger aria-label="Size mismatch strategy" class="h-9">
-```
-
-Because the `<label>` associates with nothing, the accessible name must be re-typed on the trigger —
-and the two copies **already disagree**. The visible caption says "Size mismatch"; the announced name
-says "Size mismatch strategy". The other two pairs still agree (`:98`/`:100` "Color space",
-`:121`/`:123` "Hue method") — for now. One of three has drifted in a 173-line file; the failure mode
-round 2 predicted is already realised, one control over.
-
-**Repro:** read `MixConfigBar.vue:144-148`; the grep above.
-
-**Cure — glass-ui owns it (edict 4), relay to the BH/BI inbox.** Ship `FieldLabel` (or `Label`
-`variant="section"`) owning the element, the `for`/`id` wiring and the class:
-
-```vue
-<FieldLabel for="mix-leftover">Size mismatch</FieldLabel>
-<Select id="mix-leftover" …>   <!-- accessible name DERIVED, never re-typed -->
-```
-
-Sixteen sites converge, the three `aria-label` duplicates in this file disappear, and the drift at
-`:145`/`:147` becomes structurally impossible. Note glass-ui's `PrimitiveProps` already gives the
-`as` escape hatch for the rare `<div>` caption — so one atom covers all three current spellings
-without a shim.
-
----
-
-## §4 · L3-4 — MINOR · dead `.section-subtitle` CSS, and a design doc that still calls it live
-
-`MixConfigBar.vue:95-96` records the excision in its own template:
-
-```html
-<!-- W5-7: the permanent subtitles died — the dropdown's own
-     #description rows already tell the story once, on demand. -->
-```
-
-The recipe outlived the excision. `demo/styles/utils.css:13-27` still ships ten lines of it
-(including a `-webkit-box` / `-webkit-line-clamp` Safari-floor pair), and:
+And `dist/` is not a tracked artifact:
 
 ```
-$ grep -rn "section-subtitle" demo/ | grep -v "styles/utils.css"
-demo/DESIGN.md:58: The `.section-subtitle` recipe (utils.css:18-27) is a single-line caption variant of
-                   glass-ui's `.section-label` … — consumed by the gradient / mix / generate control bars.
+$ git check-ignore -v dist
+.gitignore:17:dist/	dist
+$ git ls-files dist | wc -l
+       0
 ```
 
-**Zero template consumers.** The design doc asserts three — the exact three control bars W5-7
-stripped, one of which is this component. So the demo's own design authority describes a surface
-that has not existed since S.W5-7, next to CSS that no selector can reach. Edict 2 (no legacy).
-
-This does not engage edict 6: `.section-subtitle` is a `line-clamp` typography recipe with no
-keyframes and no animation. Nothing to move or tokenize; it is simply unreachable.
-
-**Repro:** the grep above.
-
-**Cure.** Delete `.section-subtitle` from `demo/styles/utils.css`; delete `DESIGN.md:58`.
-
----
-
-## §5 · L3-5 — MINOR · `demo/color-session/` is a god directory with two homes for one concept
-
-Round 2's lattice (§9 L3 stratum) places `InterpolationSelects.vue`, `color-space-meta.ts`,
-`color-chips/` and `picker-color.ts` in `demo/color-session/` — correct as *relative* placement, but
-it adds to a directory that is already the demo's largest undifferentiated bag:
+Five test files import the library by bare specifier — including the one that matters here:
 
 ```
-$ wc -l demo/color-session/*.ts demo/color-session/*.vue
-   …
-   3093 total          # 23 files
+$ grep -rn '@mkbabb/value\.js' test/ demo/test/
+test/ink.test.ts:17,18        test/view-accents.test.ts:28,29        test/mix-v4.test.ts:2
+test/preview-chips.test.ts:25 import { … } from "@mkbabb/value.js/color";
+test/preview-chips.test.ts:26 import { parseCssColor } from "@mkbabb/value.js/css";
+demo/test/export/byte-exact.test.ts:312
 ```
 
-Its contents span, with no internal boundary: stateless color math (`color-utils` 25,
-`picker-color` 217, `generate-color` 243), vocabulary tables (`color-space-meta` 43,
-`colorSpaceInfo` 334, `color-names` 44), contrast/ink machinery (`ink` 174,
-`useContrastSafeColor` 376, `palettes-ramp` 120, `view-accent` 47), a PRNG (`prng` 11), a chip
-component module (`color-chips/`), a 311-line SFC (`ColorSpaceSelector.vue`), and nine composables
-including a 335-line `useColorPipeline`. **"Session" names state; more than half the directory is
-stateless leaves.** Edict 1 (no god modules) is about files, but the same logic reaches a directory
-that has become the place things go when no better home is obvious.
+`test/preview-chips.test.ts` is **the O-14 oracle for this component's preview chips** — the one
+`color-chips/sample.ts:19-23` names as holding the sampler "STRICTLY EQUAL to a direct library
+recompute". Its `mixColors` is whatever happens to be sitting in an ignored, untracked build-output
+directory when `npm test` runs. `npm run typecheck` rebuilds first; `npm test` does not.
 
-And it holds **two** homes for "per-space metadata":
-
-| module | lines | content | keyed by |
-|---|---|---|---|
-| `color-space-meta.ts` | 43 | interpolation label + description, 9 rows | `PickerSpace` (untyped subset — L2-4) |
-| `colorSpaceInfo.ts` | 334 | documentation prose per space (white point, gamut, conversions…) | a separate hand-maintained key set |
-
-Nothing relates their key sets. Adding a space means editing two tables in one directory with no
-compiler linking them — the same defect shape as L2-4/L2-5, one level up.
-
-**Repro:** the `wc -l` above; read `colorSpaceInfo.ts:1-17` beside `color-space-meta.ts:1-43`.
-
-**Cure — split the bag along the axis that already exists (see §8).** `demo/color/spaces.ts` merges
-both metadata tables into one `satisfies Partial<Record<SpaceId, SpaceMeta>>` where `SpaceMeta`
-carries *both* the interpolation vocabulary and the prose; `demo/color/convert.ts` for the css⇄Color
-seam; `demo/color/ink/` for contrast/accent; `demo/color/session/` for the actual stateful
-composables — the only part the name "session" ever described.
-
----
-
-## §6 · Sharpening r1 L-2 — the component contradicts itself inside a two-line window
-
-Round 1 established that `demo/palettes/mix.ts` is the Mix workbench's domain module homed in a
-sibling feature. Re-verified:
+**I checked the tempting overclaim and it is currently false.** Right now `dist/` is fresh:
 
 ```
-$ grep -rn 'palettes/mix"' demo/ test/ e2e/
-demo/workbenches/mix/MixConfigBar.vue:14
-demo/workbenches/mix/composables/useMixingState.ts:21
-test/mix-v4.test.ts:4
+$ find src -name '*.ts' -newer dist/subpaths/color.js | wc -l
+       0
+$ ls -la dist/subpaths/color.js
+-rw-r--r--  1 mkbabb  staff  604 Jul 29 10:16 dist/subpaths/color.js
 ```
 
-Every consumer is the Mix workbench; nothing in `demo/palettes/` imports it.
+So this is a **structural** defect, not a live wrong result: nothing *keeps* it fresh. Edit
+`src/color/operations.ts` and run `npm test` and the oracle certifies the previous library. That
+composes exactly with r4 **R4-2** — R4-2 showed the oracle re-derives its own algorithm and so cannot
+see r4 R4-1's divergence; R6-3 adds that it is also bound to an artifact no gate regenerates. The
+guard is pointed at its own reflection *and* the mirror is not required to be current.
 
-What neither round recorded is that **the component states the principle and violates it two lines
-apart**:
+### 3c — the dead config in the same file
+
+`vitest.config.ts` carries:
 
 ```ts
-:14  import type { LeftoverStrategy } from "../../palettes/mix";
-:15  import type { AcceptableValue } from "reka-ui";
-:16  // S.W5-6 · F16: the interpolation vocabulary lives in its neutral @lib/ home
-:17  // (color-space facts, not gradient facts) — no more cross-feature reach.
+// U.W-CANON (U-F49/U-F50): the repo-hygiene gates live in `test/dist/`, but vitest's default
+// exclude swallows `**/dist/**`. `include` is scoped to `test/**` and `test/dist` is the ONLY
+// dist dir under it, so drop just the dist rule … to auto-discover them under `npm test`.
+exclude: configDefaults.exclude.filter((p) => !p.includes("dist")),
 ```
 
-Line 16-17 celebrates the cure of a cross-feature reach. Line 14 commits one. Line 15 commits a
-reach past the design system into its private dependency (r1 L-6). The comment is not wrong about
-its own subject — the interpolation vocabulary *was* correctly re-homed — it is simply blind to the
-two edges printed directly above it. That is the signature of L3-1: with no lint enforcing the
-principle, the principle survives only where someone happened to write it in prose.
+```
+$ ls test/dist/
+(no such directory)
+```
+
+The gates it exists to discover are gone. What remains is a filter that strips `**/dist/**` from
+vitest's default exclusions repo-wide, with nothing to include — so the only live effect is that
+`npm test` will now walk any future `dist/` under its include globs. This is r3 **L3-1**'s mechanism
+in a second gate file: config that outlived the tree it named, still green because a glob that matches
+nothing reports nothing.
+
+- **Mechanism.** Build outputs treated as a module-resolution target for the test program, plus
+  per-script build hooks applied by hand rather than by dependency. `pretypecheck` exists because
+  someone noticed; `pretest` does not because nobody did.
+- **Reproduction.** The five commands above.
+- **Cure.** Two edits and a deletion. Add `"pretest": "npm run build"` — or, better, point the test
+  program at `src/` the way `vitest.config.ts` already points `@src` there, so the oracle tests the
+  *source* and the `dist/` binding disappears from the test graph entirely. Delete the
+  `configDefaults.exclude.filter(...)` line with its dead comment. And the general rule, which is
+  r3 L3-1's rule restated for gate configs: **a config comment that names a path is an assertion; if
+  the path can vanish without the build going red, the comment is decoration.** A four-line
+  `test/config-paths.test.ts` asserting that every path named in `eslint.config.js` globs and
+  `vitest.config.ts` comments still exists would have caught both instances.
 
 ---
 
-## §7 · L3-6 — MINOR · three hand-rolled v-model pairs; **this partially contests round 2 §10.3**
+## §4 · R6-4 — MAJOR · correction of a carried evidence claim, and the defect it was pointing at
 
-Round 2's negative proof recorded:
+### 4a — the correction
 
-> *"**Idiomatic Vue 3.5.** Reactive props destructure with a default (`:25-45`), typed `defineEmits`
-> (`:76-81`), lazy `computed` over props (`:57-74`). No `defineModel` stale-read hazard — the
-> component is emit-based, holds no local mirror of a model value. Edict 7 satisfied."*
+r2 **L2-2**, carried forward at r5 §5, records:
 
-The stale-read half is correct and I confirm it: there is no local mirror, so the `shallowRef`
-caveat does not apply. But "emit-based" is not a neutral choice here — the parent binds all three as
-v-models:
+> *"`paths` **omits `@mkbabb/value.js/css`**, which the demo imports **10** times … so those resolve by
+> a *different* mechanism (**the `node_modules` symlink**) than the other four, **two resolution paths
+> in one program**."*
 
-```vue
-MixPane.vue:98-100
-  <MixConfigBar v-model:color-space="colorSpace"
-                v-model:hue-method="hueMethod"
-                v-model:leftover-strategy="leftoverStrategy" …
-```
+The omission is real and stands. The resolution claim is wrong on both counts, and I have receipts.
 
-So the component *is* a three-model component, hand-spelled as 3 props + 3 emits + 3 inline cast
-lambdas (~14 lines, `:25-45`, `:76-81`, `:99`/`:122`/`:146`). `defineModel` is the Vue 3.5 idiom for
-exactly this, and it is not a novelty in this repo — **13 demo files use it**, including the
-immediate sibling and the file round 1 named as this component's diverged twin:
+**It is not a symlink** (§1b: `test -L` → false, all three `@mkbabb` packages are real directories
+from registry tarballs).
+
+**It does not resolve through `node_modules`.** TypeScript, on the actual demo program:
 
 ```
-demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue:51
-  const selectedStopId = defineModel<string | null>("selectedStopId", { default: null });
-demo/shell/dock/DockViewSelect.vue:33 · demo/scenes/about/AboutPane.vue:72 · …
+$ npx tsc -p tsconfig.demo.json --noEmit --traceResolution | grep -i "value.js/css"
+======== Resolving module '@mkbabb/value.js/css' from '…/demo/color-session/picker-color.ts'. ========
+'paths' option is specified, looking for a pattern to match module name '@mkbabb/value.js/css'.
+======== Module name '@mkbabb/value.js/css' was successfully resolved to
+         '/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts'
+         with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'. ========
 ```
 
-Two spellings of "this component has a two-way binding", one of them in the twin — the same
-divergence r1 L-3 and L2-6 found in the feature set and the DOM semantics, now in the component API.
-I do not claim edict 7 is *violated*; I claim §10.3 cleared it without weighing the divergence, and
-that the divergence is the finding.
+The `paths` lookup misses, TS falls through, and **package self-reference** lands it on the *local*
+`dist/`. Node agrees (§3b, `import.meta.resolve` → `file:///…/value.js/dist/subpaths/css.js`). Vite's
+generated self-alias lands there too by construction. **All three resolvers agree on one target.**
+There is one resolution path, not two.
 
-**Repro:** `grep -rln defineModel demo/ | wc -l` → 13; read `MixConfigBar.vue:25-45,76-81` beside
-`GradientVisualizer.vue:51`.
+I record this because it was one `ls` away from being wrong in the other direction as well: I
+independently filed *"`/css` typechecks against a stale copy"* as a MAJOR before running
+`traceResolution`, and `traceResolution` killed it. The hypothesis was well-motivated and false.
 
-**Cure.** `const colorSpace = defineModel<InterpolationSpace>("colorSpace", { required: true })` ×3
-(the narrowed type from L2-4). Composed with r1 L-6's cure (a glass-ui `Select` generic over its
-value), the three cast lambdas become plain `v-model` bindings: ~20 lines leave the file and the
-three unchecked `as` widenings disappear.
+### 4b — the defect that was actually down there
+
+The frozen copy the claim was reaching for **does exist**, and nobody put it there on purpose:
+
+```
+$ node -e "const l=require('./package-lock.json'); console.log(JSON.stringify(l.packages['node_modules/@mkbabb/value.js']))"
+{"version":"4.0.0","resolved":"https://registry.npmjs.org/@mkbabb/value.js/-/value.js-4.0.0.tgz",
+ "integrity":"sha512-Z8ywb4htSxJlRFvoU1DNtvzr9Bsuaw9ahT/hvNlKbnRj6fTnLuXjn0itKq1Q5s6rwg24ct0zcLZ04BuR3/SzGw==",…}
+
+$ grep -n '"@mkbabb/value.js"' package.json
+2:    "name": "@mkbabb/value.js",          ← the ONLY occurrence. No self-dependency is declared.
+
+$ node -e "const g=require('./package-lock.json').packages['node_modules/@mkbabb/glass-ui'];
+           console.log(g.peerDependencies['@mkbabb/value.js'])"
+^4.0.0
+```
+
+**`@mkbabb/value.js` is installed into `@mkbabb/value.js`'s own `node_modules`, from the public
+registry, because npm auto-installs peerDependencies and glass-ui@7 peers on `@mkbabb/value.js:
+^4.0.0` — which npm can only satisfy by downloading the package the repo *is*.** That is r5 **R5-1**'s
+cycle, not as a manifest argument but as bytes on disk. R5-1 reasoned about what a *consumer* would
+receive; the same cycle has already reached back and installed a second copy of the library inside the
+library.
+
+**And the two copies have already drifted.** Comparing every published subpath, local build vs the
+registry self-copy:
+
+```
+$ for f in color css value math easing transform quantize; do … md5 … done
+color      SAME    css  DIFFER    value SAME    math SAME    easing SAME    transform SAME    quantize SAME
+
+types:   dist/subpaths/css.d.ts  382 lines   vs   node_modules/…/css.d.ts  350 lines
+runtime: dist/subpaths/css.js  43973 B       vs   node_modules/…/css.js  43972 B
+$ cmp dist/subpaths/css.js node_modules/@mkbabb/value.js/dist/subpaths/css.js
+… differ: char 141, line 2
+```
+
+The runtime divergence is minifier identifier assignment against an **identical content-hashed chunk**
+(`anchors-C_wdoOYd.js` in both) —
+
+```
+LOCAL : … r as ee, s as f, v as p, x as m, y as h } from "../anchors-C_wdoOYd.js";  var g = …
+NM    : … r as f,  s as p, v as m, x as h, y as g } from "../anchors-C_wdoOYd.js";  var _ = …
+```
+
+— i.e. same source, **different toolchain**. The type divergence is larger and goes the wrong way: the
+local build emits five spurious duplicate declarations the published one does not
+(`Alpha_2`, `Channel_2`, `ChannelsBySpace_2`, `Color_2`, `SpaceId_2`, and
+`CssColorByColorSpace` mapping over `Color_2<S>` instead of `Color<S>`). **The current toolchain
+produces a worse declaration bundle than the one already on npm, under the same immutable version.**
+
+So: `@mkbabb/value.js@4.0.0` is not reproducible from this checkout at HEAD. Two artifacts carry one
+name@version, and one of them is sitting in this repo's `node_modules` where any tool that does *not*
+implement package self-reference — a bundler with `preserveSymlinks`, a downstream consumer's
+resolver, a `--conditions` variation, any tool that walks `node_modules` first — would pick it up.
+The demo, the tests and both typechecks happen to self-reference and so happen to agree. That is a
+property of three resolvers' current behaviour, not a boundary.
+
+- **Mechanism.** A dependency cycle in the manifest (R5-1) plus npm's automatic peer installation
+  makes a package install itself. An untracked, non-reproducible build output (R6-3) makes the two
+  copies disagree. Neither is checked.
+- **Reproduction.** The lockfile query, the `grep` on `package.json`, the md5 sweep, and `cmp`, all
+  above.
+- **Cure — R5-1's, with one addition.** Moving `@mkbabb/glass-ui` and `@mkbabb/keyframes.js` to
+  `devDependencies` does not by itself remove the self-install (glass-ui's peer still resolves), so
+  add `"@mkbabb/value.js": "."` — or `overrides` pinning the peer to the workspace — so npm satisfies
+  glass-ui's peer with *this* checkout instead of downloading a stranger. Then make reproducibility a
+  gate: `npm pack` twice from a clean tree and assert an identical `integrity`, which is the artifact
+  twin of the manifest assertion R5-1 proposes. Together they close the loop: the manifest declares no
+  runtime dependencies, no copy of the package can be installed inside it, and the one artifact that
+  ships is byte-defined by the tree that ships it.
 
 ---
 
-## §8 · L3-7 — INFO (measured) · `mixColors` re-converts both endpoints per stop — the shape argument for L2-3
+## §5 · Rounds 1–5 — carried, round-6 status
 
-Round 2's L2-3 established that three hand-rolled chain samplers are the specification for a library
-`sampleColorRamp`. One fact strengthens it into a library *obligation* rather than a consumer
-convenience: the binary primitive is not merely too granular, it is **quadratically wasteful when
-chained by construction**.
+No prior finding is retracted or downgraded. ✓ = independently re-derived this run before reading it;
+**+** = strengthened; **⚑** = evidence corrected (finding stands).
 
-```ts
-src/color/operations.ts:93-96
-    const left  = convertColor(from, options.space);
-    if (!left.ok) return left;
-    const right = convertColor(to,   options.space);
-```
-
-Both endpoints are re-converted on **every** call. A k-stop ramp therefore performs `2k` conversions
-where `2` suffice — the redundancy is unavoidable at the call site because the conversion is inside
-the primitive. There is no ramp/sequence API to escape it:
-
-```
-$ grep -rln "ramp\|Ramp\|sequence\|sampleColors" src/color/ src/subpaths/
-(no output)
-```
-
-Measured on the built `dist/`, the exact MixConfigBar dropdown workload (9 space rows + 4 hue rows,
-2 operands, `RAMP_SAMPLE_COUNT = 16` → 17 stops each):
-
-```
-$ node <scratchpad>/bench.mjs
-13 ramps x 17 stops : 0.222 ms per full recompute
-mixColors calls per recompute = 221
-convertColor calls forced INSIDE mixColors per recompute = 442  (2 per call)
-```
-
-**I am not claiming a performance defect and will not inflate one** — 0.222 ms is negligible, and
-r1 L-9 already books the recompute volume correctly as INFO dormant behind r1 L-1. The finding is
-about *API shape*: 442 conversions where 26 would do is the arithmetic proof that `mixColors` is
-one granularity below what every consumer writes. A library whose primitive forces redundant work on
-100% of its real call patterns is under-specified, and the three demo copies are the receipt.
-
-One more receipt for the same point — the sample count is duplicated across the two samplers inside
-this one feature, by hand:
-
-```
-demo/color-session/color-chips/sample.ts:31                       export const RAMP_SAMPLE_COUNT = 16;
-demo/workbenches/mix/MixAnimationCanvas/composables/mixStage.ts:28 const RAMP_STOPS = 16;
-```
-
-Same value, same feature, two declarations, neither importing the other (and per L2-7 the first does
-not mean what it says).
-
-**Repro:** the bench above (script in the session scratchpad, never the repo); the two greps.
-
-**Cure — round 2's `sampleColorRamp`, with the conversion hoisted:** convert each operand **once**,
-then lerp across segments. Exported from `src/subpaths/color.ts`, it collapses site 1 to
-serialization, site 2 to easing decoration, site 3 to an sRGB projection, folds `mixColorSequence`
-(r1 L-2) alongside, and unifies `RAMP_SAMPLE_COUNT`/`RAMP_STOPS` into one exported constant that
-means what it says (L2-7).
+| id | sev | round-6 status |
+|---|---|---|
+| r1 **L-1** | BLOCKER | carried. |
+| r1 **L-2** | MAJOR | carried ✓ (`MixConfigBar.vue:14` + `useMixingState.ts:23` both reach `demo/palettes/mix.ts`). |
+| r1 **L-3** | MAJOR | carried ✓ — re-derived the twin `Select` blocks and the shared `class="h-9"`. |
+| r1 **L-4** | MAJOR | carried ✓ **+** — per-directory census reproduced (18 of 19 `demo/ui/*` are one file, one line; `alert` is 11). Adding the *lossy* half: the select barrel forwards 8 components and **0** of glass-ui's 16 select types; the button barrel forwards `Button` and drops `ButtonProps`/`ButtonEmphasis`/`ButtonSize`. **That is the forcing function under both L2-1 and L-6** — a consumer that cannot name the producer's types cannot check the props it passes, and reaches elsewhere for a substitute. |
+| r1 **L-5** | MAJOR | carried. |
+| r1 **L-6** | MAJOR | carried ✓ **+** — reproduced `SelectionValue = string \| number` (`_shared/selection.d.ts:2`) against reka's `AcceptableValue = string \| number \| bigint \| Record<string,any> \| null` (`reka-ui/dist/index3.d.ts:231`): the annotation at `MixConfigBar.vue:15` is **four union members too wide**, making `v as PickerSpace` the widest cast site available. **New this round:** the producer-side gap is the *only* standing glass-ui BH item on this component's surface — §1d proves Button needs no producer work. |
+| r1 **L-7** | MINOR | carried ✓. |
+| r1 **L-8** | MAJOR | carried. |
+| r1 **L-9** | INFO | carried. |
+| r2 **L2-1** | BLOCKER | carried ✓ **+** — independently reproduced live: `data-emphasis="secondary" data-tone="neutral"`, `variant="primary-audacious"` as a raw DOM attribute, `class="… glass-wash glass-capsule …"`; `ButtonProps` has no `variant` (`Button.vue.d.ts:5-19`); compiled defaults `emphasis:{default:"secondary"}` (`button-Bu9F4uU6.js`); `grep -rn primary-audacious node_modules/@mkbabb/glass-ui/dist/` → **0**; `vue-tsc -p tsconfig.demo.json --noEmit` → **REAL_EXIT=0, 0 lines of output**. My own census of every `<Button …>` tag in `demo/`: **51 sites in 22 files** — `outline` 28, `ghost` 19, `primary-audacious` 2, `destructive` 1, `default` 1 — all rendering at the default emphasis, and the `destructive` one carrying no tone. **§1d newly proves this is consumer-side only.** |
+| r2 **L2-2** | MAJOR | carried **⚑** — the `paths`/`exports` divergence is real and I re-derived it independently (3 phantom keys: root, `/parsing`, `/units`; 2 omissions: `/css`, `/value`; `dist/index.d.ts` absent). **The "two resolution paths via the node_modules symlink" evidence is corrected in §4a** — one path, by self-reference, no symlink. **The defect the claim was pointing at is real and worse: §4b.** |
+| r2 **L2-3** | MAJOR | carried. |
+| r2 **L2-4** | MAJOR | carried. |
+| r2 **L2-5** | MAJOR | carried ✓ — `HUE_INTERPOLATION_METHODS: HueInterpolationMeta[]` (`color-space-meta.ts:38`) is a plain array over a library-owned union; a fifth arc in `src/` leaves it silently short. |
+| r2 **L2-6** | MINOR | carried. |
+| r2 **L2-7** | MINOR | carried — extended by r4 R4-2 and now by **R6-3** (the oracle is bound to an artifact no gate refreshes). |
+| r3 **L3-1** | MAJOR | carried ✓ **+** — independently re-derived: `ls -d demo/@` → No such file; `demo/@/components` **0** files, `demo/@/lib` **0**, `demo/@/composables` **0**, `demo/color-picker` 16. `demo/workbenches/**` is under **no** import-boundary rule at all. **R6-3 §3c is the same mechanism in `vitest.config.ts`** — a second gate file naming a directory (`test/dist/`) that does not exist. |
+| r3 **L3-2** | MAJOR | carried. |
+| r3 **L3-3** | MAJOR | carried. |
+| r3 **L3-4** | MINOR | carried. |
+| r3 **L3-5** | MINOR | carried. |
+| r3 **L3-6** | MINOR | carried. |
+| r3 **L3-7** | INFO | carried. |
+| r3 **L3-8** | MINOR | carried ✓. |
+| r4 **R4-1** | MAJOR | carried ✓ **+** — reproduced the divergence independently against the built `dist/`, operands `#ff0000,#00ff00,#0000ff`, `space=oklab hue=shorter`: app result `oklch(64.88028998731% 0.013979941145 188.478372779407deg)` (identical to R4-1's figure to the last digit), preview stops running chroma **0.258–0.313** across all 17 samples, `APP result appears in preview stop list? false` — roughly **20× the chroma** of the thing being previewed, endpoint pure blue. |
+| r4 **R4-2** | MAJOR | carried ✓ **+** — `test/preview-chips.test.ts:65` ("three operands") re-derives the same polyline and asserts equality with itself. **R6-3 adds the second half**: it is also bound to an untracked build output `npm test` never regenerates. |
+| r4 **R4-3** | MAJOR | carried. **R6-4 is the same fusion in a third artifact**: R4-3 found the library's *tests* own demo code, R5-1 found the *manifest* owns demo dependencies, R6-4 finds the *lockfile* has installed the library inside itself. |
+| r4 **R4-4** | MINOR | carried. |
+| r5 **R5-1** | BLOCKER | carried ✓ **+** — **§4b is its physical receipt.** R5-1 argued the cycle from two manifests; the cycle has already executed: `node_modules/@mkbabb/value.js@4.0.0` from `registry.npmjs.org`, with no self-dependency declared, because npm auto-installs glass-ui's `^4.0.0` peer. And the installed copy has drifted from what this tree builds. |
+| r5 **R5-2** | MAJOR | carried ✓ — re-derived the absence independently: `grep -rn "cylindrical\|hasHue\|HUE_SPACES\|isCylindrical" demo/ src/` returns only prose. **+ a live consequence R5-2's framing predicts but does not measure:** because *"does this space carry a hue"* has no home, the Hue-method control is **inert at this component's own default**. Measured against `dist/`, comparing all four arcs' serialized stop lists for `#ff0000→#0000ff`: `oklab` **1 distinct ramp**, `lab` 1, `rgb` 1, `xyz` 1, `oklch` 2, `lch` 2, `hsl` 2, `hsv` 2, `hwb` 2. `useMixingState.ts:45` defaults `colorSpace` to `"oklab"` — so in **4 of the 9 offered spaces**, including the shipped default, the Select and all four T-17 preview ramps are decorative. `shots/safari-desktop-light/mix.png` shows exactly that pairing — `COLOR SPACE · OKLab` beside `HUE METHOD · Shorter`, both presented as live choices. |
+| r5 **R5-3** | MAJOR | carried ✓ — reproduced the geometry live: `SelectTrigger` **158 × 36 px** with `h-9` last in the class list, Mix button **324 × 40 px**; `SelectTriggerProps.size?: "sm" \| "default"` with the doc comment *"Trigger height register."* (`SelectTrigger.vue.d.ts:7`). |
+| r5 **R5-4** | MAJOR | carried. |
 
 ---
 
-## §9 · L3-8 — MINOR · two of the nineteen alias barrels are dead, and one of them is the primitive §3 needs
+## §6 · The greenfield lattice — six rounds folded
 
-Round 1's L-4 established `demo/ui/` as 19 alias barrels; round 2 added that `demo/ui/input` is the
-sole barrel reaching a producer **subpath** while the other 18 flatten the root. The consumer census
-adds the last fact:
-
-```
-$ for d in demo/ui/*/; do n=$(basename $d); echo "$(grep -rl "ui/$n\"" demo/ | wc -l)  $n"; done | sort -n
-0  label
-0  switch
-1  collapsible
-2  alert   2 avatar   2 checkbox   2 radio-group
-3  separator
-4  dropdown-menu   4 input   4 skeleton   4 tooltip
-5  dialog   5 slider
-6  select
-7  badge   7 popover
-12 card
-22 button
-```
-
-`demo/ui/label` and `demo/ui/switch` have **zero** consumers — dead files inside a layer that is
-itself pure indirection. And the dead one is exactly the primitive §3/L2-6 want:
-`demo/ui/label/index.ts` re-exports glass-ui's `Label`, and `grep -rn "<Label" demo/` returns **0**.
-The demo owns an unused alias to a label component while sixteen sites hand-roll
-`<label|span|div class="section-label">`.
-
-**Repro:** the census above; `grep -rn "<Label" demo/` → empty.
-
-**Cure — folded into r1 L-4:** delete `demo/ui/` entirely, import
-`from "@mkbabb/glass-ui"` (or the correct subpath) at each site. Every barrel is a flat re-export, so
-symbol names already match and the rewrite is mechanical.
-
----
-
-## §10 · Round-1 and round-2 findings — carried, with round-3 status
-
-| id | sev | finding | round 3 |
-|---|---|---|---|
-| r1 **L-1** | BLOCKER | `tag="button"` on `WatercolorDot` ⇒ add-affordance pointer-dead ⇒ `operandColors` permanently `[]` ⇒ the T-17 chip apparatus is dead code | **carried + producer-verified.** `WatercolorDot.vue.d.ts:23-30` = 6 props, no `tag`. **Sharpened by L3-2c**: `tag` was retired *by name* and `as` is its documented successor (`primitive.d.ts:11,19`) |
-| r1 **L-2** | MAJOR | `palettes/mix` is the mix domain homed in a sibling feature; `mixColorSequence` is library math | **carried + re-verified** (3 consumers, all `workbenches/mix/` + 1 test). **Sharpened §6**: the file contradicts itself at `:14` vs `:16-17` |
-| r1 **L-3** | MAJOR | `GradientVisualizer` is a diverged second copy of the Select pair | **carried + re-verified.** `grep PreviewRamp demo/` → only MixConfigBar; the `color-chips/index.ts:14-18` Lane-G queue is still undrained. **Root cause named: L3-1** |
-| r1 **L-4** | MAJOR | `demo/ui/` = 19 alias barrels, 90-vs-119 dual path | **carried + extended by L3-8** (2 barrels have zero consumers; the dead `label` is the primitive §3 needs) |
-| r1 **L-5** | MAJOR | three-hop re-export chain preserved for import paths | **carried + re-verified.** `useGradientInterpolation.ts:14-17` (*"keep their import path"*) → `useGradientModel.ts:19-21` (*"── Re-exports (preserve public API surface) ──"*) → `GradientVisualizer.vue:19-21`. Self-declared back-compat, edict 2 |
-| r1 **L-6** | MAJOR | `reka-ui`'s `AcceptableValue` used where glass-ui emits `SelectionValue`, which glass-ui does not publish | **carried + re-verified.** `grep AcceptableValue node_modules/@mkbabb/glass-ui/dist/*.d.ts` → empty. Blast radius measured: **4 files, 6 lambda sites, 6 unchecked `as` widenings.** BH relay stands |
-| r1 **L-7** | MINOR | `STRATEGIES` non-exhaustive vs `strategyLabels` | **carried.** Adds: the same component consumes a *neutral vocabulary module* for spaces/hues (`:18`) and hardcodes the third vocabulary in its script block (`:83-89`) — two ownership rules for one kind of thing, in one file |
-| r1 **L-8** | MAJOR | unowned portal teardown across route change bricks the next route | **carried.** Not re-run (round 1's `elementFromPoint` reproduction is decisive) |
-| r1 **L-9** | INFO | ~208 `mixColors` per re-eval, dormant behind L-1 | **carried + measured: 221 calls / 442 conversions / 0.222 ms** (L3-7) |
-| r2 **L2-1** | BLOCKER | `variant="primary-audacious"` is not a 7.0.0 `Button` prop; 51/55 sites carry a dead prop | **carried + producer-verified** (`Button.vue.d.ts:4-19`, glass-ui 7.0.0 installed). **Sharpened by L3-2d**: the demo has `variant`/`tag` backwards across two primitives — a taxonomy failure, not two typos |
-| r2 **L2-2** | MAJOR | `tsconfig.demo.json#paths` ≠ `package.json#exports` — 3 phantom keys, 2 unmapped real keys | **carried + independently re-verified** (§0, separate `import.meta.resolve` run). Adds: all three phantom targets are files that do not exist (`ls dist/index.d.ts dist/subpaths/{parsing,units}.d.ts` → 3× No such file) |
-| r2 **L2-3** | MAJOR | three chain samplers, three divergent joint conventions | **carried + extended by L3-7** (the library-side shape argument + the duplicated `16`) |
-| r2 **L2-4** | MAJOR | `PickerSpace = SpaceId` (17) but 9 render — 8 unrenderable admitted states | **carried.** Adds: `PickerColor = AnyColor` (`picker-color.ts:34`) is a second bare rename in the same file; `PickerColorIn` is the one alias that earns its name |
-| r2 **L2-5** | MAJOR | `HUE_INTERPOLATION_METHODS` non-exhaustive over a **library-owned** union | **carried.** Adds: `picker-color.ts:70` already does it right — `satisfies Record<SpaceId, readonly ChannelMeta[]>` — in the same directory. The idiom exists and was not applied |
-| r2 **L2-6** | MINOR | two dangling `<label>`s; the twin uses `<span>` | **carried + escalated to MAJOR as L3-3**: four spellings across 7 files, and the drift has already fired at `:145`/`:147` |
-| r2 **L2-7** | MINOR | `RAMP_SAMPLE_COUNT = 16` yields 17–22; the oracle is tautological on count | **carried.** Adds: the constant is also duplicated by hand as `RAMP_STOPS = 16` (L3-7) |
-
----
-
-## §11 · The greenfield lattice — three rounds folded
-
-Four strata, edges only downward, one home per concept — and, new this round, **each edge enforced
-by a rule that matches a directory that exists**.
+Round 5's five strata stand unchanged in shape. Round 6 does not add a stratum; it adds **the gates
+that make the existing strata real**, because every round-6 finding is a boundary that was written
+down and never wired.
 
 ```
-  L4  demo/workbenches/mix/       MixPane · MixSourceSelector · MixConfigBar · MixResultDisplay
-                                  mix-domain.ts   ← r1 L-2 (relocated out of demo/palettes/)
-                                                    LeftoverStrategy + LEFTOVER_STRATEGIES (r1 L-7)
-      demo/workbenches/gradient/  GradientVisualizer — consumes L3's control, keeps no copy
-      demo/palettes/              the palettes feature only; exports no mix math
-        │  ⟦lint 3⟧ no workbench imports another workbench's internals          ← L3-1
-        │  MixConfigBar: 173 → ~60 lines. 3× defineModel (L3-6) + <InterpolationSelect>
-        │  + the leftover row + the verb. No reka import, no `as` casts, no vocabulary,
-        │  no ramp computation, no cross-feature edge.
+  L0  ── THE PACKAGE BOUNDARY ──                                          ← R5-1
+      @mkbabb/value.js   dependencies: {}       devDependencies: { glass-ui, keyframes.js, … }
+                         overrides: { "@mkbabb/value.js": "." }   ← no copy of self installs  R6-4
+        │ ⟦gate 0⟧ Object.keys(pkg.dependencies ?? {}).length === 0
+        │ ⟦gate 0b⟧ NEW · lock.packages["node_modules/@mkbabb/value.js"] === undefined     ← R6-4
+        │ ⟦gate 0c⟧ NEW · two `npm pack` runs from a clean tree ⇒ identical integrity      ← R6-4
+        │ ⟦gate 0d⟧ NEW · the resolution posture the comments cite ≡ lock `.resolved`      ← R6-1
         ▼
-  L3  demo/color/                 ← replaces demo/color-session/ (L3-5)
-        InterpolationSelect.vue   ← r1 L-3 / L2-6 / L3-3 — ONE space+hue control, two consumers
-        spaces.ts                 ← color-space-meta + colorSpaceInfo MERGED, one key set,
-                                    `satisfies Partial<Record<SpaceId, SpaceMeta>>` (L2-4/L2-5/L3-5)
-        convert.ts                ← the ONE css⇄Color seam
-        chips/                    ← PreviewRamp/PreviewStrip, presentational only (L2-3)
-        ink/  session/            ← contrast+accent · the genuinely stateful composables
-        │  ⟦lint 2⟧ L3 never imports an L4 feature tree                         ← L3-1
+  L1  @mkbabb/value.js/color
+        mixColors · mixSequence · sampleColorRamp   related by construction     ← R4-1 · L2-3
+        SPACE_IDS · SPACE_SCHEMA · spaceHasHue      the registry, PUBLISHED     ← R5-2 (+R6)
+        HUE_INTERPOLATION_METHODS  as const satisfies readonly HueInterpolationMethod[]
+        │ ⟦lint 1⟧ no demo module names src/
+        │ ⟦gate 1b⟧ NEW · the TEST program resolves the library from src/, not dist/  ← R6-3
         ▼
-  L2  @mkbabb/glass-ui/{select,button,card,forms,typography,…}
-        ONE specifier per primitive at its OWN subpath — demo/ui/ deleted     ← r1 L-4 / L3-8
-        Select generic over its value; SelectionValue exported                ← r1 L-6
-        FieldLabel ships the atom, not just the .section-label class          ← L3-3
-        primitives declare inheritAttrs:false / consumers lint against .d.ts  ← L2-1 / L3-2
-        │  ⟦lint 1⟧ zero demo edges to reka-ui                                 ← L3-1 / r1 L-6
+  L2  @mkbabb/glass-ui/{select,button,…}      demo/ui/ deleted            ← r1 L-4 / L3-8
+        Select generic over its value; SelectionValue EXPORTED             ← r1 L-6  ⟵ the ONE
+        Button: emphasis × tone × size (+ a `voice` axis)                  ← L2-1 · R5-3   standing
+        SelectTrigger size="sm" as a PROP, never re-derived as h-9         ← R5-3          BH item
+        │ ⟦lint 1⟧ zero demo edges to reka-ui
+        │ ⟦lint 4⟧ no Tailwind class on a glass primitive a token already sets  ← R5-3
+        │ ⟦gate 2b⟧ NEW · server.fs.allow ⊆ project root unless a walk is proven ← R6-2
         ▼
-  L1  @mkbabb/value.js/color      mixColors · sampleColorRamp (endpoints converted ONCE)
-                                                                    ← r1 L-2 / L2-3 / L3-7
-        resolved ONLY through package.json#exports — paths generated, never hand-mirrored ← L2-2
-        │  ⟦lint 1⟧ no demo module names src/ — the T.W1 keystone made structural ← L3-1
-  ⟂   demo/shell/                 owns route ↔ overlay lifecycle, one writer   ← r1 L-8
+  L3  demo/color/     InterpolationSelect.vue — ONE space+hue control, TWO consumers
+                      spaces.ts — a LABEL OVERLAY keyed by SPACE_IDS, no facts of its own
+        ▼
+  L4  demo/workbenches/mix/   MixPane owns the verb ONCE, with its predicate   ← R5-4
+        │ MixConfigBar: 173 → ~55 lines. No verb, no canMix, no reka edge, no casts,
+        │ no vocabulary, no ramp computation — and the three Select blocks collapse to one v-for.
+        ▼
+  ⟂   demo/shell/     routes; holds NO verbs
 ```
 
-**Six rules that make all twenty-three findings unrepresentable rather than merely fixed.**
-Rules 1–5 are rounds 1–2's, restated; **rule 0 is new and is the one that holds the other five up.**
+**Rounds 4–5's rules 0–7 stand. Rule 0 gains its sharpest clause, and rule 8 is new.**
 
-0. **Every boundary in the lattice has a lint rule whose glob matches a directory that exists.**
-   Rounds 1 and 2 proposed a lattice; this repo already had one, in `eslint.config.js`, aimed at
-   `demo/@/**` — and W43 deleted `demo/@/`. A lattice with no live enforcement decays into exactly
-   the sixteen findings those rounds recorded. Re-aim G-DEMO-1/3a/3b, and add the dogfood-keystone
-   rule that was never written. **(L3-1)**
-1. **A design-system prop that does not exist must not be silently accepted** — `inheritAttrs:false`
-   on glass-ui primitives, or a demo lint rule generated from the producer `.d.ts`. Kills both
-   BLOCKERs' *mechanism*. **(L2-1, r1 L-1, L3-2)**
-2. **One resolution authority per boundary** — `package.json#exports` for value.js, generated never
-   hand-mirrored; glass-ui's own subpaths for the design system, with no alias layer between and no
-   reach past it. **(L2-2, r1 L-4, r1 L-6, L3-8)**
-3. **A vocabulary, its renderer, and its atom live together, once** — `spaces.ts` +
-   `InterpolationSelect.vue` + `chips/` in one directory consumed by two features that therefore
-   cannot diverge; and the design system ships atoms, not loose classes. **(r1 L-3, r1 L-5, L2-6,
-   L3-3, L3-5)**
-4. **Enumerations and types are linked by construction, in the direction ownership runs** —
-   `Record<LibUnion, Meta>` for library-owned unions; `as const` + `[number]["value"]` for
-   demo-owned. The idiom already exists at `picker-color.ts:70`. **(L2-4, L2-5, r1 L-7)**
-5. **The library's granularity is set by what consumers actually write** — three copies of a chain
-   sampler, and 442 conversions where 26 suffice, are together the specification for
-   `sampleColorRamp`. **(L2-3, r1 L-2, r1 L-9, L2-7, L3-7)**
+- **Rule 0** (*every boundary has a live lint rule*) — **a config comment that names a path or a
+  mechanism is an assertion, and an unasserted assertion decays into fiction.** This round found three
+  instances in three files: `eslint.config.js` globbing `demo/@/**` (r3 L3-1), `vitest.config.ts`
+  citing `test/dist/` (R6-3), and `vite.config.ts` + `tsconfig.demo.json` citing a `file:` symlink to
+  an unbuilt sibling (R6-1). All three are green. **The cheapest possible cure is one test file that
+  asserts every path named in a gate config still exists** — four lines, and it would have caught all
+  three. **(R6-1 · R6-3)**
+- **Rule 8 — NEW: a workaround must carry its own retirement condition as an assertion, not as
+  prose.** `siblingFsAllowTransient` names inlined data-URI fonts as the condition under which it can
+  be deleted; glass-ui 7.0.0 ships four of them and zero `../fonts` references, and the widening — the
+  repository's entire parent directory, served over the LAN — is still in the config. A workaround
+  that documents its exit criterion and does not test it will outlive the problem every time.
+  **(R6-2)**
 
 ---
 
-## §12 · Negative proof — checked this round, genuinely sound
+## §7 · Negative proof — checked this round, genuinely sound
 
-Recorded so the absences are evidence. One item revises round 2 (§7); the rest confirm it.
+Recorded so the absences are evidence, including the probes I ran and discarded.
 
-1. **The value.js import is one a real consumer could write.** `MixConfigBar.vue:12` →
-   `@mkbabb/value.js/color`, a real `exports` key resolving under the real node resolver (§0),
-   backed by `src/subpaths/color.ts:8`. **No deep `src/` reach anywhere in `demo/`** — re-confirmed
-   independently: `grep -rn 'from "@src\|from "../../../src/' demo/ | wc -l` → `0`. The *code-level*
-   dogfood boundary is the cleanest thing in this component. Its two guardrails (L2-2, L3-1) are not.
-2. **`verbatimModuleSyntax` is honoured.** All four type-only imports (`:12`, `:13`, `:14`, `:15`)
-   carry `import type`; the five value imports do not. Edict 8 satisfied.
-3. **No god module here.** 173 lines, one job, one `computed` pair. Every defect in this report is a
-   *boundary* defect. The god-module finding in its neighbourhood is a **directory**, not this file
-   (L3-5).
-4. **No styling contraband in the component.** No `<style scoped>`, no `:deep()`, no numeric
-   `z-[NN]`, no `100vh`, no per-instance material override. `.section-label` and `.text-micro` are
-   glass-ui utilities. Edicts 5 and 6 satisfied *by the component*; L3-4's dead recipe is in
-   `demo/styles/utils.css`, not here.
-5. **Animations: none declared, none deleted.** Edict 6 is not engaged by this component. L3-4's
-   deletion target carries no keyframes.
-6. **It contributes none of `/#/mix`'s a11y defect counts.** `REPORT.json` lists 8 small tap targets
-   for `safari-desktop-light /#/mix` (dock slug controls 22×22, picker channel rails 12×24) and
-   1 nameless button (`class="send-btn btn-interactive"`, outside `<main>`) — **none** this
-   component's. Its own controls are `227×36` and `462×40`, both accessibly named. The L3-3 defect is
-   a *drifted duplicate* name and an inert element, not a missing name — which is precisely why the
-   visual audit cannot see it.
-7. **The route is clean on every hard signal in all four Safari matrices.** `REPORT.md:123,138,153,168`
-   — `overflowX 0 · main 1 · pageErr 0 · consoleErr 0` for `safari-{desktop,mobile}-{light,dark}`.
-   The `safari-desktop-light/mix.png` capture renders the bar correctly: COLOR SPACE + HUE METHOD
-   selects side by side, the size-mismatch row correctly hidden in colors mode, the CTA full-width.
-8. **`vue-tsc -p tsconfig.demo.json --noEmit` exits 0; `eslint` is clean on the file.** Round 2 named
-   this the through-line and it is only stronger now: `eslint` is clean **because the rules that
-   would have spoken resolve to `null`** (L3-1). Six green gates over two dead props, a false path
-   map, and an enforcement layer aimed at a deleted directory.
-
----
-
-## §13 · Verdict
-
-**DEFECTIVE** — cumulative across three rounds: **2 BLOCKER · 12 MAJOR · 7 MINOR · 2 INFO.**
-
-**Strongest defect this round: L3-1.** `eslint.config.js` carries three named structural invariants
-governing the demo's module graph — G-DEMO-1, G-DEMO-3a, G-DEMO-3b. Every glob names `demo/@/**`.
-W43 (RF-15) deleted `demo/@/`. `npx eslint --print-config demo/workbenches/mix/MixConfigBar.vue`
-returns `no-restricted-imports: null`, and the same is true for `GradientVisualizer.vue`,
-`color-chips/sample.ts` and `palettes/mix.ts` — the whole post-W43 demo. Only `src/**` still has a
-live rule.
-
-That reframes both prior rounds. Rounds 1 and 2 closed on *"there is more than one home for one
-concept"*, listed at seven boundaries, and proposed a lattice to fix it. **This repository already
-had that lattice.** It was written down, in lint, as three named invariants — and then a
-restructuring wave moved every directory out from under it and nobody re-aimed the globs. The
-feature-to-sibling-feature reach (r1 L-2), the diverged second copy (r1 L-3), the compat re-export
-chain (r1 L-5), the reach past the design system into `reka-ui` (r1 L-6), and the three chain
-samplers (L2-3) are not five independent lapses of judgement. They are what a module graph does when
-the rule that forbade them stopped matching any file.
-
-The second-strongest is **L3-2**, which converts round 2's L2-1 from an incident into a taxonomy
-failure: glass-ui 7.0.0 *retired the polymorphic `tag` API by name* and documents `as` as its
-successor (`primitive.d.ts:11,19`), while the demo passes `tag` to a primitive that never had it and
-`variant` to the one primitive that dropped it — and passes `variant` correctly to the one that kept
-it. The consumer's model of the producer's prop surface is stale in both directions at once. No
-human reading 55 call sites will catch that reliably; only a rule generated from the shipped
-declarations will.
-
-Everything else in all three rounds is one sentence at eight boundaries — **there is more than one
-home for one concept** — and one new sentence underneath it: **the rule that said there must be only
-one no longer matches any file in the demo.**
+1. **A MAJOR I filed and then killed with my own measurement.** I had written up
+   *"`@mkbabb/value.js/css` has no `tsconfig.demo.json#paths` entry, so vue-tsc resolves it through the
+   self-installed registry copy whose `css.d.ts` demonstrably differs — the demo typechecks `/css`
+   against a stale surface, and `picker-color.ts` (the module defining this component's `PickerSpace`
+   prop) is the consumer."* Every premise is true and the conclusion is false:
+   `tsc --traceResolution` (§4a) shows the `paths` miss falls through to **package self-reference** and
+   lands on the local `dist/`. **No finding.** It is recorded because it is the exact shape of the
+   claim r2 L2-2 made and r5 carried, and because the true defect underneath it (§4b) is only visible
+   once the false one is cleared.
+2. **A second discarded probe: the CTA's `disabled` binding is honest.** I measured
+   `domDisabled: false`, `ariaDisabled: null`, `opacity: 1`, `pointerEvents: auto` on the Mix button
+   and nearly filed a dropped-prop BLOCKER. Re-probing the page text showed a `RESULT` row already
+   rendered — the shared browser session had ≥2 operands selected, so `canMix` was genuinely `true`.
+   glass-ui's Button forwards it correctly (`button-Bu9F4uU6.js`: `disabled: h.value ? m.value : void 0`,
+   plus an `aria-disabled` branch). **No finding**, and r5 §7.5 records the mirror-image false positive
+   from the other state — two rounds, two opposite misreads of the same button, both cleared.
+3. **The `#description` slot is live API, not a second dead prop.** Having found `variant` dead, I
+   checked the other glass-ui seam this file depends on. `SelectItem` in glass-ui 7.0.0 declares
+   `{ default?: … } & { description?: (props: {}) => any }` (`SelectItem.vue.d.ts`, `__VLS_WithSlots`
+   tail). The whole T-17 preview-chip mechanism at `:109-114` and `:131-136` is wired to a slot that
+   exists and survived the major. **No finding.**
+4. **The public surface is clean in the code.** `MixConfigBar.vue:12` → `@mkbabb/value.js/color`, a
+   real `exports` key; `md5(dist/subpaths/color.d.ts) == md5(node_modules/@mkbabb/value.js/dist/subpaths/color.d.ts)
+   == 5a71fb2b2121cc96492bc561b2ce93f4` — no drift on this subpath. Whole-demo census: `color` 25,
+   `css` 10, `math` 6, `easing` 5, `quantize` 4, **zero deep `src/` paths, zero bare-root imports**
+   (`grep -rn 'from "@mkbabb/value.js"' demo/` → 0 hits, correct since `exports` has no `.` key). A
+   real npm consumer could write line 12 verbatim.
+5. **`verbatimModuleSyntax` and Vue 3.5 idiom.** Lines 12, 13, 14, 15 all `import type`; 18 and 23 are
+   genuine value imports. `:25-45` is reactive props destructure with a default (`operandColors = []`).
+   The two `computed` ramp maps are correctly cold while `SelectContent` is unmounted. Edicts 7 and 8
+   satisfied.
+6. **Not a god module.** 173 lines, one job, no local state, no timers, no lifecycle, no DOM access.
+   Its composable (`useMixingState.ts`, 130 lines) is a clean state machine honouring the one-clock
+   law. Every defect across six rounds is a *boundary* defect.
+7. **The three named historical suspects are not in this cone.** `ActionBarLayer`'s local
+   `useLayerTransition` reimplementation is at `demo/shell/dock/layers/ActionBarLayer.vue:63` (a real
+   V-W44 glass-7 carry, elsewhere); `demo/palettes/export.ts` + `usePaletteExport.ts` vs
+   `demo/palettes/export/serializers.ts` is the palettes tree; the parallel `useDark` stores are
+   `demo/scenes/about/markdown/composables/`. This component touches none of them.
+8. **Visual audit: nothing attributable to this component.** `/#/mix`, all four Safari matrices —
+   `overflowX 0 · pageErr 0 · consoleErr 0 · main 1`. The 8 desktop / 4 mobile `smallTapTargets` are an
+   `input` 160×23, three 22×22 slug buttons ("Switch to slug" / "Generate new slug" / "Cancel") and
+   four 12×24 channel spans — all picker/slug shell, none from `MixConfigBar`; its own targets measure
+   36 px and 40 px and both carry `aria-label` or text. The screenshot does corroborate L2-1 visually:
+   the CTA is the palest, lowest-contrast element on the pane.
 
 ---
 
-*Seat: CHALLENGE-L (library structure), round 3. Round 1 preserved verbatim at
-`challenge-L-library-round-1.md`; round 2 preserved verbatim at `challenge-L-library-round-2.md`.
-No source edits land from this formation. Probe and benchmark scripts written to the session
-scratchpad, never to the repository.*
+## §8 · Verdict
+
+**DEFECTIVE** — cumulative across six rounds: **3 BLOCKER · 23 MAJOR · 8 MINOR · 2 INFO.**
+
+**Strongest defect this round: R6-4.** Round 5 argued from two manifests that `@mkbabb/value.js@4.0.0`
+declaring `@mkbabb/glass-ui ^7.0.0` closes a producer↔consumer cycle. Round 6 found the cycle's
+physical residue: `node_modules/@mkbabb/value.js` — version 4.0.0, `resolved:
+https://registry.npmjs.org/@mkbabb/value.js/…tgz`, a real directory, **installed into the library's
+own tree** because npm auto-installs peers and glass-ui@7 peers on `@mkbabb/value.js: ^4.0.0`, with no
+self-dependency declared anywhere in `package.json`. And the two copies have already drifted:
+`css.d.ts` **382 vs 350 lines**, `css.js` differing at char 141 in minified identifier assignment
+against an identical content-hashed chunk — same source, different toolchain — with the *local* build
+emitting five spurious duplicate declarations the published one does not. Two artifacts, one immutable
+`name@version`. The demo, the tests and both typechecks happen to agree only because all three
+resolvers implement package self-reference; that is a coincidence of tooling, not a boundary.
+
+The other three findings are one sentence said three ways: **this repository writes its boundaries in
+comments and checks them nowhere.** `eslint.config.js` globs a directory tree W43 deleted (r3 L3-1).
+`vitest.config.ts` justifies an exclude-filter by gates in a `test/dist/` that does not exist (R6-3).
+`vite.config.ts` and `tsconfig.demo.json` justify three unrelated settings by a `file:` symlink to a
+sibling that has never been built (R6-1) — and one of those settings, `server.fs.allow`, hands a
+LAN-exposed dev server the entire parent directory of the repository on the strength of a `@font-face`
+walk that glass-ui 7.0.0 eliminated by inlining four faces as `data:font/woff2` (R6-2, `grep -c
+'\.\./fonts'` → **0 across all 20 shipped stylesheets**). Every one of these is green. Every one of
+them would have gone red under a four-line test asserting that the paths a gate config names still
+exist.
+
+And the same shape reaches all the way down to the subject file. `variant="primary-audacious"` at
+`MixConfigBar.vue:163` is a prop glass-ui deleted, landing on the DOM as junk markup while the verb
+renders `data-emphasis="secondary"` over `glass-wash` — precisely the register the comment three lines
+above it says it is avoiding — across **51 sites in 22 files**, with `vue-tsc` exiting **0** and
+printing nothing. §1d newly settles who owes the fix: the producer's source has carried `emphasis` and
+zero `primary-audacious` all along. Nobody regressed. **The boundary between them was simply never
+instrumented**, so a design system completed a major migration and its only in-house consumer did not
+notice, for a whole tranche, in a repository whose demo exists to prove the surfaces are sufficient.
+
+Round 3 closed on *"the rule that said there must be only one home no longer matches any file."*
+Round 4: *"the guard built to protect it was pointed at its own reflection."* Round 5: *"the outermost
+boundary was never drawn at all."* Round 6 adds the reason all three could be true at once: **every
+boundary in this repository is documented, argued for at length, and asserted by nothing — so the tree
+is free to move out from under the prose, and it has, in five separate places, without a single gate
+turning red.**
+
+---
+
+*Seat: CHALLENGE-L (library structure), round 6. Rounds 1–5 preserved verbatim at
+`challenge-L-library-round-{1,2,3,4,5}.md`. No source edits land from this formation. All probe
+scripts were written to `/tmp` and the session scratchpad, never to the repository. Browser probes
+were read-only against the running dev server at `:9000` (two `evaluate` calls, one `navigate`).*

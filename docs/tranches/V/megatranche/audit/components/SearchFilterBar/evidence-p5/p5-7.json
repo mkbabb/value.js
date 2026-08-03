@@ -1,0 +1,94 @@
+{
+  "popover": {
+    "x": 433,
+    "w": 240,
+    "h": 617.75,
+    "right": 673
+  },
+  "popoverOverflow": "visible",
+  "scroller": {
+    "x": 462,
+    "w": 182,
+    "h": 96.91,
+    "right": 644,
+    "scrollW": 276,
+    "clientW": 182,
+    "scrollH": 103,
+    "clientH": 97,
+    "overflowX": "auto",
+    "overflowY": "auto",
+    "horizontalOverflowPx": 94
+  },
+  "tagRows": [
+    {
+      "t": "pastel",
+      "x": 462,
+      "w": 182,
+      "h": 30.97,
+      "right": 644,
+      "spanScrollW": 44,
+      "spanClientW": 44,
+      "escapesPopover": -29
+    },
+    {
+      "t": "supercalifragilisticexpialidocious",
+      "x": 462,
+      "w": 182,
+      "h": 30.97,
+      "right": 644,
+      "spanScrollW": 44,
+      "spanClientW": 44,
+      "escapesPopover": -29
+    },
+    {
+      "t": "neon",
+      "x": 462,
+      "w": 182,
+      "h": 30.97,
+      "right": 644,
+      "spanScrollW": 44,
+      "spanClientW": 44,
+      "escapesPopover": -29
+    }
+  ],
+  "controlVsRow": {
+    "radioBox": {
+      "x": 457,
+      "w": 44,
+      "h": 44,
+      "right": 501
+    },
+    "radioRow": {
+      "x": 462,
+      "w": 121.39,
+      "h": 30.97,
+      "right": 583.39
+    },
+    "radioOverflowsRowBy": 6.52,
+    "checkboxBox": {
+      "x": 470,
+      "w": 16,
+      "h": 16,
+      "right": 486
+    },
+    "checkboxRow": {
+      "x": 462,
+      "w": 182,
+      "h": 30.97,
+      "right": 644
+    },
+    "radioAreaOverCheckboxArea": 7.56,
+    "hoverTargetWidths": [
+      121.39,
+      165.41,
+      159.64,
+      61.14,
+      132.89,
+      182,
+      182,
+      182
+    ],
+    "widestOverNarrowest": 2.977
+  },
+  "docOverflowX": false
+}

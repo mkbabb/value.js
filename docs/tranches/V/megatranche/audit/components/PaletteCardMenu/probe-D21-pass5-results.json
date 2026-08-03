@@ -1,0 +1,197 @@
+{
+  "F_zoom400": {
+    "pre": {
+      "viewport": {
+        "w": 360,
+        "h": 225,
+        "dpr": 4
+      },
+      "cards": 6,
+      "triggers": 6,
+      "trigger": {
+        "x": 277,
+        "y": 462.3,
+        "w": 36,
+        "h": 36,
+        "bottom": 498.3,
+        "inViewport": false
+      },
+      "card": {
+        "x": 33,
+        "y": 397.7,
+        "w": 294,
+        "h": 125.1,
+        "bottom": 522.8,
+        "visibleHeightPx": 0
+      },
+      "hitAtTriggerCentre": "DIV.app-layout",
+      "scroller": {
+        "tag": "DIV",
+        "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+        "clientH": 111,
+        "scrollH": 994,
+        "rect": {
+          "y": 104,
+          "h": 113
+        }
+      },
+      "docScrollable": false
+    },
+    "post": {
+      "opened": true,
+      "viewport": {
+        "w": 360,
+        "h": 225
+      },
+      "rect": {
+        "x": 121,
+        "y": 41.3,
+        "w": 192,
+        "h": 135,
+        "bottom": 176.3
+      },
+      "maxHeight": "135px",
+      "availableHeightVar": "176.25px",
+      "scrollHeight": 235,
+      "clientHeight": 133,
+      "scrollable": true,
+      "hiddenPx": 102,
+      "areaPctOfViewport": 32,
+      "rows": [
+        {
+          "text": "Publish",
+          "y": 86.2,
+          "bottom": 130.2,
+          "insidePanel": true
+        },
+        {
+          "text": "Rename",
+          "y": 130.2,
+          "bottom": 174.2,
+          "insidePanel": true
+        },
+        {
+          "text": "Export",
+          "y": 183.2,
+          "bottom": 227.2,
+          "insidePanel": false
+        },
+        {
+          "text": "Delete",
+          "y": 227.2,
+          "bottom": 271.2,
+          "insidePanel": false
+        }
+      ],
+      "rowsInsidePanel": 2,
+      "rowsTotal": 4
+    }
+  },
+  "G_occlusion": {
+    "100%": {
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "panels": [
+        {
+          "x": 1010,
+          "y": 516,
+          "w": 192,
+          "h": 240.1
+        },
+        {
+          "x": 1195,
+          "y": 461,
+          "w": 242,
+          "h": 243
+        }
+      ],
+      "unionBox": {
+        "w": 427,
+        "h": 295.1,
+        "pctViewportW": 29.6,
+        "pctViewportH": 32.8
+      },
+      "ownerCard": {
+        "x": 754,
+        "y": 423.6,
+        "w": 462,
+        "h": 100
+      },
+      "ownerName": {
+        "text": "Muted Terracotta and Deep Sea Foam Study",
+        "x": 792,
+        "right": 1119.9,
+        "w": 327.9
+      },
+      "ownerNameCoveredIntervals": [],
+      "ownerNameCoveredPx": 0,
+      "ownerNameCoveredPct": 0,
+      "field": {
+        "x": 754,
+        "y": 423.6,
+        "w": 462,
+        "h": 660
+      },
+      "fieldCoveredPct": 16.4
+    },
+    "200%": {
+      "viewport": {
+        "w": 720,
+        "h": 450
+      },
+      "panels": [
+        {
+          "x": 385,
+          "y": 13,
+          "w": 192,
+          "h": 238
+        },
+        {
+          "x": 173.5,
+          "y": 155,
+          "w": 218.7,
+          "h": 243
+        }
+      ],
+      "unionBox": {
+        "w": 403.5,
+        "h": 385,
+        "pctViewportW": 56,
+        "pctViewportH": 85.6
+      },
+      "ownerCard": {
+        "x": 129,
+        "y": 203.2,
+        "w": 462,
+        "h": 100
+      },
+      "ownerName": {
+        "text": "Muted Terracotta and Deep Sea Foam Study",
+        "x": 167,
+        "right": 496,
+        "w": 329
+      },
+      "ownerNameCoveredIntervals": [
+        [
+          173.5,
+          392.2
+        ]
+      ],
+      "ownerNameCoveredPx": 218.7,
+      "ownerNameCoveredPct": 66.5,
+      "field": {
+        "x": 129,
+        "y": 203.2,
+        "w": 462,
+        "h": 660
+      },
+      "fieldCoveredPct": 16.8
+    }
+  },
+  "H_remoteArm": {
+    "triggers": 0,
+    "anatomy": null
+  }
+}

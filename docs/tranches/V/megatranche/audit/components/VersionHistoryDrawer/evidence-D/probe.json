@@ -1,0 +1,899 @@
+{
+ "desktop-light": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "y": 0,
+   "w": 384,
+   "h": 900
+  },
+  "contentCss": {
+   "width": "384px",
+   "maxWidth": "384px",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "836.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "836.96875px",
+   "scrollH": 837,
+   "clientH": 837
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 759,
+    "clientH": 759,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-1-6",
+   "ariaDescribedby": "reka-dialog-description-v-1-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "desktop-dark": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "y": 0,
+   "w": 384,
+   "h": 900
+  },
+  "contentCss": {
+   "width": "384px",
+   "maxWidth": "384px",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "836.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "836.96875px",
+   "scrollH": 837,
+   "clientH": 837
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 759,
+    "clientH": 759,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-1-6",
+   "ariaDescribedby": "reka-dialog-description-v-1-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "mobile-390-light": {
+  "viewport": {
+   "w": 390,
+   "h": 844
+  },
+  "contentRect": {
+   "x": 97.5,
+   "y": 0,
+   "w": 292.5,
+   "h": 844
+  },
+  "contentCss": {
+   "width": "292.5px",
+   "maxWidth": "none",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "780.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "780.96875px",
+   "scrollH": 781,
+   "clientH": 781
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 703,
+    "clientH": 703,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-0-6",
+   "ariaDescribedby": "reka-dialog-description-v-0-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "mobile-390-dark": {
+  "viewport": {
+   "w": 390,
+   "h": 844
+  },
+  "contentRect": {
+   "x": 97.5,
+   "y": 0,
+   "w": 292.5,
+   "h": 844
+  },
+  "contentCss": {
+   "width": "292.5px",
+   "maxWidth": "none",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "780.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "780.96875px",
+   "scrollH": 781,
+   "clientH": 781
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 703,
+    "clientH": 703,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-0-6",
+   "ariaDescribedby": "reka-dialog-description-v-0-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "narrow-320-light": {
+  "viewport": {
+   "w": 320,
+   "h": 568
+  },
+  "contentRect": {
+   "x": 80,
+   "y": 0,
+   "w": 240,
+   "h": 568
+  },
+  "contentCss": {
+   "width": "240px",
+   "maxWidth": "none",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "504.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "504.96875px",
+   "scrollH": 505,
+   "clientH": 505
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 427,
+    "clientH": 427,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-0-6",
+   "ariaDescribedby": "reka-dialog-description-v-0-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "empty-desktop-light": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "y": 0,
+   "w": 384,
+   "h": 900
+  },
+  "contentCss": {
+   "width": "384px",
+   "maxWidth": "384px",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "836.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "836.96875px",
+   "scrollH": 837,
+   "clientH": 837
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 759,
+    "clientH": 759,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-1-6",
+   "ariaDescribedby": "reka-dialog-description-v-1-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "error-desktop-light": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "y": 0,
+   "w": 384,
+   "h": 900
+  },
+  "contentCss": {
+   "width": "384px",
+   "maxWidth": "384px",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "836.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "836.96875px",
+   "scrollH": 837,
+   "clientH": 837
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 759,
+    "clientH": 759,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-1-6",
+   "ariaDescribedby": "reka-dialog-description-v-1-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "loading-desktop-light": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "y": 0,
+   "w": 384,
+   "h": 900
+  },
+  "contentCss": {
+   "width": "384px",
+   "maxWidth": "384px",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "836.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "836.96875px",
+   "scrollH": 837,
+   "clientH": 837
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 759,
+    "clientH": 759,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-1-6",
+   "ariaDescribedby": "reka-dialog-description-v-1-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "rtl-desktop-light": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "y": 0,
+   "w": 384,
+   "h": 900
+  },
+  "contentCss": {
+   "width": "384px",
+   "maxWidth": "384px",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "836.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "836.96875px",
+   "scrollH": 837,
+   "clientH": 837
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 759,
+    "clientH": 759,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-1-6",
+   "ariaDescribedby": "reka-dialog-description-v-1-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "reduced-motion-desktop-light": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "y": 0,
+   "w": 384,
+   "h": 900
+  },
+  "contentCss": {
+   "width": "384px",
+   "maxWidth": "384px",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "836.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "836.96875px",
+   "scrollH": 837,
+   "clientH": 837
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 759,
+    "clientH": 759,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-1-6",
+   "ariaDescribedby": "reka-dialog-description-v-1-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "zoom200-desktop-light": {
+  "viewport": {
+   "w": 720,
+   "h": 450
+  },
+  "contentRect": {
+   "x": 336,
+   "y": 0,
+   "w": 384,
+   "h": 450
+  },
+  "contentCss": {
+   "width": "384px",
+   "maxWidth": "384px",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "386.96875px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "386.96875px",
+   "scrollH": 387,
+   "clientH": 387
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 309,
+    "clientH": 309,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-0-6",
+   "ariaDescribedby": "reka-dialog-description-v-0-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "hover-row": {
+  "error": "TimeoutError: locator.hover: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-slot=\"dialog-content\"] .group.relative.rounded-lg').nth(1)\u001b[22m\n"
+ },
+ "forced-colors": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "y": 0,
+   "w": 384,
+   "h": 900
+  },
+  "contentCss": {
+   "width": "384px",
+   "maxWidth": "384px",
+   "display": "flex",
+   "flexDirection": "column",
+   "paddingInline": "24px",
+   "paddingBlock": "30.528px",
+   "position": "fixed",
+   "overflowY": "visible",
+   "borderRadius": "16px/16px"
+  },
+  "dataScroll": null,
+  "dataPlacement": "right",
+  "regionCss": {
+   "display": "flex",
+   "flexDirection": "column",
+   "overflowY": "visible",
+   "blockSize": "836.969px",
+   "maxBlockSize": "none",
+   "gap": "16px",
+   "height": "836.969px",
+   "scrollH": 837,
+   "clientH": 837
+  },
+  "rowCount": 0,
+  "activeScrollers": 0,
+  "scrollCandidates": 1,
+  "scrollCandidateInfo": [
+   {
+    "cls": "mt-4 flex-1 min-h-0 flex flex-col gap-2 overflow-y-auto scrollbar-thin",
+    "scrollH": 759,
+    "clientH": 759,
+    "scrollbarGutter": "auto",
+    "scrollbarWidth": "thin"
+   }
+  ],
+  "buttons": [
+   {
+    "name": "Close",
+    "w": 16,
+    "h": 16,
+    "opacity": "0.7",
+    "visibility": "visible",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   }
+  ],
+  "swatchCount": null,
+  "overflowRowSwatches": null,
+  "plusChip": null,
+  "nameTruncated": null,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "currentRing": null,
+  "dialogA11y": {
+   "role": "dialog",
+   "ariaLabelledby": "reka-dialog-title-v-1-6",
+   "ariaDescribedby": "reka-dialog-description-v-1-7",
+   "ariaModal": null
+  },
+  "focusAfterOpen": "BUTTON.focus-ring absolute right-(--overlay-pad-inline) t|Close",
+  "liveRegions": 0,
+  "animatedSpinner": null
+ },
+ "forced-colors-extra": {
+  "current": null,
+  "other": null,
+  "swatch": null,
+  "currentBar": null
+ }
+}

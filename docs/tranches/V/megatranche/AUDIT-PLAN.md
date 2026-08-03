@@ -3,6 +3,15 @@
 **Authored 2026-07-27, distilled and de-duplicated from this session's exact transcripts.**
 Supersedes nothing; agglomerates everything. `STATE.md` is the resume point; this is the program.
 
+> **CURRENT SUPERSESSION — 2026-07-29.** Preserve this file as formation history. Current disk
+> truth, closed rulings, and the exact resume live in `IN-FLIGHT-AUDIT-2026-07-29.md` and
+> `IN-FLIGHT-RESUME-HANDOFF-2026-07-29.md`; candidate cuts and their formation blockers are in
+> `MECHANISM-CUT-FORMATION-MAP-2026-07-29.md`. In particular: the ceiling is 88 components / 264
+> axes; the 11:05 EDT validator snapshot is 69/88 durable-complete, 215/264 exact files present,
+> and 213/264 current-hash banked; seven missed SFCs have a queued catch-up roster; 14 markdown
+> apotheoses exist; and no claim that waves are “80% authored,” precepts-complete, or SPECIFIED
+> survives.
+
 ---
 
 ## §1 — The precepts of record (every owner instruction, distilled, no drops)

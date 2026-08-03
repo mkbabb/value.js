@@ -1,0 +1,24 @@
+{
+  "easeStandard": "cubic-bezier(0.4, 0, 0.2, 1)",
+  "primaryRaw": "oklch(0.471189 0.126502 129.834)",
+  "accentLiveRaw": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+  "resolved": {
+    "primary": "oklch(0.471189 0.126502 129.834)",
+    "accentLive": "oklch(0.471189 0.188448 9.83402)",
+    "wellBg": "oklab(0.913295 0.00550478 0.0130424)",
+    "cardEdge": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "card": "rgb(253, 245, 236)"
+  },
+  "zoneComputed": {
+    "bg": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "border": "oklab(0.471189 -0.0810328 0.0971413 / 0.3)",
+    "radius": "12px",
+    "shadow": "none"
+  },
+  "dashedWellComputed": {
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "border": "1px dashed oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "radius": "16px",
+    "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -4px 4px 0px 0px"
+  }
+}

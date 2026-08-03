@@ -1,0 +1,87 @@
+=== KILL-SHOT 1: --slider-track-bg accepts a gradient ===
+{
+ "before": "none",
+ "after": "linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(0, 255, 0) 50%, rgb(0, 0, 255) 100%)",
+ "acceptsGradient": true,
+ "trackRect": {
+  "x": 252,
+  "y": 494.640625,
+  "width": 434,
+  "height": 24,
+  "top": 494.640625,
+  "right": 686,
+  "bottom": 518.640625,
+  "left": 252
+ }
+}
+
+=== KILL-SHOT 2: decoy div rect vs real track rect ===
+{
+ "decoyDiv": {
+  "x": 252,
+  "y": 494.640625,
+  "w": 434,
+  "h": 24
+ },
+ "realTrack": {
+  "x": 252,
+  "y": 494.640625,
+  "w": 434,
+  "h": 24
+ },
+ "deltaPx": {
+  "x": 0,
+  "y": 0,
+  "w": 0,
+  "h": 0
+ }
+}
+
+=== KILL-SHOT 3: the three text atoms ===
+{
+ "ground": {
+  "node": "DIV.glass-resting card rounded-card text-card-foregrou",
+  "bg": "oklab(0.928273 0.005506 0.013193 / 0.664)"
+ },
+ "kLabel": {
+  "text": "5",
+  "fontFamily": "\"Fira Code\"",
+  "fontSize": "16.4px",
+  "fontWeight": "400",
+  "color": "oklch(0.446872 0.003862 34.629978)",
+  "width": "20px",
+  "textAlign": "right",
+  "scrollW": 20,
+  "clientW": 20,
+  "overflowsBox": false
+ },
+ "kcLabel": {
+  "text": "kC",
+  "fontFamily": "\"Fira Code\"",
+  "fontSize": "11px",
+  "fontWeight": "400",
+  "color": "oklch(0.446872 0.003862 34.629978)",
+  "width": "13.546875px",
+  "textAlign": "start",
+  "scrollW": 14,
+  "clientW": 14,
+  "overflowsBox": false
+ },
+ "kcReadout": {
+  "text": "0.5",
+  "fontFamily": "\"Fira Code\"",
+  "fontSize": "11px",
+  "fontWeight": "400",
+  "color": "oklch(0.446872 0.003862 34.629978)",
+  "width": "20px",
+  "textAlign": "start",
+  "scrollW": 20,
+  "clientW": 20,
+  "overflowsBox": false
+ },
+ "contrast": {
+  "kLabel": null,
+  "kcLabel": null,
+  "kcReadout": null
+ }
+}

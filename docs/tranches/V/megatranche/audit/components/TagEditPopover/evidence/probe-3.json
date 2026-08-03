@@ -1,0 +1,576 @@
+{
+  "beforeOpen": {
+    "hasApp": true,
+    "found": [
+      {
+        "name": "Presence",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Popover",
+        "depth": 13,
+        "file": null,
+        "props": {
+          "defaultOpen": false,
+          "trigger": "click",
+          "openDelay": 250,
+          "closeDelay": 150,
+          "keepDockOpen": false
+        },
+        "elType": "nodeType:3",
+        "subTreeType": "PopoverRoot"
+      },
+      {
+        "name": "PopoverRoot",
+        "depth": 14,
+        "file": null,
+        "props": {
+          "defaultOpen": false,
+          "open": false,
+          "modal": false
+        },
+        "elType": "nodeType:3",
+        "subTreeType": "PopperRoot"
+      },
+      {
+        "name": "PopoverTrigger",
+        "depth": 16,
+        "file": null,
+        "props": {
+          "asChild": true,
+          "class": false
+        },
+        "elType": "BUTTON",
+        "subTreeType": "PopoverTrigger"
+      },
+      {
+        "name": "PopoverTrigger",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "asChild": true,
+          "as": "button"
+        },
+        "elType": "BUTTON",
+        "subTreeType": "PopperAnchor"
+      },
+      {
+        "name": "PopoverContent",
+        "depth": 16,
+        "file": null,
+        "props": {
+          "class": "w-60 p-0",
+          "portal": true,
+          "surface": "glass",
+          "side": "bottom",
+          "sideOffset": 4,
+          "align": "end",
+          "alignOffset": 0
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "PopoverPortal"
+      },
+      {
+        "name": "PopoverContent",
+        "depth": 19,
+        "file": null,
+        "props": {
+          "side": "bottom",
+          "sideOffset": 4,
+          "align": "end",
+          "alignOffset": 0,
+          "forceMount": false,
+          "sideFlip": false,
+          "alignFlip": false,
+          "avoidCollisions": true,
+          "hideShiftedArrow": false,
+          "hideWhenDetached": false,
+          "disableUpdateOnLayoutShift": false,
+          "prioritizePosition": false,
+          "asChild": false,
+          "disableOutsidePointerEvents": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Presence"
+      },
+      {
+        "name": "Presence",
+        "depth": 20,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 26,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 26,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 26,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 22,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 18,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 9,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 8,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      }
+    ]
+  },
+  "afterOpen": {
+    "hasApp": true,
+    "found": [
+      {
+        "name": "Presence",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Popover",
+        "depth": 13,
+        "file": null,
+        "props": {
+          "defaultOpen": false,
+          "trigger": "click",
+          "openDelay": 250,
+          "closeDelay": 150,
+          "keepDockOpen": false
+        },
+        "elType": "nodeType:3",
+        "subTreeType": "PopoverRoot"
+      },
+      {
+        "name": "PopoverRoot",
+        "depth": 14,
+        "file": null,
+        "props": {
+          "defaultOpen": false,
+          "open": false,
+          "modal": false
+        },
+        "elType": "nodeType:3",
+        "subTreeType": "PopperRoot"
+      },
+      {
+        "name": "PopoverTrigger",
+        "depth": 16,
+        "file": null,
+        "props": {
+          "asChild": true,
+          "class": false
+        },
+        "elType": "BUTTON",
+        "subTreeType": "PopoverTrigger"
+      },
+      {
+        "name": "PopoverTrigger",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "asChild": true,
+          "as": "button"
+        },
+        "elType": "BUTTON",
+        "subTreeType": "PopperAnchor"
+      },
+      {
+        "name": "PopoverContent",
+        "depth": 16,
+        "file": null,
+        "props": {
+          "class": "w-60 p-0",
+          "portal": true,
+          "surface": "glass",
+          "side": "bottom",
+          "sideOffset": 4,
+          "align": "end",
+          "alignOffset": 0
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "PopoverPortal"
+      },
+      {
+        "name": "PopoverContent",
+        "depth": 19,
+        "file": null,
+        "props": {
+          "side": "bottom",
+          "sideOffset": 4,
+          "align": "end",
+          "alignOffset": 0,
+          "forceMount": false,
+          "sideFlip": false,
+          "alignFlip": false,
+          "avoidCollisions": true,
+          "hideShiftedArrow": false,
+          "hideWhenDetached": false,
+          "disableUpdateOnLayoutShift": false,
+          "prioritizePosition": false,
+          "asChild": false,
+          "disableOutsidePointerEvents": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Presence"
+      },
+      {
+        "name": "Presence",
+        "depth": 20,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 26,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 26,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 26,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "TagEditPopover",
+        "depth": 11,
+        "file": "/Users/mkbabb/Programming/value.js/demo/palettes/browser/search/TagEditPopover.vue",
+        "props": {
+          "paletteSlug": "specimen-1",
+          "currentTags": [
+            "warm"
+          ],
+          "open": false
+        },
+        "elType": "nodeType:3",
+        "subTreeType": "Popover"
+      },
+      {
+        "name": "Popover",
+        "depth": 12,
+        "file": null,
+        "props": {
+          "open": false,
+          "defaultOpen": false,
+          "trigger": "click",
+          "openDelay": 250,
+          "closeDelay": 150,
+          "keepDockOpen": false
+        },
+        "elType": "nodeType:3",
+        "subTreeType": "PopoverRoot"
+      },
+      {
+        "name": "PopoverRoot",
+        "depth": 13,
+        "file": null,
+        "props": {
+          "defaultOpen": false,
+          "open": false,
+          "modal": false
+        },
+        "elType": "nodeType:3",
+        "subTreeType": "PopperRoot"
+      },
+      {
+        "name": "PopoverTrigger",
+        "depth": 15,
+        "file": null,
+        "props": {
+          "asChild": true,
+          "class": false
+        },
+        "elType": "nodeType:3",
+        "subTreeType": "PopoverTrigger"
+      },
+      {
+        "name": "PopoverTrigger",
+        "depth": 16,
+        "file": null,
+        "props": {
+          "asChild": true,
+          "as": "button"
+        },
+        "elType": "nodeType:3",
+        "subTreeType": "PopperAnchor"
+      },
+      {
+        "name": "PopoverContent",
+        "depth": 15,
+        "file": null,
+        "props": {
+          "class": "w-52 p-0",
+          "portal": true,
+          "surface": "glass",
+          "side": "bottom",
+          "sideOffset": 4,
+          "align": "start",
+          "alignOffset": 0
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "PopoverPortal"
+      },
+      {
+        "name": "PopoverContent",
+        "depth": 18,
+        "file": null,
+        "props": {
+          "side": "bottom",
+          "sideOffset": 4,
+          "align": "start",
+          "alignOffset": 0,
+          "forceMount": false,
+          "sideFlip": false,
+          "alignFlip": false,
+          "avoidCollisions": true,
+          "hideShiftedArrow": false,
+          "hideWhenDetached": false,
+          "disableUpdateOnLayoutShift": false,
+          "prioritizePosition": false,
+          "asChild": false,
+          "disableOutsidePointerEvents": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Presence"
+      },
+      {
+        "name": "Presence",
+        "depth": 19,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 22,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 18,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 17,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 9,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      },
+      {
+        "name": "Presence",
+        "depth": 8,
+        "file": null,
+        "props": {
+          "present": false,
+          "forceMount": false
+        },
+        "elType": "nodeType:8",
+        "subTreeType": "Symbol(v-cmt)"
+      }
+    ]
+  },
+  "dom": {
+    "popper": 0,
+    "dialogs": 0,
+    "haspopupDialog": 1,
+    "popoverContentCls": 0,
+    "commentsInBody": 235
+  },
+  "logs": [
+    "debug: [vite] connecting...",
+    "debug: [vite] connected.",
+    "debug: [vite] connecting...",
+    "debug: [vite] connected."
+  ]
+}

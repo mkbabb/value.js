@@ -399,3 +399,210 @@ Recorded so the negative is proved rather than assumed:
 - All writes confined to `docs/tranches/V/megatranche/audit/components/wb-generate-pane/`. No source, no `INBOX.md`, no `vnext/`, no `scripts/dev/dev.sh` touched. Zero source edits.
 - Every finding carries `file:line`, pasted command/probe output, a measured number, or a quoted canon clause. No finding in this report is an unlabelled hypothesis; all eighteen have a reproduction or a direct measurement.
 - Browser probes: 3 scripted WebKit runs, read-only, batched to keep the cost proportionate (probe parsimony edict).
+
+---
+---
+
+# ADDENDUM — CHALLENGE-D, second independent pass (2026-07-28)
+
+**Seat:** CHALLENGE-D re-run, spawned against the same subject and the same base
+(`tranche-u`, HEAD `c654824e`). **Status of the pass above:** REPLICATED AND SUSTAINED — I do not
+retract or soften any of D-1…D-18. This addendum exists because I found the first pass already
+written when I arrived; rather than overwrite it (which would have destroyed its measured
+contrast numbers and its scratchpad captures), I record only what my pass adds: **one correction
+to a cure, four new defects, and the replication receipts.**
+
+## A. Model receipt
+
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`, 1M-context arm) — the tier this seat was
+explicitly spawned with. Declared, not inherited.
+
+## B. Replication of the first pass (independent session, cleared storage)
+
+Live probe: `http://localhost:9000/#/generate`, Playwright, 1440×900, `localStorage.clear()`
+before navigation, 3.5 s settle. Same defects, same order of magnitude, different session:
+
+| First pass | This pass | Agreement |
+|---|---|---|
+| `cardWidths [512, 512]`, companion empty | `left {w:512}` / `right {w:512}`, `leftSharePct 50.00`, `rightOfViewportPct 35.56`, companion text `"…EMPTY PLATE… No saved palettes yet."` | ✅ |
+| D-2 name discarded; store writes `"name":"Generated Palette"` | typed `MY CUSTOM NAME` → `localStorage['color-palettes']` = `{"…","name":"Generated Palette","slug":"generated-palette-cd1ec69a"…}` **and** the rendered Library pane reads `"Generated Palette 5"` | ✅ (extended: the discard is visible in the UI, not only in storage) |
+| D-3 dot renders `SPAN`, `aria-hidden="true"`, unfocusable | `dot tag SPAN · role null · tabIndex -1 · aria-label null · aria-hidden "true"`; plate tab order = `[Palette name, Regenerate, Save palette, Copy all colors]`, zero swatches | ✅ |
+| D-17 sub-44px seats | same seven rows reproduced verbatim (`36×36`, `225×36`, thumb `12×24`, input `397.9×30.5`) | ✅ |
+
+Two independent sessions, four hours apart, converge on the same numbers. These are properties of
+the component, not probe artifacts.
+
+## C. CORRECTION to the first pass — the chassis prop is `proportion`, not `variant`
+
+§2 D-1's cure reads *"Transpose the route onto `InstrumentChassis` with `variant="golden"`"*. That
+prop does not exist. The installed producer's actual surface:
+
+```
+$ node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"   →  7.0.0
+$ cat node_modules/@mkbabb/glass-ui/dist/components/instrument-chassis/types.d.ts
+export type InstrumentChassisState      = "ready" | "active" | "complete" | "loading";
+export type InstrumentChassisProportion = "golden" | "preview-dominant";
+export type InstrumentChassisBoundary   = "stage-inspector" | "inspector-action";
+export type InstrumentChassisReserve    = "none" | "stage" | "inspector" | "both";
+export interface InstrumentChassisProps {
+    state?: InstrumentChassisState;
+    tone?: string;
+    proportion?: InstrumentChassisProportion;
+    boundaries?: readonly InstrumentChassisBoundary[];
+    reserve?: InstrumentChassisReserve;
+    class?: HTMLAttributes["class"];
+}
+```
+
+The correct transposition for the `OPTICAL-BENCH-COMPOSITIONS.md §5` Generate row is:
+
+```html
+<InstrumentChassis proportion="golden" :boundaries="[]" reserve="none" :state="…">
+```
+
+This matters beyond spelling: a `variant="golden"` would fall through as a stray DOM attribute and
+the chassis would silently resolve its **default** proportion — the exact failure mode as
+`tag="button"` on `WatercolorDot` (D-3). The producer's four exported enums map 1:1 onto the four
+canon clauses (`golden`; `[]`; `none`; and a `state` machine), which strengthens D-1: the pane did
+not hand-roll housing because the design system lacked it — it hand-rolled housing that the design
+system ships, prop for prop.
+
+## D. New defects
+
+### D-19 · MAJOR · The route has no mount state — the async chunk has no loading or error arm
+
+`demo/shell/usePaneRouter.ts:73`:
+
+```ts
+const GeneratePane = defineAsyncComponent(() => import("../workbenches/generate/GeneratePane.vue"));
+```
+
+No `loadingComponent`, no `errorComponent`, no `timeout`, no `onError`. A slow chunk renders
+**nothing** (an empty 512×560 glass rectangle); a failed chunk fetch renders **nothing, forever**,
+with no message and no retry. The pane below it likewise has no error boundary: `GeneratePane.vue:10,11`
+are two non-null-asserted `inject(...)!` calls that throw on a missing provider with no recovery surface.
+
+This is the mount-time complement to D-11 (no commit truth) and it is now provably a *design*
+omission rather than an engineering oversight, because the producer ships the vocabulary for it:
+`InstrumentChassisState` includes `"loading"` (§C) and the pane expresses no state at all.
+`VISUAL-CONSTITUTION.md §4.1`: *"Selected, failed, pending, withdrawn and disabled states are never
+color-only. Role, accessible name, state/value and associated error/status are explicit."* Generate
+has zero of the five.
+
+**Cure:** bind `:state` on the chassis (`"loading"` while the generation core is cold, `"ready"`
+at rest, `"complete"` after a commit) and give the async import a real error arm. Under the F1
+transposition this is one prop, not a new component.
+
+### D-20 · MAJOR · The dead card tail is a function of the *neighbour*, not of the content
+
+`GeneratePane.vue:31` carries `h-full`. Measured at 1440×900 with an **empty** library companion:
+
+```
+paneCard   y=210   h=560.1
+last control (count slider label) bottom = 434.2
+emptyTailPx = 125.9        →  22.5% of the pane is empty glass
+```
+
+The first pass measured 65 px of dead interior on a differently-populated companion. Both are
+correct: the tail is **not stable**, because `h-full` chains the Generate card's height to whatever
+the Palettes companion happens to contain. The pane's own content never decides its own height, so
+the composition's vertical rhythm changes when an *unrelated* pane gains a row. That is the sharper
+statement of the D-1 `h-full` clause, and it is why the cure must delete `h-full` rather than tune it.
+
+`PROPORTION-AUDIT.md §5` law 3: *"Renderer, icon or touch footprints may reserve collision space
+**only on the axis where collision exists**."* There is no collision here — only coupling.
+
+### D-21 · MAJOR · The narrow-arm wrap fires at the widest desktop arm
+
+`GenerateControls.vue:139–142` states the plate-chrome design intent verbatim: *"The row **WRAPS**
+gracefully: name+count lead, the verb cluster rides `ml-auto` right — **at 390** the verbs settle
+onto their own right-aligned line, never a clipped title."* Measured at **1440×900, no zoom, LTR**:
+
+```
+chrome row   x=225   y=347.7   w=460   h=96.5
+nameInput    x=237   y=357.7   w=397.9 h=30.5
+verbs        x=440.2 y=394.2   w=232.8 h=40
+verbRowOffsetY = 36.5           ← the cluster is already on line two
+```
+
+The wrap is not a narrow-arm graceful degradation; it is the **only** state the plate chrome ever
+renders on desktop, because D-1 caps the pane's inner width at 462 px. The optical consequences are
+a 96.5 px chrome row for a one-line title, a **215 px dead gutter** to the left of the verb cluster
+(row starts x=225, cluster starts x=440.2), and the count badge marooned at the far right of line
+one with 8 px of gap to a 397.9 px stretched input — the L-shaped void visible in
+`shots/safari-desktop-{light,dark}/generate.png`.
+
+This is distinct from D-7 (wrap cascade *under zoom*): the claim here is that the component's
+documented narrow fallback is its shipped desktop appearance, so the designed desktop state has
+never rendered anywhere. It is also the measured cost of D-4: delete the plate-local verb cluster
+and the wrap, the gutter and the 96.5 px row all disappear without touching a breakpoint.
+
+### D-22 · MINOR · Generate's companion resurrects the retired Dock pane selector on mobile
+
+`shots/safari-mobile-{light,dark}/generate.png` show a `Generate | Palettes` segmented control
+seated in the Dock. Canon retires that construct twice:
+
+- `VISUAL-CONSTITUTION.md §4.2`: *"V retires the global Dock `PaneSegmentedControl` and left/right
+  view state."*
+- `§3` proportion law 6: *"Mobile uses one document-scrolling stage→inspector→action sequence
+  beneath the same top dock… **no global pane selector, left/right split state, or simultaneous
+  two-stage miniature survives**."*
+
+It exists on this route for exactly one reason — `demo/shell/viewSchema.ts` declares
+`generate: { left: "generate", right: "palettes", … }`. The control is the mobile projection of
+D-1's desktop companion; the same one-line schema change (`right: null`) removes both. Recorded
+separately because a reader auditing the mobile frames will see a Dock defect and mis-file it
+against `shell-panesegmentedcontrol` rather than against the composition that summons it.
+
+### D-23 · INFO · The tracked state matrices never captured this route
+
+```
+$ ls docs/tranches/V/megatranche/audit/visual/shots/{forced-colors,keyboard-focus,
+     reduced-motion,rtl,zoom-200}-desktop/  docs/…/rtl-mobile/
+adminusers.png  blob.png  browse.png  gradient.png  picker.png        (each directory)
+```
+
+`generate.png` is absent from **all six** a11y/state matrices. The first pass compensated with its
+own scratchpad captures (`gen-rtl.png`, `gen-zoom200.png`, `gen-forced-colors.png`,
+`gen-390-max.png`) — good practice, but those live outside the tracked evidence tree, so D-6,
+D-10 and D-12's frames are not reproducible from the repository. Before any W25 π is accepted the
+five-route matrix must extend to `/generate`.
+
+### D-24 · INFO · (HYPOTHESIS — not reproduced to root cause) the route drifts off `/#/generate`
+
+Twice during this pass the page navigated away from `/#/generate` with no navigation call issued:
+
+1. after `location.reload()` it settled on
+   `#/admin/tags?space=lab&color=lab(92%25+88.8+20+/+82.7%25)`;
+2. after `page.setViewportSize({width:390,height:844})` the URL became `#/admin/tags`.
+
+Clearing `localStorage` made (1) stop. I did **not** isolate the writer, and this is shell
+territory (`useViewManager` / color-session persistence), not this pane — **labelled a hypothesis
+per evidence law.** Recorded because it silently corrupted two of my probes (returning `h3: ["Tags",
+"My Palettes"]` and `["Extract", "My Palettes"]` while the address bar still read `#/generate`) and
+will corrupt any future Generate π run the same way. Any seat measuring this route must assert the
+rendered `h3` equals `"Generate"` before trusting a rect.
+
+## E. Effect on the first pass's family table
+
+D-19 and D-20 join **F4 · state never designed** and **F1 · wrong primitive** respectively; D-21 is
+the measured proof term for F1's proportion clause; D-22 is F1's mobile projection. The first
+pass's conclusion is unchanged and now carries a second independent confirmation:
+
+> executing the `OPTICAL-BENCH-COMPOSITIONS.md §3` Generate row as written —
+> `InstrumentChassis proportion="golden" :boundaries="[]" reserve="none" :state="…"`, Card 0,
+> `viewSchema.generate.right = null` — dissolves F1 whole, and takes D-19's state arm, D-20's
+> height coupling, D-21's wrap and D-22's Dock selector with it.
+
+**Total after both passes: 24 defects — 3 BLOCKER, 12 MAJOR, 7 MINOR, 2 INFO.**
+
+## F. Standing-law compliance for this pass
+
+- Model receipt declared (§A).
+- Writes confined to `docs/tranches/V/megatranche/audit/components/wb-generate-pane/`. **Zero
+  source edits.** No `INBOX.md`, no `vnext/`, no `scripts/dev/dev.sh`. The prior pass's report was
+  **preserved intact** — this is an append, not a rewrite.
+- Every finding carries `file:line`, pasted probe output, a measured number, or a quoted canon
+  clause. D-24 is the only hypothesis and is labelled as one.
+- Browser probes: 5 batched read-only Playwright evaluates in one session (probe-parsimony edict);
+  no Lighthouse, no trace, no DevTools MCP — none of them would have decided anything here.

@@ -1,4 +1,4 @@
-# CHALLENGE-D — `SearchFilterBar.vue` · the design is flawed — **PASS 4**
+# CHALLENGE-D — `SearchFilterBar.vue` · the design is flawed — **PASS 5**
 
 ## Model receipt
 
@@ -9,873 +9,784 @@ declared at spawn. The seat is **declared, not inherited, not defaulted**.
 
 ## 0. Standing of this document
 
-Three CHALLENGE-D seats ran before me. Per the pass discipline I ran **every probe to completion
-and wrote its JSON to disk before opening a single prior report**. All four artifacts survive:
+Four CHALLENGE-D seats ran before me. I preserved pass 4 verbatim as
+`challenge-D-design-pass4-e9cf0aa4.md` before writing this file; all five artifacts survive:
 
-| file | what it is |
+| file | pass |
 |---|---|
-| `challenge-D-design-pass1-c654824e.md` | pass 1 (D-1…D-19) |
-| `challenge-D-design-pass2-c654824e.md` | pass 2 (D2-B1…D2-m5) |
-| `challenge-D-design-pass2-hydrated-payload.md` | pass 2, structured-payload form |
-| `challenge-D-design-pass3-f36f780c.md` | **pass 3, preserved verbatim by me at the start of this session** |
-| **this file** | **pass 4** |
+| `challenge-D-design-pass1-c654824e.md` | 1 (D-1…D-19) |
+| `challenge-D-design-pass2-c654824e.md` · `-pass2-hydrated-payload.md` | 2 (D2-B1…D2-m5) |
+| `challenge-D-design-pass3-f36f780c.md` | 3 (P3-B1…P3-i1) |
+| `challenge-D-design-pass4-e9cf0aa4.md` | 4 (P4-B1…P4-i2) — preserved by me at the head of this session |
+| **this file** | **5 (P5-B1…P5-i2)** |
 
-This pass does five things:
+**Discipline followed.** I ran probes P5-1…P5-7 to completion and wrote every JSON and frame to
+disk **before** opening any prior report beyond its finding-ID index. That index was read only to
+label each of my results NEW / NEW-EXT / CORROBORATED honestly — this pass does not re-spend the
+budget on settled ground, and it does not claim settled ground as new.
 
-1. **Independently re-derives** the headline results on a fourth harness — a different API-stub
-   mechanism (a LAN-origin request that defeats the dev misconfig latch rather than a module-path
-   glob), a different device scale (DPR 3), and a *populated* tag catalogue that no prior pass
-   appears to have had at desktop.
-2. **Settles three prior disputes with mechanism, not opinion** — the badge clip, the radio focus
-   register, and `variant="ghost"`. Two priors are confirmed; **one prior MAJOR is overturned**,
-   and I overturn one of my own readings in the same paragraph.
-3. **Adds five findings no prior ledger contains**, including the one that reframes the whole
-   component: *the producer already solved the touch-target/optics problem, and this component
-   undid the solution by inserting a `<label>`.*
-4. **Enumerates the full state matrix** the brief demands, with a measured row for each.
-5. **States its negative proofs** — five axes I attacked and could not break, so the next pass
-   does not re-spend the budget.
+**What this pass adds.**
+
+1. **The composition finding no prior pass made.** The binding topology decision names Browse's
+   search/filter chrome by shape — *a shallow leading tray* — and this component is a 240 × 633
+   floating overlay. §3.
+2. **The first populated-wall arm.** Every prior pass measured this component over an empty or
+   errored wall. I stubbed a 12-palette wall and a 10-tag catalogue at the network layer and
+   measured **what the menu covers while you use it**: 37.9 % of the Browse pane on desktop,
+   54.3 % on mobile, all six visible palette cards.
+3. **Rendered contrast from composited pixels**, not token names — including the number that
+   reframes the trigger: **1.01 : 1** against the field it sits in.
+4. **Four unhandled data states** (0 tags, 10 tags, a wrapping tag, an unbroken tag) measured as
+   geometry, not asserted.
+5. **A control experiment that kills a finding I was about to file.** §6.1.
 
 | | |
 |---|---|
 | Component | `demo/palettes/browser/search/SearchFilterBar.vue` — 249 lines (125 template), area `palettes` |
-| Sole consumer | `demo/palettes/BrowsePane.vue:15-26`, slotted into glass-ui `SearchBar`'s default slot (`BrowsePane.vue:10`) |
+| Sole consumer | `demo/palettes/BrowsePane.vue:16-26`, slotted into the glass-ui `SearchBar` default slot (`BrowsePane.vue:10-14`) |
 | Route | `/#/browse` only |
-| Subject state | `git diff --stat c654824e HEAD -- demo/palettes/browser/search/` → **empty**; the subject is byte-identical to the declared `c654824e`. Working tree HEAD at probe time `e9cf0aa4`. |
-| Producer | `@mkbabb/glass-ui` **7.0.0** (`node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"`) |
-| **Pass-4 verdict** | **DEFECTIVE.** 5 BLOCKER · 9 MAJOR · 4 MINOR · 2 INFO |
+| Subject state | `git diff --stat c654824e HEAD -- demo/palettes/browser/search/ demo/palettes/BrowsePane.vue` → **empty**. Byte-identical to the declared `c654824e`. Working-tree HEAD at probe time `d19da6d3`. |
+| Producer | `@mkbabb/glass-ui` **7.0.0** (`node_modules/@mkbabb/glass-ui/package.json`) |
+| **Pass-5 verdict** | **DEFECTIVE.** 3 BLOCKER · 9 MAJOR · 3 MINOR · 2 INFO |
 
-**Evidence base (all reproducible):**
+**Evidence base — every number below is reproducible from these files:**
 
 ```
 docs/tranches/V/megatranche/audit/components/SearchFilterBar/
-  probe-P4-1.mjs … probe-P4-7-adjudicate.mjs     ← the harnesses
-  evidence-p4/p4-1.json … p4-7.json              ← the measurements
-  evidence-p4/*.png                              ← the frames
+  probe-P5-1.mjs … probe-P5-7.mjs        ← the harnesses (playwright, read-only)
+  analyze-P5-contrast.py, -contrast2.py  ← rendered-pixel contrast
+  evidence-p5/p5-1.json … p5-7.json      ← the measurements
+  evidence-p5/p5-contrast.json, p5-contrast2.json
+  evidence-p5/*.png                      ← the frames and crops
 ```
 
-All probes drive the **live** dev server. The `demo/`, `src/`, `test/` trees are untouched; the
-API is stubbed at the Playwright network layer only.
+All probes drive the **live** dev server at `http://localhost:9000` with the full local stack up
+(`scripts/dev/dev.sh`, `VITE_API_URL=http://localhost:3000`, API health `{"status":"ok"…}` verified
+by `curl`). `demo/`, `src/`, `test/` are untouched; the tag catalogue and the palette wall are
+stubbed **at the Playwright network layer only**, because the live database is empty
+(`curl -s http://localhost:3000/colors/tags` → `[]`;
+`curl -s 'http://localhost:3000/palettes?limit=24'` → `{"data":[],…}`).
 
-> **Harness note worth recording.** `http://localhost:9000` cannot exercise this component's real
-> states at all: `demo/platform/transport/availability.ts:114-116` trips the dev-misconfig latch on
-> any loopback hostname, so **zero** API requests are issued and `availableTags` is permanently
-> `[]`. Every capture in `audit/visual/shots/**/browse.png` was therefore taken with the Tags
-> section absent and the wall in its error arm. I probed through `http://192.168.1.166:9000`
-> (`isLoopbackHost` false → requests fire → my stub answers). **Any pass that measured this
-> component on `localhost` measured a component with a third of its body missing.**
+> **Harness note.** That empty database is why every capture in `audit/visual/shots/**/browse.png`
+> shows this component with two-thirds of its body absent: no wall to filter and no Tags section at
+> all. A pass that measures only the shipped screenshots measures a stub. The stub is why
+> `REPORT.md:121,136,151,166` records `/#/browse` as clean.
 
 ---
 
 ## 1. Verdict in one paragraph
 
-`SearchFilterBar` is a **menu built out of a form**. Its two primary lists are glass-ui
-`RadioGroup`s — a form control whose producer CSS is calibrated for bare 18px circles in a
-column — with a full-width `<label>` interposed between the group and each item. That single
-structural decision produces, by arithmetic and by measurement, a 56.93px row pitch for a 30.94px
-row (45.7% dead space), option rows that shrink-to-fit into five different widths in a 182px
-column, and a hover target that is 2.71× wider on one row than another. The third list, written by
-hand, has a 32.94px pitch — so **one 240px menu contains two rhythms that differ by 1.73×**. On top
-of that structural error sit four independent state failures, each of which makes the surface
-assert something the product does not hold: the Tags filter speaks a retired producer API and does
-nothing; the count badge renders as a gold crescent with no digit; the menu's last section is
-112.63px below the fold with `max-height: none`; and the colour field advertises `hsl(...)` while
-accepting only `#RRGGBB`, silently searching the swatch colour for all six syntaxes I fed it —
-including the product's own `oklch()`.
+The binding composition for Browse says search/filter is **a shallow leading tray**
+(`OPTICAL-BENCH-COMPOSITIONS.md:39`). What ships is a 240 × 632.84 px floating overlay that, while
+open, covers **37.9 % of the Browse pane** and lies over **six of six visible palette cards** — you
+cannot see the wall you are filtering, so the select→see→adjust loop the whole route exists to serve
+is broken by the chrome that serves it. Under that composition error sit three independent
+proportion errors that all have the same cause: **a producer form-control rhythm and a hand-rolled
+list rhythm were stacked in one 240 px menu**, giving a 56.97 px pitch beside a 32.97 px pitch
+(1.728×), a 44 × 44 radio beside a 16 × 16 checkbox (7.56× area), and hover targets from 61.14 px to
+182 px (2.977×). The one control that must be found for any of this to be used — the `⋮` trigger —
+renders at **1.01 : 1** against the field it sits inside; the only reason it is visible at all is
+that it sticks 2.30 px out of the pill, top and bottom. And the whole surface has **no row in the
+binding proportion register**, which is why none of it has a terminal verb, an accountable wave, or
+a π frame.
 
 ---
 
-## 2. Visual truth — the frames first
+## 2. Visual truth — the frames
 
-### 2.1 The shipped Safari matrix (`audit/visual/shots/`)
+### 2.1 The shipped Safari matrix, and what it could not see
 
-`REPORT.md:121,136,151,166` — `/#/browse` in all four Safari matrices: 0 page errors, 0 console
-errors, 0 horizontal overflow, `main` = 1, **`h1` = 0**, **4 small tap targets**. Those four rows
-are the *closed* state; the trigger is the only part of this component rendered.
+`audit/visual/REPORT.md:121,136,151,166` — `/#/browse` in all four Safari matrices: 0 page errors,
+0 console errors, 0 horizontal overflow, `main` = 1, **4 small tap targets**, `h1` = 0. Those rows
+describe the **closed** trigger over an **errored** wall
+(`shots/safari-desktop-light/browse.png`: "The commons is unreachable. / Failed to load palettes /
+Retry"). The filter trigger sits directly above that error, fully enabled, offering to sort and tier
+and colour-search a wall that does not exist. No state in this component reads `browseError`
+(`SearchFilterBar.vue:147-152` — the prop list has four entries and none of them is request state).
 
-The route's shipped frame is the **error arm** (`shots/safari-desktop-light/browse.png`): "The
-commons is unreachable. / Failed to load palettes / Retry". The filter trigger sits directly above
-it, **fully enabled**, offering to sort and tier-filter and colour-search a wall that does not
-exist. No state in this component consults `browseError`.
+### 2.2 The trigger against its own field — the measured number
 
-### 2.2 The trigger, magnified 5× from the shipped Safari capture
+`evidence-p5/p5-3-light-crop-trigger.png` · `p5-3-dark-crop-trigger.png` ·
+`analyze-P5-contrast2.py` output, sampled from the closed frames at the measured rects:
 
-`evidence-p4/trigger-safari-desktop-light.png` · `trigger-safari-desktop-dark.png` ·
-`trigger-rtl.png` (crops of `shots/{safari-desktop-light,safari-desktop-dark,rtl-desktop}/browse.png`)
-
-Three things are visible without any code:
-
-1. **The button breaks the field's silhouette.** A vertical lozenge pokes above and below the
-   search pill's rounded rect. Measured (`p4-1.json`): trigger `top 335.67 / bottom 375.67`,
-   host `.input-bar.search-seated` `top 337.67 / bottom 373.67` — **2.00px proud at the top and
-   2.00px proud at the bottom**. In RTL, identically (`p4-3.json`
-   `triggerOverflowsFieldBlock: {top: 2, bottom: 2}`).
-2. **It is not a circle and not a square.** Measured **32 × 40**, `border-radius: 9999px` → an
-   *ellipse*. The `EllipsisVertical` glyph inside is 16×16 and centred in a 32×40 field, so the
-   optical centre of the icon sits in a box with a 0.8 aspect.
-3. **In dark it is invisible except for a hairline.** `trigger-safari-desktop-dark.png`: the
-   button's fill and the field's fill are the same value; the only thing separating them is the
-   producer's 1px specular ring, which reads as a stray ellipse half in and half out of the pill.
-
-### 2.3 The open menu, over the shipped route state
-
-`evidence-p4/p4-webkit-light-open-crop.png` and `p4-popover-full-tall.png`
-
-The page's own copy reads **through** the menu and collides with it: `…ns is unreachable.`,
-`load palettes`, `Retry`, `· COMMONS ·`, `palettes here yet.`, `from My Palettes and`, `t the
-wall.`, and the dashed `EmptyPaletteMark` are all legible across `SORT`, `Newest`, `Most Popular`,
-`Most Forked`. Measured surface: `background-color: oklab(0.936408 0.005529 0.013284 / 0.808)`,
-`backdrop-filter: blur(11px) saturate(1.6)` (`p4-1.json`). At 0.808 alpha and an 11px blur, 40px
-display type behind the menu survives legibly.
-
-`p4-popover-full-tall.png` also shows the menu's **own ground changing colour halfway down**: the
-top half sits over the pane Card (warm cream), the bottom half hangs off the Card onto the pink
-ambient field. The dark horizontal band across the middle of the frame is the Card's own bottom
-edge, showing through the menu, **directly beneath the `TIER` group**.
-
-### 2.4 The nested picker
-
-`evidence-p4/p4-minipicker.png`
-
-`MiniColorPicker` opens a **second `role="dialog"` inside the first** (`p4-6.json`
-`dialogCount: 2`, `nested: true`), 208 × 218.7px, positioned `side="top" align="start"` so it lands
-**on top of its own parent's Tier and Tags rows** — 218.7 / 468.1 = **46.7% of the parent menu is
-eclipsed by its child**. Both surfaces are translucent, so the frame carries three superimposed
-layers of text: the page, the parent menu (`Most Forked`, `TIER`, `Featured`, `FIND BY COLOR`,
-the parent's own swatch and field), and the child.
-
-The child's content is a **hard sRGB HSV square and a six-stop sRGB rainbow strip**
-(`#f00→#ff0→#0f0→#0ff→#00f→#f0f→#f00`, `MiniColorPicker.vue:31`). In a product whose
-constitution opens "value.js is a chromatic laboratory, not a dashboard" and whose signature is
-"a continuous liquid-color rail" (`VISUAL-CONSTITUTION.md:5,7`), this 174×112 rectangle is the most
-saturated object in the entire application and the only place that speaks sRGB-HSV.
-
-The child also carries its **own `Search` button** (52.6 × 36) forty pixels from the parent's
-`Search` button (52.6 × 24) — both visible in the same frame, same name, same job, 12px different
-heights.
-
----
-
-## 3. BLOCKERS
-
-### P4-B1 · BLOCKER · **The Tags filter cannot work.** It speaks an API glass-ui 7 does not have.
-
-`SearchFilterBar.vue:51-55`
-
-```vue
-<Checkbox
-    :checked="selectedTags.includes(tag.name)"
-    @update:checked="toggleTag(tag.name)"
-    class="shrink-0"
-/>
-```
-
-`demo/ui/checkbox/index.ts` is `export { Checkbox } from "@mkbabb/glass-ui";`. The producer's
-typings, `node_modules/@mkbabb/glass-ui/dist/components/checkbox/Checkbox.vue.d.ts:4-12,19`:
-
-```ts
-export interface CheckboxProps extends PrimitiveProps, FormFieldProps {
-    modelValue?: CheckedState | null;
-    defaultValue?: CheckedState;
-    disabled?: boolean;  value?: SelectionValue;  id?: string;  class?: …;
-}
-…  "update:modelValue": (value: CheckedState) => any;
-```
-
-There is no `checked` prop and no `update:checked` emit. Therefore `toggleTag` is **never called**
-and `selectedTags` never changes.
-
-**Reproduction — three activation paths, `probe-P4-3.mjs`, WebKit, `evidence-p4/p4-3.json`:**
-
-| action | producer `aria-checked` | app's `activeFilterCount` badge |
-|---|---|---|
-| baseline | 12 × `false` | absent |
-| click the row `<label>` "pastel" | `[true, false × 11]` | **absent** |
-| click the checkbox button directly | `[false × 12]` (toggles back) | **absent** |
-| keyboard `Space` on checkbox #2 | `[false, true, false × 10]` | **absent** |
-
-The producer's uncontrolled checkbox flips its own visual state; the application's model never
-moves; the wall is never filtered. **The UI shows a selection the product does not hold.**
-
-The rendered DOM carries the wreckage of the failed prop, and it is self-contradictory:
-
-```html
-<button data-slot="checkbox" class="checkbox control-surface glass-control-edge focus-ring tap-squish shrink-0"
-        checked="false" role="checkbox" type="button" aria-checked="false" …>
-```
-
-`checked="false"` is the unrecognised prop landing as a literal DOM attribute on a `<button>`
-(non-conforming HTML), and after the first toggle it is a **stale mirror**: the node says
-`checked="false"` while `aria-checked="true"`.
-
-> **Why the gates did not hold.** Vue's fallthrough-attribute typing accepts both an unknown
-> attribute and an unknown `on*` listener on a `DefineComponent`, so `vue-tsc` has nothing to
-> reject. This class of break is invisible to the typecheck by construction, which is precisely
-> why the producer-API surface needs a rendered witness, not a compile.
-
-**Cure.** `<Checkbox :model-value="selectedTags.includes(tag.name)" @update:model-value="toggleTag(tag.name)" />`
-— but see §12: the row should not be a `Checkbox` in a `<label>` at all.
-
----
-
-### P4-B2 · BLOCKER · **The active-filter count renders as a gold crescent. There is no digit, and no other signal exists.**
-
-`SearchFilterBar.vue:7-12` — a `<span>` at `absolute -right-1 -top-1` inside the trigger.
-
-The producer's own button declares **`contain: paint`** (measured, both engines, `p4-7.json`:
-`triggerContain: "paint"`, `triggerOverflow: "visible"`). `contain: paint` clips descendants to the
-padding box. The badge is 16 × 16 offset −4/−4, so its outer 4px band is clipped; and because the
-button is `border-radius: 9999px` on a 32 × 40 box — an **ellipse** — the surviving top-right
-region is a crescent that does not contain the badge's centred glyph.
-
-**Frame:** `evidence-p4/p4-adj-badge-chromium.png` (DPR 3, tier = Featured, count = 1). What
-renders is a **gold sliver**. No digit.
-
-| | |
-|---|---|
-| badge rect | 16 × 16 at `(661, 382.36)`, right `677`, top `382.36` |
-| trigger rect | 32 × 40 at `(641, 386.36)`, right `673`, top `386.36` |
-| clipped band | 4px on the top edge, 4px on the inline-end edge → **≥ 43.75%** of the badge area removed before the elliptical corner is considered |
-| cross-engine | identical in WebKit (`660.67/381.98`) and Chromium (`661/382.36`) |
-
-This is the **only** signal that filters are active:
-
-- `aria-label="Filters"` on the trigger **overrides** the badge subtree, so the count is absent
-  from the accessible name (`p4-2.json` `triggerAccNameIncludesCount: false`);
-- `liveRegions: []` — no status region announces a filter change (`p4-5.json`, six trials);
-- the results wall renders no filter chips (`BrowsePane.vue:80-118`).
-
-So a user with three filters applied and a user with none see the same crescent, hear the same
-name, and get the same wall — except one wall is filtered.
-
-**I record that my own first reading was wrong.** `probe-P4-2.mjs` walked the ancestor chain for
-`overflow` / `clip-path` / `mask-image` and concluded "not clipped". `contain` was not in the walk.
-Pass 3's `P3-B3` is **CONFIRMED**; pass 1's negative and my own first negative are **withdrawn**.
-
-**Cure.** A count does not belong in the producer's contained button. Move the truth to where the
-user is looking: a named filter summary beside the field (`Featured · 3 tags`, each removable), and
-make the trigger's accessible name carry the count.
-
----
-
-### P4-B3 · BLOCKER · **The menu runs off the bottom of every viewport and cannot scroll.**
-
-`PopoverContent class="w-60 p-0"` — no height contract. Measured (`p4-2.json`,
-`max-height: none`, `overflow: visible`, `overflow-y: visible` in **all** arms):
-
-| arm | viewport | popover | bottom | **below the fold** |
-|---|---|---|---|---|
-| desktop, 12 tags | 1440 × 900 | 240 × **632.63** | 1012.63 | **112.63px** |
-| desktop, 12 tags + 1 filter (Clear-all row) | 1440 × 900 | 240 × **685.63** | 1065.63 | **165.63px** |
-| mobile | 390 × 844 | 240 × 620.66 | 967.32 | **123.32px** |
-| narrow | 320 × 568 | 240 × 619.84 | 862.84 | **294.84px** (47.6% of the menu) |
-| 200% zoom | 1440 × 900 | 480 × **1265.5** | 1287.5 | **387.5px**, and `right = 1511 > 1440` |
-
-The popover is portalled and fixed, so document scroll cannot reach it, and it has no scroller of
-its own. What is below the fold is not decoration:
-
-- the entire **`Find by Color`** section (`top 903.72`, the whole reason a colour library ships a
-  colour filter);
-- the entire **`Clear all filters`** row (`top 1000.28`) — the only escape from an applied filter.
-
-The 200% arm additionally fails WCAG 1.4.4 on two axes at once (387.5px below and 71px past the
-inline edge).
-
-This is not a "long list" problem. The menu is 632.63px of which the two radio groups consume
-**337.82px (53.4%)** to express **five** mutually-exclusive choices — see P4-B4.
-
-**Cure.** The popover needs a height contract (`max-height` bounded by the viewport +
-`overflow-y: auto` on the content, with the producer's fading-scroll affordance), and the body
-needs to stop spending 337.82px on five radio buttons.
-
----
-
-### P4-B4 · BLOCKER · **A form's rhythm was imported into a menu; the producer's touch-target solution was undone by inserting a `<label>`.**
-
-This is the structural finding and it explains most of what is ugly in §2.3.
-
-glass-ui already solves the problem `PROPORTION-AUDIT.md` PR-12 names ("touch padding bloats /
-misaligns visual glyphs … invisible/seat geometry preserves target floor while optics follow
-rung"). `node_modules/@mkbabb/glass-ui/dist/components/radio-group/styles.css`:
-
-```css
-.radio-group {
-  --radio-face: 1.125rem;                                  /* 18px — the optics  */
-  --radio-seat: var(--touch-target, 2.75rem);              /* 44px — the target  */
-  --radio-seat-offset: calc((var(--radio-seat) - var(--radio-face)) / -2);   /* -13px */
-  display: flex; flex-direction: column; align-items: flex-start;
-  gap: calc(var(--radio-seat) - var(--radio-face));        /* 26px */
-}
-.radio-group__item { inline-size: var(--radio-seat); block-size: var(--radio-seat);
-                     margin: var(--radio-seat-offset); }
-```
-
-Confirmed live (`p4-5.json`): `--radio-seat: 2.75rem`, `--radio-face: 1.125rem`, item rect
-`44 × 44`, item `margin: -13px`, group `gap: 26px`, group `align-items: flex-start`. The producer's
-arithmetic: an 18px face + a 26px gap = a **44px pitch that equals the 44px seat**. Optics follow
-the rung; the target floor is met invisibly. It is exactly right.
-
-`SearchFilterBar.vue:22-26` inserts a `<label class="filter-option">` between the group and the
-item. The negative margin still collapses the item, but the **gap now separates 30.94px text rows
-instead of 18px circles**. Measured (`p4-2.json`):
-
-| list | row height | pitch | dead space | source of the rhythm |
-|---|---|---|---|---|
-| Sort (3 radios) | 30.94 | **56.93** | 26.00px = **45.7%** | producer `gap: calc(44px − 18px)` |
-| Tier (2 radios) | 30.94 | **56.93** | 26.00px = **45.7%** | same |
-| Tags (12 checkboxes) | 30.94 | **32.94** | 2.00px = 6.1% | consumer's own `flex flex-col gap-0.5` |
-
-`56.93 / 32.94 = **1.73×**`. **One 240px menu, two rhythms.** It is plainly visible in
-`p4-popover-full-tall.png`: `Newest` / `Most Popular` / `Most Forked` float apart while
-`pastel` / `neon` / `earth` are packed.
-
-The proximity is also **inverted**. The section label sits 6px above its first option
-(`.section-label { margin-bottom: 0.375rem }`, `SearchFilterBar.vue:239`) while sibling options sit
-26px apart — so each option is **4.33× closer to its heading than to its own siblings**. Gestalt
-proximity therefore groups `SORT`+`Newest` and orphans `Most Popular` and `Most Forked`.
-
-The same producer property breaks the hit area. `align-items: flex-start` is right for bare
-circles and wrong for menu rows; the `<label>` shrinks to content (`p4-3.json`):
-
-| row | label width | fills the 182px column? |
-|---|---|---|
-| Newest | 121.42 | no |
-| Most Popular | **165.44** | no |
-| Most Forked | 159.69 | no |
-| All | **61.14** | no |
-| Featured | 132.92 | no |
-| every tag row | 182.00 | yes |
-
-`165.44 / 61.14 = **2.71×**`. `.filter-option:hover` paints a rounded fill on that box, so the
-hover highlight is a **different width on every row** in the top two sections and a constant width
-in the third — visible in `p4-popover-full-tall.png`, where the hovered `All` pill stops a third of
-the way across the menu. And the *click* target for `All` is 61.14 × 30.94 in a 240px menu: a user
-aiming at the right half of the `All` row hits nothing.
-
-**Cure (architectural, not a patch).** These are menu rows, not a form. The design-system answer
-already exists and is already re-exported in this repo: `DropdownMenuRadioItem` /
-`DropdownMenuCheckboxItem` own full-bleed rows, an indicator gutter, roving focus, typeahead and a
-producer-owned selected register. Adopt the producer's menu primitives and delete the local
-`.filter-option` recipe, the interposed `<label>`, and both `RadioGroup`s.
-
----
-
-### P4-B5 · BLOCKER · **"Search by CSS color" accepts one syntax out of the whole CSS colour grammar, advertises another, and reports nothing.**
-
-`SearchFilterBar.vue:218`
-
-```ts
-const hex = text.startsWith("#") && /^#[0-9a-f]{6}$/i.test(text) ? text : pickerHex.value;
-```
-
-Everything that is not exactly `#RRGGBB` silently becomes the swatch's colour. Meanwhile the same
-component advertises otherwise, twice:
-
-- `aria-label="Search by CSS color"` (line 93)
-- `placeholder="#hex, hsl(...)"` (line 92)
-
-…and imports the product's own universal parser three lines above the regex
-(`import { parseColorIn } from "../../../color-session/color-utils"`, line 145), which it then uses
-*only after* the regex has thrown the input away (line 206).
-
-**Reproduction — `probe-P4-5.mjs`, WebKit, six syntaxes, `evidence-p4/p4-5.json`:**
-
-| typed | valid CSS? | searched | `aria-invalid` | error text | live region | page error |
-|---|---|---|---|---|---|---|
-| `rebeccapurple` | yes | `#4488cc` | `null` | none | none | none |
-| `hsl(200 80% 50%)` | yes — **the placeholder's own example** | `#4488cc` | `null` | none | none | none |
-| `oklch(0.72 0.14 244)` | yes — **the product's canonical space** | `#4488cc` | `null` | none | none | none |
-| `#f00` | yes | `#4488cc` | `null` | none | none | none |
-| `not-a-color` | **no** | `#4488cc` | `null` | none | none | none |
-| `#4488CC` | yes — the one accepted form | `#4488cc` | `null` | none | none | none |
-
-All six produce **byte-identical** feedback. Garbage and a valid `oklch()` are indistinguishable to
-the user; so is the one case that actually worked.
-
-This is the sharpest instance of the general defect in this component: **the surface asserts a
-capability the product does not have.** And here the product *does* have it — `parseColorIn` is
-already in the file. The library under audit is a CSS colour parser; its own flagship demo disables
-it behind a six-digit-hex guard and then names the field after the thing it refuses to do.
-
-**Cure.** Delete the regex. `parseColorIn(text, "oklab")` in a `try`/`catch`; on failure set
-`aria-invalid` and render the producer's field-error affordance; on success mirror the parsed
-colour into the swatch so the instrument shows what it understood.
-
----
-
-## 4. MAJOR
-
-### P4-M1 · MAJOR · The pending state is structurally unreachable, and so is every `disabled:` style attached to it.
-
-`SearchFilterBar.vue:213-225`: `applyColorSearch` is `async`, sets `searching.value = true`, then
-runs a **fully synchronous** body (`trim`, a regex, `parseColorIn`, `emit`) inside `try`, and
-`finally` sets it back to `false`. No `await` ever yields, so Vue never flushes a render with
-`searching === true`.
-
-**Reproduction — `probe-P4-4.mjs`, both engines, rAF sampling + a `MutationObserver` over the
-button subtree across 700ms after a real click:**
-
-| engine | frames sampled | mutations observed | `<Loader2>` ever in the DOM | `disabled` ever true |
-|---|---|---|---|---|
-| WebKit | 68 | **0** | **false** | **false** |
-| Chromium | 84 | **0** | **false** | **false** |
-
-Dead by construction: the `Loader2` + `animate-spin` branch (line 102) and all the `disabled:`
-utilities (line 99, `disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none`).
-
-It could not be otherwise: `onColorSearch` in `BrowsePane.vue:351-355` filters
-**already-loaded** rows client-side and issues no request — the comment says so
-("API also supports server-side … but client-side is instant"). There is nothing to wait for. The
-component ships a designed loading state for an operation that has no latency, and ships no state
-at all for the operation that does (the 50-row page it is silently filtering).
-
-### P4-M2 · MAJOR · The producer's `variant` API is dead; the two quietest controls ship at default emphasis.
-
-`variant="ghost"` on the trigger (line 5) and on `Clear all filters` (line 112). Measured rendered
-attributes, **identical in WebKit and Chromium** (`p4-7.json`):
-
-```
-data-slot=button  data-emphasis=secondary  data-tone=neutral  data-size=md
-data-icon-only=true  type=button  …  variant=ghost   ← a raw DOM attribute, not a prop
-```
-
-`variant` lands as an inert HTML attribute while the producer paints `data-emphasis="secondary"` —
-its **default**. The consequence is visible in `p4-popover-full-tall.png`: `Clear all filters`, a
-terminal escape hatch, is the loudest object in the menu. Convergent with pass 3's `P3-M10`,
-independently derived.
-
-The same measurement shows the sizing failure: `data-size="md"` (min-height 40px) versus the
-consumer's `h-8 w-8`. `min-height` beats `height`, so the height override is discarded (computed
-`height: 40px`, `min-height: 40px`) while `w-8` succeeds — **breaking `data-icon-only`'s square
-contract** and producing the 32 × 40 ellipse of §2.2. The identical mechanism hits
-`Clear all filters`: declared `h-7` (28px), rendered `36px` (`p4-2.json`).
-
-And `p-0` on `PopoverContent` (line 16) is likewise defeated: computed padding
-`20.351999px 16px`. Three per-instance overrides, three defeats — owner edict 5 ("style at the
-root component level, never per-instance overrides") is being violated *and* punished.
-
-### P4-M3 · MAJOR · The colour field cannot render its own placeholder, let alone a colour.
-
-Measured (`p4-2.json`, `placeholderFits`, computed from the live font):
-
-| | px |
-|---|---|
-| input `clientWidth` | 145 |
-| `padding-left` / `padding-right` (`pr-16`) | 16 / **64** |
-| **usable text width** | **65** |
-| `#hex, hsl(...)` needs | **123.94** → truncated to **52.4%** |
-| `oklch(0.72 0.14 244)` needs | **177.05** → **2.72×** the space |
-
-It renders as `#hex, …` — visible in `p4-webkit-light-open-crop.png` and
-`p4-popover-full-tall.png`. The budget: a 240px popover minus 2×16 producer padding minus 2×12
-section padding = 184px; a 28px swatch + 6px gap take 34; `pr-16` reserves 64px for a 52.59px
-overlay button. **44% of the field is reserved for the word "Search" and 45% for the colour.** A
-field whose entire job is to hold a CSS colour string holds eight characters.
-
-### P4-M4 · MAJOR · Two boundary systems for one grouping, and the register says zero.
-
-`class="divide-y divide-border"` (line 17) renders **3 hairlines** with 12 tags (4 with the
-Clear-all row): measured `border-bottom: 1px rgb(198, 180, 159)` on the `Sort`, `Tier` and `Tags`
-sections (`p4-2.json` — note `border-top` is `0px`; the divider is on the trailing edge).
-
-- `PROPORTION-AUDIT.md:49` PR-05 — *"Dividers, caster shadows and corner marks repeat a boundary —
-  **REMOVE** … every other divider/ornament is zero."*
-- `VISUAL-CONSTITUTION.md:92` — *"Consumer CSS may not hide a producer divider … every other
-  composition retains no divider."*
-- `PROPORTION-AUDIT.md:69` §5.4 — *"A divider is retained only when grouping would be ambiguous
-  without it. Spacing plus material already expressing the same boundary makes the line
-  duplicative."*
-
-Each section already carries a mono uppercase tracked label and 12px of padding. The line is the
-third encoding of one boundary. It is also, at full-strength `--border`, the heaviest ink in the
-menu.
-
-### P4-M5 · MAJOR · The tag list is a fractional window that is not keyboard-operable and has no name.
-
-`max-h-28 overflow-y-auto scrollbar-thin` (line 49). Measured (`p4-2.json`):
-
-```
-maxHeight 112px · clientHeight 112 · scrollHeight 400 · scrollable true
-tabIndex -1 · role null · aria-label null · 12 tags
-```
-
-- 112 / 32.94 = **3.4 rows visible of 12** — a deliberately fractional cut.
-  `p4-popover-full-tall.png` shows `monochrome` sliced through its x-height with a full-strength
-  divider immediately below; the half-glyph reads as a rendering fault, not as an affordance.
-- No fade, no scroll shadow, no count. The app owns `pane-scroll-fade` and glass-ui ships
-  `fading-scroll`; neither is used.
-- `tabIndex: -1` on a scrollable region: WCAG 2.1.1 requires keyboard operability of a scroll
-  container. It has no `role`, no `aria-label`, and the twelve rows sit inside no named group.
-- There is no way to find a tag among many — no filter, no ordering statement, no "12 tags".
-
-### P4-M6 · MAJOR · In WebKit, `Tab` reaches 3 of 17 controls and then leaves the open dialog.
-
-`probe-P4-4.mjs`, 22 consecutive `Tab` presses from the freshly-opened menu:
-
-| engine | traversal | left the dialog at | tags / swatch / Search reached |
+| scheme | trigger fill (composited) | host field fill | **contrast** |
 |---|---|---|---|
-| **WebKit** | radio → radio → `input` → **out** | press **4** | **no / no / no** |
-| Chromium | radio → radio → 12 × checkbox → swatch → input → Search → **cycles** | never (trapped) | yes |
+| light | `rgb(233,226,217)` | `rgb(233,225,217)` | **1.01 : 1** |
+| dark | `rgb(77,66,59)` | `rgb(66,55,47)` | **1.19 : 1** |
 
-In WebKit — the engine the entire shipped visual matrix was captured in, and the engine this
-product's iOS users run — the **whole Tags section and the whole Find-by-Color instrument are
-unreachable by `Tab`**, and focus escapes the `role="dialog"` on the fourth press. Chromium traps
-correctly and cycles at index 17.
+WCAG 1.4.11 requires **3 : 1** for the visual boundary of a user-interface component against
+adjacent colour. The trigger's declared fill is `oklab(0.915626 0.00551148 0.0130686 / 0.52)`
+(`p5-1.json → trigger.cs`) — a 52 %-alpha glass wash **over the same glass wash**. Composited, it
+is the field. The only separations that survive are the producer's 0.5 px specular ring and the
+2.30 px of geometry it sticks out of the pill, top and bottom (`p5-1.json → triggerProudOfField:
+{top: 2.3, bottom: 2.3}`).
 
-I have not isolated the WebKit mechanism (the radios *are* reached, so it is not the plain
-"buttons are not tabbable" default), and I label that part a **hypothesis**. The measurement
-itself is reproducible and cross-engine-divergent, and the design conclusion does not depend on the
-mechanism: a 17-control menu built from bare producer primitives has no traversal contract of its
-own, and it behaves differently in the two engines the product ships to.
+It is also not a circle and not a square: rendered **32.48 × 40.60**, aspect **0.800**,
+`border-radius: 9999px` — an ellipse. The cause is measured in §4 P5-M3.
 
-### P4-M7 · MAJOR · Every option is nameless to assistive technology; both groups are nameless too.
+### 2.3 The open menu over a populated wall — the frame no prior pass had
 
-Measured (`p4-2.json`, `p4-1.json`):
+`evidence-p5/p5-3-light-wall-open.png` (desktop) · `p5-3-mobile-wall-open.png` (390 × 844, DPR 3) ·
+`p5-3-dark-wall-open.png` · `p5-3-forced-wall-open.png`
 
-```
-5 × [role=radio]      accessible name: null
-12 × [role=checkbox]  accessible name: null
-2 × [role=radiogroup] aria-label: null, aria-labelledby: null
-```
+Read the desktop frame and count what it does to the page:
 
-Mechanism: `<label class="filter-option">` wraps a producer `<button role="radio">`. Per HTML-AAM
-a `<button>`'s accessible name comes from its **subtree contents** (empty here), then `title` — the
-wrapping `<label>` is not consulted, and it carries no `for` in any case. The visible text lives in
-a sibling `<span>`, invisible to the name computation.
+- The menu lands **on top of the wall**, left of its own trigger, spanning y = 251…883.84 in a
+  900 px viewport. Behind its 80.8 %-alpha ground (`background-color: oklab(0.936403 0.00557132
+  0.0133027 / 0.808)`, `backdrop-filter: blur(11px) saturate(1.6)`) the card titles *Palette 0 …
+  Palette 4* are still legible at the left edge — the veil is not opaque enough to establish
+  figure/ground, and not transparent enough to let you read the wall.
+- The tag list ends **mid-glyph**: `high-contrast-` is sliced horizontally by the 112 px scroller
+  with no fade, no ellipsis, and no visible scrollbar (`scrollbar-width: thin`,
+  `scrollbar-color: … rgba(0,0,0,0)` — the track is transparent). The sliced word is the only
+  affordance that more tags exist. Crop: `evidence-p5/p5-6-tag-scroller.png`.
+- The tag checkboxes are **circles**, the same shape as the Sort/Tier radios above them
+  (`p5-4.json → marks.radioVsCheckboxRadius: ["50%","9999px"]`). Single-select and multi-select
+  wear one mark.
+- The colour field shows `#hex, …` — its own placeholder, truncated by the Search pill sitting on
+  top of it.
 
-So the menu announces "radio button, not checked" five times and "checkbox, not checked" twelve
-times, inside two groups that announce no purpose. `VISUAL-CONSTITUTION.md:83` — *"Selected,
-failed, pending, withdrawn and disabled states are never color-only. Role, **accessible name**,
-state/value … are explicit."*
+The **forced-colors** frame (`p5-3-forced-wall-open.png`) is the cleanest indictment of the colour
+sub-instrument: the swatch is a **white circle**. Measured: `background-color: rgb(255,255,255)`,
+`box-shadow: none`, `border: 2px solid rgb(0,0,0)` (`p5-2.json → forcedColors.open.swatch.cs`). The
+inline `:style="{ backgroundColor: pickerHex }"` (`:77`) is the only carrier of "which colour you
+are searching for", and forced-colors deletes it. Nothing else on the surface names the colour.
 
-The four lucide glyphs (`Clock`, `TrendingUp`, `GitFork`, `Award`) are decoration on rows that have
-no name at all — `PROPORTION-AUDIT.md:70` §5.5: *"A small icon/mark is either data, status, labeled
-action, drag affordance, focus/selection register or removed."*
-
-### P4-M8 · MAJOR · In RTL the count chip flips into the field's text area.
-
-`-right-1 -top-1` (line 9) is physical. Measured under `dir="rtl"` (`p4-3.json`):
-
-```
-dir rtl · trigger 767.5→799.5 · badge 787.5→803.5 · field 754→1216
-badgeOutsideTriggerInlineEnd: false     badgeOverlapsFieldInterior: true
-```
-
-In RTL the inline-end is the **left**; the badge stays on the physical right, i.e. the inline-start
-side, which is now the **interior of the search field**. `VISUAL-CONSTITUTION.md:150` §6.1 —
-*"chrome, navigation and layout — logical inline/block direction follows the document."* The fix is
-one token (`-inset-inline-end-1`), but the defect is that no state in this component was ever
-authored against a direction.
-
-### P4-M9 · MAJOR · Everything the producer owns adapts to forced colors; everything hand-rolled here does not.
-
-`probe-P4-2.mjs` (`forcedColors: "active"`, WebKit) + frame `evidence-p4/p4-forced-open-crop.png`:
-
-| element | owner | forced-colors behaviour |
-|---|---|---|
-| popover surface | producer | → `rgb(255,255,255)` / border `rgb(0,0,0)` ✔ |
-| radio face + checked + focus | producer (`@media (forced-colors: active)` block in `radio-group/styles.css`) | → `ButtonText` / `Highlight` / 2px `Highlight` outline ✔ |
-| **section dividers** | consumer `divide-border` | stays `1px rgb(198, 180, 159)` ✘ |
-| **row hover** | consumer `color-mix(in srgb, var(--accent) 50%, transparent)` | resolves to `color(srgb 0.874 0.8254 0.766 / 0.5)` — an author colour ✘ |
-| **colour swatch** | consumer inline `background-color` | WebKit keeps `rgb(68,136,204)`; pass 3 measured Chromium forcing it to `rgb(255,255,255)` ✘ either way |
-| **inline `Search`** | consumer `bg-muted/50` + `text-muted-foreground` | stays author beige/brown ✘ |
-
-Two consequences. (1) The one **data-bearing** colour in the component — the swatch, which *is* the
-value — carries no `forced-color-adjust: none`, so whether the user's chosen colour survives is
-engine-dependent. (2) The row hover is the **only** hover cue in the menu and it is an author
-colour, so in forced colors the option rows lose all pointer feedback while the forbidden dividers
-are the only boundary that survives.
+The **mobile** frame is the composition failure at its worst: a 240 px menu floating in a 390 px
+viewport (61.5 % of the width), running 19.99 px past the bottom of the screen, with slivers of
+palette card visible either side. It is neither a sheet nor a tray.
 
 ---
 
-## 5. MINOR / INFO
+## 3. The headline: the decided composition is a tray, and this is not a tray
 
-### P4-m1 · MINOR · The type roles are outside the constitution's closed matrix, in three places.
+`OPTICAL-BENCH-COMPOSITIONS.md:39` — the **binding** topology decision for Browse, verbatim:
 
-`VISUAL-CONSTITUTION.md:68-78` §4 is a **closed** matrix: display / `--type-title` /
-`--type-subheading` / `text-heading` / `text-prose` / `text-small` / `text-mono-small`|`mono-caption`.
+> **Browse** | Public specimen field at 64%…66.6666667%; **search/filter is a shallow leading
+> tray.** … | **search/filter; result field; selected inspector when present.** |
 
-| element | rendered | matrix role | verdict |
+"Shallow" and "leading" are both shape words, and "tray" is a named species elsewhere in the same
+canon (`VISUAL-CONSTITUTION.md:28` — "a narrow invitation tray (≤15% of the stage)";
+`:186` — "A secondary empty shelf collapses to a tray or absence"). A tray is in flow, above the
+field it governs, and shallow enough that the field remains visible. The mobile sequence
+`search/filter; result field; …` is an ordered document sequence, which an overlay cannot be.
+
+What shipped is the opposite species. Measured with a 12-palette wall stubbed in
+(`probe-P5-3.mjs`, `evidence-p5/p5-3.json`):
+
+| arm | popover | % of Browse pane covered | % of wall union covered | visible cards touched | visible cards > 50 % covered |
+|---|---|---|---|---|---|
+| desktop 1440 × 900 | 240 × 632.84 | **37.9 %** | 24.5 % | **6 of 6** | 5 |
+| dark 1440 × 900 | 240 × 632.84 | 37.9 % | 24.5 % | 6 of 6 | 5 |
+| forced-colors 1440 × 900 | 240 × 632.84 | 37.9 % | 24.5 % | 6 of 6 | 5 |
+| mobile 390 × 844 DPR 3 | 240 × 620.66 | **54.3 %** | 27.8 % | **5 of 5** | 5 |
+
+This is not an aesthetic complaint. Browse is a **discovery** route: the product loop is
+*narrow the field → see what remains → narrow again*. Filtering is a continuous, iterative act, and
+this chrome makes the result invisible for the entire duration of the act. On mobile more than half
+the pane is gone. The tray shape was chosen precisely because a tray leaves the field legible while
+you tune it.
+
+The rest of this report is, in large part, downstream of this one decision: an overlay must be
+self-contained, so it grew four sections, three dividers, its own scroller, its own colour
+instrument and a count badge — a menu that has to be a whole panel because it cannot be a tray.
+
+---
+
+## 4. Findings
+
+Severity ladder: **BLOCKER** = the surface asserts something the product does not hold, or a
+sanctioned state is unreachable · **MAJOR** = a binding law is violated with rendered evidence ·
+**MINOR** = a real defect that does not break a law outright · **INFO** = recorded so the next pass
+does not re-spend the budget.
+
+Provenance: **NEW** = no prior pass contains it · **NEW-EXT** = a prior finding extended by a
+mechanism or an arm it did not have · **CORROBORATED** = independently reproduced, credit to the
+prior pass.
+
+---
+
+### P5-B1 · BLOCKER · **NEW** · The decided composition is a shallow leading tray; a 240 × 633 overlay shipped, and it hides the wall it filters
+
+**Evidence** · `OPTICAL-BENCH-COMPOSITIONS.md:39` (quoted §3) ·
+`SearchFilterBar.vue:3,16` (`<Popover>` / `<PopoverContent align="end" class="w-60 p-0">`) ·
+`evidence-p5/p5-3.json → light.occ`, `mobile.occ` · frames `p5-3-light-wall-open.png`,
+`p5-3-mobile-wall-open.png`.
+
+**Reproduction** · `node docs/tranches/V/megatranche/audit/components/SearchFilterBar/probe-P5-3.mjs`
+→ `light | cards 12 inVP 6 | pop 240x632.84 | %wallUnion 24.5 | %browsePane 37.9 | cardsCovered 6 over50 5`.
+
+**Mechanism** · the chrome was authored as a *menu* (`Popover` + `PopoverContent`) when the decided
+species is an *in-flow tray*. Every subsequent defect in this report is a consequence: an overlay
+must carry its own ground, its own boundaries, its own scroller and its own escape hatch, so it
+accreted four sections, three dividers, a 112 px nested scroller and a count badge that a tray would
+not need.
+
+**Cure** · not "make the popover shorter". Transpose the species: a shallow in-flow tray beneath the
+`SearchBar` inside `BrowsePane`'s existing `flex flex-col gap-3` column
+(`BrowsePane.vue:4`) — sort and tier as one row of segmented/pill controls, tags as a horizontal
+chip rail, colour as a single seated swatch+field. The wall stays visible; the tray costs one row of
+height; the 240 px overlay, its dividers, its scroller, its badge and its two focus vocabularies all
+die with it.
+
+---
+
+### P5-B2 · BLOCKER · **NEW-EXT** (extends D-2 / D2-B2 / P3-B2 / P4-B3 with the zoom arm and an unreachability proof) · At 200 % zoom, 65.3 % of the menu cannot be reached
+
+**Evidence** · `evidence-p5/p5-6.json → zoom200`, frame `p5-6-zoom200-open.png`:
+
+```
+viewport      : 720 × 450   (the CSS viewport of 1440×900 at 200 % zoom)
+popover       : top 238.00, bottom 849.05, height 611.05
+visibleBlockPx: 212.00      →  visibleFraction 0.347
+offscreenBelow: 399.05 px
+popoverScrollable : false      popoverMaxHeight : "none"
+docScrollHeight   : 450        docClientHeight  : 450     docScrollable : false
+colourFieldTop    : 779.70  →  colourFieldOffscreen : true
+```
+
+**Reproduction** · `node …/probe-P5-6.mjs`.
+
+**Why this is worse than "it overflows"** · prior passes established the overflow. What is new is
+that **there is no path to the hidden 65.3 %**: the popover has `max-height: none` and is not
+scrollable, and the *document* is not scrollable either (`scrollHeight === clientHeight === 450`).
+The entire "Find by Color" instrument begins 329.7 px below the fold. The only thing that moves it
+is scrolling the **underlying pane**, which drags the anchored popover with it
+(`zoom200AfterScroll: {scrollY: 0, top: -253.00, bottom: 358.05}`) — i.e. to reach the bottom of the
+filter menu you must scroll the wall you are filtering, and you then lose the top 253 px of the
+menu. There is no viewport at 200 % zoom in which the whole menu is legible.
+
+WCAG 1.4.4 (Resize text) and 1.4.10 (Reflow) both fail. `PROPORTION-AUDIT.md:16` names actual
+400 %-zoom in-app browser observation as a binding arm for this tranche; this surface does not
+survive 200 %.
+
+---
+
+### P5-B3 · BLOCKER · **NEW** · The one control that opens all of this has a 1.01 : 1 boundary against its own container
+
+**Evidence** · §2.2 table; `analyze-P5-contrast2.py` → `evidence-p5/p5-contrast2.json → figureGround`;
+crops `p5-3-light-crop-trigger.png`, `p5-3-dark-crop-trigger.png`; declared fill
+`p5-1.json → chromium-desktop-light.open.trigger.cs.background-color =
+oklab(0.915626 0.00551148 0.0130686 / 0.52)`.
+
+**Reproduction** · `node …/probe-P5-3.mjs && python3 …/analyze-P5-contrast2.py`.
+
+**Mechanism** · the trigger consumes `glass-wash glass-capsule` (`p5-4.json → marks.triggerBox.classes`)
+— a translucent glass fill designed to sit on a *scene*. It is placed inside the glass search pill,
+so the wash composites over its own value. The producer's 0.5 px specular ring is all that is left,
+and it reads as a stray ellipse half in and half out of the pill because of the 2.30 px overhang.
+
+**Why BLOCKER** · this is the sole affordance for sort, tier, tag and colour search on the route
+whose entire job is discovery. `PROPORTION-AUDIT.md:60` (PR-16) already rules on this species for
+the Dock: "`…` keeps a named menu purpose plus expanded state **or is removed**". Here the name and
+the expanded state are present (§6.4) — what is missing is that anyone can see it. Four "small tap
+targets" are what the Safari audit counted on this route (`REPORT.md:35,50,65,80`); this is one of
+them, and its visibility problem is independent of its size.
+
+**Cure** · a tray (P5-B1) deletes the trigger. If a trigger survives at all, it must leave the glass
+family — an opaque or ink-outlined seat inside a glass host — and take the producer's `size` prop
+rather than a per-instance `h-8 w-8` (P5-M3).
+
+---
+
+### P5-M1 · MAJOR · **NEW** · The component has no row in the binding proportion register
+
+**Evidence** · `docs/tranches/V/research/proportion-register.md` — all 35 rows enumerated
+(`grep -n "^| PR-" …` → PR-01…PR-35). The exhaustive-site lists that could own this surface name
+these sites and not this one:
+
+| row | its exhaustive site list | contains Browse search/filter chrome? |
+|---|---|---|
+| PR-07 (`:62`) | "Dock seal/edit, selector, eyedropper, Spectrum, channels, palette, Generate, Mix and Gradient hover-only/unlabeled actions" | **no** |
+| PR-12 (`:47`) | "Dock/toolbar glyphs, swatch actions, tab faces, drag handles and compact row actions" | **no** |
+| PR-31 (`:74`) | "`ALL18` corner glyphs, decorative controls, repeated dashes/dots, caster details and unexplained micro-marks" | generic only, no site |
+| PR-16 (`:35`) | Browse/Library two-pane matrix — region ratios only | **no** |
+| PR-27 (`:70`) | Browse/Library empty/loading/error states | wall states only, not the filter chrome |
+
+**The law it breaks** · `PROPORTION-AUDIT.md:25`: "One row exists for every route-level region and
+every repeated card/header/title/readout/space/padding/**divider/icon/button/ornament/status**/drag/focus
+species." This component contributes at least six unregistered species: an unlabeled `⋮`
+icon-button, a 240 px overlay region, three `divide-y` dividers, four section labels, two distinct
+option-row species, a count-badge status mark and a colour swatch ornament.
+`PROPORTION-AUDIT.md:83`: "W18 cannot complete while any register row lacks a terminal verb/owner."
+
+**Reproduction** · `grep -rni "searchfilter\|filter bar\|filter menu\|EllipsisVertical" docs/tranches/V/research/ docs/tranches/V/OPTICAL-BENCH-COMPOSITIONS.md docs/tranches/V/PALETTE-CONTRACT.md` → **no hits**.
+
+**Why this is the root cause and not a paperwork complaint** · an unregistered surface has no
+terminal verb, no accountable wave, no π frame and no DELTA. That is precisely why this component
+accumulated four dead declarations, two rhythms, three focus vocabularies and a species that
+contradicts its own binding composition — nobody owned it. Pass 3's `P3-i1` observed that the
+standing visual audit had never seen this component; this is the structural reason.
+
+---
+
+### P5-M2 · MAJOR · **NEW-EXT** (extends D2-M2 / P3-M3 / P4-B4 with the gap mechanism and the checkbox number) · Two rhythms and two control scales in one 240 px menu
+
+**Evidence** · `p5-1.json → chromium-desktop-light.open.optionPitch, optionWidths` ·
+`p5-7.json → controlVsRow`:
+
+| quantity | producer `RadioGroup` rows | hand-rolled tag rows | fork |
 |---|---|---|---|
-| `.section-label` ("SORT"/"TIER"/"TAGS"/"FIND BY COLOR") | Fira Code 14.384px, `uppercase`, `letter-spacing 1.4384px` (glass-ui `.section-label` = `@apply text-mono-caption`) | section heading = `text-heading`, Plus Jakarta Sans | **mono used as a heading**; the mono role is "value, code, or provenance" |
-| badge digit, inline `Search` label | `text-micro` → **11px** | *not in the matrix at all* | out of register |
-| `MiniColorPicker` hex readout | `text-caption` | *not in the matrix* | out of register |
+| row height | 30.97 px | 30.97 px | 1.000× |
+| **row pitch** | **56.97 px** | **32.97 px** | **1.728×** |
+| **inter-row gap** | **26.00 px** | **2.00 px** (`gap-0.5`) | **13.0×** |
+| **control box** | **44 × 44** (`[role=radio]`) | **16 × 16** (`[role=checkbox]`) | **7.56× area** |
+| hover-target width | 61.14 … 165.41 px (shrink-to-fit) | 182 px (full) | — |
 
-`.section-label` is a 12-site repo idiom, so this is a **family** row, not a local one — but the
-family is out of register and this component is one of its sites.
+Across the whole menu the hover target varies **61.14 → 182 px = 2.977×**
+(`p5-7.json → controlVsRow.widestOverNarrowest: 2.977`). Five different widths appear inside one
+182 px column, because the `<label>` at `:22,:34,:38` is `display:flex` and shrinks to its content
+for the radio rows while the tag rows fill.
 
-### P4-m2 · MINOR · The control type recipe is hand-rolled instead of consumed.
+**The mechanism, stated exactly** · glass-ui's `RadioGroup` is calibrated for a bare 44 × 44 seat in
+a column with a 26 px gap — the producer has already solved the touch-target problem. This component
+interposes a `<label class="filter-option">` (`:22,:34,:38,:50`) whose own height is 30.97 px, so
+the 44 px producer control **overflows its own row by 6.52 px on each side**
+(`p5-7.json → radioOverflowsRowBy: 6.52`) while the visible hover highlight is only 30.97 px tall.
+The tag list then hand-rolls `flex flex-col gap-0.5` (`:49`) at 2 px. The result is one surface with
+two unrelated vertical grammars and a hit area that does not match the painted area anywhere.
 
-`SearchFilterBar.vue:240-247` re-implements the control role by hand:
+**The law** · `PROPORTION-AUDIT.md:72` (§5.7): "Visual glyph size, operable target size and layout
+reservation are separate quantities. Accessibility floors do not require bloated visible chrome."
+Here all three are conflated and inconsistently so — 45.7 % of the sort block is dead space
+(26.00/56.97) while the tag marks are 16 px.
 
-```css
-.filter-option { font-family: var(--font-serif); font-size: var(--type-small);
-                 line-height: var(--leading-small); border-radius: var(--radius-md); }
+---
+
+### P5-M3 · MAJOR · **NEW** (the `p-0` and PRM arms are new; the `h-8` loss extends P4-M2) · Three of the component's own declarations are dead
+
+Measured, live:
+
+| declaration | source | computed | verdict |
+|---|---|---|---|
+| `class="w-60 p-0"` on `PopoverContent` | `:16` | `padding: 20.352px 16px` | **`p-0` is dead** |
+| `class="relative h-8 w-8"` on the trigger | `:5` | `height: 40px`, `min-height: 40px`, rendered `32.48 × 40.60` | **`h-8` is dead** → the ellipse |
+| `.filter-option { transition: background-color var(--duration-fast) … }` | `:246` | under PRM: `transition-property: opacity, color, background-color, border-color, box-shadow`, `duration 0.1s` (token `--duration-fast` = `0.2s`) | **the scoped rule is overridden** |
+
+**Evidence** · `p5-4.json → marks.popoverPadding`, `marks.triggerBox`, `reducedMotion` ·
+`p5-2.json → desktopLight.open.motion.filterOption` (non-PRM: `background-color / 0.2s` — the scoped
+rule wins) vs `reducedMotion.open.motion.filterOption` (5 properties / 0.1s — it loses).
+
+**Mechanism for `p-0`** · the producer's own class string carries
+`px-(--overlay-pad-inline) py-(--overlay-pad-block)`
+(`p5-4.json → marks.popoverClassList`, full string:
+`popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-60 p-0`).
+Tailwind orders `p-*` before `px-*`/`py-*` in the generated sheet, so the producer's axis utilities
+win regardless of the order in the attribute. The consumer asked for a flush menu and silently got a
+16 px inset, which is why the `divide-y` rules float 16 px short of both edges instead of spanning
+the surface.
+
+**The law** · owner edict 5 (style at the root, never per-instance) and
+`PROPORTION-AUDIT.md:73` (§5.8): "Real rendered relation wins over token intent. … token presence
+alone cannot close a row." Three declarations here are token intent with no rendered effect. The
+sibling in the same folder shows the correct move: `UserSortMenu.vue:11` uses `size="xs"` — the
+producer's own API — and renders a clean **28 × 28** circle (`p5-4.json → sibling.rendered`).
+
+---
+
+### P5-M4 · MAJOR · **NEW** · The area budget is inverted: the only real instrument gets the least room
+
+**Evidence** · `p5-1.json → chromium-desktop-light.open.sections`:
+
+| section | content | height | share of the 632.84 px menu |
+|---|---|---|---|
+| Sort | 3 radio options | **197.48 px** | **31.2 %** |
+| Tags | scrolling checkbox list | 164.58 px | 26.0 % |
+| Tier | 2 radio options | 140.52 px | 22.2 % |
+| **Find by Color** | swatch + nested picker + text field + submit + async state | **87.58 px** | **13.8 %** |
+
+Sort — three mutually exclusive words — takes **2.25×** the room of the only sub-instrument on the
+surface: a compound control with a nested colour picker, a free-text CSS parser, a submit action and
+a pending state. And Sort's 197.48 px is not information, it is the 26 px producer gap repeated
+three times (P5-M2).
+
+**The law** · `PROPORTION-AUDIT.md:5` (§1 Ruling): "Every element earns its scale, interval, boundary
+and material from its job relative to the local protagonist." Nothing here earned its scale; the
+scale is an artifact of which list happened to use the producer component.
+
+---
+
+### P5-M5 · MAJOR · **NEW** · The tag list is an unhandled data surface — three failure modes, all live
+
+Tag names are user- and admin-authored data (`demo/palettes/api/admin-colors.ts:61-79` — Admin Tags
+CRUD). Measured against real name shapes:
+
+| state | measurement | frame |
+|---|---|---|
+| 10 tags | scroller `clientHeight 112` / `scrollHeight 357` → **31.4 % visible**, 245 px hidden, `scrollbar-color` track transparent → **no visible scrollbar** | `p5-1.json → tagScroller` |
+| a hyphenated long name (`high-contrast-accessible-ui`) | row height **53.94 px** vs 30.97 px = **1.742×**; the mark re-centres on the two-line block, so the mark rail has three vertical positions | `p5-6.json → longTag.rows`, crop `p5-6-tag-scroller.png` |
+| an unbroken 34-char name (`supercalifragilisticexpialidocious`) | `scrollWidth 276` vs `clientWidth 182` → **94 px of horizontal overflow (51.6 % of the column)**; `overflow-x` computes to **`auto`** as a side effect of the authored `overflow-y: auto`; label CSS is `white-space: normal`, `overflow-wrap: normal`, `text-overflow: clip`, **no `truncate`** | `p5-7.json → scroller`, crop `p5-7-longtag-scroller.png` |
+
+The third frame is the clearest: the tag is **sliced mid-glyph** at the column edge with no ellipsis
+and no fade, and a horizontal scrollbar nobody authored now lives inside a vertical scrollbar inside
+a popover, in a 240 px menu.
+
+**The design defect** · `:50-57` renders `<span>{{ tag.name }}</span>` with no length contract at all.
+There is no truncation rule, no title tooltip, no max-length, no wrap policy, and no chip form. Three
+distinct overflow behaviours therefore emerge from three name shapes, none of them designed.
+
+---
+
+### P5-M6 · MAJOR · **NEW** · The menu has no designed height; it is a function of the tag catalogue, and the 0-tag state is a hole
+
+**Evidence** · `p5-4.json → growth`, one browser per row (`probe-P5-4.mjs → menuHeightFor`):
+
+| tags served | menu height | bottom edge (900 px viewport) |
+|---|---|---|
+| 0 | **468.27 px** | 719.27 |
+| 3 | 617.75 px | 868.75 |
+| 10 | **632.84 px** | 883.84 |
+| 40 | 632.84 px | 883.84 (capped by `max-h-28`) |
+
+**+164.57 px = +35.1 %** of height on data alone. At 0 tags the whole section disappears
+(`v-if="availableTags.length > 0"`, `:47`) — so the menu **silently changes shape** depending on
+whether the commons has been tagged, and a reader who saw it once cannot rely on where "Find by
+Color" will be. There is no empty state, and — because `BrowsePane.vue:215-221` coerces any
+non-array payload to `Object.values(...)` — **a failed tag fetch and an empty catalogue render
+identically, as nothing**. `PROPORTION-AUDIT.md:52` (PR-08) rules the general case:
+"Pending/failure/export/recovery truth only transient → **ADD-AFFORDANCE**".
+
+---
+
+### P5-M7 · MAJOR · **NEW-EXT** (extends D-6 / D2-M3 / P3-M14 with the forced-colors arm) · The two selection species paint no focus register — in any of the three colour arms
+
+**Evidence** · `p5-3.json → {light,dark,forced}.focusReg`, one real `.focus()` per species:
+
+| species | light | dark | forced-colors |
+|---|---|---|---|
+| `[role=radio]` | `outline: … **none** 3px` · `box-shadow: none` · ring `0 0 #0000` | identical | `outline: rgb(0,0,0) **none** 3px` · `box-shadow: none` |
+| `[role=checkbox]` | `outline: none` · box-shadow = the **resting** glass wash | identical | `outline: none` · `box-shadow: none` |
+| swatch | `outline: none` · box-shadow = the resting cartoon cast | identical | `outline: none` · `box-shadow: none` |
+| colour `<input>` | UA/producer ring | UA/producer ring | `outline: rgba(5,0,73,0.8) **solid** 2px`, offset 2px |
+
+`outline-style: none` is the measured value in every cell except the last row. **One of the menu's
+five focusable species has a focus register in forced colors, and none of the two selection species
+has one anywhere.**
+
+**The law** · `VISUAL-CONSTITUTION.md:84`: "Focus remains visibly distinct from selection in both
+schemes, forced colors and reduced transparency." `:83`: "Selected, failed, pending, withdrawn and
+disabled states are never color-only." Also `proportion-register.md:73` (PR-30), which owns this
+family across `ALL18` — and which, per P5-M1, does not list this site.
+
+Compounding it: in forced-colors the checked radio and the unchecked tag checkbox are the same
+open circle (`p5-3-forced-wall-open.png`), so selection *and* focus are simultaneously
+unrepresented on the two lists that carry the surface's meaning.
+
+---
+
+### P5-M8 · MAJOR · **NEW-EXT** (extends D-4 / D2-M6 / P3-M7 with measured geometry) · One folder, two dialects of the same control
+
+`demo/palettes/browser/search/` contains two components that do the same job — a sort/filter menu
+behind an `EllipsisVertical` trigger. They agree on nothing:
+
+| | `SearchFilterBar.vue` (249 lines) | `UserSortMenu.vue` (58 lines) |
+|---|---|---|
+| overlay primitive | `Popover` + `PopoverContent` (`:3,16`) | `DropdownMenu` + `DropdownMenuContent` (`:2,16`) |
+| section heading | hand-rolled `<div class="section-label">` (`:20,32,48,63`) | producer `DropdownMenuLabel` (`:17`) |
+| option row | hand-rolled `<label class="filter-option">` wrapping `RadioGroupItem` (`:22-26`) | producer `DropdownMenuRadioItem` (`:22-25`) |
+| trigger size | per-instance `class="relative h-8 w-8"` (`:5`) | producer prop `size="xs"` (`:12`) |
+| **rendered trigger** | **32.48 × 40.60**, aspect 0.800 — an ellipse | **28.00 × 28.00** — a circle |
+| menu width | `w-60` = 240 px | `w-48` = 192 px |
+| option family | `var(--font-serif)` in scoped CSS (`:243`) | `font-display` utility on the content (`:16`) |
+| icon a11y | no `aria-hidden` (`:24,40`) | `aria-hidden="true"` (`:13`) |
+
+**Evidence** · `p5-4.json → marks.triggerBox` and `→ sibling` (both measured live, the sibling on
+`/#/admin/users`).
+
+`UserSortMenu.vue:4-5` even carries the commit note that made it correct: *"S.W5-4: the triplicated
+hand-rolled icon-trigger recipe dies onto the sanctioned glass-ui atom (+ the missing name)."* The
+migration reached the file next door and stopped. Owner edict 4 (glass-ui is the design system;
+reuse existing component-type names) and edict 5 (style at the root) both point at the same
+one-line cure: `DropdownMenu` with `DropdownMenuLabel` / `DropdownMenuRadioGroup` /
+`DropdownMenuRadioItem`, and `size="xs"` instead of `h-8 w-8`. That deletes the `.section-label` and
+`.filter-option` rules, the double rhythm (P5-M2), the missing focus register (P5-M7) and the dead
+`h-8` (P5-M3) in one move.
+
+---
+
+### P5-M9 · MAJOR · **NEW** · `WORKSPACE-2` does not present one search/filter family
+
+`VISUAL-CONSTITUTION.md:186`, in the section that binds Browse **and** Library: "**Search/filter
+chrome is one family.**"
+
+| pane | search chrome | filter chrome |
+|---|---|---|
+| Browse (`BrowsePane.vue:10-27`) | glass-ui `SearchBar class="search-seated"` | `SearchFilterBar` in the default slot — 5 jobs (sort, tier, tags, colour search, clear) behind an unlabeled `⋮` |
+| Library (`PalettesPane.vue:29-33`) | glass-ui `SearchBar class="search-seated"` — identical props, identical placeholder grammar | **nothing** |
+
+The two members of `WORKSPACE-2` present the same field with, and without, a five-job menu attached.
+A reader who learns the affordance on one pane does not find it on the other; a reader who never
+opens Browse never learns it exists. Whatever the right answer is — a shared tray on both, or no
+filter chrome on either — "one family" is not two.
+
+This is visible in the shipped Safari capture without any probe:
+`shots/safari-desktop-light/browse.png` — the left pill carries the `⋮`, the right pill does not.
+
+---
+
+### P5-m1 · MINOR · **CORROBORATED** (D-15 / D2-M5 / P3-m2), now with rendered values · The section headings speak the mono value voice; the type token's name lies
+
+**Evidence** · `p5-1.json → chromium-desktop-light.open.labels[*].cs`, identical for all four labels:
+
+```
+font-family    : "Fira Code", "Fira Code Fallback", "Fira Mono", monospace
+font-size      : 14.384px      letter-spacing : 1.4384px (0.1em)
+text-transform : uppercase     color          : oklab(0.457941 0.0144455 0.0327382)
 ```
 
-All three tokens resolve (`p4-1.json`: `--font-serif` → `"Plus Jakarta Sans"…`, `--type-small` →
-`clamp(0.875rem, 0.8rem + 0.25vw, 1.25rem)` = 16.4px at 1440, `--leading-small` → `1.4`) — the
-recipe is *correct*, and it is exactly the `text-small` utility the producer already ships. Writing
-it out by hand means the next producer change to the small rung silently skips this menu.
+versus the option rows (`p5-2.json → desktopLight.open.optionCS`):
 
-The `--font-serif` spelling is a legibility trap of its own: in a repo where "serif" means Fraunces
-and Fraunces is *forbidden* for control copy (`foundation.css:95-102`), the token that says `serif`
-resolves to Plus Jakarta Sans through a glass-ui bridge. The declaration reads as a violation and
-is not one.
+```
+font-family : "Plus Jakarta Sans", … , sans-serif      font-size : 16.4px
+```
 
-### P4-m3 · MINOR · Magic numbers where the spacing system has tokens.
+`VISUAL-CONSTITUTION.md:68-78` — the closed matrix: **section heading → `text-heading` → Plus Jakarta
+Sans**; Fira Code owns "value, code, or provenance" only. Four section headings are in the mono
+value voice. Separately, `.filter-option` declares `font-family: var(--font-serif)` (`:243`) and
+renders Plus Jakarta Sans — `demo/styles/foundation.css:95-101` records why: "`--font-serif` →
+`--font-stack-text` → Jakarta, the body voice". The declaration is a no-op with a misleading name.
 
-`padding: 0.75rem`, `margin-bottom: 0.375rem` (lines 238-239), `max-h-28`, `gap-1.5`, `gap-0.5`,
-`w-60`, `pr-16`, `h-7`, `h-6`, `h-3`, `h-3.5`, `-right-1`, `right-1`. `VISUAL-CONSTITUTION.md:33`
-§3.7 — *"Spacing is container-scaled from glass-ui tokens."* `max-h-28` in particular is the number
-that cuts a row in half (§P4-M5).
-
-### P4-m4 · MINOR · The wrapper, the `type`, and the split ownership.
-
-- `SearchFilterBar.vue:2` — `<div class="flex items-center gap-1.5">` wraps **one** child. A flex
-  container with a gap and no siblings. Owner edict 3 (KISS, no contrivance).
-- Line 97 — the inline `Search` `<button>` has **no `type`**, so it defaults to `submit`; the
-  swatch twenty lines above correctly declares `type="button"`. Harmless today (no ancestor form),
-  wrong by construction, and inconsistent within one section.
-- Lines 171/193 — `colorSearchActive` is **component-local** while `colorSearchParams` lives in
-  `BrowsePane.vue:336`. `activeFilterCount` therefore mixes parent-owned truth (`tier`,
-  `selectedTags`) with a child-local shadow. Any parent-side clear of the colour search leaves the
-  badge lit. One filter model, two owners.
-
-### P4-i1 · INFO · Dead defensive branch.
-
-`hexToOklab` (lines 205-211) throws `"Hex color produced missing OKLab channels"`. Its only caller
-guarantees a 6-digit hex, and `parseColorIn` on an opaque hex cannot yield `"none"` channels — so
-the branch is unreachable. Owner edict 2 (no masking fallbacks); this is its mirror image, an
-unreachable guard.
-
-### P4-i2 · INFO · What the component does right, recorded so it is not "fixed".
-
-- `const { sort, tier, selectedTags, availableTags } = defineProps<…>()` — reactive props
-  destructure, the Vue 3.5 idiom (edict 7). ✔
-- `import type { Tag }` — `verbatimModuleSyntax` honoured (edict 8). ✔
-- `MiniColorPicker.vue` uses `useTemplateRef` (edict 7). ✔
-- The static SV gradient lives in scoped CSS with only the dynamic hue in `:style`
-  (`MiniColorPicker.vue:150-155`) — the right split. ✔
+Rendered contrast is not the problem here — the labels measure **5.90 : 1** (light) and **5.28 : 1**
+(dark) against the menu ground (`p5-contrast.json`). The problem is jurisdiction.
 
 ---
 
-## 6. State coverage — the full enumeration
+### P5-m2 · MINOR · **NEW** · The 240 px menu is the one quantity that does not scale
 
-A state that was never designed is a design defect. Measured row by row.
+`w-60` (`:16`) is a hard literal. Across the viewport range it serves:
 
-| state | designed? | measured truth |
+| viewport | menu width | share of viewport | option font-size |
+|---|---|---|---|
+| 1440 | 240 px | 16.7 % | 16.4 px |
+| 720 (200 % zoom) | 240 px | 33.3 % | 14.6 px |
+| 390 (mobile) | 240 px | **61.5 %** | 14.0 px |
+
+**Evidence** · `p5-2.json → {desktopLight,zoom200,mobile}.open.{popover.rect, optionCS}`.
+
+The type inside the box is fluid (−14.6 % from desktop to mobile); the box is not. The result is a
+menu that is a discreet dropdown at 1440 and two-thirds of the screen at 390.
+`VISUAL-CONSTITUTION.md:33` (§3.7): "Spacing is container-scaled from glass-ui tokens. No
+desktop-tight/mobile-airy fork and no breakpoint pile." A literal `w-60` is neither container-scaled
+nor a token. Related magic literals in the same file: `max-h-28` (`:49`), `h-7 w-7` (`:76`),
+`pr-16` (`:94`), `h-6 px-2` (`:99`).
+
+---
+
+### P5-m3 · MINOR · **NEW** · Three sections, two keyboard models
+
+**Evidence** · `p5-2.json → desktopLight.tabs` (Chromium, 16 successive `Tab` presses from the
+trigger):
+
+```
+IN BUTTON[radio] · IN BUTTON[radio] · IN BUTTON[checkbox] × 7 …
+```
+
+Sort and Tier are producer `RadioGroup`s and use roving tabindex — **one tab stop each**
+(`p5-1.json → focusables`: the group carries `tabindex 0`, the selected item `0`, the rest `-1`).
+The tag list is hand-rolled, so every checkbox is its own stop: **10 stops for 10 tags, 40 for 40.**
+The keyboard cost of the third section scales with the data while the first two are constant, and
+a stop can land on a control inside the 112 px window that is scrolled out of view (P5-M5) inside a
+popover that has no scroller of its own (P5-B2).
+
+---
+
+### P5-i1 · INFO · **CORROBORATED** (P3-M13) · In forced colors the swatch loses the only thing it says
+
+`p5-2.json → forcedColors.open.swatch.cs`: `background-color: rgb(255,255,255)`, `box-shadow: none`,
+`border: 2px solid rgb(0,0,0)`, `forced-color-adjust: auto`. Frame:
+`p5-3-forced-wall-open.png`. The inline `:style="{ backgroundColor: pickerHex }"` (`:77`) is the sole
+carrier of the searched colour and forced-colors deletes it; `aria-label` (`:78`) still says it, so
+the information exists for AT and not for sighted forced-colors users. Recorded, not re-litigated.
+
+### P5-i2 · INFO · **CORROBORATED and bounded** (P3-M9) · Only the click-outside close path drops focus
+
+`p5-6.json`:
+
+```
+focusAfterEscape        : BUTTON:Filters      ✓
+focusAfterTriggerToggle : BUTTON:Filters      ✓
+focusAfterOutsideClick  : BODY:…              ✗
+```
+
+`VISUAL-CONSTITUTION.md:115` requires "exact connected opener on close". Two of three paths comply.
+The prior MAJOR stands, narrowed to one path.
+
+---
+
+## 5. State matrix — every state this component can be in
+
+| state | reachable? | designed? | measured verdict |
+|---|---|---|---|
+| **closed, 0 filters** | yes | partly | trigger at **1.01 : 1** vs its host field (P5-B3) |
+| **closed, n filters** | yes | no | badge 16 × 16 at 11 px, 4 px outside the 32 px trigger on every side sampled; renders as a clipped crescent (`p5-3-light-badge-zoom.png`) — CORROBORATED P4-B2/D2-B3 |
+| **open, empty catalogue (0 tags)** | yes | **no** | Tags section absent; menu 468.27 px; failed fetch and empty catalogue are indistinguishable (P5-M6) |
+| **open, populated** | yes | partly | 240 × 632.84; covers 37.9 % of the pane / 6 of 6 cards (P5-B1) |
+| **open, 40 tags** | yes | **no** | 31.4 % of the list visible, no visible scrollbar, sliced mid-glyph (P5-M5) |
+| **open, long tag name** | yes | **no** | wraps to 53.94 px (1.742×) or overflows 94 px horizontally (P5-M5) |
+| **loading (wall in flight)** | yes | **no** | the menu does not consult request state; every control is live over a `browseError` wall (§2.1) |
+| **error (wall failed)** | yes | **no** | same — the shipped Safari frame *is* this state |
+| **colour search pending** | **no** | yes | `searching` flips true→false inside one synchronous `try/finally` (`:213-225`); the spinner and every `disabled:` style at `:99` are unreachable — CORROBORATED D-12/P4-M1 |
+| **disabled** | n/a | no | no control on the surface has a disabled state except the unreachable one above |
+| **focused — radio** | yes | **no** | `outline-style: none`, `box-shadow: none`, all three colour arms (P5-M7) |
+| **focused — checkbox** | yes | **no** | resting glass wash only; nothing in forced colors (P5-M7) |
+| **focused — swatch / Search pill** | yes | partly | cartoon cast in light/dark; **nothing** in forced colors (P5-M7) |
+| **hovered — sort row** | yes | partly | `color-mix(in srgb, var(--accent) 50%, transparent)` over a 61.14…165.41 px shrink-to-fit box (P5-M2) |
+| **hovered — tag row** | yes | partly | same paint over a 182 px box — 2.977× the narrowest peer |
+| **active / pressed** | yes | producer | `tap-squish` on the trigger only; the option rows have no pressed state |
+| **selected — radio** | yes | yes | producer dot |
+| **selected — checkbox** | **no** | — | `@update:checked` is not a glass-ui 7 event; the mark never changes — CORROBORATED D-1/D2-B1/P3-B1/P4-B1 |
+| **dragging** | n/a | — | no drag surface |
+| **overflowing (menu)** | yes | **no** | `max-height: none`, `overflow: visible`, 399.05 px off-screen at 200 % zoom with no scroll path (P5-B2) |
+| **truncated** | yes | **no** | placeholder `#hex, …` truncated by its own submit pill; tag labels sliced mid-glyph (P5-M5) |
+| **RTL** | yes | **no** | menu mirrors; the count chip flips into the field interior — CORROBORATED P4-M8 (`p5-2.json → rtl`) |
+| **reduced motion** | yes | **producer-handled** | popover `0.35s` spring → `0.15s` opacity; `.animate-spin` → `1e-05s`, 1 iteration (§6.2) |
+| **forced colors** | yes | **no** | swatch → white circle; 4 of 5 focus registers vanish (P5-M7, P5-i1) |
+| **200 % zoom** | yes | **no** | 34.7 % of the menu reachable (P5-B2) |
+| **mobile 390** | yes | **no** | menu = 61.5 % of viewport width, 54.3 % of the pane, 19.99 px past the fold |
+
+**19 of 26 states are unhandled, unstyled, unreachable, or visually broken.**
+
+---
+
+## 6. Negative proofs — what I attacked and could not break
+
+Recorded so pass 6 does not re-spend the budget.
+
+### 6.1 The dock collapse is **not** this component's defect — control experiment
+
+I observed that after opening this menu the top dock renders as an empty pill and never recovers
+(`p5-4.json → dockOpen.dock.text: ""`, `dockAfterClose.dock.text: ""`, frames
+`p5-4-dock-closed.png` → `p5-4-dock-after-close.png`). I was about to file it as a BLOCKER. The
+control arms (`probe-P5-5.mjs`) disprove it:
+
+| arm | interaction | dock text after settle |
 |---|---|---|
-| **closed / rest** | partly | trigger 32 × 40 in a 36px field; 2.00px proud top **and** bottom; fill identical to host (`p4-1.json`) |
-| **closed / filters active** | **BROKEN** | gold crescent, no digit, `contain: paint` (`p4-adj-badge-chromium.png`) |
-| **open / empty tag catalogue** | untreated | section `v-if`'d away; identical pixels to "the tag fetch failed" |
-| **open / tag catalogue failed** | **absent** | no error arm exists; renders as absence |
-| **open / populated** | **BROKEN** | 632.63px tall, 112.63px below the fold, no scroller (`p4-2.json`) |
-| **loading (colour search)** | **UNREACHABLE** | 0 mutations / 68 + 84 frames (`p4-4.json`) |
-| **loading (tag catalogue)** | absent | no skeleton, no pending affordance |
-| **error (invalid colour)** | **ABSENT** | 6/6 syntaxes → silent fallback, no `aria-invalid`, no text, no live region (`p4-5.json`) |
-| **error (browse wall unreachable)** | ignored | filter chrome fully enabled over the error arm (shipped Safari capture) |
-| **disabled** | declared, unreachable | the `disabled:` utilities hang off a state that never paints |
-| **focused** | **4 vocabularies** | radios/checkboxes/input: producer `--focus-ring-shadow`; swatch: local `.focus-ring`; inline `Search`: **UA default `outline: auto 1px`** (`p4-4.json` chromium idx 16) |
-| **hovered** | ragged | pill widths 61.14 → 182.00 in one menu, **2.71×** (`p4-3.json`) |
-| **active / pressed** | partial | producer `tap-squish` on producer controls; the hand-rolled `Search` has none |
-| **selected** | **BROKEN for tags** | `aria-checked` flips, model never moves (`p4-3.json`) |
-| **dragging** | n/a | no drag surface |
-| **overflowing** | **BROKEN** | 112.63 / 123.32 / 294.84 / 387.5px below the fold at 1440 / 390 / 320 / zoom-200 |
-| **truncated** | **BROKEN** | placeholder cut to 52.4%; a real value needs 2.72× the width |
-| **RTL** | **BROKEN** | badge inside the field interior; trigger still 2px proud (`p4-3.json`) |
-| **reduced motion** | ✔ producer | `animation-duration: 0.00001s`, `iteration-count: 1` on `.animate-spin`; popover animation likewise (`p4-2.json`) |
-| **forced colors** | **partial** | producer parts adapt; dividers, hover, swatch, inline `Search` do not (§P4-M9) |
-| **zoom 200%** | **BROKEN** | 480 × 1265.5; `right 1511 > 1440`; 387.5px below the fold |
+| a | **none** | `→\|Browse\|Tools\|Login\|@mbabb` — **unchanged** |
+| b | click blank pane area | `""` |
+| c | click the search input | `""` |
+| d | click the Filters trigger | `""` |
+| e | Filters open then Escape | `""` |
+| f | a palette-card menu | `""` |
+
+**Any** pointer interaction anywhere on the route collapses the dock. This belongs to
+`shell-dock-dock`, not here. Filed as a cross-reference only.
+
+### 6.2 Reduced motion is honoured, by the producer and by the global guard
+
+`p5-4.json → reducedMotion`: `prm: true`; popover transition `0.35s` spring → **`0.15s` opacity**;
+a synthetic `.animate-spin` probe injected into the live popover computes
+`animation-duration: 1e-05s`, `iteration-count: 1`. No motion in this component animates a
+layout-forcing property: the only authored transition is `background-color` (`:246`), and the
+producer's popover animates `scale`/`translate`/`opacity`/`filter` on the compositor. The scoped
+transition **loses** to a broader rule under PRM (P5-M3), but the outcome is still correct.
+
+### 6.3 The swatch's boundary does earn its 3 : 1
+
+`analyze-P5-contrast2.py`: swatch border `rgb(130,117,106)` vs the menu ground `rgb(241,230,222)` =
+**3.64 : 1**; the `#4488cc` fill vs the same ground = 3.03 : 1. The `border-2 border-border` at
+`:76` is doing real work and must not be removed when the swatch is rebuilt. (Its *information*
+still dies in forced colors — P5-i1 — but its *boundary* is sound.)
+
+### 6.4 The trigger's ARIA is correct
+
+`p5-1.json → trigger`: `aria-label="Filters"`, `aria-haspopup="dialog"`, `aria-expanded="true"` when
+open. `PROPORTION-AUDIT.md:60` (PR-16) demands "a named menu purpose plus expanded state" of this
+species; both are present. (The name under-describes — the menu also sorts, which is not a filter —
+but the mechanism is right.)
+
+### 6.5 The script block satisfies the standing edicts
+
+- `import type { Tag } from "../../types";` (`:144`) — `verbatimModuleSyntax` clean; every other
+  import is a value import.
+- `const { sort, tier, selectedTags, availableTags } = defineProps<{…}>()` (`:147-152`) — the Vue 3.5
+  reactive-props-destructure idiom, correctly used.
+- No `useTemplateRef` is needed: the component holds no template ref.
+- `colorText` / `pickerHex` are plain `ref`s driven by `v-model` on a producer `Input`, not by a
+  `defineModel` round-trip, so the `shallowRef` cache pattern does not apply.
+- No new `shared/` directory, no wrapper component, no legacy alias, no migration shim, no
+  back-compat branch inside this file. Edicts 1, 2, 3, 7, 8 are **satisfied**.
+- The `demo/ui/*` barrels are one-line re-exports (`demo/ui/button/index.ts`:
+  `export { Button } from "@mkbabb/glass-ui";`) — a repo-wide family row (D-18), not this
+  component's defect.
+
+### 6.6 Clean runtime, every arm
+
+Zero console errors and zero page errors across all eight probe matrices
+(`p5-1.json`, `p5-2.json` → `errs: []` in every arm), and no document-level horizontal overflow in
+any arm including the 94 px-overflow tag case (`p5-7.json → docOverflowX: false`). The defects in
+this report are all design defects; none of them throws.
 
 ---
 
-## 7. Motion
+## 7. The cure, in the order it should be taken
 
-Tokenised and compliant, and I say so plainly:
+1. **Register the surface.** Add its species to `docs/tranches/V/research/proportion-register.md`
+   under their mechanism families (icon-button, overlay region, divider, status badge, option-row) so
+   each gets a terminal verb and an accountable wave. Nothing below is safe to execute while the
+   surface is unowned (P5-M1).
+2. **Transpose the species, do not patch the popover.** A shallow in-flow tray beneath the
+   `SearchBar` in `BrowsePane.vue`'s existing column, per `OPTICAL-BENCH-COMPOSITIONS.md:39`. This
+   single move kills P5-B1, P5-B2, P5-B3, P5-M4, P5-M6, P5-m2 and the three dividers that
+   `OPTICAL-BENCH-COMPOSITIONS.md:73` says Browse retains **none** of.
+3. **If any menu survives the tray, consume the sibling's idiom.** `DropdownMenu` +
+   `DropdownMenuLabel` + `DropdownMenuRadioGroup` + `DropdownMenuRadioItem`, `size="xs"` — exactly
+   `UserSortMenu.vue`. Kills P5-M2, P5-M3, P5-M7, P5-M8 and the `.section-label` / `.filter-option`
+   scoped block entirely.
+4. **Give tags a contract**: chips or a producer list with a declared truncation rule, a real
+   scrollbar or a fade, and one empty/failed state (P5-M5, P5-M6).
+5. **Make the two `WORKSPACE-2` panes agree** (P5-M9), and take the pending state either to a real
+   async boundary or delete the spinner and the `disabled:` classes that can never paint.
 
-- `.filter-option` transition resolves to `background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)` —
-  `--duration-fast` / `--ease-standard`, house tokens (`p4-1.json`).
-- The bare `transition-colors duration-fast` on the inline `Search` button resolves to `0.2s` with
-  the same easing, because `foundation.css:120-127` aliases Tailwind's untokened default to the
-  house tokens at the `@theme` root. Good architecture doing its job.
-- Only `background-color` / `color` animate. Nothing here forces layout.
-- `prefers-reduced-motion: reduce` → `animation-duration: 0.00001s`, `iteration-count: 1`
-  (`p4-2.json`). The producer's global guard reaches Tailwind's `animate-spin`.
-
-**The one motion defect is not in the motion — it is that motion was chosen to carry a state.**
-`Loader2 + animate-spin` is the *only* expression of `searching`, and under `reduce` a spinner
-resolves to a static glyph indistinguishable from an icon. Had the state ever painted (P4-M1), a
-reduced-motion user would have had no way to tell searching from idle. `VISUAL-CONSTITUTION.md:144`
-— *"Reduced motion resolves directly to the final geometry and stable chromatic state."*
-
----
-
-## 8. The design-system boundary
-
-| what the component hand-rolls | what glass-ui 7 / `demo/ui/` already ships |
-|---|---|
-| `.filter-option` — a menu row recipe (font, size, leading, radius, padding, hover fill) | `DropdownMenuRadioItem` / `DropdownMenuCheckboxItem`, full-bleed, indicator gutter, roving focus, typeahead |
-| the count `<span>` (absolute, `bg-primary`, `text-micro`, `rounded-full`) | `Badge` |
-| the inline `Search` overlay button (absolute, `bg-muted/50`, hand-built disabled + spinner) | `Button` with the producer's own loading affordance |
-| `MiniColorPicker` — a complete second colour picker (HSV maths, SV plane, hue rail, hex readout) | the product's **own** colour picker occupies route `/`; `parseColorIn` is already imported into this very file |
-| the `divide-y` boundary system | the register says the boundary count is **zero** |
-| four focus vocabularies | one producer focus register |
-
-Three per-instance overrides are attempted and all three are defeated by the producer (`variant`,
-`h-8`/`h-7`, `p-0` — §P4-M2). That is the shape of edict 5 being violated: the component keeps
-reaching past the root to tune an instance, and the root keeps winning, and the residue is a
-32 × 40 ellipse in a 36px field.
-
-`MiniColorPicker` deserves its own line. Owner edict 3 forbids wrapper components that do not
-already exist; edict 4 puts variants in glass-ui. This is neither — it is a **second design system
-for colour selection**, ~160 lines of sRGB-HSV arithmetic, inside a repository whose entire thesis
-is perceptual colour, reachable only through this component, with a `role="dialog"` nested inside
-another `role="dialog"`, its SV plane a bare `<div>` with `role: null`, `tabIndex: -1`,
-`aria-label: null`, no `aria-valuenow`, no `aria-valuetext`, and **exactly one focusable descendant
-in the whole picker** (`p4-6.json`). `VISUAL-CONSTITUTION.md:125` §5.2 is explicit and this fails
-it verbatim: *"Spectrum coordinates — expose two named numeric axes using the same Slider law;
-**pointer canvas is not the sole keyboard control**."*
+Steps 2 and 3 subtract roughly 130 of the 249 lines. This component is not under-built; it is
+built as the wrong shape, and every proportion defect in it is a consequence of that shape.
 
 ---
 
-## 9. Judgement against the tranche canon
-
-| authority | clause | verdict |
-|---|---|---|
-| `PROPORTION-AUDIT.md:49` PR-05 | dividers **REMOVE**, count zero | **FAIL** — 3 rendered (4 with Clear-all) |
-| `PROPORTION-AUDIT.md:51` PR-07 | *"every surviving action/drag seat has a name/state"* | **FAIL** — 17 unnamed controls, 2 unnamed groups |
-| `PROPORTION-AUDIT.md:52` PR-08 | *"Pending/failure/export/recovery truth only transient — **ADD-AFFORDANCE**"* | **FAIL** — pending unreachable, failure absent |
-| `PROPORTION-AUDIT.md:56` PR-12 | *"Touch padding bloats/misaligns visual glyphs — TIGHTEN"* | **FAIL** — and worse: the producer had already fixed it, and the `<label>` undid the fix |
-| `PROPORTION-AUDIT.md:70` §5.5 | icons are data / status / labeled action / focus register or removed | **FAIL** — 4 decorative glyphs on nameless rows |
-| `PROPORTION-AUDIT.md:71` §5.6 | *"Subtraction precedes explanation."* | **FAIL** — 337.82px (53.4%) of the menu for 5 exclusive choices |
-| `PROPORTION-AUDIT.md:73` §5.8 | *"Real rendered relation wins over token intent."* | **FAIL** — `variant`, `h-8`, `h-7`, `p-0` all declared, none rendered |
-| `VISUAL-CONSTITUTION.md:21` §2 | *"Seed tint is forbidden outside the ambient field, active accent, WatercolorDot/specimen, and pastel Palettes lanes."* | **FAIL** — `#4488cc` is a hard-coded sRGB blue and the loudest object in the menu; the app's live `cssColorOpaque` is injected into `BrowsePane` and ignored here |
-| `VISUAL-CONSTITUTION.md:68-78` §4 | closed type matrix | **FAIL** — mono-as-heading, `text-micro`, `text-caption` |
-| `VISUAL-CONSTITUTION.md:82` §4.1 | *"Text, focus, boundaries and state meet their rendered contrast **on the actual material tier**; a token name is not evidence."* | **FAIL** — 0.808 alpha over a two-ground seam (§2.3) |
-| `VISUAL-CONSTITUTION.md:83` §4.1 | states are never colour-only; role + **accessible name** + state explicit | **FAIL** — §P4-M7 |
-| `VISUAL-CONSTITUTION.md:92` §4.2 | divider inventory `[]` | **FAIL** |
-| `VISUAL-CONSTITUTION.md:99` §5 | *"every spatial action has a keyboard/numeric equivalent"* | **FAIL** — the SV plane and hue rail are pointer-only |
-| `VISUAL-CONSTITUTION.md:115` §5.1 | Popover close returns focus to *"the exact connected opener"* | **PASS** — see §10 |
-| `VISUAL-CONSTITUTION.md:125` §5.2 | *"pointer canvas is not the sole keyboard control"* | **FAIL** |
-| `VISUAL-CONSTITUTION.md:144` §6 | reduced motion resolves to the final state | **PASS** for the mechanism, **FAIL** for the choice (§7) |
-| `VISUAL-CONSTITUTION.md:150` §6.1 | logical inline/block direction follows the document | **FAIL** — §P4-M8 |
-| `VISUAL-CONSTITUTION.md:186` §7 | *"Search/filter chrome is one family."* | **FAIL** — two option rhythms (1.73×), two box models, four focus vocabularies, two `Search` buttons |
-
-`PALETTE-CONTRACT.md` bears on this component only through `§1 GET /palettes` ("cursor **or**
-offset; sort newest / popular / most-forked; **color-distance filter**; visibility-filtered"). The
-contract puts the colour-distance filter on the wire; `BrowsePane.vue:339-355` implements it
-client-side over the ≤50 already-loaded rows and says so in a comment. So this component's colour
-filter searches a page, not the commons — a scope the UI never states.
-
----
-
-## 10. Negative proofs — five axes I attacked and could not break
-
-Recorded so the next pass does not re-spend the budget, and so my own errors are on the record.
-
-1. **The radios DO paint a focus register.** `probe-P4-7-adjudicate.mjs`, Chromium, a real keyboard
-   `Tab` and a real `ArrowDown`: `matchesFocusVisible: true`, and on the **`.radio-group__face`**
-   child — `box-shadow: color(srgb 0.665504 …/0.3) 0 0 0 2px, color(srgb … /0.15) 0 0 8px 0`,
-   `faceHasRing: true`. The producer recipe is
-   `.radio-group__item:focus-visible .radio-group__face { box-shadow: var(--focus-ring-shadow) }`
-   (`radio-group/styles.css`). Measuring `getComputedStyle(document.activeElement)` returns the
-   *item*, whose own shadow is legitimately `none`, and manufactures a false negative.
-   → **Pass 3's `P3-M14` is OVERTURNED, and my own probe-4 reading of the same thing is
-   withdrawn.**
-2. **`Escape` DOES restore focus to the trigger.** `probe-P4-4.mjs`, both engines, measured
-   immediately after open: `focusAfterEscape.isTrigger: true`, popover closed. My first
-   measurement said otherwise because the harness had already tabbed focus out of the dialog before
-   pressing Escape. Withdrawn. (Pass 3's separate `P3-M9` concerns **click-outside**, a different
-   path I did not probe.)
-3. **`--leading-small` is not a dead token.** I hypothesised that `@theme inline` in
-   `glass-ui/dist/styles/theme/bridges.css` would suppress the runtime custom property. Measured on
-   a live element: `--leading-small: 1.4`, `--font-serif: "Plus Jakarta Sans"…`. The
-   `.filter-option` recipe resolves correctly. Withdrawn (it survives only as the much weaker
-   P4-m2).
-4. **The count badge does not overflow at two digits.** Forced the span's content to `"13"` and
-   measured: `scrollWidth 16` = `clientWidth 16`, `overflows: false`. Withdrawn. (It is moot — the
-   digit never renders at all, §P4-B2.)
-5. **Opening `MiniColorPicker` does not clobber typed input.** Typed `oklch(0.72 0.14 244)`, opened
-   the picker, measured: `clobberedOnOpen: false`. `watch(currentHex, …)` is not `immediate`, and
-   the mount-time round-trip of `#4488cc` reproduces the same hex, so no `update:hex` fires.
-   Withdrawn.
-
-Two further honest limits: the **WebKit tab mechanism** in §P4-M6 is measured but unexplained and
-is labelled a hypothesis; and my WebKit forced-colors read of the swatch disagrees with pass 3's
-Chromium read — I report both, because the design conclusion (no `forced-color-adjust` declaration
-on the one data-bearing colour) holds either way.
-
----
-
-## 11. Convergence with the prior passes
-
-| this pass | prior | relation |
-|---|---|---|
-| P4-B1 (Tags dead) | D-1 · D2-B1 · P3-B1 | **4-way convergence.** New here: the three-path activation table proving the producer's `aria-checked` and the app's model disagree, and the self-contradictory `checked="false"` / `aria-checked="true"` node |
-| P4-B2 (badge crescent) | P3-B3 | **CONFIRMED** by an independent mechanism read (`contain: paint`, both engines, DPR 3) + my own frame. My first negative and pass 1's negative both **withdrawn** |
-| P4-B3 (overflow, no scroller) | D-2 · D2-B2 · P3-B2 | **Convergent + extended**: 5 arms including the Clear-all arm (165.63px) and the 200% inline overflow (`right 1511 > 1440`) |
-| P4-B4 (form rhythm in a menu) | P3-M3 (proximity 4.33×), P3-M4 (rag) | **Extended into the mechanism.** New here: the producer's `--radio-seat`/`--radio-face`/`margin: −13px` arithmetic, the exact 56.93 = 30.94 + 26.00 identity, and the **1.73× two-rhythm measurement against the consumer's own tag list** — which required a populated catalogue |
-| P4-B5 (colour syntax lie) | D-19 · D2-B4 · P3-B4 | **4-way convergence**, 6-case table re-run |
-| P4-M1 (`searching` unreachable) | — | **NEW.** rAF + MutationObserver, both engines, 0 mutations |
-| P4-M2 (`variant` dead) | P3-M10 | **CONFIRMED** cross-engine; extended with the `data-size=md` → `h-8` defeat and the `data-icon-only` square-contract break |
-| P4-M3 (placeholder cannot fit) | — | **NEW.** 65px usable vs 123.94 / 177.05 needed |
-| P4-M5 (tag scroller) | — | **NEW.** 3.4 of 12 rows, `tabIndex −1`, unnamed |
-| P4-M6 (WebKit tab) | P3-M9 (click-outside) | **NEW and a different path** |
-| P4-M8 (RTL badge) | — | **NEW.** measured under `dir=rtl` |
-| P4-M4 · M7 · M9 · m1 | P3-M5 · P3-M8 · P3-M13 · — | convergent, independently measured |
-| — | **P3-M14** | **OVERTURNED** (§10.1) |
-
----
-
-## 12. The cure — one transposition, not eighteen patches
-
-Twenty findings, three mechanisms. Patching them individually rebuilds the same object.
-
-**1. The menu becomes a menu.** Delete `.filter-option`, the interposed `<label>`, and both
-`RadioGroup`s. Adopt the producer's menu primitives (`DropdownMenuRadioItem` /
-`DropdownMenuCheckboxItem`) which already own: full-bleed rows, one indicator gutter, one focus
-register, roving focus, typeahead, and an accessible name taken from the row's own text. That
-single move retires **P4-B1, P4-B4, P4-M4, P4-M5, P4-M7, P4-m1, P4-m2, P4-m3** and both of the
-"four focus vocabularies" and "two box models" rows, because none of them are decisions the
-consumer gets to make any more.
-
-**2. The colour instrument becomes the product's colour instrument.** Delete `MiniColorPicker`.
-The field takes any CSS colour through `parseColorIn` — which is already imported — with a real
-invalid state; the swatch seeds from the injected live `cssColorOpaque` instead of `#4488cc`; the
-colour section moves out of the 240px popover, where a 65px text field and a nested dialog were
-never going to work, into the search bar beside the query. That retires **P4-B5, P4-M3, P4-M9's
-swatch row**, the nested-dialog and pointer-only failures, and removes 46.7% of a menu eclipsing
-itself.
-
-**3. Filter truth becomes visible where the user is looking.** The count leaves the producer's
-`contain: paint` button. Applied filters render as named, removable chips beside the field —
-which is simultaneously the count, the `Clear all` affordance, the live-region announcement and the
-accessible name. That retires **P4-B2, P4-M8, P4-m4's split-ownership row**, and — because the menu
-no longer has to carry `Clear all filters` or a colour instrument — it is short enough that
-**P4-B3** stops being a height problem and becomes a height *contract* (`max-height` +
-`overflow-y: auto`) rather than a redesign.
-
-What is left after those three moves is a menu with three short lists and no colour picker in it,
-sitting under a 40 × 40 icon button that fits inside its field.
-
----
-
-## 13. Evidence index
+## 8. Evidence index
 
 | artifact | what it proves |
 |---|---|
-| `probe-P4-1.mjs` → `evidence-p4/p4-1.json` | closed-state geometry, ancestry, token resolution, open-state computed styles (WebKit light/dark + Chromium) |
-| `probe-P4-2.mjs` → `p4-2.json` | populated desktop, active state, badge, mobile 390 / 320, reduced motion, forced colors, tab order, zoom 200% |
-| `probe-P4-3.mjs` → `p4-3.json` | **the Tags-are-dead three-path reproduction**, hover box geometry, RTL badge, 2-digit badge |
-| `probe-P4-4.mjs` → `p4-4.json` | escape/focus law, 22-step tab traversal both engines, **`searching` never paints** |
-| `probe-P4-5.mjs` → `p4-5.json` | radio face read, **six-syntax colour-input truth table** |
-| `probe-P4-6.mjs` → `p4-6.json` | mini-picker nesting + AT surface, clobber negative, forced-colors swatch |
-| `probe-P4-7-adjudicate.mjs` → `p4-7.json` | **`contain: paint`**, **`variant=ghost` inert**, **radio face ring confirmed** — the three adjudications |
-| `evidence-p4/trigger-safari-desktop-{light,dark}.png`, `trigger-rtl.png` | 5× crops of the **shipped** Safari matrix — the lozenge breaking the field |
-| `evidence-p4/p4-popover-full-tall.png` | the whole menu at once: two rhythms, ragged hover pill, sliced tag row, see-through ground seam, truncated placeholder |
-| `evidence-p4/p4-webkit-light-open-crop.png` | the menu over the shipped error arm |
-| `evidence-p4/p4-minipicker.png` | the nested dialog eclipsing its parent; the sRGB HSV square; the duplicated `Search` |
-| `evidence-p4/p4-adj-badge-chromium.png` | **the gold crescent** |
-| `evidence-p4/p4-forced-open-crop.png` | producer adapts / consumer does not |
-| `dbg-p4.mjs` | the harness note: `localhost` cannot reach this component's real states |
+| `probe-P5-1.mjs` → `evidence-p5/p5-1.json` | geometry, computed styles, focusables, pitch/width forks, tag-scroller ratio; 4 engine/scheme arms |
+| `probe-P5-2.mjs` → `p5-2.json` | 8 arms (light/dark/zoom200/mobile/forced-colors/reduced-motion/RTL/WebKit): motion, tab order, option CS, badge |
+| `probe-P5-3.mjs` → `p5-3.json` + `p5-3-*.png` | **occlusion over a populated wall**, per-element crops, focus registers per species, badge geometry |
+| `probe-P5-4.mjs` → `p5-4.json` | dock arms, mark geometry, `p-0`/`h-8` override losses, menu growth vs tag count, PRM, sibling trigger |
+| `probe-P5-5.mjs` → `p5-5.json` | the dock control experiment (§6.1) |
+| `probe-P5-6.mjs` → `p5-6.json` | close-path focus, 200 % zoom reachable fraction, wrapping tag |
+| `probe-P5-7.mjs` → `p5-7.json` | unbroken-tag horizontal overflow, control-vs-row geometry |
+| `analyze-P5-contrast.py`, `analyze-P5-contrast2.py` → `p5-contrast*.json` | rendered contrast from composited pixels, incl. the 1.01 : 1 trigger figure/ground |
+| `evidence-p5/p5-3-light-wall-open.png` | the desktop menu over the wall it hides |
+| `evidence-p5/p5-3-mobile-wall-open.png` | 61.5 % of the viewport, 54.3 % of the pane |
+| `evidence-p5/p5-3-forced-wall-open.png` | the swatch as a white circle; two semantics, one mark |
+| `evidence-p5/p5-6-tag-scroller.png`, `p5-7-longtag-scroller.png` | tags sliced mid-glyph; two overflow behaviours |
+| `evidence-p5/p5-6-zoom200-open.png` | 34.7 % of the menu at 200 % zoom |
+| `evidence-p5/p5-4-dock-closed.png` → `p5-4-dock-after-close.png` | the dock collapse — and §6.1 shows it is not ours |
+
+---
+
+## 9. Ledger
+
+| ID | sev | provenance | one line |
+|---|---|---|---|
+| P5-B1 | BLOCKER | NEW | decided composition is a shallow leading tray; a 240 × 633 overlay ships and hides 37.9 % of the pane / 6 of 6 cards |
+| P5-B2 | BLOCKER | NEW-EXT | 200 % zoom: 34.7 % reachable, 399.05 px off-screen, no scroll path exists |
+| P5-B3 | BLOCKER | NEW | the trigger is 1.01 : 1 (light) / 1.19 : 1 (dark) against its own host field |
+| P5-M1 | MAJOR | NEW | zero rows in the binding proportion register — no terminal verb, no owner, no π |
+| P5-M2 | MAJOR | NEW-EXT | 1.728× pitch fork, 13× gap fork, 7.56× control-area fork, 2.977× hover-width fork, one menu |
+| P5-M3 | MAJOR | NEW | `p-0`, `h-8` and (under PRM) the scoped transition are all dead declarations |
+| P5-M4 | MAJOR | NEW | Sort 31.2 % of the menu, Find by Color 13.8 % — the only instrument gets the least |
+| P5-M5 | MAJOR | NEW | tag list: 31.4 % visible, mid-glyph slicing, 94 px unauthored horizontal overflow |
+| P5-M6 | MAJOR | NEW | menu height +35.1 % on data; 0-tag and failed-fetch states are indistinguishable holes |
+| P5-M7 | MAJOR | NEW-EXT | radio and checkbox paint no focus register in light, dark **or** forced colors |
+| P5-M8 | MAJOR | NEW-EXT | the sanctioned idiom is 58 lines away in the same folder; 28 × 28 circle vs 32.48 × 40.60 ellipse |
+| P5-M9 | MAJOR | NEW | "Search/filter chrome is one family" — Browse has a 5-job menu, Library has none |
+| P5-m1 | MINOR | CORROBORATED | four section headings in the Fira Code value voice; `--font-serif` resolves to Jakarta |
+| P5-m2 | MINOR | NEW | `w-60` literal: 16.7 % of 1440, 61.5 % of 390, while the type inside it scales |
+| P5-m3 | MINOR | NEW | roving tabindex for 2 sections, one stop per item for the third |
+| P5-i1 | INFO | CORROBORATED | forced colors deletes the swatch's only information |
+| P5-i2 | INFO | CORROBORATED | only the click-outside close path drops focus to `<body>` |
+
+**Strongest defect:** P5-B1 — the surface is the wrong species. Its binding composition names a
+shallow leading tray; a 240 × 632.84 px overlay ships and covers 37.9 % of the Browse pane and all
+six visible palette cards on desktop, 54.3 % and all five on mobile, so the discovery route's
+see-while-you-narrow loop cannot close. Every proportion, rhythm, boundary and state defect below it
+is downstream of that one shape decision.

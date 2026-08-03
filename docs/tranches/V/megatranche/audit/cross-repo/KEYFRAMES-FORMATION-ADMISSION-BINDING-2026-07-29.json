@@ -1,0 +1,263 @@
+{
+  "schema": "keyframes.formation-admission-binding.v1",
+  "date": "2026-07-29",
+  "mode": "tranche-development-only",
+  "repository": {
+    "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js",
+    "gitHead": "8281638c0ac4ac8c54a67a018ca5bf6a9117174f",
+    "normalizedFormationCoordinate": "1f5db4c82c5bf7f4262f6e645de3dc8602d9ef279263875a7020297a33cf2a12",
+    "trancheWExecutionCredit": false,
+    "productSourceMutationByFormation": false,
+    "checkoutMayContainInheritedProductDirt": true
+  },
+  "authority": {
+    "preceptsLedger": {
+      "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/audit/archaeology/PRECEPTS-AUTHORITY.md",
+      "sha256": "2778d4da1522cf6e59c2916200e2c9c80e60749692970986675f24bc31128f87"
+    },
+    "passReplayLedger": {
+      "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/prototypes/PASS-REPLAY-LEDGER.md",
+      "sha256": "9a050f476a5a99bb20c673d3ef056183e4859993ca954679f51cce9143bceada"
+    },
+    "formationValidator": {
+      "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/prototypes/validate-formation.mjs",
+      "sha256": "fda741f9cdcf90d9ea06e2e29ad242a84cf583a07064ca1a6c0e45175fa016b6",
+      "expected": {
+        "status": "pass",
+        "canonicalWaves": 13,
+        "workflowRows": 138,
+        "passes": 3,
+        "formationCorpusHash": "1f5db4c82c5bf7f4262f6e645de3dc8602d9ef279263875a7020297a33cf2a12",
+        "formationCorpusCoordinate": "W-FORMATION-SHA256:1f5db4c82c5bf7f4262f6e645de3dc8602d9ef279263875a7020297a33cf2a12",
+        "nonWStatusPreserved": true,
+        "failures": []
+      }
+    },
+    "componentWorkflowManifest": {
+      "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/audit/components/component-workflows.json",
+      "sha256": "a40f58de590680d65098f787ca2665dbce22c22d62b8c46e90ecefad53e942c2",
+      "rows": 138,
+      "rowKinds": {
+        "demoVueSfc": 58,
+        "publicEntrypoint": 2,
+        "namedPublicRuntime": 78
+      },
+      "terminalCounts": {
+        "KEEP": 90,
+        "FOLD": 18,
+        "MOVE": 10,
+        "SPLIT": 19,
+        "PRUNE": 1
+      }
+    },
+    "workflowCount": 138,
+    "passCoverage": {
+      "K.form.P1": "8da4afca0f9a7940c2ed05bc92c2aece5c3e073a8b470f72bb9da65884966d52",
+      "K.form.P2": "6e022cf731fb0683e6be46c64c91a8ed3d9f333b5f4dce429518990626ca4e24",
+      "K.form.P3": "10cc59300a0ca97244a9f102cf954e5a05f8221d30edff07af30122ecad2fed6"
+    }
+  },
+  "coveredNodes": [
+    "K.form.P1",
+    "K.form.P2",
+    "K.form.P3",
+    "K.form.cleanA",
+    "K.form.cleanB",
+    "K.form.admission"
+  ],
+  "nodes": {
+    "K.form.P1": {
+      "repo": "keyframes",
+      "phase": "formation",
+      "type": "full-subject-pass",
+      "state": "satisfied",
+      "terminalDisposition": "KEEP",
+      "evidenceRefs": [
+        {
+          "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/prototypes/pass-1/AGGLOMERATION.md",
+          "sha256": "9f3f35d85cab20191cba031952fc2e0c1f91cc1c6d802aebd09a993c34805598",
+          "subjectCoordinate": "keyframes-W:P1;full-subject;normalized-formation-corpus"
+        }
+      ],
+      "predecessorEvidenceSha256": null,
+      "coverageManifestSha256": "8da4afca0f9a7940c2ed05bc92c2aece5c3e073a8b470f72bb9da65884966d52",
+      "requiredSatisfiedInputs": [],
+      "credit": {
+        "formationPassEvidence": true,
+        "formationAuditEvidence": false,
+        "formationAdmission": false,
+        "execution": false,
+        "product": false,
+        "visual": false,
+        "packageDeploy": false,
+        "release": false,
+        "w13Close": false,
+        "constellationClose": false
+      }
+    },
+    "K.form.P2": {
+      "repo": "keyframes",
+      "phase": "formation",
+      "type": "full-subject-pass",
+      "state": "satisfied",
+      "terminalDisposition": "KEEP",
+      "evidenceRefs": [
+        {
+          "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/prototypes/pass-2/package-graph/AGGLOMERATION.md",
+          "sha256": "f8d9719b2c4ccac8d4c073f6bf94718049a064dce508173cd220bb4704941823",
+          "subjectCoordinate": "keyframes-W:P2;full-subject;normalized-formation-corpus"
+        }
+      ],
+      "predecessorEvidenceSha256": "9f3f35d85cab20191cba031952fc2e0c1f91cc1c6d802aebd09a993c34805598",
+      "coverageManifestSha256": "6e022cf731fb0683e6be46c64c91a8ed3d9f333b5f4dce429518990626ca4e24",
+      "requiredSatisfiedInputs": [
+        "K.form.P1"
+      ],
+      "credit": {
+        "formationPassEvidence": true,
+        "formationAuditEvidence": false,
+        "formationAdmission": false,
+        "execution": false,
+        "product": false,
+        "visual": false,
+        "packageDeploy": false,
+        "release": false,
+        "w13Close": false,
+        "constellationClose": false
+      }
+    },
+    "K.form.P3": {
+      "repo": "keyframes",
+      "phase": "formation",
+      "type": "full-subject-pass",
+      "state": "satisfied",
+      "terminalDisposition": "KEEP",
+      "evidenceRefs": [
+        {
+          "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/prototypes/pass-3/component-workflows/AGGLOMERATION.md",
+          "sha256": "78a5db001ed629a10a00ad4a3a6662fef68ce2e513b561f7c971264582804424",
+          "subjectCoordinate": "keyframes-W:P3;full-subject;138-workflows;normalized-formation-corpus"
+        }
+      ],
+      "predecessorEvidenceSha256": "f8d9719b2c4ccac8d4c073f6bf94718049a064dce508173cd220bb4704941823",
+      "coverageManifestSha256": "10cc59300a0ca97244a9f102cf954e5a05f8221d30edff07af30122ecad2fed6",
+      "requiredSatisfiedInputs": [
+        "K.form.P2"
+      ],
+      "credit": {
+        "formationPassEvidence": true,
+        "formationAuditEvidence": false,
+        "formationAdmission": false,
+        "execution": false,
+        "product": false,
+        "visual": false,
+        "packageDeploy": false,
+        "release": false,
+        "w13Close": false,
+        "constellationClose": false
+      }
+    },
+    "K.form.cleanA": {
+      "repo": "keyframes",
+      "phase": "formation",
+      "type": "fresh-clean-audit",
+      "state": "satisfied",
+      "terminalDisposition": "KEEP",
+      "evidenceRefs": [
+        {
+          "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/audit/clean/CLEAN-A-SOL-XHIGH.md",
+          "sha256": "bb32386e5c8a94cd21c9a047ab059f3cb9e92b7c0634f556b2a4f14da744998b",
+          "subjectCoordinate": "keyframes-W@1f5db4c82c5bf7f4262f6e645de3dc8602d9ef279263875a7020297a33cf2a12;replacement-clean-A;P0-P1-zero"
+        }
+      ],
+      "predecessorEvidenceSha256": "78a5db001ed629a10a00ad4a3a6662fef68ce2e513b561f7c971264582804424",
+      "coverageManifestSha256": "1f5db4c82c5bf7f4262f6e645de3dc8602d9ef279263875a7020297a33cf2a12",
+      "requiredSatisfiedInputs": [
+        "K.form.P3"
+      ],
+      "credit": {
+        "formationPassEvidence": true,
+        "formationAuditEvidence": true,
+        "formationAdmission": false,
+        "execution": false,
+        "product": false,
+        "visual": false,
+        "packageDeploy": false,
+        "release": false,
+        "w13Close": false,
+        "constellationClose": false
+      }
+    },
+    "K.form.cleanB": {
+      "repo": "keyframes",
+      "phase": "formation",
+      "type": "fresh-clean-audit",
+      "state": "satisfied",
+      "terminalDisposition": "KEEP",
+      "evidenceRefs": [
+        {
+          "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/audit/clean/CLEAN-B-SOL-XHIGH.md",
+          "sha256": "c78656649219143b14bf9bc771ae7828e0eea10b682efee699da27ddce11e5ff",
+          "subjectCoordinate": "keyframes-W@1f5db4c82c5bf7f4262f6e645de3dc8602d9ef279263875a7020297a33cf2a12;clean-B-after-clean-A;P0-P1-zero"
+        }
+      ],
+      "predecessorEvidenceSha256": "bb32386e5c8a94cd21c9a047ab059f3cb9e92b7c0634f556b2a4f14da744998b",
+      "coverageManifestSha256": "1f5db4c82c5bf7f4262f6e645de3dc8602d9ef279263875a7020297a33cf2a12",
+      "requiredSatisfiedInputs": [
+        "K.form.cleanA"
+      ],
+      "credit": {
+        "formationPassEvidence": true,
+        "formationAuditEvidence": true,
+        "formationAdmission": false,
+        "execution": false,
+        "product": false,
+        "visual": false,
+        "packageDeploy": false,
+        "release": false,
+        "w13Close": false,
+        "constellationClose": false
+      }
+    },
+    "K.form.admission": {
+      "repo": "keyframes",
+      "phase": "formation",
+      "type": "repository-admission",
+      "state": "satisfied",
+      "terminalDisposition": "KEEP",
+      "evidenceRefs": [
+        {
+          "path": "/Users/mkbabb/.codex/worktrees/9167/keyframes.js/docs/tranches/W/FINAL.md",
+          "sha256": "77c0cacadc943a55eac23166293489c678afda2b4d818c21961bd14c18a1e5ea",
+          "subjectCoordinate": "keyframes-W:FORMATION-ADMITTED;W1-born-RED-pending;zero-execution-product-visual-release-W13-constellation-close-credit"
+        }
+      ],
+      "predecessorEvidenceSha256": "c78656649219143b14bf9bc771ae7828e0eea10b682efee699da27ddce11e5ff",
+      "coverageManifestSha256": "1f5db4c82c5bf7f4262f6e645de3dc8602d9ef279263875a7020297a33cf2a12",
+      "requiredSatisfiedInputs": [
+        "K.form.cleanB"
+      ],
+      "credit": {
+        "formationPassEvidence": true,
+        "formationAuditEvidence": true,
+        "formationAdmission": true,
+        "execution": false,
+        "product": false,
+        "visual": false,
+        "packageDeploy": false,
+        "release": false,
+        "w13Close": false,
+        "constellationClose": false
+      }
+    }
+  },
+  "rootConsumptionContract": {
+    "bindingMustBeHashedExternally": true,
+    "coveredNodesMustEqualNodeKeys": true,
+    "rootNodesMustExactMatchBindingNodes": true,
+    "allEvidenceAndAuthorityFilesMustRehash": true,
+    "formationValidatorMustMatchExpectedOutput": true,
+    "creditFieldsMustBeExactBooleans": true,
+    "extraNodeOrCreditFieldsReject": true
+  }
+}

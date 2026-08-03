@@ -1,0 +1,1058 @@
+{
+ "closed": {
+  "rest": [
+   {
+    "depth": 0,
+    "sel": "div.rounded-card.border.border-card-edge",
+    "w": 462,
+    "h": 197,
+    "declRadius": "16px",
+    "effR": 16,
+    "curvature": 0.081,
+    "shadow": "none"
+   },
+   {
+    "depth": 3,
+    "sel": "span.specimen-dot",
+    "w": 10,
+    "h": 10,
+    "declRadius": "9999px",
+    "effR": 5,
+    "curvature": 0.5,
+    "shadow": "none"
+   },
+   {
+    "depth": 3,
+    "sel": "span.specimen-dot",
+    "w": 10,
+    "h": 10,
+    "declRadius": "9999px",
+    "effR": 5,
+    "curvature": 0.5,
+    "shadow": "none"
+   },
+   {
+    "depth": 2,
+    "sel": "div.h-5.rounded-md.border{Eased ramp for interval 1 → 2}",
+    "w": 436,
+    "h": 20,
+    "declRadius": "6px",
+    "effR": 6,
+    "curvature": 0.3,
+    "shadow": "none"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[linear]{linear}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease]{ease}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in]{ease-in}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out]{ease-out}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out]{ease-in-out}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-sine]{ease-in-sine}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-sine]{ease-out-sine}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-sine]{ease-in-out-sine}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-quad]{ease-in-quad}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-quad]{ease-out-quad}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-quad]{ease-in-out-quad}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[smooth-step-3]{smooth-step-3}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-cubic]{ease-in-cubic}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-cubic]{ease-out-cubic}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-cubic]{ease-in-out-cubic}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-expo]{ease-in-expo}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-expo]{ease-out-expo}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-expo]{ease-in-out-expo}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-circ]{ease-in-circ}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-circ]{ease-out-circ}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-circ]{ease-in-out-circ}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-back]{ease-in-back}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-back]{ease-out-back}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-back]{ease-in-out-back}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[steps]{steps}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[step-start]{step-start}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[step-end]{step-end}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 2,
+    "sel": "div.readout-rail.flex.items-center",
+    "w": 436,
+    "h": 32,
+    "declRadius": "6px",
+    "effR": 6,
+    "curvature": 0.188,
+    "shadow": "none"
+   },
+   {
+    "depth": 3,
+    "sel": "button.rail-btn.shrink-0{Copy cubic-bezier(0, 0, 1, 1)}",
+    "w": 24,
+    "h": 24,
+    "declRadius": "4px",
+    "effR": 4,
+    "curvature": 0.167,
+    "shadow": "none"
+   },
+   {
+    "depth": 3,
+    "sel": "button.rail-btn.shrink-0{Author a custom curve}",
+    "w": 24,
+    "h": 24,
+    "declRadius": "4px",
+    "effR": 4,
+    "curvature": 0.167,
+    "shadow": "none"
+   }
+  ],
+  "tileCount": 0,
+  "tileShapes": {},
+  "distinctRadii": [
+   "16px",
+   "9999px",
+   "6px",
+   "4px"
+  ],
+  "distinctEffR": [
+   4,
+   5,
+   6,
+   16,
+   21.9
+  ],
+  "rowRect": {
+   "w": 462,
+   "h": 197
+  }
+ },
+ "tuned": {
+  "rest": [
+   {
+    "depth": 0,
+    "sel": "div.rounded-card.border.border-card-edge",
+    "w": 462,
+    "h": 518.5,
+    "declRadius": "16px",
+    "effR": 16,
+    "curvature": 0.035,
+    "shadow": "none"
+   },
+   {
+    "depth": 3,
+    "sel": "span.specimen-dot",
+    "w": 10,
+    "h": 10,
+    "declRadius": "9999px",
+    "effR": 5,
+    "curvature": 0.5,
+    "shadow": "none"
+   },
+   {
+    "depth": 3,
+    "sel": "span.specimen-dot",
+    "w": 10,
+    "h": 10,
+    "declRadius": "9999px",
+    "effR": 5,
+    "curvature": 0.5,
+    "shadow": "none"
+   },
+   {
+    "depth": 2,
+    "sel": "div.h-5.rounded-md.border{Eased ramp for interval 1 → 2}",
+    "w": 436,
+    "h": 20,
+    "declRadius": "6px",
+    "effR": 6,
+    "curvature": 0.3,
+    "shadow": "none"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[linear]{linear}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease]{ease}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in]{ease-in}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out]{ease-out}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out]{ease-in-out}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-sine]{ease-in-sine}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-sine]{ease-out-sine}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-sine]{ease-in-out-sine}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-quad]{ease-in-quad}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-quad]{ease-out-quad}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-quad]{ease-in-out-quad}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[smooth-step-3]{smooth-step-3}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-cubic]{ease-in-cubic}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-cubic]{ease-out-cubic}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-cubic]{ease-in-out-cubic}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-expo]{ease-in-expo}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-expo]{ease-out-expo}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-expo]{ease-in-out-expo}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-circ]{ease-in-circ}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-circ]{ease-out-circ}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-circ]{ease-in-out-circ}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-back]{ease-in-back}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-out-back]{ease-out-back}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[ease-in-out-back]{ease-in-out-back}",
+    "w": 45.2,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[steps]{steps}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[step-start]{step-start}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 6,
+    "sel": "button.glass-chip.glass-capsule.accent-tone[step-end]{step-end}",
+    "w": 44,
+    "h": 43.8,
+    "declRadius": "9999px",
+    "effR": 21.9,
+    "curvature": 0.5,
+    "shadow": "yes"
+   },
+   {
+    "depth": 2,
+    "sel": "div.readout-rail.flex.items-center",
+    "w": 436,
+    "h": 32,
+    "declRadius": "6px",
+    "effR": 6,
+    "curvature": 0.188,
+    "shadow": "none"
+   },
+   {
+    "depth": 3,
+    "sel": "button.rail-btn.shrink-0{Copy cubic-bezier(0, 0, 1, 1)}",
+    "w": 24,
+    "h": 24,
+    "declRadius": "4px",
+    "effR": 4,
+    "curvature": 0.167,
+    "shadow": "none"
+   },
+   {
+    "depth": 3,
+    "sel": "button.rail-btn.shrink-0.rail-btn--on{Author a custom curve}",
+    "w": 24,
+    "h": 24,
+    "declRadius": "4px",
+    "effR": 4,
+    "curvature": 0.167,
+    "shadow": "none"
+   },
+   {
+    "depth": 5,
+    "sel": "div.glass-card.relative.overflow-hidden",
+    "w": 436,
+    "h": 226,
+    "declRadius": "16px",
+    "effR": 16,
+    "curvature": 0.071,
+    "shadow": "none"
+   },
+   {
+    "depth": 7,
+    "sel": "button.control-surface.glass-control-edge.glass-capsule-hover{Easing preset}",
+    "w": 436,
+    "h": 40,
+    "declRadius": "9999px",
+    "effR": 20,
+    "curvature": 0.5,
+    "shadow": "yes"
+   }
+  ],
+  "tileCount": 0,
+  "tileShapes": {},
+  "distinctRadii": [
+   "16px",
+   "9999px",
+   "6px",
+   "4px"
+  ],
+  "distinctEffR": [
+   4,
+   5,
+   6,
+   16,
+   20,
+   21.9
+  ],
+  "rowRect": {
+   "w": 462,
+   "h": 518.5
+  }
+ },
+ "stage": [
+  {
+   "d": 0,
+   "sel": "div.easing-authoring",
+   "w": 436,
+   "h": 311.6,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 1,
+   "sel": "div.grid.gap-4.lg:grid-cols-[1fr_18rem]",
+   "w": 436,
+   "h": 311.6,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 2,
+   "sel": "div.glass-card.relative.overflow-hidden",
+   "w": 436,
+   "h": 226,
+   "radius": "16px",
+   "curvature": 0.071,
+   "text": ""
+  },
+  {
+   "d": 3,
+   "sel": "span.sr-only",
+   "w": 1,
+   "h": 1,
+   "radius": "0px",
+   "curvature": 0,
+   "text": "Left and Right change x "
+  },
+  {
+   "d": 3,
+   "sel": "svg",
+   "w": 410,
+   "h": 200,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "rect",
+   "w": 166.7,
+   "h": 166.7,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "line",
+   "w": 166.7,
+   "h": 166.7,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "line",
+   "w": 0,
+   "h": 166.7,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "line",
+   "w": 0,
+   "h": 166.7,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "line",
+   "w": 0,
+   "h": 166.7,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "line",
+   "w": 166.7,
+   "h": 0,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "line",
+   "w": 166.7,
+   "h": 0,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "line",
+   "w": 166.7,
+   "h": 0,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "text",
+   "w": 5.1,
+   "h": 11,
+   "radius": "0px",
+   "curvature": 0,
+   "text": "0"
+  },
+  {
+   "d": 4,
+   "sel": "text",
+   "w": 5.1,
+   "h": 11,
+   "radius": "0px",
+   "curvature": 0,
+   "text": "1"
+  },
+  {
+   "d": 4,
+   "sel": "line",
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "line",
+   "w": 0,
+   "h": 0,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "path",
+   "w": 166.7,
+   "h": 166.7,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "circle",
+   "w": 6,
+   "h": 6,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "circle",
+   "w": 6,
+   "h": 6,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "circle",
+   "w": 13.3,
+   "h": 13.3,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "circle",
+   "w": 13.3,
+   "h": 13.3,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 2,
+   "sel": "div.flex.flex-col.gap-4",
+   "w": 436,
+   "h": 69.6,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 3,
+   "sel": "div.flex.flex-col.gap-2",
+   "w": 436,
+   "h": 69.6,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 4,
+   "sel": "span.text-mono-caption.text-muted-foreground",
+   "w": 436,
+   "h": 21.6,
+   "radius": "0px",
+   "curvature": 0,
+   "text": "Preset"
+  },
+  {
+   "d": 4,
+   "sel": "button.control-surface.glass-control-edge.glass-capsule-hover",
+   "w": 436,
+   "h": 40,
+   "radius": "9999px",
+   "curvature": 0.5,
+   "text": ""
+  },
+  {
+   "d": 5,
+   "sel": "span",
+   "w": 93.7,
+   "h": 24.6,
+   "radius": "0px",
+   "curvature": 0,
+   "text": "Pick a curve"
+  },
+  {
+   "d": 5,
+   "sel": "svg",
+   "w": 16,
+   "h": 16,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  },
+  {
+   "d": 6,
+   "sel": "path",
+   "w": 8,
+   "h": 4,
+   "radius": "0px",
+   "curvature": 0,
+   "text": ""
+  }
+ ],
+ "geom": {
+  "port": {
+   "x": 237,
+   "y": 622.265625,
+   "w": 436,
+   "h": 71.984375
+  },
+  "trough": {
+   "x": 95.734375,
+   "y": 34.1875,
+   "w": 3,
+   "h": 20
+  },
+  "above": {
+   "x": 51.234375,
+   "y": 1,
+   "w": 40,
+   "h": 6
+  }
+ },
+ "diff": {
+  "troughShadowsOn": [
+   229.2,
+   184.9,
+   192.9
+  ],
+  "troughShadowsOff": [
+   244,
+   197,
+   205.4
+  ],
+  "troughLumOn": 0.5519,
+  "troughLumOff": 0.6359,
+  "aboveShadowsOn": [
+   244,
+   194.7,
+   205.6
+  ],
+  "aboveShadowsOff": [
+   244,
+   194.7,
+   205.6
+  ],
+  "aboveLumOn": 0.6257,
+  "aboveLumOff": 0.6257
+ }
+}

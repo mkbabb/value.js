@@ -1,0 +1,1050 @@
+{
+  "dockClosed": {
+    "dock": {
+      "rect": {
+        "x": 16,
+        "y": 8,
+        "w": 1408,
+        "h": 72
+      },
+      "opacity": "1",
+      "visibility": "visible",
+      "display": "flex",
+      "ariaHidden": null,
+      "inert": false,
+      "dataAriaHidden": null,
+      "text": "→\nBrowse\nTools\nLogin\n@mbabb",
+      "childCount": 1
+    },
+    "hiddenBig": [
+      {
+        "tag": "CANVAS",
+        "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 1440,
+          "h": 900
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-plate",
+        "rect": {
+          "x": 541.9,
+          "y": 9.5,
+          "w": 356.2,
+          "h": 62
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-face justify-center",
+        "rect": {
+          "x": 553.9,
+          "y": 17.5,
+          "w": 332.2,
+          "h": 46
+        },
+        "ariaHidden": "true",
+        "inert": true,
+        "text": "→"
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-face justify-center",
+        "rect": {
+          "x": 553.9,
+          "y": 17.5,
+          "w": 332.2,
+          "h": 46
+        },
+        "ariaHidden": "true",
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 258.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 370.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 482.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 594.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 706.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 818.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 930.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 1042.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "SPAN",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shr",
+        "rect": {
+          "x": 767,
+          "y": 302.7,
+          "w": 48,
+          "h": 48
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "SPAN",
+        "cls": "watercolor-ghost-stroke",
+        "rect": {
+          "x": 767,
+          "y": 302.7,
+          "w": 48,
+          "h": 48
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      }
+    ],
+    "bodyPointerEvents": "auto",
+    "bodyOverflow": "visible",
+    "htmlOverflow": "visible",
+    "scrollY": 0
+  },
+  "dockOpen": {
+    "dock": {
+      "rect": {
+        "x": 16,
+        "y": 8,
+        "w": 1408,
+        "h": 72
+      },
+      "opacity": "1",
+      "visibility": "visible",
+      "display": "flex",
+      "ariaHidden": null,
+      "inert": false,
+      "dataAriaHidden": null,
+      "text": "",
+      "childCount": 1
+    },
+    "hiddenBig": [
+      {
+        "tag": "CANVAS",
+        "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 1440,
+          "h": 900
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-plate",
+        "rect": {
+          "x": 692,
+          "y": 12.5,
+          "w": 56,
+          "h": 56
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-layer dock-layer--full",
+        "rect": {
+          "x": 689,
+          "y": 9.5,
+          "w": 62,
+          "h": 62
+        },
+        "ariaHidden": null,
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-face justify-center",
+        "rect": {
+          "x": 692,
+          "y": 17.5,
+          "w": 332.2,
+          "h": 46
+        },
+        "ariaHidden": "true",
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-face justify-center",
+        "rect": {
+          "x": 692,
+          "y": 17.5,
+          "w": 332.2,
+          "h": 46
+        },
+        "ariaHidden": "true",
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 258.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 370.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 482.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 594.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 706.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 818.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 930.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 1042.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "SPAN",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shr",
+        "rect": {
+          "x": 767,
+          "y": 302.7,
+          "w": 48,
+          "h": 48
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      }
+    ],
+    "bodyPointerEvents": "auto",
+    "bodyOverflow": "visible",
+    "htmlOverflow": "visible",
+    "scrollY": 0
+  },
+  "dockOpenLate": {
+    "dock": {
+      "rect": {
+        "x": 16,
+        "y": 8,
+        "w": 1408,
+        "h": 72
+      },
+      "opacity": "1",
+      "visibility": "visible",
+      "display": "flex",
+      "ariaHidden": null,
+      "inert": false,
+      "dataAriaHidden": null,
+      "text": "",
+      "childCount": 1
+    },
+    "hiddenBig": [
+      {
+        "tag": "CANVAS",
+        "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 1440,
+          "h": 900
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-plate",
+        "rect": {
+          "x": 692,
+          "y": 12.5,
+          "w": 56,
+          "h": 56
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-layer dock-layer--full",
+        "rect": {
+          "x": 689,
+          "y": 9.5,
+          "w": 62,
+          "h": 62
+        },
+        "ariaHidden": null,
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-face justify-center",
+        "rect": {
+          "x": 692,
+          "y": 17.5,
+          "w": 332.2,
+          "h": 46
+        },
+        "ariaHidden": "true",
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-face justify-center",
+        "rect": {
+          "x": 692,
+          "y": 17.5,
+          "w": 332.2,
+          "h": 46
+        },
+        "ariaHidden": "true",
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 258.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 370.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 482.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 594.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 706.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 818.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 930.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 1042.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "SPAN",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shr",
+        "rect": {
+          "x": 767,
+          "y": 302.7,
+          "w": 48,
+          "h": 48
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      }
+    ],
+    "bodyPointerEvents": "auto",
+    "bodyOverflow": "visible",
+    "htmlOverflow": "visible",
+    "scrollY": 0
+  },
+  "marks": {
+    "radios": [
+      {
+        "w": 44,
+        "h": 44,
+        "checked": "true",
+        "cs": {
+          "border-radius": "50%",
+          "width": "44px",
+          "height": "44px",
+          "border-width": "0px",
+          "border-color": "rgb(251, 250, 248)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "box-shadow": "none",
+          "color": "rgb(251, 250, 248)"
+        },
+        "inner": {
+          "w": 18,
+          "h": 18,
+          "cs": {
+            "border-radius": "50%",
+            "background-color": "color(srgb 0.494617 0.404755 0.0911228 / 0.976)",
+            "width": "18px",
+            "height": "18px"
+          }
+        }
+      },
+      {
+        "w": 44,
+        "h": 44,
+        "checked": "false",
+        "cs": {
+          "border-radius": "50%",
+          "width": "44px",
+          "height": "44px",
+          "border-width": "0px",
+          "border-color": "rgb(251, 250, 248)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "box-shadow": "none",
+          "color": "rgb(251, 250, 248)"
+        },
+        "inner": {
+          "w": 18,
+          "h": 18,
+          "cs": {
+            "border-radius": "50%",
+            "background-color": "color(srgb 0.994 0.96 0.926 / 0.216)",
+            "width": "18px",
+            "height": "18px"
+          }
+        }
+      },
+      {
+        "w": 44,
+        "h": 44,
+        "checked": "false",
+        "cs": {
+          "border-radius": "50%",
+          "width": "44px",
+          "height": "44px",
+          "border-width": "0px",
+          "border-color": "rgb(251, 250, 248)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "box-shadow": "none",
+          "color": "rgb(251, 250, 248)"
+        },
+        "inner": {
+          "w": 18,
+          "h": 18,
+          "cs": {
+            "border-radius": "50%",
+            "background-color": "color(srgb 0.994 0.96 0.926 / 0.216)",
+            "width": "18px",
+            "height": "18px"
+          }
+        }
+      }
+    ],
+    "checkboxes": [
+      {
+        "w": 16,
+        "h": 16,
+        "checked": "false",
+        "cs": {
+          "border-radius": "9999px",
+          "width": "16px",
+          "height": "16px",
+          "border-width": "1px",
+          "border-color": "color(srgb 0.11 0.098 0.09 / 0.12)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "box-shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset",
+          "color": "rgb(251, 250, 248)"
+        }
+      },
+      {
+        "w": 16,
+        "h": 16,
+        "checked": "false",
+        "cs": {
+          "border-radius": "9999px",
+          "width": "16px",
+          "height": "16px",
+          "border-width": "1px",
+          "border-color": "color(srgb 0.11 0.098 0.09 / 0.12)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "box-shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset",
+          "color": "rgb(251, 250, 248)"
+        }
+      },
+      {
+        "w": 16,
+        "h": 16,
+        "checked": "false",
+        "cs": {
+          "border-radius": "9999px",
+          "width": "16px",
+          "height": "16px",
+          "border-width": "1px",
+          "border-color": "color(srgb 0.11 0.098 0.09 / 0.12)",
+          "background-color": "rgba(0, 0, 0, 0)",
+          "box-shadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset",
+          "color": "rgb(251, 250, 248)"
+        }
+      }
+    ],
+    "radioVsCheckboxRadius": [
+      "50%",
+      "9999px"
+    ],
+    "radioVsCheckboxSize": [
+      "44x44",
+      "16x16"
+    ],
+    "popoverPadding": "20.352px 16px",
+    "popoverClassList": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-60 p-0",
+    "popoverWidth": "240px",
+    "popoverMaxHeight": "none",
+    "popoverOverflow": "visible",
+    "popoverRect": {
+      "y": 251,
+      "h": 632.84,
+      "bottom": 883.84
+    },
+    "triggerBox": {
+      "classes": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+      "cssW": "32px",
+      "cssH": "40px",
+      "minH": "40px",
+      "minW": "0px",
+      "rendered": "32.48x40.60",
+      "aspect": 0.8,
+      "borderRadius": "9999px"
+    },
+    "tagCount": 10,
+    "divider": {
+      "border-top-width": "0px",
+      "border-top-color": "rgb(198, 180, 159)",
+      "border-top-style": "solid"
+    },
+    "dividerWidth": 206,
+    "sectionLabelVsOption": {
+      "label": {
+        "ff": "\"Fira Code\"",
+        "fs": "14.384px",
+        "ls": "1.4384px",
+        "tt": "uppercase",
+        "color": "oklab(0.457941 0.0144455 0.0327382)"
+      },
+      "option": {
+        "ff": "\"Plus Jakarta Sans\"",
+        "fs": "16.4px",
+        "ls": "normal",
+        "color": "rgb(28, 25, 23)"
+      }
+    }
+  },
+  "dockAfterClose": {
+    "dock": {
+      "rect": {
+        "x": 16,
+        "y": 8,
+        "w": 1408,
+        "h": 72
+      },
+      "opacity": "1",
+      "visibility": "visible",
+      "display": "flex",
+      "ariaHidden": null,
+      "inert": false,
+      "dataAriaHidden": null,
+      "text": "",
+      "childCount": 1
+    },
+    "hiddenBig": [
+      {
+        "tag": "CANVAS",
+        "cls": "atmosphere-canvas absolute inset-0 w-full h-full pointer-eve",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 1440,
+          "h": 900
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-plate",
+        "rect": {
+          "x": 692,
+          "y": 12.5,
+          "w": 56,
+          "h": 56
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-layer dock-layer--full",
+        "rect": {
+          "x": 689,
+          "y": 9.5,
+          "w": 62,
+          "h": 62
+        },
+        "ariaHidden": null,
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-face justify-center",
+        "rect": {
+          "x": 692,
+          "y": 17.5,
+          "w": 332.2,
+          "h": 46
+        },
+        "ariaHidden": "true",
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "dock-face justify-center",
+        "rect": {
+          "x": 692,
+          "y": 17.5,
+          "w": 332.2,
+          "h": 46
+        },
+        "ariaHidden": "true",
+        "inert": true,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 258.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 370.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 482.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 594.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 706.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 818.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 930.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "DIV",
+        "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+        "rect": {
+          "x": 226,
+          "y": 1042.7,
+          "w": 458,
+          "h": 40
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      },
+      {
+        "tag": "SPAN",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shr",
+        "rect": {
+          "x": 767,
+          "y": 302.7,
+          "w": 48,
+          "h": 48
+        },
+        "ariaHidden": "true",
+        "inert": false,
+        "text": ""
+      }
+    ],
+    "bodyPointerEvents": "auto",
+    "bodyOverflow": "visible",
+    "htmlOverflow": "visible",
+    "scrollY": 0
+  },
+  "focusAfterClose": "BUTTON:Filters",
+  "growth": [
+    {
+      "tagN": 0,
+      "h": 468.27,
+      "bottom": 719.27,
+      "tagCount": 0
+    },
+    {
+      "tagN": 3,
+      "h": 617.75,
+      "bottom": 868.75,
+      "tagCount": 3
+    },
+    {
+      "tagN": 10,
+      "h": 632.84,
+      "bottom": 883.84,
+      "tagCount": 10
+    },
+    {
+      "tagN": 40,
+      "h": 632.84,
+      "bottom": 883.84,
+      "tagCount": 40
+    }
+  ],
+  "reducedMotion": {
+    "prm": true,
+    "popoverTransitionDuration": "0.15s",
+    "popoverTransitionProperty": "opacity",
+    "optionTransition": "opacity, color, background-color, border-color, box-shadow / 0.1s / cubic-bezier(0.4, 0, 0.2, 1)",
+    "spinUnderPRM": {
+      "name": "spin",
+      "dur": "1e-05s",
+      "iter": "1"
+    },
+    "durationFastToken": "0.2s",
+    "durFastUtility": {
+      "transitionDuration": "0.1s"
+    }
+  },
+  "sibling": {
+    "classes": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger shrink-0",
+    "rendered": "28.00x28.00",
+    "borderRadius": "9999px",
+    "ariaLabel": "Sort users"
+  }
+}

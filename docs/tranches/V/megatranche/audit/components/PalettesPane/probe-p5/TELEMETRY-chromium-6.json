@@ -1,0 +1,45 @@
+{
+  "containment": {
+    "contain": "content",
+    "mask": "none",
+    "overflowY": "auto",
+    "paneBottom": 877,
+    "scrollH": 1668,
+    "clientH": 772,
+    "hiddenPx": 896,
+    "croppedCard": {
+      "index": 4,
+      "top": 872,
+      "bottom": 972,
+      "visiblePx": 5,
+      "ofPx": 100
+    },
+    "lastCardBottom": 1756,
+    "scrollbarWidth": 2
+  },
+  "menuPopover": {
+    "found": true,
+    "insidePane": false,
+    "portalParent": "BODY.relative",
+    "popRect": {
+      "x": 1010,
+      "y": 567,
+      "w": 192,
+      "h": 240
+    },
+    "paneRect": {
+      "x": 729,
+      "y": 103,
+      "w": 512,
+      "h": 774
+    },
+    "overflowsPaneBottom": -70,
+    "overflowsPaneRight": -39,
+    "items": [
+      "Publish",
+      "Rename",
+      "Export",
+      "Delete"
+    ]
+  }
+}

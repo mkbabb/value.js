@@ -1,0 +1,82 @@
+{
+  "samples": [
+    {
+      "atMs": 101,
+      "dialog": true,
+      "busy": 0,
+      "statusRoles": 1,
+      "spinners": 0,
+      "slug": null,
+      "localCount": 12,
+      "mentions": [
+        "backend offline — saved locally"
+      ]
+    },
+    {
+      "atMs": 402,
+      "dialog": false,
+      "busy": 0,
+      "statusRoles": 1,
+      "spinners": 0,
+      "slug": null,
+      "localCount": 12,
+      "mentions": [
+        "backend offline — saved locally"
+      ]
+    },
+    {
+      "atMs": 1001,
+      "dialog": false,
+      "busy": 0,
+      "statusRoles": 1,
+      "spinners": 0,
+      "slug": null,
+      "localCount": 12,
+      "mentions": [
+        "backend offline — saved locally"
+      ]
+    },
+    {
+      "atMs": 2001,
+      "dialog": false,
+      "busy": 0,
+      "statusRoles": 1,
+      "spinners": 0,
+      "slug": null,
+      "localCount": 12,
+      "mentions": [
+        "backend offline — saved locally"
+      ]
+    },
+    {
+      "atMs": 4001,
+      "dialog": false,
+      "busy": 0,
+      "statusRoles": 1,
+      "spinners": 0,
+      "slug": null,
+      "localCount": 12,
+      "mentions": [
+        "backend offline — saved locally"
+      ]
+    },
+    {
+      "atMs": 8001,
+      "dialog": false,
+      "busy": 0,
+      "statusRoles": 1,
+      "spinners": 0,
+      "slug": null,
+      "localCount": 12,
+      "mentions": [
+        "backend offline — saved locally"
+      ]
+    }
+  ],
+  "network": [],
+  "consoleAfter": [
+    "error: Request header field Idempotency-Key is not allowed by Access-Control-Allow-Headers.",
+    "error: Failed to load resource: Request header field Idempotency-Key is not allowed by Access-Control-Allow-Headers.",
+    "warning: Migration action failed: Backend unreachable — working locally."
+  ]
+}

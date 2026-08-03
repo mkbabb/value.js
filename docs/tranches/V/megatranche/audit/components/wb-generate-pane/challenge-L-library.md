@@ -2,556 +2,605 @@
 
 ## Model receipt
 
-I observe myself to be **Opus 5** (`claude-opus-5[1m]`), spawned with an explicit Opus 5
-declaration. The seat is declared, not inherited.
+I observe myself to be **Opus 5** (`claude-opus-5[1m]`, the 1M-context variant) — the model this
+seat was explicitly spawned with. The declaration is honoured, not inherited.
 
-## Scope + substrate
+### Prior-seat note (read this first)
 
-- Repo `/Users/mkbabb/Programming/value.js`, branch `tranche-u`.
-- **HEAD at audit time is `9268f054`**, not the `c654824e` named in the seat brief — the
-  fleet landed three commits (`e9cf0aa4`, `ef06618b`, `9268f054`) during formation. No
-  `demo/`, `src/` or `test/` file in this component's graph differs between the two;
-  recorded so the evidence lines below are anchorable.
-- Subject: 41 lines, `demo/workbenches/generate/GeneratePane.vue`.
-- Live probes ran against the dev server at `http://localhost:9000` (200 OK) with a
-  headless Chromium driven by the repo's own `playwright@1.60`. Probe scripts live in the
-  session scratchpad; both are reproduced verbatim below their findings.
+A previous CHALLENGE-L seat had already written this exact path (37,194 bytes, at HEAD
+`9268f054`). I did **not** destroy it: it is preserved verbatim at
+`challenge-L-library.seat-1-9268f054.md` in this directory. This file is a **second,
+independently-derived pass** at HEAD `e39da983` (the brief named `c654824e`; the fleet has landed
+`9268f054`, `1566cdb6`, `e39da983` since — no file in this component's graph differs, and every
+line number below is re-verified against the working tree). The two passes agree on the BLOCKER
+and diverge in coverage elsewhere; where they overlap, treat that as independent corroboration.
+Divergences worth the adjudicator's attention are listed in §6.
+
+- Subject: `demo/workbenches/generate/GeneratePane.vue` (41 lines) + its owned child
+  `GenerateControls.vue` (392 lines) + `composables/useColorGeneration.ts` (48 lines).
+- **Verdict: DEFECTIVE.** 14 findings — 1 BLOCKER, 7 MAJOR, 5 MINOR, 1 INFO.
 - Writes confined to this directory. No source touched.
-
-## The import graph, traced
-
-```
-GeneratePane.vue
-├─ vue                                        ✓ (value imports only)
-├─ ../../ui/card              → demo/ui/card/index.ts  → @mkbabb/glass-ui   ⚠ L-8
-├─ ../../shared/ui/PaneHeader.vue                                            ⚠ L-2, L-5
-├─ ./GenerateControls.vue                     ✓ feature-internal
-│   ├─ ../../ui/{select,slider,button,badge}  → glass-ui via barrel          ⚠ L-8
-│   ├─ @mkbabb/glass-ui              (writeClipboard)  — bare specifier      ⚠ L-8
-│   ├─ @mkbabb/glass-ui/watercolor-dot          — bare subpath               ✓
-│   ├─ ../../palettes/browser/card  (PaletteColorStrip) — feature → feature  ⚠ L-4a
-│   ├─ ../../color-session/color-chips (PreviewStrip)   — feature → shared   ✓
-│   ├─ ../../color-session/generate-color                                    ⚠ L-12
-│   │   ├─ @mkbabb/value.js/color   → dist/subpaths/color.d.ts  ✓ published
-│   │   ├─ @mkbabb/value.js/css     → dist/subpaths/css.d.ts    ✓ published
-│   │   └─ ./prng (mulberry32)                                               ⚠ L-12
-│   └─ ./composables/useColorGeneration                                      ✓
-├─ ../../palettes/usePalettePorts  (for ONE Symbol)                          ⚠ L-4
-├─ ../../color-session/keys        (CSS_COLOR_KEY — NEVER READ)              ⚠ L-3
-└─ type ../../palettes/types                  ✓ `import type`, verbatimModuleSyntax clean
-```
-
-**The published-surface question resolves clean for this component.** Nothing in the
-GeneratePane graph reaches `src/` internals. The one value.js hop —
-`demo/color-session/generate-color.ts:41-42` — goes through `@mkbabb/value.js/color` and
-`@mkbabb/value.js/css`, both real keys in `package.json#exports`. `tsc --traceResolution`
-confirms the specifier resolves through the package's own `exports` map by **package
-self-reference**, to this checkout's build, not to a stale artifact:
-
-```
-======== Module name '@mkbabb/value.js/css' was successfully resolved to
-'/Users/mkbabb/Programming/value.js/dist/subpaths/css.d.ts'
-with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'. ========
-```
-
-That is the one thing this component gets architecturally right, and it is worth stating
-as a positive: **a real consumer could write every value.js import in this graph.** The
-defects are all on the demo side of the boundary.
 
 ---
 
-## Findings
+## 0 · The import ledger — every edge, traced to its home
 
-### L-1 · BLOCKER — the user's palette name is destroyed at the pane/controls boundary
+`GeneratePane.vue:2-8`:
 
-`GenerateControls.vue:41-43` declares a two-payload emit:
+| # | Specifier | Home | Direction | Verdict |
+|---|---|---|---|---|
+| 1 | `vue` | node_modules | — | OK |
+| 2 | `../../ui/card` | `demo/ui/card/index.ts` — a **1-line re-export of `@mkbabb/glass-ui`** | feature → alias shim | **L-4** |
+| 3 | `../../shared/ui/PaneHeader.vue` | `demo/shared/ui/` | feature → shared | direction OK; **L-13** (shell copy-pasted 9×) |
+| 4 | `./GenerateControls.vue` | own dir | intra-feature | OK |
+| 5 | `../../palettes/usePalettePorts` (`LIBRARY_PORT_KEY`) | `demo/palettes/` | **feature → sibling feature** | **L-3** |
+| 6 | `../../color-session/keys` (`CSS_COLOR_KEY`) | `demo/color-session/` | feature → shared | **L-2 — the binding is DEAD** |
+| 7 | `../../palettes/types` (`type PaletteColor`) | `demo/palettes/` | **feature → sibling feature** | **L-3**, type leg |
+
+`@mkbabb/value.js` appears **zero** times in `GeneratePane.vue` or `GenerateControls.vue`. The
+library is reached only transitively, via `demo/color-session/generate-color.ts:33-34`:
+
+```ts
+import { mapColorToGamut, oklch } from "@mkbabb/value.js/color";
+import { serializeCssColor } from "@mkbabb/value.js/css";
+```
+
+Both are **real published-subpath specifiers** a downstream consumer could write verbatim. No
+`@src/*` deep path survives anywhere in this graph. On the narrow charter question — *does it
+import from `@mkbabb/value.js` correctly?* — the answer is **yes**, and the dev-server probe
+confirms the runtime binding lands on this checkout's build, not a stale artifact:
+
+```
+$ curl -s "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/color-session/generate-color.ts" | grep '^import'
+32:import { mapColorToGamut, oklch } from "/@fs/Users/mkbabb/Programming/value.js/dist/subpaths/color.js";
+33:import { serializeCssColor } from "/@fs/Users/mkbabb/Programming/value.js/dist/subpaths/css.js";
+34:import { mulberry32 }          from "/@fs/Users/mkbabb/Programming/value.js/demo/color-session/prng.ts";
+```
+
+**State it as the positive it is: a real consumer could write every value.js import in this graph.**
+The defects are one level up — the *trust boundary* that certifies those two specifiers has drifted
+from the exports map it claims to mirror (L-10), and it is the **design-system** surface, not the
+library surface, that carries two parallel import paths (L-4, L-5).
+
+`verbatimModuleSyntax`: **clean.** Every type-only import in both files carries `import type`
+(`GeneratePane.vue:8`; `GenerateControls.vue:19,33,34`). No violation.
+
+`npx eslint demo/workbenches/generate/*.vue --max-warnings=0` → **exit 0**. Every finding below
+passes the shipped gates.
+
+---
+
+## 1 · BLOCKER
+
+### L-1 · The user's palette name is discarded by the pane. Two homes, one concept.
+
+`GenerateControls.vue:48-50` declares a two-payload emit; `:102-104` fires it with both:
 
 ```ts
 const emit = defineEmits<{
     save: [colors: string[], name: string];
 }>();
+...
+function save() {
+    emit("save", [...palette.value], paletteName.value);
+}
 ```
 
-`GeneratePane.vue:14-20` handles it with a **one-parameter** function and substitutes a
-hardcoded string for the payload it dropped:
+`GeneratePane.vue:14-20` is the **only** listener, and it takes one parameter:
 
 ```ts
 function onSave(colors: string[]) {
-    const paletteColors: PaletteColor[] = colors.map((css, i) => ({ css, position: i }));
+    const paletteColors: PaletteColor[] = colors.map((css, i) => ({
+        css,
+        position: i,
+    }));
     pm.createPalette("Generated Palette", paletteColors);
 }
 ```
 
-The `paletteName` ref (`GenerateControls.vue:47`) is bound to a live, editable,
-`aria-label="Palette name"` input in the plate title position — the screenshot at
-`docs/tranches/V/megatranche/audit/visual/shots/safari-desktop-light/generate.png` shows it
-rendered as the plate's headline. The comment at `GenerateControls.vue:37-40` asserts the
-opposite of what ships: *"the save carries the plate's own name … The pane's `createPalette`
-name-wire is its owner's one-liner … this emit is already truthful."* The emit is truthful.
-The receiver is not.
+The second payload is dropped and replaced by a string literal. The name the user typed into the
+plate's editable title —
 
-TypeScript cannot catch this: a handler with fewer parameters is assignable to a wider
-signature. Nothing in the gate set sees it.
-
-**Live reproduction** (`probe-generate-name.mjs`, headless Chromium, dev server at :9000):
-
-```
-NAME_INPUT_INITIAL:    Generated Palette
-NAME_INPUT_AFTER_FILL: MY-UNIQUE-BENCH-NAME
-STORED_NAMES:   [{"name":"Generated Palette","slug":"generated-palette-5a40e3bc","id":"23baf7a9"}]
-STORED_NAMES_2: [{"name":"Generated Palette","slug":"generated-palette-11b06cb1"},
-                 {"name":"Generated Palette","slug":"generated-palette-5a40e3bc"}]
+```html
+<!-- GenerateControls.vue:144-149 -->
+<input v-model="paletteName" type="text" aria-label="Palette name" ... />
 ```
 
-Two saves, two distinct user-typed names (`MY-UNIQUE-BENCH-NAME`, `SECOND-BENCH-NAME`),
-two records both named `Generated Palette`. The rename affordance is decorative. Every
-generated palette in a user's library is indistinguishable by name.
+— never reaches the store. `usePaletteStore.ts:66-72` is the sink, and it keys dedup on the name:
 
-The store makes the consequence worse in a second way. `usePaletteStore.ts:66-81`
-dedups on `name.toLowerCase() === name && colorsMatch(colors)`; with a frozen name the
-dedup key collapses to colors-only, so the name axis of the identity is inert. (Slugs
-survive — `utils.ts:14-16` appends `crypto.randomUUID().slice(0,8)` — so this is *not*
-a slug-collision bug; I checked and it is not.)
+```ts
+function createPalette(name: string, colors: PaletteColor[]): Palette {
+    const existing = store.value.palettes.find(
+        (p) => p.isLocal && p.name.toLowerCase() === name.toLowerCase() && colorsMatch(p.colors, colors),
+    );
+```
 
-**Mechanism.** A presentational shell was given a persistence responsibility it has no
-information to discharge. `GeneratePane` knows nothing about the generate session; it
-receives a partial projection of it through an emit and has to re-invent the rest. The
-hardcoded `"Generated Palette"` is the tell: a constant that is *already owned* by the
-child (`GenerateControls.vue:47` seeds the same literal) copied into the parent.
+So every generated palette in the library is named `Generated Palette` and shares one dedup bucket.
+The affordance is live and visible in the shipped build — `shots/safari-desktop-light/generate.png`
+renders "Generated Palette" as a hover-underlined editable title with the save verb beside it. The
+plate promises naming; the pane silently unnames.
 
-**Cure — transposition, not a patch.** Do not widen `onSave` to `(colors, name)`. Delete
-it. The persistence verb belongs beside the state it persists. `useColorGeneration` becomes
-the feature session — it already owns `preset/harmony/count/seed/palette`; give it `name`
-and a `save()` that calls `LIBRARY_PORT_KEY.createPalette(name, colors)` directly.
-`GeneratePane` then imports neither `usePalettePorts` nor `palettes/types` and shrinks to
-a pure shell. That single move also kills L-3, L-4 and half of L-7 at the same site.
+**Why no gate catches it.** TypeScript assigns a 1-arity handler to a 2-arity emit signature by
+design. `eslint` exit 0. `e2e/smoke/oracles/o20-generate-plate.spec.ts:47-49` asserts the save
+*button exists*, never that the save *carries the name*. The dock path is equally affected:
+`usePaneRouter.ts:197` → `GeneratePane` `defineExpose.save` (`:24`) → `controlsRef.save()` → the
+same emit → the same truncation.
+
+- **Evidence**: `demo/workbenches/generate/GenerateControls.vue:48-50,102-104,144-149`;
+  `demo/workbenches/generate/GeneratePane.vue:14-20`; `demo/palettes/usePaletteStore.ts:66-72`.
+- **Reproduction**: static and total — `onSave` has one binding position, the emit has two payload
+  slots, and the literal `"Generated Palette"` is the only value that ever reaches `createPalette`.
+  (Not driven live: saving mutates the local store, and this seat is read-only.)
+- **Mechanism**: split semantic ownership. "The palette's name" has two homes — a `ref` in the
+  child, a string literal in the parent — and the emit boundary between them loses one.
+- **Cure (transposition, not patch)**: delete `onSave` *and* the pane's `LIBRARY_PORT_KEY` inject
+  entirely. Name, colours and save verb already live together — in the plate. Move the store call
+  into `useColorGeneration` (renamed `useGenerate`), which owns `name`, `palette` and `save()`. The
+  pane then has nothing to forward, which is exactly the point: **a component whose only logic is
+  re-emitting its child's data is a place for the data to get lost.**
 
 ---
 
-### L-2 · MAJOR — glass-ui already ships the pane-header primitive; the demo reimplements it, three times
+## 2 · MAJOR
 
-The subject's one structural child is `PaneHeader` (`GeneratePane.vue:4, 32-34`), 224 lines
-at `demo/shared/ui/PaneHeader.vue`, of which ~170 are CSS implementing a scroll-condensing
-card header: a `::before` veil painted with `--glass-bg-resting` / `--glass-blur-resting`,
-a bottom `mask-image` feather, a scroll-scrubbed title shrink, a description fade-out.
+### L-2 · A dead injection manufactures a boundary crossing that does not exist
 
-**glass-ui 7.0.0 — the installed, imported, already-compiled dependency — ships exactly
-that primitive.** `node_modules/@mkbabb/glass-ui/dist/components/card/CardHeader.vue.d.ts:1-5`:
+`GeneratePane.vue:7,10`:
 
 ```ts
-type __VLS_Props = {
-    /** Requires `.card-scroll-host` on the scrollable ancestor. */
-    shrink?: boolean;
-    class?: HTMLAttributes["class"];
-};
-```
-
-and `dist/components/card/card-scroll.css:1` implements it with the *same construction the
-demo re-derived*:
-
-```css
-.card-header--shrink::before { content:""; position:absolute;
-  inset: 0 0 calc(var(--card-pad-title-gap) * -1); z-index:-1;
-  background: var(--glass-bg-resting);
-  backdrop-filter: var(--glass-blur-resting);
-  mask-image: linear-gradient(to bottom, black calc(100% - var(--card-pad-title-gap)), transparent);
-  opacity: 0; }
-.card-header--shrink[data-condensed="true"] > [data-slot="card-title"] { font-size: var(--type-display-1); }
-.card-header--shrink[data-condensed="true"] > [data-slot="card-description"] { display: none; }
-```
-
-The demo's `.pane-scroll-fade` is likewise a superset copy of glass-ui's scroll-host
-utility. Side by side:
-
-| glass-ui `dist/styles/utilities/base-misc.css:1` | demo `PaneHeader.vue:54-57` |
-|---|---|
-| `.card-scroll-host { contain: layout style paint; }` | `.pane-scroll-fade { contain: layout style paint; scroll-timeline: --pane-scroll block; }` |
-
-`demo/styles/foundation.css:56` does `@import "@mkbabb/glass-ui/styles"`, and that surface's
-`index.css` chains `@import "../components/card/card-scroll.css"`. So the design system's
-implementation **is compiled into the page the demo serves and then not used.** Measured on
-the live `/#/generate` route (`probe-structure.mjs`):
-
-```json
-{
-  "ruleCardScrollHostLoaded":    true,
-  "ruleCardHeaderShrinkLoaded":  true,
-  "cardScrollHostEls":           0,
-  "cardHeaderShrinkEls":         0,
-  "paneScrollFadeEls":           2,
-  "paneHeaderEls":               2,
-  "generatePaneCardClass": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full",
-  "cardScrollTimeline": "--pane-scroll"
-}
-```
-
-1383 bytes of shipped, parsed, zero-element design-system CSS; a 224-line demo file doing
-its job.
-
-And there is a **third** implementation. `demo/picker/composables/useHeaderCondense.ts` is
-an IntersectionObserver-driven condense used by `ColorPicker.vue:134,193` — which, unlike
-the workbench panes, *does* use glass-ui's `CardHeader` (`ColorPicker.vue:108`), just
-without its `shrink` prop. So the same concept has three live homes:
-
-| # | home | mechanism | consumers |
-|---|---|---|---|
-| 1 | glass-ui `<CardHeader shrink>` + `.card-header--shrink` | attribute toggle + transition | **0** (measured) |
-| 2 | `demo/shared/ui/PaneHeader.vue` + `.pane-scroll-fade` | CSS scroll-timeline scrub | 9 panes incl. GeneratePane |
-| 3 | `demo/picker/composables/useHeaderCondense.ts` + `header.css` | IntersectionObserver + JS state | ColorPicker |
-
-The repo already knows. `PaneHeader.vue:172` says *"until P3's ScrollCardHeader knobs land
-(BOOKED)"*; `useHeaderCondense.ts:8-14` argues at length that the producer's shipped
-choreography *"structurally cannot satisfy §0.8/BR-9"* and calls itself *"the REFERENCE
-implementation a producer real-box-shrink door later absorbs."* The reasoning is sound;
-the *placement* is the defect. Under edict 4, a better variant is an argument for landing
-it **in glass-ui**, not for keeping a second and third copy in `demo/`.
-
-**Cure.** One home. Land the scrub-scrubbed and real-box-shrink behaviours as glass-ui
-`CardHeader` modes (the BH relay is the existing channel), then `GeneratePane` becomes:
-
-```vue
-<Card tier="resting" class="card-scroll-host …">
-  <CardHeader shrink>
-    <CardTitle>Generate</CardTitle>
-    <CardDescription>Create pleasing random palettes with aesthetic presets.</CardDescription>
-  </CardHeader>
-  …
-```
-
-`PaneHeader.vue`, `.pane-scroll-fade`, `--pane-scroll` and `useHeaderCondense.ts` all die.
-Note the demo *already re-exports* `CardHeader`/`CardTitle`/`CardDescription` at
-`demo/ui/card/index.ts:1` and uses `CardHeader` only in `ColorPicker.vue` —
-`CardTitle`/`CardDescription`/`CardFooter` have **zero** demo consumers, which is what a
-shadow primitive looks like from the barrel side.
-
----
-
-### L-3 · MAJOR — a dead cross-boundary inject, structurally undetectable
-
-`GeneratePane.vue:10`:
-
-```ts
+import { CSS_COLOR_KEY } from "../../color-session/keys";
 const cssColorOpaque = inject(CSS_COLOR_KEY)!;
 ```
 
-`cssColorOpaque` is never read — not in the script, not in the template. Occurrence count
-per file, over every `.vue` that touches `CSS_COLOR_KEY` (1 = declaration only):
+`cssColorOpaque` is referenced **nowhere** — not in the 17-line script, not in the 12-line template.
+Census across the tree:
 
 ```
-1  demo/workbenches/generate/GeneratePane.vue     ← DEAD
-1  demo/workbenches/gradient/GradientPane.vue     ← DEAD
+$ for f in $(grep -rln "CSS_COLOR_KEY" demo/ | grep -v keys.ts); do echo "$(grep -c cssColorOpaque $f)  $f"; done | sort -n
+1  demo/workbenches/generate/GeneratePane.vue      ← declaration only
+1  demo/workbenches/gradient/GradientPane.vue      ← declaration only
 2  demo/palettes/BrowsePane.vue
 2  demo/workbenches/mix/MixPane.vue
 3  demo/palettes/PalettesPane.vue
 3  demo/palettes/admin/AdminPane.vue
-3  demo/scenes/about/ColorNutritionLabel.vue
 3  demo/shell/dock/Dock.vue
-3  demo/workbenches/extract/ExtractWorkbench.vue
 4  demo/color-picker/App.vue
 ```
 
-`GradientPane.vue:1-15` is byte-for-byte the same skeleton as `GeneratePane.vue:1-26`
-including the same dead line — this is copy-paste propagation, not an isolated slip.
+Exactly two files have count 1 — a declaration with zero uses — and they are the two copy-paste
+twins (L-13). The non-null assertion compounds it: the pane *hard-asserts* a provider it does not
+use, so mounting it outside an ancestor that provides `CSS_COLOR_KEY` makes the `!` a lie with no
+consequence, which is the worst kind.
 
-The component therefore declares a hard dependency on the `color-session` provide contract
-that it does not consume. Move `GeneratePane` under a tree where `App.vue` does not provide
-`CSS_COLOR_KEY` and the `!` non-null assertion silently yields `undefined` with no error at
-the injection site — a latent trap for exactly the modularization this audit is asked to
-propose.
+A dependency-graph reader — human or tool — sees `workbenches/generate → color-session/keys` and
+concludes the workbench consumes the session colour. It does not.
 
-**Why nothing catches it.** `tsconfig.base.json:1-17` sets `strict`,
-`noUncheckedIndexedAccess`, `exactOptionalPropertyTypes` — but **not** `noUnusedLocals`.
-And `eslint.config.js:71` disables the backstop:
+- **Evidence**: `demo/workbenches/generate/GeneratePane.vue:7,10` (+ twin `GradientPane.vue:6,8`);
+  the census above; `npx eslint … --max-warnings=0` → exit 0 (a `<script setup>` top-level binding
+  is template-visible, so no unused-var rule fires).
+- **Reproduction**: `grep -n cssColorOpaque demo/workbenches/generate/GeneratePane.vue` → one line.
+- **Mechanism**: copy-paste residue promoted to a structural edge.
+- **Cure**: delete both lines, in both files.
 
-```js
-"@typescript-eslint/no-unused-vars": "off",
-```
+### L-3 · The workbench injects a 15-member port to call one function
 
-with the rationale at `eslint.config.js:11-13` — *"many destructure-and-discard patterns …
-would generate >100 churn-only diffs."* That trade bought the epidemic.
-
-**Cure.** Delete the line. Turn on `noUnusedLocals` in `tsconfig.base.json` (it is a
-demo-and-lib-wide win, and the >100-diff objection is precisely the debt this finding
-measures). The `!`-asserted `inject` idiom should be replaced repo-wide by a
-`injectStrict(key)` helper that throws with the key name — but see KISS: only if more than
-one site needs it, which the table above shows it does (10 sites).
-
----
-
-### L-4 · MAJOR — the injection key is imported from the 250-line port factory
-
-`GeneratePane.vue:6`:
+`GeneratePane.vue:6,11`:
 
 ```ts
 import { LIBRARY_PORT_KEY } from "../../palettes/usePalettePorts";
+const pm = inject(LIBRARY_PORT_KEY)!;
 ```
 
-`demo/palettes/usePalettePorts.ts` has **18 import statements** and wires 15 composables —
-`useAdminAuth`, `useUserAuth`, `useSession`, `useBrowsePalettes`, `useAdminUsers`,
-`useColorNameQueue`, `useSlugMigration`, `usePaletteActions`, `useFilteredList`,
-`useAdminAudit`, `useAdminFlagged`, `useAdminTags`, `useVersionHistory`, `useTagEdit`,
-`usePaletteStore` — plus `../shell/useViewManager`. The generate feature imports all of it
-to obtain **one `Symbol`**.
+`libraryPort` (`demo/palettes/usePalettePorts.ts:138-153`) carries **15 members**: `savedPalettes,
+filteredSaved, searchQuery, createPalette, reorderPalettes, expandedId, toggleExpand, onEditColor,
+onDelete, onDeleteAllSaved, onPublish, onRenameSaved, onCurrentPaletteSaved,
+onCurrentPaletteUpdated, showDeleteAllConfirm`. GeneratePane uses **one**: `createPalette`
+(`:19`). Utilisation 1/15.
 
-This also inverts the layer: a leaf feature (`workbenches/generate`) statically depends on
-the composition-root module that *provides* to it. The dependency arrow points from the
-consumer to the provider's factory, which is the wrong direction — the provider should
-depend on the contract, not the other way round.
+The port module's own header (`usePalettePorts.ts:22-31`) states the intent this violates:
 
-The repo already ships the correct idiom **one directory over**: `demo/color-session/keys.ts`
-is a leaf module that exports nothing but `InjectionKey`s and types, and `GeneratePane.vue:7`
-imports `CSS_COLOR_KEY` from it correctly. `demo/palettes/` has no `keys.ts` (directory
-listing: 24 entries, none). Five consumers pay the toll:
+> "the RF-15 §b 6 dissolution of the old `usePaletteManager` god facade (153 L, ONE
+> cross-everything injected blob) into FIVE narrow, feature-owned ports … no consumer injects a
+> member outside the port it named."
+
+The letter holds (Generate names `library`, uses a `library` member). The **spirit does not**: the
+injected blob is still 15 members wide for a 1-member need. The god-facade coupling was divided by
+five, not removed. `MixPane.vue:16,42,45` repeats the identical pattern for the identical single
+member — so two of the three workbenches take a 15-wide dependency to write one palette.
+
+- **Evidence**: `demo/workbenches/generate/GeneratePane.vue:6,11,19`;
+  `demo/palettes/usePalettePorts.ts:22-31,138-153`; `demo/workbenches/mix/MixPane.vue:16,42,45`.
+- **Reproduction**: `sed -n '138,153p' demo/palettes/usePalettePorts.ts` — count members (15)
+  against members read (1).
+- **Mechanism**: wrong granularity of ownership. "Save a palette" is a **domain command**, not a
+  slice of the palettes-*feature* UI surface, so it should not ride a UI-feature port at all.
+- **Cure**: the palette store is domain, not feature. Lift `createPalette`/`updatePalette`/
+  `deletePalette` out of `palettes/` into `demo/domain/palette/store.ts` and **import** it — no
+  inject, no port, no cross-feature edge, no provider assertion. `LIBRARY_PORT_KEY` then carries
+  only what is genuinely the palettes *pane's* UI state, which is what a port is for.
+
+### L-4 · `demo/ui/` is a 19-directory alias layer — and this component uses both names for one system
 
 ```
-demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue:27
-demo/workbenches/mix/MixPane.vue:10
-demo/workbenches/mix/MixSourceSelector.vue:6
-demo/workbenches/generate/GeneratePane.vue:6
-demo/palettes/PalettesPane.vue:134
+$ ls demo/ui | wc -l               → 19
+$ cat demo/ui/*/index.ts | wc -l   → 29        # 19 directories, 19 files, 29 total lines
+$ for d in demo/ui/*/; do ls $d | grep -v index.ts | wc -l; done   → 0 for all 19
 ```
 
-Sub-note **L-4a**: the five sites are also inconsistent about the contract's nullability —
-`GeneratePane.vue:11` and `MixPane.vue:16` write `inject(LIBRARY_PORT_KEY)!`,
-`GradientVisualizer.vue:30` and `MixSourceSelector.vue:33` write `inject(LIBRARY_PORT_KEY)`
-with no assertion. Same key, two contracts.
+Every one is a bare re-export:
 
-Sub-note **L-4b**: `GenerateControls.vue:16` imports `PaletteColorStrip` from
-`../../palettes/browser/card` — a *sibling feature's* card-internals directory. Feature →
-feature, reaching into another feature's presentation subtree. `PaletteColorStrip` is used
-by generate, extract, mix and palettes; it is a shared strip primitive living in
-`palettes/browser/card/` for historical reasons only.
+```ts
+demo/ui/card/index.ts     export { Card, CardHeader, CardTitle, … } from "@mkbabb/glass-ui";
+demo/ui/slider/index.ts   export { Slider }  from "@mkbabb/glass-ui";
+demo/ui/button/index.ts   export { Button }  from "@mkbabb/glass-ui";
+demo/ui/badge/index.ts    export { Badge, badgeVariants, type BadgeVariants } from "@mkbabb/glass-ui";
+demo/ui/select/index.ts   export { Select, SelectTrigger, SelectItem, … } from "@mkbabb/glass-ui";
+```
 
-**Cure.** `demo/palettes/keys.ts` holding the five `InjectionKey` symbols + the five port
-types (derived from interfaces, not from `ReturnType<typeof providePalettePorts>` — that
-`ReturnType` at `usePalettePorts.ts` is what forces the factory into every consumer's type
-graph). `usePalettePorts.ts` imports the keys and provides. Consumers import keys only.
-`PaletteColorStrip` moves to `demo/color-session/color-chips/` beside `PreviewStrip`, which
-is where its four consumers already agree it belongs.
+No directory holds any other file. It is a pure redirect — the fossil of the deleted shadcn-vue
+tree, kept as a second name for the design system.
+
+The subject component pair then uses **both names at once, four lines apart**:
+
+```ts
+// GenerateControls.vue:3-12   — via the alias layer
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";
+import { Slider } from "../../ui/slider";
+import { Button } from "../../ui/button";
+import { Badge }  from "../../ui/badge";
+// GenerateControls.vue:14-15  — direct
+import { writeClipboard } from "@mkbabb/glass-ui";
+import { WatercolorDot }  from "@mkbabb/glass-ui/watercolor-dot";
+```
+
+Standing edict 2 forbids aliases and dual paths by name; edict 3 forbids wrapper layers that add
+nothing. This is both, in one file.
+
+- **Evidence**: the `wc`/`ls` output above; `demo/workbenches/generate/GenerateControls.vue:3-15`;
+  `demo/workbenches/generate/GeneratePane.vue:3`.
+- **Reproduction**: the third command above returns 0 nineteen times — there is no content to keep.
+- **Mechanism**: a migration shim that outlived its migration and became a second namespace.
+- **Cure**: delete `demo/ui/`; rewrite consumers to `@mkbabb/glass-ui`. Mechanical, one pass, and it
+  removes an entire tier from the lattice.
+
+### L-5 · The design system leaks `reka-ui` types, forcing unchecked casts here
+
+`GenerateControls.vue:33,75-81`:
+
+```ts
+import type { AcceptableValue } from "reka-ui";
+...
+function onPresetChange(value: AcceptableValue)  { preset.value  = value as PresetName; }
+function onHarmonyChange(value: AcceptableValue) { harmony.value = value as HarmonyName; }
+```
+
+glass-ui's `Select` does not export the type of its own `@update:model-value` payload, so a
+consumer must reach **past** the design system into glass-ui's transitive UI primitive to name it,
+then cast the un-narrowed `AcceptableValue` down to a literal union. Both casts are unchecked: a
+value outside the union yields `GENERATION_PRESETS[preset] === undefined` at
+`demo/color-session/generate-color.ts:243`, and the next line `p.l[0]` throws.
+
+`reka-ui` is not a runtime dependency of this package:
+
+```
+$ node -e "p=require('./package.json'); console.log(p.dependencies['reka-ui'],'|',p.devDependencies['reka-ui'])"
+undefined | ^2.9
+```
+
+The import is type-only so nothing ships. The architecture is still wrong: the demo's design-system
+boundary is not sealed — glass-ui's dependency is part of glass-ui's public API **by omission**.
+
+- **Evidence**: `demo/workbenches/generate/GenerateControls.vue:33,75-81`; the dependency probe
+  above; `demo/color-session/generate-color.ts:243-244`.
+- **Reproduction**: `grep -rn "AcceptableValue" demo/` shows the leak's blast radius.
+- **Mechanism**: incomplete encapsulation of the design system's public surface.
+- **Cure**: glass-ui exports `SelectModelValue<T>` (generic over the item value) and types
+  `@update:model-value` with it. Both casts and the `reka-ui` import die at every consumer. This is
+  a glass-ui BH/BI relay row under the standing relay edict.
+
+### L-6 · The "ramp is the track" slider is hand-rolled twice, and the two copies have diverged
+
+`GenerateControls.vue:288-311` and `ExtractControls.vue:15-35` are the same idiom character-for-
+character in the load-bearing parts: a `relative flex-1 h-6 flex items-center` wrapper, an
+`absolute inset-0 rounded-full overflow-hidden h-6` div painting the gradient, and a glass-ui
+`Slider variant="spectrum"` laid over it with a per-instance
+`:style="{ '--slider-track-bg': 'transparent' }"` (`GenerateControls.vue:305`,
+`ExtractControls.vue:32`). Two consequences, both measured live at `http://localhost:9000/#/generate`:
+
+**(a) The thumb is below the minimum target size.** Live element measurement under
+`[aria-label="Color count"]`:
+
+```js
+[ { t:"SPAN", c:"slider-track",                      w:434, h:24 },
+  { t:"SPAN", c:"slider-range glass-liquid-fill",    w:158, h:24 },
+  { t:"SPAN", c:"slider-thumb glass-specular-track", w: 12, h:24 } ]
+```
+
+12 × 24 CSS px — under the 24 × 24 floor. This is the exact row the Safari matrix already flags on
+**all four** matrices, `REPORT.json` → `/#/generate` → `a11y.smallTapTargets`:
+`{"w":12,"h":24,"tag":"span","label":"Color count"}` (the other four flagged targets on that route
+are shell chrome — the slug capsule's 22 × 22 buttons and its unnamed 160 × 23 input).
+
+**(b) The generate copy never received the extract copy's remediation.** `ExtractControls.vue:20`
+carries `data-o18="extract-k-rail"` and `:22` carries `backgroundColor: trackInk` plus an
+`inset 0 0 0 1.5px ${trackInk}` certified ring. `GenerateControls.vue:293-296` carries **neither**.
+The contrast oracle therefore cannot see the generate rail at all:
+
+```
+$ grep -rn "data-o18" e2e/ | grep -i slider
+e2e/smoke/oracles/o18-contrast-census.spec.ts:1106:  page.locator('[data-o18="extract-kc"] .slider-track'),
+e2e/smoke/oracles/o18-contrast-census.spec.ts:1133:  '[data-o18="extract-k-rail"]',
+```
+
+`ExtractControls.vue:58-64` records precisely why the un-inked variant was ruled defective
+("These sliders are un-readable"). The generate copy **is** that un-remediated variant, still
+shipping, outside the gate that would have caught it.
+
+- **Evidence**: the live measurement above;
+  `docs/tranches/V/megatranche/audit/visual/REPORT.json`, `/#/generate`, all four matrices;
+  `demo/workbenches/generate/GenerateControls.vue:288-311`;
+  `demo/workbenches/extract/ExtractControls.vue:15-35,58-64`;
+  `e2e/smoke/oracles/o18-contrast-census.spec.ts:1106,1133`.
+- **Reproduction**: open `/#/generate`, measure `.slider-thumb` → 12 × 24. Grep the O-18 census for
+  any generate selector → none.
+- **Mechanism**: a design-system capability implemented in userland twice, so a remediation applied
+  to one copy structurally cannot reach the other. Also edict 5 — a per-instance `:style` token
+  override instead of root-level styling.
+- **Cure**: glass-ui `Slider` gains a `track-gradient` prop (or a `rail` slot) plus a ≥ 24 px thumb
+  hit area. Both hand-rolled rails and both `--slider-track-bg: transparent` overrides delete, and
+  the O-18 census can then key on **component identity** rather than per-site opt-in attributes —
+  which is what a census should key on.
+
+### L-7 · The pane's public surface is four optional-chain hops of `any`
+
+`GeneratePane.vue:22-26`:
+
+```ts
+defineExpose({
+    regenerate: () => controlsRef.value?.regenerate?.(),
+    save:       () => controlsRef.value?.save?.(),
+    copyColors: () => controlsRef.value?.copyColors?.(),
+});
+```
+
+The inner `?.` is a masking fallback on methods statically guaranteed to exist —
+`GenerateControls.vue:115` is `defineExpose({ regenerate, save, copyColors })`. They cannot be
+`undefined`; the `?.` exists only to make a rename silent. The consumer side compounds it:
+
+```ts
+demo/shell/usePaneRouter.ts:108   generate: Ref<any>;
+demo/color-picker/App.vue:317     const generatePaneRef = ref<any>(null);
+demo/shell/usePaneRouter.ts:196   handler: () => paneRefs.generate.value?.regenerate?.()
+```
+
+Four `?.` and two `any`s between a dock button and a `seed.value = …`. Nothing in the chain is
+type-checked: rename `regenerate` at either end and the button becomes a no-op with no diagnostic
+from `vue-tsc`, `eslint`, or any oracle. Standing edict 2 names masking fallbacks explicitly.
+
+- **Evidence**: `demo/workbenches/generate/GeneratePane.vue:12,22-26`;
+  `demo/workbenches/generate/GenerateControls.vue:115`;
+  `demo/shell/usePaneRouter.ts:106-110,196-198`; `demo/color-picker/App.vue:317,347`.
+- **Reproduction**: the `Ref<any>` declaration is the proof — no member access on it is checked.
+- **Mechanism**: imperative ref-drilling used as a command bus. A command bus wants a registry, not
+  a chain of instance handles.
+- **Cure**: see L-8 — they are one repair.
+
+### L-8 · The dock's three generate actions are dead on mobile
+
+`generatePaneRef` is written in exactly one place:
+
+```
+$ grep -rn "generatePaneRef" demo/
+demo/color-picker/App.vue:317:  const generatePaneRef = ref<any>(null);
+demo/color-picker/App.vue:326:      generatePaneRef.value = left === "generate" ? el : null;
+demo/color-picker/App.vue:347:  { generate: generatePaneRef, gradient: gradientPaneRef, mix: mixPaneRef },
+```
+
+`:326` is the body of `onDesktopLeftMount`, bound to exactly one slot — `App.vue:101-109`, the
+desktop-left `<PaneSlot :on-mount="onDesktopLeftMount">` (`:105`), inside the `<template v-else>`
+whose `v-if` was `!isDesktop` (`:77`). The **mobile** `<PaneSlot>` (`App.vue:83-92`) carries no
+`:on-mount` at all:
+
+```html
+<div v-if="!isDesktop" class="pane-wrapper pane-wrapper--left pane-slot-mobile …">   <!-- :77 -->
+    <PaneSlot
+        :component="mobile.component"
+        :component-key="mobile.key"
+        :component-props="mobile.props"
+        :transition-name="…" :max="9" appear :on-appeared="…"
+    />                                        <!-- NO :on-mount -->
+</div>
+```
+
+Meanwhile the action bar is keyed on the **view**, with no breakpoint guard —
+`usePaneRouter.ts:191`: `if (view === "generate") return { label: "Tools", icon: Paintbrush, … }`.
+So on a phone the Tools layer renders its three generate actions (its paintbrush trigger is visible
+in `shots/safari-mobile-light/generate.png`, second dock icon), every handler resolves
+`paneRefs.generate.value === null`, and the `?.` from L-7 swallows the miss. **Three dock buttons
+that do nothing, silently, on every mobile viewport.**
+
+- **Evidence**: `demo/color-picker/App.vue:77,83-92` (no `:on-mount`), `:101-109`, `:317`, `:326`,
+  `:347`; `demo/shell/usePaneRouter.ts:191-203`;
+  `docs/tranches/V/megatranche/audit/visual/shots/safari-mobile-light/generate.png`.
+- **Reproduction**: **CONFIRMED-BY-CONSTRUCTION.** The write site is unreachable when
+  `isDesktop === false` — the same predicate that mounts the mobile slot. I attempted a live 390 px
+  probe; the MCP browser is a headed window that ignored `setViewportSize` (`innerWidth` stayed
+  1440 after `browser_resize(390, 844)`), so no live capture is offered and none is needed: the
+  static chain has no second branch.
+- **Mechanism**: an instance-handle command bus whose wiring is duplicated per layout branch, so
+  one branch can silently omit it.
+- **Cure (one repair for L-7 + L-8 + L-9)**: replace `PaneActionRefs` with a **command registry**.
+  `demo/shell/commands.ts` provides a `Ref<Command[]>`; a workbench calls
+  `registerCommands([{ key, title, icon, run }])` in its own setup; the dock renders what is
+  registered. Layout-independent by construction (registration rides mount, wherever the pane
+  mounts), fully typed (no `any`, no `?.`). It deletes `defineExpose` from all three panes,
+  `PaneActionRefs` from `usePaneRouter`, three `ref<any>` and both `on*Mount` callbacks from
+  `App.vue` — and it makes L-9 impossible, since a command registered once cannot render twice.
 
 ---
 
-### L-5 · MAJOR — the pane shell is copy-pasted, and its class is defined by its own child
+## 3 · MINOR / INFO
 
-`GeneratePane.vue:30-31` opens with a two-element shell that is duplicated verbatim across
-the pane family:
+### L-9 · Two live surfaces for the same three verbs; the O-20 oracle measures the wrong property
+
+Live DOM at `/#/generate` (desktop), buttons in order:
+
+```
+… "Back", "Regenerate", "Save palette", "Copy colors",        ← the dock action bar
+… "Regenerate", "Save palette", "Copy all colors",            ← the plate
+```
+
+Two `Regenerate` nodes. Measured state of each:
+
+```js
+[ { label:"Regenerate", inPlate:false, inert:true,  ariaHidden:true,  visibility:"hidden",  w:32,  h:32 },
+  { label:"Regenerate", inPlate:true,  inert:false, ariaHidden:false, visibility:"visible", w:145, h:40 } ]
+```
+
+Two names for one verb, too: the dock says **Copy colors**, the plate says **Copy all colors**.
+
+`e2e/smoke/oracles/o20-generate-plate.spec.ts:36-41` claims to hold the containment:
+
+```ts
+// The orphan is dead: EVERY Regenerate on the page lives inside the plate (page-count ≡ plate-count).
+expect(await page.getByRole("button", { name: "Regenerate" }).count())
+    .toBe(await plate.getByRole("button", { name: "Regenerate" }).count());
+```
+
+It passes only because `getByRole` skips the accessibility-hidden node. The assertion the **comment**
+makes ("EVERY Regenerate lives inside the plate") is false of the DOM; the assertion the **code**
+makes is "every a11y-visible Regenerate lives inside the plate *while the Tools layer is closed*".
+The oracle measures visibility, not ownership — so the second surface it was written to kill is
+alive one click away, un-asserted.
+
+- **Severity**: MINOR — the duplicate is functional, not broken. But it is exactly the dual path
+  the edicts forbid, and its guard oracle cannot see it.
+- **Cure**: the command registry (L-8). One registration ⇒ one render site by construction, and the
+  oracle can then assert identity instead of counting.
+
+### L-10 · The demo's declared value.js trust boundary has drifted from the exports map — MAJOR
+
+`package.json#exports` — **7 keys, no root**:
+`./color ./value ./css ./easing ./math ./transform ./quantize`. There is no fallback either:
+
+```
+$ node -e "p=require('./package.json'); console.log(p.main, p.module, p.types)"
+undefined undefined undefined
+```
+
+`tsconfig.demo.json#compilerOptions.paths` — **8 keys**: `@mkbabb/value.js` · `/color` · `/parsing`
+· `/math` · `/easing` · `/units` · `/transform` · `/quantize`, under a comment calling them "the 8
+public keys". Three targets do not exist on disk; two real public keys have no entry:
+
+```
+$ for f in dist/index.d.ts dist/subpaths/parsing.d.ts dist/subpaths/units.d.ts dist/subpaths/css.d.ts dist/subpaths/value.d.ts; do
+    [ -e "$f" ] && echo "EXISTS $f" || echo "MISSING $f"; done
+MISSING dist/index.d.ts
+MISSING dist/subpaths/parsing.d.ts
+MISSING dist/subpaths/units.d.ts
+EXISTS  dist/subpaths/css.d.ts
+EXISTS  dist/subpaths/value.d.ts
+```
+
+This component's transitive core imports one key from each side, and they resolve by **two
+different mechanisms**:
+
+```
+$ npx tsc -p tsconfig.demo.json --noEmit --traceResolution | grep "was successfully resolved" | grep value.js | sort -u
+Module name '@mkbabb/value.js/color' was successfully resolved to '…/dist/subpaths/color.d.ts'.
+Module name '@mkbabb/value.js/css'   was successfully resolved to '…/dist/subpaths/css.d.ts'
+                                       with Package ID '@mkbabb/value.js/dist/subpaths/css.d.ts@4.0.0'.
+```
+
+`/color` is path-mapped (no Package ID). `/css` misses `paths` entirely and lands via Node
+**package self-reference** through the repo's own `exports` map — hence the Package ID. Both reach
+the same file *today*, so this is drift, not a live break. But the config that is supposed to be
+the demo-dogfood keystone no longer describes the surface it certifies, and `vite.config.ts:38-50`
+already solves exactly this problem correctly, by **generating** its alias set from
+`package.json#exports`.
+
+- **Cure**: one mechanism, not two. Either generate `paths` from `exports` the way the Vite alias
+  set is generated, or delete `paths` outright and let self-reference serve all seven — it
+  demonstrably already serves `/css` and `/value`.
+
+### L-11 · A duplicate `debounce` is justified by a root barrel that does not exist
+
+`demo/shared/utils.ts:9-21`:
+
+> "`debounce` was the last symbol holding 7 demo files on the BARE `@mkbabb/value.js` specifier …
+> the demo owns its copy; **the library's root-barrel export stands for external consumers**."
+
+There is no root barrel (see L-10: no `"."` key, no `main`/`module`/`types`). An external consumer
+cannot write `import { debounce } from "@mkbabb/value.js"`. Nor is it in any subpath:
+
+```
+$ grep -rn "export function debounce" src/     → (no matches)
+```
+
+The demo's copy is the **only** `debounce` in the constellation, and the comment justifying it as a
+*duplicate* describes a symbol that was deleted from the library.
+
+- **Severity**: MINOR — documentation asserting a public surface that does not exist. Same drift
+  family as L-10, surfaced by the same probe. Not in this component's graph.
+- **Cure**: correct the comment, or export it from a subpath if external consumers want it.
+
+### L-12 · A second physical copy of value.js is installed in `node_modules` — INFO
+
+```
+$ ls node_modules/@mkbabb/ → glass-ui  keyframes.js  value.js
+$ grep -n '"node_modules/@mkbabb/value.js"' -A3 package-lock.json
+1336:  "node_modules/@mkbabb/value.js": {
+1337:      "version": "4.0.0",
+1338:      "resolved": "https://registry.npmjs.org/@mkbabb/value.js/-/value.js-4.0.0.tgz",
+$ grep -n "value.js" node_modules/@mkbabb/{glass-ui,keyframes.js}/package.json
+keyframes.js:69:  "@mkbabb/value.js": "4.0.0"
+glass-ui:543:     "@mkbabb/value.js": "^4.0.0",
+```
+
+It is a real directory, not a symlink (`os.path.islink` false at package, `dist`, `subpaths` and
+file level), pulled in transitively by both siblings. `vite.config.ts:26-28` asserts the opposite:
+
+> "A package does not install itself, so these exact aliases point the seven public specifiers at
+> this checkout's freshly-built published surface."
+
+The package **is** installed. The self-alias still does its job for demo code (proven in §0), so
+nothing is broken; the comment's premise is simply false, and a stale published tarball of the
+library sits inside the tree meant to dogfood the working copy.
+
+- **HYPOTHESIS (not verified)**: because `resolve.alias` is global, glass-ui's own runtime
+  `@mkbabb/value.js/*` imports are probably rebound to the working-tree `dist/` too — meaning
+  glass-ui 7.0.0, built and tested against published 4.0.0, silently runs against whatever `src/`
+  currently emits. Confirming needs a production build-graph probe I did not run.
+
+### L-13 · `GeneratePane` and `GradientPane` are near-identical twins; the shell is copy-pasted 9×
+
+`GradientPane.vue:1-28` against `GeneratePane.vue:1-41`: same import block shape, same dead
+`inject(CSS_COLOR_KEY)` (L-2), same `ref<InstanceType<typeof Child> | null>(null)`, same
+`defineExpose` of `?.`-guarded passthroughs, and a byte-identical template skeleton —
 
 ```html
 <div class="relative w-full mx-auto h-full min-w-0">
   <Card tier="resting" class="pane-scroll-fade w-full overflow-y-auto overflow-x-hidden min-w-0 h-full">
+    <PaneHeader description="…">Title</PaneHeader>
+    <div class="flex flex-col gap-4 pb-4 px-4 sm:px-6 pt-2"> <Child ref="…" /> </div>
+  </Card>
+</div>
 ```
 
-`grep` counts: the outer wrapper string appears in **5** files
-(`generate`, `gradient`, `mix`, `extract`, `scenes/ConfigSliderPane`); the
-`pane-scroll-fade w-full …` Card string in **8**; `.pane-scroll-fade` overall in **9**
-panes (`+ AboutPane`, `BrowsePane`, `PalettesPane`, `admin/AdminPane`). Nine components
-hand-restate the same composition of utility classes. Edict 5 asks for styling at the root
-component level; nine per-instance restatements of one shell is the opposite.
-
-Worse is the ownership direction. The class the **Card** carries is defined inside the
-**PaneHeader** child's unscoped `<style>` (`PaneHeader.vue:54-57`) — a child module owning
-a class applied to its parent and to eight sibling components it never sees. The file's own
-comment (`PaneHeader.vue:43-52`) argues the block must be unscoped *"because the class is
-applied across siblings of PaneHeader"*, which correctly describes the inversion but treats
-it as a constraint rather than the defect. `demo/styles/foundation.css:578` records the
-move as deliberate.
-
-The load-bearing consequence: `.pane-scroll-fade`'s CSS exists only if `PaneHeader.vue`'s
-style block is in the graph. `demo/scenes/ConfigSliderPane.vue:106` applies
-`.pane-scroll-fade` to a plain `<div>` and happens to also import `PaneHeader`
-(`ConfigSliderPane.vue:22`) — so it works by coincidence of co-import, not by construction.
-
-**Cure.** L-2's cure subsumes this: `class="card-scroll-host"` is glass-ui's, owned by
-glass-ui, and there is no demo class to misplace. If a demo-side shell is still wanted after
-that, it is one `PaneShell.vue` in `demo/shared/ui/` owning the wrapper + Card + header
-slot — one file, nine call sites reduced to `<PaneShell title="Generate" description="…">`.
-
----
-
-### L-6 · MAJOR — the three verbs have two homes; two live controls share one accessible name
-
-Regenerate / Save / Copy exist twice on the `/#/generate` route:
-
-- in the plate, `GenerateControls.vue` — real `<Button>`s, direct handlers;
-- in the dock, `usePaneRouter.ts:181-186` — a `DockAction[]` whose handlers reach back
-  through `paneRefs.generate.value?.regenerate?.()`.
-
-Two mechanisms, one concept, no shared definition — the titles, descriptions, icons and
-`aria-label`s are independently authored in the two places. Measured collision on the live
-route (`probe-structure.mjs`):
-
-```json
-"duplicateAccessibleNames": ["Save palette", "Color count"]
+```
+$ grep -rn 'class="[^"]*pane-scroll-fade' demo/ | wc -l   → 9
 ```
 
-Playwright's own strict-mode resolver states it plainly — my first probe run failed with:
+Nine panes hand-repeat the same class string. `demo/DESIGN.md` § Surfaces makes it **normative**
+("ONE card species … the picker card AND all 9 pane cards"), which means a law is enforced by nine
+copies of a literal instead of by one component.
 
-```
-locator.click: Error: strict mode violation: locator('button[aria-label="Save palette"]')
-resolved to 2 elements:
-  1) …aria-label="Save palette" class="action-button-wrapper…"    (dock)
-  2) …aria-label="Save palette" data-slot="button" data-icon-only="true"…  (plate)
-```
+- **Severity**: MINOR — no live defect; it is the substrate that let L-2 replicate.
+- **Cure**: `demo/shell/PaneShell.vue` — `<PaneShell title description>` renders the wrapper, the
+  `Card tier="resting"`, the `PaneHeader` and the padded body slot. Nine copies become nine one-line
+  usages; the material ladder becomes type-enforced rather than string-enforced.
 
-A screen-reader user hears "Save palette, button" twice with no way to tell them apart;
-an automation author cannot address either without a structural selector. The visual audit
-independently counts 5 small tap targets on `/#/generate` in all four matrices
-(`REPORT.md:38,53,68,83`) and 0 page errors / 0 overflow — so the route is otherwise clean
-and this is the standout structural defect the a11y surface exposes.
-
-**Cure.** One definition. The feature session (see L-1's cure) exports its verb list —
-`{ key, title, description, icon, handler }[]` — and both the dock and the plate render
-*that*. The dock stops needing a component ref at all, which kills L-7.
-
----
-
-### L-7 · MAJOR — an `any`-typed imperative ref bridge with two layers of masking optional-call
-
-`usePaneRouter.ts:103-107`:
-
-```ts
-export interface PaneActionRefs {
-    generate: Ref<any>;
-    gradient: Ref<any>;
-    mix: Ref<any>;
-}
-```
-
-The shell's contract with this component is `any`. There is no typed surface between the
-router and the pane at all — `defineExpose` on the pane side and `Ref<any>` on the shell
-side means the three exposed verb names are validated by nothing.
-
-Then the call is optional-chained **twice**, once on each side of the boundary:
-
-- shell: `handler: () => paneRefs.generate.value?.regenerate?.()` (`usePaneRouter.ts:183`)
-- pane:  `regenerate: () => controlsRef.value?.regenerate?.()` (`GeneratePane.vue:23`)
-
-The `?.` after the member access is a masking fallback in the edict-2 sense: if the exposed
-name is ever renamed or the child fails to mount, the dock button becomes a silent no-op —
-no throw, no console, nothing for a gate to catch. The inner `?.` is doubly gratuitous:
-`controlsRef` is typed `InstanceType<typeof GenerateControls>` (`GeneratePane.vue:12`), so
-`regenerate` is a *statically known non-optional* member; the `?.()` defends against a
-case the type system has already excluded, which is how the pattern spread.
-
-And the whole bridge is pure re-export: `GeneratePane.vue:22-26` forwards three names from
-`GenerateControls`'s `defineExpose({ regenerate, save, copyColors })`
-(`GenerateControls.vue:120`) to the router, adding nothing.
-
-**Cure.** L-6's cure deletes the bridge. If an imperative handle survives at all, type it —
-`Ref<InstanceType<typeof GeneratePane> | null>` — and drop every `?.` after the ref's own
-null-guard.
-
----
-
-### L-8 · MAJOR — `demo/ui/` is a 19-file re-export alias over the design system, and it is a live dual path
-
-Every directory under `demo/ui/` is a one-line barrel that re-exports glass-ui:
-
-```
-demo/ui/alert/      lines=11 glassrefs=2
-demo/ui/avatar/     lines=1  glassrefs=1
-demo/ui/badge/      lines=1  glassrefs=1
-… (19 total, 18 of them exactly 1 line)
-demo/ui/card/index.ts:1:
-  export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@mkbabb/glass-ui";
-```
-
-That is an alias layer with no encapsulation, no adaptation, no default props — precisely
-the shape edict 2 forbids and edict 3 calls contrivance. It survives from the pre-glass-ui
-shadcn-vue era, where `demo/ui/*` held real component source.
-
-It is not merely inert, it is a **dual path**, and the proof is inside this component's own
-feature. `GenerateControls.vue` reaches glass-ui through *both* routes in one file:
-
-```ts
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../ui/select";  // barrel
-import { Slider } from "../../ui/slider";                                                        // barrel
-import { Button } from "../../ui/button";                                                        // barrel
-import { Badge } from "../../ui/badge";                                                          // barrel
-import { writeClipboard } from "@mkbabb/glass-ui";                                               // bare
-import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";                                 // bare subpath
-```
-
-`GeneratePane.vue:3` takes the barrel route for `Card`. Two spellings for the same package,
-in the same feature, three lines apart. The barrel route also defeats glass-ui's subpath
-tree-shaking: `../../ui/card` pulls the package root barrel, whereas
-`@mkbabb/glass-ui/card` is a declared export key (74 keys in glass-ui 7.0.0's `exports`).
-
-Adjacent, same mechanism: `demo/shared/utils.ts:4-6` defines `cn()` (clsx + twMerge) while
-glass-ui exports `cn` at `node_modules/@mkbabb/glass-ui/dist/index.d.ts:41`. Second
-implementation, same concept.
-
-**Cure.** Delete `demo/ui/` entirely (12 files import its barrels). Import
-`@mkbabb/glass-ui/<subpath>` at the call site. The design system is the design system.
-
----
-
-### L-9 · MINOR — `tsconfig.demo.json`'s value.js `paths` block is drifted, partly dead, and its own comment is false
-
-`tsconfig.demo.json` declares 8 `paths` keys for the library. `package.json#exports`
-declares 7, and **none of them is `.`**. Cross-tabulated:
-
-| `paths` key | in `exports`? | target exists? |
-|---|---|---|
-| `@mkbabb/value.js` → `./dist/index.d.ts` | **no** — there is no `.` export | **no** — `ls dist/index.d.ts` → *No such file or directory* |
-| `@mkbabb/value.js/parsing` | **no** | **no** — `src/subpaths/` has no `parsing.ts` |
-| `@mkbabb/value.js/units` | **no** | **no** — `src/subpaths/` has no `units.ts` |
-| `/color`, `/math`, `/easing`, `/transform`, `/quantize` | yes | yes |
-| `/css` | yes — **and actually imported** by this component's graph | **absent from `paths`** |
-| `/value` | yes | **absent from `paths`** |
-
-Three dead keys, two real keys missing. The file's own comment asserts the block
-*"Mirrors the `vite.config.ts` runtime self-alias generated from the same map"* and calls
-it *"the CLOSED 8-key set"*. `vite.config.ts:52-61` genuinely generates its aliases from
-`package.json#exports` — 7 anchored regexes, no `.`. The `paths` block is hand-maintained
-and has drifted away from the thing it claims to mirror.
-
-The one saving grace, established by `--traceResolution` above: `/css` resolves correctly
-**despite** having no `paths` entry, via package self-reference through the real `exports`
-map. Which is the finding's sharpest edge — **the entire value.js `paths` block is inert
-scaffolding.** TypeScript already honours the published surface without it, and the block's
-only live effect is to shadow that correct resolution with three broken targets.
-
-**Cure.** Delete the seven value.js `paths` entries. Self-reference is the correct,
-drift-proof mechanism and it is already working. That also makes the tsconfig honest by
-construction: adding an export key needs no second edit.
-
----
-
-### L-10 · MINOR — `palettes/export.ts` vs `palettes/export/`: the tested implementation is not the shipped one
-
-Named in the brief as a historical suspect; it is still live and the situation is worse
-than "two implementations."
-
-- `demo/palettes/export.ts` — 132 lines, self-contained `exportAsJSON` /
-  `exportAsCSSCustomProperties` / `exportAsTailwindConfig` / `exportAsSVG` / `exportAsPNG`
-  / `downloadExport`, with its own private `slugify`.
-- `demo/palettes/export/` — 12 modules: `serializers.ts`, `canonical.ts`, `rfc8785.ts`,
-  `digest.ts`, `bytes.ts`, `json.ts`, `css.ts`, `tailwind.ts`, `svg.ts`, `png.ts`,
-  `reload.ts`, `types.ts`. No `index.ts`.
-
-`demo/palettes/usePaletteExport.ts:2-9` imports `from "./export"`. With
-`moduleResolution: bundler` that resolves to **`export.ts`**, the 132-line file. The
-12-module tree has exactly one reachable entry point in the whole repo:
-
-```
-demo/test/export/byte-exact.test.ts:23:} from "../../palettes/export/serializers";
-```
-
-So the byte-exact serializer suite — canonical JSON, RFC-8785, digests — certifies a
-module tree that **no shipping code path executes**, while the code users actually reach
-(`BrowsePane.vue:198`, `PalettesPane.vue:152` → `usePaletteExport` → `export.ts`) is the
-untested one. A green test suite proving a property of dead code is worse than no suite:
-it reads as coverage.
-
-Out of GeneratePane's direct graph — recorded because it lives in the same `palettes/`
-domain GeneratePane depends on (L-4) and because the brief named it. Cure: delete
-`export.ts`, add `demo/palettes/export/index.ts` re-exporting `serializers.ts`, repoint
-`usePaletteExport`, re-run the byte-exact suite against the live path.
-
----
-
-### L-11 · MINOR — non-idiomatic Vue 3.5 template ref
+### L-14 · Not Vue 3.5 idiom — `ref` + `InstanceType` instead of `useTemplateRef`
 
 `GeneratePane.vue:12`:
 
@@ -559,155 +608,116 @@ domain GeneratePane depends on (L-4) and because the brief named it. Cure: delet
 const controlsRef = ref<InstanceType<typeof GenerateControls> | null>(null);
 ```
 
-Edict 7 names `useTemplateRef` as the idiom. Vue 3.5's `useTemplateRef("controlsRef")`
-infers the instance type from the template binding, removing the hand-written
-`InstanceType<typeof …> | null` annotation. `GradientPane.vue:9` carries the identical
-non-idiomatic line — same copy-paste vector as L-3. (Moot if L-6/L-7's cure removes the ref
-entirely; recorded because the pattern is repo-wide.)
+`useTemplateRef` is the 3.5 idiom and is already in this repo — `demo/color-picker/App.vue:301`:
+`const dockNav = useTemplateRef<HTMLElement>("dockNav");`. Standing edict 7. (Subsumed by L-8's
+cure, which removes the ref entirely.)
 
 ---
 
-### L-12 · INFO — generation is demo-owned while extraction is library-owned: the same concept, two homes
+## 4 · The greenfield lattice
 
-The generate and extract workbenches are siblings of identical shape — take parameters,
-produce an array of CSS colors, offer them for save. Their cores live on opposite sides of
-the library boundary:
+Structuring this today, with no legacy:
 
-| workbench | core | home |
-|---|---|---|
-| extract | `quantizePixels`, `dominantColor` | **`src/quantize.ts`**, published as `@mkbabb/value.js/quantize` |
-| generate | `generatePalette`, `generateSingleColor`, `GENERATION_PRESETS`, `HARMONY_DEFS` | `demo/color-session/generate-color.ts` (243 lines) |
+```
+src/                                 the library — 7 published subpaths. UNCHANGED.
+                                     The demo already speaks only these (§0). This is the
+                                     one boundary that is already right; do not touch it.
 
-`generate-color.ts` is pure, deterministic, seeded, Vue-free, and its only imports are
-`@mkbabb/value.js/color`, `@mkbabb/value.js/css` and a local `mulberry32`. It is library
-code sitting in the demo. `demo/color-session/prng.ts` (mulberry32) likewise has no library
-home although `@mkbabb/value.js/math` is the obvious one — the subpath already carries
-`clamp`/`scale`/`lerp`/`deCasteljau` and is described as *"pure numeric math … parse-that-FREE."*
+demo/
+  color/                             pure, Vue-free colour domain over @mkbabb/value.js
+    generate.ts                      presets · harmonies · generatePalette
+                                     (today color-session/generate-color.ts — already correct)
+    prng.ts
 
-The file's header (`generate-color.ts:1-22`) explains its current home as a cycle break:
-`demo/color-session/useColorParsing.ts:3,120` needs `generateSingleColor`, and while the
-math lived in the feature that was a shared-layer → feature edge. True, and the move fixed
-it — but it fixed a demo-internal cycle by relocating library-grade code *sideways within
-the demo* rather than *down into the library*, where the cycle cannot exist at all.
+  domain/palette/                    THE AGGREGATE — one home for "a palette"
+    Palette.ts                       type + `fromColors(name, css[]): Palette`
+                                     ← kills the three hand-rolled `{ css, position: i }` maps
+                                       (GeneratePane.vue:15-18, GenerateControls.vue:55-57,
+                                        MixPane.vue:40)
+    store.ts                         createPalette / update / delete / reorder — IMPORTED, not injected
+                                     ← kills L-3's cross-feature port edge
 
-`package.json` also has **no `.` root export** — 7 subpaths, no barrel. That is a
-deliberate, good posture (`vite.config.ts:181-183`: *"The seven literal package
-capabilities are the complete library graph; there is no root or compatibility entry"*), but
-`demo/shared/utils.ts:9-19` records the cost: `debounce` was stranded with *"no rightful
-subpath home"* and got copied into the demo. `generatePalette` is not stranded — `./color`
-is exactly its home. Hypothesis, not a reproduction: I did not build a variant to prove the
-move is clean, though the import graph shows no obstacle.
+  features/generate/                 ONE module. No pane/controls split — the split is what lost the name.
+    useGenerate.ts                   preset · harmony · count · seed · name · palette + save() → store
+                                     ← kills L-1 by construction: name and colours never cross a boundary
+    GenerateWorkbench.vue            the plate + marginalia. Owns its verbs. NO defineExpose.
+
+  shell/
+    PaneShell.vue                    the 9×-duplicated Card+PaneHeader+body wrapper, once   (L-13)
+    commands.ts                      per-view command registry: a workbench REGISTERS
+                                     {key,title,icon,run}[]; the dock RENDERS what is registered
+                                     ← kills L-7 (typed; no `any`, no `?.`),
+                                       L-8 (layout-independent — registration rides mount),
+                                       L-9 (one registration ⇒ one render site)
+
+  ui/                                DELETED. 19 dirs, 19 files, 29 lines, zero content.   (L-4)
+```
+
+Two upstream moves, relayed to glass-ui per the standing BH/BI edict:
+
+1. **`Slider` gains `track-gradient`** (or a `rail` slot) and a ≥ 24 px thumb hit area — retires
+   both hand-rolled rails, both `--slider-track-bg: transparent` per-instance overrides, and the
+   12 × 24 tap target the Safari matrix flags on all four generate captures (L-6).
+2. **`Select` exports its own model-value type** — retires the `reka-ui` import and the two
+   unchecked casts (L-5).
+
+One build-config move: **generate `tsconfig.demo.json#paths` from `package.json#exports`**, exactly
+as `vite.config.ts:38-50` already generates its alias set — or delete `paths` and let self-reference
+serve all seven uniformly. Two hand-maintained descriptions of one public surface is how L-10's
+drift happened, and it will happen again (L-10).
+
+**Net effect on the subject file: `GeneratePane.vue` ceases to exist.** Its 41 lines are one dead
+injection (L-2), one over-wide port inject (L-3), one lossy adapter (L-1), one `?.` passthrough
+block (L-7), and a shell nine files already duplicate (L-13). Every line is either a defect or a
+duplicate. That is the finding this seat exists to produce: the component is not badly written — it
+is **structurally unnecessary**, and each thing it does is a boundary that costs something to cross.
 
 ---
 
-## The greenfield lattice
+## 5 · Findings index
 
-Stated concretely, no hedging. Layers strictly downward-depending.
+| id | severity | one line | evidence anchor |
+|---|---|---|---|
+| L-1 | **BLOCKER** | the typed palette name is dropped; every save is named `"Generated Palette"` | `GeneratePane.vue:14-20` vs `GenerateControls.vue:48-50,102-104` |
+| L-2 | MAJOR | dead `inject(CSS_COLOR_KEY)` manufactures a false dependency edge | `GeneratePane.vue:7,10`; grep census |
+| L-3 | MAJOR | injects a 15-member port to call one function | `GeneratePane.vue:6,11`; `usePalettePorts.ts:138-153` |
+| L-4 | MAJOR | `demo/ui/` = 19-dir alias layer; both names used four lines apart | `ls`/`wc` = 19/29; `GenerateControls.vue:3-15` |
+| L-5 | MAJOR | `reka-ui` type leak forces two unchecked casts | `GenerateControls.vue:33,75-81` |
+| L-6 | MAJOR | ramp-slider hand-rolled twice; 12×24 thumb; outside the O-18 census | live measure; `REPORT.json`; `o18-…:1106,1133` |
+| L-7 | MAJOR | four `?.` hops of `any` between dock button and pane | `GeneratePane.vue:22-26`; `usePaneRouter.ts:108,196` |
+| L-8 | MAJOR | the three dock generate actions are dead on mobile | `App.vue:77,83-92,317,326`; `usePaneRouter.ts:191` |
+| L-9 | MINOR | two live surfaces for three verbs; O-20 asserts visibility, not ownership | live DOM; `o20-…:36-41` |
+| L-10 | MAJOR | `tsconfig.demo.json#paths` ≠ `package.json#exports`; 3 dangling, 2 missing | `traceResolution`; file-existence probe |
+| L-11 | MINOR | duplicate `debounce` justified by a root barrel that does not exist | `shared/utils.ts:9-21`; `exports` dump |
+| L-12 | INFO | a second physical `@mkbabb/value.js@4.0.0` sits in `node_modules` | `package-lock.json:1336-1338` |
+| L-13 | MINOR | pane shell copy-pasted 9×; Generate/Gradient are twins | `grep … pane-scroll-fade \| wc -l` = 9 |
+| L-14 | MINOR | `ref` + `InstanceType` instead of `useTemplateRef` | `GeneratePane.vue:12` vs `App.vue:301` |
 
-```
-┌ LIBRARY  @mkbabb/value.js  (published, subpath-only, Vue-free)
-│   ./color    … + generatePalette / generateSingleColor / GENERATION_PRESETS / HARMONY_DEFS   ← from L-12
-│   ./css      serializeCssColor, parseCssColor
-│   ./math     … + mulberry32                                                                  ← from L-12
-│   ./quantize quantizePixels, dominantColor        (already correct)
-│
-├ DESIGN SYSTEM  @mkbabb/glass-ui  (published, subpath-only)
-│   ./card      Card, CardHeader{shrink}, CardTitle, CardDescription, CardContent
-│   ./button ./select ./slider ./badge ./watercolor-dot …
-│   ./dom       writeClipboard, cn
-│   ← the ONLY source of visual primitives. demo/ui/ does not exist. (L-2, L-8)
-│
-├ demo/color-session/     the color spine
-│   keys.ts               InjectionKey leaves only          (already correct — the model)
-│   color-chips/          PreviewStrip, PaletteColorStrip   ← PaletteColorStrip lands here (L-4b)
-│   useColorPipeline.ts, useColorParsing.ts  → import generatePalette from the LIBRARY
-│
-├ demo/palettes/          the library domain
-│   keys.ts               ← NEW: 5 InjectionKeys + 5 port interfaces   (L-4)
-│   ports.ts              providePalettePorts, imports keys.ts
-│   store.ts, actions.ts, browse.ts, admin.ts
-│   export/               ONE serializer tree, with index.ts           (L-10)
-│
-├ demo/shared/ui/
-│   PaneShell.vue         wrapper + <Card class="card-scroll-host"> + <CardHeader shrink>
-│                         ← the 9-fold shell, once                     (L-2, L-5)
-│   EmptyState.vue
-│
-└ demo/workbenches/generate/
-    useGenerateSession.ts ← preset/harmony/count/seed/palette/name + save() + the verb list
-    GenerateControls.vue  ← renders session state + session.actions
-    GeneratePane.vue      ← <PaneShell title="Generate" description="…"><GenerateControls/></PaneShell>
-```
+**Strongest defect: L-1** — the component's single piece of real logic silently destroys user
+input, and no gate in the repository can see it.
 
-`GeneratePane.vue` under this lattice is roughly 8 lines with **zero** script block: no
-inject, no port import, no `PaletteColor` type, no `defineExpose`, no template ref. The dock
-reads `useGenerateSession().actions` through the view registry rather than through
-`Ref<any>` (L-6, L-7). The name reaches `createPalette` because the ref that holds it and
-the function that saves it are in the same module (L-1).
+---
 
-Four edges disappear entirely from the component's import graph: `ui/card`,
-`palettes/usePalettePorts`, `color-session/keys`, `palettes/types`.
+## 6 · Divergence from seat 1 (`challenge-L-library.seat-1-9268f054.md`)
 
-## Defect family map
+Recorded so the adjudicator can arbitrate rather than merge blind.
 
-| family | mechanism | findings |
-|---|---|---|
-| A — responsibility in the wrong module | a shell given work it lacks the information to do | **L-1**, L-4, L-7 |
-| B — design-system code living in the demo | a better variant landed downstream instead of upstream | **L-2**, L-5, L-8 |
-| C — copy-paste propagation across sibling panes | no shared shell, so every pane restates the skeleton | L-3, L-5, L-11 |
-| D — dual paths kept alive | the second implementation was never deleted | L-8, **L-10**, L-2 |
-| E — declaration/reality drift | hand-maintained mirrors of generated truth | L-9, L-12 |
-
-Families A and B are the load-bearing ones: A produces the only user-visible failure, B
-produces the largest quantity of unnecessary code (224 + ~120 lines of header logic, 19
-barrel files, 132 lines of superseded export code).
-
-## What is sound
-
-Stated as positive evidence, not as absence of finding:
-
-- **The published-surface contract holds.** Every value.js import in this graph is a real
-  `package.json#exports` key, verified by `tsc --traceResolution` to resolve through the
-  exports map. No `@src/*`, no deep path, no `src/` internal. A real npm consumer could
-  write these imports verbatim. `tsconfig.demo.json`'s comment about the T.W1 dogfood
-  keystone is, on the substance, true.
-- **`verbatimModuleSyntax` is honoured** — `GeneratePane.vue:8` and every type import in
-  `GenerateControls.vue`, `useColorGeneration.ts` and `generate-color.ts` use
-  `import type`. Zero violations in the graph.
-- **The feature → shared direction is correct** where it matters: `useColorGeneration.ts`
-  imports *down* into `color-session/generate-color`, never sideways into another feature's
-  composable.
-- **The route renders clean.** Visual audit `REPORT.md:124,139,154,169`: `/#/generate` in
-  all four Safari matrices shows 0 page errors, 0 console errors, 0 horizontal overflow,
-  exactly 1 `<main>`, `darkClassMissing` 0, settle 3417–3553 ms. The one console error in
-  the whole matrix (`REPORT.md:24`) is a WebGL context loss on `/#/`, not this route. The
-  screenshot renders the plate, strip, swatches, seed note, both selects and the ramp slider
-  correctly in both schemes.
-- **`generatePalette` is genuinely pure and seed-exact**, which is what lets
-  `GenerateControls.vue:100-106` render truthful per-option preview strips. The comment at
-  `GenerateControls.vue:93-99` claims the previews are byte-identical to the future
-  selection; the implementation (`mulberry32(seed)`, same `count`/`preset`/`harmony`) makes
-  the claim structurally true, not aspirational.
-
-## Reproduction artifacts
-
-- `probe-generate-name.mjs` — L-1. Navigate `/#/generate`, clear `localStorage`, fill
-  `input[aria-label="Palette name"]`, click the plate's Save, read
-  `localStorage["color-palettes"]`. Output pasted under L-1.
-- `probe-structure.mjs` — L-2, L-6. Counts `.card-scroll-host` / `.card-header--shrink` /
-  `.pane-scroll-fade` elements, checks the corresponding rules are present in
-  `document.styleSheets`, and collects duplicate `aria-label` values. Output pasted under
-  L-2 and L-6.
-
-Both are in the session scratchpad at
-`/private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/`;
-they are self-contained and re-runnable against a dev server on :9000 with the repo's own
-`playwright` dependency.
-
-## Verdict
-
-**DEFECTIVE.** One BLOCKER with a live reproduction (L-1 — user-typed palette names are
-destroyed at the pane/controls boundary), six MAJORs, four MINORs, one INFO. The library
-boundary *proper* — the `@mkbabb/value.js` published surface — is the one part of this
-graph that is structurally sound; the defects are all in the demo's own module lattice and
-in its relationship to glass-ui.
+- **Agreed, independently**: the BLOCKER (name destroyed at the pane/controls boundary); the dead
+  `CSS_COLOR_KEY` injection; the `demo/ui/` alias layer; the over-wide `LIBRARY_PORT_KEY` inject;
+  the "published surface resolves clean" positive. Two seats, two evidence trails, same conclusion.
+- **Line numbers**: seat 1 cites `GenerateControls.vue:41-43` for the emit and `GeneratePane.vue:14-20`
+  for `onSave`. Against the working tree at `e39da983` the emit is at **48-50**; `onSave` at 14-20
+  is correct. Every citation in this file was re-verified by `grep -n` after writing.
+- **New in this pass** (not in seat 1, as far as its §Findings headers show): **L-8** (the dock
+  actions are dead on mobile — the missing `:on-mount` on the mobile `PaneSlot`); **L-9** (two live
+  Regenerate surfaces + the O-20 oracle measuring visibility rather than ownership, with the
+  `inert`/`aria-hidden` measurement that explains why it passes); **L-10** (the
+  `paths` ⇄ `exports` divergence, with `traceResolution` showing two resolution mechanisms);
+  **L-6(b)** (the generate rail is outside the O-18 contrast census while its extract twin is
+  inside); **L-11** (the root barrel that does not exist); **L-5**'s throw path through
+  `generate-color.ts:243`.
+- **Not adjudicated here**: seat 1's `L-4a` (`PaletteColorStrip` imported feature→feature from
+  `palettes/browser/card` alongside `PreviewStrip` from `color-session/color-chips` — two
+  colour-strip components in one file) and its `L-12` (the `mulberry32`/`prng` placement). Both are
+  real edges in the graph I traced in §0; I did not reach independent findings on them and defer to
+  seat 1's treatment.

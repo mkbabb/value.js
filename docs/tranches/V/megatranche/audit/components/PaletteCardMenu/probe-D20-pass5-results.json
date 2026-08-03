@@ -1,0 +1,774 @@
+{
+  "A_zoomLadder": {
+    "100%": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dsf": 1,
+      "triggers": 1,
+      "trigger": {
+        "x": 1166,
+        "y": 475.625,
+        "width": 36,
+        "height": 36
+      },
+      "anatomy": {
+        "viewport": {
+          "w": 1440,
+          "h": 900,
+          "dpr": 1
+        },
+        "rect": {
+          "x": 1010,
+          "y": 516,
+          "w": 192,
+          "h": 240.1
+        },
+        "side": "bottom",
+        "align": "end",
+        "css": {
+          "maxHeight": "540px",
+          "overflowY": "auto",
+          "width": "192px",
+          "fontSize": "16.4px"
+        },
+        "availableHeightVar": "384.375px",
+        "scroll": {
+          "scrollHeight": 238,
+          "clientHeight": 238,
+          "scrollable": false,
+          "hiddenPx": 0
+        },
+        "fitsInViewport": true,
+        "overflowTopPx": 0,
+        "overflowBottomPx": 0,
+        "header": {
+          "text": "Muted Terracotta and Deep Sea Foam Study",
+          "w": 178,
+          "maxWidth": "180px",
+          "scrollWidth": 319,
+          "clientWidth": 178,
+          "clippedPx": 141,
+          "fontSize": "14.384px"
+        },
+        "rows": [
+          {
+            "text": "Publish",
+            "y": 564.1,
+            "bottom": 608.1,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Rename",
+            "y": 608.1,
+            "bottom": 652.1,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Export",
+            "y": 661.1,
+            "bottom": 705.1,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Delete",
+            "y": 705.1,
+            "bottom": 749.1,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          }
+        ],
+        "rowsVisible": 4,
+        "rowsTotal": 4
+      },
+      "submenu": {
+        "open": true,
+        "parent": {
+          "x": 1010,
+          "right": 1202,
+          "w": 192
+        },
+        "child": {
+          "x": 1195,
+          "right": 1437,
+          "w": 242,
+          "y": 461,
+          "bottom": 704,
+          "h": 243
+        },
+        "overlapPx": 7,
+        "overlapPctOfParent": 2.9,
+        "childFitsViewport": true,
+        "childOverflowRight": 0,
+        "childOverflowBottom": 0
+      }
+    },
+    "200%": {
+      "viewport": {
+        "width": 720,
+        "height": 450
+      },
+      "dsf": 2,
+      "triggers": 1,
+      "trigger": {
+        "x": 541,
+        "y": 255.1875,
+        "width": 36,
+        "height": 36
+      },
+      "anatomy": {
+        "viewport": {
+          "w": 720,
+          "h": 450,
+          "dpr": 2
+        },
+        "rect": {
+          "x": 385,
+          "y": 13,
+          "w": 192,
+          "h": 238
+        },
+        "side": "top",
+        "align": "end",
+        "css": {
+          "maxHeight": "270px",
+          "overflowY": "auto",
+          "width": "192px",
+          "fontSize": "14.6px"
+        },
+        "availableHeightVar": "251.1875px",
+        "scroll": {
+          "scrollHeight": 236,
+          "clientHeight": 236,
+          "scrollable": false,
+          "hiddenPx": 0
+        },
+        "fitsInViewport": true,
+        "overflowTopPx": 0,
+        "overflowBottomPx": 0,
+        "header": {
+          "text": "Muted Terracotta and Deep Sea Foam Study",
+          "w": 178,
+          "maxWidth": "180px",
+          "scrollWidth": 288,
+          "clientWidth": 178,
+          "clippedPx": 110,
+          "fontSize": "12.872px"
+        },
+        "rows": [
+          {
+            "text": "Publish",
+            "y": 59,
+            "bottom": 103,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Rename",
+            "y": 103,
+            "bottom": 147,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Export",
+            "y": 156,
+            "bottom": 200,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Delete",
+            "y": 200,
+            "bottom": 244,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          }
+        ],
+        "rowsVisible": 4,
+        "rowsTotal": 4
+      },
+      "submenu": {
+        "open": true,
+        "parent": {
+          "x": 385,
+          "right": 577,
+          "w": 192
+        },
+        "child": {
+          "x": 173.5,
+          "right": 392.2,
+          "w": 218.7,
+          "y": 155,
+          "bottom": 398,
+          "h": 243
+        },
+        "overlapPx": 7.2,
+        "overlapPctOfParent": 1.5,
+        "childFitsViewport": true,
+        "childOverflowRight": 0,
+        "childOverflowBottom": 0
+      }
+    },
+    "400%": {
+      "viewport": {
+        "width": 360,
+        "height": 225
+      },
+      "dsf": 4,
+      "triggers": 1,
+      "trigger": {
+        "x": 277,
+        "y": 142.25,
+        "width": 36,
+        "height": 36
+      },
+      "anatomy": null,
+      "submenu": null
+    }
+  },
+  "B_textOnlyResize": {
+    "base": {
+      "anatomy": {
+        "viewport": {
+          "w": 1440,
+          "h": 900,
+          "dpr": 2
+        },
+        "rect": {
+          "x": 1010,
+          "y": 515.5,
+          "w": 192,
+          "h": 240.1
+        },
+        "side": "bottom",
+        "align": "end",
+        "css": {
+          "maxHeight": "540px",
+          "overflowY": "auto",
+          "width": "192px",
+          "fontSize": "16.4px"
+        },
+        "availableHeightVar": "384.375px",
+        "scroll": {
+          "scrollHeight": 238,
+          "clientHeight": 238,
+          "scrollable": false,
+          "hiddenPx": 0
+        },
+        "fitsInViewport": true,
+        "overflowTopPx": 0,
+        "overflowBottomPx": 0,
+        "header": {
+          "text": "Muted Terracotta and Deep Sea Foam Study",
+          "w": 178,
+          "maxWidth": "180px",
+          "scrollWidth": 319,
+          "clientWidth": 178,
+          "clippedPx": 141,
+          "fontSize": "14.384px"
+        },
+        "rows": [
+          {
+            "text": "Publish",
+            "y": 563.6,
+            "bottom": 607.6,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Rename",
+            "y": 607.6,
+            "bottom": 651.6,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Export",
+            "y": 660.6,
+            "bottom": 704.6,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Delete",
+            "y": 704.6,
+            "bottom": 748.6,
+            "h": 44,
+            "insidePanel": true,
+            "insideViewport": true
+          }
+        ],
+        "rowsVisible": 4,
+        "rowsTotal": 4
+      },
+      "extra": {
+        "rootFontSize": "16px",
+        "iconPx": {
+          "w": 16,
+          "h": 16
+        },
+        "items": [
+          {
+            "text": "Publish",
+            "fontSize": "16.4px",
+            "h": 44,
+            "scrollW": 178,
+            "clientW": 178,
+            "overflowsX": false
+          },
+          {
+            "text": "Rename",
+            "fontSize": "16.4px",
+            "h": 44,
+            "scrollW": 178,
+            "clientW": 178,
+            "overflowsX": false
+          },
+          {
+            "text": "Export",
+            "fontSize": "16.4px",
+            "h": 44,
+            "scrollW": 178,
+            "clientW": 178,
+            "overflowsX": false
+          },
+          {
+            "text": "Delete",
+            "fontSize": "16.4px",
+            "h": 44,
+            "scrollW": 178,
+            "clientW": 178,
+            "overflowsX": false
+          }
+        ],
+        "headerLabel": {
+          "text": "Muted Terracotta and Deep Sea Foam Study",
+          "maxWidthComputed": "180px",
+          "fontSize": "14.384px",
+          "renderedW": 178,
+          "scrollW": 319,
+          "clientW": 178,
+          "clippedPx": 141
+        }
+      }
+    },
+    "big": {
+      "anatomy": {
+        "viewport": {
+          "w": 1440,
+          "h": 900,
+          "dpr": 2
+        },
+        "rect": {
+          "x": 967,
+          "y": 18.5,
+          "w": 384,
+          "h": 472
+        },
+        "side": "top",
+        "align": "end",
+        "css": {
+          "maxHeight": "540px",
+          "overflowY": "auto",
+          "width": "384px",
+          "fontSize": "29.2px"
+        },
+        "availableHeightVar": "490.4375px",
+        "scroll": {
+          "scrollHeight": 470,
+          "clientHeight": 470,
+          "scrollable": false,
+          "hiddenPx": 0
+        },
+        "fitsInViewport": true,
+        "overflowTopPx": 0,
+        "overflowBottomPx": 0,
+        "header": {
+          "text": "Muted Terracotta and Deep Sea Foam Study",
+          "w": 180,
+          "maxWidth": "180px",
+          "scrollWidth": 569,
+          "clientWidth": 180,
+          "clippedPx": 389,
+          "fontSize": "25.744px"
+        },
+        "rows": [
+          {
+            "text": "Publish",
+            "y": 108.5,
+            "bottom": 196.5,
+            "h": 88,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Rename",
+            "y": 196.5,
+            "bottom": 284.5,
+            "h": 88,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Export",
+            "y": 301.5,
+            "bottom": 389.5,
+            "h": 88,
+            "insidePanel": true,
+            "insideViewport": true
+          },
+          {
+            "text": "Delete",
+            "y": 389.5,
+            "bottom": 477.5,
+            "h": 88,
+            "insidePanel": true,
+            "insideViewport": true
+          }
+        ],
+        "rowsVisible": 4,
+        "rowsTotal": 4
+      },
+      "extra": {
+        "rootFontSize": "32px",
+        "iconPx": {
+          "w": 32,
+          "h": 32
+        },
+        "items": [
+          {
+            "text": "Publish",
+            "fontSize": "29.2px",
+            "h": 88,
+            "scrollW": 358,
+            "clientW": 358,
+            "overflowsX": false
+          },
+          {
+            "text": "Rename",
+            "fontSize": "29.2px",
+            "h": 88,
+            "scrollW": 358,
+            "clientW": 358,
+            "overflowsX": false
+          },
+          {
+            "text": "Export",
+            "fontSize": "29.2px",
+            "h": 88,
+            "scrollW": 358,
+            "clientW": 358,
+            "overflowsX": false
+          },
+          {
+            "text": "Delete",
+            "fontSize": "29.2px",
+            "h": 88,
+            "scrollW": 358,
+            "clientW": 358,
+            "overflowsX": false
+          }
+        ],
+        "headerLabel": {
+          "text": "Muted Terracotta and Deep Sea Foam Study",
+          "maxWidthComputed": "180px",
+          "fontSize": "25.744px",
+          "renderedW": 180,
+          "scrollW": 569,
+          "clientW": 180,
+          "clippedPx": 389
+        }
+      }
+    },
+    "divergence": {
+      "panelWidth": {
+        "at100": 192,
+        "at200": 384
+      },
+      "headerMaxWidth": {
+        "at100": "180px",
+        "at200": "180px"
+      },
+      "deadSpaceRightOfHeaderAt200": 204,
+      "headerShareOfPanel": {
+        "at100": 92.7,
+        "at200": 46.9
+      }
+    }
+  },
+  "C_textSpacing": {
+    "anatomy": {
+      "viewport": {
+        "w": 1440,
+        "h": 900,
+        "dpr": 2
+      },
+      "rect": {
+        "x": 1010,
+        "y": 538,
+        "w": 192,
+        "h": 241.6
+      },
+      "side": "bottom",
+      "align": "end",
+      "css": {
+        "maxHeight": "540px",
+        "overflowY": "auto",
+        "width": "192px",
+        "fontSize": "16.4px"
+      },
+      "availableHeightVar": "362.078125px",
+      "scroll": {
+        "scrollHeight": 240,
+        "clientHeight": 240,
+        "scrollable": false,
+        "hiddenPx": 0
+      },
+      "fitsInViewport": true,
+      "overflowTopPx": 0,
+      "overflowBottomPx": 0,
+      "header": {
+        "text": "Muted Terracotta and Deep Sea Foam Study",
+        "w": 178,
+        "maxWidth": "180px",
+        "scrollWidth": 402,
+        "clientWidth": 178,
+        "clippedPx": 224,
+        "fontSize": "14.384px"
+      },
+      "rows": [
+        {
+          "text": "Publish",
+          "y": 587.6,
+          "bottom": 631.6,
+          "h": 44,
+          "insidePanel": true,
+          "insideViewport": true
+        },
+        {
+          "text": "Rename",
+          "y": 631.6,
+          "bottom": 675.6,
+          "h": 44,
+          "insidePanel": true,
+          "insideViewport": true
+        },
+        {
+          "text": "Export",
+          "y": 684.6,
+          "bottom": 728.6,
+          "h": 44,
+          "insidePanel": true,
+          "insideViewport": true
+        },
+        {
+          "text": "Delete",
+          "y": 728.6,
+          "bottom": 772.6,
+          "h": 44,
+          "insidePanel": true,
+          "insideViewport": true
+        }
+      ],
+      "rowsVisible": 4,
+      "rowsTotal": 4
+    },
+    "rows": [
+      {
+        "text": "Publish",
+        "scrollW": 178,
+        "clientW": 178,
+        "overflowsX": false,
+        "h": 44
+      },
+      {
+        "text": "Rename",
+        "scrollW": 178,
+        "clientW": 178,
+        "overflowsX": false,
+        "h": 44
+      },
+      {
+        "text": "Export",
+        "scrollW": 178,
+        "clientW": 178,
+        "overflowsX": false,
+        "h": 44
+      },
+      {
+        "text": "Delete",
+        "scrollW": 178,
+        "clientW": 178,
+        "overflowsX": false,
+        "h": 44
+      }
+    ],
+    "submenu": {
+      "w": 288.6,
+      "rows": [
+        {
+          "text": "JSON",
+          "scrollW": 275,
+          "clientW": 275,
+          "overflowsX": false,
+          "h": 43.9,
+          "lines": 1.78
+        },
+        {
+          "text": "CSS Custom Properties",
+          "scrollW": 275,
+          "clientW": 275,
+          "overflowsX": false,
+          "h": 43.9,
+          "lines": 1.78
+        },
+        {
+          "text": "Tailwind Config",
+          "scrollW": 275,
+          "clientW": 275,
+          "overflowsX": false,
+          "h": 43.9,
+          "lines": 1.78
+        },
+        {
+          "text": "SVG Swatch",
+          "scrollW": 275,
+          "clientW": 275,
+          "overflowsX": false,
+          "h": 43.9,
+          "lines": 1.78
+        },
+        {
+          "text": "PNG Swatch",
+          "scrollW": 275,
+          "clientW": 275,
+          "overflowsX": false,
+          "h": 43.9,
+          "lines": 1.78
+        }
+      ]
+    }
+  },
+  "D_diagonalTraverse": {
+    "from": {
+      "x": 1106.5,
+      "y": 683.140625
+    },
+    "target": {
+      "x": 1316.4765625,
+      "y": 675,
+      "label": "PNG Swatch"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "x": 1121.5,
+        "y": 682.6,
+        "submenuPresent": true
+      },
+      {
+        "step": 2,
+        "x": 1136.5,
+        "y": 682,
+        "submenuPresent": true
+      },
+      {
+        "step": 3,
+        "x": 1151.5,
+        "y": 681.4,
+        "submenuPresent": true
+      },
+      {
+        "step": 4,
+        "x": 1166.5,
+        "y": 680.8,
+        "submenuPresent": true
+      },
+      {
+        "step": 5,
+        "x": 1181.5,
+        "y": 680.2,
+        "submenuPresent": true
+      },
+      {
+        "step": 6,
+        "x": 1196.5,
+        "y": 679.7,
+        "submenuPresent": true
+      },
+      {
+        "step": 7,
+        "x": 1211.5,
+        "y": 679.1,
+        "submenuPresent": true
+      },
+      {
+        "step": 8,
+        "x": 1226.5,
+        "y": 678.5,
+        "submenuPresent": true
+      },
+      {
+        "step": 9,
+        "x": 1241.5,
+        "y": 677.9,
+        "submenuPresent": true
+      },
+      {
+        "step": 10,
+        "x": 1256.5,
+        "y": 677.3,
+        "submenuPresent": true
+      },
+      {
+        "step": 11,
+        "x": 1271.5,
+        "y": 676.7,
+        "submenuPresent": true
+      },
+      {
+        "step": 12,
+        "x": 1286.5,
+        "y": 676.2,
+        "submenuPresent": true
+      },
+      {
+        "step": 13,
+        "x": 1301.5,
+        "y": 675.6,
+        "submenuPresent": true
+      },
+      {
+        "step": 14,
+        "x": 1316.5,
+        "y": 675,
+        "submenuPresent": true
+      }
+    ],
+    "closedEnRoute": false,
+    "firstCloseAtStep": null,
+    "survivedToTarget": true
+  },
+  "E_activationModel": {
+    "rootOpensOnHoverAlone": false,
+    "rootOpensOnClick": true,
+    "subOpensOnHoverAlone": true,
+    "mismatch": true
+  }
+}

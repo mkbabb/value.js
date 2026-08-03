@@ -1,0 +1,199 @@
+{
+  "before": {
+    "overlayPresent": false,
+    "overlayRect": null,
+    "overlayOffsetParent": null,
+    "overlayZ": null,
+    "dots": [
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer",
+        "variant": "solid",
+        "inOverlay": false,
+        "bg": "lab(30 -70 80)",
+        "radius": "59.1746% 69.1889% 31.6219% 33.2892% / 67.017% 75.0312% 23.6854% 75.7299%",
+        "filter": "url(\"#watercolor-filter-v-1-0\")",
+        "rect": {
+          "x": 767,
+          "y": 397.2,
+          "w": 48,
+          "h": 48
+        }
+      },
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer",
+        "variant": "solid",
+        "inOverlay": false,
+        "bg": "lab(48.3 -20 30)",
+        "radius": "67.5063% 36.3944% 21.1529% 70.8199% / 32.4471% 54.4905% 41.9614% 61.9355%",
+        "filter": "url(\"#watercolor-filter-v-1-1\")",
+        "rect": {
+          "x": 825,
+          "y": 397.2,
+          "w": 48,
+          "h": 48
+        }
+      },
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer",
+        "variant": "solid",
+        "inOverlay": false,
+        "bg": "lab(66.7 30 -20)",
+        "radius": "68.712% 66.3297% 49.0993% 55.7512% / 54.3118% 58.6727% 45.0156% 26.0811%",
+        "filter": "url(\"#watercolor-filter-v-1-2\")",
+        "rect": {
+          "x": 883,
+          "y": 397.2,
+          "w": 48,
+          "h": 48
+        }
+      },
+      {
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12",
+        "variant": "ghost",
+        "inOverlay": false,
+        "bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+        "radius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+        "filter": "url(\"#watercolor-filter-v-1-4\")",
+        "rect": {
+          "x": 941,
+          "y": 397.2,
+          "w": 48,
+          "h": 48
+        }
+      }
+    ]
+  },
+  "pencilFound": 1,
+  "pencilBox": {
+    "x": 6,
+    "y": 1006,
+    "width": 28,
+    "height": 28
+  },
+  "after": {
+    "overlayPresent": true,
+    "overlayRect": {
+      "x": 761,
+      "y": 391.2,
+      "w": 141.1,
+      "h": 106
+    },
+    "overlayOffsetParent": "relative",
+    "overlayZ": "10",
+    "dots": [
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer",
+        "variant": "ghost",
+        "inOverlay": false,
+        "bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+        "radius": "59.1746% 69.1889% 31.6219% 33.2892% / 67.017% 75.0312% 23.6854% 75.7299%",
+        "filter": "url(\"#watercolor-filter-v-1-0\")",
+        "rect": {
+          "x": 767,
+          "y": 397.2,
+          "w": 48,
+          "h": 48
+        }
+      },
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0",
+        "variant": "ghost",
+        "inOverlay": true,
+        "bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+        "radius": "59.2175% 71.2799% 65.836% 29.8288% / 36.0248% 71.6915% 46.823% 76.4948%",
+        "filter": "url(\"#watercolor-filter-v-1-8\")",
+        "rect": {
+          "x": 768,
+          "y": 398.2,
+          "w": 48,
+          "h": 48
+        }
+      },
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0",
+        "variant": "solid",
+        "inOverlay": true,
+        "bg": "lab(30 -70 80)",
+        "radius": "71.3641% 24.9502% 29.8156% 51.1869% / 71.2939% 49.4278% 35.0747% 72.2509%",
+        "filter": "url(\"#watercolor-filter-v-1-9\")",
+        "rect": {
+          "x": 847.1,
+          "y": 398.2,
+          "w": 48,
+          "h": 48
+        }
+      },
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer",
+        "variant": "solid",
+        "inOverlay": false,
+        "bg": "lab(48.3 -20 30)",
+        "radius": "67.5063% 36.3944% 21.1529% 70.8199% / 32.4471% 54.4905% 41.9614% 61.9355%",
+        "filter": "url(\"#watercolor-filter-v-1-1\")",
+        "rect": {
+          "x": 825,
+          "y": 397.2,
+          "w": 48,
+          "h": 48
+        }
+      },
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer",
+        "variant": "solid",
+        "inOverlay": false,
+        "bg": "lab(66.7 30 -20)",
+        "radius": "68.712% 66.3297% 49.0993% 55.7512% / 54.3118% 58.6727% 45.0156% 26.0811%",
+        "filter": "url(\"#watercolor-filter-v-1-2\")",
+        "rect": {
+          "x": 883,
+          "y": 397.2,
+          "w": 48,
+          "h": 48
+        }
+      },
+      {
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12",
+        "variant": "ghost",
+        "inOverlay": false,
+        "bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+        "radius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+        "filter": "url(\"#watercolor-filter-v-1-4\")",
+        "rect": {
+          "x": 941,
+          "y": 397.2,
+          "w": 48,
+          "h": 48
+        }
+      }
+    ]
+  },
+  "verdict": {
+    "face0_radius": "67.5063% 36.3944% 21.1529% 70.8199% / 32.4471% 54.4905% 41.9614% 61.9355%",
+    "face0_rect": {
+      "x": 825,
+      "y": 397.2,
+      "w": 48,
+      "h": 48
+    },
+    "face0_bg": "lab(48.3 -20 30)",
+    "overlayFrom_radius": "59.2175% 71.2799% 65.836% 29.8288% / 36.0248% 71.6915% 46.823% 76.4948%",
+    "overlayFrom_rect": {
+      "x": 768,
+      "y": 398.2,
+      "w": 48,
+      "h": 48
+    },
+    "overlayFrom_bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+    "overlayTo_radius": "71.3641% 24.9502% 29.8156% 51.1869% / 71.2939% 49.4278% 35.0747% 72.2509%",
+    "overlayTo_rect": {
+      "x": 847.1,
+      "y": 398.2,
+      "w": 48,
+      "h": 48
+    },
+    "silhouettesIdentical": false,
+    "addSlot_radius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+    "addSlot_bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+    "addSlotMatchesAnyFace": false
+  }
+}

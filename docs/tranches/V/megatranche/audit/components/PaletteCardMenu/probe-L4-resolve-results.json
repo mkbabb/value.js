@@ -1,0 +1,68 @@
+{
+  "repoPackageVersion": "4.0.0",
+  "installedPackageVersion": "4.0.0",
+  "distTrackedByGit": false,
+  "resolution": [
+    {
+      "specifier": "@mkbabb/value.js/color",
+      "nodeSelfReferenceResolvesTo": "<repo>/dist/subpaths/color.js",
+      "error": null,
+      "sha256_16": "75e0f97d16415a8a"
+    },
+    {
+      "specifier": "@mkbabb/value.js/css",
+      "nodeSelfReferenceResolvesTo": "<repo>/dist/subpaths/css.js",
+      "error": null,
+      "sha256_16": "ca87007bf75062e8"
+    },
+    {
+      "specifier": "@mkbabb/value.js/easing",
+      "nodeSelfReferenceResolvesTo": "<repo>/dist/subpaths/easing.js",
+      "error": null,
+      "sha256_16": "ad7dd3dae3244c65"
+    },
+    {
+      "specifier": "@mkbabb/value.js",
+      "nodeSelfReferenceResolvesTo": null,
+      "error": "ERR_PACKAGE_PATH_NOT_EXPORTED: No \"exports\" main defined in /Users/mkbabb/Programming/value.js/package.json imported from /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteCardMenu/probe-L4-resolve.mjs",
+      "sha256_16": null
+    }
+  ],
+  "artifactComparison": [
+    {
+      "subpath": "color",
+      "js": "same",
+      "dts": "same"
+    },
+    {
+      "subpath": "css",
+      "js": "DIFFERENT (ca87007bf75062e8 vs 8b5381305ea26236)",
+      "dts": "DIFFERENT (ded101dc54ef70f6 vs c81d095213d112c6)"
+    },
+    {
+      "subpath": "easing",
+      "js": "same",
+      "dts": "same"
+    },
+    {
+      "subpath": "math",
+      "js": "same",
+      "dts": "same"
+    },
+    {
+      "subpath": "transform",
+      "js": "same",
+      "dts": "same"
+    },
+    {
+      "subpath": "quantize",
+      "js": "same",
+      "dts": "same"
+    },
+    {
+      "subpath": "value",
+      "js": "same",
+      "dts": "same"
+    }
+  ]
+}

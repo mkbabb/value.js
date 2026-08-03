@@ -1,0 +1,18 @@
+import { chromium } from "@playwright/test";
+const port = process.env.PORT ?? "8290";
+const b = await chromium.launch({ channel: "chromium", args: ["--use-gl=angle","--use-angle=swiftshader","--enable-unsafe-swiftshader"] });
+const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
+const errs = [];
+p.on("pageerror", (e) => errs.push("PAGEERROR: " + (e.stack ?? e.message)));
+p.on("console", (m) => { if (m.type() === "error") errs.push("CONSOLE: " + m.text()); });
+await p.goto(`http://localhost:${port}/#/gradient`, { waitUntil: "load" });
+await p.waitForTimeout(6000);
+console.log("--- before tile press --- stages:", await p.locator(".easing-authoring").count());
+errs.length = 0;
+await p.locator("[data-specimen='ease-out-back']").first().click();
+await p.waitForTimeout(1500);
+console.log("--- after ease-out-back press --- stages:", await p.locator(".easing-authoring").count());
+console.log("mainText:", (await p.locator("main").innerText()).slice(0, 200));
+console.log("errors:\n" + errs.join("\n"));
+await p.screenshot({ path: process.env.OUT ?? "crash.png" });
+await b.close();

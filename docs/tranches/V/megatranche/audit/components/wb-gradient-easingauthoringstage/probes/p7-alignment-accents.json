@@ -1,0 +1,147 @@
+{
+  "bezier": {
+    "card": {
+      "x": 237,
+      "r": 673,
+      "y": 746.3,
+      "h": 226
+    },
+    "svg": {
+      "x": 250,
+      "r": 660,
+      "y": 759.3,
+      "h": 200
+    },
+    "chrome": {
+      "x": 237,
+      "r": 673,
+      "y": 988.3,
+      "h": 69.6
+    },
+    "label": {
+      "x": 237,
+      "r": 673,
+      "y": 988.3,
+      "h": 21.6
+    },
+    "labelText": "Preset",
+    "labelFont": "\"Fira Code\", \"Fira Code Fallba / 14.384px / uppercase",
+    "motionAccent": "oklch(43.810195780825% 0.074812296191 205deg)",
+    "curveAccent": "oklch(43.810195780825% 0.074812296191 205deg)"
+  },
+  "stepsAccents": {
+    "motionAccent": "oklch(43.810195780825% 0.074812296191 205deg)",
+    "sliderParts": [
+      {
+        "tag": "SPAN.slider-track",
+        "bg": "color(srgb 0.963 0.953467 0.937 / 0.5)",
+        "bgImg": "none"
+      },
+      {
+        "tag": "SPAN.slider-range glass-liquid-fill",
+        "bg": "oklab(0.88 0.0258819 0.0965926 / 0.88)",
+        "bgImg": "none"
+      },
+      {
+        "tag": "SPAN.slider-thumb glass-specular-track",
+        "bg": "rgba(0, 0, 0, 0)",
+        "bgImg": "none"
+      }
+    ],
+    "sliderRect": {
+      "x": 237,
+      "r": 673
+    },
+    "cardRect": {
+      "x": 237,
+      "r": 673
+    },
+    "svgRect": {
+      "x": 250,
+      "r": 660
+    }
+  },
+  "ambient": {
+    "bodyKids": [
+      {
+        "tag": "DIV.",
+        "pos": "absolute",
+        "z": "auto",
+        "inset": "0px 1440px 900px 0px",
+        "pe": "none",
+        "opacity": "1",
+        "bg": "none",
+        "isolation": "auto",
+        "mix": "normal"
+      },
+      {
+        "tag": "DIV.app-layout",
+        "pos": "relative",
+        "z": "auto",
+        "inset": "0px",
+        "pe": "auto",
+        "opacity": "1",
+        "bg": "none",
+        "isolation": "auto",
+        "mix": "normal"
+      },
+      {
+        "tag": "SPAN.",
+        "pos": "static",
+        "z": "auto",
+        "inset": "auto",
+        "pe": "auto",
+        "opacity": "1",
+        "bg": "none",
+        "isolation": "auto",
+        "mix": "normal"
+      },
+      {
+        "tag": "DIV.",
+        "pos": "static",
+        "z": "auto",
+        "inset": "auto",
+        "pe": "auto",
+        "opacity": "1",
+        "bg": "none",
+        "isolation": "auto",
+        "mix": "normal"
+      }
+    ],
+    "main": {
+      "pos": "static",
+      "z": "auto",
+      "transform": "none",
+      "isolation": "auto",
+      "willChange": "auto"
+    },
+    "boundary": {
+      "pos": "static",
+      "z": "auto",
+      "transform": "none",
+      "isolation": "auto",
+      "willChange": "auto"
+    },
+    "statement": {
+      "pos": "static",
+      "z": "auto",
+      "transform": "none",
+      "isolation": "auto",
+      "willChange": "auto"
+    },
+    "button": {
+      "pos": "relative",
+      "z": "auto",
+      "transform": "none",
+      "isolation": "auto",
+      "willChange": "auto"
+    },
+    "mainCS": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "mask": "none",
+      "contain": "none",
+      "overflow": "visible",
+      "viewTransitionName": "none"
+    }
+  }
+}
