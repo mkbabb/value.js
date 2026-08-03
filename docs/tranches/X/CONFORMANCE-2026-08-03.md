@@ -841,3 +841,105 @@ motion-quarantine.md verified real, tracked at `9812f951`, and carrying exactly 
 R-A 12/12 · R-B intact · R-E 11/12 (W6 c3 the sole descriptive invocation) · 117/117 ledger ids,
 ∅ set-difference both directions (machine-checked) · 0 cycles · 0 one-directional hazard edges ·
 denominator law clean.*
+
+---
+
+# SIXTH PASS — scoped re-adjudication, 2026-08-03
+
+**Served model: `claude-fable-5`** — declared and stated per the receipts law (M-23).
+**Seat**: fresh Fable conformance adjudicator (L-20), sixth pass — scoped by the fifth pass's own
+terms: re-verify the two repairs against the fifth pass's checks; the tranche-wide checks stand as
+dated evidence and are cited, not re-run, wherever the repairs could not have disturbed them.
+**Inputs**: the two repair diffs read line-by-line (`git diff`: W6.md +7/−4, W10.md +13/−4 — the
+only dirty rows under `docs/tranches/X/`; W6 mtime 13:38, W10 13:37; the other ten files
+byte-identical to the fifth pass's read) · the post-repair bytes of every edited W6/W10 section
+plus surrounding context · the sibling tables (W5 §4, W7 §4) for the citation checks · W0 HG-11
+for the addenda's anchor. Passes one–five are dated evidence, not rewritten. All verification
+read-only; docs-only write (this file). Rulings **R-A**, **R-B**, **R-E** (sharpened: gates state
+commands with literal paths) applied as given, not re-litigated.
+
+**Verdict roster**: **12 CONFORMANT** (W0–W11) · **0 DEFECTIVE** · **0 numbered defects**.
+**Tranche X is SPECIFIED.**
+
+## (a) Fifth-pass defects — repair audit
+
+| fifth-pass defect | status |
+|---|---|
+| W6-D1 gate c3 runs a script it does not name (R-E) | **FIXED on the merits — option (b), executed whole.** §4 gains `docs/tranches/X/gates/gate-literal-dialect.mjs` (c3) \| `create` (`W6.md:93`), and c3's command cell states the literal path — `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` — with the mechanism named (mints a stop through the model's own mint path, prints its literal beside an authored stop's, headless against the tree) and the GRADSTOP-A §7 stale-server law retained in the cell (`:209`). The instrument is **rowed and named**: assigned to exactly one unit — "c3 (.c)" in §4a's one-unit-per-script line (`:133`), and .c sits in Lane 1 per the worktree table (`:143`), so the lane claim is exact. Unit .c's Files clause correctly omits the script — checked against the standing convention: none of the nine prior instruments appears in any unit Files clause (verified against .d); gate scripts live in §4's create table + §4a's assignment line. Both counts updated everywhere they occur — "ten new instruments — invoked by c3, d1, d2, e2, f1, f5, g1, h2, i2 and H1" (Bounds law, `:118`) and "The ten new gate/probe scripts" (`:133`); grep confirms exactly ten create rows tagged with exactly those ten gate ids and **zero stale "nine" counts**. The gate's check condition and adjudicated RED basis are untouched; the 45 born-RED close count (`:335`) is undisturbed. Not cosmetic — the invocation is now mechanically resolvable to a bounded path, which is R-E's whole demand. |
+| W10-D1 §2 COMPLETABLE universal false on five paths | **FIXED on the merits — the prescribed restatement landed, and the restated sentence was independently re-proven true, not merely narrower.** §2 now reads "Its bounds intersect only closed predecessors' surfaces (X-W5 ×4, X-W7 ×1), inherited after their closes; no concurrently-open wave shares a write path — the five paths and their holders are named in §4a Cross-wave" (`W10.md:17-19`), and the §4a Cross-wave block (`:139-145`) names every holding with its access verb and line anchor. All five citations re-verified **byte-exact** against the sibling tables: `PaletteCard.vue` W7.md:98 `modify-carve` · `animations.css` W5.md:104 `modify-carve` · `foundation.css` W5.md:103 `modify-carve` · `PaneSegmentedControl.vue` W5.md:100 `delete` · `VISUAL-CONSTITUTION.md` W5.md:110 + `OPTICAL-BENCH-COMPOSITIONS.md` W5.md:112 `modify-carve` (X-W5.e's E1/E2 strike). The "only" claim was then hunted, not trusted: W10 §4's nine remaining write paths — `demo/DESIGN.md`, `PaneHeader.vue`, `picker/header.css`, `DockViewSelect.vue`, `docs/frontend-design/color-picker.md`, the R-tranche `transition-inventory.md`, and the three `docs/tranches/X/design/` creates — swept against all eleven sibling files on loose substrings: **0 hits**. The intersections are exactly the named set. Internal consistency restored: §4's PaneSegmentedControl row note ("X-W5 holds `delete` on this file") now agrees with §2 instead of falsifying it, and the block's closing clause ties the inheritance to what "§2 Opens-after already requires". |
+
+**Two of two fixed on the merits; neither cosmetic. No new defect was introduced by either repair,
+and no neighboring claim was falsified** — hunted specifically: the W6 diff touches only the §4
+row, the two numerals, c3's cell, and two dated addenda; the W10 diff touches only §2 and the new
+§4a block. The W6 addenda are the E-3 idiom done correctly — the dated born-RED text ("does not
+exist, verified 2026-08-03") is preserved and a same-day addendum appends "the record landed and is
+tracked at `9812f951` (see W0 HG-11); H2's citation legs stay born-RED and the D-19
+re-measure-at-open duty governs" (`W6.md:241,338`) — the cite verified exact against W0's
+CURED-IN-PART block (`W0.md:279`: 46 files swept, 34 assertions ruled, both guards enumerated).
+This dissolves the fifth pass's P∧¬P observation in the benign direction, discharging the addendum
+it recommended without rewriting a byte of dated evidence.
+
+## (b) Scoped structural re-checks
+
+- **R-E descriptive-invocation hunt, W6 (all 50 gate cells re-read).** Every script invocation
+  resolves to a bounds row: **10 create rows** tagged c3/d1/d2/e2/f1/f5/g1/h2/i2/H1 and **12
+  `execute, no write` rows** with invoking gate ids — the four `wb-gradient-stopeditor` gates
+  covering a3+a4 (axis), a5+a6+a7 (gesture), b1+b2+b4 (seat), c1 (structure), plus the eight
+  evidence probes a1/a2/a7-C14/a8/a9/a10/a11/a12. The 13th grep hit for `execute, no write` is the
+  Bounds-law prose itself — 12 rows + 1 sentence, arithmetic exact. Cells that reference an
+  instrument by short name (a4 "`gate-axis.mjs` (G1b arm)", a6/a7, b2/b4) name the literal filename
+  resolving uniquely to its row with the arm stated — not the abolished class. Everything else is a
+  bounded created spec (`o21`–`o27`, `gradient.spec.ts`), `vitest`, or an inline one-liner carrying
+  its own bytes. **Zero descriptive invocations remain.**
+- **W6 Bounds-law inclusion claim**: "every script a gate invokes is bounded above" — **TRUE as
+  written**. The fifth pass noted it was falsified only by its own c3; c3 is now its tenth witness.
+- **R-E hunt, W10 (all nine gate cells).** Sole script invocation = `prm-scroll-timeline.mjs`,
+  literal path stated at `:294`, `execute, no write` row at `:123`. Clean, unchanged.
+- **W10 §2/§4/§4a internal consistency**: §2's sentence, §4's table, and §4a's Cross-wave block
+  agree — verified above, including the independent 0-hit sweep of the unnamed paths.
+- **R-A stamp sites, both files**: `Status: planned` 2/2 (`W6.md:7`, `W10.md:13`); W6 commit 11
+  stamps "**IMPLEMENTED** (never VERIFIED — that is X-W11's stamp)" (`:387`) with the §Blocks
+  restatement at `:404`; W10's close commit stamps "**IMPLEMENTED** — VERIFIED is X-W11's release
+  close to stamp, never this one" (`:403-404`). Untouched by the diffs, intact.
+- **Cited as dated fifth-pass evidence, not re-run** (the repairs could not disturb them: ten files
+  byte-identical, and neither diff adds, removes, or re-times a dependency edge — W10's block
+  declares closed-predecessor inheritance on already-reciprocated W5/W7 edges, and W6's new script
+  path is created by exactly one unit with no cross-wave holder): 117/117 ledger set-difference ∅
+  both directions · ordering graph 0 cycles, 0 one-directional hazard edges · R-B receiving surface
+  + alias intact · denominator law clean · R-A in the other ten files · HG-16's COMPLETABLE probe.
+
+## Observations (not booked)
+
+- **W10's "Five §4 paths" numeral counts the doc pair as one holding** — the E1/E2 strike
+  (`VISUAL-CONSTITUTION.md` + `OPTICAL-BENCH-COMPOSITIONS.md`) is one X-W5.e surface, so six file
+  paths sit in five holdings. The enumeration is complete and inline — every member named with its
+  holder and anchor, so no unlisted member exists to mislead — and the arithmetic follows the fifth
+  pass's own prescribed "(X-W5 ×4, X-W7 ×1)" verbatim. A future edit could read "five surfaces (six
+  paths)"; at leisure, not owed.
+- **The W6 repair over-delivered in the right direction**: it executed the fifth pass's H2
+  staleness observation (both addendum sites) unprompted, in the E-3 addenda idiom, without
+  touching any born-RED claim.
+
+## The stamp
+
+**Tranche X is SPECIFIED.** Both fifth-pass defects are fixed on the merits, nothing new was
+found, and every structural check is green — by this pass where the repairs could reach, by the
+dated prior passes where they could not.
+
+What the stamp means, precisely: all twelve wave files W0–W11 are **conformant to WAVE_SPEC and to
+rulings R-A, R-B, and R-E** — every section present, every COMPLETABLE argued and true, every gate
+born-RED with a measured pasted baseline or an explicit MEASURE-AT-OPEN, every gate-invoked script
+bounded by literal path, 117/117 ledger rows owned with terminal words and the bank's trigger-fire
+path routed to a receiving surface that exists, the ordering graph closed and acyclic. The
+**Status field remains `planned` in all twelve files**; the four-verb line advances to SPECIFIED
+and no further — **IMPLEMENTED and VERIFIED are untouched**, IMPLEMENTED to be stamped per-wave at
+its own gates-green close and VERIFIED only at X-W11's release close (R-A). This stamp opens
+nothing: **execution still awaits the owner's begin-word.**
+
+---
+
+*Sixth-pass adjudication complete 2026-08-03. Scoped per the fifth pass's own terms · 2/2
+fifth-pass defects fixed on the merits · 0 defects introduced · 0 new defects found · R-E 12/12
+(zero descriptive invocations remain) · R-A 12/12 · W10's restated universal independently
+re-proven true (0 sibling hits on its nine unnamed paths) · 12 CONFORMANT · 0 DEFECTIVE ·
+**Tranche X is SPECIFIED**.*
