@@ -383,3 +383,44 @@ files separately; module-isomorphic tests do not imply one test file per source 
 - Delete only on semantic proof of vacuity/superfluity. Zero consumers alone is not proof.
 - Breaking cuts migrate the whole bounded constellation in one release. No aliases, root shims,
   migration layers, dual paths, or masking fallbacks.
+
+## L-18 — THE QUARTET CHALLENGE LAW (owner, 2026-08-03; sworn "Hic et ubique")
+
+Directed first at the glass-ui instance, suffused here by owner order. Binding on every
+implemented wave, henceforward, in every repo this formation touches:
+
+1. **No implemented wave is ACCEPTED until it has survived no fewer than TWO challenging,
+   gestalt passes.** Each pass spans three altitudes: **total-tranche analysis** (was the wave
+   optimal in the greater plan, even if perfectly implemented; was the spec adhered to; what
+   friction arose), **wave analysis**, and **feature analysis**.
+2. **Each pass is a QUARTET of Opus 5 agents**, every one assuming the implementation is wrong
+   on some reasonable basis and rooting it out. Library bases include (brainstorm beyond):
+   poorly written library code · duplicated effort/implementation · weak colocation · poor
+   modularization · files too small or too large · long-running directories. Frontend bases
+   include (brainstorm beyond): poor spacing/margin usage · defected or weak glass-ui design
+   language or component usage · trite or cliché prose or designed items.
+3. **Defects AND superlatives** — yes, find what is implemented WELL — each accompanied by
+   provenance and proof.
+4. The quartet's results are **adjudicated (equally challenged back) and agglomerated into an
+   apotheosis by a singular FRESH Fable instance.**
+5. Any incongruity or dissonance surfaced is **fully addressed, ratified, and dispatched** —
+   never parked.
+6. Periodic retro-passes sweep already-"verified" features until each has been at least
+   twice-challenged under this law.
+
+## L-19 — THE ANTI-CONTRIVANCE PRESUMPTION (owner, 2026-08-03)
+
+**Contrived gates, visual testing scripts, `proof:`-style or meta scripts are PRESUMED overfit
+contrivance — assumed useless unless proven otherwise.** The burden of proof sits on the
+artifact, not its challenger. Time allocation law restated: little on gates/process, the
+majority on direct code implementation (always via agent orchestration) and visual
+verification. (Continuous with the retired proof-idiom feedback of 2026-06-02 and the
+convergence handoff's no-proof-farm law — now a standing presumption.)
+
+## L-20 — WAVES VALIDATE AGAINST PRECEPTS (owner, 2026-08-03)
+
+A standing validation step: **ALL waves are checked against `docs/precepts/` — the latest
+version — before admission.** A wave file that does not conform to the current
+`docs/precepts/instructions/tranche/WAVE_SPEC.md` (and every other applicable precept) is not
+SPECIFIED, whatever its prose claims. This check runs at authoring, at amendment, and at each
+L-18 pass.

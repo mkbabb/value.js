@@ -264,3 +264,55 @@ Consequences, binding immediately:
    producer — their release conditions are re-checkable against glass's execution, not a future.
 3. Glass remains coordinate-only for our seats: not one byte of glass-ui is edited from this
    formation; all shapes flow by packet.
+
+## M-20 — CONSTELLATION DEEP AUDIT + PER-REPO SESSION ORCHESTRATION (owner, 2026-08-03)
+
+Verbatim core: *"You're to audit it completely, deeply, and totally, over the course of at least
+two [days]. A similar audit will be running against the glass-ui implementation, mark. … Each
+megatranche consumer shall get its own session that you'll coordinate and manage herein … Full
+wave specs for each repo … should be an admission requirement. … the extant parse-that and
+parser-prototype work session of 019fae36-1241-7d33-9c14-58d86be7fae3 is to be driven and
+orchestrated by you. … greenfield work NOW, not deferred."*
+
+The full distillation, sub-session plan, and acceptance admissions live in
+**`CONSTELLATION-COMMISSION-2026-08-03.md`** (same directory) — the durable capture. Headline
+consequences, binding immediately:
+
+1. **≥2-day total audit** of the megatranche across style (frontend/demo) and library
+   (colocation/modularization), using the owner's original refinement prompts EXACTLY; a parallel
+   glass-ui audit runs on their side (coordinate, don't collide).
+2. **Per-repo managed sessions** — value.js, keyframes.js, fourier-analysis, parse-that — each
+   with a goal, a long-running horizon criterion, and an acceptance admission; full per-repo wave
+   specs are the admission requirement into the coherent megatranche (waves grouped by repo,
+   multidimensionally interconnected).
+3. **Parser 10x lane**: the parse-that/parser-prototype session (Codex `019fae36-1241-…`) is
+   DRIVEN from here. Target ≥10x over baseline by idiomatic/elegant means: novel hybrid
+   combinator architectures (SIMD-scanning/lexing unions integrated into the combinator library),
+   allocation-discipline down to functor/string/number level, modern V8/TS facilities, deep
+   profiling. NO scanner-based replacement architecture. A WASM union between BBNF and parse-that
+   is on the table. Full R&D loop with SOTA-backed research.
+4. **keyframes.js**: library + demo audited with burning lucidity; it CONSUMES the newly begotten
+   idiomatic parse-that combinator-based value.js parser when that lane's gates pass.
+5. **fourier-analysis**: full frontend audit on latest glass-ui (temp-link the latest dist in all
+   repos); value.js↔fourier CRUD API union for palette + fourier-viz CRUD with **git-like
+   provenance chains** — diff support, trie-like compression of derived variants over base
+   versions, remixing, version history, user provenance.
+6. **Glass law restated**: FULL glass-ui usage = absolute shadcn abrogation everywhere; missing
+   generalizable components → marked asks (adjudicated for fold-in); bespoke local components
+   that near-fit a glass primitive → aggressively replaced (partial loss accepted, choosily).
+   ALL glass communique batched, fastidiously relayed, at ROOT — never ad-hoc, never overwhelming
+   the producer session's context.
+7. **Library law restated**: Goldilocks colocation/modularization settled FINALLY (M-18 rules);
+   module-name stripping; tests displaced into an isomorphic non-colocated tree; pithy and
+   laconic — more code is not better.
+8. **Model law**: M-12 is CLOSED by the M-16 ruling (`IN-FLIGHT-AUDIT-2026-07-29.md §6`) —
+   prospective law is GPT Sol xhigh (orchestration/adjudication) + GPT Luna xhigh (mechanical),
+   any fallback NAMED as a fallback, historical receipts literal. This Claude session cannot
+   spawn GPT seats; per the owner's own 2026-08-03 words ("parallelization of Fable and Opus 5")
+   its seats run **Fable (orchestration/adjudication) + Opus (mechanical) as the DECLARED
+   fallback**, stamped as such in every dispatch receipt.
+9. **Session durability**: no progress lost to walls — the harvest→hydrate→validate loop (L-15.8)
+   extends to every new lane; each sub-session keeps a durable cursor file.
+10. The owner's message ended at *"And the design and iteration prompt:"* with the third prompt
+    absent — the standing design tri-fold law (two blind authors → Fable agglomerator, DesignSync
+    for frontend) governs until the exact text arrives.
