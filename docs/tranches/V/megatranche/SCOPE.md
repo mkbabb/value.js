@@ -363,3 +363,26 @@ Binding consequences:
    evidence commit `338c513b` pins every chain byte in history. The two broken seals (07-31
    resurrection 5/6 OK; eight-hour 20/24 OK) are marked SUPERSEDED-BY-GIT in
    `CHECKSUM-SUPERSESSIONS-2026-08-03.md`, not rewritten.
+
+## M-23 — CHOOSY FABLE; OPUS FOR THE REST; DESIGN IS TWICE-AUTHORED (owner, 2026-08-03)
+
+Verbatim: *"Be choosy with your Fable usage. Use it for design work (with the frontend design
+plugin), complexity, adjudication, and any work of complexity. All other tasks are to be
+leveraged by Opus 5. Design work should leverage the twice approach of BOTH Fable and Opus, and
+then adjudicated by a Fable instance into an agglomerated apotheosis."*
+
+The routing law, consolidated (refines M-12 + L-18; supersedes nothing in them — sharpens both):
+1. **Fable seats ONLY for**: design work (always through the frontend-design plugin/DesignSync),
+   genuine complexity/novelty, and adjudication/agglomeration. Orchestration remains the session
+   root (Fable).
+2. **Every other seat is Opus 5**, declared per spawn — extraction, census, mechanical sweeps,
+   probes, implementation, hostile challenge passes (per L-18 the quartet is Opus).
+3. **Design work is TWICE-AUTHORED**: one Fable author ∥ one Opus author, blind-independent, both
+   through the frontend-design plugin; then a FRESH Fable instance challenges both and
+   agglomerates the choosy apotheosis. (This is the M-12 tri-fold, now owner-restated for the
+   design lane specifically.)
+4. Receipts: every dispatch stamps its model; an undeclared seat is a defect.
+
+Compliance check at scribe time: the six running lanes already conform — axes-rerun (Opus
+challengers + Opus quarantine), carry-cut-ledger (4 Opus extractors → 1 Fable adjudicator),
+7e28 census (2 Opus census → 1 Fable ruler), API/orphan-verdicts/toolchain agents (Opus ×3).
