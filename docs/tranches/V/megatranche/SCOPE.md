@@ -338,3 +338,28 @@ Binding consequences:
 3. **Claude — this session — FULLY DRIVES auditing and tranche development henceforward.**
    The fleet audit of the Codex logs/chat sessions is commissioned
    (`audit/codex-provenance/`); its ledger feeds wave authoring directly.
+
+## M-22 — RATIFICATIONS UNDER DELEGATED JUDGMENT (owner: "Ratify the above asks using your best judgement", 2026-08-03)
+
+1. **Tranche letter = X.** Verified on disk: `docs/tranches/A..W` all occupied; X is the first
+   unused letter. Formation blocker 5 RESOLVED. Canonical wave files land at
+   `docs/tranches/X/waves/W<N>.md` per `WAVE_SPEC.md`, validated per L-20. The carry-cut ledger
+   supersedes the V·MT*/V·C* vocabularies as the naming authority.
+2. **D-2 / TR#79 = CONSUMER-SIDE OWNERSHIP.** MT-F043 (card shrunken-state spacing, owner mark
+   OM-18) cures in OUR consumer register; NO producer ask is sent; glass's DECLINE-ON-RECORD
+   stands and the reversal window may lapse at TR#79. Rationale: respects glass's standing
+   compose-don't-specialize law, keeps the cure at our root, and the measured condensed-state
+   pads are consumer seat values. Rowed as I-21a.
+3. **Parser fresh writer root = `/Users/mkbabb/Programming/parse-that-css-totality-p2`.** Named
+   under the owner's 08-03 begin-order (read as the pause-handoff §8-step-2 resume ruling, with
+   root-naming delegated). Opened at the lane's FIRST WRITE, cloned from the canonical packet
+   commit `f5757082`; every frozen/preserved root stays untouched forever (fresh-root law).
+4. **M2 restatement posture.** `~/Documents/Codex` is TCC-denied to this session; per ledger
+   row 26's either/or, all 3x/2x parser budgets restate against the conservative reconstruction
+   **1,636,680 µs** until `P4-EVIDENCE-REPLAY.json` is readable under a TCC grant. The 10x
+   conclusion is unaffected (it strengthens).
+5. **Checksum law (F-7 adopted).** Dated `.sha256` packets are historical evidence,
+   append-never-rewrite. **Git object IDs are the living receipts henceforward** — the C-02
+   evidence commit `338c513b` pins every chain byte in history. The two broken seals (07-31
+   resurrection 5/6 OK; eight-hour 20/24 OK) are marked SUPERSEDED-BY-GIT in
+   `CHECKSUM-SUPERSESSIONS-2026-08-03.md`, not rewritten.
