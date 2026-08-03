@@ -1,7 +1,7 @@
 {
  "runId": "wf_19673577-a99",
  "workflow": "wf_19673577-a99",
- "resultCount": 12,
+ "resultCount": 13,
  "results": [
   {
    "agentId": "a117a7af12f608045",
@@ -154,6 +154,21 @@
     "blockedRows": [
      "CC-044",
      "CC-003"
+    ]
+   }
+  },
+  {
+   "agentId": "adf88292d3fa7600a",
+   "key": "v2:987dadd24c082bd9f01ab85b85cd100eeb1b06427328cd51c560bdcf3074e6ef",
+   "result": {
+    "report": "L-20 conformance adjudication complete; full verdicts at /Users/mkbabb/Programming/value.js/docs/tranches/X/CONFORMANCE-2026-08-03.md. All twelve wave files (W0..W11) carry every WAVE_SPEC-mandated section, an argued COMPLETABLE (C-06), an L-18 two-quartet rider, and born-RED gates with measured baselines or explicit MEASURE-AT-OPEN — zero glass-bank smuggling and zero re-litigation found; all 63 ledger BUILD rows are owned. VERDICTS — CONFORMANT: W0, W1, W3, W4. DEFECTS (9 numbered, each with an exact fix): W2 (Status field uses off-enum token SPECIFIED; fix: `planned`); W5 (close commit stamps VERIFIED; four-verb/L-18 law puts gates-green at IMPLEMENTED); W6 (Hard Gate invokes ~9 new gate/probe scripts — docs/tranches/X/gates/*.mjs + probes/x-w6/*.mjs — absent from File Bounds, tripping its own bounds-expansion trigger); W7 (Opens-after omits X-W6 despite four shared modify paths — ColorSpaceSelector/AuroraPane/MixConfigBar/MixSourceSelector — and W6's own Blocks claim; admits a §4a parallel-write violation); W8 (same gap vs X-W6 on the three gradient composables its unit .c rewrites); W9 (State claims \"three explicitly marked MEASURE-AT-OPEN\" but only G24 is marked; plus \"order-independent of X-W2..X-W8\" contradicted by the shared ConsoleRail.vue path with X-W4.a); W10 (phase-3 implementation units .d/.e/.f declare no model seat — M-23 requires Opus declared, and the tranche's own W3 standard says an undeclared seat is a defect); W11 (docs-lint cure names two wrong owners and its \"cured here\" arm exceeds its own File Bounds — real owner is X-W8 G-6's docs-tree ignore). TRANCHE-LEVEL: (1) two one-directional ordering contradictions — W6 Blocks W7/W8, neither reciprocates (fixed by W7-D1/W8-D1); (2) the Glass-8 repin census has NO receiving wave anywhere — W4 §10a explicitly disclaims being the bank rows' home, so a mid-tranche trigger-fire orphans the atomic cut (fix: name the receiving surface in ledger §2 or W4 §10a); (3) four unowned ledger rows (below), of which CC-011 is the real miss — its C-13 RETIRE act appears in no wave and W11 G1 requires a tombstone path nobody authors (home it in X-W0.f); (4) status-verb convention drift (W4/W10 stamp IMPLEMENTED at close, W5/W1 stamp VERIFIED — ratify one convention). Denominator law clean: no unqualified 264/264, no proof-*.mjs, every gate names a falsifier.",
+    "conformant": 4,
+    "defective": 8,
+    "unownedRows": [
+     "CC-011 (V·L5 RETIRE per C-13 — routing-law rewrite + middot normalization): named in 0/12 wave files; W0's tombstone set stops at CC-015..CC-023, so W11 G1's required RETIRED-with-tombstone-path has no author",
+     "CC-109 (G-4 thumb glyph, FOLD → glass seat — value action = consume at the 8.0.0 repin census): no wave owns it and no wave owns the census event itself",
+     "CC-116 (I-21 remainder, FOLD → glass TR seats — value action = the single 8.0.0 repin census): appears only inside W1's range mention (CC-105..CC-116); no wave owns it",
+     "CC-117 (five 08-02 peer intakes, FOLD → INBOX I-24): evidence-only by design, but no wave emits its terminal word for W11 G1's 117-row walk"
     ]
    }
   }

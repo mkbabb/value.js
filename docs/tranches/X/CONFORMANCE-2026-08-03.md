@@ -534,3 +534,149 @@ no relabeling), the third pass stands as an **Opus-adjudicated** pass — its fi
 as an L-18-grade challenge and its verdict is ADOPTED, but the M-23 adjudication tier was not met
 by declaration. The fourth pass declares `fable` explicitly and states its served model in its own
 header. The pass text above is dated evidence and is not rewritten.
+
+---
+
+# FOURTH PASS — post-repair re-adjudication, 2026-08-03
+
+**Served model: `claude-fable-5`** — declared `fable`, stated here per the receipts law (M-23; see
+the scribe's correction above — the third pass's findings stand as Opus-adjudicated, and this pass
+restores the declared Fable tier).
+**Seat**: fresh Fable conformance adjudicator (L-20), fourth pass. **Inputs read whole**:
+`WAVE_SPEC.md` · `CARRY-CUT-LEDGER.md` §0/§1/§2 · all twelve `waves/W{0..11}.md` at their
+post-repair bytes (mtimes: W1/W2/W4/W6 13:02–13:03, W11 13:02, W8 13:02 modified since the third
+pass; W0/W3/W5/W7/W9/W10 untouched). Passes one–three are dated evidence, not rewritten. All
+verification read-only; docs-only write (this file). Rulings **R-A**, **R-B**, **R-E** applied as
+given, not re-litigated.
+
+**Verdict roster**: **10 CONFORMANT** (W1, W2, W3, W4, W5, W6, W7, W9, W10, W11) · **2 DEFECTIVE**
+(W0, W8) · **2 numbered defects**. **NOT tranche-ready.**
+
+## (a) Third-pass defects — repair audit
+
+| third-pass defect | status |
+|---|---|
+| W2-D1 `serve-built.mjs` no bounds row | **FIXED** — `W2.md:65`: `execute, no write (G3's and G4's built-bundle origin, re-run unmodified)`, verbatim the prescribed row |
+| W4-D1 `X.W4.g`'s four sibling paths unsequenced | **FIXED** — both prescribed halves landed: the §4 trigger-gated preamble (`W4.md:151-157`) and a §4a Cross-wave bullet (`:202-205`) name all four paths with their holders, and both cite W0 §3a's "a PASS is a re-plan event". Holdings re-verified against the sibling tables: `MixSourceSelector.vue` (W5 `modify-carve`/W6 `modify`/W7 `modify`) · `ColorSpaceSelector.vue` (W6/W7) · `EmptyState.vue` (W7 `modify-carve`) · `Dock.vue` (W5/W8 `modify-carve`) — all exact |
+| W4-D2 `eslint.config.js` one-directional at W4 | **FIXED** — `W4.md:206-208` names X-W8 (.b/.e) and X-W9.f with the never-concurrent clause and the W9 §4a cite |
+| W6-D1 Bounds-law prose exemption (R-E) | **FIXED, at full depth** — the exemption sentence is deleted; **twelve** `execute, no write` rows landed (`W6.md:104-115`; the third pass counted ten — the true set is 4 gates + 8 evidence probes, and all 12 are now rows), each naming its invoking gate id(s), all cross-checked against §5's commands (a1–a12, b1/b2/b4, c1 — exact); the rewritten Bounds law (`:117`) is now an inclusion claim citing R-E/W10's idiom, and it is **true as written** |
+| W8-D1 `eslint.config.js` one-directional at W8 | **FIXED** — `W8.md:133-135` names X-W4 (.d) and X-W9.f, states W8's two carves (.b globs+ignore, .e ratchet), cites W9 §4a. The W4/W8/W9 three-way declarations are now mutually consistent (.b/.e everywhere) |
+| W11-D1 three gate-invoked scripts unbounded (R-E) | **FIXED, exactly as prescribed** — `W11.md:94-96`: `verify-packed-surface.mjs` (G3; X-W9 owns the bytes) · `safari-real-matrix.js` (G8) · `boot-smoke.mjs` (G5; X-W1 authors it), each `execute, no write` with its gate named; the Do-NOT-touch entries survive as the write-side statement — the two-sided idiom done cleanly |
+
+**Six of six fixed on the merits; none cosmetic.** The third pass's **adopted observation** (W1's
+`Blocks: X-W5` contradicted by `W5.md:345`) is also repaired, on the W1 end: the Blocks cell drops
+X-W5 and a **Soft-couples to: X-W5** paragraph adopts the W9 wording, quoting `W5.md:345` (verified:
+that line reads "No dependency on glass-ui, the API, X-W1's gates, or any §1.M bank row") and
+stating the transitive order W5←W4←W1. The contradiction is gone in both files' readings.
+
+## (b) Tranche-level mechanical checks, re-run fresh
+
+**R-E coverage.** Every `node`/`vite-node`-invoked script path was machine-extracted from the
+twelve files (33 distinct paths) and matched against the twelve bounds tables; the prose-named
+invocations (`boot-smoke`, `oracle-slate`, `serve-built`, `regenerate-goldens`,
+`layout-utilization`, `app-shell-truth-probe`, `navprobe`, `safari-real-matrix`,
+`fourier-value-import-drift`, `verify-packed-surface`) were hand-matched. **Every extracted path has
+a row in its invoking wave** — W0 ×4, W1 ×5, W2 ×2, W4 ×1 (`navprobe.mjs`, the third pass's
+observation, now a row), W5 ×4, W6 ×21 (9 create + 12 execute), W9 ×5, W10 ×1, W11 ×3; W3/W7 invoke
+no script outside their own bounded specs. **One descriptive invocation escapes the extraction and
+the tables both**: W8 G-7 (below). No universal exemption claim survives anywhere; W6's and W9's
+inclusion claims were both verified true against their own gate rosters.
+
+**Ordering reciprocity + cycles.** Every Blocks claim in all twelve files now has its
+Opens-after/Depends-on twin (W0→{W1,W4,W8,W9,W10,W11,all} · W1→{W2,W6,W7,W11} · W2→{W5,W11} ·
+W3→W7 · W4→{W5,W6,W7} · W5→{W6,W8,W10} · W6→{W7,W8,W10,W11} · W7→W8 · W8→{W10,W11} ·
+W9→{W10,W11} · W10→W11 — checked pairwise), with two benign residuals unchanged from prior passes:
+W5→W7 transitively closed through W6, and W7's "Feeds: X-W10" as the weaker verb on a reciprocated
+edge. The three `eslint.config.js` writers and the `ConsoleRail.vue`/`ARCHITECTURE.md` carves are
+declared from **all** ends. **0 cycles.** The two edges the third pass left one-directional
+(`eslint.config.js`; `X.W4.g`'s four sibling paths) are **both closed**.
+
+**117-row set-difference.** The ledger carries exactly 117 `CC-` ids; a sorted set-difference
+against every CC-id occurring in the twelve wave files returns **∅ in both directions** — 117/117
+owned, zero phantom ids, no range-expansion needed (every id also occurs literally somewhere).
+
+**Denominator law.** Every `264/264` occurrence in the twelve files is the ban or the split law
+itself (W0 HG-6/scope/archaeology, W1 §10, W9 §10) — none gates. Every `proof-*.mjs` mention is the
+structural ban; `ls scripts/**/proof-*.mjs` → 0. Clean.
+
+**R-A.** `Status: planned` in **12/12** (grep). Sole VERIFIED-stamp site = W11 (its R-A block,
+commit 8); every other close-stamp claim reads IMPLEMENTED with the R-A parenthetical or is silent.
+ACCEPTED and VERIFIED nowhere conflated. **12/12 clean.** HG-16's own probe re-run:
+`grep -L 'COMPLETABLE' waves/W*.md` → empty.
+
+## (c) Defects
+
+### W0 — Formation · **DEFECT (1)**
+
+1. **X-W0.e's declared write surface — "the 46 report-authored axis files" — has no File Bounds
+   row.** The unit's Files clause (`W0.md:174`) and HG-11 (`:275`: every motion/PRM assertion
+   *across the 46 axes* carries a stamp) bind writes into axis files spanning the 88 component
+   slugs on disk, while §4's table bounds only the three named slugs' trees (`:96`) and
+   §Disjointness books e as "`audit/components/<three slugs>/**`" (`:110`). ~43 slugs' axis files
+   are written outside every bounds row — the same table-vs-gate mismatch class as the second
+   pass's W0-D1, one row over. **Fix**: one §4 row —
+   `docs/tranches/V/megatranche/audit/components/**` | `modify (X-W0.e's HG-11 quarantine stamps in
+   the 46 REPORT-AUTHORED axes only)` — and the matching widening of §Disjointness's e-line; **or**
+   re-point HG-11's stamps at the now-landed quarantine record (below), dropping the axis-file
+   writes entirely.
+
+### W8 — Shadcn and graph subtraction · **DEFECT (1)**
+
+1. **G-7 invokes the typed-graph oracle without naming its path, and the script has no bounds row
+   (R-E).** G-7 reads "Run under X-W0's typed graph authority over `demo/**`" — the oracle is
+   `docs/tranches/V/megatranche/workflows/graph-v3.mjs` (W8 §Dependencies: "typed graph authority =
+   G-7's oracle"; W0 HG-14 creates it), and the wave **executes** it: §Verification Artefacts banks
+   "the G-7 graph-oracle output **before and after**", and G-7's falsifier ("reintroduce the
+   `Dock.vue → './'` edge; the oracle must go RED") requires running it on a mutated tree. No W8
+   bounds row or Do-NOT-touch entry covers it, and the gate names no command — the descriptive
+   invocation is exactly the prose exemption R-E abolishes, and it evaded three passes' literal-path
+   extraction *because* no path is written. **Fix**: one row —
+   `docs/tranches/V/megatranche/workflows/graph-v3.mjs` | `execute, no write (G-7's SCC oracle over
+   demo/**; X-W0 authors the bytes)` — and G-7's probe line states the command
+   (`node docs/tranches/V/megatranche/workflows/graph-v3.mjs …`), matching W10's idiom.
+
+## Observations (not booked)
+
+- **W6 H2's born-RED baseline is stale at the current tree, in the benign direction.**
+  `audit/codex-provenance/motion-quarantine.md` — "does not exist, verified 2026-08-03" at
+  authoring — now **exists and is tracked** (32,260 B, mtime 12:21, before W6's 13:03 repair
+  edit): the sibling lane landed the 46-file two-guard quarantine record mid-day. The `test -f`
+  leg is green; H2's remaining legs (every MOTION-SOURCED assertion cites it) stay W6's own and
+  the D-19 re-measure-at-open duty governs. This also removes the only reading under which H2's
+  cure was ownerless. Not a defect — dated evidence is dated — but the open-time re-measure is now
+  load-bearing, and X-W0.e's fix above should prefer the re-point option this record enables.
+- **W4's cite `W0.md:327` for the census 0/4 drifted one line** (now `:328`) after W0's 12:46
+  repair shifted the file. Single-line anchor drift into a sibling; the corpus's line-anchor law
+  already handles it at open.
+
+## Tranche-level read, fourth pass
+
+**No new defect was introduced by the six repairs.** All six are additive rows or declarations;
+each was verified against the surface it cites (W6's twelve rows against §5's commands; W11's three
+against G3/G5/G8; W4's four paths against the sibling tables; the eslint three-way against all
+three files). The two defects above are **misses of prior passes on unchanged bytes**, not
+regressions: W0's axis-row gap survived because the second pass's bounds audit stopped at HG-8's
+script, and W8's oracle survived because R-E's mechanical extraction keys on literal paths — which
+is itself the finding: a gate that invokes by description defeats the check that R-E installs.
+
+**Superlatives (L-18 runs both ways).** W6's repair went deeper than the defect it was handed —
+twelve rows where ten were booked, each naming its gate ids, and the Bounds law rewritten into a
+verifiable inclusion claim. W11's repair kept the Do-NOT-touch entries as the write-side statement,
+minting the cleanest two-sided (execute-row + write-ban) idiom in the corpus. W1's soft-couples
+repair executed an *observation* with a live, verified citation rather than a soft word. And
+outside the round entirely: the sibling lane's `motion-quarantine.md` (per-assertion, two-guard,
+`file:line` rulings over all 46 axes) converts W6 H2's hardest leg from owed work into a landed,
+tracked fact — CC-027's substance, delivered while the passes argued about its bounds.
+
+**Tranche-ready: NO — by the thinnest margin yet.** Ten of twelve waves are clean; both remaining
+defects are single-edit bounds/gate-naming fixes in files the repair rounds never opened for these
+seams (W0 §4 + one §Disjointness line; W8 §File Bounds + one G-7 command line). No re-planning, no
+re-measurement, no ledger motion.
+
+---
+
+*Fourth-pass adjudication complete 2026-08-03. 12 files · 10 CONFORMANT · 2 DEFECTIVE · 2 numbered
+defects · 6/6 third-pass defects + the adopted W1 observation fixed on the merits · R-A 12/12 ·
+R-B intact (receiving surface + alias unchanged) · R-E 11/12 (W8's descriptive invocation the sole
+residual) · 117/117 ledger ids, ∅ set-difference both directions · 0 cycles · 0 one-directional
+edges remaining · denominator law clean.*

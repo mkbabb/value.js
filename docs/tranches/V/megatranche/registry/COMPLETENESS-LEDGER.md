@@ -156,6 +156,7 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_19673577-a99` | completed | 13 | 13 |
 | `wf_1a4c8a8c-557` | completed | 4 | 4 |
 | `wf_30a8e858-e9a` | completed | 3 | 3 |
+| `wf_3a0fbf76-a67` | completed | 6 | 6 |
 | `wf_3c34d986-c04` | completed | 10 | 10 |
 | `wf_4a8ad4ff-130` | completed | 0 | n/a — 0 seats dispatched |
 | `wf_5f5140a6-4a0` | completed | 6 | 6 |

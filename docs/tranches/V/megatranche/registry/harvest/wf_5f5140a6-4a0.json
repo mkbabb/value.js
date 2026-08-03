@@ -1,0 +1,124 @@
+{
+ "runId": "wf_5f5140a6-4a0",
+ "workflow": "wf_5f5140a6-4a0",
+ "resultCount": 6,
+ "results": [
+  {
+   "agentId": "a74ce22a5a48ac9f4",
+   "key": "v2:7d581a47529a6387e37947d0ff34cb57f0174d66cbcdfad37b8f852a25a7711f",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W1.md",
+    "fixed": [
+     "W1-D1 (a) — Commit Plan row 8 (`W1.md:363`) now reads \"four-verb status advanced to IMPLEMENTED (VERIFIED is stamped only at X-W11's release close)\"; the own-close VERIFIED stamp is gone (R-A).",
+     "W1-D1 (b) — the L-18 rider (`W1.md:405-406`) now ends \"Only after that is the wave ACCEPTED and CC-029..CC-034 report terminal to the CARRY-CUT-LEDGER; VERIFIED is stamped only at X-W11's release close (R-A).\" — the third convention (post-quartet VERIFIED) is retired; ACCEPTED is the post-quartet state.",
+     "R-E — added the one missing File Bounds row (`W1.md:161`): `scripts/ci/verify-packed-surface.mjs` | `execute, no write (G-17's master-green run invokes it from ci.yml's pack producer bytes step)`. Verified against the tree: `.github/workflows/ci.yml:50` runs `node scripts/ci/verify-packed-surface.mjs`, and G-17 requires that workflow green on master and checks the step's presence. The other three gate-invoked scripts (`boot-smoke.mjs` G-12/G-13, `oracle-slate.mjs` G-5, `regenerate-goldens.mjs` G-9) already carry `create` rows; the file makes no universal \"adds no gate script\" claim of W0-D1's shape."
+    ],
+    "residual": [
+     "G-21's standing deploy-age check names no script path — X.W1.e writes no file and X.W1.a \"wires a job from this unit's script contract\", so the check is inline in `ci.yml` (bounded `modify`). No orphan path exists to bound; flagged as an observation, not repaired, since inventing a script path would exceed the surgical scope.",
+     "The four-verb table row `VERIFIED | NO | no gate has run` (`:18`) and the historical `already VERIFIED at c4af0ef9` (`:70`) are left untouched — status field and dated fact, not close-stamp conventions.",
+     "Not in scope, not touched: W1's ordering/reciprocity edges (X-W2, X-W5..X-W7, X-W11 in §Dependencies) were not re-audited this round."
+    ]
+   }
+  },
+  {
+   "agentId": "a8b5fd5072a9ede00",
+   "key": "v2:080cd78a873bb63e733f021b05c3301989590d67f0bfcfc41ecd08a438ff3fb3",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W0.md",
+    "fixed": [
+     "W0-D1 (a): added the explicit File Bounds row `docs/tranches/V/megatranche/workflows/hydrate-reports.mjs | execute, no write (HG-8's clean-worktree replay + X-W0.c's ledger regeneration)`, placed beside validate-completeness.mjs, matching W10's ratified read-only idiom with the invoking gate named (R-E).",
+     "W0-D1 (b): DELETED the falsified universal from the Do-NOT-touch paragraph — '**X-W0.j and X-W0.i add no gate script**; every probe is a pasted one-liner, so no gate in this wave invokes a path absent from this table' — leaving the table as the rule (R-E; W10 carries no such sentence).",
+     "Swept all gate-invoked scripts for R-E completeness: validate-completeness.mjs (HG-7/HG-8, modify-carve), hydrate-reports.mjs (HG-8 + X-W0.c, now rowed), graph-v3.mjs (HG-14/HG-15, create), validate-constellation-dag.mjs (HG-17, modify-carve). All four bounded; every remaining probe is a pasted node -p / grep / git one-liner with no script path."
+    ],
+    "residual": [
+     "R-B: W0 keeps the sibling spelling `X-W4.g` for the banked atomic cut's receiving surface, per the ruling's do-not-re-glyph clause. The pointer only resolves once W4 mints `X.W4.g` and states the alias in its §10a — out of this file's scope.",
+     "R-A: no edit needed — W0's close-stamp convention already reads IMPLEMENTED with VERIFIED reserved for X-W11's release close.",
+     "Second-pass observation (not a W0 defect, not actioned): W4's `navprobe.mjs` carries neither bounds row nor rationale; under R-E it needs one only if a numbered W4 gate invokes it."
+    ]
+   }
+  },
+  {
+   "agentId": "a46dbbccdd3a78cdf",
+   "key": "v2:da50baff86891c680abb5e62a6fac941bd1d7b7fe513cd54b70262217d1879af",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W5.md",
+    "fixed": [
+     "W5-D1 (reciprocity): §1 Opens-after now names X-W2 with the citation `reciprocal to W2's Blocks: X-W5, W2.md:284` alongside X-W4 and the X-W0 D2-baseline clause",
+     "W5-D1 (reciprocity): §10 Depends-on gains the X-W2 clause with the stated reason verbatim — the o24 LCP-identity re-read and mobile-viewport amputation fact forwarded from W2's ENV block as inputs to C1's parity ratio and C3's fork census, and W2's boot-path bytes settling before W5 writes e2e/**",
+     "W5-D1 (bounds narrowing): the blanket `e2e/**` (scene-route specs) | modify row is deleted and replaced with six explicit spec rows, each naming its owning unit — page-load.spec.ts + walk.spec.ts (unit a), dual-pane-1440.spec.ts + mobile/walk.spec.ts + mobile/page-load-mobile.spec.ts (unit c), perf/view-switch-frame-budget.spec.ts (unit d)",
+     "W5-D1 (§4a exclusivity): a Cross-wave paragraph added to §4a — W2 closes before W5 opens per the new reciprocal edge; the six spec paths enumerated as file-disjoint from W2's seven; e2e/smoke/mobile/ and e2e/smoke/perf/ declared shared as directories only, never as files; the old glob named as the hidden-write-conflict source",
+     "R-E (read-only gate script): new File Bounds row `docs/tranches/V/megatranche/audit/probes/app-wave/app-shell-truth-probe.mjs` | `execute, no write (A2's and A3's probe, re-run unmodified — bounded because the gates invoke it)`, matching W10's ratified idiom; the probe was invoked by A2/A3 with no row",
+     "R-E (created gate scripts): `workflows/gates/scene-swap-budget.mjs` promoted from the `*.mjs` glob to its own explicit `create (unit d; D1 invokes it)` row; the remaining glob row now names its purpose (unit a's A5/A6/A7 route probes); layout-utilization.mjs's row names its invoking gate (B3) and unit b's A-5 extension",
+     "Unit Files lists reconciled with the narrowed bounds: X.W5.a's vague 'e2e route arm' replaced by the two named specs; X.W5.c gains its three; X.W5.d gains view-switch-frame-budget.spec.ts — every e2e bounds row now has an owning unit"
+    ],
+    "residual": [
+     "§8 Verification Artefacts lists a write to `audit/probes/app-wave/pi/` (the desktop-1440 / mobile-390 capture pair), but the only bounded member of that directory is now the probe marked `execute, no write`. The artefact directory itself carries no File Bounds row. Not one of the named defects and outside R-E's scope (which governs scripts a gate invokes, not artefact sinks) — flagged for the next pass, curable with one `docs/tranches/V/megatranche/audit/probes/app-wave/pi/**` | `create` row.",
+     "W5's §10 Blocks declares X-W7 and X-W10. The second pass books W5→W7 as transitively closed through W6 and does not book W5→W10. Neither was in my defect list; not touched.",
+     "The six narrowed e2e paths were chosen from the wave's own unit mechanisms (route H1 / announced 404 for unit a; the breakpoint-fork death for unit c; the region-keyed swap for unit d) and verified disjoint from W2's seven and from every other X wave file (0 hits for `walk.spec`, `page-load`, `dual-pane`, `view-switch-frame` across waves/W*.md). If the implementing seat finds a seventh spec the fork's death touches, the row set — not a glob — is the thing to extend."
+    ]
+   }
+  },
+  {
+   "agentId": "a4153cec7639553aa",
+   "key": "v2:cc8b787723393544db26ea4142af1e72be58735975cb6a01bd1bb4fb03f436c5",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W9.md",
+    "fixed": [
+     "W9-D1 (intra-wave eslint.config.js conflict) — took the FOLD option: both scoped `no-non-null-assertion` rule objects are now written by X-W9.f alone (the cut, which integrates both chains and runs on integrated main). Removed `eslint.config.js` from X.W9.a's and X.W9.b's Files; their Mechanisms now state the rule object is *authored* there but *written* by .f, and G5/G10 are driven green inside .a/.b by the explicit `npx eslint --rule` invocation (no config edit). Added to X.W9.f's Files, a LINT clause in its Mechanism, and a sub-gate line re-running G5/G10 config-resident under `npm run lint`.",
+     "W9-D1 (§4a naming) — new §4a bullet **Intra-wave (`eslint.config.js`)** names the file explicitly, states why a shared `modify` across sibling worktrees is the forbidden hidden write conflict, and declares X-W9.f the sole writer. File Bounds row amended to `modify (the two `src/**`-scoped rule objects; X.W9.f is the sole writer, §4a)`.",
+     "W9-D2 (State line) — \"except on two shared files\" → \"except on **three** shared files\", with the third carve named inline: X-W9.f follows both X-W4 and X-W8 on `eslint.config.js`.",
+     "W9-D2 (§4a Cross-wave row) — new **Cross-wave (`eslint.config.js`)** bullet naming all four waves that touch the file (X-W4 `.d` W4.md:144/:239; X-W8 `.b` W8.md:79/:164 and `.e` W8.md:201; X-W9 `.f`; X-W11 as declared non-writer, W11.md:96), the non-concurrency rule for the three writers, and the region-disjointness (demo action path / `demo/@/**` globs + docs ignore + `max-lines` / `src/**` rule objects).",
+     "W9-D2 consequents — §Dependencies \"Sequenced against\" now lists three files (adds both X-W4 and X-W8 on `eslint.config.js`); §COMPLETABLE item 4's \"only files shared\" claim amended two → three; commit 9's body cell notes the two rule objects ride there; §Format And Lint Cadence clarifies the post-.a/.b G5/G10 runs use an explicit `--rule` flag.",
+     "R-E (bounds idiom) — four new File Bounds rows, each `execute, no write` with its invoking gate named: `.../probes/src-surface-totality.mjs` (G1), `library-band-gates.mjs` (G3 LIB-02 / G4 LIB-01 / G17 LIB-04), `consumer-surface-compile.mjs` (G12 + the pre-tag cadence), `fourier-value-import-drift.mjs` (G24 drift leg). Added the mechanical rule sentence after Do-NOT-touch (no prose exemptions). `scripts/ci/verify-packed-surface.mjs` already carried a `modify` row. §Dependencies (d) amended from \"three probes\" to the four now bounded, each verified `git ls-files`-tracked."
+    ],
+    "residual": [
+     "Report mis-cite, not carried into W9: the SECOND PASS fix text names X-W8 `.b/.d` as the eslint.config.js writers; W8's actual writers are `.b` (G-6 docs ignore + the six `demo/@/**` glob deletions, sub-gate list at W8.md:164) and `.e` (the CC-082 `max-lines` ratchet, Files line W8.md:201, explicitly \"after X.W8.b\"). W9 now cites `.b`/`.e`. If the orchestrator wants the report's letters honoured verbatim, this row needs re-ruling.",
+     "The eslint.config.js edge is one-directional in the same shape as W4-D2's ConsoleRail edge: W4 and W8 carry no notice that X-W9 also writes the file. Curing it needs one line in each of W4 §4a and W8 §4a — outside this file's bounds.",
+     "Folding into X-W9.f gives the cut a cross-wave ordering constraint (it must follow X-W4 and X-W8 closing on eslint.config.js). The State line's order-independence claim is narrowed accordingly and still true, but X-W9's \"lands alone\" COMPLETABLE posture now depends on two frontend waves closing before .f runs — sequencing only, no gate is blocked, since G5/G10 are measurable via `--rule` before .f.",
+     "Not touched (out of scope, no defect named): `navprobe.mjs`-class read-only scripts are not cited by any W9 gate, so no row was added for them; W9 cites no script beyond the five now bounded."
+    ]
+   }
+  },
+  {
+   "agentId": "a19960e609ab9da4c",
+   "key": "v2:77fd6d3732c7c4cc793ed63a4ac737c5af3bd3b897a15bcff0ddaa8b9d7a043a",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W4.md",
+    "fixed": [
+     "W4-D1 (BLOCKER) — receiving surface authored: new §5 unit `### X.W4.g The Glass-8 atomic cut (trigger-gated — CC-044 · CC-003 · the banked W6/W7/W8 limbs)` (W4.md:277-328) with a 'CLOSED unless X-W0.j's census returns PASS' preamble naming the five routing siblings, CC-003's four trigger conditions verbatim, and the full WAVE_SPEC quartet (Goal / Mechanism / Files / Sub-gate G1-G4 with per-gate falsifiers, stated as outside §6's 16 because the unit is closed at authoring, census 0/4)",
+     "W4-D1 — File Bounds: new trigger-gated §4 sub-table (W4.md:151-166) with rows for the six `tag=\"button\"` impostor sites (MixSourceSelector.vue:168,215 · GenerateControls.vue:203 · SwatchHoverMenu.vue:17,32 · CurrentPaletteEditor.vue:98), the seven remaining `watercolor-dot` importers, `demo/shared/ui/WatercolorSwatch.vue` (create, paint-only leaf) and `e2e/smoke/a11y-swatch-seat.spec.ts`; the 'Do NOT touch' watercolor-dot exclusion now scoped to units .a–.d with the .g table governing only the fired branch",
+     "W4-D1 — §4a disjointness: unit .g declared deliberately NOT disjoint from .a/.b/.d (ConsoleRail.vue, GenerateControls.vue, Dock.vue) and sequenced instead — opens only on census PASS, only after .a–.d close and commit, as ONE atomic cut on clean main",
+     "W4-D1 — commit row: §9 row 7 `feat(demo/glass8-atomic-cut)` (census-PASS branch only, ONE commit, never split, omitted on FAIL); the close commit renumbered to row 8 and now records which g branch was taken. Evidence artefact 9 `glass8-cut-receipt.md` added as trigger-gated",
+     "W4-D1 — §10a: final sentence 'named here only so this wave is not read as their home' replaced by the ownership statement (the banked rows land in X.W4.g on census PASS, stay banked on FAIL) plus the alias note stated once — the siblings' `X-W4.g` denotes `X.W4.g`, a search alias never a rename, per the L-5 discipline X-W0.i applies to the middot; §10a heading retitled accordingly and no sibling file re-glyphed",
+     "W4-D1 — §10 Depends-on: X-W0 clause extended with 'X-W0.j's Glass-8 repin census verdict is additionally what opens or keeps closed X.W4.g … this wave never evaluates the trigger itself'; 'No dependency on' scoped to units .a–.d",
+     "W4-D1 — coherence edits carrying the new unit: §1 Agents line, §1 banked-rows line, §1 row→unit→gate table (new CC-044 · CC-003 → X.W4.g row), §3 not-in-scope rows for CC-044/CC-003 and CC-105/CC-106, §3a triumvirate bounds clause, §6 gate-count qualifier",
+     "W4-D2 — §4a Cross-wave line added: \"`ConsoleRail.vue` is also held by X-W9.h (`componentDescription()` at `:172-180`); the waves never run concurrently on it.\"",
+     "W4-D2 / R-E — §4 File Bounds row added: `docs/tranches/V/megatranche/audit/probes/navprobe.mjs` | execute, no write (artefact 7's re-run, unmodified — bounded because A4's evidence row invokes it), matching W10's ratified idiom"
+    ],
+    "residual": [
+     "X.W4.g's G1–G4 carry authoring-time counts only (11 imports, 6 impostor seats); their route×matrix baselines are explicitly measured at fire, never inherited — deliberate, but a reader expecting §6-style born-RED numbers for g will not find them",
+     "The paint-only leaf's path `demo/shared/ui/WatercolorSwatch.vue` is this file's choice (colocated per MECHANISM-CUT:178-204); no sibling file or ledger row names a path, so a future author could seat it elsewhere",
+     "`docs/tranches/V/megatranche/registry/CARRY-CUT-LEDGER.md` §2 row X-W4 still describes the glass-independent partition only and does not name X.W4.g as the banked rows' receiving surface — the ledger is outside this file's bounds; one sentence there would close the loop from the ledger side",
+     "§1's SPECIFIED authority row still cites ledger §1.F + §2 row X-W4, neither of which enumerates the g unit — left untouched as an authority citation, not re-derived"
+    ]
+   }
+  },
+  {
+   "agentId": "a6cc90b6319ffe48c",
+   "key": "v2:2bc5ed78c7f8e1dd16d448d543efd0bbd8697fffe53ee47ae77f794d2b861000",
+   "result": {
+    "conformant": 7,
+    "defective": 5,
+    "tranchReady": false,
+    "remaining": [
+     "W2-D1 (R-E): `e2e/smoke/perf/serve-built.mjs` is the built-bundle origin that produced G3's and G4's born-RED pilots and that the canonical N>=20 run re-uses, but it carries no bounds row and no Do-NOT-touch entry. Fix: one row `execute, no write (G3's and G4's built-bundle origin, re-run unmodified)`.",
+     "W4-D1: `X.W4.g`'s trigger-gated bounds share four paths with later waves — `MixSourceSelector.vue` (X-W5 `W5.md:105`, X-W6 `W6.md:78`, X-W7 `W7.md:125`), `ColorSpaceSelector.vue` (X-W6 `W6.md:65`, X-W7 `W7.md:122`), `EmptyState.vue` (X-W7 `W7.md:123`), `Dock.vue` (X-W5, X-W8) — and §4a sequences g only against a/b/c/d ('if the census fires mid-wave'). The census can PASS while X-W5..X-W8 is open, so WAVE_SPEC §4a and 'no hidden cross-wave write conflicts' both bite. Fix: one §4a Cross-wave line naming the four paths and requiring g to land on clean main with no other X wave open, plus a matching sentence in §4's trigger-gated preamble.",
+     "W4-D2: `eslint.config.js` cross-wave sequencing is one-directional. W9 §4a (`W9.md:147-157`) declares X-W4 (.d), X-W8 (.b/.e) and X-W9.f as its three writers; W4 holds it `modify` (`W4.md:148`) and its §4a Cross-wave block names only App.vue and ConsoleRail.vue. Fix: one §4a Cross-wave line naming X-W8 and X-W9.f and the region-disjoint carve.",
+     "W6-D1 (R-E): §4's 'Bounds law' (`W6.md:105`) states the read-only instruments 'take no bounds row' — the prose-argued exemption R-E abolishes in favour of W10's idiom. Ten instruments are invoked by fifteen gates with no row: `gate-axis.mjs` (a3,a4), `gate-gesture.mjs` (a5,a6,a7), `gate-seat.mjs` (b1,b2,b4), `gate-structure.mjs` (c1), `evidence/parse-probe.ts` (a1), `WBGSE-O-r3-crossdrag-forcedcolors.mjs` (a2), `WBGSE-O-r3-gestures.mjs` (a7), `p3.mjs` (a8), `p4.mjs` (a9), `p2.mjs` (a10), `WBGSE-D-probe4.mjs` (a11), `WBGSE-D-probe2.mjs` (a12). Fix: delete the exemption sentence, add the rows marked `execute, no write` with each invoking gate id; keep the §3a halt-on-edit clause.",
+     "W8-D1: `eslint.config.js` cross-wave sequencing is one-directional (the W4-D2 twin). W8 holds it `modify-carve` (`W8.md:79`) and writes it in two units (.b globs/docs-ignore/no-restricted-imports, .e max-lines ratchet); §Disjointness Cross-wave names X-W6's five paths and ARCHITECTURE.md but not this file. Fix: one Cross-wave line naming X-W4 (.d) and X-W9.f and the two carves.",
+     "W11-D1 (R-E): three gate-invoked scripts carry no bounds row — `scripts/ci/verify-packed-surface.mjs` (G3; only in Do-NOT-touch, attributed to its owner X-W9, never to its invoker), `docs/tranches/V/megatranche/workflows/safari-real-matrix.js` (G8, named by path at `W11.md:289`; swept under a Do-NOT-touch glob whose stated reason is the X-W8 lint cure), `scripts/ci/boot-smoke.mjs` (G5; no bounds disposition at all). Fix: three `execute, no write` rows naming G3/G8/G5, keeping the Do-NOT-touch entries as the write-side statement."
+    ]
+   }
+  }
+ ]
+}
