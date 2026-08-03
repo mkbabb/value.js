@@ -386,3 +386,25 @@ The routing law, consolidated (refines M-12 + L-18; supersedes nothing in them �
 Compliance check at scribe time: the six running lanes already conform — axes-rerun (Opus
 challengers + Opus quarantine), carry-cut-ledger (4 Opus extractors → 1 Fable adjudicator),
 7e28 census (2 Opus census → 1 Fable ruler), API/orphan-verdicts/toolchain agents (Opus ×3).
+
+## M-24 — CLAUDE CODE FULLY OWNS ALL TRANCHE ITEMS; CODEX FIRED (owner, 2026-08-03)
+
+Verbatim: *"Mark that Claude Code (with Fable and Opus instances) now fully own these tranche
+items. Codex has been fired, though we may bring them in in the future for further development
+or auditing."*
+
+1. **Ownership is total and singular.** Claude Code — this session as orchestrator, with Fable
+   and Opus seats routed per M-23 — owns every tranche item across the constellation: tranche X
+   (all twelve waves), the keyframes.js and fourier-analysis sub-session formations, the
+   parse-that lane (fresh root `parse-that-css-totality-p2`), and all coordination surfaces.
+   This completes the M-15 → M-21 arc: abrogation → audit-subject status → **termination of
+   Codex tenure**.
+2. **The M-20 clause "drive the Codex parser session `019fae36-…`" is RESOLVED-BY-SUPERSESSION:**
+   no Codex session is resumed or dispatched. The parser lane continues under Claude Code
+   ownership from the pause handoff + ratified fresh root (M-22 ¶3).
+3. **Re-engagement is an owner option, not a standing lane.** Codex may be brought back for
+   future development or auditing only by explicit owner order; nothing here pre-authorizes it.
+4. **Evidence law unchanged.** `~/.codex/**`, `~/Documents/Codex/**`, the frozen roots, the 90
+   in-repo 7e28 copies, and all canonical Codex-authored files remain PRESERVED EVIDENCE —
+   read/hash only, receipts literal, provenance never renamed (C-02 discipline). Firing the
+   author does not touch the archive.
