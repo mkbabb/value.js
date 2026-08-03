@@ -1,0 +1,74 @@
+{
+  "controls": [
+    {
+      "tag": "BUTTON",
+      "role": "combobox",
+      "aria": "Select color space",
+      "text": "Lab",
+      "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-cen"
+    },
+    {
+      "tag": "BUTTON",
+      "role": "combobox",
+      "aria": "Select color space",
+      "text": "Lab",
+      "cls": "bg-transparent border-none shadow-none tap-squish focus-ring items-cen"
+    }
+  ],
+  "shots": {
+    "R0_default_no_dot": {
+      "x": 226.46875,
+      "y": 625,
+      "width": 288.53125,
+      "height": 186.328125
+    },
+    "R1_selected": {
+      "x": 226.46875,
+      "y": 625,
+      "width": 288.53125,
+      "height": 186.328125
+    },
+    "R2_hover_unselected": {
+      "x": 226.46875,
+      "y": 625,
+      "width": 288.53125,
+      "height": 186.328125
+    },
+    "R3_hover_SELECTED": {
+      "x": 226.46875,
+      "y": 625,
+      "width": 288.53125,
+      "height": 186.328125
+    },
+    "R4_press": {
+      "x": 226.46875,
+      "y": 625,
+      "width": 288.53125,
+      "height": 186.328125
+    },
+    "R5_focus_visible": {
+      "x": 226.46875,
+      "y": 625,
+      "width": 288.53125,
+      "height": 186.328125
+    },
+    "Z_closeup": {
+      "x": 227.90625,
+      "y": 717.3125,
+      "width": 43.640625,
+      "height": 40.34375
+    }
+  },
+  "spaceControl": [
+    {
+      "text": "Lab",
+      "aria": "Select color space",
+      "cls": "bg-transparent border-none shadow-none tap-squish focus-ring"
+    },
+    {
+      "text": "Lab",
+      "aria": "Select color space",
+      "cls": "bg-transparent border-none shadow-none tap-squish focus-ring"
+    }
+  ]
+}

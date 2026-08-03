@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "anySelected": false
+  },
+  "R_selected_dot": {
+    "changedPx": 7037,
+    "pctOfRail": 11.11,
+    "maxChannelDist": 147.2
+  },
+  "R_hover_pill": {
+    "changedPx": 15611,
+    "pctOfRail": 24.64,
+    "maxChannelDist": 103.9
+  },
+  "R_focus_ring": {
+    "changedPx": 13840,
+    "pctOfRail": 21.84,
+    "maxChannelDist": 109
+  },
+  "focusLandedOn": {
+    "text": "L",
+    "selected": "true"
+  },
+  "R_press_beyond_hover": {
+    "changedPx": 27814,
+    "pctOfRail": 43.9,
+    "maxChannelDist": 109
+  },
+  "R_press_note": "delta measured against the SAME item already hovered, so it isolates the press leg alone"
+}

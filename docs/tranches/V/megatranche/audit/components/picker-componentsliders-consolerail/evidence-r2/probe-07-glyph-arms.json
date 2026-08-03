@@ -1,0 +1,666 @@
+{
+  "arms": {
+    "Lab": {
+      "railPresent": true,
+      "railW": 30.53,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "l channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "a",
+          "cps": [
+            "U+61"
+          ],
+          "itemW": 23.67,
+          "glyphW": 11.67,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "a channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "b",
+          "cps": [
+            "U+62"
+          ],
+          "itemW": 23.64,
+          "glyphW": 11.63,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "b channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        4.97,
+        1.27,
+        -2.43,
+        -5.59
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5
+    },
+    "LCh": {
+      "railPresent": true,
+      "railW": 31.31,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "l channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "C",
+          "cps": [
+            "U+43"
+          ],
+          "itemW": 25.31,
+          "glyphW": 13.3,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "c channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "h",
+          "cps": [
+            "U+68"
+          ],
+          "itemW": 24.11,
+          "glyphW": 12.1,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "h channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5
+    },
+    "OKLCh": {
+      "railPresent": true,
+      "railW": 31.31,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "l channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "C",
+          "cps": [
+            "U+43"
+          ],
+          "itemW": 25.31,
+          "glyphW": 13.3,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "c channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "h",
+          "cps": [
+            "U+68"
+          ],
+          "itemW": 24.11,
+          "glyphW": 12.1,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "h channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        4.97,
+        1.27,
+        -2.43,
+        -5.59
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5
+    },
+    "HWB": {
+      "railPresent": true,
+      "railW": 38.08,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "H",
+          "cps": [
+            "U+48"
+          ],
+          "itemW": 28.38,
+          "glyphW": 16.37,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "h channel",
+          "overflowsItem": 0
+        },
+        {
+          "t": "W",
+          "cps": [
+            "U+57"
+          ],
+          "itemW": 32.08,
+          "glyphW": 20.08,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "w channel",
+          "overflowsItem": 0
+        },
+        {
+          "t": "B",
+          "cps": [
+            "U+42"
+          ],
+          "itemW": 26,
+          "glyphW": 13.98,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "b channel",
+          "overflowsItem": -0.02
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5
+    },
+    "XYZ": {
+      "railPresent": true,
+      "railW": 31.67,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "X",
+          "cps": [
+            "U+58"
+          ],
+          "itemW": 25.67,
+          "glyphW": 13.67,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "x channel",
+          "overflowsItem": 0
+        },
+        {
+          "t": "Y",
+          "cps": [
+            "U+59"
+          ],
+          "itemW": 24.3,
+          "glyphW": 12.29,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "y channel",
+          "overflowsItem": 0
+        },
+        {
+          "t": "Z",
+          "cps": [
+            "U+5A"
+          ],
+          "itemW": 24.8,
+          "glyphW": 12.79,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "z channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5
+    },
+    "ICtCp": {
+      "railPresent": true,
+      "railW": 31.31,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "l channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "C",
+          "cps": [
+            "U+43"
+          ],
+          "itemW": 25.31,
+          "glyphW": 13.3,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "c channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "h",
+          "cps": [
+            "U+68"
+          ],
+          "itemW": 24.11,
+          "glyphW": 12.1,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "h channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        4.97,
+        1.27,
+        -2.43,
+        -5.59
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5
+    },
+    "Jzazbz": {
+      "railPresent": true,
+      "railW": 31.31,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "l channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "C",
+          "cps": [
+            "U+43"
+          ],
+          "itemW": 25.31,
+          "glyphW": 13.3,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "c channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "h",
+          "cps": [
+            "U+68"
+          ],
+          "itemW": 24.11,
+          "glyphW": 12.1,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "h channel",
+          "overflowsItem": -0.01
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        4.97,
+        1.27,
+        -2.43,
+        -5.59
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5
+    },
+    "Kelvin": {
+      "railPresent": true,
+      "railW": 33.03,
+      "railH": 79.33,
+      "n": 2,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "K",
+          "cps": [
+            "U+4B"
+          ],
+          "itemW": 27.03,
+          "glyphW": 15.03,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "kelvin channel",
+          "overflowsItem": 0
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        3.14,
+        -3.71
+      ],
+      "pitchRail": 36.11,
+      "pitchRows": 43.5
+    },
+    "Hex": {
+      "railPresent": true,
+      "railW": 32.67,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "R",
+          "cps": [
+            "U+52"
+          ],
+          "itemW": 26.5,
+          "glyphW": 14.5,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "r channel",
+          "overflowsItem": 0
+        },
+        {
+          "t": "G",
+          "cps": [
+            "U+47"
+          ],
+          "itemW": 26.67,
+          "glyphW": 14.67,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "g channel",
+          "overflowsItem": 0
+        },
+        {
+          "t": "B",
+          "cps": [
+            "U+42"
+          ],
+          "itemW": 26,
+          "glyphW": 13.98,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "b channel",
+          "overflowsItem": -0.02
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5
+    },
+    "RGB": {
+      "railPresent": true,
+      "railW": 32.67,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "R",
+          "cps": [
+            "U+52"
+          ],
+          "itemW": 26.5,
+          "glyphW": 14.5,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "r channel",
+          "overflowsItem": 0
+        },
+        {
+          "t": "G",
+          "cps": [
+            "U+47"
+          ],
+          "itemW": 26.67,
+          "glyphW": 14.67,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "g channel",
+          "overflowsItem": 0
+        },
+        {
+          "t": "B",
+          "cps": [
+            "U+42"
+          ],
+          "itemW": 26,
+          "glyphW": 13.98,
+          "glyphH": 25.09,
+          "fam": "Fraunces",
+          "style": "italic",
+          "aria": "b channel",
+          "overflowsItem": -0.02
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "glyphH": 25.05,
+          "fam": "\"Fira Code\"",
+          "style": "normal",
+          "aria": "alpha channel",
+          "overflowsItem": -0.01
+        }
+      ],
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5
+    }
+  }
+}

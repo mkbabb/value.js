@@ -1,7 +1,7 @@
 {
  "runId": "wf_bafca356-6f4",
  "workflow": "wf_bafca356-6f4",
- "resultCount": 4,
+ "resultCount": 5,
  "results": [
   {
    "agentId": "a13f65fdcba2d9747",
@@ -1566,6 +1566,22 @@
       "carriesFrom": "same surface as MT-F023 (PaneHeader scroll-timeline shrink) — rulings must land coherently"
      }
     ]
+   }
+  },
+  {
+   "agentId": "aa61145dc8fdd334f",
+   "key": "v2:3864cd4f5d87ab14bd8772d5e6229a65a8736f8ee3b69acf99699b5d7dd26a17",
+   "result": {
+    "counts": {
+     "build": 63,
+     "fold": 24,
+     "retire": 17,
+     "blockedOn": 11,
+     "verified": 2,
+     "total": 117,
+     "droppedWithRationale": 14
+    },
+    "ledgerPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/CARRY-CUT-LEDGER.md"
    }
   }
  ]

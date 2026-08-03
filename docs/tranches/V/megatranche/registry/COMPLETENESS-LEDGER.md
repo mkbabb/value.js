@@ -92,7 +92,7 @@ Challenge-axis file presence is **264/264 (100.0%)**; durable saturation is **26
 | PaletteColorStrip | CDL | CDL | CDL | BANKED |
 | PaletteRenameInput | CDL | CDL | — | BANKED |
 | PaletteCardMeta | CDL | CDL | — | BANKED |
-| ActionFeedback | CDL | CDL | — | BANKED |
+| ActionFeedback | CDL | CDL | L | BANKED |
 | UserSortMenu | CDL | CDL | — | BANKED |
 | PaletteCardGrid | CDL | CDL | — | BANKED |
 | PaginationBar | CDL | CDL | — | BANKED |
@@ -136,10 +136,10 @@ Challenge-axis file presence is **264/264 (100.0%)**; durable saturation is **26
 
 | component | exact files | hash-banked | harvest axes | status |
 |---|---|---|---|---|
-| picker-componentsliders-consolerail | CDL | CDL | — | BANKED |
+| picker-componentsliders-consolerail | CDL | CDL | D | BANKED |
 | picker-colorcomponentdisplay | CDL | CDL | — | BANKED |
 | picker-debugeventlog | CDL | CDL | — | BANKED |
-| picker-pointerdebugoverlay | CDL | CDL | — | BANKED |
+| picker-pointerdebugoverlay | CDL | CDL | D | BANKED |
 | shell-dock-actiontoolbar | CDL | CDL | — | BANKED |
 | shell-dock-parseechoreadout | CDL | CDL | — | BANKED |
 | shell-dock-genericactionbar | CDL | CDL | — | BANKED |
@@ -153,6 +153,8 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_060ffe39-0fd` | completed | 3 | 3 |
 | `wf_076062ab-dc8` | completed | 7 | 7 |
 | `wf_0ddb79d6-164` | completed | 9 | 9 |
+| `wf_1a4c8a8c-557` | completed | 4 | 4 |
+| `wf_30a8e858-e9a` | completed | 3 | 3 |
 | `wf_4a8ad4ff-130` | completed | 0 | n/a — 0 seats dispatched |
 | `wf_6e1e7c6f-7af` | completed | 3 | 3 |
 | `wf_73c61fe0-093` | completed | 3 | 3 |
@@ -162,6 +164,7 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_9bd0ecd0-037` | completed | 15 | 15 |
 | `wf_a6f71311-4e5` | completed — HARVEST-DISPOSITION: STATE.md — "PHASE X excavation (M-14) · 15/15 ON DISK" | 15 | 14 of 15 (accounted) |
 | `wf_a6f87133-522` | completed | 15 | 15 |
+| `wf_bafca356-6f4` | completed | 5 | 5 |
 | `wf_bb1c807c-f47` | killed — STOPPED-WITH-DISPOSITION: redundant omission dispatch, stopped pre-write, 0 results, hashes intact | 6 | empty (dispositioned) |
 | `wf_c88c8125-52c` | completed — HARVEST-DISPOSITION: STATE.md — "parser band (M-9) ground · 3/8 HARVESTED … superseded by the trifold" | 8 | 3 of 8 (accounted) |
 | `wf_e231d455-de2` | completed | 9 | 9 |

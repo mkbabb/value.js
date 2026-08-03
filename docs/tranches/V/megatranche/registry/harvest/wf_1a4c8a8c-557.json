@@ -1,0 +1,187 @@
+{
+ "runId": "wf_1a4c8a8c-557",
+ "workflow": "wf_1a4c8a8c-557",
+ "resultCount": 4,
+ "results": [
+  {
+   "agentId": "a9a00120a3218dd39",
+   "key": "v2:c6655b38633000a4c77622012f6ecb60d6ba57a01773251a69705f473aa8c25d",
+   "result": {
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/ActionFeedback/challenge-L-library-r2.md",
+    "verdict": "AMBER — RED on ownership, GREEN on dependency direction and motion. The r1 Codex file's RED grade survives but NONE of its stated reasons do: its motion/PRM finding is materially false (6/6 producer motion tokens live; PRM clamps 0.57s->0.1s AND strikes transform/max-height from transition-property), its \"local duplicate\" is a repo-wide singleton (grep returns exactly 1 file), its central prop citation names a prop that does not exist (`type` — the prop is `variant`), and its prescribed producer contract (toast) is structurally wrong (Toaster is viewport-anchored; Chip is the fitting atom). Four new defects r1 never reached, three visible only with the stack running: L-1 MAJOR the success rung forks the sealed tone register while the error rung one line away matches `--destructive` byte-exactly (light ΔL=0.093, dark ΔC=0.023; `--color-success` bridge exists and was available); L-2 MAJOR the G-DEMO-3b boundary that `browser/index.ts:6-7` claims \"enforces it standing\" is wholly inert (globs name the deleted `demo/@` tree, banned specifier `@components/...` has 0 live imports, `no-restricted-imports` resolves UNSET across the entire palettes tree); L-3 MAJOR the `cardRefs` imperative registry has no teardown contract — the `el &&` guard swallows Vue's null-on-unmount, so entries are retained forever and a verdict addressed to a dead instance throws nothing, renders nothing, logs nothing (measured: 2 entries vs 1 mounted card, verdict silently lost); L-4 MAJOR the three-prop surface carries no verdict identity, so a second verdict inherits the first's clock and lives 701ms of its designed 2500ms (28%). Plus L-5/L-6/L-7 MINOR/INFO. Four superlatives proven, chiefly S-1 (pure sink: 2 imports, both external, zero relative reaches — cannot cycle) and S-2 (the producer PRM policy surgically strips transform/max-height while preserving a 100ms fade). L-3+L-4 are one repair: hoist an identity-carrying verdict object into pane state, deleting both registries, both `(el: any)` casts, the `defineExpose`, the leak, the silent-loss path and the clock bug. 5 re-runnable probes under evidence-r2/, all deterministic on cold re-run; canonical r1 file verified byte-identical to its recorded closure hash (untouched).",
+    "reAdjudications": [
+     {
+      "claim": "C1 (:3) — \"Source-only\", receipt sha256 9b5cbe86976967d366a7386980f4eb94fd5d1795a160fd2a87c098b9393dbdd2",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "C2 (:9) — \"Imports are `vue` and `@lucide/vue`; there is no glass-ui alert, toast, live-region, motion, or button primitive\"",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "C3 (:10) — \"`type: \\\"success\\\" | \\\"error\\\"` is too small for retryable, conflict, warning, pending, or informational outcomes\" (substance true; REFUTED as written — no prop named `type`, it is `variant`, and that misnaming is itself the sharper defect against glass-ui's sealed TONES axis)",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "C4 (:11) — \"Visibility and lifetime are controlled internally while message and severity come from a parent; ownership is split\" (conclusion true and consequence now measured as L-4; the \"visibility controlled internally\" half is FALSE — `visible` is a parent-owned prop)",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "C5 (:12) — \"The transition class family is globally named and not scoped to a producer motion token or reduced-motion policy\" (\"globally named\" holds; both substantive disjuncts fail — 6/6 producer motion tokens, 0 demo-defined, and a deliberate producer PRM policy clamping 0.57s->0.1s while striking transform/max-height)",
+      "ruling": "REFUTED"
+     },
+     {
+      "claim": "C6 (:16) — \"The input should bind an operation/result identity rather than three independent props\"",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "C7 (:16) — \"Until adopted, this is a local duplicate\" (grep for the forked literals returns exactly one file repo-wide: this one — a singleton fork of the tone register, not a duplicate)",
+      "ruling": "REFUTED"
+     },
+     {
+      "claim": "C8 (:5) — Verdict \"SOURCE-RED. The component hand-builds a toast/status primitive ... outside the producer's alert/toast/result contracts\" (RED survives, the reasoning does not: glass-ui Toaster is viewport-anchored via ToasterPosition and would sever every palette verdict from its card; the fitting atom is Chip)",
+      "ruling": "REFUTED"
+     }
+    ],
+    "newDefects": [
+     "L-1 MAJOR — Tone-axis fork, asymmetric within one class array. ActionFeedback.vue:8 renders the success rung from raw Tailwind literals (`bg-green-500/10 text-green-600 dark:text-green-400`) while :9 renders the error rung from the producer token (`bg-destructive/10 text-destructive`). Measured live: error ink rgb(219,36,36) === `--destructive` byte-exactly; success ink oklch(0.627 0.194 149.214) vs `--success` oklch(0.72 0.192 149.5) (ΔL=0.093); dark arm oklch(0.792 0.209 151.711) vs the token's own dark arm oklch(0.805 0.186 151.6) (ΔC=0.023). Unforced — glass-ui bridges `--color-success: var(--success)` in dist/styles/theme/bridges.css, and `--success` is already light-dark(), so the hand-rolled `dark:` variant is a second, divergent dark-mode mechanism for a token that never needed one. Also violates the sealed axis in dist/components/_shared/axes.d.ts three ways: prop NAME (`variant` carrying tone, which the axis comment forbids explicitly), VOCABULARY (`error` is not in TONES; the producer word is `destructive`), and RENDERING. Repro: evidence-r2/af-L-r2-tone-fork.mjs. Not a contrast regression (forked ink is darker) — the defect is ownership: two sources of truth for \"success\", only one of which moves with the design system.",
+     "L-2 MAJOR — The barrel seam cited as enforced is inert; blast radius is the whole palette-browser feature. demo/palettes/browser/index.ts:6-7 asserts the G-DEMO-3b eslint boundary \"enforces it standing\". It enforces nothing: (a) the rule's files globs (eslint.config.js:232-238) name demo/@/components, demo/@/lib, demo/@/composables — `demo/@` does not exist, the feature lives at demo/palettes/browser/, matched by no glob; (b) the banned specifier `@components/custom/palette-browser/**/*.vue` is unresolvable, `grep -rn 'from \"@components' demo/ src/` returns 0, with vite.config.ts:68 recording that W43·RF-15 killed the demo `@…` aliases; (c) `npx eslint --print-config` returns `no-restricted-imports: UNSET` for BrowsePane.vue, PalettesPane.vue, ActionFeedback.vue AND browser/index.ts itself. The one surviving glob (demo/color-picker/**) loads the rule to guard a dead address. Directly on-seat: ActionFeedback is exported by no barrel (correctly — a true internal), and the mechanism claimed to keep it internal died at the W43 restructure. Repro: evidence-r2/af-L-r2-boundary-inert.sh.",
+     "L-3 MAJOR — The imperative channel has no teardown contract; verdicts addressed to unmounted cards are silently lost. PalettesPane.vue:84 and BrowsePane.vue:94 register via `:ref=\"(el: any) => el && (cardRefs[key] = el)\"`. Vue invokes a function ref with null on unmount; the `el &&` guard swallows that call, so entries are never deleted. Measured by filtering one card out through the pane's own search box: cardRefKeys stays [\"af-probe-1\",\"af-probe-2\"] while mountedCards drops to 1, retainedDead [\"af-probe-2\"]. L-3a the registry grows monotonically retaining unmounted instances across a session of searching/filtering/deleting/paging. L-3b calling showFeedback on a retained-dead instance — exactly what PalettesPane.vue:207 and BrowsePane.vue:249 do after an await — throws nothing, renders nothing, logs nothing (chipsOnScreen 0, threw null, console/page errors []). The user's publish/save/delete/fork outcome vanishes. BrowsePane.vue:249/:264 guard absence with `?.` but never deadness. The `(el: any)` cast defeats the registry's declared `Record<string, InstanceType<typeof PaletteCard>>` at the one site where the contract could be checked. Repro: evidence-r2/af-L-r2-registry-leak.mjs.",
+     "L-4 MAJOR — The public surface carries no verdict identity, so a second verdict inherits the first one's clock. Ownership is split across the seam: visibility state in the parent (PaletteCard.vue:234-236), dismissal clock in the child (ActionFeedback.vue:37-47), whose only re-arm trigger is a change-watcher on a boolean. showFeedback (PaletteCard.vue:238-242) sets feedbackVisible = true unconditionally, so a second verdict arriving while the first chip is up does not CHANGE `visible`, the watcher never fires, and the 2500ms clock is never re-armed. Measured trace: A shown t≈102ms; B shown t≈2158ms; chip null by t≈2859ms; still null t≈3859ms — B lived ~701ms, 28% of its designed lifetime. The failure scales precisely with the traffic it exists to report on. Repro: evidence-r2/af-L-r2-no-verdict-identity.mjs.",
+     "L-5 MINOR — Name, location and coupling disagree. Domain-coupling census across the six-file folder: PaletteCard.vue 364L/55 palette-refs, PaletteCardMenu 228L/23, PaletteCardMeta 64L/17, PaletteRenameInput 66L/1, PaletteCardSwatches 96L/1, ActionFeedback 58L/0. It is the only file with zero domain coupling and the only one lacking a `Palette*` prefix — its name claims app-wide generality, its location claims card-locality, its content is domain-free with exactly one consumer. Verdict on the decomposition itself: the six-file split is along REAL seams, not a distributed god module. Per feedback_kiss_no_contrivance the cure is a rename to PaletteCardFeedback.vue, NOT relocation to demo/shared/ui/ — a single-consumer leaf does not earn a shared home.",
+     "L-6 MINOR — A producer atom exists and is hand-rolled here instead. ActionFeedback.vue:7 hand-rolls `flex items-center gap-2 px-3 py-1.5 rounded-panel text-xs`; glass-ui Chip (dist/components/chip/) ships mode:\"static\" + tone + size + shape:\"pill\", with chipVariants sm = \"gap-1 px-2.5 py-1 text-caption\" — the same recipe. Chip has exactly ONE adopter repo-wide (demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue:14), so this is live under-adoption. Producer relay (BJ ask): Chip's tone is typed `tone?: string` in dist/components/chip/types.d.ts rather than the `Tone` the producer seals in _shared/axes.d.ts — part of why consumers keep inventing their own tone vocabularies.",
+     "L-7 INFO — 25% of the public prop surface is dead. `autoDismissMs` (ActionFeedback.vue:28, default 2500) is bound by no consumer; PaletteCard.vue:123-128 passes only message, variant, visible and @update:visible. A configuration point with zero configurers — delete it or make it load-bearing when the L-4 verdict object lands.",
+     "OUT-OF-SEAT (D axis, observed live in every probe run, recorded so it is not lost) — the chip renders role: null and aria-live: null. Verdicts for publish/save/delete/fork are never announced to assistive technology."
+    ]
+   }
+  },
+  {
+   "agentId": "aaf2b976d6e393a4f",
+   "key": "v2:11a5bfb18936cb63c8ecfdd56a794f15d1144fb3db41ea0aaedc7f37ee76c18d",
+   "result": {
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/picker-pointerdebugoverlay/challenge-D-design-r2.md",
+    "verdict": "LIVE-RED · BLOCKER ×2. The prior Codex file was cosmetically half-right and missed every defect that actually breaks the instrument. Measured live: (1) `--z-debug` is the ONE rung of the demo's z-ladder that resolves to nothing (`--z-behind`…`--z-modal` all resolve; `--z-debug` UNDEFINED), so `PointerDebugOverlay.vue:136` computes `z-index: auto` and loses to `.pane-wrapper--left { z-index: 1 }` — at 1440×900 the FROZEN? alarm, the copied! confirmation, the collapse glyph and every gauge VALUE are 100% occluded. This is a REGRESSION: production (color.babb.dev) resolves `--z-debug: 99999` and renders correctly; the token was deleted by commit c84504d3 on a glass-ui-bridges-it premise that glass-ui does not honour. (2) At 390×844 — the phone, the only platform this iOS-Safari pointer-capture instrument exists for — the header is 97.5% occluded and absent from the hit-test stack, so a trusted tap cannot collapse it: expand is IRREVERSIBLE. (3) 91.4% of the event log is unreachable — `.debug-scroll` carries `pointer-events: none` + `tabIndex -1`, so trusted wheel, trusted drag and keyboard all leave `scrollTop` at 0 with 2586px hidden and 2 of 80 rows visible. (4) The activation gate is a raw substring match with no build gate: `?nodebug=1` turns debug ON, and `https://color.babb.dev/?nodebug=1` renders the overlay to the public product. Answering the seat's framing question with evidence: as gated and as built, this UI should not ship — it is production-reachable by accident and does not work when reached. Five superlatives proved to the same standard, incl. the correct default-collapsed geometry, word-not-colour boolean gauges that survive forced-colors, and the pointer-events discipline that keeps the instrument from perturbing what it measures.",
+    "reAdjudications": [
+     {
+      "claim": "D#1 — `aria-controls=\"debug-body\"` references no element; the disclosure's structural relationship is false",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "D#2 (composite) — a 280px fixed overlay at bottom-left can cover essential phone UI and ignores safe-area insets, keyboard, RTL, and drag/reposition needs",
+      "ruling": "UNPROVEN"
+     },
+     {
+      "claim": "D#2a (rider) — ignores safe-area insets",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "D#2b (rider) — ignores RTL",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "D#2c (rider, the headline) — the overlay covers essential phone UI",
+      "ruling": "REFUTED"
+     },
+     {
+      "claim": "D#3 — 10px type and 6px button padding are too small for extended reading and touch operation",
+      "ruling": "UNPROVEN"
+     },
+     {
+      "claim": "D#4 — `FROZEN?` blinks every 0.5s forever; there is no reduced-motion rule; the question mark weakens a diagnostic assertion",
+      "ruling": "REFUTED"
+     },
+     {
+      "claim": "D#5 — copy success is transient text inside the header without status semantics; failure is never shown",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "D#6 — Reset, Copy JSON and Clear have equal geometry although Reset is destructive and can alter the very fault under inspection",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "D#7 — hard-coded black/white/red/blue styling forms a separate visual system with no forced-colors/high-contrast contract",
+      "ruling": "CONFIRMED"
+     }
+    ],
+    "newDefects": [
+     "D-N1 · BLOCKER — `--z-debug` is the sole orphaned rung of the demo z-ladder (all of --z-behind/-background/-content/-controls/-ornament/-bar/-header/-dock/-overlay/-popover/-modal resolve; --z-debug UNDEFINED), so PointerDebugOverlay.vue:136 computes `z-index: auto` and is overpainted by `.pane-wrapper--left { z-index: 1 }`. Measured occlusion at 1440×900: `.debug-frozen` 100%, `.debug-toggle` 100%, `.debug-copied` 100%, first `.debug-gauge .debug-val` 100%, whole overlay 30.1% — and the occluded 30% is exactly the value column (`justify-content: space-between`). REGRESSION: production resolves `--z-debug: 99999` and renders every value; the token was deleted from `:root` by commit c84504d3 (2026-03-25) on the premise at foundation.css:110 that glass-ui bridges it — glass-ui defines no `--z-*` at all. Evidence 02 vs 03.",
+     "D-N2 · BLOCKER — mobile collapse trap. At 390×844 the expanded `.debug-header` (9, 676.4, 278, 30.2) is 97.5% occluded by the picker card; `document.elementsFromPoint(148, 691.5)` returns `DIV.channel-rows.flex-1` (header absent from the hit-test stack); a real trusted `mouse.click` at the header centre leaves `aria-expanded=\"true\"` and the class un-collapsed; Playwright actionability times out. Expand is irreversible on the one platform the instrument exists for. Evidence 08b, 09.",
+     "D-N3 · MAJOR — the event log is 91.4% unreachable by every input modality. `.debug-scroll` (PointerDebugOverlay.vue:232-237) is `overflow-y: auto` + `pointer-events: none`, `tabIndex -1`. With the 80-event ring full: scrollHeight 2829 / clientHeight 243 / hidden 2586px; trusted wheel → scrollTop 0; trusted drag → scrollTop 0; keyboard PageDown/End with the header focused → scrollTop 0; hit-test over the log returns `MAIN.pane-main`. Only 2 of 80 rows are ever visible; Chromium paints a scrollbar no user can move.",
+     "D-N4 · MAJOR — the activation gate is a raw substring match with no build gate. usePointerDebug.ts:34-39 uses `location.hash.includes(\"debug=1\") || location.search.includes(\"debug=1\")`. Live: `?nodebug=1` → ON, `?xdebug=1` → ON, `?q=notdebug=1x` → ON, `#/palettes?ref=mydebug=1` → ON; controls `?debug=0` and `/` → OFF. No `import.meta.env.DEV` guard, so it ships: `https://color.babb.dev/?nodebug=1` renders the overlay to the public product, wiring 6 document capture listeners + a 500ms interval and a one-tap destructive Reset.",
+     "D-N5 · MAJOR — no state has accessible structure. Live AX tree: `role: null`, `aria-label: null` on `.debug-overlay`; `liveRegions: 0` (no aria-live/status/alert/log), so FROZEN and copied! are both silent; the entire 80-row payload arrives as one flat `text:` run with no heading/list/table semantics and no key↔value association; the disclosure's accessible name mutates with state (\"Debug −\" → \"Debug FROZEN? −\" → \"Debug copied! −\"); the three action buttons carry no `type` attribute.",
+     "D-N6 · MINOR — measured WCAG AA 1.4.3 contrast failure in the seat's own bytes: `.debug-val-false` (`#666`, 10px, PointerDebugOverlay.vue:229) = 3.47:1 against the composited panel `rgb(16, 5.6, 17.2)` — the FALSE state of every boolean gauge. (Adjacent, DebugEventLog-owned, relayed: `.debug-ts` #666 = 3.47:1, `.debug-tgt` #777 = 4.45:1.)",
+     "D-N7 · MINOR — the disclosure has no authored focus treatment: no `.debug-header:focus-visible` rule exists (only `.debug-btn:focus-visible` at :270-273), so the header falls back to Chrome's UA `outline: auto 1px rgb(0,95,204)` on a near-black panel, while the app's own `.focus-ring` utility (which carries a forced-colors contract) goes unused.",
+     "D-N8 · INFO — the clipboard export (buildExportJSON, :82-107) embeds `navigator.userAgent` verbatim plus screen dimensions and DPR; combined with D-N4 this is a public, production-reachable surface that puts an environment fingerprint on a stranger's clipboard on one tap, confirmed only by an occluded chip.",
+     "D-N9 · INFO — the four debug controls are tab stops 26–29 of 30 (teleported to the end of body); a keyboard operator traverses the whole app to reach the instrument, and expanding it moves focus nowhere.",
+     "D-N10 · INFO (epistemic record, not scored) — one captured unattended full-frame navigation `…/?debug=1#/` → `…/#/browse` at ~16.5s that dropped the flag and unmounted the overlay. Did NOT reproduce: a clean 25s idle poll held the flag, and deliberate Picker→Palettes→Home navigation preserved both flag and overlay. Trigger unidentified; possible dev-server interference. Recorded because the flag has no durable state and no in-product re-entry."
+    ]
+   }
+  },
+  {
+   "agentId": "aff1621ed1b4516de",
+   "key": "v2:877cf1590962f1640764d85a17b748b60053dfa60b7c9d290904189f583040b8",
+   "result": {
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/picker-componentsliders-consolerail/challenge-D-design-r2.md",
+    "verdict": "DEFECTIVE — 15 findings (2 BLOCKER, 6 MAJOR, 5 MINOR, 2 INFO) plus 5 proven superlatives, all measured live against http://localhost:9000 at HEAD 0b4566db with 13 re-runnable probes, 12 JSON receipts and 46 PNG witnesses under evidence-r2/. Four of the five clauses of the component's own stated design thesis (ConsoleRail.vue:2-11) are false in the build. Canonical challenge-D-design.md untouched (sha b5c098449351a274593c421938c7e50633811f9d09d11921855e81bfeb7bf48f); no source file modified.",
+    "reAdjudications": [
+     {
+      "claim": "Codex D#1 — role=tablist/role=tab implies associated tabpanels, but no aria-controls or panel relationship exists; if selection merely scrolls a slider row, a radio/listbox or toolbar pattern may be more honest",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "Codex D#2 — single glyphs (C, h, a, b, α) require tooltip discovery; the visible rail alone does not communicate units, ranges, or which color space is active",
+      "ruling": "UNPROVEN"
+     },
+     {
+      "claim": "Codex D#3 — when `active` is invalid rather than null, no tab receives tabindex=0 and keyboard entry into the rail becomes uncertain",
+      "ruling": "UNPROVEN"
+     },
+     {
+      "claim": "Codex D#4 — the live-color dot can become visually dominant or noisy across rapid color changes; no reduced-motion/high-contrast/forced-colors design is stated",
+      "ruling": "REFUTED"
+     },
+     {
+      "claim": "Codex D#5 — tooltips remain the primary explanation; touch users have no persistent anatomy legend, and long localized descriptions are constrained to max-w-56",
+      "ruling": "CONFIRMED"
+     },
+     {
+      "claim": "Codex D#6 — the vertical chassis assumes enough height to distribute every channel; dense spaces, landscape phones, and large text can compress or overflow it",
+      "ruling": "REFUTED"
+     },
+     {
+      "claim": "Codex 'Required Kronecker cells' paragraph — Spaces × 1–5 channels × selected/null/invalid × dark/light/forced-colors × keyboard/touch/pointer × reduced-motion × phone portrait/landscape/desktop × short/long localized labels",
+      "ruling": "REFUTED"
+     }
+    ],
+    "newDefects": [
+     "D2-01 · BLOCKER — the role=tablist boots with NO selected tab and every colour-space change wipes it again: probe-00 shows 4 role=tab items with zero aria-selected=true and zero .rail-dot-seat nodes; probe-09 confirms anySelected=false across all 14 label-verified colour spaces. The component retired every fallback indicator (pill, dot-ring, aria-selected fill) in favour of the WatercolorDot, so the default state has no visual answer at all. Mechanism: ComponentSliders.vue:135 (ref null) + :138 (watch resets to null); rendered under v-if at ConsoleRail.vue:53. This is owner mark MT-F042 arm 1 (ROOT-FINDINGS.md:1665-1675), still open at HEAD 0b4566db. Witness shot-R0-default-NO-DOT.png.",
+     "D2-02 · BLOCKER — under forced-colors: active the rail paints ZERO focus indicator while :focus-visible matches. Measured (probe-06, Chromium forcedColors, real Tab): {focusVisible:true, boxShadow:\"none\", outline:\"3px none\"}. ConsoleRail.vue:271-275 sets `outline: none` (the one property WHCM preserves) and relies on `box-shadow` alone (the one property WHCM strips), with grep -c forced-colors = 0. This directly contradicts this repo's own written law at demo/styles/focus-ring.css:31 (\"with a forced-colors `outline` fallback (box-shadow is stripped in WHCM)\"). WCAG 2.4.7 failure. Confirmed at every focus stop in probe-03's chromium_forcedColors arm. Witness shot-F-forcedColors-FOCUSED-no-ring.png.",
+     "D2-03 · MAJOR — the :active press scale never renders for any non-reduced-motion user. probe-02 pressSeries: matches(':active')=true and background-color animates correctly while transform stays matrix(1,0,0,1,0,0) across a 220ms hold; probe-03 reproduces identity in webkit, chromium, chromium+forced-colors and chromium+dark, but measures matrix(0.96,0,0,0.96,0,0) (box 23.641→22.695px) under prefers-reduced-motion: reduce. Root cause: .stagger-children > * { animation: … both } (animations.css:44-46) applied via ConsoleRail.vue:21 — a finished animation with fill:both keeps applying its `to` keyframe transform: translateY(0) from the ANIMATION ORIGIN, outranking the author-origin :active rule permanently, and re-arming on every :key=\"animationKey\" bump. The file's own 6-line specification at :254-261 also misstates the clock (claims 0.16s; measured --spring-press-duration: calc(0.12s * 1)).",
+     "D2-04 · MAJOR — the rail letters are not on the rows' rhythm: measured pitchRail=39.80px vs pitchRows=43.50px in every 4-channel space (8.5% mismatch), giving drift [+4.98, +1.27, −2.43, −5.59]px — a 10.57px spread across a 24px glyph. At 390×844: drift [+4.5,+1.5,−1.5,−4.5], pitch 47 vs 50. Worst at Kelvin: 36.11 vs 43.50 = 17.0%. Two unrelated distribution laws: rows use clamp() min-block-size + row-gap (ComponentSliders.vue:328-333) while the rail uses gapless justify-around over a content box its own 1px border + 2px padding (ConsoleRail.vue:233-235) shrinks by 6px. The parent declares \"THE ONE-LAW RHYTHM REGIME (T.W8-WR-11 · T-59)\" at ComponentSliders.vue:318-327; the rail is the one element in the console not on it.",
+     "D2-05 · MAJOR — the 'persistent chassis' (ConsoleRail.vue:10-11, restated ComponentSliders.vue:19-24) takes 8 distinct widths across 14 label-verified spaces: 30.53 / 31.31 / 31.67 / 32.67 / 33.03 / 34.38 / 38.08 / 41.23 px — a +35.0% (10.70px) swing. Because the rail is a flex sibling of .channel-rows under `flex gap-x-2.5 items-stretch` (ComponentSliders.vue:32), switching Lab→Jzazbz translates the entire slider column and every meter 10.7px right. The enclosure is sized by whichever letter is widest (W at 32.08px; Jᴢ at ~35px) — a typographic accident, not a proportion.",
+     "D2-06 · MAJOR — the live-colour dot paints THROUGH the enclosure: pixel-scanned at dsf4 the painted dot span is [235.03, 265.70] against a rail border box of [234.47, 265.00] and ring strokes at 235.54/264.94 → clearance_left −0.51px, clearance_right −0.76px; painted dot width 30.67px inside a 30.53px rail. Three compounding causes: .rail-dot-seat { inset: -1px } (:290-296) eats 1 of the 2px padding; the die-rim `padding: 2px` (:232-236) was inherited from a horizontal dock trigger and never re-derived for a portrait rail; and the producer watercolor SVG filter bleeds ~2px per side beyond the 26.53px seat. Consequence: owner mark MT-F042's \"draggable loupe that grows slightly larger on grab/select\" has NEGATIVE headroom — the mark cannot be implemented on this enclosure. Witness shot-Z-dot-vs-ring-closeup.png.",
+     "D2-07 · MAJOR — register loudness inversion, measured in one crop from one baseline (probe-11): selected dot 11.11% of the rail crop, hover pill 24.64% (2.22×), focus ring 21.84% (1.97×). The persistent meaning-bearing register is the quietest thing in the component. Hover and selected additionally share silhouette and scale (both ~24-26px --radius-pill discs, only hue differs). Two corollaries measured: the selected item has NO hover response at all (inline :style at :34 outranks :hover color at :264, and the hover background paints behind an opaque dot covering the full padding box + 1px); and focused-but-unselected is structurally unreachable (railTabIndex :186-189 + onRailKeydown emitting select before focus :216-219), so the focus ring only ever draws a pink halo around a pink dot.",
+     "D2-08 · MAJOR — a rail selection changes NOTHING in the instrument it indexes: probe-10 measures 0 changed pixels in .channel-rows, scrollY 0→0, consoleScrollTop 0→0, activeIsSlider false. scrollToSlider (ComponentSliders.vue:210-214) calls scrollIntoView({block:'nearest'}) which is a no-op with all four rows visible. Meanwhile the component asserts role=tablist (:13), role=tab (:28) and aria-selected (:30) with grep -c aria-controls = 0 and no tabpanel anywhere in demo/picker/. A tablist promises that activation swaps a panel; this one swaps nothing while taking focus off whatever the user was operating.",
+     "D2-09 · MINOR — the anatomy tooltip, designated at :69-72 as \"the static range's retirement home #1\", does not answer a tap on touch: probe-12 at 390×844 isMobile+hasTouch returns tooltips:[] for touchscreen.tap (selection still fires) and only opens under a sustained touch, with no affordance advertising it. Compounding: matchMedia reports {anyHover:false, hoverNone:true, pointerCoarse:true}, so the hover register is structurally unreachable — on a phone the rail's entire state vocabulary is rest + dot (2 of 5 registers).",
+     "D2-10 · MINOR — the touch rung is 31.67 × 44px, not the \"≥44px hits\" the comment at :321-322 asserts: min-width is calc(var(--dock-touch-target) * 0.72) = 31.68px, a deliberate and undocumented 28% narrowing on the sole axis where a thumb arriving from the side is least accurate. Also gated on @media (max-width: 1023px) — viewport, not input device — while the sibling touch rung 20 lines away in the same console is correctly gated on @media (pointer: coarse) with a comment explicitly condemning width-keyed switches (ComponentSliders.vue:345). Already booked as \"the 7th viewport media rule\" at design/layout-gestalt-worker-o.md:537.",
+     "D2-11 · MINOR — the light/dark weight hierarchy inverts. Measured: light ring oklab(L≈0.471)/60% vs rest letters oklch(L≈0.447) — near-equal, hierarchy holds; dark ring oklab(L≈0.958)/60% vs rest letters oklch(L≈0.878) — the enclosure jumps 0.08 ABOVE its own contents and becomes the brightest object in the rail (shot-D-dark.png). Structural asymmetry: the letters are live-probed and WCAG-certified per scheme (:134-143 → ink.ts:146-155) while the ring is a flat color-mix(… --accent-view 60%, transparent) at :233 with no per-scheme weight calibration.",
+     "D2-12 · MINOR — two typographic irregularities inside the glyph system: (a) the α item measures h=25.62px against 24.52px for L/a/b — a 1.1px (4.5%) step in every space, because .rail-glyph--alpha (:316-319) swaps to Fira Code metrics while line-height:1 (:248) lets the taller face push the box; (b) U+1D22 (ᴢ) renders near-full-height in Fraunces italic while U+1D1B (ᴛ) and U+1D18 (ᴘ) render true small-cap — compare shot-V-ICtCp-verified.png against shot-A-Jzazbz.png — making Jzazbz the widest rail of all 14 spaces at 41.23px vs ICtCp's 31.31px and the single largest contributor to D2-05's 35% swing. The registry at :156-164 treats the three code points as interchangeable; the face does not.",
+     "D2-13 · MINOR — the tooltip's range caption at :75 carries `opacity-60`, the exact idiom its sibling declares a legibility defect 40 lines away in the same folder: ComponentSliders.vue:305-308, \"never italic, never opacity — the t-2000-41 legibility class\". Visible washing in shot-V-ICtCp-verified.png. The same line already carries a formatting finding at audit/om-14-formatting/FORMAT-AUDIT.md:165 (row D-f, duplicate range derivation); this adds the legibility half.",
+     "D2-14 · INFO — the design record at :8-9 names a four-voice model (\"ring says WHICH, dot-hue says LIVE, enclosure says NAVIGATION, letters speak INK\") in which the WHICH voice does not exist: :286-289 records that T-28's ABROGATE law removed every geometric ring from the dot, and .rail-dot (:297-300) carries only width/height. Either the model has three voices and two names for one object, or the voice was deleted and the record never updated — leaving whoever implements MT-F042 a four-voice contract with a dead slot.",
+     "D2-15 · INFO — two focus-ring doctrines coexist in the demo and the rail is on the one the doctrine file does not describe. demo/styles/focus-ring.css:4 declares itself \"ONE token recipe reused by every keyboard-operable control … never a per-control literal\" and defines a dual-contrast --focus-ring-inner/--focus-ring-outer pair, but the rail (:274) and four siblings (ColorSpaceSelector.vue:278, ColorComponentDisplay.vue:181, GradientEasingEditor.vue:230,287) consume glass-ui's --focus-ring-shadow 30%/15% accent halo (foundation.css:257-264). The file asserting the singular law describes the minority recipe, so its forced-colors clause — the law D2-02 turns on — never reaches the five controls that need it."
+    ]
+   }
+  },
+  {
+   "agentId": "ab94769fa5958fa2c",
+   "key": "v2:8abf757f5cb1b2a01d80dccdfa332f269663c3307457b1e2fca1da057647ea68",
+   "result": {
+    "reportPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/codex-provenance/motion-quarantine.md",
+    "total": 34,
+    "trueCount": 14,
+    "falseCount": 15,
+    "unproven": 5
+   }
+  }
+ ]
+}

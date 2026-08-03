@@ -1,0 +1,39 @@
+{
+  "arms": {
+    "tap": {
+      "tooltips": [],
+      "selected": [
+        "false",
+        "true",
+        "false",
+        "false"
+      ]
+    },
+    "longPress": {
+      "tooltips": [
+        {
+          "text": "a* (Green-Red)(-125 - 125)a* (Green-Red)(-125 - 125)",
+          "w": 122.6,
+          "h": 62.2
+        }
+      ]
+    }
+  },
+  "itemBox": {
+    "x": 48.3125,
+    "y": 600.4375,
+    "width": 31.671875,
+    "height": 44
+  },
+  "coarseHoverSupport": {
+    "anyHover": false,
+    "hoverNone": true,
+    "pointerCoarse": true,
+    "lgViewport": false
+  },
+  "tapChangesSliderColumn": {
+    "identicalBytes": false,
+    "bytes1": 232184,
+    "bytes2": 229866
+  }
+}

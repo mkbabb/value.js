@@ -1,0 +1,803 @@
+{
+  "arms": {
+    "Lab": {
+      "verifiedAs": "Lab",
+      "asked": "Lab",
+      "railW": 30.53,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "a",
+          "cps": [
+            "U+61"
+          ],
+          "itemW": 23.67,
+          "glyphW": 11.67,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "b",
+          "cps": [
+            "U+62"
+          ],
+          "itemW": 23.64,
+          "glyphW": 11.63,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.97,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "LCh": {
+      "verifiedAs": "LCh",
+      "asked": "LCh",
+      "railW": 31.31,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "C",
+          "cps": [
+            "U+43"
+          ],
+          "itemW": 25.31,
+          "glyphW": 13.3,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "h",
+          "cps": [
+            "U+68"
+          ],
+          "itemW": 24.11,
+          "glyphW": 12.1,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "OKLab": {
+      "verifiedAs": "OKLab",
+      "asked": "OKLab",
+      "railW": 30.53,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "a",
+          "cps": [
+            "U+61"
+          ],
+          "itemW": 23.67,
+          "glyphW": 11.67,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "b",
+          "cps": [
+            "U+62"
+          ],
+          "itemW": 23.64,
+          "glyphW": 11.63,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.97,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "OKLCh": {
+      "verifiedAs": "OKLCh",
+      "asked": "OKLCh",
+      "railW": 31.31,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "C",
+          "cps": [
+            "U+43"
+          ],
+          "itemW": 25.31,
+          "glyphW": 13.3,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "h",
+          "cps": [
+            "U+68"
+          ],
+          "itemW": 24.11,
+          "glyphW": 12.1,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.97,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "RGB": {
+      "verifiedAs": "RGB",
+      "asked": "RGB",
+      "railW": 32.67,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "R",
+          "cps": [
+            "U+52"
+          ],
+          "itemW": 26.5,
+          "glyphW": 14.5,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "G",
+          "cps": [
+            "U+47"
+          ],
+          "itemW": 26.67,
+          "glyphW": 14.67,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "B",
+          "cps": [
+            "U+42"
+          ],
+          "itemW": 26,
+          "glyphW": 13.98,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "HSL": {
+      "verifiedAs": "HSL",
+      "asked": "HSL",
+      "railW": 34.38,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "H",
+          "cps": [
+            "U+48"
+          ],
+          "itemW": 28.38,
+          "glyphW": 16.37,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "S",
+          "cps": [
+            "U+53"
+          ],
+          "itemW": 24.05,
+          "glyphW": 12.03,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "L",
+          "cps": [
+            "U+4C"
+          ],
+          "itemW": 23.84,
+          "glyphW": 11.83,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "HSV": {
+      "verifiedAs": "HSV",
+      "asked": "HSV",
+      "railW": 34.38,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "H",
+          "cps": [
+            "U+48"
+          ],
+          "itemW": 28.38,
+          "glyphW": 16.37,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "S",
+          "cps": [
+            "U+53"
+          ],
+          "itemW": 24.05,
+          "glyphW": 12.03,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "V",
+          "cps": [
+            "U+56"
+          ],
+          "itemW": 25.27,
+          "glyphW": 13.26,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "HWB": {
+      "verifiedAs": "HWB",
+      "asked": "HWB",
+      "railW": 38.08,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "H",
+          "cps": [
+            "U+48"
+          ],
+          "itemW": 28.38,
+          "glyphW": 16.37,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "W",
+          "cps": [
+            "U+57"
+          ],
+          "itemW": 32.08,
+          "glyphW": 20.08,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "B",
+          "cps": [
+            "U+42"
+          ],
+          "itemW": 26,
+          "glyphW": 13.98,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "XYZ": {
+      "verifiedAs": "XYZ",
+      "asked": "XYZ",
+      "railW": 31.67,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "X",
+          "cps": [
+            "U+58"
+          ],
+          "itemW": 25.67,
+          "glyphW": 13.67,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "Y",
+          "cps": [
+            "U+59"
+          ],
+          "itemW": 24.3,
+          "glyphW": 12.29,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "Z",
+          "cps": [
+            "U+5A"
+          ],
+          "itemW": 24.8,
+          "glyphW": 12.79,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "Jzazbz": {
+      "verifiedAs": "Jzazbz",
+      "asked": "Jzazbz",
+      "railW": 41.23,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "Jᴢ",
+          "cps": [
+            "U+4A",
+            "U+1D22"
+          ],
+          "itemW": 31.47,
+          "glyphW": 19.46,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "aᴢ",
+          "cps": [
+            "U+61",
+            "U+1D22"
+          ],
+          "itemW": 35.23,
+          "glyphW": 23.23,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "bᴢ",
+          "cps": [
+            "U+62",
+            "U+1D22"
+          ],
+          "itemW": 35.2,
+          "glyphW": 23.19,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "Kelvin": {
+      "verifiedAs": "Kelvin",
+      "asked": "Kelvin",
+      "railW": 33.03,
+      "railH": 79.33,
+      "n": 2,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "K",
+          "cps": [
+            "U+4B"
+          ],
+          "itemW": 27.03,
+          "glyphW": 15.03,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 36.11,
+      "pitchRows": 43.5,
+      "drift": [
+        3.14,
+        -3.71
+      ]
+    },
+    "Hex": {
+      "verifiedAs": "Hex",
+      "asked": "Hex",
+      "railW": 32.67,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "R",
+          "cps": [
+            "U+52"
+          ],
+          "itemW": 26.5,
+          "glyphW": 14.5,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "G",
+          "cps": [
+            "U+47"
+          ],
+          "itemW": 26.67,
+          "glyphW": 14.67,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "B",
+          "cps": [
+            "U+42"
+          ],
+          "itemW": 26,
+          "glyphW": 13.98,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "Rec. 2020": {
+      "verifiedAs": "Rec. 2020",
+      "asked": "Rec. 2020",
+      "railW": 32.67,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "R",
+          "cps": [
+            "U+52"
+          ],
+          "itemW": 26.5,
+          "glyphW": 14.5,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "G",
+          "cps": [
+            "U+47"
+          ],
+          "itemW": 26.67,
+          "glyphW": 14.67,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "B",
+          "cps": [
+            "U+42"
+          ],
+          "itemW": 26,
+          "glyphW": 13.98,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    },
+    "Display P3": {
+      "verifiedAs": "Display P3",
+      "asked": "Display P3",
+      "railW": 32.67,
+      "railH": 166.33,
+      "n": 4,
+      "anySelected": false,
+      "glyphs": [
+        {
+          "t": "R",
+          "cps": [
+            "U+52"
+          ],
+          "itemW": 26.5,
+          "glyphW": 14.5,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "G",
+          "cps": [
+            "U+47"
+          ],
+          "itemW": 26.67,
+          "glyphW": 14.67,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "B",
+          "cps": [
+            "U+42"
+          ],
+          "itemW": 26,
+          "glyphW": 13.98,
+          "fam": "Fraunces",
+          "style": "italic"
+        },
+        {
+          "t": "α",
+          "cps": [
+            "U+3B1"
+          ],
+          "itemW": 24.53,
+          "glyphW": 12.52,
+          "fam": "\"Fira Code\"",
+          "style": "normal"
+        }
+      ],
+      "pitchRail": 39.8,
+      "pitchRows": 43.5,
+      "drift": [
+        4.98,
+        1.27,
+        -2.43,
+        -5.59
+      ]
+    }
+  },
+  "failedPicks": [
+    {
+      "space": "ICtCp",
+      "landedOn": "OKLCh"
+    }
+  ]
+}

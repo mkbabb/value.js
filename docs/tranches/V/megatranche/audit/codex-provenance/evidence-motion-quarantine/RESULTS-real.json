@@ -1,0 +1,110 @@
+{
+  "real.no-preference": {
+    "mode": "no-preference",
+    "actionIcon": {
+      "sel": ".action-icon",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "transform, stroke",
+      "transitionDuration": "0.3s",
+      "transform": "none"
+    },
+    "railDotSeat": {
+      "sel": ".rail-dot-seat",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "all",
+      "transitionDuration": "0s",
+      "transform": "none"
+    },
+    "railDot": {
+      "sel": ".rail-dot",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "transform, border-radius, filter, box-shadow",
+      "transitionDuration": "0.2s, 0.6s, 0.2s, 0.2s",
+      "transform": "none"
+    },
+    "railLetters": {
+      "sel": ".rail-letters",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "all",
+      "transitionDuration": "0s",
+      "transform": "none"
+    },
+    "staggerChild": {
+      "sel": ".stagger-children > *",
+      "present": true,
+      "animationName": "stagger-child-in",
+      "animationDuration": "0.3s",
+      "animationIterationCount": "1",
+      "transitionProperty": "color, background-color, transform",
+      "transitionDuration": "0.3s, 0.3s, 0.12s",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "clickedChannel": "l channel"
+  },
+  "real.reduce": {
+    "mode": "reduce",
+    "actionIcon": {
+      "sel": ".action-icon",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s",
+      "transform": "none"
+    },
+    "railDotSeat": {
+      "sel": ".rail-dot-seat",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s",
+      "transform": "none"
+    },
+    "railDot": {
+      "sel": ".rail-dot",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s",
+      "transform": "none"
+    },
+    "railLetters": {
+      "sel": ".rail-letters",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s",
+      "transform": "none"
+    },
+    "staggerChild": {
+      "sel": ".stagger-children > *",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity",
+      "transitionDuration": "0.15s",
+      "transform": "none"
+    },
+    "clickedChannel": "l channel"
+  }
+}
