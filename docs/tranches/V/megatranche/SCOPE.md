@@ -408,3 +408,31 @@ or auditing."*
    in-repo 7e28 copies, and all canonical Codex-authored files remain PRESERVED EVIDENCE —
    read/hash only, receipts literal, provenance never renamed (C-02 discipline). Firing the
    author does not touch the archive.
+
+## M-25 — FULL PER-REPO WAVE SPECS AS MEGATRANCHE SUB-TRANCHES; AGGLOMERATE HITHERTO + NOVEL (owner, 2026-08-03)
+
+Verbatim: *"We should have had massively and fully formed wave specs for each constellation
+repo — they should have tranche sub-sections within our megatranche. Any items should be
+AGGLOMERATED into an apotheosis and leverage hitherto done, and NOVEL AND NEW research."*
+(Companion order, same exchange: the Codex corpus is *"to ADJUDICATE, not entirely discard and
+re-invent"* — cured via I-24a + the intake-adjudication lane.)
+
+1. **Structure (ratified under delegated judgment):** the constellation repos become SUB-TRANCHES
+   of tranche X — `docs/tranches/X/keyframes/waves/` (X·KF), `docs/tranches/X/fourier/waves/`
+   (X·F), `docs/tranches/X/parse-that/waves/` (X·P) — each with full WAVE_SPEC-discipline files
+   (scope · mechanism · file bounds · born-RED gates with falsifiers · dependencies · commit
+   plan), each corpus closed by its own L-20 conformance loop to a SPECIFIED stamp. The census
+   admission-gap model (specs deferred behind sub-session admission) is SUPERSEDED: the specs are
+   authored NOW, in the megatranche, by this session's seats.
+2. **Agglomeration law:** every wave spec is an APOTHEOSIS — it must fold (a) the hitherto
+   corpus: the adjudicated Codex intake rows (CARRY table of
+   `audit/codex-provenance/INTAKE-ADJUDICATION-2026-08-03.md`), the formation censuses + lanes,
+   the sent-mail obligations (O-8/O-11/O-14…), the adjudicated apotheoses and band audits — AND
+   (b) NOVEL research seats where the hitherto corpus is thin (fresh measurement, design
+   exploration, architecture candidates). A spec that only transcribes the census is defective;
+   a spec that ignores the adjudicated Codex rows is defective (M-21).
+3. **Model routing per M-23:** mechanical spec authoring = Opus; design-forward waves (glass
+   suffusion, timeline, visual audit, provenance-contract design) = twice-authored Fable∥Opus →
+   fresh-Fable agglomeration; every conformance adjudicator = declared Fable.
+4. **Cross-repo write law unchanged:** specs are authored in THIS repo's docs tree; sibling repos
+   stay read-only; execution of any sub-tranche wave awaits the owner's begin-word, same as X.
