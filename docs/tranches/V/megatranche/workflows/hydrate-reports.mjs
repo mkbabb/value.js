@@ -35,6 +35,75 @@ for (const f of readdirSync(harvestDir).filter((f) => f.endsWith('.json'))) {
 
 const sha = (buf) => createHash('sha256').update(buf).digest('hex');
 
+// ---- the 46 report-authored canonical files (provenance row 23) ---------------------------
+// Derivation, so a later reader can regenerate this list rather than trust it:
+//   coordination/VALUE-FRONTEND-CANONICAL-REPORT-CLOSURE-REPORTS-2026-08-03.sha256  — 48 rows
+//   minus the two TagEditPopover reports the same pass only BYTE-PRESERVED:
+//     audit/components/TagEditPopover/challenge-L-library.md
+//     audit/components/TagEditPopover/challenge-C-implementation.md
+//   = 46, matching the closure receipt's own
+//     `closure.newCanonicalReports: 46` / `closure.preservedPriorCanonicalReports: 2`
+//     (VALUE-FRONTEND-CANONICAL-REPORT-CLOSURE-2026-08-03.json).
+//   The two preserved rows carry harvest payloads and therefore land EXISTS-ORIGINAL, not here.
+//
+// What membership MEANS. These files were AUTHORED by the 2026-08-03 frontend closure pass by
+// reading source at a pinned coordinate. No challenge seat was dispatched and no payload was
+// returned for any of them. They are a source-review findings ledger, never workflow challenge
+// coverage — hence `REPORT-AUTHORED`. Everything else that exists without a payload is
+// `UNWITNESSED-DIRECT`: its only provenance is that the file is there. (Provenance audit row 23,
+// finding K-4, and blocker C-04 — which splits the axis denominator CHALLENGED 218 / AUTHORED 46.)
+const CLOSURE_MANIFEST_46 = new Set([
+  'audit/components/ActionFeedback/challenge-C-implementation.md',
+  'audit/components/ActionFeedback/challenge-D-design.md',
+  'audit/components/ActionFeedback/challenge-L-library.md',
+  'audit/components/AdminListItem/challenge-C-implementation.md',
+  'audit/components/AdminListItem/challenge-D-design.md',
+  'audit/components/AdminListItem/challenge-L-library.md',
+  'audit/components/AdminListSkeleton/challenge-C-implementation.md',
+  'audit/components/AdminListSkeleton/challenge-D-design.md',
+  'audit/components/AdminListSkeleton/challenge-L-library.md',
+  'audit/components/PaginationBar/challenge-C-implementation.md',
+  'audit/components/PaginationBar/challenge-D-design.md',
+  'audit/components/PaginationBar/challenge-L-library.md',
+  'audit/components/PaletteCardGrid/challenge-C-implementation.md',
+  'audit/components/PaletteCardGrid/challenge-D-design.md',
+  'audit/components/PaletteCardGrid/challenge-L-library.md',
+  'audit/components/PaletteCardMeta/challenge-C-implementation.md',
+  'audit/components/PaletteCardMeta/challenge-D-design.md',
+  'audit/components/PaletteCardMeta/challenge-L-library.md',
+  'audit/components/PaletteRenameInput/challenge-C-implementation.md',
+  'audit/components/PaletteRenameInput/challenge-D-design.md',
+  'audit/components/PaletteRenameInput/challenge-L-library.md',
+  'audit/components/TagEditPopover/challenge-D-design.md',
+  'audit/components/UserSortMenu/challenge-C-implementation.md',
+  'audit/components/UserSortMenu/challenge-D-design.md',
+  'audit/components/UserSortMenu/challenge-L-library.md',
+  'audit/components/picker-colorcomponentdisplay/challenge-C-implementation.md',
+  'audit/components/picker-colorcomponentdisplay/challenge-D-design.md',
+  'audit/components/picker-colorcomponentdisplay/challenge-L-library.md',
+  'audit/components/picker-componentsliders-consolerail/challenge-C-implementation.md',
+  'audit/components/picker-componentsliders-consolerail/challenge-D-design.md',
+  'audit/components/picker-componentsliders-consolerail/challenge-L-library.md',
+  'audit/components/picker-debugeventlog/challenge-C-implementation.md',
+  'audit/components/picker-debugeventlog/challenge-D-design.md',
+  'audit/components/picker-debugeventlog/challenge-L-library.md',
+  'audit/components/picker-pointerdebugoverlay/challenge-C-implementation.md',
+  'audit/components/picker-pointerdebugoverlay/challenge-D-design.md',
+  'audit/components/picker-pointerdebugoverlay/challenge-L-library.md',
+  'audit/components/shell-dock-actiontoolbar/challenge-C-implementation.md',
+  'audit/components/shell-dock-actiontoolbar/challenge-D-design.md',
+  'audit/components/shell-dock-actiontoolbar/challenge-L-library.md',
+  'audit/components/shell-dock-parseechoreadout/challenge-C-implementation.md',
+  'audit/components/shell-dock-parseechoreadout/challenge-D-design.md',
+  'audit/components/shell-dock-parseechoreadout/challenge-L-library.md',
+  'audit/components/wb-gradient-pane/challenge-C-implementation.md',
+  'audit/components/wb-gradient-pane/challenge-D-design.md',
+  'audit/components/wb-gradient-pane/challenge-L-library.md',
+]);
+if (CLOSURE_MANIFEST_46.size !== 46) {
+  throw new Error(`CLOSURE_MANIFEST_46 must hold exactly 46 paths, holds ${CLOSURE_MANIFEST_46.size}`);
+}
+
 // A report need not have a returned payload to be durable: exact canonical challenge files that
 // survive a wall are independently bankable. Limit this to current roster paths so archival,
 // annotated, and pass filenames can never enter the ledger through this route.
@@ -60,7 +129,7 @@ const renderDefect = (d) => [
 ].join('\n');
 
 const rows = [];
-let hydrated = 0, present = 0, direct = 0, unparseable = 0;
+let hydrated = 0, present = 0, authored = 0, unwitnessed = 0, unparseable = 0;
 for (const [rel, { payload, harvestFile, agentId, count }] of [...byPath.entries()].sort()) {
   const abs = join(REPO, rel);
   if (existsSync(abs)) {
@@ -98,17 +167,21 @@ for (const [rel, { payload, harvestFile, agentId, count }] of [...byPath.entries
   hydrated++;
 }
 
+// Payload-less survivors. `EXISTS-DIRECT` used to cover both kinds and so let authored prose and
+// wall-surviving seat output print the same word; row 23 splits them by provenance.
 for (const rel of [...canonicalPaths].sort()) {
   if (byPath.has(rel) || !existsSync(join(REPO, rel))) continue;
+  const megaRel = relative(MEGA, rel);
+  const isAuthored = CLOSURE_MANIFEST_46.has(megaRel);
   rows.push({
     rel,
-    status: 'EXISTS-DIRECT',
+    status: isAuthored ? 'REPORT-AUTHORED' : 'UNWITNESSED-DIRECT',
     hash: sha(readFileSync(join(REPO, rel))),
-    src: '—',
+    src: isAuthored ? 'closure-manifest-2026-08-03' : '—',
     agentId: '—',
     count: 0,
   });
-  direct++;
+  if (isAuthored) authored++; else unwitnessed++;
 }
 
 const lines = [
@@ -117,9 +190,16 @@ const lines = [
   `Generated by \`workflows/hydrate-reports.mjs\`. A seat counts only when its canonical file`,
   `exists with a recorded hash. EXISTS-ORIGINAL = the live seat's own file survived.`,
   `HYDRATED = the file was materialized from the seat's returned payload (wall erased the write).`,
-  `EXISTS-DIRECT = an exact current-roster canonical report survived without a returned payload.`,
+  `REPORT-AUTHORED = no challenge seat ran; the file was authored by the 2026-08-03 frontend`,
+  `closure pass from pinned source (its 46 paths are the CLOSURE_MANIFEST_46 constant in`,
+  `\`hydrate-reports.mjs\`, derived from the closure .sha256 manifest). Source-review findings —`,
+  `NOT challenge coverage. UNWITNESSED-DIRECT = an exact current-roster canonical report exists`,
+  `with no returned payload and no closure-manifest authorship; its only provenance is that the`,
+  `file is there. Neither status may be counted as a witnessed seat return.`,
   '',
-  `Totals: ${present} original · ${direct} direct · ${hydrated} hydrated · ${unparseable} unparseable payloads · ${byPath.size} payload paths.`,
+  `Totals: ${present} original · ${authored + unwitnessed} payload-less `
+    + `(${authored} report-authored · ${unwitnessed} unwitnessed-direct) · ${hydrated} hydrated · `
+    + `${unparseable} unparseable payloads · ${byPath.size} payload paths.`,
   '',
   'OM-14/15/16 are outside this component-challenge hydration ledger. Their current completion',
   'state is tracked in STATE.md and their own audit directories, never inferred from this table.',
@@ -130,5 +210,5 @@ const lines = [
   '',
 ];
 writeFileSync(join(MEGA, 'registry/HYDRATION-LEDGER.md'), lines.join('\n'));
-console.log(`payload paths: ${byPath.size} · original: ${present} · HYDRATED: ${hydrated} · unparseable: ${unparseable}`);
+console.log(`payload paths: ${byPath.size} · original: ${present} · REPORT-AUTHORED: ${authored} · UNWITNESSED-DIRECT: ${unwitnessed} · HYDRATED: ${hydrated} · unparseable: ${unparseable}`);
 console.log(`ledger: ${join(MEGA, 'registry/HYDRATION-LEDGER.md')}`);
