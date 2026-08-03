@@ -436,3 +436,28 @@ re-invent"* — cured via I-24a + the intake-adjudication lane.)
    fresh-Fable agglomeration; every conformance adjudicator = declared Fable.
 4. **Cross-repo write law unchanged:** specs are authored in THIS repo's docs tree; sibling repos
    stay read-only; execution of any sub-tranche wave awaits the owner's begin-word, same as X.
+
+## M-26 — THE COHESION ORDER: SUB-SESSIONS PER ITEM-SET, ONE MEGATRANCHE WHOLE (owner, 2026-08-03)
+
+Verbatim: *"Ensure that our megatranche, with burning lucidity, addresses and creates these
+sub-tranche items into a cohesive megatranche whole. We should have properly orchestrated
+sub-sessions spawned for each to address each set of items (library design for each, frontend
+design for each, palette CRUD, fourier CRUD, etc, etc — brainstorm and look at what the codex
+marks were)."*
+
+1. **The cohesion spine is `docs/tranches/X/COHESION.md`** — the sub-session register (each
+   item-set: scope, hitherto inputs, outputs, seats/routing, status), the cross-sub-tranche
+   dependency graph, and the checkable cohesion criteria. It is the megatranche's single
+   binding surface; the commission §4 cursor tracks it.
+2. **Sub-sessions are orchestrated workflows driven by this session** (M-24: one orchestrator),
+   one per item-set — library design per repo · frontend design per repo · palette CRUD (value
+   API row) · fourier CRUD/provenance union · parser lane · glass communique assembly · corpus
+   adjudication · visual audit — spawned as their inputs land, never before (an input-starved
+   sub-session re-invents, violating M-25 ¶2).
+3. **The Codex marks are the item-set census**: the 16 intake files' coordinates (kf B10–B21 ·
+   fourier R3–R6 · value V6/V7 · glass ROW8) enumerate what Codex was working; the
+   intake-adjudication CARRY table routes each surviving mark into exactly one sub-session.
+4. **Cohesion criteria (checkable, per COHESION.md §3):** every CARRY row lands in exactly one
+   sub-tranche wave; every census sketch id maps to a full spec or a terminal kill; cross-repo
+   edges declared from both ends; each sub-tranche closes its own L-20 loop; **X-whole is
+   SPECIFIED only when all four sub-tranches are.**
