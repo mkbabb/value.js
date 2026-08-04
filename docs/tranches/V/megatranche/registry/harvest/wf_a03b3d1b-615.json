@@ -1,7 +1,7 @@
 {
  "runId": "wf_a03b3d1b-615",
  "workflow": "wf_a03b3d1b-615",
- "resultCount": 18,
+ "resultCount": 25,
  "results": [
   {
    "agentId": "a496cc66e95a43056",
@@ -543,6 +543,90 @@
     "defects": 25,
     "blockers": 2,
     "superlatives": 5
+   }
+  },
+  {
+   "agentId": "afa189fdcb87c11c4",
+   "key": "v2:2eaa5ef1f67768b15fea6cb9dbd710722b4399a15b57c92cff8077e5cefe88c7",
+   "result": {
+    "slug": "EasingPicker",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EasingPicker/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a69ff542f988bc7e3",
+   "key": "v2:1457c15b39df817a41c08a1901b10b0d668f2097eea7969ac2081e3fcd889056",
+   "result": {
+    "slug": "EditorControlsDock",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EditorControlsDock/challenge-L-library.md",
+    "defects": 15,
+    "blockers": 2,
+    "superlatives": 8
+   }
+  },
+  {
+   "agentId": "a7975ab79eac21d00",
+   "key": "v2:3364cdba6507dd10e66399c1fd63d96f95aca595e786b42844a1bdeea6b6d110",
+   "result": {
+    "slug": "EqCoefficientsPanel",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EqCoefficientsPanel/challenge-D-design.md",
+    "defects": 27,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a2fb959e86a7a1ad6",
+   "key": "v2:d07f08ab75ec3801b452a9ec860032cf24255970626b9df4896b822a0f46a0cc",
+   "result": {
+    "slug": "EditorControlsDock",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EditorControlsDock/challenge-C-consumption.md",
+    "defects": 25,
+    "blockers": 3,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "aa0d1ad73bf8c48c6",
+   "key": "v2:a860777cbaf9033dfd590fa4f7817db5be2c0f8aaa83c4ba5fbbeadfa2865317",
+   "result": {
+    "slug": "EqCoefficientsPanel",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EqCoefficientsPanel/challenge-C-consumption.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a6ddc9039d24c9b9b",
+   "key": "v2:9bc04a8356713d062054ab8138260709a0a7fe73e4dc878bbf391f664078d582",
+   "result": {
+    "slug": "EqCoefficientsPanel",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EqCoefficientsPanel/challenge-L-library.md",
+    "defects": 19,
+    "blockers": 0,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ac562fb3e44dcedc7",
+   "key": "v2:0fee3d0bd9f2c4dffa2ea6e11ca87915071052c99cea13bb7d78694871002076",
+   "result": {
+    "slug": "EasingPicker",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EasingPicker/challenge-C-consumption.md",
+    "defects": 18,
+    "blockers": 2,
+    "superlatives": 4
    }
   }
  ]
