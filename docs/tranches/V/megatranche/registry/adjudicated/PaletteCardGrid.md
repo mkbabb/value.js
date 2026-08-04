@@ -9,7 +9,7 @@
 
 ## Scoreboard
 
-**17 axis accusations: 5 CONFIRMED in some form (C-5, C-6≡D-6 as one rescoped identity, D-4, D-5-narrowed) · 12 KILLED.** Adjudicated roster: **12 rows — 1 BLOCKER · 4 MAJOR · 5 MINOR · 2 INFO** — of which **8 appear in no axis file** (2 wholly new to the program, 6 already booked at sibling adjudications and cross-booked here, never re-booked). The gravest defect in the cluster was missed by all three axes AND walked past by R-DU, who cited its measured consequences as evidence for a kill and did not look up.
+**17 axis accusations: 5 CONFIRMED in some form (C-5, C-6≡D-6 as one rescoped identity, D-4, D-5-narrowed) · 12 KILLED.** Adjudicated roster: **13 rows — 1 BLOCKER · 4 MAJOR · 6 MINOR · 2 INFO** — of which **9 appear in no axis file** (2 wholly new to the program, 7 already booked at sibling adjudications or the ledger and cross-booked here, never re-booked). The gravest defect in the cluster was missed by all three axes AND walked past by R-DU, who cited its measured consequences as evidence for a kill and did not look up.
 
 Blocker-weight survivor: **PG-1** — drag-to-reorder is functionally corrupt on the exact `$el`/useSortable seam the component's celebrated comment exists to protect: the move is double-applied against a detached computed snapshot, so the first drag after any wall render produces the wrong persisted order.
 

@@ -1,7 +1,7 @@
 {
  "runId": "wf_db5c0736-fa0",
  "workflow": "wf_db5c0736-fa0",
- "resultCount": 3,
+ "resultCount": 17,
  "results": [
   {
    "agentId": "a164d5c0700f6af80",
@@ -108,6 +108,174 @@
     "defects": 16,
     "blockers": 3,
     "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a11036d284c502eab",
+   "key": "v2:f8a34951957d78da0a574c3ad0e0feae51bdceb17b87fca1424bb75bf2e3e233",
+   "result": {
+    "slug": "split",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/split/challenge-L-library.md",
+    "defects": 11,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "ac23371553d3c9db3",
+   "key": "v2:ecf592e9dc5a5899e546dc730dadfcc56c15b4853d40d035ded6c6363ff48ca1",
+   "result": {
+    "slug": "state",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/state/challenge-L-library.md",
+    "defects": 15,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "aeabcd0b4ac176c60",
+   "key": "v2:94c7316bc7661f2d261fe93563e42fd67016892f8e0d18d4f2ef78919e522178",
+   "result": {
+    "slug": "parser",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/parser/challenge-L-library.md",
+    "defects": 25,
+    "blockers": 4,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "ae414c28b066fcfb6",
+   "key": "v2:ba7be1676dcc46b3498c284f03fc68c226b0c07d21287ca14408acde443260a4",
+   "result": {
+    "slug": "utils-entry",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/utils-entry/challenge-C-consumption.md",
+    "defects": 14,
+    "blockers": 3,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "aff3ecedb73628bf1",
+   "key": "v2:feb084a3915b7890a1197cdc1684702a05dd16c0bae906ab977e227669590abc",
+   "result": {
+    "slug": "state",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/state/challenge-C-consumption.md",
+    "defects": 14,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "aec8d8c4824269e65",
+   "key": "v2:f7794f76e18916acb856418372eb6fe5656ea393ea86b6cdcd19782f7ed7ebfb",
+   "result": {
+    "slug": "utils",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/utils/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a0fae2b49d9433ff9",
+   "key": "v2:b382810afae0734ab9f19bfb55ee7aa7c59e48ef6756d3e8a39ae3c30bb51e56",
+   "result": {
+    "slug": "packrat-entry",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/packrat-entry/challenge-C-consumption.md",
+    "defects": 10,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a11f981147a69dfd3",
+   "key": "v2:24e79a37271eb2b52d486d907b51801c44cc1f34071c97e4b157b4f2335a5539",
+   "result": {
+    "slug": "utils",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/utils/challenge-C-consumption.md",
+    "defects": 23,
+    "blockers": 3,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a335274123b3ae661",
+   "key": "v2:e826db233b8c2c30fec6b93ab0a8f925cd04e3a965dfe76d04338d8695afeb2e",
+   "result": {
+    "slug": "utils-entry",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/utils-entry/challenge-L-library.md",
+    "defects": 22,
+    "blockers": 4,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "acf06effc21453fe1",
+   "key": "v2:785458a8ccc0dad3a929ccb20192bc0bc63e95808d9f89972183dad725bc4375",
+   "result": {
+    "slug": "packrat-entry",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/packrat-entry/challenge-L-library.md",
+    "defects": 13,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a9249aa800ad404cf",
+   "key": "v2:c64743b582b412a36cdbe67a5ce9ab898fe6f0dc96191f86f619107a936385ab",
+   "result": {
+    "slug": "parser",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/parser/challenge-C-consumption.md",
+    "defects": 21,
+    "blockers": 3,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a70ca48a43a598187",
+   "key": "v2:c3d8acb1412bb12af764eab43c270a90c45544629961b0e9bf590714ef8c8571",
+   "result": {
+    "slug": "parsers",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/parsers/challenge-L-library.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a70088b4d353478aa",
+   "key": "v2:fe8fbc84b08eb499fd30051a4e6df70680dcfb5073400b4a27e927d387d35bb0",
+   "result": {
+    "slug": "split",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/split/challenge-C-consumption.md",
+    "defects": 14,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ac915f3e903a5688e",
+   "key": "v2:e965ca628aacf7f366c091b58487d71ef308cd0c2809711af4eea3553adec642",
+   "result": {
+    "slug": "parsers",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/parsers/challenge-C-consumption.md",
+    "defects": 18,
+    "blockers": 3,
+    "superlatives": 5
    }
   }
  ]

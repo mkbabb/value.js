@@ -1,7 +1,7 @@
 {
  "runId": "wf_a03b3d1b-615",
  "workflow": "wf_a03b3d1b-615",
- "resultCount": 1,
+ "resultCount": 14,
  "results": [
   {
    "agentId": "a496cc66e95a43056",
@@ -339,6 +339,162 @@
       "lines": 486
      }
     ]
+   }
+  },
+  {
+   "agentId": "af1429bbeb9e137d5",
+   "key": "v2:b2266d73c39b88879ba82dacafd9b352a5376ce89479e222c34e6fdcff29ff95",
+   "result": {
+    "slug": "EasingCurvePreview",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EasingCurvePreview/challenge-L-library.md",
+    "defects": 9,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a3b5091a7aa1c2aee",
+   "key": "v2:8d43691cf6c5bdeb47b098d9af7ae9c9936f8512c79448d0ee87473705eacd0e",
+   "result": {
+    "slug": "EasingCurvePreview",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EasingCurvePreview/challenge-C-consumption.md",
+    "defects": 12,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a958e4cecc18fb828",
+   "key": "v2:fc73b1322abcb2d061c1ec42c72e68a2c210bc1a41f8c1da1f3a98ceb35c3e2f",
+   "result": {
+    "slug": "ConvergenceLegend",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ConvergenceLegend/challenge-C-consumption.md",
+    "defects": 15,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "aa4558e9db7d4f762",
+   "key": "v2:1466d139234820ac897b91ea809ead2ba1d9a04df999e59b44dfddc401a726fb",
+   "result": {
+    "slug": "ConvergenceLegend",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ConvergenceLegend/challenge-L-library.md",
+    "defects": 14,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a05642363eb5e1810",
+   "key": "v2:6d9022f2caeed3564f479b5ffe1584d2fdff4b328defb4efbddc1aa9c6ab0e33",
+   "result": {
+    "slug": "EasingPicker",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EasingPicker/challenge-D-design.md",
+    "defects": 23,
+    "blockers": 3,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "aa33da194c789243d",
+   "key": "v2:40a37f9ee97b3a1a137117257e1c0ae25f236befa810150f8fb9cc3fa547ac1f",
+   "result": {
+    "slug": "ConvergencePlot",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ConvergencePlot/challenge-C-consumption.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a6b4975189e324dc5",
+   "key": "v2:1e2326d579cf1a7ccb7be26a2e8a2ba43b847d0270e8b229c9096da4f138b446",
+   "result": {
+    "slug": "DarkModeToggle",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/DarkModeToggle/challenge-C-consumption.md",
+    "defects": 18,
+    "blockers": 3,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a429af16c3e2bfc62",
+   "key": "v2:0d2dc0b25e090220c621be08ecc9f2598c2efabf3414675384952d6cce2e8d72",
+   "result": {
+    "slug": "EasingCurvePreview",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EasingCurvePreview/challenge-D-design.md",
+    "defects": 14,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a3a4e52871ee61a44",
+   "key": "v2:3bce3e1c14780da2497d5a1dfeb6318a1d7e8e9c6a5cbde5c02c3a3f62d8b84b",
+   "result": {
+    "slug": "ConvergenceLegend",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ConvergenceLegend/challenge-D-design.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "ae2f86ab3acee044d",
+   "key": "v2:d15c02d2ffc114d55befe991161ae22201694d3197e53f4a4d8d3b0bc10204da",
+   "result": {
+    "slug": "ConvergenceTimeline",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ConvergenceTimeline/challenge-C-consumption.md",
+    "defects": 15,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "acc53b3ec72dff68f",
+   "key": "v2:54e2c1dba5b4b692e7341c64f309e13d8b70d425022d43b769bc45f8f8db04f0",
+   "result": {
+    "slug": "ConvergenceTimeline",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ConvergenceTimeline/challenge-L-library.md",
+    "defects": 14,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "ad854287d216062ca",
+   "key": "v2:8c7339c9a761048799feeaae1a95481d2ebf9ed13252c569c35a706877ac9e2d",
+   "result": {
+    "slug": "DarkModeToggle",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/DarkModeToggle/challenge-D-design.md",
+    "defects": 29,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a2f636d5d6ca1a1a8",
+   "key": "v2:25f87115985d7accee8f79f186106ff034f845be81f19dea29c307d3d84a7d7c",
+   "result": {
+    "slug": "ConvergencePlot",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ConvergencePlot/challenge-D-design.md",
+    "defects": 27,
+    "blockers": 5,
+    "superlatives": 5
    }
   }
  ]
