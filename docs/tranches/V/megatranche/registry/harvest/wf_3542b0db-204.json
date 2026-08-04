@@ -1,7 +1,7 @@
 {
  "runId": "wf_3542b0db-204",
  "workflow": "wf_3542b0db-204",
- "resultCount": 19,
+ "resultCount": 21,
  "results": [
   {
    "agentId": "ab39c54b9d33415c9",
@@ -515,6 +515,30 @@
     "defects": 14,
     "blockers": 1,
     "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a995493ae66fb848a",
+   "key": "v2:136ab4b810414b353832b30bf9b91a8801209c891adf28c20688dc22ad57840b",
+   "result": {
+    "slug": "CubeTarget",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeTarget/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a86a10c8ad6c5342c",
+   "key": "v2:0d0859608d23b9a70eb8efde4c4a304a2d30e87dee71402bc73b2738f1eaff93",
+   "result": {
+    "slug": "CubeScene",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeScene/challenge-L-library.md",
+    "defects": 25,
+    "blockers": 1,
+    "superlatives": 7
    }
   }
  ]
