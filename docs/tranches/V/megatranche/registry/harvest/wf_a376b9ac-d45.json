@@ -1,7 +1,7 @@
 {
  "runId": "wf_a376b9ac-d45",
  "workflow": "wf_a376b9ac-d45",
- "resultCount": 5,
+ "resultCount": 6,
  "results": [
   {
    "agentId": "abb3d726dcc22f3dc",
@@ -120,6 +120,22 @@
      "Bench bar OWNER-GATED-PENDING-RATIFICATION preserved everywhere; ratios vs 1,636,680µs reconstruction cited from W1's bar ledger; K-5 Pareto domination the only lawful bench kill; 9 agent units, 6 phases, peak concurrency 3 (under owner 4-cap); 3 Fable sittings (E-5).",
      "All 12 gates born-RED on root absence + pasted inherited baselines (0-of-52, 102/172+7/7 R1 throws, 0.0537 sheet, PT-03 1.47x latch, PT-04 7761/7762 depth, 13:0:0 scan census); G-5's published-probe row additionally MEASURE-AT-OPEN (HEAD-sensitive npm pack)."
     ]
+   }
+  },
+  {
+   "agentId": "a977a00388e2fd8fa",
+   "key": "v2:9edfc061486cdc3878bc2a4c0337802afc4ed3c76b63dae90f7cca4383c4330a",
+   "result": {
+    "conformant": 1,
+    "defective": 4,
+    "remaining": [
+     "Repair the 10 booked defects (W0: 17-vs-18 root count, rotted COHESION.md:45 line-pins, dangling 'later X·P waves' pointer for handoff §8 steps 4/6/7; W1: R-E descriptive invocation on G-1/G-2/G-4/G-5 + line-pin; W3: relocate sibling worktrees inside the fresh root per W2 §4b's ONE-root law, add L-13 harvest + COHESION carve rows; W4: fix G-10 stamp-count command + normalize W0/W1 to the four-verb table, row the release packet with a lawful SS-6 delivery path, add L-13 harvest rows)",
+     "Run the second L-20 conformance pass over the repaired bytes",
+     "Iterate the loop to a clean declared-Fable final pass (COHESION §3.5) before X·P stamps SPECIFIED",
+     "Root session carves COHESION §0 X·P row and §1 SS-5 cell to SPECIFIED at loop close",
+     "Owner begin-word remains the standing execution gate (not a conformance item; nothing executes)"
+    ],
+    "tranchReady": false
    }
   }
  ]

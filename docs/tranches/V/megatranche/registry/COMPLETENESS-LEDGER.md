@@ -156,6 +156,7 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_0e0ee049-c82` | completed | 3 | 3 |
 | `wf_19673577-a99` | completed | 13 | 13 |
 | `wf_1a4c8a8c-557` | completed | 4 | 4 |
+| `wf_1f44462d-8d2` | completed | 25 | **23** |
 | `wf_269fd543-c7f` | completed | 25 | **22** |
 | `wf_30a8e858-e9a` | completed | 3 | 3 |
 | `wf_3a0fbf76-a67` | completed | 6 | 6 |
@@ -172,7 +173,7 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_88ec28d9-949` | completed | 3 | 3 |
 | `wf_92c8fc9d-011` | completed | 8 | 8 |
 | `wf_9bd0ecd0-037` | completed | 15 | 15 |
-| `wf_a376b9ac-d45` | completed | 6 | **5** |
+| `wf_a376b9ac-d45` | completed | 6 | 6 |
 | `wf_a6f71311-4e5` | completed — HARVEST-DISPOSITION: STATE.md — "PHASE X excavation (M-14) · 15/15 ON DISK" | 15 | 14 of 15 (accounted) |
 | `wf_a6f87133-522` | completed | 15 | 15 |
 | `wf_b1903beb-e2b` | completed | 5 | 5 |
@@ -187,6 +188,6 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 
 A run record saying "completed" and a merely present file do not clear a row. Bands re-open until every roster row has three exact, ledgered, current-hash challenge axes.
 
+- (non-band) / **wf_1f44462d-8d2** — missing harvest short of seats — 25 agents, 23 results (`wf_1f44462d-8d2` · completed) — **UNCOVERED — queue a resume NOW**
 - (non-band) / **wf_269fd543-c7f** — missing harvest short of seats — 25 agents, 22 results (`wf_269fd543-c7f` · completed) — **UNCOVERED — queue a resume NOW**
 - (non-band) / **wf_407d36af-fe7** — missing harvest short of seats — 24 agents, 31 results (`wf_407d36af-fe7` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_a376b9ac-d45** — missing harvest short of seats — 6 agents, 5 results (`wf_a376b9ac-d45` · completed) — **UNCOVERED — queue a resume NOW**

@@ -1,7 +1,7 @@
 {
  "runId": "wf_1f44462d-8d2",
  "workflow": "wf_1f44462d-8d2",
- "resultCount": 20,
+ "resultCount": 23,
  "results": [
   {
    "agentId": "a8f6346bfa052369b",
@@ -567,6 +567,42 @@
     "defects": 27,
     "blockers": 4,
     "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a11560fadd2a43102",
+   "key": "v2:394ede28bf108bfe84df038968ac3c9cb4e65e4840ee995f7b9570328f5317cd",
+   "result": {
+    "slug": "BasisCanvas",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/BasisCanvas/challenge-C-consumption.md",
+    "defects": 18,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a349f72673e134728",
+   "key": "v2:b7e283718f4747ac41ce79a4ec5d3b9c08e24ed76c1d29fc98b42baacf7cadb7",
+   "result": {
+    "slug": "BasisSelector",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/BasisSelector/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "abde5819adaa1388d",
+   "key": "v2:e4469017d09ee740151de74ca92e21ef3b9f3a6faa7108cacd7bcfc7daec4354",
+   "result": {
+    "slug": "BasisCanvas",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/BasisCanvas/challenge-L-library.md",
+    "defects": 25,
+    "blockers": 2,
+    "superlatives": 6
    }
   }
  ]
