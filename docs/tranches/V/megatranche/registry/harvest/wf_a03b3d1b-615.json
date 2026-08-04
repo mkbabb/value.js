@@ -1,7 +1,7 @@
 {
  "runId": "wf_a03b3d1b-615",
  "workflow": "wf_a03b3d1b-615",
- "resultCount": 17,
+ "resultCount": 18,
  "results": [
   {
    "agentId": "a496cc66e95a43056",
@@ -531,6 +531,18 @@
     "defects": 19,
     "blockers": 2,
     "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a8e9ed391ddc5c613",
+   "key": "v2:3364cdba6507dd10e66399c1fd63d96f95aca595e786b42844a1bdeea6b6d110",
+   "result": {
+    "slug": "EqCoefficientsPanel",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EqCoefficientsPanel/challenge-D-design.md",
+    "defects": 25,
+    "blockers": 2,
+    "superlatives": 5
    }
   }
  ]

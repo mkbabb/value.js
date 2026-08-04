@@ -156,15 +156,20 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_0e0ee049-c82` | completed | 3 | 3 |
 | `wf_19673577-a99` | completed | 13 | 13 |
 | `wf_1a4c8a8c-557` | completed | 4 | 4 |
-| `wf_1f44462d-8d2` | completed | 25 | **23** |
-| `wf_269fd543-c7f` | completed | 25 | **22** |
+| `wf_1f44462d-8d2` | completed | 25 | **26** |
+| `wf_247fe7fa-e67` | completed | 24 | **33** |
+| `wf_269fd543-c7f` | completed | 25 | 25 |
+| `wf_28c0c210-172` | completed | 25 | **38** |
 | `wf_30a8e858-e9a` | completed | 3 | 3 |
+| `wf_3542b0db-204` | completed | 25 | **41** |
 | `wf_3a0fbf76-a67` | completed | 6 | 6 |
 | `wf_3c34d986-c04` | completed | 10 | 10 |
-| `wf_407d36af-fe7` | completed | 24 | **31** |
+| `wf_401c495c-894` | completed | 2 | 2 |
+| `wf_407d36af-fe7` | completed | 24 | **64** |
 | `wf_4a8ad4ff-130` | completed | 0 | n/a — 0 seats dispatched |
 | `wf_4e763b6a-224` | completed | 3 | 3 |
 | `wf_5ad9b912-b1f` | completed | 24 | 24 |
+| `wf_5ea8a490-613` | completed | 5 | 5 |
 | `wf_5f5140a6-4a0` | completed | 6 | 6 |
 | `wf_6e1e7c6f-7af` | completed | 3 | 3 |
 | `wf_73c61fe0-093` | completed | 3 | 3 |
@@ -173,6 +178,8 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_88ec28d9-949` | completed | 3 | 3 |
 | `wf_92c8fc9d-011` | completed | 8 | 8 |
 | `wf_9bd0ecd0-037` | completed | 15 | 15 |
+| `wf_a0269d77-0da` | completed | 17 | **32** |
+| `wf_a03b3d1b-615` | completed | 25 | **18** |
 | `wf_a376b9ac-d45` | completed | 6 | 6 |
 | `wf_a6f71311-4e5` | completed — HARVEST-DISPOSITION: STATE.md — "PHASE X excavation (M-14) · 15/15 ON DISK" | 15 | 14 of 15 (accounted) |
 | `wf_a6f87133-522` | completed | 15 | 15 |
@@ -180,14 +187,22 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_bafca356-6f4` | completed | 5 | 5 |
 | `wf_bb1c807c-f47` | killed — STOPPED-WITH-DISPOSITION: redundant omission dispatch, stopped pre-write, 0 results, hashes intact | 6 | empty (dispositioned) |
 | `wf_c88c8125-52c` | completed — HARVEST-DISPOSITION: STATE.md — "parser band (M-9) ground · 3/8 HARVESTED … superseded by the trifold" | 8 | 3 of 8 (accounted) |
+| `wf_db5c0736-fa0` | completed | 15 | **17** |
+| `wf_e0a296ea-871` | completed | 25 | **21** |
 | `wf_e231d455-de2` | completed | 9 | 9 |
 
 ## VERDICT
 
-**3 incomplete component rows · 0 unbanked canonical axes · 264/264 exact files present · 264/264 hash-banked.** 0 covered by an ACTIVE resume · 0 covered by a QUEUED resume (cap-4 sequencing) · 0 **BLOCKED-ON-CAPACITY** · **3 UNCOVERED** (violations).
+**9 incomplete component rows · 0 unbanked canonical axes · 264/264 exact files present · 264/264 hash-banked.** 0 covered by an ACTIVE resume · 0 covered by a QUEUED resume (cap-4 sequencing) · 0 **BLOCKED-ON-CAPACITY** · **9 UNCOVERED** (violations).
 
 A run record saying "completed" and a merely present file do not clear a row. Bands re-open until every roster row has three exact, ledgered, current-hash challenge axes.
 
-- (non-band) / **wf_1f44462d-8d2** — missing harvest short of seats — 25 agents, 23 results (`wf_1f44462d-8d2` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_269fd543-c7f** — missing harvest short of seats — 25 agents, 22 results (`wf_269fd543-c7f` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_407d36af-fe7** — missing harvest short of seats — 24 agents, 31 results (`wf_407d36af-fe7` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_1f44462d-8d2** — missing harvest short of seats — 25 agents, 26 results (`wf_1f44462d-8d2` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_247fe7fa-e67** — missing harvest short of seats — 24 agents, 33 results (`wf_247fe7fa-e67` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_28c0c210-172** — missing harvest short of seats — 25 agents, 38 results (`wf_28c0c210-172` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_3542b0db-204** — missing harvest short of seats — 25 agents, 41 results (`wf_3542b0db-204` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_407d36af-fe7** — missing harvest short of seats — 24 agents, 64 results (`wf_407d36af-fe7` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_a0269d77-0da** — missing harvest short of seats — 17 agents, 32 results (`wf_a0269d77-0da` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_a03b3d1b-615** — missing harvest short of seats — 25 agents, 18 results (`wf_a03b3d1b-615` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_db5c0736-fa0** — missing harvest short of seats — 15 agents, 17 results (`wf_db5c0736-fa0` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_e0a296ea-871** — missing harvest short of seats — 25 agents, 21 results (`wf_e0a296ea-871` · completed) — **UNCOVERED — queue a resume NOW**

@@ -50,8 +50,8 @@ A cell marked `—` without a QUEUED/RUNNING sub-session is a cohesion defect (�
 
 | treatment | value.js | keyframes.js | fourier-analysis | parse-that |
 |---|---|---|---|---|
-| D/L/C challenge saturation (hash-banked) | **DONE** 88/264 | **SS-10 RUNNING** (batch 1 dispatched 2026-08-03) | SS-11 QUEUED | SS-12 QUEUED (library modules) |
-| Tri-fold adjudication → apotheoses | **SS-7 RUNNING** (8/78 + batch 2) | SS-10b QUEUED (follows saturation) | SS-11b QUEUED | SS-12b QUEUED |
+| D/L/C challenge saturation (hash-banked) | **DONE** 88/264 | SS-10 RUNNING (16/58, batch 3 in flight) | SS-11 RUNNING (16/66, batch 3 in flight) | **DONE** 2026-08-04 (15/15 modules, 30 L/C axes) |
+| Tri-fold adjudication → apotheoses | **SS-7 RUNNING** (27/88, batch 3 in flight) | SS-10b QUEUED (follows saturation) | SS-11b QUEUED | **SS-12b RUNNING** (batch 1 dispatched 2026-08-04) |
 | Formation census | done (the megatranche itself) | **DONE** 2026-08-03 | **DONE** 2026-08-03 | done (pause handoff + parser-band + O-15) |
 | Codex-marks adjudication | SS-9 RUNNING (V6/V7 lane) | SS-9 RUNNING (B10–B21 lane) | SS-9 RUNNING (R3–R6 lane) | n/a (no intake files; the pause handoff IS the mark, adopted M-22) |
 | Wave specs (full, born-RED) | **SPECIFIED** (12 waves) | SS-1/SS-2 AWAIT CARRY | SS-3/SS-4 AWAIT CARRY | **SPECIFIED** (5 waves, 2026-08-04) |
@@ -104,6 +104,9 @@ the per-component apotheoses are authoritative.
 | ApiOfflineChip | transport cluster ×5 (`demo/platform/transport/**` has no X-wave claimant; incl. the confirmed unbounded cooldown burst AP-17 MAJOR) | `registry/adjudicated/ApiOfflineChip.md` |
 | BlobPane | MT-CSP-1 (the adjudicated ConfigSliderPane record) ORPHANED from the X carry-cut ledger — 10 identity-folds hang on it | `registry/adjudicated/BlobPane.md` |
 | BrowsePane | 5 strands (search-predicate seam · colour-search blindness · card-cluster home · refetch/loadingMore · `request<T>` decoder) | `registry/adjudicated/BrowsePane.md` |
+| ErrorBoundary | the boundary successor component (cross-surface residue; EB-2/EB-4 cure-lock binds — boundary must sit OUTSIDE KeepAlive) | `registry/adjudicated/ErrorBoundary.md` |
+| MiniColorPicker | `MiniColorPicker.vue` unclaimed by any X wave (DELETE-AND-REBUILD terminal shape adopted) → X-W7 rider else boundary | `registry/adjudicated/MiniColorPicker.md` |
+| PaginationBar | 5 rows (composable-layer defects above the clean 48-line leaf) | `registry/adjudicated/PaginationBar.md` |
 | (accretes per batch) | — | — |
 
 ## §4a The SS-6 communique accretion register (producer-owned rows awaiting the ONE batched BJ letter)

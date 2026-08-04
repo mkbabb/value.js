@@ -1,7 +1,7 @@
 {
  "runId": "wf_247fe7fa-e67",
  "workflow": "wf_247fe7fa-e67",
- "resultCount": 32,
+ "resultCount": 33,
  "results": [
   {
    "agentId": "a945677bb667ff4d4",
@@ -6038,6 +6038,25 @@
      "7 of 13 missed rows are cross-books of standing identities (AF-28/AF-53, AAP-2, AAP-11, AAP-19, AAP-20, AF-30, X-W7 G3) — anti-rename honored, none re-booked; 6 rows are NEW (focus-dropping native disabled, missing nav landmark, iconOnly/glyph bypass at this site, label drift, v-if-mounted live region, italic text-caption readout)",
      "Precision corrections recorded: reader-1's Math.max(1,NaN)=1 cell is false, its usePalettePorts:69 anchor off by four lines, and AdminFlaggedPanel.md:120's 'mounts unconditionally' cell is wrong (the region is REMOVED, not hidden)",
      "Six-word carry for the next formation: clamp the page, gate the phase, speak the producer's tongue"
+    ]
+   }
+  },
+  {
+   "agentId": "ac3e60f273edb2166",
+   "key": "v2:d1efd40391a9092a2e4c3cd44c0076538093250825d72a93b2c86e9c028b1e0d",
+   "result": {
+    "slug": "MiniColorPicker-L18-apotheosis-arbiter-F",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/MiniColorPicker.md",
+    "verdict": "ADJUDICATED — ALL THREE BLOCKERS SUSTAINED (L-1 library fork 4.2313% / L-9+C-2 irreversible echo corruption / C-1 stuck pointer capture); DELETE-AND-REBUILD on session model + producer primitives adopted as terminal shape; rows routed X-W4 · X-W7(+riders) · X-W1 · X-W10 · MT-BTN1/X-W8 cross-books · BH relay, with MiniColorPicker.vue itself unclaimed by any X wave → X-W7 rider else NO-WAVE-OWNER at the formation boundary",
+    "confirmedCount": 38,
+    "killedCount": 8,
+    "missedCount": 12,
+    "headline": [
+     "All 3 BLOCKERs re-derived with the arbiter's own instruments: corrected lattice sweep reproduced 39,730/938,961 = 4.2313% to the digit (after this seat's own recorded Result-type probe bug returned a false 0 — the strongest corroboration of reader independence); #010102→240° and #5252cc fixed-point re-derived by hand; capture-leak certain from full-file read + forceMount=0 dist grep",
+     "The load-bearing reader disagreement RULED for reader-B: the mount-time update:hex emission FIRES (re-run verbatim on the repo's own Vue → [[\"update:hex\",\"#4488cc\"]] one tick after setup), killing C-5's scheduler-coincidence sub-claim and confirming MCP-7/M1 — every Filters-tray re-open clobbers the typed colour with #4488cc; the conflicting DOM cell (colorText:\"\") is residue R-1 (read .value as a property)",
+     "8 kills sustained, incl. the D2-N1 BLOCKER (probe-D2-4.mjs is click-only; setPointerCapture+clamp makes white/pure-hue reachable by drag; the axis's own (2,2)-alive datum falsifies its corner rule) and C-4's flat SC 2.5.8 failure (24px DIAMETER = 12px radius vs 14px to nearest target — both the axis and reader-A mis-ran the spacing exception)",
+     "Fleet identities cross-booked, never re-booked: variant=\"outline\" = 1 of 51 (my perl census matches AdminUsersPanel L-3 / MT-BTN1 exactly); demo/ui barrels = X-W8's own 19-barrel gate; pending-state fiction (async-no-await searching, MAJOR) is cure-critical — three axis cure texts consolidate onto a spinner that can never render",
+     "9 UNPROVEN-NEEDS-LIVE residue items handed to the visual audit, each with its evidence cell named (interaction probes were all playwright-webkit; forced-colors was chromium — a cell-labeling gap neither reader flagged)"
     ]
    }
   }
