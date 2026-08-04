@@ -1,7 +1,7 @@
 {
  "runId": "wf_3542b0db-204",
  "workflow": "wf_3542b0db-204",
- "resultCount": 16,
+ "resultCount": 18,
  "results": [
   {
    "agentId": "ab39c54b9d33415c9",
@@ -478,6 +478,30 @@
     "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-C-consumption.md",
     "defects": 17,
     "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ab9a81af3c2c2c6fd",
+   "key": "v2:0df0bd817fb316ac9ea968612c75176a64647a2b3e4ff501380764335da42315",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-C-consumption.md",
+    "defects": 11,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a41ead7fa16eebd33",
+   "key": "v2:27c4d07d6d2c1e71fbd92700c4e22f790f1f330e600c9c30fe4ead76a0c380bd",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-L-library.md",
+    "defects": 15,
+    "blockers": 0,
     "superlatives": 5
    }
   }

@@ -1,7 +1,7 @@
 {
  "runId": "wf_28c0c210-172",
  "workflow": "wf_28c0c210-172",
- "resultCount": 10,
+ "resultCount": 15,
  "results": [
   {
    "agentId": "adcf86777ab1a7e30",
@@ -447,6 +447,66 @@
     "defects": 18,
     "blockers": 1,
     "superlatives": 8
+   }
+  },
+  {
+   "agentId": "a9de15fd52ceff260",
+   "key": "v2:367fff4090b1be8d83fa91955c5847008c1c83d1c89da79d44ad8f4cc43872d5",
+   "result": {
+    "slug": "CoefficientsSpectrum",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsSpectrum/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a84bb6fb851bbdab5",
+   "key": "v2:de66593eb3380925e8d1aaccd383b26d5bfa398fc595384a4eb37ef295f20df3",
+   "result": {
+    "slug": "CoefficientsSpectrum",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsSpectrum/challenge-C-consumption.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a27227519d08c0c79",
+   "key": "v2:b7d3fedb0f45c09a18161e0d9bc38c813c75a831e871f8b3b6281c74ca96719d",
+   "result": {
+    "slug": "CoefficientsPanel",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsPanel/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 0,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a0573c542f65e7cd9",
+   "key": "v2:b6661495ac1e347672929fff438315498906addb1fa38c5045e4e580884a2e8c",
+   "result": {
+    "slug": "CoefficientsPanel",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsPanel/challenge-D-design.md",
+    "defects": 21,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a8c378cc7f45aca15",
+   "key": "v2:cf7d0e8d00a3bdca8d3fd20e6f18afd2601ba89bd4304aa56fa76d6c50e33327",
+   "result": {
+    "slug": "CoefficientsSpectrum",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsSpectrum/challenge-D-design.md",
+    "defects": 26,
+    "blockers": 3,
+    "superlatives": 5
    }
   }
  ]
