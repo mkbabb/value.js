@@ -1,7 +1,7 @@
 {
  "runId": "wf_28c0c210-172",
  "workflow": "wf_28c0c210-172",
- "resultCount": 34,
+ "resultCount": 37,
  "results": [
   {
    "agentId": "adcf86777ab1a7e30",
@@ -735,6 +735,42 @@
     "defects": 13,
     "blockers": 0,
     "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a81bec1b706a8c055",
+   "key": "v2:0b3ceb5ccae418236ab3dc61033d16b6a102b7ad936540e412c6dce301fff468",
+   "result": {
+    "slug": "ContourSettings",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourSettings/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 3,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a895763d1595f6ee5",
+   "key": "v2:31e3e1da40d34609f17cb2b1157a750e1b3e85965f1b19f265586e805982a52c",
+   "result": {
+    "slug": "ContourSettings",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourSettings/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "ab526c12608b1d990",
+   "key": "v2:9931b14c0b6ba83c443ea1ac7868665c23c77ced4cb5d1043344890788739b44",
+   "result": {
+    "slug": "ContourSettings",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourSettings/challenge-C-consumption.md",
+    "defects": 25,
+    "blockers": 5,
+    "superlatives": 6
    }
   }
  ]

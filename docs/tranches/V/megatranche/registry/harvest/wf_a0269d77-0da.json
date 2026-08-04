@@ -1,7 +1,7 @@
 {
  "runId": "wf_a0269d77-0da",
  "workflow": "wf_a0269d77-0da",
- "resultCount": 21,
+ "resultCount": 26,
  "results": [
   {
    "agentId": "a14c49a072c5b0564",
@@ -324,6 +324,66 @@
     "defects": 20,
     "blockers": 2,
     "superlatives": 6
+   }
+  },
+  {
+   "agentId": "aafa85432e0049024",
+   "key": "v2:f69ea4935fde2e01ced55db56ffc906cbb2fd54bb23749d2819423f47cdb7d4d",
+   "result": {
+    "slug": "lazy",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/lazy/challenge-L-library.md",
+    "defects": 23,
+    "blockers": 2,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a5172486faa0ae9a2",
+   "key": "v2:ab007b1ab1b169df7f88f04a4a43d38036b838bff70a4ff99025b559264910e7",
+   "result": {
+    "slug": "diagnostics",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/diagnostics/challenge-C-consumption.md",
+    "defects": 19,
+    "blockers": 6,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a88b855a5988a3a10",
+   "key": "v2:7e6cf98571afa63c183d09d56fe885244913939b036177e004fc9f806d71994b",
+   "result": {
+    "slug": "debug",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/debug/challenge-C-consumption.md",
+    "defects": 16,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a1fb4fd00f1ad4c01",
+   "key": "v2:b276d7224ca43249b5689f02f7835a76947446b91539ec8aa6abe87aba4d2c80",
+   "result": {
+    "slug": "index",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/index/challenge-L-library.md",
+    "defects": 31,
+    "blockers": 4,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a01ebae661f30847b",
+   "key": "v2:a654ee9f0dd834979ae1ea93dcd0c478a6fbbc8ed9be0a82f0c92fc00cce28f1",
+   "result": {
+    "slug": "lazy",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/lazy/challenge-C-consumption.md",
+    "defects": 16,
+    "blockers": 2,
+    "superlatives": 4
    }
   }
  ]

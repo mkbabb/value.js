@@ -1,7 +1,7 @@
 {
  "runId": "wf_407d36af-fe7",
  "workflow": "wf_407d36af-fe7",
- "resultCount": 62,
+ "resultCount": 64,
  "results": [
   {
    "agentId": "a1d50533fe66c6ed0",
@@ -12582,6 +12582,50 @@
      "13 claims killed, incl. the shared BLOB_HERO-adoption cure (would regress bodyRadius 0.325->0.22, disarm fissionAmp, clobber the live palette) and the SC 2.5.8 tap-target charge (spacing exception passes)",
      "forced-colors blob.png ruled VOID both directions — re-confirmed by this seat's own vision read: media-query fired, UA substitution absent; re-capture under CSP G4 discipline",
      "ADD-BP-4: atmosphere/blob seated in adminViews (useDockAdminMode.ts:27) = the structural cause of the vacuous e2e gate; canon tension (VISUAL-CONSTITUTION members vs Dock structure-b admin ruling) flagged to the owner"
+    ]
+   }
+  },
+  {
+   "agentId": "a93cc3ef9aa322322",
+   "key": "v2:cf019885a51427398901adc95aa153092e55a316e6c3bbc9ffaed430435d87b5",
+   "result": {
+    "slug": "EmptyState",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/EmptyState.md",
+    "verdict": "ADJUDICATED — RED, and redder than the re-readers filed it: 36 CONFIRMED (2 BLOCKER · 14 MAJOR · 17 MINOR · 3 INFO) vs 17 killed/demoted; the corpus's lead BLOCKER (ES-2, Retry annihilates the Browse pane) was under-filed as unproven by BOTH hostile re-readers while its measured cross-engine evidence sat in the corpus — overruled to CONFIRMED at R-1; second BLOCKER ES-1 (the plate lies over a filtered-zero, contradicting the same screen's sr-only count in the accessibility tree). Dispositions: 26 → X-W7 (named surface owner), 1 → X-W4.g, 1 limb → X-W5, 1 → X-W8, 1 → X-W9, 3 → X-W10, 2 → X-W1 gates, 3 → GLASS-RELAY, 3 NO-WAVE-OWNER (named residue), 1 OWNER-QUESTION (OQ-1), 8 UNPROVEN-NEEDS-LIVE to the visual-audit worklist. ADJUDICATED, not VERIFIED — nothing here stamps a wave.",
+    "confirmedCount": 36,
+    "killedCount": 17,
+    "missedCount": 9,
+    "headline": [
+     "ES-1 BLOCKER: 'No saved palettes yet.' over a search-filtered zero while the same screen's badge + sr-only span say 'N saved' — the contradiction is in the accessibility tree; the API cannot express filtered-empty (X-W7)",
+     "ES-2 BLOCKER: Retry on the Browse error plate leaves a permanently blank pane (measured cross-engine, SPA-nav non-recoverable) — BOTH re-readers under-filed it as unproven; overruled to CONFIRMED at R-1, homed on BrowsePane.vue:40, its prescribed cure separately KILLED (K-8)",
+     "ES-16 MAJOR: the empty species has ZERO actions at all 9 source sites — the failure register owns every control while the invitation is a text-only dead end; dropped by the governing D pass, rescued from a reader's missed list",
+     "ES-15 MAJOR: WatercolorDot 7.0.0 renders NO slot — three shipped sites silently lose their glyph incl. the collapsed dock's view-identity icon (byte-proof: renderSlot|$slots -> 0); substantially the standing X-W4.g impostor identity, new limbs admitted",
+     "ES-8 MAJOR: the plate's Fraunces protagonist line renders at weight 700 against the owner's pinned non-bold display edict (400) at all 16 call sites — both readers found it; their shared one-line cure KILLED at R-7 (would de-bold every legitimate section heading)",
+     "17 killed incl. one reader kill killed in reverse (R-3: the trio aria-hidden is load-bearing under o9:74), one reader missed-find killed as a registry re-mint (K-16), D-19's universal negative dead on three corpus-internal counterexamples (R-4), and L-N7's exactOptionalPropertyTypes cure that would break the build (K-12)",
+     "Motion law clean: motion-quarantine.md holds zero EmptyState rows; D-21 carried as a state contract per M-09/M-13, census RULED at 1-of-8 hosts wrapping (both reader tables false, finding survives worse)",
+     "9 superlatives incl. challenge-C's N-4 anti-simplification guard (the duplicated root class string is load-bearing — collapsing roots silences the species swap to AT) which caught its own file's cure"
+    ]
+   }
+  },
+  {
+   "agentId": "ae28c2bb1d37e19fc",
+   "key": "v2:5de4384ed7a6ba82fca9b519071248e3c6c6841d28ca73898a0ba0a55b10e3c4",
+   "result": {
+    "slug": "CurrentPaletteEditor",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/CurrentPaletteEditor.md",
+    "verdict": "ADJUDICATED — GRAVE",
+    "confirmedCount": 42,
+    "killedCount": 14,
+    "missedCount": 17,
+    "headline": [
+     "A-1 BLOCKER: primary CTA and every swatch control are decorative spans against shipped Glass 7 (inheritAttrs:!1, zero renderSlot, no tag prop — producer bundle re-read; PRNG re-executed third time, digit-for-digit) — routed CC-044/CC-003 blocked bank + glass-ui BH relay",
+     "A-2 BLOCKER: duplicate-name latch destroys work three ways — stale overwrite (C-3), empty-buffer colors:[] via source-certain guard asymmetry (R2 missed find), and an ARBITER-PROMOTED third arm from orphaned probe-P5-3: Update on a deleted target = silent no-op + full draft wipe, measured end-to-end — X-W7",
+     "A-3 BLOCKER: gate stack vacuous — zero tests, no CI e2e, the one guarding spec targets the accessible name Glass 7 drops and narrates the nameless Save in prose — X-W1",
+     "Arbiter kills: D4-01(a) killed against R1 (expandedId.value relocation at usePaletteActions.ts:76/:81 — neither reader read the handler tail; row rescoped BLOCKER→MAJOR); L-21 production-leak killed against BOTH readers (detectDevMisconfig loopback triad never fires in prod); L-18 rescoped to kill (the seam header prescribes the sub-barrel reach)",
+     "Conflicts ruled: D4-03 kill sealed statically (cartoon-surface rest rung = shadow-cartoon-md vs well sm — producer CSS read, superseding R2's needs-live); Dock mobile-edit routing decided for R2 (Dock.vue:111 wires mobileEditActive→activeLayer, resolving R1's unproven)",
+     "11 reader kills upheld after re-derivation (probe re-reads: n50 wellH=650.8 not 456.6; C-5 count 5 not 8; C-9 closure-scoped; L-8 isLocal pre-filtered; L-19 five labelled native buttons)",
+     "14 missed findings promoted incl. edit-overlay occlusion 100/100/39.8% (orphaned D17), RTL 74px physical-anchor escape with arrow-mirroring correction (D18), pixel-identical Update/Cancel twins on the dead variant axis, Enter-vs-Update opposite outcomes; 2 identity-folded to prior apotheoses; ring-ring/40 rescoped onto the U-F25 tombstoned --color-ring token",
+     "11-row UNPROVEN-NEEDS-LIVE residue banked as the next visual audit's inputs, headed by the seeded populated /#/palettes capture (U-9) without which this component is invisible to the matrix; sole NO-WAVE-OWNER row = the orphaned pass-5 evidence needing a COMPLETENESS-LEDGER owner"
     ]
    }
   }
