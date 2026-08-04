@@ -429,3 +429,91 @@ gate and not a conformance item.
 9 of 10 repairs FIXED on the merits, 1 PARTIAL · 2 defects booked (1 pass-1 miss, 1 repair
 residual), each with an exact fix · all verification read-only; the fresh root not created; the
 sealed arms untouched; this append the only write.*
+
+---
+
+## THIRD PASS — scoped re-adjudication, 2026-08-04
+
+`claude-fable-5` — fresh conformance adjudicator (L-20), third pass, declared and served Fable.
+
+**Scope, by the second pass's own terms**: verify the two round-3 repairs (W4-D4 one-root siting ·
+W4-D5 four-verb conversion + the G-10 sum); spot-check what they could have disturbed (W4 §4b
+internal consistency · W0/W1 §2 truth-preservation · G-10's command run read-only by this pass);
+cite, not re-run, the standing corpus checks the repairs could not reach. Passes 1–2 above are
+dated evidence, unrewritten. All verification read-only; this append the pass's only write.
+
+### (a) The two repairs, on the merits
+
+1. **W4-D4 — FIXED.** W4 §4b's table now homes `X.P.W4.b` at `<p2>/.worktrees/w4b` with
+   `CARGO_TARGET_DIR=<p2>/target/w4b` — inside the fresh root, W2/W3's exact idiom. The repair
+   exceeds the ordered edit in the right directions: the header sentence is corrected to what §5
+   always meant (**one** docs-only seat + **one** build seat — the old "two seats in sibling
+   worktrees" was doubly false, since `.a` never had a worktree); W2 §4b's ONE-root law is quoted
+   verbatim and adopted by name; the census-grep rationale W3's repair minted is restated
+   ("a sibling of the form `<p2>-w4b` would be indistinguishable by name from an unlawful root in
+   X.P.W0's census grep"); and the orchestrator now records both the no-parse-that-worktree state
+   and the no-sibling state before phase-1 dispatch. A `parse-that-css-totality-p2-w*` sweep over
+   all five waves returns **zero** sibling-root paths — the intra-lane worktree law is now stated
+   identically at every site (W0 §4b none · W3 §4b inside · W4 §4b inside). The last holdout is cured.
+2. **W4-D5 — FIXED, and performed where it was owed.** W0 §2 and W1 §2 now carry the four-verb
+   table under `### Four-verb status`, converted **in their own files** (W4's diff touches no
+   sibling — its never-reflow discipline held). Truth-preservation verified by diff against the
+   pass-2 commit `94107f08`: each conversion is confined to the §2 verb block alone; the verb
+   states are identical (AUDITED **YES** · SPECIFIED **YES** · IMPLEMENTED **NO** · VERIFIED
+   **NO**); the evidence strings are carried (enriched to full artifact names, nothing dropped);
+   the R-A never-self-stamp clause survives inside each VERIFIED row. The dangling "round-2" owner
+   is retired: OP-6 and §4's carve row now record the conversion as **performed at the X·P round-3
+   L-20 repair, 2026-08-04**, keeping the honest sum-3 authoring baseline in the evidence cell, and
+   G-10's baseline adds the one clause that keeps born-RED discipline intact — "the open-state
+   check is still run at open, not inherited."
+
+### (b) The instruments, run read-only by this pass
+
+- **G-10's command, exactly as its cell states it**: `cat docs/tranches/X/parse-that/waves/W[0-4].md
+  | grep -c 'VERIFIED | \*\*NO\*\*'` → **5**. Per-file form → `1,1,1,1,1` (the misreading the
+  load-bearing `cat` prevents, demonstrated live). The gate's open condition is now measurably true
+  and its close condition (0) is now expressible.
+- **OP-6's form check**: `grep -c '^### Four-verb status' …/W[0-4].md` → `1` for each of the five
+  files. §4's carve row ("All four carry that table") is **true at these bytes**; `.d`'s stamp act
+  has a carve target in every sibling.
+- **Disturbance sweep**: `git status` over `docs/tranches/X/` shows exactly three modified rows —
+  `W0.md`, `W1.md`, `W4.md` — and `git diff` over all three shows the two repairs and nothing else
+  (W0/W1: the §2 block only; W4: the four hunks OP-6/§4-carve/§4b/G-10). W2 and W3 tracked-clean.
+  No COHESION carve was performed, no status field moved, no premature stamp: `Status: planned`
+  measured **5/5**. The `w4b` sweep over W4 returns only the lawful table row and the rationale's
+  named negative example.
+- **The fresh root**: `ls -d /Users/mkbabb/Programming/parse-that-css-totality-p2` → *No such file
+  or directory*, 2026-08-04 — never created, through authoring, three passes, and both repair rounds.
+
+### (c) The standing corpus, cited (unreachable by three docs diffs)
+
+Pass 2 §(a)/(d) receipts stand as dated evidence and are not re-run: the handoff sha match; the
+52-count derivation; the 8-worktree/zero-committed-wasm substrate; the COHESION anchors at `:66-68`
+and the SS-6 row at `:38`; the X·V reciprocal quotes (`W9.md:296`/`:373`); the fourier floor at
+zero and the INBOX born-RED at zero; the keyframes pin; W1 OP-2's liveness; the bar-ledger
+arithmetic; R-E's literal-command walk (the W4 diff introduces no command cell and removes none);
+the W0→W4 ordering and R-A's single stamp site; M-25 ¶2 agglomeration. **Plane B's bench bar stays
+OWNER-GATED at every occurrence** — no repair hunk touches W1 G-7, W2 G-7/OP-4, W3 G-10/OP-5, or
+W4 RC-P-5's disjunction/OP-3, verified by the diffs' own extent.
+
+### (d) Roster and verdict
+
+| wave | verdict | defects |
+|---|---|---|
+| W0 | **CONFORMANT** | 0 |
+| W1 | **CONFORMANT** | 0 |
+| W2 | **CONFORMANT** | 0 (tracked-clean throughout) |
+| W3 | **CONFORMANT** | 0 (tracked-clean since round 2) |
+| W4 | **CONFORMANT** | 0 (D4/D5 fixed on the merits) |
+
+**X·P is SPECIFIED** — all five waves conformant to
+`docs/precepts/instructions/tranche/WAVE_SPEC.md` and the ratified rulings (R-A applied with one
+stamp site; R-B alias law intact; R-E literal everywhere), at a clean declared-Fable final pass
+(COHESION §3.5). Status fields stay `planned`; the fresh root stays uncreated; the Plane B bench
+bar stays OWNER-GATED; **execution awaits the owner's begin-word**, a standing gate and not a
+conformance item. Remaining to the program, none of it conformance: the root session carves
+COHESION §0/§1 SS-5 to SPECIFIED and commits the three repaired files with this ledger.
+
+*Third pass complete 2026-08-04 · scoped to the two repairs + their blast radius · both FIXED on
+the merits · 0 new defects · 5/5 CONFORMANT · G-10 sum 5 measured by this pass · all verification
+read-only; the fresh root not created; this append the only write.*
