@@ -470,3 +470,235 @@ All probes: `cd /Users/mkbabb/Programming/parse-that/typescript`, `node --input-
 | Q | `Parser.lazy` depth ceiling (surface-gaps protocol) | deepest OK **8,277**; `RangeError` at **8,278** |
 | R,S,T | ESM/CJS dual load | `Parser` identity `false`; `getLazyParser(fn)` → ids `37`/`38` |
 | U,V,W,X | decorator per-call cache | 3 distinct Parsers; **3** method invocations for 3 parses |
+
+---
+
+# ADDENDUM — second independent pass (2026-08-04)
+
+`claude-opus-5[1m]` · appended, nothing above modified. §§0–7 are prior dated evidence and are left byte-intact.
+
+This pass re-derived the module blind against the same law (parse-that main checkout read-only;
+`/Users/mkbabb/Programming/parse-that-css-totality-p2` re-verified **absent**, `ls` → `No such file or
+directory`, not created; no browser tooling; `memoize()` and `enableDiagnostics()` never called — the
+latch stayed cold). Probes ran against the **published** `@mkbabb/parse-that@1.0.0` in the band
+workspace's `node_modules` (`docs/tranches/V/megatranche/prototypes/css-parser`), node v26.0.0, darwin
+arm64, N=1.
+
+## A.0 — Corroboration of §§1–4 (independent, different artifact)
+
+| §§1–4 claim | this pass | verdict |
+| --- | --- | --- |
+| D-C1 thunk re-run on print (probes A–E, J, K) | `builds after 3 parses: 1` → `after ONE toString(): 2` → `after a SECOND toString(): 2`; `PARSER_ID` burn: **6** on first parse, **6** more on one `toString()` — exact doubling of the sub-graph's id allocation. Retention path re-verified: `p.context.args[0] === inner` → `true`. | **CONFIRMED**, and quantified in `PARSER_ID` (the packrat memo key's high component, `packrat.ts:77`/`:94`) |
+| D-C3 decorator TC39 shape throws (probe M) | reproduced verbatim | **CONFIRMED** |
+| D-C7(1) `undefined` cache hole (probe I) | `getLazyParser(fn→undefined)`: 3 invocations for 3 calls; control `fn→Parser`: 1 for 2 | **CONFIRMED** |
+| D-C9 arity | `Parser.lazy.length = 1`, `createLazyCached.length = 1`, `lazy.length = 3` | **CONFIRMED** |
+| D-C10 `/core` drags the packrat chunk | `dist/core.js` **1,336 B**, line 1 imports `d as createLazyCached, h as getLazyParser, l as lazy` from `dist/packrat-entry-CS1td-8B.js` = **40,576 B** (**30.4×**) | **CONFIRMED** |
+| D-C2 the built graph is unreachable | now **measured**, not only argued — see A.4 | **CONFIRMED + measured** |
+
+The depth-ceiling contradiction of D-C9 (8,277 here vs the 7,761 pinned in O-15 / `W2.md:831` /
+`parsethat-surface-gaps.mjs`) was **not** re-run: it is a stack-headroom measurement and re-running it a
+third time on a third host adds nothing the §D-C9 argument does not already carry. The recommendation
+there — pin the **class** (`RangeError thrown`), carry the number as a dated host-tagged observation —
+is endorsed unchanged.
+
+## A.1 — D-C14 [MAJOR] — `lazy` is the name parse-that's **own Rust target** gives the combinator, and the combinator call shape crashes
+
+**Where.** `lazy.ts:26-43` (TS: the name binds a decorator) vs
+`/Users/mkbabb/Programming/parse-that/rust/parse_that/src/lazy.rs:49` —
+`pub fn lazy<'a, F, Output>(f: F) -> Parser<'a, Output>` — **committed** (`git log --oneline -1 --
+rust/parse_that/src/lazy.rs` → `5c266eb`; `git status --porcelain` on that path → clean, so OP-6's
+uncommitted-Wasm prohibition does not reach it).
+
+Every combinator library in the field spells the recursion primitive `lazy` as a free function —
+Parsimmon `P.lazy(fn)`, arcsecond `recursiveParser(fn)` — **and so does parse-that, in its other
+lowering.** In the TS lowering the free name is a decorator and the combinator is a static. §D-C13
+records the four-names confusion; this is the sharper claim, with the measurement §§1–4 did not take:
+the *combinator* call shape, not merely the TC39 shape, throws.
+
+```
+P1   lazy(() => string("a"))                        →  TypeError: Cannot read properties of undefined (reading 'value')
+P1b  lazy(fn, {kind:"method", name:"r", …})          →  TypeError: Cannot read properties of undefined (reading 'value')
+```
+
+Both land on `lazy.ts:33`'s `descriptor.value!`. So the single most probable first-contact call on this
+export — the one the name, the field convention, **and the package's own Rust surface** all invite —
+is a thrown `TypeError`, shipped at 1.0.0 from both `.` and `./core`, with no deprecation window.
+
+**Consumption consequence for the dual-target algebra.** A name that denotes different things in the two
+lowerings is exactly AC-1's predicted **signature leak** (`W2.md §3c`, K-2: *"the union of both targets'
+needs grows a target-conditional or target-only primitive; two algebras wearing one interface"*). Under
+AC-4 SIBLINGS-ORACLE it is worse: the two siblings' surfaces disagree on a name with no row in the shared
+channel table to arbitrate.
+
+**Falsifier (survived).** *"`docs/api.md:180` documents it as a decorator — a consumer who reads the docs
+will not call it as a combinator."* See A.3: that same document is contradicted by `CLAUDE.md:104` and
+still documents a family excised at 1.0.0, so it is demonstrably not the contract. *"The Rust name is a
+different language's namespace; collision is meaningless."* Not under X·P, whose whole subject is **one
+algebra, two lowerings** — `W2.md §2a` requires the JS lowering be *source-direct on the combinator
+library's own surface*, and a primitive whose name means "combinator" in one lowering and "decorator" in
+the other is a defect of exactly that surface.
+
+## A.2 — D-C15 [MAJOR] — `createLazyCached` is exported without the context that makes its product printable
+
+**Where.** `lazy.ts:18-24` exports a bare `(state) => state`, not a `Parser`. The complete assembly —
+`createLazyCached(fn)` **paired with** `createParserContext("lazy", undefined, fn)` — exists twice in the
+tree (`parser.ts:704-705`, `lazy.ts:39-40`) and is exported **neither** time. The obvious consumer wiring,
+the one the published signature (`dist/lazy.d.ts:4`) invites, parses correctly and then breaks:
+
+```
+P5  typeof createLazyCached(...) = function      has .parse?  undefined
+P5  new Parser(fn).parse("a")   →  "a"
+P5  new Parser(fn).toString()   →  Error: parserPrint: missing parser context name
+```
+
+The throw is `debug.ts`'s terminal `if (!result) throw new Error("parserPrint: missing parser context
+name")`. A consumer who reaches for the exported half gets a parser that works until something
+stringifies it — and `Parser.toString()` (`parser.ts:698-700`) is the object's own `toString`, so it
+fires on template interpolation and on `console.log` of a parser.
+
+This compounds §D-C10's payload finding rather than repeating it: the export is on the barrel that
+advertises the minimal primitive set, and it is the half that cannot stand alone.
+
+**Falsifier (survived).** *"`Parser.lazy` is right there; nobody hand-assembles."* Then
+`createLazyCached` has no reason to be on the barrel at all — which is §D-C8's disposition, and both
+cannot be dismissed at once. It **is** published: `dist/lazy.d.ts:4`, and enumerated in the 34-export
+package receipt (`docs/tranches/V/vnext/prototypes/c14-css/proof/package-receipt.json`).
+
+## A.3 — D-C16 [MINOR] — the prose contract is wrong in both directions, in one section
+
+**Where.** `/Users/mkbabb/Programming/parse-that/docs/api.md:173-181` · `CLAUDE.md:104`
+
+`## Lazy Evaluation (lazy.ts)` documents exactly two things: `Parser.lazy` (`:175`) and the **broken
+decorator** (`:180`, *"Decorator form. Lazily initializes a parser returned by a method."* — the claim
+§D-C5 measured false). It documents **neither** live export:
+`grep -n "getLazyParser\|createLazyCached" docs/api.md` → no matches. So the only prose contract the
+package ships describes the one export with zero consumers and omits the two with consumers.
+
+`CLAUDE.md:104` contradicts it outright: *"TS: `Parser.lazy(() => ...)` for recursive definitions
+(**no decorators**)."* And two sections below the lazy entry, `api.md` still documents
+`## Span Variants (span.ts)` — the 15-builder family **deleted at 1.0.0** (`index.ts:9-11`, S.H2 fold row
+48, gated by `proof:no-span-surface`). The cut updated the barrel, the gate, and the comment; it did not
+touch the document.
+
+**Falsifier (survived).** *"Docs drift is not a consumption defect."* For a library whose entire
+consumption surface is names, a public API document that describes a crashing export, omits the live
+ones, and describes a deleted module **is** the consumption surface for anyone who does not read source.
+
+## A.4 — Sharpening D-C2: the walker blindness is now measured, and it bounds the parser-band's own evidence claim
+
+§D-C2 argues the built graph is unreachable and offers a source-change falsifier. Measured here with
+cand-O's walker verbatim (`cand-o/idiom.test.ts:117-145`), over
+`any(string("z"), Parser.lazy(() => all(string("a").opt(), string("b"))))`:
+
+```
+W1  walker sees nodes: 3   names: any:1 string:1 lazy:1
+W1  does the walker see the opt-inside-all hidden behind lazy?  ->  NO — invisible
+```
+
+`createParserContext("lazy", undefined, fn)` leaves `context.parser` **undefined** and puts the *builder
+function* in `args`, so `arg instanceof Parser` is false and the walk terminates at the back-edge.
+
+**Contradiction to record against the ruled corpus.** `registry/adjudicated/parser-band.md` §Evidence
+depth states cand-O's decisive axis as *"idiom measured structurally by walking the built combinator
+graph (no `.opt()` child of any `all()`, exactly 1 lazy, 0 memoize) — a grep cannot prove that, the graph
+can."* The graph cannot prove it **behind a back-edge** either. The verdict is untouched — the lazy count
+itself (`idiom.test.ts:165-166`) is honest, since the lazy node *is* in the graph — but the coverage
+sentence overreaches: `idiom.test.ts:155-163` ("no `opt` directly inside an `all`") and `:151-153`
+(`nodes.length > 100`) do not cover the subtree built at `cand-o/grammar.ts:283`. Present hole size is
+small (`balancedTail`, `openParen`, `closeParen` are reachable elsewhere; the invisible node is the
+`wrap`) — recorded honestly — but the size is a property of the grammar, not of the API, and nothing
+measures it.
+
+**Contradiction to record against W2.** `W2.md §3d`'s shared slice names *"ONE context node (`var()`)"*
+and *"ONE malformed qualified rule"* — both reached, in cand-O, **through** the balanced tail, i.e.
+through the grammar's single `Parser.lazy` (`cand-o/grammar.ts:277-283`). So this module sits on the
+critical path of every candidate's semantic-equality product, while `W2.md §3` clause 7's harness
+extension (*"op-bijection walk … idiom + no-CST walk"*) is a graph walk that, unamended, inherits exactly
+the blind region above. The cure is one line in the harness — descend a lazy node via `context.args[0]`
+**once** and cache the result at the node — but it must be **specified**, because doing it the obvious
+way (`getLazyParser`) is §D-C1's phantom.
+
+**AC-1's sharpest Stage-0 site, unnamed in the spec.** `W2.md §3c` predicts AC-1 TAGLESS-TWIN failure (c)
+as *"continuation inexpressibility — recovery ops leaning on captured continuations cannot lower to
+zero-import Wasm."* A JS closure holding a memoised `Parser` (`lazy.ts:19-24`) **is** a captured
+continuation: it has no zero-import Wasm image, so AC-1's signature must express the back-edge as a named
+production reference (data) rather than a thunk — at which point AC-1 has quietly become AC-2 CLOSED-IR.
+This module is therefore the cheapest place to run AC-1's Stage-0 falsifier, and `W2.md §3e` does not name
+it as the site.
+
+## A.5 — Sharpening D-C9: against the incumbent the ceiling is a **regression**, not a limit
+
+O-15 PT-04 files the ceiling as *"a measured limit of the published build on this runtime. **No
+disposition proposed.**"* (`docs/valuejs-evidence-2026-07-27-1.1.0-ask-addendum.md:61-70`). Read against
+the consumer the routing law actually names, that framing is too mild.
+
+value.js's shipped CSS parser handles **every** nesting axis with an iterative integer counter and **no
+ceiling at all** — six sites, zero recursion among them:
+
+| site | mechanism |
+| --- | --- |
+| `src/css/grammar.ts:63-87` `splitTopLevel` | `let depth = 0`, `(` ++ / `)` −−, single `for` |
+| `src/css/grammar.ts:88+` `splitValueTokens` | same shape |
+| `src/css/stylesheet.ts:366` | `let depth = 0` over `(`/`)` |
+| `src/css/stylesheet.ts:464` | `let depth = 1` over `{`/`}`, returns `failure(… "closing brace")` on imbalance |
+| `src/css/stylesheet.ts:537` | `let depth = 1` over `(`/`)`, returns `null` |
+| `src/css/stylesheet.ts:581` | `let depth = 0` over `(`/`)` |
+
+And parse-that's **own** `splitBalanced` (`split.ts`, exported from `./core` beside `lazy`; see
+`dist/core.js` body) is likewise an iterative depth counter with no ceiling. So the library ships a
+ceiling-free balanced-split primitive in the same barrel as the back-edge that has one, and the incumbent
+the adoption would replace degrades imbalance to a **returned failure** where `Parser.lazy` **throws**.
+That is the framing the ask letter does not carry, and it is the one that matters to the 52-export
+consumer: `parseCssValue`/`parseCssValues`/`parseStylesheet`/`collect*` all reach these counters today and
+none of them can throw a `RangeError`.
+
+## A.6 — S-4 [SUPERLATIVE] — the public surface is *exactly sufficient* to cure binding DEBT-3 downstream, with no library change
+
+Measured this session. Using only exports the package already ships — `createLazyCached` +
+`createParserContext("lazy", …)` + `new Parser` — a consumer composes a depth-bounded back-edge that
+returns `ok:false` at the ceiling instead of throwing, and is **indistinguishable to the structural idiom
+gate**:
+
+```
+W2  bounded lazy — depth 40 isError: false   depth 60 isError: true   (returned, not thrown)
+W2  walker name for the bounded node: "lazy" — gate-indistinguishable  (byName.get("lazy") === 1 still holds)
+```
+
+This is a real consumption virtue and it re-scopes §D-C9 honestly: the library exported the **seam** even
+though it did not export the **assembly**. DEBT-3's `ok:false`-by-construction is therefore curable by
+value.js *above* the library — exactly as PT-07's non-string boundary posture already is — and needs no
+1.1.0 ask. It also means §6's row-1 wrapper **(a)** is a convenience, not a blocker; wrapper **(b)** (the
+realized-parser accessor, §D-C2) is the one that genuinely cannot be built from outside.
+
+**Falsifier (survived).** *"The counter is per-`Parser` and not re-entrant — a nested top-level parse
+corrupts it."* True of the sketch above, and it is why a library-side version is still better; it does not
+touch the claim, which is that the seam exists and the gate cannot tell the difference.
+`Parser.parseState`'s packrat epoch (`parser.ts:33-47`) is the public model for making it re-entrant.
+
+## A.7 — Semver ledger (what each §6 disposition costs)
+
+| change | bump | note |
+| --- | --- | --- |
+| add `maxDepth?` to `Parser.lazy` / `createLazyCached` | **minor** | additive; cures `parsethat-surface-gaps.mjs:37` (`Parser.lazy.length !== 2`) |
+| ceiling returns `ok:false` instead of throwing `RangeError` | **major** | cures `:36`; breaks any consumer catching the throw — cand-O's shield, DEBT-3 |
+| populate `context.parser` on a lazy node after first build (§6 row 1, wrapper b) | **minor** | cures D-C2 **and** D-C1 together; `ParserContext.parser` is already `Parser \| undefined` (`state.ts:168`) |
+| drop `lazy` + `getLazyParser` from `index.ts:7` / `core.ts:15` | **major at 1.x** | the cost §D-C8 records: the free window closed at 1.0.0. Note the functions may stay — `debug.ts:318` and `parser.ts:704` import from `./lazy.js` directly, so de-barrelling alone is sufficient; that is precisely the `fuse` shape the cut killed for being *"NOT in the barrel … unreachable from the package root"* |
+| add `resetLazyCache()` | **minor** | symmetry with `resetPackrat()` (`index.ts:8`); the module-global `LAZY_PARSER_CACHE` (`lazy.ts:5`) is the one global the package gives no reset for. Note the honest separation: `createLazyCached`'s `cached` makes parse #1 distinguishable from parse #2 **by construction** and is a bounded one-time cost — **not** the PT-03 accumulating latch, and not a K-6 kill (`W2.md §3c` AC-3(d)); the WeakMap's unbounded, unclearable lifetime is the row that carries the O-8 shape |
+
+## A.8 — Addendum tally and the revised total
+
+**New in this pass**: D-C14 [MAJOR] · D-C15 [MAJOR] · D-C16 [MINOR] · S-4 [SUPERLATIVE].
+**Sharpenings, no new count**: D-C2 (measured, + two corpus contradictions + the AC-1 Stage-0 site),
+D-C9 (regression-against-incumbent framing).
+
+**REVISED TOTAL: 16 defects — 2 BLOCKER (D-C1, D-C2) · 8 MAJOR (D-C3, D-C4, D-C5, D-C6, D-C7, D-C8,
+D-C14, D-C15) · 5 MINOR (D-C9, D-C10, D-C11, D-C12, D-C16) · 1 INFO (D-C13) — and 4 superlatives
+(S-1, S-2, S-3, S-4).**
+
+**Corpus ids folded across both passes**: O-15 PT-01 (D-C10) · PT-03 (D-C10, A.7) · PT-04 (D-C9, A.5;
+cited, and the value re-measured once with the disagreement recorded rather than re-derived silently) ·
+PT-07 (A.5, A.6 — the boundary-posture analogue) · `W2.md` §2a/§3/§3c/§3d/§3e/G-10/G-11 · W1 (instruments
+referenced; **none extended — no harness was written**) · `registry/adjudicated/parser-band.md` VERDICT
+§Evidence depth (contradicted, A.4) + binding debts 1/3 · `parsethat-surface-gaps.mjs:35-37` (the two RED
+rows landing in this module) · sibling `audit/parse-that-modules/core/challenge-L-library.md`
+D-06/D-07/D-09/D-10 (library-axis; A.1/A.2 state the consumption claims those do not make).

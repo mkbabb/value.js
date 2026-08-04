@@ -11,17 +11,27 @@
 
 ---
 
+**Two passes, merged.** This file is the union of two independent read-throughs of the same module by
+the same seat (pass 1 → `B-1…B-3 / M-1…M-9 / m-1…m-7 / i-1 / S-1…S-6`; pass 2 → the **SECOND-PASS
+ADDENDUM** below, `B-4 / M-10…M-14 / m-8…m-12 / S-7`). Pass 2 was run without sight of pass 1 and
+re-derived nothing from it; the two overlap on root causes in two places, and where they do, the
+addendum says so and cites the pass-1 row rather than restating it. Neither pass's claims were
+weakened by the other; three of pass 2's rows (**B-4**, **M-10**, **M-11**) are defects pass 1
+missed entirely, and pass 1's **B-2**, **B-3**, **M-6**, **M-7** are defects pass 2 missed. That
+asymmetry is itself a finding about this module: a 14-line barrel with a 2,650-line transitive
+closure does not yield its defects to one reading.
+
 ## SCORECARD
 
 | | count |
 |---|---|
-| **BLOCKER** | 3 |
-| **MAJOR** | 9 |
-| **MINOR** | 7 |
+| **BLOCKER** | 4 |
+| **MAJOR** | 14 |
+| **MINOR** | 12 |
 | **INFO** | 1 |
-| **defects total** | **20** |
-| **superlatives** | **6** |
-| corpus corrections | 2 (C-1 folded into B-1/B-3; C-2 standalone) |
+| **defects total** | **31** |
+| **superlatives** | **7** |
+| corpus corrections | 3 (C-1 folded into B-1/B-3; C-2 standalone; C-3 in the addendum) |
 
 ---
 
@@ -569,8 +579,426 @@ Three of the module's fourteen lines are an archaeological note about fifteen `*
 
 ---
 
+## SECOND-PASS ADDENDUM
+
+*Independent re-read of `index.ts` + its whole transitive closure, same seat, no sight of the rows
+above during derivation. Same evidence discipline: severity + `file:line` + falsifier. Same law: no
+`enableDiagnostics()`, no `memoize()`/`mergeMemos()`, no bench, read-only tree, single write.
+Runtime rows are `node --input-type=module -e` against `dist/parse.js` / `dist/core.js`.*
+
+---
+
+### B-4 · BLOCKER — the published `whitespace` parser **cannot match at end of input**
+
+**Provenance**: `index.ts:9` exports `whitespace` ← `leaf.ts:395-399` (`whitespace = regex(/\s*/)`).
+The defect is `regex()`'s first statement, `leaf.ts:326-330`:
+
+```ts
+const regexParser = (state: ParserState<string>) => {
+    if (state.offset >= state.src.length) {
+        state.isError = true;
+        return state;
+    }
+```
+
+`regex()` **hard-fails on an exhausted input before the pattern is ever consulted.** `/\s*/` is
+zero-or-more — it matches the empty string at every position including EOF — but the parser the
+barrel publishes under the name `whitespace` returns `isError: true` there.
+
+**Measured** (`dist/parse.js`):
+
+| probe | result |
+|---|---|
+| `whitespace.parseState("").isError` | **`true`** |
+| `whitespace.parseState("  x").isError` | `false` |
+| `string("a").skip(whitespace).parseState("a").isError` | **`true`** |
+| `all(string("a"), whitespace).parseState("a").isError` | **`true`** |
+
+So `string("a").skip(whitespace).parse("a")` — "match `a`, then eat any trailing space" — is a
+**spurious rejection of well-formed input**. Every grammar that spells trailing-optional-whitespace
+with the exported `whitespace` binding (rather than the exported `trimStateWhitespace`, or
+`.trim()`'s flag path) rejects its own last token. For a CSS-value grammar, "the declaration ends
+after optional whitespace" is not an edge case; it is the shape of nearly every input.
+
+**Why BLOCKER**: a wrong answer on a **valid** input, reachable in one call from the default entry,
+in a combinator whose *name* is a promise about zero-or-more.
+
+**Relation to M-7 (pass 1).** Same root statement, `leaf.ts:326-330`; **different defect.** M-7 finds
+that the EOF arm skips `mergeErrorState`, so `furthest` stalls at `-1` and the expected-set silently
+loses every regex alternative that ran out of input — a *diagnostics* defect, MAJOR. B-4 finds that
+the arm makes a zero-or-more terminal **reject**, a *correctness* defect on the accept path. Fixing
+M-7 (adding the `mergeErrorState` call) does **not** fix B-4; fixing B-4 (letting a zero-width match
+succeed at EOF) does not fix M-7 for genuinely-failing terminals. Both must land. Pass 1 read the
+statement and saw only the diagnostics half; recording the miss explicitly.
+
+**Falsifier.** Exhibit an input on which `whitespace.parseState(s)` succeeds with `state.offset ===
+s.length` at entry — i.e. show the EOF guard unreachable through `whitespace`. Or exhibit a
+documented contract saying `whitespace` is one-or-more / undefined-at-EOF: `leaf.ts:393-399` is the
+only prose and says nothing about EOF; `dist/leaf.d.ts` carries no such note. Or show consumers
+cannot reach it because `.trim()` always takes the flag path — refuted, because `.trim()`'s flag
+path is selected by `parser.context?.name === "whitespace"` (`parser.ts:488`) and **direct** uses of
+the exported binding (`.skip(whitespace)`, `all(x, whitespace)`, `whitespace.parser(state)`) never
+enter `.trim()` at all. All three fail. **CONFIRMED.**
+
+---
+
+### M-10 · MAJOR — `Parser.state` retains the parsed source **forever**, and the barrel ships module-singleton parsers
+
+**Provenance**: `parser.ts:26` (`state: ParserState<T> | undefined` — public, never cleared), written
+at `parser.ts:66` and `:71`, read at `:68`. No reset anywhere: `grep -n "this.state" src/parse/parser.ts`
+→ `26, 66, 68, 71` — three writes, one read, zero clears.
+
+`ParserState` holds `src` (`state.ts:48`), so after any parse the **`Parser` instance** pins the
+entire input string for its own lifetime.
+
+**Measured**:
+
+```
+const big = "x".repeat(1000) + "1";
+const p = string("a"); p.parse(big);
+p.state.src === big                        →  true      ← identity, not a copy
+jsonParser.parse("1");
+typeof jsonParser.state.src === "string"   →  true
+```
+
+Combinator grammars are conventionally module-level singletons, and **the barrel ships two itself** —
+`jsonParser` and `csvParser` (`index.ts:14` → `parsers/index.ts:5,7` → `parsers/json.ts:52`,
+`parsers/csv.ts:20`), both frozen module bindings for the process lifetime. So
+`jsonParser.parse(hundredMegabyteDocument)` **permanently retains that document**. Same for every
+user-defined top-level rule.
+
+Two aggravations: (a) the write exists purely for *debugging* convenience — `parser.ts:61-66` builds
+a whole throwaway `errorState` view just to park it there; (b) it reintroduces a shared mutable
+per-instance slot on the parse path, so two interleaved parses of one parser clobber each other's
+`.state` — the exact hazard `packrat.ts:158-185` (PT-Q1) went to real lengths to eliminate one layer
+down (see **S-3**).
+
+**Bound, honestly**: only `parseState()` assigns `.state`, so retention is one string per **entry**
+parser, not per node. That bound is why this is MAJOR and not BLOCKER.
+
+**Falsifier.** Find a clear, a `WeakRef`, or a doc comment warning of the retention — none of the
+three exists. Show `.state` is not public — `parser.ts:26` declares it as a bare class field.
+
+---
+
+### M-11 · MAJOR — `ParserFunction<T>` is a **phantom generic** in the shipped `.d.ts`; every cast against it is decorative
+
+**Provenance**: `index.ts:2` (`export { Parser, type ParserFunction }`) → `parser.ts:13-16`, shipped
+verbatim at **`dist/parser.d.ts:2`**:
+
+```ts
+export type ParserFunction<T = string> = (val: ParserState<any>) => ParserState<any>;
+```
+
+`T` appears **nowhere on the right-hand side**. `ParserFunction<number>`, `ParserFunction<string>`
+and `ParserFunction<{a:1}>` are the *identical* type. This is a public exported type that reads as a
+typed function pointer and carries zero type information.
+
+The consequence is not cosmetic. The tree contains **26** `as ParserFunction<X>` casts —
+`parser.ts:100, 119, 141, 157, 184, 207, 229, 246, 328, 354, 387, 428, 515, 560, 633, 685, 703` and
+`leaf.ts:57, 72, 148, 211, 250, 272, 294, 306, 366` — every one a no-op. A reviewer reading
+`then as ParserFunction<[T, S]>` (`parser.ts:100`) reasonably believes the tuple shape was checked at
+the combinator boundary. **Nothing was checked.** `any` on both sides of the arrow means the cast
+target imposes no constraint at all.
+
+The `eslint-disable` comment above it (`parser.ts:13`) says *"type-erased function pointer; `any`
+required for variance"*. The `any` may well be required for variance; the **unused type parameter is
+not**, and the comment does not acknowledge that the parameter is inert.
+
+**Composes with B-2.** B-2 shows `all()`'s tuple type does not model the runtime; M-11 shows the
+casts that *appear* to police the combinator boundaries cannot catch that or anything else. The two
+together mean the combinator layer has no type enforcement at its internal seams — which is why B-2
+survived to ship.
+
+**Falsifier.** Exhibit a program `ParserFunction<T>` rejects on account of `T`:
+`const f: ParserFunction<number> = (s: ParserState<string>): ParserState<string> => s;` typechecks
+under the repo's own `tsconfig.json` (`strict: true`). Falsifier fails. **CONFIRMED at the shipped bytes.**
+
+---
+
+### M-12 · MAJOR — `mergeErrorState` allocates **two arrays per furthest-offset advance, unconditionally**, on the failure path
+
+**Provenance**: `index.ts:5` exports `mergeErrorState` → `utils.ts:28-37`:
+
+```ts
+if (state.offset > state.furthest) {
+    state.furthest = state.offset;
+    state.expected = diagnosticsEnabled && label ? [label] : undefined;   // ← :33  GATED
+    state.suggestions = [];                                              // ← :34  UNGATED
+    state.secondarySpans = [];                                           // ← :35  UNGATED
+}
+```
+
+Line 33 is correctly flag-gated. **Lines 34-35 are not.** Two fresh arrays are allocated on every
+strict advance of the furthest offset — on the **failure** path, which in a backtracking combinator
+grammar is the common path.
+
+**Distinct from m-2.** m-2 is the *per-`ParserState`-construction* allocation (`state.ts:44-45`) —
+two arrays per state object. M-12 is the *per-furthest-advance re-allocation* inside the hottest
+non-leaf function in the library, which fires many times per state. Different site, different
+frequency, independently fixable. Both are real.
+
+`mergeErrorState` is called from **twenty** sites: `parser.ts:93, 201, 223, 239, 258, 291, 410, 418,
+447, 460, 468, 504, 553, 626` and `leaf.ts:16, 54, 69, 142, 291, 303, 360`.
+
+**Bound, honestly**: `furthest` is monotone, so the strict-advance branch fires at most `len(src)`
+times per parse — worst case `2n` allocations, typical case 2 × (distinct failure offsets). For short
+CSS values that is small in absolute terms. It is nonetheless **pure waste**: `state.suggestions.length
+= 0` reuses the backing store at identical semantics.
+
+**Falsifier — partially succeeds, and the finding is weakened accordingly.** I looked for a reader
+that runs unarmed. `collectDiagnostic` (`utils.ts:102-128`) reads both arrays **ungated**, and it is
+called unconditionally by `recover()` (`parser.ts:666`). So a consumer using `recover()` without
+arming diagnostics *does* read them, and flag-gating the two lines would be unsound. The correct cure
+is therefore `length = 0` (always sound) rather than a gate — and that is why this is MAJOR (an
+avoidable hot-path allocation) rather than anything higher. Recorded in its weakened form.
+
+---
+
+### M-13 · MAJOR — `index.ts:14` creates an **import cycle back through the barrel**, and two of its three back-edges are dead
+
+**Distinct from M-1**, which measures what `export * from "./parsers/index.js"` *costs* (36 eager
+`Parser` constructions vs `./core`'s 1). M-13 is about what it *does to the graph*.
+
+`index.ts:14` → `parsers/index.ts:5,7,8` → three leaves that each import from **the barrel that
+exports them**:
+
+```ts
+import { Parser, regex, string, dispatch } from "../index.js";   // parsers/json.ts:5
+import { regex, any, string, Parser }      from "../index.js";   // parsers/csv.ts:5
+import { regex, string, Parser }           from "../index.js";   // parsers/utils.ts:4
+```
+
+These are **value** imports under `verbatimModuleSyntax: true` (`tsconfig.json`), so the edges are
+emitted and real. `json.ts` then *uses* them at module-evaluation time (`json.ts:15-49` constructs
+its grammar immediately; `Parser.lazy` at `:25, :28`).
+
+**This works today only because of statement order.** `export { Parser … } from "./parser.js"` is
+`index.ts:2` — first — so `parser.js` is fully evaluated before `parsers/index.js` is reached.
+`Parser` is a `class` declaration, i.e. **TDZ until evaluated**. Nothing in the file says the order
+is load-bearing; there is no comment, and no gate in `package.json:33-45` pins it.
+
+**Falsifier / repro (NOT RUN — marked PLAUSIBLE, not CONFIRMED).** Move `index.ts:14` above
+`index.ts:2` and evaluate the *source* graph — vitest imports `src/` directly (`test/memoize.test.ts:3`,
+`test/reentrancy.test.ts:186`), so the cycle is exercised in CI, not only in the bundle. Prediction:
+`ReferenceError: Cannot access 'Parser' before initialization` at import time. I did not run it: my
+single-write mandate forbids editing the tree or staging a copy. **What is confirmed** is the cycle's
+existence (three grep-verified back-edges) and that its safety rests on nothing but line order in a
+14-line file.
+
+**Two of the three back-edges are dead.** `Parser` is imported by `csv.ts:5` and `parsers/utils.ts:4`
+and **used by neither** — verified by grep: `Parser` appears exactly once in each file, on the import
+line (`csv.ts:7-20` uses only `regex`/`string`/`any` and methods; `parsers/utils.ts:7-23` uses only
+`regex`/`string`). Under `verbatimModuleSyntax` these are emitted, so they deepen the cycle at
+runtime for literally nothing. `tsconfig.json` sets neither `noUnusedLocals` nor `noUnusedParameters`,
+which is why the compiler is silent. (Filed separately as **m-9** because it is independently
+fixable by one tsconfig flag.)
+
+**And the surface is unreviewed.** Adding an export to `parsers/utils.ts` silently widens the
+**package's public API** with no edit to `index.ts` and no diff a reviewer of the barrel would see.
+Lines 2-13 make that impossible by construction; line 14 undoes it — an inconsistency inside a
+14-line file. This is the same hole m-4 measures from the other side.
+
+---
+
+### M-14 · MAJOR — the published surface has **no error type at all**: five failure channels, none typed
+
+The axis asks after the *typed error / recovery posture*. The answer is that there is none. The
+barrel publishes 34 names and not one is an error class. A consumer must handle **five** distinct,
+undocumented, mutually inconsistent channels:
+
+| # | channel | provenance | shape |
+|---|---|---|---|
+| 1 | `isError: boolean` | `state.ts:51` | boolean, **no reason attached** unless armed (→ M-8) |
+| 2 | residual `.value` | `parser.ts:74, 79` | silent wrong answer (→ **B-1**) |
+| 3 | raw `TypeError` on non-string | `parser.ts:52`, dying in a leaf | thrown, **or not** (→ **B-3**) |
+| 4 | raw `RangeError` on recursion depth | V8 stack, via `lazy` (`index.ts:7`) | thrown, no bound exposed (→ **m-12**) |
+| 5 | raw `RangeError` on memo-key budget | `packrat.ts:94-97` | thrown |
+
+Channel 3 carries a detail neither pass-1's B-3 nor O-15 records: **the thrown message leaks the
+implementation and varies by grammar.** Measured, `string("a").parse(v)` over five non-strings:
+
+```
+123        →  TypeError: state.src.charCodeAt is not a function
+null       →  TypeError: Cannot read properties of null (reading 'charCodeAt')
+undefined  →  TypeError: Cannot read properties of undefined (reading 'charCodeAt')
+{}         →  TypeError: state.src.charCodeAt is not a function
+["a"]      →  TypeError: state.src.charCodeAt is not a function
+```
+
+`charCodeAt` because the grammar's first leaf is a **1-character** `string()` (`leaf.ts:285`). A
+multi-char `string()` dies at `startsWith` (`leaf.ts:297`); `eof()` at `.length` (`leaf.ts:13`);
+`regex` at `.substring` (`leaf.ts:350`) — B-3's table. **The same bad input produces a different
+exception depending on which parser happens to be first**, and every message names an internal
+variable. A consumer who string-matches the message is coupled to `leaf.ts`'s local naming.
+
+**Falsifier.** `grep -rn "extends Error" src/` → nothing. The only constructed errors in the whole
+tree are `new RangeError` (`packrat.ts:94`) and `new Error("parserPrint: missing parser context
+name")` (`debug.ts:337` — itself defect M-3), neither exported nor documented. Falsifier fails.
+
+---
+
+### m-8 · MINOR — the S.H2 excision left **dead public surface**: `Span`, `spanToString`, `mergeSpans`
+
+`index.ts:10-12` records that the 15 `*Span` builders were excised in the 1.0.0 cut *because they
+were a zero-consumer surface*. But `index.ts:3-4` still export `spanToString`, `mergeSpans`, and the
+`Span` type (`state.ts:8-19`). **After the excision, no exported combinator anywhere in the package
+produces a `Span`.** The three survivors operate on a shape the library no longer creates.
+
+Dead in both directions:
+- **No producer**: `grep -rn "Span" src/parse/parser.ts src/parse/leaf.ts` → `Span` is **imported and
+  never used** in both. `parser.ts:2` and `leaf.ts:3` are dead `import type` statements (erased at
+  emit, so zero runtime cost — but dead, and they read as though the sequencing layer traffics in spans).
+- **No consumer**: `grep -rn "spanToString\|mergeSpans" src/ test/ scripts/` → **zero hits outside the
+  declarations at `state.ts:13, :17`.** Not one caller, not one test, in the library or its suite.
+
+`SecondarySpan` (`state.ts:31-34`) is a *different*, live type despite the name — `{offset, label}`,
+not `{start, end}` — so the diagnostics tier is not keeping the survivors alive either.
+
+The tombstone's own logic ("a zero-consumer surface" ⇒ excise) applies verbatim to these three. This
+sharpens **i-1**: the comment is good provenance, and the excision it documents was **incomplete** in
+the very file that documents it.
+
+**Falsifier.** Name an exported function returning `Span`. None exists — that is the finding.
+
+### m-9 · MINOR — dead `Parser` value-imports at `csv.ts:5` and `parsers/utils.ts:4`
+
+Split out of M-13 because it is independently fixable: `noUnusedLocals` in `tsconfig.json` catches
+it, and `tsconfig.json` sets neither `noUnusedLocals` nor `noUnusedParameters` (the file is 15 lines;
+`strict: true` does not imply either). **Falsifier**: `grep -n "Parser" src/parse/parsers/csv.ts` →
+line 5 only; same for `parsers/utils.ts`. Falsifier fails.
+
+### m-10 · MINOR — `whitespace.context.name` is **public mutable state that flips `.trim()`'s semantics package-wide**
+
+`leaf.ts:398` sets `whitespace.context.name = "whitespace"` on the shared singleton the barrel
+exports at `index.ts:9`. `Parser.prototype.trim` **dispatches on that string** (`parser.ts:488`):
+
+```ts
+if (parser.context?.name === "whitespace") {   // → the flag/inline path, backed by trimStateWhitespace
+    …
+}
+return this.wrap(parser, parser) as unknown as Parser<T>;   // parser.ts:520 — the fallback path
+```
+
+Any consumer holding the exported `whitespace` can write `whitespace.context.name = "x"`, and every
+subsequent `.trim()` in the process silently switches from the inline `trimStateWhitespace` path
+(`parser.ts:498-517`) to the `wrap()` path — **which is backed by the `whitespace` *parser*, the one
+that fails at EOF (B-4)**. A one-character mutation of a public object changes parse acceptance
+package-wide. `context` is declared `public` (`parser.ts:31`) and `ParserContext.name` is a plain
+optional string (`state.ts:174`); nothing is frozen.
+
+Compounding: the union `ParserContext["name"]` draws from `parserNames` (`state.ts:141-171`), which
+**no entry point exports** (measured in M-4) — so a consumer can neither enumerate the legal names
+nor validate one, on a field that is behaviourally load-bearing rather than metadata.
+
+**Falsifier.** Show `context` is frozen or private — `parser.ts:31` is `public context: ParserContext
+= {}`, and `grep -n "Object.freeze" src/parse/` → no hits. Show `.trim()` does not branch on it —
+`parser.ts:488`.
+
+### m-11 · MINOR — `.parse()` accepts a **prefix** and reports success
+
+**Measured**: `string("a").parse("abc")` → `"a"`, `isError === false`.
+
+Orthodox combinator behaviour, and `Parser.prototype.eof()` (`parser.ts:638-642`) is the opt-in. It
+is filed at all because, **composed with B-1**, the return value of the library's headline method
+carries no information whatsoever: `"a"` is what you get from a full success on `"a"`, from a prefix
+success on `"abc"`, **and** from a failure on `"ax"` (measured:
+`all(string("a"), string("b")).parse("ax")` → `"a"`, `isError: true`). Three outcomes, one
+indistinguishable return, and nothing in `index.ts` or the `.d.ts` warns. This is the concrete
+reason `parser-band.md:108`'s idiom rule — "entry via `parseState` + `isError`, **never `parse()`
+truthiness**" — has to exist.
+
+### m-12 · MINOR — PT-04's depth ceiling ships **unbounded, unparameterised, and thrown**, and the debt is owed one layer below where the band assigned it
+
+`index.ts:7` exports `getLazyParser`, `createLazyCached`, `lazy`; `index.ts:2` exports `Parser`,
+whose `static lazy` (`parser.ts:702-707`) is the library's **only** recursion mechanism. O-15 PT-04
+measured the ceiling at **7,761 frames, `RangeError` at 7,762**.
+
+Nothing on the published surface exposes or bounds it: no `maxDepth` on `Parser.lazy`
+(`parser.ts:702-707` and `lazy.ts:18-24` take a thunk and nothing else), no depth counter on
+`ParserState` (`state.ts:47-53` — five constructor fields, none a depth), no conversion of overflow
+into `isError`. It escapes `.parse()` as channel 4 of M-14.
+
+**The corpus link, and the re-homing (C-3).** `parser-band.md`, "WHAT CAND-O OWES CAND-F" §3, rules
+this a **binding** wave debt: *"Recursion bounded by construction, not by catch… should carry an
+explicit depth bound so the stack ceiling becomes an ordinary `ok:false` by construction; the
+try/catch may remain as a last-resort shield but must stay proven non-load-bearing."* That ruling is
+addressed to the value.js **grammar**. The same debt is owed one layer down by **the combinator
+library that supplies `lazy`** — a grammar cannot bound by construction what its `lazy` primitive
+will not count. No current X·P gate charges it there: `W1.md`'s corpus table routes PT-04 → G-9 as a
+*harness* constraint (assert the ceiling, don't cure it), and `W2.md:132` routes it to "depth as an
+algebra parameter + G-11", i.e. again above parse-that. **Recorded as an unassigned debt**, not as a
+new ask — consistent with O-15's own "our cure, not their ask" posture.
+
+**Falsifier.** Find a depth parameter, counter, or bound anywhere on the lazy path — `parser.ts:702-707`,
+`lazy.ts:5-43`. None. (I did **not** re-measure 7,761: a deep-recursion probe is outside this
+challenge's writ, and O-15's number is a receipt, not folklore.)
+
+---
+
+### S-7 · SUPERLATIVE — the diagnostics accumulator is **per-state, not module-global**, and the code says why
+
+`utils.ts:20-26` and `state.ts:21-23` both state in prose that the furthest-offset / expected-set /
+suggestions / secondarySpans live on the `ParserState` **instance** rather than on module globals,
+*and* what that buys: "a nested `.parse()` mid-rule operates on its own state and cannot corrupt the
+outer parse's error tracking." The tree bears it out — `state.ts:43-45` are instance fields and every
+write in `utils.ts` goes through a `state` parameter.
+
+The contrast with the same package's packrat tier is to the tree's credit, not against it: packrat
+**is** module-global, and the code knows it, which is exactly why `packrat.ts:158-250` exists — an
+explicit save/restore epoch at the `parseState` boundary, in a `try/finally` (`parser.ts:43-48`),
+documented with the precise regression it cures (PT-Q1). **Two subsystems, two different soundness
+strategies, each chosen deliberately and each explained in situ.** That is rarer than either
+mechanism alone, and it is why S-3's praise for the packrat unwind is not an accident of one lucky
+module.
+
+**Falsifier attempted.** A module-global on the diagnostics path would refute it. `utils.ts` has
+exactly two module-level mutables — `diagnosticsEnabled` (`:6`) and `collectedDiagnostics` (`:95`) —
+and both are *deliberate* process-wide toggles with published accessors, not per-parse state. (That
+`collectedDiagnostics` is process-global **is** a real seam: a nested parse's diagnostics land in the
+outer parse's buffer. I probed for it and judged it a coherent choice given
+`clearCollectedDiagnostics` is exported at `index.ts:5`, so I do not file it as a defect — but it is
+the one place the per-state discipline stops, and a reader should know that.)
+
+---
+
+### ADDENDUM SCORECARD
+
+| | pass 1 | pass 2 | merged |
+|---|---|---|---|
+| BLOCKER | 3 | 1 (B-4) | **4** |
+| MAJOR | 9 | 5 (M-10…M-14) | **14** |
+| MINOR | 7 | 5 (m-8…m-12) | **12** |
+| INFO | 1 | 0 | **1** |
+| **defects** | 20 | 11 | **31** |
+| SUPERLATIVE | 6 | 1 (S-7) | **7** |
+
+**Verdict on the standing assumption of defect.** The module does **not** clear itself, and the
+second pass strengthens rather than softens that. A 14-line barrel is answerable for what it
+publishes, and this one publishes: a whitespace combinator that rejects valid input at EOF (B-4), a
+tuple type that does not model its runtime (B-2), a `.parse()` that returns a plausible wrong answer
+on failure (B-1), a non-string boundary that can silently **accept** (B-3), no error type at all
+(M-14), a `toString()` that throws (M-3), a one-way global performance latch with no reader and no
+off switch (M-9), a phantom public generic (M-11), half a diagnostics feature (M-4), and a permanent
+retention of every parsed source (M-10). Against that, the packrat key budget (S-1), the re-entrancy
+unwind (S-3), the `ParserState` shape (S-4), the `dispatch` EOF/non-ASCII handling (S-5), the
+`fuseAll` unrolling (S-6), and the per-state diagnostics discipline (S-7) are genuinely above the
+median for the category, and the excision tombstone (i-1) is better provenance than most libraries
+manage. The defects are concentrated at the **published boundary**; the interior is, in places,
+excellent. That is precisely the shape a barrel is supposed to prevent.
+
+**Three corpus actions, filed not folded**: **C-1** and **C-2** above, plus **C-3** — `parser-band.md`
+binding debt #3 ("recursion bounded by construction, not by catch") is owed by parse-that's `lazy`
+primitive one layer below where the band assigned it, and no X·P gate currently charges it there
+(m-12).
+
+---
+
 ## LAW COMPLIANCE
 
 - `/Users/mkbabb/Programming/parse-that` read-only; main checkout only; no `.worktrees/`, no frozen root, no `~/Documents/Codex`.
 - `/Users/mkbabb/Programming/parse-that-css-totality-p2` — **checked, does not exist**, not created. No STOP finding.
 - Single write: this file. No browser tooling. No bench. **`enableDiagnostics()` never called and `memoize()`/`mergeMemos()` never constructed in any measuring process** — the PT-03 latch was not armed; every probe ran in a throwaway process against `dist/parse.js` and observed only `furthest`/`isError`/`value`/`Object.keys`, all of which are flag-independent.
+- **Both passes ran under this identical law.** Pass 2's probes added `dist/core.js` alongside `dist/parse.js` and observed only `isError`, `.value`, `.state.src` identity, thrown-`TypeError` messages, and `Parser.id` — none of which arms anything. Pass 2 ran no deep-recursion probe (PT-04 is cited from O-15, not re-measured) and no timing loop of any kind.
+- `/Users/mkbabb/Programming/parse-that-css-totality-p2` re-checked at the start of pass 2 — still **ABSENT**, not created by either pass. No STOP finding.
+- One claim is marked **PLAUSIBLE, not CONFIRMED** and says so at the point of claim: M-13's TDZ repro, which would require editing the tree. Every other row in the addendum is either read at the bytes or measured.

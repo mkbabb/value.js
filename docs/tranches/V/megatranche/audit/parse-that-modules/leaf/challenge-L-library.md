@@ -12,6 +12,8 @@ claude-opus-5[1m]
 
 **Corpus folded, not re-invented**: INBOX **O-15** (`docs/tranches/V/coordination/INBOX.md:77`, PT-01/PT-03/PT-04/PT-07); the X·P wave specs `docs/tranches/X/parse-that/waves/W1.md` (harness constraints; G-4←PT-03, G-5←PT-01, G-9←PT-04, the JS-boundary invariant←PT-07) and `W2.md` (algebra candidates); `docs/tranches/V/megatranche/registry/adjudicated/parser-band.md` (cand-O verdict, the five binding debts, G1–G8, the preserved DISSENTs).
 
+**Second independent pass — 2026-08-04, folded in, not overwritten.** A second `claude-opus-5[1m]` challenge seat re-read the module and every import cold, without reading this file first, and re-derived L-B1, L-B2, L-B3, L-M1, L-M2, L-M3, L-M4, L-M6, L-M7, L-M9, L-M11, L-m1, L-m9 and L-m12 **independently and identically** (same sites, same probe outcomes) — an agreement worth more than either pass alone. It found **two** things this file did not, both merged below and marked ⟨P2⟩: a second, simpler trigger at `leaf.ts:340` that needs no re-entrancy (**L-M14**), and the end-to-end consequence of L-M6 measured through `Parser.state.offset` rather than stopping at `furthest`. It also contributes superlative **8**, which answers L-m12 in the other direction. Where the two passes graded differently, the *lower* severity is recorded and the tension is stated in the row. Nothing from the first pass was removed; where the first pass was stronger (L-M1's `idx = 256` wrong-accept, which the second pass missed and which strictly supersedes its weaker "silently rejected" framing), the first pass stands.
+
 ---
 
 ## 0. VERDICT
@@ -20,7 +22,7 @@ claude-opus-5[1m]
 
 The parser-band adjudication already paid for this without naming it: `parser-band.md:108` records the idiom law "`.opt()` only ever behind `.then()`/`.next()`, **never inside `all()`**", and `parser-band.md:134` (G8) makes "no `.opt()` child of any `all()`" a **structural graph-walk gate** that both candidates had to build. **That gate exists because of `leaf.ts:199/207/230/238/246/267`.** A consumer ecosystem that must walk the built combinator graph to defend against a leaf combinator's type lie has diagnosed the defect precisely and then routed around it. This challenge names it.
 
-**Counts**: 3 BLOCKER · 13 MAJOR · 13 MINOR · 2 INFO = **31 defects** · **7 superlatives**.
+**Counts**: 3 BLOCKER · 14 MAJOR · 13 MINOR · 2 INFO = **32 defects** · **8 superlatives**. (Was 31 / 7 before the second pass folded in L-M14 and superlative 8.)
 
 ---
 
@@ -192,6 +194,34 @@ Note the asymmetry: `packrat.ts` got a full `try/finally` epoch save/restore for
 
 **Cure**: `const end = sticky.lastIndex;` immediately after `:337`, before `:338`. One line, zero semantic change in the non-re-entrant case.
 
+### L-M14 ⟨P2⟩ — same site, **no re-entrancy required**: a `matchFunction` that returns a value for a `null` match makes the offset delta **negative**, so the parse **rewinds to offset 0 and reports success**
+**Severity**: MAJOR (defect class is blocker-grade; reachability matches L-M5 — see the tension note) · **Provenance**: `leaf.ts:337-340`
+```ts
+const execResult = sticky.exec(state.src);   // :337 — on no-match, resets sticky.lastIndex to 0
+const match = matchFunction!(execResult);    // :338 — signature admits null in, string out
+if (match) {
+    return state.ok(match, sticky.lastIndex - savedOffset);   // :340 — delta = 0 - savedOffset
+```
+L-M5 needs a caller who re-enters the parser. **This needs nothing but a caller who honours the declared signature.** `matchFunction` is typed `(match: RegExpMatchArray | **null**) => string | null` (`:319`): passing `null` in and permitting a `string` out is the API *inviting* "synthesise a value when the pattern did not match". But a failed `sticky.exec` **resets `lastIndex` to 0**, so at `:340` the offset delta is `0 − savedOffset`, and `ParserState.ok` adds it (`state.ts:55-57`): `offset = savedOffset + (0 − savedOffset) = 0`. The parse jumps to the **start of the source** with `isError === false`.
+
+```
+R1 regex(/zzz/, m => m ? m[0] : "SYNTH") on "aaaa"
+     offset 0  isError false  value "SYNTH"
+R2 all(string("a"), string("a"), R1synth).parseState("aaaa")
+     offset 0  isError false  value ["a","a","SYNTH"]      <-- offset went 0 -> 1 -> 2 -> 0
+R3 all(string("a"), string("a"), R1synth).eof().parseState("aa")
+     isError true                                          <-- input consumed in full, yet EOF fails
+```
+R2 is the finding: **a successful parse whose offset moved backwards.** R3 shows how it surfaces — as an error at the wrong place, for the wrong reason, on input that was textually consumed.
+
+**Blast radius — this is the one leaf defect that reaches the armed packrat tier.** Every combinator in the package assumes offset monotonicity: `Parser.many()` terminates on `state.offset === savedOffset` (`parser.ts:538`), `sepBy` on the same (`:605`), and once the PT-03 latch is armed `growLR` bounds its grow on `ans.offset <= seed.offset` (`packrat.ts:398`). A **backwards** offset is outside the space all three guards were designed over. L-M5 produces an offset past `src.length`; L-M14 produces one below the entry offset. The site (`:340`) is the same; the guard that would stop both is not.
+
+**Falsifier**: "a `matchFunction` cannot be called with `null`." `:337-338` calls it with `execResult` unconditionally, and `:319` types the parameter `| null`. "It cannot return truthy for a null match." Nothing checks — no runtime guard, no doc on the parameter (`:315-316` documents only the `test()`/`exec()` split), and `tsc` accepts it because `string | null` is the declared return. R1 constructs it in one line.
+
+**Severity tension, stated rather than resolved**: the *class* — a success verdict with a regressed offset, corrupting monotonicity three layers down — is blocker-grade. The *reachability* is identical to L-M5's: `grep -rn` for a two-argument `regex(` across `src/`, `test/`, and all three band candidates finds **zero** call sites, so this is a published, exported, signature-documented surface with **no test coverage and no current traffic**. Graded MAJOR for consistency with L-M5 and with L-M1's reachability discipline. A reviewer who grades by defect class should read it as the file's fourth BLOCKER; the falsifier for the *severity* is "no consumer will ever pass a `matchFunction`", which the `| null` parameter argues against.
+
+**Cure**: L-M5's one-line hoist (`const end = sticky.lastIndex` before `:338`) fixes L-M5 but **not** this — after a failed `exec`, `lastIndex` is already 0 at the hoist point. The cure here is to compute the delta only when `execResult !== null`, and to treat a value synthesised from a null match as zero-width: `return execResult ? state.ok(match, end - savedOffset) : state.ok(match)`. Two lines, and it makes the "synthesise on no-match" use the API invites actually work.
+
 ### L-M6 — `regex()`'s EOF guard skips `mergeErrorState`, so a failure at EOF **does not advance `furthest`** and contributes no label — asymmetric with every other leaf
 **Severity**: MAJOR · **Provenance**: `leaf.ts:327-330` (no merge) vs `:360` (merge), `:291`/`:303` (`string` merges), `:16` (`eof` merges).
 
@@ -202,7 +232,16 @@ M3 string("x")  at EOF (offset 2, len 2): isError true  furthest  2   <- merged
 ```
 `parser.ts:60` renders the error display at `state.furthest >= 0 ? state.furthest : state.offset`. A parse whose deepest failure is a regex-at-EOF therefore reports a **stale, earlier** position — the furthest-offset model's single job, silently defeated at the most common failure position in a parser (running out of input).
 
-**Falsifier**: "the caller's `offset` is right even if `furthest` is not." `parser.ts:60-66` builds the error view from `furthest` when it is ≥ 0, so an earlier merge from a *shallower* failure wins over the deeper EOF failure.
+⟨P2⟩ **Carried through to what a user actually sees.** The second pass drove M1–M3 the rest of the way through `parseStateInner` and read `Parser.state.offset` — the offset the rendered error carries. One grammar, `all(string("ab"), regex(/c/))`, two inputs:
+
+| input | failure reality | `state.furthest` | **displayed error offset** (`p.state.offset`) |
+|---|---|---|---|
+| `"abx"` | wrong char at 2 | `2` | **2** ✓ |
+| `"ab"` | truncated at 2 | `-1` | **0** ✗ |
+
+The truncated case — the more common authoring error, and the one a CSS author hits on every unclosed function — points at the **first character of the input**. This is the defect's whole cost, and it is observable **un-armed**: it is a `furthest` defect, not an `expected` defect, so it sits **upstream** of the PT-01 diagnostics gate rather than behind it. O-15 PT-01 measured the gate; this is a hole in front of it, and no amount of arming diagnostics repairs it.
+
+**Falsifier**: "the caller's `offset` is right even if `furthest` is not." `parser.ts:60-66` builds the error view from `furthest` when it is ≥ 0, so an earlier merge from a *shallower* failure wins over the deeper EOF failure. ⟨P2⟩ "The displayed offset is right even if `furthest` is not." The table refutes it directly: same grammar, same failure position, two displayed offsets.
 
 **Cure**: fold into L-B3's cure — deleting the guard routes EOF through `:360`, which merges.
 
@@ -387,6 +426,7 @@ P5 regex(/x*/) on "abc": isError false offset 0 value undefined      -> success 
 5. **`dispatch()`'s `Int8Array(128).fill(-1)` is the right data structure** — `leaf.ts:101`. 128 bytes, O(1), no `Map`, no hashing, and the `-1` fill correctly frees index 0 for a real parser. **The width is the bug (L-M1); the design is not.** An `Int16Array` keeps every virtue and removes the ceiling.
 6. **The PT-Q5 RETRACT note is exemplary engineering honesty** — `leaf.ts:90-98`. A shipped perf seam (the 2nd-byte `subTable` widening) was **removed** for having zero production consumers and a synthetic-only gate, with the re-introduction condition named precisely ("*If value.js's coordinated Q session measures an on-path win… with the perf gate re-anchored to value.js's real `c`-bucket grammar — not before*"). This is exactly the posture `parser-band.md:74-78`'s honesty law demands, authored *in this module*, by this module's author. It stands in sharp contrast to L-M12's uncited unroll comments in the same file — and it is the standard those comments should be held to.
 7. **The zero-width leaves are safe by construction.** `string("")` (`:296-306`, always-succeed non-advancing — `P1/P2` confirm it succeeds at EOF where `regex(/\s*/)` does not) and `regex()`'s empty-match arm (`:354-357`) both leave `offset` untouched, and every looping combinator upstream guards on `state.offset === savedOffset` (`parser.ts:538`, `:582`, `:605`). `parser-band.md:111` records cand-O building `succeed` from `string("")` — the leaf supports that idiom correctly and deliberately.
+8. ⟨P2⟩ **`fuseAll` *raises* the PT-04 recursion ceiling — the answer to L-m12's other half.** `a.then(b).then(c)` nests one `then` closure per additional element: `parser.ts:82-97` calls `this.parser` from **inside** the outer `then`, so an n-element sequence costs n−1 **nested** frames that are all live simultaneously. `fuseAll` (`leaf.ts:186-272`) threads by position inside **one** frame — the children run sequentially, not nested. Against O-15 PT-04's measured budget (deepest OK **7,761**, `RangeError` at 7,762), every fused sequence inside a recursive grammar **buys back** frames the unfused spelling would have spent, so the grammar-nesting ceiling L-m12 complains is undeclared is also **higher than it would otherwise be**. The module's own comments claim only the allocation win (`:174-176`); the stack win is real and unclaimed. This does not retire L-m12 — leaf still declares no budget, and `W1.md:544` G-9 still wants `k` published — but it means leaf spends that budget *better* than the API it replaces, and a cleanup that "simplifies" `fuseAll` back into `then`-chaining would **lower** the ceiling. *Falsifier*: measure `Parser.lazy` depth-to-`RangeError` with fused vs `then`-chained bodies. **Not run** — it is a measurement, and no measurement is run in this challenge that cannot be justified un-armed and un-benched; the superlative is asserted **structurally** from the call shape and is falsifiable by exactly that experiment.
 
 ---
 
@@ -408,7 +448,7 @@ P5 regex(/x*/) on "abc": isError false offset 0 value undefined      -> success 
 Ordered by (cost to fix) ÷ (blast radius), all cures KISS and local:
 
 1. **L-B3 + L-M6** — delete `leaf.ts:327-330`. One deletion fixes the nullable-regex EOF rejection *and* the missing furthest-merge. Highest ratio in the file.
-2. **L-M5** — hoist `const end = sticky.lastIndex` above the `matchFunction` call. One line; removes an out-of-bounds-offset class.
+2. **L-M5 + L-M14** — the `matchFunction` arm at `leaf.ts:337-340` is the file's most concentrated defect site: two independent ways to produce a **non-monotonic offset** (past `src.length`; below the entry offset), on a published API with zero tests and zero call sites. Hoist `const end = sticky.lastIndex` above the `matchFunction` call **and** gate the delta on `execResult !== null`. Three lines; removes both classes. Do them together — L-M5's hoist alone does not touch L-M14, because after a failed `exec` `lastIndex` is already 0 at the hoist point.
 3. **L-M3** — `new Array(n)` → `new Array(n).fill(undefined)` at `leaf.ts:257`. One call; verified to restore PACKED (N3).
 4. **L-M8** — guard `utils.ts:34-35` with `diagnosticsEnabled`. One condition; removes 2 arrays per furthest-advance from the default path.
 5. **L-M4** — hoist the `out` allocation below the first child's error check in all three `fuseAll` arms. Directly discharges `parser-band.md:117` debt #2.

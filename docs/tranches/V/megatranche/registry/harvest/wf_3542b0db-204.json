@@ -1,7 +1,7 @@
 {
  "runId": "wf_3542b0db-204",
  "workflow": "wf_3542b0db-204",
- "resultCount": 36,
+ "resultCount": 39,
  "results": [
   {
    "agentId": "ab39c54b9d33415c9",
@@ -719,6 +719,42 @@
     "defects": 20,
     "blockers": 1,
     "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a244a0cb75a22e886",
+   "key": "v2:136ab4b810414b353832b30bf9b91a8801209c891adf28c20688dc22ad57840b",
+   "result": {
+    "slug": "CubeTarget",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeTarget/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a2d5ff121e552f325",
+   "key": "v2:3746569cc7d466a433c3191a4d8eefb57583a6582cb2f3a8b2f7651ddada9a6d",
+   "result": {
+    "slug": "ChromeDock",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-C-consumption.md",
+    "defects": 25,
+    "blockers": 3,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a249ed584fdf0d07b",
+   "key": "v2:7b371bcef06d485e0288fd10da510a3b797059ee3d4b0cd18a1bf1b993da762d",
+   "result": {
+    "slug": "ChannelOptions",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChannelOptions/challenge-L-library.md",
+    "defects": 37,
+    "blockers": 4,
+    "superlatives": 9
    }
   }
  ]

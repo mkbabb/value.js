@@ -1,7 +1,7 @@
 {
  "runId": "wf_a0269d77-0da",
  "workflow": "wf_a0269d77-0da",
- "resultCount": 26,
+ "resultCount": 32,
  "results": [
   {
    "agentId": "a14c49a072c5b0564",
@@ -384,6 +384,78 @@
     "defects": 16,
     "blockers": 2,
     "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a2c6b101dabe8dc20",
+   "key": "v2:abacc9123995732e5f66c87684ba9c0500ae8f0ef2e38eac61a067e4cb800eb3",
+   "result": {
+    "slug": "leaf",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/leaf/challenge-L-library.md",
+    "defects": 32,
+    "blockers": 3,
+    "superlatives": 8
+   }
+  },
+  {
+   "agentId": "a5acd2232bda2dd66",
+   "key": "v2:a55711f241d2c113da92f712e6825dd1bafb6cd9ac89b4b37f00384c6b4952e0",
+   "result": {
+    "slug": "diagnostics",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/diagnostics/challenge-L-library.md",
+    "defects": 24,
+    "blockers": 5,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a05cbec01df00a933",
+   "key": "v2:a3a26d752d4cd1ec9706f1dd6fef858cebdcb84bc8f69ccb43f76548bbe61a78",
+   "result": {
+    "slug": "packrat",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/packrat/challenge-C-consumption.md",
+    "defects": 18,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a8ac803d5c09f906e",
+   "key": "v2:2cd765b62026dc41d3ddeb66958f6c623d8b71045b1fc58810999842ea246e98",
+   "result": {
+    "slug": "leaf",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/leaf/challenge-C-consumption.md",
+    "defects": 29,
+    "blockers": 9,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a968597b2835295f5",
+   "key": "v2:5e3b069c46abddfc3f462d112f4f26b1174f060c673f92ae81d53c5f9508dea9",
+   "result": {
+    "slug": "index",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/index/challenge-C-consumption.md",
+    "defects": 26,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a0ecf745b77ea6868",
+   "key": "v2:df6c690db9b56ad7ea11a33cc302e86f254e161e1f61522baed465642e9fa4a7",
+   "result": {
+    "slug": "packrat",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/packrat/challenge-L-library.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 8
    }
   }
  ]

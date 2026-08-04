@@ -7,11 +7,17 @@ served model id: `claude-opus-5[1m]`
 severity + `file:line` provenance + a written falsifier. Superlatives carry the same burden (L-18
 runs both ways).
 
-**Provenance of this file**: a prior draft of this exact path/axis existed at dispatch time
-(mtime `13:05:35`, 60 s before this seat started). It was **not** accepted as-authored. Every claim
-below was independently re-derived against the tree; §10 records the **four corrections** and the
-**one addition** that survived that re-derivation. Where this file and the prior draft disagree,
-this file is the measured one.
+**Provenance of this file — two supersessions, recorded in order.**
+*Seat 2* (§10): a prior draft of this exact path/axis existed at its dispatch time (mtime
+`13:05:35`). It was not accepted as-authored; every claim was re-derived, yielding four corrections
+and one addition (C-B8).
+*Seat 3* (§11, this pass): a third seat re-derived the file again from a blind read of `leaf.ts` and
+its full import closure. **All five of seat 2's load-bearing novel claims (C-B3's double-consumption
+receipt, C-B5, C-B6, C-B7, C-B8, C-M7) reproduced exactly** against the same `dist/` — they are
+preserved verbatim. Seat 3 contributes **three new defect rows (C-B9, C-M10, C-M11) and one new
+superlative (S-7)**, one of which (**C-B9**) *corrects §7's own proposed remedy*, and one of which
+(**C-M10**) *refutes a closing sentence of §7*. §11 is the record. Where this file and either prior
+draft disagree, this file is the measured one.
 
 ---
 
@@ -79,7 +85,7 @@ below use the correct class.)
 
 ---
 
-## 2. BLOCKERS (8)
+## 2. BLOCKERS (9)
 
 ### C-B1 — `all()` at arity 1 returns the bare value, not the 1-tuple its own type declares
 
@@ -260,9 +266,68 @@ below use the correct class.)
 - **Falsifier**: uniform behaviour across the eight probes — all throwing, or all parse-erroring —
   kills this row. Measured: three distinct postures, including silent success.
 
+### C-B9 — leaf ships **three mutually inconsistent whitespace character-classes**, none of them CSS's, and `.trim()` silently substitutes one for the parser the caller passed (NEW — seat 3)
+
+- **Where**: three whitespace notions reach the published surface, two of them from leaf:
+
+  | export | definition | class |
+  |---|---|---|
+  | `trimStateWhitespace` | `leaf.ts:383` — `c === 32 \|\| (c >= 9 && c <= 13)` | `{09,0A,0B,0C,0D,20}` |
+  | `whitespace` | `leaf.ts:397` — `regex(/\s*/)` | JS `\s` — incl. U+00A0, U+FEFF, U+2028, U+1680, U+2000-200A |
+  | `skipWhitespace` | `utils.ts:162` — `charCodeAt(i) <= 32` | **all** of U+0000–U+0020 |
+
+  All three are on the root barrel (`index.ts:5, 9`); the first two are also on `./core`
+  (`core.ts:16-25`).
+- **Measured** (offset after skipping one leading character, `dist/parse.js`):
+
+  ```
+              skipWhitespace   trimStateWhitespace   whitespace(/\s*/)
+  U+0000  NUL      1                 0                     0
+  U+001F  US       1                 0                     0
+  U+000C  FF       1                 1                     1
+  U+00A0  NBSP     0                 0                     1
+  U+FEFF  BOM      0                 0                     1
+  U+2028  LSEP     0                 0                     1
+  ```
+
+  **No two of the three agree.** And css-syntax-3 §4.2 defines whitespace as exactly
+  `{U+0009, U+000A, U+000C, U+000D, U+0020}` — so `trimStateWhitespace` **over-accepts U+000B (VT)**,
+  `whitespace` over-accepts NBSP/BOM/U+2028, `skipWhitespace` over-accepts every C0 control.
+  **The module ships three wrong answers to its sole prospective consumer's question and no right one.**
+- **The silent substitution is the sharp edge**: `Parser.trim()`'s default argument **is** the
+  `whitespace` regex parser (`parser.ts:481`), but `trim()` then dispatches on a **string tag** —
+  `if (parser.context?.name === "whitespace")` (`parser.ts:488`, tag set at `leaf.ts:398`) — and
+  substitutes the charCode loop (`parser.ts:498, 509`). The caller hands in a `/\s*/` parser and
+  silently gets a `{09..0D,20}` scanner. Measured:
+
+  ```
+  string("a").trim().parseState(" a ")                       →  isError = true
+  string("a").wrap(regex(/\s*/), regex(/\s*/)).parseState(same input)   →  isError = false
+  string("a").trim().parseState("a")                       →  isError = false   // VT; CSS says no
+  ```
+
+  This is the code path behind **41** of value.js's 89 `whitespace` references (§1a), and the tag is
+  a plain string in a public union (`state.ts:157`), so any parser named `"whitespace"` inherits the
+  substitution.
+- **Why blocker, and why it corrects §7**: W2 §3b **COMP-1** requires `weave(V, C, P) === S` byte for
+  byte, with `C` holding `(offset, length, kind)` for *every* byte not injected into `V` — *"whitespace,
+  comments, case spelling, separator choice"* (`W2.md:239`). **All three mechanisms advance the cursor
+  and record nothing** (`leaf.ts:389`, `utils.ts:163`): there is no parameter, return channel, or hook
+  by which a skipped run could enter `C`. The whitespace surface is COMP-1-**unsatisfiable by
+  construction**, not merely mis-specified. §7's `whitespace` row proposes `skipWhitespace` as *"the
+  replacement [that] already exists in the tree"* — **that remedy is wrong as stated**: `skipWhitespace`
+  is a third, differently-wrong class (it eats NUL and every C0 control, which CSS treats as
+  U+FFFD-producing input, not whitespace) and it too has no complement channel. The correct disposition
+  is a **new** span-emitting `trivia` operator with the CSS class fixed by citation; §7 is corrected
+  below.
+- **Falsifier**: any input on which all three mechanisms advance identically, or any mechanism by
+  which a skipped run is reported to the caller, or `trim()` honouring the class of the parser it was
+  given. Measured: six inputs, three distinct behaviours, zero reporting channel, and `trim()`
+  contradicting its own default argument.
+
 ---
 
-## 3. MAJOR (9)
+## 3. MAJOR (11)
 
 ### C-M1 — `./core` ships leaf's label construction but exports no way to make a label observable
 
@@ -427,6 +492,70 @@ below use the correct class.)
 - **Falsifier**: an explicit `Parser<string>` annotation plus an eager (non-`let`) construction kills
   both halves. Neither is present.
 
+### C-M10 — `dispatch()`'s **hit path does not restore the cursor**: it is a committed choice sold as the backtracking `any()` it replaces (NEW — seat 3)
+
+- **Where**: `leaf.ts:139-141` — `if (idx >= 0) { return parsers[idx].parser(state); }`. There is no
+  `savedOffset` capture anywhere in `dispatchParser` (`leaf.ts:134-145`). Compare `any`, which
+  restores `state.offset = savedOffset` before every retrial and before its final failure
+  (`leaf.ts:46-52`, `:66-67`).
+- **Measured**, with an arm that advances then fails (`string("a").chain(() => string("b"))` —
+  `chain` does not restore, `parser.ts:131-138`):
+
+  ```
+  dispatch({ "a": leaky }).parseState("ax").offset      →  1     // cursor leaked
+  any(leaky, string("zzz")).parseState("ax").offset     →  0     // cursor restored
+  ```
+- **Consumption harm**: the JSDoc (`leaf.ts:82-85`) sells `dispatch` as the O(1) replacement for
+  *"sequential trial-and-error like `any()`"*, and `proof-no-dead-combinator.mjs:53-57` names it *"the
+  known-live export"*. A consumer performing the recommended migration silently changes backtracking
+  discipline at the busiest routing point in the grammar. Both of value.js's real tables
+  (`164343c1^:src/parsing/index.ts:466`, `color/color.ts:673`) sit inside enclosing `any`/`trim`
+  wrappers that happened to re-restore — luck again, not contract.
+- **This refutes §7's own closing sentence.** §7 concluded that `dispatch`'s defects *"live in its
+  **table-construction API**, not in its dispatch loop."* C-M10 is **in the loop**, and it is the one
+  defect a corrective wrapper around the *table* cannot fix — a wrapper must also bracket the call.
+  §7 is corrected below.
+- **W2 bearing**: §3b names *channel-table dispatch* as a required capability family alongside
+  *ordered committed choice* — as **two** families. Shipping one operator whose rollback law is the
+  committed one while its documentation promises the backtracking one makes **EQ-5** (*"offset …
+  restored to pre-mark values"*, `W2.md:267`) unstatable for the family, exactly as C-M3 does for `any`.
+- **Falsifier**: `dispatch` restoring the cursor after a leaking arm, or the JSDoc declaring the
+  committed semantics. Measured 1 vs 0; the JSDoc declares neither.
+
+### C-M11 — `./core`'s tier-isolation promise is **false in the built graph**, and `proof:subpath` is structurally incapable of detecting it (NEW — seat 3)
+
+- **The claim under audit**: `core.ts:3-5` — *"The zero-side-effect primitive set… A consumer that
+  imports only this **never pulls the diagnostics accumulator, the packrat tier**, or the json/csv
+  domain parsers."*
+- **Measured import graph of the shipped build** (`dist/`, the same build §0 receipts):
+
+  ```
+  dist/core.js:1                    →  ./packrat-entry-CS1td-8B.js     (40 K; PACKRAT_ARMED at :678)
+  dist/packrat-entry-CS1td-8B.js:1  →  ./diagnostics-DDazRHgl.js       (4 K)
+  ```
+
+  `import { string } from "@mkbabb/parse-that/core"` therefore loads **the packrat tier and the
+  diagnostics accumulator**, transitively, in two hops. The four leaf-relevant chunks are not
+  separable: `core.js` is a 1.3 K re-export shim over the 40 K monolith.
+- **leaf is a proximate cause of the diagnostics edge**: `leaf.ts:5` imports `mergeErrorState` from
+  `./utils.js` — the diagnostics module — and **every one of leaf's six error paths calls it**
+  (`:16, 54, 69, 142, 291, 303, 360`). There is no leaf terminal that does not touch the diagnostics
+  tier. (The packrat edge is `parser.ts:7`'s — `packratEnter`/`packratExit` — and is attributed there,
+  not to leaf.)
+- **The gate cannot catch it**: `test/subpath-gate.mjs:26-45` checks that each `exports` target
+  *exists on disk* and that `core.Parser` / `core.dispatch` are `typeof "function"`. It never inspects
+  an import graph. So `proof:subpath` is green while the claim it exists to protect is false — a gate
+  that cannot fail for its intended reason (W2 L-19), turned on the evidence tree's own instrument.
+  This is the same structural finding as C-M6's reading of `proof-no-dead-combinator.mjs`: two of the
+  five `proof:*` gates prove a specific past deletion rather than enforcing a standing property.
+- **Relation to C-M1**: C-M1 established that a `./core` consumer cannot *observe* a label because the
+  tier withholds `enableDiagnostics`/`mergeErrorState`. C-M11 sharpens it in the worse direction — the
+  consumer **already pays for the whole accumulator and the whole packrat tier**, and is denied only
+  the switch. The cost is borne; the capability is withheld. It also moots C-M1's stated workaround
+  (*"must import from `.` … defeating the split's stated purpose"*): the purpose was already defeated.
+- **Falsifier**: an import graph in which `dist/core.js` reaches neither chunk, or a `proof:subpath`
+  assertion over module edges. Neither exists.
+
 ---
 
 ## 4. MINOR (7)
@@ -466,7 +595,7 @@ is sound.** Recorded so a later reader does not void the corpus on a false alarm
 
 ---
 
-## 6. SUPERLATIVES (6) — L-18 runs both ways
+## 6. SUPERLATIVES (7) — L-18 runs both ways
 
 **S-1 — `dispatch`'s end-of-input handling is exactly right, and free.**
 `leaf.ts:136-137`: `const ch = state.src.charCodeAt(off); const idx = ch < 128 ? tbl[ch] : -1;`.
@@ -529,6 +658,21 @@ through `state.ok`'s `+=`. **18 of value.js's 19 `regex()` sites use this path**
 aimed at the leg the consumer actually runs. *Falsifier*: if most consumer sites passed
 `matchFunction`, the fast path would be optimizing the cold leg; measured, 18 of 19 do not.
 
+**S-7 — every label in the library is a construction-time constant, so the diagnostic *data* is
+already pure and already free (NEW — seat 3).** leaf builds each terminal's expectation **once, when
+the combinator is constructed**, and closes over it: `` label = `"${str}"` `` (`leaf.ts:278`),
+`` label = `/${r.source}/${r.flags}` `` (`:324`), `` label = `one of [${labelChars}]` `` (`:127-132`,
+explicitly commented *"Pre-compute label at construction time"*). Zero string allocation on the error
+path; the failure site passes a constant. This matters beyond micro-cost: W2 **R-LAW-3** requires that
+*"a diagnostic is a value appended to `D`, never an effect"* (`W2.md:281`), and R-LAW-3's probe
+monkey-patches `console.error` to throw. leaf's label **production** already satisfies that law
+completely — it allocates nothing, prints nothing, and touches no global. The entire PT-01 / EQ-4
+problem (C-M1, C-M2) is in the **delivery** — `utils.ts:33`'s `diagnosticsEnabled && label` gate and
+`parser.ts:67-68`'s coupled `console.error` — and **none of it is in this module's construction
+discipline**, which needs no change to satisfy the algebra. *Falsifier*: a label built inside a parse
+function, or any per-failure string concatenation, would kill this; there is none — all three label
+expressions are evaluated in the factory body, above the returned closure.
+
 ---
 
 ## 7. What the X·P dual-target algebra would KEEP / WRAP / RETIRE
@@ -541,21 +685,24 @@ the natural home of the terminal tier — which makes these dispositions load-be
 
 | export | disposition | reasoning, bound to a W2 clause |
 |---|---|---|
-| `dispatch` | **KEEP, wrapped** | Its `Int8Array` LUT is the correct lowering shape and has a zero-import Wasm analogue (a 128-byte class table in linear memory) — it is literally AC-3's *"typed-array class table … the identical table under `v128`"* (`W2.md:346-348`) and it is AC-4's *"same machine-readable channel table"* carrier (`:372`). **But it cannot be adopted raw**: the wrapper must (i) reject or escape 3-char `-`-middle keys (C-B6), (ii) build from an ordered `Array<[key, parser]>` or `Map`, never a plain object (C-B7), (iii) reject non-ASCII keys loudly (C-M5), (iv) bound the intern index (C-m3), (v) be typed heterogeneously (C-M4) so **V** stays assignable to the frozen `/css` types under G-10 (`:236`). |
+| `dispatch` | **KEEP, wrapped — and the wrapper must bracket the *call*, not only the table** | Its `Int8Array` LUT is the correct lowering shape and has a zero-import Wasm analogue (a 128-byte class table in linear memory) — it is literally AC-3's *"typed-array class table … the identical table under `v128`"* (`W2.md:346-348`) and it is AC-4's *"same machine-readable channel table"* carrier (`:372`). **But it cannot be adopted raw**: the wrapper must (i) reject or escape 3-char `-`-middle keys (C-B6), (ii) build from an ordered `Array<[key, parser]>` or `Map`, never a plain object (C-B7), (iii) reject non-ASCII keys loudly (C-M5), (iv) bound the intern index (C-m3), (v) be typed heterogeneously (C-M4) so **V** stays assignable to the frozen `/css` types under G-10 (`:236`), **and (vi) capture/restore `offset` around the dispatched arm (C-M10) — the one requirement no table-side wrapper can satisfy**, since the leak is in `leaf.ts:139-141`. |
 | `string` | **KEEP as-is** | Total on string input, allocation-free on the 1-char path (`leaf.ts:282-294`), label-bearing, no state beyond `offset`. Satisfies **O-8** by construction. Sole mark: `string("")` (C-m5), which the algebra should express as an explicit `succeed` operator rather than a degenerate `string` — cand-O already built `succeed` from `string("")`, and *that* is the row to make normative. |
 | `all` | **WRAP — never expose raw** | The tuple-shape lie (C-B1) and drop-`undefined` compaction (C-B2) are fatal to **EQ-3** (provenance `P` is an ordered `(start,end)` array and *"leaf construction order must match"*, `:265` — an arm that vanishes from the value array desynchronizes the index) and to **EQ-1** (structural deep-equal on a value whose arity varies by input, `:263`). The algebra's `sequence` must preserve arity and represent absence **explicitly**. |
 | `any` | **WRAP — never expose raw** | The arity-1 backtracking divergence (C-M3) breaks **EQ-5** (*"offset … restored to pre-mark values"*, `:267`); the dead terminal merge (C-M2) leaves no slot for the labelled zero-width failure that debt 1 (`parser-band.md:116`) and **EQ-4** (`:266`) require. Separately, §3b needs *ordered **committed** choice*, which leaf's unconditional-backtracking `any` does not provide at all — a `commit` point must be **added**, not wrapped around. |
 | `regex` | **RETIRE from the terminal tier** | Four independent reasons, each sufficient. (1) **C-B5** — non-total at EOF, so **COMP-1** (`:241`, *every* input) cannot hold with `regex` as a terminal. (2) **C-B3/C-B4** — the `matchFunction` arm corrupts the cursor (measured double-consumption; re-entrancy desync): EQ-5 and EQ-3 damage. (3) **C-B8** — it silently `ToString`-coerces non-strings, defeating the boundary guard of debt 4. (4) It has **no zero-import Wasm lowering**: a JS `RegExp` is a host object — under AC-1 it is the *"signature leak"* failure (`:317`), under AC-2 the *"escape-hatch node … one node kind with exactly one lowering kills dual-target by construction"* (`:335-337`). GATE-VERDICT's *"LIVE regex measured FASTEST ≈1.8×"* is a **speed** observation about the deposed baseline, now reversed *"three times by two authors and an arbiter with three methods"* (`parser-band.md:143`) — it is not an argument for keeping a host-object terminal. Replacement: AC-3's branchless char-class scan over a class table, which lowers to `v128` or a scalar loop identically. |
-| `whitespace` | **RETIRE** | It **is** `regex(/\s*/)` and inherits C-B5 whole: the parser named "zero or more" **rejects zero at end of input** (measured: `isError=true`, `furthest=-1`). It also silently **succeeds on a non-string** (C-B8). Under §3b, inter-token whitespace is not a value at all — it is **C**, the byte complement `(offset, length, kind)` (`:264`). A whitespace *Parser* whose value is sometimes `""`, sometimes `undefined` (C-m2), and which sometimes fails, cannot carry a conservation law. **The replacement already exists in the tree**: `utils.ts:159-164` `skipWhitespace` (a total charCode scan, explicitly harvested for exactly this purpose per `utils.ts:150-157`) plus a complement-append. |
-| `trimStateWhitespace` | **RETIRE from the public surface; KEEP internally** | Zero consumers (C-M6), not a `Parser`, and its in-place `ParserState` mutation is the wrong shape for an algebra whose recovery ops need `mark`/`rollback` (**R-LAW-1**, `:275`). It is exactly right where `parser.ts:443-465` uses it and exactly wrong on `./core`. |
+| `whitespace` | **RETIRE** | It **is** `regex(/\s*/)` and inherits C-B5 whole: the parser named "zero or more" **rejects zero at end of input** (measured: `isError=true`, `furthest=-1`). It also silently **succeeds on a non-string** (C-B8). Under §3b, inter-token whitespace is not a value at all — it is **C**, the byte complement `(offset, length, kind)` (`:264`). A whitespace *Parser* whose value is sometimes `""`, sometimes `undefined` (C-m2), and which sometimes fails, cannot carry a conservation law. **CORRECTED by C-B9 (seat 3)**: an earlier revision of this row proposed `utils.ts:159-164` `skipWhitespace` as *"the replacement [that] already exists in the tree"*. It is **not** a drop-in — it is a **third, differently-wrong character class** (`charCodeAt <= 32`, eating NUL and every C0 control, which css-syntax-3 §4.2 treats as U+FFFD-producing input, not whitespace), it disagrees with both leaf mechanisms on six measured code points, and it has **no complement channel** either. The disposition is a **new** span-emitting `trivia` operator: CSS's class `{09,0A,0C,0D,20}` fixed by citation, emitting `(offset, length, kind)` into **C**. All three existing mechanisms retire together. |
+| `trimStateWhitespace` | **RETIRE from the public surface; and its internal use is *also* a defect** | Zero external consumers (C-M6), not a `Parser`, and its in-place `ParserState` mutation is the wrong shape for an algebra whose recovery ops need `mark`/`rollback` (**R-LAW-1**, `:275`). An earlier revision called it *"exactly right where `parser.ts:443-465` uses it"*; **C-B9 narrows that**: those internal uses are precisely the mechanism by which `.trim(whitespace)` silently substitutes a `{09..0D,20}` scanner for the `/\s*/` parser the caller passed, at 41 consumer sites. Right as an *internal scanner*, wrong as the *unannounced implementation of a parameterized combinator*. |
 | `eof` | **RETIRE — replace with a total-consumption law** | **0 real call sites** even at peak; reached only via `Parser.prototype.eof()`. Its `undefined` success value is *invisible* to `all()` (C-B2, measured: `all(string("a"), eof())` → `["a"]`), so it cannot participate in a value algebra. "Input fully consumed" is a **judgment on the final state** — trivially expressible as `C` covering the tail under COMP-1 — not an operator. Its phantom `<T>` (C-m1) is a symptom of the same category error. |
 | `_initWhitespace` | **RETIRE with `whitespace`** | Exists only to break the `leaf ↔ parser` module cycle (`leaf.ts:393-394`). Once whitespace is complement rather than value, the cycle and the hook both disappear. Its **sealing pattern** (S-2) should survive as the house rule for any future init hook. |
 
 **Net**: of nine exports the algebra **keeps two** (`string`; `dispatch` only behind a corrective
 wrapper), **wraps two** (`all`, `any` — as *distinct* operators, since ordered-committed choice is
 not leaf's unconditional-backtracking `any`), and **retires five**. The retirements are not
-stylistic: `regex` and `whitespace` fail **COMP-1** by measurement (C-B5), `all`/`any` fail **EQ-3**
-and **EQ-5** by measurement (C-B1/C-B2/C-M3), and none of the five has a zero-import Wasm lowering.
+stylistic: `regex` and `whitespace` fail **COMP-1** by measurement (C-B5, C-B9), `all`/`any` fail
+**EQ-3** and **EQ-5** by measurement (C-B1/C-B2/C-M3), and none of the five has a zero-import Wasm
+lowering. **Nothing in the whitespace family survives** — all three mechanisms (`whitespace`,
+`trimStateWhitespace`, `skipWhitespace`) advance a cursor and record nothing, and no two of them agree
+on what whitespace is (C-B9).
 
 **A consequence W2 should hear**: `dispatch` is the **only** leaf export that both survives on its
 merits *and* has no equivalent in the frozen 52-export surface — it is the one thing value.js gained
@@ -563,8 +710,11 @@ from parse-that that it could not have hand-rolled cheaply
 (`164343c1^:src/parsing/index.ts:389-397` documents the megamorphic-`any` problem it solved:
 *"≈30 function names arrive at one `any()` site"*). If the dual-target algebra keeps exactly one
 artifact from this module, it is the 128-entry char-class LUT — **and it must be re-authored, not
-imported**, because four of its seven defects (C-B6, C-B7, C-M4, C-M5) live in its
-**table-construction API**, not in its dispatch loop.
+imported**. *An earlier revision closed this paragraph with "four of its seven defects … live in its
+**table-construction API**, not in its dispatch loop." Seat 3 refutes that*: with **C-M10** the count
+is five of eight, and the eighth — the missing cursor restore at `leaf.ts:139-141` — is **in the
+dispatch loop**, which is why the re-authoring cannot be a table-side adapter over the shipped
+function. The LUT layout is the keeper; the function around it is not.
 
 ---
 
@@ -588,7 +738,12 @@ imported**, because four of its seven defects (C-B6, C-B7, C-M4, C-M5) live in i
 | W2 §3b **COMP-1** (`:241`) | `regex`/`whitespace` fail it by measurement (C-B5). |
 | W2 §3b **O-8** (`:253`) | leaf **passes**: no operator reads or writes process-global mutable state. (S-4 caveat: `whitespace` is a `let`, closed by interop rather than construction → C-M9.) |
 | W2 §3b **EQ-3 / EQ-4 / EQ-5** | `all`'s compaction (C-B2) breaks EQ-3; `any`'s arity-1 divergence (C-M3) breaks EQ-5; the armed-only labels (C-M1) are exactly EQ-4's named disqualifier (`:266`). |
-| W2 §3c **AC-3** (`:346-351`) | Endorsed — §7 names the concrete in-tree replacement for `regex`/`whitespace` (`utils.ts:159-164`) inside leaf's own tier. |
+| W2 §3c **AC-3** (`:346-351`) | Endorsed as the *direction* — a scan layer inside the combinator library is right. **But its in-tree seed is not free**: C-B9 shows `utils.ts:159-164` `skipWhitespace` is a third divergent class, so AC-3's scanner must author its class table from the css-syntax-3 citation, not harvest one of leaf's three. |
+| W2 §3b **COMP-1** — second, independent failure | C-B9: none of the three whitespace mechanisms has a channel into **C**. This is separate from C-B5 (which is about *totality at EOF*); C-B9 is about *conservation* and would hold even if `regex` were made total. |
+| W2 §3b — *channel-table dispatch* vs *ordered committed choice* as **two** families (`:249-251`) | C-M10: leaf ships one operator that is documented as the second and implemented as the first, so neither family has a stateable EQ-5. |
+| W2 **R-LAW-3** (`:281`, diagnostics as values, probe throws on `console.*`) | **leaf passes on production, fails on delivery** — S-7 (labels are construction-time constants; no allocation, no print, no global) against C-M1/C-M2/C-M11 (the switch is withheld, the merge is dead, and the tier is paid for anyway). |
+| `core.ts:3-5` tier-isolation claim | **Contradicted by measurement** → C-M11: `dist/core.js` reaches the packrat chunk and the diagnostics chunk in two hops. |
+| `test/subpath-gate.mjs` (`proof:subpath`) | **Vacuous for its stated purpose** → C-M11. With C-M6's reading of `proof-no-dead-combinator.mjs`, two of five `proof:*` gates prove a past deletion rather than enforce a standing property. |
 | W1 §OP-2 (harness liveness) | Not exercised; no harness was run or edited. |
 | W2 **OP-6** (Wasm substrate uncommitted) | Untouched; no Wasm claim made. The §7 lowering notes are about *shape*, not about importing uncommitted bytes (K-10 respected). |
 
@@ -598,17 +753,20 @@ imported**, because four of its seven defects (C-B6, C-B7, C-M4, C-M5) live in i
 
 | severity | count | ids |
 |---|---|---|
-| BLOCKER | **8** | C-B1 · C-B2 · C-B3 · C-B4 · C-B5 · C-B6 · C-B7 · **C-B8** |
-| MAJOR | **9** | C-M1 … C-M9 |
+| BLOCKER | **9** | C-B1 · C-B2 · C-B3 · C-B4 · C-B5 · C-B6 · C-B7 · C-B8 · **C-B9** |
+| MAJOR | **11** | C-M1 … C-M9 · **C-M10** · **C-M11** |
 | MINOR | **7** | C-m1 … C-m7 |
 | INFO | **2** | C-i1 · C-i2 |
-| **defects total** | **26** | |
-| SUPERLATIVE | **6** | S-1 … S-6 |
+| **defects total** | **29** | |
+| SUPERLATIVE | **7** | S-1 … S-6 · **S-7** |
 
-Every BLOCKER and every MAJOR except **C-M9** was **reproduced against `dist/`** this session; C-M9
-is stated as a declared-contract defect with its non-reproduction named. C-B3, C-B5, C-B6, C-B7 and
-C-B8 additionally carry an explicit **current-exercise bound**, because the sole downstream either
-dodges them by idiom or no longer consumes the module at all (C-i1).
+Every BLOCKER and every MAJOR except **C-M9** was **reproduced against `dist/`**; C-M9 is stated as a
+declared-contract defect with its non-reproduction named. C-B3, C-B5, C-B6, C-B7 and C-B8 carry an
+explicit **current-exercise bound**, because the sole downstream either dodges them by idiom or no
+longer consumes the module at all (C-i1). **C-B9 carries none** — it is live at 41 of the sole
+consumer's own `.trim(whitespace)` sites (§1a) and is the only blocker whose harm needed no exotic
+input, merely a non-ASCII space. **C-M11 carries none** either: it is true of every `./core` import
+that exists.
 
 ---
 
@@ -630,3 +788,55 @@ appeared to contradict it (`any` 183, `string` 443) — because **`\w` is not PO
 -E` does not honour it**, so the class silently matched the TypeScript `any`/`string` *type* keywords.
 The correct spelling is `[^.[:alnum:]_]`. Recorded so the next seat does not "correct" a right number
 into a wrong one.
+
+---
+
+## 11. Seat-3 re-derivation record
+
+Seat 3 opened blind on `leaf.ts` + its full import closure (`parser.ts` · `state.ts` · `utils.ts` ·
+`lazy.ts` · the five entry modules) and the shipped `dist/`, then diffed its independent findings
+against the resident file. **Nothing was overwritten.** Substrate identical to §0: master `ef10d5b`,
+`typescript/` clean, `parse-that-css-totality-p2` re-verified **absent**, nothing armed (no
+`memoize`/`resetPackrat`/`enableDiagnostics` call in any probe), all probes via `node --input-type=module`
+with no file written outside this one.
+
+### 11a. Reproduction of seat 2's load-bearing novel claims
+
+| claim | seat-3 measurement | verdict |
+|---|---|---|
+| **C-B3** double-consumption — `all(string("aaa"), fb, string("aaa")).parseState("aaay")` | `value=["aaa","FB","aaa"]`, `offset=3`, `isError=false` | **reproduced exactly** |
+| **C-B5** `whitespace.parseState("")` | `isError=true`, `furthest=-1` | **reproduced exactly** |
+| **C-B5** `string("a").skip(whitespace).parseState("a")` | `isError=true` | **reproduced exactly** |
+| **C-B6** `dispatch({"+-.": p}).parseState(",")` | ACCEPTED (and `"*"` errors) | **reproduced exactly** |
+| **C-B7** integer-key hoisting | `Object.keys({"0-9":1,"0":1})` → `["0","0-9"]`; digits → `RANGE` in **both** insertion orders; letters `{"a-c":R,"a":S}` → `SPECIAL`, `{"a":S,"a-c":R}` → `RANGE` | **reproduced exactly**, plus one row seat 2 did not print: for **letters** the *last* key wins (so value.js's empirical "register ranges first, then override" note holds), while for **digits** the range wins in **either** order. The inversion is total, not order-dependent. |
+| **C-B8** `whitespace.parseState(42)` | `isError=false` | **reproduced exactly** |
+| **C-M7** `all(a,b,c).parse("abX")` | `"b"` with `parseState(...).isError === true` | **reproduced exactly** |
+
+Seat 3 also independently re-derived, and confirms without amendment: C-B1 (`all(string("ab")).parse("ab")`
+→ `"ab"`), C-B2 (`all(opt(a), b).parse("b")` → `["b"]`; and the same at arity 3 and 4), C-B4 (re-entrant
+`matchFunction`: outer offset **6** on a 3-char source vs control **3**), C-M3 (`any(p)` → offset 1,
+`any(p,q)` → 0), C-M5 (`dispatch({"é": …})` → `isError=true`), C-m1, C-m2 (`regex(/a?/).parse("z")` →
+`undefined`, `typeof "undefined"`), C-M6, C-i1, and S-2 (`_initWhitespace` absent from both `dist/parse.js`
+and `dist/core.js` export lists).
+
+### 11b. What seat 3 adds — and what it corrects
+
+| # | addition | what it changes in the resident file |
+|---|---|---|
+| 1 | **C-B9** (BLOCKER) — three mutually inconsistent whitespace classes, none CSS's; `.trim()` silently substitutes `trimStateWhitespace` for the `whitespace` parser passed to it. Measured on six code points: `skipWhitespace` / `trimStateWhitespace` / `/\s*/` disagree pairwise; `string("a").trim()` **rejects** NBSP-padded input that `wrap(regex(/\s*/), regex(/\s*/))` **accepts**; VT (U+000B) is accepted though css-syntax-3 §4.2 excludes it. | **Corrects §7's `whitespace` row**, which proposed `skipWhitespace` as the in-tree replacement — it is a third divergent class with no complement channel. Also **narrows §7's `trimStateWhitespace` row** ("exactly right where `parser.ts:443-465` uses it"): that internal use *is* the substitution mechanism, live at 41 consumer sites. Gives COMP-1 a second, independent failure (conservation, not just totality). |
+| 2 | **C-M10** (MAJOR) — `dispatch()`'s hit path (`leaf.ts:139-141`) never captures or restores `offset`; measured `dispatch({a: leaky})` → offset 1 vs `any(leaky, zzz)` → 0. | **Refutes §7's closing sentence** ("four of its seven defects live in its table-construction API, not in its dispatch loop"). Five of eight now, and the eighth is in the loop — so the corrective wrapper must bracket the *call*, which a table-side adapter cannot do. §7's `dispatch` row gains requirement (vi). |
+| 3 | **C-M11** (MAJOR) — `dist/core.js:1 → packrat-entry-CS1td-8B.js (40 K, PACKRAT_ARMED at :678) → diagnostics-DDazRHgl.js`. `./core`'s promise never to pull the diagnostics accumulator or the packrat tier is false in the shipped build; `test/subpath-gate.mjs` checks file existence and `typeof`, never edges. | **Sharpens C-M1** in the worse direction: the `./core` consumer already *pays* for the accumulator and the packrat tier and is denied only the switch — which moots C-M1's stated workaround. Pairs with C-M6 as a second `proof:*` gate that certifies a past deletion rather than enforcing a standing property. |
+| 4 | **S-7** (SUPERLATIVE) — every label in the library is a construction-time constant (`leaf.ts:127-132, 278, 324`); zero error-path allocation, no print, no global. | Adds the missing L-18 counterweight to C-M1/C-M2: leaf's diagnostic **production** already satisfies W2 R-LAW-3 in full. The whole PT-01/EQ-4 problem is delivery-side, and this module's construction discipline needs no change to satisfy the algebra. |
+
+### 11c. Two probe-design notes, carried forward
+
+1. **A dispatch probe whose arms cannot match the input masks a mis-dispatch as an ordinary parse
+   error.** Seat 2 already recorded this for C-m3's boundary; seat 3 hit it again on C-B7 (arms built
+   from `string("x")` against input `"0"` returned `undefined` for *all* orders, hiding the inversion).
+   Dispatch arms must be `regex(/./).map(tag)` — total on any first character — so the *identity* of the
+   dispatched arm is observable.
+2. **The whitespace divergence is invisible to any ASCII-only corpus.** All three mechanisms agree on
+   space, tab, LF, CR and FF. The disagreement lives entirely at NUL/C0 (`skipWhitespace` only) and at
+   NBSP/BOM/U+2028 (`/\s*/` only). A totality corpus drawn from the 52-export surface's own fixtures
+   would never separate them — which is why C-B9 needed a code-point sweep rather than a grammar probe,
+   and why W1's oracle should carry one.

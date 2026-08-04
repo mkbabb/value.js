@@ -1008,3 +1008,207 @@ for "resolution was wrong, try again". The property is real; the guarantee is no
 ---
 
 *Pass 2 authored 2026-08-04 · LIBRARY axis · claude-opus-5[1m] · single write (this file, appended — pass 1 preserved byte-for-byte) · parse-that read-only at `ef10d5b`, main checkout only, no worktree or frozen root entered, no browser tooling, no probe that armed the packrat latch or the diagnostics flag.*
+
+---
+
+# 10 · PASS 3 — blind re-audit, folded
+
+**Served model**: `claude-opus-5[1m]`. **Date**: 2026-08-04. **Substrate**: parse-that `master` `ef10d5b`
+(`typescript/package.json` = `1.0.0`), TypeScript 5.9.3, darwin arm64.
+
+**Method note, stated first because it bounds everything below.** Pass 3 was conducted **blind** — the module
+and its whole transitive import surface were read and adjudicated *before* passes 1 and 2 were opened. It is
+therefore an independent replication, not a review. Evidence mode: **SOURCE + BYTES ONLY**. No process was
+started; no `node -e` probe was run; nothing was executed. Where pass 2 has an API-TEST receipt and pass 3 has
+only an analytic derivation, **pass 2's receipt governs** — I do not restate an executed result as if I had
+re-run it (L-16).
+
+**Law compliance**: `/Users/mkbabb/Programming/parse-that-css-totality-p2` re-verified **ABSENT**
+(`ls` → `No such file or directory`) — third independent check, no STOP finding, not created. Main checkout
+only; no `.worktrees/`, no frozen root, no `~/Documents/Codex`. Single write (this file, appended — passes 1
+and 2 preserved byte-for-byte). No browser tooling. Nothing armed `PACKRAT_ARMED` or `diagnosticsEnabled`.
+
+## 10.0 · Independent convergence (recorded as evidence, claimed as nothing new)
+
+Reading blind, pass 3 landed on **L-B1, L-B2, L-M4, L-m1, L-m2, L-m3, L-m5, S-1/S-2/S-3** and on pass 1's
+narrowing that **PT-01 does not reach `lazy.ts`** (`parser.ts:67-69` → `ParserState.prototype.toString`
+(`state.ts:136-138`) → `statePrint` (`debug.ts:141-192`), which never calls `parserPrint`). It independently
+re-verified PT-03 at `dist/packrat-entry-CS1td-8B.js:678/682/714/722` — exactly four occurrences, one write,
+no disarm — and PT-01's guard verbatim at `dist/diagnostics-DDazRHgl.js:14`.
+
+Three seats converging on the same ten rows from different directions is itself a finding: **these are not
+reading artefacts.** Pass 3 adds no count to any of them.
+
+Pass 3 **did not** independently reach L-M1, L-M2, N-1, N-6 — all four require execution, and pass 3 ran none.
+It records no opinion on their numbers beyond noting that L-M1/N-6's thesis (a scalar cannot describe the
+depth ceiling) is the correct posture for a gate constant regardless of which box measured it.
+
+## 10.1 · NEW — P3-1 · INFO · `lazy<T>`'s type parameter is **phantom**, and it is published
+
+**Provenance**: `lazy.ts:30`; published at `dist/lazy.d.ts:9`:
+`export declare function lazy<T>(target: unknown, _propertyName: string, descriptor: TypedPropertyDescriptor<() => any>): void;`
+
+`T` appears in **no parameter position and no return position**. Every call infers `T = unknown`; every
+explicit `lazy<Foo>` is silently meaningless; the declaration promises a type relationship the signature
+cannot express. Alongside it, `TypedPropertyDescriptor<() => any>` is the file's **only** `any`, it is
+unnecessary (the actual contract is `() => Parser<unknown>`, which `parser.ts:702` writes correctly), and it
+propagates into the shipped `.d.ts` — a consumer-visible hole, not an internal one.
+
+**Falsifier**: name any position in which `T` occurs. There is none. **Disposition**: not independently
+actionable — it is one more line on the ledger for §9b step 1 (delete the decorator), which discharges it
+along with L-B1/L-B2/L-m3/L-m4.
+
+## 10.2 · NEW — P3-2 · INFO · `createLazyCached`'s declared signature is a variance lie that the constructor erases on contact
+
+**Provenance**: `lazy.ts:18` declares `(state: ParserState<T>) => ParserState<T>`; `parser.ts:14-16` defines
+`ParserFunction<T> = (val: ParserState<any>) => ParserState<any>`; `parser.ts:29-32` is where the two meet.
+
+The **incoming** state's value type is whatever the *predecessor* combinator last wrote onto the threaded,
+mutated state (`state.ts:55-73` — `ok`/`err`/`from` all return `this`, retyped by assertion). It is not `T`.
+`T` is the type this lazy *produces*. The precise-looking parameter type therefore describes a relationship
+that does not hold, and it buys nothing: it typechecks only because the `Parser` constructor accepts
+`ParserFunction<T>`, whose `any`s erase it at the single point of use. The `as ParserState<T>` at `:22` is
+likewise cosmetic — no cast is doing work, because the object returned is the same object passed in.
+
+This is a **type-quality** row, not a correctness row: the runtime is sound (mutable threaded state is the
+library's deliberate design, and `state.ts:87-99`'s `unsafeSetValue`/`unsafeCall`/`unsafeCallRaw` choke points
+are the right way to hold it). What is defective is that the signature reads as a guarantee to a consumer
+using `./core` and is not one.
+
+**Falsifier**: exhibit a call site where the declared `ParserState<T>` parameter rejects a program the
+erased `ParserState<any>` would accept. Under `parser.ts:14-16` no such site can exist — which *is* the
+defect.
+
+## 10.3 · NEW — P3-3 · MINOR · `context.parser = undefined` is the graph's **only child-link hole**, and it is an adjudication the band's gate authors need
+
+**Provenance**: `lazy.ts:40` and `parser.ts:705` both call `createParserContext("lazy", undefined, fn)` —
+i.e. `context.parser = undefined`. Every other combinator in the library passes `this`: `then` `parser.ts:101`,
+`or` `:120`, `chain` `:142`, `map` `:158`, `mapState` `:185`, `skip` `:208`, `next` `:230`, `opt` `:247`,
+`not` `:301`, `minus` `:329`, `peek` `:355`, `lookAhead` `:388`, `wrap` `:429`, `many` `:561`, `sepBy` `:634`,
+`recover` `:686`, `eof` `:640`.
+
+Pass 1 (L-m2, `challenge-L-library.md:385-388`) records this as an *error-naming* limitation. It is also, and
+more consequentially, a **structural** one: `context.parser` is the canonical child link, so **a graph walk
+stops dead at every lazy node.** The only way through is `getLazyParser(context.args[0])` — i.e. through
+L-M4's shadow.
+
+**Adjudication for `W2.md:810` / `W2-opus-author.md:695` (G-10/G-11) and `parser-band.md`'s idiom reading
+("no `.opt()` child of any `all()`; exactly 1 lazy; 0 memoize", graph-walked):**
+
+- **Counts SURVIVE.** For a body with no build-time state, the shadow is *structurally isomorphic* to the
+  executing graph, so `lazy ≤ 1` and the `.opt()`-under-`all()` predicate return the same answer on either.
+- **Termination SURVIVES**, and for a reason worth writing down so no one re-derives it: the knot node
+  reached *inside* the shadow is the **original** lazy `Parser` object (the body closes over the module-level
+  `const`), so it carries the **same `Parser.id`** and any visited-set walker halts. Only the *interior* of
+  the shadow subtree has fresh ids.
+- **Identity and allocation assertions DO NOT SURVIVE.** A gate that asserts on `Parser.id`, on object
+  identity across a lazy edge, on node counts *as allocated*, or on `MEMO` cell provenance is reading a graph
+  that never executes (L-M4; and `debug.ts:321-322` memoises `PARSER_STRINGS` under those shadow ids).
+- **Operational rule**: *count freely across a lazy edge; never assert identity or allocation across one.*
+
+**Falsifier**: a body that consults mutable build state breaks even the count guarantee, because the shadow
+is then not isomorphic. cand-O's grammar is pure (`parser-band.md` §Architecture — the eight colour functions
+are one production parameterised by a static channel table), so the gate is safe **for the ruled grammar** —
+which is a property of that grammar, not of this library, and must not be generalised.
+
+## 10.4 · NEW — S-7 · SUPERLATIVE · `lazy.ts` made the retention choice its own dependency did not
+
+**Provenance**: `lazy.ts:5` (`new WeakMap()`), surviving into the bundle as
+`dist/packrat-entry-CS1td-8B.js:2` — `const LAZY_PARSER_CACHE = /* @__PURE__ */ new WeakMap();` (the purity
+annotation is preserved, so the allocation is tree-shakeable when nothing reaches it). Contrast, one file
+away in the same chunk: `debug.ts:245` — `const PARSER_STRINGS = new Map<number, string>();`.
+
+`PARSER_STRINGS` is keyed on `Parser.id`, a **process-global monotonically increasing** counter
+(`parser.ts:18`, `:25`). It is written at `debug.ts:322`, `:340`, `:346` and is **never cleared, never
+evicted, and exposes no reset** — while its siblings both do (`resetPackrat()` `packrat.ts:262`;
+`clearCollectedDiagnostics()` `utils.ts:142`). Every `toString()` in a long-lived process (a dev server
+logging parse trees) therefore adds permanently-retained entries under keys that **can never recur**. That is
+an unbounded leak. `lazy.ts` has none: it reached for the weak structure.
+
+**Stated with its own caveat, because L-18 runs both ways**: L-M4 and P3-5 below show lazy's better choice is
+**inert** — `fn` is retained by `context.args`, so the WeakMap never collects. The *instinct* is still
+correct and the neighbour lacks it entirely; that asymmetry is the superlative, and its emptiness in practice
+is the defect already filed.
+
+## 10.5 · Riders on existing rows (no new count)
+
+**P3-4 — rider on N-7/N-8 (chronology), and it is a *positive* result.** `git log -1 --format='%H %ad'
+--date=short -- typescript/src/parse/lazy.ts` → **`7ec4b31` 2026-03-30**. The module is **byte-frozen since
+2026-03-30**, ~4 months before O-15 measured it on 07-27. Pass 2 (`:843-846`) left this at *"divergence is
+unlikely — but 'unlikely' is not 'verified'"*. For **this module** it is now verified in the affirmative
+direction: the last mutation strictly **predates** the measurement window, so
+`W2-opus-author.md:765`'s caveat (*"every O-15 number predates the clone-point substrate"*) **does not apply
+to `lazy.ts`** — **O-15 PT-04 is a measurement of the exact bytes challenged in this file.** This does not
+disturb N-6/L-M1's separate and correct objection that a single scalar cannot describe the quantity; it
+removes only the *staleness* doubt, leaving the *methodology* doubt intact. N-7 and N-8 stand unchanged: the
+`dist:line` cites remain against a gitignored build and still want a sha256 pin.
+
+**P3-5 — rider on L-M4 (the retention chain, one step further).** Pass 1 establishes that the WeakMap entry
+lives as long as `fn`, which `context.args` holds for the process. The design conclusion it stops short of:
+**`WeakMap` is therefore exactly equivalent to `Map` at both of the only two construction sites that exist**
+(`parser.ts:705`, `lazy.ts:40`) — the weak reference can never fire. Sharper still, the **sole** consumer,
+`debug.ts:317`, obtains `fn` by destructuring it back out of `context.args` — i.e. out of the very reference
+that defeats the weakness. Any cure must therefore add an explicit reset (§9b step 2), because there is no
+GC-based path to reclamation. Same defect, one turn of the screw; no new count.
+
+**P3-6 — extension of N-9 (coverage), strengthening it.** `grep -rn "toHaveBeenCalled\|callCount\|calls\b"
+test/*.ts` → **zero hits in the entire suite.** N-9's "zero direct tests for the module" is therefore stronger
+than stated: the suite possesses **no mechanism at all** for asserting invocation counts, so L-B2, L-M4,
+L-m1, and L-m2 are not merely unfixed — they are **unobservable** to it. The eight `Parser.lazy` fixtures
+(`math.test.ts:45,54,66,70`; `memoize.test.ts:17,25,28,30,42,57`; `reentrancy.test.ts:111,130,162`;
+`json.test.ts:17,27`; `print.test.ts:21`) all assert *parse results*; `print.test.ts:31` exercises the
+`getLazyParser` arm and asserts only `expect(s).toBeTruthy()`. Three lines convert L-M4 from an argument into
+a red test:
+
+```ts
+let n = 0; const p = Parser.lazy(() => { n++; return digits; });
+p.parse("1"); p.toString();
+expect(n).toBe(1);   // currently 2
+```
+
+## 10.6 · Rows pass 3 looked for and did **not** find (recorded so the next seat need not re-look)
+
+- **No re-entrancy hazard in `lazy.ts` itself.** `createLazyCached`'s `cached` is per-`Parser`, input-independent,
+  and written once; a nested `parse(differentSrc)` mid-parse cannot corrupt it. This is pass 2's **S-6**,
+  reached independently.
+- **No `console`, no label, no diagnostics call** anywhere in the module — confirming pass 1's PT-01 narrowing
+  from the opposite direction (`grep -n "console\|Diagnostic\|label" src/parse/lazy.ts` → empty).
+- **No packrat import.** `lazy.ts` imports exactly `parser.js` (value) and `state.js` (type + value). It holds
+  no arming latch. Its module-global is monotone fill-only — a cache, not a latch: it changes no behaviour,
+  only identity and residency. The honest overlap with `W2.md:132`'s **O-8** anti-latch construction rule is
+  one severity band down and is already filed as L-M4/P3-5. (N-1's separate claim — that deferring
+  *construction* into the parse can arm the latch mid-parse — is a `packrat.ts` seam reached through lazy, and
+  pass 3 neither confirms nor disputes it, having run nothing.)
+- **No allocation on the steady-state hot path.** `lazy.ts:20-23` = one closure-slot load, one branch, one
+  monomorphic call. Zero bytes of garbage per invocation; `state` is threaded and mutated in place. Pass 2's
+  **S-2**, reached independently.
+
+## 10.7 · Merged ledger, passes 1–3
+
+| pass | defects added | superlatives added |
+|---|---|---|
+| 1 | 12 (2 BLOCKER · 4 MAJOR · 6 MINOR) | 4 |
+| 2 | 8 (1 MAJOR · 2 MINOR · 5 INFO) | 2 |
+| **3** | **3 (1 MINOR · 2 INFO)** | **1** |
+
+**MERGED TOTALS: 23 defects (2 BLOCKER · 5 MAJOR · 9 MINOR · 7 INFO) · 7 superlatives.**
+
+New in pass 3: **P3-3** (MINOR — the `context.parser` child-link hole + the gate adjudication),
+**P3-1** (INFO — phantom generic, published), **P3-2** (INFO — the erased variance lie), **S-7**
+(SUPERLATIVE — the retention choice its own dependency did not make). Riders **P3-4** (chronology, positive),
+**P3-5** (weakness defeated), **P3-6** (coverage) add no count.
+
+**§9b's falsification order is unchanged by pass 3.** P3-1 and P3-2 discharge with step 1 (delete the
+decorator); P3-5 constrains step 2 (the collapse must ship an explicit reset — GC will not do it); P3-3 adds
+no step but supplies the operational rule the band's gate authors need *today*: **count across a lazy edge,
+never assert identity or allocation across one.** P3-4 removes the staleness doubt from step 7's first
+clause while leaving its methodology objection (N-6) and its sha256-pin clause (N-8) fully intact.
+
+---
+
+*Pass 3 authored 2026-08-04 · LIBRARY axis · `claude-opus-5[1m]` · conducted **blind** (module and full
+transitive import surface adjudicated before passes 1–2 were opened), then folded · evidence mode SOURCE +
+BYTES only, **nothing executed** — where pass 2 holds an API-TEST receipt, pass 2 governs · single write
+(this file, appended — passes 1 and 2 preserved byte-for-byte) · parse-that read-only at `ef10d5b`, main
+checkout only, no worktree / frozen root / Codex path entered, no browser tooling, no probe that armed the
+packrat latch or the diagnostics flag · `parse-that-css-totality-p2` verified ABSENT, not created.*

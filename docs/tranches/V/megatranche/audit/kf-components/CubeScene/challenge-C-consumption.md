@@ -25,19 +25,27 @@ claude-opus-5[1m]
 | **C-5** | MAJOR | `isPlaying` is a write-never ref exposed outside the typed contract; it dead-ends three consumers incl. a documented perf hint | `CubeScene.vue:65,250` |
 | **C-6** | MAJOR | matrix-cell bounds contract is inert — `:start`/`:end`/`:step` are not glass-ui `InputProps`; **new shadow S-9** | `MatrixEditor.vue:34-36` |
 | **C-7** | MAJOR | every matrix edit spawns an unowned, undisposed `NumericAnimation`; concurrent edits contend over `matrix3dEnd` | `useTransformState.ts:87-93,105-126` |
+| **C-15** | MAJOR | `tabsContent` is projected into a per-channel `v-for` through an **ungated** slot ⇒ **3 `MatrixEditor` instances**; CubeScene's own comment asserts a gate the parent does not implement | `CubeScene.vue:158-181` · `ControlsPaneWrapper.vue:45-83` · `ChannelControls.vue:180` |
+| **C-16** | MAJOR | `matrixOptions.fixed` has **zero readers** repo-wide — the ribbon Lock/Free button is a dead control that only labels itself | `CubeScene.vue:191-200` |
 | **C-8** | MINOR | the `SceneFacet` metadata CubeScene supplies is dead — it re-introduces the duplicate `SURFACE_META` exists to kill | `CubeScene.vue:232-236` |
 | **C-9** | MINOR | the shared store under-types the cube's own extension; **no `.vue` in this repo is ever type-checked**, in CI or locally | `controlOptionsStore.ts:26` · `env.d.ts:3` · `ci.yml:41,73` |
 | **C-10** | MINOR | the gesture contract is duplicated verbatim across the parent/child seam (2 nested non-passive wheel listeners) | `CubeScene.vue:12-13` · `CubeTarget.vue:4-5` |
 | **C-11** | MINOR | `easeInBounce` survives the T.A3 "ONE settle-motion language" edict at the one site the ribbon Reset drives | `useTransformState.ts:1,107` vs `useCubeDemo.ts:124-129` |
 | **C-12** | MINOR | `tabsContent` returns `null` against a `() => VNode` contract; MatrixEditor's `resetMatrix` emit is a dead wire | `sceneExposedApi.ts:25` · `MatrixEditor.vue:108-111,136-138` |
+| **C-17** | MINOR | a 24-line comment block describes `CONDITIONAL_SURFACES` + `activeControlConditionals` as the LIVE gate; a block 90 lines below says they DIED. The tree agrees with the second | `CubeScene.vue:146-156` vs `:244-247` |
+| **C-18** | MINOR | target attachment is one-shot and **silently no-ops** — the facility (and its `identity`) exist whether or not `setTargets` ever ran | `CubeScene.vue:204-212` |
 | **C-13** | INFO | the persisted transform aliases the live `mat4` (asymmetric copy) | `CubeScene.vue:221-224` |
 | **C-14** | INFO | on HOME the component keys its store bucket `"cube"` while the shell keys `"home"` — two buckets, one mount | `CubeScene.vue:60,62` · `scenes.ts:130-136` |
+| **C-19** | INFO | root-barrel glass-ui import where `./popover` and `./button` subpaths exist; plus a latent unnamed `role="group"` that C-2's repair would ship | `CubeScene.vue:33-38,127` |
+| **C-20** | INFO | four writers contend for `transform` on one element — three group channels plus a direct painter | `useCubeDemo.ts:155-157` · `useTransformState.ts:203-212` |
 | **L-1** | SUPERLATIVE | the heavy/light engine boundary is honored exactly, and CubeScene is the one scene where it *matters* | `useCubeDemo.ts:50` · `CubeTarget.vue:110` · `App.vue:155` |
 | **L-2** | SUPERLATIVE | zero R1 (`parseCssColor`) exposure — provable at the chunk level, not incidental | 6 value.js edges, all grammar-free |
 | **L-3** | SUPERLATIVE | the glass boundary is import-clean; exactly ONE bespoke-vs-glass shadow in the whole subtree | `MatrixEditor.vue:97-98` |
 | **L-4** | SUPERLATIVE | the T.B2 conditional-surface inversion is genuinely landed — here the prose and the tree AGREE | `CubeScene.vue:228-238` · `controlSurfaces.ts:111-113` |
 
-**Totals — defects 14 · blockers 1 · superlatives 4.**
+**Totals — defects 20 · blockers 1 · superlatives 4.**
+
+> **Two-pass file.** C-1..C-14 and L-1..L-4 are the first pass. C-15..C-20 are a second, independent read of the same 19 files that folded into this file rather than forking it; the second pass re-ran the first pass's two decisive probes (the `headerLeft` zero-fill of C-2, and the H-1 kill) and **confirmed both**, and corrected one factual slip in L-4 (noted inline). Nothing from the first pass was removed.
 
 ---
 
@@ -208,6 +216,68 @@ The leak window is *bounded* (300 / 500 / 650 ms), which is why (b) is the minor
 
 **UNPROVEN-NEEDS-LIVE:** the exact typing symptom (field text overwritten mid-entry). The mechanism is source-certain; the perceptual severity is not.
 
+### C-15 · `tabsContent` is instantiated once per channel — three `MatrixEditor`s, not one
+
+CubeScene's comment claims a gate, and names the parent behaviour it believes it is mirroring:
+
+```
+CubeScene.vue:158-169
+// The matrix-controls BODY is now a PLAIN gated tabpanel … It mirrors
+// AnimationControls' own built-in panels: rendered ONLY while the active surface
+// is "matrix-controls" … matching the parent's `selectedControlSurface === 'x'`
+// gating.
+```
+
+The parent's **built-in** panels are so gated — `ChannelControls.vue:98` `v-if="hasSurface('controls') && selectedControlSurface === 'controls'"`, and identically at `:130` and `:150`. The **scene** slot is not:
+
+```
+ChannelControls.vue:180      <slot name="tabs-content"></slot>      ← no v-if  (multi-surface branch)
+ChannelControls.vue:32       <slot name="tabs-content"></slot>      ← no v-if  (single-surface branch)
+```
+
+And that outlet sits inside a **per-channel `v-for`** whose wrapper is `v-show` — mounted for every channel, hidden for all but one:
+
+```
+ControlsPaneWrapper.vue:45-49    v-for="host in controlHosts" :key="host.animation.id"
+                                   <div v-show="storedControls.selectedAnimation == host.name">
+ControlsPaneWrapper.vue:77-83        <template #tabs-content><slot name="tabs-content" …/></template>
+ControlsPaneWrapper.vue:207-220  controlHosts ← props.channels (the facility axis), one host per painting channel
+```
+
+The full chain is live end to end (unlike `#header-left`, C-2): `App.vue:62` → `EditorShell.vue:92-93` → `AnimationControlsGroup.vue:41-42` → `ControlsPaneWrapper.vue:77-83` → `ChannelControls.vue:180`.
+
+Cube exposes **three** channels. `useCubeDemo.ts:114-122` builds `new AnimationGroup(rotationAnim, matrixAnim, hoverAnim)`; `group.ts:149` keys `this.animations[name]` by name, so `Rotations`/`Matrix`/`Hover` are three distinct entries; `scene-facility/index.ts:92` maps every entry to a channel; `ControlsPaneWrapper.vue:209-219` flat-maps every channel carrying an `animation` to a host. Three hosts, three outlets.
+
+CubeScene's gate (`:171`) reads `storedControls.selectedControl` — a **scene-level** value, one bucket per superKey, therefore *identical for all three hosts*. It cannot distinguish them. So whenever the Matrix surface is active:
+
+- **3 `MatrixEditor` instances** — 3 × 16 `Input`s = 48, plus 3 `Slider`s, all bound to the same `matrix3dEnd` and the same store bucket;
+- **3 `[role=tabpanel][data-state=active]` divs** (`CubeScene.vue:172`) for one tablist — and `styles/tab-idiom.css` targets exactly that selector for the panel-slide, so the enter animation runs three times;
+- every frame of the 300 ms `NumericAnimation` in **C-7** re-renders all three trees, tripling that finding's cost.
+
+Two of the three sit inside `display:none`, so the ARIA damage is contained (display:none leaves the a11y tree) — but they are **mounted and reactive**, not merely hidden.
+
+This is the render-fn slot protocol's structural hazard: `sceneExposedApi.ts:25` types `tabsContent?: () => VNode` with no instance discipline, and the protocol's docblock (`:6-10`) defends it as "the idiomatic cross-sibling teleport". A render fn placed in a `v-for` is instantiated per iteration; a scene-level gate cannot compensate. `EasingScene` (1 channel) and `SpringScene` (2) hit the same seam at lower multiplicity — cube is the worst case because it has the most channels.
+
+**Falsifier.** Any gate between the `v-for` and the outlet that admits only the active host — a `v-if="active"` on the `tabs-content` outlet, or `controlHosts` collapsing to one entry. I read both outlets (`ChannelControls.vue:32`, `:180`): neither carries a condition, and `ControlsPaneWrapper.vue:49` is `v-show`, not `v-if` (the same fact the first pass used to kill H-1 — it cuts both ways: it is what guarantees the seed, and what guarantees the duplication). Produce such a gate and this drops to INFO, since the comment would still be wrong.
+**UNPROVEN-NEEDS-LIVE:** `document.querySelectorAll('.matrix-grid').length` with the Matrix channel selected. The claim predicts **3**.
+
+### C-16 · `matrixOptions.fixed` is a dead control
+
+The ribbon renders a Lock/Free toggle with a persistent, per-scene, localStorage-backed flag behind it (`CubeScene.vue:191-200`). Repo-wide readers of that flag:
+
+```
+$ grep -rn "\.fixed" --include="*.vue" --include="*.ts" demo/ src/
+demo/scenes/cube/CubeScene.vue:194     (the write)
+demo/scenes/cube/CubeScene.vue:197     (its own icon)
+demo/scenes/cube/CubeScene.vue:198     (its own label)
+```
+
+Three hits, all inside the button that owns it. `MatrixEditor.vue` seeds the field (`:115-120`) and never reads it; `useTransformState.ts` never reads it; `transformMath.ts` never reads it; nothing in `state/` reads it. **Toggling Fixed↔Free changes no behaviour anywhere in the cube.** The affordance is a labelled lie — its only observable effect is its own caption flipping between "Fixed" and "Free".
+
+This sharpens the first pass's C-9 and its killed H-1: the *typing* of `matrixOptions` is wrong (C-9), the *crash* is not reachable (H-1), and the *semantics* are absent entirely. The field is half of a two-field store extension whose declared type (`controlOptionsStore.ts:26` `{ fixed: boolean }`) names only the dead half and omits the live one (`selectedMatrixCell`, seven readers).
+
+**Falsifier.** A reader via string index (`matrixOptions["fixed"]`), a destructure (`const { fixed } = …`), or a CSS attribute selector keyed on it. I grepped `matrixOptions` repo-wide (12 hits: `CubeScene.vue` ×3, `MatrixEditor.vue` ×8, the type at `controlOptionsStore.ts:26`) and `\.fixed` (3 hits above). Produce a consumer and this dies outright.
+
 ---
 
 ## 3. MINOR
@@ -294,6 +364,55 @@ A second-order consumption split rides along: the two compliant sites pass the e
 
 **Falsifier.** A `@click="resetMatrix"` (or `$emit('resetMatrix')`) anywhere in `MatrixEditor.vue`, or a parent other than CubeScene mounting it. It has exactly one consumer.
 
+### C-17 · the file contradicts itself about which surface-gating mechanism is live
+
+Two comment blocks, 90 lines apart, both current, describing the same mechanism in opposite tenses:
+
+```
+CubeScene.vue:146-156   "…the App supplies `matrix-controls` as an active conditional iff the cube's
+                         Matrix animation is selected (App.vue's `activeControlConditionals`, gated on
+                         `selectedAnimation === CUBE_ANIMATION_NAMES.Matrix`)…"
+                         (and :150) "(`CONDITIONAL_SURFACES.cube = ["matrix-controls"]` …)"
+
+CubeScene.vue:244-247   "…the old CONDITIONAL_SURFACES + activeControlConditionals threading DIED."
+```
+
+The tree agrees with the second. Probe:
+
+```
+$ grep -rn "CONDITIONAL_SURFACES\|activeControlConditionals" demo/
+scenes/cube/CubeScene.vue:150      (prose — the STALE block)
+scenes/cube/CubeScene.vue:154      (prose — the STALE block)
+scenes/cube/CubeScene.vue:247      (prose — the obituary)
+app/App.vue:240                    (prose — the obituary)
+state/controlSurfaces.ts:4,24      (prose — the obituary)
+```
+
+**Six hits, zero code.** Neither identifier exists as a declaration, an export, or a reference anywhere in the demo.
+
+**This corrects one factual slip in L-4**, which states the grep "returns nothing" — it returns six lines, all prose. L-4's *substance* survives intact and is unaffected: the mechanism really is gone from the tree, and `controlSurfaces.ts:111-113` really does gate on channel selection. What L-4 could not then see is that **one of those six prose hits is inside CubeScene itself and still describes the dead machinery as live** — so the seam where L-4 celebrates prose/tree agreement carries a stale block that reads as an authoritative wiring description. A reader arriving at `:146-156` will go looking for `App.vue`'s `activeControlConditionals` and find nothing.
+
+**Falsifier.** Either identifier existing as code, which would flip the finding (the *second* block would be the stale one). The grep shows every hit is inside a `//` comment.
+
+### C-18 · target attachment is one-shot and silently no-ops
+
+```
+CubeScene.vue:204-212
+onMounted(() => {
+    const cubeEl  = cubeTargetRef.value?.cubeEl;
+    const graphEl = cubeTargetRef.value?.graphEl;
+    if (cubeEl && graphEl) { cubeElRef.value = cubeEl; setTargets(cubeEl, graphEl); }
+});
+```
+
+No `else`, no warning, no retry, no watcher. If either ref is unresolved at parent-`onMounted`, the three group channels are never given a target and the scene reports nothing.
+
+The shell has an explicit invariant that this is supposed to satisfy — `useSceneMachineShellBinding.ts:171-176` calls it *"the targets-attached precondition (S4 / WV-W1-MED-5)"* and `:183-191` refuses to mark a scene ready without a live group. But the precondition it actually tests is the existence of `facility.identity` (`:163`), and CubeScene builds the facility unconditionally at `:228-238` — **before and independent of** whether `setTargets` ran. So a CubeScene that attached nothing still presents a ready, playable facility, and the machine will dispatch `SCENE_READY` and possibly `PLAY` against target-less animations.
+
+`graphEl` is unconditional in the child (`CubeTarget.vue:8`), but `cubeEl` (`:24`) sits inside `<OrbitalDrag>`'s default slot — one component boundary and one slot render away — and both arrive through `defineExpose` (`CubeTarget.vue:129`), i.e. across a proxy the parent reads once. A silent, unobservable failure mode on the scene's only attachment point.
+
+**Falsifier.** A retry path — a `watch` on `cubeTargetRef`, an `onUpdated` re-attach, or a `<Suspense>`/`@resolve` hook that re-drives `setTargets`. `CubeScene.vue` has one `onMounted` and one `onBeforeUnmount`; the shell's `markSceneReady` re-drives on a fresh **group**, never on a fresh target. **UNPROVEN-NEEDS-LIVE** for whether the window is ever hit; the unobservability is source-certain.
+
 ---
 
 ## 4. INFO
@@ -324,6 +443,42 @@ Two buckets for one mounted component, and the ppMode toggle (C-1) would — if 
 Practically inert today because home shows no controls and `hideLoader` short-circuits the one home-visible read (`CubeScene.vue:20`). Recorded because it is the seam C-1's cure would land on.
 
 **Falsifier.** A shell path that writes the `cube` bucket while on home, or a home-visible control surface.
+
+### C-19 · root-barrel import where subpaths exist; and a latent unnamed `role="group"`
+
+**(a) Subpath choice.** `CubeScene.vue:33-38` draws `Popover`, `PopoverContent`, `PopoverTrigger`, `Button` from the **root barrel**. Both dedicated subpaths exist in the installed 7.0.0 — probe on the exports map: `./popover` and `./button` are among the 73. glass-ui declares `"sideEffects": ["*.css"]`, so a correct bundler should shake the barrel, which is why this is INFO and not MAJOR. It is recorded because the demo already demonstrates the disciplined form 21 times (lane-frontend §3.1/§3.2) and because CubeScene's own child mixes both idioms on adjacent lines — `MatrixEditor.vue:97` root barrel, `:98` `/forms`. **UNPROVEN-NEEDS-LIVE** for any chunk-graph consequence (no build permitted under lane law); the subpath-exists half is source-certain.
+
+**(b) A revival hazard for C-2.** `CubeScene.vue:127` passes `role: "card"` to `PopoverContent` and no `ariaLabel`. The producer d.ts is explicit that these two props are a pair:
+
+```
+dist/components/popover/PopoverContent.vue.d.ts
+    /** `dialog` (default click) · `card` (→ role="group"). */   role?: PopoverRole;
+    /** Accessible name passthrough for the `role="group"` card surface. */   ariaLabel?: string;
+```
+
+`ariaLabel` carries no default (the compiled defaults block lists `sideOffset`, `align`, `surface`, `portal` only), and the card's content opens with an `<a>`, not a heading — so nothing else supplies a name. Inert today because `headerLeft` never mounts (**C-2**). It becomes live the moment C-2 is repaired by *filling* `#header-left` rather than deleting the render fn, so it belongs in that repair's scope, not after it.
+
+Same scope, same reason: the ppMode click handler is on a bare `<div>` **inside** `PopoverTrigger` (`:121-126`) — no `role`, no `tabindex`, no key handler, no accessible name. Keyboard activation fires on the trigger and does not propagate downward to the nested `<div>`, so on revival `setPPMode` would be pointer-only.
+
+### C-20 · four writers contend for `transform` on one element
+
+`useCubeDemo.ts:155-157` points **all three** group channels at the same node:
+
+```js
+rotationAnim.value.setTargets(cubeEl);
+matrixAnim.value.setTargets(cubeEl);
+hoverAnim.value.setTargets(cubeEl);
+```
+
+and `useTransformState.ts:203-212` paints the *same* element directly, outside the group, whenever `!isGroupStarted`:
+
+```js
+transformTargetsStyle({ transform: matrix3dEnd.value }, [targetRef.value]);
+```
+
+By construction, not by accident — group blending is advertised to the panel (`AnimationControlsGroup.vue:20` `:blend-available="animationGroup.singleTarget"`, and `group.ts:159-161` computes `singleTarget` by exactly this all-same-target test, so the cube is the case that flag exists for). Recorded because it is the demo's stress case for blended consumption, and because **C-5** removes the one signal that would tell the direct painter to stand down: the `!isGroupStarted` gate is the only coordination between the fourth writer and the other three, and the `isPlaying` half of that state is a write-never ref.
+
+**Falsifier.** Any of the three channels targeting a different element, or a coordination path between the direct painter and the group beyond `isGroupStarted`. `useTransformState.ts:200` is the only gate in the watcher.
 
 ---
 
@@ -384,7 +539,7 @@ The demo's single R1 surface is a different scene: `demo/scenes/square/useSquare
 
 The tree bears this out end to end:
 - `CubeScene.vue:228-238` supplies `matrix-controls` as a **channel facet**, not a rendered trigger;
-- `controlSurfaces.ts:111-113` gates it on *"which channel is selected"* (`selected?.facets ?? []`), so the old `CONDITIONAL_SURFACES` + `activeControlConditionals` threading really is gone — `grep -rn "CONDITIONAL_SURFACES\|activeControlConditionals" demo/` returns nothing;
+- `controlSurfaces.ts:111-113` gates it on *"which channel is selected"* (`selected?.facets ?? []`), so the old `CONDITIONAL_SURFACES` + `activeControlConditionals` threading really is gone — `grep -rn "CONDITIONAL_SURFACES\|activeControlConditionals" demo/` returns **no code**; *[corrected in the second pass: the grep returns six lines, every one a `//` comment. The conclusion stands — zero declarations, zero references — but one of those six comments is inside CubeScene and still describes the dead machinery as live. See **C-17**, which qualifies this superlative without overturning it.]*;
 - `CubeScene.vue:170-181` renders a plain `h("div", { role: "tabpanel", "data-state": "active" })` with no reka import in sight;
 - the reka `<Tabs>` import is genuinely deleted — `grep -rn 'from "reka-ui"' demo/` → zero.
 
@@ -417,10 +572,16 @@ CubeScene is statically imported by App (L-1), and the kf boundary gate whitelis
 5. **C-5** — delete `isPlaying` from `CubeScene.vue:65,250`, delete the dead `isGroupPlaying` parameter (`useTransformState.ts:22`), and either wire the `.playing` class off the facility (`facility.isPlaying()`, `scene-facility/index.ts:70`) or drop the dead `will-change` branch. Correct the false "cube/amiga contract" prose in `SquareScene.vue:105-107,318-323`.
 6. **C-7** — retain and stop the `NumericAnimation` handles; add `onScopeDispose` to `useTransformState`; destructure and stop `changeGraphPerspectiveAnim`.
 7. **C-6 / S-9** — evaluate `/number-field` for the matrix cell. Same wave as lane-frontend's S-3/S-4 timeline work, since both are "the demo hand-rolls a shipped primitive".
-8. **C-8, C-11, C-12, C-10** — one cleanup commit each; all are single-hunk.
+8. **C-15** — gate the scene `tabs-content` outlet on the active host (`ChannelControls.vue:180`, `:32`), or hoist the scene body out of the per-channel `v-for` entirely. Land it **before** C-7: C-15 is the multiplier on C-7's per-frame cost, and fixing C-7 alone leaves 3× the render trees in place. Correct the false comment at `CubeScene.vue:158-169` in the same hunk. Verify with the SS-13 probe (`.matrix-grid` count → 1).
+9. **C-16** — decide the Lock/Free button's fate: give `matrixOptions.fixed` a consumer (pin the matrix against slider writes is the obvious intent, `useTransformState.ts:197-215`) or delete the button, the field, and its store type row. Do **not** merely fix the typing (C-9) and leave a control that does nothing.
+10. **C-17, C-18** — one hunk each: delete the stale block at `CubeScene.vue:146-156`; give the attach path an `else` that warns, or make `facility` conditional on it.
+11. **C-19, C-20** — fold into their parents: C-19(a) with any subpath sweep, C-19(b) **inside** C-2's repair if that repair fills the slot rather than deleting it, C-20 with C-5.
+12. **C-8, C-11, C-12, C-10** — one cleanup commit each; all are single-hunk.
 
 ---
 
 ## Provenance note
+
+The second pass (C-15..C-20, the L-4 correction, and repair steps 8–11) re-read the same subtree independently and additionally read `components/instrument/transport/channel-controls/ChannelControls.vue` whole, `components/instrument/transport/AnimationControlsGroup.vue`, `src/animation/group/group.ts` (§`animations` keying), and `src/animation/presets/{catalog,classic-data}.ts` (§`hover`). It formed three further hypotheses and killed all three against the tree rather than filing them: *"two engine-acquisition idioms (sync `kfEngine()` vs async `loadAnimationEngine()`) are an inconsistency"* — killed by `demo/kf-engine.ts:12-16`, which names per-site `loadAnimationEngine()` as the **default** idiom and the warm accessor as the narrow exception, i.e. L-1 is right and the split is by design; *"the `@wheel.prevent`/`touch-action` duplication is a MAJOR"* — demoted, C-10 already scopes it correctly as MINOR; *"`presets.hover` reaches the value.js grammar"* — killed by `presets/classic-data.ts:416-425` (`transform: translateY()` only, no colour token), which independently corroborates L-2.
 
 Every glass-ui claim is sourced from `/Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/glass-ui/dist/` (7.0.0, the copy the target already has on disk — no upgrade is required for any repair above). Every value.js claim is sourced from `/Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/value.js/dist/` (4.0.0). `/Users/mkbabb/Programming/keyframes.js` was read only. No file in keyframes.js, glass-ui, or value.js was written, mutated, or executed; no install, no build, no dev server, no browser tooling. The sole write of this lane is this file.

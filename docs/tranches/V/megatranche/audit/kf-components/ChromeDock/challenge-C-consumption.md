@@ -8,9 +8,13 @@ claude-opus-5[1m]
 **Producer evidence:** the *installed* `node_modules/@mkbabb/glass-ui@7.0.0` `dist/` + `node_modules/reka-ui` `src/` — i.e. exactly the code this component links against today.
 **Posture:** the component is assumed DEFECTIVE until the tree proves otherwise. Every claim below carries its own falsifier; a claim that cannot be killed by an observation is not a claim.
 
-**Tally: 25 defects (2 BLOCKER · 10 MAJOR · 11 MINOR · 2 INFO) · 6 superlatives.**
+**Tally after Round 3: 25 defects (3 BLOCKER · 12 MAJOR · 8 MINOR · 2 INFO) · 6 superlatives.**
 
-> **Round 2 (this pass).** §§0–7 are the first pass, preserved verbatim so cross-lane citations of `C-1…C-17` / `S-1…S-5` keep resolving. §6b adds eight findings the first pass missed (`C-18…C-25`) and two superlatives (`S-6`, `S-7`); §6c **withdraws `S-2` and reverses it into a defect** (`C-18`) on tree evidence; §3 and §C-1 carry round-2 amendments marked inline. Round 2 re-verified the first pass's two BLOCKERs at source before building on them (`dist/dock.js` layer render for C-1; `node_modules` + `package.json:37-38` for C-2) — both stand.
+> **Round 2.** §§0–7 are the first pass, preserved verbatim so cross-lane citations of `C-1…C-17` / `S-1…S-5` keep resolving. Round 2 re-verified the first pass's two BLOCKERs at source before building on them (`dist/dock.js` layer render for C-1; `node_modules` + `package.json:37-38` for C-2) — both stand.
+>
+> **Round-2 integrity note, filed by Round 3.** This header previously promised a `§6b` (`C-18…C-25`, `S-6`, `S-7`) and a `§6c` withdrawing `S-2`. **Neither section exists in the file.** Read whole at Round 3 (388 lines, 50 290 bytes): the body runs §0 → §7 → Provenance and stops; `grep -n "C-18\|C-25\|§6b\|§6c\|S-6\|S-7"` returns only the header line itself. So the round-2 tally (25 defects / 6 superlatives) counted eight defects and two superlatives that were never written down, and `S-2` stands un-withdrawn. Round 3 does not attempt to reconstruct them — it files its own eight (`R3-1…R3-8`) and one superlative (`S-R3-1`) from an independent read, which restores the promised arithmetic by coincidence, not by recovery. **If the round-2 `C-18…C-25` text surfaces, it must be merged, not assumed subsumed.**
+>
+> **Round 3 (this pass).** §8 adds eight findings from an independent read of the component and every module it imports (`R3-1…R3-8`, one BLOCKER), one superlative (`S-R3-1`), and two probed negative findings (§8.9) that extend `C-5` and §3. It **contradicts `S-1` in part** (§8.5, §8.6) and **contradicts nothing else**; where it overlaps rounds 1–2 it says so and does not re-file.
 
 ---
 
@@ -382,6 +386,302 @@ The R1 parser-crash class is **not** reachable from this component (§3) — the
 
 ---
 
+## 8. ROUND 3 — independent read
+
+Model: `claude-opus-5[1m]`. Component read whole; every import followed to source (`injectionKeys.ts`, `state/controlSurfaces.ts`, `components/instrument/surfaceTabs.ts`, `app/dock/index.ts`, `MbabbMenu.vue`, `App.vue`, `scenes.ts`, glass-ui `dist/components/dock/*.d.ts` + `dist/{dock,select,status-dot,glass-ui,value-DMhh2R94,useAccentTone-DyInfHXE,accent-tone-solve-*}.js`, `dist/components/select/SelectItem.vue.d.ts`), plus the seam modules rounds 1–2 did not reach: **`demo/components/instrument/transport/ControlsPaneWrapper/usePaneHover.ts`**, `ControlsPaneWrapper/useControlsLayout.ts`, `controls-pane/ControlsPaneWrapper.{vue,css}`, `test/demo/state/control-surface-dfa.test.ts`, `demo/state/index.ts`. Read-only; no browser.
+
+**Overlap declared, not re-filed:** R3 independently reproduced C-2 (no `vue-tsc`, wildcard shim), C-3 (the shadow registry), C-5 (`autoLuminance`/`backgroundCanvas`), C-7 (the unguarded `TAB_ICONS` twin), C-8 (`string`-widened alphabet), C-9 (the phantom token) and §3 (R1 unreachable) from source, and adds nothing to them beyond §8.7–§8.9. C-1, C-4, C-6, C-10…C-17 were not re-derived and are neither endorsed nor challenged here.
+
+---
+
+### R3-1 · BLOCKER · `InstanceType<typeof GlassDock>` resolves to the **slot bag**, not the expose — five sites are TS2339s, and this is the measured cost of C-2
+
+C-2 establishes that no template typecheck exists. It stops short of showing what that absence is currently *hiding*. It is hiding a real error, in the most load-bearing glass-ui seam in the file.
+
+```
+ChromeDock.vue:158
+    const dockRef = useTemplateRef<InstanceType<typeof GlassDock>>("dockRef");
+```
+
+glass-ui's generated declaration (`dist/components/dock/GlassDock.vue.d.ts`, tail — the expose is the *first* construct signature, the slot bag the *last*):
+
+```ts
+declare const __VLS_base: DefineComponent<DockProps, {
+    expanded: Ref<boolean>; isPinned: Ref<boolean>; isHeld: ComputedRef<boolean>;
+    isTransitioning: Ref<boolean>;
+    expand: () => void; collapse: () => void; keepOpen: () => void; release: () => void;
+}, …>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+export default __VLS_export;
+type __VLS_WithSlots<T, S> = T & { new (): { $slots: S } };
+```
+
+`InstanceType<T> = T extends abstract new (…args:any) => infer R ? R : any` infers from the **last** construct signature of an intersection, and `__VLS_WithSlots` appends the slot-only one. **Measured** with the repo's own compiler (`node_modules/.bin/tsc`, TypeScript 6.0.3) against a faithful mirror of that declaration shape, in the session scratchpad:
+
+```
+$ tsc --ignoreConfig --noEmit --strict --target ES2022 --moduleResolution bundler t.ts
+t.ts(10,20): error TS2339: Property 'expanded' does not exist on type '{ $slots: Slots; }'.
+```
+
+So `dockRef.value` is typed `{ $slots: … } | null` and **five** consumption sites are latent TS2339s — the four verbs that *are* the popup mutex:
+
+```
+:161  watch(() => dockRef.value?.expanded, …)
+:200  dockRef.value?.expand()
+:206  dockRef.value?.keepOpen()
+:207  dockRef.value?.expand()
+:208  dockRef.value?.release()
+```
+
+They work at runtime (Vue's instance proxy exposes the real `defineExpose` surface regardless of the annotation), which is exactly why nothing noticed. They become a hard build break the moment C-2 is remediated the obvious way — so **C-2's fix is gated on this one**, and any wave that adds `vue-tsc` without R3-1 lands red.
+
+**The producer already ships the type, on the subpath already imported.** `dist/components/dock/index.d.ts` exports `UseDockStateReturn`, whose docblock states its purpose verbatim:
+
+> *"freezes today's surface so consumers wrapping `<GlassDock>` (or authoring a custom dock chassis) can type the composable handle from `/api` or the `/dock` subpath without reaching for `ReturnType<typeof useDockState>`."*
+
+`Pick<UseDockStateReturn, "expanded" | "expand" | "keepOpen" | "release">` types all five sites and costs one identifier in the **existing** `:6-11` import. This is lane-frontend `F-2`'s class once more — a shipped 7.0.0 capability unconsumed — but sharper than the C-5/C-6 instances, because here the producer wrote the type *for this exact consumer problem* and documented it as such.
+
+**Breadth (context, not a ChromeDock claim):** `grep -rn "InstanceType<typeof" demo/` → 10 sites, incl. `TransportDock.vue:257`, `HeroAurora.vue:48`, `EditorShell.vue:187`, `ChannelControls.vue:372-373`. Whether each producer `.d.ts` uses `__VLS_WithSlots` is per-component and unaudited.
+
+**Falsifier (any one kills it):** (a) a `GlassDock.vue.d.ts` whose construct-signature order differs from the installed one; (b) a TypeScript version whose `InstanceType` picks the *first* signature of an intersection — re-run the probe above; (c) a `.d.ts` augmentation or `declare module` in the demo that overrides the generated type for `GlassDock`. Probes are re-runnable verbatim; the declaration file is 30 lines and was read whole.
+
+---
+
+### R3-2 · MAJOR · The dock mirrors `expanded` (= hover ∪ **pinned**) into a boolean the consumer reads as *hover* — a pinned dock permanently defeats the F9 idle rest-dim
+
+Rounds 1–2 note the two watchers (C-14) but only as duplication. The defect is not that there are two — it is that the **wrong signal** is mirrored, and the reader four modules away is a different subsystem.
+
+```
+ChromeDock.vue:159-163
+    const controlsPaneHover = inject(CONTROLS_PANE_HOVER_KEY, null);
+    watch(() => dockRef.value?.expanded, (isExpanded) => {
+        if (controlsPaneHover) controlsPaneHover.value = !!isExpanded;
+    });
+```
+
+The key is `InjectionKey<Ref<boolean>>` = `Symbol("controlsPaneHover")` (`injectionKeys.ts:3`), and its **sole** reader binds it as hover:
+
+```
+usePaneHover.ts:35-38   const isDockHovered = inject(CONTROLS_PANE_HOVER_KEY, ref(false));
+                        const isPaneHovered = computed(() => isPaneDirectHover.value || isDockHovered.value);
+usePaneHover.ts:52-53   const { idle } = useIdle(IDLE_MS /* 10_000 */);
+                        const isPaneIdle = computed(() => idle.value && !isPaneHovered.value);
+```
+
+But glass-ui's `expanded` is **not** hover (`useDockState.d.ts:26-32`):
+
+```
+state:    Ref<"collapsed" | "hover" | "pinned">
+expanded: "true whenever state !== 'collapsed'"     ← hover ∪ PINNED
+isPinned: "true whenever state === 'pinned'"        ← exposed precisely to separate them
+```
+
+`pinned` is not a corner: it is **the default outcome of a click**. `dist/dock.js`, deminified:
+
+```js
+function N() { if (c()) { l.value = "pinned", x(); return; } S(), y(), l.value = "pinned", x(); }   // onClickCollapsed → PINNED
+```
+
+and ChromeDock mounts `:start-collapsed="true"` (`:224`), so the collapsed pill is the first thing a pointer meets; `PINNED ──(clickOutside)──→ COLLAPSED` is the only exit (`useDockState.d.ts:60-64`).
+
+**Failure scenario, concrete.** Click the collapsed ChromeDock (→ `pinned`), move the cursor to the far corner of the viewport, wait out `IDLE_MS` (10 s). `isDockHovered` is still `true` → `isPaneHovered` is `true` → `isPaneIdle` is `false`. The rule that dims:
+
+```
+ControlsPaneWrapper.css:114   .controls-pane-wrapper.controls-pane--idle:not(.controls-pane--hovered) { … }
+ControlsPaneWrapper.vue:152-153   isPaneHovered ? 'controls-pane--hovered' : '',
+                                  isPaneIdle    ? 'controls-pane--idle'    : '',
+```
+
+**Both halves are defeated at once** — `--idle` is never added, and `--hovered` would block the `:not()` even if it were. The F9 global idle rest-dim (`usePaneHover.ts:17-26`, an explicitly restored behaviour) is inert for the remainder of the session.
+
+The fix is in the object ChromeDock already holds: mirror `!!expanded && !isPinned`, or `isHeld` (the ref-counted hold, which is what "a dock is busy" actually means). Both are on the same expose.
+
+**Falsifier (any one kills it):** (a) show `expanded` is `state === "hover"` — `useDockState.d.ts:28` says otherwise; (b) show `onClickCollapsed` is unreachable on this dock — no `alwaysExpanded`, `startCollapsed: true`, so the summary layer's `onClick` is live; (c) show `.controls-pane--idle` is cosmetically inert — the rule and both class bindings are cited above; (d) show a second writer resets the ref on unpin — `grep -rn "CONTROLS_PANE_HOVER_KEY" demo/` returns exactly one writer (§R3-8).
+**UNPROVEN-NEEDS-LIVE:** the *magnitude* of the visual delta (SS-13). The state defeat is static and complete.
+
+---
+
+### R3-3 · MAJOR · Two watchers on one source with an undocumented ordering dependency — the pane mirror takes a spurious `false` on every re-expand
+
+Sharpens C-14 from "two subscriptions" to a state defect. `:161` (W1, mirror) and `:197-202` (W2, re-expand) both watch **`() => dockRef.value?.expanded`**, W1 registered 36 lines earlier. W2's own comment (`:188-196`) asserts the dock *will* spuriously collapse under an open popup. On each such event, in registration order:
+
+1. W1 → `controlsPaneHover.value = false`
+2. W2 → `expand()` → `expanded = true`
+3. W1 re-fires → `controlsPaneHover.value = true`
+
+W1 carries no `isAnyOpen` guard and no comment acknowledging W2 exists, so nothing records that W1's correctness depends on being registered *before* W2 — any reorder, or a `flush: "post"` on either, changes behaviour silently. One watcher is strictly better and is what the file's own comments already describe:
+
+```ts
+watch(() => dockRef.value?.expanded, (isExpanded) => {
+    if (isExpanded === false && isAnyOpen.value) { dockRef.value?.expand(); return; }
+    if (controlsPaneHover) controlsPaneHover.value = !!isExpanded;
+});
+```
+
+**Dependency on C-6, declared:** C-6 argues the spurious collapse cannot occur at all in 7.0.0 (the hold counter is honoured; `isTeleportedTarget` exempts the dock's own portal). **If C-6 is right, R3-3's trigger never fires and this reduces to C-14's duplication MINOR.** I did not re-derive C-6 and do not adjudicate it; R3-3 is filed conditionally on C-6 being falsified, and the single-watcher rewrite discharges both regardless.
+
+**Falsifier:** show the two watchers require different flush timing or scope (both are default-flush, both in `setup`), or show W2 is unreachable (that is C-6's claim).
+**UNPROVEN-NEEDS-LIVE:** whether the transient `false` reaches paint depends on the relative scheduler ids of ChromeDock's watchers and `ControlsPaneWrapper`'s render effect — different component trees, not statically resolvable. The state flicker and the ordering coupling stand on the source alone.
+
+---
+
+### R3-4 · MINOR · Home's label is a hard-coded literal beside six single-sourced siblings
+
+```
+:248-254   <SelectItem :value="homeSceneId" …>  <Home … />  <span …>Home</span>  </SelectItem>
+:255-268   <SelectItem v-for="scene in scenes" …>  <component :is="scene.icon"/>  {{ scene.label }}  </SelectItem>
+```
+
+`App.vue:7` passes only `:home-scene-id="HOME_SCENE_ID"` — a bare string — while `scenes.ts:128-134` declares `homeScene: SceneDescriptor = { id, label: "Home", … }`. Rename `homeScene.label` and the dock shows the old word while `App.vue:191` (`currentLabel = currentScene.value.label ?? "Home"`, which *does* read the descriptor) shows the new one, so the trigger and its own menu item disagree.
+
+This is the exact class the file's `:33-38` header claims eradicated ("the dock no longer holds a parallel string-keyed `sceneIcons` Record — the D8 drift root cause") — the **icons** were single-sourced (correctly; that is S-3), the **home label** was not. Passing `homeScene`, or unshifting it into `scenes`, closes it and deletes the `<Home>` special case at `:243`/`:365` too.
+
+**Falsifier:** show `homeScene` is not the label authority. `scenes.ts:125` (`/** The home/hero landing scene */`) and `App.vue:191` say it is; the dock is the one reader that diverges.
+
+---
+
+### R3-5 · MINOR · The `:326` separator is unconditional — **S-1's "achieves" clause is half-right and is amended here**
+
+`:226-232` states the contract in two parts: *"separators derive from INHABITED zones **by construction** — zero hand-rolled dock-separator divs."* S-1 verifies the second half and reports the goal "achieved". The first half is not met.
+
+```html
+:282-283   <template v-if="showControlSection">  <DockSeparator />   ← derived ✔
+:326       <DockSeparator />                                          ← unconditional ✘
+:327-341   <DockControl shape="icon" v-if="hasControlPanel" …>
+:344       <slot name="items" />
+```
+
+When `hasControlPanel === false` **and** `#items` is unfilled, the dock paints a trailing hairline with nothing after it. That host is provided for by this component's own contract — `:70` and `:94` twice contemplate *"non-App hosts that don't drive the DFA"*, and `app/dock/index.ts` exports ChromeDock as a public unit. Fix: `v-if="hasControlPanel || $slots.items"`.
+
+**Falsifier — and the reason this is MINOR, not MAJOR:** it is **unreachable in-tree today**. `grep -rn "ChromeDock" demo/ test/` → `App.vue` + the barrel + prose only; `App.vue:19-25` fills `#items` unconditionally. This is a contract defect, not a live break. **S-1 is amended, not withdrawn:** the no-hand-rolled-div claim stands and is verified; the by-construction claim does not.
+
+---
+
+### R3-6 · MINOR · The root-barrel `Select*` import is what puts the R1-bearing chunk on the graph — measured; **S-1's blessing of the root barrel is amended**
+
+S-1 counts "a glass-ui subpath **or the root barrel**" as equally clean. The exports map disagrees, and so does the chunk graph.
+
+```
+$ node -e 'console.log(Object.keys(require("@mkbabb/glass-ui/package.json").exports).length)'   → 73
+$ ... | grep -x "./select"                                                                      → ./select   (EXISTS)
+$ cat dist/select.js
+  import {…} from "./select-DD6Ly6xg.js";
+  export { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectSeparator, SelectTrigger, SelectValue };
+```
+
+All five names ChromeDock imports at `:22-28` are on `/select`. Static chunk closure over `dist/`, resolving `from "./…"` transitively from each entry set:
+
+```
+ChromeDock as authored  (dock + status-dot + glass-ui[root])  →  74 chunks
+ChromeDock via /select  (dock + status-dot + select)          →  37 chunks
+delta 38, incl. toast, slider, progress, number-field, popover, toggle-group,
+               chip, fading-scroll, configurator, reactive, useAccentTone
+```
+
+The consumption-relevant item in that delta is **`useAccentTone-DyInfHXE.js`** (pulled by `chip`), which is the only path from this component's graph toward the R1 surface:
+
+```js
+useAccentTone-DyInfHXE.js:10   import("./accent-tone-solve-Cw7WkRD9.js").then(({ solveAccentInk }) => …)
+accent-tone-solve-Cw7WkRD9.js:1  import { i as e, t } from "./value-DMhh2R94.js";   ← `i` = parseCssColor + throw
+```
+
+So §3's negative finding is *load-bearing on subpath discipline*: `/dock`, `/status-dot` and `/select` all avoid `i` entirely (`dist/dock.js:19` imports `{ n, t }` from the bridge — never `i`), and it is the root barrel that reintroduces the R1-bearing chunk, two hops from a component ChromeDock never renders. It remains unreachable (the import is dynamic and `Chip` is never mounted) — but the guard is an accident of what the file happens not to render, not of what it imports.
+
+**Falsifier:** glass-ui is `sideEffects: ["*.css"]` and pure ESM, so rolldown will shake unreached names out of the **production** bundle — if `dist/gh-pages/_chunks.json` (emitted per `vite.config.ts:238`) shows no glass-ui chunk attributable to the root import, the graph-width half dies. The *availability* half — `/select` exists, is reached by no file in the demo (lane-frontend §3.1 lists it among the unreached 52), and three granularities appear in one 24-line import block — stands on the exports map alone.
+
+---
+
+### R3-7 · MINOR · The registry duplication (C-3) also splits the **test net**: the rendered copy is the untested one
+
+C-3 establishes the two copies and their consumer split. It does not check which copy the suite proves. It is the other one.
+
+```
+test/demo/state/control-surface-dfa.test.ts:16-25
+    import { BUILT_IN_SURFACES, SURFACE_META, surfacesFor, extraTabsFrom,
+             selectedSurfaceFrom, dockCardinality, … } from "../../../demo/state/controlSurfaces";
+```
+
+**Every** assertion (`:148-231`, incl. `expect(tabs).toEqual([SURFACE_META.easing])` at `:150` and the six `dockCardinality` cases at `:193-226`) exercises the **canonical** module. **Both docks read the shadow** (`ChromeDock.vue:18-21`, `TransportDock.vue:237`). `grep -rn "instrument/surfaceTabs" test/` → **0**. So the rendered path has zero regression coverage and the covered path renders nothing — C-3's "drift surface with zero gate" is stronger than stated: the gate exists, it is green, and it is pointed at the wrong file.
+
+**Concrete failure scenario.** Restore `SURFACE_META.easing.label` to `"Easing"` in the canonical copy (it *was* that before T.E8 — `controlSurfaces.ts:149-152`). `:150` stays GREEN. ChromeDock still renders the shadow's `"Curve"`. Worse, `controlLabelRedundant` (`surfaceTabs.ts:38-39`) compares the label case-insensitively against the easing scene's label `"Easing"` (`scenes.ts:163-171`): true in canonical, false in shadow — so the duplicate-label register VERDICT #17 exists to kill would reappear in one registry and not the other, with a green suite either way. (C-4 argues the `inline` arm is unreachable, which would neutralise this specific consequence; the label divergence on the trigger itself survives C-4 regardless.)
+
+The mechanical cause is one missing line: `state/index.ts:53-63` barrels `SURFACE_META`/`extraTabsFrom`/`selectedSurfaceFrom` but **not** `dockCardinality`. Barrel it, delete `components/instrument/surfaceTabs.ts`, repoint two imports.
+
+**Falsifier:** a test importing `dockCardinality` or `SURFACE_META` from `@components/instrument/surfaceTabs`. `grep -rn "surfaceTabs" test/` → 0.
+
+---
+
+### R3-8 · INFO · Stale host prose — `App.vue` claims a second writer of the hover ref that does not exist
+
+```
+App.vue:171-172   // Dock hover → controls pane opacity. Provided here so both ChromeDock (sibling)
+                  // and TransportDock (descendant of EditorShell) share the same ref.
+```
+
+```
+$ grep -rn "CONTROLS_PANE_HOVER_KEY" demo/
+  App.vue:134,174           import + provide
+  ChromeDock.vue:3,159      the SOLE writer
+  injectionKeys.ts:3        declaration
+  usePaneHover.ts:4,35      the SOLE reader
+```
+
+`TransportDock.vue` never references it. Filed because this prose generated — and then falsified — a multi-writer-race hypothesis (§8.9d), and because it is the sentence a reader will trust when triaging R3-2.
+
+---
+
+### S-R3-1 · SUPERLATIVE · The `popupModel` mutex factory gets the stale-close case right
+
+```ts
+:173-184
+    function popupModel(key: PopupKey) {
+        return computed({
+            get: () => openPopup.value === key,
+            set: (open) => {
+                if (open) openPopup.value = key;
+                else if (openPopup.value === key) openPopup.value = null;   ← the subtlety
+            },
+        });
+    }
+```
+
+The `else if` guard is the whole point and is easy to miss. Two `Select`s share one `openPopup` slot; reka fires `update:open(false)` on the *losing* menu when focus moves to the winner, and that close arrives **after** the winner has already claimed the slot. An unguarded `else openPopup.value = null` would let the loser's stale close clear the winner's ownership — collapsing `isAnyOpen` to `false`, firing `release()` (`:208`), and dropping the hold under a menu that is open on screen (the BLK-8/D9 failure the whole mutex exists to prevent). The ownership check makes the setter idempotent under out-of-order closes, and the factory means both models get it identically rather than by two hand-written copies.
+
+**Falsifier (superlatives run both ways):** exhibit an ordering the guard mishandles. The one candidate is open→open across keys with no intervening close (scene menu open, user clicks the controls trigger): `openPopup` goes `"scene"` → `"controls"`, `isAnyOpen` stays `true`, no `release()` fires, and the scene model's `get` flips to `false` so reka closes it — correct. Two writes, one slot, no lost hold.
+
+---
+
+### 8.9 · Probed negative findings (recorded, not suppressed)
+
+**(a) The `accumulateHuePixel` unwrap-or-throw is unreachable — extends C-5.** C-5 correctly identifies the per-pixel value.js call. It does not ask whether it can throw. `dist/dock.js` runs both value.js Results through glass-ui's *throwing* unwrapper inside the ≤4 Hz observer:
+
+```js
+function we(e,t,n,r,i) {   // accumulateHuePixel
+  let [,a,o] = T("accumulateHuePixel:oklch", convertColor(T("accumulateHuePixel:rgb", rgb(t,n,r)), "oklch")).channels, …
+```
+
+`T` (`value-DMhh2R94.js`) throws `GlassColorError` on `!ok` — from inside an observer callback, where nothing catches. Probed against the installed value.js 4.0.0:
+
+```
+$ node --input-type=module -e 'import { rgb, convertColor } from "@mkbabb/value.js/color"; …'
+in-gamut failures: 0        (black, white, mid, pure-red → rgb ok, convertColor→oklch ok)
+rgb(256,0,0) ok=true    rgb(-1,0,0) ok=true    rgb(NaN,0,0) ok=false {"code":"color_non_finite"}
+```
+
+`rgb()` returns `!ok` **only** for non-finite input; `getImageData` yields a `Uint8ClampedArray`, always finite. **The throw is unreachable on the canvas path.** C-5's cost and correctness halves are unaffected; its blast radius does not include an uncaught exception. *(Falsifier for this withdrawal: an element-sampling path feeding `rgb()` a parsed or NaN-producing computed value rather than clamped pixels.)*
+
+**(b) The `keepOpen`/`release` ref-count cannot go negative — corroborates C-6.** `:204-209` calls `release()` from a non-`immediate` watcher, so a host mounting with `:items-popup-open="true"` would release without a matching hold. `dist/dock.js`: `function P(){ p.value++, S(); }` / `function F(){ p.value = Math.max(0, p.value - 1), p.value === 0 && l.value === "hover" && (S(), f = setT…) }`. **Clamped at 0.** Residue too small to file: an unmatched `release()` on a `"hover"`-state dock restarts the idle-collapse timer; `App.vue` seeds `mbabbPopupOpen = ref(false)`, so it is unreachable in-tree.
+
+**(c) The Home item's missing `@pointerenter="warmScene"` is CORRECT — bounds C-12.** `:261` emits `warmScene` on every scene item; `:248-254` (Home) does not. `scenes.ts:118-123`: `warmScene(id)` looks up `sceneLoaders.get(id)` and no-ops when absent; `homeScene` (`:128-134`) declares no `component`, so no loader is registered. The asymmetry is right. (This bounds C-12's scope to the keyboard-highlight gap, which stands.)
+
+**(d) No multi-writer race on `CONTROLS_PANE_HOVER_KEY`.** Hypothesised from `App.vue:171-172`; killed by the grep in R3-8. Filed as INFO, not as a race.
+
+**(e) `hide-indicator`, `#collapsed`, `icon-sm/md/lg`, `dock-label`, `z-dock` all resolve.** Re-probed independently of S-4: `SelectItem.vue.d.ts:5` `hideIndicator?: boolean`; `GlassDock.vue.d.ts` `__VLS_Slots` carries `collapsed`; `icon-*` in `dist/styles/tokens/sizing.css` + `theme/bridges.css`; `dock-label` in `dist/styles/typography/semantic.css` + `dock/styles/density.css`; `z-dock` in `dist/styles/tokens/scheme-motion.css`. **Zero invented glass-ui API** — the single phantom is the demo-owned CSS var of C-9. Under C-2 none of this is compiler-verified, which is precisely what makes it creditable.
+
+---
+
 ## Provenance note
 
 Every glass-ui and reka-ui claim is sourced from the copies **installed in the census target** (`/Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/{glass-ui,reka-ui}`), so no upgrade is presupposed by any remedy. `/Users/mkbabb/Programming/keyframes.js` was read only. No file in keyframes.js, glass-ui, or value.js was written, mutated, or executed; no installs, no dev servers, no browser tooling. The single write of this lane is this file. `npx tsc --noEmit` was executed once (read-only, `--noEmit`) solely to establish C-2's measured exit code.
+
+**Round-3 addendum.** Round 3 read the component and every module it imports from source, plus five seam modules rounds 1–2 did not reach (`usePaneHover.ts`, `useControlsLayout.ts`, `ControlsPaneWrapper.{vue,css}`, `test/demo/state/control-surface-dfa.test.ts`, `state/index.ts`). Two commands were executed, both read-only and both outside the product tree: (1) `node_modules/.bin/tsc --ignoreConfig --noEmit --strict` over a 12-line mirror file written to the **session scratchpad** (`…/scratchpad/probe/t.ts`), which produced R3-1's `TS2339`; (2) `node --input-type=module -e` importing `@mkbabb/value.js/color` to probe `rgb()`/`convertColor()` totality for §8.9(a). Chunk-closure figures in R3-6 come from an in-memory scan of `node_modules/@mkbabb/glass-ui/dist/*.js` resolving relative `from` specifiers; nothing was bundled or built. No file in keyframes.js, glass-ui, or value.js was written, mutated, or served. Round 3's only write is this file, appended — §§0–7 are preserved byte-for-byte apart from the header tally and the round-2 integrity note.

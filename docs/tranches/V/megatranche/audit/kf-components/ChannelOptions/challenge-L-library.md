@@ -9,7 +9,9 @@ claude-opus-5[1m]
 
 **This is a merged pass.** A first pass (**R1**) already wrote to this path; its findings were re-derived against the tree rather than trusted, and all survive. R1's own numbering is cited on every row it originated so its work stays attributable. **R2** contributes one blocker escalation, three new majors, seven new minors, the killed-candidate table, and probe evidence that changes R1's M3 from a perf finding into a correctness one.
 
-**Tally — 31 defects (3 BLOCKER · 8 MAJOR · 15 MINOR · 5 INFO) · 7 superlatives · 7 killed candidates.**
+**R3** (§9) is a third independent read of the same set. It re-derived every prior row from the tree; **30 of 31 survive unchanged, one sub-claim of M-5 is FALSIFIED by probe (§9.0)**, and R3 adds one blocker, two majors, two minors, one info and two superlatives — all in the *store-vs-animation* direction the first two passes did not walk (the prior passes audited what the panel WRITES; R3 audits what it READS BACK). One R3 candidate was filed MAJOR and **self-downgraded to MINOR** when its reachability probe failed (§9.4); the failed half is shown rather than deleted.
+
+**Tally — 37 defects (4 BLOCKER · 10 MAJOR · 17 MINOR · 6 INFO) · 9 superlatives · 7 killed candidates · 1 falsified sub-claim · 1 self-downgrade.**
 
 ---
 
@@ -219,7 +221,7 @@ The easing scene's `previewAnim` owns its easing through `cssValue` (`useEasingD
 
 `ChannelOptions.vue:172-186` (pencil) → `useTimingFunctionEditor.ts:171-212` → `NAMED_EASING_BEZIER[currentEasing]` (`animationDescriptions.ts:16-49`); miss → `controlPoints = [0,0,1,1]` (`:203-205`) = **linear** → `updateTimingFunctionFromName("cubic-bezier")` **persists it** (`:210`).
 
-`NAMED_EASING_BEZIER` is a hand-maintained duplicate of value.js's `bezierPresets` (`value.js/src/easing.ts:34-67`) — 29 rows, numerically identical to the vendor's, **minus `smooth-step-3`**. The catalogue (`easingGroups.ts:27-103`, 29 unique items, count asserted by `test/demo/reference-data/easing-catalog.test.ts:16`) offers four curves with no table row: `smooth-step-3` (`:60`), `ease-in-bounce` (`:89`), `step-start` / `step-end` (`:95-96`). `timingFunctionKind("step-start")` resolves to the keyword `"step-start"`, **not** `"steps"`, so it takes the named branch too.
+`NAMED_EASING_BEZIER` is a hand-maintained duplicate of value.js's `bezierPresets` (`value.js/src/easing.ts:34-67`) — 29 rows, numerically identical to the vendor's, **minus `smooth-step-3`**. The catalogue (`easingGroups.ts:27-103`, 29 unique items, count asserted by `test/demo/reference-data/easing-catalog.test.ts:16`) offers four curves with no table row: `smooth-step-3` (`:60`), `ease-in-bounce` (`:89`), `step-start` / `step-end` (`:95-96`). ~~`timingFunctionKind("step-start")` resolves to the keyword `"step-start"`, **not** `"steps"`, so it takes the named branch too.~~ — **FALSIFIED by R3 probe, see §9.0.** `parseTimingFunction("step-start")` returns kind `"steps"`, so `step-start`/`step-end` take the **steps** branch and never reach the `[0,0,1,1]` fallback. M-5 stands for **two** curves (`smooth-step-3`, `ease-in-bounce`), not four; the other two are a different and worse defect, filed as **M-10**.
 
 Select `ease-in-bounce`, click the pencil to *inspect* it, and the bounce is gone — replaced by `cubic-bezier(0, 0, 1, 1)`, persisted. And there is **no feedback**: `convertedFromName`, whose docstring reads *"the name of the easing we auto-converted FROM (for subtitle display)"* (`useTimingFunctionEditor.ts:34-35`), is destructured at `ChannelOptions.vue:479` and appears **nowhere in the 403-line template**. The conversion notice was designed and then lost.
 
@@ -351,4 +353,146 @@ Recorded so the next lane does not re-file them. *(K-1…K-6 R2; K-7 R1's "not c
 
 ---
 
-*Everything above describes defects; nothing was changed. No file in `keyframes.js`, `glass-ui` or `value.js` was written, mutated or executed; the two `node` invocations were pure reads of installed library functions. The only write performed by this lane is this document, which supersedes the R1 pass at the same path with every R1 finding preserved and attributed.*
+## 9. R3 — third independent pass
+
+*Read set identical to §1, re-read whole; additionally `state/controlSurfaces.ts`, `scenes/amiga/{useAmigaDemo.ts,AmigaScene.vue}`, `scenes/square/useSquareDemo.ts`, `keyframes/utils/parseAnimationCSS.ts`, `compile/adapter.ts`, `compile/emit/format.ts`, `presets/{catalog,classic-data}.ts`, `engine/play-lifecycle.ts`, `test/demo/**`. Three read-only `node` probes against installed artifacts only; transcripts inline.*
+
+**Orientation.** R1 and R2 both audited the panel as a **writer** — what it pushes into the engine and the store. R3 audited it as a **reader**: what it renders, and what it re-derives on mount from state it did not write. That axis produced one falsification and four defects the write-side audit structurally could not see.
+
+### 9.0 — CONTRADICTION · M-5's `step-start` sub-claim is false, and the truth is worse
+
+R2's M-5 asserts (line 222) that `timingFunctionKind("step-start")` resolves to the keyword `"step-start"`. Probe against the **installed** value.js 4.0.0, replicating `timingFunctionState`'s exact branch order (`animationDescriptions.ts:68-96` — `parseTimingFunction` first, registry second):
+
+```
+$ node --input-type=module -e "import {parseTimingFunction} from '.../value.js/dist/subpaths/css.js';
+                               import {easing} from '.../value.js/dist/subpaths/easing.js'; …"
+name                          parse-kind    registry
+step-start                    steps         FAIL
+step-end                      steps         FAIL
+steps                         FAIL          FAIL     (→ draft branch, animationDescriptions.ts:69-71)
+cubic-bezier                  FAIL          FAIL     (→ draft branch)
+steps(4, jump-end)            steps         FAIL
+cubic-bezier(0.2,0.65,0.6,1)  cubic-bezier  FAIL
+ease-in-sine                  FAIL          ok       (→ registry branch, kind = the name)
+smooth-step-3                 FAIL          ok
+ease-in-bounce                FAIL          ok
+linear / ease / ease-in / ease-out / ease-in-out   parse-kind = the keyword
+```
+
+value.js parses `step-start`/`step-end` as members of the **`steps` family** (they are CSS shorthands for `steps(1, jump-start|jump-end)`), so `parsed.value.kind === "steps"` and `timingFunctionKind` returns `"steps"`. M-5's four-curve set is therefore two: `smooth-step-3` and `ease-in-bounce` (both registry-resolvable, both absent from `NAMED_EASING_BEZIER`, both flattened to `[0,0,1,1]` — M-5 confirmed for those). `step-start`/`step-end` never reach that branch. What they reach instead is M-10.
+
+*Falsifier for the falsification:* a value.js build where `parseTimingFunction("step-start").value.kind !== "steps"`. The probe was run against `node_modules/@mkbabb/value.js@4.0.0` — the version the demo actually resolves — not against source.
+
+### 9.1 — **B-4 · BLOCKER** · a curve authored in the keyframes pane is silently rewritten to a different curve on the next tab switch
+
+*Distinct from M-4 (which is scene-vs-panel authority) and from B-2 (which is twin-stripping): this is the destruction of **typed user input** by re-derivation from stale sibling state.*
+
+The chain, four files:
+
+```
+1. useKeyframeOps.ts:81-82     if (options?.timingFunction) stored.timingFunction = options.timingFunction;
+                               ← the serialized literal, e.g. "cubic-bezier(0.36, 0, 0.66, 1)"
+                                 (parseAnimationCSS.ts:42-49, serializeTimingFunction)
+                               ← and NOTHING in this path writes cubicBezierOptions.controlPoints / stepOptions
+2. ChannelControls.vue:97-102  <ChannelOptions v-if="… selectedControlSurface === 'controls'">
+                               ← Keyframes→Controls is a FRESH MOUNT (contrast :129-137, where the
+                                 Monaco pane is deliberately force-mounted precisely to avoid remount cost)
+3. ChannelOptions.vue:538-542  onMounted → updateTimingFunctionFromName(stored.timingFunction)
+4. useTimingFunctionEditor.ts:152-155   kind === "cubic-bezier" → cubicBezierEasing(...stored.cubicBezierOptions.controlPoints)
+                              :166-167   → persists timingFunctionLiteralFor("cubic-bezier") = the RE-DERIVED literal
+```
+
+The literal is used **only** to compute the kind; the numbers are then thrown away and rebuilt from `cubicBezierOptions.controlPoints`, which the keyframes pane never touched and which still holds the store default `[0.2, 0.65, 0.6, 1]` (`animationOptionsStore.ts:57-59`).
+
+**Failure scenario.** In the Keyframes tab type `animation-timing-function: cubic-bezier(0.36, 0, 0.66, 1)` (the amiga bounce, copied from `useAmigaDemo.ts:130`). It compiles, it runs, the store records the literal. Switch to Controls. Both the engine and the store now hold `cubic-bezier(0.2, 0.65, 0.6, 1)`. Switch back to Keyframes: the CSS the editor re-serializes is the *new* curve. The authored value is gone from every surface, with no diagnostic and no undo. Identical for steps: `steps(4, jump-end)` → `steps(100, jump-start)` (`:149-151` reads `stepOptions`, default `{100, "jump-start"}` at `animationOptionsStore.ts:52-55`).
+
+This is the exact inverse of the discipline S-3 praises. I.W2.S3 made the store hold a *complete re-parseable literal* so the construction path round-trips — and then the reader discards the literal's payload and reconstitutes it from a second, unsynchronised copy of the same fact. **Two representations of one curve** (`animationOptions.timingFunction` and `cubicBezierOptions.controlPoints`/`stepOptions`) with a writer for each and a reconciler for neither.
+
+**Falsifier.** (a) `useKeyframeOps` also syncing the quad — read `:72-82` whole; it writes six fields, none of them the quad. (b) The literal's numbers being honoured — `:152-155` takes no argument from the literal; `timingFunctionLiteralFor` (`:120-133`) likewise reads only the stored quad. (c) The controls pane not remounting on tab switch — `ChannelControls.vue:98` is `v-if`. (d) A reconciler parsing the literal back into the quad — `grep -rn "controlPoints" demo/` gives writers at `useTimingFunctionEditor.ts:198,203` and `TimingFunctionPanel.vue:143` only, all inside the panel itself. **Would kill it:** any of (a)–(d).
+
+### 9.2 — **M-9 · MAJOR** · the five fields render the store, never the animation — so on four of six scenes they render fiction
+
+Every field binds the persisted bucket (`:26-29`, `:45-48`, `:64-76`, `:92-95`, `:116-119`), and `getStoredAnimationOptions` seeds a fresh bucket from `defaultStoredAnimationOptions` — it never reads `animation.options` (`animationOptionsStore.ts:83-122`, verified whole). The panel is truthful only where the store is *also* the constructor input, i.e. the cube scene (`useCubeDemo.ts:52-60, 73-79, 103-109`). Everywhere else the scenes hard-code their options:
+
+| scene | animation's real options | what the panel shows |
+|---|---|---|
+| amiga spin / X | `duration: X_PERIOD_MS = 8000`, `timingFunction: "linear"` (`useAmigaDemo.ts:38, 93-96, 110-113`) | `5s`, `ease-in-out` |
+| amiga Y | `duration: Y_PERIOD_MS = 1600`, `cubic-bezier(0.36, 0, 0.66, 1)` (`:39, 127-130`) | `5s`, `ease-in-out` |
+| square | `duration: 2000`, `fillMode: "forwards"` (`useSquareDemo.ts:343-346`) | `5s` |
+| all non-cube | engine default `direction` | `alternate` (`animationOptionsStore.ts:47`) |
+
+The panel becomes accurate only once the user edits a field — i.e. only after it has overwritten the value it was misreporting. And the misreport is not inert: it is the *input* to M-4/B-4's mount-time re-apply, which is how a display default becomes an engine mutation.
+
+The seam to fix it exists and is already used by the sibling writer: `reverseCSSTime(animation.options.duration)` (`useKeyframeOps.ts:73-75`) converts engine-ms back to a CSS literal. Seeding the bucket from `animation.options` at creation closes M-9, M-4 and the amiga half of §9.3 in one edit.
+
+**Falsifier.** A seed step from `animation.options` into a fresh bucket. Searched `getStoredAnimationOptions`, `storeUtils.ts`, `ControlsPaneWrapper.vue`, and all six scene modules: the only writer of `animationOptions.duration/delay/iterationCount/direction/fillMode` outside this panel is `useKeyframeOps.ts:73-79`, and it runs only on a keyframes-string edit. **Would kill it:** finding that seed.
+
+### 9.3 — **M-10 · MAJOR** · picking `step-start` or `step-end` yields `steps(100, jump-start)` — both of them
+
+Follows directly from §9.0. `EASING_GROUPS` offers both as selectable items (`easingGroups.ts:94-96`); the Select emits the name into `updateTimingFunctionFromName` (`ChannelOptions.vue:212-217`); `timingFunctionKind` returns `"steps"`; the steps branch ignores the picked name entirely and builds from the stored step options (`useTimingFunctionEditor.ts:149-151`), persisting `steps(100, jump-start)` (`:166-167`).
+
+So `step-start` and `step-end` — CSS's two *single-step* keywords — both produce a **100-step, jump-start** curve, and produce the *same* one. The Select's `:model-value` then re-derives `"steps"` (`:205-211`), so the highlighted row visibly jumps off the item the user clicked onto a different one.
+
+The demo's own helper knows the right answer and can no longer be reached:
+
+```ts
+// timingCurveUtils.ts:42-46 — dead code, and it documents the regression
+export const namedEasing = (name: string): EasingFunction => {
+    if (name === "step-start") return steppedEasing(1, "jump-start");
+    if (name === "step-end")   return steppedEasing(1, "jump-end");
+```
+
+Those two lines are unreachable for their own keywords: the kind gate rewrites `step-start` to `steps` before `namedEasing` is called. The catalogue test knows the pair is special — `easing-catalog.test.ts:24-29` exempts them from the registry check as `editorEntries` — but `timingFunctionState` grants draft status only to `cubic-bezier` and `steps` (`animationDescriptions.ts:69-71`), so the exemption is asserted in the test and absent from the classifier. No test covers `timingFunctionKind("step-start")` (the only kind assertions in `test/` are `steps(4, jump-end)`, `cubic-bezier(…)`, `steps(` and `ease-out-expo`, `value4-editor-boundary.test.ts:73-90`).
+
+**Falsifier.** `parseTimingFunction("step-start")` returning anything but kind `steps` (probed, §9.0); a draft-branch entry for the two keywords (absent); a `kind === "steps" && the source was a keyword` special case (absent). **Would kill it:** adding either.
+
+### 9.4 — **N-17 · MINOR (self-downgraded)** · the mount-time write flattens per-keyframe easing — a first-class engine capability, currently unreachable in the demo for a *second* reason
+
+*Filed at MAJOR on first derivation and downgraded here after the reachability probe failed. Recorded at the lower severity with the failed half shown, because a false MAJOR is worse than a missed one.*
+
+B-2 reads the `frames.forEach` write as *papering over an engine gap* (`applyTimingFunction` not propagating to compiled frames) and forwards that gap — correct, and I keep it. The other half is that the write is **destructive whenever the frames do not agree**, and the engine goes to real trouble to let them disagree:
+
+```
+compile/adapter.ts:96          timingFunctions: Map<string, string>   "per-keyframe `animation-timing-function`, keyed by percent string"
+compile/emit/format.ts:75      "CSS Animations L1: `animation-timing-function` at a stop applies to the interval…"
+compile/emit/format.ts:96,271  decls.push(`  animation-timing-function: ${frameEasing};`)
+engine/animation.ts:227-236    addFrame(start, vars, transform, timingFunction, composition)   ← per-stop easing is a public parameter
+presets/classic-data.ts:67-87  the `flip` preset alternates ease-out / ease-out / ease-in / ease-in / ease-in per stop
+```
+
+`useTimingFunctionEditor.ts:103-105` overwrites **every** frame with one animation-level object, unconditionally, at mount. So the capability is erased for any animation that has it.
+
+**Why it is MINOR and not MAJOR: no shipped demo animation currently has it, for two independent reasons.**
+1. No mounted scene authors per-stop easing. `grep -rn "animation-timing-function" demo/` → three hits, none in a scene animation (`useEasingDemo.ts:285` is prose; `AnimatedText.vue:106,110` is a CSS `@keyframes` block, not an engine animation). The presets the demo mounts (`hover`, `shake`, `warpLeft`, `jumpUp`) carry no per-stop `animation-timing-function`; the one preset that does (`flip`) is not mounted.
+2. **The demo's own Monaco ingest drops it before construction.** `parseAnimationCSS.ts:57` returns `{ keyframes: resolved.keyframes, options, values }` — `resolved.timingFunctions`, the adapter's per-percent map (`compile/adapter.ts:96`), is **discarded**, and `useKeyframeOps.ts:66-69` then calls `.fromKeyframes(keyframes)` with the vars map alone. A user who types per-stop `animation-timing-function` into the keyframes pane never gets it into the frames in the first place.
+
+I asserted the opposite on first derivation ("*which `parseAnimationCSS` ingests via the adapter*"). It does not. Reason 2 is a **separate defect of a different file** — a fidelity hole in the demo's CSS→engine round-trip, on the seam `lane-library.md §4.6` tracks — and is forwarded, not filed here.
+
+What remains, and why it is still a defect: the write is unconditional and pre-emptive (it fires at mount, before any user intent), so it is a live tripwire under both plausible near-term changes — closing the `parseAnimationCSS` hole above, or mounting any preset with per-stop easing. The correct shape is the one §9.7 prescribes: propagate to `frames[]` only when the frames were already uniform.
+
+Note the interaction with WAAPI: per-frame divergence is exactly what `waapi/eligibility.ts:139-150` checks (`frames[i].timingFunction.fn !== firstTF.fn` → ineligible). Flattening would make a multi-easing animation *look* uniform to the eligibility gate while B-2 simultaneously makes it ineligible for want of a twin — two wrongs cancelling into "nothing delegates", which is part of why neither has been noticed.
+
+**Falsifier (the one that fired).** "Show a demo path producing divergent per-frame easing" — searched all six scenes, the preset call sites, and the Monaco ingest; none produces one, and the ingest actively prevents it. The engine-side capability claim survives (`frames[i].timingFunction` is read at interp and at emit); the demo-side reachability claim did not.
+
+### 9.5 — additions to the minor/info tail
+
+- **N-16 · `Teleport` is imported from `vue` and the import is inert.** `:437`. `<Teleport>` is a compiler built-in resolved by tag name (like `<Transition>`/`<Suspense>`); the named import neither enables nor affects it. Same pattern at `ChannelControls.vue:236`. Harmless, and a reliable signal that the import block is not being read as code. *(R3)*
+- **I-6 · one version-drift comment re-verifies TRUE, which narrows B-3's indictment.** `:142-146` claims *"glass-ui 3.4.0 `<LabeledField>` exposes only default+error slots (no label-action slot, VERIFIED LabeledField.vue.d.ts)"* — and against the **installed 7.0.0** that is still exactly right: `dist/components/labeled-field/LabeledField.vue.d.ts` declares `__VLS_Slots = { default(props: LabeledFieldSlotProps): unknown; error?(): unknown }`. So the wrapper fallback at `:147-190` is warranted *today*, three majors after the version it cites. Recorded as fair comment: B-3/M-1's charge is that the citations are unpinned, not that every one of them is now wrong — and a repair wave should re-verify rather than assume-stale. The booked glass-ui ask (a `label-action` slot) remains open and correctly booked. *(R3)*
+
+### 9.6 — two superlatives the write-side passes did not reach
+
+- **S-8 — `<Teleport … defer>` is the right idiom used for its actual purpose.** `:377`. `#controls-ribbon-target` is rendered by `RibbonBar` *later in the same parent* (`ControlsPaneWrapper.vue:90-104`), which is precisely the case Vue 3.5's `defer` exists for; without it the target-missing warning is a mount-order lottery. Combined with the `v-if="active"` gate (K-4's single-ribbon invariant) and with provide/inject following the component tree rather than the DOM — so the teleported ribbon still resolves the `TooltipProvider` at `ChannelControls.vue:2` despite landing elsewhere in the document — three separate subtleties are handled in one attribute. *Falsifier:* a Vue version below 3.5 (`vue: ^3.5.35`), or a target rendered before this component.
+- **S-9 — the collapse CSS pays for its own side effects instead of dropping them.** `:552-583`. `grid-template-rows: 0fr ↔ 1fr` is the standard height animation; what is not standard is noticing that the `overflow:hidden` it *requires* clips focus rings and compensating exactly — `padding: 2px; margin: -2px` with the arithmetic written down (`ring-2 + ring-offset-2 = 4px`). Add `max-height: min(50dvh, 480px)` with `dvh` chosen for a stated reason (mobile URL-bar over-reservation, `:585-588`) and this is the one region where the commentary earns its length. **Held in tension with M-8:** the same block leaves collapsed controls in the tab order. Careful about the ring, silent about `inert` — the two are compatible findings and both should land.
+
+### 9.7 — R3 remediation delta (folds into §8)
+
+- **B-4 lands with §8 step 2**, and only if the fix is `setTimingFunction(storedLiteral)` — i.e. *pass the stored literal through*, not re-derive it. Re-deriving is the bug; a fix that keeps the re-derivation and merely adds the twin fixes B-2 and leaves B-4 shipping.
+- **M-9 lands before §8 step 5's M-4.** Seeding the bucket from `animation.options` at creation makes M-4's "conditional on real divergence" trivially satisfiable (there is no divergence at t=0) and removes the display fiction in the same edit. Do it first; M-4 becomes a two-line guard instead of a reconciliation design.
+- **M-10** is one branch: treat a `steps`-kind classification whose source was the bare keyword `step-start`/`step-end` as `steppedEasing(1, …)` — i.e. let `namedEasing`'s existing two lines be reachable. Pin it with the test `easing-catalog.test.ts` already implies (`editorEntries` should assert a *resolution*, not an exemption).
+- **N-17** rides step 2: propagate one twinned `Easing` to `frames[]` **only when the frames were already uniform**; a divergent set is authored data, not stale state. Cheap now, load-bearing the moment the `parseAnimationCSS` per-stop drop (§9.4, forwarded) is closed.
+- **N-16, I-6** — sweep with N-7/N-8/N-11/N-12 at step 9.
+- **Forwarded, not filed here:** `parseAnimationCSS.ts:57` discards `resolved.timingFunctions`, so the demo's CSS→engine round-trip silently loses per-stop `animation-timing-function`. Belongs to the keyframes-pane lane, on `lane-library.md §4.6`'s seam.
+
+---
+
+*Everything above describes defects; nothing was changed. No file in `keyframes.js`, `glass-ui` or `value.js` was written, mutated or executed; the five `node` invocations across R2 and R3 were pure reads of installed library functions (`@mkbabb/value.js/{css,easing}`, `keyframes.js/dist`, `@mkbabb/glass-ui/dist`). The only write performed by this lane is this document: R3 supersedes the R1+R2 pass at the same path with every prior finding preserved and attributed, one sub-claim explicitly falsified in place (§9.0) rather than silently corrected.*

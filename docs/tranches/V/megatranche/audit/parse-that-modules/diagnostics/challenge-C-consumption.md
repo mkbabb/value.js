@@ -925,3 +925,129 @@ W1.md:487-489's stated *reason* for the G-5 falsifier — `diagnosticsEnabled` i
 `PACKRAT_ARMED`; the conclusion survives, the reason does not (S-1). README:193's *"Zero overhead when
 off"* — false on the `recover()` path (B-4). README:235-237's *"Both TypeScript and Rust expose the
 same API … `formatDiagnostic()`"* — TypeScript does not (B-5).
+
+---
+
+# ADDENDUM — second-pass challenge, same seat, same axis
+
+**SERVED MODEL: `claude-opus-5[1m]`.** Session 2026-08-04, node v26.0.0 · darwin arm64. Second
+independent pass over the same module and axis, run without sight of §0–§6 above; on collation, all
+but two of the second pass's findings were **already present and better evidenced above** (the heap
+retention of B-4, the sha256 publish-fidelity of S-7, and the `tsc` probe of INFO-B are each stronger
+than anything the second pass produced), and one second-pass draft claim — *"`mergeErrorState`'s
+`ParserState<unknown>` signature forces consumer casts,"* argued from the library's own 35 internal
+casts (`parser.ts` 19 + `leaf.ts` 16, counted) — is **withdrawn as REFUTED by INFO-B's `tsc` exit-0
+probe**, which is a real falsifier and beats a cast-count inference. Nothing above is edited; the
+prior text stands whole. Two findings survive collation as genuinely absent, and both are appended
+here with their own provenance and falsifiers.
+
+**Write discipline for this pass**: probes ran as `node --input-type=module` heredocs in
+`docs/tranches/V/megatranche/prototypes/css-parser/` against the published `@mkbabb/parse-that@1.0.0`
+(`package-lock.json:471`) — zero files created; `memoize()` / `resetPackrat()` never called, the PT-03
+latch untouched; diagnostics armed for exactly one failing parse in one throwaway process (probe H),
+disabled immediately, no timing taken. `/Users/mkbabb/Programming/parse-that-css-totality-p2` →
+`No such file or directory`, re-verified, not created. No STOP finding.
+
+### D-17 · `core.ts:3-5`'s tier-isolation guarantee is **false in the shipped artifact** — every consumer of every tier loads this module — **MAJOR**
+
+The whole justification a consumer is given for the subpath split is written in the sibling entry:
+
+```
+src/parse/core.ts:3-5
+// The zero-side-effect primitive set: the Parser core, state, leaf parsers, lazy,
+// and the balanced-split helpers. A consumer that imports only this never pulls
+// the diagnostics accumulator, the packrat tier, or the json/csv domain parsers.
+```
+
+The built graph says otherwise, in two hops:
+
+```
+dist/core.js:1             import { P, a, b, c, d, e, f, g, h, l, j, r, s, n, t, w }
+                                  from "./packrat-entry-CS1td-8B.js";
+dist/packrat-entry-*.js:1  import { i as isDiagnosticsEnabled, m as mergeErrorState,
+                                    r as reportUnclosedDelimiter, f as addSuggestion,
+                                    a as collectDiagnostic, p as popLastDiagnostic }
+                                  from "./diagnostics-DDazRHgl.js";
+```
+
+`/core` → the latch chunk → **the diagnostics chunk**, unconditionally. `let collectedDiagnostics = []`
+— B-4's 160.8 MiB accumulator — is therefore evaluated in the module graph of every consumer of every
+tier, including the one tier whose header promises it is not. Proven behaviourally, not only
+statically: a parser built **exclusively** from `/core`, armed through `/diagnostics`, prints.
+
+```
+H. /core parser observed the /diagnostics flag — same realm, same accumulator chunk.
+--- stderr from the /core-only parser: 4 lines ---
+```
+
+**Why this is not S-6 restated.** S-6 measures the edge `/diagnostics → (no latch chunk)` and is
+correct; its "honest bound" observes that a real grammar loads the latch chunk anyway. D-17 measures
+the **opposite edge** — `/core → (diagnostics chunk)` — and its subject is not a bound on a
+superlative but a **written claim in the tree that the artifact does not honour**. The consumption
+consequence is specific: a consumer choosing `/core` to escape B-4's ungated global does not escape
+it, and the source comment tells them they have.
+
+*Falsifier*: import only `@mkbabb/parse-that/core`, arm through `/diagnostics`, run one failing
+`/core` parse with stderr captured. Byte-empty stderr refutes D-17 — the chunks would be isolated and
+the comment true. Measured: 4 lines. Alternatively, exhibit any `dist/*.js` entry whose transitive
+import graph excludes `diagnostics-DDazRHgl.js`; `core.js`, `parse.js`, `packrat.js`, and `utils.js`
+all reach it, and only `diagnostics.js` reaches it directly.
+
+### D-18 · `collectDiagnostic` is published **without its inverse**, and `Parser.recover()`'s unqualified LIFO pop is corruptible from outside the library — **MAJOR**
+
+`collectDiagnostic` is exported (`diagnostics.ts:10`; the `/diagnostics` and root surfaces both carry
+it). `popLastDiagnostic` (`utils.ts:146`) is exported from **no** entry — the reachability table at
+`:146` above records the absence; D-18 records what the absence *costs*. The shipped `recover()`
+depends on strict LIFO discipline over the same global journal:
+
+```
+parser.ts:666   collectDiagnostic(state as ParserState<unknown>, checkpoint);
+parser.ts:670   sync.parser(state as ParserState<unknown>);
+parser.ts:672-4 if (state.isError) {
+                    // Sync also failed — remove the collected diagnostic
+                    popLastDiagnostic();
+```
+
+The pop is unqualified: it removes whatever is last, not what `recover()` pushed. A consumer whose
+`sync` parser calls the **public** `collectDiagnostic` therefore desynchronises the engine's own
+bookkeeping. Measured — `string("x").recover(syncThatCallsCollectDiagnostic, -1).parseState("zzz")`:
+
+```
+D. after a recover() whose sync failed — journal length: 1
+   (contract per parser.ts:672-674: 0 — recover pops its own and the journal is unchanged)
+```
+
+The journal grew by one where the engine's own comment promises zero, the entry the engine intended to
+discard survives, and the consumer's entry is the one destroyed. There is **no public repair**:
+`popLastDiagnostic` is unreachable, so `clearCollectedDiagnostics()` — destroying every row, including
+other subsystems' — is the only recourse. This is the R-LAW-1 handle W2 requires (*"the restored state
+is exactly the pre-mark state: offset, **journal length**, complement length"*, `W2.md:281-283`) being
+not merely absent but **actively falsifiable by a published export**.
+
+It also sharpens §5's `collectDiagnostic` → RETIRE row, which reasons from O-8/K-6 alone: the export is
+unsafe not only because the journal is global, but because the library **cannot state a correct usage
+for it**. Every call from outside `recover()` is a potential corruption of `recover()`; every call from
+inside is the library's own. There is no third caller, and the band confirms it — grep of the whole
+prototype workspace finds `collectDiagnostic` in exactly zero candidate files.
+
+*Falsifier*: exhibit a documented, safe consumer protocol for `collectDiagnostic` that survives an
+interleaved `recover()` — README, JSDoc (`utils.ts:97-101` documents only *what* it does), or a test.
+None exists, and `.recover(` appears nowhere in `test/` or `src/` outside its own definition, so the
+mechanism D-18 corrupts is itself entirely uncovered.
+
+### Addendum tally (cumulative with §6)
+
+| severity | ids | count |
+|---|---|---|
+| BLOCKER | D-0, B-1, B-2, B-3, B-4, B-5 | **6** |
+| MAJOR | D-6, D-7, D-8, D-9, D-10, **D-17**, **D-18** | **7** |
+| MINOR | D-11, D-12, D-13, D-14, D-15 | 5 |
+| INFO | D-16 | 1 |
+| **defects total** | §6's 17 + D-17 + D-18 | **19** |
+| SUPERLATIVE | S-1 … S-7 (unchanged; the second pass produced no superlative not already held above) | **7** |
+| NOT-defects (falsifier survived) | INFO-A, INFO-B (+ the second pass's withdrawn cast-count claim, killed by INFO-B) | 2 |
+
+**§6's verdict is unchanged and strengthened**: RETIRE-in-whole on the consumption axis. D-17 removes
+the last consumption argument for keeping the tier boundary as documented (the escape it advertises
+does not exist), and D-18 removes the last argument for keeping `collectDiagnostic` public (no correct
+usage is statable).
