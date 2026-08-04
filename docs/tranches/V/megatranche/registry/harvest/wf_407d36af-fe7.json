@@ -1,7 +1,7 @@
 {
  "runId": "wf_407d36af-fe7",
  "workflow": "wf_407d36af-fe7",
- "resultCount": 45,
+ "resultCount": 50,
  "results": [
   {
    "agentId": "a1d50533fe66c6ed0",
@@ -10328,6 +10328,106 @@
      "demo/scenes/atmosphere/AuroraPane.vue:2-15 states the component's ownership boundary precisely — which atoms it owns, which it does not, why the seed is the picker's and not a knob, and why the enum rows ride the parent's default slot. Rare clarity for a 201-line file, and it is what makes the audit's contradictions (C/C-12's stale fallbacks, C/C-5's stale ceiling) legible as drift rather than confusion.",
      "The audit corpus's own negative-proof discipline is exemplary and worth preserving as method: challenge-C-implementation.md:612-655 lists thirteen hazard classes checked and found sound INCLUDING one of the seat's own hypotheses it refuted (the aria-label/AX-value suppression guess at :622-627), and challenge-L-library.md:494-521 kills two of its own suspects (the --tracking-caps undefined-property hypothesis and the fmt() regex hypothesis). A seat that reports only its confirmed guesses is not measuring; these two did.",
      "SelectContent genuinely unmounts when closed, so the six-candidate calibrated resolve behind the harmony strip is paid only while the menu is open — the 'zero rest cost' claim at demo/scenes/atmosphere/AuroraPane.vue:36-38 is true, not aspirational (challenge-C-implementation.md:650-652). A live truth function that costs nothing at rest is the right shape for this affordance."
+    ]
+   }
+  },
+  {
+   "agentId": "a920b4d71d272c7c2",
+   "key": "v2:fe569091147b1917e3f5bc5b89a4da3e94ad533a488d54a4efab5e1fd8696a10",
+   "result": {
+    "slug": "currentpaletteeditor-apotheosis-fable-adjudicator",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/CurrentPaletteEditor.md",
+    "verdict": "ADJUDICATED-GRAVE: 41 rows survive hostile re-reading (4 BLOCKER composites, 21 MAJOR, 16 MINOR, +1 INFO, +1 identity-fold); the primary CTA and the entire swatch-action surface are inert or unplaceable in every measured modality against shipped Glass 7, the duplicate-name latch silently destroys the draft against a deleted target, and the vacuous gate stack is why none of it was caught. All rows routed to X-wave owners (X-W1/W4/W5/W7/W8/W9/W10 + glass-ui BH relay); no NO-WAVE-OWNER rows.",
+    "confirmedCount": 41,
+    "killedCount": 12,
+    "missedCount": 9,
+    "headline": [
+     "A-1 BLOCKER: WatercolorDot dead API — the Add-current-color CTA is an aria-hidden span and the touch action path cannot open (inheritAttrs:!1, zero renderSlot, re-verified in the shipped bundle)",
+     "A-2 BLOCKER: the phantom-name family (.floating-panel / .btn-interactive / ring-ring) — hover panel renders position:static at y=900, so no working swatch-action surface exists in any modality; DR-19 bans the corpus's proof-script cure",
+     "A-3 BLOCKER: the duplicate-name latch — stale target, metadata destruction, and the convergent dangling-target arm: Update against a deleted palette is a silent no-op that still wipes the entire draft (probe-P5-3 measured end-to-end)",
+     "A-4 BLOCKER: vacuous gate stack — zero tests, no CI Playwright, the one e2e spec targets the accessible name Glass 7 dropped and narrates the nameless-button defect in prose",
+     "Ruled the reader conflict on D4-01 arm (a) for the library reader (expandedId relocation exists; D4-01 rescoped BLOCKER→MAJOR); upheld 11 reader kills and added one arbiter kill (L-14 asymmetry leg, by ColorSpaceSelector precedent)",
+     "9 missed findings promoted, incl. the sole-production-affordance coverage hole behind the savedColorStrings gate, the edit-overlay occlusion (100%/100%/39.8% swatch coverage), and the third phantom token ring-ring/40",
+     "U-11 heads the visual-audit inputs: a seeded populated-state /#/palettes capture — the visual matrix has never once seen this component's defective surface"
+    ]
+   }
+  },
+  {
+   "agentId": "a2af096de0ff1ea24",
+   "key": "v2:bb61b25eb7797d3ed7910006ee23775594118340ae280eca2a77b8bf207632b4",
+   "result": {
+    "slug": "BlobPane",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/BlobPane.md",
+    "verdict": "DEFECTIVE — BLOCKER sustained: the 31-slider console has no causal link to its subject by three independent, source-confirmed mechanisms (four Geometry atoms literal-overridden in HeroBlob; config writes absent from the 3-caller wake set; 13 of 31 sliders structurally unable to mint the wake-shape prop object), on a route whose only blob is an aria-hidden ornament of the Picker pane; the mobile default is a one-line viewSchema omission (X-W5); the paint/typography/reset/action band identity-folds to the adjudicated ConfigSliderPane record (MT-CSP-1), which this seat found ORPHANED from the X carry-cut ledger — flagged to the next formation boundary.",
+    "confirmedCount": 24,
+    "killedCount": 13,
+    "missedCount": 6,
+    "headline": [
+     "Causal-link family BLOCKER: hero literal overrides + wake-set exclusion + heterogeneous heroConfig reactivity (13/31 sliders untracked) — routed X-W6/X-W2",
+     "BPC-1 root-2 propagation KILLED as inverted; reader-B's re-mint arbiter-confirmed by independent dependency derivation over HeroBlob.vue:152-178",
+     "BLOB_HERO-adoption cure killed on installed-dist reads: bodyRadius 0.22 vs pinned 0.325, fissionAmp 0 vs ruled arming, canned brown paletteStops",
+     "forced-colors-desktop/blob.png ruled a VOID cell (unlabeled emulation) — struck as evidence in BOTH directions; D-6 consequence limb back to UNPROVEN-NEEDS-LIVE",
+     "Arbiter-new: satelliteRadius 0.082 is the only off-grid default of all 31 (own step-grid census); MT-CSP-1 orphaned from the X ledger (NO-X-WAVE-OWNER flag)",
+     "10 identity-folds to the ConfigSliderPane adjudication prevented re-books; LabeledField producer directive routed as addendum ADD-BP-1 beside CSP G3"
+    ]
+   }
+  },
+  {
+   "agentId": "a5d97aa7a24a4cc01",
+   "key": "v2:3f703557c81f8106070661e8cb63c7d9c17dc933b45ca9dc8286e9a7cbc0e4a5",
+   "result": {
+    "slug": "BrowsePane",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/BrowsePane.md",
+    "verdict": "DEFECTIVE — ADJUDICATED: 44 confirmed (5 BLOCKER · 21 MAJOR · 14 MINOR · 4 INFO) · 15 killed with refutations · 14 reader-missed adopted · 1 binding-law rescope (the §3.1 band, owner-struck per X.W5.e) · 14 UNPROVEN-NEEDS-LIVE rows routed to SS-8; dispositions routed X-W5.e/X-W7/X-W10/X-W1/GLASS-RELAY, with the search-predicate seam, colour-search blindness, card-cluster home, refetch/loadingMore strand, and request<T> decoder registered NO-WAVE-OWNER",
+    "confirmedCount": 44,
+    "killedCount": 15,
+    "missedCount": 14,
+    "headline": [
+     "D5-01 BLOCKER: the colour commons loses its colours under forced-colors and its ink in print — PaletteColorStrip is the one colour surface absent from foundation.css's own roster; cure is one [data-color-surface] attribute (X-W7.c)",
+     "P-2 BLOCKER: two incompatible search predicates hand over at 2 characters — typing the second character of any word empties the commons, and NO tranche-X wave owns the seam (NO-WAVE-OWNER, top-priority register row)",
+     "P-1 re-mechanised and demoted to MAJOR: the retry-blank's true root cause is EmptyState.vue's leading template comment (dev-compiler multi-root strands Transition isLeaving — re-proven by this seat's own NODE_ENV compile pair + three runtime-core reads); prod degrades to a transient blank; cure is one moved comment — a fix no challenge pass proposed, and PaletteCardGrid's own comment documents the exact hazard",
+     "Browse composition BLOCKER confirmed but its cited law rescoped: X.W5.e owner-strikes the 64–66.7% band as fabricated; the binding form is the exact posture (66.67/33.33 selected, 100% protagonist unselected) + the surviving one-Card-shell and selection-seat clauses (X-W5.e canon + X-W7.d inspector build)",
+     "R2.6 restored over pass 2's category-error kill: the search input is nameless in the producer bytes and one call-site aria-label lands on the input today via SearchBar's attrs spread — no producer ask needed",
+     "15 kills adjudicated including two kills-of-kills; DU's missed one-predicate-deletes-all-four-recovery-affordances row and LC's missed fork-swallow row adopted as MAJOR"
+    ]
+   }
+  },
+  {
+   "agentId": "a0f11682fbaf5feda",
+   "key": "v2:a9d7baa202d96dbc2b4b10a7838da169834b6a4d7e86829e5b22028e17648580",
+   "result": {
+    "slug": "EmptyState",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/EmptyState.md",
+    "verdict": "ADJUDICATED — RED, redder than the re-readers filed it: C-1 overruled from UNPROVEN to CONFIRMED BLOCKER on the corpus's own cross-engine measured evidence (homed on BrowsePane.vue:40); 36 rows confirmed (2 BLOCKER · 14 MAJOR · 17 MINOR · 3 INFO); 26 rows route to X-W7 (the named surface owner), 1 to X-W4.g, 1 to X-W8, 1 to X-W9, 3 to X-W10, 2 X-W1-coordinated, 3 GLASS-RELAY, 3 NO-WAVE-OWNER residues, 1 OWNER-QUESTION, 8 UNPROVEN-NEEDS-LIVE visual-audit inputs. Dispositions are ADJUDICATED, not VERIFIED.",
+    "confirmedCount": 36,
+    "killedCount": 17,
+    "missedCount": 9,
+    "headline": [
+     "ES-1 BLOCKER: the plate asserts 'No saved palettes yet.' over a search-filtered zero while the same screen's badge + sr-only span say '2 saved' — the contradiction is in the accessibility tree (PalettesPane.vue:77 vs :20-25)",
+     "ES-2 BLOCKER: both re-readers under-filed C-1 as unproven; the incredulity seat overruled to CONFIRMED on challenge-C's cross-engine measured DOM evidence + fresh structural re-derivation — Retry inside BrowsePane's out-in Transition with a same-key re-entering vnode leaves a blank pane; reader-1 had used the same probe class to kill D-19 one row over (evidence-standard inconsistency exposed)",
+     "ES-15 MAJOR (byte-proved this session): compiled WatercolorDot 7.0.0 renders NO slot (renderSlot/$slots grep = 0) — the collapsed dock's view-identity icon and two add-slot Plus glyphs silently never render; cross-booked to X-W4.g's impostor-seat rows, Dock limb new",
+     "ES-8 MAJOR: the plate's Fraunces protagonist line ships at weight 700 against the owner's pinned non-bold display edict (producer --type-weight-heading: 700, no demo override) — both readers found it, but their shared one-line cure was KILLED (it would de-bold every legitimate section heading; the root fix is the ES-7 re-pairing)",
+     "Kills ruled both directions: D-19's kill upheld over reader-2's demurral (three corpus-internal witnesses incl. probes/probeD-error-browse.png); reader-1's 'aria-hidden redundant' CONFIRMED-collateral killed (o9:74 asserts it); reader-2's Markdown-leaf-CSS 'missed' find killed as a registry re-mint of Markdown-adj L-9",
+     "3 NO-WAVE-OWNER residues named for the next formation boundary: the --ink-muted static declaration (zero declarations exist; boot-only writer), the tsconfig-parity standing identity, the forced-colors roster granularity; OQ-1 (is the mark PR-05 ornament on Admin routes?) goes to the owner sitting with X.W7.g's OM-15 receipts"
+    ]
+   }
+  },
+  {
+   "agentId": "ac5d1a37c56e87447",
+   "key": "v2:5861dd7c0a54073665157602db79a0c063ed67c282dc0f2c0de82b2db80bec73",
+   "result": {
+    "slug": "l18-apotheosis-ColorNutritionLabel",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/ColorNutritionLabel.md",
+    "verdict": "SOURCE-RED AFFIRMED AND WIDENED — the catalog lie survives sharpened (the rgb fallback article is itself false; X-W6.f, one identity with CSS-L-1/AB-1) and the fail-open ink pair survives with its mechanism corrected (third null arm via contrast_unreachable; contrast primitive to X-W9, consumer pair to the ownerless recomposition, gate to X-W1); two crash BLOCKERs no axis filed were confirmed by this seat's own dist instruments — the two-click achromatic+LCh powerless-hue crash (RESCOPED: ErrorBoundary fallback over the whole pane grid with a re-throwing recovery loop, not a whole-SPA blank) and the boot white-screen from App's own setup (SHARPENED: 28 of 256 greys, not just black, round-trip to hsv-none) — both X-W9+X-W1. 12 reader kills ratified (L-12, L-14/route premise, D-6 shadcn limb, D-8 tabindex, D-11 static-model+5.625, L-2 attribution, D-17 motion per M-03/M-17/M-29, C-5 cure-2, D-4 cure limb, D-1 arithmetic, D§7 exoneration); 5 reader cells killed or corrected by this seat, including reader-L's 5.625 confirmation cell as a citation-inheritance event (ink.ts:137 is additive — 5.75) and reader-D's Fraunces provenance; 4 \"novel\" misses returned to pre-banked registry identities (CSS-L-1/AB-2/AB-10/AB-36) under the anti-rename guard; the recomposition, MT-CSS-2, and the resting-rung linear-L ink referent join rider A-1's phantom-owner list for the next formation boundary. Dispositions ADJUDICATED, not VERIFIED.",
+    "confirmedCount": 27,
+    "killedCount": 17,
+    "missedCount": 20,
+    "headline": [
+     "Two unfiled crash BLOCKERs confirmed against shipped dist: achromatic+LCh two-click kills the pane grid; 28 greys white-screen the boot from App setup (outside the ErrorBoundary)",
+     "Reader-L's D-11 cell repeated the challenger's 5.625 against the very lines that prove 5.75 — a citation-inheritance event of the ColorSpaceSelector DISSENT-1 class",
+     "Catalog lie sharpened: the rgb fallback entry is itself false (CIE RGB 1931 vs the library's encoded sRGB) — 11 of 18 spaces true, owned at X-W6.f",
+     "White→HSL is a library correctness bug (color_non_finite at exactly v=255; powerless law runs after the division) — X-W9",
+     "Four 'missed by the whole corpus' claims were pre-banked registry identities — cross-booked, never re-booked (anti-rename)"
     ]
    }
   }

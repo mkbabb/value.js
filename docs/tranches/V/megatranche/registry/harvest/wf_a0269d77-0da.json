@@ -1,0 +1,114 @@
+{
+ "runId": "wf_a0269d77-0da",
+ "workflow": "wf_a0269d77-0da",
+ "resultCount": 3,
+ "results": [
+  {
+   "agentId": "a14c49a072c5b0564",
+   "key": "v2:c448a98b920484d24eb83e21dba2191c77c67ec7e6c3e5ece0b4bb558ee8f7c5",
+   "result": {
+    "modules": [
+     {
+      "slug": "ansi",
+      "path": "typescript/src/parse/ansi.ts",
+      "lines": 17
+     },
+     {
+      "slug": "core",
+      "path": "typescript/src/parse/core.ts",
+      "lines": 26
+     },
+     {
+      "slug": "debug",
+      "path": "typescript/src/parse/debug.ts",
+      "lines": 383
+     },
+     {
+      "slug": "diagnostics",
+      "path": "typescript/src/parse/diagnostics.ts",
+      "lines": 14
+     },
+     {
+      "slug": "index",
+      "path": "typescript/src/parse/index.ts",
+      "lines": 14
+     },
+     {
+      "slug": "lazy",
+      "path": "typescript/src/parse/lazy.ts",
+      "lines": 43
+     },
+     {
+      "slug": "leaf",
+      "path": "typescript/src/parse/leaf.ts",
+      "lines": 399
+     },
+     {
+      "slug": "packrat",
+      "path": "typescript/src/parse/packrat.ts",
+      "lines": 488
+     },
+     {
+      "slug": "packrat-entry",
+      "path": "typescript/src/parse/packrat-entry.ts",
+      "lines": 5
+     },
+     {
+      "slug": "parser",
+      "path": "typescript/src/parse/parser.ts",
+      "lines": 711
+     },
+     {
+      "slug": "parsers",
+      "path": "typescript/src/parse/parsers",
+      "lines": 103
+     },
+     {
+      "slug": "split",
+      "path": "typescript/src/parse/split.ts",
+      "lines": 58
+     },
+     {
+      "slug": "state",
+      "path": "typescript/src/parse/state.ts",
+      "lines": 189
+     },
+     {
+      "slug": "utils",
+      "path": "typescript/src/parse/utils.ts",
+      "lines": 186
+     },
+     {
+      "slug": "utils-entry",
+      "path": "typescript/src/parse/utils-entry.ts",
+      "lines": 14
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a047f3c3f686bdd0d",
+   "key": "v2:157a582651951aaf0e7ccd13add8740d061b2ed9f1e92b46ff36a4f25e6c3838",
+   "result": {
+    "slug": "ansi",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/ansi/challenge-L-library.md",
+    "defects": 8,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a19a1f6c43015f176",
+   "key": "v2:a654ee9f0dd834979ae1ea93dcd0c478a6fbbc8ed9be0a82f0c92fc00cce28f1",
+   "result": {
+    "slug": "lazy",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/lazy/challenge-C-consumption.md",
+    "defects": 13,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  }
+ ]
+}

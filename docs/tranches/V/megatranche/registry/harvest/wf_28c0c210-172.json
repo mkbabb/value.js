@@ -1,7 +1,7 @@
 {
  "runId": "wf_28c0c210-172",
  "workflow": "wf_28c0c210-172",
- "resultCount": 1,
+ "resultCount": 10,
  "results": [
   {
    "agentId": "adcf86777ab1a7e30",
@@ -339,6 +339,114 @@
       "lines": 486
      }
     ]
+   }
+  },
+  {
+   "agentId": "aa95fd244f1e8ec6b",
+   "key": "v2:b04452e3001ea9a85c72ed16b44c28fa01c69c16067f28286cb726719e939857",
+   "result": {
+    "slug": "CanvasOverlayButton",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasOverlayButton/challenge-C-consumption.md",
+    "defects": 10,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "ada4ebbddeaba0470",
+   "key": "v2:39c578ef3fe2dd32612a7f69acc15e1701e09868f854c5881205ffe1e31d6723",
+   "result": {
+    "slug": "CanvasOverlayButton",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasOverlayButton/challenge-D-design.md",
+    "defects": 14,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a35f748fdf2f64803",
+   "key": "v2:f3879e4b4347dc561223b2e1ca5637c5f0cf1676ea730f10adf8086f5c59c339",
+   "result": {
+    "slug": "CanvasOverlayButton",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasOverlayButton/challenge-L-library.md",
+    "defects": 10,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a4c2dfed475aab90a",
+   "key": "v2:01447e667ba09cdaff5901a46878dedeed2c4a478dc68279a30c4435f403b78c",
+   "result": {
+    "slug": "CollapsibleSection",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CollapsibleSection/challenge-L-library.md",
+    "defects": 13,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ae576299eddbff191",
+   "key": "v2:cd66d6e086585018a4b4d62079802289195cab1a5c8c1b9c414c91b033999ecb",
+   "result": {
+    "slug": "CanvasControlsDock",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasControlsDock/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a9cfee0e2c3f1b444",
+   "key": "v2:05bd0ffb10524dd2b219d4effbc03f2c452de66962f6086c7bbd75b60c1dc797",
+   "result": {
+    "slug": "CollapsibleSection",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CollapsibleSection/challenge-D-design.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a8ab34368ca71f5d9",
+   "key": "v2:cbabfbaa6d8f67de2c710ce2e134a287bfb8bea6c4ec951fe0f87b1ba585a1fe",
+   "result": {
+    "slug": "ContourEditorCanvas",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourEditorCanvas/challenge-D-design.md",
+    "defects": 23,
+    "blockers": 5,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a1236c99b4b28850d",
+   "key": "v2:8807260d17108a047130f8c26719a57c9c79df31932b18958938923c9ec3f08a",
+   "result": {
+    "slug": "CollapsibleSection",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CollapsibleSection/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ab9b5928b163cd8a0",
+   "key": "v2:a92a00e62ba5d921edb2ef82867ce5745c5ab15c3738a73632177bfe6f5ecbb3",
+   "result": {
+    "slug": "CanvasControlsDock",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasControlsDock/challenge-L-library.md",
+    "defects": 18,
+    "blockers": 1,
+    "superlatives": 8
    }
   }
  ]
