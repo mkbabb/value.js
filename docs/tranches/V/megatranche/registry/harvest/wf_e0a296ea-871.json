@@ -1,0 +1,305 @@
+{
+ "runId": "wf_e0a296ea-871",
+ "workflow": "wf_e0a296ea-871",
+ "resultCount": 1,
+ "results": [
+  {
+   "agentId": "af4db1605694bb18d",
+   "key": "v2:378794e5e0d6b9aab1ff8e77739614de6b6fa2e81d3a5e35a3686aa7b2278a9c",
+   "result": {
+    "components": [
+     {
+      "slug": "AmigaScene",
+      "path": "demo/scenes/amiga/AmigaScene.vue",
+      "lines": 271
+     },
+     {
+      "slug": "AnimatedText",
+      "path": "demo/components/instrument/shell/AnimatedText.vue",
+      "lines": 126
+     },
+     {
+      "slug": "AnimationControlsGroup",
+      "path": "demo/components/instrument/transport/AnimationControlsGroup.vue",
+      "lines": 336
+     },
+     {
+      "slug": "AnimationVisualizer",
+      "path": "demo/components/playback/AnimationVisualizer.vue",
+      "lines": 256
+     },
+     {
+      "slug": "App",
+      "path": "demo/app/App.vue",
+      "lines": 387
+     },
+     {
+      "slug": "App.skeleton",
+      "path": "demo/app/App.skeleton.vue",
+      "lines": 101
+     },
+     {
+      "slug": "CSSCodeEditor",
+      "path": "demo/components/instrument/keyframes/CSSCodeEditor.vue",
+      "lines": 229
+     },
+     {
+      "slug": "CSSPasteDialog",
+      "path": "demo/components/instrument/timeline/CSSPasteDialog.vue",
+      "lines": 80
+     },
+     {
+      "slug": "ChannelControls",
+      "path": "demo/components/instrument/transport/channel-controls/ChannelControls.vue",
+      "lines": 456
+     },
+     {
+      "slug": "ChannelOptions",
+      "path": "demo/components/instrument/transport/channel-controls/ChannelOptions.vue",
+      "lines": 609
+     },
+     {
+      "slug": "ChromeDock",
+      "path": "demo/app/dock/ChromeDock.vue",
+      "lines": 385
+     },
+     {
+      "slug": "ControlsPaneWrapper",
+      "path": "demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue",
+      "lines": 319
+     },
+     {
+      "slug": "CopyButton",
+      "path": "demo/components/CopyButton.vue",
+      "lines": 113
+     },
+     {
+      "slug": "CubeAxisLines",
+      "path": "demo/scenes/cube/CubeAxisLines.vue",
+      "lines": 90
+     },
+     {
+      "slug": "CubeScene",
+      "path": "demo/scenes/cube/CubeScene.vue",
+      "lines": 287
+     },
+     {
+      "slug": "CubeTarget",
+      "path": "demo/scenes/cube/CubeTarget.vue",
+      "lines": 239
+     },
+     {
+      "slug": "DemoGlobalChrome",
+      "path": "demo/components/instrument/transport/components/DemoGlobalChrome.vue",
+      "lines": 49
+     },
+     {
+      "slug": "EasingScene",
+      "path": "demo/scenes/easing/EasingScene.vue",
+      "lines": 133
+     },
+     {
+      "slug": "EasingSidebar",
+      "path": "demo/scenes/easing/EasingSidebar.vue",
+      "lines": 234
+     },
+     {
+      "slug": "EasingTarget",
+      "path": "demo/scenes/easing/EasingTarget.vue",
+      "lines": 335
+     },
+     {
+      "slug": "EditorHeader",
+      "path": "demo/components/instrument/shell/EditorHeader.vue",
+      "lines": 108
+     },
+     {
+      "slug": "EditorShell",
+      "path": "demo/components/instrument/shell/EditorShell.vue",
+      "lines": 261
+     },
+     {
+      "slug": "EditorStartScreen",
+      "path": "demo/components/instrument/shell/EditorStartScreen.vue",
+      "lines": 191
+     },
+     {
+      "slug": "HeroAurora",
+      "path": "demo/components/instrument/shell/HeroAurora.vue",
+      "lines": 128
+     },
+     {
+      "slug": "KeyboardShortcutsModal",
+      "path": "demo/components/instrument/shell/KeyboardShortcutsModal.vue",
+      "lines": 69
+     },
+     {
+      "slug": "KeyframeCard",
+      "path": "demo/components/instrument/keyframes/KeyframeCard.vue",
+      "lines": 81
+     },
+     {
+      "slug": "KeyframeCardList",
+      "path": "demo/components/instrument/keyframes/components/KeyframeCardList.vue",
+      "lines": 82
+     },
+     {
+      "slug": "KeyframeTimeline",
+      "path": "demo/components/instrument/timeline/KeyframeTimeline.vue",
+      "lines": 312
+     },
+     {
+      "slug": "KeyframesAddDialog",
+      "path": "demo/components/instrument/keyframes/components/KeyframesAddDialog.vue",
+      "lines": 161
+     },
+     {
+      "slug": "KeyframesEditor",
+      "path": "demo/components/instrument/keyframes/KeyframesEditor.vue",
+      "lines": 284
+     },
+     {
+      "slug": "KeyframesStringControls",
+      "path": "demo/components/instrument/keyframes/KeyframesStringControls.vue",
+      "lines": 185
+     },
+     {
+      "slug": "KfPillTabs",
+      "path": "demo/components/instrument/transport/KfPillTabs.vue",
+      "lines": 124
+     },
+     {
+      "slug": "LayerConfigPanel",
+      "path": "demo/components/instrument/transport/channel-controls/LayerConfigPanel.vue",
+      "lines": 92
+     },
+     {
+      "slug": "MatrixEditor",
+      "path": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+      "lines": 158
+     },
+     {
+      "slug": "MbabbMenu",
+      "path": "demo/app/dock/MbabbMenu.vue",
+      "lines": 121
+     },
+     {
+      "slug": "OrbitalDrag",
+      "path": "demo/scenes/cube/orbital-drag/OrbitalDrag.vue",
+      "lines": 352
+     },
+     {
+      "slug": "PlaybackRibbon",
+      "path": "demo/components/playback/PlaybackRibbon.vue",
+      "lines": 244
+     },
+     {
+      "slug": "RibbonBar",
+      "path": "demo/components/instrument/transport/controls-pane/RibbonBar.vue",
+      "lines": 151
+     },
+     {
+      "slug": "SequenceAxis",
+      "path": "demo/scenes/sequence/SequenceAxis.vue",
+      "lines": 49
+     },
+     {
+      "slug": "SequencePlayhead",
+      "path": "demo/scenes/sequence/SequencePlayhead.vue",
+      "lines": 87
+     },
+     {
+      "slug": "SequenceScene",
+      "path": "demo/scenes/sequence/SequenceScene.vue",
+      "lines": 43
+     },
+     {
+      "slug": "SequenceScrubber",
+      "path": "demo/scenes/sequence/SequenceScrubber.vue",
+      "lines": 162
+     },
+     {
+      "slug": "SequenceTarget",
+      "path": "demo/scenes/sequence/SequenceTarget.vue",
+      "lines": 252
+     },
+     {
+      "slug": "SharePopover",
+      "path": "demo/components/instrument/shell/SharePopover.vue",
+      "lines": 62
+     },
+     {
+      "slug": "SpringHeatmap",
+      "path": "demo/scenes/spring/SpringHeatmap.vue",
+      "lines": 338
+     },
+     {
+      "slug": "SpringPhysicsFacet",
+      "path": "demo/scenes/spring/SpringPhysicsFacet.vue",
+      "lines": 242
+     },
+     {
+      "slug": "SpringScene",
+      "path": "demo/scenes/spring/SpringScene.vue",
+      "lines": 204
+     },
+     {
+      "slug": "SpringTarget",
+      "path": "demo/scenes/spring/SpringTarget.vue",
+      "lines": 470
+     },
+     {
+      "slug": "SpringTrace",
+      "path": "demo/scenes/spring/SpringTrace.vue",
+      "lines": 129
+     },
+     {
+      "slug": "SquareInstrument",
+      "path": "demo/scenes/square/SquareInstrument.vue",
+      "lines": 212
+     },
+     {
+      "slug": "SquareScene",
+      "path": "demo/scenes/square/SquareScene.vue",
+      "lines": 331
+     },
+     {
+      "slug": "StartingStyleTarget",
+      "path": "demo/scenes/spring/StartingStyleTarget.vue",
+      "lines": 216
+     },
+     {
+      "slug": "TimelineCaret",
+      "path": "demo/components/instrument/timeline/TimelineCaret.vue",
+      "lines": 70
+     },
+     {
+      "slug": "TimelineHoverPreview",
+      "path": "demo/components/instrument/timeline/components/TimelineHoverPreview.vue",
+      "lines": 38
+     },
+     {
+      "slug": "TimelineTrack",
+      "path": "demo/components/instrument/timeline/components/TimelineTrack.vue",
+      "lines": 246
+     },
+     {
+      "slug": "TimingFunctionPanel",
+      "path": "demo/components/instrument/transport/channel-controls/TimingFunctionPanel.vue",
+      "lines": 166
+     },
+     {
+      "slug": "TransportDock",
+      "path": "demo/components/instrument/transport/TransportDock.vue",
+      "lines": 403
+     },
+     {
+      "slug": "TypingDots",
+      "path": "demo/components/instrument/shell/TypingDots.vue",
+      "lines": 125
+     }
+    ]
+   }
+  }
+ ]
+}
