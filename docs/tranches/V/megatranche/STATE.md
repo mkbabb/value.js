@@ -3,6 +3,15 @@
 **Read this first in any new session.** It is the resume point. Everything below is on disk; nothing
 here depends on conversation context surviving.
 
+> **CURRENT SUPERSESSION — 2026-08-04.** The live program cursor is
+> **`docs/tranches/X/COHESION.md`** (M-26 binding surface: sub-tranche board §0, SS register §1,
+> parity map §1a, NO-WAVE-OWNER §4, SS-6 accretion §4a). Tranche **X SPECIFIED** (`14d83356`),
+> **X·P SPECIFIED** (`2e334231`), parse-that fully saturated (`b651e4b3`); kf/fourier saturation +
+> SS-7/SS-12b adjudication batches executing under the parity law (M-27); batch scripts + resume
+> runIds live in the session `workflows/scripts/` dir; completeness authority remains
+> `workflows/validate-completeness.mjs` → `registry/COMPLETENESS-LEDGER.md`. The 2026-07-29 block
+> below is dated evidence.
+>
 > **CURRENT SUPERSESSION — 2026-07-29 13:49 EDT.** The exact resume authority is
 > `CONVERGENCE-RESUME-HANDOFF-2026-07-29.md`; independent findings are
 > `CONVERGENCE-REAUDIT-2026-07-29.md`. The former in-flight handoff, audit, and mechanism map remain
