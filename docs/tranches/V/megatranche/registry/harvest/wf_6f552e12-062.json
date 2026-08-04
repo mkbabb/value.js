@@ -1,7 +1,7 @@
 {
  "runId": "wf_6f552e12-062",
  "workflow": "wf_6f552e12-062",
- "resultCount": 3,
+ "resultCount": 7,
  "results": [
   {
    "agentId": "a6a38a0411571782e",
@@ -730,6 +730,444 @@
      "SUP-4 · The diagnostic substate is per-parse, not global, and this module is where that choice is honoured. `debug.ts:172-188` reads `state.expected`, `state.secondarySpans`, `state.suggestions` off the *state instance* (`state.ts:43-45`), never a module accumulator — the design `utils.ts:20-26` documents and the reason a nested `.parse()` inside a `.map` callback cannot corrupt the outer parse's error tracking. That is the exact hazard class the packrat tier had to cure with an epoch snapshot and a `try/finally` (`parser.ts:34-49`); the renderer needed no cure because the data was threaded correctly upstream. Falsifier tested: the one global read that could break it (`isDiagnosticsEnabled()`, `debug.ts:174`) affects *whether* extras render, never *whose*, so the reentrancy property genuinely holds — and filing it simultaneously as a superlative and as m-5 is the honest reading.",
      "SUP-5 · The type posture is stricter than the tier below it. Every array parameter in the module is `readonly` — `formatExpected` (`:33`), `formatSecondarySpans` (`:98`), `formatSuggestions` (`:127`), `formatAllDiagnostics` (`:235`) — and all four bodies were read: none writes to its array parameter, so the annotations are not hollow. In 383 lines there is exactly one `any` (`:254`), eslint-disabled with a stated reason. This is sharper than its own dependency: `utils.ts:89-91` declares `Diagnostic`'s three arrays as mutable `string[]`/`Suggestion[]`/`SecondarySpan[]`, which is why `collectDiagnostic` must defensively spread all three (`utils.ts:120-122`) to obtain the immutability this module got from the type system for free.",
      "SUP-6 · The package's own publish-discipline gate is honest about why it exists, and its header is the reason this module's gap is diagnosable. `test/dist-surface.test.ts:6-11` records, in prose, that the shipped 0.8.2 dist exported only 8 of 15 span functions and \"the version number lied about it\" — a gate authored from a real incident rather than from a checklist, parsing the source barrel's named exports (`:18-34`) and asserting each against `dist/index.d.ts`. It is also the precise shape of the blind spot: it cures source-barrel→dist and leaves published-`.d.ts`→exports-map uncovered, which is exactly the direction `dist/debug.d.ts` fails in. A gate that states its own provenance makes its own boundary auditable — the reason C·C-2 could be filed at all."
+    ]
+   }
+  },
+  {
+   "agentId": "a19034509e92f849a",
+   "key": "v2:5b122ffa9b286d48729e6333611036598630bb4ee89aa6968cde1d79722b7910",
+   "result": {
+    "confirmedCount": 12,
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/pt-ansi.md",
+    "headline": [
+     "NO BLOCKER SURVIVES ON ansi: L-D1 corrected to MAJOR (opt-in debug tier), C-B1 re-attributed off ansi to W1 G-5 + W2 R-LAW-3 (stdout-blind gates), C-B2 corrected to MAJOR and routed to W4 RC-P",
+     "Sharpest live defect is reader-missed M-1 (caret drawn at pre-truncation column vs re-windowed line) - adopted MAJOR with this seat's scope correction (bites only when failure column > 37), NO-WAVE-OWNER render tier",
+     "All 9 kills sustained by this seat's own re-measures: 17 lines not 18, :881 guard vs :882 emission, debug.ts 383 not 340 lines, addUnclosedDelimiterSuggestion fabricated, 40,576-byte chunk denominator, 7-orphan d.ts set {ansi,debug,lazy,leaf,parser,split,state}",
+     "New seat interlock: curing the stdout-blind probe (row 12, patch console.log) arms the debugDepth leak (row 16) on the public path - the two cures must land together",
+     "REFINEMENT FOLD: adoption acceptance probe must be case-insensitive (source \\x1b, shipped \\x1B - grep -c 'x1b' returns GREEN 0 on the chunk carrying all nine arrows); plus the G-6 String(state) compared-surface rider",
+     "Routing: 2 rows W2 (injected sink+colour policy), 4 rows W4 (RC-P packaging), 1 row W1+W2 (gates), 1 REFINEMENT FOLD, 12 NO-WAVE-OWNER (EQ-4-quarantined render tier), 6 MEASURE-AT-OPEN rows incl. the never-witnessed enabled===true arm",
+     "Fleet lesson repeated: C's substance strong but provenance failed five re-measures (K1,K2,K3,K9x2); L nearly byte-exact with three self-downgrades that all held"
+    ],
+    "killedCount": 9,
+    "missedCount": 8,
+    "slug": "pt-ansi-apotheosis",
+    "verdict": "ADJUDICATED - 20-row roster: 12 confirmed (severities corrected: zero blockers survive on ansi) + 8 reader-missed adopted after independent re-derivation; 9 killed claims sustained; 8 superlatives banked; 4 seat corrections filed against the hostile re-read (no verdict flips). Seam defects wave-routed (W2 policy injection, W4 RC-P packaging, W1 G-5 + W2 R-LAW-3 gate blindness), acceptance-probe case-blindness to the X-P REFINEMENT FOLD, 12 render-tier rows recorded NO-WAVE-OWNER as the 2.0.0 relocation's inherited debt roster."
+   }
+  },
+  {
+   "agentId": "a36a82229c3944fe1",
+   "key": "v2:93e097dd7ef29feea03d75a782a4a8ddd6932a27e0d302dbb5bf6dd0256f3681",
+   "result": {
+    "slug": "L-18-hostile-reread-core-consumption-api",
+    "confirmed": [
+     {
+      "id": "L:B-1 / C:C-2",
+      "claim": "regex() short-circuits at end-of-input before the pattern is consulted, so every nullable pattern fails at EOF - including the /core-exported `whitespace` singleton (regex(/\\s*/)).",
+      "proof": "SOURCE leaf.ts:326-330 guard `if (state.offset >= state.src.length) { state.isError = true; return state; }` precedes any regex use; the non-EOF path has a dedicated SUCCESS arm for the empty match at leaf.ts:354-357, so the function contradicts itself across the boundary. Singleton minted leaf.ts:396-399, published core.ts:24, emitted dist/packrat-entry-CS1td-8B.js:656-660. API-TEST vs dist/core.js (fresh process; no memoize/mergeMemos/enableDiagnostics; PACKRAT_ARMED and diagnosticsEnabled both false; no bench) reproduced every published row verbatim: whitespace.parseState('') isError=true; ('  ') false + value '  '; ('a') false + value undefined; all(string a, whitespace).parseState('a') true; string('ab').trim(regex(/\\s*/)) on 'ab' TRUE but on 'ab ' FALSE - appending a trailing space makes the parse succeed; string('a').wrap(ws,ws) on 'a' true; .trim(ws,false) on 'a' true; all(string a, regex(/;?/)) on 'a' true. Masked only by the name-sniff fast path parser.ts:488 -> trimStateWhitespace (leaf.ts:372-391), correct at EOF. Doc: challenge-L-library.md:50-96, challenge-C-consumption.md:110-148. NEW vs corpus (absent from O-15 and from parser-band.md's 22-row ledger).",
+      "severity": "BLOCKER"
+     },
+     {
+      "id": "L:B-2 / C:C-14",
+      "claim": "`.parse()` returns a success-shaped value on failure; `parseState()` returns a different object than `.state` while sharing `expected` by reference.",
+      "proof": "SOURCE parser.ts:51-79 - parseStateInner builds errorState at :61-65, assigns it to this.state at :66, then `return state` (the original) at :74; parse() is parseState(val).value at :77-79. Failure arms write plausible values: parser.ts:555 (many) and :628 (sepBy) both `state.unsafeSetValue([])`. API-TEST vs dist/core.js: all(regex(/\\s*/),string('ab'),regex(/\\s*/)).parse('ab') returns 'ab' while p.state.isError is true; string('a').many(1).parse('z') returns [] with isError true; many(0).parse('z') returns [] with isError false - identical return, opposite verdict; ret===p.state false; ret.expected===p.state.expected true (aliased at parser.ts:62). No Result<T,E>, no isOk(), no throw; `parse(val: string)` is typed => T, so TypeScript asserts the failure mode away. Doc: challenge-L:106-158, challenge-C:403-428. Sharpens O-15 PT-07 (INBOX.md:77) correctly: the ambiguity is plausible-value vs plausible-value, not undefined vs undefined.",
+      "severity": "BLOCKER"
+     },
+     {
+      "id": "L:D-03 / C:C-1",
+      "claim": "The module's sole documented product - tier isolation - is false in the shipped artifact; a /core consumer loads the packrat chunk and the whole diagnostics accumulator.",
+      "proof": "dist/core.js:1 is one import from ./packrat-entry-CS1td-8B.js; that chunk's line 1 imports 6 names from ./diagnostics-DDazRHgl.js. Chunk landmarks verified by sed: PACKRAT_ARMED :678, packratEnter :681, memo-key machinery :661-675, parserDebug :262, PT-01 console.error :882 (guard :881), _initWhitespace() :1416. Unshakeable by construction: parser.ts:43/:47 call packratEnter/packratExit on every top-level parse; mergeErrorState is reached from 15 parser.ts sites and 7 leaf.ts sites; parserDebug/parserPrint/statePrint are class methods (parser.ts:695/:699, state.ts:137). Third clause TRUE: grep -cE 'jsonParser|csvParser|escapedString' over the chunk = 0. C's byte accounting re-derived EXACTLY by wc -c: /core closure 1336+40576+3516 = 45428 B; root closure +parse.js 1109 +utils.js 2039 = 48576 B; delta 3148 B = 6.48 percent; ratio 93.52 percent. dist/core.js re-exports 16 of its 18 runtime names from the chunk (:38-57); only containsDelimiter/splitBalanced are local (:2-37). Doc: challenge-L:164-216, challenge-C:79-106.",
+      "severity": "BLOCKER"
+     },
+     {
+      "id": "L:D-04 / C:C-3",
+      "claim": "The EOF arm of regex() never calls mergeErrorState, so furthest never advances and the rendered error is positioned at offset 0.",
+      "proof": "SOURCE leaf.ts:327-330 sets isError and returns; every other failure arm calls mergeErrorState(state,label) at leaf.ts:360; parser.ts:60 positions the display at `state.furthest >= 0 ? state.furthest : state.offset`. API-TEST: all(string a, regex(/\\d+/)).parseState('a').furthest = -1 vs .parseState('ax').furthest = 1 (truncating by one char moves the reported error from 1 to 0); all(string 'abc', regex(/[0-9]+/)).parseState('abc').furthest = -1 while the string('9') control = 3; regex(/[0-9]+/).parseState('') gives furthest -1 / expected undefined while string('x').parseState('') gives furthest 0. L's falsifier holds at source: utils.ts:29-32 advances furthest UNCONDITIONALLY; only the label (utils.ts:33) is diagnostics-gated. Two /core leaves, two incompatible failure protocols. Doc: challenge-L:218-240, challenge-C:151-177.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-05",
+      "claim": "getLineNumber() is 0-based while getLineAndColumn().line is 1-based, and getColumnNumber() disagrees with .column at a newline offset; the Math.max(0,..) clamp hides the off-by-one.",
+      "proof": "SOURCE state.ts:111-117 (lastIndexOf('\\n', offset)) vs :126-134 (lastIndexOf('\\n', offset-1)) vs :119-124 (returns 0 when no newline). Clamp at :116. API-TEST reproduced L's five-row table byte-identically: 'a\\nb'@2 -> [1, 0, {line:2,column:0}]; 'ab\\ncd'@2 -> [1, 0, {line:1,column:2}]; 'ab\\ncd'@3 -> [1, 0, {line:2,column:0}]; 'x'@0 -> [0, 0, {line:1,column:0}]; 'a\\nb\\nc'@4 -> [2, 0, {line:3,column:0}]. Only getLineAndColumn is documented (state.ts:126); collectDiagnostic reimplements the 1-based convention a third time at utils.ts:107-110. grep over test/ returns 0 hits for all three methods. All three are on the /core surface via ParserState (core.ts:9, dist/state.d.ts:55-61). Doc: challenge-L:242-269.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-06",
+      "claim": "Parser.trim() constructs and discards a whole Parser on every call, burning two PARSER_ID slots per call.",
+      "proof": "SOURCE parser.ts:492-496 builds `flaggedParser` and sets .flags; parser.ts:514-517 returns a DIFFERENT Parser; flaggedParser is never returned or referenced again (grep: `flaggedParser` appears only at :492 and :496). API-TEST: 100 `.trim()` calls consumed exactly 200 PARSER_ID slots (measured by differencing new Parser().id before/after and subtracting the 100 string() mints). Budget context verified exactly: PARSER_ID is the memo key's high component; MEMO_MAX_ID = floor(MAX_SAFE_INTEGER / 2**32) approx 2,097,151 at packrat.ts:77, with the fail-loud `throw new RangeError(` at packrat.ts:94. Doc: challenge-L:271-299.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-07",
+      "claim": "The entire flag machinery is unreachable dead code, and it strands the public Suggestion variant kind:'trailing-content'.",
+      "proof": "SOURCE: grep '\\.flags' over src/ + test/ returns exactly one ASSIGNMENT - parser.ts:496, on D-06's discarded parser (leaf.ts:321/:324 are RegExp.flags, not Parser.flags). parser.ts:438 `if (this.flags === 0) return this.parser(state)` is therefore the only live line of call(); :441-477 (37 lines) is unreachable. API-TEST: .flags on the results of .trim(), .eof() and .many(1) are all 0. ParserState.unsafeCall (state.ts:92-94), documented as 'the single choke point for combinator type casts', has zero call sites in src/ or test/. The FLAG_EOF branch parser.ts:466-476 is the ONLY construction site of kind:'trailing-content' in the public Suggestion union (state.ts:26, dist/state.d.ts:12-16) - API-TEST: string('a').eof().parseState('ab') gives isError true with suggestions []. A consumer switching on suggestion.kind writes a permanently dead arm. Doc: challenge-L:301-324.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-08",
+      "claim": "ParserState.clone() copies 5 of 8 fields, silently dropping expected/suggestions/secondarySpans.",
+      "proof": "SOURCE state.ts:101-109 vs the fields declared at state.ts:43-45. API-TEST: cloning a state carrying expected ['<x>'], one suggestion and one secondarySpan yields expected undefined, suggestions [], secondarySpans [] - and pays two fresh array allocations to discard them. Sole production caller verified EXACT: packrat.ts:351 `const scratch = live.clone();` inside recall()'s grow-pass re-evaluation. The stated design model contradicts the behaviour: state.ts:37-42 and utils.ts:20-26 both argue these fields exist ON the state precisely so tracking is threaded per-parse. Doc: challenge-L:326-351.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-09 / C:C-7",
+      "claim": "ParserFunction<T>'s type parameter is phantom - it appears nowhere in the signature - so every cast to it asserts nothing, on the library's central type.",
+      "proof": "SOURCE parser.ts:14-16 `export type ParserFunction<T = string> = (val: ParserState<any>) => ParserState<any>;`. It is Parser's only constructor parameter (parser.ts:30). `as ParserFunction<T[]>` (parser.ts:560), `as ParserFunction<S>` (:141) and `as ParserFunction<Result>` (leaf.ts:57) are structurally the same type. C-7's compounding point verified: Parser<T = string> at parser.ts:24 means an unannotated new Parser(fn) is silently Parser<string>. COUNT CORRECTED - see killed. Doc: challenge-L:353-374, challenge-C:247-263.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-10 / C:C-9",
+      "claim": "The exported `lazy` decorator is legacy-form under a tsconfig with no experimentalDecorators, caches nothing across calls, and binds `this` to the prototype.",
+      "proof": "SOURCE lazy.ts:30-43 is the 3-arg legacy method-decorator form; API-TEST lazy.length === 3. tsconfig.json read whole: target ES2022, strict true, verbatimModuleSyntax true, NO experimentalDecorators; devDependency typescript ^5.8.0 (package.json:57) so TS defaults to TC39 stage-3, whose (value, context) call shape leaves `descriptor` undefined and makes `descriptor.value!.bind(target)` (lazy.ts:35) throw at class-definition time. Zero usages: grep '@lazy' over src/ and test/ returns nothing. The JSDoc at lazy.ts:27-29 claims 'then caches' while :37-42 allocates a fresh Parser wrapping a fresh createLazyCached closure - hence a fresh cache - on every invocation; the working WeakMap reference implementation sits twenty lines above at lazy.ts:7-15. bind(target) binds the prototype for an instance-method decorator. Doc: challenge-L:376-408, challenge-C:285-302.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-11",
+      "claim": "PT-01 corroborated at source and sharpened: there is no label-without-console path, because the gate lives inside mergeErrorState rather than at the render site. O-15's dist cite is one line off.",
+      "proof": "dist/diagnostics-DDazRHgl.js:14 is exactly `state.expected = diagnosticsEnabled && label ? [label] : void 0;` (verified by sed) - O-15's cite EXACT. The console.error(this.state.toString()) is at dist/packrat-entry-CS1td-8B.js:882; the `if (isDiagnosticsEnabled()) {` guard O-15 cited (INBOX.md:77) is :881. L's correction is right. Coupling total in both directions at source: utils.ts:33 and :38 both gate the SEEDING; parser.ts:67-69 fires unconditionally once armed and routes through state.ts:137 -> statePrint. Parser.debug accepts an injected logger (parser.ts:693) but this site does not. Doc: challenge-L:410-432.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-12",
+      "claim": "PT-03 corroborated at the exact bytes and sharpened: the latch arms at wrapper CONSTRUCTION, so it is process-global and grammar-agnostic.",
+      "proof": "grep -n PACKRAT_ARMED src/parse/packrat.ts returns exactly :137 (comment), :156 (= false), :217 (read), :266 (read), :290 (= true) - L's four cites EXACT. Dist mirror: :678 / :682 / :714 / :722. No assignment back to false in either tree (grep exhaustive). Arming is inside makeMemoized at packrat.ts:290 with the deliberate rationale at :286-289 ('Arming at CONSTRUCTION (not first invocation)'). resetPackrat (packrat.ts:262-272) clears MEMO/HEADS/GROWING and nulls LR_STACK/CURRENT_SRC at :267-271 and never touches the latch; its own early return at :266 reads it. The 1.47x cost is O-15's N=1 number - NOT re-derived here; MEASURE-AT-OPEN. Doc: challenge-L:434-470.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-13 / C:C-17",
+      "claim": "dispatch() silently drops every non-ASCII table key (out-of-bounds Int8Array write) while its precomputed label still advertises them.",
+      "proof": "SOURCE leaf.ts:101 `new Int8Array(128).fill(-1)`; keys written unchecked at leaf.ts:122 `tbl[chars.charCodeAt(i)] = idx` - an OOB typed-array write is a silent no-op in both modes; the label is built from Object.keys(table) unconditionally at leaf.ts:128-132; the router guards `ch < 128 ? tbl[ch] : -1` at :137. API-TEST: dispatch({'e-acute': string('etat'), 'a': string('abc')}) keyed on U+00E9 gives isError true on its own input. CSS Syntax 4.2 makes any non-ASCII code point an ident-start, so this is live the moment an ident head-table is built (W2.md:249 names channel-table dispatch a required capability family; W2.md:411-413 puts head dispatch in the shared slice). The library's own fail-loud idiom for exactly this hazard class is two files away at packrat.ts:89-97. Doc: challenge-L:472-495, challenge-C:471-484.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-14 (in kind) / C:C-11",
+      "claim": "There is no depth bound anywhere in the library; the recursion ceiling is a V8 frame-budget property, and /core offers no seam to pass one.",
+      "proof": "SOURCE: no depth counter, no maxDepth option and no typed depth error exists in parser.ts, lazy.ts or leaf.ts (full reads). API-TEST arities: Parser.lazy.length = 1, createLazyCached.length = 1 - the two recursion primitives (parser.ts:702-707, lazy.ts:18-24) take only the thunk, so the debt-3 bound has nowhere to go. parser-band.md:118 states debt 3 verbatim ('an explicit depth bound so the stack ceiling becomes an ordinary ok:false by construction ... the try/catch may remain as a last-resort shield but must stay proven non-load-bearing'); W2.md:249-250 makes the bound an algebra parameter; W2.md:475-476 is K-7; W2.md:477-478 K-8 kills any throw, and a raw RangeError crossing the library boundary is that throw. The NUMBER verdict is refuted separately - see killed. Doc: challenge-L:497-524, challenge-C:327-353.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-15",
+      "claim": "PT-07 boundary posture corroborated 5/5 at the live dist; the messages leak internals and carry no parser identity or offset.",
+      "proof": "SOURCE parser.ts:34 and :52 perform no runtime validation; new ParserState(val) stores whatever it is given (state.ts:47-53). API-TEST vs dist/core.js reproduced all five messages verbatim: null -> \"Cannot read properties of null (reading 'charCodeAt')\"; undefined -> same for undefined; 42, {} and ['a'] -> \"state.src.charCodeAt is not a function\". O-15's disposition (a named JS-boundary invariant ABOVE parse-that, our cure not their ask) is endorsed unchanged and must widen to assert on state.isError per B-2. Doc: challenge-L:526-544.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L:D-17 / C:C-12",
+      "claim": "The only gate that names /core tests resolution, not isolation, and the surface is otherwise unpinned - deleting 16 of the 18 runtime exports leaves every gate green.",
+      "proof": "test/subpath-gate.mjs asserts exactly three typeof checks - core.Parser at :45-47, core.dispatch at :50-52, packrat.memoize at :53-55 - over the four subpaths listed at :25. test/dist-surface.test.ts derives its expectation FROM src/parse/index.ts (:14, :44-49), so it can only catch dist-missing-source drift; it never reads core.ts and cannot detect an intentional removal from either barrel. scripts/proof-no-dead-combinator.mjs bans two named symbols (:29-32). test/manifest-gate.mjs reads the manifest only. No golden export list exists in any of the five gate scripts. A single module-graph assertion would have failed on the day core.ts was written and caught D-03/C-1 at build time; the repo already ships nine proof:* structural gates (package.json:26-36). NOTE for the value.js side: proof:* is dead law in our tree (2026-06-02 ruling, re-affirmed at INBOX I-27); this is an observation about parse-that's gates, not a recommendation. Doc: challenge-L:576-601, challenge-C:356-373.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "C:C-4",
+      "claim": "/core is not closed under labelled failure: mergeErrorState is off the surface and Parser has no .label, so parser-band binding debt 1 is undischargeable from the primitive tier that already pays 3,516 B for the diagnostics chunk.",
+      "proof": "API-TEST: Object.keys(dist/core.js) length 18, and the name list matches challenge-C:187-189 EXACTLY (Parser, ParserState, all, any, containsDelimiter, createLazyCached, createParserContext, dispatch, eof, getLazyParser, lazy, mergeSpans, regex, spanToString, splitBalanced, string, trimStateWhitespace, whitespace). 'mergeErrorState' in core = false; no `label` member exists on Parser (full parser.ts read: 24 public methods, none is label). The cand-F reject() idiom at parsethat-surface-gaps.mjs:20 must import mergeErrorState from @mkbabb/parse-that/diagnostics (:13) while the combinators come from the root barrel (:11-12). parser-band.md:116 states debt 1 verbatim. NARROWED - see killed K16. Doc: challenge-C:180-209.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "C:C-5",
+      "claim": "On the /core surface `expected` is always undefined, and the only cure (arming from /diagnostics) buys unconditional console.error.",
+      "proof": "SOURCE utils.ts:33 gates the SEEDING itself, not the rendering, and :38 gates the accumulate arm identically. /core exports neither enableDiagnostics nor disableDiagnostics (18-name export list above; core.ts read whole; dist/core.d.ts 6 content lines). API-TEST: regex(/[0-9]+/).parseState('').expected === undefined. Arming from /diagnostics reaches the same module instance (dist/diagnostics.js:1 and the packrat chunk :1 both import diagnostics-DDazRHgl.js) and therefore also arms parser.ts:67-69's console.error. Parser is a /core export (core.ts:7), so the coupling belongs to this module's consumption contract. W2.md:281-283 (R-LAW-3, diagnostics are values never effects) is the law this violates. Doc: challenge-C:212-230.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "C:C-6",
+      "claim": "The subpath split's payload premise is unearned for /core: 93.5 percent of the root barrel, saving 3,148 bytes.",
+      "proof": "Byte closures re-derived exactly by wc -c on the built dist: /core = core.js 1336 + packrat chunk 40576 + diagnostics chunk 3516 = 45428; root = + parse.js 1109 + utils.js 2039 = 48576; delta 3148 = 6.48 percent; ratio 93.52 percent. vite.config.ts:11-13 calls these 'per-tier entry points'; vite.config.ts:8 sets minify:false so the absolute numbers move under a minifier but the graph ratio does not - C states that bound honestly. dist/core.js is a 1,336-byte facade whose line 1 is a single import of the 40,576-byte chunk. RE-RATED MAJOR -> MINOR: the accounting is exact and the design claim is genuinely unearned, but no consumer is harmed (C-19), and see missed M6 which dwarfs the whole argument. Doc: challenge-C:233-244.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "C:C-8",
+      "claim": "createParserContext and ParserContext are exported against a frozen 29-name union, and `parserNames` is exported from neither /core nor the root barrel, so a consumer cannot name a custom combinator.",
+      "proof": "SOURCE state.ts:141-171 lists exactly 29 names (counted); :174 types ParserContext.name as (typeof parserNames)[number]; :180 types createParserContext's name param the same. `parserNames` IS declared in dist/state.d.ts:64 but is re-exported from neither core.ts (26 lines, read whole) nor index.ts (14 lines, read whole) - confirmed against dist/core.d.ts (6 content lines) and dist/index.d.ts (10). createParserContext('named-color', ...) is a type error with no widening path. RE-RATED MAJOR -> MINOR because the stated consequence is false - see killed K5. Doc: challenge-C:266-282.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "C:C-13 / L:D-30",
+      "claim": "package.json declares sideEffects:false while the graph has a required top-level side effect, and a green gate mandates the false declaration.",
+      "proof": "package.json:6 is `\"sideEffects\": false` (line 5 is \"type\": \"module\" - C's cite is off by one, see killed K11; L's :6 is correct). parser.ts:711 is a bare top-level `_initWhitespace();`, emitted verbatim at dist/packrat-entry-CS1td-8B.js:1416 (function at :657-660). It assigns the let-bound export at leaf.ts:395-399 and sets whitespace.context.name, which Parser.trim's fast path dispatches on (parser.ts:488) and whose default parameter is whitespace itself (parser.ts:481). test/manifest-gate.mjs:38-41 hard-fails the build unless sideEffects is exactly false, with its rationale at :5. HELD AT MINOR, and L's 'currently harmless' reading is the accurate one: sideEffects:false licenses dropping unused MODULES, not statements inside a module whose exports are used, and the CJS lowering additionally routes whitespace through a getter (dist/core.cjs:55-58), so C-13's breakage half is unreachable as built - C labels that half a hazard rather than a measurement, correctly. Doc: challenge-C:377-399, challenge-L:678-682.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-16",
+      "claim": "mapState mints a prototype-chained view object per invocation - the exact hazard the sibling module names - and has zero call sites.",
+      "proof": "SOURCE parser.ts:176-180 `Object.create(state)` plus two post-creation own properties; lazy.ts:17 names the hazard by name ('avoids mutating function objects (megamorphic IC pollution)'); the justifying comment at parser.ts:169 claims it 'avoids full clone on success'. grep: mapState appears only at parser.ts:162/:168/:184/:185 and in the parserNames registry at state.ts:167 - zero callers in src/ or test/. RE-RATED MAJOR -> MINOR: the hidden-class cost is unmeasured (MEASURE-AT-OPEN, and no bench is permitted here), so the live defect is dead published surface (folding into D-25), not a slowdown. Doc: challenge-L:546-574.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-18",
+      "claim": "Two throwaway arrays per ParserState construction and two more per furthest advance, allocated outside the gate that guards their only writers.",
+      "proof": "SOURCE state.ts:44-45 initialise suggestions and secondarySpans to [] on every construction; utils.ts:34-35 reassign both inside the `state.offset > state.furthest` branch with NO diagnosticsEnabled test; their only writers are gated at utils.ts:52-53 (addSuggestion) and :58-59 (addSecondarySpan). With diagnostics off (the shipping default) the arrays are allocated to hold nothing, on the highest-frequency path of a backtracking grammar - mergeErrorState is reached from 15 parser.ts sites and 7 leaf.ts sites. Doc: challenge-L:607-615.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-19",
+      "claim": "new Array(n) on the general arms creates HOLEY arrays while the unrolled arms use packed literals, sixty lines apart, with the wrong choice on the general path.",
+      "proof": "SOURCE leaf.ts:257 `const out: unknown[] = new Array(n)` vs the packed literals at leaf.ts:191 and :222; parser.ts:526 and :572. NARROWED: parser.ts:526/:572 read `const est = min > 0 ? min : 0; const matches = est > 0 ? new Array<T>(est) : []`, so many() and sepBy() at their default min=0 use a packed empty literal - the HOLEY allocation is confined to many(min>0)/sepBy(min>0) and to fuseAll's arity>=4 arm. The V8 element-kind lattice cost is MEASURE-AT-OPEN. Doc: challenge-L:617-622.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-20",
+      "claim": "parser.ts:62-64 alias the three diagnostic arrays rather than copying them, so the returned state and p.state share identity.",
+      "proof": "SOURCE parser.ts:62-64 `errorState.expected = state.expected; errorState.suggestions = state.suggestions; errorState.secondarySpans = state.secondarySpans;`. API-TEST: ret.expected === p.state.expected is true while ret === p.state is false - a consumer that dedupes or sorts one mutates the other. collectDiagnostic gets this right two files away with spreads at utils.ts:120-122. Doc: challenge-L:624-626.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-21",
+      "claim": "regex() strips only the y flag before re-adding it, forcing sticky matching, so a caret-anchored pattern never matches at offset > 0.",
+      "proof": "SOURCE leaf.ts:321-322 `const flags = r.flags.replace(/y/g, \"\"); const sticky = new RegExp(r, flags + \"y\");` - caret under y without m still anchors to input start. API-TEST: all(string('a'), regex(/^\\d+/)).parseState('a12') gives isError true while the same grammar with /\\d+/ gives false. Silent, and caret-anchoring is the commonest idiom ported from other combinator libraries. Doc: challenge-L:628-632.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-23",
+      "claim": "regex()'s custom-match arm reads the per-parser sticky RegExp's lastIndex AFTER invoking user code, so a re-entrant matchFunction corrupts the offset arithmetic. Latent.",
+      "proof": "SOURCE leaf.ts:333 sets sticky.lastIndex; :337 calls sticky.exec(state.src); :338 invokes matchFunction (user code); :340 reads sticky.lastIndex to compute the advance. `sticky` is captured once per regex() call (leaf.ts:322) and shared across every invocation of that parser. grep: no in-tree consumer passes a matchFunction at all, so this is latent, exactly as L rates it. Doc: challenge-L:638-642.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-24",
+      "claim": "Packrat retention: memo cells written by a parse during which the latch first armed are retained for process lifetime, recoverable only by an undocumented explicit resetPackrat().",
+      "proof": "SOURCE packrat.ts:290 arms at construction; packratEnter returns null while unarmed (:216-217) so no epoch is installed; packratExit(null) returns early (:243-244); resetPackrat early-returns while unarmed (:265-266) and never disarms. The soundness clearance is sound as reasoned - the snapshot/replace ordering at :218-230 / :245-249 makes cross-input mis-restore unreachable for subsequent parses. Doc: challenge-L:644-647 and the UNPROVEN-but-reasoned note at :461-470.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-25 / C:C-10 / C:C-16",
+      "claim": "Dead public surface reachable from /core: save/restore/err, mapState, recover, spanToString/mergeSpans and the three line/column methods; getLazyParser's only caller lives in the tier core.ts claims not to pull.",
+      "proof": "grep over src/, test/ and scripts/: `recover` appears only at its own definition parser.ts:653; `.err(`, `.save()` and `.restore(` have zero callers; `mapState` zero callers outside its definition and state.ts:167; getLazyParser has exactly ONE caller - debug.ts:318 - i.e. inside the debug/print tier core.ts:3-5 denies pulling; getLineNumber/getColumnNumber/getLineAndColumn/spanToString/mergeSpans have zero test hits. C-10's O-8 framing checks out against W2.md:253-257 ('No operator reads or writes process-global mutable state'), and lazy.ts:5 is a module-level WeakMap never scoped to a parse while createLazyCached (lazy.ts:18-24) is the closure-local correct construction beside it. Doc: challenge-L:649-653, challenge-C:305-323.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-26",
+      "claim": "getLazyParser tests `cached !== undefined`, so a thunk that ever returns undefined is re-invoked forever - the cache silently degrades to a no-op.",
+      "proof": "SOURCE lazy.ts:8-11. API-TEST: three getLazyParser calls on an undefined-returning thunk invoked it 3 times. Its map is typed WeakMap<Function, unknown> at lazy.ts:5, using the Function type typescript-eslint's no-unsafe-function-type exists to forbid, in a repo that annotates every `any` with a justifying disable comment (parser.ts:13, leaf.ts:27). Doc: challenge-L:655-659.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-27 / C:C-16",
+      "claim": "Cohesion: the balanced-split helpers are format-time BBNF codegen support published inside a surface whose header calls itself the zero-side-effect primitive set.",
+      "proof": "SOURCE split.ts:1-4 states the purpose verbatim ('Used by BBNF-generated toDoc() code'); core.ts:3 states the claim. They take no ParserState, return no Parser. Emission corroborates: they are the only two /core names Rollup did not hoist - inlined at dist/core.js:2-37 - and dist/parse.js:3 imports them back OUT of core.js. Zero value.js references (grep src/ = 0 hits). Under the routing law W2.md:133 (parser -> value -> packed release) a helper whose only consumer is bbnf-lang's generated formatter sits outside the chain. Test-hit count corrected: 16 in test/split.test.ts, not 13. Doc: challenge-L:661-666, challenge-C:450-468.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-28",
+      "claim": "splitBalanced has no escape handling, so a backslash-escaped quote closes the quoted section and the split happens inside the string.",
+      "proof": "SOURCE split.ts:30-37 toggles inString on any quote character with no lookback at the preceding backslash. Traced on the challenge's own witness: for the text a-backslash-quote-comma-b inside quotes, the escaped quote at i=3 sets inString back to null, so the comma at i=4 satisfies `ch === delim && depth === 0` at :50 and splits. Quote nesting is likewise flat. Acceptable for the BBNF doc-generation input it was written for; undocumented as a limitation on a general-purpose /core export. Doc: challenge-L:668-672.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L:D-29",
+      "claim": "Parser.eof() allocates two Parsers per call and immediately discards the context skip() just built.",
+      "proof": "SOURCE parser.ts:638-642: `const p = this.skip(eof())` mints eof()'s Parser (leaf.ts:21-24) and skip()'s Parser (parser.ts:206-209, including its createParserContext at :208), then :640 overwrites p.context with a fresh createParserContext. COUNT CORRECTED: 2 Parsers + 2 context objects, one context discarded - not 'three allocations, one discarded'. Doc: challenge-L:674-676.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "C:C-18",
+      "claim": "Corpus-instrument defects in the RED-7 probe: one row can never go RED, and the probe cannot run from the workspace its own header names.",
+      "proof": "(a) parsethat-surface-gaps.mjs line 48 is `row(!ARM ? false : false, \"LATCH   PACKRAT_ARMED is a module-global one-way flag\", ...)` - both ternary arms are the constant false, so the row prints ok in every mode. W2.md:308 states L-19 ('a gate must be able to fail for its intended reason') verbatim. The cite is :48, not :46 - see killed K13. (b) The header at :4 says 'Run from this workspace (it resolves the workspace node_modules)'; `ls node_modules/@mkbabb` in value.js returns glass-ui, keyframes.js, value.js only, and value.js@4.0.0's package.json carries @mkbabb/parse-that in neither dependencies nor devDependencies - so the probe is unrunnable as documented. I independently reproduced five of its seven RED rows directly against dist/core.js (rows at :22, :25, :37, :56, :57) and did not re-measure row :36 (the lazy ceiling), citing O-15 instead. Doc: challenge-C:507-542.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "C:C-19",
+      "claim": "/core has zero consumers; every consumption claim is prospective, and the frozen 52-export /css surface is produced by value.js's own hand-written grammar.",
+      "proof": "value.js@4.0.0 package.json: dependencies are exactly @mkbabb/glass-ui ^7.0.0 and @mkbabb/keyframes.js ^6.0.0; no @mkbabb/parse-that anywhere, and no peerDependencies block at all (C says 'peerDependencies: {}' - it is absent, not empty). grep 'parse-that' over src/ returns exactly 2 hits, both comments asserting the negative: src/subpaths/transform.ts:4 and src/subpaths/math.ts:2. src/css/index.ts is 60 lines and re-derives EXACTLY total 52 = 33 types (lines 2-34) + 19 runtime (7 at :37-43, 1 at :45, 3 at :47-49, 8 at :52-59), matching W2.md:148 and frozen by W2.md:193-194. ADDENDUM for the brief: the named consume edge `value.js/src/parsing` does NOT exist in 4.0.0 (ls returns No such file or directory) - the edge is src/css/** plus src/foundation/result.ts:1-6, which already provides the Result<T,E>/ok/err discipline B-2 says parse-that lacks, so O-15's prescribed JS-boundary invariant has a typed home already built. Doc: challenge-C:546-570.",
+      "severity": "INFO"
+     },
+     {
+      "id": "C:S-1 (half only)",
+      "claim": "Module-instance identity is preserved across the four ESM subpath entries, and it is ungated.",
+      "proof": "dist/core.js:1, dist/parse.js:1, dist/packrat.js and dist/utils.js all import the SAME packrat-entry-CS1td-8B.js; dist/diagnostics.js:1 and dist/utils.js:1 the same diagnostics-DDazRHgl.js; grep -c diagnosticsEnabled gives 9 in diagnostics-DDazRHgl.js and 0 in packrat-entry-CS1td-8B.js - one flag, one Parser class, one PACKRAT_ARMED within the ESM family. Ungated exactly as C says: test/subpath-gate.mjs:39-43 loads only the `import` targets and asserts nothing about identity. THE HEADLINE IS FALSE - see killed K1 and missed M1: the dual-package hazard is present at the ESM/CJS condition boundary the same exports map declares.",
+      "severity": "INFO"
+     }
+    ],
+    "killed": [
+     {
+      "id": "K1 (C superlative S-1)",
+      "claim": "'Module-instance identity is preserved across all five subpaths. The dual-package hazard that breaks most multi-entry libraries does not exist here, and it is the single most valuable property of the split.' (challenge-C:619-630)",
+      "refutation": "FALSE as stated. The exports map declares BOTH an `import` and a `require` condition for all five entries (package.json:8-30), and vite.config.ts:22 emits formats ['es','cjs'] - so the build ships TWO complete module instances: dist/packrat-entry-CS1td-8B.js vs dist/packrat-entry-46NYx4_U.cjs, and dist/diagnostics-DDazRHgl.js vs dist/diagnostics-DpUY87_d.cjs (grep -c diagnosticsEnabled = 9 in EACH; grep -c PACKRAT_ARMED = 4 in EACH). API-TEST in one process: core.Parser === require(core.cjs).Parser -> FALSE; core.ParserState === cjs.ParserState -> FALSE; core.whitespace instanceof cjs.Parser -> FALSE; new cjs.ParserState('x') instanceof core.ParserState -> FALSE. That is the dual-package hazard in its textbook form, and it is worse here than for a value-only library because the package carries THREE process-global latches (PACKRAT_ARMED, diagnosticsEnabled, PARSER_ID) that silently double. C's own receipts only enumerate the .js family and never open a .cjs. The narrower claim - identity holds WITHIN the ESM family - survives and is recorded as confirmed."
+     },
+     {
+      "id": "K2 (C section 3 net tally)",
+      "claim": "'of 18 runtime + 4 type exports - 10 keep, 6 wrap (2 of them requiring a source repair first), 6 retire' (challenge-C:601-602)",
+      "refutation": "Arithmetic wrong in both terms. core.ts exports THREE types, not four: `type ParserFunction` (:7), `type ParserContext` and `type Span` (:14) - confirmed against dist/core.d.ts:1-3. So the surface is 21 names, not 22. And the section 3 table itself reads 9 KEEP (string, all, any, dispatch, eof, Span, spanToString, mergeSpans, trimStateWhitespace), 4 WRAP + 1 WRAP-or-RETIRE (regex, Parser, ParserState, createLazyCached, whitespace) and 7 RETIRE (getLazyParser, lazy, createParserContext, ParserContext, ParserFunction, containsDelimiter, splitBalanced). The stated 10/6/6 matches neither the table nor the surface."
+     },
+     {
+      "id": "K3 (C section 3 KEEP rationale for Span)",
+      "claim": "'Span, spanToString, mergeSpans - KEEP - the zero-copy offset pair is exactly C's (offset, length) carrier and P's (start,end) row' (challenge-C:588)",
+      "refutation": "Two errors and one omission. (i) Span is `{ start: number; end: number }` (state.ts:8-11; API-TEST Object.keys(mergeSpans(...)) = ['start','end']) - a start/end pair, NOT an (offset, length) pair. (ii) W2.md:237 defines C as an ordered `(offset, length, kind)` TRIPLE; a two-field pair cannot carry `kind`, which is the field that distinguishes whitespace from comment from skipped-malformed and is what makes COMP-1 weave-able. (iii) The omission is fatal to the verdict: NOTHING in the library produces or consumes a Span. grep 'Span' over src/parse/*.ts returns only the declaration (state.ts:8), the two helpers (:13, :17), the two barrel re-exports (core.ts:14, index.ts:4) and two UNUSED type-only imports (parser.ts:2, leaf.ts:3). See missed M3."
+     },
+     {
+      "id": "K4 (C-15)",
+      "claim": "'Suggestion / SecondarySpan ... The types are reachable only via @mkbabb/parse-that/diagnostics (diagnostics.ts:14) ... a three-hop path back to the module /core already owns.' (challenge-C:432-447)",
+      "refutation": "'Only via /diagnostics' is false: index.ts:6 / dist/index.d.ts:5 re-export `type { Suggestion, SecondarySpan, Diagnostic }` from the ROOT barrel, so the two-subpath path is one of two, not the only one. More importantly the practical impact is near zero: dist/state.d.ts declares both interfaces (:12-20) and core.d.ts:2 re-exports ParserState from './state.js', so a /core consumer names the element types by indexed access - `ParserState<T>['suggestions'][number]` - which is the idiomatic TS answer and requires no second subpath. The finding is real as a surface-completeness nit but should be INFO, not MINOR."
+     },
+     {
+      "id": "K5 (C-8 consequence clause)",
+      "claim": "'a consumer's custom combinator can never participate in the flag-based trim fast path. The extension point is exported and closed.' (challenge-C:275-277)",
+      "refutation": "False twice over, in opposite directions. (i) The flag-based path is dead code: `.flags` is assigned at exactly one site in the repo (parser.ts:496) on a Parser that is never returned, and API-TEST shows flags === 0 on the results of .trim(), .eof() and .many(1) - so nothing 'participates' in it, custom or not (L's D-07, confirmed). (ii) The fast path parser.ts:488 keys on `parser.context?.name === \"whitespace\"`, and \"whitespace\" IS a member of the exported parserNames union (state.ts:158, :174) - so `createParserContext(\"whitespace\", undefined)` on a consumer's own parser is fully type-legal and DOES divert it. Opting in is not blocked; it is a booby trap, and it silently discards the consumer's parser. See missed M2, which is the finding C-8 walked past."
+     },
+     {
+      "id": "K6 (L:D-22)",
+      "claim": "\"regex()'s label is built from r.flags (leaf.ts:324), the ORIGINAL flags, while the parser executes sticky with modified flags (leaf.ts:322). The diagnostic advertises a regex that is not the one that ran.\" (challenge-L:634-636)",
+      "refutation": "Not a defect. leaf.ts:322 adds `y` purely as the offset-anchoring mechanism; the sticky flag is an implementation detail of how the leaf is driven at state.offset, not a semantic property of the pattern the caller wrote. A diagnostic that printed `/\\d+/y` when the consumer wrote `/\\d+/` would be strictly WORSE - it would advertise a flag the consumer never chose and cannot control. The label at leaf.ts:324 shows the caller's own source and flags, which is the correct consumer-facing rendering. (The genuine sticky-rewrite defect is D-21, separately confirmed.) INFO at most; not a MINOR."
+     },
+     {
+      "id": "K7 (L:D-14 number verdict)",
+      "claim": "'CORROBORATED in kind, CONTRADICTED in number ... Measured, same construction (Parser.lazy chain, arity 1) ... O-15's 7,761/7,762 is one harness on one machine' (challenge-L:497-518, corpus table :746)",
+      "refutation": "The contradiction is UNPROVEN because the two constructions are not shown to be the same. O-15's PT-04 number comes from the RED-7 instrument, whose recursion is `Parser.lazy(() => any(all(string('('), nested, string(')')), string('x')))` over balanced parens (parsethat-surface-gaps.mjs:29-36) - several V8 frames per nesting level (lazy thunk -> any -> fuseAll -> lazy...). L's probe is described as a 'Parser.lazy chain', roughly one frame per level. Different frames-per-depth make 7,761 and 'at least 9,000' incomparable, so nothing was contradicted; and L's own table is internally odd (a LARGER --stack-size=1000 budget yielding a deeper ceiling is expected, not a contradiction of anything). The DISPOSITION survives untouched and I endorse it: a stack-budget-dependent observation must not be frozen as a gate constant in X.P.W1 G-9. The claim to strike is 'same construction' and the verdict word CONTRADICTED; 'no bound exists in the library' is separately confirmed."
+     },
+     {
+      "id": "K8 (L:D-03 byte figures)",
+      "claim": "'dist/packrat-entry-CS1td-8B.js (dragged whole) 40,562 [bytes] ... debug/print/ansi region, lines 28-285 = 8,512 ... packrat region, lines 661-849 = 5,411' (challenge-L:186-190)",
+      "refutation": "Measured wrong. wc -c gives 40,576 B for the chunk (challenge-C:46 has this right); sed -n '28,285p' | wc -c gives 8,517 and sed -n '661,849p' | wc -c gives 5,412. The derived 'approx 34 percent' survives (13,929/40,576 = 34.3 percent), so the finding stands - but a challenge that opens by demanding file:line provenance published a chunk size it did not measure."
+     },
+     {
+      "id": "K9 (L:D-09 count)",
+      "claim": "'Every `as ParserFunction<X>` in the tree - 34 sites across parser.ts and leaf.ts (grep -c \"ParserFunction<\")' (challenge-L:361-362)",
+      "refutation": "grep -c counts LINES, not sites, and the number is wrong either way: grep -c gives 19 (parser.ts) + 13 (leaf.ts) = 32; grep -o gives 32 occurrences of `ParserFunction<`, of which 26 are `as ParserFunction<` casts - the rest are the declaration (parser.ts:14), signature positions and type-only imports. The substantive claim (T is phantom, so all 26 casts assert nothing) is unaffected and confirmed."
+     },
+     {
+      "id": "K10 (L:D-27 count)",
+      "claim": "'They are also the only members with substantial test coverage (13 hits in test/split.test.ts)' (challenge-L:665)",
+      "refutation": "grep -c 'splitBalanced|containsDelimiter' test/split.test.ts = 16, not 13. The point (they are the only /core members with real coverage, which is itself the tell) is strengthened, not weakened."
+     },
+     {
+      "id": "K11 (C-13 provenance)",
+      "claim": "'package.json:5 declares \"sideEffects\": false' (challenge-C:379)",
+      "refutation": "package.json:5 is `\"type\": \"module\"`; `\"sideEffects\": false` is line 6. L's D-30 cites :6 correctly. Likewise C's header cites the ./core subpath as package.json:11-15 and L's as :12-16 - the block is actually :13-17. C-6's vite.config.ts:16 for the core entry is line 17. All immaterial to substance, recorded because both documents assert file:line provenance as their standard."
+     },
+     {
+      "id": "K12 (C-12 gate description)",
+      "claim": "'It asserts existence of the five subpath dist targets (:26-37) and then exactly two symbols: core.Parser is a function (:47-49) and core.dispatch is a function (:52-54)' (challenge-C:358-360)",
+      "refutation": "FOUR subpaths, not five: test/subpath-gate.mjs:25 is `const subpaths = [\"./core\", \"./diagnostics\", \"./packrat\", \"./utils\"]` and the gate's own success message prints `${subpaths.length} subpaths` (:58). The root '.' is not checked by this gate at all (manifest-gate.mjs:44-47 covers only its types target). The assertion lines are :45-47, :50-52 and :53-55, not :47-49/:52-54. The finding - two typeof checks, no isolation assertion, 89 percent of the surface unpinned - is confirmed."
+     },
+     {
+      "id": "K13 (C-18a provenance)",
+      "claim": "'One row can never go RED. parsethat-surface-gaps.mjs:46: row(!ARM ? false : false, ...)' (challenge-C:509-513)",
+      "refutation": "That row is at line 48, not 46 (line 46 is the median-print console.log; line 47 is the resetPackrat row). The defect is real and confirmed. C also missed the mirror defect on the adjacent line - see missed M10."
+     },
+     {
+      "id": "K14 (C-1 quantity)",
+      "claim": "'Three denials. Two of the three are false, and the third - the only true one - is worth 1.2 KB.' (challenge-C:40-41)",
+      "refutation": "No 1.2 KB quantity exists anywhere in the emitted graph, and it contradicts C's own table eleven lines later, which puts the entire root-minus-core delta at 3,148 B. By wc -c the delta decomposes as dist/utils.js 2,039 B (the json/csv/string-utility tier - the only true denial) plus dist/parse.js 1,109 B (the root barrel entry itself, which is not a denial at all). The correct sentence is 'the only true denial is worth 2,039 B'."
+     },
+     {
+      "id": "K15 (L:D-07 sub-claim)",
+      "claim": "'ParserState.unsafeCall() ... It is the only caller of .call() in the library.' (challenge-L:313-315)",
+      "refutation": "grep '\\.call(' over src/parse/ and test/ returns three sites: state.ts:93 (unsafeCall, itself zero-callered), parser.ts:493 (`inner.call(state)` inside the closure of D-06's discarded flaggedParser), and test/debug.test.ts:115. So unsafeCall is not the only caller - parser.ts:493 is the other, and it is the one that would have made the flag machinery live had the parser holding it ever been returned. The substance (the flag machinery is unreachable) is unaffected and confirmed."
+     },
+     {
+      "id": "K16 (C-4 framing)",
+      "claim": "'the primitive tier can consume labelled failures but cannot construct one' (challenge-C:198)",
+      "refutation": "Over-strong. Four /core leaves seed labels through mergeErrorState with no /diagnostics import: string() at leaf.ts:291/:303 (label `\"str\"`, built at :278), eof() at leaf.ts:16 (`<end of input>`), dispatch() at leaf.ts:142 (its precomputed `one of [...]` label at :132) and regex() at leaf.ts:360. A consumer CAN construct a labelled failure from /core; what is absent is a label decoupled from the matcher - i.e. a free-form zero-width reject. The precise statement of debt 1's blockage is therefore: /core offers no way to choose the label independently of the pattern, and (per C-5, confirmed) the label is undefined at runtime anyway with diagnostics off. Both halves matter; the second is the binding one and C-4 leaves it to C-5."
+     },
+     {
+      "id": "K17 (C-17-prime, already self-withdrawn)",
+      "claim": "'I hypothesised an Int8Array overflow ... The hypothesis is withdrawn, not softened.' (challenge-C:488-501)",
+      "refutation": "The withdrawal is CORRECT and I re-verify it independently: leaf.ts:101 is `new Int8Array(128).fill(-1)`, so only code points 0..127 are addressable; leaf.ts:137 guards `ch < 128 ? tbl[ch] : -1`; therefore internParser (leaf.ts:104-111) can mint at most 128 distinct indices (0..127), every one exactly representable in Int8Array, and the -1 sentinel at :139 is what the SIGNED type buys. Recorded here so a later auditor does not re-raise it. The withdrawal is the correct call and earns the superlative C claims for it."
+     }
+    ],
+    "missed": [
+     {
+      "claim": "M1 - DUAL-PACKAGE HAZARD across the ESM/CJS condition boundary. The package ships two complete, non-identical module instances of everything /core exports, and the exports map hands them out by condition. Neither challenge opened a .cjs file; C's superlative S-1 declares this hazard absent.",
+      "proof": "package.json:8-30 declares an `import` AND a `require` condition for all five subpaths; vite.config.ts:21 emits formats ['es','cjs']. ls dist: packrat-entry-CS1td-8B.js (40,576 B) vs packrat-entry-46NYx4_U.cjs (41,041 B); diagnostics-DDazRHgl.js (3,516 B) vs diagnostics-DpUY87_d.cjs (3,787 B). grep -c diagnosticsEnabled = 9 in EACH diagnostics chunk; grep -c PACKRAT_ARMED = 4 in EACH packrat chunk. dist/core.cjs:3 requires ./packrat-entry-46NYx4_U.cjs; the .cjs chunk's :2 requires ./diagnostics-DpUY87_d.cjs. API-TEST in one node process: core.Parser === require('./core.cjs').Parser -> false; core.ParserState === cjs.ParserState -> false; core.whitespace instanceof cjs.Parser -> false; new cjs.ParserState('x') instanceof core.ParserState -> false. CONSEQUENCES specific to this library: (a) instanceof Parser breaks across the boundary, so any consumer type-guard is unsound in a mixed graph; (b) enableDiagnostics() from one format does not arm the other's leaves - the exact cross-subpath composition C's S-1 certifies as sound; (c) PARSER_ID (parser.ts:18) and PACKRAT_ARMED (packrat.ts:156) exist twice, so the packrat memo-key budget (MEMO_MAX_ID at packrat.ts:77) and the O-15 PT-03 latch are both per-format state - a latch armed under ESM leaves the CJS path unarmed and vice versa, which is a K-6 cross-parse-state hazard (W2.md:473-474) that no candidate can reason about from the surface. NOT GATED: test/subpath-gate.mjs:39-43 resolves and imports only `pkg.exports[sp].import`; the `require` targets are checked for EXISTENCE at :29-35 and never loaded.",
+      "severity": "MAJOR"
+     },
+     {
+      "claim": "M2 - `.trim(p)` SILENTLY DISCARDS `p` whenever `p.context?.name === \"whitespace\"`, substituting an ASCII-only charCode loop. Consequence: `.trim()` does not implement `.trim(whitespace)`'s own semantics, and two spellings of one documented intent return opposite verdicts on Unicode whitespace. Behaviour is keyed on a mutable public string, not on the parser.",
+      "proof": "SOURCE parser.ts:480-521: the default parameter is `whitespace` (:481); the branch at :488 tests `parser.context?.name === \"whitespace\"`; the returned closure `whitespaceTrim` (:498-512) calls trimStateWhitespace(state) and inner.parser(state) and NEVER references `parser` again - the argument is provably dead on that path. trimStateWhitespace (leaf.ts:372-391) accepts only charCode 32 and 9..13; the `whitespace` singleton it stands in for is regex(/\\s*/) (leaf.ts:397), whose class additionally includes U+00A0, U+1680, U+2000-200A, U+2028, U+2029, U+202F, U+205F, U+3000 and U+FEFF. API-TEST vs dist/core.js, decisive pair on ONE regex source: const xs = regex(/x*/) named 'regex' -> string('a').trim(xs).parseState('xxaxx').isError = FALSE (argument honoured); the SAME pattern with xs.context = createParserContext('whitespace', undefined) -> string('a').trim(xs).parseState('xxaxx').isError = TRUE (argument discarded, the charCode loop runs instead); and .trim(xs, false), which routes to all(), = FALSE again. Unicode divergence: string('a').trim().parseState(NBSP+'a'+NBSP).isError = TRUE while string('a').trim(regex(/\\s*/)).parseState(NBSP+'a'+NBSP).isError = FALSE; whitespace.parseState(NBSP+'x').value = NBSP while trimStateWhitespace leaves offset at 0. TYPE-LEGAL for consumers: 'whitespace' is a member of the exported parserNames union (state.ts:158, :174), so createParserContext('whitespace', ...) is the sanctioned spelling; and whitespace.context.name is a plain mutable string on an exported singleton (API-TEST reads 'whitespace'). WHY IT MATTERS HERE: challenge-C:134-137 and challenge-L:82-87 both observe that the fast path 'routes around' the exported combinator and treat it purely as the thing that MASKS B-1. It is also an independent wrong-answer defect in the opposite direction, it is the reason C-8's consequence clause is backwards (killed K5), and under W2.md's EQ-1 exact-equality law a whitespace class that differs between two spellings of the same operator is a divergence source a lowering pair cannot reconcile.",
+      "severity": "MAJOR"
+     },
+     {
+      "claim": "M3 - `Span`, `spanToString` and `mergeSpans` are orphans: after the 1.0.0 *Span excision nothing in the library produces or consumes a Span, and two dead type-only imports were left behind. Three of /core's 21 names serve a shape with zero producers - the exact inverse of the retirement hygiene C's S-4 praises.",
+      "proof": "grep 'Span' over src/parse/*.ts (excluding SecondarySpan/secondarySpans) returns FIVE lines total: the interface declaration state.ts:8-11, the two helpers state.ts:13 and :17, the two barrel re-exports core.ts:14 and index.ts:4, and unused type-only imports at parser.ts:2 (`import type { ParserContext, Span }`) and leaf.ts:3 (`import type { ParserState, ParserContext, Span }`). Neither parser.ts nor leaf.ts references `Span` anywhere in its body - they are dead imports in a repo whose own precept deletes zero-consumer exports (scripts/proof-no-dead-combinator.mjs:1-14). The 15 closure-based *Span builders that produced Span values were excised in the 1.0.0 cut (core.ts:6, index.ts:10-12, gated by proof:no-span-surface at package.json:34), and the excision left the carrier type and its two helpers on the primary subpath with nothing to carry. L's D-25 notes only that they have zero TESTS; C's section 3 KEEPs them on a mis-stated rationale (killed K3).",
+      "severity": "MINOR"
+     },
+     {
+      "claim": "M4 - No .d.cts anywhere in dist, so the types served under every `require` condition are ESM declarations for CJS implementations - the classic 'masquerading' shape, in a package that is \"type\": \"module\".",
+      "proof": "ls dist/*.d.cts returns zero matches (0 files); package.json:5 is `\"type\": \"module\"`; every exports entry pairs `\"require\": \"./dist/X.cjs\"` with `\"types\": \"./dist/X.d.ts\"` (package.json:8-30). TypeScript determines a .d.ts file's module format from the nearest package.json `type`, so dist/core.d.ts is read as an ES module while dist/core.cjs is CommonJS. A TS consumer on moduleResolution node16/nodenext emitting CJS resolves the `require` condition and then cannot import the ESM-typed declaration (TS1479); are-the-types-wrong classifies this as FALSE_ESM. Nothing in the five gate scripts checks the types-vs-implementation format pairing: manifest-gate.mjs:43-47 only asserts that exports['.'].types EXISTS, and subpath-gate.mjs:29-35 only stats the file. Scored MINOR because value.js is itself ESM (package.json \"type\": \"module\") so no in-realm consumer is affected today - but the `require` half of the exports map is the part C-12 calls semver surface, and it is type-broken as published at 1.0.0.",
+      "severity": "MINOR"
+     },
+     {
+      "claim": "M5 - The manifest has no `main`, `module`, `types` or `exports[\"./package.json\"]` fallback, and the gate that deleted `typesVersions` justified it on 'every modern resolver'. Any resolver that ignores the exports map resolves nothing at all.",
+      "proof": "package.json read whole: the only resolution surface is `exports` (:7-30); there is no top-level main/module/types/typesVersions and no './package.json' export. test/manifest-gate.mjs:23-35 keeps Gate 1 alive only to validate typesVersions IF present, and its header at :7-8 records why the block was removed: 'the exports map already resolves types correctly for every modern resolver'. TypeScript's moduleResolution 'node10' - still the default whenever module is commonjs - ignores `exports` entirely and looks for main, then index.js at the package root; dist/index.js does not exist and no root index.js is emitted (ls dist). So a classic-resolution consumer gets 'Cannot find module @mkbabb/parse-that' with no diagnostic pointing at the cause. Scored MINOR: value.js resolves with moduleResolution 'bundler', which honours exports.",
+      "severity": "MINOR"
+     },
+     {
+      "claim": "M6 - Published payload is 73 percent sourcemaps. C-6 litigates a 3,148-byte subpath saving inside a package whose install payload is dominated by maps nobody in the argument counted.",
+      "proof": "package.json:44-46 is `\"files\": [\"./dist\"]`, so the whole dist ships. vite.config.ts:9 sets `sourcemap: true`. Measured on the built tree: all *.map = 278,661 B; all *.js + *.cjs = 100,926 B; du -sk dist = 580 KB. The maps are 2.76x the code they map. That is a ~276 KB per-install cost against the 3,148 B (6.5 percent) that C-6 calls the entire product of the A.W3 subpath split, and it is the single largest consumption lever on this package - untouched by both challenges and by every gate (no proof:* script reads dist size). Recorded at MINOR because it is install-time weight, not runtime bytes; it is the calibration C-6's argument needs.",
+      "severity": "MINOR"
+     },
+     {
+      "claim": "M7 - dispatch()'s undocumented 3-character range heuristic silently reinterprets literal multi-char keys, and an inverted range maps nothing while the label advertises it.",
+      "proof": "SOURCE leaf.ts:116 `if (chars.length === 3 && chars[1] === '-')` fires for ANY 3-character key whose middle character is a hyphen - there is no opt-in marker. The JSDoc at leaf.ts:86-87 documents multi-char keys ('tf' = 't' or 'f') and range keys ('0-9') as coexisting spellings, so `dispatch({ 'a-b': p })` is ambiguous by the doc's own rules and is silently taken as the range a..b: tbl[97] and tbl[98] are written at :119 and the hyphen (charCode 45) is never mapped, though the multi-char reading would have mapped it. Inverted ranges are worse: 'z-a' gives lo=122 > hi=97, so the `for (let c = lo; c <= hi; c++)` at :119 executes zero times and the key maps NOTHING, while the label builder at :129 renders it as \"'z'-'a'\" - a diagnostic advertising a dispatch that does not exist. This is D-13's silent-key class a second time on the same function, and it is live for CSS: the hyphen is an ident-start in custom properties (--x) and vendor prefixes (-webkit-), so a head table over {hyphen, digit, letter} is exactly the shape a 3-character key gets written in.",
+      "severity": "MINOR"
+     },
+     {
+      "claim": "M8 - The second vacuity defect in the RED-7 instrument: a row that can never go GREEN, adjacent to the row C-18(a) found that can never go RED.",
+      "proof": "parsethat-surface-gaps.mjs:47 is `if (ARM) { resetPackrat(); row(true, \"LATCH   resetPackrat() disarms PACKRAT_ARMED?\", ...) }` - the `bad` argument is the literal `true`, so the row is hardcoded RED and cannot report the GREEN outcome its own question asks about. It is the exact inverse of the :48 defect and fails the same law (W2.md:308, L-19: a gate must be able to fail for its intended reason - and equally, to pass). It is also gated behind --arm, the mode in which the instrument itself calls memoize() at :45 and thereby arms the PT-03 latch it is measuring, so the row can only ever run in the process state that makes its own answer foregone. C-18 found one of the pair; the instrument has both.",
+      "severity": "INFO"
+     },
+     {
+      "claim": "M9 - D-03's mergeErrorState census is short by four, which understates its own unshakeability argument.",
+      "proof": "grep -n 'mergeErrorState(' src/parse/parser.ts returns 15 lines: 93, 201, 223, 239, 258, 273, 291, 410, 418, 447, 460, 468, 504, 553, 626. challenge-L:198 lists 11 of them (omitting :273 in not(), :504 in trim()'s whitespaceTrim, :553 in many() and :626 in sepBy()). leaf.ts is exact at 7 sites (16, 54, 69, 142, 291, 303, 360). Both many() and sepBy() - the two combinators most likely to be on any consumer's hot path - are among the omissions, so 'no import of Parser can drop it' is more true than the document proves.",
+      "severity": "INFO"
+     },
+     {
+      "claim": "M10 - regex()'s custom-match contract is undocumented and carries a magic empty-string sentinel whose meaning collides with a real empty match; the offset advance is decoupled from the returned value.",
+      "proof": "SOURCE leaf.ts:335-343: `const execResult = sticky.exec(state.src); const match = matchFunction!(execResult);` - the user callback is invoked even when exec returned null, so every matchFunction must handle null and nothing says so. `if (match)` then `else if (match === \"\")` makes the empty string a THIRD outcome distinct from null - zero-width success via state.ok(undefined) at :342, with sticky.lastIndex never consulted - so a callback that legitimately extracts an empty capture group gets a non-consuming success rather than consuming its match. On the truthy arm, :340 advances by `sticky.lastIndex - savedOffset`, i.e. by the REGEX's match length regardless of what the callback returned, so a normalizing callback that returns a shorter or longer string still consumes exactly the raw match. None of this is in a doc comment - regex() has none - and the parameter is on the /core surface (core.ts:22).",
+      "severity": "INFO"
+     }
+    ],
+    "superlatives": [
+     "S1 (L S-2, verified EXACT and the best thing in the package) - getCijKey is a model of naming a numeric-precision hazard and gating it. packrat.ts:70-100: the PREVIOUS bug is named in full (`parser.id << 32` overflowing int32 at id >= 4096, so getCijKey(4096,0) === getCijKey(0,0)), the replacement is derived from the float64 mantissa ceiling with the 32+21=53-bit budget shown, MEMO_MAX_ID is computed at :77, and the boundary FAILS LOUD with a RangeError at :94-97 rather than aliasing. Every line cite in L's S-2 is byte-exact. Hazard named, bound computed, gate installed, history retained - and D-13's silent Int8Array key write is the same hazard class handled the opposite way two files over, which is what makes D-13 sting.",
+     "S2 (L S-5 / C S-3, verified verbatim) - the PT-Q5 RETRACT docblock, leaf.ts:88-98. A shipped 0.12.0 perf widening is DELETED because it had zero production consumers and was gated against a synthetic corpus no consumer runs, with the re-entry condition stated in advance and anchored to a named consumer's real grammar ('If value.js's coordinated Q session measures an on-path win ... not before'). Retracting one's own optimisation for want of a real consumer, in writing, is the rarest discipline in a performance-oriented library.",
+     "S3 (L S-1, verified across every combinator) - the zero-allocation result discipline is real and uniformly held. state.ts:55-73 (ok/err/from) mutate in place and return `this`; every one of the ~24 combinators in parser.ts and leaf.ts threads ONE state object with a `savedOffset` local for backtracking, and I found no exception. The consistency is the achievement: one combinator returning a fresh state would poison the invariant.",
+     "S4 (L S-3, re-traced) - the re-entrancy hardening is sound at two levels. parser.ts:43-48 wraps parseStateInner in try/finally around packratEnter/packratExit; packrat.ts:390-406 wraps growLR's grow loop in a second try/finally restoring per-head GROWING/HEADS bookkeeping. The PT-Q1 regression this replaced (per-node reset inside memoizeFn, wiping an outer grow's cells) is preserved with its exact failure mode at packrat.ts:159-172. Fixing a re-entrancy bug AND leaving the falsified prior design in the tree as a warning is rare.",
+     "S5 (L S-6, verified) - the two classic combinator footguns are both closed, one with its rationale. many() guards zero-width matches at parser.ts:538; sepBy() checkpoints BEFORE the separator at :595 and restores at :608 so a trailing separator is rejected by backtracking, with the grammar-vs-combinator boundary stated as a design decision at :565-568.",
+     "S6 (L S-4, verified incl. the consumer-shape comment) - fuseAll's unrolling makes the right V8 choices for a STATED consumer reason, not a generic speedup claim: leaf.ts:179-273 fully unrolls arity-2 and arity-3 into positional closures with packed-literal result arrays, and the comment at leaf.ts:172 names the target ('the value.js hot shapes - 59 all() sites').",
+     "S7 (C S-2, and I re-verified the withdrawal that produced it) - dispatch's Int8Array(128) is exactly minimal and total over its own index domain: leaf.ts:101 `.fill(-1)` gives the sentinel, :137 `ch < 128` closes the read side, :139 `idx >= 0` reads the sign. Table width and index width are the same 128, so at most 128 interned parsers can exist and every index 0..127 is exactly representable - the signed type is load-bearing, not accidental.",
+     "S8 (C S-5, verified) - the chain() falsy-seed cure is textbook semver hygiene on a consumer-facing wrong-answer bug: parser.ts:124-137 threads the value unconditionally on success, the retired chainError parameter's removal is justified in-comment by MEASUREMENT ('dead-on-error ... zero callers across value.js + parse-that'), and it landed in a major cut rather than a patch.",
+     "S9 (C S-4, verified, with the M3 caveat) - retirement hygiene is machine-enforced and auditable: core.ts:6 and index.ts:10-12 cite the fold row, the deprecating version, the originating finding, the consumer count AND the enforcing gate name, and the gate exists (package.json:34). scripts/proof-no-dead-combinator.mjs goes further than C credits: its vacuity guard at :49-58 proves the grep machinery works before trusting a green, and :63-95 sweeps the SIBLING consumer trees - including ../../value.js/src - to prove zero external consumers before permitting the delete. Cross-repo consumer proof as a precondition for removal is rarer than the citation trail.",
+     "S10 (C S-6, verified) - the observable-truth standard, and a gate that documents its own earlier unsoundness: scripts/proof-no-css-surface.mjs:6-14 records that the charter's first draft grepped index.d.ts for CSS substrings, which would have passed GREEN with the CSS parser still shipping because `export *` never inlines them, and rewrites itself to observe the runtime export keys of the bundled dist. Both challenges adopted that standard; so did this re-read.",
+     "S11 (MINE, new) - the one place the sideEffects hazard could have become a real `undefined` is closed by the CJS lowering: dist/core.cjs:55-58 emits `whitespace` as an accessor (`Object.defineProperty(exports, \"whitespace\", { enumerable: true, get: () => packrat.whitespace })`) rather than a value snapshot, so the let-bound export initialised by the top-level _initWhitespace() survives the CommonJS conversion. C-13's breakage half dies here for the require condition, and the ESM half is a live binding by construction.",
+     "S12 (MINE, new) - value.js's own consume edge already has what the challenges say parse-that lacks: src/foundation/result.ts:1-6 defines Result<T,E> with `ok`/`err` constructors, and src/css/index.ts:20-21 exports ParseIssue and ParseResult as part of the frozen 52. The JS-boundary invariant O-15 prescribes and B-2/C-14 demand is therefore not a design problem for the receiving side - it has a typed home already built and frozen, one level above wherever a parse-that Parser would ever sit."
+    ]
+   }
+  },
+  {
+   "agentId": "ae753a7389ae97d07",
+   "key": "v2:57fb7d5b7d980328b257b737b52ac9561b2a9868a5c7c0e91f4d5b88218d3461",
+   "result": {
+    "slug": "packrat",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/pt-packrat.md",
+    "verdict": "SUSTAINED-WITH-CORRECTIONS — the reader's return survives the incredulity seat intact: 19/19 confirmations (C-1/C-2 BLOCKER-of-record; C-7/C-15 contests sustained at MINOR), 7/7 kills and 5/5 misses sustained on independent re-derivation; three prose-precision corrections to the reader (the C-3 \"no-op arm\" universal, d.ts export count 6-not-5, dirty census), none verdict-changing. RETIRE-the-surface routing holds: W2 (O-8/K-6/G-8/G-10 + the RETIRE verdict), W3 (disarm + totality), W4 (artifact parity/payload truth), six REFINEMENT FOLD spec-sharpeners (C-7, C-15, C-16, M1-M4), incumbent prose NO-WAVE-OWNER via the O-15 letter channel; 11 dynamic rows banked to MEASURE-AT-OPEN under W1's poison-cell law. Dispositions ADJUDICATED, not VERIFIED; parse-that untouched; fresh root absent and not created.",
+    "confirmedCount": 19,
+    "killedCount": 7,
+    "missedCount": 5,
+    "headline": [
+     "C-1 sustained BLOCKER-of-record: epoch soundness is bolted to parseState while public p.parser/p.call bypass it — PT-B1 revived by a re-walked proof-by-construction, and the suite's own soundness tests drive the raw entry at three sites (memoize.test.ts:97,:131 extend the reader's cell)",
+     "C-2 sustained BLOCKER-of-record: one-way construction-time arming, byte-exact in both bundles, conceded twice by the tree; routes to W2's G-8 born-RED baseline and O-8's named counter-example",
+     "Adjudicator correction (verdict intact): the suite's resetPackrat calls are non-load-bearing but NOT all no-ops — the raw-entry tests leave root-MEMO residue the beforeEach genuinely clears, the in-tree realization of L-M1 Arm C",
+     "M1 sustained with count fixed (six d.ts exports, not five): dist/packrat.d.ts and dist/packrat.js are a basename collision from different source modules — the L-file's 8.3 kill is right at the exports map and wrong at the artifact pair",
+     "K4 sustained and strengthened: bbnf-lang is a Cargo workspace with no src/, carrying parse-that@0.8.2 only transitively — the tree's own retirement condition for the zero-consumer tier is met on corrected evidence",
+     "M2 admitted at MAJOR: no epoched entry accepts a positioned ParserState, so the raw-entry hazard is the only mechanism for a use case the tree itself exercises — re-pricing C-1's cure from doc-line to surface"
+    ]
+   }
+  },
+  {
+   "agentId": "ad3d1e442efb6f296",
+   "key": "v2:cc143039d05737ad0ff2d74bd1d3db701ded02c9d75ee4bda3c554deb70b36e2",
+   "result": {
+    "slug": "pt-debug-apotheosis-adjudicated",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/pt-debug.md",
+    "verdict": "DEFECTIVE — RETIRE-AND-REDOOR: 46 adjudicated defects (3 BLOCKER, 16 MAJOR, 18 MINOR, 9 INFO); the module cannot be reached (4 spec-mandated functions behind no door, phantom d.ts, blind gate), cannot be trusted (caret coordinate split, line-2-column--1 at offset 0, order-dependent printer poisoning, throwing toString on the band's adjudicated reject node), and cannot be avoided (toString welds pin the renderer into 4 of 5 subpaths). Routed: W2 owns the successor surface (KEEP formatExpected, WRAP renderer-as-value, RETIRE parserPrint/parserDebug/welds), W3 the throw-class and line/column-law cures, W4 published-surface parity, W1 the MEASURE-AT-OPEN residue, 8 riders to the REFINEMENT FOLD, doc-hygiene rows banked NO-WAVE-OWNER.",
+    "confirmedCount": 46,
+    "killedCount": 14,
+    "missedCount": 10,
+    "headline": [
+     "MISS-1 is the sharpest new fact on record: collectDiagnostic computes line/column CORRECTLY at offset 0 while getLineAndColumn does not, and formatDiagnostic prints both contradictory positions in one document — this seat re-derived the inversion at the bytes, confirming the reader's kill of the L doc's identical-clamp claim",
+     "All 14 reader kills adopted (9 re-executed by this seat, including a live Node probe proving console.log never invokes toString — the most likely reproduction path for B-3/M-8/C-3 will not reproduce) and all 10 reader-recovered misses survived re-derivation",
+     "Two corrections of the reader from this seat's own instruments: parse.js has a FOUR-line import census (the utils.js edge strengthens both the C-7 pinning and the i-2 low-id-burn mechanism), and the dim-absence probe must be textual not raw-byte (the chunk encodes escapes as five-character sequences; corrected probe confirms per-symbol tree-shaking exactly)",
+     "Severity rulings: M-1 and M-8/C-3 held at MAJOR against C's BLOCKER grades (unreachability has a workaround; the throw needs a stringification site), M-7 downgraded to MINOR (parse throws before render, render diagnostics-gated), the L doc's one-line-fix-widens-B-3 claim killed by this seat's own two-scenario trace",
+     "Fresh root never created, parse-that read-only at master ef10d5b, diagnostics never armed, sole write = the apotheosis file"
     ]
    }
   }
