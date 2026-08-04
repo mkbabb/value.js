@@ -276,3 +276,156 @@ begin-word remains the standing execution gate throughout and is not a conforman
 *First pass complete 2026-08-04 · 5 canonical files + 2 sealed arms read whole · 1 CONFORMANT ·
 4 DEFECTIVE · 10 numbered defects, each with an exact fix · all verification read-only; the fresh
 root not created; no non-docs byte touched.*
+
+---
+
+## SECOND PASS — post-repair re-adjudication, 2026-08-04
+
+`claude-fable-5` — fresh conformance adjudicator (L-20), second pass, declared and served Fable.
+
+**Inputs read whole**: the FIRST PASS above (dated evidence, unrewritten) · all seven files under
+`docs/tranches/X/parse-that/waves/` at their **post-repair bytes** — W0/W1/W3/W4 as working-tree
+modifications, W2 canonical tracked-clean (untouched since agglomeration, exactly as a CONFORMANT
+verdict predicts), both author arms tracked-clean at their committed seal (mtimes 2026-08-03,
+pre-pass-1; the agglomeration record's kill claims spot-re-verified against them this pass: the
+Opus arm's self modify-carve at its `:468` bounds row, the Fable arm's `CARGO_TARGET_DIR N/A`
+at `:316`, its zero AC-4/band-seed mentions, its `.g` harness self-authorship at `:96`). All
+verification read-only; this append is the pass's only write.
+
+**Verdict roster**: **4 CONFORMANT** (W0 · W1 · W2 · W3) · **1 DEFECTIVE** (W4, 2 defects: one
+pass-1 miss surfaced by the fresh one-root re-check, one residual of W4-D1's deferred half).
+**9 of 10 pass-1 defects FIXED ON THE MERITS; 1 PARTIAL.** No repair was cosmetic-only; no repair
+regressed a sibling. **NOT tranche-ready** (COHESION §3.5: SPECIFIED stamps only at a clean
+declared-Fable final pass).
+
+### (a) Mechanical receipts (re-derived fresh this pass, read-only)
+
+- Fresh root: `ls -d /Users/mkbabb/Programming/parse-that-css-totality-p2` → *No such file or
+  directory*, 2026-08-04 — never created, across authoring, pass 1, and the repairs.
+- Pause handoff: `shasum -a 256` → `ced23440…f20f7` — **MATCH**.
+- The 52: `grep -cE '^    [A-Za-z]+,$' src/css/index.ts` → **51**; `:45 export { coerceToSyntax }` —
+  51+1=52, exact.
+- Substrate: `parse-that` worktree list → **8 entries**; `git grep -c wasm32 HEAD --
+  rust/parse_that/` → exit 1 (zero committed); working-tree `wasm32` files → **3** — OP-6/OP-7 hold.
+- COHESION anchors, live bytes: the X·P release-condition bullet at `:66-68` — **both of W0 G-8's
+  fragment greps return rows** (`:66` "X·P release condition → KF.W3"; `:68` "parse-that→fourier is
+  FORBIDDEN"); W1 §10's verbatim quote matches those bytes; `:18` still the X·P reservation row
+  (the two surviving `:18` pins verified live); the **SS-6 row** W4's packet machinery quotes
+  verified at `:38` ("ONE batched BJ letter at the next boundary · root-authored (Fable); E13").
+- Line-pin hunt over all five waves: zero rotted pins remain — the only `:45` occurrence is
+  *inside* W0 G-8's falsifier as the named negative example, which is the cure teaching, not a
+  citation.
+- Cross-edges: `W9.md:296` and G31's falsifier `:373` verbatim-match W3 §10 / W4 G-9's quotes;
+  fourier `package.json` ×2 → **0** `parse-that` hits (G-7 floor GREEN); INBOX
+  `grep -c 'X·P\|X.P.W\|RC-P'` → **0** (G-8/RC-P-6 born-RED holds); keyframes pin
+  `"@mkbabb/value.js": "4.0.0"` at `package.json:69`.
+- W1 OP-2 liveness: `/Users/mkbabb/.claude/jobs/9e7dadd0/tmp/parser-proof/` **still readable**
+  2026-08-04 — the rescue remains possible and remains urgent.
+- All four probes present and byte-stable (`r1-published-totality.mjs` 3,476 B ·
+  `parsethat-surface-gaps.mjs` 4,116 B · `harvest-journals.mjs` 5,445 B ·
+  `verify-packed-surface.mjs` 5,234 B). Bar-ledger arithmetic re-footed: all six figures and both
+  consistency percentages (25.0% / 18.8%; 1.906×) exact.
+
+### (b) Repair audit — the ten, on the merits
+
+| # | pass-1 defect | verdict | evidence at the post-repair bytes |
+|---|---|---|---|
+| W0-D1 | §3.2 summed 17 vs a gate demanding 18 | **FIXED** | §3.2 now "the three TCC-walled Codex evidence paths (8+3+2+3+1+1 = **18**, the count G-3's census table holds)"; the census table re-counted this pass: 18 rows exactly |
+| W0-D2 | G-8 pinned the reciprocal edge at rotted `COHESION.md:45` | **FIXED** | G-8 re-grounded on section anchor + two literal fragment greps (both return rows today, `:66`/`:68`); §5.d and the §9 commit body carry the anchor-never-line law; the falsifier now states *why* a line pin cannot express the failure — better than the ordered fix |
+| W0-D3 | §10's "later X·P waves" dangling pointer | **FIXED** | §10 now a **total disposition table** over handoff §8 steps 3–8: step 3 → W2 G-2, step 5 → W3 G-4, step 8's release limb → W4 OP-1 (owner-gated), steps 4/6/7 + the sequence limb → **DORMANT-UNLESS-NC-0-REVIVED**, argued as a *terminal disposition, not a schedule*, with NC-0's revival preconditions cited; §11.1 rewired to point at the table |
+| W1-D1 | R-E descriptive invocation ×4 gates | **FIXED** | G-1 `node harness/totality/derive.mjs --check`, G-2 `npx tsx harness/equivalence/harness.ts`, G-4/G-5 `npx tsx harness/bench/bench.ts` — literal in the gate cells, in §4's bounds rows, and in §5's Files; the W2 cross-file coordinate now stated at both ends; G-5 additionally routes its stderr capture **inside** the bounded tree (`harness/bench/bench.stderr` under the `harness/bench/**` create row) — a repair that anticipated the bounds question nobody had asked yet |
+| W1-D2 | rotted `COHESION.md:45-47` pin in §10 | **FIXED** | §10 cites §2's X·P bullet by anchor with the sentence quoted verbatim; quote byte-checked against live COHESION this pass |
+| — | W2 (CONFORMANT, no defects) | **STANDS** | bytes tracked-clean, unchanged since agglomeration; the §4b `ac1/ac2/ac3` label observation remains observation-only |
+| W3-D1 | three sibling roots beside the fresh root | **FIXED** | §4b relocated to `<p2>/.worktrees/w3a\|w3b\|w3c`, `CARGO_TARGET_DIR=<p2>/target/w3{a,b,c}`; W2 §4b's ONE-root law quoted verbatim and adopted; the census-grep rationale added ("indistinguishable by name from an unlawful root"); the orchestrator now records the no-sibling state before dispatch |
+| W3-D2 | L-13 harvest + COHESION carve absent | **FIXED** | all four lane-law rows landed (`x-p-w3.json` create · `DEFECT-LEDGER.md` modify-append by script · `harvest-journals.mjs` execute-no-write with the literal command · `COHESION.md` modify-carve §5 line only), owned by `.e` at close with the seat-count-equals-five sub-gate; §4a, §8, and §9 wired |
+| W4-D1 | G-10's count false; carve row had no target in W0/W1 | **PARTIAL** | the command half is FIXED — `cat …W[0-4].md \| grep -c` with the load-bearing `cat` explained and the misreading named. The normalization half was **not performed**: W0 §2 and W1 §2 remain in the one-line verb form at these bytes (diffed against the index: unchanged), and W4 instead added OP-6 deferring the conversion to "the X·P round-2 L-20 repair" — the round that has now run without doing it. See defect W4-D5 below |
+| W4-D2 | release packet unrowed, no lawful write path | **FIXED** | `RELEASE-PACKET.md` has a §4 create row (owned by `.d`), §3.8 orders it, G-8 is rewritten to the in-repo-path-is-the-delivery-point + SS-6-batched-courier shape ("the wave hands the letter to the courier; it never enters the neighbour's house"), RC-P conjunct 6 names both the path and the batch, and the SS-6 row quoted is live at COHESION `:38` |
+| W4-D3 | L-13 harvest lane-law absent | **FIXED** | `x-p-w4.json` create + harvester execute-no-write (literal command) + `DEFECT-LEDGER.md` modify-append rows landed, owned by `.d` at close, seat-count-equals-four sub-gate; §3.10 names the W2 kill precedent by citation — the lane law now states its own provenance |
+
+### (c) Defects — second pass (both in W4; exact fixes)
+
+1. **W4-D4 — §4b opens a sibling worktree beside the fresh root, against the same ratified
+   ONE-root law that killed W3-D1.** `X.P.W4.b`'s home is
+   `/Users/mkbabb/Programming/parse-that-css-totality-p2-w4b` — a worktree of the fresh root placed
+   **beside** it in `~/Programming`. Canonical W2 §4b: *"worktrees **inside** the fresh root,
+   never beside it (ONE named root, no siblings ever created)"* — and the repaired W3 §4b now
+   states the reason in full: a `parse-that-*` sibling is indistinguishable by name from an
+   unlawful root in W0's census grep. W4 is the one wave still on the wrong side of the law the
+   lane just ratified twice. Pre-existing at the pass-1 bytes (diffed against the index — not a
+   repair regression); a pass-1 **miss**, booked now without apology. **Fix**: one table edit —
+   `<p2>/.worktrees/w4b`, `CARGO_TARGET_DIR=<p2>/target/w4b` — plus the header sentence
+   ("Phase 1's two seats run in sibling worktrees" → one seat, one worktree, inside the root).
+2. **W4-D5 — the W4-D1 normalization was deferred to a repair round that has already run, and is
+   now owned by no one.** OP-6 honestly measures the true state (per-file VERIFIED counts
+   `0,0,1,1,1`, sum 3) and correctly halts `.d` against a sibling with no carve target — the
+   armor is right. But §4's carve row asserts "All four carry that table", **false at these
+   bytes**; G-10's baseline narrates the table as "landed in all five files", which it is not; and
+   the conversion is assigned to "the X·P round-2 L-20 repair, owed to W0's and W1's own seats" —
+   a dangling owner, the exact shape W0-D3 was booked for (a promise no wave owns). The repair
+   session edited both W0 and W1 for their own defects and skipped the two-block conversion pass 1
+   ordered in the same breath. **Fix**: perform it — convert W0 §2's and W1 §2's verb lines to the
+   four-verb table, content-preserving (each file's evidence strings carried into the table's
+   evidence column, as W2/W3 model); OP-6's check then reads `1` five times, G-10's open sum reads
+   **5**, and §4's carve row becomes true. No W4 edit required beyond, optionally, retiring the
+   "round-2" tense.
+
+### (d) The corpus checks, re-run fresh
+
+- **R-E + the descriptive-invocation hunt**: every gate's probe text in all five files walked
+  again. Literal command paths now hold in **every command cell of every file** — the four W1
+  survivors are cured, and no new descriptive invocation appeared anywhere. Every gate-invoked
+  script carries its bounds row (W0 ×2 · W1's three entries + two probes + harvester · W2's ten
+  `harness/w2/*.mjs` + execute-only rows · W3's four `scripts/css-*.mjs` + probe + harvester ·
+  W4's checker + three fresh-root scripts + both value-side probes + harvester). Gates with no
+  command cell (W0 G-2's permission assertion; W3 G-3's inline `node -e` probe) state their
+  evidence inline and invoke no unnamed instrument.
+- **Ordering + cycles**: W0→W1→W2→W3→W4 linear, reciprocal at every link (Opens-after/Depends ↔
+  Blocks re-verified pairwise); no cycle. Cross-sub-tranche: KF.W3 keyed on RC-P and declared from
+  both ends (W4 §6a ↔ COHESION §2, verbatim at the live bytes); PLAW-BIND stated in all five files
+  with the forbidden edge measured at zero from both fourier manifests; the X·V edge reciprocal by
+  verbatim quote (W9 `:296`/`:373`). The two pass-1 contradictions (worktree law, line pins) are
+  cured; the surviving intra-lane contradiction is W4-D4 — the same law, the last holdout.
+- **ONE-root law across W0/W3**: consistent — W0 §4b (no worktree at all, with the load-bearing
+  reason), W3 §4b (inside, verbatim adoption). W4 §4b is the breach (W4-D4).
+- **Four-verb discipline (R-A)**: exactly one VERIFIED-stamp site (W4 G-10/§2, "stamped here, and
+  only here"); no sibling close stamps it; ACCEPTED stays post-quartet in every §12; the verbs are
+  nowhere conflated — W0/W1's one-line form keeps them distinct, it merely is not the table the
+  stamp machinery needs (W4-D5).
+- **No invented bench bar**: Plane B `OWNER-GATED-PENDING-RATIFICATION` at every occurrence
+  (W1 G-7/§5.e · W2 G-7/OP-4 · W3 G-10/OP-5 · W4 RC-P-5's disjunction); AC-3's 20% screen still
+  correctly scoped as an admission threshold; no PASS/FAIL printed or printable anywhere; the
+  repairs introduced no bar-shaped clause.
+- **Agglomeration law (M-25 ¶2)**: 5/5 files still fold the hitherto corpus in §2c *and* carry
+  novel mechanism; the repairs **added** substance (W0's disposition table, W3's siting rationale,
+  W4's packet-courier machinery) and removed no fold. No transcription-only file.
+
+**Superlatives, for the record (L-18 runs both ways)**: W0 §10's **DORMANT-UNLESS-NC-0-REVIVED**
+— the dangling-pointer cure done right, a named terminal state instead of a promised wave; W1
+G-5's stderr capture routed into its own bounds row before any auditor asked; W3 §4b's
+census-grep rationale, which upgrades the ONE-root law from rule to argument; W4 G-10's
+load-bearing `cat` with the misreading it prevents named in the gate text; and OP-6's
+halt-not-reflow discipline — the right instinct (never reflow a sibling's prose from another
+wave) even where its discharge is the pass's one residual.
+
+### (e) Roster and readiness
+
+| wave | verdict | defects |
+|---|---|---|
+| W0 | **CONFORMANT** | 0 (D1/D2/D3 all fixed on the merits) |
+| W1 | **CONFORMANT** | 0 (D1/D2 fixed on the merits) |
+| W2 | **CONFORMANT** | 0 (bytes unchanged, tracked-clean) |
+| W3 | **CONFORMANT** | 0 (D1/D2 fixed on the merits) |
+| W4 | DEFECTIVE | 2 (W4-D4 sibling worktree beside the fresh root · W4-D5 the deferred W0/W1 §2 normalization, unowned) |
+
+**NOT tranche-ready — X·P is NOT yet SPECIFIED.** Both remaining defects are small and exactly
+specified: one worktree-table edit in W4 §4b; one content-preserving two-block conversion in
+W0 §2 and W1 §2 (which simultaneously truthifies W4 §4, OP-6, and G-10's open sum). Remaining to
+the stamp: repair the two; a third L-20 pass over the repaired bytes; a clean declared-Fable final
+pass (COHESION §3.5); then the root session carves COHESION §0/§1 SS-5 to SPECIFIED. Status
+fields stay `planned` throughout; **execution awaits the owner's begin-word**, which is a standing
+gate and not a conformance item.
+
+*Second pass complete 2026-08-04 · 5 canonical files + 2 sealed arms read at post-repair bytes ·
+9 of 10 repairs FIXED on the merits, 1 PARTIAL · 2 defects booked (1 pass-1 miss, 1 repair
+residual), each with an exact fix · all verification read-only; the fresh root not created; the
+sealed arms untouched; this append the only write.*

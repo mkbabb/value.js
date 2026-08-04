@@ -1,7 +1,7 @@
 {
  "runId": "wf_5ea8a490-613",
  "workflow": "wf_5ea8a490-613",
- "resultCount": 4,
+ "resultCount": 5,
  "results": [
   {
    "agentId": "a0aecde9ff9d25f70",
@@ -98,6 +98,20 @@
      "`docs/tranches/X/parse-that/RELEASE-PACKET.md` is now a rowed create target but does not exist (correctly — this file specifies, it does not execute); its content contract lives in §4's row and §8. Whether SS-6's batch is still ACCRETING at X·P close is a root-session scheduling fact G-8's row must name at close, not a spec defect.",
      "Repair seat model, for the record (not written into the file, per the first-line law): `claude-opus-5[1m]`."
     ]
+   }
+  },
+  {
+   "agentId": "af18682cc42d9577f",
+   "key": "v2:b34ca7e6cd8343bfd55220af1e5a6f0d04c9f1c836a2dd96dd864fae40200c6c",
+   "result": {
+    "conformant": 4,
+    "defective": 1,
+    "remaining": [
+     "W4-D4 — W4 §4b sites unit .b's worktree BESIDE the fresh root (/Users/mkbabb/Programming/parse-that-css-totality-p2-w4b), breaching the ratified ONE-root law (W2 §4b, adopted by repaired W3 §4b); fix: one table edit to <p2>/.worktrees/w4b with CARGO_TARGET_DIR=<p2>/target/w4b (pass-1 miss, pre-existing, not a repair regression)",
+     "W4-D5 — the W4-D1 normalization half was deferred, not performed: W0 §2 and W1 §2 remain in one-line verb form while W4 §4/OP-6/G-10 presume the four-verb table (open sum 5); the conversion is assigned to a repair round that has already run and is owned by no seat; fix: content-preserving conversion of the two §2 blocks, which truthifies W4's carve row and makes G-10's open sum read 5",
+     "Then: a third L-20 pass over the repaired bytes; SPECIFIED stamps only at a clean declared-Fable final pass (COHESION §3.5); execution separately awaits the owner's begin-word (standing gate, not a conformance item)"
+    ],
+    "tranchReady": false
    }
   }
  ]

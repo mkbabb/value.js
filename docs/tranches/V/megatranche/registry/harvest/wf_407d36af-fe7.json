@@ -1,7 +1,7 @@
 {
  "runId": "wf_407d36af-fe7",
  "workflow": "wf_407d36af-fe7",
- "resultCount": 33,
+ "resultCount": 34,
  "results": [
   {
    "agentId": "a1d50533fe66c6ed0",
@@ -7536,6 +7536,252 @@
      "Killed #5 is the corpus's sharpest lesson: all three axes' unanimous cure (var(--type-caption)/text-mono-small/Chip sm) silently resizes the chip 1.3-1.8x and worsens their own MAJOR overflow row; the size-preserving --type-micro rung existed all along.",
      "Routing: AP-1 = MT-F031 executor (lamp files -> MT-DOCK-LAYERS-1 by name; chip -> X-W7 rider); rebuild-on-producer-primitives cluster -> X-W7; module re-home + dead barrel/lint law -> X-W8; type/motion canon -> X-W10 + GLASS-OWNED BH relay; 5-row transport cluster (incl. AP-17's unbounded probe burst) flagged NO-WAVE-OWNER deliberately loud; 8 UNPROVEN-NEEDS-LIVE residue items handed to the visual audit.",
      "Provenance note: file authored by this seat's prior incarnation (wall-killed before returning output), committed at b2abeb84; this incarnation independently re-verified every load-bearing instrument cell and corrected one dangling cross-reference (AP-24 -> AP-33)."
+    ]
+   }
+  },
+  {
+   "agentId": "a46da7a425193b212",
+   "key": "v2:8291392cbad4147a930eb4a9be16c982164e43ba5a6c6a35790660c47eac2177",
+   "result": {
+    "slug": "EmptyState",
+    "confirmed": [
+     {
+      "id": "L-1 / C-5 / D-15",
+      "claim": "`tag=\"div\"` ×3 on WatercolorDot is a dead prop at the glass-ui 7.0.0 boundary — silently swallowed, not even leaked as a stray attribute.",
+      "proof": "AXIS: challenge-L-library.md:54 (`grep -o \"tag\" …/watercolor-dot.js` → zero); challenge-C-implementation.md:186-199; challenge-D-design.md:524-537. LIVE: `demo/shared/ui/EmptyState.vue:45,46,47` pass `tag=\"div\"`. `node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts` `__VLS_Props = { color; variant?; animate?; cycleDuration?; range?; seed? }` — no `tag`. `dist/watercolor-dot.js` compiles `inheritAttrs: !1` and forwards only `i(()=>n.class)` / `i(()=>n.style)` from `useAttrs()`; `grep -c tag` on that bundle → 0. Root is a hard `<span aria-hidden=\"true\" … pointerEvents:\"none\">`. Confirmed independently.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L-2",
+      "claim": "The published library declares runtime deps on its own consumer's design system: a package-level cycle plus 5.8 MB of phantom deps for `parseCssColor`.",
+      "proof": "AXIS: challenge-L-library.pass1.md:163-237, carried at challenge-L-library.md:55. LIVE: `package.json` `dependencies: {\"@mkbabb/glass-ui\":\"^7.0.0\",\"@mkbabb/keyframes.js\":\"^6.0.0\"}`, `files: [\"dist\", …]`, no `peerDependencies`. `node_modules/@mkbabb/glass-ui/package.json` `peerDependencies[\"@mkbabb/value.js\"] = \"^4.0.0\"` → declared cycle. `grep -rn \"@mkbabb\" src/` → 2 doc comments (`src/subpaths/math.ts:2`, `src/subpaths/transform.ts:2`), zero imports. `grep -h \"^import\" dist/subpaths/*.js` → only relative chunk specifiers, zero bare packages. `grep -rn \"@mkbabb/keyframes\" src demo test e2e scripts plugins` → 0. `eslint.config.js:196-214` forbids the source-level edge (`inv-K-1`) but nothing polices the manifest.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L-5 / L-N3 / C-11",
+      "claim": "Leaf → boot CSS side channel: `--ink-muted` has no declaration in the stylesheet layer at all; the component reads it through a masking fallback whose masked value is the sub-floor ink the class exists to retire.",
+      "proof": "AXIS: challenge-L-library.pass1.md:321-381; challenge-L-library.md:150-188; challenge-C-implementation.md:298-304. LIVE: `grep -rn -- \"--ink-muted\" demo/` returns only reads plus ONE writer — `demo/color-picker/composables/boot/useAtmosphereBoot.ts:103` `document.documentElement.style.setProperty(\"--ink-muted\", css)`. Zero `:root`/`--ink-muted:` declarations in any CSS or SFC. `demo/shared/ui/EmptyState.vue:103` `color: var(--ink-muted, var(--muted-foreground))`. The sibling token IS declared statically — `demo/styles/foundation.css:231 --accent-live: oklch(0.632 0.214 13.5)` — so the cure (declare it beside `--accent-live`) uses an idiom already in the tree. The 3.753:1 fallback number is live-only (see unproven); the structural violation is not.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L-6",
+      "claim": "`.plate-ink` is copy-pasted verbatim into five scoped `<style>` blocks, each with its own multi-line rationale prose.",
+      "proof": "AXIS: challenge-L-library.pass1.md:385-414 (md5 ×5), challenge-L-library.md:59. LIVE: `grep -rn \"\\.plate-ink\" demo/` → exactly five: `demo/shared/ui/EmptyState.vue:102`, `demo/color-picker/ErrorBoundary.vue:84`, `demo/workbenches/extract/ExtractWorkbench.vue:290`, `demo/workbenches/extract/ImageDropZone.vue:109`, `demo/workbenches/extract/ExtractControls.vue:148`. All five declare the identical single property.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L-N1 / C-6 / D-6",
+      "claim": "`dots` is a dead configuration axis — zero call sites, unreachable through the only wrapper that could pass it, modelling a co-seating that no longer exists, and a certified oracle asserts the state it exists to suppress.",
+      "proof": "AXIS: challenge-L-library.md:70-123; challenge-C-implementation.md:203-216; challenge-D-design.md:274-303. LIVE: `grep -rn ':dots\\|[^a-z-]dots=' demo/` → nothing. `demo/palettes/browser/card/PaletteCardGrid.vue:24-26` forwards only `:message/:eyebrow/:hint`; its `defineProps` at `:38-44` has no `dots`, so `PalettesPane.vue:75-80` cannot pass it. `<ShadowPalette` has exactly one seat — `demo/workbenches/extract/ExtractWorkbench.vue:159` — and no file under `demo/workbenches/extract/` imports EmptyState (`grep -rn \"import EmptyState\" demo/` → 8 files, none in extract). `e2e/smoke/oracles/o9-shadow-palette.spec.ts:262-265` asserts the My Palettes plate KEEPS its trio. Default is `true` at `EmptyState.vue:90`; the prop, its `v-if` at `:40` and an eight-line doc block at `:83-88` are all unreachable.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L-3 / D-14",
+      "claim": "The error plate has a second, hand-copied implementation whose only differences are four unexplained numbers; the `.plate-ink` rule is duplicated with it.",
+      "proof": "AXIS: challenge-L-library.pass1.md:240-264; challenge-D-design.md:493-520. LIVE, exact: glyph `EmptyState.vue:19 w-6 h-6` vs `ErrorBoundary.vue:23 w-7 h-7`; statement `:20 max-w-[26ch]` vs `:24 max-w-[28ch]`; detail `:23 max-w-[44ch]` vs `:27 max-w-[46ch]`; wrapper `:16 gap-2.5 py-8` vs `:18 gap-3 py-10 px-6`. `ErrorBoundary.vue:12-14` names the duplication as intentional. `.plate-ink` at `ErrorBoundary.vue:84-86` is byte-identical to `EmptyState.vue:102-104`.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L-N4",
+      "claim": "Inverted `ui/` ownership: `demo/ui/` is nineteen directories of pure glass-ui alias barrels holding zero components, while the demo's two real UI atoms live in `demo/shared/ui/`; 13 barrels import the glass-ui root where a granular subpath exists.",
+      "proof": "AXIS: challenge-L-library.md:191-239. LIVE: `find demo/ui -name \"*.vue\" | wc -l` → 0; 19 dirs. `demo/ui/button/index.ts` is one line: `export { Button } from \"@mkbabb/glass-ui\";`. `demo/ui/alert/index.ts:1-9` documents its own conversion to a re-export. Cross-checked against glass-ui's 74-key export map: subpaths exist for badge/button/card/collapsible/dialog/dropdown-menu/label/popover/select/separator/slider/switch/tooltip (13 barrels importing root anyway); no subpath exists for alert/avatar/checkbox/radio-group/skeleton (a producer gap, correctly routed to BH relay); `demo/ui/input/index.ts` correctly uses `@mkbabb/glass-ui/forms`. `demo/shared/` holds exactly `utils.ts`, `ui/PaneHeader.vue`, `ui/EmptyState.vue` with 24 inbound references (8+9+7).",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "L-N5",
+      "claim": "A second, hand-rolled declaration of the export surface has drifted from the generated one; three of its eight targets do not exist after a full build. The negative proof that it is currently inert also holds.",
+      "proof": "AXIS: challenge-L-library.md:243-291 + `evidence/resolution-trace.txt`. LIVE: `tsconfig.demo.json:36-50` hand-rolls 8 `paths` entries; `package.json#exports` has 7 keys and NO `.` root (`./color ./value ./css ./easing ./math ./transform ./quantize`). In tsconfig but not exports: bare root, `/parsing`, `/units`. In exports but not tsconfig: `/value`, `/css`. `ls dist/` → no `index.d.ts`; `ls dist/subpaths/` → no `parsing.d.ts`, no `units.d.ts`. The file's own comment at `:37-41` claims \"the 7 subpath barrels\" and a \"CLOSED 8-key set\" — both wrong. `vite.config.ts:38-50` generates its alias set from `#exports` with the rationale stated in-file. The inertness proof stands: `evidence/resolution-trace.txt:13-21` shows tsc self-name resolution walking to the repo `package.json` and resolving `@mkbabb/value.js/css` → local `dist/subpaths/css.d.ts`; and no demo file imports the bare root (`grep -rn 'from \"@mkbabb/value.js\"' demo/` → 0).",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L-N6",
+      "claim": "The e2e oracle asserts on glass-ui private internals at the boundary that just moved.",
+      "proof": "AXIS: challenge-L-library.md:295-321. LIVE: `e2e/smoke/oracles/o9-shadow-palette.spec.ts:75-76` asserts `[data-variant=\"ghost\"]` and `.watercolor-ghost-stroke`. `node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/index.d.ts` publishes only `WatercolorDot`, `useWatercolorBlob` + types, and `mulberry32/hashString/randomRadii/radiiToCSS` — neither selector is public. Both are emitted by the compiled render fn in `dist/watercolor-dot.js` as internal implementation. value.js's OWN stable hook exists one line away: `EmptyState.vue:40 data-slot=\"empty-state-trio\"`. (Axis line cite `:74-78` is one off; actual `:75-76`.)",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L-N8 / C-10",
+      "claim": "No unit test exists for the component and `@vue/test-utils` ships as a devDependency with zero consumers repo-wide; the covering e2e oracles are vacuous against named mutations.",
+      "proof": "AXIS: challenge-L-library.md:354-367; challenge-C-implementation.md:267-294. LIVE: `package.json:96` `\"@vue/test-utils\": \"^2.4.10\"`; `grep -rn \"@vue/test-utils\" test/ e2e/ demo/ src/` → no output. `grep -rn \"plate-ink\" e2e/ test/` → 0, so deleting the entire `<style scoped>` block (`EmptyState.vue:94-105`) is green. The blast-radius wording on mutation (a) is overstated — see killed.",
+      "severity": "INFO"
+     },
+     {
+      "id": "C-3",
+      "claim": "The hard-coded `role=\"status\"` root makes EmptyState an illegal owned child of `PaletteCardGrid`'s `role=\"list\"`.",
+      "proof": "AXIS: challenge-C-implementation.md:131-152. LIVE: `demo/palettes/browser/card/PaletteCardGrid.vue:3` `role=\"list\"`; `:21` mounts `<EmptyState>` as a direct child; `demo/shared/ui/EmptyState.vue:28` `role=\"status\"`. ARIA 1.2 `list` requires owned `listitem`. Confirmed — and materially under-scoped, see missed M5.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "C-4 (structural limbs)",
+      "claim": "The decorative eyebrow is inside an atomic polite live region and is not `aria-hidden`, while the ornament above it is; live regions stack per route.",
+      "proof": "AXIS: challenge-C-implementation.md:156-183; challenge-D-design.md:657-677. LIVE: `EmptyState.vue:43` sets `aria-hidden=\"true\"` on the trio wrapper; `:55-57` renders the eyebrow `<p>` with no `aria-hidden` inside the `role=\"status\"` root at `:28` (implicit `aria-live=polite` + `aria-atomic=true`). Stacking is structural: `demo/palettes/browser/admin/AdminUsersPanel.vue:63` seats one plate and `:138` seats one per expanded zero-palette user; `AdminNamesPanel.vue:42,92` two more; each admin route also carries the Palettes companion plate. The component's own comment `:7` calls the eyebrow \"the plate label\" — a visual annotation.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "C-7 / L-4",
+      "claim": "Flat prop bag rather than a discriminated union: `eyebrow`/`hint`/`dots` are inert on `variant=\"error\"` and `detail` is inert on `empty`, with no compile error.",
+      "proof": "AXIS: challenge-C-implementation.md:220-237; challenge-L-library.pass1.md:268-318. LIVE: `EmptyState.vue:73-89` declares six independent optionals; the two roots at `:14` and `:28` share no markup and differ in `role`, glyph, and every caption slot. The component's own header at `:2-3` opens \"TWO species, never conflated\" — the type conflates them. Latent today: no call site passes a cross-variant prop (all 7 error sites pass only `message`+`detail`).",
+      "severity": "MINOR"
+     },
+     {
+      "id": "D-1",
+      "claim": "The plate asserts \"No saved palettes yet.\" over a filtered-zero collection — the predicate is the filtered length, the copy is the true-empty copy, and the component gives the consumer no place to put the distinction.",
+      "proof": "AXIS: challenge-D-design.md:63-127. LIVE: `demo/palettes/PalettesPane.vue:77` `:empty=\"pm.filteredSaved.value.length === 0\"` with `:78-80` `empty-eyebrow=\"· empty plate ·\" empty-text=\"No saved palettes yet.\" empty-hint=\"Add colors above, then save the set.\"`. `demo/palettes/usePalettePorts.ts:112` `const filteredSaved = useFilteredList(savedPalettes, searchQuery, …)` — search-filtered, not the saved set. Same mechanism at `demo/palettes/BrowsePane.vue:83` and `AdminUsersPanel.vue:63` (`users` is the query result). The API exposes one `message` and one `variant`, so the state is unexpressible.",
+      "severity": "BLOCKER"
+     },
+     {
+      "id": "D-2",
+      "claim": "The failure species exists only as a content replacement, so a failed refresh hides data still held in state, at 6 sites across 5 routes.",
+      "proof": "AXIS: challenge-D-design.md:130-176. LIVE: `demo/palettes/useAdminTags.ts:53-60` — `catch { loadError.value = e?.message ?? \"Backend unreachable\" }` with `tags.value` untouched; identical shape at `useAdminFlagged.ts:66-76` (`items.value` retained) and `useAdminAudit.ts:63-68` (`entries.value` retained). Template order confirms the replacement: `AdminUsersPanel.vue:51 v-else-if=\"loadError\"` precedes `:63 v-else-if=\"users.length === 0\"` precedes `:64 v-else` (the list). Six error sites: `AdminTagsPanel.vue:68`, `AdminFlaggedPanel.vue:22`, `AdminAuditPanel.vue:42`, `AdminUsersPanel.vue:51`, `AdminNamesPanel.vue:30,80`. `BrowsePane.vue:62` is the lone site that guards with `&& displayedBrowse.length === 0`.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "D-7 (ownership limb)",
+      "claim": "The canon names an `EmptyPaletteMark` primitive that does not exist, so the mark is hand-rolled in the consumer with per-instance sizing/opacity utilities.",
+      "proof": "AXIS: challenge-D-design.md:306-344. LIVE: `docs/tranches/V/VISUAL-CONSTITUTION.md:186` — \"may carry one static, aria-hidden `EmptyPaletteMark`: exactly three WatercolorDots plus the established dashes.\" glass-ui 7.0.0's 74-key export map has no such key (nearest is `./handmark`), and `dist/components/` contains `handmark` only. `EmptyState.vue:39-48` inlines it: a bare `flex items-end gap-2` div plus three dots whose whole composition is `w-8 h-8 opacity-80` / `w-11 h-11` / `w-6 h-6 opacity-60`. Stroke and dash are producer constants (`.watercolor-ghost-stroke` fixed `2px dashed`), so they do not scale with the three diameters.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "D-13",
+      "claim": "`font-display text-heading` is a family↔size mapping the closed type matrix does not contain, replicated at four sites.",
+      "proof": "AXIS: challenge-D-design.md:466-489. LIVE: `docs/tranches/V/VISUAL-CONSTITUTION.md:66-78` publishes the matrix (`section heading | text-heading | Plus Jakarta Sans`) and closes it, granting one paired-scale exception (P019's Picker pair) that this is not. glass-ui's `@utility text-heading` itself declares `font-family: var(--font-text)` (`dist/styles/typography/semantic.css`), so the pairing only exists because the Tailwind `font-display` utility outranks it in emission order — a cascade-order dependency, not a declared role. Four sites: `EmptyState.vue:20`, `:58`, `ErrorBoundary.vue:24`, `Markdown.vue:26`.",
+      "severity": "MAJOR"
+     },
+     {
+      "id": "D-16",
+      "claim": "`tracking-[0.18em]` is an arbitrary literal overriding the producer's caps tracking on a root-owned caption utility.",
+      "proof": "AXIS: challenge-D-design.md:540-546. LIVE: `EmptyState.vue:55` `text-mono-caption uppercase tracking-[0.18em]`. glass-ui `dist/styles/typography/utilities.css` `@utility text-mono-caption { font-family: var(--font-mono); font-size: var(--type-caption); letter-spacing: var(--type-tracking-caps); text-transform: uppercase; }` with `--type-tracking-caps: 0.1em` — the literal is 1.8× the producer rung, at one call site. (The same line also carries a dead class — see missed M4.)",
+      "severity": "MINOR"
+     },
+     {
+      "id": "D-17",
+      "claim": "`break-words` guards one of the three text rows; the other two clip silently on unbreakable content.",
+      "proof": "AXIS: challenge-D-design.md:569-593. LIVE: `EmptyState.vue:23` (error `detail`) carries `break-words`; `:20`/`:58` (`message`) and `:61` (`hint`) do not. Correctly rated MINOR: no current call site supplies a triggering value — all 16 sites pass literals (`PalettesPane.vue:79`, `BrowsePane.vue:85`, `MixSourceSelector.vue:242`, nine admin strings) and `detail` — the one row that actually receives unbounded machine strings — is the guarded one.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "D-21 (core claim only)",
+      "claim": "The component owns no motion contract, so the species swap is left to each host to remember — and most hosts hard-cut.",
+      "proof": "AXIS: challenge-D-design.md:638-656. LIVE: `EmptyState.vue` declares no `<Transition>` and no transition classes. Only ONE of the eight hosts wraps a plate: `demo/palettes/BrowsePane.vue:40` `<Transition name=\"vj-morph\" mode=\"out-in\">` over the `developing`/`error`/`wall` chain. AdminTags/AdminAudit/AdminFlagged/AdminNames/PaletteCardGrid have no `<Transition>` at all. The axis's own evidence table is wrong in the direction that understates this — see killed.",
+      "severity": "MINOR"
+     },
+     {
+      "id": "L-N9",
+      "claim": "The two roots carry a byte-identical root class string.",
+      "proof": "AXIS: challenge-L-library.md:369-374. LIVE: `EmptyState.vue:16` and `:28` both read `flex flex-col items-center justify-center gap-2.5 py-8 text-center`. Note C's N-4 (challenge-C-implementation.md:349-355) is right that the duplication is load-bearing as long as the roots stay separate: collapsing them to one root with `:role` would patch the attribute in place and silence the species re-announcement. The cure is a shared `.plate` class, not a merged root.",
+      "severity": "INFO"
+     },
+     {
+      "id": "L-8 (bullet 1)",
+      "claim": "The Retry affordance is re-authored at every error call site with a per-instance `class=\"font-display\"` override.",
+      "proof": "AXIS: challenge-L-library.pass1.md:442-449. LIVE: `grep -rn 'class=\"font-display\"' demo/` → 11 hits, of which SEVEN are `#action` Retry buttons inside an EmptyState: `BrowsePane.vue:72`, `AdminAuditPanel.vue:49`, `AdminUsersPanel.vue:58`, `AdminFlaggedPanel.vue:29`, `AdminNamesPanel.vue:37`, `:87`, `AdminTagsPanel.vue:75`. (The axis lists six and omits `BrowsePane.vue:72`.) The error-plate concept includes its retry; modelling retry as an anonymous slot forces every consumer to re-author it.",
+      "severity": "MINOR"
+     }
+    ],
+    "killed": [
+     {
+      "id": "L-1 (count + cure)",
+      "claim": "\"18 `tag=` bindings across 9 files\"; cure = \"delete `tag=` at all 18 sites (mechanical, zero-delta at the 15 decorative ones)\".",
+      "refutation": "The count is wrong at every commit the corpus names, and the cure is structurally unsound. `git grep -n 'tag=\"' -- demo/` returns **26** hits across **11** files at `80fc5c40` (pass-1's own stated HEAD), at `c654824e` (the work-order HEAD) and in the working tree — not 18/9. The r2 report (challenge-L-library.md:54) marks L-1 \"CONFIRMED independently\" but only re-measured the glass-ui side and carried the 18 forward into its net-motion ledger (challenge-L-library.md:440). Worse, the raw grep conflates three different props: `TransitionGroup tag=\"div\"` — a Vue built-in — at `MixSourceSelector.vue:122`, `MixResultDisplay.vue:94`, `CurrentPaletteEditor.vue:26`; `SearchBar tag=\"form\"` at `PaletteSlugBar.vue:9`; and one occurrence inside a comment at `GenerateControls.vue:193`. Actual WatercolorDot bindings: **21**. \"Delete `tag=` at all 18 sites\" executed literally strips a Vue built-in prop from three TransitionGroups and a real prop from SearchBar."
+     },
+     {
+      "id": "L-8 (bullet 3, pass 1)",
+      "claim": "\"Two Button sources coexist: `demo/ui/button/index.ts` (local shadcn) and glass-ui's published `./button` … The shadcn tree is a standing sanctioned structure ('~178 files, DO NOT modify').\"",
+      "refutation": "False at this HEAD, and the r2 correction (challenge-L-library.md:191-209) is right. `demo/ui/button/index.ts` is exactly one line: `export { Button } from \"@mkbabb/glass-ui\";`. `find demo/ui -name \"*.vue\" | wc -l` → 0 across all 19 directories; every `demo/ui/*/index.ts` is a pure re-export. There is one Button source. The \"~178 shadcn files\" premise is a stale memory of a pre-restructure tree, not a fact about the working tree — pass 1 asserted a sanctioned structure that no longer exists and softened its own finding on that basis."
+     },
+     {
+      "id": "L-1 (collateral, pass 1)",
+      "claim": "\"the component's own `aria-hidden=\"true\"` (`EmptyState.vue:41`) is now redundant — glass-ui sets it.\"",
+      "refutation": "Wrong line and wrong conclusion. The attribute is at `EmptyState.vue:43`, on the trio **wrapper `<div>`** — a different element from the three producer `<span>`s that carry their own `aria-hidden`. It is not redundant, and it is load-bearing under test: `e2e/smoke/oracles/o9-shadow-palette.spec.ts:74` asserts `await expect(trio).toHaveAttribute(\"aria-hidden\", \"true\")` on `[data-slot=\"empty-state-trio\"]`. Acting on this note reddens the oracle. The adjacent remark that \"the comment at `:45-47` asserting a `div` host describes a `<span>`\" also mis-cites: `:45-47` are the element lines; no comment there asserts a host."
+     },
+     {
+      "id": "L-N7",
+      "claim": "\"`| undefined` cancels `exactOptionalPropertyTypes` across this component's entire prop surface\" (citing `tsconfig.base.json:13`); cure = \"drop every `| undefined`, matching `ErrorBoundary`.\"",
+      "refutation": "Both limbs fail, and the cure would break the typecheck. (a) The flag is at `tsconfig.base.json:11`; line 13 is `useDefineForClassFields`. (b) The `| undefined` is load-bearing, not noise. `demo/palettes/browser/card/PaletteCardGrid.vue:38-44` declares its own props as `emptyText?: string; emptyEyebrow?: string; emptyHint?: string` — read as `string | undefined` — and forwards them at `:24-26` into `message`/`eyebrow`/`hint`. Under `exactOptionalPropertyTypes`, `string | undefined` is not assignable to a target `?: string`; TS's own diagnostic instructs \"Consider adding 'undefined' to the types of the target's properties.\" Dropping `| undefined` introduces three type errors at exactly the wrapper the same report wants preserved until the split lands. `ErrorBoundary.vue:46-51` gets away with plain `?: string` because it has no forwarding consumer. Both other axes rule correctly and govern here: challenge-C-implementation.md:364 (\"`?: T | undefined` on every prop is **correct**, not noise\") and challenge-D-design.md:743-745 (N-4)."
+     },
+     {
+      "id": "L-N2",
+      "claim": "\"The error register has THREE implementations, not two — `Markdown.vue:19-30` renders the register hand-replicated in a third file\"; cure = \"`Markdown.vue` composes the same `ErrorPlate`.\"",
+      "refutation": "Overstated as a clone and inverted as a cure. `demo/scenes/about/markdown/Markdown.vue:19-31` renders the **glass-ui `Alert` primitive** (`<Alert><AlertTitle …><AlertDescription …>`), imported from the barrel at `:35`. It has no `CircleAlert` glyph, no `detail` row, no action slot, no wrapper geometry, no `.plate-ink` — none of the five rows the axis's own EmptyState↔ErrorBoundary comparison table uses to establish a clone. The only shared artefact is the `font-display text-heading` class pairing on the title, which is D-13's type-matrix finding, not a third plate. The prescribed cure would replace a design-system primitive with a demo-local composition — the inverse of edict 4 (glass-ui is the design system) — and D-14 (challenge-D-design.md:511-513) already describes this file more accurately as \"a third rendering of the same idea through an `Alert`.\""
+     },
+     {
+      "id": "D-21 (evidence table)",
+      "claim": "Table at challenge-D-design.md:642-650: `AdminUsersPanel.vue` \"`<Transition>` present ✔\" and `MixSourceSelector.vue` \"`<Transition>` present ✔\", yielding \"4 of 7 hosts hard-cut.\"",
+      "refutation": "Both ✔ rows are false — the transitions do not enclose the plate. `AdminUsersPanel.vue:16-20` is `<Transition name=\"vj-celebrate\">` wrapping the `pruneResult` toolbar text; its three EmptyStates are at `:51`, `:63`, `:138`, all outside it. `MixSourceSelector.vue`'s only transition is a `<TransitionGroup>` at `:120-177` around the mix swatches; its EmptyState is at `:239`, outside it. `demo/palettes/BrowsePane.vue:40` is the sole host that wraps a plate. The underlying finding survives and is worse than filed — 6 of 7 hard-cut, not 4 — but the table cannot be carried as evidence."
+     },
+     {
+      "id": "D-5 (canon citation)",
+      "claim": "Cites `PROPORTION-AUDIT.md:70` as forbidding the mark: \"A small icon/mark is either data, status, labeled action, drag affordance, focus/selection register **or removed**. Decoration without information\" is not on the list.",
+      "refutation": "The canon line is truncated in a way that reverses its scope. `docs/tranches/V/PROPORTION-AUDIT.md:70` reads in full: \"…focus/selection register or removed. **Decorative controls and operable ornaments without names are forbidden.**\" The prohibition is on decorative *controls* and *operable* ornaments — the EmptyState mark is neither (it is a static `aria-hidden` span with `pointer-events: none`, set by the producer at `dist/watercolor-dot.js`). And `VISUAL-CONSTITUTION.md:186` affirmatively **grants** \"one static, aria-hidden `EmptyPaletteMark`.\" The rendered-salience measurement in D-5 may still stand on its own; the canon does not support it as quoted."
+     },
+     {
+      "id": "C-10 (mutation a blast radius)",
+      "claim": "Deleting `EmptyState.vue:61-63` (the `hint` `<p>`) kills \"the how-to line on **every** empty plate app-wide.\"",
+      "refutation": "Three of ten empty configurations pass a hint, not all. `grep -rn 'empty-hint\\|hint=' demo/` → `MixSourceSelector.vue:243`, `BrowsePane.vue:86`, `PalettesPane.vue:80`, plus the forward at `PaletteCardGrid.vue:26`. The seven admin plates (`AdminTagsPanel.vue:82`, `AdminAuditPanel.vue:56`, `AdminFlaggedPanel.vue:37`, `AdminNamesPanel.vue:42,92`, `AdminUsersPanel.vue:63,138`) pass eyebrow+message only. The mutation-survives-the-gate claim is correct and untouched; the blast radius is not."
+     },
+     {
+      "id": "D-23 (universal quantifier)",
+      "claim": "\"Ten of ten … **Not one** eyebrow carries information the message does not.\"",
+      "refutation": "At least two of the ten carry a datum the message omits. `BrowsePane.vue:84` `· the commons ·` names the destination collection against \"No published palettes here yet.\", which names no place; `MixSourceSelector.vue:241` `· nothing to mix ·` names the pending operation against \"No saved palettes yet.\", which names none. The redundancy reading is defensible for the six admin rows (`· roster clear ·`/\"No users found.\", `· ledger clear ·`/\"No audit entries found.\", etc.); the universal is not, and the finding was promoted to MAJOR on the strength of the universal."
+     }
+    ],
+    "missed": [
+     {
+      "claim": "WatercolorDot 7.0.0 renders NO slot, so every child passed to it is silently dropped — three shipped sites lose their glyph, including the collapsed dock's identity icon. All three axes analysed only the attribute half of the boundary.",
+      "proof": "`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js` — the compiled render returns `o(\"span\", {…}, [ svg-filter-host, variant===\"ghost\" ? ghost-stroke-span : comment ])`; there is no `renderSlot`, no `$slots`, no `slots` identifier anywhere in the 4,560-byte module (grep → `[]`). Three call sites pass children: `demo/shell/dock/Dock.vue:271-281` — the `#collapsed` dock seal wraps `<component :is=\"viewManager.currentConfig.value.icon\" class=\"dock-seal-ink\" :class=\"isAdminMode && 'gold-shimmer-icon'\">` (plus its own `<Transition name=\"vj-morph\">`) inside the WatercolorDot, so the collapsed dock's view identity AND the admin gold-shimmer marker never render; `demo/palettes/browser/card/CurrentPaletteEditor.vue:95-105` — `<Plus class=\"w-5 h-5 text-primary/60\">` inside the add-slot ghost; `demo/workbenches/mix/MixSourceSelector.vue:164-176` — same. This is the same boundary as L-1/C-5/D-15 and it also falsifies pass-1 L-1's cure premise: those sites are not 'zero-delta decorative', they are already losing content. Companion to the dead `@click`/`aria-label`/`:disabled` swallow the corpus does describe.",
+      "severity": "MAJOR"
+     },
+     {
+      "claim": "The demo's pinned non-bold display weight is unapplied on this component, so its display line ships at 700 while the sibling atom in the same directory ships at 400.",
+      "proof": "`demo/styles/foundation.css:384` `--type-weight-display: 400;` with the comment at `:379-383`: \"every demo title surface carries `font-weight: var(--type-weight-display)` on its OWN class list.\" `demo/shared/ui/EmptyState.vue:20` and `:58` carry `font-display text-heading text-foreground …` and NO weight rule, so they take glass-ui's `@utility text-heading { … font-weight: var(--type-weight-heading) … }` (`dist/styles/typography/semantic.css`) where `--type-weight-heading: 700` and the demo overrides it nowhere (`grep -rn -- \"--type-weight-heading\" demo/` → 0). The directory sibling DOES apply the pin: `demo/shared/ui/PaneHeader.vue:110` `font-weight: var(--type-weight-display);`, as does `demo/color-session/ColorSpaceSelector.vue:213,301`. Same gap at `ErrorBoundary.vue:24` and `Markdown.vue:26`. Three demo display surfaces at 400, three at 700. challenge-D-design.md:479 measured `fontWeight 700` and reported it only as matrix data.",
+      "severity": "MAJOR"
+     },
+     {
+      "claim": "The P10 'booked, verify-first' retirement is now due and unverified: glass-ui 7.0.0 grew the weight token seam the demo's comment says does not exist, leaving the per-surface workarounds as dead scaffolding on a false premise.",
+      "proof": "`demo/styles/foundation.css:379-383` asserts \"glass-ui's `text-display-*` utilities hardcode `font-weight: 600` (and `text-heading` 700) with no token seam (t-title-typography F8) … When P10's weight tokenization ships, the producer utilities read this same knob and the per-surface declarations retire (BOOKED, verify-first).\" In the installed 7.0.0, `dist/styles/typography/semantic.css` shows EVERY `text-display-*` / `text-display-hero` / `text-display-mega` / `text-display-audacious` utility declaring `font-weight: var(--type-weight-display)` and `text-heading` declaring `font-weight: var(--type-weight-heading)`. The seam shipped with the W44/D58 glass-7 adoption; the booked verification never ran. The correct one-line cure (`--type-weight-heading: var(--type-weight-display)` at `:root`) also closes the previous finding for all four `font-display text-heading` sites at once.",
+      "severity": "MINOR"
+     },
+     {
+      "claim": "`uppercase` at `EmptyState.vue:55` is a dead class — the producer utility on the same element already sets it.",
+      "proof": "`EmptyState.vue:55` `class=\"text-mono-caption uppercase tracking-[0.18em] plate-ink\"`. glass-ui `dist/styles/typography/utilities.css`: `@utility text-mono-caption { font-family: var(--font-mono); font-size: var(--type-caption); letter-spacing: var(--type-tracking-caps); text-transform: uppercase; }`. The `uppercase` utility is a no-op. challenge-D-design.md:540-546 (D-16) audits the `tracking-[0.18em]` literal on this exact line and does not notice the dead class beside it; no other axis reads the utility's body at all.",
+      "severity": "INFO"
+     },
+     {
+      "claim": "C-3 is under-scoped: `PaletteCardGrid`'s `role=\"list\"` has no `listitem` child in ANY state, so the prescribed cure leaves the populated-state violation standing.",
+      "proof": "`grep -rn 'role=\"listitem\"' demo/` → zero hits repo-wide. `demo/palettes/browser/card/PaletteCardGrid.vue:3` declares `role=\"list\"`; its populated children are `PaletteCard` with `role=\"article\"` (`demo/palettes/browser/card/PaletteCard/PaletteCard.vue:22`, comment at `:2`), and its empty child is `role=\"status\"` (`EmptyState.vue:28`). challenge-C-implementation.md:131-152 frames this as an EmptyState defect and cures it by making EmptyState render a plain `div` — which fixes nothing for the populated wall. The defect is `role=\"list\"` itself: it is malformed in every state and should either be dropped or paired with `role=\"listitem\"` wrappers.",
+      "severity": "MINOR"
+     },
+     {
+      "claim": "Guard asymmetry inside the component's own caption set: two of three caption rows are `v-if`-guarded and the third — the only one with a non-empty default — is not.",
+      "proof": "`EmptyState.vue:61` `<p v-if=\"hint\" …>` and `:23` `<p v-if=\"detail\" …>` are guarded; `:55-57` renders the eyebrow `<p>` unconditionally, and `:90` defaults it to `\"· empty plate ·\"`. A consumer that wants a plate with no eyebrow cannot get one: `:eyebrow=\"undefined\"` restores the default and `eyebrow=\"\"` renders an empty caption `<p>` plus its `gap-2.5` band. No current call site does either (all 10 empty configurations pass a literal eyebrow), so it is latent — the same latency class D-17 is correctly rated MINOR for.",
+      "severity": "INFO"
+     },
+     {
+      "claim": "The masking-fallback idiom is materially wider than any axis counted, and two files already prove the fallback is unnecessary.",
+      "proof": "`grep -rn -- \"--ink-muted\" demo/` → the pattern `var(--ink-muted, var(--muted-foreground))` appears in **13 declarations across 10 files**: `ImageDropZone.vue:110`, `ExtractWorkbench.vue:291`, `ExtractControls.vue:149`, `ConfigSliderPane.vue:202,205`, `ColorComponentDisplay.vue:200,205,211`, `PaneHeader.vue:123`, `EmptyState.vue:103`, `ColorSpaceSelector.vue:309`, `ErrorBoundary.vue:85`. L-6 counted only the five `.plate-ink` blocks; challenge-C-implementation.md:303 says \"8 files\". The tell the corpus missed: `demo/shell/dock/ParseEchoReadout.vue:38` and `:44` already read `color: var(--ink-muted)` **bare**, with no fallback — so the tree contains two live counterexamples showing the mask is optional, which is exactly the evidence the 'declare the token, delete the fallback' cure needs.",
+      "severity": "MINOR"
+     },
+     {
+      "claim": "`Markdown.vue` — one of the two files the corpus cites as an error-register clone — re-imports the demo's global stylesheets from a leaf component.",
+      "proof": "`demo/scenes/about/markdown/Markdown.vue:37-38` `import \"../../../styles/foundation.css\"; import \"../../../styles/utils.css\";` — the same two sheets already imported by the app shell at `demo/color-picker/App.vue:199-200`, and the ONLY other place in `demo/` that imports them (grep over the tree returns exactly these four lines). Both L-N2 and D-14 open this file and cite `:20-29`/`:26`/`:35` without noting that its actual library-structure defect is a leaf owning global style bootstrapping.",
+      "severity": "INFO"
+     }
+    ],
+    "superlatives": [
+     "`EmptyState.vue:40` `data-slot=\"empty-state-trio\"` — the component publishes its own stable, semantically-named test contract on the one subtree a test would want to reach. It is exactly the hook `e2e/smoke/oracles/o9-shadow-palette.spec.ts:70-72` uses to scope the trio, and the fix for that oracle's two private-selector assertions (L-N6) is already sitting one line away in the component's own markup. Contract-first authoring, done before it was needed.",
+     "The two-species split as two sibling roots rather than one root with a computed `role` (`EmptyState.vue:14` `v-if=\"variant === 'error'\"` / `:28` `v-else`) is a correct and non-obvious a11y decision: `v-if`/`v-else` are compiler-auto-keyed, so the species change replaces the node and re-fires the announcement, whereas a single root with `:role` would patch the attribute in place and go silent to AT. challenge-C-implementation.md:349-355 (N-4) identifies this as load-bearing and flags it against future 'simplification' — the deduplication of `:16`/`:28` must be a shared class, never a merged root.",
+     "The error≠empty invariant is real, consistent, and applied at every seat. `demo/palettes/useAdminTags.ts:56-59`, `useAdminFlagged.ts:71-75`, `useAdminAudit.ts:63-67` each set `loadError` on catch with a comment naming the rule (\"a dead backend must never read as 'no tags yet'\"), and every panel orders `v-else-if=\"loadError\"` BEFORE `v-else-if=\"…length === 0\"` (`AdminUsersPanel.vue:51`→`:63`, `AdminTagsPanel.vue:68`→`:82`, and four more). Five routes, one rule, zero drift. D-2's replacement-vs-strip critique is orthogonal to and does not diminish this.",
+     "Import hygiene, verified adversarially. `EmptyState.vue:69-70` is the entire import surface, both published specifiers — `@mkbabb/glass-ui/watercolor-dot` is a real key in glass-ui's 74-key export map, not a deep path. Across the whole demo: `grep -rhon 'from \"@mkbabb/value.js[^\"]*\"' demo/` → 49 imports over 5 published subpaths (24 color / 10 css / 6 math / 5 easing / 4 quantize), zero bare-root imports, zero `@src` alias use, zero `../src/` reach. The T.W1 demo-dogfood keystone holds under grep — every specifier is one a real external consumer could write verbatim.",
+     "`vite.config.ts:37-50` generates the value.js self-alias set from `package.json#exports` rather than hand-rolling it, with the root cause of the alternative recorded in-file (`:30-36`: the prior string-form alias prefix-matched `@mkbabb/value.js/math` into a path INTO the `dist/value.js` file, breaking the R-era demo boot) and the fix expressed as anchored regexes that cannot prefix-match. Single-source-of-truth plus a recorded failure mode — and the contrast with `tsconfig.demo.json:36-50`'s hand-rolled, already-drifted copy is precisely what makes L-N5's cure obvious.",
+     "`EmptyState.vue:23` puts `break-words` on `detail` — the one row of the three that actually receives unbounded input (`e?.message` from every admin composable's catch, and `pm.browseError.value` at `BrowsePane.vue:66`). D-17 correctly reads the asymmetry as the defect, but the row that got the guard is the row that needed it; the component's author knew which string was hostile."
+    ],
+    "unproven": [
+     "C-1 (BLOCKER, challenge-C-implementation.md:24-104) — 'activating Retry annihilates the Browse pane; the error plate never returns.' UNPROVEN-NEEDS-LIVE. Every structural precondition is confirmed in source: `demo/palettes/BrowsePane.vue:40` `<Transition name=\"vj-morph\" mode=\"out-in\">`; `:62` the predicate `pm.browseError.value && displayedBrowse.length === 0` is re-satisfied after a failed retry; `:63` the re-entering vnode carries the SAME `key=\"error\"` as the leaving one; `demo/palettes/useBrowsePalettes.ts:63-88` sets `browsing.value = true` synchronously (flipping to `key=\"developing\"`) and restores the error state in the `catch`/`finally` a few tens of ms later — i.e. inside the out-in leave window. The claimed DOM outcome (zero element children, survives SPA nav, cross-engine) is decidable only live and I was barred from browser tooling. Structural half CONFIRMED; outcome UNVERIFIED at this seat.",
+     "C-2 (MAJOR, challenge-C-implementation.md:107-128) — focus lands on `<body>` after activating the slot action; Retry absent from all 12 focusables. UNPROVEN-NEEDS-LIVE. The structural premise is sound (the `#action` slot lives inside a conditionally-rendered root that its own activation unmounts, and `EmptyState.vue` exposes no `focus()` and no re-entry target), but the measured focus destination is live-only.",
+     "L-N3's contrast numbers (challenge-L-library.md:150-175) — boot rung 5.213:1 vs fallback 3.753:1 on the My Palettes plate. UNPROVEN-NEEDS-LIVE. The structure they rest on is confirmed (no `--ink-muted` declaration; `demo/styles/foundation.css` defines `--muted-foreground` as the fallback target; the component's own comment at `EmptyState.vue:52-53` records the 3.84:1 history). Note the apparent conflict with challenge-C-implementation.md:326-341 (N-2, 'contrast PASSES, 4.83–5.70:1') is NOT a contradiction: C measured the BOOT rung as rendered, L measured what the FALLBACK would resolve to. Both can be true; neither is re-verifiable here.",
+     "D-3 / D-4 / D-5 / D-9 / D-10 / D-20 — all rendered-pixel and computed-style measurements (6.38× dark/light rung collapse, 8.95× chroma loss, 14:23:16 ink rhythm, the 26ch→38-character measure, forced-colors flattening). UNPROVEN-NEEDS-LIVE. Two structural halves ARE confirmable and confirmed: `--accent-live` is documented as the contrast-guarded INK token (`demo/styles/foundation.css:221`, literal at `:231`) and is fed into a paint slot at `EmptyState.vue:45-47`, while a graphics-floored alternative already exists in-tree (`demo/workbenches/extract/ExtractControls.vue:124` `safeCss(cssColor, GRAPHICS_CONTRAST_FLOOR)`); and `max-w-[26ch]` at `:20`/`:58` is indeed authored in `ch` on a `font-display` (Fraunces) line while `:61`/`:23` use `ch` on mono rows where it is exact.",
+     "D-19 (challenge-D-design.md:613-624) — 'the failure species has zero rendered evidence anywhere in the audit corpus.' UNPROVEN at this seat: adjudicating it requires reading the 60-capture Safari matrix and the 26 state captures as images, which is outside static verification. The reachability half is source-confirmable and holds (`demo/palettes/useAdminTags.ts:51` `if (!token) return;` early-returns before the fetch when unauthenticated).",
+     "D-6's canon argument that the mark is FORBIDDEN on Admin routes. The factual core is CONFIRMED (default `true` at `EmptyState.vue:90`, zero consumers, mark ships on all seven admin empty plates). The canon inference is not settled: `VISUAL-CONSTITUTION.md:186` grants the mark under the heading '### Palette library and Browse' (`:184`), and `PROPORTION-AUDIT.md:49` PR-05 zeroes 'every other divider/ornament' in a row whose subject is 'Dividers, caster shadows and corner marks repeat a boundary'. Whether an empty-plate mark falls under PR-05's ornament clause or outside its jurisdiction is an owner ruling, not a measurement."
     ]
    }
   }
