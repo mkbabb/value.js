@@ -2,28 +2,33 @@ claude-opus-5[1m]
 
 # CHALLENGE · `App.skeleton` (SceneSkeleton) · axis D — DESIGN
 
-**Target:** `/Users/mkbabb/Programming/keyframes.js/demo/app/App.skeleton.vue` (101 lines, `<script setup lang="ts">` + scoped `<style>`)
-**Sole call site:** `/Users/mkbabb/Programming/keyframes.js/demo/app/App.vue:97` (`<SceneSkeleton />`, inside the keyed `<Suspense>` `#fallback` at `:90`)
-**Imports:** **none.** The component has zero `import` statements. Its dependency surface is therefore (a) the CSS custom properties it reads and (b) the layout box its consumer hands it — both read below.
-**Mode:** static, read-only. No installs, no dev server, no browser. Every colour ratio is computed from token declarations on disk; every geometry claim is computed from the clamp expressions on disk.
-**Corroborating artifact:** `/Users/mkbabb/Programming/keyframes.js/dist/gh-pages/assets/index-CL_QYCiO.css` — a **real built demo bundle** (Jul 16 09:11, post-dating the component's Jul 15 mtime). Used to settle token-emission questions that are otherwise undecidable from source. This is the strongest evidence available without a browser and it kills two claims I would otherwise have filed (see §Killed).
+**Target:** `/Users/mkbabb/Programming/keyframes.js/demo/app/App.skeleton.vue` (101 lines; `<script setup lang="ts">` + scoped `<style>`)
+**Sole call site:** `/Users/mkbabb/Programming/keyframes.js/demo/app/App.vue:97` — `<SceneSkeleton />` inside the keyed `<Suspense>` `#fallback` at `:90`; imported at `:143`
+**Imports:** **none.** Zero `import` statements. Its dependency surface is (a) the CSS custom properties it reads and (b) the layout box its consumer hands it — both read below.
+**Mode:** static, read-only, source-derived. No installs, no dev server, no browser tooling. Every contrast ratio is computed from token declarations on disk; every geometry claim from the clamp expressions on disk.
 
-**Tally: 16 defects (1 BLOCKER · 5 MAJOR · 5 MINOR · 5 INFO) · 4 superlatives.**
+**Authoritative artifacts.** Two, and the distinction matters (it corrected me twice):
+- `keyframes.js/dist/gh-pages/assets/index-CL_QYCiO.css` — a **real built demo bundle** (Jul 16 09:11, post-dating the component's Jul 15 mtime). Settles token-*emission* questions otherwise undecidable from source.
+- `keyframes.js/node_modules/@mkbabb/glass-ui/dist/` — glass-ui **7.0.0 as installed**. This, not `/Users/mkbabb/Programming/glass-ui/src`, is what the demo actually consumes. The producer's working tree has moved ahead of it; I cite the installed copy throughout.
+
+**Corpus folded:** `formation/keyframes/lane-frontend.md` — **S-6** (this component, AMBER), **F-1** (glass-ui phantom dependency, RED), **§3.1** (`/skeleton` among the 52 unreached subpaths), **S-8** (the inv-ζ dogfooding seam). U-tranche `lane-32:186` (F3) and `lane-20:182` (F-7) on this file's shell-private status.
+
+**Tally: 17 defects (1 BLOCKER · 6 MAJOR · 8 MINOR · 2 INFO) · 5 superlatives · 3 hypotheses killed before filing.**
 
 ---
 
 ## 0. What the component claims about itself
 
-The docblock (`:2–17`) makes four falsifiable design promises. All four are tested below.
+The docblock (`:2–17`) makes four falsifiable design promises. All four are tested.
 
-| # | Claim | line | verdict |
+| # | claim | line | verdict |
 |---|---|---|---|
-| C-1 | "a glass-plate shimmer **matching the stage geometry**" | `:6` | **FALSE** — D-5 |
-| C-2 | "it honors `prefers-reduced-motion` (**a static dimmed plate** for reduced-motion users)" | `:15` | **FALSE** — D-1 (nothing is dimmed; the plate is *un*changed and the only visible element is deleted) |
-| C-3 | "is marked `aria-busy` **so assistive tech announces the loading state**" | `:16` | **FALSE** — D-2 (`aria-busy` is the attribute that *suppresses* the announcement) |
-| C-4 | "a COMPONENT, not a raw text node" (the T.F8 structural contract) | `:9` | **TRUE** — SUP-2 |
+| C-1 | "a glass-plate shimmer **matching the stage geometry**" | `:5–6` | **FALSE** — D-5 |
+| C-2 | "it honors `prefers-reduced-motion` (**a static dimmed plate**)" | `:15` | **FALSE** — D-1; nothing is dimmed and the only visible element is deleted |
+| C-3 | "is marked `aria-busy` **so assistive tech announces** the loading state" | `:16` | **FALSE** — D-2; `aria-busy` is the attribute that *suppresses* the announcement |
+| C-4 | "a COMPONENT, not a raw text node" (the T.F8 structural contract) | `:9` | **TRUE** — S-2 |
 
-Three of four self-claims are contradicted by the component's own body. That is the shape of this challenge: the *structure* is right, the *design* is not, and the docblock asserts the design is right.
+That is the shape of this challenge: the **structure** is right, the **design** is not, and the docblock asserts that the design is right.
 
 ---
 
@@ -31,370 +36,261 @@ Three of four self-claims are contradicted by the component's own body. That is 
 
 ### D-1 · BLOCKER · the `prefers-reduced-motion` branch erases the only perceptible element, leaving no loading affordance at all
 
-`App.skeleton.vue:94–100`
-
+`App.skeleton.vue:94–100`:
 ```css
 @media (prefers-reduced-motion: reduce) {
     .scene-skeleton__sheen {
         animation: none;
-        background: none;   /* ← deletes the gradient, not just the motion */
+        background: none;   /* ← deletes the paint, not just the travel */
     }
 }
 ```
 
-`background: none` removes the sheen's entire paint, not merely its travel. What remains for a reduced-motion user is `.scene-skeleton__plate` alone (`:51–65`) and nothing else — no text (the docblock at `:8` records that the `<span>Loading scene…</span>` text node was deliberately deleted), no progress indicator, no pulse, no opacity change.
+`background: none` removes the sheen's entire gradient, not merely its motion. What remains for a reduced-motion user is `.scene-skeleton__plate` (`:51–65`) alone — no text (the docblock at `:8` records that the `<span>Loading scene…</span>` was deliberately deleted), no pulse, no opacity change, no progress.
 
-**Is what remains perceptible?** Computed from the token declarations, over the demo's stage field (`EditorShell.vue:3` carries `bg-background` → `var(--background)`):
+**Is the residue perceptible?** Computed from token declarations. The backdrop is the page background: `styles/style.css:216` applies `@apply bg-background text-foreground` to body, `--background: var(--neutral-0)`, and nothing in the stage chain repaints it — `AnimationControlsGroup.css` declares no `background`, and `.scene-host` (`App.vue:358–372`) declares none.
 
-*Light arm* (`node_modules/@mkbabb/glass-ui/dist/styles/tokens/color-radius.css`): `--background: var(--neutral-0)` = `hsl(40 30% 98%)` → sRGB (251.4, 250.4, 248.4), rel. luminance **0.9600**. `--muted: var(--neutral-1)` = `hsl(38 26% 95%)` → (245.6, 243.1, 239.0). Plate = `color-mix(… 70%, transparent)` composited = 0.7·muted + 0.3·bg = (247.3, 245.3, 241.8), L = **0.9173**.
+Token values, `glass-ui/dist/styles/tokens/color-radius.css`:
 
-> **plate fill vs. page background = (0.9673)/(0.9673 − wait, compute) → (0.9600+0.05)/(0.9173+0.05) = 1.0100/0.9673 = `1.044 : 1`**
+| token | light | dark |
+|---|---|---|
+| `--neutral-0` → `--background` | `hsl(40 30% 98%)` | `hsl(24 9% 4%)` |
+| `--neutral-1` → `--muted` (plate, α .70) | `hsl(38 26% 95%)` | `hsl(28 12% 11%)` |
+| `--neutral-4` → `--border` (α .80) | `hsl(32 26% 70%)` | `hsl(30 16% 34%)` |
 
-`--border: var(--neutral-4)` = `hsl(32 26% 70%)` → (198.4, 179.8, 158.6), at 80% over the plate = (208.2, 192.9, 175.2), L = **0.5990**.
+WCAG relative-luminance contrast, plate composited at α=0.70 over the page and border at α=0.80 (`:57–63`):
 
-> **plate border vs. plate = 0.9673/0.6490 = `1.49 : 1`** · **border vs. page = 1.0100/0.6490 = `1.56 : 1`**
+| pair | light | dark |
+|---|---|---|
+| **plate fill vs page** | **1.04 : 1** | **1.12 : 1** |
+| **border vs page** | **1.63 : 1** | **2.46 : 1** |
 
-*Dark arm* (`tokens/dark-arm.css` redefines the neutrals; `--background`/`--muted`/`--border` follow by `var()` indirection): `--background` = `hsl(24 9% 4%)` L = 0.003091; plate = 0.7·`hsl(28 12% 11%)` + 0.3·bg → L = 0.008109.
+A reduced-motion user is shown a 1.04:1 fill bounded by a 1.63:1 hairline — i.e. a **blank viewport** — for the entire duration of a lazy chunk fetch, parse and evaluate, with no text and no announcement (D-2). The failure mode is indistinguishable from a hung app, which is precisely the perceived-performance regression the component was built to fix (`:8`).
 
-> **dark plate fill vs. page = 0.058109/0.053091 = `1.095 : 1`** · **dark border vs. plate = `2.10 : 1`**
+The installed producer solves this correctly and by construction: its `::after` gradient paints **unconditionally** and only the *travel* is gated, inside `@media (prefers-reduced-motion: no-preference)`. A PRM user there still gets a static diagonal band — texture without motion. Here, PRM honesty is implemented as feature deletion, which is the one thing reduced-motion must never mean.
 
-So under reduced motion the entire loading state is a fill at **1.04:1** (light) / **1.10:1** (dark) — below any perceptual floor — bounded by a 1px hairline at **1.49:1** / **2.10:1**, both under WCAG 2.2 SC 1.4.11's 3:1 for "visual information required to identify user interface components and states."
-
-**Why this is a BLOCKER and not a MAJOR:** it is the *compound* with **D-2**. The sighted reduced-motion channel conveys nothing (this finding) and the assistive-tech channel conveys nothing (D-2, the `aria-busy` suppression). There is no third channel — there is no text. For a reduced-motion screen-reader user, and for a reduced-motion sighted user, the async-scene boundary is indistinguishable from a broken app. That is precisely the "BLANK viewport, B.W3's headline blocker" failure mode that `App.vue:76–79` records as the reason the `<Suspense>` boundary is shaped the way it is.
-
-**The design system already solved this, in the demo's own bundle.** glass-ui 7.0.0's `Skeleton` inverts the query — the animation is *opt-in* under `no-preference`, so the reduced-motion path keeps a fully opaque plate **and** a static gradient band:
-
-```
-dist/gh-pages/assets/index-CL_QYCiO.css
-.skeleton[data-v-cd03d0b0]{isolation:isolate;border-radius:var(--radius-input);background:var(--muted);position:relative;overflow:hidden}
-.skeleton[data-v-cd03d0b0]:after{content:"";background:linear-gradient(105deg, transparent 24%, color-mix(in oklab, var(--foreground) 10%, transparent) 48%, transparent 72%);position:absolute;inset:0}
-@media (prefers-reduced-motion:no-preference){.skeleton[data-v-cd03d0b0]:after{animation:skeleton-scan-cd03d0b0 var(--duration-shimmer,2.4s) ease-in-out infinite;will-change:transform;transform:translate(-110%)}}
-```
-
-Note `background: var(--muted)` — **opaque**, contrast against `--background` = (0.9600+0.05)/(0.8873+0.05) ≈ 1.08:1 in light… *(also low — see the honest caveat in D-4)* — but critically the `::after` gradient band is present at `translate(0)` in the reduced-motion path, giving a static highlight that is the "dimmed plate" C-2 promises and never delivers.
-
-**Falsifier (SS-13 visual audit).** Screenshot the demo at `prefers-reduced-motion: reduce` during an async scene swap. If a reduced-motion user can identify a loading placeholder — because the fixed `.grid-background` graph-paper ink (`layout.css:238–259`, a `position: fixed inset-0` overlay under the stage) is attenuated to 30% inside the plate and that attenuation reads as an edge — this drops to MAJOR. I have deliberately *not* claimed "blank screen": the grid attenuation is a real, un-modelled signal, and my flat-field computation cannot decide it. What I *have* proved is that the plate's own fill contributes 1.04:1 and its border 1.49:1, and that every deliberate loading signal in the component is switched off.
+**Falsifier:** a tinted or glass surface painting between `.scene-host` and the page background would raise both ratios — I grepped the stage chain and found none, but I did not render. Dies if 1.63:1 border-only is empirically sufficient to read as "loading". *Exact on-screen ratios are UNPROVEN-NEEDS-LIVE (SS-13); the token-derived computation stands independently.*
 
 ---
 
 ## 2. MAJOR
 
-### D-2 · MAJOR · `aria-busy="true"` on the `role="status"` live region is the attribute that *prevents* the announcement the docblock promises; and the region has no content to announce anyway
+### D-2 · MAJOR · `aria-busy="true"` is the attribute that *prevents* the promised announcement — and the region has no content to announce anyway
 
-`App.skeleton.vue:27–37`
+`:28–33` renders `role="status" aria-busy="true" :aria-label="label"`; `:16` claims this makes AT "announce the loading state."
 
-```html
-<div class="scene-skeleton" role="status" aria-busy="true" :aria-label="label">
-    <div class="scene-skeleton__plate" aria-hidden="true">
-        <span class="scene-skeleton__sheen" />
-    </div>
-</div>
-```
+Three independent mechanisms converge on **silence**:
 
-Two independent failures of the same announce path:
+1. **`aria-busy` inverts the claim.** Per WAI-ARIA, `aria-busy="true"` instructs assistive tech to *defer* exposing changes until it becomes `false`. It is a suppression flag, not an announcement flag.
+2. **The live region is empty.** `role="status"` implies `aria-live="polite"`, and live regions announce **content changes** — not their accessible *name*. `aria-label` supplies a name. The region's sole child (`:34`) is `aria-hidden="true"`, so there is no content to announce even if it fired.
+3. **`aria-busy` never flips to `false`.** `<Suspense>` resolves by *unmounting* the fallback, so the suppression is never lifted; the deferred update is discarded with the node.
 
-**(a) `aria-busy` suppresses, it does not announce.** WAI-ARIA 1.2 `aria-busy`: an element is "being modified" and assistive technologies "MAY want to **wait** until the modifications are complete before exposing them to the user." The APG live-region pattern is: set `aria-busy="true"` → mutate → set `aria-busy="false"`, and the announcement fires on the *transition to false*. Here `aria-busy` is a static literal (`:31`) that never flips: when the scene resolves, `<Suspense>` **destroys** the fallback (`App.vue:88–96`). The region goes from busy to non-existent. The un-busy transition never happens, so the queued announcement never flushes. The docblock's causal claim at `:16` — "marked `aria-busy` **so** assistive tech announces the loading state" — inverts the attribute's semantics.
+Net: a screen-reader user receives no loading announcement at all. Note the installed producer takes the opposite, coherent position — its `Skeleton` is `aria-hidden="true"` and *strips* caller-supplied `role`/`aria-*`, deliberately pushing announcement to the owner. This component accepted that responsibility and implemented it inertly.
 
-**(b) the region is empty.** `role="status"` is a live region with implicit `aria-live="polite"`; live regions announce their **contents**, not their accessible name. The only descendant here is `aria-hidden="true"` (`:34`), and there is no text node anywhere in the template — the docblock at `:8` records that the text node was removed on purpose. The region's announceable content is the empty string. `aria-label` supplies a *name*, which a live region does not read out on mutation.
-
-**(c) compounding:** the fallback is present on **first render** of the keyed `<Suspense>` (`App.vue:90`, `:key="activeSceneKey"`). Live regions do not announce content that is already in the DOM when the region is created; they announce subsequent mutations. Even with (a) and (b) fixed, an initially-mounted `role="status"` is announced by no major screen reader.
-
-**Fix shape:** delete `aria-busy` from the fallback (it belongs on the container *receiving* content, i.e. `.scene-host` in `App.vue:83`, toggled false in `onSceneResolved`), and put the label in the DOM as a visually-hidden text node inside the region rather than on `aria-label`. glass-ui already ships `.sr-only` (`node_modules/@mkbabb/glass-ui/dist/styles/components.css:1`), and the demo's own `AnimatedText.vue:7–8` already uses exactly this sr-only-mirror idiom — so the correct pattern exists **twice** in reach and was not used here.
-
-**Falsifier:** an NVDA/JAWS/VoiceOver trace showing "Loading scene" spoken when the fallback mounts. If any of the three announces it, (b)/(c) are wrong and this drops to MINOR (with (a) surviving as a spec-conformance nit).
+**Falsifier:** a screen-reader transcript announcing "Loading scene" on scene switch. The announcement itself is UNPROVEN-NEEDS-LIVE; the `aria-busy` semantics and the empty-region structure are source-proven regardless.
 
 ---
 
-### D-3 · MAJOR · `var(--shadow-glass, …)` references a token that does not exist — the hardcoded 4 %-black fallback is permanent, and invisible in dark mode
+### D-3 · MAJOR · `var(--shadow-glass, …)` references a token that does not exist
 
-`App.skeleton.vue:64`
+`:64` — `box-shadow: var(--shadow-glass, 0 1px 2px rgb(0 0 0 / 0.04));`
 
-```css
-box-shadow: var(--shadow-glass, 0 1px 2px rgb(0 0 0 / 0.04));
-```
+`--shadow-glass` is declared **zero** times across the installed `glass-ui/dist`, the producer's `glass-ui/src`, and the demo's seven stylesheets — and is emitted **zero** times in the built bundle. It is a near-miss of a real family: `theme/bridges.css` defines `--shadow-glass-wash`, `--shadow-glass-quiet`, `--shadow-glass-resting`, `--shadow-glass-floating`, `--shadow-glass-overlay` (backed by `--glass-shadow-*` in `tokens/shadow.css`). The author wrote the family **prefix**.
 
-`--shadow-glass` is declared **nowhere**:
+So every render permanently uses the inline `0 1px 2px rgb(0 0 0 / 0.04)` — a 4 %-black hairline that is invisible against the 1.04:1 light plate and *wrong-signed* in dark mode, where the house glass shadows are not plain black. The one component in the demo that calls itself "a glass-plate shimmer" (`:6`) and "a glass surface silhouette" (`:50`) is the one component that never successfully reads a glass token.
 
-```
-$ grep -rn -- "--shadow-glass:" demo/ dist/gh-pages/assets/*.css
-(no output)
-$ grep -rho -- "--shadow-glass:[^;]*" node_modules/@mkbabb/glass-ui/dist/
-(no output)
-```
-
-glass-ui's actual glass-elevation tokens are **suffixed** (`dist/styles/theme/bridges.css`): `--shadow-glass-wash`, `--shadow-glass-quiet`, `--shadow-glass-resting`, `--shadow-glass-floating`, `--shadow-glass-overlay` — plus the general `--shadow-sm/md/lg/xl` and `--glass-material-rim` in `dist/styles/tokens/shadow.css`. The author reached for the *stem* of a five-member family and got a phantom. There is no build step that catches this: an undefined custom property with a fallback is valid CSS and fails silently forever.
-
-**Design consequence.** The permanent fallback is `rgb(0 0 0 / 0.04)` — a pure-black 4 % shadow with a 2px blur.
-- *Light:* over `--background` (L 0.9600) a 4 % black shadow at 2px blur is at the very edge of perceptibility; the plate has effectively no elevation.
-- *Dark:* over `--background` = `hsl(24 9% 4%)` (L 0.003) a black shadow is **strictly invisible** — the shadow is darker than nothing can be against a near-black field.
-
-So the docblock's "a **glass** surface silhouette echoing a scene's stage panel" (`:50`) resolves, in both themes, to *a flat rectangle*. The one declaration carrying the word "glass" is the one that never fires. This is the design claim of the component defeated by a typo-class error.
-
-**Falsifier:** a computed-style read showing `box-shadow` resolving to anything other than `0 1px 2px rgba(0,0,0,0.04)` — i.e. some cascade elsewhere defines `--shadow-glass`. I searched the demo tree, the glass-ui dist, and the *shipped built bundle*; all three are empty.
+**Falsifier:** any runtime-loaded stylesheet declaring `--shadow-glass`. Absent from all of them.
 
 ---
 
-### D-4 · MAJOR · the plate fill is 1.04 : 1 against the page — the "glass plate" does not read as a surface in either theme
+### D-4 · MAJOR · the plate does not read as a surface in either theme — 1.04:1 fill, and no edge reaches the 3:1 non-text bar
 
-Computations in D-1. Summarised:
+The ratios computed in D-1 are a defect in their own right, independent of the PRM branch. For a *non*-PRM user the moving sheen supplies a motion cue, so the component is degraded rather than broken — hence MAJOR, not BLOCKER — but the static silhouette still fails WCAG 1.4.11 (3:1 for non-text elements required to understand state) in **both** themes: **1.63:1** light and **2.46:1** dark at the strongest edge.
 
-| measure | light | dark | threshold |
-|---|---|---|---|
-| plate fill vs. page background | **1.044 : 1** | **1.095 : 1** | — (no SC; perceptual floor ≈1.1–1.2:1) |
-| plate border vs. plate fill | **1.49 : 1** | **2.10 : 1** | 3 : 1 (SC 1.4.11) |
-| plate border vs. page background | **1.56 : 1** | **2.30 : 1** | 3 : 1 (SC 1.4.11) |
-| sheen peak vs. plate (motion on) | **1.17 : 1** (ΔL\* ≈ 6.2) | **1.22 : 1** (ΔL\* ≈ 8.7) | — |
+The sheen itself is the aggravator. `:75` mixes `--foreground` at **8 %**; peak sheen against its own plate computes to **1.08 : 1** (light). The installed producer uses **10 %** over an *opaque* `var(--muted)` plate; this component uses 8 % over a plate already thinned to 70 %, compounding both reductions. Two independent decisions each push the same direction, and nothing pushes back.
 
-The `70%`/`80%` transparency multipliers at `:57–63` are the cause: `--muted` is already only ΔL\* ≈ 1.7 from `--background` in the light arm (both are near-white neutrals by design — `--neutral-1` vs `--neutral-0`), and mixing it *further* toward transparent halves what little separation existed. The design intent (a subtle glass wash) is defensible; the execution multiplies two subtleties and lands under the floor.
-
-**Note the asymmetry this produces:** with motion enabled, the sheen (ΔL\* 6.2–8.7) is **more visible than the plate that contains it**. The user perceives a travelling ghost band with no container — the inverse of the intended "plate with a highlight sweeping over it."
-
-**Honest scoping.** SC 1.4.11 has an exception for purely decorative content, and one can argue a skeleton is decoration rather than a "component or state." I do not think that argument survives the docblock — `:16` declares this *is* a state indicator ("so assistive tech announces the **loading state**") — but a reviewer may rule otherwise, in which case this is a taste finding at 1.04:1 rather than a conformance finding. It is filed MAJOR on the *perceptual* claim (the plate does not read), which is independent of how 1.4.11 is scoped.
-
-**Falsifier:** measure the rendered plate against the rendered stage in the live demo (SS-13). If the fixed `.grid-background` graph-paper ink attenuation inside the plate lifts the perceived edge above the flat-field number, the *perceptual* half weakens — but the flat-field ratios themselves are arithmetic and are not falsifiable by observation.
+**Falsifier:** an intervening tinted surface (see D-1), or an explicit project waiver of non-text contrast for transient loading chrome.
 
 ---
 
-### D-5 · MAJOR · "matching the stage geometry" is false at every viewport the demo targets — the plate is a fixed 42 × 24 rem island in a stage ≥ 72 × 44 rem
+### D-5 · MAJOR · "matching the stage geometry" is false — `42rem × 24rem` are magic numbers that appear nowhere else in the tree
 
-Docblock `:6` "a glass-plate shimmer **matching the stage geometry**"; `:50` "a glass surface silhouette **echoing a scene's stage panel**." Body `:53–54`:
+`:53–54` sets `width: min(100%, 42rem); height: min(100%, 24rem)`, justified by "matching the stage geometry" (`:5–6`) and "echoing a scene's stage panel" (`:50`).
 
-```css
-width:  min(100%, 42rem);   /* 672px cap */
-height: min(100%, 24rem);   /* 384px cap */
-```
+`grep -rn "42rem\|24rem"` across the entire demo returns **only these two lines** (the one other `24rem`, `layout.css:24`, is an unrelated easing-dropdown max-height). No stage, panel, or scene is 42 × 24 rem.
 
-The stage the fallback occupies is the work-area card (`demo/styles/layout.css:49–51`):
+Meanwhile the demo owns a fully tokenised, explicitly golden-ratio proportion system at `styles/layout.css:43–70` — `--work-area-max-width: clamp(72rem, 94vw, 160rem)`, `--work-area-max-height: clamp(44rem, 88dvh, 120rem)`, `--phi: 1.618`, and a `0.382 : 0.618` (1/φ² : 1−1/φ²) vertical bias — consumed by `AnimationControlsGroup.css:7` and `EditorStartScreen.vue:90,121`. **This component references none of it.** Its aspect (42/24 = 1.75) matches neither the work-area floor (72/44 ≈ 1.64) nor any scene.
 
-```css
---work-area-max-width:  clamp(72rem, 94vw, 160rem);   /* 1152px … 2560px */
---work-area-max-height: clamp(44rem, 88dvh, 120rem);  /*  704px … 1920px */
---work-area-height:     min(100dvh, var(--work-area-max-height));
-```
+Real scenes fill the host — `SquareScene.vue:12` (`grid h-full w-full place-items-center`), `EasingScene.vue:2` (`flex h-full w-full`) — so the skeleton predicts a bounded 1.75 card where an unbounded stage will appear. Worse, the magic number is likely **inert** where it was meant to bind: `.controls-layout` is a rail·stage·rail grid with rails at `clamp(20rem, 26cqi, 30rem)`, so at the 72rem work-area floor the stage cell is narrower than 42rem and `min(100%, 42rem)` collapses to `100%`. The number encodes no verified intent at either end.
 
-At the **smallest** desktop work area the plate covers 42/72 = **58 % of width** and 24/44 = **55 % of height** — 32 % of the area. At a 2560px-wide panel the layout comment at `layout.css:44–46` says the card "fills ~50 %W/66 %H" of a 5K display; the plate stays pinned at 672 × 384 and drops to a single-digit area fraction. The skeleton→scene swap is therefore a **large** geometric expansion at every desktop size, which is exactly the perceived-performance harm the docblock cites as its reason to exist ("VERDICT #19 perceived-perf sibling", `:8`).
+**Falsifier:** a scene or stage token measuring 42 × 24 rem, or a design note deriving them. Neither exists. Dies if the plate is *meant* as a deliberately abstract card — in which case C-1 in the docblock is the defect instead.
 
-**Proportion (Aristotelian).** 42:24 = **1.75 : 1** = 7:4. The demo's layout language is explicitly φ-driven — `layout.css:60` `--phi: 1.618`, `:66–67` `--work-area-vertical-bias-top: 0.382 /* 1/φ² */` with the comment "the subject parks above optical centre… the golden bias." 1.75 is neither φ (1.618), nor 16:9 (1.778), nor 3:2 (1.5). It is a round-numbers pick (`42rem`, `24rem`) in a layout system that reasons in φ and in `clamp()`. Two arbitrary constants in a file whose neighbours are all derived.
-
-**Fix shape:** drop the caps and let the plate fill the stage cell (`width: 100%; height: 100%` inside the existing `clamp()` padding), or derive them from the same `--work-area-*` tokens the stage uses. Either makes C-1 true.
-
-**Falsifier:** measure a resolved scene's stage panel in the live demo. If any of the seven scenes (`scenes.ts:129–182`: home/cube/amiga/square/easing/spring/sequence) renders a stage panel at ~672 × 384 with a 1.75 aspect, C-1 is true *for that scene* and this drops to MINOR-scoped-to-the-other-six. Note that the single fallback serves all seven scenes, which have visibly different stage shapes (a 3D cube stage, a Three.js canvas, an easing sidebar+target split), so "matching" cannot be simultaneously true for more than one of them regardless.
+**Explicitly NOT claimed:** that the skeleton's dead-centering (`:42–44`) conflicts with the φ² bias. That bias positions the *work-area card*; skeleton and resolved scene both centre within that card equally, so there is no swap-time discontinuity. Filing it would have been a false defect.
 
 ---
 
-### D-6 · MAJOR · bespoke re-implementation of glass-ui `Skeleton`, whose CSS the demo **already ships, unused** — and the DS version is strictly better on five design axes
+### D-6 · MAJOR · bespoke re-implementation of the glass-ui `Skeleton` whose CSS the demo **already downloads and never uses**
 
-*(Folds and hardens `lane-frontend.md` **S-6**, which rated this AMBER/"evaluate" on the grounds that "the *stage-geometry composition* is legitimately demo-owned; the **shimmer plate underneath it is the primitive**." I agree with the split and I am raising the severity, because the census did not read the DS skeleton's CSS. Reading it changes the verdict: this is not a stylistic preference, it is five concrete regressions.)*
+Folds and sharpens **lane-frontend S-6** ("AMBER, 101 lines … keep the layout, delegate the plate"). The census established that `Skeleton` is root-barrel-exported and that `/skeleton` sits among the 52 unreached subpaths. I confirm both, and add the design delta the census did not enumerate.
 
-The demo's shipped bundle already contains glass-ui's `Skeleton` styles, because `demo/styles/style.css:3` `@import "@mkbabb/glass-ui/styles"` pulls `dist/styles/index.css` which ends `@import "../glass-ui.css"`:
+The demo imports the full glass-ui stylesheet (`styles/style.css:3`), so `.skeleton`'s rules — including its `skeleton-scan` keyframes — are **already in the cascade at runtime, paid for, and dead**. Against the installed 7.0.0, the bespoke copy is strictly weaker on five design seams:
 
-```
-$ grep -l "skeleton\[data-v-cd03d0b0\]" dist/gh-pages/assets/*.css
-index-CL_QYCiO.css
-```
+| seam | installed glass-ui `Skeleton` | `App.skeleton.vue` |
+|---|---|---|
+| motion property | `transform: translate(110%)` — compositable | `background-position` — not (D-8) |
+| `@media (forced-colors: active)` | `opacity: .18` + `::after` suppressed | **absent** (D-11) |
+| `@media (prefers-reduced-transparency: reduce)` | opaque `var(--muted)` | **absent** (D-12) |
+| PRM arm | gates *travel*, keeps the band | deletes the band (D-1) |
+| duration | `var(--duration-shimmer, 2.4s)` → 5s token | hardcoded `1.6s` (D-9) |
 
-The demo therefore **pays the bytes for the DS skeleton and renders a worse one on top.** Side by side:
+S-6's recommendation — "keep the layout, delegate the plate" — is correct and I endorse it: the stage composition is legitimately demo-owned; the plate is the primitive. Adopting it discharges D-1, D-3, D-8, D-11, D-12 and most of D-4 in one move.
 
-| axis | glass-ui `Skeleton` (in the bundle) | `App.skeleton` | ref |
-|---|---|---|---|
-| plate fill | `background: var(--muted)` — **opaque** | `color-mix(--color-muted 70%, transparent)` → 1.04:1 | D-4 |
-| sheen mechanism | `::after` + `transform: translate(-110% → 110%)` — **compositable** | `background-position: 140% → -40%` on a real `<span>` — **paint every frame** | D-7 |
-| motion clock | `var(--duration-shimmer, 2.4s)` — **tokenised** | hardcoded `1.6s` | D-8 |
-| reduced motion | `@media (prefers-reduced-motion: no-preference)` **opt-in**; static gradient band survives | `@media (…: reduce)` deletes the gradient | D-1 |
-| reduced transparency | `@media (prefers-reduced-transparency: reduce) { background: var(--muted) }` | absent | D-10 |
-| forced colours | `@media (forced-colors: active) { opacity:.18; background: canvastext } … :after{display:none}` | absent | D-10 |
-| stacking hygiene | `isolation: isolate` | absent (harmless here) | — |
-| radius token | `var(--radius-input)` (semantic) | `var(--radius-lg, .75rem)` (scale, dead fallback) | D-11 |
-| extra DOM node | none (`::after`) | one `<span>` (`:35`) | — |
+I do **not** extend this to deleting the component. The `<Suspense>` wrapper (role, layout, padding) is a real demo concern — the same reasoning S-8 used to *keep* `TypingDots`.
 
-**Recommended shape** (consistent with S-6's "keep the layout, delegate the plate"): keep `.scene-skeleton` (the flex centring + fluid padding + the a11y wrapper, once D-2 is fixed) and replace `.scene-skeleton__plate`/`__sheen` with `<Skeleton class="…" />` from the root barrel — `export * from "./components/skeleton"` in `dist/index.d.ts`. Net: ~50 lines of CSS deleted, six design defects (D-1, D-4, D-7, D-8, D-10, D-11) close at once.
+**Falsifier:** a `Skeleton` API that cannot express a full-bleed stage plate; or census **F-1** resolving by *removing* glass-ui rather than declaring it, which would invert this finding entirely.
 
-**Blocked on `lane-frontend.md` F-1.** The census proved `@mkbabb/glass-ui` is a **phantom dependency** — absent from `package.json` *and* `package-lock.json`, present in `node_modules` at 7.0.0. Adding a *new* glass-ui import to this file deepens a dependency edge that `npm ci` cannot reconstruct. F-1 must land first; that is the census's own wave order (§10 step 1) and I do not contradict it.
+---
 
-**Falsifier:** show that `Skeleton` cannot fill its parent (it takes only `class`, per `dist/components/skeleton/Skeleton.vue.d.ts` — `{ class?: HTMLAttributes["class"] }`, no size props), so `.scene-skeleton__plate`'s sizing cannot be expressed. It can — sizing is passed through `class`, which is the primitive's entire prop surface *by design*.
+### D-7 · MAJOR · no error or timeout state anywhere — a rejected chunk shimmers forever, and `scenes.ts` documents the opposite
+
+`App.vue:90–99` wraps the scene in a bare `<Suspense>` whose `#fallback` is this component. `grep -rn "onErrorCaptured\|errorCaptured\|app.config.errorHandler"` across the **entire demo** returns nothing, and `app/scene/scenes.ts` passes neither `errorComponent` nor `timeout` to `defineAsyncComponent`.
+
+A bare `<Suspense>` does **not** surface async errors; it requires `onErrorCaptured` on an ancestor, and none exists anywhere. A failed dynamic import therefore leaves Vue pinned in `#fallback`: this component shimmers **indefinitely**, `aria-busy="true"` permanently asserted (D-2), with no error affordance, retry, or escalation. Offline, flaky-network, and stale-deploy (hashed chunk 404 after redeploy) all land in this identical silent state.
+
+`scenes.ts:113–114` asserts the opposite — "a rejected warm is swallowed (the real mount surfaces the error via `<Suspense>`)". That is true of the *warm* path and false of the *mount* path it explicitly cites.
+
+**I file this MAJOR rather than INFO** — a prior pass scored it INFO on the reasoning that the boundary is `App.vue`'s to own. I disagree on two grounds: (a) this component is the *rendered terminal state* of the failure, so the state-coverage gap is realised here regardless of who owns the fix; (b) the docblock's own totalising claim, "**THE** shared loading placeholder" (`:5`), asserts a scope that covers exactly one of {loading, error, timeout} and is contradicted by D-15 besides.
+
+**Falsifier:** an `onErrorCaptured` on any ancestor of the `<Suspense>`, a router-level boundary, or a service-worker retry. All absent by grep.
 
 ---
 
 ## 3. MINOR
 
-### D-7 · MINOR · `will-change: background-position` — permanent, and on a property no browser can promote
+### D-8 · MINOR · animating `background-position` is a non-compositable full-surface repaint, and `will-change` cannot help it
 
-`App.skeleton.vue:82`. Two problems compounded:
+`:80–82`. `background-position` is not compositor-accelerated: every frame repaints the whole plate on the main thread. `will-change: background-position` cannot promote it — there is no layer-level fast path to promote it *to* — so the hint costs memory and buys nothing; it is also permanent for the component's lifetime. The installed producer animates `transform: translate(110%)`, which *is* compositable.
 
-1. **It cannot help.** Compositor-accelerated properties are `transform`, `opacity`, and (partially) `filter`. `background-position` is a **paint** property: every frame of `scene-skeleton-sweep` repaints the full plate — up to 672 × 384 px = 258 k px, at 60 fps, forever, on a boundary that exists precisely because the main thread is already busy parsing a lazy chunk. `will-change` on a non-promotable property yields no layer.
-2. **It is never removed.** MDN's `will-change` guidance is explicit that the property is a transient hint and that setting it declaratively-and-permanently is an anti-pattern (it asks the browser to hold optimisation state indefinitely). Here it is a static declaration on an `infinite` animation, so the hint is live for the entire lifetime of every fallback mount.
+Timing sharpens it: this animation runs **only** while a lazy chunk is being fetched, parsed and evaluated — exactly when the main thread is most contended. The loading indicator competes with the load it indicates.
 
-The DS does it correctly one file away: `will-change: transform` on a `translate()` animation (D-6 table).
+Local corroboration that this repo treats stage-footprint repaint as first-order: `App.vue:361–372` documents T.G1, "THE BLUR DE-LAYER — the perf keystone", measuring continuous stage paint against glass `backdrop-filter` re-rasterisation as "VERDICT #19 root cause #1".
 
-**Falsifier:** a DevTools performance trace of an async scene swap showing no measurable paint cost from `.scene-skeleton__sheen`, and/or a layer-borders capture showing the sheen promoted. **UNPROVEN-NEEDS-LIVE** for the *magnitude*; the *mechanism* (background-position is a paint property; will-change is declared statically) is settled from source.
-
----
-
-### D-8 · MINOR · hardcoded `1.6s ease-in-out`, and `@keyframes scene-skeleton-sweep` duplicates a `@keyframes` already loaded in the same cascade
-
-`App.skeleton.vue:81, 85–92`.
-
-**Duration.** glass-ui ships shimmer clocks (`dist/styles/tokens/scheme-motion.css`): `--duration-shimmer-fast: 3s`, `--duration-shimmer: 5s`, `--duration-metal: 6s`, plus the general `--duration-instant/control/fast/normal/slow/panel/xl/xxl`. The DS skeleton uses `var(--duration-shimmer, 2.4s)`. This component picks `1.6s` — between 1.5× and 3× faster than every shimmer in the design system, with no token reference, so a system-wide motion-tempo change (e.g. the `.motion-calm` scheme visible in `scheme-motion.css`) does not reach it.
-
-**Duplication.** `dist/styles/animations.css` — loaded into the demo via `style.css:3` — already defines:
-
-```css
-@keyframes shimmer      { 0% { background-position:  250% 0 } 100% { background-position: -250% 0 } }
-@keyframes shimmer-sweep{ 0% { background-position: -200% 0 } 100% { background-position:  200% 0 } }
-```
-
-`scene-skeleton-sweep` (`:85–92`, `140% 0` → `-40% 0`) is the *same idiom on the same property in the same direction* as `shimmer`, redefined locally with different constants. Per `lane-frontend.md` §6.4 the demo owns only 9 `@keyframes` total; this is one of them, and it is a re-derivation of an imported one.
-
-**Falsifier:** show that `140% → -40%` at `background-size: 220% 100%` produces a sweep geometry that `shimmer`'s `250% → -250%` cannot reach by adjusting `background-size` alone. (It can — the two parameters are interchangeable.)
+**Falsifier:** that same T.G1 contract composites the scene-host *outside* any `backdrop-filter` ancestor, so the chrome-blur coupling is likely spared — I do not claim it. What survives is the per-frame main-thread paint of the plate. A profile showing negligible cost drops this to INFO.
 
 ---
 
-### D-9 · MINOR · three parallel token-naming conventions inside 101 lines, and the `--color-*` triplet is a 1-of-1 deviation from the entire demo
+### D-9 · MINOR · hardcoded `1.6s`, and `@keyframes scene-skeleton-sweep` re-derives a `@keyframes` already loaded in the same cascade
 
-This is the flat-namespace hazard `lane-frontend.md` §6.3 names ("Demo tokens are unprefixed and therefore share a flat global namespace with glass-ui's — a collision surface worth a lane of its own"), manifesting inside one file. The component reaches glass-ui through **three different naming systems**:
+**Duration.** `:81` hardcodes `1.6s`. The tokens exist (`tokens/scheme-motion.css`): `--duration-shimmer: 5s`, `--duration-shimmer-fast: 3s`. The installed DS skeleton reads `var(--duration-shimmer, 2.4s)` → **5s**. This component runs ~3× faster than the house skeleton clock, untokenised, so a system-wide tempo change (the `.motion-calm` scheme in the same file) cannot reach it, and the two skeleton idioms visibly disagree wherever both appear.
 
-| line | reference | system | resolves? |
-|---|---|---|---|
-| `:56` | `--radius-lg` | glass-ui `@theme` (`dist/styles/theme/radius.css`) | yes |
-| `:59, :63, :75` | `--color-muted`, `--color-border`, `--color-foreground` | Tailwind v4 bridge, `@theme inline` (`dist/styles/theme/bridges.css`) | yes — *see §Killed* |
-| `:64` | `--shadow-glass` | **none** | **no** — D-3 |
+**Duplication.** `dist/styles/animations.css` — loaded via `style.css:3` — already ships `@keyframes shimmer` and `@keyframes shimmer-sweep`, both driving `background-position` on the same axis. `scene-skeleton-sweep` (`:85–92`) is the same idiom on the same property in the same direction, redefined locally with different constants.
 
-Two of three names for the same colour exist simultaneously (`--muted` in `tokens/color-radius.css`, `--color-muted` in `theme/bridges.css`), and the demo has already chosen — decisively:
+**Falsifier:** show that `140% → -40%` at `background-size: 220%` reaches a sweep geometry the shipped `shimmer` cannot, by adjusting `background-size` alone. It can — the two parameters are interchangeable.
 
-```
-$ grep -rho "var(--color-[a-z0-9-]*" --include="*.vue" --include="*.css" demo/ | sort | uniq -c
-     73 var(--color-progress          ← demo-owned token
-      2 var(--color-slider-track      ← demo-owned token
-      2 var(--color-gold              ← demo-owned token
-      1 var(--color-muted             ← App.skeleton.vue:59
-      1 var(--color-foreground        ← App.skeleton.vue:75
-      1 var(--color-border            ← App.skeleton.vue:63
-$ grep -rho "var(--foreground)\|var(--border)\|var(--background)\|var(--muted\b" --include="*.vue" --include="*.css" demo/ | sort | uniq -c
-     26 var(--foreground)
-     17 var(--border)
-     11 var(--background)
-      3 var(--muted
-```
-
-Every `--color-*` reference in the demo that resolves to a *glass-ui* colour is in this one file, one occurrence each. The demo's own `--color-*` names (`--color-progress`, `--color-gold`, `--color-slider-track`) are demo-authored tokens — so this file's three names sit in the demo's own prefix space while pointing at glass-ui's, which is the exact collision shape §6.3 warns about. Consistency argues for `var(--muted)` / `var(--border)` / `var(--foreground)`; so does the DS skeleton, which uses the bare names.
-
-**Falsifier:** find a fourth site in `demo/` using `var(--color-muted|border|foreground)`. The grep above is exhaustive over `.vue` and `.css`.
+*Not claimed:* the `ease-in-out` + `infinite` seam discontinuity. The producer does the same; that is house idiom, not a defect of this file.
 
 ---
 
-### D-10 · MINOR · no `forced-colors` and no `prefers-reduced-transparency` branch — both of which the DS skeleton carries
+### D-10 · MINOR · the `--color-*` triplet is a 1-of-1 deviation across the whole demo — a live tripwire, though not currently tripped
 
-`App.skeleton.vue` has exactly one `@media` block (`:95`). Absent:
+`:59, :63, :75` read `var(--color-muted)` / `var(--color-border)` / `var(--color-foreground)`. Across the demo, the raw `var(--muted)` / `var(--foreground)` / `var(--border)` appear at **22** `.vue` sites; the `--color-*` form for those three appears in **exactly one file — this one**. The producer's own components never use it.
 
-- **`@media (forced-colors: active)`.** In forced-colors mode `background-color` is forced to `Canvas` and `box-shadow` to `none`. The plate's identity is *entirely* `background` + `box-shadow` + a `color-mix` border; what survives HCM is a 1px border in the forced border colour around an empty box, with a gradient sheen whose paint behaviour under forced colours is UA-variable. glass-ui's skeleton handles this explicitly: `@media (forced-colors:active){ .skeleton{opacity:.18;background:canvastext} .skeleton:after{display:none} }` — it substitutes a *system* colour so the placeholder survives, and kills the sheen so it cannot fight it. glass-ui's global `accessibility.css` forced-colors block covers only `[aria-current]/[aria-selected]/[aria-pressed]/[aria-checked]/[data-state]` and `[aria-invalid]` — **it does not reach `role="status"`**, so there is no inherited coverage here.
-- **`@media (prefers-reduced-transparency: reduce)`.** The plate is built from two `color-mix(… , transparent)` washes; a user who has asked for reduced transparency gets the washes anyway. The DS skeleton restores `background: var(--muted)` opaque under this query. `tokens/shadow.css` shows glass-ui treats `prefers-reduced-transparency` as a first-class query (it re-weights `--cartoon-ink-*` under it), so this is house style, not an exotic ask.
+`--color-*` is the *Tailwind utility* namespace (`bg-muted`, `border-border`), bridged in `theme/bridges.css` via `@theme **inline**`; the theme layer proper is `--muted` / `--border` / `--foreground`. It resolves today only because the bridge happens to be emitted (see §5, KILLED-1). It is one `@theme inline` emission change away from silently falling through to the hardcoded **light-mode** literals at `:59, :63, :75` — theme-blindness in dark mode. Not a bug today; a tripwire with a light trigger.
 
-**Falsifier:** a Windows HCM / `forced-colors: active` emulation showing the plate legible. **UNPROVEN-NEEDS-LIVE** for the rendering; the *absence of the queries* is settled from source (one `@media` in the file).
+**Falsifier:** a project convention endorsing the bridge form in hand-authored CSS. The 22:1 ratio and the producer's own practice both say otherwise.
 
 ---
 
-### D-11 · MINOR · the `--radius-lg` fallback `0.75rem` is dead **and** wrong, and `--radius-lg` is the wrong token for a "stage panel" silhouette
+### D-11 · MINOR · no `forced-colors` branch
 
-`App.skeleton.vue:56` `border-radius: var(--radius-lg, 0.75rem);`
+No `@media (forced-colors: active)` exists in `:40–101`. In forced-colors mode the plate's `color-mix` fill is overridden to the forced canvas, collapsing the silhouette to the border alone, while the sheen's gradient is not reliably suppressed. The installed producer handles both halves (`opacity: .18` on the tile, `::after` suppressed) — establishing this as the house standard rather than my invention.
 
-`--radius-lg` **is** declared, so `0.75rem` never renders. It is declared **twice**, at different values, in the shipped bundle:
+**Falsifier:** exact forced-colors rendering is UNPROVEN-NEEDS-LIVE (SS-13). The *absence of the branch* and the divergence from the producer's own skeleton contract are source-proven.
 
-```
-dist/gh-pages/assets/index-CL_QYCiO.css
-  … --radius-lg:var(--radius) …   ← glass-ui theme/radius.css, in @layer theme,      --radius: .625rem
-  … --radius-lg:.5rem …           ← glass-ui prebuilt components.css, imported layer(components)
-```
+---
 
-`@layer theme` first appears at byte 14 283 and `@layer components` content at 152 875, so `components` is the later-declared layer and wins for equal-specificity `:root` declarations → the plate renders at **0.5rem = 8px**, or 0.625rem = 10px if the layer order resolves the other way. Either way it is **not** the 12px the source advertises — a 33–50 % shape error against author intent, invisible to review because the wrong number is the one written down.
+### D-12 · MINOR · no `prefers-reduced-transparency` branch
 
-Separately, `--radius-lg` is the generic scale step. The surfaces this plate claims to echo have *semantic* radii (`dist/styles/theme/radius.css`): `--radius-panel: var(--radius-xl)` = 12px, `--radius-card: var(--radius-2xl)` = 1rem, `--radius-dock-card: var(--radius-3xl)` = 1.5rem. A silhouette that stands in for a stage panel should carry `--radius-panel`; the DS skeleton uses `--radius-input`. The chosen token is the one that echoes nothing.
+The plate is deliberately translucent at both `:57–61` and `:62–63` (two `color-mix(…, transparent)` calls). A user requesting reduced transparency gets none. The installed producer ships `@media (prefers-reduced-transparency: reduce) { .skeleton { background: var(--muted); } }`. Note the fixes coincide: honouring this would *also* lift the plate to an opaque `--muted`, materially improving D-4.
 
-*(The double `--radius-lg` declaration is a glass-ui packaging defect — its prebuilt `components.css` `:root` re-declares Tailwind's stock `--radius: .25rem` / `--radius-lg: .5rem` over its own theme's `.625rem` — and is out of scope for this component. It is named here only because it is the reason the rendered corner is unknowable from this file alone.)*
+**Falsifier:** a global reduced-transparency handler in `styles/` — none across the demo's seven stylesheets.
 
-**Falsifier:** a computed-style read of `.scene-skeleton__plate` returning `border-radius: 12px`.
+---
+
+### D-13 · MINOR · the `--radius-lg` fallback is dead code encoding the wrong value
+
+`:56` — `border-radius: var(--radius-lg, 0.75rem)`. The token **does** resolve, so `0.75rem` never applies — but it is not what resolves either. The built bundle emits `--radius-lg` **twice**: `var(--radius)` (glass-ui `theme/radius.css`, `--radius: 0.625rem`) and `.5rem` (Tailwind v4's default theme). The real corner is therefore **0.625rem or 0.5rem** by cascade order — never the declared 0.75rem. The fallback documents an intent the component does not have and implies a verification that did not occur. (The value it wanted is available as `--radius-xl` / `--radius-strip`.) Separately, `--radius-lg` is the *control* rung; a stage-panel silhouette wants `--radius-panel` or `--radius-card`.
+
+**Falsifier:** cascade ordering resolving to something else again — either way, not 0.75rem.
+
+---
+
+### D-14 · MINOR · the `label` prop is dead API
+
+`:18–24` declares `label?: string` defaulting to `"Loading scene"`. The sole call site (`App.vue:97`) passes nothing, so the default is the only value ever used — and per D-2 the attribute it feeds never participates in an announcement. The prop, its JSDoc (`:20`), its default (`:23`) and its binding (`:32`) serve zero callers and produce zero audible output. Doubly dead, and the `feedback_kiss_no_contrivance` shape.
+
+**Falsifier:** a second `<SceneSkeleton>` mount. `grep -rn "SceneSkeleton" demo/` returns exactly three lines: docblock, import, mount.
+
+---
+
+### D-15 · MINOR · the docblock carries a false superlative, a stale tier, and five unresolvable references
+
+Sixteen lines (`:2–17`) — ~16 % of the file — that misstate the tree:
+
+- **`:5` "THE shared loading placeholder"** — false. One consumer. U-tranche `lane-32:186` (F3, MAJOR) and `lane-20:182` (F-7) both ruled it *shell-private*, and U.B9 re-homed it here accordingly. The prose survived the move that refuted it.
+- **`:3` "the skeletons tier"** — stale. That tier was deleted by the same re-homing (`U.B.md:139`); the file now lives at `app/App.skeleton.vue`. It names a directory that no longer exists.
+- **`:3, :8, :12` — "T.F8", "lane 13 rec 8", "VERDICT #19", "T.M2", "T.D"** — five references unresolvable from inside keyframes.js.
+- **Register** — "THE shared…", "It REPLACES…", "a COMPONENT, not a raw text node" (`:9`): shouting caps litigating a decision no reader is contesting. The one genuinely load-bearing sentence (`:11–13`, structural contract vs appearance disposition) is buried under it.
+
+**Falsifier:** a docs convention mandating tranche-id provenance headers in demo SFCs. Even granting that, "shared" and "the skeletons tier" are factually dead against the current tree.
 
 ---
 
 ## 4. INFO
 
-### D-12 · INFO · the `label` prop is dead API
+### D-16 · INFO · hand-rolled CSS motion in the repo whose thesis is that its animation *is* the library
 
-`:18–24` declares `withDefaults(defineProps<{ label?: string }>(), { label: "Loading scene" })`. The sole call site, `App.vue:97`, is `<SceneSkeleton />` — no binding. The prop, its default, its JSDoc (`:20`), and the `:aria-label` binding (`:32`) exist to serve zero callers, and (per D-2) the attribute they feed does not participate in the announcement anyway. Under the standing `feedback_kiss_no_contrivance` law this is speculative surface. **Falsifier:** a second `<SceneSkeleton>` mount anywhere; `grep -rn "SceneSkeleton" demo/` returns exactly three lines (docblock, import, mount).
+`lane-frontend.md` **S-8** records the inv-ζ seam — "the demo's signature animation IS the library, not pure CSS" (`TypingDots.vue:1–9`) — and counts 68 engine-consuming files. This component's motion is a plain CSS `@keyframes`. **The docblock pre-empts the objection** (`:14`, "content-independent chrome") and I accept the defence: a `<Suspense>` fallback must paint *before* the lazy chunk resolves, and keeping it dependency-free is a defensible boot-cost argument. Recorded as an inv-ζ inconsistency **with a stated justification**, not as a defect. Ruling request, not a claim.
 
-### D-13 · INFO · no error or timeout state — a rejected chunk shimmers forever
+### D-17 · INFO · physical-direction only — but the tree has no RTL surface, so this conforms
 
-The docblock calls this "**THE** shared loading placeholder" (`:5`), a totalising claim, but the component models one state. `App.vue:90`'s `<Suspense>` has `@resolve` and no `onErrorCaptured` / `errorCaptured` anywhere in the file, so a failed dynamic import leaves Vue's Suspense pinned in `#fallback`: the shimmer runs indefinitely with no error affordance, no retry, no timeout escalation. Strictly this boundary is `App.vue`'s to own, which is why this is INFO and not MAJOR — but the component's own framing ("THE shared loading placeholder") is what invites the state-coverage question. **Falsifier:** an `onErrorCaptured` on an ancestor of `App.vue`'s `<Suspense>`; `grep -rn "onErrorCaptured\|errorCaptured" demo/app/App.vue` → no output.
-
-### D-14 · INFO · no logical-direction handling — but the tree has no RTL surface, so this conforms to local convention
-
-`padding` (`:47`), `linear-gradient(105deg, …)` (`:72`), and the `140% → -40%` sweep (`:86–91`) are all physical-direction. In RTL the shimmer would sweep against the reading direction and the gradient's 105° rake would mirror-mismatch. **I am not filing this as a defect:** the demo has zero RTL surface (`grep -rn 'dir="rtl"\|\[dir=' demo/` → no output) and uses logical properties at only 6 sites tree-wide. The component is consistent with its tree. Recorded so a future RTL wave has the site. **Falsifier:** none needed — it is a forward note.
-
-### D-15 · INFO · the shimmer is hand-rolled CSS in the repo whose thesis is that its animation *is* the library
-
-`lane-frontend.md` **S-8** records the demo's inv-ζ seam: "the demo's signature animation IS the library, not pure CSS" (`TypingDots.vue:1–9`), and §1 counts 68 engine-consuming files. This component's motion is a plain CSS `@keyframes`. **The docblock pre-empts the objection** (`:14`, "The shimmer is content-independent chrome") and I accept the defence: a `<Suspense>` fallback must paint before the lazy chunk resolves, and keeping it dependency-free is a defensible boot-cost argument (the engine *is* in the main bundle via the `@src` alias, so availability is not the reason — cost and simplicity are). Recorded as an inv-ζ inconsistency with a stated justification, not as a defect. **Falsifier:** none — this is a ruling request, not a claim.
-
-### D-16 · INFO · `overflow: hidden` on the plate is inert
-
-`:55`. The sheen is `position: absolute; inset: 0` (`:69–70`) and can never exceed the plate's box; `background-size: 220%` does not overflow the element (backgrounds are clipped to the padding box regardless). The declaration is copied from an idiom where it *is* load-bearing — the DS skeleton's `::after` uses `translate(±110%)` and genuinely overflows — but here it guards nothing. Harmless; it becomes correct the moment D-7's fix (transform-based sweep) lands, so it is best left in place. **Falsifier:** a rendering where the sheen paints outside the plate's rounded corners.
+`padding` (`:47`), `linear-gradient(105deg, …)` (`:72`) and the `140% → -40%` sweep are all physical. In RTL the shimmer would sweep against the reading direction. **Not filed as a defect:** `grep -rn 'dir="rtl"\|\[dir=' demo/` returns nothing — the demo has zero RTL surface, and the installed producer's skeleton is equally LTR-hardcoded. The component is consistent with both its tree and the design system. Recorded so a future RTL wave has the site.
 
 ---
 
-## 5. SUPERLATIVES (L-18, running the other way)
+## 5. Hypotheses killed before filing
 
-### SUP-1 · the docblock separates its structural contract from its visual disposition, and names a forwarding address
+**KILLED-1 — "the `--color-*` triplet is never emitted, so all three `color-mix()` calls fall back to hardcoded light literals and the component is theme-blind."** This was my expected headline. `--color-muted` is declared **nowhere** in `glass-ui.css`, nor in Tailwind v4's default theme, and the producer's own `Skeleton` reads the unprefixed `var(--muted)` — three converging signals. **But** `theme/bridges.css` carries `@theme inline { --color-muted: var(--muted); … }`, and the built bundle **emits all three** (`--color-muted:var(--muted);`). The chain terminates at `--neutral-1: light-dark(hsl(38 26% 95%), hsl(28 12% 11%))` — genuinely theme-aware. **No dark-mode bug exists.** Residue survives only as the D-10 tripwire. I record this because the same near-miss reasoning yields a confident, wrong BLOCKER.
 
-`:11–13`:
+**KILLED-2 — "`height: 100%` on `.scene-skeleton` (`:46`) has no definite containing block, so `min(100%, 24rem)` resolves to `auto` and the plate collapses to zero height."** The chain is definite: `.controls-layout` sets `height: min(100dvh, var(--work-area-max-height))` (`AnimationControlsGroup.css:8`), and `.scene-host` carries `h-full` (`App.vue:86`). Tailwind preflight's global `border-box` also means the `clamp()` padding at `:47` cannot overflow. No collapse.
 
-> "The STRUCTURAL contract is what T.F8 pins (fallback ≠ bare text, no stage-gating icon-spinner); the VISUAL treatment (shimmer feel, shape fidelity) is an appearance disposition **deferred to T.M2 / T.D's glass language**."
-
-This is unusually honest engineering prose. It states what was ratified, what was *not*, and where the unratified part is due — so this entire challenge's visual half (D-1, D-3, D-4, D-5, D-11) lands inside a scope the component **already declared open**. Most components under audit assert completeness; this one filed its own exception in advance, and that materially changes how the findings should be triaged.
-
-*Tempering (L-18 cuts both ways):* the prose is written in tranche-internal cipher — "T.F8 (the skeletons tier; lane 13 rec 8)", "VERDICT #19 perceived-perf sibling", "T.M2 / T.D" — none of which is resolvable from within the keyframes.js tree. A reader outside the tranche corpus cannot act on the deferral it so carefully records, which costs the honesty most of its practical value. And the honesty does not extend to C-2/C-3 (`:15–16`), which assert reduced-motion and screen-reader correctness flatly — those are the two claims that turn out to be false (D-1, D-2).
-**Falsifier:** find "T.M2" / "lane 13 rec 8" defined anywhere in `keyframes.js`.
-
-### SUP-2 · the T.F8 structural contract is met exactly
-
-The one thing this component was commissioned to do (C-4), it does. `App.vue:97` renders a component, not `<span>Loading scene…</span>`; there is no stage-gating icon-spinner; the boundary is the bare `<Suspense>` the surrounding comment (`App.vue:73–82`) says it must remain. 101 lines, **zero imports**, one prop, four DOM nodes. No god module, no wrapper indirection, no new shared directory — squarely inside `feedback_kiss_no_contrivance` and `feedback_no_god_modules`. Every defect above is a *quality* finding inside a correct *shape*, which is the cheaper of the two failure modes to repair.
-**Falsifier:** find a text-node or spinner fallback still live at the scene boundary.
-
-### SUP-3 · `aria-hidden="true"` on the decorative subtree is exactly right
-
-`:34`. The plate and its sheen are chrome and carry no information; hiding them from the accessibility tree is the correct call, and it is the call most hand-rolled skeletons get wrong (they leave decorative boxes exposed and flood the tree). The a11y *instinct* in this file is sound — it is the wiring around it (D-2) that fails. Worth stating plainly, because a fix for D-2 must **not** disturb this line.
-**Falsifier:** show that the plate carries information the AT user needs.
-
-### SUP-4 · breakpoint-free fluid padding, and zero contribution to the namespace hazard
-
-`:47` `padding: clamp(1rem, 4vw, 3rem)` — one declaration, no media queries, no breakpoint stair-step, and it is idiomatic for this tree (`layout.css:49–51` sizes the entire work area with `clamp()`). Separately: the component **defines no custom properties at all**. Against `lane-frontend.md` §6.3's 98 unprefixed demo tokens sharing a flat global namespace with glass-ui's, this file adds exactly zero to the collision surface — it is a pure consumer. (Its *consumption* is inconsistent — D-9 — but the hazard the census flagged is about declaration, and here the count is 0.)
-**Falsifier:** find a `--custom-property:` declaration in the file. There are none.
+**KILLED-3 — "hand-rolling a skeleton violates the glass-ui import boundary."** It does not: `lane-frontend.md` **F-6** records zero local `ui/` copies and zero direct `reka-ui` imports — the boundary is clean. Re-implementing a primitive is a *reuse* defect (D-6), not a boundary breach. Filing it as a boundary violation would have misdiagnosed the fix.
 
 ---
 
-## 6. Claims I killed before filing
+## 6. Superlatives (L-18, running the other way)
 
-Recorded because a false defect is worse than a missed one, and because two of these are the obvious first-pass findings on this file.
+### S-1 · the PRM branch exists at all, and is written correctly as a gate
+`:94–100`. Most hand-rolled skeletons ship an infinite shimmer with no PRM arm whatsoever. The instinct is right and the gate is mechanically sound — later rule, equal specificity, deterministic win. D-1 faults the *execution* (`background: none` overshoots into deletion), not the impulse, which was applied unprompted.
 
-**KILLED-1 · "`--color-muted` / `--color-border` / `--color-foreground` are Tailwind `@theme inline` names that are never emitted as custom properties, so all three `color-mix()` calls silently fall back to the hardcoded light-mode `oklch()` values and the component is theme-blind."**
-This was my leading hypothesis: `dist/styles/theme/bridges.css` declares them inside `@theme **inline**`, and glass-ui's own prebuilt `components.css` `:root` emits *no* `--color-*` at all (only `--radius-*`, `--text-*`, `--spacing`, `--animate-spin`, `--container-lg`), while its utilities compile to `var(--foreground)` rather than `var(--color-foreground)` — every static signal pointed at non-emission and therefore at a dark-mode-broken plate. **The built demo bundle falsifies it:**
+### S-2 · the T.F8 structural contract is met exactly
+C-4 is the one self-claim that holds. The fallback is a real component with a real box, not a bare text node; `App.vue:96–98` wires it at the `#fallback` slot with no wrapping `<Transition>` or `<KeepAlive>` — respecting the hard-won constraint documented at `App.vue:74–83`. The structural half of this component is correct and was correct on arrival.
 
-```
-$ grep -o -- "--color-muted:[^;]*;\|--color-foreground:[^;]*;\|--color-border:[^;]*;" dist/gh-pages/assets/*.css
---color-border:var(--border);
---color-foreground:var(--foreground);
---color-muted:var(--muted);
-```
+### S-3 · the sweep geometry is arithmetically correct
+Verified rather than assumed. With `background-size: 220% 100%` (`:80`) and position running `140% → -40%` (`:85–92`), the percentage-positioning identity `offset = P × (W − 2.2W)` places the highlight centre (50 % of a 2.2 W image = 1.1 W) at **−0.58 W** at start and **+1.58 W** at end — a complete traverse with clean off-screen entry and exit. No dead frames, no mid-plate pop. The dimensions at `:53–54` are unmoored (D-5); these constants are not.
 
-All three are emitted in the demo's own Tailwind pass and resolve through to the theme-aware bare tokens. **The component is theme-correct.** The three `oklch()` fallbacks (`:59`, `:63`, `:75`) are dead code — light-mode-only values that would be wrong in dark if they ever fired — but they never fire, so this is not a defect; it survives only as the naming-consistency finding D-9.
+### S-4 · `overflow: hidden` is load-bearing — and I contradict a prior pass that called it inert
+`:55`. A prior audit filed this as an inert declaration on the reasoning that the sheen is `inset: 0` and "backgrounds are clipped to the padding box regardless." That conflates two boxes. The sheen is a **separate element** (`:35`, `:68–70`) with its own background; a parent's `border-radius` (`:56`) does **not** clip a descendant's paint unless `overflow` is other than `visible`. Without `overflow: hidden` the sheen's square gradient would paint over all four rounded corners of the plate. The declaration is correct, necessary, and stays correct after a transform-based fix (D-8) lands.
 
-**KILLED-2 · "`height: 100%` on `.scene-skeleton` (`:46`) has no definite containing block, so the percentage resolves to `auto` and the plate collapses."**
-The chain is definite: `App.vue:83–85` `<div class="scene-host h-full w-full">` → `EditorShell.vue:74` `<main class="grid place-items-center place-self-stretch">` → `EditorShell.vue:3` `class="… grid h-dvh max-h-dvh …"`. `h-dvh` is a definite root height, `place-self-stretch` propagates it through the grid item, `h-full` carries it to the host. No collapse.
-
-**KILLED-3 · "the demo violates the glass-ui import boundary by hand-rolling a skeleton."**
-Not a boundary violation — `lane-frontend.md` **F-6** establishes the import boundary is clean (0 local `ui/` copies, 0 direct `reka-ui` imports), and this file has zero imports of any kind. The finding is *shadowing* (D-6), which is a different and lesser charge, and it is exactly where the census (S-6) put it.
+### S-5 · breakpoint-free fluid padding, and zero contribution to the flat `--kf-*` namespace hazard
+`:47` uses `clamp(1rem, 4vw, 3rem)` — continuous response with no media query, the right idiom for chrome that must look deliberate at every stage width. And the component declares **zero** custom properties of its own: for a demo whose namespace hazard is a flat, ever-growing `--kf-*` surface, adding a component that consumes tokens and contributes none is the correct citizenship, even where the specific tokens it reaches for are wrong (D-3, D-10, D-13).
 
 ---
 
 ## 7. Disposition
 
-**Order of repair.** D-2 and D-3 are one-line fixes that close a MAJOR each and are independent of everything else — land them first. D-1 (the BLOCKER) closes as a side-effect of D-6 (adopt the DS `Skeleton` plate), which also closes D-4, D-7, D-8, D-10 and D-11 — but D-6 is **gated on `lane-frontend.md` F-1** (declare `@mkbabb/glass-ui@7.0.0` and regenerate the lock; `npm ci` cannot currently reconstruct the tree). If F-1 slips, D-1 has a standalone 3-line fix: invert the query to `no-preference`, drop `background: none`, and make the plate fill opaque. D-5 is a spec question (what should the fallback's geometry be?) and wants the T.M2/T.D ruling the docblock is already waiting on (SUP-1).
+The structure is sound and the intent is consistently better than the execution. One BLOCKER (D-1) makes the component invisible to reduced-motion users; D-4 makes it near-invisible to everyone; D-2 makes it silent to screen readers. All three are the *same* defect wearing three coats: **the component was never verified against a rendered surface, only against a specification.** D-3 (a token that does not exist), D-13 (a fallback that never applies and is wrong anyway) and D-5 (dimensions found nowhere else in the tree) are the fingerprints of that.
 
-**No file in `keyframes.js` was written, mutated, or executed.** No installs, no dev server, no browser. The only write performed by this lane is this document.
+**Cheapest high-yield move:** adopt the installed glass-ui `Skeleton` for the plate per S-6 — its CSS is already downloaded and dead in the cascade (D-6) — discharging D-1, D-3, D-8, D-11, D-12 and most of D-4 at once. That leaves the genuinely demo-owned residue: the wrapper's a11y (D-2), the error arm (D-7), and the geometry (D-5).
+
+**Sequencing constraint:** gated on census **F-1** — glass-ui is currently a *phantom* dependency (absent from both `package.json` and `package-lock.json` while 7.0.0 sits installed). Any new glass-ui import deepens an undeclared coupling that `npm ci` cannot reconstruct. **Declare the dependency first**, then delegate the plate.

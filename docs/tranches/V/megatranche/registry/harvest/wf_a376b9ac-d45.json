@@ -1,7 +1,7 @@
 {
  "runId": "wf_a376b9ac-d45",
  "workflow": "wf_a376b9ac-d45",
- "resultCount": 4,
+ "resultCount": 5,
  "results": [
   {
    "agentId": "abb3d726dcc22f3dc",
@@ -96,6 +96,29 @@
      "R-E applied throughout: every gate-invoked script has a File Bounds row and every gate states literal command paths. Two `execute, no write` rows in W3 (r1-published-totality.mjs, plus read-no-write rows for cand-o/cand-f) and three in W4 (verify-packed-surface.mjs, r1-published-totality.mjs, X·V's W9/W11 as read-no-write). W4's G-1 checker was moved to docs/tranches/X/parse-that/scripts/seam-contract-check.mjs owned by unit .a, so .a's gate does not invoke .c's phase-2 script — a disjointness fix made at authoring.",
      "Corpus fold (M-25 ¶2) is a table in each file's §2c mapping every hitherto row to a verb and a landing site: GATE-VERDICT (coverage RED / R1 / equivalence-as-FLOOR / OC-1 / OC-2), parser-band (cand-O adopted, all five debts-to-cand-F bound to named gates, G1-G8 folded, all four DISSENTS carried as declared-divergence rows rather than silent picks), pause handoff (§2 routing, §4 retained hypothesis, §5 OR05 18-IDs-vs-20-formulas defect, §6 KEEP/FOLD/PRUNE, §7 pause law, §8 resume steps), O-15 PT-01/03/04/07 (each wired to a specific gate: label/console coupling → G-8, one-way latch 1.47x → G-9+G-10, depth 7,761/7,762 → G-9, non-string boundary → G-3), M-22 ¶3/¶4, and COHESION §2.",
      "Law compliance verified: writes are confined to the two files under docs/tranches/X/parse-that/waves/. `git status --porcelain -- src api demo test e2e scripts` shows exactly one dirty path, `scripts/dev/dev.sh`, which was already modified at session start and was never touched. /Users/mkbabb/Programming/parse-that was read-only (git log / cat-file / ls / grep only); parse-that-css-totality-p2 still does not exist; no frozen root, ~/.codex/**, or ~/Documents/Codex/** was opened. Both files' preambles state that execution awaits the owner's begin-word, and W4 additionally records handoff §8.8's requirement of a SECOND, separate owner release word beyond the resume ruling."
+    ]
+   }
+  },
+  {
+   "agentId": "a9f2a2ffc0c68c304",
+   "key": "v2:4dd703816a21c66a0d24e6affe75d2e7972a9806815889b12c1e1036bbff08e4",
+   "result": {
+    "files": [
+     "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W2.md",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W2-fable-author.md",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W2-opus-author.md"
+    ],
+    "gates": 12,
+    "bornRed": 12,
+    "notes": [
+     "Canonical W2.md written by fresh-Fable agglomerator (M-23); author arms sealed untouched as dated evidence; status planned; execution awaits owner begin-word; first line carries served model id claude-fable-5.",
+     "Candidate field fixed: 4 live (AC-1 TAGLESS-TWIN, AC-2 CLOSED-IR subsuming Opus A-1 build-time + A-5 parse-time-degeneration-as-kill, AC-3 SPAN-ALGEBRA subsuming A-3 leaf-wasm, AC-4 SIBLINGS-ORACLE = band-seed cand-O carried) + 2 pre-killed by citation (NC-0 GENERATOR/v12, NC-1 WASM-PRIMARY derived-JS, definitional). Stage-0 admits exactly 3, fourth = RESERVE.",
+     "L-18 kills — Fable arm: self-authored harness ignoring canonical W1 (W1 §10 blocks W2 on the three instruments), CARGO_TARGET_DIR-N/A pre-ruling, band-seed omitted, no L-13 harvest/COHESION carve, src/** vs typescript/src/** path error. Opus arm: A-2 spiked instead of pre-killed, modify-carve on own sealed author file, ten probes duplicating W1 instruments, re-derived bench arithmetic (epoch rule: cite W1 bar ledger).",
+     "Reciprocity finds both arms missed: W3 §4a requires W2 to hold typescript/src/css/** and W4 §10 depends on W2's Wasm artifact → added graduation unit .i + G-12 graduation half; W4 carves W2.md's four-verb VERIFIED row → table added; R-B alias table maps W3's 'W1=algebra' label misattribution to conditions discharged here.",
+     "Blind convergence banked: both arms independently derived identical six equality products (V, C, P, D, rollback, malformed inverse) → ratified as EQ-1..6 with Object.is f64 and structural (never rendered-string) diagnostics; Opus (V,C,P,D)+COMP-1 state model and R-LAW-1..5 folded whole.",
+     "Load-bearing facts re-verified 2026-08-04: fresh root ABSENT; handoff SHA ced23440… matches; 52 = 33 types + 19 runtime; zero committed wasm32 in parse-that HEAD (exit 1) vs 3 working-tree files → OP-6 owner mark + K-9/K-10 kill rules; clone-point diff 8 files 284+/308− → OP-7 substrate-receipt law.",
+     "Bench bar OWNER-GATED-PENDING-RATIFICATION preserved everywhere; ratios vs 1,636,680µs reconstruction cited from W1's bar ledger; K-5 Pareto domination the only lawful bench kill; 9 agent units, 6 phases, peak concurrency 3 (under owner 4-cap); 3 Fable sittings (E-5).",
+     "All 12 gates born-RED on root absence + pasted inherited baselines (0-of-52, 102/172+7/7 R1 throws, 0.0537 sheet, PT-03 1.47x latch, PT-04 7761/7762 depth, 13:0:0 scan census); G-5's published-probe row additionally MEASURE-AT-OPEN (HEAD-sensitive npm pack)."
     ]
    }
   }

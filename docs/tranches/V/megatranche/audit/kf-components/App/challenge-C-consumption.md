@@ -1,50 +1,70 @@
 claude-opus-5[1m]
 
-# CHALLENGE · `App` · axis C — CONSUMPTION
+# CHALLENGE · `App` · axis C — CONSUMPTION · **r2 (merge; supersedes r1 in place)**
 
 **Target** `/Users/mkbabb/Programming/keyframes.js/demo/app/App.vue` (387 lines)
-**Tree HEAD** `8281638c fix(demo-shell): provide tooltip context for the routed control group`
-**Mode** static, read-only. No installs, no dev server, no browser tooling. keyframes.js is READ-ONLY evidence; the only file written by this lane is this one.
-**Posture** the component is assumed DEFECTIVE until the tree proves otherwise. Every row below carries a falsifier; a row whose falsifier is met is dead and must be struck.
+**Tree HEAD** `8281638c fix(demo-shell): provide tooltip context for the routed control group` (parent `a59d3a22 fix(dependencies): consume Glass UI 6 from one registry core`) — the same HEAD r1 read.
+**Mode** static, read-only. No browser tooling. keyframes.js is READ-ONLY evidence; this file is the lane's only write.
+**Posture** the component is DEFECTIVE until the tree proves otherwise. Every row carries a falsifier; a row whose falsifier is met is struck. A false defect is worse than a missed one.
 
-**Import closure read whole** (read-only): `App.vue`, `App.skeleton.vue`, `main.ts`, `index.html`, `kf-engine.ts`, `styles/brand.css`, `app/dock/{index.ts,ChromeDock.vue,MbabbMenu.vue}`, `app/scene/{scenes.ts,sceneExposedApi.ts,useSceneMachineRouterBinding.ts,useSceneMachineShellBinding.ts}`, `app/transition/{useSceneSwap.ts,useSceneTransition.ts}`, `app/lifecycle/useMonacoCancellationGuard.ts`, `components/instrument/shell/{index.ts,EditorShell.vue,EditorStartScreen.vue,HeroAurora.vue,EditorHeader.vue}`, `components/instrument/transport/injectionKeys.ts`, `components/instrument/surfaceTabs.ts`, `state/{index.ts,useSceneMachine.ts,controlSurfaces.ts,controlOptionsStore.ts}`, `scenes/cube/CubeScene.vue`, plus the producer evidence `src/animation/{index.ts,load-engine.ts,group/group.ts}` and the installed `node_modules/@mkbabb/glass-ui@7.0.0` `.d.ts` surface.
+## r2 preface — what this pass did to r1
 
-**Hitherto corpus folded** — `formation/keyframes/lane-frontend.md` (F-1 phantom dep, F-3/F-5/F-6, S-1..S-8), `lane-library.md` (parse seams). Overlaps are cited by id; one contradiction is stated explicitly (§C-M4 vs F-5).
+r1 (2026-08-03) occupied this path with 13 defects / 2 blockers / 5 superlatives. r2 re-ran the cell independently and then **read r1 whole before writing**. This document is a merge, not a replacement:
 
----
+1. **Every r1 row was re-verified against the tree at this HEAD.** All 13 survive. Two I re-derived from scratch and confirm with fresh evidence (C-B1, C-B2); one corrects **my own** r2 error (C-m4/S-6, below).
+2. **Seven new rows** (`C-M6`..`C-M8`, `C-m7`..`C-m10`) that r1 did not reach — three of them carry **build-artifact evidence** r1's static-only method could not produce.
+3. **One r1 superlative is scope-corrected**: `C-S4`'s claim survives as written, but the inference it invites — "value.js is off App's static graph" — is **false**, and r2 proves it from the shipped entry chunk. This is the substantive disagreement between the passes and it is stated in full at §2.1.
+4. **One r1 row is refined** with a fact r1 got right and r2 initially got wrong (glass-ui *does* ship `Skeleton`; r2's first grep was case-flawed) — recorded because the correction changes S-6's cost, not its verdict.
 
-## 0. Scoreboard
+New method delta vs r1: r2 additionally executed the installed artifacts as evidence — `node --input-type=module` probes against `@mkbabb/value.js@4.0.0` and `@mkbabb/glass-ui@7.0.0`, and non-renameable string-literal greps over the committed `dist/gh-pages/` build. Both are read-only observations of installed/emitted files; no product source was touched.
 
-| id | severity | one-line |
-|---|---|---|
-| C-B1 | **BLOCKER** | `MbabbMenu.togglePpMode` dereferences `.value` on a plain object → `TypeError` on every click of a control App mounts |
-| C-B2 | **BLOCKER** | the boot contract is broken on the rejection path: `main.ts` swallows the engine-warm failure, `App` setup then throws in `kfEngine()` → blank app |
-| C-M1 | MAJOR | `sceneRef?.tabsTrigger` is off-contract *and* the 4-hop `tabs-trigger` slot chain terminates in a component that retired the slot |
-| C-M2 | MAJOR | `#header-left` is never bridged — `CubeScene.headerLeft` is dead surface; three files assert a header brand mark that cannot render |
-| C-M3 | MAJOR | `HeroAurora` passes `initStrategy: "eager"`, defeating glass-ui's documented lazy arm *and its own docblock*, on the LCP route |
-| C-M4 | MAJOR | `SURFACE_META`/`dockCardinality` exist TWICE; App feeds extra tabs from copy A while `ChromeDock` builds the triad from copy B |
-| C-M5 | MAJOR | App's synchronous group construction forces value.js onto the critical boot path — the LCP element cannot paint until the heavy chunk evaluates |
-| C-m1 | MINOR | `readonly ControlSurface[]` handed to a mutable `string[]` prop — unsound, ungated |
-| C-m2 | MINOR | `storedControls` is a `computed` whose getter mutates persisted storage |
-| C-m3 | MINOR | `AnimationGroup<any>` is the app's central prop type; the library offers no typed empty-group door |
-| C-m4 | MINOR | `SceneSkeleton`'s `label` prop is dead API (sole consumer never passes it); folds census **S-6** |
-| C-m5 | MINOR | `EditorHeader.vue` — 0 consumers, still re-exported from the barrel App imports |
-| C-m6 | MINOR | `warmScene` is only reachable from inside the *already-open* scene dropdown; the prefetch buys ~one hover |
-| C-i1 | INFO | no type gate reaches the demo at all — `ci.yml` runs `check:lib` (`src/` only); no `vue-tsc` in the repo |
-| C-i2 | INFO | the R1 value.js parser-crash class is **not** reachable from App's own calls (recorded so the fleet does not double-count) |
-| C-S1..C-S5 | **SUPERLATIVE** | five things this component gets right, each with its own falsifier |
-
-**Inherited, not counted here:** lane-frontend **F-1** (`@mkbabb/glass-ui` absent from `package.json` *and* `package-lock.json` while 7.0.0 sits installed). App.vue:145 `import { TooltipProvider } from "@mkbabb/glass-ui/tooltip"` is one of the 42 files that makes `npm ci` → build unresolvable. Owned by F-1; App is a victim, not the site. Counted in that lane, not this one.
-
-Totals — **defects 13** (BLOCKER 2 + MAJOR 5 + MINOR 6), **blockers 2**, **superlatives 5**.
+**Import closure read whole (r2, independent of r1):** `App.vue`, `App.skeleton.vue`, `main.ts`, `kf-engine.ts`, `app/dock/{index.ts,ChromeDock.vue,MbabbMenu.vue}`, `app/scene/{scenes.ts,sceneExposedApi.ts,useSceneMachineShellBinding.ts}`, `app/transition/{useSceneSwap.ts,useSceneTransition.ts}`, `app/lifecycle/useMonacoCancellationGuard.ts`, `components/instrument/shell/{index.ts,EditorShell.vue,HeroAurora.vue}`, `components/instrument/transport/{injectionKeys.ts,AnimationControlsGroup.vue,channel-controls/ChannelControls.vue}`, `components/instrument/surfaceTabs.ts`, `state/{index.ts,useSceneMachine.ts,controlSurfaces.ts,controlOptionsStore.ts}`, `scenes/cube/CubeScene.vue`, `src/animation/index.ts`, `vite.config.ts`, `package.json`, `.npmrc`, plus installed `@mkbabb/glass-ui@7.0.0` and `@mkbabb/value.js@4.0.0` dist/dts, plus `dist/gh-pages/assets/*`.
 
 ---
 
-## 1. BLOCKERS
+## 0. Merged scoreboard
 
-### C-B1 — `MbabbMenu.togglePpMode` throws on every invocation · **BLOCKER**
+| id | severity | pass | one-line |
+|---|---|---|---|
+| C-B1 | **BLOCKER** | r1 · **re-verified r2** | `MbabbMenu.togglePpMode` dereferences `.value` on a plain object → `TypeError` on every click of a control App mounts |
+| C-B2 | **BLOCKER** | r1 · **re-verified r2** | `main.ts` swallows the engine-warm rejection and mounts anyway; App's setup then throws in `kfEngine()` → blank app, poisoned memo, misattributing message |
+| C-M1 | MAJOR | r1 | `sceneRef?.tabsTrigger` is off-contract *and* the 4-hop `tabs-trigger` slot chain terminates in a component that retired the slot |
+| C-M2 | MAJOR | r1 | `#header-left` is never bridged — `CubeScene.headerLeft` is dead surface; three files assert a header brand mark that cannot render |
+| C-M3 | MAJOR | r1 · **re-verified r2** | `HeroAurora` passes `initStrategy: "eager"`, defeating glass-ui's documented lazy arm *and its own docblock*, on the LCP route |
+| C-M4 | MAJOR | r1 · **re-verified r2** | `SURFACE_META`/`dockCardinality` exist TWICE; App feeds extra tabs from copy A while `ChromeDock` builds the triad from copy B |
+| C-M5 | MAJOR | r1 | App's synchronous group construction gates the LCP element on the heavy chunk (a *timing* exposure) |
+| **C-M6** | **MAJOR** | **r2 NEW** | `HeroAurora`'s **static** import puts glass-ui's 202 KB aurora module **and value.js's colour graph** in the boot chunk — a *static* value.js exposure, proven from the shipped entry chunk; scope-corrects **C-S4** |
+| **C-M7** | **MAJOR** | **r2 NEW** | the cube scene's code-split is **dead**: App bypasses the descriptor's async component, `warmScene("cube")` fetches nothing, and no `CubeScene-*.js` chunk is emitted |
+| **C-M8** | **MAJOR** | **r2 NEW** | three nested `TooltipProvider`s; the one HEAD just added at `App.vue:3` ships reka's **700 ms** defaults inside a demo that had twice standardised on 100 ms |
+| C-m1 | MINOR | r1 | `readonly ControlSurface[]` handed to a mutable `string[]` prop — unsound, ungated |
+| C-m2 | MINOR | r1 | `storedControls` is a `computed` whose getter mutates persisted storage |
+| C-m3 | MINOR | r1 | `AnimationGroup<any>` is the app's central prop type; the library offers no typed empty-group door |
+| C-m4 | MINOR | r1 · **refined r2** | `SceneSkeleton`'s `label` prop is dead API; folds census **S-6** — and the swap target is **root-barrel-only**, which costs subpath discipline |
+| C-m5 | MINOR | r1 | `EditorHeader.vue` — 0 consumers, still re-exported from the barrel App imports |
+| C-m6 | MINOR | r1 | `warmScene` is only reachable from inside the *already-open* scene dropdown |
+| **C-m7** | **MINOR** | **r2 NEW** | `App.vue:203-206` documents `machine.controlSurfaces` as the built-in triad; it is the **full** derived set — a comment that would break easing/spring if "corrected" |
+| **C-m8** | **MINOR** | **r2 NEW** | `PAPER_WASH_GROUND` spread **after** the atoms silently overrides **11 of 30** authored knobs; the comment's "verbatim … ONLY the opacity ceiling moved" is false by measurement |
+| **C-m9** | **MINOR** | **r2 NEW** | `data-last-vt-type` is written on the VT subject in **production**; only its sibling window hook is DEV-gated |
+| **C-m10** | **MINOR** | **r2 NEW** | `HeroAurora` hand-rolls the pointer wiring glass-ui publishes as `useCursorInteraction` on the same subpath — possibly justified bespoke, marked unsettled |
+| C-i1 | INFO | r1 | no type gate reaches the demo at all — `ci.yml` runs `check:lib` (`src/` only); no `vue-tsc` in the repo |
+| C-i2 | INFO | r1 · **extended r2** | the R1 value.js parser-crash class is **not** reachable from App — r2 executed the crash and confirms the parser module is absent from the boot chunk |
+| C-S1..C-S6 | **SUPERLATIVE** | r1 ×5 (one scope-corrected) + r2 ×1 | six consumption decisions this component gets right, each with its own falsifier |
 
-`/Users/mkbabb/Programming/keyframes.js/demo/app/dock/MbabbMenu.vue:98-101`
+**Inherited, not counted here (r1's scoping, upheld):** lane-frontend **F-1** — `@mkbabb/glass-ui` absent from `package.json` *and* `package-lock.json` while 7.0.0 sits installed. `App.vue:145` is a victim, not the site. r2 re-confirmed F-1 at this HEAD and **extended it** (§4) with a new, executed failure the lane inferred but never ran.
+
+**Totals — defects 20** (BLOCKER 2 + MAJOR 8 + MINOR 10) · **blockers 2** · **superlatives 6**.
+
+---
+
+## 1. r1 rows re-verified at HEAD
+
+r2 re-derived the two blockers and the three MAJORs whose evidence is mechanically checkable. All hold.
+
+### C-B1 — `MbabbMenu.togglePpMode` throws on every invocation · **BLOCKER** · r1, independently re-verified
+
+r2 missed this on its own first pass and found it in r1. Re-derived from the tree:
+
+`demo/app/dock/MbabbMenu.vue:98-101`
 
 ```ts
 function togglePpMode() {
@@ -53,417 +73,333 @@ function togglePpMode() {
 }
 ```
 
-`getStoredAnimationGroupControlOptions` returns a **plain (reactive-proxied) bucket object**, not a ref — `demo/state/controlOptionsStore.ts:66-97`, declared return type `StoredAnimationGroupControlOptions`, produced at `:86-88` by indexing the `useStorage` ref's `.value`. That type has no `value` member (`:11-27`). So `stored.value` evaluates to `undefined`, and the **right-hand side** `stored.value.ppMode` throws before the assignment is even reached:
+`demo/state/controlOptionsStore.ts:66-97` — the declared return is `StoredAnimationGroupControlOptions`, and the sole `return` is `return controls;` at `:96`, where `controls` was read **out of** the `useStorage` ref at `:86-88` (`animationGroupsControlOptionsStore.value[superKey]`). It is a plain reactive bucket. `stored.value` is `undefined`; the **right-hand** read `stored.value.ppMode` throws before the assignment:
 
 > `TypeError: Cannot read properties of undefined (reading 'ppMode')`
 
-This is App's problem, not merely MbabbMenu's: App mounts the menu and supplies the very key it mis-reads —
+App is the mount site and supplies the very key that is mis-read (`App.vue:20-24`, `:super-key="currentSuperKey"`). r1's enumeration of the twelve correct call sites stands; r2 spot-checked two (`useSceneMachineShellBinding.ts:105-112` and `:121` both use the object directly).
+
+**Verdict CONFIRMED.** **Falsifier** (r1's, upheld): show `getStoredAnimationGroupControlOptions` can return a `Ref`. It cannot — one `return`, typed and valued as a bucket.
+
+### C-B2 — the engine-warm boot contract is violated on the rejection path · **BLOCKER** · r1, independently re-verified
+
+r2 reached this row independently before reading r1. Line-exact chain:
+
+- `main.ts:50-52` — `void Promise.all([warmKfEngine().catch(() => undefined), fontsDecoded]).finally(() => { app.mount("#app"); });` — settlement, not resolve; `.finally` mounts unconditionally.
+- `kf-engine.ts:30`, `:39` — `resolved` is assigned only in the success arm, and `inflight ??= …` **caches a rejected promise for the session**: a poisoned memo with no retry seam.
+- `App.vue:218-220` — `kfEngine()` is read at top level of `<script setup>`, unconditionally.
+- `kf-engine.ts:52` — the throw text blames a boot-order mistake ("await `warmKfEngine()` before `app.mount()`") that **did not happen**; the await was correct and its failure was deliberately discarded. The diagnostic sends the debugger to the wrong file.
+
+r2 adds the third-file detail r1 did not name: the message misattribution is itself a defect of the consumption seam, independent of the blank page.
+
+**Verdict CONFIRMED.** **Falsifier** (r1's four, upheld) — any one kills the row; none is met.
+
+### C-M3 — `initStrategy: "eager"` · MAJOR · r1, re-verified against the installed contract
+
+r2 re-read the installed `.d.ts` and confirms both quotations r1 used, at:
+
+- `dist/components/aurora/Aurora.vue.d.ts:14` — *"Lazy-arm: by default GPU initialization is deferred past the consumer's first paint."*
+- `Aurora.vue.d.ts:24` — *"**Capture / thumbnail-baking consumers** pass `runtimeOptions.initStrategy: "eager"` … then await `armAsync()`."*
+- `dist/components/aurora/composables/runtime.d.ts` — *"`"deferred"` (default) … the Vue wrapper `useAurora` schedules that acquisition **past first paint on an idle tick, gated on canvas visibility** — so the shader compile-link never lands on the consumer's first-paint critical path."*
+
+Against `HeroAurora.vue:28` (`:runtime-options="{ initStrategy: 'eager' }"`) and its own `HeroAurora.vue:8` (*"the lazy WebGL arm past first paint"*). Home is the default route (`scenes.ts:126`).
+
+**Verdict CONFIRMED.** Magnitude remains **UNPROVEN-NEEDS-LIVE** (SS-13). r2 note: this compounds with the *new* **C-M6** — the same one static import both ships the module at boot and arms it eagerly.
+
+### C-M4 — the "SINGLE source" registry exists twice · MAJOR · r1, re-verified
+
+r2 reached this independently. `state/controlSurfaces.ts:145-160` and `components/instrument/surfaceTabs.ts:12-19` both declare `SURFACE_META`; `surfaceTabs.ts:1-4` imports only `BUILT_IN_SURFACES` + the type from copy A — a re-implementation, not a re-export. `ChromeDock.vue:15-21` straddles: `BUILT_IN_SURFACES` from copy A, `SURFACE_META` + `dockCardinality` from copy B, so `BUILT_IN_CONTROL_TABS` (`:49-50`) indexes **B's** table with **A's** key list while `machine.extraControlTabs()` (`useSceneMachine.ts:317`) uses **A's** `extraTabsFrom`. One dock row, two registries.
+
+**Verdict CONFIRMED**, including r1's explicit contradiction of census **F-5** (that row names a *dead 0-consumer re-export*; `surfaceTabs.ts` has two live consumers and is a duplicate *definition*). r2 upholds the contradiction.
+
+### C-M1, C-M2, C-M5, C-m1, C-m2, C-m3, C-m5, C-m6, C-i1 — carried forward unchanged
+
+r2 read `sceneExposedApi.ts` (no `tabsTrigger` member — C-M1(a) confirmed by type), `App.vue`'s six supplied slots (no `#header-left` — C-M2 confirmed by enumeration), `App.vue:218` + `EditorShell.vue:137` + `useSceneMachineShellBinding.ts:28` (`AnimationGroup<any>` in all three — C-m3 confirmed), `useSceneMachine.ts:308` vs `ChromeDock.vue:71` (readonly→mutable — C-m1 confirmed by signature), `ChromeDock.vue:152`/`:261` (one emit site — C-m6 confirmed), and `controlOptionsStore.ts:76-94` (two on-miss writes inside the getter — C-m2 confirmed). No re-litigation; r1's provenance stands.
+
+### C-m4 / census S-6 — **r1 was right, r2 was wrong; the row is refined not struck**
+
+r2 first recorded that glass-ui 7.0.0 exports no `Skeleton`, contradicting r1. **That was an error in this pass**: the grep used `Skeleton` (capital) against `export * from "./components/skeleton"` (lowercase path). Corrected:
 
 ```
-App.vue:20-24   <MbabbMenu v-model:open="mbabbPopupOpen" :super-key="currentSuperKey" :on-scene-restore="runSceneSwitch" />
+dist/index.d.ts:20                          export * from "./components/skeleton";
+dist/components/skeleton/index.d.ts         export { default as Skeleton } from './Skeleton.vue';
 ```
 
-**Why this is the sole outlier.** Twelve other call sites of the same function exist; every one of them uses the returned object directly:
+r1's row stands as written. **New nuance r2 contributes:** `./skeleton` is **not** in the package `exports` map (checked: 70 subpaths, no `./skeleton`). So retiring S-6 onto glass-ui's `Skeleton` forces a **root-barrel** import — pushing against the subpath discipline the shell otherwise keeps (C-S5). That is a real, if small, cost the census row should carry, and it does not change the AMBER verdict.
 
-```
-CubeScene.vue:62-63          storedControls.ppMode ??= false            ← correct
-useSceneMachineShellBinding.ts:105-112   controls.selectedAnimation     ← correct
-useSceneMachineRouterBinding.ts:126-129  controls.selectedAnimation     ← correct
-AnimationControlsGroup.vue:176           storedControls.<field>          ← correct
-App.vue:229 + :274                       computed(...).value.<field>     ← correct (the ref is App's own computed)
-MbabbMenu.vue:99-100                     stored.value.<field>            ← WRONG
-```
-
-App's own `storedControls` (`App.vue:229`) is a `computed`, so `.value` there is right — and that is almost certainly the shape MbabbMenu was copied from. The idiom crossed a module boundary and silently inverted.
-
-**Blast radius.** The `ppmycota` row (`MbabbMenu.vue:29-40`) is the *only surviving* entry point to pp-mode, because the other one is dead (see **C-M2**). So the feature is 100 % unreachable: one path is dead code, the other throws. And because the throw is inside a `@click` on a reka `DropdownMenuItem` with `@select.prevent`, the menu stays open showing an apparently-inert control.
-
-**Provenance chain (all read):** `MbabbMenu.vue:86,98-101` · `state/controlOptionsStore.ts:11-27,66-97` · `App.vue:20-24,191,229` · `CubeScene.vue:62-63` (the correct idiom) · `CubeTarget.vue:120` (the consumer of `ppMode`).
-
-**Falsifier.** Show that `getStoredAnimationGroupControlOptions` can return a `Ref`. It cannot: `controlOptionsStore.ts:66-97` has one `return controls` at `:96` whose type is `StoredAnimationGroupControlOptions` and whose value at `:86-88` is a bucket read out of a ref, not a ref. Alternatively: click the ppmycota row in the served build and observe `ppMode` flipping with no console error. If either holds, this row dies.
+Recorded here because a challenge that hides its own corrected error is worth less than one that shows it.
 
 ---
 
-### C-B2 — the engine-warm boot contract is violated on the rejection path · **BLOCKER**
+## 2. NEW rows (r2)
 
-Three files make a promise and one of them breaks it.
+### 2.1 · C-M6 — `HeroAurora`'s static import puts glass-ui's aurora module **and value.js's colour graph** on the boot chunk · **MAJOR** · scope-corrects C-S4
 
-**The promise** — `demo/kf-engine.ts:44-56`:
+This is r2's substantive disagreement with r1.
 
-```ts
-/** The resolved heavy engine surface — SYNCHRONOUS. Throws if read before
- *  `warmKfEngine()` has resolved (a programmer error: `main.ts` awaits the warm
- *  before `app.mount()`, so every scene-machine read is after the resolve). */
-export const kfEngine = (): AnimationEngine => {
-    if (!resolved) { throw new Error("kfEngine() read before warmKfEngine() resolved …"); }
-```
-
-**The break** — `demo/app/main.ts:50-54`:
+`App.vue:142` is a **static** import:
 
 ```ts
-void Promise.all([warmKfEngine().catch(() => undefined), fontsDecoded]).finally(
-    () => { app.mount("#app"); },
-);
+import HeroAurora from "@components/instrument/shell/HeroAurora.vue";
 ```
 
-`main.ts` does not await the *resolve*; it awaits the *settlement*, having converted a rejection into a resolved `undefined`. `resolved` is only assigned inside the success arm (`kf-engine.ts:39-42`), so on a rejected warm the app mounts with `resolved === null`.
+`HeroAurora.vue:37-41` statically imports from `@mkbabb/glass-ui/aurora`. The installed `dist/aurora.js` is **202,125 bytes**, and its first lines are static ESM:
 
-**The detonation** — `App.vue:218-220`, in `<script setup>`, i.e. synchronously during App's own setup:
-
-```ts
-const currentAnimationGroup = shallowRef<AnimationGroup<any>>(
-    markRaw(new (kfEngine().AnimationGroup)()),
-);
+```
+import { t as o } from "./value-DMhh2R94.js";
+import { interpolateHue as ye } from "@mkbabb/value.js/color";
 ```
 
-`kfEngine()` throws → App's setup throws → nothing renders. `index.html:96` ships a bare `<div id="app"></div>` with an explicit *"No splash"* comment, so the failure surface is a blank themed page with no error affordance and no retry: `warmKfEngine` memoises `inflight ??=` (`kf-engine.ts:38-42`), so the rejected promise is cached for the session and any later caller re-receives the same rejection.
+and `dist/value-DMhh2R94.js` opens with
 
-**How the trigger fires in production, not in theory.** The heavy surface is a hashed dynamic chunk (`src/animation/load-engine.ts:123-124`, `import("./public")`). The demo deploys to gh-pages (`.github/workflows/deploy-pages.yml`; `vite build --mode gh-pages`). A client holding a cached `index.html` across a redeploy requests a chunk hash that no longer exists → 404 → the dynamic import rejects → blank app. This is the ordinary stale-shell failure, not an exotic one, and the swallow at `main.ts:50` is precisely what converts it from "engine unavailable" into "whole app gone".
-
-**The same `throw` is reachable from a second site**, so this is not a one-liner: `useSceneMachineShellBinding.ts:75-77,83-84,92-94` call `kfEngine()` three times inside `bindSceneAdapter()`, i.e. on every scene bind.
-
-**Falsifier.** (a) Show `main.ts` awaits a resolve rather than a settlement — it does not; `.catch(() => undefined)` at `:50` is explicit. (b) Show `App.vue:218-220` runs lazily rather than in setup — it does not; it is a top-level `const` initialiser. (c) Show Vue recovers a throwing root setup and still paints — it does not; a root-component setup throw aborts the render. (d) Show `#app` carries a non-JS fallback the user could act on — `index.html:92-96` says the opposite in prose and in markup. Any one of these kills the row.
-
-**The cheap cure** (recorded, not applied — this lane writes no product source): either let the rejection propagate (fail loudly, keep the invariant honest) or make `currentAnimationGroup` nullable and construct at first bind, which is what **C-M5** independently wants.
-
----
-
-## 2. MAJORS
-
-### C-M1 — `tabsTrigger` is off-contract, and its whole slot chain is dead plumbing · MAJOR
-
-`App.vue:53-59`:
-
-```vue
-<template #tabs-trigger="slotProps">
-    <component :is="sceneRef?.tabsTrigger" v-bind="slotProps" v-if="sceneRef?.tabsTrigger" />
-</template>
+```
+import { oklch as e } from "@mkbabb/value.js/color";
+import { parseCssColor as t } from "@mkbabb/value.js/css";
 ```
 
-Two independent defects, both verified by enumeration.
+The `v-if="isHome"` gate at `App.vue:45` governs the **render**, not the **module edge**. A static import in the root SFC is in the entry chunk by construction.
 
-**(a) `tabsTrigger` is not on the contract and no scene exposes it.** `sceneRef` is typed `shallowRef<SceneExposedApi | null>` (`App.vue:209`). `SceneExposedApi` (`app/scene/sceneExposedApi.ts:16-34`) declares `facility`, `tabsContent`, `ribbonContent`, `headerLeft`, `superKey`, `autoPlays`, `isStarted` — **no `tabsTrigger`**. A whole-tree grep for `tabsTrigger` returns exactly four hits: `App.vue:55`, `App.vue:57`, and two *comments* in `CubeScene.vue:152,156` which state the member was deleted:
+**Proven from the shipped artifact** (`dist/gh-pages/assets/index-B2hcFaCm.js`, 481,421 B, the file `index.html` names as the entry). Counts use *non-renameable string literals*, which survive minification — identifier greps do not, and r2 discarded an earlier identifier-based measurement for exactly that reason:
 
-> "The former `tabsTrigger` function (and its `defineExpose` entry) are therefore DELETED." — `CubeScene.vue:156`
-
-So the `v-if` at `:57` is a compile-time-unknowable, run-time-always-`false` guard, and the property access is a type error that nothing catches (see **C-i1**).
-
-**(b) The slot it fills has no receiver.** The chain, traced hop by hop:
-
-| hop | file:line | shape |
+| marker | provenance | entry chunk |
 |---|---|---|
-| 1 | `App.vue:53` | provides `#tabs-trigger` to `EditorShell` |
-| 2 | `EditorShell.vue:88-90` | forwards into `AnimationControlsGroup` |
-| 3 | `AnimationControlsGroup.vue:38-40` | forwards into `ControlsPaneWrapper` |
-| 4 | `ControlsPaneWrapper.vue:67-75` | forwards into `ChannelControls` |
-| 5 | `ChannelControls.vue` | **no `<slot name="tabs-trigger">` exists** |
+| `#version 300 es` | aurora GLSL source | **3** |
+| `paperGrain` | aurora config key | **6** |
+| `interpolateHue` | `@mkbabb/value.js/color` | **7** |
+| `oklch` / `srgb-linear` / `display-p3` / `prophoto-rgb` | value.js colour-space names | **27 / 1 / 2 / 2** |
+| `css_syntax` | value.js **parser** diagnostic code | **0** (28 in the lazy `css-6ALh6sc4.js`) |
 
-`grep -rn '<slot[^>]*name="tabs-trigger"'` across `demo/` returns exactly two receivers — `AnimationControlsGroup.vue:39` and `EditorShell.vue:89` — both of which are themselves forwarders. The terminal consumer retired it and says so:
+Contrast: every *scene* splits cleanly — `AmigaScene` 7.9 KB, `EasingScene` 9.9 KB, `SquareScene` 9.9 KB, `SequenceScene` 12 KB, `SpringScene` 33.7 KB.
 
-> "the former `tabs-trigger` slot + per-trigger reka injection retire — every tab is data" — `ChannelControls.vue:50`, corroborated at `:226-228`
+**What this does to r1's C-S4.** r1 praised the LIGHT/HEAVY boundary as honoured "at the import level", with the falsifier *"Any static value import from `@mkbabb/keyframes.js` in App's closure that resolves into `./engine`."* **That falsifier is not met and C-S4 survives as written** — App's *kf* import graph genuinely is clean. But the falsifier is scoped to the kf specifier only, and value.js does not arrive that way. It arrives via **glass-ui**. So the property everyone actually cares about — the one `kf-engine.ts:9-10` states outright (*"the one place value.js enters the graph"*) and `src/animation/index.ts:21` restates (*"value.js stays out of a light-only consumer's static import graph"*) — is **false for this consumer**, and `proof:boundary` cannot see it because it inspects the kf edge.
 
-Vue silently discards a slot the child does not declare, so this is invisible at runtime. Net: ~20 lines across 4 files exist to carry nothing, and the head of the chain reads a property that was deleted at the glass-ui 4.0.0 `SegmentedTabs` migration.
+r1's C-M5 identified a *timing* exposure (the boot await gating LCP). C-M6 is a *structural* one: ~202 KB of decorative GPU code plus value.js's colour module are resident in the boot chunk for a layer that renders on one route at opacity ceiling **0.1** (`HeroAurora.vue:46`). They compound; they are not the same defect.
 
-**Why this belongs on the consumption axis.** This is exactly the residue class the census names in **S-1/S-2/F-3**: the demo's tab layer was migrated to glass-ui's data-driven strip, and the *consumer-side* scaffolding of the pre-migration reka `TabsTrigger` injection was never swept. `App.vue` is the top of that scaffolding.
+**Severity MAJOR.**
 
-**Falsifier.** Produce one scene SFC whose `defineExpose` includes `tabsTrigger`, or one `<slot name="tabs-trigger">` in `ChannelControls.vue`. Neither exists in the tree as read. (Marked **UNPROVEN-NEEDS-LIVE** only for the claim that nothing *visibly* regresses — the static kill is proven.)
+**Falsifier** — (a) show rolldown emits `@mkbabb/glass-ui/aurora` as a separate async chunk despite the static edge: the shipped entry contains the GLSL literal, so this is met only by a HEAD rebuild that says otherwise; (b) show the static edge is not there — `App.vue:142` and `HeroAurora.vue:37-41` are both plain `import`. Honest limit: the artifact is dated Jul 16 09:11 and predates HEAD by two commits, so it **corroborates**; the static-edge argument is what **proves**, and it is independent of the artifact.
 
----
+### 2.2 · C-M7 — the cube scene's code-split is dead · **MAJOR**
 
-### C-M2 — `#header-left` is never bridged; `CubeScene.headerLeft` is dead, and three files assert otherwise · MAJOR
+`scenes.ts:143` registers cube as route-lazy:
 
-The contract exists on **three** sides and is bridged on **zero**:
-
-1. **Producer.** `CubeScene.vue:118-144` builds `headerLeft` — a `Popover` hover-card carrying the ppmycota brand mark, a click handler `onClick: setPPMode` (`:123`), the brand link block, and a 4 s auto-dismiss watcher (`:109-114`). It is exposed at `:252`.
-2. **Type.** `sceneExposedApi.ts:24-27` declares `headerLeft?: () => VNode` under the comment "Render-fn slot projections (cross-sibling via defineExpose)".
-3. **Sink.** `EditorShell.vue:16-18` renders `<slot name="header-left"></slot>` inside `HeaderRibbon`, with **no fallback content**.
-
-`App.vue`'s template supplies `#backdrop` (`:45`), `#start-screen` (`:49`), `#tabs-trigger` (`:53`), `#tabs-content` (`:61`), `#ribbon-content` (`:65`), `#target` (`:73`). **`#header-left` is absent.** `grep -rn "header-left\|headerLeft"` over `demo/` returns five hits: `CubeScene.vue:118`, `CubeScene.vue:252`, `sceneExposedApi.ts:6`, `sceneExposedApi.ts:27`, `EditorShell.vue:18`. There is no sixth. The bridge does not exist.
-
-**Two files state, in prose, that it does.** `App.vue:107-110`:
-
-> "The ppmycota brand-mark rules … — a single non-scoped partial is the smallest shared scope for every brand-mark consumer **App.vue mounts (header logo, …)**"
-
-and `styles/brand.css:2-4`:
-
-> "These `.ppmycota-*` rules style the brand mark, which RECURS across three SFCs in the app/ entry (**App.vue header logo**, CubeScene.vue hover-card logo, CubeTarget.vue cube face …)"
-
-The tree has no App.vue header logo. Two of the three named consumers are one and the same dead render-fn.
-
-**Interaction with C-B1.** `setPPMode` (`CubeScene.vue:85-87`) had two entry points: this dead hover-card and `MbabbMenu.togglePpMode`. C-B1 shows the second throws. Together they make pp-mode — a shipped, persisted (`controlOptionsStore.ts:25`), consumed (`CubeTarget.vue:53,84-87,120`) feature — entirely unreachable.
-
-**Falsifier.** Find any `#header-left` / `v-slot:header-left` binding anywhere in the repo (including the playground host), or a `HeaderRibbon` default that renders the mark. Neither exists as read. If a live build shows the ppmycota mark in the header ribbon, this row dies.
-
----
-
-### C-M3 — `HeroAurora` forces `initStrategy: "eager"`, contradicting glass-ui's contract and its own docblock, on the LCP route · MAJOR
-
-`App.vue:45-47` mounts the layer, home-only:
-
-```vue
-<template v-if="isHome" #backdrop><HeroAurora /></template>
+```ts
+component: lazyScene("cube", () => import("../../scenes/cube/CubeScene.vue")),
 ```
 
-`components/instrument/shell/HeroAurora.vue:24-30`:
+`App.vue:155` imports the same SFC **statically**, and `App.vue:283-290` returns before the descriptor is consulted:
 
-```vue
-<Aurora ref="auroraRef" :config="config"
-        :opacity-ceiling="HERO_AURORA_OPACITY_CEILING"
-        :runtime-options="{ initStrategy: 'eager' }"
-        render-mode="auto" />
+```ts
+const activeSceneComponent = computed(() => {
+    if (isHome.value || currentSceneId.value === "cube") return CubeScene;  // static
+    return currentScene.value.component;                                     // async — unreachable for cube
+});
 ```
 
-**The producer contract** (`node_modules/@mkbabb/glass-ui/dist/…/composables/runtime.d.ts:51-56`):
+Consequences, each checkable:
 
-> "When to run expensive GPU initialization. Defaults to `"deferred"`. `mode: "capture"` forces `"eager"` (a capture runtime must be able to `renderAt` synchronously)."
+1. `sceneMap.get("cube").component` (the `defineAsyncComponent`) is **unreachable** — a dead declaration.
+2. `warmScene("cube")` — bound at `App.vue:15`, emitted from `ChromeDock.vue:261` — invokes a loader for a module already in the entry chunk, then swallows the result (`scenes.ts:122`). r1's **C-m6** notes the prefetch window is one hover; for cube the prefetch is worth **nothing at all**.
+3. CubeScene's closure (`MatrixEditor`, `CubeTarget`, `useCubeDemo`, `cubeTransformStore`, glass-ui root-barrel imports at `CubeScene.vue:33-38`) is hoisted into the boot chunk.
+4. The `<Suspense>` at `App.vue:90` — whose 10-line comment (`:74-83`) exists *entirely* to protect the async-loader boundary — wraps a synchronously-resolved component on the default route, so `SceneSkeleton` (`:97`) can never paint for home/cube. This directly weakens r1's **C-m4** framing: the skeleton is not merely un-parameterised, it is unreachable on the landing.
 
-and `Aurora.vue.d.ts` (docblock, lines 14-27):
+**Corroborated by the artifact:** the build emits `AmigaScene-*.js`, `EasingScene-*.js`, `SequenceScene-*.js`, `SpringScene-*.js`, `SquareScene-*.js` — and **no `CubeScene-*.js`**; `useCubeDemo` greps into the entry chunk.
 
-> "**Lazy-arm: by default GPU initialization is deferred past the consumer's first paint.** … **Capture / thumbnail-baking consumers** pass `runtimeOptions.initStrategy: "eager"` … then await `armAsync()` before reading a deterministic frame."
+If the static import is *deliberate* (home renders CubeScene as its backdrop; a Suspense flash on the landing would be ugly), then the defect is the **unretired lazy declaration** — `lazyScene("cube", …)` plus its warm registration are legacy beside the replacement, which the standing `feedback_no_backwards_compat` law forbids. Either shape is defensible; both together are not.
 
-HeroAurora is not a capture consumer. It never calls `armAsync()`. It has no comment justifying the override.
+**Severity MAJOR.** **Falsifier** — show any path evaluating `currentScene.value.component` for `id === "cube"` (lines 284 and 288 both return first), or a `CubeScene-*.js` chunk in a HEAD build.
 
-**The file contradicts itself.** Its own docblock, `HeroAurora.vue:6-8`, sells the very behaviour the prop cancels:
+### 2.3 · C-M8 — three nested `TooltipProvider`s, and the one HEAD just added ships reka's 700 ms defaults · **MAJOR**
 
-> "Aurora owns the rAF-coalescing, the PRM-safe CSS-gradient substrate (renderMode "auto"), the decorative DPR budget, and **the lazy WebGL arm past first paint**."
+`App.vue:3`, added by **this very HEAD commit** (`8281638c`, *"provide tooltip context for the routed control group"*):
 
-Eighteen lines later the template forces the arm eager. Both cannot be true.
+```html
+<TooltipProvider>          <!-- no props -->
+```
 
-**Why the route matters.** This layer mounts *only* on home (`App.vue:45`), and home is the route `index.html:37-41` identifies as carrying the LCP element ("the hero `<h1 class="text-display-4">` (EditorStartScreen.vue) is the LCP element"). So the one route with the tightest paint budget is the one that pays for immediate GPU context acquisition + shader compile, competing with the boot chain in **C-M5**. Aurora's own `render-mode="auto"` already ships a zero-JS, zero-GPU palette ground for frame 0 (`Aurora.vue.d.ts:14-22`) — the deferred arm cross-fades into it. `eager` throws that away for a layer whose opacity ceiling is **0.1** (`HeroAurora.vue:46`), i.e. a wash the user can barely see.
+`node_modules/reka-ui/dist/Tooltip/TooltipProvider.js:12-20` — the defaults it inherits:
 
-**Falsifier.** (a) Show glass-ui 7.0.0 documents `eager` as the recommended hero setting — the installed `.d.ts` says the opposite, twice. (b) Show `armAsync()` is awaited somewhere so the eager arm is load-bearing — `grep armAsync demo/` returns nothing. (c) A live trace showing no LCP/TBT delta between `eager` and the default would demote this to MINOR; that measurement is **UNPROVEN-NEEDS-LIVE** and belongs to the SS-13 pass. The *contract* violation and the *self-contradiction* are proven statically and stand regardless.
+```
+delayDuration:     default: 700
+skipDelayDuration: default: 300
+```
 
----
+Inside that subtree, two more providers mount with a different register:
 
-### C-M4 — the "SINGLE source" surface registry exists twice, and App reads one copy while its dock reads the other · MAJOR
+- `AnimationControlsGroup.vue:2` — `:delay-duration="100" :skip-delay-duration="0"`
+- `ChannelControls.vue:2` — `:delay-duration="100" :skip-delay-duration="0"`
 
-Two modules define the same four things:
+reka's provider is `createContext("TooltipProvider")` + `provide`; an inner provider **shadows** the outer for its subtree — the contexts do not merge.
 
-| symbol | copy A | copy B |
+Consequences in one visual chrome band:
+
+- `EditorShell.vue:30-43` — the "Keyboard shortcuts (?)" `<Tooltip>` sits in the `HeaderRibbon`, under **App's** provider → **700 ms**, skip-grace 300 ms.
+- Every transport tooltip → **100 ms**, skip-grace 0 ms.
+
+A **7× hover-latency split** across adjacent chrome, plus a `skipDelayDuration` grace fragmented across three provider instances: moving from a transport control to the header button re-incurs the full 700 ms rather than opening instantly. Policy knobs (`disableHoverableContent`, `ignoreNonKeyboardFocus`) are now settable in three places.
+
+The fix commit correctly diagnosed a missing context and correctly reached for the `/tooltip` subpath — it simply landed the provider without matching the register the demo had already standardised twice.
+
+**Severity MAJOR.** **Falsifier** — show reka's `TooltipProvider` inherits an ancestor's `delayDuration` (source: it calls `provideTooltipProviderContext` unconditionally from its own `toRefs(props)`); **or** show no `<Tooltip>` renders between App's provider and the inner ones (`EditorShell.vue:30` does).
+
+*Note on identity, raised and self-falsified:* `TooltipProvider` is reached through **two** specifiers — `/tooltip` at `App.vue:145`, the root barrel at `AnimationControlsGroup.vue:124` and `ChannelControls.vue:219`. This is **not** a duplicate-context bug: `dist/tooltip.js` is 161 bytes re-exporting `./tooltip-OxciiZm6.js`, the same chunk the root barrel consumes, and the context symbol originates in `reka-ui` (a single peer instance). Only the nesting is a defect.
+
+### 2.4 · C-m7 — the `controlSurfaces` comment is a trap · MINOR
+
+`App.vue:203-207`:
+
+```ts
+// … the active scene's valid BUILT-IN editor triad ({controls,keyframes,timeline}
+// subset). … then unions the machine-projected `extraControlTabs` (below).
+const controlSurfaces = computed(() => machine.controlSurfaces.value);
+```
+
+`useSceneMachine.ts:308` is an identity read of `activeSurfaces`, which App itself fed via `setActiveSurfaces` (`App.vue:256`) as `surfacesFor(...)` — `base triad ∪ channel facets ∪ facility facets` (`controlSurfaces.ts:107-119`). It is the **full** derived set.
+
+This matters because `App.vue:35` binds `:has-control-surfaces="controlSurfaces.length > 0"`, and `EditorShell.vue:161` documents that prop as *"`false` collapses the [rail] track + hides the pane wrapper (the ghost-rail kill)"*. For easing the set is `["easing"]`, for spring `["spring", …]` — non-empty, so the rail survives. **The binding is correct only because the comment is wrong.** Anyone who "corrects" App to match its own prose (filter to `BUILT_IN_SURFACES`) makes easing's set `[]` and kills the rail on the very scene whose identity surface it is.
+
+**Severity MINOR** (documentation; no live defect — a loaded one). **Falsifier** — show a filter between `setActiveSurfaces` and the projection. There is none; `:308` is `readonly(computed(() => activeSurfaces.value))`.
+
+### 2.5 · C-m8 — `PAPER_WASH_GROUND` overrides 11 of 30 authored knobs; the comment denies it · MINOR
+
+`HeroAurora.vue:62-73`:
+
+```ts
+const config = { ...resolveAtoms({ seed:"#7c5ce6", …, colorEnergy:0.18, … }), ...PAPER_WASH_GROUND };
+```
+
+Spread order means **the wash wins**. Measured by executing the installed library against exactly the authored atoms:
+
+| key | atoms | → wash |
 |---|---|---|
-| `ControlSurfaceTab` | `state/controlSurfaces.ts:134-138` | `components/instrument/surfaceTabs.ts:6-10` |
-| `SURFACE_META` | `state/controlSurfaces.ts:145-160` | `components/instrument/surfaceTabs.ts:12-19` |
-| `extraTabsFrom` | `state/controlSurfaces.ts:189-195` | `components/instrument/surfaceTabs.ts:21-23` |
-| `dockCardinality` | `state/controlSurfaces.ts:278-309` | `components/instrument/surfaceTabs.ts:25-40` |
+| `medium` | `"smooth"` | `"crayon"` |
+| `strokeAmount` | `0` | `0.35` |
+| `granulation` | `0` | `0.3` |
+| `canvasGrain` | `0` | `0.5` |
+| `strokeAnisotropy` | `0.7` | `0.5` |
+| `saturation` | `0.913` | `0.92` |
+| `strokeLayers`, `wetEdge`, `impasto`, `brokenColor`, `paperGrain` | — | (equal) |
 
-`surfaceTabs.ts` is 41 lines and imports *only* `BUILT_IN_SURFACES` + `ControlSurface` from copy A (`:1-4`). It is a **re-implementation**, not a re-export.
+Against `HeroAurora.vue:60-61`: *"Field atoms are the P-HERO blessed values verbatim; **ONLY the opacity ceiling moved** (the amendment's named lever)."* **False by measurement** — 11 of 30 keys move, six materially.
 
-**App straddles both.** `App.vue:264`:
+Sub-finding: `colorEnergy` moves exactly four outputs (`palette`, `valueVariance`, `breathDepth`, `saturation`); of those, `saturation` is hard-overwritten, so a quarter of the knob's authored effect is inert at this site.
 
-```ts
-const extraControlTabs = computed(() => machine.extraControlTabs());
-```
-→ `useSceneMachine.ts:317-318` → `extraTabsFrom` from `./controlSurfaces` → **copy A's `SURFACE_META`**.
+**Severity MINOR** — the crayon/paper character *is* the stated intent ("paper-on-tooth"), so the render is plausibly wanted; the defect is that the code contradicts the comment and the atoms door is paid for and half discarded. **Falsifier** — a spec pinning these 11 to the wash deliberately; then the defect narrows to `HeroAurora.vue:60-61` alone.
 
-Meanwhile the component App feeds it to, `ChromeDock.vue:18-21,49-50`:
+*Self-falsified alongside it:* r2 suspected the wash clobbers the seed-derived palette. It does not — its 12 keys are all medium/stroke/grain; `palette` and `nuclei` are untouched.
 
-```ts
-import { SURFACE_META, dockCardinality } from "@components/instrument/surfaceTabs";
-const BUILT_IN_CONTROL_TABS = BUILT_IN_SURFACES.map((s) => SURFACE_META[s]);
-```
-→ **copy B's `SURFACE_META`** for the built-in triad, and copy B's `dockCardinality` for the elision decision (`:126-134`).
+### 2.6 · C-m9 — a test-only attribute is written in production · MINOR
 
-So a single rendered dock row (`ChromeDock.vue:95-101`, `[...builtIn, ...props.extraControlTabs]`) is assembled from **two independent label/icon registries**.
-
-**This falsifies two written invariants.** `controlSurfaces.ts:122-129`:
-
-> "the surface→{label,icon} map existed THREE times … three hand-synced copies of one fact. **This is the SINGLE source**: both docks and the in-panel strip derive their tab descriptors from it"
-
-and `:140-144`:
-
-> "**THE ONE SURFACE-METADATA REGISTRY.** … both docks and the in-panel strip resolve every tab's `{label,icon}` from HERE (**`proof:dfa-derived`'s "resolves from exactly ONE module" clause**)."
-
-Three copies were collapsed to two, and the prose was written as if it were one. `TransportDock.vue:237` is the second consumer of copy B, so the split is not incidental.
-
-**Contradiction with the hitherto corpus, stated explicitly.** lane-frontend **F-5** records "One **dead** backwards-compat re-export shim (**0 consumers**)". Whatever file that id names, `components/instrument/surfaceTabs.ts` is a **different animal**: it has **two** consumers (`ChromeDock.vue:21`, `TransportDock.vue:237`), and it is a duplicate **definition**, not a re-export. F-5 as written does not cover it. This row supersedes/extends F-5 for this file.
-
-**Failure mode.** Today the two copies are byte-equivalent in behaviour — `SURFACE_META` values and `dockCardinality` logic match — so there is **no live divergence**, which is exactly why it is MAJOR and not BLOCKER. The defect is that a one-line label edit in copy A (e.g. the T.E8 "Curve"/"Physics" recut recorded at `controlSurfaces.ts:149-152`) changes the *extra* tabs and leaves the *built-in* triad stale, in the same dropdown, with no gate to notice.
-
-**Falsifier.** Show `surfaceTabs.ts` re-exports rather than redefines (it does not — `:12` is a fresh object literal, `:25` a fresh function body), or show `ChromeDock`/`TransportDock` import `SURFACE_META` from `@state` (they do not). Or find a running gate that asserts single-module resolution — `proof:dfa-derived` runs only in the nightly demo roster (see **C-i1**), never on the merge path.
-
----
-
-### C-M5 — App's synchronous group construction pulls value.js onto the critical boot path and gates the LCP element · MAJOR
-
-The library goes to considerable trouble to keep value.js off the static graph. `src/animation/index.ts:1-25` is explicit:
-
-> "LIGHT (static) … A consumer that imports only these pulls neither Value's parser/color graph nor Keyframes' heavy engine. HEAVY (dynamic) — `AnimationGroup` … genuinely need value.js … reached ONLY through `loadAnimationEngine()`."
-
-App honours the **static** half perfectly (see **C-S4**). It defeats the **behavioural** half.
-
-The chain:
-
-1. `App.vue:218-220` constructs an `AnimationGroup` **synchronously in setup**.
-2. Because of (1), `kf-engine.ts:14-20` must warm the heavy chunk before mount — the file says so in its own words: "threading `async` through that reconcile … would ripple nullability through the whole control suite. Instead `main.ts` WARMS the engine before the app mounts."
-3. `main.ts:50-54` therefore gates `app.mount("#app")` on `Promise.all([warmKfEngine(), fontsDecoded])`.
-4. `index.html:37-41` identifies the LCP element as the hero `<h1>` in `EditorStartScreen.vue` — a **Vue-rendered** node.
-5. `index.html:92-96` ships `<div id="app"></div>` with an explicit "No splash".
-
-Therefore: **the LCP element cannot paint until the value.js-bearing engine chunk has been fetched, parsed and evaluated**, plus up to 1.5 s of font-decode race (`main.ts:45-48`). `kf-engine.ts:23-25` acknowledges the shape and then asserts the mitigation:
-
-> "The first-paint skeleton + critical CSS are JS-independent (criticalCSSPlugin inlines them), so this boot await does not block the visual first paint."
-
-That claim is about **first paint (FCP)**, and it is true. It is silently applied to **LCP**, where it is false — the LCP candidate is `EditorStartScreen`'s `<h1>`, and there is no splash for it to be. The gate `proof:boundary` stays green throughout, because it inspects the *static* import graph, which is genuinely clean. The measurement the boundary exists to protect is defeated anyway.
-
-**The App-side root.** This is not a `main.ts` bug; `main.ts` is doing the only thing it can given `App.vue:218-220`. The consumption decision that costs the boot is App's: a non-null `AnimationGroup` at setup. The alternative shapes are visible in the tree — `useSceneMachineShellBinding.ts:74-94` already re-assigns the group on every bind, so App's initial value is a placeholder that lives for one tick.
-
-**Cross-reference.** This is the same failure family as value.js's own **Q14** LCP escalation (eager-WebGL-blob boot blocker) recorded in the tranche memory, and it compounds with **C-M3**, which additionally forces GPU acquisition on the same route.
-
-**Falsifier.** (a) Show `criticalCSSPlugin` inlines a *content* element large enough to be the LCP candidate — `index.html:92-95` says the opposite and names the intent ("nothing to content-swap"). (b) Show `EditorStartScreen`'s `<h1>` is not the LCP element — `index.html:37-41` asserts it is, in the repo's own words. (c) A live trace showing LCP unaffected by the boot await would kill this row; that measurement is **UNPROVEN-NEEDS-LIVE** (SS-13). The static chain 1→5 is proven.
-
----
-
-## 3. MINORS
-
-### C-m1 — `readonly ControlSurface[]` handed to a mutable `string[]` prop · MINOR
-
-`App.vue:207` `const controlSurfaces = computed(() => machine.controlSurfaces.value);`
-
-`useSceneMachine.ts:308` produces `readonly(computed<ControlSurface[]>(...))`. Vue's signature is `readonly<T extends object>(target: T): DeepReadonly<UnwrapNestedRefs<T>>` (`@vue/reactivity.d.ts:115`), and `DeepReadonly`'s ref arm (`:83`) maps `Ref<U>` → `Readonly<Ref<DeepReadonly<U>>>`; `DeepReadonly<ControlSurface[]>` resolves through the mapped-object arm (`:83-85`) to `readonly ControlSurface[]`. So App's computed is `ComputedRef<readonly ControlSurface[]>`.
-
-It is bound at `App.vue:11` to `ChromeDock.vue:71`'s `controlSurfaces?: string[]` — mutable. `readonly T[]` is not assignable to `T[]`.
-
-No runtime consequence: `ChromeDock.vue:98` only calls `.includes`. The defect is that the mutation boundary `useSceneMachine.ts:12-13` builds ("exports ONLY `dispatch()` + READONLY refs") is discarded at the prop edge, and the type system is never asked (see **C-i1**).
-
-**Falsifier.** Run `vue-tsc --noEmit` over `demo/`. If `App.vue:11` reports no `TS2322`, this row dies. (Marked PLAUSIBLE rather than CONFIRMED for exactly that reason — the repo ships no vue-tsc to run.)
-
-### C-m2 — `storedControls` is a `computed` whose getter mutates persisted storage · MINOR
-
-`App.vue:229`:
+`useSceneTransition.ts:76-83` — the window hook is DEV-gated, the DOM write is not:
 
 ```ts
-const storedControls = computed(() => getStoredAnimationGroupControlOptions(currentSuperKey.value));
+if (import.meta.env.DEV && typeof window !== "undefined") {
+    (window as …).__lastVtTypes = types;                              // gated ✓
+}
+sceneHost.value?.setAttribute("data-last-vt-type", types[0] ?? "");   // ungated ✗
 ```
 
-`getStoredAnimationGroupControlOptions` is **not** a pure read. `controlOptionsStore.ts:76-84` creates and writes the bucket when absent (`structuredClone` + `defaultControlSurfaceFor`), and `:92-94` back-fills `controls.keyframeControls ??= …` on legacy buckets — both writes land in a `useStorage` ref, i.e. reactive state *and* `localStorage`. A computed getter that writes a dependency it also reads is the canonical Vue anti-pattern; here it self-invalidates on first evaluation for a fresh scene key and converges on the second.
+Every scene nav mutates gate instrumentation on the element carrying `view-transition-name: scene-subject` (`App.vue:358`) — i.e. the one element under compositor scrutiny during the transition — in shipped builds.
 
-App then uses the computed as a **write channel** — `App.vue:16`:
+**Severity MINOR.** **Falsifier** — a runtime gate or e2e spec reading `data-last-vt-type` against a **production** build; then it is a shipped contract, not leakage.
 
-```
-@toggle-controls-panel="storedControls.isControlsPanelOpen = !storedControls.isControlsPanelOpen"
-```
+### 2.7 · C-m10 — a shadow *composable* beside the shadow components · MINOR, unsettled
 
-That works (the computed yields an object; the write goes to the object, not the computed), but it means the panel-open state, the surface pick (`App.vue:307-310`), and the animation selection all mutate through a value whose *production* has side effects.
+`HeroAurora.vue:86-110` hand-rolls pointermove normalisation + `pointerleave` teardown. `@mkbabb/glass-ui/aurora` exports **`useCursorInteraction`** (`dist/components/aurora/index.d.ts`) whose documented job is *"Wires pointer events on the stage element to (a) continuous cursor swirl"* against the same `setCursor`/`clearCursor` API HeroAurora calls. `HeroAurora.vue:5` cites *"proof:no-hand-rolled-cursor-tracker stands guard"* twenty lines above a hand-rolled cursor tracker.
 
-**Falsifier.** Show `getStoredAnimationGroupControlOptions` is side-effect-free — `controlOptionsStore.ts:76-94` has two unconditional-on-miss writes. Or show Vue permits writes in computed getters as a supported pattern — it does not.
+This is the S-1..S-8 shadow class extended from components to composables — the census did not enumerate composables.
 
-### C-m3 — `AnimationGroup<any>` is the app's central prop type · MINOR
-
-`App.vue:218` `shallowRef<AnimationGroup<any>>`, threaded to `EditorShell.vue:137` `animationGroup: AnimationGroup<any>` and `useSceneMachineShellBinding.ts:28`. The `any` is load-bearing, not lazy: `AnimationGroup`'s only constructor is variadic over children (`src/animation/group/group.ts:118`), so `new AnimationGroup()` leaves `V extends Vars` unresolved and there is no `AnimationGroup.empty()` / `AnimationGroup<never>` door on the published `AnimationEngine` surface (`src/animation/load-engine.ts:67-112`). The consumer pays with an `any` that erases `Vars` typing across the entire transport contract.
-
-Recorded as much a **library-API gap** as a consumer defect — the honest producer ask is a typed empty-group constructor.
-
-**Falsifier.** Point at an existing typed empty-group entry on `AnimationEngine`. `load-engine.ts:67-112` enumerates 45 members; none is one.
-
-### C-m4 — `SceneSkeleton`'s `label` prop is dead API; folds census **S-6** · MINOR
-
-`App.skeleton.vue:18-24` declares `label?: string` with default `"Loading scene"`, bound at `:32` to `aria-label`. Its **sole** consumer is `App.vue:97` `<SceneSkeleton />` — no prop passed. `grep -rn "SceneSkeleton\|App.skeleton"` over `demo/` returns three hits, all of them App's import, App's mount, and the file's own docblock. The prop has never been exercised.
-
-Folds lane-frontend **S-6** (`App.skeleton` → glass-ui `Skeleton`, AMBER, 101 lines). Confirmed against the installed artifact: `node_modules/@mkbabb/glass-ui/dist/index.d.ts:20` re-exports `./components/skeleton`, and `dist/components/skeleton/index.d.ts` exports `Skeleton` — so the census's "root-reachable" note is correct at 7.0.0. Two additional consumption notes the census did not carry: (a) the shimmer is a hand-written CSS `@keyframes` (`App.skeleton.vue:85-92`) inside the **keyframes.js** demo, and (b) it duplicates a `prefers-reduced-motion` degrade (`:95-100`) that glass-ui's own components already own.
-
-**Falsifier.** Find a second `<SceneSkeleton>` mount that passes `label`, or show `Skeleton` absent from glass-ui 7.0.0's root barrel. Neither holds.
-
-### C-m5 — `EditorHeader.vue` has zero consumers but rides the barrel App imports · MINOR
-
-`App.vue:138` `import { EditorShell, EditorStartScreen } from "@components/instrument/shell";` pulls `shell/index.ts`, which re-exports four components (`:1-4`). `EditorHeader` (`:2`, 108 lines) has **no consumer anywhere**: `grep -rn "EditorHeader" demo/` returns exactly one hit — the barrel line itself. It statically imports `SharePopover`, `DarkModeToggle` from `@mkbabb/glass-ui/dark-mode-toggle`, and `useTimeoutFn` (`:43-46`), and carries a `<style scoped>` block (`:87`).
-
-**Falsifier / honest limit.** The *dead-export* fact is proven by enumeration. Whether the module (and its scoped CSS side effect) survives into the shipped bundle is **UNPROVEN-NEEDS-BUILD**: build `npm run gh-pages` and grep the emitted CSS for `EditorHeader`'s scoped hash. If absent, the row demotes to a pure hygiene note; the dead export stands either way.
-
-### C-m6 — `warmScene` is only reachable from inside the already-open dropdown · MINOR
-
-`App.vue:15` binds `@warm-scene="warmScene"` (`scenes.ts:118-123`, the S5 prefetch). `ChromeDock` emits it from exactly one place — `ChromeDock.vue:261`, `@pointerenter` on a `SelectItem` **inside `SelectContent`**. That content only exists once the scene `<Select>` is open. So the warm fires on the hover that immediately precedes the click, not on approach: the prefetch window is one hover-to-click interval (~100-300 ms), not the dropdown-open interval.
-
-The obvious wider surfaces are unwired: the collapsed dock pill (`ChromeDock.vue:363-366`) and the expanded `DockTrigger` (`:241-245`) emit nothing.
-
-**Falsifier.** Show a second `emit('warmScene', …)` site — `grep -n "warmScene" demo/app/dock/ChromeDock.vue` returns `:152` (the declaration) and `:261` only. A live measurement showing the hover interval already covers the chunk fetch would demote this to INFO; **UNPROVEN-NEEDS-LIVE**.
+**Severity MINOR, and explicitly unsettled.** **Falsifier — and r2 believes it may well be met:** `useCursorInteraction(stageRef, configSource, options)` takes a **stage element** (HeroAurora deliberately uses viewport-normalised coordinates with *zero* layout reads, the T-CL-3 recurrence guard at `HeroAurora.vue:76-82`) and additionally performs **nuclei CRUD** — alt-click spawn, shift-click remove, drag, delete key — which a decorative `aria-hidden` backdrop must not expose. If both hold, this reclassifies to **justified bespoke**, the S-8 `TypingDots` verdict, and the only residue is the ironic comment at `:5`. r2 could not settle it from the `.d.ts` alone and declines to claim more.
 
 ---
 
-## 4. INFO
+## 3. Superlatives — L-18 runs both ways
 
-### C-i1 — nothing type-checks this component
+r1's five, re-verified, with one scope correction; plus one new.
 
-`.github/workflows/ci.yml:42` runs `npm run check:lib`, which is `tsc --noEmit -p tsconfig.lib.json` — and `tsconfig.lib.json:1-13` narrows `include` to `["src/"]`, with the comment "**never the demo**". `tsconfig.json:52` does include `demo/`, but `npm run check` is not on any workflow. And `tsc` cannot read `.vue` templates or SFC script blocks at all; `grep -rn "vue-tsc" .` returns nothing — the tool is neither a dependency nor a script.
+**C-S1 · the bare-`<Suspense>` discipline, documented with the exact break it prevents** (r1, upheld). `App.vue:73-99` + `useSceneSwap.ts:17-30`: bare keyed `<Suspense>`, no wrapping `<Transition>`/`<KeepAlive>`, fade on a **sibling** div — and the comment records the falsification that produced the rule ("amiga/square/easing/spring shipped a BLANK viewport, B.W3's headline blocker"), restated independently in the sibling composable. *Falsifier* — a wrapper at `App.vue:90` (none) or the fade driven from a wrapper (`:84-89` is the sibling). **r2 caveat:** C-M7 shows the boundary this protects is bypassed for the default route.
 
-Consequence: **C-B1** (`stored.value` on a non-ref), **C-M1** (`sceneRef.tabsTrigger` off-contract), and **C-m1** (readonly→mutable) are all plain type errors that no gate in this repo can see. The demo-roster gates that *would* catch behavioural drift (`proof:app-is-shell`, `proof:dfa-derived`) run only under `schedule:`/`workflow_dispatch` (`ci.yml:50-52`) and are explicitly non-blocking ("it does not block library merges", `ci.yml:44-46`).
+**C-S2 · the demo dogfoods kf's own `viewTransition`, not glass-ui's** (r1, upheld). `useSceneTransition.ts:2` imports `viewTransition` from `@mkbabb/keyframes.js` — the LIGHT barrel — while the neighbouring `useSceneSwap.ts:2` correctly takes only *feature detection* from `@mkbabb/glass-ui/motion-core`. Call shape matches the producer (mutate first, `{ types }` second, omitted when empty). The a11y follow-through is real: `finished.finally(() => sceneHost.value?.focus())` against a `tabindex="-1"` host whose ring is suppressed (`App.vue:384-386`). kf owns the dispatch, glass-ui owns the look — the correct division, written down at `App.vue:112-121`.
 
-This is context, not a defect of App — but it is the reason the defects above are *shipped* rather than *caught*.
+**C-S3 · `HeroAurora`'s `/aurora` consumption is symbol-exact and layout-read-free** (r1, upheld with qualification). r2 re-verified all five symbols/props against the installed `.d.ts` (`Aurora`, `PAPER_WASH_GROUND`, `resolveAtoms`, the four props, the exposed `setCursor`/`clearCursor`) — every one present, no fork, no `getBoundingClientRect` in the pointer path, `@vueuse` scope-managed listeners, mouse-only gating. **Qualified by r2's C-m8 and C-m10**: the symbol usage is exact; the *configuration* silently discards 11 authored knobs, and a published composable is reimplemented. The praise narrows to "the API surface is consumed correctly", which is still true and still rare.
 
-### C-i2 — the R1 value.js parser-crash class is not reachable from App's own calls
+**C-S4 · the LIGHT/HEAVY static boundary is honoured *at the kf import level*** (r1 — **scope-corrected by r2**). r1's enumeration holds exactly: `App.vue:147` is type-only under `verbatimModuleSyntax`; every runtime reach for the heavy surface goes through `kfEngine()`; the closure's only static barrel value-imports are `viewTransition` and `SpringProgress`, both LIGHT. r1's falsifier is not met and **the row survives**. What r2 adds is the boundary of the boundary: this says nothing about value.js, which enters statically through **glass-ui** (C-M6), and `proof:boundary` — which inspects the kf edge — cannot see it. Kept as a superlative with its scope made explicit, because the discipline it praises is real and worth not losing in the correction.
 
-Recorded so the fleet does not double-count. keyframes.js pins `@mkbabb/value.js@4.0.0` (`package.json:69`), the version carrying the R1 `parseCssColor("oklch()")` shipping crash. App.vue touches the value.js-bearing surface exactly once — `new (kfEngine().AnimationGroup)()` (`:218-220`) — and `AnimationGroup`'s constructor with **zero** arguments performs no parsing: `src/animation/group/group.ts:118-163` iterates an empty `inputs`, leaves `transform` at `NOOP_TRANSFORM`, and calls `invalidateEntries()`. No color string, no CSS text, no `parseCssColor` reaches value.js from this file.
+**C-S5 · the glass-ui boundary in the shell is clean** (r1, upheld). Zero `reka-ui` imports and zero local `ui/` shadcn copies across App's closure; every primitive from glass-ui by subpath or barrel. r2 counted repo-wide: **45 subpath imports vs 31 root-barrel** — no settled convention, and App's closure mixes registers (`ChromeDock.vue:28` `Select*`, `EditorShell.vue:124` `Button`, `MbabbMenu.vue:82` `Avatar*`/`DropdownMenu*`, all with subpaths available). r2 **declines to raise that as a defect**: glass-ui declares `"sideEffects": ["*.css"]` and its subpaths are pure re-exports of shared chunks, so the barrel is fully tree-shakeable and both specifiers resolve to one module. The residue is legibility, not weight or identity — recorded here rather than as a row. Confirms census **F-6** for the App subtree.
 
-App's genuine value.js exposure is *timing*, not *parsing* — see **C-M5**. The R1 crash surface, where it exists, belongs to the scene/keyframe-editor components, not to the shell.
+**C-S6 · the control-surface derivation has exactly one writer** (**r2 NEW**). `App.vue:248-256` is the only place the mounted scene's live `facility` and the user's channel selection are *both* visible, and it feeds **one** set to the machine; three consumers then read that one projection (`ChromeDock`'s triad filter at `:95-101`, its extra tabs, and `ChannelControls.hasSurface` at `:298`). The home↔cube split is an explicit branch with its reason (`App.vue:249`), not a table row. Replacing a hand-maintained per-scene exclusion table with a derivation off the live facility is the correct direction and it landed — `surfacesFor` (`controlSurfaces.ts:95-120`) is pure, structurally typed to avoid the state→app-scene cycle, and dedup-stable. *Falsifier* — a second call site of `setActiveSurfaces`. There is one.
 
 ---
 
-## 5. SUPERLATIVES — L-18 runs both ways
+## 4. Extension to census F-1 (not counted as an App row — r1's scoping upheld)
 
-Each of these is a consumption decision this component gets *right*, and each carries the observation that would kill the praise.
+r1 correctly declined to charge F-1 to App. r2 upholds that and contributes the piece the lane inferred but never executed.
 
-### C-S1 — the bare-`<Suspense>` discipline, documented with the exact break it prevents
+Re-confirmed at HEAD: `@mkbabb/glass-ui` is **absent from `package.json`**, appears **0 times in `package-lock.json`**, and sits installed at **7.0.0** — note that HEAD's parent `a59d3a22` is titled *"consume Glass UI **6** from one registry core"*, so the declared intent and the installed major already disagree. `.npmrc` carries `legacy-peer-deps=true`, so peer conflicts are silent.
 
-`App.vue:73-99` + `useSceneSwap.ts:17-25`. The scene host is a **bare** keyed `<Suspense>` with no wrapping `<Transition>` and no `<KeepAlive>`, and the cross-dissolve rides `:style="sceneSwapStyle"` on a **sibling** `<div>`. The comment does not merely assert a rule — it records the falsification that produced it:
+**New evidence.** lane-frontend.md:569 reasons that "the resolution graph is intact only by accident of the current `node_modules` state". r2 executed it:
 
-> "wrapping a keyed `<Suspense>` over a `defineAsyncComponent` never triggered the chunk fetch — amiga/square/easing/spring shipped a BLANK viewport, B.W3's headline blocker" (`App.vue:78-81`)
+```
+$ node --input-type=module -e "await import('@mkbabb/glass-ui')"
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@mkbabb/keyframes.js'
+  imported from …/node_modules/@mkbabb/glass-ui/dist/useSpring-BCHxLjwv.js
+```
 
-and the sibling composable independently re-states the same mechanism (`useSceneSwap.ts:17-25`). Two files, one root cause, one structural cure, and the cure is placed where it cannot be undone by accident. This is what a load-bearing consumption constraint should look like.
+glass-ui 7.0.0 declares `"@mkbabb/keyframes.js": "^6.0.0"` as a **peer**; keyframes.js does not install itself into its own `node_modules`, so glass-ui's bare specifier resolves **only** through the Vite self-alias (`vite.config.ts:39-42`, whose own comment documents it as a deliberate override of contract-v2's no-self-alias rule). So App's design-system consumption rests on two accidents: an undeclared, unlocked tree that `npm ci` cannot reproduce, **and** a bundler-only alias no other toolchain inherits (node, a bare vitest config, any prerender step, a `npm pack` consumer smoke).
 
-**Falsifier.** Show a `<Transition>` or `<KeepAlive>` around the `<Suspense>` at `App.vue:90` (there is none), or show the fade driven from a wrapper rather than the sibling `.scene-host` (`:84-89` is the sibling).
+Consequence for this lane: **every consumption claim about App is unfalsifiable-by-reinstall until F-1 lands.** That is why it heads the repair order.
 
-### C-S2 — the demo dogfoods kf's own `viewTransition` rather than glass-ui's
+---
 
-`useSceneTransition.ts:2` imports `viewTransition` from `@mkbabb/keyframes.js`, not `startViewTransition` from `@mkbabb/glass-ui` — even though the latter is right there in the root barrel (`glass-ui/dist/index.d.ts:31`) and the neighbouring `useSceneSwap.ts:2` uses glass-ui's `supportsViewTransitions` for feature detection. The demo's most-visible motion is driven by the library under test.
+## 5. Falsified suspicions (recorded so the fleet does not re-litigate)
 
-The call shape is correct against the producer: `src/animation/index.ts:116-125` publishes `viewTransition` on the **LIGHT** barrel ("composes `flipShared` + the ONE `withReducedMotion` gate; feature-detects `startViewTransition`; no parser/color edge"), and `useSceneTransition.ts:85-88` calls it as `viewTransition(mutate, { types })` — mutate first, options second — exactly as the barrel documents, with `types` omitted when empty so the untyped cross-fade is the graceful degrade.
+**N-1 · the R1 `parseCssColor` crash class is real, and is NOT on App's path** — extends r1's **C-i2** with execution. Against the value.js 4.0.0 installed under keyframes.js:
 
-The a11y follow-through is real too: `finished.finally(() => sceneHost.value?.focus())` (`:89-91`) against a `tabindex="-1"` host (`App.vue:86`) whose focus ring is suppressed (`:384-386`) — a focus move for AT without a stray outline. This is the correct division: kf owns the *dispatch*, glass-ui owns the *look* (`App.vue:112-121`).
+```
+parseCssColor("oklch()")             → TypeError: Cannot read properties of undefined (reading 'replace')
+parseCssColor("lch()")               → TypeError: (same)
+parseCssColor("oklch")               → {ok:false, diagnostics:[{code:"css_syntax", …}]}   ← the contract
+parseCssColor("oklch(0.7)")          → {ok:false, diagnostics:[{code:"css_syntax", …}]}   ← the contract
+parseCssColor("oklch(0.7 0.15 295)") → {ok:true, …}
+```
 
-**Falsifier.** Show `viewTransition` is not on the LIGHT barrel (it is, `index.ts:116`), or that the demo carries its own `::view-transition-*` CSS after all — `App.vue:113-121` claims it does not, and no such rule appears in the scoped block at `:350-386`.
+So R1 is worse than a crash: it violates the API's **own Result contract**, which returns diagnostics for every *other* malformed input. But it is not App's. The parser's non-renameable literal `css_syntax` is **0×** in the boot chunk and **28×** only in the lazily-loaded `css-6ALh6sc4.js`. r1's mechanism (`new AnimationGroup()` parses nothing) and r2's mechanism (the parser module is not in the entry) agree from different directions. What *does* ride the entry is value.js's **colour** module — that is C-M6, a different exposure. Direct `parseCssColor` consumers exist elsewhere (`scenes/square/useSquareTumble.ts:2`) but square is genuinely route-lazy and outside App's closure.
 
-### C-S3 — `HeroAurora`'s glass-ui `/aurora` consumption is exact, forked nowhere, and layout-read-free
+**N-2 · `:has-control-surfaces` does not kill the easing/spring rail** — suspected from `App.vue:203-206`; falsified by `useSceneMachine.ts:308`. Survives only as the documentation trap **C-m7**.
 
-Every symbol verified present in the **installed 7.0.0** artifact, not assumed:
+**N-3 · `PAPER_WASH_GROUND` does not clobber the palette** — its 12 keys are medium/stroke/grain only. Narrowed to **C-m8**.
 
-| used | verified at |
+**N-4 · root-barrel imports are not a bundle-weight defect** — `sideEffects: ["*.css"]` + re-export-only subpaths. Recorded under **C-S5**, not raised as a row.
+
+**N-5 · the dual-specifier `TooltipProvider` is not an identity split** — shared chunk + reka peer singleton. Only the nesting is a defect (**C-M8**).
+
+**N-6 · App not passing `extra-tabs` to `EditorShell` is correct, not a dropped contract** — App provides `TABS_EXTERNALLY_MANAGED_KEY = true` (`App.vue:169`); `ChannelControls.vue:277` injects it and at `:318-322` takes the machine-derived facets when managed, the prop only when standalone. The dock reads the projection, the panel reads the machine: one authority, two readers. **Correct by construction.**
+
+---
+
+## 6. Merged repair order (recorded; nothing applied)
+
+1. **F-1 first** (inherited, §4) — declare and lock `@mkbabb/glass-ui@7.0.0`. Nothing below is reproducible until `npm ci` works.
+2. **C-B1** — drop `.value` at `MbabbMenu.vue:100`. One line; un-deads a shipped feature.
+3. **C-B2** — stop swallowing at `main.ts:50` **or** make the group nullable at `App.vue:218`; the second also discharges **C-M5**. Fix the misattributing message at `kf-engine.ts:52` either way.
+4. **C-M6 + C-M3** together — one motion on one file: lazy the `HeroAurora` import, drop `initStrategy: "eager"`. Both restore contracts the tree already documents, and together they take ~202 KB of GPU code plus value.js's colour module off the boot chunk.
+5. **C-M8** — one line: `:delay-duration="100" :skip-delay-duration="0"` at `App.vue:3`, then delete the two nested providers.
+6. **C-M2** — bridge `#header-left` *or* delete `headerLeft` from all four sites and correct the two prose claims. Do not leave the contract half-alive.
+7. **C-M1** — delete the four-hop `tabs-trigger` chain; nothing receives it.
+8. **C-M7** — decide: retire the static `CubeScene` import, or retire `lazyScene("cube", …)` + its warm registration. Not both shapes.
+9. **C-M4** — collapse `surfaceTabs.ts` into a re-export of `@state/controlSurfaces`, then make `proof:dfa-derived`'s one-module clause structural rather than prose.
+10. **C-m7, C-m8** — comment corrections whose current text is actively misleading (**C-m7 is a trap that would break easing if "fixed"**).
+11. **C-m1..C-m6, C-m9, C-m10** — cleanups; **C-m10** may resolve to *justified bespoke* on inspection of `useCursorInteraction`'s nuclei-CRUD surface.
+12. **C-i1** — put `vue-tsc --noEmit` over `demo/` on the merge path. C-B1, C-M1 and C-m1 are all things it would have caught for free.
+
+## 7. Census cross-reference
+
+| census id | disposition |
 |---|---|
-| `Aurora` | `dist/components/aurora/index.d.ts:1` |
-| `PAPER_WASH_GROUND` | `dist/components/aurora/index.d.ts` (presets re-export) |
-| `resolveAtoms` | `dist/components/aurora/index.d.ts` (atoms re-export) |
-| props `config` / `runtimeOptions` / `renderMode` / `opacityCeiling` | `Aurora.vue.d.ts` `__VLS_Props` |
-| exposed `setCursor(x,y,strength?)` / `clearCursor()` | `Aurora.vue.d.ts:92-93` |
-
-No fork, no shadow component, no hand-rolled `--mouse-x` wash — and the file names the standing guard for that (`proof:no-hand-rolled-cursor-tracker`, `:5`). The pointer handler (`:86-95`) does **zero** DOM geometry reads, using `window.innerWidth/Height` against a `fixed inset-0` layer, with the lane-12 read-after-write recurrence explicitly cited as the reason (`:76-82`). Listeners ride `@vueuse/core`'s scope-managed `useEventListener` (`:104-110`), not hand-paired `addEventListener`. Mouse-only gating (`:87`) keeps it off touch, where it would fight scene gestures.
-
-This is the census's `/aurora` row (1 use, §3.1) done properly — and it is the counterweight to **C-M3**: the *one* wrong prop sits inside otherwise exemplary consumption.
-
-**Falsifier.** Any of the five symbols/props absent from the installed `.d.ts` (all five verified present), or a `getBoundingClientRect` in the pointer path (there is none).
-
-### C-S4 — the LIGHT/HEAVY static boundary is honoured at the import level
-
-App's *only* direct `@mkbabb/keyframes.js` import is `import type { AnimationGroup }` (`App.vue:147`) — erased under `verbatimModuleSyntax` (`tsconfig.json:12`), so it adds no runtime edge. Every runtime reach for the heavy surface goes through `kfEngine()` (`:148`, `:219`), which is `loadAnimationEngine()` (`kf-engine.ts:27,38-42`), which is `import("./public")` (`src/animation/load-engine.ts:123-124`). There is **no** static value import of `AnimationGroup`/`CSSKeyframesAnimation`/`resolveKeyframes` anywhere in App's own file. The one static value import from the barrel in App's closure is `SpringProgress` (`useSceneSwap.ts:3`) — a LIGHT export by the barrel's own enumeration (`index.ts:38-42`), value.js-free but for the shared `/math` leaf.
-
-The discipline is real and correctly placed. (That the *timing* of the warm defeats what the boundary is for is **C-M5** — a different defect, and it does not diminish that the import graph is clean.)
-
-**Falsifier.** Any static value import from `@mkbabb/keyframes.js` in App's closure that resolves into `./engine`. Enumerated: `App.vue:147` (type-only), `useSceneTransition.ts:2` (`viewTransition`, LIGHT), `useSceneSwap.ts:3` (`SpringProgress`, LIGHT), `kf-engine.ts:27-28` (`loadAnimationEngine` + type). None violates.
-
-### C-S5 — the glass-ui boundary in the shell is clean
-
-Across App's entire import closure there are **zero** direct `reka-ui` imports and **zero** local `ui/`-style shadcn copies. Every primitive comes from glass-ui by subpath or root barrel: `/tooltip` (`App.vue:145`), `/dock` (`ChromeDock.vue:6-11`, `MbabbMenu.vue:84`), `/status-dot` (`ChromeDock.vue:29`), `/aurora` (`HeroAurora.vue:37-41`), `/dark-mode-toggle`, `/header-ribbon`, `/keyboard` (`EditorShell.vue:116-125`), root (`ChromeDock.vue:22-28`, `MbabbMenu.vue:82`). Subpath selection is deliberate and mostly narrow — the leaf-import rationale is even written down for the one direct-not-barrel case (`App.vue:139-142`, `HeroAurora` as a "single-consumer leaf, the P-HERO import shape").
-
-This confirms census **F-6** ("Zero local `ui/` shadcn copies, zero direct `reka-ui` imports — the glass-ui boundary is otherwise **clean**", GREEN) specifically for the App subtree. Notably, none of the census's S-1..S-8 shadow components (`KfPillTabs`, the timeline cluster, `SequenceScrubber`, `AnimatedText`, `CopyButton`, `TypingDots`) is imported by App directly; the one shadow in App's *own* files is `App.skeleton.vue` (S-6, **C-m4**), which is 101 lines and structurally trivial to retire.
-
-**Falsifier.** One `from "reka-ui"` or one local `components/ui/*` import inside the closure listed in the header. `grep -rn 'from "reka-ui"' demo/app demo/components/instrument/shell` returns nothing.
-
----
-
-## 6. Recommended order of repair (recorded; nothing applied by this lane)
-
-1. **F-1 first** (inherited) — declare and lock `@mkbabb/glass-ui@7.0.0`. Nothing below is reproducible until `npm ci` works.
-2. **C-B1** — one-line: drop `.value` at `MbabbMenu.vue:100`. Trivially verifiable and it un-deads a shipped feature.
-3. **C-B2** — either stop swallowing at `main.ts:50` or make the group nullable at `App.vue:218`; the second choice also discharges **C-M5**.
-4. **C-M2** — bridge `#header-left` (three lines in `App.vue`'s template) *or* delete `headerLeft` from `CubeScene`, `sceneExposedApi`, `EditorShell`, and correct the two prose claims (`App.vue:107-110`, `brand.css:2-4`). Do not leave the contract half-alive.
-5. **C-M1** — delete the four-hop `tabs-trigger` chain outright; nothing receives it.
-6. **C-M3** — drop `initStrategy: "eager"` (one line) and let Aurora's documented lazy arm do its job.
-7. **C-M4** — collapse `components/instrument/surfaceTabs.ts` into a re-export of `@state/controlSurfaces`, then make `proof:dfa-derived`'s one-module clause structural rather than prose.
-8. **C-i1** — add `vue-tsc --noEmit` over `demo/` to the merge path. Items 2, 5 and **C-m1** are all things it would have caught for free.
+| **F-1** (phantom dep, RED) | re-confirmed at HEAD; **extended** (§4) with the executed `ERR_MODULE_NOT_FOUND` peer failure the lane inferred at :569. Not charged to App (r1's scoping upheld). |
+| **F-5** (dead 0-consumer re-export shim) | **contradicted** by r1's C-M4 and upheld by r2: `surfaceTabs.ts` has **two** live consumers and is a duplicate *definition*, not a re-export. F-5 as written does not cover it. |
+| **F-6** (glass-ui boundary clean, GREEN) | **confirmed** for the App subtree (C-S5): zero `reka-ui`, zero local `ui/` copies. |
+| **S-6** (`App.skeleton` → `Skeleton`, AMBER) | **confirmed** (r1 right, r2's first grep wrong — §1). Refinement: `Skeleton` is **root-barrel-only**; no `./skeleton` subpath exists at 7.0.0, so the swap costs subpath discipline. Second refinement: on the default route the fallback can never paint at all (**C-M7**). |
+| **S-1 / S-2** (KfPillTabs, stale `SegmentedTabs` prose) | adjacent — `EditorShell.vue:126` imports `type SegmentedTabOption` from `/tabs` for a prop App never sets (correct by construction, **N-6**). |
+| **S-8** (`TypingDots`, justified bespoke) | the verdict template r2's **C-m10** may resolve to; the census enumerated shadow *components*, not shadow *composables*. |
+| lane-library (parse seams) | **N-1** — R1 verified live in value.js 4.0.0 (`oklch()`/`lch()` throw instead of returning the promised Result), but **not reachable** from App's boot graph. |
