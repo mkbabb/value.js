@@ -1,7 +1,7 @@
 {
  "runId": "wf_1f44462d-8d2",
  "workflow": "wf_1f44462d-8d2",
- "resultCount": 24,
+ "resultCount": 26,
  "results": [
   {
    "agentId": "a8f6346bfa052369b",
@@ -615,6 +615,30 @@
     "defects": 19,
     "blockers": 2,
     "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a8ac2788e3bd91778",
+   "key": "v2:765c593a22d46ced7ad2d232f4bca1ac5112fa7e1dfbd9e5d6d0ea0c609a53d5",
+   "result": {
+    "slug": "BasisSelector",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/BasisSelector/challenge-D-design.md",
+    "defects": 30,
+    "blockers": 3,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a2e9f2013310f72bb",
+   "key": "v2:b7e283718f4747ac41ce79a4ec5d3b9c08e24ed76c1d29fc98b42baacf7cadb7",
+   "result": {
+    "slug": "BasisSelector",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/BasisSelector/challenge-C-consumption.md",
+    "defects": 23,
+    "blockers": 2,
+    "superlatives": 7
    }
   }
  ]

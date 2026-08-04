@@ -7,7 +7,8 @@ claude-opus-5[1m]
 **Method** static + source-derived only. No browser. Every claim carries file:line and a falsifier. Runtime-only legs are tagged `UNPROVEN-NEEDS-LIVE` for SS-13.
 **Posture** the component is assumed DEFECTIVE until the tree proves otherwise. Six claims survived their falsifiers as *superlatives* (L-18 runs both ways) and are recorded in §3 with the same rigor.
 
-**Tally — 17 defects · 2 BLOCKERS · 6 superlatives.**
+**Tally — 23 defects · 2 BLOCKERS · 7 superlatives.**
+*(§6 is an independent second-pass addendum: C-18…C-23, S-8, and two executable receipts. §§0–5 are the first pass, unaltered. Where the second pass corroborated a first-pass row by measurement rather than argument, it says so in §6.0 instead of editing the row.)*
 
 ---
 
@@ -341,3 +342,170 @@ glass-ui ships the tokens: `dist/styles/tokens/scheme-motion.css` → `--duratio
 4. **Make `basisDisplay` a `computed`** or move `color` to `var(--viz-*)` (C-4).
 5. **Split the 35-callsite Tooltip budget on the `text`-only predicate** before F.W3 budgets it (C-5).
 6. **Generate the client's `min`/`max` from the operation models** in the F.W8/FN-6 conformance fixtures (C-6) — the constructive half of R6-8's lesson.
+
+---
+
+# §6 — SECOND-PASS ADDENDUM (independent re-audit, same axis, same served model)
+
+An independent second pass was run over the same read-set. It **reproduced §§1–2 without contradiction** and adds six defect rows the first pass did not carry (C-18…C-23), one superlative (S-8), and two **executable receipts** that convert first-pass argument into measurement. Nothing above is retracted.
+
+## §6.0 — Receipts (first-pass rows corroborated by measurement, not re-litigated)
+
+**Receipt R-A — C-2/C-7: the pinned value.js parses exactly the inputs `cssVarToHex` cannot.**
+`@mkbabb/value.js@0.13.0` from the installed tree (`web/node_modules/@mkbabb/value.js/dist/value.js`), `parseCSSValue`, executed:
+```
+"oklch(0.579 0.201 30.4)"
+   → { colorSpace:"oklch", alpha:1, whitePoint:"D65", l:0.579, c:0.201, h:30.4 }
+"light-dark(oklch(0.579 0.201 30.4), oklch(0.693 0.151 28.1))"
+   → { name:"light-dark", values:[ {colorSpace:"oklch",…l:0.579…}, {colorSpace:"oklch",…l:0.693…} ] }
+"hsl(35 76% 35%)"  → { colorSpace:"hsl", h:35, s:76, l:35 }
+"#bf4040"          → { colorSpace:"rgb", r:191, g:64, b:64 }
+```
+All four parse, **including both forms `lib/colors.ts:22-53` falls through on**, and including the `light-dark()` wrapper as a structured `FunctionValue` with both arms typed. This upgrades C-7 from "value.js's domain, re-implemented" to "value.js's domain, re-implemented *worse*, measurably, against the exact token strings glass-ui 4.0.0 ships."
+**Bound on the claim.** Only the **parse** leg is measured. `color2` conversion requires a `normalizeColor` step this pass did not establish, and the V·π parser-proof gate (`apotheosis/parser-proof/GATE-VERDICT.md`) records open questions on 0.13's oklch path — so **the conversion leg is UNPROVEN** and must be measured before F.W1 scopes a `colors.ts` replacement. This does not weaken §5 item 2, which is the *correct* fix precisely because it needs no parser at all.
+
+**Receipt R-B — C-4: the module-eval snapshot, executed.**
+Harness mirroring `colors.ts:77` + `basis-display.ts:3-7` + `App.vue:11` against the installed `vue`:
+```
+pill  (basisDisplay.fourier.color)   = #bf4040     ← module-eval copy, frozen
+track (VIZ_COLORS.fourier in effect) = #888888     ← live proxy read in a render effect
+DIVERGED: true
+```
+C-4's "two halves of one component read two different palettes" is now measured, not inferred.
+
+## §6.1 — New defect rows
+
+### C-18 · MAJOR — the basis pill row hand-rolls a toggle that glass-ui 4.0.0 **ships**: `ToggleChip` (and `ToggleGroup`), both exported at the pin, both imported zero times
+
+`:140-150` composes `<Button variant="outline" size="sm">` + a manual `:aria-pressed` binding + **26 lines** of `[aria-pressed="true"]` retint (`:258-277`) + **14 lines** of mobile-compact overrides (`:280-293`).
+
+The producer ships the primitive at the pinned version. Export map (`node_modules/@mkbabb/glass-ui/package.json`): `./toggle-chip`, `./toggle-group`; on disk `dist/toggle-chip.js`, `dist/toggle-group.js`, `dist/components/custom/toggle-chip/ToggleChip.vue.d.ts`, `dist/components/ui/toggle-group/{ToggleGroup,ToggleGroupItem}.vue.d.ts`. `ToggleChip`'s own docblock reads as a specification of what this file hand-rolls:
+
+> *"ToggleChip — accessible toggleable 'chip' or 'cell' selector, built on reka-ui's Toggle root **so it carries proper `aria-pressed` and keyboard semantics**. Pair with `variant="chip"` for inline horizontal selectors … the `data-state="on"` attribute is set by the reka-ui Toggle root when pressed, **so selected styling hangs off the data attribute and doesn't need a class-binding at the call site**."*
+
+That final sentence is `:144` (`:aria-pressed="isBasisActive(…)"`) and `:269` (`.basis-toggle[aria-pressed="true"]`), written by hand.
+
+**Falsifier.** *Dies if neither subpath exists at 4.0.0, or if BasisSelector uses a capability the chip lacks.* Both `.js` and `.d.ts` artefacts are present in the installed tree; `grep -rn "toggle-chip\|toggle-group" web/src/` → **0 imports** repo-wide. The one capability the chip does not model is the tri-state Fourier cycle — which `aria-pressed` does not model either (C-23), so the chip is not *less* expressive than what ships. Falsifier fails.
+
+**Corpus — extension, not contradiction.** lane-frontend.md §4 🟡 CANDIDATE SHADOWS carries `equation/NotationPills.vue` (47 LOC, *"currently 6× `Button`"*) → `./toggle-chip`. **BasisSelector is the second and larger instance of the identical shadow and the table does not carry it.** Add the row; the two together make the chip a ≥2-consumer migration rather than a one-off.
+
+**Migration rider.** lane-frontend.md §5's measured export-map diff puts `./toggle-chip` in the **REMOVED-at-7.0.0** list (folded to `./chip`). If F.W1's tri-package uplift is in the same tranche, target `./chip` and pay the migration once — the same sequencing discipline C-1's §4 row demands.
+
+---
+
+### C-19 · MAJOR — the labeled-slider chassis is a fork of the project's **own** `SliderControl.vue`, already drifted in three axes
+
+`:155-178` and `:182-205` reproduce, per slider, the label-row + inline numeric input + `<Slider variant="standard">` + `--track-color` host that `components/ui/SliderControl.vue` encapsulates and that the sibling `ContourSettings.vue` consumes **six times** (`:230,243,269,282,295`). The `.inline-number` block at `:212-233` is **byte-identical** to `SliderControl.vue:120-141`; `grep -rln "\.inline-number" web/src/` returns **exactly those two files**.
+
+The fork has already drifted:
+
+| axis | BasisSelector | SliderControl |
+|---|---|---|
+| range alpha | 30 % / 45 % (`:319-320`) | 25 % / 35 % (`:145-146`) |
+| track height | *absent* | `--slider-scrub-track-height: 16px` (`:144`) |
+| clamp helper | inline `Math.max/min`, ×4 sites | extracted `clamp()` with `Number.isFinite` guard (`:41-43`) |
+
+So even after C-1's rename lands, **these two sliders would be a different height and a different tint strength from every other slider in the application** — C-1's repair does not converge them, because the divergence is in the consumer, not the token name.
+
+**Corpus — agreement plus extension.** lane-frontend.md §4 rules the three `components/ui/` wrappers, `SliderControl` among them, *"thin API-shape adapters, not shadows … the correct posture — keep."* This pass agrees with that verdict and extends it: **the adapter is correct, and BasisSelector's refusal to consume it is the defect.** This is the same shape as C-11 strand 3 (the `.reset-icon-btn` duplication meeting glass-ui's own ≥2-consumer threshold), one layer up.
+
+**Falsifier.** *Dies if `SliderControl` cannot render inside a `ConfiguratorRow`.* The plausible justification is that the row already supplies the label (`:154`, `:181`) so `SliderControl`'s own label would double. Real, but it does not force a fork: `label` is required (`SliderControl.vue:28`) and rendered in a single `<label>` element — a `labelHidden` prop or a slot is a two-line producer-side change against ~50 lines of consumer-side duplication. And `ConfiguratorRow`'s docblock names the intended payload: *"Slot consumes the actual control (Slider, Select, Switch, NumberField, etc.)"* — a control, not a re-rolled chassis. Falsifier fails.
+
+---
+
+### C-20 · MAJOR — the `[]` "Fourier off" state this component **deliberately mints** has no representation in the write contract, and the store silently rewrites it
+
+`:103-104` — *"Go to 'off' — allow empty selection (canvas handles it gracefully)"* — then `:115` emits `[]`.
+
+The operation surface forbids it on **both** write models:
+- `api/models/visualization.py:184` — `VisualizationCreate.active_bases: list[str] = Field(min_length=1, max_length=16)`
+- `api/models/visualization.py:279` — `VisualizationRemix.active_bases: list[str] | None = Field(default=None, min_length=1, max_length=16)`
+
+The client does not surface the conflict — it **substitutes**:
+```
+stores/workspace.ts:351-353
+    active_bases: animationSettings.value.active_bases?.length
+        ? animationSettings.value.active_bases
+        : ["fourier-epicycles"],
+```
+`stores/gallery.ts:250-251` carries the identical substitution on the draft/publish path, and the read side mirrors the erasure — `useWorkspaceLoader.ts:53` `if (as?.active_bases?.length)` skips restoration for `[]`.
+
+**Failure scenario.** The user cycles Fourier to *off* (the third state the tooltip at `:64` advertises), saves, and the artefact persists as **epicycles**. Reload restores epicycles. The chosen state is destroyed with no toast, no disabled save, no 422 — the one failure mode with no diagnostic anywhere.
+
+**Falsifier.** *Dies if the server accepts `[]`, which would make the substitution gratuitous rather than load-bearing.* `min_length=1` is present on both write models. Falsifier fails: the state genuinely has no representation, and the component invented it anyway.
+
+**Relation to C-6.** C-6 found the client's *numeric* window unrelated to any operation model. C-20 is the same seam on the *enum/cardinality* axis, and it is worse in kind: C-6's divergence is a bound mismatch that would surface as a 422 at the boundary; C-20's is a state the client mints, the contract forbids, and a third component silently launders — so it surfaces as **nothing**. Both belong to the R6-8 carry (F.W5).
+
+**Disposition — needs an owner ruling before code.** Either the contract admits the empty selection (`min_length=0` plus a documented "no basis rendered" semantic, which the canvas already handles per `:103`), or the component stops minting it. Silent rewriting on the write path is the one option that should not survive.
+
+---
+
+### C-21 · MAJOR — BasisSelector mints a basis vocabulary its own display module does not key; the normalisation is re-derived in five downstream consumers
+
+BasisSelector **emits** `"fourier-epicycles"` / `"fourier-series"` / `"chebyshev"` / `"legendre"` (`:74`, `:101`, `:106`, `:112`, `:115`). `basis-display.ts:4-6` **keys** `fourier` / `chebyshev` / `legendre`. The bridge lives only inside BasisSelector (`:41-51`, `:53-56`, `:58-61`, `:98`) and is therefore re-written verbatim downstream:
+
+| site | re-derived rule |
+|---|---|
+| `BasisCanvas.vue:250-252` | `basisKey.startsWith("fourier") ? "fourier" : basisKey` + `if (!cfg) continue` |
+| `lib/canvas-drawing/labels.ts:29-35` | same normaliser **+** the Epicycles/Series label map |
+| `gallery/GalleryCard.vue:39-46` | same normaliser **+** the same label map |
+| `gallery/GalleryCardModal.vue:45` | same normaliser |
+| `gallery/GalleryDraftsSection.vue:44` | `basisDisplay[key]?.label ?? b` |
+
+`basis-display.ts` is **7 lines** and exports one object. It is the natural home for `normalizeBasisKey()` and `basisModeLabel()` and holds neither, so the producer of the vocabulary ships the mapping for itself alone.
+
+The loose `Record<string, …>` typing (`basis-display.ts:3`) is what keeps the mismatch silent: `basisDisplay["fourier-epicycles"]` type-checks and returns `undefined`. **The `if (!cfg) continue` guards at `BasisCanvas.vue:252` and `labels.ts:31` are not defensive hygiene — they are load-bearing workarounds for the vocabulary gap**, and they are why C-17's five inert casts cannot simply be deleted: the key domain they mask is genuinely two domains.
+
+**Falsifier.** *Dies if `basisDisplay` keys the emitted vocabulary.* It keys three names against an emitted set of four; five consumers independently bridge the gap. Falsifier fails.
+
+**Sequencing note.** C-21 and C-17 are one change (`BasisKey` union + `satisfies` + two exported helpers in `basis-display.ts`), and that change also has to land *with* C-4's reactivity fix, since both rewrite the same 7-line module. Budget them as one unit.
+
+---
+
+### C-22 · MINOR — the two raw `<input type="number">` shadow glass-ui 4.0.0's `NumberField`, which is exported at the pin and imported zero times
+
+`:157-166`, `:184-193`, plus the hand-rolled spinner de-chroming at `:222` and `:229-233` (which S-4 correctly credits as complete — the point here is that it should not have to exist). `./number-field` is exported at the pin: `dist/components/ui/number-field/index.d.ts` exports `NumberField`, `NumberFieldInput`, `NumberFieldIncrement`, `NumberFieldDecrement`, `NumberFieldContent`. `grep -rn "number-field" web/src/` → **0 imports**.
+
+This is the **primitive-side root** of C-15's two behavioural bugs: reka's NumberField root owns commit-vs-input semantics (killing C-15 scenario A, clear-to-retype) and step snapping (killing C-15 scenario B, the off-grid value). C-15 describes the symptoms; C-22 names the shipped component whose absence causes them, and notes that S-4's careful cross-engine de-chroming is 6 lines of CSS the library would have supplied.
+
+**Falsifier.** *Dies if `NumberField` cannot express the `[1,500]` / `[128,4096]` windows with an inline, chrome-free presentation.* `NumberFieldContent` + `NumberFieldInput` compose without the increment/decrement children, and reka's root takes `min`/`max`/`step`. Falsifier fails. **UNPROVEN-NEEDS-LIVE:** the exact rendered chrome at 4.0.0 was not visually verified.
+
+---
+
+### C-23 · MINOR — `aria-pressed` is the wrong ARIA state for the Fourier pill, which is a three-state cycle
+
+`:144` binds `aria-pressed` from `isBasisActive` (`:53-55`), which returns `true` for **both** `fourier-epicycles` and `fourier-series` (`:42-44`). The control is a cycle (`:94-106`), not a toggle; `aria-pressed` has no third value beyond `mixed`, and `mixed` does not mean "a different mode."
+
+This is the defect S-7 gestures at from the other side. S-7 credits the tooltip prose at `:64` for documenting a three-state affordance *"that `aria-pressed` (binary) genuinely cannot express"* — correct, and the second pass files the converse as a row: the prose is a workaround for a state model the markup gets wrong, and `TooltipContent` maps to `aria-describedby`, not to state, so assistive tech never receives the cycle semantics.
+
+**Falsifier.** *Dies if the two pressed states are indistinguishable to AT.* They are distinguishable — the accessible **name** changes ("ℱ Epicycles" vs "ℱ Series", `:59` + `:47-51`) — which is exactly why this is MINOR and not MAJOR. Falsifier partially succeeds; the row survives at reduced severity because the distinction rides the name rather than the state, and the *next* action in the cycle is never announced.
+
+**Fix rides C-18.** `ToggleGroup type="single"` with one value per mode expresses this natively (`data-state` per item, roving tabindex across the row) and deletes both the manual `aria-pressed` and the `[aria-pressed="true"]` selector block.
+
+---
+
+## §6.2 — New superlative
+
+**S-8 · Every scalar that leaves this component is clamped at the boundary, on all four exits, in front of an endpoint that validates nothing.**
+`:30` `Math.max(1, Math.min(500, arr[0] ?? 50))` · `:34` `Math.max(128, Math.min(4096, arr[0] ?? 1024))` · `:165` and `:192` the same windows on the keyboard path, each with a NaN fallback. The slider path and the typed path clamp **independently** — neither trusts the other.
+
+This matters more than it reads, and C-6 is the reason. C-6 correctly indicts the *window* as invented and six-fold restated; the complementary fact is what sits downstream of it: `api/models/computation.py:43-45` declares `ComputeEpicyclesRequest { n_harmonics: int = 200; n_points: int = 1024 }` with **no `Field`, no bounds, no validator**, and `:48-52` the same for `ComputeBasesRequest`. **This component is the only thing standing between a hand-typed `-9e9` and an FFT call.** The window is the wrong window (C-6) and it is enforced with real discipline (S-8); F.W8's generated bounds should preserve the enforcement shape while fixing the numbers.
+
+**Falsifier.** *Dies if any exit is unclamped.* Four emit sites, four clamps, four NaN fallbacks. Falsifier fails.
+
+## §6.3 — Second-pass corpus reconciliation (additions to §4)
+
+| corpus row | status |
+|---|---|
+| **lane-frontend.md §4 🟡** — `NotationPills.vue` (6× `Button`) → `./toggle-chip` | **EXTENDED** (C-18): BasisSelector is the second and larger instance of the same shadow; the table does not carry it. Makes the chip a ≥2-consumer migration. |
+| **lane-frontend.md §4** — the three `components/ui/` wrappers are *"thin API-shape adapters … keep"* | **AGREED + EXTENDED** (C-19): the verdict on `SliderControl` is right; BasisSelector's refusal to *consume* it is the defect, and the fork has already drifted in three axes. |
+| **lane-frontend.md §5** — `./toggle-chip` REMOVED at 7.0.0 → `./chip` | **NEW INPUT**: C-18's migration must target `./chip` if F.W1's tri-package uplift lands in the same tranche. |
+| **R6-8** (lane-fourier-r3-r6.md:142) | **EXTENDED a second way** (C-20): C-6 is the seam failing on the numeric axis with a *loud* symptom (422 at the boundary); C-20 is the same seam failing on the cardinality axis with **no** symptom (silent laundering at `workspace.ts:351-353`). The silent one is the more dangerous carry for F.W5. |
+| **CENSUS-2026-08-03:38** — value.js surface easing-only, 5 sites | **MEASURED** (Receipt R-A): the pinned 0.13.0 parses `oklch()` and `light-dark(oklch, oklch)` — the exact strings `cssVarToHex` fails on. The easing-only surface is not a scoping choice; it is a capability left on the floor. |
+
+## §6.4 — Additions to §5 (what the waves should take)
+
+7. **Fold the pill row onto `ToggleChip`/`ToggleGroup`** (C-18, targeting `./chip` if the 7.0.0 uplift is co-resident) — deletes ~46 lines of scoped CSS, the manual `aria-pressed`, and C-23 together.
+8. **Consume `SliderControl` instead of re-forking it** (C-19); add `grep -rln "\.inline-number" web/src/ | wc -l` → 1 as the acceptance, mirroring C-1's grep gate.
+9. **Rule on the empty basis selection** (C-20) before touching code — contract admits `[]`, or the component stops minting it. The silent substitution at `workspace.ts:351-353` / `gallery.ts:250-251` must not survive either ruling.
+10. **Export `normalizeBasisKey()` + `basisModeLabel()` from `basis-display.ts`** (C-21) in the same edit as C-4's reactivity fix and C-17's key-domain typing — one 7-line module, three findings, one change.
