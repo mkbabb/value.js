@@ -1,7 +1,7 @@
 {
  "runId": "wf_db5c0736-fa0",
  "workflow": "wf_db5c0736-fa0",
- "resultCount": 1,
+ "resultCount": 3,
  "results": [
   {
    "agentId": "a164d5c0700f6af80",
@@ -84,6 +84,30 @@
       "lines": 14
      }
     ]
+   }
+  },
+  {
+   "agentId": "a7f2865b3ae686d2f",
+   "key": "v2:e826db233b8c2c30fec6b93ab0a8f925cd04e3a965dfe76d04338d8695afeb2e",
+   "result": {
+    "slug": "utils-entry",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/utils-entry/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 4,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a167e6a3974fd8fd3",
+   "key": "v2:e965ca628aacf7f366c091b58487d71ef308cd0c2809711af4eea3553adec642",
+   "result": {
+    "slug": "parsers",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/parse-that-modules/parsers/challenge-C-consumption.md",
+    "defects": 16,
+    "blockers": 3,
+    "superlatives": 4
    }
   }
  ]
