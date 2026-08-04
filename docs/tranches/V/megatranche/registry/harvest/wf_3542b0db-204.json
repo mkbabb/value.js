@@ -1,7 +1,7 @@
 {
  "runId": "wf_3542b0db-204",
  "workflow": "wf_3542b0db-204",
- "resultCount": 21,
+ "resultCount": 33,
  "results": [
   {
    "agentId": "ab39c54b9d33415c9",
@@ -539,6 +539,150 @@
     "defects": 25,
     "blockers": 1,
     "superlatives": 7
+   }
+  },
+  {
+   "agentId": "abd1c3fc919e28235",
+   "key": "v2:263bd4c1701a2633dae27a3e156224af162e492f7507f39ad31d0def860a53dc",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-D-design.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "aaf465babbfa682bc",
+   "key": "v2:27c4d07d6d2c1e71fbd92700c4e22f790f1f330e600c9c30fe4ead76a0c380bd",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-L-library.md",
+    "defects": 16,
+    "blockers": 0,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a412b3b942837c89f",
+   "key": "v2:1988fb4c2688919e6ac67a73fa6867e3fe6dbd649c566d5d68501f23b39d318d",
+   "result": {
+    "slug": "CopyButton",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CopyButton/challenge-C-consumption.md",
+    "defects": 16,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "ac63af6b7787fa563",
+   "key": "v2:78517e366a5b7dbb1c337167487573253aa223bacce9144b4352285deed75369",
+   "result": {
+    "slug": "CopyButton",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CopyButton/challenge-D-design.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "adb24c6967efaa9ca",
+   "key": "v2:917894f91412c56c604fc99a18e51b279d581a2b13ddd9d64e4256d15b5405a3",
+   "result": {
+    "slug": "CubeScene",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeScene/challenge-D-design.md",
+    "defects": 25,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a9215140124ed5acc",
+   "key": "v2:41349ccf5c4eacd84e70ab3bd1cd55e93552a26c7a704355b0d95f9c7bf2c9d8",
+   "result": {
+    "slug": "ControlsPaneWrapper",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ControlsPaneWrapper/challenge-C-consumption.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ad7c4670a357b32b2",
+   "key": "v2:0d0859608d23b9a70eb8efde4c4a304a2d30e87dee71402bc73b2738f1eaff93",
+   "result": {
+    "slug": "CubeScene",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeScene/challenge-L-library.md",
+    "defects": 31,
+    "blockers": 1,
+    "superlatives": 9
+   }
+  },
+  {
+   "agentId": "a9e6f116162bc378e",
+   "key": "v2:0df0bd817fb316ac9ea968612c75176a64647a2b3e4ff501380764335da42315",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-C-consumption.md",
+    "defects": 13,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "aea2a0163e2802539",
+   "key": "v2:1d02460aeb0a254bb49b291487792a3844d8473bfa6b24b0b7e2ec28b5ad4055",
+   "result": {
+    "slug": "CopyButton",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CopyButton/challenge-L-library.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ac0d10539784976be",
+   "key": "v2:1e0895cbebfbc6c6fe462ee3f1654a498cae249424f14e793e2a512edd78fe87",
+   "result": {
+    "slug": "ControlsPaneWrapper",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ControlsPaneWrapper/challenge-L-library.md",
+    "defects": 24,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a0db71b10651b22d8",
+   "key": "v2:ec1ab501bb256b6ae234e001e2accece737b8093a5799643f10931bfd1f6bcad",
+   "result": {
+    "slug": "ChromeDock",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 2,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a53e8c9d1ef3ebf62",
+   "key": "v2:2c7e6a2e7e8abc58b64601975e25f67048e57ded873c688fbf91b2440355c125",
+   "result": {
+    "slug": "ChannelOptions",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChannelOptions/challenge-C-consumption.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 5
    }
   }
  ]

@@ -25,9 +25,13 @@ claude-opus-5[1m]
 | L-9 | `matrix3dStart`/`matrix3dEnd` are **deep** `ref()`s replaced wholesale ~60×/s, each replacement re-proxying 17 nested objects **and** re-constructing + re-compiling a whole `CSSKeyframesAnimation`. The same tree uses `shallowRef(markRaw())` correctly four lines away. | MAJOR |
 | L-10…L-20 | dead exports, dead imports, false prose, an unstopped animation, un-stoppable tweens, a keyboard-unreachable control, a stale expose comment, a double-registered scene, expose-type drift, asymmetric persistence, asymmetric optional chaining | MINOR ×11 |
 | L-21…L-25 | comment archaeology (26 % of the script), home-bucket keying, a constant `computed`, pointer-class asymmetry, an unnamed `role=group` | INFO ×5 |
+| L-26…L-30 | *(round 2, §9)* a dead emit wire, a duplicated wrapper element, dead facet metadata, a prop name that lies, an auto-dismiss that closes under the pointer | MINOR ×5 |
+| L-31 | *(round 2, §9)* the panel gates on the **raw** store where the parent gates on the **projected** surface | INFO |
 | **P-1…P-7** | superlatives — `adoptCompiled` (the demo *drove* an engine verb), the visibility-pause contract, the PRM gate, `markRaw`+`shallowRef` discipline, a correctly-torn-down timer, `transformMath.ts`'s total boundary validation, facets-as-data | **exemplary** |
+| **P-8, P-9** | *(round 2, §9)* the LIGHT/HEAVY engine-import boundary observed in both directions; a measured repaint elision + the unit's colocation | **exemplary** |
 
-**Tally — defects 25 (blockers 1, majors 8, minors 11, infos 5) · superlatives 7.**
+**Tally — defects 31 (blockers 1, majors 8, minors 16, infos 6) · superlatives 9.**
+*(Round 1 = L-1…L-25 / P-1…P-7, §§2–8. Round 2 = L-26…L-31 / P-8…P-9, §9 — an independent second pass over the same closure; §9.0 records which round-1 findings it re-derived, which it could not fault, and where it declines to re-open a round-1 kill.)*
 
 ---
 
@@ -366,4 +370,123 @@ Cheapest observations that would kill the most:
 | L-9 | evidence that `ref(obj)` is not deep, or that `fromVars` is free |
 | P-1…P-7 | a counter-reading of the cited engine/producer source (each superlative names its file:line) |
 
-*No file in keyframes.js, glass-ui, or any other repo was written, mutated, or executed. No installs, no dev servers, no browser tooling. This document is the single write.*
+---
+
+## 9. ROUND 2 — independent second pass (L-26…L-31, P-8…P-9)
+
+Same substrate, same law, same read-only mode; a fresh walk of the identical import closure (target + all 10 direct imports + the slot chain + the engine barrel + the installed glass-ui `.d.ts`).
+
+### 9.0 Reconciliation with round 1
+
+**Independently re-derived** (same evidence, same verdict — these are *corroborations*, not new findings, and are **not** re-counted in the tally): L-1 (the phantom dep in the entry chunk, via `App.vue:155` + `:284`), L-2 (the write-nobody `isPlaying` → dead `.idle-hover.playing` rule → dead `isGroupPlaying` parameter), L-6 (the per-channel slot multiplication, `ControlsPaneWrapper.vue:45-49` `v-show` + three cube channels), L-8 (no `vue-tsc` anywhere; CI runs `check:lib` only; the `declare module "*.vue"` shim at `demo/env.d.ts:3-7` types every SFC import as `DefineComponent<{},{},any>` — an aggravator round 1 did not cite), the units half of L-3, the recompile-rate half of L-9, L-11, L-12, L-13, L-14, L-19, L-20.
+
+**Could not fault** (checked, found sound): L-4's mechanism (I traced a narrower variant — that `syncTransformations()`'s translate write-back is itself what *arms* the deep watch after a cell edit, `useTransformState.ts:63-65` → `:197-215` — which strengthens L-4 rather than competing with it: the destroyer can be triggered by the editor itself, not only by a drag), L-5, L-7, L-15, L-17.
+
+**Declined to re-open.** Round 2 independently reached the "controlled `open` forces reka's non-passive path" accusation from `Popover.vue.d.ts:19-28`, then found §7.3 had already killed it on **implementation** evidence (`dist/popover-BPBtXakf.js` forwards `open` *and* `onUpdate:open`; CubeScene supplies both halves at `:119`). The kill stands and is not re-litigated. What survives is a strictly different claim about the *timer*, entered below as L-30.
+
+**One round-1 claim qualified:** P-7 celebrates conditional-facets-as-data, correctly — but two of the three fields in that data are never read. See L-28, which narrows P-7 without overturning it.
+
+### 9.1 L-26 · A dead emit wire: listener, emit declaration, and emitter, none of them connected — MINOR
+
+`CubeScene.vue:178` passes `onResetMatrix: resetMatrix` into `h(MatrixEditor, …)`. `MatrixEditor.vue:110` declares the matching emit `(e: "resetMatrix"): void`, and `:136-138` defines the emitter `const resetMatrix = () => { emit("resetMatrix"); }`. **Nothing calls it** — `grep -n "resetMatrix" MatrixEditor.vue` returns exactly `110, 136, 137`, and the template (`:1-94`) contains no reference. Reset actually reaches `useTransformState` by a different route entirely: the ribbon button CubeScene renders itself (`CubeScene.vue:186-190` → `onClick: () => resetMatrix()`).
+
+So three coupled artefacts are dead at once: the child's emit declaration, the child's emitter, and the parent's listener. The listener is the expensive part — it advertises a child→parent reset channel that does not exist, and it is unverifiable because of L-8 (a `h()` prop object against an `any`-typed `.vue` import).
+
+**Failure scenario** a maintainer adds a Reset affordance *inside* the editor, wires it to the existing `resetMatrix()`, and it works — masking that the parent's ribbon button was the real path; or removes the ribbon button believing the child still emits. Either way the two paths are already indistinguishable from the outside.
+**Falsifier** a call site for `resetMatrix()` inside `MatrixEditor.vue`, or a second parent that relies on the emit.
+
+### 9.2 L-27 · The same wrapper element, twice, nested — MINOR
+
+`CubeScene.vue:9-14` and `CubeTarget.vue:2-6` are the same node:
+
+| | CubeScene `:9-14` | CubeTarget `:2-6` |
+|---|---|---|
+| class | `grid h-full w-full max-w-full items-center justify-center justify-items-center overflow-visible` | `relative grid h-full w-full max-w-full items-center justify-center justify-items-center overflow-visible` |
+| style | `touch-action: none; overscroll-behavior: contain` | identical |
+| handler | `@wheel.prevent` | identical |
+
+The parent adds only the conditional recede class (`:11`), which is the one thing that genuinely needs an outer box. Everything else is duplicated: two centering grids stacked one inside the other, and **two non-passive `wheel` listeners** on the same pointer path (Vue registers `.prevent` handlers non-passive), the inner of which can never see an event the outer has not already cancelled.
+
+**Failure scenario** a scroll-behaviour change must be made twice or it is made once and half-applies; the doubled grid makes the cube's centring depend on two boxes agreeing.
+**Falsifier** show the outer element needs the touch-action/overscroll/wheel triple independently of the inner one — e.g. a sibling rendered into the outer box that must also block wheel. There is none: `CubeTarget` is the outer div's only child (`:15-22`).
+
+### 9.3 L-28 · Two-thirds of the facet descriptor is dead data duplicating the single registry — MINOR *(qualifies P-7)*
+
+`CubeScene.vue:230-236` declares the Matrix channel's facet as `{ surface: "matrix-controls", label: "Matrix Controls", icon: "Grid3X3" }`. Only `surface` is ever read:
+
+* `controlSurfaces.ts:113` — `(selected?.facets ?? []).map((f) => f.surface)`;
+* `controlSurfaces.ts:116` — `facets.map((f) => f.surface)` for the facility-wide half;
+* tab metadata is resolved from the **registry**, not the facet: `extraTabsFrom` (`controlSurfaces.ts:189-195`) maps each surface through `SURFACE_META`, whose `"matrix-controls"` entry (`:155-159`) is `{ value: "matrix-controls", label: "Matrix Controls", icon: "Grid3X3" }` — byte-identical to the scene's copy.
+* `grep -rn "f\.label|f\.icon|facet\.label|facet\.icon" demo/` → no output. `SceneFacet.label`/`.icon` (`scene-facility/index.ts:50-54`) have **zero readers** repo-wide.
+
+`SURFACE_META`'s own header states the reason it exists: *"Formerly the surface→{label,icon} map existed THREE times … three hand-synced copies of one fact. This is the SINGLE source"* (`controlSurfaces.ts:122-129`). CubeScene has quietly re-created a fourth copy — inert today, and a divergence waiting to happen (rename the tab in the registry and the scene's copy silently disagrees with nothing, which is worse than disagreeing with something: a maintainer will update the copy and see no effect).
+
+**Failure scenario** the facet label is changed in `CubeScene.vue:233` to fix the tab's wording; nothing changes, because the dock reads `SURFACE_META`.
+**Falsifier** any consumer reading `SceneFacet.label` or `SceneFacet.icon` — a dock, a select, a probe. None exists. (P-7 is untouched: projecting the facet's *surface* as data is exactly right; only the metadata copy is dead.)
+
+### 9.4 L-29 · The prop name states the opposite of the prop's meaning — MINOR
+
+`CubeScene.vue:29-31` declares `hideLoader?: boolean`. Its sole caller passes `{ hideLoader: isHome.value }` (`App.vue:291-294`), and the component spends it on two things:
+
+* `:11` — `:class="{ 'cube-stage--hero-recede': props.hideLoader }"`, a **mobile layout band**, nothing to do with a loader;
+* `:20` — `:show-loader="!props.hideLoader && !storedControls.selectedAnimation"`, where it is only one of two terms.
+
+The file's own opening comment concedes the real meaning (`:2-3`: "on the HOME landing (`hideLoader` === the start screen is up)"). A boolean named for one of its two effects, passed a value named for neither, is a contract that must be read through three files to use. `isHome` / `isBackdrop` is the honest name; `showLoader` on `CubeTarget` (`:117-122`) is the honest *shape* — the child got it right.
+
+**Failure scenario** a second caller (a storybook host, a test harness, the standalone playground shell) passes `hideLoader: true` meaning "no spinner please" and silently gets the mobile hero-recede padding and a shrunken cube (`:283-285`, `--side-size: min(40vh,40vw,16rem)`).
+**Falsifier** a caller that passes `hideLoader` for genuine loader suppression, or a rename already staged.
+
+### 9.5 L-30 · The auto-dismiss closes the card under a stationary pointer — MINOR *(strictly narrower than the §7.3 kill)*
+
+`CubeScene.vue:109-114` arms a 4 s timer whenever `ppmycotaOpen` goes true and then writes `ppmycotaOpen.value = false` unconditionally. Because the popover is on the **controlled** path (round 1 §7.3 established this is sanctioned — `open` + `onUpdate:open` both supplied), that write closes the card *authoritatively*, regardless of pointer state.
+
+The re-open edge is the problem. The hover branch opens on `pointerenter` on the trigger. A pointer that never left the trigger emits no new `pointerenter`, so after the 4 s auto-dismiss the card cannot return until the user moves off and back on. The timer is also armed only on the `false → true` transition of the watch (`:109`), so no subsequent hover activity re-arms or cancels it.
+
+This is not the claim §7.3 killed (that one was about reka's `passive` evaluation swallowing the *cadence*; refuted). This one is about a scene-owned timer overriding a live hover state.
+
+**Failure scenario** rest the pointer on the ppmycota mark and read the card: at 4 s it disappears while the pointer is still on the trigger, and stays gone until the pointer leaves and returns.
+**Falsifier** show reka's `HoverCardRoot` re-opens a controlled card on a still-hovering trigger without a fresh enter event (e.g. an internal hover-state watcher that re-emits `update:open`), or show `closeDelay: 150` interacts with the controlled write to restore it. **The visual half is UNPROVEN-NEEDS-LIVE** (SS-13); the unconditional close and the single-arm watch are source-provable (`:109-114`).
+
+### 9.6 L-31 · The panel gates on the raw store where the parent gates on the projection — INFO
+
+`CubeScene.vue:170-171` gates the matrix body on `storedControls.selectedControl` — the **raw stored pick**. The comment at `:160-169` claims this "mirrors AnimationControls' own built-in panels". It does not, quite: the parent's panels gate on `selectedControlSurface`, the **DFA projection** (`ChannelControls.vue:98` and `:150`, from `useSelectedControlSurface.ts:80-86`). The two are reconciled by a `watch` that writes the projection back into the store (`useSelectedControlSurface.ts:89-102`) — but that writer is gated on `isActiveSceneHost`, whose whole purpose (`:70-78`) is to *stop* writing during the NAVIGATE → SCENE_READY window. In that window the raw store can hold the leaving scene's pick while the projection holds the destination's.
+
+The ribbon half is fine and worth recording, because it contradicts an intuition: `CubeScene.vue:184`'s `slotProps.selectedControl` is *also* the raw store (`RibbonBar.vue:112-113` passes `storedControls.selectedControl`), so panel and ribbon agree with each other. It is the *parent* that both of them disagree with.
+
+**Why INFO, not MAJOR** the divergence window is a transition, the scene is unmounted-or-arriving through most of it, and the observable would be at most a frame of a matrix panel rendered beside built-in panels that have already switched. No failure scenario survived construction — recorded so the next reader does not mistake the `:160-169` comment for a proof.
+**Falsifier** show the raw pick and the projection are equal by construction in every window including a non-active host — or produce a frame where they are not, which upgrades this.
+
+### 9.7 P-8 · SUPERLATIVE — the LIGHT/HEAVY engine boundary is observed in *both* directions
+
+`src/animation/index.ts:1-25` splits the published barrel: LIGHT (the physics/interpolation engines — static, value.js-free) versus HEAVY (the CSS-keyframe engine — reachable **only** through `loadAnimationEngine()`, so value.js never lands in a light consumer's static graph). The cube unit honours it at every site, and gets the *hard* direction right:
+
+* `useTransformState.ts:2` static-imports `NumericAnimation` — and that is **correct**, because `NumericAnimation` is a declared LIGHT export (`index.ts:28`, named in the header at `:6-12`). No dynamic ceremony where none is owed.
+* `useTransformState.ts:6, 31` and `useCubeDemo.ts:9, 50` take the HEAVY surface (`CSSKeyframesAnimation`, `AnimationGroup`, `presets`, `transformTargetsStyle`) through `kfEngine()`, the boot-warmed synchronous accessor (`demo/kf-engine.ts:28-54`) whose read-before-warm path **throws with the fix in the message** (`:46-54`) rather than returning undefined.
+* `CubeTarget.vue:109` imports `CSSKeyframesAnimation` as `import type` — erased under `verbatimModuleSyntax` (`tsconfig.json:12`), so the type is available with no runtime edge — and reaches the *value* through a per-site `await loadAnimationEngine()` at `:198`, which is precisely the idiom `kf-engine.ts:12-16` describes for a click handler.
+
+Round 2 opened this thread intending to charge the static `NumericAnimation` import as a boundary breach that defeats the lazy split. **The barrel refuted the accusation**, and the refutation is the finding: a four-site consumer that keeps a two-tier import contract straight, including a type-only import and a deliberate non-use of the dynamic path, is doing something most consumers of such a split get wrong.
+**Falsifier** show `./physics/numeric` transitively reaches the heavy graph or value.js's parser/color modules (`index.ts:6-12` states it shares only the rootless `/math` leaf), or find a cube-unit site that static-imports a HEAVY symbol.
+
+### 9.8 P-9 · SUPERLATIVE — a measured repaint elision, and a unit that is genuinely colocated
+
+**The elision.** `useCubeRelit.ts:82-84` computes six per-face `--lit` values as a plain `computed` off the live rotation and rounds each to `toFixed(2)`. The rationale is stated and is *correct at the platform level* (`:73-81`): setting a CSS custom property to its current value does not invalidate, so rounding collapses the high-frequency ticks of a real orbit drag onto the same string and the browser skips the repaint — with the perceptual cost bounded and argued (1 % luminance). It is also the right *shape*: a `computed`, not a second rAF (`:70-72`), so the re-light rides the existing rotation cadence instead of competing with the engine's loop. An optimisation that names its mechanism, bounds its cost, and picks the reactive primitive over a timer is rare.
+
+**The colocation.** `demo/scenes/cube/` is a model unit: the scene, its target, the target's CSS (`CubeTarget.css`, bound via `<style scoped src>` — `CubeTarget.vue:239`), its key module (`cubeKeys.ts`, 7 L, the single keyspace source), its cross-route store (`cubeTransformStore.ts`, 20 L), its engine composable, its re-light composable, and **two self-contained sub-units** (`matrix-editor/`, `orbital-drag/`), each of which has its pure math extracted into a Vue-free module (`transformMath.ts`, `quaternionEuler.ts`) that could be unit-tested without a DOM. Nothing in the unit reaches sideways into another scene; the only upward imports are `@state`, `@composables`, `@kf-engine` — the three declared peers.
+**Falsifier** for the elision: show a browser that invalidates on an unchanged `setProperty` (then the rounding buys nothing), or show `toFixed(2)` banding is visible (**UNPROVEN-NEEDS-LIVE**). For the colocation: find a cross-scene import in `demo/scenes/cube/`.
+
+### 9.9 Round-2 falsifier index
+
+| kills | observation |
+|---|---|
+| L-26 | a `resetMatrix()` call site inside `MatrixEditor.vue` |
+| L-27 | a second child of CubeScene's outer div that needs the wheel/touch-action triple |
+| L-28 | any reader of `SceneFacet.label` or `SceneFacet.icon` |
+| L-29 | a caller passing `hideLoader` for genuine loader suppression |
+| L-30 | reka re-opening a controlled hover card without a fresh `pointerenter` |
+| L-31 | a constructed proof that the raw pick equals the projection in every window |
+| P-8 | a heavy-graph edge reachable from `./physics/numeric`, or a HEAVY static import in the cube unit |
+| P-9 | an unchanged-`setProperty` invalidation, or a cross-scene import under `demo/scenes/cube/` |
+
+---
+
+*No file in keyframes.js, glass-ui, or any other repo was written, mutated, or executed — in either round. No installs, no dev servers, no browser tooling. This document is the single write.*

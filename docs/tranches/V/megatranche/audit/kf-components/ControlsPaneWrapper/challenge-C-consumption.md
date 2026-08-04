@@ -8,9 +8,11 @@ claude-opus-5[1m]
 **Substrate** keyframes.js `master`; installed `@mkbabb/glass-ui` **7.0.0**, `@mkbabb/value.js` **4.0.0**, `tailwindcss ^4.3.0`.
 **Hitherto corpus folded** `formation/keyframes/lane-frontend.md` (F-1 phantom dep, F-2/S-1..S-8 shadow census), `formation/keyframes/lane-library.md` (§4.6 R1 blast radius, §2 two-entry build).
 
-**Posture** — the component was assumed DEFECTIVE until the tree spoke. The tree acquitted it on three counts (§3) and convicted it on seventeen (§2). Two of my initial hypotheses were **killed by their own falsifiers** and are recorded as such in §4, because a false defect is worse than a missed one.
+**Posture** — the component was assumed DEFECTIVE until the tree spoke. The tree acquitted it on five counts (§3) and convicted it on twenty (§2). Two of my initial hypotheses were **killed by their own falsifiers** and are recorded as such in §4, because a false defect is worse than a missed one.
 
-**Tally** — 17 defects (1 BLOCKER · 8 MAJOR · 6 MINOR · 2 INFO) · 3 superlatives.
+**Tally** — 20 defects (1 BLOCKER · 9 MAJOR · 8 MINOR · 2 INFO) · 5 superlatives.
+
+**Second-pass note (same axis, same served model).** C-18..C-20 and S+4/S+5 were added by a re-audit of the same tree; C-14/C-15/C-16 carry corrections from that pass. Nothing from the first pass was retracted — every original claim was re-probed and survived. C-18 in particular is the *sibling* of the teleport hypothesis §4 killed: the first pass correctly acquitted `#controls-ribbon-target` and did not reach `#timeline-expanded-target`, which is gated differently.
 
 ---
 
@@ -376,12 +378,17 @@ The design intent is defensible — peek *is* the resting state, per `:109–116
 
 | site | claim |
 |---|---|
-| `ControlsPaneWrapper.vue:20` | "subject scenes cap at **0.48** (sheet.top ≈ 52dvh, stage readable)" |
-| `ControlsPaneWrapper.css:20` | "subject **0.48** ≈ 52dvh reserve" |
+| `ControlsPaneWrapper.vue:19–20` | "subject scenes cap at **0.48** (sheet.top ≈ 52dvh, stage readable)" |
+| `ControlsPaneWrapper.vue:267` | "subject **0.48** → sheet.top ≈ 52dvh" |
+| `ControlsPaneWrapper.css:19` | "subject **0.48** ≈ 52dvh reserve" |
 | `ControlsPaneWrapper.vue:270–274` | "subject **0.40** keeps ≈49dvh of unoccluded stage" |
 | `ControlsPaneWrapper.vue:275` | `const EXPANDED_SUBJECT = 0.4;` ← **the code** |
 
-Two of the three prose sites cite a detent the code does not use, and one of them is the top-of-file **occlusion contract** — the document a reader consults to learn what the stage reserve *is*. The gate named to enforce it (`proof:stage-visible`, `ControlsPaneWrapper.css:21`) would be re-derived against 0.40 while the contract asserts 0.48. `editor/storyboard` at 0.62 is consistent across all sites (`:276 EXPANDED_EDITOR = 0.62`).
+*(Second pass: the 0.48 prose is at **three** sites, not two — the detent-ladder comment at `:267` repeats it a second time inside the SFC, eight lines above the constant that contradicts it. The CSS site is `:19`, not `:20`.)*
+
+Three of the four prose sites cite a detent the code does not use, and one of them is the top-of-file **occlusion contract** — the document a reader consults to learn what the stage reserve *is*. The gate named to enforce it (`proof:stage-visible`, `ControlsPaneWrapper.css:21`) would be re-derived against 0.40 while the contract asserts 0.48. `editor/storyboard` at 0.62 is consistent across all sites (`:276 EXPANDED_EDITOR = 0.62`).
+
+**Coupled to C-2.** Discharging the inset lever changes the denominator this number lives in: with `--drawer-inset-block-end` set, the sheet element becomes `height: calc(100% − inset)` and the transform is `(1 − t)·100%` **of the element** (`dist/drawer.js:381`), so the visible *viewport* fraction becomes `t·(1 − inset/vh)`, not `t`. Both `EXPANDED_SUBJECT` and `EXPANDED_EDITOR` must be re-solved in the same edit that fixes the prose.
 
 *Falsifier* — if a later transform scaled 0.40 into an effective 0.48 visible fraction. `snapPoints` (`:280`) feeds the Drawer directly and glass-ui's CSS maps the snap fraction to `--glass-drawer-t` 1:1 (`components/drawer/styles.css`, `bottom: 0; height: 100%` with translate by `t`); no such transform exists.
 
@@ -399,6 +406,10 @@ if (isMobileLayout.value) {
 
 An imperative, one-shot read of a reactive media query at setup. The comment (`:255–259`) justifies it by remount frequency — "the wrapper remounts per scene via the group superKey boundary" (true: `EditorShell.vue:76 :key="superKey"`). But a **viewport crossing without a scene change** — desktop → narrow (rotation, window resize, devtools) — does not remount. `isControlsPanelOpen` carries the desktop `true` across the boundary, so the Drawer mounts at `expandedSnap` (0.40/0.62) rather than the intended peek. It is also a **prop-object mutation during setup** — a persisted `useStorage` bucket (`controlOptionsStore.ts:49–57`), so the write survives the session.
 
+**The reverse crossing is worse (second pass).** Mobile → desktop: the reset has already written `false`, so widening past 1024 px renders the desktop rail in `controls-pane--closed` (`:149–151`) — `pointer-events: none` and `opacity: 0` (`ControlsPaneWrapper.css:97–107`) — and the user's controls rail is simply *gone* until they find the dock toggle. The desktop→mobile direction over-reveals; the mobile→desktop direction under-reveals. Both are one watcher away from correct.
+
+**Reachability is not hypothetical**: an iPad rotation crosses this exact boundary (portrait 820/834 px < 1023 ≤ landscape 1112/1180 px), and `vite.config.ts` sets `server.host: true` for on-device testing, so the crossing is on the demo's own test path.
+
 *Falsifier* — if `useMediaQuery` crossing triggered a remount. It drives a `v-if`/`v-else-if` **inside** the component (`:118`, `:143`); the component itself is not re-created. A second falsifier: if a `watch(isMobileLayout)` existed elsewhere in the subtree to re-peek — `useControlsLayout.ts:48` re-derives the same query only to *gate* the auto-show watch (`:58–69`), never to reset the open fact.
 
 ---
@@ -409,8 +420,10 @@ The header cites glass-ui internals by line: `:9–10` "`drawer.js:6 import { Sp
 
 Against the installed 7.0.0:
 
-* `dist/drawer.js` line **7**, not 6, carries `import { SpringProgress as M } from "@mkbabb/keyframes.js"`. Line 134 is the fragment `hidden: ""`.
-* `dist/components/drawer/styles.css` is **one** minified line (`wc -l` → 1). Line references 53 and 134 cannot resolve.
+* `dist/drawer.js` line **7**, not 6, carries `import { SpringProgress as M } from "@mkbabb/keyframes.js"`. The spring is constructed at line **200** (`grep -n "new M(" dist/drawer.js`), not 134.
+* `dist/components/drawer/styles.css` is a single minified line with no trailing newline (`wc -l` → **0**). Line references 53 and 134 cannot resolve.
+
+**Generalise it.** Every comment in `demo/` that cites a `@mkbabb/glass-ui/dist/*` line number is presumptively stale against 7.0.0: the JS re-minified (so numbering shifted) and the CSS ships as one line (so *all* CSS line refs are void). This is cheap to sweep and it is the same mechanism that produced **C-2** and lane-frontend **F-2** — a 4.0.1-era comment carried forward as binding rationale. Recommend the formation treat "4.0.1-era rationale surviving into the 7.0.0 tree" as a repo-wide sweep rather than three point findings.
 
 The *claims* are true (the dogfood is preserved through the facade — §3.3); the *coordinates* point at a build the tree no longer holds, so a future auditor following them lands on noise. Cite by symbol, not by line, when citing a `dist/`.
 
@@ -421,6 +434,90 @@ The *claims* are true (the dogfood is preserved through the facade — §3.3); t
 ### C-17 · INFO — three `import type` statements from one specifier
 
 `:161–163` opens three separate lines against `@mkbabb/keyframes.js` for `AnimationGroup`, `AnimationLayerConfig`, `KeyframesAnimation`. One statement expresses the same thing; three make the library's surface look wider at a glance than it is. Cosmetic, listed for completeness.
+
+---
+
+### C-18 · MAJOR — the *other* teleport: N hosts, one `#timeline-expanded-target`, and this one is **not** gated on `active`
+
+*Second pass. This is the sibling of the hypothesis §4 killed — and it lands where that one did not.*
+
+§4 correctly acquitted `#controls-ribbon-target`: `ChannelOptions.vue:377` reads `<Teleport v-if="active" to="#controls-ribbon-target" defer>`, and `:64` makes `active` true for at most one host. **The transport cluster has a second teleport, and it carries no such gate.** `ChannelControls.vue:186–200`:
+
+```vue
+<Teleport to="#timeline-expanded-target" :disabled="!storedControls.isTimelineExpanded" defer>
+    <div v-if="isTimelineVisible" :key="storedControls.selectedControl" …>
+        <KeyframeTimeline ref="timelineRef" :targets="animation.targets" … />
+    </div>
+</Teleport>
+```
+
+Both gates read the **scene-shared** store bucket, never the host's own `active`:
+
+* `isTimelineVisible` — `ChannelControls.vue:377–379` = `storedControls.selectedControl === "timeline" || storedControls.isTimelineExpanded`.
+* the `:disabled` binding — `storedControls.isTimelineExpanded`.
+
+And `active` cannot help, because **`ChannelControls` never uses it for anything of its own**. Probe: `grep -n "active" ChannelControls.vue` filtered of `keyframesActive`/`selectedControlSurface`/`data-state`/`inactive` leaves `:108`, `:257`, `:262` — the destructure, the prop declaration, and a single verbatim forward to `ChannelOptions`. The wrapper passes `:active` (`:64`); the child spends it entirely on the ribbon teleport that §4 already cleared.
+
+Per **C-7**, every host is *mounted* (`v-show`, not `v-if`), and per §4 every host resolves the **same** store bucket (`animation.superKey` = the scene id). So when the timeline is expanded, **every** mounted host satisfies both gates simultaneously and relocates its own `KeyframeTimeline` into the one target element rendered at `AnimationControlsGroup.vue:79–88`.
+
+**Why `v-show` does not save it, as it does elsewhere.** This is the precise reason the ribbon case is benign and this one is not: `<Teleport>` *moves the node out of the wrapper's `v-show` subtree*. The `display:none` that hides an inactive host applies to the subtree the node has left. The inactive hosts' timelines land in the expanded target **visible**.
+
+**Counts, from the tree** — both multi-channel scenes reach the triad, so both mount the `v-else` branch that owns this teleport:
+
+| scene | painting channels | source | `isSingleSurfaceScene`? |
+|---|---|---|---|
+| cube | **3** (Matrix, Rotations, Hover) | `useCubeDemo.ts:20–23`, via `facilityFromGroup` (`scene-facility/index.ts:92–99`) | no — triad + `matrix-controls` |
+| spring | **2** (Sweep, Entry) | `useSpringDemo.ts:406–427`, both carrying `animation` | no — triad + `spring` facet |
+
+Both channels of spring carry the same superKey (`useSpringKeyframesEditor.ts:66`, `useCompiledEntry.ts:63` → both `SPRING_SCENE_ID`), so their buckets are identical. `surfacesFor` (`controlSurfaces.ts:99–114`) grants a painting channel the whole `BUILT_IN_SURFACES` triad, so `builtInTabs.length > 0` and `isSingleSurfaceScene` (`ChannelControls.vue:331–336`) is false for both — the flat branch, which has no teleport, is not taken.
+
+**Consequence:** expanding the timeline on cube stacks **3** `KeyframeTimeline` instances in one container; on spring, **2**. Beyond the render, each is a 312-line instrument bound to a *different* animation's `targets`/`options` (`:194–195`), so the stack is not even N copies of one thing — it is N different timelines presented as the scene's timeline. The ribbon meanwhile drives only one of them (`animControlRefs[selectedAnimation].timelineRef`, `AnimationControlsGroup.vue:198–201`), so N−1 are unreachable by their own controls.
+
+**Severity.** MAJOR on the source-proven duplication (N instances, N teleports, one container). **UNPROVEN-NEEDS-LIVE:** the rendered stacking. If live confirms N visible timelines, this escalates to **BLOCKER** — it is a visible duplication of the instrument's primary editing surface on two of seven shipped scenes.
+
+*Falsifier* — any ONE of: (a) `ChannelControls` gating this teleport on `active` (it does not; the grep above is exhaustive over 456 lines); (b) `controlHosts.length === 1` on cube and spring (three and two channel descriptors are enumerated in the sources cited); (c) the two/three hosts resolving **different** store buckets, so at most one satisfies `isTimelineVisible` (§4 disproved this for cube; `useSpringKeyframesEditor.ts:66` + `useCompiledEntry.ts:63` disprove it for spring); (d) Vue `<Teleport>` deduplicating or last-writer-winning into a shared target rather than appending in mount order.
+
+---
+
+### C-19 · MINOR — no `DrawerDescription`: a dev warning every mobile mount, and a dangling `aria-describedby` idref
+
+*Second pass. The other half of the labelling contract S+4 credits the component for getting right.*
+
+`:166` imports `Drawer, DrawerContent, DrawerTitle`. glass-ui also publishes `DrawerDescription` on the same subpath (`dist/components/drawer/index.d.ts`, final export). The component renders the title (`:134`) and no description.
+
+reka emits the describedby attribute **unconditionally** — `reka-ui/dist/Dialog/DialogContentImpl.js:78` `"aria-describedby": unref(rootContext).descriptionId` — and warns when the idref resolves to nothing (`reka-ui/dist/Dialog/utils.js:16–20`):
+
+```js
+const describedById = contentElement.value?.getAttribute("aria-describedby");
+if (descriptionId && describedById) {
+    const hasDescription = document.getElementById(descriptionId);
+    if (!hasDescription) console.warn(DESCRIPTION_MESSAGE);   // "Missing `Description` …"
+}
+```
+
+Both guards hold here: reka's root always generates `descriptionId`, and the attribute is always rendered. So the mobile branch ships (a) a `console.warn` on **every** mount, and (b) an `aria-describedby` pointing at an element that does not exist — an invalid ARIA reference (axe `aria-valid-attr-value`).
+
+Compounding **C-13**: this node is already a permanently-open, Escape-inert `role="dialog"`. Giving that dialog a broken description idref on top of an undismissable open state means the one glass primitive the demo adopts wholesale is also the one whose a11y contract it half-satisfies. The repair is one element.
+
+*Falsifier* — mounting the mobile layout and observing (a) no `Missing \`Description\`` warning in the console, and (b) `document.getElementById(el.getAttribute('aria-describedby'))` resolving to a real node. Either kills it. A second falsifier: glass-ui's `DrawerContent` passing an explicit `aria-describedby={undefined}` to suppress reka's generated id — `grep -o "aria-describedby" dist/drawer.js` returns nothing, so it forwards reka's default.
+
+---
+
+### C-20 · MINOR — the cluster's sibling reaches the root barrel where subpaths exist
+
+*Second pass. A subpath-choice finding, squarely on this axis.*
+
+`RibbonBar.vue:132` — the wrapper's only non-`ChannelControls` child, rendered at `:91–103` — draws three primitives from the **root** barrel:
+
+```ts
+import { Button, Card, CardContent } from "@mkbabb/glass-ui";
+```
+
+The installed package publishes 73 subpath exports, `./button` and `./card` among them (`node -e 'Object.keys(require("…/package.json").exports)'`). This wrapper models the correct idiom 34 lines away — `:166` reaches `/drawer` — and lane-frontend §3.1 counts **31** root-barrel sites against 21 distinct subpaths reached, so this is a tree-wide idiom with a local instance inside the cluster under audit.
+
+The cost is bundle-graph width in a demo that works hard to defer bytes elsewhere: `useKeyframesPaneReveal.ts:26–30, 57–63` exists solely to keep a ~4 MB Monaco chunk off first paint, while the same cluster pulls a 73-export barrel for three leaf components.
+
+*Falsifier* — the root barrel proving fully side-effect-free and tree-shaken in this build (`formats:["es"]`, per lane-library §2), which would make the choice cosmetic and reduce this to INFO. It would not make the barrel the *better* choice: the subpath is the producer's published contract for exactly this, and the deep-import idiom is what makes **C-2**-class producer changes legible at the import line.
 
 ---
 
@@ -467,11 +564,34 @@ The naive alternatives are both defective, and this avoids both: **duplicating t
 
 *Falsifier* — if the reused template lost its scoped-style attribute in one of the two homes, the CSS in `ControlsPaneWrapper.css` would apply asymmetrically. The template is authored inside this SFC, so the compiler stamps `data-v-…` at definition; both call sites render the same stamped vnodes. **Rendering parity across the two homes UNPROVEN-NEEDS-LIVE**; the structural argument is static.
 
+*Second-pass corroboration of the scoped-style half* — verified against the installed `@vueuse/core@14.3.0` (`dist/index.js:67–96`): `reuse` invokes the stored `slots.default`, a `_withCtx`-wrapped function that restores the **defining** instance as `currentRenderingInstance` before the vnodes are created. The scope id is therefore this SFC's in both homes, including across the Drawer's portal — so the descendant rules at `ControlsPaneWrapper.css:40–73` survive the teleport to `<body>`. This forecloses a plausible BLOCKER (*"148 lines of scoped CSS silently no-op in the portalled home"*) that the primitive's reputation invites; it is not one.
+
+### S+4 — the writable-computed ↔ snap-point bridge is safe *against this engine*, and the ladder forecloses the dismiss path
+
+`:284–293` reduces a continuous detent to a boolean through a getter that can return only two values. That shape is normally a trap: if the producer emitted per-frame drag values, the getter would fight the drag every tick and the sheet would stutter. **It does not, and the installed artifact proves it rather than the comment asserting it.**
+
+In `dist/drawer.js` the drag path writes the CSS variable **directly** — `:183` `style.setProperty("--glass-drawer-t", …)`, reached from the `pointermove` handler at `:241–246` — and touches the model **only at settle**: `:219` `t.target = e; t.play(x); i.activeSnapPoint.value = e`, called from the `pointerup` resolver. The emit bridge at `:62` (`watch(T, e => emit("update:activeSnapPoint", e))`) therefore fires once per detent, never per frame. The consumer's midpoint rule (`:290–291`) is the correct reduction of a *settled* detent.
+
+The ladder is likewise closed against accidental dismissal. `z()` (`:257–261`) sets `open.value = false` when the resolved target is `<= 0`, and the fling stepper `G()` (`:156–161`) clamps at the ladder ends (`if (i < 0 || i >= n.length) return e`). With `snapPoints = [0.12, expanded]` (`:269`, `:280`) the floor is `0.12 > 0`, so **no gesture can reach the close branch** — the "held permanently OPEN" contract at `:109–116` is enforced by the ladder's *shape*, not by the `:open="true"` literal alone. (That literal remains **C-13**'s defect on the ARIA axis; this is the mechanical claim, and it holds.)
+
+This forecloses two further plausible-but-false defects — *"the computed clamp fights the drag"* and *"a downward fling closes the sheet with no way to reopen"* — both of which the two-value getter makes tempting to allege. Recorded so neither is re-raised.
+
+*Falsifier* — a per-frame `update:activeSnapPoint` emit (excluded by `:62` + `:219`), or a snap floor of `0` reaching `z()`'s `o <= 0` branch (excluded by `PEEK_SNAP = 0.12`, `:269`).
+
+### S+5 — the composable seams pass getters and refs, not dereferenced values
+
+`:236–238` — `usePaneRegister({ stageMode: () => props.stageMode })` — passes a **getter**, and the composable documents the choice (`usePaneRegister.ts:8–11`, "Pass the raw prop (a getter) — undefined falls back to `subject`") so `:36` `computed(() => stageModeProp() ?? "subject")` stays reactive across prop changes rather than capturing a value at setup. Both its option and return shapes are named interfaces (`UsePaneRegisterOptions`, `UsePaneRegisterReturn`, `:4–18`) rather than inferred — the exact opposite of the `any` surface **C-12** convicts, in the same component.
+
+`useControlsLayout(props.storedControls, paneElRef)` (`:241–250`) is sound for the same reason at one remove: it receives a stable reactive singleton and a `Ref`, not a read value, so nothing is captured non-reactively. This is worth stating because the setup-time read one screen below (`:260–262`, **C-15**) is the *one* place the file breaks this discipline — the surrounding code establishes that the author knew the idiom, which makes C-15 a slip rather than a pattern.
+
+*Falsifier* — `props.stageMode` proving non-reactive at that call site, or `usePaneRegister` reading the getter once outside a reactive context (`:36` is a `computed`, so it does not).
+
 ---
 
 ## 4. Hypotheses I killed (recorded so they are not re-raised)
 
-* **"Multiple `ChannelControls` instances teleport into the single `#controls-ribbon-target`, stacking N ribbons."** — **FALSE.** `ChannelOptions.vue:377` gates the Teleport on `v-if="active"`, and `:64` passes `:active="storedControls.selectedAnimation == host.name"`, which is true for at most one host. The teleport is singular by construction. (The *mount* multiplication is real and is **C-7**; the *teleport* multiplication is not.)
+* **"Multiple `ChannelControls` instances teleport into the single `#controls-ribbon-target`, stacking N ribbons."** — **FALSE.** `ChannelOptions.vue:377` gates the Teleport on `v-if="active"`, and `:64` passes `:active="storedControls.selectedAnimation == host.name"`, which is true for at most one host. The teleport is singular by construction. (The *mount* multiplication is real and is **C-7**; *this* teleport's multiplication is not.)
+  **⚠ Scope correction (second pass).** This acquittal is sound but **narrower than it reads**: it clears `#controls-ribbon-target` only. The cluster has a *second* teleport — `ChannelControls.vue:186` → `#timeline-expanded-target` — whose gates (`isTimelineVisible`, `isTimelineExpanded`) read the shared bucket and **never consult `active`**. That one does multiply, and it is **C-18**. The lesson generalises: `active` is not a teleport guard in this cluster, it is a prop `ChannelControls` forwards once (`:108`) and otherwise ignores — so "is it gated on `active`?" must be asked per teleport, never inferred from a sibling.
 * **"`ControlsPaneWrapper`'s group-level `storedControls` and `ChannelControls`' per-animation store are different buckets, so `RibbonBar` gates on a different `selectedControl` than the panel it decorates."** — **FALSE** for every scene in the tree. `ChannelControls.vue:274` calls `getStoredAnimationGroupControlOptions(animation)` → `getAnimationSuperKey` → `animation.superKey` (`storeUtils.ts:22–34`), and every scene assigns `animation.superKey = <SCENE_ID>` (`useCubeDemo.ts:67,101,112`; `useAmigaDemo.ts:143`; `SquareScene.vue:155`; `useEasingDemo.ts:303`), which is the same key the parent passes (`AnimationControlsGroup.vue:176`). Same bucket, same object. The divergence would appear only for an animation with no `superKey` (falling to `"default"`); no such animation exists in the demo. Recorded as a **latent** hazard, not a defect.
 
 ---
@@ -495,16 +615,25 @@ The naive alternatives are both defective, and this avoids both: **duplicating t
 | C-13 | MINOR | `:open="true"` pins an undismissable `role=dialog` | `:121` |
 | C-14 | MINOR | detent prose 0.48 (×2) vs code 0.40 | `:20`, `CSS:20`, `:275` |
 | C-15 | MINOR | setup-only peek reset; no desktop→mobile crossing | `:260–262` |
-| C-16 | INFO | `dist/` line citations drifted (drawer.js:6→7; drawer.css:53/134 in a 1-line file) | `:9–10`, `CSS:12–18` |
+| C-16 | INFO | `dist/` line citations drifted (drawer.js:6→7, :134→200; drawer.css:53/134 in a 0-newline file) | `:9–10`, `CSS:12–18` |
 | C-17 | INFO | three `import type` lines, one specifier | `:161–163` |
+| **C-18** | **MAJOR** | the *other* teleport — N hosts → one `#timeline-expanded-target`, **not** gated on `active` (cube 3, spring 2) | `:46–49,64`; `ChannelControls:186–200,377–379` |
+| **C-19** | **MINOR** | no `DrawerDescription` → reka dev warn every mobile mount + dangling `aria-describedby` idref | `:134,166`; `reka Dialog/utils.js:16–20` |
+| **C-20** | **MINOR** | root-barrel import in the cluster while `./button`/`./card` subpaths exist | `RibbonBar:132` |
 | **S+1** | superlative | 100 % type-only kf consumption; R1 class unreachable at this node | `:161–163` |
 | **S+2** | superlative | best glass-ui adoption in the demo; dogfood preserved through the facade | `:2–13`, `drawer.js:7` |
-| **S+3** | superlative | `createReusableTemplate` — one body, two homes, no duplicate id/state | `:179,135,156` |
+| **S+3** | superlative | `createReusableTemplate` — one body, two homes, no duplicate id/state; scope id survives the portal | `:179,135,156` |
+| **S+4** | superlative | settle-only emit + `0.12` ladder floor: the computed bridge cannot fight the drag, and no gesture can dismiss | `:284–293`; `drawer.js:62,219,257–261` |
+| **S+5** | superlative | composable seams pass getters/refs, not captured values; named option+return interfaces | `:236–238`; `usePaneRegister.ts:4–18,36` |
 
-**Repair order** — C-1 first (nothing below is reproducible until the lockfile is honest, per lane-frontend §10.1). Then C-3/C-4 (two dead scroll dispatches, both one-line), then C-2 (set the published token, delete the stale contract prose and C-14 with it), then C-5/C-6 (contract hygiene), then C-9 (install `vue-tsc`, which converts C-5/C-10/C-11 from prose into gate output), then C-7 (mount policy), then C-8 with S-1 (both die on the `KfPillTabs`/`FadingScroll` adoption wave).
+**Repair order** — C-1 first (nothing below is reproducible until the lockfile is honest, per lane-frontend §10.1). Then C-3/C-4 (two dead scroll dispatches, both one-line), then C-2 (set the published token — and re-solve the detents in the same edit, since the inset changes the fraction's denominator; C-14 dies with it), then **C-18** (gate the timeline teleport on the host's own `active`, or hoist it to the wrapper as a singleton — verify live on cube first, since it stacks three), then C-5/C-6 (contract hygiene), then C-9 (install `vue-tsc`, which converts C-5/C-10/C-11 from prose into gate output), then C-7 (mount policy — C-18 and C-7 share a root cause and may share a fix: `active` is passed and ignored), then C-19/C-20/C-12 (one-line contract repairs, independently landable), then C-8 with S-1 (both die on the `KfPillTabs`/`FadingScroll` adoption wave).
+
+**The one-line cluster** — C-2, C-15, C-19, C-20 and the C-16 sweep are each a single declaration, watcher, element, or specifier. Together they retire one BLOCKER-adjacent backlog row, one a11y warning, one invariant hole and one bundle-graph nit for less edit surface than C-8 alone.
 
 ---
 
 ## Provenance
 
-Every glass-ui claim is sourced from `/Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/glass-ui/dist/` — the copy already on disk in the audit target — so no upgrade is presupposed by any repair. `/Users/mkbabb/Programming/keyframes.js` was read only. No file in keyframes.js or glass-ui was written, mutated, or executed; no installs, no dev servers, no browser tooling. The single write of this lane is this file.
+Every glass-ui claim is sourced from `/Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/glass-ui/dist/` — the copy already on disk in the audit target — so no upgrade is presupposed by any repair. reka claims are sourced from `node_modules/reka-ui/dist/Dialog/`; vueuse claims from `node_modules/@vueuse/core/dist/index.js` (14.3.0). `/Users/mkbabb/Programming/keyframes.js` was read only. No file in keyframes.js or glass-ui was written, mutated, or executed; no installs, no dev servers, no browser tooling. The single write of this lane is this file.
+
+**Files read whole for the second pass** (all read-only): the SFC + `ControlsPaneWrapper.css`; `RibbonBar.vue`; `../channel-controls/ChannelControls.vue`; `../channel-controls/composables/useKeyframesPaneReveal.ts`; `../ControlsPaneWrapper/{useControlsLayout,usePaneRegister,usePaneHover}.ts`; `../transportSource.ts`; `../AnimationControlsGroup.vue`; `../KfPillTabs.vue` + `../KfPillTabs/useKfPillTabs.ts`; `state/{controlOptionsStore,storeUtils,controlSurfaces}.ts`; `composables/scene-facility/index.ts`; plus the glass `drawer.js` / `components/drawer/*.d.ts` / `components/drawer/styles.css`, `components/tabs/*.d.ts`, and reka `Dialog/{utils,DialogContentImpl}.js` as producer evidence.

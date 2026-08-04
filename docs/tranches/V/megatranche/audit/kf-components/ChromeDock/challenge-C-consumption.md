@@ -8,7 +8,9 @@ claude-opus-5[1m]
 **Producer evidence:** the *installed* `node_modules/@mkbabb/glass-ui@7.0.0` `dist/` + `node_modules/reka-ui` `src/` — i.e. exactly the code this component links against today.
 **Posture:** the component is assumed DEFECTIVE until the tree proves otherwise. Every claim below carries its own falsifier; a claim that cannot be killed by an observation is not a claim.
 
-**Tally: 17 defects (2 BLOCKER · 6 MAJOR · 7 MINOR · 2 INFO) · 5 superlatives.**
+**Tally: 25 defects (2 BLOCKER · 10 MAJOR · 11 MINOR · 2 INFO) · 6 superlatives.**
+
+> **Round 2 (this pass).** §§0–7 are the first pass, preserved verbatim so cross-lane citations of `C-1…C-17` / `S-1…S-5` keep resolving. §6b adds eight findings the first pass missed (`C-18…C-25`) and two superlatives (`S-6`, `S-7`); §6c **withdraws `S-2` and reverses it into a defect** (`C-18`) on tree evidence; §3 and §C-1 carry round-2 amendments marked inline. Round 2 re-verified the first pass's two BLOCKERs at source before building on them (`dist/dock.js` layer render for C-1; `node_modules` + `package.json:37-38` for C-2) — both stand.
 
 ---
 
@@ -52,6 +54,15 @@ Seam context also read: `demo/app/App.vue` (the SOLE consumer), `demo/app/dock/i
 **How it got here (and why it is a consumption defect, not a producer defect).** `ChromeDock.vue:347-362` documents the reduction: on glass-ui 4.0.0 the collapsed dock necked to a perfect circle, the three-part chip clipped ("Cube" → "Cub"), so the slot was reduced to the glyph alone. The reduction is design-correct and explicitly framed as "a kf-CONSUME fit (no GlassDock patch)". What it silently deleted was the *only* interactive/named content in the collapsed state. glass-ui offers both levers to avoid this — `alwaysExpanded` (opt out of collapse for a primary-nav dock) and an arbitrary-content `#collapsed` slot that accepts a `DockControl` (a real `<button>` with `aria-label`). Neither is taken.
 
 **Severity rationale.** The ChromeDock scene `Select` is the app's *sole* scene-navigation affordance (the only alternative is hand-editing the URL hash). A keyboard-only or switch-access user cannot reach it after 2.5 s. That is a total loss of navigation, not a degradation.
+
+**ROUND-2 AMENDMENT — a third, cheaper lever the first pass did not name.** GlassDock exposes five slots (`GlassDock.vue.d.ts`: `persistent`, `default`, `collapsed`, `search`, `persistent-end`); ChromeDock consumes **two**. The render (`dist/dock.js`, GlassDock template) places `#persistent` / `#persistent-end` **outside** `.dock-layers` —
+
+```js
+t.$slots.persistent ? (U(), j("div", qe /* class:"dock-persistent" */, [K(t.$slots, "persistent")])) : A("", !0),
+M("div", { ref_key: "layersEl", … class: "dock-layers" }, [ /* full (inert when not active) */, /* summary (inert when not active) */ ])
+```
+
+— and neither persistent region carries an `inert` binding, unlike both layers. A single `<DockControl aria-label="Scenes">` in `#persistent` is therefore focusable in **both** dock states, which `#collapsed` cannot be (the summary layer is itself `inert: V !== "summary" || void 0`, so a control placed there is unreachable whenever the dock is expanded). This makes the remedy strictly smaller than `alwaysExpanded` and does not touch the C-4/S-5 collapsed-circle fit. **Falsifier:** show `inert` is emitted on `.dock-persistent` (it is not — the `Ge` attr list for the dock root and the `Je`/`Ye` lists for the two layers are the only `inert` carriers).
 
 **Falsifier (any one kills it):** (a) find a focusable element that stays in the tab order while the dock is collapsed and inside the dock root — i.e. outside `.dock-layer--full`'s `inert` subtree; (b) find a registered global shortcut that calls `expand()` or switches scenes; (c) show `inert` is not emitted (e.g. `V` resolves to `"full"` at rest while collapsed); (d) show a second scene-nav affordance elsewhere in the shell.
 **UNPROVEN-NEEDS-LIVE:** the final *observation* (tab through the page and confirm the dock is skipped) is a runtime property of `inert` + focus order and belongs to the SS-13 pass. Every input to the deduction above is static and cited.

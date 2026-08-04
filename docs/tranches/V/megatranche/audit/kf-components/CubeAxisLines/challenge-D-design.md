@@ -7,6 +7,8 @@ claude-opus-5[1m]
 **Mode:** static, read-only, source-derived. No browser, no dev server, no installs. Nothing in keyframes.js was written.
 **Posture:** assumed DEFECTIVE until the tree proved otherwise. Every claim below carries a falsifier; two candidate claims were **killed by their own falsifier** and are recorded as such (§6).
 
+> **REV 2 — second-pass verification (2026-08-04).** This file was re-derived independently against the same tree and then reconciled with rev 1 rather than replaced. Rev 1's twenty findings **all survive verification**; the numbers, line refs, and token resolutions were re-checked and match. Four findings gained evidence rev 1 did not have (D-1, D-10, D-17), **one finding's premise was wrong and is corrected** (D-16, demoted MAJOR-adjacent MINOR → INFO), and the correction propagates as a new corpus entry (**C-2**) that *strengthens* D-4. A candidate superlative raised on the second pass — "the `--z-behind` reconciliation is exemplary token discipline" — was **killed by rev 1's own D-5 + C-1** and is recorded at §6 K-3. Changes are marked **[REV 2]** inline; nothing from rev 1 was deleted.
+
 **Files read whole (read-only):**
 
 | file | why |
@@ -39,10 +41,10 @@ claude-opus-5[1m]
 | D-6 | MAJOR | Keyboard-only affordance with **zero touch parity** and no §7 legend — the sibling egg in the same consumer was explicitly given touch parity (`CubeTarget.vue:224–226`). |
 | D-7 | MAJOR | The latch is a bare `window` keydown with **no focus guard**: typing `x`/`y`/`z` into any input in the app lights the axis lines; a keyup lost to a tab-switch leaves one **permanently lit**. |
 | D-8 | MAJOR | Unconditional `filter` on three ~10×-viewport-width elements, repainting inside a live `backdrop-filter` backdrop root — the exact coupling `App.vue:362–378` (T.G1) names as VERDICT #19 root cause #1. |
-| D-9 … D-16 | MINOR | codex violations (§4 viewport literal, §6 partition + off-ladder duration), flat-namespace hazard, missing `aria-hidden`, no forced-colors block, dual state encoding, dishonest stroke primitive, decoupled containing block. |
-| D-17 … D-20 | INFO | prose volume / §6 competing authority, a null declaration, inaccurate "single-axis" prose, §9.2 props grammar. |
+| D-9 … D-15 | MINOR | codex violations (§4 viewport literal, §6 partition + off-ladder duration), flat-namespace hazard, missing `aria-hidden`, no forced-colors block, dual state encoding, dishonest stroke primitive. |
+| D-16 … D-20 | INFO | **[REV 2: D-16 demoted, premise corrected]** static-position geometry, prose volume / §6 competing authority, a null declaration, inaccurate "single-axis" prose, §9.2 props grammar. |
 
-**Tally: 20 defects · 1 blocker · 6 superlatives.**
+**Tally: 20 defects · 1 blocker · 6 superlatives.** (Rev 2 changed one severity and added evidence to four findings; it added no new defect and retired none.)
 
 ---
 
@@ -70,6 +72,12 @@ Nothing upstream rescues it, and I checked every candidate:
 * glass-ui `dist/styles/transitions.css` — its PRM block enumerates class selectors (`.fade-enter-active`, `.pane-swap-*`, `.metric-swap-*`, `.dock-in`). `.axis-line` matches none.
 * glass-ui `dist/styles/accessibility.css` — read whole: it carries `prefers-contrast: more` and `forced-colors: active` blocks keyed on `[aria-current]`/`[aria-selected]`/`[aria-pressed]`/`[aria-checked]`/`[data-state]`. These divs carry **no** aria or data-state attributes. Nothing applies.
 * Styles are `<style scoped>` — a rule authored elsewhere could not reach `.axis-line` without the `data-v-` hash anyway.
+
+**[REV 2] Two further doors checked and closed**, so the "nothing upstream rescues it" claim is now exhaustive over glass-ui's entire PRM surface (`grep -rl "prefers-reduced-motion" node_modules/@mkbabb/glass-ui/dist/styles/` → the blocks below are all of them):
+
+* glass-ui `dist/styles/tokens/scheme-motion.css` — its PRM block is `:root { --motion-weight: 0; --ease-cartoon-punch: var(--ease-standard); }`. A token lever, not a transition kill; and `--motion-weight` is a property this file never reads. Nothing attenuates.
+* glass-ui `dist/styles/utilities/base.css` — `.tap-squish:not([data-press-armed]):active { scale: 1 }`. No match.
+* **There is no global tempo escape either.** `--motion-tempo` is declared once, `--motion-tempo: 1`, in `tokens/scheme-spring.css`, and is **not** re-declared under PRM. So even the durations that *are* tokenised do not collapse under PRM; a tempo-based rescue does not exist for any demo component, let alone this one. (This matters for the D-10 fix: tokenising `180ms` is correct on codex grounds but does **not** by itself discharge D-1 — the `@media` block is load-bearing regardless.)
 
 Severity is BLOCKER, not MAJOR, on two grounds. First, the house standard is met everywhere else: `lane-frontend.md §6.5` enumerates **13** PRM enforcement sites across 12 files, including four in this very scene family's peers (`SquareInstrument.vue:207`, `SquareScene.css:136`, `SpringTarget.vue:462`, `StartingStyleTarget.vue:211`) and a JS query **in this same scene** at `scenes/cube/useCubeDemo.ts:164`. This component is the regression, not the norm. Second — and this is what makes it a blocker rather than a miss — the comment **actively certifies** the thing it omits. A reviewer running the census's own §6.5 grep sees `CubeAxisLines.vue` absent from the roster, reads `:59`, and concludes the coverage is inherited. The false certificate converts a fixable omission into a durable one.
 
@@ -258,7 +266,21 @@ And `App.vue:362–378` (T.G1) states the paint mechanism precisely: "A live `ba
 
 The rest register is exactly the "graph ink / pane idle opacity" class of magnitude §4 sends to `design-idioms.css`, and it is a *shared* concern — `matrix-editor/MatrixEditor.vue:143–155` binds the same `--axis-x/y/z` triple, so a second consumer of the axis register already exists.
 
-`180ms` is additionally **off the ladder**. glass-ui ships `--duration-fast: 0.2s`, `--duration-normal: 0.3s`, `--duration-slow: 0.45s`. `180ms` is neither, and the file reaches for `var(--ease-standard, …)` on the same lines — so it knows the token vocabulary and declines the duration half of it. The sibling `--lit` transition uses `160ms linear` (`CubeTarget.css:79`), so the scene now runs two bespoke durations and neither is a token.
+`180ms` is additionally **off the ladder**. glass-ui ships `--duration-instant: 0.1s`, `--duration-control: 0.12s`, `--duration-fast: 0.2s`, `--duration-normal: 0.3s`, `--duration-slow: 0.45s`. `180ms` is none of them, and the file reaches for `var(--ease-standard, …)` on the same lines — so it knows the token vocabulary and declines the duration half of it. The sibling `--lit` transition uses `160ms linear` (`CubeTarget.css:79`), so the scene now runs two bespoke durations and neither is a token.
+
+**[REV 2] The in-tree precedent is unambiguous** — the demo's own idiom sheets tokenise *both halves* of the shorthand, and do it with the same defensive-fallback grammar this file uses for the ease alone:
+
+```
+demo/styles/playback-idiom.css:33–36
+    background   var(--duration-fast, 150ms) var(--ease-standard),
+    border-color var(--duration-fast, 150ms) var(--ease-standard),
+demo/styles/tab-idiom.css:38–40
+    color        var(--duration-fast)        var(--ease-standard),
+```
+
+So the half-conformance is a deviation from a live house pattern, not from an unexercised spec.
+
+**[REV 2] The literal is also deaf to the tempo lever.** `tokens/scheme-spring.css` builds every spring duration as `calc(var(--*-settle) * var(--motion-tempo))`. A hardcoded `180ms` sits outside that multiplier permanently — so this reveal cannot be retuned, slowed, or globally damped by any future tempo work, while every tokenised sibling can. (It is **not** a PRM escape hatch today: see the D-1 rev-2 note — `--motion-tempo` is `1` unconditionally.)
 
 **Falsifier:** a codex amendment allowing colocated appearance magnitudes, or a `--duration-*` rung at 180ms. Neither exists (`grep -rho -- "--duration-[a-z]*:[^;]*;"` over glass-ui's styles returns exactly `0.2s`/`0.3s`/`0.45s`).
 
@@ -328,19 +350,26 @@ This is not cosmetic pedantry — the stroke weight is what carries D-3's contra
 
 **Falsifier:** a rendered stroke measuring 1px. Two stacked 1px borders on a zero-height box measure 2px by the box model.
 
-### D-16 · `position: absolute` with no offsets — the containing block is not the perspective parent — MINOR
-
-`:68` declares `position: absolute` with no `top`/`left`/`inset`. The nearest positioned ancestor is CubeTarget's **outer** wrapper (`CubeTarget.vue:2–3`, which carries `relative`) — **not** `.graph`, which has no `position` and which is what supplies `perspective: 1200px` and `preserve-3d`. So the containing block and the perspective origin come from two different boxes, held concentric only by the outer grid centring `.graph`.
-
-With all offsets `auto`, placement falls to static position, and for an abspos child of a grid container that is not its containing block, static position is resolved per CSS Grid §9.1 as if it were the sole item in an area coinciding with the grid's content edges — then `items-center`/`justify-items-center` apply. That is the single most engine-divergent corner of this component's geometry, and D-4's projection argument depends on it landing dead-centre.
-
-`inset: 0; margin: auto` is the pattern the sibling already uses for exactly this problem — `CubeTarget.css:72–75`: "the faces are absolutely positioned; center them in the now honestly-sized side×side `.cube` box."
-
-**Falsifier:** a cross-engine render showing the axis cross at the die's centre in all targets. Also weakened if `.graph` is given `position: relative`, which would collapse the two coordinate systems into one and make the placement explicit.
-
 ---
 
 ## 4. INFO
+
+### D-16 · `position: absolute` with no offsets — placement rests entirely on grid static position — INFO **[REV 2: PREMISE CORRECTED, DEMOTED MINOR → INFO]**
+
+> **Rev 1 claimed:** "The nearest positioned ancestor is CubeTarget's **outer** wrapper (`CubeTarget.vue:2–3`, which carries `relative`) — **not** `.graph`, which has no `position` … So the containing block and the perspective origin come from two different boxes, held concentric only by the outer grid centring `.graph`."
+>
+> **That is wrong, and it is wrong in its premise, not its arithmetic.** "Nearest *positioned* ancestor" is not the containing-block test. Per CSS Transforms Level 2 § *The `perspective` property*: "The use of this property with any value other than `none` establishes a stacking context. **It also establishes a containing block for all descendants with `position: fixed` or `position: absolute`**, just like the `transform` property does."
+>
+> `.graph` carries `perspective: 1200px` (`CubeTarget.css:14–16`). It is therefore **the containing block**, `position` or no `position` — rev 1's own observation that `.graph` has no `position` declaration is factually correct (verified: `grep -n position demo/scenes/cube/CubeTarget.css` → only `:109`, which belongs to `.face-lacquer`) but does not carry the conclusion drawn from it. The containing block and the perspective origin are **the same box**. There is no two-coordinate-system defect.
+
+What survives, and why it is still worth an INFO row:
+
+1. **The dependency is implicit and undocumented.** `.graph` is the containing block *solely* by virtue of a 3D-tuning value. `perspective: 1200px` is exactly the kind of number someone retunes; drop it or move it and all three lines silently reparent to the `relative` root at `CubeTarget.vue:3`, shifting the axis cross with no error anywhere. In a file that comments its opacity register for eight lines (`:45–52`), the one load-bearing structural dependency is unremarked.
+2. **Static position is still the placement mechanism.** All offsets are `auto`, so placement resolves per CSS Grid §9.2 — as if the box were the sole item in an area coinciding with `.graph`'s content edges — then `items-center`/`justify-items-center` (`CubeTarget.vue:9`) centre it. This remains the most engine-divergent corner of the component's geometry.
+
+**This correction *strengthens* D-4.** Rev 1 hedged its projection argument on the axis lines "landing dead-centre," treating the concentricity as incidental ("held concentric only by the outer grid centring"). With `.graph` established as both the containing block *and* the perspective origin (`perspective-origin: 50% 50%` by default, `transform-origin: 50% 50%` by default), the `.z` line's centre coincides with the projection centre **by construction**, in every engine. D-4's "a line through the projection centre projects to a point" is no longer contingent — and D-4's stated falsifier ("if the static position resolves off-centre…") is correspondingly harder to satisfy.
+
+**Falsifier:** a normative citation showing `perspective` does *not* establish a containing block for abspos descendants (css-transforms-2 §3 and MDN both say it does), or an intervening ancestor between `.graph` and `.axis-line` that establishes a nearer one (there is none — they are direct siblings of `OrbitalDrag` under `.graph`, `CubeTarget.vue:95–101`).
 
 ### D-17 · Prose volume and §6 prose ownership — INFO
 
@@ -348,7 +377,20 @@ With all offsets `auto`, placement falls to static position, and for an abspos c
 
 "no new rAF, no new gesture machinery" appears three times across two files (`CubeAxisLines.vue:8`, `:29`, `CubeTarget.vue:157`), plus a fourth variant at `OrbitalDrag.vue:5`. `CubeTarget.css:11–12` already leaves the correct one-line pointer to this unit — that is the form §6 sanctions.
 
-**Falsifier:** a codex amendment permitting colocated rationale. §6's sentence is unambiguous as written.
+**[REV 2] The thesis sentence itself is restated four times, and this is the mechanism behind D-1.** Verbatim:
+
+| site | text |
+|---|---|
+| `CubeAxisLines.vue:6–7` | "so the otherwise-hidden single-axis lock becomes spatially legible" |
+| `CubeAxisLines.vue:51–52` | "so the single-axis constraint OrbitalDrag enforces becomes spatially legible" |
+| `CubeTarget.vue:98–99` | "so the otherwise-hidden lock becomes spatially legible" |
+| `CubeTarget.vue:154–155` | "making the otherwise-hidden single-axis constraint spatially legible" |
+
+Four drafts of one sentence, none carrying information the others lack — and two of them nine lines apart in the same file. Add the "OrbitalDrag already CONSTRAINS rotation to a single axis" pair (`CubeAxisLines.vue:3–4`, `CubeTarget.vue:96–97`) and this component's rationale exists in **four independent copies across two files**, every one of them inheriting D-19's inaccuracy.
+
+That is not a tidiness complaint; it is the failure mode. Prose duplicated rather than referenced drifts from its code independently, and **D-1 is the proof already landed**: a comment in this file certifies a `prefers-reduced-motion` wrapper that does not exist. The §6 rule ("comments may point to a section; they do not mint a competing authority") is the remedy precisely because a pointer cannot drift.
+
+**Falsifier:** show the four passages carry distinct information — e.g. one names a mechanism or constraint the others omit — such that collapsing them to one plus three pointers would lose something. Or a codex amendment permitting colocated rationale; §6's sentence is unambiguous as written.
 
 ### D-18 · `transform: rotateX(0deg)` is a null declaration — INFO
 
@@ -451,6 +493,12 @@ Recorded because a false defect is worse than a missed one.
 
 **K-2 · "`filter` on `.axis-line` re-flattens the 3D scene, per T.A1."** The T.A1 note at `CubeTarget.css:148–154` makes this the first thing to check. **Killed:** the grouping-property rule forces `used transform-style: flat` on the element's own subtree; `.axis-line` is a childless leaf, and it still participates in `.graph`'s 3D context as a plane. The die is safe. What survives is the *undischarged-hazard* half of the argument and the raster cost — both folded into D-8 at reduced severity.
 
+**[REV 2] K-3 · "The `--z-behind` reconciliation is exemplary token discipline" — a candidate SUPERLATIVE, killed.** Raised on the second pass and it is seductive: `:64–67` retired a raw literal for `var(--z-behind)`, cross-referenced the sheet that defines the contract, and the token demonstrably resolves (`layout.css:25`, `-10`, sole declaration tree-wide — verified). The same scene even discriminates correctly elsewhere, declining to over-semanticise a genuinely local rung (`CubeTarget.vue:44–49`: "z-10: LOCAL stacking inside the 3D cube … NOT a participant in the editor z-contract"). **Killed by this file's own D-5 and C-1**: the token resolves, but the *declaration is inert* the moment `.graph`'s 3D context engages (D-5), and the contract prose it points at is itself false in two places (C-1). A token reference that resolves cleanly to a value the layout engine then ignores is not discipline — it is a well-formed citation of a rule that stopped applying. Logged so a third pass does not bank it.
+
+**[REV 2] K-4 · "`--ease-standard` is a phantom token; the `, ease` fallback is load-bearing camouflage."** Independently re-raised on the second pass; independently **killed** — same resolution rev 1 recorded at S-6 (`tokens/scheme-spring.css` → `--motion-ease-standard: cubic-bezier(0.4, 0, 0.2, 1)`). Noted only because a first grep for `--ease-standard:` can miss it: the declaration sits mid-line in a single-line minified token sheet, and a naive line-oriented search returns nothing. **The token is real. Do not re-raise.**
+
+**[REV 2] K-5 · "`width: 1000vw` breaks RTL / mirrors the axis cross."** **Killed:** `.graph` is a grid and the abspos lines take grid static position (CSS Grid §9.2) under `justify-items-center`, which is direction-agnostic. The box extends symmetrically about the centre in both writing modes. Combined with K-1's clipping, **there is no RTL defect and no overflow defect in this component** — both were checked and both are clean.
+
 ---
 
 ## 7. Corpus reconciliation
@@ -477,6 +525,17 @@ This is not staleness. The census names HEAD `8281638c`; the repo is still at `8
 
 The first describes a raw value that no longer exists. The second is the codex row that D-5 shows is only conditionally true. Any wave touching the demo's z-contract should correct the source prose first, then the census row.
 
+**[REV 2] C-2 · SELF-CORRECTION — rev 1's own D-16 premise was wrong, and correcting it hardens D-4.**
+
+Rev 1 applied the "nearest *positioned* ancestor" test to locate the axis lines' containing block and concluded it was CubeTarget's outer `relative` wrapper, not `.graph`. The test is incomplete: `perspective` (like `transform`, `filter`, `contain`, and `will-change` on those properties) establishes a containing block for absolutely-positioned descendants independently of `position`. `.graph` has `perspective: 1200px`, so `.graph` **is** the containing block — and it is simultaneously the perspective origin.
+
+Consequences, both recorded at the findings themselves:
+
+* **D-16 demoted MINOR → INFO.** The "two coordinate systems" defect does not exist. What survives is the undocumented structural dependency on a tuning value, and the engine-divergence of grid static position.
+* **D-4 strengthened.** Its projection argument no longer depends on the axis cross landing centred *by luck of outer centring*; box centre, containing-block centre, and perspective origin coincide **by construction**. The "line through the projection centre projects to a point" premise is now unconditional.
+
+Recorded here rather than silently patched, because the corpus should carry the correction: **the census, rev 1, and any future lane should not use "nearest positioned ancestor" as the containing-block test in this demo** — the cube scene is full of `perspective`/`transform`/`filter` boxes that establish containing blocks without ever declaring `position`.
+
 **Folded without contradiction:**
 
 * `lane-frontend.md §6.5` (PRM roster, 13 sites / 12 files) — the roster's *omission* of this file is the census being right; D-1 is the consequence the roster implies but does not state.
@@ -493,3 +552,9 @@ Nineteen of twenty findings are cheap to discharge; the component's core idea �
 What it does not survive is the gap between what it says and what it does. The transition block claims PRM compliance it does not have (**D-1**), claims a 180ms standard-ease curve it does not render (**D-2**), and claims a depth-rung reconciliation the 3D context nullifies the moment the scene animates (**D-5**). Its Z axis does not draw (**D-4**), its contrast fails at the exact moment it is trying to inform (**D-3**), its affordance is unreachable on touch while its sibling egg in the same file was explicitly fixed for touch (**D-6**), and it can be lit by typing in a text field (**D-7**).
 
 The single highest-value repair is four lines: delete `opacity` and `filter` from the transition list, gate `filter` behind `.axis-line--locked`, move `--axis-active: 1` from the inline binding into that same rule, and add the `@media (prefers-reduced-motion: reduce)` block the comment already promises. That discharges D-1, D-2, D-8, and D-14 together and unblocks D-13.
+
+**[REV 2] What the second pass changed, and what it did not.** It did not change the verdict. Twenty findings were re-derived against the same tree; all twenty survive, the contrast arithmetic reproduces to within rounding (green-locked-light 2.69:1; blue-locked-dark 2.96–2.98:1 depending on rounding of the composite), and every line reference re-checks. The second pass added closed doors to D-1 (glass-ui's PRM surface is now exhaustively enumerated — there is no blanket reset and no PRM-scaled `--motion-tempo`, so the `@media` block is unavoidable), added the in-tree tokenisation precedent and the tempo-deafness argument to D-10, and added the four-fold thesis duplication to D-17 — which is the mechanism that produced D-1 in the first place.
+
+It found **one error of its own to fix** (C-2: `perspective` establishes a containing block; D-16's premise was wrong, the finding demotes to INFO, and D-4 gets stronger for it) and **killed three candidate findings before they could inflate the count** (K-3 a superlative, K-4 a phantom token, K-5 an RTL defect). The count moved by zero. That is the intended result of a second pass on a well-audited component: the corrections should run in both directions, and here they did — one severity down, one finding hardened, three false starts buried.
+
+**Standing caveats for SS-13** (all appearance claims, none of the source claims): D-4's on-screen residue for the Z line, D-8's paint profile at rest, D-13's forced-colors render, D-2's measured reveal duration, and D-3's effective backdrop if the graph-paper field materially shifts local luminance.

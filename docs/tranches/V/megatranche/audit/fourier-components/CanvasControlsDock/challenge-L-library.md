@@ -33,17 +33,37 @@ carry is explicitly *cleared* for this file (§5.2).
 
 ---
 
+## §0.5 — Consolidation notice (round 2, same served model)
+
+This file is **consolidated, not replaced.** A first L-axis pass produced L-1…L-18 / S-1…S-8; a second pass
+re-read the subject and its import closure independently and produced seven further defects and two further
+superlatives. **Every round-1 id is preserved verbatim at its original number** — ids are citable and must not
+renumber. Round-2 rows are **L-19…L-25** and **S-9…S-10** (§2b, §3b), and they are marked ⟨R2⟩.
+
+Round 2 re-ran the falsifier on four round-1 rows that could have died and **none did**: L-1's missing
+re-entry guard (`VisualizationView.vue:106-118` re-read whole — the only early return is the `imageSlug`/
+`contour` check at `:107`, `publishing.value = true` follows it, nothing rejects a second call); L-2's
+`DockProps` surface (re-enumerated from `dist/dock.js:583-600` — 13 runtime prop keys, no `expanded`);
+L-17's desktop neutralization (`VisualizationView.vue:466-473` re-read — `left:auto; right:.5rem;
+transform:none` for `.controls-dock-anchor` **and** `.dock-centered` alike); and L-4's cascade mechanism
+(confirmed at the source: `dist/styles/dock.css:3-13` documents the partials being `@import`-ed *"into the
+SAME `@layer components`"*, so unlayered scoped CSS beats all of it). Round 2 **corrects nothing** in round 1
+and **contradicts nothing**. One round-1 reading is *sharpened* rather than corrected: see S-9, which shows
+that the obvious "delete `:start-collapsed`, it's the documented default" cleanup would be **wrong**.
+
+---
+
 ## §1 — Tally
 
 | severity | count | ids |
 |---|---:|---|
-| BLOCKER | **1** | L-1 |
-| MAJOR | 6 | L-2 … L-7 |
-| MINOR | 8 | L-8 … L-15 |
-| INFO | 3 | L-16 … L-18 |
-| **defects** | **18** | |
-| superlatives | 8 | S-1 … S-8 |
-| hypotheses refuted by their own falsifier | 4 | §4 |
+| BLOCKER | **2** | L-1 · **L-19** ⟨R2⟩ |
+| MAJOR | 7 | L-2 … L-7 · **L-20** ⟨R2⟩ |
+| MINOR | 12 | L-8 … L-15 · **L-21 … L-24** ⟨R2⟩ |
+| INFO | 4 | L-16 … L-18 · **L-25** ⟨R2⟩ |
+| **defects** | **25** | |
+| superlatives | 10 | S-1 … S-8 · **S-9, S-10** ⟨R2⟩ |
+| hypotheses refuted by their own falsifier | 6 | §4 |
 
 ---
 
@@ -433,6 +453,232 @@ dock's `:93` emit is the sole entry into that state, which is exactly the render
 
 ---
 
+## §2b — Defects (round 2) ⟨R2⟩
+
+### L-19 · BLOCKER ⟨R2⟩ — the `toggleEdit` emission can **unmount its own host**: after a contour save, exiting edit mode strands the stage with zero controls and the only recovery destroys the user's work
+
+**Provenance chain — five links, each read whole.**
+
+1. `CanvasControlsDock.vue:86-90` — the Edit control is an **unguarded toggle**:
+   `<Tooltip v-if="hasContour"><DockIconButton :class="{'is-active': isEditing}" @click="$emit('toggleEdit')">`.
+   No payload, no predicate, no knowledge of whether the resulting state is habitable.
+2. `EditorControlsDock.vue:52-170` ships undo/redo/smooth/simplify/delete/magnet/overlay/ghost/reset/save and
+   **no exit-edit control**. So `CanvasControlsDock:87` is the *only* way out of edit mode.
+3. `VisualizationView.vue:210` gates the entire top dock on `v-if="hasData || (isEditing && store.contour)"`,
+   where `:121` defines `const hasData = computed(() => store.epicycleData || store.basesData || store.computing)`.
+4. `stores/workspace.ts:263-282` — `saveContourPoints()` runs `beginCompute()` → `api.abortInflight(["computeEpicycles","computeBases"])`
+   → `contour.value = markRaw(result)` → **`epicycleData.value = null; basesData.value = null`** →
+   `scheduleDraftSave()` → `finally { endCompute() }`. **It does not recompute.**
+5. Nothing else does. `useWorkspaceLoader.ts:90-93` records the removal in prose — *"Auto-compute is owned
+   solely by ContourSettings.vue … A prior duplicate watcher here on `store.contour` raced with
+   ContourSettings' settings watcher"* — and `ContourSettings.vue:138-148` watches only
+   `[strategy, blurSigma, minContourArea, maxContours, smoothContours, mlThreshold, nHarmonics, nPoints]`,
+   **never `store.contour`**. The W3.5 race-fix that deleted the contour watcher is what created this trap.
+
+**Failure scenario (concrete, ordered).** Workspace with image + contour + epicycles. Click Edit
+(`:87`) → `isEditing = true`. Drag points, click Save in `EditorControlsDock` → `VisualizationView.vue:94`
+`await store.saveContourPoints(...)`. Post-await store state: `contour ≠ null`, `epicycleData = null`,
+`basesData = null`, `computing = false` ⇒ **`hasData` is false and stays false forever.** The dock survives
+only on the second disjunct `(isEditing && store.contour)`, and because `isEditing` is true,
+`CanvasControlsDock:42` `<template v-if="!isEditing">` hides everything except [Edit][Fullscreen]. Now click
+Edit to leave edit mode — the only exit gesture there is. `VisualizationView.vue:218`
+`@toggle-edit="isEditing = !isEditing"` → `isEditing = false` → the parent predicate re-evaluates to
+`false || (false && contour)` = **false**. `CanvasControlsDock` unmounts. `EditorControlsDock`
+(`:245 v-if="isEditing && store.contour"`) unmounts. `AnimationControls` (`:239 v-if="hasData && !isEditing"`)
+never mounts. **The stage carries zero controls** — no Fullscreen, no Equation, no Publish, no way back into
+the editor. The one remaining affordance is the left panel's `ContourSettings`, and touching any of its eight
+watched inputs calls `runCompute()` (`ContourSettings.vue:103-135`), whose first act is
+`await store.extractContour()` — **re-extracting from the source image and destroying the hand-edited contour
+the user just saved.**
+
+**Falsifiers, all run, all dead.**
+(a) *"Something recomputes after save."* `grep -rn "() => store.contour" src/` → exactly two hits, both in
+`useViewState.ts` (`:27` restore-editing-once, `:39` auto-exit-if-null); neither computes. Callers of
+`computeEpicycles`/`computeBases` → `ContourSettings.vue:129-130` only. **DEAD.**
+(b) *"`computing` stays true across the window."* `workspace.ts:60-68` — `computing.value = _computeDepth > 0`;
+`saveContourPoints`'s `finally { endCompute() }` drops the depth to 0. **DEAD.**
+(c) *"`useViewState`'s auto-exit rescues it."* `useViewState.ts:39-41` fires on `contour → null`; contour is
+non-null here. **DEAD.**
+(d) *"Reload recovers."* `useViewState.ts:43-49` persists `editing: false` on the toggle, so a reload restores
+the same dead state. **DEAD.**
+
+**Attribution, stated honestly.** Proximate cause is split — the store nulls derived data without rescheduling
+(link 4) and the parent's predicate is not closed over `store.contour` (link 3). **This component's share is
+real and is on the LIBRARY axis:** it declares `hasData` and `hasContour` as *separate* props (`:14-15`), i.e.
+it explicitly models `hasContour ∧ ¬hasData` as a state it renders differently, and then emits from inside
+that state an unqualified event its consumer uses as a mount-gate input. A component that knows the state
+exists and still emits a self-destructive signal has a defective emit contract. Minimum component-local
+repair: a payload (`toggleEdit: [next: boolean]`) or a `canExitEdit` prop. Systemic repair:
+`v-if="hasData || store.contour"` at `:210` plus a recompute after `saveContourPoints`.
+
+**Relation to L-1.** Independent and orthogonal — L-1 is a re-entrancy defect on the Publish path
+(duplicate persisted rows); L-19 is a lifecycle defect on the Edit path (self-unmount). Neither subsumes the
+other; both are BLOCKER. The *visual* end state (blank canvas vs. a stale last frame) is
+**UNPROVEN-NEEDS-LIVE (SS-13)**; the control-loss is fully proven from the four `v-if` predicates.
+
+---
+
+### L-20 · MAJOR ⟨R2⟩ — viz render path: the dock runs a 4 Hz forced-layout luminance observer over the animating Canvas2D instrument that it is **structurally incapable of reading**
+
+This is the axis's render-path touch, and it extends `CENSUS-2026-08-03.md:85-88` §3a (*"Canvas2D throughout,
+**WebGL/WebGPU ABSENT**; three independent canvases (epicycle instrument reactive-redraw off a store rAF
+clock …)"*). The census counted the **canvases**; it did not count the **glass docks stacked over canvas #1**.
+I confirm WebGL-ABSENT against the tree and add the missing row.
+
+**The stacking.** `CanvasControlsDock` owns no canvas; it is an absolutely-positioned glass overlay on the
+epicycle instrument — `VisualizationView.vue:450-459` `.controls-dock-anchor { position:absolute; top:.5rem;
+right:.5rem }` over `BasisCanvas.vue:526,540-546` `.canvas-el { position:absolute; inset:0 }`.
+
+**The observer.** `GlassDock` at `:41` is passed neither `:auto-luminance="false"` nor `:background-canvas`.
+`DockProps.autoLuminance` **defaults `true`** (`useDockShellProps.d.ts`: *"Default `true` (default-ON for the
+dock — the surface most often over a live/bright backdrop)"*), and `dist/dock.js:605` fires
+`n.autoLuminance !== !1 && ye(_, { backgroundCanvas: n.backgroundCanvas ?? null })`. Inside `ye`
+(`dock.js:68-159`):
+
+- The **canvas path** `g()` (`:81-101` — `drawImage` + `getImageData` downsample of the real backdrop) is
+  gated at `:75` by `h()`: `t.live === void 0 ? e.value?.dataset.glassSample === "live" : t.live`. `GlassDock`
+  passes no `live`, and this component sets no `data-glass-sample`. ⇒ **`h()` is permanently false; `g()` is
+  never called.** Passing `:background-canvas` alone would therefore not help either.
+- The **fallback path** `_()` (`:103-116`) runs `document.elementsFromPoint(cx, cy)` at the dock centre, then
+  `getComputedStyle(t).backgroundColor` per hit, skipping alpha < 0.5 (`:112`), finally falling back to
+  `getComputedStyle(document.body).backgroundColor`.
+- `.canvas-el` (`BasisCanvas.vue:540-546`) declares **no `background`** ⇒ computed `backgroundColor` is
+  `rgba(0,0,0,0)`, alpha 0 ⇒ skipped. And `getComputedStyle` reads CSS background, never the drawn bitmap —
+  so even an opaque canvas background would not report epicycle content.
+- The loop `C` (`:124-130`) is rAF-driven, throttled to `minSampleIntervalMs` floored at 250 ms ⇒ **≤4 Hz** —
+  plus a `ResizeObserver` (`:140`) and an `IntersectionObserver` (`:135-139`).
+
+**Result: every sample performs `elementsFromPoint` (forced layout) + N× `getComputedStyle` (forced style
+recalc) to return the app body colour — a constant — while rewriting `--glass-backdrop-luma` /
+`--glass-backdrop` on the dock element each time (`:114-121`).** The adaptive-legibility feature is
+inert-but-billed, and it is billed against the one surface the census identifies as continuously repainting.
+
+**Compounding, same canvas.** `dist/styles/dock/shell.css:130` puts `backdrop-filter: var(--dock-surface-blur)`
+on `.glass-dock` — a per-frame backdrop re-sample over an rAF-redrawn Canvas2D — and `VisualizationView.vue`
+mounts **`AnimationControls`** (`:239-241`; `AnimationControls.vue:58-62`, no opt-out) and
+**`EditorControlsDock`** (`:243-251`; `EditorControlsDock.vue:53`, no opt-out) over the same stage. Two dock
+observers are live simultaneously in the normal `hasData && !isEditing` state; three docks are wired in total.
+
+**Repair is one prop:** `:auto-luminance="false"`. If the effect is genuinely wanted, it needs
+`data-glass-sample="live"` **plus** `:background-canvas` at `BasisCanvas`'s element — exactly the case
+`DockProps.backgroundCanvas` documents (*"The KNOWN background-layer canvas the dock floats over … the
+ANIMATED-backdrop case"*).
+
+**Falsifiers.** *"Off by default"* — killed, `true` in the dts and `!== !1` at `dock.js:605`. *"It reads the
+canvas"* — killed twice, by `h()`'s `dataset.glassSample` gate and by the transparent `.canvas-el`.
+*"PRM/hidden gating makes it free"* — those gate *when* it runs (`pauseWhenHidden`, `respectReducedMotion`,
+both present), not what it costs when it runs, and neither applies to a visible tab with motion allowed.
+Frame-cost **magnitude** is **UNPROVEN-NEEDS-LIVE (SS-13)** — a trace is owed. The *inertness* (constant
+answer, canvas unreadable) is fully proven statically. Complements L-18: two distinct render-path touches,
+L-18 on the fullscreen transition this dock triggers, L-20 on the steady state it occupies.
+
+---
+
+### L-21 · MINOR ⟨R2⟩ — `.view-btn-wrap` is **100 % dead CSS**: every declaration is already the computed value
+
+`:114-119` declares four properties on the class applied once at `:46`. Each is already set by the substrate:
+
+| declaration (`:114-119`) | already set by | cite |
+|---|---|---|
+| `position: relative` | `.dock-icon-button` in the `.glass-material` group | `dist/styles/glass/material.css:38-49` |
+| `display: inline-flex` | `.dock-icon-button` base | `dist/styles/dock-controls/icon-button.css:14` |
+| `align-items: center` | ″ | `icon-button.css:15` |
+| `justify-content: center` | ″ | `icon-button.css:16` |
+
+The class exists solely to establish a containing block for `.view-dot` — a containing block the substrate
+already guarantees, because `.dock-icon-button` is a `.glass-material` member and needs `position: relative`
+for its `::before` catch-light. Deleting `:114-119` is a byte-identical render. **Falsifier:** *"the local rule
+wins the cascade (unlayered > `@layer components`), so it is doing the work."* It does win — with **identical
+values**; winning changes nothing. Kill this row by producing one declaration in `:114-119` whose computed
+value differs from the substrate's. There is none.
+
+*Arithmetic recorded for the SS-13 probe, adjacent to this row:* `.glass-dock` carries `contain: paint`
+(`dist/styles/dock/shell.css:96`), whose clip is the padding box. `--dock-padding-block` ≈ 0.375 rem ≈ 6 px at
+the default rung (`dock/density.css:28-32`; the substrate's own audit note at `shell.css:83-95` cites "≈6px"
+and a "≥7px clear" margin). `.view-dot` sits at `top:-1px` with a `0 0 4px` glow (`:123, :129`), so its outer
+glow reaches ~5 px above the control cell — ~1 px inside the clip edge. **Any `--dock-scale` below ≈0.83 clips
+the glow**, because the padding scales and the dot's offsets are fixed px. **UNPROVEN-NEEDS-LIVE (SS-13).**
+
+### L-22 · MINOR ⟨R2⟩ — the `#collapsed` slot is a static literal: none of the seven reactive props reach the dock's **resting** state
+
+`:98-101` is `<Maximize2 class="h-4 w-4 opacity-70" /><Pencil class="h-3.5 w-3.5 opacity-40" />`. Zero
+bindings. `dist/dock.js:719-728` renders both layers always (`div.dock-layer--full` = default slot,
+`div.dock-layer--summary` = `#collapsed`, with `.dock-layer:not(.is-active){position:absolute;inset:0}` at
+`layers.css:230-233`), and `:start-collapsed="true"` (`:41`) plus the substrate's idle-collapse make collapsed
+the **resting** state. So the dock spends most of its life displaying nothing about `isEditing`,
+`showImageOverlay`, `showGhost`, `showEquation`, `hasData`, `hasContour`, or `publishing`. **This is the
+structural reason L-5's `view-dot` fails in its second state**: the pip lives in `--full`, the inactive layer.
+The sibling proves the opposite is idiomatic and cheap: `EditorControlsDock.vue:57-70` puts a live
+`{{ pointCount }} pts` badge **and a working Save button** in its `#collapsed` slot. **Falsifier:** *"the
+collapsed slot cannot hold interactive or bound content."* Killed by `EditorControlsDock.vue:62-67`.
+
+### L-23 · MINOR ⟨R2⟩ — the R5-7 class recurs a **second** time, inverted: the substrate's reveal-stagger derivation is index-*inclusive* but **role-blind**, and this file's two hairlines eat two of six beats
+
+L-9 books the R5-7 class in its *undercount* form (native `<div>`s invisible to marker- and callsite-keyed
+derivations). This row books the **mirror** failure in the same file, against a different deriver.
+
+`dist/styles/dock/layers.css:255-306` derives the expand cascade from **`.dock-layer.is-active > *:nth-child(N)`**,
+N ∈ {2,3,4,5,n+6}, each setting `--dock-stagger-onset: calc(var(--dock-stagger-step) * (N-1))`, capped at ×5.
+`dist/dock.js:722-724` confirms the default slot's children are the **direct** children of
+`div.dock-layer.dock-layer--full` (no wrapper), and `dist/HoverPopover-Dpzwvc4t.js:66-69` confirms the
+HoverPopover trigger renders `HoverCardTrigger as-child`, so the `DockIconButton` *is* child #1.
+
+With all `v-if`s true:
+
+| n | element | onset | control? |
+|---|---|---|---|
+| 1 | view-options `DockIconButton` (`:46`) | 0 | yes |
+| 2 | **`div.dock-separator` (`:67`)** | ×1 | **no — a 1 px hairline** |
+| 3 | publish `DockIconButton` (`:71`) | ×2 | yes |
+| 4 | equation `DockIconButton` (`:77`) | ×3 | yes |
+| 5 | **`div.dock-separator` (`:82`)** | ×4 | **no** |
+| 6 | edit `DockIconButton` (`:87`) | ×5 (cap) | yes |
+| 7 | fullscreen `DockIconButton` (`:93`) | ×5 (cap) | yes |
+
+The five real controls reveal on `{0, ×2, ×3, ×5, ×5}` instead of `{0, ×1, ×2, ×3, ×4}`: two beats fade and
+translate decorative hairlines, and the ×5 cap is hit one control early, collapsing the last two into one beat.
+
+**Where the ownership actually sits — stated against my own interest.** Adopting `<DockSeparator>` (the L-4
+repair) would **not** fix this: the primitive also renders `div.dock-separator` (`dock.js:1222`), so it too
+would be counted. This is therefore a genuine **upstream** carry, not a consumer error — while
+`EditorControlsDock.vue:71` fails the same mechanism in the opposite direction, wrapping its entire content in
+one `<div class="flex …">` and collapsing the ladder to a **single** beat. Two sibling docks, two different
+failures of one substrate mechanism; both belong in the glass-BH relay.
+
+**Corpus relation, stated precisely.** The literal R5-7 predicate (`intakes/lane-fourier-r3-r6.md:125`) —
+*"template-loop evidence keyed to component callsites is blind to native HTML element loops"* — does not apply
+(`grep -c "v-for"` → **0**, as L-9 already records). What applies is the class's **dual**: a derivation that
+counts every element but knows nothing about what kind of node it is looking at. R5-7 **under**counted native
+elements; L-23 **over**counts them. Both answer the same underlying question — *does the deriver know the node's
+role?* — and F.W4, which R5-7 charges with counting native element loops, should be charged equally with **not
+counting native chrome as controls**. MINOR: a motion-cadence skew, not a functional break.
+
+### L-24 · MINOR ⟨R2⟩ — the publish-progress affordance can auto-collapse out from under an in-flight publish
+
+`:71-73` renders the only progress signal — `:class="{'is-active': publishing}"` plus `animate-pulse` —
+inside the **default (expanded)** slot. `VisualizationView.vue:106-118` `handlePublish()` awaits
+`store.createSnapshot()` **then** `gallery.publish(...)`: two sequential network round-trips. Unlike both
+siblings (`EditorControlsDock.vue:53` and `AnimationControls.vue:60` each pass `:collapse-delay="2000"`
+explicitly) this dock passes none and inherits the substrate default (`dock.js:172`, 2500 ms). If the pointer
+leaves the dock — the normal gesture after clicking — the dock collapses mid-flight and the indicator is
+hidden behind the aperture, with `#collapsed` (`:98-101`, see L-22) showing nothing. Compounds L-1: the
+control that can be double-fired is also the control whose in-flight state can vanish.
+**Falsifier:** *"`keepOpen` holds it."* The ref-counted hold is wired to `HoverPopover keep-dock-open` (`:44`,
+S-8) only; nothing on the publish path touches `GlassDock`'s exposed `keepOpen`/`release`
+(`dock.js:679-688`). Wall-clock vs. the idle timer is **UNPROVEN-NEEDS-LIVE (SS-13)**.
+
+### L-25 · INFO ⟨R2⟩ — the `hasData` prop is `boolean`, but its source is not; the `!!` at the call site is the symptom, and L-19 is where it bites
+
+`:14` declares `hasData: boolean` — **correct**. `VisualizationView.vue:121` defines
+`const hasData = computed(() => store.epicycleData || store.basesData || store.computing)`, whose inferred
+type is `EpicycleData | AnimationData | boolean | null` — a data object, not a predicate. Hence the coercions
+at `:216` `:has-data="!!hasData"` and `:217` `:has-contour="!!store.contour"`. The child's contract is the
+right one; the defect is that the *name* promises a boolean the computed does not deliver, pushing coercion to
+every call site. Booked because it is the same `hasData` that gates L-19's mount predicate at `:210` — where
+**no** `!!` is applied and the raw truthiness is load-bearing.
+
+---
+
 ## §3 — Superlatives (each with its falsifier — L-18 runs both ways)
 
 **S-1 · Goldilocks, measured.** 132 lines for 7 controls, 7 props, 7 emits, one watch, three CSS rules. It is
@@ -481,6 +727,34 @@ open while this popover is visible … the dock's collapse timer is ref-counted"
 and the dock's 2 000 ms idle-collapse (`DockProps.collapseDelay`, default 2000) would close under the open
 popover. The one substrate contract this composition genuinely needed, it took.
 
+### §3b — Superlatives (round 2) ⟨R2⟩
+
+**S-9 ⟨R2⟩ · `:start-collapsed="true"` (`:41`) is LOAD-BEARING, not redundant — and only measurement shows it.**
+The obvious cleanup here is *"delete it, the substrate documents `startCollapsed` default `true`"*
+(`useDockShellProps.d.ts`: *"Start in the collapsed state (default true)"*). **That cleanup is wrong, and the
+tree proves it.** `dist/dock.js:594` declares `startCollapsed: { type: Boolean }` with **no `default`**. Vue's
+boolean-prop casting turns an *absent* `Boolean`-typed prop into `false`, not `undefined` — so the resolution
+at `dock.js:474`, `startCollapsed: C(() => c.value ? !1 : e.startCollapsed ?? !0)`, **can never reach its
+`?? !0` branch**. The substrate's own `DockProps` comment names this exact hazard for a *different* prop:
+*"Vue coerces an absent boolean prop to `false`, so a `collapsible` defaulting to `true` would need a
+`withDefaults` second default-path."* The hazard it guarded against elsewhere landed on `startCollapsed`.
+**This component's explicit `true` is the only thing delivering the documented default.** Credit to the
+consumer; the upstream default is broken and belongs in the glass-BH relay alongside L-23.
+*Falsifier run:* searched for a defaults table — `grep -n "startCollapsed" dist/dock.js` returns exactly three
+lines (474, 594, 604); there is no `withDefaults`/`mergeDefaults` path. The falsifier was applied and **the
+superlative held**, which is precisely why the tempting deletion must not be made.
+
+**S-10 ⟨R2⟩ · the zero-teardown claim (S-2) survives being pushed *past* the file boundary.**
+S-2 proves the file itself installs nothing. Round 2 pushed the hunt upstream, because the parent's `v-if`
+(`VisualizationView.vue:210`) mounts and unmounts the whole `GlassDock` apparatus on every data/edit
+transition — and `dock.js:605` **discards** `ye()`'s return value: `{luma, bucket, sampleNow, dispose}` is
+dropped on the floor, which is exactly the shape of a leak. **It is not one.** `dock.js:154` registers the
+disposer internally (`return L(k), {...}`, where `k` at `:151-153` tears down the rAF loop, the
+IntersectionObserver, the ResizeObserver, the `matchMedia` change listener, and nulls the sampling canvas and
+its 2D context). So the churn L-19 and L-14 describe is remount cost, **not** accumulation. Recorded as a
+superlative because the negative result cost real work and closes the axis's leak question for this file at
+both levels. *Falsifier: applied and it killed my hypothesis — see §4.5.*
+
 ---
 
 ## §4 — Hypotheses I raised and then killed (recorded so they are not re-raised)
@@ -495,6 +769,17 @@ popover. The one substrate contract this composition genuinely needed, it took.
    correctly-attributed L-18.
 3. **`is-active` paints nothing.** **REFUTED** — `icon-button.css:109` (S-4).
 4. **`--viz-amber` is undefined, so `.view-dot` paints transparent.** **REFUTED** — `style.css:113-125` (S-5).
+5. ⟨R2⟩ **`GlassDock`'s auto-luminance observer leaks across the parent's `v-if` remounts** — `dock.js:605`
+   discards `ye()`'s returned `dispose`, and the parent mounts/unmounts the dock on every data/edit
+   transition. **REFUTED** — `dock.js:154` registers the disposer internally via `L(k)`; `k` at `:151-153`
+   tears down the rAF loop, both observers, the `matchMedia` listener, and the sampling canvas. What survives
+   is the narrower, correctly-attributed **L-20** (the observer's *running* cost and its structural
+   inability to read the canvas), not an accumulation claim. → S-10.
+6. ⟨R2⟩ **`:start-collapsed="true"` (`:41`) is a redundant restatement of the documented default and should be
+   deleted.** **REFUTED, and inverted** — `dock.js:594` declares the prop `{ type: Boolean }` with no
+   `default`, so Vue's boolean cast makes the absent value `false` and the `?? !0` at `dock.js:474` is
+   unreachable. The prop is load-bearing. → S-9. *This is the one round-1 reading round 2 would have gotten
+   wrong had it not measured.*
 
 ---
 
@@ -508,6 +793,23 @@ popover. The one substrate contract this composition genuinely needed, it took.
 **5.2 · R3-10 cleared for this file** — see S-7. **R5-7 applies in a sibling form, not literally** — see L-9;
 I record the distinction rather than claiming loop membership this file does not have.
 
+**5.2b ⟨R2⟩ · CENSUS §3a EXTENDED (not contradicted).** `CENSUS-2026-08-03.md:85-88` reads *"Canvas2D
+throughout, **WebGL/WebGPU ABSENT**; three independent canvases (epicycle instrument reactive-redraw off a
+store rAF clock; ConvergencePlot with its own ungated rAF; FrequencyGraph watch-driven)."* I confirm all of it
+against the live tree. The row counts the **canvases**; it does not count the **glass surfaces stacked over
+them**. L-20 supplies the missing figure at this component's grain: over canvas #1 (the epicycle instrument)
+sit **three wired `GlassDock`s** — `CanvasControlsDock` (`VisualizationView.vue:211`), `AnimationControls`
+(`:240`), `EditorControlsDock` (`:246`) — **none** of which opts out of `autoLuminance` (default `true`) and
+each of which carries `backdrop-filter` (`dock/shell.css:130`). Two are live simultaneously in the ordinary
+`hasData && !isEditing` state. F.W4's render-path budget should carry backdrop-and-observer stacking as a
+first-class row beside the canvas count.
+
+**5.2c ⟨R2⟩ · R5-7 recurs twice in one file, in opposite directions.** L-9 books the undercount form
+(native `<div>`s invisible to marker/callsite-keyed derivations); L-23 books the overcount form (an
+`nth-child` derivation that counts every element without knowing its role). Both are the same class —
+*the deriver does not know what kind of node it is looking at* — and F.W4's D/L/C audit needs both arms, not
+just the loop arm R5-7 names.
+
 **5.3 · No contradiction of the corpus found.** `lane-frontend.md:93` (132 LOC, `GlassDock` +
 `DockIconButton`), `:302-303` (the two import lines), `:474-475` (the two removed surfaces) and
 `§6:512-556` (the render path) all match the live tree at HEAD `cd26c653`. The one figure the corpus does not
@@ -516,13 +818,36 @@ carry and this lane adds is the **7 `DockIconButton` instances** (`:46,54,59,71,
 
 ---
 
-## §6 — Verdict
+## §6 — Verdict (consolidated)
 
-**DEFECTIVE.** One BLOCKER (L-1, duplicate persisted gallery rows from a re-entrant control this component
-holds the guard signal for and does not use), six MAJORs, eleven lesser rows. The component is *small and
-clean-shaped* — S-1/S-2 are real, and its designer's instincts on in-band coupling (S-3) and the dock-keep
-contract (S-8) were right. What it fails at is the **substrate boundary**: it re-declares a public glass-ui
-class and silently overrides it (L-4), takes half of a two-arm active-state contract (L-8), pins glyphs out of
-the substrate's scale ladder while passing a size that does nothing (L-7), and lets its parent bind a
-`v-model` to a prop no layer of the stack declares (L-2). Four of the six MAJORs would be *deleted, not fixed,*
-by adopting what glass-ui already ships (`DockSeparator`, `aria-pressed`, `--dock-icon-glyph`, `:disabled`).
+**DEFECTIVE.** **Two BLOCKERs**, seven MAJORs, sixteen lesser rows, ten superlatives.
+
+The two BLOCKERs are independent and sit on the component's two action paths. **L-1** (Publish) is a
+re-entrancy defect: the component *receives* `publishing: boolean` and spends it entirely on paint while
+leaving the button clickable, so N clicks in the in-flight window mint N public gallery rows — a persisted-data
+defect whose one-attribute fix (`:disabled="publishing"`) the component is already holding the signal for.
+**L-19** ⟨R2⟩ (Edit) is a lifecycle defect: the sole exit from edit mode emits an unqualified toggle that,
+after `saveContourPoints` nulls the derived data with nothing scheduled to recompute it, flips the parent's
+mount predicate false and **unmounts the component and every sibling control on the stage**, leaving only a
+recovery path that destroys the user's just-saved contour. Both are proven from source; only their visual
+end-states are UNPROVEN-NEEDS-LIVE.
+
+The shape of the rest is unchanged by round 2 and is worth restating, because it is the finding: the component
+is *small and clean* — S-1/S-2/S-10 are real, and its instincts on in-band coupling (S-3), the dock-keep
+contract (S-8), and the collapse default (S-9) were right, the last of them in a way that looks like dead code
+until you measure it. What it fails at is the **substrate boundary**. It re-declares a public glass-ui class
+and silently overrides its entire rule set (L-4); takes the class arm of a two-arm active-state contract and
+drops the semantic arm (L-8); pins five glyphs out of the `--dock-scale` ladder while passing a size that does
+nothing (L-7); writes four CSS declarations the substrate already guarantees (L-21 ⟨R2⟩); leaves a default-ON
+sampling observer running over a canvas it cannot read, when the opt-out is one prop (L-20 ⟨R2⟩); and lets its
+parent bind a `v-model` to a prop no layer of the stack declares (L-2). **Five of the seven MAJORs would be
+*deleted, not fixed*, by adopting what glass-ui already ships** (`DockSeparator`, `aria-pressed`,
+`--dock-icon-glyph`, `:disabled`, `:auto-luminance="false"`).
+
+Two rows route **upstream**, not to the consumer: S-9's unreachable `startCollapsed` default
+(`dock.js:474/594`) and L-23's role-blind `nth-child` stagger (`dock/layers.css:255-306`) are producer defects
+this consumer merely surfaced. Both are owed to the glass-ui BH inbox under the standing relay law.
+
+**Live probes owed (SS-13):** L-20 frame cost under a running epicycle animation; L-21's `.view-dot` glow vs
+`contain: paint` below `--dock-scale` ≈ 0.83; L-24 collapse-vs-publish wall clock; L-14's paint window;
+L-1's server-side dedup arm; L-19's visual end state.

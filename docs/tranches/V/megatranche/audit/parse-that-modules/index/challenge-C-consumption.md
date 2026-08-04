@@ -2,29 +2,48 @@ claude-opus-5[1m]
 
 # CHALLENGE — `typescript/src/parse/index.ts` · axis **C (CONSUMPTION)**
 
-**Subject**: `/Users/mkbabb/Programming/parse-that/typescript/src/parse/index.ts` (14 lines + trailing
-newline; `@mkbabb/parse-that@1.0.0`, the `.` entry of the `exports` map).
-**Posture**: the module is assumed DEFECTIVE until the tree proves otherwise. Every claim below
-carries a severity, a `file:line` provenance, and the falsifier that would kill it. Superlatives
-carry the same burden (L-18 runs both ways).
-**Writes**: this file only. `/Users/mkbabb/Programming/parse-that` was read-only throughout; no
-worktree, frozen root, or `~/Documents/Codex` path was entered.
-**STOP-check**: `ls /Users/mkbabb/Programming/parse-that-css-totality-p2` →
-`No such file or directory` (2026-08-04). The forbidden root does **not** exist and was not created.
-**Latch hygiene**: no bench was run that arms diagnostics or packrat. `memoize()`/`mergeMemos()` were
-never called in any probe process; `PACKRAT_ARMED` was never set. The one diagnostics toggle used
-(§D-14) is the reversible flag, in a disposable process, with no timing taken.
+**Subject**: `/Users/mkbabb/Programming/parse-that/typescript/src/parse/index.ts` — 14 lines,
+**34 runtime exports + 6 type exports**; the `.` entry of `@mkbabb/parse-that@1.0.0`'s `exports` map.
+
+**Axis**: how this module serves its consumers — the published surface vs. what value.js actually
+consumes (the routing law's sole downstream); the `/css` packed surface at the far end of that law;
+the RED-7 rows of `parsethat-surface-gaps.mjs` where they touch this module; API ergonomics; semver
+hygiene; and what the X·P dual-target algebra (`docs/tranches/X/parse-that/waves/W2.md` §3b/§3c)
+would keep, wrap, or retire here.
+
+**Posture**: the module is assumed DEFECTIVE until the tree proves otherwise. Every claim carries a
+severity, `file:line` provenance, and the falsifier that would kill it. Superlatives carry the same
+burden — L-18 runs both ways (§5).
+
+**Supersession**: this file is a re-run of the same slot and **carries the union** of the earlier
+same-slot draft's rows and this pass's. Rows folded from the earlier draft are marked *(folded)* and
+were **independently re-verified against the tree** before being carried; nothing was copied on
+trust. Rows new to this pass are unmarked.
+
+**Writes**: this file only. `/Users/mkbabb/Programming/parse-that` was read at `main`/`ef10d5b`,
+main checkout only — no `.worktrees/`, no frozen root, no `~/Documents/Codex`.
+**STOP-check**: `ls /Users/mkbabb/Programming/parse-that-css-totality-p2` → `No such file or
+directory` (re-verified 2026-08-04). The forbidden root does **not** exist and was not created.
+**Latch hygiene**: no bench was run. `memoize()` / `mergeMemos()` were never called in any process I
+started; `PACKRAT_ARMED` was never set; diagnostics were never armed. The single execution performed
+(§0.3) is a pure module-identity read with no timing.
+
+**Ledger**: **19 defect rows — 2 BLOCKER · 9 MAJOR · 5 MINOR · 3 INFO** · **5 superlatives**.
 
 ---
 
-## 0. The module, whole
+## 0. What was read, and the measurements taken
+
+### 0.1 The module, whole
 
 ```
  1  // Barrel re-exports — all sub-modules
  2  export { Parser, type ParserFunction } from "./parser.js";
  3  export { ParserState, createParserContext, spanToString, mergeSpans } from "./state.js";
  4  export type { ParserContext, Span } from "./state.js";
- 5  export { mergeErrorState, enableDiagnostics, disableDiagnostics, collectDiagnostic, getCollectedDiagnostics, clearCollectedDiagnostics, skipWhitespace, skipBlockComments } from "./utils.js";
+ 5  export { mergeErrorState, enableDiagnostics, disableDiagnostics, collectDiagnostic,
+            getCollectedDiagnostics, clearCollectedDiagnostics, skipWhitespace,
+            skipBlockComments } from "./utils.js";
  6  export type { Suggestion, SecondarySpan, Diagnostic } from "./utils.js";
  7  export { getLazyParser, createLazyCached, lazy } from "./lazy.js";
  8  export { memoize, mergeMemos, resetPackrat } from "./packrat.js";
@@ -36,595 +55,744 @@ never called in any probe process; `PACKRAT_ARMED` was never set. The one diagno
 14  export * from "./parsers/index.js";
 ```
 
-Every file it imports was read whole: `parser.ts` (25,378 B), `state.ts`, `utils.ts`, `lazy.ts`,
-`packrat.ts` (22,785 B), `leaf.ts` (14,876 B), `split.ts`, `parsers/index.ts` + `json.ts` / `csv.ts` /
-`utils.ts`. Transitively reachable and also read: `debug.ts` (12,586 B), `ansi.ts`. Sibling entries
-read for the tier comparison: `core.ts`, `diagnostics.ts`, `packrat-entry.ts`, `utils-entry.ts`.
+Every imported module read whole: `parser.ts` (711 L) · `state.ts` (189) · `utils.ts` (186) ·
+`lazy.ts` (43) · `packrat.ts` (488) · `leaf.ts` (399) · `split.ts` (58) · `parsers/index.ts` (8) ·
+`parsers/json.ts` (52) · `parsers/csv.ts` (20) · `parsers/utils.ts` (23). Transitively reached and
+read: `debug.ts` (383) and `ansi.ts` (17), pulled by `parser.ts:3` **and** `state.ts:2`. Also read:
+the four sibling entries (`core.ts` · `diagnostics.ts` · `packrat-entry.ts` · `utils-entry.ts`),
+`package.json`, `vite.config.ts`, `tsconfig.json`, the shipped `dist/` (both formats), and the five
+gates binding this surface — `test/dist-surface.test.ts`, `test/manifest-gate.mjs`,
+`test/subpath-gate.mjs`, `scripts/proof-no-css-surface.mjs`, `scripts/proof-no-dead-combinator.mjs`.
 
-**Measured surface** (live, against the vendored `1.0.0` install at
-`docs/tranches/V/megatranche/prototypes/css-parser/node_modules/@mkbabb/parse-that`):
+### 0.2 The consumer sweep — the load-bearing measurement
 
-| entry | runtime exports |
-|---|---|
-| `@mkbabb/parse-that` (this module) | **34** |
-| `/core` | 18 |
-| `/diagnostics` | 6 |
-| `/packrat` | 3 |
-| `/utils` | 7 |
-| union of the four tiers | **34** — set-difference **∅ both ways** vs the root |
+| tree | result | command |
+|---|---|---|
+| `value.js` deps + devDeps | **no `@mkbabb/parse-that`** | `node -e "…require('./package.json')"` |
+| `value.js` repo, ex-`docs/`/`node_modules`/`.git` | **zero imports** — only prose in `CHANGELOG.md` + two "parse-that-FREE" comments (`src/subpaths/math.ts:2`, `src/subpaths/transform.ts:4`) | `grep -rn parse-that --exclude-dir={node_modules,docs,.git} .` |
+| `value.js` resolution | **`MODULE_NOT_FOUND`** | `node -e "require.resolve('@mkbabb/parse-that')"` |
+| `keyframes.js` | zero — one prose comment, `src/animation/internal/leaves.ts:9-10` ("the subpath is `parse-that`-FREE") | `grep -rn parse-that …/{package.json,src}` |
+| `glass-ui` · `bbnf-lang` | zero in `package.json` and `src/` | same |
+| `value.js/node_modules/@mkbabb/*` (transitive) | zero | `grep -n parse-that …/node_modules/@mkbabb/*/package.json` |
 
-29 of the 34 are named in the barrel text; 5 arrive through the `export *` on line 14.
+### 0.3 The dual-graph identity probe (executed; no arming, no timing)
 
----
+```
+$ node --input-type=module -e "…import('./dist/parse.js')  vs  createRequire()('./dist/parse.cjs')…"
+esm.Parser === cjs.Parser : false
+esm export count: 34
+cjs export count: 34
+parser id esm: 37  cjs: 37  -> independent counters: true
+```
 
-## 1. Corpus concordance and one explicit contradiction
+### 0.4 Corpus concordance, and one explicit contradiction
 
-**Folded, not re-invented** — INBOX **O-15** (PT-01 / PT-03 / PT-04 / PT-07, `INBOX.md:77`, with the
-dist line-cites); the X·P wave specs at `docs/tranches/X/parse-that/waves/` (W1's harness
-constraints as cited by W2 §OP-3; **W2 §3b/§3c/§3e** read in full, the candidate algebra used as the
-disposition frame in §4 below); `registry/adjudicated/parser-band.md` (the five binding debts, the
-seven divergences, the preserved dissents). Where a finding overlaps a corpus id, the id is cited
-inline. Where the tree disagrees with the corpus, it is called out here, not buried:
+Folded, not re-invented: **O-15** (INBOX `docs/tranches/V/coordination/INBOX.md:77`; letter at
+`parse-that/docs/valuejs-evidence-2026-07-27-1.1.0-ask-addendum.md`) — PT-01, PT-03, PT-04, PT-07,
+each re-verified against the working-tree dist. **`registry/adjudicated/parser-band.md`** — the five
+binding debts and the preserved DISSENTs. **`X/parse-that/waves/W1.md`** — the three instruments, the
+52-export manifest and the sha-pinned tarball posture (cited, **not** exercised: this challenge
+touched neither instrument). **`X/parse-that/waves/W2.md`** §3b/§3c/§3d — the ratified algebra.
 
-> **CONTRADICTION — the task's stated consume-edge path does not exist.** The brief directs
-> "read value.js `src/parsing/` read-only for the consume edges". `/Users/mkbabb/Programming/value.js/src/parsing/`
-> **does not exist** in the current tree. The CSS surface lives at `src/css/` (`grammar.ts`,
-> `named-colors.ts`, `stylesheet.ts`, `syntax.ts`, `timeline.ts`, `types.ts`, `index.ts`). The
-> memory note "`src/parsing/grammars/` — BBNF spec grammars" is stale. I audited `src/css/` instead
-> and re-derived the 52 there.
->
-> **CONFIRMATION** of W2 §3.2's count against the tree: `src/css/index.ts` lines 1–35 are the type
-> block (**33** names, lines 2–34); lines 36–60 the runtime block (**19** = 7 `grammar` + 1 `syntax`
-> + 3 `timeline` + 8 `stylesheet`). **33 + 19 = 52.** W2's `src/css/index.ts:36-60` / `:1-35`
-> citation is exact.
-
----
-
-## 2. The governing fact
-
-### D-1 — **BLOCKER** — the routing law's sole downstream consumes **zero** of this module's 34 exports; every keep/retire ruling must therefore be made on specification, and the package's own dead-code precept then condemns most of the surface.
-
-*Provenance.* `/Users/mkbabb/Programming/value.js/package.json` — `version 4.0.0`,
-`dependencies = {"@mkbabb/glass-ui":"^7.0.0","@mkbabb/keyframes.js":"^6.0.0"}`. No
-`@mkbabb/parse-that`. `require.resolve("@mkbabb/parse-that")` from the value.js root →
-`MODULE_NOT_FOUND`. `grep -rn "parse-that" src/ test/ demo/ package.json` returns **two comment
-lines that assert its absence** — `src/subpaths/math.ts:2` ("parse-that-FREE") and
-`src/subpaths/transform.ts:4` ("zero parsing, zero parse-that") — and nothing else.
-`grep -n parse-that package-lock.json` → no hits. The next hop is empty too:
-`/Users/mkbabb/Programming/keyframes.js/package.json` → `dependencies = {"@mkbabb/value.js":"4.0.0"}`,
-consistent with the parse-that CHANGELOG's own "kf is parse-that-free" (`CHANGELOG.md`, 1.0.0
-preamble). PLAW-BIND's chain — parser → value → packed release → consumers (W2 §2c) — has **zero**
-parse-that edges at **every** hop.
-
-The only live consumer anywhere in this workspace is the audit instrument itself:
-`docs/tranches/V/megatranche/prototypes/css-parser/parsethat-surface-gaps.mjs:11-13`, which resolves
-parse-that from a **prototype-local `node_modules` sandbox** —
-`…/prototypes/css-parser/node_modules/@mkbabb/parse-that/dist/parse.cjs` (resolution traced live) —
-not from value.js's dependency graph. This is consistent with W2 §3 *Not in scope*: "adding
-`@mkbabb/parse-that` to `package.json` (X-W9 G31 measures that set and it stays as measured)".
-
-*Why BLOCKER on this axis.* CONSUMPTION asks how the module serves its consumers. It has none. The
-consequence is not rhetorical: parse-that's own dead-code precept, written into its own gate, reads
-*"A never-importable export is not part of the public contract; an export born one prior tranche with
-zero workspace consumers is dead by the precept"* (`scripts/proof-no-dead-combinator.mjs:10-12`), and
-that gate's own consumer sweep (`:63-68`) targets exactly `../../value.js/src` and
-`../../keyframes.js/src` — both now empty of parse-that. Applied honestly to itself, the precept
-condemns the barrel wholesale. Every §3 finding below inherits this: **no export in this file can be
-defended by usage evidence, because none exists.**
-
-*Falsifier.* A single `import`/`require` of `@mkbabb/parse-that` in value.js's or keyframes.js's
-shipped tree, or the name in either lockfile. Grepped `src/`, `test/`, `demo/`, `package.json`,
-`package-lock.json` — none. **Survives.**
-
-*Honest scope (L-18).* This is a defect of the module's **justification**, not of its syntax. The
-resolver works; the types resolve; the code is correct where measured. What is defective is that the
-file publishes a 34-name contract that nothing in the constellation has agreed to.
+**Contradiction, stated explicitly (C-i1)**: O-15 cites `dist/packrat-entry-*.js:881` for the
+unconditional `console.error`. In the build present in the tree it is at **`:882`**. All four
+`PACKRAT_ARMED` cites (`:678`/`:682`/`:714`/`:722`) and the `diagnostics-DDazRHgl.js:14` cite
+reproduce **exactly**, and the chunk hash `diagnostics-DDazRHgl` matches the letter's — so this is
+the same build and a one-line drift, not a different artifact.
 
 ---
 
-## 3. Defects
+## 1. BLOCKERS
 
-### D-2 — **BLOCKER** — line 8 puts an irreversible process-global latch on the **default** import path and names its non-reset `resetPackrat`.
+### C-B1 — The routing law is severed: the barrel's sole declared downstream consumes **zero** of it, and neither CHANGELOG records the cut *(folded — re-verified)*
 
-*Provenance.* `index.ts:8` exports `memoize, mergeMemos, resetPackrat`. `packrat.ts:156`
-`let PACKRAT_ARMED = false;`. `packrat.ts:290` — inside `makeMemoized()`, reached from both
-`memoize()` (`:482`) and `mergeMemos()` (`:486`) — `PACKRAT_ARMED = true;` **at construction, not at
-invocation** (the source comment says so: *"The latch never disarms"*, `:288`). `resetPackrat()`
-(`:262-273`) clears `MEMO` / `HEADS` / `GROWING` / `LR_STACK` / `CURRENT_SRC` and **never assigns
-`PACKRAT_ARMED`**. Grep of the whole file for assignments: `:156` (init `false`) and `:290`
-(`true`) — the only two; `:217` and `:266` are reads.
+**BLOCKER** · `index.ts:1-14` (all 34 exports) · `value.js` commit `164343c1` ·
+`parse-that/typescript/CHANGELOG.md:11-12` · `scripts/proof-no-dead-combinator.mjs:11-12,63-68`.
 
-*The consumption failure.* A consumer reading only this barrel sees a symmetric pair —
-`memoize` / `resetPackrat` — and reasonably infers reversibility. It is not reversible. O-15 PT-03
-(`INBOX.md:77`) measured the cost: UNARMED **93.9 ns/parse** → ARMED **138.2** = **1.47×**, and
-`resetPackrat()` leaves it at **139.3** — *"clears the memo store, does not disarm"*. One
-`memoize()` call anywhere in the process — a transitive dependency, a test helper, a devtool —
-permanently taxes every parse in that process by ~47 %, and the barrel's own reset primitive cannot
-undo it. The name is a promise the implementation cannot keep, and the barrel is where the promise
-is made.
+The routing law is `parser → value → packed release`, and parse-that states it in its own release
+note: *"1.0.0 reaches keyframes.js ONLY via value.js's `^1.0.0`-carrying 2.0.x follow-on (kf is
+parse-that-free)"* (`CHANGELOG.md:11-12`). value.js was the **entire** route.
 
-*X·P disposition.* Outlawed outright by **W2 §3b O-8** ("No operator reads or writes process-global
-mutable state. Arming, memoization, and diagnostics are **parameters of a parse**, never latches …
-no algebra with a global absorbing state can satisfy EQ-1 across two lowerings that arm at different
-times") and killable by **K-6** ("observable cross-parse state … or reset with residue").
+value.js commit `164343c1` (*"feat(v4)!: value 4.0 producer surface…"*, 2026-07-17) deleted the
+dependency block wholesale:
 
-*Falsifier.* Any assignment of `false` to `PACKRAT_ARMED` outside the initializer, or any exported
-API that reaches one. Grepped the whole of `packrat.ts` — none. **Survives.**
+```
+$ git show 164343c1 -- package.json | grep -n 'parse-that\|dependencies'
+144:-    "dependencies": {
+145:-        "@mkbabb/parse-that": "^1.0.0"
+```
 
-*Honest scope (L-18).* The latch is a genuine and well-documented *performance* win for the unarmed
-path (CHANGELOG 1.0.0, S.H1: the removed per-parse 3-Map allocation, "mid-teens % throughput on
-short CSS values … ~34 % less retained heap"). The defect is not the latch; it is publishing
-`resetPackrat` on the default surface under a name that misdescribes it.
+§0.2 shows the consequence is total, not partial: **no source file in value.js, keyframes.js,
+glass-ui, or bbnf-lang imports a single one of the 34 exports**, and the package is not even
+resolvable from value.js. This is a 34-symbol public API with an empty consumer set.
 
-### D-3 — **BLOCKER** — line 5's `enableDiagnostics` is the only door to labelled failures, and it is the exact door W2's G-4 nails shut.
+That is not merely "unused" — it violates parse-that's **own written precept**.
+`scripts/proof-no-dead-combinator.mjs:11-12` states it in the imperative: *"A never-importable export
+is not part of the public contract; an export born one prior tranche with zero workspace consumers is
+dead by the precept."* That gate sweeps exactly the trees swept above (`:63-68`,
+`resolve(root, "../../value.js/src")` and `.../keyframes.js/src`) and currently red-lists two
+symbols (`thenMap`, `fuse`) by that standard — while **thirty-four** symbols meeting the identical
+standard sit in the barrel unexamined, because the gate hardcodes a two-name ban list instead of
+computing the zero-consumer set.
 
-*Provenance.* `index.ts:5` exports `enableDiagnostics, disableDiagnostics`. `utils.ts:6-14`: a
-module-scope `let diagnosticsEnabled = false` with two nullary setters. `parser.ts:66-69`, inside
-`parseStateInner`:
+**Semver hygiene**: this happened with **no version event on either side**. parse-that remains
+`1.0.0` (`package.json:3`) with an unchanged manifest, and value.js's `4.0.0` §Breaking
+(`value.js/CHANGELOG.md:16-22`) enumerates seven removals — root export, `/parsing`, `/units`,
+`ValueUnit`, legacy timing registries — and never mentions dropping the dependency (C-i2). The single
+most consequential fact about this barrel's consumption is recorded nowhere in either release
+history.
+
+**Consequence for this challenge**: every keep/retire ruling below must be made on *specification*
+(the ratified W2 laws and the band adjudications), because there is no usage evidence left to appeal
+to. That is stated as a limit on the method, not smuggled past it.
+
+*Falsifier*: exhibit one `import`/`require` of `@mkbabb/parse-that` in the non-`docs`, non-test
+source of value.js, keyframes.js, glass-ui, or bbnf-lang. §0.2's six commands each return empty; one
+non-empty result kills this row. The one file that *does* import it —
+`value.js/docs/tranches/V/megatranche/prototypes/css-parser/parsethat-surface-gaps.mjs:11-13` — is an
+audit probe under `docs/`, and it cannot execute (C-M5).
+
+### C-B2 — Nine of thirty-four exports are process-global latches, published across two independent module graphs — proven — and this is the exact construction W2's O-8 forbids by name *(folded + extended: the dual-graph proof is new)*
+
+**BLOCKER** · `index.ts:5` (6 symbols) + `index.ts:8` (3 symbols) · `package.json:8-12` ·
+proven at §0.3.
+
+Nine exports exist only to mutate module-level process state:
+
+| export | line | the global it moves | source |
+|---|---|---|---|
+| `enableDiagnostics` / `disableDiagnostics` | `:5` | `diagnosticsEnabled` | `utils.ts:6-14` |
+| `collectDiagnostic` / `getCollectedDiagnostics` / `clearCollectedDiagnostics` | `:5` | `collectedDiagnostics: Diagnostic[]` | `utils.ts:94,102,138,142` |
+| `mergeErrorState` | `:5` | reads `diagnosticsEnabled` to decide whether `label` survives | `utils.ts:28-49` |
+| `memoize` / `mergeMemos` | `:8` | **arms `PACKRAT_ARMED` — one-way** | `packrat.ts:156,290` |
+| `resetPackrat` | `:8` | clears `MEMO`/`HEADS`/`GROWING`; **does not disarm** | `packrat.ts:262-273` |
+
+**The latch, in source and in the shipped bytes.** Source: `packrat.ts:156` `let PACKRAT_ARMED =
+false`, read at `:217` and `:266`, set `true` at `:290`, and **no assignment back to `false` anywhere
+in the file**. Shipped: `dist/packrat-entry-CS1td-8B.js:678` (`false`), `:682`, `:714` (reads), `:722`
+(`true`) — O-15 PT-03's cites reproduce exactly. Two further aggravations live in the naming and the
+placement: (i) the reset function is *called* `resetPackrat` and is exported at `:8` next to the
+arming functions, so the barrel reads as if the latch were reversible — `packrat.ts:262-273` clears
+three Maps and returns; (ii) arming happens at **construction**, not invocation
+(`packrat.ts:290`, inside `makeMemoized`), so merely *building* a memoized parser that is never run
+imposes O-15 PT-03's measured **1.47×** (93.9 → 138.2 ns/parse; 139.3 after `resetPackrat()`) on
+every unrelated parse in the process, forever.
+
+**The duplication, proven.** `package.json:8-12` publishes `"."` with both
+`"import": "./dist/parse.js"` and `"require": "./dist/parse.cjs"`, and the two are **separate module
+graphs**. §0.3: `esm.Parser === cjs.Parser` is `false`, and each graph runs its own `PARSER_ID`
+counter (`parser.ts:18`) — both hand back `37` for the same construction sequence. A process reaching
+this package through both formats — routine in Node hybrid apps, and the default condition under
+vitest's mixed transform pipeline — therefore holds **two** `diagnosticsEnabled` flags, **two**
+`collectedDiagnostics` buffers, **two** `PACKRAT_ARMED` latches, and **two** `MEMO` tables.
+`enableDiagnostics()` on one copy leaves the other silent; `getCollectedDiagnostics()` on one cannot
+see what the other collected; arming packrat in one imposes 1.47× on that copy alone, undisarmable.
+
+**Against the ratified algebra this is disqualifying by name.** W2 §3b **O-8 (the anti-latch
+construction rule)**: *"No operator reads or writes process-global mutable state. Arming,
+memoization, and diagnostics are **parameters of a parse**, never latches. PT-03 made law: a one-way
+`PACKRAT_ARMED` costing 1.47× forever, whose reset does not disarm, is a state machine with one
+absorbing state — and no algebra with a global absorbing state can satisfy EQ-1 across two lowerings
+that arm at different times."* Nine of thirty-four exports are precisely those latches.
+
+*Falsifier*: (a) show `esm.Parser === cjs.Parser` — §0.3's probe is three lines and reruns in
+isolation; or (b) show a `PACKRAT_ARMED = false` assignment anywhere in `packrat.ts` or
+`dist/packrat-entry-CS1td-8B.js` (`grep -n PACKRAT_ARMED` → `678, 682, 714, 722`: exactly one write,
+and it is `true`); or (c) show the exports map routing both conditions to one graph (a `"module"`-only
+entry, or shared state outside the bundle). None hold.
+
+---
+
+## 2. MAJOR
+
+### C-M1 — `export *` at `:14` leaves 5 of 34 runtime exports undeclared — and the repo diagnosed this exact blindness in a sibling gate and left it uncured here *(folded — mechanism re-derived)*
+
+**MAJOR** · `index.ts:14` · `test/dist-surface.test.ts:19-34,45-52` ·
+`scripts/proof-no-css-surface.mjs:6-14`.
+
+`test/dist-surface.test.ts` exists to bite a real historical defect — its own header (`:7-10`): *"The
+shipped 0.8.2 dist exported only 8 of the 15 span fns (a silent source↔dist version-drift defect:
+`import { altSpan }` from the pinned dist hit a runtime `undefined`, and the version number lied
+about it)."* Its mechanism (`:21`) is a single regex:
+
+```js
+const re = /export\s*\{([^}]*)\}/g;
+```
+
+That matches **only** `export { … }` forms. `index.ts:14`'s `export * from "./parsers/index.js"`
+contributes **no names to `srcNames` and none to `distNames`**, so the five symbols it routes —
+`jsonParser`, `csvParser`, `escapedString`, `quotedString`, `numberParser`
+(`parsers/index.ts:5-8`) — sit outside the gate's field of view in **both** directions. The exact
+0.8.2 failure mode is undetectable for 14.7 % of the runtime surface.
+
+What makes this MAJOR rather than MINOR is that **the repo already knows**.
+`scripts/proof-no-css-surface.mjs:6-14` says so verbatim: *"the charter's first draft grepped
+`dist/index.d.ts` for CSS symbol substrings. That is UNSOUND — the barrel re-exports the parsers tier
+via `export * from './parsers/index.js'`, so the CSS symbols never appear inlined in `index.d.ts` …
+A substring grep of `index.d.ts` would pass GREEN with the CSS parser still shipping."* That gate was
+rewritten to read the **runtime** export keys (`:37-42`, `CSS_SYMBOLS.filter((s) => s in mod)`). The
+publish-discipline gate — whose entire purpose is drift detection — was not. Of the ten `proof:*`
+scripts in `package.json:45-55`, **not one** locks the star line's contents.
+
+*Falsifier*: show `namedExports()` returning any of the five parsers symbols from `index.ts`. It
+cannot — the function is 16 lines with one regex, and `export *` contains no `{`.
+
+### C-M2 — `getCollectedDiagnostics()` is published; its only renderers ship in **no** bundle *(folded — re-measured)*
+
+**MAJOR** · `index.ts:5` (`getCollectedDiagnostics`) + `index.ts:6` (`type Diagnostic`) ·
+`debug.ts:200,235`.
+
+The barrel hands a consumer `readonly Diagnostic[]` (`utils.ts:138`; shape at `utils.ts:84-93` —
+`offset`, `furthestOffset`, `line`, `column`, `expected[]`, `suggestions[]`, `secondarySpans[]`,
+`found`) and ships **zero** way to render it. `debug.ts:200` `formatDiagnostic(d, src)` and
+`debug.ts:235` `formatAllDiagnostics(diagnostics, src)` are the only two functions in the tree that
+consume a `Diagnostic`, and they appear in **no entry and no chunk**:
+
+```
+$ grep -l formatDiagnostic     dist/*.js   → (empty)
+$ grep -l formatAllDiagnostics dist/*.js   → (empty)
+```
+
+They are not merely un-exported — `sideEffects: false` (`package.json:6`) plus no reachability from
+any of the five entries means Rollup drops them from the published artifact entirely. The consumer's
+only recourse is to re-implement line/column rendering over a struct whose `line`/`column` are
+already computed at `utils.ts:112-115`. The half-export is the defect: the *type* ships
+(`index.ts:6`), the *collector* ships (`index.ts:5`), the *renderer* does not exist in the package.
+
+*Falsifier*: name any published entry — `.`, `/core`, `/diagnostics`, `/packrat`, `/utils` — from
+which `formatDiagnostic` resolves. `grep -n 'formatDiagnostic\|statePrint\|parserPrint' dist/parse.js
+dist/core.js dist/diagnostics.js dist/utils.js dist/packrat.js` returns nothing.
+
+### C-M3 — `isDiagnosticsEnabled` is withheld, arming is welded to `console.error`, and `mergeErrorState`'s `label` is silently discarded on the shipping default *(folded — three prior rows consolidated, all re-verified)*
+
+**MAJOR** · `index.ts:5` (six diagnostics exports; `isDiagnosticsEnabled` absent) · `utils.ts:16-18,33`
+· `parser.ts:67-69` · O-15 PT-01.
+
+Three couplings, one door.
+
+**(a) The reader is withheld.** `utils.ts:16` exports `isDiagnosticsEnabled()`. `index.ts:5` does not
+re-export it, and neither does `diagnostics.ts:6-14`:
+
+```
+$ grep -l isDiagnosticsEnabled dist/parse.js dist/core.js dist/diagnostics.js dist/utils.js \
+      dist/packrat.js dist/index.d.ts dist/diagnostics.d.ts   → (empty)
+```
+
+A library publishing `enableDiagnostics()`/`disableDiagnostics()` as process-globals (C-B2) while
+withholding the reader forces every consumer into a destructive protocol: arm, parse, then **guess** —
+`disableDiagnostics()` if you assume it was off, clobbering the caller's state if it was on. There is
+no save-and-restore. `parsethat-surface-gaps.mjs:29` scores exactly this:
+`row(enableDiagnostics.length !== 1, "DEBT-1 enableDiagnostics() is process-global (arity)", …)`.
+
+**(b) The label is a no-op unarmed.** `utils.ts:33`:
+`state.expected = diagnosticsEnabled && label ? [label] : undefined`. So `mergeErrorState(state,
+"<named-color>")` — exported at `index.ts:5`, and the **only** labelling path the package offers
+(there is no `.label()` combinator: `parsethat-surface-gaps.mjs:26` measures `!("label" in
+Parser.prototype)`) — silently drops its second argument on the shipping default. Shipped:
+`dist/diagnostics-DDazRHgl.js:14`, O-15 PT-01's cite, byte-exact.
+
+**(c) Arming turns on stderr.** `parser.ts:67-69`, inside `parseStateInner`, on the failure path of
+**every** parse: `if (isDiagnosticsEnabled()) console.error(this.state.toString())`. Shipped at
+`dist/packrat-entry-CS1td-8B.js:882` (O-15 cites `:881`; see C-i1).
+
+So a consumer wanting the labelled failures the parser-band's **DEBT-1** requires
+(`parser-band.md` §"WHAT CAND-O OWES CAND-F" ¶1: *"Replace `never` … with a labelled zero-width
+failure in cand-F's style; `expected: ["<named-color>"]` beats `(?!)`"*) must arm a process-global
+that also prints to stderr on every rejection, and cannot determine or restore its prior value.
+W2 §3b **R-LAW-3 (diagnostic purity)** makes this an outright kill: *"The probe monkey-patches
+`console.error`/`console.warn` to **throw** over the full corpus — a lowering that prints cannot
+pass."* And **EQ-4** rules that *"a candidate whose labels exist only under an armed-diagnostics mode
+reads as diagnostics-ABSENT and fails (PT-01)."* Both arms of the coupling are individually fatal
+under the ratified laws.
+
+*Falsifier*: exhibit a published path to `isDiagnosticsEnabled`; or a posture that yields
+`state.expected` without setting the global (`utils.ts:33`, `:41` gate on it unconditionally); or a
+failure path that does not print when armed (`parser.ts:67` gates on the same flag). None exists.
+
+### C-M4 — `createParserContext` is published with a **closed** 29-literal name union that is itself unpublished
+
+**MAJOR** · `index.ts:3` (`createParserContext`) + `index.ts:4` (`type ParserContext`) ·
+`state.ts:141-181`.
+
+`createParserContext`'s first parameter is typed `(typeof parserNames)[number]`
+(`state.ts:179-181`), and `ParserContext.name` is the same union (`state.ts:173-177`). `parserNames`
+(`state.ts:141-171`) is a `readonly` tuple of exactly **29** literals — `"string"`, `"regex"`,
+`"then"`, … `"lookAhead"`. It is **not** exported from `index.ts`, not from `core.ts`, and not from
+any dist entry (`grep -n parserNames dist/index.d.ts dist/core.d.ts` → empty).
+
+Two consequences, both binding on the band's actual work:
+
+1. **A consumer cannot name a custom parser.** The band's cand-F idiom is
+   `new Parser((s) => { mergeErrorState(s, label); s.isError = true; return s; })` — reproduced
+   verbatim at `parsethat-surface-gaps.mjs:20`. Giving it a context requires
+   `createParserContext("named-color-reject", undefined)`, which is a compile error: the string is
+   not in the 29-member union. The published surface admits only parse-that's own internal combinator
+   names. A downstream grammar of the size the band adjudicated (cand-O's four files, 1,209 lines)
+   can name **zero** of its own productions.
+2. **A consumer cannot type a variable holding the field.** `ParserContext` is exported
+   (`index.ts:4`) with a `name?` of an unnameable type, so `let n: ??? = ctx.name` requires
+   re-declaring all 29 literals by hand or falling back to `string` and casting.
+
+This starves W2's **EQ-4** at the source: the labels that must populate `expected[]` for ordered
+structural diagnostics equality are exactly the names the closed union refuses.
+
+*Falsifier*: show `parserNames` — or an open `name` type — reachable from any published entry; or
+show `createParserContext("anything-custom", undefined)` typechecking against `state.ts:179`.
+
+### C-M5 — Every RED row of the band's surface-gaps probe is reached through an `index.ts` export, and the probe cannot execute at all
+
+**MAJOR** · `index.ts:2,3,5,8,9` · `parsethat-surface-gaps.mjs:11-13,20-53` ·
+`parser-band.md` §"WHAT CAND-O OWES CAND-F".
+
+The probe imports **ten** symbols, every one an `index.ts` line: `Parser`, `string`, `regex`, `any`,
+`all`, `memoize`, `resetPackrat`, `enableDiagnostics`, `disableDiagnostics` from the root barrel
+(`:11-12`), and `mergeErrorState` from `/diagnostics` (`:13`) — which `index.ts:5` also publishes.
+There is no gap the probe measures that this module does not own.
+
+Reading the nine `row()` calls against the source, the **unarmed** run yields exactly **seven RED**
+(the row at `:47` is `row(!ARM ? false : false, …)` — a tautologically-green record row; the
+`resetPackrat` row at `:46` fires only under `--arm`):
+
+| # | probe line | RED because | owning `index.ts` export | debt |
+|---|---|---|---|---|
+| 1 | `:23-25` | `armF.parseState("rebeccapurple").expected` is `undefined` — the label is a no-op unarmed (C-M3b) | `mergeErrorState` (`:5`) | DEBT-1 |
+| 2 | `:26` | `!("label" in Parser.prototype)` — no labelling combinator | `Parser` (`:2`) | DEBT-1 |
+| 3 | `:27` | `enableDiagnostics.length === 0` — arming takes no scope | `enableDiagnostics` (`:5`) | DEBT-1 |
+| 4 | `:37` | ceiling is a **thrown `RangeError`**, not `ok:false` (O-15 PT-04: depth 7,762) | `Parser.lazy` on `Parser` (`:2`) | DEBT-3 |
+| 5 | `:38` | `Parser.lazy.length === 1` — no depth-bound parameter | `Parser` (`:2`) | DEBT-3 |
+| 6 | `:52` | `parseState(non-string)` throws raw `TypeError` 5/5 (O-15 PT-07) | `Parser`/`string` (`:2`,`:9`) | GUARD |
+| 7 | `:53` | `.parse()` returns `undefined` on failure — indistinguishable from success (O-15 PT-07) | `Parser` (`:2`) | GUARD |
+
+**RED-7 is 7-of-7 non-tautological rows, and 7-of-7 land on this barrel.** Not one gap belongs to a
+module the barrel merely neighbours.
+
+And the probe **cannot run**. Its header (`:4-5`) says *"Run from this workspace (it resolves the
+workspace's node_modules)"*; §0.2 gives `require.resolve('@mkbabb/parse-that')` → `MODULE_NOT_FOUND`
+from `/Users/mkbabb/Programming/value.js`. The instrument that measures this module's consumption
+fitness is itself unrunnable **because of C-B1** — the dependency edge it resolves through was
+deleted at `164343c1`. The seven rows above are therefore derived by reading the probe against source
+and shipped dist, not by executing it; each row's cite is independently checkable without it.
+
+*Falsifier*: (a) run the probe from `value.js` — it dies on an unresolved specifier before the first
+`row()`; or (b) show any of the seven evaluating green against `parser.ts` / `utils.ts` /
+`packrat.ts` at the cited lines.
+
+### C-M6 — The root barrel is a fan-in of all four tier chunks, and `/core` ships the tier it disclaims *(folded — re-measured)*
+
+**MAJOR** · `index.ts:1-14` · `dist/parse.js:1-4` · `dist/core.js:1` · `core.ts:3-6`.
+
+`core.ts:3-6` states the tiering promise: *"The zero-side-effect primitive set… A consumer that
+imports only this **never pulls the diagnostics accumulator, the packrat tier**, or the json/csv
+domain parsers."* The shipped bytes falsify it:
+
+```
+$ head -1 dist/core.js
+import { P, a, b, c, d, e, f, g, h, l, j, r, s, n, t, w } from "./packrat-entry-CS1td-8B.js";
+$ ls -la dist/packrat-entry-CS1td-8B.js  →  40576 bytes
+```
+
+`/core` imports the same 40,576-byte chunk the root does. The cause originates here: `index.ts:2`
+publishes `Parser`, and `Parser.parseState` calls `packratEnter()` / `packratExit()` unconditionally
+on every parse (`parser.ts:43-49`, importing `./packrat.js` at `parser.ts:7`). Packrat is on the
+default path, so it cannot be split off `Parser`, so it cannot be split off `/core`.
+`dist/packrat.js` (158 B) and `dist/diagnostics.js` (282 B) are thin re-export shims over the same
+two chunks; only `/diagnostics` achieves real separation — it alone avoids the 40 KB chunk.
+
+The root's shape confirms the fan-in: `dist/parse.js:1-4` imports from **all four** —
+`packrat-entry-*.js`, `diagnostics-*.js`, `core.js`, `utils.js`. So `import { Parser } from
+"@mkbabb/parse-that"` is strictly the most expensive door in the package, pulling the packrat
+machinery, the diagnostics accumulator, the ANSI/debug printer (C-M7), and the json/csv showcases,
+for a consumer who wanted one class. The A.W3 subpath split buys the root consumer nothing.
+
+*Falsifier*: show `dist/core.js` resolving without `packrat-entry-CS1td-8B.js`, or that chunk lacking
+the packrat tier (`grep -n PACKRAT_ARMED dist/packrat-entry-CS1td-8B.js` → `678,682,714,722`).
+
+### C-M7 — `ParserState` welds an ANSI terminal renderer into every consumer bundle, browsers included, and `sideEffects:false` cannot shake it *(folded — dependency chain re-traced)*
+
+**MAJOR** · `index.ts:3` (`ParserState`) · `state.ts:2,136-137` · `debug.ts:1-2` · `ansi.ts:1-17`.
+
+`state.ts:2` imports `statePrint` from `./debug.js`, and `ParserState.toString()` (`state.ts:136-137`)
+calls it. `debug.ts` imports `ansi.ts`, whose ten exports (`ansi.ts:8-17`) are raw escape-sequence
+emitters — `\x1b[1m`, `\x1b[31m`, `\x1b[41m`, … The chain is `index.ts:3 → state.ts:2 → debug.ts →
+ansi.ts`, and it runs through a **method on the exported class**, not a separable function, so tree
+shaking cannot cut it: `grep -l statePrint dist/*.js` → `dist/packrat-entry-CS1td-8B.js`, i.e. it is
+in the 40 KB chunk every entry but `/diagnostics` loads (C-M6). `parser.ts:3` adds a second edge via
+`Parser.toString()` (`parser.ts:698`) and `Parser.debug()` (`parser.ts:690`).
+
+The result inverts C-M2 exactly: the two functions a consumer would actually want
+(`formatDiagnostic`, `formatAllDiagnostics`) are **absent** from the shipped bytes, while terminal
+colour codes no browser consumer can use are **mandatory** payload.
+
+*Falsifier*: show `ParserState.toString()` not reaching `ansi.ts` (`state.ts:2` → `debug.ts:1` →
+`ansi.ts`, three hops, all static imports), or `statePrint` absent from the shipped chunk.
+
+### C-M8 — The `*Span` excision is incomplete: `:3-4` still publish a type and two helpers that nothing in the library produces *(folded — producer search re-run)*
+
+**MAJOR** · `index.ts:3` (`spanToString`, `mergeSpans`) + `index.ts:4` (`type Span`) ·
+`state.ts:8-22` · `leaf.ts:3` · `parser.ts:2`.
+
+The 1.0.0 cut removed the 15 `*Span` **builders** and kept the `Span` value type plus its two helpers,
+on the stated grounds that they *"operate on the surviving `Span` value, not the deleted builders"*
+(`CHANGELOG.md`, S.H2 section). But after the excision **nothing in the library produces a `Span`**.
+A whole-tree search for producers:
+
+```
+$ grep -rn "Span" src/parse/*.ts src/parse/parsers/*.ts | grep -v 'SecondarySpan|secondarySpans|spanToString|mergeSpans|\*Span|//'
+src/parse/core.ts:14    export type { ParserContext, Span } from "./state.js";
+src/parse/index.ts:4    export type { ParserContext, Span } from "./state.js";
+src/parse/state.ts:8    export interface Span { start: number; end: number; }
+src/parse/leaf.ts:3     import type { ParserState, ParserContext, Span } from "./state.js";
+src/parse/parser.ts:2   import type { ParserContext, Span } from "./state.js";
+```
+
+Five hits: two re-exports, one declaration, and **two unused type imports**. `Span` appears nowhere in
+a signature, a return type, or a field of `leaf.ts` or `parser.ts` — it is imported and never
+referenced. No combinator returns `Span`; no `ParserState` field holds one. So `spanToString(span,
+src)` (`state.ts:13`) and `mergeSpans(a, b)` (`state.ts:17`) are two exported functions over a
+structurally-typed pair the consumer must construct entirely by hand — `{ start, end }` — for which
+this package offers no source.
+
+The gate that calls itself terminal on this surface passes anyway: `proof:no-span-surface` and
+`test/dist-surface.test.ts:55-79` both check a **hardcoded list of the 15 builder names** and
+explicitly whitelist the three survivors, so an orphaned value type is invisible to them.
+
+*Falsifier*: exhibit one function in `src/parse/**` whose signature mentions `Span` as a parameter or
+return, other than `spanToString`/`mergeSpans` themselves. The grep above is exhaustive over the
+source tree.
+
+### C-M9 — `:7` exports a symbol named `lazy` that is **not** the `lazy` any consumer means — and it cannot compile under the package's own decorator era *(folded — tsconfig check is new)*
+
+**MAJOR** · `index.ts:7` (`lazy`) · `lazy.ts:30-42` · `tsconfig.json:2-13` · `parser.ts:702`.
+
+In a parser-combinator library, `lazy` names one thing: the deferred back-edge that lets a grammar
+recurse. That function exists here — it is `Parser.lazy` (`parser.ts:702`), the static the band's
+**DEBT-3** and O-15 **PT-04** both measure. The barrel does **not** export it under that name; what
+`index.ts:7` exports as `lazy` is a **method decorator** (`lazy.ts:30-42`):
 
 ```ts
-if (isDiagnosticsEnabled()) {
-    console.error(this.state.toString());
-}
+export function lazy<T>(target: unknown, _propertyName: string,
+                        descriptor: TypedPropertyDescriptor<() => any>) { … }
 ```
 
-— an **unconditional stderr write on every failed parse**, once the flag is on. This is O-15 **PT-01**
-verbatim ("arming couples an unconditional `console.error`", with the dist cites
-`diagnostics-DDazRHgl.js:14` + `packrat-entry-*.js:881`); the source sites are `utils.ts:16` and
-`parser.ts:68`.
-
-*The consumption failure.* The flag is not optional decoration — it is load-bearing for the label
-surface. `utils.ts:33`: `state.expected = diagnosticsEnabled && label ? [label] : undefined;` and
-`:38`: `if (diagnosticsEnabled && label)`. **Every** write to `expected[]` is behind the global
-(grep `diagnosticsEnabled` in `utils.ts` → `:6, :9, :13, :17, :33, :38, :52, :58, :71`; no other
-path). So the barrel offers labelled diagnostics only through a switch that also makes the library
-print. **W2 §6 G-4**'s R-LAW-3 probe *"monkey-patches `console.error`/`console.warn` to **throw** over
-the full corpus — a lowering that prints cannot pass (the PT-01 coupling made unpassable)"*. A
-candidate that reaches for this barrel export to satisfy debt 1 fails G-4 **by construction**.
-
-*Live receipt, re-run today* (`node docs/tranches/V/megatranche/prototypes/css-parser/parsethat-surface-gaps.mjs`):
-`RED  DEBT-1  cand-F reject() label, diagnostics OFF (shipping default)   undefined`.
-
-*Falsifier.* A path that seeds `expected[]` without setting the global. `utils.ts:28-49` is the whole
-of `mergeErrorState`; there is none. **Survives.**
-
-### D-4 — **MAJOR** — line 7 exports a symbol named `lazy` that is **not** the `lazy` every consumer means.
-
-*Provenance.* `index.ts:7` exports `lazy` from `lazy.ts:30-43` — a **TypeScript method decorator**,
-`(target, _propertyName, descriptor)`, arity 3, returning `void`. The combinator consumers actually
-use is `Parser.lazy` — a static at `parser.ts:702-707`, arity 1 — and it is **not** a barrel export.
-
-Who means which: the surface-gaps probe writes `Parser.lazy(() => …)` (`parsethat-surface-gaps.mjs:29`);
-the band's idiom reading credits cand-O with *"exactly one `Parser.lazy` on the one true back-edge
-(balanced tail)"* (`parser-band.md`, IDIOM READING); O-15 **PT-04** measures `Parser.lazy` (arity 1,
-deepest OK 7,761, `RangeError` at 7,762). Nobody in the corpus means the decorator. The barrel
-carries **three** lazy-shaped names — `getLazyParser`, `createLazyCached`, `lazy` — and none of them
-is the one the ecosystem uses.
-
-*Live receipts.*
-```
-typeof lazy       : function | arity 3
-typeof Parser.lazy: function | arity 1
-lazy(fn) THREW: TypeError: Cannot read properties of undefined (reading 'value')
-```
-(the throw is `lazy.ts:35`, `descriptor.value!` on `undefined`).
-
-*Honest scope (L-18) — this is MAJOR, not BLOCKER.* TypeScript catches the misuse at compile time.
-Consumer probe under `moduleResolution: bundler`, tsc 6.0.3:
-`probe.ts(7,13): error TS2554: Expected 3 arguments, but got 1.` Only untyped/JS consumers reach the
-runtime throw. The defect is the naming collision on the public surface, not an unguarded footgun.
-
-*Falsifier.* A `Parser.lazy` re-export on the barrel, or a decorator-only convention documented at
-the export site. Neither exists — `index.ts:7` names it beside two other lazy helpers with no comment.
-
-### D-5 — **MAJOR** — the diagnostics surface is exported half-way: the data type ships, the renderer is unreachable from every entry point.
-
-*Provenance.* `index.ts:6` exports `type Diagnostic`; `index.ts:5` exports `getCollectedDiagnostics`,
-which returns `readonly Diagnostic[]` (`utils.ts:138`). The **only** renderers for that shape are
-`formatDiagnostic` (`debug.ts:200`) and `formatAllDiagnostics` (`debug.ts:235`) — on no barrel, no
-subpath, and unreachable by deep import.
-
-*Live receipts.*
-```
-BLOCKED  @mkbabb/parse-that/dist/debug.js  -> ERR_PACKAGE_PATH_NOT_EXPORTED
-BLOCKED  @mkbabb/parse-that/debug          -> ERR_PACKAGE_PATH_NOT_EXPORTED
-BLOCKED  @mkbabb/parse-that/dist/parse.js  -> ERR_PACKAGE_PATH_NOT_EXPORTED
-```
-and, probing all five public entries for
-`formatDiagnostic, formatAllDiagnostics, isDiagnosticsEnabled, parserNames, addSuggestion,
-popLastDiagnostic, resetErrorState, statePrint, parserPrint`:
-```
-@mkbabb/parse-that              exports=34 | found: NONE
-@mkbabb/parse-that/core         exports=18 | found: NONE
-@mkbabb/parse-that/diagnostics  exports=6  | found: NONE
-@mkbabb/parse-that/utils        exports=7  | found: NONE
-@mkbabb/parse-that/packrat      exports=3  | found: NONE
-```
-
-*The consumption failure.* A consumer receives structured `Diagnostic` values and must reimplement
-line/column framing, caret placement, and `expected`-list prose — all of which already exist,
-tested, 7,724 built bytes of them, inside the chunk the consumer is *already loading* (§D-8). The
-barrel hands over the payload and withholds the reader.
-
-*Falsifier.* Any public entry exposing a formatter. All five enumerated — none. **Survives.**
-
-### D-6 — **MAJOR** — `isDiagnosticsEnabled` is unreachable, so a library consumer cannot save and restore the global it is told to flip.
-
-*Provenance.* `utils.ts:16-18` exports `isDiagnosticsEnabled`. `index.ts:5` omits it.
-`diagnostics.ts:6-13` (the `/diagnostics` tier that exports its two *setters*) omits it. The
-reachability probe above returned `NONE` on all five entries.
-
-*The consumption failure.* Given only `enableDiagnostics()` / `disableDiagnostics()`, a well-behaved
-library that wants labels for one parse cannot restore the caller's state — it can only guess
-`disableDiagnostics()`, which is wrong whenever the caller had it on. A getter/setter pair where the
-getter is unreachable is not a toggle, it is a one-way write.
-
-*Falsifier.* Reachability of `isDiagnosticsEnabled` from any public entry, or a save/restore idiom
-that does not need it. Neither. **Survives.**
-
-### D-7 — **MAJOR** — the barrel is an exact superset of the four-tier split, and the tier that promises isolation ships the tier it disclaims.
-
-*Provenance — set algebra, live.* root 34 = core 18 ∪ diagnostics 6 ∪ packrat 3 ∪ utils 7; **root
-not in any tier: NONE; tier not in root: NONE**; each tier is 18/18, 6/6, 3/3, 7/7 also-on-root. The
-A.W3 split created **zero** exclusive exports. `index.ts:5` re-advertises the `/diagnostics` tier,
-`:8` the `/packrat` tier, `:5` + `:14` the `/utils` tier — so nothing about the tiering is
-*enforceable* from the default path.
-
-*Provenance — the artifact.* `dist/core.js:1` reads
-`import { … } from "./packrat-entry-CS1td-8B.js";`. That chunk contains
-`let PACKRAT_ARMED = false;` (`:678`) and `function makeMemoized(parser, name)` (`:721`). But
-`core.ts:4-5` states: *"A consumer that imports only this never pulls the diagnostics accumulator,
-the packrat tier, or the json/csv domain parsers."* Sourcemap byte attribution of that chunk
-(VLQ-decoded, per-line source ownership; 39,961 of 40,576 bytes attributed):
-
-| source | bytes | share |
-|---|---|---|
-| `parser.ts` | 15,096 | 37.8 % |
-| `debug.ts` | 7,724 | 19.3 % |
-| `leaf.ts` | 7,601 | 19.0 % |
-| **`packrat.ts`** | **5,412** | **13.5 %** |
-| `state.ts` | 2,842 | 7.1 % |
-| `lazy.ts` | 651 | 1.6 % |
-| `ansi.ts` | 635 | 1.6 % |
-
-The packrat tier is inseparable because `parser.ts:7` statically imports `packratEnter, packratExit`
-and calls them on every `parseState` (`:43`, `:47`). `dist/packrat.js` — the whole `/packrat`
-entry — is 158 bytes re-exporting three names from that same chunk.
-
-*Honest scope (L-18) — the claim is 2/3 true.* The json/csv half holds:
-`grep -c "jsonParser\|csvParser" dist/packrat-entry-CS1td-8B.js` → **0**. The diagnostics
-*accumulator* also holds — it lives in a separate 3,516-byte chunk (`diagnostics-DDazRHgl.js`) that
-`core.js` does not import. Exactly one third of the sentence is false, and it is the 5,412-byte
-third.
-
-*Falsifier.* Rebuild and re-attribute; or produce a `/core` artifact that omits `packrat.ts`. The
-static call at `parser.ts:43/47` makes the latter impossible without a source change.
-
-### D-8 — **MAJOR** — line 3's `ParserState` welds an ANSI terminal renderer into every consumer bundle, including browsers, and `sideEffects:false` cannot shake it.
-
-*Provenance — the static chain.* `index.ts:3` exports `ParserState`. `state.ts:136-138`:
-`toString() { return statePrint(this as ParserState<unknown>); }`, over `state.ts:2`
-`import { statePrint } from "./debug.js";`. `parser.ts:3` statically imports `parserDebug, parserPrint`.
-`debug.ts:5` statically imports the ten ANSI helpers. `ansi.ts:3-6` evaluates
-`process.stderr?.isTTY === true && !process.env.NO_COLOR` at module init.
-
-*Measured cost.* `debug.ts` 7,724 B + `ansi.ts` 635 B = **8,359 B = 20.9 %** of the attributed chunk
-that **both** `.` and `/core` load — and by §D-5 **none of it is reachable through the exports map**.
-A fifth of the payload is a terminal renderer that no consumer can call.
-
-*Why tree-shaking cannot help.* `sideEffects: false` (`package.json`) permits dropping unused
-*modules*; it cannot drop a method body reachable from an exported class. `ParserState.prototype.toString`
-and `Parser.prototype.toString`/`.debug` hold live references, and `Parser` is the barrel's headline
-export. The dead weight is welded to the one export nobody can decline.
-
-*Falsifier.* A bundle of `import { string } from "@mkbabb/parse-that/core"` in which `debug.ts`
-and `ansi.ts` are absent. Not achievable while those method bodies exist; the built `core.js` proves
-the current answer.
-
-### D-9 — **MAJOR** — `export *` on line 14 leaves the public surface undeclared, and not one of the ten proof gates locks it.
-
-*Provenance.* `index.ts:14` `export * from "./parsers/index.js";`. Named in the barrel: 29 runtime
-symbols (line 2: 1; line 3: 4; line 5: 8; line 7: 3; line 8: 3; line 9: 8; line 13: 2). Measured on
-the built root: **34**. The 5 invisible ones — `jsonParser`, `csvParser`, `escapedString`,
-`quotedString`, `numberParser`, plus the `JsonValue` type — arrive through the star.
-**14.7 % of the package's public runtime contract is not readable from the file that declares it.**
-
-*Semver consequence.* Adding an export to `parsers/index.ts` widens the package's public surface
-with no edit to `index.ts` and no review of the barrel — a minor-version obligation incurred in a
-file nobody watching the surface is reading.
-
-*Provenance — no gate locks it.* All ten `proof:*` scripts are **deny-lists**: `proof:manifest`
-checks three manifest properties (`test/manifest-gate.mjs:23-48`); `proof:subpath` checks three
-symbols (`test/subpath-gate.mjs:45-55`); `proof:no-css-surface` 16 banned names
-(`scripts/proof-no-css-surface.mjs:22-27`); `proof:no-span-surface` 15 banned names
-(`scripts/proof-no-span-surface.mjs:30-34`); `proof:no-dead-combinator` 2
-(`scripts/proof-no-dead-combinator.mjs:29-32`). **No script asserts the export set.** parse-that
-documents this exact hazard against itself: `scripts/proof-no-css-surface.mjs:6-14` —
-*"the barrel re-exports the parsers tier via `export * from './parsers/index.js'`, so the CSS symbols
-never appear inlined in `index.d.ts` … A substring grep of `index.d.ts` would pass GREEN with the
-CSS parser still shipping."*
-
-*Honest scope (L-18).* The two historically dangerous families are still caught, because those two
-gates read the **built dist** rather than the barrel text (`proof-no-css-surface.mjs:31-42`;
-`proof-no-span-surface.mjs:44-61`). The uncovered case is only a **new** name — which is precisely
-the semver-hygiene case.
-
-*Falsifier.* Any gate that snapshots the root's 34-name export set. Enumerated all ten
-`package.json` scripts — none.
-
-### D-10 — **MAJOR** — the Span excision is incomplete: lines 3–4 still export a type and two helpers that nothing in the library produces, and the "terminal" span gate passes anyway.
-
-*Provenance.* `index.ts:3` exports `spanToString, mergeSpans`; `index.ts:4` exports `type Span`.
-Repo-wide grep (`src` + `test`, `*.ts`/`*.mjs`):
-
-| symbol | every occurrence in the repository |
-|---|---|
-| `spanToString` | `state.ts:13` (definition), `core.ts:11`, `index.ts:3` |
-| `mergeSpans` | `state.ts:17` (definition), `core.ts:12`, `index.ts:3` |
-| `Span` | `state.ts:8/13/17`, `core.ts:14`, `index.ts:4`, `parser.ts:2`, `leaf.ts:3` |
-
-`parser.ts:2` and `leaf.ts:3` are **type imports whose identifier appears nowhere else in either
-file** — dead imports. **No exported function or method anywhere in the library returns a `Span`.**
-The producers were the 15 `*Span` builders, deleted in the 1.0.0 cut.
-
-*The corpus is wrong here.* `CHANGELOG.md`, 1.0.0 "Removed — BREAKING": *"The `Span` type and its two
-helpers (`spanToString`, `mergeSpans`) are UNAFFECTED — they operate on the surviving `Span` value,
-not the deleted builders."* **There is no surviving `Span` value.** Nothing constructs one, nothing
-returns one, nothing consumes the helpers. The retention rationale, stated at the cut, does not hold
-against the tree.
-
-*And the gate cannot see it.* `scripts/proof-no-span-surface.mjs` describes itself as *"the terminal
-owner of 'everything span is dead'"* (`:5-7`) but tests only the 15 builder names
-(`SPAN_BUILDERS`, `:30-34`). It passes GREEN with the residue in place. The barrel comment at
-`index.ts:10-12` therefore over-claims: the span surface was 15/18 excised, and the file says
-"EXCISED".
-
-*Falsifier.* Any producer of a `Span` — a return type, a constructed literal, a field. The seven
-sites above are exhaustive. **Survives.**
-
-### D-11 — **MINOR** — six barrel exports are dead by the package's **own** written precept.
-
-*Provenance.* Consumer counts across `src` + `test`, excluding definition sites and the barrel/tier
-re-export lines:
-
-| export | in-repo consumers | value.js | keyframes.js |
-|---|---|---|---|
-| `spanToString` (`:3`) | 0 | 0 | 0 |
-| `mergeSpans` (`:3`) | 0 | 0 | 0 |
-| `getCollectedDiagnostics` (`:5`) | 0 | 0 | 0 |
-| `clearCollectedDiagnostics` (`:5`) | 0 | 0 | 0 |
-| `skipWhitespace` (`:5`) | 0 | 0 | 0 |
-| `skipBlockComments` (`:5`) | 0 | 0 | 0 |
-| `getLazyParser` (`:7`) | 1 — `debug.ts:318`, internal | 0 | 0 |
-| `createLazyCached` (`:7`) | 2 — `lazy.ts:39`, `parser.ts:704`, internal | 0 | 0 |
-
-Downstream columns per D-1. The precept: *"A never-importable export is not part of the public
-contract; an export born one prior tranche with zero workspace consumers is dead by the precept"*
-(`scripts/proof-no-dead-combinator.mjs:10-12`), whose own consumer sweep targets exactly
-`../../value.js/src` and `../../keyframes.js/src` (`:63-68`). The instrument agrees; it simply was
-never pointed at these eight names — its `banned` list holds two (`thenMap`, `fuse`, `:29-32`).
-
-*Honest scope (L-18) — MINOR, not MAJOR.* `getLazyParser`/`createLazyCached` have real internal
-callers and are plausibly deliberate escape hatches for grammar authors; `skipWhitespace`/
-`skipBlockComments` are documented at `utils.ts:150-157` as the byte-scan primitives *"a hand-rolled
-grammar (value.js's canonical CSS grammar) drives its hot paths with"* — an anticipated consumer
-that never materialized. Anticipation is a defensible reason to publish; it is not a reason to
-*keep* publishing after the anticipation is falsified.
-
-*Falsifier.* A consumer anywhere in the constellation. Grep table above; D-1's dependency evidence.
-
-### D-12 — **MINOR** — `./package.json` is not exported, so the X·P substrate receipt cannot read this package's version through its own surface.
-
-*Provenance.* `package.json` `exports` has exactly five keys: `.`, `./core`, `./diagnostics`,
-`./packrat`, `./utils`. No `"./package.json": "./package.json"`. Live:
-`require.resolve("@mkbabb/parse-that/package.json")` → `ERR_PACKAGE_PATH_NOT_EXPORTED`.
-
-*Consumption consequence, concrete.* **W2 §3e Stage 4** requires *"every number carries a **substrate
-receipt** (repo, commit, **package version**, node version, dist-or-tree)"*, and **W2 §4** names
-`harness/w2/substrate-receipt.mjs` as a gate-invoked script for G-7 and G-9. That harness cannot read
-`@mkbabb/parse-that`'s version through the package's public surface; it must reach around the
-exports map with filesystem path arithmetic.
-
-*Honest scope (L-18) — MINOR.* The workaround is one line and I used it
-(`createRequire(...).resolve(...)` + a relative path) to read `1.0.0`. This is friction and a
-convention miss, not impossibility.
-
-*Falsifier.* A resolvable `@mkbabb/parse-that/package.json`. Blocked; receipt above.
-
-### D-13 — **INFO** — no legacy-resolver fallback; recorded because it is a **declared** trade-off, not a regression.
-
-*Provenance.* `package.json` fields: `name, version, description, type, sideEffects, exports,
-scripts, files, devDependencies`. No `main`, no `types`, no `module`, no `typesVersions`. Under
-`moduleResolution: node10` (still TypeScript's default for `module: commonjs`), tsc 6.0.3:
-
-```
-probe10.ts(1,24): error TS2307: Cannot find module '@mkbabb/parse-that' …
-probe10.ts(2,25): error TS2307: Cannot find module '@mkbabb/parse-that/packrat' …
-```
-
-*Why INFO.* `test/manifest-gate.mjs:7-9` scopes the decision explicitly: *"the `exports` map already
-resolves types correctly for every modern resolver"*. That is true, and the sentence declares the
-boundary. Recorded so the X·P consumer-side survey does not rediscover it as news.
-
-### D-14 — **MAJOR** — dual-package hazard: the CJS and ESM builds carry independent copies of every process-global this barrel exports.
-
-*Provenance — live receipt* (one disposable process; the reversible diagnostics flag only, packrat
-untouched):
-```
-same Parser identity?  false
-cjs keys 34 | esm keys 34
-ESM instance sees diagnostics armed by CJS instance? expected[] = undefined
-```
-`cjs.enableDiagnostics()` did not cross to the ESM instance. The state that diverges:
-`diagnosticsEnabled` (`utils.ts:6`), `collectedDiagnostics` (`utils.ts:95`), `PACKRAT_ARMED`
-(`packrat.ts:156`) — all module-scope `let`/`var` bindings. Confirmed there is no cross-realm
-anchor: `grep -rn "globalThis\|Symbol.for" src/parse/` → **no hits**.
-
-*Why this is the barrel's defect specifically.* `index.ts:5` and `:8` place, on the **default**
-import path, the module's *only* global-state mutators. A mixed graph — one dependency on `require`,
-one on `import` — gets silently divergent diagnostics and latch state with no error, no warning, and
-no way to detect it. This is W2 §3b **O-8**'s named failure ("no algebra with a global absorbing state
-can satisfy EQ-1 across two lowerings that arm at different times") reproduced across two **build
-outputs of one package** — the same shape, one level below where W2 expects it.
-
-*Falsifier.* A `globalThis`/`Symbol.for` anchor, or per-parse state. Grep shows neither;
-`utils.ts:20-26` explicitly makes only the *error tracking* per-parse and leaves the three globals
-module-scope. **Survives.**
-
-### D-15 — **MAJOR** — line 5 exports `mergeErrorState(state, label)`, whose `label` argument is silently discarded on the shipping default.
-
-*Provenance.* `index.ts:5`. `utils.ts:28-49`:
-`state.expected = diagnosticsEnabled && label ? [label] : undefined;` (`:33`) and
-`if (diagnosticsEnabled && label)` (`:38`). With diagnostics off — the shipping default
-(`utils.ts:6`) — the parameter is accepted, type-checked, and thrown away.
-
-*Consumption consequence.* This is the primitive the band's runner-up reaches for. cand-F's
-`reject()` is `new Parser((s) => { mergeErrorState(s, label); s.isError = true; return s; })`
-(`parsethat-surface-gaps.mjs:20`, verbatim from `cand-f/color.ts:159-164`) — the idiom
-`parser-band.md` calls *"the single clearest thing cand-F does better"* (debt 1). On the published
-surface it yields `expected === undefined`. There is no type-level or name-level signal; the
-signature promises labelling and the default configuration silently declines.
-
-*Falsifier.* A call path in which `label` survives with diagnostics off. `utils.ts:28-49` is the
-entire function; there is none. **Survives.**
+That is the TypeScript 4.x `experimentalDecorators` signature. `tsconfig.json` sets `target: ES2022`
+and **does not set `experimentalDecorators`**, so under the package's own compiler
+(`package.json` devDeps `"typescript": "^5.8.0"`) TS resolves `@lazy` as a **stage-3 standard
+decorator**, whose contract is `(value, context)` and which cannot mutate a descriptor. Applying the
+published `lazy` under a modern default config is a type error. It is also never exercised anywhere:
+`grep -rn '@lazy' src test` → empty.
+
+So the most-expected name on the surface is bound to a dead, era-mismatched decorator, while the
+function consumers need reaches them only as a static on `Parser` — undiscoverable by import, and
+carrying the unbounded 7,761-deep `RangeError` ceiling the band's DEBT-3 exists to fix.
+
+*Falsifier*: show `experimentalDecorators` in `tsconfig.json` (`grep` → absent), or one `@lazy`
+application in any tree, or `lazy` exported from `index.ts:7` with the `Parser.lazy` semantics.
 
 ---
 
-### 3a. Boundary of culpability — what this module could **not** fix
+## 3. MINOR
 
-Re-ran `parsethat-surface-gaps.mjs` today against the vendored `1.0.0` (root import = `dist/parse.cjs`;
-no `--arm`, so nothing was latched):
+### C-m1 — `getLazyParser` and `createLazyCached` are internals of an unpublished tier
 
+**MINOR** · `index.ts:7` · `lazy.ts:7,18` · `debug.ts:2,318` · `parser.ts:5,703`.
+
+`getLazyParser`'s only caller in the tree is `debug.ts:318`, inside `parserPrint` — a function
+reaching **no** published entry (C-M2/C-M7). `createLazyCached`'s only caller is `parser.ts:703`,
+inside `Parser.lazy`. Both are published at `index.ts:7` as first-class API with no consumer story:
+one serves an unreachable printer, the other is the body of a static the barrel already ships via
+`Parser`. Three lazy-named exports; none is the one that matters (C-M9).
+
+*Falsifier*: `grep -rn 'getLazyParser\|createLazyCached' src test` → five hits, all definitions or the
+two internal call sites named. No third pattern of use exists.
+
+### C-m2 — `skipWhitespace`/`skipBlockComments` were retained explicitly for the consumer that no longer exists, and `skipBlockComments` is CSS logic that cleared the excision gate by name-list evasion
+
+**MINOR** · `index.ts:5` · `utils.ts:150-186` · `scripts/proof-no-css-surface.mjs:22-27` ·
+`test/dist-surface.test.ts:83-98`.
+
+`utils.ts:150-157` states the retention rationale in the file: *"These are the primitives a
+hand-rolled grammar (**value.js's canonical CSS grammar**) drives its hot paths with… Kept after the
+CSS grammar itself left for value.js (D2/D3)."* Per §0.2 that grammar no longer imports parse-that;
+the named beneficiary is gone.
+
+Separately, `skipBlockComments` (`utils.ts:168-186`) **is** CSS logic — it scans `/*`…`*/` via
+`indexOf` and stops at an unterminated comment. The A.W1 invariant is *"the CSS surface is GONE —
+permanently and completely"* (`proof-no-css-surface.mjs:4`) and *"the source barrel names zero CSS
+symbols"* (`dist-surface.test.ts:83-98`), but both gates match a **hardcoded symbol-name list**
+(`proof-no-css-surface.mjs:22-27`: `cssParser`, `CssNode`, `MediaQuery`, …). A function whose
+*behaviour* is CSS-specific but whose *name* is not passes both unexamined. This is a scope
+observation, not a correctness claim — the function is correct; it is on the wrong side of a boundary
+the project declared closed.
+
+*Falsifier*: show a non-CSS grammar in the constellation driving `skipBlockComments` (§0.2: none), or
+either gate matching behaviour rather than names (both are name lists).
+
+### C-m3 — `Suggestion`/`SecondarySpan` are routed through a second module, splitting one file's types across two barrel lines
+
+**MINOR** · `index.ts:4` vs `index.ts:6` · `state.ts:8,25,31` · `utils.ts:1,3`.
+
+`Span` (`state.ts:8`), `Suggestion` (`state.ts:25`) and `SecondarySpan` (`state.ts:31`) are all
+declared in `state.ts`. `index.ts:4` exports `ParserContext` and `Span` from `./state.js`;
+`index.ts:6` exports `Suggestion` and `SecondarySpan` from `./utils.js`, which merely re-exports them
+(`utils.ts:3`). Two lines, two provenance paths, one source file — and a consumer following
+`dist/index.d.ts`'s declaration map lands in the wrong module for two of the three.
+
+*Falsifier*: show `Suggestion` or `SecondarySpan` declared anywhere but `state.ts:25,31`. `utils.ts:1`
+imports them as types and `:3` re-exports; there is no second declaration.
+
+### C-m4 — `./package.json` is not exported, so the X·P substrate receipt cannot read this package's version through its own surface *(folded — re-verified)*
+
+**MINOR** · `package.json:7-40`.
+
+The `exports` map declares exactly five keys — `.`, `./core`, `./diagnostics`, `./packrat`,
+`./utils` — and **no `"./package.json"` entry** (`'./package.json' in p.exports` → `false`). Modern
+Node treats an `exports` map as exhaustive, so `require('@mkbabb/parse-that/package.json')` and the
+equivalent import both fail with `ERR_PACKAGE_PATH_NOT_EXPORTED`. Any consumer or receipt-generator
+wanting the resolved version — and W1's substrate posture is built on pinned, hashed identities —
+must reach around the package into `node_modules` by path, which is exactly the resolution-bypassing
+the `exports` map exists to prevent. The near-universal convention is to add the one line.
+
+*Falsifier*: name an `exports` condition that resolves `@mkbabb/parse-that/package.json`.
+`package.json:7-40` has five explicit keys and no pattern key.
+
+### C-m5 — The tarball ships ~11 internal `.d.ts` files no `exports` path can resolve
+
+**MINOR** · `package.json:7-40` (`exports`), `:41-43` (`files: ["./dist"]`).
+
+`files: ["./dist"]` publishes the whole directory; `exports` declares five conditions and **no `"./*"`
+wildcard**, so deep imports are blocked. Dead published weight: `dist/ansi.d.ts`, `debug.d.ts`,
+`leaf.d.ts`, `parser.d.ts`, `state.d.ts`, `split.d.ts`, `lazy.d.ts`, `packrat.d.ts`, `utils.d.ts`,
+`parsers/{index,json,csv,utils}.d.ts`, plus every `.d.ts.map` and `.js.map`. Notably `debug.d.ts`
+types the very functions C-M2 shows are absent from the runtime — a consumer who found the
+declaration would get a phantom.
+
+*Falsifier*: name an `exports` condition resolving `@mkbabb/parse-that/debug` or
+`.../dist/debug.js`. There is no pattern key.
+
+---
+
+## 4. INFO — record corrections and declared trade-offs
+
+### C-i1 — O-15's `packrat-entry:881` cite is off by one against the build in the tree
+
+**INFO** · INBOX `docs/tranches/V/coordination/INBOX.md:77`;
+`parse-that/docs/valuejs-evidence-2026-07-27-1.1.0-ask-addendum.md` §PT-01.
+
+O-15 cites `dist/packrat-entry-*.js:881` for the unconditional `console.error`; in the build present
+it is at **`:882`**. Same build, not a different artifact: the sibling chunk hash
+`diagnostics-DDazRHgl.js` matches the letter's cite exactly and that letter's `:14` reproduces
+byte-for-byte, as do all four `PACKRAT_ARMED` cites (`:678`/`:682`/`:714`/`:722`). I record the drift
+rather than propagate it; C-M3 is unaffected. Note also `:262` — a **second** `console.error`, the
+default `logger` parameter of `parserDebug` — which the letter does not cite and which is opt-in, not
+on the failure path.
+
+*Falsifier*: `grep -n console.error dist/packrat-entry-CS1td-8B.js` → `262`, `882`.
+
+### C-i2 — value.js `4.0.0` §Breaking omits the parse-that removal
+
+**INFO** · `value.js/CHANGELOG.md:16-22` vs commit `164343c1`.
+
+The §Breaking list enumerates seven removals and never records that the sole runtime dependency was
+deleted. A consumer diffing manifests learns it; a consumer reading the changelog does not. This is
+value.js's record to correct, filed here because it is why C-B1 has no paper trail on either side.
+
+*Falsifier*: find "parse-that" between line 3 (the `4.0.0` heading) and line 32 (the `3.1.0`
+heading). `grep -n parse-that CHANGELOG.md` → `165, 175, 177, 184, 332, 333, 336, 350, 482` — none in
+range.
+
+### C-i3 — No legacy-resolver fallback; recorded because it is a **declared** trade-off, not a regression *(folded — re-verified)*
+
+**INFO** · `package.json` (`main`, `types`, `module` all `undefined`) · `test/manifest-gate.mjs:1-9`.
+
+There is no top-level `main`, `types`, or `module`. A pre-`exports` resolver (Node < 12.7, or a
+bundler pinned to `mainFields`) resolves nothing. This is **deliberate and gated**:
+`test/manifest-gate.mjs:1-9` records that 0.9.0's `typesVersions` mapped to a non-existent path and
+that the cure was to delete it because *"the `exports` map already resolves types correctly for every
+modern resolver."* Recorded as a declared posture, not scored as a defect — but it is a real
+consumption boundary, and it is not written down anywhere a consumer reads.
+
+*Falsifier*: show `main`/`types`/`module` present in `package.json` — `node -e` prints `undefined`
+for all three.
+
+---
+
+## 5. SUPERLATIVES — L-18 runs both ways, same evidentiary burden
+
+### S-1 — Source↔dist surface parity is **exact at 34/34, in both formats**, and it is gated
+
+Counting `index.ts` by hand: 1 (`parser`) + 4 (`state`) + 8 (`utils`) + 3 (`lazy`) + 3 (`packrat`) +
+8 (`leaf`) + 2 (`split`) + 5 (`parsers`) = **34**. Measured (§0.3): ESM 34, CJS 34.
+`dist/index.d.ts` reproduces all ten export statements verbatim. The 0.8.2 defect the gate exists for
+(`dist-surface.test.ts:7-10`, 8 of 15 shipped) has not recurred, and — C-M1's star-line hole aside —
+the gate is a cheap, correctly-motivated cure for a defect class that silently lies to consumers
+through a version number. *Falsifier*: exhibit any `index.ts` runtime name absent from
+`Object.keys(await import('./dist/parse.js'))`. None.
+
+### S-2 — The CJS build preserves the `whitespace` live binding through a getter
+
+`leaf.ts:395` declares `export let whitespace` and `parser.ts:711` assigns it after module
+evaluation — a deferred-initialization pattern most barrels turn into a permanent `undefined` on the
+CJS side, because a naive `exports.whitespace = whitespace` snapshots the pre-init value. This build
+does it correctly:
+
+```js
+// dist/parse.cjs:25-28
+Object.defineProperty(exports, "whitespace", { enumerable: true, get: () => packrat.whitespace });
 ```
-RED  DEBT-1  cand-F reject() label, diagnostics OFF (shipping default) undefined
-RED  DEBT-1  Parser.prototype.label / .expected combinator      absent
-RED  DEBT-1  enableDiagnostics() is process-global (arity)      0 args
-RED  DEBT-3  Parser.lazy ceiling (deepest OK = 7761), failure mode RangeError thrown at depth 7762
-RED  DEBT-3  Parser.lazy depth-bound parameter                  arity 1 — (fn) only
-     UNARMED median 60.0 ns/parse
-ok   LATCH   PACKRAT_ARMED is a module-global one-way flag
-RED  GUARD   parseState(non-string) totality                    5/5 throw raw TypeError
-RED  GUARD   .parse() failure signal                            returns undefined
-RED — 7 gap(s)
-```
 
-RED-7 reproduces exactly. Where these touch `index.ts`: row 1 is **D-15**, row 3 is **D-3**, rows 4–5
-name a symbol the barrel does not export at all (**D-4**). But **zero of the seven are curable by
-editing this file** — rows 2 and 4–5 need APIs that do not exist (`Parser.prototype.label`,
-`Parser.lazy(fn, maxDepth)`), and rows 6–7 need a totality guard on `parseState` and a
-distinguishable failure signal from `.parse()` (`parser.ts:77-79`, O-15 **PT-07**). That is why W2
-§3.3 folds all five band debts as **contract clauses** rather than surface asks — and this audit
-agrees rather than contradicts. *(The `60.0 ns` line is the probe's own printout, not a measurement I
-took or interpret; no speed claim is made outside it — the folklore scar, W2 §2c.)*
+Note the discrimination: the other 33 exports are plain `exports.X = chunk.X` assignments
+(`dist/parse.cjs:7-24,29+`); **only** the one mutable binding gets the getter. That is a targeted,
+correct treatment, not a blanket one. *Falsifier*: show `whitespace` snapshotting — `require()` the
+CJS build and read the descriptor; it has a getter and no value.
 
----
+### S-3 — The `*Span` excision is triple-gated, and the barrel documents its own removal with citations
 
-## 4. What the X·P dual-target algebra would KEEP, WRAP, or RETIRE in this module
+`index.ts:10-12` carries a three-line comment naming the removal, the wave (S.H2), the fold row (48),
+the prior deprecation (0.13.0, PT-Q4), the reason (zero consumers), and the enforcing gate
+(`proof:no-span-surface`) — inline, in a 14-line file. Enforcement is genuinely triple: source barrel
+(`dist-surface.test.ts:70-79`), built dist (`:55-68`), and a runtime proof script
+(`package.json:52`). All 15 builder names are absent from `index.ts` and `dist/index.d.ts`. A barrel
+that records *what it stopped exporting, why, and the gate that keeps it stopped* is rare and is the
+correct posture — even though C-M8 shows the excision's residue was scoped by name rather than by
+producer. *Falsifier*: `grep -E
+'(string|regex|many|sepBy|wrap|opt|skip|next|alt|takeUntilAny|negate|peek|not|minus|lookAhead)Span'
+src/parse/index.ts dist/index.d.ts` → empty.
 
-Frame: **W2 §3b** fixes the laws (state `(V,C,P,D)`; COMP-1; **O-8** anti-latch; **R-LAW-3**
-diagnostics-are-values); **§3c** fixes the four candidates; **§3e** the kill rules K-1..K-10; **§3**
-item 12 keeps any scan/SIMD layer *inside* the combinator library. Disposition of all 34 root
-exports:
+### S-4 — Zero renames, zero default export, zero namespace re-export — so the root and the tiers hand back the **same** binding, and a gate checks it
 
-| barrel line | exports | disposition | binding citation |
-|---|---|---|---|
-| `:2` `Parser`, `ParserFunction` | **KEEP — the carrier** | the source-direct JS lowering is defined as *"the combinator library's own surface"* (§2a); AC-1 instantiates its signature with *"the combinator library's own constructors"*, AC-4's cand-O sibling is written against it | §2a; §3c AC-1/AC-4 |
-| `:3` `ParserState`, `createParserContext` | **KEEP, with D-8 unwelded** | `parseState` + `isError` is the band's ruled entry idiom (*"entry via `parseState` + `isError`, never `parse()` truthiness"*) | `parser-band.md` IDIOM READING |
-| `:3-4` `spanToString`, `mergeSpans`, `Span` | **RETIRE** — zero producers, zero consumers, retention rationale refuted | D-10; the excision's own logic (S.H2 "zero-consumer surface") |
-| `:5` `mergeErrorState` | **WRAP** — it is the only labelling primitive, and its label is discarded (D-15). The algebra's *labelled zero-width failure with named expectations* is a §3b capability family; debt 1 is a **contract clause**, §3.3 | §3b capability families; §3.3 debt 1 |
-| `:5` `enableDiagnostics`, `disableDiagnostics` | **RETIRE** — O-8 forbids it as a latch; G-4's R-LAW-3 probe makes it unpassable (D-3) | §3b O-8; §6 G-4 |
-| `:5` `collectDiagnostic`, `getCollectedDiagnostics`, `clearCollectedDiagnostics` | **RETIRE the module-global buffer; WRAP the shape.** `D` is *"an append-only ordered list of `ParseIssue` values"* threaded in the parse state, compared by **EQ-4 structurally, never rendered strings**. A module-scope `collectedDiagnostics` array (`utils.ts:95`) cannot be a `(V,C,P,D)` component | §3b state table; EQ-4 |
-| `:5` `skipWhitespace`, `skipBlockComments` | **KEEP as scan-layer seed** — §3 item 12 lands scan primitives as *"parse-that-owned combinator-surface citizens"*; these are the existing byte-scanners (`utils.ts:150-157`) and AC-3's natural starting point (`typescript/src/**`, branch `w2/ac3-scan-union`) | §3 item 12; §4 Surface B; §3c AC-3 |
-| `:6` `Suggestion`, `SecondarySpan`, `Diagnostic` | **WRAP** — re-typed as `ParseIssue` over the frozen 8-code union (`src/css/types.ts:10-24`); the failure arm is a **non-empty tuple** (`types.ts:27`), which forecloses PT-07 at the type level | §3b "Contract details held load-bearing" |
-| `:7` `lazy` (decorator) | **RETIRE** — zero consumers, wrong referent, throws when called as named (D-4) | D-4; the dead-code precept |
-| `:7` `getLazyParser`, `createLazyCached` | **RETIRE from the public surface**, keep internal — the algebra's back-edge is *"bounded back-edge (the depth bound an **algebra parameter**)"*, which neither offers | §3b capability families; §3.3 debt 3 |
-| `:8` `memoize`, `mergeMemos`, `resetPackrat` | **RETIRE** — the O-8 exemplar, cited by name in the law text; **K-6** kills any candidate carrying it. The band's idiom reading records **`memoize = 0`** in both winning grammars | §3b O-8; §3e K-6; `parser-band.md` G8 |
-| `:9` `eof, any, dispatch, all, string, regex, trimStateWhitespace, whitespace` | **KEEP — the operator floor.** These map onto §3b's families (sequence · ordered committed choice · token-class scan · channel-table dispatch). `dispatch` is the band's *"two-level `dispatch` narrowing"* and `proof:no-dead-combinator`'s own vacuity anchor | §3b; `parser-band.md` IDIOM READING; `proof-no-dead-combinator.mjs:49-58` |
-| `:13` `containsDelimiter`, `splitBalanced` | **RETIRE or re-home** — pure string utilities documented for *"BBNF-generated `toDoc()` code"* (`split.ts:3`) with **zero** consumers here; they are not algebra operators and not parser combinators | D-11 method; §3b (no operator family fits) |
-| `:14` `export *` → `jsonParser`, `JsonValue`, `csvParser`, `escapedString`, `quotedString`, `numberParser` | **RETIRE from the root; keep at `/utils`.** Domain showcases (`parsers/index.ts:1-4`) on the default surface, invisible in the barrel text (D-9). The star itself is the semver defect | D-9; `parsers/index.ts:1-4` |
+Every one of the 34 is a pass-through of its source name: no `as`, no `export default`, no
+`export * as ns`. Consequently `dist/parse.js:1` and `dist/core.js:1` import from the identical chunk
+file (`./packrat-entry-CS1td-8B.js`), so within one module format `Parser` from the root and `Parser`
+from `/core` are the *same object* — no intra-format dual-instance hazard, and the whole surface is
+enumerable by `grep` without resolving aliases. `test/subpath-gate.mjs:26-58` reads the `exports` map
+from `package.json` rather than hardcoding paths, checks all three fields of all four subpaths
+exist, then **imports the targets and asserts live functions** (`core.Parser`, `core.dispatch`,
+`packrat.memoize`) — a gate that tracks the manifest instead of duplicating it. (This is precisely
+why C-B2's *cross-format* duplication is the only identity break in the package, and why it earns its
+severity.) *Falsifier*: find an alias, default, or namespace form in `index.ts` — 14 lines, none.
 
-**Net**: of 34 root exports, the algebra **keeps 13** (Parser + ParserState + createParserContext +
-8 leaf combinators + the 2 byte-scanners), **wraps 4** (`mergeErrorState` + the 3 diagnostic types),
-and **retires 17** — half the barrel. **W2 §3 *Not in scope*** is explicit that no parser is adopted
-into value.js and `package.json` is not touched, so none of this is authorized today; it is the
-disposition the ratified algebra implies, recorded for `.c`/`.h`.
+### S-5 — Type-export hygiene is exact at all six type positions
 
-**One cross-check the algebra owes this module.** W2's Surface-B table grants
-`typescript/src/**` modify to the **AC-3 seat only**, on branch `w2/ac3-scan-union`, with the
-condition *"the library's own test suite stays green on the branch, or the union is a fork, not a
-citizen"*. Every one of D-2 / D-3 / D-7 / D-8 / D-14 is a **pre-existing** condition of that library
-surface, present at the clone point. Under **OP-7** the seat may *measure* on it but may not *adopt*
-it as ruled-good — so a scan-union that lands on this barrel inherits an unarmable-then-unresettable
-latch and a print-coupled diagnostics flag it did not create and may not fix. That is a live risk to
-G-7's substrate-receipt clause, and it is not currently named in W2's OP table.
+Under `verbatimModuleSyntax: true` (`tsconfig.json:8`), every type-only export must be spelled as
+such or the emitted JS carries a phantom runtime import. All six type positions are correct:
+`index.ts:2` uses the inline form (`type ParserFunction` beside a value export in one clause);
+`index.ts:4` and `index.ts:6` use whole-clause `export type { … }` for `ParserContext`, `Span`,
+`Suggestion`, `SecondarySpan`, `Diagnostic`. Zero over-broad `export type` on a value, zero value
+export of a type. The consequence is visible in the artifact: `dist/parse.js`'s export list contains
+exactly the 34 runtime names and not one type name. *Falsifier*: find a type in `dist/parse.js`'s
+export list, or a value smuggled through an `export type` clause.
 
 ---
 
-## 5. Superlatives (L-18, same evidentiary burden)
+## 6. The X·P dual-target algebra: KEEP · WRAP · RETIRE
 
-### S-1 — **Type-export hygiene is exact at all six type positions.**
-`index.ts:2` uses inline `type ParserFunction`; `:4` and `:6` use `export type { … }`. Under the
-repo's own `verbatimModuleSyntax: true` (`tsconfig.json`) this is correct at every position, and no
-type-only symbol leaks into the runtime bundle. Live consumer probe (tsc 6.0.3,
-`moduleResolution: bundler`, `strict`) importing `Parser`, `string`, `type Diagnostic`, `type Span`,
-`type JsonValue`, `getCollectedDiagnostics` typechecks with **exactly one** error — the deliberate
-`lazy` misuse of D-4. *Falsifier*: any type-only symbol appearing in `dist/parse.js`'s runtime export
-list — the 34 measured names contain no type. **Survives.**
+Read against `W2.md` §3b (the normative object: state `(V, C, P, D)`; COMP-1; O-8; EQ-1..EQ-6;
+R-LAW-1..5) and §3c (candidates AC-1 TAGLESS-TWIN · AC-2 CLOSED-IR · AC-3 SPAN-ALGEBRA · AC-4
+SIBLINGS-ORACLE). W2 is **specified and unrun** — its preamble: *"nothing in either arm, or here,
+authorizes execution: X·P execution awaits the owner's explicit begin-word."* Nothing below is a
+recommendation to act; it is a reading of what the ratified laws imply about this barrel.
 
-### S-2 — **The excision comment (`:10-12`) is a model of surface archaeology.**
-Three comment lines carry five provenance facts — the removed family (15 `*Span` builders), the wave
-(S.H2), the ledger row (fold row 48), the deprecation release (0.13.0, PT-Q4), and the enforcing gate
-(`proof:no-span-surface`) — placed on the exact line where a reader asks "where did they go?". Most
-barrels carry no record of a removal at all; a reader of this one can reconstruct the decision without
-leaving the file. *Falsifier*: the facts being wrong — CHANGELOG 1.0.0 "Removed — BREAKING" confirms
-all five. (The comment nonetheless **over-claims** completeness; see D-10. Both are true.)
+**KEEP — 8 of 34.** `Parser` · `ParserState` · `string` · `regex` · `any` · `all` · `dispatch` ·
+`eof` (`index.ts:2,3,9`). These are the eight the band's two independent hand-written grammars
+actually drove — `parser-band.md` §"Shared virtues": *"regexes are single-token terminals; fixed
+arity as `all()` typed tuples (zero `!` under `noUncheckedIndexedAccess`); … two-level `dispatch`
+narrowing; … entry via `parseState` + `isError`, never `parse()` truthiness."* AC-1's *"lowering-JS
+instantiates the signature with the combinator library's own constructors (the interpretation IS the
+shipped parser — source-direct, no codegen)"* names this set as its substrate. The fluent combinators
+the grammars also use — `.then`, `.or`, `.chain`, `.map`, `.opt`, `.trim`, `.skip`, `.next`, `.wrap`
+— are **methods** on `Parser` (`parser.ts:81,105,124,146,189,212,234,481` and the `wrap` at
+`parser.ts:392`), so they ride `index.ts:2` and need no barrel row of their own. **AC-3 would grow
+this line**: its scanner is *"a combinator-library citizen (fresh-root `typescript/src/**`,
+branch-isolated — parse-that owns it; scannerless surface preserved, scanning an internal fusion)"* —
+under exactly one of four candidates, `index.ts` is a **growing** surface, not a shrinking one.
 
-### S-3 — **The built type surface is byte-faithful to the source barrel.**
-`diff` of `src/parse/index.ts` against `dist/index.d.ts` (comments and the sourcemap trailer aside)
-→ **identical**. The file a maintainer edits *is* the contract a consumer's IDE reads; there is no
-hand-maintained `.d.ts` to drift, and no generated re-declaration that could disagree. *Falsifier*:
-any line present in one and not the other — none.
+**WRAP — 9 of 34, and the wrap is total: they must become parse parameters.** All six diagnostics
+exports at `:5` and all three packrat exports at `:8`. O-8 is categorical: *"Arming, memoization, and
+diagnostics are **parameters of a parse**, never latches."* Under the algebra
+`enableDiagnostics`/`collectDiagnostic`/`getCollectedDiagnostics`/`clearCollectedDiagnostics` collapse
+into the **`D`** limb — *"an append-only ordered list of `ParseIssue` values… diagnostics are
+**values, never effects** (R-LAW-3)"* — and `mergeErrorState`'s label argument becomes the
+operator-level *"labelled zero-width failure with named expectations"* of §3b's capability family.
+`memoize`/`mergeMemos`/`resetPackrat` become a per-parse memoization parameter with no absorbing
+state. C-B2 is the measurement that makes this a wrap and not a keep; C-M4 is why the labels cannot
+even be named today.
 
-### S-4 — **Exactly one resolution answer per specifier, and a gate that checks it.**
-The `exports` map declares five entries, each with `types`/`import`/`require`, and **no**
-`browser`/`node`/`development`/`default` conditions — so there is no condition-order trap and no
-divergent build served to different resolvers. `test/subpath-gate.mjs:24-36` verifies every declared
-subpath's three targets exist on disk, reading the map itself *"so the gate tracks the manifest, not
-a hardcoded path"* (`:5-8`). My live probe imported all five entries with the expected counts
-(34/18/6/3/7). *Falsifier*: a subpath whose declared target is missing, or a condition producing two
-different modules for one specifier — none.
+**RETIRE — 17 of 34.**
+
+- `containsDelimiter`, `splitBalanced` (`:13`) — `split.ts:3-6` names their consumer as *"BBNF-
+  generated `toDoc()` code"*; §0.2 finds zero hits in `bbnf-lang`. They are string **formatting**
+  helpers, not parsing: no place in a state algebra whose every operator must satisfy COMP-1.
+- `jsonParser`, `csvParser` (`:14` via `parsers/index.ts:5-7`) — `parsers/index.ts:1-4` calls them
+  *"the terse, spec-grade combinator examples"*. Showcases, not algebra. W2's shared slice (§3d) is
+  `parseCssColor` deep + `parseTimingFunction` whole + one malformed qualified rule; neither JSON nor
+  CSV appears.
+- `escapedString`, `quotedString`, `numberParser` (`parsers/utils.ts:7,15,21`) — superseded by AC-4's
+  *"same machine-readable channel table extracted from `spec.ts` ('the ONE place a range lives')"* and
+  by §3b's exact-scale operator `(value * num) / den`. A free-handed `numberParser()` is the *"neither
+  sibling free-handing"* failure AC-4 must avoid.
+- `lazy`, `getLazyParser`, `createLazyCached` (`:7`) — C-M9/C-m1; and the back-edge they gesture at is
+  replaced by §3b's *"bounded back-edge (the depth bound an **algebra parameter**)"*, which is band
+  **DEBT-3** verbatim (*"cand-O's one `lazy` back-edge should carry an explicit depth bound so the
+  stack ceiling becomes an ordinary `ok:false` by construction"*). O-15 PT-04's thrown `RangeError` at
+  7,762 is the current, unbounded shape.
+- `skipWhitespace`, `skipBlockComments`, `trimStateWhitespace` (`:5`, `:9`) — these mutate
+  `state.offset` in place (`utils.ts:159-165,168-186`; `leaf.ts:372-391`) and the skipped bytes
+  **vanish with no record**. Direct COMP-1 violation (*"`weave(V, C, P) === S`, byte for byte"*) and
+  R-LAW-2 (*"Bytes skipped by recovery enter `C`; they never vanish"*). Under the algebra whitespace
+  and comments are `C` entries — *"ordered `(offset, length, kind)` for every byte of `S` **not**
+  injected into `V` — whitespace, comments, case spelling…"* — not an offset bump.
+- `whitespace` (`:9`) — a shared mutable module singleton (`leaf.ts:395`, initialized at
+  `parser.ts:711`, its `context.name` mutated at `leaf.ts:398`) and the default argument of
+  `Parser.trim()` (`parser.ts:481`). A process-global parser instance is O-8's shape.
+- `spanToString`, `mergeSpans`, `Span` (`:3`, `:4`) — already orphaned in the tree (C-M8), and
+  independently superseded: W2 replaces span-carrying with the `C` complement plus a `P` side table
+  that is *"provenance without tree position; an array, not a node field."* At most these survive as
+  an internal of `P`; as a **public** value type they invite the node-field posture §3b calls a draft
+  defect.
+
+**Two structural obligations this barrel cannot meet as published.** (i) **EQ-4** compares diagnostics
+*"ordered structural equality … `code` / `start` / `end` / `expected[]` / `actual`"* and rules that
+*"a candidate whose labels exist only under an armed-diagnostics mode reads as diagnostics-ABSENT and
+fails (PT-01)"* — C-M3 promoted from observation to kill condition. (ii) **R-LAW-3**'s probe
+*"monkey-patches `console.error`/`console.warn` to **throw** over the full corpus"*; `parser.ts:67-69`
+prints on the failure path of every parse whenever the global is armed, so the armed configuration of
+this barrel cannot pass that probe at all.
 
 ---
 
-## 6. Ledger
+## 7. Boundary of culpability — what this module could not fix
 
-| id | severity | claim | anchor |
-|---|---|---|---|
-| D-1 | **BLOCKER** | zero downstream consumers; the surface has no usage justification | value.js `package.json`; keyframes.js `package.json`; `proof-no-dead-combinator.mjs:10-12` |
-| D-2 | **BLOCKER** | irreversible packrat latch on the default path; `resetPackrat` does not reset | `index.ts:8`; `packrat.ts:156,262-273,290`; O-15 PT-03 |
-| D-3 | **BLOCKER** | `enableDiagnostics` is the only door to labels and is gate-failing under G-4 | `index.ts:5`; `parser.ts:66-69`; `utils.ts:33,38`; O-15 PT-01; W2 G-4 |
-| D-4 | MAJOR | barrel `lazy` is the decorator, not `Parser.lazy` | `index.ts:7`; `lazy.ts:30-43`; `parser.ts:702` |
-| D-5 | MAJOR | `Diagnostic` ships; its renderers are unreachable from all five entries | `index.ts:5-6`; `debug.ts:200,235` |
-| D-6 | MAJOR | `isDiagnosticsEnabled` unreachable — the global cannot be saved/restored | `utils.ts:16`; `index.ts:5`; `diagnostics.ts:6-13` |
-| D-7 | MAJOR | tier split is an exact subset of the root; `/core` ships packrat (5,412 B) | live set algebra; `dist/core.js:1`; `core.ts:4-5` |
-| D-8 | MAJOR | `ParserState` welds `debug.ts`+`ansi.ts` (8,359 B, 20.9 %) into every bundle | `index.ts:3`; `state.ts:2,136`; `parser.ts:3`; `ansi.ts:3-6` |
-| D-9 | MAJOR | `export *` hides 5 of 34 exports; no gate locks the surface | `index.ts:14`; `proof-no-css-surface.mjs:6-14`; all ten `proof:*` |
-| D-10 | MAJOR | Span residue: 3 exports, zero producers; CHANGELOG rationale refuted | `index.ts:3-4`; `state.ts:8,13,17`; `proof-no-span-surface.mjs:30-34` |
-| D-11 | MINOR | six exports dead by the package's own precept | grep table; `proof-no-dead-combinator.mjs:10-12,63-68` |
-| D-12 | MINOR | `./package.json` unexported — the W2 substrate receipt cannot read the version | `package.json` exports; W2 §3e Stage 4, §4 |
-| D-13 | INFO | no `main`/`types`/`typesVersions`; node10 resolution fails (**declared**) | `package.json`; `manifest-gate.mjs:7-9`; TS2307 receipt |
-| D-14 | MAJOR | dual-package hazard — CJS/ESM carry independent copies of every exported global | live identity + flag-crossing receipt; `utils.ts:6,95`; `packrat.ts:156` |
-| D-15 | MAJOR | `mergeErrorState`'s `label` is silently discarded on the default | `index.ts:5`; `utils.ts:33,38`; RED-7 row 1 |
-| S-1 | superlative | exact type-export hygiene under `verbatimModuleSyntax` | tsc receipt |
-| S-2 | superlative | five-fact excision archaeology in three comment lines | `index.ts:10-12` |
-| S-3 | superlative | `dist/index.d.ts` byte-faithful to the barrel | diff receipt |
-| S-4 | superlative | one resolution answer per specifier, gate-checked | `package.json` exports; `subpath-gate.mjs:24-36` |
+Honesty about attribution, so the severities are not inflated:
 
-**Totals — defects 15 (BLOCKER 3 · MAJOR 9 · MINOR 2 · INFO 1) · superlatives 4.**
+- The **latch itself** is `packrat.ts:290`'s design, not the barrel's; the barrel's culpability is
+  that it puts the arming door on the **default** import path (`:8`) and names the non-reset
+  `resetPackrat` beside it (C-B2).
+- The **`console.error`** is `parser.ts:67-69`; the barrel's culpability is exporting the only switch
+  that turns it on while withholding the reader (`isDiagnosticsEnabled`) — a surface decision, not a
+  parser decision (C-M3).
+- The **`RangeError` ceiling** is `createLazyCached`'s unbounded recursion; the barrel's culpability
+  is publishing three lazy-named exports, none of which is the one consumers reach (C-M9).
+- The **packrat-on-`/core`** coupling is `parser.ts:43-49`; the barrel's culpability is that it (and
+  `core.ts`) publish a tiering promise the module graph cannot keep (C-M6).
+- The **dependency deletion** at `164343c1` is value.js's act. The barrel's culpability is that it
+  carries no marker of it: same version, same manifest, same 34 exports, and a dead-code precept in
+  its own gate that it does not apply to itself (C-B1).
 
-**Verdict.** DEFECTIVE, and the three blockers are not craft failures. D-1 says the barrel serves no
-one. D-2 and D-3 say that the two things it puts on the *default* import path which are not
-combinators — the packrat latch and the diagnostics flag — are both irreversible process-globals that
-the successor algebra outlaws by name (O-8) and whose use its gates make unpassable (G-4/K-6). A
-14-line file cannot cure any of the seven RED-7 rows (§3a); what it *can* be held to is that it chose
-to publish, at the top of the package, exactly the surface the X·P algebra will have to retire.
+---
+
+## 8. Verdict
+
+The module is **DEFECTIVE on the consumption axis**, and the defect is not ergonomic — it is
+existential. Two blockers carry it: the barrel has **no consumer anywhere in the constellation**
+(C-B1, six independent commands, all empty), and nine of its thirty-four exports are the
+process-global latch construction the ratified X·P algebra forbids by name (C-B2, proven by
+`esm.Parser !== cjs.Parser` and by a `PACKRAT_ARMED` with exactly one write, and that write is
+`true`). The band's RED-7 resolves **entirely** onto this file (C-M5, 7-of-7), and the probe that
+measures it can no longer run because the dependency edge it needs was deleted at `164343c1`. Of the
+34 exports, the algebra keeps 8, must wrap 9 into parse parameters, and retires 17.
+
+The craft in the file is real and §5 records five superlatives for it — exact 34/34 source↔dist parity,
+a correctly-handled `export let` live binding in CJS, a triple-gated and self-documenting `*Span`
+excision, an alias-free surface with a manifest-tracking subpath gate, and exact type-export hygiene
+at all six positions. None of it reaches a consumer. A barrel can be immaculate and still be, on this
+axis, a closed door.

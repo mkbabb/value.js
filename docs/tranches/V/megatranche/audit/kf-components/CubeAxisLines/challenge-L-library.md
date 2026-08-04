@@ -8,7 +8,28 @@ served model id: `claude-opus-5[1m]`
 denominator. No browser tooling was used — visual-only consequences are tagged
 **UNPROVEN-NEEDS-LIVE** and are the SS-13 audit's to settle.
 
-**Tally: 15 defects · 0 blockers · 5 superlatives.**
+**Tally: 16 defects · 0 blockers · 5 superlatives.**
+*(3 MAJOR · 10 MINOR · 3 INFO)*
+
+> ### ⚠ SELF-CORRECTION — second pass, 2026-08-04
+>
+> A second read of this component ran the falsifiers this file wrote for itself. **One of them fired.**
+>
+> * **D-2 DOWNGRADED MAJOR → MINOR.** The first pass asserted "there is no global kill-switch … glass-ui's
+>   PRM blocks are class-scoped … never `*`." **That is false.** `node_modules/@mkbabb/glass-ui/dist/styles/
+>   utilities/a11y-overrides.css` ships a document-wide `*:not([data-allow-motion])` PRM rule that *does*
+>   reach `.axis-line`. The first pass grepped `transitions.css` and `demo/styles/` and stopped. D-2's own
+>   stated falsifier — "produce a `prefers-reduced-motion` rule … that matches `.axis-line`" — is now
+>   satisfied, so by this file's own rule the substance dies and only the false-comment half survives.
+>   Rewritten in place, moved to §2, and logged as **K-4** in §6.
+> * **D-16 ADDED** (MINOR): a dead scoped-slot seam in this component's own supply chain, carrying a second
+>   false comment. Missed entirely on the first pass.
+> * **D-7 and D-9 strengthened** with evidence the first pass did not cite: the colocated `--lit` counter-example
+>   (`CubeTarget.css:79`) and the already-shipped `--axis-w` token.
+> * Everything else re-verified against the tree and **stands unchanged**.
+>
+> No claim was added without a falsifier, and the one claim that failed its own falsifier was demoted, not
+> deleted — a false defect is worse than a missed one.
 
 ---
 
@@ -104,55 +125,6 @@ the focused document). Kill any one and this claim dies.
 is the *only* rendered symptom, and because the `lock` prop's docstring
 (`CubeAxisLines.vue:29`, "The per-axis lock latch OrbitalDrag publishes") asserts a fidelity the
 producer does not deliver.
-
----
-
-### D-2 · MAJOR — the PRM comment names a guard that exists nowhere in the tree
-
-**Provenance.** `CubeAxisLines.vue:58-59`:
-
-```css
-/* Smooth the reveal as the key latches/releases (the registered @property
-   lets both channels interpolate). PRM-respecting via the wrapper below. */
-```
-
-**There is no wrapper below.** Lines 60-89 are the `transition` list, `z-index`, `position`,
-`pointer-events`, and the four nested selectors. There is no `@media (prefers-reduced-motion: reduce)`
-block in this file, in `CubeTarget.css` (read whole, 155 lines), or anywhere under
-`demo/scenes/cube/*.css`:
-
-```
-$ grep -rn "prefers-reduced-motion" demo/scenes/cube/
-demo/scenes/cube/useCubeDemo.ts:164:  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-```
-
-— a **JS gate for the engine animation group**, not a CSS guard for these transitions, and not
-"below" anything.
-
-Nor is there a global kill-switch. glass-ui's PRM blocks are class-scoped
-(`transitions.css` targets `.fade-enter-active`, `.pane-swap-enter-active`, …), never `*`. The demo
-has **no** `* { transition-duration: 0.01ms }` rule — `grep -rn "prefers-reduced-motion" demo/styles/`
-is empty.
-
-**House invariant broken.** Every other scene surface carries its own local PRM block:
-`EasingTarget.css:48`, `SquareInstrument.vue:207`, `SquareScene.css:136`, `SpringTarget.vue:462`,
-`SpringHeatmap.vue:333`, `SequenceTarget.css:238`, `StartingStyleTarget.vue:211`. Seven of seven.
-This file is the eighth scene surface and the only one that transitions without one — while claiming
-in prose that it does.
-
-**Failure scenario.** A user with `prefers-reduced-motion: reduce` holds `X`. Opacity, `--axis-active`,
-and `filter` all animate for 180 ms each. A reviewer auditing PRM compliance greps for
-`prefers-reduced-motion`, sees the comment on line 59, and moves on.
-
-**Honest severity note.** The *a11y* harm here is genuinely low — a 180 ms opacity/filter fade with no
-transform is the mildest class of motion, and WCAG 2.3.3 is aimed at larger, transform-driven motion.
-The defect I am filing is the **false documentation** (a comment that will cause the guard never to be
-added) plus the broken 7-of-7 house invariant. Rated MAJOR on those grounds, not on a11y impact.
-The fix is three lines, and §5 L-5 shows the design already supports it losslessly.
-
-**Falsifier.** Produce a `prefers-reduced-motion` rule anywhere in the emitted CSS bundle that
-matches `.axis-line` — from the demo, from glass-ui, or from Tailwind preflight. One such rule kills
-the substance; the comment's "below" would still be wrong, which would downgrade this to MINOR.
 
 ---
 
@@ -254,6 +226,125 @@ evidence against this claim.
 
 ## 2. MINOR
 
+### D-2 · MINOR *(downgraded from MAJOR by this file's own falsifier)* — the PRM comment points at a wrapper that does not exist; the real guard is a universal rule in the undeclared vendor
+
+**Provenance.** `CubeAxisLines.vue:58-59`:
+
+```css
+/* Smooth the reveal as the key latches/releases (the registered @property
+   lets both channels interpolate). PRM-respecting via the wrapper below. */
+```
+
+**What survives: there is no wrapper below.** Lines 60-89 are the `transition` list, `z-index`,
+`position`, `pointer-events`, and the four nested selectors. There is no
+`@media (prefers-reduced-motion: reduce)` block in this file, in `CubeTarget.css` (read whole), or
+anywhere under `demo/scenes/cube/`:
+
+```
+$ grep -rn "prefers-reduced-motion" demo/scenes/cube/
+demo/scenes/cube/useCubeDemo.ts:164:  window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+```
+
+— a **JS gate for the engine animation group** (`useCubeDemo.ts:158-168`, the graph intro sweep), not a
+CSS guard for these transitions, and not "below" anything. Every other scene surface *does* carry a
+local block: `EasingTarget.css:48`, `SquareInstrument.vue:207`, `SquareScene.css:136`,
+`SpringTarget.vue:462`, `SpringHeatmap.vue:333`, `SequenceTarget.css:238`, `StartingStyleTarget.vue:211`
+— seven of seven; this is the eighth and the only one without. The prose is wrong about *where* the
+guard is, and that wrongness is what will stop the next reviewer from looking.
+
+> #### ✗ RETRACTED — the first pass's central claim was false
+>
+> The first pass wrote: *"Nor is there a global kill-switch. glass-ui's PRM blocks are class-scoped
+> (`transitions.css` targets `.fade-enter-active`, …), never `*`."* It grepped `transitions.css` and
+> `demo/styles/` and stopped one directory short. **The rule exists** —
+> `node_modules/@mkbabb/glass-ui/dist/styles/utilities/a11y-overrides.css`:
+>
+> ```css
+> @media (prefers-reduced-motion: reduce) {
+>   *:not([data-allow-motion]) { animation-duration: .01ms !important;
+>                                animation-iteration-count: 1 !important; }
+>   *:not([data-allow-motion]) { transition-duration: .1s !important;
+>                                transition-property: opacity, color, background-color,
+>                                                     border-color, box-shadow !important; }
+>   [data-allow-motion]        { animation-duration: .01ms !important;
+>                                animation-iteration-count: 1 !important;
+>                                transition-duration: .01ms !important; }
+> }
+> ```
+>
+> `.axis-line` carries no `data-allow-motion`, so it matches. Reproduce with
+> `grep -rl "data-allow-motion" node_modules/@mkbabb/glass-ui/dist/styles/`.
+
+**So what actually happens under PRM — and it is correct.** That rule *replaces* the author's
+`transition-property` list. `--axis-active` and `filter` are dropped and **snap**; only `opacity`
+transitions, at 0.1 s. `border-style` (L-5) is discrete and was never in the list, so the
+dashed→solid tell fires instantly. The reveal degrades exactly as a PRM-aware design should: full
+legibility, no easing. **The component behaves correctly today. Only its comment is wrong.**
+
+**What remains, and why it is still a defect.** The correct behaviour is bought entirely from
+`@mkbabb/glass-ui` — a package absent from `package.json` **and** `package-lock.json` (§4, F-1). This
+is the sharpest bite of the phantom dep on this component: `--ease-standard` degrades gracefully
+because line 61-63 supplies a fallback (L-3), but **PRM has no fallback and cannot have one from a
+token**. Lift this self-contained 90-line SFC into another app — exactly the thing a self-contained
+90-line SFC invites — and it runs three 180 ms eased channels under `prefers-reduced-motion: reduce`,
+with a source comment swearing it does not.
+
+**Failure scenario.** A reviewer audits PRM compliance, greps `prefers-reduced-motion`, sees line 59's
+claim, and moves on — while the actual guarantee sits in an unlocked `node_modules` directory that
+`npm ci` will not reproduce.
+
+**Severity.** MINOR: no user-visible harm on the shipping tree; the residue is a false comment plus an
+undeclared, unlocked dependency edge. The fix remains three lines, and L-5 shows the design already
+supports the guard losslessly.
+
+**Falsifier.** Show `@mkbabb/glass-ui` declared in a `package.json` or present in `package-lock.json`
+in this repo (`grep -c glass-ui package-lock.json` → **0**), or show a demo-owned PRM rule reaching
+`.axis-line` (`grep -rn "prefers-reduced-motion" demo/styles/` → **empty**). Either would take this to
+INFO — the comment would still be wrong.
+
+### D-16 · MINOR — the latch ships through two parallel seams; the scoped-slot seam is dead, and its comment claims the live one's job
+
+**Provenance.** `OrbitalDrag.vue:3-7`:
+
+```vue
+<!-- P.W5.S3 — the axis-lock-reveal egg seam: expose `pressedKeys` (the
+     X/Y/Z/modifier latch this component already owns) as a scoped slot
+     prop so the cube can light the locked axis line. Reactive, no new
+     rAF — the same ref the gesture readers mutate. -->
+<slot :pressed-keys="pointer.pressedKeys.value"></slot>
+```
+
+**The cube does not use it.** `CubeTarget.vue:11-16` passes a default slot with no slot-prop
+destructuring and consumes the *emit* instead (`@pressed-keys="onPressedKeys"`). Census:
+
+```
+$ grep -rn "pressedKeys\|pressed-keys" demo/
+  OrbitalDrag.vue:7    slot prop  (producer)   ← NO consumer anywhere
+  OrbitalDrag.vue:40   emit decl
+  OrbitalDrag.vue:317-321  watch → emit
+  CubeTarget.vue:15    @pressed-keys           ← the live path
+```
+
+So `OrbitalDrag` maintains **two** publication seams for one latch, only one is wired, and the comment
+on the dead one asserts it is the one doing the job — the second false comment in this feature (D-2 is
+the first, D-10 is the pattern). The live path additionally copies the value twice more
+(`OrbitalDrag.vue:319` spreads to a fresh object → `CubeTarget.vue:158-163` mirrors into a third
+`reactive`), so one boolean triple is represented four times between owner and pixel.
+
+Bonus cost on the live path: the `{ deep: true }` watch at `:317-321` fires on **`shift`/`ctrl`/`meta`
+changes too**, so every modifier press re-emits and re-writes `axisLock.x/y/z` with identical values.
+Harmless (Vue bails on same-value writes) but it means the emit is not the "X/Y/Z latch" its own
+comment calls it.
+
+**Failure scenario.** A maintainer reads `OrbitalDrag.vue:3-7`, believes the slot prop is load-bearing,
+and preserves it through a refactor — or worse, wires a *second* consumer to it and now has two
+components reading the same latch through two seams with different copy semantics (live ref vs.
+spread snapshot). Deleting the slot prop is a one-line change that the tree proves is safe.
+
+**Falsifier.** Find any `v-slot`/`#default` destructuring of `pressed-keys` in the repo. The grep above
+is the whole `demo/` tree; there is none. (The fix is upstream in `OrbitalDrag`, filed here because the
+dead seam exists *solely* to serve this component and is documented as such.)
+
 ### D-5 · MINOR — `filter` is never `none`: three permanent stacking contexts and three permanent grouping buffers for a rest state that needs neither
 
 `CubeAxisLines.vue:54-57`. At rest `--axis-active` is `0`, so the declaration evaluates to
@@ -313,6 +404,21 @@ and worse, in Chromium a property whose computed value changes every frame becau
 property is animating re-triggers its own transition each frame, producing an exponential chase: a
 soft, double-eased settle materially longer than the declared 180 ms.
 
+**The colocated counter-example settles what the house idiom is.** One directory over — same feature
+family, same egg program (`L.W11.S2`), same `@property` mechanism — the driver is transitioned
+**alone**:
+
+```css
+/* CubeTarget.css:77-79 */
+transition: --lit 160ms linear;
+```
+
+`--lit` drives both of `.face-relit`'s gradients (`CubeTarget.css:126-141`) and **neither gradient
+appears in the transition list**. `SequenceTarget.css:14` registers `--ball-p` and likewise does not
+double-list. Across the whole demo, `CubeAxisLines.vue:60-63` is the *only* site that transitions a
+registered driver together with its own dependents. So this is not merely "redundant in the abstract"
+— it is a deviation from an idiom this component's own sibling file establishes 30 lines away.
+
 **The charitable reading, stated plainly:** in an engine without `@property` support the registration
 is ignored, `--axis-active` becomes an unanimatable token, and the `opacity`/`filter` transitions are
 the only smoothing left — i.e. this *could* be deliberate progressive enhancement. Nothing in the
@@ -351,10 +457,18 @@ That anonymous inline type re-declares the x/y/z third of `PressedKeys`
 producer explicit and breakage-visible.
 
 Separately, `orbital-drag/index.ts:6` exports `export const axes = ["x", "y", "z"] as const` — the
-canonical axis tuple — yet `:10-24` hand-unrolls three near-identical five-line blocks. The failure
-mode is concrete: a transposed `lock.x` on the `.y` div is a one-character bug that changes nothing
-structural. There is **no test that would catch it** —
-`grep -rl "axis-line\|CubeAxisLines" test/ e2e/` → 0 hits (see D-14).
+canonical axis tuple, already imported by `OrbitalDrag.vue:18` and `useOrbitalPointer.ts:5` — yet
+`:10-24` hand-unrolls three near-identical five-line blocks. The failure mode is concrete: a
+transposed `lock.x` on the `.y` div is a one-character bug that changes nothing structural. There is
+**no test that would catch it** — `grep -rl "axis-line\|CubeAxisLines" test/ e2e/` → 0 hits (see D-14).
+
+**The fourth axis is not hypothetical.** `demo/styles/style.css:112` already ships
+`--axis-w: var(--foreground)`, and `demo/DESIGN.md:7` already documents the family as *"`--axis-x`,
+`--axis-y`, `--axis-z`, `--axis-w` for transform visualization."* The day W lands, this file needs a
+fourth hand-edited block with three hand-edited bindings, and — because the prop type is a structural
+literal rather than `Pick<PressedKeys, …>` — **no declaration anywhere raises an error** when
+`PressedKeys` grows and this component silently keeps rendering three of four. That is the specific
+cost of the anonymous type: it converts a compiler-caught migration into a silent one.
 
 I am rating this MINOR, not MAJOR, and noting the counter-argument honestly: `feedback_kiss_no_
 contrivance` cuts against a `v-for` over three literals, and the unrolled form is more greppable. The
@@ -455,17 +569,30 @@ Folding `lane-frontend.md` **F-1** (glass-ui absent from `package.json` **and**
 
 ```
 $ node -e "console.log(require('./node_modules/@mkbabb/glass-ui/package.json').version)"  →  7.0.0
-$ grep -n "glass-ui" package.json                                                         →  NOT DECLARED
+$ grep -n  "glass-ui" package.json                                                        →  NOT DECLARED
+$ grep -c  "glass-ui" package-lock.json                                                   →  0
+$ ls package-lock.json pnpm-lock.yaml yarn.lock bun.lock                                  →  package-lock.json only
+$ ls node_modules/@mkbabb/                                                                →  glass-ui  parse-that  value.js
 ```
 
+Not declared, not locked, and there is no second lockfile that could be carrying it. It is installed
+by side effect of the current working tree only.
+
 This file has **zero import statements** and reads as perfectly self-contained. It is not. It consumes
-three things that the undeclared vendor supplies:
+**four** things that the undeclared vendor supplies:
 
 | What | Where it resolves from | Guarded here? |
 |---|---|---|
-| `--ease-standard` (`:61-63`) | glass-ui tokens (`--ease-standard: var(--motion-ease-standard)`) | **yes** — `, ease` fallback → §5 L-3 |
+| `--ease-standard` (`:61-63`) | `glass-ui/dist/styles/tokens/scheme-spring.css` → `cubic-bezier(.4,0,.2,1)` | **yes** — `, ease` fallback → §5 L-3 |
+| **its entire `prefers-reduced-motion` behaviour** | `glass-ui/dist/styles/utilities/a11y-overrides.css`, the universal `*:not([data-allow-motion])` rule | **no, and unguardable from a token** → **D-2** |
 | `.preserve-3d` on its ancestors — its own 3D placement | `glass-ui/dist/styles/utilities/base-misc.css` | **unguardable** — an ancestor class, not a token |
 | `--z-behind` (`:67`) | glass-ui `--z-behind: -10`, shadowed by `layout.css:25` | **no** → D-12 |
+
+**The second row is this component's sharpest exposure and the first pass missed it entirely.** A
+token dependency degrades (L-3 proves the pattern); a *behavioural* dependency on a universal
+accessibility rule does not — there is no `var(…, fallback)` for "does this element respect reduced
+motion." The component's a11y posture is correct today and correct for a reason that appears nowhere
+in its own 90 lines, nowhere in `demo/`, and nowhere in any manifest.
 
 Under F-1 the bite is a **build blocker, not a silent render bug**: `npm ci` on a clean checkout
 reconstructs `node_modules` from the lockfile, glass-ui is absent, and
@@ -571,32 +698,67 @@ They are empty `<div>`s with no text, no role, and `pointer-events: none`. Empty
 are not exposed as meaningful nodes by any major AT. The inconsistency with the sibling is cosmetic
 and adding `aria-hidden` would be cargo-cult.
 
+**K-4 — "there is no global PRM kill-switch reaching `.axis-line`." KILLED — and it was *this file's
+own* first-pass claim.** `glass-ui/dist/styles/utilities/a11y-overrides.css` carries a universal
+`@media (prefers-reduced-motion: reduce) { *:not([data-allow-motion]) { transition-duration: .1s
+!important; transition-property: opacity, color, background-color, border-color, box-shadow
+!important; } }`. `.axis-line` matches. The first pass grepped `glass-ui/dist/styles/transitions.css`
+and `demo/styles/` and concluded no such rule existed; it never searched `utilities/`. D-2 is
+rewritten and downgraded accordingly. **Lesson for the next lane: when a claim is "X does not exist
+anywhere," the grep must cover the whole resolved cascade — including `node_modules` — not the two
+files where you expected to find it.**
+
+**K-5 — "`@property --axis-active` is rewritten or scoped by the SFC compiler and therefore broken."
+KILLED.** `@vue/compiler-sfc`'s scoped plugin walks `rule` nodes and recurses only into at-rules;
+`@property`'s children are *declarations*, so the at-rule passes through byte-identical. The
+registration works and is global — which is the intent, and is filed as INFO at D-15, not as a bug.
+
+**K-6 — "the always-on `filter` re-flattens the 3D die, the T.A1 failure mode." KILLED as stated.**
+T.A1 (`CubeTarget.css:148-154`) concerns **ancestors** in the 3D chain; the axis lines are childless
+**leaf siblings** of `<OrbitalDrag>` under `.graph`, so a grouping property on them flattens no
+subtree that exists. What survives is narrower and is already filed: the resident stacking
+context/grouping buffer (D-5) and the `z-index` inertia (D-3, limb b). The flattening claim itself is
+dead — do not re-file it.
+
 ---
 
 ## 7. Disposition
 
 | id | sev | one line | fix size |
 |---|---|---|---|
-| D-1 | MAJOR | `lock` latch has no blur/target guard → stuck & spurious lit axes | upstream, ~6 lines |
-| D-2 | MAJOR | PRM comment names a guard that does not exist | 3 lines |
-| D-3 | MAJOR | `z-index: var(--z-behind)` inert in a depth-sorted 3D context + under a resident `filter` | 1 line + D-5 |
-| D-4 | MAJOR | `.z` projects onto the perspective origin — the Z reveal is degenerate | design call |
+| D-1 | **MAJOR** | `lock` latch has no blur/target guard → stuck & spurious lit axes | upstream, ~6 lines |
+| D-3 | **MAJOR** | `z-index: var(--z-behind)` inert in a depth-sorted 3D context + under a resident `filter` | 1 line + D-5 |
+| D-4 | **MAJOR** | `.z` projects onto the perspective origin — the Z reveal is degenerate | design call |
+| D-2 | MINOR ↓ | PRM comment names a wrapper that does not exist; the real guard is glass-ui's universal rule (undeclared dep) | 3 lines |
 | D-5 | MINOR | `filter` never `none`; gate it on `.axis-line--locked` | 3 lines |
 | D-6 | MINOR | one boolean, two parallel state channels | −3 bindings |
-| D-7 | MINOR | redundant (probably compounding) 3-property transition list | 2 lines |
+| D-7 | MINOR | 3-property transition list deviates from the colocated `--lit` idiom (`CubeTarget.css:79`) | 2 lines |
 | D-8 | MINOR | 4 unreachable `var()` fallbacks on a registered property | 4 edits |
-| D-9 | MINOR | prop type duplicates `PressedKeys`; 3 divs unrolled against an existing `axes` tuple | 1 import |
-| D-10 | MINOR | one rationale, six copies (one already false — D-2) | prune |
+| D-9 | MINOR | prop type duplicates `PressedKeys`; 3 divs unrolled against `axes`; `--axis-w` already ships | 1 import |
+| D-10 | MINOR | one rationale, six copies (two already false — D-2, D-16) | prune |
 | D-11 | MINOR | `border` on `height: 0` paints two strokes | 1 line |
 | D-12 | MINOR | unguarded `var(--z-behind)`; demo copy shadows the vendor token | 1 line + layout.css |
+| D-16 | MINOR | dead scoped-slot seam (`OrbitalDrag.vue:7`) whose comment claims the live emit's job | 1 deletion |
 | D-13 | INFO | `rotateX(0deg)` identity transform | 1 line |
 | D-14 | INFO | zero test coverage | 1 spec |
 | D-15 | INFO | `@property` in `<style scoped>` registers globally | comment |
 
-**0 blockers.** Nothing here stops a wave: the unit renders, does not leak, and has no crash path.
-The MAJORs are a stuck-state bug whose root is upstream, a false comment, an inert declaration, and a
-degenerate third axis — real, but all recoverable and all small.
+**16 defects · 0 blockers · 3 MAJOR · 10 MINOR · 3 INFO.**
+
+**0 blockers.** Nothing here stops a wave: the unit renders, does not leak, has no crash path, and —
+per the D-2 correction — degrades correctly under reduced motion today. The MAJORs are a stuck-state
+bug whose root is upstream (D-1), an inert declaration (D-3), and a degenerate third axis (D-4):
+real, all recoverable, all small.
+
+**The through-line.** Nine of sixteen findings are *prose asserting something the tree does not do* —
+D-2 ("the wrapper below"), D-16 ("so the cube can light the locked axis line"), D-3's contract
+citation, D-7's "the registered `@property` lets both channels interpolate", D-8's and D-13's
+defensive-looking dead code, D-10's six drifting copies. This file is 55 % comment by line, and the
+comments are load-bearing provenance the repo genuinely depends on — which is exactly why the drift
+is the defect class worth naming here. The **code** is close to right; the **narration** has come
+loose from it in six places, and one of those six (D-2) was strong enough to mislead this audit's own
+first pass into filing a false MAJOR.
 
 **Needs-live queue for SS-13:** D-3 (do the lines paint through the die?), D-4 (what does holding `Z`
-actually draw?), D-7 (does the reveal settle at 180 ms or ~360 ms?), L-5 (is the dashed→solid flip
-perceptible?).
+actually draw? — the highest-value single screenshot in this set), D-7 (does the reveal settle at
+180 ms or ~360 ms?), D-5 (resting filter-pass cost), L-5 (is the dashed→solid flip perceptible?).

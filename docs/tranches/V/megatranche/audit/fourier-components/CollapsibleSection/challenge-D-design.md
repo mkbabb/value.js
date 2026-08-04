@@ -25,10 +25,18 @@ lines 182, 215-245, 285-307, 345-372, 619; `audit/codex-provenance/intakes/lane-
 figures are computed from the token graph by hand (WCAG 2.x relative-luminance), not measured.
 Anything that needs a live paint is marked **UNPROVEN-NEEDS-LIVE (SS-13)**.
 
-**Posture.** Assumed defective until the tree proved otherwise. Two claims I had drafted were **killed
-by their own falsifiers** and are recorded as such in §4 — the axis runs both ways.
+**Posture.** Assumed defective until the tree proved otherwise. Claims I had drafted that were **killed
+by their own falsifiers** are recorded in §4 — the axis runs both ways.
 
-**Tally: 19 defects (2 BLOCKER · 5 MAJOR · 10 MINOR · 2 INFO) · 4 superlatives.**
+**Two passes.** §1–§6 are pass 1. §7–§9 are an independent **pass 2** (same seat, same served model,
+re-spawned) that re-derived the component from scratch without reading pass 1 first, then reconciled.
+Pass 2 **independently corroborated** B-1 (cascade/layer mechanics), M-3 (`@apply` vs `closest()`),
+M-5 (`--font-serif-math` undeclared), S-1 (contrast tokens) and §4.1 (the blanket PRM killswitch);
+it **falsified one of its own load-bearing claims** against pass 1 (§8 F-4); and it adds **5 defects**,
+**1 superlative**, and **1 correction to the hitherto corpus** that pass 1 did not carry. Nothing in
+§1–§6 was removed. Where pass 2 amends a pass-1 row it says so by id.
+
+**Tally: 24 defects (2 BLOCKER · 7 MAJOR · 11 MINOR · 4 INFO) · 5 superlatives · 1 corpus correction.**
 
 ---
 
@@ -264,6 +272,73 @@ deliver it.
 fourier's only stylesheet; there is no declaration. Exact rendered face is
 **UNPROVEN-NEEDS-LIVE (SS-13)**; the missing custom-property is proven.
 
+### M-6 · The `250 ms` timer is **100 ms short** at 7.0.0 — and unbounded thereafter *(pass 2; amends m-4/m-5)*
+
+**Severity MAJOR.** `CollapsibleSection.vue:19-20,28` ↔ `:61` ↔ glass-ui@7.0.0 `tokens/scheme-spring.css:149,157`.
+
+m-4 records the literals as untokenized. The sharper fact is that the constant becomes **wrong**, not
+merely unowned:
+
+```js
+// :19-20 — "Scroll into view after the open animation completes"
+setTimeout(() => { … }, 250)
+```
+
+250 is hand-tuned to clear the local `0.2s` at `:61`. After F.W1 the duration is the substrate's:
+
+```css
+--spring-smooth-settle:  0.35s;                                           /* scheme-spring.css:149 */
+--spring-smooth-duration: calc(var(--spring-smooth-settle) * var(--motion-tempo));  /* :157        */
+--motion-tempo: 1;                                                        /* scheme-motion.css:262 */
+```
+
+**350 ms at default tempo.** The callback fires 100 ms *before* the animation completes and measures a
+partially-expanded `getBoundingClientRect()` — precisely the measurement the comment at `:19` claims to
+be avoiding. And `--motion-tempo` is a *documented consumer knob* (`scheme-motion.css:251`: "a consumer
+sets `:root { --motion-tempo: 0.85 }`"), so no constant can be correct: at tempo 1.5 the true duration
+is 525 ms.
+
+**Corpus fold + re-grade.** fourier's own `docs/audits/runs/2026-06-16-M-deep-audit/A8-no-legacy-sweep.md:32`
+(row **A8-17**) already booked this at **LOW** — *"the `setTimeout(250)` scroll heuristic is fragile
+(animation timing coupled to magic number) … address as a cleanup, not M-blocking"*, cure `ontransitionend`/
+`onanimationend`, routed M.W3. I re-grade to **MAJOR** on two facts A8-17 could not have had: (a) the
+target duration becomes token-derived *and* tempo-scalable, so the coupling stops being fragile and
+starts being unsatisfiable; (b) the cure A8-17 named is available **unchanged at both pins**, so it has
+zero uplift coupling and can land today.
+
+**Falsifier.** Show 7.0.0's `.disclosure-content` resolving to ≤ 250 ms, or `--motion-tempo` fixed.
+`disclosure.css:88-89` reads both tokens; `scheme-motion.css:251-262` documents tempo as settable.
+
+### M-7 · No controlled `open` ⇒ the route's primary result lands in a **closed** drawer *(pass 2; extends m-6)*
+
+**Severity MAJOR.** `CollapsibleSection.vue:9,11,14` ↔ `EquationView.vue:212-214` ↔ `EqCoefficientsPanel.vue:13`.
+
+m-6 records the missing controlled `open` as an API gap. Traced to its consequence it is a design
+defect on the equation route:
+
+```html
+<!-- EquationView.vue:212-214 -->
+<Transition name="slide-down">
+  <EqCoefficientsPanel v-if="components.length" :components="components" />
+</Transition>
+```
+```html
+<!-- EqCoefficientsPanel.vue:13 -->
+<CollapsibleSection title="Coefficients" subtitle="Fourier spectrum" :default-open="false">
+```
+
+The Coefficients panel **mounts only after Compute succeeds** — and mounts **collapsed**. The user
+presses the route's single primary action (`FunctionInput.vue:151-159`, the full-width `Compute`
+button), a card slides in, and the thing they asked for is behind a second click, with no count, badge,
+or cue that it now holds data. `open = ref(props.defaultOpen)` at `:14` is initialize-once and there is
+no `v-model:open` passthrough, so the call site **cannot** express "open me, I just filled with the
+answer" — the component's API gap is what forces the closed default to be terminal.
+
+**Falsifier.** Show a call site driving the state: all four pass only `:default-open`
+(`ContourPreview.vue:34` true, `EqCoefficientsPanel.vue:13` false, `FunctionInput.vue:94,176` true).
+Both 4.0.0 and 7.0.0 `Collapsible` accept controlled `open` + `update:open`, so the passthrough is a
+two-line, version-independent cure.
+
 ---
 
 ## §3 — MINOR / INFO
@@ -282,6 +357,9 @@ fourier's only stylesheet; there is no declaration. Exact rendered face is
 | **m-10** | MINOR | **The subtitle is folded into the control's accessible name.** `:39-41` puts both spans inside the `<button>`, so the accname is `"Function — f(x)"` / `"Controls — harmonics & display"` — an em dash and a decorative deck inside the operable name, where `aria-describedby` is the idiomatic home. (Vue's default `whitespace: 'condense'` drops the inter-element newline, so `ml-1.5` at `:40` is the *only* separator — deliberate and correct as layout; it is the semantics that are wrong.) | `:38-41` | Argue the deck belongs in the name; note glass 7.0.0's id plumbing makes `aria-describedby` cheap. |
 | **i-1** | INFO | **Prose: a 3-line cross-repo provenance claim with no pin, guarding 2 lines of CSS.** `:57-59` asserts a fact about another repository's shipped stylesheet ("canonical … see `@mkbabb/glass-ui/styles/animations.css`") without recording the version it was true at. It was true at 4.0.0 and is false at 7.0.0 (B-1). The comment is longer than the rules it explains and it is the exact sentence that made the shadow look already-retired (M-1). The identical paragraph is copy-pasted at `ContourSettings.vue:353-360` — two comments, one shelf life. | `:57-59` | — |
 | **i-2** | INFO | **Dead defensive branch.** `rootEl.value?.$el ?? rootEl.value` at `:21`: `rootEl` is typed `InstanceType<typeof Collapsible> \| null` and `Collapsible` is a single-root component at both 4.0.0 and 7.0.0, so `$el` is always present when the ref is non-null. The `??` right arm is unreachable, and it is the arm that would hand a *component instance* to `getBoundingClientRect()` at `:23`. | `:21` | Show a render path where `Collapsible`'s instance lacks `$el`. |
+| **m-11** | MINOR | *(pass 2)* **F.W1 imposes a new body typographic register on all four sections.** glass 7.0.0's `.disclosure-content` sets `color: var(--muted-foreground-strong); font-size: var(--type-small); line-height: var(--leading-small)` (`disclosure.css:85-87`) — today the bodies inherit `--foreground` at the ambient size. Blast radius is small but non-zero: `FunctionInput` re-asserts `text-sm`/`text-foreground` on every input and label (`:97,112,125,136,158,171`), `ContourPreview`'s SVG uses a literal stroke (`:44`), and `CoefficientsSpectrum` sets `text-xs`/`text-muted-foreground` per row (`:73,84,86,101`) — but `Button` labels (`FunctionInput.vue:151,167,196`) and `Tooltip` bodies rendered inside the region inherit unless those primitives re-assert. A visual-diff row for F.W1, not a code-review row. | 7.0.0 `disclosure.css:85-87` | Show every text node inside the four bodies setting an explicit colour *and* size. |
+| **i-3** | INFO | *(pass 2)* **`#actions` being dead CONTRADICTS the M-audit's stated basis for a booked glass-ui ask.** m-9 records the slot as unconsumed. The consequence is larger than hygiene: `findings-index.txt:373`, `raw-findings.json:2905` and `design-synth.json:357` all assert *"ConfiguratorLayer has NO header trailing/actions slot — **the sole reason fourier keeps a parallel CollapsibleSection**"*, and route a **high**-priority glass-ui ask (A-3-new) off that premise. Against the tree at `cd26c65` + WT the premise is false: the slot has **zero** consumers (`grep -rn "#actions\|v-slot:actions" web/src` → 0). The correction cuts *in the audit's favour* — the retirement case no longer depends on the ask landing — but the ask itself now needs a re-argued justification before F.W3 books it upstream. | `:43` ↔ corpus | Name one `#actions` consumer. |
+| **i-4** | INFO | *(pass 2)* **Call-site count drift in the corpus.** A8-17 (`2026-06-16-M-deep-audit/A8-no-legacy-sweep.md:32`) says "Used at 5 sites"; `design-synth.json:1725` says 3. The tree has **4 usages in 3 files**: `ContourPreview.vue:34`, `EqCoefficientsPanel.vue:13`, `FunctionInput.vue:94,176` (`grep -c "<CollapsibleSection" web/src/components` → 4). `ContourSettings.vue:358` is a **comment reference only**. Same class of small drift CENSUS §2 C-3/C-4/C-5 already corrected in the lanes — budget 4/3 and re-measure at wave-open. | 4 call sites | Recount. |
 
 ---
 
@@ -300,6 +378,65 @@ Recorded so F.W4 does not re-file them.
    not a disclosure. No shadow. lane-frontend:368's "thin API-shape adapter, not a shadow — keep"
    verdict **stands** on this axis; my defects are all *inside* the adapter, none of them "delete it".
 3. **Contrast.** Not a defect — see S-1; it passes, computed, in both arms.
+4. *(pass 2, and this one nearly shipped)* **"The substrate's collapse animation is INERT in fourier, so
+   the scoped block at `:54-71` is load-bearing rather than a shadow — therefore M-1 is inverted and
+   deleting the block before F.W1 would itself be a regression."** — **FALSE.** Pass 2 built this on
+   `src/styles/index.css:195-214`, whose comment calls `@source "../*.js"` a no-op, and on
+   `grep`s of `src/styles/` that found no blanket PRM reset and no `--animate-collapsible-*`
+   declaration. **The wrong tree.** `package.json` `exports["./styles"]` → **`./dist/styles/index.css`**,
+   and `web/src/style.css:3` imports the package specifier, so the *dist* copy is the one in fourier's
+   cascade. In dist, the very same comment (`dist/styles/index.css:203-221`) says the opposite about
+   its own context — *"`../*.js` reaches the compiled render-functions PRECISELY in the SHIPPED context:
+   in dist it is `dist/*.js` … Locked by `proof:emission`"* — and `dist/styles/utilities/a11y-overrides.css`
+   (which has no `src/` counterpart) carries the blanket `!important` killswitch at `:6-17`. So
+   `transition-collapse` / `animate-collapsible-{up,down}` **are** reachable, the block **is** redundant
+   but for the opacity fade, and **M-1 and §4.1 stand as written**. Recorded at length because the
+   `src/` ↔ `dist/` divergence in this package is a live trap for any subsequent lane: **grep `dist/styles/`,
+   never `src/styles/`, when reasoning about what a consumer actually receives.**
+
+---
+
+## §4b — Correction to the hitherto corpus *(pass 2)*
+
+### X-1 · The booked `:inert` remediation is **FALSE** against the installed tree — do not land it
+
+`docs/audits/runs/2026-06-16-M-deep-audit/raw-findings.json:2675-2677` asserts:
+
+> "Collapsed `<CollapsibleContent>` subtrees are visually hidden (height: 0) but **remain in the tab
+> order and a11y tree**. Screen-reader users and keyboard navigators reach hidden controls inside closed
+> ContourSettings advanced section and CollapsibleSection panels."
+
+— and proposes `:inert="!open || undefined"` plus `aria-hidden` on this component's content wrapper.
+
+The tree disagrees. reka-ui 2.9.10's `CollapsibleContent` renders, when closed:
+
+```js
+// node_modules/reka-ui/dist/Collapsible/CollapsibleContent.js:82
+hidden: !present ? (unref(rootContext).unmountOnHide.value ? "" : "until-found") : void 0,
+```
+
+glass-ui 4.0.0 declares `unmountOnHide: { type: Boolean }` with no default
+(`dist/CollapsibleContent-C_s6fG7r.js`, component `p`), so it is `false` and the closed content receives
+**`hidden="until-found"`**. Where that is implemented it applies `content-visibility: hidden` and removes
+the subtree from **both** the accessibility tree and the tab order (find-in-page reachable only); where
+it is not, the UA rule `[hidden] { display: none }` removes it outright. Either way the described failure
+does not occur and **no `:inert` is required**. The animation is unaffected: reka's `Presence` holds
+`present` true for the duration of the close animation, so `hidden` is applied only after it ends — the
+attribute and the collapse do not race.
+
+**Why this matters beyond one row.** The proposed cure is not inert (pun intended): adding
+`aria-hidden="true"` to a subtree that the platform has *already* removed is the classic
+`aria-hidden-focus` regression vector if the state ever desynchronises from `data-state`. Landing a fix
+for a non-existent bug here would be a net a11y loss.
+
+**Falsifier.** Name an engine supporting neither `hidden=until-found` nor the plain-`hidden` fallback —
+there is none. **UNPROVEN-NEEDS-LIVE (SS-13)** for the exact Safari-version matrix of the `until-found`
+path only; the `display:none` fallback is a11y-safe regardless, so the *conclusion* is version-independent
+even where the *mechanism* is not.
+
+**Scope.** The sibling half of that finding — `ContourSettings.vue:255` — was **not** re-verified here
+(out of this component's scope) and may or may not survive the same test. F.W4 should run it before
+striking the whole row.
 
 ---
 
@@ -338,6 +475,17 @@ Nothing here touches the census's enumerated break set — `metric-badge` ×7 fi
 [FE §5]. The only uplift casualty is CSS (B-1), and it is self-inflicted, not API drift. `lucide-vue-next`
 at `:4` is in the ×35-site `@lucide/vue` rename, which is mechanical.
 
+**S-5 · It inherits the collapsed-subtree a11y closure for free — by delegating instead of hand-rolling.**
+*(pass 2; the positive face of X-1.)* Because the component forwards to the primitive rather than
+managing visibility itself, closed content gets `hidden="until-found"` from reka
+(`CollapsibleContent.js:82`) — removed from the tab order and the a11y tree, still findable by
+find-in-page, and still animatable because `Presence` defers the attribute past `animationend`. That is
+a genuinely hard thing to get right by hand: the naive `height: 0; overflow: hidden` disclosure (which is
+what `ContourSettings.vue:340-374` builds) leaves focusable controls in the tab order behind a zero-height
+box. This component never had that bug, never wrote a line to avoid it, and — per X-1 — an audit
+subsequently proposed patching a bug it does not have. *Falsifier: show `unmountOnHide` truthy (it is not
+— `{ type: Boolean }`, no default) or the `hidden` attribute absent on a closed panel.*
+
 ---
 
 ## §6 — Routing
@@ -350,5 +498,21 @@ at `:4` is in the ×35-site `@lucide/vue` rename, which is mechanical.
 | M-2, M-3, m-5, i-2 | **F.W4** | the whole `watch`/`setTimeout` block wants re-grounding, not patching — M-3 says the predicate asks the wrong question |
 | M-5 | **F.W4** (+ glass BH relay) | `--font-serif-math` is an unfilled producer seam; per the standing BH/BI relay law this is a glass-inbox row as well as a fourier one |
 | m-2, m-3, m-4, m-6, m-9, m-1 | **F.W4** | proportion + API surface; m-2/m-3 are the Aristotelian core and want one owner for the section's vertical rhythm |
+| **M-6** | **F.W1** (gate) *(pass 2)* | the `250` becomes wrong (350 ms) *at the moment of the bump*; the cure (`animationend`) is version-independent, so land it **before** F.W1 and the bump inherits a correct timer |
+| **M-7** | **F.W4** | the controlled-`open` passthrough; the visible payoff is `EqCoefficientsPanel` opening on a successful Compute |
+| **m-11** | **F.W1** (visual diff) *(pass 2)* | not a code change — an expected-delta row for the F.W1 screenshot pass |
+| **i-3** | **F.W3** *(pass 2)* | before booking glass-ui ask A-3-new upstream, re-argue it: its stated premise (the actions slot) is dead in the tree |
+| **i-4** | **F.W0/F.W4** *(pass 2)* | count reconciliation; fold into the CENSUS §2 drift register |
+| **X-1** | **F.W4** — **STRIKE, do not implement** *(pass 2)* | the booked `:inert` cure addresses a bug the platform already handles; verify the `ContourSettings.vue:255` half before striking the whole corpus row |
 
-*Read-only throughout. This file is the only write.*
+### Standing note for every subsequent fourier lane *(pass 2, from §4.4)*
+
+`@mkbabb/glass-ui` ships **two divergent style trees**, and `exports["./styles"]` resolves to the
+**dist** one: `dist/styles/utilities/a11y-overrides.css` has no `src/` counterpart, and
+`src/styles/index.css:195-214` and `dist/styles/index.css:203-221` carry **opposite** statements about
+whether `@source "../*.js"` is a no-op — each true of its own context. A pass-2 claim that reached
+BLOCKER draft status died on exactly this. **Reason about consumer-visible CSS from `dist/styles/` only.**
+
+---
+
+*Read-only throughout. This file is the only write. Pass 1 + pass 2, same seat, `claude-opus-5[1m]`.*

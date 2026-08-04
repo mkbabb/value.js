@@ -305,4 +305,233 @@ The control's error text shows the resolved type *is* the full `ComponentPublicI
 | S-4 | ★ | `:61,64` | keyframes + `--ease-out` + `--reka-collapsible-content-height` all real — no-op-animation hypothesis FALSIFIED |
 | S-5 | ★ | `:16` | `InstanceType<typeof Collapsible>` resolves correctly — tsc-6.0.3 probe with live control; wrong-type hypothesis FALSIFIED |
 
-**Totals — defects 13 · blockers 1 · superlatives 5.**
+**Totals (first pass) — defects 13 · blockers 1 · superlatives 5.**
+**Totals (after the fold below) — defects 15 · blockers 1 · superlatives 6.**
+
+---
+---
+
+# ADDENDUM — second independent pass, folded (L-18)
+
+claude-opus-5[1m] (served model id)
+
+**Why this section exists.** §§0–7 above were already at this coordinate when this pass reached it —
+an independent challenge of the same slug on the same axis. Per the corpus law (*fold, don't
+re-invent; contradict explicitly where the tree disagrees*) the first pass is preserved **whole and
+unedited**; everything below is either (a) a correction backed by evidence the first pass did not
+consult, (b) a defect it did not raise, or (c) a recorded agreement so a third pass does not
+re-derive it. Where the two passes disagree, the disagreement is named and adjudicated against the
+tree, not split.
+
+**The evidence the first pass did not consult:** the committed build output
+`web/dist/assets/*.css` (8 chunks, built 2026-06-12 — *newer* than the component source, last
+modified 2026-05-27, so it reflects these exact bytes; other files in the tree may have moved since,
+and no claim below rests on the dist alone), plus the absence of any Tailwind `@source` directive in
+`web/`.
+
+---
+
+## A1 · The artifact probe
+
+| probe | result | how |
+|---|---|---|
+| `@source` directive anywhere in `web/` | **0 hits** | `grep -rn "@source" web/src web/vite.config.ts` |
+| `animate-collapsible` in any emitted CSS chunk | **0 hits, all 8 chunks** | `grep -c` over `web/dist/assets/*.css` |
+| `transition-collapse` in any emitted CSS chunk | **0 hits, all 8 chunks** | ibid. |
+| `animate-collapsible` in glass-ui's own shipped CSS | **0 hits** | `grep -c` over `dist/glass-ui.css`, `dist/styles/index.css` |
+| `@keyframes collapsible-open` | **1 hit**, `index-*.css` | from glass `animations.css:18` via `style.css:3` |
+| the component's own scoped rules | **present, 4 rules** | see A4 for the emitted text |
+| `collapsible-section` anywhere in emitted CSS | **0 hits** | see L-15 |
+
+Tailwind v4 auto-source-detection never scans `node_modules`, and `animate-collapsible-down` /
+`animate-collapsible-up` / `transition-collapse` exist **only** inside glass-ui's compiled JS
+(`dist/CollapsibleContent-C_s6fG7r.js`, component `h`). With no `@source` pointing at glass-ui's
+dist, those three class tokens are emitted onto the DOM element with **no matching rule anywhere in
+the build**.
+
+---
+
+## A2 · CORRECTION to L-8 — the `<style scoped>` block is load-bearing, not duplication
+
+**L-8 above is wrong in its first three table rows, and the totals line it feeds is wrong with it.**
+Its claim is that the local rules "restate what the substrate already applies", specifically that
+`data-[state=open]:animate-collapsible-down` → `--animate-collapsible-down` → `@keyframes
+collapsible-down` already animates the element. That chain is real *in tw-animate-css's theme block*
+— and it never reaches this build, because the class that would trigger it is never compiled
+(A1). Row by row:
+
+| L-8 row | verdict | evidence |
+|---|---|---|
+| `overflow: hidden` ≡ glass's `overflow-hidden` | **STANDS** | `overflow-hidden` *does* emit — the app uses that token in scanned source (`CoefficientsSpectrum.vue:89`, `App.vue:23`, `ImageUpload.vue`, `GalleryCard.vue`). This is the one genuinely redundant declaration in the file. |
+| `[data-state=open]` ≡ `animate-collapsible-down` | **REFUTED** | `animate-collapsible` → 0 hits across all 8 chunks and 0 in glass's own CSS. The utility class is inert. |
+| `[data-state=closed]` ≡ `animate-collapsible-up` | **REFUTED** | ibid. |
+| reduced-motion block ≡ `a11y-overrides.css:6-10` | **STANDS** — verified independently | the file exists (9,324 B), the blanket is `*:not([data-allow-motion]) { animation-duration: .01ms !important; animation-iteration-count: 1 !important }`, and it is reachable: `index.css:165 @import "./utilities.css"` → `utilities/a11y-overrides.css`. Note the blanket zeroes the *duration*, it does not set `animation: none` — under reka's `usePresence` both paths unmount correctly (`animationend` fires at 0.01 ms; the `"none"` short-circuit at `usePresence.js:44` is simply reached by the local rule and not by the blanket), so this is redundancy without hazard. |
+
+**Net:** of the four scoped declarations, **one** is redundant (`overflow: hidden`), **one** is
+redundant-but-harmless (the reduced-motion block), and **two are the only animation this element
+receives in this build**. Delete lines 60-65 on L-8's reasoning and the collapsible stops animating
+entirely. L-8's severity is unchanged (MINOR) but its *content* narrows from "18 lines of
+duplication" to "**2 of 18 lines are duplication; 6 are load-bearing and mis-labelled by their own
+comment**".
+
+This does **not** disturb L-8's sharpest observation, which survives intact and is if anything
+strengthened: the A.W3.d comment at `:55-58` claims "the consumer-side shadow rules have been
+excised" when the rules are directly beneath it. The comment is not merely imprecise — it inverts the
+dependency. A future uplift reading "canonical glass-ui animations, consumer rules excised" will
+delete the block as dead weight and silently kill the animation.
+
+---
+
+## A3 · New defects
+
+### L-14 · MAJOR (cross-repo · glass BH/BI relay) — glass-ui's `CollapsibleContent` ships four class tokens that emit no CSS in this consumer
+
+`node_modules/@mkbabb/glass-ui/dist/CollapsibleContent-C_s6fG7r.js`, component `h`, hard-codes
+`class="overflow-hidden transition-collapse data-[state=closed]:animate-collapsible-up
+data-[state=open]:animate-collapsible-down"` onto the content element. Per A1, three of the four
+resolve to nothing here, and `transition-collapse` is defined by glass-ui itself as an `@utility`
+(`dist/styles/utilities/btn.css:67`) — so glass-ui declares a utility, references it from its own
+compiled component, and ships neither the generated rule nor a documented `@source` requirement that
+would let a consumer generate it.
+
+This is a **producer** defect surfaced through this component, and it has two consequences that are
+this component's business:
+
+1. **`CollapsibleSection`'s scoped CSS is the undeclared compensation** (A2). Its own comment
+   describes the relationship backwards, which is how it becomes deletable.
+2. **Every glass-ui consumer without an `@source` for the dist gets a silently un-animated
+   collapsible.** fourier has none. Per the standing owner edict (2026-07-12: every component /
+   glass-ui-level change relayed to the active glass-ui BH inbox at root — a standing formation
+   invariant), this must be relayed: glass-ui should either emit the animation in its own shipped CSS
+   (`dist/glass-ui.css` currently has 0 hits) or document the `@source` requirement.
+
+**F.W1 note.** Re-run the A1 probe against the post-uplift glass 7 build **before** touching
+`CollapsibleSection.vue:53-70`. If glass 7 emits the utility, the local rules become a genuine
+cascade conflict (two competing `animation` shorthands on one element, the scoped one winning by
+unlayered-beats-`@layer utilities`) and the disposition flips from *keep* to *delete*. Either way the
+decision is evidence-gated, not comment-gated.
+
+**Falsifier.** A build whose CSS contains `.animate-collapsible-down` — kills this row and reinstates
+L-8 as written. Also killed by an `@source "../node_modules/@mkbabb/glass-ui/dist/**/*.js"` appearing
+in `web/`; `grep -rn "@source" web/` → 0 hits today.
+
+### L-15 · MINOR — three dead class tokens on the two root elements
+
+- **`:33` `class="collapsible-section"`** — zero rules anywhere. Not in this file's `<style scoped>`
+  (read whole: every rule is `.collapsible-content`), not elsewhere in the repo
+  (`grep -rn "collapsible-section" web/ --exclude-dir=node_modules --exclude-dir=dist` returns the
+  single authoring site), and **0 occurrences across all 8 emitted CSS chunks** — which is the
+  decisive form of the check, since `collapsible-content` *does* appear in two of them (A4).
+- **`:36` `class="collapsible-trigger …"`** — same: the only occurrence in the repo is the authoring
+  site. Note glass-ui's `CollapsibleTrigger` merges its own recipe
+  (`tap-squish focus-ring rounded-control transition-control disabled:…`) via `cn()`, so the styling
+  that matters arrives from the producer; `collapsible-trigger` is a hook nobody hooked.
+- **`:36` `group`** — a Tailwind group marker with **no `group-*` variant anywhere in its subtree**.
+  `grep -n "group" CollapsibleSection.vue` returns only line 36; the chevron rotates off a direct
+  binding (`:37` `:class="{ 'rotate-90': open }"`), not `group-data-[state=open]:rotate-90`.
+
+Three attribute tokens that read as live hooks and are not. Cheap to delete; the cost of leaving them
+is that any Tailwind-class census, any "is this class used" grep, and any future maintainer treats
+them as load-bearing. Related in kind to L-10 (the unused `#actions` slot): the file advertises four
+extension points and wires zero.
+
+**Falsifier.** Any rule, e2e selector, or test matching `.collapsible-section` / `.collapsible-trigger`
+— `grep` over `web/src`, `web/e2e`, and `web/dist/assets/*.css` returns none.
+
+---
+
+## A4 · The SS-13 sub-point in L-8 — same fact, much higher stakes
+
+L-8 parks one sub-point as `UNPROVEN-NEEDS-LIVE (SS-13)`: whether Vue's scope id reaches the DOM
+element through reka's `<Presence>` scoped-slot boundary — and concludes *"no user-visible failure
+either way"* because the substrate utility would paint instead.
+
+**Under A1 that conclusion is false.** There is no substrate utility to fall back to. If the scope id
+does not land, the element gets `overflow-hidden` (which emits) and **no animation at all** — the
+content would pop open and shut with no height transition. The sub-point is not cosmetic; it is the
+difference between the animation working and not existing.
+
+Static evidence narrows it substantially. The emitted rules are:
+
+```css
+.collapsible-content[data-v-16a925e2]{overflow:hidden}
+.collapsible-content[data-state=open][data-v-16a925e2]{animation:collapsible-open .2s var(--ease-out)}
+.collapsible-content[data-state=closed][data-v-16a925e2]{animation:collapsible-close .2s var(--ease-out)}
+.collapsible-content[data-state=open][data-v-16a925e2],
+.collapsible-content[data-state=closed][data-v-16a925e2]{animation:none}   /* inside the reduced-motion query */
+```
+
+Vue propagates a parent's scope id onto a child component's **root element**, and the chain here is
+single-root at every hop (glass `CollapsibleContent` → reka `CollapsibleContent` → `Presence`
+(`force-mount`, renders its slot) → `Primitive` → `div`), so the id should land. Recorded as
+**high-confidence but still SS-13** for the final DOM attribute. **Re-tagged from "cosmetic" to
+"load-bearing": this is the one browser check that must run before anyone edits lines 53-70.**
+
+---
+
+## A5 · Additional superlative
+
+### S-6 · ★ The scoped animation block compensates a producer defect the author could not have seen
+
+Given A1 — glass-ui's own animation classes emit nothing in this build — lines 60-65 are the only
+reason a `CollapsibleSection` animates at all, and lines 66-70 are the only reason it stops animating
+under `prefers-reduced-motion` *at the element's own specificity* (the glass blanket also covers it,
+A2). The author landed on a correct, complete motion implementation while believing they were merely
+re-declaring the substrate's. That is the right outcome reached for the wrong stated reason, and it
+deserves recording alongside L-14: the code is better than its comment, which is the rarer direction.
+
+Sharper still: the reduced-motion form chosen is `animation: none`, not `animation-duration: 0`.
+reka's `usePresence` decides unmount by reading computed `animationName` (`usePresence.js:36-47`) and
+short-circuits to an immediate `UNMOUNT` **only** on the literal string `"none"`; any formulation that
+left a live animation *name* in place routes through `ANIMATION_OUT` and waits on an `animationend`.
+Both paths terminate here, so this is a margin of safety rather than a averted bug — but it is the
+margin, and it was chosen.
+
+*Falsifier:* A1's falsifier (a build emitting `.animate-collapsible-down`) demotes this to
+redundancy.
+
+---
+
+## A6 · Recorded agreements and one severity dissent
+
+**Independently re-derived and AGREED** (no new evidence needed, recorded so a third pass stops):
+L-2 (the `closest()` class-string probe resolving `App.vue:26`'s `<main>` past `.eq-panel-left`'s
+`@apply`-declared overflow at `EquationView.vue:373-375` and past `.viz-panel-left`'s absent overflow
+at `:363-371`) · L-3 (the `unmountOnHide` forwarding trace through `useForwardProps.js` to reka's
+`default: true`, and the slot's `v-if` in `CollapsibleContent.js`) · L-4 (`$el: any` laundering the
+unsound fallback past `vue-tsc`) · L-5 (no `clearTimeout`/`onCleanup`; post-teardown execution benign
+because Vue nulls the ref and `:21` returns) · L-6 · L-7 · L-9 · L-11 · L-13 · S-4 (all five links of
+the A.W3.d chain verified a second time: `animations.css:18/:29`, the
+`--reka-collapsible-content-height` channel supplied inline by `CollapsibleContent.js`, `--ease-out`
+→ `--motion-ease-out` at `scheme-motion.css:217/:212`, and the `style.css:3` import).
+
+**Severity dissent, recorded not resolved.** This pass would rank **L-2 as the BLOCKER and L-1 as
+MAJOR**, the inverse of §1/§2. Reasoning: L-1 is a real and unarguable a11y-contract violation, but it
+degrades an affordance that *works*; L-2 means the affordance is bound to the wrong element at 4 of 4
+callsites, i.e. the wrapper's entire justification over the bare primitive is mis-wired — strip the
+scroll block and this file is `Collapsible` + a chevron, which is exactly what
+`ContourSettings.vue:255-307` already builds inline without it (L-9). Either ordering yields the same
+disposition (**F.W4 must rule fix-or-delete on this module**), so the count is left at 1 blocker and
+the dissent is recorded rather than double-counted. A third pass should not treat this as an open
+question — it is a ranking preference over two findings both parties confirmed.
+
+---
+
+## A7 · Amended ledger delta
+
+| id | sev | file:line | one-line |
+|---|---|---|---|
+| L-8 | MINOR | `ui/CollapsibleSection.vue:53-70` | **AMENDED by A2** — 2 of 18 lines duplicate the substrate; 6 are load-bearing and inverted by their own comment |
+| L-14 | MAJOR | `glass-ui/dist/CollapsibleContent-C_s6fG7r.js` (component `h`) ↔ `ui/CollapsibleSection.vue:53-70` | glass ships 4 utility tokens that emit no CSS here (0/8 chunks, no `@source`); this file is the undeclared compensation → **glass BH relay** + F.W1 re-probe |
+| L-15 | MINOR | `ui/CollapsibleSection.vue:33, 36` | `collapsible-section` / `collapsible-trigger` / `group` — three dead class tokens, 0 rules in 8 emitted chunks |
+| S-6 | ★ | `:60-70` | the animation block is the element's only animation, and its reduced-motion form is the one `usePresence` short-circuits cleanly |
+
+**Wave routing for the new rows.** L-14 → **F.W1** (re-probe on glass 7 before editing the style
+block) **+ the glass BH inbox** (producer fix or documented `@source`). L-15 → **F.W4**. A4's SS-13
+check → **F.W4**, and it is the single browser observation this component needs.
+
+**FINAL TOTALS — defects 15 · blockers 1 · superlatives 6.**
+
+*Read-only throughout. `/Users/mkbabb/Programming/fourier-analysis` was not written; the first pass's
+§§0–7 were not edited. This file is the only write.*
+

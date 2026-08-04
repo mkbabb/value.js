@@ -343,4 +343,112 @@ So the component chain's terminal root vnode is a Fragment, and `vnode.el` is th
 | D-4 | The frame cost of 12 concurrent invisible springs + one invisible 40-bar draw per recompute. Eager mount itself is static. |
 | D-7 | Whether the stale label color is perceptible after a dark-mode flip; and whether `getComputedStyle(...).getPropertyValue("color")` under Tailwind v4 `oklch` tokens parses as a canvas `fillStyle` (if not, labels silently inherit the last bar's spectrum color — flagged, not claimed). |
 | D-12 | How many leading bars have clipped tooltips (depends on rendered tooltip width), and whether hovering the last bar visibly perturbs the horizontal scrollbar. |
+
+---
+---
+
+# ADDENDUM · second pass, same axis (L), same served model `claude-opus-5[1m]`
+
+*Independent re-derivation against the same tree. §0–§6 above stand as written — nothing in them is contradicted here, and §1's D-1/D-12/D-13/D-17 (TransitionGroup Fragment-root, tooltip clipping in the scroll port, degenerate-spectrum `NaN`, `transition-all`) are findings this pass did not reach. What follows is four rows the first pass does not contain (verified by `grep` over this file: `spectrumColor`, `transforms.ts`, `harmonics.ts`, `Math.pow`, `fixme`, `visualization-ux`, `n_components` → **zero hits**), one severity dissent, and one superlative.*
+
+**Addendum tally: +4 defects (A-1…A-4) · +1 severity dissent (A-5) · +1 superlative (S-6).**
+**Combined file tally: 21 defects · 2 BLOCKERS · 6 superlatives.** (The header's "0 blockers" is dissented at A-1 and A-5.)
+
+---
+
+## §A1 · A-1 · **BLOCKER** — four forks of `spectrumColor`; the panel mounts the two that never got the gamma fix, and paints one harmonic three different colours in one viewport
+
+**Claim.** The hue ramp that both of this panel's surfaces use to encode harmonic rank exists in **four** independent copies in `web/src`. The panel mounts the two *unexported, file-private* copies simultaneously. The *exported* copy — living under the panel's own directory subtree — has since gained a perceptual curve the private forks never received. Net effect: the same harmonic is painted in three different hues across three co-visible surfaces of one route.
+
+**Provenance.**
+
+| # | site | body | exported? | mounted by |
+|---|---|---|---|---|
+| 1 | `visualization/lib/canvas-drawing/transforms.ts:3-8` | `t = i/max(total-1,1)`; **`curved = Math.pow(t, 0.6)`**; `hue = (1-curved)*300` | **yes** (`canvas-drawing/index.ts:2`) | `epicycles.ts:162` → `BasisCanvas` → `VisualizationView.vue:199` |
+| 2 | `equation/lib/harmonics.ts:81-88` | linear ramp, `hsla(…, alpha)` | yes | `ConvergencePlot.vue:207`, `convergence/ConvergenceLegend.vue:36` |
+| 3 | `equation/FrequencyGraph.vue:42-45` | linear ramp, `hsl` | **no — file-private** | **`CoefficientsPanel.vue:17`** |
+| 4 | `shared/CoefficientsSpectrum.vue:47-50` | linear ramp, `hsl` — identical to #3 line for line | **no — file-private** | **`CoefficientsPanel.vue:15`** |
+
+Forks #3 and #4 are the same function declared twice, and `CoefficientsPanel` is the only place in the repository that mounts both, stacked vertically, inside 26 lines. Fork #1 is the canonical one, it is exported, it sits under `visualization/lib/` — the panel's own subtree — and it moved. The forks did not. Nothing (type, test, lint) couples them: `grep -rn "spectrumColor" web/src` shows `:42` and `:47` **declare** rather than import.
+
+**The consequence is arithmetic, not taste.** At stock settings (`lib/defaults.ts:7` `n_harmonics: 200` → `api/services/computation.py:102-125`, `n_components = len(components)` ≈ 401) the collapsed panel shows 12 list rows (`CoefficientsSpectrum.vue:38`) above— no, *below* — 40 canvas bars (`CoefficientsPanel.vue:20`), while `BasisCanvas` colours over `nVis` (`epicycles.ts:162`):
+
+| rank `i` | list row (`total=12`, linear #4) | graph bar (`total=40`, linear #3) | instrument (`total=40`, gamma #1) | graph↔instrument Δ |
+|---|---|---|---|---|
+| 1 | 272.7° | 292.3° | 266.7° | 25.6° |
+| 5 | **163.6° (green)** | **261.5° (blue)** | **212.5° (cyan)** | 49.0° |
+| 11 | **0.0° (pure red — the semantic bottom of the ramp)** | 215.4° | 159.6° | 55.8° |
+
+Rank 11 is the indictment: the list paints it pure red — the "least significant" end of a 300° ramp — while the bar four pixels above it is blue and the instrument beside it is green, for a harmonic that is 11th of 401, i.e. the top 3%. Hue is the **only** encoding these three surfaces share, and it means three different things in one viewport.
+
+**Relation to the first pass.** This is the missing half of D-11. D-11 correctly catches that `40` is authored twice across the component boundary and that the caption says `12 / N`; it reads that as a count mismatch. The count mismatch is the *lesser* symptom — the denominators are also the ramp's divisor, so the mismatch is a **colour-semantics** break, and it is compounded by a fork that diverged. Fixing D-11's shared constant does **not** fix A-1: it aligns #3 and #4 with each other and leaves both ~50° away from #1.
+
+**Falsifier.** Dies if (a) any two of the four bodies were identical *and* shared a denominator — they are not: #1 carries `Math.pow(t,0.6)`, and `topComponents.length` ∈ {12,40} ≠ `displayComponents.length` = 40 ≠ `nVis`; (b) a shared helper were actually imported — `grep` says both are local declarations; (c) the surfaces were not co-visible — `VisualizationView.vue:199` (`BasisCanvas`) and `:273` (`CoefficientsPanel`) are siblings in one template. The one masking condition is the user pressing "Show more" (`CoefficientsSpectrum.vue:130`), which flips `total` 12→40 and makes list and graph agree with each other — colour identity conditioned on a toggle in a sibling component is the defect restated, not a rebuttal.
+
+**Why BLOCKER (dissenting from the header's 0).** Two unexported forks of a function whose canonical version has already diverged, seated so that one component mounts both, is the exact duplication class this axis exists to stop; and the shipped product is a rank encoding that contradicts itself on screen. Repair is one import edge and one denominator, so the cost of the ruling is near zero — but it must be *made*, because D-11's repair alone will look like a fix and will not be one.
+
+---
+
+## §A2 · A-2 · **MAJOR** — two a11y keystones are `test.fixme`'d against a premise the installed dependency falsifies, and this panel is the largest surface they were booked for
+
+**Claim.** `e2e/visualization-ux.spec.ts` skips two axe keystones on the grounds that glass-ui's collapsed `ConfiguratorLayer` body "omits `inert`". The installed `@mkbabb/glass-ui@4.0.0` dist emits `inert`. The premise is false at HEAD; two gates covering this panel's **default** state are dark for a reason that no longer exists.
+
+**Provenance.**
+- `e2e/visualization-ux.spec.ts:110` — `test.fixme("keystone: workspace default has no serious/critical a11y violations", …)`.
+- `:133` — `test.fixme("keystone: ContourSettings Configurator-open is a11y-clean", …)`.
+- `:120-122` — the justification: *"the workspace's SIBLING layers (basis, **coefficients**) collapsed, and glass-ui renders each collapsed layer body with `role="region" aria-hidden="true"` while keeping its focusable `btn-pill` trigger inside (**it omits `inert`**) — an axe `aria-hidden-focus` **serious** violation that no app-level action can avoid"*.
+- `:130` — books the unskip as *"pending the glass-ui `inert` release"*.
+- **The installed dist**, `node_modules/@mkbabb/glass-ui/dist/useConfiguratorState-kiIlun8I.js`, `ConfiguratorLayer` render fn: `role: "region", "aria-hidden": !i.value, inert: !i.value || void 0, class: "configurator-layer-region grid motion-reduce:transition-none", style: { gridTemplateRows: i.value ? "1fr" : "0fr" }`. The release the fixmes wait on is **already installed**.
+
+**Why it lands on this panel.** The comment names "coefficients" explicitly, and this panel's collapsed body is the largest of the named siblings: 12–40 `Tooltip` roots plus a canvas plus a genuinely focusable `<Button>` — `CoefficientsSpectrum.vue:125`, rendered whenever `totalComponents > 12`, i.e. always at defaults. Whatever `aria-hidden-focus` surface the workspace has by default, this panel is most of it. (D-4 reads the same `inert` attribute from the same dist and draws the *performance* consequence; this row draws the *gate* consequence. They are one attribute, two findings, and the first pass did not take the second.)
+
+**Falsifier.** Dies if the dist lacked `inert` — `grep -c inert` on that chunk → 2, and the `configurator-layer-region` render call carries it — or if the fixmes cited some other blocker (they cite this one, at `:122` and again at `:130`). **Whether axe now passes is `UNPROVEN-NEEDS-LIVE (SS-13)`** — which is the point: nobody has re-run them, and the stated reason not to is stale.
+
+---
+
+## §A3 · A-3 · **INFO** — the projection discards the server's authoritative count; the sort invariant both surfaces depend on is enforced only in Python
+
+**Claim (a) — the discard.** `EpicycleData` carries `n_components` (`web/src/lib/types.ts:23`), computed server-side as `len(components)` (`api/services/computation.py:125`). `CoefficientsPanel.vue:10` projects `.components` only, and the shared child then re-derives the denominator from `.length` (`CoefficientsSpectrum.vue:41`). Equal by construction today — so **not a live bug** — but the caption's `M` now means "whatever array survived the projection", not "what the API says the spectrum is". Any future client-side truncation (a `maxComponents` guard, a draft-migration filter) silently redefines the readout without touching the readout.
+
+**Claim (b) — the invariant, with credit.** Both surfaces take `[0].amplitude` as the normalizing maximum (`CoefficientsSpectrum.vue:43-45`, `FrequencyGraph.vue:36-40`), i.e. both assume amplitude-descending order. The assumption **holds and is tested** — `src/fourier_analysis/epicycles.py:54` `sorted(components, key=lambda c: c.amplitude, reverse=True)`, asserted at `tests/test_epicycles.py:50` (`assert amplitudes == sorted(amplitudes, reverse=True)`). This is the good news the first pass's D-13 (unguarded division) should be read against: the division is unguarded, but the *ordering* it relies on is a genuinely enforced cross-repo contract. The residual is that it is enforced in Python and consumed in TypeScript with no client-side assertion, and that `epicycleData` can also arrive from IndexedDB drafts written by an older API (`stores/workspace.ts:171` `markRaw(draft.epicycleData)`), which no server test covers.
+
+**Falsifier.** (a) dies if `n_components` were consumed anywhere in `web/src` — `grep -rn "n_components" web/src` → the type declaration only. (b) dies if the sort were absent or untested — both cites are exact; and it would be *strengthened* into a defect if a client-side reorder existed, which it does not.
+
+---
+
+## §A4 · A-4 · **INFO · corpus contradiction** — `lane-frontend.md:443` seats the `./metric-stack` shadow candidacy on the wrong file; re-seat it on `CoefficientsSpectrum.vue`
+
+**The corpus row.** `lane-frontend.md:443` lists `visualization/CoefficientsPanel.vue` / `EqCoefficientsPanel.vue` (26 / 17) as CANDIDATE SHADOWS against `./metric-stack` (4.0.0) → `./metric` (7.0.0). §4 above **qualifies** this row ("one row by markup only; their data contracts diverge"). This pass goes further: **contradict it.**
+
+**What the tree says.** Neither host renders a metric. The target is a chassis + a slot + a null-safe projection; the twin is a card + a chassis. Read the producer instead — `node_modules/@mkbabb/glass-ui/dist/components/custom/metric-stack/MetricStack.vue.d.ts:1-40`: `MetricStack` is a container-query host owning a **3-column `icon | label | value` subgrid** that rows inherit via `grid-template-columns: subgrid`, with a reserved `min-block-size` to pre-allocate against the row hero clamp (anti-CLS), and — decisively — an `as` prop that lets the stack render **as a `<TransitionGroup>` (`tag="div"`) when the consumer needs per-row enter/leave animation while preserving the immediate-child subgrid contract**.
+
+That is a description of `CoefficientsSpectrum.vue:79-104` almost line for line: a `TransitionGroup` (`:79`) of rows laid out as a hand-rolled three-track lockup — `w-8` index (`:86`) · `flex-1` bar (`:89`) · `w-16` `AnimatedDigit` value (`:99-103`) — with named enter/leave/move transitions at `:147-163`.
+
+**Re-seating, and why it pays twice.** Move the `./metric-stack` → `./metric` candidacy from `lane-frontend.md:443` (the two hosts) to `lane-frontend.md:428` (`CoefficientsSpectrum.vue`, already listed there for the `FourierField` family) and strike the hosts from `:443`. The second payoff is that `MetricStack`'s `as={TransitionGroup}` seam is precisely the repair surface for the first pass's **D-1**: the producer's contract is "immediate child preserves the subgrid", i.e. an *element* row — adopting it forces the Fragment-root child out by construction rather than by discipline.
+
+**Falsifier.** Dies if either host rendered a metric-shaped row (26 and 17 lines, both fully quoted above — neither contains a label/value pair), or if `MetricStack` were a generic wrapper rather than a subgrid contract (its own dts, `:1-40`, is explicit). Left as written, the mega-tranche budgets a migration against two files with nothing to migrate and misses the one file that matches the producer's shape.
+
+---
+
+## §A5 · A-5 · **severity dissent** — D-2 + D-6 together are a BLOCKER, not MAJOR + MINOR
+
+§1 grades the dead click affordance MAJOR and the dead API surface MINOR, and §5 pairs them for repair. Concur on the pairing; dissent on the grade, on one ground the first pass records but does not weigh:
+
+`FrequencyGraph.vue:164-167` is an authored, **wave-tagged** comment — *"W5.d — the transform applied to bar heights is named explicitly **so the viewer is not left to infer a silent log mapping**. The `+1` shift is the canonical convention for log-magnitude bar charts"* — guarding a branch (`:169`, and the tooltip's `:203-206`) that cannot render, because `logScale` has no binding site in the repository. §3's **S-5** credits exactly this annotation as "written for the reader's honesty"; §1's D-6 notes the branch is unreachable. Both are right, and together they say something neither says alone: **a named wave deliverable is dark in production**, and the audit program's own unit of account is the wave.
+
+Combined, the seam binds 2 of 6 inputs and 0 of 2 emits (`CoefficientsPanel.vue:17-22` vs `FrequencyGraph.vue:5-18`), leaving ≥34 of 247 lines unreachable *repo-wide* — because there is no second consumer to reach them. That is not a MINOR tidy-up; it is a component whose interaction contract, alternate scale, dimming channel, and self-documenting axis are all implemented, all shipped, and all unreachable through a 6-line binding. **BLOCKER**, with §5 step 4 unchanged as the repair.
+
+*Falsifier:* a second consumer, or a listener arriving by fallthrough. Neither exists — Vue 3.5.38 strips declared emits from `$attrs`; `CoefficientsSpectrum.vue:70` renders `<slot name="graph" />` bare; and the glass-ui layer's default slot render is `C(a.$slots,"default",{},void 0,!0)`, no injected handlers.
+
+---
+
+## §A6 · S-6 · superlative — the chassis was chosen well, and imported the way the house rules say
+
+`CoefficientsPanel.vue:4` imports `ConfiguratorLayer` from the **subpath** `@mkbabb/glass-ui/configurator`, which gets the post-**F-ε-3** component: its own dts records that earlier versions composed reka-ui `<Collapsible>` + `<CollapsibleContent>`, whose `getComputedStyle(node).animationName` + `getBoundingClientRect()` reads inside a `watch([isOpen, presentRef.value?.present])` formed a non-convergent loop that tripped Vue's 100-iteration recursion cap on `<Configurator>` under Lighthouse throttling — cured by the CSS-only `0fr ↔ 1fr` reveal, with `role="button"` + `aria-expanded` + `aria-controls` + `inert` preserved (`ConfiguratorLayer.vue.d.ts:14-32`).
+
+The twin took the other road: `EqCoefficientsPanel.vue:13` → `ui/CollapsibleSection.vue`, which **bare-root** imports `@mkbabb/glass-ui` (`:2` — the only bare-root glass-ui specifier under `components/ui/`, cf. `lane-frontend.md:293-295`, against `SliderControl.vue:23` and `tooltip/Tooltip.vue:17` which both use subpaths) and carries an uncleared `setTimeout(…, 250)` inside a watcher (`:17-30`) that can fire against a detached element after unmount.
+
+**This is a deliberate counterweight to D-4.** D-4 is right that the twin's reka `CollapsibleContent` *defers* better and that the visualization route picked "the worst cell of the matrix". Both are true at once: the target picked the container that never defers, and it also picked the container that does not deadlock under CPU throttle, does not import bare-root into a 4.0.0-uplift break surface, and does not leave a timer running. The repair named in §5 step 3 (`v-model:open` gating, or the sibling's `IntersectionObserver`) is the one that keeps both properties; "just use `CollapsibleSection`" would trade a mount cost for a recursion cap and a teardown hazard.
+
+**Falsifier.** Dies if `./configurator` were not a real export (the installed `package.json` exports include it), if the recursion note were absent (`ConfiguratorLayer.vue.d.ts:14-32`, verbatim), or if `CollapsibleSection` cleared its timer (`grep -n clearTimeout ui/CollapsibleSection.vue` → empty). Credit is for the *choice*, not its consequences — D-4 and A-2 are the price, and both stand.
 | D-10 | Confirmation that the empty-trigger Tooltip produces no reka console warning at `n_harmonics ≤ 5`. |

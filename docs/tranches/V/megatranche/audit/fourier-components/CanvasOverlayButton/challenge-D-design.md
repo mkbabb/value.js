@@ -5,7 +5,8 @@ claude-opus-5[1m]
 **Target** `/Users/mkbabb/Programming/fourier-analysis/web/src/components/visualization/CanvasOverlayButton.vue` (25 lines)
 **Date** 2026-08-04 · **Method** static + source-derived only (no browser tooling; livable-only claims marked `UNPROVEN-NEEDS-LIVE` for SS-13)
 **Pin** `@mkbabb/glass-ui@^4.0.0` installed (`web/package.json:14`, `node_modules/@mkbabb/glass-ui/package.json` → `4.0.0`); producer latest `/Users/mkbabb/Programming/glass-ui/package.json` → `7.0.0`
-**Posture** DEFECTIVE-until-proven. 14 defects · 2 blockers · 4 superlatives.
+**Posture** DEFECTIVE-until-proven. 17 defects · 2 blockers · 4 superlatives.
+**Producer evidence read at the RELEASED tag** — `git -C /Users/mkbabb/Programming/glass-ui show v7.0.0:<path>` throughout §8, not the working branch (whose `CHANGELOG.md:3` shows `8.0.0 (unreleased — accruing)`); every 7.0.0 claim below is therefore a shipped-API claim, not a moving target.
 
 ---
 
@@ -74,6 +75,8 @@ So the rendered class list contains `btn-glass` — **not** `glass-btn`. Hold th
 | `fourier-analysis/docs/tranches/A/audit/W3-button-ledger.md:93` | "naked wrapper component forwarding `active` as `aria-pressed`; `<Button variant="glass" size="icon">` IS the surface" | **ADOPTED** — the A-tranche ledger already judged the wrapper redundant at authoring time |
 | `.../formation/fourier/lane-frontend.md` §5 + `CENSUS-2026-08-03.md:102-104,185-186` | break surface = metric-badge ×7 files · hover-card/-popover ×4 · dock members ×3 · `ToastVariant` · lucide rename ×35 · tri-package deadlock | **CONTRADICTED BY OMISSION** — D-1 is a census gap: the `<Button>` prop-level break is absent from both, and it is ~4× the metric-badge surface |
 | `.../audit/codex-provenance/intakes/lane-fourier-r3-r6.md` (38/52 TRUE) | R3/R6 registry-auditor provenance (`R3-1`..`R3-5`, `R3-HA-001`, …) | **NO OVERLAP.** Grep of that lane for `CanvasOverlay` / `is-active` / `Button` / `variant="glass"` → the only hit is the substring `DockIconButton` inside an unrelated row. This challenge asserts no claim that lane adjudicated; no row id applies. Recorded so the absence is a finding, not an oversight. |
+| `.../formation/fourier/lane-frontend.md:101` (the SFC inventory row) | `\| components/visualization/CanvasOverlayButton.vue \| 25 \| Button wrapper for canvas-corner affordances \|` | **CONTRADICTED, both halves.** It wraps nothing *for anyone* (zero consumers, D-2) and has held no canvas-corner geometry since `2f53d5d` (D-17). Only the LOC count (25) survives. **Substrate correction:** `\| … \| 25 \| DEAD — zero consumers since 2f53d5d (2026-03-16); DELETE at F.W1 \|`. This is the sole census row naming the file; `CENSUS-2026-08-03.md` and `lane-crud.md` carry none. |
+| `fourier-analysis/docs/tranches/M/design/M-bump-migration.md:56` | delete justified as "functionality subsumed by `DockIconButton` from `@mkbabb/glass-ui/dock`" | **VERDICT ADOPTED, RATIONALE CONTRADICTED.** `DockIconButton` is itself DEFINITION-ABSENT from 5.0.0 — `lane-frontend.md:475`, `glass-ui/MIGRATION.md:931` (→ `DockControl`, `shape="icon"` default), `:946` ("dominated ~24 import sites across ~9 consuming repos"). F.W1 must delete because the file is **dead** (D-2), not because a now-removed successor covers it; executing on the stale rationale would reason from a dead landmark. |
 
 ---
 
@@ -127,7 +130,9 @@ grep -rn 'size="icon-sm"' src/ | wc -l   →   0
 
 ---
 
-### D-2 · BLOCKER · Five terminal `DELETE` verdicts, zero executions — the file is unreachable and has been for ~7 weeks
+### D-2 · BLOCKER · Five terminal `DELETE` verdicts, zero executions — the file is unreachable and has been for **141 days**
+
+> **Duration corrected by D-17.** The "~7 weeks" figure dates from the first *audit* to notice (2026-06-16). The orphaning is far older: `2f53d5d` (2026-03-16) removed the last import, and its own commit body says so — *"CanvasOverlayButton no longer imported"*. From orphaning to this audit (2026-08-04) is **141 days / ~20 weeks**, during which the file accrued **two** maintenance passes (D-17). Substitute 141 days wherever this row's duration is cited.
 
 **Claim.** The component has **zero consumers**. Five independent adjudications issued a terminal `DELETE`; none executed. Design work on this file is spending the mega-tranche's budget on the wrong question.
 
@@ -297,6 +302,7 @@ The 2px stop has zero blur/spread beyond the ring, so it composites against what
 ### S-1 · SUPERLATIVE · The `aria-pressed` binding is the *correct* primitive — and, unknowingly, the only one that works
 
 Line 20 is the single best decision in the file. Of the two idioms the component emits, `aria-pressed` is simultaneously (a) the semantically correct ARIA toggle contract, (b) the **only** one glass-ui 4.0.0's Button cva actually paints (`aria-pressed:bg-[…]` on all 14 variants), (c) the arm the `.glass-btn` primitive *also* honours (`surfaces.css:112` selects `[aria-pressed="true"]` alongside `.is-active`), and (d) the arm that **survives the 4→7 uplift untouched** — it is a DOM attribute, not a prop, so unlike `variant`/`size` (D-1) it needs no migration. The component chose the durable half of a two-idiom bet and hedged with the dead half.
+**Qualification on (d) — see D-15.** The *semantics* survive the uplift; the **paint does not.** v7.0.0's `src/components/button/styles.css` contains no `[aria-pressed]` rule at all, so at 7.0.0 this binding keeps its ARIA contract and loses its background tint. S-1 stands on (a)(b)(c) and on (d) read as "needs no migration"; it does **not** underwrite "renders the same after the uplift".
 **Falsifier.** Show `aria-pressed` unpainted at this element — i.e. that `@source "../*.js"` (`dist/styles/index.css:222`) fails to reach `dist/button-BNDWhAZb.js`, so the JIT never mints the utility. Verified reachable: the glob resolves to `dist/*.js` in the shipped context (the directive's own comment records the BA.W-EMISSION repair from the dead `../components` target), fourier imports that exact cascade file at `style.css:3`, and the arbitrary value's target token `--glass-bg-resting` is defined (`tokens/glass.css:139`). If a build readback shows the utility absent, S-1 collapses **and D-6 escalates to BLOCKER** — the toggle would then have no visual state whatsoever. This is the single highest-value live probe on this component.
 
 ### S-2 · SUPERLATIVE (inherited) · The WCAG 2.5.5 touch floor lands automatically, with no per-consumer `min-h-[44px]`
@@ -307,7 +313,7 @@ Line 20 is the single best decision in the file. Of the two idioms the component
 ### S-3 · SUPERLATIVE (inherited) · Three independent a11y capability arms, all correct, all free
 
 The component's class list buys, with no local code:
-1. **prefers-reduced-motion** — `.tap-squish:active { scale: 1 }` under PRM (`utilities/base.css:273-278`), *plus* the blanket `transition-property: opacity, color, background-color, border-color, box-shadow !important` spatial kill (`a11y-overrides.css:6-17`), *plus* the deliberate override of the `[data-allow-motion]` carve ("*accessibility is absolute*", `a11y-overrides.css:19-30`). The press squish is neutralised via the `scale` **longhand identity**, not `transform: none` — the correct choice under individual-transform authoring, and one most codebases get wrong.
+1. **prefers-reduced-motion** — `.tap-squish:active { scale: 1 }` under PRM (`utilities/base.css:273-278`), *plus* the blanket `transition-property: opacity, color, background-color, border-color, box-shadow !important` spatial kill (`a11y-overrides.css:6-17`), *plus* the deliberate override of the `[data-allow-motion]` carve ("*accessibility is absolute*", `a11y-overrides.css:19-30`). The press squish is neutralised via the `scale` **longhand identity**, not `transform: none` — the correct choice under individual-transform authoring, and one most codebases get wrong. **Qualified by D-16:** the *animation* is genuinely killed (the `transition-property` allow-list omits `scale`), but the base cva also emits an unguarded utilities-layer `active:scale-(--scale-press-btn)` that outranks the components-layer `.tap-squish` reset by cascade layer, so an **instantaneous** squish survives PRM. Arm 1 is correct in intent and in its animation half; arm 2 and arm 3 are unqualified.
 2. **forced-colors** — `.focus-ring:focus-visible { outline: 2px solid Highlight; outline-offset: 2px }` (`a11y-overrides.css:80-95`), restoring the box-shadow ring that WHC strips. The base cva emits `focus-ring`, so this fires. Notably this arm **passes** the contrast bar D-13 flags on the normal-mode arm.
 3. **coarse-pointer comfort** — S-2.
 
@@ -326,11 +332,13 @@ That is a substrate a 25-line wrapper had to do nothing to earn, and it is the s
 | Sev | ids | n |
 |---|---|---|
 | BLOCKER | D-1, D-2 | 2 |
-| MAJOR | D-3, D-4, D-5, D-6 | 4 |
-| MINOR | D-7, D-8, D-9, D-10, D-11 | 5 |
-| INFO | D-12, D-13, D-14 | 3 |
-| **Defects total** | | **14** |
+| MAJOR | D-3, D-4, D-5, D-6, **D-15** | 5 |
+| MINOR | D-7, D-8, D-9, D-10, D-11, **D-16** | 6 |
+| INFO | D-12, D-13, D-14, **D-17** | 4 |
+| **Defects total** | | **17** |
 | SUPERLATIVE | S-1, S-2, S-3, S-4 | 4 |
+
+Bolded ids are the §8 addendum (motion/PRM, the 7.0.0 pressed-paint regression, and the dated orphaning provenance). Two of them qualify sibling superlatives rather than merely adding rows — L-18 running back the other way.
 
 **Recommended disposition — DELETE, and harvest D-1.** D-2 makes every other finding on this file moot: the correct action is the one five prior adjudications already ordered. But the file must not be deleted *quietly*, because **D-1 is the real yield** and this component is where it surfaced. Before `git rm`, F.W1 must fold into the census:
 
@@ -340,3 +348,76 @@ That is a substrate a 25-line wrapper had to do nothing to earn, and it is the s
 4. Prop-level API diffs on **surviving** subpaths are a blind spot of the export-map method used in `lane-frontend.md` §5. `./button` is one instance; the same method should be re-run member-wise across all 21 subpaths that survive 4.0.0→7.0.0.
 
 **Highest-value live probe (SS-13), one line:** build `web/` and grep the emitted CSS for `aria-pressed`. Present ⇒ S-1 stands and D-6 is MAJOR. Absent ⇒ S-1 collapses and **D-6 escalates to BLOCKER for all 12 `variant="glass"` toggle sites**, not just this dead one.
+
+---
+
+## §8 · Addendum — motion, the pressed-paint regression, and the dated provenance
+
+Three findings the body above does not carry. All three were derived at the **released tag** `v7.0.0` (not the 8.0.0-accruing working branch) or from `git log` on the consumer. Two of them qualify sibling superlatives.
+
+### D-15 · MAJOR · The uplift **removes** the pressed paint: v7.0.0's Button ships no `[aria-pressed]` rule at all
+
+**Claim.** D-6 measures the pressed register at the installed pin and finds it single-channel. At 7.0.0 it drops to **zero channels in the default register**. This is the "will break or improve" row for the toggle state, and it breaks.
+
+**Provenance.**
+
+- *Installed 4.0.0* — the paint lives in the cva string: `aria-pressed:bg-[color-mix(in_srgb,var(--foreground)_10%,var(--glass-bg-resting))]`, present on the `glass` member and all 13 others (`dist/button-BNDWhAZb.js`). A real background shift.
+- *Released v7.0.0* — the cva is gone (D-1) and the replacement is colocated CSS that never mentions the attribute:
+  ```
+  $ git show v7.0.0:src/components/button/styles.css | grep -c 'aria-pressed'
+  0
+  ```
+- *Complete enumeration of `[aria-pressed]` rules at v7.0.0* (every `.css` in the tag, 12 hits): `styles/accessibility.css:13,34` — behind `@media (prefers-contrast: more)` and `@media (forced-colors: active)` only; `styles/glass/material.css:447`; `components/dock/styles/controls/{icon-button.css:152, tab-button.css:87, touch-floor.css:83,104, triggers.css:118,124,130}` — all `.dock-*`-scoped; `components/tabs/styles/{segmented.css:188, drag.css:71}` — `.segmented-tab`-scoped.
+- The **only** rule reaching a plain `<Button>` in the default register is `material.css:428-452`, whose cohort head is `:is(.glass-material, .glass-wash, .glass-quiet, .glass-resting, .glass-floating, .glass-overlay, .glass-specular-track, .dock-icon-button, …):is(.is-active, .active, [data-active], …, [aria-pressed="true"], …)::before { --specular-intensity: var(--glass-specular-intensity-active, 0.16); }`. v7.0.0's Button emits `glass-wash` for `tone="neutral"` + `emphasis` primary|secondary (`Button.vue:44-48, 65-71`), so it matches — but the effect is a **specular sheen on a `::before` lens**, not a background, border, or ink change.
+
+**Consequence for F.W1.** Every surviving `<Button :aria-pressed>` toggle in fourier keeps correct semantics and loses its background delta. The affected register is the 12 `variant="glass"` sites D-1 counts plus the sibling toggles the M-run named (`raw-findings.json:2919`: `EquationModeToggle`, `GallerySearchBar` filter-toggle, `EasingPicker` chips). The wave must either author an explicit pressed treatment or move those controls onto `DockControl` / `SegmentedTabs`, both of which retain full pressed paint at 7.0.0 per the enumeration above. Note the direction is *not* uniformly bad: `prefers-contrast: more` and `forced-colors` users gain a 2px `currentColor`/`Highlight` border the 4.0.0 arm never had (`accessibility.css:9-27, 30-43`).
+
+**Status.** The rule inventory is static and complete. Whether the residual specular lift clears perceptibility and WCAG 1.4.11's 3:1 non-text bar is `UNPROVEN-NEEDS-LIVE` (SS-13) — it composites over a canvas backdrop, same caveat as D-13.
+
+**Falsifier.** Produce a v7.0.0 rule matching `[aria-pressed="true"]` on an element carrying `button glass-wash glass-capsule` that is **not** dock-scoped, tabs-scoped, or behind a `prefers-contrast`/`forced-colors` query, and that changes background/border/color rather than `--specular-intensity`. The 12-hit enumeration above is exhaustive over the tag's CSS; one such rule kills D-15.
+
+---
+
+### D-16 · MINOR (inherited, upstream) · The press squish survives `prefers-reduced-motion` on a cascade-layer technicality
+
+**Claim.** S-3 arm 1 credits glass-ui with neutralising the press scale under PRM. The intent is there and the *animation* is killed; the **instantaneous** scale is not. The base cva composes two press-scale mechanisms and only one is guarded.
+
+**Provenance.** The cva base string (`dist/button-BNDWhAZb.js`) opens `btn-pill tap-squish focus-ring … active:scale-(--scale-press-btn) …` — both `tap-squish` **and** a Tailwind arbitrary utility.
+
+| Mechanism | Where | PRM-guarded? | Cascade layer |
+|---|---|---|---|
+| `.tap-squish:active { scale: var(--scale-press) }` | `dist/styles/utilities/base.css:270-272` | **yes** — `@media (prefers-reduced-motion: reduce) { .tap-squish:active { scale: 1 } }`, `base.css:273-279` | `@layer components` |
+| `active:scale-(--scale-press-btn)` | JIT-minted from the cva string | **no** | `@layer utilities` |
+
+Tailwind v4's layer order is `theme, base, components, utilities`, so the unguarded utility outranks the guarded reset regardless of selector specificity, and the element still scales on `:active` under PRM.
+
+**Why MINOR and not MAJOR.** `a11y-overrides.css:12-16` restricts `transition-property` under PRM to `opacity, color, background-color, border-color, box-shadow !important` — which **excludes `scale`**. So the surviving squish applies with no interpolation: an instant, non-animated geometry change. That is not "animation triggered by interaction" under WCAG SC 2.3.3, so this is a **design-consistency** defect — the library does not achieve its own stated intent (`base.css:275-277`: *"the press scale is neutralized under PRM"*) — rather than a conformance failure.
+
+**Attribution and routing.** Authored by glass-ui, inherited here; the consumer cannot fix it without an override, and overriding is exactly the debt S-4 credits this file for avoiding. **Relay to the active glass-ui BH inbox** per the standing formation invariant (every component/glass-ui-level finding is relayed at root). Applies to every `<Button>` in the fleet, not to this file specially.
+
+**Status.** The layer-order derivation is static. The computed `scale` under an emulated `prefers-reduced-motion: reduce` is `UNPROVEN-NEEDS-LIVE` (SS-13) — a one-line DevTools read, and the cheapest confirmation in this challenge.
+
+**Falsifier.** Any of: Tailwind emitting `active:scale-*` into `@layer components`; an `!important` on the `.tap-squish:active` PRM reset (`base.css:273-279` has none); a PRM rule elsewhere in the cascade setting `scale: 1` on `.btn-pill`/`.btn-glass` at utilities-layer or higher (none found across `dist/styles/`); or `--scale-press-btn` resolving to `1` (it does not — it is the press rung of the shared scale cohort). Any one kills D-16.
+
+---
+
+### D-17 · INFO · Dated provenance — the name *was* true, and the file took two maintenance passes after it died
+
+**Claim.** D-8 judges the name unearned and D-2 judges the file dead. `git log` dates both precisely and adds a third fact: the component was maintained **twice** after it stopped being reachable.
+
+**The three commits touching the file since its consumers vanished** (`git log --format="%h %ad %s" --date=short -- web/src/components/visualization/CanvasOverlayButton.vue`):
+
+| Commit | Date | What it did |
+|---|---|---|
+| `2f53d5d` | 2026-03-16 | **The orphaning.** Body: *"CanvasOverlayButton no longer imported"*. Deleted the `position: 'edit' \| 'expand' \| 'equation'` prop, the `right-2` / `right-[3.25rem]` / `right-[5.5rem]` corner ladder, and the scoped `<style>` block (`position: absolute; top: 0.5rem; z-index: 20`). The three consumers moved to the new `CanvasControlsDock` (`git show 2f53d5d^:…/VisualizationView.vue:21,194,201,208`). |
+| `be24948` | 2026-05-26 | **A.W3.b.** Rewrote the corpse onto `<Button variant="glass" size="icon">` and, *in the same diff*, added the six-line doc-comment D-4 dismantles — including the `.is-active` "canon" claim it had just falsified by swapping `class="glass-btn"` for `variant="glass"` (D-3's `btn-glass` ≠ `glass-btn` transposition **originates here**). |
+| `262c3d0` | 2026-06-02 | Re-pointed the import from the root barrel to the `@mkbabb/glass-ui/button` subpath. |
+
+**Three corrections and one sharpening this yields:**
+
+1. **The name was earned once.** D-8 reads as though `CanvasOverlayButton` were always a misnomer. It was accurate until `2f53d5d`: the component genuinely held the canvas-corner overlay geometry that named it. The defect is not bad naming — it is a name left standing over a deleted capability, which is a strictly worse failure mode because it reads as intentional.
+2. **The duration is 141 days, not ~7 weeks** (D-2 corrected inline above).
+3. **D-3's mechanism is dated and attributed.** The `.is-active` orphaning is not ambient drift — it is one identifiable diff, `be24948`, which destroyed the class's only paint hook and documented the class as canonical in the same commit. That is the sharpest single sentence available about this file.
+4. **Dead code is not free here.** Two post-mortem maintenance passes is the empirical cost of the five skipped `DELETE` orders (D-2), and D-1 shows the third pass — the `variant`/`size` uplift migration — is already queued against it.
+
+**Falsifier.** `git log --follow` showing an import surviving past `2f53d5d`, or a fourth touching commit reversing any of the above. `git grep -n "CanvasOverlay" 2f53d5d^ -- web/src` returns the three `VisualizationView.vue` call sites; `git grep -n "CanvasOverlay" HEAD -- web/src` returns nothing — the orphaning is exactly that commit.

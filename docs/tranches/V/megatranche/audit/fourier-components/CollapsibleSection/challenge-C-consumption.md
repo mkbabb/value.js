@@ -50,6 +50,11 @@ So the F.W2 *source*-migration surface (bare specifiers, the hand-rolled `lib/co
 
 **Tally: 17 defects — 1 BLOCKER · 4 MAJOR · 6 MINOR · 6 INFO. 5 superlatives (§6).**
 
+> **→ SECOND PASS APPENDED — read §11 before citing this tally.** An independent second C-axis seat adds
+> **5 net-new defects** (N-1..N-5) and **withdraws S-4**. Consolidated file totals: **22 defects —
+> 1 BLOCKER · 5 MAJOR · 10 MINOR · 6 INFO · 4 superlatives standing.** (This pointer is the only edit
+> made to §0–§10; the first pass is otherwise verbatim.)
+
 ---
 
 ## §2 · The BLOCKER
@@ -312,3 +317,246 @@ Verified end to end: `dist/styles/animations.css:18` and `:29` define exactly th
 - The component was read whole. Every file it imports was read: `glass-ui/dist/collapsible.js`, `glass-ui/dist/CollapsibleContent-C_s6fG7r.js` (the full implementation of all three components), the four `.d.ts` under `glass-ui/dist/components/ui/collapsible/`, `glass-ui/dist/styles/animations.css`, `tokens/scheme-motion.css`, `utilities/btn.css`, `utilities/base.css`, `typography/utilities.css`, `components.css`, and the glass-ui + fourier `package.json`s. All four consumers were read (`EqCoefficientsPanel.vue` whole, `FunctionInput.vue`, `ContourPreview.vue`, and their mount contexts in `EquationView.vue` / `VisualizationView.vue`), as were the two sibling `CollapsibleContent` consumers (`ContourSettings.vue`, `PaperSidebar.vue`) and `src/style.css`.
 - No browser tooling. Two claims are explicitly marked UNPROVEN-NEEDS-LIVE (CS-6) and are excluded from the defect severities above where they would have raised them.
 - `web/package.json` and `web/src` sit on branch `m/w1-bump-migration` with the in-flight bump uncommitted (`lane-frontend.md` §0 [WT] caveat). Every version figure here is **[WT] = installed**, verified against `node_modules` rather than against `package.json` alone. `CollapsibleSection.vue` itself is **not** among the 24 in-scope dirty paths.
+
+---
+---
+
+# §11 · SECOND PASS — independent re-challenge (claude-opus-5[1m])
+
+**Provenance.** This section was authored by a second, independently-spawned C-axis seat that opened the
+component cold and did not read §0–§10 until its own measurements were banked. **The only edit made to
+§0–§10 is the forward-pointer blockquote under §1's tally line; the first pass is otherwise preserved
+verbatim.** This section records (a) what the second pass
+independently **corroborated**, (b) **five net-new defects** the first pass did not reach, and (c) **one
+explicit refutation of a first-pass superlative**. Where the two passes disagree, the disagreement is
+stated, not smoothed.
+
+**Second-pass mode.** Static + source-derived, read-only. **One** execution, entirely inside the session
+scratchpad: an isolated `tsc` project (`paths`-mapped to the repo's `node_modules`, `noEmit: true`, no
+`-b`, no symlink into the repo, no `.tsbuildinfo`) — **zero bytes written anywhere in
+`fourier-analysis`, `glass-ui`, or any `node_modules`.** No `npm`, no browser tooling. The first pass's
+`npm install --dry-run` receipt (§2) is adopted as-cited and was independently corroborated by manifest
+arithmetic below rather than re-run.
+
+**Revised tally for the file as a whole: 22 defects — 1 BLOCKER · 5 MAJOR · 10 MINOR · 6 INFO ·
+4 superlatives standing (S-4 WITHDRAWN, see N-1).**
+
+---
+
+## §11.1 · Net-new defects
+
+### N-1 · **MAJOR** — the reduced-motion guard covers the CSS animation but **not** the JS smooth scroll. This refutes S-4.
+
+`:66-71` nulls both state animations under `prefers-reduced-motion: reduce`. `:26` then issues
+
+```ts
+el.scrollIntoView({ behavior: 'smooth', block: 'end' });
+```
+
+— **imperative motion that no CSS media query can reach.** A user who has asked the platform for reduced
+motion still gets a smooth-scrolling viewport on every expand of every one of the four sections. The
+component suppresses the motion the *producer* owns and then adds motion of its own beside it, unguarded.
+
+*Provenance* `CollapsibleSection.vue:17-30` (the watcher), `:26` (the scroll), `:66-71` (the guard that
+does not cover it).
+
+*Falsifier, applied and survived.* The claim dies if `scrollIntoView({behavior:"smooth"})` honours
+`prefers-reduced-motion` implicitly. It does not: the reduced-motion idiom in CSS applies to the
+`scroll-behavior` **property**; an explicit `ScrollBehavior` argument passed to
+`Element.scrollIntoView()` is an author instruction that overrides the element's computed
+`scroll-behavior` and is not media-query-gated. The conformant consumer forms are
+`behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"`, or dropping the
+argument and letting a CSS `scroll-behavior` + `@media` pair decide. It also dies if no user path reaches
+`:26` — refuted: all four callsites are user-togglable, and `:26` is the terminal statement of the only
+behavioural branch in the file.
+
+*Direct contradiction of §6 S-4.* The first pass wrote: *"The reduced-motion block is correct and
+**complete**. … `:66-71` disables **both** state animations outright … the stronger,
+WCAG-2.3.3-conformant reading."* The block is correct **for what it covers**; it is **not complete**. Its
+own falsifier — *"had it … covered only the open state, the claim would fail"* — was scoped to the two CSS
+selectors and never asked whether the file emits motion outside CSS. It does, nine lines above. **S-4 is
+WITHDRAWN and re-filed as this defect.** The file's superlative count drops 5 → 4.
+
+*Second-order note.* This also weakens the first pass's C-3 asymmetry remark ("this file is the only
+place the reduced-motion guard has anything to guard"): the guard has *more* to guard than it guards.
+
+*UNPROVEN-NEEDS-LIVE (SS-13)* — the perceived scroll distance under an OS reduced-motion setting. Add to
+CS-6.
+
+### N-2 · **MINOR** — the 250 ms callback never re-reads `open`; close-within-the-window still scrolls
+
+`:20-28` fires on the leading edge of `open === true` and, 250 ms later, checks **only** `if (!el)`
+(`:22`). It never re-consults `open.value`. Open → collapse inside the window ⇒ the branch still executes
+`getBoundingClientRect` + the gate at `:25` on a now-collapsed section, and can still fire `:26`. Nothing
+in `:17-30` cancels a pending timer, so N rapid opens queue N timers.
+
+*Provenance* `CollapsibleSection.vue:17-30`.
+
+*Relationship to §5 C-12.* C-12 is the **unmount** arm and the first pass correctly closed it as benign
+(refs null on unmount; `:22` exits). This is the **toggle** arm, which C-12 does not cover and which is
+not benign-by-the-same-mechanism: the root `<Collapsible>` stays mounted through a collapse, so `el` is
+non-null and the guard does not fire. The two are separate rows.
+
+*Falsifier, applied, partially against me.* The gate at `:25` will usually be false for a collapsed
+section (its `rect.bottom` has shrunk to the trigger row), so the *scroll* usually does not fire — this is
+a correctness defect in the guard, not a reliably visible one. It is filed MINOR for exactly that reason.
+It becomes live whenever a section is collapsed while already below `<main>`'s bottom edge.
+
+### N-3 · **MINOR** — `:58` cites a specifier that glass-ui 4.0.0 does not export. This qualifies S-1.
+
+The comment at `:57-59` directs the reader to **`@mkbabb/glass-ui/styles/animations.css`**. The installed
+producer's exports map carries exactly `./styles`, `./styles/fonts`, `./styles.css`, `./collapsible`
+(and the rest of the component subpaths) — **no `./styles/animations`, no `./styles/animations.css`, and
+no `./styles/*` wildcard.** A consumer who acts on the comment gets
+`ERR_PACKAGE_PATH_NOT_EXPORTED`. The identical false path is duplicated at `ContourSettings.vue:358`.
+
+*Provenance* `CollapsibleSection.vue:58`; `ContourSettings.vue:358`;
+`node_modules/@mkbabb/glass-ui/package.json` `exports` (enumerated:
+`node -e "Object.keys(require('…/package.json').exports).filter(k=>/styles/.test(k))"` →
+`./styles`, `./styles/fonts`, `./styles.css`).
+
+*Falsifier, applied and it protects S-1's substance.* The comment's **claim** is TRUE and the second pass
+re-verified it end-to-end independently: `src/style.css:3 @import "@mkbabb/glass-ui/styles"` →
+`dist/styles/index.css` → `@import "./animations.css"` → `animations.css:18` (`collapsible-open`) /
+`:29` (`collapsible-close`), both reading `var(--reka-collapsible-content-height)`. So this is a
+**pointer defect on a correct mechanism**, not a broken cascade. §6 S-1 called the comment *"precise …
+and TRUE"* and *"names a producer file path and survives verification"* — the **path** does not survive:
+it is a real file at a real location inside the package, but it is **not reachable as a specifier**.
+S-1 stands with that qualification; the two are compatible.
+
+### N-4 · **MINOR** — the fork at `ContourSettings.vue:255-307` is a *composition*-level fork, and the wrapper offers no seam that would let it be consumed
+
+§3 C-3 records the CSS half of this (`ContourSettings.vue:363-372` byte-duplicates the animation block).
+The second pass records the other half: `ContourSettings.vue:255-307` re-builds the **entire
+composition** — `<Collapsible v-model:open>` + `<CollapsibleTrigger>` + `<ChevronRight>` + animated
+`<CollapsibleContent>` — rather than mounting `CollapsibleSection`. Measured divergences between the fork
+and the wrapper are exactly two, and both are one prop away from being expressible:
+
+| axis | `CollapsibleSection` | `ContourSettings` fork |
+|---|---|---|
+| trigger typography | `.cm-serif text-sm font-semibold tracking-tight` (`:39`) | `.advanced-trigger` — `@apply text-sm`, `font-weight: 500`, `letter-spacing: .03em`, `color-mix(… --foreground 40% …)` (`ContourSettings.vue:336-352`) |
+| content class | `.collapsible-content` (`:45`) | `.advanced-content` (`ContourSettings.vue:265`) |
+
+The wrapper exposes **no `variant` prop and no trigger slot** (`:6-12` is three scalars; `:36-42` hardcodes
+the trigger's entire content). So the fork is not merely undisciplined — it is *unavoidable* given the
+wrapper's surface. That makes this a consumption-contract defect on the wrapper, not only a hygiene
+defect on the forker.
+
+*Provenance* `CollapsibleSection.vue:6-12,36-42`; `ContourSettings.vue:8-12,255-307,336-352,363-372`.
+
+*Falsifier, applied and survived.* The claim dies if the two compositions are behaviourally distinct
+enough to justify two implementations. They are not: both bind `v-model:open` to a local `ref`, both
+rotate a lucide chevron on open, both drive `data-state` → the same two glass-ui keyframes. A `variant`
+prop plus a `#title` slot subsumes the fork exactly. It also dies if `ContourSettings` predates the
+wrapper — refuted: `ContourSettings.vue:354-361` explicitly cites *"the same substrate animation
+`CollapsibleSection` adopted at A.W3.d"*, so the forker knew the wrapper existed and chose around it.
+
+*Sharpens CS-3.*
+
+### N-5 · **MINOR** — the wrapper narrows a 6-prop primitive to 3 with no forwarding seam; `unmountOnHide` in particular is unreachable and load-bearing
+
+Second-pass type-probe (isolated `tsc`, scratchpad) resolved
+`InstanceType<typeof Collapsible>["$props"]` to:
+
+```
+{ readonly defaultOpen?: boolean; readonly open?: boolean; readonly disabled?: boolean;
+  readonly unmountOnHide?: boolean; readonly asChild?: boolean; readonly as?: AsTag | … }
+```
+
+`defineProps` at `:6-12` declares `{title, subtitle, defaultOpen}`. Four primitive props —
+`disabled`, `unmountOnHide`, `asChild`, `as` — are **unreachable by declaration**. They remain reachable
+at runtime as fallthrough attrs (`inheritAttrs` defaults true; the template root is `<Collapsible>`), but
+that path is untyped, undocumented, and invisible to `vue-tsc -b` (`ci.yml:95`) — the definition of an
+accidental API.
+
+`unmountOnHide` is the one that bites. Its reka default destroys content on collapse, so
+`ContourPreview.vue:36-50`'s live SVG is torn down and rebuilt on every toggle with no consumer opt-out —
+while the parent's `previewPath` / `previewViewBox` computeds (`ContourPreview.vue:10-29`) keep
+recomputing regardless, because the wrapper emits nothing to gate them on.
+
+*Provenance* `CollapsibleSection.vue:6-12`; `glass-ui/dist/components/ui/collapsible/Collapsible.vue.d.ts`
+(props = reka `CollapsibleRootProps`, emits `update:open`); `ContourPreview.vue:10-29,36-50`.
+
+*Relationship to §3 C-2.* C-2 is the **state-recovery** defect (no emit, no expose, snapshot
+`defaultOpen`). N-5 is the **surface-narrowing** defect. C-2's falsifier paragraph notes in passing that
+`unmountOnHide` "is never passed"; it is filed here as its own row because the fix is different — C-2
+wants `defineModel`, N-5 wants forwarding (`v-bind="$attrs"` typed, or an explicit passthrough).
+
+*Falsifier, applied and survived.* The claim dies if `CollapsibleRootProps` lacks those members — refuted
+by the probe above. It dies as a *practical* matter if some callsite already needs one of them and gets it
+— refuted: `grep -rn "unmount-on-hide\|:disabled\|as-child" ` over the four callsites → 0.
+
+---
+
+## §11.2 · Independent corroborations (second pass, arrived at cold)
+
+Recorded because a finding reproduced by two seats that did not share receipts is stronger than one:
+
+| first-pass row | second-pass receipt (independent) | verdict |
+|---|---|---|
+| **C-1** BLOCKER (value.js peer violated at 4.0.0) | Manifest arithmetic, no `npm` run: installed `@mkbabb/glass-ui@4.0.0` `peerDependencies["@mkbabb/value.js"] = "^0.10.0 \|\| ^0.11.0"`; installed `@mkbabb/value.js` = `0.13.0`. Caret on `0.x` is minor-locked (`^0.10.0` ≡ `>=0.10.0 <0.11.0`; `^0.11.0` ≡ `>=0.11.0 <0.12.0`) ⇒ **0.13.0 satisfies neither**. | **CONFIRMED** by a second, independent method. The first pass's ERESOLVE receipt and this arithmetic agree. |
+| **C-5** (lucide mis-declared and mis-named) | `web/package.json:35` = devDependencies; `grep -rn "lucide-vue-next" web/src \| wc -l` → **35**; `vite.config.ts` `manualChunks.vendor-ui: ["@mkbabb/glass-ui","reka-ui","lucide-vue-next"]` — the repo's **production** chunk map names a devDependency. | **CONFIRMED + EXTENDED** — the build config contradicting the manifest is net-new colour on the same row. |
+| **C-6** (root barrel) | `dist/collapsible.js` 154 B vs `dist/glass-ui.js` 33 527 B; `sideEffects: ["*.css"]`; `ContourSettings.vue:8-12` and `PaperSidebar.vue:7` both use `/collapsible`. | **CONFIRMED**, including the first pass's own refusal to claim a byte regression. |
+| **K-2 → C-8** (`$el` is `any`, not a `vue-tsc` error) | Isolated scratchpad `tsc`: `const t1: 1 = inst.$el` and `const t2: 1 = el` **both compiled silently** (proving `any`), while `const t3: 1 = inst` errored and printed the full `ComponentPublicInstance`. This isolates the exact expression rather than inferring from a whole-project pass. | **CONFIRMED** — and the second pass raised, then killed, the identical `__VLS_WithSlots` hypothesis before reading K-2. Two seats, same wrong guess, same kill. |
+| **C-16** (`#actions` dead) | `grep -rn "#actions\|v-slot:actions" web/src` → 0, across all four callsites. | **CONFIRMED** |
+| **S-1** (keyframes cascade real) | `animations.css:18,29` located in the **installed** dist; reached via `style.css:3` → `index.css`; `--ease-out` located at `tokens/scheme-motion.css:217` reached via `tokens.css:26`. | **CONFIRMED**, with the pointer qualification at N-3. |
+| **S-2** (zero value.js / keyframes.js / API coupling) | `grep -rn "@mkbabb/value.js" web/src` → 5 sites, none in this file; keyframes 0; no `lib/api.ts`, no store, no `fetch`. | **CONFIRMED** |
+
+---
+
+## §11.3 · Additional hypotheses killed (append to §7)
+
+| # | hypothesis | killed by |
+|---|---|---|
+| **K-8** | `CollapsibleTrigger` renders a `type`-less `<button>` ⇒ clicking a section header inside a form submits it ⇒ page reload. Would have been a second BLOCKER. | `node_modules/reka-ui/dist/Collapsible/CollapsibleTrigger.js` emits `type: _ctx.as === "button" ? "button" : void 0` and `as` defaults to `"button"`. Independently, `grep -rn "<form" web/src/components/{equation,visualization}` → **0**. Dead twice over. |
+| **K-9** | The `lucide-vue-next` → `@lucide/vue` rename (C-5) carries **visual** drift, so the 35-site migration needs a screenshot gate. | **REFUTED — and this is good news for the F.W2 budget.** `lucide-vue-next@1.0.0/dist/esm/icons/chevron-right.js` and `@lucide/vue@1.20.0/dist/esm/icons/chevron-right.mjs` carry byte-identical geometry: `["path",{d:"m9 18 6-6-6-6",key:"mthhwq"}]`. The rename is a specifier sweep, not a visual migration. |
+| **K-10** | Importing the glass-ui **root barrel** (`:2`) drags glass-ui's icon runtime and its optional peers (value.js / keyframes.js / pencil-boil) into this leaf's graph, making C-1's peer violation reachable from this file. | **REFUTED.** `grep -rlE 'from"@mkbabb/(value\.js\|keyframes\.js\|pencil-boil)"' dist/*.js` → **0** — glass-ui 4.0.0's shipped dist statically imports none of its `@mkbabb/*` optional peers. Combined with `sideEffects: ["*.css"]`, the root barrel is shakeable. C-1 remains a **manifest**-level blocker, not a graph-level one reachable from `:2`. |
+
+**New measurement supporting C-5** (net-new, no first-pass counterpart): glass-ui 4.0.0 does not import
+`@lucide/vue` at runtime at all — it has **vendored** the icon factory into its own dist
+(`dist/createLucideIcon-DydS2qgk.js`, 1 775 B, whose source regions read
+`//#region node_modules/@lucide/vue/dist/esm/Icon.mjs`), and **14** dist chunks import that vendored
+module. Meanwhile `@lucide/vue@1.20.0` sits installed (to satisfy the declared required peer) and
+**unimported**. So the graph carries three lucide surfaces — fourier's bundled `lucide-vue-next`,
+glass-ui's vendored copy, and a dead installed `@lucide/vue`. This does **not** raise C-5's severity (the
+vendored factory is 1.8 KB and the geometry is identical per K-9); it does mean the producer's own peer
+declaration is decorative, which belongs in the **CS-2** glass-ui BH relay.
+
+---
+
+## §11.4 · Second-pass carries
+
+| id | to | ask |
+|---|---|---|
+| **CS-7** | **F.W3** | Gate `:26`'s `behavior` on `prefers-reduced-motion` (or delete the JS scroll in favour of `scroll-margin-block-end` + CSS `scroll-behavior`). N-1. This is the cheapest row in the whole challenge — one expression — and it is the only one with an accessibility consequence. |
+| **CS-8** | **F.W3** (fold into CS-3) | Give the wrapper a `variant` prop and a `#title` slot so `ContourSettings.vue:255-307` can be re-homed onto it, and forward `disabled` / `unmountOnHide` explicitly. N-4 + N-5. |
+| **CS-9** | **F.W2 (doc sweep)** | Correct the two prose citations of `@mkbabb/glass-ui/styles/animations.css` (`CollapsibleSection.vue:58`, `ContourSettings.vue:358`) to the reachable specifier `@mkbabb/glass-ui/styles`. N-3. Cheap, and the current text will send the next reader into `ERR_PACKAGE_PATH_NOT_EXPORTED`. |
+| **CS-10** | **glass-ui BH inbox** (fold into CS-2) | glass-ui 4.0.0 declares `@lucide/vue ^1.16.0` as a **required, non-optional** peer while its shipped dist imports it **zero** times (the factory is vendored). Either drop the peer or stop vendoring; a required peer nobody imports is a resolution tax on every consumer. |
+| **CS-11** | **F.W3 / this audit's ledger** | Record that **§6 S-4 is WITHDRAWN** (N-1). Any downstream roll-up that counts this component's superlatives should read **4**, not 5. |
+
+---
+
+## §11.5 · Second-pass method + limits
+
+- Read whole, cold, before any corpus read: `CollapsibleSection.vue` (72 lines) and every file it imports
+  — `glass-ui/dist/collapsible.js`, `dist/components/ui/collapsible/{Collapsible,CollapsibleTrigger,CollapsibleContent,index}.d.ts`,
+  `dist/styles/index.css`, `dist/styles/animations.css`, `dist/styles/tokens.css`,
+  `dist/styles/tokens/scheme-motion.css`, `dist/createLucideIcon-DydS2qgk.js`,
+  `reka-ui/dist/Collapsible/CollapsibleTrigger.js`, `lucide-vue-next` + `@lucide/vue` `chevron-right`,
+  and the glass-ui + fourier `package.json`s. Then all four callsites and their mount contexts
+  (`ContourPreview.vue`, `EqCoefficientsPanel.vue`, `FunctionInput.vue`, `EquationView.vue`,
+  `VisualizationView.vue`, `App.vue`), the sibling fork (`ContourSettings.vue`), `src/style.css`,
+  `vite.config.ts`, `web/Dockerfile`, `.github/workflows/ci.yml`.
+- **Writes:** this file only. `/Users/mkbabb/Programming/fourier-analysis` and
+  `/Users/mkbabb/Programming/glass-ui` were read-only throughout; the one `tsc` run and its tsconfig live
+  in the session scratchpad and resolve the repo's `node_modules` through `compilerOptions.paths`, so
+  nothing was emitted into either tree. `vue-tsc -b` was deliberately **not** run against the repo,
+  because build mode writes `.tsbuildinfo`.
+- No browser tooling. Second-pass UNPROVEN-NEEDS-LIVE additions for **CS-6**: (i) N-1's perceived scroll
+  under OS reduced-motion; (ii) whether `main.scrollHeight > main.clientHeight` on `/v/:slug` — if it is
+  not, C-4's `:26` is entirely inert at the `ContourPreview` callsite, which would sharpen C-4 from
+  mis-gated to dead; (iii) whether Vue's scope-id propagation actually reaches the content root two
+  component layers down (glass-ui `CollapsibleContent` → reka `CollapsibleContent` → `Primitive`), on
+  which **all** of `:54-71` — the clip, both animations, and the reduced-motion guard — depends.
+- Substrate re-confirmed at the same coordinate the first pass used: fourier HEAD `cd26c65`
+  (`lane-fourier-r3-r6.md` **R4-9**). `wc -l` → 72. No line number above was inferred; every one was read.

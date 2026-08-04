@@ -43,7 +43,15 @@ The megatranche record: `formation/fourier/lane-frontend.md:101,304` (census row
 
 ---
 
-## §1 — DEFECTS (10 · 2 BLOCKER · 3 MAJOR · 4 MINOR · 1 INFO)
+## §1 — DEFECTS (14 · 3 BLOCKER · 5 MAJOR · 5 MINOR · 1 INFO)
+
+*Rows C-1…C-10 audit the consumption edge against the **installed** `glass-ui@4.0.0`. Rows
+C-11…C-14 audit the same edge against the **target** of the F.W1 atomic tri-package uplift
+(`CENSUS-2026-08-03.md:184`, `lane-frontend.md:492`) — `glass-ui@v7.0.0` — and against Vue's
+fallthrough law. All `v7.0.0` evidence is read from the **git tag** (`git show v7.0.0:…` in
+`/Users/mkbabb/Programming/glass-ui`, whose `package.json` at that tag reads `7.0.0`), never from
+the producer working tree, which is dirty (29 paths) and sits on a later BK-tranche commit
+(`64e23000`).*
 
 ### C-1 · BLOCKER · The consumption contract has never been ratified — zero consumers, unreachable by construction
 
@@ -310,7 +318,166 @@ already on record at `docs/tranches/A/audit/W3-button-ledger.md:93` ("`<Button v
 
 ---
 
-## §2 — SUPERLATIVES (4) — L-18 runs both ways
+### C-11 · BLOCKER · `size="icon"` is not assignable at `glass-ui@v7.0.0` — this zero-consumer file fails the F.W1 typecheck gate
+
+**Claim.** F.W1 is the *atomic* tri-package uplift `glass 4→7 ∧ keyframes 4.3→6 ∧ value 0.13→4.0`
+(`lane-frontend.md:492,636`; `CENSUS-2026-08-03.md:184`) — none of the three can land alone. At its
+glass-ui leg, `CanvasOverlayButton.vue:19` stops type-checking. Because `tsconfig.json:19` includes
+`src/**/*.vue`, **reachability does not gate the typechecker — `include` does** — so a component
+with zero consumers (C-1) becomes a hard build-gate failure.
+
+**Provenance.**
+- Consumer: `CanvasOverlayButton.vue:19` — `size="icon"`.
+- Producer at the target: `git show v7.0.0:src/components/button/Button.vue`
+  - `:16` — `export type ButtonSize = Extract<Size, "xs" | "sm" | "md" | "lg">;`
+  - `:23` — `size?: ButtonSize;`
+
+  `"icon"` **is not a member.** The 4.0.0 `size` axis (`default|xs|sm|lg|icon|icon-sm`, per
+  `dist/components/ui/button/index.d.ts`) was refactored: the two `icon*` members were lifted out of
+  `size` into a separate boolean geometry flag, `iconOnly?: boolean` (`v7.0.0:Button.vue:25`,
+  defaulted `false` at `:38`).
+- Gate: `package.json:8` — `"build": "vue-tsc -b && vite build"`.
+
+**Failure scenario.** F.W1 lands the uplift; `npm run build` runs `vue-tsc` over `src/**/*.vue`;
+`:19` reports TS2322 (`Type '"icon"' is not assignable to type '"xs" | "sm" | "md" | "lg" | undefined'`).
+The wave's build gate fails on a component that renders nowhere.
+
+**Runtime tail, independent of the type error.** At 7.0.0 the geometry is attribute-driven:
+`git show v7.0.0:src/components/button/styles.css` → `:121` `.button[data-size="xs"]`, `:128` `sm`,
+`:133` `lg`, `:139` `.button[data-icon-only]`; and `v7.0.0:Button.vue:90-91` emits
+`:data-size="size"` + `:data-icon-only="iconOnly || undefined"`. Passing `size="icon"` therefore
+yields `data-size="icon"` — matched by **no** rule — with `data-icon-only` **absent**. The square
+icon geometry is silently lost and the glyph renders inside a default text-button box.
+
+**Falsifier.** (a) Show `ButtonSize` at the published 7.0.0 admitting `"icon"` — the v7.0.0 tag says
+it does not; (b) show `tsconfig.json` excluding the file — `:19` includes it; (c) show `vue-tsc -b`
+swallowing the diagnostic. **(c) is live and is the only soft edge**: fourier's own M-critique plan
+(`docs/audits/runs/2026-06-17-M-critique-audit/plan-synth.json:158`) records that `-b` masks the exit
+code and prescribes switching to `vue-tsc --noEmit`. So today's *invocation* may hide it — which
+converts this from "fails loudly at F.W1" to "fails loudly the moment F.W1 executes the gate fix it
+has already committed to." Only the failure *hour* moves. `UNPROVEN-NEEDS-LIVE` for the
+`-b`-masking sub-claim alone (SS-13: `npx vue-tsc --noEmit` after the uplift).
+
+**Relation to C-1.** C-1 rules this file DELETE on reachability grounds; C-11 converts that from a
+hygiene preference into a **wave dependency**. `git rm` on this one path discharges C-11 and C-12
+outright, and is the cheapest blocker-clearing move available to F.W1.
+
+---
+
+### C-12 · MAJOR · `variant="glass"` does not exist at `glass-ui@v7.0.0` — the surface identity is *deleted*, not renamed, and the F.W1 budget does not carry it
+
+**Claim.** `:18` `variant="glass"` survives the 4→7 hop as a **stray DOM attribute**, not as a prop.
+The 13-member `variant` axis was refactored into orthogonal `emphasis` × `tone` axes.
+
+**Provenance.**
+- Installed 4.0.0: valid — `dist/components/ui/button/index.d.ts` declares the 13-member `variant`
+  union including `"glass"`.
+- Target: `git show v7.0.0:src/components/button/Button.vue` — `ButtonProps` (`:18-31`) declares
+  `emphasis?: ButtonEmphasis` (`:20`), `tone?: Tone` (`:22`), `size?: ButtonSize` (`:23`),
+  `iconOnly?` (`:25`), `loading?` (`:27`), `type?`, `disabled?`, `class?`. **No `variant` key, and no
+  index signature.** `git show v7.0.0:src/components/button/index.ts` exports
+  `{ Button, ButtonProps, ButtonEmphasis, ButtonSize }` — no `buttonVariants`, no `ButtonVariants`.
+
+**Failure scenario — the worst kind of migration outcome.** `variant` is undeclared, so it falls
+through `$attrs` and is set as a literal `variant="glass"` attribute on the `<button>` element:
+invalid HTML, zero paint. But the glass material at 7.0.0 comes from `v7.0.0:Button.vue:46-51`
+(`glassMaterial = tone === "neutral" && emphasis ∈ {primary, secondary}`), and both are **defaults**
+(`:35-36`). So the button keeps *looking* glassy while the pinned identity is gone and a junk
+attribute ships — the code stays wrong and nothing complains.
+
+**Correct migration shape** (recorded, not applied):
+`variant="glass" size="icon"` → `emphasis="secondary" tone="neutral" icon-only` (+ `size` left at
+its `"md"` default).
+
+**Why this is a *new* row and not a restatement.** `lane-frontend.md:508` budgets the 4→7 hop as
+"3 removed subpaths in live use, 3 removed dock members, a removed type, a peer-package rename
+(35 sites)". **The Button `variant`→`emphasis` / `size:"icon"`→`iconOnly` refactor is not in that
+list.** It is a genuine addition to the F.W1 budget, and it does not land only here: `grep -rn
+'variant="glass"' web/src/` → 12 occurrences across 8 files (C-10), and the `<Button …>` callsite
+population enumerated by `docs/tranches/A/audit/W3-button-ledger.md` is ~30 rows, **every one of
+which passes a now-deleted `variant`**. This file is the cheapest of them to fix (delete it); the
+other ~29 are real work the census has not yet costed.
+
+**Falsifier.** Show `variant` surviving at published 7.0.0 — the tag's `ButtonProps` has no such key.
+MAJOR rather than BLOCKER because the *guaranteed* consequence (silent identity loss + stray
+attribute) does not depend on whether vue-tsc also rejects the unknown attribute; if it does, C-12
+promotes to BLOCKER alongside C-11. `UNPROVEN-NEEDS-LIVE` for that sub-claim only.
+
+---
+
+### C-13 · MAJOR · The component reinvents `ToggleChip` — a primitive glass-ui 4.0.0 already ships, with a strictly stronger contract
+
+**Claim.** Everything this wrapper attempts — a pressed-state icon control with `aria-pressed`,
+keyboard semantics, and a square icon geometry — is already a first-class export of the *same
+installed package*, done better.
+
+**Provenance.** `node_modules/@mkbabb/glass-ui/package.json` exports `"./toggle-chip"` →
+`dist/components/custom/toggle-chip/ToggleChip.vue.d.ts`, whose own docstring (`:1-17`) reads:
+
+> *"ToggleChip — accessible toggleable 'chip' or 'cell' selector, **built on reka-ui's Toggle root so
+> it carries proper `aria-pressed` and keyboard semantics**. Pair with `variant="chip"` for inline
+> horizontal selectors or **`variant="cell"` for square icon + label cards**."*
+
+Its typed contract (`:20-33`): `ToggleProps & { variant?, class? }` with emit
+`"update:modelValue": (value: boolean) => any` — a real two-way `v-model` toggle over reka-ui's
+`Toggle` root, i.e. `data-state` hooks, keyboard activation, and `ToggleGroup` compatibility for
+exclusive selection.
+
+`CanvasOverlayButton` reimplements the *presentation* half (one `aria-pressed` binding) and omits
+the *state* half entirely (C-7: no `defineEmits`, no `defineModel`), while additionally hard-coding
+the role hazard C-4 documents — a hazard `ToggleChip` does not have, because its `aria-pressed` is
+owned by reka-ui's Toggle and is genuinely tri-state-free by construction rather than by accident.
+
+**Failure scenario.** C-1's `KEEP_WITH_MOUNT` disposition, if chosen, would have a consumer own the
+entire toggle state machine externally and re-derive what `ToggleChip` ships — forfeiting the
+reka-ui root, the keyboard contract, and `ToggleGroup` interop, in exchange for nothing.
+
+**Falsifier.** (a) `./toggle-chip` absent from the installed exports map — it is present (verified in
+the 80-key map); (b) `ToggleChip` unable to express a square icon affordance — `variant="cell"` is
+documented as exactly that; (c) a `ToggleChip` API gap this wrapper fills — its props are a
+*superset* (`ToggleProps` carries `defaultValue`, `disabled`, `asChild`).
+
+**Disposition input for `F8-REACH-02`.** This strengthens C-1's DELETE recommendation to a
+DELETE-with-named-successor: if any future overlay affordance genuinely needs a pressed register,
+the answer is `@mkbabb/glass-ui/toggle-chip`, not a fourier-local `<Button>` wrapper — and, per the
+glass-ui-first precept, any gap in `ToggleChip` is a producer ask, not a consumer wrapper.
+
+---
+
+### C-14 · MINOR · Fallthrough is last-wins — all three pinned/computed values are silently defeatable from outside
+
+**Claim.** The component's three design invariants (`variant="glass"` `:18`, `size="icon"` `:19`,
+the computed `:aria-pressed="active"` `:20`) have **no enforcement**: a parent-supplied attribute of
+the same name overrides each of them. This is the precise mechanism by which C-7's "100% implicit
+contract" becomes exploitable rather than merely undeclared.
+
+**Provenance (Vue's law, read from the installed runtime, not from docs).**
+`node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js`:
+- `:4635` — `root = cloneVNode(root, fallthroughAttrs, false, true);`
+- `:7808` — `const mergedProps = extraProps ? mergeProps(props || {}, extraProps) : props;`
+- `:7943-7965` — `mergeProps` unions `class`, merges `style`, **chains** `on*`, and for every other
+  key executes `ret[key] = toMerge[key]` — **last object wins**. `extraProps` (the parent's
+  `$attrs`) is the last object.
+
+**Failure scenario.** `<CanvasOverlayButton variant="ghost">` defeats the pinned glass surface.
+`<CanvasOverlayButton size="sm">` defeats the icon geometry. Most consequentially,
+`<CanvasOverlayButton :active="true" aria-pressed="false">` defeats the *computed* `aria-pressed` —
+the component's one correct mechanism (S-2) — while `.is-active` (a class, therefore **merged**, not
+overridden) still appears in the DOM, producing a control whose class says pressed and whose ARIA
+says not-pressed. A wrapper whose entire stated purpose is "pin the contract" (`:3-8`) pins nothing
+that a caller cannot silently unpin.
+
+**Falsifier.** Show `mergeProps` giving template props precedence (it does not — last-wins for every
+non-`class`/`style`/`on*` key), or show `defineOptions({ inheritAttrs: false })` in the file (absent;
+the compiled output at C-7 confirms no `inheritAttrs` key). The repair is `inheritAttrs: false` plus
+an explicit filtered `v-bind="$attrs"` — or C-1's delete.
+
+**Severity.** MINOR, not MAJOR, because C-1 means no caller exists to exercise it; it is a latent
+contract defect, and it is recorded because C-1's `KEEP_WITH_MOUNT` branch would make it live.
+
+---
+
+## §2 — SUPERLATIVES (5) — L-18 runs both ways
 
 ### S-1 · The import is the cleanest possible form of this dependency edge
 
@@ -390,6 +557,31 @@ and no script beyond `defineProps`.
 **Falsifier.** Any `fetch`/`api`/store import, or any `rAF`/`setInterval`/keyframes import in the file.
 The file's entire import list is one line (`:9`).
 
+### S-5 · The one specifier survives the 4→7 hop untouched — while the tree's value.js specifiers do not
+
+C-11 and C-12 break this component's **props** at F.W1. They do not touch its **specifier**, and that
+distinction is worth naming precisely because the surrounding tree fails it.
+
+`"@mkbabb/glass-ui/button"` (`:9`) is present in the installed 4.0.0 exports map **and still present
+at the target**: `git show v7.0.0:package.json` → `"./button" ∈ exports` = `True`. Zero specifier
+surgery is owed at F.W1.
+
+Contrast the F.W2 debt this file does **not** carry. The live value.js surface is 5 statements / 4
+files / 6 symbols, easing-only (`lane-frontend.md:480`; `CENSUS-2026-08-03.md:38`) — `lib/easings.ts:9,16`,
+`ConvergencePlot.vue:5`, `useCurveTransition.ts:8`, `equation/lib/harmonics.ts:5` — and every one is
+a bare-**root** `@mkbabb/value.js` specifier that value.js 4.0.0 no longer exports ("latent, not
+live, while 0.13.0 remains installed"). F.W2's stated work (`CENSUS:187-188`: "5 bare specifiers →
+`/easing`, delete the `colors.ts` hand-rolled arms") therefore has **zero surface in this file**, and
+the F.W2 census should budget it at **0 rows** while F.W1 budgets it at 2 (C-11, C-12). A 25-line
+component whose whole migration cost sits in exactly one wave is precisely the row a bulk grep
+miscounts in both directions; it is recorded here so it is counted once, in the right wave.
+
+**Falsifier.** (a) `./button` absent at 7.0.0 — present at the tag; (b) any transitive value.js or
+keyframes reach from this import — the chunk closure is
+`dist/button.js → dist/button-BNDWhAZb.js → dist/cn-DJXf4yaB.js` + `vue`, `reka-ui`,
+`class-variance-authority`, `clsx`, with `grep -c "value.js"` → `0,0,0` (already established at C-2's
+falsifier); (c) a `colors.ts` / `lib/api.ts` import — none (§0 table).
+
 ---
 
 ## §3 — Verdict
@@ -403,6 +595,15 @@ of the four contract knobs a wrapper of this kind exists to pin it pins two cosm
 three correctness ones — a dead class (C-3), an unconditional and frequently-wrong ARIA role state
 (C-4), no accessible name (C-5), and no `type="button"` (C-6).
 
+**And the deletion is now *load-bearing for a wave, not merely hygienic*.** At the F.W1 target
+(`glass-ui@v7.0.0`) both pinned attributes are gone from the Button contract: `size="icon"` is not
+assignable to `ButtonSize` (C-11, BLOCKER — and `tsconfig.json:19` puts this zero-consumer file
+inside the `vue-tsc` program, so unreachability buys it no exemption), and `variant` no longer
+exists as a prop at all (C-12). It also reinvents `@mkbabb/glass-ui/toggle-chip`, a shipped
+primitive with a strictly stronger contract (C-13), and pins nothing a caller cannot silently unpin
+(C-14, `mergeProps` last-wins). The one thing that *does* survive the hop cleanly is the specifier
+itself (S-5).
+
 **`F8-REACH-02` disposition recommended: `DELETE`** — with one carry, so the deletion is not a net loss:
 **S-2's `aria-pressed` idiom must be lifted to the live sites before or with the delete.**
 `FullscreenViewer.vue:110` and the six `DockIconButton :class="{'is-active': …}"` sites
@@ -410,7 +611,21 @@ three correctness ones — a dead class (C-3), an unconditional and frequently-w
 `:aria-pressed`, which glass-ui 4.0 now paints natively for both families. Deleting the file without
 that lift discards the only place in the tree where the correct 4.0 idiom is written down.
 
-**Counts** — defects **10** (BLOCKER 2 · MAJOR 3 · MINOR 4 · INFO 1) · superlatives **4** ·
+Deleting the file without that lift discards the only place in the tree where the correct 4.0 idiom
+is written down — and C-13 names where the *5.x-and-after* answer lives instead
+(`@mkbabb/glass-ui/toggle-chip`), so the carry has a destination and not just an origin.
+
+**Counts** — defects **14** (BLOCKER 3 · MAJOR 5 · MINOR 5 · INFO 1) · superlatives **5** ·
 corpus contradictions **2** (raw-findings.json:2919 and :2968, both stale against glass-ui 4.0.0) ·
 corpus confirmations **3** (A8-14/CHR-26/A8-21 dead-component → C-1; partial-prior-run.json:155 count (1)
-peer breach → C-2; `F8-REACH-02` hash + byte identity → C-1).
+peer breach → C-2; `F8-REACH-02` hash + byte identity → C-1) ·
+**corpus additions 2** (`lane-frontend.md:508`'s 4→7 budget omits the Button `variant`→`emphasis` /
+`size:"icon"`→`iconOnly` refactor, which lands on ~30 `<Button>` callsites — C-11/C-12; and
+`CENSUS:187-188`'s F.W2 row-budget for this file is **0**, not 1 — S-5).
+
+**Method note on the two evidence epochs.** Rows C-1…C-10 and S-1…S-4 are measured against the
+artifact fourier resolves today (`web/node_modules/@mkbabb/glass-ui@4.0.0`); rows C-11…C-13 and S-5
+against `glass-ui@v7.0.0` read from the **git tag**, never the dirty producer worktree; C-14 against
+`web/node_modules/@vue/runtime-core` at the installed version. No registry claim was substituted for
+an on-disk artifact anywhere, and no product source in any repo was written — this file is the lane's
+only write.

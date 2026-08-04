@@ -23,12 +23,22 @@ any case.
 its own falsifier; claims that did not survive their falsifier are recorded as such rather than deleted
 (S-4 is one I tried to land and could not).
 
-**Verdict**: **12 defects (2 BLOCKER, 4 MAJOR, 6 MINOR) · 4 superlatives.** The module's *hot path*
-(`createLazyCached`) is excellent and load-bearing for packrat soundness. Its other two exports are the
-problem: `lazy` (the namesake decorator) cannot run under the package's own compiler configuration **and**
-fails to do the one thing lazy exists to do; `getLazyParser` is a second, divergent cache that manufactures a
-shadow grammar. Separately, O-15 **PT-04's headline number is challenged**: the depth ceiling is not a
-constant, and the cold figure on this box is **2.74× lower** than the pinned 7,761.
+**Verdict (after pass 2)**: **20 defects (2 BLOCKER, 5 MAJOR, 8 MINOR, 5 INFO) · 6 superlatives.** The
+module's *hot path* (`createLazyCached`) is excellent and load-bearing for packrat soundness. Its other two
+exports are the problem: `lazy` (the namesake decorator) cannot run under the package's own compiler
+configuration **and** fails to do the one thing lazy exists to do; `getLazyParser` is a second, divergent
+cache that manufactures a shadow grammar. Separately, O-15 **PT-04's headline number is challenged**: the
+depth ceiling is not a constant, and the cold figure on this box is **2.74× lower** than the pinned 7,761.
+Pass 2 adds the sharpest structural finding of the two passes: **`createLazyCached` defers arbitrary parser
+*construction* into the middle of a parse, which falsifies the arming invariant `packrat.ts:284-289` asserts
+in prose** (N-1).
+
+> **PASS STRUCTURE.** §0–§7 are **pass 1**, preserved byte-for-byte — its measurements are its own and are
+> not re-stated at second hand. §8 is **pass 2** (independent seat, same model id, same axis, same
+> read-only substrate), which folds pass 1, contradicts it nowhere, extends L-M1 with a third probe shape
+> and a stack-frame census, and adds eight findings and two superlatives pass 1 did not reach. §9 is the
+> merged ledger. Where the two passes measure the same quantity, both numbers are printed and neither is
+> averaged.
 
 ---
 
@@ -560,6 +570,441 @@ than dropped, because L-18 runs both ways and a failed attack is evidence too.
 
 **Totals: 12 defects (2 BLOCKER · 4 MAJOR · 6 MINOR) · 4 superlatives.**
 
-**One-line verdict**: keep `createLazyCached` verbatim and give it a depth parameter; delete `lazy` and
+**One-line verdict (pass 1)**: keep `createLazyCached` verbatim and give it a depth parameter; delete `lazy` and
 `getLazyParser`, folding the printer onto the execution cache — and re-qualify PT-04's 7,761 as a warm-path
 reading before any gate is built on it.
+
+---
+
+# 8 · PASS 2 — independent re-audit, folding pass 1
+
+**Seat**: claude-opus-5[1m], 2026-08-04, independent of §0–§7.
+**Substrate**: `/Users/mkbabb/Programming/parse-that` @ **`ef10d5b`** (2026-07-05), main checkout, READ-ONLY.
+No worktree, no frozen root, no `~/Documents/Codex` path entered.
+`/Users/mkbabb/Programming/parse-that-css-totality-p2` → **does not exist** (re-verified). **No STOP finding.**
+**Runtime**: node **v26.0.0**, darwin arm64. **Writes**: this file only.
+**Law**: every probe ran in a throwaway `node --input-type=module -e` process against `dist/parse.js`. **No probe
+called `memoize()`, `mergeMemos()`, or `enableDiagnostics()`** — `PACKRAT_ARMED` (`packrat.ts:156`) and
+`diagnosticsEnabled` (`utils.ts:6`) stayed `false` throughout. The one finding that would require arming
+(**N-1**) is marked **ANALYTIC** and ships with the probe someone else may run in a disposable process.
+
+**Relationship to pass 1**: pass 2 **confirms** L-B1, L-B2, L-M4, L-m1, L-m2, L-m3, L-m5 by independent probe
+(numbers below), **corroborates** L-M1's thesis with a third probe shape, and **contradicts pass 1 nowhere**.
+Where pass 1 already owns a row, pass 2 does not re-file it.
+
+### 8.0 · Independent confirmations of pass-1 rows (probes re-run from scratch)
+
+| pass-1 row | pass-2 probe | result |
+|---|---|---|
+| **L-B1** | `lazy(function m(){…}, {kind:"method",name:"m"})` — TC39 call shape | `TypeError: Cannot read properties of undefined (reading 'value')`. Also `lazy.length === 3` — the declared arity itself announces the legacy shape. **CONFIRMED.** |
+| **L-B2** | legacy shape simulated exactly as `__decorate` does it: `lazy(G.prototype,"rule",desc)` then `Object.defineProperty` | `g.rule() === g.rule()` → **false**, ids 37 / 38. **CONFIRMED** by a second, independent construction. |
+| **L-m3** | same probe, with a real instance field: `class G { constructor(tok){this.tok=tok} rule(){ return string(this.tok) } }` | `new G("a").rule().parse("a")` → `TypeError: Cannot read properties of undefined (reading 'length')` — i.e. `string(undefined)`, because `this` is `G.prototype`. Pass 1 filed this **analytically**; pass 2 **executes it**. The prototype bind is not latent-by-reasoning, it is a reproduced crash. |
+| **L-M4** | `let calls=0; fn=()=>{calls++; return digits.or(string("x"))}` | `p.parse("123")` → `calls=1`; `p.toString()` → `calls=2`. Parse-time inner `Parser.id = 38`, print-time inner `Parser.id = 39`, **same object → false**. **CONFIRMED**, and note the sharper corollary: `debug.ts:321-322` memoises `PARSER_STRINGS` under the *shadow* ids, so the printer's own cycle guard (`debug.ts:257`, `:339`) is keyed on a graph that never executes. |
+| **L-m1** | `getLazyParser(() => undefined)` ×3 | body invoked **3** times — the WeakMap entry is written and never served. **CONFIRMED.** |
+| **L-m2** | `Parser.lazy(() => undefined).parse("a")` ×3 · `Parser.lazy(() => { throw … })` ×3 | `TypeError: Cannot read properties of undefined (reading 'parser')` **every** parse; body re-invoked **3/3** in both cases. **CONFIRMED** — there is no negative latch for either a bad return *or* a throwing constructor. |
+| **L-m5** | `inner.flags = 1 /* FLAG_TRIM_WS */; Parser.lazy(() => inner).parseState("   a")` | `isError = true` — the `.call()` path would have trimmed and matched. **CONFIRMED**, including pass 1's falsifier: `grep -rn '\.flags' src/parse/*.ts` shows the only write is `parser.ts:496` on the discarded `flaggedParser`. Latent, exactly as pass 1 rated it. |
+
+---
+
+### N-1 — **MAJOR** (ANALYTIC — the latch is one-way and the law forbids arming it) — `createLazyCached` defers parser **construction** into the parse, falsifying the arming invariant `packrat.ts` asserts in prose
+
+**Provenance**: `lazy.ts:21` (`if (!cached) cached = fn();`) · `parser.ts:43,47` (`packratEnter` / `packratExit`
+bracket the parse) · `packrat.ts:216-217`, `:243-244`, `:290` (the latch machinery) · the invariant text at
+**`packrat.ts:284-289`**.
+
+`packrat.ts:284-289` does not merely describe behaviour — it asserts a guarantee:
+
+> "Arming at CONSTRUCTION (not first invocation) guarantees the latch is set before any memoized parse can
+> open its epoch — the armed path stays byte-identical. The latch never disarms."
+
+That guarantee holds only while construction precedes invocation. **`createLazyCached` is the one mechanism
+in the algebra that makes construction happen *during* invocation**, and nothing forbids a lazy body from
+containing a `memoize()`. For `Parser.lazy(() => memoize(p))`:
+
+1. `parseState` calls `packratEnter()` (`parser.ts:43`). `PACKRAT_ARMED` is still `false`, so
+   `packrat.ts:217` returns `null` — **no epoch is opened, no tables are installed.**
+2. Mid-parse, `lazy.ts:21` evaluates the body → `makeMemoized` runs → `packrat.ts:290` sets
+   `PACKRAT_ARMED = true`. The latch arms **inside** a parse that was already admitted as unarmed.
+3. The memoized node then reads and writes the module-global `MEMO` / `HEADS` / `GROWING`
+   (`packrat.ts:133-134`, `:193`) with **no epoch installed** — the very state `packratEnter` exists to
+   isolate.
+4. `packratExit(null)` returns early at `packrat.ts:244`. Nothing is restored; nothing is cleared.
+
+**Residue.** That first parse's memo cells — retaining its `value`s and offsets — *become* the module-global
+tables for the process. Every later top-level parse snapshots them, installs fresh Maps, and **restores the
+dirty ones on exit** (`packrat.ts:218-230`, `:245-249`), so they are never read again and never freed.
+`resetPackrat()` is the only cure, and O-15/PT-03 measured that it clears the store **without** disarming
+(139.3 ns, still armed).
+
+**What I claim and what I do not.** I traced both hazard classes the epoch machinery was built for and found
+**no wrong-answer window**: cross-input (PT-B1) is closed because every subsequent parse installs empty
+tables, and re-entrancy (PT-Q1) is closed because a nested `parseState` sees the now-armed latch. So this is
+**a violated stated invariant plus a process-lifetime retention leak — not a wrong answer.** Pass 1 did not
+reach this row; it is the sharpest structural finding of either pass because it shows the two modules'
+guarantees are coupled through a seam neither module names.
+
+**Falsifier / the probe to run in a fresh, disposable process** (I did not run it — arming is irreversible):
+build `Parser.lazy(() => memoize(inner))`, parse once, then assert the next `packratEnter()` snapshot's
+`memo.size > 0`. **If it is 0, this finding is wrong and I withdraw it.** Second falsifier: show that a
+`memoize()` inside a lazy body is forbidden somewhere — it is not; `packrat.ts:482-488` exports `memoize`
+publicly and `memoize.test.ts:17` already composes it with `Parser.lazy` in the other order
+(`memoize(Parser.lazy(…))`), which is safe precisely because it constructs eagerly.
+
+**Interaction with pass 1's L-B2.** L-B2 shows a decorator-built grammar mints a fresh `id` per recursion
+level, so `memoize()` never hits. N-1 shows the *ordering* hazard. Together: a decorator-built, lazily-armed
+memoized grammar pays PT-03's measured **1.47×** for zero benefit **and** arms the latch from inside a parse
+that never opened an epoch. That is the worst cell in the matrix, and it is reachable through documented API.
+
+**Bearing on X.P.W1 §3.5.** W1 requires `PACKRAT_ARMED` asserted false "at entry **and** at exit of every
+bench cell". N-1 is the proof that the exit assertion is load-bearing rather than belt-and-braces: a cell can
+arm *itself* mid-parse, and an entry-only assertion would pass while every later cell in that process
+measures at the armed rate.
+
+---
+
+### N-2 — MINOR — PT-07's raw-`TypeError` boundary posture recurs at a **`./core` public export**: `getLazyParser`
+
+**Provenance**: `lazy.ts:12` (`const parser = fn();`, no guard) · exported at `index.ts:7` **and**
+`core.ts:15` · typed `getLazyParser<T>(fn: () => T): T` (`dist/lazy.d.ts:3`), with `T` unconstrained.
+
+```
+API-TEST (dist/parse.js, node v26.0.0) — 5/5 non-function inputs:
+  getLazyParser(null)      -> TypeError: fn is not a function
+  getLazyParser(undefined) -> TypeError: fn is not a function
+  getLazyParser(42)        -> TypeError: fn is not a function
+  getLazyParser("str")     -> TypeError: fn is not a function
+  getLazyParser({})        -> TypeError: fn is not a function
+```
+
+This is **the identical 5/5 raw-`TypeError` shape O-15 recorded as PT-07**, at a *different* public entry
+point. Pass 1's §5.3 reproduced PT-07 at `parseState`; the posture is wider than that one door. The
+consequence is directly actionable for the program: **X.P.W1 §3.9's JS-boundary invariant, if asserted only
+over `parse`/`parseState`, leaves a hole exactly the width of the `core` subpath.** Either the invariant
+covers every export that can receive consumer-supplied values, or it is a guard on the front door of a house
+with `./core` open at the back.
+
+*Falsifier*: `getLazyParser` is arguably internal-by-intent — pass 1's census and mine agree it has exactly
+**one** in-tree caller, `debug.ts:318`. Then the defect is that it is exported at all (see N-5), and the row
+converts rather than disappears.
+
+---
+
+### N-3 — MINOR — the load-bearing V8 rationale at `lazy.ts:17` is **stale**, and now contrasts against a strawman the file itself used to contain
+
+**Provenance**: `lazy.ts:17` · `git show 37f958f:typescript/src/parse/lazy.ts` ·
+`git show 7ec4b31:typescript/src/parse/lazy.ts`.
+
+```
+lazy.ts:17  // Closure-local lazy cache — avoids mutating function objects (megamorphic IC pollution)
+```
+
+Git shows the comment **was true when written**. At `37f958f` (2026-02-27) `getLazyParser` was:
+
+```ts
+export function getLazyParser<T>(fn: (() => any) & { parser?: any }): any {
+    if (fn.parser) return fn.parser;
+    return (fn.parser = fn());          // ← mutates the function object
+}
+```
+
+At `7ec4b31` (2026-03-30, *"refactor(ts): centralize as-any casts into unsafeSetValue/unsafeCall"*) that body
+was replaced by the `WeakMap` now at `lazy.ts:5-15` — and the comment was not touched. As of HEAD **neither**
+function in the file mutates a function object, so the stated rationale distinguishes `createLazyCached` from
+nothing present. A reader auditing V8 shapes is handed a present-tense justification for a decision whose
+stated alternative was deleted four months ago.
+
+**This reframes pass 1's S-4 without contradicting it.** Pass 1 attacked the comment's *IC claim* empirically
+and honourably failed to land the attack (0.99×). Pass 2 attacks the comment's *referent*: the claim survives
+as physics, but it no longer describes a choice this file is making. Both readings are correct and they are
+about different halves of one sentence.
+
+*Falsifier*: read the comment as historical narration and it is harmless. It is written in the present tense,
+positioned as the rationale for the function immediately below it, and is the only design commentary in the
+module.
+
+---
+
+### N-4 — MINOR — the `lazy.ts` ↔ `parser.ts` circular **value** import was deliberately engineered around at `37f958f`, then re-introduced at `7ec4b31`, and exists solely to serve the dead decorator
+
+**Provenance**: `lazy.ts:1` (value import of `Parser`) · `parser.ts:5` (value import of `createLazyCached`) ·
+`lazy.ts:38` (the sole value-use) · `lazy.ts:3,40` (`createParserContext`, also decorator-only) ·
+`git show 37f958f:typescript/src/parse/lazy.ts`.
+
+The `37f958f` version had **no such edge**, and carried an explicit mechanism plus a comment naming the hazard:
+
+```ts
+// Forward reference — set by parser.ts to avoid circular import at module init
+let _Parser: any;
+export function _setParserClass(cls: any) { _Parser = cls; }
+```
+
+`7ec4b31` deleted that mechanism and took the direct import. The **only** value-use of `Parser` in the current
+file is `lazy.ts:38` (`new Parser(...)`), inside the decorator; the only use of `createParserContext`
+(`lazy.ts:3`, `:40`) is likewise the decorator. Delete the dead-and-broken decorator (L-B1/L-B2) and **both
+imports become type-only** under `verbatimModuleSyntax` — `lazy.ts` becomes a true leaf, the cycle is severed,
+and the module-init ordering question about `LAZY_PARSER_CACHE` (`lazy.ts:5`) evaporates.
+
+**This is the precise counterpart to pass 1's L-m6**, and the two rows should be read together: L-m6 shows
+that `lazy.ts:38` is the *anchor* keeping `parser.js` evaluated for a `./core` consumer, and warns "cure a
+dead export, lose the anchor". N-4 supplies the history — the anchor is an artifact of a regression, not a
+design, and the pre-regression tree solved the same problem without it. **The cure for both is the same and it
+is not "keep the dead decorator": it is to make `_initWhitespace`'s effect explicit rather than to rely on an
+accidental value-import to drag it in.**
+
+*Falsifier, and it bounds the claim*: severing this edge does **not** unbundle anything — see N-5. `./core`
+drags packrat regardless, because `parser.ts:7` imports `packratEnter`/`packratExit` directly and calls them
+at `parser.ts:43`/`:47`. The cycle is also currently benign at runtime: nothing in `lazy.ts`'s module body
+constructs a `Parser`. Hygiene and regression, not a live fault.
+
+---
+
+### N-5 — INFO — `core.ts`'s "never pulls the diagnostics accumulator, the packrat tier" is **false at the built bytes**
+
+**Provenance**: claim at `core.ts:3-5` · built truth at `dist/core.js:1` · chunk `dist/packrat-entry-CS1td-8B.js`.
+
+`core.ts:3-5` states: *"A consumer that imports only this never pulls the diagnostics accumulator, the packrat
+tier, or the json/csv domain parsers."* The emitted entry point is one line:
+
+```js
+dist/core.js:1  import { P, a, b, c, d, e, f, g, h, l, j, r, s, n, t, w } from "./packrat-entry-CS1td-8B.js";
+```
+
+One chunk, **40,576 bytes**, containing `PACKRAT_ARMED` (`:678`) and importing `diagnosticsEnabled` from
+`diagnostics-DDazRHgl.js` at `:1`. The json/csv third of the claim **is** honoured (`grep -n
+'jsonParser\|csvParser'` over the chunk → no match); the other two thirds are not. Pass 1's L-m6 cites this
+docstring; pass 2 falsifies it at the bytes.
+
+**Not lazy's fault, and I will not pretend otherwise**: the packrat pull comes from `parser.ts:7`, the
+diagnostics pull from `state.ts:2` → `debug.ts:6`. Severing `lazy.ts:1` (N-4) changes neither. What **is** in
+scope: `core.js` re-exports `createLazyCached` (`d`), `getLazyParser` (`h`), and `lazy` (`l`) — three of
+eighteen `core` exports — of which one has a single in-tree caller in the **debug** module and one is dead and
+throws on first use. Two of three do not belong on a surface that calls itself "the zero-side-effect primitive
+set".
+
+*Falsifier*: `package.json` declares `"sideEffects": false` and the dist annotates the WeakMap
+`/* @__PURE__ */` (`packrat-entry-CS1td-8B.js:2`), so a tree-shaking bundler may drop the unreached halves for
+an app consumer. That mitigates bundle size; it does not make the docstring true, and it does nothing for a
+CJS/`require` consumer — and pass 1's L-m6 shows honouring `sideEffects:false` has its own hazard.
+
+---
+
+### N-6 — (extends **L-M1**, not a separate defect) — a third probe shape, a frame census, and the arithmetic that bounds what a leaner `lazy` could ever buy
+
+Pass 1 measured the **recursive-grammar** ceiling cold (2,833) and warm (8,191), and found overflow
+hysteresis. Pass 2 measured a **different shape** — the one PT-04's wording most directly describes ("`Parser.lazy`
+… deepest successful **nesting**") — plus the per-level frame cost pass 1 asserted analytically.
+
+| shape | probe | measured | stability |
+|---|---|---|---|
+| **N nested `Parser.lazy` wrappers** over `string("a")`, then `.parse("a")`, binary-searched | `for(i<n){const inner=p; p=Parser.lazy(()=>inner)}` | deepest OK **10,336**, `RangeError` at 10,337 | **10,336 / 10,336 / 10,336** — three fresh node processes |
+| **one self-recursive back-edge** | `expr = any(string("(").next(Parser.lazy(()=>expr)).skip(string(")")), string("x"))` on `"("*n + "x" + ")"*n` | deepest OK **6,203**, `RangeError: Maximum call stack size exceeded` at 6,204 | single run |
+| **frames per recursion level** | `new Error().stack`, `stackTraceLimit=400`, nesting 2 / 3 / 6 → 22 / 27 / 42 stack lines | **5**, exactly linear (two independent deltas both = 5) | — |
+
+The five frames, innermost-out, read off the captured stack: `anyParser` → **the `createLazyCached` closure**
+→ `unsafeCallRaw` → `next` → `skip`.
+
+**Three consequences, each bounded:**
+
+1. **Three shapes, one artifact, three ceilings — 2,833 (pass 1, cold) / 6,203 / 10,336.** Pass 1 proved the
+   number moves with **JIT state** and **prior-overflow state**; pass 2 proves it moves with **grammar shape**
+   by a factor of 3.6× *between two shapes measured minutes apart in identical cold processes*. The two
+   passes attack the same pin from orthogonal directions and agree: **`7,761` is not a property of the
+   library.** Neither is `10,336`.
+2. **The lazy closure is exactly 1 of 5 frames per level.** Therefore the *entire* achievable win from
+   deleting the lazy indirection is ~25% of stack depth (5 → 4 frames), not an order of magnitude. This is
+   evidence **for** `parser-band.md:118` DEBT-3 and `W2.md:250`'s "depth as an algebra parameter" — and
+   decisive evidence **against** any hope that a leaner `lazy` is the cure. Pass 1's L-M3 proposed
+   `static lazy<T>(fn, maxDepth = Infinity)`; N-6 is the quantitative case that this is the *only* posture the
+   measurement supports.
+3. **PT-04's probe source is not published**, so I cannot say which construction differs from mine. My
+   construction is pasted above verbatim precisely so it is falsifiable. **W2.md:831 should paste the probe,
+   not the constant** — a born-RED gate whose baseline no one can reconstruct cannot be turned GREEN by
+   measurement.
+
+*Falsifier*: publish PT-04's probe and re-run all three shapes in one process. If PT-04's construction also
+yields 10,336 here, item 3 is a measurement error and I withdraw it; items 1 and 2 stand on pass 1's cold
+bisect and this frame census independently.
+
+---
+
+### N-7 — INFO — X.P.W1's pinned substrate `2636c238` is **not reachable** from the read-only main checkout
+
+`W1.md §2` states the ten gates are "all ten RED at HEAD **`2636c238`**, measured 2026-08-03".
+
+```
+$ git -C /Users/mkbabb/Programming/parse-that cat-file -t 2636c238
+fatal: Not a valid object name 2636c238
+```
+
+This checkout is at `ef10d5b` (2026-07-05), and `git log --since=2026-07-20 -- typescript/src/parse/` is
+**empty** — no source commit has touched the parse tree since. W2-opus-author.md:765's "the three source
+commits landed 07-29" therefore describes a tree that is not this one.
+
+**Consequence for anyone folding either pass**: all SOURCE cites in this file resolve against `ef10d5b`. If
+the X.P substrate diverges, `lazy.ts` line numbers must be re-resolved. Mitigating: `lazy.ts` has **three
+commits in its entire history** (`37f958f` 2026-02-27, `e47c241` 2026-03-07, `7ec4b31` 2026-03-30), so
+divergence is unlikely — but "unlikely" is not "verified", and I did not enter another root to check, because
+the law forbids it.
+
+---
+
+### N-8 — INFO — evidence hygiene: **every** `dist:line` cite in O-15, in pass 1, and in pass 2 is against a **gitignored** build
+
+`.gitignore:6` = `dist/`. `typescript/dist/` is a local artifact (mtime 2026-07-29 14:20), not a tracked one.
+O-15's cites (`dist/diagnostics-DDazRHgl.js:14`, `dist/packrat-entry-*.js:881`) and both passes' cites
+(`packrat-entry-CS1td-8B.js:2 / 12-18 / 19-26 / 234 / 678 / 682 / 714 / 722 / 881 / 1411`) are line numbers
+into bytes that **cannot be regenerated from the repository at a commit**.
+
+They reproduce here only because the chunk hashes happen to match — which is itself how I know the artifact I
+measured *is* the artifact O-15 measured, and is therefore the sole warrant for pass 1 §5.1/§5.2 and pass 2
+§0 asserting PT-01/PT-03 "at the bytes" rather than merely at the source. **That warrant is one
+`npm run build` from evaporating.**
+
+X.P.W1 §3 G-3 already requires a sha256 manifest for the rescued harness tree. The same discipline is owed to
+any dist cite a gate will read: pin the tarball — as cand-O did (`sha256(dist/subpaths/css.js)` =
+`8b5381…0c42`, `parser-band.md`) — or the cite decays silently.
+
+---
+
+### N-9 — INFO — zero direct test coverage for the module on the recursion critical path
+
+No file under `typescript/test/` names `getLazyParser` or `createLazyCached`
+(`grep -rln` → empty). The decorator has zero uses in parse-that **or** value.js
+(`grep -rn '@lazy\b'` over both trees → empty). `Parser.lazy` is exercised only *transitively* — memoize 6 ·
+math 4 · reentrancy 3 · json 2 · print 1 — always as a means to some other assertion.
+
+There is consequently no test for: the double-construction (L-M4), the per-call cache (L-B2), a body returning
+`undefined` (L-m1/L-m2), the flags bypass (L-m5), the stale `.state` after overflow (L-M2), the boundary
+posture (N-2), the construction-ordering invariant (N-1), or **any depth bound whatsoever**. The ceiling is
+entirely undefended by the suite — which is precisely why the 7,761 pin went four months without anyone
+noticing it is not a constant.
+
+X.P.W1 §3.7 ("declare the corpus's maximum recursion depth against the measured `Parser.lazy` ceiling") is a
+**corpus-side** mitigation for a **library-side** gap. The library-side gate — *a test asserting the depth
+bound is a returned failure, not a thrown one* — does not exist, and is exactly what `parser-band.md:118`
+DEBT-3 asks for.
+
+---
+
+## 8b · Pass-2 superlatives (L-18 runs both ways)
+
+### S-5 — SUPERLATIVE — deferring **construction** makes the back-edge *structurally visible*, which is the only reason the band's idiom gate is possible at all
+
+`parser.ts:702-707` tags every lazy node `createParserContext("lazy", undefined, fn)`; `"lazy"` is a
+first-class member of the `parserNames` union (`state.ts:149`); and the body function is retained as
+`context.args[0]`. Consequence: **the back-edges of a grammar are enumerable on the built graph.**
+
+That is exactly what `parser-band.md` relied upon to rule the band: cand-O's idiom was *"measured structurally
+by walking the built combinator graph (no `.opt()` child of any `all()`, **exactly 1 lazy**, 0 memoize) — a
+grep cannot prove that, the graph can."* `W2.md:810`'s G-10/G-11 idiom-and-depth walks inherit the same
+dependency. A parser library in which recursion is expressed by an untagged closure cannot be audited this
+way, and the adjudication that ruled cand-O the winner would have had no instrument.
+
+*Falsifier, and it is the honest one*: this is the **same design decision** as L-M4. Retaining `fn` on the
+context is what lets `debug.ts:318` re-invoke it behind the executing graph's back and mint the shadow tree.
+The superlative and the defect are one choice read from two sides — and the cure L-M4 proposes (fold the
+printer onto the execution cache) preserves the superlative **entirely**, which is what makes it the right
+cure.
+
+### S-6 — SUPERLATIVE — the cache is **input-independent by construction**, so it introduces none of the hazard class that bit packrat twice
+
+`createLazyCached`'s `cached` (`lazy.ts:19`) is keyed on **nothing** — not on `src`, not on offset, not on an
+epoch. A lazy node resolves once and the resolved parser serves every input for process lifetime. That is why
+`lazy` needs no analogue of `packratEnter`/`packratExit` (`packrat.ts:216-250`), no `CURRENT_SRC` anchor
+(`packrat.ts:186`), and why it appears in **neither** PT-B1 (cross-input mis-restore, fixed 0.12.0) nor PT-Q1
+(re-entrancy regression, fixed 0.13.0) — the two soundness bugs that cost packrat a tranche each.
+
+The correct amount of state on which to key a *grammar-shape* cache is zero, and this module keys on zero.
+Read against pass 1's S-1 (the cache is load-bearing because it makes `parser.id` **stable**), the pair states
+the whole property: stable in identity, independent of input. Those two together are what make `(id, offset)`
+a sound memo key at all.
+
+*Falsifier, and it bounds the praise*: the safety is a property of well-behaved bodies, **not an enforced
+invariant**. A body closing over mutable configuration — `Parser.lazy(() => build(currentOptions))` — freezes
+whatever `currentOptions` was at the first parse, silently, forever, with no diagnostic. Nothing in the type
+(`() => Parser<T>`, `lazy.ts:18`) or the runtime forbids it, and L-m2/N-1 show the module has no vocabulary
+for "resolution was wrong, try again". The property is real; the guarantee is not.
+
+---
+
+# 9 · Merged ledger (pass 1 + pass 2)
+
+| id | sev | claim | pass | falsifier outcome |
+|---|---|---|---|---|
+| L-B1 | **BLOCKER** | decorator throws at class-definition time under the repo's own tsconfig | 1, re-probed by 2 | did not survive |
+| L-B2 | **BLOCKER** | decorator does not tie the knot; ~5 parsers per depth level, retained | 1, re-probed by 2 | did not survive |
+| L-M1 | MAJOR | depth ceiling not constant; cold 2,833 vs pinned 7,761; JIT + hysteresis dependence | 1, **extended by N-6** | survived as scope note only |
+| L-M2 | MAJOR | `Parser.state` holds stale success after a thrown `RangeError` | 1 | did not survive |
+| L-M3 | MAJOR | no depth guard/parameter; `recover()` cannot catch the overflow lazy invites | 1 | survived; re-scoped |
+| L-M4 | MAJOR | dual cache → permanent shadow grammar; ids absent from `MEMO` | 1, re-probed by 2 | survived at reduced radius |
+| **N-1** | **MAJOR** | **lazy defers construction into the parse, falsifying `packrat.ts:284-289`'s arming invariant; cells written with no epoch + process-lifetime retention** | **2** | ANALYTIC; probe published, not run (law) |
+| L-m1 | MINOR | `getLazyParser` value-presence guard; should be `.has()` | 1, re-probed by 2 | did not survive |
+| L-m2 | MINOR | nameless raw `TypeError` on malformed `fn`; no negative latch | 1, re-probed by 2 | survived → MINOR |
+| L-m3 | MINOR | decorator binds to prototype; `this` never the instance | 1 (analytic), **executed by 2** | promoted from chained-latent to reproduced |
+| L-m4 | MINOR | `Parser.lazy` ≡ decorator body; three strategies in 43 lines | 1 | n/a |
+| L-m5 | MINOR | `flags` machinery wholly dead; `flaggedParser` leaked per `.trim()`; `FLAG_EOF` never written | 1, re-probed by 2 | is itself lazy's safety falsifier |
+| L-m6 | MINOR | `sideEffects:false` vs `_initWhitespace()` module-eval anchor | 1, **historicised by N-4** | survived narrowly |
+| **N-2** | MINOR | PT-07's raw-`TypeError` posture recurs at the `./core` export `getLazyParser` (5/5) | **2** | converts rather than disappears |
+| **N-3** | MINOR | `lazy.ts:17` IC rationale stale since `7ec4b31`; contrasts against a deleted strawman | **2** | survived (git-dated) |
+| **N-4** | MINOR | parser↔lazy cycle engineered around at `37f958f`, re-introduced at `7ec4b31`; decorator-only | **2** | survived, bounded by N-5 |
+| **N-5** | INFO | `core.ts:3-5`'s no-packrat/no-diagnostics claim false at the built bytes (40,576-byte chunk) | **2** | survived; not lazy's fault, stated |
+| **N-6** | — | *extension of L-M1*: 10,336 (×3 stable) / 6,203 / 2,833 across three shapes; **5 frames per level, lazy is 1** | **2** | — |
+| **N-7** | INFO | W1's pinned substrate `2636c238` is not an object in this checkout | **2** | survived |
+| **N-8** | INFO | all `dist:line` cites (O-15's and both passes') are against a gitignored build | **2** | survived |
+| **N-9** | INFO | zero direct tests; no depth test anywhere in the suite | **2** | survived |
+| S-1 | SUPERLATIVE | closure cache load-bearing for packrat `(id, offset)` soundness | 1 | — |
+| S-2 | SUPERLATIVE | hot arrow allocation-free, correctly minimal | 1 | — |
+| S-3 | SUPERLATIVE | `Parser`/`ParserState` hidden-class transition-free at the emitted bytes | 1 | — |
+| S-4 | SUPERLATIVE | stated IC rationale survived pass 1's falsification attempt (0.99×) | 1, **reframed by N-3** | attack failed, recorded |
+| **S-5** | SUPERLATIVE | the back-edge is structurally visible → the band's graph-walk idiom gate is possible | **2** | shares its root with L-M4 |
+| **S-6** | SUPERLATIVE | cache input-independent by construction → immune to the PT-B1 / PT-Q1 hazard class | **2** | property real, guarantee unenforced |
+
+**TOTALS: 20 defects (2 BLOCKER · 5 MAJOR · 8 MINOR · 5 INFO) · 6 superlatives.**
+*(N-6 is counted as an extension of L-M1, not as a separate defect.)*
+
+## 9a · Corpus reconciliation
+
+| corpus id | disposition |
+|---|---|
+| **O-15 / PT-01** | **CONFIRMED at the bytes** by both passes — `diagnostics-DDazRHgl.js:14` (guard) + `packrat-entry-CS1td-8B.js:880-881` (`isDiagnosticsEnabled()` → `console.error`). Pass 1's precision note about `:881` being the guard and `:882` the effect stands. Pass 1's L-M4 narrowing — the error path calls `statePrint`, **never** `parserPrint` — is the correct bound on any over-read of PT-01. |
+| **O-15 / PT-03** | **CONFIRMED EXACTLY at the bytes**, `:678` / `:682` / `:714` / `:722`, exactly two assignments per bundle, no disarm anywhere. **Extended by N-1**: `lazy.ts:21` is the mechanism by which arming can occur *after* `packratEnter` has already declined to open an epoch — which falsifies the guarantee `packrat.ts:284-289` states in prose. |
+| **O-15 / PT-04** | **CHALLENGED by both passes, from orthogonal directions.** Pass 1: JIT state (2.89× intra-process) + overflow hysteresis. Pass 2: grammar shape (3.6× between two cold shapes) + a 5-frames-per-level census bounding any lazy-side cure at ~25%. Neither pass claims O-15's box would read differently; both claim **a single scalar cannot describe this quantity on any box**. `W1.md:549,573` and `W2.md:831` must paste the probe and a `(shape, JIT state, prior-overflow state)` qualifier, or the born-RED baseline will flake as a gate. |
+| **O-15 / PT-07** | **CONFIRMED / reproduced** by pass 1 at `parseState` (success-`undefined` vs failure-`undefined` indistinguishable). **EXTENDED by N-2**: the same 5/5 raw-`TypeError` shape at `getLazyParser`, a `./core` export. The JS-boundary invariant asserted **above** parse-that (O-15's own posture, W1 §3.9) must therefore cover more than the two parse entry points. |
+| **X.P.W1 §3.5-3.6** | Reinforced by **N-1**: the exit-side `PACKRAT_ARMED` assertion is load-bearing, not belt-and-braces — a cell can arm itself mid-parse. |
+| **X.P.W1 §3.7** | Re-scoped by **N-6**: the corpus depth bound must be declared against the *grammar's* frames-per-level, cold, not against a library constant. |
+| **X.P.W1 §3.9** | Widened by **N-2**. |
+| **X.P.W1 OP-1** | `parse-that-css-totality-p2` **ABSENT**, verified twice, not created. No STOP finding. |
+| **X.P.W1 §2 (`2636c238`)** | **N-7**: not an object in this checkout; W1's ten-gates-RED baseline is not verifiable from the main read-only tree. |
+| **X.P.W2 line 250 / 475 (K-7) / 810 / 831** | Corroborated and quantified by L-M3 + N-6: "depth as an algebra parameter" is the only posture the measurements support, and G-10/G-11's graph walk is possible only because of **S-5**. |
+| **parser-band.md — DEBT-3** | **This module is the load-bearing evidence.** It is the only construct making unbounded recursion expressible; it has arity 1 with no depth slot; there is no path from stack exhaustion to `isError`; and **N-9** shows the suite has no depth test at all. |
+| **parser-band.md — idiom reading ("exactly 1 lazy", graph-walked)** | **S-5** explains why that gate is constructible. It is also the falsifier that keeps a shared-call-site IC concern INFO-grade for the ruled grammar — one lazy node is one call target, hence monomorphic — consistent with pass 1's S-4 failing to measure any effect at 16 nodes (0.99×). |
+| **parser-band.md — DISSENT, try/catch posture** | Sharpened. cand-F's "no shield, recursion-free grammar" is unavailable to *any* grammar using `Parser.lazy`, because L-m2/N-1 show even a **malformed body** escapes as a raw host `TypeError` rather than `isError`. The shield question is downstream of this module's error posture, not independent of it. |
+| **L-16 (evidence modes never impersonate one another)** | Honoured: every row above is labelled SOURCE, API-TEST, or ANALYTIC. No BENCH-PROCESS was run in pass 2. **N-8** records that the SOURCE/bytes distinction itself rests on a gitignored artifact. |
+
+## 9b · Falsification order (what would move this module)
+
+1. **Delete the decorator** (`lazy.ts:26-43`) — zero consumers, uncompilable under the repo's own tsconfig,
+   crashes under both decorator regimes, and does not cache. Discharges L-B1, L-B2, L-m3, L-m4, and — via
+   N-4 — the cycle, making both imports type-only. Falsify by producing one working consumer.
+   **Sequencing note**: L-m6 shows `lazy.ts:38` is the accidental anchor keeping `parser.js` evaluated for a
+   `./core` consumer. Make `_initWhitespace`'s effect explicit **first**, then delete.
+2. **Collapse the two caches into one** so a body resolves exactly once per process, and fold the printer onto
+   the execution cache. Discharges L-M4 and N-2's converted form. Falsify by showing the print path *wants*
+   a distinct graph.
+3. **`static lazy<T>(fn, maxDepth = Infinity)`** with a closure-local counter returning `state.err(...)` past
+   the bound — the ceiling becomes an ordinary `ok:false` **by construction** (`parser-band.md` DEBT-3,
+   `W2.md:250`), calibrated cold, at a cost of one inc/dec on a path already paying five frames per level
+   (N-6). Discharges L-M1's gate-flake, L-M3, and gives N-9 something to test.
+4. **A resolution sentinel, not a truthiness test** (`lazy.ts:9`, `:21`) so a malformed body fails once,
+   typed, named — not silently, every parse, raw. Discharges L-m1, L-m2.
+5. **`this.state = undefined` at the top of `parseStateInner`** (pass 1's one-line cure) — discharges L-M2.
+6. **Forbid, or make sound, construction-during-parse for anything that arms a global latch** — the N-1 seam.
+   Cheapest honest fix: arm at `packratEnter` time by consulting a *count* of constructed memoizers, or open
+   the epoch unconditionally once any lazy body exists. Either way, `packrat.ts:284-289`'s prose must stop
+   asserting a guarantee the algebra does not provide.
+7. **Re-cite PT-04 with its probe attached**, or retire the constant from `W2.md:831`'s born-RED baseline
+   (N-6), and **pin the dist by sha256** before any gate reads a `dist:line` (N-8).
+
+---
+
+*Pass 2 authored 2026-08-04 · LIBRARY axis · claude-opus-5[1m] · single write (this file, appended — pass 1 preserved byte-for-byte) · parse-that read-only at `ef10d5b`, main checkout only, no worktree or frozen root entered, no browser tooling, no probe that armed the packrat latch or the diagnostics flag.*

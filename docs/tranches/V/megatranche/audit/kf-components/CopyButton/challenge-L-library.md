@@ -2,13 +2,14 @@ claude-opus-5[1m]
 
 # CHALLENGE · `CopyButton.vue` · axis **L (LIBRARY)**
 
-**Target** `/Users/mkbabb/Programming/keyframes.js/demo/components/CopyButton.vue` (113 lines, whole-file read)
-**Mode** static, read-only. No installs, no dev server, no browser tooling. Every runtime claim is traced to source; anything that would need a live page is marked **UNPROVEN-NEEDS-LIVE** and deferred to the SS-13 visual audit.
-**Evidence tree** `/Users/mkbabb/Programming/keyframes.js` @ working tree as read 2026-08-04 (census substrate `8281638c`). READ-ONLY. My only write is this file.
-**Hitherto corpus folded** `docs/tranches/V/megatranche/formation/keyframes/lane-frontend.md` (S-1..S-8, F-1) · `lane-library.md` (§4.1/§4.6 parse seams, §7.5 failure posture). Two of their claims about this file are **contradicted** below (§4).
+**Target** `/Users/mkbabb/Programming/keyframes.js/demo/components/CopyButton.vue` (113 lines, read whole)
+**Mode** static, read-only. No dev server, no browser tooling, no installs. Livable-only assertions are marked **UNPROVEN-NEEDS-LIVE** and deferred to SS-13.
+**Evidence tree** keyframes.js HEAD `8281638c fix(demo-shell): provide tooltip context for the routed control group`. The worktree is dirty in ~40 other files (an in-flight demo/bench change), but `git show HEAD:demo/components/CopyButton.vue | diff -` → **IDENTICAL**: every line number below is HEAD *and* worktree.
+**Executed evidence** three `node --input-type=module` probes against the installed `@mkbabb/value.js@4.0.0` subpaths (easing resolution, stylesheet-parse identity). Read-only: no file in any repo was written, mutated, or installed. This file is the single write.
 
-**Complete import closure read** (every file this component pulls, transitively, to the point where the contract is decided):
-`demo/utils/clipboard.ts` · `src/animation/index.ts` (barrel) · `src/animation/load-engine.ts` · `src/animation/group/group.ts` · `src/animation/group/lifecycle.ts` · `src/animation/group/entries.ts` · `src/animation/group/waapi.ts` · `src/animation/group/yield-batch.ts` · `src/animation/internal/transport/core.ts` · `src/animation/engine/animation.ts` · `src/animation/engine/css/css-animation.ts` · `src/animation/engine/play-lifecycle.ts` · `src/animation/engine/options.ts` · `src/animation/compile/adapter.ts` · `src/animation/compile/value-ast.ts` · `src/animation/constants/defaults.ts` · `node_modules/@lucide/vue/dist/lucide-vue.d.ts` · `node_modules/@vue/runtime-core/dist/runtime-core.cjs.js` (setRef). Plus all four call sites and the three sibling copy sites.
+> **This pass SUPERSEDES an earlier L-axis file at this same path** (written 2026-08-04 12:48, same model id). That pass was good work and most of it is **retained here with attribution** (`[prior L seat]`), because I re-verified it against the tree. It missed one thing that reorders the whole document: **the animation this component exists to run throws at construction and has never played**. Its own INFO row L-12 describes that state as a hypothetical failure envelope — it is the actual, unconditional state at HEAD. Three of its rulings are revised below (§5).
+
+**Import closure read** (transitively, to the point the contract is decided): `demo/utils/clipboard.ts` · `src/animation/index.ts` · `load-engine.ts` · `group/{group,lifecycle,entries,waapi}.ts` · `internal/transport/core.ts` · `engine/{animation,options,option-setters,play-lifecycle}.ts` · `engine/css/css-animation.ts` · `compile/adapter.ts` · `compile/easing/{easing-option,easing-registry}.ts` · `constants/{types,defaults}.ts` · `resolve/element-resolve.ts` · `@lucide/vue` (`createLucideIcon.mjs`, `Icon.mjs`) · `@vue/runtime-core` (`setRef`) · `@mkbabb/value.js/{easing,css}` · plus all four call sites, the three sibling copy sites, `demo/app/main.ts`, `demo/kf-engine.ts`, `demo/styles/style.css`, `scripts/lib/console-budget.mjs`, `scripts/observe/demo/live-session.mjs`, `.github/workflows/ci.yml`.
 
 ---
 
@@ -16,509 +17,245 @@ claude-opus-5[1m]
 
 | | count |
 |---|---|
-| **BLOCKER** | 1 |
-| **MAJOR** | 4 |
-| **MINOR** | 5 |
-| **INFO** | 3 |
-| **SUPERLATIVE** | 4 |
-| **corpus contradictions** | 2 |
+| defects | **19** |
+| **BLOCKER** | **2** |
+| MAJOR | 6 |
+| MINOR | 7 |
+| INFO | 4 |
+| superlatives | **5** |
+| corpus contradictions | 3 (one of them against the prior L seat) |
 
-The component is a *good* piece of Vue with one **untruthful** failure path. It reaches the keyframes engine through exactly the seam the library documents (§5 S-1), renders a real `<button>`, and carries an AT status sink most demo buttons do not. It also announces "Copied to clipboard" to a screen reader on a copy that **did not happen**, drops the promise that would have told it so, animates through `prefers-reduced-motion: reduce` in a repo where four sibling sites do not, and has no intrinsic size — a fact one consumer has already been forced to document in its own CSS.
+The component is well-built Vue wrapped around **a feature that has never executed once**. It reaches the engine through the documented seam, renders a real `<button>`, and carries an AT status sink most demo buttons lack. It also constructs its animations with a timing-function name that does not exist — so every mount throws, `group` is `null` forever, and 45 of its 113 lines are unreachable — and, on the failure path it does reach, it announces a copy that did not happen.
+
+| id | sev | one line |
+|---|---|---|
+| **B-1** | **BLOCKER** | `timingFunction: "bounceInEase"` (`:42`) resolves to nothing → `new CSSKeyframesAnimation()` **throws at every mount**; `group` never assigned; the whole feedback animation is dead at all 4 call sites |
+| **B-2** | **BLOCKER** | `copyText(text)` (`:52`) unawaited + uncaught, success asserted unconditionally → unhandled rejection **and a false "Copied to clipboard" to assistive tech** `[prior L seat L-1]` |
+| M-1 | MAJOR | `isCopied` is a write-once latch → the accessible name is permanently wrong; the `label` prop dies after one click `[L-3]` |
+| M-2 | MAJOR | `group.respectReducedMotion` never set → the pulse runs under `prefers-reduced-motion: reduce`, and no CSS can stop it `[L-2]` |
+| M-3 | MAJOR | zero intrinsic box — unrenderable without an external size; one consumer already documents the workaround in its own CSS `[L-4]` |
+| M-4 | MAJOR | `useTemplateRef<HTMLElement>` is false (lucide is functional → `SVGSVGElement`) and the falsity is what makes `tsc` pass `[L-5]` |
+| M-5 | MAJOR | `@keyframes fade-out` (`:83-92`) drives **no opacity** → there is no icon swap; two comments describe an unimplemented design |
+| M-6 | MAJOR | the one gate that catches B-1 (`live-session` HARD console budget) is nightly-only **and** `npm ci`-blocked by the glass-ui phantom dep — F-1 has already blinded the battery |
+| m-1 | MINOR | no `onBeforeUnmount`: the rAF loop and a naked `requestAnimationFrame` outlive the component `[L-6]` |
+| m-2 | MINOR | post-`await` `!` on refs Vue nulls at unmount `[L-7]` |
+| m-3 | MINOR | `fromString` (a full stylesheet parse ×2 per instance, unmemoized) where `fromKeyframes` needs none `[L-8]` |
+| m-4 | MINOR | `g.singleTarget = false` pokes derived state; ordering-fragile; forfeits the WAAPI lane `[L-9]` |
+| m-5 | MINOR | repeat click re-announces to AT but drops the icon pulse (`beginPlay` re-entrancy) `[L-10]` |
+| m-6 | MINOR | the library test that should have caught B-1 asserts `bounceInEase` is "a real registry curve" and passes for the wrong reason |
+| m-7 | MINOR | zero test coverage for a 4-consumer shared leaf |
+| i-1 | INFO | `AnimationGroup<any>` — repo-wide pattern, but the one site with closed vars `[L-11]` |
+| i-2 | INFO | a rejected engine load is memoized forever and swallowed at boot — the *other* silent-dead-icon path `[L-12]` |
+| i-3 | INFO | `liveStatus` is never cleared → a stale past-tense sentence in the a11y tree `[L-13]` |
+| i-4 | INFO | `requestAnimationFrame` used as a Vue scheduler where `nextTick` is the house tool |
 
 ---
 
-## 1. BLOCKER
+## 1. BLOCKERS
 
-### L-1 · The copy is fire-and-forget: an unhandled rejection, and a **false success announcement to assistive tech**
+### B-1 · The copy-feedback animation throws at construction and has never run — **NEW, missed by the prior pass**
 
-**Severity** BLOCKER
-**Provenance** `demo/components/CopyButton.vue:51-63`; `demo/utils/clipboard.ts:3-8`
-
-```ts
-// CopyButton.vue:51-63
-const handleClick = () => {
-    copyText(text);                       // :52  ← not awaited, not caught
-
-    isCopied.value = true;                // :54  ← unconditional
-    liveStatus.value = "";                // :57
-    requestAnimationFrame(() => {
-        liveStatus.value = "Copied to clipboard";   // :59  ← unconditional
-    });
-
-    void group.value?.play();             // :62
-};
-```
+**Provenance** `CopyButton.vue:40-43`, thrown at `:69` (and again at `:82` were it reached).
 
 ```ts
-// demo/utils/clipboard.ts:3-8
-export async function copyText(text: string, successMessage?: string): Promise<void> {
-    await navigator.clipboard.writeText(text);
-    if (successMessage) { toast.success(successMessage); }
-}
+40  const options: Partial<InputAnimationOptions> = {
+41      duration: 200,
+42      timingFunction: "bounceInEase",     // ← not a curve. Not any curve.
+43  };
+…
+69  const clipboardCheckedAnim = new CSSKeyframesAnimation(options).fromString(…)
 ```
 
-`copyText` is `async`, so **every** failure mode becomes a rejected promise, and line 52 attaches no handler to it:
+**The claim.** `"bounceInEase"` resolves to nothing, and the engine's easing resolver is **fail-explicit by design** — `src/animation/compile/easing/easing-option.ts:19-21`: *"Fail-explicit: unresolvable input throws; there is no silent fallback to a default curve."* The throw is in the **constructor**, before `.fromString` is ever entered:
 
-- insecure context / `navigator.clipboard === undefined` → `TypeError` thrown inside the async body → rejected promise;
-- `NotAllowedError` — document not focused (Safari/Firefox reject `writeText` on an unfocused document), permission denied, or a cross-origin frame without `allow="clipboard-write"`.
+```
+new CSSKeyframesAnimation(options)
+  → engine/animation.ts:196   setOptions({...defaultOptions, ...this._ctorOptions})
+  → engine/option-setters.ts:36  applyTimingFunction
+  → engine/options.ts:46      normalizeTimingFunction
+  → compile/easing/easing-option.ts:44-58  resolveEasingOption
+  → compile/easing/easing-registry.ts:135  throw new TypeError(`Unknown timing function "bounceInEase"`)
+  ⇒ rethrown as AnimationOptionError(…, "UNKNOWN_TIMING_FN")
+```
 
-Two consequences, both shipped:
+**Evidence — the name is absent from both resolution branches.** `resolveTimingFunction` (`easing-registry.ts:124-136`) tries (a) `parseTimingFunction` (a CSS literal), then (b) `timingFunctionRegistry` — built from `Object.keys(bezierPresets)` + `"ease-in-bounce"` + nine `DIRECT_NAMES` (`easing-registry.ts:18-47`). Probed against the installed `@mkbabb/value.js@4.0.0`:
 
-1. **`unhandledrejection`** on the page. Nothing in the file, and nothing in `demo/app/main.ts`, catches it.
-2. **The component lies.** Lines 54 and 59 run regardless. The `role="status" aria-live="polite"` region (`:15`) announces *"Copied to clipboard"* to a screen-reader user whose clipboard is unchanged, and the icon pulse (`:62`) gives the sighted user the same false confirmation. The file's own comment at `:13-14` names this region as the honest AT channel — it is the channel that lies.
+```
+parseTimingFunction("bounceInEase") → ok = false
+easing("bounceInEase")             → ok = false   { code: "easing_name_unknown" }
+easing("easeInBounce")             → ok = true                ← the curve that DOES exist
+bezierPresets keys: linear, ease, ease-in, ease-out, ease-in-out, smooth-step-3,
+   ease-in-sine … ease-in-out-back                            ← no bounceInEase, no alias
+```
 
-This is not a posture the repo lacks. **All three sibling copy sites handle it**, and CopyButton — the component *named* for copying — is the sole outlier:
+**Consequence chain, all source-proven.** The throw lands inside `onMounted(async …)` (`:65`); Vue routes the rejected hook through `callWithAsyncErrorHandling` → `handleError` → `console.error` (no `app.config.errorHandler` is installed — `demo/app/main.ts` read whole, 65 lines). Therefore, at HEAD, in every one of the four mount sites (`EasingTarget.vue:35`, `StartingStyleTarget.vue:59`, `KeyframesEditor.vue:82`, `KeyframeCard.vue:26`):
+
+- `group.value` is **never assigned** — `:101` is unreachable;
+- `void group.value?.play()` (`:62`) is a permanent no-op — the button never animates;
+- **lines 40-43 + 45-49 + 65-102 (45 of 113 lines, 40 %) are dead code**;
+- every mount charges the console — including one mount per keyframe row (`KeyframeCard.vue:26`).
+
+**Why nothing caught it.** `InputAnimationOptions["timingFunction"]` is `TimingFunction | Easing | TimingFunctionNames | string | undefined` (`src/animation/constants/types.ts:191-196`) — the bare `| string` arm collapses the literal union, so `tsc` cannot object. And the demo is not typechecked on the merge path anyway (M-6). This is a **library type-design row worth a letter**: deleting `| string` from that union converts B-1 into a compile error at zero runtime cost.
+
+**Independent corroboration (live, from the value.js side).** `docs/tranches/V/audit/R2-01-visual-design.md:57-78` (DP2-02) captured the exact runtime line — `PAGEERROR: AnimationOptionError: Invalid value for animation option "timingFunction": "bounceInEase" — unknown timing function`; `R3-01-fresh-eyes.md:66-87` (FE-1) reproduced the construct-throw; it is dispositioned **EE-01 → BUILD W1** in `docs/tranches/V/DISPOSITIONS.md:69`. My static chain and their browser observation agree, and the line is still in the tree.
+
+**Falsifier.** Dies if any of: (a) the bundled value.js resolves `bounceInEase` (probed: it does not); (b) `resolveEasingOption` has a silent fallback (its own header forbids it, and `easing-registry.ts:135` throws); (c) something between `:66` and `:101` catches the throw (whole hook read: nothing does); (d) `parseTimingFunction` accepts arbitrary idents (probed: it does not). Cheapest live kill: open `/#/easing` and look for `AnimationOptionError` in the console.
+
+**Fix.** One word — `"easeInBounce"` (or `"ease-in-bounce"`, or a `cubic-bezier()` literal). Demo-owned. No library change required, though see the `| string` note.
+
+**Reordering effect.** B-1 is upstream of M-2, M-5, m-1, m-3, m-4 and m-5 — every one of those is a property of an animation that does not currently run. They are **latent, not moot**: the one-word fix arms all of them simultaneously. Repair B-1 and re-run this axis before shipping.
+
+---
+
+### B-2 · Fire-and-forget copy: an unhandled rejection, and a **false success announcement to assistive tech** `[prior L seat L-1 — retained, re-verified]`
+
+**Provenance** `CopyButton.vue:51-63`; `demo/utils/clipboard.ts:3-8`.
+
+```ts
+51  const handleClick = () => {
+52      copyText(text);                              // not awaited, not caught, not even void-ed
+54      isCopied.value = true;                       // unconditional
+57      liveStatus.value = "";
+58      requestAnimationFrame(() => {
+59          liveStatus.value = "Copied to clipboard";  // unconditional
+60      });
+62      void group.value?.play();
+```
+
+`copyText` is `async` with a bare `await navigator.clipboard.writeText(text)`, so every failure mode becomes a rejected promise: absent `navigator.clipboard` (insecure context) → `TypeError`; `NotAllowedError` on a denied permission, an unfocused document (normative in the Clipboard API), or a cross-origin frame without `allow="clipboard-write"`. Line 52 attaches no handler.
+
+Two shipped consequences: an `unhandledrejection` (nothing in the file or `demo/app/main.ts` catches it), and — the reason this is BLOCKER rather than MAJOR — **the component lies on the channel it built to be honest**. The `role="status" aria-live="polite"` region (`:15`), whose comment at `:13-14` names it the AT-truth channel, announces *"Copied to clipboard"* to a screen-reader user whose clipboard is unchanged, and `isCopied` (`:54`) flips the accessible name to the copied state at the same moment.
+
+The repo is not short of the right posture; CopyButton is the sole outlier among four `copyText` consumers:
 
 | site | posture |
 |---|---|
-| `demo/components/instrument/shell/useShareState.ts:30-40` | `try { await copyText(url, "Link copied…") } catch { … router.replace fallback + toast.info("URL updated — copy from address bar") }` |
-| `demo/components/instrument/keyframes/KeyframesStringControls.vue:133-167` | `try { await copyText(…) } catch (e) { toast.error("Export CSS failed 🔧", {description: (e as Error).message}); console.error(e) }` |
-| `KeyframesStringControls.vue:173-177` (`defineExpose.copyCSS`) | `await copyText(…)` — rejection propagates to the caller, not swallowed |
-| **`CopyButton.vue:52`** | **bare call, no `await`, no `.catch`, success asserted unconditionally** |
+| `instrument/shell/useShareState.ts:30-40` | `try { await copyText(url, …) } catch { router.replace fallback + toast.info("URL updated — copy from address bar") }` |
+| `instrument/keyframes/KeyframesStringControls.vue:133-167` | `try { await copyText(…) } catch (e) { toast.error("Export CSS failed 🔧", {description: (e as Error).message}) }` |
+| `KeyframesStringControls.vue:173-177` | `await copyText(…)` — rejection propagates to the caller |
+| **`CopyButton.vue:52`** | **bare call; no `await`, no `.catch`, no `void`; success asserted unconditionally** |
 
-The file *knows* the floating-promise idiom — line 62 writes `void group.value?.play()`. Line 52 does not even get the `void`. Whatever the reason, an `async` function is being called as if it were `void`-returning.
+The file demonstrably knows the floating-promise idiom — it writes `void group.value?.play()` on line 62. Line 52, the one that can actually fail, does not even get the `void`.
 
-**Falsifier** — this claim dies if ANY of: (a) `demo/app/main.ts` or an app-level plugin installs an `unhandledrejection` handler that surfaces a copy failure to the user *and* something reverts `isCopied`/`liveStatus` (grep of `demo/app/main.ts` and `demo/app/App.vue` for `unhandledrejection` → no hits); (b) `copyText` is rewritten to swallow and return a boolean; (c) a live audit shows `navigator.clipboard.writeText` cannot reject in any browser the demo supports (it can — `NotAllowedError` on unfocused documents is normative in the Clipboard API spec).
-
-**Non-claim** I do **not** claim the failure is *common* on the deployed gh-pages origin (HTTPS, top-level, user-gesture — the happy path). The defect is that the failure path is unmodelled and mis-announced, not that it fires often.
+**Falsifier.** Dies if an app-level `unhandledrejection` handler surfaces copy failure *and* something reverts `isCopied`/`liveStatus` (grepped `main.ts` + `App.vue`: no hits); or if `copyText` is rewritten to return a boolean; or if `writeText` provably cannot reject in a supported browser (it can). **Non-claim:** I do *not* claim failure is common on the deployed HTTPS origin — the defect is that the failure path is unmodelled and mis-announced.
 
 ---
 
 ## 2. MAJOR
 
-### L-2 · `respectReducedMotion` is never set — the pulse runs through `prefers-reduced-motion: reduce`
+### M-1 · `isCopied` is a write-once latch — the accessible name is permanently wrong `[L-3]`
+**Provenance** `:4`, `:32`, `:54`. `grep -rn "isCopied" demo/` → exactly three lines: declaration, `aria-label` read, write. Nothing resets it — no timer, no watcher, no completion hook. After one click the button is named `"Copied to clipboard"` **forever**, while (post-B-1) the glyph returns to the clipboard within 200 ms: the visible affordance and the accessible name diverge permanently, and the `label` prop (`:29` — the whole reason `EasingTarget.vue:38` passes `label="Copy easing literal"`) is dead after first use. The live region is a *separate*, correctly re-armed channel; `isCopied` is a second state machine for the same event with no reset arc. **Falsifier:** produce any reset path — the file is self-contained and has none.
 
-**Severity** MAJOR
-**Provenance** `CopyButton.vue:40-43, 65-102`; `src/animation/group/group.ts:57`; `src/animation/group/lifecycle.ts:73-96`; `src/animation/constants/defaults.ts:87`
+### M-2 · `respectReducedMotion` is never set, and only the **group** field can set it `[L-2 — retained, sharpened]`
+**Provenance** `:40-43`, `:95-101`; `group/group.ts:60`; `group/lifecycle.ts:78-95`; `constants/defaults.ts:86`.
+The group's PRM gate is a group field defaulted `false` and consulted only on the group path (`lifecycle.ts:79-81`, `withReducedMotion(group.respectReducedMotion, …)`). The prior seat's sharpening is correct and I re-verified it: **putting the flag in `options` would not work** — the child-options arm (`engine/play-lifecycle.ts:213-221`) is on the standalone `playFrame` path, which a managed child never takes (`group._frame` → `advanceTo` → `renderMultiTarget` never reads child options). `group.respectReducedMotion = true` is the only lever, and it is one line at `:96`.
+The aggravating factor is specific to a JS animation library: the pulse is written as **inline style per frame** (`group/entries.ts:91-100` → each child's `interpFrames`), so none of the demo's four `@media (prefers-reduced-motion: reduce)` blocks (`EasingTarget.css:48`, `SequenceTarget.css:238`, `SquareScene.css:136`, `ControlsPaneWrapper.css:144`) can suppress it. The house idiom is the opposite at four sites: `demo/state/animationOptionsStore.ts:49`, `TypingDots.vue:91`, `AnimationVisualizer.vue:147`, `app/transition/useSceneSwap.ts:45`.
 
-The group's PRM gate is a **group field**, defaulted off, and read only off the group:
+### M-3 · Zero intrinsic box — a styling contract that leaks to every consumer `[L-4]`
+**Provenance** `:5`, `:104-113`; `EasingTarget.css:68-74`.
+Both icons and the `sr-only` span are `position: absolute`, so the `inline-block` button has no in-flow content and collapses to 0×0 unless sized externally; `height/width: 100%` of a zero box is zero. All four consumers compensate — three with utilities (`w-6 h-6`, `h-6 w-6`, `shrink-0 w-4 h-4`), one with a stylesheet rule whose comment documents the trap **from the outside**: *"CopyButton's icons are absolutely-positioned at 100% — the button needs an intrinsic box here."* A default `w-4 h-4` on the root (still overridable through class fallthrough) makes the contract self-evident. **Falsifier:** find a size default in the component or a shared base class — neither exists.
 
-```ts
-// src/animation/group/group.ts:55-57
-/** When true, `play()` honors `prefers-reduced-motion: reduce` by snapping
- * every child to its final frame in one composite, no rAF loop. Default false. */
-respectReducedMotion = false;
+### M-4 · `useTemplateRef<HTMLElement>` is a type lie, and the lie is load-bearing for the build `[L-5]`
+**Provenance** `:37-38`, `:98-99`; `@lucide/vue/dist/lucide-vue.d.ts:10`; `@vue/runtime-core:1765`; `group/group.ts:195`.
+Lucide icons are **functional** components (`createLucideIcon.mjs`: `(props, {slots, attrs}) => h(Icon, …)`; d.ts: `FunctionalComponent<LucideProps>`), and Vue resolves a template ref on a functional vnode to `vnode.el` — the rendered `<svg>` — because `shapeFlag & 4` (STATEFUL_COMPONENT) is false (`runtime-core:1765`). So the runtime value is `SVGSVGElement`, which does **not** extend `HTMLElement`. The annotation is what makes `setTargets(...targets: HTMLElement[])` (`group.ts:195`, `engine/animation.ts:465`) typecheck: annotating honestly would turn the build red. It is laundering a real contract gap — *the engine does not model SVG targets and this component animates SVG targets* — and it survives only because the paint path reaches for `.style.setProperty`, which `SVGElement` happens to expose. Any future narrowing (`instanceof HTMLElement`, `offsetWidth`, a layout read in `resolve/element-resolve.ts`) breaks this call site silently, with no test to catch it (m-7). The SVG `transform-box`/`transform-origin` *rendering* question is **UNPROVEN-NEEDS-LIVE**; I claim only that the declared type is false and that its falsity is what passes the build.
+
+### M-5 · `@keyframes fade-out` fades nothing — there is no icon swap — **NEW**
+**Provenance** `:82-93`, against the design claims at `:13-14` and `:33-34`.
+
 ```
-```ts
-// src/animation/group/lifecycle.ts:79-81
-return beginPlay(group, () => withReducedMotion(
-    group.respectReducedMotion,      // ← the ONLY consultation on the group path
-    () => playReducedMotion(group),
-    () => { … rAF loop … },
-));
-```
-
-CopyButton's `options` (`:40-43`) carries only `duration` + `timingFunction`, and `g` (`:95-101`) never receives `respectReducedMotion`. Note this is **not** fixable by putting the flag in `options`: the child-options arm (`src/animation/engine/play-lifecycle.ts:210-218`, `anim.options.respectReducedMotion`) is on the *standalone* `playFrame` path, which a managed child never takes — `group._frame` → `advanceTo` → `renderMultiTarget` never consults child options. `group.respectReducedMotion = true` is the only lever.
-
-Result: clicking copy runs a 200 ms `scale(1) → scale(1.25) → scale(1)` rAF pulse on both icons under `reduce`.
-
-This contradicts the repo's own standing idiom at **four** sites:
-
-- `demo/state/animationOptionsStore.ts:49` — `respectReducedMotion: true` in `defaultAnimationOptions`
-- `demo/components/playback/AnimationVisualizer.vue:144-148` — `new SpringProgress({ …, respectReducedMotion: true })`
-- `demo/components/instrument/shell/TypingDots.vue:91` — `respectReducedMotion: true`, with the comment (`:83-87`) *"the engine owns the loop; respectReducedMotion routes the PRM resting frame through the shared `withReducedMotion` authority (replacing the old hand-mirrored `@media` block)"*
-- `demo/app/transition/useSceneSwap.ts:45` — `new SpringProgress({ respectReducedMotion: true })`
-
-**Falsifier** — dies if a CSS `@media (prefers-reduced-motion: reduce)` rule neutralises `.clipboard`'s transform. It does not: `grep -rn "prefers-reduced-motion" demo/styles/*.css` → **zero hits** (no global block exists), and the 13 files that do carry a PRM block (`App.skeleton.vue`, `AnimatedText.vue`, `TypingDots.vue`, `KeyframeTimeline.vue`, `ControlsPaneWrapper.css`, `EasingTarget.{css,vue}`, `SequenceTarget.css`, `SpringHeatmap.vue`, `SpringTarget.vue`, `StartingStyleTarget.vue`, `SquareInstrument.vue`, `SquareScene.css`) are all scene/component-scoped and none of them selects CopyButton or `.clipboard`. Also dies if `withReducedMotion` (`src/animation/internal/reduced-motion.ts`) is shown to gate independently of the passed policy — it does not; the policy is its first argument.
-
-**Scale of the motion** — 25 % scale, 200 ms, on a 16–24 px icon. Small. That is why this is MAJOR and not BLOCKER: the harm is a policy breach against the repo's own law, not a vestibular hazard.
-
----
-
-### L-3 · `isCopied` is a write-once latch — the button's **accessible name** is permanently wrong after the first click
-
-**Severity** MAJOR
-**Provenance** `CopyButton.vue:4, 32, 54`
-
-```html
-<!-- :4 -->  :aria-label="isCopied ? 'Copied to clipboard' : label"
-```
-```ts
-// :32
-const isCopied = ref(false);
-// :54  — the ONLY write in the file
-isCopied.value = true;
+83  @keyframes fade-out {
+84      0%, 100% { transform: scale(1);
+86                                       ← blank line where a declaration was removed
+88      50%      { transform: scale(1.25);
+90                                       ← blank line where a declaration was removed
 ```
 
-`isCopied` is set true and **never cleared**. Nothing in the file, the template, or the animation completion path resets it (`group.play()` resolves, `settle()` runs — `src/animation/group/lifecycle.ts:159-171` — and touches no component state). `isCopied` has exactly one consumer: the `aria-label` ternary.
+The keyframe **named** `fade-out` carries a transform channel only. `renderMultiTarget` paints each child onto its own target (`group/entries.ts:91-100`), so the `Clipboard` glyph's opacity is never driven: it stays fully visible for the entire 200 ms while `ClipboardCheck` (whose `fade-in` *does* drive opacity 0→1→0, overriding its `opacity-0` class inline) ghosts in **on top of it** — both `position: absolute; height/width: 100%` in the same box (`:105-112`). The two blank lines at `:86`/`:90`, exactly where `opacity` declarations belong, are the scar of a deletion that left the name and the comments' promise standing. Consequently `:14` (*"the icon swap is the sighted feedback"*) and `:34` (*"The sighted feedback is the icon swap"*) describe behavior the keyframes do not implement — and M-1's unreset `isCopied` was plausibly meant to be that swap's state.
+**Falsifier.** The source claim dies only if `renderMultiTarget` cross-writes sibling vars — it does not (`entries.ts:96` calls `interpFrames` per child). The *perceptual* claim (superimposed line art reads as a muddle, not a swap) is **UNPROVEN-NEEDS-LIVE** → SS-13, gated behind B-1.
 
-Consequences:
+### M-6 · F-1 has already blinded the one gate that catches B-1 — **NEW**
+**Provenance** `.github/workflows/ci.yml:54-77` (verified at HEAD via `git show`); `scripts/demo-roster.mjs:5-12`; `scripts/lib/console-budget.mjs:96-103`; `scripts/observe/demo/live-session.mjs:796,1198,1407,1531-1542`; census **F-1**.
 
-1. `aria-label` is the accessible **name**. After one click the button is permanently named *"Copied to clipboard"* — a past-tense state, not the action it performs. A user who tabs to it an hour later hears "Copied to clipboard, button" and has no idea what activating it will do. The `label` prop (`:29`, default `"Copy to clipboard"`, overridden at `EasingTarget.vue:38` to `"Copy easing literal"`) is dead from the first click onward.
-2. It duplicates the live region. On click #1 the name changes *and* `:15` announces — two utterances for one event, on channels the file's comments (`:13-14`, `:33-34`) treat as one.
-3. As a state model it is incomplete: a latch with a set and no reset is dead state (cf. `animationOptionsStore.ts:22-23`, where the repo already excised `animationState` as *"dead state from the pre-machine era"*).
+The repo has exactly the right gate. `live-session.mjs` sweeps **every routed scene** (`:796`, plus dedicated `#/easing` legs at `:1198`,`:1407`) under a **HARD, zero-tolerance** console budget — `pageerror` / `unhandledrejection` / any `console.error` → `tier: "HARD"` (`console-budget.mjs:96-103`), `ERROR BUDGET BLOWN` on any charge (`live-session.mjs:1531-1542`). B-1 emits a `console.error` on `#/easing` and `#/spring`. It should be unshippable. Two independent reasons it never fires:
 
-Compounded by L-1: on a *failed* copy the name flips to "Copied to clipboard" permanently.
+1. **Off the merge path.** The roster job is `if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'` (`ci.yml:55`) — nightly/manual only, deliberately (`ci.yml:69-71`: *"does not block library merges"*). The merge-path job runs `check:lib` (tsconfig.lib.json → `src/` only, so **demo/ is never typechecked**), `npm test`, `proof:publish`.
+2. **The nightly cannot even build.** Its first step is `npm ci` (`ci.yml:66`) — and I re-verified F-1 myself: `grep -c glass-ui package-lock.json` → **0**; installed `@mkbabb/glass-ui` → **7.0.0**; `@mkbabb/value.js@4.0.0` declares `dependencies: {}`, so it is not transitive. A lockfile-faithful install has no glass-ui, and `npm run gh-pages` dies at `demo/styles/style.css:3` before a browser opens.
 
-**Falsifier** — dies if `aria-label` is not the accessible name here (it is: `<button>` with no text content, only two `aria-hidden`-less SVGs and an `sr-only` span; `aria-label` wins accname step 2C), or if some consumer resets it via a `key` remount on every copy (none of the four call sites keys the component — `EasingTarget.vue:35`, `KeyframesEditor.vue:82`, `KeyframeCard.vue:26`, `StartingStyleTarget.vue:59` all mount it plain).
-
----
-
-### L-4 · Zero intrinsic box — the component is unrenderable without an external size, and a consumer has already had to document the workaround
-
-**Severity** MAJOR
-**Provenance** `CopyButton.vue:5, 8-12, 104-113`; `demo/scenes/easing/EasingTarget.css:68-74`
-
-```css
-/* CopyButton.vue:104-113 (scoped) */
-.clipboard { bottom: 0; left: 0; height: 100%; width: 100%; position: absolute; }
-```
-
-The `<button>` (`:5`, `relative inline-block`, `p-0 m-0 border-0`) contains **only**: two absolutely-positioned SVGs and one `sr-only` span (Tailwind v4's `sr-only` is itself `position:absolute`). Nothing is in flow. The button's content box is therefore **0 × 0**, and the icons — sized `height:100%; width:100%` of that box — are 0 × 0 too. The component is a no-op unless every consumer supplies a size from outside.
-
-That contract is nowhere declared in the file: no default size class, no documented prop, no comment. And it has already cost a consumer:
-
-```css
-/* demo/scenes/easing/EasingTarget.css:68-74 */
-.literal-copy {
-    /* CopyButton's icons are absolutely-positioned at 100% — the button needs
-       an intrinsic box here (the sidebar mount sizes it externally). */
-    width: 1rem;
-    height: 1rem;
-    flex: none;
-    …
-}
-```
-
-A consumer writing a comment to explain a leaf component's missing intrinsic box **is** the defect: the contract leaks into four independent stylesheets and is enforced by nothing.
-
-Secondary, and shipped today: two of the four consumers size it to **16 px**, below the 24 × 24 CSS-px floor of **WCAG 2.2 SC 2.5.8 (Target Size, Minimum)** —
-
-| call site | size | |
-|---|---|---|
-| `KeyframesEditor.vue:82-85` | `w-6 h-6` = 24 px | at the floor |
-| `KeyframeCard.vue:26` | `h-6 w-6` = 24 px | at the floor |
-| `EasingTarget.vue:35-39` → `.literal-copy` | `1rem` = 16 px | **below** |
-| `StartingStyleTarget.vue:59` | `shrink-0 w-4 h-4` = 16 px | **below** |
-
-A component that owned a `min-width/min-height: 24px` on its own root would make this unrepresentable.
-
-**Falsifier** — dies if the button acquires a box some other way: a global `button { min-height }` rule (grep of `demo/styles/style.css` and the 12 demo CSS files shows no such rule reaching a bare `<button>` with `p-0`), or if `sr-only` were in-flow (Tailwind v4 `sr-only` sets `position:absolute`). Also dies for the WCAG half if the 16 px sites are shown to have ≥24 px spacing exemptions under SC 2.5.8's "spacing" exception — **UNPROVEN-NEEDS-LIVE**: `EasingTarget`'s copy button sits inside a `gap: 0.45rem` inline row (`EasingTarget.css:58-63`) adjacent to a `<code>`, so the exception plausibly does *not* apply, but only a live measurement settles it. The zero-intrinsic-box half needs no live check.
-
----
-
-### L-5 · `useTemplateRef<HTMLElement>` is a type lie, and the lie is **load-bearing** for the build
-
-**Severity** MAJOR
-**Provenance** `CopyButton.vue:8-12, 20, 37-38, 98-99`; `node_modules/@lucide/vue/dist/lucide-vue.d.ts:10`; `node_modules/@vue/runtime-core/dist/runtime-core.cjs.js:1761`; `src/animation/group/group.ts:195`; `src/animation/compile/value-ast.ts:386-388`
-
-```ts
-// :37-38
-const clipboard = useTemplateRef<HTMLElement>("clipboard");
-const clipboardChecked = useTemplateRef<HTMLElement>("clipboardChecked");
-// :98-99
-clipboardCheckedAnim.setTargets(clipboardChecked.value!);
-clipboardAnim.setTargets(clipboard.value!);
-```
-
-Lucide's Vue icons are **functional** components:
-
-```ts
-// @lucide/vue/dist/lucide-vue.d.ts:10
-type LucideIcon = FunctionalComponent<LucideProps>;
-```
-
-and Vue resolves a template ref on a functional vnode to the **rendered DOM element**, not an instance:
-
-```js
-// @vue/runtime-core .../runtime-core.cjs.js:1761
-const refValue = vnode.shapeFlag & 4 ? getComponentPublicInstance(vnode.component) : vnode.el;
-//                              ^ 4 = STATEFUL_COMPONENT; a functional vnode falls to vnode.el
-```
-
-`vnode.el` for a lucide icon is the root `<svg>` — an **`SVGSVGElement`**, which does **not** extend `HTMLElement`. So the runtime type is `SVGSVGElement` and the declared type is `HTMLElement`.
-
-Why it matters beyond tidiness: the annotation is what makes the call typecheck. The engine's target contract is `HTMLElement`-only —
-
-```ts
-// src/animation/group/group.ts:195
-setTargets(...targets: HTMLElement[]) { … }
-// src/animation/compile/value-ast.ts:386-388
-export function transformTargetsStyle<V extends Vars>(vars: V, targets: HTMLElement[]): void
-```
-
-— so annotating the ref honestly (`useTemplateRef<SVGSVGElement>`) would make `tsc --noEmit` **fail** at `:98-99`. The `<HTMLElement>` is laundering a genuine contract gap: *the engine does not model SVG targets, and this component animates SVG targets.* It works today only because `transformTargetsStyle` reaches for `.style.setProperty`, which `SVGElement` happens to expose. Any future narrowing on the target path (`instanceof HTMLElement`, `offsetWidth`, `dataset`, layout reads) breaks this call site silently — and no test covers it (`grep -rn "CopyButton" test/` → no hits).
-
-**Falsifier** — dies if lucide icons are stateful (they are not: `FunctionalComponent`, d.ts:10), if Vue assigns the public instance for functional vnodes (it does not: runtime-core:1761), or if `setTargets` widens to `Element`/`HTMLElement | SVGElement` in the source (it does not, at `group.ts:195` or `engine/animation.ts:173-176`). Whether the *rendering* is correct — `transform: scale()` on an outermost `<svg>` with the default `transform-box`/`transform-origin` — is **UNPROVEN-NEEDS-LIVE** and I make no claim about it; I claim only that the declared type is false and that its falsity is what lets the build pass.
+So the phantom dependency is not merely a future-checkout hazard: **it has already disarmed the observation battery**, which is the most economical explanation for a `pageerror`-class defect surviving in a repo that gates on `pageerror === 0`.
+**Falsifier.** Dies if a glass-ui entry is found in `package-lock.json` (re-grepped: none), or if the roster runs on `push`/`pull_request` (the `if:` says otherwise), or if the nightly is currently green — and if it *is* green, the budget is failing to charge, which is a worse finding, not a better one. One `gh run list --workflow=ci.yml` settles it.
 
 ---
 
 ## 3. MINOR
 
-### L-6 · No unmount teardown — the rAF loop and the naked `requestAnimationFrame` both outlive the component
+**m-1 · No unmount teardown `[L-6]`.** `:58-60`, `:65-102`; `group/group.ts:88` (`readonly playback = new RAFPlayback()`). Two ungated schedulers, neither cancelled: the group's rAF loop keeps ticking after unmount (bounded at ~200 ms by `done`, writing `style.setProperty` to detached SVG nodes — exactly what `group.stop()` at `group.ts:374` exists for), and the `requestAnimationFrame` handle at `:58` is discarded, its callback writing `liveStatus` on a torn-down instance. The in-repo exemplar is one directory over: `TypingDots.vue:104-107` (`onBeforeUnmount` → `anim.stop()` for each). **Falsifier:** dies if `RAFPlayback.loop` self-cancels on detachment (no detachment probe exists) or if the group provably cannot be playing at unmount (a scene switch inside the 200 ms window is exactly that case).
 
-**Severity** MINOR · **Provenance** `CopyButton.vue:58-60, 65-102` (no `onBeforeUnmount` anywhere in the file); `src/animation/group/group.ts:107` (`readonly playback = new RAFPlayback()`)
+**m-2 · Post-`await` non-null assertions `[L-7]`.** `:98-99` assert `clipboardChecked.value!` / `clipboard.value!` after `await loadAnimationEngine()`. Vue nulls template refs at unmount (`runtime-core:1766`, `isUnmount ? null : refValue`), so on an early unmount both assertions are false and `setTargets(null!)` stores `targets = [null]` — no throw, just a permanently inert group. The window is small (`main.ts:50-53` awaits `warmKfEngine()` before `mount()`, so the memoized promise is settled and the `await` costs a microtask hop or two), but `!` is the wrong tool, and the repo's own answer is `TypingDots.vue:68-76` (`let unmounted = false` + `if (unmounted) return`).
 
-Two ungated schedulers, neither cancelled:
+**m-3 · `fromString` where `fromKeyframes` suffices — and the parse is not memoized `[L-8, re-verified; corrects a claim I nearly made]`.** `:69-93`. `fromString` → `resolveKeyframes` → `parseSource` → `parseStylesheet` — the **full CSS stylesheet grammar**, run unconditionally (`compile/adapter.ts:219-225`, `:266-284`; no cache anywhere on that path). I probed value.js directly: two `parseStylesheet` calls on byte-identical source return **distinct ASTs with distinct declaration objects** — there is no result memo. So every CopyButton instance pays two full stylesheet parses at mount, over module-constant text carrying no stylesheet syntax at all (two stops, two properties, no `@property`, no sibling style rule, no `var()`/`calc()`); `KeyframeCardList` renders one CopyButton per keyframe row, so an N-frame animation pays 2N parses in one flush. `fromKeyframes` (`css-animation.ts:131-146`) never touches `resolveKeyframes` — it is what the sibling uses (`TypingDots.vue:88-95`), at the cost of expanding the `0%, 100%` comma selector into two keys.
+*Counter-weight, stated honestly:* authoring **real CSS** and letting the engine parse it is the library's headline dogfood, and there is genuine product value in the demo's own affordance riding the same path a consumer's `@keyframes` text takes. That is why this is MINOR and not MAJOR — but the value is a *demo* value, and it should be a deliberate, commented choice rather than an accident. (The "memoized parse cache" phrase at `css-animation.ts:205-208` refers to guarding shared value instances **inside** a parse, not to a result cache; do not read it as memoization of `fromString`.) **Cost figure is UNPROVEN-NEEDS-LIVE** — I assert the structure, not milliseconds.
 
-1. `group.playback` (a per-instance `RAFPlayback`) keeps ticking after unmount. `_renderFrame` (`group.ts:281-315`) returns `true` until `done`, so the loop runs to completion — **bounded at ~200 ms** — writing `style.setProperty` to detached SVG nodes the whole time. Not an unbounded leak; still wasted main-thread work on dead DOM, and it is exactly what `group.stop()` (`group/lifecycle.ts:192-195`) exists for.
-2. `requestAnimationFrame` at `:58` returns a handle that is discarded. Its callback writes `liveStatus.value` on a torn-down instance.
+**m-4 · `g.singleTarget = false` pokes derived state `[L-9 — retained; it overturns a superlative I had drafted]`.** `:95-99`. `singleTarget` is *derived*: the constructor computes `animations.every(a => a.targets[0] === animations[0]?.targets[0])` (`group.ts:159-161`), which over two target-less children is `undefined === undefined` → `true`, so line 96 exists only to undo it. The prior seat's proposed fix is correct and I verified it against the constructor: **call each child's `setTargets` *before* constructing the group** and the derivation yields `false` on its own, deleting line 96 and the ordering hazard with it. As written, correctness of the multi-target render rests on a hand-written assignment to an undocumented public field (`group.ts:73` — the only bare field in that class with no JSDoc) in the right order; drop line 96 and both animations silently composite onto the first icon. Named consequence: `singleTarget === false` is a hard refusal in the native-lowering gate (`group/waapi.ts:28-31`), so despite `useWAAPI: true` being the engine default (`constants/defaults.ts:85`) the pulse never lowers to `Element.animate` — correct in kind (it avoids a split-brain), but an unstated consequence of a poked field, and it compounds M-2: an unlowered, PRM-unguarded rAF loop. *(The one genuine credit here — two icons on **one** `RAFPlayback` owner rather than two loose `play()` calls — is real, and survives the fix: constructing the group after the child `setTargets` calls keeps the single transport.)*
 
-The in-repo exemplar is one directory over — `demo/components/instrument/shell/TypingDots.vue:103-107`:
+**m-5 · Repeat click: AT re-arms, the icon does not `[L-10]`.** `:13-14`, `:33-34`, `:55-62`; `internal/transport/core.ts:12-16`. `beginPlay` is re-entrant — *"every caller observes one held promise until settlement"* — so a second click inside 200 ms returns the held promise and **does not replay**. Meanwhile `:55-60` goes out of its way to clear-then-reset the live region *specifically so a repeat copy re-announces*. The two feedback channels have opposite repeat semantics, and the inverted one is the channel the comments call "the sighted feedback". Fix: `group.stop()` (rewinds + resolves) before `play()`, or gate on `group.playing()`.
 
-```ts
-onBeforeUnmount(() => {
-    unmounted = true;
-    for (const anim of anims) anim.stop();
-    anims.length = 0;
-});
-```
+**m-6 · The library test that should have caught B-1 encodes the false belief — NEW.** `test/orchestration/orchestration-api.test.ts:143-146`: *"`easeOutCubic` / `bounceInEase` are real registry curves but map to NO css twin"* → `expect(cssTwinFor("bounceInEase")).toBeUndefined()`. It passes for the wrong reason — `cssTwinFor` returns `undefined` for *unknown* names too — so a green library test now certifies a dead name. **Falsifier:** show `bounceInEase` in `timingFunctionEntries` (`easing-registry.ts:36-47`): it is not there, and §1's probe confirms value.js rejects it.
 
-TypingDots is the **only** file under `demo/components/` besides `TransportDock/useMenubarMeasure.ts` that does teardown; CopyButton drives an engine loop and does not.
-
-**Falsifier** — dies if `RAFPlayback.loop` self-cancels on target detachment (it does not; `physics/playback.ts` has no detachment probe) or if the group is proven never to be playing at unmount (impossible to prove statically; a scene switch during the 200 ms window is exactly the case).
+**m-7 · Zero test coverage — NEW.** `grep -rn "CopyButton" test/ scripts/` → **no hits**. A shared leaf with four consumers, a clipboard side effect, an engine dependency, an aria-live region and an SVG-target type lie has no unit test and (per M-6) no reachable browser observation. `docs/tranches/U/audit/lane-20-demo-app-shared-tier.md:61-73,234` already classifies it as a genuine cross-tier shared leaf — precisely the tier that earns a test.
 
 ---
 
-### L-7 · Post-`await` non-null assertions on refs the framework nulls at unmount
+## 4. INFO
 
-**Severity** MINOR · **Provenance** `CopyButton.vue:65-67, 98-99`
+- **i-1 · `AnimationGroup<any>` (`:49`) `[L-11]`.** Repo-wide pattern (13 sites), so not an outlier — recorded only because CopyButton is the **one** of the thirteen whose vars are statically known and closed (`{ transform: string; opacity: number }`); every other site is a heterogeneous scene-machine seam where `any` is defensible. Free win for any `Vars`-tightening pass.
+- **i-2 · A rejected engine load is memoized forever `[L-12]`.** `load-engine.ts:123` memoizes with `??=`, so one transient chunk failure disables the engine for the session; `main.ts:50` swallows the warm's rejection (`warmKfEngine().catch(() => undefined)`) and mounts anyway. This is the *second* path to a permanently dead icon — B-1 is the one actually taken today. Not CopyButton's defect; it is the failure envelope the component sits inside, and it means the cheerful `:45-48` comment ("resolves within microtasks of mount") has an unmodelled other branch.
+- **i-3 · `liveStatus` is never cleared (`:35`, `:59`) `[L-13]`.** After the first copy the `sr-only` span holds "Copied to clipboard" for the session. Screen readers expose `sr-only` text in browse mode, so a stale past-tense sentence sits permanently in the a11y tree beside a button whose name is *also* permanently past-tense (M-1). Individually trivial; together the component's a11y surface describes an event rather than an affordance.
+- **i-4 · `requestAnimationFrame` as a Vue scheduler (`:58-60`) — NEW.** `nextTick` is the house tool; rAF here is a second scheduler with an unretained handle (see m-1). It *works* — Vue flushes on the microtask queue before the rAF callback, so the `""` write does land first — which is why this is INFO, not a defect of correctness.
 
-```ts
-onMounted(async () => {
-    const { CSSKeyframesAnimation, AnimationGroup } = await loadAnimationEngine();
-    …
-    clipboardCheckedAnim.setTargets(clipboardChecked.value!);   // :98
-    clipboardAnim.setTargets(clipboard.value!);                 // :99
-});
-```
-
-Vue sets template refs to `null` on unmount (`runtime-core.cjs.js:1762`, `isUnmount ? null : refValue`). If the component unmounts during the `await`, both `!` assertions are false and `setTargets(null!)` assigns `targets = [null]` — no throw (`group.ts:195-204` and `engine/animation.ts:196-197` only assign), just a permanently inert group holding a null target and a component that no longer exists.
-
-The window is genuinely small: `demo/app/main.ts:50-53` awaits `warmKfEngine()` **before** `app.mount("#app")`, so `loadAnimationEngine()`'s memoized promise (`load-engine.ts:114,124`) is already settled and the `await` costs one microtask. But `!` is the wrong tool for "I believe this cannot be null" — and TypingDots.vue:68-76 shows the repo's own answer:
-
-```ts
-// TypingDots.vue:67-76
-// Guards a late engine resolve against an early unmount: …
-let unmounted = false;
-onMounted(async () => {
-    const els = dotEls.value;
-    if (!els) return;
-    const { CSSKeyframesAnimation } = await loadAnimationEngine();
-    if (unmounted) return;
-```
-
-**Falsifier** — dies if Vue retains ref values through unmount (it does not, runtime-core:1762), or if a component provably cannot unmount within one microtask of mounting (it can: a synchronous `v-if` flip in the same flush; the scene machine switches whole trees).
+**Checked and NOT defects** (recorded so no later pass re-litigates them) — the prior seat's list, spot-verified and endorsed: the shared `options` object across both animations is safe (`_ctorOptions` is only ever spread — `engine/animation.ts:195-196`, `css-animation.ts:200`; zero mutations across 4 sites); second and later plays work (`group.settle()` → child `settle()` resets `startTime`/`t`/`done`, and the `managed` flip is inert because the group drives `advanceTo`/`interpFrames` directly); fill-mode needs no handling (default `fillMode: "forwards"`, `constants/defaults.ts:83`, meets symmetric `0%,100%` frames — see S-3); `role="status"` + `aria-live="polite"` is redundant but is the recommended belt-and-braces form; the component does **not** set `outline-none`, so the UA focus ring survives (its toolbar sibling `KeyframesEditor.vue:87-92` does — CopyButton is on the correct side).
 
 ---
 
-### L-8 · `fromString` where `fromKeyframes` suffices — a full CSS-stylesheet-grammar parse, per instance, of module-constant text
+## 5. Contradictions of the hitherto corpus
 
-**Severity** MINOR · **Provenance** `CopyButton.vue:69-93`; `src/animation/engine/css/css-animation.ts:169,176` and `:131-146`; `src/animation/compile/adapter.ts:266,278-282,219-225`
+### C-1 · `lane-frontend.md` S-7 (`:385`) is **factually wrong** about the mechanism — CONFIRMED (prior seat's C-1, independently re-verified)
+The census claims CopyButton *"build[s] `@keyframes fade-in`/`fade-out` as runtime JS template strings **and inject[s] them** — style-injection from script, bypassing the cascade entirely."* **Nothing is injected.** Traced end to end: `:69,82` → `fromString` (`css-animation.ts:169`) → `resolveKeyframes` (`:176`) → `parseSource`/`parseStylesheet` (`adapter.ts:219-225`) — a **parse**, returning `{ast, issues}` → `addFrame` → template frames → at play time `target.style.setProperty` per frame (`compile/value-ast.ts:386-397`, driven by `group/entries.ts:91-100`). No `<style>` element, no `insertRule`, no `adoptedStyleSheets`, no document-level `@keyframes`. The only CSSOM write on the class is `registerProperties` / `registerPropertyDescriptors` (`css-animation.ts:246`, feature-detected), which this input — carrying no `@property` rules — makes a strict no-op. The consequence clause is inverted too: inline declarations are the highest-priority normal origin, i.e. maximally *inside* the cascade and element-scoped, not bypassing it. **The kernel of truth survives as m-3** (wrong seam, not injection). Recommend striking `lane-frontend.md:452-453` from the "runtime JS string injection" table and re-filing under the parse-seam blast radius (`lane-library.md §4.6`).
 
-Both animations are built with `.fromString(/*css*/ \`@keyframes … \`)` (`:69-80`, `:82-93`). That routes through the heaviest available seam:
+### C-2 · `lane-frontend.md` F-1 **does** bite this component — REVERSES the prior L seat's C-2
+The prior pass ruled the phantom-dep blast radius here "nil" on the strength of the import list. The import list is right; the ruling is wrong on two counts:
 
-```
-fromString(:169) → resolveKeyframes(:176)
-  → parseSource(adapter.ts:219-225) → parseStylesheet(@mkbabb/value.js/css)   // full CSS grammar
-  → pickKeyframes / collectStyleRules / recoverScrollOptions / recoverAnimationOptionsBase
-```
+1. **Cascade coupling.** The component's only colour declaration, `text-foreground` (`:5`), is a Tailwind v4 utility generated from `--color-foreground`, which is defined **only** in `node_modules/@mkbabb/glass-ui/dist/styles/theme/bridges.css` (`@theme inline { … --color-foreground: var(--foreground); … }`), arriving via `demo/styles/style.css:3 @import "@mkbabb/glass-ui/styles"`. Without the phantom package the utility is never generated. Zero glass-ui *imports*, real glass-ui *cascade* dependency.
+2. **Gate coupling — the material one (M-6).** F-1 blocks `npm ci` in the only job that runs the HARD `pageerror` budget, which is the only mechanism that would have caught B-1. The phantom dep is therefore *causally upstream* of the blocker in this very file.
 
-Nothing memoizes it. `resolveKeyframes` (`adapter.ts:266`) calls `parseSource` unconditionally; `grep -rn "^const .*= new Map\|memoize" src/animation/compile/**` finds exactly one module-level map (`easing-registry.ts:50`, unrelated), and no source-string cache exists in `@mkbabb/value.js/dist/subpaths/css.js`. So **every CopyButton instance runs two full stylesheet parses at mount**, over byte-identical text that is a module constant. `KeyframeCardList.vue:4-7` renders one `KeyframeCard` — hence one CopyButton — per keyframe string, so an N-frame animation pays 2N parses in one mount flush.
+I agree with the prior seat's operative recommendation (do not sweep CopyButton into an F-1 remediation that would *add* a glass-ui import it currently lacks) — but the row must not be marked "F-1: no exposure". It is exposed at the cascade and, decisively, at the gate.
 
-The frames here carry **no** CSS-stylesheet syntax: two stops, two properties, no `@property`, no sibling style rule, no scroll grammar, no `var()`/`calc()`. `fromKeyframes` (`css-animation.ts:131-146`) takes them as a plain object and **never touches `resolveKeyframes`** — it goes straight to `addFrame` + `parse()`. That is precisely what the sibling does:
-
-```ts
-// TypingDots.vue:88-95
-new CSSKeyframesAnimation<{ opacity: number }>({ … }).fromKeyframes({
-    "0%":   { opacity: REST_OPACITY },
-    "50%":  { opacity: 1 },
-    "100%": { opacity: REST_OPACITY },
-});
-```
-
-(The `0%, 100%` comma selector must expand to two keys under `fromKeyframes` — a two-line change.)
-
-**Falsifier** — dies if a memo on `parseStylesheet` keyed by source string is found anywhere in the value.js 4.0.0 dist or the kf compile zone (searched; none), or if `fromKeyframes` is shown to funnel through `resolveKeyframes` (it does not — `css-animation.ts:131-146` contains no such call).
-**Cost claim is UNPROVEN-NEEDS-LIVE**: I assert the *structure* (2N unmemoized stylesheet parses of constant text through the wrong seam), not a millisecond figure. A profile is the only thing that would rank the wall-clock impact.
-**Extends `lane-library.md §4.6`**: that section's "downstream (demo) parse consumers" list omits CopyButton because it makes no *direct* value.js parser call. It is nonetheless a downstream stylesheet-grammar consumer, reached via Tier A (`fromString`), and belongs in the parser wave's blast radius at `CopyButton.vue:69` and `:82`.
+### C-3 · The prior L pass's headline verdict is superseded
+Its §0 reads *"a good piece of Vue with one untruthful failure path."* At HEAD the component also has a **dead** primary path: B-1 means the animation whose construction, grouping, targeting and playback occupy 40 % of the file has never executed. Its own INFO L-12 imagines that state as a failure envelope ("leaving `group` null forever and the button a dead icon with no signal to anyone") without testing whether the state is already true. It is. Recording this as the lane's own lesson: **resolve every string that crosses a fail-explicit API against the registry it is checked by** — the union type (`| string`, `constants/types.ts:194`) guarantees the compiler will not do it for you.
 
 ---
 
-### L-9 · `g.singleTarget = false` pokes derived state, because the group is built before its children have targets
+## 6. Superlatives (L-18, running the other way)
 
-**Severity** MINOR · **Provenance** `CopyButton.vue:95-99`; `src/animation/group/group.ts:73, 159-161, 195-204`; `src/animation/group/waapi.ts:28-31`
+**S-1 · Textbook LIGHT/HEAVY boundary consumption `[prior seat S-1, endorsed]`.** `:23-24` imports the heavy-side *types* (`AnimationGroup`, `InputAnimationOptions`) with `import type` — erased under `verbatimModuleSyntax` — and only `loadAnimationEngine` as a value; a value-import of `AnimationGroup` would drag value.js's parser and colour graph onto the LIGHT static barrel and redden `proof:boundary`. It uses the **published barrel specifier**, never a deep `@src/animation/*` path (the ED-3 dogfood inversion, `demo/kf-engine.ts:5-11`). And it picks the right accessor: `kf-engine.ts:12-20` states that most demo sites should await `loadAnimationEngine()` at their point of need and that `kfEngine()` is the *one* ergonomic seam for the scene-machine hot path — a leaf with an async mount is exactly the former. *(This is also why I do **not** file "should have used `kfEngine()`" as a defect, though the synchronous accessor would incidentally delete m-2's `!` assertions — the trade is real but the documented posture is the file's.)* **Falsifier:** dies on any `@src` edge or heavy value-import in `:20-25` (there is none), or if `kf-engine.ts` were the mandated path for all sites (its header says the opposite).
 
-```ts
-// :95-99
-const g = new AnimationGroup(clipboardAnim, clipboardCheckedAnim);
-g.singleTarget = false;                                    // :96 ← manual override
-clipboardCheckedAnim.setTargets(clipboardChecked.value!);  // :98 ← targets arrive AFTER
-clipboardAnim.setTargets(clipboard.value!);                // :99
-```
+**S-2 · A real `<button type="button">` root `[prior seat S-2]`.** `:2-3`. Native keyboard activation, focus, and role with zero ARIA; `type="button"` blocks implicit form submission. It also earns free membership in the toolbar's roving-tabindex cohort — `useToolbarKeyboard.ts:40-47` collects `container.querySelectorAll("button")` with no per-item registration, and its header names CopyButton as one of the three items it is agnostic to. Worth protecting explicitly if S-7's glass-`Button` reshell ever lands.
 
-`singleTarget` is a **derived** field. The constructor computes it (`group.ts:159-161`):
+**S-3 · Symmetric `0%, 100%` frames retire fill-mode reasoning `[prior seat S-3]`.** `:70-79`, `:83-92`; `constants/defaults.ts:83` (`fillMode: "forwards"`). Both blocks put the identical declaration at `0%` and `100%`, so the engine's forwards fill leaves the icons exactly where they started — no completion handler, no `reset()`, no inline-style cleanup, no fill-mode option. A one-directional authoring of the same pulse would have needed all four. Small, deliberate, load-bearing.
 
-```ts
-this.singleTarget = animations.every(
-    (animation) => animation.targets[0] === animations[0]?.targets[0],
-);
-```
+**S-4 · `void group.value?.play()` — correct, named fire-and-forget `[prior seat S-4]`.** `:62`. The optional chain covers the window before the engine resolves (and is the sole reason B-1 degrades into a dead animation instead of a `TypeError` on every click), and the explicit `void` marks the promise as deliberately unawaited — the idiom the library uses itself (`load-engine.ts:128`). It is also the sharpest indictment of B-2: the file knows how to name a floated promise and does it correctly on line 62, while line 52 floats the failure-bearing one bare.
 
-At `:95` both children have `targets === []`, so `undefined === undefined` → `true` → `singleTarget = true`, and line 96 exists only to undo that. The group's own `setTargets` re-derives it (`group.ts:201-204`), but it broadcasts one target set to *all* children — useless here, where the two icons need different targets. Calling `setTargets` on each child before constructing the group would derive `singleTarget = false` correctly and delete line 96. As written, the correctness of the multi-target render depends on a hand-written assignment to an undocumented field (`group.ts:73` carries no JSDoc) in the right order; drop line 96 and both animations silently composite onto the *first* icon only.
-
-Consequence worth naming: `singleTarget === false` is a hard refusal in the group's native-lowering gate —
-
-```ts
-// src/animation/group/waapi.ts:28-31
-if (!group.singleTarget || entries.length === 0) {
-    return { eligible: false, reason: "group requires one shared target" };
-}
-```
-
-— so despite `useWAAPI: true` being the engine default (`constants/defaults.ts:86`), the copy pulse always runs on the main-thread rAF compositor, never lowered to `Element.animate`. That is *correct* (it avoids the split-brain the module's header warns about) but it is an unstated consequence of a hand-poked field, and it compounds L-2: an unlowered, PRM-unguarded rAF loop.
-
-**Falsifier** — dies if `singleTarget` is documented as consumer-writable public API (it is not: bare field, no doc comment, in a file where every other public field carries one), or if a child `setTargets` propagates to the group (it does not — `engine/animation.ts` has no back-edge to the group).
+**S-5 · Vue 3.5 reactive props destructure keeps `text` live — NEW.** `:27-30`. `const { text, label = … } = defineProps<…>()` compiles to `__props.text` at the read site, so `handleClick` (`:52`) copies the **current** text rather than a setup-time snapshot. That matters here concretely: `StartingStyleTarget.vue:59` binds `:text="compiledEntryCss || copyableCss"` and `KeyframeCard.vue:26` binds `:text="frameString"` — both continuously recomputed. The classic stale-capture bug is structurally absent. **Falsifier (runs both ways):** on vue < 3.5, or with `propsDestructure` disabled, this same line would be a copy-the-wrong-string BLOCKER — `package.json` pins `vue ^3.5.35`, where the transform is default-on.
 
 ---
 
-### L-10 · The two feedback channels diverge on a repeat click: AT re-arms, the icon does not
+## 7. Repair order
 
-**Severity** MINOR · **Provenance** `CopyButton.vue:13-14, 33-34, 55-62`; `src/animation/internal/transport/core.ts:12-16`
+1. **B-1** — `"bounceInEase"` → `"easeInBounce"`. One word; arms every latent finding below it; matches value.js disposition **EE-01 → BUILD W1**. *Library follow-up letter:* drop `| string` from `InputAnimationOptions["timingFunction"]` (`constants/types.ts:194`) so the next one is a compile error; fix the stale test at `orchestration-api.test.ts:143` (m-6) in the same commit.
+2. **B-2 + M-1 + i-3** — one edit: make `handleClick` `async`, `await copyText` inside `try`, set `isCopied`/`liveStatus` only on success, add the failure branch (the `useShareState.ts:30-40` pattern), and reset both on `group.finished` (`group.ts:317`).
+3. **M-5** — restore the missing `opacity` declarations in `fade-out` (or rename it honestly), then hand the result to SS-13.
+4. **M-2 + m-1 + m-2 + m-4** — one edit at `:95-101`: call each child's `setTargets` **before** `new AnimationGroup(...)` (deleting the `singleTarget` poke), add `g.respectReducedMotion = true`, add the `unmounted` guard and `onBeforeUnmount(() => group.value?.stop())`.
+5. **M-3** — give the root a default `w-4 h-4`; drop the redundant consumer sizes at leisure.
+6. **m-7** — one component test at last: mount, click, assert `writeText` called, assert the announcement is not made when `writeText` rejects.
+7. **M-6 / C-2** — not demo-owned. Belongs with the F-1 letter: declare + lock glass-ui, then decide whether the roster earns a merge-path seat. Until then, treat *every* browser-observable claim in this tranche as unobserved.
 
-The file states its own contract twice:
-
-```
-:13-14  One AT-only status sink: announces the copy to screen readers
-        without a visual change (the icon swap is the sighted feedback).
-:33-34  … re-armed each click so a repeat copy re-announces …
-```
-
-The AT channel honours it — `liveStatus` is cleared then re-set on the next frame (`:57-60`), which does produce two distinct DOM mutations because Vue flushes on the microtask queue *before* the rAF callback runs. The sighted channel does not:
-
-```ts
-// src/animation/internal/transport/core.ts:12-16
-export function beginPlay(state, start) {
-    if (state._playingPromise) return state._playingPromise;   // ← re-entrant: no restart
-    …
-}
-```
-
-A second click inside the 200 ms window returns the held promise and **does not replay the pulse**. So a rapid repeat copy re-announces to a screen reader and gives the sighted user nothing — the exact inverse of the comment's premise that the icon swap is the sighted feedback.
-
-**Falsifier** — dies if `group.play()` restarts a running group (it does not; `beginPlay` short-circuits), or if the group's `_playingPromise` is cleared before the animation ends (it is cleared in `result.finally`, i.e. after settle, `core.ts:18-20`).
-
----
-
-## 4. Contradictions of the hitherto corpus
-
-### C-1 · `lane-frontend.md` S-7 (`:385`) and the injection table (`:452-453`) are **factually wrong** about the mechanism
-
-The census claims:
-
-> `CopyButton.vue:70` and `:83` build `@keyframes fade-in` / `fade-out` as **runtime JS template strings** and inject them — style-injection from script, bypassing the cascade entirely. That is its own defect regardless of the glass question.
-
-and lists both lines in a table headed *"runtime JS string injection"*.
-
-**Nothing is injected.** Traced end to end:
-
-| step | file:line | what happens |
-|---|---|---|
-| 1 | `CopyButton.vue:69,82` | the literal is passed to `CSSKeyframesAnimation.fromString` |
-| 2 | `engine/css/css-animation.ts:169,176` | `fromString` calls `resolveKeyframes(keyframes)` |
-| 3 | `compile/adapter.ts:266,278-282` → `:219-225` | `parseSource` → `parseStylesheet` — a **parse**, returning `{ ast, issues }` |
-| 4 | `css-animation.ts:204-215` | parsed stops become `templateFrames` via `addFrame` |
-| 5 | `compile/value-ast.ts:386-397` | at play time, `transformTargetsStyle` does `target.style.setProperty(property, …)` |
-
-There is no `<style>` element, no `CSSStyleSheet.insertRule`, no `document.adoptedStyleSheets`, no document-level `@keyframes` rule. The *only* CSSOM-writing method on this class is `registerProperties` (`CSS.registerProperty`, `css-animation.ts:78`, guarded by `metadata.ts:109` feature detection) — a **separate** method CopyButton never calls, and the input carries no `@property` rules to feed it.
-
-The consequence clause is wrong in the opposite direction too: the engine paints **inline styles**, which are not "bypassing the cascade" — inline declarations are the highest-priority normal-declaration origin, i.e. maximally *inside* it, and element-scoped rather than document-global. If anything, the mechanism is more contained than the census implies, not less.
-
-The **kernel of truth survives**, and I restate it correctly as **L-8**: authoring CSS as a JS literal in a leaf component routes constant frames through the heaviest parse seam, per instance, when `fromKeyframes` expresses them with no stylesheet parse at all. That is a seam-choice defect, not an injection defect. Recommend `lane-frontend.md:452-453` be struck from the "runtime JS string injection" table and re-filed under the parse-seam blast radius (`lane-library.md §4.6`).
-
-### C-2 · `lane-frontend.md` F-1 (the glass-ui phantom dependency) does **not** bite this component
-
-F-1 is real (glass-ui 7.0.0 installed, absent from both `package.json` and `package-lock.json`). It has **zero** exposure here. CopyButton's complete import set is `@lucide/vue` (`:20`), `vue` (`:22`), `@mkbabb/keyframes.js` (`:23-24`), `@utils/clipboard` (`:25`) — no glass-ui edge, direct or transitive. `@utils/clipboard`'s only third-party edge is `vue-sonner`, a **declared** devDependency (`package.json` devDeps), already resident in the app graph via `DemoGlobalChrome.vue:28,48`'s mounted `<Toaster>`. So the phantom-dep blast radius on the LIBRARY axis for this file is **nil**.
-
-This *agrees* with S-7's own "partial shadow" framing (no copy primitive exists in glass-ui) — I record it explicitly so the CopyButton row is not swept into an F-1 remediation that would introduce the coupling it currently lacks.
-
-**Checked and NOT defects** (recorded so a later pass does not re-litigate them):
-
-- **Shared `options` object across two animations** (`:40-43` → `:69,82`) — safe. `engine/animation.ts:195-196` stores the reference in `_ctorOptions` but only ever **spreads** it (`{...defaultOptions, ...this._ctorOptions}`); the sole other reader, `css-animation.ts:200`, also spreads. `grep -rn "_ctorOptions" src/animation/` → 4 sites, zero mutations. No aliasing hazard.
-- **Second and later plays** — work. `group.settle()` (`group/lifecycle.ts:159-171`) → child `settle()` (`engine/play-lifecycle.ts:459-468`) resets `startTime = undefined`, `t = 0`, `done`/`started` false, so click #2 re-runs cleanly. The children's `managed` flag flipping to `false` at settle is harmless: `managed` gates only direct `KeyframesAnimation.play()` (`play-lifecycle.ts:364-367`), and the group drives `advanceTo`/`interpFrames` directly (`yield-batch.ts:33`, `entries.ts:92-93`).
-- **Fill mode** — a non-issue by construction. Default is `fillMode: "forwards"` (`constants/defaults.ts:84`), but both keyframe blocks are symmetric (`0%, 100%` identical), so the rest frame equals the start frame and the icons return to `scale(1)` / `opacity:0` with no cleanup code. Filed as a superlative (S-3) rather than a finding.
-- **Reactive-props destructure** (`:27-30`) — correct. Vue 3.5.35 has `propsDestructure` on by default, so `text` in `handleClick` compiles to `__props.text` and stays reactive across the four call sites that bind changing values (`KeyframeCard.vue:26` `:text="frameString"`, `StartingStyleTarget.vue:59` `:text="compiledEntryCss || copyableCss"`).
-- **Roving-tabindex participation** — correct and free. `useToolbarKeyboard.ts:40-47` collects `container.querySelectorAll("button")`; CopyButton's real `<button>` root is picked up with no registration. Filed as S-2.
-- **`role="status"` + `aria-live="polite"`** (`:15`) — redundant (the role implies the live value) but harmless, and the belt-and-braces form is the widely-recommended one. Not a defect.
-- **Focus ring** — CopyButton does **not** set `outline-none`, so the UA focus ring survives. Its toolbar sibling at `KeyframesEditor.vue:87-92` sets `outline-none focus-visible:ring-2`. Mild inconsistency; CopyButton is on the correct side of it.
-
----
-
-## 5. Superlatives (L-18, running the other way)
-
-### S-1 · Textbook LIGHT/HEAVY boundary consumption — this is the seam the library documents, used exactly as documented
-
-**Provenance** `CopyButton.vue:23-24, 45-49, 65-67`; `src/animation/index.ts:1-27`; `demo/kf-engine.ts:16-18`
-
-```ts
-// :23-24
-import type { InputAnimationOptions, AnimationGroup } from "@mkbabb/keyframes.js";
-import { loadAnimationEngine } from "@mkbabb/keyframes.js";
-```
-
-Three things are right at once, and each is a separate trap the file avoids:
-
-1. **Types static, runtime dynamic.** Heavy-side types (`AnimationGroup`, `InputAnimationOptions`) come through `import type`, erased under `verbatimModuleSyntax`; only `loadAnimationEngine` is a value import. That is verbatim the contract `src/animation/index.ts:19-21` states — *"`import type` is erased … so re-exporting heavy-side types here costs no runtime edge."* A single value-import of `AnimationGroup` would drag value.js's parser and colour graph onto the LIGHT static barrel and turn `proof:boundary` red.
-2. **The published barrel, not the source.** `@mkbabb/keyframes.js`, never a deep `@src/animation/*` path — the ED-3 dogfood inversion `demo/kf-engine.ts:5-11` exists to enforce.
-3. **The right accessor for this call site.** `demo/kf-engine.ts:16-18` says plainly: *"Most demo sites await `loadAnimationEngine()` directly at their point of need … This module is the ONE extra ergonomic seam for the SCENE-MACHINE hot path."* CopyButton is a leaf with an async mount and no synchronous-construction pressure, so the direct accessor is the correct choice, not the `kfEngine()` shortcut. Since `main.ts:50-53` awaits `warmKfEngine()` before `app.mount()`, the memoized promise (`load-engine.ts:114,124`) is already settled and CopyButton shares the same chunk at zero cost.
-
-And the comment at `:45-48` states the reasoning and the null-guard invariant in three lines. This is the reference implementation of the boundary for a leaf component.
-
-**Falsifier (superlatives run both ways)** — this praise dies if a static `@src` edge or a value-import of a heavy symbol is found in the file (neither is: `:20-25` is the complete import list), or if `demo/kf-engine.ts` were shown to be the mandated path for all sites (its own header says the opposite).
-
-### S-2 · A real `<button type="button">` root — accessibility and toolbar integration for free
-
-**Provenance** `CopyButton.vue:2-3`; `useToolbarKeyboard.ts:40-47`
-
-`type="button"` prevents implicit form submission; the native element brings keyboard activation, focus, and the button role with no ARIA. It also means `useToolbarKeyboard`'s `querySelectorAll("button")` collects it into the roving-tabindex cohort with **zero per-item registration** — the composable's header (`:22-27`) names CopyButton as one of the three items it is agnostic to. A `<div role="button">` or a glass-ui wrapper with a non-button root would have required a registration protocol. Given lane-frontend S-7's suggestion to reshell this on glass `Button`, this property is worth protecting explicitly in any such migration.
-
-### S-3 · Symmetric `0%, 100%` keyframes make fill-mode reasoning unnecessary
-
-**Provenance** `CopyButton.vue:70-79, 83-92`; `src/animation/constants/defaults.ts:84`
-
-Both blocks put the identical declaration at `0%` and `100%`. The engine's default `fillMode: "forwards"` therefore leaves the icons exactly where they started, so the component needs no completion handler, no `reset()`, no inline-style cleanup, and no fill-mode option. A one-directional `0% → 100%` authoring of the same pulse would have required all four. Small, deliberate, and load-bearing.
-
-### S-4 · `void group.value?.play()` — the correct fire-and-forget posture, stated in one line
-
-**Provenance** `CopyButton.vue:62`, with `:45-49`
-
-The optional chain covers the (one-microtask) window before the engine resolves, and the explicit `void` marks the promise as intentionally unawaited rather than accidentally dropped — the idiom the library itself uses at `load-engine.ts:130` (`warmEngine`). The comment at `:45-48` explains why the null can occur and why it is safe.
-
-This superlative is also the sharpest indictment of **L-1**: the file demonstrably knows how to name a deliberately-floated promise, and does it correctly on line 62 — while line 52 floats a genuinely failure-bearing one with no `void`, no `await`, and no `catch`.
-
----
-
-## 6. INFO
-
-- **L-11 · `AnimationGroup<any>` (`:49`).** Matches a repo-wide pattern — 13 sites (`App.vue:218`, `scene-facility/index.ts:72,83`, `useSceneMachineShellBinding.ts:28`, `scenePlaybackAdapters.ts:38,118`, `AnimationControlsGroup.vue:141`, `ControlsPaneWrapper.vue:182`, `EditorShell.vue:137`, +3 composables). So not an outlier. Worth recording only because CopyButton is the **one** of the thirteen whose vars are statically known and closed (`{ transform: string; opacity: number }`); every other site is a genuinely heterogeneous scene-machine seam where `any` is defensible. If a `Vars`-tightening pass ever runs, this is the free win.
-- **L-12 · Engine-load failure is silent and permanent.** `loadAnimationEngine` memoizes with `enginePromise ??= import("./public")` (`load-engine.ts:114,124`) — a **rejected** promise is cached forever, so one transient chunk-load failure disables the engine for the session. `main.ts:50` swallows the warm's rejection (`warmKfEngine().catch(() => undefined)`) and mounts anyway. CopyButton's `onMounted` rejection is routed to Vue's `callWithAsyncErrorHandling` (a dev warning, nothing in prod), leaving `group` null forever and the button a dead icon with no signal to anyone. Nothing here is CopyButton's defect; it is the failure envelope this component sits inside, and it means the `:45-48` comment's cheerful "resolves within microtasks of mount" has an unmodelled other branch.
-- **L-13 · `liveStatus` is never cleared (`:35, 59`).** After the first copy, the `sr-only` span holds "Copied to clipboard" for the rest of the session. Screen readers expose `sr-only` text in browse/virtual mode, so a stale past-tense sentence sits permanently in the accessibility tree next to a button whose name is *also* permanently past-tense (L-3). Individually trivial; together with L-3 the component's entire a11y surface describes an event rather than an affordance.
-- **Folded from `lane-library.md §7.5` (failure-posture inconsistency).** The parse seam CopyButton rides is the **absorb** arm — `compile/adapter.ts:217-225` returns an empty AST plus `Diagnostic` rows on `animation.diagnostics`, never a throw (`css-animation.ts:186-191`). CopyButton never reads `diagnostics`. Not a live risk today (the CSS is a valid hardcoded literal), but it means any future edit that breaks either literal produces a **frameless, silently no-op** animation with the reason sitting unread on the object. Another argument for L-8's `fromKeyframes`, which has no parse to fail.
-
----
-
-## 7. Claim ledger
-
-| id | sev | one-line | primary provenance |
-|---|---|---|---|
-| L-1 | **BLOCKER** | unawaited/uncaught `copyText` + unconditional success feedback ⇒ unhandled rejection *and* a false AT announcement | `CopyButton.vue:52,54,59`; `utils/clipboard.ts:3-8` |
-| L-2 | MAJOR | `group.respectReducedMotion` never set ⇒ rAF pulse runs under `prefers-reduced-motion: reduce` | `CopyButton.vue:95-101`; `group/group.ts:57`; `group/lifecycle.ts:79-81` |
-| L-3 | MAJOR | `isCopied` write-once ⇒ accessible name permanently "Copied to clipboard" | `CopyButton.vue:4,32,54` |
-| L-4 | MAJOR | zero intrinsic box; contract leaks to every consumer; 2 of 4 ship 16 px targets | `CopyButton.vue:5,104-113`; `EasingTarget.css:68-74` |
-| L-5 | MAJOR | `useTemplateRef<HTMLElement>` false (lucide is functional ⇒ `SVGSVGElement`) and load-bearing for `tsc` | `CopyButton.vue:37-38,98-99`; `lucide-vue.d.ts:10`; `runtime-core.cjs.js:1761` |
-| L-6 | MINOR | no `onBeforeUnmount`: rAF loop + naked `requestAnimationFrame` outlive unmount | `CopyButton.vue:58,65-102`; cf. `TypingDots.vue:103-107` |
-| L-7 | MINOR | post-`await` `!` on refs Vue nulls at unmount | `CopyButton.vue:98-99`; cf. `TypingDots.vue:68-76` |
-| L-8 | MINOR | `fromString` (full stylesheet parse, ×2 per instance, unmemoized) where `fromKeyframes` needs none | `CopyButton.vue:69,82`; `adapter.ts:266,219-225`; cf. `TypingDots.vue:88-95` |
-| L-9 | MINOR | `g.singleTarget = false` pokes derived state; ordering-fragile; forfeits the WAAPI lane | `CopyButton.vue:95-99`; `group.ts:73,159-161`; `group/waapi.ts:28-31` |
-| L-10 | MINOR | repeat click re-announces to AT but drops the icon pulse (`beginPlay` re-entrancy) | `CopyButton.vue:13-14,33-34,62`; `transport/core.ts:12-16` |
-| L-11 | INFO | `AnimationGroup<any>` — repo-wide, but the one site with closed vars | `CopyButton.vue:49` |
-| L-12 | INFO | engine-load rejection cached forever + swallowed at boot ⇒ silent permanent dead icon | `load-engine.ts:114,124`; `main.ts:50` |
-| L-13 | INFO | `liveStatus` never cleared ⇒ stale sentence in the a11y tree | `CopyButton.vue:35,59` |
-| S-1 | SUP | reference-grade LIGHT/HEAVY boundary consumption (`import type` + `loadAnimationEngine`) | `CopyButton.vue:23-24,45-49`; `src/animation/index.ts:19-21` |
-| S-2 | SUP | real `<button type="button">` ⇒ free roving-tabindex + native a11y | `CopyButton.vue:2-3`; `useToolbarKeyboard.ts:40-47` |
-| S-3 | SUP | symmetric `0%,100%` frames retire fill-mode reasoning entirely | `CopyButton.vue:70-79,83-92` |
-| S-4 | SUP | `void group.value?.play()` — correct named fire-and-forget | `CopyButton.vue:62` |
-| C-1 | CONTRA | lane-frontend `:385,:452-453` "runtime JS string injection / bypasses the cascade" is **false**; real mechanism is parse → inline `style.setProperty` | `css-animation.ts:169,176`; `adapter.ts:219-225`; `value-ast.ts:386-397` |
-| C-2 | CONTRA | lane-frontend F-1 (glass-ui phantom dep) has **nil** exposure here — no glass-ui edge; `vue-sonner` is declared and already resident | `CopyButton.vue:20-25`; `DemoGlobalChrome.vue:28,48` |
-
-**Law compliance.** `/Users/mkbabb/Programming/keyframes.js` was read only — no file in it, or in any other repo, was written, mutated, installed, or executed. No dev server, no browser tooling, no Playwright, no DevTools MCP. This file is the single write. Every livable-only assertion is marked UNPROVEN-NEEDS-LIVE and deferred to SS-13: the SVG `transform-origin`/`transform-box` render (L-5), the SC 2.5.8 spacing exception at the two 16 px sites (L-4), and the wall-clock parse cost (L-8).
+**Law compliance.** keyframes.js was read only; the three `node` probes imported installed package code and wrote nothing. No dev server, no Playwright, no DevTools MCP, no installs. This file is the single write. Livable-only assertions are marked UNPROVEN-NEEDS-LIVE and deferred to SS-13: the superimposed-glyph reading (M-5), the SVG `transform-box`/`transform-origin` render (M-4), the wall-clock parse cost (m-3), and the 16 px target sites' spacing exception (M-3).
