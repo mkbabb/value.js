@@ -1,7 +1,7 @@
 {
  "runId": "wf_269fd543-c7f",
  "workflow": "wf_269fd543-c7f",
- "resultCount": 22,
+ "resultCount": 25,
  "results": [
   {
    "agentId": "aee6ab8d9b3c194be",
@@ -551,6 +551,42 @@
     "defects": 19,
     "blockers": 2,
     "superlatives": 7
+   }
+  },
+  {
+   "agentId": "ad28b887b8e40c5b9",
+   "key": "v2:39b6f3070e1c9542793f123c74fd89591a7e6906a49f328824e02ebe616d1c36",
+   "result": {
+    "slug": "CSSPasteDialog",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CSSPasteDialog/challenge-C-consumption.md",
+    "defects": 8,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a0169ff52d19f1ed3",
+   "key": "v2:e5ac93f9b5beb4d1b465f93e539837faf9016daa28fb9bf5153eb884a9481f28",
+   "result": {
+    "slug": "CSSPasteDialog",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CSSPasteDialog/challenge-L-library.md",
+    "defects": 12,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a8c6ce7d2fcd0a3b8",
+   "key": "v2:567f87215a02b0c71fbc7cf1f22dc0d5c1d21ffebcc92dae3f725d7a5b1652b2",
+   "result": {
+    "slug": "CSSPasteDialog",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CSSPasteDialog/challenge-D-design.md",
+    "defects": 21,
+    "blockers": 3,
+    "superlatives": 3
    }
   }
  ]

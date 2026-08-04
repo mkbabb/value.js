@@ -1,7 +1,7 @@
 {
  "runId": "wf_407d36af-fe7",
  "workflow": "wf_407d36af-fe7",
- "resultCount": 32,
+ "resultCount": 33,
  "results": [
   {
    "agentId": "a1d50533fe66c6ed0",
@@ -7515,6 +7515,27 @@
      "D-7(b) 30s live-region flap KILLED from bytes (reader-2's kill adopted over reader-1's unproven posture); D-8 dark 'no chip' limb killed twice over with the algebraic lock",
      "Five transport rows (incl. the confirmed unbounded cooldown burst, AP-17 MAJOR) land NO-WAVE-OWNER — demo/platform/transport/** has no X-wave claimant; flagged loud in DISSENT",
      "8 UNPROVEN-NEEDS-LIVE residue items handed to the visual audit (AT announcement of dual live regions, forced-colors dot vanish, 200% clip in the real well, one live burst cycle)"
+    ]
+   }
+  },
+  {
+   "agentId": "a337c6092a31046cd",
+   "key": "v2:64b5cca7693efd56c938368f848152429f8604e671bbae49e761bbb4fd598bd3",
+   "result": {
+    "slug": "ApiOfflineChip",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/ApiOfflineChip.md",
+    "verdict": "ADJUDICATED — BLOCKER SUSTAINED",
+    "confirmedCount": 33,
+    "killedCount": 13,
+    "missedCount": 12,
+    "headline": [
+     "AP-1 BLOCKER: the owner-ordered-dead misconfigured surface (MT-F031, 'REMOVED, not restyled and not gated') has a second live byte-identical seat in ApiOfflineChip.vue:11-18; the barrel documents a death that never happened — exact files pinned for both seats (chip + lamp arm).",
+     "Production inversion (reader-1's deepest find, folded into AP-3): status-lamp.ts:48 darkens BOTH lamp faces in any built artifact, so in production the swatch-gated chip is the app's ONLY backend-offline affordance — the redundancy exists only in dev, the hole only in production.",
+     "8 verdict-level reader disagreements ruled with this seat's own instruments: reader-2's '531 lines exactly' REFUTED (wc = 543), its 3-site phantom-token census refuted (4 — the fourth is glass-ui's own minified .timeline-popover-state rule, making the phantom PRODUCER-born -> BH relay), the D-7(b) flap KILLED from the bytes over reader-1's UNPROVEN posture, and both readers' dark contrast figures displaced by specified-colour arithmetic (2.7-3.2:1, sub-AA either way).",
+     "AP-14 confirmed by this seat's own fontTools run: the shipped Fira Code woff2 GSUB = [calt,dnom,frac,locl,numr] — no smcp — so font-variant: small-caps is browser-synthesized everywhere, the true mechanism behind D's mis-attributed washout.",
+     "Killed #5 is the corpus's sharpest lesson: all three axes' unanimous cure (var(--type-caption)/text-mono-small/Chip sm) silently resizes the chip 1.3-1.8x and worsens their own MAJOR overflow row; the size-preserving --type-micro rung existed all along.",
+     "Routing: AP-1 = MT-F031 executor (lamp files -> MT-DOCK-LAYERS-1 by name; chip -> X-W7 rider); rebuild-on-producer-primitives cluster -> X-W7; module re-home + dead barrel/lint law -> X-W8; type/motion canon -> X-W10 + GLASS-OWNED BH relay; 5-row transport cluster (incl. AP-17's unbounded probe burst) flagged NO-WAVE-OWNER deliberately loud; 8 UNPROVEN-NEEDS-LIVE residue items handed to the visual audit.",
+     "Provenance note: file authored by this seat's prior incarnation (wall-killed before returning output), committed at b2abeb84; this incarnation independently re-verified every load-bearing instrument cell and corrected one dangling cross-reference (AP-24 -> AP-33)."
     ]
    }
   }
