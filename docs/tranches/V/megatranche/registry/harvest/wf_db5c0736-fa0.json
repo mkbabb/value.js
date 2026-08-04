@@ -1,0 +1,90 @@
+{
+ "runId": "wf_db5c0736-fa0",
+ "workflow": "wf_db5c0736-fa0",
+ "resultCount": 1,
+ "results": [
+  {
+   "agentId": "a164d5c0700f6af80",
+   "key": "v2:c448a98b920484d24eb83e21dba2191c77c67ec7e6c3e5ece0b4bb558ee8f7c5",
+   "result": {
+    "modules": [
+     {
+      "slug": "ansi",
+      "path": "typescript/src/parse/ansi.ts",
+      "lines": 17
+     },
+     {
+      "slug": "core",
+      "path": "typescript/src/parse/core.ts",
+      "lines": 26
+     },
+     {
+      "slug": "debug",
+      "path": "typescript/src/parse/debug.ts",
+      "lines": 383
+     },
+     {
+      "slug": "diagnostics",
+      "path": "typescript/src/parse/diagnostics.ts",
+      "lines": 14
+     },
+     {
+      "slug": "index",
+      "path": "typescript/src/parse/index.ts",
+      "lines": 14
+     },
+     {
+      "slug": "lazy",
+      "path": "typescript/src/parse/lazy.ts",
+      "lines": 43
+     },
+     {
+      "slug": "leaf",
+      "path": "typescript/src/parse/leaf.ts",
+      "lines": 399
+     },
+     {
+      "slug": "packrat",
+      "path": "typescript/src/parse/packrat.ts",
+      "lines": 488
+     },
+     {
+      "slug": "packrat-entry",
+      "path": "typescript/src/parse/packrat-entry.ts",
+      "lines": 5
+     },
+     {
+      "slug": "parser",
+      "path": "typescript/src/parse/parser.ts",
+      "lines": 711
+     },
+     {
+      "slug": "parsers",
+      "path": "typescript/src/parse/parsers",
+      "lines": 103
+     },
+     {
+      "slug": "split",
+      "path": "typescript/src/parse/split.ts",
+      "lines": 58
+     },
+     {
+      "slug": "state",
+      "path": "typescript/src/parse/state.ts",
+      "lines": 189
+     },
+     {
+      "slug": "utils",
+      "path": "typescript/src/parse/utils.ts",
+      "lines": 186
+     },
+     {
+      "slug": "utils-entry",
+      "path": "typescript/src/parse/utils-entry.ts",
+      "lines": 14
+     }
+    ]
+   }
+  }
+ ]
+}

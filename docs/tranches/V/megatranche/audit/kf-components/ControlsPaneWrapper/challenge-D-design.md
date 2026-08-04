@@ -743,3 +743,249 @@ And `.ribbon-apply--active { border-color: transparent }` (`RibbonBar.vue:144-15
 `D-M5` is the only structural change (fork axis) and wants its own spec.
 
 `D-i2` is not a defect but it is the **root cause of three of them**; a repo-level decision about layering scoped styles would retire D-M2 and prevent the next D-M10 outright, and is worth a lane note independent of this component.
+
+> **Pass-3 amendments to this sequencing.** `D-B3` + `D-M10` must land with the corrected magnitude from **`D-C3`** — the `α ≳ 0.60` written above is *below* the AA floor it derives (4.47 : 1). Add **`D-M11`** to the `D-B4` batch: both live in `RIBBON_BUTTON_CLASS`/`RibbonBar.vue:135`, and the button's whole class vocabulary should be re-derived once rather than twice. **`D-M12`** belongs with `D-B1`, not after it: the inset lever changes the sheet's height denominator, so the expanded-detent budget must be recomputed in the same edit rather than re-measured later.
+
+---
+
+# PASS 3 (appended — nothing above modified except the header tally, provenance, verdict, and this sequencing note)
+
+Pass 3 read the same SFC, stylesheet and composables, plus the layer of glass-ui 7.0.0 the earlier passes cited but did not resolve: `dist/styles/tokens/sizing.css`, `dist/styles/tokens/light-dark.css`, `dist/components/button/styles.css`, `dist/styles/typography/semantic.css`, `dist/styles/utilities/btn.css`. Six findings below are new; one prior finding is escalated; two prior claims are corrected; one defect pass 3 set out to file is **retracted** and recorded as a superlative.
+
+---
+
+## PASS 3 · MAJOR
+
+### D-M11 · `btn-interactive` is a phantom utility — six call sites naming an affordance that is defined nowhere **MAJOR** *(pass 3 — new; qualifies `S-6`)*
+
+```ts
+const RIBBON_BUTTON_CLASS = "h-8 gap-1.5 text-body rounded-full btn-interactive";   // RibbonBar.vue:135
+```
+
+`btn-interactive` has **no definition anywhere in the resolvable cascade**. Not a rule, not a Tailwind v4 `@utility`, not a `@theme` entry:
+
+```
+$ grep -rn "btn-interactive" --include='*.css' --include='*.ts' --include='*.js' --include='*.json' . | grep -v node_modules
+  demo/components/instrument/transport/controls-pane/RibbonBar.vue:135
+  demo/scenes/cube/CubeScene.vue:188
+  demo/scenes/cube/CubeScene.vue:193
+  demo/scenes/sequence/SequenceTarget.vue:31
+  demo/scenes/spring/SpringPhysicsFacet.vue:74
+  demo/scenes/spring/SpringScene.vue:167
+$ grep -rn "btn-interactive" node_modules/@mkbabb/glass-ui/dist/     → 0 hits
+```
+
+**Six consumers, zero producers.** Every one of them names an interaction affordance — the thing that distinguishes a ribbon action from a label — and every one resolves to nothing.
+
+What makes this MAJOR rather than cosmetic is that the demo's own design vocabulary documents this exact failure mode as *already diagnosed and cured*, four lines above where the cure was written:
+
+> `design-idioms.css:92-93` — *"icon-{xs,sm,md,lg} — the icon-sizing @utility family (**61 call-sites used to resolve to nothing**, all computing at Lucide's default 24px). Differentiates xs(14) < sm(16) < md(20) < lg(24)…"*
+
+The repo found 61 no-op call sites in the icon family, wrote a comment about it, and shipped the fix. Six no-op call sites in the button family survived in the same file's neighbourhood. This is the same class of defect as **D-M4** (dead `controls-pane--stage-*` classes) and **D-m5** (dead `group/controls`), but reaching *outside* this component into four scenes — so it should be repaired at the vocabulary tier, not at `RibbonBar`.
+
+**Qualifies `S-6`.** Pass 2's superlative reads: *"Every glass-ui prop it passes validates against 7.0.0's declarations … Zero bespoke re-implementations."* That remains true and the praise is deserved **for the props**. But the same element carries five *class* tokens of which two resolve to nothing (`btn-interactive`, and `h-8` per D-m12) and one is a literal no-op (`rounded-full` against `.button { border-radius: var(--radius-pill) }` = `9999px`, `components/button/styles.css`). Prop conformance was audited; class conformance was not. S-6 stands, narrowed to its stated scope.
+
+- **Falsifier:** any `@utility btn-interactive` / `.btn-interactive` rule in the built CSS, including a Tailwind plugin or a `@source`-scanned file. Searched all of `demo/**` (`*.css`, `*.ts`, `*.js`, `*.json`) and all of `node_modules/@mkbabb/glass-ui/dist/**`. Produce one and this dies outright.
+- **Falsifier:** Tailwind v4 synthesises utilities from arbitrary hyphenated class names. It does not — unmatched classes are dropped, which is precisely why the icon family needed the explicit `@utility` block at `design-idioms.css:102`.
+- **Adjacent corroboration (out of scope, same disease):** `SpringScene.vue:139,163` pass `variant="outline"` to the glass `Button`, whose declared prop surface is `emphasis | tone | size | iconOnly | loading | type | disabled | class | asChild | as` (`dist/button-B7c944jy.js`). `variant` is not a member and falls through to the DOM as a bare attribute. File with D-M11 at the vocabulary tier.
+
+### D-M12 · The expanded `subject` detent is ~half consumed by fixed chrome before one control is drawn **MAJOR** *(pass 3 — new; pairs with D-M8, which covers peek)*
+
+D-M8 audits the **peek** detent against the handle. The **expanded** detent has the complementary problem and it is arithmetically worse, because the ribbon D-B1 places in the occluded band is also the ribbon that eats the readable band.
+
+At `EXPANDED_SUBJECT = 0.4` (`ControlsPaneWrapper.vue:275`) on a 667px viewport the sheet is **267px**. Fixed, non-content chrome inside it, every term source-derived:
+
+| element | source | height |
+|---|---|---|
+| `.glass-drawer-handle` | `min-block-size: var(--touch-target, 2.75rem)` — glass-ui `components/drawer/styles.css` | 44px |
+| ribbon `CardContent class="p-3"` | `RibbonBar.vue:4` | 24px |
+| **one** row of ribbon buttons | `--control-h-sm = max(2.25rem × --ui-scale, --control-floor)`; `@media (pointer: coarse) { --ui-scale: 1.5; --control-floor: var(--touch-target, 2.75rem) }` (`tokens/sizing.css`, `tokens/light-dark.css`) → `max(54px, 44px)` | 54px |
+| ribbon wrapper `pb-2` | `RibbonBar.vue:2` | 8px |
+| **total** | | **130px = 49 % of the sheet** |
+
+**Half the expanded `subject` sheet is chrome before the `ChannelControls` host — which carries its own tab strip — draws anything.** 137px remain. The `editor`/`storyboard` detent (0.62 → 414px) fares better at 31 %, but `subject` is the mode the stage-reserve contract exists to serve, and it is the one that starves.
+
+The ribbon almost certainly wraps, which compounds it: `flex-wrap` (`RibbonBar.vue:14`) over four labelled pills against an available inline width of `375 − 24` (mobile `padding-inline`, `.css:47-49`) `− 44` (`pl-4 pr-7`, `RibbonBar.vue:2`) `− 24` (`p-3`) = **283px**. Each extra row costs 62px (54 + `gap-2`), taking the residual to ~75px at two rows and ~13px at three.
+
+- **The 49 % single-row floor is fully decidable** — every term is a token or a literal, and no term depends on text metrics.
+- `UNPROVEN-NEEDS-LIVE`: the wrap count, and therefore the 75px/13px figures — glyph advance widths are not source-derivable. Forwarded to SS-13.
+- **Falsifier:** the ribbon is hidden or collapsed at the mobile expanded detent. It is not — `RibbonBar` sits inside the shared `DefinePaneBody` (`ControlsPaneWrapper.vue:29,91`) that the Drawer portals, gated only on `selectedAnimation` (`:92`).
+- **Falsifier:** `--ui-scale` is pinned to 1 on touch by a demo override, dropping the row to 36px and the floor to 42 %. `grep -rn -- "--ui-scale" demo/` → **0 hits**; glass-ui's coarse block applies unopposed. (Note the floor stays above 40 % either way.)
+- **Interaction with D-B1:** the inset lever changes the sheet's height denominator, so this budget must be recomputed *in* that repair, not after it.
+
+### D-E1 · **Escalation: `D-m7` MINOR → MAJOR.** The empty glass plate has a second mechanism that is CONFIRMED, not PLAUSIBLE *(pass 3)*
+
+D-m7 files the empty ribbon plate on the *controls* branch, via a race between the raw and projected `selectedControl`, and marks it **PLAUSIBLE** because `useSelectedControlSurface.ts:88-101` reconciles with `immediate: true`. That reasoning is sound. It is also not the only path, and the other path has no reconciler.
+
+`RibbonBar.vue:107-115` — the **fourth** branch:
+
+```html
+<div v-else-if="storedControls.selectedControl !== 'controls'" class="flex items-center justify-center gap-2 flex-wrap">
+    <slot name="ribbon-content" :selected-control="storedControls.selectedControl" />
+</div>
+```
+
+This fires for every control surface outside `{controls, keyframes, timeline}`, and `state/controlSurfaces.ts` ships at least three: `matrix-controls` (`:156`), `easing`/"Curve" (`:153`), `spring`/"Physics" (`:154`). Its **only** child is a scene-supplied render function documented to return nothing:
+
+```ts
+SpringScene.vue:136    if (slotProps.selectedControl !== "spring") return null;
+EasingScene.vue:94     slotProps.selectedControl === "easing" ? h(PlaybackRibbon, …) : …
+CubeScene.vue:183      (keys on its own surface id)
+App.vue:65-71          <component :is="sceneRef?.ribbonContent" v-if="sceneRef?.ribbonContent" />
+```
+
+Each exposer keys on **its own** surface id and returns `null` for every other. So any reachable (scene, surface) pair where the scene does not own the surface renders `Card cartoon tier="quiet"` → `CardContent p-3` → an empty flex row: **a persistent ~32px stamped glass plate with nothing in it**, permanently occupying the sheet's scarcest dimension (D-M12).
+
+Three properties make this the stronger mechanism:
+
+1. **No reconciler.** D-m7's window closes in ~one tick; this one does not close at all — it is a steady state for as long as the surface stays selected.
+2. **The obvious guard is unavailable.** `$slots['ribbon-content']` is *always* truthy — `App.vue:65` always supplies the `<template>`, and the `v-if` is *inside* it on the `<component>`. A reader reaching for `v-if="$slots['ribbon-content']"` would find it does nothing.
+3. **`selectedControl` is persisted and not validated against the scene.** `AnimationControlsGroup.vue:204-215` validates the stored **animation name** against the live axis; nothing performs the equivalent check for the stored **control surface**, and `controlOptionsStore.ts:82` seeds it per-`superKey` from `localStorage`.
+
+Escalated to **MAJOR** and merged into D-m7's row rather than filed as a new defect — one harm, two mechanisms; double-counting would inflate the ledger, per the reasoning D-M10 already set out for this document.
+
+- **Falsifier:** an invariant proving every reachable (scene, `selectedControl ∉ {controls,keyframes,timeline}`) pair yields non-null `ribbonContent`. That invariant would have to hold that no scene can ever carry another scene's persisted surface pick — and the `?? pick` fallbacks D-m7 already cites (`useSelectedControlSurface.ts:82,110`) exist because the projection is not total.
+- **Falsifier:** `RibbonBar`'s Card self-collapses when empty. `CardContent class="p-3"` sets padding unconditionally; nothing measures children.
+- `UNPROVEN-NEEDS-LIVE`: the exact reachable (scene, surface) set. The **missing guard** is proven from source regardless of which pairs are reachable.
+- **Fix shape:** compute the branch's content once and gate the `<Card>` on it, rather than gating four independent branches inside a card that always paints.
+
+---
+
+## PASS 3 · MINOR
+
+### D-m12 · `h-8` on the ribbon buttons is structurally unreachable — the stated compactness is not what renders **MINOR** *(pass 3 — new; corrects `D-M9`'s pass-2 note via `D-C4`)*
+
+`RIBBON_BUTTON_CLASS`'s `h-8` compiles to `height: 2rem`. glass-ui's Button recipe sets a **floor** on the same axis:
+
+```css
+.button { --button-size: var(--control-h-md); min-block-size: var(--button-size); … }
+.button[data-size="sm"] { --button-size: var(--control-h-sm); … }         /* components/button/styles.css */
+--control-h-sm: max(calc(2.25rem * var(--ui-scale)), var(--control-floor));  /* tokens/sizing.css */
+```
+
+`min-block-size` and `height` are different properties, so there is no cascade contest — the minimum simply wins. At `--ui-scale: 1` the floor is **36px**; under `@media (pointer: coarse)` (`--ui-scale: 1.5`) it is **54px**. `h-8`'s 32px is below both. **The declaration can never take effect on any device.**
+
+The design consequence is not the pixel count but the *belief*: the author reached for a compact 32px ribbon, the class survived review, and the rendered ribbon is 12 %–69 % taller than intended — which is exactly the budget D-M12 shows the sheet cannot spare. A compactness intent that the design system silently overrules is worth knowing about before someone re-tunes the detents around the wrong number.
+
+- **Falsifier:** a `.button` rule setting `block-size` or `height` for the non-icon case. Only `[data-icon-only]` does (`components/button/styles.css`), and `iconOnly` is not passed.
+- **Falsifier:** a `--control-h-sm` or `--control-floor` override below 2rem anywhere in the demo. `grep -rn -- "--control-h-sm\|--control-floor\|--ui-scale" demo/` → **0 hits**.
+- **Falsifier:** Tailwind's `h-8` emits `min-block-size` too. It emits `height` only.
+
+### D-m13 · `text-body` decouples the ribbon label from the system's pointer scale — 54px pills, unscaled type, unscaled glyphs **MINOR** *(pass 3 — new)*
+
+Every sizing term in the glass Button is `--ui-scale`-coupled *except* the two the call site overrides:
+
+| term | system value | call-site override | scales with pointer? |
+|---|---|---|---|
+| block size | `--control-h-sm` = `max(2.25rem × --ui-scale, --control-floor)` | `h-8` (inert, D-m12) | **yes** → 36 / 54px |
+| font size | `--control-text` = `calc(var(--type-small) × var(--ui-scale))` | `text-body` → `font-size: var(--type-body)` (`typography/semantic.css`) | **no** — flat |
+| glyph | `.button > svg:not([class*="size-"]) { inline-size: var(--ui-glyph) }` = `calc(1rem × --ui-scale)` | `icon-sm` → `size-4` = 16px (`design-idioms.css:102-108`) | **no** — flat |
+
+On a coarse pointer the pill grows 1.5× while its label and its glyph do not, so a 54px control carries type sized for a 36px one. `text-body` also drops the recipe's `font-weight: 500` to `400` and adds `text-wrap: pretty` to a single-line button label. This is the Aristotelian-proportion half of the same vocabulary problem as D-M11/D-m12: three of five class tokens fight the recipe, and this is the one that actually changes pixels.
+
+The glyph half turns on layer order: `@utility icon-sm` registers into Tailwind's `utilities` layer, glass-ui's `.button > svg` rule sits in `@layer components`, and `utilities` wins regardless of specificity — consistent with **D-i2**, which already names unlayered-vs-layered precedence as this component's recurring root cause.
+
+- **Falsifier:** `--type-body` is itself `--ui-scale`-derived. It is not — `theme/bridges.css` maps `--text-body: var(--type-body)` with no scale term, while `--control-text` multiplies explicitly.
+- **Falsifier:** `[class*="size-"]` matches `icon-sm`, disabling glass-ui's glyph rule so no conflict exists. `"icon-sm"` does not contain the substring `size-`, so the `:not()` passes and both rules apply — the utilities layer then decides.
+- `UNPROVEN-NEEDS-LIVE`: the rendered type and glyph sizes on a coarse-pointer device. Token derivation and layer order are decidable.
+
+### D-m14 · The same verb wears two different icons in adjacent tabs **MINOR** *(pass 3 — new)*
+
+Within one ribbon the user switches between with a single tab click (`RibbonBar.vue:12-104`):
+
+| label | icon | tab |
+|---|---|---|
+| "Export CSS" | `FileCode` (`:42`) | Keyframes |
+| "Export" | `Upload` (`:94`) | Timeline |
+| "Import" | `Download` (`:86`) | Timeline |
+
+One verb, two glyphs, one tab apart — and the Import/Export pair additionally reads inverted against the common convention (import as an inbound/`Download` arrow, export as an outbound/`Upload` arrow, when the mental model here is file-in / file-out relative to the editor, not the network). Iconography is a vocabulary; teaching two words for one action inside one control strip is a prose-quality defect in the visual register.
+
+- **Falsifier:** a documented distinction where "Export CSS" (compile to artifact, `:32-35`) and "Export" (serialise the timeline, `:92`) are *genuinely different operations* deserving different glyphs. This is plausible — but then the *labels* collide rather than the icons, and the fix is the label, not the glyph. Either way one of the two pairs is wrong.
+
+### D-m15 · A document-unique id as a Teleport target inside a per-scene-remounted subtree **MINOR** *(pass 3 — new)*
+
+`RibbonBar.vue:7` emits `id="controls-ribbon-target"`; `ChannelOptions.vue:377` targets it with `<Teleport to="#controls-ribbon-target" defer>`. `Teleport` resolves its `to` by selector and takes the **first** document match. The id is emitted inside a subtree the component's own prose describes as remounting per scene (`ControlsPaneWrapper.vue:255-258` — *"the wrapper remounts per scene via the group superKey boundary"*).
+
+If two `AnimationControlsGroup` instances are ever concurrently mounted, the teleport aims at whichever `RibbonBar` rendered first and the visible ribbon goes blank — the same symptom as D-m7/D-E1 by a third route.
+
+Filed MINOR and honestly hedged: `App.vue:76-84` deliberately mounts scenes through a **bare keyed `<Suspense>`** with the crossfade on a *sibling* div (documented at length: *"NO `<KeepAlive>`, NO wrapping `<Transition>`: both broke the async loader outright"*), which makes an overlap window unlikely. But "unlikely by virtue of a shape chosen for an unrelated reason" is not an invariant, and the id gives no diagnostic when it fails.
+
+- **Falsifier:** a structural single-instance guarantee on `AnimationControlsGroup`. **UNPROVEN-NEEDS-LIVE.**
+- **Falsifier:** Vue's `Teleport` warns or errors on duplicate targets. It does not — `querySelector` semantics, silently first-match.
+
+---
+
+## PASS 3 · CORRECTIONS (L-18 turned inward, again)
+
+### D-C3 · `D-B3`'s repair instruction is under its own floor — `α ≳ 0.60` yields **4.47 : 1**, and the general bound is stronger than the point estimate
+
+Two amendments to D-B3, one arithmetic and one epistemic. **D-B3's verdict is not merely unaffected — it is strengthened.**
+
+**(a) The prescribed α is short.** D-B3 states *"AA holds only at `α ≳ 0.60`"* (`:125`), and the sequencing note propagates it as the repair value (*"`α ≥ 0.60` per the AA floor derived above"*, `:733`). Recomputing at α = 0.60 with D-B3's own tokens and backdrop assumption (`--foreground` ≈ (28, 25, 23), `--card` ≈ (253, 245, 236), backdrop the same warm family):
+
+```
+text'  = 0.60·(28,25,23) + 0.40·(253,245,236) = (118.2, 112.9, 108.2)  → Y = 0.16749
+card' ≈ (253.2, 244.9, 236.2)                                          → Y = 0.92230
+CR    = (0.92230 + 0.05) / (0.16749 + 0.05)                            = 4.470 : 1     ✗
+```
+
+**4.47 : 1 — below the 4.5 : 1 it is prescribed to satisfy.** Solving properly: `α = 0.61` → **4.62 : 1** ✓; the true crossing is **α ≈ 0.605**. A repair lane implementing `0.60` literally would ship a token that still fails the audit that demanded it — the most expensive kind of near-miss. **Prescribe `α = 0.62`** for headroom against `--muted-foreground`, which D-B3 correctly notes is worse.
+
+**(b) The point estimate should be a bound.** D-B3 defends 2.18 : 1 against a "darker backdrop" objection by computing the dark theme (≈3.6 : 1) — a good answer, but still backdrop-by-backdrop. The stronger claim is available and closes the objection permanently. Sweeping the backdrop across the entire achromatic range at α = 0.35, with the *most favourable possible* source pair (pure black ink on a pure white card):
+
+| backdrop | 0.00 | 0.10 | 0.20 | **0.25** | 0.30 | 0.40 | 0.50 | 0.70 | 1.00 |
+|---|---|---|---|---|---|---|---|---|---|
+| composite CR | 3.01 | 3.49 | 3.77 | **3.80** | 3.78 | 3.62 | 3.40 | 2.95 | 2.44 |
+
+**Maximum reachable ≈ 3.80 : 1. There is no backdrop, and no ink/plate pair, for which 35 % group opacity clears 4.5 : 1.** D-B3's first falsifier ("the rail's backdrop is substantially darker…") is therefore not merely answered for two themes — it is *unavailable*, for every theme, present and future. The defect cannot be tuned away by restyling the page behind the rail; only α moves it.
+
+- **Falsifier for (a):** a different backdrop assumption than D-B3's own. Granted — which is exactly why (b) is the load-bearing form: the bound holds regardless.
+- **Falsifier for (b):** browsers composite group opacity in linear-light space. They do not, as D-B3 already establishes.
+
+### D-C4 · `D-M9`'s pass-2 proportion note measures a control height the cascade never renders
+
+D-M9's pass-2 addendum reads: *"The pane's controls are `h-8` = 32px and its rhythm gap is `0.75rem` = 12px, so the ramp is wider than a control plus its gap."*
+
+`h-8` never renders (**D-m12**): `min-block-size: var(--control-h-sm)` floors the ribbon buttons at **36px** on a fine pointer and **54px** on a coarse one. The corrected comparison against the 40px `--mask-fade` ramp:
+
+| pointer | control | control + gap | vs 40px ramp |
+|---|---|---|---|
+| as stated (`h-8`) | 32px | 44px | ramp ≈ 0.91 × the pair |
+| fine (actual) | 36px | 48px | ramp ≈ 0.83 × |
+| **coarse (actual)** | **54px** | **66px** | **ramp ≈ 0.61 ×** |
+
+**The sub-claim inverts on touch** — the mask is *narrower* than a control-plus-gap there, so a control cannot be wholly swallowed by the ramp, only partially. The addendum's conclusion (a partially-transparent-yet-fully-clickable control is an affordance/state mismatch) **survives on every pointer type**; only its "wider than" framing is wrong, and only for coarse. Recorded because the note is explicitly geometric and a repair lane would otherwise re-derive from 32px.
+
+Note this cuts the other way for **D-M8**, which compares the 24–36px peek residual against a 44px `--touch-target`: the real minimum control in that band is **54px** on the touch devices D-M8's table is about, so its finding is *understated*, not overstated. See S-7.
+
+---
+
+## PASS 3 · SUPERLATIVE
+
+### S-7 · The adoption delivers conformant touch targets **despite** the call site actively shrinking them — a defect I set out to file and could not **SUPERLATIVE** *(pass 3 — new)*
+
+Pass 3 opened `RibbonBar` intending to file `h-8` (32px) ribbon buttons as a WCAG 2.5.8 target-size concern: four primary actions at 32px with `gap-2` (8px), inside a bottom sheet, on phones. **The defect does not exist**, and the reason is worth recording.
+
+```css
+@media (pointer: coarse) { :root {
+    --ui-scale: var(--ui-coarse-scale, 1.5);
+    --control-floor: var(--touch-target, 2.75rem);
+} }                                                     /* glass-ui dist/styles/tokens/light-dark.css */
+--control-h-sm: max(calc(2.25rem * var(--ui-scale)), var(--control-floor));   /* tokens/sizing.css */
+.button { min-block-size: var(--button-size); }                              /* components/button/styles.css */
+```
+
+On any coarse pointer the ribbon's buttons are **54px** — 23 % *above* the 44px target the design system declares and well clear of 2.5.8's 24px minimum. The system reaches this by two independent mechanisms (a scale multiplier *and* an absolute floor), either of which alone would suffice, and it wins over the consumer's `height: 2rem` structurally rather than by specificity — so it cannot be lost to a layer change or a cascade reshuffle.
+
+This is the third instance in this document of the same shape (**S-1**: the adoption bought a11y the hand-roll lacked; **S-2**: `createReusableTemplate` makes mobile/desktop drift structurally impossible), and it is the strongest of the three, because here the consumer is not merely passive — it is *pushing the other way*, and the system holds anyway. A design system that only works when call sites cooperate is a style guide; one that holds when they do not is infrastructure.
+
+Two consequences worth carrying forward:
+
+1. **It strengthens D-M8.** That finding's table measures the peek residual (24–36px on short viewports) against the 44px `--touch-target`. The real minimum conformant control on those devices is **54px**, so the peek band is short by more than D-M8 states.
+2. **It is the counterweight to D-M11/D-m12/D-m13.** The same tokens that make the ribbon's class vocabulary inert (D-m12) are what make it *safe*. The correct repair is to delete the fighting classes, not to strengthen them — the system's answer is already better than the call site's intent.
+
+- **Counter-falsifier:** a `--ui-scale: 1` or `--control-floor: 0` override under a coarse-pointer context in the demo would restore the defect. `grep -rn -- "--ui-scale\|--control-floor\|--touch-target" demo/` → **0 hits**; glass-ui's block is unopposed.
+- **Counter-falsifier:** `min-block-size` losing to `height`. It cannot — they are different properties, and the minimum is applied after the used height is resolved.
+- `UNPROVEN-NEEDS-LIVE`: the rendered target rectangle including `gap-2` spacing under 2.5.8's offset rule. The height floor is decidable.
+

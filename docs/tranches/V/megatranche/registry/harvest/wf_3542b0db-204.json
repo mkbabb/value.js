@@ -1,7 +1,7 @@
 {
  "runId": "wf_3542b0db-204",
  "workflow": "wf_3542b0db-204",
- "resultCount": 39,
+ "resultCount": 41,
  "results": [
   {
    "agentId": "ab39c54b9d33415c9",
@@ -755,6 +755,30 @@
     "defects": 37,
     "blockers": 4,
     "superlatives": 9
+   }
+  },
+  {
+   "agentId": "aa81274824bee204c",
+   "key": "v2:aa7d0b31ba01b76fa48e84410b2b27af4c382f8e0d7b38035fdf308a44c2ed44",
+   "result": {
+    "slug": "ControlsPaneWrapper",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ControlsPaneWrapper/challenge-D-design.md",
+    "defects": 34,
+    "blockers": 4,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a4a7cba25e88ca6a8",
+   "key": "v2:08223662cc0a9a7a15b6b8b6799e828c2c589b04040740b9e8f63e68899296ef",
+   "result": {
+    "slug": "ChromeDock",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-D-design.md",
+    "defects": 29,
+    "blockers": 2,
+    "superlatives": 5
    }
   }
  ]
