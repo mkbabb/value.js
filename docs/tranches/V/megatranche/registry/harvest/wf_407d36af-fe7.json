@@ -1,7 +1,7 @@
 {
  "runId": "wf_407d36af-fe7",
  "workflow": "wf_407d36af-fe7",
- "resultCount": 31,
+ "resultCount": 32,
  "results": [
   {
    "agentId": "a1d50533fe66c6ed0",
@@ -7493,6 +7493,28 @@
      "D-6 claim 3 / pass 2's sharpening: the open listbox computing `max-height: 384px` against the requested `max-h-[16rem]` = 256px (challenge-D-design.md:324-326). The override is plausible (reka's available-height variable) but I could not identify the winning declaration statically.",
      "D-5's \"the looser gap sits on the shorter rows … optically backwards\" (challenge-D-design-pass1.md:234-241). The two gap values are real and sit at different structural levels (an inter-row gap in a bare div vs an inter-row gap inside a padded well); \"backwards\" is a taste judgment pass 2 confirmed without re-measuring.",
      "My own missed[Motion/PRM] finding: the claim that all three motion registers render pixel-identically under `reduce` follows from the root's verified `raf/1.5 s = 0` but was not measured here — UNPROVEN-NEEDS-LIVE. The source half (zero PRM branches anywhere in the atmosphere chain, so the control never reconciles) is proven."
+    ]
+   }
+  },
+  {
+   "agentId": "a794f0dfbb9a552cd",
+   "key": "v2:d989950e282c80de82d763ff2273f249f819dfc6dc451f0e0dd224ad7a5de25c",
+   "result": {
+    "slug": "ApiOfflineChip",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/ApiOfflineChip.md",
+    "verdict": "ADJUDICATED — BLOCKER SUSTAINED: the owner-ordered-dead misconfigured surface (MT-F031/OM-5) has a second live seat in this chip; both seats pinned for removal, the offline affordance rebuilt once on glass primitives (X-W7 rider), module re-homed (X-W8), type/motion to canon (X-W10 + BH relay for the producer-born phantom token), lamp a11y cross-booked to MT-DOCK-LAYERS-1, transport cluster flagged NO-WAVE-OWNER. In production the swatch-gated chip is the app's ONLY offline affordance — the dev-visible redundancy inverts to a production hole.",
+    "confirmedCount": 33,
+    "killedCount": 13,
+    "missedCount": 12,
+    "headline": [
+     "AP-1 BLOCKER: byte-identical owner-ordered-dead misconfigured seat lives in both chip (:11-18) and lamp (status-lamp.ts:54); MT-F031 executor pins both files",
+     "Production inversion (reader-1 miss, confirmed): status-lamp.ts:48 darkens BOTH lamp faces in builds, leaving the swatch-gated chip as the sole offline affordance",
+     "AP-14 confirmed by this seat's own fontTools run: shipped Fira Code has no smcp/c2sc — small-caps is browser-synthesized in both twins (X-W10 + BH relay)",
+     "Phantom token --type-mono-caption is PRODUCER-born (4th consumer in minified glass-ui.css — reader-2's 3-count killed by my grep); demo cure is var(--type-micro) bare, zero pixel delta; the tri-axis var(--type-caption) cure killed as a 1.3-1.8x silent resize",
+     "Three reader cells killed by this seat: reader-2's 531-exactly line count (wc = 543), reader-2's decile-method 2.42:1 dark figure (specified-color band 2.7-3.2:1), reader-1's tracking-token provenance (scheme-motion.css not scale.css)",
+     "D-7(b) 30s live-region flap KILLED from bytes (reader-2's kill adopted over reader-1's unproven posture); D-8 dark 'no chip' limb killed twice over with the algebraic lock",
+     "Five transport rows (incl. the confirmed unbounded cooldown burst, AP-17 MAJOR) land NO-WAVE-OWNER — demo/platform/transport/** has no X-wave claimant; flagged loud in DISSENT",
+     "8 UNPROVEN-NEEDS-LIVE residue items handed to the visual audit (AT announcement of dual live regions, forced-colors dot vanish, 200% clip in the real well, one live burst cycle)"
     ]
    }
   }

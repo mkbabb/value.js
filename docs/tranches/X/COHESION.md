@@ -100,7 +100,18 @@ the per-component apotheoses are authoritative.
 | AboutPane rider A-1 | 3 phantom owners (W18 recomposition · MT-CSS-2 · W-HYGIENE) adjudicated in V, never cut into X | `registry/adjudicated/AboutPane.md` |
 | ActionFeedback | G-DEMO-3b re-point + `browser/index.ts:6-7` prose correction | `registry/adjudicated/ActionFeedback.md` |
 | AdminAuditPanel | 9 rows (transport shape validation · request sequencing · ApiProblem.detail inversion · dateFormat · cursor pagination · vacuous-gate rider · resource duplication · tsconfig parity · e2e ghost paths) | `registry/adjudicated/AdminAuditPanel.md` |
+| AdminTagsPanel | 8 rows (+2 partial) incl. `useAdminTags.ts` in NO X wave file list — the result-surface cure unownable until W7 adopts it | `registry/adjudicated/AdminTagsPanel.md` |
+| ApiOfflineChip | transport cluster ×5 (`demo/platform/transport/**` has no X-wave claimant; incl. the confirmed unbounded cooldown burst AP-17 MAJOR) | `registry/adjudicated/ApiOfflineChip.md` |
 | (accretes per batch) | — | — |
+
+## §4a The SS-6 communique accretion register (producer-owned rows awaiting the ONE batched BJ letter)
+
+| row | finding | source |
+|---|---|---|
+| SC-1 | glass-ui 7.0.0 ships `glass-chip.css` and never imports it anywhere (glass.css / index.css / glass-ui.css all 0) — guts the sole Chip consumer; ALL Chip adoption in this repo BLOCKED-ON the producer cure | ATP-23, `adjudicated/AdminTagsPanel.md` (dist greps in-seat) |
+| SC-2 | `--type-mono-caption` phantom token is PRODUCER-born (4th consumer in minified glass-ui.css); demo cure `var(--type-micro)` bare, zero pixel delta | `adjudicated/ApiOfflineChip.md` |
+| SC-3 | ActionFeedback relay QUESTION: Alert's foreground-ink-on-wash idiom vs the producer ink-rung ask (demoted from ask to question) | `adjudicated/ActionFeedback.md` |
+| (accretes per batch; assembled into ONE letter at the next boundary per SS-6) | | |
 
 ## §5 Status board (kept current at every boundary)
 
