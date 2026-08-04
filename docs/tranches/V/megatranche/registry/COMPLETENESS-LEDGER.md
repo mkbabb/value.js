@@ -156,9 +156,11 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_0e0ee049-c82` | completed | 3 | 3 |
 | `wf_19673577-a99` | completed | 13 | 13 |
 | `wf_1a4c8a8c-557` | completed | 4 | 4 |
+| `wf_269fd543-c7f` | completed | 25 | **1** |
 | `wf_30a8e858-e9a` | completed | 3 | 3 |
 | `wf_3a0fbf76-a67` | completed | 6 | 6 |
 | `wf_3c34d986-c04` | completed | 10 | 10 |
+| `wf_407d36af-fe7` | completed | 24 | **16** |
 | `wf_4a8ad4ff-130` | completed | 0 | n/a — 0 seats dispatched |
 | `wf_4e763b6a-224` | completed | 3 | 3 |
 | `wf_5ad9b912-b1f` | completed | 24 | 24 |
@@ -170,8 +172,10 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 | `wf_88ec28d9-949` | completed | 3 | 3 |
 | `wf_92c8fc9d-011` | completed | 8 | 8 |
 | `wf_9bd0ecd0-037` | completed | 15 | 15 |
+| `wf_a376b9ac-d45` | completed | 6 | **4** |
 | `wf_a6f71311-4e5` | completed — HARVEST-DISPOSITION: STATE.md — "PHASE X excavation (M-14) · 15/15 ON DISK" | 15 | 14 of 15 (accounted) |
 | `wf_a6f87133-522` | completed | 15 | 15 |
+| `wf_b1903beb-e2b` | completed | 5 | 5 |
 | `wf_bafca356-6f4` | completed | 5 | 5 |
 | `wf_bb1c807c-f47` | killed — STOPPED-WITH-DISPOSITION: redundant omission dispatch, stopped pre-write, 0 results, hashes intact | 6 | empty (dispositioned) |
 | `wf_c88c8125-52c` | completed — HARVEST-DISPOSITION: STATE.md — "parser band (M-9) ground · 3/8 HARVESTED … superseded by the trifold" | 8 | 3 of 8 (accounted) |
@@ -179,4 +183,10 @@ Law: a record must be `completed` AND harvested, with harvested results accounti
 
 ## VERDICT
 
-**GREEN — zero incomplete components.** Every roster component has all three exact challenge axes hash-banked (264/264), and every non-band run record is completed with its seats accounted for.
+**3 incomplete component rows · 0 unbanked canonical axes · 264/264 exact files present · 264/264 hash-banked.** 0 covered by an ACTIVE resume · 0 covered by a QUEUED resume (cap-4 sequencing) · 0 **BLOCKED-ON-CAPACITY** · **3 UNCOVERED** (violations).
+
+A run record saying "completed" and a merely present file do not clear a row. Bands re-open until every roster row has three exact, ledgered, current-hash challenge axes.
+
+- (non-band) / **wf_269fd543-c7f** — missing harvest short of seats — 25 agents, 1 results (`wf_269fd543-c7f` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_407d36af-fe7** — missing harvest short of seats — 24 agents, 16 results (`wf_407d36af-fe7` · completed) — **UNCOVERED — queue a resume NOW**
+- (non-band) / **wf_a376b9ac-d45** — missing harvest short of seats — 6 agents, 4 results (`wf_a376b9ac-d45` · completed) — **UNCOVERED — queue a resume NOW**

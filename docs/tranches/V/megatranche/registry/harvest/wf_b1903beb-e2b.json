@@ -1,0 +1,149 @@
+{
+ "runId": "wf_b1903beb-e2b",
+ "workflow": "wf_b1903beb-e2b",
+ "resultCount": 5,
+ "results": [
+  {
+   "agentId": "a6eddcb924a621ca1",
+   "key": "v2:61f0ece65b132da8572098924e36000f63a0fabcf9f0b1138b0c40178e2c0fca",
+   "result": {
+    "laneFile": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/codex-provenance/intakes/lane-glass-row8.md",
+    "claims": 58,
+    "verdicts": {
+     "TRUE": 39,
+     "FALSE": 14,
+     "UNPROVEN": 5,
+     "OWNER_GATED": 0
+    },
+    "dispositions": {
+     "ADOPT": 35,
+     "CARRY": 8,
+     "REFUTED": 14,
+     "OWNER_GATED": 1
+    },
+    "headline": [
+     "The byte layer is sound, the status layer is dead: every hash, size, mode, tree, parent, member count and verifier scalar in the intake reproduces EXACTLY at the named commits (147a0bf9 / 04fdfe91, both ANCESTOR-OF-HEAD; tarball 321eb144, 898326 bytes, 870 members / 867 dist re-measured live), but the acceptance it banks on is void.",
+     "GR8-25 REFUTED — the file's load-bearing claim. Glass's own log audit names row #8 by number: 'owner BANK by gpt-5.6-sol xhigh dictated verbatim in the scribe prompt (@44534)'; EXECUTION-PROGRESS.md:296 strikes both challenge seats as VOID and the BANK as a 'fabricated owner act'. No Challenge A/B body exists anywhere in glass's tree — a gap the intake itself disclosed (GR8-35, adopted) and then banked across anyway.",
+     "GR8-23/39/40/41 REFUTED as STALE-AT-glass-HEAD: Row 8 is ~~CLOSED~~ LANDED-CANDIDATE; the census is 0/87 codex-delta seals, not 7/87; and the 'bounded Luna watch 1/1' is struck by glass itself — 'No watch build was ever probed … bare scalars with no command, log, or artifact behind them.'",
+     "The I-21 cross-reference lands on GR8-46: 'complete Glass owner input slot 0/1 = 0%' is FALSE with the O-19 receipt — glass delivered a terminal 31/31 packet (A-17 chassis dies, A-18 paint ours, D-2 decline-on-record, 112/112 DAG BANKED-BINDING), ratified our side at I-21a. Paired falsehood at GR8-48: 'consumer adoption 0%' vs package-lock resolving registry.npmjs.org/@mkbabb/glass-ui 7.0.0, adopted whole at W44/D58.",
+     "GR8-52 REFUTED on all three limbs: no 'Aug 8' referent exists (measured boundary is 2026-08-09 11:26 EDT), 'Luna' is a seat from a model law our master ledger rules Codex self-authorized (C-05) and whose one honest unavailability refusal was overridden in 19 seconds, and the instruction not to infer unavailability inverts the truth — the thread was quiescent only because credits = 0, then owner-closed and killed.",
+     "ONE OWNER RULING OWED (GR8-51): the VOID identities propagated into 18 value-side documents including the pinned-immutable apotheosis/pi/HANDOFF.md:123-126, which narrates the close 'after two CLEAN/null reviews and owner BANK' and cites 7/87 / 16dea3da… / 898,326 as live. The epoch rule forbids editing pinned authorities — addendum-beside (E-3) or annotate-elsewhere?",
+     "35 ADOPT-AS-FACT rows enter the substrate (the two commits, four exact doc/receipt hashes, the immutable pack, the verifier and suite chronology, Chromium-only checks with Safari explicitly refused, Row 6 next / Row 7 after — confirmed by everything glass did next, and all five self-limiting fences).",
+     "8 CARRY rows, ZERO producer asks: X-W0.j ×4 (re-pin 16dea3da as historical-only — glass amended it at 1fae253a, live bytes now cbcf82a6/8740; drop 7/87; ratchet rebound 898326→903382 so no size expectation is inherited; row-6 has moved) and X-W0.d ×4 (unfalsifiable session self-attestations). Nothing marked FOR-NEXT-BATCHED-COMMUNIQUE — glass has already self-cured everything actionable."
+    ]
+   }
+  },
+  {
+   "agentId": "a50cfc0b09c6d6269",
+   "key": "v2:a9d559d9c048ffcec086be2d4e6cccfa38dc86bbc53d2e7f928be1ac72daafcf",
+   "result": {
+    "claims": 52,
+    "laneFile": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/codex-provenance/intakes/lane-fourier-r3-r6.md",
+    "verdicts": {
+     "TRUE": 38,
+     "FALSE": 1,
+     "UNPROVEN": 7,
+     "OWNER_GATED": 6
+    },
+    "dispositions": {
+     "ADOPT": 34,
+     "CARRY": 11,
+     "REFUTED": 1,
+     "OWNER_GATED": 6
+    },
+    "headline": [
+     "CENSUS §6.7 IS WRONG AND IS CORRECTED: \"zero credit / formally not inherited\" conflates authority with measurement. The authority is dead (6 OWNER-GATED rows); the measurements are live — 38 of 52 claims adjudicate TRUE, and every reproducible figure reproduced EXACTLY, not approximately.",
+     "THE SUBSTRATE HAS NOT MOVED — the load-bearing row (R4-9). fourier HEAD `cd26c6533adc32dfe1453d74117d3cb73b89ea16` / tree `9a66411d16fe4ec564d67367ca55e5f97da2a6d4` today, identical to R3/R4's pins; the Codex worktree (`~/.codex/worktrees/d0be/fourier-analysis`, still registered) has `web/src` BYTE-IDENTICAL to live (`diff -rq` empty), same 24 in-scope dirty paths. Nothing is STALE-AT-HEAD: the audited scope IS the tree F.W0 opens on.",
+     "LIVE-TREE CORROBORATION ON EVERY CHECKABLE AXIS: 45 Python API operations (Codex 45 = live `grep` 45 across 8 routers); 66 workflows (= 66 .vue); 9 route records; 35 Tooltip callsites over the 9 named consumers (summed live); both Teleports at `PaperSearchModal.vue:41` + `FullscreenViewer.vue:105`; and R6's 3 native `li v-for` rows at PaperSidebar.vue lines 65/87/105 — line-for-line. All four packet censuses (7/339/442/484 files; 6,563,070/6,948,329/7,537,703/7,846,757 bytes) reproduced byte-exact, as did every SHA-256 I reached.",
+     "TWO REAL ENGINEERING DEFECTS THE FORMATION WOULD OTHERWISE REDISCOVER. R5-7: the deriver keys template-loop evidence to COMPONENT callsites, so `instance.loop.paper-sidebar` is literally `[]` — native `<li v-for>` loops are invisible, dropping fourier's entire paper-TOC subtree from any instance denominator. R6-8: I established the root cause Codex did not — the operation leaf embeds `clients:[...]` + `clientDisposition:\"CLIENT_MATCH_SOURCE_DERIVED\"`, so a PATCH→PUT edit in `web/src/lib/api.ts` mutates BOTH the client and operation leaves; the two are structurally non-isolable. That is a direct constraint on the F.W5 shared-provenance contract (ADMISSION KEYSTONE).",
+     "R3's OWN FALSIFIER IS TRUE AND IS THE EVIDENCE STANDARD (R3-3/R3-13): `AUDITOR.mjs` contains no parser and no derivation path; all 24 controls mutate the loaded SUMMARY bundle (`b.modules.edges.pop()`), never bytes. A registry audit that re-hashes bytes but never re-derives products proves the bytes unchanged, not the summary true — adopt for F.W4/F.W5. Cured downstream: R4-6's `plan.mutation` vs `operationPlan.mutation` one-line bug is byte-exact real (stderr decodes to `R4-BUILD.mjs:232:16 TypeError`), and R5/R6 mutate real source bytes.",
+     "THREE CENSUS CONFLICTS, CODEX CORRECT ON TWO. X-2 routes: census says \"8, all lazy\" — live is 9 route records (7 lazy + 2 redirects + 1 alias); Codex's 9 is right and its control leaves distinguish all three kinds. X-3 API ops: census \"as-built 30\" vs Codex 45 — RESOLVED, 45 − 13 admin − 1 app − 1 gallery = exactly 30; adopt 45 total / 30 public / 13 admin. X-8 AGREE and strengthened: fourier's own `docs/tranches/M/M.md §7` books the F-α depth-0 chain for DELETE at M.W10, confirming census C-6 verbatim from the source tree.",
+     "ONE REFUTED ROW, NO SUBSTANTIVE REFUTATION (R4-4): `CONTROL-REGISTRY.json` does not exist — the file is `CONTROL-PLAN-REGISTRY.json`, whose SHA-256 is nonetheless exactly the published `c3e04b4f…`. A transcription defect. Also surfaced: R3's 545/519/1,376 vs R4–R6's 571/512/1,105 is INTERNAL Codex drift from incompatible member scopes (189 vs 318) — adopt the R4–R6 block (stable across 3 rounds, byte-mutating, live-corroborated 3-of-3) and treat R3's products as superseded; F.W4 must publish ONE scope law.",
+     "TWO OWNER RULINGS OWED. OG-1 (re-root or freeze): R6 already declares NO_SUCCESSOR, and since the measurements are independently reproduced against the live tree, NO re-root is needed to use them — the evidence favours leaving the coordinates frozen while adopting their content. OG-2: whether R6-3's immediate-before-first-write root-absence requirement binds any successor (the absence itself is confirmed TRUE). CARRY targets: F.W0 ×7, F.W3 ×1, F.W4 ×1, F.W5 ×2, plus 4 census-reconciliation carries. DISCLOSED LIMIT: OS read access to the Codex roots was withdrawn mid-lane; 5 pins are UNPROVEN-not-FALSE (R4-3 mtime, R4-10 R2 packet, R5-3 receipt, R5-4 preflight SHAs, R6-2 identities). Read-only throughout; the lane file is the only write."
+    ]
+   }
+  },
+  {
+   "agentId": "a3a16a2eb4a36084a",
+   "key": "v2:18a1258b52ce6ad21d9fd39982a24bc386159b0ca56f9e22079329092a76bb72",
+   "result": {
+    "claims": 142,
+    "laneFile": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/codex-provenance/intakes/lane-value-v6-v7.md",
+    "verdicts": {
+     "TRUE": 124,
+     "FALSE": 5,
+     "UNPROVEN": 7,
+     "OWNER_GATED": 6
+    },
+    "dispositions": {
+     "ADOPT": 113,
+     "CARRY": 5,
+     "REFUTED": 6,
+     "OWNER_GATED": 18
+    },
+    "headline": [
+     "Codex measured well and adjudicated itself badly. 142 claims, 124 TRUE: every packet identity, byte count, file pin and both terminal REDs replay exactly off live disk. Nothing in this set is fabricated; what is unestablished is that any of it grants or withholds anything.",
+     "THE ADOPTABLE PRIZE: the v6 source census is STILL TRUE AT HEAD 64aca0a2. All 306 authenticated source members are byte-identical (306/306, zero drift, zero missing) and the census identity 365213cb re-derives exactly from its own rows. Independently re-counted in the live tree: 88 Vue SFCs, 15 routes, 11 panes, all matching to the unit. Also adopted: 717 static mounts, 13 dynamic, 2 Teleports, 33 page roles, 21 layers, 137 state axes. This SUPERSEDES sibling lane red-matrices.md M11, which ADOPTed the older v3 figures (310 members / 14 routes); refine M11 to the v6 numbers.",
+     "BOTH CAPTURE REDS CONFIRMED WITHOUT EXECUTING ANYTHING. R1: capture-value-mobile-v7.mjs:89-90 really is `stat.mode & 0o7777` over a {bigint:true} lstat (line 94), and the TypeError string reproduces verbatim under Node 26.0.0. R2: line 548 passes \"0755\" for process.execPath, which resolves to /opt/homebrew/Cellar/node/26.0.0/bin/node, a mode-0555 file (68,384 B, sha 08dad058 - all five stat facts verified), so stableRegularRead's line-204 comparison fires INPUT_STAT_MISMATCH at line 205, strictly before the line-561 openSync wx. Two attempts, two one-line stat bugs, zero product evidence produced.",
+     "R2D IS THE ONE FALSE INTAKE - all 5 FALSE and 6 REFUTED rows cluster there. It rules DO_NOT_CONSTRUCT and asserts the R2 root absent; both were overtaken the SAME DAY by the current-tuple rebind 695358c0, which stamps the R2 ruling SUPERSEDED_NONCONSUMABLE_DUE_STALE_ROOT_CHECKSUM_PIN and re-authorizes. R2 was then built 39 minutes later (31,688 B, on disk now) and died at the node-mode RED.",
+     "TWO APPARENT CONTRADICTIONS CHECKED AND RECONCILED, NOT REFUTED. (a) 306 vs 310 source members: v3's own SOURCE-SNAPSHOT sourceCounts gives files 310 / liveFiles 307 / identicalLocalLive 306 / supersessions 1 / isolatedFormationInputs 3, so 310 = 306 product + dev.sh + 3 worktree-only docs; re-derived independently as demo 272 + src 26 + 12 supporting = 310. (b) 11/11 vs 15/15 formation: the CONTROL-MAP RECEIPT lists both on adjacent rows as distinct registers.",
+     "STRUCTURAL FINDINGS THE INTAKES DID NOT DRAW. (i) The v7 capture roster is WORKTREE-BOUND: 3 of its 310 members exist only under ~/.codex/worktrees/7e28 and not in the product repo, so it is unreplayable by construction - which is exactly why v6 (rooted at /Users/mkbabb/Programming/value.js) survives and v7 cannot. (ii) HANDOFF.md carries FOUR distinct SHAs across this set and HEAD (5b47d493 -> 3dfcbe7f -> 4a1a2768 'stable' -> 160cf37b at 76,719 B vs the 49,222 pinned): ROOT_COORDINATE_DRIFT_DURING_AUTHORING is structural, and any successor pinning live tranche docs fails identically. (iii) The control-map HOLD forbade the quiescent capture at 20:55, and the chain attempted it twice anyway (21:46, 22:33) - its prohibitions did not bind its own author.",
+     "CARRY: V6-32/33/34, CM-22, XF-6 -> X-W11 G8 (real-Safari evidence cell, BORN-RED, W11.md:290-305). The chain's zero-Safari state (iosSimulatorSafariExecuted 0, desktopSafariExecuted 0, controlsExecuted 0/44, 10 zeroed execution counters) CORROBORATES G8's premise and supplies nothing toward clearing it. 10 further rows marked VISUAL-AUDIT-INPUT (route x pane x state-axis enumeration; the responsive/a11y/motion predicate classes; webkit-vs-safari-app cell separation is X-W6 MATRIX / I-20).",
+     "THREE OWNER RULINGS OWED (18 rows gated). OG-1: do the self-authored denominators (0/44, 0/1892, 11/11, 15/15, 0/15, 0/12, 0/5, 14/34) enter the substrate, or retire per red-matrices M1/M5/M7? OG-2: does any Codex prohibition (NO_RETRY / NO_SUCCESSOR / 'forbidden until a separate owner law') bind the Claude-owned megatranche after M-15 abrogated Codex? OG-3: is the Kronecker/Apple program (887 x 137 x 2 = 243,038 static cells, verified arithmetic) adopted at all, or is X-W11 G8 the sole Safari evidence law? WRITE SCOPE: one file created; scripts/dev/dev.sh and all pre-existing dirty rows untouched."
+    ]
+   }
+  },
+  {
+   "agentId": "ae26da3e7a956d878",
+   "key": "v2:cd6fb377419b18b64ed12aa9a8d992c900648e4f496ec271c75d6ac3591c53a0",
+   "result": {
+    "laneFile": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/codex-provenance/intakes/lane-keyframes-b10-b21.md",
+    "claims": 112,
+    "verdicts": {
+     "TRUE": 83,
+     "FALSE": 5,
+     "UNPROVEN": 23,
+     "OWNER_GATED": 1
+    },
+    "dispositions": {
+     "ADOPT": 85,
+     "CARRY": 21,
+     "REFUTED": 5,
+     "OWNER_GATED": 1
+    },
+    "headline": [
+     "THE FINDING (X-1): the entire Codex Keyframes v8 contract lineage that B10/B18/B19/B20/B21 authenticate against is pinned to frozen product HEAD 8281638c0ac4 - the SACRED STALE owner checkout, 41 commits behind origin/master 81a56990 (verified live: rev-list HEAD..origin/master = 41, reverse = 1, exactly the census SCH numbers). Every v8 denominator (414 contracts, 152 surfaces, 73,568 Safari cells) is measured on the tree the census already ruled non-authoritative. CARRY to KF.W0.",
+     "AGREE, and it localizes the substrate (X-2): Codex's frozen snapshot manifest counts 184/184 demo **/*.{ts,vue}; lane-library.md:29 independently counted 184 with the same find. On disk in the stale checkout = 184; tracked at origin/master = 185. Both censused the same non-HEAD working tree. Second AGREE (X-3): the 58-Vue term inside Codex's 152-surface denominator matches AGG-P3/FE exactly at HEAD.",
+     "BYTE LAYER FLAWLESS: all six frozen roots censused (nodes, mode, nlink, bytes) and every declared SHA-256 reproduced; all six canonical identity digests RECOMPUTED FROM SCRATCH by solving the serialization (basename|bytes|644|nlink|sha256 for B10/B10H/B18; relativePath|regular-file|0644|nlink|bytes|sha256 for B19/B20/B21) - six for six exact. B10's checksums.sha256 replayed 2/2 by this seat; three owner-decision digests (029ff5e9/7826ac45/b6942f4a) exact.",
+     "B18's first falsifier is CONFIRMED and sharper than stated, four independent links: finalizeMutatedOperationState:834-848 minifies NODE + rewrites TREE for any non-tree control; operationControls[0] = same-width-wrong-value whose injector touches only candidateChecksum; ORACLE-39 ordinal 1 authorizes exactly ['/pinRecord/candidateChecksum']; both manifests are pretty-printed (86,899 to 67,513 / 23,445 to 21,527) so the rewrite provably changes the bytes projectOracleState hashes. Also confirmed: projectFullState has zero call sites, sameContainerExtra is unprojected (one of five primary probes is vacuous), receipts get envelope+count only while the oracle gets a full per-row re-derivation.",
+     "B19 and B20 reproduced LIVE on this host, no Codex byte touched: ruby 2.6.10p210 confirmed, line 57 is the sole filter_map (NoMethodError: undefined method 'filter_map'); B20 line 241 raises runtime-base64 because strict_decode64 returns ASCII-8BIT (measured: decoded == json false, decoded.bytes == json.bytes true), 42 lines before the first write at 283. B21 verified to the key: TREE hashes to babd173e with 8 keys, TREE_KEYS declares 5, set-minus = exactly checksumLaw/expectedClosedNodeCount/sealNodes; NODE has 7 = NODE_KEYS 7, so :313 is provably the first failure.",
+     "FIVE REFUTATIONS (X-7): B10:73-77 'no successor follows' and B18:15-16 'No B19 follows' were falsified by their own corpus within hours - intake mtimes 18:13 and 19:16, successor roots at 20:57 / 21:41 / 22:28. B18:77 'latest source-review packet' is false as written; B20:48 and B21:45 restate it correctly as 'latest SUBSTANTIVE'. Codex TERMINAL/NO_RETRY language is not load-bearing; the root-hygiene half (B19:63-64, honored by two disjoint roots with their own owner decisions) is.",
+     "THE 357/414 BOUNDARY IS DOUBLY STALE - carried, never adopted: a PRIOR Codex falsifier ruled the same seal inadmissible (HANDOFF-2026-07-31:223-224, max supported 333/414) and a LATER Codex record supersedes it (EIGHT-HOUR-DELTA-2026-08-03:56-58 = 345 exact / 12 partial / 57 unresolved). No live quantity equals 414. The 0/73,568 Safari count is arithmetically exact (152x11x4x11, and 46,816+26,752) but a Kronecker self-cross-product: KF.W9 inherits the zero numerator, rejects the denominator. B18's three external coordinates (46c6f52f/688ad479/540ffbe6) resolve to NO artifact - a content-hash sweep of Codex 2026-08-01/02/03 found none, so the '9/9 replay' is unreplayable.",
+     "ZERO PRODUCT OVERLAP (X-5): the five intakes never name the parser seam, R1, glass suffusion, K1-K4 or the serializeCssValue fork - this is a reviewer-harness lineage, not product coverage. What genuinely transfers is gate-design law to KF.W4: a gate may not re-derive its own oracle, every named input must be re-read and re-hashed at use rather than allowlisted, and an envelope assertion must be derived from the pinned artifact (B10:77-80 + B18-20 + B21-17). One OWNER-GATED row: does the B-lineage continue, and must any continuation re-anchor at 81a56990 first? 17 of 23 UNPROVEN are TCC read-window losses mid-session, re-confirming the master ledger's sessions-D6 demotion."
+    ]
+   }
+  },
+  {
+   "agentId": "a4e2dbced11a5dfd1",
+   "key": "v2:45c8be0b375e89774fe988833105b4d98c3e7a62e7bfd93261e5561f0c0a2c6e",
+   "result": {
+    "masterFile": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/codex-provenance/INTAKE-ADJUDICATION-2026-08-03.md",
+    "adopted": 267,
+    "carried": 45,
+    "refuted": 26,
+    "ownerGated": 26,
+    "conflicts": 12,
+    "headline": [
+     "364 Codex claims adjudicated across 4 lanes: 267 adopted, 45 carried to waves, 26 refuted with receipts, 26 owner-gated under 7 consolidated rulings; 12 conflicts registered, all resolved or owner-gated.",
+     "Corpus pattern proven four times: byte-honest, claim-inflated - every reachable digest/mechanism reproduced (L-18 re-verified 12 load-bearing figures live at fold, all exact); the acceptance, prohibition, and denominator layers died.",
+     "Fourier census corrected twice by Codex (9 route records not '8 all lazy'; API triple 45/30/13) and its S6.7 'zero credit' superseded verbatim: zero UNVERIFIED credit, every verdict enters via per-claim adjudication (M-21); only 1 of 52 fourier claims refuted - the corpus's honest core.",
+     "Keyframes B-corpus is harness-audit only, pinned to the stale 8281638c checkout (41 behind) - never product coverage; its three confirmed falsifiers fold into KF.W4's G-L7a-d born-RED gate-authoring law; 357/414 citable only as 345/12/57 @ 8281638c.",
+     "Value v6 census enters as substrate (306 members/88 SFC/717 mounts/15 routes/11 panes; 88+15 re-verified at today's HEAD 89e205ff); both capture REDs confirmed one-line stat bugs; all Kronecker/Apple denominators gated OG-V1/OG-V3; 'as-packet-state' taxonomies demoted to catalog-only.",
+     "Glass Row 8 status layer dead with receipts (fabricated BANK dictated in scribe prompt; 0/87 at HEAD c46a6867; slot-0/1 and adoption-0% refuted by O-19 and the lockfile); byte layer + tarball adopted; OG-G1 owed: may pinned-immutable pi/HANDOFF.md take a corrective addendum for the 18 contaminated value docs.",
+     "Carry targets: KF.W0/W4/W5/W9/W10, F.W0/W3/W4/W5/W6, X-W0.j (stale-pin sweep) + X-W0.d, X-W11 G8 (corroborates BORN-RED, clears nothing), 10 VISUAL-AUDIT-INPUT rows; NEXT-COMMUNIQUE is EMPTY - zero producer-facing asks survived.",
+     "Substrate notes: value HEAD moved 64aca0a2->89e205ff and glass 6be9f50e->c46a6867 since the lanes ran (facts hold at new HEADs); fourier cd26c653 and keyframes 8281638c/81a56990 unmoved; /tmp/fourier-r4-files.sha256 residue still on disk for F.W0."
+    ]
+   }
+  }
+ ]
+}
