@@ -230,14 +230,174 @@ Everything else is static reading: HeroAurora whole; `App.vue`, `EditorShell.vue
 
 ## 7. Counts
 
-| metric | value |
+*(Superseded by §8.5 after the second-pass fold. Pass-1 figures kept for provenance.)*
+
+| metric | pass 1 | **merged (authoritative)** |
+|---|---|---|
+| lines / code lines / prose lines | 129 / 52 / 62 | **128** / 52 / 62 |
+| defects | 16 | **19** |
+| BLOCKER / MAJOR / MINOR / INFO | 1 / 6 / 5 / 4 | **1 / 7 / 6 / 5** |
+| superlatives | 7 | **7** |
+| false-claim lines in the file's own prose | 8 of 13 audited claims | **9 of 14** |
+| machine-confirmed defects (executed) | 2 (D-1 twice over, D-8) | **2, re-executed independently (§8.1)** |
+| claims marked UNPROVEN-NEEDS-LIVE (magnitude only) | 4 (D-2, D-3, D-6, S-3) | **5** (+D-19 vs. glass-ui 6.0.0) |
+| falsifier tested and finding withdrawn | 1 (paint-order → S-4) | **6** — 4 in §8.4, **plus C-2 withdrawn in full**, plus one corpus deduction contradicted (lane-frontend F-1) |
+| test/gate coverage of this component | 0 | 0 |
+
+---
+
+# 8. ADDENDUM — independent second pass (fold, not overwrite)
+
+**Model** `claude-opus-5[1m]`. **Mode** static + source-derived, read-only; no browser. **Read set** the component whole + every import, but from the **installed `dist/` end only** — I did **not** read the glass-ui producer source, so §2's producer-line citations (`brush.glsl.ts`, `createCanvasLifecycle.ts`, `usePointerVelocityField.ts`, …) are **not** re-verified here and are carried on pass 1's authority. Everything below is derived from `keyframes.js` HEAD + `node_modules/@mkbabb/glass-ui@7.0.0/dist/**`.
+
+This pass was run without sight of pass 1 and reached the same file. Pass 1 was found already written at this path; it is **preserved intact**. Where we agree, §8.1 records the independent receipt (two agreeing derivations from different evidence ends is worth more than one). Where the tree disagrees with pass 1, §8.3 says so explicitly. §8.2 adds what pass 1 missed. §8.4 records what I withdrew.
+
+## 8.1 · Independent confirmation of D-1 (BLOCKER) — reached from the `dist/` end alone
+
+D-1 is the finding that matters, so it deserves two independent derivations. Mine used only the installed artifact and reproduced both halves.
+
+**Type half** — the verbatim `:62-73` literal, compiled under the repo's own strict flags against installed 7.0.0 `.d.ts`:
+
+```
+atoms-probe.ts(5,21): error TS2345: Argument of type '{ seed: string; harmony: "analogous"; colorEnergy: number;
+  zones: {…}; noise: number; motion: "drifting"; interactivity: { light: true; }; }'
+  is not assignable to parameter of type 'AuroraAtoms | undefined'.
+    Property 'medium' is missing … but required in type
+    '{ medium: { kind: "pastel" | "watercolor" | "oil" | "crayon" | … }; interactivity?: AuroraPainterlyInteractivityAtom }'.
+```
+
+Same `TS2345`, same coordinate `(5,21)`, same arm. **Additional receipt pass 1 did not state:** the control (identical literal **+** `medium: { kind: "crayon" }`) compiled **clean**, which proves every *other* property — `seed`, `harmony`, `colorEnergy`, `zones`, `noise`, `motion` — is well-typed. The defect is *exactly one missing key*, nothing more. That bounds the cure precisely.
+
+**Runtime half** — `node`, importing the installed `dist/aurora.js`:
+
+```
+DEFAULT.interactivity   = undefined
+DEFAULT.medium          = smooth
+resolved.interactivity  = {"swirl":true,"amplitude":0.5}    <-- 'light' in it? false
+resolved.medium         = smooth
+resolved.saturation     = 0.913
+FINAL.medium            = crayon
+FINAL.saturation        = 0.92
+WITH medium:{kind:'crayon'} -> {"light":true,"swirl":true,"amplitude":0.5}   medium= crayon
+```
+
+Confirms D-1 and D-8 (0.913 → 0.920, Δ 0.007 — pass 1's "numerically inert" reading is right, and I likewise decline to claim a visual defect from it).
+
+**One mechanism detail worth pinning**, visible in the compiled door and not stated in §2: `resolveAtoms` **replaces** `n.interactivity` wholesale rather than merging, so there is no path by which a base-config `light` could survive. Since `DEFAULT_AURORA_CONFIG.interactivity` is `undefined` (printed above), the resolved object's interactivity is *constructed entirely* from the atom — which is why omitting `medium` is total, not partial.
+
+**Also independently confirmed** (from `dist/` + repo files only): **D-4** (`vue-tsc` absent from `package.json` *and* from `node_modules/.bin`; `check` = plain `tsc`), **D-5** (`find scripts -name "proof*"` → empty; only `proof:publish` + `proof:owner-golden` survive), **D-7**, **D-8**, **D-10** (`function b(e, t, n = .8)` in the compiled bundle — the `1` does raise a 0.8 default), **D-13** (`main.ts` has `createApp(App)` and no `errorHandler`), **D-15**, **D-16**.
+
+## 8.2 · NEW defects — gaps in pass 1
+
+### D-17 · MINOR · colocation: a single-consumer leaf parked in the shared shell, already ruled MOVE and still unmoved
+Not covered by pass 1; the L-axis brief names colocation explicitly.
+
+The file lives in `demo/components/instrument/shell/` — the *shared editor-chrome* tier — but has exactly one importer, `demo/app/App.vue:142`, and is deliberately **excluded** from `shell/index.ts` (which exports only `EditorShell`, `EditorHeader`, `EditorStartScreen`, `SharePopover`). `App.vue:139-141` documents the barrel bypass as intentional ("a single-consumer leaf, the P-HERO import shape") — which is an accurate description of the *symptom* and an argument for moving the file, not for the bypass: a member that must skip its own tier's barrel is not a member of that tier.
+
+The U tranche already ruled it: `docs/tranches/U/audit/lane-18-…:65,75,79` ("**App home-hero pieces** consumed by `app/App.vue`, NOT by EditorShell … Move the home-hero trio OUT of the shared shell") and `docs/tranches/U/waves/U.B.md:135` (**U.B5**: "move the home-hero trio (`HeroAurora`/`AnimatedText`/`TypingDots`) to `app/`"). Recorded as still-open, not re-litigated. Note the compounding: `EditorHeader.vue` is exported from the barrel with zero importers while `HeroAurora` has an importer and no export — the tier's membership is inverted at both ends.
+
+*Falsifier:* a second importer outside `app/`, or an owner ruling superseding U.B5. `grep -rn "HeroAurora"` across the repo returns exactly one code importer; the rest are docs.
+*Fold:* pairs with **D-14** — both discharge in whichever wave executes U.B5.
+
+### D-18 · INFO · a stale major-version citation, and the edit scar that explains D-1
+Not covered by pass 1.
+
+`:84` reads "Cursor velocity bursts are no longer a public Aurora **5.x** surface". The installed glass-ui is **7.0.0** (`node_modules/@mkbabb/glass-ui/package.json`), and pass 1's §2 dates the *current* union-gated `light` shape to that producer. The same line also breaks the file's otherwise strict ~78-col comment wrap mid-sentence — "…the published interaction contract. Mouse-only: on touch, pointermove" — the signature of a mechanical substitution rather than a re-read.
+
+This is worth more than a typo: the 5.x→7.0.0 migration is precisely the window in which `AuroraAtoms` acquired the medium-discriminated arms that D-1 falls foul of. The scar and the blocker are the same event. A comment that says "5.x" is also actively misleading about which contract a reader should go check.
+
+*Falsifier:* a glass-ui 5.x anywhere in the resolution graph. The installed manifest says 7.0.0; there is no second copy.
+
+### D-19 · MAJOR · the dep is declared **optional** and **version-skewed** — and this, not deletion, is the real F-1 root cause
+Not covered by pass 1, and it materially revises D-7 (see C-2). Found only by separating committed state from working-tree state, which neither pass did initially.
+
+There are **three** disagreeing states of `@mkbabb/glass-ui`:
+
+| where | state |
 |---|---|
-| lines / code lines / prose lines | 129 / 52 / 62 |
-| defects | 16 |
-| BLOCKER / MAJOR / MINOR / INFO | 1 / 6 / 5 / 4 |
-| superlatives | 7 |
-| false-claim lines in the file's own prose | 8 of 13 audited claims |
-| machine-confirmed defects (executed) | 2 (D-1 twice over, D-8) |
-| claims marked UNPROVEN-NEEDS-LIVE (magnitude only) | 4 (D-2, D-3, D-6, S-3) |
-| falsifier tested and finding withdrawn | 1 (paint-order → S-4) |
-| test/gate coverage of this component | 0 |
+| **HEAD (committed)** | `optionalDependencies: { "@mkbabb/glass-ui": "6.0.0" }` — `git show HEAD:package.json:71` — **and locked**: `git show HEAD:package-lock.json` → `node_modules/@mkbabb/glass-ui` resolved to `…/glass-ui-6.0.0.tgz` (`:614-616`) |
+| **working tree (uncommitted)** | **absent from both** — the whole `optionalDependencies` block is deleted in `git diff package.json`, and `package-lock.json` loses 76 lines (`git diff --stat`) |
+| **installed on disk** | **7.0.0** |
+
+Two defects fall out, independent of each other:
+
+**(a) `optionalDependencies` is the wrong field for a load-bearing import.** npm treats an optional dep's install failure as non-fatal and **continues silently**. But this component's `:41` value-import, 42 demo files, and `demo/styles/style.css:3` (`@import "@mkbabb/glass-ui/styles"`, load-bearing for the entire cascade) all hard-require it. A dependency whose absence breaks the build must not be declared optional: the declaration promises a degradation path that does not exist. This is also *why* the phantom state was one careless edit away — an optional dep reads as droppable.
+
+**(b) Declared 6.0.0, installed 7.0.0 — a major-version skew, and it bounds D-1's evidence.** Every receipt for D-1 (pass 1's producer read, my `dist/` probes in §8.1) is against **7.0.0**. A clean `npm ci` at HEAD installs **6.0.0**, a different major, whose `AuroraAtoms` shape I cannot inspect without an install (forbidden here). So D-1 is proven for *the artifact the developer's tree and the last local build actually ran*, and is **UNVERIFIED against 6.0.0** — the medium-discriminated union may postdate 6.0.0, in which case the CI-resolved build has a different (possibly absent) defect. This does not soften D-1 for the shipped/deployed artifact; it does mean the tree cannot currently tell you which glass-ui it is auditing. That ambiguity is itself the defect. It also explains D-18's "5.x" comment: the prose, the manifest, and the disk are pinned to three different eras.
+
+*Falsifier:* an install of 6.0.0 showing the same `AuroraAtoms` union (which would extend D-1 to the CI leg and make this purely a hygiene finding), or evidence npm treats optional-dep failure as fatal. Neither is available without an install; both are cheap for whoever holds the network.
+*Cure:* move glass-ui to `dependencies` (or `devDependencies` — the demo is not published; `files` excludes it), pin **7.0.0** to match the audited artifact, and regenerate the lock in the same commit as the in-flight version bump.
+
+## 8.3 · CONTRADICTIONS — where the tree disagrees with pass 1
+
+### C-1 · §1 claim 11 and S-2 are an overclaim: `window.innerWidth`/`innerHeight` **are** layout-flushing reads
+Pass 1 grades the file's "This handler does no DOM geometry read at all" (`:78-79`) as **TRUE**, and S-2 titles itself "zero layout reads in the hot path."
+
+The handler reads `window.innerWidth` and `window.innerHeight` on **every** `pointermove` (`:90-91`) — a handler the file's own comment describes as firing at 120–1000 Hz (`:82`). Both properties sit on the standard forced-synchronous-layout read list; they are not free the way pass 1's grading implies, and the file's absolute wording — "**no style/layout flush**" (`:80-81`) — is stronger than any engine guarantees.
+
+**What survives, and it is the important part:** the *substance* of the discipline holds. There is no DOM **write** interleaved with the read — I verified from the compiled bundle that `setCursor` touches no DOM (`function b(e, t, n = .8) { Y(o) && (l = n, c.setActive(!0), c.setPointer(e, t), y.wake()) }` mutates JS state and requests a frame, nothing else). Layout **thrashing** is therefore impossible and the T-CL-3 `rect + setProperty` recurrence really is cured. So S-2's *thesis* stands; its *absolutism* does not.
+
+**Amendment, not demotion.** S-2 should keep its place with the wording narrowed to "no element-geometry read and no read-after-write interleave," and §1 claim 11 should read **partly false** (making it 9 false-or-partly-false of 14 audited claims — I add this as claim 14). The cure is one line and uses a dependency already imported at `:36`: `useWindowSize()` from `@vueuse/core` caches both metrics behind a resize listener and removes the per-event read entirely.
+
+*Note:* this does **not** disturb pass 1's genuinely sharp scrollbar-basis observation in S-2 — `useWindowSize()` tracks `innerWidth`, so the `100dvw` ↔ `innerWidth` coherence with D-14 is preserved by the cure.
+*Falsifier:* a trace showing no layout in the handler would kill the perf half (**UNPROVEN-NEEDS-LIVE**); the wording half dies only if `innerWidth`/`innerHeight` are shown never to flush, which no vendor guarantees.
+
+### C-2 · **WITHDRAWN — my own falsifier fired.** D-7 stays MAJOR; and lane-frontend F-1's *consequence* is wrong at HEAD
+
+I drafted C-2 as an escalation of D-7 to BLOCKER, on the argument that `.github/workflows/ci.yml:66-73` runs `npm ci` then `npm run gh-pages`, so a lockfile with zero glass-ui entries makes the demo job red-by-construction. I published the falsifier with it — *"a glass-ui entry in `package-lock.json` … would kill this outright."*
+
+**It fired.** CI builds committed refs, and at HEAD the dep **is** declared and **is** locked:
+
+```
+$ git show HEAD:package.json      | grep -n glass-ui
+71:        "@mkbabb/glass-ui": "6.0.0"
+$ git show HEAD:package-lock.json | grep -n glass-ui
+61:                "@mkbabb/glass-ui": "6.0.0"
+614:        "node_modules/@mkbabb/glass-ui": {
+616:            "resolved": "https://registry.npmjs.org/@mkbabb/glass-ui/-/glass-ui-6.0.0.tgz",
+```
+
+`npm ci` at HEAD resolves glass-ui 6.0.0 and the demo job builds. **The escalation is withdrawn in full; D-7 remains MAJOR as pass 1 filed it.** Recorded rather than deleted because a false BLOCKER is worse than a missed one, and the trap here is instructive: both passes read `package.json`/`package-lock.json` from the **working tree** and neither checked `git show HEAD:` — the dirty state was silently doing the arguing.
+
+**Corpus contradiction (lane-frontend F-1).** The census entry says glass-ui is "absent from `package.json` AND `package-lock.json`" and deduces that "*a clean checkout has no glass-ui to resolve, and both `vite build --mode gh-pages` and `npm run dev` fail at the first import.*" The **observation** is accurate for the working tree. The **deduction is false at HEAD**: a clean checkout of HEAD carries a locked 6.0.0. F-1's own hedge — "the working tree survives only because the `Jul 16 05:17` install predates whatever removed the declaration" — can now be resolved: what removed it is an **uncommitted release-prep edit** (`5.3.5` → `6.0.0`, `@mkbabb/value.js` `^3.1.0` → `4.0.0`) that deleted the entire `optionalDependencies` block. The phantom dep is therefore **an uncommitted regression in flight**, not a committed state — which changes the fix from "restore a lost declaration" to "**do not land this diff as written**," and moves the deadline to whenever that release commit lands.
+
+D-7's true weight is preserved and re-aimed at **D-19**, which is the committed, non-hypothetical half: the dep is declared *optional* and pinned to a *different major* than the one on disk.
+
+*Falsifier for the replacement claim:* show the `optionalDependencies` deletion is committed somewhere in history rather than pending in the worktree — `git diff -- package.json` shows it unstaged.
+
+### C-3 · D-2's "skips the intersection gate" is true of the library but **immaterial here** — tighten, don't inflate
+D-2 lists the bypassed `useIntersectionPause` gate among eager's costs. Confirmed in the compiled bundle: the eager branch takes an early return (`if (v) { b(); return; }`) *before* the observer and its `off-screen-io` pause/resume are installed.
+
+But `.hero-aurora` is `fixed inset-0` (`:21`), so it is **always** intersecting and that suspension could never have fired. The intersection loss costs this component nothing. Tab-hidden suspension is owned by the substrate, not this branch, and survives eager.
+
+D-2's real cost is the other half — the skipped `requestIdleCallback(…, {timeout: 2000})` deferral and the compile-link landing inside the mount commit — and that half is untouched. Recording this so the finding is carried at its true weight; a reviewer who tests the intersection claim and finds it inert should not conclude D-2 is soft. **D-2 stands as written, minus this one sub-clause.**
+
+*Falsifier:* a layout in which `.hero-aurora` can leave the viewport. `fixed inset-0` with `height:100dvh` forbids it.
+
+## 8.4 · Findings I raised and then withdrew to their own falsifiers
+
+Recorded so the ledger shows the posture was tested in both directions.
+
+| candidate | why it died |
+|---|---|
+| `useTemplateRef<InstanceType<typeof Aurora>>` (`:48`) mistypes the exposed API — `setCursor`/`clearCursor` unreachable | **False.** A `tsc` probe compiled `a?.setCursor(0.5,0.5,1)` and `a?.clearCursor()` clean against the real `.d.ts`, with a `@ts-expect-error` negative control confirming the instance type was genuinely resolving (not silently `any`). `Aurora.vue.d.ts:92-93` exposes both. Independently confirms pass 1's S-7 parenthetical. |
+| `pointerType !== "mouse"` (`:87`) is exemplary — a correctly-justified touch policy | **Withdrawn in favour of pass 1's D-9.** I had this queued as a superlative; pass 1's reading is better. The comment justifies excluding *touch*, but the allowlist form also drops *pen hover*, which has the mouse's interaction shape. An allowlist is not the stated rule. D-9 stands; my superlative does not. |
+| `PAPER_WASH_GROUND` clobbering `saturation` visibly over-saturates the "more subtle" wash | **Arithmetic killed it** — 0.913 → 0.920. Same conclusion as D-8, reached independently. Explicitly *not* claimed as a visual defect. |
+| The `<style scoped>` block is pure dead code, redundant against `inset-0` | **Half-withdrawn.** The redundancy is real (D-14), but pass 1's S-6 defeats the "delete it" reflex: `EditorShell`'s own `@supports` fallback is `scoped` and cannot reach slot content, which belongs to `App.vue`'s scope. The local fallback is a correct discharge, not duplication. I had it queued as a MINOR; it belongs at D-14/S-6 as pass 1 filed it. |
+
+## 8.5 · Merged ledger
+
+| | pass 1 | added here | **merged** |
+|---|---|---|---|
+| BLOCKER | D-1 | — (C-2 escalation **withdrawn**) | **1** |
+| MAJOR | D-2, D-3, D-4, D-5, D-6, D-7 | **+D-19** | **7** |
+| MINOR | D-8..D-12 | **+D-17** | **6** |
+| INFO | D-13..D-16 | **+D-18** | **5** |
+| **defects** | 16 | **+3** | **19** |
+| superlatives | S-1..S-7 | +0 (S-2 amended per C-1; one candidate withdrawn) | **7** |
+
+**Cure-set amendments to §4:** **D-19 takes rank 1** — declare glass-ui non-optional at **7.0.0** and regenerate the lock *inside* the in-flight version-bump commit, which simultaneously discharges D-7, prevents the pending phantom-dep regression, and pins the artifact D-1 was actually audited against (without that pin, fixing D-1 is aiming at a version the build may not resolve). Then D-1 → D-2 → D-3 → D-5 → D-4 as pass 1 ordered them. Insert **C-1** at rank 3½ (one line, `useWindowSize()`, plus correcting `:78-81`). **D-17** and **D-18** are relocation/prose work folding into the U.B5 wave and the §4.8 reconciliation respectively.
+
+**Method note for the arbiter.** The single highest-value move in this pass was mechanical: `git show HEAD:<file>` on every manifest cited as evidence. Both passes had read dependency state from a **dirty working tree** and reasoned about CI, which builds committed refs — that gap manufactured one false BLOCKER (C-2, withdrawn) and hid one real MAJOR (D-19). Recommend it as standing practice for any finding whose blast radius runs through CI or a clean checkout.
+
+**Standing agreement:** both passes independently reach the same headline — the component is a **well-built shell around a mis-called library door**. Its lifecycle, teardown, a11y and layering discipline are exemplary; the one thing it was commissioned to do is off at runtime, because the atoms literal omits the single key the door's discriminated union requires. Two derivations from opposite ends of the glass-ui artifact (producer source; installed `dist/`) agree on the mechanism, the receipt, and the one-key cure.

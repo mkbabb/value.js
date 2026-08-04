@@ -1,7 +1,7 @@
 {
  "runId": "wf_e0a296ea-871",
  "workflow": "wf_e0a296ea-871",
- "resultCount": 21,
+ "resultCount": 36,
  "results": [
   {
    "agentId": "af4db1605694bb18d",
@@ -539,6 +539,186 @@
     "defects": 16,
     "blockers": 1,
     "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a21089d1f2ad9b879",
+   "key": "v2:0092fc0ada002d768a9d82110cf6465f4fcf31d3e47650ded73101a389bec74b",
+   "result": {
+    "slug": "EditorHeader",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorHeader/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a2cb2a1d8f51d3aa0",
+   "key": "v2:d685c2f763599a52fba52ea483db0f9f84a5fad8fedc1a87b2320ced89eae167",
+   "result": {
+    "slug": "EditorHeader",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorHeader/challenge-C-consumption.md",
+    "defects": 18,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a580e28ff44227d4c",
+   "key": "v2:da96d601247f8fc0080eb74dd71ab25c2f51a97f4e50c6591bd2aa242784aa79",
+   "result": {
+    "slug": "HeroAurora",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/HeroAurora/challenge-C-consumption.md",
+    "defects": 13,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a5f8551032b5d1b0e",
+   "key": "v2:8298f030fe470d7b5cf70e850d11535845c32bac066db3955b1dbd782f4ad7eb",
+   "result": {
+    "slug": "EditorStartScreen",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorStartScreen/challenge-C-consumption.md",
+    "defects": 15,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a60ef1071d38457d6",
+   "key": "v2:a150b62a88e72220303d598970821ed3f695a6d962901afb6198a0cbb2edf696",
+   "result": {
+    "slug": "HeroAurora",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/HeroAurora/challenge-D-design.md",
+    "defects": 10,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a082976576be29606",
+   "key": "v2:197f158b6ef5a7a9ea6cbf71e0f50d89bf40948a2585aba9e818180e438f3645",
+   "result": {
+    "slug": "HeroAurora",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/HeroAurora/challenge-L-library.md",
+    "defects": 19,
+    "blockers": 1,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a9c9f2ad77b0107e5",
+   "key": "v2:7134e6be7fdbc3201e2a1f3308f0f37a9c09ee86f48808ae3d63d4456aac9946",
+   "result": {
+    "slug": "EditorShell",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorShell/challenge-C-consumption.md",
+    "defects": 22,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a6989b8202f014c1f",
+   "key": "v2:2fd30016ae0d125c8a3a1b988e0d022054b38bff028ef3092766edf31e689f72",
+   "result": {
+    "slug": "EditorStartScreen",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorStartScreen/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "aedff7ab670ddeea9",
+   "key": "v2:e0900c54b3e65f3b49f477695102e07ca1d8f545fb753b55c5bac8bb5402bb2f",
+   "result": {
+    "slug": "EditorShell",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorShell/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a7c609be140a7a33c",
+   "key": "v2:854d982dd137d01e00e819b57034b61ecde430b0109b05bb395b32f2ba73ed0a",
+   "result": {
+    "slug": "EditorHeader",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorHeader/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a6c9cbe217bb62c50",
+   "key": "v2:95ab347b83e0f392ede72aa06d81c9789c15f50fa6c5f5bd0120090c3021d1b7",
+   "result": {
+    "slug": "EditorStartScreen",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorStartScreen/challenge-D-design.md",
+    "defects": 38,
+    "blockers": 4,
+    "superlatives": 9
+   }
+  },
+  {
+   "agentId": "a8fae651ccbf581f0",
+   "key": "v2:c5251f7d38d3da28c1fbd612143dabb705e2f49d3976f7978e21c1262d83685c",
+   "result": {
+    "slug": "EasingTarget",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EasingTarget/challenge-C-consumption.md",
+    "defects": 22,
+    "blockers": 2,
+    "superlatives": 8
+   }
+  },
+  {
+   "agentId": "adb81b1881d3e35eb",
+   "key": "v2:d373d66b7c3164cf64d48713f7420d2bb92ef1a6f22a4838055cd5f9394618ec",
+   "result": {
+    "slug": "EasingTarget",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EasingTarget/challenge-D-design.md",
+    "defects": 26,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "ace56f51f96111842",
+   "key": "v2:c502e43b251792cca154d49c63c1ccbd39a676932d66113b1ace64e6ec8c9237",
+   "result": {
+    "slug": "EditorShell",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorShell/challenge-D-design.md",
+    "defects": 29,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "aa93acecc0f84aeb8",
+   "key": "v2:34d0b1b77fc1e1c70c9ef1934c66d21f5620e1f95b945e38ec27e7abb367d6df",
+   "result": {
+    "slug": "EasingTarget",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EasingTarget/challenge-L-library.md",
+    "defects": 21,
+    "blockers": 2,
+    "superlatives": 9
    }
   }
  ]

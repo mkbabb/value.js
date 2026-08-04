@@ -6,6 +6,8 @@ claude-opus-5[1m]
 **Mode** static, read-only. No installs, no dev server, no browser tooling. keyframes.js was read as evidence only; the single write of this lane is this file.
 **Substrate** keyframes.js `master`; the file's last touch is `969990f6 2026-07-12 refactor(demo-home): dissolve the at-sign wrapper and custom component tier into canonical homes` — a **path move only**. No substantive commit since.
 
+> **PASS 2 (amendment, same axis, same served model).** A second independent read of the same closure was run against this file. It **reproduced** L-B1, L-B2, L-M1, L-M2, L-M3, L-M5, L-m1, L-m3, L-m4, L-m5, L-m6, L-m7, L-i1, L-i2, N-1 and S-1/S-4 from the tree without consulting them, which is the strongest available evidence that those rows are not artefacts of a single reading. It **did not independently derive** L-M4, L-M6 or L-m2 — all three were then re-verified against the tree and **stand** (see the verification note at the head of §3). It adds **three findings** (`L-m8`, `L-m9`, `L-i3`) and issues **one correction against this document's own S-2**, which over-claimed. Amendments are marked *(pass 2)*; nothing from pass 1 was deleted.
+
 **Read whole (the closure of this component's import graph):**
 
 | file | why |
@@ -44,11 +46,15 @@ claude-opus-5[1m]
 | **L-m5** | MINOR | Animates `max-width` + `margin-right` — layout properties, non-compositable, 0.45 s. Already booked by the C-tranche audit at this exact line. |
 | **L-m6** | MINOR | `<SharePopover />` is rendered with **no `onSceneRestore`** → the shared-scene switch silently no-ops (`useShareState.ts:79`). |
 | **L-m7** | MINOR | Physical properties (`max-width`, `margin-right`) where the successor uses logical (`max-inline-size`, `margin-inline`) — RTL-broken. |
+| **L-m8** *(pass 2)* | MINOR | `z-dock` (40) is the **wrong rung**: the demo's own written contract assigns `--z-bar` (30) to *"the editor bars (header / menubar chrome)"* and `--z-dock` (40) to *"the bottom dock band"*. **Corrects this document's S-2.** |
+| **L-m9** *(pass 2)* | MINOR | `#anchor` is **required-but-optional**: no fallback content, and without it the group measures 0 wide — so the `mouseenter` that is the only non-pin expand route can never fire. The component renders nothing and cannot be opened. |
 | **L-i1** | INFO | **Zero engine consumption** in a demo whose thesis is dogfooding the engine (census §1, S-8's inv-ζ seam). |
 | **L-i2** | INFO *(adjacent)* | `EditorShell.vue:16` passes `mode="persistent"` — **not a `HeaderRibbonProps` member**. Any migration must not copy it. |
-| **S-1..S-4** | SUPERLATIVE | vueuse timer discipline · total token discipline · the `pointer-events` island idiom · Goldilocks size. |
+| **L-i3** *(pass 2)* | INFO | `var(--header-items-max-w)` carries **no fallback**; a token regression silently yields `max-width: none` instead of failing loudly. The successor writes `var(--header-ribbon-actions-width, 30rem)`. |
+| **S-1, S-3, S-4** | SUPERLATIVE | vueuse timer discipline · the `pointer-events` island idiom · Goldilocks size. |
+| **S-2** | SUPERLATIVE *(amended, pass 2)* | Token discipline — **narrowed** from "total" to *geometry + motion*; its z-index row was wrong (L-m8) and its fallback-less `var()` is a gap (L-i3). |
 
-**Tally — defects 17 (blockers 2 · majors 6 · minors 7 · infos 2) · superlatives 4.** One non-defect note (N-1) is recorded outside the count.
+**Tally — defects 20 (blockers 2 · majors 6 · minors 9 · infos 3) · superlatives 4** (S-2 amended, not withdrawn). One non-defect note (N-1) is recorded outside the count.
 
 ---
 
@@ -293,6 +299,11 @@ Same two controls, same `title`, same `aspect-square w-8 scale-on-hover` — and
 
 ## 3. MINORS
 
+> **Pass-2 verification of the three rows it did not independently derive.** A false defect is worse than a missed one, so the non-reproduced rows were re-checked against the tree before being carried:
+> - **L-M4** (bare `<div @click>` pin affordance) — **stands.** `:32–37` has no `role`, no `tabindex`, no `aria-pressed`, no key handler; `grep` over the file confirms zero `keydown` bindings. Pass 1's honesty about the successor sharing the flaw (`header-ribbon.js` `onClick: k` on its anchor div) is also confirmed — this is correctly *not* scored as a fork-vs-primitive win.
+> - **L-M6** (duplicated + drifted `#items` payload) — **stands, and the drift is exact.** `EditorHeader.vue:26` `class="aspect-square w-8 scale-on-hover hover:opacity-50"` vs `EditorShell.vue:46` `class="aspect-square w-8 scale-on-hover"`. Same `title="Toggle dark mode"` on both. `EditorShell.vue:30–43` additionally carries the F.W15.S3 shortcuts trigger that `EditorHeader` never received.
+> - **L-m2** (nothing clips during expansion) — **stands.** `.header-items-wrapper` resolves to `overflow: visible` (`:99`) and `.header-collapsed`'s `overflow: hidden` (`:106`) is removed synchronously with the class, so the clip is absent for the whole `--duration-slow` ramp while the box is still narrow. The asymmetry is real: collapse clips, expand does not.
+
 ### L-m1 · MINOR · the `overflow-hidden` utility at `:18` is inert
 
 `:16–21` puts `overflow-hidden` in the class list; `:99` puts `overflow: visible` in the scoped block on the same class. Two independent reasons the utility loses:
@@ -366,6 +377,54 @@ Two honesty notes: (a) `EditorShell.vue:20` omits it too, so this is a **shared*
 
 **Falsifier.** Show the demo declares itself LTR-only (no `dir` handling anywhere would be *evidence of neglect*, not of a decision) — or show that no other demo CSS uses logical properties, making this consistent with house style. It is not: the successor it forked from is fully logical.
 
+### L-m8 *(pass 2)* · MINOR · `z-dock` is the wrong rung — and it is wrong against a contract written in this repo
+
+`EditorHeader.vue:3`:
+
+```html
+<div class="pointer-events-none absolute top-0 left-0 right-0 z-dock flex items-center justify-between px-4 py-2"
+```
+
+The demo's Z-INDEX ORDERED-LAYER CONTRACT is prose in the cascade root, and it names this component's category explicitly:
+
+```
+demo/styles/style.css:31      --z-bar      :  30  the editor bars (header / menubar chrome)
+demo/styles/style.css:32      --z-dock     :  40  the bottom dock band
+demo/styles/style.css:23      Use the SEMANTIC z-* utility for the rung
+```
+
+A top-anchored header bar is, by the contract's own words, `--z-bar` chrome. `z-dock` is the *bottom dock band* rung, and the real dock bands sit on it: `TransportDock.vue:7` `'fixed left-0 right-0 z-dock'`, `ChromeDock.vue:215` `z-dock`, `AnimationControlsGroup.vue:82` `z-dock`. So the header ties with three dock surfaces at 40 and the tie is broken by DOM order, not by the contract.
+
+This is a **wrong choice, not a missing one** — `z-bar` is a live, resolvable utility (`glass-ui/dist/styles/theme/bridges.css` `--z-index-bar: var(--z-bar)`; in demo use at `demo/components/playback/AnimationVisualizer.vue:21`). And there is a purpose-built rung the demo's contract does not even enumerate: `--z-header: 35` (`glass-ui/dist/styles/tokens/scheme-motion.css`), bridged as `--z-index-header`, which is exactly what the successor takes — `header-ribbon/styles.css` `z-index: var(--z-header)`.
+
+**This corrects S-2 of this document.** S-2's table asserts *"stacking → `z-dock` utility → `--z-index-dock` → `--z-dock: 40`"* and concludes *"The demo's z-index contract (`style.css:23,32`) is likewise honoured with a named utility."* Both halves of that resolution chain are correct and the citation is real — but it cites `style.css:32` (the `--z-dock` row) and **not `:31`** (the `--z-bar` row that assigns headers). Using a *semantic* utility satisfies the contract's anti-`z-[N]` clause while violating its ordering clause. Honouring the no-raw-brackets rule is a genuine merit; picking the dock rung for a header is a genuine defect. S-2 is narrowed accordingly, not withdrawn.
+
+**Falsifier.** A comment anywhere justifying the dock rung for this header — `:3` is bare and the file's only two comments (`:53–55`, `:89–91`) concern the timer and the width token. Or `z-bar`/`z-header` being unresolvable (refuted: both bridged in `bridges.css`, `z-bar` in live demo use). Or the contract text assigning headers to `--z-dock` (it assigns them to `--z-bar`, verbatim, at `:31`). Whether any *visible* mis-occlusion results is **UNPROVEN-NEEDS-LIVE** — and moot under L-B1; the contract breach is textual and needs no browser.
+
+### L-m9 *(pass 2)* · MINOR · `#anchor` is required-but-optional: without it the component renders nothing and cannot be opened
+
+`:32–37`:
+
+```html
+<div class="shrink-0" @click="onAnchorClick">
+    <slot name="anchor" :pinned="isPinned"></slot>
+</div>
+```
+
+The slot has **no fallback content**, and it is the only always-visible element in the component. Trace the default mount (`:48–49` — both refs `false`, so `isVisible` is `false` and `header-collapsed` is applied from first paint):
+
+- the items wrapper is `max-width: 0; margin-right: 0; overflow: hidden` (`:101–107`) → border-box width **0**;
+- the anchor wrapper is an empty `<div class="shrink-0">` → width **0**;
+- their flex parent (`:11–14`) is therefore **0 wide**, and it is the sole owner of `@mouseenter`.
+
+A zero-width box has no hit area, so `onRibbonMouseEnter` can never fire; `onAnchorClick` can never fire either. The two state transitions that exist are both unreachable, and the component is a permanent no-op. The `pointer-events-none` root (`:3`, correct per N-1) guarantees the empty strip contributes nothing.
+
+The obligation is real but unexpressed: no `defineSlots` marking `anchor` required (L-m4), no fallback, no README, no prop, no runtime warning. The successor is structurally immune — `header-ribbon/styles.css` gives `.header-ribbon__band` `min-block-size: var(--size-icon-btn)` and `padding: var(--panel-padding)`, and `.header-ribbon__anchor` is `display: grid; place-items: center`, so the band has presence independent of what the consumer supplies.
+
+Scored MINOR rather than MAJOR for one honest reason: any plausible consumer *would* pass `#anchor`, so this is a latent API-shape defect rather than a live breakage — and per L-B1 there is no consumer at all.
+
+**Falsifier.** Fallback content inside `:36` (the tag is empty: `<slot name="anchor" :pinned="isPinned"></slot>`), or any CSS giving the group or the anchor wrapper a minimum size — the entire scoped block is `:88–107` and neither rule targets them, and no unscoped demo rule matches `.shrink-0` alone. Or a consumer that omits `#anchor` and still works, which would require a hit area I have not accounted for.
+
 ---
 
 ## 4. INFO
@@ -388,11 +447,36 @@ Census `§1`: **68** demo files import the library under test; `TypingDots.vue:1
 
 Recorded here because it is the **migration hazard for L-M5/L-B1**: whoever deletes `EditorHeader` in favour of `HeaderRibbon` will copy `EditorShell`'s call site, and would carry the phantom prop forward. Also note `EditorShell.vue:187,197` takes a template ref on `HeaderRibbon` and `defineExpose`s it — the published component exposes nothing, so that ref's public surface is empty. Both belong to an `EditorShell` challenge, not this one.
 
+### L-i3 *(pass 2)* · INFO · the width cap's `var()` has no fallback — a token regression would fail silently and in the wrong direction
+
+`:92`:
+
+```css
+max-width: var(--header-items-max-w);
+```
+
+The token is defined today (`demo/styles/layout.css:15` `--header-items-max-w: 500px;`, inside that file's documented *"Recurring length homes (each routes a bracket-arbitrary literal to ONE token)"* block), so this is latent, not live. But `var()` with no fallback on an undefined custom property is invalid-at-computed-value-time, and `max-width` is not inherited, so the declaration resolves to its **initial value `none`** — the cap does not shrink or error, it *disappears*, and the collapse would animate from 0 to unbounded content width. The successor writes the fallback in-line: `header-ribbon/styles.css` `max-inline-size: var(--header-ribbon-actions-width, 30rem)`.
+
+Corroborating how tightly this file is coupled to tokens nobody else uses: `--ease-decelerate` (`:98`) has **exactly one consumer in the entire demo** —
+
+```
+$ grep -rn -- "--ease-decelerate" demo/
+demo/components/instrument/shell/EditorHeader.vue:98:        opacity var(--duration-normal) var(--ease-decelerate);
+```
+
+— this line. A token surface reached by one dead file is itself a small piece of evidence for L-B1.
+
+This does **not** retract S-2, which is right that every constant here is named; it records that *named* and *robust* are different properties, and that pass 1's "total token discipline" conflated them.
+
+**Falsifier.** An `@property` registration for `--header-items-max-w` supplying an initial value (which would make a fallback redundant) — `grep` finds no `@property` for it anywhere in `demo/styles/` or the glass cascade; the only definition is `layout.css:15`. Or a demo-wide convention of fallback-less `var()` that makes this consistent house style — which would demote it to a house-style note rather than kill it.
+
 ### N-1 · NON-DEFECT NOTE (excluded from the tally) · `@mouseleave` on a `pointer-events: none` root is **correct**
 
 `:3–4` puts `@mouseleave` on a root that is `pointer-events-none`. This looks like a bug and is not. `pointer-events: none` removes the element from **hit-testing**, but the element remains in the **event path** of its hit-testable descendants (`:7` and `:12` are both `pointer-events-auto`), and `mouseenter`/`mouseleave` are computed over the ancestor chain of the `mouseover`/`mouseout` target. The root therefore receives `mouseleave` when the pointer leaves the auto islands for anything outside its subtree — and it fires *promptly*, because the pointer cannot rest on the transparent root region (it falls through to the scene beneath, which is outside the subtree). The design is subtle and right. Recorded so a future reader does not "fix" it into a regression.
 
 The one real seam: moving from the ribbon (`:12`) to the `left`-slot island (`:7`) keeps the target inside the root subtree, so **no** `mouseleave` fires and the ribbon stays expanded while the pointer is on the mobile sidebar toggle. With no consumer supplying `#left`, this is currently unobservable. **UNPROVEN-NEEDS-LIVE**, and folded under L-M1's missing-hover-state root cause rather than counted separately.
+
+***(pass 2) Two additions to this note, both folded rather than counted.*** (a) The **converse** of that seam: leaving the `#left` island for anything outside the root arms the 2 s collapse timer for a state that hover never entered (`onGroupMouseLeave` `:69–73` is unguarded except on `isPinned`, and `onRibbonMouseEnter` `:13` fires only on the *other* island). Harmless — it writes `isExpanded = false` over `false` — but it means the expand region and the collapse region are different DOM subtrees, which is the structural cause of the seam pass 1 identified. The successor puts `pointerenter` and `pointerleave` on the same element (`header-ribbon.js`, root `onPointerenter: T, onPointerleave: E`), which is why it has neither seam. (b) The handler **name** asserts a binding the code does not have: `onGroupMouseLeave` (`:69`) is bound to the root at `:4`, not to the group at `:11`. Pass 1 is right that the placement is deliberate and correct; the name is what would mislead the next reader into "fixing" it.
 
 ---
 
@@ -420,7 +504,12 @@ This is the correct answer to a defect **filed against this exact file**: `docs/
 
 **Counter-falsifier (the superlative must survive too).** Kill this by finding a path that leaves a timer armed across unmount, or by showing `useTimeoutFn` in `@vueuse/core@14` does not dispose on scope teardown. `tryOnScopeDispose` has been part of its contract since v9; the component creates the timer inside `<script setup>`, i.e. inside the component's effect scope. Claim stands.
 
-### S-2 · EXEMPLARY · total token discipline — every geometry and motion constant is named
+### S-2 · EXEMPLARY *(amended, pass 2)* · token discipline — every geometry and motion constant is named
+
+> **AMENDMENT (pass 2).** The heading's original word was **"total"**. It is narrowed to *geometry and motion*, and two of the claims below are corrected by findings in this same document. The superlative **survives** — L-18 runs both ways and this repair is real — but it was over-stated:
+> - **The `z-dock` row of the table below is a defect, not a merit.** Using a semantic utility honours the contract's anti-`z-[N]` clause; choosing rung 40 ("the bottom dock band") for a header violates its ordering clause, which assigns headers to `--z-bar` at `style.css:31`. See **L-m8**. The row is retained verbatim for the audit trail, struck-through in effect.
+> - **"Named" is not "robust."** `var(--header-items-max-w)` carries no fallback, so a token regression yields `max-width: none` silently. See **L-i3**.
+> What stands unqualified: the STY-5 discharge (raw 500 px → token, wave id in the comment, value equivalence documented), the four motion tokens, the single-literal `<style>` block, and the honest flagging of the `2000` ms dwell constant as the file's whole magic-number surface.
 
 `:92,96,97,98` and `:3` resolve, without exception:
 
@@ -467,8 +556,16 @@ Three items **survive** the deletion and must be re-homed, or they are lost with
 
 And one **correction to the hitherto corpus**: `lane-frontend.md §5`'s shadow census (S-1..S-8) is missing a row. `EditorHeader` → `HeaderRibbon` is the ninth shadow and the *most* clear-cut of them — 108 lines, verdict DELETE not REPLACE, because the migration was already performed by its own sibling and only this copy was left behind.
 
+***(pass 2) Two further corpus corrections and one to this document.***
+
+4. **`lane-frontend.md §4`'s roster carries a dead row as live.** Its editor-chrome table lists *"108 | `EditorHeader.vue` | G | header bar — `DarkModeToggle`"* alongside seven genuinely-mounted components, and §9's counts (58 `.vue`, 37 glass-consuming, 11 984 lines) include it. The census measured the tree as written, not as reachable; the "S-9" correction above is incomplete without this one, because a shadow census that omits a component and a roster that counts it as live are the same error seen from two sides.
+5. **`lane-frontend.md §6.5` records the PRM absence without naming it a gap.** Its 13-site enumeration (10 CSS + 3 JS) correctly excludes this file, and correctly flags `TypingDots.vue:121` / `KeyframeTimeline.vue:94` as prose-only deferrals. `EditorHeader` is a *third* category the lane has no bucket for: motion with neither a guard nor a deferral. **L-m3** files it.
+6. **Correction to this document (pass 1 → pass 2):** S-2's "total token discipline" over-claimed on two counts, one of which (`z-dock`) is a defect this document should have caught and instead scored as a merit. **L-m8** and **L-i3** carry the corrections; S-2 is narrowed and retained. Recorded here rather than silently edited, because an audit that quietly rewrites its own superlatives is worth less than one that shows the repair.
+
 ---
 
 ## Provenance note
 
 Every glass-ui claim is sourced from `/Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/glass-ui/dist/` — the copy already installed in the target tree — so no upgrade is presupposed by any recommendation. `/Users/mkbabb/Programming/keyframes.js` was read only (`Read`, `grep`, `git log`); nothing was written, mutated, built, installed, or executed in that repo or any other. No browser tooling was used; every livable-only consequence is tagged **UNPROVEN-NEEDS-LIVE** for the SS-13 visual audit. The sole write of this lane is this file.
+
+***(pass 2) Additional provenance.*** The amendment pass re-derived the closure independently before reading pass 1, then folded rather than replaced. New probes run for it, all read-only: `styles/theme/bridges.css` (the `--z-index-*` → `--z-*` Tailwind bridge, establishing that `z-bar` and `z-header` are both resolvable — L-m8); `demo/styles/style.css:23–33` read in full for the ordering clause; `node_modules/@vueuse/shared/dist/index.js` `useTimeoutFn` body read for `tryOnScopeDispose(stop)` (S-1's counter-falsifier discharged against the *installed* code rather than against documentation); `grep -rn -- "--ease-decelerate" demo/` (L-i3); `demo/app/dock/MbabbMenu.vue:9,81,87–93` (the one correct `SharePopover` call site, L-m6); and a targeted hunt for a blanket `@media (prefers-reduced-motion: reduce){ * { … } }` across every glass-ui sheet and every demo sheet — `scroll-chrome.css` and `view-transition.css` were the only candidates and both are scoped (to `.scroll-chrome` and `::view-transition-*` respectively), so **L-m3's falsifier was hunted and refuted**, not merely asserted. One pass-1 citation is stale and corrected in passing: `U.B.md:389` and `pass1-research-demo-module-census.md:86` count `demo/CLAUDE.md` among the file's references — that file no longer exists, so the reference count is *lower* than the wave recorded, which strengthens L-B1 rather than weakening it.

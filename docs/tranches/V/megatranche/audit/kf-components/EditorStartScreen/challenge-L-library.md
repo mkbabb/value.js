@@ -34,8 +34,12 @@ claude-opus-5[1m]
 | L-EST-15 | **Inverted** `var()` fallbacks: present on the two tokens that can never be missing, absent on the four that provably can. | INFO |
 | L-EST-16 | No linter reaches this file. `npm run lint` = `depcruise src`; no ESLint/oxlint/biome config in the repo. L-EST-6 is precisely what `vue/no-setup-props-destructure` catches. | INFO |
 | L-EST-17 | Hidden cross-file contract: `font-roles.json:36` binds a role to `h1.hero-display .wave-char` — `AnimatedText`'s **private scoped** class — and nothing reads the manifest (see L-EST-3). | INFO |
+| **L-EST-18** | The mobile subtitle rung wins by **source order alone**, at equal specificity, under a *different class name* than the base rule it overrides. Reordering the sheet silently kills the serif floor `:177-181` calls mandatory. | MINOR |
+| L-EST-19 | `6.2cqi` / `5.4cqi` (`:185`, `:188`) with **no container ancestor** — they resolve against the small viewport by fallback, not by the design the comment describes. | INFO |
+| L-EST-20 | Three provably no-op utility classes: `p-0` (`:27`), `w-full` (`:40`, `:45`). | INFO |
+| **C-1** | **Corpus contradiction.** U lane-22 F3 / `U.D.md:194` assert the hero has "**ZERO** engine dependency". False transitively — `:29` renders `<TypingDots>`, which imports the engine barrel and awaits `loadAnimationEngine()`. The *verdict* survives; the premise does not. | — |
 
-**Tally** 17 defects · 1 blocker · 5 superlatives · 6 candidates killed by falsifier.
+**Tally** 20 defects · 1 blocker · 5 superlatives · 10 candidates killed by falsifier · 1 corpus contradiction.
 
 ---
 
@@ -52,8 +56,19 @@ claude-opus-5[1m]
 | `:140`, `:151`, `:185`, `:188` `var(--type-title)` | `--type-title: 2.058rem` | glass-ui `typography/scale.css:1` `:root` |
 | `:125` `var(--type-display-4)` | `--type-display-4: clamp(3.33rem, 2.5rem + 4vw, 5.382rem)` | glass-ui `typography/scale.css:1` `:root` |
 | `:153` `var(--muted-foreground)` | `--muted-foreground` | glass-ui `styles/**` |
+| `:18` `class="… z-controls …"` | the **utility class itself** | glass-ui `dist/styles/tokens/scheme-motion.css:1` (`--z-controls: 20`) **plus** `dist/styles/theme/bridges.css` (`@theme inline { … --z-index-controls: var(--z-controls) … }` — the theme key Tailwind v4 *generates the class from*) |
 
-Probe that none of the four tokens is demo-owned:
+**Sixth row, second pass.** `z-controls` is not merely a token read — the class does not exist unless glass-ui's bridge sheet is loaded, because Tailwind derives `z-<name>` utilities from `--z-index-*` theme keys and the demo's own `@theme` (`style.css:42-67`) declares none. Probe:
+
+```
+$ grep -o -- "--z-index-controls: var([^)]*)" node_modules/@mkbabb/glass-ui/dist/styles/theme/bridges.css
+--z-index-controls: var(--z-controls)
+$ grep -rn -- "--z-index-" demo/styles/   → (no output)
+```
+
+This **qualifies superlative S5**, which praises `z-controls` as the disciplined alternative to a bracket `z-[N]`. The praise stands on discipline and falls on durability: the disciplined choice is the one that evaporates under F-1, while the `z-[20]` bracket it avoided would have survived. That is not an argument for the bracket — it is the sharpest available statement of what F-1 costs.
+
+Probe that none of the four *value* tokens is demo-owned:
 
 ```
 $ grep -rn -- "--type-title:\|--type-display-4:\|--foreground:\|--muted-foreground:" demo/   → (no output)
@@ -376,6 +391,66 @@ Also unmeasured by the manifest even if the gate returned: the `.hero-dots` glyp
 
 ---
 
+### L-EST-18 — the mobile subtitle rung is held by source order alone · MINOR
+
+L-EST-10 records that the sheet duplicates declarations and splits its breakpoint. This is the *correctness* half of that shape, and it is a distinct claim: one of the duplicated `font-size` declarations is a live conflict resolved by nothing but line number.
+
+The subtitle element carries three classes (`:40`):
+
+```html
+<h2 class="start-screen-prose start-screen-subtitle hero-deck w-full">
+```
+
+Its `font-size` is declared twice, under **two different selectors**:
+
+```css
+:140   .hero-deck              { font-size: var(--type-title); }
+:185   .start-screen-subtitle  { font-size: clamp(1.5rem, 6.2cqi, var(--type-title)); }   /* inside @media (max-width: 1023px) */
+```
+
+Both are single-class selectors — `(0,1,0)`, each raised identically by the scoped `[data-v-…]` attribute to `(0,2,0)`. Neither is layered (scoped SFC CSS is unlayered). Neither carries `!important`. **The media-query rule wins only because line 185 is below line 140.**
+
+Two consequences:
+
+1. **Fragility.** Hoisting the `.hero-deck`/`.hero-hint` block below the media queries — the obvious tidy-up that L-EST-10's split breakpoint invites, and the shape a formatter or a "group the media queries" pass would produce — silently deletes the phone clamp. What dies with it is the `1.5rem` serif floor that `:177-181` calls a hard requirement ("the display face may never render below the smallest display rung"), backed by a gate that no longer exists (L-EST-3). Nothing else would notice: no test (L-EST-4), no lint (L-EST-16), no gate.
+2. **Grep-defeat.** The base rule and its mobile override are keyed to *different class names* for the same element. An editor changing the deck rung greps `.hero-deck`, finds `:140`, and never sees `:185`.
+
+`.hero-hint` is not exposed the same way — its base (`:146`) and its override (`:187`) share one selector, so the override is an ordinary same-selector cascade. The asymmetry between the two sibling rungs is itself the tell that `:185` was authored in a different wave (`K.W3 U-K9`) than `:135` (`T.D11`).
+
+**Falsifier.** Any mechanism making the override order-independent — a higher-specificity selector (both are equal, verified by inspection), an `@layer` (neither is layered), or `!important` (absent). Or evidence that `.start-screen-subtitle` and `.hero-deck` are never co-applied — they are, on the same element, `:40`.
+
+---
+
+### L-EST-19 — container-query units with no container · INFO
+
+`:185` `clamp(1.5rem, 6.2cqi, var(--type-title))` and `:188` `clamp(1.5rem, 5.4cqi, var(--type-title))` use container-query inline units. **No ancestor of the hero establishes a query container.** The only `container-type` in the whole demo cascade is an opt-in utility nobody in this chain applies:
+
+```
+$ grep -rn "container-type\|container:" demo/styles/ demo/app/ demo/components/instrument/shell/
+demo/styles/style.css:239:        container-type: inline-size;      ← inside @layer utilities { .container-inline-size { … } }
+```
+
+Chain checked: `EditorShell.vue:2-4` (root) → `:60` (overlay) → `EditorStartScreen.vue:17` (band) → `:40` (the element). None carries `.container-inline-size` or any `container-*` declaration.
+
+Per spec, `cqi` without a query container resolves against the small-viewport inline size — so the units behave as `vi`/`vw`. The rule therefore works, by fallback rather than by the mechanism its neighbours document (`layout.css:17-22` explains the demo's *deliberate* `cqi/cqb` usage on the cube target, where a container genuinely exists — so the idiom is understood in this repo and simply unfulfilled here).
+
+The middle term binds only for viewport widths where `1.5rem ≤ 6.2 % · w ≤ 2.058rem`, i.e. **≈387–531 px** — real phone widths, so the clamp is not inert. The exposure is that a one-class change on any wrapper (adding `.container-inline-size` for an unrelated reason) silently re-scales the LCP node's deck against that wrapper, with nothing to catch it.
+
+**Falsifier.** A `container-type` / `container-name` / `container` shorthand on any ancestor of `.hero-band` (probed across `demo/styles/`, `demo/app/`, `demo/components/instrument/shell/` — only the unused opt-in utility), or a spec reading in which `cqi` without a container is invalid rather than viewport-relative (it is viewport-relative; the initial containing block is the fallback query container).
+
+---
+
+### L-EST-20 — three provably no-op utility classes · INFO
+
+- `:27` `<h1 class="hero-display text-display-mega p-0">` — Tailwind v4 preflight already zeroes `padding` on every element, and no rule in `demo/styles/`, in glass-ui `dist/styles/`, or in the UA sheet sets `h1 { padding }`. `p-0` cannot change a pixel.
+- `:40`, `:45` `class="… w-full"` on both `<h2>` — each is a block-level child of a plain block (`.hero-band` sets no `display`, so it is `block`), where `width: auto` already fills the content box. `w-full` restates the initial value.
+
+Trivial in cost, and listed for one reason: each is an assertion the tree does not back, in a file whose central defect (L-EST-3) is exactly that. A reader cannot tell by inspection which of this file's many declarations are load-bearing.
+
+**Falsifier.** Any rule setting `h1 { padding }` anywhere in the resolved cascade, or a `display: flex`/`grid`/`inline-*` on `.hero-band` that would make `w-full` meaningful (`:88-94` sets only `top` and `padding-inline`; the utility list at `:18` sets position, inset, and width).
+
+---
+
 ## 2. — (no additional blockers)
 
 L-EST-1 is the sole BLOCKER. L-EST-3 would arguably be a blocker on a GOVERNANCE axis (an OWNER-blocking gate asserted over an ungated surface); on the LIBRARY axis it is a MAJOR documentation-integrity defect and is rated as such.
@@ -435,6 +510,10 @@ Recorded so the next auditor does not spend the probe budget twice. Each was a p
 | **The N-animation shape forfeits WAAPI lowering** | `src/animation/group/waapi.ts:29-31` refuses any group without a single shared target. Three dots are three targets, so `AnimationGroup` would be refused too. The group rewrite (L-EST-5) buys one rAF loop, not compositor offload. |
 | **`@lucide/vue` is a second phantom dependency** (`:61`) | Declared: `package.json:74 "@lucide/vue": "^1.17.0"`. And consistent — `grep -rhon 'from "@lucide/vue"\|from "lucide-vue-next"' demo/` → **24** hits, all `@lucide/vue`, zero of the legacy specifier. |
 | **`<Transition name="fade">` at the mount site has no CSS classes** (`EditorShell.vue:52`) | `grep -rn "fade-enter\|fade-leave" demo/` → nothing, but `node_modules/@mkbabb/glass-ui/dist/styles/transitions.css:1` ships `.fade-enter-active/.fade-leave-active/.fade-enter-from/.fade-leave-to` in `@layer components`, with a `prefers-reduced-motion` clamp. Delegation is real. (It is one more undeclared-glass-ui edge — folded into L-EST-1 rather than double-counted.) |
+| **The deck's `{{ subtitle }}` · `<List/>` · `{{ subtitleSuffix }}` (`:41-43`) hits the same `whitespace: 'condense'` trap `AnimatedText.vue:10-13` documents — the words will run together** | **No.** Vue's condense drops a whitespace-only text node only when **both** neighbours are ELEMENT (or comment) nodes *and* the node contains a newline; otherwise it is condensed to a single space. Here both whitespace nodes are flanked by an INTERPOLATION on one side, so both survive as single spaces. The deck renders `"from the list ☰ below, then press Play."` The X-5 lesson does not generalise to this file, and the split-prop contract (L-EST-7) is bad for reasons that have nothing to do with whitespace. |
+| **`timingFunction: "steps(4, jump-none)"` (`TypingDots.vue:90`) is a bare string, and the engine is documented fail-explicit about string easings (`stagger.ts:139-148` *throws* on one) → it throws inside the async `onMounted`, the rejection is swallowed by Vue's async-hook handler, and the dots never animate** | **No — the fail-explicit rule is `stagger`-local.** `timingFunction` routes `options.ts:40-46` → `resolveEasingOption` (`compile/easing/easing-option.ts:23-66`) → `resolveTimingFunction` (`easing-registry.ts:121-135`), which parses CSS literals through value.js `parseTimingFunction` and maps `steps` → `steppedEase(count, position)` (`:110-113`). `jump-none` is present in the installed `@mkbabb/value.js/dist/subpaths/{css,easing}.js`. It resolves, and `cssTwinFor` even attaches the faithful CSS twin. Likewise `iterationCount: "infinite"` is explicitly normalised to `Infinity` (`options.ts:49-57`). The dogfood's option surface is *correct*, not merely plausible. |
+| **`font-style: italic` (`:138`, `:149`) under `:root { font-synthesis: none }` (`style.css:100`) renders upright — the comment's "the ital@1 face is already loaded" (`:32-33`) is the kind of claim L-EST-2 shows this file gets wrong** | **No — this one is true.** `demo/app/index.html:70,75` request `family=Instrument+Serif:ital@0;1` — both faces, one payload. And the fallback chain (`"Instrument Serif Fallback"` → local Georgia → `serif`, `style.css:55`) carries true italics at every rung, so even a blocked Google Fonts fetch cannot produce the synthesis-suppressed upright. Recorded because L-EST-2 establishes that this file's producer-facing claims must be checked, not assumed — and checking found this one sound. |
+| **The band overflows short phones, and `EditorShell.vue:3 overflow-hidden` clips the hint rather than scrolling it** | **Not filed — the arithmetic clears it, narrowly.** At 320×568 with `--dock-band-reserve ≈ 60px`: band top ≈ 287px (`0.382·60 + 0.52·508`); hero 2 lines at the `--type-display-4` floor (53.3px × `line-height: 0.92`) ≈ 98px; deck 2 lines at the `1.5rem` floor ≈ 55px; hint 1 line ≈ 28px; margins 18px → bottom ≈ 486px against a dock band beginning ≈508px. It fits with ~20px. A two-line hint consumes that margin, and the failure mode would be a **clip, not a scroll**. **UNPROVEN-NEEDS-LIVE** — handed to the SS-13 visual audit as a specific probe (320px width, two-line `hint`), not asserted here. |
 
 ---
 
@@ -449,6 +528,22 @@ Recorded so the next auditor does not spend the probe budget twice. Each was a p
 | **lane-library §5** (100 % external test placement; `test/demo` 26 files) | **Consistent** (I count 27 files on `8281638c`; the delta is `scene-entries.test.ts` sitting at `test/demo/` root rather than in a subdir — a counting convention, not a disagreement). L-EST-4 adds the hero-shaped hole. |
 | **lane-library §1** (`lint` = `depcruise src`) | **Extended.** L-EST-16: that scoping leaves the entire 11 984-line demo tier unlinted, which is the proximate cause of L-EST-6 and L-EST-12 surviving. |
 | **lane-library L-1/L-2** (dead allowlist paths; phantom baseline file) | **Same class as L-EST-3.** Three independent instances of *configuration/prose asserting machinery that is not wired*. Recommend one wave that greps every `proof:` / baseline / allowlist citation in the repo against the executable surface. |
+| **U lane-22 F3 / `U.D.md:194`** ("the hero has ZERO engine dependency") | **CONTRADICTED — see C-1 below.** |
+
+### C-1 — corpus contradiction, stated explicitly
+
+> `docs/tranches/U/audit/lane-22-perf-demo-runtime.md:110-112` — "the LCP element — the hero `<h1>` in `instrument/shell/EditorStartScreen.vue` — imports only `@lucide/vue` `List`, `AnimatedText`, `TypingDots` (`EditorStartScreen.vue:61-63`): **zero engine dependency.**"
+>
+> `docs/tranches/U/waves/U.D.md:194` — "The hero `<h1>` (`EditorStartScreen.vue:61-63`) has **ZERO** engine dependency, yet mount waits on the full heavy graph."
+
+**False, transitively.** `EditorStartScreen.vue:29` renders `<TypingDots />` *inside* the LCP `<h1>`, and `TypingDots.vue:27-28` imports `@mkbabb/keyframes.js` (type + `loadAnimationEngine`, `stagger`) and awaits `loadAnimationEngine()` at `:75`. The hero's own import list is engine-free — the lane read *that* correctly, and cites the right lines — but it then promoted a one-file import list to a subtree claim without following the two child components it had just enumerated in the same sentence. The census's own §1 count contradicts it from the other side: 68 demo files import the library, and `TypingDots.vue:8` is the file lane-frontend quotes as naming the "inv-ζ seam".
+
+**The verdict survives; the premise must be re-stated.** F3's remedy — mount immediately, warm at idle, transpose the scene-machine's sync non-null `AnimationGroup` contract into an async-tolerant one — is still correct, because the `<h1>`'s *glyphs* (the actual LCP paint) need only CSS, the font, and the DOM; superlative S4 shows they are painted at frame 0 with no engine involvement. What changes is the follow-through: under the inversion the **dots** begin their pulse when the engine resolves rather than at mount. That is already safe by construction — the `unmounted` latch (`TypingDots.vue:69,76`) tolerates an arbitrarily late resolve (superlative S1), and the stylesheet's `opacity: 0.2` makes the pre-resolve state a *designed* frame rather than a blank (superlative S3) — but an implementer who trusts "zero engine dependency" would not know to check either, and would be surprised to find an engine import under the element they were told was engine-free.
+
+Two secondary corrections to the same entry, both cheap to land with it:
+
+- It cites the accessor as `@utils/kfEngine.ts` / `kfEngine.ts:27,38-43`. The file is **`demo/kf-engine.ts`**, aliased `@kf-engine` (`App.vue:148`, `main.ts:30`); no `demo/@utils/` path exists on `8281638c`.
+- It quotes the mount gate as `void Promise.all([warmKfEngine()…, fontsDecoded]).finally(…)`. The live line (`main.ts:50`) is `warmKfEngine().catch(() => undefined)` — the warm is already failure-tolerant, which the elision hides and which matters to F3's risk assessment.
 
 ---
 
@@ -460,7 +555,7 @@ Recorded so the next auditor does not spend the probe budget twice. Each was a p
 4. **L-EST-4** — one test file: mount the hero, assert the `.wave-char` count and the `sr-only` mirror text, assert `.typing-dot` animation arm + teardown on unmount (reuse `scene-raf-leak.test.ts`'s harness).
 5. **L-EST-5** — collapse `TypingDots` onto one `AnimationGroup`; fix `stagger.ts`'s docblock example while there.
 6. **L-EST-9 / L-EST-7 / L-EST-11 / L-EST-14** — one cleanup pass: delete the dead fallback, decide reusable-or-inline for the copy props, `h2`→`p` for the hint, drop the tombstone.
-7. **L-EST-10 / L-EST-15** — merge the two media blocks; move the fallbacks onto the tokens that can actually be missing (or delete them once step 1 makes the point moot).
+7. **L-EST-10 / L-EST-18 / L-EST-15** — merge the two media blocks **and, in the same motion, re-key the mobile subtitle override to `.hero-deck`** so it stops depending on line order (L-EST-18 is the reason step 7 must not be a blind "group the media queries" pass — done naively it deletes the serif floor); move the fallbacks onto the tokens that can actually be missing (or delete them once step 1 makes the point moot). L-EST-19 (`cqi` with no container) and L-EST-20 (the three no-op utilities) ride this same pass.
 8. **L-EST-8** — derive `--start-hero-band` from the work-area chain, or delete it and let `CubeScene` read the same expression; fix the `:260` cross-reference.
 9. **L-EST-16** — a demo-tier linter (out of this component's scope, but it is the durable fix for L-EST-6 / L-EST-12).
 
@@ -468,4 +563,8 @@ Recorded so the next auditor does not spend the probe budget twice. Each was a p
 
 ## Provenance note
 
-Every claim above is sourced from reads of `/Users/mkbabb/Programming/keyframes.js` (working tree at `8281638c [master]`), its `node_modules/@mkbabb/glass-ui/dist/` (the copy already installed in the audit target), and `git log`/`git show --stat`/`git ls-files`/`git worktree list`. No file in keyframes.js was written, mutated, or executed; no installs, no dev server, no browser tooling. The producer repo `/Users/mkbabb/Programming/glass-ui` was **not** read for this challenge (the installed artifact is the authority for what the demo actually resolves against). The single write of this task is this file.
+Every claim above is sourced from reads of `/Users/mkbabb/Programming/keyframes.js` (working tree at `8281638c [master]`), its `node_modules/@mkbabb/glass-ui/dist/` and `node_modules/@mkbabb/value.js/dist/` (the copies already installed in the audit target), and `git log`/`git show --stat`/`git ls-files`/`git worktree list`. No file in keyframes.js was written, mutated, or executed; no installs, no dev server, no browser tooling. The producer repo `/Users/mkbabb/Programming/glass-ui` was **not** read for this challenge (the installed artifact is the authority for what the demo actually resolves against). The single write of this task is this file.
+
+**Second-pass note (merge, not overwrite).** This artifact was extended by a second independent L-axis pass over the same target and the same head. That pass re-derived the component from source without consulting this file first, then folded its deltas in rather than replacing a stronger artifact with a weaker one. What it added: **L-EST-18** (the order-only override — the correctness half of L-EST-10), **L-EST-19** (`cqi` with no container), **L-EST-20** (three no-op utilities), the **sixth row of L-EST-1's table** (`z-controls` is a glass-ui-*generated* class, not merely a glass-ui token read — which qualifies superlative S5), **C-1** (the U lane-22 / U.D F3 contradiction, a corpus edge the first pass did not fold), and **four** additional killed candidates in §4 (the condense trap that does not generalise, the `steps(4, jump-none)` resolution chain, the `ital@0;1` payload, and the 320×568 overflow arithmetic).
+
+Claims inherited from the first pass that the second pass **independently re-verified before adopting**, since publishing them means owning them: `--font-display-weight: 600` present in the installed `typography/scale.css` (L-EST-2); `70b32501` / `92746148` as the gate-deletion and missed-sweep commits (L-EST-3); `group.ts:87 readonly playback = new RAFPlayback()` and `physics/playback.ts:83 private _rafId` as a per-instance handle (L-EST-5); `play-lifecycle.ts:436-441` `stop()` cancelling WAAPI **and** the rAF loop, settling, and resolving the pending play promise, plus `:376-382` routing reduced motion to the final frame — which is `REST_OPACITY`, matching both the `0%` frame and the stylesheet (S1, S3); `stagger.ts:133-178` `from: "first"` yielding exactly `distance · each` (S1's companion). Every adopted claim survived its own falsifier a second time.
