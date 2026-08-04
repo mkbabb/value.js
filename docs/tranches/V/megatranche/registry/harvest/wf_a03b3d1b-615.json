@@ -1,7 +1,7 @@
 {
  "runId": "wf_a03b3d1b-615",
  "workflow": "wf_a03b3d1b-615",
- "resultCount": 14,
+ "resultCount": 17,
  "results": [
   {
    "agentId": "a496cc66e95a43056",
@@ -495,6 +495,42 @@
     "defects": 27,
     "blockers": 5,
     "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ac11cd23fa792ecf3",
+   "key": "v2:a06db029939583d73ff119db61168af60a517fb6528a5200ae96a8181818d81f",
+   "result": {
+    "slug": "ConvergencePlot",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ConvergencePlot/challenge-L-library.md",
+    "defects": 28,
+    "blockers": 3,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "adf94ec517634b5c2",
+   "key": "v2:803a08304b893592e7de312be986d1c0473a4cedf04e31d151bfdd638e39717b",
+   "result": {
+    "slug": "DarkModeToggle",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/DarkModeToggle/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ac1ffc346e270c40c",
+   "key": "v2:8447dffaa198d2fa7b253bc24efd4bc01dccf0a149ecb6c84d1279d13c53ce5b",
+   "result": {
+    "slug": "ConvergenceTimeline",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ConvergenceTimeline/challenge-D-design.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 3
    }
   }
  ]

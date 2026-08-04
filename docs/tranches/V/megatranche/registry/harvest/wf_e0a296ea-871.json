@@ -1,7 +1,7 @@
 {
  "runId": "wf_e0a296ea-871",
  "workflow": "wf_e0a296ea-871",
- "resultCount": 15,
+ "resultCount": 21,
  "results": [
   {
    "agentId": "af4db1605694bb18d",
@@ -467,6 +467,78 @@
     "defects": 15,
     "blockers": 1,
     "superlatives": 3
+   }
+  },
+  {
+   "agentId": "ac100c17dd41143b8",
+   "key": "v2:992a6c4cd03bdae03a07425fd58287a9ff8b38de2388782dc6eeb7da1f062474",
+   "result": {
+    "slug": "EasingScene",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EasingScene/challenge-D-design.md",
+    "defects": 28,
+    "blockers": 3,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a896be5ba196e23a1",
+   "key": "v2:e0900c54b3e65f3b49f477695102e07ca1d8f545fb753b55c5bac8bb5402bb2f",
+   "result": {
+    "slug": "EditorShell",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorShell/challenge-L-library.md",
+    "defects": 13,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a65b2d8624e0b46c2",
+   "key": "v2:7134e6be7fdbc3201e2a1f3308f0f37a9c09ee86f48808ae3d63d4456aac9946",
+   "result": {
+    "slug": "EditorShell",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorShell/challenge-C-consumption.md",
+    "defects": 15,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a3cdc47927d534c52",
+   "key": "v2:2fd30016ae0d125c8a3a1b988e0d022054b38bff028ef3092766edf31e689f72",
+   "result": {
+    "slug": "EditorStartScreen",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorStartScreen/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "af761aa9ef7ae920e",
+   "key": "v2:95ab347b83e0f392ede72aa06d81c9789c15f50fa6c5f5bd0120090c3021d1b7",
+   "result": {
+    "slug": "EditorStartScreen",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/EditorStartScreen/challenge-D-design.md",
+    "defects": 28,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "aeb6e50fc0f44c736",
+   "key": "v2:197f158b6ef5a7a9ea6cbf71e0f50d89bf40948a2585aba9e818180e438f3645",
+   "result": {
+    "slug": "HeroAurora",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/HeroAurora/challenge-L-library.md",
+    "defects": 16,
+    "blockers": 1,
+    "superlatives": 7
    }
   }
  ]
