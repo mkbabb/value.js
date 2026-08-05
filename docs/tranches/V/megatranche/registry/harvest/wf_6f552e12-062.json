@@ -1,7 +1,7 @@
 {
  "runId": "wf_6f552e12-062",
  "workflow": "wf_6f552e12-062",
- "resultCount": 7,
+ "resultCount": 8,
  "results": [
   {
    "agentId": "a6a38a0411571782e",
@@ -1168,6 +1168,26 @@
      "Two corrections of the reader from this seat's own instruments: parse.js has a FOUR-line import census (the utils.js edge strengthens both the C-7 pinning and the i-2 low-id-burn mechanism), and the dim-absence probe must be textual not raw-byte (the chunk encodes escapes as five-character sequences; corrected probe confirms per-symbol tree-shaking exactly)",
      "Severity rulings: M-1 and M-8/C-3 held at MAJOR against C's BLOCKER grades (unreachability has a workaround; the throw needs a stringification site), M-7 downgraded to MINOR (parse throws before render, render diagnostics-gated), the L doc's one-line-fix-widens-B-3 claim killed by this seat's own two-scenario trace",
      "Fresh root never created, parse-that read-only at master ef10d5b, diagnostics never armed, sole write = the apotheosis file"
+    ]
+   }
+  },
+  {
+   "agentId": "a98ff5a817097dd48",
+   "key": "v2:33d9752ed74f9f83df507b7b9a7c50aa15a6dad2436e884340a5eee445ed1168",
+   "result": {
+    "slug": "pt-core-adjudicated-apotheosis",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/pt-core.md",
+    "verdict": "3 BLOCKERS SURVIVE (regex-at-EOF B-1/C-2 · success-shaped-failure B-2/C-14 · false isolation contract D-03/C-1) — 48-row roster: 36 confirmed + 10 missed-adopted + 2 seat-found; 16 kills sustained, K17 REVERSED with a live mis-dispatch witness (dispatch intern overflow past 128 distinct parsers routes to the wrong parser and succeeds); routed W2 (engine repairs + algebra retirements, AC-3 pen) / W4 (RC-P: dual-package hazard live, 73%-maps payload, unpinned surface) / REFINEMENT FOLD (boundary invariant asserts state.isError; G-9 pins no depth constant; RED-7 instrument repaired first) / 11 NO-WAVE-OWNER debt rows; 12 superlatives banked, S7 halved.",
+    "confirmedCount": 36,
+    "killedCount": 16,
+    "missedCount": 12,
+    "headline": [
+     "K17 REVERSED: dispatch() interning overflow is real — 257-entry table mis-dispatches to the wrong parser and SUCCEEDS (value \"ab\"), 129-entry table silently rejects its own key; C-17-prime's withdrawal and the reader's endorsement both rested on a false derivation (SF-1, live witness)",
+     "All three blockers hold under attack: whitespace/nullable-regex fails at EOF (trailing-space inversion reproduced), .parse() returns \"ab\"/[] on failure with the type asserting the failure away, and /core ships 93.52% of the root barrel including both denied tiers",
+     "Reader's M1 dual-package hazard verified 4/4 (ESM/CJS instance identity broken; three process-global latches doubled) — C's S-1 superlative died on a .cjs nobody opened",
+     "Reader's M2 verified: .trim(p) silently discards p when p.context.name === \"whitespace\" — a type-legal booby trap diverging on Unicode whitespace",
+     "SF-2 (seat): dist/parsers/{csv,json}.d.ts declaration-only ghosts of the denied json/csv tier ship in the payload, unresolvable via exports",
+     "Reader byte-exact everywhere else re-measured: byte closures, all censuses (15+7 mergeErrorState, 3 .call sites, 26 casts), probe cites :47/:48, dist cites, CJS whitespace accessor"
     ]
    }
   }

@@ -1,7 +1,7 @@
 {
  "runId": "wf_a03b3d1b-615",
  "workflow": "wf_a03b3d1b-615",
- "resultCount": 25,
+ "resultCount": 26,
  "results": [
   {
    "agentId": "a496cc66e95a43056",
@@ -627,6 +627,18 @@
     "defects": 18,
     "blockers": 2,
     "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a65f61fe4820ba4af",
+   "key": "v2:e5cf52fb8dcdebdf75fa23f4f437e69380048027dd5dc91aaddda80acf7d1c1b",
+   "result": {
+    "slug": "EditorControlsDock",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EditorControlsDock/challenge-D-design.md",
+    "defects": 28,
+    "blockers": 1,
+    "superlatives": 7
    }
   }
  ]
