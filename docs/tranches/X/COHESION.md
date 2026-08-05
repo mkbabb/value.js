@@ -116,6 +116,8 @@ the per-component apotheoses are authoritative.
 | SC-1 | glass-ui 7.0.0 ships `glass-chip.css` and never imports it anywhere (glass.css / index.css / glass-ui.css all 0) — guts the sole Chip consumer; ALL Chip adoption in this repo BLOCKED-ON the producer cure | ATP-23, `adjudicated/AdminTagsPanel.md` (dist greps in-seat) |
 | SC-2 | `--type-mono-caption` phantom token is PRODUCER-born (4th consumer in minified glass-ui.css); demo cure `var(--type-micro)` bare, zero pixel delta | `adjudicated/ApiOfflineChip.md` |
 | SC-3 | ActionFeedback relay QUESTION: Alert's foreground-ink-on-wash idiom vs the producer ink-rung ask (demoted from ask to question) | `adjudicated/ActionFeedback.md` |
+| SC-4 | PG-17: consumer writes `--card-press-t` but the producer press-cast reads `--cartoon-press-t`; `card-press-t` has ZERO readers in the whole glass-ui dist — the press-cast choreography is inert and both in-file comments claiming it works are false. Producer question: which name is canonical? | PG-17, `adjudicated/PaletteCardGrid.md` (r2, dist grep in-seat) |
+| SC-5 | ErrorBoundary plate register relay: the caught-plate's paint/stacking contract (plate under the absolute atmosphere canvas; ~1050px owner clamp) belongs in the producer plate register so consumers stop re-deriving it | EB-1/EB-8, `adjudicated/ErrorBoundary.md` |
 | (accretes per batch; assembled into ONE letter at the next boundary per SS-6) | | |
 
 ## §5 Status board (kept current at every boundary)
