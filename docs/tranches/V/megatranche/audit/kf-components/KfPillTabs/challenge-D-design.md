@@ -3,390 +3,502 @@ claude-opus-5[1m]
 # CHALLENGE · KfPillTabs · axis D (DESIGN)
 
 **Target** `/Users/mkbabb/Programming/keyframes.js/demo/components/instrument/transport/KfPillTabs.vue` (124 lines)
-**Imports read whole** `KfPillTabs/useKfPillTabs.ts` (93) — the only import.
-**Rendered context read whole** `channel-controls/ChannelControls.vue` (456), `transport/index.ts`, `transport/composables/useKfPillTabs.ts` (the 4-line shim), `channel-controls/composables/useTabStripScroll.ts`, `state/controlSurfaces.ts`, `app/App.vue` (provide sites), `styles/style.css`, `styles/tab-idiom.css`, `styles/font-roles.json`, `demo/DESIGN.md §5`, `test/demo/instrument/KfPillTabs.test.ts`.
-**Token evidence** `node_modules/@mkbabb/glass-ui/dist/styles/{glass/ladder.css, glass/a11y-fallback.css, theme/radius.css, typography/scale.css, tokens/scheme-motion.css, fonts.css}` (installed 7.0.0).
-**Method** static + source-derived only. No browser. Contrast computed WCAG 2.x relative-luminance from the token graph; every ratio carries its substrate assumption inline. Livable-only claims are tagged **UNPROVEN-NEEDS-LIVE** for SS-13.
+**Method** static + source-derived only. No browser. Every contrast ratio is computed from the resolved token graph by WCAG 2.x relative luminance and is reproducible from §0; claims that genuinely need pixels are tagged **UNPROVEN-NEEDS-LIVE** for SS-13.
 
-**Tally** 22 defects · **2 BLOCKER** · 7 MAJOR · 8 MINOR · 5 INFO · 5 superlatives.
+Read whole, read-only:
+
+| file | why |
+|---|---|
+| `demo/components/instrument/transport/KfPillTabs/useKfPillTabs.ts` (93) | the only import |
+| `demo/components/instrument/transport/composables/useKfPillTabs.ts` (4) | re-export shim |
+| `demo/components/instrument/transport/index.ts` | async barrel export |
+| `demo/components/instrument/transport/channel-controls/ChannelControls.vue` | the sole render site |
+| `.../channel-controls/composables/useTabStripScroll.ts` | the strip's overflow plumbing |
+| `demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue`, `AnimationControlsGroup.vue`, `injectionKeys.ts`, `demo/app/App.vue`, `demo/app/main.ts` | the render chain + the `provide` that governs it |
+| `demo/state/controlSurfaces.ts` | `SURFACE_META`, the option source |
+| `demo/styles/{style.css, tab-idiom.css, design-idioms.css, playback-idiom.css, font-roles.json}` | demo token + idiom authority |
+| `node_modules/@mkbabb/glass-ui@7.0.0/dist/styles/{glass/ladder.css, theme/radius.css, tokens/*, accessibility.css, transitions.css, animations.css}` | every token the SFC reads |
+| `test/demo/instrument/KfPillTabs.test.ts` | what is (and is not) gated |
+
+**Tally — 24 defects · 2 BLOCKER · 8 MAJOR · 12 MINOR · 2 INFO · 4 superlatives.**
+
+**Prior** — assume defective until the tree proves otherwise. **Counter-discipline** — a false defect is worse than a missed one. Four things I went hunting for and could **not** stand up are recorded in §4 as *cleared*, not dressed up as findings.
 
 ---
 
-## 0. Fold of the hitherto corpus
+## 0. Fold of the hitherto corpus + token resolution
 
-| Corpus id | What it said | This challenge |
+### 0.1 Corpus
+
+| id | what it said | this challenge |
 |---|---|---|
-| `lane-frontend.md` **F-1** | `@mkbabb/glass-ui` is a phantom dep — absent from `package.json`/lock, 7.0.0 on disk | **CONFIRMED independently.** `grep -n glass-ui package.json` → 0 hits; `node -p require(...).version` → `7.0.0`. Every token ratio below is therefore computed against an *unpinned* substrate. Noted as a standing caveat, not re-filed as my defect. |
-| **F-2 / S-1** | `KfPillTabs` forks `SegmentedTabs` over a 4.0.1 ARIA bug fixed in the installed 7.0.0; verdict **replace**, 217 lines | **CONFIRMED and ESCALATED.** S-1 rated the fork *stale*; D-B1 below shows it is also **unrendered**, which moves the verdict from *replace* to *delete*. |
-| **S-1 tail** | "It is **live, not dead** — rendered at `ChannelControls.vue:74`" | **CONTRADICTED — see D-B1.** The render *site* exists; the render *never happens*. S-1 stopped at the `<KfPillTabs` grep and did not walk the `v-if` one line up (`ChannelControls.vue:56`) to `App.vue:169`. |
-| **S-2** | Demo adopted glass-ui's tab *data contract* while rejecting its *renderer*; prose still says `<SegmentedTabs>` owns the strip | **CONFIRMED, extended.** D-M6 shows the fork also dropped a *capability* (`activation: "manual"`), and D-i4 shows the prose rot reaches `DESIGN.md` and `font-roles.json`, not just SFC comments. |
-| **S-1 shim tail** (`lane-frontend.md:537-553`) | `transport/composables/useKfPillTabs.ts` is a 4-line back-compat shim; `ChannelControls.vue:229-230` imports component and type through *different* paths | **CONFIRMED.** D-m7 adds the root cause: the SFC comment claims a re-export that `<script setup>` cannot produce, so the shim exists to paper over a documented-but-absent seam. |
-| **S-8** | `TypingDots` is justified bespoke | Not in scope; cited only as the contrast case — S-8's justification is a *capability gap*, KfPillTabs' is a *fixed upstream bug*. |
-| `lane-library.md` (parse seams) | — | No overlap; KfPillTabs touches no parser surface. |
+| `lane-frontend.md` **F-1** | `@mkbabb/glass-ui` is a phantom dep — absent from `package.json` **and** the lock, yet 7.0.0 sits in `node_modules` | **CONFIRMED independently.** `package.json` `dependencies` = `{"@mkbabb/value.js":"4.0.0"}`, sole entry; `require(".../glass-ui/package.json").version` → `7.0.0`. Standing caveat on every ratio below: the substrate is **unpinned**. Not re-filed as mine. |
+| **S-1** | KfPillTabs forks `SegmentedTabs` over a 4.0.1 ARIA bug fixed in 7.0.0; 217 lines; verdict **replace** | **CONFIRMED** and folded into D-10. |
+| **S-1 tail** — "the fork's *secondary* claim (a panel switcher wants `role=tablist`, not `role=group`) is a **design** argument the 7.0.0 aria fix does not by itself answer" | open question left to this axis | **ANSWERED — see D-6.** Whichever role wins, the tab↔panel association is missing in *both* directions today, so the swap must specify it rather than inherit it from either implementation. |
+| **S-1 liveness** — "rendered at `ChannelControls.vue:74`" | treats the fork as live | **CONTRADICTED — see D-1.** The render *site* exists; the render never *happens*. The `<KfPillTabs` grep stops one line short of the `v-if` at `:56`. A prior D-axis pass at this path reached the same conclusion; I re-derived the full chain independently below rather than take it, and it holds. |
+| **S-2** | stale `<SegmentedTabs>` prose in `ChannelControls.vue` / `useTabStripScroll.ts` | **CONFIRMED**, extended into D-10 and D-18 (the rot reaches `font-roles.json` and the SFC's own header). |
+| `lane-frontend.md:553` | the 4-line back-compat shim pair violates `feedback_no_backwards_compat` | **CONFIRMED**, D-17. |
+| `U/audit/lane-03-t-verdict-trace.md` **F-6** | the `Kf` vanity surface the owner derided survives behind an external-blocked defer | **CONFIRMED**, and D-15 notes it is now load-bearing in the *CSS* surface (`font-roles.json:31-34` selects on `.kf-pill-tab`). |
+| `lane-library.md` (parse seams) | — | no overlap; this component touches no parser surface. |
+
+### 0.2 Tokens (so every number below is checkable)
+
+```
+--radius-panel  → --radius-xl = 12px            (glass-ui theme/radius.css)
+--radius-lg     → --radius    = 0.625rem = 10px (glass-ui theme/radius.css)
+--type-small    = clamp(0.875rem, 0.8rem + 0.25vw, 1.25rem)   → 14px … 20px   (fluid)
+--type-body     = clamp(1rem,     0.92rem + 0.27vw, 1.375rem)                 (fluid)
+--duration-fast = 0.2s ;  --ease-standard = var(--motion-ease-standard)
+--color-progress → --accent-kf = light-dark(oklch(.56 .17 295), oklch(.74 .13 305))  (style.css:130,163)
+--card       = light-dark(hsl(30 85% 96%), hsl(26 22% 17%))
+--foreground = light-dark(hsl(24 10% 10%), hsl(30 14% 90%))
+```
+
+`.glass-wash` (glass-ui `glass/ladder.css`) additionally declares, **on the element itself**:
+`border: 1px solid var(--glass-border-accent)` · `backdrop-filter: var(--glass-blur-wash)` (dark arm carries `brightness(1.18)`, `tokens/dark-arm-glass.css`) · `background: var(--glass-plate-tinted)`; and the `:where(.glass-card,.glass-resting,.glass-quiet,.glass-wash)` rule repoints **`--muted-foreground → var(--on-glass-muted)`** = `hsl(34 16% 72%)` dark / `hsl(30 26% 35%)` light.
+
+Relative luminance of the resolved surfaces:
+
+```
+dark  plate ≈ --card  hsl(26 22% 17%)   Y = 0.02527
+dark  --on-glass-muted hsl(34 16% 72%)  Y = 0.49343
+dark  --foreground     hsl(30 14% 90%)  Y = 0.79145
+light plate ≈ --card  hsl(30 85% 96%)   Y = 0.92218
+light --on-glass-muted hsl(30 26% 35%)  Y = 0.11056
+```
+
+The strip's plate is ≥ 79 % `--card` (`--glass-bg-wash` at `--glass-level: 0.3`) and sits on a **second** `.glass-wash` plate (D-5), composite ≥ 95 % `--card`. Treating the backdrop as `--card` is therefore the correct limit, not a convenience — and D-2 shows the conclusion is backdrop-independent anyway.
 
 ---
 
 ## 1. BLOCKERS
 
-### D-B1 · BLOCKER · `<KfPillTabs>` never renders in the shipped demo — the entire design surface is unobservable
+### D-1 · BLOCKER — `<KfPillTabs>` **never renders in the shipped demo**. The entire design surface under audit is unobservable.
 
-`ChannelControls.vue:56` gates the strip's host:
-
-```
-56  <div v-if="!tabsExternallyManaged" ref="tabsHeaderEl" class="… glass-wash rounded-panel px-2 py-0.5 overflow-hidden">
-…
-74      <KfPillTabs
-```
-
-`tabsExternallyManaged` is injected at `ChannelControls.vue:277` (`inject(TABS_EXTERNALLY_MANAGED_KEY, false)`). There is **exactly one** provide site in the entire demo:
+The render chain, walked end to end:
 
 ```
-demo/app/App.vue:168  // Tabs in the controls pane are managed via the ChromeDock controls tab dropdown
-demo/app/App.vue:169  provide(TABS_EXTERNALLY_MANAGED_KEY, true);
+demo/app/main.ts:32          createApp(App)                       ← the only createApp in the tree
+demo/app/App.vue:169         provide(TABS_EXTERNALLY_MANAGED_KEY, true)
+                             // "Tabs in the controls pane are managed via the ChromeDock controls tab dropdown"
+  ↓ (setup top level, unconditional → whole subtree)
+AnimationControlsGroup.vue:18    <ControlsPaneWrapper …>
+ControlsPaneWrapper.vue:50         <ChannelControls …>
+ChannelControls.vue:277              inject(TABS_EXTERNALLY_MANAGED_KEY, false)  → true
+ChannelControls.vue:56               <div v-if="!tabsExternallyManaged" …>       → FALSE
+ChannelControls.vue:74                 <KfPillTabs … />                          ← never mounted
 ```
 
-Verified exhaustive: `grep -rn "provide(" demo/ | grep -i tabs` → that single line. It is top-level in `<script setup>`, unconditional, not inside any branch. There is exactly one `createApp` (`demo/app/main.ts:32`, mounting `App`), and the only other candidate host — the "standalone playground `EditorShell`" the comments at `ChannelControls.vue:263-272` and `:289-292` invoke — is rendered **inside** `App.vue:28`, so it inherits `true`. No component provides `false`.
+Each link verified by grep, not inference:
 
-Therefore `!tabsExternallyManaged` is permanently `false` and `<KfPillTabs>` never mounts. Corroborating consequences all hold:
+* `TABS_EXTERNALLY_MANAGED_KEY` has **exactly one** `provide` in `demo/` and `test/` — `App.vue:169`, the literal `true`. The `false` at `ChannelControls.vue:277` is the *inject default*, reachable only with no providing ancestor.
+* `<ChannelControls>` has **exactly one** render site — `ControlsPaneWrapper.vue:50`.
+* `<ControlsPaneWrapper>` has **exactly one** render site — `AnimationControlsGroup.vue:18`.
+* **one** `createApp` — `main.ts:32`, mounting `App`. `EditorShell.vue` (the "STANDALONE host / playground" the comments repeatedly invoke as the `tabsExternallyManaged === false` path) contains **no** reference to `ChannelControls`, `ControlsPaneWrapper`, or the key. The standalone host does not exist.
 
-- `useTabStripScroll`'s `tabsHeaderEl` is always `null`, so `checkOverflow()` and `scrollActiveTabIntoView()` (`useTabStripScroll.ts:47-56, 64-74`) are permanent no-ops — the overflow fade is unreachable machinery.
-- The live control-surface switcher is a glass-ui **`<Select>` dropdown** in `demo/app/dock/ChromeDock.vue:235-244` (via `dockCardinality`, `surfaceTabs.ts:26-33`) — **not a tab strip at all**. So the owner ruling the component cites as its design charter, `KfPillTabs.vue:77-78` ("the legible chip register the user asked for — *pills if tabs at all*"), is moot: the shipped UI has **no tabs**. The conditional in the ruling resolved to "not at all", and the strip was built anyway.
-- The demo's own design-system manifest already knows: `demo/styles/font-roles.json:29-32` registers `.kf-pill-tab` with the note *"the component itself is a T.H gated-on-publish excision; the register holds until then."*
-- The sibling pill vocabulary is dead the same way: `grep -rn "tab-trigger" demo/` returns only comments, `DESIGN.md:116`, `font-roles.json:18/24`, and `tab-idiom.css` itself — no template applies `.tab-trigger-*`. The demo ships **two dead pill registers**.
+So the `v-if` at `:56` is false for every mount in the shipped application, and every finding below D-2 describes a surface no user has seen. The strip was superseded by the ChromeDock controls dropdown, and the branch was left behind.
 
-**Why this is the blocker and not a footnote.** Every finding D-B2…D-i5 is a design property of markup that does not paint. A design axis cannot certify a component whose rendered form is empty; and a 124+93-line bespoke fork of a shipped primitive, kept alive on rationale that F-2 proved three majors stale, that also never renders, is not a refactor candidate — it is dead weight with a live maintenance tax (`font-roles.json` role, `DESIGN.md` grammar row, a 190-line vitest suite, a 4-line compat shim, an async barrel entry).
+This reframes the axis. The component is not *badly designed and shipping*; it is **217 lines of dead design surface** (SFC 124 + composable 93) carrying a 20-line rationale (D-10), a 4-line back-compat shim (D-17), an entry in `font-roles.json` (`:31-34`), a dead async barrel export (D-17), and a 7-case test file — all maintained for a branch that cannot execute. It also explains the corpus: lane-frontend **S-1** rated the fork *stale* and prescribed *replace*; the correct verdict is **delete**, and the swap onto `SegmentedTabs` + `useTabRovingFocus` that S-1 scoped is unnecessary work.
 
-**Falsifier.** Any of: (a) a second `createApp`/mount root outside `App.vue`; (b) a `provide(TABS_EXTERNALLY_MANAGED_KEY, false)` anywhere in the tree or in a test/story host that ships; (c) `TABS_EXTERNALLY_MANAGED_KEY` reaching `ChannelControls` via a *different* key that also defaults false; (d) a live page where DevTools shows a `[role=tablist].kf-pill-tabs` node. Any one kills this claim. I ran (a) and (b) to exhaustion by grep; (d) is the SS-13 confirmation I cannot run.
+It also downgrades, honestly, every visual finding below to **latent** — true of the code, not currently true of anything a user perceives. I have kept D-2 at BLOCKER because it is the finding that must not survive a reinstatement; the rest are graded on that basis.
+
+**Falsifier.** Any second `provide(TABS_EXTERNALLY_MANAGED_KEY, …)`; any `createApp` other than `main.ts:32`; any host that mounts `ChannelControls` / `ControlsPaneWrapper` outside `App`'s subtree; or a `provide` on the injection key with a value that is reactive rather than the literal `true`. Also killable by a Playwright/DevTools snapshot showing a live `[role=tablist].kf-pill-tabs` node in the running demo — the single cheapest disproof, and worth spending at SS-13.
 
 ---
 
-### D-B2 · BLOCKER (on revival) · plate-on-plate: `glass-wash` nested inside `glass-wash` destroys the recede idiom it exists to serve
+### D-2 · BLOCKER — the "legible chip" measures **1.17 : 1 – 1.24 : 1** against its own track, and an 8 % tint cannot reach 3 : 1 at *any* backdrop.
 
-`KfPillTabs.vue:17` puts the wash rung on the tablist root:
-
-```
-17  class="kf-pill-tabs glass-wash"
-```
-
-Its only consumer already put the same rung on the immediate parent:
+`KfPillTabs.vue:115-119` — the active-state indicator is
 
 ```
-ChannelControls.vue:56  class="… glass-wash rounded-panel px-2 py-0.5 overflow-hidden"
+background: color-mix(in srgb, var(--foreground) 8%, transparent);
 ```
 
-`ladder.css` gives `.glass-wash` a *plate*, a *border*, a *rim*, a *drop shadow*, and a *backdrop-filter*:
+painted on the `.kf-pill-tabs` `.glass-wash` plate (`:17`, `:80-86`). Composite the overlay and compute:
 
-```
-.glass-wash { position: relative; --glass-bg-rung: var(--glass-bg-wash);
-  background: var(--glass-plate-tinted);
-  backdrop-filter: var(--glass-blur-wash);
-  border: 1px solid var(--glass-border-accent);
-  box-shadow: var(--glass-material-rim), var(--glass-shadow-wash); }
-```
+| arm | active chip Y | track Y | **contrast** |
+|---|---|---|---|
+| dark  | 0.04363 | 0.02527 | **1.244 : 1** |
+| light | 0.77913 | 0.92218 | **1.173 : 1** |
 
-Nesting therefore doubles **all five**. The plate stack is computable:
+The bound is structural, not incidental. An 8 % overlay of `--foreground` over the *most favourable possible* backdrop still cannot clear 3 : 1 — over pure black the chip lands **1.13 : 1**, over pure white **1.17 : 1**. There is no plate opacity, no `--glass-tint-strength-aa` value, no theme arm and no substrate that rescues an 8 % same-family tint. WCAG 2.2 SC 1.4.11 asks 3 : 1 of the visual information that identifies a component's *state*; this is off by ~2.5× and is not tunable into range without changing the percentage.
 
-- `--glass-bg-wash: color-mix(in srgb, var(--card) calc((1 - (1 - var(--glass-opacity-wash)) * var(--glass-level)) * 100%), transparent)`
-- defaults: `--glass-level: 0.3`, `--glass-opacity-wash: 0.30` → per-plate card alpha `1 - 0.70 × 0.3 = 0.79`
-- two stacked plates → effective `0.79 + 0.21 × 0.79 = **0.9559**`
+BLOCKER because it **falsifies the component's own reason to exist, in its own prose, twice**:
 
-The wash rung exists precisely so the stage bleeds through the chrome — that is the whole of `ADOPT-9` / `J.W7a D5` / `pane-cube.md C16` in the value.js corpus ("the controls pane recedes so the subject becomes the protagonist"). Designed residual translucency **21%**; delivered **4.4%**. The idiom is not weakened, it is inverted: the strip reads as the *heaviest* thing in the pane. Secondary compounding: two `1px solid var(--glass-border-accent)` hairlines separated by exactly `py-0.5` = **2px** (a moiré-prone double rule), two `--glass-material-rim` insets, two `--glass-shadow-wash` drops, and `blur(0.3px) saturate(1.35)` applied twice — the inner element's backdrop already contains the outer's blurred plate.
+* `KfPillTabs.vue:77-79` — "The glass-track pill strip — **the legible chip register the user asked for** ("pills if tabs at all")".
+* `ChannelControls.vue:57-62` — pill was chosen over `underline` because the underline "read as **an unlabeled divider**".
 
-This is glass-ui's own documented **No-PLATE-on-PLATE** rule (recorded in this corpus at `docs/tranches/N/audit/research-glass-vt-modernweb.md:19`: *"DO NOT nest a glass PANEL inside a glass panel … depth-3 ceiling, contain:paint budget; a glass CONTROL on a glass plate is SANCTIONED"*). A pill *track* is a plate, not a control; the sanctioned form is bare-track-on-plate.
+The rejected underline would have been `2px solid var(--foreground)` — **≈ 15 : 1** against the same plate. The replacement chosen *for legibility* is an order of magnitude less legible than the thing it replaced for being illegible. The owner's verdict ("pills if tabs at all") was applied to the **register** and not to the **visibility**, which is what the verdict was actually about.
 
-Note the demo compounds it deliberately in one direction: `style.css:203-208` names `.glass-wash` and forces `--glass-tint-strength-aa: 0%`, stripping the AA ink-darken glass-ui adds for legibility. So the nested plate is maximally translucent *per rung* and near-opaque *in stack* — the worst of both.
+This is the one finding that must not survive D-1's cleanup. If the strip is ever reinstated — or if S-1's swap lands and ports the recipe — the defect ships with it.
 
-**Severity note.** Rated BLOCKER **conditional on D-B1**: unrendered today, ships the instant the gate flips. If D-B1 is resolved by deletion, D-B2 dies with it; if by flipping the gate, D-B2 is a shipping blocker.
-
-**Falsifier.** A demo rule that suppresses the plate on a nested wash (e.g. `.glass-wash .glass-wash { background: none; border: 0; box-shadow: none; backdrop-filter: none }`) — I grepped `demo/styles/` for any nested-glass or depth guard and found only the `--glass-tint-strength-aa` re-point at `style.css:203`. Or: a live computed-style read showing the inner root's `background-color` alpha ≤ 0.79 and one border.
+**Falsifier.** Render the strip, sample the computed `background-color` of `[data-state="active"]` and of `.kf-pill-tabs`, composite, compute. If the measured ratio is ≥ 3 : 1 the claim is dead. It cannot be, per the pure-black/pure-white bounds — *unless* some rule outside the scoped block overrides `.kf-pill-tab[data-state="active"] { background }`. I grepped `demo/` and `glass-ui/dist/styles/` and found none; that grep is the falsifier's real target.
 
 ---
 
 ## 2. MAJOR
 
-### D-M1 · MAJOR · no `aria-controls` / `aria-labelledby` — the tab↔tabpanel relation does not exist, falsifying the header's own claim
+### D-3 · MAJOR — `orientation="vertical"` ships a correct ARIA contract and correct keyboard over a layout that stays horizontal — and a green test certifies the working half.
 
-`KfPillTabs.vue:19-32` renders `role="tab"` buttons with `aria-selected`, `tabindex`, `disabled`, `data-value`, `data-state` — and **no `aria-controls`**. The component exposes no `id` prop, no `panelId` per option (`KfPillTabOption` is `{label, value, disabled?}`, `useKfPillTabs.ts:23-27`), so a consumer *cannot* wire it without editing the SFC. On the panel side, `ChannelControls.vue:97-102, 129-137, 149-154` render `role="tabpanel"` divs with **no `id`** and **no `aria-labelledby`**.
+Three quarters of vertical exist; the fourth does not.
 
-WAI-ARIA 1.2 / APG *Tabs* pattern: each `tab` **must** carry `aria-controls` referencing its `tabpanel`; each `tabpanel` **should** carry `aria-labelledby` referencing its tab. Neither exists in either direction. The result: an AT user hears "Controls, tab, selected, 1 of 3" and then, on reaching the panel region, an **unlabelled** `tabpanel` with no announced owner, and no `Ctrl+Alt+↓`-class tab→panel jump.
-
-This directly falsifies `KfPillTabs.vue:9-11`: *"This strip is ARIA-correct **BY CONSTRUCTION** — a `role=tablist` of `role=tab` buttons (a panel switcher, the right pattern), where `aria-orientation` is a **VALID, complete contract**."* The strip swapped one incomplete ARIA contract (`role=group` + a stray `aria-orientation`) for a *differently* incomplete one, and asserted completeness. The `aria-orientation` sub-claim is true in isolation; "ARIA-correct by construction" is not.
-
-**Honest bound.** NVDA/JAWS/VoiceOver all remain functional without `aria-controls` — the tabs announce, selection announces, panels are reachable by normal reading order. This is a degraded relation, not a dead one. That is why it is MAJOR and not BLOCKER.
-
-**Falsifier.** An `aria-controls` binding anywhere in the KfPillTabs template or a wrapper that injects it (`grep -rn "aria-controls" demo/` — I found none on this path); or an authoritative reading that `aria-controls` on `tab` is optional in ARIA 1.2 for automatic-activation tablists (the spec lists it under the required properties for `tab`, so I expect this fails).
-
-### D-M2 · MAJOR · `font-weight` in the transition list is a **layout** channel — every activation animates the pill's width and shoves its siblings for 200ms
-
-```
-101      /* Narrow transition (no `all`) — only the activation channels change. */
-102      transition:
-103          color var(--duration-fast) var(--ease-standard),
-104          background var(--duration-fast) var(--ease-standard),
-105          font-weight var(--duration-fast) var(--ease-standard);
-```
-paired with `:99 font-weight: 500` → `:117 font-weight: 600`.
-
-Plus Jakarta Sans ships as a **variable** face — `glass-ui/dist/styles/fonts.css` declares `font-weight: 200 800` on the `Plus Jakarta Sans` `@font-face`. Browsers therefore **interpolate** `font-weight` continuously across the 200ms rather than snapping, so the glyph advance widths change every frame. `.kf-pill-tab` is `flex-shrink: 0` (`:89`) inside an `inline-flex` track (`:81`), which is itself sized `w-fit` by the consumer (`ChannelControls.vue:81`). Consequence chain per activation:
-
-1. the activating pill's intrinsic width grows (weight 500→600 across ~8–15 glyphs),
-2. every pill to its right translates,
-3. the `inline-flex` track's own width animates,
-4. the `w-fit` wrapper and — via D-B2 — the outer `glass-wash` plate resize with it.
-
-So the comment's claim ("only the activation channels change") is exactly inverted for one of its three entries: `font-weight` is the *widest* channel available, invalidating layout on every frame of the transition. `background` and `color` are compositor-cheap paint channels; `font-weight` is layout. The J.W7b STY-6 lesson (retire `transition: all` because it "silently animated EVERY future property change (layout included)") was applied by *enumerating* the list while leaving a layout property inside it.
-
-**Falsifier.** Any of: (a) `fonts.css` turns out to serve *static* 500/600 faces for the rung the pills inherit (I read the declaration: `font-weight: 200 800`, i.e. variable — but `font-synthesis: none` at `style.css:100` interacts here and a live `document.fonts` probe would settle which face is actually used); (b) the labels sit in a context where `font-variation-settings` is pinned, defeating interpolation; (c) a live layout-shift trace across an activation showing 0px sibling movement. **UNPROVEN-NEEDS-LIVE** for the exact px magnitude; the mechanism is proven from the two files.
-
-### D-M3 · MAJOR · no `prefers-reduced-motion` arm, and the token it relies on is not PRM-aware
-
-`KfPillTabs.vue:76-124` contains no `@media (prefers-reduced-motion: reduce)` block. Nor does the demo anywhere: `grep -rn "prefers-reduced-motion" demo/styles/` → **0 hits**; `grep -rn "prefers-reduced-motion" demo/` → 0 hits.
-
-The component delegates to `--duration-fast`. glass-ui's PRM handling is a single block in `tokens/scheme-motion.css`:
-
-```
-@media (prefers-reduced-motion: reduce) { :root { --motion-weight: 0; --ease-cartoon-punch: var(--ease-standard); } }
-```
-
-It zeroes a *weight* multiplier and swaps one easing. It does **not** zero `--duration-fast` (`:root { --duration-fast: 0.2s }` stands). `.kf-pill-tab` reads no `--motion-weight`. Therefore the transition — including the D-M2 layout-motion channel — runs at full 200ms under a declared reduced-motion preference.
-
-Colour and background cross-fades are defensible under PRM (they are not motion). The **font-weight width animation is motion** — it translates sibling elements from a user interaction, squarely WCAG 2.3.3 territory — and it is unguarded. The component's PRM story is honest only for the two channels that never needed a story.
-
-Adjacent, same root cause: `useTabStripScroll.ts:55` fires `scrollIntoView({ behavior: "smooth" })` unconditionally on every selection change, with no PRM gate. Attributed to the host, not to KfPillTabs, and moot while D-B1 stands.
-
-**Falsifier.** A PRM rule reaching `.kf-pill-tab` from a sheet I did not read (I grepped all of `demo/` and the glass-ui `styles/` tree for `prefers-reduced-motion`); or a demonstration that variable-`font-weight` interpolation produces no positional change (kills the motion characterisation, leaving only the harmless colour channels).
-
-### D-M4 · MAJOR · the active-state chip is **1.17:1** against its own track, and is separated from hover by ~0.06 — the selected state has no non-text indicator
-
-```
-111  .kf-pill-tab[data-state="inactive"]:hover { background: color-mix(in srgb, var(--foreground) 5%, transparent); }
-115  .kf-pill-tab[data-state="active"]        { background: color-mix(in srgb, var(--foreground) 8%, transparent); }
-```
-
-Both composite over the *same* substrate — the `.kf-pill-tabs` plate — so the ratio is decidable from tokens regardless of what lies beneath. Computing against the nominal plate colour `--card` (`theme`: `light-dark(hsl(30 85% 96%), hsl(26 22% 17%))`), with `--foreground` = `light-dark(hsl(24 10% 10%), hsl(30 14% 90%))`:
-
-| arm | track Y | active chip Y (8% ink) | active : track | hover chip Y (5% ink) | hover : track | **active : hover** |
-|---|---|---|---|---|---|---|
-| light | 0.9222 | 0.7791 | **1.17 : 1** | 0.8264 | **1.11 : 1** | **1.06 : 1** |
-| dark | 0.0253 | 0.0436 | **1.24 : 1** | 0.0361 | **1.14 : 1** | **1.09 : 1** |
-
-Two readings, both bad:
-
-1. **WCAG 1.4.11 (Non-text Contrast, AA)** requires 3:1 for visual information identifying a *state*. The chip delivers 1.17/1.24 — a factor of ~2.5 short. The state is carried instead by `color` (`--muted-foreground` → `--foreground`) plus weight; those *do* carry it (see the honest bound), so this is not an automatic 1.4.11 failure, but the chip — the thing the component is *named for*, the "legible chip register" of `:77-78` — contributes essentially nothing.
-2. **Hover vs active are perceptually the same chip.** 1.06:1 / 1.09:1 apart. A user hovering an inactive tab sees the same plate wash as the selected tab. The 5%/8% choice budgets a 3-percentage-point ink delta over a near-white (light) or near-black (dark) substrate, where 3pp of ink is under the perceptual floor. This is the design defect proper: the strip has no reliable *pointer-time* selected indicator.
-
-The demo makes it worse on purpose: `style.css:203-208` zeroes `--glass-tint-strength-aa` on `.glass-wash`, removing the ink-darken glass-ui adds so that on-glass composites clear AA. That override is defensible for its stated reason (the dark-substrate self-darken breach) but it also removes the only mechanism that would have widened this chip's separation.
-
-**Honest bound.** The *text* channel does carry state legibly: inactive text 6.06:1 vs plate (light), active text 16.19:1 — see D-S5. So AT users and careful sighted users are fine. The failure is the chip.
-
-**Falsifier.** A live computed-style read of `.kf-pill-tab[data-state=active]`'s resolved `background-color` against its parent's, yielding ≥3:1 — e.g. if the `saturate(1.35) brightness(1.18)` arm of `--glass-blur-wash` or the `::after` grain overlay shifts the substrate luminance far from `--card`. Or a glass-ui rule that repaints `[data-state=active]` inside `.glass-wash` (I grepped `ladder.css`/`glass.css` and found none). My ratios assume the plate resolves near `--card`; at a mid-luminance substrate (Y≈0.2) the 8% chip could reach ~1.4:1 — still far under 3:1, so the conclusion is robust to the assumption even where the exact number is not. **The numbers are token-derived; the perceptual claim is UNPROVEN-NEEDS-LIVE.**
-
-### D-M5 · MAJOR · fluid `--type-small` inside a capped `--rail-width` → the 4-tab strip overflows at every desktop width, with no pointer-reachable scroll
-
-`:98 font-size: var(--type-small, 0.875rem)` resolves (glass-ui `typography/scale.css`) to `clamp(0.875rem, 0.8rem + 0.25vw, 1.25rem)` — **viewport-fluid, 14px → 20px**. Its container is not: `design-idioms.css:47 --rail-width: clamp(25rem, 33svi, 32rem)` — **capped at 512px** past a ~1552px viewport. So the strip's type keeps growing after its container has stopped. Available inner width = `--rail-width` − pane inset `pl-4 pr-7` (`ChannelControls.vue:39`) = 44px.
-
-The maximum realisable option set is 4: `BUILT_IN_SURFACES` = {controls, keyframes, timeline} (`controlSurfaces.ts:51-56`) ∪ the cube's conditional `matrix-controls` facet (`controlSurfaces.ts:229-244` via `CubeScene.vue:232`, `:244`) — the Matrix channel paints, so it earns the triad *and* contributes its facet. Labels from `SURFACE_META` (`controlSurfaces.ts:145-159`): "Controls" (8), "Keyframes" (9), "Timeline" (8), "Matrix Controls" (15) = **40 glyphs**.
-
-Fixed chrome: 4 × `0.75rem` × 2 pill padding (`:93`) = 96px; 3 × `0.125rem` gaps (`:83`) = 6px; track padding 2 × 2px (`:85`) = 4px; nested borders 4px (D-B2); wrapper `px-2` = 16px. **= 126px.** Glyph advance at ~0.53em (Jakarta mixed-case, weight 500):
-
-| viewport | `--type-small` | rail | available | text | total | verdict |
-|---|---|---|---|---|---|---|
-| 1024px | 15.36px | 400px | 356px | 326px | **452px** | overflow **+96px** |
-| 1440px | 16.40px | 475px | 431px | 348px | **474px** | overflow **+43px** |
-| 1920px | 17.60px | 512px | 468px | 373px | **499px** | overflow **+31px** |
-| ≥2464px | 20.00px (cap) | 512px | 468px | 424px | **550px** | overflow **+82px** |
-
-Overflow at every desktop width — and it *worsens* on wider screens, the inverse of the expected direction, because type is fluid and the rail is not.
-
-The component has no answer for it: `:81 display: inline-flex` with no `overflow-x`, no `flex-wrap`, and `:89 flex-shrink: 0` on every child — the pills cannot shrink, wrap, or scroll. The consumer's response is to **clip** (`ChannelControls.vue:56 overflow-hidden`) and paint a fade mask (`ChannelControls.vue:441-455`). An `overflow: hidden` box is programmatically scrollable but **not user-scrollable** — no scrollbar, no wheel, no trackpad pan, no touch drag. So "Matrix Controls" is reachable by **keyboard arrows only** (the `focus()` at `useKfPillTabs.ts:61` triggers the browser's scroll-to-focus). Pointer and touch users cannot reach it.
-
-**UNPROVEN-NEEDS-LIVE sub-note.** The fade mask is applied to `.kf-pill-tabs` itself (`ChannelControls.vue:81` binds `overflowClass` onto the child root) — i.e. to the *overflowing* element rather than to the *clipping* ancestor. CSS `mask-repeat` defaults to `repeat`, so the gradient may tile across the overflow region and paint a repeating fade band rather than one edge fade. I cannot confirm the paint without a browser.
-
-**Falsifier.** (a) A width budget I missed — e.g. `SURFACE_META` labels are overridden per-host, or the cube never yields 4 simultaneous options (I traced `surfacesFor` at `controlSurfaces.ts:97-119`: the Matrix channel has `animation`, so `base` = full triad, and its `facets` add `matrix-controls` — 4); (b) Jakarta's actual mean advance is materially below 0.53em, which would move the 1920px row under the line (the 1024px and ≥2464px rows survive advances down to ~0.40em, so the conclusion holds); (c) a live measurement showing `scrollWidth === clientWidth` on `.kf-pill-tabs` at the cube scene. The advance constant is my estimate and is the weakest link — flagged as such.
-
-### D-M6 · MAJOR · automatic activation only, over panels the host itself proves are expensive
-
-`useKfPillTabs.ts:86-89` — every arrow/Home/End keypress commits the selection:
-
-```
-86  // Selection follows focus (automatic activation) …
-87  if (target.value !== params.modelValue()) params.select(target.value);
-```
-
-No manual mode exists; there is no `activation` parameter in `UseKfPillTabsParams` (`useKfPillTabs.ts:29-35`), no Enter/Space commit path.
-
-APG *Tabs*: use **manual** activation when displaying a panel is expensive. These panels are expensive, and the host says so at length: `ChannelControls.vue:117-128` force-mounts the Monaco keyframes pane and caches it under `content-visibility: hidden` *specifically because* "re-spins Monaco's worker / model / themes on every switch-back"; `:389-392` gates the first mount behind `keyframesWarmed` to keep Monaco off the LCP path; `:79-80` wires `@pointerenter`/`@focusin` → `warmKeyframes` on the strip. So: arrowing from Controls to Timeline **instantiates Monaco en route**, on a keystroke, by design of the keyboard core — while the surrounding code is an elaborate apparatus for not doing exactly that.
-
-And the capability was available. glass-ui 7.0.0 ships it: `dist/components/tabs/composables/useTabRovingFocus.d.ts` declares `export type TabActivation = "automatic" | "manual"` and `activation: ComputedRef<TabActivation>`, documented as *"Automatic activation keeps that tabstop on the selection; manual activation moves it independently and commits only on Enter/Space."* The fork re-implemented the roving machine (S-1) and, in doing so, shipped the half that is wrong for its own panels.
-
-**Falsifier.** A live trace showing Monaco is *not* instantiated by a keyboard pass-through (e.g. `keyframesWarmed` latches on some other signal first, so the arrow-through is free) — `useKeyframesPaneReveal` would settle it; I read its call site but not its body, so this is the honest gap. Or an APG reading that automatic activation is acceptable here because the panel is cached after first warm (mitigates the *second* pass, not the first).
-
-### D-M7 · MAJOR · `.kf-pill-tab` is a second local pill vocabulary — the exact fork `DESIGN.md` forbids by name
-
-`demo/styles/tab-idiom.css:53-61` already owns a pill register:
-
-```
-53  .tab-trigger-pill { border-radius: var(--radius-lg); }
-56  .tab-trigger-pill[data-state="inactive"]:hover { background: color-mix(in srgb, var(--foreground) 5%, transparent); }
-59  .tab-trigger-pill[data-state="active"]         { background: color-mix(in srgb, var(--foreground) 8%, transparent); }
-```
-plus `.tab-trigger-base:22-51` — `flex-shrink: 0`, `background: transparent`, `font-weight: 500` → `600` on active, `--muted-foreground` → `--foreground`, and the **identical three-property transition list** (`:37-40`).
-
-`KfPillTabs.vue:88-119` re-authors all of it. Every value that matters is byte-identical (radius `--radius-lg`, hover 5%, active 8%, weight 500/600, colour pair, transition triple) — and three have already **drifted**:
-
-| property | `.tab-trigger-base` | `.kf-pill-tab` |
+| piece | where | state |
 |---|---|---|
-| block padding | `0.375rem` (`tab-idiom.css:25`) | `0.25rem` (`KfPillTabs.vue:93`) |
-| type rung | `var(--type-body, 1rem)` → 16–22px (`:26`) | `var(--type-small, 0.875rem)` → 14–20px (`:98`) |
-| `line-height` | `1.75rem`, explicit (`:27`) | **absent** → see D-m1 |
+| `aria-orientation="vertical"` on the tablist | `KfPillTabs.vue:15` | ✅ ships |
+| ArrowUp/ArrowDown remap | `useKfPillTabs.ts:67-69` | ✅ ships |
+| a unit test asserting it | `KfPillTabs.test.ts:186` — *"a vertical strip navigates on ArrowUp/ArrowDown"* | ✅ green |
+| **`flex-direction: column`** | `KfPillTabs.vue:80-86` | ❌ **absent** |
 
-`demo/DESIGN.md:116-122` rules on this directly:
+`.kf-pill-tabs` is `display: inline-flex` with no direction rule, and no `[aria-orientation="vertical"]` selector exists anywhere. I grepped every `.css`/`.vue` under `demo/` and every file under `glass-ui@7.0.0/dist/styles/` for `aria-orientation`: the only hits are three authors *emitting* it (`SquareScene.vue:59,69`, `KeyframesEditor.vue:67`, this file) and **zero rules consuming it**. A consumer passing `orientation="vertical"` gets a strip that reads top-to-bottom to a screen reader, navigates top-to-bottom on the arrows, and renders left-to-right to the eye.
 
-> "`tab-trigger-base`, `tab-trigger-pill`, and `tab-trigger-underline` **are the tab grammar** … These are cross-component recipes, so they remain central rather than being copied into SFCs. … upstreaming the tab variants … are glass-ui coordination asks, **not permission to fork a second local vocabulary**."
+This is the exact class of defect the component was built to kill. `KfPillTabs.vue:10-11` claims `aria-orientation` here is "a **VALID, complete** contract that needs no suppress"; the whole DM-5 CONTINGENCY-KILL rationale (`R/FINAL.md:40`) is that glass-ui 4.0.1 emitted an ARIA orientation its *structure* did not honour. KfPillTabs emits one its *stylesheet* does not honour. The band-aid was excised and the disease re-imported one layer down.
 
-`.kf-pill-tab` is that second local vocabulary, copied into an SFC, with drift. And the comment at `KfPillTabs.vue:78-79` asserts the opposite — *"the same look the retired SegmentedTabs pill carried, sourced from design tokens (no re-authored colours)"* — where `color-mix(in srgb, var(--foreground) 8%, transparent)` is a hand-rolled recipe, not a token: glass-ui exposes `--tab-track-recess-ink`, `--tab-indicator-duration`, `--tab-indicator-max-stretch`, `--tab-indicator-blob-max`, none of which is read. "Sourced from design tokens" is true only of the *inputs*; the *recipe* is re-authored.
+The green test at `:186` is the aggravating factor: it converts a latent gap into an active guarantee, so the next author reads "vertical is tested" and ships a vertical strip. It tests the keyboard core against a synthetic host and never touches the SFC's layout — correct as a unit test, misleading as a certificate.
 
-Standing corpus law: the value.js memory records `feedback_glass_ui_first_class` ("glass-ui is the design system; add variants/primitives there") and `feedback_kiss_no_contrivance`. Both point the same way.
+Not BLOCKER only because of D-1 (the surface is unrendered) and because the sole call site never passes `orientation` (`ChannelControls.vue:74-82`).
 
-**Falsifier.** Evidence that `.tab-trigger-pill` and `.kf-pill-tab` are deliberately different registers with a documented distinction (I found the opposite: `font-roles.json:26` calls `.tab-trigger-base[data-state=active]` "active filing tab" and `:29-32` calls `.kf-pill-tab` "pill-tab", both expecting `voice: body` — same register, two implementations). Or a live page where both classes paint (neither does — D-B1 and the `tab-trigger` grep).
-
----
-
-## 3. MINOR
-
-### D-m1 · MINOR · no `line-height` — the pill's height is inherited, so strip height is context-dependent
-
-`.kf-pill-tab` (`:88-106`) declares `font-size` and `padding` but no `line-height`. `line-height` is inherited and Tailwind preflight sets `line-height: inherit` on `button`, so the pill's content box height is decided by whatever ancestor last declared one — the pane, the wrapper, or `:root`. The strip therefore has no intrinsic height; drop it in a different container and it changes size. The sibling idiom it copied from is explicit about this (`tab-idiom.css:27 line-height: 1.75rem`), so the omission is a regression against the register KfPillTabs replaced.
-**Falsifier.** A `line-height` on `.kf-pill-tabs` or an ancestor that is stable across every mount site (there is none in the SFC; the two live mount sites collapsed to zero under D-B1, so this is untestable in situ today).
-
-### D-m2 · MINOR · the focus ring (3px reach) exceeds the inter-pill gap (2px) and lands inside the neighbour
-
-`:120-122 outline: 2px solid …; outline-offset: 1px` → the ring occupies 1px→3px outward from the button's border box. `:83 gap: 0.125rem` = **2px**. So the ring crosses the gap and overlaps 1px of the adjacent pill's box — grazing its hover/active chip. Aristotelian reading: the spacing rhythm (2px) was chosen without reference to the focus affordance (3px) it must contain. Clearance to the clip boundary is adequate (2px track pad + 1px inner border + 2px `py-0.5` = 5px > 3px), so the ring is not *clipped* — it is *collided*.
-**Falsifier.** A live screenshot showing no visual overlap (browsers round `outline-offset` on radiused corners, and at a 10px radius the corner geometry may absorb it); or a rule raising `gap` ≥ `0.1875rem`.
-
-### D-m3 · MINOR · a component named **Pill**Tabs uses `--radius-lg` (10px), not the design system's `--radius-tab` (9999px)
-
-`:94 border-radius: var(--radius-lg)`. `glass-ui/dist/styles/theme/radius.css` defines `--radius-tab: var(--radius-pill)` = `9999px`, and `--radius-control: var(--radius-pill)` — the system has a token for exactly this element and it is ignored. `--radius-lg` = `var(--radius)` = `0.625rem` = **10px**: a rounded rectangle. The name, the header's "pill tab strip" (`:2`), the owner ruling "pills if tabs at all" (`:78`), and `font-roles.json`'s `"role": "pill-tab"` all say pill; the geometry says chip.
-**Falsifier.** A ruling in the T/U/V corpus that the pill *register* means the glass-track-chip look rather than a capsule radius — plausible given `:77-79`'s "glass-track pill strip … the legible chip register", in which case the naming is loose but the token choice defensible. Note the tension with D-S1: switching to `--radius-pill` would *also* fix the concentricity that D-S1 credits.
-
-### D-m4 · MINOR · `orientation="vertical"` is announced and keyboard-wired but never laid out vertically
-
-The prop exists (`:57`), is bound to `aria-orientation` (`:15`), is documented as "the complete WCAG contract" (`:56`), and drives the arrow axis (`useKfPillTabs.ts:67-69`: `vertical ? "ArrowDown" : "ArrowRight"`). The CSS has **no vertical arm**: `:80-86` is `display: inline-flex` with no `flex-direction`, and there is no `[aria-orientation="vertical"]` selector anywhere in the block. So `orientation="vertical"` yields a tablist that announces `vertical`, responds to ↑/↓, and renders **horizontally** — the announced orientation contradicts the rendered axis, which is worse for a screen-reader-plus-sight user than either alone. The vertical path is even test-covered (`KfPillTabs.test.ts:"a vertical strip navigates on ArrowUp/ArrowDown"`), against a harness that renders its own bare `div` — so the test certifies the keyboard half and cannot see the missing layout half.
-**Falsifier.** A consumer stylesheet that sets `flex-direction: column` on a vertical instance (no consumer passes `orientation` at all — `ChannelControls.vue:74-82` omits it, taking the `"horizontal"` default), or a `:where([aria-orientation=vertical])` rule in glass-ui reaching a `.kf-*` class (it cannot; the class is demo-local and the style block is `scoped`).
-
-### D-m5 · MINOR · disabled arm is opacity-only (≈2.16:1) and unexercised
-
-`:107-110 opacity: 0.5; cursor: not-allowed`. Compositing the inactive text (`--on-glass-muted`, light arm `hsl(30 26% 35%)`) at 0.5 over the plate gives Y ≈ 0.3994 → **2.16:1** against the track. **Honest verdict: not a WCAG failure** — 1.4.3 explicitly exempts inactive/disabled controls. It is a legibility finding: a disabled tab label at 2.16:1 is hard to read as *text*, so the user cannot tell what they are being denied. No consumer sets `disabled` (`stripOptions`, `ChannelControls.vue:313-324`, never emits it), so the arm is unexercised in the tree and its in-situ ratio is unverified.
-**Falsifier.** A consumer that does pass `disabled` (none found), or a `forced-colors`/high-contrast arm restoring legibility (D-i2: none).
-
-### D-m6 · MINOR · `ariaLabel` is optional, so the tablist can ship nameless
-
-`:59 ariaLabel?: string` → `:16 :aria-label="ariaLabel"`. A `role=tablist` with no accessible name is an a11y gap; the type system permits it. The sole live consumer does the right thing (`ChannelControls.vue:77 aria-label="Control surface"`, which Vue camelises onto the declared `ariaLabel` prop). Making it required — or defaulting it — costs one character.
-**Falsifier.** A convention in this repo that tablist naming is the consumer's contract to keep (defensible; hence MINOR).
-
-### D-m7 · MINOR · the header documents a re-export that `<script setup>` cannot produce
-
-```
-39  // The roving-tabindex keyboard core + the canonical option shape live in the
-41  // useToolbarKeyboard precedent. KfPillTabOption is re-exported
-42  // so `import type { KfPillTabOption } from ".../KfPillTabs.vue"` keeps resolving.
-44  import type { KfPillTabOption } from "./KfPillTabs/useKfPillTabs";
-```
-
-There is no `export type { KfPillTabOption }` and no second `<script>` block. `<script setup>` bindings are compiled into a `setup()` closure and are **not** module exports; re-exporting from an SFC requires a plain `<script>` sibling. So the documented import path does not resolve. Confirmed behaviourally: the sole consumer reaches the type through the compat shim instead — `ChannelControls.vue:229` imports the component from `../KfPillTabs.vue`, `:230` imports the type from `../composables/useKfPillTabs` (the 4-line re-export the census flags at `lane-frontend.md:537-553`). The shim exists *because* the documented seam does not. Two files' worth of indirection resting on a false comment.
-**Falsifier.** A Vue version in which `<script setup>` type imports become module exports (none does), or a build step that injects the export.
-
-### D-m8 · MINOR · computed pill height 26–31px: passes 2.5.8 (AA), fails 2.5.5 (AAA)
-
-Height = inherited line-height + `2 × 0.25rem` (`:93`) = 8px. At the `--type-small` floor (14px, viewport ≤ 480px) with a normal-ish 1.3 leading: ≈ **26px**. At 17.6px (1920px): ≈ **31px**. WCAG 2.5.8 *Target Size (Minimum)* AA needs 24×24 — **passes** in both. WCAG 2.5.5 *Target Size (Enhanced)* AAA needs 44×44 — **fails**. Split verdict stated as such; I am not filing a conformance defect. The design concern is that this is the in-pane strip whose mobile presentation is a sheet, where 26px targets separated by 2px gaps are thin for touch.
-**Falsifier.** Any declared `line-height` or `min-height` (there is none — D-m1), or a touch-floor idiom applying to `.kf-pill-tab` (`design-idioms.css` owns "focus/touch floors" per `DESIGN.md:112`, but nothing in it names `.kf-pill-*`).
+**Falsifier.** Any rule — scoped, global, vendored — setting `flex-direction: column` (or `grid-auto-flow: row`) under `[aria-orientation="vertical"]`. Or a ruling that `orientation` is horizontal-only, which makes the prop, the keyboard branch and the test all dead weight instead.
 
 ---
 
-## 4. INFO
+### D-4 · MAJOR — hovering an inactive tab makes it visually indistinguishable from the selected tab.
 
-### D-i1 · INFO · RTL: physical arrow axis and physical mask direction — latent only
+`KfPillTabs.vue:111-119`:
 
-`useKfPillTabs.ts:68-69` hardcodes `ArrowRight` = next / `ArrowLeft` = prev. Under `dir="rtl"` the `inline-flex` row reverses visually while the handler does not, so ArrowRight would move to the visually-*previous* tab — APG requires arrow keys follow the visual axis. The host's fade masks are physical too (`ChannelControls.vue:444-453`, `to right`, `tabs-overflow-left/right`). **Latent, not live**: `grep -rn 'dir="rtl"|direction: rtl|:dir=' demo/` → 0 hits; the demo has no i18n and no direction switch. Filed INFO for that reason.
-**Falsifier.** Introduction of any RTL locale or `dir` binding promotes this to MAJOR unchanged.
+```
+[data-state="inactive"]:hover { color: var(--foreground); background: color-mix(… 5% …); }
+[data-state="active"]         { color: var(--foreground); background: color-mix(… 8% …); font-weight: 600; }
+```
 
-### D-i2 · INFO · forced-colors: the state indicator reduces to weight alone, and the double border becomes two `CanvasText` rules
+Hover sets `color: var(--foreground)` — **the identical token the active state uses**. So between *inactive-hovered* and *active* exactly two deltas survive:
 
-No `@media (forced-colors: active)` arm in the SFC or anywhere in `demo/`. glass-ui's fallback (`glass/a11y-fallback.css`) forces `--glass-level: 0`, `--glass-grain-opacity: 0`, and `border: 1px solid CanvasText` on `.glass-wash`. Consequences for this component: (a) both nested washes get a `CanvasText` hairline, so D-B2's doubled border becomes two **high-contrast** rules 2px apart — the most visible form of the defect; (b) forced-colors overrides `background-color`, so the 5%/8% ink chips vanish entirely and the sighted selected-state cue reduces to `font-weight: 500` → `600` (D-M4's text-colour channel is also forced to a single system colour). `aria-selected` keeps AT users informed; sighted forced-colors users lose the indicator.
-**Falsifier.** A live forced-colors render showing the UA preserving a distinguishable active background (some UAs honour `forced-color-adjust` heuristics for `:focus`/selected), or a demo `forced-colors` arm I did not find. **UNPROVEN-NEEDS-LIVE.**
+* chip 5 % vs 8 % → contrast **between the two chips** = **1.088 : 1** (dark; Y 0.03606 vs 0.04363). Imperceptible.
+* `font-weight` 500 vs 600 at ~14 px.
 
-### D-i3 · INFO · empty `options: []` paints a nameless ~6px glass artifact — latent
+With a pointer resting anywhere on the strip, the only surviving cue for "which tab am I on" is a 100-unit weight step at small size. Stacked on D-2 (the chip itself is 1.24 : 1), the practical outcome is that the selected tab is not identifiable while pointing at any tab.
 
-No `v-if`/empty guard on `:13-18`. With `options: []` the `v-for` yields nothing and the root still renders: `glass-wash` plate + 1px border + `padding: 0.125rem` ≈ a 6×6px glass chip, plus an empty `role="tablist"` in the AT tree carrying the consumer's `aria-label`. `rovingValue` correctly returns `undefined` (`useKfPillTabs.ts:46-50`) and `onKeydown` early-returns (`:66`), so the keyboard core is safe. **Unreachable from the sole consumer**: `stripOptions` = `[...builtInTabs, ...extra]` (`ChannelControls.vue:313-324`); the strip only renders when `tabsExternallyManaged` is false, and in that branch `builtInTabs` is unfiltered (`:299-303`) so it always holds the full triad. Filed INFO as a *primitive contract* gap — the test header calls KfPillTabs "promoted to a standard panel primitive at S.D2", and a primitive should guard its empty state.
-**Falsifier.** A future consumer passing `[]`, or a guard I overlooked (there is none in `:13-35`).
+Not BLOCKER: `aria-selected` (`:24`) keeps AT correct, and a 500→600 Jakarta step is genuinely visible side by side. But it is the **second independent collapse of the same signal**, and the two share a root cause — the design leans on a tint delta that carries no contrast.
 
-### D-i4 · INFO · the design-system record around this component has rotted in three places
-
-- `demo/styles/font-roles.json:29-32` registers `.kf-pill-tab` as role `pill-tab`, note: *"the component itself is a T.H gated-on-publish excision; the register holds until then."* The manifest is auditing a selector that D-B1 shows can never appear in the DOM. No runner consumes it (`grep -rn "font-roles.json"` → only prose in `DESIGN.md:28` and U-tranche ledgers; `U.B.md:139` planned a move to `scripts/` that did not land).
-- `demo/DESIGN.md:116-118` still names `tab-trigger-base/pill/underline` "**the** tab grammar" though no template applies them.
-- `demo/components/instrument/surfaceTabs.ts:12-24` is a byte-level duplicate of `SURFACE_META` + `extraTabsFrom` from `state/controlSurfaces.ts:145-159, 200-206` — and it is the **live** copy (`ChromeDock.vue:21`, `TransportDock.vue:237` import from it; `ChannelControls.vue:245-250` imports the other). `controlSurfaces.ts:141-144` calls itself "THE ONE SURFACE-METADATA REGISTRY … (proof:dfa-derived's 'resolves from exactly ONE module' clause)". Two modules resolve it. This is the label source for KfPillTabs, so it is in this component's blast radius, but the defect is not KfPillTabs' — filed for the D-lane record.
-**Falsifier.** A runner that reads `font-roles.json` and skips absent selectors by design; or a re-export relationship between `surfaceTabs.ts` and `controlSurfaces.ts` (there is none — `surfaceTabs.ts` re-declares the literal).
-
-### D-i5 · INFO · the async registration is dead
-
-`transport/index.ts:12` registers `KfPillTabs = defineAsyncComponent(() => import("./KfPillTabs.vue"))`, and the barrel header explains the laziness at length. The live consumer imports it **eagerly** (`ChannelControls.vue:229 import KfPillTabs from "../KfPillTabs.vue"`), so the async wrapper — and any loading/Suspense treatment it would have enabled — is unused. No loading state exists for the strip.
-**Falsifier.** A consumer importing `KfPillTabs` from the barrel (`grep -rn "from \".*transport\"" demo/` shows the barrel's `KfPillTabs` export unconsumed).
+**Falsifier.** Show hover does not raise inactive to `--foreground` — i.e. a later rule wins. None exists, and scoped styles are the last word for this element.
 
 ---
 
-## 5. SUPERLATIVES — L-18 in the other direction
+### D-5 · MAJOR — nested `.glass-wash`: two plates, two 1 px borders 2 px apart, two `backdrop-filter`s, `brightness(1.18)² = 1.39×` in the dark arm.
 
-Each of these is a claim, and each carries the observation that would kill it.
+`ChannelControls.vue:56` wraps the strip in `<div class="… glass-wash rounded-panel px-2 py-0.5 overflow-hidden">`, and `KfPillTabs.vue:17` hard-codes `class="kf-pill-tabs glass-wash"` on its own root. Both resolve the same `glass/ladder.css` rule, so the rendered result is:
 
-### D-S1 · the inner track↔pill radius arithmetic is exactly concentric
+* **two** `border: 1px solid var(--glass-border-accent)` hairlines separated by exactly `py-0.5` = **2 px** vertically — a double-rule the glass ladder never intends (the ladder is a *depth* scale; two adjacent rungs of the same tier is not a position on it);
+* **two** stacked `backdrop-filter: blur(…) saturate(…) brightness(1.18)` (`tokens/dark-arm-glass.css`) — filters composite multiplicatively, so content behind the strip is brightened **1.3924×** and blurred twice;
+* **two** `--glass-plate-tinted` layers — 0.79 + 0.79·0.21 ≈ **0.956** effective opacity: the "glass" is 96 % opaque and the material reads as paint.
 
-`:94` pill `border-radius: var(--radius-lg)` = `var(--radius)` = `0.625rem` = **10px**. `:85` track `padding: 0.125rem` = **2px**. Correct concentric outer radius = 10 + 2 = **12px**. `:84` uses `var(--radius-panel, var(--radius-lg))`, and `radius.css` gives `--radius-panel: var(--radius-xl)` = **12px**. Exact. Nested-radius arithmetic is the single most commonly botched detail in chip/track components and this one is right to the pixel — and it is right *by token composition*, not by a magic number. (Ironically the fallback branch, `--radius-lg` = 10px, would be wrong; the defined token rescues it.)
-**Falsifier.** A change to `--radius`/`--radius-xl` decoupling the two (they are independently declared in `radius.css`, so this correctness is a coincidence of current values rather than an enforced relation — worth pinning). Or `--radius-panel` being undefined at the mount site, taking the 10px fallback.
+The component-side cause is that the tier is baked into the SFC's own class attribute (`:17`) instead of being the consumer's choice. **A control that may be nested cannot own its own glass rung.**
 
-### D-S2 · the focus ring clears WCAG 1.4.11 in both theme arms, and so does its fallback
-
-`:121 outline: 2px solid var(--color-progress, currentColor)`. `--color-progress: var(--accent-kf)` (`style.css:163`) = `light-dark(oklch(0.56 0.17 295), oklch(0.74 0.13 305))`. Against the plate: light Y≈0.128 vs 0.9222 → **≈5.45:1**; dark Y≈0.372 vs 0.0253 → **≈5.60:1**. Both clear the 3:1 focus-indicator floor with ~1.8× headroom. And the `currentColor` fallback is safe too: on an inactive tab that resolves to `--on-glass-muted` at **6.06:1** (D-S5). 2px thickness with a 1px offset also satisfies 2.4.11/2.4.13 area heuristics. A focus ring that passes in both arms *and* degrades safely is not the norm.
-**Falsifier.** A live contrast probe of the rendered outline against the *actual* composited plate (my oklch→luminance conversion is an approximation; a substrate far from `--card` could move it). Ratios below 3:1 in either arm kill the claim. Note the ring is `outline` on a radiused box, so UA corner rendering also matters. **Ratios token-derived; UNPROVEN-NEEDS-LIVE for the composited substrate.**
-
-### D-S3 · the transition list is genuinely enumerated, not `transition: all`
-
-`:101-105` names three properties with a comment recording *why* (`J.W7b STY-6`: `all` "silently animated EVERY future property change (layout included)"). Most demo components in this tree would have shipped `transition: all 0.2s`. The discipline is real and the rationale is captured at the point of use. It is undercut by D-M2 — one of the three named properties *is* a layout channel — but "enumerated with a wrong entry" is a strictly better position than "unenumerated", because the wrong entry is now visible and one-line removable.
-**Falsifier.** A demonstration that `background` as a *shorthand* in `transition-property` behaves as broadly as `all` in some engine (it expands to its longhands per spec, so I expect not).
-
-### D-S4 · `rovingValue`'s fallback guarantees the strip is never Tab-unreachable
-
-`useKfPillTabs.ts:46-50`:
-```
-const sel = en.find((o) => o.value === params.modelValue());
-return (sel ?? en[0])?.value;
-```
-Filtered to enabled options first (`:38`), then `?? en[0]`, then optional-chained. This is correct across four edges that routinely break roving-tabindex strips: empty `modelValue`, a `modelValue` matching nothing, a `modelValue` matching a *disabled* option, and all-options-disabled (returns `undefined`, and `:25` then renders every `tabindex="-1"` — the honest outcome, since there is nothing to focus). The test pins the important one (`"empty/unmatched modelValue still leaves a tab stop"`). The shipped glass-ui contract documents "EXACTLY ONE tab remains in the focus order" but its `.d.ts` does not show the unmatched-model guarantee, so this is a case where the fork's core is *at least as* careful as the platform's on a real edge.
-**Falsifier.** A `modelValue` whose match is enabled but *unrendered* (impossible here — `options` is the render source), or a glass-ui implementation read showing the same guard (would demote this from superlative to parity, not to defect).
-
-### D-S5 · inactive-tab text contrast is 6.06:1 — the on-glass muted token is doing real work
-
-`:100 color: var(--muted-foreground)`, and because the root carries `.glass-wash`, `ladder.css`'s `:where(.glass-card, .glass-resting, .glass-quiet, .glass-wash)` block re-points `--muted-foreground: var(--on-glass-muted)` = light `hsl(30 26% 35%)`. Against the plate: Y 0.1106 vs 0.9222 → **6.06:1**, comfortably over the 4.5:1 AA floor for a *muted* label — the register most likely to fail. Active text is **16.19:1**. The component gets this for free by standing on the wash rung rather than hardcoding a grey, which is the glass-ui consume edge working as designed.
-**Falsifier.** A live read showing `--muted-foreground` resolving to the non-glass `--neutral-5` (would mean the `:where()` block lost the cascade), or a composited plate far enough from `--card` to drop the ratio under 4.5:1. Note the same token is what makes the D-m5 disabled arm 2.16:1 — the token is good, the 0.5 opacity on top of it is not.
+**Falsifier.** A rule suppressing `.glass-wash` on a `.glass-wash` descendant (`:where(.glass-wash) .glass-wash { … }`). No such de-duplication exists in `glass-ui/dist/styles/glass/*.css`. **UNPROVEN-NEEDS-LIVE** for the *visual* severity of the double hairline; the double declaration is confirmed from source.
 
 ---
 
-## 6. Verdict on the design axis
+### D-6 · MAJOR — `role="tab"` with no `aria-controls`, no `id` channel, and no way for a consumer to supply one; the panels carry no `aria-labelledby` either. *(this answers S-1's open design question)*
 
-**Assume defective until the tree proves otherwise** — the tree does not.
+`KfPillTabOption` is `{ label, value, disabled? }` (`useKfPillTabs.ts:23-27`). The rendered button (`:19-34`) emits `role`, `aria-selected`, `tabindex`, `disabled`, `data-value`, `data-state` — no `id`, no `aria-controls` — and there is no prop, no slot, and no option field through which a consumer could add them.
 
-The component is well-made in its small mechanics (D-S1…D-S5: correct concentric radii, a passing focus ring in both arms, a disciplined transition list, a genuinely careful roving-focus edge, a token-sourced muted register). Those are real and I do not want them lost in the excision.
+Downstream, `ChannelControls.vue:97-102` and `:129+` render the panels as `role="tabpanel"` with `data-state` and `tabindex` and **no `id`, no `aria-labelledby`**. I grepped the whole file for `id=`, `aria-controls`, `aria-labelledby`: **zero hits**.
 
-But the design case against it is structural, not cosmetic, and it stacks in one direction:
+Both directions of the APG tab↔panel association are therefore absent, and the *component* is why the forward direction cannot be repaired without changing its public type. WAI-ARIA APG, Tabs: "Each element with role `tab` has the property `aria-controls` referring to its associated `tabpanel` element." A screen-reader user on the strip has no programmatic route to the panel it controls.
 
-1. it **does not render** (D-B1) — the owner ruling it invokes as its charter ("pills *if tabs at all*") resolved to *not at all*, and the shipped switcher is a `<Select>`;
-2. where it *would* render, it **breaks the glass idiom it opted into** (D-B2: 21% designed translucency → 4.4% delivered, plus doubled border/rim/shadow/blur);
-3. its central ARIA claim is **false as stated** (D-M1: no tab↔panel relation, in a component whose entire reason for existing is ARIA correctness);
-4. it **overflows its container at every desktop width** with no pointer-reachable scroll (D-M5), because fluid type was put inside a capped rail;
-5. its **selected-state chip is not an indicator** (D-M4: 1.17:1, and 1.06:1 from hover);
-6. its "narrow" transition **animates layout** and does so **under `prefers-reduced-motion`** (D-M2, D-M3);
-7. it is the **second local pill vocabulary**, which `DESIGN.md:118-120` forbids by name, already drifted on three properties (D-M7);
-8. and it **dropped a capability the platform ships** (D-M6: manual activation) in front of a Monaco panel the host spends 40 lines protecting.
+This is precisely the surface `:9` claims: "ARIA-correct **BY CONSTRUCTION**". It is ARIA-correct in the two respects the R.W6 kill was scoped to (role choice, orientation validity) and silently incomplete in the one that carries the pattern's utility.
 
-Folding the census: S-1 rated the fork *stale* and recommended **replace**. On the design axis the recommendation is **delete**. Replacing it onto `SegmentedTabs` + `useTabRovingFocus` would ship a strip that no code path renders; the correct motion is to remove `KfPillTabs.vue`, `KfPillTabs/useKfPillTabs.ts`, `transport/composables/useKfPillTabs.ts`, the barrel entry (`index.ts:12`), the `ChannelControls.vue:56-83` dead header branch, the now-dead `useTabStripScroll` + its mask rules (`:441-455`), the `font-roles.json:28-33` role, and the `DESIGN.md:116` grammar row — then, separately, decide whether the `<Select>` in `ChromeDock` is the switcher the design wants, which is a *fresh* design question, not a port of this one. Sequencing caveat from the corpus: **F-1 first** — nothing here is reproducible while `@mkbabb/glass-ui` is unpinned.
+**And this settles S-1's deferred question.** S-1 correctly noted that "a panel switcher wants `role=tablist`, not `role=group`" is a design argument the 7.0.0 aria fix does not answer. The answer: it does not matter which role wins, because the association is missing in **both** directions today. Any swap must *specify* `id` + `aria-controls` + `aria-labelledby` as part of its contract rather than inherit silence from either implementation.
 
-**What would most change this verdict** — one observation: a live page (SS-13) showing a `[role=tablist].kf-pill-tabs` node painted anywhere in the shipped demo. That single finding would demote D-B1, restore D-B2/D-M4/D-M5 to shipping defects rather than latent ones, and turn "delete" back into "replace".
+**Falsifier.** Find `aria-controls` emitted on the tabs, or an id/controls field on `KfPillTabOption`, or an APG reading exempting a tablist whose panels are conditionally unmounted (`v-if`, `:98`). The last is the strongest defence — a dangling `aria-controls` to an unmounted node is its own defect — but the answer to that is `aria-labelledby` on the panel plus stable ids, not silence in both directions.
+
+---
+
+### D-7 · MAJOR — `font-weight` is in the transition set, so the whole `w-fit` strip changes width on every selection; and the one channel that produces motion has no `prefers-reduced-motion` guard.
+
+`KfPillTabs.vue:102-105` transitions `font-weight` over `--duration-fast` (0.2 s); `:99` = 500, `:117` = 600. Glyph advances differ between the weights, so the active label's measured width changes. `.kf-pill-tabs` is `inline-flex` (`:81`) with `flex-shrink: 0` children (`:89`); the consumer sizes both the strip and its wrapper `w-fit` (`ChannelControls.vue:81`, `:56`). Nothing reserves the wider box — no `::after { content: attr(…); font-weight: 600; visibility: hidden }`, no grid-stacked pair, no `font-variation-settings` lock.
+
+Selecting a tab therefore animates a **layout** property for 200 ms, reflowing every sibling pill and resizing the wrapper plate: a visible horizontal jitter of the whole chrome on each switch.
+
+Two consequences ride on it:
+
+* **PRM is unhandled, and here it genuinely matters.** There is no PRM block in this SFC, and glass-ui provides no universal guard — every `@media (prefers-reduced-motion: reduce)` in `glass-ui/dist/styles/` is class-scoped (`transitions.css`: `.fade-*`, `.pane-swap-*`, `.metric-swap-*`, `.dock-in`; `animations.css`: `.glass-top-layer`). A 200 ms colour crossfade is defensible under PRM; a 200 ms **reflow** is motion. The demo is otherwise scrupulous — 12 PRM blocks across `demo/scenes/` and `demo/components/` — so this is a local lapse, not house style.
+* the comment at `:101` — "Narrow transition (no `all`) — only the activation channels change" — is *why* it survived review: narrowing the list was treated as the whole of the hygiene, and the one property that should never have been in the list stayed.
+
+**Falsifier.** Show `font-weight` is not interpolated by the target engines (it is — CSS Fonts 4 types it animatable; engines snap to available instances for non-variable faces), **and** that the 500→600 snap does not change the advance width for the shipped Jakarta face. If both held, this degrades from a slide to a jump — still a reflow, one severity lower.
+
+---
+
+### D-8 · MAJOR — the skin is a near-verbatim fork of `tab-idiom.css`, and the fork has already drifted.
+
+`demo/styles/tab-idiom.css:22-61` defines `.tab-trigger-base` + `.tab-trigger-pill` — the demo's **owned** pill idiom, deliberately unscoped, with `:9-18` explaining at length why it must stay unscoped *so non-owning components can carry the classes*. `KfPillTabs.vue:88-119` re-declares it:
+
+| declaration | `tab-idiom.css` | `KfPillTabs.vue` |
+|---|---|---|
+| `flex-shrink: 0` | `:23` | `:89` identical |
+| `background: transparent` | `:24` | `:90` identical |
+| transition triple (`color`,`background`,`font-weight` @ `--duration-fast`/`--ease-standard`) | `:37-40` | `:102-105` **identical, comment and all** |
+| inactive `color: var(--muted-foreground)` | `:42-44` | `:100` identical |
+| hover `color: var(--foreground)` + `color-mix(… 5% …)` | `:45-47`, `:56-58` | `:111-114` identical |
+| active `color` + `600` + `color-mix(… 8% …)` | `:48-51`, `:59-61` | `:115-119` identical |
+| `border-radius: var(--radius-lg)` | `:54` | `:94` identical |
+| **`padding`** | `0.375rem 0.75rem` | **`0.25rem 0.75rem`** ← drifted |
+| **`font-size`** | `var(--type-body, 1rem)` | **`var(--type-small, 0.875rem)`** ← drifted |
+| **`line-height`** | **`1.75rem` pinned** | **absent** ← dropped |
+
+Eleven declarations copied, three diverged, one dropped — and the divergences are undocumented *as* divergences (`:95-97` explains the rung choice, never that it forks a shared idiom). Every future edit to the house pill skin must now be made twice, and `font-roles.json:31-34` already carries a second registry row (`pill-tab`) describing what is the same idiom.
+
+`:77-79` claims the block is "the same look the retired SegmentedTabs pill carried, sourced from design tokens (**no re-authored colours**)". The colours *are* token reads — and the entire skin is re-authored around them. True on the narrowest reading; misleading on the one a reviewer takes.
+
+**Falsifier.** Show `.tab-trigger-*` cannot be applied here — scoping or specificity blocking reuse. It does not: `tab-idiom.css:14-18` exists precisely to permit it.
+
+---
+
+### D-9 · MAJOR — `useTabStripScroll` designates `[role=tablist]` as its scroll container; `.kf-pill-tabs` is `overflow: visible` with unshrinkable children, so overflow tabs would be keyboard-reachable and pointer-unreachable.
+
+`useTabStripScroll.ts:71-72` resolves `tabsHeaderEl.querySelector("[role=tablist]")` — i.e. `.kf-pill-tabs` — and hands it to `useScrollFade` as the overflow probe (`:39-44`); `:52-55` calls `scrollIntoView` on `[role=tab][aria-selected=true]`.
+
+But `.kf-pill-tabs` (`:80-86`) declares no `overflow`, so it is `visible` — **not a scroll container**. Its children are `flex-shrink: 0` (`:89`) and there is no `flex-wrap`. The nearest scrollable ancestor is the consumer's wrapper, which is `overflow-hidden` (`ChannelControls.vue:56`) — programmatically scrollable, but with no scrollbar, no wheel affordance and no touch pan. On overflow:
+
+* arrow-key traversal works (roving focus + native scroll-on-focus);
+* pointer and touch cannot reach the clipped tabs at all;
+* the `tabs-overflow-*` edge fade renders, advertising content the pointer cannot get to.
+
+The consumer asserts overflow cannot happen ("the ≤4-tab control strip never overflows", `ChannelControls.vue:52-53`), and with the three built-in labels (Controls / Keyframes / Timeline ≈ 268 px at the 14 px floor) it does not at common widths. But `SURFACE_META` carries a 15-character `"Matrix Controls"` (`controlSurfaces.ts:156-160`), `--type-small` is fluid to 20 px (D-11), and `extraTabs` is an open injection point — so the "never" is a viewport-and-label assumption, and the machinery built to survive its violation does not work. It is also, per D-1, machinery attached to a node that never mounts.
+
+**Falsifier.** **UNPROVEN-NEEDS-LIVE** for overflow *occurring*. Confirmed from source for the mechanism: `useScrollFade` is pointed at a node whose computed `overflow` is `visible`, with no user-scroll seam. Killed by adding `overflow-x: auto` to `.kf-pill-tabs`, or by showing an `overflow: hidden` box is user-scrollable (it is not).
+
+---
+
+### D-10 · MAJOR — the header rationale cites two consumer sites that **do not exist** and a glass-ui version two majors behind the installed one. *(folds S-1, S-2, F-1)*
+
+`KfPillTabs.vue:2-12` — a 20-line block, the first thing any reader meets. Its load-bearing predicates:
+
+| claim | tree |
+|---|---|
+| "the two band-aid sites (**SpringSidebar** + **AnimationControls**)" (`:4-5`) | `find demo -iname "*SpringSidebar*" -o -iname "*AnimationControls*"` → **only** `AnimationControlsGroup.{vue,css}`. Neither named file exists. |
+| the sole consumer | `ChannelControls.vue:74` — **one** site, which the comment does not name, and which never renders (D-1) |
+| "**glass-ui 4.0.1's** SegmentedTabs emits the orientation attribute UNCONDITIONALLY" (`:5-7`) | installed is **7.0.0**. lane-frontend **S-1** measured the fix at `dist/tabs.js:232`: "rationale is void against 7.0.0." |
+| "This strip is ARIA-correct BY CONSTRUCTION" (`:8-9`) | falsified by D-3 and D-6 |
+| `:45-46` "until the published Glass component can provide pill material with tablist semantics **and roving focus**" | S-1: 7.0.0 ships `SegmentedTabs` **+ `useTabRovingFocus`** |
+
+Every factual predicate is stale, and one (`:5-7`) is stale in the specific way that keeps a 217-line fork alive: **the version it argues against is not the version installed**. The rot runs downstream — `useTabStripScroll.ts:5,23-29,47-51,66-70` still narrates `<SegmentedTabs>` and its "vendor-DOM contract" for a component that is not rendered (S-2), and `ChannelControls.vue:41-65` stacks two more `<SegmentedTabs>` paragraphs directly above the `<KfPillTabs>` call.
+
+Compounding, **F-1**: `@mkbabb/glass-ui` is in neither `package.json` nor the lock. So the version this rationale is measured against is not merely stale, it is **unpinned** — the comparison has no fixed referent and `npm ci` resolves nothing.
+
+**Falsifier.** Produce `SpringSidebar.vue` or `AnimationControls.vue` in the demo tree, or a 7.0.0 `SegmentedTabs` still emitting `aria-orientation` unconditionally on `role=group`. S-1 already checked the second and found the guard.
+
+---
+
+## 3. MINOR / INFO
+
+### D-11 · MINOR — fluid type against fixed padding, with the line-height pin dropped: the pill's proportions erode ~30 % across the viewport range.
+
+`:93` `padding: 0.25rem 0.75rem` (4 px / 12 px, **fixed**) against `:98` `font-size: var(--type-small)` = `clamp(0.875rem, 0.8rem + 0.25vw, 1.25rem)` — **14 px → 20 px**.
+
+| viewport | `--type-small` | horiz pad : type | vert pad : type |
+|---|---|---|---|
+| ≤ 1152 px | 14.0 px | 0.857 | 0.286 |
+| 1440 px | 16.4 px | 0.732 | 0.244 |
+| 1920 px | 17.6 px | 0.682 | 0.227 |
+| ≥ 2880 px | 20.0 px | 0.600 | 0.200 |
+
+The Aristotelian complaint is exact: the ratio of frame to figure is not a constant of the design, it is a function of window width — the pill grows *tighter* as the screen grows *larger*, the opposite of what a fluid ramp is for. And `tab-idiom.css:27` pins `line-height: 1.75rem` specifically so the sibling idiom's **box** is stable against its fluid type; KfPillTabs dropped that pin, so the pill's height is fully fluid inside a wrapper whose vertical padding (`py-0.5` = 2 px) is fixed.
+
+`:95-97` justifies the *rung* — correctly; `--type-small` stays below `--type-body` at every width (16.4 px vs 18.6 px at 1440 px, checked) — but treats the rung as a scalar when the token is a ramp.
+
+**Falsifier.** A demo-level override pinning `--type-small`. Grep of `demo/` for `--type-small`: exactly one hit, this consumption site. The glass-ui clamp stands.
+
+---
+
+### D-12 · MINOR — the strip takes the PANEL radius rung while nested inside a `rounded-panel` plate: concentric-radius collision.
+
+`:84` `border-radius: var(--radius-panel, var(--radius-lg))` = **12 px**. `ChannelControls.vue:56` gives the wrapper `rounded-panel` = **12 px** with `py-0.5` (2 px) + its own `.glass-wash` 1 px border = **3 px** of vertical offset.
+
+Concentric radii want `outer = inner + offset`, so the wrapper needs **15 px** to sit cleanly around a 12 px strip. It has 12. The arcs converge and the inner corner crowds the outer — the classic tight-corner artefact, worst on the vertical axis (3 px offset); horizontally the offset is 9 px, so 12-vs-21 reads as a slack corner instead. Both axes are wrong, in opposite directions, from the same asymmetric `px-2 py-0.5`.
+
+Root cause is rung selection: a control nested inside a panel took the **panel** rung. `--radius-strip` (0.75 rem) and `--radius-control` (`--radius-pill`) both exist in `theme/radius.css`; neither is used. *(The component's* internal *concentricity is near-textbook — see S-3. The failure is only at the seam with its parent.)*
+
+**Falsifier.** **UNPROVEN-NEEDS-LIVE** for the visual severity; the 12-vs-15 arithmetic is confirmed from source.
+
+---
+
+### D-13 · MINOR — `:hover` with no `@media (hover: hover)` guard, on a demo explicitly built for LAN mobile testing.
+
+`:111-114` styles `[data-state="inactive"]:hover` unconditionally. On touch, `:hover` latches after tap and persists until the next tap elsewhere — so the last-tapped tab keeps `color: var(--foreground)` and a 5 % chip which, per D-4, is indistinguishable from selected. Touch users get a phantom second "selected" tab.
+
+**Falsifier.** A global `@media (hover: hover)` wrapper reaching scoped rules. There is none, and a scoped block cannot be wrapped from outside.
+
+---
+
+### D-14 · MINOR — the focus ring bleeds 3 px into a 2 px gap and is overpainted by the next sibling.
+
+`:120-122` `outline: 2px solid …; outline-offset: 1px` → the ring occupies **3 px** beyond the button box on every side. `:83` `gap: 0.125rem` = **2 px**. The ring overlaps its neighbour's box by 1 px each side, and because the following sibling paints later in DOM order, any neighbour that is hovered or active covers the overlapping millimetre with its own background.
+
+Vertically the ring survives: 2 px strip padding + 1 px strip border + 2 px wrapper padding = 5 px of room before `overflow-hidden` clips (`ChannelControls.vue:56`), against 3 px of bleed. Horizontally at the first/last pill it is exactly tangent — 3 px available, 3 px used, zero margin.
+
+**Falsifier.** Raise `gap` to ≥ 6 px or drop `outline-offset` to 0 and the overlap disappears; or show engines paint outlines above all sibling backgrounds (they do not — an outline paints with its own element).
+
+---
+
+### D-15 · MINOR — zero theming seam. The consumer that needs a denser rung cannot get one.
+
+Every value in `:80-123` is a literal or a direct global-token read. There is no `--kf-pill-pad`, `--kf-pill-gap`, `--kf-pill-radius`, `--kf-pill-tint` — nothing a host can retune.
+
+This is the **inverse** of the flat `--kf-*` namespace hazard the axis names: the component is immune to namespace collision because it participates in no namespace at all, and pays with total rigidity. It bites concretely — the sole consumer nests the strip in a 2 px-padded track (D-5, D-12) and would need a tighter radius and a stronger chip (D-2); neither is reachable without editing the SFC. Note also that the `Kf` vanity the owner explicitly derided (`U/audit/lane-03-t-verdict-trace.md:179-183`, F-6) has propagated into the **CSS** surface, where `font-roles.json:31-34` now selects on `.kf-pill-tab` — so de-vanitizing is no longer a rename, it is a registry migration.
+
+**Falsifier.** Show a consumer retuning the strip from outside without `:deep()` or a source edit.
+
+---
+
+### D-16 · MINOR — one registry, two renderings: `SURFACE_META` carries an `icon` for all six surfaces and the strip silently drops it.
+
+`controlSurfaces.ts:145-161` — every surface has `icon` (`SlidersHorizontal`, `Braces`, `Clock`, `Activity`, `Grid3X3`), documented at `:141-143` as "a key into the host's icon-COMPONENT registry (ChromeDock `TAB_ICONS`)". `ChannelControls.vue:299-303` maps `SURFACE_META[s]` straight into `stripOptions`, so the icon **arrives** at `KfPillTabs` — and `KfPillTabOption` (`useKfPillTabs.ts:23-27`) has no icon field, the template renders `{{ opt.label }}` only (`:33`), and there is no slot. The registry's own comment claims "**both docks and the in-panel strip** resolve every tab's `{label,icon}` from HERE"; the strip resolves `label` and discards `icon`.
+
+**Falsifier.** A ruling that the in-panel strip is deliberately text-only — in which case the fix is to correct `controlSurfaces.ts:141-143`, which currently asserts otherwise.
+
+---
+
+### D-17 · MINOR — the async barrel export is dead, and the type arrives through a back-compat shim. *(folds lane-frontend:553)*
+
+`index.ts:12` `export const KfPillTabs = defineAsyncComponent(() => import("./KfPillTabs.vue"))` — no `loadingComponent`, no `errorComponent`, no `delay`. The sole consumer does not use it: `ChannelControls.vue:229` imports `../KfPillTabs.vue` **directly**. The code-split the barrel promises never happens, and the async wrapper's missing loading/error states are moot only by accident.
+
+Separately, `ChannelControls.vue:230` imports `KfPillTabOption` from `../composables/useKfPillTabs` — a 4-line pure re-export (`composables/useKfPillTabs.ts:1-4`) of `../KfPillTabs/useKfPillTabs`, which is where the SFC itself imports from (`:43-44`). Two paths, one type, one existing solely to keep a stale import resolving — lane-frontend:553's `feedback_no_backwards_compat` violation, confirmed. I add that the SFC's comment at `:41-42` documents a **third** alias ("`import type { KfPillTabOption } from ".../KfPillTabs.vue"` keeps resolving") that no file in the tree uses.
+
+**Falsifier.** A consumer importing `KfPillTabs` from the barrel, or the type from `KfPillTabs.vue`. Grep across `demo/`, `src/`, `test/`: none.
+
+---
+
+### D-18 · MINOR — self-certifying prose: the comments assert the properties the code does not have.
+
+33 lines of comment to 91 of code (36 %), and the register is the problem more than the volume:
+
+* `:8-9` "ARIA-correct **BY CONSTRUCTION**" — falsified by D-3 and D-6.
+* `:10` "(a panel switcher, **the right pattern**)" — an assertion of correctness standing in for the `aria-controls` that would constitute it.
+* `:11` "a **VALID, complete** contract" — falsified by D-3.
+* `:79` "sourced from design tokens (**no re-authored colours**)" — sits directly above 30 lines that re-author the shared skin (D-8).
+* `:77-78` "**the legible chip register the user asked for** ("pills if tabs at all")" — an owner quotation embedded in a stylesheet as design authority, measuring 1.24 : 1 (D-2). Quoting the brief is not evidence of meeting it.
+* `:95` "the display-face force **dies**"; `useKfPillTabs.ts:88` "the load-bearing half a12 F1 dropped" — florid.
+
+A superlative asserted in a comment is a claim with no falsifier attached. Four of the six above are now false, and each sits exactly where a reviewer would have stopped looking — which is, per D-1, how a dead branch kept its documentation.
+
+**Falsifier.** Resolve D-3 and D-6 and four of these become true. That is the point: the prose was written as a promise and shipped as a description.
+
+---
+
+### D-19 · MINOR — `ariaLabel` is optional with no default, so the tablist can ship unlabelled, with no dev-time warning, and `aria-labelledby` is not offered at all.
+
+`:52`, `:58` — `ariaLabel?: string`, no default; `:16` `:aria-label="ariaLabel"` (Vue omits the attribute when the value is `undefined`). A `role="tablist"` with neither `aria-label` nor `aria-labelledby` is an unnamed composite in the AT tree. The sole consumer does pass one (`ChannelControls.vue:77`), so this is latent — but nothing enforces it, and a consumer with a **visible** heading (the APG-preferred labelling) has no `aria-labelledby` prop to use.
+
+**Falsifier.** A dev-mode assertion or a required-prop declaration. Neither exists.
+
+---
+
+### D-20 · MINOR — RTL: the arrow mapping is hardcoded LTR.
+
+`useKfPillTabs.ts:67-69` — `nextKey = vertical ? "ArrowDown" : "ArrowRight"`, unconditionally. APG requires the horizontal mapping to mirror under `dir="rtl"` (ArrowRight → *previous*). Nothing reads `dir`, `getComputedStyle(…).direction`, or any logical-direction signal. Latent — the demo ships no RTL (`grep -rn 'dir="rtl"' demo` → nothing; only two logical-property uses anywhere, `ControlsPaneWrapper.css:48,86`) — but this is a **component** contract, and the component is presented as the reusable ARIA-correct primitive.
+
+**Falsifier.** A ruling that RTL is out of scope — which would also want `:15`'s orientation prop reconsidered, since both are "complete contract" claims.
+
+---
+
+### D-21 · MINOR — forced-colors / prefers-contrast: `border: 0` reserves no space for the global override that adds 2 px.
+
+`glass-ui/dist/styles/accessibility.css` applies, under **both** `@media (forced-colors: active)` and `@media (prefers-contrast: more)`:
+
+```
+:is(…, [aria-selected="true"], …) { border-color: Highlight !important; border-style: solid !important; border-width: 2px !important; }
+```
+
+The active pill carries `aria-selected="true"` (`:24`), so it **does** get a real state indicator in those modes — which is good, and is why D-2 is not *also* a forced-colors failure. But `:91` declares `border: 0` with no transparent reservation, and `box-sizing: border-box` (Tailwind preflight, universal) with content-driven height means the 2 px border **grows** the active pill by 4 px in each axis. Inside a strip whose padding is 2 px and a wrapper whose padding is 2 px, the row height changes the moment a high-contrast user selects a tab, and the pill's text box shifts against its unselected siblings. The cure is `border: 2px solid transparent` at rest.
+
+**Falsifier.** Show `box-sizing: content-box` applies (it does not), or that 4 px of growth is absorbed rather than propagated.
+
+---
+
+### D-22 · MINOR — empty / single-option states are unguarded.
+
+`:19-34` renders `v-for` with no `v-if` on `options.length`. With `options: []` the component emits `role="tablist"` containing **zero** `role="tab"` children — an `aria-required-children` violation — rendered as a ~7 px glass sliver (2 px padding × 2 + 1 px border × 2 + a collapsed line box) carrying a full 12 px radius and a backdrop-filter. With one option it renders a complete glass plate for a non-choice.
+
+**Honestly scoped:** not reachable through the sole consumer. `builtInTabs` (`ChannelControls.vue:299-303`) returns the full three-surface triad whenever `tabsExternallyManaged` is false, and the strip is `v-if="!tabsExternallyManaged"` (`:56`) — so the (unreachable, D-1) rendered path would always carry ≥ 3. Component-level latent; MINOR for that reason, not MAJOR.
+
+**Falsifier.** A host passing `extraTabs` / `options` that can empty. None today.
+
+---
+
+### D-23 · INFO — `transition: background` (shorthand) in the same declaration whose comment praises its narrowness.
+
+`:104` transitions the `background` shorthand, covering `background-image`, `background-position`, `background-size` and the rest; the only channel that changes is `background-color`. `:101` says "Narrow transition (no `all`) — only the activation channels change". Trivially tightened; noted because it is the second place (with D-7) where the narrowing was declared complete and was not.
+
+---
+
+### D-24 · INFO — a latent state-collapse via glass-ui's `--glass-backdrop` container query.
+
+`glass/ladder.css` contains `@container style(--glass-backdrop: light) { …, .glass-wash, … { --muted-foreground: var(--foreground); } }` and, under `@supports (color: contrast-color(white))`, `--muted-foreground: contrast-color(var(--card))`. `--glass-backdrop` inherits, and is set to `light` by `.glass-floating` / `.glass-overlay`. If the strip ever lands inside such an ancestor, `--muted-foreground` collapses onto `--foreground` and the **inactive and active label colours become identical** — leaving `font-weight` and a 1.24 : 1 chip (D-2) as the entire selection signal.
+
+**Not reachable today:** `grep -rn "glass-overlay\|glass-floating\|glass-backdrop" demo` → zero hits. Filed as a hazard because D-2 and D-4 have already spent the redundancy that would otherwise absorb it.
+
+**Falsifier.** Place the strip in any glass-ui Popover / Sheet / Dialog and read the computed `color` of an inactive tab.
+
+---
+
+## 4. Examined and CLEARED — not findings
+
+Recorded so a later pass does not re-raise them.
+
+* **Disabled-tab contrast.** `:107-109` `opacity: 0.5` puts the disabled label at **2.95 : 1** (dark, computed). WCAG 1.4.3 explicitly exempts inactive components — **not a failure**. Below a 3 : 1 house floor if one exists, which is policy, not defect.
+* **Target size.** Pill height ≈ 1.5 × 14 px + 8 px = **29 px**; narrowest label ("Curve") ≈ 12 + 12 + ~38 = 62 px. Clears SC 2.5.8 (24 × 24) with margin. Misses SC 2.5.5 (44 px, AAA) on height — recorded, not charged.
+* **Disabled tabs and roving focus.** `useKfPillTabs.ts:38` filters disabled options out of the roving set and `:26` uses native `disabled`. This is a **valid** APG option ("elements are not focusable"), not the `aria-disabled` bug it superficially resembles. Correct as written.
+* **Inactive-label contrast.** I expected a failure from a "muted" token on translucent glass and found the opposite — it became S-1.
+
+---
+
+## 5. SUPERLATIVES (L-18 both ways — each carries its own falsifier)
+
+### S-1 · The label contrast is AAA in both arms, achieved with **zero local colour authorship**.
+
+By mounting on `.glass-wash` (`:17`) and reading `--muted-foreground` / `--foreground` (`:100`, `:112`, `:116`) instead of picking values, the component inherits glass-ui's on-glass foreground repoint (`glass/ladder.css`, the `:where(.glass-card, .glass-resting, .glass-quiet, .glass-wash)` block) for free:
+
+| | dark | light |
+|---|---|---|
+| inactive label vs plate | **7.22 : 1** | **6.06 : 1** |
+| active label vs plate | **11.18 : 1** | ≈ **17 : 1** |
+
+7.22 and 11.18 clear **AAA** (7 : 1); 6.06 clears AA with 35 % headroom. This is the right mechanism — the accessibility comes from the design system, so it tracks the system — and it is why D-2's chip failure does not take the whole component down: the label carries the state when the chip cannot.
+
+**Falsifier.** If `.glass-wash` did not repoint `--muted-foreground`, the raw token would apply and these numbers would move. Verified present in `glass/ladder.css`.
+
+### S-2 · The focus ring is on the ONE motion-colour authority, `:focus-visible`-gated, and clears SC 1.4.11 with margin.
+
+`:120-122` — `outline: 2px solid var(--color-progress, currentColor)`. `--color-progress` is the demo's single motion-colour authority (`style.css:163`; `playback-idiom.css:39` "ONE motion-color authority"), so the ring is the same violet as every other progress affordance:
+
+| arm | ring Y | plate Y | contrast |
+|---|---|---|---|
+| light `oklch(.56 .17 295)` | 0.16022 | 0.92218 | **4.62 : 1** |
+| dark `oklch(.74 .13 305)` | 0.38454 | 0.02527 | **5.77 : 1** |
+
+Both clear the 3 : 1 floor by > 50 %, in both arms; `:focus-visible` (not `:focus`) means pointer users never see it; the `currentColor` fallback is a sensible degradation. Only D-14's 3 px-into-2 px geometry lets it down.
+
+**Falsifier.** Re-derive from `--accent-kf` at `style.css:130`; if `--color-progress` is repointed the numbers move.
+
+### S-3 · The strip's **internal** concentric radius is within 1 px of textbook.
+
+Outer `--radius-panel` = 12 px (`:84`); offset = 2 px padding (`:85`) + 1 px `.glass-wash` border = 3 px; inner `--radius-lg` = 10 px (`:94`). Ideal outer = 10 + 3 = **13 px**; actual **12 px**. A 1 px deviation on a nested-radius pair beats most hand-tuned systems, and it was got by picking two *named rungs* rather than two numbers. *(D-12 is the seam with the parent — a different measurement. Both are true.)*
+
+**Falsifier.** `--radius-panel` / `--radius-lg` resolving elsewhere. Verified: `theme/radius.css` → `--radius-xl` = 12px, `--radius` = 0.625rem.
+
+### S-4 · The transition property list is explicit, and the reason is written down.
+
+`:101-105` enumerates three properties instead of `all`, with a rationale. The constellation grand-audit (2026-06-03) found ~40 ungated `transition: all` / PRM-RAF sites across eleven repos; this file is on the right side of that. The credit is real even though the list contains one property that should not be in it (D-7) — enumerating is exactly what makes that mistake *visible*.
+
+---
+
+## 6. Verdict
+
+**The component does not render.** `App.vue:169` provides `TABS_EXTERNALLY_MANAGED_KEY: true` unconditionally to the only application root, and `ChannelControls.vue:56` gates the strip on its negation — so `<KfPillTabs>` has not mounted in the shipped demo since the ChromeDock dropdown took the job. 217 lines of component, a 4-line shim, a dead async barrel export, a `font-roles.json` registry row, a 7-case test file and a 20-line rationale are maintained for a branch that cannot execute.
+
+That moves lane-frontend **S-1**'s verdict from *replace* to **delete**, and the swap onto 7.0.0's `SegmentedTabs` + `useTabRovingFocus` becomes unnecessary work — the cheaper cut is the `v-if` branch and everything hanging off it. If the strip is instead reinstated, the two findings that must not survive are:
+
+1. **D-2 — the chip percentage is not portable.** `color-mix(… var(--foreground) 8% …)` fails 3 : 1 at *every* backdrop (proved, not sampled). The owner rejected the underline for reading as an unlabeled divider; the pill that replaced it is measurably harder to see than the underline would have been. If glass-ui's pill uses the same recipe, a mechanical swap lands the defect intact.
+2. **D-6 — S-1's open design question, answered.** The `role=tablist`-vs-`role=group` argument is moot until the tab↔panel association exists; it is missing in **both** directions today (`aria-controls`/`id` on the tabs, `aria-labelledby` on the panels), and the component's option type cannot express it. Any replacement must specify it rather than inherit silence.
+
+Order of operations is unchanged from the corpus: **F-1 first** (declare and lock `@mkbabb/glass-ui: 7.0.0` — nothing here is reproducible against an unpinned substrate), then the deletion, then D-2 and D-6 as acceptance criteria on whatever occupies the seam.
