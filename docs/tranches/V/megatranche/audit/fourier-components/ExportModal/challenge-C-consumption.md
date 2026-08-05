@@ -380,4 +380,148 @@ The run died reaching the affordance (the More-options path), before `checkA11y`
 
 On the producer axis proper: this leaf touches **no** value.js and **no** API operation, so F.W2 passes it by — but it is a three-subpath glass-ui consumer sitting on a peer block that the installed tree already violates (`npm ls` → ELSPROBLEMS, D-6), it bypasses one shipped token whose comment names this exact bypass as its reason for existing (D-10), and it fights the Button's glyph rule with dead CSS (D-11). The gate that would have caught the a11y half never reached its assertion in the last recorded run (D-23).
 
-**Counts.** 24 defects — **1 BLOCKER** (D-1), **6 MAJOR** (D-2 … D-7), **14 MINOR** (D-8 … D-21), **3 INFO** (D-22 … D-24). **4 superlatives** (S-1 … S-4). **5 kills** (K-1 … K-5). Two claims carry `UNPROVEN-NEEDS-LIVE` halves for SS-13 (D-3 race width, D-21 real-AT name), plus the perceptual halves of D-5/D-11/D-13/D-14 and the reachability question in D-23; every mechanism underlying them is source-certain.
+**Counts (first pass).** 24 defects — **1 BLOCKER** (D-1), **6 MAJOR** (D-2 … D-7), **14 MINOR** (D-8 … D-21), **3 INFO** (D-22 … D-24). **4 superlatives** (S-1 … S-4). **5 kills** (K-1 … K-5). Two claims carry `UNPROVEN-NEEDS-LIVE` halves for SS-13 (D-3 race width, D-21 real-AT name), plus the perceptual halves of D-5/D-11/D-13/D-14 and the reachability question in D-23; every mechanism underlying them is source-certain.
+
+> **Counts superseded by §7 (second pass).** Final: **30 defects — 1 BLOCKER · 9 MAJOR · 15 MINOR · 5 INFO · 5 superlatives · 6 kills.**
+
+---
+
+# §7 · SECOND-PASS ADDENDUM (independent re-run, same served model)
+
+**Standing edict E-3 — addenda, not patch.** This section was produced by an independent second pass over the same read surface. It does **not** revise §1–§6; it adds six findings (D-25 … D-30), one superlative (S-5), one kill (K-6), and an anchor corrigendum. Everything in §1–§6 was independently re-derived and **survives** — in particular D-1's grep (zero consumer reads of `withEpicycles`/`withTrail`), D-2's three-site `Record<string, boolean>`, D-5's `Presence`/`v-if` mechanism, D-8's unconditional `aria-describedby` binding, D-9's `aria-modal` = 0 occurrences, D-10's byte-identical `--muted-medium`, and D-11's (0,2,1) vs (0,1,0) specificity arithmetic were all reproduced exactly. Where the second pass sharpens a first-pass row, it says so and cites it rather than re-booking it.
+
+## §7.0 · Anchor corrigendum (tail of `BasisCanvas.vue` drifts 1–4 lines)
+
+Re-measured with `grep -n` at HEAD. The head anchors are exact; three tail anchors in §2/§3b are off and should be corrected before any carry lands on them:
+
+| cited in §2/§3b | actual (grep -n, HEAD) | status |
+|---|---|---|
+| `exportFrame` def `:462`; early return `:463`; destructure `:466-469`; `setTransform` `:476`; `hasEpic` `:489`; `defineExpose` `:515` | 462 / 463 / 467-468 / 476 / 489 / 515 | **exact** |
+| `const data`/`const basesData`/`if (data \|\| basesData)` at `:481-483` | `if (data \|\| basesData)` is at **`:484`** (decls `:482-483`) | off by 1 |
+| `if (!showLabels) { clearRect(0,0,200,100) }` at `:502-504` | **`:498-500`** (the `clearRect` is `:499`) | **off by 3** |
+| `toDataURL → <a download> → click()` at `:507-513` | **`:506-513`** (`toDataURL` is `:506`) | off by 1 |
+
+All `ExportModal.vue` anchors in §1–§6 (`:12, :28-30, :47-48, :76, :85, :87, :103, :107, :111`) re-verified **exact**. All `labels.ts`, `package.json`, and dependency-dist anchors re-verified exact.
+
+## §7.1 · New findings
+
+### D-25 · MAJOR · D-4's under-clear is not hypothetical — the `N = …` legend row **provably survives** `withLabels: false` whenever three bases are active. Exact arithmetic.
+
+`BasisCanvas.vue:498-500` · `lib/canvas-drawing/labels.ts:23,26,63,65,73` · `lib/basis-display.ts:4-6`
+
+D-4 correctly names over-clear and under-clear as consequences but leaves the under-clear geometric ("any label drawn outside that box"). It is computable, and it fires at a reachable configuration:
+
+```
+labels.ts:26    let yOff = 16;                                  // first row baseline
+labels.ts:63    const rowH = 26;
+labels.ts:65    yOff += 26;                                     // once per active basis
+labels.ts:73    ctx.fillText(levelText, xBase, yOff - 4);       // 'N = …', textBaseline "top", bold 16px
+```
+
+`basis-display.ts:4-6` declares exactly three basis families (`fourier`, `chebyshev`, `legendre`), and `BasisSelector.vue:62-66` exposes all three, so `activeBases.length` reaches 3. Then `yOff = 16 + 3·26 = 94`, and the level row is drawn at `y = 90` with `textBaseline = "top"` and a 16 px font — occupying y ≈ 90…106. The erase is `clearRect(0, 0, 200, 100)` in CSS-pixel space (`:476` sets the dpr transform), so **the bottom ~6 px of the `N = …` glyphs survive** as a clipped text sliver on a PNG the user asked to be label-free. At one or two active bases the level row lands at y 38…54 / 64…80 and is fully erased — i.e. the option appears to work right up until the user turns on a third basis.
+
+**Falsifier.** (a) A fourth-or-later `yOff` advance smaller than 26 — `labels.ts:65` is the only advance and it is a literal 26. (b) `activeBases.length` capped below 3 — `BasisSelector.vue:52-54,115` emits the full selection with no cap. (c) The clear rect being taller than the stack — it is a literal 100. None fire. **CONFIRMED-STATIC** for the arithmetic; the exact surviving pixel count is font-metric dependent → `UNPROVEN-NEEDS-LIVE` (SS-13: export at 3 bases with Labels off and inspect y 100–110).
+
+### D-26 · MINOR · The two text-bearing switches do not partition the canvas's text: the grid's axis glyphs are labels governed by `withGrid`.
+
+`ExportModal.vue:64-69` (the "Grid lines" / "Labels" rows) · `lib/canvas-drawing/grid.ts:98,104` · `BasisCanvas.vue:487`
+
+`drawGrid` renders two text glyphs of its own — `ctx.fillText("x", width - 8 - arrowSize - 4, axisY - 10)` (`grid.ts:98`) and `ctx.fillText("y", axisX + 10, 8 + arrowSize + 2)` (`grid.ts:104`) — and the whole call is gated by `if (showGrid)` (`BasisCanvas.vue:487`). Both sit outside the 200×100 erase box by construction (one is anchored to `width`, the other near the top-centre axis).
+
+So the modal's vocabulary is wrong in both directions: **"Labels" off does not remove all labels** (the axis glyphs stay), and **"Grid lines" off removes labels** (the axis glyphs go with the grid). A user who wants a clean unlabelled frame has no combination that produces one, and no combination that produces axis glyphs without grid lines. This is a naming/partition defect in the *modal's* option vocabulary, not merely in the sink — the modal chose the two words.
+
+**Falsifier.** A separate label gate inside `drawGrid` — `grep -n "showLabels\|labels" grid.ts` → 0 hits; the function's only parameters are `(surface, view)` (`grid.ts:3`). Does not fire. **CONFIRMED-STATIC.**
+
+### D-27 · MAJOR · Every exported PNG has a **transparent** background, so D-4's erase is a hole rather than a smudge — and the strokes are theme-resolved, so a dark-mode export is dark-on-nothing.
+
+`BasisCanvas.vue:485,498-500,506` · `src/lib/colors.ts:22-53,90-97` · `App.vue:11-16`
+
+Two facts compose into one artifact defect.
+
+1. **No background is ever painted.** `grep -n "fillRect" BasisCanvas.vue lib/canvas-drawing/*.ts` → **0 hits, whole export path.** The offscreen canvas is created fresh and then `clearRect`-ed (`:485`); every subsequent operation is a stroke or a glyph fill. So the PNG's background is fully transparent — which upgrades D-4's over-clear from "erases some geometry" to "punches a hard-edged 200×100 transparent rectangle through the grid and the curve", visible against any non-neutral backdrop the file is later composited on.
+2. **The stroke colours are whatever the screen theme resolved.** `VIZ_COLORS` is a reactive object filled by `resolveVizColors()` from live computed style (`colors.ts:90-97` → `cssVarToHex`, `colors.ts:22-53`), re-run on every `class` mutation of `<html>` (`App.vue:11-16`, `MutationObserver`). The export path consumes it directly (`BasisCanvas.vue:127`, `labels.ts:4,37`). Nothing in `exportFrame` re-resolves for a light substrate or bakes a background.
+
+Net: exporting in dark mode yields dark-theme strokes on transparency — a file that reads correctly only when composited on a dark surface, with no record in the artifact of which theme produced it. The modal's option set offers no background/theme control and its `Record<string, boolean>` contract (D-2) could not express one.
+
+**Falsifier.** (a) Any background fill — the `fillRect` grep is empty across `BasisCanvas.vue` and all seven `lib/canvas-drawing/*.ts` modules. (b) A theme-independent palette — `colors.ts:91-95` reassigns all five viz colours from `--viz-*` custom properties, which `style.css:113-125` forks per light/dark arm for `--viz-amber`. Neither fires. **CONFIRMED-STATIC** for the mechanism; the perceptual outcome is `UNPROVEN-NEEDS-LIVE`.
+
+### D-28 · MAJOR · Sharpens D-21 — **both** axe rules that could name-check a `role="switch"` are structurally foreclosed, so the keystone provides *zero* naming coverage independently of D-23's failed run. And the fix is one attribute.
+
+`ExportModal.vue:55-70` · `axe-core@4.11.4 axe.js` (rule table + `nativeElementType`) · `reka-ui/dist/Switch/SwitchRoot.js`
+
+D-21 establishes that `button-name` passes via its `implicit-label` check. The second pass closes the other half of the pincer, which D-21 does not reach: the ARIA-side rule cannot fire either.
+
+```
+axe.js   id: 'aria-toggle-field-name',
+         selector: '[role="checkbox"], …, [role="switch"], [role="option"]',
+         matches: 'no-naming-method-matches',
+         any: [ 'has-visible-text', 'aria-label', 'aria-labelledby', 'non-empty-title' ],
+```
+
+`no-naming-method-matches` admits only elements whose native type has **no** naming method. `nativeElementType` contains `{ matches: 'button', namingMethods: 'subtreeText' }`, and `SwitchRoot` renders `as: { default: "button" }`. So the rule is **skipped before evaluation** — note its `any` array contains no label-based check at all, i.e. had it run, it would have failed. The result is an exact inversion: axe declines the ARIA rule *because* the element is a `<button>`, then passes the button rule *because* of a `<label>` that HTML-AAM does not grant buttons (`button` names from aria-labelledby → aria-label → subtree → title). `axe.js` `role switch` is declared `accessibleNameRequired: true, nameFromContent: true` — a requirement no enabled rule enforces on this markup.
+
+This is stronger than D-23's "the last run never reached the assertion": **even a green run would not have covered it.** The four switches are this component's only interactive controls.
+
+**Fix path, measured.** `SwitchRoot` binds `"aria-label": _ctx.$attrs["aria-label"] || ariaLabel.value` and spreads `mergeProps(_ctx.$attrs, {…})` onto its root, and glass-ui's wrapper strips only `class` before forwarding (`Switch-Dr--uLGH.js`). So `<Switch aria-label="Trace path" v-model="withTrail" />` reaches the button today, with no producer change — four attributes close D-21 + D-28 together. (D-21's alternative, `id` + `for`, additionally re-enables reka-ui's own `document.querySelector('[for=…]').innerText` derivation.)
+
+**Falsifier.** (a) `no-naming-method-matches` admitting elements that *have* a naming method — the matcher's name and the rule's pairing with `aria-tooltip-name`/`aria-treeitem-name` (roles with no native host element) refute it. (b) `button` carrying a label-based naming method in `nativeElementType` — the installed table maps `button` to `subtreeText` alone; only `textarea`/`select`/most `input` types get `labelText`. Neither fires. **CONFIRMED-STATIC.**
+
+### D-29 · INFO · The gate's own rationale states a glass-ui pin two majors stale — and it is the stated justification for the `test.fixme` sitting one line above the ExportModal keystone.
+
+`e2e/visualization-crud.spec.ts:623` vs `package.json:14`
+
+> `visualization-crud.spec.ts:623` — "The app consumes the PUBLISHED `@mkbabb/glass-ui@^2.0.0`, so the fix is a glass-ui release (`inert` on the collapsed layer) + a guarded `^2→^3` bump"
+
+`package.json:14` pins `"@mkbabb/glass-ui": "^4.0.0"` and the installed tree is 4.0.0. The `^2→^3` bump the comment defers has already happened **twice**, so the `aria-hidden-focus` defect it books against glass-ui may well be fixed, still open, or moved — the comment cannot say, and it is the sole written justification for the `test.fixme` at `:630-638` that suppresses the workspace-default a11y keystone. That suppressed keystone is the immediate neighbour of the ExportModal keystone (`:640-659`) and covers the same mounted surface.
+
+Consumption reading: a stale pin inside a *gate rationale* is worse than a stale pin in prose, because it converts an unverified upstream claim into a permanently red-lit test. Pairs with D-6 (the installed tree is peer-invalid **today**) and D-20 (`DESIGN.md` books a migration that already landed) — three independent stale consumption claims about the same three packages, in three different document classes.
+
+**Falsifier.** `package.json` reading `^2.0.0`, or a second glass-ui entry. `grep -n "glass-ui" package.json` → one hit, `:14`, `^4.0.0`. Does not fire. **CONFIRMED-STATIC.**
+
+### D-30 · INFO · Sharpens D-22/§0 — the F.W2 colour surface is *reachable from this component*, even though the component imports none of it. The budget, enumerated.
+
+`ExportModal.vue` (no value.js import) · `src/lib/colors.ts:22,56,70,90,101,111` · `BasisCanvas.vue:127`, `labels.ts:4,37`, `grid.ts`
+
+§0 concludes "the F.W2 migration surface … does not touch this file," which is exactly right as an *import* statement and worth keeping. The second pass records the complementary reachability fact, because F.W2 sequencing needs it: ExportModal is the **sole modal entry point** to a render path that runs entirely on the hand-rolled arms F.W2 exists to delete. Enumerated at HEAD:
+
+| `src/lib/colors.ts` | what it hand-rolls | reached from the export path? |
+|---|---|---|
+| `:22` `cssVarToHex` | regex-parses `hsl()` / bare Tailwind triplet / `rgb()` out of `getComputedStyle` | yes, via `resolveVizColors` |
+| `:56` `hslToHex` | HSL→hex | yes |
+| `:70` `rgbToHex` | RGB→hex | yes |
+| `:90` `resolveVizColors` | reads five `--viz-*` properties into a reactive palette | yes (`App.vue:11-16`) |
+| `:101` `hexToRgba` | hex + alpha → `rgba()` string | yes (`BasisCanvas.vue:6,127`) |
+| `:111` `hexToRgb` | hex → `[r,g,b]` | yes |
+
+Every one of those six is a value.js primitive re-implemented in the consumer, and every Save PNG traverses them (`labels.ts:4,37` reads `VIZ_COLORS`; `BasisCanvas.vue:127` calls `hexToRgba`). So: F.W2 does not need to *edit* this file, but this file is the user-facing surface whose output changes when F.W2 lands — which is the difference between "not in scope" and "not in the regression set." Book it in the latter.
+
+**Falsifier.** A value.js import in `visualization/` — `grep -rn "@mkbabb/value.js" src/components/visualization/` → 0 (§0 stands). Or an export path that bypasses `VIZ_COLORS` — `labels.ts:4` and `BasisCanvas.vue:6` import it at module scope and every painter reads it. Does not fire. **CONFIRMED-STATIC.**
+
+## §7.2 · New superlative
+
+**S-5 · The glass-ui import shape is exactly what F.W2 is trying to produce — three *declared* subpath entries, verified against the producer's own exports map.** §0 counts the symbols; this row verifies they resolve legitimately. `ExportModal.vue:3,4,5-11` import `@mkbabb/glass-ui/button`, `/switch`, `/dialog`, and all three are declared keys in glass-ui 4.0.0's `exports` map (80 keys; `./button` → `dist/button.js`, `./switch` → `dist/switch.js`, `./dialog` → `dist/dialog.js`, each with a paired `types` entry). No `dist/` reach-through, no root-barrel import, no relative escape, no deep path that a producer refactor could break — six components over three tree-shakeable entry points, in a file that could trivially have written one barrel import instead. Given that this component's substrate is otherwise the most compromised thing about it (D-6's invalid peer), the *addressing* being flawless is worth the credit.
+
+**Falsifier.** `grep -n "glass-ui/dist\|from \"@mkbabb/glass-ui\"" ExportModal.vue` → 0 hits; and `Object.keys(require('@mkbabb/glass-ui/package.json').exports)` contains all three subpaths plus a `types` condition for each. Second falsifier: a wildcard `./*` entry that would make the subpaths accidental rather than declared — the map has **no** `./*` key (only `./fonts/*`), so each of the three was minted deliberately upstream. Neither fires.
+
+## §7.3 · New kill
+
+**K-6 · "glass-ui's `<Dialog>` silently forwards `modal: false`, so this dialog is non-modal — no focus trap, no `useHideOthers` — and S-1 is wrong."** Dead, and it was a plausible BLOCKER worth chasing: glass-ui's compiled `Dialog` declares `props: { open: {type: Boolean}, defaultOpen: {type: Boolean}, modal: {type: Boolean} }` with **no defaults** (`DialogContent-DDE6pQBU.js`), and Vue's boolean casting makes an absent `Boolean` prop resolve to `false` — which would override `DialogRoot`'s `modal: { default: true }` and route rendering to `DialogContentNonModal`. It does not, because reka-ui's forwarder filters by *assignment*, not by value:
+
+```
+reka-ui/dist/shared/useForwardProps.js
+  defaultProps  = own props that declare a `default`        → {} for glass-ui's Dialog
+  preservedProps = Object.keys(vm.vnode.props)              → { open, onUpdate:open } from ExportModal.vue:46
+  return keys({...defaultProps, ...preservedProps}).reduce(…)   → `modal` is not in the key set
+```
+
+`modal` is neither defaulted by glass-ui nor assigned by ExportModal, so it is never forwarded and `DialogRoot`'s own `default: true` stands. Confirmed downstream: `DialogContent.js` branches on `rootContext.modal.value` → `DialogContentModal`, which calls `useHideOthers(currentElement)` (`DialogContentModal.js:3,48`) and passes `trapFocus`. **S-1 survives intact**, and D-9's reading is corroborated: modality is real, it is just not spelled `aria-modal`. (Residual, already-booked: the *effective* `modal` is a value no one in the consumer chain writes — a latent hazard if glass-ui ever adds a `default` to that prop, which would flip every consumer's modality without a consumer diff.)
+
+## §7.4 · Second-pass verdict
+
+The first pass's verdict stands unamended: **DEFECTIVE on the consumption axis, at the contract rather than the chassis.** The second pass hardens it in three places and does not soften it anywhere.
+
+* **The export artifact is worse than D-4 alone implies.** D-27 (transparent background, theme-resolved strokes) + D-25 (the surviving legend sliver at three bases) + D-26 (the two switches do not partition the canvas's text) mean that of the modal's four options, two are inert (D-1), one is implemented as a coordinate that both over- and under-shoots by computable amounts, and the fourth removes text the fourth switch does not name. Zero of four options are correct as presented.
+* **The a11y gate is not merely broken, it is blind.** D-28 closes the pincer D-21 opened: no enabled axe rule can name-check these switches, so D-23's failed run is a red herring — a green run would have proved nothing about the component's only controls. Cost to close: four `aria-label` attributes, on a path verified to reach the primitive.
+* **Three stale consumption claims, three document classes.** D-6 (installed tree peer-invalid today, `npm ls` non-zero), D-20 (`DESIGN.md` books a landed migration as open), D-29 (a gate rationale citing a pin two majors old, load-bearing for an adjacent `test.fixme`). Each is individually minor; together they are the reason a leaf this cheap to fix has stayed broken across two tranches — every document a reader would consult about this component's dependencies is wrong about them.
+
+**Final counts.** **30 defects — 1 BLOCKER (D-1) · 9 MAJOR (D-2 … D-7, D-25, D-27, D-28) · 15 MINOR (D-8 … D-21, D-26) · 5 INFO (D-22 … D-24, D-29, D-30).** **5 superlatives** (S-1 … S-5). **6 kills** (K-1 … K-6). `UNPROVEN-NEEDS-LIVE` halves for SS-13: D-3 (race width), D-21/D-28 (real-AT name), D-25 (surviving pixel count), D-27 (perceptual outcome), plus the perceptual halves of D-5/D-11/D-13/D-14 and D-23's reachability. Every mechanism beneath them is source-certain and re-derived twice.
