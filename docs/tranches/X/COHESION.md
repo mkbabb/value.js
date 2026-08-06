@@ -107,6 +107,7 @@ the per-component apotheoses are authoritative.
 | ErrorBoundary | the boundary successor component (cross-surface residue; EB-2/EB-4 cure-lock binds — boundary must sit OUTSIDE KeepAlive) | `registry/adjudicated/ErrorBoundary.md` |
 | MiniColorPicker | `MiniColorPicker.vue` unclaimed by any X wave (DELETE-AND-REBUILD terminal shape adopted) → X-W7 rider else boundary | `registry/adjudicated/MiniColorPicker.md` |
 | PaginationBar | 5 rows (composable-layer defects above the clean 48-line leaf) | `registry/adjudicated/PaginationBar.md` |
+| PaletteCard | K-7 registry repair: a 20,018-byte git-tracked CHALLENGE-L report sits at the malformed pass-2 path the governing report says was empty and deleted — evidence-ledger correction, no wave owns registry hygiene | `registry/adjudicated/PaletteCard.md` R-4 |
 | (accretes per batch) | — | — |
 
 ## §4a The SS-6 communique accretion register (producer-owned rows awaiting the ONE batched BJ letter)
