@@ -39,7 +39,7 @@ item-sets by the intake-adjudication CARRY table.
 | SS-7 | **Corpus adjudication** (88 components ÷ ~10 Goldilocks batches, tri-fold each) | the 264-axis challenge corpus (r2 governs) · motion-quarantine.md · harvest defects | `registry/adjudicated/<slug>.md` ×78 + the NO-WAVE-OWNER register (§4) | 2 Opus re-readers → fresh-Fable apotheosis per component | **RUNNING** — batch 1 LANDED (8/78), batch 2 dispatched |
 | SS-8 | **Visual audit** (real-Safari matrix + UNPROVEN-NEEDS-LIVE residue) | apotheoses' UNPROVEN-NEEDS-LIVE rows · the live dev stack · owner probe-parsimony law | evidence packets keyed to apotheosis row ids | bounded live probes; parsimonious | OPEN (task #4) |
 | SS-9 | **Codex-intake adjudication** (the marks census: kf B10–B21 · fourier R3–R6 · value V6/V7 · glass ROW8) | the 16 intake files (canonical) · fresh censuses · live trees | `INTAKE-ADJUDICATION-2026-08-03.md` + CARRY table + census addenda | 4 Opus lanes → fresh-Fable master | **RUNNING** (`wf_b1903beb-e2b`) |
-| SS-10 | **X·KF challenge saturation** (M-27 parity: D/L/C per kf component/zone, hash-banked) + SS-10b adjudication | kf census rosters (58 demo `.vue` + 14 library zones) · read-only kf tree | `audit/kf-components/<slug>/challenge-{D,L,C}.md` → apotheoses | 3 Opus challenge seats per component; tri-fold adjudication follows | **RUNNING** (batch 1) |
+| SS-10 | **X·KF challenge saturation** (M-27 parity: D/L/C per kf component/zone, hash-banked) + SS-10b adjudication | kf census rosters (58 demo `.vue` + 14 library zones) · read-only kf tree | `audit/kf-components/<slug>/challenge-{D,L,C}.md` → apotheoses | 3 Opus challenge seats per component; tri-fold adjudication follows | **SATURATION DONE 2026-08-06 (58/58, 174 axes)**; SS-10b adjudication next |
 | SS-11 | **X·F challenge saturation** + SS-11b adjudication | fourier census rosters · read-only fourier tree | `audit/fourier-components/<slug>/…` → apotheoses | same idiom | QUEUED (≤4-workflow law) |
 | SS-12 | **X·P challenge saturation** (library modules; no demo) + SS-12b adjudication | parse-that src roster · O-15 · read-only tree | `audit/parse-that-modules/<slug>/…` → apotheoses | same idiom, L+C axes (D n/a) | QUEUED |
 | SS-13 | **Per-repo visual audits** (kf demo · fourier frontend, Safari mobile+desktop) | SS-10/SS-11 UNPROVEN-NEEDS-LIVE rows · probe-parsimony law | evidence packets keyed to apotheosis rows | bounded live probes | QUEUED behind saturation |
@@ -50,8 +50,8 @@ A cell marked `—` without a QUEUED/RUNNING sub-session is a cohesion defect (�
 
 | treatment | value.js | keyframes.js | fourier-analysis | parse-that |
 |---|---|---|---|---|
-| D/L/C challenge saturation (hash-banked) | **DONE** 88/264 | SS-10 RUNNING (16/58, batch 3 in flight) | SS-11 RUNNING (16/66, batch 3 in flight) | **DONE** 2026-08-04 (15/15 modules, 30 L/C axes) |
-| Tri-fold adjudication → apotheoses | **SS-7 RUNNING** (27/88, batch 3 in flight) | SS-10b QUEUED (follows saturation) | SS-11b QUEUED | **SS-12b RUNNING** (batch 1 dispatched 2026-08-04) |
+| D/L/C challenge saturation (hash-banked) | **DONE** 88/264 | **DONE** 2026-08-06 (58/58, 174 axes) | SS-11 RUNNING (56/66, batch 8 in flight) | **DONE** 2026-08-04 (15/15 modules, 30 L/C axes) |
+| Tri-fold adjudication → apotheoses | **SS-7 RUNNING** (40/88, batch 5 in flight) | SS-10b UNBLOCKED (saturation done) | SS-11b QUEUED | **DONE 2026-08-06 (15/15 modules)**; refinement fold in flight |
 | Formation census | done (the megatranche itself) | **DONE** 2026-08-03 | **DONE** 2026-08-03 | done (pause handoff + parser-band + O-15) |
 | Codex-marks adjudication | SS-9 RUNNING (V6/V7 lane) | SS-9 RUNNING (B10–B21 lane) | SS-9 RUNNING (R3–R6 lane) | n/a (no intake files; the pause handoff IS the mark, adopted M-22) |
 | Wave specs (full, born-RED) | **SPECIFIED** (12 waves) | SS-1/SS-2 AWAIT CARRY | SS-3/SS-4 AWAIT CARRY | **SPECIFIED** (5 waves, 2026-08-04) |
