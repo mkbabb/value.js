@@ -1,10 +1,10 @@
 {
- "runId": "wf_cd3d324b-ced",
- "workflow": "wf_cd3d324b-ced",
- "resultCount": 28,
+ "runId": "wf_f979cc3b-33e",
+ "workflow": "wf_f979cc3b-33e",
+ "resultCount": 25,
  "results": [
   {
-   "agentId": "a1157c6cb0f253cba",
+   "agentId": "a2dccbe3fa6aefa3e",
    "key": "v2:2b631df559232c0c2ba5b0ba57fda974680fdba6cc19c84e8b6ed858bacdad18",
    "result": {
     "components": [
@@ -342,327 +342,291 @@
    }
   },
   {
-   "agentId": "a5d24d52a5f243807",
-   "key": "v2:282c3a8c9967f0a2eb15976880ba6573e293953ae5d2661b2331960e35b1b981",
+   "agentId": "a75b80e051a18856c",
+   "key": "v2:065fa374c28642f03c6f71f4bce177825808826a562e428deeba73334410561e",
    "result": {
-    "slug": "EquationResult",
+    "slug": "FunctionInput",
     "axis": "C",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationResult/challenge-C-consumption.md",
-    "defects": 12,
-    "blockers": 0,
-    "superlatives": 5
-   }
-  },
-  {
-   "agentId": "a36c3de48af4b9e24",
-   "key": "v2:31cd4ed9cec771e7219b68584b14e79d06a9186c82a5386a4abade80ce9bb336",
-   "result": {
-    "slug": "EquationView",
-    "axis": "L",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationView/challenge-L-library.md",
-    "defects": 25,
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FunctionInput/challenge-C-consumption.md",
+    "defects": 15,
     "blockers": 2,
-    "superlatives": 5
+    "superlatives": 4
    }
   },
   {
-   "agentId": "a0a4fa8283f26f87b",
-   "key": "v2:1cb60e7b15a539b6a0eb56264da865398f265dfc57c9c3e3522a6fbb44f39dd2",
+   "agentId": "a18b3843b87b2b5cf",
+   "key": "v2:5251a85a374c474e85f63a85fb879bad270105cea6318237d568884d8ed01115",
    "result": {
-    "slug": "EquationModeToggle",
-    "axis": "L",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationModeToggle/challenge-L-library.md",
+    "slug": "GalleryCard",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryCard/challenge-C-consumption.md",
     "defects": 14,
     "blockers": 2,
-    "superlatives": 3
-   }
-  },
-  {
-   "agentId": "a6b00e2a8cf14e046",
-   "key": "v2:a7e74321e9480013a1fb3fb65ec1e38cd55710acab74c816d8c71f7e5ed74ffb",
-   "result": {
-    "slug": "EquationPanel",
-    "axis": "L",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationPanel/challenge-L-library.md",
-    "defects": 19,
-    "blockers": 0,
     "superlatives": 5
    }
   },
   {
-   "agentId": "a24fb07da63aeed22",
-   "key": "v2:13fec500a04a8d6f7321a76c3f4096fcdd99cc6d707d578bfffd9188b6cba9d7",
+   "agentId": "a2289797660b103e6",
+   "key": "v2:bad8cde79f8eb38ec1a31186454b17fb1ad1c0f78517a64eeaa71bd42c4868de",
    "result": {
-    "slug": "EquationView",
+    "slug": "GalleryAdminBanner",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryAdminBanner/challenge-L-library.md",
+    "defects": 15,
+    "blockers": 0,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a8ae2e8520850cd1c",
+   "key": "v2:0acb0e5246d491afceab14683f04eabb34d579b84de4114a1d57957f0e5b47d1",
+   "result": {
+    "slug": "FrequencyGraph",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FrequencyGraph/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a74f47edbedac8463",
+   "key": "v2:e3eee5b08d4da9d9bd18d56f34a8985884ae5773f3e26277604d847c1f32f753",
+   "result": {
+    "slug": "FullscreenViewer",
     "axis": "D",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationView/challenge-D-design.md",
-    "defects": 29,
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FullscreenViewer/challenge-D-design.md",
+    "defects": 23,
     "blockers": 5,
     "superlatives": 5
    }
   },
   {
-   "agentId": "a5d81fdc07354af1f",
-   "key": "v2:a9c2dfdc51a3e013941736040d496c549f0a2e35a898d9fc47a4dd8163756ece",
+   "agentId": "aa5d83ca1c033e74f",
+   "key": "v2:15737b3dd386704bc2c3cc4281246850064e239a6414cb8292a68118c3159b7c",
    "result": {
-    "slug": "EquationModeToggle",
-    "axis": "D",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationModeToggle/challenge-D-design.md",
-    "defects": 18,
-    "blockers": 4,
+    "slug": "FunctionInput",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FunctionInput/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 3,
     "superlatives": 4
    }
   },
   {
-   "agentId": "aa37164f8151f413b",
-   "key": "v2:262a371eee462b4e08eae54a65aa31bf9e088eae4a7d269693925d970a398714",
+   "agentId": "a2e2444f24fc405a4",
+   "key": "v2:ef1fea56aaff7ab34def9ecd21e80271859d20920d87ae63d532cb36711a9056",
    "result": {
-    "slug": "EquationPanel",
+    "slug": "FullscreenViewer",
     "axis": "C",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationPanel/challenge-C-consumption.md",
-    "defects": 24,
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FullscreenViewer/challenge-C-consumption.md",
+    "defects": 18,
     "blockers": 2,
-    "superlatives": 5
-   }
-  },
-  {
-   "agentId": "a3bbe01d0c32c769b",
-   "key": "v2:7aee72cf9a83925c2dcac97ca2020f619571684879bc57f5f634bdd14113041c",
-   "result": {
-    "slug": "EquationResult",
-    "axis": "D",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationResult/challenge-D-design.md",
-    "defects": 22,
-    "blockers": 3,
     "superlatives": 4
    }
   },
   {
-   "agentId": "a0194737489316960",
-   "key": "v2:bfcc2842d485d2dd389c9ea2785cae3e0ed232ffe7bab630e4f11db6a7a38f8d",
+   "agentId": "a44fa30d2a52577ae",
+   "key": "v2:464f4611e22be7b263fae1d6cb07ddcec9310b192072b0be1b388579249e3a36",
    "result": {
-    "slug": "ExportModal",
+    "slug": "FullscreenViewer",
     "axis": "L",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ExportModal/challenge-L-library.md",
-    "defects": 18,
-    "blockers": 1,
-    "superlatives": 5
-   }
-  },
-  {
-   "agentId": "af306990be3f7be5e",
-   "key": "v2:cd062ed7047234aeaea740e5bc8181116d6e2aca622a0ce912b69542fd048d52",
-   "result": {
-    "slug": "EquationResult",
-    "axis": "L",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationResult/challenge-L-library.md",
-    "defects": 15,
-    "blockers": 1,
-    "superlatives": 5
-   }
-  },
-  {
-   "agentId": "a04c07089a870de1a",
-   "key": "v2:a5bddf1a08edf7f40875f275daf50a6a3e11b07aa49c7f8054a74c2b16986b3f",
-   "result": {
-    "axis": "D",
-    "blockers": 3,
-    "defects": 21,
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationPanel/challenge-D-design.md",
-    "slug": "EquationPanel",
-    "superlatives": 6
-   }
-  },
-  {
-   "agentId": "a2cb8883f1fb089b7",
-   "key": "v2:60f7dad7625e0d89434772d88d56c61ea8d98dbd8f49833a2dd0ef81531a08e6",
-   "result": {
-    "slug": "EquationModeToggle",
-    "axis": "C",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationModeToggle/challenge-C-consumption.md",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FullscreenViewer/challenge-L-library.md",
     "defects": 19,
-    "blockers": 2,
-    "superlatives": 5
+    "blockers": 3,
+    "superlatives": 3
    }
   },
   {
-   "agentId": "a28df5cf76f850a3f",
-   "key": "v2:6f8d97a0d115934ebee5994cd1fb7d673fcec83ae3ef807e987f6288eeeacbd4",
+   "agentId": "a4d405a02d5ab5b2a",
+   "key": "v2:bc1970a354a5d9fb03712c504c65c132dd8f8077502fcad23fd67947a34181fe",
    "result": {
-    "slug": "ExportModal",
+    "slug": "FrequencyGraph",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FrequencyGraph/challenge-L-library.md",
+    "defects": 25,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a43d8bc75be180346",
+   "key": "v2:42c59781f1e0b51e2f7aba3fb12cbda6a68631113d8f4ddf40545370bfaa1697",
+   "result": {
+    "slug": "FrequencyGraph",
     "axis": "D",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ExportModal/challenge-D-design.md",
-    "defects": 21,
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FrequencyGraph/challenge-D-design.md",
+    "defects": 35,
+    "blockers": 3,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "ac9ef9415e679ab9e",
+   "key": "v2:5262e97a7fa8edf48563f0aa0b87c778b002ad2f432a20587b35f7046ac5e60e",
+   "result": {
+    "slug": "GalleryAdminBanner",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryAdminBanner/challenge-C-consumption.md",
+    "defects": 16,
     "blockers": 2,
     "superlatives": 6
    }
   },
   {
-   "agentId": "a4fe1c21cdc2b9070",
-   "key": "v2:eedd209927599f20f7f90f4f351690bee63f1698c9408d00af7072103bf53dcc",
+   "agentId": "aefd72c70d8c5bf97",
+   "key": "v2:cdd9e28c7bbf73f01c0f6a39ac31a413dddcca53e0f2fa8e0646f5d483833927",
    "result": {
-    "slug": "FourierMorphDemo",
+    "slug": "GalleryCard",
     "axis": "D",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-D-design.md",
-    "defects": 33,
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryCard/challenge-D-design.md",
+    "defects": 23,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a319d031301f2591b",
+   "key": "v2:cb5bbd62a3265883964bd61d460513976f0f3dfa1e48e1ba4f7354f79029fc7c",
+   "result": {
+    "slug": "GalleryCard",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryCard/challenge-L-library.md",
+    "defects": 13,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a34373ef30ad068a9",
+   "key": "v2:ed5dfea8e1ee6777b3dcbb56fd11520e08b8704eaf91ab288671d43ed3528f10",
+   "result": {
+    "slug": "GalleryAdminBanner",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryAdminBanner/challenge-D-design.md",
+    "defects": 27,
     "blockers": 3,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "ab53ff3c41cea1165",
+   "key": "v2:f6f2401ec8c41e221f583a31ee4c7482b95b0ef72f11fd57a308a9488e590f82",
+   "result": {
+    "slug": "GalleryCardModal",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryCardModal/challenge-D-design.md",
+    "defects": 34,
+    "blockers": 2,
     "superlatives": 7
    }
   },
   {
-   "agentId": "a2d20d76ba4d41318",
-   "key": "v2:58af77dd37acaea49dcb5372779b93eb55b309e4edcb51c546a4e8c7c0286964",
+   "agentId": "a16e27cde3a44a515",
+   "key": "v2:5249a5acb0f9009771de407206eda7a21f8987983fae7c3f6ac49370ef7830bd",
    "result": {
-    "slug": "EquationView",
-    "axis": "C",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationView/challenge-C-consumption.md",
-    "defects": 37,
-    "blockers": 5,
-    "superlatives": 6
-   }
-  },
-  {
-   "agentId": "a7ae377845f23ad14",
-   "key": "v2:e53e4ff33f76c6d89876ec53744e240807e7f589f54546f3e02a19aef39e848d",
-   "result": {
-    "slug": "FourierMorphSvg",
+    "slug": "FunctionInput",
     "axis": "D",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphSvg/challenge-D-design.md",
-    "defects": 9,
-    "blockers": 2,
-    "superlatives": 5
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FunctionInput/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 4,
+    "superlatives": 7
    }
   },
   {
-   "agentId": "ae76da6dbb285427b",
-   "key": "v2:439f6c07787c3b47fae50b909272d33c8563e28863e0f6a15afef6cea714fa2d",
+   "agentId": "a651e382520523911",
+   "key": "v2:89196a66c338cd052a3512578a535b70295033cb0159c011f2f312700f4608b3",
    "result": {
-    "slug": "FourierMorphDemo",
+    "slug": "GalleryDraftsSection",
     "axis": "L",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-L-library.md",
-    "defects": 22,
-    "blockers": 2,
-    "superlatives": 5
-   }
-  },
-  {
-   "agentId": "a7a11b49cac146f78",
-   "key": "v2:12813ef7bb6ee7c29ce2587cebeccc84ecb2e1d61ae092e137661fd403e93dc1",
-   "result": {
-    "slug": "FourierMorphSvg",
-    "axis": "C",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphSvg/challenge-C-consumption.md",
-    "defects": 13,
-    "blockers": 1,
-    "superlatives": 3
-   }
-  },
-  {
-   "agentId": "aab94ea2b02186bff",
-   "key": "v2:e53e4ff33f76c6d89876ec53744e240807e7f589f54546f3e02a19aef39e848d",
-   "result": {
-    "slug": "FourierMorphSvg",
-    "axis": "D",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphSvg/challenge-D-design.md",
-    "defects": 13,
-    "blockers": 2,
-    "superlatives": 6
-   }
-  },
-  {
-   "agentId": "ab2a1ec8395de7334",
-   "key": "v2:1af9f5f0c65f159649c8704653732a5038bb34e987a080cd17101d3567cace57",
-   "result": {
-    "slug": "FourierShapeExtractor",
-    "axis": "C",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierShapeExtractor/challenge-C-consumption.md",
-    "defects": 18,
-    "blockers": 2,
-    "superlatives": 4
-   }
-  },
-  {
-   "agentId": "a6ebf50b9fd0653ba",
-   "key": "v2:b221bd11e7dee213ac2b2c585a8ac146295805d214fb21ffd939700a92d2b52c",
-   "result": {
-    "slug": "FourierMorphDemo",
-    "axis": "C",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-C-consumption.md",
-    "defects": 21,
-    "blockers": 2,
-    "superlatives": 3
-   }
-  },
-  {
-   "agentId": "a00a2d5f9a305be95",
-   "key": "v2:1e85f4c3e7a9eec7289980980c0a82cb4b92c6a58041091ece9c5ed23680be35",
-   "result": {
-    "slug": "FourierMorphSvg",
-    "axis": "L",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphSvg/challenge-L-library.md",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryDraftsSection/challenge-L-library.md",
     "defects": 15,
     "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a3f5f24e4a14d8439",
+   "key": "v2:b059068eac91899440d71421429f4affa52bdae37a0d901253567c685db3abfd",
+   "result": {
+    "slug": "GalleryCardModal",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryCardModal/challenge-L-library.md",
+    "defects": 16,
+    "blockers": 1,
     "superlatives": 4
    }
   },
   {
-   "agentId": "a395530f3905ff296",
-   "key": "v2:b4a76d0a1491478d7653c9d8e026959afeffa9a3cbd81ba3a61535bb99a98478",
+   "agentId": "a035b024ef06d9588",
+   "key": "v2:194beb9ff2d3db8be5b2e347c0e33c1e3d829629ac2e35d3b499c27c3f702aaa",
    "result": {
-    "slug": "ExportModal",
-    "axis": "C",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ExportModal/challenge-C-consumption.md",
-    "defects": 30,
+    "slug": "GalleryFeaturedCarousel",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryFeaturedCarousel/challenge-L-library.md",
+    "defects": 16,
     "blockers": 1,
     "superlatives": 5
    }
   },
   {
-   "agentId": "a42c2a833ce00fc76",
-   "key": "v2:439f6c07787c3b47fae50b909272d33c8563e28863e0f6a15afef6cea714fa2d",
+   "agentId": "a4ebe3b5183e4b129",
+   "key": "v2:ddc03f9959c50f0ce5660e74b062e4e97ab5ed6e6a83420b9ebb87457423eee0",
    "result": {
-    "slug": "FourierMorphDemo",
-    "axis": "L",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-L-library.md",
-    "defects": 31,
-    "blockers": 3,
-    "superlatives": 5
-   }
-  },
-  {
-   "agentId": "ac72f272e65d12e01",
-   "key": "v2:27fa5faa1cc00f08adeeb4f16770b546dd11da6e1188a0dd2eea1bc2231ad7cb",
-   "result": {
-    "slug": "FourierShapeExtractor",
-    "axis": "L",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierShapeExtractor/challenge-L-library.md",
-    "defects": 20,
-    "blockers": 3,
-    "superlatives": 5
-   }
-  },
-  {
-   "agentId": "a7ad8060f79d3b106",
-   "key": "v2:c991932d57c7db6b028580f07fcc734f5be8459779b78e57bf88bd5ae315dc63",
-   "result": {
-    "slug": "FourierShapeExtractor",
+    "slug": "GalleryFeaturedCarousel",
     "axis": "D",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierShapeExtractor/challenge-D-design.md",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryFeaturedCarousel/challenge-D-design.md",
     "defects": 16,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "ad81099a9f4918ae8",
+   "key": "v2:269a60b2077f96bc880e7819bd1c5064ddaaa3f47a7c347fbccc5d9fa4b0590f",
+   "result": {
+    "slug": "GalleryFeaturedCarousel",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryFeaturedCarousel/challenge-C-consumption.md",
+    "defects": 16,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a9cdb388b2f46604a",
+   "key": "v2:95d17a476c5fd23c0f590f044a0b8018b55e917acf87d0e0a7dddd611bfd2758",
+   "result": {
+    "slug": "GalleryDraftsSection",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryDraftsSection/challenge-C-consumption.md",
+    "defects": 20,
     "blockers": 2,
     "superlatives": 5
    }
   },
   {
-   "agentId": "a5cccb13bca3225a9",
-   "key": "v2:eedd209927599f20f7f90f4f351690bee63f1698c9408d00af7072103bf53dcc",
+   "agentId": "a7d007bf9d16020b4",
+   "key": "v2:996b2ff228be91790a53ab9cdfb0e586f82a7c85d22c3c010607ddaaf86e7f03",
    "result": {
-    "slug": "FourierMorphDemo",
+    "slug": "GalleryCardModal",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryCardModal/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a825ce30e67378628",
+   "key": "v2:85d4c6286093d506078f3e4d76c59ba59d4f957c8e4b47938392a12cd2e03492",
+   "result": {
+    "slug": "GalleryDraftsSection",
     "axis": "D",
-    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-D-design.md",
-    "defects": 46,
-    "blockers": 5,
-    "superlatives": 9
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/GalleryDraftsSection/challenge-D-design.md",
+    "defects": 29,
+    "blockers": 2,
+    "superlatives": 7
    }
   }
  ]
