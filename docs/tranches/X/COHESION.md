@@ -108,6 +108,9 @@ the per-component apotheoses are authoritative.
 | MiniColorPicker | `MiniColorPicker.vue` unclaimed by any X wave (DELETE-AND-REBUILD terminal shape adopted) → X-W7 rider else boundary | `registry/adjudicated/MiniColorPicker.md` |
 | PaginationBar | 5 rows (composable-layer defects above the clean 48-line leaf) | `registry/adjudicated/PaginationBar.md` |
 | PaletteCard | K-7 registry repair: a 20,018-byte git-tracked CHALLENGE-L report sits at the malformed pass-2 path the governing report says was empty and deleted — evidence-ledger correction, no wave owns registry hygiene | `registry/adjudicated/PaletteCard.md` R-4 |
+| PaneHeader | PH-1 (WebKit shrink-ratio pole) has NO carry-ledger row — formation-boundary flag; named gaps: `useHeaderCondense.ts` + `o11-header-gates.spec.ts` in no X-wave file list | `registry/adjudicated/PaneHeader.md` |
+| PreviewRamp | named carries in NO X-wave bounds: `color-chips/**`, `preview-chips.test.ts`, the WHCM roster arm, `aurora-harmony-stops.ts`, `mixStage.ts`; + ADJ-1 sequencing rule ([data-color-surface]: GenerateControls G8 deletes it, PreviewRamp's cure mints producers — order bound on both records) | `registry/adjudicated/PreviewRamp.md` |
+| PreviewStrip | chip-family residue consolidated as ONE named identity ≡ PCS-10; X-W9.d/.f named gaps DEGRADE to NO-WAVE-OWNER if unadopted at execution | `registry/adjudicated/PreviewStrip.md` |
 | (accretes per batch) | — | — |
 
 ## §4a The SS-6 communique accretion register (producer-owned rows awaiting the ONE batched BJ letter)
