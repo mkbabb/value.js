@@ -1,264 +1,369 @@
 claude-opus-5[1m]
 
-# PathPreview — Challenge C · CONSUMPTION axis
+# CHALLENGE · `PathPreview.vue` · axis **C — CONSUMPTION**
 
-**Target** `fourier-analysis/web/src/components/ui/PathPreview.vue` (69 LOC, mtime 2026-03-09)
-**Axis** how this component consumes value.js 0.13 / keyframes.js 4.3 / glass-ui ^4.0.0 / the 45-operation fourier API; props+emits contract quality; integration seams.
-**Method** static + source-derived only. No browser tooling. Livable-only claims are marked **UNPROVEN-NEEDS-LIVE (SS-13)**.
-
-**Import closure read whole (read-only).** The component itself (its entire import list is one line: `import { computed } from "vue"` at `:2` — there is no closure below it). Seam and comparand files read whole: `web/src/components/visualization/gallery/GalleryCard.vue` (309, the sole import site); `web/src/lib/types.ts` (391); `web/src/lib/contourEditing.ts` (222); `web/src/lib/colors.ts` (117); `web/src/components/ui/{SliderControl,CollapsibleSection}.vue`; `web/src/components/visualization/ContourPreview.vue`; `web/src/components/ui/EasingCurvePreview.vue`; `web/src/components/visualization/lib/canvas-drawing/ghost-path.ts` (29); `web/src/components/visualization/composables/useViewTransform.ts:10-35`; `web/src/components/visualization/BasisSelector.vue:16-90,187-192`; `web/src/components/visualization/lib/basis-display.ts`; `web/{package.json,tsconfig.json,vite.config.ts}`. API side: `api/models/assets.py:75-105`, `api/models/shared.py:8-20`, `api/responses.py:1-26`, `api/services/image_storage.py:305-325`, `api/routers/contours.py:21-60`. Producer side: installed `@mkbabb/glass-ui@4.0.0` `dist/*.d.ts` (60+ subpaths enumerated) + `dist/components/custom/` + `dist/components/custom/fourier-field/index.d.ts`. Build artifact: the checked-in `web/dist/` (200 asset files, built 2026-06-12 18:13).
-
-**Posture.** Assumed defective. Nine findings survived their falsifiers; five superlatives did too (L-18 both ways). One corpus claim is **contradicted with static evidence** (§C).
+**Target** `/Users/mkbabb/Programming/fourier-analysis/web/src/components/ui/PathPreview.vue` (69 lines, clean/committed at audit time)
+**Axis** how this component consumes value.js 0.13 / keyframes 4.3 / glass-ui ^4.0.0 / the 45-operation fourier API; props+emits contract; integration seams.
+**Posture** assumed DEFECTIVE until the tree proved otherwise. Every claim below carries its own falsifier.
+**Method** static + source-derived only. No browser. Read whole: the target, its every import, its only importer, its only-ever production call site (via git), the API types + client, the color chain, both tsconfig/CI gates.
 
 ---
 
-## §A · Defects
+## §0 — The headline
 
-### D-1 · **BLOCKER** — `ContourAsset.preview_path` is a structurally-always-empty field on 3 of the 45 operations; PathPreview is the client half that was meant to consume it, and instead re-derives it client-side
+`PathPreview.vue` imports **exactly one thing**: `computed` from `vue` (`PathPreview.vue:2`). It consumes **zero** of the four surfaces this axis exists to examine — no value.js, no keyframes.js, no glass-ui, no API type, no client function.
 
-The API declares a server-computed SVG preview path. Nothing ever writes it. Nothing ever reads it.
+That is not, by itself, a defect (see **S-4**). The defect is what the reachability check found:
 
-| role | site | content |
+> **`PathPreview` has no render site anywhere in the fourier tree.** Its sole reference in the entire repository is a **dead import** at `GalleryCard.vue:10`. The component's consumption of every dependency surface is zero because *the component itself is not consumed.*
+
+The hitherto corpus inventoried this file **four separate times** and rated it *"genuinely bespoke — no flag"*. It audited the file; it did not audit the graph. §5 states that contradiction explicitly.
+
+**Tally — defects 13 · blockers 1 · superlatives 4.**
+
+---
+
+## §1 — Findings
+
+### C-1 · **BLOCKER** · The component is unreachable; its only reference is a dead import
+
+**Provenance**
+- Sole reference in tree: `web/src/components/visualization/gallery/GalleryCard.vue:10` — `import PathPreview from "@/components/ui/PathPreview.vue";`
+- `GalleryCard.vue` template spans lines 64–187. It renders `Checkbox`, `<img>`, `Badge`, `Button`, `Eye`, `Heart`, `Crown`, `Bookmark`, `Trash2`. It does **not** render `<PathPreview>`.
+- Repo-wide: `grep -rn "<PathPreview\|<path-preview" --include="*.vue"` → **exit 1, zero matches.**
+- No global registration: `web/src/main.ts` is 11 lines and calls only `app.use(createPinia())` / `app.use(router)`; `grep -rn "app.component\|globalProperties\|unplugin\|Components(" src/ vite.config.ts` → **zero matches.** No auto-import plugin exists.
+
+**History (the fossil record)**
+| commit | event |
+|---|---|
+| `ffeca1b` (2026-03-09) | Born. Rendered in the `AppHeader.vue` share tooltip. |
+| `7721484` | `ShareButton.vue` extracted from `AppHeader`; usage moves with it. |
+| `4340ac8` (2026-03-15) | Marquee gallery. `GalleryView.vue:388-396` renders it as *"primary visual (not source image)"* — **the only production call site this component ever had.** |
+| `eefa318` | Gallery re-architected into `GalleryCard.vue`. The new card carried the **import at line 7 and never a tag** — `git show eefa318:…/GalleryCard.vue \| grep -in "pathpreview\|path-preview"` returns **only the import line.** Dead from birth in this file. |
+| `a459a56` (2026-03-16) | `ShareButton.vue` deleted ("Delete unused ShareButton component"). Last live render site gone. |
+
+So the component has been unreachable since **2026-03-16** — roughly five months — surviving 10+ commits across `GalleryCard` and every audit wave (`A.W2.e`, `A.W3.b`, `A.W5.c`, `C.W4`, `D.W4`, `G.W4`, `J.W3+W4`, `262c3d0` "3.1.0 adoption").
+
+**Why no gate caught it → see C-10.**
+
+**Falsifier** *"It is registered globally, or resolved dynamically, or referenced from a non-`.vue` surface."* — **Refuted three ways:** (a) `main.ts` performs no component registration and no auto-import plugin is configured; (b) an unrestricted repo-wide `grep -rn "PathPreview"` returns exactly three hits — the dead import, plus two *documentation* mentions (`docs/audits/runs/2026-05-27-D-audit/DA6-guard-thread-scoping.md:77` and `docs/audits/runs/2026-06-16-M-deep-audit/raw-findings.json:1172`), neither of which is code; (c) `<script setup>` exposes bindings to the template only — an unrendered binding cannot mount.
+
+**Scope honesty (bundle):** the *source-level* deadness is CONFIRMED. Whether the dead module is fully eliminated from the shipped bundle is **UNPROVEN-NEEDS-LIVE (SS-13)** — `web/package.json` declares no `sideEffects` field, and the SFC carries a `<style scoped>` block (`PathPreview.vue:64-69`) which compiles to a side-effectful CSS import that Rollup normally retains. The likely live state is *"the `.path-preview` CSS rule ships, the component code is shaken."* I do not claim the byte count without a build.
+
+---
+
+### C-2 · **MAJOR** · Stroke normalization is coupled to a `size` prop that CSS silently overrides — demonstrated broken at the component's only-ever call site
+
+`PathPreview.vue:56` — `:stroke-width="strokeWidth / size"` — against `viewBox="0 0 1 1"` (`:52`). The technique is correct *in principle* (S-2): to render `strokeWidth` CSS px inside a 1-unit viewBox, the user-space stroke must be `strokeWidth / renderedSizeInPx`.
+
+The contract breaks because `size` governs the stroke divisor but **cannot** govern the rendered size. `:width="size"` / `:height="size"` (`:50-51`) are SVG **presentation attributes**, which any CSS `width`/`height` declaration outranks. The component's own scoped style (`:65-68`) sets neither, so it defends nothing.
+
+**This is not hypothetical — it is what the only production caller did.** At `4340ac8`, `GalleryView.vue:388-396` passed `:size="240" :stroke-width="2.5" class="card-path-primary"`, and `GalleryView.vue:850-855` defined:
+
+```css
+.card-path-primary { width: 100%; height: 100%; opacity: 0.8; pointer-events: none; }
+```
+
+So the stroke divisor was calibrated for 240px while the element rendered at the flex parent's width. The declared `strokeWidth: 2.5` rendered at `2.5 × (actualPx / 240)` — never 2.5px except by coincidence. **The component's single consumer used it wrongly, and the API gave it no way to notice.**
+
+**Falsifier** *"Presentation attributes win over the stylesheet, so `size` did govern."* — **Refuted by CSS cascade order:** presentation attributes are specificity-0 and sit at the bottom of the author origin; any author rule (here a class selector) overrides them. This is why `<svg width>` is routinely overridden by CSS in responsive layouts. A design that wanted `size` to be authoritative would set it in the scoped style (`width: calc(var(--size) * 1px)`), or would derive the stroke from a `vector-effect="non-scaling-stroke"` instead of a manual divisor.
+
+**Fix shape (not applied):** `vector-effect="non-scaling-stroke"` makes `stroke-width` resolve in *screen* units regardless of viewBox and regardless of CSS sizing — deleting the `size` coupling entirely and making `size` a pure layout hint.
+
+---
+
+### C-3 · **MAJOR** · The props contract mirrors no shape the fourier API emits
+
+`PathPreview.vue:6-7` declares two parallel arrays:
+```ts
+pathX: number[];
+pathY: number[];
+```
+
+Every path carrier in the fourier API is a **single object**:
+| carrier | file:line | shape |
 |---|---|---|
-| declared (server) | `api/models/assets.py:85` | `preview_path: str = ""` on `ContourAssetResponse` |
-| forwarded | `api/responses.py:22` | `preview_path=asset.get("preview_path", "")` |
-| **sole writer** | `api/services/image_storage.py:318` | `"preview_path": "",` — a **hardcoded empty literal** in the persisted document |
-| declared (client) | `web/src/lib/types.ts:77` | `preview_path: string;` — **non-optional** |
-| readers | — | **none** |
+| `EpicycleData.path` | `web/src/lib/types.ts:26` | `{ x: number[]; y: number[] }` |
+| `EpicycleData.trace` | `types.ts:25` | `{ x: number[]; y: number[] }` |
+| `ContourAsset.points` | `types.ts:80` | `{ x: number[]; y: number[] }` |
+| `AnimationData.original` | `types.ts:15` | `{ x: number[]; y: number[] }` |
+| `AnimationData.partial_sums[b][n]` | `types.ts:17` | `{ x: number[]; y: number[] }` |
 
-`grep -rn "preview_path" --exclude-dir=node_modules --exclude-dir=.git .` over the whole fourier repo returns **exactly those four lines**. There is no fifth.
+Five carriers, one shape, and the component matches none of them. The impedance shows in the only real call site, which had to hand-destructure a value it had already narrowed:
+```
+4340ac8 GalleryView.vue:390-391
+    :path-x="getPathData(item)!.x"
+    :path-y="getPathData(item)!.y"
+```
+with `getPathData` (`4340ac8 GalleryView.vue:173-177`) returning exactly `{ x: number[]; y: number[] } | null`. A prop typed `path: { x: number[]; y: number[] }` would have made this `:path="getPathData(item)!"` — one binding, one null-check, no possible desync (which is also the cure for C-4).
 
-The three operations that ship the field: `POST /api/contours` (`api/routers/contours.py:21` → `contour_response`), `GET /api/contours/{contourHash}` (`:29-32`), and `POST /api/images/{slug}/extract-contour` (client binding `web/src/lib/api.ts:300-306`, `Promise<ContourAsset>`).
-
-**Why this is PathPreview's defect and not merely the API's.** PathPreview's entire body (`:21-44`) computes an SVG `d` string from a contour's point arrays. That is, to the character, the product `preview_path` names. The seam was designed — a server field to hold it, a client type to receive it, a component to render it — and then built on neither side, in a repo where the client type is *non-optional* so it reads as guaranteed-present to every future consumer. A consumer who trusts the type and writes `<path :d="contour.preview_path">` gets `d=""` and a blank frame, with no error, no warning, and no type-level signal.
-
-**Falsifier.** Dies if any writer populates the field, or any client reads it, or a doc marks it reserved. All three checked: the four-hit grep above is exhaustive over the repo minus `node_modules`/`.git`; `image_storage.py:318` is inside the single `doc = {…}` literal that creates every contour document (`:311-322`); no `preview_path` appears in any `docs/` file. Also dies if `ContourAssetResponse` is not actually returned by those routers — `api/routers/contours.py:32` returns `contour_response(doc)`, and `responses.py:13-26` constructs `ContourAssetResponse` unconditionally.
-
-**R6-8 relation (`lane-fourier-r3-r6.md` R6-8).** That row established: *an API-operation model that embeds derived client back-references cannot attribute a defect to one side of the seam.* This finding is the **inverse pathology on the same seam class**. There, the operation leaf carried a client back-reference and over-coupled. Here the operation leaf declares a *product* only the client can make, and the two leaves are joined by **nothing at all** — no back-reference, no test, no consumer. R6-8's lesson (keep the client↔operation join in a separate relation) does not protect against this: a join table with zero rows and a field with zero writers are indistinguishable from a correctly-decoupled seam. **CARRY → F.W5**: the shared-provenance contract needs a *liveness* predicate on operation fields, not only an isolation predicate. A field that is `""` at every producer site is a contract lie regardless of how cleanly it is decoupled.
-
-**What it blocks.** Any conformance fixture generated from the 45-operation surface (census §4 F.W8, FN-6) will emit `preview_path` as a populated-looking non-optional string; and R3-7b's `securityGate: RED_0_OF_45` audit shape — "count the operations, check a property" — cannot see this class of defect at all.
+**Falsifier** *"Split arrays match the house idiom — `drawGhostPath(surface, view, pathX, pathY)` takes them split too."* — **Partially true and worth conceding:** `ghost-path.ts:10-11` does take `pathX: number[], pathY: number[]`. But that is a *positional-argument* function where object-vs-split is a style choice, and it is fed from the same `{x,y}` carriers, so it inherits the same destructure tax. The falsifier does not rescue the *component* case, where Vue props are already a named-bag: splitting an atomic wire object into two independent props discards the API's own invariant for no gain. The house idiom is the API's, and it is `{x, y}`.
 
 ---
 
-### D-2 · **MAJOR** — zero live consumers: the component's only import site never renders it
+### C-4 · **MAJOR** · No length-agreement invariant → silent `NaN` in the `d` attribute
 
-`grep -rn "PathPreview" web/src/` returns **one line**: `GalleryCard.vue:10` (`import PathPreview from "@/components/ui/PathPreview.vue";`). Reading `GalleryCard.vue` whole (309 lines): the identifier appears at `:10` and nowhere else — not in the `<template>` (`:64-187`), not in `<script setup>` (`:1-62`), not in `<style scoped>`. So every consumption claim about this component — props ergonomics, defaults, SVG output, theming — is **unexercised in production**.
+`PathPreview.vue:23` guards **emptiness only**:
+```ts
+if (!pathX.length || !pathY.length) return "";
+```
+Then `:37-41` maps over `pathX` while indexing `pathY`:
+```ts
+const pts = pathX.map((x, i) => {
+    const sx = 0.5 + (x - cx) * scale;
+    const sy = 0.5 - (pathY[i] - cy) * scale; // flip Y
+    return `${sx.toFixed(4)},${sy.toFixed(4)}`;
+});
+```
+If `pathY.length < pathX.length`, `pathY[i]` is `undefined` → `(undefined - cy)` is `NaN` → `NaN.toFixed(4)` is the **string `"NaN"`** → the emitted `d` is `M0.5000,NaNL…Z`. `:60` renders `<path v-if="svgPath" :d="svgPath" />` — `svgPath` is a non-empty string, so the guard passes and an **invalid path attribute** is committed to the DOM. Browsers discard the malformed segment silently: no throw, no console error, no Vue warning. A blank thumbnail, indistinguishable from "no data".
 
-The dead import survives the typecheck because `web/tsconfig.json` sets neither `noUnusedLocals` nor `noUnusedParameters` (read whole, 19 lines: `strict`, `noEmit`, `isolatedModules`, `verbatimModuleSyntax` are set; the unused-* pair is absent). `build` is `vue-tsc -b && vite build` (`web/package.json:8`), so nothing in the gate chain can catch it.
+The same poison enters from the data side: a single non-finite coordinate anywhere in `pathX` makes `Math.min(...pathX)` (`:25`) `NaN`, which propagates through `rangeX` (`:29` — note `NaN || 1` is `1`, so the degenerate guard does *not* rescue it), `cx` (`:34`), and every point. One bad sample blanks the whole preview.
 
-**Falsifier.** Dies if the component is reached dynamically or by a test.
-- Dynamic: `grep -rn "defineAsyncComponent\|<component"` over `web/src/` returns 8 sites — three `defineAsyncComponent` in `GalleryView.vue:31-33` (all `gallery/Admin*.vue`) and five `<component :is>` bindings (`EditorControlsDock.vue:144`, `FourierMorphDemo.vue:72`, `CoefficientsSpectrum.vue:132`, `AppHeader.vue:117,130`, `MobileFloatingToc.vue:157`) — every one resolves to a lucide icon or a named admin panel. None can reach PathPreview.
-- Tests: `grep -rn "PathPreview" web/e2e/` → empty (7 spec files present); there is no unit-test suite in `web/` (`package.json` scripts: `dev`/`build`/`preview`/`test:e2e`/`test:e2e:ui` — no vitest).
+Two independent `number[]` props give TypeScript nothing to enforce; only the caller's discipline stands between the component and this state, and there is no dev-mode assertion.
 
-**Overlap.** `GalleryCard/challenge-L-library.md` D-3 books the same dead import at MINOR from the *importer's* side ("dead imports `VIZ_COLORS` + `PathPreview`"). Filed here at MAJOR from the *importee's* side, where it is categorically worse: for GalleryCard it is one wasted line; for PathPreview it is the total absence of a consumer, which is what makes D-1's seam undetectable and D-3..D-6 unfalsifiable in the running app. Not a double-count — different subject, different severity basis.
-
----
-
-### D-3 · **MAJOR** — the props shape (`pathX`/`pathY` parallel arrays) matches neither the wire type nor the tree's canonical geometry type, and it makes the co-length invariant inexpressible
-
-`:6-7` declares `pathX: number[]; pathY: number[]`. Nothing in fourier produces that shape.
-
-**The wire envelope is `{ x: number[]; y: number[] }`, and it occurs four times** in `web/src/lib/types.ts`:
-
-| type | line | field |
-|---|---|---|
-| `ContourAsset` | `:81` | `points: { x: number[]; y: number[] }` |
-| `EpicycleData` | `:25` | `trace: { x: number[]; y: number[] }` |
-| `EpicycleData` | `:26` | `path: { x: number[]; y: number[] }` |
-| `AnimationData` | `:15,17` | `original`, `partial_sums[…][…]` |
-
-Python agrees: `api/models/assets.py:102` — `points: dict[str, Any]  # {"x": list[float], "y": list[float]}` — and `api/responses.py:25` emits `points={"x": xs, "y": ys}`.
-
-**The in-tree canonical geometry type is `Point2D[]`.** `contourEditing.ts:1-4` defines `Point2D`; `:7-17` exports `zipPoints`/`unzipPoints` as the two adapters between the wire envelope and it; the sibling preview `ContourPreview.vue:7` takes `points: Point2D[] | undefined`.
-
-So PathPreview picked a **third** representation, used by nothing else as an interface. Every hypothetical call site must hand-destructure: `<PathPreview :path-x="c.points.x" :path-y="c.points.y" />`. Worse, `pathX: number[]; pathY: number[]` **cannot express** that the two arrays are co-indexed — the invariant on which the whole of `:37-41` depends. `Point2D[]` makes the desync structurally impossible; the `{x,y}` envelope at least keeps the halves together as one value with one identity (which is exactly what `useViewTransform.ts:15-25` memoizes on).
-
-**Falsifier.** Dies if the wire or any producer ever emits `pathX`/`pathY`. Grepped: the only `pathX`/`pathY` identifiers in the entire repo are this component (`:6,7,22,23,25,26,37,39`) and `ghost-path.ts:10-11,22-23` — and the latter is a *positional function parameter list* (`drawGhostPath(surface, view, pathX, pathY, closePath)`), not a wire type or a props contract; its callers pass `data.path.x, data.path.y` (`BasisCanvas.vue:131`) and bare locals (`:220`). Also dies if a first-class adapter exists — `zipPoints`/`unzipPoints` adapt between `Point2D[]` and `{x,y}`, and neither produces `pathX`/`pathY`.
+**Falsifier** *"The arrays always come from one `{x, y}` object, so they are always equal-length by construction."* — **True of today's producers, and precisely the argument for C-3.** But it is a convention the type system does not encode and the component does not check, and the component's contract is public: `pathX`/`pathY` are separate required props, so any future caller may satisfy the types while violating the invariant. Adopting the `{x, y}` prop of C-3 collapses C-4 to impossible-by-construction — which is the cheapest fix in this document.
 
 ---
 
-### D-4 · **MAJOR** — a length mismatch between `pathX` and `pathY` yields `NaN` in the `d` attribute (silent truncation) or a phantom bounding box (silent mis-framing); the guard checks neither
+### C-5 · **MAJOR** · Unconditional `Z` contradicts the house path-rendering contract
 
-`:23` — `if (!pathX.length || !pathY.length) return "";` — tests each array for *non-emptiness*, never for *equal length*. `:37-41` then iterates `pathX` and indexes `pathY[i]` unchecked.
-
-**Case A — `pathY` shorter.** For `i >= pathY.length`, `pathY[i]` is `undefined`; `:39` computes `0.5 - (undefined - cy) * scale` → `NaN`; `:40` `NaN.toFixed(4)` → the string `"NaN"`; `:43` emits `d="M0.5000,0.3000L…LNaN,NaN L…Z"`. Per SVG 2 path error handling, rendering proceeds up to the erroneous segment and the remainder of the path is dropped — a **silently truncated shape**, no console error, no thrown exception, `v-if="svgPath"` (`:60`) satisfied because the string is non-empty.
-
-**Case B — `pathY` longer.** No `NaN`, and *no visible symptom at all*: `:27-28` compute `minY`/`maxY` across the **full** `pathY`, including tail entries that `:37` never reaches. Those feed `cy` (`:35`) and `scale` (`:33`), so the drawn shape is centred and scaled to a bounding box containing points that are not in it — quietly off-centre and under-scaled.
-
-**Falsifier.** Dies if co-length is guaranteed upstream. It is not:
-- `web/src/lib/types.ts:81` types the two halves independently — TypeScript cannot relate their lengths.
-- `api/responses.py:8-10` (`contour_points`) builds them from **two independent** `.get()` calls with **independent `[]` defaults**: `return points.get("x", []), points.get("y", [])`. A document with `points: {"x": [...]}` and no `"y"` produces `xs=[…], ys=[]` — which `:23` *does* catch (empty). A document with a **partial** `y` produces the un-caught Case A.
-- `api/routers/contours.py:23-24` (`save_contour`) reads `req.points.get("x", [])` / `.get("y", [])` from a `dict[str, Any]` request body (`api/models/assets.py:102`) with **no Pydantic length validator**, so a partial pair is persistable through the public API.
-
-Dies also if the failure is loud — it is not; both cases are silent by construction.
-
----
-
-### D-5 · **MAJOR** — hard-closes every path with `Z`, while the tree's own canonical path renderer defaults to OPEN and fourier has both kinds
-
-`:43` — `return \`M${pts.join("L")}Z\`` — the `Z` is unconditional; there is no `closed` prop.
-
-The tree distinguishes. `ghost-path.ts:7-12`:
+`PathPreview.vue:43`:
+```ts
+return `M${pts.join("L")}Z`;
+```
+The path is **always** closed. The tree's other path renderer for the identical data makes closure an explicit, defaulted-off parameter:
 
 ```
-export function drawGhostPath(surface, view, pathX, pathY, closePath = false): void
+web/src/components/visualization/lib/canvas-drawing/ghost-path.ts:7-13, 27
+export function drawGhostPath(surface, view, pathX, pathY, closePath = false)
+…
+if (closePath) ctx.closePath();
 ```
+with the doc comment at `ghost-path.ts:5` — *"Whether to close the path (epicycle mode closes it)"*. Closure is a **mode-dependent** property in this codebase: epicycle reconstructions are closed loops; basis expansions over a domain are not. `BasisDecomposition.domain: [number, number]` (`types.ts:11`) and `AnimationData.eval_points` (`:18`) describe open intervals, and `AnimationData.original` / `partial_sums` (`:15,:17`) are exactly the `{x,y}` carriers a series-mode preview would use.
 
-— the default is **open**. Both branches are live: `BasisCanvas.vue:131` passes `true` explicitly (`drawGhostPath(s, view, data.path.x, data.path.y, true)` — epicycle mode, a closed contour), and `BasisCanvas.vue:220` omits the argument (`drawGhostPath(s, view, origX, origY)` — the original series path, open).
+`PathPreview` exposes no `closePath` prop, so a series-mode preview gets a spurious chord from last point back to first. Its historical caller fed it `item.epicycleData?.path ?? item.basesData?.original` (`4340ac8 GalleryView.vue:176`) — the `??` right-hand branch is exactly the open-contour case, rendered closed.
 
-So a partial-sum / series path (`AnimationData.partial_sums`, `types.ts:17`) or any open trace (`EpicycleData.trace`, `:25`) rendered through PathPreview grows a spurious chord from the last point back to the first.
-
-**Falsifier.** Dies if every path in fourier is closed — refuted by `ghost-path.ts:12`'s `closePath = false` default *and* by `BasisCanvas.vue:220` actually taking it. Dies if the closing segment is visually inert — refuted by `:54` `fill="none"`: with no fill, the `Z` segment is *stroked*, so it is drawn ink, not an invisible topological nicety. Dies if a `closed` prop exists — `:5-12` lists six props, none of them.
-
----
-
-### D-6 · **MINOR** — four configuration props with zero overriding call sites; and `padding` does not mean what its name implies
-
-`:8-11` declares `size?`, `strokeWidth?`, `strokeColor?`, `padding?`; `:13-18` gives each a default. Because there are no call sites at all (D-2), **all four are dead configuration**: 10 of the file's 69 lines are a knob panel nobody has ever turned.
-
-Separately, the `padding` arithmetic is mis-labelled. `:33` — `scale = 1 / (Math.max(rangeX, rangeY) * (1 + padding * 2))`. With the default `padding: 0.1` the content occupies `1/1.2 = 0.8333` of the unit viewBox, leaving `(1 - 0.8333)/2 = 0.0833` per side. So `padding` is a fraction **of the content extent**, not of the viewport — a caller asking for "10% padding" gets 8.33%. The comment at `:32` ("Fit into [0, 1] with uniform scale + padding") names the operation without naming the denominator.
-
-**Falsifier.** The dead-config half dies the moment any caller passes a prop — none exists (D-2's grep). The semantics half dies if a doc-comment or type defines the denominator — `:5-18` carries no JSDoc, and `:32` is the file's only comment besides `:39`. It also dies if the reading is idiosyncratic: it is not — CSS `padding` on a percentage basis, and the sibling `ContourPreview.vue:26` (`pad = (maxX - minX) * 0.1`, added to the viewBox extent), both resolve to viewport-relative margins.
+**Falsifier** *"Contours are closed loops by construction, so `Z` is always right."* — **Refuted by the sibling's own default:** `drawGhostPath` defaults `closePath = false` and the comment names epicycle mode as the *exception*, not the rule. Had all contours been closed, the parameter would not exist and the default would be `true`. The two renderers for the same data disagree on its most basic geometric property.
 
 ---
 
-### D-7 · **MINOR** — four variadic `Math.min`/`Math.max` spreads over path arrays, the exact pattern the tree named and remediated as **Invariant 20**
+### C-6 · **MAJOR** · The color seam `strokeColor` consumes is broken: basis colors are frozen at hardcoded fallbacks and never track theme
 
-`:25-28` spreads `pathX` and `pathY` four times. `useViewTransform.ts:15-26` is the tree's own documented remediation of precisely this, on precisely these arrays:
+`strokeColor?: string` (`PathPreview.vue:10`, default `"currentColor"` at `:16`) is the component's only color surface. Its historical supplier was `getPathColor` (`4340ac8 GalleryView.vue:179-186`), which resolves `basisDisplay[key]?.color ?? VIZ_COLORS.fourier`. That chain is defective **today**:
 
 ```
-// ── Memoized data bounding box (Invariant 20) ──
-// The variadic `Math.min(...xs)` / `Math.max(...xs)` spread allocates an
-// arguments array of length n_points; … at n≈10k the spread approaches V8's
-// argument count ceiling. …
-// Single linear scan — no variadic spread, no arguments array.
+web/src/components/visualization/lib/basis-display.ts:1-7
+import { VIZ_COLORS } from "@/lib/colors";
+export const basisDisplay: Record<string, {icon; label; color}> = {
+    fourier:   { …, color: VIZ_COLORS.fourier },     // ← read at MODULE EVAL
+    chebyshev: { …, color: VIZ_COLORS.chebyshev },
+    legendre:  { …, color: VIZ_COLORS.legendre },
+};
 ```
 
-and it reads `store.epicycleData.path.x/.y` (`:18-19`) — the same `{x,y}` envelope PathPreview would consume. Invariant 20 is ratified, not incidental: `docs/audits/runs/2026-05-26-B-audit-wave-1/SYNTHESIS.md:101` — *"Invariant 20 — … No per-frame O(n) spread on the render path (`useViewTransform`); cache bbox-on-path-identity"* — with the ceiling quantified at `:35` as *"hard ceiling at n≈64 k arguments on V8"*.
-
-**Falsifier — and it very nearly kills this one, so the claim is stated narrowly.**
-1. **Scope.** Invariant 20's ratified text scopes it to *per-frame* spread *on the render path (`useViewTransform`)*. PathPreview is a Vue `computed` (`:21`), recomputed only on prop change, never on an rAF tick. It breaches the letter of the spread prohibition but sits outside the invariant's stated scope.
-2. **Magnitude.** `n_points` defaults to 1024 (`api/models/shared.py:13`, `web/src/lib/defaults.ts:8`) and the UI clamps it to **[128, 4096]** at both write paths (`BasisSelector.vue:34` and `:192`, both `Math.max(128, Math.min(4096, …))`) — a factor of ~16 below the 64 k ceiling.
-3. **Not unique.** `transforms.ts:15-18` does the identical four-spread over the same data and is not remediated either.
-
-So: latent, not live; shared, not unique; out of the invariant's literal scope. It is booked at MINOR because the remedy is four lines of the linear scan already written and commented one directory away, and because the server has **no** upper bound on `n_points` (`api/models/shared.py:13` is a bare `n_points: int = 1024` with no `Field(le=…)`; `web/src/lib/types.ts:34` types it `number`), so the clamp is a client courtesy, not a contract. Whether any deployed path can drive `n_points` past 64 k is **UNPROVEN-NEEDS-LIVE (SS-13)**.
-
----
-
-### D-8 · **INFO** — `strokeWidth / size` divides by a prop with no zero-guard
-
-`:56` — `:stroke-width="strokeWidth / size"`. `size` is `number` with default 64 (`:8,14`) and no validator; `size={0}` yields `stroke-width="Infinity"` alongside `width="0" height="0"` (`:50-51`). Unreachable today (no call sites, D-2), and `size` is the kind of prop nobody passes zero to — filed only because it is the one arithmetic hazard in the template.
-
-**Falsifier.** Dies if Vue or SVG normalises the value — neither does; `Infinity` is serialised as the attribute string `"Infinity"`, which is an invalid `<length>` and falls back to the initial `stroke-width: 1` in user units, i.e. a stroke as wide as the entire viewBox.
-
----
-
-### D-9 · **INFO** — decorative SVG with no `aria-hidden` / `role="img"`
-
-`:48-59` — the `<svg>` carries `class`, geometry, paint and join attributes; no `aria-hidden="true"`, no `role`, no `<title>`.
-
-**Falsifier / honest scoping — this is a tree-wide pattern, not a PathPreview breach.** The `EasingCurvePreview/challenge-C-consumption.md:176` row already established that fourier applies `aria-hidden` to 15+ decorative **lucide icon components** but to **none** of its ~12 hand-written `<svg>` surfaces (`ContourPreview.vue:36`, `MorphPhaseConfig.vue:47`, and this file's `:48` all omit it). That challenge escalated its own instance only because it lands inside a role whose accessible name is computed from content. PathPreview has no consumer and therefore no containing role at all, so nothing escalates it here. Folded, not re-invented; recorded at INFO for completeness of the axis.
-
----
-
-## §B · Superlatives (L-18 runs both ways)
-
-### S-1 · **Its non-consumption of value.js, keyframes.js and glass-ui is correct — and it is one of the few components whose tri-package migration cost is provably nil**
-
-The component's entire import list is `:2` — `import { computed } from "vue"`. On an axis defined by four producer surfaces, consuming none of them is the finding, and it survives scrutiny:
-
-- **glass-ui ^4.0.0 has no analogue.** Enumerated the installed producer: `dist/*.d.ts` (60+ subpaths) and `dist/components/custom/` (37 directories). No sparkline, no path-thumbnail, no polyline primitive. The nearest-named export is deceptive: `./fourier-field` is a **canvas** epicycle *background*, not an SVG path renderer — `dist/components/custom/fourier-field/index.d.ts` types `FourierFieldProps` as `{ variant, color, colorResolver, seed, freeze, intensity }`, taking a `ColorResolver` and a seed, never a path. `lane-frontend.md:369,444` reached the same conclusion independently ("Bespoke with no glass-ui analogue"; *"genuinely bespoke — no flag"*) — corroborated here from the producer's dist rather than from the census.
-- **value.js is a colour/units library**; the tree's whole consumption of it is 5 sites of `easeInOutSine`/`timingFunctions` (`lane-frontend.md:480`). An SVG bbox-and-fit computation has no call on it.
-- **keyframes.js is an animation runtime**; this surface is static by design.
-
-**The consequence that matters to this megatranche.** `lane-frontend.md:492` names the single most consequential frontend finding: *"the three bumps are ONE atomic transaction: `glass-ui 4→7` ∧ `keyframes 4.3→6` ∧ `value.js 0.13→4.0`. None can land alone."* PathPreview's migration cost across that transaction is **zero, provably** — not "small", not "estimated": it imports nothing that can break. Among the 5 files in `components/ui/`, three (`SliderControl`, `CollapsibleSection`, `tooltip/Tooltip`) are glass-ui wrappers that the 4→7 hop will touch; this one cannot be touched.
-
-**Falsifier.** Dies if any producer subpath ships a path-thumbnail primitive (enumerated above — none), or if PathPreview transitively pulls a producer (its import list is one line, and `vue` is not in the tri-package set), or if a `@reference "tailwindcss"` in its style block pulled a producer stylesheet — `:64-68` has no `@reference` and no `@apply`, unlike `GalleryCard.vue:190` and `SliderControl.vue:95`.
-
----
-
-### S-2 · **`strokeColor: "currentColor"` is the correct colour seam — and it is the only preview in the tree that is themed for free and touches none of the `colors.ts` liability**
-
-`:16` defaults `strokeColor` to `"currentColor"`; `:55` binds it to `stroke` on the `<svg>`; `:60`'s `<path>` declares no `stroke` of its own and therefore inherits. The result adapts to light/dark through the cascade with no token, no prop, no watcher, and — critically for this axis — **no route through `web/src/lib/colors.ts`**.
-
-That matters because `colors.ts` is the tree's real colour liability: 117 lines of hand-rolled `cssVarToHex` regex parsing over `hsl(…)` / bare-triplet / `rgb(…)` forms with a `"#888888"` fallback on every miss (`colors.ts:22-54`), plus hand-written `hslToHex` (`:56-68`) and `rgbToHex` (`:70-74`) — shadowing what value.js 4.0 parses natively and what glass-ui 4.0.0 already exports as `ColorResolver` (`dist/composables/color`, re-exported at the `./color` subpath). Every colour that reaches `GalleryCard` goes through it (`GalleryCard.vue:9` → `basis-display.ts:1-7` → `VIZ_COLORS`). PathPreview's colour does not.
-
-Contrast within the same repo: `EasingCurvePreview.vue:12` defaults `color: "hsl(248 88% 71%)"` — a literal, theme-invariant in both directions. That challenge's §37 row reached this conclusion by citing PathPreview; recorded here as its origin, and extended with the `colors.ts`-avoidance half, which is the consumption-axis point.
-
-**Falsifier.** Dies if `currentColor` fails to reach the `<path>` — refuted by the inheritance chain above (`:55` sets it on the parent `<svg>`; `:60` sets no `stroke`). Dies if some consumer must override it for contrast — no consumer exists. Dies if an external rule fights it — `grep -rn "path-preview" web/src/style.css web/src/**/*.css` returns empty; no rule outside `:64-68` targets the class.
-
----
-
-### S-3 · **`:stroke-width="strokeWidth / size"` is the DPI-invariant idiom — and it is the only instance of it in the tree**
-
-`:56`, read against `:50-52`: `viewBox="0 0 1 1"` maps one user unit to `size` device px, so dividing a **pixel-declared** stroke by `size` yields a constant device weight at every `size`. Change `size` from 64 to 24 and the stroke stays 1.5 px.
-
-Neither sibling does this. `EasingCurvePreview.vue:29` hardcodes `stroke-width="0.15"` in user units, so its stroke thickens and thins with `size` — a size knob that is secretly a size-*and*-weight knob. `ContourPreview.vue:37` uses a viewBox in raw contour-data coordinates, so its stroke weight depends on the *contour's* extent.
-
-`EasingCurvePreview/challenge-C-consumption.md:55` already cites `PathPreview.vue:56` as the pattern that leaf failed to adopt. Folded, not re-derived; recorded here as the source, with the tree-wide uniqueness added.
-
-**Falsifier.** Dies if the element is CSS-resized away from `size`, which would decouple the user-unit-to-px mapping. `:65-68` `.path-preview { display: block; flex-shrink: 0; }` defends the flex-compression case explicitly — and `flex-shrink: 0` is the only reason that rule earns its place. A `width: 100%` ancestor rule would still break it; none exists (`grep` for `.path-preview` outside the file → empty). So the defence is real but partial.
-
----
-
-### S-4 · **The uniform-scale fit preserves aspect ratio and guards both degenerate axes; the sibling with the same job does neither**
-
-`:29-33`:
+`VIZ_COLORS` is `reactive({ fourier: "#bf4040", chebyshev: "#3d72b8", legendre: "#9545b8", … })` (`lib/colors.ts:77-87`) — hardcoded fallbacks. The real values arrive by **mutation**:
 
 ```
-const rangeX = maxX - minX || 1;
-const rangeY = maxY - minY || 1;
+lib/colors.ts:90-96   resolveVizColors() { VIZ_COLORS.fourier = cssVarToHex("--viz-fourier"); … }
+App.vue:10-18         onMounted(() => { resolveVizColors();
+                          new MutationObserver(() => resolveVizColors())
+                            .observe(document.documentElement, {attributeFilter:["class"]}); })
+```
+
+`basis-display.ts` is a module-eval-time **property read** that copies three primitive strings into a **new, non-reactive plain object**. `resolveVizColors()` runs in `onMounted` — strictly after module evaluation. Therefore `basisDisplay.*.color` is permanently `#bf4040` / `#3d72b8` / `#9545b8`, never `--viz-*`, and the dark-mode `MutationObserver` (`App.vue:13`) — whose entire purpose is theme repaint — **cannot reach it**. The reactivity is severed by value-copy at the one place it needed to survive.
+
+**Blast radius: 7 live consumers**, including PathPreview's own dead importer:
+`GalleryCard.vue:40` (basis pill `--pill-c`, `:121`) · `GalleryCardModal.vue:45` · `BasisSelector.vue:139` · `BasisCanvas.vue:251` · `GallerySearchBar.vue:31` · `GalleryDraftsSection.vue:44` · `canvas-drawing/labels.ts:30`.
+
+**Attribution honesty:** the defect is located in `basis-display.ts:4-6`, **not** in `PathPreview.vue`. It is reported on this axis because it is the designated supplier for PathPreview's only dependency-bearing prop, and because any revival of the component (§3) inherits it. Do not book it against the target file.
+
+**Falsifier** *"`basisDisplay` is read inside `computed()`s (e.g. `GalleryCard.vue:36-51`), so Vue re-evaluates and picks up new values."* — **Refuted:** a `computed` re-runs only when a *tracked reactive dependency* changes. `basisDisplay` is a bare `export const` plain object; reading `cfg.color` from it registers no dependency and the object is never reassigned. The computed re-runs when `props.entry` changes and reads the same stale literal every time. (Corroborating tell: `basisDisplay` is typed `Record<string, {…}>` with no `reactive`/`computed`/getter wrapper anywhere in its 7 lines.)
+
+**Relation to the corpus:** lane-docs.md:474 books `W.L5` as *"delete `cssVarToHex`/`hslToHex`/`rgbToHex`/`hexToRgb`/`hexToRgba` (`colors.ts:22-117`) … **NOT EXECUTED**"*. C-6 sharpens that work order: swapping the hand-rolled parsers for value.js 0.13 **will not fix these colors**, because the break is in the *routing* (value-copy at module eval), not the parsing. W.L5 must re-derive `basisDisplay` as a `computed`/getter, or the migration lands a correct parser behind a severed wire.
+
+---
+
+### C-7 · **MINOR** · `padding` is not the fraction it names, and does not budget the stroke
+
+`PathPreview.vue:33`:
+```ts
 const scale = 1 / (Math.max(rangeX, rangeY) * (1 + padding * 2));
 ```
+The resulting margin is `p / (1 + 2p)` of the viewBox, not `p`. At the default `padding: 0.1` (`:17`) the shape's half-extent is `0.5/1.2 = 0.4167`, spanning `0.0833…0.9167` — an **8.33%** margin from a prop that reads as 10%. Callers tuning a visual gap must solve `p = m/(1-2m)` to get the margin they want.
 
-One scale factor for both axes (so a wide shape stays wide), `|| 1` guards on each range (so a perfectly vertical or horizontal path cannot divide by zero), and centring on the true bbox midpoint (`:34-35`).
+Separately, SVG strokes are centered on the path, so half the stroke extends beyond the geometry — and `padding` does not account for it. The clip condition is `strokeWidth/size > 2p/(1+2p)` (≈ `0.167` at defaults): safe for the shipped defaults (`1.5/64 = 0.023`) and for the historical call (`2.5/240 = 0.010`), but a caller passing `strokeWidth: 12, size: 64` clips silently.
 
-`ContourPreview.vue:26` — the tree's other contour thumbnail — computes `const pad = (maxX - minX) * 0.1` and applies that **X-derived** pad to the Y extent as well (`:28`), with no degenerate guard: a vertical-line contour gives `pad = 0` **and** a zero-width viewBox. `ContourPreview/challenge-C-consumption.md:175` books that from the sibling's side and cites PathPreview's `|| 1` as the comparand; recorded here as the source of that citation.
-
-**Falsifier.** Dies if `preserveAspectRatio="xMidYMid meet"` (`:53`) already did this work — it does not: `meet` fits the *viewBox* into the *viewport*, and here the viewBox is a fixed unit square and the viewport is a `size × size` square, so `:53` is a **no-op** (fold: `EasingCurvePreview/challenge-C-consumption.md:89`, which uses this exact square-in-square case as its contrast). All shape-fitting is therefore the `:29-35` arithmetic's job, and that arithmetic does it correctly.
-
----
-
-### S-5 · **`.toFixed(4)` coordinate rounding** — FOLD
-
-`:40` rounds every emitted coordinate to 4 decimals. On a unit-square viewBox at `size=64` that is sub-0.01 px precision, at ~7 bytes per coordinate. The tree's other path serialiser, `closedSplinePath` (`contourEditing.ts:26-42`), emits raw `Number.prototype.toString` doubles — six full-precision coordinates per Bézier segment. Already booked by `ContourPreview/challenge-L-library.md:70`, which cites `PathPreview.vue:40` as the comparand. Recorded here as its source; no new claim.
+**Falsifier** *"`padding` is documented as a scale-divisor knob, not a margin fraction."* — **Refuted:** the only documentation is the inline comment at `:32`, *"Fit into [0, 1] with uniform scale + padding"*, which reads as a margin. The prop name carries the CSS meaning of `padding` (a length/fraction of the box). No JSDoc, no unit note, no docblock exists on the component at all.
 
 ---
 
-## §C · Corpus reconciliation
+### C-8 · **MINOR** · Unbounded spread on API-controlled array length
 
-| corpus row | disposition |
-|---|---|
-| `lane-frontend.md:183,369,444` — *"Bespoke SVG path thumb (no glass-ui analogue)"*, *"genuinely bespoke — no flag"* | **AGREE**, and corroborated independently from the producer's installed dist rather than from the census (S-1). Extended: the classification is not merely "not a shadow" — it is the *positive* property that makes this the one `components/ui/` file with zero tri-package migration cost. |
-| `lane-frontend.md:492` — the tri-package atomic bump | **AGREE.** PathPreview's contribution to it is provably nil (S-1). |
-| `lane-fourier-r3-r6.md` **R6-8** — an operation model embedding client back-references cannot attribute a defect to one side of the seam | **AGREE, and extended with the inverse.** D-1 is the same seam class failing the opposite way: an operation field declaring a product only the client can make, joined to the client by nothing. R6-8's remedy (decouple the join) does not detect it — a correctly-decoupled seam and a never-built seam are structurally identical. F.W5 needs a liveness predicate alongside the isolation predicate. |
-| `lane-fourier-r3-r6.md` **R3-7b** — `securityGate: RED_0_OF_45` | **AGREE, methodologically extended.** That gate is the shape "enumerate 45 operations, check one property per operation." D-1 is invisible to it: `preview_path` is *present*, *typed*, and *well-formed* on all three operations that carry it; only its value is a lie. Same denominator, different predicate. |
-| `GalleryCard/challenge-L-library.md:563` D-3 — dead `VIZ_COLORS` + `PathPreview` imports, MINOR | **AGREE on the fact, differ on severity from this side** (D-2). Not a double-count: there the subject is the importer wasting a line; here it is the importee having no consumer, which is what renders D-1's seam undetectable. Mechanism added: `web/tsconfig.json` sets neither `noUnusedLocals` nor `noUnusedParameters`, so `vue-tsc -b` structurally cannot catch it. |
-| `GalleryCard/challenge-L-library.md:388` — *"whether the emitted production bundle also carries `PathPreview`'s CSS is **UNPROVEN-NEEDS-LIVE (SS-13)**"* | **CONTRADICTED — resolved statically, and resolved NEGATIVE.** See below. |
-| `EasingCurvePreview/challenge-C-consumption.md:37,55,89,176,201,203` and `ContourPreview/challenge-{C,L}` :70,:157,:175,:213 | **FOLDED, not re-derived.** Those six rows cite PathPreview as a comparand; S-2/S-3/S-4/S-5 and D-9 record this file as the source of each citation and add only what is new from the primitive's own side. |
+`PathPreview.vue:25-28` uses `Math.min(...pathX)` / `Math.max(...pathX)` four times. Spread-as-arguments is bounded by the engine's argument limit (V8: ~65k–125k, and it is a *stack* limit, so it throws `RangeError`, not a graceful degradation).
 
-### The contradiction, in full
+The array length is API-controlled and **unbounded server-side**:
+```
+api/models/shared.py:13        n_points: int = 1024
+api/models/computation.py:45   n_points: int = 1024
+api/models/computation.py:50   n_points: int = 1024
+```
+Bare `int` with a default — **no** `Field(ge=…, le=…)`, no validator. The contour is resampled to exactly this count (`api/routers/images.py:257` `path = resample_arc_length(path, cs.n_points)`; `api/services/computation.py:108,145` likewise), and `ContourSettings.n_points` is a client-supplied field on the request body (`types.ts:34`, `api/routers/contours.py:39,50,61,73`). So the client chooses `pathX.length`, and nothing on either side caps it.
 
-`GalleryCard/challenge-L-library.md:388` left open whether the dead import drags PathPreview's scoped CSS into the production bundle, marking it SS-13. It is decidable **statically**, from the build artifact checked into the tree.
+The default 1024 (`web/src/lib/defaults.ts:8`) is comfortably safe. This is a robustness gap, not a live break.
 
-- `grep -ro "path-preview" web/dist/assets/ | wc -l` → **0**, across all 200 emitted asset files.
-- Control, same command on a class that *is* live: the literal `gallery-card` **is** present in `web/dist/assets/GalleryView-B4SY1qTS.js`. So Vite does not rename scoped-CSS class names, and the absence above is genuine evidence rather than a minification artifact.
-- **Freshness holds.** `dist/assets/GalleryView-B4SY1qTS.js` is dated 2026-06-12 18:13. `GalleryCard.vue`'s last commit is `9d7c387` (2026-06-03 17:17, *"feat(J.W3+W4): scheduler.yield floor + content-visibility on the gallery"*), and its working-tree mtime (2026-06-03 17:16) shows it clean since. The build therefore postdates the current file, import line and all.
-
-**Conclusion: Rollup tree-shook the dead default import and its scoped stylesheet entirely. The bundle cost is zero.** This *reduces* D-2 to a purely hygienic finding — there is no shipped weight, only a lie in the source graph. Recorded as a contradiction because the corpus row is currently open and would otherwise be carried into F.W2 as an unresolved bundle-budget item.
-
-**Falsifier on my own claim.** Dies if the checked-in `dist/` was produced from a different source state or a non-default config — its provenance (commit, env, `VITE_BASE_URL`) is not recorded anywhere in the tree, which is the honest weakness here; the mtime/commit ordering above is circumstantial, not cryptographic. Dies if `sideEffects` config changed the outcome — `web/package.json` declares no `sideEffects` field, so this is Rollup's default behaviour and should reproduce. A single `npm run build` would settle it beyond doubt; not run, per the read-only law.
+**Falsifier** *"1024 is the only value ever used, so the spread is safe."* — **Conceded for the default path**, which is why this is MINOR and not MAJOR. But `n_points` is a user-editable contour setting round-tripped through `ContourSettings`, and the server accepts any `int`. `reduce`/loop-based min/max costs one line and removes the cliff entirely. Note also the same 4× full-array scan is redundant: one pass can yield all four extrema.
 
 ---
 
-## §D · Verdict
+### C-9 · **MINOR** · No accessible name, no `aria-hidden` — and it was the *primary* card visual
 
-The component's **internal craft is the best of the three preview surfaces in fourier** — uniform-scale fit with degenerate guards (S-4), DPI-invariant stroke (S-3), cascade-inherited colour (S-2), rounded output (S-5), and a producer-dependency footprint of exactly zero (S-1). Four of those five are already cited by sibling challenges as the pattern the siblings *failed* to adopt.
+The `<svg>` (`PathPreview.vue:48-61`) carries no `role`, no `<title>`, no `aria-label`, and no `aria-hidden="true"`. An unlabeled inline `<svg>` is exposed to the a11y tree in several engines as a nameless graphic.
 
-Its **consumption posture is nonetheless defective**, and the defects are all at the seams rather than in the body:
+Either disposition would be defensible — but the component must pick one, and its history shows it needed the *labeled* one: commit `4340ac8`'s body states **"Cards show PathPreview as primary visual (not source image)"**, i.e. it replaced the `<img>` (whose `:alt` the current card still supplies at `GalleryCard.vue:101`). A decorative-by-default preview that gets promoted to primary content with no way to name it is an unmet contract.
 
-1. **D-1 (BLOCKER)** — it is the client half of an API contract (`ContourAsset.preview_path`) that is declared on 3 of 45 operations, hardcoded empty at its only writer, typed non-optional on the client, and read by nobody. Two-sided repair; carries to F.W5.
-2. **D-2/D-3/D-4/D-5 (MAJOR)** — no live consumer; a props shape used by nothing else in the tree; a co-length invariant that the shape makes inexpressible and the guard does not check; and an unconditional `Z` that contradicts the tree's own open-by-default path renderer.
-3. **D-6..D-9 (MINOR/INFO)** — dead configuration with mis-stated `padding` semantics; four variadic spreads against the letter (not the scope) of Invariant 20; an unguarded divisor; a tree-wide a11y gap.
+Contrast the house standard elsewhere in the same card: `role="button"` + `tabindex` + `:aria-label` (`GalleryCard.vue:72-74`), `:aria-label` on the checkbox (`:92`), `:aria-pressed` on the like button (`:140`) — all landed by `D.W4.c` / `A.W5.c` per the comments at `:65-69` and `:82-84`. `PathPreview` never received that sweep.
 
-**Disposition recommended to F.W2/F.W5.** Do not delete it — it is the tree's best-written SVG path primitive and the natural home for the extraction that `ContourPreview/challenge-L-library.md:235` (C-2) proposes. Do three things: (a) resolve D-1 on **both** sides — either populate `preview_path` server-side and consume it here, or delete the field from `assets.py`/`responses.py`/`image_storage.py`/`types.ts`, and never ship the half-state; (b) re-shape the props to the wire envelope (`points: { x: number[]; y: number[] }`) or to `Point2D[]` via the `zipPoints`/`unzipPoints` adapters that already exist, closing D-3 and structurally closing D-4; (c) add `closed?: boolean` defaulting **false**, matching `drawGhostPath`, closing D-5. Then give it a consumer, or the whole axis stays unfalsifiable.
+**Falsifier** *"It is decorative; the card's own `aria-label` names the entry."* — **True in the current (dead) wiring, false in the wiring it was built for.** If decorative is the intent, the fix is a one-attribute `aria-hidden="true"` that makes the intent explicit and machine-checkable; the component states nothing, which is the finding. **UNPROVEN-NEEDS-LIVE (SS-13)** for the exact per-engine AX-tree exposure.
+
+---
+
+### C-10 · **MINOR** · No gate in the repository can detect C-1
+
+The dead import survived five months because nothing looks for it:
+
+| gate | state | provenance |
+|---|---|---|
+| `noUnusedLocals` | **absent** | `web/tsconfig.json` — full `compilerOptions` read; sets `strict`, `noEmit`, `isolatedModules`, `verbatimModuleSyntax`, `skipLibCheck`, but neither `noUnusedLocals` nor `noUnusedParameters`. |
+| ESLint / oxlint / biome | **absent** | no config file at any depth in `web/`; no `lint` script in `web/package.json` (scripts are exactly `dev`, `build`, `preview`, `test:e2e`, `test:e2e:ui`). |
+| knip / depcheck / unimported | **absent** | `grep -rn "knip\|depcheck\|unimported" package.json` → zero. |
+| CI | typecheck + build only | `.github/workflows/ci.yml:95` `npx vue-tsc -b --force`, `:98` `npm run build`; `.github/workflows/deploy-pages.yml:114` same. |
+
+`vue-tsc` without `noUnusedLocals` emits no diagnostic for an unused binding, and `vite build` tree-shakes silently by design. **The dead import is invisible to every check the project runs.** This is the mechanism finding behind C-1 and generalizes: any other dead component import in this tree is equally undetectable.
+
+**Falsifier** *"`vue-tsc` flags unused component imports in `<script setup>` regardless."* — **Refuted structurally:** `noUnusedLocals` is the flag that produces TS6133, and it is not set; absent it, TypeScript emits nothing for unused bindings. (Additionally, `<script setup>` compiles bindings into a template render context, which historically suppresses even the flagged diagnostic for components — so enabling the flag alone may be insufficient; a Vue-aware unused-component rule is the reliable gate.) **UNPROVEN-NEEDS-LIVE** for the exact `vue-tsc@3.3.5` behavior *were* the flag enabled; the finding as written — that no configured gate detects it — is CONFIRMED from config alone. I deliberately did **not** run `vue-tsc -b`, which would write `.tsbuildinfo` into the read-only evidence repo.
+
+---
+
+### C-11 · **INFO** · Peer-range violation opened by the in-flight F.W2 bump (repo-level, *not* a PathPreview defect)
+
+`web/package.json` is **uncommitted-modified** and carries the F.W2 migration:
+```
+-  "@mkbabb/glass-ui": "^3.1.0"      →  +"^4.0.0"
+-  "@mkbabb/keyframes.js": "^2.2.0"  →  +"^4.3.0"
+-  "@mkbabb/value.js": "^0.10.0"     →  +"^0.13.0"
+```
+But `glass-ui@4.0.0` declares (`web/package-lock.json:338`):
+```json
+"@mkbabb/value.js": "^0.10.0 || ^0.11.0"
+```
+while the tree resolves **value.js 0.13.0** (`package-lock.json:15`; `node_modules/@mkbabb/value.js/package.json` → `"version": "0.13.0"`). `0.13.0` satisfies neither range. npm is silent because the peer is declared **optional** (`package-lock.json:357-358`, `peerDependenciesMeta`). Note also the axis brief says "0.13 **pinned**" — the manifest actually specifies the caret range `^0.13.0`, which for a 0.x major floats across `0.13.x`.
+
+Recorded here because it is a genuine consumption-surface fact this lane surfaced; **it is not attributable to `PathPreview.vue`**, which imports neither package. Route to the F.W2 owner.
+
+**Falsifier** *"Optional peers make the range advisory."* — Optional controls whether npm *installs/errors*; it does not make the declared compatibility window true. glass-ui@4.0.0 asserts it was built against value.js ^0.10||^0.11; running it on 0.13.0 is outside its declared support, silently.
+
+---
+
+### C-12 · **INFO** · Mutual dead capability — the client preview is dead *and* the server's preview field is always empty
+
+`ContourAsset.preview_path: string` (`types.ts:77`) is a declared server-side contour-preview surface. It is never populated:
+- `api/models/assets.py:85` — `preview_path: str = ""`
+- `api/services/image_storage.py:318` — `"preview_path": ""` (hardcoded literal at write time)
+- `api/responses.py:22` — `preview_path=asset.get("preview_path", "")`
+- No generator: `grep -rn "preview" api/services/contour_storage.py api/routers/contours.py` → **zero matches.**
+
+So the capability *"show a contour preview"* is dead on **both** sides of the seam simultaneously: the client component is unreachable (C-1) and the operation field is always `""`.
+
+This is adjacent to, but structurally distinct from, intake row **R6-8** (`lane-fourier-r3-r6.md:142`), which established that an operation record embedding derived client back-references cannot attribute a defect to one side. Here there is no coupling to blame — both leaves are independently, silently empty, and no conformance check exists that would notice a capability with zero implementation on either side. **Carry candidate for F.W5** alongside R6-8: the shared-provenance contract needs a *liveness* predicate (is this leaf ever populated / ever rendered?), not only an identity/isolation predicate.
+
+**Falsifier** *"`preview_path` is populated by a migration or worker outside `api/`."* — Not found: the only three writes in the tree are the empty-string literals above, and the field's model default is `""`.
+
+---
+
+### C-13 · **INFO** · Barrel/subpath specifier inconsistency in the only importer
+
+`GalleryCard.vue:3-5`:
+```ts
+import { Button }   from "@mkbabb/glass-ui/button";   // subpath
+import { Badge }    from "@mkbabb/glass-ui/badge";    // subpath
+import { Checkbox } from "@mkbabb/glass-ui";          // bare barrel
+```
+One file, three imports, two conventions — the barrel pulls the full entry graph for a single primitive. The tree is split repo-wide: `CollapsibleSection.vue:2` uses the barrel, `SliderControl.vue:24` uses `/slider`, `App.vue:5` uses `/toast`. Relevant to this axis as the *counterfactual* consumption idiom PathPreview would have had to choose had it consumed glass-ui at all; not a PathPreview defect.
+
+---
+
+## §2 — Superlatives (L-18 runs both ways)
+
+### S-1 · The normalization geometry is correct, and correctly needs no library
+`PathPreview.vue:25-39` is a textbook fit-to-unit-box:
+- **Uniform scale** from `Math.max(rangeX, rangeY)` (`:33`) — preserves aspect ratio. The naive bug here is scaling X and Y independently, which shears every non-square contour; this code does not make it.
+- **Bbox centering** `cx = (minX+maxX)/2` (`:34-35`) then `0.5 + (x-cx)*scale` (`:38`) — exact centering for any input, including asymmetric contours.
+- **Degenerate-range guards** `rangeX = maxX - minX || 1` (`:29-30`) — a perfectly horizontal or vertical contour would otherwise divide by zero; the `|| 1` collapses it to a centered line rather than `NaN`. This is a real edge case (a straight-edge contour) and it was anticipated.
+- **Y-flip** `0.5 - (pathY[i]-cy)*scale` (`:39`) with the comment `// flip Y` — image/contour space is Y-down from OpenCV, SVG user space is Y-down too, but the *decomposition* output is math-convention Y-up (`api/services/computation.py:79` emits `c.real`/`c.imag` — complex-plane, Y-up). The flip is correct and, notably, is the one line most likely to be wrong in a hand-rolled preview.
+
+Four independent chances to be subtly wrong; zero taken. **Falsifier:** *"the uniform scale is wrong — it should fit each axis."* Refuted: fitting each axis independently is non-conformal and would distort every contour; `max()` is the correct `contain` semantic.
+
+### S-2 · Unit-viewBox stroke normalization is the right *idea*
+`viewBox="0 0 1 1"` (`:52`) + `preserveAspectRatio="xMidYMid meet"` (`:53`) + `:stroke-width="strokeWidth / size"` (`:56`) is a coherent, resolution-independent design: geometry in normalized space, stroke re-expressed in that space so it reads as CSS pixels. Most hand-rolled previews either hardcode a pixel viewBox (losing resolution independence) or forget the stroke divisor entirely (getting hairlines that scale with content). This one reasoned it through. C-2 faults the *enforceability* of the coupling, not the concept — and the concept is one `vector-effect` attribute away from being airtight.
+
+### S-3 · `.toFixed(4)` is a deliberate, well-chosen precision floor
+`:40` — at a 1-unit viewBox, 1e-4 is sub-pixel for any rendered size below 10 000 px, so the quantization is invisible at every plausible preview scale. It also bounds each point at ~13 bytes of `d`-string instead of the ~35–40 bytes raw float serialization produces (`0.5000000000000001`-class output), a ~3× payload reduction on a default 1024-point contour with no visible loss. A naive implementation interpolates raw floats; this is the considered choice. **Falsifier:** *"4 dp loses fidelity on dense contours."* Refuted by scale: adjacent resampled points on a 1024-point contour in a unit box are ~1e-3 apart — an order of magnitude above the quantum.
+
+### S-4 · Zero dependency surface is, for *this* component, arguably right
+The census's *"genuinely bespoke — no flag"* (`lane-frontend.md:444`) is correct about the bespokeness, and this challenge concedes the point: there is no glass-ui analogue for an SVG path thumb; `currentColor` (`:16`) is a genuinely superior default to any parsed color because it inherits theme for free through CSS — **strictly better than the `basisDisplay` chain that C-6 shows to be broken**; and the component needs no animation, so keyframes 4.3 would be dead weight. A component that consumes nothing is not automatically under-integrated. The finding of this lane is not *"it should import more"* — it is C-1: **it is not imported at all.**
+
+---
+
+## §3 — The revival path (what any fix must consume)
+
+Should the mega-tranche restore the preview rather than delete the file, the consumption surface it must acquire is now known:
+
+1. **Data reachability is the blocker.** `GalleryCard`'s prop is `entry: Visualization` (`GalleryCard.vue:20`), and `Visualization` (`types.ts:207-239`) carries **no path arrays** — only `contour_hash: string` (`:213`), an asset FK. `listVisualizations` (`api/lib/api.ts:397-414`) embeds nothing further. The card structurally *cannot* render the component from its own props, which is very likely why the tag was dropped at `eefa318` while the import was not.
+2. **The reachable operation** is `getContour(contourHash)` → `ContourAsset` (`api.ts:326-328`, `operation:GET:/api/contours/{contour_hash}`), whose `points: {x, y}` (`types.ts:80`) is exactly the payload. But that is **one fetch per card** — an N+1 across the gallery grid, against a route with no batch sibling (the batch endpoints are `POST /admin/visualizations/batch` and `/admin/users/batch`, `api/routers/admin.py:411,451` — neither serves contours).
+3. **Therefore the honest fix is server-side**: populate `ContourAsset.preview_path` (C-12), or add path arrays to the list projection. Reviving the client component alone converts a dead import into a gallery-wide request storm.
+4. **And the color seam must be repaired first** (C-6), or the revived stroke renders in permanently-stale, theme-blind hardcoded hex.
+
+---
+
+## §4 — Independent corroboration offered back to the corpus
+
+**The 45-operation surface — CONFIRMED.** `CENSUS-2026-08-03.md:332` records *"45 ops ✓"* as live-corroborated. Reproduced independently here from the live tree: `grep -rEn "@[a-z_]*router\.(get|post|patch|put|delete)" api/routers/*.py` → **44** (contours 4 · equations 2 · images 7 · sessions 4 · visualizations 13 · admin 13 · gallery 1), plus `@app.get("/api/health")` at `api/main.py:125` → **45 exactly.** Agreement, not contradiction; and it is worth recording *how* the 45th is reached, since a `^@router\.` pattern alone yields only 30 and would read as a census miss.
+
+---
+
+## §5 — Contradictions with the hitherto corpus (stated explicitly, per Law)
+
+| # | corpus row | its claim | this lane |
+|---|---|---|---|
+| **X-a** | `formation/fourier/lane-frontend.md:183` / `:366` / `:369` / `:444` | `PathPreview.vue` inventoried four times: *"Bespoke SVG path thumb (no glass-ui analogue)"*, *"3 are glass-ui wrappers, `PathPreview.vue` is bespoke SVG"*, *"Bespoke with no glass-ui analogue"*, and the verdict **"genuinely bespoke — no flag"**. | **CONTRADICTED on the verdict, upheld on the classification.** The bespokeness is correct (S-4). But *"no flag"* is wrong: the component is unreachable (C-1). Every one of the four rows is a **file-level** inventory — a `find`/`ls` over `src/components/ui`, a LOC count, an import-shape read. None performed a reachability check, so a dead component and a live bespoke component are indistinguishable in that method. **Method carry:** a component census must join the file list against render sites, or it will keep rating corpses healthy. |
+| **X-b** | `fourier-analysis/docs/audits/runs/2026-06-16-M-deep-audit/raw-findings.json:1172` | *"On card hover, swap the static thumbnail for a lightweight live PathPreview animating the contour trace (**PathPreview is already imported at GalleryCard.vue:10 but only static**)."* | **FACTUALLY FALSE, and consequentially so.** It is not "only static" — it is **not rendered**. Since `eefa318` the import has never had a tag (proven in C-1). The M-audit inferred rendering from an import. Had the proposal been implemented as written — a keyframes-driven hover animation on `<PathPreview>` — it would have targeted a component that never mounts, and (given C-10) the build would have gone green. This is a live example of an import-presence heuristic manufacturing a false positive in fourier's own audit corpus. |
+| **X-c** | `intakes/lane-fourier-r3-r6.md:142` (**R6-8**, ADOPT-AS-FACT, CARRY → F.W5) | *"an API-operation model that embeds derived client back-references cannot attribute a defect to one side of the seam."* | **NO CONTRADICTION — extended.** C-12 finds an orthogonal seam failure on the same axis: `preview_path` (operation leaf) and `PathPreview` (client leaf) are both dead, independently and silently. R6-8's cure (keep operation identity independent of client identity) does not detect this; a leaf whose value is always `""` and a component with zero callsites both satisfy any identity/isolation predicate. **Recommend F.W5 carry a *liveness* predicate alongside R6-8's isolation predicate.** |
+| **X-d** | `formation/fourier/lane-docs.md:474` (**W.L5**, *NOT EXECUTED*) | *"5 specifiers → `/easing`; delete `cssVarToHex`/`hslToHex`/`rgbToHex`/`hexToRgb`/`hexToRgba` (`colors.ts:22-117`); the declared 3-line hex residual with a deletion date."* | **NO CONTRADICTION — sharpened, and the scope is insufficient.** C-6 shows the basis-color chain is broken *upstream of the parsers*: `basis-display.ts:4-6` value-copies `VIZ_COLORS` at module eval, so `resolveVizColors()` (`App.vue:11`) and the dark-mode observer (`App.vue:13`) never reach it. Replacing the hand-rolled arms with value.js 0.13 leaves a correct parser behind a severed wire, and the 7 consumers keep rendering hardcoded hex. **W.L5 must add: re-derive `basisDisplay` as a `computed`/getter over `VIZ_COLORS`** — otherwise the migration lands green and changes nothing on screen. Cross-ref `lane-docs.md:268` (**I-9 `resolveCssColor` DECLINED**, re-trigger = *"a second hand-rolled context-resolution arm"*): `cssVarToHex`'s four regex arms (`colors.ts:29,31-36,40-43,46-51`) remain that arm, and C-6 adds that even routed correctly it has no `oklch()` branch (consistent with `CENSUS-2026-08-03.md:174`). |
+
+---
+
+## §6 — Disposition
+
+| id | sev | claim | file:line |
+|---|---|---|---|
+| C-1 | **BLOCKER** | Component unreachable; sole reference is a dead import, dead since `a459a56` (2026-03-16) | `GalleryCard.vue:10`; `PathPreview.vue` whole |
+| C-2 | MAJOR | Stroke normalization coupled to a `size` prop CSS overrides — broken at its only-ever call site | `PathPreview.vue:50-51,56`; `4340ac8 GalleryView.vue:850-855` |
+| C-3 | MAJOR | Split `pathX`/`pathY` props mirror none of the API's five `{x,y}` carriers | `PathPreview.vue:6-7`; `types.ts:15,17,25,26,80` |
+| C-4 | MAJOR | No length-agreement invariant → silent `"NaN"` in `d`; non-finite input poisons all points | `PathPreview.vue:23,25,37-41` |
+| C-5 | MAJOR | Unconditional `Z` contradicts the house contract (`drawGhostPath` defaults `closePath=false`) | `PathPreview.vue:43`; `ghost-path.ts:5,12,27` |
+| C-6 | MAJOR | `strokeColor`'s supplier chain frozen at hardcoded hex; theme observer severed; 7 consumers | `basis-display.ts:4-6`; `colors.ts:77-96`; `App.vue:10-18` |
+| C-7 | MINOR | `padding` yields `p/(1+2p)` margin, not `p`; stroke half-width unbudgeted | `PathPreview.vue:17,33` |
+| C-8 | MINOR | Unbounded spread min/max over API-controlled length; `n_points` has no server bound | `PathPreview.vue:25-28`; `api/models/shared.py:13`; `computation.py:45,50` |
+| C-9 | MINOR | No accessible name and no `aria-hidden`, though promoted to primary card visual | `PathPreview.vue:48-61`; `4340ac8` commit body |
+| C-10 | MINOR | No configured gate can detect C-1 (`noUnusedLocals` absent, no linter, CI = tsc+build) | `tsconfig.json`; `package.json`; `ci.yml:95,98` |
+| C-11 | INFO | glass-ui@4.0.0 peer `value.js ^0.10\|\|^0.11` vs resolved 0.13.0; silent (optional peer) | `package-lock.json:15,338,357-358` |
+| C-12 | INFO | Mutual dead capability: `preview_path` always `""` on the server, component dead on the client | `assets.py:85`; `image_storage.py:318`; `responses.py:22` |
+| C-13 | INFO | Barrel/subpath specifier inconsistency in the only importer | `GalleryCard.vue:3-5` |
+
+**Superlatives** S-1 geometry correct (`:25-39`) · S-2 unit-viewBox stroke idea sound (`:52-56`) · S-3 `.toFixed(4)` a considered precision/payload floor (`:40`) · S-4 zero-dependency is right *for this component* (`:2,:16`).
+
+**Recommended disposition:** the cheapest correct action is **delete `PathPreview.vue` and the dead import at `GalleryCard.vue:10`**, and book C-6 / C-10 / C-12 as independent live defects. If the preview is wanted, §3 is the order of operations — server projection first, color chain second, component third — and the rewrite should take a single `path: {x, y}` prop (killing C-3 and C-4 together), an explicit `closePath` prop (C-5), and `vector-effect="non-scaling-stroke"` (C-2).
+
+**Marked UNPROVEN-NEEDS-LIVE (SS-13):** C-1's bundle-byte consequence · C-9's per-engine AX-tree exposure · C-10's `vue-tsc@3.3.5` behavior *were* `noUnusedLocals` enabled. Every other claim is source-derived and CONFIRMED.
+
+**Law compliance:** `fourier-analysis` was read-only throughout; no build, typecheck, or install was run against it (deliberately, to avoid writing `.tsbuildinfo`). This file is this lane's only write.

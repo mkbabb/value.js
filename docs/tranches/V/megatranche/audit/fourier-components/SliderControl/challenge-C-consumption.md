@@ -2,327 +2,242 @@ claude-opus-5[1m] (served model id)
 
 # CHALLENGE · `SliderControl.vue` · axis **C — CONSUMPTION**
 
-**Subject** `/Users/mkbabb/Programming/fourier-analysis/web/src/components/ui/SliderControl.vue` (150 lines)
-**Substrate** fourier HEAD `cd26c653` / tree `9a66411d` (unmoved — intake row **R4-9**, ADOPT-AS-FACT), working tree on `m/w1-bump-migration` with the in-flight 3.1→4.0 bump applied to `web/package.json` and to this file's `variant=` string.
-**Mode** static + source-derived, read-only. No browser tooling. No product source touched in any repo. Single write = this file.
-**Import closure read whole** — the file has exactly two imports (`SliderControl.vue:22-23`): `computed` from `vue`, and `Slider` from `@mkbabb/glass-ui/slider`. The latter was read at the installed version through `web/node_modules/@mkbabb/glass-ui/dist/{slider.d.ts, components/ui/slider/index.d.ts, components/ui/slider/Slider.vue.d.ts, slider-DQ95MET2.js, cn-DJXf4yaB.js, glass-ui.css, package.json}`, and cross-read against producer `@mkbabb/glass-ui@7.0.0` at `/Users/mkbabb/Programming/glass-ui`.
-
-**Posture.** Assumed DEFECTIVE until the tree proved otherwise. It did not prove otherwise. The load-bearing finding is that the component's **required `color` prop is completely inert** — it drives five CSS custom properties that do not exist in the pinned producer — and that the seam it forms is the transport for a **client↔operation domain divergence that destroys contour extraction on first touch**.
+**Subject** `/Users/mkbabb/Programming/fourier-analysis/web/src/components/ui/SliderControl.vue` (150 lines, working tree).
+**Substrate** fourier HEAD `cd26c653…`, tree `9a66411d…` — unchanged since R3/R4 pinned it (intake **R4-9**, ADOPT-AS-FACT). The file is one of the **24 in-scope dirty paths**: `git diff` against HEAD is a 3-hunk, 6-line variant rename (below). Every claim below is against the **working tree**, which is the tree F.W0 opens on.
+**Mode** static + source-derived, read-only. No dev server, no browser tooling, no install. One write: this file.
+**Prior** assumed DEFECTIVE. Fifteen defect rows survived their own falsifiers; five superlatives survived theirs (L-18 both ways).
 
 ---
 
-## §0 · The consumption ledger (what this file actually consumes)
+## §0 · VERDICT
 
-The axis brief names four consumption surfaces. Measured, not assumed:
+| | |
+|---|---|
+| **Defects** | **15** (1 BLOCKER · 4 MAJOR · 6 MINOR · 4 INFO) |
+| **Superlatives** | **5** |
+| **Headline** | **C-1 — the `color` prop is INERT.** All five custom properties the wrapper projects onto the glass-ui track (`SliderControl.vue:144-148`) were **deleted from glass-ui at v3.2.0** and appear **zero times** in the pinned `@mkbabb/glass-ui@4.0.0`. The required `color: string` prop therefore has no rendered effect at any of the 8 live callsites; every slider paints `--primary`. |
+| **Migration bearing** | The uncommitted `m/w1-bump-migration` bump (glass-ui `^3.1.0` → `^4.0.0`) **introduced** this regression and is what makes it live. The 4→7 leg cannot be planned on top of an unlanded 3→4 that silently dropped the design system's per-instance tint contract across **6 files / 22 declarations**. |
 
-| Surface | Sites in this file | Evidence |
-|---|---:|---|
-| **value.js `0.13`** | **0** | `grep -n "value.js\|value-js\|easeInOut\|timingFunctions" src/components/ui/SliderControl.vue` → empty. The five repo-wide value.js sites (lane-frontend §5) are `easings.ts:9,16`, `ConvergencePlot.vue:5`, `useCurveTransition.ts:8`, `harmonics.ts:5` — none here. |
-| **keyframes.js `4.3`** | **0** | `grep -n "keyframes" src/components/ui/SliderControl.vue` → empty. |
-| **glass-ui `^4.0.0`** | **1 import / 1 symbol / 1 subpath**; **11 template bindings**; **5 CSS custom-property writes**; **2 producer-token reads** (`--muted-foreground` :108, `--foreground` :123,:132) | `:23`, `:81-90`, `:143-149` |
-| **fourier API (45-op surface)** | **0 direct**; **6 parameters transported** across 8 callsites, 2 of which reach `POST /api/images/{slug}/extract-contour` (`api/routers/images.py:212`) via `lib/api.ts:300-312` | §C-5 |
-| **Tailwind v4** | 1 `@reference` + 1 `@apply` | `:95`, `:106` |
-
-So the **value.js consumption of this component is NIL**, and the F.W2 migration surface reaches it only transitively — through glass-ui's peer range (**C-7**) and through the hand-rolled `lib/colors.ts` arm that fills the `color` prop at 5 of 8 callsites (**C-10**). That nullity is itself a finding: the wrapper's per-instance colour hook is the one place in this file where value.js would earn its keep, and it is instead served by a 117-line regex resolver that returns `#888888` for anything it does not recognise.
-
-**Callsite census (8, complete).** `git grep -n '<SliderControl'`:
-`FunctionInput.vue:179, :213` · `ContourSettings.vue:230, :243, :269, :282, :295` · `EquationPanel.vue:97`.
+**Consumption inventory of this file (the honest denominator).** value.js: **0 imports**. keyframes.js: **0 imports**. fourier API: **0 imports** (reached at 3 hops through `ContourSettings`). glass-ui: **1 import, 1 symbol, 1 subpath** — `import { Slider } from "@mkbabb/glass-ui/slider"` (`:23`). So the axis reduces to: *one producer symbol, one CSS-variable contract, one props/emits contract, and one operation reached transitively.* Three of the four are defective.
 
 ---
 
-## §1 · DEFECTS
+## §1 · THE CONSUMED SURFACE, MEASURED
 
-### C-1 · **BLOCKER** — the required `color` prop is inert: all five `--slider-scrub-*` properties are dead at the pinned producer
+| Seam | What the file consumes | Where | State |
+|---|---|---|---|
+| glass-ui component | `Slider` via bare subpath `@mkbabb/glass-ui/slider` | `:23` | ✅ clean (S-3) |
+| glass-ui variant axis | `variant="standard"` | `:83` | ✅ exists at 4.0.0 (`dist/components/ui/slider/index.d.ts` — `"standard" \| "spectrum"`) |
+| glass-ui **token** axis | `--slider-scrub-{track-height,range-bg,range-bg-hover,thumb-bg,thumb-bg-hover}` | `:144-148` | 🔴 **DEAD — C-1** |
+| glass-ui theme tokens | `--foreground`, `--muted-foreground` | `:108`, `:123`, `:132` | ✅ live (145 / 42 defs in `dist/styles/`) |
+| glass-ui dock context | implicit `keepDockOpen` default `true` | `dist/slider-DQ95MET2.js` `useDockHold` | ✅ correct (S-1); not forwardable (C-5) |
+| glass-ui commit event | `valueCommit` | — | ⚠️ **swallowed** (C-5) |
+| Tailwind v4 | `@reference "tailwindcss"` + `@apply text-sm` | `:95`, `:106` | ✅ house idiom, 35 files (S-5) |
+| value.js `^0.13.0` | *nothing* | — | ⚠️ 0% at the one color seam (C-10) |
+| keyframes `^4.3.0` | *nothing*; hardcoded `0.15s` | `:128` | ⚠️ C-9 |
+| fourier API | transitively `POST /api/images/{imageSlug}/extract-contour` | `images.py:212` | 🔴 domain mismatch (C-3) |
 
-**Claim.** `SliderControl.vue:143-149` writes five custom properties in the `--slider-scrub-*` namespace. **That namespace does not exist anywhere in the installed `@mkbabb/glass-ui@4.0.0`.** Nothing reads them. The `color: string` prop (`:32`) — declared **required**, passed by all 8 callsites, threaded to `--track-color` at `:89` — therefore paints nothing.
+**The one-line provenance for C-1.** glass-ui commit `99a11083` *"feat(tranche-AV): W9 dock-rebuild + W1 aurora-fix + **W11 slider-unification**"* (2026-06-06, `package.json` version **3.2.0**) deleted the `--slider-scrub-*` block from `src/components/ui/slider/Slider.vue` (−211/+? lines in that file; the removed declarations include `--slider-scrub-track-height`, `--slider-scrub-range-bg`, `--slider-scrub-range-bg-hover`, `--slider-scrub-thumb-bg`, `--slider-scrub-thumb-bg-hover` — i.e. **all five this file still writes**) and replaced them with the `--slider-{track,range,thumb}-*` namespace. fourier's HEAD lock was `glass-ui 3.1.0` (`git show HEAD:web/package-lock.json:650-651`), which **predates** the deletion; the working-tree bump to 4.0.0 crossed it.
+
+---
+
+## §2 · DEFECT REGISTER
+
+### C-1 · BLOCKER · the `color` prop is inert; five dead custom properties
+
+**Claim.** `SliderControl.vue:143-149` declares five `--slider-scrub-*` custom properties on `.slider-track-host`. **No stylesheet anywhere in the resolved application reads any of them.** The required prop `color: string` (`:32`), plumbed through `:style="{ '--track-color': color }"` (`:89`) into `color-mix()` at `:145-148`, therefore produces **no rendered difference whatsoever**. Every SliderControl instance paints its range with the glass-ui default `--primary`.
 
 **Provenance.**
+- Consumer declarations: `SliderControl.vue:144,145,146,147,148`.
+- Producer, installed: `web/node_modules/@mkbabb/glass-ui/package.json` → `"version": "4.0.0"`; `grep -ro "slider-scrub" dist/` → **0 hits**; `grep -rc "slider-scrub" dist/styles/` → **0**.
+- What 4.0.0 *does* read (`dist/glass-ui.css`, scope `data-v-534634a7`): `.slider-track{height:var(--slider-track-height,.375rem);background:var(--slider-track-bg,var(--muted-medium))}` · `.slider-range{background:color-mix(in oklab, var(--slider-range-bg,var(--primary)) 88%, transparent)}` · `.slider-thumb{width:0;…;opacity:0}`. Ten `--slider-*` tokens exist; **none is `scrub`-prefixed**.
+- Deletion commit: glass-ui `99a11083` @ v3.2.0 (see §1).
+- Blast radius beyond this file (same dead namespace, same cause): `BasisSelector.vue:319-322`, `EditorControlsDock.vue:225-228`, `HarmonicLevelGrid.vue:210-213`, `MorphPhaseConfig.vue:207-210`, `GlassTimeline.vue:125`, `ConvergenceTimeline.vue:136` — **22 declarations / 6 files**, all dead.
+
+**Falsifier (survived).** *"Some stylesheet consumes `var(--slider-scrub-…)`."* → `grep -rn "var(--slider-scrub" web/src/ web/node_modules/@mkbabb/` → **empty**. Every one of the 22 occurrences in the tree is a *declaration*; there are **zero** readers. Secondary falsifier: *"the tokens live in the `./styles` entry, not the component chunk."* → `./styles` resolves to `dist/styles/index.css` (`package.json exports`); `grep -rc -- "--slider-scrub" dist/styles/` → **0**, against `--foreground` 145 / `--duration-fast` 92 in the same tree, so the grep is sound.
+
+**Second-order.** Even the naïve cure (rename to `--slider-track-height`) fails for the geometry token — see **C-11**.
+
+**Contradicts the corpus, explicitly.** `formation/fourier/lane-frontend.md §3` ("glass-\* class-surface census") asserts: *"All 11 `glass-scrubber` and all `glass-track`/`glass-fill`/`glass-thumb` occurrences are **prose comments only** … `SliderControl.vue:3,6,140`."* That is **true for class names and false as a safety conclusion** — the census enumerated the `glass-*` *class* surface and never censused the `--slider-scrub-*` *custom-property* surface, which is live CSS at 22 sites. `lane-frontend.md §5` further characterises the 3.1→4.0 hop as *"24 files, 46 insertions, 46 deletions — a pure rename sweep, no logic"*: the sweep was **incomplete**, not clean. It renamed 9 `variant=` literals and left the companion token namespace at pre-3.2.0 names. The true cost of that hop is understated by at least 22 declarations.
+
+---
+
+### C-2 · MAJOR · every non-finite keystroke commits `min` to the model
+
+**Claim.** `clamp()` (`:40-42`) returns `lo` — not the previous value, not a no-op — when the parsed input is non-finite. `onInput` (`:44-49`) runs on **every** `input` event with no commit boundary. Therefore any transient empty or invalid field state **immediately emits `props.min`** and mutates the parent's model.
+
+**Failure scenario (deterministic).** ML Threshold (`ContourSettings.vue:230-240`, `min=0.1 max=0.9 step=0.05`), model `0.5`. User selects-all and presses Delete to retype. `(e.target as HTMLInputElement).value` is `""` → `parseFloat("")` = `NaN` → `Number.isFinite(NaN)` false → `clamp` returns `lo` = **0.1** → `emit("update:modelValue", 0.1)`. `mlThreshold` becomes 0.1; `displayValue` recomputes to `"0.10"` and is written back into the field before the user can type a digit. One second later `watchDebounced` (`ContourSettings.vue:139-149`) fires `runCompute()` → a real `POST /api/images/{imageSlug}/extract-contour`. **The field cannot be cleared, and clearing it costs a network round-trip.**
+
+**Falsifier (survived).** *"A `@change`/`@blur` handler re-syncs, or `clamp` preserves the prior value."* → `grep -n "@blur\|@change\|onChange" SliderControl.vue` → **0 hits**; `:78` binds `@input` only. `clamp`'s fallback branch is literally `: lo` (`:41`).
+
+---
+
+### C-3 · MAJOR · `formatValue` is a one-way transform; no inverse parse, no unit contract — and one live instance is out of the operation's domain
+
+**Claim.** The props contract offers `formatValue?: (v: number) => string` (`:33`) for display but **no `parseValue` inverse**. `onInput` parses the *formatted* string with bare `parseFloat` in **model units** (`:47`). Any display transform that is not identity-in-units is therefore unrepresentable, and `min`/`max`/`step` carry no unit contract relating them to the value's real domain.
+
+**Failure scenario (live, at the API seam).** `ContourSettings.vue:269-278` mounts a SliderControl labelled **"Min Area %"** with `:min="0" :max="20" :step="0.5"`. The value is forwarded verbatim — `ContourSettings.vue:116` `min_contour_area: minContourArea.value` → `api.extractContour` (`lib/api.ts:300-312`) → `POST /api/images/{imageSlug}/extract-contour` (`api/routers/images.py:212-213`) → `ContourSettings._clamp_area` (`api/models/shared.py:27-30`): `return max(0.0, min(1.0, float(v)))`. **The server's domain is a fraction 0..1; the slider's is 0..20 with no ÷100 anywhere in the chain.** Consequences, all verifiable statically:
+1. **95 % of the slider's travel is a dead zone.** Every position from 1.0 to 20 produces the identical request `min_contour_area = 1.0` (= discard every contour smaller than the whole image), so the top 38 of the 40 step positions are behaviourally identical.
+2. **The default is unrepresentable.** `CONTOUR_DEFAULTS.min_contour_area = 0.001` (`lib/defaults.ts:11`) with `step=0.5`; on first paint the field reads `"0.0"` (`formatValue: v => v.toFixed(1)`) while the model is 0.001 — a display/model divergence at the wrapper's own seam.
+3. **The wrapper cannot round-trip its own initial value.** Touching the field once emits `0`, so `isDefault` (`ContourSettings.vue:64`, `minContourArea.value === CONTOUR_DEFAULTS.min_contour_area`) flips false permanently and the panel's "reset" affordance mislights.
+
+**Falsifier (survived).** *"A ÷100 conversion exists somewhere."* → `grep -n "minContourArea\|min_contour_area" web/src/components/visualization/ContourSettings.vue web/src/lib/api.ts web/src/stores/workspace.ts` shows verbatim forwarding at `ContourSettings.vue:92,116`, `lib/api.ts:309` (`body: { contour_settings: { ...settings } }`); no arithmetic. *"Every slider is mismatched, so this is a systemic API story, not a SliderControl one."* → **No**: `blur_sigma` (0..5 vs server `max(0.0,v)`), `smooth_contours` (0..1 vs server `max(0,min(1,v))`), `ml_threshold` (0.1..0.9, no server validator) and `max_contours` (0..50, 0→`None` on both sides) all agree. **`min_contour_area` is the sole mismatch** — which is exactly what a wrapper with a unit contract would have caught, and what a wrapper with `formatValue`-only cannot.
+
+**Folds intake row R6-8** (ADOPT-AS-FACT + CARRY→F.W5): *"an API-operation model that embeds derived client back-references cannot attribute a defect to one side of the seam."* C-3 is the same seam viewed from the other side: the **client control's domain is not derivable from the operation record either**, because the only thing crossing the boundary is a bare `float`. The F.W5 shared-provenance contract needs the operation's field domain to be readable by the control, not just the control's value writable to the operation. Also quantifies one row of **R3-7c** (36 client edges / 9 gap operations): this is a *non*-gap edge that is nonetheless semantically broken.
+
+---
+
+### C-4 · MAJOR · clamped-to-identical edits leave the DOM field diverged from the model, permanently
+
+**Claim.** When an edit clamps to the value the model already holds, **no reactive dependency changes**, so no re-render is scheduled, so the `:value="displayValue"` binding (`:74`) is never re-applied and the DOM retains the user's out-of-range text indefinitely.
+
+**Failure scenario.** Blur Sigma (`ContourSettings.vue:243-253`, `min=0 max=5`), model `5`. User appends a digit: field reads `"55"` → `parseFloat("55")` = 55 → `clamp(55,0,5)` = **5** → `emit(5)` → `blurSigma.value = 5`, **unchanged** → Vue schedules nothing → `displayValue` stays `"5.0"` → the input still displays `"55"`. There is no `@blur`/`@change` re-sync (`grep` → 0 hits) and the slider thumb sits at max, so the UI asserts two different values at once until an unrelated re-render happens to occur.
+
+**Falsifier (survived, and it corrected an earlier draft of this row).** *"Vue skips the `value` patch when the vnode prop is unchanged, so the desync is a patch bug."* → **False**, and I withdraw that mechanism: Vue's `patchElement`/`patchProps` special-case `key === 'value'` and re-apply it unconditionally *when a patch runs*. The surviving mechanism is strictly upstream of that — **no patch runs at all**, because the emit produced no state change. The claim stands on the weaker, correct footing.
+
+---
+
+### C-5 · MAJOR · the wrapper narrows the producer's contract: no `disabled`, no `size`, no `keepDockOpen`, no `valueCommit`
+
+**Claim.** `defineProps` (`:25-34`) exposes 8 props and `defineEmits` (`:36-38`) exactly 1. glass-ui's `Slider` accepts `SliderRootProps & { class, variant, size, keepDockOpen }` and emits **two** events (`dist/components/ui/slider/Slider.vue.d.ts`). The wrapper drops, with no escape hatch: **`disabled`**, **`size`**, **`orientation`**, **`keepDockOpen`**, and the **`valueCommit`** emit.
+
+**Failure scenarios.**
+- **`disabled`** — `ContourSettings` has an explicit in-flight state (`store.computing`, guarded at `ContourSettings.vue:104-107`) but cannot disable its five sliders or their number inputs during a compute; the producer ships `.glass-slider[data-disabled] .slider-range{opacity:var(--opacity-disabled)}` and reka suppresses pointer/keyboard for it, and none of it is reachable.
+- **`size`** — every instance is pinned to `md` (`.glass-slider[data-size=md]{--slider-track-height:1.25rem}`). The file's own intent is a 16 px track (`:144`); the only supported route to a different track height is `size`, which is not forwarded. See C-11.
+- **`valueCommit`** — the producer's purpose-built drag-end event is swallowed, so **3 of 3** consumers hand-roll their own debounce with **3 different constants**: `ContourSettings.vue:148` (1000 ms), `EquationPanel.vue:64` (300 ms), `EquationView.vue:180` (200 ms). The correct affordance exists and is unused.
+
+**Falsifier (survived).** *"The dropped props are unused, so the narrowing is deliberate KISS."* → The `disabled` need is demonstrable (`store.computing` exists and is already read for the retry banner), the `size` need is stated **in this file's own CSS** (`:144`), and the `valueCommit` need is proven by three independent re-implementations. A narrowing that forces three consumers to rebuild a producer feature is not KISS.
+
+---
+
+### C-6 · MINOR · `color: string` has two incompatible consumer arms and no documented contract
+
+**Claim.** The same required prop is fed by two semantically different value kinds: a **JS-resolved hex snapshot** — `:color="VIZ_COLORS.amber"` (`ContourSettings.vue:236` and 4 more), where `VIZ_COLORS` is a `reactive()` object populated by `resolveVizColors()` (`lib/colors.ts:90-96`) at boot and on `.dark` mutation (`App.vue:11-17`) — and a **live CSS var reference** — `color="var(--viz-fourier)"` (`EquationPanel.vue:101`, `FunctionInput.vue:185,218`). The prop's type (`string`) and its one-line doc say nothing about which is expected. The two arms have different theme-reactivity: the `var()` arm is cascade-native and always correct; the hex arm is a snapshot that is correct only for as long as the `MutationObserver` fires, and is `#888888` for any token `cssVarToHex` cannot parse (`lib/colors.ts:26,53`).
+
+**Falsifier (survived).** *"Both arms behave identically inside `color-mix()`."* → True *today* only because both are dead (C-1). The moment C-1 is cured they diverge on theme flip, and `cssVarToHex` handles only `#hex`, `hsl(…)`, bare `h s% l%`, and `rgb(…)` (`lib/colors.ts:28-51`) — an `oklch()`/`lab()`/`color()`-authored token silently yields `#888888`.
+
+---
+
+### C-7 · MINOR · the v-model setter assumes a defined array; the producer's emit is typed `number[] | undefined`
+
+**Claim.** `sliderModel.set` (`:55`) reads `arr[0]` directly. glass-ui's declared emit is `"update:modelValue": (payload: number[] | undefined) => any` (`dist/components/ui/slider/Slider.vue.d.ts`). `?? props.min` guards an **empty** array; it does not guard an **absent** one — `undefined[0]` throws `TypeError: Cannot read properties of undefined (reading '0')`.
+
+**Falsifier (partially survived — reported honestly).** *"reka never emits `undefined`, so this is unreachable."* → I could not reach reka's `SliderRoot` emit declaration in the installed tree (`node_modules/reka-ui/dist/Slider/SliderRoot.vue.d.ts` is not laid out per-component; the bundle is `dist/index.js`), so the **runtime** reachability is **UNPROVEN**. What *is* proven statically is the type-level mismatch: a `WritableComputedRef<number[]>` bound by `v-model` to a component whose payload includes `undefined`. Verdict **PLAUSIBLE**, severity held at MINOR for that reason. Cheap cure regardless: `set: (arr) => emit(…, clamp(arr?.[0] ?? props.min, …))`.
+
+---
+
+### C-8 · MINOR · the input's `type` flips reactively between `number` and `text`
+
+**Claim.** `:type="isNumericDisplay ? 'number' : 'text'"` (`:72`) where `isNumericDisplay = !Number.isNaN(Number(displayValue))` (`:61`). Because `displayValue` is value-dependent, the element's `type` — and with it `min`/`max`/`step` (`:75-77`, forced to `undefined` in the text arm) — **changes as the user drags**.
+
+**Failure scenario.** "Max Contours" (`ContourSettings.vue:282-292`) uses `formatValue: v => v === 0 ? 'All' : String(v)`. At `v=0`, `Number("All")` is `NaN` → `type="text"`, no `min`/`max`/`step`. Dragging off 0 flips the live element to `type="number"` and re-applies the three constraint attributes. Vue patches `type` in place on a possibly-focused input; UA behaviour on a mid-edit `type` mutation (value normalisation, selection loss, spin-button appearance) is engine-specific — **UNPROVEN-NEEDS-LIVE for SS-13**. Statically certain: `Number("")` is `0`, not `NaN`, so a `formatValue` returning `""` is silently classified numeric.
+
+**Falsifier (survived).** *"`type` is static per instance."* → It is bound to a `computed` derived from `modelValue` (`:61`, `:72`); the "All" formatter makes the flip reachable from a single step of the slider.
+
+---
+
+### C-9 · MINOR · hardcoded motion constant where the consumed design system ships tokens
+
+**Claim.** `:128` `transition: border-color 0.15s;` — a raw duration with the UA-default `ease` timing. The same producer stylesheet this file already depends on defines `--duration-fast` (**92** occurrences in `dist/styles/`) and `--ease-standard`, and glass-ui's own slider CSS uses exactly `transition: background var(--duration-fast) var(--ease-standard)`. `@mkbabb/keyframes.js@^4.3.0` is a declared dependency (`web/package.json`) with **0 imports** in this file.
+
+**Falsifier (survived).** *"The tokens don't exist at the pin."* → `grep -rc -- "--duration-fast" node_modules/@mkbabb/glass-ui/dist/styles/` → **92**; the file already consumes `--foreground`/`--muted-foreground` from the same entry (`:108,123,132`), so the cascade is demonstrably in scope.
+
+---
+
+### C-10 · MINOR · value.js is pinned and 0 % consumed at the app's only per-instance color seam
+
+**Claim.** `@mkbabb/value.js@^0.13.0` is a declared dependency whose entire consumed surface is **5 import lines across 4 files, all easing** — `ConvergencePlot.vue:5`, `equation/lib/harmonics.ts:5`, `useCurveTransition.ts:8`, `lib/easings.ts:9,16` (`easeInOutSine`, `timingFunctions`). Meanwhile this component's color pipeline is served by `lib/colors.ts` (117 lines): a hand-rolled `cssVarToHex` with three regexes (`lib/colors.ts:32,40,46`), a hand-rolled `hslToHex` (`:56-68`), `rgbToHex` (`:70-74`), `hexToRgba` (`:101-106`) and `hexToRgb` (`:111-117`) — precisely the surface value.js owns.
+
+**Falsifier (survived).** *"`SliderControl` doesn't import `colors.ts`, so this is out of scope."* → It imports nothing, but its required `color` prop is fed by `VIZ_COLORS` at 5 of 8 callsites (`ContourSettings.vue:236,249,275,288,301`), and the hex↔`var()` split of C-6 exists *because* there is no shared color type. The seam is this component's props contract. **AGREES with `lane-frontend.md §9 item 5** ("the value.js consumer surface is tiny — 5 sites, `easeInOutSine` + `timingFunctions` — the cheapest leg of the deadlock"): I reproduce that count exactly, and add that the *cheapness* is the symptom — the color arm that value.js exists to serve was never wired.
+
+---
+
+### C-11 · MINOR · the obvious cure for the geometry token loses on specificity
+
+**Claim.** Renaming `--slider-scrub-track-height: 16px` (`:144`) to `--slider-track-height: 16px` on `.slider-track-host` **still has no effect**. The producer sets the same variable on the *same element* from a higher-specificity selector: `.glass-slider[data-size=md][data-v-534634a7]{--slider-track-height:1.25rem}` (`dist/glass-ui.css`) — one class + two attribute selectors — versus the consumer's scoped `.slider-track-host[data-v-<parent>]` — one class + one attribute. The producer wins; the track stays 20 px.
+
+**Falsifier (survived).** *"Scoped consumer CSS always wins over library CSS."* → Specificity is computed from the selector, not the source; both rules land on the identical element (the Slider root, which receives the parent's scope id as the child component's root). The routes that *do* work are the `size` prop (not forwarded — C-5) or an inline `:style` declaration (specificity `1,0,0`), which is where `--track-color` already lives (`:89`) and is why *that* one variable actually reaches the element.
+
+---
+
+### C-12 · INFO · `aria-label` is applied twice
+
+**Claim.** `:aria-label="label"` (`:87`) is not a declared prop of `Slider`, so it (a) reaches each `SliderThumb` explicitly — `"aria-label": n.$attrs["aria-label"] ?? void 0` in the compiled SFC — **and** (b) falls through to the Slider root, since the component declares no `inheritAttrs: false` and renders a single root. The same string names both the group and the thumb.
+
+**Falsifier (partially survived).** The double *application* is statically certain from the compiled source. Whether a screen reader double-announces is **UNPROVEN-NEEDS-LIVE (SS-13)**. INFO for that reason. Note also that the visible label text is bound to the **number input** (the `<label>` at `:66` wraps the `<input>`, not the Slider), so the slider's only name is this attribute — the pairing is intentional, just doubled.
+
+---
+
+### C-13 · INFO · `min === max` is reachable from a live callsite
+
+**Claim.** `FunctionInput.vue:216-217` mounts SliderControl with `:min="2" :max="Math.max(2, vizHarmonics ?? nHarmonics)"`. When `vizHarmonics` is 2 (or `nHarmonics` is ≤2 with `vizHarmonics` null), **`min === max === 2`**. The wrapper performs no ordering or degeneracy check; `clamp(v,2,2)` is total, but the degenerate range is forwarded verbatim to reka's `SliderRoot` (`:84-86`), whose position math divides by `max - min`.
+
+**Falsifier (partially survived).** The reachability is static and exact (`Math.max(2, …)` cannot exceed 2 when its argument is ≤2). The consequence inside reka (NaN thumb offset vs. graceful degenerate handling) is **UNPROVEN-NEEDS-LIVE**. INFO for that reason. Related: `clamp(v, lo, hi)` = `Math.max(lo, Math.min(hi, v))` returns `lo` for any inverted range, silently.
+
+---
+
+### C-14 · INFO · the only e2e that touches a SliderControl asserts nothing about it, and its fallback branch is dead
+
+**Claim.** `web/e2e/contour-extraction.spec.ts:67-78` is the single automated exercise of this component. It drives the **number-input** arm (`blurInput.fill("3")`, `:72`), then asserts only `await expect(canvas).toBeVisible()` (`:84`) — never the model, never the track, never the color. Its documented fallback, `blurSection.locator('input[type="range"]')` (`:75`), can never match: glass-ui's `Slider` renders reka's `SliderRoot`/`SliderTrack`/`SliderThumb` composition, which emits **no** `input[type=range]`.
+
+**Falsifier (survived).** *"A visual-baseline spec covers the track paint."* → `grep -rn "slider\|Slider" web/e2e/*.spec.ts` returns exactly 4 lines, all in the two cited files, none in `visual-baseline.spec.ts`. **This is the answer to "how did C-1 survive a bump?"** — the only gate on this component is `vue-tsc`, and a dead CSS custom property is invisible to the type system. Corroborates `lane-frontend.md §9 item 11` (no unit-test runner; 8 specs / 29 tests / 1 chromium project).
+
+---
+
+### C-15 · INFO · header documentation drifts from the pin
+
+**Claim.** The file header asserts *"the **v1.8.x** `<Slider>` acquires the typed `DockContext` token internally"* (`:17-19`) and its retint comment still says *"the **glass-scrubber** variant tokens"* (`:140`). The pin is `@mkbabb/glass-ui@^4.0.0` and the variant is `standard` (`:83`, renamed in the same working-tree hunk that left `:140` untouched). The `git diff` for this file is exactly three hunks, all in the doc-comment and the `variant=` literal:
+
 ```
-SliderControl.vue:143-149
-    .slider-track-host {
-        --slider-scrub-track-height: 16px;
-        --slider-scrub-range-bg:        color-mix(in srgb, var(--track-color) 25%, transparent);
-        --slider-scrub-range-bg-hover:  color-mix(in srgb, var(--track-color) 35%, transparent);
-        --slider-scrub-thumb-bg:        var(--track-color);
-        --slider-scrub-thumb-bg-hover:  var(--track-color);
-    }
+- * mapped to `<Slider variant="glass-scrubber">`) and no consumer in the
++ * mapped to `<Slider variant="standard">`) and no consumer in the
+-            variant="glass-scrubber"
++            variant="standard"
 ```
-- `grep -rl -- "--slider-scrub" web/node_modules/@mkbabb/glass-ui/` → **empty** (whole package: `dist/`, `src/`, CSS, JS, types).
-- The token surface that *does* ship at 4.0.0 — `grep -rho -- "--slider-[a-z0-9-]*" dist/ | sort -u` → exactly ten names: `--slider-range-bg`, `--slider-range-blur`, `--slider-range-shadow`, `--slider-thumb-bg`, `--slider-thumb-border-color`, `--slider-thumb-shadow`, `--slider-thumb-size`, `--slider-thumb-spring`, `--slider-track-bg`, `--slider-track-height`. **No `scrub` anywhere.**
-- The live rules, extracted from `dist/glass-ui.css` (minified, one line; selectors quoted verbatim):
-  - `.slider-track[data-v-534634a7]{ … height:var(--slider-track-height,.375rem); background:var(--slider-track-bg,var(--muted-medium)); … }`
-  - `.slider-range[data-v-534634a7]{ … background:color-mix(in oklab, var(--slider-range-bg,var(--primary)) 88%, transparent); … }`
-  - `.slider-thumb[data-v-534634a7]{width:0;height:var(--slider-track-height,.375rem);opacity:0;box-shadow:none; … background:0 0;border:none;display:block}`
 
-**Dating the death (producer-side, read-only).**
-- **Introduced** at glass-ui **1.8.0**, commit `df0e7e7e` (2026-05-16, "tranche-p/W3 … GlassScrubber promotion"). `glass-ui/CHANGELOG.md:1016`: *"No new tokens shipped—divergence axes route through inline `var(--slider-scrub-*, default)` per the existing slider scoped-CSS pattern."*
-- **Removed** at glass-ui **3.2.0**, commit `99a11083` (2026-06-06, "tranche-AV … W11 slider-unification"). `glass-ui/CHANGELOG.md:472`: *"Two-slider unification (AV.W11). Exactly two sliders ship: `standard` … and `spectrum` … **The other variants retired; consumers ported.** Gate `proof:slider-two-only`."*
-- **fourier was not ported.** `git diff -- web/src/components/ui/SliderControl.vue` shows the in-flight sweep changed exactly three lines — `:7` and `:13` (prose) and `:83` `variant="glass-scrubber"` → `variant="standard"` — and left `:143-149` untouched.
-
-**Consequences, each independently checkable.**
-1. The fill stays `--primary`-tinted at every one of the 8 callsites. The per-basis amber / `--viz-fourier` identity the design intends is absent.
-2. The stated 16px track is not applied; the track renders at the shipped default `.375rem` = **6px** — 2.7× thinner than the intent.
-3. `--slider-scrub-thumb-bg` is doubly dead (see **C-2**).
-
-**Repo-wide extent** (this file is 5 of 22): `grep -rn -- "--slider-" web/src/` → 22 declarations across **7 files** — `SliderControl.vue:144-148` (5), `BasisSelector.vue:319-322` (4), `EditorControlsDock.vue:225-228` (4), `HarmonicLevelGrid.vue:210-213` (4), `MorphPhaseConfig.vue:207-210` (4), `GlassTimeline.vue:125` (1), `ConvergenceTimeline.vue:136` (1). **Every one is in the dead namespace. Zero live-token writes exist in the tree.**
-
-**Falsifier.** Produce any occurrence of the substring `--slider-scrub` inside `web/node_modules/@mkbabb/glass-ui/`, or any CSS rule in `dist/glass-ui.css` that reads one of the five names. `grep -rl` over the entire installed package returns empty; the ten shipped `--slider-*` names are enumerated above. Alternatively show that glass-ui 3.1.0 (the [HEAD] pin) still honoured them — irrelevant to the verdict, since `^3.1.0` resolves forward past 3.2.0 and the installed tree is 4.0.0.
-
-**Corpus relation.** This **sharpens lane-frontend §5's prior-art row**, which measured the 3.1→4.0 hop as "24 files, 46 insertions, 46 deletions — **a pure rename sweep, no logic**" and counted `9 - variant="glass-scrubber" / 9 + variant="standard"`. Correct as far as it goes — and that is exactly the defect: the sweep renamed the *variant string* at 9 sites and did not rename the **22 accompanying token declarations** the variant string was the key to. It also **corrects lane-frontend §3's class census** (`:382`), which recorded all `glass-scrubber` occurrences as "**prose comments only**" and therefore harmless; the prose is harmless, but the CSS custom properties named after the retired variant are live, dead code.
+**Falsifier (survived).** *"v1.8.x is a historical provenance note, not a version claim."* → Granted for `:17`; not for `:140`, which describes the *current* token block as belonging to a variant that no longer exists — and it is the comment that would have caught C-1 during the sweep.
 
 ---
 
-### C-2 · **MAJOR** — the repair is not a pure rename: two of the five properties have no successor at `variant="standard"`
+## §3 · SUPERLATIVES (L-18, both ways)
 
-**Claim.** Renaming `--slider-scrub-*` → the shipped names fixes only two of the five. `--slider-scrub-thumb-bg` / `-hover` and `--slider-scrub-range-bg-hover` have **no reachable target**.
+### S-1 · The dock-token retirement is real, and I verified it in the installed artifact
+The header claims (`:15-20`) that the string-key `dockKeepOpen`/`dockRelease` injects were retired because the Slider acquires the typed `DockContext` internally. **Confirmed against the shipped bundle**, not the comment: `dist/slider-DQ95MET2.js` inlines `useDockHold`, which calls `inject(dockContext)` and drives `keepOpen()`/`release()` on `pointerdown`/`pointerup`/`pointercancel`, defaulting `keepDockOpen: true`. `grep -rn "dockKeepOpen\|dockRelease" web/src/` → **0 hits** tree-wide. *Falsifier:* if any string-key inject survived, or if the token were only in `src` and not `dist`, this would fail; neither holds. This is the CR-2 regression class **actually closed**.
 
-**Provenance.**
-- `--slider-thumb-bg` is read by exactly one rule in `dist/glass-ui.css`, and it is variant-gated: `.glass-slider[data-variant=spectrum] .slider-thumb[data-v-534634a7]{width:calc(var(--slider-thumb-size,1rem) * .75);opacity:1;background:var(--slider-thumb-bg,transparent); …}`. At `variant="standard"` (`SliderControl.vue:83`) the ungated rule wins: `.slider-thumb{width:0; … opacity:0; … background:0 0;border:none}` — a hardcoded transparent background on a zero-width, zero-opacity node. The producer's own type docs state the intent (`dist/components/ui/slider/index.d.ts`): *"standard — the CONTINUOUS GLASS CYLINDER with **NO VISIBLE THUMB AT ALL** … paints INVISIBLE: width 0, opacity 0, transparent."*
-- There is **no `-hover` counterpart token at all** in the shipped set (ten names, listed in C-1); hover is handled internally by the range's edge rim.
-- Producer 7.0.0 does not restore them: `grep -rho -- "--slider-[a-z0-9-]*" /Users/mkbabb/Programming/glass-ui/src/components/slider/ | sort -u` → `--slider-range-bg`, `--slider-range-origin`, `--slider-target-floor`, `--slider-thumb-size`, `--slider-touch-target`, `--slider-track-height`. `glass-ui/src/components/slider/styles.css:116,437` read `var(--slider-range-bg, var(--glass-capsule-warm))`.
+### S-2 · The scalar↔array adaptation is the minimal correct shim, documented at the seam
+`:51-56` is 6 lines with a 2-line rationale naming the exact upstream constraint (reka's array model) and the exact preserved invariant (scalar `modelValue`). It clamps on write, so a producer-side snap outside `[min,max]` cannot escape into the parent. *Falsifier:* a wrapper that leaked the array upward, or re-implemented reka's stepping, would be worse; this does neither. (The `?? props.min` guard is one character short of complete — C-7 — which is the only blemish on an otherwise exemplary adapter.)
 
-**Consequence for F.W-repair budgeting.** The correct 4.0.0 block is two lines — `--slider-track-height: 16px;` and `--slider-range-bg: color-mix(in srgb, var(--track-color) 25%, transparent);` — and the same two names survive the 4→7 uplift. The three thumb/hover lines must be **deleted, not renamed**. A mechanical `s/slider-scrub-/slider-/` sweep would leave two live-but-unreachable properties and silently re-tint the *spectrum* variant of any future consumer.
+### S-3 · The import is contract-v2 clean
+`import { Slider } from "@mkbabb/glass-ui/slider"` (`:23`) — a **bare specifier to a published subpath**, resolved through the producer's own `exports` map (`"./slider": {types:"./dist/slider.d.ts", import:"./dist/slider.js"}`). No `dist/` path, no deep relative import, no `development` condition, and `vite.config.ts:22-25` deliberately carries **no** `@mkbabb/*` resolve alias, citing `docs/precepts/cross-repo-dev-resolution.md §2.2/§2.4`. There are **0 direct `reka-ui` imports** in the whole tree; this wrapper does not reach around its producer. *Falsifier:* `grep -rn 'from "reka-ui"' web/src/` → empty; `grep -n "@mkbabb" web/vite.config.ts` → alias-free. **AGREES with `lane-frontend.md §1/§3`** ("contract-v2-clean … the cleanest glass-ui consumer posture in the constellation") — and that verdict survives my hostile pass on this file.
 
-**Second-order note (surfaces at repair time, not now).** The producer already wraps the token: `color-mix(in oklab, var(--slider-range-bg,var(--primary)) 88%, transparent)`. Feeding it the file's own `color-mix(… 25%, transparent)` compounds to ~22% effective alpha. The repair should pick the final alpha once.
+### S-4 · The A.W3.b prop retirement is a properly evidenced deletion
+`:11-20` retires a legacy `variant?: "timeline" | "default"` prop, states the disposition (`(b)` per `audit/W3-adoption-ledger.md`), and **records the verification command in the file**: `git grep '<SliderControl' | xargs grep variant`. I re-ran the equivalent: `grep -rn "SliderControl" web/src/ | grep -v SliderControl.vue` → 3 importers / 8 callsites, **none** passing `variant`. *Falsifier:* a surviving `variant=` at any callsite would refute it; there is none. This is the standard the rest of the migration did not meet (cf. C-1).
 
-**Falsifier.** Show a `dist/glass-ui.css` rule reading `--slider-thumb-bg` that is not gated on `[data-variant=spectrum]`, or any `--slider-*-hover` token in either version. Neither exists.
-
----
-
-### C-3 · **MAJOR** — the numeric-input contract desyncs from the model and destroys in-progress edits
-
-**Claim.** `onInput` (`:44-49`) commits on every keystroke through a `clamp` that maps **any unparseable input to `props.min`** (`:41` — `Number.isFinite(v) ? … : lo`), against a one-way `:value="displayValue"` binding (`:74`). Two distinct failures follow.
-
-**Failure A — silent DOM/model desync (no re-render to heal it).**
-When the emitted clamp equals the current `modelValue`, the parent's state does not change, so no re-render occurs and the DOM keeps the invalid text indefinitely.
-*Concrete instance:* `ContourSettings.vue:282-290` — `Max Contours`, `:min="0"`, `:format-value="(v) => v === 0 ? 'All' : String(v)"`. At `maxContours === 0` the field is `type="text"` with value `"All"`. Append `8` → `"All8"` → `parseFloat("All8")` = `NaN` → `clamp` → `0` → emit `0` → `maxContours` unchanged → **no patch**. The field reads `All8` for the rest of the session while the model, the draft in IndexedDB (`workspace.ts:93-106`) and the request body all say `0`.
-
-**Failure B — clear-to-retype is impossible, and it fires a real API round-trip.**
-`FunctionInput.vue:179-187` — `Harmonics`, `:min="1"`, model 50. Deleting the last digit yields `""`; `parseFloat("")` = `NaN`; clamp → `1`; emit `1`. The model jumps to 1 mid-edit, `displayValue` becomes `"1"`, and Vue patches `el.value` under the caret. For the `ContourSettings` sliders the same keystroke enters `watchDebounced(…, {debounce: 1000})` (`ContourSettings.vue:141-150`) and, one second later, issues a real `POST /api/images/{slug}/extract-contour` at the bound value.
-
-**Falsifier.** Any of: (a) `Number.isFinite(parseFloat(""))` is true — it is not; (b) `clamp` returns the current `modelValue` rather than `lo` on `NaN` — `:41` returns `lo`; (c) the input commits on `change`/blur rather than `input` — `:78` binds `@input`; (d) a re-render is guaranteed after every emit — it is not, Vue skips the patch when the reactive source is unchanged. Switching `:78` to `@change`, or an early `if (raw === "") return;`, kills both failures.
-
-**Gate coverage: zero.** `vitest` is ABSENT (lane-frontend §9 item 11); the only e2e that touches this input is `e2e/contour-extraction.spec.ts:67-72`, which does `blurInput.fill("3")` — a single well-formed `input` event on the one slider (`Blur Sigma`) where clamping is a no-op. Neither failure path is exercised.
+### S-5 · Correct, house-consistent Tailwind v4 scoped-`@apply` idiom
+`@reference "tailwindcss"` (`:95`) before `@apply text-sm` (`:106`) is the required v4 form for a scoped SFC block, and it is consistent across **35** files in the tree. *Falsifier:* omitting it breaks the build; using v3's implicit resolution would not compile under `@tailwindcss/postcss ^4.3.1`. *Caveat, not a defect here:* referencing bare `"tailwindcss"` rather than the project entry means `style.css`'s `@theme` customisation (`--font-sans: "Computer Modern Serif"`) is invisible to `@apply` in this file; harmless for `text-sm`, a trap for any future `@apply font-sans`.
 
 ---
 
-### C-4 · **MAJOR** — the input's `type` (and ARIA role) flips on a live element as `formatValue`'s output crosses numeric-parsability
+## §4 · CORPUS FOLD
 
-**Claim.** `isNumericDisplay` (`:61`) is computed from the **formatted string**, and it gates `type` (`:72`) plus `min`/`max`/`step` (`:75-77`). A `formatValue` whose output is sometimes non-numeric therefore mutates the element's type in place.
-
-**Provenance.** `ContourSettings.vue:282-290`: `label="Max Contours"`, `:min="0"`, `:format-value="(v) => v === 0 ? 'All' : String(v)"`. Dragging the slider across 1↔0 flips `displayValue` `"1"`↔`"All"`, so `isNumericDisplay` flips `true`↔`false`, so:
-- `type` toggles `number` ↔ `text`;
-- `min`/`max`/`step` are **removed** and re-added (`:75-77` bind `undefined`);
-- the computed ARIA role toggles `spinbutton` ↔ `textbox`.
-
-Setting `type="number"` re-runs the UA value-sanitization algorithm; `"All"` is not a valid floating-point number, so the value is discarded. `-moz-appearance: textfield` and the webkit spin-button suppression at `:127`, `:134-137` are declared unconditionally and apply to a `type=text` element as no-ops.
-
-**Consequence for the test surface.** Any role-based locator on this control is value-dependent. `e2e/settings-persistence.spec.ts:70,94` already keys on `page.getByRole("spinbutton", { name: "Harmonics" })` (against `BasisSelector`'s own input) — the idiom is in use, and on a `SliderControl` with a conditional formatter it is not stable.
-
-**Falsifier.** Show that Vue re-creates rather than patches the element on `type` change (it patches — `type` is a plain attribute in the same vnode, and no `key` is present at `:71`), or supply a `formatValue` contract that forbids non-numeric output (none is declared; `:33` types it `(v: number) => string`). Keying the type off `formatValue === undefined`, or fixing `type="text" inputmode="decimal"`, removes the flip.
-
----
-
-### C-5 · **BLOCKER** — client↔operation domain divergence transported through the untyped `modelValue: number`: `Min Area %` sends a 0–20 value into a server domain clamped to `[0,1]`
-
-**Claim.** `SliderControl` declares `modelValue: number`, `min: number`, `max: number`, `step: number` (`:28-31`) with **no unit, no domain, and no reconciliation against the operation schema**, while being the sole transport for six contour parameters. One of the six is out of contract by a factor of 20 and is destructive on first touch.
-
-**The chain, end to end.**
-| Hop | Location | Value |
-|---|---|---|
-| control | `ContourSettings.vue:269-277` | `label="Min Area %"`, `:min="0" :max="20" :step="0.5"`, `v-model="minContourArea"` |
-| seat | `ContourSettings.vue:35` | initialised from `CONTOUR_DEFAULTS.min_contour_area` = **0.001** (`lib/defaults.ts:11`) |
-| serialise | `ContourSettings.vue:116` | `min_contour_area: minContourArea.value` — **no conversion** |
-| store | `stores/workspace.ts:247-250` | `api.extractContour(imageSlug, contourSettings)` |
-| wire | `lib/api.ts:300-312` | `POST /api/images/${imageSlug}/extract-contour`, `body: { contour_settings: {...settings} }` |
-| operation | `api/routers/images.py:212` | `@router.post("/{imageSlug}/extract-contour")` — one of the 45 (intake §0 / X-3) |
-| validate | `api/models/shared.py:27-30`, `api/models/computation.py:25-28` | `return max(0.0, min(1.0, float(v)))` |
-| semantics | `src/fourier_analysis/contours/processing.py:71`; `contours/structure.py:44` | `area_threshold = config.min_contour_area * image.image_area` |
-
-**Therefore.**
-1. The `%` in the label is **false**. The transported quantity is a *fraction* of image area; `20` would read as 2000%.
-2. The default seat, `0.001`, sits at 0.005% of a 0–20 track — visually pinned at zero.
-3. The **first step**, `0.5`, means *discard every contour smaller than half the image*. `_postprocess_raw_contours` then filters against `area_threshold`, and the extraction returns (near-)empty.
-4. `1.0 … 20` — **95% of the track** — is a dead zone: the server clamps every one of those values to `1.0`, i.e. "discard every contour smaller than the entire image". No contour can satisfy it.
-5. Round-trip is lossy in a way the UI cannot show: the user sees `12.5`, the server persists `1.0`, and `isDefault` (`ContourSettings.vue:64`) compares the *client* value, so the "reset" affordance and the server state disagree.
-
-The two out-of-domain values reach the server through **one of the 45 operations**, and the divergence is unrepresentable in this component's contract by construction: `min`/`max` are just numbers with no declared relation to the operation's validator.
-
-**Attribution, honestly.** The wrong numbers are authored at `ContourSettings.vue:272-273`. What `SliderControl` owns is the seam: a required `min`/`max` pair with no unit, no domain, and no place to state which operation field it feeds — so nothing in the tree can detect the divergence, and the other five parameters transported through the same seam are correct only by accident (`Smoothing` 0–1 matches `_clamp_smooth`'s `[0,1]`; `Blur Sigma` 0–5 is a safe subset of `max(0.0, …)`; `Max Contours` 0–50 with the client's `0 → null` map at `:87` and `:117` matches `_clamp_max_contours`; `ML Threshold` 0.1–0.9 is unvalidated server-side).
-
-**Falsifier.** Produce a `/100` (or any scaling) anywhere on the transport — `grep -rn "min_contour_area" web/src/` returns exactly six sites (`ContourSettings.vue:35,64,73,116` · `lib/defaults.ts:11` · `lib/types.ts:37`), none of which scales. Or show the server interpreting the field as a percentage — refuted twice over by the `[0,1]` clamp and by the `* image.image_area` multiply. Or show the Advanced collapsible is unreachable — it is a `<CollapsibleTrigger>` at `ContourSettings.vue:258-261`, one click away.
-
-**Corpus relation.** **Not in the hitherto corpus** — `grep -rn "min_contour_area\|Min Area" formation/fourier/ audit/codex-provenance/intakes/lane-fourier-r3-r6.md` → 0 hits. It is, however, precisely the class the intake's **R6-8** (ADOPT-AS-FACT + CARRY→F.W5) warns about: *"an API-operation model that embeds derived client back-references cannot attribute a defect to one side of the seam."* Here the pathology is the mirror image — the client leaf declares a domain the operation leaf does not honour, and **no join is declared anywhere**, so neither side is falsifiable from the other. Route this to **F.W5** alongside R6-8 and R3-7c: the shared-provenance contract must carry the operation field's domain, not just its type.
+| Corpus row | This challenge |
+|---|---|
+| `lane-frontend.md §3` — "SliderControl … thin API-shape adapter, **not a shadow** … the correct posture — keep" | **AGREE on posture, CONTRADICT on health.** The adapter shape is right (S-2, S-3); the adapter is nonetheless carrying a dead producer-token contract (C-1) the census did not open. "Keep" ≠ "clean". |
+| `lane-frontend.md §3` — "all `glass-scrubber`/`glass-track`/`glass-fill`/`glass-thumb` occurrences are **prose comments only** … `SliderControl.vue:3,6,140`" | **CONTRADICT as a safety conclusion.** True of the `glass-*` **class** surface; the census never enumerated the `--slider-scrub-*` **custom-property** surface, which is 22 live declarations across 6 files and 100 % dead at the pin. |
+| `lane-frontend.md §5` — the 3.1→4.0 hop was "24 files, 46 insertions, 46 deletions — a **pure rename sweep, no logic**" | **CONTRADICT.** The sweep renamed 9 `variant=` literals and missed the companion token namespace deleted in the *same* upstream change (glass-ui `99a11083`, v3.2.0). The empirical rate this row establishes for budgeting the 4→7 hop is therefore an **undercount**. |
+| `lane-frontend.md §9 item 5` — value.js surface is 5 sites, easing only | **AGREE, reproduced exactly** (`ConvergencePlot.vue:5`, `harmonics.ts:5`, `useCurveTransition.ts:8`, `easings.ts:9,16`). Extended by C-10: the color arm value.js exists to serve was never wired, and this component's props contract is where that shows. |
+| `lane-frontend.md §9 item 11` — no unit-test runner; 8 specs / 29 tests / 1 project | **AGREE**, and C-14 supplies the specific consequence: the sole e2e touching this component asserts only canvas visibility and carries a dead `input[type=range]` fallback. |
+| intake **R6-8** (ADOPT + CARRY→F.W5) — an operation model embedding client back-references cannot attribute a defect to one side of the seam | **EXTENDED** by C-3: the converse also holds. A client control whose domain cannot be derived from the operation record ships a 95 %-dead input range with no gate anywhere in the chain. F.W5's shared-provenance contract must carry field **domains**, not just field names. |
+| intake **R3-7c** (36 client edges / 9 gap operations) | C-3 shows a *populated* edge that is semantically broken; the gap count is a floor on client↔operation defects, not a ceiling. |
+| intake **X-3** (45 ops total / 30 public-non-admin / 13 admin) | `POST /api/images/{imageSlug}/extract-contour` (`api/routers/images.py:212`) sits in the 30-op public arm — inside the `0-of-45` OpenAPI-security defect of **R3-7b** as well. |
+| intake **R4-9** — the audited scope is byte-identical to the tree F.W0 opens on | **RELIED ON.** I re-confirmed HEAD `cd26c653…` and that `SliderControl.vue` is among the dirty in-scope paths, with a 6-line diff. Nothing here is stale-at-HEAD. |
 
 ---
 
-### C-6 · **MAJOR** — three **required, non-optional** peers of `@mkbabb/glass-ui@4.0.0`, all pulled at module scope by this file's single import edge, are declared in fourier's `devDependencies`
-
-**Claim.** `SliderControl.vue:23` — `import { Slider } from "@mkbabb/glass-ui/slider"` — is a runtime edge onto three packages the consumer has scoped as dev-only.
-
-**Provenance.**
-- `web/node_modules/@mkbabb/glass-ui/package.json`: `"dependencies": {}` — **empty**. `peerDependencies` includes `"reka-ui": "^2.0"`, `"class-variance-authority": "^0.7"`, `"clsx": "^2.0"`. `peerDependenciesMeta` marks **only** `@vueuse/core`, `embla-carousel-vue`, `@mkbabb/keyframes.js`, `@mkbabb/pencil-boil`, `@mkbabb/value.js`, `perfect-freehand`, `tw-animate-css` optional. **The three above are required.**
-- The chunk this import resolves to, `dist/slider-DQ95MET2.js`, imports all three at module scope:
-  - line 6: `import { SliderRange as v, SliderRoot as y, SliderThumb as b, SliderTrack as x, useForwardPropsEmits as S } from "reka-ui";`
-  - line 7: `import { cva as C } from "class-variance-authority";`
-  - line 1 → `./cn-DJXf4yaB.js:1`: `import { clsx as e } from "clsx";`
-- `web/package.json`: `reka-ui`, `class-variance-authority`, `clsx` are all under `devDependencies`.
-
-**Live vs latent.** No break today — `web/Dockerfile:11` is a bare `RUN npm ci`, which installs devDependencies. The exposure is that `npm ci --omit=dev` / `NODE_ENV=production` fails at this exact import, and that the manifest states the wrong thing.
-
-**CONTRADICTION with the hitherto corpus — explicit.** `lane-frontend.md:70` books these as *"**Dead devDeps (measured, not estimated)**: `class-variance-authority`, `clsx`, `tailwind-merge` all have **0 import sites** in `src/`… `reka-ui` also has **0 direct imports** — its 6 mentions are all prose comments"*, and `lane-frontend.md:645` §9 item 10 carries them as **"[P3] Dead deps"** for removal. The measurement is correct — 0 *first-party* import sites — but **the inference is wrong for three of the four.** `reka-ui`, `class-variance-authority` and `clsx` are required runtime peers with zero producer-side `dependencies` backing them; they are consumed at module scope by the very chunk `SliderControl.vue:23` pulls in. **Acting on §9 item 10 would break `vue-tsc -b && vite build` at this import edge.** The correct disposition is *re-scope `devDependencies` → `dependencies`*, not *delete*. `tailwind-merge` is not defended here — `cn-DJXf4yaB.js` imports only `clsx` and carries its own class-conflict table, so that one row may stand.
-
-**Falsifier.** Show any of the three in glass-ui 4.0.0's `dependencies`, or in `peerDependenciesMeta` with `optional: true` — neither holds; or show the published chunks bundling their own copies — the `import … from "reka-ui" / "class-variance-authority" / "clsx"` lines quoted above are bare, unbundled specifiers.
-
----
-
-### C-7 · **MINOR** — `@mkbabb/value.js@0.13.0` is **outside** glass-ui 4.0.0's declared peer range, at the pinned version
-
-**Claim.** The tree is not merely "behind" on value.js; it is already out of the producer's stated compatibility contract.
-
-**Provenance.** `web/node_modules/@mkbabb/glass-ui/package.json` → `peerDependencies["@mkbabb/value.js"] = "^0.10.0 || ^0.11.0"`. `web/package.json` pins `"@mkbabb/value.js": "^0.13.0"`; installed is **0.13.0** (`node -p "require('…/@mkbabb/value.js/package.json').version"`). Under 0.x caret semantics `^0.10.0` = `>=0.10.0 <0.11.0` and `^0.11.0` = `>=0.11.0 <0.12.0`; **0.13.0 satisfies neither.** The peer is marked optional, so `npm ci` warns rather than fails.
-
-**Relation to this file.** `SliderControl` consumes value.js **zero** times (§0) — it is a bystander, not the offender. It is named here because this file is the tree's canonical `@mkbabb/glass-ui/slider` consumer, and the slider chunk is inside the resolution graph the violation governs.
-
-**Corpus relation — sharpens, does not contradict.** `lane-frontend.md:480` books the value.js row only against the **7.0.0** floor (*"7.0 peers `@mkbabb/value.js@^4.0.0`; installed 0.13.0"*). The tree says the constraint is already violated at **4.0.0**, one major earlier. Same for the sibling row at `:478`: `@lucide/vue ^1.16.0` is a **required, non-optional peer of 4.0.0**, and fourier ships `lucide-vue-next ^1.0.0` — so the lucide rename is not a 4→7 uplift cost, it is an **unmet required peer today**. Two of lane-frontend §5's "uplift break surface" rows are live breaches at the pinned version.
-
-**Falsifier.** `npm ls @mkbabb/value.js` / re-read the two manifests; or demonstrate 0.13.0 ∈ `^0.11.0`.
-
----
-
-### C-8 · **MINOR** — the wrapper swallows the producer's `valueCommit`, and a consumer rebuilds it by hand
-
-**Claim.** `SliderControl.vue:36-38` declares exactly one emit. The producer emits two: `dist/components/ui/slider/Slider.vue.d.ts` → `{"update:modelValue": (payload: number[] | undefined) => any; valueCommit: (payload: number[]) => any}`. `valueCommit` is neither consumed nor re-emitted, so **no consumer can distinguish drag-in-progress from drag-commit**.
-
-**Cost, in the tree.** `ContourSettings.vue` reconstructs commit-detection twice over: `watchDebounced(…, { debounce: 1000 })` at `:141-150`, plus a `currentComputeKey()` JSON-string equality guard at `:86-98` and `:145-147` to suppress the re-fire. That is a hand-rolled commit detector standing in for a producer signal the wrapper dropped — and it is the reason C-3's Failure B costs an API round-trip rather than a repaint.
-
-**Falsifier.** Show `valueCommit` absent from 4.0.0's emit type (it is present, quoted above), or show a consumer that needs per-frame granularity — all three consumers debounce or coalesce.
-
----
-
-### C-9 · **MINOR** — `step` binds the slider path and not the input path; the rendered value can differ from the transported value
-
-**Claim.** `:86` hands `:step` to `<Slider>` (reka quantizes on the pointer/keyboard path). `onInput` (`:44-49`) clamps to `[min,max]` and **never quantizes**. The two ingress paths therefore have different value contracts.
-
-**Provably divergent display.** `ContourSettings.vue:243-251` — `Blur Sigma`, `:step="0.1"`, `:format-value="(v) => v.toFixed(1)"`. Typing `0.37` emits `0.37`; `displayValue` renders `"0.4"`; the request body carries `0.37`. **The number on screen is not the number sent** — statically provable from `:59` (`props.formatValue(props.modelValue)`) and `:47` (no quantization).
-
-The DOM `step` attribute is passed at `:77`, so the browser's spinners and constraint validation do respect it — but `@input` fires before validation and `parseFloat` ignores `step` entirely, so the attribute is decorative on the typing path.
-
-**Falsifier.** Add `Math.round(v/step)*step` at `:47` and the divergence vanishes. Whether reka additionally re-snaps an off-grid incoming `modelValue` is **UNPROVEN-NEEDS-LIVE (SS-13)** — it does not affect the claim, which rests only on `toFixed(1)` vs the unquantized emit.
-
----
-
-### C-10 · **MINOR** — two incompatible representations of "colour" flow through one undiscriminated `color: string`
-
-**Claim.** `:32` types the prop `string`, and the 8 callsites supply two different kinds of string with two different retint mechanisms.
-
-**Provenance.**
-- **CSS-var reference, static, unbound** (3): `FunctionInput.vue:185`, `:218`, `EquationPanel.vue:101` — `color="var(--viz-fourier)"`. Retints through the cascade on a `.dark` flip.
-- **Resolved hex, reactive** (5): `ContourSettings.vue:236, 249, 275, 288, 301` — `:color="VIZ_COLORS.amber"`. Retints only when `resolveVizColors()` re-runs, driven by the `MutationObserver` at `App.vue:11-17`.
-
-`VIZ_COLORS` is filled by the hand-rolled resolver at `lib/colors.ts:22-56` — the F.W2 arm. `cssVarToHex` regex-matches exactly four shapes (`#…`, `hsl(h s% l%)`, a bare Tailwind triplet `"6 72% 49%"`, `rgb(r,g,b)`) and **returns the sentinel `#888888` for anything else** (`:33`, `:55`). Any producer token expressed in `oklch()` / `lab()` / `color()` — the direction glass-ui's own token layer is moving — degrades silently to grey with no error. `@mkbabb/value.js` is already a declared dependency of this repo and ships exactly this parse; `SliderControl` consumes it zero times, and `colors.ts` reimplements it.
-
-Both paths are presently moot: **C-1** means neither reaches a paint.
-
-**Falsifier.** Show that `--viz-fourier`/`--viz-amber` can never be authored in a space `cssVarToHex` cannot parse — `web/src/style.css:120,125` authors `--viz-amber` in `hsl()` today, so the failure is latent, not live; the claim is a fragility + representation-inconsistency claim, and it is falsified only by unifying the prop's accepted form (or by typing it as a discriminated union).
-
----
-
-### C-11 · **INFO** — header documentation is two majors stale and cites a retired variant by name
-
-**Claim.** Three prose assertions in `:1-21` and `:140-142` describe a producer that is no longer installed.
-- `:18-20` — *"the v1.8.x `<Slider>` acquires the typed `DockContext` token internally"*. Installed is **4.0.0**. The mechanism is now the declared prop `keepDockOpen?: boolean` (default `true`, `Slider.vue.d.ts`), which this file never passes.
-- `:140` — *"Retint the **glass-scrubber** variant tokens"*, naming a variant retired at glass-ui 3.2.0 (C-1). `:141` further claims *"The variant defaults compose `--surface-tint-*`"* — `grep -c -- "--surface-tint" dist/glass-ui.css` shows no such composition in the slider rules, which read `--slider-track-bg,var(--muted-medium)` and `--slider-range-bg,var(--primary)`.
-- `:51` names `reka-ui` in prose — one of the six comment-only mentions lane-frontend `:70` enumerates; accurate, and it is the correct posture (see **S-4**).
-
-**Non-defect, stated for completeness.** `keepDockOpen` defaults to `true` at all 8 callsites and **none of them is inside a `GlassDock`** (the dock consumers `EditorControlsDock.vue:3` and `CanvasControlsDock.vue` import `Slider` directly). The compiled `useDockHold` guards on a null context — `let n = r(), … !i() || a || !n || (n.keepOpen(), a = !0)` — so every path short-circuits. Cost is one `pointerdown` listener plus a `pointerup`/`pointercancel` window pair per instance. Harmless; noted so a repair does not over-correct.
-
-**Falsifier.** Any SliderControl callsite inside a `GlassDock` (grep: none); or a `--surface-tint-*` read inside a `.slider-*` rule (none).
-
----
-
-### C-12 · **INFO** — the two coupled controls carry different accessible names, and the default slot can diverge them further
-
-**Claim.** The slider thumb and the numeric input name the same value differently.
-- `:87` `:aria-label="label"` → the thumb's name is `label` alone (see **S-1** for why it lands correctly).
-- `:71-79` the `<input>` carries no `aria-label`; it takes its name implicitly from the enclosing `<label>` (`:66-80`), whose text content is `label` **plus** `" — " + subtitle` (`:69`).
-
-`FunctionInput.vue:181-182` passes both ⇒ thumb = `"Harmonics"`, spinbutton = `"Harmonics — terms in the Fourier sum"`.
-
-**Latent divergence.** `:68` renders `<slot>{{ label }}</slot>`. A consumer supplying slot content changes the *visible* name while `:87` still uses the `label` prop — visible text and accessible name part company. No callsite does this today (all 8 pass `label`, none passes slot content), so this is latent, not live.
-
-**Falsifier.** Any callsite passing default-slot content (none, verified over all 8); or an `aria-label` on the input (absent at `:71-79`).
-
----
-
-## §2 · SUPERLATIVES (L-18 runs both ways — each carries its own falsifier)
-
-### S-1 · `:aria-label` lands on the node that carries `role="slider"`, and it is **derived** rather than duplicated
-
-`:87` binds `:aria-label="label"` as a fallthrough attribute. The producer forwards it deliberately: `dist/slider-DQ95MET2.js` renders one `SliderThumb` per model entry and binds `"aria-label": n.$attrs["aria-label"] ?? void 0` **on the thumb**, not the root — i.e. onto the element reka gives `role="slider"`. The one binding that had to survive the scalar↔array adaptation does.
-
-And it is the only slider seat in the tree where the accessible name is **structurally tied to the rendered label**. Every direct `<Slider>` consumer hardcodes a second string: `BasisSelector.vue:174` `aria-label="Harmonics"`, `:201` `"Sample Points"`; `EditorControlsDock.vue:121` `"Magnet radius"`; `HarmonicLevelGrid.vue:23,46`; `MorphPhaseConfig.vue:27`; `GlassTimeline.vue:71`; `ConvergenceTimeline.vue:78`. Those seven can drift from their visible text; this one cannot.
-
-*Falsifier.* If the producer declared `aria-label` as a prop pinned to the root, or set `inheritAttrs: false`, the name would land on a non-interactive wrapper. Neither: `aria-label` is absent from `Slider.vue.d.ts`'s `__VLS_Props`, `inheritAttrs` does not appear in the chunk, and the thumb binding is explicit. (The attribute additionally mirrors onto the root via normal fallthrough — cosmetic duplication on an element with no widget role.)
-
-### S-2 · The scalar↔array adaptation is **stateless**, and therefore structurally cannot desync
-
-`:53-56` is a `computed` with getter **and** setter over `props.modelValue` — no local `ref`, no mirror, no `watch`. The slider path has exactly one source of truth (the parent), and the setter clamps on egress (`:55`).
-
-The falsifier is inside the same file: the **input** path (C-3) holds implicit DOM state and does desync, permanently. Same author, same 150 lines — the harder of the two adaptations is the one written correctly. It also structurally avoids the hazard this project has already paid for once: the `shallowRef`/`defineModel` async-round-trip stale-read recorded in value.js's own `useColorModel`.
-
-*Falsifier.* Any `ref`/`reactive`/`watch` mirroring `modelValue` in this file — there is none; `computed` is the only reactive primitive imported (`:22`).
-
-### S-3 · The `variant` prop retirement is a **receipted deletion with its verification command in the source**
-
-`:9-17` records the A.W3.b D5 fold: the retired shape (`variant?: "timeline" | "default"`), the reason (both branches already mapped to the same producer variant), the verification actually run (`git grep '<SliderControl' | xargs grep variant`), the ledger citation, and the flag it discharged (H1-hardening). Re-verified live: **all 8 callsites pass no `variant`**, and the cited ledger exists at `fourier-analysis/docs/tranches/A/audit/W3-adoption-ledger.md`. This is the evidence standard the intake's **R3-3** demands (*"a registry audit that re-hashes bytes but never re-derives products proves the bytes unchanged, not the summary true"*) applied at the component scale — a deletion whose falsifier is written down next to it.
-
-*Falsifier.* A callsite passing `variant` (none), or an absent ledger (present; the comment's `audit/…` is repo-relative shorthand for the `docs/tranches/A/` path).
-
-### S-4 · The import edge is minimal and reka-pure
-
-Two imports total (`:22-23`). **Zero direct `reka-ui` import** despite the file's whole purpose being to adapt reka's array model — reka is named only in the prose at `:51`. This is the posture lane-frontend §3 measures repo-wide (*"zero direct reka-ui imports… the cleanest glass-ui consumer posture in the constellation"*), and this file is one of its load-bearing instances: the deepest producer-internal API in the tree is adapted **without reaching past the producer's public subpath**. Contrast C-6 — where the tree's *manifest* fails to acknowledge the transitive edge this source correctly refuses to make direct.
-
-*Falsifier.* A `from "reka-ui"` line in this file — none.
-
-### S-5 · The retint **mechanism** is sound end to end; only the names are wrong
-
-Every link in the per-instance-colour chain holds, which is what makes C-1 a two-line rename rather than a re-architecture:
-1. `class="slider-track-host"` (`:88`) is consumed by the producer's **declared `class` prop** and merged through `cn()` — chunk: `class: h(e)(h(E)({variant, size}), C.class)`.
-2. `:style="{ '--track-color': color }"` (`:89`) falls through as an attribute; `inheritAttrs: false` is absent from the chunk and the `SliderRoot` is a single root, so it lands.
-3. Vue stamps the parent's scope id onto the child component's root, so the scoped selector `.slider-track-host[data-v-…]` matches.
-4. CSS custom properties **inherit past the scope boundary** into the producer's internals, which is precisely how `var(--slider-range-bg, …)` would pick them up.
-
-Stating this is what keeps C-1 honest: the design is right, the vocabulary is two majors stale.
-
-*Falsifier.* `inheritAttrs: false` in the chunk, a multi-root `Slider`, or a `class` prop that overwrites rather than merges — none of the three; the `cn()` merge and the absence of `inheritAttrs` are quoted above.
-
----
-
-## §3 · Corpus fold — agreements, sharpenings, contradictions
-
-| # | Corpus row | This challenge |
-|---|---|---|
-| 1 | `lane-frontend.md:371` — *"these three `components/ui/` files are **thin API-shape adapters, not shadows** … the correct posture — keep."* | **AGREE on the verdict, dissent on the grade.** The adapter shape is right (S-2, S-4, S-5). But "keep" was concluded from the *documented intent* at `:3-20` without checking the intent against the pinned producer. It does not adapt cleanly today: its required `color` prop paints nothing (C-1) and its input contract is broken in two ways (C-3, C-4). Keep — and repair. |
-| 2 | `lane-frontend.md:496-507` §5 prior-art — *"a pure rename sweep, no logic"*, `9 × variant="glass-scrubber" → "standard"` | **SHARPENED.** That is exactly the defect: the sweep renamed the variant *string* and not the **22 token declarations across 7 files** the string was the key to (C-1). The measured "46 insertions / 46 deletions" is the *cost of what was done*, not the cost of the hop. |
-| 3 | `lane-frontend.md:382` — all `glass-scrubber`/`glass-track`/`glass-fill`/`glass-thumb` occurrences are *"prose comments only"* | **CORRECTED.** True for those four class names. But the census did not enumerate `--slider-scrub-*` **custom properties**, which are live CSS in the same scoped blocks and are dead against the pinned producer. |
-| 4 | `lane-frontend.md:70` + §9 item 10 — *"Dead devDeps"*: `cva`, `clsx`, `tailwind-merge`, `reka-ui` → **[P3] remove** | **CONTRADICTED for three of four (C-6).** They are **required, non-optional peers** of glass-ui 4.0.0 (whose own `dependencies` is `{}`) and are imported at module scope by the chunk `SliderControl.vue:23` resolves to. 0 first-party import sites ≠ dead. Correct disposition: re-scope to `dependencies`. `tailwind-merge` is not defended. |
-| 5 | `lane-frontend.md:478-480` §5 — lucide rename and the value.js floor as **4→7 uplift** costs | **RE-DATED (C-7).** Both are breaches at the **installed 4.0.0**: `@lucide/vue ^1.16.0` is a required unmet peer today, and `value.js 0.13.0` is outside 4.0.0's `^0.10.0 || ^0.11.0`. |
-| 6 | intake **R6-8** (ADOPT-AS-FACT + CARRY→F.W5) — operation/client leaves non-isolable by construction | **EXTENDED by a mirror case (C-5).** There the operation embedded a client back-reference; here the client declares a domain the operation silently overrides, with **no join declared on either side**. Same F.W5 carry: the shared-provenance contract must carry the operation field's *domain*, not merely its type. |
-| 7 | intake **§0 / X-3** — 45 operations / 30 public-non-admin | **AGREE, used as denominator.** C-5's endpoint `POST /api/images/{slug}/extract-contour` (`api/routers/images.py:212`) is inside the 7 `images.py` operations of that 45. |
-| 8 | intake **R3-3** — *re-hashing bytes ≠ re-deriving products* | **APPLIED as the method here.** Every claim above re-derives from the tree (compiled chunks, shipped CSS, manifests, Python validators) rather than from either repo's prose. It is also the reason C-1 exists: the file's own header comment is a summary that the bytes no longer support. |
-| 9 | `lane-frontend.md:645` item 11 — *"No unit-test runner. vitest is ABSENT"* | **AGREE, and quantified at this component.** C-1, C-3, C-4, C-5, C-9 are all invisible to the shipped gate: no unit runner; the sole e2e touching this input is `contour-extraction.spec.ts:67-72` (`fill("3")`, one valid event); and `e2e/visual-baseline.spec.ts:55` calls `page.screenshot({…})` — an **artifact dump**, never `toHaveScreenshot()` — so there is no visual-regression comparison that could have caught a colour hook that stopped painting. |
-
----
-
-## §4 · Tally
-
-**Defects: 12** — BLOCKER **2** (C-1 dead `--slider-scrub-*` namespace ⇒ inert required `color` prop; C-5 `Min Area %` client↔operation domain divergence) · MAJOR **4** (C-2, C-3, C-4, C-6) · MINOR **4** (C-7, C-8, C-9, C-10) · INFO **2** (C-11, C-12).
-
-**Superlatives: 5** — S-1 (aria-label lands on `role="slider"` and is derived, uniquely in the tree) · S-2 (stateless scalar↔array adaptation) · S-3 (receipted variant retirement with its verifier in-source) · S-4 (two imports, reka-pure) · S-5 (retint mechanism sound end to end).
-
-**UNPROVEN-NEEDS-LIVE (SS-13): 1** — whether reka re-snaps an off-grid incoming `modelValue` (C-9, second half). Every other claim is static or source-derived.
-
-**Wave routing.** C-1 + C-2 → the glass-ui token cross-walk (repo-wide: 22 declarations, 7 files). C-5 → **F.W5**, filed with R6-8 / R3-7c. C-6 + C-7 → **F.W0/F.W2** manifest re-scope, and they **block** lane-frontend §9 item 10 as written. C-3 + C-4 + C-8 + C-9 → the component repair. C-10 → the F.W2 value.js arm (`lib/colors.ts` is the reimplementation).
-
-**Method and limits.** Read-only throughout; the only write is this file. No `fourier-analysis`, `glass-ui`, or `value.js` product source was modified. No browser, no dev server, no install. Evidence: file reads · `grep`/`git grep` · `git log`/`git show`/`git diff` (read-only) · `node -e` JSON + string extraction over installed manifests and compiled chunks · `find`/`ls`.
+## §5 · METHOD, AND WHAT I DID NOT PROVE
+
+- **Read whole:** `SliderControl.vue`; its one import (`@mkbabb/glass-ui/slider` → `dist/slider.js` → `dist/slider-DQ95MET2.js` + `dist/components/ui/slider/{Slider.vue.d.ts,index.d.ts}` + the slider block of `dist/glass-ui.css`); all 3 importers at all 8 callsites (`ContourSettings.vue`, `EquationPanel.vue`, `FunctionInput.vue`); `lib/colors.ts`, `lib/defaults.ts`; the API leg `lib/api.ts:296-312` → `api/routers/images.py:212-245` → `api/models/{shared,computation}.py`; `e2e/contour-extraction.spec.ts:55-90`.
+- **Tools:** `grep` · `find` · `sed` · `wc` · `node -e` over `package.json` exports · `git log`/`git show`/`git diff` (read-only) in `fourier-analysis` and `glass-ui`. **Zero writes** outside this file. **No browser tooling**, no install, no dev server, no typecheck run.
+- **UNPROVEN-NEEDS-LIVE (SS-13), carried honestly:** C-7's runtime reachability of an `undefined` emit payload (type-level mismatch proven; reka's emit declaration not reachable in the installed layout); C-8's UA behaviour on a mid-edit `type` mutation; C-12's screen-reader announcement; C-13's reka behaviour at `min === max`. Each is severity-capped accordingly (MINOR/INFO), and none is load-bearing for C-1.
+- **One row was killed by its own falsifier and is recorded rather than hidden:** the first draft of C-4 blamed Vue for skipping the `value` patch. Vue special-cases `key === 'value'` and always re-applies it. C-4 survives only on the weaker, correct mechanism (no re-render is scheduled at all). Reported per L-18.
+- **Tally:** defects **15** (BLOCKER 1 · MAJOR 4 · MINOR 6 · INFO 4) · superlatives **5**.

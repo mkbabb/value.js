@@ -1,320 +1,595 @@
-claude-opus-5[1m]
+claude-opus-5[1m] (served model id)
 
-# CHALLENGE — `PaperSidebar.vue` · axis L (LIBRARY)
+# CHALLENGE — `PaperSidebar.vue` · axis **L (LIBRARY)**
 
-**Target** `/Users/mkbabb/Programming/fourier-analysis/web/src/components/paper/PaperSidebar.vue` (283 lines: 46 script / 82 template / 155 style)
-**Posture** DEFECTIVE-until-proven. Static + source-derived only; no browser tooling. Every claim carries severity + `file:line` + its falsifier. Superlatives carry the same burden (L-18 runs both ways).
-**Authority for third-party behaviour** = the **INSTALLED** trees under `web/node_modules/`, never the sibling working repos. `/Users/mkbabb/Programming/glass-ui` is a *divergent unreleased* tree (component layout `src/components/button/`, `emphasis`/`tone` axes) whereas the installed `@mkbabb/glass-ui@4.0.0` is the cva layout (`dist/components/ui/button/`, `variant`/`size`). Auditing against the working repo would have manufactured four false positives; all four are recorded as REFUTED in §5.
+**Subject.** `/Users/mkbabb/Programming/fourier-analysis/web/src/components/paper/PaperSidebar.vue`
+(283 lines — script `:1-46` · template `:48-128` · style `:130-283`). Desktop `/paper`
+table-of-contents.
 
-**Tally** — 16 defects · **0 BLOCKERS** · 5 superlatives · 4 refuted candidates.
+**Posture.** Assumed DEFECTIVE until the tree proved otherwise. Every row below carries a severity, a
+`file:line` provenance, and the falsifier that would kill it. **§5 lists five candidate defects that
+their own falsifiers killed** — L-18 runs both ways, and so does the discipline.
 
----
+**Method / limits.** Static + source-derived only. No browser tooling. Read whole: the component,
+all eight of its imports, their transitive impls in `web/node_modules/@mkbabb/{glass-ui,latex-paper}`
++ `reka-ui`, the parent (`PaperView.vue`), the sibling (`MobileFloatingToc.vue`), the search stack,
+and `web/e2e/paper-performance.spec.ts`. Two claims required knowing the *real* shape of
+`paperSections` (a `virtual:paper-content` build artifact); I re-derived it read-only by running
+`latex-paper`'s own `Transformer` over `paper/fourier_paper.{tex,log,aux,toc,bbl}` in a scratchpad
+script — **13 roots · 51 subsections · 34 sub-subsections · 98 nodes**. That figure is load-bearing
+for L-7 and L-10 and is stated wherever used. Claims that need a live page are marked
+**UNPROVEN-NEEDS-LIVE (SS-13)**.
 
-## §0 · Import closure actually read
+**Tally. 15 defects · 0 BLOCKERS · 5 superlatives.** (MAJOR ×5 · MINOR ×5 · INFO ×5.)
 
-| File | Why |
-|---|---|
-| `web/src/components/paper/PaperSidebar.vue` | target |
-| `web/src/components/ui/tooltip/Tooltip.vue` | `:2` local shim |
-| `web/src/components/paper/PaperSearch.vue` | `:3` |
-| `web/src/components/paper/search/{PaperSearchInput,PaperSearchDropdown,PaperSearchModal}.vue` | PaperSearch's children |
-| `web/src/components/paper/search/usePaperSearch.ts` | `:5` type + state |
-| `web/src/lib/paperContent.ts` | `:4` — re-export of `@mkbabb/latex-paper` |
-| `node_modules/@mkbabb/glass-ui/dist/components/ui/button/Button.vue.d.ts` | `:6` installed contract |
-| `node_modules/@mkbabb/glass-ui/dist/CollapsibleContent-C_s6fG7r.js` + `dist/components/ui/collapsible/*.d.ts` | `:7` installed impl |
-| `node_modules/@mkbabb/glass-ui/dist/TooltipProvider-B3MkB_8P.js`, `dist/tooltip.js` | installed tooltip impl |
-| `node_modules/@mkbabb/glass-ui/dist/sidebar.js` + `dist/composables/sidebar/*.d.ts` | `:8` `useSidebarState` |
-| `node_modules/reka-ui/src/Collapsible/{CollapsibleRoot,CollapsibleContent}.vue` | disclosure semantics |
-| `node_modules/reka-ui/src/shared/{useForwardProps,useForwardPropsEmits}.ts` | prop-forwarding semantics |
-| `node_modules/@mkbabb/glass-ui/dist/styles/tokens/light-dark.css` | `--section-color-*` |
-| `web/src/components/paper/{PaperView,MobileFloatingToc}.vue`, `paperTree.ts`, `useScrollNavigation.ts` | the caller + the sibling consumer |
-| `latex-paper/src/vue/composables/{useKatex,useVirtualSectionWindow}.ts`, `src/vue/tracking/useTreeIndex.ts`, `src/transform/sections.ts`, `src/vue/context.ts` | `renderTitle` / `activeId` / tree shape |
-| `web/src/App.vue`, `web/src/style.css`, `web/vite.config.ts`, `paper/fourier_paper.tex` | provider, tokens, build, content |
+**No BLOCKER, stated affirmatively.** Nothing in this file crashes, leaks, or fails typecheck. It
+registers zero listeners, timers, observers or rAFs (S-1), its `any` is inert because the prop
+carrying it is never read (L-3), and its worst behaviour is a wrong-but-recoverable interaction
+(L-1). The component is *mediocre*, not *broken* — which is the finding.
 
 ---
 
-## §1 · Fold of the hitherto corpus (cited, not re-derived)
+## §0 — Fold of the hitherto corpus (what I inherit, and what I add)
 
-- **R5-7 / R6-5** (`audit/codex-provenance/intakes/lane-fourier-r3-r6.md:125,139`) — ADOPTED-AS-FACT: three native `<li v-for>` at **65 / 87 / 105**, expressions `(section, si) in sections` / `sub in section.subsections` / `subsub in sub.subsections`; `DERIVED-REGISTRIES.leafValues["instance.loop.paper-sidebar"]` was `[]` under callsite-keyed derivation. Re-confirmed line-for-line against the live tree. **This challenge does not re-litigate R5-7; it supplies the denominator R5-7 was blind to** (§3, L-10).
-- **R3-7a** (`…:79`) — PaperSidebar contributes **2 of the 35** `Tooltip` callsites over nine consumers (live: `:70`, `:88`); the migration budget for retiring `ui/tooltip/Tooltip.vue` is booked to **F.W3**. L-10's per-row stack is exactly this indirection measured.
-- **CENSUS §3a** (`formation/fourier/CENSUS-2026-08-03.md:85-101`) + **lane-frontend §6** (`lane-frontend.md:512-570`) — viz architecture: **Canvas2D throughout, WebGL/WebGPU ABSENT**; three independent canvases (Path A epicycle instrument off `stores/animation.ts:56` with the I.γ off-screen gate at `:48-53`; Path B `ConvergencePlot.vue:67-69` own **ungated** rAF; Path C `FrequencyGraph.vue:157` watch-driven) + 12 SVG surfaces; INP floor `lib/scheduler.ts` explicitly scoped away from the render loop.
-- **lane-frontend §2** (`:156`) — PaperSidebar 283 LOC, "Desktop ToC sidebar (`useSidebarState` + `Collapsible`)". Confirmed.
-- **lane-frontend §3/§8** (`:91`, `:594-604`) — the `--viz-amber` WCAG darken is a held glass-BH carry. **Corpus correction, §4.**
-
----
-
-## §2 · Where this component meets the viz render path
-
-**It does not enter it.** `grep -rn "canvas\|getContext\|webgl" web/src/components/paper/` returns nothing; none of Paths A/B/C nor the 12 SVG surfaces enumerated at `lane-frontend.md:564` live under `components/paper/`. Falsifier: any canvas/WebGL handle reachable from PaperSidebar's import closure — none exists across the 30 files in §0.
-
-Two real contacts remain, and both matter to findings below:
-
-1. **Palette.** `PaperSidebar.vue:77,96,112` consume `var(--section-color-${si})`, defined at `glass-ui/dist/styles/tokens/light-dark.css:126-138` — the same token family the viz palette draws from. `web/src/style.css:119-127` (the census's "`--viz-amber` WCAG darken", `lane-frontend.md:604`) rewrites **both** `--viz-amber` *and* `--section-color-5`, in both light and dark arms. See L-9 and §4.
-2. **Main-thread budget.** The sidebar's render work sits **outside both** disciplines the census banks: it is not registered with the `stores/animation.ts:95 setCanvasVisible` off-screen gate (correctly — no canvas), and it is not routed through `lib/scheduler.ts`'s `yieldToMain()` floor, whose header (`scheduler.ts:14-19`) scopes itself to gallery infinite-scroll. It is a small unbudgeted consumer that fires on every section-boundary crossing (L-8).
-
----
-
-## §3 · Defects
-
-### L-1 · MAJOR · The search-modal singleton is mounted from a viewport-conditional presentational component; two `Teleport`-to-`body` modals coexist
-
-`PaperSidebar.vue:51` renders `<PaperSearch :search="search" variant="sidebar" />` **unconditionally**. `PaperSearch.vue:31-33` renders `<PaperSearchModal :search="search" />` unconditionally. `PaperSearchModal.vue:41` is `<Teleport to="body">` gated on the *shared* `search.isExpanded` (`:44`). `MobileFloatingToc.vue:110-111` mounts a **second** `<PaperSearch>` off the same `PaperSearchState` object, which `PaperView.vue:111` creates once and passes to both (`PaperView.vue:328`, `:347`).
-
-Concurrency is real: `MobileFloatingToc` is gated `v-if="!mobileTocVisible"` (`PaperView.vue:319-320`), and `mobileTocVisible` is written by an `IntersectionObserver` (`PaperView.vue:248-255`) observing `<nav ref="mobileNavRef" class="… lg:hidden">` (`PaperView.vue:361`). Below `lg` the mobile-search path (`MobileFloatingToc.vue:86-91 openMobileSearch`) sets `searchActive = true`, mounting its `PaperSearch` while PaperSidebar's is already mounted. Expanding then puts **two identical `.search-modal-overlay` subtrees in `<body>`**.
-
-Three concrete consequences, all source-derived:
-
-- `PaperSearchModal.vue:32` scrolls the selected result with `document.querySelector(".search-modal-results")` — a **document-global** selector. Both instances' watchers resolve to the *first* match in document order, so the visible modal's ↑/↓ keyboard navigation never scrolls its own list into view.
-- Both instances run `nextTick(() => modalInputRef.value?.focus())` (`PaperSearchModal.vue:22`) on the same `isExpanded` flip — a focus race decided by mount order, not by which modal the user sees.
-- Two stacked `position:fixed; inset:0` overlays each carrying `backdrop-filter: blur(6px)` and `background: color-mix(in srgb, var(--background) 55%, transparent)` (`PaperSearch.vue` style block, `.search-modal-overlay`) composite to ≈80% and double-blur. **UNPROVEN-NEEDS-LIVE (SS-13)** for the visual magnitude; the double mount itself is static.
-
-The ownership error is PaperSidebar's: a *desktop ToC skin* mounts a global, body-teleported, state-singleton-shaped surface. The modal belongs to the state's owner (`PaperView`), rendered once.
-
-**Falsifier** — dies if any of: PaperSidebar's `<PaperSearch>` is `v-if`-gated on viewport; `PaperSearchModal` is hoisted to `PaperView`; the modal is not teleported; or `MobileFloatingToc` cannot be mounted while PaperSidebar is. None hold at `PaperSidebar.vue:51` / `PaperSearch.vue:31` / `PaperSearchModal.vue:41` / `PaperView.vue:319,335`.
-
----
-
-### L-2 · MAJOR · `treeIndex` — a dead prop, `any`-typed, in the public contract
-
-`PaperSidebar.vue:20` declares `treeIndex: Map<string, any>;`. `PaperView.vue:343` passes `:tree-index="treeIndex"`. **The identifier appears nowhere else in the SFC** — not in the template, not in the script body.
-
-Two defects in one line:
-- **Dead surface.** A prop that costs the parent a `useTreeIndex` result it must keep alive, consumed by nobody.
-- **`any` in a declared contract.** The precise type exists and is exported: `TreeIndexEntry<PaperSectionData>` / `SidebarIndexEntry` (`glass-ui/dist/composables/sidebar/types.d.ts`), and `latex-paper`'s equivalent. `Map<string, any>` defeats `vue-tsc -b` (`web/package.json:8`) at exactly the seam where the two packages' `TreeIndexEntry` shapes must agree.
-
-**Falsifier** — `grep -n "treeIndex" web/src/components/paper/PaperSidebar.vue` → **line 20 only**. Any second occurrence kills the dead-surface half; any absence of a nameable entry type kills the `any` half (both exist).
-
----
-
-### L-3 · MAJOR · `useSidebarState` is consumed for 2 of its 10 members and builds the third redundant tree index over the same tree
-
-`PaperSidebar.vue:38-45` calls `useSidebarState<PaperSectionData>({…, getChildren: (n) => n.subsections })`. The installed implementation (`glass-ui/dist/sidebar.js`, `function h(t)`) begins `let { index: n, isActive: r, isInActiveChain: a } = u(t.sections, { getChildren: t.getChildren })` — i.e. it walks the whole tree and builds a `Map` at setup.
-
-The template consumes **`isExpanded` (`:67`) and `toggleSection` (`:68`, `:74`) only**. Dead members returned and retained: `sections`, `activeId`, `activeRootId`, `treeIndex`, `navigateTo`, `scrollToTop`, `isActive`, `isInActiveChain`. Notably the template calls the **props** `isActive`/`isInActiveChain` (`:94`, `:95`, `:104`, `:111`) rather than the composable's identically-named members — so both exist side by side over two different representations of one tree.
-
-The tree is therefore indexed **three times**:
-1. `PaperView.vue:47-48` — `paperSections.map(paperSectionToTreeNode)` (a full structural copy, `paperTree.ts:4-9`) then `useTreeIndex(treeNodes)` from `@mkbabb/latex-paper/vue`.
-2. Passed into PaperSidebar as `treeIndex` — **never read** (L-2).
-3. Rebuilt inside `useSidebarState` from the *raw* `PaperSectionData` via `getChildren`.
-
-Compounding this: `latex-paper/src/vue/tracking/useTreeIndex.ts` and `glass-ui/src/composables/sidebar/useTreeIndex.ts` are **byte-equivalent implementations modulo formatting** (compare `latex-paper` `:6-66` with the compiled `glass-ui/dist/sidebar.js` `function u(e,t)` — same `LEVEL`-less walk, same `roots.indexOf(node)` at depth 0, same `isActive`/`isInActiveChain`/`isDescendant` triple). Two packages ship the same algorithm; this one component pulls both into one render tree.
-
-**Falsifier** — dies if the composable's `treeIndex`/`isActive`/`isInActiveChain` are read in the SFC (they are not: the only `sidebarState.` accesses are `:67`, `:68`, `:74`), or if `useSidebarState` did not build an index (`dist/sidebar.js` shows it does), or if the two `useTreeIndex` bodies diverge (they do not).
-
----
-
-### L-4 · MAJOR · A disclosure primitive used with no trigger: dead `@update:open` wiring and forfeited a11y
-
-`PaperSidebar.vue:66-69` mounts `<Collapsible :open="…" @update:open="sidebarState.toggleSection(section.id)">` with **no `CollapsibleTrigger`** anywhere in the subtree (`grep -n "CollapsibleTrigger" PaperSidebar.vue` → none; the import at `:7` pulls only `Collapsible, CollapsibleContent`).
-
-`@update:open` at `:68` is **unreachable**. Tracing the installed chain: glass-ui `Collapsible` forwards to reka `CollapsibleRoot` (`dist/CollapsibleContent-C_s6fG7r.js`, `var p`). `CollapsibleRoot.vue:54-57` uses `useVModel(props,'open',emit,{ passive: (props.open === undefined) as false })`; `:open` at `:67` is always a boolean (`isExpanded` returns `boolean`), so `passive === false` — fully controlled, no self-write. The only other emitter is `onOpenToggle` (`CollapsibleRoot.vue:66-71`), called from (a) `CollapsibleTrigger` — absent — and (b) the `beforematch` listener at `CollapsibleContent.vue:88-93`, which requires `hidden="until-found"`; but `CollapsibleContent.vue:109` emits `until-found` **only when `unmountOnHide` is false**, and it is `true` here (see §5 R-B). Both paths are closed.
-
-The visible toggle is therefore the inline handler at `:74`, on a plain `Button` that carries **no `aria-expanded`, no `aria-controls`**. reka assigns the content region an id (`CollapsibleContent.vue:35`, `:id="rootContext.contentId"`) that nothing references. Adopting a disclosure primitive and then bypassing its trigger buys the animation (`--reka-collapsible-content-height`, documented at `:83-84` and `:255-258`) at the cost of the entire accessibility contract the primitive exists to supply.
-
-**Falsifier** — dies if a `CollapsibleTrigger` exists, if `:open` can ever be `undefined` (it cannot — `isExpanded` is `(id: string) => boolean`), or if `unmountOnHide` resolves false (refuted in §5 R-B).
-
----
-
-### L-5 · MAJOR · Navigate-and-toggle conflated on one control, contradicting the sibling consumer of the same composable
-
-`PaperSidebar.vue:74` — `@click="scrollTo(section.id); sidebarState.toggleSection(section.id)"`.
-`MobileFloatingToc.vue:155` — `@click="sidebarState.toggleSection(section.id)"` (toggle only; navigation is a *separate* control at `:171`, `selectSection(sub.id)`).
-
-Two consumers of one composable disagree on what a root row *is*. The desktop path's failure mode is concrete. `isExpanded` (`glass-ui/dist/sidebar.js`, `function l(e)`) reads `userCollapsed → userExpanded → activeRootId === id`. `scrollTo` is `navigateTo` (`PaperView.vue:340` → `useScrollNavigation.ts:202`), which does **not** update `activeRootId` synchronously — it schedules through `performScroll` (`:169-200`, rAF/`nextTick`), and `activeRootId` is a computed over the virtual window's `activeItem` (`latex-paper/src/vue/composables/useVirtualSectionWindow.ts:248`). So `toggleSection` at `:74` always observes the pre-navigation state:
-
-1. Click chapter A while elsewhere → `isExpanded(A)` false → `userExpanded.add(A)`. Navigates and expands. Correct.
-2. Scroll away to chapter B. `A` stays in `userExpanded` (never cleared).
-3. Click chapter A again to return → `isExpanded(A)` now **true** → `userExpanded.delete(A); userCollapsed.add(A)`. **The click navigates to A and simultaneously collapses it.** A is now pinned collapsed until clicked again, and the default-expansion rule (`activeRootId === id`) can never re-open it.
-
-Because `useSidebarFollow` (`PaperView.vue:233-238`) locates the active row by `[data-toc-id]` (see the installed `dist/sidebar.js` `closest("[data-toc-id], .sidebar-top-btn")`), and sub-rows only exist inside an *open* `CollapsibleContent`, the auto-follow silently loses its target for every chapter the user has re-visited.
-
-**Falsifier** — dies if `navigateTo` mutates `activeRootId` synchronously before the second statement (`useScrollNavigation.ts:202-212` shows it does not — every write path is rAF/`nextTick`-deferred), or if `userExpanded` is cleared on navigation (`dist/sidebar.js` `function d(e)` shows only the two-set swap). Visual confirmation of the collapse is **UNPROVEN-NEEDS-LIVE (SS-13)**; the state machine is fully static.
-
----
-
-### L-6 · MINOR · Dead class `is-active-sub`, and the wasted recursive walk that computes it
-
-`PaperSidebar.vue:94` — `:class="{ 'is-active-sub': isActive(sub.id, activeId) || isInActiveChain(sub.id, activeId) }"`.
-
-`grep -rn "is-active-sub" web/src/` → **one hit: PaperSidebar.vue:94**. There is no `.is-active-sub` rule in this file's scoped block (which does define `.sidebar-link.is-active` at `:240` and `.sidebar-link.is-active .sidebar-number` at `:251`) nor anywhere in `web/src/style.css`. The class is written and never read.
-
-The waste is not just the class. `isInActiveChain` (the prop, from `latex-paper/src/vue/tracking/useTreeIndex.ts:42-51`) falls through to `isDescendant` (`:53-63`), a **recursive subtree walk, not an index lookup** — it re-walks `sub`'s entire subtree on every call. `:94` invokes it once per sub-row purely to set a class that styles nothing; `:104` invokes it again for the same `sub.id` on the same render to gate the sub-sub `<ol>`. Two walks where the gate needs one, and one of the two is unconditionally discarded.
-
-**Falsifier** — a `.is-active-sub` declaration anywhere in the cascade (glass-ui's `dist/styles/` included) kills the dead-class half; an index-based `isInActiveChain` kills the cost half. Neither exists.
-
----
-
-### L-7 · MINOR · Two competing active-state mechanisms, the weaker one unreachable
-
-Root rows express "active" through a **CSS class**: `:76` `:class="{ 'is-active': … }"` → `:240-243` `.sidebar-link.is-active { background: none; font-weight: 600 }`.
-Sub and sub-sub rows express the same thing through **inline styles**: `:95-97` and `:111-113` write `{ color, fontWeight: '600', background: 'color-mix(in srgb, var(--muted) 40%, transparent)' }`.
-
-Inline styles win every specificity contest, so no scoped rule can ever adjust sub-row active state — including `.sidebar-link:hover` (`:235-238`), whose `background` is dead on an active sub-row. One component, two mechanisms, and the class-based one is structurally the loser wherever both apply. A fresh object literal is also allocated per row per render at `:77`, `:95`, `:111` (and `{}` on the false branch, which Vue must still diff).
-
-**Falsifier** — dies if the inline branches only set properties no rule targets (they set `background`, which `.sidebar-link:hover:238` also sets) or if the class mechanism does not exist for the same concept (`:240` shows it does).
-
----
-
-### L-8 · MINOR · `getPreview` is unmemoized and regexes the whole section body before slicing to 100 chars
-
-`PaperSidebar.vue:70` and `:88` call `getPreview(section)` / `getPreview(sub)` **inside the render function**, once per rendered row. The implementation is `getPaperPreview` (`paperTree.ts:11-21`):
-
-```
-const text  = section.content?.find((block): block is string => typeof block === "string") ?? "";
-const clean = text.replace(/\$[^$]+\$/g, "…").replace(/<[^>]+>/g, "");
-const preview = clean.length > 100 ? `${clean.slice(0, 100)}…` : clean;
-```
-
-Two global regexes sweep the **entire** first content block — a full LaTeX-derived paragraph — and allocate two full intermediate strings, only for the result to be truncated to 100 characters on the next line. Slicing first (with a margin for the substitutions) makes the work O(1) in section length. Nothing caches: the function is pure over a build-time-frozen object (`virtual:paper-content`, `web/src/virtual-paper.d.ts`), so a `WeakMap` memo is exact.
-
-Re-render frequency, measured honestly: the render function reads `props.activeId` (`:94`, `:95`, `:104`, `:111`) and `props.activeRootId` (`:67` via `isExpanded`, `:76`, `:77`), and both are **`computed`s over a string** (`useVirtualSectionWindow.ts:247-248`). Vue's computed `hasChanged` gate means the sidebar re-renders on **section-boundary crossings**, not per scroll frame. So this is a MINOR, not a MAJOR — but it is unbudgeted: it is outside the I.γ off-screen gate (`stores/animation.ts:48-53`, canvas-scoped) and outside the `yieldToMain()` floor (`lib/scheduler.ts:14-19`, explicitly gallery-scoped), the two disciplines `lane-frontend.md:512-570` banks for this app.
-
-`renderTitle` (`:80`, `:100`, `:116`) is the honest counter-example and is *not* charged here: `latex-paper/src/vue/composables/useKatex.ts:8` holds a module-level KaTeX cache, so only the outer `.replace` scan (`context.ts:20-24`) repeats.
-
-**Falsifier** — dies if `getPaperPreview` memoizes (it does not, `paperTree.ts:11`), if the regexes ran on the sliced prefix (they run on `text`, `:13`), or if the sidebar's render never re-runs on `activeId` change (it does — `:94` reads it).
-
----
-
-### L-9 · MINOR · `--section-color-${si}` has zero headroom and no `var()` fallback
-
-`:77`, `:96`, `:112` interpolate the **raw root-array index** `si` into a token name with no modulo and no fallback: `` `var(--section-color-${si})` ``.
-
-The token set is finite and exactly 13: `--section-color-0` … `--section-color-12` (`glass-ui/dist/styles/tokens/light-dark.css:126-138`). The root count derives from `latex-paper/src/transform/sections.ts:186-192`, where level-0 (`\chapter`, `LEVEL_MAP` at `:37`) and any level-1 preceding the first chapter go to `topLevel`, plus one synthetic bibliography root (`:109-115`). Live source `paper/fourier_paper.tex`: **11 `\chapter`** + **1 pre-chapter `\section{Introduction}`** (line 93, before `\chapter` at line 118) + bibliography (`\bibliography` line 3119) → **12 or 13 roots**. Exact count is **UNPROVEN-NEEDS-BUILD** (`compiledMetadata.bibliography.length` gates the 13th, `sections.ts:110`).
-
-So the range is exactly saturated with **zero slack**. Adding a 14th `\chapter` — a *content* edit to a `.tex` file, by an author who will never read this template — silently yields `color: var(--section-color-13)`, an unresolvable custom property. The declaration becomes invalid-at-computed-value-time and `color` resolves to `unset` → inherits, so the active chapter simply stops being coloured, with no error anywhere. A fallback (`var(--section-color-13, var(--foreground))`) or a modulo (`si % 13`) costs one expression.
-
-**Falsifier** — dies if a 14th token exists (`grep -c -- "--section-color-[0-9]*:" light-dark.css` → 13), if the template supplies a fallback (`:77` shows none), or if `si` is bounded below 13 by construction (it is `v-for` over the raw prop array, `:65`).
-
----
-
-### L-10 · MINOR · The whole aside mounts at every viewport — the denominator R5-7 was blind to
-
-`PaperView.vue:335` renders `<PaperSidebar>` with **no `v-if`**. Visibility is CSS-only: `:132-136` `.paper-sidebar { display: none }` and `:138-149` `@media (min-width: 1024px) { display: block }`. Every phone therefore constructs and retains the entire ToC component tree it can never see, and pays its setup cost (including the `useSidebarState` tree walk, L-3).
-
-**The denominator.** R5-7 (intake `:125`) established that callsite-keyed loop derivation reported `instance.loop.paper-sidebar` as `[]`. Here is what that `[]` concealed, per root `<li>` — every layer opened and read:
-
-| # | Instance | Source read |
+| corpus row | what it says about this file | this challenge |
 |---|---|---|
-| 1 | local `Tooltip` shim | `web/src/components/ui/tooltip/Tooltip.vue:26-38` |
-| 2 | glass-ui `Tooltip` | `dist/TooltipProvider-B3MkB_8P.js` `var v` |
-| 3 | reka `TooltipRoot` | imported as `h`, ibid. |
-| 4 | glass-ui `TooltipTrigger` | ibid. `t` |
-| 5 | reka `TooltipTrigger` | imported as `g`, ibid. |
-| 6 | glass-ui `Button` | `dist/components/ui/button/Button.vue.d.ts` |
-| 7 | reka `Primitive` (button root) | ibid. |
-| 8 | glass-ui `TooltipContent` | `dist/TooltipProvider-B3MkB_8P.js` `var y` |
-| 9 | reka `TooltipPortal` | rendered unconditionally, ibid. (`n(u(p), null, …)`) |
-| 10 | reka `TooltipContent` | ibid. (`r(u(f), …)`) |
-| 11 | glass-ui `Collapsible` | `dist/CollapsibleContent-C_s6fG7r.js` `var p` |
-| 12 | reka `CollapsibleRoot` | `reka-ui/src/Collapsible/CollapsibleRoot.vue` |
-| 13 | reka `Primitive` (collapsible root) | ibid. `:79` |
-| 14 | glass-ui `CollapsibleContent` | `dist/CollapsibleContent-C_s6fG7r.js` `var h` |
-| 15 | reka `CollapsibleContent` | `reka-ui/src/Collapsible/CollapsibleContent.vue` |
-| 16 | reka `Presence` | ibid. `:97` (`:force-mount="true"` → always instantiated) |
-| 17 | reka `Primitive` (content root) | ibid. `:103` |
+| **R5-7** (intake `lane-fourier-r3-r6.md:125`) — ADOPT-AS-FACT + CARRY→F.W4 | "template-loop evidence keyed to *component* callsites is blind to native HTML element loops … `PaperSidebar.vue` renders the entire paper ToC through three nested native `<li v-for>` loops (live 65, 87, 105), so any instance denominator built on component callsites drops the whole sidebar subtree" | **Confirmed line-for-line and EXTENDED with the multiplier — see §2.** |
+| **R6-5** (`:139`) — ADOPT-AS-FACT | R6 cured the leaf with a `NATIVE_TEMPLATE_LOOP` family: 3 rows at 65/87/105, expressions `(section, si) in sections` / `sub in section.subsections` / `subsub in sub.subsections` | Live tree agrees exactly (I re-read 65/87/105). **But 3 loop *rows* is not an instance denominator — §2.** |
+| **R3-7a** (`:79`) — CARRY→F.W3 | "PaperSidebar 2" of the 35 Tooltip callsites over 9 consumers | Confirmed: `:70` and `:88`. **The absence of a third is itself a defect — L-8.** |
+| **CENSUS §3a / lane-frontend §6** (`lane-frontend.md:512-566`) | "Canvas2D throughout, **WebGL/WebGPU ABSENT**"; three canvases — `BasisCanvas` (store rAF, off-screen gated), `ConvergencePlot` (own ungated rAF), `FrequencyGraph` (watch-driven) — + 12 SVG surfaces | **PaperSidebar touches none of them.** Its render-path contact is the *scroll* path, not the canvas path — and there it contributes a **third ungated clock** the inventory misses. See §1 L-11. |
+| **lane-frontend §8** (`:624`) | "⚠️ COVERAGE GAP (flag): the two ungated animation clocks are `stores/animation.ts` and `ConvergencePlot.vue`"; `:617` books `PaperView.vue:176` as the one JS PRM gate | **Contradicted as incomplete — there is a third: L-11.** |
+| **lane-frontend `:156`** | `PaperSidebar.vue` · 283 · "Desktop ToC sidebar (`useSidebarState` + `Collapsible`)" | Size confirmed (`wc -l` → 283). Goldilocks-correct — S-4. The `+ Collapsible` half of that description is where the rot is (L-5). |
+| **lane-frontend `:70`** | reka-ui has 0 direct imports; the 6 mentions are prose, incl. `PaperSidebar.vue:256` | Confirmed — `:255-257` is the W3.5.c comment. No direct reka import here. Clean. |
 
-**≥17 verified component instances per root row**, unconditional, ×12–13 rows ⇒ **≥204–221 instances always mounted**, at every viewport. reka's internal Popper layers inside `TooltipRoot`/`TooltipTrigger` were not opened and are **not** counted — the figure is a floor, not an estimate. Sub-rows add on top and *are* correctly bounded (see §5 R-B: reka's `unmountOnHide` default keeps closed sections' `<li>`s unmounted), which is why this is MINOR rather than MAJOR — the root loop is the whole unconditional cost.
-
-For **F.W4**'s per-component D/L/C audit this is the number to carry: the native-`<li>` blindness hid ~17× amplification per row, because each row's real cost lives in the *component* stack the loop instantiates, not in the loop element itself.
-
-**Falsifier** — dies if PaperSidebar is `v-if`-gated (`PaperView.vue:335` shows it is not), if `.paper-sidebar` is not `display:none` below 1024px (`:135`), or if any of the 17 layers is conditional at mount (each cited line shows unconditional instantiation; #9/#10/#16 gate their *children*, not themselves).
+**Nothing in the corpus is contradicted on fact.** One row is contradicted on *completeness*
+(lane-frontend §8's two-clock inventory, L-11), and one Codex measurement is extended rather than
+disputed (R5-7's blind spot, quantified in §2).
 
 ---
 
-### L-11 · INFO · Asymmetric composable contract: reactive `activeId`, snapshot `sections`
+## §1 — Defects
 
-`useSidebarState`'s options accept `activeId`/`activeRootId` as `MaybeRefOrGetter<string | null>` (`glass-ui/dist/composables/sidebar/useSidebarState.d.ts`) — and `PaperSidebar.vue:40-41` correctly supplies getters. But `sections: T[]` is a **plain array**, captured once at setup (`:39`, `sections: props.sections`) and walked immediately into a `Map`. Meanwhile the template iterates the *reactive* prop (`:65`, `v-for="… in sections"`).
+### L-1 · **MAJOR** — clicking the section you are reading collapses it, and silently breaks sidebar-follow
 
-Benign today — `PaperView.vue:120` is `computed(() => paperSections)` over a build-frozen constant. But the two halves of the same component now read the tree through two channels with different reactivity, and the failure is silent: a `sections` change would render rows whose ids are absent from `sidebarState`'s index, so `isExpanded` would fall through to the `activeRootId === id` default forever and `toggleSection` would write into sets nothing consults.
-
-**Falsifier** — dies if `sections` is declared `MaybeRefOrGetter` upstream (the `.d.ts` says `sections: T[]`) or if the composable re-walks on change (`dist/sidebar.js` `function h(t)` walks once, unwatched).
-
----
-
-### L-12 · INFO · Duplicated `max-height` calc across parent and child
-
-`:145-147` (`.paper-sidebar`) and `:152-154` (`.sidebar-nav`) carry the byte-identical `calc(var(--paper-scroll-viewport-height, 100dvh) - var(--sidebar-top-inset) - var(--sidebar-bottom-inset))`. The nav is the aside's only child. The nav additionally carries `padding-bottom: var(--sidebar-bottom-inset)` (`:161`) **inside** that height plus `scroll-padding-bottom: var(--sidebar-bottom-inset)` (`:159`), so the bottom inset is applied up to three times along one axis. Two edits required for one change; the compounding's visual magnitude is **UNPROVEN-NEEDS-LIVE (SS-13)**.
-
-**Falsifier** — dies if the aside has siblings inside it or its own padding (`:132-136`, `:138-149` show neither).
-
----
-
-### L-13 · INFO · Goldilocks: the file is 55% stylesheet and the template carries the logic
-
-283 lines: script `1-46` (46), template `48-128` (81), style `130-283` (154). The template reaches **six** nesting levels (`aside → nav → ol → li → Collapsible → Tooltip → Button`) and holds multi-line ternary style objects at `:95-97` and `:111-113` — presentation logic that is neither CSS (which cannot see it, L-7) nor script (which cannot be tested). The three loop bodies at `:65`, `:87`, `:105` are near-identical modulo the tooltip and the class binding; a single recursive row component would collapse them and make the sub/sub-sub asymmetries (L-15) impossible to introduce.
-
-**Falsifier** — dies if the three bodies differ structurally (they differ only in: Tooltip present/absent, `is-active` vs `is-active-sub` vs none, and the `isActive` argument).
-
----
-
-### L-14 · INFO · A reactive singleton prop-drilled four levels, in a tree that already uses `provide`
-
-`search: PaperSearchState` (`:24`) — a bag of ten refs/computeds (`usePaperSearch.ts:92-104`) — travels `PaperView.vue:111` → `PaperSidebar:24` → `PaperSearch.vue:8` → `PaperSearchInput/Dropdown/Modal:8-10`, and separately to `MobileFloatingToc.vue:18`. PaperSidebar itself never touches it (`:51` forwards it verbatim); it is pure pass-through in a component that declares it as part of its contract. `PaperView.vue:63` already establishes the idiom in this exact tree — `provide(PAPER_CONTEXT, paperContext)`. Making `search` an injection removes the prop from PaperSidebar's contract entirely and removes L-1's structural precondition.
-
-**Falsifier** — dies if PaperSidebar reads any member of `search` (it does not — `:51` is the only occurrence after the declaration).
-
----
-
-### L-15 · INFO · Sub-subsection rows are second-class
-
-Sub-sub rows (`:105-118`) have **no `Tooltip`** (sub rows do, `:88`) and **no `:class`** (sub rows have one, `:94`), only the inline `:style` at `:111-113`. So the deepest rows show no preview on hover and cannot be targeted by any rule — three rows of the same list styled by three different mechanisms. This is the visible cost of L-13's copy-paste template.
-
-**Falsifier** — dies if a `Tooltip` or `:class` binding exists at `:106-114` (it does not).
-
----
-
-### L-16 · INFO · Dead declarations in the immediate import closure
-
-Reached only through `PaperSidebar.vue:51`, and therefore part of what this component drags in:
-- `PaperSearch.vue:9` — `const props = defineProps<…>()`; `props` is never referenced (the template reads `search`/`variant` directly).
-- `PaperSearchDropdown.vue:12-14` and `PaperSearchModal.vue:12-14` — both declare `defineEmits<{ select: [id: string] }>()` and assign it to `emit`; **neither ever emits**, and no parent listens (`PaperSearch.vue:22-34` binds no `@select`). Selection is instead performed by direct mutation of the shared state (`search.selectResult(r)`, `PaperSearchDropdown.vue:47`, `PaperSearchModal.vue:89`).
-
-**Falsifier** — `grep -n "emit(" PaperSearchDropdown.vue PaperSearchModal.vue` → no call sites; `grep -n "props\." PaperSearch.vue` → none.
-
----
-
-## §4 · Corpus correction
-
-`lane-frontend.md:604` and `CENSUS-2026-08-03.md:91` describe `web/src/style.css:119-131` as "the light-mode `--viz-amber` WCAG darken". The live block rewrites **two** tokens, in both arms:
+`PaperSidebar.vue:74`
 
 ```
-web/src/style.css:119  :root { --viz-amber: hsl(35 76% 35%); --section-color-5: hsl(35 76% 35%); }
-web/src/style.css:124  .dark { --viz-amber: hsl(37 73% 67%); --section-color-5: hsl(37 73% 67%); }
+@click="scrollTo(section.id); sidebarState.toggleSection(section.id)"
 ```
 
-The second line matters here because `--section-color-5` is what `PaperSidebar.vue:77` reads for the sixth root section, and glass-ui ships it as an `oklch()` `light-dark()` pair (`light-dark.css:131`) that the override replaces with a flat `hsl()` in each arm. **The held glass-BH carry is therefore two tokens wide, not one** — the relay text should say so, or the `--section-color-5` half will be dropped when the upstream `--viz-amber` rebaseline lands and the sidebar will silently diverge from the other twelve section colours (which stay `oklch`/`light-dark`). Everything else in the corpus checked out; no corpus row is contradicted.
+The root row's click handler couples *navigation* with *disclosure toggle*. Trace it against the
+composable (`glass-ui/src/composables/sidebar/useSidebarState.ts:71-85`):
+
+```
+isExpanded(id)  → userCollapsed.has(id) ? false
+                : userExpanded.has(id)  ? true
+                : toValue(activeRootId) === id       ← the default rule
+toggleSection(id) → isExpanded(id) ? userCollapsed.add(id) : userExpanded.add(id)
+```
+
+You are reading chapter **C**, so `activeRootId === C`, so `isExpanded(C)` is `true` by the default
+rule with no user override. You click C's title to jump to its start. `toggleSection(C)` sees
+`true` and writes `userCollapsed.add(C)`. **The chapter you are in collapses on the click that was
+meant to navigate into it** — and `userCollapsed` is sticky, so the default-expand rule can never
+re-open it. Every subsequent scroll through C's subsections leaves the ToC showing a closed chapter.
+
+Second-order, and worse: `CollapsibleContent` unmounts its slot when closed (reka
+`CollapsibleRoot.js:26-30`, `unmountOnHide` default `true`; `CollapsibleContent.js:90`). So C's
+subsection rows leave the DOM. `useSidebarFollow` locates its scroll target purely by DOM query —
+`latex-paper/dist/vue.js:518-520`, `nav.querySelector('[data-toc-id="…"]')` — and bails at `:566`
+when it finds nothing. **The sidebar stops following the reader**, with no error, for the rest of
+the session.
+
+*Provenance:* `PaperSidebar.vue:74` · `useSidebarState.ts:71-85` · `reka-ui/dist/Collapsible/CollapsibleRoot.js:26-30` · `latex-paper/dist/vue.js:518-520,562-566`.
+
+*Corroboration from the repo's own test suite* — `web/e2e/paper-performance.spec.ts:117-120`:
+
+> `// Only OPEN closed sections — 'toggleSection' flips state, so clicking an already-open chapter would collapse it (churning the tree across the serial tests). Expand-if-closed is idempotent.`
+
+The e2e author hit exactly this and worked around it rather than filing it.
+
+*Falsifier:* the row dies if `isExpanded(section.id)` were false at click time for the active root.
+It is not: with no user override the composable returns `activeRootId === sectionId` verbatim
+(`useSidebarState.ts:75`), and `activeRootId` is precisely the scroll-tracker's answer to "which
+chapter is on screen" (`PaperView.vue:68-90`, `useVirtualSectionWindow`, `activeRootId` at `:75`).
+The only way to falsify is
+for the reader to click a chapter they are *not* in — which is the other half of the ToC's job, not
+a refutation of this half. **Survives.**
+
+*Sibling contrast (this is a divergence, not a house style):* `MobileFloatingToc.vue:155` binds the
+same composable's root row to `@click="sidebarState.toggleSection(section.id)"` — toggle only, never
+navigate. Two ToC surfaces, one composable, two incompatible interaction contracts.
 
 ---
 
-## §5 · Refuted candidates (recorded so they are not re-raised)
+### L-2 · **MAJOR** — an unconditionally-mounted search stack yields two teleported modals and a cross-instance `document.querySelector`
 
-| # | Candidate | Verdict | Evidence |
+`PaperSidebar.vue:51` mounts the full search stack — `<PaperSearch :search="search" variant="sidebar" />` —
+inside the `<nav>` (`:50`), with no viewport gate. `PaperSidebar.vue:132-136` then hides the whole
+component with **CSS only**:
+
+```
+.paper-sidebar { … display: none; }      /* < 1024px; re-shown only at :138 @media (min-width:1024px) */
+```
+
+and `PaperView.vue:335-347` mounts `<PaperSidebar>` with no `v-if`. So below 1024px the sidebar's
+`PaperSearch` — input + dropdown + **`PaperSearchModal`** — is fully instantiated.
+
+`PaperSearchModal.vue:40-42` is `<Teleport to="body">` + `v-if="search.isExpanded.value"`. **The
+teleport moves the modal out of the `display:none` subtree**, so the invisible sidebar's modal is
+visible. Meanwhile `MobileFloatingToc.vue:111` mounts a *second* `PaperSearch` (`variant="floating"`)
+on the *same shared* `PaperSearchState` — one `usePaperSearch(...)` object created once at
+`PaperView.vue:111` and prop-drilled to both. Two `PaperSearchModal` instances, one predicate.
+
+Three concrete consequences, all static-certain:
+
+1. **Duplicate overlay.** Both modals satisfy `v-if="search.isExpanded.value"` simultaneously; both
+   render `.search-modal-overlay` at `z-index: var(--z-modal)` into `body`.
+2. **Wrong-instance DOM write.** `PaperSearchModal.vue:31` scrolls the selection into view via
+   `document.querySelector(".search-modal-results")` — a **document-global** query. Instance B's
+   watcher resolves instance A's element. The keyboard-navigated selection scrolls the wrong list.
+3. **Focus race.** `PaperSearchInput.vue:19-25` auto-focuses on the shared `search.isOpen`; every
+   mounted input fires `inputRef.value?.focus()` in the same `nextTick`. Last-mounted wins; the
+   `display:none` one is a no-op that still runs.
+
+*Reachability (below 1024px):* scroll until the inline mobile ToC leaves the viewport →
+`PaperView.vue:319` mounts `MobileFloatingToc` (`v-if="!mobileTocVisible"`) → tap its search icon
+(`MobileFloatingToc.vue:123` → `openMobileSearch()` at `:86-91`, sets `searchActive` and
+`search.open()`) → type → tap expand (`PaperSearchInput.vue:47-55` emits `expand` →
+`search.toggleExpanded()`). `isExpanded` flips; both modals mount.
+
+*Provenance:* `PaperSidebar.vue:51,132-136` · `PaperView.vue:111,319,335-347` · `PaperSearch.vue:22-39` (Input `:24`, Dropdown `:31`, Modal `:35`) · `PaperSearchModal.vue:26-36,40-42` · `PaperSearchInput.vue:19-25` · `MobileFloatingToc.vue:86-91,111,123`.
+
+*Falsifier:* dies if the two `PaperSearch` instances can never coexist. They can — the sidebar's is
+unconditional, the floating one is `v-if="searchActive"` inside a component that is itself mounted
+whenever the inline ToC is off-screen, and `searchActive` is set by a control that is only reachable
+*below* 1024px, i.e. exactly where the sidebar is invisible-but-mounted. Also dies if the modal
+weren't teleported — it is (`:40`). **Survives.** The *visual* stacking of the two overlays is
+**UNPROVEN-NEEDS-LIVE (SS-13)**; the double instantiation and the global `querySelector` are not.
+
+*Root cause attributable to this component:* a component that renders nothing below 1024px should
+not be the mount point for a document-global, teleporting modal.
+
+---
+
+### L-3 · **MAJOR** — `treeIndex: Map<string, any>` is a dead prop, and the file's only `any`
+
+`PaperSidebar.vue:20`
+
+```
+treeIndex: Map<string, any>;
+```
+
+Declared in `defineProps`, supplied by the parent (`PaperView.vue:343` `:tree-index="treeIndex"`),
+and **never read** — not in the script, not in the template. `grep -n treeIndex PaperSidebar.vue`
+returns exactly one hit: the declaration.
+
+Two defects in one line. It is dead surface that the parent pays to compute and pass. And its
+element type is `any` — the *only* `any` in the file — so the prop contract is unchecked in both
+directions: `PaperView` could hand it a `Map<string, number>` and nothing would complain. The real
+type exists and is exported: `TreeIndexEntry<T>` (`glass-ui/dist/composables/sidebar/index.d.ts:7`).
+
+*Falsifier:* dies if any usage exists. None does. **Survives.**
+
+---
+
+### L-4 · **MAJOR** — three parallel derivations of one 98-node tree, from two packages, in one render path
+
+The `/paper` ToC builds the same index three times:
+
+| # | site | what it builds |
+|---|---|---|
+| 1 | `paperTree.ts:4-9` `paperSectionToTreeNode`, called at `PaperView.vue:47` | 98 fresh `TreeNode` objects whose sole purpose is renaming `subsections` → `children` |
+| 2 | `PaperView.vue:48` `useTreeIndex(treeNodes)` (**latex-paper**) | a 98-entry `Map` + `isActive` / `isInActiveChain` |
+| 3 | `PaperSidebar.vue:38-45` `useSidebarState<PaperSectionData>({… getChildren: n => n.subsections})` (**glass-ui**) | internally calls glass-ui `useTreeIndex` → a **second** 98-entry `Map` + a second `isActive` / `isInActiveChain` |
+
+The two `useTreeIndex` implementations are functionally identical — compare
+`latex-paper/dist/vue.js:74-120` against `glass-ui/src/composables/sidebar/useTreeIndex.ts:22-90`:
+same `walk`, same `parentId: depth === 0 ? node.id : parentId`, same `isInActiveChain`, same
+`isDescendant`. Two packages, one algorithm, both resident.
+
+And **#1 is provably unnecessary**: `useSidebarState`'s `getChildren` override
+(`PaperSidebar.vue:44`) demonstrates that the index can read `subsections` directly. The adapter
+exists only to feed #2, whose product (`treeIndex`) reaches this component as a prop that is never
+read (L-3).
+
+The waste compounds at the consumer. `useSidebarState` returns **ten** members
+(`useSidebarState.d.ts:28-38`); `grep -n 'sidebarState\.' PaperSidebar.vue` finds **two** in use —
+`isExpanded` ×1 (`:67`) and `toggleSection` ×3 (`:68,:74`). The other eight —
+`sections`, `activeId`, `activeRootId`, `treeIndex`, `navigateTo`, `scrollToTop`, `isActive`,
+`isInActiveChain` — are all unused, and the template instead threads the **prop** forms with the
+leaky two-arg signature at five call sites (`:94` ×2, `:95`, `:104`, `:111`), each re-passing
+`activeId` by hand. The component holds a zero-argument `sidebarState.isActive(id)` and chooses
+`isActive(id, activeId)` instead.
+
+*Provenance:* `paperTree.ts:4-9` · `PaperView.vue:47,48,335-347` · `PaperSidebar.vue:20-22,38-45,67,68,74,94,95,104,111` · `glass-ui useTreeIndex.ts:22-90` · `latex-paper vue.js:74-120` · `useSidebarState.d.ts:28-38`.
+
+*Falsifier:* dies if the two indices differ semantically (then both are needed). They do not — I
+read both whole; the glass-ui `.ts` and the latex-paper bundled `.js` are line-for-line equivalent
+including the identical grandchild-`parentId` quirk (`parentId` of a depth-2 node is the **root**,
+not its parent — masked in both by the `isDescendant` fallback at `vue.js:106` /
+`useTreeIndex.ts:79`). Also dies if `sidebarState`'s helpers were used — they are not.
+**Survives.**
+
+---
+
+### L-5 · **MAJOR** — the `Collapsible` contract is used half-way: no trigger, dead emit, dangling `aria-labelledby`
+
+`PaperSidebar.vue:66-85` composes `Collapsible` + `CollapsibleContent` and **omits
+`CollapsibleTrigger`** (exported and available: `glass-ui/src/components/collapsible/index.ts:6-9`).
+The disclosure is hand-rolled onto a plain `Button` at `:71-81`. Three symptoms of the one defect:
+
+**(a) `@update:open` at `:68` is unreachable dead code.** `Collapsible` forwards only reka's emit
+(`glass-ui Collapsible.vue:57`). reka writes `open` in exactly one place — `onOpenToggle`
+(`CollapsibleRoot.js:52-55`) — which is invoked by `CollapsibleTrigger` (absent) and by
+`CollapsibleContent`'s `beforematch` listener (`CollapsibleContent.js:64-69`). The latter cannot
+fire: `beforematch` requires `hidden="until-found"`, and with `unmountOnHide` defaulting `true`
+(`CollapsibleRoot.js:26-30`) the attribute is written as `hidden=""` (`CollapsibleContent.js:82`).
+So the handler never runs — **and if it ever did it would double-toggle**, because `:74` already
+calls `toggleSection` on the same click.
+
+**(b) A `region` landmark labelled by an element that does not exist.** glass-ui stamps
+`role="region" :aria-labelledby="ids.trigger"` on every `CollapsibleContent`
+(`CollapsibleContent.vue:44-46`), where `ids.trigger` comes from `provideDisclosureIds()`
+(`Collapsible.vue:31`) and is applied **only by `CollapsibleTrigger`**. Ten of the thirteen chapters
+(those with `subsections`) therefore emit a landmark whose `aria-labelledby` IDREF resolves to
+nothing.
+
+**(c) No `aria-expanded` / `aria-controls` anywhere.** The `Button` at `:71-81` is a disclosure
+control that announces no disclosure state. Expanded/collapsed is conveyed to sighted users by the
+subsection list appearing and to everyone else by nothing.
+
+*Provenance:* `PaperSidebar.vue:66-85` · `glass-ui Collapsible.vue:31,57` · `glass-ui CollapsibleContent.vue:44-46` · `glass-ui collapsible/index.ts:6-9` · `reka-ui CollapsibleRoot.js:26-30,52-55` · `reka-ui CollapsibleContent.js:64-69,82,90`.
+
+*Falsifier:* (a) dies if reka emits `update:open` on any third path — I read `CollapsibleRoot.js`
+whole; `useVModel` writes only via `onOpenToggle`. (b) dies if `ids.trigger` is stamped by something
+other than `CollapsibleTrigger` — it is not; `CollapsibleContent` only *reads* it. (c) dies if a
+glass-ui `Button` injected disclosure ARIA — it does not; it is a plain `Primitive` button.
+**All three survive.**
+
+*Producer-side note (glass-ui BH relay, per standing law):* `Collapsible.vue:38-40` **strips**
+`unmountOnHide` / `unmount-on-hide` from forwarded attrs and does not re-declare it as a prop, so no
+consumer can choose mount-while-closed. That is a producer contract gap; it is not this component's
+defect, but it bounds what any fix here can do.
+
+---
+
+### L-6 · **MINOR** — `is-active-sub` is a dead class binding that costs a recursive tree walk to compute
+
+`PaperSidebar.vue:94`
+
+```
+:class="{ 'is-active-sub': isActive(sub.id, activeId) || isInActiveChain(sub.id, activeId) }"
+```
+
+`grep -rn "is-active-sub" web/src web/e2e` → **one hit: this line.** No rule in the scoped block
+(`:130-283` defines `.sidebar-link.is-active` at `:240` and `.sidebar-link.is-active .sidebar-number`
+at `:251` — never `.is-active-sub`), none in the global `style.css` (which *does* reach into this
+component's classes at `:136`, `.sidebar-link:focus-visible`), none in a test assertion.
+
+It is not merely inert. Evaluating it runs `isInActiveChain` per subsection row per render, and that
+helper recurses through `isDescendant` (`latex-paper/dist/vue.js:108-118`). The sibling depth-1
+styling is already done by the inline `:style` at `:95-97`, so the class was never wired.
+
+*Falsifier:* dies if any stylesheet or test selects `.is-active-sub`. Grepped `web/src` and
+`web/e2e` — nothing. Dies if Tailwind generated it — it is not a utility name. **Survives.**
+
+---
+
+### L-7 · **MINOR** — an empty tooltip bubble on exactly one row
+
+`PaperSidebar.vue:88` `<Tooltip :text="getPreview(sub)" side="right">`. The local shim renders the
+body unconditionally — `ui/tooltip/Tooltip.vue:37` `<slot name="content">{{ text }}</slot>` — with no
+`v-if` on `text`. `getPaperPreview` (`paperTree.ts:16-23`) returns `""` when a node has no leading
+string block in `content` **and** no `summary`.
+
+Re-derived against the real compiled tree (Transformer over `paper/fourier_paper.*`; **98 nodes**):
+**exactly one node yields `""`** — appendix **A.1 "Sturm-Liouville Completeness"**. Hovering that row
+opens an empty tooltip.
+
+*Provenance:* `PaperSidebar.vue:88` · `web/src/components/ui/tooltip/Tooltip.vue:31-38` · `paperTree.ts:16-23`.
+
+*Falsifier:* dies if `getPaperPreview` can never return `""` (it can — the `parts` array stays empty
+when both sources are absent), or if the shim guarded on `text` (it does not), or if no node in the
+paper hits it (one does, named above). **Survives** — narrow but exact.
+
+---
+
+### L-8 · **MINOR** — depth-2 rows have no tooltip; the asymmetry is why R3-7a counts 2, not 3
+
+Depth-0 (`:70`) and depth-1 (`:88`) rows are `Tooltip`-wrapped. Depth-2 (`:106-117`) is not — a bare
+`Button`, no preview affordance, in a list whose whole purpose is orientation. The three levels also
+diverge on class: `:76` sets `is-active`, `:94` sets the dead `is-active-sub` (L-6), `:106-113` sets
+none — three levels, three different state-conveyance strategies.
+
+*Provenance:* `PaperSidebar.vue:70,88,106-117`.
+
+*Falsifier / corroboration:* R3-7a (`lane-fourier-r3-r6.md:79`) sums the live tree at "PaperSidebar
+2" of 35 Tooltip callsites. Two, not three — the intake's own count is the receipt for the gap.
+**Survives.**
+
+---
+
+### L-9 · **MINOR** — `sections` is captured non-reactively, inconsistently with its own sibling options
+
+`PaperSidebar.vue:38-45`
+
+```
+useSidebarState<PaperSectionData>({
+    sections: props.sections,             ← snapshot, evaluated once at setup
+    activeId:     () => props.activeId,   ← getter, re-read on every access
+    activeRootId: () => props.activeRootId,
+    …
+})
+```
+
+Two of the three data inputs are getters; the third is a value. `useTreeIndex` walks that array once
+(`glass-ui useTreeIndex.ts:26,54`) and the resulting `Map` is never rebuilt. Meanwhile the template
+iterates `sections` **reactively** (`:65`). A parent that swaps the array therefore re-renders the
+list from new data while `sidebarState` still answers from the old tree: `isExpanded`'s default rule
+compares against dead ids and every row falls back to collapsed.
+
+*Provenance:* `PaperSidebar.vue:38-45,65` · `glass-ui useSidebarState.ts:62-66` · `useTreeIndex.ts:26,54`.
+
+*Falsifier:* **partially fires.** `PaperView.vue:120` passes `computed(() => paperSections)` over a
+module-level constant from `virtual:paper-content`, so identity never changes at runtime today — the
+latent break is unreachable in this app. What survives unconditionally is the *contract* defect: a
+`defineProps<{ sections: PaperSectionData[] }>` that silently accepts only its first value, while the
+two neighbouring options in the same object literal are correctly reactive. Downgraded to MINOR on
+that basis.
+
+---
+
+### L-10 · **MINOR** — the section-colour token index has exactly zero headroom and no `var()` fallback
+
+`PaperSidebar.vue:77`, `:96`, `:112` all build a token name from the raw root index:
+
+```
+{ color: `var(--section-color-${si})` }
+```
+
+No fallback argument. glass-ui defines exactly `--section-color-0` … `--section-color-12` —
+thirteen — at `glass-ui/dist/styles/tokens/light-dark.css:126-138`. Re-derived from the compiled
+paper: the ToC has **exactly 13 roots** (`0.1 Introduction`, chapters 1-9, appendices A/B/C). 13 for
+13. A fourteenth `\chapter` in `paper/fourier_paper.tex` makes `var(--section-color-13)` resolve to
+nothing, which renders the whole `color` declaration *invalid at computed-value time* — `color` then
+inherits, and the active-chapter hue silently disappears with no console error and no build failure.
+
+The coupling is also duplicated: `MobileFloatingToc.vue:154` does the same, so the failure would be
+symmetric across both ToC surfaces.
+
+*Provenance:* `PaperSidebar.vue:77,96,112` · `MobileFloatingToc.vue:154` · `glass-ui light-dark.css:126-138` · `web/src/style.css:119-127` (the local `--section-color-5` WCAG override at `:121`/`:126`, D.W4.d — evidence that these tokens are already a hand-maintained set).
+
+*Falsifier:* **the "it is broken today" version is dead** — 13 roots against 13 tokens; I counted
+both. What survives is the boundary-exact, fallback-free coupling between a *content* count and a
+*design-system* token count, with no test, no type, and no `var(…, fallback)` guarding it. MINOR by
+that reading, deliberately not inflated.
+
+---
+
+### L-11 · **INFO** — a third ungated animation clock, on the element this component exposes
+
+`PaperSidebar.vue:27-28`
+
+```
+const sidebarNav = ref<HTMLElement | null>(null);
+defineExpose({ sidebarNav });
+```
+
+That element is handed to `useSidebarFollow` (`PaperView.vue:232-238`, via
+`computed(() => sidebarRef.value?.sidebarNav ?? null)`), which runs a **damped rAF scroll animation**
+on it: `damping = 0.22` (`latex-paper/dist/vue.js:488`), `nav.scrollTop += delta * damping` inside
+`requestAnimationFrame(follow)` (`:543-560`), re-armed from scroll via
+`scheduleFromScroll → queue() → requestAnimationFrame(follow)` (`:582-592`).
+
+`grep` over the entire composable region (`vue.js:485-640`) for
+`reduce | matchMedia | prefers` → **no match. No `prefers-reduced-motion` gate.**
+
+lane-frontend §8 (`:624`) flags the coverage gap as *two* clocks — `stores/animation.ts` and
+`ConvergencePlot.vue` — and books `PaperView.vue:176` as the sole JS PRM gate (that is
+`armProgressFallback`, the progress bar, a different animation). This is a **third**, and it is the
+one the reader sees on every scroll of the paper.
+
+*Falsifier:* dies if the follow only ever jumps. It does not — `queue(immediate = true)` is used only
+at mount/resize (`PaperView.vue:261,287`); the scroll-driven path is the damped one (`vue.js:562-581`).
+Dies if the gate lives upstream in the composable's caller — `PaperView.vue` passes no motion option
+(`:233-238`) and the composable accepts none (`SidebarFollowOptions`). **Survives.**
+
+INFO rather than MINOR because the defect is *upstream* (`latex-paper`) and this component's only
+participation is exposing the element. **UNPROVEN-NEEDS-LIVE (SS-13)** for the perceived motion under
+PRM; the missing gate is static-certain. Route as a `latex-paper` coordination relay alongside the
+glass-ui carry in L-5.
+
+---
+
+### L-12 · **INFO** — mounted-but-invisible below 1024px (bounded waste, honestly bounded)
+
+`PaperSidebar.vue:132-136` hides the component with `display: none` (`:135`), re-shown only under a
+`min-width: 1024px` media query (`:138-160`), and `PaperView.vue:335-347` mounts it
+unconditionally. Below 1024px the
+component still instantiates 13 root `Button`s, 13 `Tooltip` roots, 13 `Collapsible`s, 10
+`CollapsibleContent` `role="region"` wrappers, and the entire `PaperSearch` stack (L-2), and
+`useSidebarFollow` still schedules rAFs against a zero-height nav — `resolveTarget` with
+`navHeight = 0` returns `nav.scrollTop` unchanged (`vue.js:522-532`), so `follow()` writes `0` and
+exits (`:549-555`). Two wasted frames per active-section change, forever, on phones.
+
+Contrast the sibling: `MobileFloatingToc` is genuinely `v-if`-gated at `PaperView.vue:319`.
+
+*Falsifier — and it substantially deflates the claim:* the maximal version ("all 51 subsections and
+34 sub-subsections mount on phones") is **FALSE**. reka's `unmountOnHide` defaults to `true`
+(`CollapsibleRoot.js:26-30`) and the slot is gated on `present` (`CollapsibleContent.js:90`), so
+closed chapters mount no children; and the depth-2 lists are additionally `v-if`-gated on
+`isInActiveChain` (`PaperSidebar.vue:104`). Mounted cost is bounded to 13 roots + one chapter's
+subsections. Reported at INFO on that basis.
+
+---
+
+### L-13 · **INFO** — three dead API surfaces inside this component's direct import closure
+
+- `PaperSearch.vue:8` — `const props = defineProps<{…}>()`; `props` is assigned and never read
+  (the template binds `search` / `variant` directly). `grep -n props PaperSearch.vue` → one hit.
+- `PaperSearchModal.vue:12-14` — `defineEmits<{ select: [id: string] }>()`; `grep -n emit` → one
+  hit, the declaration. The component calls `search.selectResult()` directly instead.
+- `PaperSearchDropdown.vue:12-14` — identical dead `select` emit.
+
+Two components publish an event contract they never fulfil, so any parent wiring `@select` gets
+silence. `PaperSidebar.vue:51` is the mount point for all three.
+
+*Falsifier:* dies if `emit(` appears anywhere in those files. It does not. **Survives.**
+
+---
+
+### L-14 · **INFO** — raw-HTML sink with asymmetric trust against the sibling derivation of the same field
+
+`PaperSidebar.vue:80`, `:100`, `:116` all `v-html="renderTitle(<node>.title)"`. `createRenderTitle`
+(`latex-paper/dist/vue.js:3-8`) substitutes `$…$` spans and **passes every other character through
+verbatim** — there is no escaping step. Meanwhile the *other* derivation of the same data in the
+same render, `getPaperPreview` (`paperTree.ts:18`), does `.replace(/<[^>]+>/g, "")`. One component,
+one field, two opposite trust postures.
+
+*Falsifier — and it is decisive:* `section.title` originates from the repo's own
+`paper/fourier_paper.tex`, parsed at **build time** by the vite plugin
+(`latex-paper/dist/vite.js:110-155`, emitting a frozen `virtual:paper-content` module). No user input
+reaches it. **This is not a vulnerability**; it is filed as INFO because the asymmetry is a latent
+trap the moment paper content becomes user-supplied, and because L-18 requires reporting the check
+that was run, not only the ones that failed.
+
+---
+
+### L-15 · **INFO** — idiom drift with its own sibling, on the same composable
+
+Same repo, same directory, same `useSidebarState`, different idioms:
+
+| | `PaperSidebar.vue` | `MobileFloatingToc.vue` |
+|---|---|---|
+| template ref | `ref<HTMLElement\|null>` + `defineExpose` (`:27-28`) | `useTemplateRef` (`:28`) — the Vue 3.5 idiom |
+| root-row click | navigate **and** toggle (`:74`) | toggle only (`:155`) |
+| sub-row click | navigate, parent stays (`:92`) | `selectSection` → closes the whole dropdown (`:76-79`) |
+| `PaperSectionData` import | `@/lib/paperContent` (`:4`) | `@/lib/paperContent` (`:7`) — but `usePaperSearch.ts:6`, in the same feature, imports it from `@mkbabb/latex-paper` |
+
+None of these is wrong alone. Together they mean the two ToC surfaces cannot be reasoned about — or
+regression-tested — as one behaviour.
+
+*Falsifier:* none available; all four rows are direct reads of both files. **Survives** at INFO.
+
+---
+
+## §2 — R5-7 / R6-5: confirmed, and extended with the multiplier the leaf still lacks
+
+R5-7 is **TRUE and reproduced**: `grep -n "v-for" PaperSidebar.vue` → `65`, `87`, `105`, expressions
+exactly as R6-5 records. R6 cured the empty leaf by adding a `NATIVE_TEMPLATE_LOOP` family with
+`baselinePaperRowCount: 3`.
+
+**What three rows still does not give you is an instance denominator** — and the census's
+"mounted-instance denominator **OPEN**" (`lane-fourier-r3-r6.md:176`) is exactly the hole. Measured
+against the real compiled tree:
+
+| what a component-callsite deriver sees in this file | count |
+|---|---:|
+| `Tooltip` callsites (R3-7a) | 2 (`:70`, `:88`) |
+| `Button` callsites | 4 (`:54`, `:71`, `:89`, `:106`) |
+| `Collapsible` / `CollapsibleContent` callsites | 2 (`:66`, `:85`) |
+| `PaperSearch` callsite | 1 (`:51`) |
+| **total counted component callsites** | **9** |
+
+| what the DOM actually materialises | count |
+|---|---:|
+| root rows (`li` @ 65) | **13** |
+| subsection rows (`li` @ 87), all chapters expanded | **51** |
+| sub-subsection rows (`li` @ 105), all chains active | **34** |
+| **total interactive ToC rows** | **98** |
+
+**9 counted callsites ↔ up to 98 live rows — a 10.9× blind spot**, and the multiplier is
+*content-dependent*: it is a function of `paper/fourier_paper.tex`, not of `web/src`. R6's cure
+counts the *loops*; the denominator needs the *fan-out*, and the fan-out cannot be closed by static
+source derivation at all — it requires either running the build-time LaTeX transform (as I did here)
+or a live mount.
+
+**Recommendation to F.W4:** adopt R6's `NATIVE_TEMPLATE_LOOP` family *and* record, per native loop,
+the **iterable provenance** (`sections` ← `virtual:paper-content` ← `paper/fourier_paper.tex`). A
+denominator that cannot name where its iterable comes from will keep reporting 3 where the answer is
+98. This is the concrete form of X-9's "the formation must pick and publish one scope law"
+(`lane-fourier-r3-r6.md:160`) for template instances.
+
+**Viz render path — explicit negative.** `PaperSidebar` touches **none** of the three canvases in
+lane-frontend §6 (`BasisCanvas` / `ConvergencePlot` / `FrequencyGraph`) nor any of the 12 SVG
+surfaces; its import closure (`Tooltip`, `PaperSearch*`, `paperContent`, `usePaperSearch`, glass-ui
+`button` / `collapsible` / `sidebar`, `lucide-vue-next`) reaches no `getContext`, no `rAF`, no
+`ResizeObserver`. The census's "Canvas2D throughout, WebGL/WebGPU **ABSENT**" is unaffected here. Its
+only render-path coupling is the **scroll** path: it owns and exposes the element that
+`useSidebarFollow` animates every frame (L-11), inside the same `.paper-scroll` scroller that carries
+the native `scroll()`-timeline progress bar (`PaperView.vue:313-314`, JS floor gated at `:176`).
+
+---
+
+## §3 — Superlatives (L-18 the other way; each with its falsifier)
+
+**S-1 · Zero teardown surface — the component cannot leak.**
+`grep -nE "addEventListener|setTimeout|setInterval|requestAnimationFrame|IntersectionObserver|ResizeObserver|MutationObserver|onMounted|onUnmounted|onBeforeUnmount|watch\(|watchEffect" PaperSidebar.vue` → **zero hits.** No listener, no timer, no observer, no rAF, no lifecycle hook. There is nothing to forget to tear down. *Falsifier:* a side effect hidden in the composable — `useSidebarState` is pure (`reactive(new Set)` + closures; `useSidebarState.ts:62-113`), no lifecycle, no listener. *Contrast within the same directory:* `MobileFloatingToc.vue:44-57` mutates `props.scrollContainer.style.overflow` and needs an `onUnmounted` restore to avoid stranding a locked scroller. **Holds.**
+
+**S-2 · The W3.5.c de-duplication is real, not aspirational.** The header comment (`:30-37`) claims the `userExpanded` / `userCollapsed` Sets were lifted out of both ToC components into glass-ui. Verified: `grep -rn "userExpanded\|userCollapsed" web/src` → **one hit, and it is that comment.** The state genuinely lives once, in `useSidebarState.ts:68-69`. *Falsifier:* any surviving local Set — none. **Holds.** (A comment that survives its own grep is rarer than it should be.)
+
+**S-3 · Token-pure styling with named-property transitions.** `grep -nE "#[0-9a-fA-F]{3,8}|rgba?\(|hsla?\(|transition: all"` over the style block (`:130-283`) → the only hit is the *comment* at `:197` saying "no `transition: all`". Every colour is `var(--…)` or `color-mix(in srgb, var(--…) …)`; every transition names its properties and uses canonical easing tokens (`--ease-standard` at `:198`, `--ease-out-expo` at `:229-232`). *Falsifier:* a literal colour anywhere — none. **Holds.**
+
+**S-4 · Stable domain keys on all three native loops.** `:key="section.id"` / `sub.id` / `subsub.id` (`:65`, `:87`, `:105`) — never the index, even though `si` is in scope at `:65` and used elsewhere in the same element's subtree (`:77`). Correct list reconciliation is what makes the R5-7 blind spot a *counting* problem rather than a *correctness* problem. *Falsifier:* `:key="si"` anywhere — none. **Holds.**
+
+**S-5 · Goldilocks size, correctly proportioned.** 283 lines = 47 script / 76 template / 156 style; one responsibility (render a tree, delegate its state). No god module, no premature extraction, no wrapper-component contrivance. Its 397-line sibling is larger precisely because it owns imperative scroll-lock state that this one correctly does not. *Falsifier:* `wc -l` → 283 (matches lane-frontend `:156`); the script section holds one composable call and one ref. **Holds.**
+
+---
+
+## §4 — Disposition
+
+| id | severity | one-line | route |
 |---|---|---|---|
-| **R-A** | `variant="ghost"` / `size="icon"` (`:55-56`, `:72`, `:90`, `:107`) are not on glass-ui's `Button`, which takes `emphasis`/`tone`/`iconOnly` — so ghost styling silently never applies. | **REFUTED** | That API is the *unreleased* sibling repo (`/Users/mkbabb/Programming/glass-ui/src/components/button/Button.vue:18-31`). The **installed** `@mkbabb/glass-ui@4.0.0` Button is the cva API: `variant?: ButtonVariants['variant']; size?: ButtonVariants['size']` (`dist/components/ui/button/Button.vue.d.ts`). Both props are valid. |
-| **R-B** | glass-ui's `Collapsible` re-declares `unmountOnHide: { type: Boolean }` with no default; Vue boolean-casting makes it `false`, defeating reka's `unmountOnHide: true` — so every collapsed chapter's sub-rows stay mounted. | **REFUTED** | `useForwardProps` (`reka-ui/src/shared/useForwardProps.ts:31-52`) forwards only keys that are (a) declared **with** a `default` or (b) present on `vm.vnode.props`. `unmountOnHide` has neither (`dist/CollapsibleContent-C_s6fG7r.js` `var p`; PaperSidebar never passes it), so it is not forwarded and reka's `withDefaults(… unmountOnHide: true)` (`CollapsibleRoot.vue:39-43`) stands. Closed sub-rows **do** unmount (`CollapsibleContent.vue:117`). |
-| **R-C** | `<CollapsibleContent v-if="section.subsections">` (`:85`) is an array-truthiness test; `[]` is truthy, so childless sections render an empty `<ol>`. | **REFUTED** | `latex-paper/src/transform/sections.ts:325-332` `cleanEmpty` **deletes** `subsections` when length is 0. The property is either absent or non-empty. |
-| **R-D** | reka assigns the content region `aria-labelledby` pointing at a trigger id that does not exist → dangling IDREF on every row. | **REFUTED** for the installed build | The `aria-labelledby`/`provideDisclosureIds` wiring exists only in the unreleased repo (`glass-ui/src/components/collapsible/CollapsibleContent.vue:48`). The installed wrapper is a thin cva pass-through with no ARIA (`dist/CollapsibleContent-C_s6fG7r.js` `var h`). The *absence* of that wiring is charged instead, at L-4. |
+| L-1 | MAJOR | click-to-navigate collapses the active chapter; sidebar-follow silently dies | F.W4 — split navigate from toggle (the sibling at `MobileFloatingToc.vue:154` is the reference) |
+| L-2 | MAJOR | two teleported search modals + document-global `querySelector` + focus race | F.W4 — gate the sidebar's `PaperSearch`, or hoist one modal to `PaperView` |
+| L-3 | MAJOR | `treeIndex: Map<string, any>` — dead prop, only `any` in the file | F.W4 — delete the prop and the parent's binding |
+| L-4 | MAJOR | three parallel derivations of one 98-node tree across two packages; 8 of 10 composable members unused | F.W4 — keep `useSidebarState`, delete `paperTree.ts`'s adapter + `PaperView.vue:47` |
+| L-5 | MAJOR | no `CollapsibleTrigger` → dead `@update:open`, dangling `aria-labelledby`, no `aria-expanded` | F.W4 + **glass-ui BH relay** (the `unmountOnHide` strip at `Collapsible.vue:38-40`) |
+| L-6 | MINOR | `is-active-sub` styles nothing and costs a recursive walk per row | F.W4 |
+| L-7 | MINOR | empty tooltip on appendix A.1 (1 of 98 nodes) | F.W4 — `v-if` the shim's content on `text` |
+| L-8 | MINOR | depth-2 rows have no tooltip; three levels, three state strategies | F.W3 (rides R3-7a's Tooltip migration budget) |
+| L-9 | MINOR | `sections` snapshotted while its two sibling options are getters | F.W4 |
+| L-10 | MINOR | `--section-color-${si}` — 13 roots vs 13 tokens, no fallback, no test | F.W4 + **glass-ui BH relay** |
+| L-11 | INFO | third ungated rAF clock (`useSidebarFollow`), missing from lane-frontend §8's inventory | **latex-paper relay**; amend lane-frontend §8 |
+| L-12 | INFO | mounted-but-invisible below 1024px (bounded by `unmountOnHide`) | F.W4, low priority |
+| L-13 | INFO | dead `props` + two dead `select` emits in the imported search stack | F.W4 |
+| L-14 | INFO | unescaped `v-html` sink vs tag-stripping sibling derivation | book only |
+| L-15 | INFO | idiom drift with `MobileFloatingToc` on four axes | F.W4 |
 
 ---
 
-## §6 · Superlatives (L-18, same burden of proof)
+## §5 — Candidates their own falsifiers killed (reported, per L-18)
 
-**S-1 · Nothing to leak.** `grep -nE "onMounted|onUnmounted|addEventListener|setTimeout|setInterval|new (Resize|Intersection|Mutation)Observer|requestAnimationFrame|watch\(" PaperSidebar.vue` → **no matches**. Zero lifecycle hooks, zero listeners, zero timers, zero observers. The single reference that escapes (`sidebarNav`, `:27-28`) is consumed by `useSidebarFollow` (`PaperView.vue:233-238`), whose installed implementation registers five listeners on that element and removes **all five** plus two rAF handles and the window `resize` in its `onUnmounted` (`glass-ui/dist/sidebar.js`, the `r(() => { … removeEventListener … })` block). In a file that renders a stateful, scroll-tracked, virtualised ToC, the teardown surface is empty by construction — this is the correct shape. *Falsifier:* any of the grepped constructs appearing in the SFC, or a listener registered on `sidebarNav` without a matching removal; neither holds.
+Five plausible defects did not survive verification. Recording them so the next auditor does not
+re-spend the tokens, and so the confirmed rows above are read against a known false-positive rate.
 
-**S-2 · The de-duplication is real, and the extension point was earned.** `:30-37` claims the `userExpanded`/`userCollapsed` model was hoisted out of both `PaperSidebar` and `MobileFloatingToc` into `useSidebarState`. Verified: `MobileFloatingToc.vue:67-74` calls the **same** composable with the **same** `getChildren: (n) => n.subsections`, and neither file contains a local `Set`. The two-set model itself is correct in a way a single boolean map is not — it distinguishes *never touched* (fall through to `activeRootId === id`) from *explicitly opened* from *explicitly closed* (`dist/sidebar.js` `function l(e)`), which is exactly what a ToC with scroll-driven default expansion needs. And the `getChildren` override is a genuine upstream extension, not a local hack: `useTreeIndex`, `useScrollTracker` and `useSidebarState` all accept it (`useSidebarState.d.ts`), so `PaperSectionData`'s `subsections` key never had to be coerced. *Falsifier:* a residual local expand/collapse `Set` in either consumer, or a `getChildren` that only `useSidebarState` honours; neither holds.
-
-**S-3 · Scroll containment done properly.** `:155-160` — `overflow-y: auto` + `overscroll-behavior-y: contain` + `overscroll-behavior-x: contain` + `scrollbar-gutter: stable` + `scroll-padding-bottom` + `touch-action: pan-y`. Six declarations that together mean: the sidebar cannot chain-scroll the article when it bottoms out, cannot rubber-band horizontally, does not reflow when the scrollbar appears, does not park the last row under its own padding, and does not fight the browser over horizontal pan on touch. Each is the correct property for its failure mode, and `overscroll-behavior` is specified on **both** axes — the axis most authors forget. *Falsifier:* a missing containment axis or a `transition: all`; neither present.
-
-**S-4 · The height binding tracks the real scroller, with a real fallback.** `:146` and `:153` bind to `var(--paper-scroll-viewport-height, 100dvh)`, a variable written by `PaperView.vue:122-126` from `scroller.clientHeight` (`:199-202`) and kept fresh by a `ResizeObserver` on the scroll container (`:224-229`) plus a window `resize` handler (`:272`). The sidebar therefore sizes to the element it actually sits beside, not to the viewport — correct under mobile URL-bar collapse and any future chrome — and the `100dvh` fallback covers the pre-measurement frame where `paperRootStyle` returns `{}` (`:125`). *Falsifier:* an unconditional `100dvh`, or a variable with no writer; neither holds.
-
-**S-5 · Motion hygiene, and it is annotated with its provenance.** `:197-198` and `:230-233` enumerate the exact properties they animate (`color`, `border-color`, `background-color`, `font-weight`) against tokenised easings (`--ease-standard`, `--ease-out-expo`) — no `transition: all` **declaration** anywhere in the file (`grep -nE "^\s*transition:\s*all" PaperSidebar.vue` → no matches; the sole textual hit at `:197` is the annotation *saying so*, which `grep -c "transition: all"` would miscount as 1 — the falsifier must be anchored to the declaration form), and each carries its `A.W3.d` wave citation inline. `:255-258` does the same for the retired hand-rolled `grid-template-rows: 0fr → 1fr` shim, naming the reka variable that replaced it. This is the discipline `lane-frontend.md:626` books as "motion / a11y hygiene already banked", and it holds under inspection. *Falsifier:* one `transition: all` declaration or one raw `cubic-bezier()` literal (`grep -c "cubic-bezier" PaperSidebar.vue` → 0); neither present.
+1. **"`scrollbar-thin` (`:50`) is an undefined class."** — **FALSE.** It resolves in `web/src/style.css:3`'s `@import "@mkbabb/glass-ui/styles"` → `glass-ui/dist/styles/utilities/base.css:155-171` (`scrollbar-width: thin` + a `@supports not (scrollbar-color: auto)` WebKit arm). The identically-named rule in `FrequencyGraph.vue:236` is a scoped duplicate, not the source.
+2. **"`renderTitle` re-runs KaTeX for every row on every re-render."** — **FALSE.** `createRenderTitle` is a plain `String.replace` (`latex-paper vue.js:3-8`), and `renderInline` is memoised in a **module-level** `Map` (`vue.js:387-401`). Only 4 of 98 titles contain `$…$` at all, and each is rendered once per process.
+3. **"All 51 subsections stay mounted because reka force-mounts `Presence`."** — **FALSE.** `Presence` is force-mounted, but the *slot* is gated on `present` when `unmountOnHide` is true, and reka defaults it true (`CollapsibleRoot.js:26-30`, `CollapsibleContent.js:90`). Closed chapters mount no children. (This falsifier is what bounds L-12.)
+4. **"`var(--section-color-${si})` overruns the token set today."** — **FALSE.** Re-derived the compiled tree: exactly **13 roots** against exactly **13 tokens** (`light-dark.css:126-138`). Survives only as the fallback-free, zero-headroom coupling of L-10.
+5. **"`Tooltip` will throw — no `TooltipProvider` ancestor."** — **FALSE.** `App.vue:23` wraps the entire `RouterView` in `<TooltipProvider :delay-duration="400" :skip-delay-duration="200">`. The injection resolves.
 
 ---
 
-## §7 · Disposition
+## §6 — Provenance index (everything read for this challenge, read-only)
 
-- **F.W3** — L-1 and L-14 land together with the `ui/tooltip` thin-adapter disposition already carried there by intake **R3-7a** (35 callsites / 9 consumers). Hoisting `PaperSearchModal` to `PaperView` and converting `search` to an injection is the single edit that discharges both.
-- **F.W4** — L-10's **≥17 instances × 12–13 unconditional rows** is the concrete denominator for the per-component D/L/C audit, and the direct continuation of intake **R5-7 / R6-5**. L-2, L-3, L-6, L-16 are the dead-surface sweep for the same wave.
-- **Glass-BH inbox** (standing relay law) — §4's two-token correction to the `--viz-amber` carry, plus L-4: `Collapsible` currently ships no way to drive a *controlled* disclosure from a foreign trigger without forfeiting `aria-expanded`/`aria-controls`. That is a producer-side gap, not a consumer defect, and it is what pushed this component into the bypass.
-- **Local, cheap, no coordination** — L-6 (delete the class and the walk), L-7 (move the inline branches to `.is-active-sub` / `.is-active-subsub` rules), L-8 (slice-then-clean + `WeakMap`), L-9 (`si % 13` or a `var()` fallback), L-12 (drop one `max-height`).
-- **Owner ruling wanted** — L-5. Whether a root row navigates, toggles, or both is a product decision; the defect is that the two consumers of one composable currently answer differently and the desktop answer is order-dependent.
+`fourier-analysis/web/src/` — `components/paper/PaperSidebar.vue` (whole) · `PaperView.vue` (whole) ·
+`MobileFloatingToc.vue` (whole) · `PaperSearch.vue` · `paperTree.ts` · `search/usePaperSearch.ts` ·
+`search/PaperSearchInput.vue` · `search/PaperSearchModal.vue` · `search/PaperSearchDropdown.vue` ·
+`components/ui/tooltip/Tooltip.vue` · `lib/paperContent.ts` · `lib/colors.ts` · `style.css` ·
+`App.vue` · `main.ts` · `web/e2e/paper-performance.spec.ts` · `web/package.json` ·
+`paper/fourier_paper.tex`.
+`web/node_modules/@mkbabb/glass-ui/` — `dist/composables/sidebar/*.d.ts` ·
+`dist/styles/tokens/light-dark.css` · `dist/styles/utilities/base.css`; source mirror at
+`/Users/mkbabb/Programming/glass-ui/src/composables/sidebar/{useSidebarState,useTreeIndex}.ts` and
+`src/components/collapsible/{Collapsible,CollapsibleContent}.vue` + `index.ts`.
+`web/node_modules/@mkbabb/latex-paper/` — `dist/vue.js` (useKatex · useTreeIndex · useSidebarFollow ·
+PaperSection render) · `dist/vite.js` · `dist/flattenPaperSections-*.d.ts`.
+`web/node_modules/reka-ui/dist/Collapsible/{CollapsibleRoot,CollapsibleContent}.js` ·
+`dist/Presence/Presence.js`.
+Corpus: `formation/fourier/{CENSUS-2026-08-03,lane-frontend}.md` ·
+`audit/codex-provenance/intakes/lane-fourier-r3-r6.md`.
+
+**Writes performed by this lane: this file only.** No product source in any repo was modified. The
+`paperSections` re-derivation ran read-only from a scratchpad script outside both repos.
