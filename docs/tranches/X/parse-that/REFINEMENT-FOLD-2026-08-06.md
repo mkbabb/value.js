@@ -28,19 +28,36 @@ this addendum sharpens predicates, adds corpus rows and riders, and records excl
 = cure-lock / binding contract clause · **cl.3** = MEASURE-AT-OPEN row (§7) · **cl.4** = EXCLUDED,
 does not fold (§8).
 
-**Arithmetic.** 155 collated rows → 154 identities after one duplicate merge (§1a n.2) →
-**138 FOLDED** (123 per-wave sharpenings: W0 ×1 · W1 ×22 · W2 ×74 · W3 ×12 · W4 ×14; plus 15
-consolidated MEASURE-AT-OPEN module rows) + **16 EXCLUDED**.
+**Arithmetic (post-L-20 repair, 2026-08-07).** 155 collated rows **+ 2 rows recovered by the L-20
+fold check** (pt-lazy **LZ-13** and **LZ-18** — `REFINEMENT FOLD`-routed at source, dropped at
+collation; §1a n.7) = **157 IN** → **156** after the one row-collapsing duplicate merge (§1a n.2) →
+**141 FOLDED** (126 per-wave sharpenings: W0 ×1 · W1 ×23 · W2 ×76 · W3 ×12 · W4 ×14; plus 15
+consolidated MEASURE-AT-OPEN module rows) + **16 EXCLUDED** = **157 OUT**. The one-row surplus over
+156 is W4.12's **M4** facet re-homed to W2 as its own numbered row (§1a n.6) — a SPLIT of a
+multi-facet row, not a new identity. The second declared identity merge (§1a n.5, pt-lazy LZ-9 ≡
+pt-packrat M3) collapses a FACET rather than a row, so it moves no total.
 
 ### 1a. Collator challenged — corrections, never silent
 
+*Entries **1-4** are the collator corrections recorded at authoring; entries **5-7** are the L-20
+fold check's repairs, landed in place 2026-08-07 (dated specs still byte-untouched — E-3 holds).*
+
 1. **pt-index C-i1 re-routed W4 → W1.** The collator targeted the O-15 cite correction at W4; but
-   the rule is "correct the letter's cite ONLY where downstream texts quote it," and the only live
-   downstream quotes of the `:881` cite in the X·P corpus are **W1.md:476** (G-5's RED-baseline
-   paragraph) and **W3.md:497** (G-8's RED baseline). Folded once at W1 (row W1.22) with the
-   W3.md:497 anchor listed; no W4 text quotes the cite.
-2. **pt-ansi row 11 merged into pt-core row 3.** One identity collated twice (the ansi record
-   itself marks "cross-book; PRIMARY pt-core row 3"). Folded once at W4 (row W4.3), dual
+   the rule is "correct the letter's cite ONLY where downstream texts quote it," and the live
+   downstream quotes of the `:881` cite in the tracked X·P wave corpus are **THREE**:
+   **W1.md:476** (G-5's RED-baseline paragraph), **W3.md:497** (G-8's RED baseline), and
+   **W2-opus-author.md:432** (the EQ-4 "reachable only together" argument, quoting
+   `dist/packrat-entry-*.js:881`). **NO W4 TEXT QUOTES THE CITE** — which is the whole warrant for
+   the re-route, and the third site does not touch it. Folded once at W1 (row W1.22) with the
+   W3.md:497 and W2-opus-author.md:432 anchors listed. (**L-20 repair**: the earlier "the only two"
+   was an overbroad enumeration; the conclusion it carried is unchanged.)
+2. **pt-ansi row 11 merged into pt-core row 3.** One identity collated twice. **WARRANT CORRECTED
+   (L-20 repair)**: the cross-book note lives in **pt-core row 3**, NOT in the ansi record —
+   pt-core.md row 3 carries "**Identity note**: pt-ansi row 11 recorded this same fact from the
+   neighbor module at MAJOR — ONE defect, cross-booked, **primary here**", while pt-ansi row 11
+   (C-D-6) carries a bare `**W4** — RC-P chunk-topology unit` disposition with no identity note at
+   all. The merge stands on that note (one identity, primary pt-core) and the fold-count reduction
+   with it; only the attribution of the warrant was wrong. Folded once at W4 (row W4.3), dual
    provenance carried. Fold count reduced by one accordingly.
 3. **pt-lazy A.5 reversal — routing annotated, not moved.** The collator routed the reversal to
    W2; the apotheosis's own closing verdict names "exactly the W3 totality frame, not a
@@ -54,7 +71,35 @@ consolidated MEASURE-AT-OPEN module rows) + **16 EXCLUDED**.
    diagnostic-conservation law's two rosters (PT-PARSER-12 at W2.44 ↔ PT-LEAF-3 at W2.39 — one
    law, two owners: merge-never-destroys-D vs terminal totality at EOF). pt-core row 11 lives
    both as PRIMARY provenance of W3.9 (the law folds) and in the pt-core EXCLUDED bloc (the
-   in-library cure does not) — dual residence, intended.
+   in-library cure does not) — dual residence, intended. **Registered here by the L-20 repair,
+   for completeness of this same register**: (i) the one pair that is **MERGED, not kept separate**
+   — **pt-lazy LZ-9 ≡ pt-packrat M3** (the dead-flag-machinery counter-example class), one row at
+   W2.32, cross-referenced from W4.12 — see n.5; (ii) the source-stated **ride** carried in
+   provenance rather than as a second booking — **pt-lazy LZ-21** ("Identity: rides pt-packrat
+   C-7's REFINEMENT FOLD … never re-booked here"), now named in W1.12's provenance line.
+5. **IDENTITY MERGE (L-20 repair): pt-lazy LZ-9 ≡ pt-packrat M3 — ONE ROW, kept at W2.** LZ-9's own
+   disposition declares `identity: pt-packrat M3, one row`; pt-packrat M3 is filed
+   `MINOR → REFINEMENT FOLD: W2's enumeration discipline — dead flag machinery is the
+   counter-example class`. The addendum had booked the holding TWICE — at **W2.32** (from the lazy
+   side) and again inside **W4.12**'s M3 facet (from the packrat side) — with no stated merge. The
+   enumeration discipline is **W2's** (the closed-enumeration class, W2.md:139-142, folded at
+   W2.46), so the merged row stays at **W2.32**, carrying the packrat-side consequence (`.trim()`
+   mints two ids and burns one against the id ceiling) and dual provenance; **W4.12 keeps a
+   CROSS-REFERENCE, not a booking.**
+6. **MIS-HOMED WAVE CORRECTED (L-20 repair): pt-packrat M4 re-homed W4 → W2 (row W2.76).** M4's
+   holding — **G-10's `memoize = 0` sweep must bind the ROOT BARREL, not only `./packrat`** — is a
+   sharpening of **W2's** G-10 (`W2.md:808-812`, the source-direct-idiom structural sweep). It sat
+   under §6's W4 heading, where a W4 seat reading "G-10" resolves it to W4's own
+   **G-10 — THE R-A STAMP ACT** (`W4.md:521`), an entirely different gate; and `grep -n memoize
+   waves/W4.md` returns no sweep row. Re-homed to W2 as its own numbered row at the tail of §4;
+   W4.12 cross-references it. The §4 heading count moves with it.
+7. **TWO DROPPED ROWS RECOVERED (L-20 repair): pt-lazy LZ-13 → W1.23 and LZ-18 → W2.75.** Both are
+   `REFINEMENT FOLD`-routed at source (pt-lazy.md:45 and :50) and appeared NOWHERE in the addendum
+   — not folded in §2-§6, not carried in §7, not named in §8's pt-lazy bloc. **LZ-13** (the
+   instrument law: the invocation-count red test + the depth-class test are W1 harness obligations)
+   folds at **W1.23**. **LZ-18**'s two W2-RETIRE-discharged halves stay absorbed by the retire
+   verdict, as its disposition directs; its **surviving half** — the variance/typing posture binding
+   W2's candidate typing — folds at **W2.75**. Nothing else in the ∅-FORWARD sweep was missing.
 
 ---
 
@@ -76,7 +121,7 @@ obligation on the **first consuming wave** (W1), not an accident of W0's abstine
 
 ---
 
-## 3. W1 — Harness, Corpus, and the Honest Bench (22 sharpenings)
+## 3. W1 — Harness, Corpus, and the Honest Bench (23 sharpenings)
 
 **W1.1 · MERGED CROSS FOLD — the JS-boundary entry invariant** (cl.1)
 ONE fold row, many witnesses: entry is via `parseState` + `isError` ONLY; `.parse()` truthiness
@@ -137,7 +182,14 @@ harness scores a TOTAL-ACCEPT PARSER AT 100% — and this module is the existenc
 has no rejection power structurally (`many(min=0)`'s only failure branch is unreachable; seat
 census 0/500 + 0/8 curated), no record separator (README's own `a,b,c\n1,2,3` → ONE row), and
 `",,,"` succeeds consuming ZERO of 3 bytes with an empty value and no error channel.
-*Sharpens*: unit .a's accept/reject corpus definition (W1.md:208-232).
+*Sharpens* (**anchor corrected, L-20 repair**): the accept/reject taxonomy is unit **.b**'s — the
+equivalence oracle at W1.md:233-256, whose imported MIRROR-DEFECT classes **B** `MIS_ACCEPT` and
+**C** `FALSE_REJECT_IN_SHAPE` (W1.md:241-242) are the only rejection-bearing definitions in the
+wave — and the reject leg is unit **.d**'s (W1.md:289-292, "three legs, kept separate:
+shared-accepted · reject-non-throwing · R1-throw-class"). Unit **.a** (W1.md:208-232) is the
+52-export TOTAL/PARTIAL/ABSENT coverage manifest and defines NO accept/reject corpus — which is
+exactly this row's warrant, not a counter-example to it: an acceptance-only totality harness scores
+a total-accept parser at 100%.
 ⟨pt-parsers.md · PT-PARS-2 + MISS-4⟩
 
 **W1.6 · pt-parsers PT-PARS-15/-16/-19 — corpus riders** (cl.2)
@@ -201,8 +253,13 @@ chunks each carry their own module globals — restated per-format, the duplicat
 bindings, not four (`MEMO`, `HEADS`, `LR_STACK`, `PACKRAT_ARMED`, `CURRENT_SRC`, `GROWING`;
 `LR_STACK` and `CURRENT_SRC` omitted from the challenge table). Memo keys carry no copy
 discriminator; all four proof gates load `dist/parse.js` only, so no gate can fail for it. (The
-W4 side — "no dual-instance state in the shipped artifact" — is owned by W4.4/W4.5.)
-⟨pt-packrat.md C-7 · pt-packrat-entry.md M-7 / E-B1 (MERGED — one identity, restated per-format)⟩
+W4 side — "no dual-instance state in the shipped artifact" — is owned by W4.4/W4.5.) **Source-stated
+ride carried here (L-20 repair, §1a n.4):** pt-lazy **LZ-21** — the dual-package fork of
+`LAZY_PARSER_CACHE` and `Parser` identity across the declared `import`/`require` conditions — is
+the same holding at a third door; its own disposition reads "Identity: **rides pt-packrat C-7's
+REFINEMENT FOLD** (one-format-per-cell; no dual-instance state in the shipped artifact) — never
+re-booked here", so it rides this row's fold and is named, not re-booked.
+⟨pt-packrat.md C-7 · pt-packrat-entry.md M-7 / E-B1 · pt-lazy.md LZ-21 (MERGED — one identity, restated per-format)⟩
 
 **W1.13 · pt-parser PT-PARSER-7 / SEAT-K1 — G-4's predicate is CONSTRUCTED, not called** (cl.1)
 G-4's predicate becomes **"no memoizer was CONSTRUCTED"** (W1.md:434-459; the §3a note at
@@ -304,9 +361,28 @@ the label-no-op half — a correction that rewrites `:14` would DELETE A CORRECT
 default logger — which DIFFERS from `Parser.debug`'s `console.log` default (feeds W1.7).
 ⟨pt-index.md C-i1 · pt-utils-entry.md PT-UE-27 + K4 · pt-leaf.md PT-LEAF-23⟩
 
+**W1.23 · pt-lazy LZ-13 — the INSTRUMENT LAW: the invocation-count red test and the depth-class
+test are W1 HARNESS OBLIGATIONS** (cl.1 — **recovered by the L-20 fold check, §1a n.7**)
+There are ZERO direct tests for the module, and the deeper fact is instrumental, not coverage-shaped:
+**the suite owns NO INVOCATION-COUNT MECHANISM AT ALL** (`toHaveBeenCalled` / `callCount` → 0 hits,
+both readers agreeing) and **no depth test anywhere**. That is why LZ-1 (the dual cache), LZ-3 (a
+fresh cache per decorator call) and LZ-14 (guards that retry a malformed body forever) are
+UNOBSERVABLE to it, and it is the reason the 7,761 depth pin survived four months unchallenged.
+**FOLD: W1's harness carries BOTH instruments as obligations — (i) the invocation-count red test
+(P3-6's three lines: a counting thunk, one parse, an exact call-count assertion) and (ii) the
+depth-class test** — independently of whatever the package's own suite ever grows; package-side
+tests stay owner-held, on the same O-15 letter channel §8 bloc 9 names for this module. The two are the instruments the rest of this
+addendum silently assumes: W1.3's depth law and §7's whole depth-ceiling family are unfalsifiable
+without a depth-class assertion, and the ONE-CACHE spec (W2.30/W2.33 — "a harness cell must NEVER
+`toString()` a grammar it also identity-measures") cannot be witnessed at all without a call count,
+because running a thunk twice is invisible in every value the parse returns.
+*Sharpens*: unit .d (W1.md:274-305) and G-9 (W1.md:544-562) — both specify WHAT to measure; this
+row names the two instruments that must EXIST for either to be able to fail.
+⟨pt-lazy.md · LZ-13 (N-9/P3-6)⟩
+
 ---
 
-## 4. W2 — The Dual-Target Algebra (74 sharpenings)
+## 4. W2 — The Dual-Target Algebra (76 sharpenings)
 
 ### 4a. Algebra state, laws, and dispatch (pt-core + pt-ansi)
 
@@ -615,14 +691,21 @@ state (parse #N vs parse #2)"** — one clause, or `createLazyCached` is out of 
 keeps.
 ⟨pt-lazy.md · LZ-8 and M3⟩
 
-**W2.32 · pt-lazy LZ-9 / M4 — the flag bypass is a DESIGNED cross-lowering invariant** (cl.1)
+**W2.32 · pt-lazy LZ-9 / M4 (MERGED with pt-packrat M3, §1a n.5) — the flag bypass is a DESIGNED
+cross-lowering invariant; dead flag machinery is the enumeration counter-example** (cl.1)
 The `.parser()`-not-`.call()` bypass at `lazy.ts:22` is NOT an accident: the Rust lowering
 DOCUMENTS it as a designed invariant (`lazy.rs:58-60` — "the cached inner parser never has flags
 set (flags live on the outer wrapper)") that the TS side states NOWHERE. ADJUDICATED: **KEEP the
 bypass, FIX `trim()`, WRITE THE INVARIANT DOWN IN TS** — routing lazy through `.call()` would
-violate the cross-lowering contract, not repair a latency. Enumeration discipline: dead flag
-machinery is the counter-example class (with W2.46).
-⟨pt-lazy.md · LZ-9 and M4⟩
+violate the cross-lowering contract, not repair a latency. **Enumeration discipline — ONE ROW, the
+declared identity honoured (§1a n.5): dead flag machinery is the COUNTER-EXAMPLE CLASS** for W2's
+closed-enumeration discipline (W2.md:139-142; with W2.46), booked HERE and nowhere else. LZ-9's own
+disposition declares `identity: pt-packrat M3, one row`, and pt-packrat M3 is the same holding read
+from the packrat side — carried whole: **`.trim()` mints two ids and burns one against the id
+ceiling**, the sharpest live consequence of keeping machinery nothing writes to (its riders cash
+into pt-packrat C-1 and C-8, folded at W2.45 and W3.11). W4.12 carries a CROSS-REFERENCE, not a
+second booking.
+⟨pt-lazy.md · LZ-9 and M4 · pt-packrat.md M3 (MERGED — one identity, §1a n.5)⟩
 
 **W2.33 · pt-lazy LZ-1 (+K-14) — ONE cache, folded via an accessor (M1-constrained)** (cl.2)
 Two unreconciled caches over one thunk: printing a lazy parser re-runs the body, mints a shadow
@@ -1061,6 +1144,41 @@ surface. **W1's oracle asserts the CLASS SET and the escape path, never a depth 
 pt-utils-entry row 1; with W1.3).
 ⟨pt-utils-entry.md · PT-UE-14 + MEASURE-AT-OPEN 1⟩
 
+### 4m. L-20 repair rows (folded 2026-08-07)
+
+*Numbered at the tail so the sealed W2.1-W2.74 sequence — and every cross-reference into it —
+stands unmoved; each row names the module bloc it belongs to.*
+
+**W2.75 · pt-lazy LZ-18 (surviving half) — the candidate's TYPING POSTURE: no phantom parameter,
+erasure STATED at the seam** (cl.1 — **recovered by the L-20 fold check, §1a n.7**; belongs to §4e's
+pt-lazy bloc)
+Two of LZ-18's three halves are **ABSORBED, not re-booked**: the phantom `T` published at
+`dist/lazy.d.ts:9` and the file's only un-annotated `any` leave the building with the **W2 RETIRE**
+verdict already carried (LZ-3/LZ-4's capability ruling; the excision itself banked at §8 bloc 9) —
+that is what LZ-18's disposition directs. **The surviving half is the algebra-wide one, and it binds
+W2's CANDIDATE TYPING**: `createLazyCached`'s precise-looking `ParserState<T>` signature is **ERASED
+ON CONTACT WITH `ParserFunction<any>`** — a signature that READS as parametric and constrains
+nothing, the type-level twin of the admission bar W2.54 sets against `Parser<any>`. **FOLD: the
+candidate algebra publishes NO PHANTOM TYPE PARAMETER — every declared parameter is inhabited by a
+value the signature actually constrains, and any erasure at a seam (a thunk, a `ParserFunction`, a
+cache slot) is DECLARED AT THAT SEAM, never left to be discovered in the emitted `.d.ts`.** With
+W2.54 (`any` is structurally unsatisfiable under G-10, W2.md:236) this is the typing posture every
+operator the algebra §6 keeps is measured against.
+⟨pt-lazy.md · LZ-18 (D-C12/P3-1/P3-2) — the two W2-RETIRE-discharged halves stay absorbed⟩
+
+**W2.76 · pt-packrat M4 — G-10's `memoize = 0` sweep BINDS THE ROOT BARREL, not only `./packrat`**
+(cl.1 — **re-homed from W4.12 by the L-20 fold check, §1a n.6**; belongs to §4g's pt-packrat bloc)
+G-10's structural sweep — "no `.opt()` child of any `all()`; `lazy ≤ 1` with an explicit depth
+bound; **`memoize = 0`**" (W2.md:808-812) — is a **W2** gate, and its `memoize = 0` clause must bind
+**THE ROOT BARREL**, not only the `./packrat` subpath: **the default surface arms the latch**, so a
+candidate importing `memoize` from `.` passes a `./packrat`-scoped sweep while arming
+`PACKRAT_ARMED` process-wide and one-way (W2.19's construction-forbidden-BY-NAME ruling; W1.13's
+CONSTRUCTED-not-called predicate). The sweep's SCOPE is what this row sharpens, not its predicate.
+**Filing note (L-20 repair)**: this row stood under §6's W4 heading, where "G-10" resolves to W4's
+own **G-10 — THE R-A STAMP ACT** (W4.md:521) — an entirely different gate, and W4.md carries no
+`memoize` sweep at all — so a W4 seat reading it there would have bound the wrong gate.
+⟨pt-packrat.md · M4⟩
+
 ---
 
 ## 5. W3 — Totality and Recovery to Spec (12 sharpenings)
@@ -1307,15 +1425,19 @@ gate mandating `sideEffects:false` only stats paths, so it cannot fail for its i
 (W4.1's class).
 ⟨pt-index.md · AD-5, C-m5, C-m4, C-M11⟩
 
-**W4.12 · pt-packrat M1 / M3 / M4 — artifact parity, enumeration discipline, root-barrel sweep**
+**W4.12 · pt-packrat M1 — the artifact-parity clause (the `.d.ts` / `.js` export-count split)**
 (cl.1)
 (M1) `dist/packrat.d.ts` declares SIX exports from `packrat.ts` while `dist/packrat.js` exports
 THREE from `packrat-entry.ts`; both ship under `files:["./dist"]`; a node10 deep import typechecks
 against 6 names and throws at runtime against 3 → **W4 artifact-parity clause** (with W4.7/W4.10).
-(M3) The dead flag machinery is the COUNTER-EXAMPLE CLASS for W2's enumeration discipline;
-`.trim()` mints two ids and burns one against the id ceiling. (M4) **G-10's `memoize = 0` sweep
-must bind the ROOT BARREL, not only ./packrat** — the default surface arms the latch.
-⟨pt-packrat.md · M1, M3, M4⟩
+**CROSS-REFERENCES, NOT BOOKINGS (L-20 repair, §1a n.5/n.6)** — this row's two other pt-packrat
+facets sharpen **W2** gates and are folded under the W2 heading, because a W4 seat reading "G-10"
+in §6 resolves it to W4's own **G-10 — THE R-A STAMP ACT** (W4.md:521), not W2's `memoize = 0`
+sweep (W2.md:808-812): **M3** (dead flag machinery = the counter-example class for W2's enumeration
+discipline; `.trim()`'s two-ids-one-burned consequence) is ONE IDENTITY with pt-lazy LZ-9 and is
+booked once at **W2.32**; **M4** (the `memoize = 0` sweep binds the ROOT BARREL, not only
+`./packrat`) is booked at **W2.76**.
+⟨pt-packrat.md · M1 (M3 → W2.32 · M4 → W2.76)⟩
 
 **W4.13 · pt-packrat-entry C-10 / M-8 / M-9 / M-10 — harvest-framing folds** (cl.1)
 (C-10) Corrected chronology carried into the harvest: the 1.0.0 freeze (2026-07-03) PRECEDES the
@@ -1584,11 +1706,16 @@ every ride.
    sharpest-first (row 13's pre-truncation caret; row 3's missing OSC/CSI-total sanitizer binding
    any ./debug relocation; the SGR-only reference strip) so the render-tier/2.0.0 relocation
    INHERITS rather than rediscovers.
-5. **pt-core NO-WAVE-OWNER bloc (rows 11-14, 24-30, 34, 46; row 43 calibration)**: eleven rows for
-   any FUTURE parse-that source wave (three line/column conventions with a clamp converting a
+5. **pt-core NO-WAVE-OWNER bloc (rows 11-14, 24-30, 34, 35, 46; row 43 calibration)**: rows banked
+   for any FUTURE parse-that source wave (three line/column conventions with a clamp converting a
    detectable negative into a plausible wrong answer; the stranded `"trailing-content"` Suggestion
    variant; sticky-rewrite `^`-anchor silencing; state aliasing; splitBalanced escapes), framed by
-   row 43: /core has ZERO CONSUMERS — every consequence is prospective.
+   row 43: /core has ZERO CONSUMERS — every consequence is prospective. **Row 35 added by the L-20
+   repair** (L:D-29, MINOR, `NO-WAVE-OWNER`): `Parser.eof()` allocates 2 Parsers + 2 contexts and
+   DISCARDS the context `skip()` just built (`parser.ts:638-642` — `this.skip(eof())` then a
+   `p.context =` overwrite; the challenge's "three allocations" count corrected at source). It is
+   an allocation row on the very method W2.72 makes the live EOF cure, so the register must bank it
+   rather than lose it — but no X·P wave owns an in-library `eof()` repair.
 6. **pt-debug NO-WAVE-OWNER bloc (C-4 doc limb, C-14/C-16 docs limb, MISS-8, the A.W3
    spec-regression record)**: X·P waves do NOT own parse-that main's docs and the pause forbids
    touching them; banked for the M-27 parity program; MISS-8 nonetheless strengthens W4.10's gate
@@ -1651,6 +1778,17 @@ is the sole write). It **STAMPS NOTHING** — no wave's four-verb table moves, n
 RED by this document, no bar is set, no baseline is re-measured here (every number above is a
 quotation of an adjudicated record, carried with its retirement status). The CONFORMANCE ledger's
 verdicts stand as issued; at execution each wave reads its dated spec PLUS this addendum (§1's
-reading rule), and W1's rig owns §7 at open. The three collator corrections (§1a) are recorded,
-not silent. **EXECUTION AWAITS THE OWNER'S BEGIN-WORD** — every fold above is a booking, not an
-act.
+reading rule), and W1's rig owns §7 at open. The four collator corrections and the three L-20
+repair entries (§1a n.1-n.7) are recorded, not silent.
+
+**L-20 repair pass, 2026-08-07 — landed in place, dated specs still byte-untouched.** The
+adversarial fold check returned DEFECTIVE-BUT-SOUND-IN-SUBSTANCE; every defect it named is repaired
+here and nowhere else: two ∅-FORWARD drops recovered (pt-lazy LZ-13 → W1.23, LZ-18's surviving half
+→ W2.75); one double-booked identity merged to one row (LZ-9 ≡ pt-packrat M3, kept at W2.32,
+cross-referenced from W4.12); one mis-homed W2 gate re-homed (pt-packrat M4 → W2.76); and five
+cite/warrant corrections (§1a n.2's warrant re-attributed to pt-core row 3; §1a n.1's enumeration
+widened to the three quoting sites with its conclusion intact; pt-lazy LZ-21's source-stated ride
+named in W1.12's provenance; pt-core row 35 banked into §8 bloc 5; W1.5's anchor moved to units .b
+and .d). The arithmetic in §1 is restated to the post-repair truth: **141 FOLDED · 16 EXCLUDED**.
+
+**EXECUTION AWAITS THE OWNER'S BEGIN-WORD** — every fold above is a booking, not an act.
