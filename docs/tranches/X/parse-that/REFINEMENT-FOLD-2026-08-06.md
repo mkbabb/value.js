@@ -28,20 +28,24 @@ this addendum sharpens predicates, adds corpus rows and riders, and records excl
 = cure-lock / binding contract clause · **cl.3** = MEASURE-AT-OPEN row (§7) · **cl.4** = EXCLUDED,
 does not fold (§8).
 
-**Arithmetic (post-L-20 pass-3 repair, 2026-08-07) — THE OUT SIDE, AND ONLY WHAT THIS DOCUMENT
-ITSELF ENUMERATES.** Every figure here is countable from this file's own bytes: **144 FOLDED** —
-**129 per-wave sharpenings**, contiguously numbered with exactly one provenance line each
-(W0 ×2 · W1 ×23 · W2 ×77 · W3 ×12 · W4 ×15), plus the **15** consolidated MEASURE-AT-OPEN module
-rows of §7 — **+ 16 EXCLUDED** (§8's numbered blocs) = **160 BOOKINGS OUT**. The **six** L-20
-splits and recoveries that carry the per-wave total from the first pass's **123** to **129** are
-each a SPLIT of a multi-facet or multi-limb row, or a recovered drop — never a new identity:
-W4.12's **M4** facet →
-W2.76 (§1a n.6); W1.16's **LZ-19** limb → W2.77 (§1a n.8); pt-utils-entry **PT-UE-9**'s **W0** limb
-→ W0.2 (§1a n.10); pt-lazy **LZ-17**'s **W4** release-condition limb → W4.15 (§1a n.13); and the
-two `REFINEMENT FOLD`-routed drops recovered at W1.23 and W2.75 (§1a n.7). Two rows that once
-carried a second, unstated booking of another row's identity now carry a CROSS-REFERENCE instead
-and are counted ONCE (W2.38 → W2.65, §1a n.9; W2.28 → W2.34, §1a n.12): the count does not move,
-because no row was ever added for them.
+**Arithmetic (post-L-20 pass-4 repair, 2026-08-07) — THE OUT SIDE, AND ONLY WHAT THIS DOCUMENT
+ITSELF ENUMERATES.** Every figure here is countable from this file's own bytes: **147 FOLDED** —
+**132 per-wave sharpenings**, contiguously numbered with exactly one provenance line each
+(W0 ×2 · W1 ×23 · W2 ×80 · W3 ×12 · W4 ×15), plus the **15** consolidated MEASURE-AT-OPEN module
+rows of §7 — **+ 16 EXCLUDED** (§8's numbered blocs) = **163 BOOKINGS OUT**. The per-wave total
+began at **123** — **the count of rows AUTHORED BEFORE ANY L-20 PASS RAN**, not the count after
+pass 1 — and the **nine** L-20 splits and recoveries carry it to **132**, each a SPLIT of a
+multi-facet or multi-limb row, or a recovered drop, never a new identity: pass 1 added **three**
+(W4.12's **M4** facet → W2.76, §1a n.6; and the two `REFINEMENT FOLD`-routed drops recovered at
+W1.23 and W2.75, §1a n.7) → **126**; pass 2 added **two** (W1.16's **LZ-19** limb → W2.77, §1a n.8;
+pt-utils-entry **PT-UE-9**'s **W0** limb → W0.2, §1a n.10) → **128**, the figure §9 banks for
+pass 2; pass 3 added **one** (pt-lazy **LZ-17**'s **W4** release-condition limb → W4.15,
+§1a n.13) → **129**; pass 4 added **three** dropped W2 limbs (pt-leaf **PT-LEAF-4/-9** → W2.78;
+pt-state **PT-STATE-5/-10** → W2.79; pt-state **PT-STATE-20** → W2.80, §1a n.18) → **132**. Five
+rows that once carried a second, unstated booking of another row's identity now carry a
+CROSS-REFERENCE instead and are counted ONCE (W2.38 → W2.65, §1a n.9; W2.28 → W2.34, §1a n.12;
+W2.53 → W2.70, W2.12 → W3.6 and W4.2 → W4.6, §1a n.17): the count does not move, because no row
+was ever added for them.
 
 **The IN side is a RECEIPT, NOT DOCUMENT-INTERNAL ARITHMETIC.** The collator's intake figures —
 **155 collated rows**, **+2** recovered by the L-20 fold check = **157 IN**, less the one
@@ -53,12 +57,18 @@ bytes, the IN side only against the journal, and it is carried here as provenanc
 ### 1a. Collator challenged — corrections, never silent
 
 *Entries **1-4** are the collator corrections recorded at authoring; entries **5-7** are the L-20
-fold check's **first-pass** repairs, entries **8-10** its **second-pass** repairs, and entries
-**11-16** its **third-pass** repairs — all landed in place 2026-08-07 (dated specs still
-byte-untouched — E-3 holds). Each pass swept an axis the prior pass had not: pass 1 the DROP axis
-(rows with no home), pass 2 the ROUTING axis (rows with the wrong home) and the merge register,
-pass 3 the LIMB and POINTER axes (limbs of two-wave rows, internal cross-references, and the
-epistemic status of every "measured" token).*
+fold check's **first-pass** repairs, entries **8-10** its **second-pass** repairs, entries
+**11-16** its **third-pass** repairs, and entries **17-19** its **fourth-pass** repairs — all
+landed in place 2026-08-07 (dated specs still byte-untouched — E-3 holds). Each pass swept an axis
+the prior pass had not: pass 1 the DROP axis (rows with no home), pass 2 the ROUTING axis (rows
+with the wrong home) and the merge register, pass 3 the LIMB and POINTER axes (limbs of two-wave
+rows, internal cross-references, and the epistemic status of every "measured" token). **Pass 4
+stopped repairing INSTANCES on the two axes that had failed to converge and swept the CLASSES
+whole**: the IDENTITY axis by building the table of every source row appearing in more than one
+residence (n.17, and n.4 rewritten as the register OF that table), and the LIMB axis by extracting
+every apotheosis roster row's terminal disposition and classifying it by the targets it names
+(n.18). Both sweeps, their method, and their per-apotheosis counts are recorded so the next check
+can VERIFY the sweep rather than re-run it blind.*
 
 1. **pt-index C-i1 re-routed W4 → W1.** The collator targeted the O-15 cite correction at W4; but
    the rule is "correct the letter's cite ONLY where downstream texts quote it," and the live
@@ -93,32 +103,51 @@ epistemic status of every "measured" token).*
    bloc, and both do so for the same stated reason — the LAW folds, the IN-LIBRARY CURE does not:
    **pt-core row 11** (PRIMARY provenance of W3.9 · pt-core EXCLUDED bloc 5) and **pt-ansi row 13**
    (co-identity of W2.8 · pt-ansi EXCLUDED bloc 4). No other row has two residences.
-   **THE COMPLETE MERGE REGISTER** (rewritten by the L-20 pass-2 repair; the first pass's "the ONE
-   pair that is MERGED, not kept separate" was **FALSE against this document's own labels** — at
-   least four other rows carry a MERGED label over a named pair. **Completed again by the pass-3
-   repair, which found the register itself short one row — W2.8, n.11**). Exhaustively, every row
-   here that collapses TWO OR MORE NAMED SOURCE ROWS — or two bookings of ONE source row — into ONE
-   booking:
-   - **W1.12** ⟨pt-packrat C-7 · pt-packrat-entry M-7 / E-B1 · **pt-lazy LZ-21**⟩ — one identity,
-     restated per-format. LZ-21 is a source-stated **ride** ("Identity: rides pt-packrat C-7's
-     REFINEMENT FOLD … never re-booked here"), carried in provenance, never a second booking.
-   - **W2.8** ⟨pt-debug B-1 (= pt-ansi row 13 / M-1)⟩ — ONE caret-coordinate defect read from two
-     modules, collapsed under an explicit "same identity" label; the two apotheoses disagree on
-     OWNER and the disagreement is resolved, not silenced, at n.11. Added by the pass-3 repair.
-   - **W2.32** ⟨pt-lazy LZ-9 · pt-packrat M3⟩ — one identity by LZ-9's own disposition; booked at
-     W2, cross-referenced from W4.12 (n.5).
-   - **W2.34** ⟨pt-lazy LZ-5 / A.6⟩ — the SOLE booking of LZ-5 / A.6; W2.28, which formerly also
-     carried it as a titled subject, now cross-references it and books it no more (n.12).
-   - **W2.44** ⟨pt-parser PT-PARSER-12 · pt-leaf C-miss-3⟩ — ONE LAW, two rosters (with W2.39).
-   - **W2.65** ⟨pt-state PT-STATE-7⟩ — the SOLE booking of PT-STATE-7; W2.38, which formerly also
-     carried it, now cross-references it and cites it no more (n.9).
-   - **W3.3** ⟨pt-diagnostics roster rows 8 and 9⟩ — 9 folds via 8.
-   - **W4.3** ⟨pt-core row 3 · pt-ansi row 11⟩ — one identity cross-booked, primary pt-core; the
-     merge n.2 records as reducing the collated fold count by one.
-   - **W4.7** ⟨pt-ansi rows 4+5 · pt-core row 47 · pt-diagnostics row 17⟩ — one acceptance list.
-   Distinct in kind from all nine are the five **MERGED CROSS FOLD** rows (**W1.1 · W1.2 · W1.3 ·
-   W4.1 · W4.2**), which fold MANY witnesses of ONE invariant drawn from many modules and name every
-   witness in provenance: cross-folds by construction, not duplicate-collapses.
+   **THE REGISTER OF THE TABLE** (rewritten whole by the L-20 **pass-4** repair, n.17). Three
+   passes wrote a completeness claim here and three checks falsified it — "the ONE pair that is
+   MERGED" (pass 1), "THE COMPLETE MERGE REGISTER" (pass 2), "completed again" (pass 3) — each time
+   because the register was assembled from the rows the pass happened to look at, never from the
+   table. **THE WORD "COMPLETE" IS STRUCK, AND WITH IT THE HABIT.** What follows is not a claim
+   about this document; it is a PARTITION of it. Every one of the **132** provenance lines was
+   extracted and assigned exactly ONE class, by a stated mechanical rule, and the three classes sum
+   to 132. Any checker re-running the extraction lands on this same partition or names the row it
+   disagrees about.
+   **THE RULE.** *MERGE* = every source row the line names is drawn from ONE apotheosis (a
+   within-module collapse), **or** the line itself declares an identity ("MERGED", "same identity",
+   "cross-book"). *CROSS-FOLD* = the line names source rows from TWO OR MORE apotheoses with no
+   declared single identity: many witnesses of one law, each contributing its own evidence.
+   *SINGLE-SOURCE* = the line names ONE source roster row; anything else it names (a seat ruling,
+   a killed claim, a superlative, a MEASURE number, a Closing verdict, a receipt code) is EVIDENCE
+   INSIDE THAT ONE BOOKING and is not a second source row. Orthogonally, a line may carry a
+   **CITATION** — a source row named but NOT booked here, struck to a pointer at its real booking
+   per the n.9 idiom; the citation-bearing lines are listed last and are counted in whichever of
+   the three classes their remaining names put them.
+   - **MERGE — 43 lines**: W1.5 · W1.6 · W1.12 · W1.16 · W1.17 · W2.5 · W2.7 · W2.8 · W2.10 ·
+     W2.11 · W2.12 · W2.17 · W2.18 · W2.19 · W2.21 · W2.23 · W2.30 · W2.31 · W2.32 · W2.36 ·
+     W2.41 · W2.42 · W2.44 · W2.53 · W2.55 · W2.56 · W2.59 · W2.64 · W2.66 · W2.68 · W2.72 ·
+     **W2.78 · W2.79 · W2.80** (new at pass 4, n.18) · W3.3 · W3.6 · W3.12 · W4.3 · W4.6 · W4.7 ·
+     W4.10 · W4.11 · W4.13. **Seven** carry an explicit identity label and are the seven the earlier
+     registers were built from: W1.12 (LZ-21 is a source-stated **ride** — "Identity: rides
+     pt-packrat C-7's REFINEMENT FOLD … never re-booked here"), W2.8 (pt-debug B-1 ≡ pt-ansi
+     row 13 / M-1, ownership tension resolved at n.11), W2.32 (pt-lazy LZ-9 ≡ pt-packrat M3, n.5),
+     W2.44 (PT-PARSER-12 ≡ pt-leaf C-miss-3 — ONE LAW, two rosters; its partner row, which is a
+     CROSS-FOLD and is listed in the next class, not this one, is W2.39), W3.3 (pt-diagnostics
+     row 9 folds via row 8), W4.3 (pt-core row 3 ≡ pt-ansi row 11, primary pt-core, n.2) and W4.7
+     (one acceptance list from three modules). The other thirty-six are within-module collapses and
+     were never distinguishable from those seven by any rule the earlier registers stated.
+   - **CROSS-FOLD — 15 lines**: W1.1 · W1.2 · W1.3 · W1.15 · W1.21 · W1.22 · W2.15 · W2.25 ·
+     W2.38 · W2.39 · W2.52 · W2.71 · W3.9 · W4.1 · W4.2. Five carry the **MERGED CROSS FOLD**
+     title (W1.1 · W1.2 · W1.3 · W4.1 · W4.2); the other ten are the same construction untitled.
+     A cross-fold names every witness in provenance and collapses none of them.
+   - **SINGLE-SOURCE — 74 lines**: every remaining provenance line. 43 + 15 + 74 = **132**.
+   - **CITATIONS — 11, on 9 lines** (a source row named for context or as a pointer, NOT booked
+     there): W1.9 (pt-ansi row 2's W2 dissolution → **W2.1**, n.16) · W1.16 (LZ-19 → **W2.77**,
+     n.8) · W2.12 (pt-diagnostics row 26 → **W3.6**, n.17) · W2.28 (LZ-5 / A.6 → **W2.34**, n.12) ·
+     W2.38 (PT-STATE-7 → **W2.65**, n.9) · W2.53 (PT-UTILS-18 → **W2.70**, n.17) · W2.69
+     (pt-diagnostics row 14 — named because this row CORRECTS its cell, never booked here) · W4.2
+     (pt-core row 20 → **W4.6**, and pt-state PT-STATE-3's booking → **W1.18**; n.17) · W4.12
+     (pt-packrat M3 → **W2.32**, M4 → **W2.76**; n.5/n.6). Every citation is reciprocal: the
+     booking row points back.
 5. **IDENTITY MERGE (L-20 repair): pt-lazy LZ-9 ≡ pt-packrat M3 — ONE ROW, kept at W2.** LZ-9's own
    disposition declares `identity: pt-packrat M3, one row`; pt-packrat M3 is filed
    `MINOR → REFINEMENT FOLD: W2's enumeration discipline — dead flag machinery is the
@@ -268,11 +297,16 @@ epistemic status of every "measured" token).*
     old pointer landed on an unrelated row — the exact mis-cite class n.1/n.6/n.8 exist to police.
     **THE SWEEP**: every `W⟨d⟩.⟨d⟩` reference in every body, provenance line, §1a entry, §8 bloc,
     and §9 paragraph was extracted and resolved against the row it names. Countable from these
-    bytes at the close of this pass: **429 `W⟨d⟩.⟨d⟩` occurrences, of which 129 are the row headers
-    themselves, leaving 300 POINTER references — all 300 resolving to one of the 129 defined rows,
-    ZERO unresolved**, and each read against that row's title/subject. This was the only pointer
-    landing on the
-    wrong subject; no other stale W-number survives.
+    bytes at the close of the pass-3 repair: **429 `W⟨d⟩.⟨d⟩` occurrences, of which 129 were the
+    row headers themselves, leaving 300 POINTER references — all 300 resolving to one of the 129
+    defined rows, ZERO unresolved**, and each read against that row's title/subject. This was the
+    only pointer landing on the wrong subject; no other stale W-number survives.
+    **RE-RUN AT THE CLOSE OF PASS 4 (the pass-3 figures above are a DATED READING, not the current
+    one — the class sweeps at n.17/n.18 added rows and hundreds of row citations):** **629
+    `W⟨d⟩.⟨d⟩` occurrences, of which 132 are the row headers, leaving 497 POINTER references — all
+    497 resolving to one of the 132 defined rows, ZERO unresolved.** The three rows added at pass 4
+    (W2.78-W2.80) are referenced from §1, §1a n.4/n.17/n.18, §4m's preamble, §8 bloc 14 and §9;
+    every reference to them resolves, and no pointer into the sealed W2.1-W2.74 sequence moved.
 15. **EPISTEMIC INFLATION CORRECTED (L-20 pass-3 repair): an ANALYTICALLY DERIVED divergence is no
     longer reported as MEASURED.** Two pointer sites — **n.9** and **W2.38** — wrote "the
     **measured** acceptance divergence `string("abc").trim(regex(/\s*/)).parse("abc")`". The source
@@ -300,6 +334,132 @@ epistemic status of every "measured" token).*
     and it folds at **W2.1**. What folds at **W1.9** is the source's own second clause, the
     **W1-harness witness rider**, which the same sentence makes "possible and mandatory
     post-injection" and which §7 pt-ansi row 3 measures at open. W1.9's provenance now says so.
+17. **THE IDENTITY SWEEP, RUN WHOLE — the table first, then the repairs (L-20 pass-4 repair).**
+    Passes 2 and 3 each cured ONE double booking and each declared, wrongly, that it had cured the
+    last (n.9's "the last uncrossed duplicate", struck at n.12; n.12's register entry, short at
+    n.11's own count). Pass 4 stopped curing instances. **THE TABLE**: all **132** provenance lines
+    were parsed into module-scoped source-row tokens and inverted — every token appearing in more
+    than one residence is listed below, with its class. Residence means a provenance line OR an §8
+    excluded bloc; nothing else in this document books anything. **TWENTY source rows appear more
+    than once. FOUR were UNCURED DEFECTS and are cured here; the other SIXTEEN are declared
+    merges, declared two-limb residences, or declared facets, and each now says which it is.**
+    **THE FOUR CURES** (each by the n.9 idiom: the apter booking keeps it, the second site keeps a
+    CROSS-REFERENCE and cites it no more in provenance, reciprocal pointers both ways):
+    - **pt-utils PT-UTILS-18 → booked ONCE, at W2.70.** It stood in the provenance of **W2.53**
+      ("(+ pt-utils.md PT-UTILS-18: the union is 1-member at runtime)") AND of **W2.70**, where it
+      is the SOLE subject and where the whole source holding lives (`addSuggestion`'s only
+      extra-module call site is the dead `FLAG_EOF` branch ⇒ `"trailing-content"` has NO REACHABLE
+      WRITER ⇒ the closed 2-member union is 1-MEMBER AT RUNTIME). W2.70 is the apter booking by the
+      same test n.9 applied to PT-STATE-7 and n.12 to LZ-5. The pointer was ONE-WAY (W2.70 → W2.53
+      only); it is now reciprocal. This is the exact pattern n.9 and n.12 were written to cure,
+      surviving uncured in the same wave — which is why the axis, not the instance, is swept here.
+    - **pt-diagnostics roster row 26 → booked ONCE, at W3.6.** It stood in the provenance of both
+      **W2.12** and **W3.6**. The source row is itself declared "**Rider on row 25's fold**"
+      (`pt-diagnostics.md:48`), and W3.6 IS row 25's fold — so W3.6 is the apter booking by the
+      source's own words. The two bodies already cross-referenced each other reciprocally (better
+      than the state n.12 cured); what was missing was the demotion, and W2.12's provenance now
+      carries a pointer, not a booking.
+    - **pt-core roster row 20 → booked ONCE, at W4.6.** Found by the sweep, named by no prior
+      check. Row 20's disposition is SINGLE-LIMBED (`**W4** — RC-P gate surface: module-graph
+      assertion + golden export list + declaration-surface check`, `pt-core.md:42`), and it stood
+      in **W4.6**'s provenance (sole subject, "+48") AND in **W4.2**'s. W4.6 is the apter booking;
+      W4.2's provenance demotes to a pointer.
+    - **pt-state PT-STATE-3 → booked ONCE, at W1.18.** Found on the same line as the last. Its
+      source-stated wave limb is **W1** — the harness's subpath reading gains the missing exclusion
+      assertion, born-RED (`pt-state.md:46`) — and W4.2's BODY already said exactly that ("**W1
+      rider (pt-state)** … (= W1.18)") while W4.2's PROVENANCE still booked the row. The provenance
+      now matches the body: a pointer, not a booking.
+    **THE SIXTEEN THAT ARE NOT DEFECTS — each classified, none inferred.** *Declared merges,
+    one booking, one cross-reference (already cured, re-verified here)*: pt-lazy **LZ-5 / A.6**
+    (W2.34 books · W2.28 cites, n.12) · pt-lazy **LZ-19** (W2.77 books · W1.16 cites, n.8) ·
+    pt-packrat **M3** (W2.32 books, merged with LZ-9 · W4.12 cites, n.5) · pt-packrat **M4**
+    (W2.76 books · W4.12 cites, n.6) · pt-state **PT-STATE-7** (W2.65 books · W2.38 cites, n.9).
+    *Declared DUAL RESIDENCE — the law folds, the in-library cure stays banked*: pt-core **row 11**
+    (W3.9 · §8 bloc 5) · pt-ansi **row 13** (W2.8 · §8 bloc 4, n.11). *Declared TWO-LIMB residence,
+    both limbs booked, each naming the other*: pt-utils-entry **PT-UE-9** (W0.2 · W4.2, n.10) ·
+    pt-lazy **LZ-17** (W4.15 · §8 bloc 9, n.13) · pt-leaf **PT-LEAF-17** (W2 limb at W2.42 · W4
+    rider at W4.2 — source-routed `W2` + `W4`) · pt-leaf **PT-LEAF-23** (W1 limb at W1.22 · W2 limb
+    at W2.42) · pt-utils **PT-UTILS-1** (W2 limb at W2.67 · W4 rider at W4.2) · pt-state
+    **PT-STATE-1** (W1 RED-GUARD probe carried in W1.1's cross-fold · W2 failure-signal law at
+    W2.61 — the source disposition names both). *Declared FACETS of one holding, kept separate and
+    cross-referenced per this entry's own opening rule*: pt-parsers **PT-PARS-8** (W1.1 witness ·
+    W1.4 gate-checkable-law row) · pt-utils-entry **PT-UE-1** (W1.1 · W1.19, n.8) · pt-utils-entry
+    **PT-UE-3** (W1.1's boundary witness · W2.72's α-miss ordering rider). **The sixteen are
+    listed so the next check can read the classification instead of re-deriving it; the falsifiable
+    claim of this entry is the TABLE — twenty, no more — not an adjective.**
+18. **THE LIMB SWEEP, RUN WHOLE — the table first, then the repairs (L-20 pass-4 repair).**
+    n.13's limb sweep read "every two-wave source disposition" and banked two gaps; the pass-4
+    check proved it had missed at least five. **METHOD, STATED SO IT CAN BE CHECKED**: every roster
+    row of all fifteen apotheoses was extracted with its TERMINAL DISPOSITION and classified by the
+    target tokens that disposition names — `W0`·`W1`·`W2`·`W3`·`W4`·`NO-WAVE-OWNER`·
+    `MEASURE-AT-OPEN`·`REFINEMENT FOLD`. **464 rows name at least one target; 197 name two or
+    more** (per-apotheosis below). Each of the 197 was then resolved against this document's own
+    section index — §2-§6 for W0..W4, §7 for MEASURE-AT-OPEN, §8 for NO-WAVE-OWNER — and every row
+    the index could not home on some limb was read by hand against its source. **The reading is
+    DELIBERATELY WIDE** (any wave token inside a disposition cell counts, prose mentions included),
+    so the swept set is a SUPERSET: no narrower re-count can surface a row this sweep did not see.
+    **The falsifiable output of this entry is the DEFECT LIST, not the count.**
+    | apotheosis | multi-limb rows swept | rows with an unhomed limb | apotheosis | multi-limb rows swept | rows with an unhomed limb |
+    |---|---|---|---|---|---|
+    | pt-ansi | 7 | 0 | pt-packrat | 9 | 0 |
+    | pt-core | 11 | 0 | pt-packrat-entry | 2 | 0 |
+    | pt-debug | 22 | 0 | pt-parser | 15 | **1** |
+    | pt-diagnostics | 14 | 0 | pt-parsers | 20 | 0 |
+    | pt-index | 6 | 0 | pt-split | 10 | 0 |
+    | pt-lazy | 20 | 0 | pt-state | 14 | **4** |
+    | pt-leaf | 24 | **2** | pt-utils | 6 | 0 |
+    | pt-utils-entry | 17 | 0 | **TOTAL** | **197** | **7** |
+    **THE SEVEN UNHOMED LIMBS — three new rows, two co-witness bookings, one §8 entry.**
+    - **pt-leaf PT-LEAF-4 and PT-LEAF-9 → W2.78** (new). PT-LEAF-9's disposition reads "**W2** —
+      same monotonicity/re-entrancy law as PT-LEAF-4 … MEASURE-AT-OPEN #2" (`pt-leaf.md:54`) and
+      PT-LEAF-4's reads "**W2** — explicit offset-monotonicity law on every operator; W1
+      monotonicity oracle (MEASURE-AT-OPEN #2)" (`:44`). The MEASURE limb of BOTH rides §7 pt-leaf
+      row 2 and PT-LEAF-4's 1.1.0-eligible incumbent cure is priced at W4.14 — **but the W2 LAW
+      ITSELF was booked nowhere**: PT-LEAF-9 appeared in this document zero times and PT-LEAF-4
+      exactly once, inside W4.14's semver list. They are ONE law by PT-LEAF-9's own words, so they
+      fold as ONE row (a MERGE, registered at n.4).
+    - **pt-state PT-STATE-5 and PT-STATE-10 → W2.79** (new). PT-STATE-5's W2 limb ("`D` is a
+      lazily-attached value in the state model, not two eager slots", `pt-state.md:48`) and
+      PT-STATE-10's W2 limb ("in the algebra, `D` is opaque and writer-mediated; published mutable
+      substate with no published mutator is unrepresentable", `:53`) are the SAME two fields
+      (`suggestions`/`secondarySpans`) read from the allocation side and the writer side — one law,
+      so one row (a MERGE, registered at n.4). PT-STATE-5's MEASURE limb already rides §7 pt-state
+      rows 1-2; **PT-STATE-10's `NO-WAVE-OWNER` limb** ("export the writers or make the fields
+      readonly — the latter is 2.0.0") was banked nowhere and is **added to §8 bloc 14**.
+    - **pt-state PT-STATE-20 → W2.80** (new). Its disposition is literally a fold — "**W2 R-LAW-3
+      fold** — rendering is a free function over `D`, never a method a logger can trigger;
+      `toString` RETIREs from the class. Armed-leg cost → MEASURE-AT-OPEN #3" (`:68`). Only the
+      MEASURE limb was carried (§7 pt-state row 3); the fold limb, the part that is not a
+      measurement at all, was booked nowhere and the row was absent from §8 bloc 14 as well.
+    - **pt-state PT-STATE-4 → W2.52** (co-witness, no new row). "**W2** — copy law under EQ-4: any
+      copy primitive copies `D` whole or resets its index; the incumbent RETIREs" (`:47`) is the
+      pt-state-side witness of the law W2.52 already folds from three other modules ("a `(V,C,P,D)`
+      copy is TOTAL OR FORBIDDEN"). It joins that row's provenance as a fourth witness; the row
+      stays a CROSS-FOLD.
+    - **pt-parser PT-PARSER-10 → W1.3** (co-witness, no new row). "**W2** — depth bound as an
+      algebra parameter; W1 G-9 owns the ceiling row (MEASURE-AT-OPEN #5)" (`pt-parser.md:53`).
+      Its W2 clause is WORD-FOR-WORD pt-core row 18's ("**W2** — K-7: the bound is an algebra
+      parameter", `pt-core.md:40`), which W1.3 folds; its own second clause routes the ceiling to
+      **W1 G-9**, which W1.3 IS; and its MEASURE limb rides §7 pt-parser row 5. It is a
+      NEAR-DUPLICATE that was never declared against its twin — declared now, booked at W1.3 and
+      nowhere else.
+    **WHAT THIS SWEEP DOES NOT CLAIM.** The index check also flags rows whose limb is carried
+    WITHOUT a same-section naming — by a merge, by a parent row, by a rider inside another row's
+    body, or by an §8 range that names the row only by number. Those were read and are CARRIED, not
+    dropped; the eight the pass-4 check independently confirmed as legitimately carried are
+    pt-diagnostics S10, pt-lazy K-4, pt-state PT-STATE-21 (§8 bloc 14 "21-22" + §7 pt-state row 5),
+    pt-parser PT-PARSER-19 (§8 bloc 12 "18-19" + §7 pt-parser row 3), PT-PARSER-21 (source-stated
+    "identity → pt-leaf PT-LEAF-25", folded at W1.17), pt-parsers K-9 (survivor RC-4 named in
+    W1.3's provenance), pt-utils-entry PT-UE-13 (source-stated "via PT-LEAF-23", folded at W2.42)
+    and PT-UE-28/K9 (§8 bloc 16 "-26..-31" + §7 rows 4/1). Two further rows self-declare their
+    home and are not droppable: pt-state **PT-STATE-30** ("already owned") and **PT-STATE-31**
+    ("provenance rider").
+19. **§1's ARITHMETIC PREAMBLE DISAMBIGUATED (L-20 pass-4 repair).** §1 read "the six L-20 splits
+    and recoveries that carry the per-wave total from the first pass's **123** to **129**", which
+    parses as if 123 were the count AFTER pass 1 — under which reading the sum is wrong. **123 is
+    the PRE-L-20 AUTHORED count.** §1 now decomposes the walk pass by pass (123 → 126 → 128 → 129 →
+    132) and each staging figure is checkable against §9's own banked numbers: 128 is the pass-2
+    figure §9 banks, 129 the pass-3 figure. The arithmetic never changed; only the sentence did.
 
 ---
 
@@ -387,8 +547,15 @@ and the first fold pass named only the W1 site — **corrected by the L-20 pass-
 MISS-9): for any print path W2 keeps, **declare-your-WORK, not only declare-your-depth** —
 `.then`/`.or` spines are 2^depth calls at frame depth = depth, so the observable failure at depth
 ≈30 is an unbounded HANG, never a RangeError.
+**NEAR-DUPLICATE DECLARED (L-20 pass-4 repair, §1a n.18): pt-parser PT-PARSER-10 books HERE and
+nowhere else.** Its disposition is `**W2** — depth bound as an algebra parameter; W1 G-9 owns the
+ceiling row (MEASURE-AT-OPEN #5)` (`pt-parser.md:53`): the W2 clause is word-for-word pt-core
+row 18's `**W2** — K-7: the bound is an algebra parameter` (`pt-core.md:40`) — ONE holding, two
+rosters — and the row's own second clause routes the ceiling to **W1 G-9**, which is this row.
+Its MEASURE limb rides §7 pt-parser row 5 (`Recursion ceiling — G-9 owns the row; 7,761/7,762
+cited as a CLASS, never a constant`). No second booking is warranted and none is made.
 *Sharpens*: G-9 whole (W1.md:544-562); cross-binds W2 G-11 (W2.md:824).
-⟨pt-core row 18 · pt-leaf L-m12 · pt-parsers PT-PARS-12 (RC-3/RC-4 — strengthens the SAME row, one identity) · pt-lazy M11 · pt-debug MISS-9⟩
+⟨pt-core row 18 · pt-leaf L-m12 · pt-parsers PT-PARS-12 (RC-3/RC-4 — strengthens the SAME row, one identity) · pt-lazy M11 · pt-debug MISS-9 · pt-parser PT-PARSER-10 (near-duplicate of pt-core row 18's K-7 clause, declared — §1a n.18)⟩
 
 **W1.4 · pt-parsers PT-PARS-8 — the band's :108 idiom elevated to GATE-CHECKABLE LAW** (cl.1)
 Entry via `parseState` + `isError` ONLY — any harness leg reading `.parse()` truthiness
@@ -397,7 +564,7 @@ Entry via `parseState` + `isError` ONLY — any harness leg reading `.parse()` t
 — the suite's ONLY idiom — passes on EVERY malformed vector. The tests certify a **FORK**:
 `csv.test.ts` re-declares the grammar byte-for-byte and never imports `csvParser`; `json.test.ts`
 re-declares a DIFFERENT grammar; `invalid.jsonl` ships unread. (Facet of W1.1; receipts here.)
-⟨pt-parsers.md · PT-PARS-8 + RC-1⟩
+⟨pt-parsers.md · PT-PARS-8 + RC-1 (FACET of W1.1's cross-fold, kept separate and cross-referenced — §1a n.4/n.17)⟩
 
 **W1.5 · pt-parsers PT-PARS-2 — the W1 REJECTION-LEG LAW** (cl.1)
 EVERY grammar in the lane's corpus carries a **REJECTION LEG**. An acceptance-only totality
@@ -552,7 +719,10 @@ alone. **NO state.ts-confined cure exists** — L-M1's cure is a provable no-op.
 the prose, or add the exclusion assertion **BORN-RED** and split Parser's debug/packrat edges
 behind a seam. **W1's harness subpath reading gains the missing exclusion assertion, born-RED
 until one of the two lands.** (Import-graph mechanics: W4.2.)
-⟨pt-state.md · PT-STATE-3 + rulings 4 / K3 / K4⟩
+**THE SOLE BOOKING OF PT-STATE-3 (L-20 pass-4 repair, §1a n.17)**: W4.2 formerly also carried it in
+provenance while its body already pointed here; W4.2 now keeps a CROSS-REFERENCE, not a booking,
+and this row — the source's own W1 limb — is where PT-STATE-3 is booked.
+⟨pt-state.md · PT-STATE-3 + rulings 4 / K3 / K4 (SOLE booking; W4.2 cross-references, §1a n.17)⟩
 
 **W1.19 · pt-utils-entry PT-UE-1 — the CSV fixture signature is the BORN-RED witness** (cl.2)
 `csvParser` silently corrupts real CSV and reports UNQUALIFIED SUCCESS — no return-path signal
@@ -562,7 +732,7 @@ exists (value well-formed, `isError=false`, `offset===len`) — and the corrupti
 decoded, NEVER by `length > 0`. C-4's "no concept of a row" half is KILLED (fully-quoted input
 row-splits correctly), so the defect is one character class + the inexpressible RFC 4180 `""` +
 `sepBy`'s silent break on the empty field. (This is W1.1's insufficiency witness.)
-⟨pt-utils-entry.md · PT-UE-1 + MEASURE-AT-OPEN 7⟩
+⟨pt-utils-entry.md · PT-UE-1 + MEASURE-AT-OPEN 7 (FACET; the same row's JS-boundary witness rides W1.1 — §1a n.8/n.17)⟩
 
 **W1.20 · pt-utils-entry ruling 5 / K13 — the RECEIPT LAW** (cl.1)
 Consumer-root HEAD receipts are **RE-RESOLVED AT USE and recorded PER-RECORD**; no seat "corrects"
@@ -592,7 +762,7 @@ as `:881 (guard) / :882 (call)`. The companion **`:14` cite IS exact** and corre
 the label-no-op half — a correction that rewrites `:14` would DELETE A CORRECT CITE
 (pt-utils-entry ruling 2). Second record: the opt-in `console.error` at `:262` is `parserDebug`'s
 default logger — which DIFFERS from `Parser.debug`'s `console.log` default (feeds W1.7).
-⟨pt-index.md C-i1 · pt-utils-entry.md PT-UE-27 + K4 · pt-leaf.md PT-LEAF-23⟩
+⟨pt-index.md C-i1 · pt-utils-entry.md PT-UE-27 + K4 · pt-leaf.md PT-LEAF-23 (W1 limb; its W2 limb at W2.42 — §1a n.17)⟩
 
 **W1.23 · pt-lazy LZ-13 — the INSTRUMENT LAW: the invocation-count red test and the depth-class
 test are W1 HARNESS OBLIGATIONS** (cl.1 — **recovered by the L-20 fold check, §1a n.7**)
@@ -615,7 +785,7 @@ row names the two instruments that must EXIST for either to be able to fail.
 
 ---
 
-## 4. W2 — The Dual-Target Algebra (77 sharpenings)
+## 4. W2 — The Dual-Target Algebra (80 sharpenings)
 
 ### 4a. Algebra state, laws, and dispatch (pt-core + pt-ansi)
 
@@ -733,8 +903,11 @@ in hand, and the clamped renderer degrades to a confidently-wrong caret, never a
 Diagnostic-as-value spec CARRIES ITS SOURCE IDENTITY.** Same breath: `Diagnostic.offset` is
 carried and never rendered — render it or drop the field (write-only; a wave mapping offset→start
 would invent semantics). *Sharpens*: the D limb (W2.md:239); cross-ref W3.6 (nothing maps FROM
-Diagnostic).
-⟨pt-debug.md · MISS-3 and i-3 · pt-diagnostics.md row 26⟩
+Diagnostic). **pt-diagnostics row 26 IS CROSS-REFERENCED HERE, NOT BOOKED (L-20 pass-4 repair,
+§1a n.17)**: the source row declares itself "Rider on row 25's fold" (`pt-diagnostics.md:48`) and
+row 25's fold is **W3.6**, which books both; this row states the write-only field's consequence
+for the Diagnostic-as-value spec and cites it no more in provenance.
+⟨pt-debug.md · MISS-3 and i-3 (pt-diagnostics row 26 → booked at W3.6, §1a n.17)⟩
 
 **W2.13 · pt-debug MISS-10 — a memoized printer carries a context fingerprint** (cl.1)
 `PARSER_STRINGS` caches on `parser.id` while `Parser.context` is public-mutable and the library
@@ -1086,7 +1259,7 @@ error-path allocation), so the whole problem is DELIVERY-side. (23) `mergeErrorS
 assignments sit OUTSIDE the diagnostics guard — two fresh arrays per furthest-advance on the
 shipping default; the armed tier's `console.error` is uninjectable. **R-LAW-3's delivery side:
 diagnostics are values, allocation-free when disarmed, printed by no one.**
-⟨pt-leaf.md · PT-LEAF-17 and -23⟩
+⟨pt-leaf.md · PT-LEAF-17 and -23 (PT-LEAF-17's W2 limb — its W4 rider at W4.2; PT-LEAF-23's W2 limb — its W1 limb at W1.22 — §1a n.17)⟩
 
 **W2.43 · pt-leaf C-§7-regex-overstated — state the retirement as the DUAL-TARGET BET** (cl.1)
 C-§7's RETIRE-regex verdict claims "four independent reasons, each sufficient"; THREE of the four
@@ -1177,7 +1350,15 @@ inherits a furthest offset with NO LABELS, and `mergeErrorState(clone, label)` b
 is a SILENT NO-OP. ON A LIVE PATH: packrat's eval-set re-entry (`scratch = live.clone()`) discards
 every diagnostic the re-evaluation accumulates. Also INVALIDATES L-m6's proposed cure (clone is
 not a faithful copy). **Law: a (V,C,P,D) copy is TOTAL OR FORBIDDEN.**
-⟨pt-parser.md PT-PARSER-15 (α-miss 4) · pt-core.md row 14 · pt-diagnostics.md row 21⟩
+**FOURTH WITNESS ADDED (L-20 pass-4 repair, §1a n.18): pt-state PT-STATE-4**, whose disposition is
+this same law from the state side — "**W2** — copy law under EQ-4: any copy primitive copies `D`
+whole or resets its index; the incumbent RETIREs" (`pt-state.md:47`). It carries the caveat neither
+challenge stated: every writer of the dropped payload is gated on `diagnosticsEnabled`, so on the
+shipping default the clone is coherent **by accident** and the defect fires only with diagnostics
+armed — which is why the law must be stated as *total or forbidden* rather than as a bug report.
+Its W2 limb was booked nowhere before this pass; it books here, as a cross-fold witness, not a
+second row.
+⟨pt-parser.md PT-PARSER-15 (α-miss 4) · pt-core.md row 14 · pt-diagnostics.md row 21 · pt-state.md PT-STATE-4 (§1a n.18)⟩
 
 **W2.53 · pt-parser PT-PARSER-11 / -13 / -34 — operators enter the algebra SPECIFIED, never
 inherited** (cl.2)
@@ -1188,8 +1369,13 @@ for its own grep and NONE for its own coverage. **CURE-LOCK RIDER (-34): the ONL
 `"trailing-content"` — one of the two frozen Suggestion kinds — sits inside the UNREACHABLE
 `FLAG_EOF` branch, and `trailing_input` is one of value.js's eight frozen ParseIssue codes; W2
 must RE-FOUND trailing-content in the algebra so the deletion does not ORPHAN THE CAPABILITY**
-(cross-ref W3.b's code union, W3.md:257-260, and W2.57).
-⟨pt-parser.md · PT-PARSER-11, -13, -34 (+ pt-utils.md PT-UTILS-18: the union is 1-member at runtime)⟩
+(cross-ref W3.b's code union, W3.md:257-260, and W2.57). **pt-utils PT-UTILS-18 IS
+CROSS-REFERENCED HERE, NOT BOOKED (L-20 pass-4 repair, §1a n.17)**: the runtime-reachability
+finding that makes the union 1-MEMBER — `addSuggestion`'s sole extra-module call site is the dead
+`FLAG_EOF` branch, so `"trailing-content"` has no reachable writer — is booked at **W2.70**, where
+PT-UTILS-18 is the sole subject; this row states the re-founding obligation the finding creates
+and cites it no more in provenance.
+⟨pt-parser.md · PT-PARSER-11, -13, -34 (pt-utils PT-UTILS-18 → booked at W2.70, §1a n.17)⟩
 
 ### 4i. pt-parsers at W2
 
@@ -1268,7 +1454,7 @@ non-empty-tuple failure arm is the shape that makes the alternative UNREPRESENTA
 uncoupled raw writes. The corpus's own recorded row (W1.md:577 "returns undefined") UNDER-STATES
 the tree — the residue is GRAMMAR-DEPENDENT. W1 keeps the RED GUARD row as a live probe (K1: it
 RUNS).
-⟨pt-state.md · PT-STATE-1⟩
+⟨pt-state.md · PT-STATE-1 (W2 failure-signal limb; the W1 RED-GUARD probe rides W1.1 — §1a n.17)⟩
 
 **W2.62 · pt-state PT-STATE-9 — the tier CO-PUBLISHES the diagnostic writer with the extension
 point** (cl.1)
@@ -1341,7 +1527,7 @@ unshakeable. **CURE-LOCK: THE SPLIT INTO `scan.ts` + diagnostics IS AC-3'S STATE
 a conforming consumer has no lawful door, the K-6/O-8 kill class. Honest bound preserved: globals
 inert at import; structural availability, not measured cost. *Sharpens*: scope 12 (W2.md:188-191)
 + AC-3 (W2.md:346-359).
-⟨pt-utils.md · PT-UTILS-1⟩
+⟨pt-utils.md · PT-UTILS-1 (W2 limb; its W4 rider at W4.2 — §1a n.17)⟩
 
 **W2.68 · pt-utils PT-UTILS-3 / -5 — the span-emitting scanner carries a LABELLED
 unterminated-comment failure** (cl.2)
@@ -1366,13 +1552,20 @@ internal instance is `parser.ts:419`'s eager slice on every failed `wrap()` clos
 zero assignments; `.eof()` routes through `skip(eof())`).
 ⟨pt-utils.md · PT-UTILS-8 + ruling 1 (corrects pt-diagnostics.md row 14's cell)⟩
 
-**W2.70 · pt-utils PT-UTILS-18 — "trailing-content" has NO REACHABLE WRITER** (cl.2)
+**W2.70 · pt-utils PT-UTILS-18 — "trailing-content" has NO REACHABLE WRITER — THE SOLE BOOKING OF
+PT-UTILS-18, §1a n.17** (cl.2)
 NEW (seat-found): `addSuggestion`'s sole EXTRA-MODULE call site is the dead `FLAG_EOF` branch, so
 its only runtime-reachable caller is intra-module — therefore `Suggestion.kind`'s
 `"trailing-content"` member has NO REACHABLE WRITER and the closed 2-member union is **1-MEMBER AT
 RUNTIME**. Sharpens the 8-code taxonomy need: ParseIssue is D's element type, and a union that is
 effectively "unclosed-delimiter" cannot serve it. (With W2.53's re-founding obligation.)
-⟨pt-utils.md · PT-UTILS-18⟩
+**ONE BOOKING (L-20 pass-4 repair, §1a n.17)**: PT-UTILS-18 formerly sat here AND in W2.53's
+provenance, both asserting the 1-member union, with only a ONE-WAY pointer. It is booked HERE AND
+NOWHERE ELSE — here because this is the row where it is the sole subject and where the
+reachability derivation lives; **W2.53 keeps a CROSS-REFERENCE**, and its own holding (operators
+enter the algebra specified; the `-34` re-founding cure-lock) stands there undisturbed. Reciprocal
+pointers both ways, per the W2.65 / W2.34 idiom.
+⟨pt-utils.md · PT-UTILS-18 (SOLE booking; W2.53 cross-references, §1a n.17)⟩
 
 **W2.71 · pt-utils PT-UTILS-11 identity ruling — MINOR at family precedent; the cure design is
 W2's** (cl.2)
@@ -1391,7 +1584,7 @@ but `.eof()` DOES NOT CURE the residue defect, because skip's error arm KEEPS `s
 `.parse()` still returns residue. **THE `.parse()`/residue repair MUST LAND FIRST OR WITH IT, or
 the EOF fix is INVISIBLE AT THE PUBLIC SURFACE.** EOF is a total-consumption judgment in the
 algebra; incumbent `.eof()` is priced 2.0.0 (acceptance narrowing; W4.14).
-⟨pt-utils-entry.md · PT-UE-6 + PT-UE-3 (α-miss ordering rider)⟩
+⟨pt-utils-entry.md · PT-UE-6 + PT-UE-3 (α-miss ordering rider; PT-UE-3's W1 boundary witness rides W1.1 — §1a n.17)⟩
 
 **W2.73 · pt-utils-entry PT-UE-2 — a wrong-V injector is invisible to K-1 and lethal to the
 wave** (cl.2)
@@ -1417,7 +1610,9 @@ pt-utils-entry row 1; with W1.3).
 
 *Numbered at the tail so the sealed W2.1-W2.74 sequence — and every cross-reference into it —
 stands unmoved; each row names the module bloc it belongs to. W2.75-W2.76 land from the fold
-check's first pass, W2.77 from its second (the routing sweep, §1a n.8).*
+check's first pass, W2.77 from its second (the routing sweep, §1a n.8), and W2.78-W2.80 from its
+fourth (the LIMB CLASS SWEEP, §1a n.18 — three W2 limbs of fold-class source rows that no pass had
+booked anywhere).*
 
 **W2.75 · pt-lazy LZ-18 (surviving half) — the candidate's TYPING POSTURE: no phantom parameter,
 erasure STATED at the seam** (cl.1 — **recovered by the L-20 fold check, §1a n.7**; belongs to §4e's
@@ -1469,6 +1664,74 @@ resolves to W1's own **G-10 — THE FIVE DEBTS ARE MEASURED, NOT ASSUMED** (`W1.
 RED-7 published-surface probe) — a gate with no registry in it at all; W1.16 now carries only its
 two genuine W1 limbs and points here.
 ⟨pt-lazy.md · LZ-19 (D-C13, trimmed; K-16/S-5) — source-routed `REFINEMENT FOLD → W2`⟩
+
+**W2.78 · pt-leaf PT-LEAF-4 + PT-LEAF-9 (MERGED — one law, two witnesses) — THE OFFSET-MONOTONICITY
+AND RE-ENTRANCY LAW: every operator advances or fails, and no operator reads a cursor across user
+code** (cl.2 — **W2 limb recovered by the L-20 pass-4 limb sweep, §1a n.18**; belongs to §4f's
+pt-leaf bloc)
+PT-LEAF-9's own disposition names the merge — "same monotonicity/re-entrancy law as **PT-LEAF-4**"
+(`pt-leaf.md:54`) — so the two book as ONE row. (**4**) The documented `null` arm of
+`matchFunction` makes the offset delta **NEGATIVE**: a failed sticky `exec` resets `lastIndex` to
+0, so a *successful* parse can rewind the cursor to absolute 0 and consume the input twice
+(`["aaa","FB","aaa"]` from a four-char input); every downstream guard in the library is ONE-SIDED
+(`parser.ts:538/:605`) and blind to it. (**9**) `regex()` reads the closure-singleton
+`sticky.lastIndex` **AFTER invoking arbitrary user code** (`leaf.ts:322/:333/:337-340`), so a
+re-entrant `matchFunction` desynchronizes value from offset — past `src.length`, after which
+`eof()` spuriously succeeds. The packrat tier got epoch save/restore for exactly this class; the
+leaf that hands control to user code got nothing. **FOLD: the algebra states an EXPLICIT
+OFFSET-MONOTONICITY LAW over EVERY operator — `result.offset ∈ [entry, src.length]`, checked at
+the operator boundary, not by one-sided caller guards — and NO operator may read a mutable cursor
+across a call into consumer code; a terminal that does is not a terminal the algebra keeps
+(PT-LEAF-9's `regex` RETIREs from the terminal tier, the AC-1/AC-2 host-object bet).** Both rows'
+MEASURE limb is §7 pt-leaf row 2 (the monotonicity oracle, carrying K18's law that NO PROBE NUMERAL
+IS PORTABLE); PT-LEAF-4's incumbent two-line delta-gate cure is 1.1.0-eligible and priced at W4.14.
+⟨pt-leaf.md · PT-LEAF-4 and PT-LEAF-9 (MERGED — one law by PT-LEAF-9's own disposition, §1a n.18)⟩
+
+**W2.79 · pt-state PT-STATE-5 + PT-STATE-10 (MERGED — one law, two faces) — `D` IS A
+LAZILY-ATTACHED, WRITER-MEDIATED VALUE, NEVER TWO EAGER PUBLIC SLOTS** (cl.2 — **W2 limb recovered
+by the L-20 pass-4 limb sweep, §1a n.18**; belongs to §4k's pt-state bloc)
+Both rows are about the SAME two fields — `suggestions` and `secondarySpans` — read from opposite
+sides. (**5**, allocation side) Two arrays per `ParserState`, allocated UNCONDITIONALLY
+(`state.ts:44-45` → chunk `:301-302`) for a feature whose every writer is gated OFF by default; the
+restart branch re-allocates both **unguarded** on every furthest-advance while guarding `expected`
+one line above (`utils.ts:32-35`); the failure path allocates four and immediately aliases two away.
+(**10**, writer side) Those same fields are **published, mutable, public array fields with ZERO
+published writers on any tier** — `addSuggestion`/`addSecondarySpan` appear in no barrel (∉ the 34
+root keys), so the only way a consumer can add one is a direct `.push()`, which bypasses the
+`diagnosticsEnabled` gate and manufactures the exact state the module treats as impossible
+(non-empty suggestions, diagnostics off) — which `parser.ts:63-64` then aliases onto the errorState
+and `utils.ts:121-122` copies into a `Diagnostic`. **FOLD: in the algebra `D` is a VALUE ATTACHED
+WHEN IT EXISTS and reached only through the operations that own it — never an eagerly-allocated
+public slot, and never public mutable substate without a published mutator. A shape that can be
+written into a state the operations declare impossible is unrepresentable, EQ-4's disqualifier
+applied to the container rather than the element** (with W2.63's "no public toggle without a public
+query" and W2.71's LENGTH-GUARD ruling, which is the incumbent-side cure this law makes unnecessary
+for the successor). PT-STATE-5's MEASURE limb rides §7 pt-state rows 1-2 (reject-path allocation
+leg; dead alias overwrite); **PT-STATE-10's `NO-WAVE-OWNER` limb — export the writers or make the
+fields `readonly`, the latter a 2.0.0 event — is banked at §8 bloc 14**, giving that row a declared
+two-limb residence.
+⟨pt-state.md · PT-STATE-5 and PT-STATE-10 (MERGED — one law, two faces of the same two fields; PT-STATE-10's NWO limb at §8 bloc 14, §1a n.18)⟩
+
+**W2.80 · pt-state PT-STATE-20 — R-LAW-3: RENDERING IS A FREE FUNCTION OVER `D`, NEVER A METHOD A
+LOGGER CAN TRIGGER** (cl.2 — **W2 fold limb recovered by the L-20 pass-4 limb sweep, §1a n.18**;
+belongs to §4k's pt-state bloc)
+The source disposition IS a fold and was carried nowhere: "**W2 R-LAW-3 fold** — rendering is a free
+function over `D`, never a method a logger can trigger; `toString` RETIREs from the class"
+(`pt-state.md:68`). `ParserState.toString()` (`state.ts:136-138`) routes ANY INCIDENTAL STRING
+COERCION through the full diagnostic renderer — `debug.ts:58`'s whole-source split plus
+`state.ts:131`'s prefix materialization, per render — and it is PT-01's print payload at
+`parser.ts:67-69`. A template literal, a `console.log` of the state, or any library that
+stringifies its arguments therefore executes the renderer; attribution stays MINOR against
+`state.ts` because `parser.ts` chooses to print, but **R-LAW-3 makes the print path UNPASSABLE for
+any lowering**: a renderer reachable by coercion cannot be non-normative, and a wrap cannot hide a
+method the language calls implicitly. **FOLD: the successor's rendering is a FREE FUNCTION taking
+`D` (and its policy) as arguments; no state or result type carries `toString`/`inspect`-class
+members, so R-LAW-3's console-patching probe cannot be defeated by an implicit coercion**
+(W2.md:281-283 with W1.7's both-descriptor cure-lock — a probe that only patches `console.error`
+misses `console.log`, and a probe that only patches loggers misses coercion). The ARMED-LEG COST of
+the incumbent — two full-source materializations per failed parse — is measured, not asserted, at
+§7 pt-state row 3.
+⟨pt-state.md · PT-STATE-20 (C-13 = L/m-5) — the W2 R-LAW-3 fold limb; armed-leg cost at §7 pt-state row 3⟩
 
 ---
 
@@ -1538,8 +1801,11 @@ armed-only `expected`, `found` where `actual: string|null` is wanted. **NO total
 information-preserving map exists. W3.b's codes/diagnostics unit maps furthestOffset → start and
 derives `end` from its OWN span discipline; NOTHING maps from Diagnostic.** Rider:
 `Diagnostic.offset` is write-only — record it as un-interpreted, never map it (with W2.12).
+**THE SOLE BOOKING OF ROW 26 (L-20 pass-4 repair, §1a n.17)**: row 26 is source-declared "Rider on
+row 25's fold", and this is row 25's fold; W2.12 formerly also carried it in provenance and now
+keeps a CROSS-REFERENCE, not a booking.
 *Sharpens*: unit .b's `{lower,diagnostics,codes}.ts` (W3.md:268).
-⟨pt-diagnostics.md · roster rows 25 and 26⟩
+⟨pt-diagnostics.md · roster rows 25 and 26 (SOLE booking of row 26; W2.12 cross-references, §1a n.17)⟩
 
 **W3.7 · pt-diagnostics row 27 / C·D-15 — recovery-skipped bytes enter C as spans** (cl.1)
 `found` is lossy four ways on one line (fixed UTF-16 cut with a lone-surrogate hazard,
@@ -1630,7 +1896,13 @@ amends. *Sharpens*: G-3's packed-surface resolution (W4.md:383) — resolution i
 (**PT-UE-9 is routed `W0/W4` at source; this row is its W4 limb — the W0 limb, that a tier promise
 carried out of the fresh root is an import-graph claim and never a file-existence one, is owned by
 **W0.2**, L-20 pass-2 repair §1a n.10.)
-⟨pt-leaf.md PT-LEAF-17 rider · pt-parsers.md PT-PARS-7 · pt-packrat.md C-16 · pt-lazy.md LZ-11 · pt-utils.md PT-UTILS-1 rider · pt-utils-entry.md PT-UE-9 (W4 limb; W0 limb at W0.2) · pt-state.md PT-STATE-3 · pt-core.md row 20⟩
+(**TWO CROSS-REFERENCES, NOT BOOKINGS — L-20 pass-4 repair, §1a n.17.** **pt-core row 20** is
+SINGLE-LIMBED at source (`**W4** — RC-P gate surface: module-graph assertion + golden export list
++ declaration-surface check`) and is booked at **W4.6**, where it is the sole subject; the
+module-graph conjunct it contributes to this row's law is quoted here, not re-booked. **pt-state
+PT-STATE-3** is booked at **W1.18**, its source-stated W1 limb — which this row's own W1-rider
+sentence above already names — so it too is a pointer here.)
+⟨pt-leaf.md PT-LEAF-17 rider · pt-parsers.md PT-PARS-7 · pt-packrat.md C-16 · pt-lazy.md LZ-11 · pt-utils.md PT-UTILS-1 rider · pt-utils-entry.md PT-UE-9 (W4 limb; W0 limb at W0.2) · (pt-state PT-STATE-3 → booked at W1.18 · pt-core row 20 → booked at W4.6 — cross-references, not bookings, §1a n.17)⟩
 
 **W4.3 · pt-core row 3 / D-03·C-1 (MERGED with pt-ansi row 11 / C-D-6, §1a n.2) — the core.ts
 docblock cure-lock + RC-P chunk topology (BLOCKER)** (cl.2)
@@ -1666,7 +1938,11 @@ subpaths; dist-surface derives its expectation FROM the source barrel; no golden
 anywhere — deleting 16 of 18 runtime exports leaves every gate green. **RC-P: module-graph
 assertion + golden export list + declaration-surface check** (with W4.2/W4.7). Row 48
 (Suggestion/SecondarySpan completeness) rides this work.
-⟨pt-core.md · roster rows 20 and 48⟩
+**THE SOLE BOOKING OF pt-core ROW 20 (L-20 pass-4 repair, §1a n.17)**: row 20 formerly sat here AND
+in W4.2's provenance while being SINGLE-LIMBED at source; it is booked HERE — the row where it is
+the subject and where its whole disposition lives — and **W4.2 keeps a CROSS-REFERENCE**, its
+module-graph conjunct quoted there and re-booked nowhere.
+⟨pt-core.md · roster rows 20 and 48 (SOLE booking of row 20; W4.2 cross-references, §1a n.17)⟩
 
 **W4.7 · pt-ansi rows 4+5 + pt-core row 47 (SF-2) + pt-diagnostics row 17 — the
 declaration-surface acceptance list (MERGED)** (cl.2)
@@ -2090,7 +2366,7 @@ every ride.
     BLOCKERs are in the GRAMMAR, not the packaging; the zero-consumer measurement prices the
     `*Span`-excision precedent at COST ZERO; NO WAVE MAY CITE the five dead runtime exports as
     inheritable surface.
-14. **pt-state NO-WAVE-OWNER bloc (rows 6, 11-13, 15-19, 21-22, 24-26, 28)**: rides the standing
+14. **pt-state NO-WAVE-OWNER bloc (rows 6, 10, 11-13, 15-19, 21-22, 24-26, 28)**: rides the standing
     S.W1 1.1.0+ ask-letter channel or waits for a 2.0.0; sharpest: PT-STATE-24 — `PARSER_STRINGS`,
     the family's ONLY unbounded, never-cleared process-global growth, entered accidentally via
     `Parser.toString()`, which both challenges missed while auditing the other globals.
@@ -2102,6 +2378,16 @@ every ride.
     (the harness asserts the 8-own-key set of a constructed ParserState at open). Only the rider was
     carried; the excluded limb was absent from this enumeration and is now banked here, giving the
     row a declared two-limb residence.
+    **ROW 10 ADDED by the L-20 pass-4 limb sweep (§1a n.18)**: PT-STATE-10 is two-limbed and NEITHER
+    limb was booked before this pass. Its **W2 limb** — `D` is opaque and writer-mediated; published
+    mutable substate with no published mutator is unrepresentable — now folds at **W2.79** (merged
+    with PT-STATE-5, the same two fields read from the allocation side). Its **`NO-WAVE-OWNER`
+    limb** is banked HERE: `suggestions`/`secondarySpans` are published, mutable, public array
+    fields whose gated maintainers (`addSuggestion`/`addSecondarySpan`, `utils.ts:51-61`) appear in
+    no barrel, so the incumbent cure is either an ADDITIVE EXPORT of the writers (1.1.0-eligible,
+    rides the ask letter beside PT-STATE-23's diagnostics-HIGH lane) or making the fields
+    `readonly` — **a 2.0.0 event under W4.14, which may not ride the standing minor**. Declared
+    two-limb residence, as PT-STATE-6 above and pt-lazy LZ-17 at bloc 9.
 15. **pt-utils NO-WAVE-OWNER bloc (PT-UTILS-2 doc, -6, -12, -14, -15, -16, -19, semver-priced)**:
     1.1.0 = the source split (AC-3's stated precondition — the fold half lives at W2.67), doc
     repairs, dead fluent returns, the twice-implemented `<=32` predicate; 2.0.0 = any predicate
@@ -2123,8 +2409,8 @@ is the sole write). It **STAMPS NOTHING** — no wave's four-verb table moves, n
 RED by this document, no bar is set, no baseline is re-measured here (every number above is a
 quotation of an adjudicated record, carried with its retirement status). The CONFORMANCE ledger's
 verdicts stand as issued; at execution each wave reads its dated spec PLUS this addendum (§1's
-reading rule), and W1's rig owns §7 at open. The four collator corrections and the twelve L-20
-repair entries (§1a n.1-n.16) are recorded, not silent.
+reading rule), and W1's rig owns §7 at open. The four collator corrections and the fifteen L-20
+repair entries (§1a n.1-n.19) are recorded, not silent.
 
 **L-20 repair pass, 2026-08-07 — landed in place, dated specs still byte-untouched.** The
 adversarial fold check returned DEFECTIVE-BUT-SOUND-IN-SUBSTANCE; every defect it named is repaired
@@ -2182,7 +2468,38 @@ its sites — n.9, W2.38, and now the booking row **W2.65** itself — with ever
 swept against its receipt; a document that stamps nothing may not launder a derivation into a
 measurement (§1a n.15). (6) **One unstated re-home stated**: **W1.9** folds pt-ansi row 2's **W1
 witness-rider limb** while the source row's stated primary is W2, whose dissolution is not a second
-holding but **W2.1** itself (§1a n.16). Post-repair truth: **144 FOLDED · 16 EXCLUDED** (129
+holding but **W2.1** itself (§1a n.16). Pass-3 truth as banked: **144 FOLDED · 16 EXCLUDED** (129
 per-wave + 15 MEASURE + 16 excluded = **160 bookings**).
+
+**L-20 repair pass 4, 2026-08-07 — THE CLASS SWEEPS: identity and limb, tables first.** The third
+recheck returned DEFECTIVE-BUT-SUBSTANTIALLY-REPAIRED with **seven** surviving defects and the
+verdict that mattered more than any of them: the two axes it named — the IDENTITY REGISTER (§1a
+n.4) and the LIMB axis (§1a n.13) — were **the same two axes pass 3 had failed to close**, because
+each pass repaired the INSTANCES a check had named and then re-asserted a completeness the table
+did not show. Pass 4 built the tables first. (1) **THE IDENTITY TABLE**: all provenance lines
+parsed into module-scoped source-row tokens and inverted; **twenty** source rows hold more than one
+residence, **four** of them uncured double bookings, all four now cured by the n.9 idiom —
+**pt-utils PT-UTILS-18** booked once at **W2.70** (W2.53 cross-references), **pt-diagnostics row 26**
+once at **W3.6** (W2.12 cross-references; the source calls itself "Rider on row 25's fold"),
+**pt-core row 20** once at **W4.6** and **pt-state PT-STATE-3** once at **W1.18** (W4.2
+cross-references both — neither had been named by any prior check) — and the other sixteen
+classified in the open as declared merges, declared two-limb residences, or declared facets
+(§1a n.17). (2) **§1a n.4 REWRITTEN AS THE REGISTER OF THAT TABLE**: the word **"complete" is
+struck**, and in its place stands a PARTITION of all 132 provenance lines by a stated mechanical
+rule — **43 MERGE · 15 CROSS-FOLD · 74 SINGLE-SOURCE**, plus the 11 citations on 9 lines — so the
+next check reads a partition it can falsify by naming one row, never an adjective. (3) **THE LIMB
+TABLE**: every roster row of all fifteen apotheoses extracted with its terminal disposition and
+classified by the targets it names — **464 rows name a target, 197 name two or more** — then
+resolved against this document's own section index. **Seven unhomed limbs**, all booked here:
+pt-leaf **PT-LEAF-4 + PT-LEAF-9**'s W2 monotonicity/re-entrancy law → **W2.78**; pt-state
+**PT-STATE-5 + PT-STATE-10**'s W2 `D`-representation law → **W2.79** (with PT-STATE-10's
+`NO-WAVE-OWNER` limb banked at §8 bloc 14); pt-state **PT-STATE-20**'s W2 R-LAW-3 fold → **W2.80**;
+pt-state **PT-STATE-4** → **W2.52** as a fourth cross-fold witness; pt-parser **PT-PARSER-10** →
+**W1.3**, its near-duplicate identity with pt-core row 18's K-7 clause declared at last. The
+per-apotheosis counts and the sweep's method are recorded at §1a n.18 **so the sweep itself can be
+verified rather than re-run blind**. (4) **§1's arithmetic preamble disambiguated** — 123 is the
+PRE-L-20 authored count, and the walk 123 → 126 → 128 → 129 → 132 is now written out pass by pass
+(§1a n.19). Post-repair truth: **147 FOLDED · 16 EXCLUDED** (132 per-wave + 15 MEASURE + 16
+excluded = **163 bookings**).
 
 **EXECUTION AWAITS THE OWNER'S BEGIN-WORD** — every fold above is a booking, not an act.
