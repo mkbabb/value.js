@@ -266,9 +266,12 @@ epistemic status of every "measured" token).*
     memoization as a parse parameter (BLOCKER) + the W1 raw-entry rider"), whose body carries
     "**W1 RIDER**: a stray raw entry in a harness ACCUMULATES ROOT MEMO". A W1 seat following the
     old pointer landed on an unrelated row — the exact mis-cite class n.1/n.6/n.8 exist to police.
-    **THE SWEEP**: every `W⟨d⟩.⟨d⟩` reference in every body, provenance line, and §1a entry was
-    extracted and resolved against the row it names — **190 references, all resolving to a defined
-    row, and each read against that row's title/subject**. This was the only pointer landing on the
+    **THE SWEEP**: every `W⟨d⟩.⟨d⟩` reference in every body, provenance line, §1a entry, §8 bloc,
+    and §9 paragraph was extracted and resolved against the row it names. Countable from these
+    bytes at the close of this pass: **429 `W⟨d⟩.⟨d⟩` occurrences, of which 129 are the row headers
+    themselves, leaving 300 POINTER references — all 300 resolving to one of the 129 defined rows,
+    ZERO unresolved**, and each read against that row's title/subject. This was the only pointer
+    landing on the
     wrong subject; no other stale W-number survives.
 15. **EPISTEMIC INFLATION CORRECTED (L-20 pass-3 repair): an ANALYTICALLY DERIVED divergence is no
     longer reported as MEASURED.** Two pointer sites — **n.9** and **W2.38** — wrote "the
@@ -1031,7 +1034,8 @@ non-ASCII sweep with ESCAPES, never raw glyphs. **CROSS-REFERENCE, NOT A BOOKING
 repair, §1a n.9)**: the pt-state-side statement of this same ban — **pt-state PT-STATE-7**, whose
 own disposition files it as "tag-dispatch banned: identity, not a mutable string, selects behavior
 (matches pt-leaf … precedent PT-LEAF-7)" — is booked ONCE at **W2.65**, which carries the killed
-falsifier and the measured acceptance divergence; this row cites it no more, exactly as W4.12 cites
+falsifier and the acceptance divergence **DERIVED ANALYTICALLY, NEVER EXECUTED** ("measured" struck
+by the L-20 pass-3 repair, §1a n.15); this row cites it no more, exactly as W4.12 cites
 W2.32.
 ⟨pt-leaf.md PT-LEAF-7 · pt-utils.md PT-UTILS-2 · pt-utils-entry.md PT-UE-22 (pt-state PT-STATE-7 → booked at W2.65, §1a n.9)⟩
 
@@ -1307,7 +1311,11 @@ path whose trailing end-call runs at post-inner offset and FAILS THE WHOLE WRAP 
 consumed to EOF: `string("abc").trim(regex(/\s*/)).parse("abc")` REJECTS where
 `string("abc").trim().parse("abc")` ACCEPTS. A real ACCEPTANCE DIVERGENCE keyed on a MUTABLE
 STRING TAG the library itself rewrites post-hoc — and per W2.61 the rejection is not even visible
-in `.parse()`'s return. **The divergence row joins W1's acceptance corpus.**
+in `.parse()`'s return. **EPISTEMIC STATUS, STATED AT THE BOOKING (L-20 pass-3 repair, §1a n.15):
+the divergence is DERIVED ANALYTICALLY, NEVER EXECUTED** — pt-state's own proof cell closes
+"Derived analytically this session" and ruling K7 reads "Re-derived **analytically**". This
+document measures nothing (§9); the derivation is carried with its status, and **the divergence row
+joins W1's acceptance corpus**, where it is executed for the first time.
 ⟨pt-state.md · PT-STATE-7 + ruling K7⟩
 
 **W2.66 · pt-state PT-STATE-2 / -14 (+ -26) — the state-identity law and first-class
@@ -1593,7 +1601,7 @@ type is waiting.** *Sharpens*: G-3 (W3.md:398).
 
 ---
 
-## 6. W4 — The PLAW-BIND Integration and the Release Condition (14 sharpenings)
+## 6. W4 — The PLAW-BIND Integration and the Release Condition (15 sharpenings)
 
 **W4.1 · MERGED CROSS FOLD — the gate-authoring / vacuity law** (cl.1)
 **No wave gate may be satisfiable by its failure mode (L-19).** Gates assert
@@ -1749,6 +1757,29 @@ L-m9, L-m13. 2.0.0 EVENTS: PT-LEAF-1/-2/-3/-6/-7/-8/-11/-18 and every export ret
 the 2.0.0 rows may ride the standing minor.** (Applied across §8's excluded blocs at
 pt-parser INFO-5, pt-utils, pt-utils-entry.)
 ⟨pt-leaf.md · PT-LEAF-27 (β-miss 1) + Closing verdict⟩
+
+**W4.15 · pt-lazy LZ-17 (W4 limb) — `sideEffects:false` IS AN ARTIFACT CLAIM: the release
+condition reads INITIALIZATION from the INSTALLED BYTES** (cl.2 — **W4 limb recovered by the L-20
+fold check, §1a n.13**)
+`whitespace` is a non-optional `export let` whose ONLY initializer is the cross-module top-level
+`_initWhitespace()` module-eval mutation (`leaf.ts:393-399`), while `package.json:6` declares
+`sideEffects:false` — which licenses a consumer's bundler to DROP `parser.js`'s evaluation, leaving
+`whitespace` `undefined` at `trim()`'s default parameter **in the shipped artifact while the source
+tree stays correct**. **RELEASE-CONDITION RIDER — ARTIFACT TRUTH: the verdict is read from the
+INSTALLED BYTES, never from the source tree.** The packed-candidate leg imports the shipped entry
+in a bare process under BOTH declared conditions and asserts that the module-eval initialization
+actually RAN — `whitespace` defined, and holding Parser **id 0**, its sole module-scope
+construction, which is ALSO what keeps the id-0 printer latch unreachable (one design carrying two
+latent rows; the latch itself at W2.15). *Sharpens*: **G-3** (W4.md:383-397 — "the consumer's
+`node_modules` is the denominator, not the repo") and **RC-P conjunct 1** (W4.md:335 — resolution
+"from the installed bytes"): a subpath that RESOLVES may still be UNINITIALIZED, so **resolution is
+not initialization**, exactly as W4.2 holds resolution is not isolation. The candidate-side twin is
+W0.1's load-order proof obligation (with the barrel-cycle ban at W2.26/W2.30); this row is the
+incumbent-artifact assertion at release altitude.
+(**LZ-17 is routed TWO-WAVE at source (`pt-lazy.md:49`); this is its W4 limb — the
+`NO-WAVE-OWNER` sequencing law for the RETIRE, explicit init FIRST then delete, stays banked at
+§8 bloc 9, which points back here.**)
+⟨pt-lazy.md · LZ-17 (W4 release-condition limb; the NO-WAVE-OWNER sequencing limb at §8 bloc 9)⟩
 
 ---
 
@@ -1991,7 +2022,13 @@ every ride.
    rendering OUTSIDE the algebra, so no W0..W4 unit owns render-tier safety; recorded
    sharpest-first (row 13's pre-truncation caret; row 3's missing OSC/CSI-total sanitizer binding
    any ./debug relocation; the SGR-only reference strip) so the render-tier/2.0.0 relocation
-   INHERITS rather than rediscovers.
+   INHERITS rather than rediscovers. **ROW 13 IS DUAL-RESIDENT, DECLARED (L-20 pass-3 repair,
+   §1a n.11)**: it is the co-identity of pt-debug B-1, and their CANDIDATE-side law — the
+   successor's caret specified in RENDERED coordinates, killing the class by construction — is
+   FOLDED at **W2.8**. What stays banked HERE is the INCUMBENT-side repair (shift parse-that's live
+   caret by `start`, mark the ellipsis offset), render-tier work no W0..W4 unit owns. Law folds,
+   in-library cure does not — the same split pt-core row 11 carries in bloc 5. One of exactly two
+   dual residences in this document.
 5. **pt-core NO-WAVE-OWNER bloc (rows 11-14, 24-30, 34, 35, 46; row 43 calibration)**: rows banked
    for any FUTURE parse-that source wave (three line/column conventions with a clamp converting a
    detectable negative into a plausible wrong answer; the stranded `"trailing-content"` Suggestion
@@ -2002,6 +2039,15 @@ every ride.
    `p.context =` overwrite; the challenge's "three allocations" count corrected at source). It is
    an allocation row on the very method W2.72 makes the live EOF cure, so the register must bank it
    rather than lose it — but no X·P wave owns an in-library `eof()` repair.
+   **ROW 13's `W4 note` NAMED, NOT LEFT IMPLIED (L-20 pass-3 repair, §1a n.13)**: row 13's
+   disposition is two-limbed — `NO-WAVE-OWNER` for the flag-machinery excision **plus** a
+   `**W4 note**`, "the stranded union member is public typed surface and must be excised or made
+   constructible at the next semver cut" (the `Suggestion` variant `kind:"trailing-content"`, sole
+   construction site `parser.ts:470`, a permanently dead arm for any consumer switching on
+   `suggestion.kind`). That limb is an instruction to a SEMVER CUT, not to a wave: **priced by
+   W4.14** (a 2.0.0 event that may not ride the standing minor) and **carried by W4.7's
+   declaration-surface acceptance list**. Banked here rather than folded, because no X·P wave cuts
+   parse-that's semver.
 6. **pt-debug NO-WAVE-OWNER bloc (C-4 doc limb, C-14/C-16 docs limb, MISS-8, the A.W3
    spec-regression record)**: X·P waves do NOT own parse-that main's docs and the pause forbids
    touching them; banked for the M-27 parity program; MISS-8 nonetheless strengthens W4.10's gate
@@ -2018,7 +2064,12 @@ every ride.
    sequencing, M5)**: ten filed rows collapse to ONE disposition — DELETE the 14-line dead
    decorator — with a SEQUENCING LAW (LZ-17 first: make `_initWhitespace` explicit, because
    `whitespace` is id 0, which is ALSO what keeps the id-0 printer latch unreachable), on the
-   owner-held O-15 letter channel.
+   owner-held O-15 letter channel. **LZ-17 IS TWO-LIMBED, DECLARED (L-20 pass-3 repair,
+   §1a n.13)**: only its `NO-WAVE-OWNER` sequencing limb is banked here. Its **W4
+   release-condition rider (artifact truth)** is FOLDED, at **W4.15** — `sideEffects:false` is a
+   claim about the SHIPPED ARTIFACT, so the release condition reads initialization from the
+   installed bytes. Declared two-limb residence, exactly as pt-utils-entry PT-UE-9 carries across
+   W0.2 / W4.2 (§1a n.10).
 10. **pt-leaf NO-WAVE-OWNER bloc (PT-LEAF-18/-19/-20/-26 note, L-m1/m4/m6/m13, C-m6, L-miss-M5,
     C-miss-4/5)**: incumbent repairs SPLIT BY SEMVER CLASS per W4.14 — 1.1.0-eligible dead-code
     and doc rows (incl. the vacuous FLAG_EOF test that must be deleted WITH the machinery) vs the
@@ -2039,10 +2090,18 @@ every ride.
     BLOCKERs are in the GRAMMAR, not the packaging; the zero-consumer measurement prices the
     `*Span`-excision precedent at COST ZERO; NO WAVE MAY CITE the five dead runtime exports as
     inheritable surface.
-14. **pt-state NO-WAVE-OWNER bloc (rows 11-13, 15-19, 21-22, 24-26, 28)**: rides the standing
+14. **pt-state NO-WAVE-OWNER bloc (rows 6, 11-13, 15-19, 21-22, 24-26, 28)**: rides the standing
     S.W1 1.1.0+ ask-letter channel or waits for a 2.0.0; sharpest: PT-STATE-24 — `PARSER_STRINGS`,
     the family's ONLY unbounded, never-cleared process-global growth, entered accidentally via
     `Parser.toString()`, which both challenges missed while auditing the other globals.
+    **ROW 6 ADDED by the L-20 pass-3 repair (§1a n.13)**: PT-STATE-6 is two-limbed — a
+    `NO-WAVE-OWNER` limb (the hot object's one-shape guarantee rests on an unpinned
+    `useDefineForClassFields`; `expected?: string[]` is the sole uninitialized field and survives to
+    chunk `:300` as a bare `expected;`; three-character cure `= undefined`, flag-independent,
+    1.1.0-eligible, rides the ask letter) **plus a W1 rider** that ALREADY rides §7 pt-state row 4
+    (the harness asserts the 8-own-key set of a constructed ParserState at open). Only the rider was
+    carried; the excluded limb was absent from this enumeration and is now banked here, giving the
+    row a declared two-limb residence.
 15. **pt-utils NO-WAVE-OWNER bloc (PT-UTILS-2 doc, -6, -12, -14, -15, -16, -19, semver-priced)**:
     1.1.0 = the source split (AC-3's stated precondition — the fold half lives at W2.67), doc
     repairs, dead fluent returns, the twice-implemented `<=32` predicate; 2.0.0 = any predicate
@@ -2064,8 +2123,8 @@ is the sole write). It **STAMPS NOTHING** — no wave's four-verb table moves, n
 RED by this document, no bar is set, no baseline is re-measured here (every number above is a
 quotation of an adjudicated record, carried with its retirement status). The CONFORMANCE ledger's
 verdicts stand as issued; at execution each wave reads its dated spec PLUS this addendum (§1's
-reading rule), and W1's rig owns §7 at open. The four collator corrections and the six L-20
-repair entries (§1a n.1-n.10) are recorded, not silent.
+reading rule), and W1's rig owns §7 at open. The four collator corrections and the twelve L-20
+repair entries (§1a n.1-n.16) are recorded, not silent.
 
 **L-20 repair pass, 2026-08-07 — landed in place, dated specs still byte-untouched.** The
 adversarial fold check returned DEFECTIVE-BUT-SOUND-IN-SUBSTANCE; every defect it named is repaired
@@ -2092,7 +2151,38 @@ n.4's "the one pair that is MERGED" — false against this file's own labels —
 **complete merge register** of all seven collapsing rows plus the five MERGED CROSS FOLD rows they
 must not be confused with; and §1's arithmetic is rewritten to claim **only the OUT side, which
 this document enumerates**, with the collator's IN-side intake figures demoted to what they are:
-workflow-journal receipts (`wf_14d5549b-eda`), never document-internal arithmetic. Post-repair
-truth: **143 FOLDED · 16 EXCLUDED** (128 per-wave + 15 MEASURE + 16 excluded = 159 bookings).
+workflow-journal receipts (`wf_14d5549b-eda`), never document-internal arithmetic. Pass-2
+truth as banked: **143 FOLDED · 16 EXCLUDED** (128 per-wave + 15 MEASURE + 16 excluded = 159
+bookings).
+
+**L-20 repair pass 3, 2026-08-07 — the LIMB axis, the POINTER axis, and the epistemic status of
+every "measured" token.** The second recheck returned DEFECTIVE-BUT-SUBSTANTIALLY-REPAIRED with
+**six** surviving defects — every one of them register, pointer, or limb hygiene, **none touching
+substance**; all six are repaired here and nowhere else. (1) **The merge register completed a second
+time**: **W2.8** collapses two named source rows under an explicit "same identity" label
+(pt-debug **B-1** ≡ pt-ansi **row 13 / M-1**) and appeared in NEITHER n.4's register NOR its
+near-duplicate list — it is entered; row 13's **DUAL RESIDENCE** (folded at W2.8 **and** banked in
+§8 bloc 4) is DECLARED beside pt-core row 11's, in all three places; and the two apotheoses'
+**OWNERSHIP DISAGREEMENT** — pt-debug files it `X.P.W2`, pt-ansi files it `NO-WAVE-OWNER` render
+tier — is resolved **in the open, never silently**: the tension is over the OBJECT, not the wave,
+so the candidate-side LAW folds at W2.8 and the incumbent-side render repair stays banked in bloc 4
+(§1a n.11). (2) **pt-lazy LZ-5 / A.6 is booked ONCE**, at **W2.34** — the apter of the two, being
+the row where it is the sole subject and where the whole source disposition lives; **W2.28 keeps a
+CROSS-REFERENCE, NOT A BOOKING**, with reciprocal pointers both ways, per the W2.65 idiom — and
+n.9's "the last uncrossed duplicate in the provenance set" is struck as FALSE (§1a n.12). (3) **The
+dropped W4 limb of pt-lazy LZ-17** — the release-condition rider, artifact truth — folds at
+**W4.15**, with a reciprocal note in §8 bloc 9; the LIMB SWEEP that found it banked two further
+limb-level gaps in §8 rather than folding them (pt-core row 13's `W4 note` on the stranded union
+member, bloc 5; pt-state PT-STATE-6's `NO-WAVE-OWNER` limb, bloc 14) (§1a n.13). (4) **One broken
+internal cross-reference corrected**: W1.13's rider pointer **W2.24 → W2.45**, the row that actually
+carries the raw-entry rider; the POINTER SWEEP resolved every `W⟨d⟩.⟨d⟩` reference in the file
+against the row it names and found no other stale number (§1a n.14). (5) **One epistemic inflation
+corrected**: the acceptance divergence is **DERIVED ANALYTICALLY, NEVER EXECUTED** at all three of
+its sites — n.9, W2.38, and now the booking row **W2.65** itself — with every measure/witness token
+swept against its receipt; a document that stamps nothing may not launder a derivation into a
+measurement (§1a n.15). (6) **One unstated re-home stated**: **W1.9** folds pt-ansi row 2's **W1
+witness-rider limb** while the source row's stated primary is W2, whose dissolution is not a second
+holding but **W2.1** itself (§1a n.16). Post-repair truth: **144 FOLDED · 16 EXCLUDED** (129
+per-wave + 15 MEASURE + 16 excluded = **160 bookings**).
 
 **EXECUTION AWAITS THE OWNER'S BEGIN-WORD** — every fold above is a booking, not an act.
