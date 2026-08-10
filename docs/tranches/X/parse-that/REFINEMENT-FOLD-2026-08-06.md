@@ -28,20 +28,28 @@ this addendum sharpens predicates, adds corpus rows and riders, and records excl
 = cure-lock / binding contract clause · **cl.3** = MEASURE-AT-OPEN row (§7) · **cl.4** = EXCLUDED,
 does not fold (§8).
 
-**Arithmetic (post-L-20 pass-4 repair, 2026-08-07) — THE OUT SIDE, AND ONLY WHAT THIS DOCUMENT
-ITSELF ENUMERATES.** Every figure here is countable from this file's own bytes: **147 FOLDED** —
-**132 per-wave sharpenings**, contiguously numbered with exactly one provenance line each
-(W0 ×2 · W1 ×23 · W2 ×80 · W3 ×12 · W4 ×15), plus the **15** consolidated MEASURE-AT-OPEN module
-rows of §7 — **+ 16 EXCLUDED** (§8's numbered blocs) = **163 BOOKINGS OUT**. The per-wave total
+**Arithmetic (post-L-20 pass-8 repair, 2026-08-10) — THE OUT SIDE, AND ONLY WHAT THIS DOCUMENT
+ITSELF ENUMERATES.** Every figure here is countable from this file's own bytes: **148 FOLDED** —
+**133 per-wave sharpenings**, contiguously numbered with exactly one provenance line each
+(W0 ×2 · W1 ×23 · W2 ×80 · W3 ×12 · W4 ×16), plus the **15** consolidated MEASURE-AT-OPEN module
+rows of §7 — **+ 16 EXCLUDED** (§8's numbered blocs) = **164 BOOKINGS OUT**. *(The
+`147 FOLDED / 132 per-wave / W4 ×15 / 163 BOOKINGS` figures this paragraph carried from pass 4
+through pass 7 are those passes' dated reading, relabelled here and not rewritten: passes 5, 6 and
+7 each certified them UNCHANGED and each was correct on its own scope. **Pass 8 is the first pass
+since pass 4 to MINT a row** — `W4.16`, the pt-diagnostics row 28 / pt-utils PT-UTILS-19 dual-home
+`W4` canonical-home declaration, routed to a wave by both its sources and booked NOWHERE in this
+file before this pass (§1a n.21 E) — so the arithmetic moves by exactly one, in one place.)* The per-wave total
 began at **123** — **the count of rows AUTHORED BEFORE ANY L-20 PASS RAN**, not the count after
-pass 1 — and the **nine** L-20 splits and recoveries carry it to **132**, each a SPLIT of a
+pass 1 — and the **ten** L-20 splits and recoveries carry it to **133**, each a SPLIT of a
 multi-facet or multi-limb row, or a recovered drop, never a new identity: pass 1 added **three**
 (W4.12's **M4** facet → W2.76, §1a n.6; and the two `REFINEMENT FOLD`-routed drops recovered at
 W1.23 and W2.75, §1a n.7) → **126**; pass 2 added **two** (W1.16's **LZ-19** limb → W2.77, §1a n.8;
 pt-utils-entry **PT-UE-9**'s **W0** limb → W0.2, §1a n.10) → **128**, the figure §9 banks for
 pass 2; pass 3 added **one** (pt-lazy **LZ-17**'s **W4** release-condition limb → W4.15,
 §1a n.13) → **129**; pass 4 added **three** dropped W2 limbs (pt-leaf **PT-LEAF-4/-9** → W2.78;
-pt-state **PT-STATE-5/-10** → W2.79; pt-state **PT-STATE-20** → W2.80, §1a n.18) → **132**. Five
+pt-state **PT-STATE-5/-10** → W2.79; pt-state **PT-STATE-20** → W2.80, §1a n.18) → **132**; pass 8
+added **one** recovered drop (pt-diagnostics **row 28** ≡ pt-utils **PT-UTILS-19**, the six-scanner
+dual-home `W4` canonical-home declaration → **W4.16**, §1a n.21 E) → **133**. Five
 rows that once carried a second, unstated booking of another row's identity now carry a
 CROSS-REFERENCE instead and are counted ONCE (W2.38 → W2.65, §1a n.9; W2.28 → W2.34, §1a n.12;
 W2.53 → W2.70, W2.12 → W3.6 and W4.2 → W4.6, §1a n.17): the count does not move, because no row
@@ -237,6 +245,21 @@ had never covered.*
      evidence — a seat ruling, an identity map — and on nothing the roster numbers. The rows are
      real bookings and are not dropped, demoted, or re-homed by being named.
      **41 + 16 + 72 + 3 = 132.**
+     *(**DATED CORRECTION, L-20 pass-8 repair, 2026-08-10 — ONE LINE ADDED, CLASSIFIED BY THE RULE
+     BEFORE IT WAS WRITTEN.** The partition above is the pass-6 reading over the 132 lines that then
+     existed, and stands as that pass's dated reading. Pass 8 mints **one** row — **W4.16**, the
+     recovered pt-diagnostics row 28 / pt-utils PT-UTILS-19 dual-home `W4` declaration (§1a n.21 E)
+     — so the partition is now over **133** lines. That line names roster rows from TWO apotheoses
+     **and declares their identity on the line itself** (`MERGED — one identity, declared at
+     pt-utils.md:67 and the cross-book table :96`), which is the rule's SECOND MERGE clause and not
+     the CROSS-FOLD case: the identity is declared at source about the rows the line books, which is
+     exactly what clause (b) above requires. It is a **MERGE**. **THE PARTITION AT THE POST-REPAIR
+     BYTES: 42 MERGE · 16 CROSS-FOLD · 72 SINGLE-SOURCE · 3 EVIDENCE-ONLY = 133**, no line
+     unclassified and none in two classes; the strict reading that refuses the fourth class gets
+     **42 · 16 · 72 with three lines unclassified** (42 + 16 + 72 + 3 = 133 either way). **The rule
+     was applied to the new line, not bent for it** — had the identity been undeclared at either
+     source the line would have been a CROSS-FOLD, and that counterfactual is written down here so a
+     checker can test the classification rather than accept it.)*
    - **CITATIONS — 11, on 9 lines** (a source row named for context or as a pointer, NOT booked
      there): W1.9 (pt-ansi row 2's W2 dissolution → **W2.1**, n.16) · W1.16 (LZ-19 → **W2.77**,
      n.8) · W2.12 (pt-diagnostics row 26 → **W3.6**, n.17) · W2.28 (LZ-5 / A.6 → **W2.34**, n.12) ·
@@ -437,6 +460,17 @@ had never covered.*
     target of no pointer**, registered CONFORMANT above. Pass 6 added NO row and REMOVED none: the
     header set is byte-for-byte the pass-4 set (W0 1-2 · W1 1-23 · W2 1-80 · W3 1-12 · W4 1-15,
     contiguous, no duplicates).
+    **RE-RUN AGAIN AT THE CLOSE OF PASS 8 (all figures above are DATED READINGS; this is the first
+    re-run since the header set changed): 949 `W⟨d⟩.⟨d⟩` occurrences, of which 133 are the row
+    headers, leaving 816 POINTER references — all 816 resolving to one of the 133 defined rows, ZERO
+    unresolved.** Pass 7 added no row and its figures were not separately re-run; **pass 8 MINTS
+    exactly one** — **W4.16** (§1a n.21 E) — so the header set is the pass-4 set **plus one at the
+    end of the W4 sequence**: **W0 1-2 · W1 1-23 · W2 1-80 · W3 1-12 · W4 1-16, contiguous, no
+    duplicates**, machine-checked for contiguity and for duplicate ids in each of the five sequences.
+    **No pointer into the sealed W0.1-W4.15 range moved**: the new row is appended after W4.15, so no
+    existing id was renumbered and every pre-existing pointer resolves to the same row it resolved to
+    before. W4.16 is referenced from §1, §1a n.4/n.14/n.20/n.21 E, §6, §8 bloc 15 and §9, and every
+    one of those references resolves.
 15. **EPISTEMIC INFLATION CORRECTED (L-20 pass-3 repair): an ANALYTICALLY DERIVED divergence is no
     longer reported as MEASURED.** Two pointer sites — **n.9** and **W2.38** — wrote "the
     **measured** acceptance divergence `string("abc").trim(regex(/\s*/)).parse("abc")`". The source
@@ -790,6 +824,23 @@ had never covered.*
     residence: **n.17's table is unaffected at 64 rows / 8 cures / 56 live**, no booking moves and
     the arithmetic stands at `147 FOLDED + 16 EXCLUDED = 163 BOOKINGS`. The figures above the
     correction are pass 5's and stand as its dated reading.)*
+    *(**DATED CORRECTION, L-20 pass-8 repair, 2026-08-10 — THIS ENTRY'S CERTIFICATION AT BLOC 15,
+    AND THE CLASS ITS METHOD COULD NOT REACH.** This entry's method is a sweep over the blocs that
+    carry RANGES, and bloc 15 carries none — `PT-UTILS-2 doc, -6, -12, -14, -15, -16, -19` is an
+    enumeration of SINGLY-NAMED rows — so **bloc 15 was never certified by this entry at all**, and
+    its absence from the "Checked and clean (54)" list above is silence, not a pass. Swept as a class
+    at **n.21 (E)**, it yields this register's third over-reach: **`PT-UTILS-19` carries no excluded
+    limb** — `identity with pt-diagnostics row 28 (the six-function twin); W4 canonical-home
+    declaration` (`pt-utils.md:67`), a WAVE routing, the PT-PARSER-12 / PT-PARSER-36 shape exactly.
+    **The certification for bloc 15 therefore reads 6/7**, the six being PT-UTILS-2 (doc limb), -6,
+    -12, -14 (clean through its parent PT-UTILS-2, whose `<=32` predicate the bloc names), -15 and
+    -16. **`-19` is TRIMMED — but only AFTER the booking check this entry's own test demands, which
+    came back EMPTY**: pt-diagnostics row 28's `W4` holding was booked NOWHERE in this file, so
+    unlike PT-PARSER-36 (whose holding W2.29 already carried) a bare trim would have DROPPED it. It is
+    **booked first at the newly minted `W4.16`**, with PT-UTILS-19 the declared second witness, and
+    trimmed second. **This is the one pass in which n.20's test moves the arithmetic**:
+    `148 FOLDED + 16 EXCLUDED = 164 BOOKINGS`, the bloc count untouched at 16. The figures above this
+    correction are passes 5 and 7's and stand as their dated readings.)*
 21. **THE THIRD AXIS OF THE SWEEPS: THE CORPUS'S OWN SPELLINGS, AND THE ONE QUANTIFIER LEFT
     UNEXPANDED (L-20 pass-6 repair, 2026-08-08).** Passes 4 and 5 each defined a scope and executed
     a subset of it — pass 4 the residence definition, pass 5 the §8 blocs that happen to carry
@@ -855,7 +906,15 @@ had never covered.*
     pt-core 4 · **pt-debug 12** · pt-diagnostics 5 · pt-index 13 · pt-lazy 14 · pt-leaf 9 ·
     pt-packrat-entry 11 · pt-packrat 3 · pt-parser 4 · pt-parsers 5 · **pt-split 6** · pt-state 6 ·
     pt-utils-entry 4 · pt-utils 1 = **99 fold-limb rows**, spelled **75 `REFINEMENT FOLD` ·
-    13 `REFOLD` · 11 `**RF**`**. The thirteen table-format rosters carry exactly the **57**
+    13 `REFOLD` · 11 `**RF**`**. *(**DATED CORRECTION, L-20 pass 8, 2026-08-10 — see (A″) below**:
+    **99 is the TWO-ROSTER-FORMATS reading**, and it is this entry's dated figure, relabelled here
+    and not rewritten. It extracted table cells and bullets — the two markup shapes this entry had
+    thought of — and missed three more: pt-packrat's four admitted misses live in an inline PROSE
+    paragraph (`pt-packrat.md:52`), and two dispositions hide their fold token behind an ESCAPED PIPE
+    (`PT-PARSER-1`, `PT-PARS-17`). Keyed on ROSTER-ROW IDS instead of markup shapes the corpus carries
+    **105 = 81 · 13 · 11**, and all six additional rows are already booked. The per-apotheosis figures
+    in this entry stand except pt-packrat 3 → **7**, pt-parser 4 → **5**, pt-parsers 5 → **6**.)* The
+    thirteen table-format rosters carry exactly the **57**
     `REFINEMENT FOLD` rows (A) counted, and 57 + 18 = 75: (A) is not wrong about what it read, only
     about what it read OVER.
     **THE 18 PREVIOUSLY-UNEXTRACTED ROWS, EACH RE-READ AT ITS SOURCE LINE AND EACH BOOKED** (id ·
@@ -868,6 +927,9 @@ had never covered.*
     **PT-SPLIT-8** `:44`, **PT-SPLIT-11** `:47`, **PT-SPLIT-12** `:48` → **W2.59**. **Residual
     EMPTY over all 99** — ∅ FORWARD holds on the true corpus, wider than either earlier reading —
     so no row is dropped and **no arithmetic moves: 147 FOLDED · 16 EXCLUDED = 163 BOOKINGS.**
+    *(**DATED, pass 8, 2026-08-10**: the residual is EMPTY over all **105** as well — the six rows
+    this entry's extraction could not see were each already booked, so the ∅ FORWARD verdict this
+    entry reaches is CORRECT and only its denominator moves. See (A″).)*
     **TWO SPELLING RESIDUALS, DECLARED RATHER THAN HIDDEN — the (D) idiom, applied to this pass's
     own sweep**: W2.59's provenance line compresses its ids to `⟨pt-split.md · PT-SPLIT-8, -11,
     -12⟩`, so a checker matching WHOLE ids will flag `PT-SPLIT-11` and `PT-SPLIT-12`; both are
@@ -875,6 +937,62 @@ had never covered.*
     there. (D) declares the one compression pass 6's table-format sweep met (pt-parsers
     `PT-PARS-11` at W1.1); these two are the both-formats sweep's, and nothing else in it is
     unresolved.
+    **(A″) THE CENSUS RE-DERIVED ID-KEYED — THE THIRD BLIND SPOT, AND THE TERMINAL METHOD (L-20
+    pass-8 repair, 2026-08-10).** The seventh recheck convicted (A′) of the disease one organ
+    further on again, and the sequence is now long enough to name the disease itself: **(A) widened
+    the TOKEN SET and narrowed the EXTRACTION to table cells; (A′) widened the EXTRACTION to two
+    markup shapes and narrowed it to markup shapes it had thought of.** Three formats it had not:
+    **(i) INLINE PROSE.** `pt-packrat` adjudicates its admitted misses as a PROSE PARAGRAPH inside
+    the roster section — `**Misses admitted into the roster** (reader's, all sustained): **M2**
+    (MAJOR → REFINEMENT FOLD: …); **M1** (MINOR → REFINEMENT FOLD: …); **M3** (MINOR → REFINEMENT
+    FOLD: …); **M4** (MINOR → REFINEMENT FOLD: …); **M5** (INFO → NO-WAVE-OWNER: …)`
+    (`pt-packrat.md:52`) — **four fold-limb rows in one sentence**, invisible to any extraction
+    keyed on rows. *(The same paragraph is why this pass's §8 sweep at (E) below first read
+    pt-packrat `M5` as unfound: one prose line, two independent sweeps blinded.)* **(ii) ESCAPED
+    PIPES.** Two table cells carry a literal `\|` inside the disposition, so a naive
+    split-on-`|`-and-take-the-last-cell extraction lands PAST the fold token on a fragment that
+    reads `NO-WAVE-OWNER`: `PT-PARSER-1` (`pt-parser.md:39`), whose disposition is `**W2** —
+    `parse` RETIREs …. **REFINEMENT FOLD → W1**: the JS-boundary invariant is `parseState` +
+    `isError` only … Incumbent d.ts truth-telling (`T \| undefined`) = NO-WAVE-OWNER, **2.0.0**`,
+    and `PT-PARS-17` (`pt-parsers.md:51`), `**REFINEMENT FOLD** — same boundary-invariant clause as
+    PT-PARS-11 (one fold row). In-place `T \| undefined` NO-WAVE-OWNER`. Both are `REFINEMENT FOLD`
+    rows whose fold token the escape hid.
+    **RE-DERIVED HERE FORMAT-AGNOSTICALLY, KEYED ON ROSTER-ROW IDS**: for each of the fifteen
+    apotheoses every adjudicated roster row was enumerated BY ITS ID whatever the markup — table
+    cell, bullet, prose sentence, escaped-pipe cell — and its terminal disposition then read for a
+    fold token, splitting only on UNESCAPED pipes. **Per apotheosis**: pt-ansi 2 · pt-core 4 ·
+    pt-debug 12 · pt-diagnostics 5 · pt-index 13 · pt-lazy 14 · pt-leaf 9 · **pt-packrat 7** ·
+    pt-packrat-entry 11 · **pt-parser 5** · **pt-parsers 6** · pt-split 6 · pt-state 6 ·
+    pt-utils-entry 4 · pt-utils 1 = **105 fold-limb rows**, spelled **81 `REFINEMENT FOLD` ·
+    13 `REFOLD` · 11 `**RF**`**. **The independent derivation AGREES with the recheck's 105 and
+    with its arithmetic 105 = 99 + 6, and no disagreement is recorded.** The receipt that makes the
+    agreement checkable rather than asserted: **twelve of the fifteen per-apotheosis figures are
+    BYTE-IDENTICAL to (A′)'s**, so the same extraction that reproduces pass 7 everywhere else moves
+    at exactly the three files carrying the three unhandled formats — pt-packrat 3 → 7 (the prose
+    paragraph), pt-parser 4 → 5 and pt-parsers 5 → 6 (the escaped pipes). 99 + 4 + 1 + 1 = 105.
+    **THE SIX NEWLY-FOUND ROWS, EACH RE-READ AT ITS ⟨…⟩ LINE — ALL SIX ALREADY BOOKED, RESIDUAL
+    EMPTY**: pt-parser **PT-PARSER-1** → **W1.1** and pt-parsers **PT-PARS-17** → **W1.1** (one
+    provenance line names both: `⟨pt-core rows 2/19 · pt-leaf PT-LEAF-16 · pt-parser PT-PARSER-1 ·
+    pt-parsers PT-PARS-8/-11/-17/MISS-1 · pt-state PT-STATE-1 · pt-utils-entry PT-UE-1/-3 ·
+    pt-index m-11⟩`, the MERGED CROSS FOLD JS-boundary entry invariant) · pt-packrat **M2** →
+    **W2.48** (`⟨pt-packrat.md · M2 (missed, admitted at MAJOR)⟩`) · pt-packrat **M3** → **W2.32**
+    (`⟨pt-lazy.md · LZ-9 and M4 · pt-packrat.md M3 (MERGED — one identity, §1a n.5)⟩`) ·
+    pt-packrat **M4** → **W2.76** (`⟨pt-packrat.md · M4⟩`) · pt-packrat **M1** → **W4.12**
+    (`⟨pt-packrat.md · M1 (M3 → W2.32 · M4 → W2.76)⟩`, which declares the other two on its face).
+    **∅ FORWARD therefore holds on the true corpus a third time, wider again — 105 of 105 booked,
+    residual EMPTY — and this census moves NO booking and NO arithmetic** (the one row this pass
+    mints, W4.16, comes from (E)'s §8 sweep and from a row that carries NO fold token at all).
+    **THE METHOD LESSON, STATED IN THE OPEN — AND WHY THIS ONE IS TERMINAL.** Three consecutive
+    passes each widened the FORMAT LIST and each was convicted by the next format: pass 6 swept one
+    spelling and was convicted by three; pass 7 swept table cells and was convicted by bullets;
+    pass 8's predecessor swept tables-and-bullets and was convicted by prose and by an escape
+    character. A format list is an enumeration of what the sweeper has already imagined, so each
+    such pass buys exactly one round. **The census is complete only when the extraction is keyed on
+    ROSTER-ROW IDS rather than on markup shapes** — enumerate the rows the roster declares, then
+    read each row's disposition — because that is the one key the corpus itself is written in, and
+    it is invariant under every future re-formatting of any apotheosis. **The id-keyed derivation is
+    the terminal method, and a later pass that widens a format list rather than keying on ids
+    should be read as having re-opened this gap, not closed it.**
     **THE REVERSAL, IN THE OPEN — AND THIS ROUND'S LESSON.** (A) relabelled §9's pass-5 sentence
     "**∅ FORWARD** (75 `REFINEMENT FOLD` rows, all booked)" as NARROW and its "all booked" as FALSE
     once. **That relabel is itself the narrow one, and is REVERSED here**: **75** is the CORRECT
@@ -921,6 +1039,67 @@ had never covered.*
     hides: pt-parsers **PT-PARS-11** resolves only because W1.1's provenance compresses it to
     `PT-PARS-8/-11/-17/MISS-1` — the row is booked at W1.1, and a checker matching whole ids will
     flag it. Nothing else in the extended sweep is unresolved.
+    **(E) THE §8 SINGLY-NAMED ROWS, SWEPT AS A CLASS — THE LAST UNSWEPT ENUMERATION SHAPE, AND ONE
+    OVER-REACH THAT COST A BOOKING (L-20 pass-8 repair, 2026-08-10).** §8's blocs name their rows in
+    three shapes and each has now had its own pass: pass 5 (n.20) swept the blocs carrying **RANGES**;
+    pass 6 (B, above) expanded the one bloc carrying a **CLASS-QUANTIFIER**; pass 7 re-swept the
+    ranges and caught `PT-UE-24` — a **SINGLY-NAMED** row — but only by adjacency to the `-26..-31`
+    range it was re-reading, and said so. The singly-named rows were never swept AS A CLASS. They are
+    here. **THE SWEEP: 103 singly-named rows across all 15 blocs that name any**, each resolved to its
+    source roster row and its terminal disposition read for an EXCLUDED limb (a `NO-WAVE-OWNER`/`NWO`
+    token, an incumbent act, a semver-priced act, an owner decision, or an explicit frame-of-record).
+    **102 CLEAN — ONE OVER-REACH.** Four rows needed reading rather than matching and each sustains
+    the bloc that names it: pt-packrat-entry **K5** (a killed-claims entry, `pt-packrat-entry.md:61`,
+    whose verdict is *"**RETIRE-AS-REDUNDANT** (C-3/C-9), an owner decision"* — bloc 1 banks it as an
+    OWNER DECISION, exactly what the source says) · pt-core **row 43** (`pt-core.md:65`,
+    *"Calibration row — no owner; binds severity readings across the roster"* — "no owner" IS the
+    excluded ground, and bloc 5 names it as *"row 43 calibration"* and frames the bloc BY it rather
+    than asserting a cure on it) · pt-debug **C-16** (`pt-debug.md:71`, a bullet sharing its head with
+    C-14, two-limbed: *"tests limb **X.P.W4** …; docs limb **NO-WAVE-OWNER**"* — bloc 6 names
+    precisely *"C-14/C-16 docs limb"*, correctly scoped to the excluded limb) · pt-packrat **M5**
+    (the (A″) prose paragraph, `pt-packrat.md:52`, *"INFO → NO-WAVE-OWNER … the O-15 channel carries
+    it"* — clean, and found only by the id-keyed read). One row is a satellite and is also clean:
+    pt-utils **PT-UTILS-14** (`pt-utils.md:62`, *"folds into PT-UTILS-2's cure"*) — bloc 15 banks
+    PT-UTILS-2's doc limb and names *"the twice-implemented `<=32` predicate"*, which IS this row's
+    whole subject, so the bloc's framing reaches it through its parent.
+    **THE ONE OVER-REACH — pt-utils `PT-UTILS-19` AT BLOC 15, AND WHY IT COST A ROW RATHER THAN A
+    TRIM.** Its terminal disposition is `identity with pt-diagnostics row 28 (the six-function twin);
+    W4 canonical-home declaration` (`pt-utils.md:67`) — **it routes to a WAVE: no `NO-WAVE-OWNER`
+    token, no incumbent act, no semver limb**, the same shape as PT-PARSER-12 (pass 5) and
+    PT-PARSER-36 (pass 7). Bloc 15's own framing — *"1.1.0 = the source split …, doc repairs, dead
+    fluent returns, the twice-implemented `<=32` predicate; 2.0.0 = any predicate change, the
+    unterminated-comment posture change, every export retirement"* — reaches **none** of a
+    canonical-home declaration between two published homes. **THE BOOKING CHECK WAS RUN BEFORE THE
+    TRIM, AND IT CAME BACK EMPTY**, which is what separates this row from PT-PARSER-36: `pt-diagnostics`
+    **row 28** (`C·D-13`, `pt-diagnostics.md:50`, `**W4** — canonicality/deprecation note at the next
+    cut; golden list binds both`) is named in **NO provenance line of this document** — the sixteen
+    pt-diagnostics provenance citations run 2, 4, 5, 6, 7, 8, 9, 14, 17, 18, 19, 20, 21, 22, 25, 26,
+    27, 30, 32 and never 28 — it is in NO §8 bloc (bloc 7 banks rows 8-11, 20-23, 30-31 and the
+    in-library cures for rows 2 and 7), and the strings `row 28`, `C·D-13`, `PT-UTILS-19`,
+    `canonical-home`, `canonicality`, `dual-home`, `diagnostics.ts:7` and `zero exclusive` occurred
+    in this file **zero times** before this pass. **So the holding was DROPPED, not mis-homed**: a
+    trim alone would have deleted the last trace of a `W4` routing that two apotheoses assert.
+    **IT IS BOOKED FIRST AND TRIMMED SECOND** — minted at **W4.16**, with pt-diagnostics row 28
+    PRIMARY (it carries the fuller disposition and the `golden list binds both` clause) and pt-utils
+    **PT-UTILS-19** as a **DECLARED SECOND WITNESS**, the identity declared at SOURCE twice on the
+    pt-utils side (`pt-utils.md:67` *"identity with pt-diagnostics row 28 (the six-function twin)"*
+    and the cross-book table at `pt-utils.md:96`, *"C·D-18 / dual-home class | **pt-diagnostics row
+    28** | PT-UTILS-19 is the scanner-side face"*) — so by n.4's rule the new provenance line is a
+    **MERGE**, one identity, one booking, two witnesses. **§8 bloc 15 then trims `-19` with a dated
+    block naming W4.16 as where the holding lives.** **RESIDENCE: PT-UTILS-19 held ONE residence
+    before this pass (§8 bloc 15) and holds ONE after it (W4.16) — it moves, it does not double** —
+    and pt-diagnostics row 28 had none and now has one. **Neither is named in any other provenance
+    line, so §1a n.17's table stands unchanged at 64 rows / 8 cures / 56 live.** The arithmetic DOES
+    move, for the first time since pass 4 and by exactly one row: **133 per-wave · 148 FOLDED ·
+    16 EXCLUDED = 164 BOOKINGS** (§1, §6 heading, n.4's partition at 42 · 16 · 72 · 3 = 133, n.14's
+    pointer re-run). **The bloc count does not move**: a trim changes which rows a bloc NAMES, never
+    how many blocs there are (n.20's rule, applied a fourth time), so §8 stands at 16.
+    **WHAT THIS SUB-ENTRY DOES NOT CLAIM.** The sweep covers the rows §8 names SINGLY; the ranges
+    (n.20, twice) and the one class-quantifier (B, above) were swept by their own passes and are not
+    re-derived here. With this class taken, **every enumeration shape §8 uses has now been expanded to
+    ids and tested row by row** — but that is a statement about the shapes this file's blocs currently
+    use, not a guarantee about a shape a later editor might introduce, and it is written that way on
+    purpose: the (A″) lesson applies to §8's enumerations exactly as it applies to the census.
 
 ---
 
@@ -2347,7 +2526,7 @@ type is waiting.** *Sharpens*: G-3 (W3.md:398).
 
 ---
 
-## 6. W4 — The PLAW-BIND Integration and the Release Condition (15 sharpenings)
+## 6. W4 — The PLAW-BIND Integration and the Release Condition (16 sharpenings)
 
 **W4.1 · MERGED CROSS FOLD — the gate-authoring / vacuity law** (cl.1)
 **No wave gate may be satisfiable by its failure mode (L-19).** Gates assert
@@ -2536,6 +2715,38 @@ incumbent-artifact assertion at release altitude.
 `NO-WAVE-OWNER` sequencing law for the RETIRE, explicit init FIRST then delete, stays banked at
 §8 bloc 9, which points back here.**)
 ⟨pt-lazy.md · LZ-17 (W4 release-condition limb; the NO-WAVE-OWNER sequencing limb at §8 bloc 9)⟩
+
+**W4.16 · pt-diagnostics row 28 / C·D-13 (MERGED with pt-utils PT-UTILS-19, §1a n.21 E) — THE
+CANONICAL-HOME DECLARATION: six functions, two published homes, no primary** (cl.2 — **row
+recovered by the L-20 pass-8 §8 sweep; booked NOWHERE before it, §1a n.21 E / n.20**)
+The six scanner/accumulator functions are published from **two homes with no canonical one** — the
+root barrel (`index.ts:5`) and the `./diagnostics` subpath (`diagnostics.ts:7`, both re-read) — and
+**`/diagnostics` has ZERO exclusive exports**, so the subpath is a pure alias of a root region. The
+hazard is not runtime: **runtime identity is single** (one chunk — pt-utils PT-UTILS-19's
+honest-bound check, preserved). It is **contract ambiguity plus a DOUBLED SEMVER SURFACE** — every
+one of the six must be deprecated, renamed or retired **twice**, and the barrel has already been
+narrowed once (`index.ts:10-12`'s excision note), which is what makes the forward hazard real rather
+than theoretical. Consumers are already split across the homes (cand-F at the root; the probe at the
+subpath; the idiom suite at the root — the reader's third edge held, making `/diagnostics` a
+ONE-IMPORTER subpath). **W4 release condition: the next cut DECLARES a canonical home for the six
+and prices the other as a deprecation** — a declaration, not a gate — **and the golden list BINDS
+BOTH homes** until the deprecated one is retired, so neither home can drift out from under the
+other in the interval. *Sharpens*: the declaration-surface acceptance list at **W4.7** and the
+published-surface parity gate at **W4.10** from the opposite direction — those two rows chase names
+that are DECLARED-but-unreachable and MANDATED-but-unpublished; this row chases the names published
+**twice**, which no parity diff of surface-against-surface can see, because both homes agree. The
+semver price is set by **W4.14** (a retirement is a 2.0.0 event and may not ride the standing minor);
+the shipped-artifact face of the same `/utils` region is **W4.11**'s AD-5 basename collision, a
+different seat's census of different bytes and **not** an identity — neither source declares it, so
+nothing is re-booked there.
+(**ONE IDENTITY, TWO WITNESSES, DECLARED AT SOURCE — NOT TWO BOOKINGS.** pt-utils **PT-UTILS-19** is
+the scanner-side face of this row: `identity with pt-diagnostics row 28 (the six-function twin);
+W4 canonical-home declaration` (`pt-utils.md:67`), and the pt-utils cross-book table states it again
+— `C·D-18 / dual-home class | **pt-diagnostics row 28** | PT-UTILS-19 is the scanner-side face`
+(`pt-utils.md:96`). PT-UTILS-19 was banked at **§8 bloc 15** until this pass, where the bloc's
+`1.1.0`/`2.0.0` framing reached none of it; it is **TRIMMED there and booked HERE**, so it moves
+residence rather than gaining a second — §1a n.17's table is unchanged at 64.**)
+⟨pt-diagnostics.md · roster row 28 (C·D-13) · pt-utils.md PT-UTILS-19 (MERGED — one identity, declared at pt-utils.md:67 and the cross-book table :96; trimmed out of §8 bloc 15 by this booking, §1a n.21 E)⟩
 
 ---
 
@@ -2930,10 +3141,31 @@ every ride.
     rides the ask letter beside PT-STATE-23's diagnostics-HIGH lane) or making the fields
     `readonly` — **a 2.0.0 event under W4.14, which may not ride the standing minor**. Declared
     two-limb residence, as PT-STATE-6 above and pt-lazy LZ-17 at bloc 9.
-15. **pt-utils NO-WAVE-OWNER bloc (PT-UTILS-2 doc, -6, -12, -14, -15, -16, -19, semver-priced)**:
+15. **pt-utils NO-WAVE-OWNER bloc (PT-UTILS-2 doc, -6, -12, -14, -15, -16, semver-priced)**:
     1.1.0 = the source split (AC-3's stated precondition — the fold half lives at W2.67), doc
     repairs, dead fluent returns, the twice-implemented `<=32` predicate; 2.0.0 = any predicate
     change, the unterminated-comment posture change, every export retirement.
+    **`-19` TRIMMED, AND WHERE ITS HOLDING LIVES — BOOKED FIRST, TRIMMED SECOND (L-20 pass-8 repair,
+    §1a n.21 E / n.20).** `PT-UTILS-19`'s terminal disposition is `identity with pt-diagnostics row 28
+    (the six-function twin); W4 canonical-home declaration` (`pt-utils.md:67`) — **a WAVE routing:
+    no `NO-WAVE-OWNER` token, no incumbent act, no semver limb**, the PT-PARSER-12 (bloc 12, pass 5)
+    and PT-PARSER-36 (bloc 12, pass 7) shape exactly, and this bloc's `1.1.0`/`2.0.0` framing reaches
+    none of a canonical-home declaration between two published homes. This bloc named it only because
+    an enumeration of singly-named rows had never been swept as a class — the shape n.20's range
+    sweeps structurally could not reach.
+    **THE DIFFERENCE FROM PT-PARSER-36, AND WHY THIS TRIM MINTED A ROW.** n.20's test is *trim where a
+    real booking exists elsewhere, DECLARE where a trim would drop the row*; run here, it returned
+    NEITHER, because the holding was booked **nowhere**: pt-diagnostics **row 28** (`C·D-13`,
+    `pt-diagnostics.md:50`, `**W4** — canonicality/deprecation note at the next cut; golden list binds
+    both`) appeared in no provenance line, no §8 bloc and no row body in this file. A bare trim would
+    have deleted the last trace of a `W4` routing that **two** apotheoses assert, so the row was
+    **BOOKED FIRST** — minted at **W4.16**, pt-diagnostics row 28 PRIMARY with PT-UTILS-19 the
+    DECLARED SECOND WITNESS (identity stated at source twice on the pt-utils side, `:67` and the
+    cross-book table `:96`) — and trimmed here **second**. **PT-UTILS-19 MOVES RESIDENCE, IT DOES NOT
+    DOUBLE**: one residence before (this bloc), one after (W4.16), so §1a n.17's table is unchanged at
+    64 rows / 8 cures / 56 live. **This is the one §8 repair that moves the arithmetic** — `148 FOLDED
+    + 16 EXCLUDED = 164 BOOKINGS` — and it moves it by minting a row, never by changing the bloc count,
+    which stands at 16 as every prior trim left it.
 16. **pt-utils-entry NO-WAVE-OWNER bloc (PT-UE-4/-5/-7/-8/-10/-11/-12/-15/-16/-17/-18/-19/-20/
     -23/-24†/-26..-31)**: 2.0.0 events that must not ride the standing 1.1.0 ask (CSV grammar,
     escape decoding, `.eof()` narrowing, export/subpath retirements) vs 1.1.0-eligible widening/
@@ -3094,7 +3326,18 @@ spells its fold `REFOLD` (`pt-index.md:63`), so it was never inside the 75. Pass
 one spelling of three; the count pass 6 substituted (`81` / `57 REFINEMENT FOLD`) omitted the two
 BULLET-LIST rosters — pt-debug 12 rows, pt-split 6 — and landed 18 rows BELOW pass 5 on the shared
 spelling. **The extraction, not the spelling, was the gap.** Pass 6's co-booking of M-8 at W2.80
-stands untouched; only the relabel of this sentence is reversed.)* — and **∅ BACKWARD**
+stands untouched; only the relabel of this sentence is reversed.)* *(**THIRD DATED CORRECTION, L-20
+pass 8, 2026-08-10 (§1a n.21 A″) — THE DENOMINATOR MOVES ONCE MORE; THE VERDICT DOES NOT.** Pass 7's
+`99` is the TWO-ROSTER-FORMATS reading and stands as its dated figure. Re-derived **id-keyed** —
+every roster row enumerated by its ID whatever the markup, then its disposition read — the corpus
+carries **105 = 81 `REFINEMENT FOLD` · 13 `REFOLD` · 11 `**RF**`**: pt-packrat adjudicates four
+admitted misses in an inline PROSE paragraph (`M1/M2/M3/M4`, `pt-packrat.md:52`) and two
+dispositions hide their fold token behind an ESCAPED PIPE (`PT-PARSER-1`, `PT-PARS-17`). **All six
+were already booked** — PT-PARSER-1 and PT-PARS-17 at W1.1, M2 at W2.48, M3 at W2.32, M4 at W2.76,
+M1 at W4.12 — so **∅ FORWARD holds over 105 of 105** and pass 5's "all booked", restored by pass 7,
+is confirmed a second time. Each of the three passes 6/7/8 widened a format list and was convicted by
+the next format; **the id-keyed derivation is the terminal method** and is stated as such at
+(A″).)* — and **∅ BACKWARD**
 (zero orphan tokens), **E-3** (byte-identical dated specs), and the arithmetic. Every defect is
 repaired here and nowhere else. (1) **THE MISSING AXIS IS EXECUTED**: every §8 bloc's enumeration
 expanded LITERALLY, ranges included, and intersected with the provenance token set; **n.17 now
@@ -3138,7 +3381,10 @@ fold-class rows across the fifteen (57 `REFINEMENT FOLD` · 13 `REFOLD` · 11 `*
 CORRECTION, L-20 pass 7, 2026-08-09, §1a n.21 A′**: `81 / 57` is the TABLE-FORMAT-ONLY reading —
 the two BULLET-LIST rosters, pt-debug 12 rows and pt-split 6, were not extracted. The corpus figure
 over both formats is **99 = 75 · 13 · 11**, and after M-8's co-booking the residual is EMPTY over
-all 99.)*, all booked
+all 99.)* *(**FURTHER CORRECTED, L-20 pass 8, 2026-08-10, §1a n.21 A″**: `99` is in turn the
+two-FORMATS reading; keyed on roster-row IDS the corpus is **105 = 81 · 13 · 11** — four pt-packrat
+misses adjudicated in inline PROSE plus two fold tokens behind ESCAPED PIPES — and the residual is
+EMPTY over all 105.)*, all booked
 but that one; M-8 is **co-booked at W2.80**, whose subject (pt-state PT-STATE-20) carries the
 identical payload at the identical bytes (`parser.ts:67-69` → `debug.ts:58`, R-LAW-3 at
 `W2.md:281-283`), so **no row was minted and the arithmetic does not move** (§1a n.21 A). (2) **§8
@@ -3172,7 +3418,11 @@ pass 6's "81 roster rows … 57 `REFINEMENT FOLD` · 13 `REFOLD` · 11 `**RF**`"
 thirteen apotheoses whose rosters are TABLES — pt-debug (12 rows) and pt-split (6) adjudicate
 theirs as BULLET LISTS. The corpus figure over both formats is **99 = 75 · 13 · 11** (57 of the 75
 in the table-format rosters, 18 in the two bullet ones), and each of the 18 is re-read at its
-source line and booked, id by id (§1a n.21 A′). (2) **THE PASS-5 READING RESTORED**: pass 6
+source line and booked, id by id (§1a n.21 A′) *(**DATED CORRECTION, L-20 pass 8, 2026-08-10, §1a
+n.21 A″**: `99` is the two-FORMATS reading and stands as this pass's dated figure; keyed on
+roster-row IDS the corpus is **105 = 81 · 13 · 11**, the six additions being pt-packrat M1/M2/M3/M4
+— adjudicated in an inline PROSE paragraph — and PT-PARSER-1 / PT-PARS-17, whose fold tokens sit
+behind ESCAPED PIPES. All six were already booked; the residual is EMPTY over all 105)*. (2) **THE PASS-5 READING RESTORED**: pass 6
 relabelled §9's "**∅ FORWARD** (75 `REFINEMENT FOLD` rows, all booked)" as NARROW and false once;
 **the relabel was itself the narrow one and is REVERSED** — 75 is the correct count over both
 formats and "all booked" is TRUE, because the one drop (pt-index `M-8 (+C-M3)`) spells its fold
@@ -3192,5 +3442,56 @@ Post-repair truth is UNCHANGED from passes 4, 5 and 6 — **147 FOLDED · 16 EXC
 + 15 MEASURE + 16 excluded = **163 bookings**) — because this pass minted no row, moved none,
 merged none and re-homed none: it corrected a census, reversed a relabel, trimmed one name out of
 one §8 bloc and declared one more.
+
+**L-20 repair pass 8, 2026-08-10 — THE CENSUS KEYED ON IDS, AND THE ONE DROPPED HOLDING §8 WAS
+HIDING.** The seventh recheck (the fold check's ninth round) returned
+DEFECTIVE-BUT-SUBSTANTIALLY-REPAIRED with **two** surviving defects, and returned the pass-7 verdict
+intact where it mattered most: **three of the five axes HOLD row for row under independent
+re-derivation** — the LIMB table, ∅ BACKWARD and E-3 — and pass 7's own both-formats census
+reproduced exactly at twelve of fifteen apotheoses. Both defects are repaired here and nowhere else.
+(1) **THE CENSUS IS RE-DERIVED FORMAT-AGNOSTICALLY, KEYED ON ROSTER-ROW IDS.** Pass 7's `99` swept
+the two markup shapes it had thought of and missed three more: pt-packrat adjudicates its four
+admitted misses as an inline PROSE paragraph inside the roster section (`M1/M2/M3/M4`, each carrying
+`REFINEMENT FOLD`, `pt-packrat.md:52`), and two table cells hide their fold token behind an ESCAPED
+PIPE, so a last-cell extraction lands past it on a fragment reading `NO-WAVE-OWNER` (`PT-PARSER-1`,
+`pt-parser.md:39`; `PT-PARS-17`, `pt-parsers.md:51`). Enumerating every roster row by ID whatever the
+markup and then reading its disposition, the corpus carries **105 = 81 `REFINEMENT FOLD` ·
+13 `REFOLD` · 11 `**RF**`** — pt-ansi 2 · pt-core 4 · pt-debug 12 · pt-diagnostics 5 · pt-index 13 ·
+pt-lazy 14 · pt-leaf 9 · **pt-packrat 7** · pt-packrat-entry 11 · **pt-parser 5** · **pt-parsers 6** ·
+pt-split 6 · pt-state 6 · pt-utils-entry 4 · pt-utils 1 — the derivation agreeing with the recheck's
+105 with no disagreement recorded, and twelve of the fifteen figures byte-identical to pass 7's, so
+the count moves at exactly the three files carrying the three unhandled formats. **All six newly-found
+rows were ALREADY BOOKED** and each was re-verified at its `⟨…⟩` line: PT-PARSER-1 → **W1.1** ·
+PT-PARS-17 → **W1.1** · M2 → **W2.48** · M3 → **W2.32** · M4 → **W2.76** · M1 → **W4.12**. **∅ FORWARD
+therefore holds a third time and wider: 105 of 105, residual EMPTY**, and the census moves no booking
+and no arithmetic. **THE LESSON, STATED IN THE OPEN**: three consecutive passes each widened a FORMAT
+LIST and each was convicted by the next format — one spelling convicted by three, tables convicted by
+bullets, tables-and-bullets convicted by prose and by an escape character. A format list enumerates
+what the sweeper has already imagined and buys exactly one round. **The census is complete only when
+the extraction is keyed on ROSTER-ROW IDS rather than markup shapes, and that derivation is the
+terminal method** (§1a n.21 A″). (2) **§8's SINGLY-NAMED ROWS SWEPT AS A CLASS — AND THE ONE OVER-REACH
+THAT WAS HIDING A DROPPED BOOKING.** §8 names rows in three shapes; ranges were swept at pass 5 and
+re-swept at pass 7, the one class-quantifier expanded at pass 6, but rows named SINGLY had never been
+swept as a class (pass 7 caught PT-UE-24 only by adjacency to a range). **103 singly-named rows across
+all 15 blocs, each read at its source disposition: 102 clean, one over-reach** — `PT-UTILS-19` at bloc
+15, whose disposition is `identity with pt-diagnostics row 28 (the six-function twin); W4
+canonical-home declaration` (`pt-utils.md:67`): a WAVE routing with no `NO-WAVE-OWNER` token, no
+incumbent act and no semver limb, which the bloc's `1.1.0`/`2.0.0` framing does not reach.
+**THE BOOKING CHECK RAN BEFORE THE TRIM AND CAME BACK EMPTY**, which is what separates this row from
+PT-PARSER-36: pt-diagnostics **row 28** (`C·D-13`, `**W4** — canonicality/deprecation note at the next
+cut; golden list binds both`, `pt-diagnostics.md:50`) was named in no provenance line, no §8 bloc and
+no row body — the holding was **DROPPED, not mis-homed**, and a bare trim would have deleted the last
+trace of a `W4` routing two apotheoses assert. **So it is BOOKED FIRST and trimmed second**: minted at
+**W4.16** with row 28 PRIMARY and PT-UTILS-19 the DECLARED SECOND WITNESS (identity stated at source
+twice on the pt-utils side, `:67` and the cross-book table `:96`), then `-19` trimmed from bloc 15 with
+a dated block naming W4.16. **PT-UTILS-19 MOVES RESIDENCE RATHER THAN DOUBLING** — one before, one
+after — so **§1a n.17's table stands at 64 rows / 8 cures / 56 live**, and n.20's certification for
+bloc 15 now reads **6/7**. **Post-repair truth MOVES, for the first time since pass 4 and by exactly
+one row** — **148 FOLDED · 16 EXCLUDED** (133 per-wave + 15 MEASURE + 16 excluded = **164 bookings**)
+— because this pass MINTED one row to carry a holding that was routed to a wave by two sources and
+booked nowhere. It removed none, split none and re-homed none; the bloc count is untouched at 16,
+since a trim changes which rows a bloc names and never how many blocs there are. The partition is
+re-derived over all **133** lines at **42 MERGE · 16 CROSS-FOLD · 72 SINGLE-SOURCE · 3 EVIDENCE-ONLY**
+(§1a n.4), the new line classified MERGE by the rule's identity clause before it was written.
 
 **EXECUTION AWAITS THE OWNER'S BEGIN-WORD** — every fold above is a booking, not an act.
