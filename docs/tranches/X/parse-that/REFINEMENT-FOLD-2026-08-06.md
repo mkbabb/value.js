@@ -1072,13 +1072,27 @@ had never covered.*
     canonical-home declaration between two published homes. **THE BOOKING CHECK WAS RUN BEFORE THE
     TRIM, AND IT CAME BACK EMPTY**, which is what separates this row from PT-PARSER-36: `pt-diagnostics`
     **row 28** (`C·D-13`, `pt-diagnostics.md:50`, `**W4** — canonicality/deprecation note at the next
-    cut; golden list binds both`) is named in **NO provenance line of this document** — the sixteen
-    pt-diagnostics provenance citations run 2, 4, 5, 6, 7, 8, 9, 14, 17, 18, 19, 20, 21, 22, 25, 26,
-    27, 30, 32 and never 28 — it is in NO §8 bloc (bloc 7 banks rows 8-11, 20-23, 30-31 and the
-    in-library cures for rows 2 and 7), and the strings `row 28`, `C·D-13`, `PT-UTILS-19`,
-    `canonical-home`, `canonicality`, `dual-home`, `diagnostics.ts:7` and `zero exclusive` occurred
-    in this file **zero times** before this pass. **So the holding was DROPPED, not mis-homed**: a
-    trim alone would have deleted the last trace of a `W4` routing that two apotheoses assert.
+    cut; golden list binds both`) is named in **NO provenance line of this document** — the
+    pt-diagnostics provenance citations (**19 distinct row ids across 14 pre-pass lines**) run
+    2, 4, 5, 6, 7, 8, 9, 14, 17, 18, 19, 20, 21, 22, 25, 26, 27, 30, 32 and never 28 — it is in NO
+    §8 bloc (bloc 7 banks rows 8-11, 20-23, 30-31 and the in-library cures for rows 2 and 7), and
+    the strings `row 28`, `C·D-13`, `PT-UTILS-19`, `canonical-home`, `canonicality`, `dual-home`,
+    `diagnostics.ts:7` and `zero exclusive` occurred in this file **zero times** before this pass.
+    *(**DATED CORRECTION, L-20 pass-9 repair (the fold check's tenth round), 2026-08-12 — THE COUNT
+    WORD, NOT THE ENUMERATION.** This clause was authored as *"the **sixteen** pt-diagnostics
+    provenance citations run …"*: **sixteen → nineteen**, corrected in place above rather than left
+    standing, because no reading of these bytes yields sixteen and a bare count beside its own
+    enumeration is the count-as-claim shape n.17 forbids. **THE ENUMERATION IS UNCHANGED AND
+    RE-DERIVED AT THE BYTES**: of this file's **133** per-wave `⟨…⟩` provenance lines, **15** name
+    pt-diagnostics — **W1.11 · W2.12 · W2.18 · W2.52 · W2.69 · W2.71 · W3.1 · W3.2 · W3.3 · W3.5 ·
+    W3.6 · W3.7 · W3.9 · W4.7 · W4.16** — the first **14** of them before this pass's mint, citing
+    **19 distinct rows in 20 instances** (row 26 twice: booked at W3.6, cross-referenced at W2.12,
+    n.4's citation register), and that set is exactly the printed one. **The load-bearing conclusion
+    stands**: pt-diagnostics row 28 is named in no provenance line before **W4.16**'s own, so the
+    EMPTY booking check, the mint, and the `148 FOLDED + 16 EXCLUDED = 164 BOOKINGS` arithmetic are
+    untouched by this correction.)*
+    **So the holding was DROPPED, not mis-homed**: a trim alone would have deleted the last trace
+    of a `W4` routing that two apotheoses assert.
     **IT IS BOOKED FIRST AND TRIMMED SECOND** — minted at **W4.16**, with pt-diagnostics row 28
     PRIMARY (it carries the fuller disposition and the `golden list binds both` clause) and pt-utils
     **PT-UTILS-19** as a **DECLARED SECOND WITNESS**, the identity declared at SOURCE twice on the
@@ -2254,7 +2268,25 @@ check's first pass, W2.77 from its second (the routing sweep, §1a n.8), and W2.
 fourth (the LIMB CLASS SWEEP, §1a n.18 — three W2 limbs of fold-class source rows that no pass had
 booked anywhere). W2.80 gained a second source row at the sixth pass — pt-index M-8, the one
 fold-class row the narrow token list hid (§1a n.21) — which is a co-witness on an existing line,
-not a new row: the per-wave count stands at 132.*
+not a new row: the per-wave count stands at 132 — **pass 6's figure, superseded at pass 8; read the
+dated correction immediately below before carrying it**.*
+
+*(**DATED CORRECTION, L-20 pass-9 repair (the fold check's tenth round), 2026-08-12 — A COUNT THAT
+WENT STALE IN CURRENT VOICE.** `132` is **pass 6's figure**, true when this preamble was written and
+re-certified UNCHANGED by pass 7; it is relabelled here as that dated reading and NOT rewritten.
+**Pass 8 minted `W4.16`** — the recovered pt-diagnostics row 28 ≡ pt-utils `PT-UTILS-19` dual-home
+`W4` canonical-home declaration (§1a n.21 E), the first mint since pass 4 — so **the per-wave count
+is 133**, and the walk reads **133 per-wave + 15 §7 MEASURE-AT-OPEN rows = 148 FOLDED + 16 EXCLUDED
+= 164 BOOKINGS** (§1's arithmetic block, n.4's `42 · 16 · 72 · 3 = 133`, §6's heading at
+**16 sharpenings**, §9's pass-8 block). **THE PREAMBLE'S OWN CLAIM IS UNTOUCHED**: pt-index `M-8` is
+a co-witness on W2.80's existing line and added no row — the count moved at **§6**, where `W4.16` is
+written, and not here. Pass 8's
+arithmetic sweep named its update sites (§1, §6's heading, n.4's partition, n.14's pointer re-run,
+§8 bloc 15, §9) and this sentence was not among them: it is the one `132` the round-10 check found
+still reading as current with no pass label, every other surviving `132` sitting inside a
+pass-labelled entry or a dated-reading block, or citing a line range in another file
+(`W4.md:132-140`, `grammar.ts:129-132`). **A pass that mints a row must re-grep its own arithmetic
+tokens before it banks** — that is this round's lesson, dated where it happened.)*
 
 **W2.75 · pt-lazy LZ-18 (surviving half) — the candidate's TYPING POSTURE: no phantom parameter,
 erasure STATED at the seam** (cl.1 — **recovered by the L-20 fold check, §1a n.7**; belongs to §4e's
@@ -3493,5 +3525,39 @@ booked nowhere. It removed none, split none and re-homed none; the bloc count is
 since a trim changes which rows a bloc names and never how many blocs there are. The partition is
 re-derived over all **133** lines at **42 MERGE · 16 CROSS-FOLD · 72 SINGLE-SOURCE · 3 EVIDENCE-ONLY**
 (§1a n.4), the new line classified MERGE by the rule's identity clause before it was written.
+
+**L-20 repair pass 9, 2026-08-12 — TWO REGISTER-TRUTH CELLS, AND NOTHING UNDER THEM.** The eighth
+recheck (the fold check's tenth round) returned DEFECTIVE with **two MINOR defects and no third**,
+holding **three of the five axes at zero**: the id-keyed census (**105/105**, ∅ FORWARD re-derived
+format-agnostically over all three roster formats), §8's exhaustiveness, and residence + partition.
+Substance is converged; both defects are REGISTER TRUTH and both are repaired here and nowhere else.
+(1) **§1a n.21 (E)'s COUNT WORD, `sixteen` → `nineteen`.** The entry that minted W4.16 wrote *"the
+**sixteen** pt-diagnostics provenance citations run 2, 4, 5, … 32 and never 28"* against its own
+enumeration of **nineteen** ids — a bare count beside the list that refutes it, the count-as-claim
+shape n.17 forbids, surviving inside the entry that had just applied that test to §8. The word is
+corrected in place under a dated block: over this file's **133** per-wave `⟨…⟩` lines, **15** name
+pt-diagnostics (W1.11 · W2.12 · W2.18 · W2.52 · W2.69 · W2.71 · W3.1 · W3.2 · W3.3 · W3.5 · W3.6 ·
+W3.7 · W3.9 · W4.7 · W4.16), **14** of them before the mint, citing **19 distinct rows in 20
+instances** (row 26 twice — booked at W3.6, cross-referenced at W2.12). **The enumeration was right
+and is untouched**, and with it the conclusion the mint rests on: row 28 was named in no provenance
+line before W4.16. (2) **§4m's PREAMBLE RELABELLED — the one stale count the round-10 check found
+still reading as current.**
+*"the per-wave count stands at 132"* is pass 6's figure, re-certified by pass 7 and made false by
+pass 8's own mint; alone among this file's superseded figures it carried no pass label and no dated
+block, so a W2 seat reading §4m at execution would have read 132 as current against §1's 133. It now
+carries both and names **133**. **NO BOOKING MOVES.** This pass minted no row, removed none, split
+none, merged none, re-homed none and trimmed none — post-repair truth is UNCHANGED from pass 8:
+**148 FOLDED · 16 EXCLUDED** (133 per-wave + 15 MEASURE + 16 excluded = **164 bookings**), the
+partition still `42 · 16 · 72 · 3 = 133`, n.17's table still 64 rows / 8 cures / 56 live, §8 still
+16 blocs. **n.14's `949 / 133 / 816` stands as PASS 8's dated reading and its bytes are untouched**:
+this pass writes two dated blocks that cite rows, so the raw occurrence tally rises while the two
+properties those figures assert are re-run and hold — **133 row headers** (W0 1-2 · W1 1-23 ·
+W2 1-80 · W3 1-12 · W4 1-16, contiguous, no duplicates) and **ZERO unresolved pointers**, no header
+added, renumbered or moved. **THE ROUND'S LESSON**: with the corpus axes converged, the last
+defects were not claims about the fifteen apotheoses but claims this file makes about ITSELF — a
+count word beside its own
+enumeration, and a figure that went stale at the instant a pass minted the row that superseded it.
+**A pass that moves the arithmetic must re-grep its own arithmetic tokens before it banks**; pass
+8's update list is recorded as INCOMPLETE by exactly one site, at that site.
 
 **EXECUTION AWAITS THE OWNER'S BEGIN-WORD** — every fold above is a booking, not an act.
