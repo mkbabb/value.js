@@ -133,3 +133,21 @@ the per-component apotheoses are authoritative.
   24/24 seats) + batch 2 dispatched · SS-9 intake adjudication RUNNING · SS-5 X·P spec authoring
   DISPATCHED · SS-1..SS-4 await the CARRY table · I-24a/I-26 mail defects rowed · execution gate
   CLOSED (awaits owner begin-word).
+
+## §0a BOUNDARY 2026-08-25 — THE REGISTRY IS WHOLE; THE AUTHORING BLOCK OPENS
+
+The adjudication program is COMPLETE: **227/227 units banked** at `35fc8ebf` — value.js 88/88
+(SS-7 CLOSED), keyframes 58/58 (SS-10b CLOSED), fourier 66/66 (SS-11b CLOSED), parse-that 15/15
+with the X·P refinement-fold addendum CONFORMANT at pass 10 (`08232cd3`). The §1 register's
+status cells for SS-7/SS-10/SS-11/SS-12 read as of 2026-08-04 and are superseded by this block
+(dated sections never rewritten). Fleet laws proven in force across all corpora: REGISTRY-FIRST,
+BASELINE LAW, STALE-DIST TRAP, registry-currency-is-part-of-the-claim, confirms-need-the-sweep.
+**SS-1/SS-2 (X·KF) and SS-3/SS-4 (X·F) LAUNCH at this boundary** — inputs landed (registry whole
++ intake CARRY at `audit/codex-provenance/INTAKE-ADJUDICATION-2026-08-03.md`); SS-4's owner
+rulings are FLAGGED INLINE per the register's routing note, never presumed. Sequencing locks the
+authoring MUST carry: the repair-arms-a-defect rows (fr-PaperSearchModal same-commit riders,
+PAW-44/LAW-3, MPC-31 one-cut law, FR-MSP-6 two-channel lock), the F.W1 atomic land-or-lose seam,
+the F.W0 substrate pre-gates (corrupt glass-ui 4.0.0 dist/styles/index.css; dirty-worktree
+settle), KF.W0 §B-12 manifest schism, and the NO-WAVE-OWNER packets (§4 + the per-record
+NO-WAVE-OWNER registers). Execution gate unchanged: nothing opens product source until the
+owner's begin-word.
